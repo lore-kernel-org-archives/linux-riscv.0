@@ -4,144 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C65BC77B7E
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 07:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFADC77B7A
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 07:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+gjlAbDKHx/II5ksS1Ds3zaBvGxHFwLdyplhmTs/pNw=; b=YmbnnrMuvalgsp
-	cf7tr7+AP+pkk4Lz3NDfwz6tiOOYmDcHBcU3Z5T+CBXDuKKWGT+NJpB7IHHSMooKRteZX+o4CXbrx
-	UmElcJLF4mwRQDYY9mPd31MHb0yeeiaq87noTsyXEO0Z50AnlqdY2kD9Vl7kW547V96drsdAlXCOJ
-	ntwk6WIaaqLtouWgazU0KLoj94DjwHy3yTgTkZoxt8OYj8RdpVjmhWzxDDUDFxVjRg9V08Iao2CcM
-	eHjT9kk53izFu+BsNqt9sW+PPJqymCwFLlfA9GgMGOmh5w4Gju3Lwc3/DtuXCKfEqF+dX4y8kIRgv
-	w3nSvAavdUWWpEPGX+kw==;
+	List-Owner; bh=/uAMgO7TmFN/bAfsbSc9y+7UtJKgeirGNvOm2mGfDT0=; b=HBXkUSfPY+0wgC
+	zayzFY/eNGIzMddfnK8Gv8p3vt8SB0kFz4wNkJnP0vwYQtEwfyalvX5swCGN7CVgFCzZxzHuV42YP
+	eh0dLHFlCJCQTXrX6wpQIrml5qFWK5c+jAD7b7bEno/wt+Q0wj0aqYmrEX6tTLxUBno3HD37JKFjJ
+	kkR/bj9s+ExD9FgFSSLgHaEotRkrLoTG8owE2ca78bG+p1WkXvL2VaJJQjrQjyhaThZzjLIPV42pF
+	cblx+StzanpARsYNvYvsI3X+PC1ig/t0BCr7Fqx9ulbDIsnwRwHQAuEOfp0y6Nmf8wx5c89itTS5h
+	uqSW8LFi3yxjQKrjCBFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q25LM-00FnGo-2B;
-	Thu, 25 May 2023 07:25:04 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1q25Og-00Fndy-3D;
+	Thu, 25 May 2023 07:28:31 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q25LJ-00FnFB-2I;
-	Thu, 25 May 2023 07:25:03 +0000
-Received: from pps.filterd (m0353726.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 34P7MZUR027615;
-	Thu, 25 May 2023 07:24:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : message-id : in-reply-to : references : mime-version :
- content-type : content-transfer-encoding; s=pp1;
- bh=55klH+MHDRtIEEtWGbvAfPxNnN6EmMw4scwT5+fq3XI=;
- b=RCtuVZMVyLY0xGNcOr1uNeKOK8ntfwHROTFHQ4+AHlf2PWmk9UMR5C1PwZzqTymLhX3F
- YS8x9sdj4rnAtSDt7d3OIlvETB4UqOoJw503GtHvkqIIk34L6d4qe/5QAfXKoRiw8KQ3
- q2vN+VSVcbXRkWC9E/KmFqhp4J9Uk1or/sNjytHkFA/FLMsoMkRIv3iKpmsDaSpOHta9
- CUHKBISpNyljOYab0uO1Fpi++beo28ogb584RD8aDiv+J9GeRUJVo/dWdX2F0D18x38T
- iFptJIA55GKyv/jWO+T8QXxUyFt7k1uiwhkDKMXzQji2/r8sTbD6T9TT2CpRLV4sxd42 RQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qt32yg93r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 25 May 2023 07:24:01 +0000
-Received: from m0353726.ppops.net (m0353726.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 34P7CWdL024922;
-	Thu, 25 May 2023 07:24:00 GMT
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qt32yg92j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 25 May 2023 07:24:00 +0000
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
-	by ppma03ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 34P4rUxB029511;
-	Thu, 25 May 2023 07:23:57 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma03ams.nl.ibm.com (PPS) with ESMTPS id 3qppcuaahq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 25 May 2023 07:23:57 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 34P7NrqW22610506
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 25 May 2023 07:23:53 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B0BFA20043;
-	Thu, 25 May 2023 07:23:53 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0955820040;
-	Thu, 25 May 2023 07:23:53 +0000 (GMT)
-Received: from p-imbrenda (unknown [9.152.224.66])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 25 May 2023 07:23:52 +0000 (GMT)
-Date: Thu, 25 May 2023 09:23:51 +0200
-From: Claudio Imbrenda <imbrenda@linux.ibm.com>
-To: Hugh Dickins <hughd@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-        Mike Kravetz
- <mike.kravetz@oracle.com>,
-        Mike Rapoport <rppt@kernel.org>,
-        "Kirill A.
- Shutemov" <kirill.shutemov@linux.intel.com>,
-        Matthew Wilcox
- <willy@infradead.org>,
-        David Hildenbrand <david@redhat.com>,
-        Suren
- Baghdasaryan <surenb@google.com>,
-        Qi Zheng <zhengqi.arch@bytedance.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Geert
- Uytterhoeven <geert@linux-m68k.org>,
-        Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
-        Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>,
-        Helge Deller <deller@gmx.de>,
-        John David
- Anglin <dave.anglin@bell.net>,
-        "Aneesh Kumar K.V"
- <aneesh.kumar@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>,
-        Palmer Dabbelt
- <palmer@dabbelt.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Christian
- Borntraeger <borntraeger@linux.ibm.com>,
-        John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>,
-        "David S. Miller" <davem@davemloft.net>,
-        Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
-        x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-        linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-mm@kvack.org
-Subject: Re: [PATCH 15/23] s390: allow pte_offset_map_lock() to fail
-Message-ID: <20230525092351.7671f2a4@p-imbrenda>
-In-Reply-To: <b64cd153-18e8-81a6-b852-c04d8b1381d@google.com>
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
-	<94aec8fe-383f-892-dcbf-d4c14e460a7@google.com>
-	<20230517123546.672fb9b0@p-imbrenda>
-	<4a15dbaa-1614-ce-ce1f-f73959cef895@google.com>
-	<20230523140056.55b664b1@p-imbrenda>
-	<b64cd153-18e8-81a6-b852-c04d8b1381d@google.com>
-Organization: IBM
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-redhat-linux-gnu)
+	id 1q25Od-00FndO-2c
+	for linux-riscv@lists.infradead.org;
+	Thu, 25 May 2023 07:28:29 +0000
+Date: Thu, 25 May 2023 09:22:23 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
+	t=1684999344; bh=WqUc/D7b6J+dZZ3k3J04dIED1dcPikypQw79086aY+I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A4qui0d6SFgquCtdZyX+rdW4NmFRU+MwSYXoz+NIOgAxuOFHJkA+W16BNaGXrAxwi
+	 d0tM4EyEQIRvkweDgiY07CEo3ZiJ5+1TnmhDDmOUYoqcsDtOdLbibs2POpPS07pecY
+	 KPcXGq5T2pYQ6SKBHWVTX7h02Mhr5OLA1nQx/nO4=
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
+To: Zhangjin Wu <falcon@tinylab.org>
+Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, w@1wt.eu
+Subject: Re: [PATCH 11/13] tools/nolibc: sys_select: riscv: use
+ __NR_pselect6_time64 for rv32
+Message-ID: <76a5f9a0-eec4-415a-9c5d-ac3bca4d4b0e@t-8ch.de>
+References: <83339ea6-6653-41fe-af75-e0d51a4fa920@t-8ch.de>
+ <20230525071021.77223-1-falcon@tinylab.org>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: qRLyp44GLiE9zXh3PageqjkrZmyh07xV
-X-Proofpoint-GUID: uXGxTdAMLt8o-nI3lVA1NmtMWFctokRx
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.176.26
- definitions=2023-05-25_03,2023-05-24_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501 mlxscore=0
- spamscore=0 clxscore=1015 lowpriorityscore=0 mlxlogscore=999
- impostorscore=0 bulkscore=0 suspectscore=0 malwarescore=0 adultscore=0
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2304280000 definitions=main-2305250057
+Content-Disposition: inline
+In-Reply-To: <20230525071021.77223-1-falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_002501_766036_156C3AA3 
-X-CRM114-Status: GOOD (  35.10  )
+X-CRM114-CacheID: sfid-20230525_002828_000227_03091A08 
+X-CRM114-Status: GOOD (  25.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,66 +65,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 May 2023 18:49:14 -0700 (PDT)
-Hugh Dickins <hughd@google.com> wrote:
-
-> On Tue, 23 May 2023, Claudio Imbrenda wrote:
+On 2023-05-25 15:10:21+0800, Zhangjin Wu wrote:
+> Hi, Thomas
+> 
+> > On 2023-05-25 01:59:55+0800, Zhangjin Wu wrote:
+> > > rv32 uses the generic include/uapi/asm-generic/unistd.h and it has no
+> > > __NR_pselect6 after kernel commit d4c08b9776b3 ("riscv: Use latest
+> > > system call ABI"), use __NR_pselect6_time64 instead.
+> > > 
+> > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > > ---
+> > >  tools/include/nolibc/sys.h | 7 ++++++-
+> > >  1 file changed, 6 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> > > index c0335a84f880..00c7197dcd50 100644
+> > > --- a/tools/include/nolibc/sys.h
+> > > +++ b/tools/include/nolibc/sys.h
+> > > @@ -1041,8 +1041,13 @@ int sys_select(int nfds, fd_set *rfds, fd_set *wfds, fd_set *efds, struct timeva
+> > >  		struct timeval *t;
+> > >  	} arg = { .n = nfds, .r = rfds, .w = wfds, .e = efds, .t = timeout };
+> > >  	return my_syscall1(__NR_select, &arg);
+> > > -#elif defined(__ARCH_WANT_SYS_PSELECT6) && defined(__NR_pselect6)
+> > > +#elif defined(__ARCH_WANT_SYS_PSELECT6) && (defined(__NR_pselect6) || defined(__NR_pselect6_time64))
+> > > +#ifdef __NR_pselect6
+> > >  	struct timespec t;
+> > > +#else
+> > > +	struct timespec64 t;
+> > > +#define __NR_pselect6 __NR_pselect6_time64
 > > 
-> > so if I understand the above correctly, pte_offset_map_lock will only
-> > fail if the whole page table has disappeared, and in that case, it will
-> > never reappear with zero pages, therefore we can safely skip (in that
-> > case just break). if we were to do a continue instead of a break, we
-> > would most likely fail again anyway.  
+> > Wouldn't this #define leak to the users of nolibc and lead to calls to
+> > pselect6_time64 with the ABI of the __NR_pselect6 if userspace is doing
+> > its own raw syscalls?
+> >
 > 
-> Yes, that's the most likely; and you hold mmap_write_lock() there,
-> and VM_NOHUGEPAGE on all vmas, so I think it's the only foreseeable
-> possibility.
+> Yeah, it would break the user-side raw __NR_pselect6 syscall for nolibc is a
+> header-only libc, so, it is not safe to use such method like glibc.
 > 
-> > 
-> > in that case I would still like a small change in your patch: please
-> > write a short (2~3 lines max) comment about why it's ok to do things
-> > that way  
+> Something like this will let the syscall call to pselect6_time64 instead of the
+> user-required __NR_pselect6 and pass the wrong type of argument.
 > 
-> Sure.
+>     #include "nolibc.h"  // If no __NR_pselect6 defined, __NR_pselect6 = __NR_pselect6_time64
 > 
-> But I now see that I've disobeyed you, and gone to 4 lines (but in the
-> comment above the function, so as not to distract from the code itself):
-> is this good wording to you?  I needed to research how they were stopped
-> from coming in afterwards, so wanted to put something greppable in there.
+>     #ifdef __NR_pselect6
+>         struct timespec t;  // come here for __NR_pselect6_time64, but t is not timespec64, broken
+>         syscall(__NR_pselect6, nfds, rfds, wfds, efds, timeout ? &t : NULL, NULL);
+>     #else
+>         struct timespec64 t;
+>         syscall(__NR_pselect6, nfds, rfds, wfds, efds, timeout ? &t : NULL, NULL);
+>     #endif
 > 
-> And, unless I'm misunderstanding, that "after THP was enabled" was
-> always supposed to say "after THP was disabled" (because splitting a
-> huge zero page pmd inserts a a page table full of little zero ptes).
+> I have used something like __NR_pselect6_time3264 locally, before
+> sending the patchset, I found a cleaner method already used in sys.h:
+> 
+>     #ifndef __NR__newselect
+>     #define __NR__newselect __NR_select
+>     #endif
+> 
+> But I forgot the arguments mixing issue, __NR__newselect and __NR_select
+> share the same type of arguments, but __NR_pselect6 and
+> __NR_pselect6_time64 not, so, I will use back the old method but still
+> need to find a better string, just like __NR__newselect, __NR__pselect6
+> may be used in kernel space in the future, and __NR_pselect6_time3264 is
+> too long, what about this?
+> 
+>     #ifdef __NR_pselect6
+>             struct timespec t;
+>     #define __NR_pselect6__ __NR_pselect6
+>     #else
+>             struct timespec64 t;
+>     #define __NR_pselect6__ __NR_pselect6_time64
+>     #endif
+> 
+> Or even ___NR_pselect6?
 
-indeed, thanks for noticing and fixing it
+What about:
+
+#ifdef __NR_pselect6
+        struct timespec t;
+        const long nr_pselect = __NR_pselect6;
+#else
+        struct timespec64 t;
+        const long nr_pselect = __NR_pselect6_time64;
+#endif
 
 > 
-> Or would you prefer the comment in the commit message instead,
-> or down just above the pte_offset_map_lock() line?
+> The same issue is in this patch:
 > 
-> It would much better if I could find one place at the mm end, to
-> enforce its end of the contract; but cannot think how to do that.
+>     [PATCH 13/13] tools/nolibc: sys_gettimeofday: riscv: use __NR_clock_gettime64
 > 
-> Hugh
-> 
-> --- a/arch/s390/mm/gmap.c
-> +++ b/arch/s390/mm/gmap.c
-> @@ -2537,7 +2537,12 @@ static inline void thp_split_mm(struct mm_struct *mm)
->   * Remove all empty zero pages from the mapping for lazy refaulting
->   * - This must be called after mm->context.has_pgste is set, to avoid
->   *   future creation of zero pages
-> - * - This must be called after THP was enabled
-> + * - This must be called after THP was disabled.
-> + *
-> + * mm contracts with s390, that even if mm were to remove a page table,
-> + * racing with the loop below and so causing pte_offset_map_lock() to fail,
-> + * it will never insert a page table containing empty zero pages once
-> + * mm_forbids_zeropage(mm) i.e. mm->context.has_pgste is set.
->   */
->  static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
->  			   unsigned long end, struct mm_walk *walk)
+> will solve it with the same method.
 
-looks good, thanks
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
