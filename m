@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 581D2C77B7E
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 07:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D9EC77B7E
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 07:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=htgbZ/uZsckcyyN70I6tbT+5FfXnsRC/MueJY+Rfunw=; b=W3np/hG4WyNr51
-	dBJpBYW4Tt1fJhaEiBpXZKLpBGdmuyG+C05YFtixN2FRwd7GfvhbDwP9PA/RjR8Drq2N332t9/jG3
-	GhbkY2T2kWQFwG+OiDO8tfGOKDT/ddlWLj0nVpGfe4mVnqNin3svYeXjwhDryGJbMp9a2+uCMoDoW
-	dKS5toE31NYFAwOt1UvWnGEFircccS6zi/ETAFEZw1TJE9Z6xSoaItj0fdaZtdM4gNFnAwsXbK23O
-	W24/7/qpAMTgEBbaN48lOrCkhjWtlR8ks3ofK0qgH/6mZvwosBCjlbEkohn1CmFAsuWTMiSlx2Mfs
-	Sryd3SrNsFzUEoMn6KKQ==;
+	List-Owner; bh=TGpEI3t7qL/nQnNz/5pzowoRiTnJ1GOlAcYunj2vsWs=; b=NgKFtL8Tdw8WhL
+	0rA5oz+ClbYAnwsrqIiO+kFDLlGsptP3T5TNLxGl9S7WKyr/YIspaWbqpQm6gA7CCCRd7ACBhoHAQ
+	13BT/HYPzljQLy2h4KWA2XM0tMQrdH/dV2HnUtBEdiNZdYpr9pkiaoiCH7RooNCQy22h/E3GCK9PE
+	KQlvpsd1naQQxwiaBG+fEcecB18T0zAy+lWaovMJM5HKSLy9kH2k9H7K2wlEQ9ECtvQIReeDw+xC2
+	GviK4ZIi8DodrPLaY5UbvbQaOlYQzPv7M9ld06AukyWq6p2uNA5WPXSB/eWFWVS1V2BN974i55bug
+	3BIrDayflpu1Lwf5hyBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q257Z-00FlFI-2F;
-	Thu, 25 May 2023 07:10:49 +0000
+	id 1q25Gm-00FmRb-2r;
+	Thu, 25 May 2023 07:20:20 +0000
 Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q257W-00FlCj-1x
+	id 1q25Gj-00FmQh-1h
 	for linux-riscv@lists.infradead.org;
-	Thu, 25 May 2023 07:10:48 +0000
-X-QQ-mid: bizesmtp66t1684998623tlsn9f2l
+	Thu, 25 May 2023 07:20:19 +0000
+X-QQ-mid: bizesmtp77t1684999208te24henb
 Received: from linux-lab-host.localdomain ( [119.123.130.80])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 25 May 2023 15:10:22 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: CR3LFp2JE4kc3pygKDDUtJn39vE4Fmng3uwhG01MZ6x96u4i0xrEu8jidY6KF
-	5LIn2dky9FChTAvw70bQd9V3YXqgsFXT9XOcCHlIUtq/BlhasJ5GDPxSOVybTX2GzL2SdTF
-	Cy9+lJVOpqy2BqRKTsa/7hvTm+6tLB3DQsVE8gfL77TWmpV1LIFxnTct1mL2DFCgrmbj44u
-	yvlo+Ru0JKK/txynsYD2yYLA/lPIuJ4o3pwL3apINnuVVXdnlcZQBxrlMavqHxpGPQnYd1o
-	6pJ5c1eWvkUz6nPe1TRye4KJwMooBdw5zaKOuotp5LAcSVmcXevPRP0Y6q/veUNqJiCB63L
-	caopRqfllIHHckm32A7Flqkwmt6aAbtHH68/+KQGqx9l95K/3eiVKStGIcsXb/tdFusUokR
+	id ; Thu, 25 May 2023 15:20:06 +0800 (CST)
+X-QQ-SSF: 00200000000000D0V000000A0000000
+X-QQ-FEAT: Q40xx9djesR71y0DVBMSVqb0OB8JvjMOQvnH/KC7DVtwDqMquhU67lAmpEDDm
+	hbAf1eZ+0xinoQqUjGbKuiN2C8Df2P279pX7plJZfUj5i0uR3laz/qvsRZW49i1gTd823Qe
+	Pu+6f1es9OrUPzbE9i+0Ojj0Va73paf9p0Z9g2LnvRwwSXcN9RN1vHhfzLLZnc0c5KbGYlG
+	7OXDeJb1Nb3YVpQHlA2ImiJfRehTLMB6/KGxOPc0uHF5Q4RgFYIPEoYvtLaYpI42pzBeCTA
+	eV/51v6GyHOmnwef1j5VyqTWcrTSusTIOZWIbGTkRDLOpH3sriihuVhci9KjweWWG6SQ0ux
+	uZinBD86WNqojgeRc2Domv3Nq3Zj1mmhPxNRC1BKWVIKvu3fPpmJc1pq37FHgowjBIKREX0
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15606333847527544035
+X-BIZMAIL-ID: 3158394778450214080
 From: Zhangjin Wu <falcon@tinylab.org>
 To: thomas@t-8ch.de
 Cc: falcon@tinylab.org,
@@ -49,18 +49,18 @@ Cc: falcon@tinylab.org,
 	palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
 	w@1wt.eu
-Subject: Re: [PATCH 11/13] tools/nolibc: sys_select: riscv: use __NR_pselect6_time64 for rv32
-Date: Thu, 25 May 2023 15:10:21 +0800
-Message-Id: <20230525071021.77223-1-falcon@tinylab.org>
+Subject: Re: [PATCH 04/13] selftests/nolibc: syscall_args: use __NR_statx for rv32
+Date: Thu, 25 May 2023 15:20:01 +0800
+Message-Id: <20230525072001.77353-1-falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <83339ea6-6653-41fe-af75-e0d51a4fa920@t-8ch.de>
-References: <83339ea6-6653-41fe-af75-e0d51a4fa920@t-8ch.de>
+In-Reply-To: <09d60dc2-e298-4c22-8e2f-8375861bd9be@t-8ch.de>
+References: <09d60dc2-e298-4c22-8e2f-8375861bd9be@t-8ch.de>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_001046_945931_32BEDC70 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20230525_002017_866982_16B9B747 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,103 +72,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Thomas
-
-> On 2023-05-25 01:59:55+0800, Zhangjin Wu wrote:
-> > rv32 uses the generic include/uapi/asm-generic/unistd.h and it has no
-> > __NR_pselect6 after kernel commit d4c08b9776b3 ("riscv: Use latest
-> > system call ABI"), use __NR_pselect6_time64 instead.
-> > 
-> > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> > ---
-> >  tools/include/nolibc/sys.h | 7 ++++++-
-> >  1 file changed, 6 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-> > index c0335a84f880..00c7197dcd50 100644
-> > --- a/tools/include/nolibc/sys.h
-> > +++ b/tools/include/nolibc/sys.h
-> > @@ -1041,8 +1041,13 @@ int sys_select(int nfds, fd_set *rfds, fd_set *wfds, fd_set *efds, struct timeva
-> >  		struct timeval *t;
-> >  	} arg = { .n = nfds, .r = rfds, .w = wfds, .e = efds, .t = timeout };
-> >  	return my_syscall1(__NR_select, &arg);
-> > -#elif defined(__ARCH_WANT_SYS_PSELECT6) && defined(__NR_pselect6)
-> > +#elif defined(__ARCH_WANT_SYS_PSELECT6) && (defined(__NR_pselect6) || defined(__NR_pselect6_time64))
-> > +#ifdef __NR_pselect6
-> >  	struct timespec t;
-> > +#else
-> > +	struct timespec64 t;
-> > +#define __NR_pselect6 __NR_pselect6_time64
-> 
-> Wouldn't this #define leak to the users of nolibc and lead to calls to
-> pselect6_time64 with the ABI of the __NR_pselect6 if userspace is doing
-> its own raw syscalls?
->
-
-Yeah, it would break the user-side raw __NR_pselect6 syscall for nolibc is a
-header-only libc, so, it is not safe to use such method like glibc.
-
-Something like this will let the syscall call to pselect6_time64 instead of the
-user-required __NR_pselect6 and pass the wrong type of argument.
-
-    #include "nolibc.h"  // If no __NR_pselect6 defined, __NR_pselect6 = __NR_pselect6_time64
-
-    #ifdef __NR_pselect6
-        struct timespec t;  // come here for __NR_pselect6_time64, but t is not timespec64, broken
-        syscall(__NR_pselect6, nfds, rfds, wfds, efds, timeout ? &t : NULL, NULL);
-    #else
-        struct timespec64 t;
-        syscall(__NR_pselect6, nfds, rfds, wfds, efds, timeout ? &t : NULL, NULL);
-    #endif
-
-I have used something like __NR_pselect6_time3264 locally, before
-sending the patchset, I found a cleaner method already used in sys.h:
-
-    #ifndef __NR__newselect
-    #define __NR__newselect __NR_select
-    #endif
-
-But I forgot the arguments mixing issue, __NR__newselect and __NR_select
-share the same type of arguments, but __NR_pselect6 and
-__NR_pselect6_time64 not, so, I will use back the old method but still
-need to find a better string, just like __NR__newselect, __NR__pselect6
-may be used in kernel space in the future, and __NR_pselect6_time3264 is
-too long, what about this?
-
-    #ifdef __NR_pselect6
-            struct timespec t;
-    #define __NR_pselect6__ __NR_pselect6
-    #else
-            struct timespec64 t;
-    #define __NR_pselect6__ __NR_pselect6_time64
-    #endif
-
-Or even ___NR_pselect6?
-
-The same issue is in this patch:
-
-    [PATCH 13/13] tools/nolibc: sys_gettimeofday: riscv: use __NR_clock_gettime64
-
-will solve it with the same method.
-
-Thanks,
-Zhangjin
-
-> 
-> > +#endif
-> >  
-> >  	if (timeout) {
-> >  		t.tv_sec  = timeout->tv_sec;
-> > -- 
-> > 2.25.1
-> > 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIFRob21hcwoKPiBPbiAyMDIzLTA1LTI1IDAxOjQ4OjExKzA4MDAsIFpoYW5namluIFd1IHdy
+b3RlOgo+ID4gV2hlbiBjb21waWxlIG5vbGliYy10ZXN0LmMgZm9yIHJ2MzIsIHdlIGdvdCBzdWNo
+IGVycm9yOgo+ID4gCj4gPiAgICAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGli
+Yy10ZXN0LmM6NTk5OjU3OiBlcnJvcjog4oCYX19OUl9mc3RhdOKAmSB1bmRlY2xhcmVkIChmaXJz
+dCB1c2UgaW4gdGhpcyBmdW5jdGlvbikKPiA+ICAgICAgIDU5OSB8ICAgQ0FTRV9URVNUKHN5c2Nh
+bGxfYXJncyk7ICAgICAgRVhQRUNUX1NZU0VSKDEsIHN5c2NhbGwoX19OUl9mc3RhdCwgMCwgTlVM
+TCksIC0xLCBFRkFVTFQpOyBicmVhazsKPiA+IAo+ID4gVGhlIGdlbmVyaWMgaW5jbHVkZS91YXBp
+L2FzbS1nZW5lcmljL3VuaXN0ZC5oIHVzZWQgYnkgcnYzMiBkb2Vzbid0Cj4gPiBzdXBwb3J0IF9f
+TlJfZnN0YXQsIHVzZSBfX05SX3N0YXR4IGluc3RlYWQ6Cj4gPiAKPiA+ICAgICBSdW5uaW5nIHRl
+c3QgJ3N5c2NhbGwnCj4gPiAgICAgNjkgc3lzY2FsbF9ub2FyZ3MgPSAxICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBbT0tdCj4gPiAgICAgNzAgc3lzY2FsbF9hcmdz
+ID0gLTEgRUZBVUxUICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBbT0tdCj4g
+PiAKPiA+IEFzIHRvb2xzL2luY2x1ZGUvbm9saWJjL3N5cy5oIHNob3dzLCBfX05SX3N0YXR4IGlz
+IGVpdGhlciBub3Qgc3VwcG9ydGVkCj4gPiBieSBhbGwgcGxhdGZvcm1zLCBzbywgYm90aCBfX05S
+X2ZzdGF0IGFuZCBfX05SX3N0YXR4IGFyZSByZXF1aXJlZC4KPiA+IAo+ID4gQnR3LCB0aGUgbGF0
+ZXN0IHJpc2N2IGxpYmM2LWRldiBwYWNrYWdlIGlzIHJlcXVpcmVkLCBvdGhlcndpc2UsIHdlIHdv
+dWxkCj4gPiBhbHNvIGdldCBzdWNoIGVycm9yOgo+ID4gCj4gPiAgICAgSW4gZmlsZSBpbmNsdWRl
+ZCBmcm9tIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVkZS9zeXMvY2RlZnMuaDo0NTIsCj4g
+PiAgICAgICAgICAgICAgICAgICAgICBmcm9tIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVk
+ZS9mZWF0dXJlcy5oOjQ2MSwKPiA+ICAgICAgICAgICAgICAgICAgICAgIGZyb20gL3Vzci9yaXNj
+djY0LWxpbnV4LWdudS9pbmNsdWRlL2JpdHMvbGliYy1oZWFkZXItc3RhcnQuaDozMywKPiA+ICAg
+ICAgICAgICAgICAgICAgICAgIGZyb20gL3Vzci9yaXNjdjY0LWxpbnV4LWdudS9pbmNsdWRlL2xp
+bWl0cy5oOjI2LAo+ID4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvdXNyL2xpYi9nY2MtY3Jv
+c3MvcmlzY3Y2NC1saW51eC1nbnUvOS9pbmNsdWRlL2xpbWl0cy5oOjE5NCwKPiA+ICAgICAgICAg
+ICAgICAgICAgICAgIGZyb20gL3Vzci9saWIvZ2NjLWNyb3NzL3Jpc2N2NjQtbGludXgtZ251Lzkv
+aW5jbHVkZS9zeXNsaW1pdHMuaDo3LAo+ID4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvdXNy
+L2xpYi9nY2MtY3Jvc3MvcmlzY3Y2NC1saW51eC1nbnUvOS9pbmNsdWRlL2xpbWl0cy5oOjM0LAo+
+ID4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAvbGFicy9saW51eC1sYWIvc3JjL2xpbnV4LXN0
+YWJsZS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYzo2Ogo+ID4g
+ICAgIC91c3IvcmlzY3Y2NC1saW51eC1nbnUvaW5jbHVkZS9iaXRzL3dvcmRzaXplLmg6Mjg6Mzog
+ZXJyb3I6ICNlcnJvciAicnYzMmktYmFzZWQgdGFyZ2V0cyBhcmUgbm90IHN1cHBvcnRlZCIKPiA+
+ICAgICAgICAyOCB8ICMgZXJyb3IgInJ2MzJpLWJhc2VkIHRhcmdldHMgYXJlIG5vdCBzdXBwb3J0
+ZWQiCj4gPiAKPiA+IFRoZSBnbGliYyBjb21taXQgNWI2MTEzZDYyZWZhICgiUklTQy1WOiBTdXBw
+b3J0IHRoZSAzMi1iaXQgQUJJCj4gPiBpbXBsZW1lbnRhdGlvbiIpIGZpeGVkIHVwIGFib3ZlIGVy
+cm9yLCBzbywgZ2xpYmMgPj0gMi4zMyAod2hvIGluY2x1ZGVzCj4gPiB0aGlzIGNvbW1pdCkgaXMg
+cmVxdWlyZWQuCj4gCj4gSXQgc2VlbXMgd2VpcmQgdG8gcmVxdWlyZSBsaW1pdHMuaCBmcm9tIHRo
+ZSBzeXN0ZW0gbGliYyBhdCBhbGwuCj4KPiBUaGUgb25seSB0aGluZyB1c2VkIGZyb20gdGhlcmUg
+YXJlIElOVF9NQVggYW5kIElOVF9NSU4uCj4gSW5zdGVhZCB3ZSBjb3VsZCBkZWZpbmUgb3VyIG93
+biB2ZXJzaW9ucyBvZiBJTlRfTUFYIGFuZCBJTlRfTUlOIGluCj4gc3RkaW50LmguCj4gCj4gI2lm
+bmRlZiBJTlRfTUFYCj4gI2RlZmluZSBJTlRfTUFYIF9fSU5UX01BWF9fCj4gI2VuZGlmCj4gCj4g
+I2lmbmRlZiBJTlRfTUlOCj4gI2RlZmluZSBJTlRfTUlOICgtIF9fSU5UX01BWF9fIC0gMSkKPiAj
+ZW5kaWYKPgoKSnVzdCB2ZXJpZmllZCBhbmQgcHJlcGFyZWQgYSBwYXRjaCwgaXQgZGlkIHdvcmsg
+cGVyZmVjdGx5LCB0aGFua3MuCgpUaGUgYWJvdmUgY29tbWl0IG1lc3NhZ2UgZXhhY3RseSB0aGUg
+ZXJyb3IgaW5mbyB3aWxsIGJlIGNsZWFuZWQgdXAgaW4KdjIuCgpCZXN0IHJlZ2FyZHMsClpoYW5n
+amluCgo+IFRob21hcwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
