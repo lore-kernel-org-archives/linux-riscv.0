@@ -4,51 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFADC77B7A
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 07:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 628A1C7EE31
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 07:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/uAMgO7TmFN/bAfsbSc9y+7UtJKgeirGNvOm2mGfDT0=; b=HBXkUSfPY+0wgC
-	zayzFY/eNGIzMddfnK8Gv8p3vt8SB0kFz4wNkJnP0vwYQtEwfyalvX5swCGN7CVgFCzZxzHuV42YP
-	eh0dLHFlCJCQTXrX6wpQIrml5qFWK5c+jAD7b7bEno/wt+Q0wj0aqYmrEX6tTLxUBno3HD37JKFjJ
-	kkR/bj9s+ExD9FgFSSLgHaEotRkrLoTG8owE2ca78bG+p1WkXvL2VaJJQjrQjyhaThZzjLIPV42pF
-	cblx+StzanpARsYNvYvsI3X+PC1ig/t0BCr7Fqx9ulbDIsnwRwHQAuEOfp0y6Nmf8wx5c89itTS5h
-	uqSW8LFi3yxjQKrjCBFw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=G/0X4R8MsHTZBoV+SdgqtQAA5+lrBLM2LDgtf0w9064=; b=p8uK/7NaVDd/8r
+	MiD7nfoZmMwZkYWE16rcpfGNembitzXkP6mbe8C1vLFOPgT6rnanAL+rD/tM1ohknohr/oZCeJO5L
+	3pjmi4QVxjcswlivuZuMYh8Hrm6/k3Jn3SlT2rfGbo+00K2cj2tF8R2dhPAeN0lRkRvcZrKQcVfqs
+	Fm3owoBSgzjXshQxJueT+e0ANIaepoWzlpGS1SK86fc1J9Ef2HgC9wLP5ZA2n/B9d762p97zNI3pe
+	HsgfSjmIHHMYR1zGQVbbjD6IoU02AuFd8IF0bJrL5VZKJCLIWlSzZLw3X83FWDXYrnwWumIiExoWd
+	MQxET07PpaakCm4Z5LRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q25Og-00Fndy-3D;
-	Thu, 25 May 2023 07:28:31 +0000
-Received: from todd.t-8ch.de ([159.69.126.157])
+	id 1q25VD-00Fobo-1i;
+	Thu, 25 May 2023 07:35:15 +0000
+Received: from mga06b.intel.com ([134.134.136.31] helo=mga06.intel.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q25Od-00FndO-2c
-	for linux-riscv@lists.infradead.org;
-	Thu, 25 May 2023 07:28:29 +0000
-Date: Thu, 25 May 2023 09:22:23 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
-	t=1684999344; bh=WqUc/D7b6J+dZZ3k3J04dIED1dcPikypQw79086aY+I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A4qui0d6SFgquCtdZyX+rdW4NmFRU+MwSYXoz+NIOgAxuOFHJkA+W16BNaGXrAxwi
-	 d0tM4EyEQIRvkweDgiY07CEo3ZiJ5+1TnmhDDmOUYoqcsDtOdLbibs2POpPS07pecY
-	 KPcXGq5T2pYQ6SKBHWVTX7h02Mhr5OLA1nQx/nO4=
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, w@1wt.eu
-Subject: Re: [PATCH 11/13] tools/nolibc: sys_select: riscv: use
- __NR_pselect6_time64 for rv32
-Message-ID: <76a5f9a0-eec4-415a-9c5d-ac3bca4d4b0e@t-8ch.de>
-References: <83339ea6-6653-41fe-af75-e0d51a4fa920@t-8ch.de>
- <20230525071021.77223-1-falcon@tinylab.org>
+	id 1q25V9-00FoZv-1h;
+	Thu, 25 May 2023 07:35:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1685000111; x=1716536111;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=jLH4kQk6zi0cVy2k1sUXs4W9z4mmK4Cl2bsLik9SWEQ=;
+  b=dBV9OXHEx0sNhq8vvRt6dKMPjRN8ERjg/+M8jv5R5LblznHtK3aon+Vs
+   0GbKfLKylEgkr+VLIi8rFazsgJyHqpHNAonPazZHXqJZBEK8rilzv+nhs
+   ECxl40tXsSZVa0ai8Trqq1ePsG6GUIbyNYQXcLiBsIRf8zcXNjyuR7Uxv
+   OJ2A4xnnOEPkjR3PUTebs1JAjDni6qMIZLCpe5xk3lOjqYXWUwV1WqrR9
+   K9xaK0YKKtzhyK2oGgFatu6G5wrA65rosr4/tCLRd2mOe5LgV6XuIyVzE
+   MYGOvLABnpkiWfoOdXKTk7irgI+1VLOcPTHp1vDzVE9jXf+aaLaTiPfNi
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10720"; a="417280809"
+X-IronPort-AV: E=Sophos;i="6.00,190,1681196400"; 
+   d="scan'208";a="417280809"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 May 2023 00:32:39 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10720"; a="769774564"
+X-IronPort-AV: E=Sophos;i="6.00,190,1681196400"; 
+   d="scan'208";a="769774564"
+Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
+  by fmsmga008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 May 2023 00:32:32 -0700
+From: Haibo Xu <haibo1.xu@intel.com>
+To: 
+Cc: xiaobo55x@gmail.com,
+	haibo1.xu@intel.com,
+	ajones@ventanamicro.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	seanjc@google.com,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Shuah Khan <shuah@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	David Matlack <dmatlack@google.com>,
+	Ben Gardon <bgardon@google.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: [PATCH v2 00/11] RISCV: Add KVM_GET_REG_LIST API
+Date: Thu, 25 May 2023 15:38:24 +0800
+Message-Id: <cover.1684999824.git.haibo1.xu@intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230525071021.77223-1-falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_002828_000227_03091A08 
-X-CRM114-Status: GOOD (  25.63  )
+X-CRM114-CacheID: sfid-20230525_003511_636552_E5C0E9BB 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,98 +106,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-05-25 15:10:21+0800, Zhangjin Wu wrote:
-> Hi, Thomas
-> 
-> > On 2023-05-25 01:59:55+0800, Zhangjin Wu wrote:
-> > > rv32 uses the generic include/uapi/asm-generic/unistd.h and it has no
-> > > __NR_pselect6 after kernel commit d4c08b9776b3 ("riscv: Use latest
-> > > system call ABI"), use __NR_pselect6_time64 instead.
-> > > 
-> > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> > > ---
-> > >  tools/include/nolibc/sys.h | 7 ++++++-
-> > >  1 file changed, 6 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-> > > index c0335a84f880..00c7197dcd50 100644
-> > > --- a/tools/include/nolibc/sys.h
-> > > +++ b/tools/include/nolibc/sys.h
-> > > @@ -1041,8 +1041,13 @@ int sys_select(int nfds, fd_set *rfds, fd_set *wfds, fd_set *efds, struct timeva
-> > >  		struct timeval *t;
-> > >  	} arg = { .n = nfds, .r = rfds, .w = wfds, .e = efds, .t = timeout };
-> > >  	return my_syscall1(__NR_select, &arg);
-> > > -#elif defined(__ARCH_WANT_SYS_PSELECT6) && defined(__NR_pselect6)
-> > > +#elif defined(__ARCH_WANT_SYS_PSELECT6) && (defined(__NR_pselect6) || defined(__NR_pselect6_time64))
-> > > +#ifdef __NR_pselect6
-> > >  	struct timespec t;
-> > > +#else
-> > > +	struct timespec64 t;
-> > > +#define __NR_pselect6 __NR_pselect6_time64
-> > 
-> > Wouldn't this #define leak to the users of nolibc and lead to calls to
-> > pselect6_time64 with the ABI of the __NR_pselect6 if userspace is doing
-> > its own raw syscalls?
-> >
-> 
-> Yeah, it would break the user-side raw __NR_pselect6 syscall for nolibc is a
-> header-only libc, so, it is not safe to use such method like glibc.
-> 
-> Something like this will let the syscall call to pselect6_time64 instead of the
-> user-required __NR_pselect6 and pass the wrong type of argument.
-> 
->     #include "nolibc.h"  // If no __NR_pselect6 defined, __NR_pselect6 = __NR_pselect6_time64
-> 
->     #ifdef __NR_pselect6
->         struct timespec t;  // come here for __NR_pselect6_time64, but t is not timespec64, broken
->         syscall(__NR_pselect6, nfds, rfds, wfds, efds, timeout ? &t : NULL, NULL);
->     #else
->         struct timespec64 t;
->         syscall(__NR_pselect6, nfds, rfds, wfds, efds, timeout ? &t : NULL, NULL);
->     #endif
-> 
-> I have used something like __NR_pselect6_time3264 locally, before
-> sending the patchset, I found a cleaner method already used in sys.h:
-> 
->     #ifndef __NR__newselect
->     #define __NR__newselect __NR_select
->     #endif
-> 
-> But I forgot the arguments mixing issue, __NR__newselect and __NR_select
-> share the same type of arguments, but __NR_pselect6 and
-> __NR_pselect6_time64 not, so, I will use back the old method but still
-> need to find a better string, just like __NR__newselect, __NR__pselect6
-> may be used in kernel space in the future, and __NR_pselect6_time3264 is
-> too long, what about this?
-> 
->     #ifdef __NR_pselect6
->             struct timespec t;
->     #define __NR_pselect6__ __NR_pselect6
->     #else
->             struct timespec64 t;
->     #define __NR_pselect6__ __NR_pselect6_time64
->     #endif
-> 
-> Or even ___NR_pselect6?
+KVM_GET_REG_LIST will dump all register IDs that are available to
+KVM_GET/SET_ONE_REG and It's very useful to identify some platform
+regression issue during VM migration.
 
-What about:
+Patch 1-7 re-structured the get-reg-list test in aarch64 to make some
+of the code as common test framework that can be shared by riscv.
 
-#ifdef __NR_pselect6
-        struct timespec t;
-        const long nr_pselect = __NR_pselect6;
-#else
-        struct timespec64 t;
-        const long nr_pselect = __NR_pselect6_time64;
-#endif
+Patch 8 enabled the KVM_GET_REG_LIST API in riscv and patch 9-11 added
+the corresponding kselftest for checking possible register regressions.
 
-> 
-> The same issue is in this patch:
-> 
->     [PATCH 13/13] tools/nolibc: sys_gettimeofday: riscv: use __NR_clock_gettime64
-> 
-> will solve it with the same method.
+The get-reg-list kvm selftest was ported from aarch64 and tested with
+Linux 6.4-rc1 on a Qemu riscv virt machine.
 
-Thanks!
+---
+Changed since v1:
+  * rebase to Andrew's changes
+  * fix coding style
+
+Andrew Jones (7):
+  KVM: arm64: selftests: Replace str_with_index with strdup_printf
+  KVM: arm64: selftests: Drop SVE cap check in print_reg
+  KVM: arm64: selftests: Remove print_reg's dependency on vcpu_config
+  KVM: arm64: selftests: Rename vcpu_config and add to kvm_util.h
+  KVM: arm64: selftests: Delete core_reg_fixup
+  KVM: arm64: selftests: Split get-reg-list test code
+  KVM: arm64: selftests: Finish generalizing get-reg-list
+
+Haibo Xu (4):
+  KVM: riscv: Add KVM_GET_REG_LIST API support
+  KVM: riscv: selftests: Make check_supported arch specific
+  KVM: riscv: selftests: Skip some registers set operation
+  KVM: riscv: selftests: Add get-reg-list test
+
+ Documentation/virt/kvm/api.rst                |   2 +-
+ arch/riscv/kvm/vcpu.c                         | 372 ++++++++++++
+ tools/testing/selftests/kvm/Makefile          |  13 +-
+ .../selftests/kvm/aarch64/get-reg-list.c      | 540 ++----------------
+ tools/testing/selftests/kvm/get-reg-list.c    | 426 ++++++++++++++
+ .../selftests/kvm/include/kvm_util_base.h     |  16 +
+ .../selftests/kvm/include/riscv/processor.h   |   3 +
+ .../testing/selftests/kvm/include/test_util.h |   2 +
+ tools/testing/selftests/kvm/lib/test_util.c   |  15 +
+ .../selftests/kvm/riscv/get-reg-list.c        | 539 +++++++++++++++++
+ 10 files changed, 1428 insertions(+), 500 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/get-reg-list.c
+ create mode 100644 tools/testing/selftests/kvm/riscv/get-reg-list.c
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
