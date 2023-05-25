@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B8DC7EE2F
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 16:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23038C7EE2F
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 May 2023 16:40:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c4DwQBLptkRu6fx3QGtCIWqi87sevY7lywmglJr8XVw=; b=N2VJoqgWId3Lx1
-	LVJ3ycxV7Gzzs05yml1pw0dSGYuNRhrP1KCFi1ZzfVgTxIOABwgqYRnacWVAggXDbc4d6jSwgULvd
-	N4oAQcjCMVrsWlWl/JSLeO3+mOQRRmaWVsBzIlFtUVyE8OE2+cK0lRnvLattqqf2YNUDuVWDbRAWc
-	+JF68EOnQ+pQZ/I3HAoM2ufXByH9n6W9JxrFHho7xUwqRI95bBQ89slGkJFBy1sZOFh/74pseYyLi
-	V2HkUuXZ6yqzf2nsLW+bCgHukDUK4a2gSU5UeYxo0RsqkmrfIitHPwtrF2v/rna4ro6Pt4NSNMX8A
-	MM2q4Kwsr9vtB+K1ha3g==;
+	List-Owner; bh=KL14nDTuuaTOKv4vBD5ovmZutFqc7Vtk/njM8aA5FJU=; b=ImCJFKHevlLXRC
+	M9bBWax48JO3rHxmzj5gefJwbZIVjme/ICFEXDBHdkm2XLjY73nVEsDCx/vlH+ta4FiV1AimeAp49
+	l7L6IvF6k7JWDoErvruRyqCQAMtL0Q41ydZuUypY2LFME5nlYA6xrppwAiBx3R8oJ1XurT4ZEv3MD
+	9jN1X+oOUhwDqXRrOZCrCmR+2QpVF0VKBZobLsbLy9xJ7hJUt1b7Y/Ryq83WWWs7lWkqSSlFPrLDA
+	Z8LeE2AkMOurAmExBQTX0M/cfaglRMr/fPHvsPihQIh7MmD6fvt+E/q6KhTpZnXFx57/s11DrvCrU
+	rbTW0JQzzfCELEqKG/0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2DyT-00H6rY-2U;
-	Thu, 25 May 2023 16:38:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q2E0c-00H79i-2m;
+	Thu, 25 May 2023 16:40:14 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2DyP-00H6pJ-2V;
-	Thu, 25 May 2023 16:37:59 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2A226613E9;
-	Thu, 25 May 2023 16:37:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A40FC433EF;
-	Thu, 25 May 2023 16:37:50 +0000 (UTC)
-Date: Thu, 25 May 2023 17:37:47 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Hugh Dickins <hughd@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Helge Deller <deller@gmx.de>,
-	John David Anglin <dave.anglin@bell.net>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH 03/23] arm64/hugetlb: pte_alloc_huge() pte_offset_huge()
-Message-ID: <ZG+O2yE8fWxSy4Va@arm.com>
-References: <77a5d8c-406b-7068-4f17-23b7ac53bc83@google.com>
- <dda2885-929b-c278-14e-5f447e9eec52@google.com>
+	id 1q2E0a-00H78E-0c
+	for linux-riscv@lists.infradead.org;
+	Thu, 25 May 2023 16:40:13 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-3f6e1394060so4248745e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 25 May 2023 09:40:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1685032808; x=1687624808;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AR0TcRh5E3uNMVlwV4MX3XAnDWVMVCj/HBAPlYOkb4Q=;
+        b=SMOO/RHoH9sCbPbHZOhilUrB2bJNfvDLCzNO5ccrVnl5YTsggfxCAGw2enOsIJsw3S
+         muOPMMbM8OB9rpMjOPTcLN0styrxHRbccc9yTmXWbgcevJUP1pwqZXi98iwgUX4Pfv55
+         os7jsjCiXCLLhdD3CTPGSThlSx7rRpRDglbQkL4uhDoPpGndSA0UT7be/09Y3qB4sCTU
+         9Jj2LjqrHnXVoyAXUQEyeCSGlSCPNGIKyvU2Ar0ZXlrITl5RpUUhEMrIW9rij7AQisZh
+         pS4SfprjWAgXcStQyvo0bOqre47fTQRcCig3TUxi2T6iUTtbEYJBhRLX2YVECM6VJ7Ni
+         /zsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685032808; x=1687624808;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AR0TcRh5E3uNMVlwV4MX3XAnDWVMVCj/HBAPlYOkb4Q=;
+        b=gdr/KnfJxjkb+kVNiuseqYpXX+UdkKXGdFHLJOQlLG1Kyp/Gt5HlxD35TVoYyjkUMG
+         D8NIa2SxzcOZDDW1pn3rfgyJBPpifpKckjl7yBfQCYsb+o9snQ4hCOrrz9yBBDcIDuws
+         Od/zft2mObb5eFSC6THGb85p7nMBuf6MM+sEKooBpDXYS5f2D6r/UewO5D+qyQxRt622
+         m31n06pA1NCI1MKOUa2AWRxmT8YMCxi9H22OXp9UvHk9GKQ07udIjp7bGunJ1X8A28ub
+         HmNA5nFtv3b6zby+WGxJTyrl/OfuZTs6ug+agAvTSzVT5OsLcvesGri+kDPa7qxGRswH
+         kt4Q==
+X-Gm-Message-State: AC+VfDxL2NFCiM1nyQu+OMvTkBhHck5bD8xTV0+aiHvpATCjZxpFZqPk
+	Ac1X36BPaY5n8H97QxXarqghAA==
+X-Google-Smtp-Source: ACHHUZ4E3vZaFea6aEdcJxuXhPYk5shRp2rDROSu38VNjlX+Zz36M4ciiQeNekDxjPytu3ey3fhDvg==
+X-Received: by 2002:a7b:cbd6:0:b0:3f4:2452:9669 with SMTP id n22-20020a7bcbd6000000b003f424529669mr3090300wmi.0.1685032808575;
+        Thu, 25 May 2023 09:40:08 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id c2-20020adfed82000000b003078a3f3a24sm2311517wro.114.2023.05.25.09.40.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 May 2023 09:40:07 -0700 (PDT)
+Date: Thu, 25 May 2023 18:40:07 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com, maz@kernel.org, oliver.upton@linux.dev, 
+	seanjc@google.com, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, David Matlack <dmatlack@google.com>, 
+	Ben Gardon <bgardon@google.com>, Vipin Sharma <vipinsh@google.com>, 
+	Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 09/11] KVM: riscv: selftests: Make check_supported
+ arch specific
+Message-ID: <20230525-705ddcbcd43aa63e3fd356c8@orel>
+References: <cover.1684999824.git.haibo1.xu@intel.com>
+ <26dea518fc5e8da51e61db279d175364bfecd009.1684999824.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <dda2885-929b-c278-14e-5f447e9eec52@google.com>
+In-Reply-To: <26dea518fc5e8da51e61db279d175364bfecd009.1684999824.git.haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_093757_854253_A33C4F9E 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20230525_094012_239591_8221FE09 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,14 +102,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 09, 2023 at 09:45:57PM -0700, Hugh Dickins wrote:
-> pte_alloc_map() expects to be followed by pte_unmap(), but hugetlb omits
-> that: to keep balance in future, use the recently added pte_alloc_huge()
-> instead; with pte_offset_huge() a better name for pte_offset_kernel().
+On Thu, May 25, 2023 at 03:38:33PM +0800, Haibo Xu wrote:
+> check_supported() was used to verify whether a feature/extension was
+> supported in a guest in the get-reg-list test. Currently this info
+> can be retrieved through the KVM_CAP_ARM_* API in aarch64, but in
+> riscv, this info was only exposed through the KVM_GET_ONE_REG on
+> KVM_REG_RISCV_ISA_EXT pseudo registers.
 > 
-> Signed-off-by: Hugh Dickins <hughd@google.com>
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+> ---
+>  tools/testing/selftests/kvm/get-reg-list.c | 32 +++++++++++-----------
+>  1 file changed, 16 insertions(+), 16 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/get-reg-list.c b/tools/testing/selftests/kvm/get-reg-list.c
+> index f6ad7991a812..f1fc113e9719 100644
+> --- a/tools/testing/selftests/kvm/get-reg-list.c
+> +++ b/tools/testing/selftests/kvm/get-reg-list.c
+> @@ -99,6 +99,20 @@ void __weak print_reg(const char *prefix, __u64 id)
+>  }
+>  
+>  #ifdef __aarch64__
+> +static void check_supported(struct vcpu_reg_list *c)
+> +{
+> +	struct vcpu_reg_sublist *s;
+> +
+> +	for_each_sublist(c, s) {
+> +		if (!s->capability)
+> +			continue;
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+I was going to say that making this function aarch64 shouldn't be
+necessary, since riscv leaves capability set to zero and this function
+doesn't do anything, but then looking ahead I see riscv is abusing
+capability by putting isa extensions in it. IMO, capability should
+only be set to KVM_CAP_* values. Since riscv doesn't use it, then it
+should be left zero.
+
+If we're going to abuse something, then I'd rather abuse the 'feature'
+member, but since it's only an int (not an unsigned long), then let's
+just add an 'unsigned long extension' member.
+
+Then, the finalize_vcpu() call can be moved back to run_test(), from
+aarch64's vcpu_config_get_vcpu(). Both aarch64 and riscv will call it
+right after vcpu_config_get_vcpu() and the riscv version of it will
+do what your current riscv check_supported() is doing, using the
+new 'extension' member instead of 'capability'.
+
+And this patch gets dropped.
+
+Thanks,
+drew
+
+> +
+> +		__TEST_REQUIRE(kvm_has_cap(s->capability),
+> +			       "%s: %s not available, skipping tests\n",
+> +			       config_name(c), s->name);
+> +	}
+> +}
+> +
+>  static void prepare_vcpu_init(struct vcpu_reg_list *c, struct kvm_vcpu_init *init)
+>  {
+>  	struct vcpu_reg_sublist *s;
+> @@ -126,6 +140,8 @@ static struct kvm_vcpu *vcpu_config_get_vcpu(struct vcpu_reg_list *c, struct kvm
+>  	struct kvm_vcpu_init init = { .target = -1, };
+>  	struct kvm_vcpu *vcpu;
+>  
+> +	check_supported(c);
+> +
+>  	prepare_vcpu_init(c, &init);
+>  	vcpu = __vm_vcpu_add(vm, 0);
+>  	aarch64_vcpu_setup(vcpu, &init);
+> @@ -140,20 +156,6 @@ static struct kvm_vcpu *vcpu_config_get_vcpu(struct vcpu_reg_list *c, struct kvm
+>  }
+>  #endif
+>  
+> -static void check_supported(struct vcpu_reg_list *c)
+> -{
+> -	struct vcpu_reg_sublist *s;
+> -
+> -	for_each_sublist(c, s) {
+> -		if (!s->capability)
+> -			continue;
+> -
+> -		__TEST_REQUIRE(kvm_has_cap(s->capability),
+> -			       "%s: %s not available, skipping tests\n",
+> -			       config_name(c), s->name);
+> -	}
+> -}
+> -
+>  static bool print_list;
+>  static bool print_filtered;
+>  
+> @@ -165,8 +167,6 @@ static void run_test(struct vcpu_reg_list *c)
+>  	struct kvm_vm *vm;
+>  	struct vcpu_reg_sublist *s;
+>  
+> -	check_supported(c);
+> -
+>  	vm = vm_create_barebones();
+>  	vcpu = vcpu_config_get_vcpu(c, vm);
+>  
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
