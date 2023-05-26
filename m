@@ -4,87 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B011AC7EE23
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 12:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6766DC77B73
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 13:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dh/v6zraclIGNJWopaXA+boloqJlgT8jDKC6vs0c0aY=; b=OdteuYWmkDMufmoZa7KlYPIdRT
-	ZCvkXAb/GR9AtzIyJzSzR/fmTplGa+h3DNpolFcu7kF2rJGe5mHjyTkaoUmwqat8unLBFi72rmR5m
-	Cf4QUuV7lTJ3TX8kaJ1Gstj7JPnbKtemseUb6XvsRVNyuUZ7RzZN64a9r43RnJqtZKUe7/Vkshay1
-	aTBcdWpbeeRuk0JAf4ua+dG4pDlx+jN4V7+tsSArv30Vf9P8/C5DcIYnTO0AWpPgJqYJegrj6tGv6
-	BQnHmCogeTvk8FTg8LUN0OehtH8T12msfTTEsYEflKBVsHQ/6im974ysBjbtTxBaU84q2v3jnyh8q
-	vm9ofH+Q==;
+	bh=Jjui3npiK6UrO6s37o4KdaoyLtXVGMDb7sRi+K1Xjm8=; b=mZWxvKVchFt1U8XPEZvN+sFOVD
+	NAHbunofUcRY43YhrmSR96KNftAMCKI0nCoE25biQ+PzTWrqYDSvnlgl6m4bTq6hf77AuVIuobmJ4
+	XkXL+RECWDFsGYGkJuYccCagFKsYjOpeJXrLwxFe/3/eHp8vckniXM6igxxTbz+a/wi3WtUculDiM
+	pkWZJhkdcyZRsH9Wa49Ee640IBB1PjN4Z2XmXWH8mwX3AESwmH0E8UIUZk19MiL8me4aiZjUSIFuu
+	ZZhJVlsrvbCL/oYAQwujPfvMopZX9gfXDnfIpv1luLvYrbcE1LJJ5TlrKcS443FqSqDr761lApgUh
+	jPb+TwSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2WTr-002T3x-0V;
-	Fri, 26 May 2023 12:23:39 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1q2XHL-002bVW-0A;
+	Fri, 26 May 2023 13:14:47 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2WTn-002T2u-0k
-	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 12:23:37 +0000
+	id 1q2XHG-002bSt-3D;
+	Fri, 26 May 2023 13:14:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1685103816; x=1716639816;
+  t=1685106882; x=1716642882;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=N0p4xIBGqTuIaskXSeOSjiy9vfxUe/NL9WXqetZ8YJw=;
-  b=FLWHcmtzSPBqXLTNWhfwiDp+QDGTmtEXiKEP/YsfqtJ7oVa/3tXSfp6e
-   Nqt3W3AUK4k14kJoNHylur7i0kCrcu7Qn+F5t2nCuxsKbAEcoEi88AmjE
-   c8kJ751Cv88LQPWCBHBK21haw0sPFZx4TUpEieWOt9sA52xaFh1PKEf6M
-   NXsFKqs76HuppZrdRJg19saFPBpFIWYrGJX/SwDfzZQ1Mk7ZOLRxfK3Wv
-   PyHaVnOWKn5BFtLvf/zmQRrKndH1hRdyM+7eKQEEXWhoAd1Ut1Kpvhpga
-   liMcSIVYbQFdDOGDXPutoNCnpcyYpeyv6a/CSlXTotENrQT8apQ5enyP5
-   g==;
+  bh=TaKFmPvcaWxL63IETqF5z2dA8t53A2LsdWOk3sZfXkU=;
+  b=QslJjpR/7l2NttuUCGUD5GQM2czS3f/a+XdqPwtiCVnjGWkomCUVnpiq
+   r7lLVfyIaDC0atwNxhbZHcK1E2uwtrmGe5RqhRQK/nQYQOueQ3X62c4pv
+   xV6SXl5qNyQH8CF0aEdrJD1Ku5ggSyIL5rG0ToplPbL/WUX7Ci/mEtVqS
+   ZhpHawkIqjrIfhIQlIwNF/9VJ/CdgrG1QD4RdAEWiPSDwKheGCQB/ME5C
+   eTN/2Wxktf/USZLdV2ikzGhiwaIyEIniFQ20UJMGoTgAm/dkCjsdhD46Z
+   0N/SqWePDBJLQZVugkt8/bNMvz9bJJ0ArlIJEOmwpDw3j1vdh1Rg5/FPx
+   A==;
 X-IronPort-AV: E=Sophos;i="6.00,194,1681196400"; 
-   d="asc'?scan'208";a="215611840"
+   d="asc'?scan'208";a="217467764"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 May 2023 05:23:34 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 May 2023 06:14:26 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 26 May 2023 05:23:33 -0700
+ 15.1.2507.21; Fri, 26 May 2023 06:14:16 -0700
 Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 26 May 2023 05:23:30 -0700
-Date: Fri, 26 May 2023 13:23:07 +0100
+ Transport; Fri, 26 May 2023 06:14:12 -0700
+Date: Fri, 26 May 2023 14:13:50 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Torsten Duwe <duwe@lst.de>
-CC: Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <yanhong.wang@starfivetech.com>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+To: Minda Chen <minda.chen@starfivetech.com>
+CC: Conor Dooley <conor@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Vinod Koul <vkoul@kernel.org>, Kishon
+ Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak
+	<pawell@cadence.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Peter
+ Chen <peter.chen@kernel.org>, Roger Quadros <rogerq@kernel.org>, Philipp
+ Zabel <p.zabel@pengutronix.de>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
+	<linux-usb@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Paul Walmsley
 	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, <u-boot@lists.denx.de>
-Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock
- generator
-Message-ID: <20230526-unwashed-musty-dee883f1d6a7@wendy>
-References: <20230512022036.97987-2-xingyu.wu@starfivetech.com>
- <20230519135733.GA10188@lst.de>
- <20230519-smokeless-guileless-2a71cae06509@wendy>
- <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
- <20230523-fondue-monotype-0c751a8f0c13@wendy>
- <20230523131006.46997d84@blackhole.lan>
- <20230523-saturate-axis-f46b78b7b82b@wendy>
- <38a9cb77-18b3-4daa-724b-9f2282f7d948@starfivetech.com>
- <20230524-jittery-sway-41b578b24153@wendy>
- <20230526093432.4682eab8@blackhole.lan>
+	<aou@eecs.berkeley.edu>, Mason Huo <mason.huo@starfivetech.com>
+Subject: Re: [PATCH v6 5/7] dt-bindings: usb: Add StarFive JH7110 USB
+ controller
+Message-ID: <20230526-grain-cubical-e0af96202007@wendy>
+References: <20230518112750.57924-1-minda.chen@starfivetech.com>
+ <20230518112750.57924-6-minda.chen@starfivetech.com>
+ <20230525-shopper-handbrake-27fc06aede32@spud>
+ <5124e6a8-8ca6-71a5-19d6-8c15e954c458@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230526093432.4682eab8@blackhole.lan>
+In-Reply-To: <5124e6a8-8ca6-71a5-19d6-8c15e954c458@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_052335_406754_431BA060 
-X-CRM114-Status: GOOD (  51.68  )
+X-CRM114-CacheID: sfid-20230526_061443_118094_78384D62 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,162 +90,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4583266453310996766=="
+Content-Type: multipart/mixed; boundary="===============7427674727881057221=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4583266453310996766==
+--===============7427674727881057221==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="RTLt+oLiwQtApFlh"
+	protocol="application/pgp-signature"; boundary="2Bn+39uGEqQUGUUq"
 Content-Disposition: inline
 
---RTLt+oLiwQtApFlh
+--2Bn+39uGEqQUGUUq
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, May 26, 2023 at 09:34:32AM +0200, Torsten Duwe wrote:
-> On Wed, 24 May 2023 11:19:48 +0100
-> Conor Dooley <conor.dooley@microchip.com> wrote:
->=20
-> > On Wed, May 24, 2023 at 05:00:02PM +0800, Xingyu Wu wrote:
-> > > On 2023/5/23 19:28, Conor Dooley wrote:
-> > > > On Tue, May 23, 2023 at 01:10:06PM +0200, Torsten Duwe wrote:
-> > > >> On Tue, 23 May 2023 09:28:39 +0100
-> > > >> Conor Dooley <conor.dooley@microchip.com> wrote:
-> > > >>=20
-> > > >> > On Tue, May 23, 2023 at 10:56:43AM +0800, Xingyu Wu wrote:
-> > > >> > > On 2023/5/19 22:16, Conor Dooley wrote:
-> > > >> > > > On Fri, May 19, 2023 at 03:57:33PM +0200, Torsten Duwe
-> > > >> > > > wrote:
-> > > >> > > >> On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
-> [...]
->=20
-> > > >> > > Because PLL driver is separated from SYSCRG drivers in
-> > > >> > > Linux, the numbering starts from 0. But in Uboot, the PLL
-> > > >> > > driver is included in the SYSCRG driver, and the number
-> > > >> > > follows the SYSCRG.
-> > > >> >=20
-> > > >> > Unfortunately, how you choose to construct your drivers has
-> > > >> > nothing to do with this.
->=20
-> Exactly. As I wrote (quote below), the PLLx frequencies are controlled
-> by the I/O block SYS_SYSCON (starting there at offset 0x18), according
-> to the public datasheets. All(?) other clocks are derived from those in
-> the *_CRG units. That *is* the hardware to be described, in *the* (one
-> and only!) DT. U-Boot, and any OS, are free to reorganise their driver
-> framework around that, but the hardware description is quite clear.
+On Fri, May 26, 2023 at 06:24:48PM +0800, Minda Chen wrote:
 
-The dt-binding that is in this series specifies that the pll clock
-controller is a child of the syscon:
-https://lore.kernel.org/linux-riscv/20230512022036.97987-1-xingyu.wu@starfi=
-vetech.com/T/#Z2e.:..:20230512022036.97987-6-xingyu.wu::40starfivetech.com:=
-1soc:starfive:starfive::2cjh7110-syscon.yaml
-
-That seems correct to me & U-Boot's devicetree is not compliant.
-
-> > > >> > These defines/numbers appear in the dts and are part of the DT
-> > > >> > ABI. The same dts is supposed to work for Linux & U-Boot.
-> > > >>=20
-> > > >> The JH7110 has 6 blocks of 64k iomem in that functional area:
-> > > >> {SYS,STG,AON} x {CRG,SYSCON}. None of these has 190 clocks.
-> > > >> The good news: the current DTS, as proposed here and in U-Boot
-> > > >> master, provides nodes for all 6 entities. The bad news is that
-> > > >> the clock assignments to those nodes and their numbering is
-> > > >> messed up.
-> > > >>=20
-> > > >> AFAICT PLL{0,1,2} _are_ generated in SYS_SYSCON and thus U-Boot
-> > > >> gets it wrong, in addition to the erroneous DTS.
-> > > >=20
-> > > > The numbers are kinda hocus-pocus anyway, they are just made up
-> > > > since the clock numbering usually isn't something with a nice TRM
-> > > > to go and reference (unlike interrupts which usually are
-> > > > documented in that way). It is very helpful to make them aligned
-> > > > some register/bit positions or, but that is not required.
-> > > > IOW U-Boot is not wrong per se to use 190 instead of 0, but it is
-> > > > wrong to have different numbers in both places.
->=20
-> U-Boot reuses the Common Clock Framework from Linux, and I'm not sure
-> whether the clock IDs need to be unique in order for the appropriate
-> clock to be found.
-
-Unique within the clock controller, otherwise it is impossible to tell
-the difference between <&cctrl 1> and <&cctrl 1> apart! (The same
-follows even with increased #clock-cells, something must be unique).
-That's besides the point of this particular issue though.
-
-> But that would be the only restriction, if it
-> applies. Even then, each driver could register a clock with its own,
-> arbitrarily chosen base offset with the CCF, so each CRG unit could
-> still have its own clocks enumerated starting with 0 in the DTB.
->=20
-> > > > It sounds like you're saying that (and I have not looked) the
-> > > > U-Boot dts actually has structural difference w.r.t. what
-> > > > provides which clock? If so, that'll need to be fixed
-> > > > independently of the numbering problem.
->=20
-> > >=20
-> > > Oh, unfortunately, the 7110 can not support to mix the uboot dtb
-> > > and linux dtb up.
+> >> +title: StarFive JH7110 wrapper module for the Cadence USBSS-DRD contr=
+oller
 > >=20
-> > What does "cannot support" mean? It's normal and desirable for the
->=20
-> IMHO "desirable" is too weak.
-
-Yeah, agreed. I just don't like being prescriptive about what happens in
-projects that I do not maintain things for I guess.
-
-> > same dtb to be usable for both. The Linux kernel's dt-bindings are
-> > used for multiple projects, not just Linux - it'd be silly for
-> > U-Boot, FreeBSD etc etc to go off and each have their open set of
-> > (incompatible) bindings.
+> > I think you told Krzysztof you'd rename this to "StarFive JH7110 Cadence
+> > USBSS-DRD SoC controller"?
 > >=20
-> > > If boot the Linux and should use the linux dtb instead of the uboot
-> > > dtb. Because all clock ids and reset ids in Linux and Uboot are
-> > > different include PLL, and some modules can work in Linux but not
-> > > in uboot.
-> [...]
-> >=20
-> > > I suggest to boot Linux with its own linux dtb.
->=20
-> This is a fragile band-aid, to be used only as a last resort. It
-> creates more problems than it solves. Your DTB will then match your
-> kernel, but whether it describes the actual hardware is a game of
-> chance. Doesn't the VisionFive2 have an RPi connector... ?
->=20
-> One of the IMO few valid use cases of adding a DTB to the kernel
-> at boot is OpenWRT, when you build an OS Image for a particular piece
-> of hardware you have at hand.
->=20
-> > I suggest to make sure that you can use the same dtb for both.
->=20
-> Interestingly enough, U-Boot already has the PLL driver in a separate
-> file. I have a half-baked patch here that moves the sys_syscon DT
-> matching into that file...
+> The previous title describe whole USB controller for previous dts node is
+> merged. Now the dts node is split.=20
+> "starfive,jh7110-usb" just contain starfive wrapper layer dts configurati=
+on.
 
-If you have patches that fix the devicetree & drivers in U-Boot, please
-post them. I don't really care at all which set of arbitrary numbers are
-chosen (as long as there is one and one only) but it looks like U-Boot's
-devicetree has an incorrect description of the clock controllers.
+Okay, I must have misunderstood the conversation on the previous
+version. Sorry about that.
 
-Thanks,
-Conor.
+> > Otherwise, it looks like all the stuff from him and Rob have been sorted
+> > out, so other than $title this is
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
---RTLt+oLiwQtApFlh
+
+--2Bn+39uGEqQUGUUq
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHCkqwAKCRB4tDGHoIJi
-0vdkAP43YzMMBIOP4qCklag39nbgwA7LSz09sTVxhoohdmu7wQEA5hXKARvXO2uQ
-B83EN/ygq00FWZGY0aFccStWog1ZRw8=
-=W4DW
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHCwjgAKCRB4tDGHoIJi
+0mgJAQClJBlPXs7N2vOvkTGSfZFOb6z47yAgyiaqavdIEp2UTQD9EB9gGDPr2W/F
+lNVtNtC8iRhO7w0elIt9BCJHjRITMwc=
+=AQaH
 -----END PGP SIGNATURE-----
 
---RTLt+oLiwQtApFlh--
+--2Bn+39uGEqQUGUUq--
 
 
---===============4583266453310996766==
+--===============7427674727881057221==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -262,5 +150,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4583266453310996766==--
+--===============7427674727881057221==--
 
