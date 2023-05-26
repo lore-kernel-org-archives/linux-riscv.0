@@ -4,94 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A1DC7EE23
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 11:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B011AC7EE23
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 12:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ppoVTCWOM1Fx2zNbbkD7hSP5mD9i2bZt7PtM5m+UFjw=; b=ZYXFXgFYVt0Tu5
-	HKSy3y3Mfb2gZSeWP5s0qCijIuVnW1JCZz1aKFb2BqcOU6T5xolU/F8YlxC8szKGQ6X9+dIGFCW+k
-	7AnnqFOPXt60sI9eLrKN99Fj+4bpa4UMTpCCgpb4gnKvHG9OwESZ3UCJRmfO+MDfMphxCF/2vprW4
-	aWTf2oB6oc+u5pDl0PmzionYWeRPmQoEbeezWdX/85dC0cJ5NsFW1rWZ4B+jrJ6ALsquFj3pfOhaC
-	gWHOD7IuSN6swOftdkaOAFrFxS13cEDkjh0nEUgf6Kx2ayffi0OGcIAgNrU9Ac8ZUMG1tCVZV7jD7
-	TsnQdiOJI/gbdiKfh6uw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dh/v6zraclIGNJWopaXA+boloqJlgT8jDKC6vs0c0aY=; b=OdteuYWmkDMufmoZa7KlYPIdRT
+	ZCvkXAb/GR9AtzIyJzSzR/fmTplGa+h3DNpolFcu7kF2rJGe5mHjyTkaoUmwqat8unLBFi72rmR5m
+	Cf4QUuV7lTJ3TX8kaJ1Gstj7JPnbKtemseUb6XvsRVNyuUZ7RzZN64a9r43RnJqtZKUe7/Vkshay1
+	aTBcdWpbeeRuk0JAf4ua+dG4pDlx+jN4V7+tsSArv30Vf9P8/C5DcIYnTO0AWpPgJqYJegrj6tGv6
+	BQnHmCogeTvk8FTg8LUN0OehtH8T12msfTTEsYEflKBVsHQ/6im974ysBjbtTxBaU84q2v3jnyh8q
+	vm9ofH+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2VO5-002Gon-2m;
-	Fri, 26 May 2023 11:13:37 +0000
-Received: from out3-smtp.messagingengine.com ([66.111.4.27])
+	id 1q2WTr-002T3x-0V;
+	Fri, 26 May 2023 12:23:39 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2VO3-002Gme-02
+	id 1q2WTn-002T2u-0k
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 11:13:36 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.nyi.internal (Postfix) with ESMTP id B087C5C02A5;
-	Fri, 26 May 2023 07:13:27 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Fri, 26 May 2023 07:13:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1685099607; x=1685186007; bh=+1
-	8KTealJLeomxP83iUYPUtTDn9OVxN2b+ZOdMcxvhk=; b=nnjCAIoLe7xGWK1YuI
-	Xang8XbZjzLFWCpoWixBEa3RX0P4a8BOHaxOC/EL5zq5BnHvgKnL66zyrEmNkImr
-	TFSAHbFTGY7MlB+ACRAzLM5Izbgiec24cJ/t7008U5TB+YNsd/eHksWl4gLh+Swn
-	h5QJofJowBPPuHzj/0A8D5NsasOKT4KsczDAPbYGi3UETp8z82gt4C2muNvyNCFJ
-	Z7Zk5UJS6fi9qxDg3MF8nyxmDi7YHEmKPxSd3ifcorwAFSVkIrq98jgB+RQBGCrI
-	pCMfA1CkVL4Takj7tx6g3btUl+NGS9LxNKYUwKQa64bmznE8zFz6C3v3VDFIFUlC
-	hXyw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1685099607; x=1685186007; bh=+18KTealJLeom
-	xP83iUYPUtTDn9OVxN2b+ZOdMcxvhk=; b=aAb2jxFdPzrHMAOwME7yp/30F6SbL
-	w4YY0CjNjVVv9a4Y/JY5Dx9TAdIN4IhD+MAwIhkS2eHI2PbZPhjXsEQUPFTC+QtN
-	pbvbiGDztsZDAoApSVR4fKt6z2w2g52qhi+QLA1NA9XmTnAFzy5MdXzstgGKkHs3
-	4BYAR63r8O24yvBFgblgBXZJo3eM0LKcdJ3zOKzjlvYycl6zEDfQrDH/P5g6+ruF
-	zy/pSJWhtPFBDkJlH2a9lZ1DRlJT7KcELfgdVad64KKOGq0izJ5624A/Oy/BKwXR
-	LlRlQoCGJbi4YpbRyaDEJ9Ph7g3NDOOoXlTrQ2uTMz9w9bOTP8JjOwjyw==
-X-ME-Sender: <xms:VpRwZC2S5KTaQ62euVeI2Iru8fFItByL29XmCKDP05HUzWhXkR1Zmg>
-    <xme:VpRwZFHHGKAP-gr9K7MB1jAoQqWnkUGBw7faEd3c2xc1m24pcE9yabMJyu_RLNU2i
-    Cl4cHWJWLE6tC9QDoQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeejledgfeeiucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:VpRwZK77q2EPZn_tpVGMTPK0ZF1abrg4sPQI14SPqlAY7T33KKmLyA>
-    <xmx:VpRwZD3po0ckUAFEljiBunNdbxxx_5Y5wp5rcqwnS-4EhIDXMw3IhQ>
-    <xmx:VpRwZFHh1uqiEnpbQB6NVP-p4sopCFl-MGm0J6E9Yi7JilqPM7MIDg>
-    <xmx:V5RwZOOl0DpxATfFluZzxCG7I7quRudGHZ059zQbm8IRZflp_WT9Kw>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 069CCB60089; Fri, 26 May 2023 07:13:26 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-441-ga3ab13cd6d-fm-20230517.001-ga3ab13cd
-Mime-Version: 1.0
-Message-Id: <70cf0d8f-ea8e-43b6-9b99-739562ea865d@app.fastmail.com>
-In-Reply-To: <20230526110001.150368-1-falcon@tinylab.org>
-References: <bf3e07c1-75f5-425b-9124-f3f2b230e63a@app.fastmail.com>
- <20230526110001.150368-1-falcon@tinylab.org>
-Date: Fri, 26 May 2023 13:13:05 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Zhangjin Wu" <falcon@tinylab.org>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas@t-8ch.de>,
- "Willy Tarreau" <w@1wt.eu>
-Subject: Re: [PATCH 00/13] tools/nolibc: riscv: Add full rv32 support
+	Fri, 26 May 2023 12:23:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1685103816; x=1716639816;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=N0p4xIBGqTuIaskXSeOSjiy9vfxUe/NL9WXqetZ8YJw=;
+  b=FLWHcmtzSPBqXLTNWhfwiDp+QDGTmtEXiKEP/YsfqtJ7oVa/3tXSfp6e
+   Nqt3W3AUK4k14kJoNHylur7i0kCrcu7Qn+F5t2nCuxsKbAEcoEi88AmjE
+   c8kJ751Cv88LQPWCBHBK21haw0sPFZx4TUpEieWOt9sA52xaFh1PKEf6M
+   NXsFKqs76HuppZrdRJg19saFPBpFIWYrGJX/SwDfzZQ1Mk7ZOLRxfK3Wv
+   PyHaVnOWKn5BFtLvf/zmQRrKndH1hRdyM+7eKQEEXWhoAd1Ut1Kpvhpga
+   liMcSIVYbQFdDOGDXPutoNCnpcyYpeyv6a/CSlXTotENrQT8apQ5enyP5
+   g==;
+X-IronPort-AV: E=Sophos;i="6.00,194,1681196400"; 
+   d="asc'?scan'208";a="215611840"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 May 2023 05:23:34 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Fri, 26 May 2023 05:23:33 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Fri, 26 May 2023 05:23:30 -0700
+Date: Fri, 26 May 2023 13:23:07 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Torsten Duwe <duwe@lst.de>
+CC: Xingyu Wu <xingyu.wu@starfivetech.com>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <yanhong.wang@starfivetech.com>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Emil Renner
+ Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
+	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, <u-boot@lists.denx.de>
+Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock
+ generator
+Message-ID: <20230526-unwashed-musty-dee883f1d6a7@wendy>
+References: <20230512022036.97987-2-xingyu.wu@starfivetech.com>
+ <20230519135733.GA10188@lst.de>
+ <20230519-smokeless-guileless-2a71cae06509@wendy>
+ <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
+ <20230523-fondue-monotype-0c751a8f0c13@wendy>
+ <20230523131006.46997d84@blackhole.lan>
+ <20230523-saturate-axis-f46b78b7b82b@wendy>
+ <38a9cb77-18b3-4daa-724b-9f2282f7d948@starfivetech.com>
+ <20230524-jittery-sway-41b578b24153@wendy>
+ <20230526093432.4682eab8@blackhole.lan>
+MIME-Version: 1.0
+In-Reply-To: <20230526093432.4682eab8@blackhole.lan>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_041335_119520_93E18F24 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20230526_052335_406754_431BA060 
+X-CRM114-Status: GOOD (  51.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,62 +96,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4583266453310996766=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 26, 2023, at 13:00, Zhangjin Wu wrote:
->> On Wed, May 24, 2023, at 19:59, Zhangjin Wu wrote:
->> > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
->
-> I have applied this method for ppoll_time64 and clock_gettime64 too,
-> this method can save several duplicated lines for us, I have prepared v2
-> patches locally for them. 
+--===============4583266453310996766==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="RTLt+oLiwQtApFlh"
+Content-Disposition: inline
 
-Ok, that addresses my concern about the possible bugs.
+--RTLt+oLiwQtApFlh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->> I would just use __kernel_timespec64 unconditionally and then
->> use __NR_pselect6_time64 on all 32-bit architectures here,
->> but use __NR_pselect6 on 32-bit architectures.
->>
->
-> The 2nd 32-bit you mean is 64-bit?
+On Fri, May 26, 2023 at 09:34:32AM +0200, Torsten Duwe wrote:
+> On Wed, 24 May 2023 11:19:48 +0100
+> Conor Dooley <conor.dooley@microchip.com> wrote:
+>=20
+> > On Wed, May 24, 2023 at 05:00:02PM +0800, Xingyu Wu wrote:
+> > > On 2023/5/23 19:28, Conor Dooley wrote:
+> > > > On Tue, May 23, 2023 at 01:10:06PM +0200, Torsten Duwe wrote:
+> > > >> On Tue, 23 May 2023 09:28:39 +0100
+> > > >> Conor Dooley <conor.dooley@microchip.com> wrote:
+> > > >>=20
+> > > >> > On Tue, May 23, 2023 at 10:56:43AM +0800, Xingyu Wu wrote:
+> > > >> > > On 2023/5/19 22:16, Conor Dooley wrote:
+> > > >> > > > On Fri, May 19, 2023 at 03:57:33PM +0200, Torsten Duwe
+> > > >> > > > wrote:
+> > > >> > > >> On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
+> [...]
+>=20
+> > > >> > > Because PLL driver is separated from SYSCRG drivers in
+> > > >> > > Linux, the numbering starts from 0. But in Uboot, the PLL
+> > > >> > > driver is included in the SYSCRG driver, and the number
+> > > >> > > follows the SYSCRG.
+> > > >> >=20
+> > > >> > Unfortunately, how you choose to construct your drivers has
+> > > >> > nothing to do with this.
+>=20
+> Exactly. As I wrote (quote below), the PLLx frequencies are controlled
+> by the I/O block SYS_SYSCON (starting there at offset 0x18), according
+> to the public datasheets. All(?) other clocks are derived from those in
+> the *_CRG units. That *is* the hardware to be described, in *the* (one
+> and only!) DT. U-Boot, and any OS, are free to reorganise their driver
+> framework around that, but the hardware description is quite clear.
 
-Yes, sorry for the typo.
+The dt-binding that is in this series specifies that the pll clock
+controller is a child of the syscon:
+https://lore.kernel.org/linux-riscv/20230512022036.97987-1-xingyu.wu@starfi=
+vetech.com/T/#Z2e.:..:20230512022036.97987-6-xingyu.wu::40starfivetech.com:=
+1soc:starfive:starfive::2cjh7110-syscon.yaml
 
-> This is related to the timespec64/time64_t definitions as you commented
-> in another reply. I will learn how to use the one from
-> <linux/time_types.h>, it may require to clean up the existing files in
-> tools/include/nolibc/ at first.
+That seems correct to me & U-Boot's devicetree is not compliant.
 
-Ok, thanks.
+> > > >> > These defines/numbers appear in the dts and are part of the DT
+> > > >> > ABI. The same dts is supposed to work for Linux & U-Boot.
+> > > >>=20
+> > > >> The JH7110 has 6 blocks of 64k iomem in that functional area:
+> > > >> {SYS,STG,AON} x {CRG,SYSCON}. None of these has 190 clocks.
+> > > >> The good news: the current DTS, as proposed here and in U-Boot
+> > > >> master, provides nodes for all 6 entities. The bad news is that
+> > > >> the clock assignments to those nodes and their numbering is
+> > > >> messed up.
+> > > >>=20
+> > > >> AFAICT PLL{0,1,2} _are_ generated in SYS_SYSCON and thus U-Boot
+> > > >> gets it wrong, in addition to the erroneous DTS.
+> > > >=20
+> > > > The numbers are kinda hocus-pocus anyway, they are just made up
+> > > > since the clock numbering usually isn't something with a nice TRM
+> > > > to go and reference (unlike interrupts which usually are
+> > > > documented in that way). It is very helpful to make them aligned
+> > > > some register/bit positions or, but that is not required.
+> > > > IOW U-Boot is not wrong per se to use 190 instead of 0, but it is
+> > > > wrong to have different numbers in both places.
+>=20
+> U-Boot reuses the Common Clock Framework from Linux, and I'm not sure
+> whether the clock IDs need to be unique in order for the appropriate
+> clock to be found.
 
->> I think we can also kill off the oldselect and newselect 
->> cases, using pselect6/pselect6_time64 unconditionally here,
->> and no longer care about building against pre-5.1 kernel
->> headers, at least for the copy of nolibc that ships with the
->> kernel.
->
-> As Willy commented in another reply, users may want to copy the recent
-> one and use them with an old kernel, even if want to drop them, a
-> standalone patch may be preferable.
+Unique within the clock controller, otherwise it is impossible to tell
+the difference between <&cctrl 1> and <&cctrl 1> apart! (The same
+follows even with increased #clock-cells, something must be unique).
+That's besides the point of this particular issue though.
 
-Fair enough. I checked the old versions and see that 5.1 in May 2019
-was the first one to include the time64 system call definitions, though
-5.6 from March 2020 was the first version that I consider fully working
-with time64.
+> But that would be the only restriction, if it
+> applies. Even then, each driver could register a clock with its own,
+> arbitrarily chosen base offset with the CCF, so each CRG unit could
+> still have its own clocks enumerated starting with 0 in the DTB.
+>=20
+> > > > It sounds like you're saying that (and I have not looked) the
+> > > > U-Boot dts actually has structural difference w.r.t. what
+> > > > provides which clock? If so, that'll need to be fixed
+> > > > independently of the numbering problem.
+>=20
+> > >=20
+> > > Oh, unfortunately, the 7110 can not support to mix the uboot dtb
+> > > and linux dtb up.
+> >=20
+> > What does "cannot support" mean? It's normal and desirable for the
+>=20
+> IMHO "desirable" is too weak.
 
-I don't know how common it is to copy nolibc into other projects,
-but requiring a three year old kernel might be a little too aggressive
-here. They could copy from 6.1-stable to keep the fallback (and miss
-rv32) if we do this, but a better cutoff may be Dec 2025 when
-linux-5.4 has its "projected EOL" date and one last LTS with the
-fallback (linux-6.16 or so) gets released.
+Yeah, agreed. I just don't like being prescriptive about what happens in
+projects that I do not maintain things for I guess.
 
-      Arnd
+> > same dtb to be usable for both. The Linux kernel's dt-bindings are
+> > used for multiple projects, not just Linux - it'd be silly for
+> > U-Boot, FreeBSD etc etc to go off and each have their open set of
+> > (incompatible) bindings.
+> >=20
+> > > If boot the Linux and should use the linux dtb instead of the uboot
+> > > dtb. Because all clock ids and reset ids in Linux and Uboot are
+> > > different include PLL, and some modules can work in Linux but not
+> > > in uboot.
+> [...]
+> >=20
+> > > I suggest to boot Linux with its own linux dtb.
+>=20
+> This is a fragile band-aid, to be used only as a last resort. It
+> creates more problems than it solves. Your DTB will then match your
+> kernel, but whether it describes the actual hardware is a game of
+> chance. Doesn't the VisionFive2 have an RPi connector... ?
+>=20
+> One of the IMO few valid use cases of adding a DTB to the kernel
+> at boot is OpenWRT, when you build an OS Image for a particular piece
+> of hardware you have at hand.
+>=20
+> > I suggest to make sure that you can use the same dtb for both.
+>=20
+> Interestingly enough, U-Boot already has the PLL driver in a separate
+> file. I have a half-baked patch here that moves the sys_syscon DT
+> matching into that file...
+
+If you have patches that fix the devicetree & drivers in U-Boot, please
+post them. I don't really care at all which set of arbitrary numbers are
+chosen (as long as there is one and one only) but it looks like U-Boot's
+devicetree has an incorrect description of the clock controllers.
+
+Thanks,
+Conor.
+
+--RTLt+oLiwQtApFlh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHCkqwAKCRB4tDGHoIJi
+0vdkAP43YzMMBIOP4qCklag39nbgwA7LSz09sTVxhoohdmu7wQEA5hXKARvXO2uQ
+B83EN/ygq00FWZGY0aFccStWog1ZRw8=
+=W4DW
+-----END PGP SIGNATURE-----
+
+--RTLt+oLiwQtApFlh--
+
+
+--===============4583266453310996766==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4583266453310996766==--
+
