@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D268C77B73
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 15:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E18C7EE2C
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 15:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqlKK8g2tcPtDaNPBiIdKLMuA4e4VPsZhcIt97r62kc=; b=zt68GiyEmTMvotx/UIsmlf6YjN
-	06SW/yoOTFID5fm8WEmseBPsLpfMYga/QSYnwR3+QpYKLKVEUN4GF1C9GAHdYD3J4Pm+uj6CrGdBP
-	4T1xl0Jbh6k7OoHo+Ki60/yQy/CoRBJxolqbMi5BsEmaBOyji3m/gKQ/jjf3iBDW4ViAQOdvL8BOb
-	Vu8T85BWsrRvkVyR+NqBlA0MO8hAU7zXODqsTn5R6huPeAk+Cby+V0kOHUYcNmzULVb90/a5fx7ZD
-	SeRfz7dqL1gttPsjl2SlhA9iGi39Wz5F4rHK+6s8B8bb4v2WbG5Ah6NUtHBOBzpNMxH97ibF2ae8D
-	JqKnmcmw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+f5NrXf7Hbg4c9/qcB6Awb3g6MQP530Fvs5VVKWHNio=; b=g551ty3U0/ztcy
+	q6knwgmCqBxywD2iyAjRvLrXD0NwoO/B3qzMdpPpFrsuCnSLay0Yzo9AaE90GPZHFfBN5z4hcxU20
+	RnIVy7dXqmr+E9zo/S3rrx6p459C6TYsqD/WRi51HuRvaYu5ZnHcobOVlMw4z5AgLHnFTtrH8L0VO
+	RY44lXN5a/jX3NGsY2fcnTzgpWa02wWMEFhpCcGnw7RTLyy9cggAVvXGO5yW707arkrLJQHB4GPAg
+	I2RkCAOW5tjN5F+CqmexZBVs7KenOBDQY0lK5zWgmdZ85Ak41sAYRA5E/30/fw9Lsg3Y9t3RhFe8o
+	06woeqO5WWxjzkiUxSWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Z3Z-002uwC-0N;
-	Fri, 26 May 2023 15:08:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q2Z7n-002vio-2X;
+	Fri, 26 May 2023 15:13:03 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Z3W-002uvG-01
+	id 1q2Z7j-002vhP-0l
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 15:08:39 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 59AB560ED3;
-	Fri, 26 May 2023 15:08:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5050EC433A4;
-	Fri, 26 May 2023 15:08:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685113717;
-	bh=jw06Bd9UnyKSbXh6qpPKPh6ve8zeePuDuifL3U5qGWw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JHZS/sgsqiCWxXuG+5tVlkySwRcBkVCppB+F9SO4qTwxFzzjyyFTmvlbiqz4s5a/v
-	 dlBTNtwkrfVQaVi/k5/ZdvkHn51HqiW38by25WA7hx3MLTdW2lL+KlZsYjxmcXTAUj
-	 gR75We/w7iAdfw0qXFV2wM+PMB1io6hVLGMkx18bQavV+DIJus06YZAF+QCcxpQtRY
-	 1MbZwP9rttL297GwqwCdaQKOiETjFAD4HUej0/aiq+0elKNTXCuzi7PI84c6oDSEQ+
-	 58/VF+4LwXVaXxVNLRwfkHLM2yfJmiAdSr+kOaVZkbsXi0m8UlKbFAkK2jVhk7ztKx
-	 L2sE6WnK4xVwQ==
-Date: Fri, 26 May 2023 16:08:32 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: conor.dooley@microchip.com, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, paul.walmsley@sifive.com, thomas@t-8ch.de,
-	w@1wt.eu
-Subject: Re: [PATCH 06/13] selftests/nolibc: allow specify a bios for qemu
-Message-ID: <20230526-humongous-manifesto-3c44973f0df1@spud>
-References: <20230526-clover-litter-1f41398cd820@wendy>
- <20230526133825.198100-1-falcon@tinylab.org>
+	Fri, 26 May 2023 15:13:01 +0000
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0217DC0007;
+	Fri, 26 May 2023 15:12:46 +0000 (UTC)
+Message-ID: <f82e7d3d-a16d-593e-7513-753b5cbf28af@ghiti.fr>
+Date: Fri, 26 May 2023 17:12:46 +0200
 MIME-Version: 1.0
-In-Reply-To: <20230526133825.198100-1-falcon@tinylab.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: Bug report: kernel paniced when system hibernates
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ Atish Patra <atishp@atishpatra.org>,
+ Conor Dooley <conor.dooley@microchip.com>, Anup Patel <anup@brainfault.org>,
+ Anup Patel <apatel@ventanamicro.com>, robh@kernel.org,
+ jeeheng.sia@starfivetech.com, linux-kernel@vger.kernel.org,
+ palmer@rivosinc.com, leyfoon.tan@starfivetech.com,
+ mason.huo@starfivetech.com, Guo Ren <guoren@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Song Shuai
+ <suagrfillet@gmail.com>, linux-riscv@lists.infradead.org,
+ Andrew Jones <ajones@ventanamicro.com>
+References: <20230525-shrapnel-precut-26500fca4a48@wendy>
+ <CAAhSdy3SqeLdAfaojUki=ht21nr4ZUPMkW_t9M6ntQCt6Ds4Nw@mail.gmail.com>
+ <20230525-citric-waged-a2f78d27eb0c@wendy>
+ <CAOnJCULfC0jmiucLNMeJZwJf4QbGAN6r4B-ubUbP16KVpxrCfA@mail.gmail.com>
+ <20230525-flaring-trading-f2bf0713ae26@spud>
+ <CAOnJCUK_EgX-En1QNS8yX1WA1nj8w2kpvXMQcvgWuR3dvzEQYw@mail.gmail.com>
+ <20230525-desecrate-imposing-d97ab34e06ad@spud>
+ <CAOnJCUKfRv68Bh8ue=ZhMGxai9_UEHLpm3553g2c2NXh-RP-TQ@mail.gmail.com>
+ <20230525-batting-botch-7e03393a2d97@spud>
+ <CAHVXubiDezbwZO6X2btvgpq-XqHnxZjXzaMnSK2YrHc_ioLx8Q@mail.gmail.com>
+ <20230526-steep-omen-a5a46a1086bf@spud>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230526-steep-omen-a5a46a1086bf@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_080838_139867_6C2DFBDF 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20230526_081259_560801_337865F6 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,117 +92,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7278550900141192621=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7278550900141192621==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="WayLhPoiZx5ZZrQj"
-Content-Disposition: inline
-
-
---WayLhPoiZx5ZZrQj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, May 26, 2023 at 09:38:25PM +0800, Zhangjin Wu wrote:
-> Hi, Conor.
->=20
-> >=20
-> > On Fri, May 26, 2023 at 06:25:18PM +0800, Zhangjin Wu wrote:
-> >=20
-> > > > On 2023-05-25 01:52:29+0800, Zhangjin Wu wrote:
-> > > > > riscv qemu has a builtin bios (opensbi), but it may not match the=
- latest
-> > > > > kernel and some old versions may hang during boot, let's allow us=
-er pass
-> > > > > a newer version to qemu via the -bios option.
-> > > >
-> > > > Nitpick:
-> > > >
-> > > > This seems very specific and hopefully only necessary temporarily.
-> > > >
-> > >
-> > > RISC-V is such a new ISA and the Spec (especially the SBI) changes ve=
-ry
-> > > frequently ;-)
-> >=20
-> > Huh. Could you please expand on which versions of QEMU will hang while
-> > booting an upstream or stable kernel? Which kernels would be good to
-> > know too.
-> >=20
->=20
-> As the cover letter listed (in the Environment section), the softwares we
-> used are:
-
-Not super interested in those ones since they work ;)
-
-> The kernel version is the one this patchset based on (Willy's nolibc
-> repo), it is v6.4-rc1.
->=20
-> qemu v4.2.1 is the one systematically installed (/usr/bin) from the
-> qemu-system-misc package and used to test this patchset in my Ubuntu
-> 20.04 based test docker image.
-
-Okay, in the context of RISC-V, that is pretty ancient ;)
-
-> Just installed a v7.0.0 qemu from ppa:canonical-server/server-backports,
-> there is no default opensbi, and re-checked, there is one prebuilt
-> opensbi for rv64, but still no prebuilt opensbi for rv32.
-
-Ah, I see.
-
-> The hang issue I mentioned may be using one of my older prebuilt version =
-of
-> opensbi, I can not find which one it exactly is, so, please ignore that i=
-nfo,
-> will update that description too.
-
-Okay. If you do manage to reproduce it, LMK! I was/am just worried we
-have some regressions because you should be able to keep booting with
-those older opensbi versions, modulo some Kconfig changes - although if
-it is something like qemu 4.2.1 specific I don't think I care all that
-much about dinosaurs ;)
-
-> Btw, something not about this patch: qemu v8.0.0 seems not boot non-mmu
-> v6.3, both sides have issues, not dig into it carefully, so, not report
-> it yet.
-
-Cool. Feel free to CC me on whatever you discover. nommu gets little
-enough testing in mainline, and even less in stable kernels. That reminds
-me, I do need to add 32-bit nommu to the patchwork automation for
-linux-riscv.
-
-Thanks,
-Conor.
-
---WayLhPoiZx5ZZrQj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHDLcAAKCRB4tDGHoIJi
-0nCqAQCCgCmTkKTJmk/35FqltqEtnqj2/KKHc1XPAIfhmy4/DAD/dMTwgLHXhm2b
-t9fvm/hCLjoKAjt1pgKF97u2CcEfowU=
-=iJ17
------END PGP SIGNATURE-----
-
---WayLhPoiZx5ZZrQj--
-
-
---===============7278550900141192621==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7278550900141192621==--
-
+Ck9uIDI2LzA1LzIwMjMgMTY6NTksIENvbm9yIERvb2xleSB3cm90ZToKPiBPbiBGcmksIE1heSAy
+NiwgMjAyMyBhdCAwMzoxNDozM1BNICswMjAwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4+IEhp
+IGV2ZXJ5b25lLAo+Pgo+PiBPbiBUaHUsIE1heSAyNSwgMjAyMyBhdCAxMToyNOKAr1BNIENvbm9y
+IERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6Cj4+PiBPbiBUaHUsIE1heSAyNSwgMjAy
+MyBhdCAwMTowNjowNFBNIC0wNzAwLCBBdGlzaCBQYXRyYSB3cm90ZToKPj4+PiBPbiBUaHUsIE1h
+eSAyNSwgMjAyMyBhdCAxMTozOeKAr0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4g
+d3JvdGU6Cj4+Pj4+IE9uIFRodSwgTWF5IDI1LCAyMDIzIGF0IDExOjM3OjQwQU0gLTA3MDAsIEF0
+aXNoIFBhdHJhIHdyb3RlOgo+Pj4+Pgo+Pj4+Pj4gQW55IHRlc3Rpbmcgb2YgaGliZXJuYXRpb24g
+c3RpbGwgbmVlZHMgdG8gcmV2ZXJ0IHRoZSBwYXRjaCB1bnRpbCB3ZQo+Pj4+Pj4gaGF2ZSB0aGUg
+cHJvcGVyIGZpeC4KPj4+Pj4gInRoZSBwYXRjaCIgaXMgd2hhdCBleGFjdGx5PyBJIGFzc3VtZSB5
+b3UgZG9uJ3QgbWVhbiBkZXBlbmRpbmcgb24KPj4+Pj4gTk9OUE9SVEFCTEUsIHNpbmNlIHRoYXQg
+aXMgYSBLY29uZmlnIG9wdGlvbi4KPj4+PiBOb3BlLiBTb3JyeSBJIG1lYW50IHRoZSBjb21taXQK
+Pj4+Pgo+Pj4+IDMzMzUwNjggKCJyaXNjdjogVXNlIFBVRC9QNEQvUEdEIHBhZ2VzIGZvciB0aGUg
+bGluZWFyIG1hcHBpbmciKQo+Pj4gQWgsIGlmIHlvdXIgU0JJIGltcGxlbWVudGF0aW9uIGlzIG9u
+ZSBvZiB0aGUgYWZmZWN0ZWQgb25lcywgeWVhaC4KPj4+IElmIG5vdCwgeW91IGNhbiBqdXN0IHNl
+dCBOT05QT1JUQUJMRSA6KQo+PiBAQmrDtnJuIFTDtnBlbCBlbWl0dGVkIHRoZSBpZGVhIG9mIGV4
+Y2x1ZGluZyBmcm9tIHRoZSBoaWJlcm5hdGlvbiBhbGwKPj4gdGhlIG1lbW9yeSBub2RlcyBpbiB0
+aGUgIi9yZXNlcnZlZC1tZW1vcnkiIG5vZGUKPj4gKGh0dHBzOi8vZWxpeGlyLmJvb3RsaW4uY29t
+L2xpbnV4L3Y2LjQtcmMxL3NvdXJjZS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mv
+cmVzZXJ2ZWQtbWVtb3J5L3Jlc2VydmVkLW1lbW9yeS55YW1sKToKPj4gSSBoYXZlIHRvIGFkbWl0
+IHRoYXQgSSBkb24ndCBzZWUgd2h5IGl0IGlzIG5vdCBkb25lIGJ5IGRlZmF1bHQgYnkgdGhlCj4+
+IGtlcm5lbC4KPiBNeSB1bmRlcnN0YW5kaW5nIHdhcyB0aGF0IGl0IHdhcyBwZXJmZWN0bHkgZmlu
+ZSB0byB1c2UgcmVzZXJ2ZWQgbWVtb3J5Cj4gbm9kZXMgdG8gZmVuY2Ugb2ZmIHNvbWUgbWVtb3J5
+IHRvIHVzZSBpbiBkZXZpY2UgZHJpdmVycyBldGMsIHdoaWNoIHRoZW4KPiBtYXkgbmVlZCB0byBi
+ZSBzYXZlZC9yZXN0b3JlZC4KCgpBZ3JlZWQsIGJ1dCBJIHdvdWxkIHNheSB0aGF0IGl0J3MgdXAg
+dG8gdGhlIGRyaXZlciB0aGVuIHRvIHRha2UgY2FyZSBvZiAKdGhhdCwgc2VlIGh0dHBzOi8vZG9j
+cy5rZXJuZWwub3JnL2RyaXZlci1hcGkvcG0vbm90aWZpZXJzLmh0bWwKCgo+PiBVbmxlc3MgdGhl
+cmUgaXMgc3R1ZmYgaW4gdGhpcyBub2RlIHRoYXQgbmVlZHMgdG8gYmUgImhpYmVybmF0ZWQiLCBJ
+Cj4+IHRoaW5rIHRoYXQgd291bGQgYmUgYSB2ZXJ5IGdvb2Qgc29sdXRpb24gc2luY2Ugd2Ugd291
+bGQgbm90IHJlbHkgb24KPj4gdGhlIG5hbWUgb2YgdGhlICJpbnRlcm5hbCIgbm9kZXMgb2YgIi9y
+ZXNlcnZlZC1tZW1vcnkiIChpLmUuCj4+ICJtbW9kZV9yZXN2IikuCj4+Cj4+IEknbSBkaWdnaW5n
+IGludG8gd2h5IGl0IGlzIG5vdCBkb25lIGJ5IGRlZmF1bHQsIGp1c3Qgd2FudGVkIHRvIGhhdmUK
+Pj4geW91ciBmZWVkYmFjayBiZWZvcmUgdGhlIHdlZWstZW5kIDopCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
