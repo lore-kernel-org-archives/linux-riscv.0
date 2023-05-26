@@ -4,61 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61012C7EE29
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 01:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD93C77B7A
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 02:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZBjeTv59y38BMrdB56MuVoxCvdtQUCGKMl4EYp1zOO8=; b=2Kp1fajWCGXRM6
-	USsbCGK0cdcnEYJugtCeJBoDiT7XvVkecZ54pk39H4rT2X59BnNPRtZp10elCqWSfkEnoD9BarQ4A
-	Pjd3z7bJ2p+Q9+LWACupWlMeQno1ZcorXSQB5bMwuFLlZK2wSK8gYfJPQzvcg975WmSOlPdTzzJVE
-	vYfzsYf1OPVMN2GLWMwbE0BUpeOQ/yZjfIZa7Zc+LZ4GqSny4QQ6Hyy/PT8UBtUfCpJpMMYhw2WG5
-	8DhU8xCObDT+Yi3Hv9LcpihuL3149DnQux2EZu22ZRI43mpt2OdshtN7oG1c6uLlioWQSSC7MoqKK
-	r/FXJ26jKzb2AtdF3szw==;
+	List-Owner; bh=eXU+t9eCU3j5lKP0bOq604xDiGlF14RFUUy9NnvMYVk=; b=tlQcroWUM6yzTd
+	KcVtuh5DGGAsY0YcT3n8QyeMvev+vwhatMaMOQwoxEJfVFBsk+5ldaEsTAcfzpZ1eE5gygxoG1MbM
+	FBVyFmqNbOGB0CVAe8bQ3jQaE5Ei4aIKOMRfSlz+DLxK08OjmvHQvj2VoO+ME3g8WgVke9ftSKAqw
+	WVeRyYoejmm+9L8TwgJqZ8mtQW3BYel/R4HbnV6kcoREyhYxKezh7DzLAl6FFh7HSs+/FrPYNULoN
+	fnKvFlOy3MIhpM+jrW1IlGzQWAb4CTp7YysndQicqSBFbxM0yPkDBbe6WZ0G1ZnPoB41oAcV/28Oi
+	fTyi5PFufrDKp8NM/9vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Mbb-000g3v-0A;
-	Fri, 26 May 2023 01:50:59 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1q2N3C-000jfV-0A;
+	Fri, 26 May 2023 02:19:30 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2MbX-000g1q-1C
+	id 1q2N38-000jer-38
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 01:50:57 +0000
-X-QQ-mid: bizesmtp78t1685065838tfibdc44
-Received: from linux-lab-host.localdomain ( [119.123.130.80])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 26 May 2023 09:50:37 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: eSZ1CZgv+JCfU+Q/Ek/ByeU4a4AcvGPfBDxLuzVFFnBqpvoCh57Xxdo1gHof2
-	DKr4mZ4kV32WaG5tW5yVOn0mzE2srmKCy20Wly4IDPnhzsNIFzH8Ag5oMY2wbxji9SEJrIc
-	xvZ1OFXmdBbzmpsBzEhyTlrbTbAbTKbbKsQJuXoqqjwGsiKWOwV54KwCJ+GwOmWBSWxIqvX
-	TdyIfspVyKxfH/7TPKd/GL+n2HqFsSJ0wVBV5B+mE2RgJg6H5I9Qfk4fbp4GZNJDwC5iSGb
-	401ADIKHmUHRf0C55yg65WZ3Qde3Eqh2HXjK0SQixho7yC3iCwEd6oL4fZI1Maez5Dq55Ca
-	21pxKHG+TjqEZX04sB4RVmaRnlK+A==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17809865514302005706
-From: Zhangjin Wu <falcon@tinylab.org>
-To: thomas@t-8ch.de
-Cc: falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	w@1wt.eu
-Subject: Re: [PATCH 11/13] tools/nolibc: sys_select: riscv: use __NR_pselect6_time64 for rv32
-Date: Fri, 26 May 2023 09:50:37 +0800
-Message-Id: <20230526015037.6455-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <76a5f9a0-eec4-415a-9c5d-ac3bca4d4b0e@t-8ch.de>
-References: <76a5f9a0-eec4-415a-9c5d-ac3bca4d4b0e@t-8ch.de>
+	Fri, 26 May 2023 02:19:28 +0000
+Date: Fri, 26 May 2023 10:19:10 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	devicetree@vger.kernel.org, Yangtao Li <frank.li@vivo.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Wei Fu <wefu@redhat.com>
+Subject: Re: [PATCH v2 0/9] Add Sipeed Lichee Pi 4A RISC-V board support
+Message-ID: <ZHAXHs03kXNgp0QF@ofant>
+References: <20230518184541.2627-1-jszhang@kernel.org>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+Content-Disposition: inline
+In-Reply-To: <20230518184541.2627-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_185055_725619_E230DB2D 
-X-CRM114-Status: GOOD (  29.19  )
+X-CRM114-CacheID: sfid-20230525_191927_037361_ACDC7129 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,111 +65,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On 2023-05-25 15:10:21+0800, Zhangjin Wu wrote:
-> > Hi, Thomas
-> > 
-> > > On 2023-05-25 01:59:55+0800, Zhangjin Wu wrote:
-> > > > rv32 uses the generic include/uapi/asm-generic/unistd.h and it has no
-> > > > __NR_pselect6 after kernel commit d4c08b9776b3 ("riscv: Use latest
-> > > > system call ABI"), use __NR_pselect6_time64 instead.
-> > > > 
-> > > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> > > > ---
-> > > >  tools/include/nolibc/sys.h | 7 ++++++-
-> > > >  1 file changed, 6 insertions(+), 1 deletion(-)
-> > > > 
-> > > > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-> > > > index c0335a84f880..00c7197dcd50 100644
-> > > > --- a/tools/include/nolibc/sys.h
-> > > > +++ b/tools/include/nolibc/sys.h
-> > > > @@ -1041,8 +1041,13 @@ int sys_select(int nfds, fd_set *rfds, fd_set *wfds, fd_set *efds, struct timeva
-> > > >  		struct timeval *t;
-> > > >  	} arg = { .n = nfds, .r = rfds, .w = wfds, .e = efds, .t = timeout };
-> > > >  	return my_syscall1(__NR_select, &arg);
-> > > > -#elif defined(__ARCH_WANT_SYS_PSELECT6) && defined(__NR_pselect6)
-> > > > +#elif defined(__ARCH_WANT_SYS_PSELECT6) && (defined(__NR_pselect6) || defined(__NR_pselect6_time64))
-> > > > +#ifdef __NR_pselect6
-> > > >  	struct timespec t;
-> > > > +#else
-> > > > +	struct timespec64 t;
-> > > > +#define __NR_pselect6 __NR_pselect6_time64
-> > > 
-> > > Wouldn't this #define leak to the users of nolibc and lead to calls to
-> > > pselect6_time64 with the ABI of the __NR_pselect6 if userspace is doing
-> > > its own raw syscalls?
-> > >
-> > 
-> > Yeah, it would break the user-side raw __NR_pselect6 syscall for nolibc is a
-> > header-only libc, so, it is not safe to use such method like glibc.
-> > 
-> > Something like this will let the syscall call to pselect6_time64 instead of the
-> > user-required __NR_pselect6 and pass the wrong type of argument.
-> > 
-> >     #include "nolibc.h"  // If no __NR_pselect6 defined, __NR_pselect6 = __NR_pselect6_time64
-> > 
-> >     #ifdef __NR_pselect6
-> >         struct timespec t;  // come here for __NR_pselect6_time64, but t is not timespec64, broken
-> >         syscall(__NR_pselect6, nfds, rfds, wfds, efds, timeout ? &t : NULL, NULL);
-> >     #else
-> >         struct timespec64 t;
-> >         syscall(__NR_pselect6, nfds, rfds, wfds, efds, timeout ? &t : NULL, NULL);
-> >     #endif
-> > 
-> > I have used something like __NR_pselect6_time3264 locally, before
-> > sending the patchset, I found a cleaner method already used in sys.h:
-> > 
-> >     #ifndef __NR__newselect
-> >     #define __NR__newselect __NR_select
-> >     #endif
-> > 
-> > But I forgot the arguments mixing issue, __NR__newselect and __NR_select
-> > share the same type of arguments, but __NR_pselect6 and
-> > __NR_pselect6_time64 not, so, I will use back the old method but still
-> > need to find a better string, just like __NR__newselect, __NR__pselect6
-> > may be used in kernel space in the future, and __NR_pselect6_time3264 is
-> > too long, what about this?
-> > 
-> >     #ifdef __NR_pselect6
-> >             struct timespec t;
-> >     #define __NR_pselect6__ __NR_pselect6
-> >     #else
-> >             struct timespec64 t;
-> >     #define __NR_pselect6__ __NR_pselect6_time64
-> >     #endif
-> > 
-> > Or even ___NR_pselect6?
+Hi Jisheng
+On 02:45 Fri 19 May     , Jisheng Zhang wrote:
+> Sipeed's Lichee Pi 4A development board uses Lichee Module 4A core
+> module which is powered by T-HEAD's TH1520 SoC. Add minimal device
+> tree files for the core module and the development board.
 > 
-> What about:
+> Support basic uart/gpio/dmac drivers, so supports booting to a basic
+> shell.
 > 
-> #ifdef __NR_pselect6
->         struct timespec t;
->         const long nr_pselect = __NR_pselect6;
-> #else
->         struct timespec64 t;
->         const long nr_pselect = __NR_pselect6_time64;
-> #endif
->
+> FWICT, one issue I'm not sure is the cpu reset dt-binding: IIUC, the
+> secondary CPUs in T-HEAD SMP capable platforms need some special
+> handling. The first one is to write the warm reset entry to entry
+> register. The second one is write a SoC specific control value to
+> a SoC specific control reg. The last one is to clone some CSRs for
+> secondary CPUs to ensure these CSRs' values are the same as the
+> main boot CPU. This DT node is mainly used by opensbi firmware.
+> Any suggestion about this reset dt-binding is appreciated!
+> 
+> Thanks
+> 
+> Since v1:
+>   - add missing plic, clint, th1520 itself dt-bindings
+>   - use c900-plic
+>   - s/light/th1520
+>   - add dt-binding for T-HEAD CPU reset
+>   - enable ARCH_THEAD in defconfig
+>   - fix all dtbs_check error/warning except the CPU RESET, see above.
+it would be nice to have a URL reference to v0
+https://lore.kernel.org/all/20230507182304.2934-1-jszhang@kernel.org/
 
-It looks better and cleaner, will apply this method, thanks!
+> 
+> Jisheng Zhang (9):
+>   dt-bindings: interrupt-controller: Add T-HEAD's TH1520 PLIC
+>   dt-bindings: timer: Add T-HEAD TH1520 clint
+>   dt-bindings: riscv: Add T-HEAD TH1520 board compatibles
+>   dt-binding: riscv: add T-HEAD CPU reset
+>   riscv: Add the T-HEAD SoC family Kconfig option
+>   riscv: dts: add initial T-HEAD TH1520 SoC device tree
+>   riscv: dts: thead: add sipeed Lichee Pi 4A board device tree
+>   MAINTAINERS: add entry for T-HEAD RISC-V SoC
+>   riscv: defconfig: enable T-HEAD SoC
+> 
+>  .../sifive,plic-1.0.0.yaml                    |   1 +
+>  .../bindings/riscv/thead,cpu-reset.yaml       |  69 +++
+>  .../devicetree/bindings/riscv/thead.yaml      |  29 ++
+>  .../bindings/timer/sifive,clint.yaml          |   1 +
+>  MAINTAINERS                                   |   6 +
+>  arch/riscv/Kconfig.socs                       |   6 +
+>  arch/riscv/boot/dts/Makefile                  |   1 +
+>  arch/riscv/boot/dts/thead/Makefile            |   2 +
+>  .../dts/thead/th1520-lichee-module-4a.dtsi    |  38 ++
+>  .../boot/dts/thead/th1520-lichee-pi-4a.dts    |  32 ++
+>  arch/riscv/boot/dts/thead/th1520.dtsi         | 451 ++++++++++++++++++
+>  arch/riscv/configs/defconfig                  |   1 +
+>  12 files changed, 637 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/thead,cpu-reset.yaml
+>  create mode 100644 Documentation/devicetree/bindings/riscv/thead.yaml
+>  create mode 100644 arch/riscv/boot/dts/thead/Makefile
+>  create mode 100644 arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+>  create mode 100644 arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+>  create mode 100644 arch/riscv/boot/dts/thead/th1520.dtsi
+> 
+> -- 
+> 2.40.0
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-> > 
-> > The same issue is in this patch:
-> > 
-> >     [PATCH 13/13] tools/nolibc: sys_gettimeofday: riscv: use __NR_clock_gettime64
-> > 
-> > will solve it with the same method.
->
-
-And also this one:
-
-    [PATCH 09/13] tools/nolibc: sys_poll: riscv: use __NR_ppoll_time64
-
-Have tested all of them, will send a v2 later.
-
-Best regards,
-Zhangjin
-
-> Thanks!
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
