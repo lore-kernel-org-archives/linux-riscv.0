@@ -4,51 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FC8C7EE23
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 10:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4D8C7EE23
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 10:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nu9AxGs131HfSrqBzEh/fFCSqM1/vHNpX9dJvsJv9aw=; b=KX3zkOlximA5KT
-	MfA6jemcXV5DvYPvU1NCRFcHTxoM94lOX/D4FaQ6pEvWIP3inphP23I+oROrASG9QT52sFuO1IZNX
-	5aeAAjBAog+FsDYUr8KTJACgZNphKXHt8btqH15pg+59MyeeoOOgQD1SxDOtYM5b+CtQ7qJXbIHzL
-	TuOI6TNJY/ivKCGEpgPB11YyERTWJZQ218/2EQbCw7jNzMU1NSOEmDQKlYkJqz/4F97xIPsBxNIWF
-	Zc/dfK3vODS3c7lZCs8tneZRZwfJYqE71R9crzy+bnSzA7w/7weZUIQSBCsOJA1xC+ZNPaXjVtpQB
-	OTBeOtAo+2Zlhy2LzXwQ==;
+	List-Owner; bh=fLseLdL7Ll/tb7MR9cHt9TfHZIKpSN7pVfPTmarsGFs=; b=FZzdmSeTrDbScM
+	ooMLszrI5/LlM4X1kebgZ4udcV7plqoRRFrZ6kdwCRMnDUaQZR4GUJIjp8suU3VWFqemURGSTd/hs
+	wx6hv53vaz7B9eluz3qJTWtePoV7C+Mjovvj0MflLPbFyOjg8nz3zVhAu8h81iql9InEk78BXyjNf
+	D9EwHruZRiAd5zeh6CSLd80KVvQK07JPq1SYrFLLQCYig3esxRTN1ZCpuH8zj/hjF223X7XzOHWtf
+	qbhbn2VC1uRF5Z5h1EZrpe+SDNKSjrC/JkBdhYuZO3KXEEc0/wglSc3ZXOzGVT2cK9ttd4UCqDo7I
+	LaLwEYY8Xhcmhw4VJsXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2UQb-001y5Q-0K;
-	Fri, 26 May 2023 10:12:09 +0000
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2UQY-001y4Q-0U
-	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 10:12:07 +0000
-Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 34QA6Oum011800;
-	Fri, 26 May 2023 12:06:24 +0200
-Date: Fri, 26 May 2023 12:06:24 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Zhangjin Wu <falcon@tinylab.org>, linux-kernel@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>, thomas@t-8ch.de
-Subject: Re: [PATCH 04/13] selftests/nolibc: syscall_args: use __NR_statx for
- rv32
-Message-ID: <ZHCEoKXHSDlDvI5u@1wt.eu>
-References: <cover.1684949267.git.falcon@tinylab.org>
- <b306ae7b53d67acad6d1e2f63d43505d79f81241.1684949267.git.falcon@tinylab.org>
- <ee8b1f02-ded1-488b-a3a5-68774f0349b5@app.fastmail.com>
+	id 1q2USv-001yad-1g;
+	Fri, 26 May 2023 10:14:33 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q2USn-001yWO-1g;
+	Fri, 26 May 2023 10:14:26 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1685096062;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=l0JCLWaWxAiVqnK2HID86lF3S13SCfgrB4rF/jITy/I=;
+	b=ip+IsKji95mPrphWLVAUcdYl0y7pMoo/0rzxXxKZorc2i1ogyDwgLlmNAyb0qqipND//Q9
+	mcdcjSKoJ1BmMv2yfve0Ih3RShF4W067n1L36VQOlRFjew11DbOIHP9BY3hPEmKWEMkYtF
+	3++Mlj3E1pedAPDLuSJp8O8yrjmKl61cO3sikLlCo0aFQA4sDzjqIug5Y2sHJzxAouulen
+	yWchVZzHYCyYvLl2IBhaE7LhZZ90HvEDnnYiIPfmZVnM5oPDhrPgISY7m926weiwqHfWOw
+	VMBPX/ASMwnX6UaU0XNMhsxdic6Oppo5GnIK5pHcSkZVNuJmv/nyAhmosdGW7Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1685096062;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=l0JCLWaWxAiVqnK2HID86lF3S13SCfgrB4rF/jITy/I=;
+	b=mQPEsm7iwifOjyLdaiqWmBusXWewAsMMsfF7/82drVMMawEZjza+eT9dmICykmFbK9zGX6
+	K4OvjM1+WRhVDmDw==
+To: "Kirill A. Shutemov" <kirill@shutemov.name>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
+ <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
+ Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>,
+ Tom Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
+ <seanjc@google.com>, Oleksandr Natalenko <oleksandr@natalenko.name>, Paul
+ Menzel <pmenzel@molgen.mpg.de>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Piotr Gorski <lucjan.lucjanov@gmail.com>, Usama
+ Arif <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>, Boris
+ Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>, "Michael Kelley (LINUX)"
+ <mikelley@microsoft.com>, Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [patch v3 31/36] x86/apic: Provide cpu_primary_thread mask
+In-Reply-To: <20230524204818.3tjlwah2euncxzmh@box.shutemov.name>
+References: <20230508181633.089804905@linutronix.de>
+ <20230508185218.962208640@linutronix.de>
+ <20230524204818.3tjlwah2euncxzmh@box.shutemov.name>
+Date: Fri, 26 May 2023 12:14:21 +0200
+Message-ID: <87y1lbl7r6.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ee8b1f02-ded1-488b-a3a5-68774f0349b5@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_031206_791650_8E83AB75 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20230526_031425_716615_3BA4401B 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,53 +95,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Wed, May 24 2023 at 23:48, Kirill A. Shutemov wrote:
+> On Mon, May 08, 2023 at 09:44:17PM +0200, Thomas Gleixner wrote:
+>>  #ifdef CONFIG_SMP
+>> -/**
+>> - * apic_id_is_primary_thread - Check whether APIC ID belongs to a primary thread
+>> - * @apicid: APIC ID to check
+>> - */
+>> -bool apic_id_is_primary_thread(unsigned int apicid)
+>> +static void cpu_mark_primary_thread(unsigned int cpu, unsigned int apicid)
+>>  {
+>> -	u32 mask;
+>> -
+>> -	if (smp_num_siblings == 1)
+>> -		return true;
+>>  	/* Isolate the SMT bit(s) in the APICID and check for 0 */
+>> -	mask = (1U << (fls(smp_num_siblings) - 1)) - 1;
+>> -	return !(apicid & mask);
+>> +	u32 mask = (1U << (fls(smp_num_siblings) - 1)) - 1;
+>> +
+>> +	if (smp_num_siblings == 1 || !(apicid & mask))
+>> +		cpumask_set_cpu(cpu, &__cpu_primary_thread_mask);
+>>  }
+>> +#else
+>> +static inline void cpu_mark_primary_thread(unsigned int cpu, unsigned int apicid) { }
+>>  #endif
+>>  
+>>  /*
+>
+> This patch causes boot regression on TDX guest. The guest crashes on SMP
+> bring up.
 
-On Fri, May 26, 2023 at 11:21:02AM +0200, Arnd Bergmann wrote:
-> On Wed, May 24, 2023, at 19:48, Zhangjin Wu wrote:
-> 
-> > 
-> > +static int test_syscall_args(void)
-> > +{
-> > +#ifdef __NR_fstat
-> > +	return syscall(__NR_fstat, 0, NULL);
-> > +#elif defined(__NR_statx)
-> > +	return syscall(__NR_statx, 0, NULL, 0, 0, NULL);
-> > +#else
-> > +#error Neither __NR_fstat nor __NR_statx defined, cannot implement 
-> > syscall_args test
-> > +#endif
-> > +}
-> 
-> Does this need to work on old kernels? My impression was that
-> this is only intended to be used with the kernel that ships the
-> copy, so you can just rely on statx to be defined and drop
-> the old fallbacks (same as for pselect6_time64 as I commented).
+I rather call it a security feature: It makes TDX unbreakably secure.
 
-Yes, as much as possible this is desirable because the purpose is
-clearly to simplify the build of applications. The reason is that
-some applications might want to run as well on older kernels, but
-may miss some syscalls on the nolibc shipped with these older ones.
-Since the project is quite young, it lags a lot behind what each
-kernel supports, so it's expected that users will take the most
-recent nolibc version to benefit from support of syscalls that were
-already present in older ones.
+> The change makes use of smp_num_siblings earlier than before: the mask get
+> constructed in acpi_boot_init() codepath. Later on smp_num_siblings gets
+> updated in detect_ht().
+>
+> In my setup with 16 vCPUs, smp_num_siblings is 16 before detect_ht() and
+> set to 1 in detect_ht().
 
-The alternative would be to take the project out of the kernel as it
-was before but this would likely complicate contributions.
+  early_init_intel(c)
+    if (detect_extended_topology_early(c) < 0)
+       detect_ht_early(c);
 
-However the selftest code is clearly specific to a kernel IMHO, since
-its goal is to be used to check that the shipped version of nolibc works
-on this kernel.
+  acpi_boot_init()
+    ....
 
-As such, my view on this is that as long as it doesn't require
-unreasonable efforts to support older kernels for the userland code,
-we should try. If sometimes it's a big pain, we should not insist too
-much, but at least making sure that only the feature in question will
-not work would be desirable.
+  identify_boot_cpu(c)
+    detect_ht(c);
 
-Thanks,
-Willy
+Aaargh. That whole CPU identification code is a complete horrorshow.
+
+I'll have a look....
+
+
 
 _______________________________________________
 linux-riscv mailing list
