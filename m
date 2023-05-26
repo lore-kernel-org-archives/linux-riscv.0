@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B40C7EE23
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 06:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B699C77B7A
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 06:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i5nLFKCfwTfhH2mN/bFJPmjq0TshMiYDhJRc2v+LVlg=; b=4pe7wlCUxQcKdr
-	z4xR82mF+odqu4ZEU2NemQKbwuHdzsBsJDSQcc0+m4XsyOiZXIaw3UtSy5fVrpAxVWJ4ZKoRW+3F3
-	iGSVQ9UDsTffHGkpq1WkVne+FoRvhn5bSi7zaCG+e1BUZm7LKFqQjxeamS/rjf+Q/7AdsW9PsNxY2
-	lI1Tqjgj5i9aRhO4XDv82dlVKgV843EdIn6ytzmu4WTimNJviB2RqgTkjO7SyvZhUeymJCeEauEtj
-	+P36aq7lDHr034j40o1P/wP3qdGlLO0NcVDmaXhVY8KKqJ7sOH+/Rn1aic4UV6K6xTUVS8/oG6Jht
-	pTaXmmRUHaU4twES1rKg==;
+	List-Owner; bh=L7WVcNBP+8lba/ZC8u/rG6ruwPnRzXLFbdpsj4ch7r4=; b=I1Q0H2+nBeY6Yw
+	hLDPeftARaMYbS63r8h05byx1n7lDYe0uFfGSHL/1p5X0BoAOVxT+4jG0lDL9hOpN1AaCQCvx01T4
+	ZHbEO51/YAuhz/NwjU8peA3Jk8hQiM3Lh91dc4C5o/527EbaCjR97d25EM2gDTIz11gy41pNR09g6
+	9uhLCcMgc7f3bzk7oCPsZz+KCjX/zDWuDEGfUTAVdK27Ueb+vqlT5md6IYuTLLyXybGHEBzsTRIkR
+	DDCTkDenzpHpDgKVvXYBeld6bspuG3kufB0cqpk+tgDo2A1sIMUVK3CqYtXuZcUT9SrTtxAyqmeEJ
+	MUwKaC2v4QtZAZ1GXm4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Qqz-001EeT-1n;
-	Fri, 26 May 2023 06:23:09 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Qqw-001EcO-33;
-	Fri, 26 May 2023 06:23:08 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-5307502146aso246621a12.1;
-        Thu, 25 May 2023 23:23:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1685082183; x=1687674183;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7cCHBf3UytwZfxePPwE+jd6ort0sOdXbbuo1VvBkL64=;
-        b=In9JMr9pXJKdU4OFNrKA8VkqvzNERFgbkF1WTefIBpZGNH1cm6Wu4vy6gHMfTTbpH5
-         Bxt1r4RdI0sl2apwFfU9YncceU9jlq55r9HxXRy93MWRcYsVcXQ/3fCBv5QBexNmd25X
-         6G2yWYoM0MVRHQMx8eH0pxaCBL360ys2TBubCUiYCToafZ9wgibDjDx0qVGg1QlxwNOJ
-         mLFF8yI2zd7UosSjjmAmMe1b3OntVisxuNwReKnyR4cjSdQqdBe57OFiu7V+h7YbDTD9
-         gS4FVXbZxLBVK9nWMBpD7mMOq0v4voFCeypL5pXo+ai/vZiKklNlarHEiS6wZWvQStAQ
-         076A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685082183; x=1687674183;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7cCHBf3UytwZfxePPwE+jd6ort0sOdXbbuo1VvBkL64=;
-        b=cckb4fLGHQciem7PwdyEPU93KHJtHMWD4fUo+hvE+oxCw+gf3dNgkUYe9/b3bZiB5J
-         dwpghJGFbZNFeOa3QP6h6eRmg9OoNRq2FncYdl60OJlYJmP0N+7M9ij6rBuI60d0UsUX
-         qww5LzmSmla5/hJ9bZ2ehJGWIpGEZrTH54vAE2vu0sLbOu8DLCn/9/n3W4W2GVKZMXb5
-         pwf2kncrKmzqjwUT2VyFK7ve5gCCf64KBndjBFTK38wwbPMKeE5bM6aZ5oIsGQyxUHry
-         ORLDn0c+9dk6DIUunkC2TCGkjM7vayZz0ioeBuzsXUfbsPnfRjWCd2+IivIstFhuGuca
-         wHLA==
-X-Gm-Message-State: AC+VfDzDLDNs4ZzbTTXhQOer//YCnUvB3G2yFfSpSbtNE55a9P0nyMdK
-	9ZZgE42utyXvcJMfUKzLcQnvh6aiggjetTcUlUw=
-X-Google-Smtp-Source: ACHHUZ5+adpq5bn8ccEuSJ16UorMQ11HQo3chgEmsUz3XwrAAvurJ6sIX+3y8mXx79RuaBedX3HqgDmU0iivyP2H1/M=
-X-Received: by 2002:a17:903:2285:b0:1ab:142a:3dd7 with SMTP id
- b5-20020a170903228500b001ab142a3dd7mr1537487plh.68.1685082183465; Thu, 25 May
- 2023 23:23:03 -0700 (PDT)
+	id 1q2Qu4-001FLO-2K;
+	Fri, 26 May 2023 06:26:20 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q2Qu1-001FEU-1g
+	for linux-riscv@lists.infradead.org;
+	Fri, 26 May 2023 06:26:19 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id F185B807C;
+	Fri, 26 May 2023 14:25:32 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 26 May
+ 2023 14:25:32 +0800
+Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
+ by EXMBX168.cuchost.com (172.16.6.78) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Fri, 26 May 2023 14:25:32 +0800
+From: William Qiu <william.qiu@starfivetech.com>
+To: <devicetree@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Ziv Xu
+	<ziv.xu@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>
+Subject: [PATCH v1 3/3] riscv: dts: starfive: Add QSPI controller node for StarFive JH7110 SoC
+Date: Fri, 26 May 2023 14:25:29 +0800
+Message-ID: <20230526062529.46747-4-william.qiu@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230526062529.46747-1-william.qiu@starfivetech.com>
+References: <20230526062529.46747-1-william.qiu@starfivetech.com>
 MIME-Version: 1.0
-References: <cover.1684999824.git.haibo1.xu@intel.com> <20230525-6e0855eb07086a96eaa82362@orel>
-In-Reply-To: <20230525-6e0855eb07086a96eaa82362@orel>
-From: Haibo Xu <xiaobo55x@gmail.com>
-Date: Fri, 26 May 2023 14:22:52 +0800
-Message-ID: <CAJve8o=SdjMvsVn=3Vqw3QG5SuU8nqLVC_MRAgPX+GuFZj6jvA@mail.gmail.com>
-Subject: Re: [PATCH v2 00/11] RISCV: Add KVM_GET_REG_LIST API
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Haibo Xu <haibo1.xu@intel.com>, maz@kernel.org, oliver.upton@linux.dev, 
-	seanjc@google.com, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, David Matlack <dmatlack@google.com>, 
-	Ben Gardon <bgardon@google.com>, Vipin Sharma <vipinsh@google.com>, 
-	Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230525_232306_981403_210F7834 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20230525_232617_839360_38DFB4AE 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,36 +71,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMjYsIDIwMjMgYXQgMToyMOKAr0FNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gVGh1LCBNYXkgMjUsIDIwMjMgYXQgMDM6Mzg6
-MjRQTSArMDgwMCwgSGFpYm8gWHUgd3JvdGU6Cj4gPiBLVk1fR0VUX1JFR19MSVNUIHdpbGwgZHVt
-cCBhbGwgcmVnaXN0ZXIgSURzIHRoYXQgYXJlIGF2YWlsYWJsZSB0bwo+ID4gS1ZNX0dFVC9TRVRf
-T05FX1JFRyBhbmQgSXQncyB2ZXJ5IHVzZWZ1bCB0byBpZGVudGlmeSBzb21lIHBsYXRmb3JtCj4g
-PiByZWdyZXNzaW9uIGlzc3VlIGR1cmluZyBWTSBtaWdyYXRpb24uCj4gPgo+ID4gUGF0Y2ggMS03
-IHJlLXN0cnVjdHVyZWQgdGhlIGdldC1yZWctbGlzdCB0ZXN0IGluIGFhcmNoNjQgdG8gbWFrZSBz
-b21lCj4gPiBvZiB0aGUgY29kZSBhcyBjb21tb24gdGVzdCBmcmFtZXdvcmsgdGhhdCBjYW4gYmUg
-c2hhcmVkIGJ5IHJpc2N2Lgo+ID4KPiA+IFBhdGNoIDggZW5hYmxlZCB0aGUgS1ZNX0dFVF9SRUdf
-TElTVCBBUEkgaW4gcmlzY3YgYW5kIHBhdGNoIDktMTEgYWRkZWQKPiA+IHRoZSBjb3JyZXNwb25k
-aW5nIGtzZWxmdGVzdCBmb3IgY2hlY2tpbmcgcG9zc2libGUgcmVnaXN0ZXIgcmVncmVzc2lvbnMu
-Cj4gPgo+ID4gVGhlIGdldC1yZWctbGlzdCBrdm0gc2VsZnRlc3Qgd2FzIHBvcnRlZCBmcm9tIGFh
-cmNoNjQgYW5kIHRlc3RlZCB3aXRoCj4gPiBMaW51eCA2LjQtcmMxIG9uIGEgUWVtdSByaXNjdiB2
-aXJ0IG1hY2hpbmUuCj4gPgo+ID4gLS0tCj4gPiBDaGFuZ2VkIHNpbmNlIHYxOgo+ID4gICAqIHJl
-YmFzZSB0byBBbmRyZXcncyBjaGFuZ2VzCj4gPiAgICogZml4IGNvZGluZyBzdHlsZQo+ID4KPiA+
-IEFuZHJldyBKb25lcyAoNyk6Cj4gPiAgIEtWTTogYXJtNjQ6IHNlbGZ0ZXN0czogUmVwbGFjZSBz
-dHJfd2l0aF9pbmRleCB3aXRoIHN0cmR1cF9wcmludGYKPiA+ICAgS1ZNOiBhcm02NDogc2VsZnRl
-c3RzOiBEcm9wIFNWRSBjYXAgY2hlY2sgaW4gcHJpbnRfcmVnCj4gPiAgIEtWTTogYXJtNjQ6IHNl
-bGZ0ZXN0czogUmVtb3ZlIHByaW50X3JlZydzIGRlcGVuZGVuY3kgb24gdmNwdV9jb25maWcKPiA+
-ICAgS1ZNOiBhcm02NDogc2VsZnRlc3RzOiBSZW5hbWUgdmNwdV9jb25maWcgYW5kIGFkZCB0byBr
-dm1fdXRpbC5oCj4gPiAgIEtWTTogYXJtNjQ6IHNlbGZ0ZXN0czogRGVsZXRlIGNvcmVfcmVnX2Zp
-eHVwCj4gPiAgIEtWTTogYXJtNjQ6IHNlbGZ0ZXN0czogU3BsaXQgZ2V0LXJlZy1saXN0IHRlc3Qg
-Y29kZQo+ID4gICBLVk06IGFybTY0OiBzZWxmdGVzdHM6IEZpbmlzaCBnZW5lcmFsaXppbmcgZ2V0
-LXJlZy1saXN0Cj4KPiBBbGwgdGhlIHBhdGNoZXMgYWJvdmUgc2hvdWxkIGFsc28gaGF2ZSB5b3Vy
-IHMtby1iIHNpbmNlIHlvdXIgcG9zdGluZyB0aGVtLgo+CgpTdXJlLgoKPiBUaGFua3MsCj4gZHJl
-dwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add the quad spi controller node for the StarFive JH7110 SoC.
+
+Co-developed-by: Ziv Xu <ziv.xu@starfivetech.com>
+Signed-off-by: Ziv Xu <ziv.xu@starfivetech.com>
+Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+---
+ .../jh7110-starfive-visionfive-2.dtsi         | 32 +++++++++++++++++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      | 18 +++++++++++
+ 2 files changed, 50 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+index 2a6d81609284..22212c1150f9 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+@@ -126,6 +126,38 @@ &i2c6 {
+ 	status = "okay";
+ };
+ 
++&qspi {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	nor_flash: flash@0 {
++		compatible = "jedec,spi-nor";
++		reg=<0>;
++		cdns,read-delay = <5>;
++		spi-max-frequency = <12000000>;
++		cdns,tshsl-ns = <1>;
++		cdns,tsd2d-ns = <1>;
++		cdns,tchsh-ns = <1>;
++		cdns,tslch-ns = <1>;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			spl@0 {
++				reg = <0x0 0x20000>;
++			};
++			uboot@100000 {
++				reg = <0x100000 0x300000>;
++			};
++			data@f00000 {
++				reg = <0xf00000 0x100000>;
++			};
++		};
++	};
++};
++
+ &sysgpio {
+ 	i2c0_pins: i2c0-0 {
+ 		i2c-pins {
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 4c5fdb905da8..6385443d011f 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -440,6 +440,24 @@ i2c6: i2c@12060000 {
+ 			status = "disabled";
+ 		};
+ 
++		qspi: spi@13010000 {
++			compatible = "starfive,jh7110-qspi", "cdns,qspi-nor";
++			reg = <0x0 0x13010000 0x0 0x10000
++				0x0 0x21000000 0x0 0x400000>;
++			interrupts = <25>;
++			clocks = <&syscrg JH7110_SYSCLK_QSPI_REF>,
++				 <&syscrg JH7110_SYSCLK_QSPI_AHB>,
++				 <&syscrg JH7110_SYSCLK_QSPI_APB>;
++			clock-names = "qspi-ref", "qspi-ahb", "qspi-apb";
++			resets = <&syscrg JH7110_SYSRST_QSPI_APB>,
++				 <&syscrg JH7110_SYSRST_QSPI_AHB>,
++				 <&syscrg JH7110_SYSRST_QSPI_REF>;
++			reset-names = "qspi", "qspi-ocp", "rstc_ref";
++			cdns,fifo-depth = <256>;
++			cdns,fifo-width = <4>;
++			cdns,trigger-address = <0x0>;
++		};
++
+ 		syscrg: clock-controller@13020000 {
+ 			compatible = "starfive,jh7110-syscrg";
+ 			reg = <0x0 0x13020000 0x0 0x10000>;
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
