@@ -4,80 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E463C7EE2D
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 10:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E85DC77B7C
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 10:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HG50ZRbqoFGcInTPSj5V81teNIfSlHU2k5nx2tM826c=; b=sLq16IjzvgDaUe
-	3U30qPL+sSSoW7bD1RBUtcqyD9vug6X2Rvzh4U/l/UPn6J5B1GrqD7JuQ5RnyV5BFSoHcFv2gIMHc
-	mCl/wW1JUrl9U7476bwDK4b4iiZSALZ8khgQ+Jc1Q1EnquGiTUYu027Siv27tKlRbqiT6WNUPhgLR
-	s/5ueNaXU09W78GqlRbqMMpnDqzAC/2Efy0tkWEoUzYu/2ho7EDq5nTnoQgTn7+1ooX/yKRB+/jWD
-	vgrNutkAPixuM1bwuQG/WDGkWJYryb2pCxLnRoX90nUHX5KguNUBGZTiDNsSfPsg/eduMohOn25Ga
-	FpDr3V+6UUMu7CVVcaAg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uDmAx4OCKGM6DK8BY5PFjDQAySmoSyjUpvL2QdkXqIo=; b=4P6m+aKuUzAmAD
+	eUXSspWxr+ZSdiRj6/uJhtBzGW99XTEFTdj9l+a6699Ob48/kjiFJ012sPcvVgv2F8gzZL9mWnwg6
+	nKZFDuzvR8A+8QznOXhtUytp96rJ8BHmdAfVnWrSosFQCPSK3agNmebFr94c9fVsHS4Q/K6nT2uu1
+	UhYTHfWyf7XHUJE+J7RdD/RupjcWVGRBqkBhXpuSHfSTXAG0almLlcBGaDU/6Vdlm03AqBGqU9XGB
+	m0M2WRgHVujk0WRbbb3XdGSbLhRVqisb3davdmd3JUFgwFjTYqdGYfmP3UeF6q3zhp4Fv58ELTqzH
+	28iKHU0OhiKSu3ZKvm4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Udp-0020te-0G;
-	Fri, 26 May 2023 10:25:49 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1q2Udw-0020y0-0W;
+	Fri, 26 May 2023 10:25:56 +0000
+Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Udj-0020pc-1V
+	id 1q2Udr-0020qC-10
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 10:25:44 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-30ab87a1897so304463f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 26 May 2023 03:25:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1685096741; x=1687688741;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=83Yiipzb/K6uBEC45mb7hvHrhNXCoFghYohKA0/J46U=;
-        b=WuxmoIdz7t/DQh00qkb1NrTKQqK5pxsfgSj9aycJdlIOZYMbYtQl8KLfafSWxPqTiY
-         a60mJsEGYAmNSZxycrRzocy2yksn54VXqaI0XzjEntMD374XCzerlP/7Ssc9f4mRfl4f
-         Q11s7l4+sB+a9itRrQYSGAdqNWGgsbDeQPZK/N4sYR0clU5ZdxaGQlOzYfXI5H7DMoxO
-         CUewkn3xbMquE5invDv+efWV8Rgp/KcC6GJlZkQ3pAdZMLiN6EuFbYU+ARwlIykyeZ9m
-         yRytCVcMmJfCoYyUqupxeIKqR1kmb/CXNAzKaZ/N8IUlpmB3NXfadNwWbuPf4s/jyHiq
-         xgpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685096741; x=1687688741;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=83Yiipzb/K6uBEC45mb7hvHrhNXCoFghYohKA0/J46U=;
-        b=XaXj72VcnfVRLBAJerUtcA77VWNEmHl2yU+8CKX8ERW4XClr5SL5VGHcpCRVk/E3zP
-         vcSQIB79WsJyoEO1+sai2OCozkqlcNgdPbLRZBxzhJE0HrkFjkcv07UC0vDdPJ1Tnf2p
-         aO6llevLzxmXZa3mExZuECrzJ0LdneJOy798JaTWXs+z0IYP9AbENQEeOKfZz65ajqE1
-         Bi3lmahNV67dCqufgsr/ZERE4kV2DzkHpGN535fs4/XE6Cfm5PB9lBGlz4HBX6VBCDaB
-         j7hwcIcdlhNbBja9L6FZgOUuX8yLigOdF5GYx1T37P1rkyzH9LFfRxeriyr4pi7ZRtfv
-         mplA==
-X-Gm-Message-State: AC+VfDx8P241xkvTnbyGEACWpgyA0Z90ysy7slSGP3NhC+IAnDrRpKQJ
-	i3aPAKzhT62Z2TQntCQwJhphFXi2j20R+UhWrFo=
-X-Google-Smtp-Source: ACHHUZ7mn4W6pxjRrEQfRmIqpygLY/3T1mdQVU6d/sxNIPITfbuKJtIuVzoy5nvF/NtN8PTbkxsWMQ==
-X-Received: by 2002:a5d:4990:0:b0:306:44d0:2bcd with SMTP id r16-20020a5d4990000000b0030644d02bcdmr1016138wrq.9.1685096741586;
-        Fri, 26 May 2023 03:25:41 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id a2-20020adfed02000000b0030ab5ebefa8sm4707928wro.46.2023.05.26.03.25.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 May 2023 03:25:41 -0700 (PDT)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org
-Cc: 'Palmer Dabbelt ' <palmer@dabbelt.com>,
-	'Atish Patra ' <atishp@atishpatra.org>,
-	'Albert Ou ' <aou@eecs.berkeley.edu>,
-	'Paul Walmsley ' <paul.walmsley@sifive.com>,
-	'Anup Patel ' <anup@brainfault.org>
-Subject: [PATCH v2 0/3] RISC-V: KVM: Ensure SBI extension is enabled
-Date: Fri, 26 May 2023 12:25:37 +0200
-Message-Id: <20230526102540.105013-1-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.40.1
+	Fri, 26 May 2023 10:25:53 +0000
+X-QQ-mid: bizesmtp85t1685096719te1p3ayz
+Received: from linux-lab-host.localdomain ( [119.123.130.80])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 26 May 2023 18:25:18 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: +ynUkgUhZJk/BOqp0oA9cBg1YsH89tL5W5qI5R9skNk3ZDlWFZ9Rn3nuDLHs6
+	r+jdJjJ6RsVhmT4f02tw/MUiR95J8ZHDs3wLyf7AK1WOAA4EIeTLghnosNldvidGC0l67Gg
+	2wYkd1Z5Tp0KBw74IMW4oY64DEXTsLZTXdoOMnfzfQfg3GspMKUW0w+aX/PB1XNeHKCJ7ki
+	rKwLr5llWwScHgLl/T/iRZLUbfPOilCzMWy+UioDCh9PuWaWLKFbQ7RhzPSDtCYJ0tJYlnv
+	QcwgLYeEKtu0tr1zpA4GKs/VRufTXnJiYTkUJXcC2xgJq1V6qzS/+WgbkejKpVxpTvwS0AE
+	pTyFJWz+eWpelE0SrSj+8C6mQRZa5VcSQVR8AnV0Hdew0584nkZshTSqBqhgn8mgsYKynPR
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12828852806642903950
+From: Zhangjin Wu <falcon@tinylab.org>
+To: thomas@t-8ch.de
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	w@1wt.eu
+Subject: Re: [PATCH 06/13] selftests/nolibc: allow specify a bios for qemu
+Date: Fri, 26 May 2023 18:25:18 +0800
+Message-Id: <20230526102518.150058-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <2ab94136-d341-4a26-964e-6d6c32e66c9b@t-8ch.de>
+References: <2ab94136-d341-4a26-964e-6d6c32e66c9b@t-8ch.de>
 MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_032543_503078_8DC15604 
-X-CRM114-Status: UNSURE (   6.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230526_032551_883328_311DD146 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,25 +77,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ensure guests can't attempt to invoke SBI extension functions when the
-SBI extension's probe function has stated that the extension is not
-available.
+Hi, Thomas
 
-v2:
- - Reworked it to use an enum array instead of two boolean arrays
+> On 2023-05-25 01:52:29+0800, Zhangjin Wu wrote:
+> > riscv qemu has a builtin bios (opensbi), but it may not match the latest
+> > kernel and some old versions may hang during boot, let's allow user pass
+> > a newer version to qemu via the -bios option.
+> 
+> Nitpick:
+> 
+> This seems very specific and hopefully only necessary temporarily.
+>
 
-Andrew Jones (3):
-  RISC-V: KVM: Rename dis_idx to ext_idx
-  RISC-V: KVM: Convert extension_disabled[] to ext_status[]
-  RISC-V: KVM: Probe for SBI extension status
+RISC-V is such a new ISA and the Spec (especially the SBI) changes very
+frequently ;-)
 
- arch/riscv/include/asm/kvm_vcpu_sbi.h |  8 ++-
- arch/riscv/kvm/vcpu_sbi.c             | 76 +++++++++++++++++++--------
- 2 files changed, 60 insertions(+), 24 deletions(-)
+> Instead it could be changed to some generic mechanim like
+> "QEMU_ARGS_EXTRA"?
+>
 
--- 
-2.40.1
+Good point, will apply it.
 
+Thanks,
+Zhangjin
+
+> > we can use it like this:
+> > 
+> >     $ make run BIOS=/path/to/new-bios ...
+> > 
+> > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > ---
+> >  tools/testing/selftests/nolibc/Makefile | 3 ++-
+> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
+> > index 9adc8944dd80..9213763ab3b6 100644
+> > --- a/tools/testing/selftests/nolibc/Makefile
+> > +++ b/tools/testing/selftests/nolibc/Makefile
+> > @@ -70,7 +70,8 @@ QEMU_ARGS_mips       = -M malta -append "panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+> >  QEMU_ARGS_riscv      = -M virt -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+> >  QEMU_ARGS_s390       = -M s390-ccw-virtio -m 1G -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+> >  QEMU_ARGS_loongarch  = -M virt -append "console=ttyS0,115200 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+> > -QEMU_ARGS            = $(QEMU_ARGS_$(ARCH))
+> > +QEMU_ARGS_BIOS       = $(if $(BIOS),-bios $(BIOS))
+> > +QEMU_ARGS            = $(QEMU_ARGS_$(ARCH)) $(QEMU_ARGS_BIOS)
+> >  
+> >  # OUTPUT is only set when run from the main makefile, otherwise
+> >  # it defaults to this nolibc directory.
 
 _______________________________________________
 linux-riscv mailing list
