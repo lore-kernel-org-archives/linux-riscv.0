@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3CECC77B7A
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 17:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43C01C7EE23
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 17:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PCKIQJNN/jItHQhzrHZ8jpbYmtGmixFZZZ1Qbhl/NQo=; b=sFhc7hQzTMG7Os
-	AzXjnNg0tINaYOF+GyiC6KEeEr/JI2OHDwIP9ep+3PzF88dra6kq1F3rkbUrcl0I7fOmzfEvZENtw
-	tEkEMOYxw8h40vTi2OW0134e/Tf2u8/hFc8wndTWLTPC32xecgVvJaOWDjM6b8vPx+8Oj6uP+lexl
-	jL4VSubcpQ2qUBYTAMqQ9oSc8eX1IZGVHOgGl4mGLEsGaWV4VY4b7Cd5Oa4JgCfyvs5xBPq+hDCJ/
-	VjwKgWG764Eo4RTjvXmEzH60DueRFtPBLORnyGOGObnHmHRiwdeb3fSs4zcJDZw0izE718dBADMvB
-	fZLBJLoo/SlYRa0VW9fA==;
+	List-Owner; bh=gRBH4L5N9Ps3354DUD9DxiyLc3CCupuho1rKnVnx1ZI=; b=Rt/e7G9ofoLL+/
+	NxusQzawK/4vOZkLsOB2QRvRxmibBMD3INViu3kWtDkjeZH5Rs+mIOOA5mEE/Fm43BkguhfDJExj0
+	8u+isrC021Ldvp0V3KhFJxUSA11Ra8NnieRZTSxnlzoakS/WgRjgn2QZ/fyjc7cYdkM48f7KYJkol
+	fvcOwM+nKPJgGV1Kmx7XxAf9Kp/FMdLVJakKDixl/fLwq8erJ7NJG5TIA3jUlO0eJgymY1Jfnczo3
+	FjUVDaZmyXYi3Fz/+lvKN3LHiDBHfjQS92qZT0WAeNwabfElV8Nr1PBs/zpQrvmYuxzk9xbKEg8gQ
+	iArjlK180KUEhUQsyqXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2ayK-003Fhe-1r;
-	Fri, 26 May 2023 17:11:24 +0000
+	id 1q2ayL-003Fi9-0Z;
+	Fri, 26 May 2023 17:11:25 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2ayF-003FeJ-0a
+	id 1q2ayH-003FfI-0C
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 17:11:20 +0000
+	Fri, 26 May 2023 17:11:22 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C197B650CE;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 96D06651C2;
+	Fri, 26 May 2023 17:11:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A24CEC4339B;
 	Fri, 26 May 2023 17:11:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D085CC433EF;
-	Fri, 26 May 2023 17:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685121078;
-	bh=Bs4Qhmx5NZ+yKonQ7Rt09UyM8af1mOtvP1M80X6S4jQ=;
+	s=k20201202; t=1685121080;
+	bh=NqqasUnRMBLReOmJzfWs5pvHZNoT/9CPsg7U+dgQNHM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Q9Y1UXMhi4qK29CeyQI19Humy4yTmrqCpAopNGt1S+1XcaeUKmnORESujrBqXEfd3
-	 qvyiSgkK20sTmXgyHEJccjGyXnZ17e5PF7iLp92CC0yT0Z/JZf7UIbIvqs2eUcTEaF
-	 e//NjVYc1BMFIG/OE0/ik7wg3p8J1EIBIQXxrTR967X4dGzAEc5H2hrn8Sj+3pChl5
-	 eF9S4qczAXnpMMxQYG0TdNBYrdEFdNDfMgLkRoSUisfE2yVc9fVNi6CfoPwMQD8SLi
-	 i3ZmM+sElibCVv5j5oilGTXSrslQ3Or1mpAVnl8L7S9vaNgFA513T/J2wz7eAGGBBe
-	 tcEgUMrGrAGiA==
+	b=r/6CXpeHNUGKQyClLnumeEU4WdVQ0v8ClQth1L1b9KGS6C8PaXWnAEiR3wZEqunEe
+	 cGvry/QwoEgYKFwdE6S8D1CGMT2AjnhMLomwpNTHxqHqz7PTBH6FIsdHxo2jmlgqf+
+	 qLP5vdpNAIi+DOzIkcmlS2R4bjuP+MRaxFYqNkx1GEzi0zQevkg4NTpWn6DQ45QHT9
+	 3dLnTe/tGy8xVoyoyrza3W+r6aRDTIEkIC6CmBceFxj6vLrBxT18saM1slxX4wBf4/
+	 t0zQj1LjdVjwjm71EnF8EI7PHZpb2r+/UGueBe7pDY561UJ77DVEJs7DT+aGbhRtgx
+	 WSD1FXf35HPGQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -51,16 +51,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 4/6] riscv: mm: pass noncoherent or not to riscv_noncoherent_supported()
-Date: Sat, 27 May 2023 00:59:56 +0800
-Message-Id: <20230526165958.908-5-jszhang@kernel.org>
+Subject: [PATCH 5/6] riscv: allow kmalloc() caches aligned to the smallest value
+Date: Sat, 27 May 2023 00:59:57 +0800
+Message-Id: <20230526165958.908-6-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20230526165958.908-1-jszhang@kernel.org>
 References: <20230526165958.908-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_101119_301504_3EEA6D39 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20230526_101121_182655_D112BF4D 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,113 +77,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We will soon take different actions by checking the HW is noncoherent
-or not, I.E ZICBOM/ERRATA_THEAD_CMO or not.
+Currently, riscv defines ARCH_DMA_MINALIGN as L1_CACHE_BYTES, I.E
+64Bytes, if CONFIG_RISCV_DMA_NONCOHERENT=y. To support unified kernel
+Image, usually we have to enable CONFIG_RISCV_DMA_NONCOHERENT, thus
+it brings some bad effects to for coherent platforms:
+
+Firstly, it wastes memory, kmalloc-96, kmalloc-32, kmalloc-16 and
+kmalloc-8 slab caches don't exist any more, they are replaced with
+either kmalloc-128 or kmalloc-64.
+
+Secondly, larger than necessary kmalloc aligned allocations results
+in unnecessary cache/TLB pressure.
+
+This issue also exists on arm64 platforms. From last year, Catalin
+tried to solve this issue by decoupling ARCH_KMALLOC_MINALIGN from
+ARCH_DMA_MINALIGN, limiting kmalloc() minimum alignment to
+dma_get_cache_alignment() and replacing ARCH_KMALLOC_MINALIGN usage
+in various drivers with ARCH_DMA_MINALIGN etc.
+
+One fact we can make use of for riscv: if the CPU doesn't support
+ZICBOM or T-HEAD CMO, we know the platform is coherent. Based on
+Catalin's work and above fact, we can easily solve the kmalloc align
+issue for riscv: we can override dma_get_cache_alignment(), then let
+it return ARCH_DMA_MINALIGN at the beginning and return 1 once we know
+the underlying HW neither supports ZICBOM nor supports T-HEAD CMO.
+
+So what about if the CPU supports ZICBOM and T-HEAD CMO, but all the
+devices are dma coherent? Well, we use ARCH_DMA_MINALIGN as the
+kmalloc minimum alignment, nothing changed in this case. This case
+can be improved in the future.
+
+After this patch, a simple test of booting to a small buildroot rootfs
+on qemu shows:
+
+kmalloc-96           5041    5041     96  ...
+kmalloc-64           9606    9606     64  ...
+kmalloc-32           5128    5128     32  ...
+kmalloc-16           7682    7682     16  ...
+kmalloc-8           10246   10246      8  ...
+
+So we save about 1268KB memory. The saving will be much larger in normal
+OS env on real HW platforms.
+
+[1] Link: https://lore.kernel.org/linux-arm-kernel/20230524171904.3967031-1-catalin.marinas@arm.com/
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- arch/riscv/errata/thead/errata.c    | 19 +++++++++++--------
- arch/riscv/include/asm/cacheflush.h |  4 ++--
- arch/riscv/kernel/setup.c           |  6 +++++-
- arch/riscv/mm/dma-noncoherent.c     | 10 ++++++----
- 4 files changed, 24 insertions(+), 15 deletions(-)
+ arch/riscv/include/asm/cache.h  | 14 ++++++++++++++
+ arch/riscv/mm/dma-noncoherent.c |  4 ++++
+ 2 files changed, 18 insertions(+)
 
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index be84b14f0118..c192b80a5166 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -36,21 +36,24 @@ static bool errata_probe_pbmt(unsigned int stage,
- static bool errata_probe_cmo(unsigned int stage,
- 			     unsigned long arch_id, unsigned long impid)
- {
--	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_CMO))
--		return false;
--
--	if (arch_id != 0 || impid != 0)
--		return false;
-+	bool cmo;
- 
- 	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
- 		return false;
- 
-+	if (IS_ENABLED(CONFIG_ERRATA_THEAD_CMO) &&
-+	    (arch_id == 0 && impid == 0))
-+		cmo = true;
-+	else
-+		cmo = false;
-+
- 	if (stage == RISCV_ALTERNATIVES_BOOT) {
--		riscv_cbom_block_size = L1_CACHE_BYTES;
--		riscv_noncoherent_supported();
-+		if (cmo)
-+			riscv_cbom_block_size = L1_CACHE_BYTES;
-+		riscv_noncoherent_supported(cmo);
- 	}
- 
--	return true;
-+	return cmo;
- }
- 
- static bool errata_probe_pmu(unsigned int stage,
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 8091b8bf4883..9d056c9b625a 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -54,9 +54,9 @@ extern unsigned int riscv_cboz_block_size;
- void riscv_init_cbo_blocksizes(void);
+diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
+index d3036df23ccb..2174fe7bac9a 100644
+--- a/arch/riscv/include/asm/cache.h
++++ b/arch/riscv/include/asm/cache.h
+@@ -13,6 +13,7 @@
  
  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
--void riscv_noncoherent_supported(void);
-+void riscv_noncoherent_supported(bool cmo);
- #else
--static inline void riscv_noncoherent_supported(void) {}
-+static inline void riscv_noncoherent_supported(bool cmo) {}
+ #define ARCH_DMA_MINALIGN L1_CACHE_BYTES
++#define ARCH_KMALLOC_MINALIGN	(8)
  #endif
  
  /*
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 36b026057503..565f3e20169b 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -264,6 +264,7 @@ static void __init parse_dtb(void)
+@@ -23,4 +24,17 @@
+ #define ARCH_SLAB_MINALIGN	16
+ #endif
  
- void __init setup_arch(char **cmdline_p)
- {
-+	bool cmo;
- 	parse_dtb();
- 	setup_initial_init_mm(_stext, _etext, _edata, _end);
- 
-@@ -298,7 +299,10 @@ void __init setup_arch(char **cmdline_p)
- 	apply_boot_alternatives();
- 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
- 	    riscv_isa_extension_available(NULL, ZICBOM))
--		riscv_noncoherent_supported();
-+		cmo = true;
-+	else
-+		cmo = false;
-+	riscv_noncoherent_supported(cmo);
- }
- 
- static int __init topology_init(void)
++#ifndef __ASSEMBLY__
++
++#ifdef CONFIG_RISCV_DMA_NONCOHERENT
++extern int dma_cache_alignment;
++#define dma_get_cache_alignment dma_get_cache_alignment
++static inline int dma_get_cache_alignment(void)
++{
++	return dma_cache_alignment;
++}
++#endif
++
++#endif	/* __ASSEMBLY__ */
++
+ #endif /* _ASM_RISCV_CACHE_H */
 diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-index d51a75864e53..0e172e2b4751 100644
+index 0e172e2b4751..21b553c299db 100644
 --- a/arch/riscv/mm/dma-noncoherent.c
 +++ b/arch/riscv/mm/dma-noncoherent.c
-@@ -72,9 +72,11 @@ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
- 	dev->dma_coherent = coherent;
- }
+@@ -11,6 +11,8 @@
+ #include <asm/cacheflush.h>
  
--void riscv_noncoherent_supported(void)
-+void riscv_noncoherent_supported(bool cmo)
- {
--	WARN(!riscv_cbom_block_size,
--	     "Non-coherent DMA support enabled without a block size\n");
--	noncoherent_supported = true;
-+	if (cmo) {
-+		WARN(!riscv_cbom_block_size,
-+		     "Non-coherent DMA support enabled without a block size\n");
-+		noncoherent_supported = true;
-+	}
+ static bool noncoherent_supported __ro_after_init;
++int dma_cache_alignment __ro_after_init = ARCH_DMA_MINALIGN;
++EXPORT_SYMBOL(dma_cache_alignment);
+ 
+ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+ 			      enum dma_data_direction dir)
+@@ -78,5 +80,7 @@ void riscv_noncoherent_supported(bool cmo)
+ 		WARN(!riscv_cbom_block_size,
+ 		     "Non-coherent DMA support enabled without a block size\n");
+ 		noncoherent_supported = true;
++	} else {
++		dma_cache_alignment = 1;
+ 	}
  }
 -- 
 2.40.1
