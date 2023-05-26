@@ -4,68 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AADAAC77B7A
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 07:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D5AC7EE23
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 07:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H/4vF29VWxj3SmfqWU1iFaIeTN9ipGolBTRumwLEIus=; b=nely8I34HJPzXe
-	eqaxB3y/KFwHhFolo/hJJGkTnmNKPmb5xlmKnxJp8YeurZCkILDAikpN9qsafZscF014u+PvrElrV
-	08B4JYXp4oU1cEhat01W16amZNs+q4J2a8CAo9jFn/MhojwsoMp25FwaWHecpIfMyPW0MIs35oyxK
-	lek0VMA7elAl+7XCj8ibMTfAkv4wGw0Ck2bJMFQZfuXAz+hC0FC6dCU2WB4p1oRrALTfc49N7zDBZ
-	X6kIWDn15thGtV1VVBa9KPmXoJRnFXvjUQKITTVte/dAjne0zwOpRo0o94fZ3Ne5ot+uqzQbW073J
-	Lfi4CcYZSO6ABpVTpUAg==;
+	List-Owner; bh=/wlgvY1+G/4ilgm1TuZsKi5sk85HeY+Lr/e0jG1ZIQw=; b=UzhEQRXaN5jiCJ
+	b+jcyaiKh6EBBLcJa6sKwFxW+9SMj4moQCFYgc6++EMrffv4qePou0ZbBndaxTwgb0fljmSXvJnym
+	dF5/aP5GwvEpRVJC5OUnbFNiAzMbHoezBgBziocq+F5yj2G2eo3iIGNJVVEnOm3+MAJwkrWFsVZh1
+	R7hbiZ21/3x+tIaciP+0UXdam/rB+8bVjo0XWYfG98HdJILFCrV4SsO0LobtZhoxP6SVAunAUet+V
+	wCWj8UzVo1S/LixHYDuyUfo6zPiuV1OFMgvGB1lfmOHuo/+UuMldCuEXP+neCCm5QSWf2hp7AJyuJ
+	Iav4E1RY9niVPzHylWMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Ryv-001S7S-0t;
-	Fri, 26 May 2023 07:35:25 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1q2S1b-001Snt-2y;
+	Fri, 26 May 2023 07:38:11 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2Ryr-001S4h-2W
+	id 1q2S1Y-001Smr-14
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 07:35:24 +0000
-Received: by verein.lst.de (Postfix, from userid 107)
-	id A869968D0E; Fri, 26 May 2023 09:35:12 +0200 (CEST)
-Received: from blackhole.lan (p5b33fa9c.dip0.t-ipconnect.de [91.51.250.156])
-	by verein.lst.de (Postfix) with ESMTPSA id 3440168D07;
-	Fri, 26 May 2023 09:34:37 +0200 (CEST)
-Date: Fri, 26 May 2023 09:34:32 +0200
-From: Torsten Duwe <duwe@lst.de>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Xingyu Wu <xingyu.wu@starfivetech.com>,
- <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <yanhong.wang@starfivetech.com>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Krzysztof
- Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, Emil Renner
- Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
- <william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
- <linux-clk@vger.kernel.org>, <u-boot@lists.denx.de>
-Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL
- clock generator
-Message-ID: <20230526093432.4682eab8@blackhole.lan>
-In-Reply-To: <20230524-jittery-sway-41b578b24153@wendy>
-References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
-	<20230512022036.97987-2-xingyu.wu@starfivetech.com>
-	<20230519135733.GA10188@lst.de>
-	<20230519-smokeless-guileless-2a71cae06509@wendy>
-	<df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
-	<20230523-fondue-monotype-0c751a8f0c13@wendy>
-	<20230523131006.46997d84@blackhole.lan>
-	<20230523-saturate-axis-f46b78b7b82b@wendy>
-	<38a9cb77-18b3-4daa-724b-9f2282f7d948@starfivetech.com>
-	<20230524-jittery-sway-41b578b24153@wendy>
-Organization: LST e.V.
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.34; x86_64-suse-linux-gnu)
+	Fri, 26 May 2023 07:38:10 +0000
+Date: Fri, 26 May 2023 09:38:04 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
+	t=1685086686; bh=XF+6CWufNGDLAepILx3DPCFSMetSIOD/MFKEUY0aVMA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nHCXqA+KwC8J23idZZf74otMGC+51r7iNTtbC1LYSbXCbhvuYpe5xkALXPGSDmhPG
+	 G/akZUunNRNaAXDX/1XQ+uT9SIAGcZdzflBOTogmUQPMoe0rF6V5gMGXhEsAazevsQ
+	 Z4QY4nf78CubV4LF+vzo/93N248sKhuOh2M/AdGY=
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
+To: Zhangjin Wu <falcon@tinylab.org>
+Cc: w@1wt.eu, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com
+Subject: Re: [PATCH 13/13] tools/nolibc: sys_gettimeofday: riscv: use
+ __NR_clock_gettime64 for rv32
+Message-ID: <29e4b23d-27cb-4101-bfe9-c6b412222578@t-8ch.de>
+References: <cover.1684949267.git.falcon@tinylab.org>
+ <e35cf1de35fdb0a236064ff645ae4734d32bacd4.1684949845.git.falcon@tinylab.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <e35cf1de35fdb0a236064ff645ae4734d32bacd4.1684949845.git.falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_003522_134771_883817B0 
-X-CRM114-Status: GOOD (  46.01  )
+X-CRM114-CacheID: sfid-20230526_003808_840585_A1ACA26C 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,108 +66,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 24 May 2023 11:19:48 +0100
-Conor Dooley <conor.dooley@microchip.com> wrote:
-
-> On Wed, May 24, 2023 at 05:00:02PM +0800, Xingyu Wu wrote:
-> > On 2023/5/23 19:28, Conor Dooley wrote:
-> > > On Tue, May 23, 2023 at 01:10:06PM +0200, Torsten Duwe wrote:
-> > >> On Tue, 23 May 2023 09:28:39 +0100
-> > >> Conor Dooley <conor.dooley@microchip.com> wrote:
-> > >> 
-> > >> > On Tue, May 23, 2023 at 10:56:43AM +0800, Xingyu Wu wrote:
-> > >> > > On 2023/5/19 22:16, Conor Dooley wrote:
-> > >> > > > On Fri, May 19, 2023 at 03:57:33PM +0200, Torsten Duwe
-> > >> > > > wrote:
-> > >> > > >> On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
-[...]
-
-> > >> > > Because PLL driver is separated from SYSCRG drivers in
-> > >> > > Linux, the numbering starts from 0. But in Uboot, the PLL
-> > >> > > driver is included in the SYSCRG driver, and the number
-> > >> > > follows the SYSCRG.
-> > >> > 
-> > >> > Unfortunately, how you choose to construct your drivers has
-> > >> > nothing to do with this.
-
-Exactly. As I wrote (quote below), the PLLx frequencies are controlled
-by the I/O block SYS_SYSCON (starting there at offset 0x18), according
-to the public datasheets. All(?) other clocks are derived from those in
-the *_CRG units. That *is* the hardware to be described, in *the* (one
-and only!) DT. U-Boot, and any OS, are free to reorganise their driver
-framework around that, but the hardware description is quite clear.
-
-> > >> > These defines/numbers appear in the dts and are part of the DT
-> > >> > ABI. The same dts is supposed to work for Linux & U-Boot.
-> > >> 
-> > >> The JH7110 has 6 blocks of 64k iomem in that functional area:
-> > >> {SYS,STG,AON} x {CRG,SYSCON}. None of these has 190 clocks.
-> > >> The good news: the current DTS, as proposed here and in U-Boot
-> > >> master, provides nodes for all 6 entities. The bad news is that
-> > >> the clock assignments to those nodes and their numbering is
-> > >> messed up.
-> > >> 
-> > >> AFAICT PLL{0,1,2} _are_ generated in SYS_SYSCON and thus U-Boot
-> > >> gets it wrong, in addition to the erroneous DTS.
-> > > 
-> > > The numbers are kinda hocus-pocus anyway, they are just made up
-> > > since the clock numbering usually isn't something with a nice TRM
-> > > to go and reference (unlike interrupts which usually are
-> > > documented in that way). It is very helpful to make them aligned
-> > > some register/bit positions or, but that is not required.
-> > > IOW U-Boot is not wrong per se to use 190 instead of 0, but it is
-> > > wrong to have different numbers in both places.
-
-U-Boot reuses the Common Clock Framework from Linux, and I'm not sure
-whether the clock IDs need to be unique in order for the appropriate
-clock to be found. But that would be the only restriction, if it
-applies. Even then, each driver could register a clock with its own,
-arbitrarily chosen base offset with the CCF, so each CRG unit could
-still have its own clocks enumerated starting with 0 in the DTB.
-
-> > > It sounds like you're saying that (and I have not looked) the
-> > > U-Boot dts actually has structural difference w.r.t. what
-> > > provides which clock? If so, that'll need to be fixed
-> > > independently of the numbering problem.
-
-> > 
-> > Oh, unfortunately, the 7110 can not support to mix the uboot dtb
-> > and linux dtb up.
+On 2023-05-25 02:03:32+0800, Zhangjin Wu wrote:
+> rv32 uses the generic include/uapi/asm-generic/unistd.h and it has no
+> __NR_gettimeofday and __NR_clock_gettime after kernel commit d4c08b9776b3
+> ("riscv: Use latest system call ABI"), use __NR_clock_gettime64 instead.
 > 
-> What does "cannot support" mean? It's normal and desirable for the
-
-IMHO "desirable" is too weak.
-
-> same dtb to be usable for both. The Linux kernel's dt-bindings are
-> used for multiple projects, not just Linux - it'd be silly for
-> U-Boot, FreeBSD etc etc to go off and each have their open set of
-> (incompatible) bindings.
+> This code is based on src/time/gettimeofday.c of musl and
+> sysdeps/unix/sysv/linux/clock_gettime.c of glibc.
 > 
-> > If boot the Linux and should use the linux dtb instead of the uboot
-> > dtb. Because all clock ids and reset ids in Linux and Uboot are
-> > different include PLL, and some modules can work in Linux but not
-> > in uboot.
-[...]
+> Both __NR_clock_gettime and __NR_clock_gettime64 are added for
+> sys_gettimeofday() for they share most of the code.
 > 
-> > I suggest to boot Linux with its own linux dtb.
+> Notes:
+> 
+> * Both tv and tz are not directly passed to kernel clock_gettime*
+>   syscalls, so, it isn't able to check the pointer automatically with the
+>   get_user/put_user helpers just like kernel gettimeofday syscall does.
+>   instead, we emulate (but not completely) such checks in our new
+>   __NR_clock_gettime* branch of nolibc.
+> 
+> * kernel clock_gettime* syscalls can not get tz info, just like musl and
+>   glibc do, we set tz to zero to avoid a random number.
+> 
+> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> ---
+>  tools/include/nolibc/sys.h | 46 ++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+> 
+> diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> index 2642b380c6aa..ad38cc3856be 100644
+> --- a/tools/include/nolibc/sys.h
+> +++ b/tools/include/nolibc/sys.h
+> @@ -26,6 +26,7 @@
+>  
+>  #include "arch.h"
+>  #include "errno.h"
+> +#include "string.h"
+>  #include "types.h"
+>  
+>  
+> @@ -51,6 +52,11 @@
+>   * should not be placed here.
+>   */
+>  
+> +/*
+> + * This is the first address past the end of the text segment (the program code).
+> + */
+> +
+> +extern char etext;
+>  
+>  /*
+>   * int brk(void *addr);
+> @@ -554,7 +560,47 @@ long getpagesize(void)
+>  static __attribute__((unused))
+>  int sys_gettimeofday(struct timeval *tv, struct timezone *tz)
+>  {
+> +#ifdef __NR_gettimeofday
+>  	return my_syscall2(__NR_gettimeofday, tv, tz);
+> +#elif defined(__NR_clock_gettime) || defined(__NR_clock_gettime64)
+> +#ifdef __NR_clock_gettime
+> +	struct timespec ts;
+> +#else
+> +	struct timespec64 ts;
+> +#define __NR_clock_gettime __NR_clock_gettime64
+> +#endif
+> +	int ret;
+> +
+> +	/* make sure tv pointer is at least after code segment */
+> +	if (tv != NULL && (char *)tv <= &etext)
+> +		return -EFAULT;
 
-This is a fragile band-aid, to be used only as a last resort. It
-creates more problems than it solves. Your DTB will then match your
-kernel, but whether it describes the actual hardware is a game of
-chance. Doesn't the VisionFive2 have an RPi connector... ?
+To me the weird etext comparisions don't seem to be worth it, to be
+honest.
 
-One of the IMO few valid use cases of adding a DTB to the kernel
-at boot is OpenWRT, when you build an OS Image for a particular piece
-of hardware you have at hand.
+> +
+> +	/* set tz to zero to avoid random number */
+> +	if (tz != NULL) {
+> +		if ((char *)tz > &etext)
+> +			memset(tz, 0, sizeof(struct timezone));
+> +		else
+> +			return -EFAULT;
+> +	}
+> +
+> +	if (tv == NULL)
+> +		return 0;
+> +
+> +	ret = my_syscall2(__NR_clock_gettime, CLOCK_REALTIME, &ts);
+> +	if (ret)
+> +		return ret;
+> +
+> +	tv->tv_sec = (time_t) ts.tv_sec;
+> +#ifdef __NR_clock_gettime64
 
-> I suggest to make sure that you can use the same dtb for both.
+Nitpick:
 
-Interestingly enough, U-Boot already has the PLL driver in a separate
-file. I have a half-baked patch here that moves the sys_syscon DT
-matching into that file...
+While this ifdef works and is correct its logic is a bit indirect.
+If it is copied to some other function in the future it may be incorrect
+there.
 
-	Torsten
+Without the #ifdef the compiler should still be able to optimize the
+code away.
 
+> +	if (tv->tv_sec != ts.tv_sec)
+> +		return -EOVERFLOW;
+> +#endif
+> +
+> +	tv->tv_usec = ts.tv_nsec / 1000;
+> +	return 0;
+> +#else
+> +#error None of __NR_gettimeofday, __NR_clock_gettime and __NR_clock_gettime64 defined, cannot implement sys_gettimeofday()
+> +#endif
+>  }
+>  
+>  static __attribute__((unused))
+> -- 
+> 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
