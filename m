@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B74C77B73
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 16:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68958C77B7A
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 17:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N7PCzRDRmVDOZib5+Us6+jQYWtGp3YnN5ez64q8nG7Y=; b=kWRbE51T3Z/2PM
-	PjgrJ93JO+OdQ4AtDzqPBWp9nsTsxmxFtksLO06I+JhUcuGkfzxV8QKh2yvpPKZPPyOLusT+LkZWY
-	lyuo9bg0EEqtl1cR6WlLgHOD2yNXs5hPTFiVEGHyXy+a2Ng/Hh9cm1n9Lh70h/qDacW1r3NyShm6Q
-	pw2rENt7T7/iNml92tdZlc5UsVRg332OUodhHu6GtUgsZpuqEiBkS1O2AQQCPNmJVr3FFCr1skdKd
-	s9pjDXhS/JBjz8Z6eWI3zXTtYGUEuP1wSEy3h5yWtjW2F5mu5fN4nuYUidVuqV3ZuJyl2Jd9QLtqS
-	SY4eVsHyp2iLzoknONLw==;
+	List-Owner; bh=l0iMkZKSSoNt+7OvcmXyP6AyANLDi/EPn5+F0EkqRTA=; b=2XL0yP9/To9hNG
+	P0knUG05PZzDTeB2VYVUMWH1akimgxfkGpnH8YX0wWZefvOlz2aynoRhC7eU4TGCkFU3oEt6biCDI
+	NSRLgNKG7ZdQXUGfuqDu0h+n4n9/lCwT6CVPAtfSH67TXN7ZAa/kqGDACd64SMVixqyQzQKLXQQhm
+	MYwCAOuMlXvR/Ah0hzNQJP8W2uqX1/ZVF2Kd5c96nhBpdX+KCQOA8bfEXfUc1PQs97YoLT31QCbMc
+	SBm2Ah19txnhEGftM/EOEIEvl7kNCcQSNyH/HRJLBfmbVETMby6a59p4j/85zqW7XzD8e5sBGETcK
+	t0iv8jgZ2kD/23L7RUBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2aSP-0038uZ-33;
-	Fri, 26 May 2023 16:38:25 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1q2ayC-003FdG-1t;
+	Fri, 26 May 2023 17:11:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2aSN-0038st-13
+	id 1q2ay9-003Fbk-2R
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 16:38:25 +0000
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 01FAF40009;
-	Fri, 26 May 2023 16:38:14 +0000 (UTC)
-Message-ID: <dc4adf31-e92e-e073-a1ed-2da0015c9de8@ghiti.fr>
-Date: Fri, 26 May 2023 18:38:14 +0200
+	Fri, 26 May 2023 17:11:14 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 56DC3651C0;
+	Fri, 26 May 2023 17:11:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64C85C43446;
+	Fri, 26 May 2023 17:11:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685121072;
+	bh=N+SE5apBHJdpc4kl5LVsR83pASoe466MUuKqmk4qCmY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dy9f79qlz416EP/3kBixmbxtEXL1AKGqFraAcnWqIMmty/VaLIObcEn4i3SO2uOV5
+	 QkhwCRgI/Oay6bicOxByimULBFgUFw4j6xneFP+fsk11XbUZMlDS3mNrTjpUoqqqTz
+	 DPwGGmjWeRBgtFzQ9ouzXuhtXZ9Y46W8C6ObVWRrOdxmxoX7UOcfV9J0b5bErkxuxC
+	 ppNttvMssdEoz7kRbhRyYN6bZlp+UYB42+BkQAbnz1U92W3qY73ZMyiDf8+iCahGwg
+	 LLej5KAh21kHUwffCZrId0f8ZlWjsdXRsPwBaepbd0kjN2eSX6TmWWJEi/Am3Jq5P5
+	 BklHbdj0qYrUw==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: [PATCH 1/6] riscv: errata: thead: only set cbom size & noncoherent during boot
+Date: Sat, 27 May 2023 00:59:53 +0800
+Message-Id: <20230526165958.908-2-jszhang@kernel.org>
+X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20230526165958.908-1-jszhang@kernel.org>
+References: <20230526165958.908-1-jszhang@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH -fixes] riscv: Fix relocatable kernels with early
- alternatives using -fno-pie
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andreas Schwab <schwab@linux-m68k.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20230526154630.289374-1-alexghiti@rivosinc.com>
- <20230526-clergyman-wriggly-accc659a3fad@spud>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230526-clergyman-wriggly-accc659a3fad@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_093823_492679_6ABBE278 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20230526_101113_833142_0F19E06D 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,53 +72,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The CBOM size and whether the HW is noncoherent is known and
+determined during booting and won't change after that.
 
-On 26/05/2023 18:24, Conor Dooley wrote:
-> On Fri, May 26, 2023 at 05:46:30PM +0200, Alexandre Ghiti wrote:
->> Early alternatives are called with the mmu disabled, and then should not
->> access any global symbols through the GOT since it requires relocations,
->> relocations that we do before but *virtually*. So only use medany code
->> model for this early code.
->>
->> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
->> ---
->>
->> Note that I'm not very happy with this fix, I think we need to put more
->> effort into "harmonizing" this very early code (ie before the mmu is
->> enabled) as it is spread between different locations and compiled
->> differently.
-> Totally & I'll happily spend the time trying to review that work.
->
->> I'll work on that later, but for now, this fix does what is
->> needed to work (from my testing at least). Any Tested-by on the Unmatched
->> and T-head boards is welcome!
-> On 6.4-rc1 & v6.4-rc1 + this patch, with CONFIG_RELOCATABLE added to my
-> config, my Nezha fails to boot. There is no output whatsoever from the
-> kernel. Turning off CONFIG_RELOCATABLE boots again.
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/errata/thead/errata.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index c259dc925ec1..be84b14f0118 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -45,8 +45,11 @@ static bool errata_probe_cmo(unsigned int stage,
+ 	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+ 		return false;
+ 
+-	riscv_cbom_block_size = L1_CACHE_BYTES;
+-	riscv_noncoherent_supported();
++	if (stage == RISCV_ALTERNATIVES_BOOT) {
++		riscv_cbom_block_size = L1_CACHE_BYTES;
++		riscv_noncoherent_supported();
++	}
++
+ 	return true;
+ }
+ 
+-- 
+2.40.1
 
-Damn, that's going to ruin my long week-end...Thanks though, I'll try to 
-figure out what's going on, too bad I don't have any thead boards!
-
-Thanks again,
-
-Alex
-
-
-> I didn't test on my unmatched.
->
-> Thanks,
-> Conor.
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
