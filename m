@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE786C77B7A
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 May 2023 00:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95770C77B7C
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 May 2023 01:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GmqbEhFo4ZR5JtYeteJIaydzMFZF29+pBYwjBlOgu00=; b=1n58oG3JsdDgUO
-	g2hm+b5dtAiJF9dm+4pGSEWPq5Tl7jgXHeWDCaQYbSRc2In17MXnyYw1kOk9wcZNd5xRU4c9ZotHl
-	AlbucwJ33ONDil/RNXjum6N5Hl05b7M+wfzj0cibg4gcfZhMRMY+Ddnj0xjdfkzv6OQVN8UhTwk/c
-	fvEPcJM1YlxRjOKck7r2V+dU+TSO/OcmK6RocDhvMFAXrgfXFR5C9rTK6qs9n9rvNSSx/C8+Ae95a
-	lwdLD4bZn4F1dbVhdCqBCZJl7pX/QQjD7E8kUg43hTaa0fss5nKJ5cxyqf7T9EJB0okwlOOa/qoIq
-	/F+2e58r2h9+p4sYeHVg==;
+	List-Owner; bh=7AKB9ttqBqkoohJsTCW2WmaGbXGTSp+MOmApIYWUI+Q=; b=czz8PptoBgeu8Y
+	IMduIUV6kFjVRH3/rcRu9Pdtt0xQwkoDbfCc1+9fEnE/3Mza1i5gny99rXFvvPxVgoxtYVaDwz14D
+	932hb32EPyTSx81btAVM62yuKJ3c2bxFR3P/ZBANTSNjd458K9bXPuzoKFOw9eoI1L13FLFCn/ux2
+	AwUDcCldbsDnix+sTfRtB4i+hz9vwWJ9mv9g00NnDYGkGVIxiGq/CiH7VFq662aaTvTHKPBZHHYOU
+	hlDQfDN2aj0FujmsU9aV/xuGr5zB9UHGH55v6E5HETsu3Q6wAByzcoxHFMol//X6IgvESkTofoThy
+	P8Ykl7baPOrbIXRP+8eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2iGx-004V3X-19;
-	Sat, 27 May 2023 00:59:07 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1q2ihz-004Xo0-2f;
+	Sat, 27 May 2023 01:27:03 +0000
+Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2iGt-004V1M-2I
+	id 1q2ihv-004Xl0-1L
 	for linux-riscv@lists.infradead.org;
-	Sat, 27 May 2023 00:59:05 +0000
-X-QQ-mid: bizesmtp66t1685149116tihsod3m
+	Sat, 27 May 2023 01:27:01 +0000
+X-QQ-mid: bizesmtp72t1685150796tdnayj8x
 Received: from linux-lab-host.localdomain ( [119.123.130.80])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 27 May 2023 08:58:35 +0800 (CST)
+	id ; Sat, 27 May 2023 09:26:35 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: q+EIYT+FhZr8kYjxAfV4QeX59imBMjyv13kK8lw49D3SOmIMyDMjczluMyAEG
-	8A5dwW5QVIQTJLxVhSxr9es8TCVQ8+y8+SldjzRpWmJ2MxCcwqAP1FeFrQP49enURp82lEH
-	RzXUE2HkrjhBlY5/4kYhrOkhgkdQMNp9kvGUgCQTqa2SLGWEhOySAuRxsqSj+MtpKww0fHk
-	v+JRUUn9S5mjurm7BXi9orU1Mfl6jEta7lvRDrwCsCk0U89CG3x0IyKCqF6AEhffZhj3h1G
-	GOGsK724QNLCis+h9P1cHJfZzfpV7+gdLCf+LfpzvqmiaA0eh19swAP+uyMyODQWK/qmZtL
-	j7PUQbz2xTRX6dPaXrI1OZNKzvUcA==
+X-QQ-FEAT: 9OErQKpad8Ah4wDP7YPNO7QIfLzqVaIj39oiToOIFCl/lX+DycsdTBM8Ex7Kk
+	eJ59fku2p51B8hYhutt6eR8eIcIn0t+/tXE/IvPC80t9G9yoORp08hlnV9Qzj2Uu4HldiP8
+	ZBM/pinCiUcNrMWLLmZsKocoT1aPXrV0Ci0EjY06fLmeAlibElW1l5QQd8RAvkdWHP1meri
+	uXol+yQlqbsEO0vtzIEGb8492pfRgMOKBSfFCV0k5agdp33uqmUzpjJFwemyHMQHmot6yoE
+	WOXqa2Wb04JuXJuyzORamvdmzBuGEZsXaciS4LgUaFnINwv2smGSYwy8fmnbET8pul21Hg5
+	6OnM9QCJvKHpOgscvptubCTZGoV710+50hGGEVB5OdlqDmGT+hFkOhfgXfAZg==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10676587627097466729
+X-BIZMAIL-ID: 8717417676330824894
 From: Zhangjin Wu <falcon@tinylab.org>
-To: arnd@arndb.de
+To: thomas@t-8ch.de,
+	w@1wt.eu
 Cc: falcon@tinylab.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	thomas@t-8ch.de,
-	w@1wt.eu
-Subject: Re: [PATCH 04/13] selftests/nolibc: syscall_args: use __NR_statx for rv32
-Date: Sat, 27 May 2023 08:58:35 +0800
-Message-Id: <20230527005835.9908-1-falcon@tinylab.org>
+	paul.walmsley@sifive.com
+Subject: Re: [PATCH 13/13] tools/nolibc: sys_gettimeofday: riscv: use __NR_clock_gettime64 for rv32
+Date: Sat, 27 May 2023 09:26:35 +0800
+Message-Id: <20230527012635.19595-1-falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ee8b1f02-ded1-488b-a3a5-68774f0349b5@app.fastmail.com>
-References: <ee8b1f02-ded1-488b-a3a5-68774f0349b5@app.fastmail.com>
+In-Reply-To: <29e4b23d-27cb-4101-bfe9-c6b412222578@t-8ch.de>
+References: <29e4b23d-27cb-4101-bfe9-c6b412222578@t-8ch.de>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_175904_070714_25A73D46 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20230526_182659_780658_E2FDF575 
+X-CRM114-Status: GOOD (  36.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,117 +77,180 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Arnd
+Hi, Thomas, Willy
 
-> On Wed, May 24, 2023, at 19:48, Zhangjin Wu wrote:
-> 
+> On 2023-05-25 02:03:32+0800, Zhangjin Wu wrote:
+> > rv32 uses the generic include/uapi/asm-generic/unistd.h and it has no
+> > __NR_gettimeofday and __NR_clock_gettime after kernel commit d4c08b9776b3
+> > ("riscv: Use latest system call ABI"), use __NR_clock_gettime64 instead.
 > > 
-> > +static int test_syscall_args(void)
-> > +{
-> > +#ifdef __NR_fstat
-> > +	return syscall(__NR_fstat, 0, NULL);
-> > +#elif defined(__NR_statx)
-> > +	return syscall(__NR_statx, 0, NULL, 0, 0, NULL);
+> > This code is based on src/time/gettimeofday.c of musl and
+> > sysdeps/unix/sysv/linux/clock_gettime.c of glibc.
+> > 
+> > Both __NR_clock_gettime and __NR_clock_gettime64 are added for
+> > sys_gettimeofday() for they share most of the code.
+> > 
+> > Notes:
+> > 
+> > * Both tv and tz are not directly passed to kernel clock_gettime*
+> >   syscalls, so, it isn't able to check the pointer automatically with the
+> >   get_user/put_user helpers just like kernel gettimeofday syscall does.
+> >   instead, we emulate (but not completely) such checks in our new
+> >   __NR_clock_gettime* branch of nolibc.
+> > 
+> > * kernel clock_gettime* syscalls can not get tz info, just like musl and
+> >   glibc do, we set tz to zero to avoid a random number.
+> > 
+> > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > ---
+> >  tools/include/nolibc/sys.h | 46 ++++++++++++++++++++++++++++++++++++++
+> >  1 file changed, 46 insertions(+)
+> > 
+> > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> > index 2642b380c6aa..ad38cc3856be 100644
+> > --- a/tools/include/nolibc/sys.h
+> > +++ b/tools/include/nolibc/sys.h
+> > @@ -26,6 +26,7 @@
+> >  
+> >  #include "arch.h"
+> >  #include "errno.h"
+> > +#include "string.h"
+> >  #include "types.h"
+> >  
+> >  
+> > @@ -51,6 +52,11 @@
+> >   * should not be placed here.
+> >   */
+> >  
+> > +/*
+> > + * This is the first address past the end of the text segment (the program code).
+> > + */
+> > +
+> > +extern char etext;
+> >  
+> >  /*
+> >   * int brk(void *addr);
+> > @@ -554,7 +560,47 @@ long getpagesize(void)
+> >  static __attribute__((unused))
+> >  int sys_gettimeofday(struct timeval *tv, struct timezone *tz)
+> >  {
+> > +#ifdef __NR_gettimeofday
+> >  	return my_syscall2(__NR_gettimeofday, tv, tz);
+> > +#elif defined(__NR_clock_gettime) || defined(__NR_clock_gettime64)
+> > +#ifdef __NR_clock_gettime
+> > +	struct timespec ts;
 > > +#else
-> > +#error Neither __NR_fstat nor __NR_statx defined, cannot implement 
-> > syscall_args test
+> > +	struct timespec64 ts;
+> > +#define __NR_clock_gettime __NR_clock_gettime64
 > > +#endif
-> > +}
+> > +	int ret;
+> > +
+> > +	/* make sure tv pointer is at least after code segment */
+> > +	if (tv != NULL && (char *)tv <= &etext)
+> > +		return -EFAULT;
 > 
-> Does this need to work on old kernels? My impression was that
-> this is only intended to be used with the kernel that ships the
-> copy, so you can just rely on statx to be defined and drop
+> To me the weird etext comparisions don't seem to be worth it, to be
+> honest.
+>
 
-Willy suggested this before, besides the generic unistd.h users, I only
-found one __NR_statx in arm64 and forgot the ones in the *.tbl files:
+This is the issue we explained in commit message:
 
-    $ grep -n statx -ur arch/ | cut -d ':' -f1,2 | tr ':' ' ' | awk '{printf("git blame -L %s,%s %s\n",$2,$2,$1);}' | bash
-    cabcebd33b8b8 (Firoz Khan 2018-11-13 15:01:52 +0530 453) 522    common  statx                           sys_statx
-    a1016e94cce9f (Russell King 2017-03-09 17:14:32 +0000 414) 397  common  statx                   sys_statx
-    7349ee3a97edb (Arnd Bergmann 2018-12-30 22:25:07 +0100 338) 326 common  statx                           sys_statx
-    fd81414666cf6 (Firoz Khan 2018-11-13 11:30:28 +0530 389) 379    common  statx                           sys_statx
-    9bcbf97c62931 (Firoz Khan 2018-12-13 14:37:38 +0530 341) 330    n32     statx                           sys_statx
-    9bcbf97c62931 (Firoz Khan 2018-12-13 14:37:38 +0530 337) 326    n64     statx                           sys_statx
-    9bcbf97c62931 (Firoz Khan 2018-12-13 14:37:38 +0530 380) 366    o32     statx                           sys_statx
-    85e69701f58c9 (Firoz Khan 2018-09-09 07:22:50 +0530 395) 349    common  statx                   sys_statx
-    90856087daca9 (Arnd Bergmann 2019-01-16 14:15:23 +0100 389) 379  common statx                   sys_statx                       sys_statx
-    d25a122afd437 (Arnd Bergmann 2018-12-30 23:04:30 +0100 393) 383 common  statx                           sys_statx
-    6ff645dd683af (Firoz Khan 2018-11-14 10:56:30 +0530 433) 360    common  statx                   sys_statx
-    fc06bac35c8c7 (Firoz Khan 2018-11-13 11:34:33 +0530 408) 398    common  statx                           sys_statx
-    aff8503932004 (Firoz Khan 2018-12-17 16:10:34 +0530 474) 383    nospu   statx                           sys_statx
-    a845a6cf1dad1 (Brian Gerst 2020-03-13 15:51:39 -0400 397) 383   i386    statx                   sys_statx
-    cab56d3484d4b (Brian Gerst 2020-03-13 15:51:38 -0400 343) 332   common  statx                   sys_statx
-    c7914ef69dbb3 (Firoz Khan 2018-11-13 15:49:29 +0530 374) 351    common  statx                           sys_statx
-    713cc9df6473f (Will Deacon 2017-03-21 18:04:26 +0000 807) #define __NR_statx 397
-    713cc9df6473f (Will Deacon 2017-03-21 18:04:26 +0000 808) __SYSCALL(__NR_statx, sys_statx)
+    * Both tv and tz are not directly passed to kernel clock_gettime*
+      syscalls, so, it isn't able to check the pointer automatically with the
+      get_user/put_user helpers just like kernel gettimeofday syscall does.
+      instead, we emulate (but not completely) such checks in our new
+      __NR_clock_gettime* branch of nolibc.
 
-    (2020: x86 changed the format of the *.tbl)
-    (2019: s390 changed the format of the *.tbl)
+but not that deeply described the direct cause, the direct cause is that the
+test case passes a '(void *)1' and the kernel space of gettimeofday can simply
+'fixup' this issue by the get_user/put_user helpers, but our user-space tv and
+tz code has no such function, just emulate such 'fixup' by a stupid etext
+compare to at least make sure the data pointer is in data range. Welcome better
+solution.
 
-    $ grep -n asm-generic/unistd.h -ur arch/ | cut -d ':' -f1,2 | tr ':' ' ' | awk '{printf("git blame -L %s,%s %s\n",$2,$2,$1);}' | bash
-    4adeefe161a74 arch/arc/include/asm/unistd.h (Vineet Gupta 2013-01-18 15:12:18 +0530 31) #include <asm-generic/unistd.h>
-    91e040a79df73 (Vineet Gupta 2016-10-20 07:39:45 -0700 35) /* Generic syscall (fs/filesystems.c - lost in asm-generic/unistd.h */
-    4262a727621ce (David Howells 2012-10-11 11:05:13 +0100 25) #include <asm-generic/unistd.h>
-    4859bfca11c7d (Guo Ren 2018-09-05 14:25:08 +0800 9) #include <asm-generic/unistd.h>
-    b9398a84590be arch/hexagon/include/asm/unistd.h (Richard Kuo 2011-10-31 18:35:16 -0500 40) #include <asm-generic/unistd.h>
-    1000197d80132 (Ley Foon Tan 2014-11-06 15:19:57 +0800 27) #include <asm-generic/unistd.h>
-    09abb90107202 arch/openrisc/include/asm/unistd.h (Jonas Bonn 2011-06-04 22:26:51 +0300 30) #include <asm-generic/unistd.h>
-    27f8899d6002e (David Abdurachmanov 2018-11-08 20:02:39 +0100 26) #include <asm-generic/unistd.h>
-    be769645a2aef (Huacai Chen 2022-05-31 18:04:11 +0800 5) #include <asm-generic/unistd.h>
+    CASE_TEST(gettimeofday_bad1); EXPECT_SYSER(1, gettimeofday((void *)1, NULL), -1, EFAULT); break;
+    CASE_TEST(gettimeofday_bad2); EXPECT_SYSER(1, gettimeofday(NULL, (void *)1), -1, EFAULT); break;
 
-    (2022: the year loongarch added)
+Without this ugly check, the above cases would get such error:
 
-    $ grep -n statx, -ur fs/stat.c
-    677:SYSCALL_DEFINE5(statx,
-    $ git blame -L 677,677 fs/stat.c
-    a528d35e8bfcc (David Howells 2017-01-31 16:46:22 +0000 677) SYSCALL_DEFINE5(statx,
+    35 gettimeofday_bad1init[1]: unhandled signal 11 code 0x1 at 0x00000002 in init[10000+5000]
+    CPU: 0 PID: 1 Comm: init Not tainted 6.4.0-rc1-00134-gf929c7b7184f-dirty #20
+    Hardware name: riscv-virtio,qemu (DT)
+    epc : 00012ccc ra : 00012ca8 sp : 9d254d90
+     gp : 00016800 tp : 00000000 t0 : 00000000
+     t1 : 0000000a t2 : 00000000 s0 : 00000001
+     s1 : 00016008 a0 : 00000000 a1 : 9d254da8
+     a2 : 00000014 a3 : 00000000 a4 : 00000000
+     a5 : 00000000 a6 : 00000001 a7 : 00000193
+     s2 : 00000023 s3 : 9d254da4 s4 : 00000000
+     s5 : 00000000 s6 : 0000541b s7 : 00000007
+     s8 : 9d254dcc s9 : 000144e8 s10: 00016000
+     s11: 00000006 t3 : 00000000 t4 : ffffffff
+     t5 : 00000000 t6 : 00000000
+    status: 00000020 badaddr: 00000002 cause: 0000000f
 
-So, statx has been added from v4.10 (2017, a528d35e8bfcc) and the last
-arch support is at least from v4.20 (2018, aff8503932004), perhaps
-it is safe enough to only reserve the statx now, will simply replace
-fstat with statx in the coming new revision of this patch, thanks very
-much.
+Will at least append this test error in the commit message of the coming new
+revision of this patch.
 
-> the old fallbacks (same as for pselect6_time64 as I commented).
+Hi, Willy, this also require your discussion, simply remove the above
+two test cases may be not a good idea too, the check for gettimeofday is
+perfectly ok.
+
+The same 'emulate' method is used in the waitid patch, but that only
+requires to compare 'pid == INT_MIN', which is not that weird.
+
+> > +
+> > +	/* set tz to zero to avoid random number */
+> > +	if (tz != NULL) {
+> > +		if ((char *)tz > &etext)
+> > +			memset(tz, 0, sizeof(struct timezone));
+> > +		else
+> > +			return -EFAULT;
+> > +	}
+> > +
+
+The same issue here.
+
+> > +	if (tv == NULL)
+> > +		return 0;
+> > +
+> > +	ret = my_syscall2(__NR_clock_gettime, CLOCK_REALTIME, &ts);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	tv->tv_sec = (time_t) ts.tv_sec;
+> > +#ifdef __NR_clock_gettime64
 > 
+> Nitpick:
+> 
+> While this ifdef works and is correct its logic is a bit indirect.
+> If it is copied to some other function in the future it may be incorrect
+> there.
+> 
+> Without the #ifdef the compiler should still be able to optimize the
+> code away.
 
-Did the same search for this:
+Ok, will remove the #ifdef wrapper, let the compiler optimize itself.
 
-    $ grep -n pselect6_time64 -ur arch/ | cut -d ':' -f1,2 | tr ':' ' ' | awk '{printf("git blame -L %s,+1 %s\n",$2,$1);}' | bash
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 430) 413 common  pselect6_time64                 sys_pselect6
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 416) 413 common  pselect6_time64                 sys_pselect6
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 355) 413 n32     pselect6_time64                 compat_sys_pselect6_time64
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 404) 413 o32     pselect6_time64                 sys_pselect6                    compat_sys_pselect6_time64
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 414) 413 32      pselect6_time64                 sys_pselect6                    compat_sys_pselect6_time64
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 419) 413 32      pselect6_time64         -                               compat_sys_pselect6_time64
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 419) 413 common  pselect6_time64                 sys_pselect6
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 462) 413 32      pselect6_time64                 sys_pselect6                    compat_sys_pselect6_time64
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 422) 413 common  pselect6_time64                 sys_pselect6
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 503) 413 32      pselect6_time64                 sys_pselect6                    compat_sys_pselect6_time64
-    cab56d3484d4b (Brian Gerst 2020-03-13 15:51:38 -0400 421) 413   i386    pselect6_time64         sys_pselect6                    compat_sys_pselect6_time64
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 387) 413 common  pselect6_time64                 sys_pselect6
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 838) #define __NR_pselect6_time64 413
-    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 839) __SYSCALL(__NR_pselect6_time64, compat_sys_pselect6_time64)
-
-    (not sure if we have missed some archs)
-
-    $ grep -n pselect6_time64, fs/select.c
-    1368:COMPAT_SYSCALL_DEFINE6(pselect6_time64, int, n, compat_ulong_t __user *, inp,
-    $ git blame -L 1368,+1 fs/select.c
-    e024707bccae1 (Deepa Dinamani 2018-09-19 21:41:07 -0700 1368) COMPAT_SYSCALL_DEFINE6(pselect6_time64, int, n, compat_ulong_t __user *, inp,
-
-pselect6_time64 has been added from v4.20 and the last arch support is
-at least from v5.0.0.
-
-As we discussed in another reply, will add pselect6_time64 at first and
-reserve the drop patch of the already added oldselect, newselect in the
-future.
-
-Thanks very much,
+Thanks,
 Zhangjin
 
 > 
->       Arnd
+> > +	if (tv->tv_sec != ts.tv_sec)
+> > +		return -EOVERFLOW;
+> > +#endif
+> > +
+> > +	tv->tv_usec = ts.tv_nsec / 1000;
+> > +	return 0;
+> > +#else
+> > +#error None of __NR_gettimeofday, __NR_clock_gettime and __NR_clock_gettime64 defined, cannot implement sys_gettimeofday()
+> > +#endif
+> >  }
+> >  
+> >  static __attribute__((unused))
+> > -- 
+> > 2.25.1
+> > 
 
 _______________________________________________
 linux-riscv mailing list
