@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADB4C77B73
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 May 2023 18:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE786C77B7A
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 May 2023 00:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nz1V4w85LsIU9Ub+A7ScYOo7D6GpLVY434QFKo5qtD0=; b=SG5fxwt3A4UJqt
-	E0KTC1aoi8Ml5zF8EwmInLrwPXdKLFXhSBFDG+gugdzBkb47EfAmKZBCS+eA4AUhmObKqR3AdSQsZ
-	GhUSSXz2LKNUqBERCEVrJDwOrrvT9LvX7eULuknV1F7/v3XpP3HXBVP8VzVmsRc+5iAqAAw6Adx1V
-	P/F0ywI8yteWw0qJK7ll41g8ZZoWaELPfoJjr8XEFvvkuN6nRDR0+8r1LuVUVEYSYYSyIly6RnYQD
-	lCi26w16WBmRUf6z2E4zYqaS+k1MCxOg2S/9XkgiDBJmYXHAQIQpI2/yZr6Nk+lxipX8h4VCA/c6z
-	Q21RexOW0W2WalY7Fx3w==;
+	List-Owner; bh=GmqbEhFo4ZR5JtYeteJIaydzMFZF29+pBYwjBlOgu00=; b=1n58oG3JsdDgUO
+	g2hm+b5dtAiJF9dm+4pGSEWPq5Tl7jgXHeWDCaQYbSRc2In17MXnyYw1kOk9wcZNd5xRU4c9ZotHl
+	AlbucwJ33ONDil/RNXjum6N5Hl05b7M+wfzj0cibg4gcfZhMRMY+Ddnj0xjdfkzv6OQVN8UhTwk/c
+	fvEPcJM1YlxRjOKck7r2V+dU+TSO/OcmK6RocDhvMFAXrgfXFR5C9rTK6qs9n9rvNSSx/C8+Ae95a
+	lwdLD4bZn4F1dbVhdCqBCZJl7pX/QQjD7E8kUg43hTaa0fss5nKJ5cxyqf7T9EJB0okwlOOa/qoIq
+	/F+2e58r2h9+p4sYeHVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2cUX-003Y04-1O;
-	Fri, 26 May 2023 18:48:45 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1q2iGx-004V3X-19;
+	Sat, 27 May 2023 00:59:07 +0000
+Received: from bg4.exmail.qq.com ([43.155.65.254])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2cUU-003Xyc-0g
+	id 1q2iGt-004V1M-2I
 	for linux-riscv@lists.infradead.org;
-	Fri, 26 May 2023 18:48:44 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-2af2e1725bdso14873531fa.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 May 2023 11:48:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google; t=1685126919; x=1687718919;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8fFXLC7rXbzzICb4uWYgI+q3GvH1gbWqD9s+YhYheVk=;
-        b=aP1Z4hqt95NdHijFJEYNYIfnCHGEBewM1z08G57qdP3ITGyEVNuWG/WbMXkcqYjxnf
-         SDV+fEzgfPlE9dlUZEG7nuSlarOhFHk+T59T717oX5WqatKbZNhiH24N8ZDMu2LBqTEP
-         Mio30kYaI27lIJMXhW3m4yQ29BgFYQ0nTcNYI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685126919; x=1687718919;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8fFXLC7rXbzzICb4uWYgI+q3GvH1gbWqD9s+YhYheVk=;
-        b=ClAUNVJ2XybeGai6WzJOca6mbgjFW6HCXa71tRiklK+IeWEZUFIRhxmf5v3DYo2xJO
-         oiWdDJWB9Ik9HIrdbZaiwUQmo7LkkSAFozQvA1Ib+k89QgdbZFnRix8hUY3fEJPIEr7t
-         MLkvUQYl9dzX/d/JCmZfnRQJ1Ht41+mQ1qUpTLBajomh/b/uTJz8tgO54Lf7o5b5uiw/
-         L0L0UOhDhg6XZMAwibVR9X2+b9q2M59UkOzHaf4KnKmHQsaX2+GponPjWDcGZjHWu45V
-         6d6vi48o87PDEtAV7wKd2qc8WKI5bxZY/xdyri23QbXrwIVlOokpb+9u8EKiL9PTN3OO
-         e6BA==
-X-Gm-Message-State: AC+VfDy6R1aCMo99p6A77p3FkQe8gIZQ3JpLno6KRW8bkFap+hAlpD63
-	frYy2ALayErD6c2rec1dYHSjNP5CYV2kqGnbhp90
-X-Google-Smtp-Source: ACHHUZ7OlOCOqDXJiLiAQrC+hrddLdgM783sV5O9CAZiFex9Fdl67PZ5PunW+TbhFECau3TLYHD0XSbkGkXl1esAO4c=
-X-Received: by 2002:a2e:9d8b:0:b0:2af:2786:271d with SMTP id
- c11-20020a2e9d8b000000b002af2786271dmr723853ljj.21.1685126919013; Fri, 26 May
- 2023 11:48:39 -0700 (PDT)
+	Sat, 27 May 2023 00:59:05 +0000
+X-QQ-mid: bizesmtp66t1685149116tihsod3m
+Received: from linux-lab-host.localdomain ( [119.123.130.80])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sat, 27 May 2023 08:58:35 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: q+EIYT+FhZr8kYjxAfV4QeX59imBMjyv13kK8lw49D3SOmIMyDMjczluMyAEG
+	8A5dwW5QVIQTJLxVhSxr9es8TCVQ8+y8+SldjzRpWmJ2MxCcwqAP1FeFrQP49enURp82lEH
+	RzXUE2HkrjhBlY5/4kYhrOkhgkdQMNp9kvGUgCQTqa2SLGWEhOySAuRxsqSj+MtpKww0fHk
+	v+JRUUn9S5mjurm7BXi9orU1Mfl6jEta7lvRDrwCsCk0U89CG3x0IyKCqF6AEhffZhj3h1G
+	GOGsK724QNLCis+h9P1cHJfZzfpV7+gdLCf+LfpzvqmiaA0eh19swAP+uyMyODQWK/qmZtL
+	j7PUQbz2xTRX6dPaXrI1OZNKzvUcA==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 10676587627097466729
+From: Zhangjin Wu <falcon@tinylab.org>
+To: arnd@arndb.de
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	thomas@t-8ch.de,
+	w@1wt.eu
+Subject: Re: [PATCH 04/13] selftests/nolibc: syscall_args: use __NR_statx for rv32
+Date: Sat, 27 May 2023 08:58:35 +0800
+Message-Id: <20230527005835.9908-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <ee8b1f02-ded1-488b-a3a5-68774f0349b5@app.fastmail.com>
+References: <ee8b1f02-ded1-488b-a3a5-68774f0349b5@app.fastmail.com>
 MIME-Version: 1.0
-References: <20230525-shrapnel-precut-26500fca4a48@wendy> <CAAhSdy3SqeLdAfaojUki=ht21nr4ZUPMkW_t9M6ntQCt6Ds4Nw@mail.gmail.com>
- <20230525-citric-waged-a2f78d27eb0c@wendy> <CAOnJCULfC0jmiucLNMeJZwJf4QbGAN6r4B-ubUbP16KVpxrCfA@mail.gmail.com>
- <20230525-flaring-trading-f2bf0713ae26@spud> <CAOnJCUK_EgX-En1QNS8yX1WA1nj8w2kpvXMQcvgWuR3dvzEQYw@mail.gmail.com>
- <20230525-desecrate-imposing-d97ab34e06ad@spud> <CAOnJCUKfRv68Bh8ue=ZhMGxai9_UEHLpm3553g2c2NXh-RP-TQ@mail.gmail.com>
- <20230525-batting-botch-7e03393a2d97@spud> <CAHVXubiDezbwZO6X2btvgpq-XqHnxZjXzaMnSK2YrHc_ioLx8Q@mail.gmail.com>
- <20230526-steep-omen-a5a46a1086bf@spud> <f82e7d3d-a16d-593e-7513-753b5cbf28af@ghiti.fr>
- <CAAhSdy0_XqiB=1w3hnYkipPj1aF_D=z=MD2fKLxk6rb_iDdBow@mail.gmail.com> <CAHVXubj2oHJGwbfEukxRg58xHyVOieTdCa5wjHsR5XZ8rmxjgg@mail.gmail.com>
-In-Reply-To: <CAHVXubj2oHJGwbfEukxRg58xHyVOieTdCa5wjHsR5XZ8rmxjgg@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 26 May 2023 11:48:27 -0700
-Message-ID: <CAOnJCU+2PHToCSWdauh5CarUa8iNcE4Ugv3gj=TiLVVoevU_iQ@mail.gmail.com>
-Subject: Re: Bug report: kernel paniced when system hibernates
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Anup Patel <anup@brainfault.org>, Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor@kernel.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Anup Patel <apatel@ventanamicro.com>, robh@kernel.org, 
-	jeeheng.sia@starfivetech.com, linux-kernel@vger.kernel.org, 
-	palmer@rivosinc.com, leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com, 
-	Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Song Shuai <suagrfillet@gmail.com>, linux-riscv@lists.infradead.org, 
-	Andrew Jones <ajones@ventanamicro.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_114842_431309_B348210B 
-X-CRM114-Status: GOOD (  32.16  )
+X-CRM114-CacheID: sfid-20230526_175904_070714_25A73D46 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +73,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMjYsIDIwMjMgYXQgODoyMuKAr0FNIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
-aXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBPbiBGcmksIE1heSAyNiwgMjAyMyBhdCA1OjE3
-4oCvUE0gQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4gd3JvdGU6Cj4gPgo+ID4gT24g
-RnJpLCBNYXkgMjYsIDIwMjMgYXQgODo0MuKAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0
-aS5mcj4gd3JvdGU6Cj4gPiA+Cj4gPiA+Cj4gPiA+IE9uIDI2LzA1LzIwMjMgMTY6NTksIENvbm9y
-IERvb2xleSB3cm90ZToKPiA+ID4gPiBPbiBGcmksIE1heSAyNiwgMjAyMyBhdCAwMzoxNDozM1BN
-ICswMjAwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4gPiA+ID4+IEhpIGV2ZXJ5b25lLAo+ID4g
-PiA+Pgo+ID4gPiA+PiBPbiBUaHUsIE1heSAyNSwgMjAyMyBhdCAxMToyNOKAr1BNIENvbm9yIERv
-b2xleSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+ID4+PiBPbiBUaHUsIE1heSAyNSwg
-MjAyMyBhdCAwMTowNjowNFBNIC0wNzAwLCBBdGlzaCBQYXRyYSB3cm90ZToKPiA+ID4gPj4+PiBP
-biBUaHUsIE1heSAyNSwgMjAyMyBhdCAxMTozOeKAr0FNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4gPiA+ID4+Pj4+IE9uIFRodSwgTWF5IDI1LCAyMDIzIGF0IDExOjM3
-OjQwQU0gLTA3MDAsIEF0aXNoIFBhdHJhIHdyb3RlOgo+ID4gPiA+Pj4+Pgo+ID4gPiA+Pj4+Pj4g
-QW55IHRlc3Rpbmcgb2YgaGliZXJuYXRpb24gc3RpbGwgbmVlZHMgdG8gcmV2ZXJ0IHRoZSBwYXRj
-aCB1bnRpbCB3ZQo+ID4gPiA+Pj4+Pj4gaGF2ZSB0aGUgcHJvcGVyIGZpeC4KPiA+ID4gPj4+Pj4g
-InRoZSBwYXRjaCIgaXMgd2hhdCBleGFjdGx5PyBJIGFzc3VtZSB5b3UgZG9uJ3QgbWVhbiBkZXBl
-bmRpbmcgb24KPiA+ID4gPj4+Pj4gTk9OUE9SVEFCTEUsIHNpbmNlIHRoYXQgaXMgYSBLY29uZmln
-IG9wdGlvbi4KPiA+ID4gPj4+PiBOb3BlLiBTb3JyeSBJIG1lYW50IHRoZSBjb21taXQKPiA+ID4g
-Pj4+Pgo+ID4gPiA+Pj4+IDMzMzUwNjggKCJyaXNjdjogVXNlIFBVRC9QNEQvUEdEIHBhZ2VzIGZv
-ciB0aGUgbGluZWFyIG1hcHBpbmciKQo+ID4gPiA+Pj4gQWgsIGlmIHlvdXIgU0JJIGltcGxlbWVu
-dGF0aW9uIGlzIG9uZSBvZiB0aGUgYWZmZWN0ZWQgb25lcywgeWVhaC4KPiA+ID4gPj4+IElmIG5v
-dCwgeW91IGNhbiBqdXN0IHNldCBOT05QT1JUQUJMRSA6KQo+ID4gPiA+PiBAQmrDtnJuIFTDtnBl
-bCBlbWl0dGVkIHRoZSBpZGVhIG9mIGV4Y2x1ZGluZyBmcm9tIHRoZSBoaWJlcm5hdGlvbiBhbGwK
-PiA+ID4gPj4gdGhlIG1lbW9yeSBub2RlcyBpbiB0aGUgIi9yZXNlcnZlZC1tZW1vcnkiIG5vZGUK
-PiA+ID4gPj4gKGh0dHBzOi8vZWxpeGlyLmJvb3RsaW4uY29tL2xpbnV4L3Y2LjQtcmMxL3NvdXJj
-ZS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmVzZXJ2ZWQtbWVtb3J5L3Jlc2Vy
-dmVkLW1lbW9yeS55YW1sKToKPiA+ID4gPj4gSSBoYXZlIHRvIGFkbWl0IHRoYXQgSSBkb24ndCBz
-ZWUgd2h5IGl0IGlzIG5vdCBkb25lIGJ5IGRlZmF1bHQgYnkgdGhlCj4gPiA+ID4+IGtlcm5lbC4K
-PiA+ID4gPiBNeSB1bmRlcnN0YW5kaW5nIHdhcyB0aGF0IGl0IHdhcyBwZXJmZWN0bHkgZmluZSB0
-byB1c2UgcmVzZXJ2ZWQgbWVtb3J5Cj4gPiA+ID4gbm9kZXMgdG8gZmVuY2Ugb2ZmIHNvbWUgbWVt
-b3J5IHRvIHVzZSBpbiBkZXZpY2UgZHJpdmVycyBldGMsIHdoaWNoIHRoZW4KPiA+ID4gPiBtYXkg
-bmVlZCB0byBiZSBzYXZlZC9yZXN0b3JlZC4KPiA+ID4KPiA+ID4KPiA+ID4gQWdyZWVkLCBidXQg
-SSB3b3VsZCBzYXkgdGhhdCBpdCdzIHVwIHRvIHRoZSBkcml2ZXIgdGhlbiB0byB0YWtlIGNhcmUg
-b2YKPiA+ID4gdGhhdCwgc2VlIGh0dHBzOi8vZG9jcy5rZXJuZWwub3JnL2RyaXZlci1hcGkvcG0v
-bm90aWZpZXJzLmh0bWwKPiA+Cj4gPiBJIGFncmVlLCBpdCBzaG91bGQgYmUgZHJpdmVycyByZXNw
-b25zaWJpbGl0eSB0byBzYXZlL3Jlc3RvcmUgdGhlIGRlZGljYXRlZAo+ID4gcmVzZXJ2ZWQgbWVt
-b3J5IHVzZWQgYnkgaXRzZWxmLgo+ID4KPiA+IEFsdGhvdWdoLCBJIHRoaW5rIHdlIHNob3VsZCBh
-dCBsZWFzdCBzYXZlL3Jlc3RvcmUgcmVzZXJ2ZWQgbWVtb3J5Cj4gPiByZWdpb25zIGhhdmluZyAi
-cmV1c2FibGUiIHByb3BlcnR5IHNldC4KPgoKVGhhdCB3b3VsZCBiZSBjZXJ0YWlubHkgaWRlYWwu
-IEhvd2V2ZXIsIHRoYXQgcGllY2Ugb2YgY29kZSBoYXMgYmVlbgpwcmVzZW50IGZvciBhZ2VzIChs
-YXN0IGNvbW1pdCB3YXMgaW4gMjAwOCEpLgpUaGVyZSBtYXkgYmUgYSBidW5jaCBvZiBkcml2ZXJz
-IHdyaXR0ZW4gd2l0aCB0aGlzIGJ1aWx0aW4gYXNzdW1wdGlvbi4KCj4gR29vZCBwb2ludCEgSSds
-bCBwcm9wb3NlIGFuIFJGQyBhbmQgZ2F0aGVyIGZlZWRiYWNrIGZyb20gdGhlIHBlb3BsZSBpbgo+
-IGNoYXJnZSBvZiB0aGUgaGliZXJuYXRpb24gcHJvY2Vzcy4KCkhvcGVmdWxseSwgaXQncyBub3Qg
-dG9vIGJhZC4KCj4KPiA+Cj4gPiBSZWdhcmRzLAo+ID4gQW51cAo+ID4KPiA+ID4KPiA+ID4KPiA+
-ID4gPj4gVW5sZXNzIHRoZXJlIGlzIHN0dWZmIGluIHRoaXMgbm9kZSB0aGF0IG5lZWRzIHRvIGJl
-ICJoaWJlcm5hdGVkIiwgSQo+ID4gPiA+PiB0aGluayB0aGF0IHdvdWxkIGJlIGEgdmVyeSBnb29k
-IHNvbHV0aW9uIHNpbmNlIHdlIHdvdWxkIG5vdCByZWx5IG9uCj4gPiA+ID4+IHRoZSBuYW1lIG9m
-IHRoZSAiaW50ZXJuYWwiIG5vZGVzIG9mICIvcmVzZXJ2ZWQtbWVtb3J5IiAoaS5lLgo+ID4gPiA+
-PiAibW1vZGVfcmVzdiIpLgo+ID4gPiA+Pgo+ID4gPiA+PiBJJ20gZGlnZ2luZyBpbnRvIHdoeSBp
-dCBpcyBub3QgZG9uZSBieSBkZWZhdWx0LCBqdXN0IHdhbnRlZCB0byBoYXZlCj4gPiA+ID4+IHlv
-dXIgZmVlZGJhY2sgYmVmb3JlIHRoZSB3ZWVrLWVuZCA6KQoKCgotLSAKUmVnYXJkcywKQXRpc2gK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi, Arnd
+
+> On Wed, May 24, 2023, at 19:48, Zhangjin Wu wrote:
+> 
+> > 
+> > +static int test_syscall_args(void)
+> > +{
+> > +#ifdef __NR_fstat
+> > +	return syscall(__NR_fstat, 0, NULL);
+> > +#elif defined(__NR_statx)
+> > +	return syscall(__NR_statx, 0, NULL, 0, 0, NULL);
+> > +#else
+> > +#error Neither __NR_fstat nor __NR_statx defined, cannot implement 
+> > syscall_args test
+> > +#endif
+> > +}
+> 
+> Does this need to work on old kernels? My impression was that
+> this is only intended to be used with the kernel that ships the
+> copy, so you can just rely on statx to be defined and drop
+
+Willy suggested this before, besides the generic unistd.h users, I only
+found one __NR_statx in arm64 and forgot the ones in the *.tbl files:
+
+    $ grep -n statx -ur arch/ | cut -d ':' -f1,2 | tr ':' ' ' | awk '{printf("git blame -L %s,%s %s\n",$2,$2,$1);}' | bash
+    cabcebd33b8b8 (Firoz Khan 2018-11-13 15:01:52 +0530 453) 522    common  statx                           sys_statx
+    a1016e94cce9f (Russell King 2017-03-09 17:14:32 +0000 414) 397  common  statx                   sys_statx
+    7349ee3a97edb (Arnd Bergmann 2018-12-30 22:25:07 +0100 338) 326 common  statx                           sys_statx
+    fd81414666cf6 (Firoz Khan 2018-11-13 11:30:28 +0530 389) 379    common  statx                           sys_statx
+    9bcbf97c62931 (Firoz Khan 2018-12-13 14:37:38 +0530 341) 330    n32     statx                           sys_statx
+    9bcbf97c62931 (Firoz Khan 2018-12-13 14:37:38 +0530 337) 326    n64     statx                           sys_statx
+    9bcbf97c62931 (Firoz Khan 2018-12-13 14:37:38 +0530 380) 366    o32     statx                           sys_statx
+    85e69701f58c9 (Firoz Khan 2018-09-09 07:22:50 +0530 395) 349    common  statx                   sys_statx
+    90856087daca9 (Arnd Bergmann 2019-01-16 14:15:23 +0100 389) 379  common statx                   sys_statx                       sys_statx
+    d25a122afd437 (Arnd Bergmann 2018-12-30 23:04:30 +0100 393) 383 common  statx                           sys_statx
+    6ff645dd683af (Firoz Khan 2018-11-14 10:56:30 +0530 433) 360    common  statx                   sys_statx
+    fc06bac35c8c7 (Firoz Khan 2018-11-13 11:34:33 +0530 408) 398    common  statx                           sys_statx
+    aff8503932004 (Firoz Khan 2018-12-17 16:10:34 +0530 474) 383    nospu   statx                           sys_statx
+    a845a6cf1dad1 (Brian Gerst 2020-03-13 15:51:39 -0400 397) 383   i386    statx                   sys_statx
+    cab56d3484d4b (Brian Gerst 2020-03-13 15:51:38 -0400 343) 332   common  statx                   sys_statx
+    c7914ef69dbb3 (Firoz Khan 2018-11-13 15:49:29 +0530 374) 351    common  statx                           sys_statx
+    713cc9df6473f (Will Deacon 2017-03-21 18:04:26 +0000 807) #define __NR_statx 397
+    713cc9df6473f (Will Deacon 2017-03-21 18:04:26 +0000 808) __SYSCALL(__NR_statx, sys_statx)
+
+    (2020: x86 changed the format of the *.tbl)
+    (2019: s390 changed the format of the *.tbl)
+
+    $ grep -n asm-generic/unistd.h -ur arch/ | cut -d ':' -f1,2 | tr ':' ' ' | awk '{printf("git blame -L %s,%s %s\n",$2,$2,$1);}' | bash
+    4adeefe161a74 arch/arc/include/asm/unistd.h (Vineet Gupta 2013-01-18 15:12:18 +0530 31) #include <asm-generic/unistd.h>
+    91e040a79df73 (Vineet Gupta 2016-10-20 07:39:45 -0700 35) /* Generic syscall (fs/filesystems.c - lost in asm-generic/unistd.h */
+    4262a727621ce (David Howells 2012-10-11 11:05:13 +0100 25) #include <asm-generic/unistd.h>
+    4859bfca11c7d (Guo Ren 2018-09-05 14:25:08 +0800 9) #include <asm-generic/unistd.h>
+    b9398a84590be arch/hexagon/include/asm/unistd.h (Richard Kuo 2011-10-31 18:35:16 -0500 40) #include <asm-generic/unistd.h>
+    1000197d80132 (Ley Foon Tan 2014-11-06 15:19:57 +0800 27) #include <asm-generic/unistd.h>
+    09abb90107202 arch/openrisc/include/asm/unistd.h (Jonas Bonn 2011-06-04 22:26:51 +0300 30) #include <asm-generic/unistd.h>
+    27f8899d6002e (David Abdurachmanov 2018-11-08 20:02:39 +0100 26) #include <asm-generic/unistd.h>
+    be769645a2aef (Huacai Chen 2022-05-31 18:04:11 +0800 5) #include <asm-generic/unistd.h>
+
+    (2022: the year loongarch added)
+
+    $ grep -n statx, -ur fs/stat.c
+    677:SYSCALL_DEFINE5(statx,
+    $ git blame -L 677,677 fs/stat.c
+    a528d35e8bfcc (David Howells 2017-01-31 16:46:22 +0000 677) SYSCALL_DEFINE5(statx,
+
+So, statx has been added from v4.10 (2017, a528d35e8bfcc) and the last
+arch support is at least from v4.20 (2018, aff8503932004), perhaps
+it is safe enough to only reserve the statx now, will simply replace
+fstat with statx in the coming new revision of this patch, thanks very
+much.
+
+> the old fallbacks (same as for pselect6_time64 as I commented).
+> 
+
+Did the same search for this:
+
+    $ grep -n pselect6_time64 -ur arch/ | cut -d ':' -f1,2 | tr ':' ' ' | awk '{printf("git blame -L %s,+1 %s\n",$2,$1);}' | bash
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 430) 413 common  pselect6_time64                 sys_pselect6
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 416) 413 common  pselect6_time64                 sys_pselect6
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 355) 413 n32     pselect6_time64                 compat_sys_pselect6_time64
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 404) 413 o32     pselect6_time64                 sys_pselect6                    compat_sys_pselect6_time64
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 414) 413 32      pselect6_time64                 sys_pselect6                    compat_sys_pselect6_time64
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 419) 413 32      pselect6_time64         -                               compat_sys_pselect6_time64
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 419) 413 common  pselect6_time64                 sys_pselect6
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 462) 413 32      pselect6_time64                 sys_pselect6                    compat_sys_pselect6_time64
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 422) 413 common  pselect6_time64                 sys_pselect6
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 503) 413 32      pselect6_time64                 sys_pselect6                    compat_sys_pselect6_time64
+    cab56d3484d4b (Brian Gerst 2020-03-13 15:51:38 -0400 421) 413   i386    pselect6_time64         sys_pselect6                    compat_sys_pselect6_time64
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 387) 413 common  pselect6_time64                 sys_pselect6
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 838) #define __NR_pselect6_time64 413
+    48166e6ea47d2 (Arnd Bergmann 2019-01-10 12:45:11 +0100 839) __SYSCALL(__NR_pselect6_time64, compat_sys_pselect6_time64)
+
+    (not sure if we have missed some archs)
+
+    $ grep -n pselect6_time64, fs/select.c
+    1368:COMPAT_SYSCALL_DEFINE6(pselect6_time64, int, n, compat_ulong_t __user *, inp,
+    $ git blame -L 1368,+1 fs/select.c
+    e024707bccae1 (Deepa Dinamani 2018-09-19 21:41:07 -0700 1368) COMPAT_SYSCALL_DEFINE6(pselect6_time64, int, n, compat_ulong_t __user *, inp,
+
+pselect6_time64 has been added from v4.20 and the last arch support is
+at least from v5.0.0.
+
+As we discussed in another reply, will add pselect6_time64 at first and
+reserve the drop patch of the already added oldselect, newselect in the
+future.
+
+Thanks very much,
+Zhangjin
+
+> 
+>       Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
