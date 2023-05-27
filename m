@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8171AC77B7C
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 May 2023 10:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416E1C77B73
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 May 2023 10:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YhNjc8fc68GpljDj6Bqr4adzBZK3mBdW9dnh6xCCTT4=; b=kSVk0b5JQOsf3ud8gpcvSIwQl6
-	IOvRoOeChQjq2A2q6Y9swZgBpsTx9s0bmqYD8A/8Fo4KPNK0TCqNivjkFqzRyA3YJ/Pnfhtzl+CXZ
-	A8swrs1+VM7TMeKO0E2qUWVzoMVDLBwTXhudtN1yRdvkKKDAcQIaTm9Fahw9O7OPZ3yEOtT0jM+ro
-	8Y491McfiFejclgIWylPrwhWHnPXIKw0av1wWuqhMcjcuxqNVdb3/z6vas9Z2TneMTNcL/ixtZMTN
-	Ruc3nFBsGUyP69WvmNxmb3P+jkXpwEwoD87Vwo9CdzYZfYL6375DTK+TITLRcoQfyjQGw3csXkecP
-	MOOGM1zA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I4X4pVcKZD/Mdj+eneOp62poi/gwe3EKT4x3Mkh6PDw=; b=wcVtOQwxvfj0Af
+	prrTDkMFMggKu6tc56+8KqtLu/EBv3HuTjOiQEQAq0UYqaA7ZtgvV+T0AIER2XFZnWXvwExZN4y9W
+	jw+sPMINLhRBfYQy5NGG8zlt7B8bqDNbM5C8U5is2si5eBCuSQ3QvHSsPKa4woErQ59NPdeO0eHvu
+	u0gEKTCy1P+jBtnPx3CXmU4hZnrsQpVTwyPrKhROsRhm0mx3g9+ltD3rNputbaSVXrrjhtncsP7vz
+	Oltd0MhxfG5QCZJcLXkbKrusZI/2PA0vafLUmmIh8d2ugQjucOnHeVP7oC9Fuk3AnzhPF+OYZHWok
+	gCgd5/lGpBM8JPGhppIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2qlM-005Pam-2F;
-	Sat, 27 May 2023 10:03:04 +0000
+	id 1q2rNG-005TvN-0v;
+	Sat, 27 May 2023 10:42:14 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2qlJ-005PaA-2W
-	for linux-riscv@lists.infradead.org;
-	Sat, 27 May 2023 10:03:03 +0000
+	id 1q2rNC-005Tti-2S;
+	Sat, 27 May 2023 10:42:12 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8D83B60B81;
-	Sat, 27 May 2023 10:02:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43774C433D2;
-	Sat, 27 May 2023 10:02:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9F50861072;
+	Sat, 27 May 2023 10:42:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE11AC433EF;
+	Sat, 27 May 2023 10:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685181779;
-	bh=Q2FDhXqVNJHaRjoJtXMk1o3QIJ5qqminjno17UsLNMk=;
+	s=k20201202; t=1685184129;
+	bh=Z4TeIapFpeS1e5WxOMUpOrDg87Rxe8ydQavxJsO0vug=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MrsdLN08Txax+9c2aEGIhrhw/xGdOciRKkLKTo4m+PhnvXrvRx6+/IsGBVnTrPNNw
-	 jSlehauyk2ww6e4Kp6GHmtVe7Sx1Y5FdTPFTEr/QamLzVByImx/hZ1BZiFP7tBlCrC
-	 RRZ54pk3WEdkd6nkzaU5Fxo2J2Z3UO/H2HqxobN18EEfGTIKbBNEKVO0rG80tZKlJ5
-	 lH3BiIYFK8HB2nuuR7Dlco7eg6hz2k731zrEFy2NEjv+4n+EaVd4TWduBvaFVKnxuz
-	 tGIjxXH64ibSD61yCHSpjc3MIv49A0VnYg440u7W4jGe0BIbxdHqVWgtr4ZKD0JtNe
-	 l5wgnpFlK0g7w==
-Date: Sat, 27 May 2023 11:02:54 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andreas Schwab <schwab@linux-m68k.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH -fixes] riscv: Fix relocatable kernels with early
- alternatives using -fno-pie
-Message-ID: <20230527-hyperlink-doctrine-ef22cfcb508a@spud>
-References: <20230526154630.289374-1-alexghiti@rivosinc.com>
- <20230526-clergyman-wriggly-accc659a3fad@spud>
- <20230526-rockfish-moody-f6d3e71f9d24@spud>
- <f6522c82-01bd-8a03-579d-a5b294784480@ghiti.fr>
+	b=qtjpACU3i7FVjLT023Ddg5iX1Sm9mYGyR9BAcAldcZGtkGi1IgPSjR20Gkom5YVFi
+	 9GqwWTqSe6aCGE+Jk6r1lk9ASI1BqwfpG0h2HSrQ1BaMlG84/DZwyIoKGVbNuFJs46
+	 KM/CX4KgN01bs8ctMAmNzdH3P/7vJMOVtl/spQpp1NeNWLVBfmoG8tubTTHEz78nbM
+	 Mi5TzSK4O/LtfJpDtvhI5QLWzSn68VROvh7bVsKVmfCA0L8DXw2EUj7uC78b19+5Rx
+	 6iPjAV5tMRrgS7SBBOhhGo75UiSObo7waKqxJ5uuMYjPYcI7MRtTbdg+ba8TB9jNgs
+	 b+IpYHQpsYW9A==
+Date: Sat, 27 May 2023 13:41:44 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Vishal Moola <vishal.moola@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org
+Subject: Re: [PATCH v2 05/34] mm: add utility functions for ptdesc
+Message-ID: <20230527104144.GH4967@kernel.org>
+References: <20230501192829.17086-1-vishal.moola@gmail.com>
+ <20230501192829.17086-6-vishal.moola@gmail.com>
+ <20230525090956.GX4967@kernel.org>
+ <CAOzc2pxSH6GhBnAoSOjvYJk2VdMDFZi3H_1qGC5Cdyp3j4AzPQ@mail.gmail.com>
+ <20230525202537.GA4967@kernel.org>
+ <CAOzc2pxD21mxisy-M5b_SDUv0MYwNHqaVDJnJpARuDG_HjCbOg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <f6522c82-01bd-8a03-579d-a5b294784480@ghiti.fr>
+Content-Disposition: inline
+In-Reply-To: <CAOzc2pxD21mxisy-M5b_SDUv0MYwNHqaVDJnJpARuDG_HjCbOg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230527_030301_928514_78C5E04A 
-X-CRM114-Status: GOOD (  32.81  )
+X-CRM114-CacheID: sfid-20230527_034210_907718_3302A13C 
+X-CRM114-Status: GOOD (  23.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,105 +81,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3896924096618875461=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3896924096618875461==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jODbkASVMwTCezVU"
-Content-Disposition: inline
-
-
---jODbkASVMwTCezVU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, May 27, 2023 at 11:13:18AM +0200, Alexandre Ghiti wrote:
->=20
-> On 26/05/2023 18:35, Conor Dooley wrote:
-> > On Fri, May 26, 2023 at 05:24:41PM +0100, Conor Dooley wrote:
-> > > On Fri, May 26, 2023 at 05:46:30PM +0200, Alexandre Ghiti wrote:
-> > > > Early alternatives are called with the mmu disabled, and then shoul=
-d not
-> > > > access any global symbols through the GOT since it requires relocat=
-ions,
-> > > > relocations that we do before but *virtually*. So only use medany c=
-ode
-> > > > model for this early code.
-> > > >=20
-> > > > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > > > ---
-> > > >=20
-> > > > Note that I'm not very happy with this fix, I think we need to put =
-more
-> > > > effort into "harmonizing" this very early code (ie before the mmu is
-> > > > enabled) as it is spread between different locations and compiled
-> > > > differently.
-> > > Totally & I'll happily spend the time trying to review that work.
-> > >=20
-> > > > I'll work on that later, but for now, this fix does what is
-> > > > needed to work (from my testing at least). Any Tested-by on the Unm=
-atched
-> > > > and T-head boards is welcome!
-> > > On 6.4-rc1 & v6.4-rc1 + this patch, with CONFIG_RELOCATABLE added to =
-my
-> > > config, my Nezha fails to boot. There is no output whatsoever from the
-> > > kernel. Turning off CONFIG_RELOCATABLE boots again.
-> > I don't know if this is better or worse news, but same thing happens on
-> > an icicle kit. What systems, other than QEMU, has the relocatable
-> > eries been tested with, btw?
->=20
->=20
-> I tested it on the Unmatched (Andreas did too).
-
-Cool. I cracked out my unmatched and it has the same issue as the
-icicle. Ditto my Visionfive v2. Here's my config.
-https://raw.githubusercontent.com/ConchuOD/riscv-env/dev/conf/defconfig
-
-A ~default qemu virt doesn't work either. (-m 2G -smp 5)
-
-> Very weird it does not work on the icicle kit, there is no errata for this
-> soc, so what gets executed this early for this soc? Do you know where it
-> fails to boot? If you can debug, you should break on the address of the
-> entry point (usually 0x8020_0000) since this is the stvec address, so when
-> you get a trap, you will branch there, and then could you dump $sepc, $ra
-> and $stval when you get there?
-
-> Regarding the thead issue, I think the following should fix it:
-
-It did not :/
-
-Cheers,
-Conor.
-
-
---jODbkASVMwTCezVU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHHVTgAKCRB4tDGHoIJi
-0m27AP9bIwI2RQkeOKos/BNDiKvKszT1wMJLWmbV6TKsXrd1kgEA5PTTkXBgM6OO
-FsZqMgtJsC/sPnS1ikOmo/vfMb8tNgQ=
-=A8Pn
------END PGP SIGNATURE-----
-
---jODbkASVMwTCezVU--
-
-
---===============3896924096618875461==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3896924096618875461==--
-
+T24gVGh1LCBNYXkgMjUsIDIwMjMgYXQgMDE6NTM6MjRQTSAtMDcwMCwgVmlzaGFsIE1vb2xhIHdy
+b3RlOgo+IE9uIFRodSwgTWF5IDI1LCAyMDIzIGF0IDE6MjbigK9QTSBNaWtlIFJhcG9wb3J0IDxy
+cHB0QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IE9uIFRodSwgTWF5IDI1LCAyMDIzIGF0IDEx
+OjA0OjI4QU0gLTA3MDAsIFZpc2hhbCBNb29sYSB3cm90ZToKPiA+ID4gT24gVGh1LCBNYXkgMjUs
+IDIwMjMgYXQgMjoxMOKAr0FNIE1pa2UgUmFwb3BvcnQgPHJwcHRAa2VybmVsLm9yZz4gd3JvdGU6
+Cj4gPiA+ID4gPiArCj4gPiA+ID4gPiArc3RhdGljIGlubGluZSBzdHJ1Y3QgcHRkZXNjICpwdGRl
+c2NfYWxsb2MoZ2ZwX3QgZ2ZwLCB1bnNpZ25lZCBpbnQgb3JkZXIpCj4gPiA+ID4gPiArewo+ID4g
+PiA+ID4gKyAgICAgc3RydWN0IHBhZ2UgKnBhZ2UgPSBhbGxvY19wYWdlcyhnZnAgfCBfX0dGUF9D
+T01QLCBvcmRlcik7Cj4gPiA+ID4gPiArCj4gPiA+ID4gPiArICAgICByZXR1cm4gcGFnZV9wdGRl
+c2MocGFnZSk7Cj4gPiA+ID4gPiArfQo+ID4gPiA+ID4gKwo+ID4gPiA+ID4gK3N0YXRpYyBpbmxp
+bmUgdm9pZCBwdGRlc2NfZnJlZShzdHJ1Y3QgcHRkZXNjICpwdCkKPiA+ID4gPiA+ICt7Cj4gPiA+
+ID4gPiArICAgICBzdHJ1Y3QgcGFnZSAqcGFnZSA9IHB0ZGVzY19wYWdlKHB0KTsKPiA+ID4gPiA+
+ICsKPiA+ID4gPiA+ICsgICAgIF9fZnJlZV9wYWdlcyhwYWdlLCBjb21wb3VuZF9vcmRlcihwYWdl
+KSk7Cj4gPiA+ID4gPiArfQo+ID4gPiA+Cj4gPiA+ID4gVGhlIHB0ZGVzY197YWxsb2MsZnJlZX0g
+QVBJIGRvZXMgbm90IHNvdW5kIHJpZ2h0IHRvIG1lLiBUaGUgbmFtZQo+ID4gPiA+IHB0ZGVzY19h
+bGxvYygpIGltcGxpZXMgdGhlIGFsbG9jYXRpb24gb2YgdGhlIHB0ZGVzYyBpdHNlbGYsIHJhdGhl
+ciB0aGFuCj4gPiA+ID4gYWxsb2NhdGlvbiBvZiBwYWdlIHRhYmxlIHBhZ2UuIFRoZSBzYW1lIGdv
+ZXMgZm9yIGZyZWUuCj4gPiA+Cj4gPiA+IEknbSBub3Qgc3VyZSBJIHNlZSB0aGUgZGlmZmVyZW5j
+ZS4gQ291bGQgeW91IGVsYWJvcmF0ZT8KPiA+Cj4gPiBJIHJlYWQgcHRkZXNjX2FsbG9jKCkgYXMg
+ImFsbG9jYXRlIGEgcHRkZXNjIiByYXRoZXIgdGhhbiBhcyAiYWxsb2NhdGUgYQo+ID4gcGFnZSBm
+b3IgcGFnZSB0YWJsZSBhbmQgcmV0dXJuIHB0ZGVzYyBwb2ludGluZyB0byB0aGF0IHBhZ2UiLiBT
+ZWVtcyB2ZXJ5Cj4gPiBjb25mdXNpbmcgdG8gbWUgYWxyZWFkeSBhbmQgaXQgd2lsbCBiZSBldmVu
+IG1vcmUgY29uZnVzaW9uIHdoZW4gd2UnbGwgc3RhcnQKPiA+IGFsbG9jYXRpbmcgYWN0dWFsIHB0
+ZGVzY3MuCj4gCj4gSG1tLCBJIHNlZSB3aGF0IHlvdSdyZSBzYXlpbmcuIEknbSBlbnZpc2lvbmlu
+ZyB0aGlzIGZ1bmN0aW9uIGV2b2x2aW5nIGludG8KPiBvbmUgdGhhdCBhbGxvY2F0ZXMgYSBwdGRl
+c2MgbGF0ZXIuIEkgZG9uJ3Qgc2VlIHdoeSB3ZSB3b3VsZCBuZWVkIHRvIGhhdmUgYm90aCBhCj4g
+cGFnZSB0YWJsZSBwYWdlIEFORCBwdGRlc2MgYXQgYW55IHBvaW50LCBidXQgdGhhdCBtYXkgYmUg
+YSBsYWNrIG9mIGtub3dsZWRnZQo+IGZyb20gbXkgcGFydC4KClNvcnJ5IGlmIEkgd2Fzbid0IGNs
+ZWFyLCBieSAicGFnZSB0YWJsZSBwYWdlIiBJIG1lYW50IHRoZSBwYWdlIChvciBtZW1vcnkKZm9y
+IHRoYXQgbWF0dGVyKSBmb3IgYWN0dWFsIHBhZ2UgdGFibGUgcmF0aGVyIHRoYW4gc3RydWN0IHBh
+Z2UgZGVzY3JpYmluZwp0aGF0IG1lbW9yeS4KClNvIHdoYXQgd2UgYWxsb2NhdGUgaGVyZSBpcyB0
+aGUgYWN0dWFsIG1lbW9yeSBmb3IgdGhlIHBhZ2UgdGFibGVzIGFuZCBub3QKdGhlIG1lbW9yeSBm
+b3IgdGhlIG1ldGFkYXRhLiBUaGF0J3Mgd2h5IEkgdGhpbmsgdGhlIG5hbWUgcHRkZXNjX2FsbG9j
+IGlzCmNvbmZ1c2luZy4KIAo+IEkgd2FzIHRoaW5raW5nIGxhdGVyLCBpZiBuZWNlc3NhcnksIHdl
+IGNvdWxkIG1ha2UgYW5vdGhlciBmdW5jdGlvbgo+IChvbmx5IHRvIGJlIHVzZWQgaW50ZXJuYWxs
+eSkgdG8gYWxsb2NhdGUgcGFnZSB0YWJsZSBwYWdlcy4KCi0tIApTaW5jZXJlbHkgeW91cnMsCk1p
+a2UuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
