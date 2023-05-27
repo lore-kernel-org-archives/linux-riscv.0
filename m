@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE95C77B7C
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 May 2023 02:27:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8742C77B7E
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 May 2023 03:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eRGlUaof25cKkUhW3pfZ6WTptLoyiTqes4g759Ipy0o=; b=gQjPShGtqDH1iF
-	bFK34pjTciR4FdXIiQHqKP3pxEv1gPEUXxSIHqmM8EAtoODpuHjwxdjJ5iCjoEnt1Gsne62Ntv0Ro
-	giPNix+RR+T/e5wtiyva86dItFGZBF4QJPNcgvwsAmjYOxWzzvz32N2vKWqBVWGZ/MTpY9XXyyAFO
-	BriPT/mM3miOM04YTjMV7qJaHO8HKXJ7lw4KvP2HCP0I/gesVABXRHtKGjextMmka2oHuVDPKwPPv
-	76xEyr0Ue5mAu8nMObjJ4KzPrhqWa9Wt9ILOrcPqGIvUdzaty5ARmBQLYIERVLraqFBBuMaI7vZ37
-	AnvQ9VvswsHaO5URr9LA==;
+	List-Owner; bh=Nd47ll/KbYU6xAR+3TBRJB0aFkZ9/ilc3z+nWmqcOws=; b=e1VQbDgYysBzJN
+	NnhcaRQPSWfDkumSJ0ibJLuKoa7Qgs+6rUOusrTelgZg2/eZer2jtl2wOlBuHVnspg7W8sTCD6o20
+	EvxFO4eg2IFAFTyUF9NvTzJj05tDp7YYxO8347c4OKq2w0JjZES9j9DsahmCxXg8tRvRARKa5nljH
+	s3OhI/f81FnqfsjdQG2UfYX8rUPKnqhUU38PDNkcsdIe0vFQaElM02cPJd4z+GegF2Qyw4lSlt9ze
+	mjnNE6h2VDF32kVqRTkTKDdU80Nj3Yh1T6s3wwnhPwsLUoEXrrHTLCI3G3/MQJxGIEbJZ7s/QvB5d
+	l6MzJ06RbL25aLnWWYdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2jeE-004ePe-16;
-	Sat, 27 May 2023 02:27:14 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1q2kmd-004kyV-1J;
+	Sat, 27 May 2023 03:39:59 +0000
+Received: from bg4.exmail.qq.com ([43.155.65.254])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q2jeA-004eN3-27;
-	Sat, 27 May 2023 02:27:12 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1b00ecabdf2so13583365ad.2;
-        Fri, 26 May 2023 19:27:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1685154421; x=1687746421;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yGd3VhznQ2I/NQDk+4roFWXHVSOBmaxtJ+oHTP+UbGk=;
-        b=n7sDEKh6jt4tjfPVQPZjuftdEuC76pajkpfPSZEdFb7ieTmVQ5SpkxQNB5yMcm06QN
-         isB+1LbRGBHRIUuoBTXYa6Y702+fLmeOCqWjOutS3GZWlk7ZHJbef/Kcn2GDtcXt7Di5
-         B0F10QB32YuiJwlAvNLeESVDkmplddaavJBcbyNa2aP2XC3bQ0hI5yR8F/Yxwe5RODhi
-         Wb72xgb9IQXkByEhjLGwZbvv1kua9AC/H/Pkq96DLHrfA9rxhbQVjVHhbgkQ1B/bXkAB
-         aHgoCQgsq+/XaBn2ddmY+9Iwi18VcA5IRBqMr6/eWKC+vitweWJ0fDlo+tr2j1vcbrHE
-         eJ+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685154421; x=1687746421;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yGd3VhznQ2I/NQDk+4roFWXHVSOBmaxtJ+oHTP+UbGk=;
-        b=D2peCBUiBMNK48j9SOOgbBgi7I0nyvxmIUpgDmneEb6Zwx4lI74Y2LDG91Bz9UI923
-         FHHtdfMS8tQhPLC2jWCZ9kb4cwKI2yNvA/hOi/YIZ9QFwCVfmJ6+bEVEsnTIBSg5/qfF
-         Sp1j0cThCh2DOnq9rSZvUEtTlFAtuwCtYg7MKeJw8e+PIdFY5w+JvfOzI6XDsNuP4JUv
-         sXyd9PLN03hS7Y+Yb/m9qERIb0dYE8UkPTvFK5O9a8sF7jmSAdKIvDk8zDDywiAi6P88
-         SCykv/Jk0cEy5OXPse/HvcWyfTsh4pT+UvHABv9uhNrE5OnyPvdOBr0QkaaSTsUPY2Ov
-         Ki8w==
-X-Gm-Message-State: AC+VfDy3G82AKNclUUu6kG4krKucq8DHAX2xgsEQcrplWmfTl5AhNEBC
-	BLBwcMD7HQCnmvjkF1j/gzqDzzzFVwIMoOkxYh1Z5NvIQYY=
-X-Google-Smtp-Source: ACHHUZ6aAeSR4JF6rBXm5cC75wX5zCQJnq/3rFEcZQpE51VFfD85Rkd+KHCNiQAQXbtR9I84BTrFBx+V7cy+Ct2ere0=
-X-Received: by 2002:a17:903:2345:b0:1af:f4f5:6fae with SMTP id
- c5-20020a170903234500b001aff4f56faemr5778765plh.54.1685154421346; Fri, 26 May
- 2023 19:27:01 -0700 (PDT)
+	id 1q2kmX-004kxH-1k
+	for linux-riscv@lists.infradead.org;
+	Sat, 27 May 2023 03:39:57 +0000
+X-QQ-mid: bizesmtp68t1685158778t8e4mrur
+Received: from localhost.localdomain ( [119.123.130.80])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sat, 27 May 2023 11:39:36 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: mdpNu8XZCyCi4LvvLx7OdFvp/vpXARmkS5idFTDCHgkzfDC+fj4NC1rFle0VI
+	GnqswCHld1I8GbOisvsAwaXT56Nqz1LLLITw4ScrHKahWQ11jT7qd+jg+rzxm7pMLJobVIc
+	b8dQy4FC90bUzdU3FHaS+FkKyvDFBc8WCppDNR8MeMwGmcvD0N0zqcR9D8g0TXOQfpYmXT3
+	R3zSr31KMyHXSypSzO9YrBjsKkdF3KBklmWgPvxXLuQXR1sXoCNUz/64JvXL+UOR6500Uz1
+	9M4N4lvYsdNIVWOxyLgClmLASSsiCliY5IkhiTKTGsgw+ylpx7X1+KeQ5LXgEA+4kgpmTKs
+	gSPu7krzk1vGffxhBiYhZku264mr6N034GMkEiwafPA8WwecF158JAxo4Az6Q==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 827569819390505217
+From: Zhangjin Wu <falcon@tinylab.org>
+To: thomas@t-8ch.de,
+	w@1wt.eu
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Subject: Re: [PATCH 13/13] tools/nolibc: sys_gettimeofday: riscv: use __NR_clock_gettime64 for rv32
+Date: Sat, 27 May 2023 11:39:36 +0800
+Message-Id: <20230527033936.15465-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230527012635.19595-1-falcon@tinylab.org>
+References: <20230527012635.19595-1-falcon@tinylab.org>
 MIME-Version: 1.0
-References: <cover.1684999824.git.haibo1.xu@intel.com> <26dea518fc5e8da51e61db279d175364bfecd009.1684999824.git.haibo1.xu@intel.com>
- <20230525-705ddcbcd43aa63e3fd356c8@orel> <CAJve8onF9MFuaVsThFnhjWr6ZomB0Lhr9WXGvMiJDt5vrjeKLg@mail.gmail.com>
- <20230526-d8d768a23cd6bdc274bc165c@orel>
-In-Reply-To: <20230526-d8d768a23cd6bdc274bc165c@orel>
-From: Haibo Xu <xiaobo55x@gmail.com>
-Date: Sat, 27 May 2023 10:26:51 +0800
-Message-ID: <CAJve8on=5NtnzR=iAQs2D4B2Ly=KFXF-0ZDtkXFuz-SdxTGGmA@mail.gmail.com>
-Subject: Re: [PATCH v2 09/11] KVM: riscv: selftests: Make check_supported arch specific
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Haibo Xu <haibo1.xu@intel.com>, maz@kernel.org, oliver.upton@linux.dev, 
-	seanjc@google.com, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, David Matlack <dmatlack@google.com>, 
-	Ben Gardon <bgardon@google.com>, Vipin Sharma <vipinsh@google.com>, 
-	Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230526_192710_698495_9FAF22B5 
-X-CRM114-Status: GOOD (  31.26  )
+X-CRM114-CacheID: sfid-20230526_203953_903721_E31030B7 
+X-CRM114-Status: GOOD (  41.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,57 +72,223 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMjYsIDIwMjMgYXQgNDo0NOKAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
-bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBNYXkgMjYsIDIwMjMgYXQgMDM6NTA6
-MzJQTSArMDgwMCwgSGFpYm8gWHUgd3JvdGU6Cj4gPiBPbiBGcmksIE1heSAyNiwgMjAyMyBhdCAx
-Mjo0MOKAr0FNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+
-ID4gPgo+ID4gPiBPbiBUaHUsIE1heSAyNSwgMjAyMyBhdCAwMzozODozM1BNICswODAwLCBIYWli
-byBYdSB3cm90ZToKPiA+ID4gPiBjaGVja19zdXBwb3J0ZWQoKSB3YXMgdXNlZCB0byB2ZXJpZnkg
-d2hldGhlciBhIGZlYXR1cmUvZXh0ZW5zaW9uIHdhcwo+ID4gPiA+IHN1cHBvcnRlZCBpbiBhIGd1
-ZXN0IGluIHRoZSBnZXQtcmVnLWxpc3QgdGVzdC4gQ3VycmVudGx5IHRoaXMgaW5mbwo+ID4gPiA+
-IGNhbiBiZSByZXRyaWV2ZWQgdGhyb3VnaCB0aGUgS1ZNX0NBUF9BUk1fKiBBUEkgaW4gYWFyY2g2
-NCwgYnV0IGluCj4gPiA+ID4gcmlzY3YsIHRoaXMgaW5mbyB3YXMgb25seSBleHBvc2VkIHRocm91
-Z2ggdGhlIEtWTV9HRVRfT05FX1JFRyBvbgo+ID4gPiA+IEtWTV9SRUdfUklTQ1ZfSVNBX0VYVCBw
-c2V1ZG8gcmVnaXN0ZXJzLgo+ID4gPiA+Cj4gPiA+ID4gU2lnbmVkLW9mZi1ieTogSGFpYm8gWHUg
-PGhhaWJvMS54dUBpbnRlbC5jb20+Cj4gPiA+ID4gLS0tCj4gPiA+ID4gIHRvb2xzL3Rlc3Rpbmcv
-c2VsZnRlc3RzL2t2bS9nZXQtcmVnLWxpc3QuYyB8IDMyICsrKysrKysrKysrLS0tLS0tLS0tLS0K
-PiA+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDE2IGluc2VydGlvbnMoKyksIDE2IGRlbGV0aW9ucygt
-KQo+ID4gPiA+Cj4gPiA+ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2
-bS9nZXQtcmVnLWxpc3QuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9nZXQtcmVnLWxp
-c3QuYwo+ID4gPiA+IGluZGV4IGY2YWQ3OTkxYTgxMi4uZjFmYzExM2U5NzE5IDEwMDY0NAo+ID4g
-PiA+IC0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9nZXQtcmVnLWxpc3QuYwo+ID4g
-PiA+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9nZXQtcmVnLWxpc3QuYwo+ID4g
-PiA+IEBAIC05OSw2ICs5OSwyMCBAQCB2b2lkIF9fd2VhayBwcmludF9yZWcoY29uc3QgY2hhciAq
-cHJlZml4LCBfX3U2NCBpZCkKPiA+ID4gPiAgfQo+ID4gPiA+Cj4gPiA+ID4gICNpZmRlZiBfX2Fh
-cmNoNjRfXwo+ID4gPiA+ICtzdGF0aWMgdm9pZCBjaGVja19zdXBwb3J0ZWQoc3RydWN0IHZjcHVf
-cmVnX2xpc3QgKmMpCj4gPiA+ID4gK3sKPiA+ID4gPiArICAgICBzdHJ1Y3QgdmNwdV9yZWdfc3Vi
-bGlzdCAqczsKPiA+ID4gPiArCj4gPiA+ID4gKyAgICAgZm9yX2VhY2hfc3VibGlzdChjLCBzKSB7
-Cj4gPiA+ID4gKyAgICAgICAgICAgICBpZiAoIXMtPmNhcGFiaWxpdHkpCj4gPiA+ID4gKyAgICAg
-ICAgICAgICAgICAgICAgIGNvbnRpbnVlOwo+ID4gPgo+ID4gPiBJIHdhcyBnb2luZyB0byBzYXkg
-dGhhdCBtYWtpbmcgdGhpcyBmdW5jdGlvbiBhYXJjaDY0IHNob3VsZG4ndCBiZQo+ID4gPiBuZWNl
-c3NhcnksIHNpbmNlIHJpc2N2IGxlYXZlcyBjYXBhYmlsaXR5IHNldCB0byB6ZXJvIGFuZCB0aGlz
-IGZ1bmN0aW9uCj4gPiA+IGRvZXNuJ3QgZG8gYW55dGhpbmcsIGJ1dCB0aGVuIGxvb2tpbmcgYWhl
-YWQgSSBzZWUgcmlzY3YgaXMgYWJ1c2luZwo+ID4gPiBjYXBhYmlsaXR5IGJ5IHB1dHRpbmcgaXNh
-IGV4dGVuc2lvbnMgaW4gaXQuIElNTywgY2FwYWJpbGl0eSBzaG91bGQKPiA+ID4gb25seSBiZSBz
-ZXQgdG8gS1ZNX0NBUF8qIHZhbHVlcy4gU2luY2UgcmlzY3YgZG9lc24ndCB1c2UgaXQsIHRoZW4g
-aXQKPiA+ID4gc2hvdWxkIGJlIGxlZnQgemVyby4KPiA+ID4KPiA+ID4gSWYgd2UncmUgZ29pbmcg
-dG8gYWJ1c2Ugc29tZXRoaW5nLCB0aGVuIEknZCByYXRoZXIgYWJ1c2UgdGhlICdmZWF0dXJlJwo+
-ID4gPiBtZW1iZXIsIGJ1dCBzaW5jZSBpdCdzIG9ubHkgYW4gaW50IChub3QgYW4gdW5zaWduZWQg
-bG9uZyksIHRoZW4gbGV0J3MKPiA+ID4ganVzdCBhZGQgYW4gJ3Vuc2lnbmVkIGxvbmcgZXh0ZW5z
-aW9uJyBtZW1iZXIuCj4gPiA+Cj4gPgo+ID4gR29vZCBpZGVhIQo+ID4KPiA+IEZvciB0aGUgbmV3
-ICdleHRlbnNpb24nIG1lbWJlciBpbiByaXNjdiwgSSB0aGluayBpdHMgdXNlIGNhc2Ugc2hvdWxk
-IGJlCj4gPiBpZGVudGljYWwgdG8gdGhlICdmZWF0dXJlJyBtZW1iZXIgaW4gYWFyY2g2NChLVk1f
-UklTQ1ZfSVNBX0VYVF9GCj4gPiB3YXMgc2ltaWxhciB0byBLVk1fQVJNX1ZDUFVfU1ZFKT8gSWYg
-c28sIEkgdGhpbmsgd2UgY2FuIGp1c3QgcmV1c2UKPiA+IHRoZSAnZmVhdHVyZScgbWVtYmVyIHNp
-bmNlIHRoZSBkYXRhIHR5cGUgd2FzIG5vdCBhIGJpZyBkZWFsLgo+Cj4gWW91J3JlIHJpZ2h0LiBB
-biBpbnQgaXMgZmluZSBmb3IgdGhlIGlzYSBleHRlbnNpb24gaW5kZXgsIHdoaWNoIGlzIGFsbCB3
-ZQo+IG5lZWQgdG8gcmVwcmVzZW50Lgo+Cj4gVGhhbmtzLAo+IGRyZXcKClRoYW5rcyBmb3IgdGhl
-IHN1Z2dlc3Rpb24hIEkgd2lsbCBpbmNsdWRlIHRoZSBjaGFuZ2UgaW4gdjMgc29vbi4KCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi, Thomas, Willy
+
+> > On 2023-05-25 02:03:32+0800, Zhangjin Wu wrote:
+> > > rv32 uses the generic include/uapi/asm-generic/unistd.h and it has no
+> > > __NR_gettimeofday and __NR_clock_gettime after kernel commit d4c08b9776b3
+> > > ("riscv: Use latest system call ABI"), use __NR_clock_gettime64 instead.
+> > > 
+> > > This code is based on src/time/gettimeofday.c of musl and
+> > > sysdeps/unix/sysv/linux/clock_gettime.c of glibc.
+> > > 
+> > > Both __NR_clock_gettime and __NR_clock_gettime64 are added for
+> > > sys_gettimeofday() for they share most of the code.
+> > > 
+> > > Notes:
+> > > 
+> > > * Both tv and tz are not directly passed to kernel clock_gettime*
+> > >   syscalls, so, it isn't able to check the pointer automatically with the
+> > >   get_user/put_user helpers just like kernel gettimeofday syscall does.
+> > >   instead, we emulate (but not completely) such checks in our new
+> > >   __NR_clock_gettime* branch of nolibc.
+> > > 
+> > > * kernel clock_gettime* syscalls can not get tz info, just like musl and
+> > >   glibc do, we set tz to zero to avoid a random number.
+> > > 
+> > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > > ---
+> > >  tools/include/nolibc/sys.h | 46 ++++++++++++++++++++++++++++++++++++++
+> > >  1 file changed, 46 insertions(+)
+> > > 
+> > > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> > > index 2642b380c6aa..ad38cc3856be 100644
+> > > --- a/tools/include/nolibc/sys.h
+> > > +++ b/tools/include/nolibc/sys.h
+> > > @@ -26,6 +26,7 @@
+> > >  
+> > >  #include "arch.h"
+> > >  #include "errno.h"
+> > > +#include "string.h"
+> > >  #include "types.h"
+> > >  
+> > >  
+> > > @@ -51,6 +52,11 @@
+> > >   * should not be placed here.
+> > >   */
+> > >  
+> > > +/*
+> > > + * This is the first address past the end of the text segment (the program code).
+> > > + */
+> > > +
+> > > +extern char etext;
+> > >  
+> > >  /*
+> > >   * int brk(void *addr);
+> > > @@ -554,7 +560,47 @@ long getpagesize(void)
+> > >  static __attribute__((unused))
+> > >  int sys_gettimeofday(struct timeval *tv, struct timezone *tz)
+> > >  {
+> > > +#ifdef __NR_gettimeofday
+> > >  	return my_syscall2(__NR_gettimeofday, tv, tz);
+> > > +#elif defined(__NR_clock_gettime) || defined(__NR_clock_gettime64)
+> > > +#ifdef __NR_clock_gettime
+> > > +	struct timespec ts;
+> > > +#else
+> > > +	struct timespec64 ts;
+> > > +#define __NR_clock_gettime __NR_clock_gettime64
+> > > +#endif
+> > > +	int ret;
+> > > +
+> > > +	/* make sure tv pointer is at least after code segment */
+> > > +	if (tv != NULL && (char *)tv <= &etext)
+> > > +		return -EFAULT;
+> > 
+> > To me the weird etext comparisions don't seem to be worth it, to be
+> > honest.
+> >
+> 
+> This is the issue we explained in commit message:
+> 
+>     * Both tv and tz are not directly passed to kernel clock_gettime*
+>       syscalls, so, it isn't able to check the pointer automatically with the
+>       get_user/put_user helpers just like kernel gettimeofday syscall does.
+>       instead, we emulate (but not completely) such checks in our new
+>       __NR_clock_gettime* branch of nolibc.
+> 
+> but not that deeply described the direct cause, the direct cause is that the
+> test case passes a '(void *)1' and the kernel space of gettimeofday can simply
+> 'fixup' this issue by the get_user/put_user helpers, but our user-space tv and
+> tz code has no such function, just emulate such 'fixup' by a stupid etext
+> compare to at least make sure the data pointer is in data range. Welcome better
+> solution.
+> 
+>     CASE_TEST(gettimeofday_bad1); EXPECT_SYSER(1, gettimeofday((void *)1, NULL), -1, EFAULT); break;
+>     CASE_TEST(gettimeofday_bad2); EXPECT_SYSER(1, gettimeofday(NULL, (void *)1), -1, EFAULT); break;
+> 
+> Without this ugly check, the above cases would get such error:
+> 
+>     35 gettimeofday_bad1init[1]: unhandled signal 11 code 0x1 at 0x00000002 in init[10000+5000]
+>     CPU: 0 PID: 1 Comm: init Not tainted 6.4.0-rc1-00134-gf929c7b7184f-dirty #20
+>     Hardware name: riscv-virtio,qemu (DT)
+>     epc : 00012ccc ra : 00012ca8 sp : 9d254d90
+>      gp : 00016800 tp : 00000000 t0 : 00000000
+>      t1 : 0000000a t2 : 00000000 s0 : 00000001
+>      s1 : 00016008 a0 : 00000000 a1 : 9d254da8
+>      a2 : 00000014 a3 : 00000000 a4 : 00000000
+>      a5 : 00000000 a6 : 00000001 a7 : 00000193
+>      s2 : 00000023 s3 : 9d254da4 s4 : 00000000
+>      s5 : 00000000 s6 : 0000541b s7 : 00000007
+>      s8 : 9d254dcc s9 : 000144e8 s10: 00016000
+>      s11: 00000006 t3 : 00000000 t4 : ffffffff
+>      t5 : 00000000 t6 : 00000000
+>     status: 00000020 badaddr: 00000002 cause: 0000000f
+> 
+> Will at least append this test error in the commit message of the coming new
+> revision of this patch.
+> 
+> Hi, Willy, this also require your discussion, simply remove the above
+> two test cases may be not a good idea too, the check for gettimeofday is
+> perfectly ok.
+> 
+
+What about this? Just like Willy did in 1da02f51088 ("selftests/nolibc:
+support glibc as well"), Let's only limit the test case under the
+__NR_gettimeofday #ifdef:
+
+    diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
+    index 702bf449f8d7..d52f3720918e 100644
+    --- a/tools/testing/selftests/nolibc/nolibc-test.c
+    +++ b/tools/testing/selftests/nolibc/nolibc-test.c
+    @@ -563,7 +563,7 @@ int run_syscall(int min, int max)
+     		CASE_TEST(getdents64_root);   EXPECT_SYSNE(1, test_getdents64("/"), -1); break;
+     		CASE_TEST(getdents64_null);   EXPECT_SYSER(1, test_getdents64("/dev/null"), -1, ENOTDIR); break;
+     		CASE_TEST(gettimeofday_null); EXPECT_SYSZR(1, gettimeofday(NULL, NULL)); break;
+    -#ifdef NOLIBC
+    +#if defined(NOLIBC) && defined(__NR_gettimeofday)
+     		CASE_TEST(gettimeofday_bad1); EXPECT_SYSER(1, gettimeofday((void *)1, NULL), -1, EFAULT); break;
+     		CASE_TEST(gettimeofday_bad2); EXPECT_SYSER(1, gettimeofday(NULL, (void *)1), -1, EFAULT); break;
+     #endif
+
+With the above change, we can simply remove the ugly etext check like this:
+
+    diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+    index d1d26da306b7..ebe8ed018db6 100644
+    --- a/tools/include/nolibc/sys.h
+    +++ b/tools/include/nolibc/sys.h
+    @@ -572,17 +572,9 @@ int sys_gettimeofday(struct timeval *tv, struct timezone *tz)
+     #endif
+     	int ret;
+     
+    -	/* make sure tv pointer is at least after code segment */
+    -	if (tv != NULL && (char *)tv <= &etext)
+    -		return -EFAULT;
+    -
+     	/* set tz to zero to avoid random number */
+    -	if (tz != NULL) {
+    -		if ((char *)tz > &etext)
+    -			memset(tz, 0, sizeof(struct timezone));
+    -		else
+    -			return -EFAULT;
+    -	}
+    +	if (tz != NULL)
+    +		memset(tz, 0, sizeof(struct timezone));
+     
+     	if (tv == NULL)
+     		return 0;
+    
+
+If agree, will apply this method in the next revision.
+
+> The same 'emulate' method is used in the waitid patch, but that only
+> requires to compare 'pid == INT_MIN', which is not that weird.
+> 
+> > > +
+> > > +	/* set tz to zero to avoid random number */
+> > > +	if (tz != NULL) {
+> > > +		if ((char *)tz > &etext)
+> > > +			memset(tz, 0, sizeof(struct timezone));
+> > > +		else
+> > > +			return -EFAULT;
+> > > +	}
+> > > +
+> 
+> The same issue here.
+>
+
+And the one for waitid may work like this:
+
+    @@ -1390,10 +1382,6 @@ pid_t sys_wait4(pid_t pid, int *status, int options, struct rusage *rusage)
+     	int idtype = P_PID;
+     	int ret;
+     
+    -	/* emulate the 'pid == INT_MIN' path of wait4 */
+    -	if (pid == INT_MIN)
+    -		return -ESRCH;
+    -
+     	if (pid < -1) {
+     		idtype = P_PGID;
+     		pid *= -1;
+    @@ -593,7 +593,9 @@ int run_syscall(int min, int max)
+     		CASE_TEST(unlink_root);       EXPECT_SYSER(1, unlink("/"), -1, EISDIR); break;
+     		CASE_TEST(unlink_blah);       EXPECT_SYSER(1, unlink("/proc/self/blah"), -1, ENOENT); break;
+     		CASE_TEST(wait_child);        EXPECT_SYSER(1, wait(&tmp), -1, ECHILD); break;
+    +#ifdef __NR_wait4
+     		CASE_TEST(waitpid_min);       EXPECT_SYSER(1, waitpid(INT_MIN, &tmp, WNOHANG), -1, ESRCH); break;
+    +#endif
+     		CASE_TEST(waitpid_child);     EXPECT_SYSER(1, waitpid(getpid(), &tmp, WNOHANG), -1, ECHILD); break;
+     		CASE_TEST(write_badf);        EXPECT_SYSER(1, write(-1, &tmp, 1), -1, EBADF); break;
+     		CASE_TEST(write_zero);        EXPECT_SYSZR(1, write(1, &tmp, 0)); break;
+
+Best regards,
+Zhangjin
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
