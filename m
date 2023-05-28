@@ -4,51 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CCEC7EE23
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 May 2023 13:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F14C77B7E
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 May 2023 13:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=EHhwbD7+3mj6lrFqw8y5yz09WmPg1S9NZ0FDLE57R7I=; b=fDlamS/D2WRcKETVqCYku2yMT2
-	3HzOGbiAD/U2D4osZVL2/my3dWQWditKo+AbZjLshDH+kAc00L+8Z0LOo+oW2vurEIv0T8Z5fNuR8
-	XOvGABGnTH5bGXJw+yzYEE+KVDkEhpheqqT3iP6IBJucrpqxnTJIeYX4B1FxVYcVwbPuEuTUqYExz
-	PkrEPqH1oawpNztTl9Lw0Iiag2RfY6kAziFVNdsV3xTaUVUdSQiIXUG/3i8FhnJOv5oMM2WmnQjMh
-	q2v4/dBzyVd8LiNbftSmwXxO3bxsmkgRElAGl0e6EMoYJRXptnezKUsnAzCCvLTzqi4gUVaiw3kX/
-	idmg8EsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h9GU7Ge75YvpjytidDLdOkF9otEUGoNcm0e3ORZQULA=; b=nOAF2aWiWv1cfu15qqlvCzK0c7
+	T8JtW0bwHItCEC2BmURw1XUCfctHgEwFGTOiTDlF8v5Luvw/hkojoolnkUwxKkIve/x/gucQnPWCY
+	WGTM27XTAEiDLHCcF7m+CRsu+wc1Dkgga5Wbhh54zzHLRK3/6e91INFvSygU/yzeDpmJlzzEzurh/
+	99nGXeZVLf4g4TCAJnNqnSmI2wTbAh3bcC2EUkQHcX9lHrHHA+R33GLysm1LmzbU/yhY8buaKP7TT
+	YQZZt5aN1eyOXa/d7wcNxP0xdssFJn3rvNiONrr+L0s3cxvF2kChn68m01INyYScN7dU1zY3fwZMR
+	ZiB8BV4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3Gie-007jT6-1e;
-	Sun, 28 May 2023 13:46:00 +0000
-Received: from todd.t-8ch.de ([159.69.126.157])
+	id 1q3Gt5-007kVD-0u;
+	Sun, 28 May 2023 13:56:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3Gib-007jRd-0N
+	id 1q3Gt2-007kUh-0j
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 May 2023 13:45:58 +0000
-Date: Sun, 28 May 2023 15:45:35 +0200 (GMT+02:00)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
-	t=1685281552; bh=TNSOyj/R8fRwL21orChWBpSrPcruLGOuSxC646omTOA=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=CVfO9Pj1iezqL/76Vf1+9NQyZKUbHT4Arq7S+cTYS0BiJTkkMSVxTlA4bl5tDYX4X
-	 gA5L3UqFK3jEuNrZaHF6lqM5nCC3mzKTwPGgTmxjPR/k+mGZGtlVvUzxOs4B4fat+W
-	 Ua4VrvX3sD/pOPnEB5PRBnMLjFWeEaa0a39dhlcQ=
-From: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh_?= <thomas@t-8ch.de>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: w@1wt.eu, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Message-ID: <b25f79f0-a8fb-428a-ad54-fc4afe0df6ff@t-8ch.de>
-In-Reply-To: <20230528103957.318267-1-falcon@tinylab.org>
-References: <20230528075955.GE1956@1wt.eu> <20230528103957.318267-1-falcon@tinylab.org>
-Subject: Re: [PATCH 00/13] tools/nolibc: riscv: Add full rv32 support
+	Sun, 28 May 2023 13:56:45 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9160F60A38;
+	Sun, 28 May 2023 13:56:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51ADFC433D2;
+	Sun, 28 May 2023 13:56:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685282203;
+	bh=U3GojuCuoXYfWzcEEea0OZvAAyMV4nTAAdmCAqb/5K4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WiLbmPxIdViLKmIkD5gfoxXwhcWxALd7JUAghhpXkvD4zlhu1pNx5jwUS+Gq/p0Dm
+	 CsE//CLrdLGOAqaa4U28W3JdG9mv3mZdpK2pPcKCSqLPvcZ8q99UznkrS2mYlsYT7V
+	 6MrJKjhfgvqAIZa6sIas1YZIEOK7IvAIcGjoMCFcJs86S23c2jCKb54eWZDEn/EJ2K
+	 C2oocvFibDsnMkKdOM7Ir6+JLJZCDuhGmJkp28zlcZqxEeoueRqa0vchzjrurxeODS
+	 OKuRqVfZ+pvxf1I5cajtmN2Jfs5BLGJHonC9kY5IXZiEi9kfuubYY0XfXu8uK2ScCd
+	 jR7ikbC0vD1Rw==
+Date: Sun, 28 May 2023 14:56:38 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andreas Schwab <schwab@linux-m68k.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -fixes] riscv: Fix relocatable kernels with early
+ alternatives using -fno-pie
+Message-ID: <20230528-uneatable-earpiece-3f8673548863@spud>
+References: <20230526154630.289374-1-alexghiti@rivosinc.com>
+ <20230526-clergyman-wriggly-accc659a3fad@spud>
+ <20230526-rockfish-moody-f6d3e71f9d24@spud>
+ <f6522c82-01bd-8a03-579d-a5b294784480@ghiti.fr>
+ <20230527-hyperlink-doctrine-ef22cfcb508a@spud>
+ <CAHVXubgx3uBEjMLHXTxr0192ZHbSb=qK4NggZyWQTDfgrJt2-g@mail.gmail.com>
+ <20230528-darkness-grandly-6cb9e014391d@spud>
+ <cf0d2d2a-c407-7b3d-a5ab-ea5c19e7b890@ghiti.fr>
 MIME-Version: 1.0
-X-Correlation-ID: <b25f79f0-a8fb-428a-ad54-fc4afe0df6ff@t-8ch.de>
+In-Reply-To: <cf0d2d2a-c407-7b3d-a5ab-ea5c19e7b890@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230528_064557_310437_74285488 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20230528_065644_354360_08CAC216 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,54 +80,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7719301288989145560=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Zhangjin,
+
+--===============7719301288989145560==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="/v0GigUCXOkKo7H6"
+Content-Disposition: inline
 
 
-May 28, 2023 12:40:31 Zhangjin Wu <falcon@tinylab.org>:
+--/v0GigUCXOkKo7H6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Hi, Willy
->
->> Hi Zhangjin,
->>
->> On Thu, May 25, 2023 at 01:33:14AM +0800, Zhangjin Wu wrote:
->>> Hi, Willy
->>>
->>> Thanks very mush for your kindly review, discuss and suggestion, now we
->>> get full rv32 support ;-)
->>>
->>> In the first series [1], we have fixed up the compile errors about
->>> _start and __NR_llseek for rv32, but left compile errors about tons of
->>> time32 syscalls (removed after kernel commit d4c08b9776b3 ("riscv: Use
->>> latest system call ABI")) and the missing fstat in nolibc-test.c [2],
->>> now we have fixed up all of them.
->>
->> (...)
->>
->> I have read the comments that others made on the series and overall
->> agree. I've seen that you intend to prepare a v2. I think we must
->> first decide how to better deal with emulated syscalls as I said in
->> an earlier message. Probably that we should just add a specific test
->> case for EFAULT in nolibc-test since it's the only one (I think) that
->> risks to trigger crashes with emulated syscalls. We could also imagine
->> dealing with the signal ourselves but I'm not that keen on going to
->> implement signal() & longjmp() for now :-/
->>
->
-> Yes, user-space signal() may be the right direction, we just need to let
-> user-space not crash the kernel, what about this 'solution' for current stage
-> (consider the pure time64 support too):
+On Sun, May 28, 2023 at 03:42:59PM +0200, Alexandre Ghiti wrote:
+> Hmmm, it still works for me with both clang and gcc-9.
 
-If you did manage to crash the actual kernel than that would be a bug in the kernel that needs to be fixed.
-Feel free to describe how it happened and I'll take a look.
+gcc-9 is a bit of a relic, do you have more recent compilers lying
+around? If not, I can try some older compilers at some point.
 
-Thomas
+> You don't have to do that now but is there a way I could get your compiled
+> image? With the sha1 used to build it? Sorry, I don't see what happens, I
+> need to get my hands dirty in some debug!
+
+What do you mean by "sha1"? It falls with v6.4-rc1 which is a stable
+hash, if that's what you're looking for.
+
+Otherwise,
+https://github.com/ConchuOD/riscv-env/releases/download/v2022.03/vmlinux.bin
+(ignore the release crap haha, too lazy to find a proper hosting
+mechanism)
+
+| git show
+| commit 3bd124485ed55d8ee6c1ff3532c8f617b24aa6ef (HEAD)
+| Author: Alexandre Ghiti <alexghiti@rivosinc.com>
+| Date:   Fri May 26 17:46:30 2023 +0200
+|=20
+|     riscv: Fix relocatable kernels with early alternatives using -fno-pie
+|    =20
+|     Early alternatives are called with the mmu disabled, and then should =
+not
+|     access any global symbols through the GOT since it requires relocatio=
+ns,
+|     relocations that we do before but *virtually*. So only use medany code
+|     model for this early code.
+|    =20
+|     Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+|     Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+|=20
+| diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
+| index a1055965fbee..7b2637c8c332 100644
+| --- a/arch/riscv/errata/Makefile
+| +++ b/arch/riscv/errata/Makefile
+| @@ -1,2 +1,6 @@
+| +ifdef CONFIG_RELOCATABLE
+| +KBUILD_CFLAGS +=3D -fno-pie
+| +endif
+| +
+|  obj-$(CONFIG_ERRATA_SIFIVE) +=3D sifive/
+|  obj-$(CONFIG_ERRATA_THEAD) +=3D thead/
+| diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+| index fbdccc21418a..153864e4f399 100644
+| --- a/arch/riscv/kernel/Makefile
+| +++ b/arch/riscv/kernel/Makefile
+| @@ -23,6 +23,10 @@ ifdef CONFIG_FTRACE
+|  CFLAGS_REMOVE_alternative.o =3D $(CC_FLAGS_FTRACE)
+|  CFLAGS_REMOVE_cpufeature.o =3D $(CC_FLAGS_FTRACE)
+|  endif
+| +ifdef CONFIG_RELOCATABLE
+| +CFLAGS_alternative.o +=3D -fno-pie
+| +CFLAGS_cpufeature.o +=3D -fno-pie
+| +endif
+|  ifdef CONFIG_KASAN
+|  KASAN_SANITIZE_alternative.o :=3D n
+|  KASAN_SANITIZE_cpufeature.o :=3D n
+
+
+--/v0GigUCXOkKo7H6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHNdlgAKCRB4tDGHoIJi
+0jVpAQCsS3J3dOetH/LmA47QbQsKg8DEoynoHEWFevPQHP5wDQD+PFcSq+flgTvG
+uvSeTue8wERrHQty97tsjtLHWFMCPgg=
+=GXTx
+-----END PGP SIGNATURE-----
+
+--/v0GigUCXOkKo7H6--
+
+
+--===============7719301288989145560==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7719301288989145560==--
+
