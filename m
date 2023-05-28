@@ -4,52 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BEBC77B7C
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 May 2023 10:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10320C77B7C
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 May 2023 10:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=otvKhFaC39gVlWdvAo/MUan8iEAnfCDFylzn20VbxEw=; b=yNgLSoppMCpDnS
-	6PvC7pA3MeVYp+y5lCVFFdCYkyOIMzeAY3tPNLOG1J7bLPi1crgoOcAHtUpGHkEMXrkOeekFclBJ5
-	mkPiVojd55Wzv1bExCHp/4QK+0ZFPCM/E6VQvAN57TKmgW2hqGkirom9PfXKk7WhKPYzI9Vxtnrk8
-	7VpnJeMpfmqR9U5krBdAUZDzyzZldYWnb9jNPV08JdfkLWutWIejBkzI/2fOOOUCjnXR7QFTK10iA
-	Pj91FGO8fAuqg4/8jH5KYFVaOhjKnqw6Wlhqbl/kdOa2UwOmybE2MczNyjTjktayUPlXSemXf0CcS
-	n9M9Gkr6mP3j3nUGgahQ==;
+	List-Owner; bh=tHlP1e6YVpa8ijL6SUAJXI8bCQfOTwjyNmmqMUOxOxs=; b=Yoo6BojESMREd4
+	qr3CwB7+bfGbR7ZStmfMYlWHzQwpxUVlqfQ9BGVSbQ1BrXRyTbqHWgD8TMIHPtmY+VyemG3v2g0EB
+	zAgTfhv/1UK9iKnE0ikhAQ9wlYGjU6Ce+vTeR8EE8xvBXgBD8VbmBH/8jheyaYUSsGH/G9Cmeo1fp
+	mOaMpDEbjV8u8UsqudrUjJNIKZs/5rzztzNVVHeW5gx/KFL8a7zA9DUjin4j0CV7mrIciuDFwTFNk
+	7AbkpxTCyK6K3MKTB+EYPoVoULUZfFiJcopOUfoLBujWuJBbHETWYI8xBg4z64+zmtluUEbA4vceP
+	pLewTrW6bCleTPT+7zzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3DSa-007Kx9-0p;
-	Sun, 28 May 2023 10:17:12 +0000
+	id 1q3Dew-007M4K-1e;
+	Sun, 28 May 2023 10:29:58 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3DSV-007KwS-2b
+	id 1q3Det-007M3n-1M
 	for linux-riscv@lists.infradead.org;
-	Sun, 28 May 2023 10:17:10 +0000
+	Sun, 28 May 2023 10:29:57 +0000
 Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 34SAH2PX002019;
-	Sun, 28 May 2023 12:17:02 +0200
-Date: Sun, 28 May 2023 12:17:02 +0200
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 34SATllc002024;
+	Sun, 28 May 2023 12:29:47 +0200
+Date: Sun, 28 May 2023 12:29:47 +0200
 From: Willy Tarreau <w@1wt.eu>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas@t-8ch.de>
-Cc: Zhangjin Wu <falcon@tinylab.org>, linux-kernel@vger.kernel.org,
+To: Zhangjin Wu <falcon@tinylab.org>
+Cc: arnd@arndb.de, thomas@t-8ch.de, linux-kernel@vger.kernel.org,
         linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
         palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: Re: [PATCH 00/13] tools/nolibc: riscv: Add full rv32 support
-Message-ID: <20230528101702.GG1956@1wt.eu>
-References: <cover.1684949267.git.falcon@tinylab.org>
- <20230528075955.GE1956@1wt.eu>
- <210e5ed9-be89-4e48-9c1e-3eb5b0dd288a@t-8ch.de>
- <30bf1742-64ff-4f92-beab-332108d0201f@t-8ch.de>
+Subject: Re: [PATCH 09/13] tools/nolibc: sys_poll: riscv: use
+ __NR_ppoll_time64 for rv32
+Message-ID: <20230528102947.GH1956@1wt.eu>
+References: <83ab9f47-e1ed-463c-a717-26aad6bf2b71@app.fastmail.com>
+ <20230528082509.293250-1-falcon@tinylab.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <30bf1742-64ff-4f92-beab-332108d0201f@t-8ch.de>
+In-Reply-To: <20230528082509.293250-1-falcon@tinylab.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230528_031708_821464_10AE6E4C 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230528_032956_296941_861D5BB5 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,32 +59,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 28, 2023 at 11:41:53AM +0200, Thomas Wei=DFschuh wrote:
-> > If you are fine with pushing more stuff to this branch, picking up =
+Hi Zhangjin,
 
-> > the fix for the duplicated test gettimeofday_bad2 (7) would be nice, to=
-o.
-> =
+On Sun, May 28, 2023 at 04:25:09PM +0800, Zhangjin Wu wrote:
+> Just a status update ...
+> 
+> I'm working on the pure time64 and 64bit off_t syscalls support, it almost
+> worked (tested on rv32/64, arm32/64), thanks very much for your suggestions.
+> 
+> It includes:
+> 
+> * Based on linux/types.h and
+>     * Use 64bit off_t
+>     * Use 64bit time_t
+>     * the new std.h looks like this
+> 
+>     typedef uint32_t __kernel_dev_t;
+>     
+>     typedef __kernel_dev_t          dev_t;
+>     typedef __kernel_ulong_t        ino_t;
+>     typedef __kernel_mode_t         mode_t;
+>     typedef __kernel_pid_t          pid_t;
+>     typedef __kernel_uid32_t        uid_t;
+>     typedef __kernel_gid32_t        gid_t;
+>     typedef __kernel_loff_t         off_t;
+>     typedef __kernel_time64_t       time_t;
+>     typedef uint32_t                nlink_t;
+>     typedef uint64_t                blksize_t;
+>     typedef uint64_t                blkcnt_t;
+> 
+> * Use __kernel_timespec as timespec
+> * Use 64bit time_t based struct timeval
+>     * Disable gettimeofday syscall completely for 32bit platforms
+>         * And disable the gettimeofday_bad1/2 test case too
 
-> And the ppoll() argument cleanup (10) for that matter.
+When you say "disable", you mean "remap", right ? Or do you mean
+"break in 2023 code that was expected to break only in 2038 after
+the hardware supporting it no longer exists" ?
 
-OK now both done, thank you.
-
-> IMO it would be more convenient to move generic cleanup patches to the
-> beginning of the series.
-> When the reviewers are focussing on the real changes they won't be
-> interrupted by the cleanups. Also the maintainer can more easily pick
-> them up independently, so they are dealt with and nobody has to worry
-> about them anymore.
-
-Agreed!
-
-Thanks!
+Thanks,
 Willy
 
 _______________________________________________
