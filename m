@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F14C77B7E
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 May 2023 13:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA0BC7EE23
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 May 2023 15:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9GU7Ge75YvpjytidDLdOkF9otEUGoNcm0e3ORZQULA=; b=nOAF2aWiWv1cfu15qqlvCzK0c7
-	T8JtW0bwHItCEC2BmURw1XUCfctHgEwFGTOiTDlF8v5Luvw/hkojoolnkUwxKkIve/x/gucQnPWCY
-	WGTM27XTAEiDLHCcF7m+CRsu+wc1Dkgga5Wbhh54zzHLRK3/6e91INFvSygU/yzeDpmJlzzEzurh/
-	99nGXeZVLf4g4TCAJnNqnSmI2wTbAh3bcC2EUkQHcX9lHrHHA+R33GLysm1LmzbU/yhY8buaKP7TT
-	YQZZt5aN1eyOXa/d7wcNxP0xdssFJn3rvNiONrr+L0s3cxvF2kChn68m01INyYScN7dU1zY3fwZMR
-	ZiB8BV4Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Eaug7RnlDXeXtHg8yebJbqXTxOfbvYXipPpNQKWtvXk=; b=WZZQ6t3md4IAMi
+	CEDUxZ2oFmvPyNTEL7ak4USS3QTlwLzx0gztRM6jrwMdehb0mKflWAnhxZMyKMGzZKOfFK9nJ/s21
+	dsLsrmL2JKzScaKAYa5bt/0QfSlQijOI/cgI+QAyYY/DCSgbZgaV/AFxVFHTD8dRVIjVw76MXkQXB
+	fNmyff0eQ80Wm/qVkQQN7UvM+Al11uwe7WlCTo0Vq3XBWpdOT3jsSSj7+BpPv+pqbxN2xWVyatelk
+	8MEsQvNZ8HrmmtDMuhDM4NMvZaHo3eogIkzPaDVbJmC149gQUuivDOoZkU1MThj17scAUxZLRIxOz
+	BUqMc9uF9TwMzi4zWOpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3Gt5-007kVD-0u;
-	Sun, 28 May 2023 13:56:47 +0000
+	id 1q3Hyq-007uGc-0g;
+	Sun, 28 May 2023 15:06:48 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3Gt2-007kUh-0j
-	for linux-riscv@lists.infradead.org;
-	Sun, 28 May 2023 13:56:45 +0000
+	id 1q3Hyl-007uFS-35;
+	Sun, 28 May 2023 15:06:45 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9160F60A38;
-	Sun, 28 May 2023 13:56:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51ADFC433D2;
-	Sun, 28 May 2023 13:56:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1608B60BA0;
+	Sun, 28 May 2023 15:06:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7219C433EF;
+	Sun, 28 May 2023 15:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685282203;
-	bh=U3GojuCuoXYfWzcEEea0OZvAAyMV4nTAAdmCAqb/5K4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WiLbmPxIdViLKmIkD5gfoxXwhcWxALd7JUAghhpXkvD4zlhu1pNx5jwUS+Gq/p0Dm
-	 CsE//CLrdLGOAqaa4U28W3JdG9mv3mZdpK2pPcKCSqLPvcZ8q99UznkrS2mYlsYT7V
-	 6MrJKjhfgvqAIZa6sIas1YZIEOK7IvAIcGjoMCFcJs86S23c2jCKb54eWZDEn/EJ2K
-	 C2oocvFibDsnMkKdOM7Ir6+JLJZCDuhGmJkp28zlcZqxEeoueRqa0vchzjrurxeODS
-	 OKuRqVfZ+pvxf1I5cajtmN2Jfs5BLGJHonC9kY5IXZiEi9kfuubYY0XfXu8uK2ScCd
-	 jR7ikbC0vD1Rw==
-Date: Sun, 28 May 2023 14:56:38 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andreas Schwab <schwab@linux-m68k.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH -fixes] riscv: Fix relocatable kernels with early
- alternatives using -fno-pie
-Message-ID: <20230528-uneatable-earpiece-3f8673548863@spud>
-References: <20230526154630.289374-1-alexghiti@rivosinc.com>
- <20230526-clergyman-wriggly-accc659a3fad@spud>
- <20230526-rockfish-moody-f6d3e71f9d24@spud>
- <f6522c82-01bd-8a03-579d-a5b294784480@ghiti.fr>
- <20230527-hyperlink-doctrine-ef22cfcb508a@spud>
- <CAHVXubgx3uBEjMLHXTxr0192ZHbSb=qK4NggZyWQTDfgrJt2-g@mail.gmail.com>
- <20230528-darkness-grandly-6cb9e014391d@spud>
- <cf0d2d2a-c407-7b3d-a5ab-ea5c19e7b890@ghiti.fr>
+	s=k20201202; t=1685286402;
+	bh=LbDY2zbsfIjm0Fwv8lZSBUxpS5rnVCIa3G2XSqeSeLQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=UJFSDM9kRLTJOeQsVA3aCbLjXHJpmtVR7qVhWpUFmtU+tu3gG+HzRqlIxAe4O5gTc
+	 d7Wd3biimCw2t9KjhbhZCpJfFbe+hHTqy0wKY4LSixzOLnrb8Zd7Zg7bVQ41jHCKCo
+	 Ez55QoMjyhDfmhjYdIOVaGq/NNll1HwOlxqz3jN8Yig9OUPSR9hKr0TrsnSrP2C+wI
+	 BZp9rzd2Pm0bcbkHBjkYaXbZXMvESofq3mhcR9TgksMbMwkI8u8P+aTXdmEQ9RbFT3
+	 0Eqjtga9+buFSdHivJKdYpwHneD1RtB8/zZuIAUAb+OhjfgrWLa0MCXZhHRv3xkNf4
+	 Hd3g1LJkRBdXQ==
+Date: Sun, 28 May 2023 16:22:57 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Maxim Kiselev <bigunclemax@gmail.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, linux-iio@vger.kernel.org,
+ Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Chen-Yu Tsai
+ <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Conor Dooley <conor@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Heiko
+ Stuebner <heiko.stuebner@vrull.eu>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Cosmin Tanislav
+ <demonsingur@gmail.com>, Mike Looijmans <mike.looijmans@topic.nl>, Haibo
+ Chen <haibo.chen@nxp.com>, ChiYuan Huang <cy_huang@richtek.com>, Ramona
+ Bolboaca <ramona.bolboaca@analog.com>, Ibrahim Tilki
+ <Ibrahim.Tilki@analog.com>, Caleb Connolly <caleb.connolly@linaro.org>,
+ William Breathitt Gray <william.gray@linaro.org>, Arnd Bergmann
+ <arnd@arndb.de>, Leonard =?UTF-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Hugo
+ Villeneuve <hvilleneuve@dimonoff.com>, ChiaEn Wu <chiaen_wu@richtek.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [RFC PATCH v1 0/4] Add support for Allwinner GPADC on
+ D1/T113s/R329 SoCs
+Message-ID: <20230528162257.7e8932b9@jic23-huawei>
+In-Reply-To: <CALHCpMh2sZSCrFMMT13kYbsu+C2bC2xY3coB_fv0mZom_g=oPQ@mail.gmail.com>
+References: <20230524082744.3215427-1-bigunclemax@gmail.com>
+	<20230524103431.50c6a2fd@donnerap.cambridge.arm.com>
+	<CALHCpMh2sZSCrFMMT13kYbsu+C2bC2xY3coB_fv0mZom_g=oPQ@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <cf0d2d2a-c407-7b3d-a5ab-ea5c19e7b890@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230528_065644_354360_08CAC216 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20230528_080644_104059_0ADD79BE 
+X-CRM114-Status: GOOD (  25.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,109 +89,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7719301288989145560=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 24 May 2023 14:36:28 +0300
+Maxim Kiselev <bigunclemax@gmail.com> wrote:
 
---===============7719301288989145560==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="/v0GigUCXOkKo7H6"
-Content-Disposition: inline
+> Hi Andre,
+> 
+> thanks for you comments
+> 
+> > This may sound kind of obvious, but wouldn't it be easier to model this
+> > with one compatible string, and have the number of channels as a DT
+> > property?  
+> 
+> Yes, I completely agree that using separate config for each SoCs is looks
+> overcomplicated because the only difference is the number of channels.
+> I thought about a DT property with channels number but I didn't find
+> another ADC driver with the same approach (except i2c ADC's with child nodes).
+If you are 100% sure that that devices are either
+1) Detectable at runtime
+2) Identical in functionality.
 
+So that in neither case will any changes on driver support expose differences
+in the future then a single compatible is fine.
 
---/v0GigUCXOkKo7H6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The back up is that you use fallback compatibles - list more than one.
+Whilst it doesn't matter (as no differences found) the driver can use
+the first one.  If differences become apparent later, others may be used.
 
-On Sun, May 28, 2023 at 03:42:59PM +0200, Alexandre Ghiti wrote:
-> Hmmm, it still works for me with both clang and gcc-9.
+I'm not however keen on a simple channel count parameter.  If you want
+to go that way, it's better to provide the fine control of individual channel
+child nodes (see Documentation/devicetree/bindings/iio/adc/adc.yaml)
 
-gcc-9 is a bit of a relic, do you have more recent compilers lying
-around? If not, I can try some older compilers at some point.
-
-> You don't have to do that now but is there a way I could get your compiled
-> image? With the sha1 used to build it? Sorry, I don't see what happens, I
-> need to get my hands dirty in some debug!
-
-What do you mean by "sha1"? It falls with v6.4-rc1 which is a stable
-hash, if that's what you're looking for.
-
-Otherwise,
-https://github.com/ConchuOD/riscv-env/releases/download/v2022.03/vmlinux.bin
-(ignore the release crap haha, too lazy to find a proper hosting
-mechanism)
-
-| git show
-| commit 3bd124485ed55d8ee6c1ff3532c8f617b24aa6ef (HEAD)
-| Author: Alexandre Ghiti <alexghiti@rivosinc.com>
-| Date:   Fri May 26 17:46:30 2023 +0200
-|=20
-|     riscv: Fix relocatable kernels with early alternatives using -fno-pie
-|    =20
-|     Early alternatives are called with the mmu disabled, and then should =
-not
-|     access any global symbols through the GOT since it requires relocatio=
-ns,
-|     relocations that we do before but *virtually*. So only use medany code
-|     model for this early code.
-|    =20
-|     Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-|     Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-|=20
-| diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
-| index a1055965fbee..7b2637c8c332 100644
-| --- a/arch/riscv/errata/Makefile
-| +++ b/arch/riscv/errata/Makefile
-| @@ -1,2 +1,6 @@
-| +ifdef CONFIG_RELOCATABLE
-| +KBUILD_CFLAGS +=3D -fno-pie
-| +endif
-| +
-|  obj-$(CONFIG_ERRATA_SIFIVE) +=3D sifive/
-|  obj-$(CONFIG_ERRATA_THEAD) +=3D thead/
-| diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-| index fbdccc21418a..153864e4f399 100644
-| --- a/arch/riscv/kernel/Makefile
-| +++ b/arch/riscv/kernel/Makefile
-| @@ -23,6 +23,10 @@ ifdef CONFIG_FTRACE
-|  CFLAGS_REMOVE_alternative.o =3D $(CC_FLAGS_FTRACE)
-|  CFLAGS_REMOVE_cpufeature.o =3D $(CC_FLAGS_FTRACE)
-|  endif
-| +ifdef CONFIG_RELOCATABLE
-| +CFLAGS_alternative.o +=3D -fno-pie
-| +CFLAGS_cpufeature.o +=3D -fno-pie
-| +endif
-|  ifdef CONFIG_KASAN
-|  KASAN_SANITIZE_alternative.o :=3D n
-|  KASAN_SANITIZE_cpufeature.o :=3D n
+That way the control is on which channels are wired to something useful, rather
+than whether the device can read them or not (which is pointless if no one
+wired them up.
 
 
---/v0GigUCXOkKo7H6
-Content-Type: application/pgp-signature; name="signature.asc"
+> 
+> > Or, alternatively, using iio/multiplexer/io-channel-mux.yaml, since it's
+> > only one ADC anyway?  
+> I'm sorry, I didn't quite understand what you're suggesting.
 
------BEGIN PGP SIGNATURE-----
+That's normally only used for a separate MUX where we need a separate driver
+to handle it.  If used on a device like this it would expose additional complexity
+to userspace with no benefits in generality etc.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHNdlgAKCRB4tDGHoIJi
-0jVpAQCsS3J3dOetH/LmA47QbQsKg8DEoynoHEWFevPQHP5wDQD+PFcSq+flgTvG
-uvSeTue8wERrHQty97tsjtLHWFMCPgg=
-=GXTx
------END PGP SIGNATURE-----
+> 
+> > And btw: it seems that the T507 (the H616 die with a different pinout) has
+> > the same IP, with four channels:
+> > http://dl.linux-sunxi.org/T507/  
+> 
+> Oh, thanks for pointing that. I'll add it to the list in the next version.
 
---/v0GigUCXOkKo7H6--
-
-
---===============7719301288989145560==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7719301288989145560==--
-
