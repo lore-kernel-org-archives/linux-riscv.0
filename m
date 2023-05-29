@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79CDAC77B7E
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 May 2023 19:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6311CC7EE23
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 May 2023 19:55:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UoJClE4LMDkbAwqGjaYiImP+IkLmCWRDJc1vgjB89IQ=; b=xmG6hwAS9doL5+
-	dlmOjEBqP7HMpoLnEiEGWhcSZc349Fp0DvfDvJlBBklkiOYNGSDYhpZzBwpO1zK7e/1UT9tLco5A5
-	fIyxi3gAUYKWUCEoRjDS6DOmE0zKtgTr+nweWYSjfAF6NSKbPEc0VztUsEmktaANpObT+fTChPrR4
-	61ezX8t6DW0D1a4tYx6JJ5ByMC0Rtt4g8+ZHvcKb0yw8y1U2R6lFJsrF/CL8F8Sur1HpSspuD4ED6
-	Po2mXOODXvhXa2MTxfTpq+bf7KLXzM5DeZg3yu4Yu31NRffQIRAMHHTcegpl0uniEuYH1NgI+F98d
-	htcYEphS1bjUK9UVPffg==;
+	List-Owner; bh=HxnwkFvMHdcg+X2HGzQYhZGergtNvcwvyDxDFYENFPc=; b=010DPKG9Do+60k
+	+njnB0dP7pIxtVw5QFThIoIHGN0pyaUaEB9IxOHGV+eYzmoALJdej5iBhjqLPoR4oe5QVFxNslD8o
+	h0o55ieK7JDrGiNXRn6x8nj8Ki0p2FpamJR1R5M6F/sGZx29g7Az3eNTi03tS3Hn4dwB50ZBSgn0c
+	YB7rJ5ZtCGO87nA3Q7mcmS1acuiXj6Fsw5l+1FP0XL61ZQJkohApJk0tW209FPyyAvioTRXtawXFN
+	hWG7w5m/q/YAg2P0+wfBMh+Jtk9GRlB/prnnpXPbcmKRxdOgsRyo/bSZ1OQag/uK0akfSVV7zFcVH
+	kf4YBG0te6Tvi4T44USw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3ivu-00BYut-2V;
-	Mon, 29 May 2023 19:53:34 +0000
-Received: from bg4.exmail.qq.com ([43.154.54.12])
+	id 1q3ixT-00BZHB-2m;
+	Mon, 29 May 2023 19:55:11 +0000
+Received: from bg4.exmail.qq.com ([43.155.65.254])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3ivo-00BYtT-1K
+	id 1q3ixR-00BZEz-1V
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 May 2023 19:53:30 +0000
-X-QQ-mid: bizesmtp87t1685389995t9lfs5qi
+	Mon, 29 May 2023 19:55:10 +0000
+X-QQ-mid: bizesmtp74t1685390094tpc5r986
 Received: from linux-lab-host.localdomain ( [119.123.130.80])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 30 May 2023 03:53:14 +0800 (CST)
+	id ; Tue, 30 May 2023 03:54:53 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: CR3LFp2JE4kuE2cO00Q/1KOi7QfVnxapLBkeSoUSu+aL7k4cNLL5T6EAjWCRL
-	qWr+iK9XeavjZJL6SHlw1xJ39WYbVKpn5xi/kAYVRjWTUL0jc2GvhKngTUvjVkB3ZP96t8a
-	f6bQH5yJmO7ydx9hHga2PhgYSPsewy6BXmnd6JDH+Ie/uv5PlwLeMbh5hPN9bnBjuf1wI3/
-	GX2HxLY2DDBNVjPV+v9pZ+RHjGYrURspNgApsk8t2R447yUh1MyCWXTv37OH8MqQk7xofTe
-	afhTgbVNBvAS13Ewbqx3MqxnOl2Za5ZPSVDk9HvB/MNtCFJIf1+Y3Kh+P7RY2QdIZKD4kmW
-	uCPOfJoEI2bVSbOW6d9M/0ygbJnGPeXTqMdOiA1LxQIbZHwVtv3xTZEg6CNn28wnViEtzW+
+X-QQ-FEAT: uGhnJwy6xZISo/AEbiO2R7D9Bkp1qAC1x25dTn245rn0AypFebeWwalodNjhE
+	EL0Hxl2tTtRKwyjA9hWn6rJEMWZwJ13M7sTzYmfFM1VAENq33hSqeuCTSPxUjmRP8In5z0j
+	jE3PPH0La2QBf3gtfL4qavbfPRbU9RB/PQuJibgW2/x+jjWS9xtIWSHbLtt65NMZEKdLaN8
+	dkZK4Ia/D7JyiFc+a1Kz4je5B5SnuVU37OtBIhZa6tgmgd8wfgtSuev0V/BKN+5P6bH/hRU
+	5o3Ae2l3mwfoTcHHys8UBybwBk03+OCAL3pFbxALn8Bt+8SyD8qmmeKLiKKhfao3WsglZUh
+	Asti4FqiHE3VbrkVNKSBjtA3A/Az2xVvvEmvGiv9bla+QGTOev9aF8pmMHpuQ==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 2371937537439054605
+X-BIZMAIL-ID: 5796279202276383086
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: arnd@arndb.de,
@@ -48,9 +48,9 @@ Cc: arnd@arndb.de,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	thomas@t-8ch.de
-Subject: [PATCH v2 06/13] tools/nolibc: add pure 64bit off_t, time_t and blkcnt_t
-Date: Tue, 30 May 2023 03:53:00 +0800
-Message-Id: <b41f3cb75a71fc7ecb855cc82e85a3a0fbb39318.1685387484.git.falcon@tinylab.org>
+Subject: [PATCH v2 07/13] tools/nolibc: sys_lseek: add pure 64bit lseek
+Date: Tue, 30 May 2023 03:54:23 +0800
+Message-Id: <2f5c3338898da65210ad3f62d7b7773a96f6d251.1685387484.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1685387484.git.falcon@tinylab.org>
 References: <cover.1685387484.git.falcon@tinylab.org>
@@ -58,8 +58,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230529_125328_752241_33055FE1 
-X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-CacheID: sfid-20230529_125509_803646_C50D2EC5 
+X-CRM114-Status: UNSURE (   7.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,57 +77,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-clean up std.h with include/uapi/linux/posix_types.h
+use sys_llseek instead of sys_lseek to add 64bit seek even in 32bit
+platforms.
 
-convert time_t to 64bit even in 32bit platforms, for y2038 issue.
+This code is based on sysdeps/unix/sysv/linux/lseek.c of glibc and
+src/unistd/lseek.c of musl.
 
-align off_t and blkcnt_t with 'struct statx' in include/uapi/linux/stat.h
-
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Link: https://lore.kernel.org/linux-riscv/83ab9f47-e1ed-463c-a717-26aad6bf2b71@app.fastmail.com/
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+Signed-off-by: Willy Tarreau <w@1wt.eu>
 ---
- tools/include/nolibc/std.h | 28 ++++++++++++++++------------
- 1 file changed, 16 insertions(+), 12 deletions(-)
+ tools/include/nolibc/sys.h | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/tools/include/nolibc/std.h b/tools/include/nolibc/std.h
-index 933bc0be7e1c..0f458c1c24de 100644
---- a/tools/include/nolibc/std.h
-+++ b/tools/include/nolibc/std.h
-@@ -20,17 +20,21 @@
+diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+index 98cfa2f6d021..d0720af84b6d 100644
+--- a/tools/include/nolibc/sys.h
++++ b/tools/include/nolibc/sys.h
+@@ -672,7 +672,17 @@ int link(const char *old, const char *new)
+ static __attribute__((unused))
+ off_t sys_lseek(int fd, off_t offset, int whence)
+ {
++#if defined(__NR_llseek) || defined(__NR__llseek)
++#ifndef __NR__llseek
++#define __NR__llseek __NR_llseek
++#endif
++	off_t result;
++	return my_syscall5(__NR__llseek, fd, offset >> 32, offset, &result, whence) ?: result;
++#elif defined(__NR_lseek)
+ 	return my_syscall3(__NR_lseek, fd, offset, whence);
++#else
++#error None of __NR_lseek, __NR_llseek nor __NR__llseek defined, cannot implement sys_lseek()
++#endif
+ }
  
- #include "stdint.h"
- 
--/* those are commonly provided by sys/types.h */
--typedef unsigned int          dev_t;
--typedef unsigned long         ino_t;
--typedef unsigned int         mode_t;
--typedef   signed int          pid_t;
--typedef unsigned int          uid_t;
--typedef unsigned int          gid_t;
--typedef unsigned long       nlink_t;
--typedef   signed long         off_t;
--typedef   signed long     blksize_t;
--typedef   signed long      blkcnt_t;
--typedef   signed long        time_t;
-+#include <linux/posix_types.h>
-+
-+/* based on linux/types.h */
-+typedef uint32_t __kernel_dev_t;
-+
-+typedef __kernel_dev_t          dev_t;
-+typedef __kernel_ulong_t        ino_t;
-+typedef __kernel_mode_t         mode_t;
-+typedef __kernel_pid_t          pid_t;
-+typedef __kernel_uid32_t        uid_t;
-+typedef __kernel_gid32_t        gid_t;
-+typedef __kernel_loff_t         off_t;
-+typedef __kernel_time64_t       time_t;
-+typedef uint32_t                nlink_t;
-+typedef uint32_t                blksize_t;
-+typedef uint64_t                blkcnt_t;
- 
- #endif /* _NOLIBC_STD_H */
+ static __attribute__((unused))
 -- 
 2.25.1
 
