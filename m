@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED19C77B7A
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 May 2023 11:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97C6C77B7E
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 May 2023 12:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q3MWDTLBVs5yu5FIm6OAGuHts55sp2wMcpjIlEWJ9BE=; b=xiPyOoYTVtpYES
-	nQHvEqn4zkRy0VDDKSybrQvW2k3p2Y8Pq+zYyBhHkkC7h99Uhdb8DBxz7heF0xoXQwrh0aEv9XLc0
-	iA+jZgqVY9cX8LGc7m3sM1AmYc17U1RCh3QXHlR72qZwFH/pLYVh4ErdP1/8ra2+I3vKHI4/ps9W2
-	TfNkRUpKdbBq8CLXp/KJEEfgUWGvA7xU2D8ouy7epT0/H9Eq2YZbHH93UpzSCwjD1X+1ulJu4TfII
-	TyIQr+CI+ZBTHzbwHzRa6DC7LIPVUxk3v+DxKyW62Vqd5qviVV/iHgidjdFrK75puRsj3+RuQnABG
-	99Ur7LH7I4CNC/cc85hQ==;
+	List-Owner; bh=XT1GYF4IViSPzpKECEx0Tw1/0+To8pbchcNqh8Dn2LU=; b=A7MA7TJ2GJ2Du2
+	ErYTRrM3yVivQyNxDbTQE/qpTFJu9SK8EHNNxhNM3aFMBSccAEnT0rWT+Ji04QK8+t7iJhlOOe6gB
+	FpzzGqoAVp0LoakT4cz/A+DMWkJ92s4UTVdKlYn/PtYtEhwvBDS5PNwMAdHc4iQG0cVuDJYYgc52C
+	H0ITsNVm/YtEmlsvY3u+NE5KQFq1iNKOt9Wx37kDKCmYq3IbRIRvnv+wqsdM9kOyXWLs9fTCzceQC
+	CPhOJvE0y24OY6RcZnI+j+Zd7E6uGUEBgW/CuGCc3lWQXZYEtktbhHqlMgw5eoiQ7teYO8wnUE8qf
+	sOYJv1ElDv5c7ghmZ7Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3b6o-00AHru-18;
-	Mon, 29 May 2023 11:32:18 +0000
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
+	id 1q3bn0-00AON2-2W;
+	Mon, 29 May 2023 12:15:54 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3b6j-00AHpA-3A
-	for linux-riscv@lists.infradead.org;
-	Mon, 29 May 2023 11:32:16 +0000
-Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 34TBVhxm002783;
-	Mon, 29 May 2023 13:31:43 +0200
-Date: Mon, 29 May 2023 13:31:43 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas@t-8ch.de>
-Cc: Zhangjin Wu <falcon@tinylab.org>, linux-kernel@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-        palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: Re: [PATCH 00/13] tools/nolibc: riscv: Add full rv32 support
-Message-ID: <20230529113143.GB2762@1wt.eu>
-References: <b25f79f0-a8fb-428a-ad54-fc4afe0df6ff@t-8ch.de>
- <20230528183906.22547-1-falcon@tinylab.org>
- <f7332511-bb3f-4067-a0af-b6880294eded@t-8ch.de>
+	id 1q3bmx-00AOHe-0I;
+	Mon, 29 May 2023 12:15:53 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id B40EE24E207;
+	Mon, 29 May 2023 20:15:08 +0800 (CST)
+Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 29 May
+ 2023 20:15:08 +0800
+Received: from ubuntu.localdomain (113.72.147.198) by EXMBX062.cuchost.com
+ (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 29 May
+ 2023 20:15:07 +0800
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+CC: Jack Zhu <jack.zhu@starfivetech.com>, Changhuang Liang
+	<changhuang.liang@starfivetech.com>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH v5 3/3] riscv: dts: starfive: Add dphy rx node
+Date: Mon, 29 May 2023 05:15:03 -0700
+Message-ID: <20230529121503.3544-4-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230529121503.3544-1-changhuang.liang@starfivetech.com>
+References: <20230529121503.3544-1-changhuang.liang@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f7332511-bb3f-4067-a0af-b6880294eded@t-8ch.de>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Originating-IP: [113.72.147.198]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX062.cuchost.com
+ (172.16.6.62)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230529_043214_488232_55508CF2 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20230529_051551_439575_DAAF3BD7 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,80 +74,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+Add dphy rx node for the StarFive JH7110 SoC. It is used to transfer CSI
+camera data.
 
-On Mon, May 29, 2023 at 10:45:40AM +0200, Thomas Wei=DFschuh wrote:
-> <lots of implementation>
-> =
+Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+---
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-> > usage:
-> > =
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 2207be7e1b01..e4241e32dd09 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -579,6 +579,19 @@ ispcrg: clock-controller@19810000 {
+ 			power-domains = <&pwrc JH7110_PD_ISP>;
+ 		};
+ 
++		csi_phy: phy@19820000 {
++			compatible = "starfive,jh7110-dphy-rx";
++			reg = <0x0 0x19820000 0x0 0x10000>;
++			clocks = <&ispcrg JH7110_ISPCLK_M31DPHY_CFG_IN>,
++				 <&ispcrg JH7110_ISPCLK_M31DPHY_REF_IN>,
++				 <&ispcrg JH7110_ISPCLK_M31DPHY_TX_ESC_LAN0>;
++			clock-names = "cfg", "ref", "tx";
++			resets = <&ispcrg JH7110_ISPRST_M31DPHY_HW>,
++				 <&ispcrg JH7110_ISPRST_M31DPHY_B09_AON>;
++			power-domains = <&aon_syscon JH7110_PD_DPHY_RX>;
++			#phy-cells = <0>;
++		};
++
+ 		voutcrg: clock-controller@295c0000 {
+ 			compatible = "starfive,jh7110-voutcrg";
+ 			reg = <0x0 0x295c0000 0x0 0x10000>;
+-- 
+2.25.1
 
-> >     $ gcc -o nolibc-test tools/testing/selftests/nolibc/nolibc-test.c
-> >     $ ./nolibc-test
-> >     ...
-> >     35 gettimeofday_tz =3D 0                                           =
-[OK]
-> >     36 gettimeofday_tv_tz =3D 0                                        =
-[OK]
-> >     37 gettimeofday_bad1 =3D -1                                       [=
-FAIL] (continued by sigaction/siglongjmp/sigsetjmp)
-> >     38 gettimeofday_bad2 =3D -1                                       [=
-FAIL] (continued by sigaction/siglongjmp/sigsetjmp)
-> >     39 getpagesize =3D 0                                               =
-[OK]
-> >     40 ioctl_tiocinq =3D 0                                             =
-[OK]
-> >     41 ioctl_tiocinq =3D 0                                             =
-[OK]
-> >     ...
-> > =
-
-> > It did work as expected, but for nolibc, we still need to add sigaction=
-/siglongjump/sigsetjmp support.
-> > =
-
-> > Will send a patch based on Willy's latest branch, perhaps this may help=
- us to
-> > verify the future sigaction/siglongjump/sigsetjmp for nolibc.
-> > =
-
-> > ref: https://www.ibm.com/docs/en/i/7.1?topic=3Dssw_ibm_i_71/apis/sigset=
-j.html
-> >      https://www.ibm.com/docs/en/zos/2.1.0?topic=3Dfunctions-siglongjmp=
--restore-stack-environment-signal-mask
-> =
-
-> This seems very complicated for fairly limited gain to be honest.
-
-I agree as well. I'm not denying the fact that one day we may want to
-support signal, longjmp and friends but I'm not convinced we want to
-go through that just to make a few uncertain tests succeed.
-
-> If we really want to keep the current testcase we could also ensure that
-> the pointer does not fall into the first page, as the first page is not
-> mapped under Linux:
-> =
-
-> 0 <=3D addr < PAGE_SIZE
-> =
-
-> Or instead of PAGE_SIZE just hardcode 4096, as that should be the
-> minimum size and and does not require a lookup.
-
-I would not even do that. It brings nothing to the application layer and
-inflates the code. I'd rather just get rid of the EFAULT test cases that
-rely on an unreliable syscall (i.e. one that may either be a real syscall
-or an emulated one). The value brought by these tests is extremely low
-and they were implemented only because they were easy to do. If they're
-causing pain, let's just drop them.
-
-Willy
 
 _______________________________________________
 linux-riscv mailing list
