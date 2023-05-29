@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A239C7EE23
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 May 2023 14:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F39BC77B7E
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 May 2023 14:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=avjgi1yRF9lpErqFIEg/aro2rcVMZGHb15miz7Qou5A=; b=cAfetUPNZo/crTJc+ix+pzUts2
-	yDzpM0DE7LmWwEhmjE9zcuE2ceiRipkE2DlgzUdtmMwVgF2AJBPmAmKMICbgWlRkkd1429YTEF+A5
-	qclBEunNDGM1VZMEICLRDpGL7454KfkjYkV9EnXEgWTXPILeFhF8emSoDGkh34QbwfNDpaP34lGlx
-	meBbxSBdHmdqF42+fqguBHoApQJysPgpO5mWUWKrMsR1yLf8s7ZUYVLvv6rfuF08OUYIAEC1ORaAB
-	KRDIKyHqCpEQp9YfSeTNc+emGXw+8mjWceh3grrlaU53UeuGYZlW2uje/ZaOkvXII9/FxnIOlHsHC
-	KaoqgUUg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=f29WTezScDAsszQU0ZQsaKPJpRfLOar6w2uBBd9Yqbk=; b=2oQ5O+QmYJQyuk
+	1F/98BSu0t0JJ8Vd2+PGj/s0enZaG7lXOTOap62nNY1VH5c9Ujcv/Bg5/S2KZTvm+G73VTbzErtuZ
+	Ix0Zr2nPfYgrisJuODElHs0ZLzlaatYisRw5S3YOeNhD2xf6TsI4kC+7HmnZQMlNp6kRpyGEdZhOK
+	uGAySRE1Z0BZl88IdZLtj7yPXf2rM0NVGN1TVmE13m0j7XQ9T8ViyM5BjhUsQbY4b2TgwUp7N+0U2
+	ZFZqYcUMGZLG/wcrR4w9lulXbG0cOyCT2tR0H/qZbqvqH4Rc0JwsHBug136EgwUHZZE37+2s01wsy
+	JFfEtY+Qshuu1KPOE14Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3dXz-00Aiu1-2T;
-	Mon, 29 May 2023 14:08:31 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1q3e8i-00AorO-0C;
+	Mon, 29 May 2023 14:46:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3dXx-00Aish-0Q;
-	Mon, 29 May 2023 14:08:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1685369309; x=1716905309;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LAVqjlT5utdt7DMAuhjbEVwZtJU7/LMN9PRrAurEyvg=;
-  b=Nu+D0+DUN+shs+GHji5eR7z+j6O9cf/aLbLpdbNHyEv6DzYknzhud9Bk
-   QuvxMoLabYH/IgEByxSp3HJK92VnxtezvcNHR+jU8GfKwswyTcE4iTJ+G
-   TSNnUl3ksCYx53vd2AtE54saADEO5C0xOz3KsqFF9QT4gSikuQ6FITN/1
-   FW8DvnAsyvsrBfVPt/jbTm0/Ri9De/qDWczAlYGG6rUXm807xD2bfHukb
-   ELh6wwwZIAa8zfKJzzaG3gOFIshq0EViTwdiekhLlth7FHmu1xDEDxpEG
-   TkL/KzOBJWY16ngReh46VIU7GCaLQRZbypXj4p04GcRE6WrcQ/6vZYwss
-   Q==;
-X-IronPort-AV: E=Sophos;i="6.00,201,1681196400"; 
-   d="asc'?scan'208";a="215915290"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 May 2023 07:08:29 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 29 May 2023 07:08:27 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 29 May 2023 07:08:25 -0700
-Date: Mon, 29 May 2023 15:08:02 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>
-CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Jack Zhu <jack.zhu@starfivetech.com>,
-	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v5 0/3] Add JH7110 MIPI DPHY RX support
-Message-ID: <20230529-unsocial-activity-9607a9bd3989@wendy>
-References: <20230529121503.3544-1-changhuang.liang@starfivetech.com>
+	id 1q3e8f-00AoqY-0n;
+	Mon, 29 May 2023 14:46:26 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5371B62597;
+	Mon, 29 May 2023 14:46:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E8EFC433EF;
+	Mon, 29 May 2023 14:46:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1685371583;
+	bh=5wmKnDZ1QEngg8pOAg+VZ7IcLSNHMh6tgnuCIJY0KSc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j0zwE0C2bchW/nCkKx0WuUE4N+VcdWvivrZIcC7oeulj9O4e9E6ifH9eVAe7VtelF
+	 K0V5lIgRgHxQs91wwtM9bATdulCPqjvshLAJAx2nrv/TLCreNEmd8WA3Zxst7ZeDoA
+	 d/FsKO4/JEvKATeWrfk8gmy7K9xKvXBDve+1gp0w=
+Date: Mon, 29 May 2023 15:46:21 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Minda Chen <minda.chen@starfivetech.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Pawel Laszczak <pawell@cadence.com>,
+	Peter Chen <peter.chen@kernel.org>,
+	Roger Quadros <rogerq@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-usb@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Mason Huo <mason.huo@starfivetech.com>
+Subject: Re: [PATCH v6 7/7] riscv: dts: starfive: Add USB dts configuration
+ for JH7110
+Message-ID: <2023052909-speed-cackle-294e@gregkh>
+References: <20230518112750.57924-1-minda.chen@starfivetech.com>
+ <20230518112750.57924-8-minda.chen@starfivetech.com>
+ <20230525-cross-daybreak-24dfed69e5d0@spud>
 MIME-Version: 1.0
-In-Reply-To: <20230529121503.3544-1-changhuang.liang@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20230525-cross-daybreak-24dfed69e5d0@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230529_070829_172392_03376D4F 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20230529_074625_324666_8D150E61 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +82,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7420027677126590497=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7420027677126590497==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="4H1iVI5dF5NIHXlZ"
-Content-Disposition: inline
+On Thu, May 25, 2023 at 10:36:38PM +0100, Conor Dooley wrote:
+> Greg,
+> 
+> On Thu, May 18, 2023 at 07:27:50PM +0800, Minda Chen wrote:
+> > Add USB wrapper layer and Cadence USB3 controller dts
+> > configuration for StarFive JH7110 SoC and VisionFive2
+> > Board.
+> > USB controller connect to PHY, The PHY dts configuration
+> > are also added.
+> > 
+> > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> 
+> > diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > index 71a8e9acbe55..b65f06c5b1b7 100644
+> > --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > @@ -366,6 +366,59 @@
+> >  			status = "disabled";
+> >  		};
+> >  
+> > +		usb0: usb@10100000 {
+> > +			compatible = "starfive,jh7110-usb";
+> > +			ranges = <0x0 0x0 0x10100000 0x100000>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <1>;
+> > +			starfive,stg-syscon = <&stg_syscon 0x4>;
+> > +			clocks = <&stgcrg JH7110_STGCLK_USB0_LPM>,
+> 
+> Please don't pick this patch, if the rest of the series is applicable,
+> as this will break building the dtb as stgcrg does not yet exist in any
+> maintainer tree.
 
---4H1iVI5dF5NIHXlZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Ok, I'll just take patch 6/7 then.
 
-On Mon, May 29, 2023 at 05:15:00AM -0700, Changhuang Liang wrote:
-> This patchset adds mipi dphy rx driver for the StarFive JH7110 SoC.
-> It is used to transfer CSI camera data. The series has been tested on
-> the VisionFive 2 board.
->=20
-> This patchset should be applied after the patchset [1] [2]:
-> [1] https://lore.kernel.org/all/20230518101234.143748-1-xingyu.wu@starfiv=
-etech.com/
-> [2] https://lore.kernel.org/all/20230519060202.15296-1-changhuang.liang@s=
-tarfivetech.com/
+thanks,
 
-Are these are only relevant for the dts patch, or for the whole series?
-
-Cheers,
-Conor.
-
---4H1iVI5dF5NIHXlZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHSxwgAKCRB4tDGHoIJi
-0igiAQDlI6QDJUu3TjNTah9m7r7vTP0f6tbn/FptSpaZv8dd8gD/aEP+zW8afHh4
-LJAt5Ixm+bsLZIzvHRqxm4SBRxVnEQk=
-=GyfD
------END PGP SIGNATURE-----
-
---4H1iVI5dF5NIHXlZ--
-
-
---===============7420027677126590497==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7420027677126590497==--
-
