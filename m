@@ -4,62 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4CCC7EE29
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 May 2023 13:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5D8C7EE29
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 May 2023 13:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iw+LB8JtZuJ1IkRJjAyfzS99k88vELjs9VMNB7SI4x4=; b=2J2SUKkdl4Zfl6
-	Fhlf4ECIfgTVrtqcKI3GRiDVX/pMtAAbZWTWf+g/SCsfLHuWBM94aNFf1Ha5thcj03df/WJ/W81Cp
-	4nL5onxo9O4kT6CUPB3z2a7QnXKKxdS81WJPZMFNsKgaa6+3ksTmM5elc0OFt13FURN+OI9yIbmj5
-	uDYaxmxm98H86HGtlkLVpsPS/o+N6rFmpNLS/nD0JzcLPE6z2/EHWGFl6OxWVd2s+YUFOGOiWWM75
-	0lzKBc7CHyOEr204fTlmczt2lpLCYBT8BK8GqnYD9F01xhSwHkKliIPLpv2vwOOnNwwTqAAfvfl8n
-	7e8780MXNoYn9ZL03eZA==;
+	List-Owner; bh=USVaHJ6DXDSNDFLZHZBC9SBFjrQQVVXDtbqJ2qAD2Qc=; b=CX2jICvkTbk1cP
+	EkNpWtv54Xygy/SyHitqlvvPajbvnmDNWdWj37fAkDh5oJn+so4ZmTDEbzxqEee6eqEduPtBQogke
+	x6jPlc1OS08Zu5mpE+a6rjpLHs67ctwHQ6P+jmCv7Cy6gWHOYyUR1UONnN9rMSoDk6KUQ605P1RYW
+	8Bsy7Jb2GDuVk+6//mMn2yKe/ApBO+1AEUP/7e5Qev8xQZwhUA4vjJnPTZBL7xDsJjuFVIN61MjgX
+	SV9yOUxRa7qKTXxc3D7L8L5RVAo4+m3YHdVn6WwdORxGFTCQaoMLclgJ7m1dG4fyBBAaHl2+0CkA0
+	hGM0Sa7ea2wfy5AnwLLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3cXu-00AWs8-0B;
-	Mon, 29 May 2023 13:04:22 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3cXq-00AWqy-3A
+	id 1q3cYa-00AX2W-0v;
+	Mon, 29 May 2023 13:05:04 +0000
+Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q3cYW-00AWzn-1K
 	for linux-riscv@lists.infradead.org;
-	Mon, 29 May 2023 13:04:20 +0000
-X-QQ-mid: bizesmtp88t1685365445t75bgpzp
-Received: from linux-lab-host.localdomain ( [119.123.130.80])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 29 May 2023 21:04:04 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: i75H2eCteEjnLpMewxVxLDrNbTdZ6XaqgT62xHD7GAxbEuya2/NFVic9wlKR2
-	a5kdGwQlpfjJNaz/YzSlhC5cSA4kagQIt3PINNuT2Ab6n1K/Gb8hBWDDwrYBCvcAdM5teIy
-	tOKnMd4y8XFqHSNySJdqSIpkhrIGm9rMbckS9jbZuSK8O8MSz+MpEsOvJbYu+MaxqANEIjt
-	vVBzQ1uUopCjGW00WJxlZOp576mh7k5SXdUajNV+l44GGMjwWPAcNDE7bQDJ4oQTtNsnlxk
-	3AkOBDpTGFve+zAiy1AVAdMk3T6BxmWVv7KhdqlE8eHR7U2/3UDQRZ/couHwg6PX65e1LSr
-	Mlj0aFqMaSpMWk5ZYcCda4bZ5eGDUnulVfBmOJIeJawj0cMpMwj4MMUoH7DHgASCg7DhcO6
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8875824386806725758
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de
-Subject: [PATCH v2 5/7] selftests/nolibc: use INT_MAX instead of __INT_MAX__
-Date: Mon, 29 May 2023 21:04:02 +0800
-Message-Id: <330da9ee27aff3500831a936ffdedc08cc481b63.1685362482.git.falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1685362482.git.falcon@tinylab.org>
+	Mon, 29 May 2023 13:05:02 +0000
+Received: (from willy@localhost)
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 34TD4ndg002822;
+	Mon, 29 May 2023 15:04:49 +0200
+Date: Mon, 29 May 2023 15:04:49 +0200
+From: Willy Tarreau <w@1wt.eu>
+To: Zhangjin Wu <falcon@tinylab.org>
+Cc: arnd@arndb.de, linux-kernel@vger.kernel.org,
+        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+        thomas@t-8ch.de
+Subject: Re: [PATCH v2 3/7] selftests/nolibc: fix up compile warning with
+ glibc on x86_64
+Message-ID: <20230529130449.GA2813@1wt.eu>
 References: <cover.1685362482.git.falcon@tinylab.org>
+ <aeb48b9cf6fc4674f7560166f22c7dc87d02302d.1685362482.git.falcon@tinylab.org>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+Content-Disposition: inline
+In-Reply-To: <aeb48b9cf6fc4674f7560166f22c7dc87d02302d.1685362482.git.falcon@tinylab.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230529_060419_308636_BF58B01D 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20230529_060500_891863_5C811252 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +64,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-nolibc now has INT_MAX in stdint.h, so, don't mix INT_MAX and
-__INT_MAX__, unify them to INT_MAX.
+On Mon, May 29, 2023 at 09:00:01PM +0800, Zhangjin Wu wrote:
+> Compiling nolibc-test.c with gcc on x86_64 got such warning:
+> 
+> tools/testing/selftests/nolibc/nolibc-test.c: In function 'expect_eq':
+> tools/testing/selftests/nolibc/nolibc-test.c:177:24: warning: format '%lld' expects argument of type 'long long int', but argument 2 has type 'uint64_t' {aka 'long unsigned int'} [-Wformat=]
+>   177 |  llen += printf(" = %lld ", expr);
+>       |                     ~~~^    ~~~~
+>       |                        |    |
+>       |                        |    uint64_t {aka long unsigned int}
+>       |                        long long int
+>       |                     %ld
+> 
+> It because that glibc defines uint64_t as "unsigned long int" when word
+> size (means sizeof(long)) is 64bit (see include/bits/types.h), but
+> nolibc directly use the 64bit "unsigned long long" (see
+> tools/include/nolibc/stdint.h), which is simpler, seems kernel uses it
+> too (include/uapi/asm-generic/int-ll64.h).
+> 
+> It is able to do like glibc, defining __WORDSIZE for all of platforms
+> and using "unsigned long int" to define uint64_t when __WORDSIZE is
+> 64bits, but here uses a simpler solution: nolibc always requires %lld to
+> match "unsigned long long", for others, only require %lld when word size
+> is 32bit.
+> 
+> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> ---
+>  tools/testing/selftests/nolibc/nolibc-test.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
+> index d417ca5d976f..7f9b716fd9b1 100644
+> --- a/tools/testing/selftests/nolibc/nolibc-test.c
+> +++ b/tools/testing/selftests/nolibc/nolibc-test.c
+> @@ -174,7 +174,11 @@ static int expect_eq(uint64_t expr, int llen, uint64_t val)
+>  {
+>  	int ret = !(expr == val);
+>  
+> +#if __SIZEOF_LONG__ == 4 || defined(NOLIBC)
+>  	llen += printf(" = %lld ", expr);
+> +#else
+> +	llen += printf(" = %ld ", expr);
+> +#endif
+>  	pad_spc(llen, 64, ret ? "[FAIL]\n" : " [OK]\n");
+>  	return ret;
+>  }
 
-Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
----
- tools/testing/selftests/nolibc/nolibc-test.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Please don't proceed like this. There's much easier to do here for a printf,
+just cast the expression to the type printf expects:
 
-diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-index e75ce6b68565..9ff9d87cc78e 100644
---- a/tools/testing/selftests/nolibc/nolibc-test.c
-+++ b/tools/testing/selftests/nolibc/nolibc-test.c
-@@ -935,7 +935,7 @@ static const struct test test_names[] = {
- int main(int argc, char **argv, char **envp)
- {
- 	int min = 0;
--	int max = __INT_MAX__;
-+	int max = INT_MAX;
- 	int ret = 0;
- 	int err;
- 	int idx;
-@@ -983,7 +983,7 @@ int main(int argc, char **argv, char **envp)
- 				 * here, which defaults to the full range.
- 				 */
- 				do {
--					min = 0; max = __INT_MAX__;
-+					min = 0; max = INT_MAX;
- 					value = colon;
- 					if (value && *value) {
- 						colon = strchr(value, ':');
--- 
-2.25.1
+-  	llen += printf(" = %lld ", expr);
++  	llen += printf(" = %lld ", (long long)expr);
 
+Willy
 
 _______________________________________________
 linux-riscv mailing list
