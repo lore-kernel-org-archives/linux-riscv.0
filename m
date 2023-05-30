@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E18C7EE23
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 02:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F743C77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 05:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vk0l/1cIy+QGWQBqDXFcpkq8vSp2IR/g0UFkH9mtExg=; b=XnWWCoRQV5iuJs
-	qGTyi4f8y7z06mZLVsl69vrmoWZqvDoyr/vQLe474yvfkhKlK9rT00yWDMOO+olUz/Fh6ghxo2toA
-	4w4Fz88wEcjWaDaGnShwP1za7AWgO54mtLIb8zkfWAnulwFbfK9Sn+gCv5DOOTGy1ZEwxESoqGWeA
-	JeFjulu5aTWbbMduib8ps9vOdGSfNAgXPR+iBGzCzujXqrznBtEcz2MmbZXNnh1veFtCkpCemZG7U
-	WGnjqw1E64DXGNAqisgYODCOp3PMldn+GyTlmSBAXNKffzgh5qIHv0gNNejIoswV+69JvrUDjF/EI
-	fBgDshkqd5SpFBkvG3fg==;
+	List-Owner; bh=uo/CecDYc+FtlWjbPSShdsJpmcYx620yz0tYbOIXYPI=; b=fflOGh33FmjXDk
+	0j2E2WZkcce5rjN8qhQDoJXwqK9vtjWdhpvNOA5/SNmTSUFgqaFJ7HoMpckkY4Sbo4m787pLJTC1m
+	4SdoopXSFzvbeV5bNCsde5Ls4fdrprbKDpFQFKZ2hvDrG9HN/9HiGrVnVM9sLUE91I0UfjN9NsRLM
+	/8VbrDJH79bSLU/4pnzLUK5L9wnvxvqjlbcgEhpzJzrf8Nq92p+TeXyZ5Fy53gINwIeRkS0DH7jNl
+	IA8+ErNGCuCg/9nxcoxCwM7tLfx9PH48f/7QKeRLGEmfBElLn8g/fvoYvycMhG8/TpfblbLSpWf8u
+	CMSZZot5FPl68sQfIJMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3pa9-00CG3T-0F;
-	Tue, 30 May 2023 02:59:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q3ro1-00CSey-0v;
+	Tue, 30 May 2023 05:22:01 +0000
+Received: from bg4.exmail.qq.com ([43.155.65.254])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3pa5-00CG2w-2y
+	id 1q3rny-00CSc8-2n
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 May 2023 02:59:31 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4542D60DFD
-	for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 02:59:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0389C4339B
-	for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 02:59:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685415568;
-	bh=wEuys/ept9SxgsrESA2dJvolxDiyhIWiuVW3VCQrAU4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ftXDHZUW2eUlkyR2HcYaUsPKFR1nSV3H0e26TTOG/Chs+IuqwHgg4ksAzBF73s5OM
-	 u7Vj2nUduAoJUfyXutNUiV5gg7rI2p19gg1/5p10JLvJuXGFwDSRwJ2IDRsmehNsYm
-	 7OZG3nfBs+A4dd9BEivk8sozw1wouBmiO3GvT2Ddb5TCJLKML5f57BuHHAX2bPPczl
-	 /UN1d9pauLTfi1r8eSBIrF7Obi43z/UQnGmnGg7XMX0+ma7rVjdo9XcFPKo9gl35rp
-	 p9bnGjS5vwiqds2s4aCQBz7tFvCHONPpeaQO0RdoGySN2WnvwCEPpvJflc9+Gl2XsN
-	 N4KxOO5Z0pE0A==
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-5148e4a2f17so5765524a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 29 May 2023 19:59:28 -0700 (PDT)
-X-Gm-Message-State: AC+VfDydUpp67iCqHDWNZBB7t1gVXFiqlMATAcGPIrxwCGfr0/AxjKGe
-	yvKmwvUaxwI6VYmZsm3EF+NI93g6RYaDvjbQbQA=
-X-Google-Smtp-Source: ACHHUZ4/zl+1rtgPVprtzBxAUtPl09fa84vSaubO1V4vVcGTKJs6j11bXnSSmaQi4f8VjVFbneN1HvjlKdRQvgvYmKI=
-X-Received: by 2002:aa7:c743:0:b0:514:a5f7:a6d1 with SMTP id
- c3-20020aa7c743000000b00514a5f7a6d1mr552034eds.1.1685415566870; Mon, 29 May
- 2023 19:59:26 -0700 (PDT)
+	Tue, 30 May 2023 05:22:00 +0000
+X-QQ-mid: bizesmtp86t1685424093t09pbsru
+Received: from linux-lab-host.localdomain ( [119.123.130.226])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 30 May 2023 13:21:32 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: q+yjhizk/eK4Twfz5/tkrE7vplCQXvJ4uATWgDp4FlclbHqgTQzECLOaM/5aW
+	ciP3qrlZXDUOoqXXgEGPnefG1bscVwQQcb7SNzzTIUIyuSYUnjA8MKAIs/4DWDkTv1UZ/hm
+	RMJH3jBhaBXbW+jZobqHikfj6kgNNqri+YL8Wf/avB5c+itkx6m82TmJENM86el0C6f/Hah
+	qDPSYwt8xGHJ0WHIxeW8UvilJGfwXk5SfSfWmTbHMizcoiuPY/0TCVlG/oPymB/LEqFCkxa
+	jd4aj/2GFDHuQnp5eeriEYwyGxXrr+Y3YlUbxdCrz7RaTK2mcAvBq2mBB0Fb9NGSN+dEcTt
+	TpvzNke228KrB4bPGDkzB13vfe9pBxTtmH12H0PsMyn3IJ2toM=
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6904062556633079927
+From: Zhangjin Wu <falcon@tinylab.org>
+To: thomas@t-8ch.de,
+	arnd@arndb.de,
+	w@1wt.eu
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 04/13] tools/nolibc: add missing nanoseconds support for __NR_statx
+Date: Tue, 30 May 2023 13:21:32 +0800
+Message-Id: <20230530052132.364685-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <3a3edd48-1ace-4c89-89e8-9c594dd1b3c9@t-8ch.de>
+References: <3a3edd48-1ace-4c89-89e8-9c594dd1b3c9@t-8ch.de>
 MIME-Version: 1.0
-References: <20230529073845.2859178-1-guoren@kernel.org> <20230529-jasmine-amigo-6d01f6852b35@wendy>
-In-Reply-To: <20230529-jasmine-amigo-6d01f6852b35@wendy>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 30 May 2023 10:59:14 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRSoZbexqka=_7nf4+dHZW2FGf++BiTMypfTbeoGAbUiA@mail.gmail.com>
-Message-ID: <CAJF2gTRSoZbexqka=_7nf4+dHZW2FGf++BiTMypfTbeoGAbUiA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: vector: Fixup modules compile error
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, andy.chiu@sifive.com, 
-	paul.walmsley@sifive.com, palmer@rivosinc.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Guo Ren <guoren@linux.alibaba.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230529_195930_025571_683B64E5 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20230529_222159_204069_DC04665A 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +71,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXkgMjksIDIwMjMgYXQgOTo0M+KAr1BNIENvbm9yIERvb2xleSA8Y29ub3IuZG9v
-bGV5QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+Cj4gT24gTW9uLCBNYXkgMjksIDIwMjMgYXQgMDM6
-Mzg6NDVBTSAtMDQwMCwgZ3VvcmVuQGtlcm5lbC5vcmcgd3JvdGU6Cj4gPiBGcm9tOiBHdW8gUmVu
-IDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPgo+ID4gU29tZSAua28gYWxzbyBuZWVkIHRo
-ZSByaXNjdl92X3VzZXJfYWxsb3dlZCBzeW1ib2wuCj4gPgo+ID4gRVJST1I6IG1vZHBvc3Q6ICJy
-aXNjdl92X3VzZXJfYWxsb3dlZCIgW2FyY2gvcmlzY3Yva3ZtL2t2bS5rb10KPiA+IHVuZGVmaW5l
-ZCEKPiA+IG1ha2VbM106ICoqKgo+ID4gWy9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4
-L3NjcmlwdHMvTWFrZWZpbGUubW9kcG9zdDoxMzY6Cj4gPiBNb2R1bGUuc3ltdmVyc10gRXJyb3Ig
-MQo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNv
-bT4KPiA+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+ID4gLS0t
-Cj4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvdmVjdG9yLmMgfCAxICsKPiA+ICAxIGZpbGUgY2hhbmdl
-ZCwgMSBpbnNlcnRpb24oKykKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
-dmVjdG9yLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZWN0b3IuYwo+ID4gaW5kZXggMWM0YWM4MjFl
-MDA4Li4zYWUwODgxNmQ2MDggMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC92ZWN0
-b3IuYwo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmVjdG9yLmMKPiA+IEBAIC0xMjksNiAr
-MTI5LDcgQEAgYm9vbCByaXNjdl92X3VzZXJfYWxsb3dlZCh2b2lkKQo+ID4gIHsKPiA+ICAgICAg
-IHJldHVybiByaXNjdl92X2dldF9jdXJfY3RybChjdXJyZW50KSA9PSBQUl9SSVNDVl9WX1ZTVEFU
-RV9DVFJMX09OOwo+ID4gIH0KPiA+ICtFWFBPUlRfU1lNQk9MKHJpc2N2X3ZfdXNlcl9hbGxvd2Vk
-KTsKPgo+IElzIHRoZXJlIGEgcmVhc29uIHRoYXQgdGhpcyBzaG91bGQgbm90IGJlIEVYUE9SVF9T
-WU1CT0xfR1BMKCk/Ckdvb2QgcXVlc3Rpb24sIGJ1dCBJIGp1c3QgZm9sbG93IG91ciBhcmNoL3Jp
-c2N2IGhhYmJpdCwgbWF5YmUgd2UKc2hvdWxkIGNoYW5nZSBhbGwgb2YgdGhhdCBpbiBhbm90aGVy
-IHBhdGNoLgoK4p6cICBsaW51eC1zNjRpbHAzMiBnaXQ6KHM2NGlscDMyKSDinJcgZ3JlcCBFWFBP
-UlRfU1lNQk9MICBhcmNoL3Jpc2N2IC1yIHwgd2MgLWwKNjYK4p6cICBsaW51eC1zNjRpbHAzMiBn
-aXQ6KHM2NGlscDMyKSDinJcgZ3JlcCBFWFBPUlRfU1lNQk9MX0dQTCAgYXJjaC9yaXNjdiAtciB8
-IHdjIC1sCjE1Cgo+Cj4gSSBmaWd1cmUgQW5keSB3aWxsIHJvbGwgdGhpcyBpbnRvIHRoaXMgbmV4
-dCByZXZpc2lvbi4KPgo+IENoZWVycywKPiBDb25vci4KCgoKLS0gCkJlc3QgUmVnYXJkcwogR3Vv
-IFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Thomas, Arnd, Willy
+
+> On 2023-05-30 03:50:34+0800, Zhangjin Wu wrote:
+> > Commit a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
+> > added nanoseconds for stat() but missed the statx case, this adds it.
+> 
+> Welp, I should have thought of that.
+> At least the testcase seems to have been useful.
+>
+
+yeah, your testcase telled me this issue.
+
+> Thanks for the fix!
+> 
+> > The stx_atime, stx_mtime, stx_ctime are in type of 'struct
+> > statx_timestamp', which is incompatible with 'struct timespec', should
+> > convert explicitly.
+> > 
+> >     /* include/uapi/linux/stat.h */
+> > 
+> >     struct statx_timestamp {
+> >     	__s64	tv_sec;
+> >     	__u32	tv_nsec;
+> >     	__s32	__reserved;
+> >     };
+> > 
+> >     /* include/uapi/linux/time_types.h */
+> >     struct __kernel_timespec {
+> >     	__kernel_time64_t       tv_sec;                 /* seconds */
+> >     	long long               tv_nsec;                /* nanoseconds */
+> >     };
+> > 
+> >     /* tools/include/nolibc/types.h */
+> >     #define timespec __kernel_timespec
+> > 
+> > Without this patch, the stat_timestamps test case would fail on rv32.
+> > 
+> > Fixes: a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
+> > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > ---
+> >  tools/include/nolibc/sys.h | 6 +++---
+> >  1 file changed, 3 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> > index 154194056962..98cfa2f6d021 100644
+> > --- a/tools/include/nolibc/sys.h
+> > +++ b/tools/include/nolibc/sys.h
+> > @@ -1175,9 +1175,9 @@ int sys_stat(const char *path, struct stat *buf)
+> >  	buf->st_size    = statx.stx_size;
+> >  	buf->st_blksize = statx.stx_blksize;
+> >  	buf->st_blocks  = statx.stx_blocks;
+> > -	buf->st_atime   = statx.stx_atime.tv_sec;
+> > -	buf->st_mtime   = statx.stx_mtime.tv_sec;
+> > -	buf->st_ctime   = statx.stx_ctime.tv_sec;
+> > +	buf->st_atim    = (struct timespec){ .tv_sec = statx.stx_atime.tv_sec, .tv_nsec = statx.stx_atime.tv_nsec };
+> > +	buf->st_mtim    = (struct timespec){ .tv_sec = statx.stx_mtime.tv_sec, .tv_nsec = statx.stx_mtime.tv_nsec };
+> > +	buf->st_ctim    = (struct timespec){ .tv_sec = statx.stx_ctime.tv_sec, .tv_nsec = statx.stx_ctime.tv_nsec };
+> 
+> I would prefer to split the compound assignment into two single
+> assignments, though.
+> 
+> buf->st_ctim.tv_sec = statx.stx_ctime.tv_sec;
+> buf->st_ctim.tv_nsec = statx.stx_ctime.tv_nsec;
+>
+
+Ok, will update it in the v3 revision.
+
+And further, what about removing the other !statx parts
+(__NR_newfstatat, __NR_stat)? just like we are doing for the other 64bit
+syscalls (llseek and time65).
+
+Best regards,
+Zhangjin
+
+> >  	return ret;
+> >  }
+> >  #else
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
