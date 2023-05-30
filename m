@@ -4,51 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F85CC77B7A
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 09:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223DBC77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 09:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fx9EUDMhdXTWEin2G4hshQROoaNXFDXq/wvV5Oz9RaE=; b=qYeys5zaIkLd6e
-	W58sGXgK4tqqzyb/lQaLL1urSvn+mIU/PLHs+L92xi0KYQB8tW0EomzOEgPZaJS7s42ZOyb5HizmN
-	2U5W7O1Sh9ksmUavvNbPqjKVY/wnUUOFYcZOwV9cZW++LwuWeqogxZF/0N+2Vq76kP9bew/IB7uho
-	92Gu8xW8I+0maqEO9uC7ysOfLl3RyKE8QYjt7dGW21tLdbqrNqzgxYFOGt3ESnkdGEliegj5PCZDS
-	oCY/WtS3IpII7djdSNXZGVEnFDNl2eU2rq19ueiC48RSaxTjkRJkxGOtV4LENVjpyKH/5q+qbqsJb
-	BweIUxThoWZhprKtYYBQ==;
+	List-Owner; bh=MXNS6ddlmLlog6rxXBAne9VMz44+pqN6g4xbOJbdRJY=; b=4Ek0FNknpJkXye
+	+G2xlqW6nHnAr3hmLBCBaVsbnsMMUpRyJ8aGZ7jvdOpHIHcTH3KCEbA168ZHtK7OGGes08/vWtZLu
+	yJyKKFxvoBJd+6lNzMwqgYLOM4slddPCxfFYbmUH65eFP0bSiwzOo7pgiJSA7kFmTp2EZElndfJQV
+	rW3EJI/weRi1OPbY/9Ej8Zh6CkpaCm6odWEqc3tQVicK1sb8Fvs3uG7shagx4f+M3O0oA5HOncw1i
+	bnHWLOnPKcjQEvODkPlIysxQCPSdFz/Gkq+lVHT8TINWfOGFwNvOZSvmXbB/jV/q15XBDBHMHqRZr
+	/Wx2WxlZwjj3cah6N/rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3vVJ-00D7ZV-1A;
-	Tue, 30 May 2023 09:18:57 +0000
-Received: from todd.t-8ch.de ([159.69.126.157])
+	id 1q3vcT-00D9iC-1D;
+	Tue, 30 May 2023 09:26:21 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3vVF-00D7Xc-1p
-	for linux-riscv@lists.infradead.org;
-	Tue, 30 May 2023 09:18:55 +0000
-Date: Tue, 30 May 2023 11:18:45 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
-	t=1685438326; bh=iu1Nw16K2WBuaMwQflIMrw8Zb5Pee49UbSoz4UZPF9I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hpXqt7eFXwb3MXONv8u6XidxCco8p42t2rHmv29axh8znnaLlOdTPSTLoLHy5BeN4
-	 kGy8DTGTGUdHn1fGcejk4VsysinyFB/DyLhRBYh45HL81i9dUGY3cZG39wuqGZ7MXJ
-	 OZ0Uqb2Jl5LMvq0C3fgIL5VorPVBbYLGm628g6Ro=
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: w@1wt.eu, arnd@arndb.de, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/2] selftests/nolibc: add sizeof test for the new 64bit
- data types
-Message-ID: <c68a6f60-0906-408a-9454-419085df695e@t-8ch.de>
-References: <cover.1685428087.git.falcon@tinylab.org>
- <d1f4073e1dd9a51be93ea9e14ebd746b312646a4.1685428087.git.falcon@tinylab.org>
+	id 1q3vcP-00D9g5-2q;
+	Tue, 30 May 2023 09:26:19 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1685438774;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OuP6yOSR9XWm7UsYO6pZdZmKv2tnQHjp+lm/v984YCA=;
+	b=4M9Rhxb+Ak3/yFJgB1S859CSZLFWoXOP0uMTWtvEKyHSLqPJWzDtmdPw+nD7OakjHwTvL9
+	3H4QTINZn7/MOdikwDWln06pYSfL8jvb0I5oZP0DesRNI92ni3zwbDzgSLSlL/Pu5A7ayE
+	rYYGLRlzgJx7Mzzdxn0P+XOLdusRXdTLu2ZGz+x2RQA5bSNBrZJT2AeE+kvVPAgUR6estR
+	vY+t9gmb5UEUwYCeoMX6kP4VPGvNBn7Lz23Yllf7oRg5tOfqRvkOxsk2p5mTi2eG6HqWL4
+	i7ehXbcRL2W2gE3TOlBREPsOXH6v8kr/26nERrHEOZ95S6/lVpsHxw/6/+/DQA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1685438774;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OuP6yOSR9XWm7UsYO6pZdZmKv2tnQHjp+lm/v984YCA=;
+	b=HcG/D4NiqXeHLfwKoko4UyTPezLO1CVsxR+RlJLjEUh5/8YeL4Jf/2ZxSLH+TzNJfOKKZT
+	r4jRkltXrdP6XoDg==
+To: "Kirill A. Shutemov" <kirill@shutemov.name>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
+ <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
+ Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>,
+ Tom Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
+ <seanjc@google.com>, Oleksandr Natalenko <oleksandr@natalenko.name>, Paul
+ Menzel <pmenzel@molgen.mpg.de>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Piotr Gorski <lucjan.lucjanov@gmail.com>, Usama
+ Arif <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>, Boris
+ Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>, "Michael Kelley (LINUX)"
+ <mikelley@microsoft.com>, Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [patch v3 31/36] x86/apic: Provide cpu_primary_thread mask
+In-Reply-To: <20230529203129.sthnhzgds7ynddxd@box.shutemov.name>
+References: <20230508181633.089804905@linutronix.de>
+ <20230508185218.962208640@linutronix.de>
+ <20230524204818.3tjlwah2euncxzmh@box.shutemov.name> <87y1lbl7r6.ffs@tglx>
+ <87sfbhlwp9.ffs@tglx> <20230529023939.mc2akptpxcg3eh2f@box.shutemov.name>
+ <87bki3kkfi.ffs@tglx> <20230529203129.sthnhzgds7ynddxd@box.shutemov.name>
+Date: Tue, 30 May 2023 11:26:03 +0200
+Message-ID: <87pm6ijhlg.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <d1f4073e1dd9a51be93ea9e14ebd746b312646a4.1685428087.git.falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_021854_084836_6F606E2C 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20230530_022618_072373_1B2DF372 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,41 +98,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-05-30 14:42:56+0800, Zhangjin Wu wrote:
-> These test cases are required to make sure the new added data types are
-> really 64bit based.
-> 
-> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> ---
->  tools/testing/selftests/nolibc/nolibc-test.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-> index 20d184da9a2b..43ce4d34b596 100644
-> --- a/tools/testing/selftests/nolibc/nolibc-test.c
-> +++ b/tools/testing/selftests/nolibc/nolibc-test.c
-> @@ -721,6 +721,14 @@ int run_stdlib(int min, int max)
->  #else
->  # warning "__SIZEOF_LONG__ is undefined"
->  #endif /* __SIZEOF_LONG__ */
-> +		CASE_TEST(sizeof_time_t);           EXPECT_EQ(1, 8,                sizeof(time_t)); break;
-> +		CASE_TEST(sizeof_timespec);         EXPECT_EQ(1, 16,               sizeof(struct timespec)); break;
-> +#ifdef NOLIBC
-> +		CASE_TEST(sizeof_itimerspec);       EXPECT_EQ(1, 32,               sizeof(struct itimerspec)); break;
-> +#endif
-> +		CASE_TEST(sizeof_timeval);          EXPECT_EQ(1, 16,               sizeof(struct timeval)); break;
-> +		CASE_TEST(sizeof_itimerval);        EXPECT_EQ(1, 32,               sizeof(struct itimerval)); break;
-> +		CASE_TEST(sizeof_off_t);            EXPECT_EQ(1, 8,                sizeof(off_t)); break;
+On Mon, May 29 2023 at 23:31, Kirill A. Shutemov wrote:
+> Aaand the next patch that breaks TDX boot is... <drum roll>
+>
+> 	x86/smpboot/64: Implement arch_cpuhp_init_parallel_bringup() and enable it
+>
+> Disabling parallel bringup helps. I didn't look closer yet. If you have
+> an idea let me know.
 
-These will break on 32bit glibc configurations.
-(At least on x86)
+So how does TDX end up with actual parallel bringup?
 
->  		case __LINE__:
->  			return ret; /* must be last */
->  		/* note: do not set any defaults so as to permit holes above */
-> -- 
-> 2.25.1
-> 
+	if (cc_platform_has(CC_ATTR_GUEST_STATE_ENCRYPT)) {
+		pr_info("Parallel CPU startup disabled due to guest state encryption\n");
+		return false;
+	}
+
+It should take that path, no?
+
+Thanks,
+
+        tglx
+
 
 _______________________________________________
 linux-riscv mailing list
