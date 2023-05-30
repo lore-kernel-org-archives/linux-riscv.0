@@ -4,61 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DDEC7EE23
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 11:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D06C7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 11:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jggO5vLSOz/5cRaz3XpjkjjVkQjeBLj7OOpr943fTaA=; b=Xo/ZB0xl7hRa6x
-	mGDajKntsGOJ2ypDJTid/UhRYsVV8TBHrQgLzmdon7WK7sOfuVYNDWprv5nQu2z4uzPZniw+TJU/j
-	cwbnSWguGgQ77ZaKwZr2sDPJPp75ADIpCSR8rLLBXRbLdrI+AOTFSKAJnEYMkYopfbdRX23w0VXdG
-	5Axu0MdNXuJ2b3jZsgg6elxN5O0CRFNLKhTvMbTIwdDmNi0PAO7Ls/e0NxkwRyL5o73l7pqzvzUA0
-	mX02WctEIqu36W57JsSctQ2IboI8+sCBlfGSEDrz3Iah/X5LeJjpjhqMb8BTA1JzCX862uJGE1llS
-	Fh8uOVhBI/E91+oPY0fw==;
+	List-Owner; bh=gdRRzWLRjEUppiMs2RYjjau4I5D1n+wUz3WHoZqNbg0=; b=uLScXGgaq6uRt1
+	NaYWSuo4Ux/HrtA35+LI1zP0sAf9T5OgEx3tTKalmMVrs1F2B1RJt5SKHCViVMCYAtsEHeK5IS8g6
+	iCV0VK0CbSnQT2Lx4Qf7mrIQAOyr4l2+4PiKqvoAU6QeUBst4UENLwvHXAImfhVM8V9NuJbafCnHI
+	yQUaAilE3Tp8TEcIBnyzu0geFNpj9Yw7qgC7VZuVXIfduQxdxHPY25NINZh99tjYC1ibiV3pWX4LT
+	tARaNw7wJI+Jb3hvu9bLBDTMw8/Aufksut3Ezzu1bS5ok6otsCvDmaUY4wibI/o7Grwvxf0zAGcQU
+	9sqyrYOcaPsF4OSleRVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3xDu-00DaDM-05;
-	Tue, 30 May 2023 11:09:06 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1q3xHi-00Dap1-1P;
+	Tue, 30 May 2023 11:13:02 +0000
+Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3xDq-00DaBM-1u
-	for linux-riscv@lists.infradead.org;
-	Tue, 30 May 2023 11:09:04 +0000
-X-QQ-mid: bizesmtp80t1685444926t3zkui9c
-Received: from linux-lab-host.localdomain ( [119.123.130.226])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 30 May 2023 19:08:45 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: 3M0okmaRx3gelAiWP5RoGbm4vjCvwZfJGtFNG1quZBYLTu71sj9RkgohxK606
-	a+q+BffDHTGq7hGQggq49Yc7b00q60k9Z0+rpko1hv5Qylsrh5Ru5dO7bo9KIloRo5ONmwQ
-	GxwAFUFc1x9e2wF81rgdmybkUrKQU2849rW+NYEvCIxyaTAiLxdNDZOpLSFnXpfxH1KVTqA
-	kWZIjSdm5YfAh46ijTIDBYTyYWqbWGo7WiVpC7CQnofDv7czmI4JoOidGAbFsd3/zSmwz2M
-	FtPx6NDMyIuosDDfYQm61GFTCo77Rlg8fJ/j2ZP4WDsV+0lFlJ8ptgtuyJp1957ue6tLVJi
-	LhH20tTwUUWtfUWeW8whrClc1ayhenyHlIvd/B9P/KKnGSV0gae3vPZ63kNu3sDlcC/m0Qm
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1574217579638465516
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de
-Subject: [PATCH 4/4] selftests/nolibc: add user-space efault restore test case
-Date: Tue, 30 May 2023 19:08:43 +0800
-Message-Id: <69e9464e92fe8c60a421d6571a1139980103e8fd.1685443199.git.falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1685443199.git.falcon@tinylab.org>
-References: <cover.1685443199.git.falcon@tinylab.org>
+	id 1q3xHf-00Dan0-16;
+	Tue, 30 May 2023 11:13:00 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id 9E5085C010B;
+	Tue, 30 May 2023 07:12:53 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute6.internal (MEProxy); Tue, 30 May 2023 07:12:53 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1685445173; x=
+	1685531573; bh=jzxR1ScglUhfxqqGJjgvOS5NAqJpfFc/FG469x51F+w=; b=z
+	Gm7H8q2xAwH65t7g76y5CpNRNA5QhcTT9CVh8xcZZdtfZF7xTv87d7VZCAAC/TEk
+	ggEOsQ0d0JIIol5LaBUgMQPQGyyrsBk+MQRBvYZ8pzb0V1hZ+o8+a0kCFt4nMBVi
+	DLzwKpOEDjkVtg8s4OlRz2e20pJZ/fwWcSqsVwRSlWLupRb6L8t3scy1jBdt+w58
+	H4dOxL5cdxo5A2z1zjta/UDnxuIDN5al4owNBMvK5avlfyNWjfjgnHrYuUWsxjca
+	YIUFnkT6n2B1y7mZnyFLTJy4jGY7MofSeCiX3Ash7A71fm447OX0Nrg2/sSqQhHc
+	7lxckU497HvK26OalRNAg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1685445173; x=1685531573; bh=jzxR1ScglUhfx
+	qqGJjgvOS5NAqJpfFc/FG469x51F+w=; b=IGCHqhWWcbyh6MB/CW4j9E5nOLkNc
+	MB5S7AG5+9Uao8lFbpTrQFWDCxAgeAz50TkB7sSIqfCZe4GJqucU4q2of+fNzkAZ
+	ozqucMxrSsKk8D4vwBp0M3nOXWfV55tZ+BwneK280TDjbxLiTaJ04HPIW2zPIAzi
+	QzLxwlWrF7USZaAaKKXFYwDt4taOmxnalJUHUqeeb5tBFH5OcyG/0aW3BAk2IrsU
+	OTU0Fx6sm6GJ4r1ZrQShU6ReUHcyoxDjL+s0xU4PF/zfeUk6T4mjxgMP+QeS1d22
+	+L+cEp2vpyKyphRpU18a5qW3k8RyRCCLLIP2NVTJQFY/VyVoSdg5pTTFA==
+X-ME-Sender: <xms:M9p1ZLUzh5h-xIjt6EAne-fkiWy-kfD7ehnMMU_n6uQ0E_sH7qrIXw>
+    <xme:M9p1ZDm-11Kzq75g9bzZ4p8Bi8CqYoAD14uu63oHoN1nDRaGTkH9tbS6Rn2eXj1TR
+    VcIvL-6SC1XJjuj0OE>
+X-ME-Received: <xmr:M9p1ZHaMr9z-1bjaM9Y_FvwiQDZ_vreipQ5XsEQ_ONZ948J3EC_eQlPIq8aNlT8QB7lFHw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeekjedgfeeiucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepfffhvfevuffkfhggtggujgesthdttddttddtvdenucfhrhhomhepfdfmihhr
+    ihhllhcutedrucfuhhhuthgvmhhovhdfuceokhhirhhilhhlsehshhhuthgvmhhovhdrnh
+    grmhgvqeenucggtffrrghtthgvrhhnpefhieeghfdtfeehtdeftdehgfehuddtvdeuheet
+    tddtheejueekjeegueeivdektdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehkihhrihhllhesshhhuhhtvghmohhvrdhnrghmvg
+X-ME-Proxy: <xmx:M9p1ZGU-nMSgIfCHDflrZ16Mmf4jTfAlm-Zv1KLq8HvnripwLe3DCg>
+    <xmx:M9p1ZFkT9W3_xU5ax-ZWYNbzzY95_f0M5iBw8JZc7bVNl4xwOKbMPQ>
+    <xmx:M9p1ZDfPrYWia5RjOy_0Tv69hBZV6AtJ3i_LBbPY9C8gWBh8gDMEvg>
+    <xmx:Ndp1ZImdm_XgLH-WrJ7Wtzk8AriLHd8rHSyyZMbNAkgODwQ0ohRd5A>
+Feedback-ID: ie3994620:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 30 May 2023 07:12:51 -0400 (EDT)
+Received: by box.shutemov.name (Postfix, from userid 1000)
+	id 3A8FC10CE6B; Tue, 30 May 2023 14:12:48 +0300 (+03)
+Date: Tue, 30 May 2023 14:12:48 +0300
+From: "Kirill A. Shutemov" <kirill@shutemov.name>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	Arjan van de Veen <arjan@linux.intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,	Paul McKenney <paulmck@kernel.org>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Oleksandr Natalenko <oleksandr@natalenko.name>,
+	Paul Menzel <pmenzel@molgen.mpg.de>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Piotr Gorski <lucjan.lucjanov@gmail.com>,
+	Usama Arif <usama.arif@bytedance.com>,	Juergen Gross <jgross@suse.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,	Russell King <linux@armlinux.org.uk>,
+ Arnd Bergmann <arnd@arndb.de>,	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>,	linux-csky@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,	Sabin Rapan <sabrapan@amazon.com>,
+	"Michael Kelley (LINUX)" <mikelley@microsoft.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [patch] x86/realmode: Make stack lock work in trampoline_compat()
+Message-ID: <20230530111248.lzt77sydi7x3wau7@box.shutemov.name>
+References: <20230508181633.089804905@linutronix.de>
+ <20230508185218.962208640@linutronix.de>
+ <20230524204818.3tjlwah2euncxzmh@box.shutemov.name>
+ <87y1lbl7r6.ffs@tglx>
+ <87sfbhlwp9.ffs@tglx>
+ <20230529023939.mc2akptpxcg3eh2f@box.shutemov.name>
+ <87bki3kkfi.ffs@tglx>
+ <20230529203129.sthnhzgds7ynddxd@box.shutemov.name>
+ <87h6rujdvl.ffs@tglx>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+Content-Disposition: inline
+In-Reply-To: <87h6rujdvl.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_040902_926587_00A8732A 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20230530_041259_461961_EF115E87 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,80 +138,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-while the libc supports sigaction/sigsetjmp/siglongjump, it is able to
-restore next test after an invalid data pointer access, add such a test
-case for these libcs, otherwise, skip it.
+On Tue, May 30, 2023 at 12:46:22PM +0200, Thomas Gleixner wrote:
+> The stack locking and stack assignment macro LOAD_REALMODE_ESP fails to
+> work when invoked from the 64bit trampoline entry point:
+> 
+> trampoline_start64
+>   trampoline_compat
+>     LOAD_REALMODE_ESP <- lock
+> 
+> Accessing tr_lock is only possible from 16bit mode. For the compat entry
+> point this needs to be pa_tr_lock so that the required relocation entry is
+> generated. Otherwise it locks the non-relocated address which is
+> aside of being wrong never cleared in secondary_startup_64() causing all
+> but the first CPU to get stuck on the lock.
+> 
+> Make the macro take an argument lock_pa which defaults to 0 and rename it
+> to LOCK_AND_LOAD_REALMODE_ESP to make it clear what this is about.
+> 
+> Fixes: f6f1ae9128d2 ("x86/smpboot: Implement a bit spinlock to protect the realmode stack")
+> Reported-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 
-With glibc/musl:
+Tested-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
 
-    29 efault_handler ! 11 SIGSEGV                                   [OK]
-
-With current nolibc:
-
-    29 efault_handler                                               [SKIPPED]
-
-Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
----
- tools/testing/selftests/nolibc/nolibc-test.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
-
-diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-index 9f9a09529a4f..6b4ebe4be4d6 100644
---- a/tools/testing/selftests/nolibc/nolibc-test.c
-+++ b/tools/testing/selftests/nolibc/nolibc-test.c
-@@ -248,6 +248,15 @@ static void register_trap_handler(void)
- 	}
- }
- 
-+static int test_efault(void)
-+{
-+	char *addr = (void *)1;
-+
-+	*addr = 'a';
-+
-+	return -1;
-+}
-+
- #define has_user_space_efault() (1)
- #else
- #define record_test_context(idx, iteration, iterations) do { } while (0)
-@@ -255,6 +264,7 @@ static void register_trap_handler(void)
- #define register_expect_trap(experr1, experr2) do { } while (0)
- #define register_trap_handler() do { } while (0)
- #define has_user_space_efault() (0)
-+#define test_efault(addr) (-1)
- #endif
- 
- static void putcharn(char c, size_t n)
-@@ -690,6 +700,7 @@ int run_syscall(int min, int max)
- 	struct stat stat_buf;
- 	int euid0;
- 	int proc;
-+	int efault;
- 	int test;
- 	int tmp;
- 	int ret = 0;
-@@ -701,6 +712,9 @@ int run_syscall(int min, int max)
- 	/* this will be used to skip certain tests that can't be run unprivileged */
- 	euid0 = geteuid() == 0;
- 
-+	/* user-space efault handler support */
-+	efault = has_user_space_efault();
-+
- 	for (test = min; test >= 0 && test <= max; test++) {
- 		int llen = 0; /* line length */
- 
-@@ -737,6 +751,7 @@ int run_syscall(int min, int max)
- 		CASE_TEST(dup2_m1);           tmp = dup2(-1, 100); EXPECT_SYSER(1, tmp, -1, EBADF); if (tmp != -1) close(tmp); break;
- 		CASE_TEST(dup3_0);            tmp = dup3(0, 100, 0);  EXPECT_SYSNE(1, tmp, -1); close(tmp); break;
- 		CASE_TEST(dup3_m1);           tmp = dup3(-1, 100, 0); EXPECT_SYSER(1, tmp, -1, EBADF); if (tmp != -1) close(tmp); break;
-+		CASE_TEST(efault_handler);    EXPECT_SYSER(efault, test_efault(), -1, EFAULT); break;
- 		CASE_TEST(execve_root);       EXPECT_SYSER(1, execve("/", (char*[]){ [0] = "/", [1] = NULL }, NULL), -1, EACCES); break;
- 		CASE_TEST(fork);              EXPECT_SYSZR(1, test_fork()); break;
- 		CASE_TEST(getdents64_root);   EXPECT_SYSNE(1, test_getdents64("/"), -1); break;
 -- 
-2.25.1
-
+  Kiryl Shutsemau / Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
