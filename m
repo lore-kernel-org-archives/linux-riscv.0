@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDFAC77B73
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 07:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FA7C7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 08:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UwdyqK810wipNgDyLQXb9HNR4bDa5yDui9UHu5cpYoE=; b=yGaZKqcqXapBRF
-	2R893pCMshLIbMvQ7uWs9rInFe/egn0NAaXf0P9xCKjtHHFvlYCKsbevKMxqlBUEPpIHyiwzOHoF5
-	0mBynYy0qYLZ5gwTFF7IHfb51XmzF5YxjCKMq43RgIt3M34wbzBVQkgQu25o9k9ft17YhtutApwny
-	kcwklBBB5/3Ce8tymgFNHb61P4jrf8HoJuBuVNa2d20+I/07Oi7UeIyqnsR6KjRvXJPf/1pX+p03L
-	jN646C8t8ixtSUUuGkCK4wPFYFCz9sek2+2QsOO+4+xwNCVPElgSVMj1Wi53t4v5YnElL9+C2blab
-	Agy7PoksMPapH/hS//Hg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WnUM9lIewJS6NBsCZa3Uo3yasRKt08JdC6iMcdF1Vgw=; b=QfxQkBgaGsJy7F
+	7vQPrTJCCzVuUbO232IVgqnL7gMD6cBNOFO06DKwiLwNy6nB/lK8OO5iDo3xjk7QEJB1/I8O0/6JA
+	ukxwVV507GGiHWr+drk6ffRECZED3YDE8p3fKlwzLRZD+NFYG9zQGMidAPpGK3AMChzoSSKa7T+8I
+	2wQL04yuT8rJa7zNLYgfxtLuyCVa9cxjsDPKmQxz9U0uhafXK5e6oYT0zwDFQJNgRglrKpdgmftEq
+	kt4Yz4G69oOIfSQDcHdXP/91ea4ZtSPF+wkUyZce440v7i11RGrBUl/Rt9LkeW9GlA5MqWRXkD4MW
+	sqLh7xEXOKQtdUU0bvzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3tqE-00CkD6-2u;
-	Tue, 30 May 2023 07:32:26 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3tqA-00Ck9J-0k
+	id 1q3uLP-00Cr5E-3B;
+	Tue, 30 May 2023 08:04:39 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q3uLM-00Cr4R-03
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 May 2023 07:32:26 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 8AE5224E291;
-	Tue, 30 May 2023 15:31:40 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 30 May
- 2023 15:31:40 +0800
-Received: from [192.168.125.124] (113.72.147.198) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 30 May
- 2023 15:31:39 +0800
-Message-ID: <ac6b1e49-196c-f7e1-7fd8-0eca5e0181e6@starfivetech.com>
-Date: Tue, 30 May 2023 15:31:38 +0800
+	Tue, 30 May 2023 08:04:37 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3f6dfc4e01fso43022355e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 01:04:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1685433874; x=1688025874;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RjdcHakCzRp2uDPOf1QJOq47vmihq6bx2AuDxoEXfOE=;
+        b=FDmwQIBU+rDZiJvbW1YTb6Nvtv32CT3waSZraGR5m0N/Ms1Hp4lSo9Cjsgx0SEuSex
+         G7kgDEEDswd6pBtrVkoYvLUf48IXqIoDPi6HcJa672ZxeKgNQe3jKbnlg7nS5ZbJAErG
+         BcpjlO6WedDL2jJ7QGURxWfRh+kEtQi4jrqUn62BBZtLnjtNq86oWP7St++e9x2zSpgO
+         GSMJmPalS5q7PHUPPtpjq9yxF1mDEMvYcyMsFNK33+vhn6r/xi5uMhiLsm0BvNGhHWpa
+         fAnVIfUp5JI106rZE2MESeh4Iw+o2yHf4TdOtfMeGL7HqA0daZj7wo5o/gPK8jDUKuMK
+         +DNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685433874; x=1688025874;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RjdcHakCzRp2uDPOf1QJOq47vmihq6bx2AuDxoEXfOE=;
+        b=lhv+QYYtlH3oLB3Bd+lr3jpAR26VBOvbV1sia4dLa5ZMQJKMKkfgSgvTKHQXo9OPFf
+         8ucaH2rnFsk2gxOYJmjYaWui6/cDivjQ8CruxoLUAPZMv3pydrcuz6So/WhrdwMh0E5h
+         7yYrfAMIN41HeCRza0o8dNxz7COtRiqCjrELYhulKmVV6+ScW1bekqBqsg8XaZBsZtgE
+         Xelplr7PUECMbSnSPZ7KV2MYqy6Rt02O3XRny+0zGo47nhmNsjC+Qe7euDgokrsnTZuK
+         CJXC530XxiREASim5Ktgdr5s/cu2xYE6bG8ekaYw01j0k3Itp8/k5A39/9kkrsTue0do
+         +8Xg==
+X-Gm-Message-State: AC+VfDx71YDFGqMJapwfd/op5wwpAUswVZbHMR4j9aBdTCTUf7MCL9dl
+	MOIkRoveY8hcyDVAumqhjAWelw==
+X-Google-Smtp-Source: ACHHUZ4EXH26JifnRLV35t73W7c9aZ6OsRaB13FCf0u1UgCoCH3BzpbjGhbi2O2/JVao2KQatBmCug==
+X-Received: by 2002:a7b:ce96:0:b0:3f4:2174:b28a with SMTP id q22-20020a7bce96000000b003f42174b28amr1280948wmj.15.1685433873743;
+        Tue, 30 May 2023 01:04:33 -0700 (PDT)
+Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id f12-20020a7bcd0c000000b003f601a31ca2sm16762193wmj.33.2023.05.30.01.04.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 May 2023 01:04:33 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
+	Pavel Machek <pavel@ucw.cz>,
+	linux-pm@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Rob Herring <robh+dt@kernel.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [RFC PATCH 0/1] fdt: Mark "/reserved-memory" nodes as nosave if !reusable
+Date: Tue, 30 May 2023 10:04:24 +0200
+Message-Id: <20230530080425.18612-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.1
-Subject: Re: [PATCH v5 2/3] ASoC: starfive: Add JH7110 TDM driver
-To: <Claudiu.Beznea@microchip.com>, <broonie@kernel.org>,
-	<lgirdwood@gmail.com>, <perex@perex.cz>, <tiwai@suse.com>,
-	<robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-	<Conor.Dooley@microchip.com>, <emil.renner.berthing@canonical.com>,
-	<hal.feng@starfivetech.com>
-CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20230526145402.450-1-walker.chen@starfivetech.com>
- <20230526145402.450-3-walker.chen@starfivetech.com>
- <143e2fa2-e85d-8036-4f74-ca250c026c1b@microchip.com>
-Content-Language: en-US
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <143e2fa2-e85d-8036-4f74-ca250c026c1b@microchip.com>
-X-Originating-IP: [113.72.147.198]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_003222_750302_20C5407E 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20230530_010436_265891_AD2673AE 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,752 +102,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+In the RISC-V kernel, the firmware does not mark the region it uses as
+"no-map" so that the kernel can avoid having holes in the linear mapping
+and then use larger pages.
 
-On 2023/5/30 14:47, Claudiu.Beznea@microchip.com wrote:
-> On 26.05.2023 17:54, Walker Chen wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->> 
->> Add tdm driver support for the StarFive JH7110 SoC.
->> 
->> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
->> ---
->>  MAINTAINERS                     |   6 +
->>  sound/soc/Kconfig               |   1 +
->>  sound/soc/Makefile              |   1 +
->>  sound/soc/starfive/Kconfig      |  15 +
->>  sound/soc/starfive/Makefile     |   2 +
->>  sound/soc/starfive/jh7110_tdm.c | 679 ++++++++++++++++++++++++++++++++
->>  6 files changed, 704 insertions(+)
->>  create mode 100644 sound/soc/starfive/Kconfig
->>  create mode 100644 sound/soc/starfive/Makefile
->>  create mode 100644 sound/soc/starfive/jh7110_tdm.c
->> 
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 2a0496448b7f..00478d07a9f4 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -20132,6 +20132,12 @@ F:     Documentation/devicetree/bindings/power/starfive*
->>  F:     drivers/soc/starfive/jh71xx_pmu.c
->>  F:     include/dt-bindings/power/starfive,jh7110-pmu.h
->> 
->> +STARFIVE JH7110 TDM DRIVER
->> +M:     Walker Chen <walker.chen@starfivetech.com>
->> +S:     Maintained
->> +F:     Documentation/devicetree/bindings/sound/starfive,jh7110-tdm.yaml
->> +F:     sound/soc/starfive/jh7110_tdm.c
->> +
->>  STARFIVE SOC DRIVERS
->>  M:     Conor Dooley <conor@kernel.org>
->>  S:     Maintained
->> diff --git a/sound/soc/Kconfig b/sound/soc/Kconfig
->> index 848fbae26c3b..8d1d9401ecf2 100644
->> --- a/sound/soc/Kconfig
->> +++ b/sound/soc/Kconfig
->> @@ -91,6 +91,7 @@ source "sound/soc/sh/Kconfig"
->>  source "sound/soc/sof/Kconfig"
->>  source "sound/soc/spear/Kconfig"
->>  source "sound/soc/sprd/Kconfig"
->> +source "sound/soc/starfive/Kconfig"
->>  source "sound/soc/sti/Kconfig"
->>  source "sound/soc/stm/Kconfig"
->>  source "sound/soc/sunxi/Kconfig"
->> diff --git a/sound/soc/Makefile b/sound/soc/Makefile
->> index 507eaed1d6a1..65aeb4ef4068 100644
->> --- a/sound/soc/Makefile
->> +++ b/sound/soc/Makefile
->> @@ -59,6 +59,7 @@ obj-$(CONFIG_SND_SOC) += sh/
->>  obj-$(CONFIG_SND_SOC)  += sof/
->>  obj-$(CONFIG_SND_SOC)  += spear/
->>  obj-$(CONFIG_SND_SOC)  += sprd/
->> +obj-$(CONFIG_SND_SOC)  += starfive/
->>  obj-$(CONFIG_SND_SOC)  += sti/
->>  obj-$(CONFIG_SND_SOC)  += stm/
->>  obj-$(CONFIG_SND_SOC)  += sunxi/
->> diff --git a/sound/soc/starfive/Kconfig b/sound/soc/starfive/Kconfig
->> new file mode 100644
->> index 000000000000..fafb681f8c0a
->> --- /dev/null
->> +++ b/sound/soc/starfive/Kconfig
->> @@ -0,0 +1,15 @@
->> +# SPDX-License-Identifier: GPL-2.0-only
->> +config SND_SOC_STARFIVE
->> +       tristate "Audio support for StarFive SoC"
->> +       depends on COMPILE_TEST || ARCH_STARFIVE
->> +       help
->> +         Say Y or M if you want to add support for codecs attached to
->> +         the Starfive SoCs' Audio interfaces. You will also need to
->> +         select the audio interfaces to support below.
->> +
->> +config SND_SOC_JH7110_TDM
->> +       tristate "JH7110 TDM device driver"
->> +       depends on HAVE_CLK && SND_SOC_STARFIVE
->> +       select SND_SOC_GENERIC_DMAENGINE_PCM
->> +       help
->> +         Say Y or M if you want to add support for StarFive TDM driver.
->> diff --git a/sound/soc/starfive/Makefile b/sound/soc/starfive/Makefile
->> new file mode 100644
->> index 000000000000..f7d960211d72
->> --- /dev/null
->> +++ b/sound/soc/starfive/Makefile
->> @@ -0,0 +1,2 @@
->> +# StarFive Platform Support
->> +obj-$(CONFIG_SND_SOC_JH7110_TDM) += jh7110_tdm.o
->> diff --git a/sound/soc/starfive/jh7110_tdm.c b/sound/soc/starfive/jh7110_tdm.c
->> new file mode 100644
->> index 000000000000..973b910d2d3e
->> --- /dev/null
->> +++ b/sound/soc/starfive/jh7110_tdm.c
->> @@ -0,0 +1,679 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * jh7110_tdm.c -- StarFive JH7110 TDM driver
->> + *
->> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
->> + *
->> + * Author: Walker Chen <walker.chen@starfivetech.com>
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/device.h>
->> +#include <linux/dmaengine.h>
->> +#include <linux/module.h>
->> +#include <linux/of_irq.h>
->> +#include <linux/of_platform.h>
->> +#include <linux/pm_runtime.h>
->> +#include <linux/regmap.h>
->> +#include <linux/reset.h>
->> +#include <linux/types.h>
->> +#include <sound/dmaengine_pcm.h>
->> +#include <sound/initval.h>
->> +#include <sound/pcm.h>
->> +#include <sound/pcm_params.h>
->> +#include <sound/soc.h>
->> +#include <sound/soc-dai.h>
->> +
->> +#define TDM_PCMGBCR                    0x00
->> +       #define PCMGBCR_MASK            0x1e
-> 
-> This is not used.
-> 
->> +       #define PCMGBCR_ENABLE          BIT(0)
-> 
-> Same
-> 
->> +       #define PCMGBCR_TRITXEN         BIT(4)
-> 
-> This is not used
-> 
->> +       #define CLKPOL_BIT              5
->> +       #define TRITXEN_BIT             4
->> +       #define ELM_BIT                 3
->> +       #define SYNCM_BIT               2
->> +       #define MS_BIT                  1
-> 
-> Instead of these *_BIT defines as plain numbers you can defined them using
-> BIT() macro and use macros in place instead of
->        enum TDM_CLKPOL clkpolity;
->        enum TDM_ELM    elm;
->        enum TDM_SYNCM  syncm;
->        enum TDM_MASTER_SLAVE_MODE ms_mode;
-> 
-> These 1 tab indentation in defines seems a bit odd.
+But with the recent support of hibernation on RISC-V, we noticed that
+the hibernation process was trying to access those firmware regions
+which are protected from *all* accesses (using PMP). So the hibernation
+process fails.
 
-Hi Claudiu,
+We still don't have any "specification" regarding the naming of those
+firmware regions, so we can't currently target those specific regions
+(they are described as subnodes of "/reserved-memory").
 
-Thank you very much for quick response!
-Although I have already submitted the 5th version, you still helped me identify so many bugs
-or areas that are not good enough. Thank you again for your strong support!
-These issues you mentioned above will be fixed in the next submission.
+I think we should actually mark all those "/reserved-memory" regions as
+"nosave" since they should not be used by the kernel (see the
+documentation pointed in the patch), hence the RFC since I may be
+missing something here (legacy, other usage...etc).
 
+Please let me know what you think!
 
-> 
->> +#define TDM_PCMTXCR                    0x04
->> +       #define PCMTXCR_TXEN            BIT(0)
->> +       #define IFL_BIT                 11
->> +       #define WL_BIT                  8
->> +       #define SSCALE_BIT              4
->> +       #define SL_BIT                  2
->> +       #define LRJ_BIT                 1
->> +#define TDM_PCMRXCR                    0x08
->> +       #define PCMRXCR_RXEN            BIT(0)
->> +       #define PCMRXCR_RXSL_MASK       0xc
-> 
-> These:
-> 
->> +       #define PCMRXCR_RXSL_16BIT      0x4
->> +       #define PCMRXCR_RXSL_32BIT      0x8
->> +       #define PCMRXCR_SCALE_MASK      0xf0
->> +       #define PCMRXCR_SCALE_1CH       0x10
-> 
-> are not used
-> 
->> +#define TDM_PCMDIV                     0x0c
->> +
->> +#define JH7110_TDM_FIFO                        0x170c0000
->> +#define JH7110_TDM_FIFO_DEPTH          32
->> +
->> +enum TDM_MASTER_SLAVE_MODE {
->> +       TDM_AS_MASTER = 0,
->> +       TDM_AS_SLAVE,
->> +};
->> +
->> +enum TDM_CLKPOL {
->> +       /* tx raising and rx falling */
->> +       TDM_TX_RASING_RX_FALLING = 0,
->> +       /* tx falling and rx raising */
->> +       TDM_TX_FALLING_RX_RASING,
->> +};
->> +
->> +enum TDM_ELM {
->> +       /* only work while SYNCM=0 */
->> +       TDM_ELM_LATE = 0,
->> +       TDM_ELM_EARLY,
->> +};
->> +
->> +enum TDM_SYNCM {
->> +       /* short frame sync */
->> +       TDM_SYNCM_SHORT = 0,
->> +       /* long frame sync */
->> +       TDM_SYNCM_LONG,
->> +};
->> +
->> +enum TDM_IFL {
->> +       /* FIFO to send or received : half-1/2, Quarter-1/4 */
->> +       TDM_FIFO_HALF = 0,
->> +       TDM_FIFO_QUARTER,
->> +};
->> +
->> +enum TDM_WL {
->> +       /* send or received word length */
->> +       TDM_8BIT_WORD_LEN = 0,
->> +       TDM_16BIT_WORD_LEN,
->> +       TDM_20BIT_WORD_LEN,
->> +       TDM_24BIT_WORD_LEN,
->> +       TDM_32BIT_WORD_LEN,
->> +};
->> +
->> +enum TDM_SL {
->> +       /* send or received slot length */
->> +       TDM_8BIT_SLOT_LEN = 0,
->> +       TDM_16BIT_SLOT_LEN,
->> +       TDM_32BIT_SLOT_LEN,
->> +};
->> +
->> +enum TDM_LRJ {
->> +       /* left-justify or right-justify */
->> +       TDM_RIGHT_JUSTIFY = 0,
->> +       TDM_LEFT_JUSTIFT,
->> +};
->> +
->> +struct tdm_chan_cfg {
->> +       enum TDM_IFL ifl;
->> +       enum TDM_WL  wl;
->> +       unsigned char sscale;
->> +       enum TDM_SL  sl;
->> +       enum TDM_LRJ lrj;
->> +       unsigned char enable;
->> +};
->> +
->> +struct jh7110_tdm_dev {
->> +       void __iomem *tdm_base;
->> +       struct device *dev;
->> +       struct clk_bulk_data clks[6];
->> +       struct reset_control *resets;
->> +
->> +       enum TDM_CLKPOL clkpolity;
->> +       enum TDM_ELM    elm;
->> +       enum TDM_SYNCM  syncm;
->> +       enum TDM_MASTER_SLAVE_MODE ms_mode;
->> +
->> +       struct tdm_chan_cfg tx;
->> +       struct tdm_chan_cfg rx;
->> +
->> +       u16 syncdiv;
->> +       u32 samplerate;
->> +       u32 pcmclk;
->> +
->> +       /* data related to DMA transfers b/w tdm and DMAC */
->> +       struct snd_dmaengine_dai_dma_data play_dma_data;
->> +       struct snd_dmaengine_dai_dma_data capture_dma_data;
->> +       u32 saved_pcmgbcr;
->> +       u32 saved_pcmtxcr;
->> +       u32 saved_pcmrxcr;
->> +       u32 saved_pcmdiv;
->> +};
->> +
->> +static inline u32 jh7110_tdm_readl(struct jh7110_tdm_dev *tdm, u16 reg)
->> +{
->> +       return readl_relaxed(tdm->tdm_base + reg);
->> +}
->> +
->> +static inline void jh7110_tdm_writel(struct jh7110_tdm_dev *tdm, u16 reg, u32 val)
->> +{
->> +       writel_relaxed(val, tdm->tdm_base + reg);
->> +}
->> +
->> +static void jh7110_tdm_save_context(struct jh7110_tdm_dev *tdm,
->> +                                   struct snd_pcm_substream *substream)
->> +{
->> +       if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
->> +               tdm->saved_pcmtxcr = jh7110_tdm_readl(tdm, TDM_PCMTXCR);
->> +       else
->> +               tdm->saved_pcmrxcr = jh7110_tdm_readl(tdm, TDM_PCMRXCR);
->> +}
->> +
->> +static void jh7110_tdm_start(struct jh7110_tdm_dev *tdm,
->> +                            struct snd_pcm_substream *substream)
->> +{
->> +       u32 data;
->> +
->> +       data = jh7110_tdm_readl(tdm, TDM_PCMGBCR);
->> +       jh7110_tdm_writel(tdm, TDM_PCMGBCR, data | PCMGBCR_ENABLE);
->> +
->> +       /* restore context */
->> +       if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
->> +               jh7110_tdm_writel(tdm, TDM_PCMTXCR, tdm->saved_pcmtxcr | PCMTXCR_TXEN);
->> +       else
->> +               jh7110_tdm_writel(tdm, TDM_PCMRXCR, tdm->saved_pcmrxcr | PCMRXCR_RXEN);
->> +}
->> +
->> +static void jh7110_tdm_stop(struct jh7110_tdm_dev *tdm,
->> +                           struct snd_pcm_substream *substream)
->> +{
->> +       unsigned int val;
->> +
->> +       if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
->> +               val = jh7110_tdm_readl(tdm, TDM_PCMTXCR);
->> +               val &= ~PCMTXCR_TXEN;
->> +               jh7110_tdm_writel(tdm, TDM_PCMTXCR, val);
->> +       } else {
->> +               val = jh7110_tdm_readl(tdm, TDM_PCMRXCR);
->> +               val &= ~PCMRXCR_RXEN;
->> +               jh7110_tdm_writel(tdm, TDM_PCMRXCR, val);
->> +       }
->> +}
->> +
->> +static int jh7110_tdm_syncdiv(struct jh7110_tdm_dev *tdm)
->> +{
->> +       u32 sl, sscale, syncdiv;
->> +
->> +       if (tdm->rx.sl >= tdm->tx.sl)
->> +               sl = tdm->rx.sl;
->> +       else
->> +               sl = tdm->tx.sl;
->> +
->> +       if (tdm->rx.sscale >= tdm->tx.sscale)
->> +               sscale = tdm->rx.sscale;
->> +       else
->> +               sscale = tdm->tx.sscale;
->> +
->> +       syncdiv = tdm->pcmclk / tdm->samplerate - 1;
->> +
->> +       if ((syncdiv + 1) < (sl * sscale)) {
->> +               dev_err(tdm->dev, "Failed to set syncdiv!\n");
->> +               return -EINVAL;
->> +       }
->> +
->> +       if (tdm->syncm == TDM_SYNCM_LONG &&
->> +           (tdm->rx.sscale <= 1 || tdm->tx.sscale <= 1) &&
->> +           ((syncdiv + 1) <= sl)) {
->> +               dev_err(tdm->dev, "Wrong syncdiv! It must be (syncdiv+1) > max[tx.sl, rx.sl]\n");
->> +               return -EINVAL;
->> +       }
->> +
->> +       jh7110_tdm_writel(tdm, TDM_PCMDIV, syncdiv);
->> +       return 0;
->> +}
->> +
->> +static int jh7110_tdm_config(struct jh7110_tdm_dev *tdm,
->> +                            struct snd_pcm_substream *substream)
->> +{
->> +       u32 datarx, datatx;
->> +       int ret;
->> +
->> +       ret = jh7110_tdm_syncdiv(tdm);
->> +       if (ret)
->> +               return ret;
->> +
->> +       datarx = (tdm->rx.ifl << IFL_BIT) |
->> +                 (tdm->rx.wl << WL_BIT) |
->> +                 (tdm->rx.sscale << SSCALE_BIT) |
->> +                 (tdm->rx.sl << SL_BIT) |
->> +                 (tdm->rx.lrj << LRJ_BIT);
->> +
->> +       datatx = (tdm->tx.ifl << IFL_BIT) |
->> +                 (tdm->tx.wl << WL_BIT) |
->> +                 (tdm->tx.sscale << SSCALE_BIT) |
->> +                 (tdm->tx.sl << SL_BIT) |
->> +                 (tdm->tx.lrj << LRJ_BIT);
->> +
->> +       if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
->> +               jh7110_tdm_writel(tdm, TDM_PCMTXCR, datatx);
->> +       else
->> +               jh7110_tdm_writel(tdm, TDM_PCMRXCR, datarx);
->> +
->> +       return 0;
->> +}
->> +
->> +static void jh7110_tdm_clk_disable(struct jh7110_tdm_dev *tdm)
->> +{
->> +       clk_bulk_disable_unprepare(ARRAY_SIZE(tdm->clks), tdm->clks);
->> +}
->> +
->> +static int jh7110_tdm_clk_enable(struct jh7110_tdm_dev *tdm)
->> +{
->> +       int ret;
->> +
->> +       ret = clk_bulk_prepare_enable(ARRAY_SIZE(tdm->clks), tdm->clks);
->> +       if (ret) {
->> +               dev_err(tdm->dev, "Failed to enable tdm clocks\n");
->> +               return ret;
->> +       }
->> +
->> +       ret = reset_control_deassert(tdm->resets);
->> +       if (ret) {
->> +               dev_err(tdm->dev, "Failed to deassert tdm resets\n");
->> +               goto dis_tdm_clk;
->> +       }
->> +
->> +       /* select tdm_ext clock as the clock source for tdm */
->> +       ret = clk_set_parent(tdm->clks[5].clk, tdm->clks[4].clk);
->> +       if (ret) {
->> +               dev_err(tdm->dev, "Can't set extern clock source for clk_tdm\n");
->> +               goto dis_tdm_clk;
->> +       }
->> +
->> +       return 0;
->> +
->> +dis_tdm_clk:
->> +       clk_bulk_disable_unprepare(ARRAY_SIZE(tdm->clks), tdm->clks);
->> +
->> +       return ret;
->> +}
->> +
->> +static int jh7110_tdm_runtime_suspend(struct device *dev)
->> +{
->> +       struct jh7110_tdm_dev *tdm = dev_get_drvdata(dev);
->> +
->> +       jh7110_tdm_clk_disable(tdm);
->> +       return 0;
->> +}
->> +
->> +static int jh7110_tdm_runtime_resume(struct device *dev)
->> +{
->> +       struct jh7110_tdm_dev *tdm = dev_get_drvdata(dev);
->> +
->> +       return jh7110_tdm_clk_enable(tdm);
->> +}
->> +
->> +static int jh7110_tdm_system_suspend(struct device *dev)
->> +{
->> +       struct jh7110_tdm_dev *tdm = dev_get_drvdata(dev);
->> +
->> +       /* save context */
->> +       tdm->saved_pcmgbcr = jh7110_tdm_readl(tdm, TDM_PCMGBCR);
->> +       tdm->saved_pcmdiv = jh7110_tdm_readl(tdm, TDM_PCMDIV);
->> +
->> +       return pm_runtime_force_suspend(dev);
->> +}
->> +
->> +static int jh7110_tdm_system_resume(struct device *dev)
->> +{
->> +       struct jh7110_tdm_dev *tdm = dev_get_drvdata(dev);
->> +
->> +       /* restore context */
->> +       jh7110_tdm_writel(tdm, TDM_PCMGBCR, tdm->saved_pcmgbcr);
->> +       jh7110_tdm_writel(tdm, TDM_PCMDIV, tdm->saved_pcmdiv);
->> +
->> +       return pm_runtime_force_resume(dev);
->> +}
->> +
->> +static const struct snd_soc_component_driver jh7110_tdm_component = {
->> +       .name = "jh7110-tdm",
->> +};
->> +
->> +static int jh7110_tdm_startup(struct snd_pcm_substream *substream,
->> +                             struct snd_soc_dai *cpu_dai)
->> +{
->> +       struct snd_soc_pcm_runtime *rtd = asoc_substream_to_rtd(substream);
->> +       struct snd_soc_dai_link *dai_link = rtd->dai_link;
->> +
->> +       dai_link->stop_dma_first = 1;
->> +
->> +       return 0;
->> +}
->> +
->> +static int jh7110_tdm_hw_params(struct snd_pcm_substream *substream,
->> +                               struct snd_pcm_hw_params *params,
->> +                               struct snd_soc_dai *dai)
->> +{
->> +       struct jh7110_tdm_dev *tdm = snd_soc_dai_get_drvdata(dai);
->> +       int chan_wl, chan_sl, chan_nr;
->> +       unsigned int data_width;
->> +       unsigned int dma_bus_width;
->> +       struct snd_dmaengine_dai_dma_data *dma_data = NULL;
->> +       int ret;
->> +
->> +       data_width = params_width(params);
->> +
->> +       tdm->samplerate = params_rate(params);
->> +       tdm->pcmclk = params_channels(params) * tdm->samplerate * data_width;
->> +
->> +       switch (params_format(params)) {
->> +       case SNDRV_PCM_FORMAT_S16_LE:
->> +               chan_wl = TDM_16BIT_WORD_LEN;
->> +               chan_sl = TDM_16BIT_SLOT_LEN;
->> +               dma_bus_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
->> +               break;
->> +
->> +       case SNDRV_PCM_FORMAT_S32_LE:
->> +               chan_wl = TDM_32BIT_WORD_LEN;
->> +               chan_sl = TDM_32BIT_SLOT_LEN;
->> +               dma_bus_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
->> +               break;
->> +
->> +       default:
->> +               dev_err(tdm->dev, "tdm: unsupported PCM fmt");
->> +               return -EINVAL;
->> +       }
->> +
->> +       chan_nr = params_channels(params);
->> +       switch (chan_nr) {
->> +       case 1:
->> +       case 2:
->> +       case 4:
->> +       case 6:
->> +       case 8:
->> +               break;
->> +       default:
->> +               dev_err(tdm->dev, "channel not supported\n");
->> +               return -EINVAL;
->> +       }
->> +
->> +       if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
->> +               tdm->tx.wl = chan_wl;
->> +               tdm->tx.sl = chan_sl;
->> +               tdm->tx.sscale = chan_nr;
->> +               tdm->play_dma_data.addr_width = dma_bus_width;
->> +               dma_data = &tdm->play_dma_data;
->> +       } else {
->> +               tdm->rx.wl = chan_wl;
->> +               tdm->rx.sl = chan_sl;
->> +               tdm->rx.sscale = chan_nr;
->> +               tdm->capture_dma_data.addr_width = dma_bus_width;
->> +               dma_data = &tdm->capture_dma_data;
->> +       }
->> +
->> +       snd_soc_dai_set_dma_data(dai, substream, dma_data);
->> +
->> +       ret = jh7110_tdm_config(tdm, substream);
->> +       if (ret)
->> +               return ret;
->> +
->> +       jh7110_tdm_save_context(tdm, substream);
->> +       return 0;
->> +}
->> +
->> +static int jh7110_tdm_trigger(struct snd_pcm_substream *substream,
->> +                             int cmd, struct snd_soc_dai *dai)
->> +{
->> +       struct jh7110_tdm_dev *tdm = snd_soc_dai_get_drvdata(dai);
->> +       int ret = 0;
->> +
->> +       switch (cmd) {
->> +       case SNDRV_PCM_TRIGGER_START:
->> +       case SNDRV_PCM_TRIGGER_RESUME:
->> +       case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
->> +               jh7110_tdm_start(tdm, substream);
->> +               break;
->> +
->> +       case SNDRV_PCM_TRIGGER_STOP:
->> +       case SNDRV_PCM_TRIGGER_SUSPEND:
->> +       case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
->> +               jh7110_tdm_stop(tdm, substream);
->> +               break;
->> +       default:
->> +               ret = -EINVAL;
->> +               break;
->> +       }
->> +
->> +       return ret;
->> +}
->> +
->> +static int jh7110_tdm_set_dai_fmt(struct snd_soc_dai *cpu_dai,
->> +                                 unsigned int fmt)
->> +{
->> +       struct jh7110_tdm_dev *tdm = snd_soc_dai_get_drvdata(cpu_dai);
->> +       unsigned int gbcr;
->> +
->> +       /* set master/slave audio interface */
->> +       switch (fmt & SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK) {
->> +       case SND_SOC_DAIFMT_BP_FP:
->> +               /* cpu is master */
->> +               tdm->ms_mode = TDM_AS_MASTER;
->> +               break;
->> +       case SND_SOC_DAIFMT_BC_FC:
->> +               /* codec is master */
->> +               tdm->ms_mode = TDM_AS_SLAVE;
->> +               break;
->> +       case SND_SOC_DAIFMT_BC_FP:
->> +       case SND_SOC_DAIFMT_BP_FC:
->> +               return -EINVAL;
->> +       default:
->> +               dev_dbg(tdm->dev, "dwc : Invalid clock provider format\n");
->> +               return -EINVAL;
->> +       }
->> +
->> +       gbcr = (tdm->clkpolity << CLKPOL_BIT) |
->> +               (tdm->elm << ELM_BIT) |
->> +               (tdm->syncm << SYNCM_BIT) |
->> +               (tdm->ms_mode << MS_BIT);
->> +       jh7110_tdm_writel(tdm, TDM_PCMGBCR, gbcr);
->> +
->> +       return 0;
->> +}
->> +
->> +static const struct snd_soc_dai_ops jh7110_tdm_dai_ops = {
->> +       .startup        = jh7110_tdm_startup,
->> +       .hw_params      = jh7110_tdm_hw_params,
->> +       .trigger        = jh7110_tdm_trigger,
->> +       .set_fmt        = jh7110_tdm_set_dai_fmt,
->> +};
->> +
->> +static int jh7110_tdm_dai_probe(struct snd_soc_dai *dai)
->> +{
->> +       struct jh7110_tdm_dev *tdm = snd_soc_dai_get_drvdata(dai);
->> +
->> +       snd_soc_dai_init_dma_data(dai, &tdm->play_dma_data, &tdm->capture_dma_data);
->> +       snd_soc_dai_set_drvdata(dai, tdm);
->> +       return 0;
->> +}
->> +
->> +#define JH7110_TDM_RATES       SNDRV_PCM_RATE_8000_48000
->> +
->> +#define JH7110_TDM_FORMATS     (SNDRV_PCM_FMTBIT_S16_LE | \
->> +                                SNDRV_PCM_FMTBIT_S32_LE)
->> +
->> +static struct snd_soc_dai_driver jh7110_tdm_dai = {
->> +       .name = "sf_tdm",
->> +       .id = 0,
->> +       .playback = {
->> +               .stream_name    = "Playback",
->> +               .channels_min   = 1,
->> +               .channels_max   = 8,
->> +               .rates          = JH7110_TDM_RATES,
->> +               .formats        = JH7110_TDM_FORMATS,
->> +       },
->> +       .capture = {
->> +               .stream_name    = "Capture",
->> +               .channels_min   = 1,
->> +               .channels_max   = 8,
->> +               .rates          = JH7110_TDM_RATES,
->> +               .formats        = JH7110_TDM_FORMATS,
->> +       },
->> +       .ops = &jh7110_tdm_dai_ops,
->> +       .probe = jh7110_tdm_dai_probe,
->> +       .symmetric_rate = 1,
->> +};
->> +
->> +static const struct snd_pcm_hardware jh7110_pcm_hardware = {
->> +       .info                   = (SNDRV_PCM_INFO_MMAP          |
->> +                                  SNDRV_PCM_INFO_MMAP_VALID    |
->> +                                  SNDRV_PCM_INFO_PAUSE         |
->> +                                  SNDRV_PCM_INFO_RESUME        |
->> +                                  SNDRV_PCM_INFO_INTERLEAVED   |
->> +                                  SNDRV_PCM_INFO_BLOCK_TRANSFER),
->> +       .buffer_bytes_max       = 192512,
->> +       .period_bytes_min       = 4096,
->> +       .period_bytes_max       = 32768,
->> +       .periods_min            = 1,
->> +       .periods_max            = 48,
->> +       .fifo_size              = 16,
->> +};
->> +
->> +static const struct snd_dmaengine_pcm_config jh7110_dmaengine_pcm_config = {
->> +       .pcm_hardware = &jh7110_pcm_hardware,
->> +       .prepare_slave_config = snd_dmaengine_pcm_prepare_slave_config,
->> +       .prealloc_buffer_size = 192512,
->> +};
->> +
->> +static void jh7110_tdm_init_params(struct jh7110_tdm_dev *tdm)
->> +{
->> +       tdm->clkpolity = TDM_TX_RASING_RX_FALLING;
->> +       tdm->elm = TDM_ELM_LATE;
->> +       tdm->syncm = TDM_SYNCM_SHORT;
->> +
->> +       tdm->rx.ifl = TDM_FIFO_HALF;
->> +       tdm->tx.ifl = TDM_FIFO_HALF;
->> +       tdm->rx.wl = TDM_16BIT_WORD_LEN;
->> +       tdm->tx.wl = TDM_16BIT_WORD_LEN;
->> +       tdm->rx.sscale = 2;
->> +       tdm->tx.sscale = 2;
->> +       tdm->rx.lrj = TDM_LEFT_JUSTIFT;
->> +       tdm->tx.lrj = TDM_LEFT_JUSTIFT;
->> +
->> +       tdm->play_dma_data.addr = JH7110_TDM_FIFO;
->> +       tdm->play_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
->> +       tdm->play_dma_data.fifo_size = JH7110_TDM_FIFO_DEPTH / 2;
->> +       tdm->play_dma_data.maxburst = 16;
->> +
->> +       tdm->capture_dma_data.addr = JH7110_TDM_FIFO;
->> +       tdm->capture_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
->> +       tdm->capture_dma_data.fifo_size = JH7110_TDM_FIFO_DEPTH / 2;
->> +       tdm->capture_dma_data.maxburst = 8;
->> +}
->> +
->> +static int jh7110_tdm_clk_reset_get(struct platform_device *pdev,
->> +                                   struct jh7110_tdm_dev *tdm)
->> +{
->> +       int ret;
->> +
->> +       tdm->clks[0].id = "mclk_inner";
->> +       tdm->clks[1].id = "tdm_ahb";
->> +       tdm->clks[2].id = "tdm_apb";
->> +       tdm->clks[3].id = "tdm_internal";
->> +       tdm->clks[4].id = "tdm_ext";
->> +       tdm->clks[5].id = "tdm";
->> +
->> +       ret = devm_clk_bulk_get(&pdev->dev, ARRAY_SIZE(tdm->clks), tdm->clks);
->> +       if (ret) {
->> +               dev_err(&pdev->dev, "Failed to get tdm clocks\n");
->> +               return ret;
->> +       }
->> +
->> +       tdm->resets = devm_reset_control_array_get_exclusive(&pdev->dev);
->> +       if (IS_ERR_OR_NULL(tdm->resets)) {
-> 
-> Looking in depth on devm_reset_control_array_get_exclusive() it seems the
-> NULL cannot be returned by devm_reset_control_array_get_exclusive() as
-> optinal argument is false, thus the IS_ERR() that was here on previous
-> version was good. Could you return back to that? Sorry for the confusion.
+Alexandre Ghiti (1):
+  fdt: Mark "/reserved-memory" nodes as nosave if !reusable
 
-Yes, I have seen the usage of devm_reset_control_array_get_exclusive() for other platform in kernel.
-They all use the macro IS_ERR(), like this:
-    priv->reset = devm_reset_control_array_get_exclusive(dev);
-    if (IS_ERR(priv->reset))
-        return PTR_ERR(priv->reset);
+ arch/riscv/kernel/setup.c |  2 +
+ drivers/of/fdt.c          | 77 +++++++++++++++++++++++++++++++++++++++
+ include/linux/of_fdt.h    |  1 +
+ 3 files changed, 80 insertions(+)
 
-So I would like to return back to that.
-
-> 
->> +               ret = PTR_ERR(tdm->resets);
->> +               dev_err(&pdev->dev, "Failed to get tdm resets");
->> +               return ret;
-> 
-> Also, you could avoid this return
->> +       }
->> +
->> +       return 0;
-> 
-> and do here:
-> 	return ret;
-> 
-> Other than this:
-> 
-> Reviewed-by: Claudiu Beznea <claudiu.beznea@microchip.com>
-
-Best regards,
-Walker
+-- 
+2.39.2
 
 
 _______________________________________________
