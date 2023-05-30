@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842F0C77B73
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 17:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3629C7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 17:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WnbeYcb1u4T1yGAk9x9AINS6FALmMJSRFdFn6Ka6gwQ=; b=Mz8at/F/hDKtyI
-	aO8ufaa/vKhVllPgz/2ZW5QhQmA990rXqVU9ola1nxaFFf43lmryg18zdB3usoQ3YZU1CCh4tGX2I
-	JNIL9KZkPrjTjGzl1E9CuJfOWeQbCJfQj8HWxAtl1sY7KKHyO/CiHLXPotF/M09+UcDB28Bi+cTwH
-	nlzcaPNqDiNNVPplSxXSWvTIgftt12NSzWdJHcSBEm68cnTK5fnRj6M4cpiN90dan/Y4axqpYzx8z
-	GT+hpfMenIzGGMYQ0RQr1TgU4VcQKpuxf3IC7ltnRN4BpGAIHaknWyLPcgwn7XeqeQQcGCKnNQ95a
-	qWjP9m41Kv/ikExCN30A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+mUGCvFZNfVn2+Xv+ZVNgETl8rI/uWZ1qHSRdouI/p0=; b=Szdpf59c2PIAgy7eDqg/F9MKJw
+	K5GzTnPW0LydZslMPAAe/9/GWz95J6FUPoCm3rRa55uOlSruNYsKTpH87lijkYby/VyMF9pFoTKk9
+	7QEq8T8oGvbU8Cz7rKH8Mm5yhHTca16XdkhXanSkmnbYIZB1++gy78zXju3v+6pkMPCmYbwxJOlMp
+	8NrfcDWORvphmdKfBRaK3lIAtd5VC72cGUvXs6RPye2dcuiD+Wm9Xim9kcBUajPMWOhhVG/ntMZgF
+	pRk6oibA9hCkrMzVRTlrxH8vCMqV58mOP6dO0Ph+JMyaH7cfjKU993uTui06PcYVF2O08sS7iv5nO
+	LtSp/QAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q43Iy-00ElnI-0k;
-	Tue, 30 May 2023 17:38:44 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1q43RP-00EnKk-1s;
+	Tue, 30 May 2023 17:47:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q43Iv-00Elm4-2p
+	id 1q43RL-00EnJx-2s
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 May 2023 17:38:43 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-30aebe2602fso1804787f8f.3
-        for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 10:38:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1685468314; x=1688060314;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=FrHMbTIbU7D3t1WRRQQxrIW0F7tJVKN0TYQHrkhWx4k=;
-        b=bLhbmRnEJ0aQBK/C3WZRinhj9quWRoH4Kn+HXqsUG2RINWRSyVcgEtimQsBKg9fH+L
-         AO//h1nomqDEf0lfuWnOeZ1RghrI6hajTL1/o6ZBXNwf54qsziybQlwq8COLcdGHFNcK
-         JIvox3ab6m/Q3iOqEgfEu9v2lUo7IjooI7bkE1/u3Ty+hPVykkRpByn1pXie7OP/t/4g
-         GfFEB6WH2ofIH1vqYyMNta40kBCWiNzZkZWiX5lGiStaXqkjXjiuoHvvxe2x67Q3OKZ4
-         hbj9v2PkYI+U1iyQY/oOGyEsCRk3yQGDsp4tNfhq9UHeyorsjKhcOkcax0+0eqheejIf
-         VXVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685468314; x=1688060314;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FrHMbTIbU7D3t1WRRQQxrIW0F7tJVKN0TYQHrkhWx4k=;
-        b=PXGzXwT+WvFzQKmbIH/ofO5eCzHTIa6nD6HrzlmddtxWbkhvIoaUe8AKuEvsJ3BJ0s
-         Pyh6sJk2JTR6scB+cBPZS8+ishgZgx1uvpBpzCxU8VCvDVWAlgnZK9W9YHtKkv/uAS5i
-         GD+spQpICLDCpKuPcvAJhVu2wOWBY4BzKP4+t7qdFB0wMwYTHKUg0xmyCrA5QVQtsurW
-         r1FCsU+0DbjNM98/e/I8I4Hmes/1oQMqg9Y4i+txFH4cBOcRJUWqFBZ0l3/l/72NUIML
-         FM16X/vDALg65kv3408SxhqYbvGmEbsPIf43Rbaz4l3hBVQ34PbCV78nJEWVB5vgkScz
-         ySxQ==
-X-Gm-Message-State: AC+VfDyuBA3aDHlPf5PBMh44WixdjBz+hJMghf3Hduq+FSicXcaPERkZ
-	nFdFRc6iIB4G3Y3oe42YbWWUrA==
-X-Google-Smtp-Source: ACHHUZ6q3BKexvJC51GGJFG7kExmKMsuNL9f5Ici4Da4HE0wF9yHXGGvW+vifXhAaNW8XgM1QYpc6g==
-X-Received: by 2002:a5d:51d1:0:b0:30a:e66d:25b7 with SMTP id n17-20020a5d51d1000000b0030ae66d25b7mr2143734wrv.13.1685468314120;
-        Tue, 30 May 2023 10:38:34 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id l19-20020a5d5273000000b0030ae09c5efdsm4005750wrc.42.2023.05.30.10.38.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 May 2023 10:38:33 -0700 (PDT)
-Date: Tue, 30 May 2023 19:38:32 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH v2 2/3] RISC-V: KVM: Convert extension_disabled[] to
- ext_status[]
-Message-ID: <20230530-847c5615f38719be61e86d06@orel>
-References: <20230526102540.105013-1-ajones@ventanamicro.com>
- <20230526102540.105013-3-ajones@ventanamicro.com>
- <CAAhSdy01s_89rhzhPtxg4HYqyjiHkUpddc8WcttgZC8dndxF-w@mail.gmail.com>
+	Tue, 30 May 2023 17:47:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 63C9462EAD;
+	Tue, 30 May 2023 17:47:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBF09C433D2;
+	Tue, 30 May 2023 17:47:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685468842;
+	bh=ZbKD8T6XaIwB4p2rBGYXibCFVbjC5VHZ8efSGsRpmf8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F5RyBCiNjWNomJEEMvP38q3EOc/bloifBXLw76Zo2gV7mUs8f4F1/RFXyZ8vlvMyh
+	 PRGJ+HkY49bqp4CW8Bn3jc2Ip1ya2vOhm4lT4pZYsBBni+Lu4PmvN/hYEY5jhgZNVJ
+	 SOWuvGQ5mVXBHmwiue8FlqTbYsdgFjZMLf/EE8uVdipOjvBzwtJ6fgyfZ4R/r72TTa
+	 0v2taCtgBw7q7ZEMwXGqV7r4Sh6e0McsVf1WAOEQqQh56sdby20Fq9bo62fpZQRTMh
+	 TyFIZ/5mzaWaTjb9EhH4z8MMziZGz8zYgcjbE5bC5IMCXuB8tWOHMSgGcd8/n64GyZ
+	 qzRhpd4A8miuQ==
+Date: Tue, 30 May 2023 18:47:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andreas Schwab <schwab@linux-m68k.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -fixes] riscv: Fix relocatable kernels with early
+ alternatives using -fno-pie
+Message-ID: <20230530-hatchery-unifier-64d7a2ffe0d0@spud>
+References: <20230527-hyperlink-doctrine-ef22cfcb508a@spud>
+ <CAHVXubgx3uBEjMLHXTxr0192ZHbSb=qK4NggZyWQTDfgrJt2-g@mail.gmail.com>
+ <20230528-darkness-grandly-6cb9e014391d@spud>
+ <cf0d2d2a-c407-7b3d-a5ab-ea5c19e7b890@ghiti.fr>
+ <20230528-uneatable-earpiece-3f8673548863@spud>
+ <b71dc2f5-fdc0-2a8d-e1f9-696cd9a1529e@ghiti.fr>
+ <20230529-skillet-quarters-3fbc3b6edb3a@spud>
+ <41e57bb9-ce0c-7772-abeb-5c01d5ec19bb@ghiti.fr>
+ <20230530-polka-trifle-7ccd7a093099@wendy>
+ <92d4aaa8-a1ed-74e1-3a22-df9be1ca1e4a@ghiti.fr>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAAhSdy01s_89rhzhPtxg4HYqyjiHkUpddc8WcttgZC8dndxF-w@mail.gmail.com>
+In-Reply-To: <92d4aaa8-a1ed-74e1-3a22-df9be1ca1e4a@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_103841_945466_AC4DB1C1 
-X-CRM114-Status: GOOD (  24.56  )
+X-CRM114-CacheID: sfid-20230530_104724_022320_09638F3A 
+X-CRM114-Status: GOOD (  44.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,70 +83,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7492899839219891278=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXkgMzAsIDIwMjMgYXQgMTA6Mjg6MTZQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90
-ZToKPiBPbiBGcmksIE1heSAyNiwgMjAyMyBhdCAzOjU14oCvUE0gQW5kcmV3IEpvbmVzIDxham9u
-ZXNAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPgo+ID4gQ2hhbmdlIHRoZSBib29sZWFuIGV4
-dGVuc2lvbl9kaXNhYmxlZFtdIGFycmF5IHRvIGFuIGFycmF5IG9mIGVudW1zLAo+ID4gZXh0X3N0
-YXR1c1tdLiBGb3Igbm93LCB0aGUgZW51bSBvbmx5IGhhcyB0d28gc3RhdGVzLCB3aGljaCBjb3Jy
-ZXNwb25kCj4gPiB0byB0aGUgcHJldmlvdXMgYm9vbGVhbiBzdGF0ZXMsIHNvIHRoaXMgcGF0Y2gg
-aGFzIG5vIGludGVuZGVkCj4gPiBmdW5jdGlvbmFsIGNoYW5nZS4gVGhlIG5leHQgcGF0Y2ggd2ls
-bCBhZGQgYW5vdGhlciBzdGF0ZSwgZXhwYW5kaW5nCj4gPiB0aGUgcHVycG9zZSBvZiBleHRfc3Rh
-dHVzW10uCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFu
-YW1pY3JvLmNvbT4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVf
-c2JpLmggfCA3ICsrKysrKy0KPiA+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaS5jICAgICAgICAg
-ICAgIHwgOSArKysrKystLS0KPiA+ICAyIGZpbGVzIGNoYW5nZWQsIDEyIGluc2VydGlvbnMoKyks
-IDQgZGVsZXRpb25zKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20va3ZtX3ZjcHVfc2JpLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5o
-Cj4gPiBpbmRleCA0Mjc4MTI1YTM4YTUuLmNkYTk5ZmMzZDg5NyAxMDA2NDQKPiA+IC0tLSBhL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmgKPiA+IEBAIC0xNCw5ICsxNCwxNCBAQAo+ID4gICNk
-ZWZpbmUgS1ZNX1NCSV9WRVJTSU9OX01BSk9SIDEKPiA+ICAjZGVmaW5lIEtWTV9TQklfVkVSU0lP
-Tl9NSU5PUiAwCj4gPgo+ID4gK2VudW0gS1ZNX1JJU0NWX1NCSV9FWFRfU1RBVFVTIHsKPiAKPiBU
-aGlzIHVwcGVyLWNhc2UgbmFtZSBvZiBlbnVtIGxvb2tzIG9kZC4KCkkgYWdyZWUuIEkgc2F3IHRo
-ZSB1cHBlcmNhc2UgZW51bSBuYW1lcyBpbiB0aGUgdWFwaSBhbmQgbWF0Y2hlZCB0aGF0LCBidXQK
-bm93IEkgc2VlIHRoZSBub24tdWFwaSBlbnVtcyBoYXZlIG5vcm1hbCBsb3dlcmNhc2UgbmFtZXMu
-IEknbGwgc2VuZCBhIHYzCndpdGggYSBsb3dlcmNhc2UgbmFtZS4KCj4gCj4gPiArICAgICAgIEtW
-TV9SSVNDVl9TQklfRVhUX0FWQUlMQUJMRSwKPiA+ICsgICAgICAgS1ZNX1JJU0NWX1NCSV9FWFRf
-VU5BVkFJTEFCTEUsCj4gPiArfTsKPiA+ICsKPiA+ICBzdHJ1Y3Qga3ZtX3ZjcHVfc2JpX2NvbnRl
-eHQgewo+ID4gICAgICAgICBpbnQgcmV0dXJuX2hhbmRsZWQ7Cj4gPiAtICAgICAgIGJvb2wgZXh0
-ZW5zaW9uX2Rpc2FibGVkW0tWTV9SSVNDVl9TQklfRVhUX01BWF07Cj4gPiArICAgICAgIGVudW0g
-S1ZNX1JJU0NWX1NCSV9FWFRfU1RBVFVTIGV4dF9zdGF0dXNbS1ZNX1JJU0NWX1NCSV9FWFRfTUFY
-XTsKPiA+ICB9Owo+ID4KPiA+ICBzdHJ1Y3Qga3ZtX3ZjcHVfc2JpX3JldHVybiB7Cj4gPiBkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmkuYyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVf
-c2JpLmMKPiA+IGluZGV4IDZhYTE1ZjFiOTdkOS4uMjhlNTViYTAyM2RjIDEwMDY0NAo+ID4gLS0t
-IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmkuYwo+ID4gKysrIGIvYXJjaC9yaXNjdi9rdm0vdmNw
-dV9zYmkuYwo+ID4gQEAgLTE1NSw3ICsxNTUsOCBAQCBzdGF0aWMgaW50IHJpc2N2X3ZjcHVfc2V0
-X3NiaV9leHRfc2luZ2xlKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwKPiA+ICAgICAgICAgaWYgKCFz
-ZXh0KQo+ID4gICAgICAgICAgICAgICAgIHJldHVybiAtRU5PRU5UOwo+ID4KPiA+IC0gICAgICAg
-c2NvbnRleHQtPmV4dGVuc2lvbl9kaXNhYmxlZFtzZXh0LT5leHRfaWR4XSA9ICFyZWdfdmFsOwo+
-ID4gKyAgICAgICBzY29udGV4dC0+ZXh0X3N0YXR1c1tzZXh0LT5leHRfaWR4XSA9IHJlZ192YWwg
-Pwo+ID4gKyAgICAgICAgICAgICAgIEtWTV9SSVNDVl9TQklfRVhUX0FWQUlMQUJMRSA6IEtWTV9S
-SVNDVl9TQklfRVhUX1VOQVZBSUxBQkxFOwo+ID4KPiA+ICAgICAgICAgcmV0dXJuIDA7Cj4gPiAg
-fQo+ID4gQEAgLTE4MCw3ICsxODEsOCBAQCBzdGF0aWMgaW50IHJpc2N2X3ZjcHVfZ2V0X3NiaV9l
-eHRfc2luZ2xlKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwKPiA+ICAgICAgICAgaWYgKCFzZXh0KQo+
-ID4gICAgICAgICAgICAgICAgIHJldHVybiAtRU5PRU5UOwo+ID4KPiA+IC0gICAgICAgKnJlZ192
-YWwgPSAhc2NvbnRleHQtPmV4dGVuc2lvbl9kaXNhYmxlZFtzZXh0LT5leHRfaWR4XTsKPiA+ICsg
-ICAgICAgKnJlZ192YWwgPSBzY29udGV4dC0+ZXh0X3N0YXR1c1tzZXh0LT5leHRfaWR4XSA9PQo+
-ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBLVk1fUklTQ1ZfU0JJX0VYVF9BVkFJ
-TEFCTEU7Cj4gPgo+ID4gICAgICAgICByZXR1cm4gMDsKPiA+ICB9Cj4gPiBAQCAtMzE2LDcgKzMx
-OCw4IEBAIGNvbnN0IHN0cnVjdCBrdm1fdmNwdV9zYmlfZXh0ZW5zaW9uICprdm1fdmNwdV9zYmlf
-ZmluZF9leHQoCj4gPiAgICAgICAgICAgICAgICAgaWYgKHNleHQtPmV4dF9wdHItPmV4dGlkX3N0
-YXJ0IDw9IGV4dGlkICYmCj4gPiAgICAgICAgICAgICAgICAgICAgIHNleHQtPmV4dF9wdHItPmV4
-dGlkX2VuZCA+PSBleHRpZCkgewo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgaWYgKHNleHQt
-PmV4dF9pZHggPCBLVk1fUklTQ1ZfU0JJX0VYVF9NQVggJiYKPiA+IC0gICAgICAgICAgICAgICAg
-ICAgICAgICAgICBzY29udGV4dC0+ZXh0ZW5zaW9uX2Rpc2FibGVkW3NleHQtPmV4dF9pZHhdKQo+
-ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgIHNjb250ZXh0LT5leHRfc3RhdHVzW3NleHQt
-PmV4dF9pZHhdID09Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICBLVk1fUklTQ1ZfU0JJX0VYVF9VTkFWQUlMQUJMRSkKPiA+ICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgcmV0dXJuIE5VTEw7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAg
-ICByZXR1cm4gc2JpX2V4dFtpXS5leHRfcHRyOwo+ID4gICAgICAgICAgICAgICAgIH0KPiA+IC0t
-Cj4gPiAyLjQwLjEKPiA+Cj4gCj4gT3RoZXJ3aXNlLCB0aGlzIGxvb2tzIGdvb2QgdG8gbWUuCj4g
-Cj4gUmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+Cj4KClRoYW5r
-cywKZHJldwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============7492899839219891278==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="yFAqj5gbekTcSN8V"
+Content-Disposition: inline
+
+
+--yFAqj5gbekTcSN8V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, May 30, 2023 at 04:33:45PM +0200, Alexandre Ghiti wrote:
+>=20
+> On 30/05/2023 13:27, Conor Dooley wrote:
+> > On Mon, May 29, 2023 at 09:37:28PM +0200, Alexandre Ghiti wrote:
+> > > On 29/05/2023 21:06, Conor Dooley wrote:
+> > > > On Mon, May 29, 2023 at 08:51:57PM +0200, Alexandre Ghiti wrote:
+> > > > > On 28/05/2023 15:56, Conor Dooley wrote:
+> > > > > > On Sun, May 28, 2023 at 03:42:59PM +0200, Alexandre Ghiti wrote:
+> > > > > > > Hmmm, it still works for me with both clang and gcc-9.
+> > > > > > gcc-9 is a bit of a relic, do you have more recent compilers ly=
+ing
+> > > > > > around? If not, I can try some older compilers at some point.
+> > > > > >=20
+> > > > > > > You don't have to do that now but is there a way I could get =
+your compiled
+> > > > > > > image? With the sha1 used to build it? Sorry, I don't see wha=
+t happens, I
+> > > > > > > need to get my hands dirty in some debug!
+> > > > > > What do you mean by "sha1"? It falls with v6.4-rc1 which is a s=
+table
+> > > > > > hash, if that's what you're looking for.
+> > > > > >=20
+> > > > > > Otherwise,
+> > > > > > https://github.com/ConchuOD/riscv-env/releases/download/v2022.0=
+3/vmlinux.bin
+> > > > > > (ignore the release crap haha, too lazy to find a proper hosting
+> > > > > > mechanism)
+> > > > > Ok, I don't get much info without the symbols, can you also provi=
+de the
+> > > > > vmlinux please? But at least your image does not boot, not during=
+ the early
+> > > > > boot though because the mmu is enabled.
+> > > > Do you see anything print when you try it? Cos I do not. Iff I have=
+ time
+> > > > tomorrow, I'll go poking with gdb. I'm sorry I have not really done=
+ any
+> > > > investigating, I have been really busy this last week or so with
+> > > > dt-binding stuff but I should be freer again from tomorrow.
+> > > >=20
+> > > > https://github.com/ConchuOD/riscv-env/releases/download/v2022.03/vm=
+linux
+> > >=20
+> > > Better, the trap happens in kasan_early_init() when it tries to acces=
+s a
+> > > global symbol using the GOT but ends up with a NULL pointer, which is=
+ weird.
+> > > So to me, this is not related to kasan, it happens that kasan_early_i=
+nit()
+> > > is the first function called after enabling the mmu, I think you may =
+have an
+> > > issue with the filling of the relocations.
+> > Yeah, it reproduces without KASAN.
+> >=20
+> > > Sorry to bother you again, but if
+> > > at some point you can recompile with DEBUG_INFO enabled, that would be
+> > > perfect! And also provide the vmlinux.relocs file. Sorry for all that=
+, too
+> > > bad I can't reproduce it.
+> > New vmlinux & vmlinux.relocs here:
+> > https://microchiptechnology-my.sharepoint.com/:u:/g/personal/conor_dool=
+ey_microchip_com/EZpFNxYYrnNAh5Z3c-rf0pUBBpdPGTLafqdtfcXRUUBkXw?e=3D7KKMHX
+> > They're pretty massive unfortunately & hopefully that is not some
+> > garbage internal-only link.
+> > .config is a wee bit different, cos different build machine, but the
+> > problem still manifests on a icicle. I've added it to the tarball just
+> > in case.
+>=20
+>=20
+> Ok so I had to recreate the Image from the files you gave me and it boots
+> fine using qemu: is that expected? Because you only mention the icicle
+> above.
+
+Unfortunately you sent this one right as I left work..
+I ssh'ed in though and ran the vmlinux.bin & had the same issues.
+Silly question perhaps - is it just not possible to boot something that
+has been hit with `objcopy -O binary vmlinux vmlinux.bin` with
+CONFIG_RELOCATABLE? At this point that's the main thing that sticks out
+to me as being different. You couldn't boot the vmlinux.bin that I sent
+you either.
+
+Cheers,
+Conor.
+
+--yFAqj5gbekTcSN8V
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHY2pgAKCRB4tDGHoIJi
+0hAqAP9YasgLw/aZyFNtndJoOr+ciIy8BdmXFiR3djiyi79E1wEAqr4fh/FlvjgV
+896quzlFUVMJxGPMq51gcAZSP9yvdAI=
+=a/8W
+-----END PGP SIGNATURE-----
+
+--yFAqj5gbekTcSN8V--
+
+
+--===============7492899839219891278==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7492899839219891278==--
+
