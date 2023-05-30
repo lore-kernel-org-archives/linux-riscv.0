@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AAB9C77B73
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 10:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABD6C77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 10:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EVMZ6HZ3oYxtSf2TyTK9KtH2PKGb9p7xqxBibjowZDQ=; b=Jev9N2PCcSNYDz
-	UUejod+wGbjVQ15r0pBxv2nCYjbduNCLN1NE+C1IsP8w0Plmk7lSlMqbnDv7udkJBZzhUXF0Y/mkx
-	B0PNLmxXCxSSes1kEUscz/oG5GmnAsvTpf/2EhJfnbrQCrkOtQWj9EmdV2UM4pfN6G4Q2yU0YTCHa
-	hhhgXDX2NqlIFz8FeDQ2piOetPYn/LGv6xHtK/FfipdTUVN55fZiWZdQ1n+D+WM8APRkVU1btIuhx
-	Xp9VO8tJxhlkQFxIriygJ1CN2FtTh14zxvvC+RRnwwNZ+LUc9JjMtWnc9EdQFC9tnKXuZI5VQiFtO
-	NZCpuxnpSJXEKZRzVp3A==;
+	List-Owner; bh=1rSFA48vFyEdzHlLIVnBbKYknKj3XnCQzlirU9Mj7m0=; b=ClNEM5lXaAhTNA
+	x9LnSstUmlHM5qeDrItx7R3dhSoPIdxXHOLOwv1G/RBCg/cDREizLhlcWZ7XIzUnMZTTykgWBvxUw
+	cRKs19rsE4pvxTZ4tyV6MnIgS2h0+aMXO/FF5rjxcYCTU0DiF903ryKfwuOWhWEKFoLDXqe3semjr
+	0nI7Su7cTVg6ejX4JZ+1ACD1QrRniOhsoh0QLljb4UH5NPq6YLFHjhpOKdDdTeRl7Gb5l78padFYZ
+	pVa6JSjPs3cGRXrNo4yH2pkfJhS6E+qOIAcyQUMXwCwpsFtH8QaZAt+WhM0yCy9c+O9gI+o+98djP
+	k0kI3zQ3Q863AdjHq5yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3whz-00DOjS-1p;
-	Tue, 30 May 2023 10:36:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q3ws3-00DQTA-1M;
+	Tue, 30 May 2023 10:46:31 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3whw-00DOib-0Y
-	for linux-riscv@lists.infradead.org;
-	Tue, 30 May 2023 10:36:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B24436215D;
-	Tue, 30 May 2023 10:36:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2088C433D2;
-	Tue, 30 May 2023 10:36:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1685442963;
-	bh=ZVai/mTaWfY135wWyLAju++agFOOV34SkE1c25xveCs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EhKNtA9O9eeCZBKYvyCToCBa93l5OpVA575gmbD/JKdy6STHbYEpPWfC2zxA3SNQd
-	 iPNXnyKOPfK7IHeVRpvVtLChXXeYrWKBfudZV1RNamlo8w6YSqIVFndISjI4r+cxap
-	 t5JEKSt3uUStWoYByKntvhOGSGOv9gLYcLNZ/qcg=
-Date: Tue, 30 May 2023 11:36:00 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-serial@vger.kernel.org
-Subject: Re: [PATCH v4 04/10] serial: bflb_uart: add Bouffalolab UART Driver
-Message-ID: <2023053010-gondola-luminous-f5e7@gregkh>
-References: <20230518152244.2178-1-jszhang@kernel.org>
- <20230518152244.2178-5-jszhang@kernel.org>
+	id 1q3wrz-00DQSF-22;
+	Tue, 30 May 2023 10:46:29 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1685443583;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aczuPZRXM/3T3zeRyckgFz17tXnOXBoIRzMvbCKmwP4=;
+	b=jtpE+gCbIAd5N53RxGc6sgaT2si80ubO5trdzq0YZPJgj0u0uGxnEtLhxrdtPRPKOaDE18
+	ztu5b4k5XEjvK/fjpfaluMv16JvaD5E4Z3L+jqW7tLBl5pCr13VXjUoqvtgyKLd/Y/xqu/
+	84SV1UbOvwmhndn5fFxZSGrnlbePrrHSpEQPGnffMATrvpt3ZAkTXG6ylWpzmAYhS4dUem
+	FTBfKKPOVhev4++C/nR20YRFt6jyNNtCz9uhzfOoHg4olSWAigaKti8fg/vEQYtVI0MLbc
+	gP2h3BhbdhTtPHPbM7xx+svbc8m0rHw4UqvtNs/L/faaOGodmpnGf4MovXV/Gg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1685443583;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aczuPZRXM/3T3zeRyckgFz17tXnOXBoIRzMvbCKmwP4=;
+	b=Hfhdo2/Q/3z4khc8VnhVtRu45XjAYTmDIx3ynzUXbEbUuJzXZUdsmlA0kYxl32RnfB9UKw
+	25lgiYCSG2Kzr+Dw==
+To: "Kirill A. Shutemov" <kirill@shutemov.name>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
+ <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
+ Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>,
+ Tom Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
+ <seanjc@google.com>, Oleksandr Natalenko <oleksandr@natalenko.name>, Paul
+ Menzel <pmenzel@molgen.mpg.de>, "Guilherme G. Piccoli"
+ <gpiccoli@igalia.com>, Piotr Gorski <lucjan.lucjanov@gmail.com>, Usama
+ Arif <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>, Boris
+ Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>, "Michael Kelley (LINUX)"
+ <mikelley@microsoft.com>, Dave Hansen <dave.hansen@linux.intel.com>
+Subject: [patch] x86/realmode: Make stack lock work in trampoline_compat()
+In-Reply-To: <20230529203129.sthnhzgds7ynddxd@box.shutemov.name>
+References: <20230508181633.089804905@linutronix.de>
+ <20230508185218.962208640@linutronix.de>
+ <20230524204818.3tjlwah2euncxzmh@box.shutemov.name> <87y1lbl7r6.ffs@tglx>
+ <87sfbhlwp9.ffs@tglx> <20230529023939.mc2akptpxcg3eh2f@box.shutemov.name>
+ <87bki3kkfi.ffs@tglx> <20230529203129.sthnhzgds7ynddxd@box.shutemov.name>
+Date: Tue, 30 May 2023 12:46:22 +0200
+Message-ID: <87h6rujdvl.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230518152244.2178-5-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_033604_291569_E0E28705 
-X-CRM114-Status: GOOD (  29.49  )
+X-CRM114-CacheID: sfid-20230530_034627_847234_E76F1984 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,210 +97,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 18, 2023 at 11:22:38PM +0800, Jisheng Zhang wrote:
-> Add the driver for Bouffalolab UART IP which is found in Bouffalolab
-> SoCs such as bl808.
+The stack locking and stack assignment macro LOAD_REALMODE_ESP fails to
+work when invoked from the 64bit trampoline entry point:
 
-New uarts are being created that are NOT 8250-like?  Why????
+trampoline_start64
+  trampoline_compat
+    LOAD_REALMODE_ESP <- lock
 
+Accessing tr_lock is only possible from 16bit mode. For the compat entry
+point this needs to be pa_tr_lock so that the required relocation entry is
+generated. Otherwise it locks the non-relocated address which is
+aside of being wrong never cleared in secondary_startup_64() causing all
+but the first CPU to get stuck on the lock.
 
-> 
-> UART driver probe will create path named "/dev/ttySx".
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  drivers/tty/serial/Kconfig       |  18 +
->  drivers/tty/serial/Makefile      |   1 +
->  drivers/tty/serial/bflb_uart.c   | 586 +++++++++++++++++++++++++++++++
->  include/uapi/linux/serial_core.h |   3 +
->  4 files changed, 608 insertions(+)
->  create mode 100644 drivers/tty/serial/bflb_uart.c
-> 
-> diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-> index 398e5aac2e77..abc30a0713f5 100644
-> --- a/drivers/tty/serial/Kconfig
-> +++ b/drivers/tty/serial/Kconfig
-> @@ -179,6 +179,24 @@ config SERIAL_ATMEL_TTYAT
->  
->  	  Say Y if you have an external 8250/16C550 UART.  If unsure, say N.
->  
-> +config SERIAL_BFLB
-> +	tristate "Bouffalolab serial port support"
-> +	select SERIAL_CORE
-> +	depends on COMMON_CLK
-> +	help
-> +	  This enables the driver for the Bouffalolab's serial.
-> +
-> +config SERIAL_BFLB_CONSOLE
-> +	bool "Support for console on Bouffalolab serial port"
-> +	depends on SERIAL_BFLB=y
-> +	select SERIAL_CORE_CONSOLE
-> +	select SERIAL_EARLYCON
-> +	help
-> +	  Say Y here if you wish to use a Bouffalolab UART as the
-> +	  system console (the system console is the device which
-> +	  receives all kernel messages and warnings and which allows
-> +	  logins in single user mode) as /dev/ttySn.
-> +
->  config SERIAL_KGDB_NMI
->  	bool "Serial console over KGDB NMI debugger port"
->  	depends on KGDB_SERIAL_CONSOLE
-> diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
-> index cd9afd9e3018..5788a708d327 100644
-> --- a/drivers/tty/serial/Makefile
-> +++ b/drivers/tty/serial/Makefile
-> @@ -25,6 +25,7 @@ obj-$(CONFIG_SERIAL_8250) += 8250/
->  
->  obj-$(CONFIG_SERIAL_AMBA_PL010) += amba-pl010.o
->  obj-$(CONFIG_SERIAL_AMBA_PL011) += amba-pl011.o
-> +obj-$(CONFIG_SERIAL_BFLB) += bflb_uart.o
->  obj-$(CONFIG_SERIAL_CLPS711X) += clps711x.o
->  obj-$(CONFIG_SERIAL_PXA_NON8250) += pxa.o
->  obj-$(CONFIG_SERIAL_SA1100) += sa1100.o
-> diff --git a/drivers/tty/serial/bflb_uart.c b/drivers/tty/serial/bflb_uart.c
-> new file mode 100644
-> index 000000000000..3f80bba8599a
-> --- /dev/null
-> +++ b/drivers/tty/serial/bflb_uart.c
-> @@ -0,0 +1,586 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Based on bflb_uart.c, by Bouffalolab team
-> + *
-> + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+Make the macro take an argument lock_pa which defaults to 0 and rename it
+to LOCK_AND_LOAD_REALMODE_ESP to make it clear what this is about.
 
-It is 2023 :)
+Fixes: f6f1ae9128d2 ("x86/smpboot: Implement a bit spinlock to protect the realmode stack")
+Reported-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+---
+ arch/x86/realmode/rm/trampoline_64.S |   12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/clk.h>
-> +#include <linux/console.h>
-> +#include <linux/kernel.h>
-> +#include <linux/init.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/serial.h>
-> +#include <linux/serial_core.h>
-> +#include <linux/tty.h>
-> +#include <linux/tty_flip.h>
-> +
-> +#define UART_UTX_CONFIG			0x00
-> +#define  UART_CR_UTX_EN			BIT(0)
-> +#define  UART_CR_UTX_CTS_EN		BIT(1)
-> +#define  UART_CR_UTX_FRM_EN		BIT(2)
-> +#define  UART_CR_UTX_PRT_EN		BIT(4)
-> +#define  UART_CR_UTX_PRT_SEL		BIT(5)
-> +#define  UART_CR_UTX_BIT_CNT_D_MSK	GENMASK(10, 8)
-> +#define  UART_CR_UTX_BIT_CNT_P_MSK	GENMASK(12, 11)
-> +#define UART_URX_CONFIG			0x04
-> +#define  UART_CR_URX_EN			BIT(0)
-> +#define  UART_CR_URX_PRT_EN		BIT(4)
-> +#define  UART_CR_URX_PRT_SEL		BIT(5)
-> +#define  UART_CR_URX_BIT_CNT_D_MSK	GENMASK(10, 8)
-> +#define UART_BIT_PRD			0x08
-> +#define  UART_CR_UTX_BIT_PRD_MSK	GENMASK(15, 0)
-> +#define  UART_CR_URX_BIT_PRD_MSK	GENMASK(31, 16)
-> +#define UART_DATA_CONFIG		0x0c
-> +#define  UART_CR_UART_BIT_INV		BIT(0)
-> +#define UART_URX_RTO_TIMER		0x18
-> +#define  UART_CR_URX_RTO_VALUE_MSK	GENMASK(7, 0)
-> +#define UART_SW_MODE			0x1c
-> +#define UART_INT_STS			0x20
-> +#define  UART_UTX_END_INT		BIT(0)
-> +#define  UART_URX_END_INT		BIT(1)
-> +#define  UART_UTX_FIFO_INT		BIT(2)
-> +#define  UART_URX_FIFO_INT		BIT(3)
-> +#define  UART_URX_RTO_INT		BIT(4)
-> +#define  UART_URX_PCE_INT		BIT(5)
-> +#define  UART_UTX_FER_INT		BIT(6)
-> +#define  UART_URX_FER_INT		BIT(7)
-> +#define  UART_URX_LSE_INT		BIT(8)
-> +#define UART_INT_MASK			0x24
-> +#define UART_INT_CLEAR			0x28
-> +#define UART_INT_EN			0x2c
-> +#define UART_STATUS			0x30
-> +#define  UART_STS_UTX_BUS_BUSY		BIT(0)
-> +#define UART_FIFO_CONFIG_0		0x80
-> +#define  UART_DMA_TX_EN			BIT(0)
-> +#define  UART_DMA_RX_EN			BIT(1)
-> +#define  UART_TX_FIFO_CLR		BIT(2)
-> +#define  UART_RX_FIFO_CLR		BIT(3)
-> +#define  UART_TX_FIFO_OVERFLOW		BIT(4)
-> +#define  UART_TX_FIFO_UNDERFLOW		BIT(5)
-> +#define  UART_RX_FIFO_OVERFLOW		BIT(6)
-> +#define  UART_RX_FIFO_UNDERFLOW		BIT(7)
-> +#define UART_FIFO_CONFIG_1		0x84
-> +#define  UART_TX_FIFO_CNT_MSK		GENMASK(5, 0)
-> +#define  UART_RX_FIFO_CNT_MSK		GENMASK(13, 8)
-> +#define  UART_TX_FIFO_TH_MSK		GENMASK(20, 16)
-> +#define  UART_RX_FIFO_TH_MSK		GENMASK(28, 24)
-> +#define UART_FIFO_WDATA			0x88
-> +#define UART_FIFO_RDATA			0x8c
-> +#define  UART_FIFO_RDATA_MSK		GENMASK(7, 0)
-> +
-> +#define BFLB_UART_MAXPORTS		8
-> +#define BFLB_UART_BAUD			2000000
-> +#define BFLB_UART_RX_FIFO_TH		7
-> +#define BFLB_UART_TX_FIFO_TH		15
-> +#define BFLB_UART_URX_RTO_TIME		0x4f
-> +
-> +struct bflb_uart_port {
-> +	struct uart_port port;
-> +	struct clk *clk;
-> +};
-> +
-> +static struct bflb_uart_port *bflb_uart_ports[BFLB_UART_MAXPORTS];
-> +
-> +static inline u32 rdl(struct uart_port *port, u32 reg)
-> +{
-> +	return readl_relaxed(port->membase + reg);
-> +}
-> +
-> +static inline void wrl(struct uart_port *port, u32 reg, u32 value)
-> +{
-> +	writel_relaxed(value, port->membase + reg);
-> +}
-> +
-> +static inline void wrb(struct uart_port *port, u32 reg, u8 value)
-> +{
-> +	writeb_relaxed(value, port->membase + reg);
-> +}
-> +
-> +static unsigned int bflb_uart_tx_empty(struct uart_port *port)
-> +{
-> +	return (rdl(port, UART_FIFO_CONFIG_1) & UART_TX_FIFO_CNT_MSK) ? TIOCSER_TEMT : 0;
-> +}
-> +
-> +static unsigned int bflb_uart_get_mctrl(struct uart_port *port)
-> +{
-> +	return TIOCM_CAR | TIOCM_DSR | TIOCM_CTS;
-> +}
-> +
-> +static void bflb_uart_set_mctrl(struct uart_port *port, unsigned int sigs)
-> +{
-> +}
-
-Why is a blank function required here?
-
-
-> --- a/include/uapi/linux/serial_core.h
-> +++ b/include/uapi/linux/serial_core.h
-> @@ -279,4 +279,7 @@
->  /* Sunplus UART */
->  #define PORT_SUNPLUS	123
->  
-> +/* Bouffalolab UART */
-> +#define PORT_BFLB	124
-
-Why is this required?  What userspace code is going to need this?
-
-thanks,
-
-greg k-h
+--- a/arch/x86/realmode/rm/trampoline_64.S
++++ b/arch/x86/realmode/rm/trampoline_64.S
+@@ -37,12 +37,16 @@
+ 	.text
+ 	.code16
+ 
+-.macro LOAD_REALMODE_ESP
++.macro LOCK_AND_LOAD_REALMODE_ESP lock_pa=0
+ 	/*
+ 	 * Make sure only one CPU fiddles with the realmode stack
+ 	 */
+ .Llock_rm\@:
++	.if \lock_pa
++        lock btsl       $0, pa_tr_lock
++	.else
+         lock btsl       $0, tr_lock
++	.endif
+         jnc             2f
+         pause
+         jmp             .Llock_rm\@
+@@ -63,7 +67,7 @@ SYM_CODE_START(trampoline_start)
+ 	mov	%ax, %es
+ 	mov	%ax, %ss
+ 
+-	LOAD_REALMODE_ESP
++	LOCK_AND_LOAD_REALMODE_ESP
+ 
+ 	call	verify_cpu		# Verify the cpu supports long mode
+ 	testl   %eax, %eax		# Check for return code
+@@ -106,7 +110,7 @@ SYM_CODE_START(sev_es_trampoline_start)
+ 	mov	%ax, %es
+ 	mov	%ax, %ss
+ 
+-	LOAD_REALMODE_ESP
++	LOCK_AND_LOAD_REALMODE_ESP
+ 
+ 	jmp	.Lswitch_to_protected
+ SYM_CODE_END(sev_es_trampoline_start)
+@@ -189,7 +193,7 @@ SYM_CODE_START(pa_trampoline_compat)
+ 	 * In compatibility mode.  Prep ESP and DX for startup_32, then disable
+ 	 * paging and complete the switch to legacy 32-bit mode.
+ 	 */
+-	LOAD_REALMODE_ESP
++	LOCK_AND_LOAD_REALMODE_ESP lock_pa=1
+ 	movw	$__KERNEL_DS, %dx
+ 
+ 	movl	$(CR0_STATE & ~X86_CR0_PG), %eax
 
 _______________________________________________
 linux-riscv mailing list
