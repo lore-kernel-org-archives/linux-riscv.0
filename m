@@ -4,51 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69537C77B7E
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 May 2023 21:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BF6C77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 00:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SWEjicTD7X5Blk6oGkT2xZx3kK0qmsQD8HogWfarVas=; b=YT52WN+fX8DbCE
-	5h3r8GvumO22fIEcx+owf/TCtNd3CJdW8VkjAZ3yW2Dh+B6RHQgcEsuCUb4/TRvLJ/sn57MGThr6a
-	lWbMGhfYi/CmMkqvrB+9r+WfgP3uP1ztTK2Inj+ks2aLtmo6U9LJZZAQR09BeAzUnBOUqOK29royp
-	SrbKnaDs7BHNLOLZB5hvbLB5e3nyC0lyaCETxYwj3uLhvmZfx7/48VYJlkLmbUuVLSZM2GeFuAAqe
-	rK0EAETGbytSDxAFcCzVRb4W3k/dycQeapYonaBY9df79LujMgd901rVq8nK6seka5GEq40pQy0Pt
-	2TMuWjKql0o8Ea0wr+Jg==;
+	List-Owner; bh=t8XnvPQS0PY+hsibyEH8EKc8z0MbYOn0GcWwBg3RciI=; b=4YPstW3sUEh1RP
+	A4nId9j+Ye13TyiPstYliKZ1pjMf4Yn5ks5RIHqF1Wa8l68YYKXqng6HkvL/sh0RZ5LAyELSCKH8e
+	KFmAK2LB9bo9nmxwZXXhdXMECqXGrY9Vkzj80cy17X5zYFvOhGx0rmzYKH1RrJWc0xP2nL4Kh4ARM
+	BDgCcdPWpX0GhTzlv4yIrqIc6Ir4rER4437X1kn/d/4xvQ87sP348897qh67WueGgstO3LbP462Mq
+	ORKHyFU/MBTnm9ldPhNGs0MhAnHzOuWNldhFv45beEv1+hHG0G0kxPilbkSIuHv0fhULnj2iUncUV
+	ZVcVO1S2MCbmAPBOvvjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3kaF-00BkHH-2z;
-	Mon, 29 May 2023 21:39:19 +0000
-Received: from todd.t-8ch.de ([159.69.126.157])
+	id 1q3ndJ-00C2rk-2R;
+	Tue, 30 May 2023 00:54:41 +0000
+Received: from out4-smtp.messagingengine.com ([66.111.4.28])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3kaC-00BkGO-29
-	for linux-riscv@lists.infradead.org;
-	Mon, 29 May 2023 21:39:18 +0000
-Date: Mon, 29 May 2023 23:39:11 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
-	t=1685396352; bh=KERa37f1jCecyGjPwDTuzqnl75Mz6w4gg8XNi9sny+w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EsjZvZNlKzIeZ/C1NZ0oNAsYZo+76a2qugPQ+dERKwf0VIJ+gZT7N2+56s/ZcfWch
-	 kE7kbdQKhvkOFnUNSjZZQXdRJ05uafQpIdadfpI3d1t14QZtF+K95m9AeNtuRfnmFc
-	 GNOJ025pHOfgaS+mUQmYx7ubLMC/Nm2Tw4J0FVio=
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: w@1wt.eu, arnd@arndb.de, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 04/13] tools/nolibc: add missing nanoseconds support
- for __NR_statx
-Message-ID: <3a3edd48-1ace-4c89-89e8-9c594dd1b3c9@t-8ch.de>
-References: <cover.1685387484.git.falcon@tinylab.org>
- <4cd637be248b5bfad6f2a01b82a9fb6f3fe4c6fa.1685387484.git.falcon@tinylab.org>
+	id 1q3ndF-00C2nZ-1q;
+	Tue, 30 May 2023 00:54:39 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id 2516C5C0115;
+	Mon, 29 May 2023 20:54:33 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute6.internal (MEProxy); Mon, 29 May 2023 20:54:33 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1685408073; x=
+	1685494473; bh=X0c3nPbso4/0oqcOAoLD0+cBIPIras9+w1Pgn+nO65Q=; b=T
+	CpJAvctGQu5S8VNM66C4FtRjgGq+q2MMUeaaYMu/HRHh4mEh7tcuyRuKGV4Mu1TM
+	bPKX+5J4fl5PcZjZe+BDqQjvRSOpFrIlZq/fUwOeVF0Vkn6L+7z7bbDkp7/3HLSy
+	8Q7A7P3l3sK33G79IiUGI6gyrN6Ssgfy4fLfvvdjLaVkwb9jwoY1Da7YDny6eGQC
+	d5fy28JHVhf2h28hjqoG/eQCTsoJBmLwqyIlfi8Lh+zezV/dOvyXi3qbvN6ojnnR
+	AUajs9bVEMhhU+D7YYhU7KMj/a6bfChoCakItQcYs2XGwVOAV85jszU0b44fYZ6F
+	XgI7XkLmbTxGpFuiSO0gw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1685408073; x=1685494473; bh=X0c3nPbso4/0o
+	qcOAoLD0+cBIPIras9+w1Pgn+nO65Q=; b=IdTnfWW5E7gVhvTEsHohP2Bwmn0WD
+	YLKITfgHaYIgSlaFBWykuQ8uaRJvMhCZjh72YNyUSnLpF34Q6eS5tYsDlXlgI4Tm
+	Fl41MrtIZNPFaKU1w7vcs+XW2Jwb0qk+JlrCyo2Hx8xp06hAbbxdoZ/iIp73cMh6
+	jPpRlwmBDQq7eel++fmaTcxDtMTZ4MNWyWDLm7CyV2Sq6sDfwgiCdmTojDQN8bV8
+	Ao3L2aIodNehScXAsUA4Nu0WBS/5hNXLD5mcBurMlbGDqvKYjlL6UQ+NVdauwRUG
+	K75NcrCzRC06cuvgrhoJu4tTrDFE1tA7dMZ4ujnKquiYWErzK8nW0e83g==
+X-ME-Sender: <xms:R0l1ZPnuRgrRKbHAQnFn6Dk1UOlq8SI_pxyLVuaTKE2xNVAoJeF1tg>
+    <xme:R0l1ZC2SaZ60xaaLY0cIcVdRN9oYuSd84RMlMDFIFmMkiMxQj4eU0yEE5qZexcsp8
+    6TVt5dhxqNigjSw30Y>
+X-ME-Received: <xmr:R0l1ZFoDJAvHxTvcP5H3fy5tpsgojfUK2OFM7oQXBZY6PT83cLKCZ5UqZI-OEFCAqO6oNg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeekiedgfeekucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepfffhvfevuffkfhggtggujgesthdttddttddtvdenucfhrhhomhepfdfmihhr
+    ihhllhcutedrucfuhhhuthgvmhhovhdfuceokhhirhhilhhlsehshhhuthgvmhhovhdrnh
+    grmhgvqeenucggtffrrghtthgvrhhnpefhieeghfdtfeehtdeftdehgfehuddtvdeuheet
+    tddtheejueekjeegueeivdektdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehkihhrihhllhesshhhuhhtvghmohhvrdhnrghmvg
+X-ME-Proxy: <xmx:R0l1ZHm1M4GFUYoy1T_HKVif9sWKE7Vx-Gdei9gW_GugdY6yIE5Y2A>
+    <xmx:R0l1ZN2-3u2974MjnGYlBlFfYuQD_eWmtDcZBpWF4dboPyqwekjw0Q>
+    <xmx:R0l1ZGtu9IFogJNQH3LK2d2jfxh4Wy4Q41z9_vyhI4V_YDaJJ4sitQ>
+    <xmx:SUl1ZC1BVfuKc-tubEg0R0ZWBkvATsLR5IPsd-2lVdd02_aMwMmTZQ>
+Feedback-ID: ie3994620:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 29 May 2023 20:54:30 -0400 (EDT)
+Received: by box.shutemov.name (Postfix, from userid 1000)
+	id 50794102633; Tue, 30 May 2023 03:54:28 +0300 (+03)
+Date: Tue, 30 May 2023 03:54:28 +0300
+From: "Kirill A. Shutemov" <kirill@shutemov.name>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	Arjan van de Veen <arjan@linux.intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,	Paul McKenney <paulmck@kernel.org>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Oleksandr Natalenko <oleksandr@natalenko.name>,
+	Paul Menzel <pmenzel@molgen.mpg.de>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Piotr Gorski <lucjan.lucjanov@gmail.com>,
+	Usama Arif <usama.arif@bytedance.com>,	Juergen Gross <jgross@suse.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,	Russell King <linux@armlinux.org.uk>,
+ Arnd Bergmann <arnd@arndb.de>,	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>,	linux-csky@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,	Sabin Rapan <sabrapan@amazon.com>,
+	"Michael Kelley (LINUX)" <mikelley@microsoft.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [patch v3 31/36] x86/apic: Provide cpu_primary_thread mask
+Message-ID: <20230530005428.jyrc2ezx5raohlrt@box.shutemov.name>
+References: <20230508181633.089804905@linutronix.de>
+ <20230508185218.962208640@linutronix.de>
+ <20230524204818.3tjlwah2euncxzmh@box.shutemov.name>
+ <87y1lbl7r6.ffs@tglx>
+ <87sfbhlwp9.ffs@tglx>
+ <20230529023939.mc2akptpxcg3eh2f@box.shutemov.name>
+ <87bki3kkfi.ffs@tglx>
+ <20230529203129.sthnhzgds7ynddxd@box.shutemov.name>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <4cd637be248b5bfad6f2a01b82a9fb6f3fe4c6fa.1685387484.git.falcon@tinylab.org>
+In-Reply-To: <20230529203129.sthnhzgds7ynddxd@box.shutemov.name>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230529_143916_881037_B150A413 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20230529_175438_007782_19B09C59 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,71 +137,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-05-30 03:50:34+0800, Zhangjin Wu wrote:
-> Commit a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
-> added nanoseconds for stat() but missed the statx case, this adds it.
+On Mon, May 29, 2023 at 11:31:29PM +0300, Kirill A. Shutemov wrote:
+> On Mon, May 29, 2023 at 09:27:13PM +0200, Thomas Gleixner wrote:
+> > On Mon, May 29 2023 at 05:39, Kirill A. Shutemov wrote:
+> > > On Sat, May 27, 2023 at 03:40:02PM +0200, Thomas Gleixner wrote:
+> > > But it gets broken again on "x86/smpboot: Implement a bit spinlock to
+> > > protect the realmode stack" with
+> > >
+> > > [    0.554079] .... node  #0, CPUs:        #1  #2
+> > > [    0.738071] Callback from call_rcu_tasks() invoked.
+> > > [   10.562065] CPU2 failed to report alive state
+> > > [   10.566337]   #3
+> > > [   20.570066] CPU3 failed to report alive state
+> > > [   20.574268]   #4
+> > > ...
+> > >
+> > > Notably CPU1 is missing from "failed to report" list. So CPU1 takes the
+> > > lock fine, but seems never unlocks it.
+> > >
+> > > Maybe trampoline_lock(%rip) in head_64.S somehow is not the same as
+> > > &tr_lock in trampoline_64.S. I donno.
+> > 
+> > It's definitely the same in the regular startup (16bit mode), but TDX
+> > starts up via:
+> > 
+> > trampoline_start64
+> >   trampoline_compat
+> >     LOAD_REALMODE_ESP <- lock
+> > 
+> > That place cannot work with that LOAD_REALMODE_ESP macro. The untested
+> > below should cure it.
+> 
+> Yep, works for me.
+> 
+> Aaand the next patch that breaks TDX boot is... <drum roll>
+> 
+> 	x86/smpboot/64: Implement arch_cpuhp_init_parallel_bringup() and enable it
+> 
+> Disabling parallel bringup helps. I didn't look closer yet. If you have
+> an idea let me know.
 
-Welp, I should have thought of that.
-At least the testcase seems to have been useful.
+Okay, it crashes around .Lread_apicid due to touching MSRs that trigger #VE.
 
-Thanks for the fix!
+Looks like the patch had no intention to enable parallel bringup on TDX.
 
-> The stx_atime, stx_mtime, stx_ctime are in type of 'struct
-> statx_timestamp', which is incompatible with 'struct timespec', should
-> convert explicitly.
-> 
->     /* include/uapi/linux/stat.h */
-> 
->     struct statx_timestamp {
->     	__s64	tv_sec;
->     	__u32	tv_nsec;
->     	__s32	__reserved;
->     };
-> 
->     /* include/uapi/linux/time_types.h */
->     struct __kernel_timespec {
->     	__kernel_time64_t       tv_sec;                 /* seconds */
->     	long long               tv_nsec;                /* nanoseconds */
->     };
-> 
->     /* tools/include/nolibc/types.h */
->     #define timespec __kernel_timespec
-> 
-> Without this patch, the stat_timestamps test case would fail on rv32.
-> 
-> Fixes: a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
-> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> ---
->  tools/include/nolibc/sys.h | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-> index 154194056962..98cfa2f6d021 100644
-> --- a/tools/include/nolibc/sys.h
-> +++ b/tools/include/nolibc/sys.h
-> @@ -1175,9 +1175,9 @@ int sys_stat(const char *path, struct stat *buf)
->  	buf->st_size    = statx.stx_size;
->  	buf->st_blksize = statx.stx_blksize;
->  	buf->st_blocks  = statx.stx_blocks;
-> -	buf->st_atime   = statx.stx_atime.tv_sec;
-> -	buf->st_mtime   = statx.stx_mtime.tv_sec;
-> -	buf->st_ctime   = statx.stx_ctime.tv_sec;
-> +	buf->st_atim    = (struct timespec){ .tv_sec = statx.stx_atime.tv_sec, .tv_nsec = statx.stx_atime.tv_nsec };
-> +	buf->st_mtim    = (struct timespec){ .tv_sec = statx.stx_mtime.tv_sec, .tv_nsec = statx.stx_mtime.tv_nsec };
-> +	buf->st_ctim    = (struct timespec){ .tv_sec = statx.stx_ctime.tv_sec, .tv_nsec = statx.stx_ctime.tv_nsec };
++        * Intel-TDX has a secure RDMSR hypercall, but that needs to be
++        * implemented seperately in the low level startup ASM code.
 
-I would prefer to split the compound assignment into two single
-assignments, though.
+But CC_ATTR_GUEST_STATE_ENCRYPT that used to filter it out is
+SEV-ES-specific thingy and doesn't cover TDX. I don't think we have an
+attribute that fits nicely here.
 
-buf->st_ctim.tv_sec = statx.stx_ctime.tv_sec;
-buf->st_ctim.tv_nsec = statx.stx_ctime.tv_nsec;
-
->  	return ret;
->  }
->  #else
-> -- 
-> 2.25.1
-> 
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
