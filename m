@@ -4,52 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B03C7EE23
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 12:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FE6C7EE23
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 12:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+1up0pcFjvAhsPWUgLO56oimi8+SdOd2mKvTX25D+fY=; b=Z2Eg0Ikfvo7shJ
-	exOfi3IyLUBWmY8jJrEoRK62SLzz+9zlJeX6K5RTuiZQJqTVLFIG/Kn4Wl0k5gK4LMZ6GpwEg1MeY
-	PU1tE4VtKl3H/HoPXrixWMSDT8wOjTHj+wvUHGDAFXzfIkQWXj6csPIYcYchbt1VbnN6bseC2/q1a
-	9S7BY+UAWZxaoYT37Il+qZrswxB3TIs06J914Ez72V7ApG5TVRrZYzqyDDKxFL9bNplEaBpAfwL6z
-	OkPPDV5ugOGrL+c2ETvySp8g8goCopAhYcaqC0tQ/UZwxa05DHWsUd+0lnbvB6HhRxBwt+Ek7IPSz
-	2U7q4uI1o/CyHDAnCeZw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oUXJxsVIn4DNlkpVIq3yh9c+OUmGdbp4PZeJQv4k7Pg=; b=v8dtaQi6NpRnQF
+	rtvmnI87T1C6I5fD2XgXzHbKVADj30WzkjT6cn7/zXhVusB3UAFSO5F8R7f2g60OouaFUHpapZBdU
+	K3WZnY06l1fWxeUmJ8vQYs79QtgGmibMI9j0Jd4MJWdY8GJPncJTAPceMj+zO352HvS7D3MvC9NAU
+	h8BR1GR1IeshGBIiq6FbTAgNFcXeyxfK11zSc9ZJGZpblKW12C2Ta+t5SB9QVNS5nuAtdhhUNiGUM
+	DvvM2loAXDExj/44WmpezY0Cz93d54JTgpUYxmqK3jJz+B7FF5c53guhlu5DKXPZ1WPiRSjNCHp3b
+	hs/pshfz+s3HoVO54mtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3ya4-00DtDb-14;
-	Tue, 30 May 2023 12:36:04 +0000
-Received: from todd.t-8ch.de ([159.69.126.157])
+	id 1q3ynn-00Dvmg-1b;
+	Tue, 30 May 2023 12:50:15 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3ya1-00DtCT-1X
-	for linux-riscv@lists.infradead.org;
-	Tue, 30 May 2023 12:36:03 +0000
-Date: Tue, 30 May 2023 14:35:55 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
-	t=1685450155; bh=b3RCf6QIsO9f8zMyCggnyJj6PukOHn5wfBsC9TyQ1dE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aaUm6cUuHuaFhYQTwVcQ8AU/Wy8mBIiJ/R3mHoNxiPxQz1KzFcDN1HXTfFZMb/siM
-	 W1SeYr2d2cqcmrKpifP1LvSyQYqpsBn/xM+fCTxjMDhGX2sH3Zk+q4IC8VDq6AfPD9
-	 BcTjuZ7qSBbMWtGpL7dezm09CozCCIVVxioGDLA8=
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
-To: Willy Tarreau <w@1wt.eu>
-Cc: Zhangjin Wu <falcon@tinylab.org>, arnd@arndb.de, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/2] selftests/nolibc: add new gettimeofday test cases
-Message-ID: <280867a8-7601-4a96-9b85-87668e1f1282@t-8ch.de>
-References: <cover.1685428087.git.falcon@tinylab.org>
- <bfc3dba52300dcce03ae1c7c41f2bb8984cf459b.1685428087.git.falcon@tinylab.org>
- <96f1134d-ce6e-4d82-ae00-1cd4038809c4@t-8ch.de>
- <ZHXmbNg4BdJNd4cO@1wt.eu>
+	id 1q3ynj-00DvlO-19;
+	Tue, 30 May 2023 12:50:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1685451011; x=1716987011;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=81Z+HN/HXj5AQPxeRiT1gdchzsxtqZSuUxHWE9CobS0=;
+  b=n7npUfTW16bdzqm/06RoGrn6PzQCEK+mVcklZBc/bAAHnvCW4G8XqpMY
+   6LgxPaXwJgKw43ttao03VHV9IVARB9Eb2YyL+eCHTUb2eNhxklGH9Vy58
+   beLfsAPbffdnsvk8kegn3g/5oZiapm+uy2XpWusniEN9m/ONPdfZyB/cQ
+   Z/wC6RMx0apONbM4A2a+h2MEnBLmzffNfO04APUXAI5JxkKonGEsPrD76
+   NfiECtpOf4L6BigRsgX1TKcw3rG9ZZNqJ/0ux3TkPE4uZxCoTN3Q2B5j8
+   +W9sp3/I2+kUsOB6DKP9ypQXxqbxgh0WokgcNIwZ5BM0mxfgef1Y1OlNy
+   Q==;
+X-IronPort-AV: E=Sophos;i="6.00,204,1681196400"; 
+   d="scan'208";a="227583731"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 May 2023 05:50:10 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 30 May 2023 05:50:10 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Tue, 30 May 2023 05:50:07 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <soc@kernel.org>
+CC: <conor@kernel.org>, <conor.dooley@microchip.com>, <corbet@lwn.net>,
+	<devicetree@vger.kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<olof@lixom.net>, <palmer@dabbelt.com>, <robh+dt@kernel.org>, <arnd@arndb.de>
+Subject: [PATCH v2] Documentation/process: add soc maintainer handbook
+Date: Tue, 30 May 2023 13:49:36 +0100
+Message-ID: <20230530-multiple-whooping-ee5706fceb67@wendy>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZHXmbNg4BdJNd4cO@1wt.eu>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11964; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=81Z+HN/HXj5AQPxeRiT1gdchzsxtqZSuUxHWE9CobS0=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmlH+4xSB3++qBlgt5B9mzdXOsosxDHWeIvDy9/JXZdKKfq bKdZRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDaEi1MAJqL2hJFhzfcit6zZu/YuKH/LnrUs76 zt7tM2H76lBecu+me57fSO1YwMe5peThB4n6SvG6Zw1LD84DmLEJ+wY5N/TN8z6ceH3kuFrAA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_053601_669968_A01F866D 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20230530_055011_401889_D16ACD2E 
+X-CRM114-Status: GOOD (  43.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,61 +79,280 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyMy0wNS0zMCAxNDowNTowMCswMjAwLCBXaWxseSBUYXJyZWF1IHdyb3RlOgo+IE9uIFR1
-ZSwgTWF5IDMwLCAyMDIzIGF0IDEyOjU5OjMxUE0gKzAyMDAsIFRob21hcyBXZWnDn3NjaHVoIHdy
-b3RlOgo+ID4gT24gMjAyMy0wNS0zMCAxNDozNzo0OSswODAwLCBaaGFuZ2ppbiBXdSB3cm90ZToK
-PiA+ID4gVGhlc2UgMyB0ZXN0IGNhc2VzIGFyZSBhZGRlZCB0byBjb3ZlciB0aGUgbm9ybWFsIHVz
-aW5nIHNjZW5lcyBvZgo+ID4gPiBnZXR0aW1lb2ZkYXkoKS4KPiA+ID4gCj4gPiA+IFRoZXkgaGF2
-ZSBiZWVuIHVzZWQgdG8gdHJpZ2dlciBhbmQgZml4IHVwIHN1Y2ggaXNzdWU6Cj4gPiA+IAo+ID4g
-PiAgICAgbm9saWJjLXRlc3QuYzooLnRleHQuZ2V0dGltZW9mZGF5KzB4NTQpOiB1bmRlZmluZWQg
-cmVmZXJlbmNlIHRvIGBfX2FlYWJpX2xkaXZtb2QnCj4gPiA+IAo+ID4gPiBUaGlzIGlzc3VlIGhh
-cHBlbnMgd2hpbGUgdGhlcmUgaXMgbm8gInVuc2lnbmVkIGludCIgY29udmVyc2lvbiBpbiB0aGUK
-PiA+ID4gbmV3IGNsb2NrX2dldHRpbWUgLyBjbG9ja19nZXR0aW1lNjQgc3lzY2FsbCBwYXRoIG9m
-IGdldHRpbWVvZmRheSgpOgo+ID4gPiAKPiA+ID4gICAgIHR2LT50dl91c2VjID0gdHMudHZfbnNl
-YyAvIDEwMDA7Cj4gPiA+IAo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBaaGFuZ2ppbiBXdSA8ZmFsY29u
-QHRpbnlsYWIub3JnPgo+ID4gPiAtLS0KPiA+ID4gIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25v
-bGliYy9ub2xpYmMtdGVzdC5jIHwgNSArKysrKwo+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDUgaW5z
-ZXJ0aW9ucygrKQo+ID4gPiAKPiA+ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRl
-c3RzL25vbGliYy9ub2xpYmMtdGVzdC5jIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJj
-L25vbGliYy10ZXN0LmMKPiA+ID4gaW5kZXggOGJhOGMyZmM3MWEwLi4yMGQxODRkYTlhMmIgMTAw
-NjQ0Cj4gPiA+IC0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVz
-dC5jCj4gPiA+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVz
-dC5jCj4gPiA+IEBAIC01MzMsNiArNTMzLDggQEAgc3RhdGljIGludCB0ZXN0X3N0YXRfdGltZXN0
-YW1wcyh2b2lkKQo+ID4gPiAgICovCj4gPiA+ICBpbnQgcnVuX3N5c2NhbGwoaW50IG1pbiwgaW50
-IG1heCkKPiA+ID4gIHsKPiA+ID4gKwlzdHJ1Y3QgdGltZXZhbCB0djsKPiA+ID4gKwlzdHJ1Y3Qg
-dGltZXpvbmUgdHo7Cj4gPiA+ICAJc3RydWN0IHN0YXQgc3RhdF9idWY7Cj4gPiA+ICAJaW50IGV1
-aWQwOwo+ID4gPiAgCWludCBwcm9jOwo+ID4gPiBAQCAtNTg4LDYgKzU5MCw5IEBAIGludCBydW5f
-c3lzY2FsbChpbnQgbWluLCBpbnQgbWF4KQo+ID4gPiAgCQlDQVNFX1RFU1QoZ2V0ZGVudHM2NF9y
-b290KTsgICBFWFBFQ1RfU1lTTkUoMSwgdGVzdF9nZXRkZW50czY0KCIvIiksIC0xKTsgYnJlYWs7
-Cj4gPiA+ICAJCUNBU0VfVEVTVChnZXRkZW50czY0X251bGwpOyAgIEVYUEVDVF9TWVNFUigxLCB0
-ZXN0X2dldGRlbnRzNjQoIi9kZXYvbnVsbCIpLCAtMSwgRU5PVERJUik7IGJyZWFrOwo+ID4gPiAg
-CQlDQVNFX1RFU1QoZ2V0dGltZW9mZGF5X251bGwpOyBFWFBFQ1RfU1lTWlIoMSwgZ2V0dGltZW9m
-ZGF5KE5VTEwsIE5VTEwpKTsgYnJlYWs7Cj4gPiA+ICsJCUNBU0VfVEVTVChnZXR0aW1lb2ZkYXlf
-dHYpOyAgIEVYUEVDVF9TWVNaUigxLCBnZXR0aW1lb2ZkYXkoJnR2LCBOVUxMKSk7IGJyZWFrOwo+
-ID4gPiArCQlDQVNFX1RFU1QoZ2V0dGltZW9mZGF5X3R6KTsgICBFWFBFQ1RfU1lTWlIoMSwgZ2V0
-dGltZW9mZGF5KE5VTEwsICZ0eikpOyBicmVhazsKPiA+IAo+ID4gQ2FsbGluZyBnZXR0aW1lb2Zk
-YXkoTlVMTCwgLi4uKSB3aWxsIGFjdHVhbGx5IHNlZ2ZhdWx0IG9uIGdsaWJjLgo+ID4gSXQgd29y
-a3Mgd2hlbiBjYWxsaW5nIHRocm91Z2ggdGhlIFZEU08sIGJ1dCBub3QgdGhlIGxvZ2ljIGluIGds
-aWJjCj4gPiBpdHNlbGYsIHdoaWNoIGlzIGd1ZXNzIGlzIGFsbG93ZWQgYnkgUE9TSVguCj4gCj4g
-VGhlbiB0aGF0J3Mgc2hvY2tpbmcsIGJlY2F1c2UgdGhlIG1hbiBwYWdlIHNheXM6Cj4gCj4gICAg
-ICAgIElmIGVpdGhlciB0diBvciB0eiBpcyBOVUxMLCB0aGUgY29ycmVzcG9uZGluZyBzdHJ1Y3R1
-cmUgaXMgbm90ICBzZXQgIG9yCj4gICAgICAgIHJldHVybmVkLiAgIChIb3dldmVyLCBjb21waWxh
-dGlvbiB3YXJuaW5ncyB3aWxsIHJlc3VsdCBpZiB0diBpcyBOVUxMLikKPiAKPiBJJ2QgZXhwZWN0
-IGdsaWJjIHRvIGF0IGxlYXN0IHN1cHBvcnQgd2hhdCdkIGRvY3VtZW50ZWQgaW4gdGhlIG1hbgo+
-IHBhZ2UgOi0vCgpUaGF0IGlzIGdldHRpbWVvZmRheSgyKSwgd2hpY2ggY29tZXMgZnJvbSB0aGUg
-TGludXggbWFuLXBhZ2VzIHByb2plY3QuCgpnZXR0aW1lb2ZkYXkoM3ApIHdoaWNoIHNwZWNpZmll
-cyB0aGUgcG9zaXggZnVuY3Rpb24gZG9lcyBub3QgaGF2ZSB0aGF0IHdvcmRpbmcuCkl0IGFsc28g
-c3BlY2lmaWVzIHRoYXQgdGhlcmUgaXMgbm8gd2F5IHRvIGluZGljYXRlIGVycm9ycy4uLgoKU2Vl
-bXMgdG8gYmUgYSB3ZWlyZCBzaXR1YXRpb24uCgo+ID4gSSBwcm9wb3NlIHRvIGF2b2lkIGRvaW5n
-IGl0IDotKQo+IAo+IElmIHlvdSdyZSBjZXJ0YWluIHRoYXQncyB0aGUgY2FzZSwgdGhlbiBJIGFn
-cmVlLgo+IAo+ID4gRWl0aGVyIHdlIGdhdGUgdGhlIGV4aXN0aW5nIHRlc3QgaW4gI2lmZGVmIE5P
-TElCQyBvciB3ZSByZW1vdmUgaXQuCj4gCj4gQmV0dGVyIG5vdCBrZWVwIHRlc3RzIHNwZWNpZmlj
-IHRvIG5vbGliYyBpZiB0aGV5IGFpbSBhdCB2ZXJpZnlpbmcgc29tZQo+IGNvbXBhdGlibGlpdHku
-CgpUaG9tYXMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Arnd suggested that adding a maintainer handbook for the SoC "subsystem"
+would be helpful in trying to bring on board maintainers for the various
+new platforms cropping up in RISC-V land.
+
+Add a document briefly describing the role of the SoC subsystem and some
+basic advice for (new) platform maintainers.
+
+Suggested-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes in v2:
+- add Krzysztof's suggested method for avoiding inter-branch
+  dependencies
+- explicitly mention that tags should be signed
+- link to the devicetree abi document, rather than trying to explain it
+  here & reword that whole section
+- fix some typos, capitalisation & unify bullet style
+
+The devicetree abi doc feels quite out of date at this point, and could
+probably do with a spring clean - but it also feels like hallowed ground
+on which one should tread lightly, so I won't go near that til Rob is
+back.
+---
+ Documentation/devicetree/bindings/ABI.rst     |   2 +
+ .../devicetree/bindings/writing-schema.rst    |   2 +
+ .../process/maintainer-handbooks.rst          |   3 +-
+ Documentation/process/maintainer-soc.rst      | 178 ++++++++++++++++++
+ MAINTAINERS                                   |   1 +
+ 5 files changed, 185 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/process/maintainer-soc.rst
+
+diff --git a/Documentation/devicetree/bindings/ABI.rst b/Documentation/devicetree/bindings/ABI.rst
+index a885713cf184..93ec82f78ae5 100644
+--- a/Documentation/devicetree/bindings/ABI.rst
++++ b/Documentation/devicetree/bindings/ABI.rst
+@@ -1,5 +1,7 @@
+ .. SPDX-License-Identifier: GPL-2.0
+ 
++.. _devicetree-abi:
++
+ ===================
+ Devicetree (DT) ABI
+ ===================
+diff --git a/Documentation/devicetree/bindings/writing-schema.rst b/Documentation/devicetree/bindings/writing-schema.rst
+index 4a381d20f2b4..640d857dabf3 100644
+--- a/Documentation/devicetree/bindings/writing-schema.rst
++++ b/Documentation/devicetree/bindings/writing-schema.rst
+@@ -136,6 +136,8 @@ installed. Ensure they are in your PATH (~/.local/bin by default).
+ 
+ Recommended is also to install yamllint (used by dtschema when present).
+ 
++.. _running-checks:
++
+ Running checks
+ ~~~~~~~~~~~~~~
+ 
+diff --git a/Documentation/process/maintainer-handbooks.rst b/Documentation/process/maintainer-handbooks.rst
+index d783060b4cc6..fe24cb665fb7 100644
+--- a/Documentation/process/maintainer-handbooks.rst
++++ b/Documentation/process/maintainer-handbooks.rst
+@@ -15,5 +15,6 @@ Contents:
+    :numbered:
+    :maxdepth: 2
+ 
+-   maintainer-tip
+    maintainer-netdev
++   maintainer-soc
++   maintainer-tip
+diff --git a/Documentation/process/maintainer-soc.rst b/Documentation/process/maintainer-soc.rst
+new file mode 100644
+index 000000000000..9683c7d199b2
+--- /dev/null
++++ b/Documentation/process/maintainer-soc.rst
+@@ -0,0 +1,178 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++.. _maintainer-soc:
++
++=============
++SoC Subsystem
++=============
++
++Overview
++--------
++
++The SoC subsystem is a place of aggregation for SoC-specific code.
++The main components of the subsystem are:
++
++* devicetrees for 32- & 64-bit ARM and RISC-V
++* 32-bit ARM board files (arch/arm/mach*)
++* 32- & 64-bit ARM defconfigs
++* SoC specific drivers across architectures, in particular for 32- & 64-bit
++  ARM, RISC-V and Loongarch
++
++These "SoC specific drivers" do not include clock, GPIO etc drivers that have
++other top-level maintainers. The drivers/soc/ directory is generally meant
++for kernel-internal drivers that are used by other drivers to provide SoC
++specific functionality like identifying a SoC revision or interfacing with
++power domains.
++
++The SoC subsystem also serves as an intermediate location for changes to
++drivers/bus, drivers/firmware, drivers/reset and drivers/memory.  The addition
++of new platforms, or the removal of existing ones, often go through the SoC
++tree as a dedicated branch covering multiple subsystems.
++
++The main SoC tree is housed on git.kernel.org:
++  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/
++
++Clearly this is quite a wide range of topics, which no one person, or even
++small group of people are capable of maintaining.  Instead, the SoC subsystem
++is comprised of many submaintainers, each taking care of individual platforms
++and driver sub-directories.
++In this regard, "platform" usually refers to a series of SoCs from a given
++vendor, for example, Nvidia's series of Tegra SoCs.  Many submaintainers operate
++on a vendor level, responsible for multiple product lines.  For several reasons,
++including acquisitions/different business units in a company, things vary
++significantly here.  The various submaintainers are documented in the
++MAINTAINERS file.
++
++Most of these submaintainers have their own trees where they stage patches,
++sending pull requests to the main SoC tree.  These trees are usually, but not
++always, listed in MAINTAINERS.  The main SoC maintainers can be reached via the
++alias soc@kernel.org if there is no platform-specific maintainer, or if they
++are unresponsive.
++
++What the SoC tree is not, however, is a location for architecture specific code
++changes.  Each architecture has it's own maintainers that are responsible for
++architectural details, cpu errata and the like.
++
++Information for (new) Submaintainers
++------------------------------------
++
++As new platforms spring up, they often bring with them new submaintainers,
++many of whom work for the silicon vendor, and may not be familiar with the
++process.
++
++Devicetree ABI Stability
++~~~~~~~~~~~~~~~~~~~~~~~~
++
++Perhaps one of the most important things to highlight is that dt-bindings
++document the ABI between the devicetree and the kernel. Please see
++:ref:`devicetree-abi` more information on the ABI.
++
++If changes are being made to a devicetree that are incompatible with old
++kernels, the devicetree patch should not be applied until the driver is, or an
++appropriate time later.  Most importantly, any incompatible changes should be
++clearly pointed out in the patch description and pull request, along with the
++expected impact on existing users, such as bootloaders or other operating
++systems.
++
++Driver Branch Dependencies
++~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++A common problem is synchronizing changes between device drivers and devicetree
++files, even if a change is compatible in both directions, this may require
++coordinating how the changes get merged through different maintainer trees.
++
++Usually the branch that includes a driver change will also include the
++corresponding change to the devicetree binding description, to ensure they are
++in fact compatible.  This means that the devicetree branch can end up causing
++warnings in the "make dtbs_check" step.  If a devicetree change depends on
++missing additions to a header file in include/dt-bindings/, it will fail the
++"make dtbs" step and not get merged.
++
++There are multiple ways to deal with this:
++
++* Avoid defining custom macros in include/dt-bindings/ for hardware constants
++  that can be derived from a datasheet -- binding macros in header file should
++  only be used as a last resort if there is no natural way to define a binding
++
++* Use literal values in the devicetree file in place of macros even when a
++  header is required, and change them to the named representation in a
++  following release
++
++* Defer the devicetree changes to a release after the binding and driver have
++  already been merged
++
++* Change the bindings in a shared immutable branch that is used as the base for
++  both the driver change and the devicetree changes
++
++* Add duplicate defines in the devicetree file guarded by an #ifndef section,
++  removing them in a later release
++
++Devicetree Naming Convention
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++The general naming scheme for devicetree files are as follows.  The aspects of a
++platform that are set at the SoC level, like cpu cores, are contained in a file
++named $soc.dtsi, for example, jh7100.dtsi.  Integration details, that will vary
++from board to board, are described in $soc-$board.dtsi.  An example of this is
++jh7100-beaglev-starlight.dts.  Often many boards are variations on a theme, and
++frequently there are intermediate files, such as jh7100-common.dtsi, which sit
++between the $soc.dtsi and $soc-$board.dts files, containing the descriptions of
++common hardware.
++
++Some platforms also have System on Modules, containing an SoC, which are then
++integrated into several different boards. For these platforms, $soc-$som.dtsi
++and $soc-$som-$board.dts are typical.
++
++Directories are usually named after the vendor of the SoC at the time of it's
++inclusion, leading to some historical directory names in the tree.
++
++Validating Devicetree Files
++~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++``make dtbs_check`` can be used to validate that devicetree files are compliant
++with the dt-bindings that describe the ABI.  Please see :ref:`running-checks`
++for more information on the validation of devicetrees.
++
++For new platforms, or additions to existing ones, ``make dtbs_check`` should not
++add any new warnings.  For RISC-V, as it has the advantage of being a newer
++architecture, ``make dtbs_check W=1`` is required to not add any new warnings.
++If in any doubt about a devicetree change, reach out to the devicetree
++maintainers.
++
++Branches and Pull Requests
++~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++Just as the main SoC tree has several branches, it is expected that
++submaintainers will do the same. Driver, defconfig and devicetree changes should
++all be split into separate branches and appear in separate pull requests to the
++SoC maintainers.  Each branch should be usable by itself and avoid
++regressions that originate from dependencies on other branches.
++
++Small sets of patches can also be sent as separate emails to soc@kernel.org,
++grouped into the same categories.
++
++If changes do not fit into the normal patterns, there can be additional
++top-level branches, e.g. for a treewide rework, or the addition of new SoC
++platforms including dts files and drivers.
++
++Branches with a lot of changes can benefit from getting split up into separate
++topics branches, even if they end up getting merged into the same branch of the
++SoC tree.  An example here would be one branch for devicetree warning fixes, one
++for a rework and one for newly added boards.
++
++Another common way to split up changes is to send an early pull request with the
++majority of the changes at some point between rc1 and rc4, following up with one
++or more smaller pull requests towards the end of the cycle that can add late
++changes or address problems idenfied while testing the first set.
++
++While there is no cut-off time for late pull requests, it helps to only send
++small branches as time gets closer to the merge window.
++
++Pull requests for bugfixes for the current release can be sent at any time, but
++again having multiple smaller branches is better than trying to combine too many
++patches into one pull request.
++
++The subject line of a pull request should begin with "[GIT PULL]" and made using
++a signed tag, rather than a branch.  This tag should contain a short description
++summarising the changes in the pull request.  For more detail on sending pull
++requests, please see :ref:`pullrequests`.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7e0b87d5aa2e..29631c325857 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1815,6 +1815,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ C:	irc://irc.libera.chat/armlinux
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git
++F:	Documentation/process/maintainer-soc.rst
+ F:	arch/arm/boot/dts/Makefile
+ F:	arch/arm64/boot/dts/Makefile
+ 
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
