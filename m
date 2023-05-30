@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B72C77B7A
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 13:12:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2650C7EE2F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 13:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UbdsjWkeVfOfO1WNtjkffa5RKbM/aE62msghm0TwpK8=; b=d0vu/TJ6lHqiB0+lVKkAOKwSLj
-	2RKXqGVgIzqW5MJyFct2bSxlXmVtpCIStr7jMNEQ3rsMdS5/svQ4W40tAjL9o6htMO7F1/vW6zCRn
-	/ACeoDtps/7bHZYq1J/34QTkEwKyHRHT33+PPkfhWlI2sX9CifgiqqRAqQEXaKBp2eBYqIngCNT9Z
-	zuXptwLT3vST2Doa73V9C369RyGButGtzxKVMl9UU1SR+GWRPFTdd9LxD93Nmp3js6Ltfihoj6aq0
-	M4kCT5siiTmC9Jw90jpGgz3gIRo8XFt/GtYwWCXHsBmXvN/ot8tcbJDHsXlUWgxwB2SGPLicD5rby
-	geNTPUnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QLpcKQvZBfES+GjrM+Y5NUvHJkbCUDSx4ow+G42Dnaw=; b=TS2sjA3yX2iUyC
+	0o3zAkLW5xO4WKu256QGZyK2bIS37Ya2sWQjvTEJ3JvKueYRllE74TF7ssD9JpSrpSTzylIumsw00
+	5qalpPobDPaK9bcUTDky7NPndvLnUtQkijF6vMulDrUBetKbN9fv5k+gZ8zUWqKmwxY5f0vYHxIoc
+	TUasMs9Mt1Na9BN20Z1hwqfO1oycwbg7Nku1cQvewZW3aF1VIGFb4W0j3l+RpSIMcJ0A8DplAHUAR
+	cRVCBZHr0aqEM5kdpMDKOibbVyClcob6tXGDkTPCLdHkK16ueS30ZiWX8MG1PddzLMVco5YdNioEe
+	jwVT3IcGpG70alTsCsMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3z9b-00E0JY-26;
-	Tue, 30 May 2023 13:12:47 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1q3zAw-00E0Ww-35;
+	Tue, 30 May 2023 13:14:10 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3z9X-00E0Hr-2x;
-	Tue, 30 May 2023 13:12:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1685452364; x=1716988364;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rgP8/DkgE67Jn/btWtUmo2sPLJIt6my6BaVAXky+q5g=;
-  b=X1wdnoH9D1OhiaBnkVFFKrDyo1Rv8bpA4nmDmCvF9oNfRebfZVirmP4d
-   ZJEpHJedGHlRgQmGNq2Uc7otUtv7BvPa2UlTCxyRhbcZ9b/VeQjya8s56
-   ErzBLZZV5Gf7Or8kl48vrYXYzd64P4iEsr/mcSsqXYUjxkJ+9TB3rgxri
-   +6pqRvw6SHn7E3Lx2z7ixnG3uGDV0zRdJVchw9I5J5y0jGxXeNdG8j5u/
-   /ILcwFVwyuNzj4JkNkIlgY7F9/RJ8U/LOSvmkpEnUPVSSaznzyPIs5aUy
-   WT5Ht5kbHKCAbb4W6pM+Zaxfdi8HV3mKiQXuQD79JKyE7EGQTNntav+N/
-   A==;
-X-IronPort-AV: E=Sophos;i="6.00,204,1681196400"; 
-   d="asc'?scan'208";a="213720607"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 May 2023 06:12:33 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 30 May 2023 06:12:32 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 30 May 2023 06:12:30 -0700
-Date: Tue, 30 May 2023 14:12:07 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jonathan Corbet <corbet@lwn.net>
-CC: <soc@kernel.org>, <conor@kernel.org>, <devicetree@vger.kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <olof@lixom.net>, <palmer@dabbelt.com>,
-	<robh+dt@kernel.org>, <arnd@arndb.de>
-Subject: Re: [PATCH v2] Documentation/process: add soc maintainer handbook
-Message-ID: <20230530-enviable-poise-183119e695bf@wendy>
-References: <20230530-multiple-whooping-ee5706fceb67@wendy>
- <87bki23rbx.fsf@meer.lwn.net>
+	id 1q3zAu-00E0Va-0f
+	for linux-riscv@lists.infradead.org;
+	Tue, 30 May 2023 13:14:09 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5147aee9d7cso6256393a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 06:14:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1685452446; x=1688044446;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fUH9XtAzWIRgOsb1MqDJfvd6qVENrkssqR4+2VADmQU=;
+        b=iLSrL45SV8BP5SNaj9ihAs/HG1rHntKH8UaPf63oqwFqxFSR3voahRiA6NEluOhKtu
+         ZTWv7fK83uKK5C7t5jOu7RMYdZ0qCXslmYTpIm+t+1WULQ0dTV+ziS/8Isu6K3DlYOjz
+         8TG5F71WCuwaE7AwHpS7Zj7M1Lo5T+UykhITrpppwUN8RqIsUUf4Iee/kT71bNlhbuuF
+         /XkTcRCmJr1HZNRZeq17NBZww56GGHJllapgC0nC/bEuBsHqLQzx+zttBSsa5qMY8IR0
+         OIlVyz9O7ET9giNoKqD+fXIkU923lQIPOBa2AmO4BtTdrIgWdhXOVkNilDHJjMDJY/hn
+         y/MA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685452446; x=1688044446;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fUH9XtAzWIRgOsb1MqDJfvd6qVENrkssqR4+2VADmQU=;
+        b=MWcp/+PWCMItessi2bvaK/mDabeaVW4DQqsj22jxQlRTjJl/O99k6QY/kGdKqtxDaw
+         50iGS2mi8skSSr2K0jdvoDCcMiHz3a1/sy+jod2fQcaMvKZxfdYB4poFjzUyaj4Yrkao
+         zOuV2Bmbgjc7DWMrNZjmpxwS3povDCz+xwM3CobPddGBNGQbpBw7nST3JQrZuIYkxk0W
+         /n8l6l/D3/O84FOZg3FkBona0xgMAHnZgDr5gRJAwrYDhicZ1PE4gnhk/eYbBUArKggZ
+         AmHrap28zCc9TNUCBQKLvcK4HgfbPbx2guvF/+iO4Zh3HjRhSKZDsta47S5NvkMq/j5F
+         t+4A==
+X-Gm-Message-State: AC+VfDw51tAyaVcGUvZzAiw6kJc6dLV+wWneJFy+h8ZBB1vV5oUUTdj7
+	gEOLiHMedknt/a3eSNFnvNy1sg==
+X-Google-Smtp-Source: ACHHUZ71bUnQXRzAkoYWkylcW0WPdqFvOlzeWjYH5TDzER83v471t24VZ6980CJNywvjLuGF0XQLiA==
+X-Received: by 2002:aa7:d8cb:0:b0:514:9474:f4b7 with SMTP id k11-20020aa7d8cb000000b005149474f4b7mr1588818eds.31.1685452445895;
+        Tue, 30 May 2023 06:14:05 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.199.204])
+        by smtp.gmail.com with ESMTPSA id j2-20020a50ed02000000b0050bc4600d38sm3929947eds.79.2023.05.30.06.14.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 30 May 2023 06:14:05 -0700 (PDT)
+Message-ID: <34864c2f-dbe2-8598-ad4c-f9c3acc13164@linaro.org>
+Date: Tue, 30 May 2023 15:14:03 +0200
 MIME-Version: 1.0
-In-Reply-To: <87bki23rbx.fsf@meer.lwn.net>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v2] Documentation/process: add soc maintainer handbook
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>, soc@kernel.org
+Cc: conor@kernel.org, corbet@lwn.net, devicetree@vger.kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, olof@lixom.net, palmer@dabbelt.com,
+ robh+dt@kernel.org, arnd@arndb.de
+References: <20230530-multiple-whooping-ee5706fceb67@wendy>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230530-multiple-whooping-ee5706fceb67@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_061244_017749_0768DC7B 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20230530_061408_241936_F474F818 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,79 +92,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7947441642404809252=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7947441642404809252==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Vd/KN9AFeCUUrCcz"
-Content-Disposition: inline
+On 30/05/2023 14:49, Conor Dooley wrote:
+> Arnd suggested that adding a maintainer handbook for the SoC "subsystem"
+> would be helpful in trying to bring on board maintainers for the various
+> new platforms cropping up in RISC-V land.
+> 
+> Add a document briefly describing the role of the SoC subsystem and some
+> basic advice for (new) platform maintainers.
+> 
+> Suggested-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> Changes in v2:
+> - add Krzysztof's suggested method for avoiding inter-branch
+>   dependencies
+> - explicitly mention that tags should be signed
+> - link to the devicetree abi document, rather than trying to explain it
+>   here & reword that whole section
+> - fix some typos, capitalisation & unify bullet style
+> 
+> The devicetree abi doc feels quite out of date at this point, and could
+> probably do with a spring clean - but it also feels like hallowed groun
 
---Vd/KN9AFeCUUrCcz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yep, but that's another topic.
 
-On Tue, May 30, 2023 at 07:02:26AM -0600, Jonathan Corbet wrote:
-> Conor Dooley <conor.dooley@microchip.com> writes:
+> d
+> on which one should tread lightly, so I won't go near that til Rob is
+> back.
 
-> > diff --git a/Documentation/devicetree/bindings/ABI.rst b/Documentation/=
-devicetree/bindings/ABI.rst
-> > index a885713cf184..93ec82f78ae5 100644
-> > --- a/Documentation/devicetree/bindings/ABI.rst
-> > +++ b/Documentation/devicetree/bindings/ABI.rst
-> > @@ -1,5 +1,7 @@
-> >  .. SPDX-License-Identifier: GPL-2.0
-> > =20
-> > +.. _devicetree-abi:
->=20
-> Somehow we've developed this habit of putting labels at the top of each
-> file; I really think that they just add clutter and are best left out.
-> Without the label, this reference:
->=20
-> > +Perhaps one of the most important things to highlight is that dt-bindi=
-ngs
-> > +document the ABI between the devicetree and the kernel. Please see
-> > +:ref:`devicetree-abi` more information on the ABI.
->=20
-> ...can just be written as "Please see
-> Documentation/devicetree/bindings/ABI.rst".  The cross-reference link
-> will be generated as expected, and readers of the plain-text docs don't
-> have to go grepping to find the reference.
+Thanks!
 
-Sure. As someone who does read these things in their editor that sounds
-preferable to me. I didn't know that I could do that, as the whole
-"building the docs" thing is new to me ;)
-I'll wait a bit before resubmitting for obvious reasons.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Cheers,
-Conor.
+Best regards,
+Krzysztof
 
---Vd/KN9AFeCUUrCcz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHX2JwAKCRB4tDGHoIJi
-0jE3AP9pDjLP9d6RnL00Efrio6ZoaKZjOG0zDOEg+4VAprMwmwEAjpD8+2LaBcMN
-FnbPRUS5wn47utSB1NzZVqP8Ep4rLAE=
-=VH3D
------END PGP SIGNATURE-----
-
---Vd/KN9AFeCUUrCcz--
-
-
---===============7947441642404809252==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7947441642404809252==--
-
