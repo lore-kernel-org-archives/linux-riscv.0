@@ -4,44 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A95FFC7EE23
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 15:28:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABF1C77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 15:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DqOS9UIhZeIfo/PF25CsbiYh6KWDp3mg9mz69y0Go5w=; b=xb17aU0XKhUjW4
-	b4DqrcT0SQ5O7XPjWRgqj2Gu8wLTC17gZI15wTjZfO4C5AiV5/i7wlSbWKKOvYsVxEIDD19RXk1ex
-	BurnHksG3EFg+fvqo0SFKyxTYT+Sjxrj1qYayrx9bUSLzR1kHP3elYbk1jCu4qYTmIADkHwTDV1X1
-	Rcgexac/IA1KfutljnHprlzSO9KwhydNvBNnf8w8XXvxOIdV9C2v4kSTJYRwV58W/sY+I2/cCtqEu
-	SAbHIq2j7CQORwxiHqF8vuBCyPO7z/cOAfSOpQDmFeWpbxgh9Zxb6pM7v2+2pMTZQIdAIz4yuwNmc
-	6RlOKo6fqMVsvcEshi1A==;
+	List-Owner; bh=vUh2OvRy7dC0xJvNx6SSa4XuLhiS0Vhllk4mZ26eqqE=; b=wZ04Ig+2qjDNI+
+	VXzhtD9pDOa0blTEuP2QfUhRCUm5kn+ujWjUB4izaVAEjUfLHLsg1TNbyyYjgQh4Z8RhoK4cUHE56
+	GCILua/fD7M5DrlLi5hFBtr/iKh5IaQhDv+zZLdgdgd3kB0GAa37h9gYsur5YjdbmpUmnRTrFPkoA
+	qZ7YUPXgbDcJvfTUGAB/lTI+weZMF0tupbudDEPqzkWifox9o8+trETCkBjn5Qyux1IfYVIfZIFAF
+	ffDMEKa81sGMGfbwwkF9FUxVG8pJApzTzj0G/3vICvhiNCz4wjctl+/K7j4Ub0b8nI388sJvq95fh
+	d4qXkUvuQwOlaNcgcVqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q41HH-00EPUn-1R;
-	Tue, 30 May 2023 15:28:51 +0000
-Received: from [2601:1c2:980:9ec0::2764]
-	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1q41HE-00EPT0-0S;
-	Tue, 30 May 2023 15:28:48 +0000
-Message-ID: <44a247a3-e349-94da-8235-1b6911463d78@infradead.org>
-Date: Tue, 30 May 2023 08:28:44 -0700
+	id 1q41Q4-00EQjw-2d;
+	Tue, 30 May 2023 15:37:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q41Q2-00EQjX-1A
+	for linux-riscv@lists.infradead.org;
+	Tue, 30 May 2023 15:37:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6904D61A59
+	for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 15:37:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C842FC433EF
+	for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 15:37:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685461071;
+	bh=I+bDplFB4ybfoxeuTjDQOJi8CNtCKz/6pE+frellwdw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=CL+UBr8+xQiuU2Uzm5rgc/6Ijr+ybjXyWsdX/hFcmslL0w6tfI+kNHoOk1qiEhons
+	 sa3TUeA6xcnI/vDGf+/toNsoLVo6tecz2wx1bi2Q53md3LAPhOZwKnqpfXsVZG2ere
+	 aDxYQ0m0SMBupi6W9ERgv+RtUVTIkuFwUFZ6zB/7/5trk8Ji/LC7ZY8ygsQdMXZxKM
+	 8kAwimKnI7tCnDj2mGaGSNukohfq1dVn+qhBhnKAHNWLWtW5cC0P0LUdmjZvuwVTBo
+	 lrfFKnJMrUiDffkHg4togiBuNHbAMD50FK2TdotvqJZfI+DBq7Wl+4fkGlF122EOwx
+	 zCDKEWRNleOPA==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-4f3baf04f0cso5152772e87.1
+        for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 08:37:51 -0700 (PDT)
+X-Gm-Message-State: AC+VfDwgcuEoy+0cWnETYYpt2iIhmcoVKRtyka5jw0oEIMNYJnOGVtBF
+	cEYBkTI1jIktSc3KBT5xfNlqxlGlWLWXoxMcBXo=
+X-Google-Smtp-Source: ACHHUZ4eIE/heo/0Kn6F9UfSo+8dlTQAjTrg/t6eQUk7SkKkLaE4qya56Lz8F7g5SRJ48fAbdBGvPQp6DD16rlkOl+U=
+X-Received: by 2002:ac2:44cf:0:b0:4f3:7a59:d19 with SMTP id
+ d15-20020ac244cf000000b004f37a590d19mr1075745lfm.59.1685461069828; Tue, 30
+ May 2023 08:37:49 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v2] Documentation/process: add soc maintainer handbook
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>, soc@kernel.org
-Cc: conor@kernel.org, corbet@lwn.net, devicetree@vger.kernel.org,
- krzysztof.kozlowski+dt@linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, olof@lixom.net, palmer@dabbelt.com,
- robh+dt@kernel.org, arnd@arndb.de
-References: <20230530-multiple-whooping-ee5706fceb67@wendy>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20230530-multiple-whooping-ee5706fceb67@wendy>
+References: <20230529073845.2859178-1-guoren@kernel.org> <20230529-jasmine-amigo-6d01f6852b35@wendy>
+ <CAJF2gTRSoZbexqka=_7nf4+dHZW2FGf++BiTMypfTbeoGAbUiA@mail.gmail.com>
+ <CAJF2gTTzUfp7xDr8myA+xMcxGNEQ+XLEYMfoR91NShdBAQMu7Q@mail.gmail.com> <CABgGipXu7iq-J5v6GVMPrnHiGVLuMxabB0_hPb+o+04T2MAwpw@mail.gmail.com>
+In-Reply-To: <CABgGipXu7iq-J5v6GVMPrnHiGVLuMxabB0_hPb+o+04T2MAwpw@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 30 May 2023 23:37:38 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTR2fAkk1532VWmsWP5DSYN17ib80wa5QwwT=DC0LY9gGw@mail.gmail.com>
+Message-ID: <CAJF2gTR2fAkk1532VWmsWP5DSYN17ib80wa5QwwT=DC0LY9gGw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: vector: Fixup modules compile error
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, greentime.hu@sifive.com, 
+	vincent.chen@sifive.com, paul.walmsley@sifive.com, palmer@rivosinc.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Guo Ren <guoren@linux.alibaba.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230530_083754_495368_2E09C9DE 
+X-CRM114-Status: GOOD (  36.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,316 +81,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/30/23 05:49, Conor Dooley wrote:
-> Arnd suggested that adding a maintainer handbook for the SoC "subsystem"
-> would be helpful in trying to bring on board maintainers for the various
-> new platforms cropping up in RISC-V land.
-> 
-> Add a document briefly describing the role of the SoC subsystem and some
-> basic advice for (new) platform maintainers.
-> 
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Changes in v2:
-> - add Krzysztof's suggested method for avoiding inter-branch
->   dependencies
-> - explicitly mention that tags should be signed
-> - link to the devicetree abi document, rather than trying to explain it
->   here & reword that whole section
-> - fix some typos, capitalisation & unify bullet style
-> 
-> The devicetree abi doc feels quite out of date at this point, and could
-> probably do with a spring clean - but it also feels like hallowed ground
-> on which one should tread lightly, so I won't go near that til Rob is
-> back.
-> ---
->  Documentation/devicetree/bindings/ABI.rst     |   2 +
->  .../devicetree/bindings/writing-schema.rst    |   2 +
->  .../process/maintainer-handbooks.rst          |   3 +-
->  Documentation/process/maintainer-soc.rst      | 178 ++++++++++++++++++
->  MAINTAINERS                                   |   1 +
->  5 files changed, 185 insertions(+), 1 deletion(-)
->  create mode 100644 Documentation/process/maintainer-soc.rst
-> 
-> diff --git a/Documentation/devicetree/bindings/ABI.rst b/Documentation/devicetree/bindings/ABI.rst
-> index a885713cf184..93ec82f78ae5 100644
-> --- a/Documentation/devicetree/bindings/ABI.rst
-> +++ b/Documentation/devicetree/bindings/ABI.rst
-> @@ -1,5 +1,7 @@
->  .. SPDX-License-Identifier: GPL-2.0
->  
-> +.. _devicetree-abi:
-> +
->  ===================
->  Devicetree (DT) ABI
->  ===================
-> diff --git a/Documentation/devicetree/bindings/writing-schema.rst b/Documentation/devicetree/bindings/writing-schema.rst
-> index 4a381d20f2b4..640d857dabf3 100644
-> --- a/Documentation/devicetree/bindings/writing-schema.rst
-> +++ b/Documentation/devicetree/bindings/writing-schema.rst
-> @@ -136,6 +136,8 @@ installed. Ensure they are in your PATH (~/.local/bin by default).
->  
->  Recommended is also to install yamllint (used by dtschema when present).
-
-I don't see anything in Documentation/ about where to find yamllint...
-please.
-
->  
-> +.. _running-checks:
-> +
->  Running checks
->  ~~~~~~~~~~~~~~
->  
-
-> diff --git a/Documentation/process/maintainer-soc.rst b/Documentation/process/maintainer-soc.rst
-> new file mode 100644
-> index 000000000000..9683c7d199b2
-> --- /dev/null
-> +++ b/Documentation/process/maintainer-soc.rst
-> @@ -0,0 +1,178 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +.. _maintainer-soc:
-> +
-> +=============
-> +SoC Subsystem
-> +=============
-> +
-> +Overview
-> +--------
-> +
-> +The SoC subsystem is a place of aggregation for SoC-specific code.
-> +The main components of the subsystem are:
-> +
-> +* devicetrees for 32- & 64-bit ARM and RISC-V
-> +* 32-bit ARM board files (arch/arm/mach*)
-> +* 32- & 64-bit ARM defconfigs
-> +* SoC specific drivers across architectures, in particular for 32- & 64-bit
-
-     SoC-specific
-
-> +  ARM, RISC-V and Loongarch
-> +
-> +These "SoC specific drivers" do not include clock, GPIO etc drivers that have
-
-          SoC-specific                                GPIO, etc. drivers that have
-
-> +other top-level maintainers. The drivers/soc/ directory is generally meant
-> +for kernel-internal drivers that are used by other drivers to provide SoC
-
-                                                                         SoC-
-
-> +specific functionality like identifying a SoC revision or interfacing with
-
-                     I would write:        an SoC
-
-> +power domains.
-> +
-> +The SoC subsystem also serves as an intermediate location for changes to
-> +drivers/bus, drivers/firmware, drivers/reset and drivers/memory.  The addition
-> +of new platforms, or the removal of existing ones, often go through the SoC
-> +tree as a dedicated branch covering multiple subsystems.
-> +
-> +The main SoC tree is housed on git.kernel.org:
-> +  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/
-> +
-> +Clearly this is quite a wide range of topics, which no one person, or even
-> +small group of people are capable of maintaining.  Instead, the SoC subsystem
-> +is comprised of many submaintainers, each taking care of individual platforms
-> +and driver sub-directories.
-
-submaintainers and sub-directories ? hm.
-
-> +In this regard, "platform" usually refers to a series of SoCs from a given
-> +vendor, for example, Nvidia's series of Tegra SoCs.  Many submaintainers operate
-> +on a vendor level, responsible for multiple product lines.  For several reasons,
-> +including acquisitions/different business units in a company, things vary
-> +significantly here.  The various submaintainers are documented in the
-> +MAINTAINERS file.
-> +
-> +Most of these submaintainers have their own trees where they stage patches,
-> +sending pull requests to the main SoC tree.  These trees are usually, but not
-> +always, listed in MAINTAINERS.  The main SoC maintainers can be reached via the
-> +alias soc@kernel.org if there is no platform-specific maintainer, or if they
-> +are unresponsive.
-> +
-> +What the SoC tree is not, however, is a location for architecture specific code
-
-                                                        architecture-specific
-
-> +changes.  Each architecture has it's own maintainers that are responsible for
-
-                                   its
-
-> +architectural details, cpu errata and the like.
-
-                          CPU
-
-> +
-> +Information for (new) Submaintainers
-> +------------------------------------
-> +
-> +As new platforms spring up, they often bring with them new submaintainers,
-> +many of whom work for the silicon vendor, and may not be familiar with the
-> +process.
-> +
-> +Devicetree ABI Stability
-> +~~~~~~~~~~~~~~~~~~~~~~~~
-> +
-> +Perhaps one of the most important things to highlight is that dt-bindings
-> +document the ABI between the devicetree and the kernel. Please see
-> +:ref:`devicetree-abi` more information on the ABI.
-> +
-> +If changes are being made to a devicetree that are incompatible with old
-> +kernels, the devicetree patch should not be applied until the driver is, or an
-> +appropriate time later.  Most importantly, any incompatible changes should be
-> +clearly pointed out in the patch description and pull request, along with the
-> +expected impact on existing users, such as bootloaders or other operating
-> +systems.
-> +
-> +Driver Branch Dependencies
-> +~~~~~~~~~~~~~~~~~~~~~~~~~~
-> +
-> +A common problem is synchronizing changes between device drivers and devicetree
-> +files, even if a change is compatible in both directions, this may require
-
-   files. Even if
-
-> +coordinating how the changes get merged through different maintainer trees.
-> +
-> +Usually the branch that includes a driver change will also include the
-> +corresponding change to the devicetree binding description, to ensure they are
-> +in fact compatible.  This means that the devicetree branch can end up causing
-
-s/in fact/remain/
-(suggestion)
-
-> +warnings in the "make dtbs_check" step.  If a devicetree change depends on
-> +missing additions to a header file in include/dt-bindings/, it will fail the
-> +"make dtbs" step and not get merged.
-> +
-> +There are multiple ways to deal with this:
-> +
-> +* Avoid defining custom macros in include/dt-bindings/ for hardware constants
-> +  that can be derived from a datasheet -- binding macros in header file should
-
-                                                            in a header file | in header files
-
-> +  only be used as a last resort if there is no natural way to define a binding
-> +
-> +* Use literal values in the devicetree file in place of macros even when a
-> +  header is required, and change them to the named representation in a
-> +  following release
-> +
-> +* Defer the devicetree changes to a release after the binding and driver have
-> +  already been merged
-> +
-> +* Change the bindings in a shared immutable branch that is used as the base for
-> +  both the driver change and the devicetree changes
-> +
-> +* Add duplicate defines in the devicetree file guarded by an #ifndef section,
-> +  removing them in a later release
-> +
-> +Devicetree Naming Convention
-> +~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> +
-> +The general naming scheme for devicetree files are as follows.  The aspects of a
-
-                      scheme ...                  is
-
-> +platform that are set at the SoC level, like cpu cores, are contained in a file
-
-                                                CPU
-
-> +named $soc.dtsi, for example, jh7100.dtsi.  Integration details, that will vary
-> +from board to board, are described in $soc-$board.dtsi.  An example of this is
-> +jh7100-beaglev-starlight.dts.  Often many boards are variations on a theme, and
-
-                            ^^^ Why not dtsi, like the sentence before says?
-or is the $soc-$board.dtsi wrong?
-
-> +frequently there are intermediate files, such as jh7100-common.dtsi, which sit
-> +between the $soc.dtsi and $soc-$board.dts files, containing the descriptions of
-> +common hardware.
-> +
-> +Some platforms also have System on Modules, containing an SoC, which are then
-> +integrated into several different boards. For these platforms, $soc-$som.dtsi
-> +and $soc-$som-$board.dts are typical.
-> +
-> +Directories are usually named after the vendor of the SoC at the time of it's
-
-                                                                            its
-
-> +inclusion, leading to some historical directory names in the tree.
-> +
-> +Validating Devicetree Files
-> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> +
-> +``make dtbs_check`` can be used to validate that devicetree files are compliant
-> +with the dt-bindings that describe the ABI.  Please see :ref:`running-checks`
-> +for more information on the validation of devicetrees.
-> +
-> +For new platforms, or additions to existing ones, ``make dtbs_check`` should not
-> +add any new warnings.  For RISC-V, as it has the advantage of being a newer
-> +architecture, ``make dtbs_check W=1`` is required to not add any new warnings.
-> +If in any doubt about a devicetree change, reach out to the devicetree
-> +maintainers.
-> +
-> +Branches and Pull Requests
-> +~~~~~~~~~~~~~~~~~~~~~~~~~~
-> +
-> +Just as the main SoC tree has several branches, it is expected that
-> +submaintainers will do the same. Driver, defconfig and devicetree changes should
-> +all be split into separate branches and appear in separate pull requests to the
-> +SoC maintainers.  Each branch should be usable by itself and avoid
-> +regressions that originate from dependencies on other branches.
-> +
-> +Small sets of patches can also be sent as separate emails to soc@kernel.org,
-> +grouped into the same categories.
-> +
-> +If changes do not fit into the normal patterns, there can be additional
-> +top-level branches, e.g. for a treewide rework, or the addition of new SoC
-> +platforms including dts files and drivers.
-> +
-> +Branches with a lot of changes can benefit from getting split up into separate
-> +topics branches, even if they end up getting merged into the same branch of the
-> +SoC tree.  An example here would be one branch for devicetree warning fixes, one
-> +for a rework and one for newly added boards.
-> +
-> +Another common way to split up changes is to send an early pull request with the
-> +majority of the changes at some point between rc1 and rc4, following up with one
-> +or more smaller pull requests towards the end of the cycle that can add late
-> +changes or address problems idenfied while testing the first set.
-
-                               identified
-
-> +
-> +While there is no cut-off time for late pull requests, it helps to only send
-> +small branches as time gets closer to the merge window.
-> +
-> +Pull requests for bugfixes for the current release can be sent at any time, but
-> +again having multiple smaller branches is better than trying to combine too many
-> +patches into one pull request.
-> +
-> +The subject line of a pull request should begin with "[GIT PULL]" and made using
-> +a signed tag, rather than a branch.  This tag should contain a short description
-> +summarising the changes in the pull request.  For more detail on sending pull
-> +requests, please see :ref:`pullrequests`.
-
->  
-
--- 
-~Randy
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXkgMzAsIDIwMjMgYXQgNTo0OeKAr1BNIEFuZHkgQ2hpdSA8YW5keS5jaGl1QHNp
+Zml2ZS5jb20+IHdyb3RlOgo+Cj4gT24gVHVlLCBNYXkgMzAsIDIwMjMgYXQgMjo1MuKAr1BNIEd1
+byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiBPbiBUdWUsIE1heSAzMCwg
+MjAyMyBhdCAxMDo1OeKAr0FNIEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPiB3cm90ZToKPiA+
+ID4KPiA+ID4gT24gTW9uLCBNYXkgMjksIDIwMjMgYXQgOTo0M+KAr1BNIENvbm9yIERvb2xleSA8
+Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+ID4gPiA+Cj4gPiA+ID4gT24gTW9u
+LCBNYXkgMjksIDIwMjMgYXQgMDM6Mzg6NDVBTSAtMDQwMCwgZ3VvcmVuQGtlcm5lbC5vcmcgd3Jv
+dGU6Cj4gPiA+ID4gPiBGcm9tOiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4g
+PiA+ID4gPgo+ID4gPiA+ID4gU29tZSAua28gYWxzbyBuZWVkIHRoZSByaXNjdl92X3VzZXJfYWxs
+b3dlZCBzeW1ib2wuCj4gPiA+ID4gPgo+ID4gPiA+ID4gRVJST1I6IG1vZHBvc3Q6ICJyaXNjdl92
+X3VzZXJfYWxsb3dlZCIgW2FyY2gvcmlzY3Yva3ZtL2t2bS5rb10KPiA+ID4gPiA+IHVuZGVmaW5l
+ZCEKPiA+ID4gPiA+IG1ha2VbM106ICoqKgo+ID4gPiA+ID4gWy9ob21lL2d1b3Jlbi9zb3VyY2Uv
+a2VybmVsL2xpbnV4L3NjcmlwdHMvTWFrZWZpbGUubW9kcG9zdDoxMzY6Cj4gPiA+ID4gPiBNb2R1
+bGUuc3ltdmVyc10gRXJyb3IgMQo+ID4gPiA+ID4KPiA+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IEd1
+byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4KPiA+ID4gPiA+IFNpZ25lZC1vZmYtYnk6
+IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+ID4gPiA+ID4gLS0tCj4gPiA+ID4gPiAgYXJj
+aC9yaXNjdi9rZXJuZWwvdmVjdG9yLmMgfCAxICsKPiA+ID4gPiA+ICAxIGZpbGUgY2hhbmdlZCwg
+MSBpbnNlcnRpb24oKykKPiA+ID4gPiA+Cj4gPiA+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9rZXJuZWwvdmVjdG9yLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZWN0b3IuYwo+ID4gPiA+ID4g
+aW5kZXggMWM0YWM4MjFlMDA4Li4zYWUwODgxNmQ2MDggMTAwNjQ0Cj4gPiA+ID4gPiAtLS0gYS9h
+cmNoL3Jpc2N2L2tlcm5lbC92ZWN0b3IuYwo+ID4gPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJu
+ZWwvdmVjdG9yLmMKPiA+ID4gPiA+IEBAIC0xMjksNiArMTI5LDcgQEAgYm9vbCByaXNjdl92X3Vz
+ZXJfYWxsb3dlZCh2b2lkKQo+ID4gPiA+ID4gIHsKPiA+ID4gPiA+ICAgICAgIHJldHVybiByaXNj
+dl92X2dldF9jdXJfY3RybChjdXJyZW50KSA9PSBQUl9SSVNDVl9WX1ZTVEFURV9DVFJMX09OOwo+
+ID4gPiA+ID4gIH0KPiA+ID4gPiA+ICtFWFBPUlRfU1lNQk9MKHJpc2N2X3ZfdXNlcl9hbGxvd2Vk
+KTsKPiA+ID4gPgo+ID4gPiA+IElzIHRoZXJlIGEgcmVhc29uIHRoYXQgdGhpcyBzaG91bGQgbm90
+IGJlIEVYUE9SVF9TWU1CT0xfR1BMKCk/Cj4gPiA+IEdvb2QgcXVlc3Rpb24sIGJ1dCBJIGp1c3Qg
+Zm9sbG93IG91ciBhcmNoL3Jpc2N2IGhhYmJpdCwgbWF5YmUgd2UKPiA+ID4gc2hvdWxkIGNoYW5n
+ZSBhbGwgb2YgdGhhdCBpbiBhbm90aGVyIHBhdGNoLgo+ID4gPgo+ID4gPiDinpwgIGxpbnV4LXM2
+NGlscDMyIGdpdDooczY0aWxwMzIpIOKclyBncmVwIEVYUE9SVF9TWU1CT0wgIGFyY2gvcmlzY3Yg
+LXIgfCB3YyAtbAo+ID4gPiA2Ngo+ID4gPiDinpwgIGxpbnV4LXM2NGlscDMyIGdpdDooczY0aWxw
+MzIpIOKclyBncmVwIEVYUE9SVF9TWU1CT0xfR1BMICBhcmNoL3Jpc2N2IC1yIHwgd2MgLWwKPiA+
+ID4gMTUKPiA+Cj4gPiBXaHkgIU1PRFVMRV9MSUNFTlNFKEdQTCkgbW9kdWxlcyBjb3VsZG4ndCB1
+c2UgcmlzY3Zfdl91c2VyX2FsbG93ZWQ/Cj4gPiBTZWVtcyBFWFBPUlRfU1lNQk9MX0dQTCBoYXMg
+bW9yZSBsaW1pdGF0aW9ucy4KPiA+Cj4gPiA6YzpmdW5jOmBFWFBPUlRfU1lNQk9MX0dQTCgpYAo+
+ID4gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiA+Cj4gPiBEZWZpbmVkIGluIGBgaW5j
+bHVkZS9saW51eC9leHBvcnQuaGBgCj4gPgo+ID4gU2ltaWxhciB0byA6YzpmdW5jOmBFWFBPUlRf
+U1lNQk9MKClgIGV4Y2VwdCB0aGF0IHRoZSBzeW1ib2xzCj4gPiBleHBvcnRlZCBieSA6YzpmdW5j
+OmBFWFBPUlRfU1lNQk9MX0dQTCgpYCBjYW4gb25seSBiZSBzZWVuIGJ5Cj4gPiBtb2R1bGVzIHdp
+dGggYSA6YzpmdW5jOmBNT0RVTEVfTElDRU5TRSgpYCB0aGF0IHNwZWNpZmllcyBhIEdQTAo+ID4g
+Y29tcGF0aWJsZSBsaWNlbnNlLiBJdCBpbXBsaWVzIHRoYXQgdGhlIGZ1bmN0aW9uIGlzIGNvbnNp
+ZGVyZWQgYW4KPiA+IGludGVybmFsIGltcGxlbWVudGF0aW9uIGlzc3VlLCBhbmQgbm90IHJlYWxs
+eSBhbiBpbnRlcmZhY2UuIFNvbWUKPiA+IG1haW50YWluZXJzIGFuZCBkZXZlbG9wZXJzIG1heSBo
+b3dldmVyIHJlcXVpcmUgRVhQT1JUX1NZTUJPTF9HUEwoKQo+ID4gd2hlbiBhZGRpbmcgYW55IG5l
+dyBBUElzIG9yIGZ1bmN0aW9uYWxpdHkuCj4gPgo+ID4gRm9yIGt2bSBpcyBva2F5Ogo+ID4KPiA+
+IE1PRFVMRV9BVVRIT1IoIlF1bXJhbmV0Iik7Cj4gPiBNT0RVTEVfTElDRU5TRSgiR1BMIik7Cj4g
+Pgo+ID4gU28sIEkgd291bGQgbGVhdmUgdGhlIGRlY2l0aW9uIHRvIEFuZHkuIElmIGhlIGRpZG4n
+dCB3YW50IGl0IHVzZWQgd2l0aAo+ID4gb3RoZXIgbm9uLWdwbCBtb2R1bGVzLCBjaG9vc2UgdGhl
+IEVYUE9SVF9TWU1CT0xfR1BMLgo+Cj4gRG8geW91IGhhdmUgYW55IHVzZSBjYXNlIGZvciBleHBv
+cnRpbmcgdGhpcyBmdW5jdGlvbiB0byBub24tR1BMCj4gbGljZW5zZWQgbW9kdWxlcz8gSSBleHBv
+cnRlZCB0aGUgZnVuY3Rpb24gd2l0aCBFWFBPUlRfU1lNQk9MX0dQTCgpIGluCj4gdjIwWzFdIGJl
+Y2F1c2UgSSB0aG91Z2h0IG1vc3QgbWFpbnRhaW5lcnMgd291bGQgYWNjZXB0IEdQTCByYXRoZXIg
+dGhhbgo+IG5vbi1HUEwgb25lLiBBbmQgaXQgc2VlbXMgbW9zdCBkcml2ZXJzIHdvdWxkIG5ldmVy
+IGNhbGwgdGhpcyBmdW5jdGlvbgo+IGFueXdheS4KSSBqdXN0IGZvdW5kIExpbnV4LW5leHQgYnVp
+bGQgaXMgYnJva2VuLCBzbyBJIHNlbnQgdGhlIHBhdGNoLiBJdCBzZWVtcwp5b3UndmUgc29sdmVk
+IHRoYXQuIFRoYXQncyBva2F5LgoKPgo+ID4KPiA+ID4KPiA+ID4gPgo+ID4gPiA+IEkgZmlndXJl
+IEFuZHkgd2lsbCByb2xsIHRoaXMgaW50byB0aGlzIG5leHQgcmV2aXNpb24uCj4KPiBUaGUgZml4
+IGZvciB0aGlzIGhhcyBiZWVuIGluY2x1ZGVkIGluIHYyMFsxXS4gSG93ZXZlciwgSSBhbHNvIGNo
+YW5nZWQKPiB0aGUgZnVuY3Rpb24gbmFtZQo+IHMvcmlzY3Zfdl91c2VyX2FsbG93ZWQvcmlzY3Zf
+dl92c3RhdGVfY3RybF91c2VyX2FsbG93ZWQvLgo+Cj4gPiA+ID4KPiA+ID4gPiBDaGVlcnMsCj4g
+PiA+ID4gQ29ub3IuCj4gPiA+Cj4gPiA+Cj4gPiA+Cj4gPiA+IC0tCj4gPiA+IEJlc3QgUmVnYXJk
+cwo+ID4gPiAgR3VvIFJlbgo+ID4KPiA+Cj4gPgo+ID4gLS0KPiA+IEJlc3QgUmVnYXJkcwo+ID4g
+IEd1byBSZW4KPgo+IFsxXTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjMwNTE4MTYx
+OTQ5LjExMjAzLTIxLWFuZHkuY2hpdUBzaWZpdmUuY29tLwo+Cj4gQ2hlZXJzLAo+IEFuZHkKCgoK
+LS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
