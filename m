@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C86C1C77B73
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 18:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05A7BC77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 19:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2vYxb7/kRsR0XzK0GSn3ehjS6HtF2WDELRJ3qUPFUjc=; b=VUQ0JjmykDgkRs
-	hMFcgKSmXcnKLavuyrov+NeWF5CsdhykJU/tzd/CdkAvGxVXLGJixVo8538MunVXJ2lc2e75TAcGx
-	XbUjy2Aj6kjL/T/dgA12ptv4c4Xg50BwOSskXatbVu7fhkQcqRHV33xdcTQx05WpvuxE0mLRQdxyE
-	crezRICNNLIKYxkZqA8eM/TC1T5jnlRP3K3Kxf04H5VdFxTzdA7lkGVHRcRUVdMP5IvDs2TUnxZ4C
-	NU4IKPyVcEb5weWA3N8UuxVRCTzr0uFxsQpkKxucXoqnFkTUpbt8dczBotlo+hxHZompE61wRGRU+
-	oUCK+3N9vkmx7ya0g/ig==;
+	List-Owner; bh=TlIkNriPXnbT+YKdPGwqbvZZ59muNrWbpho4RB2tg4o=; b=QFyfbZDOGF12cZ
+	HIE2L5Cryr6y/95r7kbqYo6UgfxH7w+MXBNltS6D9NtRrYMgkeJ+xpVvHhWMdqC6104olxqLXgziA
+	Ic0jdeN3iFESqsDY0Ww6ZgT9PgjbFCdU3TYjC3XB+Ps0qdSaGb5iEJnnCwUqRS+dGftZXHnUkMzOw
+	+g7zh6ZL8sgVdxIVgq4tWOmLZ93+xJEMkGTiT1SEWY0TsOcxnqzTI9YfC6maWz1QltSbnkN9kKGZN
+	XFRKloMNtbOY9fXlLUkFpytTX16BMQj0EKJyWUNWB3Wt5hNrwAra7s+xycy36UMpGPevJ4yBrLnRl
+	kFEXqZaFrJ3azidHMXyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q44Lv-00EuPw-0F;
-	Tue, 30 May 2023 18:45:51 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1q45OT-00F1w7-1J;
+	Tue, 30 May 2023 19:52:33 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q44Ls-00EuOa-0X
-	for linux-riscv@lists.infradead.org;
-	Tue, 30 May 2023 18:45:49 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-9700219be87so877300766b.1
-        for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 11:45:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1685472334; x=1688064334;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uToXJ+fOWkpnn5Y/56EQgrrTUY3apSu6OqRigzUlyIc=;
-        b=Bx1VXp1lL1lr/7Wg4nAZ/8axfexaAsOa5wdsT0oRkjQoSAlr/s2ZxkRzDYWGF5JzY0
-         jgZC646MNyQRsm7TAkynXNGDr7V04SO4B0NwGP2V3vPF1vhSesCmL3/mEnMJTQw3Ujdk
-         /REcVYg+ph1BCux4hWvJFck0XFyK9F2a2yr9unJoLygRbFoT3c9bguF4D/hDysaxF7a5
-         7kNhXL6FfSL6x15DosMBfLRZsS3njv/j7lchGd540xy5yJok7PXaQyS5sEBQIRWD5MK2
-         V7/uC3cHqK8r1oRZSTuGH4dZ/3a5iq+VEkvHfuxPigsc9H3qbtoz84wxK5yO/myq+lQN
-         Bcog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685472334; x=1688064334;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uToXJ+fOWkpnn5Y/56EQgrrTUY3apSu6OqRigzUlyIc=;
-        b=KYLd3bo3C1osWSk0oEnBMOXFi5JaI0+UDeD/7xUs1J+F7SzMyP97CjFw1X5Rr05flh
-         VdH7krtMRe2cPVN2PFbLyYVrY3TmZSm+au0PcmArF4caCvY/0F9/0TAoIdag574G0/6o
-         tVcJJStzaFkseXsERPMOPu8NCXPgH5FT3Lnf0NOlLxpXRrfLr6Ef5XDNYkiYdYq41reX
-         dNHkQvXp3CrQL480VD2of1e2xrrYBFAeYSQIT6WVvbEQawp9f25zCNpY1A9gzT2JrNiu
-         E68wnX1+OwbjcsDBCyLKY2k1uUuZzI8luJDFkJ4achhjYaPr2RCzMWwuiiLa6IGTQCt4
-         sIgw==
-X-Gm-Message-State: AC+VfDxULDnqiHGf6hCFvp0mvr7Bt4pHjyE/aDEi8Dk0L6TcJggTHwt1
-	owbo2yy57eEyYzkPahYNLRA=
-X-Google-Smtp-Source: ACHHUZ7iBBEKE+toubaVfH5MLKrEnuzzySKWPjZ7fHNs67mYDXW5fh0fbYrECQwxAPCIA3fJeHK3YA==
-X-Received: by 2002:a17:907:9609:b0:947:335f:5a0d with SMTP id gb9-20020a170907960900b00947335f5a0dmr3678436ejc.62.1685472334056;
-        Tue, 30 May 2023 11:45:34 -0700 (PDT)
-Received: from andrea (host-95-247-65-76.retail.telecomitalia.it. [95.247.65.76])
-        by smtp.gmail.com with ESMTPSA id f6-20020a1709064dc600b0094f4d2d81d9sm7726268ejw.94.2023.05.30.11.45.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 May 2023 11:45:33 -0700 (PDT)
-Date: Tue, 30 May 2023 20:45:28 +0200
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: ajones@ventanamicro.com, heiko@sntech.de,
-	linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-kernel@vger.kernel.org, christoph.muellner@vrull.eu,
-	David.Laight@aculab.com, heiko.stuebner@vrull.eu
-Subject: Re: [PATCH v3 2/2] riscv: Add Zawrs support for spinlocks
-Message-ID: <ZHZESDWJZvhuJ3Af@andrea>
-References: <20230524-35efcabbbfd6a1ef83865fb4@orel>
- <mhng-d92f84d8-03db-4fb1-93c3-0d5bfbe7a796@palmer-ri-x1c9a>
+	id 1q45O3-00F1ct-0r;
+	Tue, 30 May 2023 19:52:08 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1685476320;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LJ3pwe5VO2kqAY2WBljz3EqXfTvvu+3J346IL0PSsq8=;
+	b=xpL4T8aPYWldl3m+QrLxN+At2fc+ZjAC6pEU4MuUjTSaZuj6IDFe6UakfjWnmmW8hKClix
+	t7yS6D3ihlSEIf30gGCLXhg08YwOKfQvUQI3IgIl2aHuedpFPvjibaFkiCGXlhLxeGBGkW
+	dGEwWvRoq2mQEzRs8oh56PiUJi2/s5QyH4qWIPL9JI/tQVBvtD0plLFK4LpxUmoH0fO1+H
+	nGl/daQybL4Usq3PzahflEHPTKXjDjpOAZxUsLIwJWvToU8rpo8vLXAXsklySZIyOPhZMU
+	EowGzZyfscIPTe6Qwpi0Biu3nomQmhobdOQI00py4ZRFq1Ph0F82SiNDS5umEg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1685476320;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LJ3pwe5VO2kqAY2WBljz3EqXfTvvu+3J346IL0PSsq8=;
+	b=lIHbo7YKz61HDwNtVfFSrVm0Wqi8uCKfx3OWvRqPS+VwOS/NPYknS3d/X/ObIVAcsa60Eq
+	QcFAHQnns6at8LBA==
+To: Sean Christopherson <seanjc@google.com>
+Cc: "Kirill A. Shutemov" <kirill@shutemov.name>, Tom Lendacky
+ <thomas.lendacky@amd.com>, LKML <linux-kernel@vger.kernel.org>,
+ x86@kernel.org, David Woodhouse <dwmw2@infradead.org>, Andrew Cooper
+ <andrew.cooper3@citrix.com>, Brian Gerst <brgerst@gmail.com>, Arjan van de
+ Veen <arjan@linux.intel.com>, Paolo Bonzini <pbonzini@redhat.com>, Paul
+ McKenney <paulmck@kernel.org>, Oleksandr Natalenko
+ <oleksandr@natalenko.name>, Paul Menzel <pmenzel@molgen.mpg.de>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Piotr Gorski
+ <lucjan.lucjanov@gmail.com>, Usama Arif <usama.arif@bytedance.com>,
+ Juergen Gross <jgross@suse.com>, Boris Ostrovsky
+ <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org, Russell King
+ <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E.J.
+ Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>, "Michael Kelley (LINUX)"
+ <mikelley@microsoft.com>, Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [patch] x86/smpboot: Disable parallel bootup if cc_vendor != NONE
+In-Reply-To: <ZHYqwsCURnrFdsVm@google.com>
+References: <87sfbhlwp9.ffs@tglx>
+ <20230529023939.mc2akptpxcg3eh2f@box.shutemov.name> <87bki3kkfi.ffs@tglx>
+ <20230529203129.sthnhzgds7ynddxd@box.shutemov.name>
+ <20230530005428.jyrc2ezx5raohlrt@box.shutemov.name> <87mt1mjhk3.ffs@tglx>
+ <87jzwqjeey.ffs@tglx> <87cz2ija1e.ffs@tglx>
+ <20230530122951.2wu5rwcu26ofov6f@box.shutemov.name> <87wn0pizbl.ffs@tglx>
+ <ZHYqwsCURnrFdsVm@google.com>
+Date: Tue, 30 May 2023 21:51:59 +0200
+Message-ID: <87leh5iom8.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-d92f84d8-03db-4fb1-93c3-0d5bfbe7a796@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_114548_208865_C40B3C00 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20230530_125207_614496_46D83724 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,43 +100,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 24, 2023 at 04:00:43PM -0700, Palmer Dabbelt wrote:
-> On Wed, 24 May 2023 10:05:52 PDT (-0700), ajones@ventanamicro.com wrote:
+On Tue, May 30 2023 at 09:56, Sean Christopherson wrote:
+> On Tue, May 30, 2023, Thomas Gleixner wrote:
+>> On Tue, May 30 2023 at 15:29, Kirill A. Shutemov wrote:
+>> > On Tue, May 30, 2023 at 02:09:17PM +0200, Thomas Gleixner wrote:
+>> >> The decision to allow parallel bringup of secondary CPUs checks
+>> >> CC_ATTR_GUEST_STATE_ENCRYPT to detect encrypted guests. Those cannot use
+>> >> parallel bootup because accessing the local APIC is intercepted and raises
+>> >> a #VC or #VE, which cannot be handled at that point.
+>> >> 
+>> >> The check works correctly, but only for AMD encrypted guests. TDX does not
+>> >> set that flag.
+>> >> 
+>> >> Check for cc_vendor != CC_VENDOR_NONE instead. That might be overbroad, but
+>> >> definitely works for both AMD and Intel.
+>> >
+>> > It boots fine with TDX, but I think it is wrong. cc_get_vendor() will
+>> > report CC_VENDOR_AMD even on bare metal if SME is enabled. I don't think
+>> > we want it.
+>> 
+>> Right. Did not think about that.
+>> 
+>> But the same way is CC_ATTR_GUEST_MEM_ENCRYPT overbroad for AMD. Only
+>> SEV-ES traps RDMSR if I'm understandig that maze correctly.
+>
+> Ya, regular SEV doesn't encrypt register state.
 
-> > I guess this peeling off of the first iteration is because it's expected
-> > that the load generated by READ_ONCE() is more efficient than lr.w/d? If
-> > we're worried about unnecessary use of lr.w/d, then shouldn't we look
-> > for a solution that doesn't issue those instructions when we don't have
-> > the Zawrs extension?
-> 
-> It's actually just a consequence of how the Linux hooks are described:
-> they're macros that take a C expression to test in the loop, and we can't
-> handle C expressions in LR/SC loops as that'd require compiler support and
-> nobody's figured out how to do that correctly yet (there were some patches,
-> but they had issues).  So we need to do this awkward bit of checking without
-> the reservation and then waiting with the reservation.
+That aside. From a semantical POV making this decision about parallel
+bootup based on some magic CC encryption attribute is questionable.
 
-I believe Andrew was really just hinting to something like (from
-arch/arm64/):
+I'm tending to just do the below and make this CC agnostic (except that
+I couldn't find the right spot for SEV-ES to clear that flag.)
 
-#define smp_cond_load_relaxed(ptr, cond_expr)				\
-({									\
-	typeof(ptr) __PTR = (ptr);					\
-	__unqual_scalar_typeof(*ptr) VAL;				\
-	for (;;) {							\
-		VAL = READ_ONCE(*__PTR);				\
-		if (cond_expr)						\
-			break;						\
-		__cmpwait_relaxed(__PTR, VAL);				\
-	}								\
-	(typeof(*ptr))VAL;						\
-})
+Thanks,
 
-where the __cmpwait_relaxed() would issue NOPs without Zawrs, a
-sequence "lr.* ; beq ; wrs.sto" otherwise.  (with the "dangling
-reservation" when we branch, similarly to CMPXCHG)?
-
-  Andrea
+        tglx
+---
+--- a/arch/x86/coco/tdx/tdx.c
++++ b/arch/x86/coco/tdx/tdx.c
+@@ -871,5 +871,7 @@ void __init tdx_early_init(void)
+ 	x86_platform.guest.enc_tlb_flush_required   = tdx_tlb_flush_required;
+ 	x86_platform.guest.enc_status_change_finish = tdx_enc_status_changed;
+ 
++	x86_cpuinit.parallel_bringup = false;
++
+ 	pr_info("Guest detected\n");
+ }
+--- a/arch/x86/include/asm/x86_init.h
++++ b/arch/x86/include/asm/x86_init.h
+@@ -2,6 +2,7 @@
+ #ifndef _ASM_X86_PLATFORM_H
+ #define _ASM_X86_PLATFORM_H
+ 
++#include <linux/bits.h>
+ #include <asm/bootparam.h>
+ 
+ struct ghcb;
+@@ -177,11 +178,14 @@ struct x86_init_ops {
+  * struct x86_cpuinit_ops - platform specific cpu hotplug setups
+  * @setup_percpu_clockev:	set up the per cpu clock event device
+  * @early_percpu_clock_init:	early init of the per cpu clock event device
++ * @fixup_cpu_id:		fixup function for cpuinfo_x86::phys_proc_id
++ * @parallel_bringup:		Parallel bringup control
+  */
+ struct x86_cpuinit_ops {
+ 	void (*setup_percpu_clockev)(void);
+ 	void (*early_percpu_clock_init)(void);
+ 	void (*fixup_cpu_id)(struct cpuinfo_x86 *c, int node);
++	bool parallel_bringup;
+ };
+ 
+ struct timespec64;
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -1287,6 +1287,11 @@ bool __init arch_cpuhp_init_parallel_bri
+ 		return false;
+ 	}
+ 
++	if (!x86_cpuinit.parallel_bringup) {
++		pr_info("Parallel CPU startup disabled by the platform\n");
++		return false;
++	}
++
+ 	smpboot_control = STARTUP_READ_APICID;
+ 	pr_debug("Parallel CPU startup enabled: 0x%08x\n", smpboot_control);
+ 	return true;
+--- a/arch/x86/kernel/x86_init.c
++++ b/arch/x86/kernel/x86_init.c
+@@ -126,6 +126,7 @@ struct x86_init_ops x86_init __initdata
+ struct x86_cpuinit_ops x86_cpuinit = {
+ 	.early_percpu_clock_init	= x86_init_noop,
+ 	.setup_percpu_clockev		= setup_secondary_APIC_clock,
++	.parallel_bringup		= true,
+ };
+ 
+ static void default_nmi_init(void) { };
 
 _______________________________________________
 linux-riscv mailing list
