@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E19F2C77B7A
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 06:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F581C77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 May 2023 06:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U0ffc+h58r/epXT315dch4QSh2SoVrh5FBk11X8KKMU=; b=0x5biF0qCaNjz8
-	2JJErdy8uW8LdPYmNR57Y1HRc5RQ65ILO6HSQthXo+iSm6JjG5hBx2vAizcmvnKPREmHpdySQ9CNv
-	mFvDeMoVLjo1c3OJkwO7yyPV9JaTVA0xu4YB5NMMjW/z/+d5KKdbmj/Bw5COoF+uPkxJesLmw9QaJ
-	9mJpS017zi1IGpHab4IAeZeV/XfeGWBq/zkebo6L+wHtKdpfEVXxWgsX4S3IvPN7lqWGmshHEdOds
-	FtnDianRi+PLizW80dTVgCNOw//xEZwx03CpcsP4n2PmSOOknUszgumPvyupW/yIEPNWcss3oftv/
-	iUtKuS1sw/B6MB3biKgA==;
+	List-Owner; bh=4T8CeOzkivbmS7ySoFwbeBVx5MqDg96cFKcyi+MTeK0=; b=SOzJqX9CD93tXk
+	I2od86we0kCDHQDDqxa0FSph4RYCiDCnTM4N1iUFeYO3g86zlaA7VUUK7y5v5wz1mcVBvDCHai3PL
+	48kx1VkQPAzmjdqAbeoWI75hsjD6ptZLiuKvzzcL8O0M4oZkiVWDMEbLrpQeSzBCqHnQcKHs7KVFt
+	qLB1Dk2K+SUnaZCOaSd/x+kCzv4iLl2xZfR0Zz8+u+BbnOGoOL8/V/PvosrgYhF87/CZ7+uYaRiFb
+	J8Fnu3cMUDHx2161QP97iQj9POy/IKlkpyef3WQo1bbIObJuBs4Afui4gRFLot7Zmy1eL3jZeJF7K
+	B8CgHr6vJCyFkyJjC8Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3szk-00Caij-0d;
-	Tue, 30 May 2023 06:38:12 +0000
+	id 1q3t4e-00CbeZ-2u;
+	Tue, 30 May 2023 06:43:16 +0000
 Received: from bg4.exmail.qq.com ([43.154.54.12])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q3szh-00CahW-0s
+	id 1q3t4b-00Cbdf-0t
 	for linux-riscv@lists.infradead.org;
-	Tue, 30 May 2023 06:38:10 +0000
-X-QQ-mid: bizesmtp79t1685428676txj83914
+	Tue, 30 May 2023 06:43:14 +0000
+X-QQ-mid: bizesmtp82t1685428979t23ocw7f
 Received: from linux-lab-host.localdomain ( [119.123.130.226])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 30 May 2023 14:37:55 +0800 (CST)
+	id ; Tue, 30 May 2023 14:42:58 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: jXjag1m6xl6889Jpgjswy33PSiv3wgSWqoIFui+aUZWHp4mxjk63aUjgGRhFQ
-	LMNAUVD9PsUqGVCwHm0hlN5+3sRmrdAVW2PozVMKCw9Db26XQE0Rh65aO20dBDmZGj3g4xj
-	i0rY9p/BqHACni0/Ku/45kqRCIc8paxw41FdN7fY/4035HCnWNSJbxMVMhFOplBnbmzw8Uj
-	7H8k4Zi9eFlRPn45MvIkFwKtCXWWYCjKOBYpCJo6sBYqsqhYKgEE3ZMUhvXrDB4qltlfFcI
-	eEYwBS++g4usHpxxiA4zwoqVlVzpjQpulO0AMmg4eRMb0Xyg9adG8t6O6FU1yxpRCC7RwvM
-	WdoOxhFh2t5cqot1k+y9uv06H+ORfS64hQ0rQdFKcCI0nsoYxqCit5lHLyUIzyiFRTz6La0
+X-QQ-FEAT: QityeSR92A2o5sTwmGCD+PqYMSq7MB3IEE8O3t1qtWOzFpvckQlLvvdZrNOgE
+	uarJb402gzy9fGIWVhjEYpQDyVh3pANl+z9B3bRnf03I3oT4Z8IS23/bof7tQtzq8n306zg
+	rfkF9nyJz0EwgB6+lRhH48uRW1Yn26Wa63FhSP+VEpWjL4h88ydg+O9QTlN1tjcPMc1t78H
+	Lu0IRV35MhW/3iu3iLPjt2I6GN62hUKHRs8usz00u+QHRmd27bfqhcoZ1YUR/uHt3KJZ/Vw
+	tQDkvr5b+CSZZca3/Zlcg1e1Kta/IIJVePMt3sGEWhxF7kPE1xfj8pZlQvEA7kEfwwJmTWj
+	SiRjvuntBLs2VvV4oWQ47+LPVOAvuJ4gnoct3RfMo8LyztoU7oMHjwGgkJujDhOIhrVpOhd
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15317070203822882915
+X-BIZMAIL-ID: 9349735140151722294
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: falcon@tinylab.org,
@@ -48,9 +48,9 @@ Cc: falcon@tinylab.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	thomas@t-8ch.de
-Subject: [PATCH 1/2] selftests/nolibc: add new gettimeofday test cases
-Date: Tue, 30 May 2023 14:37:49 +0800
-Message-Id: <bfc3dba52300dcce03ae1c7c41f2bb8984cf459b.1685428087.git.falcon@tinylab.org>
+Subject: [PATCH 2/2] selftests/nolibc: add sizeof test for the new 64bit data types
+Date: Tue, 30 May 2023 14:42:56 +0800
+Message-Id: <d1f4073e1dd9a51be93ea9e14ebd746b312646a4.1685428087.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1685428087.git.falcon@tinylab.org>
 References: <cover.1685428087.git.falcon@tinylab.org>
@@ -58,8 +58,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230529_233809_616143_297C1DC1 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20230529_234313_642302_62A9E5E7 
+X-CRM114-Status: UNSURE (   8.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,46 +77,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These 3 test cases are added to cover the normal using scenes of
-gettimeofday().
-
-They have been used to trigger and fix up such issue:
-
-    nolibc-test.c:(.text.gettimeofday+0x54): undefined reference to `__aeabi_ldivmod'
-
-This issue happens while there is no "unsigned int" conversion in the
-new clock_gettime / clock_gettime64 syscall path of gettimeofday():
-
-    tv->tv_usec = ts.tv_nsec / 1000;
+These test cases are required to make sure the new added data types are
+really 64bit based.
 
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- tools/testing/selftests/nolibc/nolibc-test.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ tools/testing/selftests/nolibc/nolibc-test.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
 diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-index 8ba8c2fc71a0..20d184da9a2b 100644
+index 20d184da9a2b..43ce4d34b596 100644
 --- a/tools/testing/selftests/nolibc/nolibc-test.c
 +++ b/tools/testing/selftests/nolibc/nolibc-test.c
-@@ -533,6 +533,8 @@ static int test_stat_timestamps(void)
-  */
- int run_syscall(int min, int max)
- {
-+	struct timeval tv;
-+	struct timezone tz;
- 	struct stat stat_buf;
- 	int euid0;
- 	int proc;
-@@ -588,6 +590,9 @@ int run_syscall(int min, int max)
- 		CASE_TEST(getdents64_root);   EXPECT_SYSNE(1, test_getdents64("/"), -1); break;
- 		CASE_TEST(getdents64_null);   EXPECT_SYSER(1, test_getdents64("/dev/null"), -1, ENOTDIR); break;
- 		CASE_TEST(gettimeofday_null); EXPECT_SYSZR(1, gettimeofday(NULL, NULL)); break;
-+		CASE_TEST(gettimeofday_tv);   EXPECT_SYSZR(1, gettimeofday(&tv, NULL)); break;
-+		CASE_TEST(gettimeofday_tz);   EXPECT_SYSZR(1, gettimeofday(NULL, &tz)); break;
-+		CASE_TEST(gettimeofday_tv_tz);EXPECT_SYSZR(1, gettimeofday(&tv, &tz)); break;
- 		CASE_TEST(getpagesize);       EXPECT_SYSZR(1, test_getpagesize()); break;
- 		CASE_TEST(ioctl_tiocinq);     EXPECT_SYSZR(1, ioctl(0, TIOCINQ, &tmp)); break;
- 		CASE_TEST(ioctl_tiocinq);     EXPECT_SYSZR(1, ioctl(0, TIOCINQ, &tmp)); break;
+@@ -721,6 +721,14 @@ int run_stdlib(int min, int max)
+ #else
+ # warning "__SIZEOF_LONG__ is undefined"
+ #endif /* __SIZEOF_LONG__ */
++		CASE_TEST(sizeof_time_t);           EXPECT_EQ(1, 8,                sizeof(time_t)); break;
++		CASE_TEST(sizeof_timespec);         EXPECT_EQ(1, 16,               sizeof(struct timespec)); break;
++#ifdef NOLIBC
++		CASE_TEST(sizeof_itimerspec);       EXPECT_EQ(1, 32,               sizeof(struct itimerspec)); break;
++#endif
++		CASE_TEST(sizeof_timeval);          EXPECT_EQ(1, 16,               sizeof(struct timeval)); break;
++		CASE_TEST(sizeof_itimerval);        EXPECT_EQ(1, 32,               sizeof(struct itimerval)); break;
++		CASE_TEST(sizeof_off_t);            EXPECT_EQ(1, 8,                sizeof(off_t)); break;
+ 		case __LINE__:
+ 			return ret; /* must be last */
+ 		/* note: do not set any defaults so as to permit holes above */
 -- 
 2.25.1
 
