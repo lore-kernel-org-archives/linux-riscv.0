@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8294C7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 14:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F935C77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 14:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LR+NA7N39X9YxGOKhJOuJrGUw89GxVh9KSxfr6QbwAc=; b=jje7QQDK8pEFkx
-	MmEP1UosEVigbb3o47u+mrU4TryP62WwukumRhdurXuafQWYo3xSeZ2pNWC+rvQ9FC85ggB1FE5BZ
-	fN0lq5jjKtH5IrdIMMCVoHItXhH5RhMHy7SzPOzSPaTus8+WYO/4popFU/bPuXdhcTXKXkIr5hz8/
-	LVqgatC6Q9Whc9cEENfe4larYxEtIiBVFABTVHIlLna3VqYDTjuDA42WU65ahQpuaXhX2Pne3cAQA
-	cvP0ajgvzy7VYENp/9/824cdvTqipVWlU+RIx1P7XdiUBure93Kr+3VacbawVXSrqgQPRroydGi0S
-	4pd0AKeMmiA4nvHzOkzw==;
+	List-Owner; bh=xy/lhKlDd1lL1HKwQ6o0VgEzVoglnluN8ZzAN/fGSCg=; b=rHESIDbdovzuE+
+	H1/MTrnn1CC/YPwMiQlGuyXLpD4Ll8oJqM1IQoldUhqMSmOD1fdtB7pc3T0Q3w+oyP4fYmXF6zkSB
+	/0RuOQpCDON89kXWGIQEO6x/HxE4FoW7ivmYNJKr00o0PvAXLpGPZMk5xUwa9EO1Hx13xInwxMOxI
+	gmPn3mdJFqigwioXUqc/sRDSYGEddRoABIzd+ofrq/7OT1AeCYhsVkTWRfPtk4LKqW+hIreJ8dO5a
+	fFuYRvKk3S6KE7QQJYo3JpdYK4sfO4RO7SXrnRV2RpebmtEJfLVeUqUpyKYPYzDsnhqrjTxEF8bLx
+	a/NNjQLA2eO5q3XKkRjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4MOI-0004Xw-21;
-	Wed, 31 May 2023 14:01:30 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1q4MW9-0005o5-1S;
+	Wed, 31 May 2023 14:09:37 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4MOG-0004WZ-1P
+	id 1q4MW6-0005md-1c
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 May 2023 14:01:30 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-510f525e06cso9717865a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 31 May 2023 07:01:28 -0700 (PDT)
+	Wed, 31 May 2023 14:09:35 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-30ae61354fbso3232715f8f.3
+        for <linux-riscv@lists.infradead.org>; Wed, 31 May 2023 07:09:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1685541687; x=1688133687;
+        d=ventanamicro.com; s=google; t=1685542170; x=1688134170;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xV0p1cILT3YTZiyLBW2gM8L29pLx3no3Au0rCN/fAsw=;
-        b=gUF0PwXYe8VCgDpxtcKPgbxsSJTGNkqXOtSRlywJlkOjfIJ4RSdfa2UVuR44ynbHFw
-         NKNlI0h8WPdCGNa+vUoV2SDzv0cNPY++y1O+tSLD8DyL+GNgS0+nkfGF0a6i3YJH+wNV
-         x4Bp+2sGbToPR2nr3y4lOVew5cRUUf0c0FY3u/GtWzluqFr8GLUv2Nk+8WCV1g20INdO
-         UOcEZhwWwmk9YeNFWiDVZ/Gl2IRFnDzPIDxnaFptnayBtNdH1D8DIsrPvDfelv48ixSU
-         FJeUMC0Jl9ubMq0XnS+bntiTO2K2CBvylp+N3GZIEWWPJ2nplN2VeXy5NQg1vGhN3qCH
-         j4pw==
+        bh=pgpyzmnbNHAseyCM+s0XsB0KjofBbxw68PBCInlqrLM=;
+        b=oxzmFA70Bjtlz6BsRl7Er91ErjmIoeIoblFWyRv4dTc3OiWmG2pPwau86hZLSdyF+x
+         o/en/dxj3KIaEe2mRLZqODiQX+Fg+JSppTKF39rcISQ02VRyDntm1u1tkc/glQkXxXhh
+         EaiHBTIEfxCSC7I4LMcET+AewMo97ui82kaVsMEd7Ab8ZHEKv8SF/Xsnqc94oJk3BzeN
+         i2yd/18czjL4o65TJ3sZKe+lBjgFghQNfjWmqI/7IwN3IC290cPe1bGt6TzPvtWv2jX4
+         ehNH+GVJmKOfUJCeQKY/KPO98LY19AkaBF/5VcNefetloyimk0xYMoTcdzEvgx+HftjY
+         /BSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685541687; x=1688133687;
+        d=1e100.net; s=20221208; t=1685542170; x=1688134170;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xV0p1cILT3YTZiyLBW2gM8L29pLx3no3Au0rCN/fAsw=;
-        b=Ko1olzUSYTWV8F8DE6H1LUu8R2TEmsMpljme0eZ9mZgod78TKMptgiDbuVssWNljva
-         6EhlVLGZAwsOirWwvGYUupYppZRQjoug9jQv4gQe7n5nSyty4Gu5QKvGJ/wfV4CRyC5Y
-         8FsOYXrB15/E6t6ajTwn2dGzlvBSzCZ0Ow598NPCz7psbEwIVawQ7VUEFLvD0ZGdlAxa
-         4e8mqjB3BWmjvrAIG3QQWhRWxnTYcEvRpDUdsqGK6RaN/x9QEj5IiNvHDfq7SItFB0wD
-         Jv9vyfFmp9b3RRDCCREzX5vkt2QSmpVwODizlLkGmStRA3QkzNXp4iwpaixWljQo8rle
-         uyYQ==
-X-Gm-Message-State: AC+VfDyqb/N0sRYpPprRN2o1+vDtIomLfcDh4C2SB2ysMJu31iB8lSWG
-	j3o0c6D8vsP8TaxB4N+gGV7aAQ==
-X-Google-Smtp-Source: ACHHUZ65P5pCqpKEk6KKg8Qqezxma5Yv53pnk0dfCkZMl5e4aOBfLb2ibQkhM3VpJR/whOzqfU8jYA==
-X-Received: by 2002:a17:907:72cb:b0:974:1d8b:ca5e with SMTP id du11-20020a17090772cb00b009741d8bca5emr5212006ejc.14.1685541686880;
-        Wed, 31 May 2023 07:01:26 -0700 (PDT)
+        bh=pgpyzmnbNHAseyCM+s0XsB0KjofBbxw68PBCInlqrLM=;
+        b=PD7C9cprgBYRFAR9VMLLoOHXznV4mV8qt0U8wvWKycKmkJOi00wV3JGqUkbCgcODT1
+         DV9Jjo4ZzCbOrzlpa0LmTH7fDRf7Z+AFLM4rjfqEDKfZH9s29en7+mqrHdyaxGGifi3T
+         C4bwrByqyjKmnb3h0kIJzD/xbgHlH50d65Wao0H542mBedWA8ivrBQq5TmPrp8FP1JN3
+         km/V4aaRKJmrO69Es4xSaisXjxpt23Dh0CUQuQGD+aqTURI45t2vaCQRq6dIUKGuwiXE
+         TWv6TFuJaC/rPH9Fzusd/q0uPkIE3fWZvaehevnSAKW57iftX3O1aqbfoY9AM5Nov4wb
+         dSDA==
+X-Gm-Message-State: AC+VfDzYDTt7ShChNWPX0D72eX3XNcxQ6TrQ6NuygMso17tqeFTgmGgg
+	+C0QpvynhPiquWJ4JpPcJ0CP7Q==
+X-Google-Smtp-Source: ACHHUZ6/5u1aIeEPR87Cph6/LuYqwzkXH6Ggsh21iSthCsoK8ecfPiKMDhYwuo0sJqTdGafvLc34yA==
+X-Received: by 2002:a5d:526e:0:b0:309:50e7:7c3 with SMTP id l14-20020a5d526e000000b0030950e707c3mr4408962wrc.63.1685542170038;
+        Wed, 31 May 2023 07:09:30 -0700 (PDT)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id e6-20020a170906504600b00965ac1510f8sm8966578ejk.185.2023.05.31.07.01.26
+        by smtp.gmail.com with ESMTPSA id d15-20020a056000114f00b0030af72bca98sm4800839wrx.103.2023.05.31.07.09.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 May 2023 07:01:26 -0700 (PDT)
-Date: Wed, 31 May 2023 16:01:25 +0200
+        Wed, 31 May 2023 07:09:29 -0700 (PDT)
+Date: Wed, 31 May 2023 16:09:28 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Alexandre Ghiti <alexghiti@rivosinc.com>
 Cc: Jonathan Corbet <corbet@lwn.net>, 
@@ -74,17 +74,16 @@ Cc: Jonathan Corbet <corbet@lwn.net>,
 	Rob Herring <robh@kernel.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 03/10] riscv: Make legacy counter enum match the HW
- numbering
-Message-ID: <20230531-ddb2d631e152526102f41d5e@orel>
+Subject: Re: [PATCH v2 04/10] drivers: perf: Rename riscv pmu driver
+Message-ID: <20230531-49ed4c2054db0abbacd03632@orel>
 References: <20230512085321.13259-1-alexghiti@rivosinc.com>
- <20230512085321.13259-4-alexghiti@rivosinc.com>
+ <20230512085321.13259-5-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230512085321.13259-4-alexghiti@rivosinc.com>
+In-Reply-To: <20230512085321.13259-5-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_070128_491659_84D5578E 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20230531_070934_537384_E391A280 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +100,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 12, 2023 at 10:53:14AM +0200, Alexandre Ghiti wrote:
-> RISCV_PMU_LEGACY_INSTRET used to be set to 1 whereas the offset of this
-> hardware counter from CSR_CYCLE is actually 2: make this offset match the
-> real hw offset so that we can directly expose those values to userspace.
+On Fri, May 12, 2023 at 10:53:15AM +0200, Alexandre Ghiti wrote:
+> In addition to being more pretty, it will be useful in upcoming commits
+> to distinguish those pmu drivers from the other pmu drivers.
 > 
 > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 > ---
->  drivers/perf/riscv_pmu_legacy.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
+>  drivers/perf/riscv_pmu_legacy.c | 2 +-
+>  drivers/perf/riscv_pmu_sbi.c    | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
 > 
 > diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
-> index ca9e20bfc7ac..0d8c9d8849ee 100644
+> index 0d8c9d8849ee..ffe09d857366 100644
 > --- a/drivers/perf/riscv_pmu_legacy.c
 > +++ b/drivers/perf/riscv_pmu_legacy.c
-> @@ -12,8 +12,11 @@
->  #include <linux/perf/riscv_pmu.h>
->  #include <linux/platform_device.h>
+> @@ -95,7 +95,7 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
+>  	pmu->ctr_clear_idx = NULL;
+>  	pmu->ctr_read = pmu_legacy_read_ctr;
 >  
-> -#define RISCV_PMU_LEGACY_CYCLE		0
-> -#define RISCV_PMU_LEGACY_INSTRET	1
-> +enum {
-> +	RISCV_PMU_LEGACY_CYCLE,
-> +	RISCV_PMU_LEGACY_TIME,
-> +	RISCV_PMU_LEGACY_INSTRET
-> +};
+> -	perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
+> +	perf_pmu_register(&pmu->pmu, RISCV_PMU_LEGACY_PDEV_NAME, PERF_TYPE_RAW);
+>  }
+>  
+>  static int pmu_legacy_device_probe(struct platform_device *pdev)
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index 70cb50fd41c2..3b0ee2148054 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -897,7 +897,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto out_unregister;
+>  
+> -	ret = perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
+> +	ret = perf_pmu_register(&pmu->pmu, RISCV_PMU_PDEV_NAME, PERF_TYPE_RAW);
 
-I guess this doesn't hurt, since these are just indices internal to this
-driver, but it's a bit odd to also have a RISCV_PMU_LEGACY_TIME, when
-the driver is only for cycle and instret, as its Kconfig help text says.
+Should we include "sbi" in this name?
 
-Thanks,
-drew
+>  	if (ret)
+>  		goto out_unregister;
+>  
+> -- 
+> 2.37.2
+> 
+
+Otherwise,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
