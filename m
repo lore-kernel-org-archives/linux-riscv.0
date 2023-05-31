@@ -4,71 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F471C7EE24
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 11:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083CCC7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 11:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hl4On4EGWzC5lAjfMjJD2nc6h36pFH0akZCmXySzFpY=; b=YOLQ+PtAmUBqZH
-	igtmUljGV98RxO8+9SSne9f4/NV46z1W9jEUpeu20IF3m+k+nhsksaT0eL02HXLRSEUhMrjCDgZIR
-	j8w6O+3VIhWpOTVSSlmaceABnCX39Z1obXvzHmcoZMyGcg7Q3RUb/yxrrI+J68YEWFKY37SXouXoc
-	y194fu4N+Isg/e6MCMTe78wrmADdOUytJ0OQX3GNyN6W8/tJsgqc7TPcVg3NQAYVS57jNxjA5knw9
-	fmu4qr5kpl301usDUaU3mCJY2qdVlsqnsjPcilpVZ18NY2l+2eb5gGXfJ060yffl5BjQ8lz0HJlqe
-	drXw/Q5oLHSEMaEa4dzg==;
+	List-Owner; bh=OMNEdFYrPSU1PBNx7HQqlBImgN5Npa3q9z6uxX5IUo4=; b=bQGzAesne6sjfx
+	9XItHPi2TU3UC7sdox7FdkCB8A+5ecs5Rg1BEVFcCV7VSfJipb42gn/+DGzgXvijIjL7a1ZzBMIlp
+	6Ldq4/90NonA6sp0UC05icibVDPhOSBEtRFczpZdvfFxSg1QuCKxleKvsxv4Aky1I520XOfWYzqiz
+	+03eRgDBaOXAZf1NKbocdM1b5DTRbE8vjvjcgwNvmL7HKY3OozKch9cdErhaEnZ49ahnNnRY18CAc
+	iMW2A41AfTWCumeiQbGPgtlDBqPneV1NXJrHIqQHEXcZmzIOC/aEI1aKTfLrJ81LkOmgBvylAnvM9
+	2fzUExNVbaaCtDjjKkVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4Jc8-00HC6j-2z;
-	Wed, 31 May 2023 11:03:36 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1q4JgX-00HCpU-0X;
+	Wed, 31 May 2023 11:08:09 +0000
+Received: from out2-smtp.messagingengine.com ([66.111.4.26])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4Jc5-00HC5G-0r
-	for linux-riscv@lists.infradead.org;
-	Wed, 31 May 2023 11:03:35 +0000
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9E54DC0006;
-	Wed, 31 May 2023 11:03:26 +0000 (UTC)
-Message-ID: <9a94446d-bc6c-6272-8101-d1adeec3d672@ghiti.fr>
-Date: Wed, 31 May 2023 13:03:26 +0200
+	id 1q4JgU-00HCoQ-0h;
+	Wed, 31 May 2023 11:08:07 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id 4D0625C00F1;
+	Wed, 31 May 2023 07:08:04 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute6.internal (MEProxy); Wed, 31 May 2023 07:08:04 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1685531284; x=
+	1685617684; bh=aeL29fTibpX7OH1ns9iCpikawL6pyGgQIxFzUFIJ5mE=; b=x
+	UDCGtesaL634GL9eXdFKoKL1s1Tz9Ll4uk1Af1BMnvQGH4j9+1PhPANaEaVE379R
+	CdP85tpEg9YcUW2h5dFDnyNMAmMCkYWCYlWHtfBYAhuz7I36GZhVasYeXJhtrGKQ
+	9Lrd5hHztASe4grn656Fm1LxjoNjOG1JM3Ad9/lCi0sHtpjyf+ptypYz5yGO613d
+	qh8+Kv3Y5LpM1E1ielOLRn5Ok/JsogZMAHdTruPsKoySspbI4+TYmoxqI/VIiBEP
+	9NSI/2t5My7odxwCZX0DKZDp9MOjZtjLzlE2tfb83C3rAyCOX0y3uoPoI2tB10/o
+	jG1KAHIWcun/pGj4MxlRQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1685531284; x=1685617684; bh=aeL29fTibpX7O
+	H1ns9iCpikawL6pyGgQIxFzUFIJ5mE=; b=CKpieIWYKmOkyyCDiuZP8D+PUVECt
+	T2ErndCGQJp98RFqZNoUkT/fLhMhJ/86fqOlgcQFwHL1AieUk9bVGqVQwn4r+E2W
+	f0BdsMG0bUxMm93eQ9DkRhxUnn/i/uxmRKJyngDMg7NgPssfHdpcqc4Ji8JdwWKu
+	KcmycyZC8ziSkBHUUx0EKF81JTIo9p1nky54jRBkScT+6/Vtg8YxhCTisfVZ1PtQ
+	DxAb3nZ6wlHPyxA4NCng2CaUSohgQo62Msc4qWAgBMoDuT6fhd6tjX3xJipyPlE8
+	6WncsmBPKzOXGkMG97UzW0dluJcZkHMNBSKLi7gH8TFXTIx7+dO3jVsvQ==
+X-ME-Sender: <xms:kCp3ZGhTVDV0DVu7dmcXkuzxkpXwEA9IwCIFbDRZWqgyIv8wnEJkFQ>
+    <xme:kCp3ZHAPrdO9QnDydIYpePwNPqTvQeT4rDLRRhSWppJUEyVQkKccYZjgigzReTWrC
+    K0XSDatK5L73o__kNY>
+X-ME-Received: <xmr:kCp3ZOGKLu-mTkNtzCsjRFXSA0mPL0O0V-GjwUeK0cpeJiwxiYZ1sNPmsq0FoVcs2JuCqQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrfeekledgfeehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepfffhvfevuffkfhggtggujgesthdttddttddtvdenucfhrhhomhepfdfmihhr
+    ihhllhcutedrucfuhhhuthgvmhhovhdfuceokhhirhhilhhlsehshhhuthgvmhhovhdrnh
+    grmhgvqeenucggtffrrghtthgvrhhnpefhieeghfdtfeehtdeftdehgfehuddtvdeuheet
+    tddtheejueekjeegueeivdektdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehkihhrihhllhesshhhuhhtvghmohhvrdhnrghmvg
+X-ME-Proxy: <xmx:kCp3ZPSz5hGKt8pyGe8Ue_MUxG7I7-LMRL0S8Maei_bY-CtDzDeDqg>
+    <xmx:kCp3ZDybG56imlj3lotFSk424EAyO4S3ZalWSFbkTcroWC2CEkq-8g>
+    <xmx:kCp3ZN6cb8NiInnM6MmJJINWLXlxFmXCECS2-MdbyVDlBUBQ7WTXsw>
+    <xmx:lCp3ZIQZa_9Yhyap2wMrdMHayAKX3jfVOiYwSdewsO8ergavPjSuDQ>
+Feedback-ID: ie3994620:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 31 May 2023 07:08:00 -0400 (EDT)
+Received: by box.shutemov.name (Postfix, from userid 1000)
+	id D69A310BD95; Wed, 31 May 2023 14:07:56 +0300 (+03)
+Date: Wed, 31 May 2023 14:07:56 +0300
+From: "Kirill A. Shutemov" <kirill@shutemov.name>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Tom Lendacky <thomas.lendacky@amd.com>,
+	Sean Christopherson <seanjc@google.com>,
+	LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	Arjan van de Veen <arjan@linux.intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,	Paul McKenney <paulmck@kernel.org>,
+	Oleksandr Natalenko <oleksandr@natalenko.name>,
+	Paul Menzel <pmenzel@molgen.mpg.de>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Piotr Gorski <lucjan.lucjanov@gmail.com>,
+	Usama Arif <usama.arif@bytedance.com>,	Juergen Gross <jgross@suse.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,	Russell King <linux@armlinux.org.uk>,
+ Arnd Bergmann <arnd@arndb.de>,	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>,	linux-csky@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,	Sabin Rapan <sabrapan@amazon.com>,
+	"Michael Kelley (LINUX)" <mikelley@microsoft.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [patch] x86/smpboot: Fix the parallel bringup decision
+Message-ID: <20230531110756.g4cz2tjnc7ypskre@box.shutemov.name>
+References: <87jzwqjeey.ffs@tglx>
+ <87cz2ija1e.ffs@tglx>
+ <20230530122951.2wu5rwcu26ofov6f@box.shutemov.name>
+ <87wn0pizbl.ffs@tglx>
+ <ZHYqwsCURnrFdsVm@google.com>
+ <87leh5iom8.ffs@tglx>
+ <8751e955-e975-c6d4-630c-02912b9ef9da@amd.com>
+ <871qiximen.ffs@tglx>
+ <b6323987-059e-5396-20b9-8b6a1687e289@amd.com>
+ <87ilc9gd2d.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH -fixes] riscv: Fix relocatable kernels with early
- alternatives using -fno-pie
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andreas Schwab <schwab@linux-m68k.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20230528-uneatable-earpiece-3f8673548863@spud>
- <b71dc2f5-fdc0-2a8d-e1f9-696cd9a1529e@ghiti.fr>
- <20230529-skillet-quarters-3fbc3b6edb3a@spud>
- <41e57bb9-ce0c-7772-abeb-5c01d5ec19bb@ghiti.fr>
- <20230530-polka-trifle-7ccd7a093099@wendy>
- <92d4aaa8-a1ed-74e1-3a22-df9be1ca1e4a@ghiti.fr>
- <20230530-hatchery-unifier-64d7a2ffe0d0@spud>
- <CAHVXubgG31moSNOe3fRqFzUSJK9tRWKH1KPP_BO7wRNC4WzxTQ@mail.gmail.com>
- <20230530-atrocious-control-bcb37de558fc@spud>
- <0068add0-8949-11b7-a864-2ef8bed00809@ghiti.fr>
- <20230531-staff-pampers-0250f7f6026a@spud>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230531-staff-pampers-0250f7f6026a@spud>
+Content-Disposition: inline
+In-Reply-To: <87ilc9gd2d.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_040333_610230_989B82D6 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20230531_040806_463006_D3588D15 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,80 +134,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 31, 2023 at 09:44:26AM +0200, Thomas Gleixner wrote:
+> The decision to allow parallel bringup of secondary CPUs checks
+> CC_ATTR_GUEST_STATE_ENCRYPT to detect encrypted guests. Those cannot use
+> parallel bootup because accessing the local APIC is intercepted and raises
+> a #VC or #VE, which cannot be handled at that point.
+> 
+> The check works correctly, but only for AMD encrypted guests. TDX does not
+> set that flag.
+> 
+> As there is no real connection between CC attributes and the inability to
+> support parallel bringup, replace this with a generic control flag in
+> x86_cpuinit and let SEV-ES and TDX init code disable it.
+> 
+> Fixes: 0c7ffa32dbd6 ("x86/smpboot/64: Implement arch_cpuhp_init_parallel_bringup() and enable it")
+> Reported-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 
-On 31/05/2023 11:32, Conor Dooley wrote:
-> On Wed, May 31, 2023 at 09:26:27AM +0200, Alexandre Ghiti wrote:
->> On 30/05/2023 22:22, Conor Dooley wrote:
->>> On Tue, May 30, 2023 at 08:04:17PM +0200, Alexandre Ghiti wrote:
->>>> Ahah, I think we found the culprit!
->>>>
->>>> With CONFIG_RELOCATABLE, vmlinux is actually stripped from all the
->>>> relocations (so that it can be shipped) and vmlinux.relocs is what you
->>>> should use instead, since it is just a copy of vmlinux before the
->>>> removal of the relocations!
->>> That probably makes us both eejits for not realising sooner...
->> Ahah, TIL a new word, thanks :)
->>
->>> Tested-by: Conor Dooley <conor.dooley@microchip.com> # booted on nezha & unmatched
->>>
->>> Thanks for your patience here Alex.
->> So I checked again if the -fno-pie should be applied to mm/dma-noncoherent.c
->> as I suggested, but actually no: errata/thead/errata.c never reaches
->> riscv_noncoherent_supported() in early boot (you can see how 'fragile' it is
->> though and why something needs to be done...).
-> I did make sure to check this patch itself, without the additional bit,
-> to see if it was needed.
-> But yeah, it is going to be super fragile - do you have any ideas about
-> how to circumvent that?
+Tested-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
 
-
-Yes, I was thinking about multiple solutions:
-
-- All the early code could go into kernel/pi: all the dependencies of 
-the early code is built in its own way (the symbols are actually 
-'duplicated'). I see that a bit like the EFI stub. My first try failed 
-with !CONFIG_RELOCATABLE, I have to dig further.
-
-- Simply do a physical relocation before any early code, execute the 
-early code, and then do the virtual relocation. But that does not solve 
-the issue fixed by kernel/pi which allows to recompile standard 
-functions (like the string ones) without any instrumentation and have 
-the versions with the instrumentation for normal execution.
-
-- Compile relocatable kernels without -fPIE (why can't we just use 
-medany actually?). That won't fix certain types of situations where we 
-need relocations, but that will limit the number of outliers that need 
-to be compiled with -fno-pie and it will be easier to spot (we'll still 
-have to be very careful though)
-
-- Be very strict about what can/cannot be done in this pre-mmu stage, 
-and document that...
-
-The best solution would be the first I guess. Any other ideas welcome :)
-
-
->
->> Oh and I realized that I forgot the Reported-by from Andreas and the Fixes
->> tags, so here they are:
->>
->> Fixes: 39b33072941f ("riscv: Introduce CONFIG_RELOCATABLE")
->> Reported-by: Andreas Schwab <schwab@linux-m68k.org>
->>
->>
->> Thank you too for your patience and your quick answers!
->>
->> Alex
->>
->>
->>> _______________________________________________
->>> linux-riscv mailing list
->>> linux-riscv@lists.infradead.org
->>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
