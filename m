@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BACF4C77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 12:22:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92559C77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 13:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yXlHe5KzsKPnPd3ok+QJHxuXFpiDV+xq6ZbmFl4t+fA=; b=GKU3pt99kwxtCC
-	Wyr/hgMJeMHWo5CpC2NuRp3Pnib5gkBFCN6X805gSunjARQNhRuG4QxU9bOH0U0potOhOS6+hoIsw
-	7eTVSqHO2BKCviRbZ70z6WKTviOA9FMDyxHVeI4cMuuqpvS2/1OSZ+DvRVew6PLz6W2IZdDGYJBhc
-	XHzAxAp0fEmRepao+NGZVwWT0sZERCUIKc4FRldt2WMgh9x26doEtU8Hq/9vyrylUqOzYepWF7qlY
-	wtwhqFtus5hKUoPMSlmVL9aTqsMWtfJMQtvK9iEZJmiHPSWuoVCG/1CVT1pFtm/gp+jI/MKSSL5gG
-	ofKNvBMmK46ip2H6jawg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CMSAmVW7z87WjPu+LsoAMRRldCrnYvlt+TUGnL/SLBc=; b=0dC8NnSWKwzuhDyyFJz0GDK2C6
+	7vcA3+56T3n0FVEnmA7AGdHAZKLtzIqXiaehc3pGQegc/Q1r4tHrvbd2GKZmdDe+ga6lqJ5OFfbD9
+	gZKoZoZtLaPmS8nNJ9FhWUrNNX2EehDOzThCzWKfZPTN43JKHIDhMputRTqlP/iVpocJyrd0YT7VZ
+	mED1In5C9t4/V+HdKQFwkYsa0lfziFq7CxXsmp3cAAx90Ex6/qMkZrelhaMcSvg+NMI2RLoYJHAvC
+	QX1nS8JQFhRbUpjUSp49uVqaW+WCDAfDix74f78mm3ZQkODdA1keMqKu9UiSO5sh5/GvBQxThrJKZ
+	lcZAE+6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4Kqh-00HLkB-1e;
-	Wed, 31 May 2023 12:22:43 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1q4LlG-00HWlu-0O;
+	Wed, 31 May 2023 13:21:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4Kqe-00HLig-1o;
-	Wed, 31 May 2023 12:22:41 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-64d1e96c082so3879738b3a.1;
-        Wed, 31 May 2023 05:22:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1685535758; x=1688127758;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rN0bnH3gWYzBfmgMkHbIKEWC6DN7mRYY+LRbQfT+m8w=;
-        b=HTmJDBodHXoupmovdSQqrWH23609whCbniyvjQt/8cgNZWj+AlndJgjNV6pZBTyCxS
-         2HyCOEDkKDu5nXHoCF4XjKHHmk/JHP7mF2z/A3rJEHiAPchIBimoWPiGVb1yopKhJmsS
-         GZV1NI8i317BxhnBWxKbjAJAHhRT0KseBRpMqDmQPfd4dKFWUqt8HCRI26SK8+KqvF/D
-         sSExthJZjnn28lF73gjBhLDoV/FFpZy3dl8RJpP9l9PvqRqNGZ73lrGg1q5GO5+FOVNf
-         sw0Pe5GEmU04pYQkSlG1h1L1euolw/rJV9oY842wSYllKxfZm1c/K2BXV1nKjEa/uGzj
-         UHfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685535758; x=1688127758;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rN0bnH3gWYzBfmgMkHbIKEWC6DN7mRYY+LRbQfT+m8w=;
-        b=V70xGWJVrMVloaj+z7WVgAEEBRaeJBAdW7qfKzKFFO9ZYHuLtiXFCjLOOuoXUzh/ss
-         Lv2oDp4Sr4u/dK4uwP/pgHFVtVGaogSPXet6Gu+FqQmUvGshYnUcLWzpzZoRXoY9jLPg
-         dFc/6G2/kOdiTrUy92CYH7YFaMGodfGw7Xk6kTX6VOwcoLGH0Np75DkQWimYnN8vhQQm
-         Rl2vQ+s5dU0qSZkaW9IxngKS8QE4xAJYB5Oe9Ev0Gr2YjAHvNgmAUjNR0qgGmOeJglzX
-         S0gM4JgiMXbXTttHFuS/2+OD7kV30M5CaU7dN8hHBSMCzlxip8veOd3KyP3Ae72PSxun
-         DNXg==
-X-Gm-Message-State: AC+VfDyMl+hMGvkbvyQR58jPfQ9QwPaGUN34PVaKeUTntE6XFU+2mj0t
-	aNKQ6dNmm63o4JBHtKgbd/k=
-X-Google-Smtp-Source: ACHHUZ7DfzLyM4oLMoKb5ptpGN1Rb4GOgWflTWWpLh7DmpnJMvRse3nfgP4G+6QmIdG3Jfb/v9UIAA==
-X-Received: by 2002:a05:6a20:144d:b0:111:2f20:d48f with SMTP id a13-20020a056a20144d00b001112f20d48fmr5327442pzi.53.1685535758400;
-        Wed, 31 May 2023 05:22:38 -0700 (PDT)
-Received: from [192.168.43.80] (subs03-180-214-233-69.three.co.id. [180.214.233.69])
-        by smtp.gmail.com with ESMTPSA id g2-20020a62e302000000b0064f39c6474fsm3261813pfh.56.2023.05.31.05.22.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 31 May 2023 05:22:37 -0700 (PDT)
-Message-ID: <d07c5c29-e5ff-9469-80c7-c6ad54734e6c@gmail.com>
-Date: Wed, 31 May 2023 19:22:30 +0700
+	id 1q4LlA-00HWkx-2U
+	for linux-riscv@lists.infradead.org;
+	Wed, 31 May 2023 13:21:09 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 58B9361CBD;
+	Wed, 31 May 2023 13:21:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8286BC4339B;
+	Wed, 31 May 2023 13:21:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685539263;
+	bh=38r927G2inyVMml0LWLz7BZPDRXvg4VePw65RoNKYtc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LdZne+qt+TBfcx78L1P/e2jFK0kSzM5OFwvU2lxOWm2TlFradzemowoi00+tmv6y0
+	 sWY0vKMfcns0lX4vAY/CH6ckpM41qmMi1xxJxqhdUeryyDNpqMpv5VLXnjTFxKv5YT
+	 30pidaxePH2tzlQBSPb4vfBLDSguMgjWY93t7Ya/SLeTzGPsOFra84VCLvf9MR2KbQ
+	 vf2dSCmwUct0o7VADfK7uJOVALI/Hv4GXRwP19ty6V6ofqoGe4+N9AN+pZH+WtAalo
+	 AsJXlkNLdL/RX27xAB+do3GU73RxNpW897H95tp6qq29koGhTPCIRNZF0s6kd6Xn8P
+	 VIb+hnRbwW75g==
+Date: Wed, 31 May 2023 14:20:57 +0100
+From: Mark Brown <broonie@kernel.org>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: devicetree@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Ziv Xu <ziv.xu@starfivetech.com>
+Subject: Re: [PATCH v1 2/3] spi: cadence-quadspi: Add clock configuration for
+ StarFive JH7110 QSPI
+Message-ID: <075db1ba-e15c-4c3c-9430-99c866eca24d@sirena.org.uk>
+References: <20230526062529.46747-1-william.qiu@starfivetech.com>
+ <20230526062529.46747-3-william.qiu@starfivetech.com>
+ <fecc9d6a-022e-49d9-a452-8a63c409ebf3@sirena.org.uk>
+ <042c560d-1f36-8e97-3796-7423245592f4@starfivetech.com>
+ <86555925-b8dd-29a8-60cd-5c2ff2c1432a@starfivetech.com>
+ <eb68722b-bcab-4aa1-aa4e-54bfe95ef414@sirena.org.uk>
+ <93ba0b97-45aa-e59d-1454-80c4f245acc0@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v2] Documentation/process: add soc maintainer handbook
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Conor Dooley <conor.dooley@microchip.com>, soc@kernel.org
-Cc: conor@kernel.org, corbet@lwn.net, devicetree@vger.kernel.org,
- krzysztof.kozlowski+dt@linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, olof@lixom.net, palmer@dabbelt.com,
- robh+dt@kernel.org, arnd@arndb.de
-References: <20230530-multiple-whooping-ee5706fceb67@wendy>
- <ZHbpb98Yn7SDZ4XZ@debian.me>
- <ed4c3564-4083-5568-f999-cfd7f02544a7@linaro.org>
-Content-Language: en-US
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-In-Reply-To: <ed4c3564-4083-5568-f999-cfd7f02544a7@linaro.org>
+In-Reply-To: <93ba0b97-45aa-e59d-1454-80c4f245acc0@starfivetech.com>
+X-Cookie: Will Rogers never met you.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_052240_605881_0536A53B 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230531_062104_847782_34CF4B0F 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,24 +81,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2507376970363130993=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/31/23 13:51, Krzysztof Kozlowski wrote:
->> Sounds like passing `make dtbs` is a merging requirement.
-> 
-> And why shouldn't be?
-> 
 
-I don't have anything more to say here...
+--===============2507376970363130993==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="G6ktQj/BvBBSNjYO"
+Content-Disposition: inline
 
--- 
-An old man doll... just what I always wanted! - Clara
 
+--G6ktQj/BvBBSNjYO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Wed, May 31, 2023 at 02:19:16PM +0800, William Qiu wrote:
+> On 2023/5/30 18:33, Mark Brown wrote:
+
+> > You could always specify a different array of clocks depending on which
+> > compatible the driver sees, just like you'd conditionally request clocks
+> > individually.
+
+> 	If specify a different array of clocks depending on which compatible
+> the driver sees, since there will also be clock operations in the suspend
+> and resume interfaces, this can make the code look complicated.
+
+If you store the clock count and array in the driver data that should be
+fairly simple I think.
+
+> 	as following:
+
+> 	/* Obtain QSPI clock. */
+> 	cqspi->num_clks = devm_clk_bulk_get_all(dev, &cqspi->clks);
+> 	if (cqspi->num_clks < 0) {
+> 		dev_err(dev, "Cannot claim QSPI clock: %u\n", cqspi->num_clks);
+> 		return -EINVAL;
+> 	}
+
+> 	This way, the code will look simpler and clearer. How do you think
+> about it.
+
+I'm not clear how enable and disable would then work?
+
+--G6ktQj/BvBBSNjYO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmR3SbkACgkQJNaLcl1U
+h9A5YAf6AyXRsEmaDvRUFjWZZNZoMgo2EFDR0Jl7tIiuqYCoBj6JUWnZZBV7bZnq
+tVBoRN8pUEPIdzISOFwas3GYdOHZdSMagbeH2d8DZp7Cn7YTBcHKdw4otXRB+4QN
+tXJITLg7JSbzgd6gP/wfMp+q9Yyf0q+T9kRsrBTFSYuJmh6yg8CRaHrHmdomTBAB
+ZvB/TwoNFJYrvpRIJXUQC3mOviO7eQCVr9z6ZG8iwlzlxym7ZSC/rRbG2MtKlxls
+zIaL56Kwe4MQg7LgQejCY+z4ZLUdqpLb9DiVOp9bRspzRuWdRABZsdzahkgEZCbL
+C2/G7xzOwRn0cvaF+TipvT73i+QPxA==
+=6EZR
+-----END PGP SIGNATURE-----
+
+--G6ktQj/BvBBSNjYO--
+
+
+--===============2507376970363130993==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2507376970363130993==--
+
