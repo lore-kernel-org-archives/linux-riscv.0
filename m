@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA8FFC77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 06:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4930AC77B7C
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 07:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ge4xUo1QQ0LHbqInNikdKrm6exa5IdbGYvZxEZuqC30=; b=XTjmlfTqeKiFCj
-	zM//zP6zXWR21aK07rYncwFDEznX0HgG22Duo0uMjy66bCUYOI6+Qv/J7jrkKgdjh8iTRLHN8J5mf
-	rvjS+T9HSdeXDF8yVZMVUhLSmCBXpnQw/CbTDPbXdAc+O00xJwrYwY7UjbLb91IptJrwsxubXclnY
-	4GRugQqnw1O+4+WBMabgxJXzXakDXDPLbZK31UtdidvwHP16WV64oNToyISsWGlqjq141kCPHQHpf
-	RDh6ULzNPitCVbRvUrfoveMkytF60vfNCfgWDJaFdz9ltMOdiQYL8Vaol1LmOEg1AWewQ2tL6Hp+/
-	k/Rr7jZv5KD2/sMNsn8A==;
+	List-Owner; bh=ZH2Fg3CVyjXPG9ZwksmmTCP/5Rh2GcDKUftMnm5V5HM=; b=Hxe9YVzk3BZD9Q
+	7eeuhdgc8CB/AIm6+cV/Yae/icfHzVzxJtOhsX7eUwjIE1UvpUVLfel2jRE+ky7BSITvD17/MnGWr
+	NGSgCmD5996sRJca9Lu6EiT8/nFO1gri++HWoixbo3epGFRRfSDPLzmUaBjhmrmpPe456Fxcwuut6
+	oBo0XYUcswP08jcwwTDZz4PnbQXkhG4t/arASCXdGPhC+PRCqk7y7Qgnge4fAuM2TZuSEWHsixDVs
+	aYoBXaMmOpViWA/ye5N+aiOOqx51gUISG0NG4CJGCIKnaKoZW0U+7uouXO7FA5pZK4mTyW0Osz2g4
+	U+oui9Ls+EaGmiYZNo1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4FgD-00GLFK-06;
-	Wed, 31 May 2023 06:51:33 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1q4GEB-00GQrz-2v;
+	Wed, 31 May 2023 07:26:39 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4FgA-00GLE0-2U
+	id 1q4GE8-00GQr4-1K
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 May 2023 06:51:32 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-96f683e8855so768875466b.2
-        for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 23:51:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1685515889; x=1688107889;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=j8KIRkSeQpAAw2eR4yzI5lu3pYKOIqBElBCoG4tj2Oo=;
-        b=QffMaphaCoZ9MsLlJH4EYBJfwdueijKDixcU+L4mAd16ePYDj0K5aB4E+PgA/s9Mzp
-         lSJonPXOH8QCQHTTrHZbytT3t9Wv2XsAxdhFQKkRzLZhe/KB4KfwBzClynOcLPSdo2c1
-         Y1hjwnCON7+/bNk7ME5Q8Ka+n7IUT+ARV8MrH8g6JZHFIZCnZ7+/mCu5x48ohbyQ+JuE
-         DEgb2uuU/K2Z/mUFiz/ghvaTG8DwZMv5cvaQST7IyYMCFH+uPErFkZmxUddEeuJGmq4M
-         SyTKhva1ZjnWqm62IlQeTaV5tj1Vo+NQ+/OZayWr4yGZQNEBo0sNhAooxpFfX9peBgX0
-         5vWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685515889; x=1688107889;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=j8KIRkSeQpAAw2eR4yzI5lu3pYKOIqBElBCoG4tj2Oo=;
-        b=UsMnVFPYXLjcca3sFTTGNEsp8E2XSvtpdiLqBqvTtc9jRqqm4ub/pbyA6dcsL8HcBT
-         wpwKB45bT7IDd3oQ5smLQw1J16pH6MwpuSe9O7fhwm8RVP/YYJ/yD7bqj+18zNPM4LRh
-         3Q4MQv/mR3Nwi60jZUyXMc04d6G7YJrRw/lgvQn+qCiciL6SW8MF6H0bUjnbtCU2pUcj
-         rxkiJRDOskd3vwCYL6DaX3SJ32aQVmBzaiNEuhnU1qRjL+3bE/hU00XL58pl1Otfj81E
-         bkNg3Mt6rKt+G0zPylNrDiRzx/F3D+xdIn8FkvxiEP1wGLktOGnO+alSkz5zzp5ublx9
-         5jNw==
-X-Gm-Message-State: AC+VfDwDUY7bROLuWuv9pmseUkbTjWdsHBCqGI5JRefSuKdV2cl/DTjy
-	HCV3UBaZJmOXboJidpV+yFuKzQ==
-X-Google-Smtp-Source: ACHHUZ41+Df1JF3rXv8WCdc5cE6mupu5PE4dFHFEEKvM7CJGANm6pLKrWAUKpgejEfJB4tpS9+W3aQ==
-X-Received: by 2002:a17:907:7291:b0:96f:4ee4:10d4 with SMTP id dt17-20020a170907729100b0096f4ee410d4mr4511643ejc.43.1685515888922;
-        Tue, 30 May 2023 23:51:28 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.199.204])
-        by smtp.gmail.com with ESMTPSA id d12-20020a17090648cc00b00965e9a23f2bsm8410703ejt.134.2023.05.30.23.51.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 May 2023 23:51:28 -0700 (PDT)
-Message-ID: <ed4c3564-4083-5568-f999-cfd7f02544a7@linaro.org>
-Date: Wed, 31 May 2023 08:51:25 +0200
+	Wed, 31 May 2023 07:26:38 +0000
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BE849FF80B;
+	Wed, 31 May 2023 07:26:27 +0000 (UTC)
+Message-ID: <0068add0-8949-11b7-a864-2ef8bed00809@ghiti.fr>
+Date: Wed, 31 May 2023 09:26:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
-Subject: Re: [PATCH v2] Documentation/process: add soc maintainer handbook
+Subject: Re: [PATCH -fixes] riscv: Fix relocatable kernels with early
+ alternatives using -fno-pie
 Content-Language: en-US
-To: Bagas Sanjaya <bagasdotme@gmail.com>,
- Conor Dooley <conor.dooley@microchip.com>, soc@kernel.org
-Cc: conor@kernel.org, corbet@lwn.net, devicetree@vger.kernel.org,
- krzysztof.kozlowski+dt@linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, olof@lixom.net, palmer@dabbelt.com,
- robh+dt@kernel.org, arnd@arndb.de
-References: <20230530-multiple-whooping-ee5706fceb67@wendy>
- <ZHbpb98Yn7SDZ4XZ@debian.me>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <ZHbpb98Yn7SDZ4XZ@debian.me>
+To: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andreas Schwab <schwab@linux-m68k.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20230528-darkness-grandly-6cb9e014391d@spud>
+ <cf0d2d2a-c407-7b3d-a5ab-ea5c19e7b890@ghiti.fr>
+ <20230528-uneatable-earpiece-3f8673548863@spud>
+ <b71dc2f5-fdc0-2a8d-e1f9-696cd9a1529e@ghiti.fr>
+ <20230529-skillet-quarters-3fbc3b6edb3a@spud>
+ <41e57bb9-ce0c-7772-abeb-5c01d5ec19bb@ghiti.fr>
+ <20230530-polka-trifle-7ccd7a093099@wendy>
+ <92d4aaa8-a1ed-74e1-3a22-df9be1ca1e4a@ghiti.fr>
+ <20230530-hatchery-unifier-64d7a2ffe0d0@spud>
+ <CAHVXubgG31moSNOe3fRqFzUSJK9tRWKH1KPP_BO7wRNC4WzxTQ@mail.gmail.com>
+ <20230530-atrocious-control-bcb37de558fc@spud>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230530-atrocious-control-bcb37de558fc@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_235130_836692_3ED0579B 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20230531_002636_600230_8F659FEB 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +79,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 31/05/2023 08:30, Bagas Sanjaya wrote:
->> +appropriate time later.  Most importantly, any incompatible changes should be
->> +clearly pointed out in the patch description and pull request, along with the
->> +expected impact on existing users, such as bootloaders or other operating
->> +systems.
->> +
->> +Driver Branch Dependencies
->> +~~~~~~~~~~~~~~~~~~~~~~~~~~
->> +
->> +A common problem is synchronizing changes between device drivers and devicetree
->> +files, even if a change is compatible in both directions, this may require
->> +coordinating how the changes get merged through different maintainer trees.
->> +
->> +Usually the branch that includes a driver change will also include the
->> +corresponding change to the devicetree binding description, to ensure they are
->> +in fact compatible.  This means that the devicetree branch can end up causing
->> +warnings in the "make dtbs_check" step.  If a devicetree change depends on
->> +missing additions to a header file in include/dt-bindings/, it will fail the
->> +"make dtbs" step and not get merged.
-> 
-> Sounds like passing `make dtbs` is a merging requirement.
 
-And why shouldn't be?
+On 30/05/2023 22:22, Conor Dooley wrote:
+> On Tue, May 30, 2023 at 08:04:17PM +0200, Alexandre Ghiti wrote:
+>> Ahah, I think we found the culprit!
+>>
+>> With CONFIG_RELOCATABLE, vmlinux is actually stripped from all the
+>> relocations (so that it can be shipped) and vmlinux.relocs is what you
+>> should use instead, since it is just a copy of vmlinux before the
+>> removal of the relocations!
+> That probably makes us both eejits for not realising sooner...
 
-Best regards,
-Krzysztof
 
+Ahah, TIL a new word, thanks :)
+
+
+>
+> Tested-by: Conor Dooley <conor.dooley@microchip.com> # booted on nezha & unmatched
+>
+> Thanks for your patience here Alex.
+
+
+So I checked again if the -fno-pie should be applied to 
+mm/dma-noncoherent.c as I suggested, but actually no: 
+errata/thead/errata.c never reaches riscv_noncoherent_supported() in 
+early boot (you can see how 'fragile' it is though and why something 
+needs to be done...).
+
+
+Oh and I realized that I forgot the Reported-by from Andreas and the 
+Fixes tags, so here they are:
+
+Fixes: 39b33072941f ("riscv: Introduce CONFIG_RELOCATABLE")
+Reported-by: Andreas Schwab <schwab@linux-m68k.org>
+
+
+Thank you too for your patience and your quick answers!
+
+Alex
+
+
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
