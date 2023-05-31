@@ -4,77 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2DFC7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 00:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA40C7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 00:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+pdD9eEz3Mz0UIxe8lD49oWKqtrGXYAK8iytUc3hsY8=; b=IPY1EftVkGnoVu
-	x200Shd+P2ne1ZNjB1QJ6fc48hiZNIA1c1diM0qnBLBS6UfGD/cpjVUYCblyd173IEvGxzYuOzLl0
-	evZcInFTnX7vzBoZFxGFuPfZ7dFVxoBmdQI0LZedEb/qBE7xvjBQ16hrJoisM+3j4/rilCSrmp+76
-	wwMiSKujCuyissbZVDeEQ+zlZWuJ98H3WleEpAMYTQKYz98BOa7zFp+XG0x72cfTkOnX8WWS2w+G/
-	R/zq3SKRQK7+Mtm/ECpsXmU8dggeN5qkwh14y73YmpVkYIIbu/Z3no6Xi3AiPbAtPf3OhCLqKzBL1
-	M5gFI7xrc/4XKWrsOMpg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dud4fLMwfh2XcTvszslwg1neIYPtyayuqjuTyyztL5c=; b=eUBVCxGROR76bC
+	cg+j017rAlbQU5fm7o4rGqXu9lVMQU8OBq3XYTczg8tHkM1C/qeKC4bNBmb0GyOEIW1mTTZHy1kgB
+	u/uOb9JEarb97HihmIpuHjzxjLamMkfsUp2LAvvUi8DFEEIwUNYcExITa3bMyNvJ36w0MyXL19RC4
+	kYhCDbi6DkErLLJdMBG465X1ykJRJKRE3XFX1m7ooiOKIICz/Jv6YHiuwaDPkC0md2mmw9/0ctL3W
+	ISfOMPCCIV6DbT5GWgCe7vKiGGUqjjYXlAxvZJVmvi8kUCdSfLq80pGBzsHa8scjTxCCOM6xVa386
+	b8aHzXLIjzvCMaOrOdrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q49lr-00FcDN-1Q;
-	Wed, 31 May 2023 00:32:59 +0000
-Received: from mga05.intel.com ([192.55.52.43])
+	id 1q49n2-00FcXz-0F;
+	Wed, 31 May 2023 00:34:12 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q49lo-00FcCG-1w
+	id 1q49mz-00FcVp-1V
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 May 2023 00:32:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1685493176; x=1717029176;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=5xEeiekejREC8LvTn5bR/XyYrA71WsI2XilvH/Jg91Y=;
-  b=TawTdME83j4auhqg+y7tohyXGJKmMo0Ssg5z0qUBBKS9R5AGTPFe+fNB
-   sN3c0kwLXXfxr8fgketxYYHPsNnR+Jl+VXlMy7UCMRraELLLG4Gs4p2EE
-   7E5yVDY1km/nrf4khtoDXgYAqyZF4iXHPUPp0xC+gIEv3Mc77CnoH3aiM
-   9hfyTfZxIk6WJjtgTMBPqeaK9ljoRvUx5ADudoOyZkVESUBJEpnvs3U+U
-   BKvEPrdaBfdc9TAvPvxoMw+oIHeEWG81b7HU4kBQEfQ7y4ftwnra1ntgV
-   yaQImknjrmeSt++4Uy/n6D7McRsuA8l9WSLeO8jlbK6aFf+MkmW3sPMWZ
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10726"; a="441445156"
-X-IronPort-AV: E=Sophos;i="6.00,205,1681196400"; 
-   d="scan'208";a="441445156"
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 May 2023 17:32:53 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10726"; a="1036803686"
-X-IronPort-AV: E=Sophos;i="6.00,205,1681196400"; 
-   d="scan'208";a="1036803686"
-Received: from lkp-server01.sh.intel.com (HELO fb1ced2c09fb) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 30 May 2023 17:32:50 -0700
-Received: from kbuild by fb1ced2c09fb with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1q49li-0000vz-0c;
-	Wed, 31 May 2023 00:32:50 +0000
-Date: Wed, 31 May 2023 08:32:26 +0800
-From: kernel test robot <lkp@intel.com>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Wed, 31 May 2023 00:34:10 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1b05d0bc2bfso10574005ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 30 May 2023 17:34:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1685493246; x=1688085246;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5f5G6Z5TX6jSNSW7iZ4219jNh0M1Ixv7KFZOMk7yBdk=;
+        b=l9VKAMH6WudZIZRhNlh71t6tXPDlsutsmJmLWqRRW2iFdXdhtFrqpS+dXNZnLjIoFx
+         X7NDzTAMsMsrBMj5MVv9ZOyOPvEkdf5l32hodPIVj3rprhLMmmcUOwSVHYlnqNfLcVmg
+         FwdUHrvYq9AxBfxDwMlDvH4ygVfvGGu483lK0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685493246; x=1688085246;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5f5G6Z5TX6jSNSW7iZ4219jNh0M1Ixv7KFZOMk7yBdk=;
+        b=XToDT+N1MxZy4P3BhjkD/sNZywVtgUvq+GtkEKI+IQiYBY4B8eYUlrwllpBoL68kVw
+         +QAlOA4VJQf5CfFGqKbdqkCmpQzzTEbwx2qovt5Ro756PxudAeWZwA0bVNZ9PXpmIJtH
+         5lsdUQnVl9wqpM51bCl9URsznN0TB3Seg1t0zytU8+KGC7hp9MAJZOVRq1w4sXhU7GA/
+         FlqppzWxQUCns3ZyfmZNFIzE5muBTvqI4Y5YkveQJgDhUj2vpm4shVfcoB0QZbqZ2Eyk
+         IKjwVoirw9hhGFuNahTtVQ+SswC7oibNaNl1lzc4ZZHdWGjXj3lwVWVXcAkgzbR/x4eD
+         7etQ==
+X-Gm-Message-State: AC+VfDxNhKrB9XmpzADpw3h7i0Wn/B9bd5xjjqwel38HvcVp8EAAq17/
+	ngn2F1xQeIUjFq1I7tP4TqflAg==
+X-Google-Smtp-Source: ACHHUZ5/++6K7OTO9X9PqwE6aBl5HupJYUjF7HBbHsNePlIAEb2cGG8BSsZvcRS0ILBFNlBs/WfZ3Q==
+X-Received: by 2002:a17:902:d4c3:b0:1b0:348f:c48c with SMTP id o3-20020a170902d4c300b001b0348fc48cmr4556864plg.2.1685493246586;
+        Tue, 30 May 2023 17:34:06 -0700 (PDT)
+Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
+        by smtp.gmail.com with ESMTPSA id u12-20020a170902b28c00b001b022f2aa12sm7548958plr.239.2023.05.30.17.34.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 May 2023 17:34:06 -0700 (PDT)
+From: Kees Cook <keescook@chromium.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Kees Cook <keescook@chromium.org>,
+	Thorsten Leemhuis <linux@leemhuis.info>,
+	=?UTF-8?q?Joan=20Bruguera=20Mic=C3=B3?= <joanbrugueram@gmail.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux@rivosinc.com, Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Joerg Roedel <joro@8bytes.org>
-Subject: Re: [PATCH] riscv: mm: Pre-allocate PGD entries vmalloc/modules area
-Message-ID: <202305310822.dhnyydJC-lkp@intel.com>
-References: <20230529180023.289904-1-bjorn@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Alyssa Ross <hi@alyssa.is>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH] riscv/purgatory: Do not use fortified string functions
+Date: Tue, 30 May 2023 17:34:04 -0700
+Message-Id: <20230531003404.never.167-kees@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230529180023.289904-1-bjorn@kernel.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2193; h=from:subject:message-id; bh=/JxqFfJ6nuR0/6IE7Sc4flmcXznFeg2cPC6sgocVuNU=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBkdpX8G4kqMGXXMDB6QczvHZO2WMQWHuNrSDDCbUQ3 nkFlCHaJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCZHaV/AAKCRCJcvTf3G3AJoHXD/ 9VFWg0OwdTmI5Ri78v0MVimMvM+qTS532cnKbCQjAMvJB0aTiyikiMWU1kssDuWYCsWMGrGZL6CiKT kX5eQ071IpzqrvWr+lDigf92GAztBf0FLgC4M2rdgkVinvXEAnzRp2NFMFXRP+pSqv+Fr2Jo7Ke4Ty rBdoUUXJKDCz2n5UXUobVPdvOY+iJWhb/Zt+zHu05O/6JirOLgr6elUbixDbjBH/SvGoi/k4oFPHro Ohl1jQXp7wCmWUiid65oYJb/Wp5CfjTPipiBd1CKC2aPjc/RCuZDCwxxByLY8I21j7+VMJCUfHV+r2 cdJWFXFxoOPW6qeEP1Cc1j/oGP0eAcKESAsiLE/q8nxXU5CbzW4CxZLHqQcIUAXPJRi9edvZm5W1ec 1FxsaGKvgjyGUqzw1WlYU+aGBOXFuldUIHtADp6CZWI3KTWE9o0lnk6a0d0Cxo4bzKHkq6fPmzc81z jS4x587NgH3+JThRZ2GEejTMGxd4Tm0G92jEyEH7evy3ojJNh14+7lS166LEVaLlUnVDp8Ge5xT7xw rEixWCU/RYdU9+P/ukZoI+81IQCIU4cR57jko6FkwnW7vYxMlDIxW2CbNf5W1u2ygPg0eF0KMTS/bO eci3+H2fkfeKH7LlezfLbBssyk5pjZ5iKUY0oSY0E7uPl7z8PKqUnuMY+hPg==
+X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230530_173256_655141_63E336A5 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20230530_173409_500711_D49631DC 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,177 +95,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Bj=F6rn,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on ac9a78681b921877518763ba0e89202254349d1b]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Bj-rn-T-pel/riscv-mm=
--Pre-allocate-PGD-entries-vmalloc-modules-area/20230530-020212
-base:   ac9a78681b921877518763ba0e89202254349d1b
-patch link:    https://lore.kernel.org/r/20230529180023.289904-1-bjorn%40ke=
-rnel.org
-patch subject: [PATCH] riscv: mm: Pre-allocate PGD entries vmalloc/modules =
-area
-config: riscv-randconfig-r042-20230530 (https://download.01.org/0day-ci/arc=
-hive/20230531/202305310822.dhnyydJC-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 12.3.0
-reproduce (this is a W=3D1 build):
-        mkdir -p ~/bin
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
-make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # https://github.com/intel-lab-lkp/linux/commit/9383adbcdfb7f850149=
-742579615e8c174328a78
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Bj-rn-T-pel/riscv-mm-Pre-allocate-=
-PGD-entries-vmalloc-modules-area/20230530-020212
-        git checkout 9383adbcdfb7f850149742579615e8c174328a78
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dgcc-12.3.0 ~/bin/make=
-.cross W=3D1 O=3Dbuild_dir ARCH=3Driscv olddefconfig
-        COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dgcc-12.3.0 ~/bin/make=
-.cross W=3D1 O=3Dbuild_dir ARCH=3Driscv SHELL=3D/bin/bash arch/riscv/mm/
-
-If you fix the issue, kindly add following tag where applicable
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202305310822.dhnyydJC-lkp@i=
-ntel.com/
-
-All warnings (new ones prefixed by >>):
-
-   arch/riscv/mm/init.c: In function 'preallocate_pgd_pages_range':
-   arch/riscv/mm/init.c:1381:30: error: implicit declaration of function 'p=
-gd_offset_k'; did you mean 'p4d_offset'? [-Werror=3Dimplicit-function-decla=
-ration]
-    1381 |                 pgd_t *pgd =3D pgd_offset_k(addr);
-         |                              ^~~~~~~~~~~~
-         |                              p4d_offset
->> arch/riscv/mm/init.c:1381:30: warning: initialization of 'pgd_t *' from =
-'int' makes pointer from integer without a cast [-Wint-conversion]
-   arch/riscv/mm/init.c:1387:23: error: implicit declaration of function 'p=
-4d_alloc'; did you mean 'd_alloc'? [-Werror=3Dimplicit-function-declaration]
-    1387 |                 p4d =3D p4d_alloc(&init_mm, pgd, addr);
-         |                       ^~~~~~~~~
-         |                       d_alloc
->> arch/riscv/mm/init.c:1387:21: warning: assignment to 'p4d_t *' from 'int=
-' makes pointer from integer without a cast [-Wint-conversion]
-    1387 |                 p4d =3D p4d_alloc(&init_mm, pgd, addr);
-         |                     ^
-   arch/riscv/mm/init.c:1395:23: error: implicit declaration of function 'p=
-ud_alloc'; did you mean 'd_alloc'? [-Werror=3Dimplicit-function-declaration]
-    1395 |                 pud =3D pud_alloc(&init_mm, p4d, addr);
-         |                       ^~~~~~~~~
-         |                       d_alloc
->> arch/riscv/mm/init.c:1395:21: warning: assignment to 'pud_t *' from 'int=
-' makes pointer from integer without a cast [-Wint-conversion]
-    1395 |                 pud =3D pud_alloc(&init_mm, p4d, addr);
-         |                     ^
-   arch/riscv/mm/init.c:1403:23: error: implicit declaration of function 'p=
-md_alloc'; did you mean 'mm_alloc'? [-Werror=3Dimplicit-function-declaratio=
-n]
-    1403 |                 pmd =3D pmd_alloc(&init_mm, pud, addr);
-         |                       ^~~~~~~~~
-         |                       mm_alloc
->> arch/riscv/mm/init.c:1403:21: warning: assignment to 'pmd_t *' from 'int=
-' makes pointer from integer without a cast [-Wint-conversion]
-    1403 |                 pmd =3D pmd_alloc(&init_mm, pud, addr);
-         |                     ^
-   arch/riscv/mm/init.c: In function 'pgtable_cache_init':
-   arch/riscv/mm/init.c:1421:45: error: 'MODULES_VADDR' undeclared (first u=
-se in this function)
-    1421 |                 preallocate_pgd_pages_range(MODULES_VADDR, MODUL=
-ES_END, "bpf/modules");
-         |                                             ^~~~~~~~~~~~~
-   arch/riscv/mm/init.c:1421:45: note: each undeclared identifier is report=
-ed only once for each function it appears in
-   arch/riscv/mm/init.c:1421:60: error: 'MODULES_END' undeclared (first use=
- in this function)
-    1421 |                 preallocate_pgd_pages_range(MODULES_VADDR, MODUL=
-ES_END, "bpf/modules");
-         |                                                            ^~~~~=
-~~~~~~
-   cc1: some warnings being treated as errors
-
-
-vim +1381 arch/riscv/mm/init.c
-
-  1366	=
-
-  1367	#ifdef CONFIG_64BIT
-  1368	/*
-  1369	 * Pre-allocates page-table pages for a specific area in the kernel
-  1370	 * page-table. Only the level which needs to be synchronized between
-  1371	 * all page-tables is allocated because the synchronization can be
-  1372	 * expensive.
-  1373	 */
-  1374	static void __init preallocate_pgd_pages_range(unsigned long start, =
-unsigned long end,
-  1375						       const char *area)
-  1376	{
-  1377		unsigned long addr;
-  1378		const char *lvl;
-  1379	=
-
-  1380		for (addr =3D start; addr < end && addr >=3D start; addr =3D ALIGN(=
-addr + 1, PGDIR_SIZE)) {
-> 1381			pgd_t *pgd =3D pgd_offset_k(addr);
-  1382			p4d_t *p4d;
-  1383			pud_t *pud;
-  1384			pmd_t *pmd;
-  1385	=
-
-  1386			lvl =3D "p4d";
-> 1387			p4d =3D p4d_alloc(&init_mm, pgd, addr);
-  1388			if (!p4d)
-  1389				goto failed;
-  1390	=
-
-  1391			if (pgtable_l5_enabled)
-  1392				continue;
-  1393	=
-
-  1394			lvl =3D "pud";
-> 1395			pud =3D pud_alloc(&init_mm, p4d, addr);
-  1396			if (!pud)
-  1397				goto failed;
-  1398	=
-
-  1399			if (pgtable_l4_enabled)
-  1400				continue;
-  1401	=
-
-  1402			lvl =3D "pmd";
-> 1403			pmd =3D pmd_alloc(&init_mm, pud, addr);
-  1404			if (!pmd)
-  1405				goto failed;
-  1406		}
-  1407		return;
-  1408	=
-
-  1409	failed:
-  1410		/*
-  1411		 * The pages have to be there now or they will be missing in
-  1412		 * process page-tables later.
-  1413		 */
-  1414		panic("Failed to pre-allocate %s pages for %s area\n", lvl, area);
-  1415	}
-  1416	=
-
-
--- =
-
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+V2l0aCB0aGUgYWRkaXRpb24gb2YgLWZzdHJpY3QtZmxleC1hcnJheXM9Mywgc3RydWN0IHNoYTI1
+Nl9zdGF0ZSdzCnRyYWlsaW5nIGFycmF5IGlzIG5vIGxvbmdlciBpZ25vcmVkIGJ5IENPTkZJR19G
+T1JUSUZZX1NPVVJDRToKCnN0cnVjdCBzaGEyNTZfc3RhdGUgewogICAgICAgIHUzMiBzdGF0ZVtT
+SEEyNTZfRElHRVNUX1NJWkUgLyA0XTsKICAgICAgICB1NjQgY291bnQ7CiAgICAgICAgdTggYnVm
+W1NIQTI1Nl9CTE9DS19TSVpFXTsKfTsKClRoaXMgbWVhbnMgdGhhdCB0aGUgbWVtY3B5KCkgY2Fs
+bHMgd2l0aCAiYnVmIiBhcyBhIGRlc3RpbmF0aW9uIGluCnNoYTI1Ni5jJ3MgY29kZSB3aWxsIGF0
+dGVtcHQgdG8gcGVyZm9ybSBydW4tdGltZSBib3VuZHMgY2hlY2tpbmcsIHdoaWNoCmNvdWxkIGxl
+YWQgdG8gY2FsbGluZyBtaXNzaW5nIGZ1bmN0aW9ucywgc3BlY2lmaWNhbGx5IGEgcG90ZW50aWFs
+CldBUk5fT05DRSwgd2hpY2ggaXNuJ3QgY2FsbGFibGUgZnJvbSBwdXJnYXRvcnkuCgpSZXBvcnRl
+ZC1ieTogVGhvcnN0ZW4gTGVlbWh1aXMgPGxpbnV4QGxlZW1odWlzLmluZm8+CkNsb3NlczogaHR0
+cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8xNzU1NzhlYy05ZGVjLTdhOWMtOGQzYS00M2YyNGZm
+ODZiOTJAbGVlbWh1aXMuaW5mby8KQmlzZWN0ZWQtYnk6ICJKb2FuIEJydWd1ZXJhIE1pY8OzIiA8
+am9hbmJydWd1ZXJhbUBnbWFpbC5jb20+CkZpeGVzOiBkZjhmYzRlOTM0YzEgKCJrYnVpbGQ6IEVu
+YWJsZSAtZnN0cmljdC1mbGV4LWFycmF5cz0zIikKQ2M6IFBhdWwgV2FsbXNsZXkgPHBhdWwud2Fs
+bXNsZXlAc2lmaXZlLmNvbT4KQ2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+
+CkNjOiBBbGJlcnQgT3UgPGFvdUBlZWNzLmJlcmtlbGV5LmVkdT4KQ2M6IE1hc2FoaXJvIFlhbWFk
+YSA8bWFzYWhpcm95QGtlcm5lbC5vcmc+CkNjOiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBt
+aWNyb2NoaXAuY29tPgpDYzogTmljayBEZXNhdWxuaWVycyA8bmRlc2F1bG5pZXJzQGdvb2dsZS5j
+b20+CkNjOiBBbHlzc2EgUm9zcyA8aGlAYWx5c3NhLmlzPgpDYzogSGVpa28gU3R1ZWJuZXIgPGhl
+aWtvLnN0dWVibmVyQHZydWxsLmV1PgpDYzogIkd1c3Rhdm8gQS4gUi4gU2lsdmEiIDxndXN0YXZv
+YXJzQGtlcm5lbC5vcmc+CkNjOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnClNpZ25l
+ZC1vZmYtYnk6IEtlZXMgQ29vayA8a2Vlc2Nvb2tAY2hyb21pdW0ub3JnPgotLS0KIGFyY2gvcmlz
+Y3YvcHVyZ2F0b3J5L01ha2VmaWxlIHwgNiArKystLS0KIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2Vy
+dGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9wdXJnYXRv
+cnkvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L3B1cmdhdG9yeS9NYWtlZmlsZQppbmRleCA1NzMwNzk3
+YTZiNDAuLjExZjRjMjc1ZjE0MSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9wdXJnYXRvcnkvTWFr
+ZWZpbGUKKysrIGIvYXJjaC9yaXNjdi9wdXJnYXRvcnkvTWFrZWZpbGUKQEAgLTMxLDkgKzMxLDkg
+QEAgJChvYmopL3N0cm5jbXAubzogJChzcmN0cmVlKS9hcmNoL3Jpc2N2L2xpYi9zdHJuY21wLlMg
+Rk9SQ0UKICQob2JqKS9zaGEyNTYubzogJChzcmN0cmVlKS9saWIvY3J5cHRvL3NoYTI1Ni5jIEZP
+UkNFCiAJJChjYWxsIGlmX2NoYW5nZWRfcnVsZSxjY19vX2MpCiAKLUNGTEFHU19zaGEyNTYubyA6
+PSAtRF9fRElTQUJMRV9FWFBPUlRTCi1DRkxBR1Nfc3RyaW5nLm8gOj0gLURfX0RJU0FCTEVfRVhQ
+T1JUUwotQ0ZMQUdTX2N0eXBlLm8gOj0gLURfX0RJU0FCTEVfRVhQT1JUUworQ0ZMQUdTX3NoYTI1
+Ni5vIDo9IC1EX19ESVNBQkxFX0VYUE9SVFMgLURfX05PX0ZPUlRJRlkKK0NGTEFHU19zdHJpbmcu
+byA6PSAtRF9fRElTQUJMRV9FWFBPUlRTIC1EX19OT19GT1JUSUZZCitDRkxBR1NfY3R5cGUubyA6
+PSAtRF9fRElTQUJMRV9FWFBPUlRTIC1EX19OT19GT1JUSUZZCiAKICMgV2hlbiBsaW5raW5nIHB1
+cmdhdG9yeS5ybyB3aXRoIC1yIHVucmVzb2x2ZWQgc3ltYm9scyBhcmUgbm90IGNoZWNrZWQsCiAj
+IGFsc28gbGluayBhIHB1cmdhdG9yeS5jaGsgYmluYXJ5IHdpdGhvdXQgLXIgdG8gY2hlY2sgZm9y
+IHVucmVzb2x2ZWQgc3ltYm9scy4KLS0gCjIuMzQuMQoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
