@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37CE0C77B73
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 14:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B99EC7EE2E
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 14:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wsCLqUy316GKpk2AM+JwfHgwd0FkXFUo+zdo7GgP8wA=; b=GM9bcfsj3UayRp
-	EpdWdOVKx1ioZ+1mLKOWdXgS9PvFrX8clcF0D0WGwIr6f7AdjAeMO/7mRU1MvGlnATM7xuujd7cSu
-	VEAjyk0cNiWQPOlldC+uFEOEHoLvdjexhpy3EpeeL/ngGGdPn3BzdG+66q4Rep6IjwOsi65K2h5sE
-	jnkVga1OK/HKnDA1sMi5v6NwcjwqWtlMwaZJUMvqgZTkT0bRlpMVT8iaU/LXSfl/5GnsDYGC4F7Dp
-	tywWos4jK3lEwv5sFRJD7N9m9BeXcKGK0BqfFsKNqKC/h6myo5O/Vg6GU0Fsp9jnS9De0WQSj5V/j
-	vgzQ20tQQ5ZMWq/Ek+MQ==;
+	List-Owner; bh=oJ++hSnD42mXJO/AE59kaHjbkBhc9gKE+jdqriZ8DC8=; b=yEQkwlboNcoYUM
+	tr+pPN5WpzVAUXJu2aSNkudLc9R161I6mYpd8argzXZ4vJGwyBIjoJv8NhfpTBEC0/xaNE/n/Pwhq
+	P7n8AnAsgxun4lZAMIalNFbbRP+jqbNQiX4ckYs6J5vgjSa1H7XodovXsPctzbtUAsQdCWg7+Ygpp
+	YJM7x9kfKpyokbeL0sTjU2lnUwuh5a0in4y2SxXwmc6WRa1jq6yQF/bIVIlQrUxTr2J/b0AKp8N8W
+	zue5c3FaBUooD+66Cf0VFl0N8YiowoJwtjk2Ahzg+5yNd1ZYnQmzs1TNG4iuqYOZ5QF4KEtnABtta
+	ETeMmV5XmkI0Lzlyml1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4MhS-0007MM-2z;
-	Wed, 31 May 2023 14:21:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q4MkR-0007uS-38;
+	Wed, 31 May 2023 14:24:23 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4MhP-0007LO-1L
+	id 1q4MkP-0007sI-0P
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 May 2023 14:21:17 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 000F863CB9;
-	Wed, 31 May 2023 14:21:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F042C433EF;
-	Wed, 31 May 2023 14:21:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685542873;
-	bh=GR201WusWaVuJRFRW4qMwM55zgR7q/8W7rYwmVCAMtY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UBFg9A8m3t6uFsCSmRXbWreOaSgtjWsXepKzuTAhVAT+aHKVotkzoNIQfAaGNxlmy
-	 6E8PWCkW4dBEmlfU4bT/7ZoZOAxYLKx9puphCKefWMvrmqSwNQ9lnjY7FlGozeiik2
-	 qzJKOmsQuUxIrimjGhbjqbNzszXvjTLEKIM54axc6cH125hLktin8SKEKJsbovWk5j
-	 GzKboFmOmX6D4Ugufhz3kNWWLiMxW23UWsjyWTe1kfvwU5nzW/+WWz9ocxdjRU7ZCp
-	 BQrXA+kPFi6Gu0ziXHxAzoZsiXkIzCWEGwG3K1FyBvxWuL5fL7mpLq8S88KmahwtOg
-	 TfiSc8c8lmfIw==
-Date: Wed, 31 May 2023 22:09:56 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-serial@vger.kernel.org
-Subject: Re: [PATCH v4 04/10] serial: bflb_uart: add Bouffalolab UART Driver
-Message-ID: <ZHdVNIQpgfCzimRg@xhacker>
-References: <20230518152244.2178-1-jszhang@kernel.org>
- <20230518152244.2178-5-jszhang@kernel.org>
- <2023053010-gondola-luminous-f5e7@gregkh>
+	Wed, 31 May 2023 14:24:22 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-3f60dfc6028so61277015e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 31 May 2023 07:24:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1685543057; x=1688135057;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UX4uQnFBny46FGtELxF82bEZ7MtHQbRmUfHqzbpy2lU=;
+        b=IfZ/Ty5r3Rvqpyw7mbNjCMOnUMNLWEjwe+gPBeXaNQKgtzbrn43qBaFsQ01WG62yjv
+         XME9SbyP0N5U1D9NoQRBkV9Zhqo1YGZZ53aXrSteaeilPxLX2+XbnbvtmK8KVitIuNum
+         BTw0oVjDbhu+LZvVe9vwdVAdbPm6FM6OrfIGRXCfRJwEyWbKyAxPmC0AxCpZ/t4lXnVG
+         ZEbjJhaOYnNF5I7VXOD2aSrPOgT/5V5ayPDbsai1cu/XzZW/x1EOnDPlftPM1zLUo5hK
+         LpNd3f3eYdQgduYWjrWRqJHgEFVdyS9CpXr7n4tqRw18zRe8skA+G5OYnlILCzE7fCiE
+         4hHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685543057; x=1688135057;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UX4uQnFBny46FGtELxF82bEZ7MtHQbRmUfHqzbpy2lU=;
+        b=jNKwCZU8rMYsTaW1i4Zw0B9Y5MwZv2qJv6Ucz11C7Mx8UvtplCiaeiLdfyoyu1ALr2
+         Y1np2gg/XYCOos7/R1fSXpkyPmBCHsixIXAofYkr3WOaKYn3JpBRbqQJUQ/JB+yYcAyA
+         UMQuFlfKYxjUA1H5BtMbDScyaFmCKRrc9mfFM2mFuScgeFnnAhZ4N1TQ25DBSY918q+8
+         8wX8pCDPZ7pl6Gjp6Kzo4ClXfr0jsSNleOM2EY8TM3OGhQbnK93fyzY03May0KfWrbAT
+         eJv+oIwDXM7lvS2U0LwsRY9mRvHXbFnpMhL+EroGeQdEOOasFZTiJwZirM10lddoZCJy
+         egnA==
+X-Gm-Message-State: AC+VfDysFyWrJxuwQF8D0mhUymsD4dvhuw9tAinCE1YMuqnMTxxTWvLw
+	dGEA2ZQpiUSRONeid2VMBGsPG7V58nTnePMJT2E=
+X-Google-Smtp-Source: ACHHUZ5dPMhB9kse11TIMIIwrwKdudQXmklhlG9pDb6dSrstXMUpAu5VAPxTeBjZUNfqusU9DTLd+A==
+X-Received: by 2002:a1c:f30e:0:b0:3f6:e42:8f85 with SMTP id q14-20020a1cf30e000000b003f60e428f85mr4390658wmq.37.1685543057440;
+        Wed, 31 May 2023 07:24:17 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id u20-20020a05600c211400b003f4ebeaa970sm21044711wml.25.2023.05.31.07.24.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 31 May 2023 07:24:17 -0700 (PDT)
+Date: Wed, 31 May 2023 16:24:16 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
+	Rob Herring <robh@kernel.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 05/10] riscv: Prepare for user-space perf event mmap
+ support
+Message-ID: <20230531-107c91fd5c1926f7c8a2a25d@orel>
+References: <20230512085321.13259-1-alexghiti@rivosinc.com>
+ <20230512085321.13259-6-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <2023053010-gondola-luminous-f5e7@gregkh>
+In-Reply-To: <20230512085321.13259-6-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_072115_550965_40818004 
-X-CRM114-Status: GOOD (  38.84  )
+X-CRM114-CacheID: sfid-20230531_072421_165383_065ED1F9 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,223 +101,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 30, 2023 at 11:36:00AM +0100, Greg Kroah-Hartman wrote:
-> On Thu, May 18, 2023 at 11:22:38PM +0800, Jisheng Zhang wrote:
-> > Add the driver for Bouffalolab UART IP which is found in Bouffalolab
-> > SoCs such as bl808.
+On Fri, May 12, 2023 at 10:53:16AM +0200, Alexandre Ghiti wrote:
+> Provide all the necessary bits in the generic riscv pmu driver to be
+> able to mmap perf events in userspace: the heavy lifting lies in the
+> driver backend, namely the legacy and sbi implementations.
 > 
-> New uarts are being created that are NOT 8250-like?  Why????
+> Note that arch_perf_update_userpage is almost a copy of arm64 code.
+> 
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>  arch/riscv/kernel/Makefile     |  2 +-
+>  arch/riscv/kernel/perf_event.c | 58 ++++++++++++++++++++++++++++++++++
+>  drivers/perf/riscv_pmu.c       | 41 ++++++++++++++++++++++++
+>  include/linux/perf/riscv_pmu.h |  4 +++
+>  4 files changed, 104 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/kernel/perf_event.c
+>
 
-Hi,
-
-I'm not sure I understand your meaning. I guess you mean writing the new
-uart driver following 8250 style. And the latest example is
-sunplus-uart.c, it can be used as an example how to write a 8250 style
-driver for new non-8250 uart IP. 
-
-If the above guesses are wrong, could you please provide more details?
-
-Thanks
-
-> 
-> 
-> > 
-> > UART driver probe will create path named "/dev/ttySx".
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  drivers/tty/serial/Kconfig       |  18 +
-> >  drivers/tty/serial/Makefile      |   1 +
-> >  drivers/tty/serial/bflb_uart.c   | 586 +++++++++++++++++++++++++++++++
-> >  include/uapi/linux/serial_core.h |   3 +
-> >  4 files changed, 608 insertions(+)
-> >  create mode 100644 drivers/tty/serial/bflb_uart.c
-> > 
-> > diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-> > index 398e5aac2e77..abc30a0713f5 100644
-> > --- a/drivers/tty/serial/Kconfig
-> > +++ b/drivers/tty/serial/Kconfig
-> > @@ -179,6 +179,24 @@ config SERIAL_ATMEL_TTYAT
-> >  
-> >  	  Say Y if you have an external 8250/16C550 UART.  If unsure, say N.
-> >  
-> > +config SERIAL_BFLB
-> > +	tristate "Bouffalolab serial port support"
-> > +	select SERIAL_CORE
-> > +	depends on COMMON_CLK
-> > +	help
-> > +	  This enables the driver for the Bouffalolab's serial.
-> > +
-> > +config SERIAL_BFLB_CONSOLE
-> > +	bool "Support for console on Bouffalolab serial port"
-> > +	depends on SERIAL_BFLB=y
-> > +	select SERIAL_CORE_CONSOLE
-> > +	select SERIAL_EARLYCON
-> > +	help
-> > +	  Say Y here if you wish to use a Bouffalolab UART as the
-> > +	  system console (the system console is the device which
-> > +	  receives all kernel messages and warnings and which allows
-> > +	  logins in single user mode) as /dev/ttySn.
-> > +
-> >  config SERIAL_KGDB_NMI
-> >  	bool "Serial console over KGDB NMI debugger port"
-> >  	depends on KGDB_SERIAL_CONSOLE
-> > diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
-> > index cd9afd9e3018..5788a708d327 100644
-> > --- a/drivers/tty/serial/Makefile
-> > +++ b/drivers/tty/serial/Makefile
-> > @@ -25,6 +25,7 @@ obj-$(CONFIG_SERIAL_8250) += 8250/
-> >  
-> >  obj-$(CONFIG_SERIAL_AMBA_PL010) += amba-pl010.o
-> >  obj-$(CONFIG_SERIAL_AMBA_PL011) += amba-pl011.o
-> > +obj-$(CONFIG_SERIAL_BFLB) += bflb_uart.o
-> >  obj-$(CONFIG_SERIAL_CLPS711X) += clps711x.o
-> >  obj-$(CONFIG_SERIAL_PXA_NON8250) += pxa.o
-> >  obj-$(CONFIG_SERIAL_SA1100) += sa1100.o
-> > diff --git a/drivers/tty/serial/bflb_uart.c b/drivers/tty/serial/bflb_uart.c
-> > new file mode 100644
-> > index 000000000000..3f80bba8599a
-> > --- /dev/null
-> > +++ b/drivers/tty/serial/bflb_uart.c
-> > @@ -0,0 +1,586 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +/*
-> > + * Based on bflb_uart.c, by Bouffalolab team
-> > + *
-> > + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
-> 
-> It is 2023 :)
-> 
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/console.h>
-> > +#include <linux/kernel.h>
-> > +#include <linux/init.h>
-> > +#include <linux/interrupt.h>
-> > +#include <linux/io.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/serial.h>
-> > +#include <linux/serial_core.h>
-> > +#include <linux/tty.h>
-> > +#include <linux/tty_flip.h>
-> > +
-> > +#define UART_UTX_CONFIG			0x00
-> > +#define  UART_CR_UTX_EN			BIT(0)
-> > +#define  UART_CR_UTX_CTS_EN		BIT(1)
-> > +#define  UART_CR_UTX_FRM_EN		BIT(2)
-> > +#define  UART_CR_UTX_PRT_EN		BIT(4)
-> > +#define  UART_CR_UTX_PRT_SEL		BIT(5)
-> > +#define  UART_CR_UTX_BIT_CNT_D_MSK	GENMASK(10, 8)
-> > +#define  UART_CR_UTX_BIT_CNT_P_MSK	GENMASK(12, 11)
-> > +#define UART_URX_CONFIG			0x04
-> > +#define  UART_CR_URX_EN			BIT(0)
-> > +#define  UART_CR_URX_PRT_EN		BIT(4)
-> > +#define  UART_CR_URX_PRT_SEL		BIT(5)
-> > +#define  UART_CR_URX_BIT_CNT_D_MSK	GENMASK(10, 8)
-> > +#define UART_BIT_PRD			0x08
-> > +#define  UART_CR_UTX_BIT_PRD_MSK	GENMASK(15, 0)
-> > +#define  UART_CR_URX_BIT_PRD_MSK	GENMASK(31, 16)
-> > +#define UART_DATA_CONFIG		0x0c
-> > +#define  UART_CR_UART_BIT_INV		BIT(0)
-> > +#define UART_URX_RTO_TIMER		0x18
-> > +#define  UART_CR_URX_RTO_VALUE_MSK	GENMASK(7, 0)
-> > +#define UART_SW_MODE			0x1c
-> > +#define UART_INT_STS			0x20
-> > +#define  UART_UTX_END_INT		BIT(0)
-> > +#define  UART_URX_END_INT		BIT(1)
-> > +#define  UART_UTX_FIFO_INT		BIT(2)
-> > +#define  UART_URX_FIFO_INT		BIT(3)
-> > +#define  UART_URX_RTO_INT		BIT(4)
-> > +#define  UART_URX_PCE_INT		BIT(5)
-> > +#define  UART_UTX_FER_INT		BIT(6)
-> > +#define  UART_URX_FER_INT		BIT(7)
-> > +#define  UART_URX_LSE_INT		BIT(8)
-> > +#define UART_INT_MASK			0x24
-> > +#define UART_INT_CLEAR			0x28
-> > +#define UART_INT_EN			0x2c
-> > +#define UART_STATUS			0x30
-> > +#define  UART_STS_UTX_BUS_BUSY		BIT(0)
-> > +#define UART_FIFO_CONFIG_0		0x80
-> > +#define  UART_DMA_TX_EN			BIT(0)
-> > +#define  UART_DMA_RX_EN			BIT(1)
-> > +#define  UART_TX_FIFO_CLR		BIT(2)
-> > +#define  UART_RX_FIFO_CLR		BIT(3)
-> > +#define  UART_TX_FIFO_OVERFLOW		BIT(4)
-> > +#define  UART_TX_FIFO_UNDERFLOW		BIT(5)
-> > +#define  UART_RX_FIFO_OVERFLOW		BIT(6)
-> > +#define  UART_RX_FIFO_UNDERFLOW		BIT(7)
-> > +#define UART_FIFO_CONFIG_1		0x84
-> > +#define  UART_TX_FIFO_CNT_MSK		GENMASK(5, 0)
-> > +#define  UART_RX_FIFO_CNT_MSK		GENMASK(13, 8)
-> > +#define  UART_TX_FIFO_TH_MSK		GENMASK(20, 16)
-> > +#define  UART_RX_FIFO_TH_MSK		GENMASK(28, 24)
-> > +#define UART_FIFO_WDATA			0x88
-> > +#define UART_FIFO_RDATA			0x8c
-> > +#define  UART_FIFO_RDATA_MSK		GENMASK(7, 0)
-> > +
-> > +#define BFLB_UART_MAXPORTS		8
-> > +#define BFLB_UART_BAUD			2000000
-> > +#define BFLB_UART_RX_FIFO_TH		7
-> > +#define BFLB_UART_TX_FIFO_TH		15
-> > +#define BFLB_UART_URX_RTO_TIME		0x4f
-> > +
-> > +struct bflb_uart_port {
-> > +	struct uart_port port;
-> > +	struct clk *clk;
-> > +};
-> > +
-> > +static struct bflb_uart_port *bflb_uart_ports[BFLB_UART_MAXPORTS];
-> > +
-> > +static inline u32 rdl(struct uart_port *port, u32 reg)
-> > +{
-> > +	return readl_relaxed(port->membase + reg);
-> > +}
-> > +
-> > +static inline void wrl(struct uart_port *port, u32 reg, u32 value)
-> > +{
-> > +	writel_relaxed(value, port->membase + reg);
-> > +}
-> > +
-> > +static inline void wrb(struct uart_port *port, u32 reg, u8 value)
-> > +{
-> > +	writeb_relaxed(value, port->membase + reg);
-> > +}
-> > +
-> > +static unsigned int bflb_uart_tx_empty(struct uart_port *port)
-> > +{
-> > +	return (rdl(port, UART_FIFO_CONFIG_1) & UART_TX_FIFO_CNT_MSK) ? TIOCSER_TEMT : 0;
-> > +}
-> > +
-> > +static unsigned int bflb_uart_get_mctrl(struct uart_port *port)
-> > +{
-> > +	return TIOCM_CAR | TIOCM_DSR | TIOCM_CTS;
-> > +}
-> > +
-> > +static void bflb_uart_set_mctrl(struct uart_port *port, unsigned int sigs)
-> > +{
-> > +}
-> 
-> Why is a blank function required here?
-> 
-> 
-> > --- a/include/uapi/linux/serial_core.h
-> > +++ b/include/uapi/linux/serial_core.h
-> > @@ -279,4 +279,7 @@
-> >  /* Sunplus UART */
-> >  #define PORT_SUNPLUS	123
-> >  
-> > +/* Bouffalolab UART */
-> > +#define PORT_BFLB	124
-> 
-> Why is this required?  What userspace code is going to need this?
-> 
-> thanks,
-> 
-> greg k-h
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
