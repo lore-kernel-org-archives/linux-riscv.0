@@ -4,109 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CA2C77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 21:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACA2C77B73
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 22:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T00Fp2lrrZUCZtQX617OdZ5Ueh6Mhc2YIGKvEM03G3I=; b=DFfhxfThKyHMDy
-	92tYxfKUl+3oKRxcT8knva+M624IQJ8+/rlO1eYjRrk//mi022FF0DvZSDpT2bXGT8nTfZ2z0d/9+
-	3thW5MiNCJDH3EkbCvP5z6m8TQs+Tdo7EKuaPYv9LQUWusIocPZfOPWitm+DnuRfqejyC+hmsuXiI
-	8MhrDo7/mlAkzyYMtkRSbd0vAEY5JAOdzX5bwhbjY9rrLp/1ZqOwNB+7SQwm1EJE4taN0n0/pPbzh
-	wD8HJg2B1fitLiJrJS4CtlwMM/ZxGgz7/oR/kEKeE/vZ4LHg+SI7RiSZ18MSQKuBTUChHY8gPbgrO
-	MpV52iTzuGyyyaC7HvKA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sCawpvK+0gblP8v4nIReyUenWVnho+H1iUf+pqdHdaw=; b=073DpyopDRzCrFmMFLRDXLE138
+	7gkNaumTIUatHM5zk6Kn4RMn/xlMJAT5YSZl9tuMpVNm7w/Fysdx5PGq752jYsM28QiHmx/Nb9Lzq
+	4YdVmLZfQvFO7vUajaLjcGuD37ywZEgdCtEmFvQYToEuMbfWD1O8GRPFAcXwtTy7yviCsxsISSsO/
+	Bt10dyQAUSoHLHGgr4fkMpWFUHsxmgM+WLaEucxvVC6oxepYWRSr/FhJCPe3gMtEa4PZTJTxWjlKF
+	tVKsMg8YH0NagRcuUH3SpM+uyqzoiC3nU6ishYJHbVo9T9aM2HHsl13FWsHFHDTcTwb6XvpZyIJ3U
+	1BGzWhBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4Tmm-001F72-33;
-	Wed, 31 May 2023 21:55:17 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1q4URg-001KnB-34;
+	Wed, 31 May 2023 22:37:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4TmC-001EaC-1T;
-	Wed, 31 May 2023 21:54:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=g0EDlTBepFAIScUxyTJ+0DyGhEsxHu6BpoqqcqVDYAk=; b=HikNgpcdUqgSUpsLzV7GY6PHAS
-	SDYGaZyxZq6/vq22xDEVuokpn9sfNvSttrnsooYjuICUYSAXUB20EPny6GLO81Ty1JqwTJHw79+cQ
-	x0jjQzP+t/L5naEWmoQV6Xdjsco6fLZhPBEfiXdsZRA79MceKNupRx8qZG6VT3n3a940vW9WqG3T8
-	RmbEz+eSTLw0B8Vk86acDRUKa6C5o5mWUGZx6kZXH8pDFKgmmSAQLAdOIL4s96abqQcIJZtKdjd4c
-	kV8tvfjDdR1X7veiTrVhSrn3MJ9arvzdDih/X5wE06x56YamW4c4HvLdgKiVyuwcgNXTVNADsQgtg
-	3V7toZGg==;
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
-	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1q4TQ1-007fj0-ST; Wed, 31 May 2023 21:31:48 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-565e6beb7aaso738747b3.2;
-        Wed, 31 May 2023 14:31:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1685568703; x=1688160703;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=g0EDlTBepFAIScUxyTJ+0DyGhEsxHu6BpoqqcqVDYAk=;
-        b=lfEsLtgTeKEzXFirMo9o11V/XRmZm00/YaLm7BlBKxUZMh8F89Ri2q82RalA6HVFcr
-         fGfOCaBw7lrZfJUknvgerzX2CLrTKKqqygseS2G5r3CrGL21cM5rmCXifeNktoOdWeqE
-         hCAdIHYTp6Omd8YIi0G2dwAir8S3Dh7e6wZEUy3DbCkX4PtFD3VJdhVAKwcBVEwSBDM1
-         IgMwwjhrauy7YY5+zFOQZ8f3GCW/2V8MHMVyy+uFfFYSBx0y4NOWRzIYfjEZfvlGo2qR
-         q/y0VEM36li7rrjLRirqy8+8CcNmR7WeMBFP9OUiKGR04mxHqqi+zNnx2O9I2zESO1QH
-         Pk4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685568703; x=1688160703;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=g0EDlTBepFAIScUxyTJ+0DyGhEsxHu6BpoqqcqVDYAk=;
-        b=OJQvFsWjLXRw0f7gj4uPelLnE1is4GYtaxO1F7Ir1SlaC9BlwVW/Nb+ksCM3B5UGv6
-         HwJfKtD+lHA6PrvIvAEPt0h4jiWyscjYahVTjV2lAKWeZb1Ku8mKKjV9soIWYOo8By91
-         yFnLGvrZed6qtaYKxFWBowPRsR+YvhoiBf4/2mR1ZKNDwSgt3OS+C7fiI/3qsDbphU8y
-         xGcQugMjGNJv27aGqwJ0hN5nFhKIRp7F5QmcjVSO2zdP3wtuX+gtzSxNwZzp5q/o+zL2
-         bbUqDCFgLHSZDXU9MF/RfWpncY9JHVm3VNMZIEzfqzavjnqSbcUvRvtJCS1pAckLTh9p
-         oK9A==
-X-Gm-Message-State: AC+VfDyvkcphhpbw2+Fxe0HAKBpfluMsTyFzBezqTffX+50gssdB+X3G
-	Tm/NZD6Ad5liKbUU9yilljI=
-X-Google-Smtp-Source: ACHHUZ4ZKhxc9PbSQYs4zCFcIXlSyOZD/0WXO8m20IywWxu9Fif+j8BE1GhA2Av88s4QXNRNjVFnmA==
-X-Received: by 2002:a0d:ccd3:0:b0:561:e89d:e263 with SMTP id o202-20020a0dccd3000000b00561e89de263mr6292041ywd.52.1685568702956;
-        Wed, 31 May 2023 14:31:42 -0700 (PDT)
-Received: from unknowna0e70b2ca394.attlocal.net ([2600:1700:2f7d:1800::46])
-        by smtp.googlemail.com with ESMTPSA id t63-20020a0dd142000000b0055aafcef659sm658905ywd.5.2023.05.31.14.31.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 May 2023 14:31:42 -0700 (PDT)
-From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>
-Cc: linux-mm@kvack.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org,
-	kvm@vger.kernel.org,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	David Hildenbrand <david@redhat.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>
-Subject: [PATCH v3 17/34] s390: Convert various pgalloc functions to use ptdescs
-Date: Wed, 31 May 2023 14:30:15 -0700
-Message-Id: <20230531213032.25338-18-vishal.moola@gmail.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230531213032.25338-1-vishal.moola@gmail.com>
-References: <20230531213032.25338-1-vishal.moola@gmail.com>
+	id 1q4URe-001Km6-0k
+	for linux-riscv@lists.infradead.org;
+	Wed, 31 May 2023 22:37:31 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EB86C634F9;
+	Wed, 31 May 2023 22:37:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67BCAC433D2;
+	Wed, 31 May 2023 22:37:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685572646;
+	bh=EjcnHeLPSFskAfrECWzs0sBFgzC+oBoE4wsOMlpomy0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=edK7cDRjdx4uas4edYdeXU/b0jIuH8g7/WAZNO5DSDCcS0YaLilbgVUxIipuqn5Sp
+	 lCrLS+s9ffLTuvceyREmandUiBzww2Vm0FYVd7oH4zVCgA7VgWyC4/aQm8/ZjNTSUf
+	 b8dbYVPA/tpNUEHbYxINyxen0NE2uVgFjLwJopgxn2aGeJWfo+BwbqMuk5GklRaie4
+	 BgZ3XO7jaS1yOCF3xtfHmqCN16wqOGz3/Y6/nx8TG/JM4IQehwiYUwDsrRH1KQ19w1
+	 kYhSF0XubTIbUD/FtSIs0J51Ts29QRj156kFbUdfPrTl9s1jRsrnK2pZBGThy4VlGW
+	 BHubXoEh2en9g==
+Date: Wed, 31 May 2023 23:37:20 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Kees Cook <keescook@chromium.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Thorsten Leemhuis <linux@leemhuis.info>,
+	Joan Bruguera =?iso-8859-1?Q?Mic=F3?= <joanbrugueram@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Alyssa Ross <hi@alyssa.is>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH] riscv/purgatory: Do not use fortified string functions
+Message-ID: <20230531-abruptly-settling-f9852f408dcd@spud>
+References: <20230531003404.never.167-kees@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20230531003404.never.167-kees@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_223145_945895_842E39FC 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20230531_153730_374599_399E3221 
+X-CRM114-Status: GOOD (  22.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,336 +79,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5638362541332931329=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As part of the conversions to replace pgtable constructor/destructors with
-ptdesc equivalents, convert various page table functions to use ptdescs.
 
-Some of the functions use the *get*page*() helper functions. Convert
-these to use pagetable_alloc() and ptdesc_address() instead to help
-standardize page tables further.
+--===============5638362541332931329==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ZFT5h/br0IBkD5vu"
+Content-Disposition: inline
 
-Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
----
- arch/s390/include/asm/pgalloc.h |   4 +-
- arch/s390/include/asm/tlb.h     |   4 +-
- arch/s390/mm/pgalloc.c          | 108 ++++++++++++++++----------------
- 3 files changed, 59 insertions(+), 57 deletions(-)
 
-diff --git a/arch/s390/include/asm/pgalloc.h b/arch/s390/include/asm/pgalloc.h
-index 17eb618f1348..00ad9b88fda9 100644
---- a/arch/s390/include/asm/pgalloc.h
-+++ b/arch/s390/include/asm/pgalloc.h
-@@ -86,7 +86,7 @@ static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long vmaddr)
- 	if (!table)
- 		return NULL;
- 	crst_table_init(table, _SEGMENT_ENTRY_EMPTY);
--	if (!pgtable_pmd_page_ctor(virt_to_page(table))) {
-+	if (!pagetable_pmd_ctor(virt_to_ptdesc(table))) {
- 		crst_table_free(mm, table);
- 		return NULL;
- 	}
-@@ -97,7 +97,7 @@ static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
- {
- 	if (mm_pmd_folded(mm))
- 		return;
--	pgtable_pmd_page_dtor(virt_to_page(pmd));
-+	pagetable_pmd_dtor(virt_to_ptdesc(pmd));
- 	crst_table_free(mm, (unsigned long *) pmd);
- }
- 
-diff --git a/arch/s390/include/asm/tlb.h b/arch/s390/include/asm/tlb.h
-index b91f4a9b044c..383b1f91442c 100644
---- a/arch/s390/include/asm/tlb.h
-+++ b/arch/s390/include/asm/tlb.h
-@@ -89,12 +89,12 @@ static inline void pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd,
- {
- 	if (mm_pmd_folded(tlb->mm))
- 		return;
--	pgtable_pmd_page_dtor(virt_to_page(pmd));
-+	pagetable_pmd_dtor(virt_to_ptdesc(pmd));
- 	__tlb_adjust_range(tlb, address, PAGE_SIZE);
- 	tlb->mm->context.flush_mm = 1;
- 	tlb->freed_tables = 1;
- 	tlb->cleared_puds = 1;
--	tlb_remove_table(tlb, pmd);
-+	tlb_remove_ptdesc(tlb, pmd);
- }
- 
- /*
-diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
-index 6b99932abc66..eeb7c95b98cf 100644
---- a/arch/s390/mm/pgalloc.c
-+++ b/arch/s390/mm/pgalloc.c
-@@ -43,17 +43,17 @@ __initcall(page_table_register_sysctl);
- 
- unsigned long *crst_table_alloc(struct mm_struct *mm)
- {
--	struct page *page = alloc_pages(GFP_KERNEL, CRST_ALLOC_ORDER);
-+	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL, CRST_ALLOC_ORDER);
- 
--	if (!page)
-+	if (!ptdesc)
- 		return NULL;
--	arch_set_page_dat(page, CRST_ALLOC_ORDER);
--	return (unsigned long *) page_to_virt(page);
-+	arch_set_page_dat(ptdesc_page(ptdesc), CRST_ALLOC_ORDER);
-+	return (unsigned long *) ptdesc_to_virt(ptdesc);
- }
- 
- void crst_table_free(struct mm_struct *mm, unsigned long *table)
- {
--	free_pages((unsigned long)table, CRST_ALLOC_ORDER);
-+	pagetable_free(virt_to_ptdesc(table));
- }
- 
- static void __crst_table_upgrade(void *arg)
-@@ -140,21 +140,21 @@ static inline unsigned int atomic_xor_bits(atomic_t *v, unsigned int bits)
- 
- struct page *page_table_alloc_pgste(struct mm_struct *mm)
- {
--	struct page *page;
-+	struct ptdesc *ptdesc;
- 	u64 *table;
- 
--	page = alloc_page(GFP_KERNEL);
--	if (page) {
--		table = (u64 *)page_to_virt(page);
-+	ptdesc = pagetable_alloc(GFP_KERNEL, 0);
-+	if (ptdesc) {
-+		table = (u64 *)ptdesc_to_virt(ptdesc);
- 		memset64(table, _PAGE_INVALID, PTRS_PER_PTE);
- 		memset64(table + PTRS_PER_PTE, 0, PTRS_PER_PTE);
- 	}
--	return page;
-+	return ptdesc_page(ptdesc);
- }
- 
- void page_table_free_pgste(struct page *page)
- {
--	__free_page(page);
-+	pagetable_free(page_ptdesc(page));
- }
- 
- #endif /* CONFIG_PGSTE */
-@@ -230,7 +230,7 @@ void page_table_free_pgste(struct page *page)
- unsigned long *page_table_alloc(struct mm_struct *mm)
- {
- 	unsigned long *table;
--	struct page *page;
-+	struct ptdesc *ptdesc;
- 	unsigned int mask, bit;
- 
- 	/* Try to get a fragment of a 4K page as a 2K page table */
-@@ -238,9 +238,9 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
- 		table = NULL;
- 		spin_lock_bh(&mm->context.lock);
- 		if (!list_empty(&mm->context.pgtable_list)) {
--			page = list_first_entry(&mm->context.pgtable_list,
--						struct page, lru);
--			mask = atomic_read(&page->pt_frag_refcount);
-+			ptdesc = list_first_entry(&mm->context.pgtable_list,
-+						struct ptdesc, pt_list);
-+			mask = atomic_read(&ptdesc->pt_frag_refcount);
- 			/*
- 			 * The pending removal bits must also be checked.
- 			 * Failure to do so might lead to an impossible
-@@ -253,13 +253,13 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
- 			 */
- 			mask = (mask | (mask >> 4)) & 0x03U;
- 			if (mask != 0x03U) {
--				table = (unsigned long *) page_to_virt(page);
-+				table = (unsigned long *) ptdesc_to_virt(ptdesc);
- 				bit = mask & 1;		/* =1 -> second 2K */
- 				if (bit)
- 					table += PTRS_PER_PTE;
--				atomic_xor_bits(&page->pt_frag_refcount,
-+				atomic_xor_bits(&ptdesc->pt_frag_refcount,
- 							0x01U << bit);
--				list_del(&page->lru);
-+				list_del(&ptdesc->pt_list);
- 			}
- 		}
- 		spin_unlock_bh(&mm->context.lock);
-@@ -267,27 +267,27 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
- 			return table;
- 	}
- 	/* Allocate a fresh page */
--	page = alloc_page(GFP_KERNEL);
--	if (!page)
-+	ptdesc = pagetable_alloc(GFP_KERNEL, 0);
-+	if (!ptdesc)
- 		return NULL;
--	if (!pgtable_pte_page_ctor(page)) {
--		__free_page(page);
-+	if (!pagetable_pte_ctor(ptdesc)) {
-+		pagetable_free(ptdesc);
- 		return NULL;
- 	}
--	arch_set_page_dat(page, 0);
-+	arch_set_page_dat(ptdesc_page(ptdesc), 0);
- 	/* Initialize page table */
--	table = (unsigned long *) page_to_virt(page);
-+	table = (unsigned long *) ptdesc_to_virt(ptdesc);
- 	if (mm_alloc_pgste(mm)) {
- 		/* Return 4K page table with PGSTEs */
--		atomic_xor_bits(&page->pt_frag_refcount, 0x03U);
-+		atomic_xor_bits(&ptdesc->pt_frag_refcount, 0x03U);
- 		memset64((u64 *)table, _PAGE_INVALID, PTRS_PER_PTE);
- 		memset64((u64 *)table + PTRS_PER_PTE, 0, PTRS_PER_PTE);
- 	} else {
- 		/* Return the first 2K fragment of the page */
--		atomic_xor_bits(&page->pt_frag_refcount, 0x01U);
-+		atomic_xor_bits(&ptdesc->pt_frag_refcount, 0x01U);
- 		memset64((u64 *)table, _PAGE_INVALID, 2 * PTRS_PER_PTE);
- 		spin_lock_bh(&mm->context.lock);
--		list_add(&page->lru, &mm->context.pgtable_list);
-+		list_add(&ptdesc->pt_list, &mm->context.pgtable_list);
- 		spin_unlock_bh(&mm->context.lock);
- 	}
- 	return table;
-@@ -309,9 +309,8 @@ static void page_table_release_check(struct page *page, void *table,
- void page_table_free(struct mm_struct *mm, unsigned long *table)
- {
- 	unsigned int mask, bit, half;
--	struct page *page;
-+	struct ptdesc *ptdesc = virt_to_ptdesc(table);
- 
--	page = virt_to_page(table);
- 	if (!mm_alloc_pgste(mm)) {
- 		/* Free 2K page table fragment of a 4K page */
- 		bit = ((unsigned long) table & ~PAGE_MASK)/(PTRS_PER_PTE*sizeof(pte_t));
-@@ -321,39 +320,38 @@ void page_table_free(struct mm_struct *mm, unsigned long *table)
- 		 * will happen outside of the critical section from this
- 		 * function or from __tlb_remove_table()
- 		 */
--		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x11U << bit);
-+		mask = atomic_xor_bits(&ptdesc->pt_frag_refcount, 0x11U << bit);
- 		if (mask & 0x03U)
--			list_add(&page->lru, &mm->context.pgtable_list);
-+			list_add(&ptdesc->pt_list, &mm->context.pgtable_list);
- 		else
--			list_del(&page->lru);
-+			list_del(&ptdesc->pt_list);
- 		spin_unlock_bh(&mm->context.lock);
--		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x10U << bit);
-+		mask = atomic_xor_bits(&ptdesc->pt_frag_refcount, 0x10U << bit);
- 		if (mask != 0x00U)
- 			return;
- 		half = 0x01U << bit;
- 	} else {
- 		half = 0x03U;
--		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x03U);
-+		mask = atomic_xor_bits(&ptdesc->pt_frag_refcount, 0x03U);
- 	}
- 
--	page_table_release_check(page, table, half, mask);
--	pgtable_pte_page_dtor(page);
--	__free_page(page);
-+	page_table_release_check(ptdesc_page(ptdesc), table, half, mask);
-+	pagetable_pte_dtor(ptdesc);
-+	pagetable_free(ptdesc);
- }
- 
- void page_table_free_rcu(struct mmu_gather *tlb, unsigned long *table,
- 			 unsigned long vmaddr)
- {
- 	struct mm_struct *mm;
--	struct page *page;
- 	unsigned int bit, mask;
-+	struct ptdesc *ptdesc = virt_to_ptdesc(table);
- 
- 	mm = tlb->mm;
--	page = virt_to_page(table);
- 	if (mm_alloc_pgste(mm)) {
- 		gmap_unlink(mm, table, vmaddr);
- 		table = (unsigned long *) ((unsigned long)table | 0x03U);
--		tlb_remove_table(tlb, table);
-+		tlb_remove_ptdesc(tlb, table);
- 		return;
- 	}
- 	bit = ((unsigned long) table & ~PAGE_MASK) / (PTRS_PER_PTE*sizeof(pte_t));
-@@ -363,11 +361,11 @@ void page_table_free_rcu(struct mmu_gather *tlb, unsigned long *table,
- 	 * outside of the critical section from __tlb_remove_table() or from
- 	 * page_table_free()
- 	 */
--	mask = atomic_xor_bits(&page->pt_frag_refcount, 0x11U << bit);
-+	mask = atomic_xor_bits(&ptdesc->pt_frag_refcount, 0x11U << bit);
- 	if (mask & 0x03U)
--		list_add_tail(&page->lru, &mm->context.pgtable_list);
-+		list_add_tail(&ptdesc->pt_list, &mm->context.pgtable_list);
- 	else
--		list_del(&page->lru);
-+		list_del(&ptdesc->pt_list);
- 	spin_unlock_bh(&mm->context.lock);
- 	table = (unsigned long *) ((unsigned long) table | (0x01U << bit));
- 	tlb_remove_table(tlb, table);
-@@ -377,7 +375,7 @@ void __tlb_remove_table(void *_table)
- {
- 	unsigned int mask = (unsigned long) _table & 0x03U, half = mask;
- 	void *table = (void *)((unsigned long) _table ^ mask);
--	struct page *page = virt_to_page(table);
-+	struct ptdesc *ptdesc = virt_to_ptdesc(table);
- 
- 	switch (half) {
- 	case 0x00U:	/* pmd, pud, or p4d */
-@@ -385,18 +383,18 @@ void __tlb_remove_table(void *_table)
- 		return;
- 	case 0x01U:	/* lower 2K of a 4K page table */
- 	case 0x02U:	/* higher 2K of a 4K page table */
--		mask = atomic_xor_bits(&page->pt_frag_refcount, mask << 4);
-+		mask = atomic_xor_bits(&ptdesc->pt_frag_refcount, mask << 4);
- 		if (mask != 0x00U)
- 			return;
- 		break;
- 	case 0x03U:	/* 4K page table with pgstes */
--		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x03U);
-+		mask = atomic_xor_bits(&ptdesc->pt_frag_refcount, 0x03U);
- 		break;
- 	}
- 
--	page_table_release_check(page, table, half, mask);
--	pgtable_pte_page_dtor(page);
--	__free_page(page);
-+	page_table_release_check(ptdesc_page(ptdesc), table, half, mask);
-+	pagetable_pte_dtor(ptdesc);
-+	pagetable_free(ptdesc);
- }
- 
- /*
-@@ -424,16 +422,20 @@ static void base_pgt_free(unsigned long *table)
- static unsigned long *base_crst_alloc(unsigned long val)
- {
- 	unsigned long *table;
-+	struct ptdesc *ptdesc;
- 
--	table =	(unsigned long *)__get_free_pages(GFP_KERNEL, CRST_ALLOC_ORDER);
--	if (table)
--		crst_table_init(table, val);
-+	ptdesc = pagetable_alloc(GFP_KERNEL, CRST_ALLOC_ORDER);
-+	if (!ptdesc)
-+		return NULL;
-+	table = ptdesc_address(ptdesc);
-+
-+	crst_table_init(table, val);
- 	return table;
- }
- 
- static void base_crst_free(unsigned long *table)
- {
--	free_pages((unsigned long)table, CRST_ALLOC_ORDER);
-+	pagetable_free(virt_to_ptdesc(table));
- }
- 
- #define BASE_ADDR_END_FUNC(NAME, SIZE)					\
--- 
-2.40.1
+--ZFT5h/br0IBkD5vu
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+Hey Kees,
+
+On Tue, May 30, 2023 at 05:34:04PM -0700, Kees Cook wrote:
+> With the addition of -fstrict-flex-arrays=3D3, struct sha256_state's
+> trailing array is no longer ignored by CONFIG_FORTIFY_SOURCE:
+>=20
+> struct sha256_state {
+>         u32 state[SHA256_DIGEST_SIZE / 4];
+>         u64 count;
+>         u8 buf[SHA256_BLOCK_SIZE];
+> };
+>=20
+> This means that the memcpy() calls with "buf" as a destination in
+> sha256.c's code will attempt to perform run-time bounds checking, which
+> could lead to calling missing functions, specifically a potential
+> WARN_ONCE, which isn't callable from purgatory.
+>=20
+> Reported-by: Thorsten Leemhuis <linux@leemhuis.info>
+> Closes: https://lore.kernel.org/lkml/175578ec-9dec-7a9c-8d3a-43f24ff86b92=
+@leemhuis.info/
+> Bisected-by: "Joan Bruguera Mic=F3" <joanbrugueram@gmail.com>
+> Fixes: df8fc4e934c1 ("kbuild: Enable -fstrict-flex-arrays=3D3")
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Masahiro Yamada <masahiroy@kernel.org>
+> Cc: Conor Dooley <conor.dooley@microchip.com>
+> Cc: Nick Desaulniers <ndesaulniers@google.com>
+> Cc: Alyssa Ross <hi@alyssa.is>
+> Cc: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
+> Cc: linux-riscv@lists.infradead.org
+> Signed-off-by: Kees Cook <keescook@chromium.org>
+
+Perhaps this is indicative of other issues in RISC-V land, but
+allmodconfig complains about this patch:
+
+=2E./lib/string.c:17: warning: "__NO_FORTIFY" redefined
+=2E./lib/string.c:17:9: warning: preprocessor token __NO_FORTIFY redefined
+
+> ---
+>  arch/riscv/purgatory/Makefile | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+> index 5730797a6b40..11f4c275f141 100644
+> --- a/arch/riscv/purgatory/Makefile
+> +++ b/arch/riscv/purgatory/Makefile
+> @@ -31,9 +31,9 @@ $(obj)/strncmp.o: $(srctree)/arch/riscv/lib/strncmp.S F=
+ORCE
+>  $(obj)/sha256.o: $(srctree)/lib/crypto/sha256.c FORCE
+>  	$(call if_changed_rule,cc_o_c)
+> =20
+> -CFLAGS_sha256.o :=3D -D__DISABLE_EXPORTS
+> -CFLAGS_string.o :=3D -D__DISABLE_EXPORTS
+> -CFLAGS_ctype.o :=3D -D__DISABLE_EXPORTS
+> +CFLAGS_sha256.o :=3D -D__DISABLE_EXPORTS -D__NO_FORTIFY
+> +CFLAGS_string.o :=3D -D__DISABLE_EXPORTS -D__NO_FORTIFY
+> +CFLAGS_ctype.o :=3D -D__DISABLE_EXPORTS -D__NO_FORTIFY
+> =20
+>  # When linking purgatory.ro with -r unresolved symbols are not checked,
+>  # also link a purgatory.chk binary without -r to check for unresolved sy=
+mbols.
+> --=20
+> 2.34.1
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--ZFT5h/br0IBkD5vu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHfMIAAKCRB4tDGHoIJi
+0skGAP0RP0L15KqUDxAa/Z7n2whLtyvwOJmOwsbDDBUC+eTiWAD/cULCWm/j6GXO
+GcD+DaRrgW5urSzwpXiAq1ng8PzMFwg=
+=q9r1
+-----END PGP SIGNATURE-----
+
+--ZFT5h/br0IBkD5vu--
+
+
+--===============5638362541332931329==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5638362541332931329==--
+
