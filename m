@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC366C7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 15:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E558BC77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 15:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VijxNZKSyClwCGeIBEcVAtQpcMdnYem9TIEjD1SI0I0=; b=ws8g0BMra/790+
-	Eif4s0pRH/z62+fOyosm9a0bcmkNYnZQ0EZiUHt4wsguQeNPe0eZoRbmiuYpcN2fvjxqS1JnlOt5g
-	lC1uiEv3fHlRL3N6eOqd2Z2AliQnNvO5sT9UDEIWIEhjDOe368Wrrv3hNBdp9q+pYuKHO35Fu0Zri
-	a/USqyuIh3uc7u471HAhDyCj/xlnMybPx+YEbH1xIBDGhOwnNPQX3JYiybO5gDfqD7I8PyuCSGr04
-	cH6NujKzo8+FL7iIiGttS38MYym9CuQf91iIyGSOe5hsi2zIQanIL7LbumQfkIOZ0HHS8T6q107I2
-	/ycxwLDx5kdHcOpKnE5w==;
+	List-Owner; bh=tCff9HoCMCqZbCUNcXoYWqrpZUKh/1ZxN2wGeik1f9U=; b=zeEA6NYH2b3J0d
+	vNAsV1pkuYYjdNEKxEU3TgKijiQY+lNSUHqBV/I5aqggpvNey+n7God1+CV+uHPMhNgoOT4RMtmN4
+	9XiurJF30e+59TbfnSDysuUIqWB1alIo/L0LcbPhtF5id9CCOUQv80FC75hf1gHXZRw2myUNvWu+J
+	NIOlhmxsypm7NPVrhEmtWt9hKkCrqo1/309oI9syAn2YYYV0yrgDVDmDl4bUe0IaZGCAAUvJX6AvB
+	bNHO6Rp1BY2nzYJ1TDJGussbYFeoLvJ/4Z9mVZP+TwbduhECbVUENLCpsHbGEPncQ+4tW12+ZSJ2k
+	KEVbGD8daK6kB4Ev0Ksw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4NZX-000GTo-01;
-	Wed, 31 May 2023 15:17:11 +0000
+	id 1q4NrJ-000JJf-2U;
+	Wed, 31 May 2023 15:35:33 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4NZU-000GSW-0p
+	id 1q4NrG-000JJE-2c
 	for linux-riscv@lists.infradead.org;
-	Wed, 31 May 2023 15:17:09 +0000
+	Wed, 31 May 2023 15:35:32 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9966E63D2B;
-	Wed, 31 May 2023 15:17:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76F24C433D2;
-	Wed, 31 May 2023 15:17:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 50F6362F37;
+	Wed, 31 May 2023 15:35:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 401D3C433EF;
+	Wed, 31 May 2023 15:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685546227;
-	bh=F2oc/tidTrFnHhaHZr881PgbMLURyR5U4/nkSfN9YS8=;
+	s=k20201202; t=1685547329;
+	bh=42ueuOloMTrR83m/Gh8uGpcqRw+cPzbULNgMppbwAGw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RcEGyF8FybWmi/JDto/ddTnXqo/tO5zJ7DW2B/NakrvGKANUGraVuszAbwbfDKQ7Q
-	 82tu9gTevz0Yu6y6QFHRYgbbPngyHMw3fzUOQ7NQStlTrv4jbx1zaHoYTDrWAkDX8Z
-	 +4PE4X3KPwS5aLtKrJEdlT5etaaorkYQCcDOsIGSwRKj43RL8Yxu3kvH6Q1tUxsVKN
-	 xcPpGGblXTQdKGUNb881ojltavyXFriN2uKAfM4/YwuEbgTz05W8eisK3jvSVpYVhx
-	 unVOhSHeKnniSjj4JdRPKG1qgqnyK2CUmOSmd+NHTKDI18IkZhO8FrszGYeffoxXtP
-	 nAHIl41W14dWw==
-Date: Wed, 31 May 2023 23:05:46 +0800
+	b=YijHQ/gg4GqRMnuRtLZDvcke0aYPr8921yqDSiufV00WSIyrIkrxKbRS1klV/0pj+
+	 SQe55XVBYAUmk2E4Hbr7GeSkslQhl1e3BXlvr3t3LRj1i64Zp0u0jRbGmhKstTWinZ
+	 yGYIiCR4MrJqVxcknKyv4v9dBSbx+fMesbYCbS58RBHder1kH7DDE+2Asd5fUZZLWI
+	 V7PXDWmyX9V7K0hOPF2ytry/pKHl9LHqkybK0CrixATMrl87lKvvk+dfYCjC2tn2WD
+	 g8F0gpKyVFL36ZZYGYvgth41BjUrJ+B63g46q7KeLd4wCx7lwX63S3Q5JdN5BJDxhf
+	 407HRFoMn4nSA==
+Date: Wed, 31 May 2023 23:24:13 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-serial@vger.kernel.org
-Subject: Re: [PATCH v4 04/10] serial: bflb_uart: add Bouffalolab UART Driver
-Message-ID: <ZHdiSjajwbF3cKBK@xhacker>
-References: <20230518152244.2178-1-jszhang@kernel.org>
- <20230518152244.2178-5-jszhang@kernel.org>
- <2023053010-gondola-luminous-f5e7@gregkh>
- <ZHdVNIQpgfCzimRg@xhacker>
- <2023053119-drab-cartwheel-29af@gregkh>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH 4/6] riscv: mm: pass noncoherent or not to
+ riscv_noncoherent_supported()
+Message-ID: <ZHdmnfJvF1N5rgvx@xhacker>
+References: <20230526165958.908-1-jszhang@kernel.org>
+ <20230526165958.908-5-jszhang@kernel.org>
+ <20230529-gainfully-ribbon-48520d25ef6e@wendy>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <2023053119-drab-cartwheel-29af@gregkh>
+In-Reply-To: <20230529-gainfully-ribbon-48520d25ef6e@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_081708_336067_89316AA1 
-X-CRM114-Status: GOOD (  19.77  )
+X-CRM114-CacheID: sfid-20230531_083530_940649_685E411F 
+X-CRM114-Status: GOOD (  33.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +80,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 31, 2023 at 03:34:02PM +0100, Greg Kroah-Hartman wrote:
-> On Wed, May 31, 2023 at 10:09:56PM +0800, Jisheng Zhang wrote:
-> > On Tue, May 30, 2023 at 11:36:00AM +0100, Greg Kroah-Hartman wrote:
-> > > On Thu, May 18, 2023 at 11:22:38PM +0800, Jisheng Zhang wrote:
-> > > > Add the driver for Bouffalolab UART IP which is found in Bouffalolab
-> > > > SoCs such as bl808.
-> > > 
-> > > New uarts are being created that are NOT 8250-like?  Why????
-> > 
-> > Hi,
-> > 
-> > I'm not sure I understand your meaning. I guess you mean writing the new
-> > uart driver following 8250 style. And the latest example is
-> > sunplus-uart.c, it can be used as an example how to write a 8250 style
-> > driver for new non-8250 uart IP. 
-> 
-> No, I mean, "why are hardware designers creating new UARTs in 2023 that
-> are NOT 8250-based"?  Why do they want to constantly reinvent the wheel?
+On Mon, May 29, 2023 at 12:13:10PM +0100, Conor Dooley wrote:
+> Hey Jisheng,
 
-haha, to be honest, I dunno the reason either. For me, the HW has been there
-and is linux capable, I want to mainline its support.
+Hi Conor,
+
+> 
+> On Sat, May 27, 2023 at 12:59:56AM +0800, Jisheng Zhang wrote:
+> > We will soon take different actions by checking the HW is noncoherent
+> > or not, I.E ZICBOM/ERRATA_THEAD_CMO or not.
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/riscv/errata/thead/errata.c    | 19 +++++++++++--------
+> >  arch/riscv/include/asm/cacheflush.h |  4 ++--
+> >  arch/riscv/kernel/setup.c           |  6 +++++-
+> >  arch/riscv/mm/dma-noncoherent.c     | 10 ++++++----
+> >  4 files changed, 24 insertions(+), 15 deletions(-)
+> > 
+> > diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> > index be84b14f0118..c192b80a5166 100644
+> > --- a/arch/riscv/errata/thead/errata.c
+> > +++ b/arch/riscv/errata/thead/errata.c
+> > @@ -36,21 +36,24 @@ static bool errata_probe_pbmt(unsigned int stage,
+> >  static bool errata_probe_cmo(unsigned int stage,
+> >  			     unsigned long arch_id, unsigned long impid)
+> >  {
+> > -	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_CMO))
+> > -		return false;
+> > -
+> > -	if (arch_id != 0 || impid != 0)
+> > -		return false;
+> > +	bool cmo;
+> >  
+> >  	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> >  		return false;
+> >  
+> > +	if (IS_ENABLED(CONFIG_ERRATA_THEAD_CMO) &&
+> > +	    (arch_id == 0 && impid == 0))
+> > +		cmo = true;
+> > +	else
+> > +		cmo = false;
+> > +
+> >  	if (stage == RISCV_ALTERNATIVES_BOOT) {
+> > -		riscv_cbom_block_size = L1_CACHE_BYTES;
+> > -		riscv_noncoherent_supported();
+> > +		if (cmo)
+> > +			riscv_cbom_block_size = L1_CACHE_BYTES;
+> > +		riscv_noncoherent_supported(cmo);
+> >  	}
+> >  
+> > -	return true;
+> > +	return cmo;
+> 
+> I don't really understand the changes that you are making to this
+> function, so that is tries really hard to call
+> riscv_noncoherent_supported(). Why do we need to always call the function
+> in the erratum's probe function, if the erratum is not detected, given
+
+In one unified kernel Image, to support both coherent and noncoherent
+platforms(currently, either T-HEAD CMO or ZICBOM), we need to let the
+kmalloc meet both cases, specifically, ARCH_DMA_MINALIGN aligned.
+Once we know the underlying HW is coherent, I.E neither T-HEAD CMO nor
+ZICBOM, we need to notice kmalloc we are safe to reduce the alignment
+to 1. The notice action is done in patch 5:
+
++       } else {
++               dma_cache_alignment = 1;
+
+
+> that riscv_noncoherent_supported() is called immediately after
+> apply_boot_alternatives() in setup_arch()?
+> 
+> >  }
+> >  
+> >  static bool errata_probe_pmu(unsigned int stage,
+> > diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+> > index 8091b8bf4883..9d056c9b625a 100644
+> > --- a/arch/riscv/include/asm/cacheflush.h
+> > +++ b/arch/riscv/include/asm/cacheflush.h
+> > @@ -54,9 +54,9 @@ extern unsigned int riscv_cboz_block_size;
+> >  void riscv_init_cbo_blocksizes(void);
+> >  
+> >  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
+> > -void riscv_noncoherent_supported(void);
+> > +void riscv_noncoherent_supported(bool cmo);
+> 
+> I think it would "read better" if you renamed this variable to
+> "have_cmo".
+> 
+> >  #else
+> > -static inline void riscv_noncoherent_supported(void) {}
+> > +static inline void riscv_noncoherent_supported(bool cmo) {}
+> >  #endif
+> >  
+> >  /*
+> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> > index 36b026057503..565f3e20169b 100644
+> > --- a/arch/riscv/kernel/setup.c
+> > +++ b/arch/riscv/kernel/setup.c
+> > @@ -264,6 +264,7 @@ static void __init parse_dtb(void)
+> >  
+> >  void __init setup_arch(char **cmdline_p)
+> >  {
+> > +	bool cmo;
+> >  	parse_dtb();
+> >  	setup_initial_init_mm(_stext, _etext, _edata, _end);
+> >  
+> > @@ -298,7 +299,10 @@ void __init setup_arch(char **cmdline_p)
+> >  	apply_boot_alternatives();
+> >  	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
+> >  	    riscv_isa_extension_available(NULL, ZICBOM))
+> > -		riscv_noncoherent_supported();
+> > +		cmo = true;
+> > +	else
+> > +		cmo = false;
+> > +	riscv_noncoherent_supported(cmo);
+> 
+> As a nit, could you put a newline before the call to
+> riscv_noncoherent_supported()?
+> 
+> >  }
+> >  
+> >  static int __init topology_init(void)
+> > diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> > index d51a75864e53..0e172e2b4751 100644
+> > --- a/arch/riscv/mm/dma-noncoherent.c
+> > +++ b/arch/riscv/mm/dma-noncoherent.c
+> > @@ -72,9 +72,11 @@ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> >  	dev->dma_coherent = coherent;
+> >  }
+> >  
+> > -void riscv_noncoherent_supported(void)
+> > +void riscv_noncoherent_supported(bool cmo)
+> >  {
+> > -	WARN(!riscv_cbom_block_size,
+> > -	     "Non-coherent DMA support enabled without a block size\n");
+> > -	noncoherent_supported = true;
+> > +	if (cmo) {
+> > +		WARN(!riscv_cbom_block_size,
+> > +		     "Non-coherent DMA support enabled without a block size\n");
+> > +		noncoherent_supported = true;
+> > +	}
+> 
+> The other places that we do a WARN() because of screwed up devicetrees
+> for CMO things, we do a WARN_TAINT(CPU_OUT_OF_SPEC). Should we do the
+> same here too?
+> 
+> Cheers,
+> Conor.
+
+
 
 _______________________________________________
 linux-riscv mailing list
