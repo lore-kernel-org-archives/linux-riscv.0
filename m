@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4930AC77B7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 07:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB624C77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 07:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZH2Fg3CVyjXPG9ZwksmmTCP/5Rh2GcDKUftMnm5V5HM=; b=Hxe9YVzk3BZD9Q
-	7eeuhdgc8CB/AIm6+cV/Yae/icfHzVzxJtOhsX7eUwjIE1UvpUVLfel2jRE+ky7BSITvD17/MnGWr
-	NGSgCmD5996sRJca9Lu6EiT8/nFO1gri++HWoixbo3epGFRRfSDPLzmUaBjhmrmpPe456Fxcwuut6
-	oBo0XYUcswP08jcwwTDZz4PnbQXkhG4t/arASCXdGPhC+PRCqk7y7Qgnge4fAuM2TZuSEWHsixDVs
-	aYoBXaMmOpViWA/ye5N+aiOOqx51gUISG0NG4CJGCIKnaKoZW0U+7uouXO7FA5pZK4mTyW0Osz2g4
-	U+oui9Ls+EaGmiYZNo1g==;
+	List-Owner; bh=WbD6iCnjdSNFziW2KnrYDDbk1BichS2YVAxu5MJG0S0=; b=5AmJaue38abBxq
+	eI1xdWhtiYAx5nK6iKpnL9jKq7KjU1Pp6tbagQT3FUfELoHTmGzM8D7jh/jI18dJUHKWIsCFZdQZy
+	JdqjobqjxY7XHJEG96+X04KcKfoXkaI3seTiZJ7/pmgVFmK1H1+cSryT6iI9DExJP0ygnhAcl4pxU
+	2eMPlnaRg01uc3s8u4C/phAkRygDhluVfYq3LMIoKkbMe+J/DN+lRR01ZU5K0qoTU6xLSipHWGt7i
+	IrzAdBzd4zxV34jtKKOR3dY4WXbMEBvDQwnntM+RzwrknzsnC2QIqAsb6imJmboK1I9WWfMdCUn5b
+	duEBVmSEQWui+iYL8CDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4GEB-00GQrz-2v;
-	Wed, 31 May 2023 07:26:39 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1q4GVg-00GUdR-31;
+	Wed, 31 May 2023 07:44:44 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4GE8-00GQr4-1K
-	for linux-riscv@lists.infradead.org;
-	Wed, 31 May 2023 07:26:38 +0000
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-Received: by mail.gandi.net (Postfix) with ESMTPSA id BE849FF80B;
-	Wed, 31 May 2023 07:26:27 +0000 (UTC)
-Message-ID: <0068add0-8949-11b7-a864-2ef8bed00809@ghiti.fr>
-Date: Wed, 31 May 2023 09:26:27 +0200
+	id 1q4GVS-00GUXk-2q;
+	Wed, 31 May 2023 07:44:33 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1685519067;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=w+JYerxWJSKupTV1uEaRy4HAvltDS00WO6xGerR48rM=;
+	b=a5vi7FP4K2/0WepNfGqeR/1wGpNma9maeRFF/S+Ow1vyJUxlrhPjlqpp0Gt/tzTbtGb9+h
+	l3LwhAd8UbuY25f1yxIvmEJg9IiycQoNmE2Jw46Svp/LlN0TDRsCc1rPrDCmSd7QhGP+2X
+	bpOZCtZBEicRixezH5KsGlLKe9iAgpeZd8Acr1epWp4OHRKWxl6sahQA7Ect0KPEWRsl8P
+	Y5mx+YIQEij+GUPZWZZnXzdfGCoGo0Dylkir7fmS/sA84o97ZsT75+6BgHuS4kekwgCwF2
+	0PAfMiN4GOmyR3diQuwLhVAfANGV+kugCPs4bHz8Idk3MexeM+liZaUuTG2wZA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1685519067;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=w+JYerxWJSKupTV1uEaRy4HAvltDS00WO6xGerR48rM=;
+	b=hiUajp6HjMrpej9Plw6pV1er+5xqm8AlaocdPjp6g94On4ClItoSp7WWjhUGtjQr4KH1MY
+	2ShCuAlv5qPs3qDQ==
+To: Tom Lendacky <thomas.lendacky@amd.com>, Sean Christopherson
+ <seanjc@google.com>
+Cc: "Kirill A. Shutemov" <kirill@shutemov.name>, LKML
+ <linux-kernel@vger.kernel.org>, x86@kernel.org, David Woodhouse
+ <dwmw2@infradead.org>, Andrew Cooper <andrew.cooper3@citrix.com>, Brian
+ Gerst <brgerst@gmail.com>, Arjan van de Veen <arjan@linux.intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>,
+ Oleksandr Natalenko <oleksandr@natalenko.name>, Paul Menzel
+ <pmenzel@molgen.mpg.de>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Piotr Gorski <lucjan.lucjanov@gmail.com>, Usama Arif
+ <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>, Boris
+ Ostrovsky <boris.ostrovsky@oracle.com>, xen-devel@lists.xenproject.org,
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren
+ <guoren@kernel.org>, linux-csky@vger.kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, "James E.J.
+ Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller
+ <deller@gmx.de>, linux-parisc@vger.kernel.org, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Sabin Rapan <sabrapan@amazon.com>, "Michael Kelley (LINUX)"
+ <mikelley@microsoft.com>, Dave Hansen <dave.hansen@linux.intel.com>
+Subject: [patch] x86/smpboot: Fix the parallel bringup decision
+In-Reply-To: <b6323987-059e-5396-20b9-8b6a1687e289@amd.com>
+References: <87sfbhlwp9.ffs@tglx>
+ <20230529023939.mc2akptpxcg3eh2f@box.shutemov.name> <87bki3kkfi.ffs@tglx>
+ <20230529203129.sthnhzgds7ynddxd@box.shutemov.name>
+ <20230530005428.jyrc2ezx5raohlrt@box.shutemov.name> <87mt1mjhk3.ffs@tglx>
+ <87jzwqjeey.ffs@tglx> <87cz2ija1e.ffs@tglx>
+ <20230530122951.2wu5rwcu26ofov6f@box.shutemov.name> <87wn0pizbl.ffs@tglx>
+ <ZHYqwsCURnrFdsVm@google.com> <87leh5iom8.ffs@tglx>
+ <8751e955-e975-c6d4-630c-02912b9ef9da@amd.com> <871qiximen.ffs@tglx>
+ <b6323987-059e-5396-20b9-8b6a1687e289@amd.com>
+Date: Wed, 31 May 2023 09:44:26 +0200
+Message-ID: <87ilc9gd2d.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH -fixes] riscv: Fix relocatable kernels with early
- alternatives using -fno-pie
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andreas Schwab <schwab@linux-m68k.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20230528-darkness-grandly-6cb9e014391d@spud>
- <cf0d2d2a-c407-7b3d-a5ab-ea5c19e7b890@ghiti.fr>
- <20230528-uneatable-earpiece-3f8673548863@spud>
- <b71dc2f5-fdc0-2a8d-e1f9-696cd9a1529e@ghiti.fr>
- <20230529-skillet-quarters-3fbc3b6edb3a@spud>
- <41e57bb9-ce0c-7772-abeb-5c01d5ec19bb@ghiti.fr>
- <20230530-polka-trifle-7ccd7a093099@wendy>
- <92d4aaa8-a1ed-74e1-3a22-df9be1ca1e4a@ghiti.fr>
- <20230530-hatchery-unifier-64d7a2ffe0d0@spud>
- <CAHVXubgG31moSNOe3fRqFzUSJK9tRWKH1KPP_BO7wRNC4WzxTQ@mail.gmail.com>
- <20230530-atrocious-control-bcb37de558fc@spud>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230530-atrocious-control-bcb37de558fc@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_002636_600230_8F659FEB 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20230531_004431_199233_2D190F38 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +97,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The decision to allow parallel bringup of secondary CPUs checks
+CC_ATTR_GUEST_STATE_ENCRYPT to detect encrypted guests. Those cannot use
+parallel bootup because accessing the local APIC is intercepted and raises
+a #VC or #VE, which cannot be handled at that point.
 
-On 30/05/2023 22:22, Conor Dooley wrote:
-> On Tue, May 30, 2023 at 08:04:17PM +0200, Alexandre Ghiti wrote:
->> Ahah, I think we found the culprit!
->>
->> With CONFIG_RELOCATABLE, vmlinux is actually stripped from all the
->> relocations (so that it can be shipped) and vmlinux.relocs is what you
->> should use instead, since it is just a copy of vmlinux before the
->> removal of the relocations!
-> That probably makes us both eejits for not realising sooner...
+The check works correctly, but only for AMD encrypted guests. TDX does not
+set that flag.
 
+As there is no real connection between CC attributes and the inability to
+support parallel bringup, replace this with a generic control flag in
+x86_cpuinit and let SEV-ES and TDX init code disable it.
 
-Ahah, TIL a new word, thanks :)
+Fixes: 0c7ffa32dbd6 ("x86/smpboot/64: Implement arch_cpuhp_init_parallel_bringup() and enable it")
+Reported-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+---
+ arch/x86/coco/tdx/tdx.c         |   11 +++++++++++
+ arch/x86/include/asm/x86_init.h |    3 +++
+ arch/x86/kernel/smpboot.c       |   19 ++-----------------
+ arch/x86/kernel/x86_init.c      |    1 +
+ arch/x86/mm/mem_encrypt_amd.c   |   15 +++++++++++++++
+ 5 files changed, 32 insertions(+), 17 deletions(-)
 
-
->
-> Tested-by: Conor Dooley <conor.dooley@microchip.com> # booted on nezha & unmatched
->
-> Thanks for your patience here Alex.
-
-
-So I checked again if the -fno-pie should be applied to 
-mm/dma-noncoherent.c as I suggested, but actually no: 
-errata/thead/errata.c never reaches riscv_noncoherent_supported() in 
-early boot (you can see how 'fragile' it is though and why something 
-needs to be done...).
-
-
-Oh and I realized that I forgot the Reported-by from Andreas and the 
-Fixes tags, so here they are:
-
-Fixes: 39b33072941f ("riscv: Introduce CONFIG_RELOCATABLE")
-Reported-by: Andreas Schwab <schwab@linux-m68k.org>
-
-
-Thank you too for your patience and your quick answers!
-
-Alex
-
-
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+--- a/arch/x86/coco/tdx/tdx.c
++++ b/arch/x86/coco/tdx/tdx.c
+@@ -871,5 +871,16 @@ void __init tdx_early_init(void)
+ 	x86_platform.guest.enc_tlb_flush_required   = tdx_tlb_flush_required;
+ 	x86_platform.guest.enc_status_change_finish = tdx_enc_status_changed;
+ 
++	/*
++	 * TDX intercepts the RDMSR to read the X2APIC ID in the parallel
++	 * bringup low level code. That raises #VE which cannot be handled
++	 * there.
++	 *
++	 * Intel-TDX has a secure RDMSR hypercall, but that needs to be
++	 * implemented seperately in the low level startup ASM code.
++	 * Until that is in place, disable parallel bringup for TDX.
++	 */
++	x86_cpuinit.parallel_bringup = false;
++
+ 	pr_info("Guest detected\n");
+ }
+--- a/arch/x86/include/asm/x86_init.h
++++ b/arch/x86/include/asm/x86_init.h
+@@ -177,11 +177,14 @@ struct x86_init_ops {
+  * struct x86_cpuinit_ops - platform specific cpu hotplug setups
+  * @setup_percpu_clockev:	set up the per cpu clock event device
+  * @early_percpu_clock_init:	early init of the per cpu clock event device
++ * @fixup_cpu_id:		fixup function for cpuinfo_x86::phys_proc_id
++ * @parallel_bringup:		Parallel bringup control
+  */
+ struct x86_cpuinit_ops {
+ 	void (*setup_percpu_clockev)(void);
+ 	void (*early_percpu_clock_init)(void);
+ 	void (*fixup_cpu_id)(struct cpuinfo_x86 *c, int node);
++	bool parallel_bringup;
+ };
+ 
+ struct timespec64;
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -1267,23 +1267,8 @@ void __init smp_prepare_cpus_common(void
+ /* Establish whether parallel bringup can be supported. */
+ bool __init arch_cpuhp_init_parallel_bringup(void)
+ {
+-	/*
+-	 * Encrypted guests require special handling. They enforce X2APIC
+-	 * mode but the RDMSR to read the APIC ID is intercepted and raises
+-	 * #VC or #VE which cannot be handled in the early startup code.
+-	 *
+-	 * AMD-SEV does not provide a RDMSR GHCB protocol so the early
+-	 * startup code cannot directly communicate with the secure
+-	 * firmware. The alternative solution to retrieve the APIC ID via
+-	 * CPUID(0xb), which is covered by the GHCB protocol, is not viable
+-	 * either because there is no enforcement of the CPUID(0xb)
+-	 * provided "initial" APIC ID to be the same as the real APIC ID.
+-	 *
+-	 * Intel-TDX has a secure RDMSR hypercall, but that needs to be
+-	 * implemented seperately in the low level startup ASM code.
+-	 */
+-	if (cc_platform_has(CC_ATTR_GUEST_STATE_ENCRYPT)) {
+-		pr_info("Parallel CPU startup disabled due to guest state encryption\n");
++	if (!x86_cpuinit.parallel_bringup) {
++		pr_info("Parallel CPU startup disabled by the platform\n");
+ 		return false;
+ 	}
+ 
+--- a/arch/x86/kernel/x86_init.c
++++ b/arch/x86/kernel/x86_init.c
+@@ -126,6 +126,7 @@ struct x86_init_ops x86_init __initdata
+ struct x86_cpuinit_ops x86_cpuinit = {
+ 	.early_percpu_clock_init	= x86_init_noop,
+ 	.setup_percpu_clockev		= setup_secondary_APIC_clock,
++	.parallel_bringup		= true,
+ };
+ 
+ static void default_nmi_init(void) { };
+--- a/arch/x86/mm/mem_encrypt_amd.c
++++ b/arch/x86/mm/mem_encrypt_amd.c
+@@ -501,6 +501,21 @@ void __init sme_early_init(void)
+ 	x86_platform.guest.enc_status_change_finish  = amd_enc_status_change_finish;
+ 	x86_platform.guest.enc_tlb_flush_required    = amd_enc_tlb_flush_required;
+ 	x86_platform.guest.enc_cache_flush_required  = amd_enc_cache_flush_required;
++
++	/*
++	 * AMD-SEV-ES intercepts the RDMSR to read the X2APIC ID in the
++	 * parallel bringup low level code. That raises #VC which cannot be
++	 * handled there.
++	 * It does not provide a RDMSR GHCB protocol so the early startup
++	 * code cannot directly communicate with the secure firmware. The
++	 * alternative solution to retrieve the APIC ID via CPUID(0xb),
++	 * which is covered by the GHCB protocol, is not viable either
++	 * because there is no enforcement of the CPUID(0xb) provided
++	 * "initial" APIC ID to be the same as the real APIC ID.
++	 * Disable parallel bootup.
++	 */
++	if (sev_status & MSR_AMD64_SEV_ES_ENABLED)
++		x86_cpuinit.parallel_bringup = false;
+ }
+ 
+ void __init mem_encrypt_free_decrypted_mem(void)
 
 _______________________________________________
 linux-riscv mailing list
