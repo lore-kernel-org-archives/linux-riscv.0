@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41CECC77B7A
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 03:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E135C77B7E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 03:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cIsYWAwwKkmT/Iu6DezWI83CK3HgDv2xkMeBR26oXhs=; b=V5qIhjgScdHHJD
-	ZbgRyVfeknPF44yCiz1IpICwv53ysi6Ht6pV/Ydxozxy1GW4+/bEF+ZGm3Jgz0pgP7MirsqKzQwmI
-	BPF93LRyKU93zHVvewwpVD6WRDn8qmOA2AxPMJcv7ptlBCi0L99VVzJIefPhYiqj5gGBzLse9/UZU
-	AQbDMjYtQgCQdlsLPiAcEeA3D9gzgovr3Xx/p3B+Wpxu3bCFgsvAGzfThBc4rhDoA6wN8enk847TA
-	pYBLs08KBIo88cAvjoHBAzWpUe3eXkF9bZANJT7f9be/hX2WQStKtTZOD1G4oPz1bkMiSDtaYXB3a
-	FuPXLH7Mjf9TbseLkEUA==;
+	List-Owner; bh=AenxWkbl/hSG+Dc0MPJCTk/2cGpccR/3rVlgrBLp75I=; b=uGuwUI+REYQInp
+	dl6HX0HuY1wmYbJjZtGsPraAgCxGEmoRzjlGdYjSVq7MDW6bjF0awKRfD8EJIhfVTxvIz/MR3x+f2
+	O88tw7LncDdc4UM1SWF4XujMy91qTkJr1k7+rkT3OWZUV4Usyoz/zk+IEpe4BldDbnfV472uXlX6z
+	CcpYZ08p1hBmOMgMozjTIB173j9VpEwXPMoLRKNla69dYpDNWWnR8f+x4m4LouG/4gB/IpL9W42dm
+	VQZpKAfHVTYDhrxhdu1PZttK+kCpJV1G6F/1/jfrwv1TwKLoLrhAMFJG7DwGdL/uA5cv8Pn0d/r7U
+	NeMB91o/WYPm2Eoz4zbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4ZAc-001qHN-16;
-	Thu, 01 Jun 2023 03:40:14 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4ZAY-001qE1-0k
+	id 1q4ZMD-001rjO-1W;
+	Thu, 01 Jun 2023 03:52:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q4ZMB-001riL-0O
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Jun 2023 03:40:12 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B065D24DC28;
-	Thu,  1 Jun 2023 11:39:26 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Jun
- 2023 11:39:26 +0800
-Received: from [192.168.125.80] (113.72.147.198) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Jun
- 2023 11:39:25 +0800
-Message-ID: <94ec74dd-2f04-8dca-35ff-a537811d1ccf@starfivetech.com>
-Date: Thu, 1 Jun 2023 11:39:24 +0800
+	Thu, 01 Jun 2023 03:52:12 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7ABFE61697;
+	Thu,  1 Jun 2023 03:52:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BD3FC433EF;
+	Thu,  1 Jun 2023 03:52:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685591529;
+	bh=C0KPLWX2jAX6THR8E6lvmZKKCHRjFAq1tbAVmqRVbaw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FStga2fiml0wxrYT64ofLfgS+HEF84LgBA4HyAtjbCfkm3fDT++giMQ0GG1qHpIRE
+	 aJhL1wDGgEcG5H8SNghOleJdkCCDWLn5SgJkmwi3LINBoHO0YHCpKMzhUQ1y1Veaks
+	 JKVrNdD3iL+OYaayVS1UZ6TvP1FE/Z58+BpzaaCTYvWOlEM65RoJozxf/v4Tzf/3ji
+	 RWd97a/lhjJ/tL5cHR6d7+GQVQfUblXKMfq7t3cKsEOYL3xtegjJgH3/l4kSovwMDP
+	 k+L/4tx+XykdnXgnkx8S9finlOy1/XpED5ksoZ1GuONsGZ0M1w9TkMosqnBTxlEjuk
+	 ZN+bY7ZPfFmeQ==
+Date: Thu, 1 Jun 2023 11:40:54 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH 4/6] riscv: mm: pass noncoherent or not to
+ riscv_noncoherent_supported()
+Message-ID: <ZHgTRuoHgbpy20wu@xhacker>
+References: <20230526165958.908-1-jszhang@kernel.org>
+ <20230526165958.908-5-jszhang@kernel.org>
+ <20230529-gainfully-ribbon-48520d25ef6e@wendy>
+ <ZHdmnfJvF1N5rgvx@xhacker>
+ <ZHdnliDU7ikKaFoX@xhacker>
+ <20230531-applied-antacid-77abfb5b2e55@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v7 19/22] riscv: dts: starfive: Add initial StarFive
- JH7110 device tree
-To: Shengyu Qu <wiagn233@outlook.com>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-CC: Stephen Boyd <sboyd@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks <ben.dooks@sifive.com>, "Daniel
- Lezcano" <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
-References: <20230401111934.130844-1-hal.feng@starfivetech.com>
- <20230401111934.130844-20-hal.feng@starfivetech.com>
- <TY3P286MB2611C61D1EDB70BF0A37E65298709@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
-Content-Language: en-US
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <TY3P286MB2611C61D1EDB70BF0A37E65298709@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
-X-Originating-IP: [113.72.147.198]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230531-applied-antacid-77abfb5b2e55@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_204010_756281_5A8B815E 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230531_205211_240373_18E2D1D4 
+X-CRM114-Status: GOOD (  43.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,84 +79,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCA3IE1heSAyMDIzIDE4OjAzOjE5ICswODAwLCBTaGVuZ3l1IFF1IHdyb3RlOgo+IEhp
-IEhhbCwKPj4gRnJvbTogRW1pbCBSZW5uZXIgQmVydGhpbmcgPGtlcm5lbEBlc21pbC5kaz4KPj4g
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLmR0c2kgYi9h
-cmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC5kdHNpCj4+IG5ldyBmaWxlIG1vZGUg
-MTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAwMDAwMC4uZDQ4NGVjZGY5M2Y3Cj4+IC0tLSAvZGV2L251
-bGwKPj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zdGFyZml2ZS9qaDcxMTAuZHRzaQo+PiBA
-QCAtMCwwICsxLDUwOSBAQAo+PiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAg
-T1IgTUlUCj4+ICsvKgo+PiArICogQ29weXJpZ2h0IChDKSAyMDIyIFN0YXJGaXZlIFRlY2hub2xv
-Z3kgQ28uLCBMdGQuCj4+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMjIgRW1pbCBSZW5uZXIgQmVydGhp
-bmcgPGtlcm5lbEBlc21pbC5kaz4KPj4gKyAqLwo+PiArCj4+ICsvZHRzLXYxLzsKPj4gKyNpbmNs
-dWRlIDxkdC1iaW5kaW5ncy9jbG9jay9zdGFyZml2ZSxqaDcxMTAtY3JnLmg+Cj4+ICsjaW5jbHVk
-ZSA8ZHQtYmluZGluZ3MvcmVzZXQvc3RhcmZpdmUsamg3MTEwLWNyZy5oPgo+PiArCj4+ICsvIHsK
-Wy4uLl0KPj4gKwo+PiArwqDCoMKgIHNvYyB7Cj4+ICvCoMKgwqDCoMKgwqDCoCBjb21wYXRpYmxl
-ID0gInNpbXBsZS1idXMiOwo+PiArwqDCoMKgwqDCoMKgwqAgaW50ZXJydXB0LXBhcmVudCA9IDwm
-cGxpYz47Cj4gCj4gRG8gd2UgcmVhbGx5IG5lZWQgdGhpcyBpbnRlcnJ1cHQtcGFyZW50PyBTZWVt
-cyBpdCBpcyBjYXVzaW5nIGEgZGVwZW5kZW5jeSBjeWNsZToKPiAKPiBwbGF0Zm9ybSBzb2M6IEZp
-eGVkIGRlcGVuZGVuY3kgY3ljbGUocykgd2l0aCAvc29jL2ludGVycnVwdC1jb250cm9sbGVyQGMw
-MDAwMDAKPiAKPiBBbmQgc2VlbXMgZnU3NDAgZHRzIGRvZXNuJ3QgaGF2ZSB0aGlzLgoKU29ycnkg
-dG8gcmVwbHkgdG9vIGxhdGUuIElmIHdlIGRyb3AgdGhpcyBsaW5lLCB3ZSBuZWVkIHRvIGFkZCAn
-aW50ZXJydXB0LXBhcmVudCcKdG8gZXZlcnkgbm9kZSB3aGljaCB1c2VzIGludGVycnVwdC4gQW5k
-IEkgZm91bmQgc29tZSBvdGhlciBwbGF0Zm9ybSBkaWQgdGhlIHNhbWUKc3VjaCBhcyAKCmFyY2gv
-cmlzY3YvYm9vdC9kdHMvYWxsd2lubmVyL3N1bjIwaS1kMXMuZHRzaQphcmNoL3Jpc2N2L2Jvb3Qv
-ZHRzL2NhbmFhbi9rMjEwLmR0c2kKYXJjaC9yaXNjdi9ib290L2R0cy9yZW5lc2FzL3I5YTA3ZzA0
-M2YuZHRzaQoKQmVzdCByZWdhcmRzLApIYWwKCj4gCj4+ICvCoMKgwqDCoMKgwqDCoCAjYWRkcmVz
-cy1jZWxscyA9IDwyPjsKPj4gK8KgwqDCoMKgwqDCoMKgICNzaXplLWNlbGxzID0gPDI+Owo+PiAr
-wqDCoMKgwqDCoMKgwqAgcmFuZ2VzOwo+PiArCj4+ICvCoMKgwqDCoMKgwqDCoCBjbGludDogdGlt
-ZXJAMjAwMDAwMCB7Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNvbXBhdGlibGUgPSAic3Rh
-cmZpdmUsamg3MTEwLWNsaW50IiwgInNpZml2ZSxjbGludDAiOwo+PiArwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCByZWcgPSA8MHgwIDB4MjAwMDAwMCAweDAgMHgxMDAwMD47Cj4+ICvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIGludGVycnVwdHMtZXh0ZW5kZWQgPSA8JmNwdTBfaW50YyAzPiwgPCZjcHUw
-X2ludGMgNz4sCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCA8JmNwdTFfaW50YyAzPiwgPCZjcHUxX2ludGMgNz4sCj4+ICvCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA8JmNwdTJfaW50YyAzPiwgPCZj
-cHUyX2ludGMgNz4sCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCA8JmNwdTNfaW50YyAzPiwgPCZjcHUzX2ludGMgNz4sCj4+ICvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA8JmNwdTRfaW50YyAzPiwg
-PCZjcHU0X2ludGMgNz47Cj4+ICvCoMKgwqDCoMKgwqDCoCB9Owo+PiArCj4+ICvCoMKgwqDCoMKg
-wqDCoCBjY2FjaGU6IGNhY2hlLWNvbnRyb2xsZXJAMjAxMDAwMCB7Cj4+ICvCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIGNvbXBhdGlibGUgPSAic3RhcmZpdmUsamg3MTEwLWNjYWNoZSIsICJzaWZpdmUs
-Y2NhY2hlMCIsICJjYWNoZSI7Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJlZyA9IDwweDAg
-MHgyMDEwMDAwIDB4MCAweDQwMDA+Owo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpbnRlcnJ1
-cHRzID0gPDE+LCA8Mz4sIDw0PiwgPDI+Owo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjYWNo
-ZS1ibG9jay1zaXplID0gPDY0PjsKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgY2FjaGUtbGV2
-ZWwgPSA8Mj47Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNhY2hlLXNldHMgPSA8MjA0OD47
-Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNhY2hlLXNpemUgPSA8MjA5NzE1Mj47Cj4+ICvC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNhY2hlLXVuaWZpZWQ7Cj4+ICvCoMKgwqDCoMKgwqDCoCB9
-Owo+PiArCj4+ICvCoMKgwqDCoMKgwqDCoCBwbGljOiBpbnRlcnJ1cHQtY29udHJvbGxlckBjMDAw
-MDAwIHsKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgY29tcGF0aWJsZSA9ICJzdGFyZml2ZSxq
-aDcxMTAtcGxpYyIsICJzaWZpdmUscGxpYy0xLjAuMCI7Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgIHJlZyA9IDwweDAgMHhjMDAwMDAwIDB4MCAweDQwMDAwMDA+Owo+PiArwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCBpbnRlcnJ1cHRzLWV4dGVuZGVkID0gPCZjcHUwX2ludGMgMTE+LAo+PiArwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgPCZjcHUxX2lu
-dGMgMTE+LCA8JmNwdTFfaW50YyA5PiwKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIDwmY3B1Ml9pbnRjIDExPiwgPCZjcHUyX2ludGMgOT4sCj4+
-ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA8JmNw
-dTNfaW50YyAxMT4sIDwmY3B1M19pbnRjIDk+LAo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgPCZjcHU0X2ludGMgMTE+LCA8JmNwdTRfaW50YyA5
-PjsKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaW50ZXJydXB0LWNvbnRyb2xsZXI7Cj4+ICvC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgICNpbnRlcnJ1cHQtY2VsbHMgPSA8MT47Cj4+ICvCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgICNhZGRyZXNzLWNlbGxzID0gPDA+Owo+PiArwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCByaXNjdixuZGV2ID0gPDEzNj47Cj4+ICvCoMKgwqDCoMKgwqDCoCB9Owo+PiArCj4+
-ICvCoMKgwqDCoMKgwqDCoCB1YXJ0MDogc2VyaWFsQDEwMDAwMDAwIHsKPj4gK8KgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgY29tcGF0aWJsZSA9ICJzbnBzLGR3LWFwYi11YXJ0IjsKPj4gK8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgcmVnID0gPDB4MCAweDEwMDAwMDAwIDB4MCAweDEwMDAwPjsKPj4gK8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgY2xvY2tzID0gPCZzeXNjcmcgSkg3MTEwX1NZU0NMS19VQVJU
-MF9DT1JFPiwKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDwmc3lzY3JnIEpI
-NzExMF9TWVNDTEtfVUFSVDBfQVBCPjsKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgY2xvY2st
-bmFtZXMgPSAiYmF1ZGNsayIsICJhcGJfcGNsayI7Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IHJlc2V0cyA9IDwmc3lzY3JnIEpINzExMF9TWVNSU1RfVUFSVDBfQVBCPjsKPj4gK8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgaW50ZXJydXB0cyA9IDwzMj47Cj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgIHJlZy1pby13aWR0aCA9IDw0PjsKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmVnLXNo
-aWZ0ID0gPDI+Owo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBzdGF0dXMgPSAiZGlzYWJsZWQi
-Owo+PiArwqDCoMKgwqDCoMKgwqAgfTsKPj4gKwpbLi4uXQoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, May 31, 2023 at 05:28:56PM +0100, Conor Dooley wrote:
+> On Wed, May 31, 2023 at 11:28:22PM +0800, Jisheng Zhang wrote:
+> > On Wed, May 31, 2023 at 11:24:19PM +0800, Jisheng Zhang wrote:
+> > > On Mon, May 29, 2023 at 12:13:10PM +0100, Conor Dooley wrote:
+> > > > On Sat, May 27, 2023 at 12:59:56AM +0800, Jisheng Zhang wrote:
+> > > > > We will soon take different actions by checking the HW is noncoherent
+> > > > > or not, I.E ZICBOM/ERRATA_THEAD_CMO or not.
+> > > > > 
+> > > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > > > ---
+> > > > >  arch/riscv/errata/thead/errata.c    | 19 +++++++++++--------
+> > > > >  arch/riscv/include/asm/cacheflush.h |  4 ++--
+> > > > >  arch/riscv/kernel/setup.c           |  6 +++++-
+> > > > >  arch/riscv/mm/dma-noncoherent.c     | 10 ++++++----
+> > > > >  4 files changed, 24 insertions(+), 15 deletions(-)
+> > > > > 
+> > > > > diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> > > > > index be84b14f0118..c192b80a5166 100644
+> > > > > --- a/arch/riscv/errata/thead/errata.c
+> > > > > +++ b/arch/riscv/errata/thead/errata.c
+> > > > > @@ -36,21 +36,24 @@ static bool errata_probe_pbmt(unsigned int stage,
+> > > > >  static bool errata_probe_cmo(unsigned int stage,
+> > > > >  			     unsigned long arch_id, unsigned long impid)
+> > > > >  {
+> > > > > -	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_CMO))
+> > > > > -		return false;
+> > > > > -
+> > > > > -	if (arch_id != 0 || impid != 0)
+> > > > > -		return false;
+> > > > > +	bool cmo;
+> > > > >  
+> > > > >  	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> > > > >  		return false;
+> > > > >  
+> > > > > +	if (IS_ENABLED(CONFIG_ERRATA_THEAD_CMO) &&
+> > > > > +	    (arch_id == 0 && impid == 0))
+> > > > > +		cmo = true;
+> > > > > +	else
+> > > > > +		cmo = false;
+> > > > > +
+> > > > >  	if (stage == RISCV_ALTERNATIVES_BOOT) {
+> > > > > -		riscv_cbom_block_size = L1_CACHE_BYTES;
+> > > > > -		riscv_noncoherent_supported();
+> > > > > +		if (cmo)
+> > > > > +			riscv_cbom_block_size = L1_CACHE_BYTES;
+> > > > > +		riscv_noncoherent_supported(cmo);
+> > > > >  	}
+> > > > >  
+> > > > > -	return true;
+> > > > > +	return cmo;
+> > > > 
+> > > > I don't really understand the changes that you are making to this
+> > > > function, so that is tries really hard to call
+> > > > riscv_noncoherent_supported(). Why do we need to always call the function
+> > > > in the erratum's probe function, if the erratum is not detected, given
+> > > 
+> > > In one unified kernel Image, to support both coherent and noncoherent
+> > > platforms(currently, either T-HEAD CMO or ZICBOM), we need to let the
+> > > kmalloc meet both cases, specifically, ARCH_DMA_MINALIGN aligned.
+> > 
+> > seems adding three words can make it better:
+> > 
+> > kmalloc meet both cases at the beginning, specifically ...
+> > 
+> > > Once we know the underlying HW is coherent, I.E neither T-HEAD CMO nor
+> > > ZICBOM, we need to notice kmalloc we are safe to reduce the alignment
+> > > to 1. The notice action is done in patch 5:
+> > > 
+> > > +       } else {
+> > > +               dma_cache_alignment = 1;
+> > > 
+> > > 
+> > > > that riscv_noncoherent_supported() is called immediately after
+> > > > apply_boot_alternatives() in setup_arch()?
+> 
+> This bit here is the key part of my confusion. You try really hard in
+> the errata stuff to call riscv_noncoherent_supported(), which I do
+> understand is because of the other branch that you add to the function
+> later in the series.
+> 
+> What I do not understand is why we are not able to rely on the call to
+> it in setup_arch() to trigger it when we do not have T-HEAD CMOs or
+> Zicbom.
+> You've explained why you want to make sure it always gets called during
+> boot, but my question is about why it looks like it is being called more
+> than once.
+> 
+> Actually, now that I think of it, what happens on a T-HEAD system where
+> there is no T-HEAD CMOs, but there is Zicbom. In theory, this could
+> exist.
+> Bear with me here a moment in case I am completely wrong, snippet is
+> from setup_arch()
+> 	apply_boot_alternatives();
+> On my example system, this will trigger, eventually sending us into
+> errata_probe_cmo(), where we will call riscv_noncoherent_supported()
+> with false, setting dma_cache_alignment to 1.
+> 
+> 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
+> 	    riscv_isa_extension_available(NULL, ZICBOM))
+> 		cmo = true;
+> 
+> On this system, this will be true.
+> 
+> 	else
+> 		cmo = false;
+> 	riscv_noncoherent_supported(cmo);
+> 
+> now riscv_noncoherent_supported() is called with true, and we have
+> dma_cache_alignment = 1 still. Is that not problematic? Or the inverse,
+> where the T-HEAD system has its custom CMOs and there is no Zicbom, it
+> gets called twice with different args too.
+> 
+
+Thank you Conor. You pointed out a bug in my series. It looks like we
+need to defer the dma_cache_alignment modification a bit until T-HEAD
+CMO probing is done, but we also need to think carefully about T-HEAD
+related CONFIG option is disabled. I will take care this case in v2
+once Catalin's series is merged.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
