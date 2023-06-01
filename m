@@ -4,71 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 934DFC77B73
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 01:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D5BC77B73
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 02:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7EeO4pccYXh/rXKljxjrbmFKibR3aYGJ3UknwBRE8Eg=; b=MiQZezj/iRM4k6
-	gg4n4IMfklYhPCA1RTsxkN/bB1J711672txWJx5DAioxce3TdElZjnMF9peBHqQrBZHjC5pFt4lhb
-	jHu5l4ynoryUYaR0KsvIigM+ZlK3gkzdGV/pxwXG+XjleezAP+O6jjfsLnjmp+oudzgfqUfthNSS5
-	0AL/MYL0ue3BLCO5zOvYMdqENTq5kF/nKuIVGHW/ObxT9i8VWYrSmjxpQu6rYGl03VUCUWo8vJoJX
-	rXiZAXBj5R21oPqZiP6ZL63ZfYjXHOppdeBwYXOgKx974KzV5b9ZXA/LBJNlLBTWtIHMZ5HdwYTAj
-	hIb8AS8CQa8qJyehyC8A==;
+	List-Owner; bh=c6i5JJPprZyXhozSYYU3r4FvbyA+VT8fcC3S9Y8xW/A=; b=yyRrvFC2wYDwtl
+	a7KEMY1jRuB8NuM3QqLFvCbf77O/mxZlD5bU6Yxye7v1xOBvPWPn7n4jhv6bfILVu8F/LsufAln29
+	HJisAUkanFfVA4pZJhRseA+1EDw5Q9JPGp+b/0tMy8X8PA7Xe9qGnedt2O54+GkRUdRVkNUN4wMZL
+	xaCOf1wmdyraHkd72oIsePUbDG+3d1xFAq0QdiFCw97cAv+SwQPCloExuXaj1zEkIiWsWbT5DzisT
+	0wkG2ks8oTQtXQPrCx9E4Cwt54d/6d14LiKZSDn6Og5YehtgfWf3Lt7XRkCVxZOcnhZs/ofpEQvxV
+	/hMfQVF/RUl5xNcXUKAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4XVA-001fhf-2z;
-	Thu, 01 Jun 2023 01:53:20 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4XV6-001ffg-3B
+	id 1q4YPT-001kTC-17;
+	Thu, 01 Jun 2023 02:51:31 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q4YPQ-001kRr-0k
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Jun 2023 01:53:19 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 30F6F24DB86;
-	Thu,  1 Jun 2023 09:52:41 +0800 (CST)
-Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Jun
- 2023 09:52:41 +0800
-Received: from [192.168.120.57] (171.223.208.138) by EXMBX168.cuchost.com
- (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Jun
- 2023 09:52:39 +0800
-Message-ID: <9d24d50e-f5d1-f08c-1318-46497cec293d@starfivetech.com>
-Date: Thu, 1 Jun 2023 09:52:38 +0800
+	Thu, 01 Jun 2023 02:51:29 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-256797b5664so57695a91.2
+        for <linux-riscv@lists.infradead.org>; Wed, 31 May 2023 19:51:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1685587872; x=1688179872;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=QJvI42hzqEfLq+DDW1OxT0grFxR3mOlryj6N6dIoRA8=;
+        b=BSgJOLNKhZW08Q5W2hVYZFOOYILOZsab5M9FRjNq9kNADqpxi+0yEasbwoPQ6C0RYD
+         AEkZuY1Lhs0sZ+QMQ0sT3uB6hHd+//YLWvGQIDj1eyc19RJZOhVosve0y8PQfp/dXpnq
+         FLwmUqCk0ZZMTo35hD81j8HljdTyAil05pPVA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685587872; x=1688179872;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QJvI42hzqEfLq+DDW1OxT0grFxR3mOlryj6N6dIoRA8=;
+        b=S03FDQlF/pGBUZNII3qMzjl00l/lss12hZ72ZDM/onWS5J//+ux2Q/u358c+gZpfPW
+         6SvDFTi/BeSVJNfG5LNg0AZfYGQiNgVehHBc9yNr9LHC5Qu39OhBhH2QtcGcdIVPaxzY
+         bA1CHcHKxVn3qBvImoZU4O2FtGQyL0SeRejy4WFmJy3YPmMPkcVriDJEKSZIIFNUIq1G
+         Nc07VL0GJFwK4IghKszLuXzLxFL2O75LDZPxqLPvcFpjhBMPaRJdDfyFUu3N5lzwvUOs
+         uwI4zcQlBRerWVl+2eZNzlKhhSrkaBFDU5XxfbfdZGHFfWIIyiuHAJrDz9kOz4NtM/e8
+         ZB4w==
+X-Gm-Message-State: AC+VfDyYrX3kI48z/E3XofAzcj9swV1542v/I1hVTyuBaqzSQXo16eqN
+	Jy++gGxCaAwNK4llXBvE2giDJA==
+X-Google-Smtp-Source: ACHHUZ7PFFFjKduMvOqjuZYsP8C5LHYpM5N6RALb9qSn8RKP39imX2lcG+hpivB2yErAslXEfNFSPw==
+X-Received: by 2002:a17:90a:db8a:b0:24e:688:30f8 with SMTP id h10-20020a17090adb8a00b0024e068830f8mr5009755pjv.49.1685587871737;
+        Wed, 31 May 2023 19:51:11 -0700 (PDT)
+Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
+        by smtp.gmail.com with ESMTPSA id oa14-20020a17090b1bce00b002500df72713sm257413pjb.7.2023.05.31.19.51.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 31 May 2023 19:51:11 -0700 (PDT)
+Date: Wed, 31 May 2023 19:51:10 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Thorsten Leemhuis <linux@leemhuis.info>,
+	Joan Bruguera =?iso-8859-1?Q?Mic=F3?= <joanbrugueram@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Alyssa Ross <hi@alyssa.is>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH] riscv/purgatory: Do not use fortified string functions
+Message-ID: <202305311950.EFFD6521@keescook>
+References: <20230531003404.never.167-kees@kernel.org>
+ <20230531-abruptly-settling-f9852f408dcd@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v1 2/3] spi: cadence-quadspi: Add clock configuration for
- StarFive JH7110 QSPI
-To: Mark Brown <broonie@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-spi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
-	"Emil Renner Berthing" <kernel@esmil.dk>, Ziv Xu <ziv.xu@starfivetech.com>
-References: <20230526062529.46747-1-william.qiu@starfivetech.com>
- <20230526062529.46747-3-william.qiu@starfivetech.com>
- <fecc9d6a-022e-49d9-a452-8a63c409ebf3@sirena.org.uk>
- <042c560d-1f36-8e97-3796-7423245592f4@starfivetech.com>
- <86555925-b8dd-29a8-60cd-5c2ff2c1432a@starfivetech.com>
- <eb68722b-bcab-4aa1-aa4e-54bfe95ef414@sirena.org.uk>
- <93ba0b97-45aa-e59d-1454-80c4f245acc0@starfivetech.com>
- <075db1ba-e15c-4c3c-9430-99c866eca24d@sirena.org.uk>
-Content-Language: en-US
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <075db1ba-e15c-4c3c-9430-99c866eca24d@sirena.org.uk>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
- (172.16.6.78)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230531-abruptly-settling-f9852f408dcd@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_185317_200487_8CB2A6EC 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20230531_195128_275756_B6072A23 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,53 +96,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 31, 2023 at 11:37:20PM +0100, Conor Dooley wrote:
+> Hey Kees,
+> =
+
+> On Tue, May 30, 2023 at 05:34:04PM -0700, Kees Cook wrote:
+> > With the addition of -fstrict-flex-arrays=3D3, struct sha256_state's
+> > trailing array is no longer ignored by CONFIG_FORTIFY_SOURCE:
+> > =
+
+> > struct sha256_state {
+> >         u32 state[SHA256_DIGEST_SIZE / 4];
+> >         u64 count;
+> >         u8 buf[SHA256_BLOCK_SIZE];
+> > };
+> > =
+
+> > This means that the memcpy() calls with "buf" as a destination in
+> > sha256.c's code will attempt to perform run-time bounds checking, which
+> > could lead to calling missing functions, specifically a potential
+> > WARN_ONCE, which isn't callable from purgatory.
+> > =
+
+> > Reported-by: Thorsten Leemhuis <linux@leemhuis.info>
+> > Closes: https://lore.kernel.org/lkml/175578ec-9dec-7a9c-8d3a-43f24ff86b=
+92@leemhuis.info/
+> > Bisected-by: "Joan Bruguera Mic=F3" <joanbrugueram@gmail.com>
+> > Fixes: df8fc4e934c1 ("kbuild: Enable -fstrict-flex-arrays=3D3")
+> > Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > Cc: Albert Ou <aou@eecs.berkeley.edu>
+> > Cc: Masahiro Yamada <masahiroy@kernel.org>
+> > Cc: Conor Dooley <conor.dooley@microchip.com>
+> > Cc: Nick Desaulniers <ndesaulniers@google.com>
+> > Cc: Alyssa Ross <hi@alyssa.is>
+> > Cc: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> > Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
+> > Cc: linux-riscv@lists.infradead.org
+> > Signed-off-by: Kees Cook <keescook@chromium.org>
+> =
+
+> Perhaps this is indicative of other issues in RISC-V land, but
+> allmodconfig complains about this patch:
+> =
+
+> ../lib/string.c:17: warning: "__NO_FORTIFY" redefined
+> ../lib/string.c:17:9: warning: preprocessor token __NO_FORTIFY redefined
+
+Argh, thanks. My compile test clearly failed. I'll fix this up.
+
+-Kees
+
+> =
+
+> > ---
+> >  arch/riscv/purgatory/Makefile | 6 +++---
+> >  1 file changed, 3 insertions(+), 3 deletions(-)
+> > =
+
+> > diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makef=
+ile
+> > index 5730797a6b40..11f4c275f141 100644
+> > --- a/arch/riscv/purgatory/Makefile
+> > +++ b/arch/riscv/purgatory/Makefile
+> > @@ -31,9 +31,9 @@ $(obj)/strncmp.o: $(srctree)/arch/riscv/lib/strncmp.S=
+ FORCE
+> >  $(obj)/sha256.o: $(srctree)/lib/crypto/sha256.c FORCE
+> >  	$(call if_changed_rule,cc_o_c)
+> >  =
+
+> > -CFLAGS_sha256.o :=3D -D__DISABLE_EXPORTS
+> > -CFLAGS_string.o :=3D -D__DISABLE_EXPORTS
+> > -CFLAGS_ctype.o :=3D -D__DISABLE_EXPORTS
+> > +CFLAGS_sha256.o :=3D -D__DISABLE_EXPORTS -D__NO_FORTIFY
+> > +CFLAGS_string.o :=3D -D__DISABLE_EXPORTS -D__NO_FORTIFY
+> > +CFLAGS_ctype.o :=3D -D__DISABLE_EXPORTS -D__NO_FORTIFY
+> >  =
+
+> >  # When linking purgatory.ro with -r unresolved symbols are not checked,
+> >  # also link a purgatory.chk binary without -r to check for unresolved =
+symbols.
+> > -- =
+
+> > 2.34.1
+> > =
+
+> > =
+
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
-On 2023/5/31 21:20, Mark Brown wrote:
-> On Wed, May 31, 2023 at 02:19:16PM +0800, William Qiu wrote:
->> On 2023/5/30 18:33, Mark Brown wrote:
-> 
->> > You could always specify a different array of clocks depending on which
->> > compatible the driver sees, just like you'd conditionally request clocks
->> > individually.
-> 
->> 	If specify a different array of clocks depending on which compatible
->> the driver sees, since there will also be clock operations in the suspend
->> and resume interfaces, this can make the code look complicated.
-> 
-> If you store the clock count and array in the driver data that should be
-> fairly simple I think.
-> 
->> 	as following:
-> 
->> 	/* Obtain QSPI clock. */
->> 	cqspi->num_clks = devm_clk_bulk_get_all(dev, &cqspi->clks);
->> 	if (cqspi->num_clks < 0) {
->> 		dev_err(dev, "Cannot claim QSPI clock: %u\n", cqspi->num_clks);
->> 		return -EINVAL;
->> 	}
-> 
->> 	This way, the code will look simpler and clearer. How do you think
->> about it.
-> 
-> I'm not clear how enable and disable would then work?
 
-enable use this API:
-clk_bulk_prepare_enable(dev->num_clks, dev->clks);
+-- =
 
-then disable:
-clk_bulk_disable_unprepare(dev->num_clks, dev->clks);
-
-But I'll first try specify a different array of clocks depending on which
-compatible the driver sees first.
-
-Best regards,
-William
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
