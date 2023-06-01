@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0031AC7EE23
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 16:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF9FC77B7E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 16:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=umSZk9NRipCZn5/9JKutm/PYkL+Nh6hBSfo1oldiJM8=; b=ca6
-	9yHMp9aAc+pMQM09dA2lpBc69rsnQyHqL36zz/w+CePpGFkx7lm8Emhy1QAibxIpNCz3KVjam/uj5
-	yKUJezKx2Q1+UleR4fGZHbeuCgocFnE46xHtYh4blU3xrVjWmHd9O94s98dTSuMQm9vJrdajyid09
-	rqMEc99ErIwLAL1oqYlBDmazasqy1Nh8PkWfHtdqDHkuP4W+pnLBPSSdkDxvJIkc2pceCa+2JCtDp
-	mabc5bYNU7/Z3oqjV9rXkiONHpQwSt08zRt2TYeK94wkSVJrJC0hICtK+V3ZflLLTpcDno+ax64wx
-	SswO0Ib1+K+/J/wSS+tS9GPLbQXF/qA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qNnmoepdk+77EHPq6HTH+Wm1IAe+McLnCHuNUUtpkd0=; b=jVrXqJvcj+P/Kw
+	xTFXn7TwTRYyrDvri0rUrenRj8WsXtzpRxx7Mw6ynJhps7UAlxGXewVKdycTmFNw9q80cJghewylI
+	wBY5uEzCN9UQOxQnucvXWcs2mzbVnn27HiHkryQHzdJpNB1rhIJsHhzv/5oAzKLx/SDRh9QcER0iN
+	KU4Ilmsg1CxabxHpHBmkWs3eCDAPJ9ZiVkUFXTWGpGz8oUienvZ3D37Tk3fEE0ffpYI+eis8yyFdc
+	+N1SbpJ7xdudNFA6Gm8vofUpsnPjeP2PB4Xcp8PVYLzKFMi8zIkV7Nvd9zX+sZjvDTvHnWKjiBn23
+	48bZtDjKrghiFWTb8Qiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4kmZ-0049Ar-1J;
-	Thu, 01 Jun 2023 16:04:11 +0000
-Received: from mail-io1-f78.google.com ([209.85.166.78])
+	id 1q4lMF-004Hpj-1q;
+	Thu, 01 Jun 2023 16:41:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4kmW-00499i-31
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 Jun 2023 16:04:10 +0000
-Received: by mail-io1-f78.google.com with SMTP id ca18e2360f4ac-7773997237cso2598439f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Jun 2023 09:04:06 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685635445; x=1688227445;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=55Qx5kJRxbiEIYR74fVJASiFy4phiSzeNgwjI65yaJc=;
-        b=GWzmt5WX4d1SIxUrxzw/O9/LKSIxvwiXH26+skl2xvqw3Ev6t1rlPwQo97u5CcR7if
-         6ZCSdHKTQXOoLlqqcaykLIKYUkhY4k9TFxXEf7/f/90XmPH9ZEXLJzAter+1TrQkRZEp
-         3qNCqzIDonw1cTWUvpLzRwpcz6X5fP+z7KmZjZDzgdhvRf7oBuZ9470fh/9ZsGCOfmd0
-         Ois4iCuHecNdoa9nf40IvlOT+PFsv6cC+F9+kK/yznJneuN6dPDT+EAeLqjoQXitOnsu
-         JJZmwXV75L+b09zvuI9jJ0DUhD96yitPMBymuOv6zcqzcTvc8PgCQ3Uj+vih5e+TF3Mu
-         zCfQ==
-X-Gm-Message-State: AC+VfDx9g8eJgozXa9RqsUdUQiuCOCNz5bN1TvD4w+T+8Kv+UxmMttCz
-	vE2IihJCMduxjbdp4Gzv+Ss7OREUmNfNGOSeyyRUePZcyfyU
-X-Google-Smtp-Source: ACHHUZ5242TaAx1gTXBcqCfbAoHBIoWspvMUprpaoGArgkEA2ZZJkTHXb1A9ulhBM0VSgQ4WUH3qQMr7VDKZEZKnHCxP1eV5UbmN
+	id 1q4lMC-004HpN-2m;
+	Thu, 01 Jun 2023 16:41:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=l7x37BGg/ngYVQw8b7oQYLv+/IDPAQbOtTwdo2GYI4g=; b=nBJS850GdjslE5ahSrVJDOXcI5
+	ni8q2VdFk9LCuyGiLgRe4Pv1ks/bX4JSQBhhqVYrDZb98RsWHD+g5S2zr3NsYBjD1eclXGS5fNpAS
+	A8dwnuN12NjbLSdFCCXcgMAl5F2K8BFjV87bGdDlKilRj0o8k2Io3obSDJhaVGvLAztEz+z9Al4z0
+	VDXacYZrsC1+nAQ7CPx4qWkSdLVnf/VA2yQSiPWVpDGlZv8wQJO2sZnYzHnwO93XEMNf/TSCb8X/G
+	XmyudD8nA6CS7HbfoS+wVKYVueBMHBUZ2UKmGdu9kG3kQQIBZM5ZIspHMGUtmMd2V0m2lXn61gOxn
+	z5luAL6A==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q4kuN-00HC3Z-1y;
+	Thu, 01 Jun 2023 16:12:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 525171063;
+	Thu,  1 Jun 2023 09:12:58 -0700 (PDT)
+Received: from FVFF77S0Q05N.cambridge.arm.com (FVFF77S0Q05N.cambridge.arm.com [10.1.36.140])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C47623F663;
+	Thu,  1 Jun 2023 09:12:06 -0700 (PDT)
+Date: Thu, 1 Jun 2023 17:12:03 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH 00/13] mm: jit/text allocator
+Message-ID: <ZHjDU/mxE+cugpLj@FVFF77S0Q05N.cambridge.arm.com>
+References: <20230601101257.530867-1-rppt@kernel.org>
 MIME-Version: 1.0
-X-Received: by 2002:a02:8669:0:b0:41a:b094:c5b8 with SMTP id
- e96-20020a028669000000b0041ab094c5b8mr3809522jai.2.1685635445777; Thu, 01 Jun
- 2023 09:04:05 -0700 (PDT)
-Date: Thu, 01 Jun 2023 09:04:05 -0700
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <000000000000f76bf505fd139515@google.com>
-Subject: [syzbot] riscv/fixes boot error: can't ssh into the instance (2)
-From: syzbot <syzbot+a74d57bddabbedd75135@syzkaller.appspotmail.com>
-To: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	syzkaller-bugs@googlegroups.com
+Content-Disposition: inline
+In-Reply-To: <20230601101257.530867-1-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230601_090408_975255_26EC2275 
-X-CRM114-Status: UNSURE (   5.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230601_171216_012965_2854584F 
+X-CRM114-Status: GOOD (  35.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,48 +97,156 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Mike,
 
-syzbot found the following issue on:
+On Thu, Jun 01, 2023 at 01:12:44PM +0300, Mike Rapoport wrote:
+> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> 
+> Hi,
+> 
+> module_alloc() is used everywhere as a mean to allocate memory for code.
+> 
+> Beside being semantically wrong, this unnecessarily ties all subsystmes
+> that need to allocate code, such as ftrace, kprobes and BPF to modules
+> and puts the burden of code allocation to the modules code.
 
-HEAD commit:    8dc2a7e8027f riscv: Fix relocatable kernels with early alt..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
-console output: https://syzkaller.appspot.com/x/log.txt?x=17e9fbcd280000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=6b4bf01bbb07f945
-dashboard link: https://syzkaller.appspot.com/bug?extid=a74d57bddabbedd75135
-compiler:       riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2
-userspace arch: riscv64
+I agree this is a problem, and one key issue here is that these can have
+different requirements. For example, on arm64 we need modules to be placed
+within a 128M or 2G window containing the kernel, whereas it would be safe for
+the kprobes XOL area to be placed arbitrarily far from the kernel image (since
+we don't allow PC-relative insns to be stepped out-of-line). Likewise arm64
+doesn't have ftrace trampolines, and DIRECT_CALL trampolines can safely be
+placed arbitarily far from the kernel image.
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/a741b348759c/non_bootable_disk-8dc2a7e8.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/822e3cbe29ad/vmlinux-8dc2a7e8.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/7bda24abf1c2/Image-8dc2a7e8.xz
+For a while I have wanted to give kprobes its own allocator so that it can work
+even with CONFIG_MODULES=n, and so that it doesn't have to waste VA space in
+the modules area.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+a74d57bddabbedd75135@syzkaller.appspotmail.com
+Given that, I think these should have their own allocator functions that can be
+provided independently, even if those happen to use common infrastructure.
 
+> Several architectures override module_alloc() because of various
+> constraints where the executable memory can be located and this causes
+> additional obstacles for improvements of code allocation.
+> 
+> This set splits code allocation from modules by introducing
+> jit_text_alloc(), jit_data_alloc() and jit_free() APIs, replaces call
+> sites of module_alloc() and module_memfree() with the new APIs and
+> implements core text and related allocation in a central place.
+> 
+> Instead of architecture specific overrides for module_alloc(), the
+> architectures that require non-default behaviour for text allocation must
+> fill jit_alloc_params structure and implement jit_alloc_arch_params() that
+> returns a pointer to that structure. If an architecture does not implement
+> jit_alloc_arch_params(), the defaults compatible with the current
+> modules::module_alloc() are used.
 
+As above, I suspect that each of the callsites should probably be using common
+infrastructure, but I don't think that a single jit_alloc_arch_params() makes
+sense, since the parameters for each case may need to be distinct.
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+> The new jitalloc infrastructure allows decoupling of kprobes and ftrace
+> from modules, and most importantly it enables ROX allocations for
+> executable memory.
+> 
+> A centralized infrastructure for code allocation allows future
+> optimizations for allocations of executable memory, caching large pages for
+> better iTLB performance and providing sub-page allocations for users that
+> only need small jit code snippets.
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+This sounds interesting, but I think this can be achieved without requiring a
+single jit_alloc_arch_params() shared by all users?
 
-If the bug is already fixed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+Thanks,
+Mark.
 
-If you want to change bug's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the bug is a duplicate of another bug, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+> 
+> patches 1-5: split out the code allocation from modules and arch
+> patch 6: add dedicated API for data allocations with constraints similar to
+> code allocations
+> patches 7-9: decouple dynamic ftrace and kprobes form CONFIG_MODULES
+> patches 10-13: enable ROX allocations for executable memory on x86
+> 
+> Mike Rapoport (IBM) (11):
+>   nios2: define virtual address space for modules
+>   mm: introduce jit_text_alloc() and use it instead of module_alloc()
+>   mm/jitalloc, arch: convert simple overrides of module_alloc to jitalloc
+>   mm/jitalloc, arch: convert remaining overrides of module_alloc to jitalloc
+>   module, jitalloc: drop module_alloc
+>   mm/jitalloc: introduce jit_data_alloc()
+>   x86/ftrace: enable dynamic ftrace without CONFIG_MODULES
+>   arch: make jitalloc setup available regardless of CONFIG_MODULES
+>   kprobes: remove dependcy on CONFIG_MODULES
+>   modules, jitalloc: prepare to allocate executable memory as ROX
+>   x86/jitalloc: make memory allocated for code ROX
+> 
+> Song Liu (2):
+>   ftrace: Add swap_func to ftrace_process_locs()
+>   x86/jitalloc: prepare to allocate exectuatble memory as ROX
+> 
+>  arch/Kconfig                     |   5 +-
+>  arch/arm/kernel/module.c         |  32 ------
+>  arch/arm/mm/init.c               |  35 ++++++
+>  arch/arm64/kernel/module.c       |  47 --------
+>  arch/arm64/mm/init.c             |  42 +++++++
+>  arch/loongarch/kernel/module.c   |   6 -
+>  arch/loongarch/mm/init.c         |  16 +++
+>  arch/mips/kernel/module.c        |   9 --
+>  arch/mips/mm/init.c              |  19 ++++
+>  arch/nios2/include/asm/pgtable.h |   5 +-
+>  arch/nios2/kernel/module.c       |  24 ++--
+>  arch/parisc/kernel/module.c      |  11 --
+>  arch/parisc/mm/init.c            |  21 +++-
+>  arch/powerpc/kernel/kprobes.c    |   4 +-
+>  arch/powerpc/kernel/module.c     |  37 -------
+>  arch/powerpc/mm/mem.c            |  41 +++++++
+>  arch/riscv/kernel/module.c       |  10 --
+>  arch/riscv/mm/init.c             |  18 +++
+>  arch/s390/kernel/ftrace.c        |   4 +-
+>  arch/s390/kernel/kprobes.c       |   4 +-
+>  arch/s390/kernel/module.c        |  46 +-------
+>  arch/s390/mm/init.c              |  35 ++++++
+>  arch/sparc/kernel/module.c       |  34 +-----
+>  arch/sparc/mm/Makefile           |   2 +
+>  arch/sparc/mm/jitalloc.c         |  21 ++++
+>  arch/sparc/net/bpf_jit_comp_32.c |   8 +-
+>  arch/x86/Kconfig                 |   2 +
+>  arch/x86/kernel/alternative.c    |  43 ++++---
+>  arch/x86/kernel/ftrace.c         |  59 +++++-----
+>  arch/x86/kernel/kprobes/core.c   |   4 +-
+>  arch/x86/kernel/module.c         |  75 +------------
+>  arch/x86/kernel/static_call.c    |  10 +-
+>  arch/x86/kernel/unwind_orc.c     |  13 ++-
+>  arch/x86/mm/init.c               |  52 +++++++++
+>  arch/x86/net/bpf_jit_comp.c      |  22 +++-
+>  include/linux/ftrace.h           |   2 +
+>  include/linux/jitalloc.h         |  69 ++++++++++++
+>  include/linux/moduleloader.h     |  15 ---
+>  kernel/bpf/core.c                |  14 +--
+>  kernel/kprobes.c                 |  51 +++++----
+>  kernel/module/Kconfig            |   1 +
+>  kernel/module/main.c             |  56 ++++------
+>  kernel/trace/ftrace.c            |  13 ++-
+>  kernel/trace/trace_kprobe.c      |  11 ++
+>  mm/Kconfig                       |   3 +
+>  mm/Makefile                      |   1 +
+>  mm/jitalloc.c                    | 185 +++++++++++++++++++++++++++++++
+>  mm/mm_init.c                     |   2 +
+>  48 files changed, 777 insertions(+), 462 deletions(-)
+>  create mode 100644 arch/sparc/mm/jitalloc.c
+>  create mode 100644 include/linux/jitalloc.h
+>  create mode 100644 mm/jitalloc.c
+> 
+> 
+> base-commit: 44c026a73be8038f03dbdeef028b642880cf1511
+> -- 
+> 2.35.1
+> 
+> 
+> _______________________________________________
+> linux-arm-kernel mailing list
+> linux-arm-kernel@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
 
 _______________________________________________
 linux-riscv mailing list
