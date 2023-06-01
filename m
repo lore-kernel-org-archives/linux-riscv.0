@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C394FC7EE23
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 20:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B977CC7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 20:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Date:Message-Id:
-	Subject:References:In-Reply-To:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XTKECrPq0t4+6OKxY+9Gv9YVOupw5OVDyWFfz2j+1Ow=; b=mB34NaiqzWMjkP
-	5vxivS5NxIcnmk1d8p0Rv9U7SqKaq+6LL15Y23FFvx7u8oS/owVditi6v0ihL5HVIPR1ns6ONoeXy
-	jc8ld3CTVXC00bGgkEZHAeIq5mH8A6ZVdM+xzaj0Q4f7eul5Ma09rO7PtWkgK6KyQiIlt14OJre/J
-	0VHkV1X/lY9ziW/FvOUWMBRXVXvpSjoaq3ihJhXEDUHRSFru4EMH5DwyTB+oMttM3rhWjpT0FnJFQ
-	9ybpKn7k4p0VHo6ezPwFD8yW+rTBmJaNmKRSMyD6yAG7dJc6GM1HWXwwfuX0dIU/fLpZ8VZdX1hIv
-	19SdFtIHQSpptsTu1Rgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=ysDs1bSs3UzBOV3syHFG987USll33h8QDUEZV8HnfLw=; b=l3aLZOdIZpC6/HZzVQJsB53AUe
+	TvjywTthgR6pzuFzTedPgbEtXBQ2VceBF6Qi56vH35y7WBjATw2MiNPb2Xx0rlUuj7gFvDl4AxS3X
+	IiDk6T9O8S3Y+lWUw4iYL2iTwisl2xQJhN0gdR8rApW7xoKlazugARk4frfyNDnN6JfeFOtWyMYRu
+	qdWdVik0sshwJKMilylE5GvI1NtEU7YfQ+hXwPahbxBdPbyUiY/QwZc0RYEjfu95vFBnk6i7wB7ZO
+	Ca7tWGeqUKbxAUkOwL9fNbCHY66kTqMvgBv10znnL+HAK1cGWi9G94r5OsBxv6+M5SP1jtCeRBE6C
+	kPU580sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4ohH-004pt7-1V;
-	Thu, 01 Jun 2023 20:14:59 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1q4ojP-004qCx-1m;
+	Thu, 01 Jun 2023 20:17:11 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4ohF-004ps6-0W
+	id 1q4ojM-004qBj-2v
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Jun 2023 20:14:58 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-53fdae76f3aso1207091a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Jun 2023 13:14:55 -0700 (PDT)
+	Thu, 01 Jun 2023 20:17:10 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-1b01dac1a82so7803455ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Jun 2023 13:17:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1685650495; x=1688242495;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1685650625; x=1688242625;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DU10fC4sdK9R/A5wUXzFvrPcTHv4BJBjCG5IQvpna0g=;
-        b=iVSgJYKDVnVhYZj8QCyFCeURHMmhLu3VVf8IA+Rktq9uFB8EkPW5m6Ta5omFHjlEeK
-         WuA1egxlBJoFX5mx4bdjc1D8pVs+Odg5HLEtlFnUkVyugOfudDT+LFLkbIQn0kgyz0qo
-         sMUcF+kD19PIIgjBfuk/r6UTZ7WYLIKpUslxGXQGOlnYByxvn0oh1P6v//0IBEp9xNNK
-         hefNQz5ZUTwTeubzx4wXkJ9h1RIpCbKwEksKEcOBVJC/vOX0JG43aeQsYPGhj5gmB81A
-         5UYVotS4nrV/9S/lmh5v5YrkBe2T2XrJ1UKQnTFjxgKfIvRbkfKuwE07ILAToGU5QP9N
-         FdFA==
+        bh=xjlZZ6nKS4GkUYpJEs75tROJCn6U9CxfxsCk2Sp4Rbc=;
+        b=aDdbymcrnaNTB9sTEUjXxYlQF+34yd3gmVLW6y8qN+ciqLDdoDsbstFhfyDrM/PY1n
+         MW92kPQsCXs4+aBKxg7nAQiIZq+bW6/D7HMmgrWx9Tykz6gDlLL/Ga8Y4kqeD+TAlF01
+         Ii/8HV4B/epZ0php7mruuRMTndTIxxgGVyBoNPqVgf6I3dDyo3YlxqNAYnvPBVaga9mz
+         FjyvLsYICnFuX3gVpaFiVzbZ5KfiTNcuUVgmamBCMLG7VgDqsWRLE2SVuhfOUJGs//p+
+         txUuP/BJrP8NczFjOq8sXTsFELlWkXEaXMzu2x3pTdHHBhYtT36wSR0Uzkh47WvYo71u
+         r93g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685650495; x=1688242495;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DU10fC4sdK9R/A5wUXzFvrPcTHv4BJBjCG5IQvpna0g=;
-        b=Hs2aagxlh48FfEL7OfyP0Iau6QJ0wp1LsxXQwQ3ZKWzA8ivCCr2ynyWLXprEWm4Zno
-         K2f9AlYbKyit6VAgieT6uivuNZ+1HYvsCEXqJISIfW/OQhjvx6iMksDnkhQPZwJlLHCu
-         fVgvyDBgWWO4PbHFM225q9KKQhrZdqcu0tnx9kzk4gjGiHJWZks1/luALapxX5kPVJQg
-         54KpZflVSZaua933O7kuZnzm9GmD7dVreFBnZE+XQRMe+8aRTJ5xThfeabrRPhn3NEbR
-         +bfdTmke5YGz9fvjpp0axJmtAiGHq+7Xc0wxPvu7Hgg6M2n/qqu+sHoti0OLRA5ETQBa
-         ZuUA==
-X-Gm-Message-State: AC+VfDxz2rgbJcDcxbwwUQZOHYf6RhCOP9XXeEEPiiD3d4ip0kE5GvtB
-	VBGAyJeTWaSXmNHeIF8zMrGDBA==
-X-Google-Smtp-Source: ACHHUZ7sHeZlkfxdt9cp0rU09UKrgKs34CyQceaBIsyDPaeRwvqlUKonnuxVfhmQV1l7lk2NTicJxA==
-X-Received: by 2002:a05:6a20:5494:b0:10c:8f0c:f81c with SMTP id i20-20020a056a20549400b0010c8f0cf81cmr13043820pzk.53.1685650495170;
-        Thu, 01 Jun 2023 13:14:55 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1685650625; x=1688242625;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xjlZZ6nKS4GkUYpJEs75tROJCn6U9CxfxsCk2Sp4Rbc=;
+        b=he1R+boW9UJM/nx5SZrI86rkjD1tLWXxj4seUB4IuAzTz4gMw0oa6Drml9PFOd50O1
+         99Ra4wuCYm15ARewRleBadEaV35/Gs0IAadIBQExmFurw9VTzszOtzc+pqcExe7P1Gpd
+         cao6PcFav73rc4IIYjvC/CbGQq88+wGIJzVz3Emw+lnxwjfqIQbHJHuocG8Nybfusmik
+         7ixIxXnmcoWrzmiPURoM3K0LIK7d5g3mOqAZWDYddyGxqJArnkCRXCVVB2wr0pA17ByZ
+         i7Kjmf57LHGBpBlyzeAqA4tgdyKvtID3QS66WkWpkpjiiEczzCVagOOUSfMWkf3hSDIL
+         b26A==
+X-Gm-Message-State: AC+VfDwl1c502HXeLv3uFVvAP8qaKjDpcWoHTla+WS6kfmbM4Pjkoi6Y
+	4vzlKltaBlG9mM19I/24dbPFBQ==
+X-Google-Smtp-Source: ACHHUZ4BpDHb2NTKUdlUUm/HUFHW89maI9BAsHQKu1v+LeQFvchawM0FVdmNZjlMPVk4Trl80MDxJg==
+X-Received: by 2002:a17:902:f801:b0:1ae:8b4b:327d with SMTP id ix1-20020a170902f80100b001ae8b4b327dmr335375plb.42.1685650624848;
+        Thu, 01 Jun 2023 13:17:04 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id 126-20020a630984000000b0052c562bd942sm1885144pgj.19.2023.06.01.13.14.54
+        by smtp.gmail.com with ESMTPSA id im16-20020a170902bb1000b001a95c7742bbsm3979313plb.9.2023.06.01.13.17.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Jun 2023 13:14:54 -0700 (PDT)
-In-Reply-To: <20230428120120.21620-1-alexghiti@rivosinc.com>
-References: <20230428120120.21620-1-alexghiti@rivosinc.com>
-Subject: Re: [PATCH -fixes 1/2] riscv: Fix huge_ptep_set_wrprotect when PTE
- is a NAPOT
-Message-Id: <168565042167.24704.4716430227206622688.b4-ty@rivosinc.com>
-Date: Thu, 01 Jun 2023 13:13:41 -0700
-MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>, Qinglin Pan <panqinglin2020@iscas.ac.cn>,
-  Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  Alexandre Ghiti <alexghiti@rivosinc.com>
+        Thu, 01 Jun 2023 13:17:03 -0700 (PDT)
+Date: Thu, 01 Jun 2023 13:17:03 -0700 (PDT)
+X-Google-Original-Date: Thu, 01 Jun 2023 13:16:34 PDT (-0700)
+Subject: Re: [PATCH v2] riscv/purgatory: Do not use fortified string functions
+In-Reply-To: <168564402237.2891605.1600418987887898293.b4-ty@chromium.org>
+CC: keescook@chromium.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  ndesaulniers@google.com, linux-kernel@vger.kernel.org, gustavoars@kernel.org, linux@leemhuis.info,
+  heiko.stuebner@vrull.eu, linux-hardening@vger.kernel.org, aou@eecs.berkeley.edu,
+  linux-riscv@lists.infradead.org, joanbrugueram@gmail.com, masahiroy@kernel.org,
+  Conor Dooley <conor.dooley@microchip.com>, ajones@ventanamicro.com, hi@alyssa.is
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: keescook@chromium.org
+Message-ID: <mhng-8c6309b5-4ba9-4276-a8e6-2864426e77f0@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230601_131457_198251_2D483046 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230601_131709_161703_F1E70BAC 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +89,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 01 Jun 2023 11:27:03 PDT (-0700), keescook@chromium.org wrote:
+> On Thu, 1 Jun 2023 09:00:28 -0700, Kees Cook wrote:
+>> With the addition of -fstrict-flex-arrays=3, struct sha256_state's
+>> trailing array is no longer ignored by CONFIG_FORTIFY_SOURCE:
+>>
+>> struct sha256_state {
+>>         u32 state[SHA256_DIGEST_SIZE / 4];
+>>         u64 count;
+>>         u8 buf[SHA256_BLOCK_SIZE];
+>> };
+>>
+>> [...]
+>
+> Applied to for-next/hardening, thanks!
+>
+> [1/1] riscv/purgatory: Do not use fortified string functions
+>       https://git.kernel.org/kees/c/ca2ca08f479d
 
-On Fri, 28 Apr 2023 14:01:19 +0200, Alexandre Ghiti wrote:
-> We need to avoid inconsistencies across the PTEs that form a NAPOT
-> region, so when we write protect such a region, we should clear and flush
-> all the PTEs to make sure that any of those PTEs is not cached which would
-> result in such inconsistencies (arm64 does the same).
-> 
-> 
-
-Applied, thanks!
-
-[1/2] riscv: Fix huge_ptep_set_wrprotect when PTE is a NAPOT
-      https://git.kernel.org/palmer/c/d22ce4f4137a
-[2/2] riscv: Implement missing huge_ptep_get
-      https://git.kernel.org/palmer/c/640ad2677d56
-
-Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
-
+Sorry, I'd just applied this to riscv/fixes as well.  I can drop it if 
+you want?  I was going to send a PR tomorrow, just LMK.
 
 _______________________________________________
 linux-riscv mailing list
