@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A15C0C77B7E
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 20:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FE1C7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 20:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DRHV6rsxJGBQMQXb9k23ujyi1vCO2rcotAQNmSkM2hU=; b=xD8vmz2N8BcqYh
-	HyO9buysfa6XpRMC8UWAVYS86ior8h8RHCCxOJe+eDrJKHQIre64XPyEdjdKlTHFB0iY/j43eMR3e
-	miRMDgTLVtXU2H6SEHV89vaHB8MHcrhPVs+MlDwSRt0eHJdLafdMMTW5FSJ5Pl3GpVYc4Oa0UtgnH
-	vpfeiQAw4ybzdd/zobWlTwufNdbjSSDOlW38dv7KDHOPFevdGUr7HhZI622GwLOYUcIJ3EkGBrIz1
-	K84bU1xTWeZDcrXUzs62eiZRA2iGybosPPXdENOtPlSa0xUkrerL1OGZqkWoo2h7h04wqLD1sC4fU
-	n1yoChAXPUKwpIabhDBA==;
+	List-Owner; bh=ZuEf1iDeXyoWVUB3Ri9+FDyQgaY5yterUrkHE0psvus=; b=A/syTlRQF1QQk8
+	l8M413luAXmgmOubYpLSK4D7GVpyMpknpx2Zrwcz8P8o55adUreW7cHL98IyaxS+XW8Uf6KbQ27E5
+	HjCwYzH08MJJCM9nvnssP/7miRcxtjB2E2ylwpF6hj7/9fuQApbAR1ck1urIafnfzHv4BI35RQpRi
+	ep6vFdq0BIC8v0jfX3Q5DU2TiELPCUZtGWD6GPh4fTLEDU3jWXySakDUJmqGOLrYdi/WfXGitHlqf
+	daCqE+Txs4jiQKh3dUDcHXAAszCAjqlBBpqJvgsjf2odUfyxN2cVG0EiULdPXrBDPPcN9DirahyuD
+	st54WobiRIQfNr5xxUaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4omW-004qqu-2t;
+	id 1q4omW-004qqi-0t;
 	Thu, 01 Jun 2023 20:20:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4omT-004qpU-2l
+	id 1q4omT-004qpS-1Y
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 Jun 2023 20:20:23 +0000
+	Thu, 01 Jun 2023 20:20:22 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 093BD64962;
-	Thu,  1 Jun 2023 20:20:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EB9CEC433D2;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 82BE161D0F;
+	Thu,  1 Jun 2023 20:20:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E419FC4339B;
 	Thu,  1 Jun 2023 20:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685650820;
-	bh=BsmB3TQT0UqKDYGfBMXSuKQ4Y303rceDlGSh2ELAoAE=;
+	s=k20201202; t=1685650819;
+	bh=tZKKg0LORH8+7Jf9bqksdik1OnIaetPXfVTt/qqjvyk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=QdOa9tCnbNQAChJM6Emg4vuZfL2cpnLL8U2OJV12cuUcXqYHNdU2Z/PnPNhGdYxMK
-	 aOWMML0vZAy+BB/VorJEnrY1hlDuUVOWx9CEGc4Yyy0dTAui3/D7xSiE/RtOV6VCln
-	 Bl13cTh8RbcTJFDF6fBjvQMpgzKU+CuESI5xvsjRFGqKtQmZlH9dDfD8mbWHgq8nIY
-	 93vE/tj2Jv/EVMPKRuuZDyGW7/xi6D1koCf7Mjts4U8NMLGJnCqtXACZ9jbMKNano5
-	 aKIDZhi6IkaHqTS+ndkaPYN/1a2i+dHLMLbmxi5Bw4be56RolorRMCYhxS6dkkaIoJ
-	 Xdwuzw0hguPIA==
+	b=rIkomw20u6mEVDMn/IOEschDnoMpN2fPCMMXA8EoUDTpSMD91rxyy4KITCCT/5Twq
+	 H/H6pjARN6F0tDaeAeV4qqRHTItgCy0RlCGe8UQfWCBAr9wyCH1xeiMcwXITkkmYBi
+	 YaEs+RCqjaEAY/xPTDQIaWqICXicsvHA47LjbfEO+lhTdicr5TW3/dIVoi9sDXBS8q
+	 wZ6yZE5JJOMpjdjbibUuwjsec2ihWAcFq5tppCHuduoshy3uk8mq8Mk2ZIpdWHUHD/
+	 mCpCz0CXq708hpaP3/LKqqGTA9hqOdAUe//xp0Qf07/hBTlgD2M7FBIqJmvagj3LhU
+	 N5FlL/a0EUOpQ==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id CFCA7C395E5;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id C58B0C43162;
 	Thu,  1 Jun 2023 20:20:19 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv/purgatory: Do not use fortified string functions
+Subject: Re: [PATCH] riscv: perf: Fix callchain parse error with kernel tracepoint
+ events
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <168565081984.8603.17593394447980152382.git-patchwork-notify@kernel.org>
+Message-Id: <168565081980.8603.14671777947375742178.git-patchwork-notify@kernel.org>
 Date: Thu, 01 Jun 2023 20:20:19 +0000
-References: <20230601160025.gonna.868-kees@kernel.org>
-In-Reply-To: <20230601160025.gonna.868-kees@kernel.org>
-To: Kees Cook <keescook@chromium.org>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- linux@leemhuis.info, joanbrugueram@gmail.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, masahiroy@kernel.org, conor.dooley@microchip.com,
- ndesaulniers@google.com, hi@alyssa.is, heiko.stuebner@vrull.eu,
- gustavoars@kernel.org, ajones@ventanamicro.com, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
+References: <20230601095355.1168910-1-ism.hong@gmail.com>
+In-Reply-To: <20230601095355.1168910-1-ism.hong@gmail.com>
+To: Ism Hong <ism.hong@gmail.com>
+Cc: linux-riscv@lists.infradead.org, ism.hong@realtek.com,
+ peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+ mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ namhyung@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230601_132021_957071_DFBC13A4 
-X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-CacheID: sfid-20230601_132021_575367_2F3DA0BC 
+X-CRM114-Status: UNSURE (   9.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,21 +87,20 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu,  1 Jun 2023 09:00:28 -0700 you wrote:
-> With the addition of -fstrict-flex-arrays=3, struct sha256_state's
-> trailing array is no longer ignored by CONFIG_FORTIFY_SOURCE:
+On Thu,  1 Jun 2023 17:53:55 +0800 you wrote:
+> For RISC-V, when tracing with tracepoint events, the IP and status are
+> set to 0, preventing the perf code parsing the callchain and resolving
+> the symbols correctly.
 > 
-> struct sha256_state {
->         u32 state[SHA256_DIGEST_SIZE / 4];
->         u64 count;
->         u8 buf[SHA256_BLOCK_SIZE];
-> };
+>  ./ply 'tracepoint:kmem/kmem_cache_alloc { @[stack]=count(); }'
+>  @:
+>  { <STACKID4294967282> }: 1
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] riscv/purgatory: Do not use fortified string functions
-    https://git.kernel.org/riscv/c/0f84097ab015
+  - riscv: perf: Fix callchain parse error with kernel tracepoint events
+    https://git.kernel.org/riscv/c/9a7e8ec0d4cc
 
 You are awesome, thank you!
 -- 
