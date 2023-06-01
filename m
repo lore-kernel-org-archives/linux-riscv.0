@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A9DC77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 May 2023 22:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 934DFC77B73
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 01:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cShB0HcFyzwJIHNs+cHkeR838m0jTKFAYK/ZffdTutQ=; b=tGT9lstSefCglL
-	xRXDVMXs1yhTCP7+MRaRWJTAQ/Im6MRAnerNnjLuhZFtLWFzu3e1tItujylmDGBXoySdKvB3FeXk0
-	O5cGJ5HfYyOxJyN5n5N8qrfaO8SEklN20ii1yiGSZ0a9kuPtM76DYgBn1pVw2KxnW8gYHsBD17bCP
-	xP5dLuPPL2zIStpTdd6EZSpzcjIxyCRfqrIg7uuz4vCTd24J1rtonZQ5kzgO8dm7kafBOA2eduYa0
-	KPIpspp7m3aw9TNLnSPp22x1YmZCh+L5tp9j6KkLqyYgQmEObFSKrFKuOHhZb/1wDA6niQjAaNjxD
-	MojLmAzfaZAMZTJVP85Q==;
+	List-Owner; bh=7EeO4pccYXh/rXKljxjrbmFKibR3aYGJ3UknwBRE8Eg=; b=MiQZezj/iRM4k6
+	gg4n4IMfklYhPCA1RTsxkN/bB1J711672txWJx5DAioxce3TdElZjnMF9peBHqQrBZHjC5pFt4lhb
+	jHu5l4ynoryUYaR0KsvIigM+ZlK3gkzdGV/pxwXG+XjleezAP+O6jjfsLnjmp+oudzgfqUfthNSS5
+	0AL/MYL0ue3BLCO5zOvYMdqENTq5kF/nKuIVGHW/ObxT9i8VWYrSmjxpQu6rYGl03VUCUWo8vJoJX
+	rXiZAXBj5R21oPqZiP6ZL63ZfYjXHOppdeBwYXOgKx974KzV5b9ZXA/LBJNlLBTWtIHMZ5HdwYTAj
+	hIb8AS8CQa8qJyehyC8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4UZg-001NxR-1f;
-	Wed, 31 May 2023 22:45:48 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4TQ5-001A45-1K;
-	Wed, 31 May 2023 21:31:50 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-565cdb77b01so925357b3.0;
-        Wed, 31 May 2023 14:31:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1685568709; x=1688160709;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=llblHDjuRzdwObovgJjTe//ioNSPoyRpZegKgEWGdOs=;
-        b=iH3Uuo4ydabF86Ae3Pt9mqJWCo9Mdl0v853LngJ++ms5qQhJIV2nJMOwvvj1jdSolp
-         wkug3c5kE5OyC8B7qbo9EtOWW91dAFU5qbdW1jXEhkmIJBuTnUynbfXIOO6t9HnXXwkE
-         IN/6ruRl/K/MZEBNhZ/CMDwD4Ey5RSIokBkrylG9gJyzM17uataBRfYABiymq5L1JBem
-         AiofKm4cV+Hpu3+dW3nZQBqxHmZ0U8w75MqODX8zjymWwzwAB9aGsVd720nTIfH2C9wd
-         s6EKfpFxPPWRO5hvsFIezwgeyXUB9GISVAQy5eO7rADF0ZyAn64v+X5gTI2GfoMJv3eF
-         AD6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685568709; x=1688160709;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=llblHDjuRzdwObovgJjTe//ioNSPoyRpZegKgEWGdOs=;
-        b=FkiYAto67GSlxOhrwim4nrMoTWNYrcLOvn6oKk8h8fT+oNnSknUdzndtguVq126Fx5
-         njw93dtdZV1vwlczorZ7+gA8FM6p27KlfZcK+CY1gXEiir6z5iCQ9EZZ8bt6xYTgn6BQ
-         7hdKOy/39t5y20RFgNXGTy/ZrDrwf84iMGaCzLuNIJwOAwMZk+b99b5VkcHTUFjrWe+M
-         8+0hVR6btjl89HxqHh+rIvT3XtA/qxnP3XrHMYB0a7O3wC7OHcH81yNdotVlgN0MYHdb
-         lq0XC6f6Jv/I9OwW92vT7gNOXJaavWGEI0DxvvdXfGs0LJ63cTgVB4c3iCJ3ByaiuGtJ
-         ni+Q==
-X-Gm-Message-State: AC+VfDz0+t+QIAev8tZr/cCqPWV726dBorc3K220ww8X5dRcA47i6nmn
-	qgmn8xNixWao4Ni+T0AVtgk=
-X-Google-Smtp-Source: ACHHUZ6yD6O1sbMXJdkzsJg9s7w6GLhFX5Kt5hWPrM1g6MrxSM/fcoQvLUKDHg0FsgcJPRMkk3z8xg==
-X-Received: by 2002:a0d:e647:0:b0:568:bca8:de50 with SMTP id p68-20020a0de647000000b00568bca8de50mr6918459ywe.17.1685568708928;
-        Wed, 31 May 2023 14:31:48 -0700 (PDT)
-Received: from unknowna0e70b2ca394.attlocal.net ([2600:1700:2f7d:1800::46])
-        by smtp.googlemail.com with ESMTPSA id t63-20020a0dd142000000b0055aafcef659sm658905ywd.5.2023.05.31.14.31.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 May 2023 14:31:48 -0700 (PDT)
-From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>
-Cc: linux-mm@kvack.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org,
-	kvm@vger.kernel.org,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH v3 20/34] arm: Convert various functions to use ptdescs
-Date: Wed, 31 May 2023 14:30:18 -0700
-Message-Id: <20230531213032.25338-21-vishal.moola@gmail.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230531213032.25338-1-vishal.moola@gmail.com>
-References: <20230531213032.25338-1-vishal.moola@gmail.com>
+	id 1q4XVA-001fhf-2z;
+	Thu, 01 Jun 2023 01:53:20 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q4XV6-001ffg-3B
+	for linux-riscv@lists.infradead.org;
+	Thu, 01 Jun 2023 01:53:19 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 30F6F24DB86;
+	Thu,  1 Jun 2023 09:52:41 +0800 (CST)
+Received: from EXMBX168.cuchost.com (172.16.6.78) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Jun
+ 2023 09:52:41 +0800
+Received: from [192.168.120.57] (171.223.208.138) by EXMBX168.cuchost.com
+ (172.16.6.78) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Jun
+ 2023 09:52:39 +0800
+Message-ID: <9d24d50e-f5d1-f08c-1318-46497cec293d@starfivetech.com>
+Date: Thu, 1 Jun 2023 09:52:38 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Subject: Re: [PATCH v1 2/3] spi: cadence-quadspi: Add clock configuration for
+ StarFive JH7110 QSPI
+To: Mark Brown <broonie@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	"Emil Renner Berthing" <kernel@esmil.dk>, Ziv Xu <ziv.xu@starfivetech.com>
+References: <20230526062529.46747-1-william.qiu@starfivetech.com>
+ <20230526062529.46747-3-william.qiu@starfivetech.com>
+ <fecc9d6a-022e-49d9-a452-8a63c409ebf3@sirena.org.uk>
+ <042c560d-1f36-8e97-3796-7423245592f4@starfivetech.com>
+ <86555925-b8dd-29a8-60cd-5c2ff2c1432a@starfivetech.com>
+ <eb68722b-bcab-4aa1-aa4e-54bfe95ef414@sirena.org.uk>
+ <93ba0b97-45aa-e59d-1454-80c4f245acc0@starfivetech.com>
+ <075db1ba-e15c-4c3c-9430-99c866eca24d@sirena.org.uk>
+Content-Language: en-US
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <075db1ba-e15c-4c3c-9430-99c866eca24d@sirena.org.uk>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX168.cuchost.com
+ (172.16.6.78)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230531_143149_448299_CA253954 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20230531_185317_200487_8CB2A6EC 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,78 +85,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As part of the conversions to replace pgtable constructor/destructors with
-ptdesc equivalents, convert various page table functions to use ptdescs.
 
-late_alloc() also uses the __get_free_pages() helper function. Convert
-this to use pagetable_alloc() and ptdesc_address() instead to help
-standardize page tables further.
 
-Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
----
- arch/arm/include/asm/tlb.h | 12 +++++++-----
- arch/arm/mm/mmu.c          |  6 +++---
- 2 files changed, 10 insertions(+), 8 deletions(-)
+On 2023/5/31 21:20, Mark Brown wrote:
+> On Wed, May 31, 2023 at 02:19:16PM +0800, William Qiu wrote:
+>> On 2023/5/30 18:33, Mark Brown wrote:
+> 
+>> > You could always specify a different array of clocks depending on which
+>> > compatible the driver sees, just like you'd conditionally request clocks
+>> > individually.
+> 
+>> 	If specify a different array of clocks depending on which compatible
+>> the driver sees, since there will also be clock operations in the suspend
+>> and resume interfaces, this can make the code look complicated.
+> 
+> If you store the clock count and array in the driver data that should be
+> fairly simple I think.
+> 
+>> 	as following:
+> 
+>> 	/* Obtain QSPI clock. */
+>> 	cqspi->num_clks = devm_clk_bulk_get_all(dev, &cqspi->clks);
+>> 	if (cqspi->num_clks < 0) {
+>> 		dev_err(dev, "Cannot claim QSPI clock: %u\n", cqspi->num_clks);
+>> 		return -EINVAL;
+>> 	}
+> 
+>> 	This way, the code will look simpler and clearer. How do you think
+>> about it.
+> 
+> I'm not clear how enable and disable would then work?
 
-diff --git a/arch/arm/include/asm/tlb.h b/arch/arm/include/asm/tlb.h
-index b8cbe03ad260..f40d06ad5d2a 100644
---- a/arch/arm/include/asm/tlb.h
-+++ b/arch/arm/include/asm/tlb.h
-@@ -39,7 +39,9 @@ static inline void __tlb_remove_table(void *_table)
- static inline void
- __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pte, unsigned long addr)
- {
--	pgtable_pte_page_dtor(pte);
-+	struct ptdesc *ptdesc = page_ptdesc(pte);
-+
-+	pagetable_pte_dtor(ptdesc);
- 
- #ifndef CONFIG_ARM_LPAE
- 	/*
-@@ -50,17 +52,17 @@ __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pte, unsigned long addr)
- 	__tlb_adjust_range(tlb, addr - PAGE_SIZE, 2 * PAGE_SIZE);
- #endif
- 
--	tlb_remove_table(tlb, pte);
-+	tlb_remove_ptdesc(tlb, ptdesc);
- }
- 
- static inline void
- __pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmdp, unsigned long addr)
- {
- #ifdef CONFIG_ARM_LPAE
--	struct page *page = virt_to_page(pmdp);
-+	struct ptdesc *ptdesc = virt_to_ptdesc(pmdp);
- 
--	pgtable_pmd_page_dtor(page);
--	tlb_remove_table(tlb, page);
-+	pagetable_pmd_dtor(ptdesc);
-+	tlb_remove_ptdesc(tlb, ptdesc);
- #endif
- }
- 
-diff --git a/arch/arm/mm/mmu.c b/arch/arm/mm/mmu.c
-index 22292cf3381c..294518fd0240 100644
---- a/arch/arm/mm/mmu.c
-+++ b/arch/arm/mm/mmu.c
-@@ -737,11 +737,11 @@ static void __init *early_alloc(unsigned long sz)
- 
- static void *__init late_alloc(unsigned long sz)
- {
--	void *ptr = (void *)__get_free_pages(GFP_PGTABLE_KERNEL, get_order(sz));
-+	void *ptdesc = pagetable_alloc(GFP_PGTABLE_KERNEL, get_order(sz));
- 
--	if (!ptr || !pgtable_pte_page_ctor(virt_to_page(ptr)))
-+	if (!ptdesc || !pagetable_pte_ctor(ptdesc))
- 		BUG();
--	return ptr;
-+	return ptdesc;
- }
- 
- static pte_t * __init arm_pte_alloc(pmd_t *pmd, unsigned long addr,
--- 
-2.40.1
+enable use this API:
+clk_bulk_prepare_enable(dev->num_clks, dev->clks);
 
+then disable:
+clk_bulk_disable_unprepare(dev->num_clks, dev->clks);
+
+But I'll first try specify a different array of clocks depending on which
+compatible the driver sees first.
+
+Best regards,
+William
 
 _______________________________________________
 linux-riscv mailing list
