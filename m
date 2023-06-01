@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1441AC7EE32
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 22:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF48C77B7E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Jun 2023 23:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5/inQJ3uO0Qn6nrnV2HykFaDevtiYjnh9Zgt/lPM2Zo=; b=gPHeSjBeMpO3nX
-	E2bO/EGfopHTyOhQdFlIjLOi4Bk6yiqWGL4c2JTSJksHvaYjJSmlW3otPUXyOG3EKOYBBm+aWMGdR
-	3bIxzJ9CxM/fts8lv8nWLEBJq6b1Xk7lpXxLDanvfyvX/tDismUu1r5H6ISg3TLiKBh0CL6KHC+cO
-	h+5tPIDIDc8mFQCSvPBOCnUD+RvBfG8GyeAc3bDDEkVCyQ6aZ9u8JSR5gqn02Y5pKvLR2XhlhrWu1
-	UIvAJytgpQijh+yPHbneWHOMFk86YBzL4+HVobERlEWzmitBxSFeTo2RklCtu/+j0O0evrGpbtmtn
-	j5E/b8XNgZk0VBhnEmyg==;
+	List-Owner; bh=keFyJ97NuDfFvg96YtN5KhIXdFAC+M7XbNfCTxjWUgo=; b=lO5vtv0/Yyt7ym
+	J3vlETKiVWbDyceyBW/2yNdk1V28D7raw/fyxMCQJw1hTRDOgO99yhuwkBKOgZv5Ndpv9bUN8/3X7
+	rMDv2LB5+tdyXVapbIFBN/RTzgomEIvCBpbDA+9Ia9Vpp135ChchEMyVM/+fl4BYwvqPX5RkfAtDs
+	ncymczZYWdAfGpYrIiGUyGgkeGmxkZZemLW+CrR6k/lKnnj0zYYgWP8aWvzhHtcef4gsLr1RVnQz2
+	lqYOK1QwLF+ZOQOGYu1mDTOfqA2uU6oIPT6M2K6bQCK2VoRoSxpSqR3XfOO8ovxUj+IM8fT2BcHd7
+	ZQfoWCgfaqcyzwsjrRPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4r7F-005AuS-0a;
-	Thu, 01 Jun 2023 22:49:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q4rlK-005Eat-0A;
+	Thu, 01 Jun 2023 23:31:22 +0000
+Received: from mail-io1-f42.google.com ([209.85.166.42])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4r7C-005AtT-1J;
-	Thu, 01 Jun 2023 22:49:55 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A327364A50;
-	Thu,  1 Jun 2023 22:49:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12018C4339B;
-	Thu,  1 Jun 2023 22:49:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685659793;
-	bh=s5scddDgq8SCu6I0UWPQExKWJjas9UFzehdQi3Sw4tA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=K25ToaEbCp02bMG+wiJikwHyiXiwwQBkm/MmN8qlrLj5yam240H0kFAxxnFa3RlG8
-	 bu4BSS/frooyZ20B2VklohnrYULCfishpBQ/wfdUaMkt+oR8gS4E1+AjfNshKja3vS
-	 Rv+moH0Y5isDfBQyF8Rj722+0entBKGogJrcfr++cvzRmW73HdsIB35hoxtRn829Ae
-	 fyn3i/1QAGvtS1oiJarw65vHM76zJn0jBvddq9Vcz7E6Icr7CQW2U08iG1Oryzm6d3
-	 58DCK+DxQNJ2Qn/JWEej+n8GVZwut1/xKU3k6dkfSYsQUQ9uCCopruEXev0WWNFxor
-	 G4HpcCwxRlB1w==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-4f4f757d575so1925326e87.0;
-        Thu, 01 Jun 2023 15:49:52 -0700 (PDT)
-X-Gm-Message-State: AC+VfDzwsnq53CWE5Wf7J+mmdf9csUcouyB0J2yrTAj677QhB6Z097d1
-	8KSwrowkYYt1gB8ZlTV3EIVmhsQKiOk32DipSIg=
-X-Google-Smtp-Source: ACHHUZ4uA6ym60CkoL3kD4Xme876wGBHsdD1XRoswJZBV/GnrkgRlI3npJzU+tR131QuPJoGC+7UxG4nzuqJElDeBo4=
-X-Received: by 2002:ac2:4a8b:0:b0:4f3:aa81:2a6e with SMTP id
- l11-20020ac24a8b000000b004f3aa812a6emr364328lfp.19.1685659791105; Thu, 01 Jun
- 2023 15:49:51 -0700 (PDT)
+	id 1q4rlF-005EaD-2O;
+	Thu, 01 Jun 2023 23:31:19 +0000
+Received: by mail-io1-f42.google.com with SMTP id ca18e2360f4ac-77487fc1f16so19832539f.0;
+        Thu, 01 Jun 2023 16:31:15 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685662274; x=1688254274;
+        h=date:subject:message-id:references:in-reply-to:cc:to:from
+         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=cb1CfXzrs6lfSi6zBUOFLpr0Hb+1fAVic93bHB6hbRY=;
+        b=T501VaYc3spMgG0WLkWTzsIPlar5v/uVAjqbEH9LFuM6LxYizbFh8qErnhU94X5QpX
+         oXLxgbD0cGfq/Ale1FfOIi+9joXJCaINh5RYQzeRIuQFXO28O/dxbfziwfIv6jCDee8K
+         7MEXRXECjN/N0ZQVVe0xVCkr0/IQCim2k4LoLkCX5RTXQvl6owDm8G3AGqjzaeHpSBYg
+         NhDUPhPABIPCDjT7FFjWPdUxC4IpmZY2ru8accjSq75772cAJz+3gM2VTp5G89oQ7hil
+         2D1Z+r6EozS6dvzJdtvFVYBFpVz0AbJu0V92a5ILOMF8pRrJCySeOYFQPIl7TRZWdj5T
+         +tWA==
+X-Gm-Message-State: AC+VfDxWiVBk//kNcc0zwIwT+HiEhOl0nIfKL0Wet2OV7pUfdKnUfrQE
+	o6R0GY5vv8dMCBOuTIBa9A==
+X-Google-Smtp-Source: ACHHUZ7KuUx3HpNpCs9tLCFhl7zyHSWtos++Yn9HCL/4MuIL0XWFVJLJNNAME44mwEOW+VqD1lLqrg==
+X-Received: by 2002:a6b:a04:0:b0:76c:c701:2f77 with SMTP id z4-20020a6b0a04000000b0076cc7012f77mr857930ioi.3.1685662274343;
+        Thu, 01 Jun 2023 16:31:14 -0700 (PDT)
+Received: from robh_at_kernel.org ([64.188.179.250])
+        by smtp.gmail.com with ESMTPSA id k13-20020a056638370d00b0041ac54cbc60sm2507403jav.56.2023.06.01.16.31.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 01 Jun 2023 16:31:13 -0700 (PDT)
+Received: (nullmailer pid 680122 invoked by uid 1000);
+	Thu, 01 Jun 2023 23:31:10 -0000
 MIME-Version: 1.0
-References: <20230601101257.530867-1-rppt@kernel.org> <20230601101257.530867-13-rppt@kernel.org>
-In-Reply-To: <20230601101257.530867-13-rppt@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Thu, 1 Jun 2023 15:49:39 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW4Q2d7=7yBMQLgz+7Bz_q==_F+N3C8O4LStXva73ECCTg@mail.gmail.com>
-Message-ID: <CAPhsuW4Q2d7=7yBMQLgz+7Bz_q==_F+N3C8O4LStXva73ECCTg@mail.gmail.com>
-Subject: Re: [PATCH 12/13] x86/jitalloc: prepare to allocate exectuatble
- memory as ROX
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	"David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, 
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Kent Overstreet <kent.overstreet@linux.dev>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Russell King <linux@armlinux.org.uk>, 
-	Steven Rostedt <rostedt@goodmis.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-mm@kvack.org, linux-modules@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+From: Rob Herring <robh@kernel.org>
+To: Maksim Kiselev <bigunclemax@gmail.com>
+Cc: Heiko Stuebner <heiko.stuebner@vrull.eu>, linux-iio@vger.kernel.org, 
+	Samuel Holland <samuel@sholland.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Arnd Bergmann <arnd@arndb.de>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Caleb Connolly <caleb.connolly@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	Lars-Peter Clausen <lars@metafoo.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Ramona Bolboaca <ramona.bolboaca@analog.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Ibrahim Tilki <Ibrahim.Tilki@analog.com>, linux-sunxi@lists.linux.dev, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-riscv@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, linux-kernel@vger.kernel.org, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, ChiaEn Wu <chiaen_wu@richtek.com>, 
+	Rob Herring <robh+dt@kernel.org>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, 
+	William Breathitt Gray <william.gray@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
+	ChiYuan Huang <cy_huang@richtek.com>, Jonathan Cameron <jic23@kernel.org>, 
+	Cosmin Tanislav <demonsingur@gmail.com>, Mike Looijmans <mike.looijmans@topic.nl>
+In-Reply-To: <20230601223104.1243871-3-bigunclemax@gmail.com>
+References: <20230601223104.1243871-1-bigunclemax@gmail.com>
+ <20230601223104.1243871-3-bigunclemax@gmail.com>
+Message-Id: <168566227051.680105.5733105640586356762.robh@kernel.org>
+Subject: Re: [PATCH v2 2/3] dt-bindings: iio: adc: Add Allwinner
+ D1/T113s/R329/T507 SoCs GPADC
+Date: Thu, 01 Jun 2023 17:31:10 -0600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230601_154954_523164_077F8F56 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20230601_163117_805031_8D880E8D 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +93,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdW4gMSwgMjAyMyBhdCAzOjE14oCvQU0gTWlrZSBSYXBvcG9ydCA8cnBwdEBrZXJu
-ZWwub3JnPiB3cm90ZToKPgo+IEZyb206IFNvbmcgTGl1IDxzb25nQGtlcm5lbC5vcmc+Cj4KPiBS
-ZXBsYWNlIGRpcmVjdCBtZW1vcnkgd3JpdGVzIHRvIG1lbW9yeSBhbGxvY2F0ZWQgZm9yIGNvZGUg
-d2l0aCB0ZXh0IHBva2luZwo+IHRvIGFsbG93IGFsbG9jYXRpb24gb2YgZXhlY3V0YWJsZSBtZW1v
-cnkgYXMgUk9YLgo+Cj4gVGhlIG9ubHkgZXhjZXB0aW9uIGlzIGFyY2hfcHJlcGFyZV9icGZfdHJh
-bXBvbGluZSgpIHRoYXQgY2Fubm90IGppdAo+IGRpcmVjdGx5IGludG8gbW9kdWxlIG1lbW9yeSB5
-ZXQsIHNvIGl0IHVzZXMgc2V0X21lbW9yeSBjYWxscyB0bwo+IHVucHJvdGVjdCB0aGUgbWVtb3J5
-IGJlZm9yZSB3cml0aW5nIHRvIGl0IGFuZCB0byBwcm90ZWN0IG1lbW9yeSBpbiB0aGUKPiBlbmQu
-Cj4KPiBTaWduZWQtb2ZmLWJ5OiBTb25nIExpdSA8c29uZ0BrZXJuZWwub3JnPgo+IENvLWRldmVs
-b3BlZC1ieTogTWlrZSBSYXBvcG9ydCAoSUJNKSA8cnBwdEBrZXJuZWwub3JnPgo+IFNpZ25lZC1v
-ZmYtYnk6IE1pa2UgUmFwb3BvcnQgKElCTSkgPHJwcHRAa2VybmVsLm9yZz4KPiAtLS0KPiAgYXJj
-aC94ODYva2VybmVsL2FsdGVybmF0aXZlLmMgfCA0MyArKysrKysrKysrKysrKysrKysrKysrKy0t
-LS0tLS0tLS0tLQo+ICBhcmNoL3g4Ni9rZXJuZWwvZnRyYWNlLmMgICAgICB8IDQxICsrKysrKysr
-KysrKysrKysrKysrKy0tLS0tLS0tLS0tLQo+ICBhcmNoL3g4Ni9rZXJuZWwvbW9kdWxlLmMgICAg
-ICB8IDI0ICsrKysrLS0tLS0tLS0tLS0tLS0KPiAgYXJjaC94ODYva2VybmVsL3N0YXRpY19jYWxs
-LmMgfCAxMCArKysrLS0tLQo+ICBhcmNoL3g4Ni9rZXJuZWwvdW53aW5kX29yYy5jICB8IDEzICsr
-KysrKystLS0tCj4gIGFyY2gveDg2L25ldC9icGZfaml0X2NvbXAuYyAgIHwgMjIgKysrKysrKysr
-KysrKy0tLS0tCgpXZSBuZWVkIHRoZSBmb2xsb3dpbmcgaW4gdGhpcyBwYXRjaCAob3IgYmVmb3Jl
-IHRoaXMgcGF0Y2gpLgpPdGhlcndpc2UsIHRoZSBzeXN0ZW0gd2lsbCBjcmFzaCBhdCB0aGUgVklS
-VFVBTF9CVUdfT04oKQppbiB2bWFsbG9jX3RvX3BhZ2UoKS4KClRoYW5rcywKU29uZwoKZGlmZiAt
-LWdpdCBhL2tlcm5lbC9icGYvY29yZS5jIGIva2VybmVsL2JwZi9jb3JlLmMKaW5kZXggYmY5NTRk
-MjcyMWMxLi40ZWZhOGE3OTVlYmMgMTAwNjQ0Ci0tLSBhL2tlcm5lbC9icGYvY29yZS5jCisrKyBi
-L2tlcm5lbC9icGYvY29yZS5jCkBAIC0xMDg0LDcgKzEwODQsNyBAQCBicGZfaml0X2JpbmFyeV9w
-YWNrX2FsbG9jKHVuc2lnbmVkIGludCBwcm9nbGVuLAp1OCAqKmltYWdlX3B0ciwKICAgICAgICAg
-ICAgICAgIHJldHVybiBOVUxMOwogICAgICAgIH0KCi0gICAgICAgKnJ3X2hlYWRlciA9IGt2bWFs
-bG9jKHNpemUsIEdGUF9LRVJORUwpOworICAgICAgICpyd19oZWFkZXIgPSBrdnphbGxvYyhzaXpl
-LCBHRlBfS0VSTkVMKTsKICAgICAgICBpZiAoISpyd19oZWFkZXIpIHsKICAgICAgICAgICAgICAg
-IGJwZl9hcmNoX3RleHRfY29weSgmcm9faGVhZGVyLT5zaXplLCAmc2l6ZSwgc2l6ZW9mKHNpemUp
-KTsKICAgICAgICAgICAgICAgIGJwZl9wcm9nX3BhY2tfZnJlZShyb19oZWFkZXIpOwpAQCAtMTA5
-Miw4ICsxMDkyLDYgQEAgYnBmX2ppdF9iaW5hcnlfcGFja19hbGxvYyh1bnNpZ25lZCBpbnQgcHJv
-Z2xlbiwKdTggKippbWFnZV9wdHIsCiAgICAgICAgICAgICAgICByZXR1cm4gTlVMTDsKICAgICAg
-ICB9CgotICAgICAgIC8qIEZpbGwgc3BhY2Ugd2l0aCBpbGxlZ2FsL2FyY2gtZGVwIGluc3RydWN0
-aW9ucy4gKi8KLSAgICAgICBicGZfZmlsbF9pbGxfaW5zbnMoKnJ3X2hlYWRlciwgc2l6ZSk7CiAg
-ICAgICAgKCpyd19oZWFkZXIpLT5zaXplID0gc2l6ZTsKCiAgICAgICAgaG9sZSA9IG1pbl90KHVu
-c2lnbmVkIGludCwgc2l6ZSAtIChwcm9nbGVuICsgc2l6ZW9mKCpyb19oZWFkZXIpKSwKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+On Fri, 02 Jun 2023 01:30:40 +0300, Maksim Kiselev wrote:
+> From: Maxim Kiselev <bigunclemax@gmail.com>
+> 
+> Allwinner's D1/T113s/R329/T507 SoCs have a new general purpose ADC.
+> This ADC is the same for all of this SoCs. The only difference is
+> the number of available channels.
+> 
+> Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
+> ---
+>  .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    | 79 +++++++++++++++++++
+>  1 file changed, 79 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
+> 
+
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml: 'maintainers' is a required property
+	hint: Metaschema for devicetree binding documentation
+	from schema $id: http://devicetree.org/meta-schemas/base.yaml#
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dts:33.15-25: Warning (reg_format): /example-0/adc@2009000/channel@0:reg: property has invalid length (4 bytes) (#address-cells == 2, #size-cells == 1)
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dts:37.15-25: Warning (reg_format): /example-0/adc@2009000/channel@1:reg: property has invalid length (4 bytes) (#address-cells == 2, #size-cells == 1)
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dtb: Warning (pci_device_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dtb: Warning (pci_device_bus_num): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dtb: Warning (simple_bus_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dtb: Warning (i2c_bus_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dtb: Warning (spi_bus_reg): Failed prerequisite 'reg_format'
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dts:32.23-34.15: Warning (avoid_default_addr_size): /example-0/adc@2009000/channel@0: Relying on default #address-cells value
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dts:32.23-34.15: Warning (avoid_default_addr_size): /example-0/adc@2009000/channel@0: Relying on default #size-cells value
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dts:36.23-38.15: Warning (avoid_default_addr_size): /example-0/adc@2009000/channel@1: Relying on default #address-cells value
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dts:36.23-38.15: Warning (avoid_default_addr_size): /example-0/adc@2009000/channel@1: Relying on default #size-cells value
+Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dtb: Warning (unique_unit_address_if_enabled): Failed prerequisite 'avoid_default_addr_size'
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230601223104.1243871-3-bigunclemax@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
