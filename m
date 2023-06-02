@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247CCC7EE2A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 07:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C3ACC7EE33
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 07:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CBoJ22niL/Nujjwr0+5U2a7LWb6s2LA4IVzizAZ6tEs=; b=qNZFo/XgKvj9JY
-	voSXo7fMreFRZY5/8pqLWnk9R9uteWIJTu6NYIyauBu9gDoujbNKQ9i7nv5kCJJKo5vBGnKGBufl+
-	q6wBXr3IB8rRPatQ79LEI1DjeK3ZK5somluVuXjdClqJhVhgU/E0drIN8sUYro3ZuZPMI1r1QT8H7
-	pn4NIiwH9Z4Tr/2VPssRePOPuBM0SydivBj7mk7S6Ba2RM0ieReXjBcvSDJ4CDY8Krd5SxlHo1oJ8
-	+QpbvUN3aW7UZLw2wbnDVKza2/LDJrUizpKkAD3/xToPG1kDwLPVNGxTvQnDToVY/+Onr81KRSV9+
-	t4cJh7PdgqISeKr1bR0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=C7KuazsztS8d5LoXXXpTjLvGSwsPIwLPGYIVhSeomoI=; b=WzSFoGYprzDwSI
+	hhLhWd+iFe5cinYuVun4COlAcQdlyHWmXRzoFEGPiDjt2d2K0xLa3JZyR2TWnW7oyPICFjHztgMN0
+	HdYecQCvBCrGYkfsQQ5EAmxBBSWxLIljfcNxnUzTAtjrCc95/McBqtu2eQe+ZDhbgJkaTu9XYlgYo
+	KDOLBhuKwIinv/3+l2/Qx1U7mj/c5xS1+L4WD0M5gQPaCVOh22DHxr1ph+2nmVb4+Wr09uOpdD/Fr
+	2kSkzj41qhxaSz988nAKflaXaHAd/i3umLsXieIaYMP8WFm6EBj3eyHHk4y9+7C9CVlRamQhANbXy
+	gtYM177q9uk7yI3PnZGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4zPi-0062Mj-2T;
-	Fri, 02 Jun 2023 07:41:34 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1q4zPo-0062Po-05;
+	Fri, 02 Jun 2023 07:41:40 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4zPf-0062GD-07
+	id 1q4zPl-0062G1-0S
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 07:41:33 +0000
+	Fri, 02 Jun 2023 07:41:38 +0000
 Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id D47CF24E27E;
-	Fri,  2 Jun 2023 15:40:49 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 546D280E2;
+	Fri,  2 Jun 2023 15:40:47 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
  (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 15:40:49 +0800
+ 2023 15:40:47 +0800
 Received: from xiaofei.localdomain (180.164.60.184) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 15:40:49 +0800
+ 2023 15:40:46 +0800
 From: Keith Zhao <keith.zhao@starfivetech.com>
 To: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
@@ -57,20 +57,18 @@ CC: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, "Rob
 	<keith.zhao@starfivetech.com>, Jack Zhu <jack.zhu@starfivetech.com>,
 	Shengyang Chen <shengyang.chen@starfivetech.com>, Changhuang Liang
 	<changhuang.liang@starfivetech.com>
-Subject: [PATCH 7/9] drm/verisilicon: Add drm plane funcs
-Date: Fri, 2 Jun 2023 15:40:41 +0800
-Message-ID: <20230602074043.33872-8-keith.zhao@starfivetech.com>
+Subject: [PATCH 0/9] Add DRM driver for StarFive SoC JH7110
+Date: Fri, 2 Jun 2023 15:40:34 +0800
+Message-ID: <20230602074043.33872-1-keith.zhao@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230602074043.33872-1-keith.zhao@starfivetech.com>
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [180.164.60.184]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_004131_525227_10879D09 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20230602_004137_498634_1DC22C26 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,557 +85,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement plane functions for the DRM driver.
+Hi,
 
-Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
----
- drivers/gpu/drm/verisilicon/Makefile   |   3 +-
- drivers/gpu/drm/verisilicon/vs_plane.c | 440 +++++++++++++++++++++++++
- drivers/gpu/drm/verisilicon/vs_plane.h |  74 +++++
- 3 files changed, 516 insertions(+), 1 deletion(-)
+This series is a DRM driver for StarFive SoC JH7110, which includes a
+display controller driver for Verisilicon DC8200 and an HMDI driver.
+
+We use GEM framework for buffer management and allocate memory by 
+using DMA APIs.
+
+The JH7110 display subsystem includes a display controller Verisilicon
+DC8200 and an HDMI transmitter. The HDMI TX IP is designed for transmitting 
+video and audio data from DC8200 to a display device. The HDMI TX IP 
+consists of  the digital controller and the physical layer.
+
+This series does not support HDMI audio driver.
+
+Keith Zhao (9):
+  dt-bindings: display: Add yamls for JH7110 display subsystem
+  riscv: dts: starfive: jh7110: add dc&hdmi controller node
+  drm/verisilicon: Add basic drm driver
+  drm/verisilicon: Add gem driver for JH7110 SoC
+  drm/verisilicon: Add mode config funcs
+  drm/verisilicon: Add drm crtc funcs
+  drm/verisilicon: Add drm plane funcs
+  drm/verisilicon: Add verisilicon dc controller driver
+  drm/verisilicon: Add starfive hdmi driver
+
+ .../display/verisilicon/starfive-hdmi.yaml    |   93 +
+ .../display/verisilicon/verisilicon-dc.yaml   |  110 +
+ .../display/verisilicon/verisilicon-drm.yaml  |   42 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |    2 +
+ MAINTAINERS                                   |    9 +
+ .../jh7110-starfive-visionfive-2.dtsi         |   87 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |   46 +
+ drivers/gpu/drm/Kconfig                       |    2 +
+ drivers/gpu/drm/Makefile                      |    1 +
+ drivers/gpu/drm/verisilicon/Kconfig           |   24 +
+ drivers/gpu/drm/verisilicon/Makefile          |   13 +
+ drivers/gpu/drm/verisilicon/starfive_hdmi.c   |  928 ++++++++
+ drivers/gpu/drm/verisilicon/starfive_hdmi.h   |  296 +++
+ drivers/gpu/drm/verisilicon/vs_crtc.c         |  388 ++++
+ drivers/gpu/drm/verisilicon/vs_crtc.h         |   74 +
+ drivers/gpu/drm/verisilicon/vs_dc.c           | 1040 +++++++++
+ drivers/gpu/drm/verisilicon/vs_dc.h           |   62 +
+ drivers/gpu/drm/verisilicon/vs_dc_hw.c        | 2008 +++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_dc_hw.h        |  496 ++++
+ drivers/gpu/drm/verisilicon/vs_drv.c          |  301 +++
+ drivers/gpu/drm/verisilicon/vs_drv.h          |   52 +
+ drivers/gpu/drm/verisilicon/vs_fb.c           |  181 ++
+ drivers/gpu/drm/verisilicon/vs_fb.h           |   15 +
+ drivers/gpu/drm/verisilicon/vs_gem.c          |  372 +++
+ drivers/gpu/drm/verisilicon/vs_gem.h          |   72 +
+ drivers/gpu/drm/verisilicon/vs_plane.c        |  440 ++++
+ drivers/gpu/drm/verisilicon/vs_plane.h        |   74 +
+ drivers/gpu/drm/verisilicon/vs_type.h         |   72 +
+ include/uapi/drm/drm_fourcc.h                 |   83 +
+ include/uapi/drm/vs_drm.h                     |   50 +
+ 30 files changed, 7433 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/verisilicon/starfive-hdmi.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/verisilicon/verisilicon-dc.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/verisilicon/verisilicon-drm.yaml
+ create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
+ create mode 100644 drivers/gpu/drm/verisilicon/Makefile
+ create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.c
+ create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_hw.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc_hw.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_fb.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_fb.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_gem.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_gem.h
  create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
  create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_type.h
+ create mode 100644 include/uapi/drm/vs_drm.h
 
-diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
-index bae5fbab9bbb..d96ad9399fc7 100644
---- a/drivers/gpu/drm/verisilicon/Makefile
-+++ b/drivers/gpu/drm/verisilicon/Makefile
-@@ -3,7 +3,8 @@
- vs_drm-objs := vs_drv.o \
- 		vs_crtc.o \
- 		vs_fb.o \
--		vs_gem.o
-+		vs_gem.o \
-+		vs_plane.o
- 
- obj-$(CONFIG_DRM_VERISILICON) += vs_drm.o
- 
-diff --git a/drivers/gpu/drm/verisilicon/vs_plane.c b/drivers/gpu/drm/verisilicon/vs_plane.c
-new file mode 100644
-index 000000000000..7b0dcef232ae
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_plane.c
-@@ -0,0 +1,440 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
-+ */
-+
-+#include <drm/drm_atomic.h>
-+#include <drm/drm_atomic_helper.h>
-+#include <drm/drm_blend.h>
-+#include <drm/drm_gem_dma_helper.h>
-+#include <drm/drm_fb_dma_helper.h>
-+#include <drm/drm_framebuffer.h>
-+#include <drm/drm_plane_helper.h>
-+
-+#include <drm/vs_drm.h>
-+
-+#include "vs_crtc.h"
-+#include "vs_fb.h"
-+#include "vs_gem.h"
-+#include "vs_plane.h"
-+#include "vs_type.h"
-+
-+void vs_plane_destory(struct drm_plane *plane)
-+{
-+	struct vs_plane *vs_plane = to_vs_plane(plane);
-+
-+	drm_plane_cleanup(plane);
-+	kfree(vs_plane);
-+}
-+
-+static void vs_plane_reset(struct drm_plane *plane)
-+{
-+	struct vs_plane_state *state;
-+	struct vs_plane *vs_plane = to_vs_plane(plane);
-+
-+	if (plane->state) {
-+		__drm_atomic_helper_plane_destroy_state(plane->state);
-+
-+		state = to_vs_plane_state(plane->state);
-+		kfree(state);
-+		plane->state = NULL;
-+	}
-+
-+	state = kzalloc(sizeof(*state), GFP_KERNEL);
-+	if (!state)
-+		return;
-+
-+	__drm_atomic_helper_plane_reset(plane, &state->base);
-+
-+	state->degamma = VS_DEGAMMA_DISABLE;
-+	state->degamma_changed = false;
-+	state->base.zpos = vs_plane->id;
-+
-+	memset(&state->status, 0, sizeof(state->status));
-+}
-+
-+static void _vs_plane_duplicate_blob(struct vs_plane_state *state,
-+				     struct vs_plane_state *ori_state)
-+{
-+	state->watermark = ori_state->watermark;
-+	state->color_mgmt = ori_state->color_mgmt;
-+	state->roi = ori_state->roi;
-+
-+	if (state->watermark)
-+		drm_property_blob_get(state->watermark);
-+	if (state->color_mgmt)
-+		drm_property_blob_get(state->color_mgmt);
-+	if (state->roi)
-+		drm_property_blob_get(state->roi);
-+}
-+
-+static int
-+_vs_plane_set_property_blob_from_id(struct drm_device *dev,
-+				    struct drm_property_blob **blob,
-+				    u64 blob_id,
-+				    size_t expected_size)
-+{
-+	struct drm_property_blob *new_blob = NULL;
-+
-+	if (blob_id) {
-+		new_blob = drm_property_lookup_blob(dev, blob_id);
-+		if (!new_blob)
-+			return -EINVAL;
-+
-+		if (new_blob->length != expected_size) {
-+			drm_property_blob_put(new_blob);
-+			return -EINVAL;
-+		}
-+	}
-+
-+	drm_property_replace_blob(blob, new_blob);
-+	drm_property_blob_put(new_blob);
-+
-+	return 0;
-+}
-+
-+static struct drm_plane_state *
-+vs_plane_atomic_duplicate_state(struct drm_plane *plane)
-+{
-+	struct vs_plane_state *ori_state;
-+	struct vs_plane_state *state;
-+
-+	if (WARN_ON(!plane->state))
-+		return NULL;
-+
-+	ori_state = to_vs_plane_state(plane->state);
-+	state = kzalloc(sizeof(*state), GFP_KERNEL);
-+	if (!state)
-+		return NULL;
-+
-+	__drm_atomic_helper_plane_duplicate_state(plane, &state->base);
-+
-+	state->degamma = ori_state->degamma;
-+	state->degamma_changed = ori_state->degamma_changed;
-+
-+	_vs_plane_duplicate_blob(state, ori_state);
-+	memcpy(&state->status, &ori_state->status, sizeof(ori_state->status));
-+
-+	return &state->base;
-+}
-+
-+static void vs_plane_atomic_destroy_state(struct drm_plane *plane,
-+					  struct drm_plane_state *state)
-+{
-+	struct vs_plane_state *vs_plane_state = to_vs_plane_state(state);
-+
-+	__drm_atomic_helper_plane_destroy_state(state);
-+
-+	drm_property_blob_put(vs_plane_state->watermark);
-+	drm_property_blob_put(vs_plane_state->color_mgmt);
-+	drm_property_blob_put(vs_plane_state->roi);
-+	kfree(vs_plane_state);
-+}
-+
-+static int vs_plane_atomic_set_property(struct drm_plane *plane,
-+					struct drm_plane_state *state,
-+					struct drm_property *property,
-+					uint64_t val)
-+{
-+	struct drm_device *dev = plane->dev;
-+	struct vs_plane *vs_plane = to_vs_plane(plane);
-+	struct vs_plane_state *vs_plane_state = to_vs_plane_state(state);
-+	int ret = 0;
-+
-+	if (property == vs_plane->degamma_mode) {
-+		if (vs_plane_state->degamma != val) {
-+			vs_plane_state->degamma = val;
-+			vs_plane_state->degamma_changed = true;
-+		} else {
-+			vs_plane_state->degamma_changed = false;
-+		}
-+	} else if (property == vs_plane->watermark_prop) {
-+		ret = _vs_plane_set_property_blob_from_id(dev,
-+							  &vs_plane_state->watermark,
-+							  val,
-+							  sizeof(struct drm_vs_watermark));
-+		return ret;
-+	} else if (property == vs_plane->color_mgmt_prop) {
-+		ret = _vs_plane_set_property_blob_from_id(dev,
-+							  &vs_plane_state->color_mgmt,
-+							  val,
-+							  sizeof(struct drm_vs_color_mgmt));
-+		return ret;
-+	} else if (property == vs_plane->roi_prop) {
-+		ret = _vs_plane_set_property_blob_from_id(dev,
-+							  &vs_plane_state->roi,
-+							  val,
-+							  sizeof(struct drm_vs_roi));
-+		return ret;
-+	} else {
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int vs_plane_atomic_get_property(struct drm_plane *plane,
-+					const struct drm_plane_state *state,
-+					struct drm_property *property,
-+					uint64_t *val)
-+{
-+	struct vs_plane *vs_plane = to_vs_plane(plane);
-+	const struct vs_plane_state *vs_plane_state =
-+		container_of(state, const struct vs_plane_state, base);
-+
-+	if (property == vs_plane->degamma_mode)
-+		*val = vs_plane_state->degamma;
-+	else if (property == vs_plane->watermark_prop)
-+		*val = (vs_plane_state->watermark) ?
-+					vs_plane_state->watermark->base.id : 0;
-+	else if (property == vs_plane->color_mgmt_prop)
-+		*val = (vs_plane_state->color_mgmt) ?
-+					vs_plane_state->color_mgmt->base.id : 0;
-+	else if (property == vs_plane->roi_prop)
-+		*val = (vs_plane_state->roi) ?
-+					vs_plane_state->roi->base.id : 0;
-+	else
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+static bool vs_format_mod_supported(struct drm_plane *plane,
-+				    u32 format,
-+				    u64 modifier)
-+{
-+	int i;
-+
-+       /* We always have to allow these modifiers:
-+	* 1. Core DRM checks for LINEAR support if userspace does not provide modifiers.
-+	* 2. Not passing any modifiers is the same as explicitly passing INVALID.
-+	*/
-+	if (modifier == DRM_FORMAT_MOD_LINEAR)
-+		return true;
-+
-+	/* Check that the modifier is on the list of the plane's supported modifiers. */
-+	for (i = 0; i < plane->modifier_count; i++) {
-+		if (modifier == plane->modifiers[i])
-+			break;
-+	}
-+
-+	if (i == plane->modifier_count)
-+		return false;
-+
-+	return true;
-+}
-+
-+const struct drm_plane_funcs vs_plane_funcs = {
-+	.update_plane		= drm_atomic_helper_update_plane,
-+	.disable_plane		= drm_atomic_helper_disable_plane,
-+	.destroy		= vs_plane_destory,
-+	.reset			= vs_plane_reset,
-+	.atomic_duplicate_state = vs_plane_atomic_duplicate_state,
-+	.atomic_destroy_state	= vs_plane_atomic_destroy_state,
-+	.atomic_set_property	= vs_plane_atomic_set_property,
-+	.atomic_get_property	= vs_plane_atomic_get_property,
-+	.format_mod_supported	= vs_format_mod_supported,
-+};
-+
-+static unsigned char vs_get_plane_number(struct drm_framebuffer *fb)
-+{
-+	const struct drm_format_info *info;
-+
-+	if (!fb)
-+		return 0;
-+
-+	info = drm_format_info(fb->format->format);
-+	if (!info || info->num_planes > MAX_NUM_PLANES)
-+		return 0;
-+
-+	return info->num_planes;
-+}
-+
-+static int vs_plane_atomic_check(struct drm_plane *plane,
-+				 struct drm_atomic_state *state)
-+{
-+	struct drm_plane_state *new_plane_state = drm_atomic_get_new_plane_state(state,
-+										 plane);
-+	struct vs_plane *vs_plane = to_vs_plane(plane);
-+	struct drm_framebuffer *fb = new_plane_state->fb;
-+	struct drm_crtc *crtc = new_plane_state->crtc;
-+	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
-+
-+	if (!crtc || !fb)
-+		return 0;
-+
-+	//return vs_plane->funcs->check(vs_crtc->dev, vs_plane, new_plane_state);
-+	return vs_plane->funcs->check(vs_crtc->dev, plane, state);
-+}
-+
-+static void vs_plane_atomic_update(struct drm_plane *plane,
-+				   struct drm_atomic_state *state)
-+{
-+	struct drm_plane_state *new_state = drm_atomic_get_new_plane_state(state,
-+									   plane);
-+	unsigned char i, num_planes;
-+	struct drm_framebuffer *fb;
-+	struct vs_plane *vs_plane = to_vs_plane(plane);
-+	//struct drm_plane_state *state = plane->state;
-+	struct vs_crtc *vs_crtc = to_vs_crtc(new_state->crtc);
-+	struct vs_plane_state *plane_state = to_vs_plane_state(new_state);
-+	//struct drm_format_name_buf *name = &plane_state->status.format_name;
-+
-+	if (!new_state->fb || !new_state->crtc)
-+		return;
-+
-+	fb = new_state->fb;
-+
-+	num_planes = vs_get_plane_number(fb);
-+
-+	for (i = 0; i < num_planes; i++) {
-+		struct vs_gem_object *vs_obj;
-+
-+		vs_obj = vs_fb_get_gem_obj(fb, i);
-+		vs_plane->dma_addr[i] = vs_obj->iova + fb->offsets[i];
-+	}
-+
-+	plane_state->status.src = drm_plane_state_src(new_state);
-+	plane_state->status.dest = drm_plane_state_dest(new_state);
-+
-+	vs_plane->funcs->update(vs_crtc->dev, vs_plane, plane, state);
-+}
-+
-+static void vs_plane_atomic_disable(struct drm_plane *plane,
-+				    struct drm_atomic_state *state)
-+{
-+	struct drm_plane_state *old_state = drm_atomic_get_old_plane_state(state,
-+										   plane);
-+	struct vs_plane *vs_plane = to_vs_plane(plane);
-+	struct vs_crtc *vs_crtc = to_vs_crtc(old_state->crtc);
-+
-+	vs_plane->funcs->disable(vs_crtc->dev, vs_plane, old_state);
-+}
-+
-+const struct drm_plane_helper_funcs vs_plane_helper_funcs = {
-+	.atomic_check	= vs_plane_atomic_check,
-+	.atomic_update	= vs_plane_atomic_update,
-+	.atomic_disable = vs_plane_atomic_disable,
-+};
-+
-+static const struct drm_prop_enum_list vs_degamma_mode_enum_list[] = {
-+	{ VS_DEGAMMA_DISABLE,	"disabled" },
-+	{ VS_DEGAMMA_BT709, "preset degamma for BT709" },
-+	{ VS_DEGAMMA_BT2020,	"preset degamma for BT2020" },
-+};
-+
-+struct vs_plane *vs_plane_create(struct drm_device *drm_dev,
-+				 struct vs_plane_info *info,
-+				 unsigned int layer_num,
-+				 unsigned int possible_crtcs)
-+{
-+	struct vs_plane *plane;
-+	int ret;
-+
-+	if (!info)
-+		return NULL;
-+
-+	plane = kzalloc(sizeof(*plane), GFP_KERNEL);
-+	if (!plane)
-+		return NULL;
-+
-+	ret = drm_universal_plane_init(drm_dev, &plane->base, possible_crtcs,
-+				       &vs_plane_funcs, info->formats,
-+				       info->num_formats, info->modifiers, info->type,
-+				       info->name ? info->name : NULL);
-+	if (ret)
-+		goto err_free_plane;
-+
-+	drm_plane_helper_add(&plane->base, &vs_plane_helper_funcs);
-+
-+	/* Set up the plane properties */
-+	if (info->degamma_size) {
-+		plane->degamma_mode =
-+		drm_property_create_enum(drm_dev, 0,
-+					 "DEGAMMA_MODE",
-+					 vs_degamma_mode_enum_list,
-+					 ARRAY_SIZE(vs_degamma_mode_enum_list));
-+
-+		if (!plane->degamma_mode)
-+			goto error_cleanup_plane;
-+
-+		drm_object_attach_property(&plane->base.base,
-+					   plane->degamma_mode,
-+					   VS_DEGAMMA_DISABLE);
-+	}
-+
-+	if (info->rotation) {
-+		ret = drm_plane_create_rotation_property(&plane->base,
-+							 DRM_MODE_ROTATE_0,
-+							 info->rotation);
-+		if (ret)
-+			goto error_cleanup_plane;
-+	}
-+
-+	if (info->blend_mode) {
-+		ret = drm_plane_create_blend_mode_property(&plane->base,
-+							   info->blend_mode);
-+		if (ret)
-+			goto error_cleanup_plane;
-+		ret = drm_plane_create_alpha_property(&plane->base);
-+		if (ret)
-+			goto error_cleanup_plane;
-+	}
-+
-+	if (info->color_encoding) {
-+		ret = drm_plane_create_color_properties(&plane->base,
-+							info->color_encoding,
-+							BIT(DRM_COLOR_YCBCR_LIMITED_RANGE),
-+							DRM_COLOR_YCBCR_BT709,
-+							DRM_COLOR_YCBCR_LIMITED_RANGE);
-+		if (ret)
-+			goto error_cleanup_plane;
-+	}
-+
-+	if (info->zpos != 255) {
-+		ret = drm_plane_create_zpos_property(&plane->base, info->zpos, 0,
-+						     layer_num - 1);
-+		if (ret)
-+			goto error_cleanup_plane;
-+	} else {
-+		ret = drm_plane_create_zpos_immutable_property(&plane->base,
-+							       info->zpos);
-+		if (ret)
-+			goto error_cleanup_plane;
-+	}
-+
-+	if (info->watermark) {
-+		plane->watermark_prop = drm_property_create(drm_dev, DRM_MODE_PROP_BLOB,
-+							    "WATERMARK", 0);
-+		if (!plane->watermark_prop)
-+			goto error_cleanup_plane;
-+
-+		drm_object_attach_property(&plane->base.base, plane->watermark_prop, 0);
-+	}
-+
-+	if (info->color_mgmt) {
-+		plane->color_mgmt_prop = drm_property_create(drm_dev, DRM_MODE_PROP_BLOB,
-+							     "COLOR_CONFIG", 0);
-+		if (!plane->color_mgmt_prop)
-+			goto error_cleanup_plane;
-+
-+		drm_object_attach_property(&plane->base.base, plane->color_mgmt_prop, 0);
-+	}
-+
-+	if (info->roi) {
-+		plane->roi_prop = drm_property_create(drm_dev, DRM_MODE_PROP_BLOB,
-+						      "ROI", 0);
-+		if (!plane->roi_prop)
-+			goto error_cleanup_plane;
-+
-+		drm_object_attach_property(&plane->base.base, plane->roi_prop, 0);
-+	}
-+
-+	return plane;
-+
-+error_cleanup_plane:
-+	drm_plane_cleanup(&plane->base);
-+err_free_plane:
-+	kfree(plane);
-+	return NULL;
-+}
-diff --git a/drivers/gpu/drm/verisilicon/vs_plane.h b/drivers/gpu/drm/verisilicon/vs_plane.h
-new file mode 100644
-index 000000000000..76ef3c3de045
---- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_plane.h
-@@ -0,0 +1,74 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
-+ */
-+
-+#ifndef __VS_PLANE_H__
-+#define __VS_PLANE_H__
-+
-+#include <drm/drm_fourcc.h>
-+#include <drm/drm_plane_helper.h>
-+
-+#include "vs_fb.h"
-+#include "vs_type.h"
-+
-+struct vs_plane;
-+
-+struct vs_plane_funcs {
-+	void (*update)(struct device *dev, struct vs_plane *plane, struct drm_plane *drm_plane,
-+		       struct drm_atomic_state *state);
-+	void (*disable)(struct device *dev, struct vs_plane *plane,
-+			struct drm_plane_state *old_state);
-+	int (*check)(struct device *dev, struct drm_plane *plane,
-+		     struct drm_atomic_state *state);
-+};
-+
-+struct vs_plane_status {
-+	u32 tile_mode;
-+	struct drm_rect src;
-+	struct drm_rect dest;
-+};
-+
-+struct vs_plane_state {
-+	struct drm_plane_state base;
-+	struct vs_plane_status status; /* for debugfs */
-+
-+	struct drm_property_blob *watermark;
-+	struct drm_property_blob *color_mgmt;
-+	struct drm_property_blob *roi;
-+
-+	u32 degamma;
-+	bool degamma_changed;
-+};
-+
-+struct vs_plane {
-+	struct drm_plane base;
-+	u8 id;
-+	dma_addr_t dma_addr[MAX_NUM_PLANES];
-+
-+	struct drm_property *degamma_mode;
-+	struct drm_property *watermark_prop;
-+	struct drm_property *color_mgmt_prop;
-+	struct drm_property *roi_prop;
-+
-+	const struct vs_plane_funcs *funcs;
-+};
-+
-+void vs_plane_destory(struct drm_plane *plane);
-+
-+struct vs_plane *vs_plane_create(struct drm_device *drm_dev,
-+				 struct vs_plane_info *info,
-+				 unsigned int layer_num,
-+				 unsigned int possible_crtcs);
-+
-+static inline struct vs_plane *to_vs_plane(struct drm_plane *plane)
-+{
-+	return container_of(plane, struct vs_plane, base);
-+}
-+
-+static inline struct vs_plane_state *
-+to_vs_plane_state(struct drm_plane_state *state)
-+{
-+	return container_of(state, struct vs_plane_state, base);
-+}
-+#endif /* __VS_PLANE_H__ */
 -- 
 2.34.1
 
