@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25BDC7EE29
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 11:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4217DC77B7A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 12:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LKidqd44Ey7TPBogL5SG2g26EkSW9u9XrZEsnFttd38=; b=WZSzvjut1oDNwM
-	+wODi+kDYURYEh2oD1zA7DtIHNDkJo1VyXQsA/c6qpR0lgfw7RCdCrQ+O0QSSjiZz3yJJ9LHy0bsb
-	DSgcm2GLoBs9ijZdUtIxQWaEIKUU7SCmIwFAry/sbStZnYm+wp2j3OIDQsNqxzV3gc+Crg1iaCrec
-	g0WitIpXzlyiHLBxSl4POoVo2DQIMzL9jjsif+cROefyqqe5zttN0WErqUi5ONpsHQAuPNRJaTc3e
-	qeaVjOsJc+gmiscOLaoQQ1Iic9NwmnHOewhufORrCqZ7Stj0bI6H4vDx7gHl1+Ilh1oiI8tNjZEzG
-	pzuAfKFSK4QGIOTHqwRg==;
+	List-Owner; bh=BFRKvrDHpAqIRAQ3z/lqIqxYTpdh+8qazAn4x0a6GKk=; b=zq7B83anHRCz8E
+	ywbllQFOE0AADl99pIbrwmr/zy59Kx+yBNivxMmv9/jLBlLxjnfLEvNtv5ZZl/qqIrmMK5clGR/bh
+	VsWJCpDiO1OIPqKVob/KQupXLhIyVswqOgIlLbF9SN5K9uPA2Arbmkc/nCnmnGn3y7tuQbi4alZZR
+	gpwFOogcAEndVgfTHdyTFEd0baNFd4Ng/GKWrgO98Oc873f1avo6WvcPqTXyQzOy4uL/rlHoEELqX
+	7jYuz2fXUNcMB+4e89GUE8DLqbolNjJFJNRIK0+SWnr9i2nS4He8Jjvsfi15Sm9tSY+YdlZ/Zid/G
+	rvLrQb3o5/9QEM1IIQ3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q53Pi-006pIj-0K;
-	Fri, 02 Jun 2023 11:57:50 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1q540D-006u15-2X;
+	Fri, 02 Jun 2023 12:35:33 +0000
+Received: from mga11.intel.com ([192.55.52.93])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q53Pe-006pFc-1a
+	id 1q540B-006tz4-0Y
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 11:57:48 +0000
-X-QQ-mid: bizesmtp64t1685706961t67k8i2u
-Received: from linux-lab-host.localdomain ( [119.123.130.226])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 02 Jun 2023 19:56:00 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: k0mQ4ihyJQP+tm91rx4PnDCmNQx5PlLwmtBQSrIufi4NAs5P4d+to5cY+J9hh
-	j6hHs7pOK7V5F+ibUiR11d0sToIwGWe4Ram8/xcpzKIE3vKMmmMNKmt8lz3Wn4olhM06oWt
-	H666d4tbc+l4sQjOCxcsEi5CPTLfiWEy3j8hSQ/HT8sy7+4y/BpjoXyFyUMUIv27G8oBf0X
-	JZ5ho8q4c59oWMl+xPMHaK1TQAAu09sFAG5T37oZv3VC+IXrokEIWxC+2TGn3CXq0W96ggQ
-	PNT9foAp++WO8LIezYegS8gXGU1TuVM0kVqt6u232qWUwFow2Hl6T5UbKHOnBM69z3hc88e
-	Nv8frKO+BPnA3F94Ey691NDgdk66n7I452RQ/xYaGM3PZhOntByV/5svIRIRg==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7108637236776978947
-From: Zhangjin Wu <falcon@tinylab.org>
-To: thomas@t-8ch.de
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	w@1wt.eu
-Subject: Re: [PATCH v2 13/13] selftests/nolibc: riscv: customize makefile for rv32
-Date: Fri,  2 Jun 2023 19:56:00 +0800
-Message-Id: <20230602115600.80382-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <f7cb4209-a70f-4f59-8b11-2d189908f18c@t-8ch.de>
-References: <f7cb4209-a70f-4f59-8b11-2d189908f18c@t-8ch.de>
+	Fri, 02 Jun 2023 12:35:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1685709331; x=1717245331;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RFn4lE0CnHg+BrpP8BhtcKygS1L2eOihwOiPLsc1C4Y=;
+  b=RRGXqpHeJBdvuDKOPXwOVdUAqsmW9Jny9WePMQl8+8iXpgstWxJfcMrN
+   SIUfkHziaBTmbHpHE1twQIwZ7YTbSXrMDwYBLKfF1tNlVH+4lwhmqnDSp
+   mK9X4nLSogmpnyQ8pg2g3RCifuq5JwyUdR0BK54/uN8pOlxrlg4oJz6Ku
+   dm+kwaO8qerXBQsMG/0UABKr5qBYlVuAne1kp19JMRCRZaSrhLGyltKPz
+   2DYoOeNAJdZs6WdQSLRkkBZ9Inm7zphh67wg+iWn505ND3pAtX55ogm83
+   LydIB5PVg3HYO8Y0vDokYCWbd0CjyMGxLe8WuwM/LC1eosRERb7PCYK92
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10728"; a="353352672"
+X-IronPort-AV: E=Sophos;i="6.00,213,1681196400"; 
+   d="scan'208";a="353352672"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jun 2023 05:34:33 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10728"; a="737515174"
+X-IronPort-AV: E=Sophos;i="6.00,213,1681196400"; 
+   d="scan'208";a="737515174"
+Received: from lkp-server01.sh.intel.com (HELO 15ab08e44a81) ([10.239.97.150])
+  by orsmga008.jf.intel.com with ESMTP; 02 Jun 2023 05:34:30 -0700
+Received: from kbuild by 15ab08e44a81 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1q53zB-0000RJ-16;
+	Fri, 02 Jun 2023 12:34:29 +0000
+Date: Fri, 2 Jun 2023 20:33:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Ziv Xu <ziv.xu@starfivetech.com>,
+	William Qiu <william.qiu@starfivetech.com>
+Subject: Re: [PATCH v2 2/3] spi: cadence-quadspi: Add clock configuration for
+ StarFive JH7110 QSPI
+Message-ID: <202306022017.UbwjjWRN-lkp@intel.com>
+References: <20230602084925.215411-3-william.qiu@starfivetech.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+Content-Disposition: inline
+In-Reply-To: <20230602084925.215411-3-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_045746_830618_F8DC6154 
-X-CRM114-Status: GOOD (  31.89  )
+X-CRM114-CacheID: sfid-20230602_053531_241777_46E69296 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,113 +93,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On 2023-06-02 12:06:25+0800, Zhangjin Wu wrote:
-> > Willy, Arnd and Thomas
-> > 
-> > Based on your suggestions, in the comming v3, I plan to split the whole rv32
-> > support to something like this:
-> 
-> Is each of these parts a new patchset?
+Hi William,
 
-Yeah, It is also my plan, just like the v2 series.
+kernel test robot noticed the following build warnings:
 
-> I would suggest to do so.
-> 
-> > 1. Generic part1
-> > 
-> >    (The old feedbacks are applied with the new Suggested-by lines, welcome your
-> >     additional feedbacks if there are ;-))
-> > 
-> >     selftests/nolibc: syscall_args: use generic __NR_statx
-> >     tools/nolibc: add missing nanoseconds support for __NR_statx
-> >     selftests/nolibc: allow specify extra arguments for qemu
-> >     selftests/nolibc: fix up compile warning with glibc on x86_64
-> >     selftests/nolibc: not include limits.h for nolibc
-> >     selftests/nolibc: use INT_MAX instead of __INT_MAX__
-> >     tools/nolibc: arm: add missing my_syscall6
-> >     tools/nolibc: open: fix up compile warning for arm
-> >     selftests/nolibc: support two errnos with EXPECT_SYSER2()
-> >     selftests/nolibc: remove gettimeofday_bad1/2 completely
-> >     selftests/nolibc: add new gettimeofday test cases
-> 
-> These all look good and non-controversial.
-> 
-> > 2. Add Compile support for rv32
-> > 
-> >    (Convert all of the unsupported syscalls to a return of -ENOSYS, this
-> >     allows us to fix up the test failures one by one not that urgently later)
-> > 
-> >     tools/nolibc: fix up #error compile failures with -ENOSYS
-> >     tools/nolibc: fix up undeclared syscall macros with #ifdef and -ENOSYS
-> 
-> These should be their own series in my opinion.
-> It will likely generate some discussion.
+[auto build test WARNING on broonie-spi/for-next]
+[also build test WARNING on linus/master v6.4-rc4 next-20230602]
+[cannot apply to robh/for-next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-The 1st one is not rv32 specific, but the 2nd one requires rv32 compile support
-to be validated.
+url:    https://github.com/intel-lab-lkp/linux/commits/William-Qiu/dt-bindings-qspi-cdns-qspi-nor-Add-clocks-for-StarFive-JH7110-SoC/20230602-165251
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+patch link:    https://lore.kernel.org/r/20230602084925.215411-3-william.qiu%40starfivetech.com
+patch subject: [PATCH v2 2/3] spi: cadence-quadspi: Add clock configuration for StarFive JH7110 QSPI
+config: powerpc-allyesconfig (https://download.01.org/0day-ci/archive/20230602/202306022017.UbwjjWRN-lkp@intel.com/config)
+compiler: powerpc-linux-gcc (GCC) 12.3.0
+reproduce (this is a W=1 build):
+        mkdir -p ~/bin
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/6bbd49e32d407d210b6ea322696cef2e49bf3fa1
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review William-Qiu/dt-bindings-qspi-cdns-qspi-nor-Add-clocks-for-StarFive-JH7110-SoC/20230602-165251
+        git checkout 6bbd49e32d407d210b6ea322696cef2e49bf3fa1
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.3.0 ~/bin/make.cross W=1 O=build_dir ARCH=powerpc olddefconfig
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.3.0 ~/bin/make.cross W=1 O=build_dir ARCH=powerpc SHELL=/bin/bash drivers/spi/
 
-> 
-> >     selftests/nolibc: riscv: customize makefile for rv32
-> > 
-> >    (The first two are new but clear enough, based on the idea of suggestion from Arnd [1])
-> > 
-> > 3. Fix up the left test failures one by one
-> 
-> I'm not a fan of adding an "official" rv32 support with still failing
-> tests.
->
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202306022017.UbwjjWRN-lkp@intel.com/
 
-That is reasonable, but in another side, without the rv32 compile support, It
-may be a little hard to test the left patchsets (see below explain).
+All warnings (new ones prefixed by >>):
 
-The other reasons for rv32 compile support is:
+   drivers/spi/spi-cadence-quadspi.c: In function 'cqspi_resume':
+>> drivers/spi/spi-cadence-quadspi.c:1873:17: warning: ignoring return value of 'clk_bulk_prepare_enable' declared with attribute 'warn_unused_result' [-Wunused-result]
+    1873 |                 clk_bulk_prepare_enable(cqspi->num_clks, cqspi->clks);
+         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Some people may use nolibc without the left syscalls.
-* It is able to detect the new test failures.
 
-But anyway, the compile support is not urgent.
+vim +1873 drivers/spi/spi-cadence-quadspi.c
 
-> >    (Plan to add everyone as a standalone patchset, which will easier the review
-> >     and merge progress)
-> > 
-> >    wait4 -> waitid
-> >    lseek -> llseek
-> >    gettimeofday -> clock_gettime/clock_gettime64
-> >    select -> pselect6/pselect6_time64
-> >    ppoll -> ppoll_time64
-> 
-> I guess these new codepaths will also be used on non-rv32 architectures
-> and will therefore validated without rv32.
->
+  1865	
+  1866	static int cqspi_resume(struct device *dev)
+  1867	{
+  1868		struct cqspi_st *cqspi = dev_get_drvdata(dev);
+  1869		struct spi_master *master = dev_get_drvdata(dev);
+  1870	
+  1871		clk_prepare_enable(cqspi->clk);
+  1872		if (of_device_is_compatible(dev->of_node, "starfive,jh7110-qspi"))
+> 1873			clk_bulk_prepare_enable(cqspi->num_clks, cqspi->clks);
+  1874		cqspi_wait_idle(cqspi);
+  1875		cqspi_controller_init(cqspi);
+  1876	
+  1877		cqspi->current_cs = -1;
+  1878		cqspi->sclk = 0;
+  1879	
+  1880		return spi_master_resume(master);
+  1881	}
+  1882	
 
-Unfortunately, most of them are time32 syscalls related (except the
-llseek), rv32 is the first architecture who has no kernel side time32
-syscalls support, that's why I plan to add compile support at first ;-)
-
-If the new time64 syscalls will be added as the first 'branch', then, they will
-be validated on the other 32bit architecture, but some of them may be not added
-as the first 'branch', for example, the waitid() emulated wait4() is bigger
-than the original one.
-
-> So you could submit these before the final rv32 patch in a series.
->
-
-Thanks for your suggestion.
-
-I'm working on cleaning up them independently and carefully, will send them out
-as standalone patchsets.
-
-Best regards,
-Zhangjin
- 
-> > 4. Clean up some old test cases one by one
-> > 
-> >    Like statx ...
-> > 
-> > Best regards,
-> > Zhangjin
-> > 
-> > [1]: https://lore.kernel.org/linux-riscv/5e7d2adf-e96f-41ca-a4c6-5c87a25d4c9c@app.fastmail.com/
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
