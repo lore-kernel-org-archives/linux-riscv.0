@@ -4,83 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE2DC77B7A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 15:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442E3C7EE29
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 15:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Qhx6VLEhR3W2nu3nUHdCt7xd+IDYEaoFbBGXqroOiGE=; b=ZlTuHxUbO3++8uorJFYNrZ/Fzx
-	Orx1Q8GIBo/TKg1J+k0k41NGCiPA05WP5svmMem+0XweL52/bKjTrcytdtYo7Rwt752P09R9Va47j
-	SUHPffkGQsLbQH7wDnrteCxLuELAktnMKD/m+Vsf1RsW1M7zg3+nJG3rj1hZyROPC4f49VE3bhrj/
-	Lyw34Ve7ykJmPKPaEijoakhRlNZDv7PN0QK++E/bvVqCnjenwyJFPOJYjHTrhs3j7mn+2Zmc/bdyj
-	r44fpmU0Q2DxxsGqIMrpX/4yCjGOoFUJP05ZwdPHVLvDu1xeFt4bAz2OKhD4DoyvZFptbOi0SDWHF
-	WqiD1iKQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3fMTSKWs22m74ZKWU9eN42Pl1cIAAMrJaIvdQp6uZ+o=; b=LeMVo9UHcNF+1vpqxllvn40DpO
+	V9N13vggPBRpvYqOZjORlfRQs9BIZymHjCQ5VP+E3mdiihFKqLOkkng133jS9kxnrCMbzc5hHg0Z/
+	IoUnleL/LXKl6cpZIA2CrWrBsJp9Z5HxAYgvt7/Iji7koGzSnCO0E1BpDQcpBVcYC7zJpBM5ByVpY
+	oaHQc6v95vl4UZsKW+9I6nH91ihbA187MDUkN9Wy4hJIGhgf/Yi2tRlj38I6ZKaN1P56fXPtn68Mu
+	12sAVAicjZvzhkFlAHpLdoJkUGJw6vzA+lAOxWMPPCkFa8vmGF1KK9ksJS7kX3LrzlpPiLG4EdunX
+	EZnx4Wwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q56Qy-007DL1-1I;
-	Fri, 02 Jun 2023 15:11:20 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1q573N-007JA5-2G;
+	Fri, 02 Jun 2023 15:51:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q56Qu-007DFz-1x
+	id 1q573L-007J9U-1g
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 15:11:18 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-53fb4ee9ba1so1136796a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 08:11:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1685718665; x=1688310665;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fg/hT1sAjEd8rIup2CN/upwAvrKBrR2pDnfw7PopqQs=;
-        b=hzC+VK1jGbXhgWkUL0OeOG1AJqJbOX3K5gyj68YKEVb25v+GV//e4fuQzpeld+sA8O
-         2WdHnDWRmeXmx6geUq25Vqxa42Hwlwqdf2d3i39t0QDaQut+gvISpWJtIZYz6ATNTV4J
-         1QgEA/SczaV3YNFw9abTToLwu9ommsI9VhXE9xT7mkCTEttc+N0EQxPZMpDLxdvRsYj/
-         vigM1fvZ6FnHiCjG/KwbRAMRDaIrv/Z/FRrNAxXbI5k0K/HQDFft3bQe5wCk1Fv5vZNL
-         qf3LvjUpS8LXDQb0jauHzcz/lrdIold+VYUYF2cO5H6ly0TtjlRd8yC6CMLl3XKwdH1F
-         m3Rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685718665; x=1688310665;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fg/hT1sAjEd8rIup2CN/upwAvrKBrR2pDnfw7PopqQs=;
-        b=Jt3zL44TQaPTSqmz4MO09amR27+/WSfc51GxbwI5edxcUIiBS3f0KWriuItWEKzJHr
-         UkZClU2PxMFbilThLa7mszrIbyUW5dfhORmey7VLTey65700v8hDcxJu+GR8obI7z1/m
-         yGo7TOW/tgj0qBfTdLef9OrC0B7dCPEPv0QtjgV0TsteaIOVjWVmFyto3ZRaXTCQCRgL
-         Hu5LRjjkaZJSigQsLAhiyp63l/WgYBWJDmFt3Hd8l2JlgT5/IjVlJ6GHiSaQK16al/97
-         oLHfXoNxRK/1RB/1pNOr8OO/iijp8+XOKoeHQcmuzpn/RLo5IDhRh5M9BcUqqP6+c9sQ
-         i9rw==
-X-Gm-Message-State: AC+VfDyqSB1JQO7p2YRQc0esQoVkSYl1xPw8y17qI4E8vd3xEuqrfa1s
-	pc+beEnkU3oXiR2el19Ouj5rLQ==
-X-Google-Smtp-Source: ACHHUZ4iv27hx94ZjANRzx1oNWxLXW5Ls2Q/boifCy7lcHk8Olifk19LX70BLLdSoojjPpYWMlRiwQ==
-X-Received: by 2002:a17:902:cec9:b0:1a9:8d57:6d6c with SMTP id d9-20020a170902cec900b001a98d576d6cmr254164plg.24.1685718665293;
-        Fri, 02 Jun 2023 08:11:05 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id d12-20020a170902654c00b001b03cda6389sm1520434pln.10.2023.06.02.08.11.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jun 2023 08:11:04 -0700 (PDT)
-Date: Fri, 02 Jun 2023 08:11:04 -0700 (PDT)
-X-Google-Original-Date: Fri, 02 Jun 2023 08:10:51 PDT (-0700)
+	Fri, 02 Jun 2023 15:51:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 30FF46519D;
+	Fri,  2 Jun 2023 15:50:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 677FDC433D2;
+	Fri,  2 Jun 2023 15:50:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685721057;
+	bh=uB7RdhiqMXZj0Kk8iwK91jgxrux4B83iiv1sDrmQEb4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hgxhZO+CpHzVztd4Rlg2GqHIDY9LhuL7yIEBQkCSCluRAvLfeeRX7102ZG/WsC4la
+	 3UoK5isDFzScpbDAi63KBAdyv0ferp4ed6A4Qh32p/lc9POgbh+WylP93SNvFa4RHQ
+	 v08XTgyG51jddoSvkvxFnG7nQ+WyIvfwTD0cKxaRdGmLiIkBUSxq2NGnQn5MrSLH9i
+	 2+Dwpk0o2081y9MX/lJCu7vVa5JQS2qT1jaHsEfWyo+XhN2CNay458l1L7z3QFg+NX
+	 2ZBOosnbuEgzDi1420H2I8qIhhthbXe9jbAHfP7FJUXmEbTsQT4N+CsJQDC+EJQEvv
+	 O+6EkxYGVI7dQ==
+Date: Fri, 2 Jun 2023 16:50:49 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
 Subject: Re: (subset) [PATCH V6 00/21] Add basic ACPI support for RISC-V
-In-Reply-To: <168571787727.17224.6663458864222960682.b4-ty@rivosinc.com>
-CC: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-  linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org, linux-crypto@vger.kernel.org,
-  platform-driver-x86@vger.kernel.org, llvm@lists.linux.dev, corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, rafael@kernel.org, lenb@kernel.org, daniel.lezcano@linaro.org,
-  tglx@linutronix.de, qianweili@huawei.com, wangzhou1@hisilicon.com, herbert@gondor.apana.org.au,
-  davem@davemloft.net, Marc Zyngier <maz@kernel.org>, luzmaximilian@gmail.com, hdegoede@redhat.com,
-  markgross@kernel.org, nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: sunilvl@ventanamicro.com, Bjorn Topel <bjorn@rivosinc.com>,
-  Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-4fad860f-b5ff-4dc1-968e-219be1983acd@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+Message-ID: <20230602-reformist-jet-9fd642b971d2@spud>
+References: <168571787727.17224.6663458864222960682.b4-ty@rivosinc.com>
+ <mhng-4fad860f-b5ff-4dc1-968e-219be1983acd@palmer-ri-x1c9>
+MIME-Version: 1.0
+In-Reply-To: <mhng-4fad860f-b5ff-4dc1-968e-219be1983acd@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_081116_884082_C83A9DEC 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20230602_085059_631700_C17BE38F 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,80 +67,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: linux-doc@vger.kernel.org, trix@redhat.com, llvm@lists.linux.dev, Bjorn Topel <bjorn@rivosinc.com>, platform-driver-x86@vger.kernel.org, linux-riscv@lists.infradead.org, qianweili@huawei.com, herbert@gondor.apana.org.au, corbet@lwn.net, Marc Zyngier <maz@kernel.org>, daniel.lezcano@linaro.org, linux-acpi@vger.kernel.org, lenb@kernel.org, aou@eecs.berkeley.edu, markgross@kernel.org, hdegoede@redhat.com, Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de, nathan@kernel.org, ndesaulniers@google.com, linux-kernel@vger.kernel.org, wangzhou1@hisilicon.com, linux-crypto@vger.kernel.org, rafael@kernel.org, luzmaximilian@gmail.com, davem@davemloft.net
+Content-Type: multipart/mixed; boundary="===============4056643839519799159=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Jun 2023 07:57:57 PDT (-0700), Palmer Dabbelt wrote:
->
-> On Mon, 15 May 2023 11:19:07 +0530, Sunil V L wrote:
->> This patch series enables the basic ACPI infrastructure for RISC-V.
->> Supporting external interrupt controllers is in progress and hence it is
->> tested using poll based HVC SBI console and RAM disk.
->>
->> The first patch in this series is one of the patch from Jisheng's
->> series [1] which is not merged yet. This patch is required to support
->> ACPI since efi_init() which gets called before sbi_init() can enable
->> static branches and hits a panic.
->>
->> [...]
->
-> Applied, thanks!
->
-> [01/21] riscv: move sbi_init() earlier before jump_label_init()
->         https://git.kernel.org/palmer/c/24fc18087f42
-> [02/21] platform/surface: Disable for RISC-V
->         https://git.kernel.org/palmer/c/7f2e20459b28
-> [03/21] crypto: hisilicon/qm: Fix to enable build with RISC-V clang
->         https://git.kernel.org/palmer/c/fbb995a7b27c
-> [04/21] ACPI: tables: Print RINTC information when MADT is parsed
->         https://git.kernel.org/palmer/c/4d02d88d2b92
-> [05/21] ACPI: OSL: Make should_use_kmap() 0 for RISC-V
->         https://git.kernel.org/palmer/c/214c236223b8
-> [06/21] RISC-V: Add support to build the ACPI core
->         https://git.kernel.org/palmer/c/a91a9ffbd3a5
-> [07/21] ACPI: processor_core: RISC-V: Enable mapping processor to the hartid
->         https://git.kernel.org/palmer/c/8b7809e28952
-> [08/21] RISC-V: Add ACPI initialization in setup_arch()
->         https://git.kernel.org/palmer/c/724f4c0df766
-> [09/21] RISC-V: ACPI: Cache and retrieve the RINTC structure
->         https://git.kernel.org/palmer/c/f99561199470
-> [10/21] drivers/acpi: RISC-V: Add RHCT related code
->         https://git.kernel.org/palmer/c/e6b9d8eddb17
-> [11/21] RISC-V: smpboot: Create wrapper setup_smp()
->         https://git.kernel.org/palmer/c/61946127ab49
-> [12/21] RISC-V: smpboot: Add ACPI support in setup_smp()
->         https://git.kernel.org/palmer/c/ce92546cd637
-> [13/21] RISC-V: only iterate over possible CPUs in ISA string parser
->         https://git.kernel.org/palmer/c/914d6f44fc50
-> [14/21] RISC-V: cpufeature: Add ACPI support in riscv_fill_hwcap()
->         https://git.kernel.org/palmer/c/396c018332a1
-> [15/21] RISC-V: cpu: Enable cpuinfo for ACPI systems
->         https://git.kernel.org/palmer/c/0b144c818989
-> [16/21] irqchip/riscv-intc: Add ACPI support
->         https://git.kernel.org/palmer/c/7023b9d83f03
-> [17/21] clocksource/timer-riscv: Refactor riscv_timer_init_dt()
->         https://git.kernel.org/palmer/c/cd12d206685a
-> [18/21] clocksource/timer-riscv: Add ACPI support
->         https://git.kernel.org/palmer/c/21f4f92410dc
-> [19/21] RISC-V: time.c: Add ACPI support for time_init()
->         https://git.kernel.org/palmer/c/714aa1d1c8ca
-> [20/21] RISC-V: Enable ACPI in defconfig
->         https://git.kernel.org/palmer/c/0b8e15ca0082
 
-I applied the MAINTAINERS entry too, it just had a conflict and it looks 
-like my attempt at juggling it didn't play nice with the thanks message.  
-Everything's on top of rc1 because that's what my for-next is based on.
+--===============4056643839519799159==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="5Yq3pFkyoejdiFUi"
+Content-Disposition: inline
 
-I also don't yet have any testing for the ACPI stuff, but hopefully I'll 
-get around to adding some.  We should probably add it to the patchwwork 
-CI as well.
 
->
-> Best regards,
+--5Yq3pFkyoejdiFUi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Fri, Jun 02, 2023 at 08:11:04AM -0700, Palmer Dabbelt wrote:
+> On Fri, 02 Jun 2023 07:57:57 PDT (-0700), Palmer Dabbelt wrote:
+
+> I also don't yet have any testing for the ACPI stuff, but hopefully I'll get
+> around to adding some.  We should probably add it to the patchwwork CI as
+> well.
+
+Yeah, just like DT testing should be added too! I am planning on doing
+some work on that front next week, hopefully I make good on my word...
+
+Cheers,
+Conor.
+
+Also, having ACPI support in means we now need
+https://lore.kernel.org/all/tencent_B30EED51C7235CA1988890E5C658BE35C107@qq.com/
+to be compliant with the ECR. It doesn't apply as-is, so I will add a
+Fixes tag & rebase.
+
+--5Yq3pFkyoejdiFUi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHoPwwAKCRB4tDGHoIJi
+0oOjAP9bCWu1mHF0lnDALjWsfK3ipt7wNaQvkVtzWRvXSaAe+gEA8E5S7Doc/P7x
+0QVi9g8WmJX7vWKUTklpsWiBLsEd8w0=
+=ON4g
+-----END PGP SIGNATURE-----
+
+--5Yq3pFkyoejdiFUi--
+
+
+--===============4056643839519799159==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4056643839519799159==--
+
