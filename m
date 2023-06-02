@@ -4,79 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 796A4C7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 09:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE2A4C77B7A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 09:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eR9oa+A3YNRBCtAkxl2ae3WGOpxRhrwvmYNfisniW4U=; b=L6KTiAN8JeNlZh
-	kh5/W+HlcvHdx1DlZY3MyMYbCxuUEU2K5Gpt5qgwtUMLo5QYGA3dbGTs8XG1ah1JobK/icNbksajm
-	xAFENcT0qEL0vNaR0YRZSypYs0djRnmG28htvxqFWbAj0x1xtyuyQYqNl9TIuU+OjFbkiPet22oTS
-	X8+tvAShv9Yf9LyRE54UR1YemEKB2OihZ6V8QpTEOYjrlaOcTRMTjhyIarCccf3Ythp1jUeT1qUTu
-	8SNuTo3QyVAKiH0awlV34mbAvfhX8Y9wOJuHohKtpscqp+XwlC5IsmDVDHHkDjlLopKlE5zUtkx/1
-	7ecXU2OX7jdA5BFxsJRg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MQqgcSywyQBontCKnyYIAEV3kuZ04RX/xfDz6kItu90=; b=pZwAMAVNYHyU26YTGfQ1T/7mjb
+	JcYdlCE5sDJmrvxqcE+pbPsArHskeOdtat1hHItdida7r+ShdBJS94N/4MJTYiIQQnn7/+agYVUFr
+	iirU1EMtGbC2OJpNw5Q6tWpREIRtjozlL2PFcGi03LF+UeXZHEu8/nkh+7apH3PLODg4/bfid5Rij
+	xo8mv8q+6OIgH99fhf/VO+aQLFp8ajQb/VP6UcvTgPi5r9seRVFXa0gxhyig1+Oe6V5Cbw4ad/USE
+	qNHVhl1BsYs3tUBNNUvO04CtFcT314iS8UitxTFAENsIOd4Vc89TqmYcGisFnpaE07Pyge11a44DS
+	rAW9y8CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q51LN-006QNS-0Q;
-	Fri, 02 Jun 2023 09:45:13 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q51LJ-006QL2-0n
+	id 1q51LX-006QQf-3B;
+	Fri, 02 Jun 2023 09:45:23 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q51LV-006QOn-0s
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 09:45:11 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5D1E980F8;
-	Fri,  2 Jun 2023 17:44:46 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 17:44:46 +0800
-Received: from [192.168.125.128] (183.27.98.75) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 17:44:44 +0800
-Message-ID: <712ffab1-5b25-f8bb-79a0-e2c0693e4c35@starfivetech.com>
-Date: Fri, 2 Jun 2023 17:42:42 +0800
+	Fri, 02 Jun 2023 09:45:23 +0000
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BACD1FF805;
+	Fri,  2 Jun 2023 09:45:13 +0000 (UTC)
+Message-ID: <47f933c3-96db-51c9-2bf2-dc360c4ef261@ghiti.fr>
+Date: Fri, 2 Jun 2023 11:45:13 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
-Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock
- generator
+Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance (2)
 Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>, Torsten Duwe <duwe@lst.de>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<yanhong.wang@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, "Rob
- Herring" <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Hal
- Feng" <hal.feng@starfivetech.com>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, <u-boot@lists.denx.de>
-References: <20230512022036.97987-2-xingyu.wu@starfivetech.com>
- <20230519135733.GA10188@lst.de>
- <20230519-smokeless-guileless-2a71cae06509@wendy>
- <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
- <20230523-fondue-monotype-0c751a8f0c13@wendy>
- <20230523131006.46997d84@blackhole.lan>
- <20230523-saturate-axis-f46b78b7b82b@wendy>
- <38a9cb77-18b3-4daa-724b-9f2282f7d948@starfivetech.com>
- <20230524-jittery-sway-41b578b24153@wendy>
- <20230526093432.4682eab8@blackhole.lan>
- <20230526-unwashed-musty-dee883f1d6a7@wendy>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <20230526-unwashed-musty-dee883f1d6a7@wendy>
-X-Originating-IP: [183.27.98.75]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: syzbot <syzbot+a74d57bddabbedd75135@syzkaller.appspotmail.com>,
+ aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, syzkaller-bugs@googlegroups.com
+References: <000000000000f76bf505fd139515@google.com>
+ <811d21e0-3071-d82e-204b-26834eca7b92@ghiti.fr>
+In-Reply-To: <811d21e0-3071-d82e-204b-26834eca7b92@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_024509_755245_5D3FD7B0 
-X-CRM114-Status: GOOD (  48.56  )
+X-CRM114-CacheID: sfid-20230602_024521_456173_74FB24D3 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,142 +65,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/5/26 20:23, Conor Dooley wrote:
-> On Fri, May 26, 2023 at 09:34:32AM +0200, Torsten Duwe wrote:
->> On Wed, 24 May 2023 11:19:48 +0100
->> Conor Dooley <conor.dooley@microchip.com> wrote:
->> 
->> > On Wed, May 24, 2023 at 05:00:02PM +0800, Xingyu Wu wrote:
->> > > On 2023/5/23 19:28, Conor Dooley wrote:
->> > > > On Tue, May 23, 2023 at 01:10:06PM +0200, Torsten Duwe wrote:
->> > > >> On Tue, 23 May 2023 09:28:39 +0100
->> > > >> Conor Dooley <conor.dooley@microchip.com> wrote:
->> > > >> 
->> > > >> > On Tue, May 23, 2023 at 10:56:43AM +0800, Xingyu Wu wrote:
->> > > >> > > On 2023/5/19 22:16, Conor Dooley wrote:
->> > > >> > > > On Fri, May 19, 2023 at 03:57:33PM +0200, Torsten Duwe
->> > > >> > > > wrote:
->> > > >> > > >> On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
->> [...]
->> 
->> > > >> > > Because PLL driver is separated from SYSCRG drivers in
->> > > >> > > Linux, the numbering starts from 0. But in Uboot, the PLL
->> > > >> > > driver is included in the SYSCRG driver, and the number
->> > > >> > > follows the SYSCRG.
->> > > >> > 
->> > > >> > Unfortunately, how you choose to construct your drivers has
->> > > >> > nothing to do with this.
->> 
->> Exactly. As I wrote (quote below), the PLLx frequencies are controlled
->> by the I/O block SYS_SYSCON (starting there at offset 0x18), according
->> to the public datasheets. All(?) other clocks are derived from those in
->> the *_CRG units. That *is* the hardware to be described, in *the* (one
->> and only!) DT. U-Boot, and any OS, are free to reorganise their driver
->> framework around that, but the hardware description is quite clear.
-> 
-> The dt-binding that is in this series specifies that the pll clock
-> controller is a child of the syscon:
-> https://lore.kernel.org/linux-riscv/20230512022036.97987-1-xingyu.wu@starfivetech.com/T/#Z2e.:..:20230512022036.97987-6-xingyu.wu::40starfivetech.com:1soc:starfive:starfive::2cjh7110-syscon.yaml
-> 
-> That seems correct to me & U-Boot's devicetree is not compliant.
-> 
->> > > >> > These defines/numbers appear in the dts and are part of the DT
->> > > >> > ABI. The same dts is supposed to work for Linux & U-Boot.
->> > > >> 
->> > > >> The JH7110 has 6 blocks of 64k iomem in that functional area:
->> > > >> {SYS,STG,AON} x {CRG,SYSCON}. None of these has 190 clocks.
->> > > >> The good news: the current DTS, as proposed here and in U-Boot
->> > > >> master, provides nodes for all 6 entities. The bad news is that
->> > > >> the clock assignments to those nodes and their numbering is
->> > > >> messed up.
->> > > >> 
->> > > >> AFAICT PLL{0,1,2} _are_ generated in SYS_SYSCON and thus U-Boot
->> > > >> gets it wrong, in addition to the erroneous DTS.
->> > > > 
->> > > > The numbers are kinda hocus-pocus anyway, they are just made up
->> > > > since the clock numbering usually isn't something with a nice TRM
->> > > > to go and reference (unlike interrupts which usually are
->> > > > documented in that way). It is very helpful to make them aligned
->> > > > some register/bit positions or, but that is not required.
->> > > > IOW U-Boot is not wrong per se to use 190 instead of 0, but it is
->> > > > wrong to have different numbers in both places.
->> 
->> U-Boot reuses the Common Clock Framework from Linux, and I'm not sure
->> whether the clock IDs need to be unique in order for the appropriate
->> clock to be found.
-> 
-> Unique within the clock controller, otherwise it is impossible to tell
-> the difference between <&cctrl 1> and <&cctrl 1> apart! (The same
-> follows even with increased #clock-cells, something must be unique).
-> That's besides the point of this particular issue though.
-> 
->> But that would be the only restriction, if it
->> applies. Even then, each driver could register a clock with its own,
->> arbitrarily chosen base offset with the CCF, so each CRG unit could
->> still have its own clocks enumerated starting with 0 in the DTB.
->> 
->> > > > It sounds like you're saying that (and I have not looked) the
->> > > > U-Boot dts actually has structural difference w.r.t. what
->> > > > provides which clock? If so, that'll need to be fixed
->> > > > independently of the numbering problem.
->> 
->> > > 
->> > > Oh, unfortunately, the 7110 can not support to mix the uboot dtb
->> > > and linux dtb up.
->> > 
->> > What does "cannot support" mean? It's normal and desirable for the
->> 
->> IMHO "desirable" is too weak.
-> 
-> Yeah, agreed. I just don't like being prescriptive about what happens in
-> projects that I do not maintain things for I guess.
-> 
->> > same dtb to be usable for both. The Linux kernel's dt-bindings are
->> > used for multiple projects, not just Linux - it'd be silly for
->> > U-Boot, FreeBSD etc etc to go off and each have their open set of
->> > (incompatible) bindings.
->> > 
->> > > If boot the Linux and should use the linux dtb instead of the uboot
->> > > dtb. Because all clock ids and reset ids in Linux and Uboot are
->> > > different include PLL, and some modules can work in Linux but not
->> > > in uboot.
->> [...]
->> > 
->> > > I suggest to boot Linux with its own linux dtb.
->> 
->> This is a fragile band-aid, to be used only as a last resort. It
->> creates more problems than it solves. Your DTB will then match your
->> kernel, but whether it describes the actual hardware is a game of
->> chance. Doesn't the VisionFive2 have an RPi connector... ?
->> 
->> One of the IMO few valid use cases of adding a DTB to the kernel
->> at boot is OpenWRT, when you build an OS Image for a particular piece
->> of hardware you have at hand.
->> 
->> > I suggest to make sure that you can use the same dtb for both.
->> 
->> Interestingly enough, U-Boot already has the PLL driver in a separate
->> file. I have a half-baked patch here that moves the sys_syscon DT
->> matching into that file...
-> 
-> If you have patches that fix the devicetree & drivers in U-Boot, please
-> post them. I don't really care at all which set of arbitrary numbers are
-> chosen (as long as there is one and one only) but it looks like U-Boot's
-> devicetree has an incorrect description of the clock controllers.
-> 
-
-Thank you for your suggestions. I will discuss with my partners how to solve this problem.
-
-Best regards,
-Xingyu Wu
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDAyLzA2LzIwMjMgMDk6NTgsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPgo+IE9uIDAxLzA2
+LzIwMjMgMTg6MDQsIHN5emJvdCB3cm90ZToKPj4gSGVsbG8sCj4+Cj4+IHN5emJvdCBmb3VuZCB0
+aGUgZm9sbG93aW5nIGlzc3VlIG9uOgo+Pgo+PiBIRUFEIGNvbW1pdDrCoMKgwqAgOGRjMmE3ZTgw
+MjdmIHJpc2N2OiBGaXggcmVsb2NhdGFibGUga2VybmVscyB3aXRoIAo+PiBlYXJseSBhbHQuLgo+
+PiBnaXQgdHJlZTogCj4+IGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVs
+L2dpdC9yaXNjdi9saW51eC5naXQgZml4ZXMKPj4gY29uc29sZSBvdXRwdXQ6IGh0dHBzOi8vc3l6
+a2FsbGVyLmFwcHNwb3QuY29tL3gvbG9nLnR4dD94PTE3ZTlmYmNkMjgwMDAwCj4+IGtlcm5lbCBj
+b25maWc6IAo+PiBodHRwczovL3N5emthbGxlci5hcHBzcG90LmNvbS94Ly5jb25maWc/eD02YjRi
+ZjAxYmJiMDdmOTQ1Cj4+IGRhc2hib2FyZCBsaW5rOiAKPj4gaHR0cHM6Ly9zeXprYWxsZXIuYXBw
+c3BvdC5jb20vYnVnP2V4dGlkPWE3NGQ1N2JkZGFiYmVkZDc1MTM1Cj4+IGNvbXBpbGVyOsKgwqDC
+oMKgwqDCoCByaXNjdjY0LWxpbnV4LWdudS1nY2MgKERlYmlhbiAxMC4yLjEtNikgMTAuMi4xIAo+
+PiAyMDIxMDExMCwgR05VIGxkIChHTlUgQmludXRpbHMgZm9yIERlYmlhbikgMi4zNS4yCj4+IHVz
+ZXJzcGFjZSBhcmNoOiByaXNjdjY0Cj4+Cj4+IERvd25sb2FkYWJsZSBhc3NldHM6Cj4+IGRpc2sg
+aW1hZ2UgKG5vbi1ib290YWJsZSk6IAo+PiBodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20v
+c3l6Ym90LWFzc2V0cy9hNzQxYjM0ODc1OWMvbm9uX2Jvb3RhYmxlX2Rpc2stOGRjMmE3ZTgucmF3
+Lnh6Cj4+IHZtbGludXg6IAo+PiBodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vc3l6Ym90
+LWFzc2V0cy84MjJlM2NiZTI5YWQvdm1saW51eC04ZGMyYTdlOC54ego+PiBrZXJuZWwgaW1hZ2U6
+IAo+PiBodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vc3l6Ym90LWFzc2V0cy83YmRhMjRh
+YmYxYzIvSW1hZ2UtOGRjMmE3ZTgueHoKPj4KPj4gSU1QT1JUQU5UOiBpZiB5b3UgZml4IHRoZSBp
+c3N1ZSwgcGxlYXNlIGFkZCB0aGUgZm9sbG93aW5nIHRhZyB0byB0aGUgCj4+IGNvbW1pdDoKPj4g
+UmVwb3J0ZWQtYnk6IHN5emJvdCthNzRkNTdiZGRhYmJlZGQ3NTEzNUBzeXprYWxsZXIuYXBwc3Bv
+dG1haWwuY29tCj4+Cj4+Cj4+Cj4+IC0tLQo+PiBUaGlzIHJlcG9ydCBpcyBnZW5lcmF0ZWQgYnkg
+YSBib3QuIEl0IG1heSBjb250YWluIGVycm9ycy4KPj4gU2VlIGh0dHBzOi8vZ29vLmdsL3Rwc21F
+SiBmb3IgbW9yZSBpbmZvcm1hdGlvbiBhYm91dCBzeXpib3QuCj4+IHN5emJvdCBlbmdpbmVlcnMg
+Y2FuIGJlIHJlYWNoZWQgYXQgc3l6a2FsbGVyQGdvb2dsZWdyb3Vwcy5jb20uCj4+Cj4+IHN5emJv
+dCB3aWxsIGtlZXAgdHJhY2sgb2YgdGhpcyBpc3N1ZS4gU2VlOgo+PiBodHRwczovL2dvby5nbC90
+cHNtRUojc3RhdHVzIGZvciBob3cgdG8gY29tbXVuaWNhdGUgd2l0aCBzeXpib3QuCj4+Cj4+IElm
+IHRoZSBidWcgaXMgYWxyZWFkeSBmaXhlZCwgbGV0IHN5emJvdCBrbm93IGJ5IHJlcGx5aW5nIHdp
+dGg6Cj4+ICNzeXogZml4OiBleGFjdC1jb21taXQtdGl0bGUKPj4KPj4gSWYgeW91IHdhbnQgdG8g
+Y2hhbmdlIGJ1ZydzIHN1YnN5c3RlbXMsIHJlcGx5IHdpdGg6Cj4+ICNzeXogc2V0IHN1YnN5c3Rl
+bXM6IG5ldy1zdWJzeXN0ZW0KPj4gKFNlZSB0aGUgbGlzdCBvZiBzdWJzeXN0ZW0gbmFtZXMgb24g
+dGhlIHdlYiBkYXNoYm9hcmQpCj4+Cj4+IElmIHRoZSBidWcgaXMgYSBkdXBsaWNhdGUgb2YgYW5v
+dGhlciBidWcsIHJlcGx5IHdpdGg6Cj4+ICNzeXogZHVwOiBleGFjdC1zdWJqZWN0LW9mLWFub3Ro
+ZXItcmVwb3J0Cj4+Cj4+IElmIHlvdSB3YW50IHRvIHVuZG8gZGVkdXBsaWNhdGlvbiwgcmVwbHkg
+d2l0aDoKPj4gI3N5eiB1bmR1cAo+Pgo+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwo+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPj4gbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4KPgo+IEknbSBsb29raW5nIGludG8gdGhvc2UgZmFp
+bHVyZXMuCgoKU28gS0ZFTkNFIHdhcyBicm9rZW4gYnkgY29tbWl0IDMzMzUwNjhmODcyMSAoInJp
+c2N2OiBVc2UgUFVEL1A0RC9QR0QgCnBhZ2VzIGZvciB0aGUgbGluZWFyIG1hcHBpbmciKSBzaW5j
+ZSBvdXIga2ZlbmNlIGltcGxlbWVudGF0aW9uIG9ubHkgCmJyZWFrcyBwbWQgaHVnZXBhZ2VzLiBM
+ZXQgbWUgZml4IHRoYXQgZm9yIDYuNC4KCgo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
