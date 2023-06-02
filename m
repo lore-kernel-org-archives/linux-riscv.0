@@ -4,88 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A68B2C7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 09:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200DBC7EE29
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 10:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6Mn1iM8a77Dpp/iM4+Tggr/vFCwSJ8YMF3yOf91Ow18=; b=Q+1HIQnN9XDRLl
-	cdenhBSqZpw4DEa/8GuKERYFlQBhdFrWdrsQjRLiAsKuSTNEWGsbYgh5BavTMka5Uol/wHrMKO4We
-	TXMukyD1Q2wzo6tqzp68pwlA2zViUZ+om64YRrDxARNf7fPSidiuWJ8mqlLFoHbDsjnfeJDWQ+Jjj
-	UoLTKr6P4NF3IoSq1m/RUikFOA9PjQEsuk4Wuccs65LXR6Cz4DL/SLwZIb3OqGn6FMtIW+mYR8ivu
-	lsAKwK+wpLXt9qmiYNqEqpEosQRqJIXFZjA4PYgvQnqvyVpLfR7kXv20BBlU2/gd71NkGu0cTgHPG
-	TOdzGz6cejJYB/tEAg0A==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xPQ8DdzJg6ZAFZlBTvfgYwi2munRJ8wJraOGLjmWqUY=; b=iNfpbvoMGYJk4y
+	4yNiQR/0uQZsZs9OXypN/D3MPVMSmj/RHV6lxstjNPi9gKLw3IKOi28m/DW5aoznPEnULR+3TsObK
+	rqyGs1/t9dDygu0RccQ1DwURfQdhif930j+0JVPQKITZ4li+w69gFnWaCY+HrhxUDx49/hOu5n46k
+	tFFym+TzpuXXBfJn+KzXu70ojK/jNg8CnQcJRr5dQPpaIN82KWhWzrUxRmUknLJO7HsIK3hEEcRst
+	YlKj9Pz+hNKXY8q1Lg/1OOPfm+XbvmSFEUe4Uc0LVEAfxGLZB8nsfoZw5khpmy6IArqMTnQSt2URd
+	rFPcMxJZ2ZNGvIDx5BRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q51PV-006R0n-23;
-	Fri, 02 Jun 2023 09:49:29 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1q526W-006XXP-2J;
+	Fri, 02 Jun 2023 10:33:56 +0000
+Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q51PS-006Qzy-3B
+	id 1q526S-006XVA-1G
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 09:49:28 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-64d44b198baso1492731b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 02:49:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1685699364; x=1688291364;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DCKGULZsoKICMV26CUTZdo7HdnVdRStnPhClKySdS9k=;
-        b=PQqRUow9lA2xKadq+K+lIoRt1U2nCSlME0lf1zaBlemjzSpNhpQWCJ7rj2a0bGzZg7
-         5x3J33cl7mGEm+vAeNo2WvGwHqGAoPCq2nFq5ATEhgBzsQxFQO+AkoenBzMJoMFnqE1/
-         mfU0fNhztK9vSYyT4DJuzLoHaSYg2r9S+4zJFPeyRqex1Q54qeQnc3LBZaassJHrE1/0
-         WGa2BCpSsqUZBTk7R8nFbBjT5+gUF6QH4QlN15X7RLqMy6TH7wifvsVof6mcGDsDz7oV
-         +kUn8AZ7GhKwLEJ7NxXduAQQNevhCZw3FB77Roz9F1wEnESTVcnqZKEX1xdmX0kYMwAx
-         EipA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685699364; x=1688291364;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DCKGULZsoKICMV26CUTZdo7HdnVdRStnPhClKySdS9k=;
-        b=d98+aWFnsw1+SoxkXkLS+71C7WTrIsACPg32e1YaPKH1wnXjPKtEU36eAOuaAuJfFq
-         UqVMzL64kkeqOO6l98TYi6F+jjIGSwFLB8ARA8X34I7Sx4wHHxu+gf/PRXDupQNAzmK/
-         QrEZ8f/ujosbcrMtz6lbdzNT34kF3m14JUdJ3iN6wXh9mNnQ2dnaEn/hE5pAEDFu1urM
-         sGO5CI59ZOQOEYN5RCZDVDDTYOBOUDENcLYnrx+9GB3LfEC17j4VPk5yo06UfyKhTr3G
-         08CjtReQ7l0M65pfuoRkFETTcI0W0hWS7AiJl8Fd4qTMAEqpfjSpHuYfhvclVoEZbSg7
-         Ee3A==
-X-Gm-Message-State: AC+VfDwz3FDpiM6TRKbWyzJojqrXea0ZYzwhQCiDqzLVCFLnB9Yjqw53
-	5FRigMmt0GHGkOaH8ENFqWTJEA==
-X-Google-Smtp-Source: ACHHUZ6TUgpY9ey2wwkjQh+C1naTGHK3wVPXR9QPdK7UAtPFF/POMWycZivijRGjtCxnFamXqgdpXQ==
-X-Received: by 2002:a05:6a20:4284:b0:10c:322:72d5 with SMTP id o4-20020a056a20428400b0010c032272d5mr4866687pzj.23.1685699364448;
-        Fri, 02 Jun 2023 02:49:24 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id x7-20020aa793a7000000b006475f831838sm690174pff.30.2023.06.02.02.49.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jun 2023 02:49:24 -0700 (PDT)
-From: Eric Lin <eric.lin@sifive.com>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	namhyung@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: greentime.hu@sifive.com,
-	vincent.chen@sifive.com,
-	Eric Lin <eric.lin@sifive.com>
-Subject: [PATCH] perf/core: Add pmu stop before unthrottling to prevent WARNING
-Date: Fri,  2 Jun 2023 09:48:41 +0000
-Message-Id: <20230602094841.1225-1-eric.lin@sifive.com>
-X-Mailer: git-send-email 2.17.1
+	Fri, 02 Jun 2023 10:33:54 +0000
+Date: Fri, 2 Jun 2023 12:33:43 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
+	t=1685702025; bh=BFaP0Bc5Ii+o8/5LmJhFs9l0FX4Zgrji4nYoQeGg2r0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sHe2c8Yid9GaHV+KwNK8KEx8ByjVCeqLMVJHyFuOswJWYF7lxAheuxCdbPVZBJ8zQ
+	 ZCVi7YO2XrKDvrNnHIna/35ybCrpPHeBHdUXjUcq4OrCz36FadA9lrew7Fyp9QUQp8
+	 ta6kDxFR/V+huCFYFPUYSaq0vN5VS2aV8lyx2tJ8=
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
+To: Zhangjin Wu <falcon@tinylab.org>
+Cc: arnd@arndb.de, w@1wt.eu, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 13/13] selftests/nolibc: riscv: customize makefile for
+ rv32
+Message-ID: <f7cb4209-a70f-4f59-8b11-2d189908f18c@t-8ch.de>
+References: <6f065441a6be9e63238ffb3d43cf09a6e4ac6773.1685387485.git.falcon@tinylab.org>
+ <20230602040625.24373-1-falcon@tinylab.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230602040625.24373-1-falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_024927_060317_F8734C4E 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20230602_033352_605594_009989CB 
+X-CRM114-Status: GOOD (  35.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,77 +60,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, during the perf sampling, if the perf interrupt takes too long,
-perf framework will lower the perf_event_max_sample_rate. This will limit
-the number of samples per timer tick (max_samples_per_tick) and set hwc->interrupts
-to MAX_INTERRUPTS within the __perf_event_account_interrupt() function.
+On 2023-06-02 12:06:25+0800, Zhangjin Wu wrote:
+> Willy, Arnd and Thomas
+> 
+> Based on your suggestions, in the comming v3, I plan to split the whole rv32
+> support to something like this:
 
-Afterward, the perf framework will unthrottle the event in the timer interrupt
-handler, which triggers the driver's *_pmu_start() function. Most of the driver's
-*_pmu_start() functions will check the event->hw.state to determine whether this
-event has stopped. If the event has not stopped, a WARN_ON_ONCE() warning
-will be triggered as shown below:
+Is each of these parts a new patchset?
+I would suggest to do so.
 
-[ 2110.224723] ------------[ cut here ]------------
-[ 2110.224851] WARNING: CPU: 0 PID: 240 at drivers/perf/riscv_pmu.c:184 riscv_pmu_start+0x7c/0x8e
-[ 2110.225242] Modules linked in:
-[ 2110.225380] CPU: 0 PID: 240 Comm: ls Not tainted 6.4-rc4-g19d0788e9ef2 #1
-[ 2110.225574] Hardware name: SiFive (DT)
-[ 2110.225657] epc : riscv_pmu_start+0x7c/0x8e
-[ 2110.225834]  ra : riscv_pmu_start+0x28/0x8e
-[ 2110.225998] epc : ffffffff80aef864 ra : ffffffff80aef810 sp : ffff8f80004db6f0
-[ 2110.226135]  gp : ffffffff81c83750 tp : ffffaf80069f9bc0 t0 : ffff8f80004db6c0
-[ 2110.226245]  t1 : 0000000000000000 t2 : 000000000000001f s0 : ffff8f80004db720
-[ 2110.226367]  s1 : ffffaf8008ca1068 a0 : 0000ffffffffffff a1 : 0000000000000000
-[ 2110.226488]  a2 : 0000000000000001 a3 : 0000000000000870 a4 : 0000000000000000
-[ 2110.226605]  a5 : 0000000000000000 a6 : 0000000000000840 a7 : 0000000000000030
-[ 2110.226721]  s2 : 0000000000000000 s3 : ffffaf8005165800 s4 : ffffaf800424da00
-[ 2110.226838]  s5 : ffffffffffffffff s6 : ffffffff81cc7590 s7 : 0000000000000000
-[ 2110.226955]  s8 : 0000000000000006 s9 : 0000000000000001 s10: ffffaf807efbc340
-[ 2110.227064]  s11: ffffaf807efbbf00 t3 : ffffaf8006a16028 t4 : 00000000dbfbb796
-[ 2110.227180]  t5 : 0000000700000000 t6 : ffffaf8005269870
-[ 2110.227277] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-[ 2110.227407] [<ffffffff80aef864>] riscv_pmu_start+0x7c/0x8e
-[ 2110.227622] [<ffffffff80185b56>] perf_adjust_freq_unthr_context+0x15e/0x174
-[ 2110.227961] [<ffffffff80188642>] perf_event_task_tick+0x88/0x9c
-[ 2110.228235] [<ffffffff800626a8>] scheduler_tick+0xfe/0x27c
-[ 2110.228463] [<ffffffff800b5640>] update_process_times+0x9a/0xba
-[ 2110.228690] [<ffffffff800c5bd4>] tick_sched_handle+0x32/0x66
-[ 2110.229007] [<ffffffff800c5e0c>] tick_sched_timer+0x64/0xb0
-[ 2110.229253] [<ffffffff800b5e50>] __hrtimer_run_queues+0x156/0x2f4
-[ 2110.229446] [<ffffffff800b6bdc>] hrtimer_interrupt+0xe2/0x1fe
-[ 2110.229637] [<ffffffff80acc9e8>] riscv_timer_interrupt+0x38/0x42
-[ 2110.229984] [<ffffffff80090a16>] handle_percpu_devid_irq+0x90/0x1d2
-[ 2110.230162] [<ffffffff8008a9f4>] generic_handle_domain_irq+0x28/0x36
+> 1. Generic part1
+> 
+>    (The old feedbacks are applied with the new Suggested-by lines, welcome your
+>     additional feedbacks if there are ;-))
+> 
+>     selftests/nolibc: syscall_args: use generic __NR_statx
+>     tools/nolibc: add missing nanoseconds support for __NR_statx
+>     selftests/nolibc: allow specify extra arguments for qemu
+>     selftests/nolibc: fix up compile warning with glibc on x86_64
+>     selftests/nolibc: not include limits.h for nolibc
+>     selftests/nolibc: use INT_MAX instead of __INT_MAX__
+>     tools/nolibc: arm: add missing my_syscall6
+>     tools/nolibc: open: fix up compile warning for arm
+>     selftests/nolibc: support two errnos with EXPECT_SYSER2()
+>     selftests/nolibc: remove gettimeofday_bad1/2 completely
+>     selftests/nolibc: add new gettimeofday test cases
 
-To prevent this warning, we should call the driver's *_pmu_stop() function before unthrottling
+These all look good and non-controversial.
 
-Signed-off-by: Eric Lin <eric.lin@sifive.com>
----
- kernel/events/core.c | 1 +
- 1 file changed, 1 insertion(+)
+> 2. Add Compile support for rv32
+> 
+>    (Convert all of the unsupported syscalls to a return of -ENOSYS, this
+>     allows us to fix up the test failures one by one not that urgently later)
+> 
+>     tools/nolibc: fix up #error compile failures with -ENOSYS
+>     tools/nolibc: fix up undeclared syscall macros with #ifdef and -ENOSYS
 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index db016e418931..098c875abe88 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -4128,6 +4128,7 @@ perf_adjust_freq_unthr_context(struct perf_event_context *ctx, bool unthrottle)
- 
- 		if (hwc->interrupts == MAX_INTERRUPTS) {
- 			hwc->interrupts = 0;
-+			event->pmu->stop(event, 0);
- 			perf_log_throttle(event, 1);
- 			event->pmu->start(event, 0);
- 		}
--- 
-2.17.1
+These should be their own series in my opinion.
+It will likely generate some discussion.
 
+>     selftests/nolibc: riscv: customize makefile for rv32
+> 
+>    (The first two are new but clear enough, based on the idea of suggestion from Arnd [1])
+> 
+> 3. Fix up the left test failures one by one
+
+I'm not a fan of adding an "official" rv32 support with still failing
+tests.
+
+>    (Plan to add everyone as a standalone patchset, which will easier the review
+>     and merge progress)
+> 
+>    wait4 -> waitid
+>    lseek -> llseek
+>    gettimeofday -> clock_gettime/clock_gettime64
+>    select -> pselect6/pselect6_time64
+>    ppoll -> ppoll_time64
+
+I guess these new codepaths will also be used on non-rv32 architectures
+and will therefore validated without rv32.
+
+So you could submit these before the final rv32 patch in a series.
+
+> 4. Clean up some old test cases one by one
+> 
+>    Like statx ...
+> 
+> Best regards,
+> Zhangjin
+> 
+> [1]: https://lore.kernel.org/linux-riscv/5e7d2adf-e96f-41ca-a4c6-5c87a25d4c9c@app.fastmail.com/
+> 
+> > Both riscv64 and riscv32 have:
+> > 
+> > * the same ARCH value, it is riscv
+> > * the same arch/riscv source code tree
+> > 
+> > The only differences are:
+> > 
+> > * riscv64 uses defconfig, riscv32 uses rv32_defconfig
+> > * riscv64 uses qemu-system-riscv64, riscv32 uses qemu-system-riscv32
+> > * riscv32 has different compiler options (-march= and -mabi=)
+> > 
+> > So, riscv32 can share most of the settings with riscv64, there is no
+> > need to add it as a whole new architecture but just need a flag to
+> > record and reflect the difference.
+> > 
+> > The 32bit mips and loongarch may be able to use the same method, so,
+> > let's use a meaningful flag: CONFIG_32BIT. If required in the future,
+> > this flag can also be automatically loaded from
+> > include/config/auto.conf.
+> > 
+> > With this patch, it is able to run nolibc test for rv32 like this:
+> > 
+> >     $ make run ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu- ...
+> > 
+> > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > ---
+> >  tools/testing/selftests/nolibc/Makefile | 11 +++++++++--
+> >  1 file changed, 9 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
+> > index 44088535682e..ea434a0acdc1 100644
+> > --- a/tools/testing/selftests/nolibc/Makefile
+> > +++ b/tools/testing/selftests/nolibc/Makefile
+> > @@ -14,6 +14,12 @@ include $(srctree)/scripts/subarch.include
+> >  ARCH = $(SUBARCH)
+> >  endif
+> >  
+> > +# Allow pass ARCH=riscv|riscv32|riscv64, riscv implies riscv64
+> > +ifneq ($(findstring xriscv,x$(ARCH)),)
+> > +  CONFIG_32BIT := $(if $(findstring 32x,$(ARCH)x),1)
+> > +  override ARCH := riscv
+> > +endif
+> > +
+> >  # kernel image names by architecture
+> >  IMAGE_i386       = arch/x86/boot/bzImage
+> >  IMAGE_x86_64     = arch/x86/boot/bzImage
+> > @@ -34,7 +40,7 @@ DEFCONFIG_x86        = defconfig
+> >  DEFCONFIG_arm64      = defconfig
+> >  DEFCONFIG_arm        = multi_v7_defconfig
+> >  DEFCONFIG_mips       = malta_defconfig
+> > -DEFCONFIG_riscv      = defconfig
+> > +DEFCONFIG_riscv      = $(if $(CONFIG_32BIT),rv32_defconfig,defconfig)
+> >  DEFCONFIG_s390       = defconfig
+> >  DEFCONFIG_loongarch  = defconfig
+> >  DEFCONFIG            = $(DEFCONFIG_$(ARCH))
+> > @@ -49,7 +55,7 @@ QEMU_ARCH_x86        = x86_64
+> >  QEMU_ARCH_arm64      = aarch64
+> >  QEMU_ARCH_arm        = arm
+> >  QEMU_ARCH_mips       = mipsel  # works with malta_defconfig
+> > -QEMU_ARCH_riscv      = riscv64
+> > +QEMU_ARCH_riscv      = $(if $(CONFIG_32BIT),riscv32,riscv64)
+> >  QEMU_ARCH_s390       = s390x
+> >  QEMU_ARCH_loongarch  = loongarch64
+> >  QEMU_ARCH            = $(QEMU_ARCH_$(ARCH))
+> > @@ -76,6 +82,7 @@ else
+> >  Q=@
+> >  endif
+> >  
+> > +CFLAGS_riscv = $(if $(CONFIG_32BIT),-march=rv32i -mabi=ilp32)
+> >  CFLAGS_s390 = -m64
+> >  CFLAGS_STACKPROTECTOR ?= $(call cc-option,-mstack-protector-guard=global $(call cc-option,-fstack-protector-all))
+> >  CFLAGS  ?= -Os -fno-ident -fno-asynchronous-unwind-tables -std=c89 \
+> > -- 
+> > 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
