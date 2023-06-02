@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C37DC7EE31
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 07:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E374AC7EE24
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 07:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kE8hBTE2exzOfXvlJTQ+3jg/lnW/YpLFDghpf0esYpI=; b=ZVYLPB7gQIEZy2
-	i8shrX5taOjp2MG3dRGImXsoBog3fvYcbDvSDjpYsr3uxVAUNM8V1gp7Z0f8RSk5WKPZjKGMaDW6h
-	0kwtER5qWuXcEqZTbAKSIPafX4FmlsUtJHVLwHkQKFWIy4xeAsbQwmSBkj7XjE1l7nK/EsyqzS72Z
-	B292psER8ai8ehNAway5iTiA0wDHsedkwB8AAhDS7wbPJ2YkgkhD4E8OUfjfPNw+TUXJNXzyPelW5
-	YjxB+/gpwYT4znCsAe9b5laqtY4TJb1ONThDFhWCiOld2fsztv0wU1HFhvrFlV9IqEbo1sEprsDCR
-	WYYqkkYwEreHmxERRw0w==;
+	List-Owner; bh=qR8sEipL+8h1OZCb/ZkmCwA4yM/g1i1ohekLUd0cnzc=; b=xKYtR6AATHUpuK
+	MkLGa0CDpajCuN35e4ytBtpOj3117/iYpgtaXc9wiOukNJLEfDC1p0lyGI6Gdcs/l47GNlEq55dTI
+	MbxsCc5GKey+zLZIB69salMXmNypjcI6CyNayz9XDoadFG07U22DShdBxtr0FWMDS7NCBQzvnWNnG
+	ZU3P3oCOK546uAULZnQX8sbaJ/7SfrHk5ir+J280do9f85SyuSijb5Yi0NRxV9htfazJ1dJ+uk778
+	9gUNGr8YF1UB6RjAm+q2uU2Dp8pZ4sGND9kol7lnHcqLIegLJJDvka4J7xYe8maDdlx9YYECz2RyC
+	NEDudKiz/TQP6egT5UAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4zPn-0062PH-1U;
-	Fri, 02 Jun 2023 07:41:39 +0000
+	id 1q4zPy-0062VF-2q;
+	Fri, 02 Jun 2023 07:41:50 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4zPi-0062G3-2N
+	id 1q4zPv-0062NY-0x
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 07:41:37 +0000
+	Fri, 02 Jun 2023 07:41:49 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B3FAB80F3;
-	Fri,  2 Jun 2023 15:40:47 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7D9A48116;
+	Fri,  2 Jun 2023 15:40:49 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 15:40:47 +0800
+ 2023 15:40:49 +0800
 Received: from xiaofei.localdomain (180.164.60.184) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 15:40:46 +0800
+ 2023 15:40:48 +0800
 From: Keith Zhao <keith.zhao@starfivetech.com>
 To: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
@@ -57,9 +57,9 @@ CC: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, "Rob
 	<keith.zhao@starfivetech.com>, Jack Zhu <jack.zhu@starfivetech.com>,
 	Shengyang Chen <shengyang.chen@starfivetech.com>, Changhuang Liang
 	<changhuang.liang@starfivetech.com>
-Subject: [PATCH 1/9] dt-bindings: display: Add yamls for JH7110 display subsystem
-Date: Fri, 2 Jun 2023 15:40:35 +0800
-Message-ID: <20230602074043.33872-2-keith.zhao@starfivetech.com>
+Subject: [PATCH 6/9] drm/verisilicon: Add drm crtc funcs
+Date: Fri, 2 Jun 2023 15:40:40 +0800
+Message-ID: <20230602074043.33872-7-keith.zhao@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230602074043.33872-1-keith.zhao@starfivetech.com>
 References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
@@ -69,8 +69,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_004135_718881_89AE8D9F 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20230602_004147_785647_58FD7571 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,316 +87,583 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add bindings for JH7110 display subsystem which
-has a display controller verisilicon dc8200
-and an HDMI interface.
+Add crtc driver which implements crtc related operation functions.
 
 Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
 ---
- .../display/verisilicon/starfive-hdmi.yaml    |  93 +++++++++++++++
- .../display/verisilicon/verisilicon-dc.yaml   | 110 ++++++++++++++++++
- .../display/verisilicon/verisilicon-drm.yaml  |  42 +++++++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- MAINTAINERS                                   |   7 ++
- 5 files changed, 254 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/verisilicon/starfive-hdmi.yaml
- create mode 100644 Documentation/devicetree/bindings/display/verisilicon/verisilicon-dc.yaml
- create mode 100644 Documentation/devicetree/bindings/display/verisilicon/verisilicon-drm.yaml
+ drivers/gpu/drm/verisilicon/Makefile  |   1 +
+ drivers/gpu/drm/verisilicon/vs_crtc.c | 388 ++++++++++++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_crtc.h |  74 +++++
+ drivers/gpu/drm/verisilicon/vs_type.h |  72 +++++
+ 4 files changed, 535 insertions(+)
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_crtc.h
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_type.h
 
-diff --git a/Documentation/devicetree/bindings/display/verisilicon/starfive-hdmi.yaml b/Documentation/devicetree/bindings/display/verisilicon/starfive-hdmi.yaml
-new file mode 100644
-index 000000000000..c30b7954a355
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/verisilicon/starfive-hdmi.yaml
-@@ -0,0 +1,93 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/verisilicon/starfive-hdmi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive HDMI transmiter
-+
-+description:
-+  The StarFive SoC uses the HDMI signal transmiter based on innosilicon IP
-+  to generate HDMI signal from its input and transmit the signal to the screen.
-+
-+maintainers:
-+  - Keith Zhao <keith.zhao@starfivetech.com>
-+  - ShengYang Chen <shengyang.chen@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    const: starfive,hdmi
-+
-+  reg:
-+    minItems: 1
-+
-+  interrupts:
-+    items:
-+      - description: The HDMI hot plug detection interrupt.
-+
-+  clocks:
-+    items:
-+      - description: System clock of HDMI module.
-+      - description: Mclk clock of HDMI audio.
-+      - description: Bclk clock of HDMI audio.
-+      - description: Pixel clock generated by HDMI module.
-+
-+  clock-names:
-+    items:
-+      - const: sysclk
-+      - const: mclk
-+      - const: bclk
-+      - const: pclk
-+
-+  resets:
-+    items:
-+      - description: Reset for HDMI module.
-+
-+  reset-names:
-+    items:
-+      - const: hdmi_tx
-+
-+  '#sound-dai-cells':
-+    const: 0
-+
-+  port:
-+    $ref: /schemas/graph.yaml#/properties/port
-+    description:
-+      Port node with one endpoint connected to a display connector node.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - '#sound-dai-cells'
-+  - port
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    hdmi: hdmi@29590000 {
-+      compatible = "starfive,hdmi";
-+      reg = <0x29590000 0x4000>;
-+      interrupts = <99>;
-+      clocks = <&voutcrg 17>,
-+               <&voutcrg 15>,
-+               <&voutcrg 16>,
-+               <&hdmitx0_pixelclk>;
-+      clock-names = "sysclk", "mclk","bclk","pclk";
-+      resets = <&voutcrg 9>;
-+      reset-names = "hdmi_tx";
-+      #sound-dai-cells = <0>;
-+      hdmi_in: port {
-+          #address-cells = <1>;
-+          #size-cells = <0>;
-+          hdmi_input: endpoint@0 {
-+            reg = <0>;
-+            remote-endpoint = <&dc_out_dpi0>;
-+          };
-+      };
-+    };
-diff --git a/Documentation/devicetree/bindings/display/verisilicon/verisilicon-dc.yaml b/Documentation/devicetree/bindings/display/verisilicon/verisilicon-dc.yaml
-new file mode 100644
-index 000000000000..1322502c4cde
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/verisilicon/verisilicon-dc.yaml
-@@ -0,0 +1,110 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/verisilicon/verisilicon-dc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive display controller
-+
-+description:
-+  The StarFive SoC uses the display controller based on Verisilicon IP
-+  to transfer the image data from a video memory
-+  buffer to an external LCD interface.
-+
-+maintainers:
-+  - Keith Zhao <keith.zhao@starfivetech.com>
-+  - ShengYang Chen <shengyang.chen@starfivetech.com>
-+
-+properties:
-+  compatible:
-+    const: verisilicon,dc8200
-+
-+  reg:
-+    maxItems: 3
-+
-+  interrupts:
-+    items:
-+      - description: The interrupt will be generated when DC finish one frame
-+
-+  clocks:
-+    items:
-+      - description: Clock for display system noc bus.
-+      - description: Pixel clock for display channel 0.
-+      - description: Pixel clock for display channel 1.
-+      - description: Clock for axi interface of display controller.
-+      - description: Core clock for display controller.
-+      - description: Clock for ahb interface of display controller.
-+      - description: External HDMI pixel clock.
-+      - description: Parent clock for pixel clock
-+
-+  clock-names:
-+    items:
-+      - const: clk_vout_noc_disp
-+      - const: clk_vout_pix0
-+      - const: clk_vout_pix1
-+      - const: clk_vout_axi
-+      - const: clk_vout_core
-+      - const: clk_vout_vout_ahb
-+      - const: hdmitx0_pixel
-+      - const: clk_vout_dc8200
-+
-+  resets:
-+    items:
-+      - description: Reset for axi interface of display controller.
-+      - description: Reset for ahb interface of display controller.
-+      - description: Core reset of display controller.
-+
-+  reset-names:
-+    items:
-+      - const: rst_vout_axi
-+      - const: rst_vout_ahb
-+      - const: rst_vout_core
-+
-+  port:
-+    $ref: /schemas/graph.yaml#/properties/port
-+    description:
-+      Port node with one endpoint connected to a hdmi node.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - port
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    dc8200: dc8200@29400000 {
-+      compatible = "verisilicon,dc8200";
-+      reg = <0x29400000 0x100>,
-+            <0x29400800 0x2000>,
-+            <0x295B0000 0x90>;
-+      interrupts = <95>;
-+      clocks = <&syscrg 60>,
-+               <&voutcrg 7>,
-+               <&voutcrg 8>,
-+               <&voutcrg 4>,
-+               <&voutcrg 5>,
-+               <&voutcrg 6>,
-+               <&hdmitx0_pixelclk>,
-+               <&voutcrg 1>;
-+      clock-names = "clk_vout_noc_disp", "clk_vout_pix0", "clk_vout_pix1", "clk_vout_axi",
-+                    "clk_vout_core", "clk_vout_vout_ahb", "hdmitx0_pixel","clk_vout_dc8200";
-+      resets = <&voutcrg 0>,
-+               <&voutcrg 1>,
-+               <&voutcrg 2>;
-+      reset-names = "rst_vout_axi","rst_vout_ahb","rst_vout_core";
-+      dc_out: port {
-+          #address-cells = <1>;
-+          #size-cells = <0>;
-+          dc_out_dpi0: endpoint@0 {
-+              reg = <0>;
-+              remote-endpoint = <&hdmi_input>;
-+          };
-+      };
-+    };
-diff --git a/Documentation/devicetree/bindings/display/verisilicon/verisilicon-drm.yaml b/Documentation/devicetree/bindings/display/verisilicon/verisilicon-drm.yaml
-new file mode 100644
-index 000000000000..aed8d4af2c55
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/verisilicon/verisilicon-drm.yaml
-@@ -0,0 +1,42 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/verisilicon/verisilicon-drm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Verisilicon DRM master device
-+
-+maintainers:
-+  - Keith Zhao <keith.zhao@starfivetech.com>
-+  - ShengYang Chen <shengyang.chen@starfivetech.com>
-+
-+description: |
-+  The Verisilicon DRM master device is a virtual device needed to list all
-+  display controller or other display interface nodes that comprise the
-+  graphics subsystem.
-+
-+properties:
-+  compatible:
-+    const: verisilicon,display-subsystem
-+
-+  ports:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      maxItems: 1
-+    description: |
-+      Should contain a list of phandles pointing to display interface ports
-+      of display controller devices. Display controller definitions as defined in
-+      Documentation/devicetree/bindings/display/verisilicon/verisilicon-dc.yaml
-+
-+required:
-+  - compatible
-+  - ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    display-subsystem {
-+        compatible = "verisilicon,display-subsystem";
-+        ports = <&dc_out>;
-+    };
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 82d39ab0231b..52c04fd098be 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1436,6 +1436,8 @@ patternProperties:
-     description: Variscite Ltd.
-   "^vdl,.*":
-     description: Van der Laan b.v.
-+  "^verisilicon,.*":
-+    description: Verisilicon Technologies, Inc.
-   "^vertexcom,.*":
-     description: Vertexcom Technologies, Inc.
-   "^via,.*":
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2a0496448b7f..293aa13d484c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -7049,6 +7049,13 @@ F:	Documentation/devicetree/bindings/display/brcm,bcm2835-*.yaml
- F:	drivers/gpu/drm/vc4/
- F:	include/uapi/drm/vc4_drm.h
+diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
+index 38254dc5d98d..bae5fbab9bbb 100644
+--- a/drivers/gpu/drm/verisilicon/Makefile
++++ b/drivers/gpu/drm/verisilicon/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
  
-+DRM DRIVERS FOR VERISILICON
-+M:	Keith Zhao <keith.zhao@starfivetech.com>
-+L:	dri-devel@lists.freedesktop.org
-+S:	Maintained
-+T:	git git://anongit.freedesktop.org/drm/drm-misc
-+F:	Documentation/devicetree/bindings/display/verisilicon/
+ vs_drm-objs := vs_drv.o \
++		vs_crtc.o \
+ 		vs_fb.o \
+ 		vs_gem.o
+ 
+diff --git a/drivers/gpu/drm/verisilicon/vs_crtc.c b/drivers/gpu/drm/verisilicon/vs_crtc.c
+new file mode 100644
+index 000000000000..a9e742d7bd1a
+--- /dev/null
++++ b/drivers/gpu/drm/verisilicon/vs_crtc.c
+@@ -0,0 +1,388 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
++ *
++ */
 +
- DRM DRIVERS FOR VIVANTE GPU IP
- M:	Lucas Stach <l.stach@pengutronix.de>
- R:	Russell King <linux+etnaviv@armlinux.org.uk>
++#include <linux/clk.h>
++#include <linux/debugfs.h>
++#include <linux/media-bus-format.h>
++
++#include <drm/drm_atomic_helper.h>
++#include <drm/drm_atomic.h>
++#include <drm/drm_crtc.h>
++#include <drm/drm_gem_atomic_helper.h>
++#include <drm/drm_vblank.h>
++#include <drm/vs_drm.h>
++
++#include "vs_crtc.h"
++
++void vs_crtc_destroy(struct drm_crtc *crtc)
++{
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++
++	drm_crtc_cleanup(crtc);
++	kfree(vs_crtc);
++}
++
++static void vs_crtc_reset(struct drm_crtc *crtc)
++{
++	struct vs_crtc_state *state;
++
++	if (crtc->state) {
++		__drm_atomic_helper_crtc_destroy_state(crtc->state);
++
++		state = to_vs_crtc_state(crtc->state);
++		kfree(state);
++		crtc->state = NULL;
++	}
++
++	state = kzalloc(sizeof(*state), GFP_KERNEL);
++	if (!state)
++		return;
++
++	__drm_atomic_helper_crtc_reset(crtc, &state->base);
++
++	state->sync_mode = VS_SINGLE_DC;
++	state->output_fmt = MEDIA_BUS_FMT_RBG888_1X24;
++	state->encoder_type = DRM_MODE_ENCODER_NONE;
++}
++
++static struct drm_crtc_state *
++vs_crtc_atomic_duplicate_state(struct drm_crtc *crtc)
++{
++	struct vs_crtc_state *ori_state;
++	struct vs_crtc_state *state;
++
++	if (WARN_ON(!crtc->state))
++		return NULL;
++
++	ori_state = to_vs_crtc_state(crtc->state);
++	state = kzalloc(sizeof(*state), GFP_KERNEL);
++	if (!state)
++		return NULL;
++
++	__drm_atomic_helper_crtc_duplicate_state(crtc, &state->base);
++
++	state->sync_mode = ori_state->sync_mode;
++	state->output_fmt = ori_state->output_fmt;
++	state->encoder_type = ori_state->encoder_type;
++	state->bg_color = ori_state->bg_color;
++	state->bpp = ori_state->bpp;
++	state->sync_enable = ori_state->sync_enable;
++	state->dither_enable = ori_state->dither_enable;
++	state->underflow = ori_state->underflow;
++
++	return &state->base;
++}
++
++static void vs_crtc_atomic_destroy_state(struct drm_crtc *crtc,
++					 struct drm_crtc_state *state)
++{
++	__drm_atomic_helper_crtc_destroy_state(state);
++	kfree(to_vs_crtc_state(state));
++}
++
++static int vs_crtc_atomic_set_property(struct drm_crtc *crtc,
++				       struct drm_crtc_state *state,
++				       struct drm_property *property,
++				       uint64_t val)
++{
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++	struct vs_crtc_state *vs_crtc_state = to_vs_crtc_state(state);
++
++	if (property == vs_crtc->sync_mode)
++		vs_crtc_state->sync_mode = val;
++	else if (property == vs_crtc->mmu_prefetch)
++		vs_crtc_state->mmu_prefetch = val;
++	else if (property == vs_crtc->bg_color)
++		vs_crtc_state->bg_color = val;
++	else if (property == vs_crtc->panel_sync)
++		vs_crtc_state->sync_enable = val;
++	else if (property == vs_crtc->dither)
++		vs_crtc_state->dither_enable = val;
++	else
++		return -EINVAL;
++
++	return 0;
++}
++
++static int vs_crtc_atomic_get_property(struct drm_crtc *crtc,
++				       const struct drm_crtc_state *state,
++				       struct drm_property *property,
++				       uint64_t *val)
++{
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++	const struct vs_crtc_state *vs_crtc_state =
++		container_of(state, const struct vs_crtc_state, base);
++
++	if (property == vs_crtc->sync_mode)
++		*val = vs_crtc_state->sync_mode;
++	else if (property == vs_crtc->mmu_prefetch)
++		*val = vs_crtc_state->mmu_prefetch;
++	else if (property == vs_crtc->bg_color)
++		*val = vs_crtc_state->bg_color;
++	else if (property == vs_crtc->panel_sync)
++		*val = vs_crtc_state->sync_enable;
++	else if (property == vs_crtc->dither)
++		*val = vs_crtc_state->dither_enable;
++	else
++		return -EINVAL;
++
++	return 0;
++}
++
++static int vs_crtc_late_register(struct drm_crtc *crtc)
++{
++	return 0;
++}
++
++static int vs_crtc_enable_vblank(struct drm_crtc *crtc)
++{
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++
++	vs_crtc->funcs->enable_vblank(vs_crtc->dev, true);
++
++	return 0;
++}
++
++static void vs_crtc_disable_vblank(struct drm_crtc *crtc)
++{
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++
++	vs_crtc->funcs->enable_vblank(vs_crtc->dev, false);
++}
++
++static const struct drm_crtc_funcs vs_crtc_funcs = {
++	.set_config		= drm_atomic_helper_set_config,
++	.destroy		= vs_crtc_destroy,
++	.page_flip		= drm_atomic_helper_page_flip,
++	.reset			= vs_crtc_reset,
++	.atomic_duplicate_state = vs_crtc_atomic_duplicate_state,
++	.atomic_destroy_state	= vs_crtc_atomic_destroy_state,
++	.atomic_set_property	= vs_crtc_atomic_set_property,
++	.atomic_get_property	= vs_crtc_atomic_get_property,
++	.late_register		= vs_crtc_late_register,
++	.enable_vblank		= vs_crtc_enable_vblank,
++	.disable_vblank		= vs_crtc_disable_vblank,
++};
++
++static u8 cal_pixel_bits(u32 bus_format)
++{
++	u8 bpp;
++
++	switch (bus_format) {
++	case MEDIA_BUS_FMT_RGB565_1X16:
++	case MEDIA_BUS_FMT_UYVY8_1X16:
++		bpp = 16;
++		break;
++	case MEDIA_BUS_FMT_RGB666_1X18:
++	case MEDIA_BUS_FMT_RGB666_1X24_CPADHI:
++		bpp = 18;
++		break;
++	case MEDIA_BUS_FMT_UYVY10_1X20:
++		bpp = 20;
++		break;
++	case MEDIA_BUS_FMT_BGR888_1X24:
++	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
++	case MEDIA_BUS_FMT_YUV8_1X24:
++		bpp = 24;
++		break;
++	case MEDIA_BUS_FMT_RGB101010_1X30:
++	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
++	case MEDIA_BUS_FMT_YUV10_1X30:
++		bpp = 30;
++		break;
++	default:
++		bpp = 24;
++		break;
++	}
++
++	return bpp;
++}
++
++static bool vs_crtc_mode_fixup(struct drm_crtc *crtc,
++			       const struct drm_display_mode *mode,
++			       struct drm_display_mode *adjusted_mode)
++{
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++
++	return vs_crtc->funcs->mode_fixup(vs_crtc->dev, mode, adjusted_mode);
++}
++
++static void vs_crtc_atomic_enable(struct drm_crtc *crtc,
++				  struct drm_atomic_state *state)
++{
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++	struct vs_crtc_state *vs_crtc_state = to_vs_crtc_state(crtc->state);
++
++	vs_crtc_state->bpp = cal_pixel_bits(vs_crtc_state->output_fmt);
++
++	vs_crtc->funcs->enable(vs_crtc->dev, crtc);
++	drm_crtc_vblank_on(crtc);
++}
++
++static void vs_crtc_atomic_disable(struct drm_crtc *crtc,
++				   struct drm_atomic_state *state)
++{
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++
++	drm_crtc_vblank_off(crtc);
++
++	vs_crtc->funcs->disable(vs_crtc->dev, crtc);
++
++	if (crtc->state->event && !crtc->state->active) {
++		spin_lock_irq(&crtc->dev->event_lock);
++		drm_crtc_send_vblank_event(crtc, crtc->state->event);
++		spin_unlock_irq(&crtc->dev->event_lock);
++
++		crtc->state->event = NULL;
++	}
++}
++
++static void vs_crtc_atomic_begin(struct drm_crtc *crtc,
++				 struct drm_atomic_state *state)
++{
++	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(state,
++									  crtc);
++
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++	struct device *dev = vs_crtc->dev;
++	struct drm_property_blob *blob = crtc->state->gamma_lut;
++	struct drm_color_lut *lut;
++
++	if (crtc_state->color_mgmt_changed) {
++		if (blob && blob->length) {
++			lut = blob->data;
++			vs_crtc->funcs->set_gamma(dev, crtc, lut,
++						  blob->length / sizeof(*lut));
++			vs_crtc->funcs->enable_gamma(dev, crtc, true);
++		} else {
++			vs_crtc->funcs->enable_gamma(dev, crtc, false);
++		}
++	}
++}
++
++static void vs_crtc_atomic_flush(struct drm_crtc *crtc,
++				 struct drm_atomic_state *state)
++{
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++	struct drm_pending_vblank_event *event = crtc->state->event;
++
++	vs_crtc->funcs->commit(vs_crtc->dev);
++
++	if (event) {
++		WARN_ON(drm_crtc_vblank_get(crtc) != 0);
++
++		spin_lock_irq(&crtc->dev->event_lock);
++		drm_crtc_arm_vblank_event(crtc, event);
++		spin_unlock_irq(&crtc->dev->event_lock);
++		crtc->state->event = NULL;
++	}
++}
++
++static const struct drm_crtc_helper_funcs vs_crtc_helper_funcs = {
++	.mode_fixup = vs_crtc_mode_fixup,
++	.atomic_enable	= vs_crtc_atomic_enable,
++	.atomic_disable = vs_crtc_atomic_disable,
++	.atomic_begin	= vs_crtc_atomic_begin,
++	.atomic_flush	= vs_crtc_atomic_flush,
++};
++
++static const struct drm_prop_enum_list vs_sync_mode_enum_list[] = {
++	{ VS_SINGLE_DC,			"single dc mode" },
++	{ VS_MULTI_DC_PRIMARY,		"primary dc for multi dc mode" },
++	{ VS_MULTI_DC_SECONDARY,	"secondary dc for multi dc mode" },
++};
++
++struct vs_crtc *vs_crtc_create(struct drm_device *drm_dev,
++			       struct vs_dc_info *info)
++{
++	struct vs_crtc *crtc;
++	int ret;
++
++	if (!info)
++		return NULL;
++
++	crtc = kzalloc(sizeof(*crtc), GFP_KERNEL);
++	if (!crtc)
++		return NULL;
++
++	ret = drm_crtc_init_with_planes(drm_dev, &crtc->base,
++					NULL, NULL, &vs_crtc_funcs,
++					info->name ? info->name : NULL);
++	if (ret)
++		goto err_free_crtc;
++
++	drm_crtc_helper_add(&crtc->base, &vs_crtc_helper_funcs);
++
++	/* Set up the crtc properties */
++	if (info->pipe_sync) {
++		crtc->sync_mode = drm_property_create_enum(drm_dev, 0,
++							   "SYNC_MODE",
++							    vs_sync_mode_enum_list,
++							    ARRAY_SIZE(vs_sync_mode_enum_list));
++
++		if (!crtc->sync_mode)
++			goto err_cleanup_crts;
++
++		drm_object_attach_property(&crtc->base.base,
++					   crtc->sync_mode,
++					   VS_SINGLE_DC);
++	}
++
++	if (info->gamma_size) {
++		ret = drm_mode_crtc_set_gamma_size(&crtc->base,
++						   info->gamma_size);
++		if (ret)
++			goto err_cleanup_crts;
++
++		drm_crtc_enable_color_mgmt(&crtc->base, 0, false,
++					   info->gamma_size);
++	}
++
++	if (info->background) {
++		crtc->bg_color = drm_property_create_range(drm_dev, 0,
++							   "BG_COLOR", 0, 0xffffffff);
++
++		if (!crtc->bg_color)
++			goto err_cleanup_crts;
++
++		drm_object_attach_property(&crtc->base.base, crtc->bg_color, 0);
++	}
++
++	if (info->panel_sync) {
++		crtc->panel_sync = drm_property_create_bool(drm_dev, 0, "SYNC_ENABLED");
++
++		if (!crtc->panel_sync)
++			goto err_cleanup_crts;
++
++		drm_object_attach_property(&crtc->base.base, crtc->panel_sync, 0);
++	}
++
++	crtc->dither = drm_property_create_bool(drm_dev, 0, "DITHER_ENABLED");
++	if (!crtc->dither)
++		goto err_cleanup_crts;
++
++	drm_object_attach_property(&crtc->base.base, crtc->dither, 0);
++
++	crtc->max_bpc = info->max_bpc;
++	crtc->color_formats = info->color_formats;
++	return crtc;
++
++err_cleanup_crts:
++	drm_crtc_cleanup(&crtc->base);
++
++err_free_crtc:
++	kfree(crtc);
++	return NULL;
++}
++
++void vs_crtc_handle_vblank(struct drm_crtc *crtc, bool underflow)
++{
++	struct vs_crtc_state *vs_crtc_state = to_vs_crtc_state(crtc->state);
++
++	drm_crtc_handle_vblank(crtc);
++
++	vs_crtc_state->underflow = underflow;
++}
+diff --git a/drivers/gpu/drm/verisilicon/vs_crtc.h b/drivers/gpu/drm/verisilicon/vs_crtc.h
+new file mode 100644
+index 000000000000..33b3b14249ce
+--- /dev/null
++++ b/drivers/gpu/drm/verisilicon/vs_crtc.h
+@@ -0,0 +1,74 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
++ */
++
++#ifndef __VS_CRTC_H__
++#define __VS_CRTC_H__
++
++#include <drm/drm_crtc.h>
++#include <drm/drm_crtc_helper.h>
++
++#include "vs_type.h"
++
++struct vs_crtc_funcs {
++	void (*enable)(struct device *dev, struct drm_crtc *crtc);
++	void (*disable)(struct device *dev, struct drm_crtc *crtc);
++	bool (*mode_fixup)(struct device *dev,
++			   const struct drm_display_mode *mode,
++			   struct drm_display_mode *adjusted_mode);
++	void (*set_gamma)(struct device *dev, struct drm_crtc *crtc,
++			  struct drm_color_lut *lut, unsigned int size);
++	void (*enable_gamma)(struct device *dev, struct drm_crtc *crtc,
++			     bool enable);
++	void (*enable_vblank)(struct device *dev, bool enable);
++	void (*commit)(struct device *dev);
++};
++
++struct vs_crtc_state {
++	struct drm_crtc_state base;
++
++	u32 sync_mode;
++	u32 output_fmt;
++	u32 bg_color;
++	u8 encoder_type;
++	u8 mmu_prefetch;
++	u8 bpp;
++	bool sync_enable;
++	bool dither_enable;
++	bool underflow;
++};
++
++struct vs_crtc {
++	struct drm_crtc base;
++	struct device *dev;
++	struct drm_pending_vblank_event *event;
++	unsigned int max_bpc;
++	unsigned int color_formats; /* supported color format */
++
++	struct drm_property *sync_mode;
++	struct drm_property *mmu_prefetch;
++	struct drm_property *bg_color;
++	struct drm_property *panel_sync;
++	struct drm_property *dither;
++
++	const struct vs_crtc_funcs *funcs;
++};
++
++void vs_crtc_destroy(struct drm_crtc *crtc);
++
++struct vs_crtc *vs_crtc_create(struct drm_device *drm_dev,
++			       struct vs_dc_info *info);
++void vs_crtc_handle_vblank(struct drm_crtc *crtc, bool underflow);
++
++static inline struct vs_crtc *to_vs_crtc(struct drm_crtc *crtc)
++{
++	return container_of(crtc, struct vs_crtc, base);
++}
++
++static inline struct vs_crtc_state *
++to_vs_crtc_state(struct drm_crtc_state *state)
++{
++	return container_of(state, struct vs_crtc_state, base);
++}
++#endif /* __VS_CRTC_H__ */
+diff --git a/drivers/gpu/drm/verisilicon/vs_type.h b/drivers/gpu/drm/verisilicon/vs_type.h
+new file mode 100644
+index 000000000000..6f8db65a703d
+--- /dev/null
++++ b/drivers/gpu/drm/verisilicon/vs_type.h
+@@ -0,0 +1,72 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
++ */
++
++#ifndef __VS_TYPE_H__
++#define __VS_TYPE_H__
++
++#include <linux/version.h>
++
++#include <drm/drm_plane.h>
++#include <drm/drm_plane_helper.h>
++
++struct vs_plane_info {
++	const char *name;
++	u8 id;
++	enum drm_plane_type type;
++	unsigned int num_formats;
++	const u32 *formats;
++	u8 num_modifiers;
++	const u64 *modifiers;
++	unsigned int min_width;
++	unsigned int min_height;
++	unsigned int max_width;
++	unsigned int max_height;
++	unsigned int rotation;
++	unsigned int blend_mode;
++	unsigned int color_encoding;
++
++	/* 0 means no de-gamma LUT */
++	unsigned int degamma_size;
++
++	int min_scale; /* 16.16 fixed point */
++	int max_scale; /* 16.16 fixed point */
++
++	/* default zorder value,
++	 * and 255 means unsupported zorder capability
++	 */
++	u8	 zpos;
++
++	bool watermark;
++	bool color_mgmt;
++	bool roi;
++};
++
++struct vs_dc_info {
++	const char *name;
++
++	u8 panel_num;
++
++	/* planes */
++	u8 plane_num;
++	const struct vs_plane_info *planes;
++
++	u8 layer_num;
++	unsigned int max_bpc;
++	unsigned int color_formats;
++
++	/* 0 means no gamma LUT */
++	u16 gamma_size;
++	u8 gamma_bits;
++
++	u16 pitch_alignment;
++
++	bool pipe_sync;
++	bool mmu_prefetch;
++	bool background;
++	bool panel_sync;
++	bool cap_dec;
++};
++
++#endif /* __VS_TYPE_H__ */
 -- 
 2.34.1
 
