@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07390C7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 16:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2764EC77B7A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 16:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,74 +13,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=IFaNBLf4Gg0v3oxeTLXDszYDgxFz6iksM3Jw4R4Srys=; b=Yojanf7xUv7MeYNxxOR3ERIFzz
-	8ME1fSPec23CiyYBBFNlcy1jI2UVX8mGc20cGJ76U9X6+XYAJ4fBLYwAYXhP0WRA23vvmRIZr9SrS
-	jsEB9/l2p7rPVev9y9wflJaWerm1UsuhTa0yQ0wfkILS7yYHX0evDiTfKD5GlQs5HEjPlUffLt9NR
-	a8YrjD99sC5XzGAnIwo/HIJNz0BzknRUIL4L1pwoC3jx9ULZOG7e1RcBUzVS/9axiHg4k3lG3sNnk
-	I5ID6UNMljgOiD3BIO4mWkFupNeAfocGj4g+1KaF1+40BqTTi6iMpDRNprqnSE9RF2I+Q5WLiAzJh
-	qyR9b54g==;
+	bh=RYMbeVcN3YlyoVAaLwZYIi4Z6bZJ5YAtFP5NbNr4mLs=; b=fX9RtYIH7NTHC5vwsQe6Us7TE/
+	U8T5wk2lhg+OzhlqTnM28oyc4TRYzBB2hqPxi6RWLBr79g7Sp7J0KV8dobNPKjaF4H8DZi24Bpi2p
+	VQge4WyG86YKXBPI2EZYG5yXt/kRX7K4di5yG6iNf1uLvYbNVErmXBXRBJ2eq93npX6yNWgRiWFNz
+	eUHYIsh9LK7HQqBaYjDaXLjB/jYnHlPcSmCrkiLBndEdD1yjzI33xe64RrDuidZEX42jc9yzoHVI+
+	wHDE3dXl535bTb3kTUwdqxH8mgX811SUW4wAztK6cwVhQL9B6yAipLRUGh69AHqsxOBpPIcY7VgKH
+	5bVCZiVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57jb-007PiE-2d;
-	Fri, 02 Jun 2023 16:34:39 +0000
+	id 1q57jd-007Pjm-2M;
+	Fri, 02 Jun 2023 16:34:41 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57jZ-007Pfm-0e
+	id 1q57ja-007Pfm-1t
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 02 Jun 2023 16:34:37 +0000
+	Fri, 02 Jun 2023 16:34:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=pnaTvciscS5chSJrFdy/XWmGw+v5DL+sKG313yn6vtE=; b=gUEVHRPYwSH7E2XXV/RG8EwyJa
-	ZJaCbhkmz7FdMkvDfS5GylRo6F+gfk5TKWciU6rEryNXD/lMp4+ezgZc/uJJmTQBuTWUvQp8ws1iX
-	oHT26rpQ0TKYKX+sQOFkGxzUqVVjQVOLYhkijJDKEKxcQPb71Clcjh1+7x6nM3pXDUJ5vQwVH9o0R
-	AB4kIUTY3cTNuN6QNUCfYnU4buLVzrVa7rCtO7YjJbSFsG8RBTHW5vlZlfezd7CflqEaGU5Gp6hp4
-	zhcFL0fVmqKO1YiWMAKW3t39EeR2jJXsO/HdhcqO+yKtkhFuk2T0CY+W7tTN8w+LmjAwWJca0/Ofc
-	ezodFCqQ==;
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	bh=iiQKR5r12cEmfxEtqKB501qQ7U5/inaqlNqkSHrg1Dk=; b=tSXRJ6oqoXDv02Alp0HFidWh5F
+	7VzCmZU0NbnIeO9YTHMBQ5Uq/KFYFUOG+4303fEDV/JK9TL2PZ3IF9smQBWETTyNAGOjO1NwdqMRa
+	mAVfEuSZeD7Lv8JILo2GBkyEvW1Zq9HTm9RnLls5mt/izZo3p0iW4zVIWS08F4A1y+/kLtTy7AE98
+	7WHz+q4vAwCpLu8/0uzFDwppLX5BGs8LKwOLJjCBeZqTcFaAlpV3on/83+v+vtTnAsdl32mEtDCjm
+	Z+S8S8w6iA0FS1sCFnzRmPgjjOoL18h3TLiPuf3q1Co3shhqEf06G31Ha8OCvCC/WEvMwggd+YgsY
+	noy6o1ww==;
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1q57Lf-009Lnp-7K
-	for linux-riscv@lists.infradead.org; Fri, 02 Jun 2023 16:09:57 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-653d8974c49so170766b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 09:09:54 -0700 (PDT)
+	id 1q57LZ-009Lkc-Jq
+	for linux-riscv@lists.infradead.org; Fri, 02 Jun 2023 16:09:52 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-ba83a9779f3so3264030276.1
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 09:09:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1685722192; x=1688314192;
+        d=google.com; s=20221208; t=1685722186; x=1688314186;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pnaTvciscS5chSJrFdy/XWmGw+v5DL+sKG313yn6vtE=;
-        b=3qM+gPLnKOcFkte53nrFJ4yxYHfRvj6VAQ74elJ+qIzLMj97WYlQnMm+LRqHDvoho4
-         8AW7RUIjuOvTDqJRc6MGpLfknZTHUVt0ac+jf1e4fznmqTNQB1YeAez2Pbf+vu4gX/wo
-         xA9uw3YiFJ59xCiKuG3PqvgkOpwn1kfOyfDGnV3P6/41gfMjzqB9OHhb0wbZKNfck3ux
-         QuubqPWPIMr2dr+usJ/0oHW/nWAg0PkVCfHTFjYBlz4FbohVSt4JZLXej+/lCcVIkw51
-         dikq26nIlv8414HoG8qlckcW0gk8fed5eU7B/bJPELllDOCa6K4cYwpu/yZBPdgX/sdW
-         NMYg==
+        bh=iiQKR5r12cEmfxEtqKB501qQ7U5/inaqlNqkSHrg1Dk=;
+        b=pa3mVvglr9ldo0oASWJgWygRLd3hw8lG1pjLeB+Qzm3K3zOU5BQU88aja7wxcgPXwA
+         AwayadZx6shxLAXjuJFrDzlMtsvb67kGNUVBIz8jQ9pcx5Jd6BF7pMABQixgPuk47qo/
+         QPSMIrvsitPTIbIvBs3Unmlez10KGpvyazPz0vuoWxeM0ddu7MUX6bOpsZv5FX/RHsfI
+         ab0UhQ4BKG9ohwFpekgRN7rsQtHAtMFU2PEbvOsbX5+K7m399sRVLlUcmEJAu36XrUm4
+         MIK72o4Xoc2dnSjS77GyfH7dzmpmSt4gmenJO3sxGLvRMkP8fiKXjBjSppWa9vRlnGfd
+         FwPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685722192; x=1688314192;
+        d=1e100.net; s=20221208; t=1685722186; x=1688314186;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pnaTvciscS5chSJrFdy/XWmGw+v5DL+sKG313yn6vtE=;
-        b=IdqQ5n2LrWdE7SAK47lEgKVhBmD83JYlzAq025QuoPgvSE/z9SKnc/IDwqSezS7opM
-         KCg27KRX252CREOcuJLhsgYlV5EVvaYH+eKA6w/spNw4rKxwwUZ8D/wn9k5bfyW1eXJR
-         whfmTkUiabNohmB2YQl2JHP5KgxJJQHZ51nY+jycrVOjzIMhaUjLHUwKRDOELhA7WINa
-         lLVRhPfN5La7JPN4MuewIDpLKq/H4DrtGigMj/NzFm4PzGSIZjXmPcNSounAYWM2UDAh
-         Ltat8o+TBMNbZIfyBBH49bWLvLFNdAuB3ZApfRxHawAxYY9bdm1TYIX/2uyxRPWpkwtk
-         lxpw==
-X-Gm-Message-State: AC+VfDzsCq22GuKPGOTB/X+ZCdrh5a+ymb160pEYD7AsGKtKmXizpHvm
-	t9yTWiFLyvWOGsUULPtSQ1NOCIDVsgvO
-X-Google-Smtp-Source: ACHHUZ7CrgQcXBBk0scZtBwPutYqwQ0i1jeHWFv03iHedZStcHfAHgjqtsGQJinldbGkFtIY3nwdqwhDBsPu
+        bh=iiQKR5r12cEmfxEtqKB501qQ7U5/inaqlNqkSHrg1Dk=;
+        b=MZPKCuJXxvdWJSdxxMUnx3wTNg5cQGTMzGbztkfrDkBF7RZczQUO+tr2EJOtmz5//R
+         10BcwOeuLn8zzIZXExoBAllXlS7EeE8gQkEvNqfldHrLBKhivMyWPVWuSYx4lhPQ9gYM
+         cocE4TPAphUv+DtZlL+bv7h0EKPcYVXFkOCM8bEGUDjGf81JkexmrKctWZZMAzrXd3ix
+         5mz+zCIyhZAcn9kqpwTqTlNUP81ZcYnUVystIDCc7duGlgDpS5X23yhkGYcSn7mh+5pH
+         SpJdiHCLCgLvTm3Arm1IXMjrYub7SFeiGMRRYwEM4O0cdd8MZOQDxIr9tWcJ1xzUbB+t
+         4F8g==
+X-Gm-Message-State: AC+VfDyhgrpjSvJd9VYf143YVLPjWCXjbdWe9mvYC5xQV0Nk6jVZ20CZ
+	LB/OFxL9dhJiKQVR+WAqSCFettkprcRZ
+X-Google-Smtp-Source: ACHHUZ4B/VNE5B0Lzqq5kfdIQx5Z2vYuoQBh8/63RZRhZfWL9mTILlGstZ7p9kQje0NOJUJPGy2sE9Fs2xL/
 X-Received: from vipin.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:479f])
- (user=vipinsh job=sendgmr) by 2002:a05:6a00:2e1a:b0:64f:9e1b:d4a8 with SMTP
- id fc26-20020a056a002e1a00b0064f9e1bd4a8mr4922796pfb.1.1685722192061; Fri, 02
- Jun 2023 09:09:52 -0700 (PDT)
-Date: Fri,  2 Jun 2023 09:09:14 -0700
+ (user=vipinsh job=sendgmr) by 2002:a05:6902:1545:b0:ba8:181b:2558 with SMTP
+ id r5-20020a056902154500b00ba8181b2558mr2255805ybu.4.1685722186031; Fri, 02
+ Jun 2023 09:09:46 -0700 (PDT)
+Date: Fri,  2 Jun 2023 09:09:11 -0700
 In-Reply-To: <20230602160914.4011728-1-vipinsh@google.com>
 Mime-Version: 1.0
 References: <20230602160914.4011728-1-vipinsh@google.com>
 X-Mailer: git-send-email 2.41.0.rc0.172.g3f132b7071-goog
-Message-ID: <20230602160914.4011728-17-vipinsh@google.com>
-Subject: [PATCH v2 16/16] KVM: arm64: Split huge pages during clear-dirty-log
- under MMU read lock
+Message-ID: <20230602160914.4011728-14-vipinsh@google.com>
+Subject: [PATCH v2 13/16] KVM: arm64: Run clear-dirty-log under MMU read lock
 From: Vipin Sharma <vipinsh@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -95,8 +94,9 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	Vipin Sharma <vipinsh@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_170955_270387_A2BE1CBF 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20230602_170949_698435_51116518 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,118 +113,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Split huge pages under MMU read lock instead of write when clearing
-dirty log.
+Take MMU read lock for clearing dirty logs and use shared page table
+walker.
 
-Running huge page split under read lock will unblock vCPUs execution and
-allow whole clear-dirty-log operation run parallelly to vCPUs.
+Dirty logs are currently cleared using MMU write locks. This
+means vCPUs page faults, which takes MMU read lock,  will
+be blocked while dirty logs are being cleared. This causes guest
+degradation and especially noticeable on VMs with lot of vCPUs.
 
-Note that splitting huge pages involves two walkers. First walker calls
-stage2_split_walker() callback on each huge page. This callback will call
-another walker which creates an unlinked page table. This commit makes
-first walker as shared page walker which means, -EAGAIN will be retried.
-Before this patch, -EAGAIN would have been ignored and walker would go
-to next huge page. In practice this would not happen as the first walker
-was holding MMU write lock. Inner walker is unchanged as it is working
-on unlinked page table so no other thread will have access to it.
-
-To improve confidence in correctness tested via dirty_log_test.
-
-To measure performance improvement tested via dirty_log_perf_test.
-
-Set up:
--------
-Host: ARM Ampere Altra host (64 CPUs, 256 GB memory and single NUMA
-      node)
-
-Test VM: 48 vCPU, 192 GB total memory.
-
-Ran dirty_log_perf_test for 400 iterations.
- ./dirty_log_perf_test -k 192G -v 48 -b 4G -m 2 -i 4000 -s anonymous_hugetlb_2mb -j
-
-Observation:
-------------
-
-+==================+=============================+===================+
-| Clear Chunk size | Clear dirty log time change | vCPUs improvement |
-+==================+=============================+===================+
-| 192GB            | 56%                         | 152%              |
-+------------------+-----------------------------+-------------------+
-| 1GB              | -81%                        | 72%               |
-+------------------+-----------------------------+-------------------+
-
-When larger chunks are used, clear dirty log time increases due to lots
-of cmpxchg() but vCPUs are also able to execute parallelly causing
-better performance of guest.
-
-When chunk size is small, read lock is very fast in clearing dirty logs
-as it is not waiting for MMU write lock and vCPUs are also able to run
-parallelly.
+Taking MMU read lock will allow vCPUs to execute parallelly and reduces
+the impact on vCPUs performance.
 
 Signed-off-by: Vipin Sharma <vipinsh@google.com>
 ---
- arch/arm64/kvm/mmu.c | 21 ++++++++++++++-------
- 1 file changed, 14 insertions(+), 7 deletions(-)
+ arch/arm64/kvm/mmu.c | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 6dd964e3682c..aa278f5d27a2 100644
+index 356dc4131023..7c966f6f1a41 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -126,7 +126,10 @@ static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
- 	int ret, cache_capacity;
- 	u64 next, chunk_size;
+@@ -74,8 +74,12 @@ static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
+ 		if (ret)
+ 			break;
  
--	lockdep_assert_held_write(&kvm->mmu_lock);
-+	if (flags & KVM_PGTABLE_WALK_SHARED)
-+		lockdep_assert_held_read(&kvm->mmu_lock);
-+	else
-+		lockdep_assert_held_write(&kvm->mmu_lock);
- 
- 	chunk_size = kvm->arch.mmu.split_page_chunk_size;
- 	cache_capacity = kvm_mmu_split_nr_page_tables(chunk_size);
-@@ -138,13 +141,19 @@ static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
- 
- 	do {
- 		if (need_split_memcache_topup_or_resched(kvm)) {
--			write_unlock(&kvm->mmu_lock);
+-		if (resched && next != end)
+-			cond_resched_rwlock_write(&kvm->mmu_lock);
++		if (resched && next != end) {
 +			if (flags & KVM_PGTABLE_WALK_SHARED)
-+				read_unlock(&kvm->mmu_lock);
++				cond_resched_rwlock_read(&kvm->mmu_lock);
 +			else
-+				write_unlock(&kvm->mmu_lock);
- 			cond_resched();
- 			/* Eager page splitting is best-effort. */
- 			ret = __kvm_mmu_topup_memory_cache(cache,
- 							   cache_capacity,
- 							   cache_capacity);
--			write_lock(&kvm->mmu_lock);
-+			if (flags & KVM_PGTABLE_WALK_SHARED)
-+				read_lock(&kvm->mmu_lock);
-+			else
-+				write_lock(&kvm->mmu_lock);
- 			if (ret)
- 				break;
- 		}
-@@ -1139,9 +1148,7 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
++				cond_resched_rwlock_write(&kvm->mmu_lock);
++		}
+ 	} while (addr = next, addr != end);
  
- 	read_lock(&kvm->mmu_lock);
- 	stage2_wp_range(&kvm->arch.mmu, start, end, KVM_PGTABLE_WALK_SHARED);
--	read_unlock(&kvm->mmu_lock);
+ 	return ret;
+@@ -1131,11 +1135,11 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 	phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
+ 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
  
 -	write_lock(&kvm->mmu_lock);
+-	lockdep_assert_held_write(&kvm->mmu_lock);
+-
+-	stage2_wp_range(&kvm->arch.mmu, start, end, 0);
++	read_lock(&kvm->mmu_lock);
++	stage2_wp_range(&kvm->arch.mmu, start, end, KVM_PGTABLE_WALK_SHARED);
++	read_unlock(&kvm->mmu_lock);
+ 
++	write_lock(&kvm->mmu_lock);
  	/*
  	 * Eager-splitting is done when manual-protect is set.  We
  	 * also check for initially-all-set because we can avoid
-@@ -1151,8 +1158,8 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 	 * again.
- 	 */
- 	if (kvm_dirty_log_manual_protect_and_init_set(kvm))
--		kvm_mmu_split_huge_pages(kvm, start, end, 0);
--	write_unlock(&kvm->mmu_lock);
-+		kvm_mmu_split_huge_pages(kvm, start, end, KVM_PGTABLE_WALK_SHARED);
-+	read_unlock(&kvm->mmu_lock);
- }
- 
- static void kvm_send_hwpoison_signal(unsigned long address, short lsb)
 -- 
 2.41.0.rc0.172.g3f132b7071-goog
 
