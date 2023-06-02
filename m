@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6878DC7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 07:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82916C77B7A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 07:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kvSu2dj/GJZhGSCt+dtGNm/hS4P70bNxDrHZD7DoKgU=; b=ViqTWi0IbLxZe5
-	EmhzAq4wvltWlFTig/TCySyMS99UHuxySsavszkXoOQcm6REERKkFH0Ati9AG0uc6y5SDBSspuvbq
-	vU1Z+y1xH881l/94fOAu1aN3DqhVlKMQjJFWRTjaCAmBA8mbYHFsWb91qF2yq1JaCBJGHj9t0kyta
-	eIV97cdNtvFYnE2OvemWbJkUqMABf1nYwT7rc4EIxahMXlymFFKLbTETzxqmi7m15uhUVPHvb4iJJ
-	aRMZhkHQeXmlrbADclHWSyoUCn+WzRJ790W9zbM5TUHq4ikr7UXX/oz4AxVwh7ODuphS4Z9wkv4xM
-	UXpRngte6apSB+z0ew9A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=g9EQsh9INY+cNIZ4tC424BB++mN85gpG2Cb4kzIDxbA=; b=tsvrBJy72RcDJU
+	4XqWHmipULHrb1EIxBHlCanCOesjCVG3rMcFvw7XAG3PT5imAvU0o5mDR98Z0e7zM2wbjTWDM5fUa
+	WdHvfYuZ6bjwkEskugiNtLSM67BFO5kfK/IAgN5ud+jhVlksU1vrQeeHoKWvy7R38/fcquki1lvjo
+	rpZY9ZLF1Wv/fB1xWDyXhaofYgSPq7cCeV+uh2ZhAvkKZVLTLGx+eu/biinKsZGs5XoogAmNpsGS+
+	PeYDMClsfxQWT5PhzOahQHNYKKBpbIZ+sXEMvRxp3Ha0bc8aD+ptsZ1YGvxCCLe+yy3p2ZgVJxSMe
+	Nh0L9bpgIvAQIdVOKvMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4zDP-0060z8-22;
-	Fri, 02 Jun 2023 07:28:51 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4zDL-0060xb-1u
+	id 1q4zPa-0062Ja-0O;
+	Fri, 02 Jun 2023 07:41:26 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q4zPV-0062G2-1g
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 07:28:50 +0000
-Received: from localhost.localdomain (unknown [124.16.138.125])
-	by APP-03 (Coremail) with SMTP id rQCowACXnCz9mXlkmBV4CQ--.64630S2;
-	Fri, 02 Jun 2023 15:27:58 +0800 (CST)
-From: Jiasheng Jiang <jiasheng@iscas.ac.cn>
-To: andy.shevchenko@gmail.com
-Cc: linus.walleij@linaro.org,
-	brgl@bgdev.pl,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	linux-gpio@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jiasheng Jiang <jiasheng@iscas.ac.cn>
-Subject: [PATCH v2] gpio: sifive: Add missing check for platform_get_irq
-Date: Fri,  2 Jun 2023 15:27:55 +0800
-Message-Id: <20230602072755.7314-1-jiasheng@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Fri, 02 Jun 2023 07:41:24 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 13F9B8109;
+	Fri,  2 Jun 2023 15:40:49 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
+ 2023 15:40:49 +0800
+Received: from xiaofei.localdomain (180.164.60.184) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
+ 2023 15:40:48 +0800
+From: Keith Zhao <keith.zhao@starfivetech.com>
+To: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-media@vger.kernel.org>, <linaro-mm-sig@lists.linaro.org>
+CC: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	"Emil Renner Berthing" <kernel@esmil.dk>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Sumit Semwal <sumit.semwal@linaro.org>,
+	<christian.koenig@amd.com>, Bjorn Andersson <andersson@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, Shawn Guo <shawnguo@kernel.org>, Jagan Teki
+	<jagan@edgeble.ai>, Chris Morgan <macromorgan@hotmail.com>, Keith Zhao
+	<keith.zhao@starfivetech.com>, Jack Zhu <jack.zhu@starfivetech.com>,
+	Shengyang Chen <shengyang.chen@starfivetech.com>, Changhuang Liang
+	<changhuang.liang@starfivetech.com>
+Subject: [PATCH 5/9] drm/verisilicon: Add mode config funcs
+Date: Fri, 2 Jun 2023 15:40:39 +0800
+Message-ID: <20230602074043.33872-6-keith.zhao@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230602074043.33872-1-keith.zhao@starfivetech.com>
+References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowACXnCz9mXlkmBV4CQ--.64630S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7Gr17Ar4rAr43tryrWrW7Arb_yoWfXrX_Gw
-	1kZF43W3y09Fn8uFnFvrWayr92vFykWrn5urs3KFy3t3s8Z348uw4UXrs5ArnxWr17tFyU
-	Ga18uw4xAa13GjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbckFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
-	6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	xl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkIecxEwVAFwVW8
-	CwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r
-	1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij
-	64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr
-	0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF
-	0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUGhFxUUUUU=
-X-Originating-IP: [124.16.138.125]
-X-CM-SenderInfo: pmld2xxhqjqxpvfd2hldfou0/
+X-Originating-IP: [180.164.60.184]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_002847_991806_2B81BBEF 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20230602_004121_904205_6C465379 
+X-CRM114-Status: GOOD (  22.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,39 +87,261 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the missing check for platform_get_irq and return error code
-if it fails.
+Add mode setting functions for JH7110 SoC.
 
-Signed-off-by: Jiasheng Jiang <jiasheng@iscas.ac.cn>
+Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
 ---
-Changelog:
+ drivers/gpu/drm/verisilicon/Makefile |   1 +
+ drivers/gpu/drm/verisilicon/vs_drv.c |   3 +
+ drivers/gpu/drm/verisilicon/vs_fb.c  | 181 +++++++++++++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_fb.h  |  15 +++
+ 4 files changed, 200 insertions(+)
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_fb.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_fb.h
 
-v1 -> v2:
-
-1. Return "chip->irq_number[i]" instead of "-ENODEV".
----
- drivers/gpio/gpio-sifive.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/gpio/gpio-sifive.c b/drivers/gpio/gpio-sifive.c
-index 98939cd4a71e..7245000fb049 100644
---- a/drivers/gpio/gpio-sifive.c
-+++ b/drivers/gpio/gpio-sifive.c
-@@ -221,8 +221,11 @@ static int sifive_gpio_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 	}
+diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
+index 30360e370e47..38254dc5d98d 100644
+--- a/drivers/gpu/drm/verisilicon/Makefile
++++ b/drivers/gpu/drm/verisilicon/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
  
--	for (i = 0; i < ngpio; i++)
-+	for (i = 0; i < ngpio; i++) {
- 		chip->irq_number[i] = platform_get_irq(pdev, i);
-+		if (chip->irq_number[i] < 0)
-+			return chip->irq_number[i];
+ vs_drm-objs := vs_drv.o \
++		vs_fb.o \
+ 		vs_gem.o
+ 
+ obj-$(CONFIG_DRM_VERISILICON) += vs_drm.o
+diff --git a/drivers/gpu/drm/verisilicon/vs_drv.c b/drivers/gpu/drm/verisilicon/vs_drv.c
+index e0a2fc43b55f..d84aacd751bc 100644
+--- a/drivers/gpu/drm/verisilicon/vs_drv.c
++++ b/drivers/gpu/drm/verisilicon/vs_drv.c
+@@ -30,6 +30,7 @@
+ #include <drm/drm_vblank.h>
+ 
+ #include "vs_drv.h"
++#include "vs_fb.h"
+ #include "vs_gem.h"
+ 
+ #define DRV_NAME	"starfive"
+@@ -118,6 +119,8 @@ static int vs_drm_bind(struct device *dev)
+ 	if (ret)
+ 		goto err_mode;
+ 
++	vs_mode_config_init(drm_dev);
++
+ 	ret = drm_vblank_init(drm_dev, drm_dev->mode_config.num_crtc);
+ 	if (ret)
+ 		goto err_bind;
+diff --git a/drivers/gpu/drm/verisilicon/vs_fb.c b/drivers/gpu/drm/verisilicon/vs_fb.c
+new file mode 100644
+index 000000000000..3e85f7365084
+--- /dev/null
++++ b/drivers/gpu/drm/verisilicon/vs_fb.c
+@@ -0,0 +1,181 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
++ */
++
++#include <linux/module.h>
++#include <linux/version.h>
++
++#include <drm/drm_damage_helper.h>
++#include <drm/drm_fb_helper.h>
++#include <drm/drm_crtc.h>
++#include <drm/drm_crtc_helper.h>
++#include <drm/drm_fourcc.h>
++#include <drm/drm_framebuffer.h>
++#include <drm/drm_gem.h>
++#include <drm/drm_gem_framebuffer_helper.h>
++
++#include "vs_fb.h"
++#include "vs_gem.h"
++
++#define fourcc_mod_vs_get_type(val) \
++	(((val) & DRM_FORMAT_MOD_VS_TYPE_MASK) >> 54)
++
++static struct drm_framebuffer_funcs vs_fb_funcs = {
++	.create_handle	= drm_gem_fb_create_handle,
++	.destroy	= drm_gem_fb_destroy,
++	.dirty		= drm_atomic_helper_dirtyfb,
++};
++
++static struct drm_framebuffer *
++vs_fb_alloc(struct drm_device *dev, const struct drm_mode_fb_cmd2 *mode_cmd,
++	    struct vs_gem_object **obj, unsigned int num_planes)
++{
++	struct drm_framebuffer *fb;
++	int ret, i;
++
++	fb = kzalloc(sizeof(*fb), GFP_KERNEL);
++	if (!fb)
++		return ERR_PTR(-ENOMEM);
++
++	drm_helper_mode_fill_fb_struct(dev, fb, mode_cmd);
++
++	for (i = 0; i < num_planes; i++)
++		fb->obj[i] = &obj[i]->base;
++
++	ret = drm_framebuffer_init(dev, fb, &vs_fb_funcs);
++	if (ret) {
++		dev_err(dev->dev, "Failed to initialize framebuffer: %d\n",
++			ret);
++		kfree(fb);
++		return ERR_PTR(ret);
 +	}
- 
- 	ret = bgpio_init(&chip->gc, dev, 4,
- 			 chip->base + SIFIVE_GPIO_INPUT_VAL,
++
++	return fb;
++}
++
++static struct drm_framebuffer *vs_fb_create(struct drm_device *dev,
++					    struct drm_file *file_priv,
++					    const struct drm_mode_fb_cmd2 *mode_cmd)
++{
++	struct drm_framebuffer *fb;
++	const struct drm_format_info *info;
++	struct vs_gem_object *objs[MAX_NUM_PLANES];
++	struct drm_gem_object *obj;
++	unsigned int height, size;
++	unsigned char i, num_planes;
++	int ret = 0;
++
++	info = drm_get_format_info(dev, mode_cmd);
++	if (!info)
++		return ERR_PTR(-EINVAL);
++
++	num_planes = info->num_planes;
++	if (num_planes > MAX_NUM_PLANES)
++		return ERR_PTR(-EINVAL);
++
++	for (i = 0; i < num_planes; i++) {
++		obj = drm_gem_object_lookup(file_priv, mode_cmd->handles[i]);
++		if (!obj) {
++			dev_err(dev->dev, "Failed to lookup GEM object.\n");
++			ret = -ENXIO;
++			goto err;
++		}
++
++		height = drm_format_info_plane_height(info,
++						      mode_cmd->height, i);
++
++		size = height * mode_cmd->pitches[i] + mode_cmd->offsets[i];
++
++		if (obj->size < size) {
++			drm_gem_object_put(obj);
++
++			ret = -EINVAL;
++			goto err;
++		}
++
++		objs[i] = to_vs_gem_object(obj);
++	}
++
++	fb = vs_fb_alloc(dev, mode_cmd, objs, i);
++	if (IS_ERR(fb)) {
++		ret = PTR_ERR(fb);
++		goto err;
++	}
++
++	return fb;
++
++err:
++	for (; i > 0; i--)
++		drm_gem_object_put(&objs[i - 1]->base);
++
++	return ERR_PTR(ret);
++}
++
++struct vs_gem_object *vs_fb_get_gem_obj(struct drm_framebuffer *fb,
++					unsigned char plane)
++{
++	if (plane > MAX_NUM_PLANES)
++		return NULL;
++
++	return to_vs_gem_object(fb->obj[plane]);
++}
++
++static const struct drm_format_info vs_formats[] = {
++	{.format = DRM_FORMAT_NV12, .depth = 0, .num_planes = 2, .char_per_block = { 20, 40, 0 },
++	 .block_w = { 4, 4, 0 }, .block_h = { 4, 4, 0 }, .hsub = 2, .vsub = 2, .is_yuv = true},
++	{.format = DRM_FORMAT_YUV444, .depth = 0, .num_planes = 3, .char_per_block = { 20, 20, 20 },
++	 .block_w = { 4, 4, 4 }, .block_h = { 4, 4, 4 }, .hsub = 1, .vsub = 1, .is_yuv = true},
++};
++
++static const struct drm_format_info *
++vs_lookup_format_info(const struct drm_format_info formats[],
++		      int num_formats, u32 format)
++{
++	int i;
++
++	for (i = 0; i < num_formats; i++) {
++		if (formats[i].format == format)
++			return &formats[i];
++	}
++
++	return NULL;
++}
++
++static const struct drm_format_info *
++vs_get_format_info(const struct drm_mode_fb_cmd2 *cmd)
++{
++	if (fourcc_mod_vs_get_type(cmd->modifier[0]) ==
++		DRM_FORMAT_MOD_VS_TYPE_CUSTOM_10BIT)
++		return vs_lookup_format_info(vs_formats, ARRAY_SIZE(vs_formats),
++									 cmd->pixel_format);
++	else
++		return NULL;
++}
++
++static const struct drm_mode_config_funcs vs_mode_config_funcs = {
++	.fb_create			 = vs_fb_create,
++	.get_format_info	 = vs_get_format_info,
++	.output_poll_changed = drm_fb_helper_output_poll_changed,
++	.atomic_check		 = drm_atomic_helper_check,
++	.atomic_commit		 = drm_atomic_helper_commit,
++};
++
++static struct drm_mode_config_helper_funcs vs_mode_config_helpers = {
++	.atomic_commit_tail = drm_atomic_helper_commit_tail_rpm,
++};
++
++void vs_mode_config_init(struct drm_device *dev)
++{
++	dev->mode_config.fb_modifiers_not_supported = false;
++
++	if (dev->mode_config.max_width == 0 ||
++	    dev->mode_config.max_height == 0) {
++		dev->mode_config.min_width  = 0;
++		dev->mode_config.min_height = 0;
++		dev->mode_config.max_width  = 4096;
++		dev->mode_config.max_height = 4096;
++	}
++	dev->mode_config.funcs = &vs_mode_config_funcs;
++	dev->mode_config.helper_private = &vs_mode_config_helpers;
++}
+diff --git a/drivers/gpu/drm/verisilicon/vs_fb.h b/drivers/gpu/drm/verisilicon/vs_fb.h
+new file mode 100644
+index 000000000000..78dda8e42894
+--- /dev/null
++++ b/drivers/gpu/drm/verisilicon/vs_fb.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
++ */
++
++#ifndef __VS_FB_H__
++#define __VS_FB_H__
++
++#define MAX_NUM_PLANES		3 /* colour format plane */
++
++struct vs_gem_object *vs_fb_get_gem_obj(struct drm_framebuffer *fb,
++					unsigned char plane);
++
++void vs_mode_config_init(struct drm_device *dev);
++#endif /* __VS_FB_H__ */
 -- 
-2.25.1
+2.34.1
 
 
 _______________________________________________
