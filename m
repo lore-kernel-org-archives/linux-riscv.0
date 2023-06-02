@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F26BFC7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 16:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9944CC7EE24
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 16:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,74 +13,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=kM9b5D0TGJR7zXaObeBnlfZxmZ5BE+n0HHJP5S6uTqQ=; b=y6Dqm34yHwPy0RVyWQmqsXh91B
-	X9wsLq4qutoUYd0+nxJmSe1iY/4XZKs23nCWv1NhdjazY78X0A6Xg4zUZtsK4Ie4bOsK50vKAMXdo
-	JGlQmCvwWopHoKfhRmP+FO+UYdLE0rfUj5mL3AUc8THSRs2VCPmUrRM92Ovuhqlvu93IpSivaMbyU
-	TfXazrTjZUqo9DlyzgIIK0sKfMJ6oC113zcoVLBC3Ced0QQC2GtYEUwdSGqx7kXVtausD1USOgFNq
-	/qqaYNbro1DIcbapATypgnDMQlm3mc3wfRFSOz1wq4d6HA79cUMUB+61gWQ23f6OSEp0iXUqCJykM
-	EcDxjkYg==;
+	bh=wjpVTFc+af7s+tq35WqQhSKMav3Ah/EHIb2CKIIO1wo=; b=yEBZ+gQA745RJhMH9FjRCMOy2o
+	VIO/y5hHkntbzhoTM0iRr2pfwZMmkWaJmvYG9ti7Js2v8gVH/mhwDY5P5D0v2Lb0RdEQH5UiSALJ1
+	6QcOo3z3NVGRp77nCk8cemYQet8viAOAOWMRMWGNr3CA2XwCCeqPt7xHI9g40ht5+8ZlRwackDd1K
+	9B3CbLQJLVEa4FCK/YDXEA6Qb3cU9JxIfaxEDrUvyb3uOZPK5PJMl9UoiHrKB7b1BEozoG2V6PvsL
+	pHBFHPW4SRcyatJH5Q6XX4bbby0KP3X233jTKiKGxItZy+UVjdQ1CW6vUAMgHBg+k400WBBIJkv0A
+	lTj9NhkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57ph-007QzK-0w;
-	Fri, 02 Jun 2023 16:40:57 +0000
+	id 1q57q6-007R5h-2U;
+	Fri, 02 Jun 2023 16:41:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57pf-007QyQ-2i
+	id 1q57q5-007R58-2h
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 02 Jun 2023 16:40:55 +0000
+	Fri, 02 Jun 2023 16:41:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=i16qvWrTxXmM44zqvAfMO+VQ2ZgLrONxQcP35eFduXw=; b=N39ifwT6cq+ncpU1JeZggVz2FN
-	OzMf6ERE7wz5L6HQVMyMOlVnqwCljse8peO8NwJCvvmnqxHYRtajHhAvxujywKmXVb88KRYJbiTpJ
-	/UrM9Fubyo3RXY3ct0x8Mur3eUXPYQzi54WiTo064ax62lQTuzWRobAwicNDcE5+Z+w/mBn6wnsRu
-	3fArgOl/NiED2IgUlFQRt4qslAw14MSc813R5idXQlgDo5bRer1vCgwWOpbW0x3RoINFINUapW/H+
-	ytXlKV1KcicePJQ13Mb3ZzlVtWQ2yeaMpcyYjXXQjJHRyV/ycDjc7tT/MevMkq8BuwZ/ss8tFdoDR
-	QWA2aUNg==;
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	bh=XlXfZDaqwtQ8jb+NBFxxHmMdNa0dhVq7sf+3J9mNCvc=; b=A+Px8dY+2zxuf0Hkbjk7iOGyC9
+	xraJ/5iCAA2mGaQjcsY2AH/LpAXvsx5dkbjC4QJXY9zY8B/HtgIuI4aktunjJFL+KDxmcN5agr2fR
+	fo4faQGUEpC9DLNxvuYYROmliCM4wMvNDecggF89FFHiM9uSudUhtcHjSf6fNuOMyaQ0pZ8RW559q
+	oy9vQJzxzVnKwfrMZaMT9z3m440C50Pm3gYeO+Wqz0fXWhdCGlf5hbd70HyQpTns1EPCs6BhaxGjj
+	3E1CvwUdu4atd8LHKXq3RZdAeRtqyQZA2E4tZApX2LtrsJwsg/6FGCwP/igsqxbJ+0KrYa4r+SG3z
+	CDvP5paw==;
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57LS-001NAk-0Y
+	id 1q57LL-001N7q-1j
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 16:09:46 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-51f7638a56fso2227841a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 09:09:41 -0700 (PDT)
+	Fri, 02 Jun 2023 16:10:14 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-5340957a1f1so975326a12.1
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 09:09:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1685722180; x=1688314180;
+        d=google.com; s=20221208; t=1685722174; x=1688314174;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=i16qvWrTxXmM44zqvAfMO+VQ2ZgLrONxQcP35eFduXw=;
-        b=7epqj+D7b/Vs8MJCaB/Yaig4pdk6Xsa6+PhHha/KiUX7vkzJuwNVRvh/QKSBOYWOoF
-         9Kl1CGagQi1DXxlGyYvTod7C6g15Jc/lvseccbcVTnZGlpUMuN85YotpNb24SiVNDe/4
-         jJWg+BewppQ9iRi+5TbG/EFvPtgidVbx51XdS+ZgnSZfKoodj1WI4tk7ctB/2mpU7ujt
-         5GR5L1lxyi6Yc/dQP61OizppKV4BxJWb97C2tfKTvu6BWLjF7QcXhyPnKGED9xXxbRV0
-         rkKjEao0Yem9n3mVyvzo3PMl7x2joHF/KT0tNezMLtd5RxYZ9imnBCUvokvJr8Ssuvgw
-         mKhg==
+        bh=XlXfZDaqwtQ8jb+NBFxxHmMdNa0dhVq7sf+3J9mNCvc=;
+        b=Cav0E0cCrA4YixnMBQKMfIUVj88wiap2lnIB8ag1Iz/8mWp6WkXueCvYRCBiVgJMpL
+         yz6b5GmGWPhdoaqfWLr4eMh+mes1ArSi+nNH2aSvBuPWl2X06K+1JFMN+UK2I8zKDZ+Y
+         An4/Ccw/5HBcgWIwlUsNKHK+GBxiwi6UrW0Rt5OfBwhcgGTE2dlnkWyH08h03FWRL/+p
+         PpYax2iQC4+/Q7s8QR0zA1oOFG5toYWxuVQyxHq17uCmAv8sJvsjFT497G95S2n7vNCo
+         An7ffox8QUfjjPO3WBaFb5yO8HO3WOQ44El3H8raJwdkFn/AASepix+It/ssVM4Hws1C
+         WsIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685722180; x=1688314180;
+        d=1e100.net; s=20221208; t=1685722174; x=1688314174;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=i16qvWrTxXmM44zqvAfMO+VQ2ZgLrONxQcP35eFduXw=;
-        b=Cvv811i2xF4+ohJbeYVkFIdTWCI9J9CyveCQtoJrZu+6AhW8ugL3zqJDpgcFJ/ob5C
-         Lw6YNNuoPEUg8Pcw20IljwGNnHaSjVmCHSHQmQSgNLtJQTZJOF06VyWesTM+PPu+RTy1
-         sf85RVhR4/+MybLtieGinWRV+LIWPl19uXLChYybmg/hIyKrdTTlFGA63oZzgYpxRBVz
-         /WwsCV+Veppkbj2L6V7EaYHbhRq7tv7ni0m4O/gAn37/XDp5LjFTjGdkxlolGdaPv+3V
-         bQ9ZPtKhdD1YAwlR04FW911jMU8wjp6xrb1+3vv7cCIdFix8B0IlSnk+nBdwD6i0StYL
-         R0Nw==
-X-Gm-Message-State: AC+VfDyHa0PNDetvqOB8vq+rYOhiB0VfyjCnys9waeI8IQQBOjpE2Iu4
-	Yw/bEKD1pVN0mxHShHul7r0miO5ubayw
-X-Google-Smtp-Source: ACHHUZ50eFmYtmjd+7phpNHJVAKKYKF0b2Pf24cv0bbiOkOy3oeWBFiQvv39uMwyDgbA4q0xlnPSa5qY2vtt
+        bh=XlXfZDaqwtQ8jb+NBFxxHmMdNa0dhVq7sf+3J9mNCvc=;
+        b=dAgHt10EmJmrxgZ0CFbGfvla2tHsWFSFvL2znBBR3UrmRW9A1HnMv6uqb7RiRq2Iz9
+         uQlLqcMzm8WASFkzKaNyhehRtMX5cHWWM7xuCxyc/NBxg6W3XdawjWxMM1Hkw0sZOaRR
+         xZvRheyQaCy0UFDMrh+upBgV7F/w7/MmSR1NUT9WUt0TjlzqzOfZf/377UcgtktTX5rb
+         QPWcJw3egFeemF47xw9BsFMYW8O80CGxYTyq2MFXKpcx9oH/VCS3a0U94+XiAu8JL/0y
+         3AIERXvvdP2pQbAkAjb+o1VdmEIehpzhelcch3Q5/NvNJ13FUg+FahIwY/UDTlaYCt4o
+         m5Bg==
+X-Gm-Message-State: AC+VfDyG9Zc4qbpHDtgFMe9xofzpY+PyfwQ+Cy5Y3fD/E/toA3rksUS6
+	ojccRXkeyZitbwEpu94Avyv/RyXbxTn3
+X-Google-Smtp-Source: ACHHUZ63/E8GjVgWNJSqqa8vS+/kUt+EPMZ2lBAM1R4WdW2tBWK9Y4EulGJYzAllZOblN3IVUjTbhEd8OzIe
 X-Received: from vipin.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:479f])
- (user=vipinsh job=sendgmr) by 2002:a17:903:3251:b0:1b0:6a10:1ba1 with SMTP id
- ji17-20020a170903325100b001b06a101ba1mr117384plb.13.1685722180001; Fri, 02
- Jun 2023 09:09:40 -0700 (PDT)
-Date: Fri,  2 Jun 2023 09:09:08 -0700
+ (user=vipinsh job=sendgmr) by 2002:a63:385:0:b0:530:70cb:6da9 with SMTP id
+ 127-20020a630385000000b0053070cb6da9mr2521810pgd.10.1685722173764; Fri, 02
+ Jun 2023 09:09:33 -0700 (PDT)
+Date: Fri,  2 Jun 2023 09:09:05 -0700
 In-Reply-To: <20230602160914.4011728-1-vipinsh@google.com>
 Mime-Version: 1.0
 References: <20230602160914.4011728-1-vipinsh@google.com>
 X-Mailer: git-send-email 2.41.0.rc0.172.g3f132b7071-goog
-Message-ID: <20230602160914.4011728-11-vipinsh@google.com>
-Subject: [PATCH v2 10/16] KVM: arm64: Return -ENOENT if PTE is not valid in stage2_attr_walker
+Message-ID: <20230602160914.4011728-8-vipinsh@google.com>
+Subject: [PATCH v2 07/16] KVM: mmu: Move mmu lock/unlock to arch code for
+ clear dirty log
 From: Vipin Sharma <vipinsh@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -95,8 +96,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	Vipin Sharma <vipinsh@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_170942_301179_60607C7B 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20230602_170935_837740_4E7B1C5D 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,115 +114,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Return -ENOENT from stage2_attr_walker for invalid PTE. Continue page
-table walk if walker callback returns -ENOENT outside of the fault
-handler path else terminate the walk. In fault handler path, similar to
--EAGAIN in user_mem_abort, retry guest execution.
+Move mmu_lock lock and unlock calls from common code in
+kvm_clear_dirty_log_protect() to arch specific code in
+kvm_arch_mmu_enable_log_dirty_pt_masked(). None of the other code inside
+the for loop of kvm_arch_mmu_enable_log_dirty_pt_masked() needs mmu_lock
+exclusivity apart from the arch specific API call.
 
-stage2_attr_walker() is used from multiple places like, write
-protection, MMU notifier callbacks, and relaxing permission during vCPU
-faults. This function returns -EAGAIN for different cases:
-1. When PTE is not valid.
-2. When cmpxchg() fails while setting new SPTE.
+Future commits will change clear dirty log operations under mmu read
+lock instead of write lock for ARM and, potentially, x86 architectures.
 
-For non-shared walkers, like write protection and MMU notifier, above 2
-cases are just ignored by walker and it moves to the next SPTE. #2 will
-never happen for non-shared walkers as they don't use cmpxchg() for
-updating SPTEs.
-
-For shared walkers, like vCPU fault handler, above 2 cases results in
-walk termination.
-
-In future commits, clear-dirty-log walker will write protect SPTEs under
-MMU read lock and use shared page table walker. This will result in two
-shared page table walkers type, vCPUs fault handler and clear-dirty-log,
-competing with each other and sometime causing cmpxchg() failure. So,
--EAGAIN in clear-dirty-log walker due to cmpxchg() failure must be
-retried. Whereas, -EAGAIN in the clear-dirty-log due to invalid SPTE
-must be ignored instead of exiting as per the current logic of shared
-page table walker. This is not needed for vCPU fault handler which also
-runs via shared page table walker and terminates walk on getting -EAGAIN
-due to invalid SPTE.
-
-To handle all these scenarios, stage2_attr_walker must return different
-error codes for invalid SPTEs and cmxchg() failure. -ENOENT for invalid
-SPTE is chosen because it is not used by any other shared walker. When
-clear-dirty-log will be changed to use shared page table walker, it will
-be possible to differentiate cases of retrying, continuing or
-terminating the walk for shared fault handler and shared
-clear-dirty-log.
+No functional changes intended.
 
 Signed-off-by: Vipin Sharma <vipinsh@google.com>
 ---
- arch/arm64/include/asm/kvm_pgtable.h |  1 +
- arch/arm64/kvm/hyp/pgtable.c         | 19 ++++++++++++-------
- arch/arm64/kvm/mmu.c                 |  2 +-
- 3 files changed, 14 insertions(+), 8 deletions(-)
+ arch/arm64/kvm/mmu.c   | 2 ++
+ arch/mips/kvm/mmu.c    | 2 ++
+ arch/riscv/kvm/mmu.c   | 2 ++
+ arch/x86/kvm/mmu/mmu.c | 3 +++
+ virt/kvm/dirty_ring.c  | 2 --
+ virt/kvm/kvm_main.c    | 4 ----
+ 6 files changed, 9 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 957bc20dab00..23e7e7851f1d 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -720,6 +720,7 @@ int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
-  * -------------|------------------|--------------
-  * Non-Shared   | 0                | Continue
-  * Non-Shared   | -EAGAIN          | Continue
-+ * Non-Shared   | -ENOENT          | Continue
-  * Non-Shared   | Any other        | Exit
-  * -------------|------------------|--------------
-  * Shared       | 0                | Continue
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index a3a0812b2301..bc8c5c4ac1cf 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -186,14 +186,19 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
- 	/*
- 	 * Visitor callbacks return EAGAIN when the conditions that led to a
- 	 * fault are no longer reflected in the page tables due to a race to
--	 * update a PTE. In the context of a fault handler this is interpreted
--	 * as a signal to retry guest execution.
-+	 * update a PTE.
- 	 *
--	 * Ignore the return code altogether for walkers outside a fault handler
--	 * (e.g. write protecting a range of memory) and chug along with the
--	 * page table walk.
-+	 * Callbacks can also return ENOENT when PTE which is visited is not
-+	 * valid.
-+	 *
-+	 * In the context of a fault handler interpret these as a signal
-+	 * to retry guest execution.
-+	 *
-+	 * Ignore these return codes altogether for walkers outside a fault
-+	 * handler (e.g. write protecting a range of memory) and chug along
-+	 * with the page table walk.
- 	 */
--	if (r == -EAGAIN)
-+	if (r == -EAGAIN || r == -ENOENT)
- 		return !(walker->flags & KVM_PGTABLE_WALK_HANDLE_FAULT);
- 
- 	return !r;
-@@ -1072,7 +1077,7 @@ static int stage2_attr_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
- 
- 	if (!kvm_pte_valid(ctx->old))
--		return -EAGAIN;
-+		return -ENOENT;
- 
- 	data->level = ctx->level;
- 	data->pte = pte;
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 1030921d89f8..356dc4131023 100644
+index 6db9ef288ec3..0c2c2c0846f1 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1551,7 +1551,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	read_unlock(&kvm->mmu_lock);
- 	kvm_set_pfn_accessed(pfn);
- 	kvm_release_pfn_clean(pfn);
--	return ret != -EAGAIN ? ret : 0;
-+	return (ret != -EAGAIN && ret != -ENOENT) ? ret : 0;
+@@ -1125,6 +1125,7 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 	phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
+ 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
+ 
++	write_lock(&kvm->mmu_lock);
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+ 	stage2_wp_range(&kvm->arch.mmu, start, end);
+@@ -1139,6 +1140,7 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 	 */
+ 	if (kvm_dirty_log_manual_protect_and_init_set(kvm))
+ 		kvm_mmu_split_huge_pages(kvm, start, end);
++	write_unlock(&kvm->mmu_lock);
  }
  
- /* Resolve the access fault by making the page young again. */
+ static void kvm_send_hwpoison_signal(unsigned long address, short lsb)
+diff --git a/arch/mips/kvm/mmu.c b/arch/mips/kvm/mmu.c
+index e8c08988ed37..33c5af333ff9 100644
+--- a/arch/mips/kvm/mmu.c
++++ b/arch/mips/kvm/mmu.c
+@@ -419,7 +419,9 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 	gfn_t start = base_gfn +  __ffs(mask);
+ 	gfn_t end = base_gfn + __fls(mask);
+ 
++	spin_lock(&kvm->mmu_lock);
+ 	kvm_mips_mkclean_gpa_pt(kvm, start, end);
++	spin_unlock(&kvm->mmu_lock);
+ }
+ 
+ /*
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index f2eb47925806..fe026ff5eb65 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -399,7 +399,9 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 	phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
+ 	phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
+ 
++	spin_lock(&kvm->mmu_lock);
+ 	gstage_wp_range(kvm, start, end);
++	spin_unlock(&kvm->mmu_lock);
+ }
+ 
+ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index c8961f45e3b1..6fff4228e31c 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -1382,6 +1382,7 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 				struct kvm_memory_slot *slot,
+ 				gfn_t gfn_offset, unsigned long mask)
+ {
++	write_lock(&kvm->mmu_lock);
+ 	/*
+ 	 * Huge pages are NOT write protected when we start dirty logging in
+ 	 * initially-all-set mode; must write protect them here so that they
+@@ -1412,6 +1413,8 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+ 		kvm_mmu_clear_dirty_pt_masked(kvm, slot, gfn_offset, mask);
+ 	else
+ 		kvm_mmu_write_protect_pt_masked(kvm, slot, gfn_offset, mask);
++
++	write_unlock(&kvm->mmu_lock);
+ }
+ 
+ int kvm_cpu_dirty_log_size(void)
+diff --git a/virt/kvm/dirty_ring.c b/virt/kvm/dirty_ring.c
+index c1cd7dfe4a90..d894c58d2152 100644
+--- a/virt/kvm/dirty_ring.c
++++ b/virt/kvm/dirty_ring.c
+@@ -66,9 +66,7 @@ static void kvm_reset_dirty_gfn(struct kvm *kvm, u32 slot, u64 offset, u64 mask)
+ 	if (!memslot || (offset + __fls(mask)) >= memslot->npages)
+ 		return;
+ 
+-	KVM_MMU_LOCK(kvm);
+ 	kvm_arch_mmu_enable_log_dirty_pt_masked(kvm, memslot, offset, mask);
+-	KVM_MMU_UNLOCK(kvm);
+ }
+ 
+ int kvm_dirty_ring_alloc(struct kvm_dirty_ring *ring, int index, u32 size)
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 13aed654111a..747bfa2f1dd3 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -2160,7 +2160,6 @@ static int kvm_get_dirty_log_protect(struct kvm *kvm, struct kvm_dirty_log *log)
+ 		dirty_bitmap_buffer = kvm_second_dirty_bitmap(memslot);
+ 		memset(dirty_bitmap_buffer, 0, n);
+ 
+-		KVM_MMU_LOCK(kvm);
+ 		for (i = 0; i < n / sizeof(long); i++) {
+ 			unsigned long mask;
+ 			gfn_t offset;
+@@ -2176,7 +2175,6 @@ static int kvm_get_dirty_log_protect(struct kvm *kvm, struct kvm_dirty_log *log)
+ 			kvm_arch_mmu_enable_log_dirty_pt_masked(kvm, memslot,
+ 								offset, mask);
+ 		}
+-		KVM_MMU_UNLOCK(kvm);
+ 	}
+ 
+ 	if (flush)
+@@ -2271,7 +2269,6 @@ static int kvm_clear_dirty_log_protect(struct kvm *kvm,
+ 	if (copy_from_user(dirty_bitmap_buffer, log->dirty_bitmap, n))
+ 		return -EFAULT;
+ 
+-	KVM_MMU_LOCK(kvm);
+ 	for (offset = log->first_page, i = offset / BITS_PER_LONG,
+ 		 n = DIV_ROUND_UP(log->num_pages, BITS_PER_LONG); n--;
+ 	     i++, offset += BITS_PER_LONG) {
+@@ -2294,7 +2291,6 @@ static int kvm_clear_dirty_log_protect(struct kvm *kvm,
+ 								offset, mask);
+ 		}
+ 	}
+-	KVM_MMU_UNLOCK(kvm);
+ 
+ 	if (flush)
+ 		kvm_arch_flush_remote_tlbs_memslot(kvm, memslot);
 -- 
 2.41.0.rc0.172.g3f132b7071-goog
 
