@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A64C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 15:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE2DC77B7A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 15:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RbYh1bXlEAk1kj8jRAdN0eMH4oFCw6PYRCU3EyA7V8Y=; b=LrMD+Cu/iVKVy4
-	F/fT7sSR2nAUrXtJgeRv4WMl+LWdSRyy3Qv2jg8Gt5gwqxHWYJNUWKlCeEDUprKeKFq6il5uP45VL
-	NRNu7fJwoytKVAe00JwbVQJk6SMP0IUHjRlS5cmbbm5VKZ3soC9IrbhEanVfimTFQ82ugqxHidSTp
-	sU+LXBInlj0jpV6QBxLLkDvGfVIwEoUnzKEzTTdvRI3SQThiaHHH5qnJX6mpAr/sOEzXTyWJIm39f
-	8ZiHrv4nC3vnouTEdSYE/hE8o76Q08GqHAesrKCLAjBGdJl7J/wi1UgwcB0LZ0EkPGwVG4Rqwz70T
-	wjkZKkhwpUl2MEoSRs0A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=Qhx6VLEhR3W2nu3nUHdCt7xd+IDYEaoFbBGXqroOiGE=; b=ZlTuHxUbO3++8uorJFYNrZ/Fzx
+	Orx1Q8GIBo/TKg1J+k0k41NGCiPA05WP5svmMem+0XweL52/bKjTrcytdtYo7Rwt752P09R9Va47j
+	SUHPffkGQsLbQH7wDnrteCxLuELAktnMKD/m+Vsf1RsW1M7zg3+nJG3rj1hZyROPC4f49VE3bhrj/
+	Lyw34Ve7ykJmPKPaEijoakhRlNZDv7PN0QK++E/bvVqCnjenwyJFPOJYjHTrhs3j7mn+2Zmc/bdyj
+	r44fpmU0Q2DxxsGqIMrpX/4yCjGOoFUJP05ZwdPHVLvDu1xeFt4bAz2OKhD4DoyvZFptbOi0SDWHF
+	WqiD1iKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q56Qx-007DKV-2c;
-	Fri, 02 Jun 2023 15:11:19 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1q56Qy-007DL1-1I;
+	Fri, 02 Jun 2023 15:11:20 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q56Qu-007DFp-1x
+	id 1q56Qu-007DFz-1x
 	for linux-riscv@lists.infradead.org;
 	Fri, 02 Jun 2023 15:11:18 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-653436fcc1bso327435b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 08:11:04 -0700 (PDT)
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-53fb4ee9ba1so1136796a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 08:11:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1685718664; x=1688310664;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lUpuQWKRHIidXNA4DyjcQWmeIqFB0FVeYLmWHizrF0I=;
-        b=Fl9gcNXjBUsfsmxeYAoxAIXTCPlsu0s5aU5YG/OOCLk2J+DQBEKl2RUib9lkUQM3HO
-         UQlwHfTA+HzNu9ScGocv6YIhaotzxP3MEGHY0l5bLjJy7nUM2BwG5Wc1qCnwWcewI0hT
-         raLuf3dk+I8SW23Wt2ob7WrDOWxUtAXN8bdJp1EjZcp4AV72afbMOCXeTq06mhGJLYVD
-         3IANHu964sknbWTegN+CoyD5ESKjs9mz3Hi91RDzNDoVHflFOCi451eJm7Mp3RZb8GAn
-         jwK94MsdWHXp40Fp45Vq9awQ3lFASiezh8GlQyPVZT0woohVBNpESXXeUmxzQ9eCAdBl
-         Bzkg==
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1685718665; x=1688310665;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fg/hT1sAjEd8rIup2CN/upwAvrKBrR2pDnfw7PopqQs=;
+        b=hzC+VK1jGbXhgWkUL0OeOG1AJqJbOX3K5gyj68YKEVb25v+GV//e4fuQzpeld+sA8O
+         2WdHnDWRmeXmx6geUq25Vqxa42Hwlwqdf2d3i39t0QDaQut+gvISpWJtIZYz6ATNTV4J
+         1QgEA/SczaV3YNFw9abTToLwu9ommsI9VhXE9xT7mkCTEttc+N0EQxPZMpDLxdvRsYj/
+         vigM1fvZ6FnHiCjG/KwbRAMRDaIrv/Z/FRrNAxXbI5k0K/HQDFft3bQe5wCk1Fv5vZNL
+         qf3LvjUpS8LXDQb0jauHzcz/lrdIold+VYUYF2cO5H6ly0TtjlRd8yC6CMLl3XKwdH1F
+         m3Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685718664; x=1688310664;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lUpuQWKRHIidXNA4DyjcQWmeIqFB0FVeYLmWHizrF0I=;
-        b=RPfWQqtuK2IzC0ix55u3lIfStT6Eb4q7vTqEkauuIZdyiMVremna0sPS/ZcARR/C0p
-         +gC7ioa7xSKoBEuICp4JhKBoTwU5S9Y9wgS+15ad/2iVfYFVOUwF6WswEYGNKNVcuDCL
-         wif+s2lFs6d3KFFYsrI/KCP6X3bQaDq+Fzy5Nu2i7S0vS97SqkD5T0E/fxvIOsLj+UsF
-         2Cu3zGyBeIYDFoLerhIxIVKJsLjj/ghpODUZj49FqqWolMdw/4saDGrla8efRzbdj42V
-         b1s34DAol9oDEXnrcRFfaJX3Vb2Ji5B+nGpnzOU1WRXu8GW+N48eUzBp6TE4CUliXH7g
-         XeAA==
-X-Gm-Message-State: AC+VfDzIUzthVyy5uVKPYPBQaF7VyqfG+PDIsddyYdR4MdkdUiUSLYet
-	VXKIagFSpsoWWut1Hq06OWCVtf/gOj8I12dWaw0=
-X-Google-Smtp-Source: ACHHUZ6uUn04qfFdZi+AmNnMf1L2hZCcnH3HEoEsUOq4w4NIbmUpUix5tJwJtTC07AEt49bzWiWYLg==
-X-Received: by 2002:a05:6a20:729c:b0:103:946d:8a4c with SMTP id o28-20020a056a20729c00b00103946d8a4cmr10362789pzk.5.1685718663734;
-        Fri, 02 Jun 2023 08:11:03 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1685718665; x=1688310665;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fg/hT1sAjEd8rIup2CN/upwAvrKBrR2pDnfw7PopqQs=;
+        b=Jt3zL44TQaPTSqmz4MO09amR27+/WSfc51GxbwI5edxcUIiBS3f0KWriuItWEKzJHr
+         UkZClU2PxMFbilThLa7mszrIbyUW5dfhORmey7VLTey65700v8hDcxJu+GR8obI7z1/m
+         yGo7TOW/tgj0qBfTdLef9OrC0B7dCPEPv0QtjgV0TsteaIOVjWVmFyto3ZRaXTCQCRgL
+         Hu5LRjjkaZJSigQsLAhiyp63l/WgYBWJDmFt3Hd8l2JlgT5/IjVlJ6GHiSaQK16al/97
+         oLHfXoNxRK/1RB/1pNOr8OO/iijp8+XOKoeHQcmuzpn/RLo5IDhRh5M9BcUqqP6+c9sQ
+         i9rw==
+X-Gm-Message-State: AC+VfDyqSB1JQO7p2YRQc0esQoVkSYl1xPw8y17qI4E8vd3xEuqrfa1s
+	pc+beEnkU3oXiR2el19Ouj5rLQ==
+X-Google-Smtp-Source: ACHHUZ4iv27hx94ZjANRzx1oNWxLXW5Ls2Q/boifCy7lcHk8Olifk19LX70BLLdSoojjPpYWMlRiwQ==
+X-Received: by 2002:a17:902:cec9:b0:1a9:8d57:6d6c with SMTP id d9-20020a170902cec900b001a98d576d6cmr254164plg.24.1685718665293;
+        Fri, 02 Jun 2023 08:11:05 -0700 (PDT)
 Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id c3-20020a656183000000b0053b92b26412sm1269351pgv.14.2023.06.02.08.11.03
+        by smtp.gmail.com with ESMTPSA id d12-20020a170902654c00b001b03cda6389sm1520434pln.10.2023.06.02.08.11.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jun 2023 08:11:03 -0700 (PDT)
-Date: Fri, 02 Jun 2023 08:11:03 -0700 (PDT)
-X-Google-Original-Date: Fri, 02 Jun 2023 08:10:40 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.4-rc5
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-78f8e789-4700-4d48-b64e-11ed75a3a048@palmer-ri-x1c9>
+        Fri, 02 Jun 2023 08:11:04 -0700 (PDT)
+Date: Fri, 02 Jun 2023 08:11:04 -0700 (PDT)
+X-Google-Original-Date: Fri, 02 Jun 2023 08:10:51 PDT (-0700)
+Subject: Re: (subset) [PATCH V6 00/21] Add basic ACPI support for RISC-V
+In-Reply-To: <168571787727.17224.6663458864222960682.b4-ty@rivosinc.com>
+CC: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+  linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org, linux-crypto@vger.kernel.org,
+  platform-driver-x86@vger.kernel.org, llvm@lists.linux.dev, corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, rafael@kernel.org, lenb@kernel.org, daniel.lezcano@linaro.org,
+  tglx@linutronix.de, qianweili@huawei.com, wangzhou1@hisilicon.com, herbert@gondor.apana.org.au,
+  davem@davemloft.net, Marc Zyngier <maz@kernel.org>, luzmaximilian@gmail.com, hdegoede@redhat.com,
+  markgross@kernel.org, nathan@kernel.org, ndesaulniers@google.com, trix@redhat.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: sunilvl@ventanamicro.com, Bjorn Topel <bjorn@rivosinc.com>,
+  Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-4fad860f-b5ff-4dc1-968e-219be1983acd@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_081116_642579_CE6624A4 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230602_081116_884082_C83A9DEC 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +92,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 3b90b09af5be42491a8a74a549318cfa265b3029:
+On Fri, 02 Jun 2023 07:57:57 PDT (-0700), Palmer Dabbelt wrote:
+>
+> On Mon, 15 May 2023 11:19:07 +0530, Sunil V L wrote:
+>> This patch series enables the basic ACPI infrastructure for RISC-V.
+>> Supporting external interrupt controllers is in progress and hence it is
+>> tested using poll based HVC SBI console and RAM disk.
+>>
+>> The first patch in this series is one of the patch from Jisheng's
+>> series [1] which is not merged yet. This patch is required to support
+>> ACPI since efi_init() which gets called before sbi_init() can enable
+>> static branches and hits a panic.
+>>
+>> [...]
+>
+> Applied, thanks!
+>
+> [01/21] riscv: move sbi_init() earlier before jump_label_init()
+>         https://git.kernel.org/palmer/c/24fc18087f42
+> [02/21] platform/surface: Disable for RISC-V
+>         https://git.kernel.org/palmer/c/7f2e20459b28
+> [03/21] crypto: hisilicon/qm: Fix to enable build with RISC-V clang
+>         https://git.kernel.org/palmer/c/fbb995a7b27c
+> [04/21] ACPI: tables: Print RINTC information when MADT is parsed
+>         https://git.kernel.org/palmer/c/4d02d88d2b92
+> [05/21] ACPI: OSL: Make should_use_kmap() 0 for RISC-V
+>         https://git.kernel.org/palmer/c/214c236223b8
+> [06/21] RISC-V: Add support to build the ACPI core
+>         https://git.kernel.org/palmer/c/a91a9ffbd3a5
+> [07/21] ACPI: processor_core: RISC-V: Enable mapping processor to the hartid
+>         https://git.kernel.org/palmer/c/8b7809e28952
+> [08/21] RISC-V: Add ACPI initialization in setup_arch()
+>         https://git.kernel.org/palmer/c/724f4c0df766
+> [09/21] RISC-V: ACPI: Cache and retrieve the RINTC structure
+>         https://git.kernel.org/palmer/c/f99561199470
+> [10/21] drivers/acpi: RISC-V: Add RHCT related code
+>         https://git.kernel.org/palmer/c/e6b9d8eddb17
+> [11/21] RISC-V: smpboot: Create wrapper setup_smp()
+>         https://git.kernel.org/palmer/c/61946127ab49
+> [12/21] RISC-V: smpboot: Add ACPI support in setup_smp()
+>         https://git.kernel.org/palmer/c/ce92546cd637
+> [13/21] RISC-V: only iterate over possible CPUs in ISA string parser
+>         https://git.kernel.org/palmer/c/914d6f44fc50
+> [14/21] RISC-V: cpufeature: Add ACPI support in riscv_fill_hwcap()
+>         https://git.kernel.org/palmer/c/396c018332a1
+> [15/21] RISC-V: cpu: Enable cpuinfo for ACPI systems
+>         https://git.kernel.org/palmer/c/0b144c818989
+> [16/21] irqchip/riscv-intc: Add ACPI support
+>         https://git.kernel.org/palmer/c/7023b9d83f03
+> [17/21] clocksource/timer-riscv: Refactor riscv_timer_init_dt()
+>         https://git.kernel.org/palmer/c/cd12d206685a
+> [18/21] clocksource/timer-riscv: Add ACPI support
+>         https://git.kernel.org/palmer/c/21f4f92410dc
+> [19/21] RISC-V: time.c: Add ACPI support for time_init()
+>         https://git.kernel.org/palmer/c/714aa1d1c8ca
+> [20/21] RISC-V: Enable ACPI in defconfig
+>         https://git.kernel.org/palmer/c/0b8e15ca0082
 
-  riscv: Fix orphan section warnings caused by kernel/pi (2023-05-09 18:20:23 -0700)
+I applied the MAINTAINERS entry too, it just had a conflict and it looks 
+like my attempt at juggling it didn't play nice with the thanks message.  
+Everything's on top of rc1 because that's what my for-next is based on.
 
-are available in the Git repository at:
+I also don't yet have any testing for the ACPI stuff, but hopefully I'll 
+get around to adding some.  We should probably add it to the patchwwork 
+CI as well.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.4-rc5
-
-for you to fetch changes up to 6966d7988c4fb6af3e395868e9800c07f9e98a30:
-
-  riscv: Implement missing huge_ptep_get (2023-06-01 18:15:37 -0700)
-
-----------------------------------------------------------------
-RISC-V Fixes for 6.4-rc5
-
-* A build warning fix for BUILTIN_DTB=y.
-* Hibernation support is hidden behind NONPORTABLE, as it depends on
-  some undocumented early boot behavior and breaks on most platforms.
-* A fix for relocatable kernels on systems with early boot errata.
-* A fix to properly handle perf callchains for kernel tracepoints.
-* A pair of fixes for NAPOT to avoid inconsistencies between PTEs and
-  handle hardware that sets arbitrary A/D bits.
-
-----------------------------------------------------------------
-Alexandre Ghiti (4):
-      riscv: Fix unused variable warning when BUILTIN_DTB is set
-      riscv: Fix relocatable kernels with early alternatives using -fno-pie
-      riscv: Fix huge_ptep_set_wrprotect when PTE is a NAPOT
-      riscv: Implement missing huge_ptep_get
-
-Conor Dooley (1):
-      RISC-V: mark hibernation as nonportable
-
-Ism Hong (1):
-      riscv: perf: Fix callchain parse error with kernel tracepoint events
-
- arch/riscv/Kconfig                  |  5 ++++-
- arch/riscv/errata/Makefile          |  4 ++++
- arch/riscv/include/asm/hugetlb.h    |  3 +++
- arch/riscv/include/asm/perf_event.h |  7 +++++++
- arch/riscv/kernel/Makefile          |  4 ++++
- arch/riscv/mm/hugetlbpage.c         | 30 +++++++++++++++++++++++++++++-
- arch/riscv/mm/init.c                |  2 +-
- 7 files changed, 52 insertions(+), 3 deletions(-)
+>
+> Best regards,
 
 _______________________________________________
 linux-riscv mailing list
