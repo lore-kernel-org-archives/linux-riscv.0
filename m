@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D4CC7EE2A
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 16:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1231C7EE24
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 16:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,74 +13,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=e7yuRBw+A8HphiOvOC/HfVQP3H3Z5r9mRt4jb/r7b+Y=; b=JaorK/1HhOrsR6f+yZ23/WyZ+r
-	v0/39LWCcrHmqbXQKxM4txnrPyNH0bcohLIhBFuxwPChFzFiaH+aPLQycfkw6MeQGizRxmccoiZd+
-	G982gIscuh6HBhQIXti7aHmyw5qrHB2077IssXNzNsYI8+kYrMhAF+O6R3qKT4k17q6JGIwtP2XOx
-	oQzGrTOFgexlwu/2T0m0Jlogm9+aLIV3+2OAVc0KZ0MTmVN4jeZfuUH5OU67ZNHMi6EF+Ih+HKBK7
-	F6QX4NTc5OmzKLpoXhSrLbyrQJrQvS/4VJ/7u4pfF7p7OsQgqhr1aMKZ+N0FSWsz3Y1LRoMkVbBfT
-	sWgTdi/A==;
+	bh=QiwA9h+qrd4KzI+lWNKTe53kwRqt+164NbizJH782H4=; b=h2BBQ5X441kMbQUBVtVG6BsONS
+	ZZCaYCbZGg9GFul3zM2/8hjad5IvmBgUDPQIOjKG5U8aa1qwvHXOXQldD+R0N7JRwYi5HLhQHFcZP
+	/iSHJhRwHNEZ6b3vUPhcGhwpYlmWZ5ApNstSSQsuIjsK8+I0vJryVvnZUHuFBAkmwR8n7o39x7G2b
+	VuqqVyQruML+3SgLnRPPPh9HzFq4LTVQ2iq6FSy9tj8WkZjEdOVsu9+7Cdz/QSOCDuwhtV9P5nZbq
+	YGFtcY57UP6UFbOoVFENvamKqFw5DVAvawKeIPZuPLJrKeQC//gPdh3FD/nWNxP8vNwCfzreV/+uE
+	SZ0sfRHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57qC-007R9P-2T;
-	Fri, 02 Jun 2023 16:41:28 +0000
+	id 1q57qI-007REq-0O;
+	Fri, 02 Jun 2023 16:41:34 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57qB-007R7o-07
+	id 1q57qG-007RBb-2X
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 02 Jun 2023 16:41:27 +0000
+	Fri, 02 Jun 2023 16:41:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=fngtlIXFBOk5ojPhoCZKxdftJsl/PCjzcivfHulUfxM=; b=Cod4I8ItEcc8e34M2G/EQIJrBM
-	hnSy95CSNjB/TDFEjpWch9jQSYzGolQjgApVY6a5nSDDPVfRhkbb3uMQhXT0vO7gVLVaqIPx3C9GV
-	HG411OJ8D/ZBCCrU1Gav/Ed7CG0A3T77LmyGBh96Eqp5qVtQMYcaN++/vT/OJbTlvV6F2rNwHcBED
-	Y2k/MhJQ32dIaxrM2sabynHEYG51gVktB/w/8FRPr92JPUU9cF9Ko5xPYGfMJPKN5tO2OdPW5O0gx
-	HGbunyBBNoeSDh2pjfbyP2qeJ74Mzi763DtUN8kjym5I0Z/l+LwCllvCXOF1PKMU3DkX/OSqhx23c
-	lAaZW30Q==;
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	bh=rivHDhk0ioxMpP1XynwGaSZFsNZDBBbqgVAGbR7E/X8=; b=dyecyeCEd59sMLHaoda9jZN1nU
+	FDOkOhfKgqmqbCGQRmrKVyQ6+j07mK3875igB3inDMKxiFgoeyx9l+GWcbnqhesilzyMnFUPw+yNY
+	XEmEhnbWem9LWFE7i1yNZuU6PFzz/AvtGMvcOr1p+2EMEop0+p1Hj38vsFel/tNAVgNduYJCqbKFr
+	16n7DO61zT37ZxFuuc2LeiG99x0seas+bMvd9POKFQcxMhINtjM2SUV8bz8ulrxjeB2GvMQddM28b
+	PNBJU4OQMxUgjaJulSAKG1mIdlaVQ1U+vHrK3Fg2qJb7t+iN0zZjX6Nes1sBTtxw8sTPHee01V7Hk
+	ZYSnYgkg==;
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57LK-001N7X-1b
+	id 1q57LT-001NB7-2q
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 16:09:36 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-568ab5c813eso33691947b3.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 09:09:33 -0700 (PDT)
+	Fri, 02 Jun 2023 16:09:50 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1afba64045aso22825445ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 09:09:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1685722172; x=1688314172;
+        d=google.com; s=20221208; t=1685722181; x=1688314181;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fngtlIXFBOk5ojPhoCZKxdftJsl/PCjzcivfHulUfxM=;
-        b=KTqFTUl8/O/otunDnIcW8NMT9NoZpURoL+fT5x3jr7xLTtmqLTsOpMHELHqceBBNBQ
-         AmDayYQtgKFH5Z55J+qEEznt7CMzcfBLKa9rXdwkcbaxYdDyFrpWK5tIf+OgM6RdtGyq
-         GQdHIK3QOQ2drYG/ZFFk+kHjBy+s90SO6eGGqGaoiIn9r7XkEBIEo/mXJtp3GumBEOA+
-         p4STDDMfVtsOTK10O8PNGuXazkAWxMkEfK3iCnrl9MiWc43AYLln6h9/+ty9OxynFFMd
-         DAYdFz0PuZJQnqyg+7O9VnZBBnLY/2RVdSpDM0DZZNDzkFP0BkvcK+wZMlJvwm1mfdaV
-         VyLQ==
+        bh=rivHDhk0ioxMpP1XynwGaSZFsNZDBBbqgVAGbR7E/X8=;
+        b=IxpZG4TkYuPd8UtpcDQplKJDDIpAs6lGKWZe95duADLUk5Xly6SRvjrVvCEGB/Fk1a
+         E9X3IJECzkdQ25Bkjejj4IbXek6JqPY58HRA50EOI/YFTzUpFaA/bzGSlAOm+5PEvo+T
+         6jKSmBS0KSmdPni70wpBlwTPrvyYGZvMtxSC3Fbri9jwwzePk7OY91lpj01vmu9g7PZn
+         a5J+YN0h1Qu/z/w7ubpNpCMDwcQqYWttGGXgoLeySgwUxIZDyVDmv/3Bk/4OJqAcfD0+
+         gHcpPqAo0vTPvSXpzWrIqDWuTjrALALhGQwaLZCyItTHvmVctEjS/JfpfTvctKcX+1gM
+         QFLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685722172; x=1688314172;
+        d=1e100.net; s=20221208; t=1685722181; x=1688314181;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fngtlIXFBOk5ojPhoCZKxdftJsl/PCjzcivfHulUfxM=;
-        b=gEKzVClsigJRVrA2axQa9nh6PODp4a1kcrrapw5PcvBKixUnPMUAkOC2i26LyOCdVU
-         kPD8hmF1GeuAVLmKJHNFVKDlOsIPeGh8hmCUdH9RXXZ99UR3x/b9olORMqqOzgCwZjOg
-         LbMZiWBo1K/eDS4ofx6PtwcXzv9oD5l2hAm7zltrB2wZhSoMVEnTIndyl+BPGt8LlDST
-         HUxDu/GxKSm6x6gvLIiVGbngp//1cD8lGdtyY1LuI21F1S8xq0Wkdcl9E+Bn7lt+G6SX
-         Msi+HxrPKU4MxVXeLOdzimiyHBmQy2xk/GSAg+PVl40jhyc5ug+/OESvtYywLVWxKlID
-         n4/A==
-X-Gm-Message-State: AC+VfDzh4D3hgP+gfiywu35nR6Ly0hjO16ZNV/gMbeXU9cSP9hIzC9m/
-	35P33RpE6AdULw7yn+Lqwnrb8INC6Cqk
-X-Google-Smtp-Source: ACHHUZ6gan5YlBkZGg9KteJiKVhKxkJ5gsh9dOHqcHA/QTL4d+xT++IRNn1eOG3Ha8PAz+KvOVFz0vRB3dhD
+        bh=rivHDhk0ioxMpP1XynwGaSZFsNZDBBbqgVAGbR7E/X8=;
+        b=dgIdJxlikLlQJ25hTajJrg+Jkq2urXvvPZqRYQfgDPtJu0bsdmICq5auja/mXsLasY
+         V9aGLPWVAO1//KacO1/Rnv+UtUAzxj3CMbH1n9ZuRoQ5JG4IRtyFzzN3g3oVXgAV21MH
+         jGD7VNZ3xll14ASKNVE2NjxLcCqLBiMS9X1h6rTO1XfSAO3xilzc4ggCFyRtnErX3BG5
+         +xH0GNlvn8ksZrRYCBRerZT1b6nop3yglkrYhsibu430hxOan+kzWi53rlyJb8hJLobF
+         85QwbmAFQSM2+7BTXWf7o5/2B4iNr38c2N67iR5ilCd5gH30QAeMovvTopkG4YJ3em6t
+         e5oQ==
+X-Gm-Message-State: AC+VfDwu0P9/HgarPLswCWQqBtExbyarCrBNUu8Sy700kGAuomRL0UrJ
+	al0Y4pY2Nzv8F9f3CKEip/MkJry8hRLf
+X-Google-Smtp-Source: ACHHUZ4crxpGe15BxcOcaGOZO2WjPbibX9jRmjl7rSrwdD8Z6/aya1uE9CJM9AhjU7HHArKs+z3PEQeSOj8s
 X-Received: from vipin.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:479f])
- (user=vipinsh job=sendgmr) by 2002:a81:c509:0:b0:55a:3133:86fa with SMTP id
- k9-20020a81c509000000b0055a313386famr182818ywi.3.1685722171727; Fri, 02 Jun
- 2023 09:09:31 -0700 (PDT)
-Date: Fri,  2 Jun 2023 09:09:04 -0700
+ (user=vipinsh job=sendgmr) by 2002:a17:902:e3c5:b0:1b1:c90e:b7aa with SMTP id
+ r5-20020a170902e3c500b001b1c90eb7aamr56727ple.4.1685722181662; Fri, 02 Jun
+ 2023 09:09:41 -0700 (PDT)
+Date: Fri,  2 Jun 2023 09:09:09 -0700
 In-Reply-To: <20230602160914.4011728-1-vipinsh@google.com>
 Mime-Version: 1.0
 References: <20230602160914.4011728-1-vipinsh@google.com>
 X-Mailer: git-send-email 2.41.0.rc0.172.g3f132b7071-goog
-Message-ID: <20230602160914.4011728-7-vipinsh@google.com>
-Subject: [PATCH v2 06/16] KVM: arm64: Correct the kvm_pgtable_stage2_flush() documentation
+Message-ID: <20230602160914.4011728-12-vipinsh@google.com>
+Subject: [PATCH v2 11/16] KVM: arm64: Use KVM_PGTABLE_WALK_SHARED flag instead
+ of KVM_PGTABLE_WALK_HANDLE_FAULT
 From: Vipin Sharma <vipinsh@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -95,9 +96,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	Vipin Sharma <vipinsh@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_170934_656758_D4067092 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230602_170944_233669_F9062542 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,32 +114,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove _range suffix from kvm_pgtable_stage2_flush_range which is used
-in documentation of kvm_pgtable_stage2_flush(). There is no function
-named kvm_pgtable_stage2_flush_range().
+Check against shared page table walker flag instead of fault handler
+flag when determining if walk should continue or not.
 
-Fixes: 93c66b40d728 ("KVM: arm64: Add support for stage-2 cache flushing in generic page-table")
+vCPU page fault handlers uses shared page walker and there are no
+other shared page walkers in Arm. This will change in future commit when
+clear-dirty-log will use shared page walker and continue, retry or
+terminate logic for a walk will change between shared page walkers.
+
 Signed-off-by: Vipin Sharma <vipinsh@google.com>
 ---
- arch/arm64/include/asm/kvm_pgtable.h | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/hyp/pgtable.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 850d65f705fa..d542a671c564 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -657,9 +657,8 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
- bool kvm_pgtable_stage2_is_young(struct kvm_pgtable *pgt, u64 addr);
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index bc8c5c4ac1cf..7f80e953b502 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -191,7 +191,7 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
+ 	 * Callbacks can also return ENOENT when PTE which is visited is not
+ 	 * valid.
+ 	 *
+-	 * In the context of a fault handler interpret these as a signal
++	 * In the context of a shared walker interpret these as a signal
+ 	 * to retry guest execution.
+ 	 *
+ 	 * Ignore these return codes altogether for walkers outside a fault
+@@ -199,7 +199,7 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
+ 	 * with the page table walk.
+ 	 */
+ 	if (r == -EAGAIN || r == -ENOENT)
+-		return !(walker->flags & KVM_PGTABLE_WALK_HANDLE_FAULT);
++		return !(walker->flags & KVM_PGTABLE_WALK_SHARED);
  
- /**
-- * kvm_pgtable_stage2_flush_range() - Clean and invalidate data cache to Point
-- * 				      of Coherency for guest stage-2 address
-- *				      range.
-+ * kvm_pgtable_stage2_flush() - Clean and invalidate data cache to Point of
-+ *				Coherency for guest stage-2 address range.
-  * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
-  * @addr:	Intermediate physical address from which to flush.
-  * @size:	Size of the range.
+ 	return !r;
+ }
 -- 
 2.41.0.rc0.172.g3f132b7071-goog
 
