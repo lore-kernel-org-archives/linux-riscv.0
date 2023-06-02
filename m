@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E62C7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 07:41:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247CCC7EE2A
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 07:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AFxsysfuQ3YgLBZPl09NsGaeY3fos5dRNBPuG61oAG0=; b=QRAnfn9/uk5kZp
-	TP05pVp23AFD5563JwIqsEWdyYzxoQSmSi+4JsmHhmWtvR2my4p9t6FIr/7mTeypvDky3UQgTOSTZ
-	lQ3gUywW8lkLdqlv5rDHGwOHNNmePZufU+K6GlBFrtMfjt26ZHbndEdnjr8kzcy92KeWHfEELGHP9
-	ZM4+mSWYSMQx8yd6vBV+L1pVqXy1DrYkbMtIdjRJAbtzpC1iH7kmP7nEmGvtlHtrDPaQctp5FVIWD
-	vzv/bgUQJ7oDyiUDOAGp4JMwnyEvBj9A6H/AtNRNl6MS9y5mPg9jsNkUcIC54QUHSGvs/g5TfkJ68
-	uDJN8TXsIrTCXqhwtFGA==;
+	List-Owner; bh=CBoJ22niL/Nujjwr0+5U2a7LWb6s2LA4IVzizAZ6tEs=; b=qNZFo/XgKvj9JY
+	voSXo7fMreFRZY5/8pqLWnk9R9uteWIJTu6NYIyauBu9gDoujbNKQ9i7nv5kCJJKo5vBGnKGBufl+
+	q6wBXr3IB8rRPatQ79LEI1DjeK3ZK5somluVuXjdClqJhVhgU/E0drIN8sUYro3ZuZPMI1r1QT8H7
+	pn4NIiwH9Z4Tr/2VPssRePOPuBM0SydivBj7mk7S6Ba2RM0ieReXjBcvSDJ4CDY8Krd5SxlHo1oJ8
+	+QpbvUN3aW7UZLw2wbnDVKza2/LDJrUizpKkAD3/xToPG1kDwLPVNGxTvQnDToVY/+Onr81KRSV9+
+	t4cJh7PdgqISeKr1bR0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4zPh-0062M7-0W;
-	Fri, 02 Jun 2023 07:41:33 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1q4zPi-0062Mj-2T;
+	Fri, 02 Jun 2023 07:41:34 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q4zPd-0062Fz-1K
+	id 1q4zPf-0062GD-07
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 07:41:31 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Fri, 02 Jun 2023 07:41:33 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id AFC1D8102;
-	Fri,  2 Jun 2023 15:40:48 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 15:40:48 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id D47CF24E27E;
+	Fri,  2 Jun 2023 15:40:49 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
+ 2023 15:40:49 +0800
 Received: from xiaofei.localdomain (180.164.60.184) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 15:40:47 +0800
+ 2023 15:40:49 +0800
 From: Keith Zhao <keith.zhao@starfivetech.com>
 To: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
@@ -57,9 +57,9 @@ CC: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, "Rob
 	<keith.zhao@starfivetech.com>, Jack Zhu <jack.zhu@starfivetech.com>,
 	Shengyang Chen <shengyang.chen@starfivetech.com>, Changhuang Liang
 	<changhuang.liang@starfivetech.com>
-Subject: [PATCH 4/9] drm/verisilicon: Add gem driver for JH7110 SoC
-Date: Fri, 2 Jun 2023 15:40:38 +0800
-Message-ID: <20230602074043.33872-5-keith.zhao@starfivetech.com>
+Subject: [PATCH 7/9] drm/verisilicon: Add drm plane funcs
+Date: Fri, 2 Jun 2023 15:40:41 +0800
+Message-ID: <20230602074043.33872-8-keith.zhao@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230602074043.33872-1-keith.zhao@starfivetech.com>
 References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
@@ -69,8 +69,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_004129_931679_5E83705F 
-X-CRM114-Status: GOOD (  24.29  )
+X-CRM114-CacheID: sfid-20230602_004131_525227_10879D09 
+X-CRM114-Status: GOOD (  23.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,518 +87,557 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch implements gem related APIs for JH7100 SoC.
+Implement plane functions for the DRM driver.
 
 Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
 ---
- drivers/gpu/drm/verisilicon/Makefile |   3 +-
- drivers/gpu/drm/verisilicon/vs_drv.c |   6 +
- drivers/gpu/drm/verisilicon/vs_gem.c | 372 +++++++++++++++++++++++++++
- drivers/gpu/drm/verisilicon/vs_gem.h |  72 ++++++
- 4 files changed, 452 insertions(+), 1 deletion(-)
- create mode 100644 drivers/gpu/drm/verisilicon/vs_gem.c
- create mode 100644 drivers/gpu/drm/verisilicon/vs_gem.h
+ drivers/gpu/drm/verisilicon/Makefile   |   3 +-
+ drivers/gpu/drm/verisilicon/vs_plane.c | 440 +++++++++++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_plane.h |  74 +++++
+ 3 files changed, 516 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_plane.h
 
 diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
-index 64ce1b26546c..30360e370e47 100644
+index bae5fbab9bbb..d96ad9399fc7 100644
 --- a/drivers/gpu/drm/verisilicon/Makefile
 +++ b/drivers/gpu/drm/verisilicon/Makefile
-@@ -1,6 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--vs_drm-objs := vs_drv.o
-+vs_drm-objs := vs_drv.o \
-+		vs_gem.o
+@@ -3,7 +3,8 @@
+ vs_drm-objs := vs_drv.o \
+ 		vs_crtc.o \
+ 		vs_fb.o \
+-		vs_gem.o
++		vs_gem.o \
++		vs_plane.o
  
  obj-$(CONFIG_DRM_VERISILICON) += vs_drm.o
  
-diff --git a/drivers/gpu/drm/verisilicon/vs_drv.c b/drivers/gpu/drm/verisilicon/vs_drv.c
-index 24d333598477..e0a2fc43b55f 100644
---- a/drivers/gpu/drm/verisilicon/vs_drv.c
-+++ b/drivers/gpu/drm/verisilicon/vs_drv.c
-@@ -30,6 +30,7 @@
- #include <drm/drm_vblank.h>
- 
- #include "vs_drv.h"
-+#include "vs_gem.h"
- 
- #define DRV_NAME	"starfive"
- #define DRV_DESC	"Starfive DRM driver"
-@@ -47,6 +48,7 @@ static const struct file_operations fops = {
- 	.compat_ioctl	= drm_compat_ioctl,
- 	.poll			= drm_poll,
- 	.read			= drm_read,
-+	.mmap			= vs_gem_mmap,
- };
- 
- static struct drm_driver vs_drm_driver = {
-@@ -54,6 +56,10 @@ static struct drm_driver vs_drm_driver = {
- 	.lastclose		= drm_fb_helper_lastclose,
- 	.prime_handle_to_fd = drm_gem_prime_handle_to_fd,
- 	.prime_fd_to_handle = drm_gem_prime_fd_to_handle,
-+	.gem_prime_import	= vs_gem_prime_import,
-+	.gem_prime_import_sg_table = vs_gem_prime_import_sg_table,
-+	.gem_prime_mmap		= vs_gem_prime_mmap,
-+	.dumb_create		= vs_gem_dumb_create,
- 	.fops			= &fops,
- 	.name			= DRV_NAME,
- 	.desc			= DRV_DESC,
-diff --git a/drivers/gpu/drm/verisilicon/vs_gem.c b/drivers/gpu/drm/verisilicon/vs_gem.c
+diff --git a/drivers/gpu/drm/verisilicon/vs_plane.c b/drivers/gpu/drm/verisilicon/vs_plane.c
 new file mode 100644
-index 000000000000..3f963471c1ab
+index 000000000000..7b0dcef232ae
 --- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_gem.c
-@@ -0,0 +1,372 @@
++++ b/drivers/gpu/drm/verisilicon/vs_plane.c
+@@ -0,0 +1,440 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
 + */
 +
-+#include <linux/dma-buf.h>
-+#include <linux/of_reserved_mem.h>
++#include <drm/drm_atomic.h>
++#include <drm/drm_atomic_helper.h>
++#include <drm/drm_blend.h>
 +#include <drm/drm_gem_dma_helper.h>
++#include <drm/drm_fb_dma_helper.h>
++#include <drm/drm_framebuffer.h>
++#include <drm/drm_plane_helper.h>
 +
-+#include "vs_drv.h"
++#include <drm/vs_drm.h>
++
++#include "vs_crtc.h"
++#include "vs_fb.h"
 +#include "vs_gem.h"
++#include "vs_plane.h"
++#include "vs_type.h"
 +
-+static const struct drm_gem_object_funcs vs_gem_default_funcs;
-+
-+static int vs_gem_alloc_buf(struct vs_gem_object *vs_obj)
++void vs_plane_destory(struct drm_plane *plane)
 +{
-+	struct drm_device *dev = vs_obj->base.dev;
-+	unsigned int nr_pages;
-+	struct sg_table sgt;
-+	int ret = -ENOMEM;
++	struct vs_plane *vs_plane = to_vs_plane(plane);
 +
-+	if (vs_obj->dma_addr) {
-+		DRM_DEV_DEBUG_KMS(dev->dev, "already allocated.\n");
-+		return 0;
++	drm_plane_cleanup(plane);
++	kfree(vs_plane);
++}
++
++static void vs_plane_reset(struct drm_plane *plane)
++{
++	struct vs_plane_state *state;
++	struct vs_plane *vs_plane = to_vs_plane(plane);
++
++	if (plane->state) {
++		__drm_atomic_helper_plane_destroy_state(plane->state);
++
++		state = to_vs_plane_state(plane->state);
++		kfree(state);
++		plane->state = NULL;
 +	}
 +
-+	vs_obj->dma_attrs = DMA_ATTR_WRITE_COMBINE | DMA_ATTR_FORCE_CONTIGUOUS
-+			   | DMA_ATTR_NO_KERNEL_MAPPING;
++	state = kzalloc(sizeof(*state), GFP_KERNEL);
++	if (!state)
++		return;
 +
-+	nr_pages = vs_obj->size >> PAGE_SHIFT;
++	__drm_atomic_helper_plane_reset(plane, &state->base);
 +
-+	vs_obj->pages = kvmalloc_array(nr_pages, sizeof(struct page *),
-+				       GFP_KERNEL | __GFP_ZERO);
-+	if (!vs_obj->pages) {
-+		DRM_DEV_ERROR(dev->dev, "failed to allocate pages.\n");
-+		return -ENOMEM;
++	state->degamma = VS_DEGAMMA_DISABLE;
++	state->degamma_changed = false;
++	state->base.zpos = vs_plane->id;
++
++	memset(&state->status, 0, sizeof(state->status));
++}
++
++static void _vs_plane_duplicate_blob(struct vs_plane_state *state,
++				     struct vs_plane_state *ori_state)
++{
++	state->watermark = ori_state->watermark;
++	state->color_mgmt = ori_state->color_mgmt;
++	state->roi = ori_state->roi;
++
++	if (state->watermark)
++		drm_property_blob_get(state->watermark);
++	if (state->color_mgmt)
++		drm_property_blob_get(state->color_mgmt);
++	if (state->roi)
++		drm_property_blob_get(state->roi);
++}
++
++static int
++_vs_plane_set_property_blob_from_id(struct drm_device *dev,
++				    struct drm_property_blob **blob,
++				    u64 blob_id,
++				    size_t expected_size)
++{
++	struct drm_property_blob *new_blob = NULL;
++
++	if (blob_id) {
++		new_blob = drm_property_lookup_blob(dev, blob_id);
++		if (!new_blob)
++			return -EINVAL;
++
++		if (new_blob->length != expected_size) {
++			drm_property_blob_put(new_blob);
++			return -EINVAL;
++		}
 +	}
 +
-+	vs_obj->cookie = dma_alloc_attrs(to_dma_dev(dev), vs_obj->size,
-+					 &vs_obj->dma_addr, GFP_KERNEL,
-+					 vs_obj->dma_attrs);
-+
-+	if (!vs_obj->cookie) {
-+		DRM_DEV_ERROR(dev->dev, "failed to allocate buffer.\n");
-+		goto err_free;
-+	}
-+
-+	vs_obj->iova = vs_obj->dma_addr;
-+
-+	ret = dma_get_sgtable_attrs(to_dma_dev(dev), &sgt,
-+				    vs_obj->cookie, vs_obj->dma_addr,
-+				    vs_obj->size, vs_obj->dma_attrs);
-+	if (ret < 0) {
-+		DRM_DEV_ERROR(dev->dev, "failed to get sgtable.\n");
-+		goto err_mem_free;
-+	}
-+
-+	if (drm_prime_sg_to_page_array(&sgt, vs_obj->pages, nr_pages)) {
-+		DRM_DEV_ERROR(dev->dev, "invalid sgtable.\n");
-+		ret = -EINVAL;
-+		goto err_sgt_free;
-+	}
-+
-+	sg_free_table(&sgt);
++	drm_property_replace_blob(blob, new_blob);
++	drm_property_blob_put(new_blob);
 +
 +	return 0;
-+
-+err_sgt_free:
-+	sg_free_table(&sgt);
-+err_mem_free:
-+		dma_free_attrs(to_dma_dev(dev), vs_obj->size, vs_obj->cookie,
-+			       vs_obj->dma_addr, vs_obj->dma_attrs);
-+err_free:
-+	kvfree(vs_obj->pages);
-+
-+	return ret;
 +}
 +
-+static void vs_gem_free_buf(struct vs_gem_object *vs_obj)
++static struct drm_plane_state *
++vs_plane_atomic_duplicate_state(struct drm_plane *plane)
 +{
-+	struct drm_device *dev = vs_obj->base.dev;
++	struct vs_plane_state *ori_state;
++	struct vs_plane_state *state;
 +
-+	if (!vs_obj->dma_addr) {
-+		DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr is invalid.\n");
-+		return;
-+	}
++	if (WARN_ON(!plane->state))
++		return NULL;
 +
-+	dma_free_attrs(to_dma_dev(dev), vs_obj->size, vs_obj->cookie,
-+		       (dma_addr_t)vs_obj->dma_addr,
-+		       vs_obj->dma_attrs);
++	ori_state = to_vs_plane_state(plane->state);
++	state = kzalloc(sizeof(*state), GFP_KERNEL);
++	if (!state)
++		return NULL;
 +
-+	kvfree(vs_obj->pages);
++	__drm_atomic_helper_plane_duplicate_state(plane, &state->base);
++
++	state->degamma = ori_state->degamma;
++	state->degamma_changed = ori_state->degamma_changed;
++
++	_vs_plane_duplicate_blob(state, ori_state);
++	memcpy(&state->status, &ori_state->status, sizeof(ori_state->status));
++
++	return &state->base;
 +}
 +
-+static void vs_gem_free_object(struct drm_gem_object *obj)
++static void vs_plane_atomic_destroy_state(struct drm_plane *plane,
++					  struct drm_plane_state *state)
 +{
-+	struct vs_gem_object *vs_obj = to_vs_gem_object(obj);
++	struct vs_plane_state *vs_plane_state = to_vs_plane_state(state);
 +
-+	if (obj->import_attach)
-+		drm_prime_gem_destroy(obj, vs_obj->sgt);
-+	else
-+		vs_gem_free_buf(vs_obj);
++	__drm_atomic_helper_plane_destroy_state(state);
 +
-+	drm_gem_object_release(obj);
-+
-+	kfree(vs_obj);
++	drm_property_blob_put(vs_plane_state->watermark);
++	drm_property_blob_put(vs_plane_state->color_mgmt);
++	drm_property_blob_put(vs_plane_state->roi);
++	kfree(vs_plane_state);
 +}
 +
-+static struct vs_gem_object *vs_gem_alloc_object(struct drm_device *dev,
-+						 size_t size)
++static int vs_plane_atomic_set_property(struct drm_plane *plane,
++					struct drm_plane_state *state,
++					struct drm_property *property,
++					uint64_t val)
 +{
-+	struct vs_gem_object *vs_obj;
-+	struct drm_gem_object *obj;
-+	int ret;
-+
-+	vs_obj = kzalloc(sizeof(*vs_obj), GFP_KERNEL);
-+	if (!vs_obj)
-+		return ERR_PTR(-ENOMEM);
-+
-+	vs_obj->size = size;
-+	obj = &vs_obj->base;
-+
-+	ret = drm_gem_object_init(dev, obj, size);
-+	if (ret)
-+		goto err_free;
-+
-+	vs_obj->base.funcs = &vs_gem_default_funcs;
-+
-+	ret = drm_gem_create_mmap_offset(obj);
-+	if (ret) {
-+		drm_gem_object_release(obj);
-+		goto err_free;
-+	}
-+
-+	return vs_obj;
-+
-+err_free:
-+	kfree(vs_obj);
-+	return ERR_PTR(ret);
-+}
-+
-+struct vs_gem_object *vs_gem_create_object(struct drm_device *dev,
-+					   size_t size)
-+{
-+	struct vs_gem_object *vs_obj;
-+	int ret;
-+
-+	size = PAGE_ALIGN(size);
-+
-+	vs_obj = vs_gem_alloc_object(dev, size);
-+	if (IS_ERR(vs_obj))
-+		return vs_obj;
-+
-+	ret = vs_gem_alloc_buf(vs_obj);
-+	if (ret) {
-+		drm_gem_object_release(&vs_obj->base);
-+		kfree(vs_obj);
-+		return ERR_PTR(ret);
-+	}
-+
-+	return vs_obj;
-+}
-+
-+static struct vs_gem_object *vs_gem_create_with_handle(struct drm_device *dev,
-+						       struct drm_file *file,
-+						       size_t size,
-+						       unsigned int *handle)
-+{
-+	struct vs_gem_object *vs_obj;
-+	struct drm_gem_object *obj;
-+	int ret;
-+
-+	vs_obj = vs_gem_create_object(dev, size);
-+	if (IS_ERR(vs_obj))
-+		return vs_obj;
-+
-+	obj = &vs_obj->base;
-+
-+	ret = drm_gem_handle_create(file, obj, handle);
-+
-+	drm_gem_object_put(obj);
-+
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	return vs_obj;
-+}
-+
-+static int vs_gem_mmap_obj(struct drm_gem_object *obj,
-+			   struct vm_area_struct *vma)
-+{
-+	struct vs_gem_object *vs_obj = to_vs_gem_object(obj);
-+	struct drm_device *drm_dev = vs_obj->base.dev;
-+	unsigned long vm_size;
++	struct drm_device *dev = plane->dev;
++	struct vs_plane *vs_plane = to_vs_plane(plane);
++	struct vs_plane_state *vs_plane_state = to_vs_plane_state(state);
 +	int ret = 0;
 +
-+	vm_size = vma->vm_end - vma->vm_start;
-+	if (vm_size > vs_obj->size)
++	if (property == vs_plane->degamma_mode) {
++		if (vs_plane_state->degamma != val) {
++			vs_plane_state->degamma = val;
++			vs_plane_state->degamma_changed = true;
++		} else {
++			vs_plane_state->degamma_changed = false;
++		}
++	} else if (property == vs_plane->watermark_prop) {
++		ret = _vs_plane_set_property_blob_from_id(dev,
++							  &vs_plane_state->watermark,
++							  val,
++							  sizeof(struct drm_vs_watermark));
++		return ret;
++	} else if (property == vs_plane->color_mgmt_prop) {
++		ret = _vs_plane_set_property_blob_from_id(dev,
++							  &vs_plane_state->color_mgmt,
++							  val,
++							  sizeof(struct drm_vs_color_mgmt));
++		return ret;
++	} else if (property == vs_plane->roi_prop) {
++		ret = _vs_plane_set_property_blob_from_id(dev,
++							  &vs_plane_state->roi,
++							  val,
++							  sizeof(struct drm_vs_roi));
++		return ret;
++	} else {
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static int vs_plane_atomic_get_property(struct drm_plane *plane,
++					const struct drm_plane_state *state,
++					struct drm_property *property,
++					uint64_t *val)
++{
++	struct vs_plane *vs_plane = to_vs_plane(plane);
++	const struct vs_plane_state *vs_plane_state =
++		container_of(state, const struct vs_plane_state, base);
++
++	if (property == vs_plane->degamma_mode)
++		*val = vs_plane_state->degamma;
++	else if (property == vs_plane->watermark_prop)
++		*val = (vs_plane_state->watermark) ?
++					vs_plane_state->watermark->base.id : 0;
++	else if (property == vs_plane->color_mgmt_prop)
++		*val = (vs_plane_state->color_mgmt) ?
++					vs_plane_state->color_mgmt->base.id : 0;
++	else if (property == vs_plane->roi_prop)
++		*val = (vs_plane_state->roi) ?
++					vs_plane_state->roi->base.id : 0;
++	else
 +		return -EINVAL;
 +
-+	vma->vm_pgoff = 0;
-+
-+	/*
-+	 * We allocated a struct page table for starfive_obj, so clear
-+	 * VM_PFNMAP flag that was set by drm_gem_mmap_obj()/drm_gem_mmap().
-+	 */
-+	vm_flags_mod(vma, VM_IO | VM_DONTEXPAND | VM_DONTDUMP, VM_PFNMAP);
-+
-+	vma->vm_page_prot = pgprot_writecombine(vm_get_page_prot(vma->vm_flags));
-+	vma->vm_page_prot = pgprot_decrypted(vma->vm_page_prot);
-+
-+	ret = dma_mmap_attrs(to_dma_dev(drm_dev), vma, vs_obj->cookie,
-+			     vs_obj->dma_addr, vs_obj->size,
-+			     vs_obj->dma_attrs);
-+
-+	if (ret)
-+		drm_gem_vm_close(vma);
-+
-+	return ret;
-+}
-+
-+struct sg_table *vs_gem_prime_get_sg_table(struct drm_gem_object *obj)
-+{
-+	struct vs_gem_object *vs_obj = to_vs_gem_object(obj);
-+
-+	return drm_prime_pages_to_sg(obj->dev, vs_obj->pages,
-+					 vs_obj->size >> PAGE_SHIFT);
-+}
-+
-+int vs_gem_prime_vmap(struct drm_gem_object *obj, struct iosys_map *map)
-+{
-+	struct vs_gem_object *vs_obj = to_vs_gem_object(obj);
-+
-+	void *vaddr = vs_obj->dma_attrs & DMA_ATTR_NO_KERNEL_MAPPING ?
-+		       page_address(vs_obj->cookie) : vs_obj->cookie;
-+
-+	iosys_map_set_vaddr(map, vaddr);
-+
 +	return 0;
 +}
 +
-+void vs_gem_prime_vunmap(struct drm_gem_object *obj, struct iosys_map *map)
++static bool vs_format_mod_supported(struct drm_plane *plane,
++				    u32 format,
++				    u64 modifier)
 +{
-+	/* Nothing to do */
-+}
++	int i;
 +
-+static const struct vm_operations_struct vs_vm_ops = {
-+	.open  = drm_gem_vm_open,
-+	.close = drm_gem_vm_close,
-+};
++       /* We always have to allow these modifiers:
++	* 1. Core DRM checks for LINEAR support if userspace does not provide modifiers.
++	* 2. Not passing any modifiers is the same as explicitly passing INVALID.
++	*/
++	if (modifier == DRM_FORMAT_MOD_LINEAR)
++		return true;
 +
-+static const struct drm_gem_object_funcs vs_gem_default_funcs = {
-+	.free = vs_gem_free_object,
-+	.get_sg_table = vs_gem_prime_get_sg_table,
-+	.vmap = vs_gem_prime_vmap,
-+	.vunmap = vs_gem_prime_vunmap,
-+	.vm_ops = &vs_vm_ops,
-+};
-+
-+int vs_gem_dumb_create(struct drm_file *file,
-+		       struct drm_device *dev,
-+		       struct drm_mode_create_dumb *args)
-+{
-+	struct vs_drm_private *priv = dev->dev_private;
-+	struct vs_gem_object *vs_obj;
-+	unsigned int pitch = DIV_ROUND_UP(args->width * args->bpp, 8);
-+
-+	if (args->bpp % 10)
-+		args->pitch = ALIGN(pitch, priv->pitch_alignment);
-+	else
-+		/* for costum 10bit format with no bit gaps */
-+		args->pitch = pitch;
-+	args->size = PAGE_ALIGN(args->pitch * args->height);
-+	vs_obj = vs_gem_create_with_handle(dev, file, args->size,
-+					   &args->handle);
-+	return PTR_ERR_OR_ZERO(vs_obj);
-+}
-+
-+struct drm_gem_object *vs_gem_prime_import(struct drm_device *dev,
-+					   struct dma_buf *dma_buf)
-+{
-+	return drm_gem_prime_import_dev(dev, dma_buf, to_dma_dev(dev));
-+}
-+
-+struct drm_gem_object *
-+vs_gem_prime_import_sg_table(struct drm_device *dev,
-+			     struct dma_buf_attachment *attach,
-+			     struct sg_table *sgt)
-+{
-+	struct vs_gem_object *vs_obj;
-+	int npages;
-+	int ret;
-+	struct scatterlist *s;
-+	u32 i;
-+	dma_addr_t expected;
-+	size_t size = attach->dmabuf->size;
-+
-+	size = PAGE_ALIGN(size);
-+
-+	vs_obj = vs_gem_alloc_object(dev, size);
-+	if (IS_ERR(vs_obj))
-+		return ERR_CAST(vs_obj);
-+
-+	expected = sg_dma_address(sgt->sgl);
-+	for_each_sg(sgt->sgl, s, sgt->nents, i) {
-+		if (sg_dma_address(s) != expected) {
-+			DRM_ERROR("sg_table is not contiguous");
-+			ret = -EINVAL;
-+			goto err;
-+		}
-+		if (sg_dma_len(s) & (PAGE_SIZE - 1)) {
-+			ret = -EINVAL;
-+			goto err;
-+		}
-+		if (i == 0)
-+			vs_obj->iova = sg_dma_address(s);
-+		expected = sg_dma_address(s) + sg_dma_len(s);
++	/* Check that the modifier is on the list of the plane's supported modifiers. */
++	for (i = 0; i < plane->modifier_count; i++) {
++		if (modifier == plane->modifiers[i])
++			break;
 +	}
 +
-+	vs_obj->dma_addr = sg_dma_address(sgt->sgl);
++	if (i == plane->modifier_count)
++		return false;
 +
-+	npages = vs_obj->size >> PAGE_SHIFT;
-+	vs_obj->pages = kvmalloc_array(npages, sizeof(struct page *),
-+				       GFP_KERNEL);
-+	if (!vs_obj->pages) {
-+		ret = -ENOMEM;
-+		goto err;
++	return true;
++}
++
++const struct drm_plane_funcs vs_plane_funcs = {
++	.update_plane		= drm_atomic_helper_update_plane,
++	.disable_plane		= drm_atomic_helper_disable_plane,
++	.destroy		= vs_plane_destory,
++	.reset			= vs_plane_reset,
++	.atomic_duplicate_state = vs_plane_atomic_duplicate_state,
++	.atomic_destroy_state	= vs_plane_atomic_destroy_state,
++	.atomic_set_property	= vs_plane_atomic_set_property,
++	.atomic_get_property	= vs_plane_atomic_get_property,
++	.format_mod_supported	= vs_format_mod_supported,
++};
++
++static unsigned char vs_get_plane_number(struct drm_framebuffer *fb)
++{
++	const struct drm_format_info *info;
++
++	if (!fb)
++		return 0;
++
++	info = drm_format_info(fb->format->format);
++	if (!info || info->num_planes > MAX_NUM_PLANES)
++		return 0;
++
++	return info->num_planes;
++}
++
++static int vs_plane_atomic_check(struct drm_plane *plane,
++				 struct drm_atomic_state *state)
++{
++	struct drm_plane_state *new_plane_state = drm_atomic_get_new_plane_state(state,
++										 plane);
++	struct vs_plane *vs_plane = to_vs_plane(plane);
++	struct drm_framebuffer *fb = new_plane_state->fb;
++	struct drm_crtc *crtc = new_plane_state->crtc;
++	struct vs_crtc *vs_crtc = to_vs_crtc(crtc);
++
++	if (!crtc || !fb)
++		return 0;
++
++	//return vs_plane->funcs->check(vs_crtc->dev, vs_plane, new_plane_state);
++	return vs_plane->funcs->check(vs_crtc->dev, plane, state);
++}
++
++static void vs_plane_atomic_update(struct drm_plane *plane,
++				   struct drm_atomic_state *state)
++{
++	struct drm_plane_state *new_state = drm_atomic_get_new_plane_state(state,
++									   plane);
++	unsigned char i, num_planes;
++	struct drm_framebuffer *fb;
++	struct vs_plane *vs_plane = to_vs_plane(plane);
++	//struct drm_plane_state *state = plane->state;
++	struct vs_crtc *vs_crtc = to_vs_crtc(new_state->crtc);
++	struct vs_plane_state *plane_state = to_vs_plane_state(new_state);
++	//struct drm_format_name_buf *name = &plane_state->status.format_name;
++
++	if (!new_state->fb || !new_state->crtc)
++		return;
++
++	fb = new_state->fb;
++
++	num_planes = vs_get_plane_number(fb);
++
++	for (i = 0; i < num_planes; i++) {
++		struct vs_gem_object *vs_obj;
++
++		vs_obj = vs_fb_get_gem_obj(fb, i);
++		vs_plane->dma_addr[i] = vs_obj->iova + fb->offsets[i];
 +	}
 +
-+	ret = drm_prime_sg_to_page_array(sgt, vs_obj->pages, npages);
-+	if (ret)
-+		goto err_free_page;
++	plane_state->status.src = drm_plane_state_src(new_state);
++	plane_state->status.dest = drm_plane_state_dest(new_state);
 +
-+	vs_obj->sgt = sgt;
-+
-+	return &vs_obj->base;
-+
-+err_free_page:
-+	kvfree(vs_obj->pages);
-+err:
-+	vs_gem_free_object(&vs_obj->base);
-+
-+	return ERR_PTR(ret);
++	vs_plane->funcs->update(vs_crtc->dev, vs_plane, plane, state);
 +}
 +
-+int vs_gem_prime_mmap(struct drm_gem_object *obj, struct vm_area_struct *vma)
++static void vs_plane_atomic_disable(struct drm_plane *plane,
++				    struct drm_atomic_state *state)
 +{
-+	int ret = 0;
++	struct drm_plane_state *old_state = drm_atomic_get_old_plane_state(state,
++										   plane);
++	struct vs_plane *vs_plane = to_vs_plane(plane);
++	struct vs_crtc *vs_crtc = to_vs_crtc(old_state->crtc);
 +
-+	ret = drm_gem_mmap_obj(obj, obj->size, vma);
-+	if (ret < 0)
-+		return ret;
-+
-+	return vs_gem_mmap_obj(obj, vma);
++	vs_plane->funcs->disable(vs_crtc->dev, vs_plane, old_state);
 +}
 +
-+int vs_gem_mmap(struct file *filp, struct vm_area_struct *vma)
++const struct drm_plane_helper_funcs vs_plane_helper_funcs = {
++	.atomic_check	= vs_plane_atomic_check,
++	.atomic_update	= vs_plane_atomic_update,
++	.atomic_disable = vs_plane_atomic_disable,
++};
++
++static const struct drm_prop_enum_list vs_degamma_mode_enum_list[] = {
++	{ VS_DEGAMMA_DISABLE,	"disabled" },
++	{ VS_DEGAMMA_BT709, "preset degamma for BT709" },
++	{ VS_DEGAMMA_BT2020,	"preset degamma for BT2020" },
++};
++
++struct vs_plane *vs_plane_create(struct drm_device *drm_dev,
++				 struct vs_plane_info *info,
++				 unsigned int layer_num,
++				 unsigned int possible_crtcs)
 +{
-+	struct drm_gem_object *obj;
++	struct vs_plane *plane;
 +	int ret;
 +
-+	ret = drm_gem_mmap(filp, vma);
++	if (!info)
++		return NULL;
++
++	plane = kzalloc(sizeof(*plane), GFP_KERNEL);
++	if (!plane)
++		return NULL;
++
++	ret = drm_universal_plane_init(drm_dev, &plane->base, possible_crtcs,
++				       &vs_plane_funcs, info->formats,
++				       info->num_formats, info->modifiers, info->type,
++				       info->name ? info->name : NULL);
 +	if (ret)
-+		return ret;
++		goto err_free_plane;
 +
-+	obj = vma->vm_private_data;
++	drm_plane_helper_add(&plane->base, &vs_plane_helper_funcs);
 +
-+	if (obj->import_attach)
-+		return dma_buf_mmap(obj->dma_buf, vma, 0);
++	/* Set up the plane properties */
++	if (info->degamma_size) {
++		plane->degamma_mode =
++		drm_property_create_enum(drm_dev, 0,
++					 "DEGAMMA_MODE",
++					 vs_degamma_mode_enum_list,
++					 ARRAY_SIZE(vs_degamma_mode_enum_list));
 +
-+	return vs_gem_mmap_obj(obj, vma);
++		if (!plane->degamma_mode)
++			goto error_cleanup_plane;
++
++		drm_object_attach_property(&plane->base.base,
++					   plane->degamma_mode,
++					   VS_DEGAMMA_DISABLE);
++	}
++
++	if (info->rotation) {
++		ret = drm_plane_create_rotation_property(&plane->base,
++							 DRM_MODE_ROTATE_0,
++							 info->rotation);
++		if (ret)
++			goto error_cleanup_plane;
++	}
++
++	if (info->blend_mode) {
++		ret = drm_plane_create_blend_mode_property(&plane->base,
++							   info->blend_mode);
++		if (ret)
++			goto error_cleanup_plane;
++		ret = drm_plane_create_alpha_property(&plane->base);
++		if (ret)
++			goto error_cleanup_plane;
++	}
++
++	if (info->color_encoding) {
++		ret = drm_plane_create_color_properties(&plane->base,
++							info->color_encoding,
++							BIT(DRM_COLOR_YCBCR_LIMITED_RANGE),
++							DRM_COLOR_YCBCR_BT709,
++							DRM_COLOR_YCBCR_LIMITED_RANGE);
++		if (ret)
++			goto error_cleanup_plane;
++	}
++
++	if (info->zpos != 255) {
++		ret = drm_plane_create_zpos_property(&plane->base, info->zpos, 0,
++						     layer_num - 1);
++		if (ret)
++			goto error_cleanup_plane;
++	} else {
++		ret = drm_plane_create_zpos_immutable_property(&plane->base,
++							       info->zpos);
++		if (ret)
++			goto error_cleanup_plane;
++	}
++
++	if (info->watermark) {
++		plane->watermark_prop = drm_property_create(drm_dev, DRM_MODE_PROP_BLOB,
++							    "WATERMARK", 0);
++		if (!plane->watermark_prop)
++			goto error_cleanup_plane;
++
++		drm_object_attach_property(&plane->base.base, plane->watermark_prop, 0);
++	}
++
++	if (info->color_mgmt) {
++		plane->color_mgmt_prop = drm_property_create(drm_dev, DRM_MODE_PROP_BLOB,
++							     "COLOR_CONFIG", 0);
++		if (!plane->color_mgmt_prop)
++			goto error_cleanup_plane;
++
++		drm_object_attach_property(&plane->base.base, plane->color_mgmt_prop, 0);
++	}
++
++	if (info->roi) {
++		plane->roi_prop = drm_property_create(drm_dev, DRM_MODE_PROP_BLOB,
++						      "ROI", 0);
++		if (!plane->roi_prop)
++			goto error_cleanup_plane;
++
++		drm_object_attach_property(&plane->base.base, plane->roi_prop, 0);
++	}
++
++	return plane;
++
++error_cleanup_plane:
++	drm_plane_cleanup(&plane->base);
++err_free_plane:
++	kfree(plane);
++	return NULL;
 +}
-diff --git a/drivers/gpu/drm/verisilicon/vs_gem.h b/drivers/gpu/drm/verisilicon/vs_gem.h
+diff --git a/drivers/gpu/drm/verisilicon/vs_plane.h b/drivers/gpu/drm/verisilicon/vs_plane.h
 new file mode 100644
-index 000000000000..3a6d7452cb06
+index 000000000000..76ef3c3de045
 --- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_gem.h
-@@ -0,0 +1,72 @@
++++ b/drivers/gpu/drm/verisilicon/vs_plane.h
+@@ -0,0 +1,74 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
 +/*
 + * Copyright (C) 2023 VeriSilicon Holdings Co., Ltd.
 + */
 +
-+#ifndef __VS_GEM_H__
-+#define __VS_GEM_H__
++#ifndef __VS_PLANE_H__
++#define __VS_PLANE_H__
 +
-+#include <linux/dma-buf.h>
++#include <drm/drm_fourcc.h>
++#include <drm/drm_plane_helper.h>
 +
-+#include <drm/drm_gem.h>
-+#include <drm/drm_prime.h>
++#include "vs_fb.h"
++#include "vs_type.h"
 +
-+#include "vs_drv.h"
-+/*
-+ *
-+ * @base: drm gem object.
-+ * @size: size requested from user
-+ * @cookie: cookie returned by dma_alloc_attrs
-+ *	- not kernel virtual address with DMA_ATTR_NO_KERNEL_MAPPING
-+ * @dma_addr: bus address(accessed by dma) to allocated memory region.
-+ *	- this address could be physical address without IOMMU and
-+ *	device address with IOMMU.
-+ * @dma_attrs: attribute for DMA API
-+ * @get_pages: flag for manually applying for non-contiguous memory.
-+ * @pages: Array of backing pages.
-+ * @sgt: Imported sg_table.
-+ *
-+ */
-+struct vs_gem_object {
-+	struct drm_gem_object	base;
-+	size_t			size;
-+	void			*cookie;
-+	dma_addr_t		dma_addr;
-+	u32				iova;
-+	unsigned long	dma_attrs;
-+	bool			get_pages;
-+	struct page		**pages;
-+	struct sg_table *sgt;
++struct vs_plane;
++
++struct vs_plane_funcs {
++	void (*update)(struct device *dev, struct vs_plane *plane, struct drm_plane *drm_plane,
++		       struct drm_atomic_state *state);
++	void (*disable)(struct device *dev, struct vs_plane *plane,
++			struct drm_plane_state *old_state);
++	int (*check)(struct device *dev, struct drm_plane *plane,
++		     struct drm_atomic_state *state);
 +};
 +
-+static inline
-+struct vs_gem_object *to_vs_gem_object(struct drm_gem_object *obj)
++struct vs_plane_status {
++	u32 tile_mode;
++	struct drm_rect src;
++	struct drm_rect dest;
++};
++
++struct vs_plane_state {
++	struct drm_plane_state base;
++	struct vs_plane_status status; /* for debugfs */
++
++	struct drm_property_blob *watermark;
++	struct drm_property_blob *color_mgmt;
++	struct drm_property_blob *roi;
++
++	u32 degamma;
++	bool degamma_changed;
++};
++
++struct vs_plane {
++	struct drm_plane base;
++	u8 id;
++	dma_addr_t dma_addr[MAX_NUM_PLANES];
++
++	struct drm_property *degamma_mode;
++	struct drm_property *watermark_prop;
++	struct drm_property *color_mgmt_prop;
++	struct drm_property *roi_prop;
++
++	const struct vs_plane_funcs *funcs;
++};
++
++void vs_plane_destory(struct drm_plane *plane);
++
++struct vs_plane *vs_plane_create(struct drm_device *drm_dev,
++				 struct vs_plane_info *info,
++				 unsigned int layer_num,
++				 unsigned int possible_crtcs);
++
++static inline struct vs_plane *to_vs_plane(struct drm_plane *plane)
 +{
-+	return container_of(obj, struct vs_gem_object, base);
++	return container_of(plane, struct vs_plane, base);
 +}
 +
-+struct vs_gem_object *vs_gem_create_object(struct drm_device *dev,
-+					   size_t size);
-+
-+int vs_gem_prime_vmap(struct drm_gem_object *obj, struct iosys_map *map);
-+void vs_gem_prime_vunmap(struct drm_gem_object *obj, struct iosys_map *map);
-+
-+int vs_gem_prime_mmap(struct drm_gem_object *obj,
-+		      struct vm_area_struct *vma);
-+
-+int vs_gem_dumb_create(struct drm_file *file_priv,
-+		       struct drm_device *drm,
-+		       struct drm_mode_create_dumb *args);
-+
-+int vs_gem_mmap(struct file *filp, struct vm_area_struct *vma);
-+
-+struct sg_table *vs_gem_prime_get_sg_table(struct drm_gem_object *obj);
-+
-+struct drm_gem_object *vs_gem_prime_import(struct drm_device *dev,
-+					   struct dma_buf *dma_buf);
-+struct drm_gem_object *
-+vs_gem_prime_import_sg_table(struct drm_device *dev,
-+			     struct dma_buf_attachment *attach,
-+			     struct sg_table *sgt);
-+
-+#endif /* __VS_GEM_H__ */
++static inline struct vs_plane_state *
++to_vs_plane_state(struct drm_plane_state *state)
++{
++	return container_of(state, struct vs_plane_state, base);
++}
++#endif /* __VS_PLANE_H__ */
 -- 
 2.34.1
 
