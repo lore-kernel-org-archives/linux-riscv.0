@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6653BC7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 16:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E68C7EE29
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 17:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFHvOLMWyTAu9RHIVAJEqsE5kAq/3DVM5vXBhgDcQXQ=; b=VNnsbre/rtufU4EYbTxQMkNAST
-	Ky/Cn9PP4KP18jfgsfTyW6wrx2nwmdERQWdgERl1H4+EQu2SuiMrHEUn72SaYYmEAMJxkMVA8sYjb
-	DxX5CSS39Db3Lc49nfpc+D0+9hhJMPtvtSij/rDqo58Fs/gNCxOKtZwOiarvnV6rX4rJ6LIfGmwJj
-	CzPSEF18CcardedKKYr7Mqx58RL3AW1qU9ANvkTeKTi0EUdIyKC73M+Q4tdI+LNd6N8vNfqvOSDR9
-	oOeNlaRDI9ocxHkTRzP8wzdFTdnnR99yxJmBU+OVTP0XrISCJwQ8Op4F2ABMteZMzu1aoGmsJwv3V
-	1GH/wufw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=QPWYrsEDf/pLQNY84xG7dqXKTYpCMqpBwgxy15X3SQk=; b=d/3pjye7CUWR3BHKtScRSq6gOQ
+	OmXb6UeaRa/SpZlx+4E0F6NbaqeGP1fBJ8A5ZQxlFM0OhzXh/QdoYz7n81R7mESAxTKnFjgohK5oy
+	anK1M0fv/f8KqptVAeyUzXP5crPuw2d+3GNMGcB9oCROP1kvYuu+CAXWbuxjg1m651zK4kMdXkRNg
+	W7i5+NGypWPlSoU3bmU6JtS71JHV8HtC/HNhp/N/qZEOxxqZj+ze5VloZwFbbaqCCEcMveqDK+dyK
+	vnrrIgl9ErAPsHqB3OwaUinGOYakJcKlTWSnwltSGrpQd94mDOSYZ5E1FPHG7O4S6M6JoM/fN1Ubq
+	7LywFDwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q587n-007To5-2X;
-	Fri, 02 Jun 2023 16:59:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q58NS-007Vs9-1m;
+	Fri, 02 Jun 2023 17:15:50 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q587l-007Tn7-0k
+	id 1q57LY-007LR8-2w
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 16:59:38 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 82F3763040;
-	Fri,  2 Jun 2023 16:59:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DFE3C433EF;
-	Fri,  2 Jun 2023 16:59:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685725175;
-	bh=ZWc5cZxtTS+a1oL1ydW5dbNhJFyKN9X07jEjL3vo4F0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yr1ixOHRpeMSDtrK7hRUT1s/0/qLRE2e3isq8Mfa3h2oRl0Yvt80e8hhTMByt+lNs
-	 0rVtjxaj6u0ZMI00E1cEVmq5Fh/Erh65RD47dR8e9CVp232dlueC/mcy0NfTqa9Q8j
-	 QtacFTzHjCSq9Cfmhke84byQZ5VEPFgsPMMQqx32TkjNwezziZCKDy3xg1r2qtOAG5
-	 6KIbWxykc+s4dN+rEYRKyXLTw4dexOfSy2rd94UX+P0IqBoQqL4xXzyIpEZvAIRiKQ
-	 yiV8ighGjFeAewoOGgQGegtHeDatgmDsr89MmcaSuWOP5J4EGGfubZp3u+DMuO0jQ+
-	 sEB3gCeVKXWYg==
-Date: Fri, 2 Jun 2023 17:59:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Torsten Duwe <duwe@lst.de>
-Cc: Xingyu Wu <xingyu.wu@starfivetech.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	yanhong.wang@starfivetech.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	William Qiu <william.qiu@starfivetech.com>,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock
- generator
-Message-ID: <20230602-wise-entomb-975a2474d97a@spud>
-References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
- <20230512022036.97987-2-xingyu.wu@starfivetech.com>
- <20230519135733.GA10188@lst.de>
- <20230519-smokeless-guileless-2a71cae06509@wendy>
- <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
- <20230602183922.649b8e88@blackhole.lan>
- <20230602-drained-wheat-b6c5ea009f16@spud>
- <20230602165713.GA27915@lst.de>
-MIME-Version: 1.0
-In-Reply-To: <20230602165713.GA27915@lst.de>
+	Fri, 02 Jun 2023 16:09:50 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-56942442eb0so20414267b3.1
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 09:09:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1685722188; x=1688314188;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ATfYeV4iZLydVfrv7VkfrrcrF6Iyfqli3wOIB/41cFU=;
+        b=Rqyu16keB0kE0WrdwrfeOOljSmmTEf5ym2HasOLzHF8ArvodVvyp0S6Lr0lp8jhqaO
+         yU7vlRlNbGqDi7zvQpbHT6R5zFRE8DckASYhOzfH9V34Q20hh77zuuNe12GxNtHCZXh5
+         lnbwZ2Svz+2HB81mY68YPRkYswYr7F2GvqW0LS+zjsO1U81VkyPUwY6eD2Ki1IgFqmLS
+         03LcT6Q3zPmFBx5Lk1wR2QR7kJ2u+CVAlb7S/W7GXhPrjwIAChkVcnGC08nkCFgLZ6+3
+         IJyon3TZZUbxyP2iFDZRsS+2chcqzC8RuTMktYv6Efxwhi8TOTgmYLyH3MqqUylTOe6h
+         6cPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685722188; x=1688314188;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ATfYeV4iZLydVfrv7VkfrrcrF6Iyfqli3wOIB/41cFU=;
+        b=d9fvOoAet85GeawvswVREPJq9kF/GAWOuOtWEdrGtcCZT3FKqueTX+7u2xOpBm2Jsl
+         rUz7cW0pEvPP0cNxyYtCVzJ9iMA0imgeL4fxoONcGjG43IjbkNEMc+9+uHCwSZpoPZ8H
+         Z9II9R2aBGVFC1T2aWBkVv1VELg1gtp9Ag1nPlP1ftEcMbMdWkrP9YdKfAaizff9pGJe
+         AbFaBAEaibgxy1+Oy15PuTkUcOJGH0wSxypGUOETtB40hfQr+b4mdPSt44az/PjqM0Jh
+         /Eoa02Hmz/qJ3MuxiurA6N0NRtcPquX4PJLR8KNhnDNAlZsRyIjtASgIVHFwL8e4cb49
+         yfNA==
+X-Gm-Message-State: AC+VfDz1EOeIbIKt1oeDnn36Ui5exrYQBJRStmS3RaWlU0oIdVSGrAa2
+	iaOyWh8d0V9Sf+fw8Kj4JpOBWaNjvmPV
+X-Google-Smtp-Source: ACHHUZ4IW8kR8j7bn7igS1kcMhvfZS4XncKRF7NLGQ8SgKKpwW4y3+9yGIJ+PiwzD8LO4pWUxsLhYeKpfotT
+X-Received: from vipin.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:479f])
+ (user=vipinsh job=sendgmr) by 2002:a25:e706:0:b0:bac:5d2c:844b with SMTP id
+ e6-20020a25e706000000b00bac5d2c844bmr1305917ybh.8.1685722187745; Fri, 02 Jun
+ 2023 09:09:47 -0700 (PDT)
+Date: Fri,  2 Jun 2023 09:09:12 -0700
+In-Reply-To: <20230602160914.4011728-1-vipinsh@google.com>
+Mime-Version: 1.0
+References: <20230602160914.4011728-1-vipinsh@google.com>
+X-Mailer: git-send-email 2.41.0.rc0.172.g3f132b7071-goog
+Message-ID: <20230602160914.4011728-15-vipinsh@google.com>
+Subject: [PATCH v2 14/16] KVM: arm64: Pass page walker flags from callers of
+ stage 2 split walker
+From: Vipin Sharma <vipinsh@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, chenhuacai@kernel.org, aleksandar.qemu.devel@gmail.com, 
+	tsbogend@alpha.franken.de, anup@brainfault.org, atishp@atishpatra.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	seanjc@google.com, pbonzini@redhat.com, dmatlack@google.com, 
+	ricarkol@google.com
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Vipin Sharma <vipinsh@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_095937_321153_A018AC01 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20230602_090948_954146_E36F1989 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +94,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7629094752781486490=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Pass enum kvm_pgtable_walk_flags{} to kvm_pgtable_stage2_split() walker
+from its caller.
 
---===============7629094752781486490==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="gTOiipfmNTlMqeKP"
-Content-Disposition: inline
+This allows split walker users to specify if they want to run split
+logic via shared walker or non-shared walker.
 
+Signed-off-by: Vipin Sharma <vipinsh@google.com>
+---
+ arch/arm64/include/asm/kvm_pgtable.h | 4 +++-
+ arch/arm64/kvm/hyp/pgtable.c         | 5 +++--
+ arch/arm64/kvm/mmu.c                 | 2 +-
+ 3 files changed, 7 insertions(+), 4 deletions(-)
 
---gTOiipfmNTlMqeKP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 145be12a5fc2..fbf5c6c509fb 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -684,6 +684,7 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size,
+  * @size:	 Size of the range.
+  * @mc:		 Cache of pre-allocated and zeroed memory from which to allocate
+  *		 page-table pages.
++ * @flags:	 Page walker flags
+  *
+  * The function tries to split any level 1 or 2 entry that overlaps
+  * with the input range (given by @addr and @size).
+@@ -693,7 +694,8 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size,
+  * blocks in the input range as allowed by @mc_capacity.
+  */
+ int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
+-			     struct kvm_mmu_memory_cache *mc);
++			     struct kvm_mmu_memory_cache *mc,
++			     enum kvm_pgtable_walk_flags flags);
+ 
+ /**
+  * kvm_pgtable_walk() - Walk a page-table.
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 23cda3de2dd4..7e84be13d76d 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1408,11 +1408,12 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ }
+ 
+ int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
+-			     struct kvm_mmu_memory_cache *mc)
++			     struct kvm_mmu_memory_cache *mc,
++			     enum kvm_pgtable_walk_flags flags)
+ {
+ 	struct kvm_pgtable_walker walker = {
+ 		.cb	= stage2_split_walker,
+-		.flags	= KVM_PGTABLE_WALK_LEAF,
++		.flags	= flags | KVM_PGTABLE_WALK_LEAF,
+ 		.arg	= mc,
+ 	};
+ 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 7c966f6f1a41..34d2bd03cf5f 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -153,7 +153,7 @@ static int kvm_mmu_split_huge_pages(struct kvm *kvm, phys_addr_t addr,
+ 			return -EINVAL;
+ 
+ 		next = __stage2_range_addr_end(addr, end, chunk_size);
+-		ret = kvm_pgtable_stage2_split(pgt, addr, next - addr, cache);
++		ret = kvm_pgtable_stage2_split(pgt, addr, next - addr, cache, 0);
+ 		if (ret)
+ 			break;
+ 	} while (addr = next, addr != end);
+-- 
+2.41.0.rc0.172.g3f132b7071-goog
 
-On Fri, Jun 02, 2023 at 06:57:13PM +0200, Torsten Duwe wrote:
-> On Fri, Jun 02, 2023 at 05:43:25PM +0100, Conor Dooley wrote:
-> > >=20
-> > > Can you _please_ point me at that "PLL driver" "in Linux" ?
-> >=20
-> > It's patch 2 in this series:
-> > https://lore.kernel.org/linux-riscv/20230512022036.97987-1-xingyu.wu@st=
-arfivetech.com/T/#m4b2d74c36b3bb961a1187ec5cda1a0a0de875f0e
-> >=20
-> Unfortunately, it's not, AFAICS. I'm looking for the driver that
-> will control the PLLs' parameters, grepping for "pll" should yield
-> results, to start with. The thing should act on the SYS_SYSCON iomem,
-> at 0x13030000. Ideally, a DT node should point it there...
-
-The driver binds against a child node of the syscon @ 1303_0000:
-https://lore.kernel.org/linux-riscv/20230512022036.97987-1-xingyu.wu@starfi=
-vetech.com/T/#m882de9210850eb6f871cafc3418f3202ba915de8
-
-Am I missing something?
-
-Cheers,
-Conor.
-
---gTOiipfmNTlMqeKP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHof8QAKCRB4tDGHoIJi
-0iZeAP94HgEHJBXSFHCDIA1ukvah1gLeQDcWwDzLZAjguwUY7QEAm10ukzpdoakk
-IyPtDFhAnVt38/uZdD4pShSOPC8IUg4=
-=9Kxn
------END PGP SIGNATURE-----
-
---gTOiipfmNTlMqeKP--
-
-
---===============7629094752781486490==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7629094752781486490==--
-
