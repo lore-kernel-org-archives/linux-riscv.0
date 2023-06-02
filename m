@@ -4,100 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1231C7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 16:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B41C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 16:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=QiwA9h+qrd4KzI+lWNKTe53kwRqt+164NbizJH782H4=; b=h2BBQ5X441kMbQUBVtVG6BsONS
-	ZZCaYCbZGg9GFul3zM2/8hjad5IvmBgUDPQIOjKG5U8aa1qwvHXOXQldD+R0N7JRwYi5HLhQHFcZP
-	/iSHJhRwHNEZ6b3vUPhcGhwpYlmWZ5ApNstSSQsuIjsK8+I0vJryVvnZUHuFBAkmwR8n7o39x7G2b
-	VuqqVyQruML+3SgLnRPPPh9HzFq4LTVQ2iq6FSy9tj8WkZjEdOVsu9+7Cdz/QSOCDuwhtV9P5nZbq
-	YGFtcY57UP6UFbOoVFENvamKqFw5DVAvawKeIPZuPLJrKeQC//gPdh3FD/nWNxP8vNwCfzreV/+uE
-	SZ0sfRHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Op7jrALl1DLqF4YHKeMj1vlihVykPfiTakXtUKKv7oU=; b=dHMlnlV0YBbyrCDjof/6gRJTUK
+	cOXpXlQ74pjHocWpXshAFQ1oo6QWEasqmxFk0cq8IymTjjmViUWVeQq1aGRCg1bYqXwedmo4gxUIC
+	zMP0MxSH/46/kILY5C3VHieHdZdHTVsQwgVh44JfFeW+7tGfBj/FUWADrZgvMsN6yMuSjv+VCeQYO
+	lxIN8a0/bJ0bakFjlbEoNFK72qeaYpqglmnDrIlVNAInZVrWYTHnCo7jeLZjQvXzVYG2hKMMcEMZ5
+	RItATkRo1evXqQvkyLiQdzNxR7TRdH4NSkYztJURZWB4ayh1eZXqtlKLe9MiNF8DXC+8DJE/+Rjnt
+	UKsWt5Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57qI-007REq-0O;
-	Fri, 02 Jun 2023 16:41:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1q57sG-007Rzx-0B;
+	Fri, 02 Jun 2023 16:43:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57qG-007RBb-2X
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 02 Jun 2023 16:41:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=rivHDhk0ioxMpP1XynwGaSZFsNZDBBbqgVAGbR7E/X8=; b=dyecyeCEd59sMLHaoda9jZN1nU
-	FDOkOhfKgqmqbCGQRmrKVyQ6+j07mK3875igB3inDMKxiFgoeyx9l+GWcbnqhesilzyMnFUPw+yNY
-	XEmEhnbWem9LWFE7i1yNZuU6PFzz/AvtGMvcOr1p+2EMEop0+p1Hj38vsFel/tNAVgNduYJCqbKFr
-	16n7DO61zT37ZxFuuc2LeiG99x0seas+bMvd9POKFQcxMhINtjM2SUV8bz8ulrxjeB2GvMQddM28b
-	PNBJU4OQMxUgjaJulSAKG1mIdlaVQ1U+vHrK3Fg2qJb7t+iN0zZjX6Nes1sBTtxw8sTPHee01V7Hk
-	ZYSnYgkg==;
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q57LT-001NB7-2q
+	id 1q57sD-007RzH-0S
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 16:09:50 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1afba64045aso22825445ad.0
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 09:09:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1685722181; x=1688314181;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rivHDhk0ioxMpP1XynwGaSZFsNZDBBbqgVAGbR7E/X8=;
-        b=IxpZG4TkYuPd8UtpcDQplKJDDIpAs6lGKWZe95duADLUk5Xly6SRvjrVvCEGB/Fk1a
-         E9X3IJECzkdQ25Bkjejj4IbXek6JqPY58HRA50EOI/YFTzUpFaA/bzGSlAOm+5PEvo+T
-         6jKSmBS0KSmdPni70wpBlwTPrvyYGZvMtxSC3Fbri9jwwzePk7OY91lpj01vmu9g7PZn
-         a5J+YN0h1Qu/z/w7ubpNpCMDwcQqYWttGGXgoLeySgwUxIZDyVDmv/3Bk/4OJqAcfD0+
-         gHcpPqAo0vTPvSXpzWrIqDWuTjrALALhGQwaLZCyItTHvmVctEjS/JfpfTvctKcX+1gM
-         QFLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685722181; x=1688314181;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rivHDhk0ioxMpP1XynwGaSZFsNZDBBbqgVAGbR7E/X8=;
-        b=dgIdJxlikLlQJ25hTajJrg+Jkq2urXvvPZqRYQfgDPtJu0bsdmICq5auja/mXsLasY
-         V9aGLPWVAO1//KacO1/Rnv+UtUAzxj3CMbH1n9ZuRoQ5JG4IRtyFzzN3g3oVXgAV21MH
-         jGD7VNZ3xll14ASKNVE2NjxLcCqLBiMS9X1h6rTO1XfSAO3xilzc4ggCFyRtnErX3BG5
-         +xH0GNlvn8ksZrRYCBRerZT1b6nop3yglkrYhsibu430hxOan+kzWi53rlyJb8hJLobF
-         85QwbmAFQSM2+7BTXWf7o5/2B4iNr38c2N67iR5ilCd5gH30QAeMovvTopkG4YJ3em6t
-         e5oQ==
-X-Gm-Message-State: AC+VfDwu0P9/HgarPLswCWQqBtExbyarCrBNUu8Sy700kGAuomRL0UrJ
-	al0Y4pY2Nzv8F9f3CKEip/MkJry8hRLf
-X-Google-Smtp-Source: ACHHUZ4crxpGe15BxcOcaGOZO2WjPbibX9jRmjl7rSrwdD8Z6/aya1uE9CJM9AhjU7HHArKs+z3PEQeSOj8s
-X-Received: from vipin.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:479f])
- (user=vipinsh job=sendgmr) by 2002:a17:902:e3c5:b0:1b1:c90e:b7aa with SMTP id
- r5-20020a170902e3c500b001b1c90eb7aamr56727ple.4.1685722181662; Fri, 02 Jun
- 2023 09:09:41 -0700 (PDT)
-Date: Fri,  2 Jun 2023 09:09:09 -0700
-In-Reply-To: <20230602160914.4011728-1-vipinsh@google.com>
-Mime-Version: 1.0
-References: <20230602160914.4011728-1-vipinsh@google.com>
-X-Mailer: git-send-email 2.41.0.rc0.172.g3f132b7071-goog
-Message-ID: <20230602160914.4011728-12-vipinsh@google.com>
-Subject: [PATCH v2 11/16] KVM: arm64: Use KVM_PGTABLE_WALK_SHARED flag instead
- of KVM_PGTABLE_WALK_HANDLE_FAULT
-From: Vipin Sharma <vipinsh@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, chenhuacai@kernel.org, aleksandar.qemu.devel@gmail.com, 
-	tsbogend@alpha.franken.de, anup@brainfault.org, atishp@atishpatra.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	seanjc@google.com, pbonzini@redhat.com, dmatlack@google.com, 
-	ricarkol@google.com
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Vipin Sharma <vipinsh@google.com>
+	Fri, 02 Jun 2023 16:43:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 85DD265046;
+	Fri,  2 Jun 2023 16:43:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AE00C433D2;
+	Fri,  2 Jun 2023 16:43:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685724212;
+	bh=LvLxezSRvVTgNsRffgBGO6C8gYI6UvntcIExudbKqNU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QmyCJYVSDwmFCNCoc1vhaDzagypYzlnDyqjrVC72Fj43xovmAquJcQyAyeDkTc86b
+	 f/37c7yqJnfFFcrtFRI0Q6porV0kCKjwrVOXcxpTtHacTHtb5/1jGMsBOFoBxh9Ii0
+	 rjXnaQxYWYutWdleYhMz9/mzKvYj1xLqWHPnd8e7/zSbAxBKJLO6hRXy2j0A/Hk1Il
+	 8UWwF8eWOF0XtKk4QKm/hRiVtLb21XsqdmVZ5Vxi6iEQoeHmeKBxviC5N2ENlF7SLY
+	 LPm+QS4NIBjJpKGo8rkubF72AuSnhcp0op/V8TMatiCqMotY6iL6/MDslGUVyTflOP
+	 80osdajcpJeeA==
+Date: Fri, 2 Jun 2023 17:43:25 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Torsten Duwe <duwe@lst.de>
+Cc: Xingyu Wu <xingyu.wu@starfivetech.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	yanhong.wang@starfivetech.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	William Qiu <william.qiu@starfivetech.com>,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v4 1/7] dt-bindings: clock: Add StarFive JH7110 PLL clock
+ generator
+Message-ID: <20230602-drained-wheat-b6c5ea009f16@spud>
+References: <20230512022036.97987-1-xingyu.wu@starfivetech.com>
+ <20230512022036.97987-2-xingyu.wu@starfivetech.com>
+ <20230519135733.GA10188@lst.de>
+ <20230519-smokeless-guileless-2a71cae06509@wendy>
+ <df43411e-8982-74f5-6148-e7281c37dada@starfivetech.com>
+ <20230602183922.649b8e88@blackhole.lan>
+MIME-Version: 1.0
+In-Reply-To: <20230602183922.649b8e88@blackhole.lan>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_170944_233669_F9062542 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20230602_094333_254864_587FA892 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +88,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0559758093186454736=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Check against shared page table walker flag instead of fault handler
-flag when determining if walk should continue or not.
 
-vCPU page fault handlers uses shared page walker and there are no
-other shared page walkers in Arm. This will change in future commit when
-clear-dirty-log will use shared page walker and continue, retry or
-terminate logic for a walk will change between shared page walkers.
+--===============0559758093186454736==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="XZe2o3rTonuyYBx7"
+Content-Disposition: inline
 
-Signed-off-by: Vipin Sharma <vipinsh@google.com>
----
- arch/arm64/kvm/hyp/pgtable.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index bc8c5c4ac1cf..7f80e953b502 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -191,7 +191,7 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
- 	 * Callbacks can also return ENOENT when PTE which is visited is not
- 	 * valid.
- 	 *
--	 * In the context of a fault handler interpret these as a signal
-+	 * In the context of a shared walker interpret these as a signal
- 	 * to retry guest execution.
- 	 *
- 	 * Ignore these return codes altogether for walkers outside a fault
-@@ -199,7 +199,7 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
- 	 * with the page table walk.
- 	 */
- 	if (r == -EAGAIN || r == -ENOENT)
--		return !(walker->flags & KVM_PGTABLE_WALK_HANDLE_FAULT);
-+		return !(walker->flags & KVM_PGTABLE_WALK_SHARED);
- 
- 	return !r;
- }
--- 
-2.41.0.rc0.172.g3f132b7071-goog
+--XZe2o3rTonuyYBx7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Fri, Jun 02, 2023 at 06:39:22PM +0200, Torsten Duwe wrote:
+> On Tue, 23 May 2023 10:56:43 +0800
+> Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
+>=20
+> > On 2023/5/19 22:16, Conor Dooley wrote:
+> > > On Fri, May 19, 2023 at 03:57:33PM +0200, Torsten Duwe wrote:
+> > >> On Fri, May 12, 2023 at 10:20:30AM +0800, Xingyu Wu wrote:
+> > >> [...]
+> > >> >  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+> > >> >  #define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+> > >> > =20
+> > >> > +/* PLL clocks */
+> > >> > +#define JH7110_CLK_PLL0_OUT			0
+> > >> > +#define JH7110_CLK_PLL1_OUT			1
+> > >> > +#define JH7110_CLK_PLL2_OUT			2
+> > >>=20
+> > >> In U-Boot commit 58c9c60b Yanhong Wang added:
+> > >>=20
+> > >> +
+> > >> +#define JH7110_SYSCLK_PLL0_OUT                       190
+> > >> +#define JH7110_SYSCLK_PLL1_OUT                       191
+> > >> +#define JH7110_SYSCLK_PLL2_OUT                       192
+> > >> +
+> > >> +#define JH7110_SYSCLK_END                    193
+> > >>=20
+> > >> in that respective file.
+> > >>=20
+> > >> > +#define JH7110_PLLCLK_END			3
+> > >> > +
+> > >> >  /* SYSCRG clocks */
+> > >> >  #define JH7110_SYSCLK_CPU_ROOT			0
+> > >>=20
+> > >> If the symbolic names referred to the same items, would it be possib=
+le
+> > >> to keep the two files in sync somehow?
+> > >=20
+> > > Ohh, that's not good.. If you pass the U-Boot dtb to Linux it won't
+> > > understand the numbering. The headers are part of the dt-binding :/
+> >=20
+> > Because PLL driver is separated from SYSCRG drivers in Linux,
+>=20
+> Can you _please_ point me at that "PLL driver" "in Linux" ?
+
+It's patch 2 in this series:
+https://lore.kernel.org/linux-riscv/20230512022036.97987-1-xingyu.wu@starfi=
+vetech.com/T/#m4b2d74c36b3bb961a1187ec5cda1a0a0de875f0e
+
+HTH,
+Conor.
+
+> I seem to be unable to find it. All I can see is a stub in
+> drivers/clk/starfive/clk-starfive-jh7110-sys.c, which simply
+> sets the PLLs to 1000, 1066 and 1188 MHz fixed, respectively.
+>=20
+> The comment above says
+>=20
+> | They will be dropped and registered in the PLL clock driver instead.
+>=20
+> and that's the one I'm looking for.
+>=20
+> Thanks,
+>=20
+> 	Torsten
+
+--XZe2o3rTonuyYBx7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHocLQAKCRB4tDGHoIJi
+0mn5AP9oqsWN8DLcjo3FRlcFhZHaUoQ1i/9UxPlGb0p70AL3BAD/fPfxE6au0mU2
+ReztwYuH1w4rZKxGC5MTp/53/xXkdA4=
+=1yWs
+-----END PGP SIGNATURE-----
+
+--XZe2o3rTonuyYBx7--
+
+
+--===============0559758093186454736==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0559758093186454736==--
+
