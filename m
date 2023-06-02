@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E8DC7EE24
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 09:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A68B2C7EE24
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Jun 2023 09:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7z7xFGnRJ7ivqwjVtQKhQ0nLJ4G06EpcWwhyOwJ5xYI=; b=3NXGpm3PK4PSpr
-	zltGFC4S8+BGYmFSbn8TIX4zRx/C1YxJjwiAkjbmTNsAXpsWPAwErLBZEu4gbZcWXw+cmHyVKFM5r
-	jEju1y0LzW4YLlmCAMSCvMyalcFLz+A07v9YDTLV6Y8JltpsC2pyaPFT5Ef/qnQ2aZgKGali36lLs
-	UvIMcquLWkhan1+dl8fFxlY7qdpv5MerU/TTVCBRQX/amZVFAHjP7GVM/nU2UUE/zvFnNL7WmMlnk
-	dpvcO3ma05m8QJpjuMJPzbBPoNheOxe/JmWx6bjQWLPBaE7nlSlgqUGmGzmHJ3W71yamPtFULYkMK
-	ZGeLsLSjM+xLedwdUzLQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6Mn1iM8a77Dpp/iM4+Tggr/vFCwSJ8YMF3yOf91Ow18=; b=Q+1HIQnN9XDRLl
+	cdenhBSqZpw4DEa/8GuKERYFlQBhdFrWdrsQjRLiAsKuSTNEWGsbYgh5BavTMka5Uol/wHrMKO4We
+	TXMukyD1Q2wzo6tqzp68pwlA2zViUZ+om64YRrDxARNf7fPSidiuWJ8mqlLFoHbDsjnfeJDWQ+Jjj
+	UoLTKr6P4NF3IoSq1m/RUikFOA9PjQEsuk4Wuccs65LXR6Cz4DL/SLwZIb3OqGn6FMtIW+mYR8ivu
+	lsAKwK+wpLXt9qmiYNqEqpEosQRqJIXFZjA4PYgvQnqvyVpLfR7kXv20BBlU2/gd71NkGu0cTgHPG
+	TOdzGz6cejJYB/tEAg0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q51NS-006QnZ-2V;
-	Fri, 02 Jun 2023 09:47:22 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q51NO-006QmZ-10
+	id 1q51PV-006R0n-23;
+	Fri, 02 Jun 2023 09:49:29 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q51PS-006Qzy-3B
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 Jun 2023 09:47:21 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 8F57324E27E;
-	Fri,  2 Jun 2023 17:47:05 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 17:47:05 +0800
-Received: from [192.168.125.128] (183.27.98.75) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Jun
- 2023 17:47:04 +0800
-Message-ID: <506c0a1e-a839-c9b7-1b04-7fb3af535fe0@starfivetech.com>
-Date: Fri, 2 Jun 2023 17:45:01 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v2 2/3] clocksource: Add StarFive timer driver
-Content-Language: en-US
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner
-	<tglx@linutronix.de>
-CC: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Rob Herring
-	<robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
- Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, Samin Guo <samin.guo@starfivetech.com>,
-	<linux-kernel@vger.kernel.org>, Conor Dooley <conor@kernel.org>
-References: <20230320135433.144832-1-xingyu.wu@starfivetech.com>
- <20230320135433.144832-3-xingyu.wu@starfivetech.com>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <20230320135433.144832-3-xingyu.wu@starfivetech.com>
-X-Originating-IP: [183.27.98.75]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+	Fri, 02 Jun 2023 09:49:28 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-64d44b198baso1492731b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Jun 2023 02:49:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1685699364; x=1688291364;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DCKGULZsoKICMV26CUTZdo7HdnVdRStnPhClKySdS9k=;
+        b=PQqRUow9lA2xKadq+K+lIoRt1U2nCSlME0lf1zaBlemjzSpNhpQWCJ7rj2a0bGzZg7
+         5x3J33cl7mGEm+vAeNo2WvGwHqGAoPCq2nFq5ATEhgBzsQxFQO+AkoenBzMJoMFnqE1/
+         mfU0fNhztK9vSYyT4DJuzLoHaSYg2r9S+4zJFPeyRqex1Q54qeQnc3LBZaassJHrE1/0
+         WGa2BCpSsqUZBTk7R8nFbBjT5+gUF6QH4QlN15X7RLqMy6TH7wifvsVof6mcGDsDz7oV
+         +kUn8AZ7GhKwLEJ7NxXduAQQNevhCZw3FB77Roz9F1wEnESTVcnqZKEX1xdmX0kYMwAx
+         EipA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685699364; x=1688291364;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DCKGULZsoKICMV26CUTZdo7HdnVdRStnPhClKySdS9k=;
+        b=d98+aWFnsw1+SoxkXkLS+71C7WTrIsACPg32e1YaPKH1wnXjPKtEU36eAOuaAuJfFq
+         UqVMzL64kkeqOO6l98TYi6F+jjIGSwFLB8ARA8X34I7Sx4wHHxu+gf/PRXDupQNAzmK/
+         QrEZ8f/ujosbcrMtz6lbdzNT34kF3m14JUdJ3iN6wXh9mNnQ2dnaEn/hE5pAEDFu1urM
+         sGO5CI59ZOQOEYN5RCZDVDDTYOBOUDENcLYnrx+9GB3LfEC17j4VPk5yo06UfyKhTr3G
+         08CjtReQ7l0M65pfuoRkFETTcI0W0hWS7AiJl8Fd4qTMAEqpfjSpHuYfhvclVoEZbSg7
+         Ee3A==
+X-Gm-Message-State: AC+VfDwz3FDpiM6TRKbWyzJojqrXea0ZYzwhQCiDqzLVCFLnB9Yjqw53
+	5FRigMmt0GHGkOaH8ENFqWTJEA==
+X-Google-Smtp-Source: ACHHUZ6TUgpY9ey2wwkjQh+C1naTGHK3wVPXR9QPdK7UAtPFF/POMWycZivijRGjtCxnFamXqgdpXQ==
+X-Received: by 2002:a05:6a20:4284:b0:10c:322:72d5 with SMTP id o4-20020a056a20428400b0010c032272d5mr4866687pzj.23.1685699364448;
+        Fri, 02 Jun 2023 02:49:24 -0700 (PDT)
+Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id x7-20020aa793a7000000b006475f831838sm690174pff.30.2023.06.02.02.49.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Jun 2023 02:49:24 -0700 (PDT)
+From: Eric Lin <eric.lin@sifive.com>
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	namhyung@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: greentime.hu@sifive.com,
+	vincent.chen@sifive.com,
+	Eric Lin <eric.lin@sifive.com>
+Subject: [PATCH] perf/core: Add pmu stop before unthrottling to prevent WARNING
+Date: Fri,  2 Jun 2023 09:48:41 +0000
+Message-Id: <20230602094841.1225-1-eric.lin@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230602_024718_782207_C9E49069 
-X-CRM114-Status: GOOD (  32.94  )
+X-CRM114-CacheID: sfid-20230602_024927_060317_F8734C4E 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,584 +97,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/3/20 21:54, Xingyu Wu wrote:
-> Add timer driver for the StarFive JH7110 SoC.
-> 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  MAINTAINERS                          |   7 +
->  drivers/clocksource/Kconfig          |  12 +
->  drivers/clocksource/Makefile         |   1 +
->  drivers/clocksource/timer-starfive.c | 390 +++++++++++++++++++++++++++
->  drivers/clocksource/timer-starfive.h |  96 +++++++
->  5 files changed, 506 insertions(+)
->  create mode 100644 drivers/clocksource/timer-starfive.c
->  create mode 100644 drivers/clocksource/timer-starfive.h
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 958b7ec118b4..dac6298d8f6e 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19958,6 +19958,13 @@ S:	Maintained
->  T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
->  F:	drivers/soc/starfive/
->  
-> +STARFIVE TIMER DRIVER
-> +M:	Samin Guo <samin.guo@starfivetech.com>
-> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
-> +S:	Supported
-> +F:	Documentation/devicetree/bindings/timer/starfive*
-> +F:	drivers/clocksource/timer-starfive*
-> +
->  STARFIVE TRNG DRIVER
->  M:	Jia Jie Ho <jiajie.ho@starfivetech.com>
->  S:	Supported
-> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-> index 5fc8f0e7fb38..35daf07d4db7 100644
-> --- a/drivers/clocksource/Kconfig
-> +++ b/drivers/clocksource/Kconfig
-> @@ -630,6 +630,18 @@ config RISCV_TIMER
->  	  is accessed via both the SBI and the rdcycle instruction.  This is
->  	  required for all RISC-V systems.
->  
-> +config STARFIVE_TIMER
-> +	bool "Timer for the STARFIVE SoCs"
-> +	depends on ARCH_STARFIVE || COMPILE_TEST
-> +	select TIMER_OF
-> +	select CLKSRC_MMIO
-> +	default ARCH_STARFIVE
-> +	help
-> +	  This enables the timer for StarFive SoCs. On RISC-V platform,
-> +	  the system has started RISCV_TIMER. But you can also use this timer
-> +	  to do a lot more on StarFive SoCs. This timer can provide high
-> +	  precision and four channels to use in JH7110 SoC.
-> +
->  config CLINT_TIMER
->  	bool "CLINT Timer for the RISC-V platform" if COMPILE_TEST
->  	depends on GENERIC_SCHED_CLOCK && RISCV
-> diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
-> index 64ab547de97b..276695d95cdc 100644
-> --- a/drivers/clocksource/Makefile
-> +++ b/drivers/clocksource/Makefile
-> @@ -80,6 +80,7 @@ obj-$(CONFIG_INGENIC_TIMER)		+= ingenic-timer.o
->  obj-$(CONFIG_CLKSRC_ST_LPC)		+= clksrc_st_lpc.o
->  obj-$(CONFIG_X86_NUMACHIP)		+= numachip.o
->  obj-$(CONFIG_RISCV_TIMER)		+= timer-riscv.o
-> +obj-$(CONFIG_STARFIVE_TIMER)		+= timer-starfive.o
->  obj-$(CONFIG_CLINT_TIMER)		+= timer-clint.o
->  obj-$(CONFIG_CSKY_MP_TIMER)		+= timer-mp-csky.o
->  obj-$(CONFIG_GX6605S_TIMER)		+= timer-gx6605s.o
-> diff --git a/drivers/clocksource/timer-starfive.c b/drivers/clocksource/timer-starfive.c
-> new file mode 100644
-> index 000000000000..53163948ed86
-> --- /dev/null
-> +++ b/drivers/clocksource/timer-starfive.c
-> @@ -0,0 +1,390 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Starfive Timer driver
-> + *
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + *
-> + * Author:
-> + * Xingyu Wu <xingyu.wu@starfivetech.com>
-> + * Samin Guo <samin.guo@starfivetech.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/clockchips.h>
-> +#include <linux/clocksource.h>
-> +#include <linux/err.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/irq.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset.h>
-> +#include <linux/sched_clock.h>
-> +
-> +#include "timer-starfive.h"
-> +
-> +static const struct starfive_timer_chan_base starfive_timer_jh7110_base = {
-> +	.ctrl		= STARFIVE_TIMER_JH7110_CTL,
-> +	.load		= STARFIVE_TIMER_JH7110_LOAD,
-> +	.enable		= STARFIVE_TIMER_JH7110_ENABLE,
-> +	.reload		= STARFIVE_TIMER_JH7110_RELOAD,
-> +	.value		= STARFIVE_TIMER_JH7110_VALUE,
-> +	.intclr		= STARFIVE_TIMER_JH7110_INT_CLR,
-> +	.intmask	= STARFIVE_TIMER_JH7110_INT_MASK,
-> +	.channel_num	= STARFIVE_TIMER_CH_4,
-> +	.channel_base	= {STARFIVE_TIMER_CH_BASE(0), STARFIVE_TIMER_CH_BASE(1),
-> +			   STARFIVE_TIMER_CH_BASE(2), STARFIVE_TIMER_CH_BASE(3)},
-> +};
-> +
-> +static inline struct starfive_clkevt *to_starfive_clkevt(struct clock_event_device *evt)
-> +{
-> +	return container_of(evt, struct starfive_clkevt, evt);
-> +}
-> +
-> +/* 0:continuous-run mode, 1:single-run mode */
-> +static inline void starfive_timer_set_mod(struct starfive_clkevt *clkevt, int mod)
-> +{
-> +	writel(mod, clkevt->ctrl);
-> +}
-> +
-> +/* Interrupt Mask Register, 0:Unmask, 1:Mask */
-> +static inline void starfive_timer_int_enable(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(STARFIVE_TIMER_INTMASK_DIS, clkevt->intmask);
-> +}
-> +
-> +static inline void starfive_timer_int_disable(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(STARFIVE_TIMER_INTMASK_ENA, clkevt->intmask);
-> +}
-> +
-> +/*
-> + * BIT(0): Read value represent channel intr status.
-> + * Write 1 to this bit to clear interrupt. Write 0 has no effects.
-> + * BIT(1): "1" means that it is clearing interrupt. BIT(0) can not be written.
-> + */
-> +static inline int starfive_timer_int_clear(struct starfive_clkevt *clkevt)
-> +{
-> +	u32 value;
-> +	int ret;
-> +
-> +	/* waiting interrupt can be to clearing */
-> +	ret = readl_poll_timeout_atomic(clkevt->intclr, value,
-> +					!(value & STARFIVE_TIMER_JH7110_INT_CLR_AVA_MASK),
-> +					STARFIVE_DELAY_US, STARFIVE_TIMEOUT_US);
-> +	if (!ret)
-> +		writel(0x1, clkevt->intclr);
-> +
-> +	return ret;
-> +}
-> +
-> +/*
-> + * The initial value to be loaded into the
-> + * counter and is also used as the reload value.
-> + * val = clock rate --> 1s
-> + */
-> +static inline void starfive_timer_set_load(struct starfive_clkevt *clkevt, u32 val)
-> +{
-> +	writel(val, clkevt->load);
-> +}
-> +
-> +static inline u32 starfive_timer_get_val(struct starfive_clkevt *clkevt)
-> +{
-> +	return readl(clkevt->value);
-> +}
-> +
-> +/*
-> + * Write RELOAD register to reload preset value to counter.
-> + * (Write 0 and write 1 are both ok)
-> + */
-> +static inline void starfive_timer_set_reload(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(0, clkevt->reload);
-> +}
-> +
-> +static inline void starfive_timer_enable(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(STARFIVE_TIMER_ENA, clkevt->enable);
-> +}
-> +
-> +static inline void starfive_timer_disable(struct starfive_clkevt *clkevt)
-> +{
-> +	writel(STARFIVE_TIMER_DIS, clkevt->enable);
-> +}
-> +
-> +static int starfive_timer_int_init_enable(struct starfive_clkevt *clkevt)
-> +{
-> +	int ret;
-> +
-> +	starfive_timer_int_disable(clkevt);
-> +	ret = starfive_timer_int_clear(clkevt);
-> +	if (ret)
-> +		return ret;
-> +
-> +	starfive_timer_int_enable(clkevt);
-> +	starfive_timer_enable(clkevt);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_timer_shutdown(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_disable(clkevt);
-> +	return starfive_timer_int_clear(clkevt);
-> +}
-> +
-> +static void starfive_timer_suspend(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	clkevt->reload_val = starfive_timer_get_val(clkevt);
-> +	starfive_timer_shutdown(evt);
-> +}
-> +
-> +static void starfive_timer_resume(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_set_load(clkevt, clkevt->reload_val);
-> +	starfive_timer_set_reload(clkevt);
-> +	starfive_timer_int_enable(clkevt);
-> +	starfive_timer_enable(clkevt);
-> +}
-> +
-> +static int starfive_timer_tick_resume(struct clock_event_device *evt)
-> +{
-> +	starfive_timer_resume(evt);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_clocksource_init(struct starfive_clkevt *clkevt)
-> +{
-> +	int ret;
-> +
-> +	starfive_timer_set_mod(clkevt, STARFIVE_TIMER_MOD_CONTIN);
-> +	starfive_timer_set_load(clkevt, STARFIVE_TIMER_MAX_TICKS);
-> +	ret = starfive_timer_int_init_enable(clkevt);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return clocksource_mmio_init(clkevt->value, clkevt->name, clkevt->rate,
-> +				     STARFIVE_CLOCK_SOURCE_RATING, STARFIVE_VALID_BITS,
-> +				     clocksource_mmio_readl_down);
-> +}
-> +
-> +/* IRQ handler for the timer */
-> +static irqreturn_t starfive_timer_interrupt(int irq, void *priv)
-> +{
-> +	struct clock_event_device *evt = (struct clock_event_device *)priv;
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	if (starfive_timer_int_clear(clkevt))
-> +		return IRQ_NONE;
-> +
-> +	if (evt->event_handler)
-> +		evt->event_handler(evt);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int starfive_timer_set_periodic(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_disable(clkevt);
-> +	starfive_timer_set_mod(clkevt, STARFIVE_TIMER_MOD_CONTIN);
-> +	starfive_timer_set_load(clkevt, clkevt->periodic);
-> +
-> +	return starfive_timer_int_init_enable(clkevt);
-> +}
-> +
-> +static int starfive_timer_set_oneshot(struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_disable(clkevt);
-> +	starfive_timer_set_mod(clkevt, STARFIVE_TIMER_MOD_SINGLE);
-> +	starfive_timer_set_load(clkevt, STARFIVE_TIMER_MAX_TICKS);
-> +
-> +	return starfive_timer_int_init_enable(clkevt);
-> +}
-> +
-> +static int starfive_timer_set_next_event(unsigned long next,
-> +					 struct clock_event_device *evt)
-> +{
-> +	struct starfive_clkevt *clkevt = to_starfive_clkevt(evt);
-> +
-> +	starfive_timer_disable(clkevt);
-> +	starfive_timer_set_mod(clkevt, STARFIVE_TIMER_MOD_SINGLE);
-> +	starfive_timer_set_load(clkevt, next);
-> +	starfive_timer_enable(clkevt);
-> +
-> +	return 0;
-> +}
-> +
-> +static void starfive_set_clockevent(struct clock_event_device *evt)
-> +{
-> +	evt->features = CLOCK_EVT_FEAT_PERIODIC |
-> +			CLOCK_EVT_FEAT_ONESHOT |
-> +			CLOCK_EVT_FEAT_DYNIRQ;
-> +	evt->set_state_shutdown = starfive_timer_shutdown;
-> +	evt->set_state_periodic = starfive_timer_set_periodic;
-> +	evt->set_state_oneshot = starfive_timer_set_oneshot;
-> +	evt->set_state_oneshot_stopped = starfive_timer_shutdown;
-> +	evt->tick_resume = starfive_timer_tick_resume;
-> +	evt->set_next_event = starfive_timer_set_next_event;
-> +	evt->suspend = starfive_timer_suspend;
-> +	evt->resume = starfive_timer_resume;
-> +	evt->rating = STARFIVE_CLOCKEVENT_RATING;
-> +}
-> +
-> +static void starfive_clockevents_register(struct starfive_clkevt *clkevt)
-> +{
-> +	clkevt->rate = clk_get_rate(clkevt->clk);
-> +	clkevt->periodic = DIV_ROUND_CLOSEST(clkevt->rate, HZ);
-> +
-> +	starfive_set_clockevent(&clkevt->evt);
-> +	clkevt->evt.name = clkevt->name;
-> +	clkevt->evt.irq = clkevt->irq;
-> +	clkevt->evt.cpumask = cpu_possible_mask;
-> +
-> +	clockevents_config_and_register(&clkevt->evt, clkevt->rate,
-> +					STARFIVE_TIMER_MIN_TICKS, STARFIVE_TIMER_MAX_TICKS);
-> +}
-> +
-> +static void __init starfive_clkevt_base_init(const struct starfive_timer_chan_base *timer,
-> +					     struct starfive_clkevt *clkevt,
-> +					     void __iomem *base, int ch)
-> +{
-> +	void __iomem *channel_base;
-> +
-> +	channel_base = base + timer->channel_base[ch];
-> +	clkevt->base = channel_base;
-> +	clkevt->ctrl = channel_base + timer->ctrl;
-> +	clkevt->load = channel_base + timer->load;
-> +	clkevt->enable = channel_base + timer->enable;
-> +	clkevt->reload = channel_base + timer->reload;
-> +	clkevt->value = channel_base + timer->value;
-> +	clkevt->intclr = channel_base + timer->intclr;
-> +	clkevt->intmask = channel_base + timer->intmask;
-> +}
-> +
-> +static int __init starfive_timer_probe(struct platform_device *pdev)
-> +{
-> +	const struct starfive_timer_chan_base *timer_base = of_device_get_match_data(&pdev->dev);
-> +	char name[10];
-> +	struct starfive_timer_priv *priv;
-> +	struct starfive_clkevt *clkevt;
-> +	struct clk *pclk;
-> +	struct reset_control *rst;
-> +	int ch;
-> +	int ret;
-> +
-> +	priv = devm_kzalloc(&pdev->dev, struct_size(priv, clkevt, timer_base->channel_num),
-> +			    GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(priv->base))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(priv->base),
-> +				     "failed to map registers\n");
-> +
-> +	rst = devm_reset_control_get_exclusive(&pdev->dev, "apb");
-> +	if (IS_ERR(rst))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(rst), "failed to get apb reset\n");
-> +
-> +	pclk = devm_clk_get_enabled(&pdev->dev, "apb");
-> +	if (IS_ERR(pclk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(pclk),
-> +				     "failed to get & enable apb clock\n");
-> +
-> +	ret = reset_control_deassert(rst);
-> +	if (ret)
-> +		goto err;
-> +
-> +	priv->dev = &pdev->dev;
-> +	platform_set_drvdata(pdev, priv);
-> +
-> +	for (ch = 0; ch < timer_base->channel_num; ch++) {
-> +		clkevt = &priv->clkevt[ch];
-> +		snprintf(name, sizeof(name), "ch%d", ch);
-> +
-> +		starfive_clkevt_base_init(timer_base, clkevt, priv->base, ch);
-> +		/* Ensure timers are disabled */
-> +		starfive_timer_disable(clkevt);
-> +
-> +		rst = devm_reset_control_get_exclusive(&pdev->dev, name);
-> +		if (IS_ERR(rst)) {
-> +			ret = PTR_ERR(rst);
-> +			goto err;
-> +		}
-> +
-> +		clkevt->clk = devm_clk_get_enabled(&pdev->dev, name);
-> +		if (IS_ERR(clkevt->clk)) {
-> +			ret = PTR_ERR(clkevt->clk);
-> +			goto err;
-> +		}
-> +
-> +		ret = reset_control_deassert(rst);
-> +		if (ret)
-> +			goto ch_err;
-> +
-> +		clkevt->irq = platform_get_irq(pdev, ch);
-> +		if (clkevt->irq < 0) {
-> +			ret = clkevt->irq;
-> +			goto ch_err;
-> +		}
-> +
-> +		snprintf(clkevt->name, sizeof(clkevt->name), "%s.ch%d", pdev->name, ch);
-> +		starfive_clockevents_register(clkevt);
-> +
-> +		ret = devm_request_irq(&pdev->dev, clkevt->irq, starfive_timer_interrupt,
-> +				       IRQF_TIMER | IRQF_IRQPOLL,
-> +				       clkevt->name, &clkevt->evt);
-> +		if (ret)
-> +			goto ch_err;
-> +
-> +		ret = starfive_clocksource_init(clkevt);
-> +		if (ret)
-> +			goto ch_err;
-> +	}
-> +
-> +	return 0;
-> +
-> +ch_err:
-> +	/* Only unregister the failed channel and the rest timer channels continue to work. */
-> +	clk_disable_unprepare(clkevt->clk);
-> +err:
-> +	/* If no other channel successfully registers, pclk should be disabled. */
-> +	if (!ch)
-> +		clk_disable_unprepare(pclk);
-> +
-> +	return ret;
-> +}
-> +
-> +static const struct of_device_id starfive_timer_match[] = {
-> +	{ .compatible = "starfive,jh7110-timer", .data = &starfive_timer_jh7110_base },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, starfive_timer_match);
-> +
-> +static struct platform_driver starfive_timer_driver = {
-> +	.probe = starfive_timer_probe,
-> +	.driver = {
-> +		.name = "starfive-timer",
-> +		.of_match_table = starfive_timer_match,
-> +	},
-> +};
-> +module_platform_driver(starfive_timer_driver);
-> +
-> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
-> +MODULE_DESCRIPTION("StarFive timer driver");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/clocksource/timer-starfive.h b/drivers/clocksource/timer-starfive.h
-> new file mode 100644
-> index 000000000000..62eb630cc98d
-> --- /dev/null
-> +++ b/drivers/clocksource/timer-starfive.h
-> @@ -0,0 +1,96 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + */
-> +
-> +#ifndef __STARFIVE_TIMER_H__
-> +#define __STARFIVE_TIMER_H__
-> +
-> +/* Bias: Ch0-0x0, Ch1-0x40, Ch2-0x80, and so on. */
-> +#define STARFIVE_TIMER_CH_LEN			0x40
-> +#define STARFIVE_TIMER_CH_BASE(x)		((STARFIVE_TIMER_CH_##x) * STARFIVE_TIMER_CH_LEN)
-> +
-> +#define STARFIVE_CLOCK_SOURCE_RATING		200
-> +#define STARFIVE_VALID_BITS			32
-> +#define STARFIVE_DELAY_US			0
-> +#define STARFIVE_TIMEOUT_US			10000
-> +#define STARFIVE_CLOCKEVENT_RATING		300
-> +#define STARFIVE_TIMER_MAX_TICKS		0xffffffff
-> +#define STARFIVE_TIMER_MIN_TICKS		0xf
-> +
-> +#define STARFIVE_TIMER_JH7110_INT_STATUS	0x00 /* RO[0:4]: Interrupt Status for channel0~4 */
-> +#define STARFIVE_TIMER_JH7110_CTL		0x04 /* RW[0]: 0-continuous run, 1-single run */
-> +#define STARFIVE_TIMER_JH7110_LOAD		0x08 /* RW: load value to counter */
-> +#define STARFIVE_TIMER_JH7110_ENABLE		0x10 /* RW[0]: timer enable register */
-> +#define STARFIVE_TIMER_JH7110_RELOAD		0x14 /* RW: write 1 or 0 both reload counter */
-> +#define STARFIVE_TIMER_JH7110_VALUE		0x18 /* RO: timer value register */
-> +#define STARFIVE_TIMER_JH7110_INT_CLR		0x20 /* RW: timer interrupt clear register */
-> +#define STARFIVE_TIMER_JH7110_INT_MASK		0x24 /* RW[0]: timer interrupt mask register */
-> +#define STARFIVE_TIMER_JH7110_INT_CLR_AVA_MASK	BIT(1)
-> +
-> +enum STARFIVE_TIMER_CH {
-> +	STARFIVE_TIMER_CH_0 = 0,
-> +	STARFIVE_TIMER_CH_1,
-> +	STARFIVE_TIMER_CH_2,
-> +	STARFIVE_TIMER_CH_3,
-> +	STARFIVE_TIMER_CH_4,
-> +	STARFIVE_TIMER_CH_5,
-> +	STARFIVE_TIMER_CH_6,
-> +	STARFIVE_TIMER_CH_7,
-> +	STARFIVE_TIMER_CH_MAX
-> +};
-> +
-> +enum STARFIVE_TIMER_INTMASK {
-> +	STARFIVE_TIMER_INTMASK_DIS = 0,
-> +	STARFIVE_TIMER_INTMASK_ENA = 1
-> +};
-> +
-> +enum STARFIVE_TIMER_MOD {
-> +	STARFIVE_TIMER_MOD_CONTIN = 0,
-> +	STARFIVE_TIMER_MOD_SINGLE = 1
-> +};
-> +
-> +enum STARFIVE_TIMER_CTL_EN {
-> +	STARFIVE_TIMER_DIS = 0,
-> +	STARFIVE_TIMER_ENA = 1
-> +};
-> +
-> +struct starfive_timer_chan_base {
-> +	/* Resgister */
-> +	unsigned int ctrl;
-> +	unsigned int load;
-> +	unsigned int enable;
-> +	unsigned int reload;
-> +	unsigned int value;
-> +	unsigned int intclr;
-> +	unsigned int intmask;
-> +
-> +	unsigned int channel_num;	/* timer channel numbers */
-> +	unsigned int channel_base[];
-> +};
-> +
-> +struct starfive_clkevt {
-> +	struct clock_event_device evt;
-> +	struct clk *clk;
-> +	char name[20];
-> +	int irq;
-> +	u32 periodic;
-> +	u32 rate;
-> +	u32 reload_val;
-> +	void __iomem *base;
-> +	void __iomem *ctrl;
-> +	void __iomem *load;
-> +	void __iomem *enable;
-> +	void __iomem *reload;
-> +	void __iomem *value;
-> +	void __iomem *intclr;
-> +	void __iomem *intmask;
-> +};
-> +
-> +struct starfive_timer_priv {
-> +	struct device *dev;
-> +	void __iomem *base;
-> +	struct starfive_clkevt clkevt[];
-> +};
-> +
-> +#endif /* __STARFIVE_TIMER_H__ */
+Currently, during the perf sampling, if the perf interrupt takes too long,
+perf framework will lower the perf_event_max_sample_rate. This will limit
+the number of samples per timer tick (max_samples_per_tick) and set hwc->interrupts
+to MAX_INTERRUPTS within the __perf_event_account_interrupt() function.
 
-Hi Daniel and Thomas,
+Afterward, the perf framework will unthrottle the event in the timer interrupt
+handler, which triggers the driver's *_pmu_start() function. Most of the driver's
+*_pmu_start() functions will check the event->hw.state to determine whether this
+event has stopped. If the event has not stopped, a WARN_ON_ONCE() warning
+will be triggered as shown below:
 
-I have submitted patches for Timer driver. Could you please help to review and give your comments?
-Thanks.
+[ 2110.224723] ------------[ cut here ]------------
+[ 2110.224851] WARNING: CPU: 0 PID: 240 at drivers/perf/riscv_pmu.c:184 riscv_pmu_start+0x7c/0x8e
+[ 2110.225242] Modules linked in:
+[ 2110.225380] CPU: 0 PID: 240 Comm: ls Not tainted 6.4-rc4-g19d0788e9ef2 #1
+[ 2110.225574] Hardware name: SiFive (DT)
+[ 2110.225657] epc : riscv_pmu_start+0x7c/0x8e
+[ 2110.225834]  ra : riscv_pmu_start+0x28/0x8e
+[ 2110.225998] epc : ffffffff80aef864 ra : ffffffff80aef810 sp : ffff8f80004db6f0
+[ 2110.226135]  gp : ffffffff81c83750 tp : ffffaf80069f9bc0 t0 : ffff8f80004db6c0
+[ 2110.226245]  t1 : 0000000000000000 t2 : 000000000000001f s0 : ffff8f80004db720
+[ 2110.226367]  s1 : ffffaf8008ca1068 a0 : 0000ffffffffffff a1 : 0000000000000000
+[ 2110.226488]  a2 : 0000000000000001 a3 : 0000000000000870 a4 : 0000000000000000
+[ 2110.226605]  a5 : 0000000000000000 a6 : 0000000000000840 a7 : 0000000000000030
+[ 2110.226721]  s2 : 0000000000000000 s3 : ffffaf8005165800 s4 : ffffaf800424da00
+[ 2110.226838]  s5 : ffffffffffffffff s6 : ffffffff81cc7590 s7 : 0000000000000000
+[ 2110.226955]  s8 : 0000000000000006 s9 : 0000000000000001 s10: ffffaf807efbc340
+[ 2110.227064]  s11: ffffaf807efbbf00 t3 : ffffaf8006a16028 t4 : 00000000dbfbb796
+[ 2110.227180]  t5 : 0000000700000000 t6 : ffffaf8005269870
+[ 2110.227277] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+[ 2110.227407] [<ffffffff80aef864>] riscv_pmu_start+0x7c/0x8e
+[ 2110.227622] [<ffffffff80185b56>] perf_adjust_freq_unthr_context+0x15e/0x174
+[ 2110.227961] [<ffffffff80188642>] perf_event_task_tick+0x88/0x9c
+[ 2110.228235] [<ffffffff800626a8>] scheduler_tick+0xfe/0x27c
+[ 2110.228463] [<ffffffff800b5640>] update_process_times+0x9a/0xba
+[ 2110.228690] [<ffffffff800c5bd4>] tick_sched_handle+0x32/0x66
+[ 2110.229007] [<ffffffff800c5e0c>] tick_sched_timer+0x64/0xb0
+[ 2110.229253] [<ffffffff800b5e50>] __hrtimer_run_queues+0x156/0x2f4
+[ 2110.229446] [<ffffffff800b6bdc>] hrtimer_interrupt+0xe2/0x1fe
+[ 2110.229637] [<ffffffff80acc9e8>] riscv_timer_interrupt+0x38/0x42
+[ 2110.229984] [<ffffffff80090a16>] handle_percpu_devid_irq+0x90/0x1d2
+[ 2110.230162] [<ffffffff8008a9f4>] generic_handle_domain_irq+0x28/0x36
 
-Best regards,
-Xingyu Wu
+To prevent this warning, we should call the driver's *_pmu_stop() function before unthrottling
+
+Signed-off-by: Eric Lin <eric.lin@sifive.com>
+---
+ kernel/events/core.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index db016e418931..098c875abe88 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -4128,6 +4128,7 @@ perf_adjust_freq_unthr_context(struct perf_event_context *ctx, bool unthrottle)
+ 
+ 		if (hwc->interrupts == MAX_INTERRUPTS) {
+ 			hwc->interrupts = 0;
++			event->pmu->stop(event, 0);
+ 			perf_log_throttle(event, 1);
+ 			event->pmu->start(event, 0);
+ 		}
+-- 
+2.17.1
 
 
 _______________________________________________
