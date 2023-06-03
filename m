@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D07C3C77B7A
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jun 2023 08:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0824AC7EE24
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jun 2023 08:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3eNtfQm0XZfLHJ0+82jcJy8Rp8+Id82YUYkqgbs5V2E=; b=CUSBIFkLDw5AsA
-	jCDDDPem+K1EyJ1U4Rtya5jU28AqGDwn1T8ShjVfLOiJ/KGQuTtDDVz3gJK9K2a2W51dmGfh4KJKI
-	MIe3gxPK8sAcrx3ZjZd+Y72j0roWa8YaLghbgmCM0dtQKhoVyvXGit+O98j4f3twq4DHlnxJ46894
-	KPsUaHDbFGXJUYCOap51mlQao4jNGmVH8h6TAyLwmqY6B1teyUnx0oaDo8RlqD9oqVAlE3sg2QUOP
-	tHKAzqSu4UhwWWSirayV7KWDHClEqrPC3g94P66vsl1BmhoKVJaubhfYJMeHgVITf8ekIdjGgupjP
-	JrtuXNM43o7qgCkbcSkQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TEEwn1LJGVwGy5euOdPNu6e+ayAsjeEaZBUeK21qtR4=; b=v6tBiiUIoJ9TGr
+	5rAfqyK30+Qctm0NIybrWd8ddLak9sUeynYtY2jKRvic6OI9z6ySJzMBVQUrcCwyKkzZazl5E8M3D
+	rv9ql8vXnDAo89KiGzGX3+PH6Ct/0NXbXerW6HK8hW7gOgDzcPPCui2kqGmnIC/Y6t19vZQ8RSTe7
+	rHc3nMzPD7vl5OxSL5h/mudEBKGWaUMvUHdsTzd2dfdoGxaXtwEeeWg5YhTYlw26ph88MKbV+LxIP
+	Y16zJvPOO3+oZMrufMXjNqQyRNFWj9ZMtvZJs7N/eK9TdYRIhN2mOxt17p+jZwFS9vsle8pq3lZWe
+	5hesOu4cgru9WKzWrrdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5MBI-0092co-2Z;
-	Sat, 03 Jun 2023 08:00:12 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1q5MCL-0092kB-14;
+	Sat, 03 Jun 2023 08:01:17 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5MBE-0092ZN-2O
+	id 1q5MCI-0092if-0z
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Jun 2023 08:00:10 +0000
-X-QQ-mid: bizesmtp74t1685779178tv1c2476
+	Sat, 03 Jun 2023 08:01:15 +0000
+X-QQ-mid: bizesmtp66t1685779256tfrhwl1v
 Received: from linux-lab-host.localdomain ( [119.123.130.226])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 03 Jun 2023 15:59:37 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: iDzLjIm7mlbPeIpKhf0L/FoYc5sBCuLlmD1uXZ6PLTeLTNqoaWw5vVBt4RZJB
-	5nE1u/X8VOHe4a2rR+f7qxdPnaataTsBE75Oo4mGR2USddqN+9RQQPyA/5wd+P1RNg+61hT
-	T4ihHHsbzzkJRV4iR5QslKSjQPbWr51ZPYBKeCRHy+oGzp323hJBYRC8MJJxxsCRic62xGL
-	ITChxxvvC1tCoY2knphq+S5rHgRqy+N1sUTxEzMkPMc4Wc6gKtQFPqVfzGFhF0AMi3yem4B
-	IKCZuEyBe2QNxxuKAHqKATlXoBfkF0tk216ifnrEK8YL3kzCnQLRs5Cbn2P/6+hCCQjQ90i
-	YcItibezI442FD77p6lUKtGFX33/1dqqP10oZvk
+	id ; Sat, 03 Jun 2023 16:00:55 +0800 (CST)
+X-QQ-SSF: 00200000000000D0V000000A0000000
+X-QQ-FEAT: k0mQ4ihyJQNgkVwygW0yshuGkeM5gEbPP6qD3JPq1MQNFpbusU7tTU0lbB22l
+	A/5UcKnooUQIfO7IdU6An49Ew/yF6sQud/gbxCL4QnanhGzK5jwDlyfGoBThAEWl768oPaN
+	eBs1jfQtfGszTLv2Ika597BM+IvXXcun0tPnrU6tHzcRc2UZUueBk6bih+duFmLswS5oeaG
+	vFxXt7CE38Pel27vLsN2UsJz//tO/rgvA+hJSXSRHAQTde1zwQCX9o42qUvx0BGe+Zs2U5Z
+	2CNFuUUZWezBEgy6ORi06eutXif6JZYh+Pnlp3AnWar+2IW0xvGRO9ed1T643iOLM4zGfFm
+	dF/cgTkjCgfOoncc6p43EE+tkxQsdBQsYmRC9NXrF1fNybD8O6YFpEQI/CODCNYAvg059yP
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8921411248983777273
+X-BIZMAIL-ID: 13312987647065387357
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: falcon@tinylab.org,
@@ -48,17 +48,18 @@ Cc: falcon@tinylab.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	thomas@t-8ch.de
-Subject: [PATCH v3 00/12] nolibc: add generic part1 of prepare for rv32
-Date: Sat,  3 Jun 2023 15:59:29 +0800
-Message-Id: <cover.1685777982.git.falcon@tinylab.org>
+Subject: [PATCH v3 01/12] selftests/nolibc: syscall_args: use generic __NR_statx
+Date: Sat,  3 Jun 2023 16:00:46 +0800
+Message-Id: <d61b1251af808b91f79f49e5b9a773141aa86eaf.1685777982.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1685777982.git.falcon@tinylab.org>
+References: <cover.1685777982.git.falcon@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230603_010009_102080_2E1EDB92 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230603_010114_646651_D361BA68 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,92 +71,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Willy
-
-This is the v3 generic part1 for rv32, all of the found issues of v2
-part1 [1] have been fixed up, several generic patches have been fixed up
-and merged from v2 part2 [2] to this series, the standalone test_fork
-patch [4] is merged with a Reviewed-by line into this series too.
-
-This series is based on 20230528-nolibc-rv32+stkp5 branch of [5].
-
-Changes from v2 -> v3:
-
-* selftests/nolibc: fix up compile warning with glibc on x86_64
-
-  Use simpler 'long long' conversion instead of old #ifdef ...
-  (Suggestion from Willy)
-
-* tools/nolibc: add missing nanoseconds support for __NR_statx
-
-  Split the compound assignment into two single assignments
-  (Suggestion from Thomas)
-
-* selftests/nolibc: add new gettimeofday test cases
-
-  Removed the gettimeofday(NULL, &tz)
-  (Suggestion from Thomas)
-
-All of the commit messages have been re-checked, some missing
-Suggested-by lines are added.
-
-The whole patchset have been tested on arm, aarch64, rv32 and rv64, no
-regressions (the next compile patchset is required to do rv32 test).
-
-The nolibc-test has been tested with glibc on x86_64 too.
-
-Btw, we have found such poll failures on arm (not introduced by this
-patchset), this will be fixed in our coming ppoll_time64 patchset:
-
-48 poll_null = -1 ENOSYS                                        [FAIL]
-49 poll_stdout = -1 ENOSYS                                      [FAIL]
-50 poll_fault = -1 ENOSYS  != (-1 EFAULT)                       [FAIL]
-
-And the gettimeofday_null removal patch from Thomas [3] may conflicts
-with the gettimeofday removal and addition patches, but it is not hard
-to fix.
-
-Best regards,
-Zhangjin
----
-
-[1]: https://lore.kernel.org/linux-riscv/cover.1685362482.git.falcon@tinylab.org/T/#t
-[2]: https://lore.kernel.org/linux-riscv/cover.1685387484.git.falcon@tinylab.org/T/#t
-[3]: https://lore.kernel.org/lkml/20230530-nolibc-gettimeofday-v1-1-7307441a002b@weissschuh.net/
-[4]: https://lore.kernel.org/lkml/61bdfe7bacebdef8aa9195f6f2550a5b0d33aab3.1685426545.git.falcon@tinylab.org/
-[5]: https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
-
-Zhangjin Wu (12):
-  selftests/nolibc: syscall_args: use generic __NR_statx
-  tools/nolibc: add missing nanoseconds support for __NR_statx
-  selftests/nolibc: allow specify extra arguments for qemu
-  selftests/nolibc: fix up compile warning with glibc on x86_64
-  selftests/nolibc: not include limits.h for nolibc
-  selftests/nolibc: use INT_MAX instead of __INT_MAX__
-  tools/nolibc: arm: add missing my_syscall6
-  tools/nolibc: open: fix up compile warning for arm
-  selftests/nolibc: support two errnos with EXPECT_SYSER2()
-  selftests/nolibc: remove gettimeofday_bad1/2 completely
-  selftests/nolibc: add new gettimeofday test cases
-  selftests/nolibc: test_fork: fix up duplicated print
-
- tools/include/nolibc/arch-arm.h              | 23 +++++++++++
- tools/include/nolibc/stdint.h                | 14 +++++++
- tools/include/nolibc/sys.h                   | 39 +++++++++---------
- tools/testing/selftests/nolibc/Makefile      |  2 +-
- tools/testing/selftests/nolibc/nolibc-test.c | 42 ++++++++++++--------
- 5 files changed, 85 insertions(+), 35 deletions(-)
-
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q29tcGlsaW5nIG5vbGliYy10ZXN0LmMgZm9yIHJ2MzIgZ290IHN1Y2ggZXJyb3I6CgogICAgdG9v
+bHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0LmM6NTk5OjU3OiBlcnJvcjog
+4oCYX19OUl9mc3RhdOKAmSB1bmRlY2xhcmVkIChmaXJzdCB1c2UgaW4gdGhpcyBmdW5jdGlvbikK
+ICAgICAgNTk5IHwgICBDQVNFX1RFU1Qoc3lzY2FsbF9hcmdzKTsgICAgICBFWFBFQ1RfU1lTRVIo
+MSwgc3lzY2FsbChfX05SX2ZzdGF0LCAwLCBOVUxMKSwgLTEsIEVGQVVMVCk7IGJyZWFrOwoKVGhl
+IGdlbmVyaWMgaW5jbHVkZS91YXBpL2FzbS1nZW5lcmljL3VuaXN0ZC5oIHVzZWQgYnkgcnYzMiBk
+b2Vzbid0CnN1cHBvcnQgX19OUl9mc3RhdCwgdXNlIHRoZSBtb3JlIGdlbmVyaWMgX19OUl9zdGF0
+eCBpbnN0ZWFkOgoKICAgIFJ1bm5pbmcgdGVzdCAnc3lzY2FsbCcKICAgIDY5IHN5c2NhbGxfbm9h
+cmdzID0gMSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgW09LXQog
+ICAgNzAgc3lzY2FsbF9hcmdzID0gLTEgRUZBVUxUICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBbT0tdCgpfX05SX3N0YXR4IGhhcyBiZWVuIGFkZGVkIGZyb20gdjQuMTA6Cgog
+ICAgY29tbWl0IGE1MjhkMzVlOGJmYyAoInN0YXR4OiBBZGQgYSBzeXN0ZW0gY2FsbCB0byBtYWtl
+IGVuaGFuY2VkIGZpbGUgaW5mbyBhdmFpbGFibGUiKQoKSXQgaGFzIGJlZW4gc3VwcG9ydGVkIGJ5
+IGFsbCBvZiB0aGUgcGxhdGZvcm1zIHNpbmNlIGF0IGxlYXN0IGZyb20gdjQuMjAuCgpGaXhlczog
+OGUzYWI1MjliZWY5ICgidG9vbHMvbm9saWJjL3VuaXN0ZDogYWRkIHN5c2NhbGwoKSIpClN1Z2dl
+c3RlZC1ieTogQXJuZCBCZXJnbWFubiA8YXJuZEBhcm5kYi5kZT4KTGluazogaHR0cHM6Ly9sb3Jl
+Lmtlcm5lbC5vcmcvbGludXgtcmlzY3YvZWU4YjFmMDItZGVkMS00ODhiLWEzYTUtNjg3NzRmMDM0
+OWI1QGFwcC5mYXN0bWFpbC5jb20vClNpZ25lZC1vZmYtYnk6IFpoYW5namluIFd1IDxmYWxjb25A
+dGlueWxhYi5vcmc+Ci0tLQogdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10
+ZXN0LmMgfCAyICstCiAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24o
+LSkKCmRpZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRl
+c3QuYyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jCmluZGV4
+IDdkZTQ2MzA1ZjQxOS4uZDQxN2NhNWQ5NzZmIDEwMDY0NAotLS0gYS90b29scy90ZXN0aW5nL3Nl
+bGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYworKysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0
+cy9ub2xpYmMvbm9saWJjLXRlc3QuYwpAQCAtNjIxLDcgKzYyMSw3IEBAIGludCBydW5fc3lzY2Fs
+bChpbnQgbWluLCBpbnQgbWF4KQogCQlDQVNFX1RFU1Qod3JpdGVfYmFkZik7ICAgICAgICBFWFBF
+Q1RfU1lTRVIoMSwgd3JpdGUoLTEsICZ0bXAsIDEpLCAtMSwgRUJBREYpOyBicmVhazsKIAkJQ0FT
+RV9URVNUKHdyaXRlX3plcm8pOyAgICAgICAgRVhQRUNUX1NZU1pSKDEsIHdyaXRlKDEsICZ0bXAs
+IDApKTsgYnJlYWs7CiAJCUNBU0VfVEVTVChzeXNjYWxsX25vYXJncyk7ICAgIEVYUEVDVF9TWVNF
+USgxLCBzeXNjYWxsKF9fTlJfZ2V0cGlkKSwgZ2V0cGlkKCkpOyBicmVhazsKLQkJQ0FTRV9URVNU
+KHN5c2NhbGxfYXJncyk7ICAgICAgRVhQRUNUX1NZU0VSKDEsIHN5c2NhbGwoX19OUl9mc3RhdCwg
+MCwgTlVMTCksIC0xLCBFRkFVTFQpOyBicmVhazsKKwkJQ0FTRV9URVNUKHN5c2NhbGxfYXJncyk7
+ICAgICAgRVhQRUNUX1NZU0VSKDEsIHN5c2NhbGwoX19OUl9zdGF0eCwgMCwgTlVMTCwgMCwgMCwg
+TlVMTCksIC0xLCBFRkFVTFQpOyBicmVhazsKIAkJY2FzZSBfX0xJTkVfXzoKIAkJCXJldHVybiBy
+ZXQ7IC8qIG11c3QgYmUgbGFzdCAqLwogCQkvKiBub3RlOiBkbyBub3Qgc2V0IGFueSBkZWZhdWx0
+cyBzbyBhcyB0byBwZXJtaXQgaG9sZXMgYWJvdmUgKi8KLS0gCjIuMjUuMQoKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
