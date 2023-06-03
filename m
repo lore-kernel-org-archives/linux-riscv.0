@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB42C77B7A
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jun 2023 08:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79F0C7EE24
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Jun 2023 09:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HT+3u5FFgToyOPvbkfpsQc2VKGDHv5T3FCt3GBPd+II=; b=BNdPokWuQPyimB
-	5EmgLccK4O5uVH1q96JmXlOUGB27HWRGZlO+kHtFRhygsHEiMJCFQCVVwRfAWmJE9ISyD8JMc5khm
-	V6ilR4IU/89sb9+K1PMt5NCLfRFsLxOqIzDKWCnDQ/woxhG3VZiuxOOjttD3F4KhsPUDzQ7s1+/8J
-	h9Ry/LdfIKqo5etdVZrtJSeFahKu3UHszB1S5XAAzs1opj9DXQYwNudeWr1FuK3dG+MLC2eMi+qiX
-	68o9Y6xa8cRwrLMx9NQfFgwltx1Q/rHotPfXZYz+hM1UtMbsLHjOgvdQSQYFUV7g8L+B7E++4Sch3
-	pmgwBSZ99LmwvV2OTCpg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+DxBwsp2UKW2dJuZO3iOXsX5Z7MkwSrQnJ9a5u5l7XA=; b=eiznZzn6b5V+LG
+	DEGHua727fkX5NLSrmWryj3N8amEigE/UskNmp3DvxY2fq9yrl2im3xXwpJfI9MzwBwSz4yzbcdeO
+	/2maAW5NcyyZSuQiGk+zc3c2oTDFK89yqkq4qfshjZkfHog6VeNllyNtnDvLxUCZnNSrrWmYTgo1h
+	UDsXbw5NwrW8HduCv6RU7EEQMIEVcx9fVz1U2t34j/Y+apGrikMDHCCm//BEWDqVuxEXUteXx9yj4
+	qeqktg0XsgJ/GHp+YvcR3w+T0+ALSXMNA2qqVqB7BqXnCQZtydEl8tWYHVorz1AOaQuSayiekgl96
+	7bkEasolk5jHtgrLPuIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5MST-009522-0Y;
-	Sat, 03 Jun 2023 08:17:57 +0000
+	id 1q5N8P-009A61-2C;
+	Sat, 03 Jun 2023 09:01:17 +0000
 Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5MSQ-00950v-0c
+	id 1q5N8M-009A4F-0U
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 Jun 2023 08:17:55 +0000
-X-QQ-mid: bizesmtp77t1685780261tx6oj29b
+	Sat, 03 Jun 2023 09:01:16 +0000
+X-QQ-mid: bizesmtp81t1685782850txqcbj5y
 Received: from linux-lab-host.localdomain ( [119.123.130.226])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 03 Jun 2023 16:17:40 +0800 (CST)
+	id ; Sat, 03 Jun 2023 17:00:49 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: E5K4RXiq5f16O7Lg/ibaIwDGJ/dBM+SgASgVWJNrZJ0DycLMa61F85p3zn/s0
-	pmVP+uUxVO+uRq/qEVaGBrw6dy5nIj47egVC3sA8D6LyXOmfE2qgnjJAplThr2LHojLED11
-	dN48gvX6BDj+6ZskNGLKC05GNgBi/1WsGLb1E+3d17NhlPgK0/LzJRM0pb94DuYlP0Nmb59
-	w/YBaNODEaG8SfvzKEIj3lR1qDDwBvXpe5afs1A1FBfiTrIN0OgVeJJbKuaREYCdlovpmwR
-	TbYhxWH70C7N9rrtU2bVFSPPjUczDufHPnteLBOjhwo549unG3iUV5HoN68eGMNqiD9QnOE
-	Mbf4IaVts3z35QJQ2XUbnjfxanJ+JTJpIGiU/3+zwyVM15wQhyWDL98jOVCeDUWXeWyrFpD
+X-QQ-FEAT: dS+JUNSIibdBnc+tIJt+WeMytSH2tNEkxCjMCD4VPtHgoFNxQaIPNyyj3VrsU
+	L4aLi7UZjLKSyXCsxEAGLpykcZ6lpcX6vh29qsvV3MwdwXcysQei3DXLoqvZ+mmyI684xYV
+	O+/wRohKUsF5llCCmjFXzT9kBRTpbSwE1lTy+dEL+VK+pelCK942/a+1IQRs3HuKn1WVhrM
+	iLVKUx7SJjng4ljrg2pEE5nnEX/ep0Rf1Uj55k3Vbd8T6hlaTlXLxnCX3nWZMu3gLWqn1gI
+	4I7kD4JLMmWN7SNnGdqjup9qSn1ctiNC0mlpSYUp4EthY61wFhAwe+/rH8Jsx3uQ3yf4pUb
+	fl6OniGg++MT3GHMVagj8FpoPyXXK+Z+l1yKfSlg0y0+KtwVTOPP8PCdFNQrFhUS/qOt+EM
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11015261677064545706
+X-BIZMAIL-ID: 15397238080264048337
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: falcon@tinylab.org,
@@ -47,20 +47,17 @@ Cc: falcon@tinylab.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Subject: [PATCH v3 12/12] selftests/nolibc: test_fork: fix up duplicated print
-Date: Sat,  3 Jun 2023 16:17:25 +0800
-Message-Id: <4e090aff64abeca598d1bb6ee54b40ee4ce52858.1685777982.git.falcon@tinylab.org>
+	thomas@t-8ch.de
+Subject: [PATCH v3 0/3] nolibc: add part2 of support for rv32
+Date: Sat,  3 Jun 2023 17:00:36 +0800
+Message-Id: <cover.1685780412.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1685777982.git.falcon@tinylab.org>
-References: <cover.1685777982.git.falcon@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230603_011754_528845_F39437D1 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20230603_020114_491358_C6910C37 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,44 +69,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-cnVubmluZyBub2xpYmMtdGVzdCB3aXRoIGdsaWJjIG9uIHg4Nl82NCBnb3Qgc3VjaCBwcmludCBp
-c3N1ZToKCiAgICAyOSBleGVjdmVfcm9vdCA9IC0xIEVBQ0NFUyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIFtPS10KICAgIDMwIGZvcmszMCBmb3JrID0gMCAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFtPS10KICAgIDMxIGdl
-dGRlbnRzNjRfcm9vdCA9IDcxMiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgW09LXQoKVGhlIGZvcmsgdGVzdCBjYXNlIGhhcyB0aHJlZSBwcmludGYgY2FsbHM6CgogICAg
-KDEpIGxsZW4gKz0gcHJpbnRmKCIlZCAlcyIsIHRlc3QsICNuYW1lKTsKICAgICgyKSBsbGVuICs9
-IHByaW50ZigiID0gJWQgJXMgIiwgZXhwciwgZXJyb3JuYW1lKGVycm5vKSk7CiAgICAoMykgbGxl
-biArPSBwYWRfc3BjKGxsZW4sIDY0LCAiW0ZBSUxdXG4iKTsgLS0+IHZmcHJpbnRmKCkKCkluIHRo
-ZSBmb2xsb3dpbmcgc2NlbmUsIHRoZSBhYm92ZSBpc3N1ZSBoYXBwZW5zOgoKICAgIChhKSBUaGUg
-cGFyZW50IGNhbGxzICgxKQogICAgKGIpIFRoZSBwYXJlbnQgY2FsbHMgZm9yaygpCiAgICAoYykg
-VGhlIGNoaWxkIHJ1bnMgYW5kIHNoYXJlcyB0aGUgcHJpbnQgYnVmZmVyIG9mICgxKQogICAgKGQp
-IFRoZSBjaGlsZCBleGl0cywgZmx1c2hzIHRoZSBwcmludCBidWZmZXIgYW5kIGNsb3NlcyBpdHMg
-b3duIHN0ZG91dC9zdGRlcnIKICAgICAgICAqICIzMCBmb3JrIiBpcyBwcmludGVkIGF0IHRoZSBm
-aXJzdCB0aW1lLgogICAgKGUpIFRoZSBwYXJlbnQgY2FsbHMgKDIpIGFuZCAoMyksIHdpdGggIlxu
-IiBpbiAoMyksIGl0IGZsdXNocyB0aGUgd2hvbGUgYnVmZmVyCiAgICAgICAgKiAiMzAgZm9yayA9
-IDAgLi4uIiBpcyBwcmludGVkCgpUaGVyZWZvcmUsIHRoZXJlIGFyZSB0d28gIjMwIGZvcmsiIGlu
-IHRoZSBzdGRvdXQuCgpCZXR3ZWVuIChhKSBhbmQgKGIpLCBpZiBmbHVzaCB0aGUgc3Rkb3V0IChh
-bmQgdGhlIHN0ZXJyKSwgdGhlIGNoaWxkIGluCnN0YWdlIChjKSB3aWxsIG5vdCBiZSBhYmxlIHRv
-ICdzZWUnIHRoZSBwcmludCBidWZmZXIuCgpSZXZpZXdlZC1ieTogVGhvbWFzIFdlacOfc2NodWgg
-PGxpbnV4QHdlaXNzc2NodWgubmV0PgpTaWduZWQtb2ZmLWJ5OiBaaGFuZ2ppbiBXdSA8ZmFsY29u
-QHRpbnlsYWIub3JnPgotLS0KIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMt
-dGVzdC5jIHwgOCArKysrKysrLQogMSBmaWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgMSBk
-ZWxldGlvbigtKQoKZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL25vbGliYy9u
-b2xpYmMtdGVzdC5jIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0
-LmMKaW5kZXggZTY4YzU2OTJlYzU0Li43ZGQ5NTA4NzkxNjEgMTAwNjQ0Ci0tLSBhL3Rvb2xzL3Rl
-c3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jCisrKyBiL3Rvb2xzL3Rlc3Rpbmcv
-c2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jCkBAIC00OTAsNyArNDkwLDEzIEBAIHN0YXRp
-YyBpbnQgdGVzdF9nZXRwYWdlc2l6ZSh2b2lkKQogc3RhdGljIGludCB0ZXN0X2Zvcmsodm9pZCkK
-IHsKIAlpbnQgc3RhdHVzOwotCXBpZF90IHBpZCA9IGZvcmsoKTsKKwlwaWRfdCBwaWQ7CisKKwkv
-KiBmbHVzaCB0aGUgcHJpbnRmIGJ1ZmZlciB0byBhdm9pZCBjaGlsZCBmbHVzaCBpdCAqLworCWZm
-bHVzaChzdGRvdXQpOworCWZmbHVzaChzdGRlcnIpOworCisJcGlkID0gZm9yaygpOwogCiAJc3dp
-dGNoIChwaWQpIHsKIAljYXNlIC0xOgotLSAKMi4yNS4xCgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi, Willy
+
+This is the v3 part2 of support for rv32, differs from the v2 part2 [1],
+we only fix up compile issues in this patchset.
+
+With the v3 generic part1 [2] and this patchset, we can compile nolibc
+for rv32 now.
+
+This is based on the idea of suggestions from Arnd [3], instead of
+'#error' on the unsupported syscall on a target platform, a 'return
+-ENOSYS' allow us to compile it at first and then allow we fix up the
+test failures reported by nolibc-test one by one.
+
+The first two patches fix up all of the compile failures with '-ENOSYS'
+(and '#ifdef' if required):
+
+  tools/nolibc: fix up #error compile failures with -ENOSYS
+  tools/nolibc: fix up undeclared syscall macros with #ifdef and -ENOSYS
+
+The last one enables rv32 compile support:
+  
+  selftests/nolibc: riscv: customize makefile for rv32
+
+The above compile support patch here is only for test currently, as
+Thomas suggested, for a full rv32 support, it should wait for the left
+parts.
+
+Welcome your feedbacks, will wait for enough discussion on this patchset
+and then send the left parts one by one to fix up the test failures
+about waitid, llseek and time64 syscalls: ppoll_time64, clock_gettime64,
+pselect6_time64.
+
+So, I do recommend to apply this patchset, it allows us to send the left
+parts independently, otherwise, all of them should be sent out for
+review together. with this patchset, the rv32 users may be able to use
+nolibc although some syscalls still missing :-)
+
+Or at least we apply the first two, so, I can manually cherry-pick the
+compile support patch to do my local test, and the other platform
+developer may also benefit from them.
+
+I'm cleaning up the left parts, but still require some time, I plan to
+split them to such parts:
+
+  * part3: waitid, prepared, will send out later
+  * part4: llseek, prepared, will send out later
+  * part5: time64 syscalls, ppoll_time64 ok, will finish them next week
+           (It is a little hard to split them)
+
+Best regards,
+Zhangjin
+---
+
+[1]: https://lore.kernel.org/linux-riscv/cover.1685387484.git.falcon@tinylab.org/T/#t
+[2]: https://lore.kernel.org/linux-riscv/cover.1685777982.git.falcon@tinylab.org/T/#t
+[3]: https://lore.kernel.org/linux-riscv/5e7d2adf-e96f-41ca-a4c6-5c87a25d4c9c@app.fastmail.com/
+
+Zhangjin Wu (3):
+  tools/nolibc: fix up #error compile failures with -ENOSYS
+  tools/nolibc: fix up undeclared syscall macros with #ifdef and -ENOSYS
+  selftests/nolibc: riscv: customize makefile for rv32
+
+ tools/include/nolibc/sys.h              | 38 ++++++++++++++++---------
+ tools/testing/selftests/nolibc/Makefile | 11 +++++--
+ 2 files changed, 34 insertions(+), 15 deletions(-)
+
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
