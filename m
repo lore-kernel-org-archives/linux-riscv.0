@@ -4,51 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B1DC77B73
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 11:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB80C77B73
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 11:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l9JyMyB6zyysJPJwNKBYHUMlXAErWJ/MMKZIQLRSGuQ=; b=3jaH3M2fLAXYt9
-	OwnogWCyq41ko9lX7ksLOjtQM/ac3o35mJUUNre+2+Ek2nPXIGKUnYYsmmdgN344JY5G1yOOuHxLi
-	8oeqHrmAAAiNLNCS62xQK+r0A8iwZjmX5gWagmXXRBvXxwiVrudrNFVzDreW8vN9SEn6qk0/DRoAt
-	rsLYYTmlephNYvUWT5IdlRIDbWYtBpnPMt8ZELnhv1c13DOj5doSIwgvTXE7oTsJO1gVCpWXBzPhH
-	9QrTXwRSFttT3qfJrH4KGa6+z2Qhmu0VezEjhIwkTPIL3qoedd2Gtrn5h5iQtgVoVEKQysb+MYu5+
-	DeUA/SV2II1wQ2y/NHfw==;
+	List-Owner; bh=VogPP0VG+6pZrX9gPebvk+YZ033t6IhPNX81coGadKk=; b=29Tzp7xcI2Tnd1
+	v1rLj5JGsI+PjY+gtPBRkRzWeAEqBXK4gkCw8n3JHx7y0d+V7sPSM1g+CJXhGFIFZSKiK2FOpBric
+	Refl7xmTPm870xIt4DPiy/4fzQar1eCb6LIn+OXqJPm08rmMGd+mIvWKYbwBvpe9B6Rlqu49XBN3F
+	Oo9ixhAjOtp7XXirg+V+xYnG1xqBZGZJOhJ7M/rhIslsXNsRAEpXS4bjfRSpZdIZIwWG+AXiw3Jpg
+	WNB+BUn5yy8cniItUSR7Ar0Tv4b81EKpR1hvJ+Rv9n/OzvElaq/LfDTsODkhCl5PjmADNqTwG80YD
+	1yV3QbpMlKnaxs5NqZlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5lky-00C1Tm-2g;
-	Sun, 04 Jun 2023 11:18:44 +0000
+	id 1q5ltx-00C2CZ-1f;
+	Sun, 04 Jun 2023 11:28:01 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5lkv-00C1T6-0h
+	id 1q5ltu-00C2C5-0p
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jun 2023 11:18:43 +0000
+	Sun, 04 Jun 2023 11:27:59 +0000
 Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 354BIZQr001811;
-	Sun, 4 Jun 2023 13:18:35 +0200
-Date: Sun, 4 Jun 2023 13:18:35 +0200
+	by mail.home.local (8.17.1/8.17.1/Submit) id 354BRs1j001843;
+	Sun, 4 Jun 2023 13:27:54 +0200
+Date: Sun, 4 Jun 2023 13:27:54 +0200
 From: Willy Tarreau <w@1wt.eu>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: arnd@arndb.de, linux-kernel@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-        thomas@t-8ch.de,
-        Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
-Subject: Re: [PATCH v3 02/12] tools/nolibc: add missing nanoseconds support
- for __NR_statx
-Message-ID: <ZHxzC6X5dgzmH+Ek@1wt.eu>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Zhangjin Wu <falcon@tinylab.org>,
+        Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas@t-8ch.de>,
+        linux-kernel <linux-kernel@vger.kernel.org>,
+        linux-kselftest <linux-kselftest@vger.kernel.org>,
+        linux-riscv <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v3 11/12] selftests/nolibc: add new gettimeofday test
+ cases
+Message-ID: <ZHx1OliMqHx9U1Lw@1wt.eu>
 References: <cover.1685777982.git.falcon@tinylab.org>
- <bcb69a382bbb68826f974ef4f521c8f1c60e47bc.1685777982.git.falcon@tinylab.org>
+ <68dace9e2532316ff454894697ecfd99e419a523.1685777982.git.falcon@tinylab.org>
+ <2fccaff5-2354-4ac0-8389-1004d47d8dc9@t-8ch.de>
+ <tencent_4668A50A08C3D31E7531619E@qq.com>
+ <51e1db37-3981-4ea5-9348-b6f6b31ecc8a@app.fastmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <bcb69a382bbb68826f974ef4f521c8f1c60e47bc.1685777982.git.falcon@tinylab.org>
+In-Reply-To: <51e1db37-3981-4ea5-9348-b6f6b31ecc8a@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_041842_153523_49C891F5 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230604_042758_752126_FD170783 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,52 +63,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 03, 2023 at 04:02:04PM +0800, Zhangjin Wu wrote:
-> Commit a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
-> added nanoseconds for stat() but missed the statx case, this adds it.
-> =
+On Sun, Jun 04, 2023 at 11:24:39AM +0200, Arnd Bergmann wrote:
+> On Sun, Jun 4, 2023, at 10:29, ??? wrote:
+> >
+> > Sorry for missing part of your feedbacks, I will check if -nostdlib 
+> > stops the linking of libgcc_s or my own separated test script forgot 
+> > linking the libgcc_s manually.
+> 
+> According to the gcc documentation, -nostdlib drops libgcc.a, but
+> adding -lgcc is the recommended way to bring it back.
+> 
+> > And as suggestion from Thomas' reply,
+> >
+> >>> Perhaps we really need to add the missing __divdi3 and __aeabi_ldivmod and the
+> >>> ones for the other architectures, or get one from lib/math/div64.c.
+> >
+> >>No, these ones come from the compiler via libgcc_s, we must not try to
+> > reimplement them. And we should do our best to avoid depending on them
+> > to avoid the error you got above.
+> >
+> > So, the explicit conversion is used instead in the patch.
+> 
+> I think a cast to a 32-bit type is ideal when converting the
+> clock_gettime() result into microseconds, since the kernel guarantees
+> that the timespec value is normalized, with all zeroes in the
+> upper 34 bits. Going through __aeabi_ldivmod would make the
+> conversion much slower.
+> 
+> For user supplied non-normalized timeval values, it's not obvious
+> whether we need the full 64-bit division
 
-> The stx_atime, stx_mtime, stx_ctime are in type of 'struct
-> statx_timestamp', which is incompatible with 'struct timespec', should
-> convert explicitly.
-> =
+We don't have to care about these here for the microsecond part,
+because for decades these were exclusively 32-bit. Also the only
+one consuming this field would have been settimeofday() and it's
+already documented as returning EINVAL if tv_usec is not within
+the expected 0..999999 range.
 
->     /* include/uapi/linux/stat.h */
-> =
+And when in doubt we should keep in mind that nolibc's purpose is not
+to become a yet-another full-blown libc alternative but just a small
+piece of software allowing to produce portable and compact binaries
+for testing or booting. Being a bit stricter than other libcs for the
+sake of code compactness is better here. Originally for example it was
+necessary to always pass the 3 arguments to open(). Over time we managed
+to make simple code compile with both glibc and nolibc, but when it
+comes at the cost of adding size and burden for the developers, such
+as forcing them to add libgcc, I prefer that we slightly limit the
+domain of application instead.
 
->     struct statx_timestamp {
->     	__s64	tv_sec;
->     	__u32	tv_nsec;
->     	__s32	__reserved;
->     };
-> =
-
->     /* include/uapi/linux/time.h */
->     struct timespec {
->     	__kernel_old_time_t	tv_sec;		/* seconds */
->     	long			tv_nsec;	/* nanoseconds */
->     };
-> =
-
-> Without this patch, the stat_timestamps test case would fail when
-> __NR_statx defined.
-> =
-
-> Fixes: a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
-> Suggested-by: Thomas Wei=DFschuh <linux@weissschuh.net>
-> Link: https://lore.kernel.org/linux-riscv/3a3edd48-1ace-4c89-89e8-9c594dd=
-1b3c9@t-8ch.de/
-> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-
-Thank you. I've queued it immediately after Thomas' patch.
-I'll let the two of you tell me if it's better to squash them
-together to avoid breaking bisect and mark you co-authors.
-
+Thanks!
 Willy
 
 _______________________________________________
