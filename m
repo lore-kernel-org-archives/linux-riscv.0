@@ -4,51 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B03DC77B73
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 12:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12B1C7EE29
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 12:55:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ujj1KEYnsSWD59hnVIh5Sm/BT0YD7AqBxHHygvs1ljs=; b=yDshXaPAVHelHg
-	N7b7XK6ahXb1dK+QRIXWcNYToLhzFZ77iF5HBpvvYbrhuZmUXWNIXlokkr4xDmsuWRVNUDrTA1HNr
-	Wi5eekyaNR5UPmV3m8UyXaeZL7zddAO0Zn/JBvkjTfkyszRzAfVdtXF0Q6wuq2RZCayaHHHsnVInr
-	viyp70OVlVF54/Y6bAMcFPDZO+P/Lkab6Yh2n7U+wymijZpO4Yv5FQkeXtZOdD5yRR/SzCSCPhJyD
-	OmqpS74qUguX3F/opIQi52eyft9jTX8DtcqESZG61nanATwvR7LZiZAaYpUW6O+XoC1xZN9Qd68y0
-	Z2I6ucDPyuFrukI88jVQ==;
+	List-Owner; bh=z5Xt+m55vStGpJV++1IR0/rDplksi52IqUuZB8p1vc4=; b=pCzgT0wnY2b9Dz
+	Rw/aDCLNKoZGtmeNmcIm2cm7uuMIBFAX1XI/sjgoW6+X9ai872LgSA/nGKPG+r2ePv84O9zLQd6wA
+	979dAkZTOnAqJJrvd9hQQW/hUrn/mxvqjuNxx8EOH3tKyr3HSh3F9IeQYsLzGCp1T+Q3KDGAQrMaO
+	g8W9s4j7EfdPOobZW/u3zsfC5afjFD/K6PjlbXJ4pexU0Gw2mUpaZVyglQa5Oso+nwy1bKHVuJnBP
+	fMPCiXBOx/1xhz+/1x7SzR2LN1jN9HzrOK7IG6XGePja69lwZFxVAi+1YfP0mOZy1Xs1bjZos43Ra
+	H2AtFGGufEEJckmM5qDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5nEj-00CAqd-0e;
-	Sun, 04 Jun 2023 12:53:33 +0000
+	id 1q5nGD-00CB3e-2X;
+	Sun, 04 Jun 2023 12:55:05 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5nEg-00CApD-1D
+	id 1q5nGA-00CB2v-1W
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jun 2023 12:53:32 +0000
+	Sun, 04 Jun 2023 12:55:04 +0000
 Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 354CrO4h002296;
-	Sun, 4 Jun 2023 14:53:24 +0200
-Date: Sun, 4 Jun 2023 14:53:24 +0200
+	by mail.home.local (8.17.1/8.17.1/Submit) id 354CsxC8002327;
+	Sun, 4 Jun 2023 14:54:59 +0200
+Date: Sun, 4 Jun 2023 14:54:59 +0200
 From: Willy Tarreau <w@1wt.eu>
 To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas@t-8ch.de>
 Cc: Zhangjin Wu <falcon@tinylab.org>, arnd@arndb.de,
         linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
         linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 02/12] tools/nolibc: add missing nanoseconds support
- for __NR_statx
-Message-ID: <ZHyJRJW872Ft1GeR@1wt.eu>
+Subject: Re: [PATCH v3 00/12] nolibc: add generic part1 of prepare for rv32
+Message-ID: <ZHyJo6Xo5BTf/Np9@1wt.eu>
 References: <cover.1685777982.git.falcon@tinylab.org>
- <bcb69a382bbb68826f974ef4f521c8f1c60e47bc.1685777982.git.falcon@tinylab.org>
- <ZHxzC6X5dgzmH+Ek@1wt.eu>
- <0c0537d6-5cba-43e9-8ca2-0e1605d64e8a@t-8ch.de>
+ <9fd76795-65df-4964-bc80-fb1d4f92c402@t-8ch.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0c0537d6-5cba-43e9-8ca2-0e1605d64e8a@t-8ch.de>
+In-Reply-To: <9fd76795-65df-4964-bc80-fb1d4f92c402@t-8ch.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_055330_854432_17678A0D 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20230604_055502_803435_31759961 
+X-CRM114-Status: GOOD (  27.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,89 +62,117 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 04, 2023 at 02:00:02PM +0200, Thomas Wei=DFschuh wrote:
-> On 2023-06-04 13:18:35+0200, Willy Tarreau wrote:
-> > On Sat, Jun 03, 2023 at 04:02:04PM +0800, Zhangjin Wu wrote:
-> > > Commit a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
-> > > added nanoseconds for stat() but missed the statx case, this adds it.
-> > > =
-
-> > > The stx_atime, stx_mtime, stx_ctime are in type of 'struct
-> > > statx_timestamp', which is incompatible with 'struct timespec', should
-> > > convert explicitly.
-> > > =
-
-> > >     /* include/uapi/linux/stat.h */
-> > > =
-
-> > >     struct statx_timestamp {
-> > >     	__s64	tv_sec;
-> > >     	__u32	tv_nsec;
-> > >     	__s32	__reserved;
-> > >     };
-> > > =
-
-> > >     /* include/uapi/linux/time.h */
-> > >     struct timespec {
-> > >     	__kernel_old_time_t	tv_sec;		/* seconds */
-> > >     	long			tv_nsec;	/* nanoseconds */
-> > >     };
-> > > =
-
-> > > Without this patch, the stat_timestamps test case would fail when
-> > > __NR_statx defined.
-> > > =
-
-> > > Fixes: a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
-> > > Suggested-by: Thomas Wei=DFschuh <linux@weissschuh.net>
-> > > Link: https://lore.kernel.org/linux-riscv/3a3edd48-1ace-4c89-89e8-9c5=
-94dd1b3c9@t-8ch.de/
-> > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+On Sun, Jun 04, 2023 at 08:49:52AM +0200, Thomas Wei=DFschuh wrote:
+> On 2023-06-03 15:59:29+0800, Zhangjin Wu wrote:
+> > Hi, Willy
 > > =
 
-> > Thank you. I've queued it immediately after Thomas' patch.
-> > I'll let the two of you tell me if it's better to squash them
-> > together to avoid breaking bisect and mark you co-authors.
+> > This is the v3 generic part1 for rv32, all of the found issues of v2
+> > part1 [1] have been fixed up, several generic patches have been fixed up
+> > and merged from v2 part2 [2] to this series, the standalone test_fork
+> > patch [4] is merged with a Reviewed-by line into this series too.
+> > =
+
+> > This series is based on 20230528-nolibc-rv32+stkp5 branch of [5].
+> > =
+
+> > Changes from v2 -> v3:
+> > =
+
+> > * selftests/nolibc: fix up compile warning with glibc on x86_64
+> > =
+
+> >   Use simpler 'long long' conversion instead of old #ifdef ...
+> >   (Suggestion from Willy)
+> > =
+
+> > * tools/nolibc: add missing nanoseconds support for __NR_statx
+> > =
+
+> >   Split the compound assignment into two single assignments
+> >   (Suggestion from Thomas)
+> > =
+
+> > * selftests/nolibc: add new gettimeofday test cases
+> > =
+
+> >   Removed the gettimeofday(NULL, &tz)
+> >   (Suggestion from Thomas)
+> > =
+
+> > All of the commit messages have been re-checked, some missing
+> > Suggested-by lines are added.
+> > =
+
+> > The whole patchset have been tested on arm, aarch64, rv32 and rv64, no
+> > regressions (the next compile patchset is required to do rv32 test).
+> > =
+
+> > The nolibc-test has been tested with glibc on x86_64 too.
+> > =
+
+> > Btw, we have found such poll failures on arm (not introduced by this
+> > patchset), this will be fixed in our coming ppoll_time64 patchset:
+> > =
+
+> > 48 poll_null =3D -1 ENOSYS                                        [FAIL]
+> > 49 poll_stdout =3D -1 ENOSYS                                      [FAIL]
+> > 50 poll_fault =3D -1 ENOSYS  !=3D (-1 EFAULT)                       [FA=
+IL]
+> > =
+
+> > And the gettimeofday_null removal patch from Thomas [3] may conflicts
+> > with the gettimeofday removal and addition patches, but it is not hard
+> > to fix.
+> > =
+
+> > Best regards,
+> > Zhangjin
+> > ---
+> > =
+
+> > [1]: https://lore.kernel.org/linux-riscv/cover.1685362482.git.falcon@ti=
+nylab.org/T/#t
+> > [2]: https://lore.kernel.org/linux-riscv/cover.1685387484.git.falcon@ti=
+nylab.org/T/#t
+> > [3]: https://lore.kernel.org/lkml/20230530-nolibc-gettimeofday-v1-1-730=
+7441a002b@weissschuh.net/
+> > [4]: https://lore.kernel.org/lkml/61bdfe7bacebdef8aa9195f6f2550a5b0d33a=
+ab3.1685426545.git.falcon@tinylab.org/
+> > [5]: https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
+> > =
+
+> > Zhangjin Wu (12):
+> >   selftests/nolibc: syscall_args: use generic __NR_statx
+> >   tools/nolibc: add missing nanoseconds support for __NR_statx
+> >   selftests/nolibc: allow specify extra arguments for qemu
+> >   selftests/nolibc: fix up compile warning with glibc on x86_64
+> >   selftests/nolibc: not include limits.h for nolibc
+> >   selftests/nolibc: use INT_MAX instead of __INT_MAX__
+> >   tools/nolibc: arm: add missing my_syscall6
+> >   tools/nolibc: open: fix up compile warning for arm
+> >   selftests/nolibc: support two errnos with EXPECT_SYSER2()
+> >   selftests/nolibc: remove gettimeofday_bad1/2 completely
+> >   selftests/nolibc: add new gettimeofday test cases
+> >   selftests/nolibc: test_fork: fix up duplicated print
+> > =
+
+> >  tools/include/nolibc/arch-arm.h              | 23 +++++++++++
+> >  tools/include/nolibc/stdint.h                | 14 +++++++
+> >  tools/include/nolibc/sys.h                   | 39 +++++++++---------
+> >  tools/testing/selftests/nolibc/Makefile      |  2 +-
+> >  tools/testing/selftests/nolibc/nolibc-test.c | 42 ++++++++++++--------
+> >  5 files changed, 85 insertions(+), 35 deletions(-)
 > =
 
-> Squashing them sounds like the correct solution to me.
+> For the full series:
+> =
 
-OK I've done it for now in my branch. I'm going to push it as
-20230604-nolibc-rv32+stkp6. All tests pass fine again for me now on
-all supported archs. I'll pass this one to Paul, I think it's fine
-for 6.5. I just don't know if he still has tests planned on his side
-for 6.5 (Paul always re-runs the whole tests after integration and
-often spots failures).
+> Reviewed-by: Thomas Wei=DFschuh <linux@weissschuh.net>
 
-By the way, I'm still using my test-all script that's extremely
-convenient to test the expected results from user-mode (it basically
-does what run-user does, but for all archs and at -O0, -Os, -O3).
+I forgot to say, all the series is now queued, and I squashed the
+__NR_statx fix into Thomas' patch.
 
-I'm sharing it attached since I think it can help you and Zhangjin in
-your respective tests. That's how I'm cheating to spot build issues in
-contributed changes. I have not committed it because it's ugly and I
-don't know where to put it, but I think you'll find it convenient
-nevertheless. I'm starting it like this:
-
-   $ ./test-all-opts.sh | tee test16.out
-   $ grep passed test16.out
-   136 test(s) passed, 2 skipped, 0 failed. See all results in run-arm64.out
-   135 test(s) passed, 3 skipped, 0 failed. See all results in run-arm-marc=
-h=3Darmv5t_-marm.out
-   135 test(s) passed, 3 skipped, 0 failed. See all results in run-arm-marc=
-h=3Darmv5t_-mthumb.out
-   135 test(s) passed, 3 skipped, 0 failed. See all results in run-arm-marc=
-h=3Darmv7-a_-marm.out
-   135 test(s) passed, 3 skipped, 0 failed. See all results in run-arm-marc=
-h=3Darmv7-a_-mthumb.out
-   136 test(s) passed, 2 skipped, 0 failed. See all results in run-i386.out
-   136 test(s) passed, 2 skipped, 0 failed. See all results in run-i386-mar=
-ch=3Di586.out
-   (...)
-   $ grep ' [^0] failed' test16.out || echo OK
-   OK
-
-Hoping this helps,
 Willy
 
 _______________________________________________
