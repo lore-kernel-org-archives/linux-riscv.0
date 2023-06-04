@@ -4,52 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C241C7EE29
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 19:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA06C7EE29
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 19:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LCYqYoq5G6HVqWrC6WHbuk61zewF9mVCiC+qOGHvtH0=; b=ptrluiAWIEmjL0
-	jBSSLBJdppRxRqmev6X1q6oDf0ljn3a4l4lLsdePfHKuAqANyG1Fa5uS4+rC8k7hM4sUuiFs38gA4
-	Uhse7RQMH8XZQdPeRHxwOMtbVXkhJ0Eopib5hSalSkEwxNoYpIMDw4KEsZuEmPSeLx9y5sgsjK1rL
-	OT/JuBswIas+gUuG0ylqa7Nade1bXnj2oU9fR/G9UmfrOTHZOpUzppIDiewELZylScNT6xN6vkr1V
-	3b3clahNRrRn0wbXfdAZk1Ahaz5cr6E5Ph2AYIY41rzPtpzFK0jPeyibMRq9PH01R6MB7D1fMLyKK
-	Bw9ObOw3x3JoOeIndmdw==;
+	List-Owner; bh=nNoWvdXEoskTJ+AnhGS7PRbjEC5jCGIjm4o9o4aAX5w=; b=0ygwmdxlCOOaZ3
+	QYjlWl/ggy5HfYKCeo/6CutnZoFb1ZQsFlMFbM86D3Hclh9CmOuc/eI4lp6d6Yeab8sZdgAslPHA/
+	VdbfEJ8TGtrJhOvW03uvhuk1+rNrOD5ZKghAwSp13+kMECtM5lILZDTPkMyW6rQDjnCRCO2cy3kMw
+	SyVN1bTtooxytpdMu/finqoDoSJ7MZw3yG/hCOemYAHvZkk0HC5d8d7IXKe2PnAlAWI81k8h56nMW
+	NQikbFaDyS6TT3IR9qQhKQxOA7iWCY85E/1moZRT1mNt7YMN+2rmSvAvauCnP10PCKtk/6Y5sO8sq
+	d7r5WsoUB/zQpk4A2eyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5tHv-00Csm7-23;
-	Sun, 04 Jun 2023 19:21:15 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	id 1q5tPm-00CtyL-25;
+	Sun, 04 Jun 2023 19:29:22 +0000
+Received: from mail-io1-f47.google.com ([209.85.166.47])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5tHt-00Csky-0M
-	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jun 2023 19:21:14 +0000
-Date: Sun, 4 Jun 2023 21:21:09 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
-	t=1685906469; bh=1UClnzbPKFLgB8+m4Ye4NhmglZ0eNYJbm+haocS29Dk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MHF1QbHZGPslYjUKOjgngaUKFdFNWbjneJMTIO4Dx43CHu6UxHzxKpry/lClXyJ46
-	 B+i7Qp5tyXzU3frQnpC5kEegItHMHDnt+hA4FcENSbs9tIhkbXpWVcTtcL7QbldFEs
-	 uo7Im8wBP/JfQph7F8Vf3H024I4lnFrqYV0HHSRA=
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
-To: Willy Tarreau <w@1wt.eu>
-Cc: Zhangjin Wu <falcon@tinylab.org>, arnd@arndb.de, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/4] tools/nolibc: unistd.h: add __syscall() and
- __syscall_ret() helpers
-Message-ID: <ea4e7442-7223-4211-ba29-70821e907888@t-8ch.de>
-References: <cover.1685856497.git.falcon@tinylab.org>
- <f549b27981484b429b7c7f98e212bf3c5561724f.1685856497.git.falcon@tinylab.org>
- <ZHyKoeSMaOHtSr58@1wt.eu>
+	id 1q5tPi-00Ctuh-0i;
+	Sun, 04 Jun 2023 19:29:20 +0000
+Received: by mail-io1-f47.google.com with SMTP id ca18e2360f4ac-77493b3d18cso162793939f.0;
+        Sun, 04 Jun 2023 12:29:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1685906948; x=1688498948;
+        h=date:subject:message-id:references:in-reply-to:cc:to:from
+         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ij5XhT5jB8Nf96u95NnR46WqBGb6FiYB0L867QNIR/M=;
+        b=PiACdlqxFqOh84dMPpz/gDIBqA9SGe4MbPSS7xE1KpgXQHg2GShEoHTa+ztI1PuxKl
+         pUMbZ2Ry7+YLUQ6/oZCnAptci2vVAGuoVCX79D8EE4DDjHAO4nSPN+EYf3hWLbpASnA4
+         Q8WtbUualYjqdipf4BDVLS43jjWJvOrlVoN0SCSqyxrEdmBCHyTguncP9srGjuo2s2+g
+         xgEK3rnA4wIHOE3qtOlL5bC8maGOUdoiEmNWc0Kz7yOQ8Y2CUf/uZ8OsmASC3Hv52HB1
+         buznvFHqk3VsJLOesivfPjGnjolyqxf0Vei6TAk5XBl7E24s/HviK3iF0VIjrp6MH+93
+         PC2g==
+X-Gm-Message-State: AC+VfDxpK7BS6eotRPQOs5WYRhzZ/Ejmi1XxCkgcnxeRqcljtg/lS0fM
+	9PYFl26dO4rw/GjtKn1U/g==
+X-Google-Smtp-Source: ACHHUZ4JJS8XBgdt1+SzDtD2MEpxUV98/xM2bSyFtyQkPzj8iOewpvgcay8t2+isMQNpFA3ff4OK9g==
+X-Received: by 2002:a05:6602:2584:b0:76c:785f:8f82 with SMTP id p4-20020a056602258400b0076c785f8f82mr11914911ioo.6.1685906948618;
+        Sun, 04 Jun 2023 12:29:08 -0700 (PDT)
+Received: from robh_at_kernel.org ([64.188.179.250])
+        by smtp.gmail.com with ESMTPSA id a22-20020a056638019600b0041abd81975bsm1697542jaq.153.2023.06.04.12.29.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 04 Jun 2023 12:29:07 -0700 (PDT)
+Received: (nullmailer pid 3700333 invoked by uid 1000);
+	Sun, 04 Jun 2023 19:29:04 -0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZHyKoeSMaOHtSr58@1wt.eu>
+From: Rob Herring <robh@kernel.org>
+To: Maksim Kiselev <bigunclemax@gmail.com>
+Cc: ChiYuan Huang <cy_huang@richtek.com>, ChiaEn Wu <chiaen_wu@richtek.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor+dt@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, linux-sunxi@lists.linux.dev, 
+	William Breathitt Gray <william.gray@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-riscv@lists.infradead.org, 
+	Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Haibo Chen <haibo.chen@nxp.com>, 
+	devicetree@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>, 
+	Andre Przywara <andre.przywara@arm.com>, Mike Looijmans <mike.looijmans@topic.nl>, 
+	Chen-Yu Tsai <wens@csie.org>, Ramona Bolboaca <ramona.bolboaca@analog.com>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Cosmin Tanislav <demonsingur@gmail.com>, linux-iio@vger.kernel.org, 
+	Philipp Zabel <p.zabel@pengutronix.de>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Ibrahim Tilki <Ibrahim.Tilki@analog.com>, Caleb Connolly <caleb.connolly@linaro.org>, 
+	=?UTF-8?Q?Leonard_G=C3=B6hrs?= <l.goehrs@pengutronix.de>
+In-Reply-To: <20230604185336.1943889-3-bigunclemax@gmail.com>
+References: <20230604185336.1943889-1-bigunclemax@gmail.com>
+ <20230604185336.1943889-3-bigunclemax@gmail.com>
+Message-Id: <168590694462.3700314.2525765521559343425.robh@kernel.org>
+Subject: Re: [PATCH v3 2/3] dt-bindings: iio: adc: Add Allwinner
+ D1/T113s/R329/T507 SoCs GPADC
+Date: Sun, 04 Jun 2023 13:29:04 -0600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_122113_313541_7EF82D4D 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20230604_122918_265776_F33D3CFB 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,101 +97,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-06-04 14:59:13+0200, Willy Tarreau wrote:
-> Hi Zhangjin,
+
+On Sun, 04 Jun 2023 21:53:15 +0300, Maksim Kiselev wrote:
+> From: Maxim Kiselev <bigunclemax@gmail.com>
 > 
-> On Sun, Jun 04, 2023 at 01:34:29PM +0800, Zhangjin Wu wrote:
-> > most of the library routines share the same code model, let's add some
-> > macros to simplify the coding and shrink the code lines too.
-> > 
-> > One added for syscall return, one added for syscall call, both of them
-> > can get the typeof 'return value' automatically.
-> > 
-> > To get the return type of syscalls, __auto_type is better than typeof(),
-> > but it is not supported by the old compilers (before 2013, see [1]), so,
-> > use typeof() here.
-> > 
-> > [1]: https://gcc.gnu.org/legacy-ml/gcc-patches/2013-11/msg01378.html
-> > 
-> > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> > ---
-> >  tools/include/nolibc/sys.h | 15 +++++++++++++++
-> >  1 file changed, 15 insertions(+)
-> > 
-> > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-> > index 1d6f33f58629..937a8578e3d4 100644
-> > --- a/tools/include/nolibc/sys.h
-> > +++ b/tools/include/nolibc/sys.h
-> > @@ -28,6 +28,21 @@
-> >  #include "errno.h"
-> >  #include "types.h"
-> >  
-> > +/* Syscall call and return helpers */
-> > +#define __syscall_ret(ret)						\
-> > +({									\
-> > +	if (ret < 0) {							\
-> > +		SET_ERRNO(-ret);					\
-> > +		ret = (typeof(ret))-1;					\
-> > +	}								\
-> > +	ret;								\
-> > +})
-> > +
-> > +#define __syscall(name, ...)						\
-> > +({									\
-> > +	typeof(sys_##name(__VA_ARGS__)) ret = sys_##name(__VA_ARGS__);	\
-> > +	__syscall_ret(ret);						\
-> > +})
+> Allwinner's D1/T113s/R329/T507 SoCs have a new general purpose ADC.
+> This ADC is the same for all of this SoCs. The only difference is
+> the number of available channels.
 > 
-> Well, I personally don't find that it increases legibility, on the
-> opposite. At first when reading the series, I thought you had dropped
-> errno setting on return. I think the reason is that when reading that
-> last macro, it's not at all obvious that __syscall_ret() is actually
-> modifying this ret value *and* returning it as the macro's result.
+> Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
+> ---
+>  .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    | 90 +++++++++++++++++++
+>  1 file changed, 90 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
 > 
-> If we'd want to go down that route, I suspect that something like this
-> would at least hint about what is being returned:
-> 
-> +#define __syscall(name, ...)						\
-> +({									\
-> +	typeof(sys_##name(__VA_ARGS__)) ret = sys_##name(__VA_ARGS__);	\
-> +	ret = __syscall_ret(ret);					\
-> +})
-> 
-> But I'm interested in others' opinion on this, particularly Thomas and
-> Arnd who review a significant number of patches. For now I prefer not
-> to take it before we've settled on a choice.
 
-While I see the value in factoring out this pattern I'm also not really
-happy with the implementation.
-Especially the magic delegation to "sys_##name".
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-What about something like this:
+yamllint warnings/errors:
 
-static inline long __ret_as_errno(long ret) /* or some other name */
-{
-	if (ret < 0) {
-		SET_ERRNO(-ret);
-		ret = -1;
-	}
-	return ret;
-}
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml: 'maintainers' is a required property
+	hint: Metaschema for devicetree binding documentation
+	from schema $id: http://devicetree.org/meta-schemas/base.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.example.dtb: adc@2009000: interrupts: [[73], [4]] is too long
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
 
-This avoids another macro by using a normal function.
+doc reference errors (make refcheckdocs):
 
-Syscall return values should always fit into long, at least
-extrapolating from syscall(2) and the fact that they are returned in
-registers.
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230604185336.1943889-3-bigunclemax@gmail.com
 
-It would be a bit more verbose:
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-int chdir(const char *path)
-{
-	return __ret_as_errno(sys_chdir(path));
-}
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-But it's clear what's going on and also just one line.
+pip3 install dtschema --upgrade
 
-Thomas
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
 _______________________________________________
 linux-riscv mailing list
