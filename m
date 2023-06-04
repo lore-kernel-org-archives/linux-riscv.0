@@ -4,49 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8165CC7EE29
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 12:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2FEC7EE29
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 18:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MayPmsT3rdQ0aTWHj4+K0ssNM2FqNtMKs7QSJuIJGyg=; b=NkiGw1scGCVe5a
-	vu4pAPD8a7KFeuNfzenM3kG7IQqQa7G0XEoOhJQj7jawAFRldQk0G9LJhWElHBPZQfIp07rck0nf2
-	j7PeCzhbIm8ocDfHyhAWj+mTyUPJ8KpRhCilIKeiJ5jG0AB7tqsM+p94MFp4w+KxfDX+GHWGiDnmJ
-	5EwUYSc3riR+j/rPRBtCLT6diB5j6jLGJ/Eo182oY/Y3N8CwsBszSiE0qAsNU4fxuGmXVtyxoCCIv
-	sBJbCyqBcq9KnemK32jPXgCpy5ByISdZEsVdq+/IymseMgA5P1ntl00PgmjfJT7nWKYaOrsqPAZur
-	NOI/h/VtHu1tNt1aVKKg==;
+	List-Owner; bh=kjlXjvHI/atmmv79WDB5P3G5n3DOKIFX/2uJP46Van0=; b=nM+d3WqnnzC8nI
+	QzKTvZAg28/muwNBeyorTv5nL3BiLbFommSMBbkulVEJssI9OwHRpXIWMJwYMATkc/saX74UpuFTN
+	1hoSEHqvuMUbQQppJGMd/mDGzGrp9i5KRiYrcAU6znDIA+kf8FR+zQtNwxHKsGronI0wsah16tMEb
+	af2eHWDMPsKuBDPOW1YAay6OLpQMnFqo7NaFxy8xrSzCE7hxJb4Dw6KAK8nYqFeV3/lSb3IL6Eu2E
+	K65F+DYbjXcQkQu91SZDzlkq+7hVlXyQq3bs3QUgBodi2yNKzZ/sIurrM/kohhs4ZfU2OFgK2pR9+
+	9E6KcurziPQJ1ZqvKkrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5nKK-00CBYP-0Y;
-	Sun, 04 Jun 2023 12:59:20 +0000
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5nKG-00CBX0-2A
+	id 1q5s4G-00Cf5n-1g;
+	Sun, 04 Jun 2023 18:03:04 +0000
+Received: from out-31.mta1.migadu.com ([2001:41d0:203:375::1f])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q5s4D-00Cf1B-1B
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jun 2023 12:59:18 +0000
-Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 354CxDHH002392;
-	Sun, 4 Jun 2023 14:59:13 +0200
-Date: Sun, 4 Jun 2023 14:59:13 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: arnd@arndb.de, linux-kernel@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-        thomas@t-8ch.de
-Subject: Re: [PATCH 1/4] tools/nolibc: unistd.h: add __syscall() and
- __syscall_ret() helpers
-Message-ID: <ZHyKoeSMaOHtSr58@1wt.eu>
-References: <cover.1685856497.git.falcon@tinylab.org>
- <f549b27981484b429b7c7f98e212bf3c5561724f.1685856497.git.falcon@tinylab.org>
+	Sun, 04 Jun 2023 18:03:03 +0000
+Date: Sun, 4 Jun 2023 14:02:44 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1685901772;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8eVzj7/BTcLqy7wFCwl6xnZsISP/KN6jro+z/mha3Xk=;
+	b=PqQAVjJ04ndqRoRQANhzjXtWIXqTHWREPNCE9YGBCSItM5aGzg9r4emrFDvZxP/xuQ2bpU
+	DTvQnUtepgxbciT5z6M6Z+EoNGC8g2gnKTdxk1x+F2TTQDaLu6DFNHuJfLzV07K3aFkiY5
+	e/eoFzp+TyP07cOwDSzIUjGa6eo5mqQ=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kent Overstreet <kent.overstreet@linux.dev>
+To: Song Liu <song@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Mike Rapoport <rppt@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	Puranjay Mohan <puranjay12@gmail.com>
+Subject: Re: [PATCH 00/13] mm: jit/text allocator
+Message-ID: <ZHzRxE5V6YzGVsHy@moria.home.lan>
+References: <20230601101257.530867-1-rppt@kernel.org>
+ <ZHjDU/mxE+cugpLj@FVFF77S0Q05N.cambridge.arm.com>
+ <ZHjgIH3aX9dCvVZc@moria.home.lan>
+ <ZHm3zUUbwqlsZBBF@FVFF77S0Q05N>
+ <CAPhsuW7Euczff_KB70nuH=Hhf2EYHAf=xiQR7mFqVfByhD34XA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <f549b27981484b429b7c7f98e212bf3c5561724f.1685856497.git.falcon@tinylab.org>
+In-Reply-To: <CAPhsuW7Euczff_KB70nuH=Hhf2EYHAf=xiQR7mFqVfByhD34XA@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_055917_005158_E9A23566 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20230604_110301_585610_9788CB0A 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,71 +95,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Zhangjin,
+On Fri, Jun 02, 2023 at 11:20:58AM -0700, Song Liu wrote:
+> IIUC, arm64 uses VMALLOC address space for BPF programs. The reason
+> is each BPF program uses at least 64kB (one page) out of the 128MB
+> address space. Puranjay Mohan (CC'ed) is working on enabling
+> bpf_prog_pack for arm64. Once this work is done, multiple BPF programs
+> will be able to share a page. Will this improvement remove the need to
+> specify a different address range for BPF programs?
 
-On Sun, Jun 04, 2023 at 01:34:29PM +0800, Zhangjin Wu wrote:
-> most of the library routines share the same code model, let's add some
-> macros to simplify the coding and shrink the code lines too.
-> 
-> One added for syscall return, one added for syscall call, both of them
-> can get the typeof 'return value' automatically.
-> 
-> To get the return type of syscalls, __auto_type is better than typeof(),
-> but it is not supported by the old compilers (before 2013, see [1]), so,
-> use typeof() here.
-> 
-> [1]: https://gcc.gnu.org/legacy-ml/gcc-patches/2013-11/msg01378.html
-> 
-> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> ---
->  tools/include/nolibc/sys.h | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
-> 
-> diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-> index 1d6f33f58629..937a8578e3d4 100644
-> --- a/tools/include/nolibc/sys.h
-> +++ b/tools/include/nolibc/sys.h
-> @@ -28,6 +28,21 @@
->  #include "errno.h"
->  #include "types.h"
->  
-> +/* Syscall call and return helpers */
-> +#define __syscall_ret(ret)						\
-> +({									\
-> +	if (ret < 0) {							\
-> +		SET_ERRNO(-ret);					\
-> +		ret = (typeof(ret))-1;					\
-> +	}								\
-> +	ret;								\
-> +})
-> +
-> +#define __syscall(name, ...)						\
-> +({									\
-> +	typeof(sys_##name(__VA_ARGS__)) ret = sys_##name(__VA_ARGS__);	\
-> +	__syscall_ret(ret);						\
-> +})
-
-Well, I personally don't find that it increases legibility, on the
-opposite. At first when reading the series, I thought you had dropped
-errno setting on return. I think the reason is that when reading that
-last macro, it's not at all obvious that __syscall_ret() is actually
-modifying this ret value *and* returning it as the macro's result.
-
-If we'd want to go down that route, I suspect that something like this
-would at least hint about what is being returned:
-
-+#define __syscall(name, ...)						\
-+({									\
-+	typeof(sys_##name(__VA_ARGS__)) ret = sys_##name(__VA_ARGS__);	\
-+	ret = __syscall_ret(ret);					\
-+})
-
-But I'm interested in others' opinion on this, particularly Thomas and
-Arnd who review a significant number of patches. For now I prefer not
-to take it before we've settled on a choice.
-
-Thanks,
-Willy
+Can we please stop working on BPF specific sub page allocation and focus
+on doing this in mm/? This never should have been in BPF in the first
+place.
 
 _______________________________________________
 linux-riscv mailing list
