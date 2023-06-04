@@ -4,46 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0A2C77B73
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 11:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B1DC77B73
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 11:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TdF92B34icsKAnXeyXRCLGtHLhSVGJ9C2N8/bWB76Xc=; b=D3EW3vHKCCm3Pu
-	FO2DB9GMouYVaxTiWr09NyO9WWHfIaV7vYq+Un+1canJRjGntrmK75lSaTMzJz0glXWvAirGPreUK
-	hO2OZCQvpKOL6+WJ/JlQzDl11puQ9ATiWPo9LA1wgruUhTXEPZavM0k6th9H8FqoTT9e6O3gkTKMW
-	Ju2FmZSB0jowpoOiv5qExFs1s2eRyINdCGe46X6AAAPhKTW6/PiUD6T0NMkQ8TVMLlPZdshoK9wnA
-	3DpMXJCyDMvZphqAFPDvt7pEpS4glISpGFe/cAYTdGZqMgWnjqTZRXQdvgKgpotG0Wx+Bz+G7Cz7j
-	rJB/EK/7dupo6xcFA4fQ==;
+	List-Owner; bh=l9JyMyB6zyysJPJwNKBYHUMlXAErWJ/MMKZIQLRSGuQ=; b=3jaH3M2fLAXYt9
+	OwnogWCyq41ko9lX7ksLOjtQM/ac3o35mJUUNre+2+Ek2nPXIGKUnYYsmmdgN344JY5G1yOOuHxLi
+	8oeqHrmAAAiNLNCS62xQK+r0A8iwZjmX5gWagmXXRBvXxwiVrudrNFVzDreW8vN9SEn6qk0/DRoAt
+	rsLYYTmlephNYvUWT5IdlRIDbWYtBpnPMt8ZELnhv1c13DOj5doSIwgvTXE7oTsJO1gVCpWXBzPhH
+	9QrTXwRSFttT3qfJrH4KGa6+z2Qhmu0VezEjhIwkTPIL3qoedd2Gtrn5h5iQtgVoVEKQysb+MYu5+
+	DeUA/SV2II1wQ2y/NHfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5lYR-00C0Ek-0n;
-	Sun, 04 Jun 2023 11:05:47 +0000
+	id 1q5lky-00C1Tm-2g;
+	Sun, 04 Jun 2023 11:18:44 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5lYN-00C0D4-1U
+	id 1q5lkv-00C1T6-0h
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jun 2023 11:05:45 +0000
+	Sun, 04 Jun 2023 11:18:43 +0000
 Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 354B5Ij4001769;
-	Sun, 4 Jun 2023 13:05:18 +0200
-Date: Sun, 4 Jun 2023 13:05:18 +0200
+	by mail.home.local (8.17.1/8.17.1/Submit) id 354BIZQr001811;
+	Sun, 4 Jun 2023 13:18:35 +0200
+Date: Sun, 4 Jun 2023 13:18:35 +0200
 From: Willy Tarreau <w@1wt.eu>
 To: Zhangjin Wu <falcon@tinylab.org>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        linux-riscv@lists.infradead.org, thomas@t-8ch.de
-Subject: Re: [PATCH 0/4] selftests/nolibc: add user-space 'efault' handler
-Message-ID: <ZHxv7kIm2kEAfin2@1wt.eu>
-References: <cover.1685443199.git.falcon@tinylab.org>
+Cc: arnd@arndb.de, linux-kernel@vger.kernel.org,
+        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+        thomas@t-8ch.de,
+        Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
+Subject: Re: [PATCH v3 02/12] tools/nolibc: add missing nanoseconds support
+ for __NR_statx
+Message-ID: <ZHxzC6X5dgzmH+Ek@1wt.eu>
+References: <cover.1685777982.git.falcon@tinylab.org>
+ <bcb69a382bbb68826f974ef4f521c8f1c60e47bc.1685777982.git.falcon@tinylab.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <cover.1685443199.git.falcon@tinylab.org>
+In-Reply-To: <bcb69a382bbb68826f974ef4f521c8f1c60e47bc.1685777982.git.falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_040544_109636_DEBCAD59 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20230604_041842_153523_49C891F5 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -55,55 +60,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Zhangjin,
+On Sat, Jun 03, 2023 at 04:02:04PM +0800, Zhangjin Wu wrote:
+> Commit a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
+> added nanoseconds for stat() but missed the statx case, this adds it.
+> =
 
-On Tue, May 30, 2023 at 06:47:38PM +0800, Zhangjin Wu wrote:
-> Hi, Willy, Thomas
-> 
-> This is not really for merge, but only let it work as a demo code to
-> test whether it is possible to restore the next test when there is a bad
-> pointer access in user-space [1].
-> 
-> Besides, a new 'run' command is added to 'NOLIBC_TEST' environment
-> variable or arguments to control the running iterations, this may be
-> used to test the reentrancy issues, but no failures found currently ;-)
+> The stx_atime, stx_mtime, stx_ctime are in type of 'struct
+> statx_timestamp', which is incompatible with 'struct timespec', should
+> convert explicitly.
+> =
 
-Since the tests we're running are essentially API tests, I'm having
-a hard time seeing in which case it can be useful to repeat the tests.
-I'm not necessarily against doing it, I'm used to repeating tests for
-example in anything sensitive to timing or race conditions, it's just
-that here I'm not seeing the benefit. And the fact you found no failure
-is rather satisfying because the opposite would have surprised me.
+>     /* include/uapi/linux/stat.h */
+> =
 
-Regarding the efault handler, I don't think it's a good idea until we
-have signal+longjmp support in nolibc. Because running different tests
-with different libcs kind of defeats the purpose of the test in the
-first place. The reason why I wanted nolibc-test to be portable to at
-least one other libc is to help the developer figure if a failure is in
-the nolibc syscall they're implementing or in the test itself. Here if
-we start to say that some parts cannot be tested similarly, the benefit
-disappears.
+>     struct statx_timestamp {
+>     	__s64	tv_sec;
+>     	__u32	tv_nsec;
+>     	__s32	__reserved;
+>     };
+> =
 
-I mentioned previously that I'm not particularly impatient to work on
-signals and longjmp. But in parallel I understand how this can make the
-life of some developers easier and even allow to widen the spectrum of
-some tests. Thus, maybe in the end it could be beneficial to make progress
-on this front and support these. We should make sure that this doesn't
-inflate the code base however. I guess I'd be fine with ignoring libc-
-based restarts on EINTR, alt stacks and so on and keeping this minimal
-(i.e. catch a segfault/bus error/sigill in a test program, or a Ctrl-C
-in a tiny shell).
+>     /* include/uapi/linux/time.h */
+>     struct timespec {
+>     	__kernel_old_time_t	tv_sec;		/* seconds */
+>     	long			tv_nsec;	/* nanoseconds */
+>     };
+> =
 
-Just let us know if you think that's something you could be interested
-in exploring. There might be differences between architectures, I have
-not checked.
+> Without this patch, the stat_timestamps test case would fail when
+> __NR_statx defined.
+> =
 
-Thanks,
+> Fixes: a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
+> Suggested-by: Thomas Wei=DFschuh <linux@weissschuh.net>
+> Link: https://lore.kernel.org/linux-riscv/3a3edd48-1ace-4c89-89e8-9c594dd=
+1b3c9@t-8ch.de/
+> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+
+Thank you. I've queued it immediately after Thomas' patch.
+I'll let the two of you tell me if it's better to squash them
+together to avoid breaking bisect and mark you co-authors.
+
 Willy
 
 _______________________________________________
