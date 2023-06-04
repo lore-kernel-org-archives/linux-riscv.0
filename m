@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4421BC7EE23
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 21:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9286C7EE29
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 21:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tp0YQud3Cbzg4G4T8Vu3H7BBtTU9pS37SvsdLOWXYK0=; b=nN7aJ+BODQnk7A/lKy5gp8kIwa
-	DCnquIZwcQ9fuIcG/4bE5fFlqewMdBLYa5I8nRQaqMCtaLbYwtTRp4Ny5+UO/glfGiDmy7x7WNE0J
-	qZAoBRzYBOPXOhSBiPSTU5sD2jZfYPOHhGLbIEyKg2wQka5c4ne2rjXjy41KcSWry1qaiaAqM6jK4
-	9ir4Ml+7r3+gzEKluMGH7rw0lpX1/Dm24vc6oxRRWRuz3URvGf8GZ7EvNEqUnCJ7CbjlsvLk08eNC
-	HwMrRddIvA9AYaArmooCYnvzmtfZ1CaUcEXyBRlc+97EJZ/zOqIlij4DVzIXp+hGl0Un6hjl488zb
-	Yb91HwHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Fzcm3id46tYWqUqARpg299cWQFUoL5SweQJxw8P2bcM=; b=2zL0qjf76A4FSe
+	+Pl0HV0rXRDz1HAc98/rODOkEgRBmZsenUuUgQFt4NWSfA+LsfNSAgmHXlq5/3zo3knL35XTEpYJB
+	6IgW/GKzRT12W1qgMst1Ls5QA0V5lo4T2UvKOPcrPW0n+DTp8e6VoKLR1vqk8/GF7PKS4ppoTf6HB
+	REn/apyN6ToiZzGzABYdwwcLHj63ropft9Q2kPSKgY2nul+Awrx3LJX5d2d6jlx0vVcxIGBctNZyE
+	yI4bikE+J64w978aD4uC0FWmMJPgYrlKM72xnVvoTf7i7bPAAHbKZvyMlaUUd00PPEoRtZ70MudL/
+	cKjgN9c/gmepXHQVIvzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5uq6-00D64c-35;
-	Sun, 04 Jun 2023 21:00:38 +0000
+	id 1q5vBa-00D8hA-0F;
+	Sun, 04 Jun 2023 21:22:50 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5uq2-00D63o-2C;
-	Sun, 04 Jun 2023 21:00:35 +0000
+	id 1q5vBX-00D8fe-0F;
+	Sun, 04 Jun 2023 21:22:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E22E0609AD;
-	Sun,  4 Jun 2023 21:00:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB97FC433EF;
-	Sun,  4 Jun 2023 21:00:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 90C9F6154A;
+	Sun,  4 Jun 2023 21:22:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 794CAC433A1;
+	Sun,  4 Jun 2023 21:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685912433;
-	bh=bP33TM36+Nno9c9jmbHjs6cfji8fLGfto2b0EkwdTmY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dz0JAJ/z++ZXys+o8PXM4tJtgvoWr0aPQTOlME1Tnuo9UTwo9FNVZ3CrO76ayaOCA
-	 wPLXlXvbwq/tFhC2hWi7ZuhKOxSiwUUewbylPzM54BszYnBG8uxqunt6v4HzCMI00l
-	 OCYkG0+JylrrOLXd7lMffOa9Y1N+pgsueKtWond32u+j2+noyb2Pxy2F20x9N6xXhI
-	 3MQ46uiR9tCgSRIDZVB0vPqWp39u+fDn0dtp7xEcqeSMzarkTNa8m4WwEkPD+oI5j2
-	 TraMflNSGp8aLmqhGIcn6T04p+P+eBsYh91FUo+k77AZq7fgd0nCeRRNmvN6UyWBAh
-	 i8uLGtMpcaLew==
-Date: Sun, 4 Jun 2023 22:00:24 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Maxim Kiselev <bigunclemax@gmail.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	linux-iio@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Cosmin Tanislav <demonsingur@gmail.com>,
-	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	William Breathitt Gray <william.gray@linaro.org>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Mike Looijmans <mike.looijmans@topic.nl>,
-	ChiYuan Huang <cy_huang@richtek.com>,
-	Ramona Bolboaca <ramona.bolboaca@analog.com>,
-	Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
-	Caleb Connolly <caleb.connolly@linaro.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	ChiaEn Wu <chiaen_wu@richtek.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/3] dt-bindings: iio: adc: Add Allwinner
- D1/T113s/R329/T507 SoCs GPADC
-Message-ID: <20230604-afternoon-frighten-42222010557b@spud>
-References: <20230601223104.1243871-1-bigunclemax@gmail.com>
- <20230601223104.1243871-3-bigunclemax@gmail.com>
- <fbcc5688-387c-32fb-edac-17848c92b936@linaro.org>
- <CALHCpMizv52yj0rw0pR8pYjSys2UivS4L4GkWLgc-d91bdmDCA@mail.gmail.com>
+	s=k20201202; t=1685913764;
+	bh=M3qa4JrCJfL3BlNTay6Yo1EjRS0Ncm+BgXInegps46U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=b7/fXotn0pQEscndihWizAxU7LQa5dSl44a9/klsWVyS0lxz/8hzxSa2IZZsjsxfX
+	 r+NUkhYWfR+U4pM6AYQOSE7NKbAlOja0TNvz5m0DUEI1zWFDSIkNTecITt/pEkmEGw
+	 J/i1EcDni6ZWXfMClgL03G31hjpaAYBpUerxaCwWdNhFcQlLqMtUbQhIMCbcYDNWvU
+	 UhGMgdB0T5xWi5hDLtX6T9Luh2uONUrqL+9je7Lg6uu0df3kWNPuh+zhJ8FFH8haNG
+	 M5E3S5UelWImxtKzuetFx71eO1My6o4ugA9ZPA9fKjM0HrHilfHJ2bhtk0fdh1FBN/
+	 wGD7X3O1e8t2w==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-4f6195d2b3fso1759133e87.1;
+        Sun, 04 Jun 2023 14:22:44 -0700 (PDT)
+X-Gm-Message-State: AC+VfDyc8ZaT41Bi87QZ6Zso9eJfb3M1w2sJOkfuvkVM/T9NRkZK0qoi
+	Lf48aC05QgbpgeaoreT4kgjUHcbo3LKQk7/eKUc=
+X-Google-Smtp-Source: ACHHUZ60WLRim/NZBMM58ZYdg3/lDfHnTA86A+7CXA+1QyWmoNPWXKyb36vAONlyven1Wz2rt1eY822fjimBjrUI6Ak=
+X-Received: by 2002:ac2:5d6c:0:b0:4f2:4df1:f071 with SMTP id
+ h12-20020ac25d6c000000b004f24df1f071mr4227167lft.51.1685913762272; Sun, 04
+ Jun 2023 14:22:42 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CALHCpMizv52yj0rw0pR8pYjSys2UivS4L4GkWLgc-d91bdmDCA@mail.gmail.com>
+References: <20230601101257.530867-1-rppt@kernel.org> <ZHjDU/mxE+cugpLj@FVFF77S0Q05N.cambridge.arm.com>
+ <ZHjgIH3aX9dCvVZc@moria.home.lan> <ZHm3zUUbwqlsZBBF@FVFF77S0Q05N>
+ <CAPhsuW7Euczff_KB70nuH=Hhf2EYHAf=xiQR7mFqVfByhD34XA@mail.gmail.com> <ZHzRxE5V6YzGVsHy@moria.home.lan>
+In-Reply-To: <ZHzRxE5V6YzGVsHy@moria.home.lan>
+From: Song Liu <song@kernel.org>
+Date: Sun, 4 Jun 2023 14:22:30 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW7iEDa44jxc_7Cj4KnVhtct-UTO2JtVK-U7o2ynn2iX8Q@mail.gmail.com>
+Message-ID: <CAPhsuW7iEDa44jxc_7Cj4KnVhtct-UTO2JtVK-U7o2ynn2iX8Q@mail.gmail.com>
+Subject: Re: [PATCH 00/13] mm: jit/text allocator
+To: Kent Overstreet <kent.overstreet@linux.dev>
+Cc: Mark Rutland <mark.rutland@arm.com>, Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, "David S. Miller" <davem@davemloft.net>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, 
+	Huacai Chen <chenhuacai@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Russell King <linux@armlinux.org.uk>, 
+	Steven Rostedt <rostedt@goodmis.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-mm@kvack.org, linux-modules@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org, 
+	Puranjay Mohan <puranjay12@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_140034_807976_A9FE7734 
-X-CRM114-Status: GOOD (  24.09  )
+X-CRM114-CacheID: sfid-20230604_142247_242451_9B7520AD 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +92,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0754248720062112408=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0754248720062112408==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="R6NUQuCQejyhVbgd"
-Content-Disposition: inline
-
-
---R6NUQuCQejyhVbgd
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sun, Jun 04, 2023 at 11:20:43PM +0300, Maxim Kiselev wrote:
-> =D0=BF=D1=82, 2 =D0=B8=D1=8E=D0=BD. 2023=E2=80=AF=D0=B3. =D0=B2 11:38, Kr=
-zysztof Kozlowski
-> <krzysztof.kozlowski@linaro.org>:
-> > On 02/06/2023 00:30, Maksim Kiselev wrote:
-> > > From: Maxim Kiselev <bigunclemax@gmail.com>
-> > >
-> > > Allwinner's D1/T113s/R329/T507 SoCs have a new general purpose ADC.
-> > > This ADC is the same for all of this SoCs. The only difference is
-> > > the number of available channels.
-> >
-> > Except that it wasn't tested...
->=20
-> Yes, you are right. I tested it only on the T113s board. And I will be gl=
-ad if
-> someone tests it on another SoC.
-
-I would imagine Krzysztof meant testing the binding w/ dt_binding_check
-etc, rather than testing the ADC itself.
-
-> > Please run scripts/checkpatch.pl and fix reported warnings. Some
-> > warnings can be ignored, but the code here looks like it needs a fix.
-> > Feel free to get in touch if the warning is not clear.
->=20
-> I got a warning about required maintainer property. Should I do
-> anything with this?
-
-Yes, you should!
-
-> If yes, then who should be a maintainer?
-
-You, preferably.
-
-> > Hm? So you do not allow anything from adc.yaml related? Are you sure
-> > this is your intention?
->=20
-> I'm not sure about it. I looked at other ADC bindings and didn't find
-> another driver with 'additionalProperties: true'
-
-Try `unevaluatedProperties: false` instead.
-
-Cheers,
-Conor.
-
---R6NUQuCQejyhVbgd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZHz7ZAAKCRB4tDGHoIJi
-0mhhAQDWUaQ6MsgMc3hJ9RhC8xIHkPkDg+t28YylGU9AHR/7TQEAoAIiWf+O7hZq
-dlGXke5/fRuOymui5uFzsqI45K65SAE=
-=8YSV
------END PGP SIGNATURE-----
-
---R6NUQuCQejyhVbgd--
-
-
---===============0754248720062112408==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0754248720062112408==--
-
+T24gU3VuLCBKdW4gNCwgMjAyMyBhdCAxMTowMuKAr0FNIEtlbnQgT3ZlcnN0cmVldAo8a2VudC5v
+dmVyc3RyZWV0QGxpbnV4LmRldj4gd3JvdGU6Cj4KPiBPbiBGcmksIEp1biAwMiwgMjAyMyBhdCAx
+MToyMDo1OEFNIC0wNzAwLCBTb25nIExpdSB3cm90ZToKPiA+IElJVUMsIGFybTY0IHVzZXMgVk1B
+TExPQyBhZGRyZXNzIHNwYWNlIGZvciBCUEYgcHJvZ3JhbXMuIFRoZSByZWFzb24KPiA+IGlzIGVh
+Y2ggQlBGIHByb2dyYW0gdXNlcyBhdCBsZWFzdCA2NGtCIChvbmUgcGFnZSkgb3V0IG9mIHRoZSAx
+MjhNQgo+ID4gYWRkcmVzcyBzcGFjZS4gUHVyYW5qYXkgTW9oYW4gKENDJ2VkKSBpcyB3b3JraW5n
+IG9uIGVuYWJsaW5nCj4gPiBicGZfcHJvZ19wYWNrIGZvciBhcm02NC4gT25jZSB0aGlzIHdvcmsg
+aXMgZG9uZSwgbXVsdGlwbGUgQlBGIHByb2dyYW1zCj4gPiB3aWxsIGJlIGFibGUgdG8gc2hhcmUg
+YSBwYWdlLiBXaWxsIHRoaXMgaW1wcm92ZW1lbnQgcmVtb3ZlIHRoZSBuZWVkIHRvCj4gPiBzcGVj
+aWZ5IGEgZGlmZmVyZW50IGFkZHJlc3MgcmFuZ2UgZm9yIEJQRiBwcm9ncmFtcz8KPgo+IENhbiB3
+ZSBwbGVhc2Ugc3RvcCB3b3JraW5nIG9uIEJQRiBzcGVjaWZpYyBzdWIgcGFnZSBhbGxvY2F0aW9u
+IGFuZCBmb2N1cwo+IG9uIGRvaW5nIHRoaXMgaW4gbW0vPyBUaGlzIG5ldmVyIHNob3VsZCBoYXZl
+IGJlZW4gaW4gQlBGIGluIHRoZSBmaXJzdAo+IHBsYWNlLgoKVGhhdCB3b3JrIGlzIG1vc3RseSBp
+bmRlcGVuZGVudCBvZiB0aGUgYWxsb2NhdG9yIHdvcmsgd2UgYXJlIGRpc2N1c3NpbmcgaGVyZS4K
+VGhlIGdvYWwgUHVyYW5qYXkncyB3b3JrIGlzIHRvIGVuYWJsZSB0aGUgYXJtNjQgQlBGIEpJVCBl
+bmdpbmUgdG8gdXNlIGEKUk9YIGFsbG9jYXRvci4gVGhlIGFsbG9jYXRvciBjb3VsZCBiZSB0aGUg
+YnBmX3Byb2dfcGFjayBhbGxvY2F0b3IsIG9yIGppdGFsbG9jLApvciBtb2R1bGVfYWxsb2NfdHlw
+ZS4gUHVyYW5qYXkgaXMgdXNpbmcgYnBmX3Byb2dfYWxsb2MgZm9yIG5vdy4gQnV0IG9uY2UKaml0
+YWxsb2Mgb3IgbW9kdWxlX2FsbG9jX3R5cGUgKGVpdGhlciBvbmUpIGlzIG1lcmdlZCwgd2Ugd2ls
+bCBtaWdyYXRlIEJQRgpKSVQgZW5naW5lcyAoeDg2XzY0IGFuZCBhcm02NCkgdG8gdGhlIG5ldyBh
+bGxvY2F0b3IgYW5kIHRoZW4gdGVhciBkb3duCmJwZl9wcm9nX3BhY2suCgpEb2VzIHRoaXMgbWFr
+ZSBzZW5zZT8KClRoYW5rcywKU29uZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
