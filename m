@@ -4,106 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC07C7EE23
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 18:55:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D3FC77B73
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 19:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ykkXplSPzTWz12JdxRq5t//LP3nCPq8Jin5M9FRThJc=; b=eyVYOrh0WnXyv6
-	tngJMF6iTw5I2Ckx7Erb0L73d2PLqrXmak5NurmLzICJb/c/pcE4VLAcjQyCN0TxohvduajdgCXyA
-	RS2/ncwarawNK3J01I/HwXdcp1/iFIW46X/C2xumg48jhYaErOxqzSRylcVRb5u0ns8aSaubjfr9h
-	zY3Qfsg6wGmXXmbSqL/RVlcBEMlodsfclJNhfGhlrjq+215lZezJjUOhtqqJ9gJijy24s8Y3jT3fP
-	wH06RHdrAmSTijFb43j/xTFPQ9yjUN0TmYzVSXy6LqDvESRbOdXJQzCHdwskjsY+4JH3AC3DALB0J
-	0SOigrRsTsXIba/TeQrQ==;
+	List-Owner; bh=tK7gYeT84W0/YO9R1l1MDiJeWPG7JoFTWjyl9pki58Y=; b=k7kT8jvCPc20Tq
+	DL+AuczhpI9SKXHO8sugjoGMpHhIKQor0C5GvBtrk16fSKF9o/9QBBmOtA22TXW3k7TzAWq+hAbZy
+	8tCNKHBgK7pYgPrN0cs8IyYnj1T4vHl7FIheCXdRLa0bbylbpy48lEALXc6sSPmrM7+ohfLEkkFwK
+	zjuORV/oCGkpsD7lnYPoPoohDb+HCHaVFl8JsWxR1SfvUZ0xT9f4YiVG1K8RvboroEeC4n2D7EckN
+	3dybWGwxkW6RFxz3QduVgwlTQgnAHk8Y3FmJIPDl+lX9u9AhqvJH7LKAG58Sb/l4fTtqeCXDt1cRa
+	D6ns4+qOmcJ1KTIP+FyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5ssp-00Co2Z-1L;
-	Sun, 04 Jun 2023 18:55:19 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1q5t4g-00CqSF-1g;
+	Sun, 04 Jun 2023 19:07:34 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5ssm-00Co0O-21;
-	Sun, 04 Jun 2023 18:55:18 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-3f6e13940daso41504455e9.0;
-        Sun, 04 Jun 2023 11:55:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1685904915; x=1688496915;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9/TmEA+PoC7xu6/KU/ll32pvJQ2ck1CrGNuRyF6FIV0=;
-        b=h5sKFEV8TA0OBcHdACbXty9PxKz8jgUpGUFbiy/GvEKjYur0hVmD+06SUCGLY2yHn3
-         wHrmRZK1WNIdgSk5SS6PxT6kyriDte832Ogpjw6YI/1Su2MZrTtdLePKdfidrymZBSIC
-         0RxemvtGNmqSZC4pe6IFvElKtRIapasNwQJqi6FS4I93LoK3wdw/uMn/AGaUAq2Kkmb0
-         LMSDKc8O1QhhA8l+6CJf6kXCkrblhF5GuqRf0ednu15Ipzaju3PIIg0Mc4Xti0Bz5SRH
-         v6r/EYkQGmGJaArsU5mnlErTUArViEoFOXVyEoX+YBqurbPADpdfhHiIqnHr5t9go+PI
-         R9eg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685904915; x=1688496915;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9/TmEA+PoC7xu6/KU/ll32pvJQ2ck1CrGNuRyF6FIV0=;
-        b=GX6iZVb7hhwLvS9fziSfUIegxfwQAtJBCn/aW4zd2c3Zzamz8kxXVmOFdoNcG7WDa4
-         BcuHt3C6gvVTTrXkGiwtjjVpwM1YI0rigL9NvTXazNC89BDGvZ9D/sVfEK9vu19uBaih
-         uhq1Wd0Xt63wlwmgznEdpvYvrIwONW4oYNfWxb+yvpLbVle+a5OEF9lQFP4OvPsdnJ0G
-         aAoCxtnryNsaMLwOIYEdENap4FsFGBzjRQ/ZedAPtlDElgOh2duxpdItGgoKiMQCIOb7
-         u1B0MWLk7JbZy8Kvo7A4o5FUltQxEEsOsb45Gw+HgWM+RZsSEUI34y5x8TKSOt2SDkWp
-         6b6g==
-X-Gm-Message-State: AC+VfDwT99vgC3u3Tk0FCPBgyhNcIcnWK0R9i1jLOndDEXa43Z8yJaQN
-	6fZ1nmiYpRhJwRNUVc03gzE=
-X-Google-Smtp-Source: ACHHUZ6QHdcEGqIc3K5pPlZKWdJlxj3Jk7ECCuHaBZpxT2c/x9Cv/yIBXAYPcu1w8wPaqG+imTMVYQ==
-X-Received: by 2002:adf:fb42:0:b0:306:2ef0:d223 with SMTP id c2-20020adffb42000000b003062ef0d223mr4541453wrs.62.1685904914549;
-        Sun, 04 Jun 2023 11:55:14 -0700 (PDT)
-Received: from user-PC.. ([178.134.198.138])
-        by smtp.gmail.com with ESMTPSA id l8-20020a5d4108000000b00304adbeeabbsm7636433wrp.99.2023.06.04.11.55.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Jun 2023 11:55:14 -0700 (PDT)
-From: Maksim Kiselev <bigunclemax@gmail.com>
-To: linux-iio@vger.kernel.org
-Cc: Maxim Kiselev <bigunclemax@gmail.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Cosmin Tanislav <demonsingur@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?UTF-8?q?Leonard=20G=C3=B6hrs?= <l.goehrs@pengutronix.de>,
-	ChiYuan Huang <cy_huang@richtek.com>,
-	Ramona Bolboaca <ramona.bolboaca@analog.com>,
-	Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
-	ChiaEn Wu <chiaen_wu@richtek.com>,
-	William Breathitt Gray <william.gray@linaro.org>,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 3/3] riscv: dts: allwinner: d1: Add GPADC node
-Date: Sun,  4 Jun 2023 21:53:16 +0300
-Message-Id: <20230604185336.1943889-4-bigunclemax@gmail.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230604185336.1943889-1-bigunclemax@gmail.com>
-References: <20230604185336.1943889-1-bigunclemax@gmail.com>
+	id 1q5t4c-00CqQM-0p
+	for linux-riscv@lists.infradead.org;
+	Sun, 04 Jun 2023 19:07:32 +0000
+Date: Sun, 4 Jun 2023 21:07:25 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
+	t=1685905645; bh=tVL6rua96sFgrYX+hG+hECHYZwYEGKbaivsDiNvbYyc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Sa7eVeipLe2kCWP0XMt2fU3wqRXYQ5/Xf+VesjJK5KPZMG3Loir696DyY/gMAmOVq
+	 R+P2+Yz/Gasv1bgoR+57TyuWfQi1YbWHUluQsgyiQvOnS69jUgmzuURcr+laWblmRz
+	 BAR3FOS5k0JdfPSZr2hDYzPc/bTRqq2h1/5idb74=
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
+To: Willy Tarreau <w@1wt.eu>
+Cc: Zhangjin Wu <falcon@tinylab.org>, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 0/4] selftests/nolibc: add user-space 'efault' handler
+Message-ID: <c6129c15-7e95-4f6c-b4db-c6b5daa6d3cc@t-8ch.de>
+References: <cover.1685443199.git.falcon@tinylab.org>
+ <ZHxv7kIm2kEAfin2@1wt.eu>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ZHxv7kIm2kEAfin2@1wt.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_115516_668670_18CA8CDF 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230604_120730_447251_68F2A2B4 
+X-CRM114-Status: GOOD (  30.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,40 +64,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Maxim Kiselev <bigunclemax@gmail.com>
+On 2023-06-04 13:05:18+0200, Willy Tarreau wrote:
+> Hi Zhangjin,
+> 
+> On Tue, May 30, 2023 at 06:47:38PM +0800, Zhangjin Wu wrote:
+> > Hi, Willy, Thomas
+> > 
+> > This is not really for merge, but only let it work as a demo code to
+> > test whether it is possible to restore the next test when there is a bad
+> > pointer access in user-space [1].
+> > 
+> > Besides, a new 'run' command is added to 'NOLIBC_TEST' environment
+> > variable or arguments to control the running iterations, this may be
+> > used to test the reentrancy issues, but no failures found currently ;-)
+> 
+> Since the tests we're running are essentially API tests, I'm having
+> a hard time seeing in which case it can be useful to repeat the tests.
+> I'm not necessarily against doing it, I'm used to repeating tests for
+> example in anything sensitive to timing or race conditions, it's just
+> that here I'm not seeing the benefit. And the fact you found no failure
+> is rather satisfying because the opposite would have surprised me.
+> 
+> Regarding the efault handler, I don't think it's a good idea until we
+> have signal+longjmp support in nolibc. Because running different tests
+> with different libcs kind of defeats the purpose of the test in the
+> first place. The reason why I wanted nolibc-test to be portable to at
+> least one other libc is to help the developer figure if a failure is in
+> the nolibc syscall they're implementing or in the test itself. Here if
+> we start to say that some parts cannot be tested similarly, the benefit
+> disappears.
+> 
+> I mentioned previously that I'm not particularly impatient to work on
+> signals and longjmp. But in parallel I understand how this can make the
+> life of some developers easier and even allow to widen the spectrum of
+> some tests. Thus, maybe in the end it could be beneficial to make progress
+> on this front and support these. We should make sure that this doesn't
+> inflate the code base however. I guess I'd be fine with ignoring libc-
+> based restarts on EINTR, alt stacks and so on and keeping this minimal
+> (i.e. catch a segfault/bus error/sigill in a test program, or a Ctrl-C
+> in a tiny shell).
+> 
+> Just let us know if you think that's something you could be interested
+> in exploring. There might be differences between architectures, I have
+> not checked.
 
-This patch adds declaration of the general purpose ADC for D1
-and T113s SoCs.
+If the goal is to handle hard errors like segfaults more gracefully,
+would it not be easier to run each testcase in a subprocess?
 
-Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
----
- arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Then we can just check if the child exited successfully.
 
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-index 922e8e0e2c09..90c79041cfba 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-@@ -138,6 +138,16 @@ ccu: clock-controller@2001000 {
- 			#reset-cells = <1>;
- 		};
- 
-+		gpadc: adc@2009000 {
-+			compatible = "allwinner,sun20i-d1-gpadc";
-+			reg = <0x2009000 0x1000>;
-+			clocks = <&ccu CLK_BUS_GPADC>;
-+			resets = <&ccu RST_BUS_GPADC>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(57) IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
-+			#io-channel-cells = <1>;
-+		};
-+
- 		dmic: dmic@2031000 {
- 			compatible = "allwinner,sun20i-d1-dmic",
- 				     "allwinner,sun50i-h6-dmic";
--- 
-2.39.2
+It should also be completely architecture agnostic.
 
+Thomas
 
 _______________________________________________
 linux-riscv mailing list
