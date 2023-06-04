@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12B1C7EE29
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 12:55:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8165CC7EE29
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 12:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z5Xt+m55vStGpJV++1IR0/rDplksi52IqUuZB8p1vc4=; b=pCzgT0wnY2b9Dz
-	Rw/aDCLNKoZGtmeNmcIm2cm7uuMIBFAX1XI/sjgoW6+X9ai872LgSA/nGKPG+r2ePv84O9zLQd6wA
-	979dAkZTOnAqJJrvd9hQQW/hUrn/mxvqjuNxx8EOH3tKyr3HSh3F9IeQYsLzGCp1T+Q3KDGAQrMaO
-	g8W9s4j7EfdPOobZW/u3zsfC5afjFD/K6PjlbXJ4pexU0Gw2mUpaZVyglQa5Oso+nwy1bKHVuJnBP
-	fMPCiXBOx/1xhz+/1x7SzR2LN1jN9HzrOK7IG6XGePja69lwZFxVAi+1YfP0mOZy1Xs1bjZos43Ra
-	H2AtFGGufEEJckmM5qDw==;
+	List-Owner; bh=MayPmsT3rdQ0aTWHj4+K0ssNM2FqNtMKs7QSJuIJGyg=; b=NkiGw1scGCVe5a
+	vu4pAPD8a7KFeuNfzenM3kG7IQqQa7G0XEoOhJQj7jawAFRldQk0G9LJhWElHBPZQfIp07rck0nf2
+	j7PeCzhbIm8ocDfHyhAWj+mTyUPJ8KpRhCilIKeiJ5jG0AB7tqsM+p94MFp4w+KxfDX+GHWGiDnmJ
+	5EwUYSc3riR+j/rPRBtCLT6diB5j6jLGJ/Eo182oY/Y3N8CwsBszSiE0qAsNU4fxuGmXVtyxoCCIv
+	sBJbCyqBcq9KnemK32jPXgCpy5ByISdZEsVdq+/IymseMgA5P1ntl00PgmjfJT7nWKYaOrsqPAZur
+	NOI/h/VtHu1tNt1aVKKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5nGD-00CB3e-2X;
-	Sun, 04 Jun 2023 12:55:05 +0000
+	id 1q5nKK-00CBYP-0Y;
+	Sun, 04 Jun 2023 12:59:20 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5nGA-00CB2v-1W
+	id 1q5nKG-00CBX0-2A
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jun 2023 12:55:04 +0000
+	Sun, 04 Jun 2023 12:59:18 +0000
 Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 354CsxC8002327;
-	Sun, 4 Jun 2023 14:54:59 +0200
-Date: Sun, 4 Jun 2023 14:54:59 +0200
+	by mail.home.local (8.17.1/8.17.1/Submit) id 354CxDHH002392;
+	Sun, 4 Jun 2023 14:59:13 +0200
+Date: Sun, 4 Jun 2023 14:59:13 +0200
 From: Willy Tarreau <w@1wt.eu>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas@t-8ch.de>
-Cc: Zhangjin Wu <falcon@tinylab.org>, arnd@arndb.de,
-        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 00/12] nolibc: add generic part1 of prepare for rv32
-Message-ID: <ZHyJo6Xo5BTf/Np9@1wt.eu>
-References: <cover.1685777982.git.falcon@tinylab.org>
- <9fd76795-65df-4964-bc80-fb1d4f92c402@t-8ch.de>
+To: Zhangjin Wu <falcon@tinylab.org>
+Cc: arnd@arndb.de, linux-kernel@vger.kernel.org,
+        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
+        thomas@t-8ch.de
+Subject: Re: [PATCH 1/4] tools/nolibc: unistd.h: add __syscall() and
+ __syscall_ret() helpers
+Message-ID: <ZHyKoeSMaOHtSr58@1wt.eu>
+References: <cover.1685856497.git.falcon@tinylab.org>
+ <f549b27981484b429b7c7f98e212bf3c5561724f.1685856497.git.falcon@tinylab.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <9fd76795-65df-4964-bc80-fb1d4f92c402@t-8ch.de>
+In-Reply-To: <f549b27981484b429b7c7f98e212bf3c5561724f.1685856497.git.falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_055502_803435_31759961 
-X-CRM114-Status: GOOD (  27.64  )
+X-CRM114-CacheID: sfid-20230604_055917_005158_E9A23566 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,122 +58,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 04, 2023 at 08:49:52AM +0200, Thomas Wei=DFschuh wrote:
-> On 2023-06-03 15:59:29+0800, Zhangjin Wu wrote:
-> > Hi, Willy
-> > =
+Hi Zhangjin,
 
-> > This is the v3 generic part1 for rv32, all of the found issues of v2
-> > part1 [1] have been fixed up, several generic patches have been fixed up
-> > and merged from v2 part2 [2] to this series, the standalone test_fork
-> > patch [4] is merged with a Reviewed-by line into this series too.
-> > =
+On Sun, Jun 04, 2023 at 01:34:29PM +0800, Zhangjin Wu wrote:
+> most of the library routines share the same code model, let's add some
+> macros to simplify the coding and shrink the code lines too.
+> 
+> One added for syscall return, one added for syscall call, both of them
+> can get the typeof 'return value' automatically.
+> 
+> To get the return type of syscalls, __auto_type is better than typeof(),
+> but it is not supported by the old compilers (before 2013, see [1]), so,
+> use typeof() here.
+> 
+> [1]: https://gcc.gnu.org/legacy-ml/gcc-patches/2013-11/msg01378.html
+> 
+> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> ---
+>  tools/include/nolibc/sys.h | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+> 
+> diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> index 1d6f33f58629..937a8578e3d4 100644
+> --- a/tools/include/nolibc/sys.h
+> +++ b/tools/include/nolibc/sys.h
+> @@ -28,6 +28,21 @@
+>  #include "errno.h"
+>  #include "types.h"
+>  
+> +/* Syscall call and return helpers */
+> +#define __syscall_ret(ret)						\
+> +({									\
+> +	if (ret < 0) {							\
+> +		SET_ERRNO(-ret);					\
+> +		ret = (typeof(ret))-1;					\
+> +	}								\
+> +	ret;								\
+> +})
+> +
+> +#define __syscall(name, ...)						\
+> +({									\
+> +	typeof(sys_##name(__VA_ARGS__)) ret = sys_##name(__VA_ARGS__);	\
+> +	__syscall_ret(ret);						\
+> +})
 
-> > This series is based on 20230528-nolibc-rv32+stkp5 branch of [5].
-> > =
+Well, I personally don't find that it increases legibility, on the
+opposite. At first when reading the series, I thought you had dropped
+errno setting on return. I think the reason is that when reading that
+last macro, it's not at all obvious that __syscall_ret() is actually
+modifying this ret value *and* returning it as the macro's result.
 
-> > Changes from v2 -> v3:
-> > =
+If we'd want to go down that route, I suspect that something like this
+would at least hint about what is being returned:
 
-> > * selftests/nolibc: fix up compile warning with glibc on x86_64
-> > =
++#define __syscall(name, ...)						\
++({									\
++	typeof(sys_##name(__VA_ARGS__)) ret = sys_##name(__VA_ARGS__);	\
++	ret = __syscall_ret(ret);					\
++})
 
-> >   Use simpler 'long long' conversion instead of old #ifdef ...
-> >   (Suggestion from Willy)
-> > =
+But I'm interested in others' opinion on this, particularly Thomas and
+Arnd who review a significant number of patches. For now I prefer not
+to take it before we've settled on a choice.
 
-> > * tools/nolibc: add missing nanoseconds support for __NR_statx
-> > =
-
-> >   Split the compound assignment into two single assignments
-> >   (Suggestion from Thomas)
-> > =
-
-> > * selftests/nolibc: add new gettimeofday test cases
-> > =
-
-> >   Removed the gettimeofday(NULL, &tz)
-> >   (Suggestion from Thomas)
-> > =
-
-> > All of the commit messages have been re-checked, some missing
-> > Suggested-by lines are added.
-> > =
-
-> > The whole patchset have been tested on arm, aarch64, rv32 and rv64, no
-> > regressions (the next compile patchset is required to do rv32 test).
-> > =
-
-> > The nolibc-test has been tested with glibc on x86_64 too.
-> > =
-
-> > Btw, we have found such poll failures on arm (not introduced by this
-> > patchset), this will be fixed in our coming ppoll_time64 patchset:
-> > =
-
-> > 48 poll_null =3D -1 ENOSYS                                        [FAIL]
-> > 49 poll_stdout =3D -1 ENOSYS                                      [FAIL]
-> > 50 poll_fault =3D -1 ENOSYS  !=3D (-1 EFAULT)                       [FA=
-IL]
-> > =
-
-> > And the gettimeofday_null removal patch from Thomas [3] may conflicts
-> > with the gettimeofday removal and addition patches, but it is not hard
-> > to fix.
-> > =
-
-> > Best regards,
-> > Zhangjin
-> > ---
-> > =
-
-> > [1]: https://lore.kernel.org/linux-riscv/cover.1685362482.git.falcon@ti=
-nylab.org/T/#t
-> > [2]: https://lore.kernel.org/linux-riscv/cover.1685387484.git.falcon@ti=
-nylab.org/T/#t
-> > [3]: https://lore.kernel.org/lkml/20230530-nolibc-gettimeofday-v1-1-730=
-7441a002b@weissschuh.net/
-> > [4]: https://lore.kernel.org/lkml/61bdfe7bacebdef8aa9195f6f2550a5b0d33a=
-ab3.1685426545.git.falcon@tinylab.org/
-> > [5]: https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
-> > =
-
-> > Zhangjin Wu (12):
-> >   selftests/nolibc: syscall_args: use generic __NR_statx
-> >   tools/nolibc: add missing nanoseconds support for __NR_statx
-> >   selftests/nolibc: allow specify extra arguments for qemu
-> >   selftests/nolibc: fix up compile warning with glibc on x86_64
-> >   selftests/nolibc: not include limits.h for nolibc
-> >   selftests/nolibc: use INT_MAX instead of __INT_MAX__
-> >   tools/nolibc: arm: add missing my_syscall6
-> >   tools/nolibc: open: fix up compile warning for arm
-> >   selftests/nolibc: support two errnos with EXPECT_SYSER2()
-> >   selftests/nolibc: remove gettimeofday_bad1/2 completely
-> >   selftests/nolibc: add new gettimeofday test cases
-> >   selftests/nolibc: test_fork: fix up duplicated print
-> > =
-
-> >  tools/include/nolibc/arch-arm.h              | 23 +++++++++++
-> >  tools/include/nolibc/stdint.h                | 14 +++++++
-> >  tools/include/nolibc/sys.h                   | 39 +++++++++---------
-> >  tools/testing/selftests/nolibc/Makefile      |  2 +-
-> >  tools/testing/selftests/nolibc/nolibc-test.c | 42 ++++++++++++--------
-> >  5 files changed, 85 insertions(+), 35 deletions(-)
-> =
-
-> For the full series:
-> =
-
-> Reviewed-by: Thomas Wei=DFschuh <linux@weissschuh.net>
-
-I forgot to say, all the series is now queued, and I squashed the
-__NR_statx fix into Thomas' patch.
-
+Thanks,
 Willy
 
 _______________________________________________
