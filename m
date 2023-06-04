@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403FFC7EE29
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 12:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B03DC77B73
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Jun 2023 12:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FpXwe69ym/Wa/NXUJ6X+jj5wgs6ERlyS9Spa6Uj67Ak=; b=pJrG/0wo6xhI6S
-	VDn6lQu5ZMuaLhj/IWkYLaPVn2ngLNPA8kHGnDYNAcZPUrJ9Yzb0KATc2AYfiqHvlzhbeSdoBBbR3
-	IJ3IwIGAN6+dnLDAbRdxAKj9YfAti9elAaYsenP6feJuzu1s7kIZLM9PQFIOcF7WW2qScF0dqx7jz
-	9+/RbKVvmYPgwuAHJb3OZoVXB9mNl6WHGMBfp3YfqezHHTu7w8awFBFLezgSfkGg6hh73lRzO/gq9
-	/17ptLaNh4Q6TVoFyZvQAaErNWsc4DVDZUddpCWApwGacOmSYVsGfiiPK1WhP/r5h4TMFK03+jnGg
-	uDTKoC/SEWZo65akZcLA==;
+	List-Owner; bh=Ujj1KEYnsSWD59hnVIh5Sm/BT0YD7AqBxHHygvs1ljs=; b=yDshXaPAVHelHg
+	N7b7XK6ahXb1dK+QRIXWcNYToLhzFZ77iF5HBpvvYbrhuZmUXWNIXlokkr4xDmsuWRVNUDrTA1HNr
+	Wi5eekyaNR5UPmV3m8UyXaeZL7zddAO0Zn/JBvkjTfkyszRzAfVdtXF0Q6wuq2RZCayaHHHsnVInr
+	viyp70OVlVF54/Y6bAMcFPDZO+P/Lkab6Yh2n7U+wymijZpO4Yv5FQkeXtZOdD5yRR/SzCSCPhJyD
+	OmqpS74qUguX3F/opIQi52eyft9jTX8DtcqESZG61nanATwvR7LZiZAaYpUW6O+XoC1xZN9Qd68y0
+	Z2I6ucDPyuFrukI88jVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5mP3-00C52W-1c;
-	Sun, 04 Jun 2023 12:00:09 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5mOz-00C51m-2t
+	id 1q5nEj-00CAqd-0e;
+	Sun, 04 Jun 2023 12:53:33 +0000
+Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q5nEg-00CApD-1D
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 Jun 2023 12:00:07 +0000
-Date: Sun, 4 Jun 2023 14:00:02 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
-	t=1685880002; bh=OkG7uO8YzqEC3izO7nBZOeWbSn787YshNFNDaJf+U4A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TiwL8f6waRULbxeIVeME2C/BwO2s2vLwiyJVo9qV0a3hbuLyKfUYgqKDwpbjoK/bq
-	 wT+4dFbzVQELme2OyvPw2OBpWXXZEyKpcT+XnRVN+1t/pserWYUOV4hDntHgYBhUIE
-	 vVMsiPMNrXLBddX+q9xMQNZCEvF1ZrnW90RfC08I=
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
-To: Willy Tarreau <w@1wt.eu>
-Cc: Zhangjin Wu <falcon@tinylab.org>, arnd@arndb.de, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
+	Sun, 04 Jun 2023 12:53:32 +0000
+Received: (from willy@localhost)
+	by mail.home.local (8.17.1/8.17.1/Submit) id 354CrO4h002296;
+	Sun, 4 Jun 2023 14:53:24 +0200
+Date: Sun, 4 Jun 2023 14:53:24 +0200
+From: Willy Tarreau <w@1wt.eu>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas@t-8ch.de>
+Cc: Zhangjin Wu <falcon@tinylab.org>, arnd@arndb.de,
+        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v3 02/12] tools/nolibc: add missing nanoseconds support
  for __NR_statx
-Message-ID: <0c0537d6-5cba-43e9-8ca2-0e1605d64e8a@t-8ch.de>
+Message-ID: <ZHyJRJW872Ft1GeR@1wt.eu>
 References: <cover.1685777982.git.falcon@tinylab.org>
  <bcb69a382bbb68826f974ef4f521c8f1c60e47bc.1685777982.git.falcon@tinylab.org>
  <ZHxzC6X5dgzmH+Ek@1wt.eu>
+ <0c0537d6-5cba-43e9-8ca2-0e1605d64e8a@t-8ch.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZHxzC6X5dgzmH+Ek@1wt.eu>
+In-Reply-To: <0c0537d6-5cba-43e9-8ca2-0e1605d64e8a@t-8ch.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_050006_115456_1798DAE8 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20230604_055330_854432_17678A0D 
+X-CRM114-Status: GOOD (  19.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,36 +60,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyMy0wNi0wNCAxMzoxODozNSswMjAwLCBXaWxseSBUYXJyZWF1IHdyb3RlOgo+IE9uIFNh
-dCwgSnVuIDAzLCAyMDIzIGF0IDA0OjAyOjA0UE0gKzA4MDAsIFpoYW5namluIFd1IHdyb3RlOgo+
-ID4gQ29tbWl0IGE4OWM5MzdkNzgxYSAoInRvb2xzL25vbGliYzogc3VwcG9ydCBuYW5vc2Vjb25k
-cyBpbiBzdGF0KCkiKQo+ID4gYWRkZWQgbmFub3NlY29uZHMgZm9yIHN0YXQoKSBidXQgbWlzc2Vk
-IHRoZSBzdGF0eCBjYXNlLCB0aGlzIGFkZHMgaXQuCj4gPiAKPiA+IFRoZSBzdHhfYXRpbWUsIHN0
-eF9tdGltZSwgc3R4X2N0aW1lIGFyZSBpbiB0eXBlIG9mICdzdHJ1Y3QKPiA+IHN0YXR4X3RpbWVz
-dGFtcCcsIHdoaWNoIGlzIGluY29tcGF0aWJsZSB3aXRoICdzdHJ1Y3QgdGltZXNwZWMnLCBzaG91
-bGQKPiA+IGNvbnZlcnQgZXhwbGljaXRseS4KPiA+IAo+ID4gICAgIC8qIGluY2x1ZGUvdWFwaS9s
-aW51eC9zdGF0LmggKi8KPiA+IAo+ID4gICAgIHN0cnVjdCBzdGF0eF90aW1lc3RhbXAgewo+ID4g
-ICAgIAlfX3M2NAl0dl9zZWM7Cj4gPiAgICAgCV9fdTMyCXR2X25zZWM7Cj4gPiAgICAgCV9fczMy
-CV9fcmVzZXJ2ZWQ7Cj4gPiAgICAgfTsKPiA+IAo+ID4gICAgIC8qIGluY2x1ZGUvdWFwaS9saW51
-eC90aW1lLmggKi8KPiA+ICAgICBzdHJ1Y3QgdGltZXNwZWMgewo+ID4gICAgIAlfX2tlcm5lbF9v
-bGRfdGltZV90CXR2X3NlYzsJCS8qIHNlY29uZHMgKi8KPiA+ICAgICAJbG9uZwkJCXR2X25zZWM7
-CS8qIG5hbm9zZWNvbmRzICovCj4gPiAgICAgfTsKPiA+IAo+ID4gV2l0aG91dCB0aGlzIHBhdGNo
-LCB0aGUgc3RhdF90aW1lc3RhbXBzIHRlc3QgY2FzZSB3b3VsZCBmYWlsIHdoZW4KPiA+IF9fTlJf
-c3RhdHggZGVmaW5lZC4KPiA+IAo+ID4gRml4ZXM6IGE4OWM5MzdkNzgxYSAoInRvb2xzL25vbGli
-Yzogc3VwcG9ydCBuYW5vc2Vjb25kcyBpbiBzdGF0KCkiKQo+ID4gU3VnZ2VzdGVkLWJ5OiBUaG9t
-YXMgV2Vpw59zY2h1aCA8bGludXhAd2Vpc3NzY2h1aC5uZXQ+Cj4gPiBMaW5rOiBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8zYTNlZGQ0OC0xYWNlLTRjODktODllOC05YzU5NGRk
-MWIzYzlAdC04Y2guZGUvCj4gPiBTaWduZWQtb2ZmLWJ5OiBaaGFuZ2ppbiBXdSA8ZmFsY29uQHRp
-bnlsYWIub3JnPgo+IAo+IFRoYW5rIHlvdS4gSSd2ZSBxdWV1ZWQgaXQgaW1tZWRpYXRlbHkgYWZ0
-ZXIgVGhvbWFzJyBwYXRjaC4KPiBJJ2xsIGxldCB0aGUgdHdvIG9mIHlvdSB0ZWxsIG1lIGlmIGl0
-J3MgYmV0dGVyIHRvIHNxdWFzaCB0aGVtCj4gdG9nZXRoZXIgdG8gYXZvaWQgYnJlYWtpbmcgYmlz
-ZWN0IGFuZCBtYXJrIHlvdSBjby1hdXRob3JzLgoKU3F1YXNoaW5nIHRoZW0gc291bmRzIGxpa2Ug
-dGhlIGNvcnJlY3Qgc29sdXRpb24gdG8gbWUuCgpUaG9tYXMKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sun, Jun 04, 2023 at 02:00:02PM +0200, Thomas Wei=DFschuh wrote:
+> On 2023-06-04 13:18:35+0200, Willy Tarreau wrote:
+> > On Sat, Jun 03, 2023 at 04:02:04PM +0800, Zhangjin Wu wrote:
+> > > Commit a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
+> > > added nanoseconds for stat() but missed the statx case, this adds it.
+> > > =
+
+> > > The stx_atime, stx_mtime, stx_ctime are in type of 'struct
+> > > statx_timestamp', which is incompatible with 'struct timespec', should
+> > > convert explicitly.
+> > > =
+
+> > >     /* include/uapi/linux/stat.h */
+> > > =
+
+> > >     struct statx_timestamp {
+> > >     	__s64	tv_sec;
+> > >     	__u32	tv_nsec;
+> > >     	__s32	__reserved;
+> > >     };
+> > > =
+
+> > >     /* include/uapi/linux/time.h */
+> > >     struct timespec {
+> > >     	__kernel_old_time_t	tv_sec;		/* seconds */
+> > >     	long			tv_nsec;	/* nanoseconds */
+> > >     };
+> > > =
+
+> > > Without this patch, the stat_timestamps test case would fail when
+> > > __NR_statx defined.
+> > > =
+
+> > > Fixes: a89c937d781a ("tools/nolibc: support nanoseconds in stat()")
+> > > Suggested-by: Thomas Wei=DFschuh <linux@weissschuh.net>
+> > > Link: https://lore.kernel.org/linux-riscv/3a3edd48-1ace-4c89-89e8-9c5=
+94dd1b3c9@t-8ch.de/
+> > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > =
+
+> > Thank you. I've queued it immediately after Thomas' patch.
+> > I'll let the two of you tell me if it's better to squash them
+> > together to avoid breaking bisect and mark you co-authors.
+> =
+
+> Squashing them sounds like the correct solution to me.
+
+OK I've done it for now in my branch. I'm going to push it as
+20230604-nolibc-rv32+stkp6. All tests pass fine again for me now on
+all supported archs. I'll pass this one to Paul, I think it's fine
+for 6.5. I just don't know if he still has tests planned on his side
+for 6.5 (Paul always re-runs the whole tests after integration and
+often spots failures).
+
+By the way, I'm still using my test-all script that's extremely
+convenient to test the expected results from user-mode (it basically
+does what run-user does, but for all archs and at -O0, -Os, -O3).
+
+I'm sharing it attached since I think it can help you and Zhangjin in
+your respective tests. That's how I'm cheating to spot build issues in
+contributed changes. I have not committed it because it's ugly and I
+don't know where to put it, but I think you'll find it convenient
+nevertheless. I'm starting it like this:
+
+   $ ./test-all-opts.sh | tee test16.out
+   $ grep passed test16.out
+   136 test(s) passed, 2 skipped, 0 failed. See all results in run-arm64.out
+   135 test(s) passed, 3 skipped, 0 failed. See all results in run-arm-marc=
+h=3Darmv5t_-marm.out
+   135 test(s) passed, 3 skipped, 0 failed. See all results in run-arm-marc=
+h=3Darmv5t_-mthumb.out
+   135 test(s) passed, 3 skipped, 0 failed. See all results in run-arm-marc=
+h=3Darmv7-a_-marm.out
+   135 test(s) passed, 3 skipped, 0 failed. See all results in run-arm-marc=
+h=3Darmv7-a_-mthumb.out
+   136 test(s) passed, 2 skipped, 0 failed. See all results in run-i386.out
+   136 test(s) passed, 2 skipped, 0 failed. See all results in run-i386-mar=
+ch=3Di586.out
+   (...)
+   $ grep ' [^0] failed' test16.out || echo OK
+   OK
+
+Hoping this helps,
+Willy
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
