@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E72C77B73
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 11:12:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10616C7EE2C
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 13:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ciSBM1YC8vFKAPVTpmgPZv22MvyInYRi+Kc+MKKYSZo=; b=qxmHzexRlceKi5
-	R3Y+chdmy3sbj8fn3jhIrKx/B2FaytRNGbWWj+c9EgZCc9IUFRgOzzPzDu5qjRMwSHpc2xWbF62xd
-	lQdwT1+lXGxml1p/gsz0vfoAJeN7nW0q1c6Qyt5lbV/ONJVcuqJ5wo7ElO3hjxT3PFwllphKJki0q
-	rQuSDGBisIG8fpbIli3VngyWDyj0SF9UauS7J6k+1Yig2SXucLMw+0a+6SW432YyfWXF8PIEyjuuI
-	H5cw4+UD57SRx9n5IXnFmqgrbtjCAkJdIfIvzxtBxPDLZP/5WAQX/pxEmLGKx3acSrwFzdYQ6V095
-	knScFfYv2vfJ0KS/XvSw==;
+	List-Owner; bh=c269BIPKX0Mj/SHyMOQP9WaWoM+Se3X5mJb0OtfRCME=; b=yAN9ZsEMMs7Tbi
+	y9fVWNumtmEYpFtNvfCxZiuf8nA9xpSGjSRdAJTk/thZFuyiAoOzy75DFil3R0GZV3tmVoFhWDBG1
+	3gCsHxWUFhJz2Em9quaypZ2eTiGoosPcu9j5knFCneNgt4/LXH3pGpPRx56Cu+OQG+sXp0qbD3l3l
+	gtA5lDSRA1hmjH9OYQvrz1UQULxJEGJueh8SSpNqOFs707usQZ4W0/9yu0qbY1PTWeTgEAO9Whz+r
+	aYF4kj/ACAf2pEt9LY3vEWAt1f9XlaFzrdjejHfwqf1X2vDRvDbK4Ubbfi+kTwhLCVZo/HoHwxuiH
+	+BZrMPkV2JkTJIAC4D9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q688k-00FEv9-0Q;
-	Mon, 05 Jun 2023 11:12:46 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1q6Ady-00Fgs3-0M;
+	Mon, 05 Jun 2023 13:53:10 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q688g-00FEst-1N
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 11:12:44 +0000
-X-QQ-mid: bizesmtp73t1685963542tue2ikmf
-Received: from linux-lab-host.localdomain ( [61.141.77.49])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 05 Jun 2023 19:12:20 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: OFQdrTmJ2CTPW1rKDCObcDNnOiZf5G7OS3ydy8gWgcFCDkj+ygtkUgsn400hH
-	XcSUWjIUNzPtaf8xdx7SFAnkqm4qlz8q1TNpP2NF7JMWaqIsoZlribWjxH/w1NEo7SbyC5b
-	F92p0FGK7JG8wnYKGctbxx6aeT4sz7bKph2fDS5AZpiMLMwk24QctEz8nrwFI6Q1E6Pib2U
-	jt5K73G2WlUJGRP5WBbIheVih803jE07C36L5wdUjHC/1cpE/7qTPuGiphDybYWA+244CtI
-	jRzwIlx9YqZfIlDJqF99mh2vl/FSgqnL3nxqsgmq1plH+Gxcjh4nrk1izDcpUc34YW5KdsJ
-	KLxbUW52+5Oc0+lMblXBmrdRMNdM1huR0Axg8p3D0BBu+d+7gxM6YL82yirIg==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5716039531870868684
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
+	id 1q6Adw-00FgrV-2T;
+	Mon, 05 Jun 2023 13:53:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=QDp0F6JWnxKzASt9pRsADptQiCx37DHZIFeL7bOObmU=; b=uePVuzvL70MPVQPJYmPranDNug
+	FjqpV0CO+QnFpz0MgmSxbkjE4X0pjdnvfm5MEdOsh8mcbTVp0VdlEzEp7063CbFN/i7ztaYabKk9y
+	AvekDctwrfQYJoRCVkWLiF4A3rB5T+6m3NyYfxInD4G+IqGprI5vYvpKDT1M8+Ie3k8vn5hoBGo7R
+	BDpqzsoKjV01g1bGNXWp5DK25u/nX+kZC6fodLLphCP2rQIViqMxRHv8VzFY+YK9Fqkxlyd+sXZNk
+	922WeC6fLR9uxclIlaar24eS5+PPWn0fs0xyuGt5daFe5egbGyVcdJyCpvLhjtb5c6MCl4gMvOb38
+	kyqWgIGA==;
+Received: from [187.19.173.165] (helo=quaco.ghostprotocols.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1q6Adv-00C4e4-5M; Mon, 05 Jun 2023 13:53:07 +0000
+Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
+	id 6821C40692; Mon,  5 Jun 2023 10:53:02 -0300 (-03)
+Date: Mon, 5 Jun 2023 10:53:02 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de
-Subject: Re: [PATCH v3 11/12] selftests/nolibc: add new gettimeofday test cases
-Date: Mon,  5 Jun 2023 19:12:20 +0800
-Message-Id: <20230605111220.252069-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ZHx1OliMqHx9U1Lw@1wt.eu>
-References: <ZHx1OliMqHx9U1Lw@1wt.eu>
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 10/10] perf: tests: Adapt mmap-basic.c for riscv
+Message-ID: <ZH3ovt4WnTJuTinF@kernel.org>
+References: <20230512085321.13259-1-alexghiti@rivosinc.com>
+ <20230512085321.13259-11-alexghiti@rivosinc.com>
+ <20230531-31bd9ddeaca8cb338f81ed14@orel>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_041242_790601_F82FB238 
-X-CRM114-Status: GOOD (  25.78  )
+Content-Disposition: inline
+In-Reply-To: <20230531-31bd9ddeaca8cb338f81ed14@orel>
+X-Url: http://acmel.wordpress.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +85,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Sun, Jun 04, 2023 at 11:24:39AM +0200, Arnd Bergmann wrote:
-> > On Sun, Jun 4, 2023, at 10:29, ??? wrote:
-> > >
-> > > Sorry for missing part of your feedbacks, I will check if -nostdlib 
-> > > stops the linking of libgcc_s or my own separated test script forgot 
-> > > linking the libgcc_s manually.
+Em Wed, May 31, 2023 at 05:15:15PM +0200, Andrew Jones escreveu:
+> On Fri, May 12, 2023 at 10:53:21AM +0200, Alexandre Ghiti wrote:
+> > riscv now supports mmaping hardware counters to userspace so adapt the test
+> > to run on this architecture.
 > > 
-> > According to the gcc documentation, -nostdlib drops libgcc.a, but
-> > adding -lgcc is the recommended way to bring it back.
+> > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> > ---
+> >  tools/perf/tests/mmap-basic.c | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
 > > 
-> > > And as suggestion from Thomas' reply,
-> > >
-> > >>> Perhaps we really need to add the missing __divdi3 and __aeabi_ldivmod and the
-> > >>> ones for the other architectures, or get one from lib/math/div64.c.
-> > >
-> > >>No, these ones come from the compiler via libgcc_s, we must not try to
-> > > reimplement them. And we should do our best to avoid depending on them
-> > > to avoid the error you got above.
-> > >
-> > > So, the explicit conversion is used instead in the patch.
-> > 
-> > I think a cast to a 32-bit type is ideal when converting the
-> > clock_gettime() result into microseconds, since the kernel guarantees
-> > that the timespec value is normalized, with all zeroes in the
-> > upper 34 bits. Going through __aeabi_ldivmod would make the
-> > conversion much slower.
-> > 
-
-Perfectly, this message is really required to be added to the coming
-clock_gettime/time64 patches, I did worry about the (unsigned int)
-conversion may lose the upper bits, thanks Arnd.
-
-> > For user supplied non-normalized timeval values, it's not obvious
-> > whether we need the full 64-bit division
+> > diff --git a/tools/perf/tests/mmap-basic.c b/tools/perf/tests/mmap-basic.c
+> > index e68ca6229756..f5075ca774f8 100644
+> > --- a/tools/perf/tests/mmap-basic.c
+> > +++ b/tools/perf/tests/mmap-basic.c
+> > @@ -284,7 +284,7 @@ static struct test_case tests__basic_mmap[] = {
+> >  			 "permissions"),
+> >  	TEST_CASE_REASON("User space counter reading of instructions",
+> >  			 mmap_user_read_instr,
+> > -#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__)
+> > +#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || __riscv_xlen == 64
+> >  			 "permissions"
+> >  #else
+> >  			 "unsupported"
+> > @@ -292,7 +292,7 @@ static struct test_case tests__basic_mmap[] = {
+> >  		),
+> >  	TEST_CASE_REASON("User space counter reading of cycles",
+> >  			 mmap_user_read_cycles,
+> > -#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__)
+> > +#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__) || __riscv_xlen == 64
+> >  			 "permissions"
+> >  #else
+> >  			 "unsupported"
+> > -- 
+> > 2.37.2
+> >
 > 
-> We don't have to care about these here for the microsecond part,
-> because for decades these were exclusively 32-bit. Also the only
-> one consuming this field would have been settimeofday() and it's
-> already documented as returning EINVAL if tv_usec is not within
-> the expected 0..999999 range.
-> 
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
-And this one, thanks Willy.
+Was the kernel part merged upstream?
 
-> And when in doubt we should keep in mind that nolibc's purpose is not
-> to become a yet-another full-blown libc alternative but just a small
-> piece of software allowing to produce portable and compact binaries
-> for testing or booting. Being a bit stricter than other libcs for the
-> sake of code compactness is better here. Originally for example it was
-> necessary to always pass the 3 arguments to open(). Over time we managed
-> to make simple code compile with both glibc and nolibc, but when it
-> comes at the cost of adding size and burden for the developers, such
-> as forcing them to add libgcc, I prefer that we slightly limit the
-> domain of application instead.
-
-This explains why it is 'no' libc ;-)
-
-Best regards,
-Zhangjin
-
-> 
-> Thanks!
-> Willy
+- Arnaldo
 
 _______________________________________________
 linux-riscv mailing list
