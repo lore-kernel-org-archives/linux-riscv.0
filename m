@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2268C7EE23
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 09:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3402EC7EE37
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 10:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3udRojZ/GT9+28jf+uC+ImFrNJTH6GZEXGWqb0t4LQ=; b=HM1HuSjB6WIL4/Qvw48Jy2wYyw
-	xGtNGHu01bmbvxc5hfvnzSzpABneTeC/i4okmAr3sxZVMijGLLrkwuuISC6wPYe1ZQ90+whd+mIqo
-	UlCLqWsQTkm6EWssNenYNdNjD6C3F4gI0YsGnDCsa4j5M0ydY198HXPtj72cSJCkPP6xk/rM2JL/B
-	H5Su9dmIoFsStKQcuYRb40bwvwMn6r/3AiGhnS/BRlOlK5khlbNeSFKlyM2QNzs6S/UeTk2NrZQvN
-	RPM5dyacpANVJEVwdOaC11XTL9jzP7AGO0DnTmEujRVf/u+uIZvP6VqCiqVfALiRfdMA3iii4GkOZ
-	gxprIL+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8qfMxeiDutL70v0McF+0e/STg+HSCq3OmbK+yUDd1r0=; b=sdT3CTvxMYTYm1
+	TV60uBffTy634PtB2GrnacAYkGkHmBcWtpiwnxYPCuxfdw+csN4U6u9b8DsQigPC23EBDq3mVZi6S
+	6EpOIopGDmJcXsO3Zz9sKShln1UIe1joPh+TXAqMTVnp0Y9a0Jl/moEpA8+xKlyxAKKqTth4ywa93
+	4Ub8QmTh/+Pepj7FCqiHUuzdqVxRQiC3iRDlEvzeMXK1RBf+G55Os8IUmbCVMA2N3e+IKxZTMENMe
+	wUiC44m/HZNTfYptie2BTiek/mXmSl4USSpUP4mehBJP+DMLJQR4Bp7Tk02YQJXpViW+ApGFEbgFs
+	o1yIfmi2sLsC3kiTgBbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q66wp-00Evo0-2t;
-	Mon, 05 Jun 2023 09:56:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q66wm-00Evlo-0y
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 09:56:22 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5525061016;
-	Mon,  5 Jun 2023 09:56:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B51EC433D2;
-	Mon,  5 Jun 2023 09:56:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685958978;
-	bh=E0sAzZZmP5WA1Nwo3dxOCDReq4iq5AIC9EGQphYjTpc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bErdGzNY2CmDdzKa+JSuXnENnoWBEZhEfN1CjJA42rochcJAzsTmwhQgjeGA7RzKl
-	 h/lT3hAkIPCwG8aXhHAVR+shMKLMbRjbUjGitdmddEBDMzFXDy03jqQa+2ZGCvJpKs
-	 JBYPF5nOf/OBaU+evEXkwRnmc9TtQosKCKHvFGCI+hjlEyBGp+dLIC6gyZnz34tTAX
-	 QgwpmaMeF9yT/D4/t3JtKiz+aUCNuPP7d/augH+oAAY34+2MH2+noUTSRfJhzSI9s2
-	 ZX2zDaKS4KuAic9ukqDgdkfXu6YMIyYuA7NbK/dZVFliyw6lfaBgsb0RI/Hc9wen7l
-	 67FeaF2Sct8vA==
-Date: Mon, 5 Jun 2023 11:56:15 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Keith Zhao <keith.zhao@starfivetech.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, 
-	linaro-mm-sig@lists.linaro.org, David Airlie <airlied@gmail.com>, 
-	Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com, 
-	Bjorn Andersson <andersson@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Jagan Teki <jagan@edgeble.ai>, 
-	Chris Morgan <macromorgan@hotmail.com>, Jack Zhu <jack.zhu@starfivetech.com>, 
-	Shengyang Chen <shengyang.chen@starfivetech.com>, Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: Re: [PATCH 9/9] drm/verisilicon: Add starfive hdmi driver
-Message-ID: <ayygsdwzogu4ygkobs7zkroxicxtixtp5bxayn5vzk4qlkwt6x@yo5s2qwt77mo>
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
- <20230602074043.33872-10-keith.zhao@starfivetech.com>
+	id 1q679r-00ExtF-09;
+	Mon, 05 Jun 2023 10:09:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q679m-00ExrO-1S;
+	Mon, 05 Jun 2023 10:09:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B9CBD75;
+	Mon,  5 Jun 2023 03:10:28 -0700 (PDT)
+Received: from FVFF77S0Q05N (unknown [10.57.24.244])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F8793F793;
+	Mon,  5 Jun 2023 03:09:37 -0700 (PDT)
+Date: Mon, 5 Jun 2023 11:09:34 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Kent Overstreet <kent.overstreet@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH 00/13] mm: jit/text allocator
+Message-ID: <ZH20XkD74prrdN4u@FVFF77S0Q05N>
+References: <20230601101257.530867-1-rppt@kernel.org>
+ <ZHjDU/mxE+cugpLj@FVFF77S0Q05N.cambridge.arm.com>
+ <ZHjgIH3aX9dCvVZc@moria.home.lan>
+ <ZHm3zUUbwqlsZBBF@FVFF77S0Q05N>
+ <20230605092040.GB3460@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230602074043.33872-10-keith.zhao@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20230605092040.GB3460@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_025620_443179_54D09203 
-X-CRM114-Status: GOOD (  37.45  )
+X-CRM114-CacheID: sfid-20230605_030946_586344_0DC1B962 
+X-CRM114-Status: GOOD (  54.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,376 +83,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2024175129675847058=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 05, 2023 at 12:20:40PM +0300, Mike Rapoport wrote:
+> On Fri, Jun 02, 2023 at 10:35:09AM +0100, Mark Rutland wrote:
+> > On Thu, Jun 01, 2023 at 02:14:56PM -0400, Kent Overstreet wrote:
+> > > On Thu, Jun 01, 2023 at 05:12:03PM +0100, Mark Rutland wrote:
+> > > > For a while I have wanted to give kprobes its own allocator so that it can work
+> > > > even with CONFIG_MODULES=n, and so that it doesn't have to waste VA space in
+> > > > the modules area.
+> > > > 
+> > > > Given that, I think these should have their own allocator functions that can be
+> > > > provided independently, even if those happen to use common infrastructure.
+> > > 
+> > > How much memory can kprobes conceivably use? I think we also want to try
+> > > to push back on combinatorial new allocators, if we can.
+> > 
+> > That depends on who's using it, and how (e.g. via BPF).
+> > 
+> > To be clear, I'm not necessarily asking for entirely different allocators, but
+> > I do thinkg that we want wrappers that can at least pass distinct start+end
+> > parameters to a common allocator, and for arm64's modules code I'd expect that
+> > we'd keep the range falblack logic out of the common allcoator, and just call
+> > it twice.
+> > 
+> > > > > Several architectures override module_alloc() because of various
+> > > > > constraints where the executable memory can be located and this causes
+> > > > > additional obstacles for improvements of code allocation.
+> > > > > 
+> > > > > This set splits code allocation from modules by introducing
+> > > > > jit_text_alloc(), jit_data_alloc() and jit_free() APIs, replaces call
+> > > > > sites of module_alloc() and module_memfree() with the new APIs and
+> > > > > implements core text and related allocation in a central place.
+> > > > > 
+> > > > > Instead of architecture specific overrides for module_alloc(), the
+> > > > > architectures that require non-default behaviour for text allocation must
+> > > > > fill jit_alloc_params structure and implement jit_alloc_arch_params() that
+> > > > > returns a pointer to that structure. If an architecture does not implement
+> > > > > jit_alloc_arch_params(), the defaults compatible with the current
+> > > > > modules::module_alloc() are used.
+> > > > 
+> > > > As above, I suspect that each of the callsites should probably be using common
+> > > > infrastructure, but I don't think that a single jit_alloc_arch_params() makes
+> > > > sense, since the parameters for each case may need to be distinct.
+> > > 
+> > > I don't see how that follows. The whole point of function parameters is
+> > > that they may be different :)
+> > 
+> > What I mean is that jit_alloc_arch_params() tries to aggregate common
+> > parameters, but they aren't actually common (e.g. the actual start+end range
+> > for allocation).
+> 
+> jit_alloc_arch_params() tries to aggregate architecture constraints and
+> requirements for allocations of executable memory and this exactly what
+> the first 6 patches of this set do.
+> 
+> A while ago Thomas suggested to use a structure that parametrizes
+> architecture constraints by the memory type used in modules [1] and Song
+> implemented the infrastructure for it and x86 part [2].
+> 
+> I liked the idea of defining parameters in a single structure, but I
+> thought that approaching the problem from the arch side rather than from
+> modules perspective will be better starting point, hence these patches.
+> 
+> I don't see a fundamental reason why a single structure cannot describe
+> what is needed for different code allocation cases, be it modules, kprobes
+> or bpf. There is of course an assumption that the core allocations will be
+> the same for all the users, and it seems to me that something like 
+> 
+> * allocate physical memory if allocator caches are empty
+> * map it in vmalloc or modules address space
+> * return memory from the allocator cache to the caller
+> 
+> will work for all usecases.
+> 
+> We might need separate caches for different cases on different
+> architectures, and a way to specify what cache should be used in the
+> allocator API, but that does not contradict a single structure for arch
+> specific parameters, but only makes it more elaborate, e.g. something like
+> 
+> enum jit_type {
+> 	JIT_MODULES_TEXT,
+> 	JIT_MODULES_DATA,
+> 	JIT_KPROBES,
+> 	JIT_FTRACE,
+> 	JIT_BPF,
+> 	JIT_TYPE_MAX,
+> };
+> 
+> struct jit_alloc_params {
+> 	struct jit_range	ranges[JIT_TYPE_MAX];
+> 	/* ... */
+> };
+> 
+> > > Can you give more detail on what parameters you need? If the only extra
+> > > parameter is just "does this allocation need to live close to kernel
+> > > text", that's not that big of a deal.
+> > 
+> > My thinking was that we at least need the start + end for each caller. That
+> > might be it, tbh.
+> 
+> Do you mean that modules will have something like
+> 
+> 	jit_text_alloc(size, MODULES_START, MODULES_END);
+> 
+> and kprobes will have
+> 
+> 	jit_text_alloc(size, KPROBES_START, KPROBES_END);
+> ?
 
---===============2024175129675847058==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="c3ccdoac5xz7n6if"
-Content-Disposition: inline
+Yes.
 
+> It sill can be achieved with a single jit_alloc_arch_params(), just by
+> adding enum jit_type parameter to jit_text_alloc().
 
---c3ccdoac5xz7n6if
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+That feels backwards to me; it centralizes a bunch of information about
+distinct users to be able to shove that into a static array, when the callsites
+can pass that information. 
 
-Hi,
+What's *actually* common after separating out the ranges? Is it just the
+permissions?
 
-On Fri, Jun 02, 2023 at 03:40:43PM +0800, Keith Zhao wrote:
-> Add HDMI dirver for StarFive SoC JH7110.
->=20
-> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+If we want this to be able to share allocations and so on, why can't we do this
+like a kmem_cache, and have the callsite pass a pointer to the allocator data?
+That would make it easy for callsites to share an allocator or use a distinct
+one.
 
-I have a few high level comments:
+Thanks,
+Mark.
 
-> +static int starfive_hdmi_setup(struct starfive_hdmi *hdmi,
-> +			       struct drm_display_mode *mode)
-> +{
-> +	hdmi_modb(hdmi, STARFIVE_BIAS_CONTROL, STARFIVE_BIAS_ENABLE, STARFIVE_B=
-IAS_ENABLE);
-> +	hdmi_writeb(hdmi, STARFIVE_RX_CONTROL, STARFIVE_RX_ENABLE);
-> +	hdmi->hdmi_data.vic =3D drm_match_cea_mode(mode);
-> +
-> +	hdmi->tmds_rate =3D mode->clock * 1000;
-> +	starfive_hdmi_phy_clk_set_rate(hdmi);
-> +
-> +	while (!(hdmi_readb(hdmi, STARFIVE_PRE_PLL_LOCK_STATUS) & 0x1))
-> +		continue;
-> +	while (!(hdmi_readb(hdmi, STARFIVE_POST_PLL_LOCK_STATUS) & 0x1))
-> +		continue;
-> +
-> +	/*turn on LDO*/
-> +	hdmi_writeb(hdmi, STARFIVE_LDO_CONTROL, STARFIVE_LDO_ENABLE);
-> +	/*turn on serializer*/
-> +	hdmi_writeb(hdmi, STARFIVE_SERIALIER_CONTROL, STARFIVE_SERIALIER_ENABLE=
-);
-> +
-> +	starfive_hdmi_tx_phy_power_down(hdmi);
-> +	starfive_hdmi_config_video_timing(hdmi, mode);
-> +	starfive_hdmi_tx_phy_power_on(hdmi);
-> +
-> +	starfive_hdmi_tmds_driver_on(hdmi);
-> +	starfive_hdmi_sync_tmds(hdmi);
-> +
-> +	return 0;
-> +}
-
-The PHY PLL supports rate until 594MHz, but I don't see any scrambler
-setup here?
-
-> +static void starfive_hdmi_encoder_mode_set(struct drm_encoder *encoder,
-> +					   struct drm_display_mode *mode,
-> +					   struct drm_display_mode *adj_mode)
-> +{
-> +	struct starfive_hdmi *hdmi =3D encoder_to_hdmi(encoder);
-> +
-> +	starfive_hdmi_setup(hdmi, adj_mode);
-
-You should put that call into the enable callback, there's no need to
-power it up at that point.
-
-> +	memcpy(&hdmi->previous_mode, adj_mode, sizeof(hdmi->previous_mode));
-
-You don't seem to be using that anywhere, and it's not the previous but
-the current mode.
-
-> +}
-> +
-> +static void starfive_hdmi_encoder_enable(struct drm_encoder *encoder)
-> +{
-> +	struct starfive_hdmi *hdmi =3D encoder_to_hdmi(encoder);
-> +
-> +	pm_runtime_get_sync(hdmi->dev);
-> +}
-> +
-> +static void starfive_hdmi_encoder_disable(struct drm_encoder *encoder)
-> +{
-> +	struct starfive_hdmi *hdmi =3D encoder_to_hdmi(encoder);
-> +
-> +	pm_runtime_put(hdmi->dev);
-> +}
-> +
-> +static bool starfive_hdmi_encoder_mode_fixup(struct drm_encoder *encoder,
-> +					     const struct drm_display_mode *mode,
-> +					     struct drm_display_mode *adj_mode)
-> +{
-> +	return true;
-> +}
-
-You can drop that one
-
-> +static int
-> +starfive_hdmi_encoder_atomic_check(struct drm_encoder *encoder,
-> +				   struct drm_crtc_state *crtc_state,
-> +				   struct drm_connector_state *conn_state)
-> +{
-> +	return 0;
-> +}
-
-Ditto
-
-> +static int starfive_hdmi_connector_get_modes(struct drm_connector *conne=
-ctor)
-> +{
-> +	struct starfive_hdmi *hdmi =3D connector_to_hdmi(connector);
-> +	struct edid *edid;
-> +	int ret =3D 0;
-> +
-> +	if (!hdmi->ddc)
-> +		return 0;
-> +
-> +	edid =3D drm_get_edid(connector, hdmi->ddc);
-> +	if (edid) {
-> +		hdmi->hdmi_data.sink_is_hdmi =3D drm_detect_hdmi_monitor(edid);
-> +		hdmi->hdmi_data.sink_has_audio =3D drm_detect_monitor_audio(edid);
-> +		drm_connector_update_edid_property(connector, edid);
-> +		ret =3D drm_add_edid_modes(connector, edid);
-> +		kfree(edid);
-> +	}
-> +
-> +	return ret;
-> +}
-
-get_modes can be called while the connector is inactive, you need to
-call pm_runtime_get_sync / pm_runtime_put here
-
-> +static enum drm_mode_status
-> +starfive_hdmi_connector_mode_valid(struct drm_connector *connector,
-> +				   struct drm_display_mode *mode)
-> +{
-> +	const struct pre_pll_config *cfg =3D pre_pll_cfg_table;
-> +	int pclk =3D mode->clock * 1000;
-> +	bool valid =3D false;
-> +	int i;
-> +
-> +	for (i =3D 0; cfg[i].pixclock !=3D (~0UL); i++) {
-> +		if (pclk =3D=3D cfg[i].pixclock) {
-> +			if (pclk > 297000000)
-> +				continue;
-> +
-> +			valid =3D true;
-> +			break;
-> +		}
-> +	}
-> +
-> +	return (valid) ? MODE_OK : MODE_BAD;
-> +}
-
-So I guess that's why you don't bother with the scrambler, you filter
-all the modes > 297MHz?
-
-If so, you also need to make sure it happens in atomic_check. mode_valid
-will only filter the modes exposed to userspace, but the userspace is
-free to send any mode it wants and that's checked by atomic_check.
-
-> +
-> +static int
-> +starfive_hdmi_probe_single_connector_modes(struct drm_connector *connect=
-or,
-> +					   u32 maxX, u32 maxY)
-> +{
-> +	struct starfive_hdmi *hdmi =3D connector_to_hdmi(connector);
-> +	int ret;
-> +
-> +	pm_runtime_get_sync(hdmi->dev);
-> +
-> +	ret =3D drm_helper_probe_single_connector_modes(connector, 3840, 2160);
-> +
-> +	pm_runtime_put(hdmi->dev);
-> +
-> +	return ret;
-> +}
-
-You already have a pm_runtime_get_sync call in get_modes, why is that
-necessary?
-
-> +
-> +static void starfive_hdmi_connector_destroy(struct drm_connector *connec=
-tor)
-> +{
-> +	drm_connector_unregister(connector);
-> +	drm_connector_cleanup(connector);
-> +}
-
-Use drmm_connector_init.
-
-> +static irqreturn_t starfive_hdmi_irq(int irq, void *dev_id)
-> +{
-> +	struct starfive_hdmi *hdmi =3D dev_id;
-> +
-> +	drm_helper_hpd_irq_event(hdmi->connector.dev);
-
-drm_connector_helper_hpd_irq_event()
-
-> +static int starfive_hdmi_get_clk_rst(struct device *dev, struct starfive=
-_hdmi *hdmi)
-> +{
-> +	hdmi->sys_clk =3D devm_clk_get(dev, "sysclk");
-> +	if (IS_ERR(hdmi->sys_clk)) {
-> +		DRM_DEV_ERROR(dev, "Unable to get HDMI sysclk clk\n");
-> +		return PTR_ERR(hdmi->sys_clk);
-> +	}
-> +	hdmi->mclk =3D devm_clk_get(dev, "mclk");
-> +	if (IS_ERR(hdmi->mclk)) {
-> +		DRM_DEV_ERROR(dev, "Unable to get HDMI mclk clk\n");
-> +		return PTR_ERR(hdmi->mclk);
-> +	}
-> +	hdmi->bclk =3D devm_clk_get(dev, "bclk");
-> +	if (IS_ERR(hdmi->bclk)) {
-> +		DRM_DEV_ERROR(dev, "Unable to get HDMI bclk clk\n");
-> +		return PTR_ERR(hdmi->bclk);
-> +	}
-> +	hdmi->tx_rst =3D reset_control_get_shared(dev, "hdmi_tx");
-> +	if (IS_ERR(hdmi->tx_rst)) {
-> +		DRM_DEV_ERROR(dev, "Unable to get HDMI tx rst\n");
-> +		return PTR_ERR(hdmi->tx_rst);
-> +	}
-
-That one isn't device-managed, you'll need to put back the reference in
-unbind.
-
-> +	return 0;
-> +}
-> +
-> +static int starfive_hdmi_bind(struct device *dev, struct device *master,
-> +			      void *data)
-> +{
-> +	struct platform_device *pdev =3D to_platform_device(dev);
-> +	struct drm_device *drm =3D data;
-> +	struct starfive_hdmi *hdmi;
-> +	struct resource *iores;
-> +	int irq;
-> +	int ret;
-> +
-> +	hdmi =3D devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
-> +	if (!hdmi)
-> +		return -ENOMEM;
-
-Using device-managed actions to allocate memory that will eventually
-hold the connectors and encoders is unsafe.
-
-Please use drmm_kzalloc here, and test that it all works fine by
-enabling KASAN and removing the module.
-
-> +
-> +	hdmi->dev =3D dev;
-> +	hdmi->drm_dev =3D drm;
-> +
-> +	iores =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	hdmi->regs =3D devm_ioremap_resource(dev, iores);
-> +	if (IS_ERR(hdmi->regs))
-> +		return PTR_ERR(hdmi->regs);
-
-The main issue I was mentioning above is that whenever the device is
-unbound from its driver, all the device-managed actions are executed.
-
-However, the KMS device will still be there until the last (userspace)
-user closes its FD, so if anything happens between the time the module
-is removed and the FD is closed, you get plenty of use-after-free errors.
-
-For MMIO accesses, this is even more true since you need to use a
-device-managed action for the registers mapping (this is true for any
-resource tied to the device itself, so clocks, reset, etc. fit that
-description too).
-
-To protect against it, you need to protect any device access by a call
-to drm_dev_enter/drm_dev_exit.
-
-> +
-> +	ret =3D starfive_hdmi_get_clk_rst(dev, hdmi);
-> +	ret =3D starfive_hdmi_enable_clk_deassert_rst(dev, hdmi);
-
-Why does the device need to be powered here?
-
-> +	irq =3D platform_get_irq(pdev, 0);
-> +	if (irq < 0) {
-> +		ret =3D irq;
-> +		goto err_disable_clk;
-> +	}
-> +
-> +	hdmi->ddc =3D starfive_hdmi_i2c_adapter(hdmi);
-> +	if (IS_ERR(hdmi->ddc)) {
-> +		ret =3D PTR_ERR(hdmi->ddc);
-> +		hdmi->ddc =3D NULL;
-> +		goto err_disable_clk;
-> +	}
-> +
-> +	hdmi->tmds_rate =3D clk_get_rate(hdmi->sys_clk);
-
-It's not clear to me what tmds_rate is here, wouldn't that change from
-one mode to the next?
-
-> +	starfive_hdmi_i2c_init(hdmi);
-> +
-> +	ret =3D starfive_hdmi_register(drm, hdmi);
-> +	if (ret)
-> +		goto err_put_adapter;
-> +
-> +	dev_set_drvdata(dev, hdmi);
-> +
-> +	/* Unmute hotplug interrupt */
-> +	hdmi_modb(hdmi, HDMI_STATUS, m_MASK_INT_HOTPLUG, v_MASK_INT_HOTPLUG(1));
-> +
-> +	ret =3D devm_request_threaded_irq(dev, irq, starfive_hdmi_hardirq,
-> +					starfive_hdmi_irq, IRQF_SHARED,
-> +					dev_name(dev), hdmi);
-> +	if (ret < 0)
-> +		goto err_cleanup_hdmi;
-> +
-> +	pm_runtime_use_autosuspend(&pdev->dev);
-> +	pm_runtime_set_autosuspend_delay(&pdev->dev, 500);
-
-Autosuspend? Shouldn't we enable the device as long as there is an
-active video output (and you have that covered already)?
-
-> +	pm_runtime_enable(&pdev->dev);
-> +
-> +	starfive_hdmi_disable_clk_assert_rst(dev, hdmi);
-
-It would be clearer if you would move
-starfive_hdmi_enable_clk_deassert_rst()/disable_clk_assert_rst() into
-runtime_resume/runtime_suspend, and then in you bind just call
-pm_runtime_enable(), pm_runtime_get_sync(), do the registration, and
-pm_runtime_put.
-
-> +#define UPDATE(x, h, l)\
-> +({\
-> +	typeof(x) x_ =3D (x);\
-> +	typeof(h) h_ =3D (h);\
-> +	typeof(l) l_ =3D (l);\
-> +	(((x_) << (l_)) & GENMASK((h_), (l_)));\
-> +})
-
-That's FIELD_PREP, right?
-Maxime
-
---c3ccdoac5xz7n6if
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCZH2xPwAKCRDj7w1vZxhR
-xRFAAP0f3J6Tu7GQHeZqx5luoDhXXLf8/1gmqshwjcYtEt7awgEAoRRjwu25Pah9
-m5eSDewNpcJYQHuxezva0a9w+5vmPQk=
-=BH5E
------END PGP SIGNATURE-----
-
---c3ccdoac5xz7n6if--
-
-
---===============2024175129675847058==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> [1] https://lore.kernel.org/linux-mm/87v8mndy3y.ffs@tglx/ 
+> [2] https://lore.kernel.org/all/20230526051529.3387103-1-song@kernel.org
+> 
+> > Thanks,
+> > Mark.
+> 
+> -- 
+> Sincerely yours,
+> Mike.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2024175129675847058==--
-
