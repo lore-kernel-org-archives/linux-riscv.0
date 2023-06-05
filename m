@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 101FDC7EE24
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 04:18:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D63C77B73
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 04:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MgAc35v/F/Q4xa/FaxIggsNiEwfGWzHRMShNkPKUysE=; b=JT5QMnqtFYN49a
-	CB7XY5/KbK24uU0vJA+HUFXk+Q0aR8PI8b3i4sLWUDUMzMouT2S1f/kyeHf25m/flP2MKV/QsV0zl
-	txzTzGWKfBXdJnO8xEBxp04vAo6hWy4OW1mOLzGPnBUA/raxiY2BmsmpSfnmhMzq2K0Cq9hNwdCzB
-	XIYuoJ9KOPPY40DBjk4ZiJ9BRQVbROZMDziqkuCZVDdiKovdnnkB1/t7jsRAUlf78w5mUIJUzUgRA
-	zcqNrvu8MNqCHzdqEe4eFLg7IQmyJCA/oWLja0CRvbeIcHxJ1L52VkpN+4x+Rf3kMHKAvs9Q+bSov
-	BQCSfOelyKpk2BWDnN+g==;
+	List-Owner; bh=YLeiZkvQXs/GBVJfKKZjzOKy/Eg7DUwBk5W2ysNNrWk=; b=L3FS9Wx5wJjbxh
+	f05eW39gWHN80fV8Lt2MK78zb5p/0HGn7yseR570Zt5IdgH8hdsidhxOngtsrpR1yCNhzUZKKjgv7
+	POnj0yPT26QJK8nDqdjV8gj3TVvzjDTnMx1g29FUZmXqEJCG0f/ItNZ2lWHbC9Qv51Bl6j27Nj47w
+	acNVeuoiVD4O9UFftpBC31DY0XfhqLfkIPv8b5DwuAyNczjuy/O1e4dl4IjYvE6g6mAoAS1cmWwdP
+	2B7xPABjyQZWHEwzGft7DQPi4r3rFcfxrnj2xrexobdMgz8T7KkKUyQX+77lE/9U9OZPVpTKHd/eT
+	UyESe4EdVsnU42IUTrxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q61fs-00E3m8-2W;
-	Mon, 05 Jun 2023 04:18:32 +0000
+	id 1q61i9-00E4Ac-1z;
+	Mon, 05 Jun 2023 04:20:53 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q61fo-00E3l4-2P
+	id 1q61i7-00E49m-02
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 04:18:30 +0000
+	Mon, 05 Jun 2023 04:20:52 +0000
 Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 3554IMKL005432;
-	Mon, 5 Jun 2023 06:18:22 +0200
-Date: Mon, 5 Jun 2023 06:18:22 +0200
+	by mail.home.local (8.17.1/8.17.1/Submit) id 3554KmJM005449;
+	Mon, 5 Jun 2023 06:20:48 +0200
+Date: Mon, 5 Jun 2023 06:20:48 +0200
 From: Willy Tarreau <w@1wt.eu>
 To: Zhangjin Wu <falcon@tinylab.org>
 Cc: arnd@arndb.de, linux-kernel@vger.kernel.org,
         linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
         thomas@t-8ch.de
-Subject: Re: [PATCH 1/4] selftests/nolibc: add a test-report target
-Message-ID: <ZH1iDne+PiyZmIIB@1wt.eu>
+Subject: Re: [PATCH 3/4] selftests/nolibc: always print the log file
+Message-ID: <ZH1ioKUVOYGgDUj7@1wt.eu>
 References: <cover.1685936428.git.falcon@tinylab.org>
- <291c5437db94057a3b045a6f036b02658380b05b.1685936428.git.falcon@tinylab.org>
+ <835e118943d257b7a83066fb4fb77c0e5cf71534.1685936428.git.falcon@tinylab.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <291c5437db94057a3b045a6f036b02658380b05b.1685936428.git.falcon@tinylab.org>
+In-Reply-To: <835e118943d257b7a83066fb4fb77c0e5cf71534.1685936428.git.falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_211829_748043_BB03FB54 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20230604_212051_341525_733A7173 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,44 +63,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 05, 2023 at 11:48:52AM +0800, Zhangjin Wu wrote:
-> A standalone test-report target is added to let the run, run-user and
-> rerun targets share them.
-> 
-> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> ---
->  tools/testing/selftests/nolibc/Makefile | 26 ++++++++++++-------------
->  1 file changed, 13 insertions(+), 13 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
-> index be4159837494..8149ace2938a 100644
-> --- a/tools/testing/selftests/nolibc/Makefile
-> +++ b/tools/testing/selftests/nolibc/Makefile
-> @@ -127,14 +127,18 @@ nolibc-test: nolibc-test.c sysroot/$(ARCH)/include
->  libc-test: nolibc-test.c
->  	$(QUIET_CC)$(CC) -o $@ $<
->  
-> -# qemu user-land test
-> -run-user: nolibc-test
-> -	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
-> +test-report:
->  	$(Q)awk '/\[OK\]$$/{p++} /\[FAIL\]$$/{f++} /\[SKIPPED\]$$/{s++} \
->  	         END{ printf("%d test(s) passed, %d skipped, %d failed.", p, s, f); \
->  	         if (s+f > 0) printf(" See all results in %s\n", ARGV[1]); else print; }' \
->  	         $(CURDIR)/run.out
->  
-> +# qemu user-land test
-> +_run-user: nolibc-test
-> +	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
-> +
-> +run-user: _run-user test-report
-> +
+On Mon, Jun 05, 2023 at 11:57:44AM +0800, Zhangjin Wu wrote:
+> This allows to check the other issues of the output file manually even
+> when all of them passed.
 
-This will not reliably work, there's no ordering here, nothing guarantees
-that test-report will run *after* _run-user (e.g. make -j). Another
-approach is needed if you want to factor this, but in general creating
-sequences in makefiles is difficult and often more painful than having
-3 times the same 3 lines.
+Till now I preferred not to see it when everything was OK since it was
+useless and permitted a quick visual check in the reports. Do you
+really think it's useful ? If others prefer it that way we can change
+it but I purposely added this test to "improve" the output (for me at
+least). I'm interested in opinions here.
 
 Willy
 
