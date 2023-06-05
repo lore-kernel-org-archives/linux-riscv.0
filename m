@@ -4,95 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDF0C7EE2C
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 15:41:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7009C7EE2C
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 15:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IykZlo1BXB7RXrnMnHpLD1qvQKSpD6mvNqkO86R8iYc=; b=hgx23YTAl8/5qK
-	xhjpFkTmBtGi1DPir+9GqDn/BhH56gKZsTIvnIUSTUaZIM4sC+AJFrIAvXslRrO3j11NBuQUIYEjU
-	T2ZfKBRFPFWVqXmHwOI7ToCmOsGYgVUm8BHkh1FiwUySCHflrNs4JIyiK7Ctc7E0qQ/82qcswv6lf
-	jPo5g6w73z+k25B4FPSEEYjFUnuf38gcvSjfIVjWh/zz1mIGg0HjBa4XFrPoEdWX6xicH2gfFvTJF
-	aGXm3PiV/jAzDr3RYDiEiX0HTp/9sMK2wnyQot9DP4O6eii0BeooTiCuzYEkCH8hWAbu8Kx6faLoU
-	O6UFTTo7I3dF+xglzNhA==;
+	List-Owner; bh=E6d0AFVKwkd+Wuculu1HGJfnos0Zv0oDN4uF+mvFKZk=; b=EY56T68Kso8r8y
+	NvZQvHvzPP8BGAM1HfPZTsM9yuA8Di5ai2Qu8VQdS0iUB5SdaCM1BDYyYB+93ze4w3vX3ERIfbUeo
+	0l8bsQ6H7WEybsR4XXUp4Dltsoz/iHCAOPJgXDVA7K9iFSEt6Fh9it5fuQ989nkM0Pyg+WtsuRntQ
+	/Yl3Z3Bo5hqTy5UhxZZ1t8Prttr00CuIvwFyiXjjicUTxnrb7r6MUxUKMY9tV7HiI3+ZsHlioYUye
+	h3CxknZHfjk5nqOGMSAyOEKsKW3q2SrY4SaV9Gjk3GyDoqBWlhme0SMpumRUtL8Q19Ff404BtKqbk
+	XwraLNRuwFZJ33TChVfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6CL4-00FzxJ-2f;
-	Mon, 05 Jun 2023 15:41:46 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1q6CLB-00G036-0u;
+	Mon, 05 Jun 2023 15:41:53 +0000
+Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6CL2-00Fzty-1g
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 15:41:45 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1b026657a6fso43036985ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Jun 2023 08:41:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1685979702; x=1688571702;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vWfWpcMCj1+Fb0BnBKmql7KJ370X51psXYGnDJmV9XE=;
-        b=aa2XcqtZLW5iqnaCW4Qqr1H+Tzlig3YdL5foi2KV8ac0ghkespqXccDGXXKNl67dzp
-         ntoXqcpEbUNXvG5jwzxqIS5KwFz8xhHNWI/SGHmvcSQ2teKRNuv/u+rgbNtYZ36omA6S
-         0gqzwlRCz9zWjL1DPbymwwynFbAGzjHY5NEUVVXmd8WETn/AzMuXGLvdBcqDSf9KZ1j6
-         v+X+RAJpugMnSnGeorxLAmIlpnxsjubdP5Udp40y6rMZhN9bi60e6YQ2sdLGuMjdvoXz
-         TMfX2v3MjkZ4zJh15+lPq3UDK3JH4uglzBSdGlRDu9xCy0w27inNr0rnqfpXqvQamCjY
-         JT9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685979702; x=1688571702;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vWfWpcMCj1+Fb0BnBKmql7KJ370X51psXYGnDJmV9XE=;
-        b=QFr61/zK4HY3hsrHIH1GlrYmdmETjCDA4Med9hUqtSKhuprCWGoMEYSCP/ZRz0qfe6
-         bBm81eMzZardeyiq8QZzrdxdzLmBQ1S7Tmi7YsUhuOA0qqgsorjysIBJdUeOl7IF9hLD
-         3r4QuHCyd98CS67Z+WiUAS1kBEDZYBgjn7VTyZt1H02aZYKMUwQqlFVU2H9Yll3ddLVj
-         LnSH3P3iBl8USGAZBDVFEVwNdFsgz428hyDbI4dASd7UbBwWHz42I4ltVjnixrTLrVza
-         ScowsHIeZj0IkEfIrujyw+Axn8blKKe3XkHFqHaEF7DwHFYrbzrJVLfiADs3PjjpKBUZ
-         pPSg==
-X-Gm-Message-State: AC+VfDxXUF2xRtWNSeBS/fGP0XG2oWbJHP+F2uM8/H890qa7U9WBHCRj
-	jDD3ds3j35jAfJRIWyUpQlqcVEhwlKXSi4hAW+DQsBWYUxLy1v6mxDTHwJ5+uEDdwaekSKB/iNo
-	uLZPaLdofDrSaj8BsUB7RkPjiOWjR6qtLT91o1p0YZgUVdCMCTY0bXX/U3A+OwFyo9+wCWc98lH
-	lipIV1W64+CBQ7eqE=
-X-Google-Smtp-Source: ACHHUZ5ALSUm1i1u3l9MlL1FkN2klEz94jSTED1PaH9Zd5Uees8rVfXo4MbbiVQ0JqYoJeYPnONJ1g==
-X-Received: by 2002:a17:903:24c:b0:1ad:f138:b2f6 with SMTP id j12-20020a170903024c00b001adf138b2f6mr8809583plh.16.1685979702314;
-        Mon, 05 Jun 2023 08:41:42 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id jk19-20020a170903331300b001b0aec3ed59sm6725962plb.256.2023.06.05.08.41.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jun 2023 08:41:41 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com,
-	greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH -next v21 20/27] riscv: hwcap: change ELF_HWCAP to a function
-Date: Mon,  5 Jun 2023 11:07:17 +0000
-Message-Id: <20230605110724.21391-21-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230605110724.21391-1-andy.chiu@sifive.com>
-References: <20230605110724.21391-1-andy.chiu@sifive.com>
+	id 1q6CL9-00G014-0c;
+	Mon, 05 Jun 2023 15:41:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=3J27GNOAaYAcg2/OQpiA0yRvMrVxHWe6WRS5SogWUdA=; b=AcmY/rmEf670csICl3+kY3/qC7
+	4N7jlG3KOUDmJFdIr8kZzpjCuNW2vMhasTAmcEOQWwouLwnBlUh7xYJylSeBtoYe9eI0p5kmSCM8X
+	tSTlsqlJOCVmt2VAY1IFngp5ios6YwCSoYfbcwXQVsODXNGD5Gi3ydx/iTxz+1nbOejxv+n5OuKk4
+	o7lGGjyMTosXMrCzH2ysnwk5lIWaa3CSiqH/vj7tAQqMfoCsl+k47c28TbYlEsJQS8DrK2bYPAhzA
+	JX3rfUvXmlqQPdCsHhaXjt8PnPaw/74gdGDueJqnTwOi9spmQpj/bhOMobeopfKfeyX7NC3idwcPu
+	FfEnrNYw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q6BCn-003MxC-1t;
+	Mon, 05 Jun 2023 14:29:11 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 91DD461361;
+	Mon,  5 Jun 2023 14:29:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5852C433EF;
+	Mon,  5 Jun 2023 14:29:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685975345;
+	bh=hZ87ZYTbpDOaTiFT09YI6BJw7NRtzjXefqSYa6e0NqY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YkFIZcwvKrxwZMZ4QVYNpyLfbt4KUpf5M8zr3ZdHC6RtfW7UqKbn/gNUtc0ldQK/W
+	 ++5AcyzPv3Ei5fshhQL5/+Dk4QFyUpsUFZ+G2TmRxCkmPQGXX+S8WJkJNS3QvmAHEG
+	 LoFFb9o1fCMurmj20vEZXK0lp2VCjsUW279AFo6Klr5ltnKowH4HINIh4Wq0pM1HIs
+	 UsevQ+8/vI9bzLRGuLet4bA5A7QhrMSZlx6C2SdEA99/gQYs45t73Kg3+0HTcSq4Hf
+	 ax1ETZm5L8ks2//V6Qj/How4qf0VbBOv+X1163Frad0anoZ8aIyx4D11udTTSVgg+K
+	 OJ8WXGnkkptOA==
+Date: Mon, 5 Jun 2023 15:28:58 +0100
+From: Will Deacon <will@kernel.org>
+To: Song Shuai <songshuaishuai@tinylab.org>
+Cc: catalin.marinas@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, chris@zankel.net, jcmvbkbc@gmail.com,
+	steven.price@arm.com, vincenzo.frascino@arm.com, pcc@google.com,
+	wangxiang@cdjrlc.com, ajones@ventanamicro.com,
+	conor.dooley@microchip.com, jeeheng.sia@starfivetech.com,
+	leyfoon.tan@starfivetech.com, linux@armlinux.org.uk,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/4] arm64: hibernate: remove WARN_ON in
+ save_processor_state
+Message-ID: <20230605142857.GE21212@willie-the-truck>
+References: <20230525025555.24104-1-songshuaishuai@tinylab.org>
+ <20230525025555.24104-3-songshuaishuai@tinylab.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230525025555.24104-3-songshuaishuai@tinylab.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_084144_560200_D478C98A 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20230605_152909_813340_99D9732A 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,73 +91,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Using a function is flexible to represent ELF_HWCAP. So the kernel may
-encode hwcap reflecting supported hardware features just at the moment of
-the start of each program.
+On Thu, May 25, 2023 at 10:55:53AM +0800, Song Shuai wrote:
+> During hibernation or restoration, freeze_secondary_cpus
+> checks num_online_cpus via BUG_ON, and the subsequent
+> save_processor_state also does the checking with WARN_ON.
+> 
+> So remove the unnecessary checking in save_processor_state.
 
-This will be helpful when we introduce prctl/sysctl interface to control
-per-process availability of Vector extension in following patches.
-Programs started with V disabled should see V masked off in theirs
-ELF_HWCAP.
+This is a very terse summary of why this is safe.
 
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
----
- arch/riscv/include/asm/elf.h   | 2 +-
- arch/riscv/include/asm/hwcap.h | 2 ++
- arch/riscv/kernel/cpufeature.c | 5 +++++
- 3 files changed, 8 insertions(+), 1 deletion(-)
+Looking at the code, freeze_secondary_cpus() does indeed check
+num_online_cpus(), or it returns an error which then causes the hibernation
+to fail. However, this is all in the CONFIG_PM_SLEEP_SMP=y case and it's
+far less clear whether your assertion is true if that option is disabled.
 
-diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-index ca23c4f6c440..c24280774caf 100644
---- a/arch/riscv/include/asm/elf.h
-+++ b/arch/riscv/include/asm/elf.h
-@@ -66,7 +66,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
-  * via a bitmap that coorespends to each single-letter ISA extension.  This is
-  * essentially defunct, but will remain for compatibility with userspace.
-  */
--#define ELF_HWCAP	(elf_hwcap & ((1UL << RISCV_ISA_EXT_BASE) - 1))
-+#define ELF_HWCAP	riscv_get_elf_hwcap()
- extern unsigned long elf_hwcap;
- 
- /*
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 574385930ba7..e6c288ac4581 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -61,6 +61,8 @@
- 
- #include <linux/jump_label.h>
- 
-+unsigned long riscv_get_elf_hwcap(void);
-+
- struct riscv_isa_ext_data {
- 	/* Name of the extension displayed to userspace via /proc/cpuinfo */
- 	char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 28032b083463..29c0680652a0 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -293,6 +293,11 @@ void __init riscv_fill_hwcap(void)
- 	pr_info("riscv: ELF capabilities %s\n", print_str);
- }
- 
-+unsigned long riscv_get_elf_hwcap(void)
-+{
-+	return (elf_hwcap & ((1UL << RISCV_ISA_EXT_BASE) - 1));
-+}
-+
- #ifdef CONFIG_RISCV_ALTERNATIVE
- /*
-  * Alternative patch sites consider 48 bits when determining when to patch
--- 
-2.17.1
+Please can you describe your reasoning in more detail, and cover the case
+where CONFIG_PM_SLEEP_SMP=n as well, please?
 
+Will
 
 _______________________________________________
 linux-riscv mailing list
