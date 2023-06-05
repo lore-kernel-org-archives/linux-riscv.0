@@ -4,81 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2016C77B73
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 08:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 348BFC7EE24
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 08:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UDyT5VNSu0oBPko5HAEHlIJ6WMZR9luZtRXHrURuSmE=; b=N//Ls2vFZ3DJap
-	tfD2bLQbcd8uFNvT+afktnilO5DpmmFeHO93u5kHY4+XPCetN9d45+9GnUPlSSy2IO+TYZQSF0mwv
-	2XEweeeQfmVCw8V2Bzh/kWT9f+dwHp6rekICDCDYOXLB1ongiiRGeEC3KDTFpx4DgQkRA504hx1x9
-	vTUrQ15f63iseLDpgrJ8leQKnDBVUUqGO1t4GohXgHiNdFQuca8zRWJqBXvTZEnuksXFhZEhKIzg6
-	LBNY0BBFN0JUcU8dN11OELvC6JFN74VFR4Cv3wct+e8zRTVI/yDpve70m8D6W1/YNVKHKGZMzNvOt
-	BwFj1ENt6hODUhXUP4eA==;
+	List-Owner; bh=6lEDRQ4JDCnslINENqi6SoQ48UmmClyvntviUIdJmHA=; b=BbmJpimyfGcQxS
+	lGcRcWyTCSMONhCjKu86Yvn0vwsC1tDbZJxfjrkusa/rVqdGb6qqKtMOLcZnG7LFhIfeK7EqBI817
+	FwUmNyHfaIM3odP1cAUU0PO8qYYTEVORLXD3fSomdjAUhIX5QIvlRxITJnLWoQxdpaFtUJcYFvaE2
+	Mo9FXDPXoZ4VTjTf8hPm3a4cMeYH76/i3SCGXzsx/M+YpwvJY5HjbStgZW3Epcf0Xiux9LYeDcAhZ
+	ZUNX62fyhNxH8jYqzT1M4/MCJNZsOIqqkNd/EuBvXfvTmW5xmjsZ/wPCIxvy7iiQBifIAqf3+g7bV
+	VUWvHwEV+BHVkRkagLQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q65Gv-00EfTQ-1X;
-	Mon, 05 Jun 2023 08:09:01 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1q65K5-00Efvf-2j;
+	Mon, 05 Jun 2023 08:12:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q65Gt-00EfSf-11
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 08:09:00 +0000
-Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <pza@pengutronix.de>)
-	id 1q65Gn-00021e-UX; Mon, 05 Jun 2023 10:08:53 +0200
-Received: from pza by ptx.hi.pengutronix.de with local (Exim 4.92)
-	(envelope-from <pza@pengutronix.de>)
-	id 1q65Gi-0003OO-3S; Mon, 05 Jun 2023 10:08:48 +0200
-Date: Mon, 5 Jun 2023 10:08:48 +0200
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Keith Zhao <keith.zhao@starfivetech.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com,
-	Bjorn Andersson <andersson@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Shawn Guo <shawnguo@kernel.org>,
-	Jagan Teki <jagan@edgeble.ai>,
-	Chris Morgan <macromorgan@hotmail.com>,
-	Jack Zhu <jack.zhu@starfivetech.com>,
-	Shengyang Chen <shengyang.chen@starfivetech.com>,
-	Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: Re: [PATCH 9/9] drm/verisilicon: Add starfive hdmi driver
-Message-ID: <20230605080848.GA4802@pengutronix.de>
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
- <20230602074043.33872-10-keith.zhao@starfivetech.com>
+	id 1q65K1-00Eftn-2a;
+	Mon, 05 Jun 2023 08:12:15 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C30AD611C6;
+	Mon,  5 Jun 2023 08:12:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD463C433D2;
+	Mon,  5 Jun 2023 08:12:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685952732;
+	bh=0a3Erj1+y05IXqjDMWsbKoIt+bMhOMaYKv6SbF8QYx8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Zu6xmXaSJOaYGEZ1M18sqNTyQoodb/FtprpnZS9jE7WS1RsqZh7vr80D82GP+H1i8
+	 Qbu+kLGLXkmXcf2oXs54XG8W5AAc+Szj5iw7w1esJF0pl3B4pku9TUNP0nnZRtgroI
+	 L7ysBaeg9qWTT4omm1x3jmC2/a5iIXjq4VNltoSIXSnirdvBxVCgizUUrQFclxA9A9
+	 JI6H8n/NsAtikP0Klus6G9HwEipbiVd/EmoeyXvbNSuuqp00lQftKP5siTorJJyFWk
+	 NlQqlLQB4dqezssu+rEQF7hm50+nogklsOxP5i6Esuay261E/tRiQMISJtPYoOP/Ua
+	 Cp41VdtuUrJ+Q==
+Date: Mon, 5 Jun 2023 11:11:43 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Nadav Amit <nadav.amit@gmail.com>,
+	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+	"kent.overstreet@linux.dev" <kent.overstreet@linux.dev>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"mcgrof@kernel.org" <mcgrof@kernel.org>,
+	"deller@gmx.de" <deller@gmx.de>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"hca@linux.ibm.com" <hca@linux.ibm.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"chenhuacai@kernel.org" <chenhuacai@kernel.org>,
+	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
+	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
+	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
+	Will Deacon <will@kernel.org>,
+	"dinguyen@kernel.org" <dinguyen@kernel.org>,
+	"naveen.n.rao@linux.ibm.com" <naveen.n.rao@linux.ibm.com>,
+	"sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+	"linux-modules@vger.kernel.org" <linux-modules@vger.kernel.org>,
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"song@kernel.org" <song@kernel.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH 12/13] x86/jitalloc: prepare to allocate exectuatble
+ memory as ROX
+Message-ID: <20230605081143.GA3460@kernel.org>
+References: <20230601101257.530867-1-rppt@kernel.org>
+ <20230601101257.530867-13-rppt@kernel.org>
+ <0f50ac52a5280d924beeb131e6e4717b6ad9fdf7.camel@intel.com>
+ <ZHjcr26YskTm+0EF@moria.home.lan>
+ <a51c041b61e2916d2b91c990349aabc6cb9836aa.camel@intel.com>
+ <ZHjljJfQjhVV/jNS@moria.home.lan>
+ <68b8160454518387c53508717ba5ed5545ff0283.camel@intel.com>
+ <50D768D7-15BF-43B8-A5FD-220B25595336@gmail.com>
+ <20230604225244.65be9103@rorschach.local.home>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230602074043.33872-10-keith.zhao@starfivetech.com>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
-X-SA-Exim-Mail-From: pza@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+In-Reply-To: <20230604225244.65be9103@rorschach.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_010859_375065_1509304F 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20230605_011213_942746_048EEE82 
+X-CRM114-Status: GOOD (  23.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,87 +115,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Keith,
-
-On Fri, Jun 02, 2023 at 03:40:43PM +0800, Keith Zhao wrote:
-> Add HDMI dirver for StarFive SoC JH7110.
+On Sun, Jun 04, 2023 at 10:52:44PM -0400, Steven Rostedt wrote:
+> On Thu, 1 Jun 2023 16:54:36 -0700
+> Nadav Amit <nadav.amit@gmail.com> wrote:
 > 
-> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
-> ---
->  drivers/gpu/drm/verisilicon/Kconfig         |  11 +
->  drivers/gpu/drm/verisilicon/Makefile        |   1 +
->  drivers/gpu/drm/verisilicon/starfive_hdmi.c | 928 ++++++++++++++++++++
->  drivers/gpu/drm/verisilicon/starfive_hdmi.h | 296 +++++++
->  drivers/gpu/drm/verisilicon/vs_drv.c        |   6 +
->  drivers/gpu/drm/verisilicon/vs_drv.h        |   4 +
->  6 files changed, 1246 insertions(+)
->  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.c
->  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.h
+> > > The way text_poke() is used here, it is creating a new writable alias
+> > > and flushing it for *each* write to the module (like for each write of
+> > > an individual relocation, etc). I was just thinking it might warrant
+> > > some batching or something.  
+
+> > I am not advocating to do so, but if you want to have many efficient
+> > writes, perhaps you can just disable CR0.WP. Just saying that if you
+> > are about to write all over the memory, text_poke() does not provide
+> > too much security for the poking thread.
+
+Heh, this is definitely and easier hack to implement :)
+
+> Batching does exist, which is what the text_poke_queue() thing does.
+
+For module loading text_poke_queue() will still be much slower than a bunch
+of memset()s for no good reason because we don't need all the complexity of
+text_poke_bp_batch() for module initialization because we are sure we are
+not patching live code.
+
+What we'd need here is a new batching mode that will create a writable
+alias mapping at the beginning of apply_relocate_*() and module_finalize(),
+then it will use memcpy() to that writable alias and will tear the mapping
+down in the end.
+
+Another option is to teach alternatives to update a writable copy rather
+than do in place changes like Song suggested. My feeling is that it will be
+more intrusive change though.
+
+> -- Steve
 > 
-[...]
-> diff --git a/drivers/gpu/drm/verisilicon/starfive_hdmi.c b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
-> new file mode 100644
-> index 000000000000..128ecca03309
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
-> @@ -0,0 +1,928 @@
-[...]
-> +static int starfive_hdmi_enable_clk_deassert_rst(struct device *dev, struct starfive_hdmi *hdmi)
-> +{
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(hdmi->sys_clk);
-> +	if (ret) {
-> +		DRM_DEV_ERROR(dev, "Cannot enable HDMI sys clock: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = clk_prepare_enable(hdmi->mclk);
-> +	if (ret) {
-> +		DRM_DEV_ERROR(dev, "Cannot enable HDMI mclk clock: %d\n", ret);
-> +		return ret;
-> +	}
-> +	ret = clk_prepare_enable(hdmi->bclk);
-> +	if (ret) {
-> +		DRM_DEV_ERROR(dev, "Cannot enable HDMI bclk clock: %d\n", ret);
-> +		return ret;
-> +	}
-> +	ret = reset_control_deassert(hdmi->tx_rst);
-> +	if (ret < 0) {
-> +		dev_err(dev, "failed to deassert tx_rst\n");
 
-The error paths should clk_disable_unprepare() enabled clocks.
-
-> +		return ret;
-> +	}
-> +	return 0;
-> +}
-> +
-[...]
-> +static int starfive_hdmi_get_clk_rst(struct device *dev, struct starfive_hdmi *hdmi)
-> +{
-> +	hdmi->sys_clk = devm_clk_get(dev, "sysclk");
-> +	if (IS_ERR(hdmi->sys_clk)) {
-> +		DRM_DEV_ERROR(dev, "Unable to get HDMI sysclk clk\n");
-> +		return PTR_ERR(hdmi->sys_clk);
-> +	}
-> +	hdmi->mclk = devm_clk_get(dev, "mclk");
-> +	if (IS_ERR(hdmi->mclk)) {
-> +		DRM_DEV_ERROR(dev, "Unable to get HDMI mclk clk\n");
-> +		return PTR_ERR(hdmi->mclk);
-> +	}
-> +	hdmi->bclk = devm_clk_get(dev, "bclk");
-> +	if (IS_ERR(hdmi->bclk)) {
-> +		DRM_DEV_ERROR(dev, "Unable to get HDMI bclk clk\n");
-> +		return PTR_ERR(hdmi->bclk);
-> +	}
-> +	hdmi->tx_rst = reset_control_get_shared(dev, "hdmi_tx");
-
-Use devm_reset_control_get_shared() for consistency, otherwise this is missing
-a reset_control_put() somewhere.
-
-regards
-Philipp
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
