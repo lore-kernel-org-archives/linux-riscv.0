@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8758C7EE2A
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 07:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2016C77B73
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 08:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WP2/HpQ3zInRfWxJobCxGFAzMcKpSLAdxu503baBvSg=; b=VIfkwLU/MrkcQ+
-	db5gA4N2DA5v08Eeh1BEbMJR+foznWjcmb4iDkoLwpOm3iJKo/gVKiu3/KbXUGkiGAtjxmzcwX9lz
-	exNeGwXcaoP329ZrtYkJJHTI6KfvTQNxaRZjzGH0UuY0In1KUglmBpzoMeoFC+ZZLpFi+Se2Oh5Uj
-	sgiben8ygCAr3V8qCVVruT/DBKMieqM86epNMjDwtR+QjPvh/rmOrG0QAFgEzjnYQBJ8FdxtsV14F
-	s/sy3RNkuVDjDFfqmUK9CnjeDhPAjHtAS6INv3kpS6BRlaZsCgsEZmzpJ9i9IBRHQOCIMiU2wQwCH
-	C5k2w1179brsGwH546yQ==;
+	List-Owner; bh=UDyT5VNSu0oBPko5HAEHlIJ6WMZR9luZtRXHrURuSmE=; b=N//Ls2vFZ3DJap
+	tfD2bLQbcd8uFNvT+afktnilO5DpmmFeHO93u5kHY4+XPCetN9d45+9GnUPlSSy2IO+TYZQSF0mwv
+	2XEweeeQfmVCw8V2Bzh/kWT9f+dwHp6rekICDCDYOXLB1ongiiRGeEC3KDTFpx4DgQkRA504hx1x9
+	vTUrQ15f63iseLDpgrJ8leQKnDBVUUqGO1t4GohXgHiNdFQuca8zRWJqBXvTZEnuksXFhZEhKIzg6
+	LBNY0BBFN0JUcU8dN11OELvC6JFN74VFR4Cv3wct+e8zRTVI/yDpve70m8D6W1/YNVKHKGZMzNvOt
+	BwFj1ENt6hODUhXUP4eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q64Ik-00EUkt-2W;
-	Mon, 05 Jun 2023 07:06:50 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1q65Gv-00EfTQ-1X;
+	Mon, 05 Jun 2023 08:09:01 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q64Ig-00EUj2-1q
+	id 1q65Gt-00EfSf-11
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 07:06:49 +0000
-X-QQ-mid: bizesmtp68t1685948709t0hdsv4v
-Received: from linux-lab-host.localdomain ( [61.141.77.49])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 05 Jun 2023 15:05:08 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: OFQdrTmJ2CQhbplmT8464RTU9RxGWO3Kw3No1opfWzZH7Zxfd+SQf/zCI/8jA
-	0OD5hugEKHGAd2AcaRlNrPRLaqnz7hsclaHKVSrHCvZ+igZofhh/0KFX5FKNuTIubQhLUfg
-	qjyHhhjzPKSrKefFylb5NVNvQrHj5q/jW0D6nGDeB3EXdS7ylej2rj3remKaojhuxZoIju+
-	i6eHd7dRdEE2IFPrnyIjqt5ft9tPppa6qFv3gb9t2C0NXlA90wJ26hrgpXwWVP7l3ypaL8S
-	vrHcEKu9MrupV5qwrGRgITGP488xmeehnZ8BkW76B6ilaErZE2wUPMCj6u5MZnGypA7YCnO
-	MbK0H1tEaqXX9bX2kIvPVzDVi595oRaynbtLLHC8vBwkt300dycQEXnDZCq4plr5a4Cvub4
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10052685616247688945
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de
-Subject: Re: [PATCH 3/4] selftests/nolibc: always print the log file
-Date: Mon,  5 Jun 2023 15:05:08 +0800
-Message-Id: <20230605070508.153407-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ZH1ioKUVOYGgDUj7@1wt.eu>
-References: <ZH1ioKUVOYGgDUj7@1wt.eu>
+	Mon, 05 Jun 2023 08:09:00 +0000
+Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <pza@pengutronix.de>)
+	id 1q65Gn-00021e-UX; Mon, 05 Jun 2023 10:08:53 +0200
+Received: from pza by ptx.hi.pengutronix.de with local (Exim 4.92)
+	(envelope-from <pza@pengutronix.de>)
+	id 1q65Gi-0003OO-3S; Mon, 05 Jun 2023 10:08:48 +0200
+Date: Mon, 5 Jun 2023 10:08:48 +0200
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Keith Zhao <keith.zhao@starfivetech.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com,
+	Bjorn Andersson <andersson@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Shawn Guo <shawnguo@kernel.org>,
+	Jagan Teki <jagan@edgeble.ai>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Jack Zhu <jack.zhu@starfivetech.com>,
+	Shengyang Chen <shengyang.chen@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: Re: [PATCH 9/9] drm/verisilicon: Add starfive hdmi driver
+Message-ID: <20230605080848.GA4802@pengutronix.de>
+References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
+ <20230602074043.33872-10-keith.zhao@starfivetech.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+Content-Disposition: inline
+In-Reply-To: <20230602074043.33872-10-keith.zhao@starfivetech.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
+X-SA-Exim-Mail-From: pza@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_000646_928034_6459F7C6 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20230605_010859_375065_1509304F 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,41 +95,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Mon, Jun 05, 2023 at 11:57:44AM +0800, Zhangjin Wu wrote:
-> > This allows to check the other issues of the output file manually even
-> > when all of them passed.
+Hi Keith,
+
+On Fri, Jun 02, 2023 at 03:40:43PM +0800, Keith Zhao wrote:
+> Add HDMI dirver for StarFive SoC JH7110.
 > 
-> Till now I preferred not to see it when everything was OK since it was
-> useless and permitted a quick visual check in the reports. Do you
-> really think it's useful ? If others prefer it that way we can change
-> it but I purposely added this test to "improve" the output (for me at
-> least). I'm interested in opinions here.
->
+> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+> ---
+>  drivers/gpu/drm/verisilicon/Kconfig         |  11 +
+>  drivers/gpu/drm/verisilicon/Makefile        |   1 +
+>  drivers/gpu/drm/verisilicon/starfive_hdmi.c | 928 ++++++++++++++++++++
+>  drivers/gpu/drm/verisilicon/starfive_hdmi.h | 296 +++++++
+>  drivers/gpu/drm/verisilicon/vs_drv.c        |   6 +
+>  drivers/gpu/drm/verisilicon/vs_drv.h        |   4 +
+>  6 files changed, 1246 insertions(+)
+>  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.c
+>  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.h
+> 
+[...]
+> diff --git a/drivers/gpu/drm/verisilicon/starfive_hdmi.c b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
+> new file mode 100644
+> index 000000000000..128ecca03309
+> --- /dev/null
+> +++ b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
+> @@ -0,0 +1,928 @@
+[...]
+> +static int starfive_hdmi_enable_clk_deassert_rst(struct device *dev, struct starfive_hdmi *hdmi)
+> +{
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(hdmi->sys_clk);
+> +	if (ret) {
+> +		DRM_DEV_ERROR(dev, "Cannot enable HDMI sys clock: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret = clk_prepare_enable(hdmi->mclk);
+> +	if (ret) {
+> +		DRM_DEV_ERROR(dev, "Cannot enable HDMI mclk clock: %d\n", ret);
+> +		return ret;
+> +	}
+> +	ret = clk_prepare_enable(hdmi->bclk);
+> +	if (ret) {
+> +		DRM_DEV_ERROR(dev, "Cannot enable HDMI bclk clock: %d\n", ret);
+> +		return ret;
+> +	}
+> +	ret = reset_control_deassert(hdmi->tx_rst);
+> +	if (ret < 0) {
+> +		dev_err(dev, "failed to deassert tx_rst\n");
 
-I planed to add detailed potential issues to check in the commit
-message, but didn't do that eventually.
+The error paths should clk_disable_unprepare() enabled clocks.
 
-The potential 'issues' may be:
+> +		return ret;
+> +	}
+> +	return 0;
+> +}
+> +
+[...]
+> +static int starfive_hdmi_get_clk_rst(struct device *dev, struct starfive_hdmi *hdmi)
+> +{
+> +	hdmi->sys_clk = devm_clk_get(dev, "sysclk");
+> +	if (IS_ERR(hdmi->sys_clk)) {
+> +		DRM_DEV_ERROR(dev, "Unable to get HDMI sysclk clk\n");
+> +		return PTR_ERR(hdmi->sys_clk);
+> +	}
+> +	hdmi->mclk = devm_clk_get(dev, "mclk");
+> +	if (IS_ERR(hdmi->mclk)) {
+> +		DRM_DEV_ERROR(dev, "Unable to get HDMI mclk clk\n");
+> +		return PTR_ERR(hdmi->mclk);
+> +	}
+> +	hdmi->bclk = devm_clk_get(dev, "bclk");
+> +	if (IS_ERR(hdmi->bclk)) {
+> +		DRM_DEV_ERROR(dev, "Unable to get HDMI bclk clk\n");
+> +		return PTR_ERR(hdmi->bclk);
+> +	}
+> +	hdmi->tx_rst = reset_control_get_shared(dev, "hdmi_tx");
 
-1. string alignment, I found one character offset in the user-space
-   'efault' handler patchset
-2. duplicated print, the one like '30 fork' we have fixed up
-3. kernel messages (may provide some important info)
+Use devm_reset_control_get_shared() for consistency, otherwise this is missing
+a reset_control_put() somewhere.
 
-I did add this manually several times in the past weeks, so, if the path
-is there, I can simply copy it and cat it, hope we can print the path by
-default ;-) 
-
-The commit message may be changed to something like this:
-
-    This allows us to check the details in the log file even when all of
-    them passed, from the log details, we can check the string
-    alignment, duplicated print and kernel messages.
-
-Best regards,
-Zhangjin
-
-> Willy
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
