@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4110C7EE2C
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 03:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B7AC7EE2C
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 03:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gH1lDEUh6AxYL2Tzc0a7tGpmwg5zRNvxACP0qmoH31E=; b=yalMdjiZ9i+t+h
-	ZsilkqV5PQxpafV4GLTcvgqFffSJQTwWYa7WEzKVx8W9kuc52Q5WZ2gili3g2pLVKCIg1+vDo85BA
-	4A/s4AEfTA3pD7D9oabiTw4zofoHWTppqWJPJzOSfn8Pe/OdnuuruD5Ph1IZh4jvuQHymP+DkGUZi
-	iSsJ4Hp8RX5m/CnLtOxq/pomtpBYqpzvBoKJWUUVc0NkPW9EjclVO3N8P5vbydHBxwPqq3qQHPt7u
-	rk2E9JAIp2sYKvarSq/m/lVY/0paqustIEpQptK+ywVl3KaNODUz8jwEwWfB4HnyAqRWdz5JIErsu
-	k3BrtVvMsI4PTc94I2jQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WWO5tfwfEGs+Uji8rbnOiZ+sE3K2NA+07SjjqEX2MEg=; b=0BswhZ/tk4d8xz
+	epDgcFODvRzm0mJmieiDLFzHp2NM0wqkrfhigJ7n2AgXefhQolf5CW5EOxsfSjLg3r3cCc/v/Z6ZP
+	QDEb4GX6RxZkiQ9OFXkqgN5+trtSmSsBqeZQR00zxhMME+cwicteERulBUXBFeJKit1f3sGib6Vr8
+	pIBYui8yJI/yDsZT+a10fuWVYRfO08XwjtpBBen8ux34x/Kds4+UoxXiNki9aFiLhDYgDuTWnc5zt
+	3ctzlcTTkRub/bNvOT9E378IOY6hpRMnn1ybkJ6WAaF2sZu2K7Be2ebB+bdGFJ5zpkIRVYxGl81LB
+	RrENlX+XStOVLcn1zMQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q61CU-00DyBf-1l;
-	Mon, 05 Jun 2023 03:48:10 +0000
+	id 1q61DU-00DyN2-28;
+	Mon, 05 Jun 2023 03:49:12 +0000
 Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q61CQ-00Dy76-0Y
+	id 1q61DS-00DyME-1i
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 03:48:09 +0000
-X-QQ-mid: bizesmtp63t1685936864tb85kr9l
+	Mon, 05 Jun 2023 03:49:12 +0000
+X-QQ-mid: bizesmtp81t1685936936tm3qiisk
 Received: from linux-lab-host.localdomain ( [61.141.77.49])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 05 Jun 2023 11:47:43 +0800 (CST)
+	id ; Mon, 05 Jun 2023 11:48:55 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: eSZ1CZgv+JAkiW0WLlTVnyFb8aBGqFeHrro9ClP0k1VxgozEONHr/tXivy85R
-	HUv28Cvp7643DzPRmHEbPpzEwOQV9Z9tBBtKCDbOb29+KGVRSn9wfzT+gCDCsJ5Ih3huCBW
-	eEXSb4BCadz2oEgqMRw/29I7mphtLJAZwfWNRUtz6vk49DieJSejoLiAe6Rdu6PHvI7TDS0
-	Ut3aA5ew8QyHGRi3xcrBqzFBEH+4adLWIvbkW21EobAH41lzogm1YU02S8f4ZEjtYGT4prL
-	OlY3upYzrhDgsptlTj6MUL3uglgEemz4vPVwQJx+38zfDoLw1/S+yUC3UzGVask8ee4M3GO
-	eXBBI94Yz87Ebt8CGw+eDSOxBsfXA==
+X-QQ-FEAT: PS/N6jJLnDbUhcG1tckp2UkFkb6Y4PEy7Kf4nOh/3d2cGqfkeUq0q6+sKvs5r
+	4d/2AhXp1+1Ke3XxAEpTe4xrbrIDxn6kk4nhbiHJNnZVr+RNd9/wfD9i5Gg/NvF44ptXKAf
+	M7/nom8UB9c7Sel4L85G5RjmPuXwka10IPIQeZ37y7u2Hfk3Fk8yZIkoCkz89r30XOFk/fQ
+	CboWKF/ON91qEsDHmEaJpy/YHJKw9vefCoivanIsUcYrZLxS/VnW/4VO3ap36W8i7vIuPGu
+	FB4ZLSuv3PsjBuf8cs71QZ8o+IgsJDPqeRbQcHEy7NqFxHl7oEiwZosr8XuNoHHE3ODeXFC
+	p/s1Jq3A6+bNSgZAzUcm+k/W2k64vxSIgijB2BtMEaXGClTr/tVw2Vy2qGk5A==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7225117020602651360
+X-BIZMAIL-ID: 17656311057048569074
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: falcon@tinylab.org,
@@ -48,16 +48,18 @@ Cc: falcon@tinylab.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	thomas@t-8ch.de
-Subject: [PATCH 0/4] selftests/nolibc: fix up and improve test report
-Date: Mon,  5 Jun 2023 11:47:41 +0800
-Message-Id: <cover.1685936428.git.falcon@tinylab.org>
+Subject: [PATCH 1/4] selftests/nolibc: add a test-report target
+Date: Mon,  5 Jun 2023 11:48:52 +0800
+Message-Id: <291c5437db94057a3b045a6f036b02658380b05b.1685936428.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1685936428.git.falcon@tinylab.org>
+References: <cover.1685936428.git.falcon@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_204806_507121_427A2403 
-X-CRM114-Status: UNSURE (   5.74  )
+X-CRM114-CacheID: sfid-20230604_204910_871915_8A0CB8D1 
+X-CRM114-Status: UNSURE (   7.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,29 +77,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Willy
+A standalone test-report target is added to let the run, run-user and
+rerun targets share them.
 
-Thanks very much for your merge of the v3 generic part1 of rv32, just
-tested your latest 20230604-nolibc-rv32+stkp6 branch, everything work
-well except a trivial test report regression on the 'run' target.
-
-Besides the fixup, a standalone test-report target added to share them
-among run, run-user and re-run and allow independent test report check
-via direct 'make test-report'.
-
-Best regards,
-Zhangjin
+Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
+ tools/testing/selftests/nolibc/Makefile | 26 ++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-Zhangjin Wu (4):
-  selftests/nolibc: add a test-report target
-  selftests/nolibc: allow run test-report directly
-  selftests/nolibc: always print the log file
-  selftests/nolibc: fix up test-report for run target
-
- tools/testing/selftests/nolibc/Makefile | 30 ++++++++++++-------------
- 1 file changed, 15 insertions(+), 15 deletions(-)
-
+diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
+index be4159837494..8149ace2938a 100644
+--- a/tools/testing/selftests/nolibc/Makefile
++++ b/tools/testing/selftests/nolibc/Makefile
+@@ -127,14 +127,18 @@ nolibc-test: nolibc-test.c sysroot/$(ARCH)/include
+ libc-test: nolibc-test.c
+ 	$(QUIET_CC)$(CC) -o $@ $<
+ 
+-# qemu user-land test
+-run-user: nolibc-test
+-	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
++test-report:
+ 	$(Q)awk '/\[OK\]$$/{p++} /\[FAIL\]$$/{f++} /\[SKIPPED\]$$/{s++} \
+ 	         END{ printf("%d test(s) passed, %d skipped, %d failed.", p, s, f); \
+ 	         if (s+f > 0) printf(" See all results in %s\n", ARGV[1]); else print; }' \
+ 	         $(CURDIR)/run.out
+ 
++# qemu user-land test
++_run-user: nolibc-test
++	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
++
++run-user: _run-user test-report
++
+ initramfs: nolibc-test
+ 	$(QUIET_MKDIR)mkdir -p initramfs
+ 	$(call QUIET_INSTALL, initramfs/init)
+@@ -147,20 +151,16 @@ kernel: initramfs
+ 	$(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
+ 
+ # run the tests after building the kernel
+-run: kernel
++_run: kernel
+ 	$(Q)qemu-system-$(QEMU_ARCH) -display none -no-reboot -kernel "$(srctree)/$(IMAGE)" -serial stdio $(QEMU_ARGS) > "$(CURDIR)/run.out"
+-	$(Q)awk '/\[OK\]$$/{p++} /\[FAIL\]$$/{f++} /\[SKIPPED\]$$/{s++} \
+-	         END{ printf("%d test(s) passed, %d skipped, %d failed.", p, s, f); \
+-	         if (s+f > 0) printf(" See all results in %s\n", ARGV[1]); else print; }' \
+-	         $(CURDIR)/run.out
++
++run: _run test-report
+ 
+ # re-run the tests from an existing kernel
+-rerun:
++_rerun:
+ 	$(Q)qemu-system-$(QEMU_ARCH) -display none -no-reboot -kernel "$(srctree)/$(IMAGE)" -serial stdio $(QEMU_ARGS) > "$(CURDIR)/run.out"
+-	$(Q)awk '/\[OK\]$$/{p++} /\[FAIL\]$$/{f++} /\[SKIPPED\]$$/{s++} \
+-	         END{ printf("%d test(s) passed, %d skipped, %d failed.", p, s, f); \
+-	         if (s+f > 0) printf(" See all results in %s\n", ARGV[1]); else print; }' \
+-	         $(CURDIR)/run.out
++
++rerun: _rerun test-report
+ 
+ clean:
+ 	$(call QUIET_CLEAN, sysroot)
 -- 
 2.25.1
 
