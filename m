@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06205C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 01:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C882C77B73
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 02:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1P1tPeBHwHssNQH6ojvdXj/BS/MX4TqHNudRxk6742M=; b=qLpOxAHwGZtJ/K
-	+KNjY/S8+i58mBUexVc0tqZ5yl+CC9Vlk9aOlTFxonN42Sf578OMrCvCNlpx2IhEbjjLt4NufFjpd
-	VcCrl39yOGYMIv6OoxTJbs7CrVhuH9efKswgV7N8678C17wO7s2UJOtxGKAOn4kQfZyHhSYwYt6QS
-	Pkzo07gG+vkCR6bH6f5emlZujmEJVczb3V1HhKryYi0fHYIfqQJkLK1hW0XGEuvr7gOMy+brvPLyB
-	RlK2FBmvm0yzMIituHu1BzSm+YQzVz7ioE7JdJ9LJpCAVcmC4Sz/W4Snznp+PJAKjXg1DQliHuI+u
-	ADGLvkxjKEGSj3l0B/dw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jhnvC2L+pRxNDsTOWa9TwEqw7mcDbdbPXPjf0TYdVmc=; b=hiW+4qxEGq2Y2/
+	hDQLa2E4pZ0anl3nrRzEwPLIEI1DcqY2quEjzhoKL1cul8NPCGXcC9IqQdMmIfEEJxqOkqIvxkWeV
+	Qx0VqG+w+poTvwqL63oP66BSyNeckFjdBS5inZuMY1J1jYeaTZFhq+mWNfOb3NAAddPo1ycfG2ad9
+	Nmebt2jyNY7SRFMnodK08OWjGckJTEo1ZMAX+b4GvpDNz6PxsmJJL6n0dT7dZnsp+3TsVEosNbO9c
+	pMd4xylkZTl/E6KC1tecldG6WeEdKqa72TwfGeb40H6hCNnLbuXLofy73qqbVvAh8YyXzTnummbAA
+	U+tS6SDZvX1U2Nu/03zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5zPy-00DgXF-2i;
-	Mon, 05 Jun 2023 01:53:58 +0000
-Received: from smtp80.cstnet.cn ([159.226.251.80] helo=cstnet.cn)
+	id 1q60L4-00DpTm-1E;
+	Mon, 05 Jun 2023 02:52:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q5zPu-00DgVt-2M
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 01:53:56 +0000
-Received: from ed3e173716be.home.arpa (unknown [124.16.138.125])
-	by APP-01 (Coremail) with SMTP id qwCowAA3PAArQH1k+HKFCw--.7797S2;
-	Mon, 05 Jun 2023 09:53:49 +0800 (CST)
-From: Jiasheng Jiang <jiasheng@iscas.ac.cn>
-To: andy.shevchenko@gmail.com
-Cc: oe-kbuild-all@lists.linux.dev,
-	linus.walleij@linaro.org,
-	brgl@bgdev.pl,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	linux-gpio@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jiasheng Jiang <jiasheng@iscas.ac.cn>
-Subject: [PATCH v3] gpio: ath79: Add missing check for platform_get_irq
-Date: Mon,  5 Jun 2023 09:53:45 +0800
-Message-Id: <20230605015345.12801-1-jiasheng@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1q60Kz-00DpRD-38;
+	Mon, 05 Jun 2023 02:52:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 234C661C4A;
+	Mon,  5 Jun 2023 02:52:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC71FC433EF;
+	Mon,  5 Jun 2023 02:52:46 +0000 (UTC)
+Date: Sun, 4 Jun 2023 22:52:44 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Nadav Amit <nadav.amit@gmail.com>
+Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+ "kent.overstreet@linux.dev" <kent.overstreet@linux.dev>, Thomas Gleixner
+ <tglx@linutronix.de>, "mcgrof@kernel.org" <mcgrof@kernel.org>,
+ "deller@gmx.de" <deller@gmx.de>, "netdev@vger.kernel.org"
+ <netdev@vger.kernel.org>, "davem@davemloft.net" <davem@davemloft.net>,
+ "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+ "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+ "hca@linux.ibm.com" <hca@linux.ibm.com>, "catalin.marinas@arm.com"
+ <catalin.marinas@arm.com>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
+ <linux-s390@vger.kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "mpe@ellerman.id.au"
+ <mpe@ellerman.id.au>, "x86@kernel.org" <x86@kernel.org>,
+ "tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>, "rppt@kernel.org"
+ <rppt@kernel.org>, "linux-trace-kernel@vger.kernel.org"
+ <linux-trace-kernel@vger.kernel.org>, "linux-parisc@vger.kernel.org"
+ <linux-parisc@vger.kernel.org>, "christophe.leroy@csgroup.eu"
+ <christophe.leroy@csgroup.eu>, Will Deacon <will@kernel.org>,
+ "dinguyen@kernel.org" <dinguyen@kernel.org>, "naveen.n.rao@linux.ibm.com"
+ <naveen.n.rao@linux.ibm.com>, "sparclinux@vger.kernel.org"
+ <sparclinux@vger.kernel.org>, "linux-modules@vger.kernel.org"
+ <linux-modules@vger.kernel.org>, "bpf@vger.kernel.org"
+ <bpf@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "song@kernel.org"
+ <song@kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, Andrew Morton
+ <akpm@linux-foundation.org>
+Subject: Re: [PATCH 12/13] x86/jitalloc: prepare to allocate exectuatble
+ memory as ROX
+Message-ID: <20230604225244.65be9103@rorschach.local.home>
+In-Reply-To: <50D768D7-15BF-43B8-A5FD-220B25595336@gmail.com>
+References: <20230601101257.530867-1-rppt@kernel.org>
+	<20230601101257.530867-13-rppt@kernel.org>
+	<0f50ac52a5280d924beeb131e6e4717b6ad9fdf7.camel@intel.com>
+	<ZHjcr26YskTm+0EF@moria.home.lan>
+	<a51c041b61e2916d2b91c990349aabc6cb9836aa.camel@intel.com>
+	<ZHjljJfQjhVV/jNS@moria.home.lan>
+	<68b8160454518387c53508717ba5ed5545ff0283.camel@intel.com>
+	<50D768D7-15BF-43B8-A5FD-220B25595336@gmail.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAA3PAArQH1k+HKFCw--.7797S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7JFykur1fuF13Jw45Zw15XFb_yoWDXrb_Cw
-	1kXw1UCr48Cr9Iqr17Aw1ayrWSyr9rur1fur4vga13tr98A34kur9ruw4rZrnrWr18KFyD
-	Ca4DGrWYvFs3GjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb38FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
-	6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2Wl
-	Yx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbV
-	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
-	xVA2Y2ka0xkIwI1lc2xSY4AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
-	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
-	1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
-	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
-	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
-	evJa73UjIFyTuYvjfUFVyIUUUUU
-X-Originating-IP: [124.16.138.125]
-X-CM-SenderInfo: pmld2xxhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_185355_161944_3DD1E1C1 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20230604_195254_069716_E4AF486D 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +98,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the missing check for platform_get_irq() and return error
-if it fails.
+On Thu, 1 Jun 2023 16:54:36 -0700
+Nadav Amit <nadav.amit@gmail.com> wrote:
 
-Fixes: 2b8f89e19b6d ("gpio: ath79: Add support for the interrupt controller")
+> > The way text_poke() is used here, it is creating a new writable alias
+> > and flushing it for *each* write to the module (like for each write of
+> > an individual relocation, etc). I was just thinking it might warrant
+> > some batching or something.  
 
-Signed-off-by: Jiasheng Jiang <jiasheng@iscas.ac.cn>
----
-Changelog:
+Batching does exist, which is what the text_poke_queue() thing does.
 
-v2 -> v3:
-
-1. Check before assigning values.
-
-v1 -> v2:
-
-1. Return "girq->parents[0]" instead of "-ENODEV".
----
- drivers/gpio/gpio-ath79.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/gpio/gpio-ath79.c b/drivers/gpio/gpio-ath79.c
-index aa0a954b8392..d2d838ad33bb 100644
---- a/drivers/gpio/gpio-ath79.c
-+++ b/drivers/gpio/gpio-ath79.c
-@@ -285,7 +285,10 @@ static int ath79_gpio_probe(struct platform_device *pdev)
- 					     GFP_KERNEL);
- 		if (!girq->parents)
- 			return -ENOMEM;
--		girq->parents[0] = platform_get_irq(pdev, 0);
-+		err = platform_get_irq(pdev, 0);
-+		if (err < 0)
-+			return err;
-+		girq->parents[0] = err;
- 		girq->default_type = IRQ_TYPE_NONE;
- 		girq->handler = handle_simple_irq;
- 	}
--- 
-2.25.1
+-- Steve
 
 
 _______________________________________________
