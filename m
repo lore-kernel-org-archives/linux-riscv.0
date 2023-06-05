@@ -4,92 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752DCC7EE23
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 16:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E17AC7EE24
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 20:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9W40tXwBb/IHTOhUfEvR1aMXU7QRaUyhQIV3Viue5JM=; b=K2RXsSVj0n5pWd
-	vdG0hmjEBROWlDCIcSCwArgyQ6ZSUXUzD7uCl8surQjFpgxXbPTfJFFK1k9yOMvbUaq2N5ceJaLnI
-	OXSisjwmbFAS0ltskqNVthA13T3RpZ81O6+4cNy3+4EwA010hmXD7M88Quan5rnxORmyBgsVsOETJ
-	akO1rPFNAil+BJJYNNrQzTXUwJK3E0IhoQ2n0V5Lm+mgqVvi4tC+5LTZIbpzjeZ+IpInfMHFMO3p9
-	8LiKUEbZYzCEf3SVPS0SPNtB/3IrC+lRTD/pvOJo36U48w5LO2uoz22IXpwtWU6jNCmBWMT/skvSR
-	CVTrWrDuRl49l/DaIOKA==;
+	List-Owner; bh=whC0UhFV3oHaF8Tc5cH4ZmrtxzxVQTBI0PLhFDu0Txs=; b=h4JYHxuqB24VgF
+	BTQoSDqrC8R2MRpxNzHiJI2E6wQWrZ0l5K2sDqhxLuAmYX4BnwNqeMw0pCOX0JEMt3iGKAwMGndRW
+	8qfVq7wdERz9yuCg4Bhc6xsVKX5rAGS+/PCfAm5TFQy6QXsPB21lIOLK/fVyYQ/ZOLm14c6DJSOoI
+	5FS/jKZSIemkXblxR1XVq4RfBQTw7HBTEDWxM0J8PhNXAKksT2CAvLQ16uErBGshBbzMj/T3x8o2X
+	Xfk+tl+D6q0u+bPhyrv/DSDNL5YGQpTr7gM0B9KkhJ2tHb57gsGSo9CPFo2os4RAa6KKxteHslxQ/
+	A9ipbDRTyYBVIhrw0vXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6DKa-00GB9A-2i;
-	Mon, 05 Jun 2023 16:45:20 +0000
-Received: from mail-pl1-f176.google.com ([209.85.214.176])
+	id 1q6H37-00GkM4-1P;
+	Mon, 05 Jun 2023 20:43:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6CKo-00Fzei-1y
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 15:41:31 +0000
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-1b18474cbb6so27808505ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Jun 2023 08:41:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1685979688; x=1688571688;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hWB54ZotS7Y2ZgKJV1SIpYTu+cs8XvC1qHz0MxJpXfU=;
-        b=Esj/ZZTYqJr+m/47wLqn93yxPwilBSQY9DZqScr26rPWrlszyo6YSz16bTtNt8IDQK
-         rX0CxTg9bK3R9Qk/VuehmCC5zVee+eLUGkAJF61FKYOnytHvt3SBeemp0CRwVmQK1oQ3
-         b9bOhGGn4/41IMJdyrtSQoos5VRkZAQwaRQzBwI5zb/8G1IsDyElvhyqDzw4NtQwMwe6
-         aNK3SFueWP1QPs0Fvtk0FJ2lpqeYHk0TkPRGofeGAJw8pPaP4dCx20Yq3dqc3GLBpoK2
-         qAkLvljs3175yB6x8x3erHnn3v++fOizgwIEyWSLWgPk4l3lRZthOAl2VhPpxA+z4daQ
-         IeeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685979688; x=1688571688;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hWB54ZotS7Y2ZgKJV1SIpYTu+cs8XvC1qHz0MxJpXfU=;
-        b=dy3+Hd8iPdTVXjUagUq7kD8rruvEgzlSpKPcsK2CUTRHGcXtRwzAuMQCMnlHRr7PJt
-         MSXJFB0/B9XdX2qCS2fhLuISEquXjSVYzLXGc/QI/GsjRcMhmYQeaM+7PG6jX01YlgKW
-         EMIi92Cdn5c7BbFQbgIBo1jwhAgH072ShZekJYaVqUPmGzJ0dqCjhf5cUjHppB0zU7wY
-         Vi3qZGQF54TIsfwJbxPJWKI/ejATf0Fnh87otw4ZztzJVoEqM663unfFIaAigYPqdCFu
-         C997TZA/wjXP+83f+GQwcIljPqqewJ0otMriKVD49FdDg+qCSzzXtP0ls2ondTVzQujg
-         UBIg==
-X-Gm-Message-State: AC+VfDx69ru4XX1hLa3zo9takcvMRNocYqjxsKcH39R9W2rkb/QmP8JG
-	lPztzG8kQ2kCagG6jADXdWOTYajFBPbqajcrL0cmCL9S2cBGe3GyvDig1P86MdqOMxwtGrIa3sn
-	rX+2tq9JhCcGam22Nnk8h9VDeOD/oD3fXw19ATbVs0V9Ju1rNo8QIM8zobwOlxebH0oahOBX+Jp
-	sAhabGp4NB1fxceM4=
-X-Google-Smtp-Source: ACHHUZ6N216FXg2e2/kWGqQVnVobdh9PysHIotin+oygwyrc5QZdbmX55BlhvwNZar0WBJIE4THX9w==
-X-Received: by 2002:a17:902:e742:b0:1b2:2305:17a0 with SMTP id p2-20020a170902e74200b001b2230517a0mr1113845plf.32.1685979688000;
-        Mon, 05 Jun 2023 08:41:28 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id jk19-20020a170903331300b001b0aec3ed59sm6725962plb.256.2023.06.05.08.41.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jun 2023 08:41:27 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com,
-	greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	ShihPo Hung <shihpo.hung@sifive.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Guo Ren <guoren@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH -next v21 17/27] riscv: prevent stack corruption by reserving task_pt_regs(p) early
-Date: Mon,  5 Jun 2023 11:07:14 +0000
-Message-Id: <20230605110724.21391-18-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230605110724.21391-1-andy.chiu@sifive.com>
-References: <20230605110724.21391-1-andy.chiu@sifive.com>
+	id 1q6H32-00GkKB-1e;
+	Mon, 05 Jun 2023 20:43:30 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0292962AB6;
+	Mon,  5 Jun 2023 20:43:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0414C433D2;
+	Mon,  5 Jun 2023 20:43:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685997807;
+	bh=We5qywEUXFBvYr91+f59TuYCdj8cINMwKn3eQvO6qKo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=I7xvXQXLM0Tk+V+96RzBdr/UoRB92a3ftHnZrilLQZvr5w3AlNjzmN9wbeCqkkbCl
+	 DDUm1W1zxfiZwe+gjXC6K0QMqz8d9USg05gKXvmHLfrAf+FqT+OTOcMK6aGFqzG1zb
+	 E86H0paXXm7ihSYO0CbgPPXfw8rIsLX4qwzhB6/StpLTRz6eVNJy8R0u2bcXb5AObl
+	 Ay16QdoRp1sSVGG9bP4FMnVsq9x+ifwOZH0isH9pe4CqYdVcIo5Tq1wLxq/sUlyaRg
+	 pXJxzrOzrppU5klX4Kcg/mPHvek90M1w/P5hCMfIv1PTbM22Z3AvfuML6Ql3ohsT7Q
+	 qhU+5loHIlZWg==
+Date: Mon, 5 Jun 2023 23:42:56 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "rostedt@goodmis.org" <rostedt@goodmis.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>,
+	"deller@gmx.de" <deller@gmx.de>,
+	"mcgrof@kernel.org" <mcgrof@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"nadav.amit@gmail.com" <nadav.amit@gmail.com>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"hca@linux.ibm.com" <hca@linux.ibm.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kent.overstreet@linux.dev" <kent.overstreet@linux.dev>,
+	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"chenhuacai@kernel.org" <chenhuacai@kernel.org>,
+	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
+	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
+	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
+	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"will@kernel.org" <will@kernel.org>,
+	"dinguyen@kernel.org" <dinguyen@kernel.org>,
+	"naveen.n.rao@linux.ibm.com" <naveen.n.rao@linux.ibm.com>,
+	"sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+	"linux-modules@vger.kernel.org" <linux-modules@vger.kernel.org>,
+	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"song@kernel.org" <song@kernel.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>
+Subject: Re: [PATCH 12/13] x86/jitalloc: prepare to allocate exectuatble
+ memory as ROX
+Message-ID: <20230605204256.GA52412@kernel.org>
+References: <20230601101257.530867-13-rppt@kernel.org>
+ <0f50ac52a5280d924beeb131e6e4717b6ad9fdf7.camel@intel.com>
+ <ZHjcr26YskTm+0EF@moria.home.lan>
+ <a51c041b61e2916d2b91c990349aabc6cb9836aa.camel@intel.com>
+ <ZHjljJfQjhVV/jNS@moria.home.lan>
+ <68b8160454518387c53508717ba5ed5545ff0283.camel@intel.com>
+ <50D768D7-15BF-43B8-A5FD-220B25595336@gmail.com>
+ <20230604225244.65be9103@rorschach.local.home>
+ <20230605081143.GA3460@kernel.org>
+ <88a62f834688ed77d08c778e1e427014cf7d3c1b.camel@intel.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <88a62f834688ed77d08c778e1e427014cf7d3c1b.camel@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_084130_671863_3CFCE4CB 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230605_134328_661263_4EBDDF20 
+X-CRM114-Status: GOOD (  46.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,62 +111,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Greentime Hu <greentime.hu@sifive.com>
+On Mon, Jun 05, 2023 at 04:10:21PM +0000, Edgecombe, Rick P wrote:
+> On Mon, 2023-06-05 at 11:11 +0300, Mike Rapoport wrote:
+> > On Sun, Jun 04, 2023 at 10:52:44PM -0400, Steven Rostedt wrote:
+> > > On Thu, 1 Jun 2023 16:54:36 -0700
+> > > Nadav Amit <nadav.amit@gmail.com> wrote:
+> > > =
 
-Early function calls, such as setup_vm(), relocate_enable_mmu(),
-soc_early_init() etc, are free to operate on stack. However,
-PT_SIZE_ON_STACK bytes at the head of the kernel stack are purposedly
-reserved for the placement of per-task register context pointed by
-task_pt_regs(p). Those functions may corrupt task_pt_regs if we overlap
-the $sp with it. In fact, we had accidentally corrupted sstatus.VS in some
-tests, treating the kernel to save V context before V was actually
-allocated, resulting in a kernel panic.
+> > > > > The way text_poke() is used here, it is creating a new writable
+> > > > > alias
+> > > > > and flushing it for *each* write to the module (like for each
+> > > > > write of
+> > > > > an individual relocation, etc). I was just thinking it might
+> > > > > warrant
+> > > > > some batching or something.=A0 =
 
-Thus, we should skip PT_SIZE_ON_STACK for $sp before making C function
-calls from the top-level assembly.
+> > =
 
-Co-developed-by: ShihPo Hung <shihpo.hung@sifive.com>
-Signed-off-by: ShihPo Hung <shihpo.hung@sifive.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
----
- arch/riscv/kernel/head.S | 2 ++
- 1 file changed, 2 insertions(+)
+> > > > I am not advocating to do so, but if you want to have many
+> > > > efficient
+> > > > writes, perhaps you can just disable CR0.WP. Just saying that if
+> > > > you
+> > > > are about to write all over the memory, text_poke() does not
+> > > > provide
+> > > > too much security for the poking thread.
+> > =
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index e16bb2185d55..11c3b94c4534 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -301,6 +301,7 @@ clear_bss_done:
- 	la tp, init_task
- 	la sp, init_thread_union + THREAD_SIZE
- 	XIP_FIXUP_OFFSET sp
-+	addi sp, sp, -PT_SIZE_ON_STACK
- #ifdef CONFIG_BUILTIN_DTB
- 	la a0, __dtb_start
- 	XIP_FIXUP_OFFSET a0
-@@ -318,6 +319,7 @@ clear_bss_done:
- 	/* Restore C environment */
- 	la tp, init_task
- 	la sp, init_thread_union + THREAD_SIZE
-+	addi sp, sp, -PT_SIZE_ON_STACK
- 
- #ifdef CONFIG_KASAN
- 	call kasan_early_init
--- 
-2.17.1
+> > Heh, this is definitely and easier hack to implement :)
+> =
 
+> I don't know the details, but previously there was some strong dislike
+> of CR0.WP toggling. And now there is also the problem of CET. Setting
+> CR0.WP=3D0 will #GP if CR4.CET is 1 (as it currently is for kernel IBT).
+> I guess you might get away with toggling them both in some controlled
+> situation, but it might be a lot easier to hack up then to be made
+> fully acceptable. It does sound much more efficient though.
+ =
+
+I don't think we'd really want that, especially looking at =
+
+
+		WARN_ONCE(bits_missing, "CR0 WP bit went missing!?\n");
+
+at native_write_cr0().
+ =
+
+> > > Batching does exist, which is what the text_poke_queue() thing
+> > > does.
+> > =
+
+> > For module loading text_poke_queue() will still be much slower than a
+> > bunch
+> > of memset()s for no good reason because we don't need all the
+> > complexity of
+> > text_poke_bp_batch() for module initialization because we are sure we
+> > are
+> > not patching live code.
+> > =
+
+> > What we'd need here is a new batching mode that will create a
+> > writable
+> > alias mapping at the beginning of apply_relocate_*() and
+> > module_finalize(),
+> > then it will use memcpy() to that writable alias and will tear the
+> > mapping
+> > down in the end.
+> =
+
+> It's probably only a tiny bit faster than keeping a separate writable
+> allocation and text_poking it in at the end.
+
+Right, but it still will be faster than text_poking every relocation.
+ =
+
+> > Another option is to teach alternatives to update a writable copy
+> > rather
+> > than do in place changes like Song suggested. My feeling is that it
+> > will be
+> > more intrusive change though.
+> =
+
+> You mean keeping a separate RW allocation and then text_poking() the
+> whole thing in when you are done? That is what I was trying to say at
+> the beginning of this thread. The other benefit is you don't make the
+> intermediate loading states of the module, executable.
+> =
+
+> I tried this technique previously [0], and I thought it was not too
+> bad. In most of the callers it looks similar to what you have in
+> do_text_poke(). Sometimes less, sometimes more. It might need
+> enlightening of some of the stuff currently using text_poke() during
+> module loading, like jump labels. So that bit is more intrusive, yea.
+> But it sounds so much cleaner and well controlled. Did you have a
+> particular trouble spot in mind?
+
+Nothing in particular, except the intrusive part. Except the changes in
+modules.c we'd need to teach alternatives to deal with a writable copy.
+ =
+
+> [0]
+> https://lore.kernel.org/lkml/20201120202426.18009-5-rick.p.edgecombe@inte=
+l.com/
+
+-- =
+
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
