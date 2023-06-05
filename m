@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD89CC7EE24
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 15:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD9AFC7EE24
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 15:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/ij6wI/IZkBsC8WopvwoW+mAsCfbH0RJm06kElnuwyQ=; b=Sy2NcWDIa1Amzl
-	3k7ln9trR2+r+IQXBzzZWu4XwjOqlYcOSAWqE5oMVfh96rhwVh5+t6EtB6HI71QHKQgZxNxvAyQok
-	a9vA+UAvtfP6d9IoaM5MO/ymR76k3u+cg8q3re0d0zu5d4//fMawCU6hFgCc2xpH2xiZ3i3YmyUFD
-	c2ukb8vXDtKgWnV7MLZvcKcfl7k7/EXvNofIt/g4pUjSWsaTW/k2bZXXqMlcBPtAaP9Gol0bdam+K
-	cszllYql6Vjx5kFQwcYPmawFPExSPQuq/9z2v0bbDeRaxWqKdw0tf5j5MIqSTnqCG46MIwGOAZ3Vm
-	S2RPQ0HOFlPPRJt0Kw5g==;
+	List-Owner; bh=cWE0WNTDcIJGT/EIxnpE8HahZhonS2BjUM7ROH4ynOU=; b=x5HnvvX8HYL1Kg
+	j31jxk+Ffm3iQhAmtoo087irRPpAI23wL0IY0UVdC4QLcWjN0N2Uz9X//o0amDWAOYcecPcz/rX+c
+	xxTucY+T8ReYdSYLhtvzw8dsQ7PlYsHgcpU+C5LOGcKseg9/W98S54g/9jX1PlL1Wa7Hixl7hxfPO
+	uK3CHfQCiRZ3U1qG1q493VIlnJsxrjv5hIM9NXnRW3UVqBAV12bpjFWdcl+ui25XPAPS2/L3Eyzof
+	CM88bxdICMLurBuvPTLsk55mEGFC5Qwxgnc1HHl+Z4UQP7Xt+jY3LBRUSHQZA3ZCRbTFd8P7aZcSb
+	CjeGrg9Uukw5Blc6YnLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6CJO-00FyfH-31;
-	Mon, 05 Jun 2023 15:40:02 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1q6CJS-00Fyhz-2q;
+	Mon, 05 Jun 2023 15:40:06 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6CJM-00FycZ-15
+	id 1q6CJP-00Fyfx-2H
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 15:40:01 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-53f9a376f3eso4371264a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Jun 2023 08:39:59 -0700 (PDT)
+	Mon, 05 Jun 2023 15:40:04 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1b0201d9a9eso35952585ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Jun 2023 08:40:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1685979598; x=1688571598;
+        d=sifive.com; s=google; t=1685979603; x=1688571603;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=3y8ZxaitI4vDMB0+bZfjoHdHul+aXR4kvCb6HBDbSsk=;
-        b=JaqNg7sN/e7gIeih2uZhtfREFG2IH1olkhz63U6B6sCbbDXJ+OSaBFdImVqpTtz7dQ
-         k7dh1Kj3qgCbGUwraqgZGgGxaTIc6oX9sYPr1SVxsEbXdCwqE/9QQkgyIb6IcRTqvumO
-         7n4xeE37coXrJ431vwE9t4gOlstc/yaKtSMg026KWweGp9qc6qDenmzprcxJdC4pgktU
-         KFBdLVfhS9+755LCUU+/m+C+SW7Xn+C9lThCIaQ48tHJQ3jDNH2szJaoWf2GRnhArOvK
-         0OaSEoMvpudVAuesI1tkV0oZqmvO79O6POYuNbVc1r4XHZlhfGaXBVw6OpLv3qdwf/pV
-         jxpA==
+        bh=d1t0mcJTBhtsZBYqWTjUk/5U+5ffoYMHXYjoCjqrD1Y=;
+        b=KkDBrzsVTXjJSlITJUCo4tj7VbW9qS357vD5P+gVhnWDxE71n+Tc+Im5MlhPimeD/V
+         OoVsmX2fbbHAQfKk8oKbEkjshrqbqhqyjwkaSEhxMVaT750fG2XPlrw04hXWIBe99HGI
+         2qjHYQqhiGT0DIpxuvn3o5ztZqegGYepDTovsThwJ5iRwmXG0uQCNVPCUN5zpGcpcABV
+         n+1XYPb4f6Xb1y1Yx9eB5VUdBQFyCXwq1/DzQvn+g09u1pbPtHh1XAz6fe1OKdRSnJFR
+         6SUtqFkAcvZ4f2Vzm+4cH4NQOyK8p8BvQ3ExUi/n+SjuUaX7yNIaRyz//o14ytKiIc1T
+         CwvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685979598; x=1688571598;
+        d=1e100.net; s=20221208; t=1685979603; x=1688571603;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3y8ZxaitI4vDMB0+bZfjoHdHul+aXR4kvCb6HBDbSsk=;
-        b=iKR2rkUDMqPP0watA1ir1KaVWwqeUdiJmyjuUXR4D/v9wmbOJK2ucaohabFCSy2i7E
-         nOLM+NcHhzKH7anxLWU4KtAVWAVaQjDE1BvUEAqzR8vh2Qbq76daDqezr9p0gM9eNJvr
-         PCvA9roF/LUiKmA68obF7HcI8iFyV98wJZEukeys0m1lDxU/qecyaSpAh3PjlRQReZFW
-         ejkuI+tdZk2VOXFbuMltIvSUpD9b7KVi5SRpb4egaZ6LokLviFJex8BrFBn4nl0LOWMb
-         58Lcq6qsbXzBHxsm6xgAByhGMI3LuT3hyoqcSw87KXLnepV5VofvwlnSRKwC7Y7VmsFj
-         Fc8A==
-X-Gm-Message-State: AC+VfDy0AFOzqSrN+7ibUApGYaWUAiURNXxm/t3sxrnERp1rpQbnM8WK
-	qVSgJO3uzUE+HHvusJWgUb8u3u7kK2XtiSnZanAuz7PMFaWeA5es0oeUGdvlfYb+/ff2gUSpgDG
-	kirhI6Jc2496IwlpHNE8uLR/mg1q30yNlCm0j8opKGsTTGOjFj/q5BuLTr//cq0Frjml1Mvk2bu
-	H+ZfnDH5DiM1zpk/E=
-X-Google-Smtp-Source: ACHHUZ6VLVHTULzJC3UwlOIGxh1xz1Hej5pdJKL54f/HWuLX+oy5kWMBPi/AnZJSJIE42NhnPdD6dQ==
-X-Received: by 2002:a17:903:41c7:b0:1a1:b3bb:cd5b with SMTP id u7-20020a17090341c700b001a1b3bbcd5bmr9720134ple.62.1685979598362;
-        Mon, 05 Jun 2023 08:39:58 -0700 (PDT)
+        bh=d1t0mcJTBhtsZBYqWTjUk/5U+5ffoYMHXYjoCjqrD1Y=;
+        b=HiX1AykF+pQSVyyi4oGn1II+gZu6OXcdgVZ6d/qiIqtfZjUuXgBIz/XNgB17JA/s7u
+         QvUPbTFA5IAT1DLszFdPgHlbcVTVupsEWFA92yQN08U0tRLZH9gz/zT/U5dq07lC73in
+         lJ5hoMIXJHLeUKQ68ol1qj7Z53H45jKAwk8KwgVfl7kpTgU6Prac7qOgRZYGe7SFD6Dz
+         XbuuCTNzsP+f0iuAo7P1uF2cLeDuaW6cLQBvjqEu5eoiQTg8WZdYOChLMfMy6RYDrv1e
+         lY+m2HqnA80E58QE+7eyFXB2UDxo6Gbc1OkRYnMKhenDJnqoDNmscVVOV/igB3aiWnlT
+         +niA==
+X-Gm-Message-State: AC+VfDw6clKjeUBJgwYxqqnUTGI5qqxs3GWIFmDXE8Q+sd+CM8WwojvA
+	QRgwC650aEHxGr4fbb/4IQANGm9Pf5EwI9wlWEVMyUSeos0SePgUzu1L5g4kEY9JJn8mCx2pHrN
+	7p1LTvFddnRAg1doX/cYksA+Ihx45iIBEbc8NANJNHiwl/3bkphOL1RD5Ghofl0cyXfpCBGJgP8
+	PeibPIA4FX1oeNkW8=
+X-Google-Smtp-Source: ACHHUZ4biNRG8kD3a9Fs8sx7VC+IQ8g8hB5i4oIU0XWsT6nRq3hDin/sLuRVSx2ZBcuwL9/OkWm9jA==
+X-Received: by 2002:a17:903:189:b0:1b1:76c2:2966 with SMTP id z9-20020a170903018900b001b176c22966mr8471125plg.20.1685979602723;
+        Mon, 05 Jun 2023 08:40:02 -0700 (PDT)
 Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id jk19-20020a170903331300b001b0aec3ed59sm6725962plb.256.2023.06.05.08.39.54
+        by smtp.gmail.com with ESMTPSA id jk19-20020a170903331300b001b0aec3ed59sm6725962plb.256.2023.06.05.08.39.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jun 2023 08:39:57 -0700 (PDT)
+        Mon, 05 Jun 2023 08:40:02 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -72,25 +72,24 @@ To: linux-riscv@lists.infradead.org,
 Cc: vineetg@rivosinc.com,
 	greentime.hu@sifive.com,
 	guoren@linux.alibaba.com,
+	Vincent Chen <vincent.chen@sifive.com>,
 	Andy Chiu <andy.chiu@sifive.com>,
-	Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Evan Green <evan@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Celeste Liu <coelacanthus@outlook.com>,
-	Andrew Bresticker <abrestic@rivosinc.com>
-Subject: [PATCH -next v21 03/27] riscv: hwprobe: Add support for probing V in RISCV_HWPROBE_KEY_IMA_EXT_0
-Date: Mon,  5 Jun 2023 11:07:00 +0000
-Message-Id: <20230605110724.21391-4-andy.chiu@sifive.com>
+	Anup Patel <apatel@ventanamicro.com>,
+	Guo Ren <guoren@kernel.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: [PATCH -next v21 04/27] riscv: Add new csr defines related to vector extension
+Date: Mon,  5 Jun 2023 11:07:01 +0000
+Message-Id: <20230605110724.21391-5-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230605110724.21391-1-andy.chiu@sifive.com>
 References: <20230605110724.21391-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_084000_377352_3F0FC1DA 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20230605_084003_746017_BEBEBC66 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,72 +107,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Probing kernel support for Vector extension is available now. This only
-add detection for V only. Extenions like Zvfh, Zk are not in this scope.
+From: Greentime Hu <greentime.hu@sifive.com>
 
+Follow the riscv vector spec to add new csr numbers.
+
+Acked-by: Guo Ren <guoren@kernel.org>
+Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Suggested-by: Vineet Gupta <vineetg@rivosinc.com>
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Evan Green <evan@rivosinc.com>
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
-Changelog v20:
- - Fix a typo in document, and remove duplicated probes (Heiko)
- - probe V extension in RISCV_HWPROBE_KEY_IMA_EXT_0 key only (Palmer,
-   Evan)
----
- Documentation/riscv/hwprobe.rst       | 3 +++
- arch/riscv/include/uapi/asm/hwprobe.h | 1 +
- arch/riscv/kernel/sys_riscv.c         | 4 ++++
- 3 files changed, 8 insertions(+)
+ arch/riscv/include/asm/csr.h | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
-index 9f0dd62dcb5d..7431d9d01c73 100644
---- a/Documentation/riscv/hwprobe.rst
-+++ b/Documentation/riscv/hwprobe.rst
-@@ -64,6 +64,9 @@ The following keys are defined:
-   * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as defined
-     by version 2.2 of the RISC-V ISA manual.
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index b6acb7ed115f..b98b3b6c9da2 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -24,16 +24,24 @@
+ #define SR_FS_CLEAN	_AC(0x00004000, UL)
+ #define SR_FS_DIRTY	_AC(0x00006000, UL)
  
-+  * :c:macro:`RISCV_HWPROBE_IMA_V`: The V extension is supported, as defined by
-+    version 1.0 of the RISC-V Vector extension manual.
++#define SR_VS		_AC(0x00000600, UL) /* Vector Status */
++#define SR_VS_OFF	_AC(0x00000000, UL)
++#define SR_VS_INITIAL	_AC(0x00000200, UL)
++#define SR_VS_CLEAN	_AC(0x00000400, UL)
++#define SR_VS_DIRTY	_AC(0x00000600, UL)
 +
- * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
-   information about the selected set of processors.
+ #define SR_XS		_AC(0x00018000, UL) /* Extension Status */
+ #define SR_XS_OFF	_AC(0x00000000, UL)
+ #define SR_XS_INITIAL	_AC(0x00008000, UL)
+ #define SR_XS_CLEAN	_AC(0x00010000, UL)
+ #define SR_XS_DIRTY	_AC(0x00018000, UL)
  
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 8d745a4ad8a2..7c6fdcf7ced5 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -25,6 +25,7 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
- #define		RISCV_HWPROBE_IMA_FD		(1 << 0)
- #define		RISCV_HWPROBE_IMA_C		(1 << 1)
-+#define		RISCV_HWPROBE_IMA_V		(1 << 2)
- #define RISCV_HWPROBE_KEY_CPUPERF_0	5
- #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 5db29683ebee..88357a848797 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -10,6 +10,7 @@
- #include <asm/cpufeature.h>
- #include <asm/hwprobe.h>
- #include <asm/sbi.h>
-+#include <asm/vector.h>
- #include <asm/switch_to.h>
- #include <asm/uaccess.h>
- #include <asm/unistd.h>
-@@ -171,6 +172,9 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
- 		if (riscv_isa_extension_available(NULL, c))
- 			pair->value |= RISCV_HWPROBE_IMA_C;
- 
-+		if (has_vector())
-+			pair->value |= RISCV_HWPROBE_IMA_V;
++#define SR_FS_VS	(SR_FS | SR_VS) /* Vector and Floating-Point Unit */
 +
- 		break;
+ #ifndef CONFIG_64BIT
+-#define SR_SD		_AC(0x80000000, UL) /* FS/XS dirty */
++#define SR_SD		_AC(0x80000000, UL) /* FS/VS/XS dirty */
+ #else
+-#define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
++#define SR_SD		_AC(0x8000000000000000, UL) /* FS/VS/XS dirty */
+ #endif
  
- 	case RISCV_HWPROBE_KEY_CPUPERF_0:
+ #ifdef CONFIG_64BIT
+@@ -375,6 +383,12 @@
+ #define CSR_MVIPH		0x319
+ #define CSR_MIPH		0x354
+ 
++#define CSR_VSTART		0x8
++#define CSR_VCSR		0xf
++#define CSR_VL			0xc20
++#define CSR_VTYPE		0xc21
++#define CSR_VLENB		0xc22
++
+ #ifdef CONFIG_RISCV_M_MODE
+ # define CSR_STATUS	CSR_MSTATUS
+ # define CSR_IE		CSR_MIE
 -- 
 2.17.1
 
