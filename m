@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CD3AC77B73
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 14:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC65C7EE23
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 14:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A4HP0irXrhbOLJIPLfpKeFnGNjJErmEYSnpR0ldFHeY=; b=nYUQZSbiCsMTNH
-	0fcEoQQN2KdMEmcYtgjszDh3StDl/WXVmTVhoIVUG5mGX9yUGNn8KkJVJfI3/kTd39sKNgGlpTCLP
-	Bj/DqREbVYNdBz/cVi5nkiOZnz7XFa2J+UNhxE0LI8MgPKnfaqwPZ+RmEhxmt/AxaddngkYesRKSH
-	sXGyM4l0mQTid61z9c8t60FdLL0fB3lAOlmkltya9mwMVgrByRnhDw9FyB8JPgx/fY0n3kSNhxhtt
-	vaJU6dhsMj7nA2pjBAFZnOOpxJupws1yr10JT0E6jbKSKhsHtxOih7ItNbVP+3CO/gBDMcqym7USy
-	R1Dg/2TUGJoaQJYXs8yA==;
+	List-Owner; bh=6eKtrfO6msIFWJIt3ZR6XjReySHjFG5mbvSUcpAChB0=; b=kTh2C9PpCjUE13
+	ulQrhRzZ6t6EXtI4ClzHm8ratDwIhUW80iI3y845H89MAK74a8UUZOOQtOSo5p6aAN9e1JYRjAMvx
+	Imj/UUCEeJ/vD00VtgcSSUUONHyw3/G/F/tM8qEGmAnz7sqjJr48ffPJW39CyT5dGD8PTuCNFUXMe
+	gZg2+w8eZOOs/dzszSI397zeZ15++DS1LperTi7TxVvQq+XNKxdwPueVOK8X1sG7VCpQQfX9uplbe
+	9LqEflriFbuIAkroOY8i0BtXmhXtaevYikMAh7ZvxTdqw0LSXlyn5zMdEOuSGr3vQyctUlnCva7Ah
+	nJHhrue38bqATMlCVhiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6BIv-00FoKZ-0i;
-	Mon, 05 Jun 2023 14:35:29 +0000
-Received: from mail-pj1-f49.google.com ([209.85.216.49])
+	id 1q6BJa-00FoZf-2O;
+	Mon, 05 Jun 2023 14:36:10 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6BIs-00FoIN-2E
-	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 14:35:27 +0000
-Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-256931ec244so4165189a91.3
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Jun 2023 07:35:26 -0700 (PDT)
+	id 1q6BJX-00FoXD-0x;
+	Mon, 05 Jun 2023 14:36:08 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-50d897af77bso684376a12.1;
+        Mon, 05 Jun 2023 07:36:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1685975725; x=1688567725;
+        d=gmail.com; s=20221208; t=1685975764; x=1688567764;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2WhshXKr1H1IgI6UHBSQIBmTcD1tz7rfuPsSZ0ruzz8=;
-        b=H7ntuHScdWoPUzoKwZRiZvqfG0awHlrUSSK1pAs+lyeqFTCIxUqklYXFE6dAzkkCBZ
-         uCgLf76q03S709XNLv5k7Aow/J45iEBVaUcEhIKIkrhFaZkQaarHrSejsZFr8ZzJLbfD
-         YSD1qJIncAISnp2zKZsfw7oNLb2W867w3mU3+2RBoJkzxD6PadpJqptPo4tMnaYlBD55
-         6DZiEZ80LPwMv88d+hydYcCdPZKMzpbuaqK7MfRVO4nuu3nv9V+dEfqx9Or2N2mU/rYt
-         DA0f6kwF8yS4K5wJWWbFpm67k5WE+l/oAKu3FnPizmpf4ENTAi1b28sbxMsVTCdhpNmE
-         bl6Q==
+        bh=/nEIx2pKx8MANmuUD53PuQCkyn4NP8umHBPTpshdhtE=;
+        b=X4pOGtiEGzl58GIFHbyV096t93IrJzELqcypLc4QMyHeBwAan/aALSMopAZ+lqPIs/
+         PZNtR1f+KboWQSY8gUKV8bP6VLPOPyLj9X+PcDBik6Rb1GkoW1dQzGRxs/VB+cefUAHk
+         oqOoq9ZzN1ix9J54M/O922WWDlAgpQE5AKeuQY1UWV5aftGRdFXROUT/wO25J2bq7tvJ
+         ntDFTIewi2nWrpz4P99jP9etHFIKzZEQQ2s93Ttnro2HDYWUBGQU+f9mpHNbRQ5IlJbB
+         1OEzF7yvggyK3Clsj7G1B3wcFoRHXo6xJ+JId++mQ9eGPjlFHkVYB7SLL19lfxy+iJ6r
+         HQbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685975725; x=1688567725;
+        d=1e100.net; s=20221208; t=1685975764; x=1688567764;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2WhshXKr1H1IgI6UHBSQIBmTcD1tz7rfuPsSZ0ruzz8=;
-        b=WdRgnhwVAsfckQg5tqpOaYaGMcU7YWBuBeUK+W2yagZgXmdcFKhaMubSzrANFUxUlu
-         27NheUFnGOu0FqcB7AWrhzA1f7DRCsrUPnaZIVUy81DGTOmIMu8meZaO2nL2JhNx7NX/
-         tyTxE16krOfI9RbDePylBWa80OedO9p7RJatvG12MA4Va+QaDECd//fQgBZoswoApnyV
-         mzFpwyK4oJfc2Q4se+EYc5hOtCioCaztRKUoI4YsNYKUYBP4Z94ejcsttuABvb0+/SSi
-         f/Yznb5TCIW2GYirtAdVpXlufDPRkVKjK4GxoBP9wh0Q152vsVep51BlK+gBydb/0WCs
-         VkyQ==
-X-Gm-Message-State: AC+VfDwOPQ6ng/sf+lTnFxXRRB+/vYoeUEBZNA4bhrmJiSs/Lyzpx0lB
-	0csDMk9sXllbz+4MkPGaGDd01HEOxIf5Er1i8+E=
-X-Google-Smtp-Source: ACHHUZ4Ov2HL9q+WOUyTJWRvS+NleXOMHYl+52PubaZZyMSGeiU54ocyAhUOLpl4Mv27fCWN3q8bdw==
-X-Received: by 2002:a17:90a:9201:b0:255:cddf:a0c8 with SMTP id m1-20020a17090a920100b00255cddfa0c8mr7068618pjo.41.1685975725413;
-        Mon, 05 Jun 2023 07:35:25 -0700 (PDT)
-Received: from kerodi.Dlink ([106.51.186.3])
-        by smtp.gmail.com with ESMTPSA id z14-20020a17090a1fce00b00250334d97dasm8297069pjz.31.2023.06.05.07.35.22
+        bh=/nEIx2pKx8MANmuUD53PuQCkyn4NP8umHBPTpshdhtE=;
+        b=OmpM+XWJ3Ei2gp+GHGXzyuz4mv7HAhRjG/pVxvEpui9TmDbS3PeL8P8TOmrBbSd4d7
+         LRDakhdb6N/Nq99jMC/vojgzP14WDMqZMe8hNaR2aQY2afDFVH5cP7KSYLz+BfmRAVE/
+         ARzUoVhJHNqANJ6DwF1oh9YsFCswDM1EvaJsW7bn3c9D91sf4g99iAw5Ijg/n1KLbhhG
+         gauyBJq1qLsKX3EEK3eblrpU3psk91dLGiiuJm5vwqikc3biMBjXe1Io87tyDamkcmJX
+         cUajzGtwp2h8BTU9UDDQ/yR6nF02Kw/ZF2KSiQOeEbcBKw+redThm/PXRPvlKRvPBcZ0
+         ZNUg==
+X-Gm-Message-State: AC+VfDxx+BVEZrXrfYpJnbw6ThAYyBNr7X2jlUYyTLutDTLx4kGuJTBf
+	zd0Jz6abM1ayEB8ROBKfqIE=
+X-Google-Smtp-Source: ACHHUZ64cK7Y08p9XC1fThPd/qyz85iOAi9xrRj76BmDStiQbKH5iM+XYS3Sd25RTQiQg9fupo3QbA==
+X-Received: by 2002:a17:906:7a17:b0:974:56cb:9dfc with SMTP id d23-20020a1709067a1700b0097456cb9dfcmr9788715ejo.1.1685975764343;
+        Mon, 05 Jun 2023 07:36:04 -0700 (PDT)
+Received: from localhost ([134.191.220.83])
+        by smtp.gmail.com with ESMTPSA id i21-20020a170906851500b00965e9a23f2bsm4364473ejx.134.2023.06.05.07.35.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jun 2023 07:35:25 -0700 (PDT)
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 -next 2/2] RISC-V/perf: Use standard interface to get INTC domain
-Date: Mon,  5 Jun 2023 20:05:12 +0530
-Message-Id: <20230605143512.707533-3-sunilvl@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230605143512.707533-1-sunilvl@ventanamicro.com>
-References: <20230605143512.707533-1-sunilvl@ventanamicro.com>
+        Mon, 05 Jun 2023 07:36:04 -0700 (PDT)
+Date: Mon, 5 Jun 2023 22:35:20 +0800
+From: Zhi Wang <zhi.wang.linux@gmail.com>
+To: Vipin Sharma <vipinsh@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com,
+ suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
+ will@kernel.org, chenhuacai@kernel.org, aleksandar.qemu.devel@gmail.com,
+ tsbogend@alpha.franken.de, anup@brainfault.org, atishp@atishpatra.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ seanjc@google.com, pbonzini@redhat.com, dmatlack@google.com,
+ ricarkol@google.com, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, kvm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 09/16] KVM: arm64: Document the page table walker
+ actions based on the callback's return value
+Message-ID: <20230605223520.00007fbd.zhi.wang.linux@gmail.com>
+In-Reply-To: <20230602160914.4011728-10-vipinsh@google.com>
+References: <20230602160914.4011728-1-vipinsh@google.com>
+	<20230602160914.4011728-10-vipinsh@google.com>
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_073526_730960_F5562D69 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20230605_073607_332931_2606264B 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,62 +97,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently the PMU driver is using DT based lookup to
-find the INTC node for sscofpmf extension. This will not work
-for ACPI based systems causing the driver to fail to register
-the PMU overflow interrupt handler.
+On Fri,  2 Jun 2023 09:09:07 -0700
+Vipin Sharma <vipinsh@google.com> wrote:
 
-Hence, change the code to use the standard interface to find
-the INTC node which works irrespective of DT or ACPI.
+> Document what the page table walker do when walker callback function returns
+> a value.
+> 
+> Current documentation is not correct as negative error of -EAGAIN on a
+> non-shared page table walker doesn't terminate the walker and continues
+> to the next step.
+> 
+> There might be a better place to keep this information, for now this
+> documentation will work as a reference guide until a better way is
+> found.
+>
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
----
- drivers/perf/riscv_pmu_sbi.c | 17 ++---------------
- 1 file changed, 2 insertions(+), 15 deletions(-)
+After reading the whole patch series, I was thinking it might be a good
+time to improve the way how the visitor function and page table walker
+talk to each other. The error code is good enough before, but its meaning
+seems limited and vague when the visitor function wants to express more about
+what exactly happens inside. I am not sure if it is a good idea to continue
+that way: 1. found a new situation. 2. choosing a error code for visitor
+function. 3. walker translates the error code into the situation to
+handle. 4. document the error code and its actual meaning.
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 4f3ac296b3e2..0bc491252a44 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -739,7 +739,6 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
- {
- 	int ret;
- 	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
--	struct device_node *cpu, *child;
- 	struct irq_domain *domain = NULL;
- 
- 	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
-@@ -756,20 +755,8 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
- 	if (!riscv_pmu_use_irq)
- 		return -EOPNOTSUPP;
- 
--	for_each_of_cpu_node(cpu) {
--		child = of_get_compatible_child(cpu, "riscv,cpu-intc");
--		if (!child) {
--			pr_err("Failed to find INTC node\n");
--			of_node_put(cpu);
--			return -ENODEV;
--		}
--		domain = irq_find_host(child);
--		of_node_put(child);
--		if (domain) {
--			of_node_put(cpu);
--			break;
--		}
--	}
-+	domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(),
-+					  DOMAIN_BUS_ANY);
- 	if (!domain) {
- 		pr_err("Failed to find INTC IRQ root domain\n");
- 		return -ENODEV;
--- 
-2.34.1
+Eventually I am afraid that we are going to abuse the error code.
+
+What about introducing a set of flags for the visitor function to express
+what happened and simplify the existing error code?
+
+> Signed-off-by: Vipin Sharma <vipinsh@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_pgtable.h | 15 +++++++++++++--
+>  1 file changed, 13 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 8ef7e8f3f054..957bc20dab00 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -711,8 +711,19 @@ int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>   * after invoking the walker callback, allowing the walker to descend into
+>   * a newly installed table.
+>   *
+> - * Returning a negative error code from the walker callback function will
+> - * terminate the walk immediately with the same error code.
+> + * Depending on the return value from the walker callback function, the page
+> + * table walk will continue or exit the walk. This is also dependent on the
+> + * type of the walker, i.e. shared walker (vCPU fault handlers) or non-shared
+> + * walker.
+> + *
+> + * Walker Type  | Callback         | Walker action
+> + * -------------|------------------|--------------
+> + * Non-Shared   | 0                | Continue
+> + * Non-Shared   | -EAGAIN          | Continue
+> + * Non-Shared   | Any other        | Exit
+> + * -------------|------------------|--------------
+> + * Shared       | 0                | Continue
+> + * Shared       | Any other        | Exit
+>   *
+>   * Return: 0 on success, negative error code on failure.
+>   */
 
 
 _______________________________________________
