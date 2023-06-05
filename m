@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08FBAC7EE23
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 10:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B2CC77B73
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 10:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yz7GtOPXE7EEP8XkfuUZKlwiL748k5W78uo0eO8TGAw=; b=1R7aUKZMkfcfFS
-	DD8KaBnMO/1u9A+Tfoyi9Ng93A0IOvogOuTPXT5aqpYJo6lrDc9Sg/t1vaZ7yGnpJVuB4MjYbDy8l
-	/eF5gTNwZXWgCRd0W/o+nvnKEzu1GXE7NHlMogvnDnezHRXNlgIUW3LoIy8dd03dgq8BkoVYZ3x4u
-	yIcc+5R0ylbqQBxdzghUTSiBGKDXXs7VYrz/dO2HobC3AHSj14d4FoCQbiY8/QxyDhOPXuNV9CVqS
-	EJavXGIVKBBnalc5L2yvhhgr87visoyCBZYSBEvZ1+3YLMZGa/OLmVP8BgfMpf/61ott8wEBMAVyX
-	iaV2lMoJpSUwGyMNNQ6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U84DXfva70Dhr9+kxRPUqJkqDCeVOHwpCcqse5FZOPM=; b=T7nNN9jbCpJ8dY+RLaN/tWH+Kd
+	QWhjAMMrU2Wp0Zl4gW6mYiRwvlycB5JNyZo63gizBLVa2PRzcy+3dx5pb1zyT9I7J9hb+8I+610Bt
+	vBkat32U2DMV5dKjEfbMjUwE4pRTPpq5ThxETHz3C1A0VEH0snDNWPU5lKL5B0NYRK9N1VbSW74OP
+	XPnucaWBlHT7vwVxdXWuN7XdF9in8ygm/7ZDN6gWronG1vi5R6BczwzZdGyBEj6g4RywI1IHtr5V6
+	gJHhLsIUnA2WLVzqWpACZW3URaNrRmq1YbmbjpLtC8xHd1jtCvsA3SDWDgVbgZxZf7SY4S65fpiLU
+	w1Iz5Q3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q67qh-00F6gv-15;
-	Mon, 05 Jun 2023 10:54:07 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1q67vW-00F9zF-2a;
+	Mon, 05 Jun 2023 10:59:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q67qe-00F6bM-0c
+	id 1q67vT-00F9wC-2O
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 10:54:05 +0000
-X-QQ-mid: bizesmtp64t1685962422tk6mmkxh
-Received: from linux-lab-host.localdomain ( [61.141.77.49])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 05 Jun 2023 18:53:41 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: k8Irs33ik7tnjsoDgjWjI3LC4qOfQWHYM30jJacF0M6fVfrVsLBbwbcZG0OQy
-	imap5Tt6ar5OuT1r9rwsuHV/ixWQwcEQr2dHZeJLjinsSBuTz+oWl2n4sj1DY8FIVkjygVj
-	t7+cjT3hCJftPzZP/lhhhgS4sVv3cv2299aF0ehg4zpC+0f5zT4pMryksZ9cWI0+/lVLUxs
-	/o3cdgI2pnHCjHFGkRkvaBt1VOzWLhThw6lF3ChLPJptM0z/1QBTX5P+8hfCKR6eEI+9Cu8
-	nJLi+FQYPwpyARrWBtJcmH7U5ZMQ7E2GY0X2Pm+kuewb6YBsM16rSys4880GZ8S4MezifVW
-	+HnBmWGGSEk5Ajsjjj322+prpWJJPa7Qiuq6FjPt3ENXY/NWj0Zf1fA+KjzwQ==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7363967119739023590
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	paulmck@kernel.org,
-	thomas@t-8ch.de
-Subject: Re: [PATCH 0/4] selftests/nolibc: fix up and improve test report
-Date: Mon,  5 Jun 2023 18:53:32 +0800
-Message-Id: <20230605105332.245553-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ZH2BhWcRzvmvjzn8@1wt.eu>
-References: <ZH2BhWcRzvmvjzn8@1wt.eu>
+	Mon, 05 Jun 2023 10:59:04 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0820B6156F;
+	Mon,  5 Jun 2023 10:59:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC6ECC433D2;
+	Mon,  5 Jun 2023 10:58:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1685962742;
+	bh=/3rPkZp3G1q/+mjzIUib+Reuac1X1iM8z3BUwaVACOw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bACOM4T6bynYlwQjyKJfA7DrAAGoqodaVx0JjEulxIC4fTppuGQDDHpP2qxxFgkYE
+	 UcrTKd+WdOJW9HP0U9IYArIfEVsNa5JGrPoqw3vQemFx59ZQSeqqU6JY0YBOQD38UX
+	 heFNreryzj/+BFcYyDLh+3RN5mv2TXUefJNpO6A2fIAHjFmXvfW3mveoHBLTBHeKLy
+	 3RL4FAnu3A8wIodctBG0shWCcUgbNws+NiJyB5fnWgwaaZO+zaZWLkEnviiIS78Hsz
+	 vj87ZwJyZvob3NcwdUdcTmfBTpRhxhfOfhaEixJVu6IEfiNveNT3K9TCc6P9eBmM7W
+	 5w3nfs4YqDaKA==
+Date: Mon, 5 Jun 2023 11:58:57 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Song Shuai <songshuaishuai@tinylab.org>
+Cc: alexghiti <alexghiti@rivosinc.com>, robh <robh@kernel.org>,
+	ajones <ajones@ventanamicro.com>, anup <anup@brainfault.org>,
+	palmer <palmer@rivosinc.com>,
+	"jeeheng.sia" <jeeheng.sia@starfivetech.com>,
+	"leyfoon.tan" <leyfoon.tan@starfivetech.com>,
+	"mason.huo" <mason.huo@starfivetech.com>,
+	"paul.walmsley" <paul.walmsley@sifive.com>,
+	"conor.dooley" <conor.dooley@microchip.com>,
+	guoren <guoren@kernel.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>
+Subject: Re: Bug report: kernel paniced while booting
+Message-ID: <20230605-catnip-gallery-c20cc203b186@spud>
+References: <tencent_7C3B580B47C1B17C16488EC1@qq.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+In-Reply-To: <tencent_7C3B580B47C1B17C16488EC1@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_035404_558628_E3281A3B 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20230605_035903_822753_15BB6413 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +77,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7832057190154501654=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Mon, Jun 05, 2023 at 11:47:41AM +0800, Zhangjin Wu wrote:
-> > Thanks very much for your merge of the v3 generic part1 of rv32, just
-> > tested your latest 20230604-nolibc-rv32+stkp6 branch, everything work
-> > well except a trivial test report regression on the 'run' target.
-> (...)
-> 
-> I've squashed your fix into the pending patch and pushed branch
-> 20230605-nolibc-rv32+stkp7. I have only tested userland (I really
-> need to leave now, no time for a kernel build).
->
 
-Just did kernel build + nolibc test for arm, aarch64 and rv64, no regressions
-found.
+--===============7832057190154501654==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="yPgjLI/9lNvHen1P"
+Content-Disposition: inline
 
-> Zhangjin and Thomas, now that your last two fixes are merged, I'm
-> assuming that Paul can take the branch any time. If you're seeing a
-> showstopper that needs to be fixed, please let him know, and I'll
-> deal with it once I'm connected again, but please no more attempts
-> to further improve that branch for now (i.e. consider it merged for
-> any future work so that we can finally settle on something).
 
-Ok, let's work on v6.6 ;-)
+--yPgjLI/9lNvHen1P
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Zhangjin
+On Mon, Jun 05, 2023 at 10:52:14AM +0000, Song Shuai wrote:
 
-> 
-> Thanks!
-> Willy
+> This report is not identical to my prior report -- "kernel paniced when s=
+ystem hibernates" [1], but both of them=20
+> are closely related with the commit (3335068f8721 "riscv: Use PUD/P4D/PGD=
+ pages for the linear mapping").
+>=20
+> With this commit, hibernation is trapped with "access fault" while access=
+ing the PMP-protected regions (mmode_resv0@80000000)=20
+> from OpenSbi (BTW, hibernation is marked as nonportable by Conor[2]).
+
+Just to be clear, you enabled NONPORTABLE & hibernation, and then
+hibernating panicked for you on a system that uses standard OpenSBI?
+This is the existing, known, issue and not something you are trying to
+report as a new problem here, right?
+(Sorry, I am a bit slow today)
+
+Cheers,
+Conor.
+
+> In this report, efi_init handoffs the memory mapping from Boot Services t=
+o memblock where reserves mmode_resv0@80000000,=20
+> so there is no "access fault" but "page fault".
+>=20
+> And reverting commit 3335068f8721 indeed fixed this panic.
+
+--yPgjLI/9lNvHen1P
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZH2/8QAKCRB4tDGHoIJi
+0vDbAQD1SNCYKfmAuNUKkbuOXpKZPH7MLowsCtzhmC+1cmbjcwEAqiIJ7LGGwTxa
+G0Okg74x/RSarXC1mk7lvGDZjWQeDAw=
+=Ypye
+-----END PGP SIGNATURE-----
+
+--yPgjLI/9lNvHen1P--
+
+
+--===============7832057190154501654==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7832057190154501654==--
+
