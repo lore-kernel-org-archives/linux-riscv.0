@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF566C7EE24
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 09:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E53C77B73
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 09:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=31/O+TaESYrQuPhkz1srA/DehRqxXBXIVJy0CSue0TQ=; b=nCfkrOp2wlTL/O
-	nA2PiEzV0ly9ii3oBdEBnbRm2aSTV7kezr3Zdj65YnTi2zhgOIbyhecz5Wi6Bqjr1hERSY7QIrHjO
-	2+0TlLjmTQv3Mwt2fdvT0eW7+o2/8R4q2sbW0JFVlBhbPqoXLKND2BUB+vbIA/HH/CXbQuRWiP2G6
-	6ZnOgtnOqGKZG6GXyb/4zrdc2SvPfg6NvHE9rknZi9ups6MhTd/pF+NsagIv1nDjI0feavULmU3wE
-	IoJxYYrKthxhhYvMcI91o6Ryt414V+/6wA0+jYsedjDR59ZDH7IDP9wjbKc+rOEksmBRxshXVAtGZ
-	79pMb0OytiuCoVLgP4BQ==;
+	List-Owner; bh=yzS78355h5oNy+RLGXTjgPh/LfQnDgyeLGB0X8+ZYZk=; b=vpjio6JruqwgKD
+	XkDnoSoOKWBNOahvCligYbpYUIfI33KvNJ1cCve0uF7rBx07MH9cFWKO7LitdwxWvv/uRecTbUbHt
+	RqvIJ0t++msizgq4E7DvssaSa3nJpjMWBJH66QZ7MlZ2LnYVHl5amMcrCVGFcwqxWV3EP8NU3h39v
+	T+gg+vPEZKdMoUYE92UuKTOZZAr0Ge7ezn/NHJsd31OjDkoLIsXuqZs9RLxa0G2g9pFcthibtM8zS
+	R5bjW287bhChtJUB84zw/fefW0r30T1VRepjMHw+KyXftkQmyktULGtXGoKA4lrnlwM0BUddJsusn
+	SqAb6ejVmxb6YPebLa7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q66Os-00EpVt-2t;
-	Mon, 05 Jun 2023 09:21:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q66b8-00Eruj-2X;
+	Mon, 05 Jun 2023 09:33:58 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q66Ol-00EpRO-17;
-	Mon, 05 Jun 2023 09:21:15 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D05A861268;
-	Mon,  5 Jun 2023 09:21:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69FBDC433EF;
-	Mon,  5 Jun 2023 09:20:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1685956870;
-	bh=VAQ7yfzQtWyNohR4wxaMprdeMTDlqPdyTw6okH1kHrg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jK253SR7yhSPqefNFos3ffgdScPlfxLEgS1so3b12kxeFrCMZRgawvFm8WayBcEJg
-	 gsJRpMEGttvUT3HVy8GIHc65y0zhLLrBx4d+jkyhsnS/hQIbQr5LWBz2vZgDkJqevO
-	 +UIxJzVenJUyw/Uip8ZNP03sQq+Yr8qA1I9bh08IcIOmhh2JIjbopJQQXYTqJDA+gf
-	 Ib8fD2IpqNgfgglvW2/JWPvjCy1i6XCYLFHWvOg0HPpz5vZx6UOnmL3FtqiwyAdfsz
-	 iIun2EVvr5UICgLU5k5gsCEhuKWjokIA4YcB5nFxBvbjMNYU78+Z9LTAA6e8yLvHwk
-	 VVxBZGJqVTgtA==
-Date: Mon, 5 Jun 2023 12:20:40 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Kent Overstreet <kent.overstreet@linux.dev>,
+	id 1q66b4-00Errp-33
+	for linux-riscv@lists.infradead.org;
+	Mon, 05 Jun 2023 09:33:57 +0000
+X-QQ-mid: bizesmtp83t1685957608tzz4iygk
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 05 Jun 2023 17:33:26 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: UCO5VR5DCxd++cX5LQirmMNyZLC3eu9zWeL07KEu3eknxQBr52q+q6a7eYVC0
+	dtrJp2eVJi4X6qKEqUYPK4FDIvve+INoQeZVxnYP/+yarKQKMWwzDdSrn58U5/RhFh2cEGl
+	LdDbBTKfHa5Hxalg5LunK2UdNKAseZgqNwU7o14kBKySSWA0Yab58OxXPpWyKYkpofSQCbH
+	ngn7iDU7Mjs4VDb7aSI0lTwlTtW5WRnTEEge6ry6UWZ9z4vuov7QViP2mBteIpkNdsapucN
+	myI3oR5hI49TvTvcdOdQIex+dYfTag+AZhTKw721keQRG54QXdKKFFC8eGDjvRsaS3EpTbm
+	Oysb54CJYT/saCkBole+iCqBt5XlTGDR9amFbG1NXrnKmAFLo9PMJooWrHMNw==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6742117217107098079
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu
+Cc: arnd@arndb.de,
+	falcon@tinylab.org,
 	linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, netdev@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH 00/13] mm: jit/text allocator
-Message-ID: <20230605092040.GB3460@kernel.org>
-References: <20230601101257.530867-1-rppt@kernel.org>
- <ZHjDU/mxE+cugpLj@FVFF77S0Q05N.cambridge.arm.com>
- <ZHjgIH3aX9dCvVZc@moria.home.lan>
- <ZHm3zUUbwqlsZBBF@FVFF77S0Q05N>
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	thomas@t-8ch.de
+Subject: Re: [PATCH 1/4] tools/nolibc: unistd.h: add __syscall() and __syscall_ret() helpers
+Date: Mon,  5 Jun 2023 17:33:26 +0800
+Message-Id: <20230605093326.156266-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <ZH1+hkhiA2+ItSvX@1wt.eu>
+References: <ZH1+hkhiA2+ItSvX@1wt.eu>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZHm3zUUbwqlsZBBF@FVFF77S0Q05N>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_022111_493944_AAC2A125 
-X-CRM114-Status: GOOD (  47.98  )
+X-CRM114-CacheID: sfid-20230605_023355_330103_716565BB 
+X-CRM114-Status: GOOD (  35.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,124 +76,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 02, 2023 at 10:35:09AM +0100, Mark Rutland wrote:
-> On Thu, Jun 01, 2023 at 02:14:56PM -0400, Kent Overstreet wrote:
-> > On Thu, Jun 01, 2023 at 05:12:03PM +0100, Mark Rutland wrote:
-> > > For a while I have wanted to give kprobes its own allocator so that it can work
-> > > even with CONFIG_MODULES=n, and so that it doesn't have to waste VA space in
-> > > the modules area.
+> On Mon, Jun 05, 2023 at 01:58:57PM +0800, Zhangjin Wu wrote:
+> > > What about something like this:
 > > > 
-> > > Given that, I think these should have their own allocator functions that can be
-> > > provided independently, even if those happen to use common infrastructure.
-> > 
-> > How much memory can kprobes conceivably use? I think we also want to try
-> > to push back on combinatorial new allocators, if we can.
-> 
-> That depends on who's using it, and how (e.g. via BPF).
-> 
-> To be clear, I'm not necessarily asking for entirely different allocators, but
-> I do thinkg that we want wrappers that can at least pass distinct start+end
-> parameters to a common allocator, and for arm64's modules code I'd expect that
-> we'd keep the range falblack logic out of the common allcoator, and just call
-> it twice.
-> 
-> > > > Several architectures override module_alloc() because of various
-> > > > constraints where the executable memory can be located and this causes
-> > > > additional obstacles for improvements of code allocation.
-> > > > 
-> > > > This set splits code allocation from modules by introducing
-> > > > jit_text_alloc(), jit_data_alloc() and jit_free() APIs, replaces call
-> > > > sites of module_alloc() and module_memfree() with the new APIs and
-> > > > implements core text and related allocation in a central place.
-> > > > 
-> > > > Instead of architecture specific overrides for module_alloc(), the
-> > > > architectures that require non-default behaviour for text allocation must
-> > > > fill jit_alloc_params structure and implement jit_alloc_arch_params() that
-> > > > returns a pointer to that structure. If an architecture does not implement
-> > > > jit_alloc_arch_params(), the defaults compatible with the current
-> > > > modules::module_alloc() are used.
+> > > static inline long __ret_as_errno(long ret) /* or some other name */
+> > > {
+> > > 	if (ret < 0) {
+> > > 		SET_ERRNO(-ret);
+> > > 		ret = -1;
+> > > 	}
+> > > 	return ret;
+> > > }
 > > > 
-> > > As above, I suspect that each of the callsites should probably be using common
-> > > infrastructure, but I don't think that a single jit_alloc_arch_params() makes
-> > > sense, since the parameters for each case may need to be distinct.
+> > > This avoids another macro by using a normal function.
+> > >
 > > 
-> > I don't see how that follows. The whole point of function parameters is
-> > that they may be different :)
+> > It is reasonable, like it very much.
+> > 
+> > > Syscall return values should always fit into long, at least
+> > > extra polating from syscall(2) and the fact that they are returned in
+> > > registers.
+> > 
+> > Yes, I did use 'long' instead of 'int' for unistd.h locally, but since tried to
+> > let it work with 'void *' before (e.g. sys_brk, an older version support pass
+> > the errno value), so, the typeof() is used and the same to unistd.h, but at
+> > last, none of (void *) return type is really used in current patchset, so, we
+> > are able to use this normal function version without the checking of the type.
+> > 
+> > > 
+> > > It would be a bit more verbose:
+> > > 
+> > > int chdir(const char *path)
+> > > {
+> > > 	return __ret_as_errno(sys_chdir(path));
+> > > }
+> > >
+> > > But it's clear what's going on and also just one line.
+> > 
+> > Thanks Thomas, It looks good and I do like the 'embedded' calling of
+> > sys_chrdir(path), but __syscall() looks cleaner and shorter too, let's put them
+> > together:
+> > 
+> > int chdir(const char *path)
+> > {
+> > 	return __ret_as_errno(sys_chdir(path));
+> > }
+> > 
+> > int chdir(const char *path)
+> > {
+> > 	return __syscall(chdir, path);
+> > }
+> > 
+> > And even with:
+> > 
+> > int chdir(const char *path)
+> > {
+> > 	return __sysret(sys_chdir(path));
+> > }
+> > 
+> > __syscall() works likes syscall(), and the definition is similar to syscall(),
+> > but uses the syscall name instead of syscall number, If reserve __syscall(),
+> > the inline function would be renamed back to __syscall_ret() or something like
+> > the shorter __sysret(), to align with our new __syscall(). 
+> > 
+> > for sys.h:
+> > 
+> >     /* Syscall return helper, set errno as ret when ret < 0 */
+> >     static inline long __sysret(long ret)
+> >     {
+> >     	if (ret < 0) {
+> >     		SET_ERRNO(-ret);
+> >     		ret = -1;
+> >     	}
+> >     	return ret;
+> >     }
+> > 
+> >     /* Syscall call helper, use syscall name instead of syscall number */
+> >     #define __syscall(name, ...) __sysret(sys_##name(__VA_ARGS__))
+> > 
+> > for unistd.h:
+> > 
+> >     #define _syscall(N, ...) __sysret(my_syscall##N(__VA_ARGS__))
+> > 
+> > What about this version?
+> > 
+> > The potential 'issue' may be mixing the use of __syscall(), _syscall() and
+> > syscall(), but the compilers may help to fix up this for us, I don't think it
+> > is a bottleneck.
 > 
-> What I mean is that jit_alloc_arch_params() tries to aggregate common
-> parameters, but they aren't actually common (e.g. the actual start+end range
-> for allocation).
+> I think that could work. However, please place __attribute__((always_inline))
+> on these inline functions, as we don't want to turn them to function calls
+> even at -O0.
 
-jit_alloc_arch_params() tries to aggregate architecture constraints and
-requirements for allocations of executable memory and this exactly what
-the first 6 patches of this set do.
+Thanks, done.
 
-A while ago Thomas suggested to use a structure that parametrizes
-architecture constraints by the memory type used in modules [1] and Song
-implemented the infrastructure for it and x86 part [2].
-
-I liked the idea of defining parameters in a single structure, but I
-thought that approaching the problem from the arch side rather than from
-modules perspective will be better starting point, hence these patches.
-
-I don't see a fundamental reason why a single structure cannot describe
-what is needed for different code allocation cases, be it modules, kprobes
-or bpf. There is of course an assumption that the core allocations will be
-the same for all the users, and it seems to me that something like 
-
-* allocate physical memory if allocator caches are empty
-* map it in vmalloc or modules address space
-* return memory from the allocator cache to the caller
-
-will work for all usecases.
-
-We might need separate caches for different cases on different
-architectures, and a way to specify what cache should be used in the
-allocator API, but that does not contradict a single structure for arch
-specific parameters, but only makes it more elaborate, e.g. something like
-
-enum jit_type {
-	JIT_MODULES_TEXT,
-	JIT_MODULES_DATA,
-	JIT_KPROBES,
-	JIT_FTRACE,
-	JIT_BPF,
-	JIT_TYPE_MAX,
-};
-
-struct jit_alloc_params {
-	struct jit_range	ranges[JIT_TYPE_MAX];
-	/* ... */
-};
-
-> > Can you give more detail on what parameters you need? If the only extra
-> > parameter is just "does this allocation need to live close to kernel
-> > text", that's not that big of a deal.
 > 
-> My thinking was that we at least need the start + end for each caller. That
-> might be it, tbh.
+> I'm traveling today, I'll let you and Thomas debate and decide how you'd
+> like this to evolve.
+> 
 
-Do you mean that modules will have something like
+Happy traveling.
 
-	jit_text_alloc(size, MODULES_START, MODULES_END);
+This revision is basically derived from the 'long' type information and
+__ret_as_errno() from Thomas, I will wait suggestion from Thomas and then send
+v2 later.
 
-and kprobes will have
+> Also, please note that Paul is OK with merging for 6.5, but we should
+> absolutely limit last-minute changes to the strict minimum we're able
+> to test now.
 
-	jit_text_alloc(size, KPROBES_START, KPROBES_END);
-?
+Strongly agree, we can delay this and the left time64 syscalls to 6.6, because
+they require more cleanup and discussion.
 
-It sill can be achieved with a single jit_alloc_arch_params(), just by
-adding enum jit_type parameter to jit_text_alloc().
+Best regards,
+Zhangjin
 
-[1] https://lore.kernel.org/linux-mm/87v8mndy3y.ffs@tglx/ 
-[2] https://lore.kernel.org/all/20230526051529.3387103-1-song@kernel.org
-
-> Thanks,
-> Mark.
-
--- 
-Sincerely yours,
-Mike.
+> 
+> Thanks!
+> Willy
 
 _______________________________________________
 linux-riscv mailing list
