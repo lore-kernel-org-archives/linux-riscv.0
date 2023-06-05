@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15CEC7EE23
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 15:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F112EC7EE23
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 15:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TWSci5rtOKgUN9siDKhZUTGVSFdsyON/J8VryeaquwQ=; b=NOAE3v5CsFm0Tn
-	o/FR4oLm9oMeDyf80GA0tcdgHZC0WCV2Gbi6HJ/deK6vuMpePaInPMpYl/SaJSRHFLZg87BNSEly4
-	wv7lzdBqmTr0ej0ZLG0amaxZA8UcFvhM7/67Wfy57CHExkYfMFsmmANjbNWZDlqMPsBYKgbqoRvks
-	ZPw7KfWsvmW3lj0aXZlX1IpMnu+45Ws0/JcmxANBjn2TTMVOaObhGGQNUOop/V+PRz/5tGs2PG1so
-	uyNqwWsvQJTCrK6cyAzf8laoayG7j7Zkx9hpwV7QWpHnqCReVp/JdX9EtWbYh9ocNs4Q6ZprfBtyD
-	rnATqdtZ54xZBC4odi5Q==;
+	List-Owner; bh=B+MqIVrQzp4vmaH4a5qCewSMT4ZyoVGiZnARf/2Z8d8=; b=tgHDYTkSU41EZi
+	dDLg/1m63SIJbPP+M9UAnkv0nAEOmMOPu1BF/dtIublnTmQaqPR4a1eBhLXPtPKB7+6ehKYTjMcMf
+	tuKMDmUF9Hf5Cg8rlEbqR0jxMcUj31UsUw/ITsIKfAMgcHVUz7Pj+4l69XQycNA9AQ/PADPqfEmmp
+	NOBgjFXldxnmnbNN8TBmJwIVOfrcjARKILhoPyN5stqQgfacTPXYVE3lKEiuNLPYLPFDXZ02CaqLP
+	6RYGHHps9XY+nkJWX5UpmFpIeYHhLgTHjUnTdl/QMIklwa+zKt99rj2OL49GbvrZmdpMGL+LOmPId
+	LGQVP1ePNT0j3d9znZiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6CLa-00G0S9-2w;
-	Mon, 05 Jun 2023 15:42:18 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1q6CLp-00G0eO-16;
+	Mon, 05 Jun 2023 15:42:33 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6CLX-00G0P1-0H
+	id 1q6CLl-00G0Zo-1d
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 15:42:16 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1b024e29657so22419365ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Jun 2023 08:42:15 -0700 (PDT)
+	Mon, 05 Jun 2023 15:42:31 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1b075e13a5eso42840455ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Jun 2023 08:42:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1685979734; x=1688571734;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LQpOfl8clKnd1O4gu74PSUiT4R3rCnMiThuoNKoAYLc=;
-        b=dGIoYaTIu/Go0aZBEJDRNP5bu0ysEvnifzxjUTmQ7mGdMzkbzkinDQqDiPgMIKsSeq
-         Ym8QRUeTI5rCwPZwfSEOHk/wxdk8DFHr1eHQnbcksySVaY6hz03rTPeuaDXtZpvK++pX
-         oFu5BlBhLvkuBcR16vlbpSoHbf0Fthcw1u8Q9rRKwp8vPdW14gNni4kpC2No1tkBQUv4
-         vvMydl8riJBK26l7+we9Nyunz+D6OxLs38UInhGoJCYtIlnBaS5gVcX8YfyCsJOkgsSy
-         O44vtV1RrSqGaBvNoR+pZnTMYLobVs2CRbUU9WxtEVmSuD4ChyeQQA/f+K4OyIsR5c7R
-         Kvxg==
+        d=sifive.com; s=google; t=1685979747; x=1688571747;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=DUVXHBR1wkNxT0wOTAVxttFccgUOF7kcLoBjUYXBqWs=;
+        b=iYzrKAyeKuEm07UL9iOX/P9TElyo9gEXsx9KFr2y/P6B0ksio7e3N/hxpR69XX1y3F
+         iA1NqMcqNP86TnOUBqi1rYKedlBO7hZfMbJgAOtHuvpGe8pXKTmVmtX+Du/gQii3AnGS
+         4eHJlfd4r/8BD0zZDK9LU+IdCAsr4sDQyD4ayXLRrnx9tvHAqnZJS91D7nC2u3VqjzQ1
+         a5TeEMQIam86j005QHMOY0bBtcY2Blsj9iXMtfrI8b87ym9YjZ6jYsGZbeW+zDg4KN8+
+         luSfXeWOh4pThCfzbTyYsW47r55U1Zj9t8Nj8lvBy+yZ/ArO66MrDGVPX3nzM73A7vnK
+         agKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1685979734; x=1688571734;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LQpOfl8clKnd1O4gu74PSUiT4R3rCnMiThuoNKoAYLc=;
-        b=FVDRZ6Xt/heksE0uw///NX2SXop86++Ymb+k/FMkyGka8pg4y/pUlG+8uXyaU5b47R
-         NuVYAUFEgEBj6Ve2jbZQP1qaTirSteIC0zdlVjyhHX3R3RcP8bYXQ++wlJswfpxjlv5d
-         BHZsjwXIIBsFff5kosNUyESLkyYiqtPEdnF5/DNAFrfc1VV4HewQ1ZjA+Z/5HG7YQqeX
-         CiKqVr11OMrmAyhLvpAMb+g4uOAPlxxKkcTG+6/MsOmmZEAixxe3mb8gJtuxJjW2QlMY
-         VyCbchIQtv7AFxeBCXxmCygJd3BZLLG7XwiMAfx8cWmo7kUQn22FTkvmtM/ZUFPyxP29
-         VTaA==
-X-Gm-Message-State: AC+VfDyiWRdyF6NwNuFi0vuFAen6pgpHFq7vN/zftvyoYI7hWj0X9RWm
-	9FB1VNBA3EYhbonIeUfmUD/F1Ie2Ab0nzZNVqaCVczGtFcSBf/cVcOyfmvR4MZqpmxFhnY8BAPc
-	m2GpQIpVVLIFyPojUCn+IXNXEFnn0AvZb0T2rT/G6Mknqvc6JwGMxyIWibdQU8iHNGcHKvASOOh
-	JSSAfHZc28305VPI4=
-X-Google-Smtp-Source: ACHHUZ4HarBlrt7w5wC3w0gMuu62+7K9H3G8hOHQlJBusTnGINtatoDEV8k+cJjf2CL5U7wLG/4/dQ==
-X-Received: by 2002:a17:903:1108:b0:1b0:4883:2e03 with SMTP id n8-20020a170903110800b001b048832e03mr4028898plh.40.1685979733979;
-        Mon, 05 Jun 2023 08:42:13 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1685979747; x=1688571747;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DUVXHBR1wkNxT0wOTAVxttFccgUOF7kcLoBjUYXBqWs=;
+        b=U9RBOGgmk3o2unvg6qInnOUM4l67KOuy7BPGNCU9qDAuMdieNpJ6vp0wVORbL/EBkY
+         UgX1BxDh2P4O60kqPGtTRQpOBG8l2xkESF8u0/1ytAL+srVhW1rD1M9ap9w3WROYAYJK
+         jGqdY474vu2iUTvdjM1jl034gti1GktzGk9oxBs6C16dlY2g1bRDZSAatFImcijBFG1r
+         7N95ZM5qSC+ztqlKhIQzS5kBnXlcINAtre+I12ch6HHd2QIH1+da7RKAVmhveuIrKBqR
+         9ILzEvWH1f3kozDY1z1yf4Vmuj3zh7PtQ0aN4TKGmCHgPtcu82qOkl6sjpVD3nppuzfy
+         6toA==
+X-Gm-Message-State: AC+VfDwuspMwIE4Y2hNjzDWNgVG7IrAV3sqNSs+vDh4SI7xbjTEYW4d2
+	FXkahH/B014JPWTjwpj6DCOTV63qCNcX9dFjj+FAlmFqyudH6TI20eA75mGEoBQyFKyPQemP6yq
+	jDwfS3gXxoqstNyR4yBGwM7KR9A0CvJZf38iSjOXy2Ww9NG8Dk6Tzv/4AU4UCwVG5yaExTkixHq
+	+974/mTstTWfOpGNk=
+X-Google-Smtp-Source: ACHHUZ7zCGurL4a5HfUR4eL/XV4OHJ9jritWJ9+n74OmXQycqF4CMCgOy7gN52SgrzrywOwXHsjArg==
+X-Received: by 2002:a17:902:860c:b0:1b0:1036:608c with SMTP id f12-20020a170902860c00b001b01036608cmr7394453plo.25.1685979747022;
+        Mon, 05 Jun 2023 08:42:27 -0700 (PDT)
 Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id jk19-20020a170903331300b001b0aec3ed59sm6725962plb.256.2023.06.05.08.42.10
+        by smtp.gmail.com with ESMTPSA id jk19-20020a170903331300b001b0aec3ed59sm6725962plb.256.2023.06.05.08.42.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jun 2023 08:42:13 -0700 (PDT)
+        Mon, 05 Jun 2023 08:42:26 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -75,24 +73,19 @@ Cc: vineetg@rivosinc.com,
 	greentime.hu@sifive.com,
 	guoren@linux.alibaba.com,
 	Andy Chiu <andy.chiu@sifive.com>,
-	Bagas Sanjaya <bagasdotme@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Evan Green <evan@rivosinc.com>,
-	Vincent Chen <vincent.chen@sifive.com>
-Subject: [PATCH -next v21 25/27] riscv: Add documentation for Vector
-Date: Mon,  5 Jun 2023 11:07:22 +0000
-Message-Id: <20230605110724.21391-26-andy.chiu@sifive.com>
+	Evan Green <evan@rivosinc.com>
+Subject: [PATCH -next v21 26/27] selftests: Test RISC-V Vector prctl interface
+Date: Mon,  5 Jun 2023 11:07:23 +0000
+Message-Id: <20230605110724.21391-27-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230605110724.21391-1-andy.chiu@sifive.com>
 References: <20230605110724.21391-1-andy.chiu@sifive.com>
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_084215_130676_4A7C60C0 
-X-CRM114-Status: GOOD (  27.13  )
+X-CRM114-CacheID: sfid-20230605_084229_544536_2A5353AD 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,144 +97,387 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBwYXRjaCBhZGQgYSBicmllZiBkb2N1bWVudGF0aW9uIG9mIHRoZSB1c2Vyc3BhY2UgaW50
-ZXJmYWNlIGluCnJlZ2FyZCB0byB0aGUgUklTQy1WIFZlY3RvciBleHRlbnNpb24uCgpTaWduZWQt
-b2ZmLWJ5OiBBbmR5IENoaXUgPGFuZHkuY2hpdUBzaWZpdmUuY29tPgpSZXZpZXdlZC1ieTogR3Jl
-ZW50aW1lIEh1IDxncmVlbnRpbWUuaHVAc2lmaXZlLmNvbT4KUmV2aWV3ZWQtYnk6IFZpbmNlbnQg
-Q2hlbiA8dmluY2VudC5jaGVuQHNpZml2ZS5jb20+CkNvLWRldmVsb3BlZC1ieTogQmFnYXMgU2Fu
-amF5YSA8YmFnYXNkb3RtZUBnbWFpbC5jb20+ClNpZ25lZC1vZmYtYnk6IEJhZ2FzIFNhbmpheWEg
-PGJhZ2FzZG90bWVAZ21haWwuY29tPgotLS0KQ2hhbmdlbG9nIHYyMToKLSBhZGQgdXNhZ2UgZ3Vp
-ZGVsaW5lIGludG8gZG9jIChSw6ltaSkKQ2hhbmdlbG9nIHYyMDoKIC0gRHJvcCBiaXQtZmllbGQg
-cmVwcmVzc2VudGF0aW9uIGFuZCB0eXBvcyAoQmrDtnJuKQogLSBGaXggZG9jdW1lbnQgc3R5bGlu
-ZyAoQmFnYXMpCi0tLQogRG9jdW1lbnRhdGlvbi9yaXNjdi9pbmRleC5yc3QgIHwgICAxICsKIERv
-Y3VtZW50YXRpb24vcmlzY3YvdmVjdG9yLnJzdCB8IDEzMiArKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysKIDIgZmlsZXMgY2hhbmdlZCwgMTMzIGluc2VydGlvbnMoKykKIGNyZWF0ZSBt
-b2RlIDEwMDY0NCBEb2N1bWVudGF0aW9uL3Jpc2N2L3ZlY3Rvci5yc3QKCmRpZmYgLS1naXQgYS9E
-b2N1bWVudGF0aW9uL3Jpc2N2L2luZGV4LnJzdCBiL0RvY3VtZW50YXRpb24vcmlzY3YvaW5kZXgu
-cnN0CmluZGV4IDE3NWE5MWRiMDIwMC4uOTVjZjljMWUxZGExIDEwMDY0NAotLS0gYS9Eb2N1bWVu
-dGF0aW9uL3Jpc2N2L2luZGV4LnJzdAorKysgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L2luZGV4LnJz
-dApAQCAtMTAsNiArMTAsNyBAQCBSSVNDLVYgYXJjaGl0ZWN0dXJlCiAgICAgaHdwcm9iZQogICAg
-IHBhdGNoLWFjY2VwdGFuY2UKICAgICB1YWJpCisgICAgdmVjdG9yCiAKICAgICBmZWF0dXJlcwog
-CmRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3Jpc2N2L3ZlY3Rvci5yc3QgYi9Eb2N1bWVudGF0
-aW9uL3Jpc2N2L3ZlY3Rvci5yc3QKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAw
-MDAwLi40OGYxODlkNzllNDEKLS0tIC9kZXYvbnVsbAorKysgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2
-L3ZlY3Rvci5yc3QKQEAgLTAsMCArMSwxMzIgQEAKKy4uIFNQRFgtTGljZW5zZS1JZGVudGlmaWVy
-OiBHUEwtMi4wCisKKz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CitW
-ZWN0b3IgRXh0ZW5zaW9uIFN1cHBvcnQgZm9yIFJJU0MtViBMaW51eAorPT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT0KKworVGhpcyBkb2N1bWVudCBicmllZmx5IG91dGxp
-bmVzIHRoZSBpbnRlcmZhY2UgcHJvdmlkZWQgdG8gdXNlcnNwYWNlIGJ5IExpbnV4IGluCitvcmRl
-ciB0byBzdXBwb3J0IHRoZSB1c2Ugb2YgdGhlIFJJU0MtViBWZWN0b3IgRXh0ZW5zaW9uLgorCisx
-LiAgcHJjdGwoKSBJbnRlcmZhY2UKKy0tLS0tLS0tLS0tLS0tLS0tLS0tLQorCitUd28gbmV3IHBy
-Y3RsKCkgY2FsbHMgYXJlIGFkZGVkIHRvIGFsbG93IHByb2dyYW1zIHRvIG1hbmFnZSB0aGUgZW5h
-YmxlbWVudAorc3RhdHVzIGZvciB0aGUgdXNlIG9mIFZlY3RvciBpbiB1c2Vyc3BhY2UuIFRoZSBp
-bnRlbmRlZCB1c2FnZSBndWlkZWxpbmUgZm9yCit0aGVzZSBpbnRlcmZhY2VzIGlzIHRvIGdpdmUg
-aW5pdCBzeXN0ZW1zIGEgd2F5IHRvIG1vZGlmeSB0aGUgYXZhaWxhYmlsaXR5IG9mIFYKK2ZvciBw
-cm9jZXNzZXMgcnVubmluZyB1bmRlciBpdHMgZG9tYWluLiBDYWxsaW5nIHRoZXNzIGludGVyZmFj
-ZXMgaXMgbm90CityZWNvbW1lbmRlZCBpbiBsaWJyYXJpZXMgcm91dGluZXMgYmVjYXVzZSBsaWJy
-YXJpZXMgc2hvdWxkIG5vdCBvdmVycmlkZSBwb2xpY2llcworY29uZmlndXJlZCBmcm9tIHRoZSBw
-YXJhbnQgcHJvY2Vzcy4gQWxzbywgdXNlcnMgbXVzdCBub3RlZCB0aGF0IHRoZXNlIGludGVyZmFj
-ZXMKK2FyZSBub3QgcG9ydGFibGUgdG8gbm9uLUxpbnV4LCBub3Igbm9uLVJJU0MtViBlbnZpcm9u
-bWVudHMsIHNvIGl0IGlzIGRpc2NvdXJhZ2UKK3RvIHVzZSBpbiBhIHBvcnRhYmxlIGNvZGUuIFRv
-IGdldCB0aGUgYXZhaWxhYmlsaXR5IG9mIFYgaW4gYW4gRUxGIHByb2dyYW0sCitwbGVhc2UgcmVh
-ZCA6YzptYWNybzpgQ09NUEFUX0hXQ0FQX0lTQV9WYCBiaXQgb2YgOmM6bWFjcm86YEVMRl9IV0NB
-UGAgaW4gdGhlCithdXhpbGlhcnkgdmVjdG9yLgorCisqIHByY3RsKFBSX1JJU0NWX1ZfU0VUX0NP
-TlRST0wsIHVuc2lnbmVkIGxvbmcgYXJnKQorCisgICAgU2V0cyB0aGUgVmVjdG9yIGVuYWJsZW1l
-bnQgc3RhdHVzIG9mIHRoZSBjYWxsaW5nIHRocmVhZCwgd2hlcmUgdGhlIGNvbnRyb2wKKyAgICBh
-cmd1bWVudCBjb25zaXN0cyBvZiB0d28gMi1iaXQgZW5hYmxlbWVudCBzdGF0dXNlcyBhbmQgYSBi
-aXQgZm9yIGluaGVyaXRhbmNlCisgICAgbW9kZS4gT3RoZXIgdGhyZWFkcyBvZiB0aGUgY2FsbGlu
-ZyBwcm9jZXNzIGFyZSB1bmFmZmVjdGVkLgorCisgICAgRW5hYmxlbWVudCBzdGF0dXMgaXMgYSB0
-cmktc3RhdGUgdmFsdWUgZWFjaCBvY2N1cHlpbmcgMi1iaXQgb2Ygc3BhY2UgaW4KKyAgICB0aGUg
-Y29udHJvbCBhcmd1bWVudDoKKworICAgICogOmM6bWFjcm86YFBSX1JJU0NWX1ZfVlNUQVRFX0NU
-UkxfREVGQVVMVGA6IFVzZSB0aGUgc3lzdGVtLXdpZGUgZGVmYXVsdAorICAgICAgZW5hYmxlbWVu
-dCBzdGF0dXMgb24gZXhlY3ZlKCkuIFRoZSBzeXN0ZW0td2lkZSBkZWZhdWx0IHNldHRpbmcgY2Fu
-IGJlCisgICAgICBjb250cm9sbGVkIHZpYSBzeXNjdGwgaW50ZXJmYWNlIChzZWUgc3lzY3RsIHNl
-Y3Rpb24gYmVsb3cpLgorCisgICAgKiA6YzptYWNybzpgUFJfUklTQ1ZfVl9WU1RBVEVfQ1RSTF9P
-TmA6IEFsbG93IFZlY3RvciB0byBiZSBydW4gZm9yIHRoZQorICAgICAgdGhyZWFkLgorCisgICAg
-KiA6YzptYWNybzpgUFJfUklTQ1ZfVl9WU1RBVEVfQ1RSTF9PRkZgOiBEaXNhbGxvdyBWZWN0b3Iu
-IEV4ZWN1dGluZyBWZWN0b3IKKyAgICAgIGluc3RydWN0aW9ucyB1bmRlciBzdWNoIGNvbmRpdGlv
-biB3aWxsIHRyYXAgYW5kIGNhc3VzZSB0aGUgdGVybWluYXRpb24gb2YgdGhlIHRocmVhZC4KKwor
-ICAgIGFyZzogVGhlIGNvbnRyb2wgYXJndW1lbnQgaXMgYSA1LWJpdCB2YWx1ZSBjb25zaXN0aW5n
-IG9mIDMgcGFydHMsIGFuZAorICAgIGFjY2Vzc2VkIGJ5IDMgbWFza3MgcmVzcGVjdGl2ZWx5Lgor
-CisgICAgVGhlIDMgbWFza3MsIFBSX1JJU0NWX1ZfVlNUQVRFX0NUUkxfQ1VSX01BU0ssCisgICAg
-UFJfUklTQ1ZfVl9WU1RBVEVfQ1RSTF9ORVhUX01BU0ssIGFuZCBQUl9SSVNDVl9WX1ZTVEFURV9D
-VFJMX0lOSEVSSVQKKyAgICByZXByZXNlbnRzIGJpdFsxOjBdLCBiaXRbMzoyXSwgYW5kIGJpdFs0
-XS4gYml0WzE6MF0gYWNjb3VudHMgZm9yIHRoZQorICAgIGVuYWJsZW1lbnQgc3RhdHVzIG9mIGN1
-cnJlbnQgdGhyZWFkLCBhbmQgdGhlIHNldHRpbmcgYXQgYml0WzM6Ml0gdGFrZXMgcGxhY2UKKyAg
-ICBhdCBuZXh0IGV4ZWN2ZSgpLiBiaXRbNF0gZGVmaW5lcyB0aGUgaW5oZXJpdGFuY2UgbW9kZSBv
-ZiB0aGUgc2V0dGluZyBpbgorICAgIGJpdFszOjJdLgorCisgICAgICAgICogOmM6bWFjcm86YFBS
-X1JJU0NWX1ZfVlNUQVRFX0NUUkxfQ1VSX01BU0tgOiBiaXRbMTowXTogQWNjb3VudCBmb3IgdGhl
-CisgICAgICAgICAgVmVjdG9yIGVuYWJsZW1lbnQgc3RhdHVzIGZvciB0aGUgY2FsbGluZyB0aHJl
-YWQuIFRoZSBjYWxsaW5nIHRocmVhZCBpcworICAgICAgICAgIG5vdCBhYmxlIHRvIHR1cm4gb2Zm
-IFZlY3RvciBvbmNlIGl0IGhhcyBiZWVuIGVuYWJsZWQuIFRoZSBwcmN0bCgpIGNhbGwKKyAgICAg
-ICAgICBmYWlscyB3aXRoIEVQRVJNIGlmIHRoZSB2YWx1ZSBpbiB0aGlzIG1hc2sgaXMgUFJfUklT
-Q1ZfVl9WU1RBVEVfQ1RSTF9PRkYKKyAgICAgICAgICBidXQgdGhlIGN1cnJlbnQgZW5hYmxlbWVu
-dCBzdGF0dXMgaXMgbm90IG9mZi4gU2V0dGluZworICAgICAgICAgIFBSX1JJU0NWX1ZfVlNUQVRF
-X0NUUkxfREVGQVVMVCBoZXJlIHRha2VzIG5vIGVmZmVjdCBidXQgdG8gc2V0IGJhY2sKKyAgICAg
-ICAgICB0aGUgb3JpZ2luYWwgZW5hYmxlbWVudCBzdGF0dXMuCisKKyAgICAgICAgKiA6YzptYWNy
-bzpgUFJfUklTQ1ZfVl9WU1RBVEVfQ1RSTF9ORVhUX01BU0tgOiBiaXRbMzoyXTogQWNjb3VudCBm
-b3IgdGhlCisgICAgICAgICAgVmVjdG9yIGVuYWJsZW1lbnQgc2V0dGluZyBmb3IgdGhlIGNhbGxp
-bmcgdGhyZWFkIGF0IHRoZSBuZXh0IGV4ZWN2ZSgpCisgICAgICAgICAgc3lzdGVtIGNhbGwuIElm
-IFBSX1JJU0NWX1ZfVlNUQVRFX0NUUkxfREVGQVVMVCBpcyB1c2VkIGluIHRoaXMgbWFzaywKKyAg
-ICAgICAgICB0aGVuIHRoZSBlbmFibGVtZW50IHN0YXR1cyB3aWxsIGJlIGRlY2lkZWQgYnkgdGhl
-IHN5c3RlbS13aWRlCisgICAgICAgICAgZW5hYmxlbWVudCBzdGF0dXMgd2hlbiBleGVjdmUoKSBo
-YXBwZW4uCisKKyAgICAgICAgKiA6YzptYWNybzpgUFJfUklTQ1ZfVl9WU1RBVEVfQ1RSTF9JTkhF
-UklUYDogYml0WzRdOiB0aGUgaW5oZXJpdGFuY2UKKyAgICAgICAgICBtb2RlIGZvciB0aGUgc2V0
-dGluZyBhdCBQUl9SSVNDVl9WX1ZTVEFURV9DVFJMX05FWFRfTUFTSy4gSWYgdGhlIGJpdAorICAg
-ICAgICAgIGlzIHNldCB0aGVuIHRoZSBmb2xsb3dpbmcgZXhlY3ZlKCkgd2lsbCBub3QgY2xlYXIg
-dGhlIHNldHRpbmcgaW4gYm90aAorICAgICAgICAgIFBSX1JJU0NWX1ZfVlNUQVRFX0NUUkxfTkVY
-VF9NQVNLIGFuZCBQUl9SSVNDVl9WX1ZTVEFURV9DVFJMX0lOSEVSSVQuCisgICAgICAgICAgVGhp
-cyBzZXR0aW5nIHBlcnNpc3RzIGFjcm9zcyBjaGFuZ2VzIGluIHRoZSBzeXN0ZW0td2lkZSBkZWZh
-dWx0IHZhbHVlLgorCisgICAgUmV0dXJuIHZhbHVlOgorICAgICAgICAqIDAgb24gc3VjY2VzczsK
-KyAgICAgICAgKiBFSU5WQUw6IFZlY3RvciBub3Qgc3VwcG9ydGVkLCBpbnZhbGlkIGVuYWJsZW1l
-bnQgc3RhdHVzIGZvciBjdXJyZW50IG9yCisgICAgICAgICAgbmV4dCBtYXNrOworICAgICAgICAq
-IEVQRVJNOiBUdXJuaW5nIG9mZiBWZWN0b3IgaW4gUFJfUklTQ1ZfVl9WU1RBVEVfQ1RSTF9DVVJf
-TUFTSyBpZiBWZWN0b3IKKyAgICAgICAgICB3YXMgZW5hYmxlZCBmb3IgdGhlIGNhbGxpbmcgdGhy
-ZWFkLgorCisgICAgT24gc3VjY2VzczoKKyAgICAgICAgKiBBIHZhbGlkIHNldHRpbmcgZm9yIFBS
-X1JJU0NWX1ZfVlNUQVRFX0NUUkxfQ1VSX01BU0sgdGFrZXMgcGxhY2UKKyAgICAgICAgICBpbW1l
-ZGlhdGVseS4gVGhlIGVuYWJsZW1lbnQgc3RhdHVzIHNwZWNpZmllZCBpbgorICAgICAgICAgIFBS
-X1JJU0NWX1ZfVlNUQVRFX0NUUkxfTkVYVF9NQVNLIGhhcHBlbnMgYXQgdGhlIG5leHQgZXhlY3Zl
-KCkgY2FsbCwgb3IKKyAgICAgICAgICBhbGwgZm9sbG93aW5nIGV4ZWN2ZSgpIGNhbGxzIGlmIFBS
-X1JJU0NWX1ZfVlNUQVRFX0NUUkxfSU5IRVJJVCBiaXQgaXMKKyAgICAgICAgICBzZXQuCisgICAg
-ICAgICogRXZlcnkgc3VjY2Vzc2Z1bCBjYWxsIG92ZXJ3cml0ZXMgYSBwcmV2aW91cyBzZXR0aW5n
-IGZvciB0aGUgY2FsbGluZworICAgICAgICAgIHRocmVhZC4KKworKiBwcmN0bChQUl9SSVNDVl9W
-X0dFVF9DT05UUk9MKQorCisgICAgR2V0cyB0aGUgc2FtZSBWZWN0b3IgZW5hYmxlbWVudCBzdGF0
-dXMgZm9yIHRoZSBjYWxsaW5nIHRocmVhZC4gU2V0dGluZyBmb3IKKyAgICBuZXh0IGV4ZWN2ZSgp
-IGNhbGwgYW5kIHRoZSBpbmhlcml0YW5jZSBiaXQgYXJlIGFsbCBPUi1lZCB0b2dldGhlci4KKwor
-ICAgIE5vdGUgdGhhdCBFTEYgcHJvZ3JhbXMgYXJlIGFibGUgdG8gZ2V0IHRoZSBhdmFpbGFiaWxp
-dHkgb2YgViBmb3IgaXRzZWxmIGJ5CisgICAgcmVhZGluZyA6YzptYWNybzpgQ09NUEFUX0hXQ0FQ
-X0lTQV9WYCBiaXQgb2YgOmM6bWFjcm86YEVMRl9IV0NBUGAgaW4gdGhlCisgICAgYXV4aWxpYXJ5
-IHZlY3Rvci4KKworICAgIFJldHVybiB2YWx1ZToKKyAgICAgICAgKiBhIG5vbm5lZ2F0aXZlIHZh
-bHVlIG9uIHN1Y2Nlc3M7CisgICAgICAgICogRUlOVkFMOiBWZWN0b3Igbm90IHN1cHBvcnRlZC4K
-KworMi4gIFN5c3RlbSBydW50aW1lIGNvbmZpZ3VyYXRpb24gKHN5c2N0bCkKKy0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCisKK1RvIG1pdGlnYXRlIHRoZSBBQkkgaW1w
-YWN0IG9mIGV4cGFuc2lvbiBvZiB0aGUgc2lnbmFsIHN0YWNrLCBhCitwb2xpY3kgbWVjaGFuaXNt
-IGlzIHByb3ZpZGVkIHRvIHRoZSBhZG1pbmlzdHJhdG9ycywgZGlzdHJvIG1haW50YWluZXJzLCBh
-bmQKK2RldmVsb3BlcnMgdG8gY29udHJvbCB0aGUgZGVmYXVsdCBWZWN0b3IgZW5hYmxlbWVudCBz
-dGF0dXMgZm9yIHVzZXJzcGFjZQorcHJvY2Vzc2VzIGluIGZvcm0gb2Ygc3lzY3RsIGtub2I6CisK
-KyogL3Byb2Mvc3lzL2FiaS9yaXNjdl92X2RlZmF1bHRfYWxsb3cKKworICAgIFdyaXRpbmcgdGhl
-IHRleHQgcmVwcmVzZW50YXRpb24gb2YgMCBvciAxIHRvIHRoaXMgZmlsZSBzZXRzIHRoZSBkZWZh
-dWx0CisgICAgc3lzdGVtIGVuYWJsZW1lbnQgc3RhdHVzIGZvciBuZXcgc3RhcnRpbmcgdXNlcnNw
-YWNlIHByb2dyYW1zLiBWYWxpZCB2YWx1ZXMKKyAgICBhcmU6CisKKyAgICAqIDA6IERvIG5vdCBh
-bGxvdyBWZWN0b3IgY29kZSB0byBiZSBleGVjdXRlZCBhcyB0aGUgZGVmYXVsdCBmb3IgbmV3IHBy
-b2Nlc3Nlcy4KKyAgICAqIDE6IEFsbG93IFZlY3RvciBjb2RlIHRvIGJlIGV4ZWN1dGVkIGFzIHRo
-ZSBkZWZhdWx0IGZvciBuZXcgcHJvY2Vzc2VzLgorCisgICAgUmVhZGluZyB0aGlzIGZpbGUgcmV0
-dXJucyB0aGUgY3VycmVudCBzeXN0ZW0gZGVmYXVsdCBlbmFibGVtZW50IHN0YXR1cy4KKworICAg
-IEF0IGV2ZXJ5IGV4ZWN2ZSgpIGNhbGwsIGEgbmV3IGVuYWJsZW1lbnQgc3RhdHVzIG9mIHRoZSBu
-ZXcgcHJvY2VzcyBpcyBzZXQgdG8KKyAgICB0aGUgc3lzdGVtIGRlZmF1bHQsIHVubGVzczoKKwor
-ICAgICAgKiBQUl9SSVNDVl9WX1ZTVEFURV9DVFJMX0lOSEVSSVQgaXMgc2V0IGZvciB0aGUgY2Fs
-bGluZyBwcm9jZXNzLCBhbmQgdGhlCisgICAgICAgIHNldHRpbmcgaW4gUFJfUklTQ1ZfVl9WU1RB
-VEVfQ1RSTF9ORVhUX01BU0sgaXMgbm90CisgICAgICAgIFBSX1JJU0NWX1ZfVlNUQVRFX0NUUkxf
-REVGQVVMVC4gT3IsCisKKyAgICAgICogVGhlIHNldHRpbmcgaW4gUFJfUklTQ1ZfVl9WU1RBVEVf
-Q1RSTF9ORVhUX01BU0sgaXMgbm90CisgICAgICAgIFBSX1JJU0NWX1ZfVlNUQVRFX0NUUkxfREVG
-QVVMVC4KKworICAgIE1vZGlmeWluZyB0aGUgc3lzdGVtIGRlZmF1bHQgZW5hYmxlbWVudCBzdGF0
-dXMgZG9lcyBub3QgYWZmZWN0IHRoZSBlbmFibGVtZW50CisgICAgc3RhdHVzIG9mIGFueSBleGlz
-dGluZyBwcm9jZXNzIG9mIHRocmVhZCB0aGF0IGRvIG5vdCBtYWtlIGFuIGV4ZWN2ZSgpIGNhbGwu
-Ci0tIAoyLjE3LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+This add a test for prctl interface that controls the use of userspace
+Vector.
+
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+---
+ tools/testing/selftests/riscv/Makefile        |   2 +-
+ .../testing/selftests/riscv/vector/.gitignore |   2 +
+ tools/testing/selftests/riscv/vector/Makefile |  15 ++
+ .../riscv/vector/vstate_exec_nolibc.c         | 111 ++++++++++
+ .../selftests/riscv/vector/vstate_prctl.c     | 189 ++++++++++++++++++
+ 5 files changed, 318 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/riscv/vector/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/vector/Makefile
+ create mode 100644 tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
+ create mode 100644 tools/testing/selftests/riscv/vector/vstate_prctl.c
+
+diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
+index 32a72902d045..9dd629cc86aa 100644
+--- a/tools/testing/selftests/riscv/Makefile
++++ b/tools/testing/selftests/riscv/Makefile
+@@ -5,7 +5,7 @@
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
+ 
+ ifneq (,$(filter $(ARCH),riscv))
+-RISCV_SUBTARGETS ?= hwprobe
++RISCV_SUBTARGETS ?= hwprobe vector
+ else
+ RISCV_SUBTARGETS :=
+ endif
+diff --git a/tools/testing/selftests/riscv/vector/.gitignore b/tools/testing/selftests/riscv/vector/.gitignore
+new file mode 100644
+index 000000000000..4f2b4e8a3b08
+--- /dev/null
++++ b/tools/testing/selftests/riscv/vector/.gitignore
+@@ -0,0 +1,2 @@
++vstate_exec_nolibc
++vstate_prctl
+diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
+new file mode 100644
+index 000000000000..cd6e80bf995d
+--- /dev/null
++++ b/tools/testing/selftests/riscv/vector/Makefile
+@@ -0,0 +1,15 @@
++# SPDX-License-Identifier: GPL-2.0
++# Copyright (C) 2021 ARM Limited
++# Originally tools/testing/arm64/abi/Makefile
++
++TEST_GEN_PROGS := vstate_prctl
++TEST_GEN_PROGS_EXTENDED := vstate_exec_nolibc
++
++include ../../lib.mk
++
++$(OUTPUT)/vstate_prctl: vstate_prctl.c ../hwprobe/sys_hwprobe.S
++	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++
++$(OUTPUT)/vstate_exec_nolibc: vstate_exec_nolibc.c
++	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
++		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
+diff --git a/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
+new file mode 100644
+index 000000000000..5cbc392944a6
+--- /dev/null
++++ b/tools/testing/selftests/riscv/vector/vstate_exec_nolibc.c
+@@ -0,0 +1,111 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <sys/prctl.h>
++
++#define THIS_PROGRAM "./vstate_exec_nolibc"
++
++int main(int argc, char **argv)
++{
++	int rc, pid, status, test_inherit = 0;
++	long ctrl, ctrl_c;
++	char *exec_argv[2], *exec_envp[2];
++
++	if (argc > 1)
++		test_inherit = 1;
++
++	ctrl = my_syscall1(__NR_prctl, PR_RISCV_V_GET_CONTROL);
++	if (ctrl < 0) {
++		puts("PR_RISCV_V_GET_CONTROL is not supported\n");
++		return ctrl;
++	}
++
++	if (test_inherit) {
++		pid = fork();
++		if (pid == -1) {
++			puts("fork failed\n");
++			exit(-1);
++		}
++
++		/* child  */
++		if (!pid) {
++			exec_argv[0] = THIS_PROGRAM;
++			exec_argv[1] = NULL;
++			exec_envp[0] = NULL;
++			exec_envp[1] = NULL;
++			/* launch the program again to check inherit */
++			rc = execve(THIS_PROGRAM, exec_argv, exec_envp);
++			if (rc) {
++				puts("child execve failed\n");
++				exit(-1);
++			}
++		}
++
++	} else {
++		pid = fork();
++		if (pid == -1) {
++			puts("fork failed\n");
++			exit(-1);
++		}
++
++		if (!pid) {
++			rc = my_syscall1(__NR_prctl, PR_RISCV_V_GET_CONTROL);
++			if (rc != ctrl) {
++				puts("child's vstate_ctrl not equal to parent's\n");
++				exit(-1);
++			}
++			asm volatile (".option push\n\t"
++				      ".option arch, +v\n\t"
++				      "vsetvli x0, x0, e32, m8, ta, ma\n\t"
++				      ".option pop\n\t"
++				      );
++			exit(ctrl);
++		}
++	}
++
++	rc = waitpid(-1, &status, 0);
++
++	if (WIFEXITED(status) && WEXITSTATUS(status) == -1) {
++		puts("child exited abnormally\n");
++		exit(-1);
++	}
++
++	if (WIFSIGNALED(status)) {
++		if (WTERMSIG(status) != SIGILL) {
++			puts("child was terminated by unexpected signal\n");
++			exit(-1);
++		}
++
++		if ((ctrl & PR_RISCV_V_VSTATE_CTRL_CUR_MASK) != PR_RISCV_V_VSTATE_CTRL_OFF) {
++			puts("child signaled by illegal V access but vstate_ctrl is not off\n");
++			exit(-1);
++		}
++
++		/* child terminated, and its vstate_ctrl is off */
++		exit(ctrl);
++	}
++
++	ctrl_c = WEXITSTATUS(status);
++	if (test_inherit) {
++		if (ctrl & PR_RISCV_V_VSTATE_CTRL_INHERIT) {
++			if (!(ctrl_c & PR_RISCV_V_VSTATE_CTRL_INHERIT)) {
++				puts("parent has inherit bit, but child has not\n");
++				exit(-1);
++			}
++		}
++		rc = (ctrl & PR_RISCV_V_VSTATE_CTRL_NEXT_MASK) >> 2;
++		if (rc != PR_RISCV_V_VSTATE_CTRL_DEFAULT) {
++			if (rc != (ctrl_c & PR_RISCV_V_VSTATE_CTRL_CUR_MASK)) {
++				puts("parent's next setting does not equal to child's\n");
++				exit(-1);
++			}
++
++			if (!(ctrl & PR_RISCV_V_VSTATE_CTRL_INHERIT)) {
++				if ((ctrl_c & PR_RISCV_V_VSTATE_CTRL_NEXT_MASK) !=
++				    PR_RISCV_V_VSTATE_CTRL_DEFAULT) {
++					puts("must clear child's next vstate_ctrl if !inherit\n");
++					exit(-1);
++				}
++			}
++		}
++	}
++	return ctrl;
++}
+diff --git a/tools/testing/selftests/riscv/vector/vstate_prctl.c b/tools/testing/selftests/riscv/vector/vstate_prctl.c
+new file mode 100644
+index 000000000000..b348b475be57
+--- /dev/null
++++ b/tools/testing/selftests/riscv/vector/vstate_prctl.c
+@@ -0,0 +1,189 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <sys/prctl.h>
++#include <unistd.h>
++#include <asm/hwprobe.h>
++#include <errno.h>
++#include <sys/wait.h>
++
++#include "../../kselftest.h"
++
++/*
++ * Rather than relying on having a new enough libc to define this, just do it
++ * ourselves.  This way we don't need to be coupled to a new-enough libc to
++ * contain the call.
++ */
++long riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
++		   size_t cpu_count, unsigned long *cpus, unsigned int flags);
++
++#define NEXT_PROGRAM "./vstate_exec_nolibc"
++static int launch_test(int test_inherit)
++{
++	char *exec_argv[3], *exec_envp[1];
++	int rc, pid, status;
++
++	pid = fork();
++	if (pid < 0) {
++		ksft_test_result_fail("fork failed %d", pid);
++		return -1;
++	}
++
++	if (!pid) {
++		exec_argv[0] = NEXT_PROGRAM;
++		exec_argv[1] = test_inherit != 0 ? "x" : NULL;
++		exec_argv[2] = NULL;
++		exec_envp[0] = NULL;
++		/* launch the program again to check inherit */
++		rc = execve(NEXT_PROGRAM, exec_argv, exec_envp);
++		if (rc) {
++			perror("execve");
++			ksft_test_result_fail("child execve failed %d\n", rc);
++			exit(-1);
++		}
++	}
++
++	rc = waitpid(-1, &status, 0);
++	if (rc < 0) {
++		ksft_test_result_fail("waitpid failed\n");
++		return -3;
++	}
++
++	if ((WIFEXITED(status) && WEXITSTATUS(status) == -1) ||
++	    WIFSIGNALED(status)) {
++		ksft_test_result_fail("child exited abnormally\n");
++		return -4;
++	}
++
++	return WEXITSTATUS(status);
++}
++
++int test_and_compare_child(long provided, long expected, int inherit)
++{
++	int rc;
++
++	rc = prctl(PR_RISCV_V_SET_CONTROL, provided);
++	if (rc != 0) {
++		ksft_test_result_fail("prctl with provided arg %lx failed with code %d\n",
++				      provided, rc);
++		return -1;
++	}
++	rc = launch_test(inherit);
++	if (rc != expected) {
++		ksft_test_result_fail("Test failed, check %d != %d\n", rc,
++				      expected);
++		return -2;
++	}
++	return 0;
++}
++
++#define PR_RISCV_V_VSTATE_CTRL_CUR_SHIFT	0
++#define PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT	2
++
++int main(void)
++{
++	struct riscv_hwprobe pair;
++	long flag, expected;
++	long rc;
++
++	pair.key = RISCV_HWPROBE_KEY_IMA_EXT_0;
++	rc = riscv_hwprobe(&pair, 1, 0, NULL, 0);
++	if (rc < 0) {
++		ksft_test_result_fail("hwprobe() failed with %d\n", rc);
++		return -1;
++	}
++
++	if (pair.key != RISCV_HWPROBE_KEY_IMA_EXT_0) {
++		ksft_test_result_fail("hwprobe cannot probe RISCV_HWPROBE_KEY_IMA_EXT_0\n");
++		return -2;
++	}
++
++	if (!(pair.value & RISCV_HWPROBE_IMA_V)) {
++		rc = prctl(PR_RISCV_V_GET_CONTROL);
++		if (rc != -1 || errno != EINVAL) {
++			ksft_test_result_fail("GET_CONTROL should fail on kernel/hw without V\n");
++			return -3;
++		}
++
++		rc = prctl(PR_RISCV_V_SET_CONTROL, PR_RISCV_V_VSTATE_CTRL_ON);
++		if (rc != -1 || errno != EINVAL) {
++			ksft_test_result_fail("GET_CONTROL should fail on kernel/hw without V\n");
++			return -4;
++		}
++
++		ksft_test_result_skip("Vector not supported\n");
++		return 0;
++	}
++
++	flag = PR_RISCV_V_VSTATE_CTRL_ON;
++	rc = prctl(PR_RISCV_V_SET_CONTROL, flag);
++	if (rc != 0) {
++		ksft_test_result_fail("Enabling V for current should always success\n");
++		return -5;
++	}
++
++	flag = PR_RISCV_V_VSTATE_CTRL_OFF;
++	rc = prctl(PR_RISCV_V_SET_CONTROL, flag);
++	if (rc != -1 || errno != EPERM) {
++		ksft_test_result_fail("Disabling current's V alive must fail with EPERM(%d)\n",
++				      errno);
++		return -5;
++	}
++
++	/* Turn on next's vector explicitly and test */
++	flag = PR_RISCV_V_VSTATE_CTRL_ON << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
++	if (test_and_compare_child(flag, PR_RISCV_V_VSTATE_CTRL_ON, 0))
++		return -6;
++
++	/* Turn off next's vector explicitly and test */
++	flag = PR_RISCV_V_VSTATE_CTRL_OFF << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
++	if (test_and_compare_child(flag, PR_RISCV_V_VSTATE_CTRL_OFF, 0))
++		return -7;
++
++	/* Turn on next's vector explicitly and test inherit */
++	flag = PR_RISCV_V_VSTATE_CTRL_ON << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
++	flag |= PR_RISCV_V_VSTATE_CTRL_INHERIT;
++	expected = flag | PR_RISCV_V_VSTATE_CTRL_ON;
++	if (test_and_compare_child(flag, expected, 0))
++		return -8;
++
++	if (test_and_compare_child(flag, expected, 1))
++		return -9;
++
++	/* Turn off next's vector explicitly and test inherit */
++	flag = PR_RISCV_V_VSTATE_CTRL_OFF << PR_RISCV_V_VSTATE_CTRL_NEXT_SHIFT;
++	flag |= PR_RISCV_V_VSTATE_CTRL_INHERIT;
++	expected = flag | PR_RISCV_V_VSTATE_CTRL_OFF;
++	if (test_and_compare_child(flag, expected, 0))
++		return -10;
++
++	if (test_and_compare_child(flag, expected, 1))
++		return -11;
++
++	/* arguments should fail with EINVAL */
++	rc = prctl(PR_RISCV_V_SET_CONTROL, 0xff0);
++	if (rc != -1 || errno != EINVAL) {
++		ksft_test_result_fail("Undefined control argument should return EINVAL\n");
++		return -12;
++	}
++
++	rc = prctl(PR_RISCV_V_SET_CONTROL, 0x3);
++	if (rc != -1 || errno != EINVAL) {
++		ksft_test_result_fail("Undefined control argument should return EINVAL\n");
++		return -12;
++	}
++
++	rc = prctl(PR_RISCV_V_SET_CONTROL, 0xc);
++	if (rc != -1 || errno != EINVAL) {
++		ksft_test_result_fail("Undefined control argument should return EINVAL\n");
++		return -12;
++	}
++
++	rc = prctl(PR_RISCV_V_SET_CONTROL, 0xc);
++	if (rc != -1 || errno != EINVAL) {
++		ksft_test_result_fail("Undefined control argument should return EINVAL\n");
++		return -12;
++	}
++
++	ksft_test_result_pass("tests for riscv_v_vstate_ctrl pass\n");
++	ksft_exit_pass();
++	return 0;
++}
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
