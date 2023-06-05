@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6224AC7EE24
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 06:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8758C7EE2A
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Jun 2023 07:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i8zL7y/TrFxVkQi36xJ7AL8HMViWJ6ZcS8L6X0wDmWE=; b=pjO/LXoEudofRO
-	XwxYmjnZkuHemYvypEqlWFgJJy0o06n8D6fCBshSbRM8o1alV0B99qkiErhHEr2Aknm56pG6ivXEn
-	5B3Lk9GPOPRptIYFH1HOIpGxiy2F8t5UZnrkLbNRBja+pN7A/K6I1s/LZXYmZFFxUToGaY9+IWn1L
-	5HjvYy1U3hkTRhbsegb9pbjzE393l6fDej6+r62JM+ZYLX+9ObE+zzY6f1w32IzCy24BTiGj1hxfd
-	BSnqSaFJxC+d4O9SvkruAAwZN+HOb+DPK/Oul7UxIRf2GLvaCao0HfutXcQs29FiDT4Gyg/Maci2B
-	qinA/1T/GD+EuXUmVjHg==;
+	List-Owner; bh=WP2/HpQ3zInRfWxJobCxGFAzMcKpSLAdxu503baBvSg=; b=VIfkwLU/MrkcQ+
+	db5gA4N2DA5v08Eeh1BEbMJR+foznWjcmb4iDkoLwpOm3iJKo/gVKiu3/KbXUGkiGAtjxmzcwX9lz
+	exNeGwXcaoP329ZrtYkJJHTI6KfvTQNxaRZjzGH0UuY0In1KUglmBpzoMeoFC+ZZLpFi+Se2Oh5Uj
+	sgiben8ygCAr3V8qCVVruT/DBKMieqM86epNMjDwtR+QjPvh/rmOrG0QAFgEzjnYQBJ8FdxtsV14F
+	s/sy3RNkuVDjDFfqmUK9CnjeDhPAjHtAS6INv3kpS6BRlaZsCgsEZmzpJ9i9IBRHQOCIMiU2wQwCH
+	C5k2w1179brsGwH546yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q647y-00ESk1-0V;
-	Mon, 05 Jun 2023 06:55:42 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1q64Ik-00EUkt-2W;
+	Mon, 05 Jun 2023 07:06:50 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q647u-00EShn-0N
+	id 1q64Ig-00EUj2-1q
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 Jun 2023 06:55:40 +0000
-X-QQ-mid: bizesmtp75t1685948110tj3ia4jc
+	Mon, 05 Jun 2023 07:06:49 +0000
+X-QQ-mid: bizesmtp68t1685948709t0hdsv4v
 Received: from linux-lab-host.localdomain ( [61.141.77.49])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 05 Jun 2023 14:55:09 +0800 (CST)
+	id ; Mon, 05 Jun 2023 15:05:08 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: L0h5767YwF7UouhZzhBXRX0J562z4mUQF/JwTWKNazvGipvhUulKq4xIkj7LR
-	rGYqbiKejXCJRm9OO38WToeR8vgorbsgvCzKbe7x3dLf3w8/Pbt6Oca5ph0NXLYk3m18W5q
-	HQhS4qt73pq0qu21Ii7nuvMT4ePnsvJ9oLnofCcL43Wfi0slj9dT5cBidHaA340DOM83Xpx
-	XJ4T1DcJO1d7KEcrnhFLcMuowaEEJTEZvz8KGw4CBuHCRaAQ4x6n/kBZzFqscvr8Qf9Ac8T
-	4DkWW6a+7pbxpCd3aumbhdiA40RpcUJODeQsfbUDUKFnNscJqL3k21Xm5rUt6ycUp6d+Eik
-	yWJrsR6bAdss3QbnejPFsBdI3sJm9CjUV48Lh8u9A251MTegrBxyPdKPVzUXehTL+Ec6zPS
+X-QQ-FEAT: OFQdrTmJ2CQhbplmT8464RTU9RxGWO3Kw3No1opfWzZH7Zxfd+SQf/zCI/8jA
+	0OD5hugEKHGAd2AcaRlNrPRLaqnz7hsclaHKVSrHCvZ+igZofhh/0KFX5FKNuTIubQhLUfg
+	qjyHhhjzPKSrKefFylb5NVNvQrHj5q/jW0D6nGDeB3EXdS7ylej2rj3remKaojhuxZoIju+
+	i6eHd7dRdEE2IFPrnyIjqt5ft9tPppa6qFv3gb9t2C0NXlA90wJ26hrgpXwWVP7l3ypaL8S
+	vrHcEKu9MrupV5qwrGRgITGP488xmeehnZ8BkW76B6ilaErZE2wUPMCj6u5MZnGypA7YCnO
+	MbK0H1tEaqXX9bX2kIvPVzDVi595oRaynbtLLHC8vBwkt300dycQEXnDZCq4plr5a4Cvub4
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14854381511492938161
+X-BIZMAIL-ID: 10052685616247688945
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: arnd@arndb.de,
@@ -48,18 +48,18 @@ Cc: arnd@arndb.de,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	thomas@t-8ch.de
-Subject: Re: [PATCH 1/4] selftests/nolibc: add a test-report target
-Date: Mon,  5 Jun 2023 14:54:59 +0800
-Message-Id: <20230605065459.153001-1-falcon@tinylab.org>
+Subject: Re: [PATCH 3/4] selftests/nolibc: always print the log file
+Date: Mon,  5 Jun 2023 15:05:08 +0800
+Message-Id: <20230605070508.153407-1-falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ZH1iDne+PiyZmIIB@1wt.eu>
-References: <ZH1iDne+PiyZmIIB@1wt.eu>
+In-Reply-To: <ZH1ioKUVOYGgDUj7@1wt.eu>
+References: <ZH1ioKUVOYGgDUj7@1wt.eu>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230604_235538_455493_03C62258 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20230605_000646_928034_6459F7C6 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,89 +76,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Mon, Jun 05, 2023 at 11:48:52AM +0800, Zhangjin Wu wrote:
-> > A standalone test-report target is added to let the run, run-user and
-> > rerun targets share them.
-> > 
-> > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> > ---
-> >  tools/testing/selftests/nolibc/Makefile | 26 ++++++++++++-------------
-> >  1 file changed, 13 insertions(+), 13 deletions(-)
-> > 
-> > diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
-> > index be4159837494..8149ace2938a 100644
-> > --- a/tools/testing/selftests/nolibc/Makefile
-> > +++ b/tools/testing/selftests/nolibc/Makefile
-> > @@ -127,14 +127,18 @@ nolibc-test: nolibc-test.c sysroot/$(ARCH)/include
-> >  libc-test: nolibc-test.c
-> >  	$(QUIET_CC)$(CC) -o $@ $<
-> >  
-> > -# qemu user-land test
-> > -run-user: nolibc-test
-> > -	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
-> > +test-report:
-> >  	$(Q)awk '/\[OK\]$$/{p++} /\[FAIL\]$$/{f++} /\[SKIPPED\]$$/{s++} \
-> >  	         END{ printf("%d test(s) passed, %d skipped, %d failed.", p, s, f); \
-> >  	         if (s+f > 0) printf(" See all results in %s\n", ARGV[1]); else print; }' \
-> >  	         $(CURDIR)/run.out
-> >  
-> > +# qemu user-land test
-> > +_run-user: nolibc-test
-> > +	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
-> > +
-> > +run-user: _run-user test-report
-> > +
+> On Mon, Jun 05, 2023 at 11:57:44AM +0800, Zhangjin Wu wrote:
+> > This allows to check the other issues of the output file manually even
+> > when all of them passed.
 > 
-> This will not reliably work, there's no ordering here, nothing guarantees
-> that test-report will run *after* _run-user (e.g. make -j). Another
-> approach is needed if you want to factor this, but in general creating
-> sequences in makefiles is difficult and often more painful than having
-> 3 times the same 3 lines.
+> Till now I preferred not to see it when everything was OK since it was
+> useless and permitted a quick visual check in the reports. Do you
+> really think it's useful ? If others prefer it that way we can change
+> it but I purposely added this test to "improve" the output (for me at
+> least). I'm interested in opinions here.
 >
 
-Ok, thanks, what about this?
+I planed to add detailed potential issues to check in the commit
+message, but didn't do that eventually.
 
-    # LOG_REPORT: report the test results
-    LOG_REPORT   := awk '/\[OK\][\r]*$$/{p++} /\[FAIL\][\r]*$$/{f++} /\[SKIPPED\][\r]*$$/{s++} \
-	                 END{ printf("%d test(s) passed, %d skipped, %d failed.", p, s, f); \
-	                 printf(" See all results in %s\n", ARGV[1]); }'
+The potential 'issues' may be:
 
-    run-user: nolibc-test
-	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
-	$(Q)$(LOG_REPORT) $(CURDIR)/run.out
+1. string alignment, I found one character offset in the user-space
+   'efault' handler patchset
+2. duplicated print, the one like '30 fork' we have fixed up
+3. kernel messages (may provide some important info)
 
-    run: kernel
-	$(Q)qemu-system-$(QEMU_ARCH) -display none -no-reboot -kernel "$(srctree)/$(IMAGE)" -serial stdio $(QEMU_ARGS) > "$(CURDIR)/run.out"
-	$(Q)$(LOG_REPORT) $(CURDIR)/run.out
+I did add this manually several times in the past weeks, so, if the path
+is there, I can simply copy it and cat it, hope we can print the path by
+default ;-) 
 
-    rerun:
-	$(Q)qemu-system-$(QEMU_ARCH) -display none -no-reboot -kernel "$(srctree)/$(IMAGE)" -serial stdio $(QEMU_ARGS) > "$(CURDIR)/run.out"
-	$(Q)$(LOG_REPORT) $(CURDIR)/run.out
+The commit message may be changed to something like this:
 
-Or we directly add a standalone test report script? something like
-tools/testing/selftests/nolibc/report.sh
-
-    #!/bin/sh
-    #
-    # report.sh -- report the test results of nolibc-test
-    #
-    
-    LOG_FILE=$1
-    [ ! -f "$LOG_FILE" ] && echo "Usage: $0 /path/to/run.out"
-    
-    awk '
-        /\[OK\][\r]*$$/{ p++ }
-        /\[FAIL\][\r]*$$/{ f++ }
-        /\[SKIPPED\][\r]*$$/{ s++ }
-    
-        END {
-            printf("%d test(s) passed, %d skipped, %d failed.", p, s, f);
-            printf(" See all results in %s\n", ARGV[1]);
-        }' $LOG_FILE
-
-And use it like this:
-
-    LOG_REPORT           = $(CURDIR)/report.sh
+    This allows us to check the details in the log file even when all of
+    them passed, from the log details, we can check the string
+    alignment, duplicated print and kernel messages.
 
 Best regards,
 Zhangjin
