@@ -4,92 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F9EC77B7A
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 07:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC29C77B73
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 08:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7cAjtsxVLc5HmEtOdt7yLKNfRlutEo7DTAiNhtwaavc=; b=S0KmIMTIem11LJ
-	ZhFnosk25uv4CEMOnA95KlJuAaoNunZUSElSZGYZ/ZR8J4zekoH+dSjLvQCWyifwQv5Jnh7jiF8Dh
-	vtOMqh8scixQdm/RoFos5euyfyc3nolF9r2894xcIGBsO2NyYYxo7O51Rbqe2JpRYzt2k5x+KPxXJ
-	e5LdUlySj4/HXYmVbKb0ku5pJIV13laL7nMsP4FfrGFv5A9ngOEN2eqT4iPkjnfr5VdmE+v0CMtAP
-	Ijr/3JFQ10gmyE7atLE8swUTBh/H6uNPx9BxsMj7SWyZdXWVk5/kq+3qbvZMqIGmLah16Bs73byUK
-	yHxWSWydVtVLrDjADJbw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4r5sB+IE2cMKmXFM5DnPw2296n+92OewByF0CI7FDHc=; b=bvIOvpdXhH7zqF
+	BSIY2x23FRVDDlBpHlNLxxP/XJoKf2Yyq1I8IXOLmw5ptoLUR9wy/5YM+UOryknVD3h2d+/wUVo8F
+	t539C1W+W3fVts+QB8wo+etbuFQR1whainZR0t7Xo8L3TxCBJt1H28KIdYxaNvxUllFFOdittz30e
+	kGXqq5Oli5roYqx4Fe+Ckq7rrfA3vdGfZbE208tr4rBZA27FFbH2mH6Sy8IoUKbVOMEWtm/RkkTz3
+	DAEnhMOcG/VkK2Hka7Yzahp+MDZubUET5d7ytsmGXp3qjdXqJID1q/6eFnHG/rGmCG80saiOdN0aD
+	Gq+xbRFBiXzhfCXWGbxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6REX-000Y64-0r;
-	Tue, 06 Jun 2023 07:36:01 +0000
-Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	id 1q6Rkg-000jn8-1w;
+	Tue, 06 Jun 2023 08:09:14 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6REU-000Y43-1b
+	id 1q6Rkd-000jka-1D
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jun 2023 07:35:59 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.nyi.internal (Postfix) with ESMTP id 129EA5C00CC;
-	Tue,  6 Jun 2023 03:35:49 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Tue, 06 Jun 2023 03:35:49 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm1; t=1686036949; x=1686123349; bh=JP
-	6R94uQbzQBfUBBvYz80fUZWf0TL/O0HNFiOYoH0g8=; b=VzA/5wvw+R/Q0vEigx
-	C6bAunIc1d6yzEraxrGySxrM2Id2FfJbsuAgHJIWW7cxm+dvWvB+5urBCTuP/aCt
-	oBtRxJh+nBd0aERvmDnApWrYKp9f+vx1onw2ekLHupDXSbY1FoeS1M0XW1vntoYb
-	QILd8QYJa+0e2BlpOuwrHwouhgh8HewOcxOwEZjxWf43hJtvhpcbUDhizkUiqr4W
-	6XPiIvx3fOWe63trfROGA4YOvcPc4PFY6vjuSb6FTWqBJaD4F5DlISMf4dvrOHKp
-	CN3YJvGMiM1ktsW/dO7PZ+kK5QPvg8i7+CdDMH53oVygrDLDsIx+HdbQ9crCMRnD
-	RdxQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1686036949; x=1686123349; bh=JP6R94uQbzQBf
-	UBBvYz80fUZWf0TL/O0HNFiOYoH0g8=; b=NJZ/bUauyn6r9C2HniX6H8c+cfhTz
-	zWalf2888DaLopnoz27/2Bhayjh1J7fAqLRxel8pdEoGtvN74uqeJskTSRP+PjKx
-	1ACNlag3qsQY4TwYXeJOX+b6caxIE6GXgCvw4UocZ0dAj8RKictsabo9jR4oKDSb
-	1kPRfEvSld4q463ZukNMi2EZc6nMf5UK3T0Fo1KnhqbzjaBEyZKdIbUbcpwUoKGw
-	O2+xz/3sKW1RDpfi5te+Ln8XeCEquZEZYHke4XoS6cJg+aDrbTXLBxYVcKZsKBGE
-	d4uBpzsPSLmAiOa9419nOpkYnrH3vHZog8Nh8bztyXiKFPz58qOvk7IWQ==
-X-ME-Sender: <xms:1OF-ZKt9FM-Vh1KjIFQye05jUJr2DB9M0kJ3xkz2GOCM6xJIrEKTNA>
-    <xme:1OF-ZPc_OwDlWmBUK1wtW1BsCPhNvqwQxqXM5bja4oepM_sVkE4bblHJ4TNFnAUFe
-    l8u3RWEGfH9F8vJeIQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrgedttddguddvtdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
-    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpeevhfffledtgeehfeffhfdtgedvheejtdfgkeeuvefgudffteettdekkeeu
-    feehudenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:1OF-ZFx-xnV4OSZPeRQwP67_ZNCCCObOLZBge6a0A-hiiSGnA4RcPA>
-    <xmx:1OF-ZFPhvQTI52yGaUY8KdiJAuK1kW_ejI79kv0KPVwIzhhHHWtTaA>
-    <xmx:1OF-ZK9GEYwyjb3dy3bwc6Lir3zhwym7NWTiTM4_J37LyQs2LkUklw>
-    <xmx:1eF-ZBZ6vCszYkLrJswcZcm_k0XMuUbT_z6z-oydrUerYNiK6XLS_w>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 5175CB60086; Tue,  6 Jun 2023 03:35:48 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-447-ge2460e13b3-fm-20230525.001-ge2460e13
-Mime-Version: 1.0
-Message-Id: <4fcdd08c-e6fb-40b7-9f2b-77f96e798b37@app.fastmail.com>
-In-Reply-To: <f2776eb566b8cf2409d2c21f83ebf85ab92d2f09.1685780412.git.falcon@tinylab.org>
-References: <cover.1685780412.git.falcon@tinylab.org>
- <f2776eb566b8cf2409d2c21f83ebf85ab92d2f09.1685780412.git.falcon@tinylab.org>
-Date: Tue, 06 Jun 2023 09:35:27 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Zhangjin Wu" <falcon@tinylab.org>, "Willy Tarreau" <w@1wt.eu>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas@t-8ch.de>
-Subject: Re: [PATCH v3 1/3] tools/nolibc: fix up #error compile failures with -ENOSYS
+	Tue, 06 Jun 2023 08:09:13 +0000
+X-QQ-mid: bizesmtp71t1686038924tds2m1zg
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 06 Jun 2023 16:08:43 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: OFQdrTmJ2CS8cMsJdI2SFzlvHmY/Ck0nNyKgKxiLI9UnvdqlnoY+5XpF6N8Br
+	XdmjANCFOn/QtFRLGmvdaM4DpVxz5fMFWbRLx3CMqE+ZG+Lj5ARnkDkCxV8n6MuSHdda1g1
+	j5wTsf6/AxFnmKq96zAS5vJXIC574TOyhXYGECXT+kBzBtefdfjL2LXn2603hiuVTsIdQ4r
+	1OpvaBna3Uv95kdvvy4G3cvoj+wX7ouNqj4jNVJBCjXSuCMOO7BmR1R2YAKmIstqR9RSQX8
+	LrfjIjY3gF2xk1M2RwGPecOM6r07gUJ+j2sZ/axWmNW4+7I6M542KZpf+ZFg7/rZY2W3BzL
+	f5CKv26VV38EwMDkkF7NNRNHP/JS4/RjOPYJ9K9HNKPR4MY7LsCzrV/y+5pYQ==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9694467751585359085
+From: Zhangjin Wu <falcon@tinylab.org>
+To: thomas@t-8ch.de,
+	w@1wt.eu
+Cc: falcon@tinylab.org,
+	arnd@arndb.de,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 0/4] tools/nolibc: add two new syscall helpers
+Date: Tue,  6 Jun 2023 16:08:40 +0800
+Message-Id: <cover.1686036862.git.falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_003558_622115_7191B71B 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20230606_010911_738968_782A83D6 
+X-CRM114-Status: UNSURE (   6.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,39 +75,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 3, 2023, at 11:01, Zhangjin Wu wrote:
->
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> Link: 
-> https://lore.kernel.org/linux-riscv/5e7d2adf-e96f-41ca-a4c6-5c87a25d4c9c@app.fastmail.com/
-> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> ---
->  tools/include/nolibc/sys.h | 26 +++++++++++++-------------
->  1 file changed, 13 insertions(+), 13 deletions(-)
->
-> diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-> index 856249a11890..78c86f124335 100644
-> --- a/tools/include/nolibc/sys.h
-> +++ b/tools/include/nolibc/sys.h
-> @@ -124,7 +124,7 @@ int sys_chmod(const char *path, mode_t mode)
->  #elif defined(__NR_chmod)
->  	return my_syscall2(__NR_chmod, path, mode);
->  #else
-> -#error Neither __NR_fchmodat nor __NR_chmod defined, cannot implement 
-> sys_chmod()
-> +	return -ENOSYS;
->  #endif
->  }
+Willy, Thomas
 
-I think the most logical would be to have each syscall (chmod,
-fchmodat, ...) have its own function that returns -ENOSYS if
-that is not defined, and have the logic that decides which one
-to use as a separate function.
+This is the revision of the v1 syscall helpers [1], just rebased it on
+20230606-nolibc-rv32+stkp7a of [2]. It doesn't conflict with the -ENOSYS
+patchset [3], so, it is ok to simply merge both of them.
 
-This patch is a step in that direction though, so I think that's
-totally fine.
+This revision mainly applied your suggestions of v1, both of the syscall
+return and call helpers are simplified or cleaned up.
 
-     Arnd
+Changes from v1 -> v2:
+
+* tools/nolibc: sys.h: add __syscall() and __sysret() helpers
+  * Use inline function instead of macro for the syscall return helper
+    (Suggestion from Thomas)
+
+  * Rename syscall return helper from __syscall_ret to __sysret
+    (align with __syscall and it is not that long now)
+
+  * Make __sysret() be always inline
+    (Suggestion from Willy)
+
+  * Simplify the whole __syscall() macro to oneline code
+    (Benefit from the fixed 'long' return type of syscalls)
+
+* tools/nolibc: unistd.h: apply __sysret() helper
+  * Convert the whole _syscall() macro to oneline code
+
+* tools/nolibc: sys.h: apply __sysret() helper
+  * Futher convert both brk() and getpagesize() to oneline code 
+
+* tools/nolibc: sys.h: apply __syscall() helper
+  * Keep the same as v1, because the __syscall() usage not changed
+
+Best regards,
+Zhangjin
+
+---
+[1]: https://lore.kernel.org/linux-riscv/cover.1685856497.git.falcon@tinylab.org/
+[2]: https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
+[3]: https://lore.kernel.org/linux-riscv/cover.1685780412.git.falcon@tinylab.org/
+
+Zhangjin Wu (4):
+  tools/nolibc: sys.h: add __syscall() and __sysret() helpers
+  tools/nolibc: unistd.h: apply __sysret() helper
+  tools/nolibc: sys.h: apply __sysret() helper
+  tools/nolibc: sys.h: apply __syscall() helper
+
+ tools/include/nolibc/sys.h    | 366 ++++++----------------------------
+ tools/include/nolibc/unistd.h |  11 +-
+ 2 files changed, 57 insertions(+), 320 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
