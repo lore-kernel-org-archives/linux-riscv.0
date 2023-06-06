@@ -4,48 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB62BC7EE24
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 06:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6786CC77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 07:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WIY97QrfAeb9CyMy00XZ1/CI6dBd6MKpWR/PUxIaHj8=; b=rC3sE4BNGiQCrN
-	rHJCyR8KfvFwdh7bjhN3Xa5H0D1QWMTp9nAUBWkC12A3WF/RygHouRj/9Ofc16r3o97d1qwSQoAeP
-	HJKELNW7ZDoCoROhaKbcCws8rPo1q+rujdhCqC3GXsQb0DmJEP2MJTByUqE2JlGBfPB4YCz/oHIh8
-	xkrsRnnowUZuaRl0TwWEQnsajE/y2P8yNro49+fxbRuowUaCD7y7Ofuip5ZXA4SAMrm+BkxjamKyq
-	tIoOc31bLsQxi8kjq2dWj7RqVXcUxqw2xB4xVkuYSM8X459nlCpNfxl2E3Lov8/9DtRDmPwg6nhI5
-	Jo1ocOnWJV9PURAGsxdQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dRS+2JsraeCxqYOAwKd6Avvwn0kRZhdmuCw5HKxXK7A=; b=FLR4P5jLa4V623
+	wkHNzh0CCKKKRqlWMY3Y2WVPTbPFqrsjvAEWFNbjOdFl0T9AHtcZss7kgCDwrSpShcz1cf7AMLIKN
+	XjKGs0eEreJTRZIkfIySV/VNqE0fFvLBR8oSVRMDIapffFbWhMibKkVbqA2mSqQw+uWSc2cnxHbYf
+	9/eI5XUxGhxIF3xx5iEkRbKrzGMTwWHpcPe0q7TOq9LG6fONUot5J6D6R73AW8MIJdwDEVcd+GqFb
+	doRCquNBn45b14668i30RJIQUkMjibvseFTapoRdGS8/5wysK0MF7dPF8MU1W9N9GVUv7PyEzt7rv
+	Wal8GN38IHjU5b9BciTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6QRq-000PxV-0D;
-	Tue, 06 Jun 2023 06:45:42 +0000
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6QRm-000Puj-11
+	id 1q6QgS-000Sjt-0o;
+	Tue, 06 Jun 2023 07:00:48 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q6QgO-000SiT-1Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jun 2023 06:45:40 +0000
-Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 3566jWuo018103;
-	Tue, 6 Jun 2023 08:45:32 +0200
-Date: Tue, 6 Jun 2023 08:45:32 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: arnd@arndb.de, linux-kernel@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
-        thomas@t-8ch.de
-Subject: Re: [PATCH v3 0/3] nolibc: add part2 of support for rv32
-Message-ID: <ZH7WDDgACvzVzV6e@1wt.eu>
-References: <ZH65QKQ1dlY+HsK7@1wt.eu>
- <20230606063421.355411-1-falcon@tinylab.org>
+	Tue, 06 Jun 2023 07:00:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1686034844; x=1717570844;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=9aOdZLL0INgSjDe1MDQQYSUITQ9XpofYHKDcavMUzGc=;
+  b=UgCSCbjLBy8Qt9VQjXvil8uH9P368DRGQcPWQl2QvRYYKukMB1tPEtAz
+   17bR5Y3IwYH5V1869aStvB1Xa6TBLYyOn7jjo7KDaGbaWAD/9j5gUAJQr
+   Cy/el0I+qqYNI1PCaFIoywcwpT5MsPlIuCn9dmUkS5Nklbr34DqV2maXa
+   vNc8yimi9ND2MXIHnVPaEHquL1Lho1RB65hGsoPZYM7s+Emeu6Mt5Yl+X
+   /eldfXgqFS+ikiaHHiMgL1eTSvSj56frgeUwD5wRkgOmYmYm7G1y0GVD/
+   xp1I7l+3L4GOFDzyLwZLUDPI9jbtuPBJoFmW9ZUqXTwdYGOYxfJNHAnAl
+   Q==;
+X-IronPort-AV: E=Sophos;i="6.00,219,1681196400"; 
+   d="scan'208";a="228592302"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Jun 2023 00:00:38 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 6 Jun 2023 00:00:37 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Tue, 6 Jun 2023 00:00:36 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <palmer@dabbelt.com>
+CC: <conor@kernel.org>, <conor.dooley@microchip.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Jonathan Corbet <corbet@lwn.net>,
+	<linux-riscv@lists.infradead.org>, <linux-doc@vger.kernel.org>
+Subject: [PATCH v2] Documentation: RISC-V: patch-acceptance: mention patchwork's role
+Date: Tue, 6 Jun 2023 07:59:19 +0100
+Message-ID: <20230606-rehab-monsoon-12c17bbe08e3@wendy>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230606063421.355411-1-falcon@tinylab.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2386; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=9aOdZLL0INgSjDe1MDQQYSUITQ9XpofYHKDcavMUzGc=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCl1N83thU0EXL6cud/843YLj0n51n8v0vfalmyqTFy3u73s dVxoRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACaSqsrI8D6n5eQW1bqyVzevnT75Zs tZf3e/v8X3bnG3m8Zy1P3Yspvhnzln4loBr+pnM5qt1QOvLXux9lt35g7LC4Fh6lszzx7NZgcA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_234538_790949_2EEF6FBF 
-X-CRM114-Status: GOOD (  29.18  )
+X-CRM114-CacheID: sfid-20230606_000044_735353_6060F7A1 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,64 +79,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 06, 2023 at 02:34:21PM +0800, Zhangjin Wu wrote:
-> Willy, Thomas, Arnd
-> 
-> > Hi Zhangjin,
-> > 
-> > On Tue, Jun 06, 2023 at 12:25:35PM +0800, Zhangjin Wu wrote:
-> > > The first two convert all compile failures to a return of -ENOSYS, if you do
-> > > like it, welcome your Reviewed-by. These two are required by the coming new
-> > > time64 syscalls for rv32, because they depends on how we cope with the
-> > > unsupported syscalls, returning -ENOSYS is really better than simply fail the
-> > > compiling.
-> > 
-> > I had a look now and I can sya that I like this. Initially the supported
-> > syscalls were so restricted that it was not even imaginable to accept to
-> > build without any of them, but now that we're completing the list, some
-> > of them are less critical and I don't see why we'd fail to build just
-> > because one is missing. So yeah, a big +1 for -ENOSYS.
-> >
-> 
-> Cool, I will prepare the new patchsets on them, welcome your new branch
-> with both of them, of course, still weclome Reviewed-by from Arnd and Thomas.
-
-I don't even think a new branch is needed, I can take them as-is it seems.
-
-> > > The third one is not that urgent, because some important syscalls are
-> > > still missing for rv32. It is added here only for compile test.
-> > 
-> > I personally have no opinion on this one. I can't judge whether it will
-> > make things easier or more complicated at this point. It seems to me
-> > that for now it's just avoiding one extra line at the expense of some
-> > $(if) on several lines. Maybe it could help add more such archs, or
-> > maybe it can make them more complicated to debug, I don't know. I'm
-> > interested in others' opinions as well.
-> 
-> As I explained why we did it in current way in this reply [1], Thomas had no
-> more questions on it, so I think Thomas was happy with it now and I got his
-> only left suggestion is that may be this patch should be applied after the
-> missing 64bit syscalls being added for there are several important test
-> failures currently, for me, it is ok before or after.
-> 
-> Thomas, welcome your Reviewed-by on the makefile patch itself If you are really
-> happy with it now, thanks very much ;-)
-> 
-> Willy, I will send the v2 syscalls helpers (also required by the coming 64bit
-> syscalls) and some other patches (mainly for test with faster kernel build)
-> about selftests/nolibc later, because we have not enough time for v6.5 test,
-> so, I suggest we can create new branch for v6.6 and my new patchsets will be
-> for v6.6.
-
-Agreed, thank you!
-Willy
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UGFsbWVyIHN1Z2dlc3RlZCBhdCBzb21lIHBvaW50LCBub3Qgc3VyZSBpZiBpdCB3YXMgaW4gb25l
+IG9mIHRoZQp3ZWVrbHkgbGludXgtcmlzY3Ygc3luY3MsIG9yIGEgY29udmVyc2F0aW9uIGF0IEZP
+U0RFTSwgdGhhdCB3ZQpzaG91bGQgZG9jdW1lbnQgdGhlIHJvbGUgb2YgdGhlIGF1dG9tYXRpb24g
+cnVubmluZyBvbiBvdXIgcGF0Y2h3b3JrCmluc3RhbmNlIHBsYXlzIGluIHBhdGNoIGFjY2VwdGFu
+Y2UuCgpBZGQgYSBzaG9ydCBub3RlIHRvIHRoZSBwYXRjaC1hY2NlcHRhbmNlIGRvY3VtZW50IHRv
+IHRoYXQgZW5kLgoKU2lnbmVkLW9mZi1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWlj
+cm9jaGlwLmNvbT4KLS0tCkkgd2FzIGFsc28gbm90IHN1cmUgaWYgdGhpcyB3YXMgdGhlIGNvcnJl
+Y3QgZG9jIGZvciB0aGlzLCBvciB3aGV0aGVyIGEKcHJvY2Vzcy9tYWludGFpbmVyLXJpc2N2LnJz
+dCBmaWxlIHdhcyBiZXR0ZXIgc3VpdGVkLiBUaGVyZSdzIGNsZWFybHkgbm8KcnVzaCBvbiB0aGlz
+IHRob3VnaCBzbyDCr1xfKOODhClfL8KvCgpDaGFuZ2VzIGluIHYyOgotIG1lbnRpb24gdGhhdCBy
+aXNjdi9tYXN0ZXIgaXMgbm93IGFsc28gYSBwb3NzaWJsZSBhcHBsaWNhdGlvbiB0YXJnZXQuCgpD
+QzogQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4KQ0M6IFBhbG1lciBEYWJiZWx0IDxw
+YWxtZXJAZGFiYmVsdC5jb20+CkNDOiBQYXVsIFdhbG1zbGV5IDxwYXVsLndhbG1zbGV5QHNpZml2
+ZS5jb20+CkNDOiBKb25hdGhhbiBDb3JiZXQgPGNvcmJldEBsd24ubmV0PgpDQzogbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpDQzogbGludXgtZG9jQHZnZXIua2VybmVsLm9yZwotLS0K
+IERvY3VtZW50YXRpb24vcmlzY3YvcGF0Y2gtYWNjZXB0YW5jZS5yc3QgfCAxOCArKysrKysrKysr
+KysrKysrKysKIDEgZmlsZSBjaGFuZ2VkLCAxOCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEv
+RG9jdW1lbnRhdGlvbi9yaXNjdi9wYXRjaC1hY2NlcHRhbmNlLnJzdCBiL0RvY3VtZW50YXRpb24v
+cmlzY3YvcGF0Y2gtYWNjZXB0YW5jZS5yc3QKaW5kZXggMDdkNWE1NjIzZTJhLi42MzRhYTIyMmI0
+MTAgMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24vcmlzY3YvcGF0Y2gtYWNjZXB0YW5jZS5yc3QK
+KysrIGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9wYXRjaC1hY2NlcHRhbmNlLnJzdApAQCAtMTYsNiAr
+MTYsMjQgQEAgdGVzdGVkIGNvZGUgb3ZlciBleHBlcmltZW50YWwgY29kZS4gIFdlIHdpc2ggdG8g
+ZXh0ZW5kIHRoZXNlIHNhbWUKIHByaW5jaXBsZXMgdG8gdGhlIFJJU0MtVi1yZWxhdGVkIGNvZGUg
+dGhhdCB3aWxsIGJlIGFjY2VwdGVkIGZvcgogaW5jbHVzaW9uIGluIHRoZSBrZXJuZWwuCiAKK1Bh
+dGNod29yaworLS0tLS0tLS0tCisKK1JJU0MtViBoYXMgYSBwYXRjaHdvcmsgaW5zdGFuY2UsIHdo
+ZXJlIHRoZSBzdGF0dXMgb2YgcGF0Y2hlcyBjYW4gYmUgY2hlY2tlZDoKKworICBodHRwczovL3Bh
+dGNod29yay5rZXJuZWwub3JnL3Byb2plY3QvbGludXgtcmlzY3YvbGlzdC8KKworSWYgeW91ciBw
+YXRjaCBkb2VzIG5vdCBhcHBlYXIgaW4gdGhlIGRlZmF1bHQgdmlldywgdGhlIFJJU0MtViBtYWlu
+dGFpbmVycyBoYXZlCitsaWtlbHkgZWl0aGVyIHJlcXVlc3RlZCBjaGFuZ2VzLCBvciBleHBlY3Qg
+aXQgdG8gYmUgYXBwbGllZCB0byBhbm90aGVyIHRyZWUuCisKK0F1dG9tYXRpb24gcnVucyBhZ2Fp
+bnN0IHRoaXMgcGF0Y2h3b3JrIGluc3RhbmNlLCBidWlsZGluZy90ZXN0aW5nIHBhdGNoZXMgYXMK
+K3RoZXkgYXJyaXZlLiBUaGUgYXV0b21hdGlvbiBhcHBsaWVzIHBhdGNoZXMgYWdhaW5zdCB0aGUg
+Y3VycmVudCBIRUFEIG9mIHRoZQorUklTQy1WIGBmb3ItbmV4dGAgYW5kIGBmaXhlc2AgYnJhbmNo
+ZXMsIGRlcGVuZGluZyBvbiB3aGV0aGVyIHRoZSBwYXRjaCBoYXMgYmVlbgorZGV0ZWN0ZWQgYXMg
+YSBmaXguIEZhaWxpbmcgdGhvc2UsIGl0IHdpbGwgdXNlIHRoZSBSSVNDLVYgYG1hc3RlcmAgYnJh
+bmNoLgorVGhlIGV4YWN0IGNvbW1pdCB0byB3aGljaCBhIHNlcmllcyBoYXMgYmVlbiBhcHBsaWVk
+IHdpbGwgYmUgbm90ZWQgb24gcGF0Y2h3b3JrLgorUGF0Y2hlcyBmb3Igd2hpY2ggYW55IG9mIHRo
+ZSBjaGVja3MgZmFpbCBhcmUgdW5saWtlbHkgdG8gYmUgYXBwbGllZCBhbmQgaW4gbW9zdAorY2Fz
+ZXMgd2lsbCBuZWVkIHRvIGJlIHJlc3VibWl0dGVkLgorCiBTdWJtaXQgQ2hlY2tsaXN0IEFkZGVu
+ZHVtCiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiBXZSdsbCBvbmx5IGFjY2VwdCBwYXRjaGVz
+IGZvciBuZXcgbW9kdWxlcyBvciBleHRlbnNpb25zIGlmIHRoZQotLSAKMi4zOS4yCgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
