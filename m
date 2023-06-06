@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 233DBC77B73
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 08:18:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76877C7EE24
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 08:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6VtqRNGkYBFZTdPD4XQo8vy8HWzDSulfi7yB9RqIRgs=; b=MOP8Iy9J9xn5GA
-	aFTDCS6UiVVvS6Zv3xA18bBEQNd0yd0D3sX3ERoiaww8hrDlptt6hQbev3lyFW9e1TZZAmvAgkTTy
-	1gme2A9khCXd7wxZCGPJoTHtQxvGrVrAuLDZvh3f1yFgvO8vYz137dTbqQ9EAjR0jPcXN8bwVV+BP
-	CUegmAXNwQS53hR1qeYSCt9pwYuhnU1CXMnONpxLyLMijudGi5tAQmTYsBSMH5KaNFTBEzjCYF/zF
-	G7MypJren3TVnVcRuHbaKsqpgZ1crjTK2bRB4LDjArrIs2SMRsBpZLkTmtApe6McmiEc2bgycIcD3
-	HGrRo8/X9JSqIpfoQhYw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=72G/atJeHCSCHUKABe4q9Lo+FwGzmjr+NbumfrTbc6A=; b=GErD6ALdOxS2Up
+	AiQGKJNxgAZkgj3N0aVYNl5Ah25ULyhsDzgMMXvvB7vL97PQws/rN+beJ0jBDpFvT+O+C5CoVxfMK
+	x6u7Vw3sRWlgXPTKc0NNS54u+uqiqjxEi+W3YzusBewTLHMeuukQJy05EXpjDpQuPJTrl5MCznljN
+	DYxX99R/BCQtXURIoJ6bo3YxvpFZQ7LJWC+2eQzuXlX/lGNgzIy7HZOIsMBd1ns+NDND2y4me4NJ3
+	34cvldvoR9q/XONsqxqzXEH+IX6i4cSzZr2TWC4jTCKRPrw6vgIN0EbnAcIMhcvRiaLLj1V9YOhrP
+	+pjnZ5A2y2SqCjcoTDNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6RtC-000lJR-37;
-	Tue, 06 Jun 2023 08:18:02 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1q6S3Z-000oLj-07;
+	Tue, 06 Jun 2023 08:28:45 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6Rt8-000lHg-1l
-	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jun 2023 08:18:02 +0000
-X-QQ-mid: bizesmtp87t1686039463tyigwi8k
-Received: from linux-lab-host.localdomain ( [61.141.77.49])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 06 Jun 2023 16:17:42 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: F7SaWszrsrL6jDLoUmUajkY+RVr0d5UzNLhqfwzMPFLZ5nbKS5axwqN/67E3R
-	fNwEwJtdcWRDVbCBrVAWNy+evzIKDFp/4o5+dV9u9+MbYgb3669ikWhskRedGhY+tzS136Z
-	xZfoEXhZySVtLm91gIuU6Y3DsOds/XQbTtSkBGC4xtJg4Do9cztk1JsmxvEedN40vbjUYpM
-	r/9++y9w0naHm5UXjTXiyZGPpcuUP78JsRJQQ0zKth6II6GJ8fFmkuacPIEpQboapg9ND32
-	niw3IkNTiW2UMNFES4bq/SZDnPqli5kurdryNi02s4AtW13tsSsi2KtGoQDiHyoBKdpgdfO
-	BPuxg1mIvbvMyfMR/jwAmsvZV0zdYQWLmudHDd9OgTcWMHmLag=
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 989690427853110087
-From: Zhangjin Wu <falcon@tinylab.org>
-To: thomas@t-8ch.de,
-	w@1wt.eu
-Cc: falcon@tinylab.org,
-	arnd@arndb.de,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 4/4] tools/nolibc: sys.h: apply __syscall() helper
-Date: Tue,  6 Jun 2023 16:17:38 +0800
-Message-Id: <ee86e33d9f0031da5932b0de798f188535308dd7.1686036862.git.falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1686036862.git.falcon@tinylab.org>
-References: <cover.1686036862.git.falcon@tinylab.org>
+	id 1q6S3T-000oJ5-0l;
+	Tue, 06 Jun 2023 08:28:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1686040119; x=1717576119;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=83CH+1+GFJLq7dRIvQNFv+8CIkhu41Bosypd3+XFrTY=;
+  b=lfETXGP7q4qPoGaM92T7qnmbYpxBy4+NO1dyHw3CU7Jn0L7+20Tom00Z
+   /TauBTB/3AEis2YAAYNBKvruvwdwJqYjjz1DzfWFcJLqs07pjnXm7oWpD
+   3XmMsiEMEFRrdmTbGqfAHg7qajO+MPMYZEerAqKwO80XYxXM0A/TXOtCN
+   EX4uoe7WSDqqIOZhgo1hjmbKADM4aloy9mNtbLBsR7tnLV+k2IO9wIG2J
+   /+5IzpHVSw2SiIrXofOXqZQsr3ObErsUfIuOnM2uam1ZcxSfCPV/fmR8K
+   n32szgJAsS9zYVSFqTZdUXc6KAoXsNtd3Sk449TN+VEuPbEUf5kfYlGv9
+   Q==;
+X-IronPort-AV: E=Sophos;i="6.00,219,1681196400"; 
+   d="scan'208";a="216388308"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Jun 2023 01:28:34 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 6 Jun 2023 01:28:33 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Tue, 6 Jun 2023 01:28:31 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <soc@kernel.org>
+CC: <conor@kernel.org>, <conor.dooley@microchip.com>, <corbet@lwn.net>,
+	<devicetree@vger.kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<olof@lixom.net>, <palmer@dabbelt.com>, <robh+dt@kernel.org>,
+	<arnd@arndb.de>, <rdunlap@infradead.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v3] Documentation/process: add soc maintainer handbook
+Date: Tue, 6 Jun 2023 09:27:43 +0100
+Message-ID: <20230606-escapable-stuffed-7ca5033e7741@wendy>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11238; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=83CH+1+GFJLq7dRIvQNFv+8CIkhu41Bosypd3+XFrTY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCl1b//8evzpkYZV1LHFAaE3poZwMjR6xe/8L1N8MX5652KZ Mh7DjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzkmRXDX6GI+uufJuxoF51U4bjH9k KR80fno/6BATZCiVcKm2P2WzL8ZnkpeOvHMs+nn6e1CIdlvNx5O4Ihe8Lt7Pc7f/MdNJ+6gx0A
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_011758_901625_2A1E30E1 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230606_012839_478566_2F702492 
+X-CRM114-Status: GOOD (  42.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,653 +86,250 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use __syscall() helper to shrink 252 lines of code.
+Arnd suggested that adding a maintainer handbook for the SoC "subsystem"
+would be helpful in trying to bring on board maintainers for the various
+new platforms cropping up in RISC-V land.
 
-    $ git show HEAD^:tools/include/nolibc/sys.h | wc -l
-    1425
-    $ git show HEAD:tools/include/nolibc/sys.h | wc -l
-    1173
-    $ echo "1425-1173" | bc -l
-    252
+Add a document briefly describing the role of the SoC subsystem and some
+basic advice for (new) platform maintainers.
 
-Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+Suggested-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- tools/include/nolibc/sys.h | 336 +++++--------------------------------
- 1 file changed, 42 insertions(+), 294 deletions(-)
+Changes in v3:
+- sort out a rake of spelling/grammar bits spotted by Randy, apart from
+  the one noted as a suggestion
+- drop the refs for document filepaths
 
-diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-index f6e3168b3e50..0cfc5157845a 100644
---- a/tools/include/nolibc/sys.h
-+++ b/tools/include/nolibc/sys.h
-@@ -108,13 +108,7 @@ int sys_chdir(const char *path)
- static __attribute__((unused))
- int chdir(const char *path)
- {
--	int ret = sys_chdir(path);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(chdir, path);
- }
+Changes in v2:
+- add Krzysztof's suggested method for avoiding inter-branch
+  dependencies
+- explicitly mention that tags should be signed
+- link to the devicetree abi document, rather than trying to explain it
+  here & reword that whole section
+- fix some typos, capitalisation & unify bullet style
+
+The devicetree abi doc feels quite out of date at this point, and could
+probably do with a spring clean - but it also feels like hallowed ground
+on which one should tread lightly, so I won't go near that til Rob is
+back.
+---
+ .../process/maintainer-handbooks.rst          |   3 +-
+ Documentation/process/maintainer-soc.rst      | 177 ++++++++++++++++++
+ MAINTAINERS                                   |   1 +
+ 3 files changed, 180 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/process/maintainer-soc.rst
+
+diff --git a/Documentation/process/maintainer-handbooks.rst b/Documentation/process/maintainer-handbooks.rst
+index d783060b4cc6..fe24cb665fb7 100644
+--- a/Documentation/process/maintainer-handbooks.rst
++++ b/Documentation/process/maintainer-handbooks.rst
+@@ -15,5 +15,6 @@ Contents:
+    :numbered:
+    :maxdepth: 2
+ 
+-   maintainer-tip
+    maintainer-netdev
++   maintainer-soc
++   maintainer-tip
+diff --git a/Documentation/process/maintainer-soc.rst b/Documentation/process/maintainer-soc.rst
+new file mode 100644
+index 000000000000..49f08289d62c
+--- /dev/null
++++ b/Documentation/process/maintainer-soc.rst
+@@ -0,0 +1,177 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++=============
++SoC Subsystem
++=============
++
++Overview
++--------
++
++The SoC subsystem is a place of aggregation for SoC-specific code.
++The main components of the subsystem are:
++
++* devicetrees for 32- & 64-bit ARM and RISC-V
++* 32-bit ARM board files (arch/arm/mach*)
++* 32- & 64-bit ARM defconfigs
++* SoC-specific drivers across architectures, in particular for 32- & 64-bit
++  ARM, RISC-V and Loongarch
++
++These "SoC-specific drivers" do not include clock, GPIO etc drivers that have
++other top-level maintainers. The drivers/soc/ directory is generally meant
++for kernel-internal drivers that are used by other drivers to provide SoC-
++specific functionality like identifying an SoC revision or interfacing with
++power domains.
++
++The SoC subsystem also serves as an intermediate location for changes to
++drivers/bus, drivers/firmware, drivers/reset and drivers/memory.  The addition
++of new platforms, or the removal of existing ones, often go through the SoC
++tree as a dedicated branch covering multiple subsystems.
++
++The main SoC tree is housed on git.kernel.org:
++  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/
++
++Clearly this is quite a wide range of topics, which no one person, or even
++small group of people are capable of maintaining.  Instead, the SoC subsystem
++is comprised of many submaintainers, each taking care of individual platforms
++and driver subdirectories.
++In this regard, "platform" usually refers to a series of SoCs from a given
++vendor, for example, Nvidia's series of Tegra SoCs.  Many submaintainers operate
++on a vendor level, responsible for multiple product lines.  For several reasons,
++including acquisitions/different business units in a company, things vary
++significantly here.  The various submaintainers are documented in the
++MAINTAINERS file.
++
++Most of these submaintainers have their own trees where they stage patches,
++sending pull requests to the main SoC tree.  These trees are usually, but not
++always, listed in MAINTAINERS.  The main SoC maintainers can be reached via the
++alias soc@kernel.org if there is no platform-specific maintainer, or if they
++are unresponsive.
++
++What the SoC tree is not, however, is a location for architecture-specific code
++changes.  Each architecture has its own maintainers that are responsible for
++architectural details, CPU errata and the like.
++
++Information for (new) Submaintainers
++------------------------------------
++
++As new platforms spring up, they often bring with them new submaintainers,
++many of whom work for the silicon vendor, and may not be familiar with the
++process.
++
++Devicetree ABI Stability
++~~~~~~~~~~~~~~~~~~~~~~~~
++
++Perhaps one of the most important things to highlight is that dt-bindings
++document the ABI between the devicetree and the kernel.
++Please read Documentation/devicetree/bindings/ABI.rst.
++
++If changes are being made to a devicetree that are incompatible with old
++kernels, the devicetree patch should not be applied until the driver is, or an
++appropriate time later.  Most importantly, any incompatible changes should be
++clearly pointed out in the patch description and pull request, along with the
++expected impact on existing users, such as bootloaders or other operating
++systems.
++
++Driver Branch Dependencies
++~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++A common problem is synchronizing changes between device drivers and devicetree
++files. Even if a change is compatible in both directions, this may require
++coordinating how the changes get merged through different maintainer trees.
++
++Usually the branch that includes a driver change will also include the
++corresponding change to the devicetree binding description, to ensure they are
++in fact compatible.  This means that the devicetree branch can end up causing
++warnings in the "make dtbs_check" step.  If a devicetree change depends on
++missing additions to a header file in include/dt-bindings/, it will fail the
++"make dtbs" step and not get merged.
++
++There are multiple ways to deal with this:
++
++* Avoid defining custom macros in include/dt-bindings/ for hardware constants
++  that can be derived from a datasheet -- binding macros in header files should
++  only be used as a last resort if there is no natural way to define a binding
++
++* Use literal values in the devicetree file in place of macros even when a
++  header is required, and change them to the named representation in a
++  following release
++
++* Defer the devicetree changes to a release after the binding and driver have
++  already been merged
++
++* Change the bindings in a shared immutable branch that is used as the base for
++  both the driver change and the devicetree changes
++
++* Add duplicate defines in the devicetree file guarded by an #ifndef section,
++  removing them in a later release
++
++Devicetree Naming Convention
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++The general naming scheme for devicetree files is as follows.  The aspects of a
++platform that are set at the SoC level, like CPU cores, are contained in a file
++named $soc.dtsi, for example, jh7100.dtsi.  Integration details, that will vary
++from board to board, are described in $soc-$board.dts.  An example of this is
++jh7100-beaglev-starlight.dts.  Often many boards are variations on a theme, and
++frequently there are intermediate files, such as jh7100-common.dtsi, which sit
++between the $soc.dtsi and $soc-$board.dts files, containing the descriptions of
++common hardware.
++
++Some platforms also have System on Modules, containing an SoC, which are then
++integrated into several different boards. For these platforms, $soc-$som.dtsi
++and $soc-$som-$board.dts are typical.
++
++Directories are usually named after the vendor of the SoC at the time of its
++inclusion, leading to some historical directory names in the tree.
++
++Validating Devicetree Files
++~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++``make dtbs_check`` can be used to validate that devicetree files are compliant
++with the dt-bindings that describe the ABI.  Please read the section
++"Running checks" of Documentation/devicetree/bindings/writing-schema.rst for
++more information on the validation of devicetrees.
++
++For new platforms, or additions to existing ones, ``make dtbs_check`` should not
++add any new warnings.  For RISC-V, as it has the advantage of being a newer
++architecture, ``make dtbs_check W=1`` is required to not add any new warnings.
++If in any doubt about a devicetree change, reach out to the devicetree
++maintainers.
++
++Branches and Pull Requests
++~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++Just as the main SoC tree has several branches, it is expected that
++submaintainers will do the same. Driver, defconfig and devicetree changes should
++all be split into separate branches and appear in separate pull requests to the
++SoC maintainers.  Each branch should be usable by itself and avoid
++regressions that originate from dependencies on other branches.
++
++Small sets of patches can also be sent as separate emails to soc@kernel.org,
++grouped into the same categories.
++
++If changes do not fit into the normal patterns, there can be additional
++top-level branches, e.g. for a treewide rework, or the addition of new SoC
++platforms including dts files and drivers.
++
++Branches with a lot of changes can benefit from getting split up into separate
++topics branches, even if they end up getting merged into the same branch of the
++SoC tree.  An example here would be one branch for devicetree warning fixes, one
++for a rework and one for newly added boards.
++
++Another common way to split up changes is to send an early pull request with the
++majority of the changes at some point between rc1 and rc4, following up with one
++or more smaller pull requests towards the end of the cycle that can add late
++changes or address problems identified while testing the first set.
++
++While there is no cut-off time for late pull requests, it helps to only send
++small branches as time gets closer to the merge window.
++
++Pull requests for bugfixes for the current release can be sent at any time, but
++again having multiple smaller branches is better than trying to combine too many
++patches into one pull request.
++
++The subject line of a pull request should begin with "[GIT PULL]" and made using
++a signed tag, rather than a branch.  This tag should contain a short description
++summarising the changes in the pull request.  For more detail on sending pull
++requests, please see Documentation/maintainer/pull-requests.rst.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7e0b87d5aa2e..29631c325857 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1815,6 +1815,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ C:	irc://irc.libera.chat/armlinux
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git
++F:	Documentation/process/maintainer-soc.rst
+ F:	arch/arm/boot/dts/Makefile
+ F:	arch/arm64/boot/dts/Makefile
  
- 
-@@ -137,13 +131,7 @@ int sys_chmod(const char *path, mode_t mode)
- static __attribute__((unused))
- int chmod(const char *path, mode_t mode)
- {
--	int ret = sys_chmod(path, mode);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(chmod, path, mode);
- }
- 
- 
-@@ -166,13 +154,7 @@ int sys_chown(const char *path, uid_t owner, gid_t group)
- static __attribute__((unused))
- int chown(const char *path, uid_t owner, gid_t group)
- {
--	int ret = sys_chown(path, owner, group);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(chown, path, owner, group);
- }
- 
- 
-@@ -189,13 +171,7 @@ int sys_chroot(const char *path)
- static __attribute__((unused))
- int chroot(const char *path)
- {
--	int ret = sys_chroot(path);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(chroot, path);
- }
- 
- 
-@@ -212,13 +188,7 @@ int sys_close(int fd)
- static __attribute__((unused))
- int close(int fd)
- {
--	int ret = sys_close(fd);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(close, fd);
- }
- 
- 
-@@ -235,13 +205,7 @@ int sys_dup(int fd)
- static __attribute__((unused))
- int dup(int fd)
- {
--	int ret = sys_dup(fd);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(dup, fd);
- }
- 
- 
-@@ -264,13 +228,7 @@ int sys_dup2(int old, int new)
- static __attribute__((unused))
- int dup2(int old, int new)
- {
--	int ret = sys_dup2(old, new);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(dup2, old, new);
- }
- 
- 
-@@ -288,13 +246,7 @@ int sys_dup3(int old, int new, int flags)
- static __attribute__((unused))
- int dup3(int old, int new, int flags)
- {
--	int ret = sys_dup3(old, new, flags);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(dup3, old, new, flags);
- }
- #endif
- 
-@@ -312,13 +264,7 @@ int sys_execve(const char *filename, char *const argv[], char *const envp[])
- static __attribute__((unused))
- int execve(const char *filename, char *const argv[], char *const envp[])
- {
--	int ret = sys_execve(filename, argv, envp);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(execve, filename, argv, envp);
- }
- 
- 
-@@ -365,13 +311,7 @@ pid_t sys_fork(void)
- static __attribute__((unused))
- pid_t fork(void)
- {
--	pid_t ret = sys_fork();
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(fork);
- }
- 
- 
-@@ -388,13 +328,7 @@ int sys_fsync(int fd)
- static __attribute__((unused))
- int fsync(int fd)
- {
--	int ret = sys_fsync(fd);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(fsync, fd);
- }
- 
- 
-@@ -411,13 +345,7 @@ int sys_getdents64(int fd, struct linux_dirent64 *dirp, int count)
- static __attribute__((unused))
- int getdents64(int fd, struct linux_dirent64 *dirp, int count)
- {
--	int ret = sys_getdents64(fd, dirp, count);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(getdents64, fd, dirp, count);
- }
- 
- 
-@@ -455,13 +383,7 @@ pid_t sys_getpgid(pid_t pid)
- static __attribute__((unused))
- pid_t getpgid(pid_t pid)
- {
--	pid_t ret = sys_getpgid(pid);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(getpgid, pid);
- }
- 
- 
-@@ -562,13 +484,7 @@ int sys_gettimeofday(struct timeval *tv, struct timezone *tz)
- static __attribute__((unused))
- int gettimeofday(struct timeval *tv, struct timezone *tz)
- {
--	int ret = sys_gettimeofday(tv, tz);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(gettimeofday, tv, tz);
- }
- 
- 
-@@ -606,13 +522,7 @@ int sys_ioctl(int fd, unsigned long req, void *value)
- static __attribute__((unused))
- int ioctl(int fd, unsigned long req, void *value)
- {
--	int ret = sys_ioctl(fd, req, value);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(ioctl, fd, req, value);
- }
- 
- /*
-@@ -628,13 +538,7 @@ int sys_kill(pid_t pid, int signal)
- static __attribute__((unused))
- int kill(pid_t pid, int signal)
- {
--	int ret = sys_kill(pid, signal);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(kill, pid, signal);
- }
- 
- 
-@@ -657,13 +561,7 @@ int sys_link(const char *old, const char *new)
- static __attribute__((unused))
- int link(const char *old, const char *new)
- {
--	int ret = sys_link(old, new);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(link, old, new);
- }
- 
- 
-@@ -684,13 +582,7 @@ off_t sys_lseek(int fd, off_t offset, int whence)
- static __attribute__((unused))
- off_t lseek(int fd, off_t offset, int whence)
- {
--	off_t ret = sys_lseek(fd, offset, whence);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(lseek, fd, offset, whence);
- }
- 
- 
-@@ -713,13 +605,7 @@ int sys_mkdir(const char *path, mode_t mode)
- static __attribute__((unused))
- int mkdir(const char *path, mode_t mode)
- {
--	int ret = sys_mkdir(path, mode);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(mkdir, path, mode);
- }
- 
- 
-@@ -742,13 +628,7 @@ long sys_mknod(const char *path, mode_t mode, dev_t dev)
- static __attribute__((unused))
- int mknod(const char *path, mode_t mode, dev_t dev)
- {
--	int ret = sys_mknod(path, mode, dev);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(mknod, path, mode, dev);
- }
- 
- #ifndef MAP_SHARED
-@@ -806,13 +686,7 @@ int sys_munmap(void *addr, size_t length)
- static __attribute__((unused))
- int munmap(void *addr, size_t length)
- {
--	int ret = sys_munmap(addr, length);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(munmap, addr, length);
- }
- 
- /*
-@@ -832,13 +706,7 @@ int mount(const char *src, const char *tgt,
-           const char *fst, unsigned long flags,
-           const void *data)
- {
--	int ret = sys_mount(src, tgt, fst, flags, data);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(mount, src, tgt, fst, flags, data);
- }
- 
- 
-@@ -872,13 +740,7 @@ int open(const char *path, int flags, ...)
- 		va_end(args);
- 	}
- 
--	ret = sys_open(path, flags, mode);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(open, path, flags, mode);
- }
- 
- 
-@@ -898,13 +760,7 @@ static __attribute__((unused))
- int prctl(int option, unsigned long arg2, unsigned long arg3,
- 		      unsigned long arg4, unsigned long arg5)
- {
--	int ret = sys_prctl(option, arg2, arg3, arg4, arg5);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(prctl, option, arg2, arg3, arg4, arg5);
- }
- 
- 
-@@ -921,13 +777,7 @@ int sys_pivot_root(const char *new, const char *old)
- static __attribute__((unused))
- int pivot_root(const char *new, const char *old)
- {
--	int ret = sys_pivot_root(new, old);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(pivot_root, new, old);
- }
- 
- 
-@@ -956,13 +806,7 @@ int sys_poll(struct pollfd *fds, int nfds, int timeout)
- static __attribute__((unused))
- int poll(struct pollfd *fds, int nfds, int timeout)
- {
--	int ret = sys_poll(fds, nfds, timeout);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(poll, fds, nfds, timeout);
- }
- 
- 
-@@ -979,13 +823,7 @@ ssize_t sys_read(int fd, void *buf, size_t count)
- static __attribute__((unused))
- ssize_t read(int fd, void *buf, size_t count)
- {
--	ssize_t ret = sys_read(fd, buf, count);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(read, fd, buf, count);
- }
- 
- 
-@@ -1003,13 +841,7 @@ ssize_t sys_reboot(int magic1, int magic2, int cmd, void *arg)
- static __attribute__((unused))
- int reboot(int cmd)
- {
--	int ret = sys_reboot(LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, cmd, 0);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, cmd, 0);
- }
- 
- 
-@@ -1026,13 +858,7 @@ int sys_sched_yield(void)
- static __attribute__((unused))
- int sched_yield(void)
- {
--	int ret = sys_sched_yield();
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(sched_yield);
- }
- 
- 
-@@ -1072,13 +898,7 @@ int sys_select(int nfds, fd_set *rfds, fd_set *wfds, fd_set *efds, struct timeva
- static __attribute__((unused))
- int select(int nfds, fd_set *rfds, fd_set *wfds, fd_set *efds, struct timeval *timeout)
- {
--	int ret = sys_select(nfds, rfds, wfds, efds, timeout);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(select, nfds, rfds, wfds, efds, timeout);
- }
- 
- 
-@@ -1095,13 +915,7 @@ int sys_setpgid(pid_t pid, pid_t pgid)
- static __attribute__((unused))
- int setpgid(pid_t pid, pid_t pgid)
- {
--	int ret = sys_setpgid(pid, pgid);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(setpgid, pid, pgid);
- }
- 
- 
-@@ -1118,13 +932,7 @@ pid_t sys_setsid(void)
- static __attribute__((unused))
- pid_t setsid(void)
- {
--	pid_t ret = sys_setsid();
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(setsid);
- }
- 
- #if defined(__NR_statx)
-@@ -1141,13 +949,7 @@ int sys_statx(int fd, const char *path, int flags, unsigned int mask, struct sta
- static __attribute__((unused))
- int statx(int fd, const char *path, int flags, unsigned int mask, struct statx *buf)
- {
--	int ret = sys_statx(fd, path, flags, mask, buf);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(statx, fd, path, flags, mask, buf);
- }
- #endif
- 
-@@ -1227,13 +1029,7 @@ int sys_stat(const char *path, struct stat *buf)
- static __attribute__((unused))
- int stat(const char *path, struct stat *buf)
- {
--	int ret = sys_stat(path, buf);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(stat, path, buf);
- }
- 
- 
-@@ -1256,13 +1052,7 @@ int sys_symlink(const char *old, const char *new)
- static __attribute__((unused))
- int symlink(const char *old, const char *new)
- {
--	int ret = sys_symlink(old, new);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(symlink, old, new);
- }
- 
- 
-@@ -1296,13 +1086,7 @@ int sys_umount2(const char *path, int flags)
- static __attribute__((unused))
- int umount2(const char *path, int flags)
- {
--	int ret = sys_umount2(path, flags);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(umount2, path, flags);
- }
- 
- 
-@@ -1325,13 +1109,7 @@ int sys_unlink(const char *path)
- static __attribute__((unused))
- int unlink(const char *path)
- {
--	int ret = sys_unlink(path);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(unlink, path);
- }
- 
- 
-@@ -1354,38 +1132,20 @@ pid_t sys_wait4(pid_t pid, int *status, int options, struct rusage *rusage)
- static __attribute__((unused))
- pid_t wait(int *status)
- {
--	pid_t ret = sys_wait4(-1, status, 0, NULL);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(wait4, -1, status, 0, NULL);
- }
- 
- static __attribute__((unused))
- pid_t wait4(pid_t pid, int *status, int options, struct rusage *rusage)
- {
--	pid_t ret = sys_wait4(pid, status, options, rusage);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(wait4, pid, status, options, rusage);
- }
- 
- 
- static __attribute__((unused))
- pid_t waitpid(pid_t pid, int *status, int options)
- {
--	pid_t ret = sys_wait4(pid, status, options, NULL);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(wait4, pid, status, options, NULL);
- }
- 
- 
-@@ -1402,13 +1162,7 @@ ssize_t sys_write(int fd, const void *buf, size_t count)
- static __attribute__((unused))
- ssize_t write(int fd, const void *buf, size_t count)
- {
--	ssize_t ret = sys_write(fd, buf, count);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(write, fd, buf, count);
- }
- 
- 
-@@ -1425,13 +1179,7 @@ int sys_memfd_create(const char *name, unsigned int flags)
- static __attribute__((unused))
- int memfd_create(const char *name, unsigned int flags)
- {
--	ssize_t ret = sys_memfd_create(name, flags);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __syscall(memfd_create, name, flags);
- }
- 
- /* make sure to include all global symbols */
 -- 
-2.25.1
+2.40.1
 
 
 _______________________________________________
