@@ -4,88 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 015EEC77B73
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 11:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C11E1C77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 11:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UT8piRCKrPdUk4001vtiuYs0Y1zLfBZLC4UsMqrMnSY=; b=ETgqoiTMvmIk5c
-	ELmLDPrShALSrH+NSs437rGpxYtVJuCwrF85vAaS/ILLIRvXREItNkAh6qlFbfC/KbJWHdzVcT07J
-	Ac9/Grv0e1CojNXZE9wRKAXklbDlkwuit778lAZ80MtDxvmw0M+YMsu5VhglhXHhulKlb6F1pABal
-	kHiNVZ17a6IoaBI9Mt7vfcUAYlx0kNAcaJW4e0rGu3gScO1hM13OkNM5+3bmi7ZP/d0w1Iw0tJw0R
-	0eqxv1XPX3LVfhlB2rv16OXuHEkoFtzmkFLIS5SJ3QT0/a8GifLdvPulge626Kcq5wXkeieBGFLgi
-	6XEL8W5XJ3cmTXXKSUnw==;
+	List-Owner; bh=o3qh1pCaZWoBA7CRqxK13U/I8WIxP7+uVpYT15VoBes=; b=xb1kldXMv5xmB2
+	/BpMQQ40vRDJKs6MKxrCLLZ+/xiZPrF8x8RMO9Y/g4CuI1c5GgTOyoRr+DvFn8iRbLG8UfSAvViwU
+	Vp/Sr75Ma7aTiSnZGFjM61VOyFVMYl4choYtongu9QOMnAui01mgNlpyBrAAJEvTRz9GrH9zEttst
+	fojyomVz5ntUkNNZN4F5vixjbGuqhVkCjB8drYP7Jt8/oSpNmhxpNAmkBEaIKcFHFBq/jhTZtiUbK
+	reE1dTULoFnJYSKzu2H/kAoAU0SeWUzB5HCXvEdhIbbckhjr3xKV+NrNIJdbh+YugMdr6kqli0gzD
+	OTaLd23VdsAnQdPSvX5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6UXs-001OV5-2W;
-	Tue, 06 Jun 2023 11:08:12 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1q6UcH-001PMt-2g;
+	Tue, 06 Jun 2023 11:12:45 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6UXq-001OU9-1O
+	id 1q6UcE-001PKo-21
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jun 2023 11:08:11 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-543c6a2aa07so970676a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Jun 2023 04:08:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1686049687; x=1688641687;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qVSJj1sRiRvqAoJoUbfYZTV6sidf/krCZCWHmgJCGhk=;
-        b=oWir6YuIJqL+Gp4V0Fk0VI2xVPrF4usjZ6/Xlw+2+DQYHFSkQ2ZrlnS4VOYaSXcis8
-         nqoM/nTyzPQ2MYzMhjiIIh19XVfHEh9KpH1WCL8f38Dp+u5ck7Zn1FwhJustPdB+tTvY
-         TYkYoeZ/yrCzMuh8Anlqo19kkZgwUoqXdkKMjn7i5plWwRwtCG7Qk3ubLmw0OUB5WPTq
-         eVKVGWKcnhaflts7Cbq0wBv3kUiFyi8cQca5vJLxMEdamv4UCTAP9/LB0EtrmQJb5qkb
-         6BqxjmXwvcY3Qqcxqmmq0DepdnshiPMXzKz6OLMtkNZG5TtsT0Xrv39548SbG/nrv9vD
-         9+2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686049687; x=1688641687;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qVSJj1sRiRvqAoJoUbfYZTV6sidf/krCZCWHmgJCGhk=;
-        b=ksDWAquqtbcH5gOz5mUqJR9KSd0dVMvEb1h7GSuHXyfzd4/MkeZZQz1rKV5o83qDSx
-         IW/wYjb7Hv9rB1n9gY50vVDFmhHeA7LUSCV6eTqnEUXnr+Iszh3HmO9akY78sOzG0RHK
-         rVG+pj+D4iojUmRJwybU/fBBY36wmB7a4PX8GT3468RdVwbQojTg2ifkp8tUa5/+3nnQ
-         RBPd5waY9+jr2vqkLLy/nt4ifDPgXm7QfMso8dp4XPdGTryj06KpHZhcv2CKg+DgMnu9
-         haqexD2UKAw/j4LJIYJHFkvzyZve6SSYlBEd3Nq6B7YITfKSszJmabna0Y7OnbFx/aYy
-         BKIA==
-X-Gm-Message-State: AC+VfDzcpc4R8MjkqF2RGbuh+zIjb8GGweXkC4UKQyVqwEHROh8g+1Am
-	C55E7zZwF8k1OF/RBH553c3HOQ==
-X-Google-Smtp-Source: ACHHUZ6mVC+QRBEFN/QISRGq+0SEodzIsqkq5FhAjV/IBoQmblkm6QfiIf/q/U5ysSZwmO7ec2umTg==
-X-Received: by 2002:a17:902:da8c:b0:1b0:5ca0:41a8 with SMTP id j12-20020a170902da8c00b001b05ca041a8mr609279plx.39.1686049687471;
-        Tue, 06 Jun 2023 04:08:07 -0700 (PDT)
-Received: from localhost ([122.172.87.195])
-        by smtp.gmail.com with ESMTPSA id s22-20020a170902989600b0019c13d032d8sm8229012plp.253.2023.06.06.04.08.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jun 2023 04:08:06 -0700 (PDT)
-Date: Tue, 6 Jun 2023 16:38:04 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Mason Huo <mason.huo@starfivetech.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Shengyu Qu <wiagn233@outlook.com>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Tue, 06 Jun 2023 11:12:44 +0000
+X-QQ-mid: bizesmtp64t1686049941tvjrfox8
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 06 Jun 2023 19:12:20 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: jGGC4gWX7WGiyxZFST6mYk2LI09TK5ikUO8A+xhGsS8XBORF7YrkbrWG7KTah
+	KT0EeQC26ai1k/jDdHO21eldP321stPsrG9QitYblYJWOkZ9LGrOWikH3KMmf1EBT2tcXgR
+	5aK9y54nKiQ8Zws54tm6EGk7M9t4qnmF0a+DdkStPjBBHXVpUM5E6Z8xlRworlzvY1hwcAM
+	39YT9yzGelHvOt+1+uczcBIPlhoC94ZHkkQMWED+38iVuaS+ytGSvvOlHrAfVqm7GCxfcah
+	ooixHWb+m+f8X7R4tj9B1MTtj0MhJkf/0QjJzBttAZNFtQVKGMRSoEhcn8xuthRCDVOwUOJ
+	f5AL/3ROjzTeTPv3YS1zK2fo4sDtPHkWtmhQTYA+UxBvJntYk+lhSaCv2LJwjBaHJSxqA5H
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3071599484531106158
+From: Zhangjin Wu <falcon@tinylab.org>
+To: arnd@arndb.de,
+	thomas@t-8ch.de,
+	w@1wt.eu
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 2/3] cpufreq: dt-platdev: Add JH7110 SOC to the
- allowlist
-Message-ID: <20230606110804.qns4rolrrj2gku6w@vireshk-i7>
-References: <20230606105656.124355-1-mason.huo@starfivetech.com>
- <20230606105656.124355-3-mason.huo@starfivetech.com>
+Subject: Re: [PATCH v3 3/3] selftests/nolibc: riscv: customize makefile for rv32
+Date: Tue,  6 Jun 2023 19:12:16 +0800
+Message-Id: <20230606111216.524384-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <d1c83340-af4c-4780-a101-b9d22b47379c@app.fastmail.com>
+References: <d1c83340-af4c-4780-a101-b9d22b47379c@app.fastmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230606105656.124355-3-mason.huo@starfivetech.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_040810_504598_F3EA71E0 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20230606_041242_978703_78357B87 
+X-CRM114-Status: GOOD (  28.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,33 +76,218 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06-06-23, 18:56, Mason Huo wrote:
-> Add the compatible strings for supporting the generic
-> cpufreq driver on the StarFive JH7110 SoC.
-> 
-> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
-> ---
->  drivers/cpufreq/cpufreq-dt-platdev.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
-> index 338cf6cc6596..14aa8281c7f4 100644
-> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
-> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
-> @@ -85,6 +85,8 @@ static const struct of_device_id allowlist[] __initconst = {
->  	{ .compatible = "st-ericsson,u9500", },
->  	{ .compatible = "st-ericsson,u9540", },
->  
-> +	{ .compatible = "starfive,jh7110", },
-> +
->  	{ .compatible = "ti,omap2", },
->  	{ .compatible = "ti,omap4", },
->  	{ .compatible = "ti,omap5", },
+Arnd, Thomas, Willy
 
-I thought I already merged it ?
+> On Sat, Jun 3, 2023, at 11:05, Zhangjin Wu wrote:
+> > Both riscv64 and riscv32 have:
+> >
+> > * the same ARCH value, it is riscv
+> > * the same arch/riscv source code tree
+> >
+> > The only differences are:
+> >
+> > * riscv64 uses defconfig, riscv32 uses rv32_defconfig
+> > * riscv64 uses qemu-system-riscv64, riscv32 uses qemu-system-riscv32
+> > * riscv32 has different compiler options (-march= and -mabi=)
+> >
+> > So, riscv32 can share most of the settings with riscv64, there is no
+> > need to add it as a whole new architecture but just need a flag to
+> > record and reflect the difference.
+> >
+> > The 32bit mips and loongarch may be able to use the same method, so,
+> > let's use a meaningful flag: CONFIG_32BIT. If required in the future,
+> > this flag can also be automatically loaded from
+> > include/config/auto.conf.
+>
+> If we use a CONFIG_* symbol, I think it should be the other way
+> round, for consistency with the kernel, which uses CONFIG_64BIT
+> on all architectures, but only uses CONFIG_32BIT on mips, loongarch
+> powerpc and riscv.
+>
+>
+> >  # kernel image names by architecture
+> >  IMAGE_i386       = arch/x86/boot/bzImage
+> >  IMAGE_x86_64     = arch/x86/boot/bzImage
+> > @@ -34,7 +40,7 @@ DEFCONFIG_x86        = defconfig
+> >  DEFCONFIG_arm64      = defconfig
+> >  DEFCONFIG_arm        = multi_v7_defconfig
+> >  DEFCONFIG_mips       = malta_defconfig
+> > -DEFCONFIG_riscv      = defconfig
+> > +DEFCONFIG_riscv      = $(if $(CONFIG_32BIT),rv32_defconfig,defconfig)
+> >  DEFCONFIG_s390       = defconfig
+> >  DEFCONFIG_loongarch  = defconfig
+> >  DEFCONFIG            = $(DEFCONFIG_$(ARCH))
+>
+> This feels slightly odd, as we otherwise have a fixed defconfig
+> per target, so doing
+>
+> DEFCONFIG_riscv      = defconfig
+> DEFCONFIG_riscv64    = defconfig
+> DEFCONFIG_riscv32    = rv32_defconfig
+>
+> would seem more consistent with how x86 is handled, and would
+> probably be more easily extensible if we want to also make
+> this work with other sub-targets like mipseb, armv5 or ppc32
+> in the future.
 
--- 
-viresh
+As Arnd and Thomas suggested to align with x86, I just tried to find a
+solution to avoid mixing the use of _ARCH and ARCH in this Makefile.
+
+Since both riscv32 and riscv64 share the same SRCARCH=riscv (arch/riscv),
+and the kernel side doesn't accept riscv32 or riscv64 currently, we need to
+manually convert them to _ARCH=riscv and pass them to the kernel makefile
+like this: ARCH=$(_ARCH), it mixes the use of _ARCH and ARCH, this is why I
+used the '$(if' method currently.
+
+The solution is adding something like x86 in the kernel Makefile:
+
+    diff --git a/Makefile b/Makefile
+    index 9d765ebcccf1..a442c893d795 100644
+    --- a/Makefile
+    +++ b/Makefile
+    @@ -415,6 +415,14 @@ ifeq ($(ARCH),parisc64)
+            SRCARCH := parisc
+     endif
+
+    +# Additional ARCH settings for riscv
+    +ifeq ($(ARCH),riscv32)
+    +        SRCARCH := riscv
+    +endif
+    +ifeq ($(ARCH),riscv64)
+    +        SRCARCH := riscv
+    +endif
+    +
+     export cross_compiling :=
+     ifneq ($(SRCARCH),$(SUBARCH))
+     cross_compiling := 1
+
+And also, we need to let both of them use the arch-riscv.h in
+tools/include/nolibc/Makefile:
+
+    diff --git a/tools/include/nolibc/Makefile b/tools/include/nolibc/Makefile
+    index 64d67b080744..459eaddb230f 100644
+    --- a/tools/include/nolibc/Makefile
+    +++ b/tools/include/nolibc/Makefile
+    @@ -24,6 +24,7 @@ Q=@
+     endif
+
+     nolibc_arch := $(patsubst arm64,aarch64,$(ARCH))
+    +nolibc_arch := $(patsubst riscv%,riscv,$(ARCH))
+     arch_file := arch-$(nolibc_arch).h
+     all_files := \
+                    compiler.h \
+
+So, the left parts can be added like x86 too:
+
+    diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
+    index 4a3a105e1fdf..1b2247a6365d 100644
+    --- a/tools/testing/selftests/nolibc/Makefile
+    +++ b/tools/testing/selftests/nolibc/Makefile
+    @@ -21,6 +21,8 @@ IMAGE_x86        = arch/x86/boot/bzImage
+     IMAGE_arm64      = arch/arm64/boot/Image
+     IMAGE_arm        = arch/arm/boot/zImage
+     IMAGE_mips       = vmlinuz
+    +IMAGE_riscv32    = arch/riscv/boot/Image
+    +IMAGE_riscv64    = arch/riscv/boot/Image
+     IMAGE_riscv      = arch/riscv/boot/Image
+     IMAGE_s390       = arch/s390/boot/bzImage
+     IMAGE_loongarch  = arch/loongarch/boot/vmlinuz.efi
+    @@ -34,6 +36,8 @@ DEFCONFIG_x86        = defconfig
+     DEFCONFIG_arm64      = defconfig
+     DEFCONFIG_arm        = multi_v7_defconfig
+     DEFCONFIG_mips       = malta_defconfig
+    +DEFCONFIG_riscv32    = rv32_defconfig
+    +DEFCONFIG_riscv64    = defconfig
+     DEFCONFIG_riscv      = defconfig
+     DEFCONFIG_s390       = defconfig
+     DEFCONFIG_loongarch  = defconfig
+    @@ -49,6 +53,8 @@ QEMU_ARCH_x86        = x86_64
+     QEMU_ARCH_arm64      = aarch64
+     QEMU_ARCH_arm        = arm
+     QEMU_ARCH_mips       = mipsel  # works with malta_defconfig
+    +QEMU_ARCH_riscv32    = riscv32
+    +QEMU_ARCH_riscv64    = riscv64
+     QEMU_ARCH_riscv      = riscv64
+     QEMU_ARCH_s390       = s390x
+     QEMU_ARCH_loongarch  = loongarch64
+    @@ -61,6 +67,8 @@ QEMU_ARGS_x86        = -M pc -append "console=ttyS0,9600 i8042.noaux panic=-1 $(
+     QEMU_ARGS_arm64      = -M virt -cpu cortex-a53 -append "panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_arm        = -M virt -append "panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_mips       = -M malta -append "panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+    +QEMU_ARGS_riscv32    = -M virt -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+    +QEMU_ARGS_riscv64    = -M virt -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_riscv      = -M virt -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_s390       = -M s390-ccw-virtio -m 1G -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_loongarch  = -M virt -append "console=ttyS0,115200 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+    @@ -76,6 +84,7 @@ else
+     Q=@
+     endif
+
+    +CFLAGS_riscv32 = -march=rv32im -mabi=ilp32
+     CFLAGS_s390 = -m64
+     CFLAGS_STACKPROTECTOR ?= $(call cc-option,-mstack-protector-guard=global $(call cc-option,-fstack-protector-all))
+     CFLAGS  ?= -Os -fno-ident -fno-asynchronous-unwind-tables -std=c89 \
+
+And just found the 'm' extension (-march=rv32im) is necessary to avoid linking
+libgcc, especially, my local compiler has no rv32 libgcc (target emulation
+`elf64-littleriscv' does not match `elf32-littleriscv'), so, added the 'm'
+extension back, this is supported by the generic riscv chips. The atomic and
+float extensions (include single and double) are not added, keep it as minimal
+currently.
+
+Just tested rv32 and rv64 on 20230606-nolibc-rv32+stkp7a with a trivial fixup
+of rcu (the problematic code is not in v6.4-rc4, so, this can be ignored, see
+below, what about rebase the new branch on a newer rc?), it works as expected.
+
+    diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
+    index ce02bb09651b..72bd8fe0cad6 100644
+    --- a/kernel/rcu/tasks.h
+    +++ b/kernel/rcu/tasks.h
+    @@ -1934,11 +1934,13 @@ void show_rcu_tasks_gp_kthreads(void)
+     }
+     #endif /* #ifndef CONFIG_TINY_RCU */
+
+    +#ifdef CONFIG_TASKS_RCU
+     struct task_struct *get_rcu_tasks_gp_kthread(void)
+     {
+            return rcu_tasks.kthread_ptr;
+     }
+     EXPORT_SYMBOL_GPL(get_rcu_tasks_gp_kthread);
+    +#endif
+
+     #ifdef CONFIG_PROVE_RCU
+     struct rcu_tasks_test_desc {
+
+The steps I tested:
+
+    $ history | grep make
+     // riscv32 test
+     1416  make defconfig ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu-
+     1430  make run ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu- QEMU_ARGS_EXTRA="-bios /labs/linux-lab/opensbi-riscv32-generic-fw_dynamic.bin"
+     1438  make run-user ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu-
+           113 test(s) passed, 3 skipped, 22 failed. See all results in /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc/run.out
+
+     // riscv64 test (old options)
+     1432  make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+     1433  make run ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+     1443  make run-user ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+           135 test(s) passed, 3 skipped, 0 failed. See all results in /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc/run.out
+
+     // riscv64 test (new options)
+     1441  make run ARCH=riscv64 CROSS_COMPILE=riscv64-linux-gnu-
+     1439  make run-user ARCH=riscv64 CROSS_COMPILE=riscv64-linux-gnu-
+
+Thanks Arnd and Thomas for your persistence, If you agree, will send this as a
+new revision.
+
+@Willy, I plan to send v4 immediately, since the first two has not been
+merged yet, so, I will send them together as v4.
+
+Best regards,
+Zhangjin
+
+>
+>      Arnd
 
 _______________________________________________
 linux-riscv mailing list
