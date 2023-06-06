@@ -4,65 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12527C7EE24
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 10:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 015EEC77B73
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 11:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZrGmTA2ivCj1QK3/xmQV2wWxX/7/CKHsYKyuT4/3/RA=; b=OJNMFYW3C2B+KS
-	m1Gpu6gwlA6XWSj506slkwfefEnN4SkcHSy5LhDcvpYSrbBkpehQ000MbcWraCTLLOpZQ2cefvv0R
-	F/nDenLz9in9RPxcmuzrnD7A4xB9j/D3A6VxghUR/7XF++U72IiOfeZv3YZVrxw93lh4YQyn27olw
-	g41qp/7ew5pLg8xZ1ea0wVLvy8XH7DTZeospgyzOuObDaXLQcrZS+zAZ4aMC9IqZOCeyayMsomQVG
-	7kYlh7c9KPRpX5FCl8eP11eMBBZA/AS51dA1X5ZaS5rjvfqqBXHzME3+znVcisuRjJkOXnTYmUsIF
-	h9R8Qr+PS3fkH4r683sg==;
+	List-Owner; bh=UT8piRCKrPdUk4001vtiuYs0Y1zLfBZLC4UsMqrMnSY=; b=ETgqoiTMvmIk5c
+	ELmLDPrShALSrH+NSs437rGpxYtVJuCwrF85vAaS/ILLIRvXREItNkAh6qlFbfC/KbJWHdzVcT07J
+	Ac9/Grv0e1CojNXZE9wRKAXklbDlkwuit778lAZ80MtDxvmw0M+YMsu5VhglhXHhulKlb6F1pABal
+	kHiNVZ17a6IoaBI9Mt7vfcUAYlx0kNAcaJW4e0rGu3gScO1hM13OkNM5+3bmi7ZP/d0w1Iw0tJw0R
+	0eqxv1XPX3LVfhlB2rv16OXuHEkoFtzmkFLIS5SJ3QT0/a8GifLdvPulge626Kcq5wXkeieBGFLgi
+	6XEL8W5XJ3cmTXXKSUnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6UNp-001Mt9-1l;
-	Tue, 06 Jun 2023 10:57:49 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6UNn-001Mf9-06
+	id 1q6UXs-001OV5-2W;
+	Tue, 06 Jun 2023 11:08:12 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q6UXq-001OU9-1O
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jun 2023 10:57:48 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 41B3781DC;
-	Tue,  6 Jun 2023 18:57:00 +0800 (CST)
-Received: from EXMBX067.cuchost.com (172.16.6.67) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 6 Jun
- 2023 18:57:00 +0800
-Received: from localhost.localdomain (183.27.98.75) by EXMBX067.cuchost.com
- (172.16.6.67) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 6 Jun
- 2023 18:56:59 +0800
-From: Mason Huo <mason.huo@starfivetech.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
-	<viresh.kumar@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-CC: Shengyu Qu <wiagn233@outlook.com>, <linux-pm@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Mason Huo <mason.huo@starfivetech.com>
-Subject: [PATCH v4 3/3] riscv: dts: starfive: Add cpu scaling for JH7110 SoC
-Date: Tue, 6 Jun 2023 18:56:56 +0800
-Message-ID: <20230606105656.124355-4-mason.huo@starfivetech.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230606105656.124355-1-mason.huo@starfivetech.com>
+	Tue, 06 Jun 2023 11:08:11 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-543c6a2aa07so970676a12.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Jun 2023 04:08:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1686049687; x=1688641687;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qVSJj1sRiRvqAoJoUbfYZTV6sidf/krCZCWHmgJCGhk=;
+        b=oWir6YuIJqL+Gp4V0Fk0VI2xVPrF4usjZ6/Xlw+2+DQYHFSkQ2ZrlnS4VOYaSXcis8
+         nqoM/nTyzPQ2MYzMhjiIIh19XVfHEh9KpH1WCL8f38Dp+u5ck7Zn1FwhJustPdB+tTvY
+         TYkYoeZ/yrCzMuh8Anlqo19kkZgwUoqXdkKMjn7i5plWwRwtCG7Qk3ubLmw0OUB5WPTq
+         eVKVGWKcnhaflts7Cbq0wBv3kUiFyi8cQca5vJLxMEdamv4UCTAP9/LB0EtrmQJb5qkb
+         6BqxjmXwvcY3Qqcxqmmq0DepdnshiPMXzKz6OLMtkNZG5TtsT0Xrv39548SbG/nrv9vD
+         9+2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686049687; x=1688641687;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qVSJj1sRiRvqAoJoUbfYZTV6sidf/krCZCWHmgJCGhk=;
+        b=ksDWAquqtbcH5gOz5mUqJR9KSd0dVMvEb1h7GSuHXyfzd4/MkeZZQz1rKV5o83qDSx
+         IW/wYjb7Hv9rB1n9gY50vVDFmhHeA7LUSCV6eTqnEUXnr+Iszh3HmO9akY78sOzG0RHK
+         rVG+pj+D4iojUmRJwybU/fBBY36wmB7a4PX8GT3468RdVwbQojTg2ifkp8tUa5/+3nnQ
+         RBPd5waY9+jr2vqkLLy/nt4ifDPgXm7QfMso8dp4XPdGTryj06KpHZhcv2CKg+DgMnu9
+         haqexD2UKAw/j4LJIYJHFkvzyZve6SSYlBEd3Nq6B7YITfKSszJmabna0Y7OnbFx/aYy
+         BKIA==
+X-Gm-Message-State: AC+VfDzcpc4R8MjkqF2RGbuh+zIjb8GGweXkC4UKQyVqwEHROh8g+1Am
+	C55E7zZwF8k1OF/RBH553c3HOQ==
+X-Google-Smtp-Source: ACHHUZ6mVC+QRBEFN/QISRGq+0SEodzIsqkq5FhAjV/IBoQmblkm6QfiIf/q/U5ysSZwmO7ec2umTg==
+X-Received: by 2002:a17:902:da8c:b0:1b0:5ca0:41a8 with SMTP id j12-20020a170902da8c00b001b05ca041a8mr609279plx.39.1686049687471;
+        Tue, 06 Jun 2023 04:08:07 -0700 (PDT)
+Received: from localhost ([122.172.87.195])
+        by smtp.gmail.com with ESMTPSA id s22-20020a170902989600b0019c13d032d8sm8229012plp.253.2023.06.06.04.08.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jun 2023 04:08:06 -0700 (PDT)
+Date: Tue, 6 Jun 2023 16:38:04 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Mason Huo <mason.huo@starfivetech.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Shengyu Qu <wiagn233@outlook.com>, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 2/3] cpufreq: dt-platdev: Add JH7110 SOC to the
+ allowlist
+Message-ID: <20230606110804.qns4rolrrj2gku6w@vireshk-i7>
 References: <20230606105656.124355-1-mason.huo@starfivetech.com>
+ <20230606105656.124355-3-mason.huo@starfivetech.com>
 MIME-Version: 1.0
-X-Originating-IP: [183.27.98.75]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX067.cuchost.com
- (172.16.6.67)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230606105656.124355-3-mason.huo@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_035747_651004_3AD3CF17 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230606_040810_504598_F3EA71E0 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,114 +102,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the operating-points-v2 to support cpu scaling on StarFive JH7110 SoC.
-It supports up to 4 cpu frequency loads.
+On 06-06-23, 18:56, Mason Huo wrote:
+> Add the compatible strings for supporting the generic
+> cpufreq driver on the StarFive JH7110 SoC.
+> 
+> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+> ---
+>  drivers/cpufreq/cpufreq-dt-platdev.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
+> index 338cf6cc6596..14aa8281c7f4 100644
+> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
+> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
+> @@ -85,6 +85,8 @@ static const struct of_device_id allowlist[] __initconst = {
+>  	{ .compatible = "st-ericsson,u9500", },
+>  	{ .compatible = "st-ericsson,u9540", },
+>  
+> +	{ .compatible = "starfive,jh7110", },
+> +
+>  	{ .compatible = "ti,omap2", },
+>  	{ .compatible = "ti,omap4", },
+>  	{ .compatible = "ti,omap5", },
 
-Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
----
- .../jh7110-starfive-visionfive-2.dtsi         | 16 +++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      | 33 +++++++++++++++++++
- 2 files changed, 49 insertions(+)
+I thought I already merged it ?
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index 9714da5550d7..fa0061eb33a7 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -230,3 +230,19 @@ &uart0 {
- 	pinctrl-0 = <&uart0_pins>;
- 	status = "okay";
- };
-+
-+&U74_1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&U74_2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&U74_3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&U74_4 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 4c5fdb905da8..7eef88d2cedb 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -53,6 +53,9 @@ U74_1: cpu@1 {
- 			next-level-cache = <&ccache>;
- 			riscv,isa = "rv64imafdc_zba_zbb";
- 			tlb-split;
-+			operating-points-v2 = <&cpu_opp>;
-+			clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>;
-+			clock-names = "cpu";
- 
- 			cpu1_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-@@ -79,6 +82,9 @@ U74_2: cpu@2 {
- 			next-level-cache = <&ccache>;
- 			riscv,isa = "rv64imafdc_zba_zbb";
- 			tlb-split;
-+			operating-points-v2 = <&cpu_opp>;
-+			clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>;
-+			clock-names = "cpu";
- 
- 			cpu2_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-@@ -105,6 +111,9 @@ U74_3: cpu@3 {
- 			next-level-cache = <&ccache>;
- 			riscv,isa = "rv64imafdc_zba_zbb";
- 			tlb-split;
-+			operating-points-v2 = <&cpu_opp>;
-+			clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>;
-+			clock-names = "cpu";
- 
- 			cpu3_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-@@ -131,6 +140,9 @@ U74_4: cpu@4 {
- 			next-level-cache = <&ccache>;
- 			riscv,isa = "rv64imafdc_zba_zbb";
- 			tlb-split;
-+			operating-points-v2 = <&cpu_opp>;
-+			clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>;
-+			clock-names = "cpu";
- 
- 			cpu4_intc: interrupt-controller {
- 				compatible = "riscv,cpu-intc";
-@@ -164,6 +176,27 @@ core4 {
- 		};
- 	};
- 
-+	cpu_opp: opp-table-0 {
-+			compatible = "operating-points-v2";
-+			opp-shared;
-+			opp-375000000 {
-+					opp-hz = /bits/ 64 <375000000>;
-+					opp-microvolt = <800000>;
-+			};
-+			opp-500000000 {
-+					opp-hz = /bits/ 64 <500000000>;
-+					opp-microvolt = <800000>;
-+			};
-+			opp-750000000 {
-+					opp-hz = /bits/ 64 <750000000>;
-+					opp-microvolt = <800000>;
-+			};
-+			opp-1500000000 {
-+					opp-hz = /bits/ 64 <1500000000>;
-+					opp-microvolt = <1040000>;
-+			};
-+	};
-+
- 	gmac0_rgmii_rxin: gmac0-rgmii-rxin-clock {
- 		compatible = "fixed-clock";
- 		clock-output-names = "gmac0_rgmii_rxin";
 -- 
-2.39.2
-
+viresh
 
 _______________________________________________
 linux-riscv mailing list
