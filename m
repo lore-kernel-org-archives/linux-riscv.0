@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDC2C77B7A
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 11:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF56AC77B7A
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 12:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bQVIyM2NkpoXZSQiTRDGmy63emQT0q/bNNQwAqutDvM=; b=CG2m1M8Lrm7qtr
-	Z7o7v/C8s2pah0i06DeyyshDq4/raFxOCF4q220Z4CYf9Kx8/JRPRGg6Rt9xPCV6Y/ncSdCV0j6io
-	Z9T1707syJGLg42/hB1Gc3+QRdbg9LujqEB1gHH8tdaqUULciM1NgfNwcWOCirjWRgQ85mBo4TvS7
-	3obhCQ1Scu2f/vQmWDJ0N2OjzE0xoIxY73kH5KZqho4iOulQezHrwpcvTjaAwTHfOodewcoRl0yMg
-	AaJ51Ocd58o9GA+3boyargkqLldhjOROZM0vHTL1v8jJSWpEA8gZue65QFV4wdX64+gOm05F/PXPk
-	0k9uryVyXkZgWL37HxPA==;
+	List-Owner; bh=+PafHH839GBR1dgxoPruR0UIwu+ZXq3I7hebUsaPjTE=; b=UUt0rizKxuaI77
+	BdEBBT9f3rvnSTNxR3DJr1VYcyjFSEOBrC/2AsMLZIVlcXXej2XrMmGwEcNmA9cQZWR2TC4pLMY9w
+	kozPZ1VWLYNquqazTQ1XrsRoSQu8FWcA4cKqxCm9HLCwTcDtxglxJzG1I1IOyFGcDiDn12jol6j5b
+	Uo2KN/MOURx+zcgDw+QiM/CcSpm6d2SSyCbKrL4R4SlhCt4mTwcPHfl7Js7MowpAk8DhzcDF97kVr
+	ajYuSe+3QSrflwHhfuD74g042wty8eY1gt25ZdT3ijema96Bdy3WYZqN8shK68xjpI5rA1cJ4vJsU
+	3JKDUnRcOPkucBItzzsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6VCy-001V8X-0Y;
-	Tue, 06 Jun 2023 11:50:40 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1q6VU5-001YGA-2Z;
+	Tue, 06 Jun 2023 12:08:21 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6VCv-001V7A-0p
+	id 1q6VU1-001YCs-30
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jun 2023 11:50:39 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-3f73617a292so29640705e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Jun 2023 04:50:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1686052233; x=1688644233;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=M8EMdDbUjL4XG7fKUoOhrnPZTq4GDBikqz9MMG7h3Ms=;
-        b=0iEo/LQwrBp18M+mlla+WZPg8zD6VUftXMqEqoamYj2IFMWTRFiPxVpmyIG0i7hkwp
-         RvF99UqwHuCJ9cNjtNL/UO/xI/QaufRRcQRyjAnyLjSLPYpHoLSZIqQSaJLuIV5FeVxi
-         IzTEhQjRDOi2uTG8PQEPGdqjjisLaY+HjqcWVEZx2te0qddzTv4od1Gjz9rq3LwpMvzc
-         SAVomgSns9DtbtDXoIXEtGHzkprqPP4is9ZafMP1nUGz/22KoajsZbC13CPQU1hybNjY
-         H3l6g+HwFQYy9GnF7n9iWMq6fm985tK22H+p8ERqeZ57WAuZaHxhsdEyE0YS0DQZaq9M
-         2oQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686052233; x=1688644233;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=M8EMdDbUjL4XG7fKUoOhrnPZTq4GDBikqz9MMG7h3Ms=;
-        b=CBUgNhhI6hJjKWvrCaFtOfrz0fVg53NJ04yqf6CvdFMT9lU7BdP9sjAHGkMcTVKw23
-         tM6su47Upb3RSJOmsWYR2h9KNUbs167vDba6Gvxqd2Ld9M52U7vziMFbEuLmcw6FAsVF
-         vWaN9yc7kwSmx8XoEUq/EQ+kQJX8jTXg0QlVreYJvRcbY00rwALHvOijWndZbW1TXPek
-         AP1cM36ANa4yAshIv27zRLk0xv7agrtiLaWAsAfKAB8/mfpN7RlkMHeZrFv1tsyKUw6C
-         SmNM9Ptkh/JhEHQzZBAffdOjzvnP3sJn/52ubvikaZe7Zzz1y48UE2i/8tNMF8OjagnO
-         9Zug==
-X-Gm-Message-State: AC+VfDzrsiRIwwXKsDCxi7SOWeLfELn0KMx8nCbA3TCOiLOo5CY+SwkT
-	35W6Hjsql6ZYu+VDJffl1YSBpZPRH672Y2Sw4EW+ug==
-X-Google-Smtp-Source: ACHHUZ4yXUvuBO5X7qRkwpBWDs/S+5TEqbHk3bWzmiq87QHNzuu/tCrZzng4Yydws5clqLOUcTCgfYYRczIBqF0NMuA=
-X-Received: by 2002:a05:600c:2158:b0:3f6:f56:5e82 with SMTP id
- v24-20020a05600c215800b003f60f565e82mr1847496wml.3.1686052233249; Tue, 06 Jun
- 2023 04:50:33 -0700 (PDT)
+	Tue, 06 Jun 2023 12:08:20 +0000
+X-QQ-mid: bizesmtp89t1686053276t98i3jm8
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 06 Jun 2023 20:07:55 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: znfcQSa1hKajglO8GZtD0A58FeSeP/1PWkijK+XI8S8AKw25d1Xb+aXkSwg95
+	VXWtowwEFO26BQ6vjp5rwC4OER1H/C6bkt8J6uWQUpDWTXJRIyfj2Tl7DigynoKIlhSuuef
+	y3e1ZDlBMrHDjQh+D3etgEaknwArG/fyPuJnNEAETwq3KKDgPc/cudmG4X7cRac6bJc2AkB
+	oGzctCe+d/8x/OxpUDappP96VYMrcR6GmSN4B73vtAZhn+1sy3PFy0QhxkCPgg7TjOPsoix
+	NsvI9M4jP8vSIvK+RY7BLn7aqui/ejj+lsvfO+wNw2uWhcdW7VsiapkLwqRcMSxXqx9vo3v
+	5Bcb0SvhrHFJYPuBe2jSfPHw7Fsin1dQ+KiZ6sNs53cp6pm7HWHgcoxWTXcHQ==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 14342564991954658318
+From: Zhangjin Wu <falcon@tinylab.org>
+To: arnd@arndb.de
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	thomas@t-8ch.de,
+	w@1wt.eu
+Subject: Re: [PATCH v3 3/3] selftests/nolibc: riscv: customize makefile for rv32
+Date: Tue,  6 Jun 2023 20:07:55 +0800
+Message-Id: <20230606120755.548017-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <63133024-e986-44e2-86f5-efc1c42207ac@app.fastmail.com>
+References: <63133024-e986-44e2-86f5-efc1c42207ac@app.fastmail.com>
 MIME-Version: 1.0
-References: <tencent_7C3B580B47C1B17C16488EC1@qq.com> <CAHVXubjm5ax5KYTV_G=GUUH0KJK=v6_jO09XF1T4AzzUTr0CSg@mail.gmail.com>
- <ZH37WMnx/rYSRF/o@sunil-laptop> <CAOnJCU+v-tinJb3=FY9GKzR=CGc+AE45wVdpVVZLSG1WOR2PLA@mail.gmail.com>
- <0855b8d6-e1e0-fea6-2b15-d7cc66d34e02@ghiti.fr> <ZH716mJDnHlj1OBz@sunil-laptop>
-In-Reply-To: <ZH716mJDnHlj1OBz@sunil-laptop>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Tue, 6 Jun 2023 13:50:22 +0200
-Message-ID: <CAHVXubjEyexKuSgyDj4EOy+FCi5mxLPUAqKrJQL5FeX5VPb4eA@mail.gmail.com>
-Subject: Re: Bug report: kernel paniced while booting
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atishp@atishpatra.org>, 
-	Song Shuai <songshuaishuai@tinylab.org>, robh <robh@kernel.org>, 
-	ajones <ajones@ventanamicro.com>, anup <anup@brainfault.org>, 
-	palmer <palmer@rivosinc.com>, "jeeheng.sia" <jeeheng.sia@starfivetech.com>, 
-	"leyfoon.tan" <leyfoon.tan@starfivetech.com>, "mason.huo" <mason.huo@starfivetech.com>, 
-	"paul.walmsley" <paul.walmsley@sifive.com>, "conor.dooley" <conor.dooley@microchip.com>, 
-	guoren <guoren@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_045037_296300_2A7E4CC1 
-X-CRM114-Status: GOOD (  50.61  )
+X-CRM114-CacheID: sfid-20230606_050818_285925_36C59C70 
+X-CRM114-Status: GOOD (  30.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,145 +71,229 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdW4gNiwgMjAyMyBhdCAxMTowMeKAr0FNIFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50
-YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IE9uIFR1ZSwgSnVuIDA2LCAyMDIzIGF0IDA5OjIwOjM0
-QU0gKzAyMDAsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPiA+Cj4gPiBPbiAwNS8wNi8yMDIzIDIy
-OjU1LCBBdGlzaCBQYXRyYSB3cm90ZToKPiA+ID4gT24gTW9uLCBKdW4gNSwgMjAyMyBhdCA4OjEz
-4oCvQU0gU3VuaWwgViBMIDxzdW5pbHZsQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+ID4gPiA+
-IE9uIE1vbiwgSnVuIDA1LCAyMDIzIGF0IDA0OjI1OjA2UE0gKzAyMDAsIEFsZXhhbmRyZSBHaGl0
-aSB3cm90ZToKPiA+ID4gPiA+IEhpIFNvbmcsCj4gPiA+ID4gPgo+ID4gPiA+ID4gT24gTW9uLCBK
-dW4gNSwgMjAyMyBhdCAxMjo1MuKAr1BNIFNvbmcgU2h1YWkgPHNvbmdzaHVhaXNodWFpQHRpbnls
-YWIub3JnPiB3cm90ZToKPiA+ID4gPiA+ID4gRGVzY3JpcHRpb24gb2YgcHJvYmxlbToKPiA+ID4g
-PiA+ID4KPiA+ID4gPiA+ID4gQm9vdGluZyBMaW51eCBXaXRoIFJpc2NWVmlydFFlbXUgZWRrMiBm
-aXJtd2FyZSwgYSBTdG9yZS9BTU8gcGFnZSBmYXVsdCB3YXMgdHJhcHBlZCB0byB0cmlnZ2VyIGEg
-a2VybmVsIHBhbmljLgo+ID4gPiA+ID4gPiBUaGUgZW50aXJlIGxvZyBoYXMgYmVlbiBwb3N0ZWQg
-YXQgdGhpcyBsaW5rIDogaHR0cHM6Ly90ZXJtYmluLmNvbS9uZ2E0Lgo+ID4gPiA+ID4gPgo+ID4g
-PiA+ID4gPiBZb3UgY2FuIHJlcHJvZHVjZSBpdCB3aXRoIHRoZSBmb2xsb3dpbmcgc3RlcCA6Cj4g
-PiA+ID4gPiA+Cj4gPiA+ID4gPiA+IDEuIHByZXBhcmUgdGhlIGVudmlyb25tZW50IHdpdGgKPiA+
-ID4gPiA+ID4gICAgIC0gUWVtdS12aXJ0OiAgdjguMC4wICh3aXRoIE9wZW5TYmkgdjEuMikKPiA+
-ID4gPiA+ID4gICAgIC0gZWRrMiA6IGF0IGNvbW1pdCAoMmJjODU0NTg4MyAiVWVmaUNwdVBrZy9D
-cHVQYWdlVGFibGVMaWI6IFJlZHVjZSB0aGUgbnVtYmVyIG9mIHJhbmRvbSB0ZXN0cyIpCj4gPiA+
-ID4gPiA+ICAgICAtIExpbnV4IDogdjYuNC1yYzEgYW5kIGxhdGVyIHZlcnNpb24KPiA+ID4gPiA+
-ID4KPiA+ID4gPiA+ID4gMi4gc3RhcnQgdGhlIFFlbXUgdmlydCBib2FyZAo+ID4gPiA+ID4gPgo+
-ID4gPiA+ID4gPiBgYGBzaAo+ID4gPiA+ID4gPiAkIGNhdCB+LzhfcmlzY3Yvc3RhcnRfbGF0ZXN0
-LnNoCj4gPiA+ID4gPiA+ICMhL2Jpbi9iYXNoCj4gPiA+ID4gPiA+IC9ob21lL3NvbmcvOF9yaXNj
-di8zX2FjcGkvcWVtdS9vb28vdXNyL2xvY2FsL2Jpbi9xZW11LXN5c3RlbS1yaXNjdjY0IFwKPiA+
-ID4gPiA+ID4gICAgICAgICAgLXMgLW5vZ3JhcGhpYyAtZHJpdmUgZmlsZT0vaG9tZS9zb25nLzhf
-cmlzY3YvM19hY3BpL0J1aWxkX3ZpcnQvUmlzY1ZWaXJ0UWVtdS9SRUxFQVNFX0dDQzUvRlYvUklT
-Q1ZfVklSVC5mZCxpZj1wZmxhc2gsZm9ybWF0PXJhdyx1bml0PTEgXAo+ID4gPiA+ID4gPiAgICAg
-ICAgICAtbWFjaGluZSB2aXJ0LGFjcGk9b2ZmIC1zbXAgMiAtbSAyRyBcCj4gPiA+ID4gPiA+ICAg
-ICAgICAgIC1rZXJuZWwgL2hvbWUvc29uZy85X2xpbnV4L2xpbnV4LzAwX3J2X2RlZi9hcmNoL3Jp
-c2N2L2Jvb3QvSW1hZ2UgXAo+ID4gPiA+ID4gPiAgICAgICAgICAtaW5pdHJkIC9ob21lL3Nvbmcv
-OF9yaXNjdi8zX2FjcGkvYnVpbGRyb290L291dHB1dC9pbWFnZXMvcm9vdGZzLmV4dDIgXAo+ID4g
-PiA+ID4gPiAgICAgICAgICAtYXBwZW5kICJyb290PS9kZXYvcmFtIHJvIGNvbnNvbGU9dHR5UzAg
-ZWFybHljb249dWFydDgyNTAsbW1pbywweDEwMDAwMDAwIGVmaT1kZWJ1ZyBsb2dsZXZlbD04IG1l
-bWJsb2NrPWRlYnVnIiAjIyBhbHNvIHBhbmljIGJ5IG1lbXRlc3QKPiA+ID4gPiA+ID4gYGBgCj4g
-PiA+ID4gPiA+IDMuIFRoZW4geW91IHdpbGwgZW5jb3VudGVyIHRoZSBrZXJuZWwgcGFuaWMgbG9n
-Z2VkIGluIHRoZSBhYm92ZSBsaW5rCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IE90aGVyIEluZm9y
-bWF0aW9uOgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiAxLiAtLS0tLS0tCj4gPiA+ID4gPiA+Cj4g
-PiA+ID4gPiA+IFRoaXMgcmVwb3J0IGlzIG5vdCBpZGVudGljYWwgdG8gbXkgcHJpb3IgcmVwb3J0
-IC0tICJrZXJuZWwgcGFuaWNlZCB3aGVuIHN5c3RlbSBoaWJlcm5hdGVzIiBbMV0sIGJ1dCBib3Ro
-IG9mIHRoZW0KPiA+ID4gPiA+ID4gYXJlIGNsb3NlbHkgcmVsYXRlZCB3aXRoIHRoZSBjb21taXQg
-KDMzMzUwNjhmODcyMSAicmlzY3Y6IFVzZSBQVUQvUDREL1BHRCBwYWdlcyBmb3IgdGhlIGxpbmVh
-ciBtYXBwaW5nIikuCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFdpdGggdGhpcyBjb21taXQsIGhp
-YmVybmF0aW9uIGlzIHRyYXBwZWQgd2l0aCAiYWNjZXNzIGZhdWx0IiB3aGlsZSBhY2Nlc3Npbmcg
-dGhlIFBNUC1wcm90ZWN0ZWQgcmVnaW9ucyAobW1vZGVfcmVzdjBAODAwMDAwMDApCj4gPiA+ID4g
-PiA+IGZyb20gT3BlblNiaSAoQlRXLCBoaWJlcm5hdGlvbiBpcyBtYXJrZWQgYXMgbm9ucG9ydGFi
-bGUgYnkgQ29ub3JbMl0pLgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBJbiB0aGlzIHJlcG9ydCwg
-ZWZpX2luaXQgaGFuZG9mZnMgdGhlIG1lbW9yeSBtYXBwaW5nIGZyb20gQm9vdCBTZXJ2aWNlcyB0
-byBtZW1ibG9jayB3aGVyZSByZXNlcnZlcyBtbW9kZV9yZXN2MEA4MDAwMDAwMCwKPiA+ID4gPiA+
-ID4gc28gdGhlcmUgaXMgbm8gImFjY2VzcyBmYXVsdCIgYnV0ICJwYWdlIGZhdWx0Ii4KPiA+ID4g
-PiA+ID4KPiA+ID4gPiA+ID4gQW5kIHJldmVydGluZyBjb21taXQgMzMzNTA2OGY4NzIxIGluZGVl
-ZCBmaXhlZCB0aGlzIHBhbmljLgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiAyLiAtLS0tLS0tCj4g
-PiA+ID4gPiA+Cj4gPiA+ID4gPiA+IEFzIHRoZSBnZGItcHQtZHVtcCBbM10gdG9vbCBzaG93cywg
-dGhlIFBURSB3aGljaCBjb3ZlcmVkIHRoZSBmYXVsdCB2aXJ0dWFsIGFkZHJlc3MgaGFkIHRoZSBh
-cHByb3ByaWF0ZSBwZXJtaXNzaW9uIHRvIHN0b3JlLgo+ID4gPiA+ID4gPiBJcyB0aGVyZSBhbm90
-aGVyIHdheSB0byB0cmlnZ2VyIHRoZSAiU3RvcmUvQU1PIHBhZ2UgZmF1bHQiPyBPciB0aGUgY3Jl
-YXRpb24gb2YgbGluZWFyIG1hcHBpbmcgaW4gY29tbWl0IDMzMzUwNjhmODcyMSBkaWQgc29tZXRo
-aW5nIHdyb25nPwo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBgYGAKPiA+ID4gPiA+ID4gKGdkYikg
-cC94ICRzYXRwCj4gPiA+ID4gPiA+ICQxID0gMHhhMDAwMDAwMDAwMDgxNzA4Cj4gPiA+ID4gPiA+
-IChnZGIpIHB0IC1zYXRwIDB4YTAwMDAwMDAwMDA4MTcwOAo+ID4gPiA+ID4gPiAgICAgICAgICAg
-ICAgIEFkZHJlc3MgOiAgICAgTGVuZ3RoICAgUGVybWlzc2lvbnMKPiA+ID4gPiA+ID4gICAgMHhm
-ZjFiZmZmZmZlYTM5MDAwIDogICAgIDB4MTAwMCB8IFc6MSBYOjAgUjoxIFM6MQo+ID4gPiA+ID4g
-PiAgICAweGZmMWJmZmZmZmViZjkwMDAgOiAgICAgMHgxMDAwIHwgVzoxIFg6MCBSOjEgUzoxCj4g
-PiA+ID4gPiA+ICAgIDB4ZmYxYmZmZmZmZWMwMDAwMCA6ICAgMHg0MDAwMDAgfCBXOjEgWDowIFI6
-MSBTOjEKPiA+ID4gPiA+ID4gICAgMHhmZjYwMDAwMDAwMDAwMDAwIDogICAweDFjMDAwMCB8IFc6
-MSBYOjAgUjoxIFM6MQo+ID4gPiA+ID4gPiAgICAweGZmNjAwMDAwMDAyMDAwMDAgOiAgIDB4YTAw
-MDAwIHwgVzowIFg6MCBSOjEgUzoxCj4gPiA+ID4gPiA+ICAgIDB4ZmY2MDAwMDAwMGMwMDAwMCA6
-IDB4N2YwMDAwMDAgfCBXOjEgWDowIFI6MSBTOjEgIC8vIGJhZGFkZHI6IGZmNjAwMDAwN2ZkYjEw
-MDAKPiA+ID4gPiA+ID4gICAgMHhmZjYwMDAwMDdmZGMwMDAwIDogICAgMHgzZDAwMCB8IFc6MSBY
-OjAgUjoxIFM6MQo+ID4gPiA+ID4gPiAgICAweGZmNjAwMDAwN2ZmYmYwMDAgOiAgICAgMHgxMDAw
-IHwgVzoxIFg6MCBSOjEgUzoxCj4gPiA+ID4gPiA+ICAgIDB4ZmZmZmZmZmY4MDAwMDAwMCA6ICAg
-MHhjMDAwMDAgfCBXOjAgWDoxIFI6MSBTOjEKPiA+ID4gPiA+ID4gICAgMHhmZmZmZmZmZjgwYzAw
-MDAwIDogICAweGEwMDAwMCB8IFc6MSBYOjAgUjoxIFM6MQo+ID4gPiA+ID4gPgo+ID4gPiA+ID4g
-PiBgYGAKPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gMy4gLS0tLS0tCj4gPiA+ID4gPiA+Cj4gPiA+
-ID4gPiA+IFlvdSBjYW4gYWxzbyByZXByb2R1Y2Ugc2ltaWxhciBwYW5pYyBieSBhcHBlbmRpbmcg
-Im1lbXRlc3QiIGluIGtlcm5lbCBjbWRsaW5lLgo+ID4gPiA+ID4gPiBJIGhhdmUgcG9zdGVkIHRo
-ZSBtZW10ZXN0IGJvb3QgbG9nIGF0IHRoaXMgbGluazogaHR0cHM6Ly90ZXJtYmluLmNvbS8xdHds
-Lgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBQbGVhc2UgY29ycmVjdCBtZSBpZiBJJ20gd3Jvbmcu
-Cj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFsxXTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGlu
-dXgtcmlzY3YvQ0FBWXMyPWdRdmtoVGVpb01tcVJEVkdqZHRORl92aEIrdm1fMWRISnhQTmk3NVlE
-UV9RQG1haWwuZ21haWwuY29tLwo+ID4gPiA+ID4gPiBbMl06IGh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL2xpbnV4LXJpc2N2LzIwMjMwNTI2LWFzdHJpZGUtZGV0b25hdG9yLTlhZTEyMDA1MTE1OUB3
-ZW5keS8KPiA+ID4gPiA+ID4gWzNdOiBodHRwczovL2dpdGh1Yi5jb20vbWFydGlucmFkZXYvZ2Ri
-LXB0LWR1bXAKPiA+ID4gPiA+IFRoYW5rcyBmb3IgdGhlIHRob3JvdWdoIHJlcG9ydCwgcmVhbGx5
-IGFwcHJlY2lhdGVkLgo+ID4gPiA+ID4KPiA+ID4gPiA+IFNvIHRoZXJlIGFyZSBtdWx0aXBsZSBp
-c3N1ZXMgaGVyZToKPiA+ID4gPiA+Cj4gPiA+ID4gPiAtIHRoZSBmaXJzdCBvbmUgaXMgdGhhdCB0
-aGUgbWVtb3J5IHJlZ2lvbiBmb3Igb3BlbnNiaSBpcyBtYXJrZWQgYXMgbm90Cj4gPiA+ID4gPiBj
-YWNoZWFibGUgaW4gdGhlIGVmaSBtZW1vcnkgbWFwLCBhbmQgdGhlbiB0aGlzIHJlZ2lvbiBpcyBu
-b3QgbWFwcGVkIGluCj4gPiA+ID4gPiB0aGUgbGluZWFyIG1hcHBpbmc6Cj4gPiA+ID4gPiBbICAg
-IDAuMDAwMDAwXSBlZmk6ICAgMHgwMDAwODAwMDAwMDAtMHgwMDAwODAwM2ZmZmYgW1Jlc2VydmVk
-ICAgIHwgICB8Cj4gPiA+ID4gPiAgIHwgIHwgIHwgIHwgIHwgIHwgIHwgIHwgICB8ICB8ICB8ICB8
-VUNdCj4gPiA+ID4gPgo+ID4gPiBAQWxleDogVGhlIE9wZW5TQkkgcmVnaW9uIGlzIG1hcmtlZCBy
-ZXNlcnZlZCBiZWNhdXNlIEVESzIgY2hvb3NlcyB0bwo+ID4gPiBkbyB0aGF0IGV4cGxpY2l0bHkg
-YXMgZXhwbGFpbmVkIGJ5IFN1bmlsLgo+ID4gPiBJIGRvbid0IHRoaW5rIFVDIGhhcyB0byBkbyBh
-bnl0aGluZyB3aXRoIGl0LiBBbGwgdGhlIEVGSSBtZW1vcnkgcmVnaW9ucyBhcmUgVUMuCj4gPgo+
-ID4KPiA+IE9vcHMsIHRoYW5rcyBmb3IgY29ycmVjdGluZyBtZSwgVUMgaGFzIG5vdGhpbmcgdG8g
-ZG8gd2l0aCB0aGF0IGluZGVlZCwgSQo+ID4gbWlzcmVhZCBpc191c2FibGVfbWVtb3J5KCkgKGh0
-dHBzOi8vZWxpeGlyLmJvb3RsaW4uY29tL2xpbnV4L2xhdGVzdC9zb3VyY2UvZHJpdmVycy9maXJt
-d2FyZS9lZmkvZWZpLWluaXQuYyNMMTI3KToKPiA+IEVGSV9SRVNFUlZFRF9UWVBFIHdpbGwgcmV0
-dXJuIGZhbHNlLgo+ID4KPiA+IEFuZCB0aGVuIHRoaXMgcmVnaW9uIHdvbid0IGdldCBtYXBwZWQs
-IHNvIHRoYXQncyB0aGUgZXF1aXZhbGVudCBvZiAibm8tbWFwIi4KPiA+Cj4gPgo+ID4gPgo+ID4g
-PiA+ID4gLSB0aGUgc2Vjb25kIG9uZSAodGhhdCBJIGZlZWwgYSBiaXQgYXNoYW1lZCBvZi4uLikg
-aXMgdGhhdCBJIGRpZCBub3QKPiA+ID4gPiA+IGNoZWNrIHRoZSBhbGlnbm1lbnQgb2YgdGhlIHZp
-cnR1YWwgYWRkcmVzcyB3aGVuIGNob29zaW5nIHRoZSBtYXAgc2l6ZQo+ID4gPiA+ID4gaW4gYmVz
-dF9tYXBfc2l6ZSgpIGFuZCB0aGVuIHdlIGVuZCB1cCB0cnlpbmcgdG8gbWFwIGEgcGh5c2ljYWwg
-cmVnaW9uCj4gPiA+ID4gPiBhbGlnbmVkIG9uIDJNQiB0aGF0IGlzIGFjdHVhbGx5IG5vdCBhbGln
-bmVkIG9uIDJNQiB2aXJ0dWFsbHkgYmVjYXVzZQo+ID4gPiA+ID4gdGhlIG9wZW5zYmkgcmVnaW9u
-IGlzIG5vdCBtYXBwZWQgYXQgYWxsLgo+ID4gPiA+ID4KPiA+ID4gPiA+IC0gdGhlIHBvc3NpYmxl
-IHRoaXJkIG9uZSBpcyB0aGF0IHdlIHNob3VsZCBub3QgbWFwIHRoZSBsaW5lYXIgbWFwcGluZwo+
-ID4gPiA+ID4gdXNpbmcgNEsgcGFnZXMsIHRoaXMgd291bGQgYmUgc2xvdyBpbiBteSBvcGluaW9u
-LCBhbmQgSSB0aGluayB3ZQo+ID4gPiA+ID4gc2hvdWxkIHdhc3RlIGEgYml0IG9mIG1lbW9yeSB0
-byBhbGlnbiB2YSBhbmQgcGEgb24gYSAyTUIgYm91bmRhcnkuCj4gPiA+ID4gPgo+ID4gPiA+ID4g
-U28gSSdsbCBmaXggdGhlIHNlY29uZCBpc3N1ZSwgYW5kIHBvc3NpYmx5IHRoZSB0aGlyZCBvbmUs
-IGFuZCBpZiBubwo+ID4gPiA+ID4gb25lIGxvb2tzIGludG8gd2h5IHRoZSBvcGVuc2JpIHJlZ2lv
-biBpcyBtYXBwZWQgaW4gVUMsIEknbGwgdGFrZSBhCj4gPiA+ID4gPiBsb29rIGF0IGVkazIuCj4g
-PiA+ID4gPgo+ID4gPiA+IEhpIEFsZXgsCj4gPiA+ID4KPiA+ID4gPiBFREsyIG1hcmtzIG9wZW5z
-YmkgcmFuZ2UgYXMgcmVzZXJ2ZWQgbWVtb3J5IGluIEVGSSBtYXAuIEFjY29yZGluZyB0byBEVAo+
-ID4gPiA+IHNwZWMsIGlmIHRoZSBuby1tYXAgaXMgbm90IHNldCwgd2UgbmVlZCB0byBtYXJrIGl0
-IGFzCj4gPiA+ID4gRWZpQm9vdFNlcnZpY2VzRGF0YSBidXQgRWZpQm9vdFNlcnZpY2VzRGF0YSBp
-cyBhY3R1YWxseSBjb25zaWRlcmVkIGFzCj4gPiA+ID4gZnJlZSBtZW1vcnkgaW4ga2VybmVsLCBh
-cyBwZXIgVUVGSSBzcGVjLiBUbyBhdm9pZCBrZXJuZWwgdXNpbmcgdGhpcwo+ID4gPiA+IG1lbW9y
-eSwgd2UgZGV2aWF0ZWQgZnJvbSB0aGUgRFQgc3BlYyBmb3Igb3BlbnNiaSByYW5nZXMuCj4gPiA+
-ID4KPiA+ID4gSU1PLCB0aGF0IHNob3VsZCBiZSB0aGUgY29ycmVjdCB3YXkgdW5sZXNzIHdlIGNh
-biBjaGFuZ2UgaXQgdG8KPiA+ID4gRWZpUnVuU2VydmljZXNEYXRhL0NvZGUuCj4gPgo+ID4KPiA+
-IEknZCBzYXkgdGhhdCBldmVyeXRoaW5nIGRlcGVuZHMgb24gInJldXNhYmxlIiBubz8KPiA+Cj4g
-PiBJZiAibm8tbWFwIiB0aGVuCj4gPiAgICBFZmlSZXNlcnZlZAo+ID4gZWxzZQo+ID4gICAgaWYg
-cmV1c2FibGUgdGhlbgo+ID4gICAgICAgRWZpQm9vdFNlcnZpY2VzRGF0YQo+ID4gICAgZWxzZQo+
-ID4gICAgICAgRWZpUnVudGltZVNlcnZpY2VzRGF0YQo+ID4gICAgZW5kaWYKPiA+IGVuZGlmCj4g
-Pgo+IEhpIEFsZXgsCj4KPiBJcyB0aGlzIHlvdXIgcHJvcG9zYWwgb3IgZG9jdW1lbnRlZCBzb21l
-d2hlcmU/IElmIGl0IGlzIHByb3Bvc2FsLCB0aGlzCj4gb3B0aW9uIHdhcyBpbnRlbnRpb25hbGx5
-IG5vdCBhbGxvd2VkIGFzIEkgdW5kZXJzdGFuZCBmcm9tIEFyZCdzIHJlc3BvbnNlCj4gYXQgWzFd
-Lgo+Cj4gWzFdIC0gaHR0cHM6Ly9naXRodWIuY29tL0FSTS1zb2Z0d2FyZS9lYmJyL2lzc3Vlcy81
-MiNpc3N1ZWNvbW1lbnQtNjkwMzYyMjk0CgpZb3UgbWVhbiBiZWNhdXNlIEVmaVJ1bnRpbWVTZXJ2
-aWNlc0RhdGEgYXJlIGFjdHVhbGx5IG5vdCBtYXBwZWQgaW4gdGhlCmxpbmVhciBtYXBwaW5nIGJ5
-IHRoZSBrZXJuZWwgcmlnaHQ/IEluIHRoYXQgY2FzZSwgeWVzIHlvdSdyZSByaWdodCEKCj4KPiBU
-aGFua3MsCj4gU3VuaWwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+> On Tue, Jun 6, 2023, at 13:12, Zhangjin Wu wrote:
+> >> On Sat, Jun 3, 2023, at 11:05, Zhangjin Wu wrote:
+> >> would seem more consistent with how x86 is handled, and would
+> >> probably be more easily extensible if we want to also make
+> >> this work with other sub-targets like mipseb, armv5 or ppc32
+> >> in the future.
+> >
+> > As Arnd and Thomas suggested to align with x86, I just tried to find a
+> > solution to avoid mixing the use of _ARCH and ARCH in this Makefile.
+> >
+> > Since both riscv32 and riscv64 share the same SRCARCH=riscv (arch/riscv),
+> > and the kernel side doesn't accept riscv32 or riscv64 currently, we need to
+> > manually convert them to _ARCH=riscv and pass them to the kernel makefile
+> > like this: ARCH=$(_ARCH), it mixes the use of _ARCH and ARCH, this is why I
+> > used the '$(if' method currently.
+> >
+> > The solution is adding something like x86 in the kernel Makefile:
+> >
+> >     diff --git a/Makefile b/Makefile
+> >     index 9d765ebcccf1..a442c893d795 100644
+> >     --- a/Makefile
+> >     +++ b/Makefile
+> >     @@ -415,6 +415,14 @@ ifeq ($(ARCH),parisc64)
+> >             SRCARCH := parisc
+> >      endif
+> >
+> >     +# Additional ARCH settings for riscv
+> >     +ifeq ($(ARCH),riscv32)
+> >     +        SRCARCH := riscv
+> >     +endif
+> >     +ifeq ($(ARCH),riscv64)
+> >     +        SRCARCH := riscv
+> >     +endif
+> >     +
+> >      export cross_compiling :=
+> >      ifneq ($(SRCARCH),$(SUBARCH))
+> >      cross_compiling := 1
+>
+> I've never been a big fan of the top-level $(ARCH) setting
+> in the kernel, is there a reason this has to be the same
+> as the variable in tools/include/nolibc? If not, I'd just
+> leave the Linux Makefile unchanged.
+>
+> For userspace we have a lot more target names than
+> arch/*/ directories in the kernel, and I don't think
+> I'd want to enumerate all the possibilities in the
+> build system globally.
+
+Ok, agree very much, it is the root cause why we used the old method
+before, because I don't want to touch the top-level Makefile, here
+explains the details again just as did for Thomas and Willy [1] ;-)
+
+Without the top-level makefile change, we must add something in
+selftests/nolibc/Makefile like this, because the kernel makefile doesn't
+accept something like ARCH=riscv32 and ARCH=riscv64 currently, it only
+accepts ARCH=riscv (will paste the code later).
+
+    ifneq ($(findstring riscv,$(ARCH)),)
+      _ARCH = riscv
+    else
+      _ARCH = $(ARCH)
+    endif
+
+    ...
+
+    sysroot/$(ARCH)/include:
+	$(Q)rm -rf sysroot/$(ARCH) sysroot/sysroot
+	$(QUIET_MKDIR)mkdir -p sysroot
+	$(Q)$(MAKE) -C ../../../include/nolibc ARCH=$(_ARCH) OUTPUT=$(CURDIR)/sysroot/ headers_standalone
+	$(Q)mv sysroot/sysroot sysroot/$(ARCH)
+
+    defconfig:
+    	$(Q)$(MAKE) -C $(srctree) ARCH=$(_ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
+
+    kernel: initramfs
+    	$(Q)$(MAKE) -C $(srctree) ARCH=$(_ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
+
+The above change really works, but it looks not that good, this is the
+mixing use of _ARCH and ARCH I mentioned in last reply.
+
+Otherwise, we will get such error:
+
+    $ make run ARCH=riscv64 CROSS_COMPILE=riscv64-linux-gnu-
+      MKDIR   sysroot/riscv64/include
+    make[1]: Entering directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+    make[2]: Entering directory '/labs/linux-lab/src/linux-stable'
+    Makefile:763: arch/riscv64/Makefile: No such file or directory
+    make[2]: *** No rule to make target 'arch/riscv64/Makefile'.  Stop.
+    make[2]: Leaving directory '/labs/linux-lab/src/linux-stable'
+    make[1]: *** [Makefile:87: headers_standalone] Error 2
+    make[1]: Leaving directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+    make: *** [Makefile:129: sysroot/riscv64/include] Error 2
+    $ make run ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu-
+      MKDIR   sysroot/riscv32/include
+    make[1]: Entering directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+    make[2]: Entering directory '/labs/linux-lab/src/linux-stable'
+    Makefile:763: arch/riscv32/Makefile: No such file or directory
+    make[2]: *** No rule to make target 'arch/riscv32/Makefile'.  Stop.
+    make[2]: Leaving directory '/labs/linux-lab/src/linux-stable'
+    make[1]: *** [Makefile:87: headers_standalone] Error 2
+    make[1]: Leaving directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+    make: *** [Makefile:129: sysroot/riscv32/include] Error 2
+
+That's because in top-level Makefile, it doesn't accept ARCH=riscv32 and
+ARCH=riscv64, but x86 and sparc and even parisc support such variants,
+this allows the ARCH variants share the same arch/<SRCARCH>/ source code
+tree, otherwise, they will directly find the arch/<ARCH>/ source code,
+then fails.
+
+    top-level Makefile:
+
+    ...
+    ARCH            ?= $(SUBARCH)
+
+    # Architecture as present in compile.h
+    UTS_MACHINE     := $(ARCH)
+    SRCARCH         := $(ARCH)   ---> SRCARCH is assigned as ARCH by default
+
+    # Additional ARCH settings for x86
+    ifeq ($(ARCH),i386)
+            SRCARCH := x86
+    endif
+    ifeq ($(ARCH),x86_64)
+            SRCARCH := x86
+    endif
+
+    # Additional ARCH settings for sparc
+    ifeq ($(ARCH),sparc32)
+           SRCARCH := sparc
+    endif
+    ifeq ($(ARCH),sparc64)
+           SRCARCH := sparc
+    endif
+
+    # Additional ARCH settings for parisc
+    ifeq ($(ARCH),parisc64)
+           SRCARCH := parisc
+    endif
+
+So, to really align with x86, we should let the top-level makefile be
+able to get the right SRCARCH for riscv32 and riscv64 too ;-)
+
+I even tried to pass SRCARCH=riscv to the top-level Makefile, but it
+failed:
+
+    diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
+    index 1b2247a6365d..04067776b569 100644
+    --- a/tools/testing/selftests/nolibc/Makefile
+    +++ b/tools/testing/selftests/nolibc/Makefile
+    @@ -14,6 +14,10 @@ include $(srctree)/scripts/subarch.include
+     ARCH = $(SUBARCH)
+     endif
+
+    +ifneq ($(findstring riscv,$(ARCH)),)
+    +SRCARCH := SRCARCH=riscv
+    +endif
+    +
+     # kernel image names by architecture
+     IMAGE_i386       = arch/x86/boot/bzImage
+     IMAGE_x86_64     = arch/x86/boot/bzImage
+    @@ -126,7 +130,7 @@ sysroot: sysroot/$(ARCH)/include
+     sysroot/$(ARCH)/include:
+            $(Q)rm -rf sysroot/$(ARCH) sysroot/sysroot
+            $(QUIET_MKDIR)mkdir -p sysroot
+    -       $(Q)$(MAKE) -C ../../../include/nolibc ARCH=$(ARCH) OUTPUT=$(CURDIR)/sysroot/ headers_standalone
+    +       $(Q)$(MAKE) -C ../../../include/nolibc ARCH=$(ARCH) $(SRCARCH) OUTPUT=$(CURDIR)/sysroot/ headers_standalone
+            $(Q)mv sysroot/sysroot sysroot/$(ARCH)
+
+     nolibc-test: nolibc-test.c sysroot/$(ARCH)/include
+    @@ -150,10 +154,10 @@ initramfs: nolibc-test
+            $(Q)cp nolibc-test initramfs/init
+
+     defconfig:
+    -       $(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
+    +       $(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) $(SRCARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
+
+     kernel: initramfs
+    -       $(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
+    +       $(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) $(SRCARCH )CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
+
+     # run the tests after building the kernel
+     run: kernel
+
+    $ make run ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu- QEMU_ARGS_EXTRA="-bios /labs/linux-lab/opensbi-riscv32-generic-fw_dynamic.bin"
+      MKDIR   sysroot/riscv32/include
+    make[1]: Entering directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+    make[2]: Entering directory '/labs/linux-lab/src/linux-stable'
+    Makefile:397: srcarch: riscv
+    make[2]: Leaving directory '/labs/linux-lab/src/linux-stable'
+    make[2]: Entering directory '/labs/linux-lab/src/linux-stable'
+    Makefile:397: srcarch: riscv
+      INSTALL /labs/linux-lab/src/linux-stable/tools/testing/selftests/nolibc/sysroot/sysroot/include
+    make[2]: Leaving directory '/labs/linux-lab/src/linux-stable'
+    make[1]: Leaving directory '/labs/linux-lab/src/linux-stable/tools/include/nolibc'
+      CC      nolibc-test
+      MKDIR   initramfs
+      INSTALL initramfs/init
+    make[1]: Entering directory '/labs/linux-lab/src/linux-stable'
+    Makefile:397: srcarch: riscv32
+      SYNC    include/config/auto.conf.cmd
+    Makefile:397: srcarch: riscv32
+    Makefile:687: arch/riscv32/Makefile: No such file or directory
+    make[2]: *** No rule to make target 'arch/riscv32/Makefile'.  Stop.
+    make[1]: *** [Makefile:795: include/config/auto.conf.cmd] Error 2
+    make[1]: Leaving directory '/labs/linux-lab/src/linux-stable'
+
+So, to keep consistent eventually, perhaps we do need to touch the
+top-level Makefile.
+
+Best regards,
+Zhangjin
+
+[1]: https://lore.kernel.org/linux-riscv/20230526092029.149351-1-falcon@tinylab.org/
+
+>     Arnd
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
