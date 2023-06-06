@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D28C77B73
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 17:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC3AC7EE2A
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 18:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pvZkjBButlLOwM8RKfOhouTA7ofiMEfP+uarl9HnjpA=; b=adpED12DEIFPyB
-	jvSvvS7d7sNDIXZrZkncZ77I9GF6ifKcxXHBFMRtqBKQyc/ey5+Kn9sTLLdb9UXKUFi6EjJBVJ5Nx
-	CamhidxiMhyMNwzsIq9OJimFHEAruUS1nSysdn4rnScXc2S8G/F1sSysiCq42dp2vNSay/yQz/pZZ
-	MS8AudZS6broUnsbyhVG+LIkUhstwWgBW1+TT6GNaGrDHOkSVVUMinL9VKyY3qxXxhb9nGyjT+wlp
-	51XMXvpCRjOY+sB8Qh1i2ElmejWa19/EJNtaD85Vbs3SmPknOk/hRdBsYtsbf7uWkGgqES42v1eVv
-	kg2an23t05fGfV0/YkDA==;
+	List-Owner; bh=Lv6GQJV4Sr4qXRQEgcdSwrI0EuorRVtbJud7X192Kx4=; b=PSRiLLfN14eNJV
+	IjgGci0QuiZSE76qdbGSmOSmzfYOHL0qLmioPUc8cN2p5CbV85NdTokiqZOWAFLwCePw/0OOgQty7
+	og38W5dEFiCYwaYjrmqoJAbXHNRiMTWLPtS+Ds26+wrgsLcgldxoACeDM/fGezgC813JQe1u+9kr9
+	DOcSiYNZ1l6wz1/+FUZLTcvZhiBtsloziQyvZB4XdjoVUN4uBgJyFJeaYKR8MxxIItWMiRcRWbNw2
+	8dRH6vvHG/DcDaKn3LZLXa7hmhMktV6YYvbJ/BDbutrgy18O3G60Bcz7n0e8QN3bg6uUr9z4JfVPr
+	vvjjtUGecwtqepQM+yJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6aWH-002bOD-03;
-	Tue, 06 Jun 2023 17:30:57 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1q6bJz-002jtk-1r;
+	Tue, 06 Jun 2023 18:22:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6aWD-002bJF-2m
-	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jun 2023 17:30:55 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-653436fcc1bso2720272b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Jun 2023 10:30:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1686072646; x=1688664646;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/6vAJn3a3KISHT8UtPfE8rCcxDqLecC+K/Bswfmc3cg=;
-        b=xKwNOSXAy/mAacxGKGUyv4x6SJmn0ha0YRP82RY1R/dk7rvb9rFUlavan41Fxo6E9x
-         pISxCMcI4O07qu9QmhC/xBDe9/nUvb/OD2B1UaoSl+q1gjMRg4TTybzxru/yozrNZnMj
-         wf3JaX3X9HntgvVq8qIisiM0gzcXir9yCUsZAwkR08oY6UgMxvhCjZBeYJhlf1Li5OQ1
-         75ncKzcX2vc1gu9MnDS9c5o0L60wP1aOvtU7D9s2eZh+SXGghkVpVofUbz62xJ++CEtM
-         muoz/drqTgyeHISx0UfXDAbfkc01oqqRCAZjsQLCXwU2TZVONQl8X6ZGvlpfFks80w7I
-         K5Rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686072646; x=1688664646;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/6vAJn3a3KISHT8UtPfE8rCcxDqLecC+K/Bswfmc3cg=;
-        b=deaAMJRwlEOANKmoN3tXB83NafVi/GF1rnCJDpGwQVjVo2VL3nWxebdsN5tc3cq3ll
-         8z/+YeZZutm8Dxubz7PcQUlDei/sVhAhnRTdmuYVn0FqDTRo8E3qiuqs2qI03V56Bp3k
-         K6cm8V+1vSQ3BHMrX1GGNLTEhLVugTvB3ZxVEbiP99JZ6PrJ8gO9RiTiPkn4t1Rlngw7
-         B9O34VUyxwAujVY3eXwrsB0NaJ988L0SsW9r+Z2uZXkn/VPvKrHFEyjuu8wAkg4xqh75
-         azgppXel27EIIDcSb4K50r2XstHSDV5OKrSIPicaoZXwqLB105HF7W4AgokBQzCvBJK4
-         RUmw==
-X-Gm-Message-State: AC+VfDydPaSVXf0Gx8dlGQpHg3gd2pFBciuZ5aeclnAjEErX6u51s8zi
-	GtKHRejfdAsZLScTlMr31xnqQw==
-X-Google-Smtp-Source: ACHHUZ7Ihf8OXprV7uWFwxEk8IAjkO4PklZxhrEJNeRyfQGSzen5mICvmPpTPx0ELjM0ALxCXZ3riA==
-X-Received: by 2002:a05:6a00:2e01:b0:64a:7723:fe04 with SMTP id fc1-20020a056a002e0100b0064a7723fe04mr1618217pfb.4.1686072646318;
-        Tue, 06 Jun 2023 10:30:46 -0700 (PDT)
-Received: from google.com (139.11.82.34.bc.googleusercontent.com. [34.82.11.139])
-        by smtp.gmail.com with ESMTPSA id a25-20020aa78659000000b00625037cf695sm7096619pfo.86.2023.06.06.10.30.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jun 2023 10:30:45 -0700 (PDT)
-Date: Tue, 6 Jun 2023 10:30:42 -0700
-From: Vipin Sharma <vipinsh@google.com>
-To: Zhi Wang <zhi.wang.linux@gmail.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
-	aleksandar.qemu.devel@gmail.com, tsbogend@alpha.franken.de,
-	anup@brainfault.org, atishp@atishpatra.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	seanjc@google.com, pbonzini@redhat.com, dmatlack@google.com,
-	ricarkol@google.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 09/16] KVM: arm64: Document the page table walker
- actions based on the callback's return value
-Message-ID: <ZH9tQjQk7QLyhUQR@google.com>
-References: <20230602160914.4011728-1-vipinsh@google.com>
- <20230602160914.4011728-10-vipinsh@google.com>
- <20230605223520.00007fbd.zhi.wang.linux@gmail.com>
+	id 1q6bJv-002js0-2o;
+	Tue, 06 Jun 2023 18:22:17 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E461D636A7;
+	Tue,  6 Jun 2023 18:22:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DCA9C4331F;
+	Tue,  6 Jun 2023 18:22:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686075734;
+	bh=08bgDTu6K2r14VqmkEIMfCPJQ/ZZrnAx7Zh60inB9tQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ZWPc2Ay9qV+46W5EIl1Hat/oWhCmkf2atoI7Djyx7M9K8nTcPWM51zO0JgXQR/xJA
+	 t6kkVflNQu8aEchQ0gWokejvbn0lD4N+mkDVLz/vpv4NfXuw4Ue4w5/ggGi9dBfKiZ
+	 FbyGdgANCc28tlTGlHG3sjNhVLTPxaSnMiPYhxWksxnkaN6w7Z8t8XpDCqJBTwrewz
+	 7miB72dJ8VC2moDFlWb2Dg+2pHaD8TB88qpU65gh5ZEErvyTm+QOEYn4FI4IN5NnX+
+	 vSaQ/C5uDNk1W0XxM90aSXxJjvBdgk4T++XB8N2/4BPrh3DvP9IK4m5Qlazjdmj/3m
+	 EHdGa+FT3FpmQ==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-2b1a6a8e851so72152051fa.2;
+        Tue, 06 Jun 2023 11:22:13 -0700 (PDT)
+X-Gm-Message-State: AC+VfDx8vJxF4wXBEewLNUOaMWBRkggbwgiRpmweafg8qAgCL6pefZKz
+	2LHYUqaxGCKjXZz1oMNWACCgRaRvWepena+gN3s=
+X-Google-Smtp-Source: ACHHUZ5bLSr3tA3IB8xCjeC0rEYdnEDeq7vmc1y/QuS5oHjyhnnuqZDpSw2PwmODz4CMTnRxT8zG59Qp1zLSa+hdG70=
+X-Received: by 2002:a2e:82d0:0:b0:2b0:297c:cbdf with SMTP id
+ n16-20020a2e82d0000000b002b0297ccbdfmr1546782ljh.1.1686075731505; Tue, 06 Jun
+ 2023 11:22:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230605223520.00007fbd.zhi.wang.linux@gmail.com>
+References: <20230601101257.530867-1-rppt@kernel.org> <ZHjDU/mxE+cugpLj@FVFF77S0Q05N.cambridge.arm.com>
+ <ZHjgIH3aX9dCvVZc@moria.home.lan> <ZHm3zUUbwqlsZBBF@FVFF77S0Q05N>
+ <20230605092040.GB3460@kernel.org> <ZH20XkD74prrdN4u@FVFF77S0Q05N>
+In-Reply-To: <ZH20XkD74prrdN4u@FVFF77S0Q05N>
+From: Song Liu <song@kernel.org>
+Date: Tue, 6 Jun 2023 11:21:59 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW7ntn_HpVWdGK_hYVd3zsPEFToBNfmtt0m6K8SwfxJ66Q@mail.gmail.com>
+Message-ID: <CAPhsuW7ntn_HpVWdGK_hYVd3zsPEFToBNfmtt0m6K8SwfxJ66Q@mail.gmail.com>
+Subject: Re: [PATCH 00/13] mm: jit/text allocator
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Mike Rapoport <rppt@kernel.org>, Kent Overstreet <kent.overstreet@linux.dev>, 
+	linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	"David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	Luis Chamberlain <mcgrof@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Russell King <linux@armlinux.org.uk>, Steven Rostedt <rostedt@goodmis.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
+	Will Deacon <will@kernel.org>, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linux-mm@kvack.org, linux-modules@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_103053_909981_03DE1847 
-X-CRM114-Status: GOOD (  40.77  )
+X-CRM114-CacheID: sfid-20230606_112216_002578_0AF28623 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,334 +91,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 05, 2023 at 10:35:20PM +0800, Zhi Wang wrote:
-> On Fri,  2 Jun 2023 09:09:07 -0700
-> Vipin Sharma <vipinsh@google.com> wrote:
-> 
-> > Document what the page table walker do when walker callback function returns
-> > a value.
-> > 
-> > Current documentation is not correct as negative error of -EAGAIN on a
-> > non-shared page table walker doesn't terminate the walker and continues
-> > to the next step.
-> > 
-> > There might be a better place to keep this information, for now this
-> > documentation will work as a reference guide until a better way is
-> > found.
-> >
-> 
-> After reading the whole patch series, I was thinking it might be a good
-> time to improve the way how the visitor function and page table walker
-> talk to each other. The error code is good enough before, but its meaning
-> seems limited and vague when the visitor function wants to express more about
-> what exactly happens inside. I am not sure if it is a good idea to continue
-> that way: 1. found a new situation. 2. choosing a error code for visitor
-> function. 3. walker translates the error code into the situation to
-> handle. 4. document the error code and its actual meaning.
-> 
-> Eventually I am afraid that we are going to abuse the error code.
-
-I agree that error numbers are not sufficient and this will become more
-difficult and cumbersome for more cases in future if we need different
-behavior based on different error codes for different visitor functions.
-
-> 
-> What about introducing a set of flags for the visitor function to express
-> what happened and simplify the existing error code?
-> 
-
-If I understood correctly what you meant, I think this will also end up
-having the same issue down the line, we are just switching errors with
-flags as they might not be able to express everything.
-
-"Flags for visitor function to express what happened"  - This is what
-ret val and errors do.
-
-"simplify existing error code" - is very dependent on visitor function
-and caller of page table walker. This might not be able to cover all
-cases for the future also.
-
-But I do agree that just error code is not sufficient and it will make
-it harder to handle shared vs non-shared walkers combinations with error
-code from visitor functions and walk action (exit, next, retry).
-
-One approach I can think of is:
-Based on the visitor function return value, a page table walker will do
-3 things:
-
-1. Move to next SPTE
-2. Retry the current SPTE
-3. Exit the walk and return the exit code.
-
-struct kvm_pgtable_walker{}  will have two more callbacks
-1. kvm_pgtable_walk_ignore(int ret, enum kvm_pgtable_walk_flags):
-   This will be set for each walker and walker will check with this
-   function intead of kvm_pgtable_walk_continue().
-
-2. kvm_pgtable_walk_retry(int ret, enum kvm_pgtable_walk_flags):
-   This will be set for each walker and walker will use it in
-   __kvm_pgtable_walk()  on the return value of __kvm_pgtable_visit() to
-   retry again.
-
-This will allow to have walker be more configurable and each type of
-walker can be customized based on vistor function return and
-shared/non-shared walker combo. It will avoid having visitor function
-error code handling same in all walkers.
-
-Below is a sample code (compile tested only):
-
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 850d65f705fa..9a96f61208af 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -243,6 +243,10 @@ struct kvm_pgtable_visit_ctx {
- 
- typedef int (*kvm_pgtable_visitor_fn_t)(const struct kvm_pgtable_visit_ctx *ctx,
- 					enum kvm_pgtable_walk_flags visit);
-+struct kvm_pgtable_walker;
-+typedef bool (*kvm_pgtable_walker_action_fn_t)(const struct kvm_pgtable_walker *walker,
-+					      int ret);
-+
- 
- static inline bool kvm_pgtable_walk_shared(const struct kvm_pgtable_visit_ctx *ctx)
- {
-@@ -258,6 +262,8 @@ static inline bool kvm_pgtable_walk_shared(const struct kvm_pgtable_visit_ctx *c
-  */
- struct kvm_pgtable_walker {
- 	const kvm_pgtable_visitor_fn_t		cb;
-+	const kvm_pgtable_walker_action_fn_t	ignore;
-+	const kvm_pgtable_walker_action_fn_t	retry;
- 	void * const				arg;
- 	const enum kvm_pgtable_walk_flags	flags;
- };
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 364b68013038..28891a9c463a 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -180,6 +180,12 @@ static int kvm_pgtable_visitor_cb(struct kvm_pgtable_walk_data *data,
- 	return walker->cb(ctx, visit);
- }
- 
-+static bool kvm_pgtable_walk_retry(const struct kvm_pgtable_walker *walker,
-+				      int r)
-+{
-+	return false;
-+}
-+
- static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
- 				      int r)
- {
-@@ -231,7 +237,7 @@ static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
- 		table = kvm_pte_table(ctx.old, level);
- 	}
- 
--	if (!kvm_pgtable_walk_continue(data->walker, ret))
-+	if (!data->walker->ignore(data->walker, ret))
- 		goto out;
- 
- 	if (!table) {
-@@ -242,14 +248,14 @@ static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
- 
- 	childp = (kvm_pteref_t)kvm_pte_follow(ctx.old, mm_ops);
- 	ret = __kvm_pgtable_walk(data, mm_ops, childp, level + 1);
--	if (!kvm_pgtable_walk_continue(data->walker, ret))
-+	if (!data->walker->ignore(data->walker, ret))
- 		goto out;
- 
- 	if (ctx.flags & KVM_PGTABLE_WALK_TABLE_POST)
- 		ret = kvm_pgtable_visitor_cb(data, &ctx, KVM_PGTABLE_WALK_TABLE_POST);
- 
- out:
--	if (kvm_pgtable_walk_continue(data->walker, ret))
-+	if (!data->walker->ignore(data->walker, ret))
- 		return 0;
- 
- 	return ret;
-@@ -260,19 +266,25 @@ static int __kvm_pgtable_walk(struct kvm_pgtable_walk_data *data,
- {
- 	u32 idx;
- 	int ret = 0;
-+	kvm_pteref_t pteref;
- 
- 	if (WARN_ON_ONCE(level >= KVM_PGTABLE_MAX_LEVELS))
- 		return -EINVAL;
- 
- 	for (idx = kvm_pgtable_idx(data, level); idx < PTRS_PER_PTE; ++idx) {
--		kvm_pteref_t pteref = &pgtable[idx];
-+retry:
-+		pteref = &pgtable[idx];
- 
- 		if (data->addr >= data->end)
- 			break;
- 
- 		ret = __kvm_pgtable_visit(data, mm_ops, pteref, level);
--		if (ret)
-+		if (ret) {
-+			if (data->walker->retry(data->walker, ret)) {
-+				goto retry;
-+			}
- 			break;
-+		}
- 	}
- 
- 	return ret;
-@@ -343,6 +355,8 @@ int kvm_pgtable_get_leaf(struct kvm_pgtable *pgt, u64 addr,
- 	struct leaf_walk_data data;
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= leaf_walker,
-+		.ignore = kvm_pgtable_walk_continue,
-+		.retry	= kvm_pgtable_walk_retry,
- 		.flags	= KVM_PGTABLE_WALK_LEAF,
- 		.arg	= &data,
- 	};
-@@ -474,6 +488,8 @@ int kvm_pgtable_hyp_map(struct kvm_pgtable *pgt, u64 addr, u64 size, u64 phys,
- 	};
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= hyp_map_walker,
-+		.ignore = kvm_pgtable_walk_continue,
-+		.retry	= kvm_pgtable_walk_retry,
- 		.flags	= KVM_PGTABLE_WALK_LEAF,
- 		.arg	= &map_data,
- 	};
-@@ -533,6 +549,8 @@ u64 kvm_pgtable_hyp_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
- 	u64 unmapped = 0;
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= hyp_unmap_walker,
-+		.ignore = kvm_pgtable_walk_continue,
-+		.retry	= kvm_pgtable_walk_retry,
- 		.arg	= &unmapped,
- 		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
- 	};
-@@ -582,6 +600,8 @@ void kvm_pgtable_hyp_destroy(struct kvm_pgtable *pgt)
- {
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= hyp_free_walker,
-+		.ignore = kvm_pgtable_walk_continue,
-+		.retry	= kvm_pgtable_walk_retry,
- 		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
- 	};
- 
-@@ -958,6 +978,8 @@ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 	};
- 	struct kvm_pgtable_walker walker = {
- 		.cb		= stage2_map_walker,
-+		.ignore		= kvm_pgtable_walk_continue,
-+		.retry		= kvm_pgtable_walk_retry,
- 		.flags		= flags |
- 				  KVM_PGTABLE_WALK_TABLE_PRE |
- 				  KVM_PGTABLE_WALK_LEAF,
-@@ -989,6 +1011,8 @@ int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 	};
- 	struct kvm_pgtable_walker walker = {
- 		.cb		= stage2_map_walker,
-+		.ignore		= kvm_pgtable_walk_continue,
-+		.retry		= kvm_pgtable_walk_retry,
- 		.flags		= KVM_PGTABLE_WALK_TABLE_PRE |
- 				  KVM_PGTABLE_WALK_LEAF,
- 		.arg		= &map_data,
-@@ -1048,6 +1072,8 @@ int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
- {
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= stage2_unmap_walker,
-+		.ignore	= kvm_pgtable_walk_continue,
-+		.retry	= kvm_pgtable_walk_retry,
- 		.arg	= pgt,
- 		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
- 	};
-@@ -1070,7 +1096,7 @@ static int stage2_attr_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
- 
- 	if (!kvm_pte_valid(ctx->old))
--		return -EAGAIN;
-+		return -ENOENT;
- 
- 	data->level = ctx->level;
- 	data->pte = pte;
-@@ -1099,6 +1125,23 @@ static int stage2_attr_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	return 0;
- }
- 
-+static bool stage2_attr_walker_retry(const struct kvm_pgtable_walker *walker, int ret)
-+{
-+	if (ret == -EAGAIN)
-+		return walker->flags & KVM_PGTABLE_WALK_SHARED
-+				&& !(walker->flags & KVM_PGTABLE_WALK_HANDLE_FAULT);
-+	return false;
-+}
-+
-+static bool stage2_attr_walker_ignore(const struct kvm_pgtable_walker * walker, int ret)
-+{
-+	if (ret == -EAGAIN)
-+		return !(walker->flags & KVM_PGTABLE_WALK_SHARED);
-+	if (ret == -ENOENT)
-+		return !(walker->flags & KVM_PGTABLE_WALK_HANDLE_FAULT);
-+	return false;
-+}
-+
- static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
- 				    u64 size, kvm_pte_t attr_set,
- 				    kvm_pte_t attr_clr, kvm_pte_t *orig_pte,
-@@ -1112,6 +1155,8 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
- 	};
- 	struct kvm_pgtable_walker walker = {
- 		.cb		= stage2_attr_walker,
-+		.ignore		= stage2_attr_walker_ignore,
-+		.retry		= stage2_attr_walker_retry,
- 		.arg		= &data,
- 		.flags		= flags | KVM_PGTABLE_WALK_LEAF,
- 	};
-@@ -1217,6 +1262,8 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
- {
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= stage2_flush_walker,
-+		.ignore	= kvm_pgtable_walk_continue,
-+		.retry	= kvm_pgtable_walk_retry,
- 		.flags	= KVM_PGTABLE_WALK_LEAF,
- 		.arg	= pgt,
- 	};
-@@ -1240,6 +1287,8 @@ kvm_pte_t *kvm_pgtable_stage2_create_unlinked(struct kvm_pgtable *pgt,
- 	};
- 	struct kvm_pgtable_walker walker = {
- 		.cb		= stage2_map_walker,
-+		.ignore		= kvm_pgtable_walk_continue,
-+		.retry		= kvm_pgtable_walk_retry,
- 		.flags		= KVM_PGTABLE_WALK_LEAF |
- 				  KVM_PGTABLE_WALK_SKIP_BBM_TLBI |
- 				  KVM_PGTABLE_WALK_SKIP_CMO,
-@@ -1377,6 +1426,8 @@ int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
- {
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= stage2_split_walker,
-+		.ignore	= kvm_pgtable_walk_continue,
-+		.retry	= kvm_pgtable_walk_retry,
- 		.flags	= KVM_PGTABLE_WALK_LEAF,
- 		.arg	= mc,
- 	};
-@@ -1442,6 +1493,8 @@ void kvm_pgtable_stage2_destroy(struct kvm_pgtable *pgt)
- 	size_t pgd_sz;
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= stage2_free_walker,
-+		.ignore	= kvm_pgtable_walk_continue,
-+		.retry	= kvm_pgtable_walk_retry,
- 		.flags	= KVM_PGTABLE_WALK_LEAF |
- 			  KVM_PGTABLE_WALK_TABLE_POST,
- 	};
-@@ -1457,6 +1510,8 @@ void kvm_pgtable_stage2_free_unlinked(struct kvm_pgtable_mm_ops *mm_ops, void *p
- 	kvm_pteref_t ptep = (kvm_pteref_t)pgtable;
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= stage2_free_walker,
-+		.ignore	= kvm_pgtable_walk_continue,
-+		.retry	= kvm_pgtable_walk_retry,
- 		.flags	= KVM_PGTABLE_WALK_LEAF |
- 			  KVM_PGTABLE_WALK_TABLE_POST,
- 	};
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdW4gNSwgMjAyMyBhdCAzOjA54oCvQU0gTWFyayBSdXRsYW5kIDxtYXJrLnJ1dGxh
+bmRAYXJtLmNvbT4gd3JvdGU6CgpbLi4uXQoKPiA+ID4gPiBDYW4geW91IGdpdmUgbW9yZSBkZXRh
+aWwgb24gd2hhdCBwYXJhbWV0ZXJzIHlvdSBuZWVkPyBJZiB0aGUgb25seSBleHRyYQo+ID4gPiA+
+IHBhcmFtZXRlciBpcyBqdXN0ICJkb2VzIHRoaXMgYWxsb2NhdGlvbiBuZWVkIHRvIGxpdmUgY2xv
+c2UgdG8ga2VybmVsCj4gPiA+ID4gdGV4dCIsIHRoYXQncyBub3QgdGhhdCBiaWcgb2YgYSBkZWFs
+Lgo+ID4gPgo+ID4gPiBNeSB0aGlua2luZyB3YXMgdGhhdCB3ZSBhdCBsZWFzdCBuZWVkIHRoZSBz
+dGFydCArIGVuZCBmb3IgZWFjaCBjYWxsZXIuIFRoYXQKPiA+ID4gbWlnaHQgYmUgaXQsIHRiaC4K
+PiA+Cj4gPiBEbyB5b3UgbWVhbiB0aGF0IG1vZHVsZXMgd2lsbCBoYXZlIHNvbWV0aGluZyBsaWtl
+Cj4gPgo+ID4gICAgICAgaml0X3RleHRfYWxsb2Moc2l6ZSwgTU9EVUxFU19TVEFSVCwgTU9EVUxF
+U19FTkQpOwo+ID4KPiA+IGFuZCBrcHJvYmVzIHdpbGwgaGF2ZQo+ID4KPiA+ICAgICAgIGppdF90
+ZXh0X2FsbG9jKHNpemUsIEtQUk9CRVNfU1RBUlQsIEtQUk9CRVNfRU5EKTsKPiA+ID8KPgo+IFll
+cy4KCkhvdyBhYm91dCB3ZSBzdGFydCB3aXRoIHR3byBBUElzOgogICAgIGppdF90ZXh0X2FsbG9j
+KHNpemUpOwogICAgIGppdF90ZXh0X2FsbG9jX3JhbmdlKHNpemUsIHN0YXJ0LCBlbmQpOwoKQUZB
+SUNULCBhcm02NCBpcyB0aGUgb25seSBhcmNoIHRoYXQgcmVxdWlyZXMgdGhlIGxhdHRlciBBUEku
+IEFuZCBUQkgsIEkgYW0Kbm90IHF1aXRlIGNvbnZpbmNlZCBpdCBpcyBuZWVkZWQuCgo+Cj4gPiBJ
+dCBzaWxsIGNhbiBiZSBhY2hpZXZlZCB3aXRoIGEgc2luZ2xlIGppdF9hbGxvY19hcmNoX3BhcmFt
+cygpLCBqdXN0IGJ5Cj4gPiBhZGRpbmcgZW51bSBqaXRfdHlwZSBwYXJhbWV0ZXIgdG8gaml0X3Rl
+eHRfYWxsb2MoKS4KPgo+IFRoYXQgZmVlbHMgYmFja3dhcmRzIHRvIG1lOyBpdCBjZW50cmFsaXpl
+cyBhIGJ1bmNoIG9mIGluZm9ybWF0aW9uIGFib3V0Cj4gZGlzdGluY3QgdXNlcnMgdG8gYmUgYWJs
+ZSB0byBzaG92ZSB0aGF0IGludG8gYSBzdGF0aWMgYXJyYXksIHdoZW4gdGhlIGNhbGxzaXRlcwo+
+IGNhbiBwYXNzIHRoYXQgaW5mb3JtYXRpb24uCgpJIHRoaW5rIHdlIG9ubHkgdHdvIHR5cGUgb2Yg
+dXNlcnM6IG1vZHVsZSBhbmQgZXZlcnl0aGluZyBlbHNlIChmdHJhY2UsIGtwcm9iZSwKYnBmIHN0
+dWZmKS4gVGhlIGtleSBkaWZmZXJlbmNlcyBhcmU6CgogIDEuIG1vZHVsZSB1c2VzIHRleHQgYW5k
+IGRhdGE7IHdoaWxlIGV2ZXJ5dGhpbmcgZWxzZSBvbmx5IHVzZXMgdGV4dC4KICAyLiBtb2R1bGUg
+Y29kZSBpcyBnZW5lcmF0ZWQgYnkgdGhlIGNvbXBpbGVyLCBhbmQgdGh1cyBoYXMgc3Ryb25nZXIK
+ICByZXF1aXJlbWVudHMgaW4gYWRkcmVzcyByYW5nZXM7IGV2ZXJ5dGhpbmcgZWxzZSBhcmUgZ2Vu
+ZXJhdGVkIHZpYSBzb21lCiAgSklUIG9yIG1hbnVhbCB3cml0dGVuIGFzc2VtYmx5LCBzbyB0aGV5
+IGFyZSBtb3JlIGZsZXhpYmxlIHdpdGggYWRkcmVzcwogIHJhbmdlcyAoaW4gSklULCB3ZSBjYW4g
+YXZvaWQgdXNpbmcgaW5zdHJ1Y3Rpb25zIHRoYXQgcmVxdWlyZXMgYSBzcGVjaWZpYwogIGFkZHJl
+c3MgcmFuZ2UpLgoKVGhlIG5leHQgcXVlc3Rpb24gaXMsIGNhbiB3ZSBoYXZlIHRoZSB0d28gdHlw
+ZXMgb2YgdXNlcnMgc2hhcmUgdGhlIHNhbWUKYWRkcmVzcyByYW5nZXM/IElmIG5vdCwgd2UgY2Fu
+IHJlc2VydmUgdGhlIHByZWZlcnJlZCByYW5nZSBmb3IgbW9kdWxlcywKYW5kIGxldCBldmVyeXRo
+aW5nIGVsc2UgdXNlIHRoZSBvdGhlciByYW5nZS4gSSBkb24ndCBzZWUgcmVhc29ucyB0byBmdXJ0
+aGVyCnNlcGFyYXRlIHVzZXJzIGluIHRoZSAiZXZlcnl0aGluZyBlbHNlIiBncm91cC4KCj4KPiBX
+aGF0J3MgKmFjdHVhbGx5KiBjb21tb24gYWZ0ZXIgc2VwYXJhdGluZyBvdXQgdGhlIHJhbmdlcz8g
+SXMgaXQganVzdCB0aGUKPiBwZXJtaXNzaW9ucz8KCkkgYmVsaWV2ZSBwZXJtaXNzaW9uIGlzIHRo
+ZSBrZXksIGFzIHdlIG5lZWQgdGhlIGhhcmR3YXJlIHRvIGVuZm9yY2UKcGVybWlzc2lvbi4KCj4K
+PiBJZiB3ZSB3YW50IHRoaXMgdG8gYmUgYWJsZSB0byBzaGFyZSBhbGxvY2F0aW9ucyBhbmQgc28g
+b24sIHdoeSBjYW4ndCB3ZSBkbyB0aGlzCj4gbGlrZSBhIGttZW1fY2FjaGUsIGFuZCBoYXZlIHRo
+ZSBjYWxsc2l0ZSBwYXNzIGEgcG9pbnRlciB0byB0aGUgYWxsb2NhdG9yIGRhdGE/Cj4gVGhhdCB3
+b3VsZCBtYWtlIGl0IGVhc3kgZm9yIGNhbGxzaXRlcyB0byBzaGFyZSBhbiBhbGxvY2F0b3Igb3Ig
+dXNlIGEgZGlzdGluY3QKPiBvbmUuCgpTaGFyaW5nIGFtb25nIGRpZmZlcmVudCBjYWxsIHNpdGVz
+IHdpbGwgZ2l2ZSB1cyBtb3JlIGJlbmVmaXQgKGluIFRMQgptaXNzZXMgcmF0ZSwKZXRjLikuIEZv
+ciBleGFtcGxlLCBhIDJNQiBwYWdlIG1heSBob3N0IHRleHQgb2YgdHdvIGtlcm5lbCBtb2R1bGVz
+LCA0IGtwcm9iZXMsCjYgZnRyYWNlIHRyYW1wb2xpbmVzLCBhbmQgMTAgQlBGIHByb2dyYW1zLiBB
+bGwgb2YgdGhlc2Ugb25seSByZXF1aXJlIG9uZSBlbnRyeQppbiB0aGUgaVRMQi4KClRoYW5rcywK
+U29uZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
