@@ -4,78 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 367AAC7EE23
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 00:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B963C7EE24
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Jun 2023 01:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O+3zNwBtsh3OCPdgSYkypTfy1cb3fhzIp4/wemx9Dt8=; b=YNZOgXT2Bq8Yop
-	Rzc7LBpLoJKhEA/QKoYmN2Lw2nMZErEbopcl3LdSDW1xWiSpA/Ghk1y5cJ/r6lyCV7wkZgCJ5xjtl
-	MJqStKAMJ0v4jva7ZnlxBEjNdBvV2JKL7zo4Uh0zNbKGNOIEGoBHD2MQ+qkUwCEq7uIUrYTh5fFWH
-	/x/5ULqKPJDAkCYN/3M5mox2XOat5JTCQbdk8yUz5YLimRoscgKZ/C50fV9BPamA5V+bowluApYBy
-	ntH/aQAI7LOLdzEsKIQ99n8YsTEtfg7GXi2yp4sjzixMOnt5v7JcNhfauW3Pcv/p2CiPq8wqxrG9F
-	t3QyfMlKkdfoZCH7bQxw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Wekhb/GOVeQyKHTJqfCO2bqlmaKDUVA2eXlneHSYlnA=; b=vd7yrBQrMpNBI4
+	zSP4ODRA3TNihUZkBEyUgvd70FggUkU6OgdKKmFkPNHDMWXrdTFB/JjxoHXFhM0PMudF/B0x0NsvR
+	CjRehBK37+ADRa9wHWa73YIv5JJAhr7DyMryPfInCb71D48Z10Ho/hY3hWAF0OoxcNN8CYWlSFT3i
+	wCi9gKDGOqPlg6NMtVyeSWIpjQ2ZsDLpJqtyrRuGQN25QWVNPMbbyhL576v6dDpDd7UB78ZizO3n2
+	PCzRx/R1d+f4P2YF3FCXX6aezDqH2AUiNPdl22VL16atQEX3Z2R1/+In1ns+VHeaCimX8RIrjHPuW
+	a4WkYeWGAr7z1aNHt3Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6Ks2-00HGHC-2L;
-	Tue, 06 Jun 2023 00:48:22 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1q6LmI-00HMPh-2Q;
+	Tue, 06 Jun 2023 01:46:30 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6Krz-00HGFW-13
+	id 1q6LmF-00HMOJ-1n
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 Jun 2023 00:48:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1686012490; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=jZbF6t8CrMYjUmeMR3ZD4aJ135DDCAUbPem7f0VpmhynxqoOZklecjbGHwRoixdXJyGf7+ex3y8GOVVEBvfEvzLnAVM6KKRKujoxZ/1GAvOVNiIbVZ6p6Bgy7K8fAhc0KnYqec7o/6U8g7vpOXHnVheaF69m8GDluwW+kFK3Vmk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1686012490; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
-	bh=Puzfq8Z7iFo9mTVJ5zXOtSpUSGzex+7YQX+3D4fGb48=; 
-	b=ejU+jznQMebHyn6eo3bqg+D/3AIYirEyAruBxZCKNsDZ5aYdJ6Rn81D7hSLMz6W7Ss6hLHvGsore5pgQqlVGQ4qp+orAmp0Qww5r4cqaxunuvUmVazgswUqK5C7wD2i0gxajLfWm3mWuHrVVI+8iTMxwEGz06Mr1VPNSb1+pIWk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1686012490;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=Puzfq8Z7iFo9mTVJ5zXOtSpUSGzex+7YQX+3D4fGb48=;
-	b=UsFEjVm7jz/Iaos8oWwtFw+8LDa4ON89lLgA7G5v8nLGaDynfZ4h9r5//TS6M0Kv
-	qAWeGRM5nfr6En7PM7zShYswRS88NiUH6QmnvB0XzYmVQu+Rx5yX1wbtdoPPwJzrAt5
-	7XbBymTlKAG9LaZNjckb3J2bQnJivVWmai4Gt69zOyGiTpEMAyflaBX3QPxfyUQ3LQB
-	vT7isgTEGIa3eVowWz8mc7eZFOFC43N/8a7RBQ95WP4K8eHVfxBZU86A/ye3u2kOaLn
-	+8PV9ICOPciv0SOP64ijYP6jwbwH8A8x+v7owmbuFLCrEOnM2p/xl738yl/zVBtqbiH
-	vjjwcQRBLQ==
-Received: from edelgard.fodlan.icenowy.me (120.85.99.123 [120.85.99.123]) by mx.zohomail.com
-	with SMTPS id 1686012489918450.4319964852141; Mon, 5 Jun 2023 17:48:09 -0700 (PDT)
-Message-ID: <bbc2d1d2e32587c4e212965dab9480b6790f1d37.camel@icenowy.me>
-Subject: Re: Bug report: kernel paniced while booting
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Atish Patra <atishp@atishpatra.org>, Sunil V L <sunilvl@ventanamicro.com>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, Song Shuai
- <songshuaishuai@tinylab.org>, robh <robh@kernel.org>, ajones
- <ajones@ventanamicro.com>, anup <anup@brainfault.org>, palmer
- <palmer@rivosinc.com>, "jeeheng.sia" <jeeheng.sia@starfivetech.com>, 
- "leyfoon.tan" <leyfoon.tan@starfivetech.com>, "mason.huo"
- <mason.huo@starfivetech.com>, "paul.walmsley" <paul.walmsley@sifive.com>,
- "conor.dooley" <conor.dooley@microchip.com>, guoren <guoren@kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,  linux-kernel
- <linux-kernel@vger.kernel.org>
-Date: Tue, 06 Jun 2023 08:48:03 +0800
-In-Reply-To: <CAOnJCU+v-tinJb3=FY9GKzR=CGc+AE45wVdpVVZLSG1WOR2PLA@mail.gmail.com>
-References: <tencent_7C3B580B47C1B17C16488EC1@qq.com>
-	 <CAHVXubjm5ax5KYTV_G=GUUH0KJK=v6_jO09XF1T4AzzUTr0CSg@mail.gmail.com>
-	 <ZH37WMnx/rYSRF/o@sunil-laptop>
-	 <CAOnJCU+v-tinJb3=FY9GKzR=CGc+AE45wVdpVVZLSG1WOR2PLA@mail.gmail.com>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+	Tue, 06 Jun 2023 01:46:29 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-543a6cc5f15so1839306a12.2
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Jun 2023 18:46:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1686015985; x=1688607985;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PndMKVa+Er1qdCOJiafxXClL6d1Yt+58ItU6tFuigm0=;
+        b=Hh64hU1z+qXcJKy0p3CJpPMRxoO4gff0IpJVXMTII+Hqst8/7/Hj+tN4ff3SNGPMWJ
+         nT3Lh6BuKSHhe7CAAlH4XFMJDJh9sHp4seEA7HPgApSFVVhplkAIpg9u7Zp8pnk4ci0V
+         Vj4ffA3Twz2FgLgoRmz7kAF51Bul23/4EA9/UUCGv5LVkFEDOsCUbB25+CjBWwaFgA+S
+         or+82PZ2XQjX8gz+XrtRnYLHeju1Se8ZCbwd8tpa3RBQefL78+IqoMl6GuKicT5H75cd
+         ima2n6KE3iSqdyxMeI4Fjigz/vF9bIyocKGQTGr+tOh3YpggnUaj5TT2xaTdx8nEBuLv
+         AZLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686015985; x=1688607985;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PndMKVa+Er1qdCOJiafxXClL6d1Yt+58ItU6tFuigm0=;
+        b=XIIcAtQpw6GEsM4MfwyRm7TxgvIG7DVRBNQye9dm7lram3XOyJEg4o72uw9RQnoFsT
+         xfY8Y6u36Q6nre1fcpZRNuqQrRQOSSwdcoZfO4EhgnxfCUcaKrCv/Y0Gcd6sxTchG8Kt
+         LxmZb5hH9s6YQsmBYbaFnaPexQ6jqntm2IWyqGP2MfndfdeJ0aM6dcvWx853xgtQfZ/g
+         O6N1bzdwpRLrZ8SbXlfBxCdydGKwFsgUNX1GG0fD9R2/dhEtAndKFTmlugJ2myHVwQM3
+         fvjvGMphG7W+IDVbKaLol8kphHHkkEkOZk62RvVpRNqGiQWJnCShEWNUHlsRJuJYwoL2
+         V1RQ==
+X-Gm-Message-State: AC+VfDylaHy7XR8EO/LwZpC9WMpWjU34zTtKVBljcdb9tiMT0trQqjof
+	SEH3C59XZbtvNb6Lnzw1+yRuVw==
+X-Google-Smtp-Source: ACHHUZ4wpMb9zmn0oxmXwR0j3PDi+Kimi9DJ1y8WGup9FRsXEKDHRsM3AuBwTtE0VRxEQZaVWZmQIQ==
+X-Received: by 2002:a17:903:1111:b0:1af:c1a7:3bb5 with SMTP id n17-20020a170903111100b001afc1a73bb5mr925280plh.4.1686015984705;
+        Mon, 05 Jun 2023 18:46:24 -0700 (PDT)
+Received: from leoy-huanghe.lan ([240e:389:8603:ad00:6600:a29f:6ab:1788])
+        by smtp.gmail.com with ESMTPSA id s10-20020a170902a50a00b001a64851087bsm7197805plq.272.2023.06.05.18.46.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jun 2023 18:46:24 -0700 (PDT)
+From: Leo Yan <leo.yan@linaro.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	John Garry <john.g.garry@oracle.com>,
+	Will Deacon <will@kernel.org>,
+	James Clark <james.clark@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ming Wang <wangming01@loongson.cn>,
+	Eric Lin <eric.lin@sifive.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Sandipan Das <sandipan.das@amd.com>,
+	Ivan Babrou <ivan@cloudflare.com>,
+	Fangrui Song <maskray@google.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Leo Yan <leo.yan@linaro.org>
+Subject: [PATCH v2 0/6] perf parse-regs: Refactor architecture functions
+Date: Tue,  6 Jun 2023 09:45:53 +0800
+Message-Id: <20230606014559.21783-1-leo.yan@linaro.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230605_174819_394896_3FCC172A 
-X-CRM114-Status: GOOD (  49.79  )
+X-CRM114-CacheID: sfid-20230605_184627_819795_7EE1FB77 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,135 +111,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjMtMDYtMDXmmJ/mnJ/kuIDnmoQgMTM6NTUgLTA3MDDvvIxBdGlzaCBQYXRyYeWGmemB
-k++8mgo+IE9uIE1vbiwgSnVuIDUsIDIwMjMgYXQgODoxM+KAr0FNIFN1bmlsIFYgTCA8c3VuaWx2
-bEB2ZW50YW5hbWljcm8uY29tPgo+IHdyb3RlOgo+ID4gCj4gPiBPbiBNb24sIEp1biAwNSwgMjAy
-MyBhdCAwNDoyNTowNlBNICswMjAwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4gPiA+IEhpIFNv
-bmcsCj4gPiA+IAo+ID4gPiBPbiBNb24sIEp1biA1LCAyMDIzIGF0IDEyOjUy4oCvUE0gU29uZyBT
-aHVhaQo+ID4gPiA8c29uZ3NodWFpc2h1YWlAdGlueWxhYi5vcmc+IHdyb3RlOgo+ID4gPiA+IAo+
-ID4gPiA+IERlc2NyaXB0aW9uIG9mIHByb2JsZW06Cj4gPiA+ID4gCj4gPiA+ID4gQm9vdGluZyBM
-aW51eCBXaXRoIFJpc2NWVmlydFFlbXUgZWRrMiBmaXJtd2FyZSwgYSBTdG9yZS9BTU8KPiA+ID4g
-PiBwYWdlIGZhdWx0IHdhcyB0cmFwcGVkIHRvIHRyaWdnZXIgYSBrZXJuZWwgcGFuaWMuCj4gPiA+
-ID4gVGhlIGVudGlyZSBsb2cgaGFzIGJlZW4gcG9zdGVkIGF0IHRoaXMgbGluayA6Cj4gPiA+ID4g
-aHR0cHM6Ly90ZXJtYmluLmNvbS9uZ2E0Lgo+ID4gPiA+IAo+ID4gPiA+IFlvdSBjYW4gcmVwcm9k
-dWNlIGl0IHdpdGggdGhlIGZvbGxvd2luZyBzdGVwIDoKPiA+ID4gPiAKPiA+ID4gPiAxLiBwcmVw
-YXJlIHRoZSBlbnZpcm9ubWVudCB3aXRoCj4gPiA+ID4gwqDCoCAtIFFlbXUtdmlydDrCoCB2OC4w
-LjAgKHdpdGggT3BlblNiaSB2MS4yKQo+ID4gPiA+IMKgwqAgLSBlZGsyIDogYXQgY29tbWl0ICgy
-YmM4NTQ1ODgzICJVZWZpQ3B1UGtnL0NwdVBhZ2VUYWJsZUxpYjoKPiA+ID4gPiBSZWR1Y2UgdGhl
-IG51bWJlciBvZiByYW5kb20gdGVzdHMiKQo+ID4gPiA+IMKgwqAgLSBMaW51eCA6IHY2LjQtcmMx
-IGFuZCBsYXRlciB2ZXJzaW9uCj4gPiA+ID4gCj4gPiA+ID4gMi4gc3RhcnQgdGhlIFFlbXUgdmly
-dCBib2FyZAo+ID4gPiA+IAo+ID4gPiA+IGBgYHNoCj4gPiA+ID4gJCBjYXQgfi84X3Jpc2N2L3N0
-YXJ0X2xhdGVzdC5zaAo+ID4gPiA+ICMhL2Jpbi9iYXNoCj4gPiA+ID4gL2hvbWUvc29uZy84X3Jp
-c2N2LzNfYWNwaS9xZW11L29vby91c3IvbG9jYWwvYmluL3FlbXUtc3lzdGVtLQo+ID4gPiA+IHJp
-c2N2NjQgXAo+ID4gPiA+IMKgwqDCoMKgwqDCoMKgIC1zIC1ub2dyYXBoaWMgLWRyaXZlCj4gPiA+
-ID4gZmlsZT0vaG9tZS9zb25nLzhfcmlzY3YvM19hY3BpL0J1aWxkX3ZpcnQvUmlzY1ZWaXJ0UWVt
-dS9SRUxFQVNFCj4gPiA+ID4gX0dDQzUvRlYvUklTQ1ZfVklSVC5mZCxpZj1wZmxhc2gsZm9ybWF0
-PXJhdyx1bml0PTEgXAo+ID4gPiA+IMKgwqDCoMKgwqDCoMKgIC1tYWNoaW5lIHZpcnQsYWNwaT1v
-ZmYgLXNtcCAyIC1tIDJHIFwKPiA+ID4gPiDCoMKgwqDCoMKgwqDCoCAta2VybmVsCj4gPiA+ID4g
-L2hvbWUvc29uZy85X2xpbnV4L2xpbnV4LzAwX3J2X2RlZi9hcmNoL3Jpc2N2L2Jvb3QvSW1hZ2Ug
-XAo+ID4gPiA+IMKgwqDCoMKgwqDCoMKgIC1pbml0cmQKPiA+ID4gPiAvaG9tZS9zb25nLzhfcmlz
-Y3YvM19hY3BpL2J1aWxkcm9vdC9vdXRwdXQvaW1hZ2VzL3Jvb3Rmcy5leHQyIFwKPiA+ID4gPiDC
-oMKgwqDCoMKgwqDCoCAtYXBwZW5kICJyb290PS9kZXYvcmFtIHJvIGNvbnNvbGU9dHR5UzAKPiA+
-ID4gPiBlYXJseWNvbj11YXJ0ODI1MCxtbWlvLDB4MTAwMDAwMDAgZWZpPWRlYnVnIGxvZ2xldmVs
-PTgKPiA+ID4gPiBtZW1ibG9jaz1kZWJ1ZyIgIyMgYWxzbyBwYW5pYyBieSBtZW10ZXN0Cj4gPiA+
-ID4gYGBgCj4gPiA+ID4gMy4gVGhlbiB5b3Ugd2lsbCBlbmNvdW50ZXIgdGhlIGtlcm5lbCBwYW5p
-YyBsb2dnZWQgaW4gdGhlIGFib3ZlCj4gPiA+ID4gbGluawo+ID4gPiA+IAo+ID4gPiA+IE90aGVy
-IEluZm9ybWF0aW9uOgo+ID4gPiA+IAo+ID4gPiA+IDEuIC0tLS0tLS0KPiA+ID4gPiAKPiA+ID4g
-PiBUaGlzIHJlcG9ydCBpcyBub3QgaWRlbnRpY2FsIHRvIG15IHByaW9yIHJlcG9ydCAtLSAia2Vy
-bmVsCj4gPiA+ID4gcGFuaWNlZCB3aGVuIHN5c3RlbSBoaWJlcm5hdGVzIiBbMV0sIGJ1dCBib3Ro
-IG9mIHRoZW0KPiA+ID4gPiBhcmUgY2xvc2VseSByZWxhdGVkIHdpdGggdGhlIGNvbW1pdCAoMzMz
-NTA2OGY4NzIxICJyaXNjdjogVXNlCj4gPiA+ID4gUFVEL1A0RC9QR0QgcGFnZXMgZm9yIHRoZSBs
-aW5lYXIgbWFwcGluZyIpLgo+ID4gPiA+IAo+ID4gPiA+IFdpdGggdGhpcyBjb21taXQsIGhpYmVy
-bmF0aW9uIGlzIHRyYXBwZWQgd2l0aCAiYWNjZXNzIGZhdWx0Igo+ID4gPiA+IHdoaWxlIGFjY2Vz
-c2luZyB0aGUgUE1QLXByb3RlY3RlZCByZWdpb25zCj4gPiA+ID4gKG1tb2RlX3Jlc3YwQDgwMDAw
-MDAwKQo+ID4gPiA+IGZyb20gT3BlblNiaSAoQlRXLCBoaWJlcm5hdGlvbiBpcyBtYXJrZWQgYXMg
-bm9ucG9ydGFibGUgYnkKPiA+ID4gPiBDb25vclsyXSkuCj4gPiA+ID4gCj4gPiA+ID4gSW4gdGhp
-cyByZXBvcnQsIGVmaV9pbml0IGhhbmRvZmZzIHRoZSBtZW1vcnkgbWFwcGluZyBmcm9tIEJvb3QK
-PiA+ID4gPiBTZXJ2aWNlcyB0byBtZW1ibG9jayB3aGVyZSByZXNlcnZlcyBtbW9kZV9yZXN2MEA4
-MDAwMDAwMCwKPiA+ID4gPiBzbyB0aGVyZSBpcyBubyAiYWNjZXNzIGZhdWx0IiBidXQgInBhZ2Ug
-ZmF1bHQiLgo+ID4gPiA+IAo+ID4gPiA+IEFuZCByZXZlcnRpbmcgY29tbWl0IDMzMzUwNjhmODcy
-MSBpbmRlZWQgZml4ZWQgdGhpcyBwYW5pYy4KPiA+ID4gPiAKPiA+ID4gPiAyLiAtLS0tLS0tCj4g
-PiA+ID4gCj4gPiA+ID4gQXMgdGhlIGdkYi1wdC1kdW1wIFszXSB0b29sIHNob3dzLCB0aGUgUFRF
-IHdoaWNoIGNvdmVyZWQgdGhlCj4gPiA+ID4gZmF1bHQgdmlydHVhbCBhZGRyZXNzIGhhZCB0aGUg
-YXBwcm9wcmlhdGUgcGVybWlzc2lvbiB0byBzdG9yZS4KPiA+ID4gPiBJcyB0aGVyZSBhbm90aGVy
-IHdheSB0byB0cmlnZ2VyIHRoZSAiU3RvcmUvQU1PIHBhZ2UgZmF1bHQiPyBPcgo+ID4gPiA+IHRo
-ZSBjcmVhdGlvbiBvZiBsaW5lYXIgbWFwcGluZyBpbiBjb21taXQgMzMzNTA2OGY4NzIxIGRpZAo+
-ID4gPiA+IHNvbWV0aGluZyB3cm9uZz8KPiA+ID4gPiAKPiA+ID4gPiBgYGAKPiA+ID4gPiAoZ2Ri
-KSBwL3ggJHNhdHAKPiA+ID4gPiAkMSA9IDB4YTAwMDAwMDAwMDA4MTcwOAo+ID4gPiA+IChnZGIp
-IHB0IC1zYXRwIDB4YTAwMDAwMDAwMDA4MTcwOAo+ID4gPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCBBZGRyZXNzIDrCoMKgwqDCoCBMZW5ndGjCoMKgIFBlcm1pc3Npb25zCj4gPiA+ID4gwqAg
-MHhmZjFiZmZmZmZlYTM5MDAwIDrCoMKgwqDCoCAweDEwMDAgfCBXOjEgWDowIFI6MSBTOjEKPiA+
-ID4gPiDCoCAweGZmMWJmZmZmZmViZjkwMDAgOsKgwqDCoMKgIDB4MTAwMCB8IFc6MSBYOjAgUjox
-IFM6MQo+ID4gPiA+IMKgIDB4ZmYxYmZmZmZmZWMwMDAwMCA6wqDCoCAweDQwMDAwMCB8IFc6MSBY
-OjAgUjoxIFM6MQo+ID4gPiA+IMKgIDB4ZmY2MDAwMDAwMDAwMDAwMCA6wqDCoCAweDFjMDAwMCB8
-IFc6MSBYOjAgUjoxIFM6MQo+ID4gPiA+IMKgIDB4ZmY2MDAwMDAwMDIwMDAwMCA6wqDCoCAweGEw
-MDAwMCB8IFc6MCBYOjAgUjoxIFM6MQo+ID4gPiA+IMKgIDB4ZmY2MDAwMDAwMGMwMDAwMCA6IDB4
-N2YwMDAwMDAgfCBXOjEgWDowIFI6MSBTOjHCoCAvLwo+ID4gPiA+IGJhZGFkZHI6IGZmNjAwMDAw
-N2ZkYjEwMDAKPiA+ID4gPiDCoCAweGZmNjAwMDAwN2ZkYzAwMDAgOsKgwqDCoCAweDNkMDAwIHwg
-VzoxIFg6MCBSOjEgUzoxCj4gPiA+ID4gwqAgMHhmZjYwMDAwMDdmZmJmMDAwIDrCoMKgwqDCoCAw
-eDEwMDAgfCBXOjEgWDowIFI6MSBTOjEKPiA+ID4gPiDCoCAweGZmZmZmZmZmODAwMDAwMDAgOsKg
-wqAgMHhjMDAwMDAgfCBXOjAgWDoxIFI6MSBTOjEKPiA+ID4gPiDCoCAweGZmZmZmZmZmODBjMDAw
-MDAgOsKgwqAgMHhhMDAwMDAgfCBXOjEgWDowIFI6MSBTOjEKPiA+ID4gPiAKPiA+ID4gPiBgYGAK
-PiA+ID4gPiAKPiA+ID4gPiAzLiAtLS0tLS0KPiA+ID4gPiAKPiA+ID4gPiBZb3UgY2FuIGFsc28g
-cmVwcm9kdWNlIHNpbWlsYXIgcGFuaWMgYnkgYXBwZW5kaW5nICJtZW10ZXN0IiBpbgo+ID4gPiA+
-IGtlcm5lbCBjbWRsaW5lLgo+ID4gPiA+IEkgaGF2ZSBwb3N0ZWQgdGhlIG1lbXRlc3QgYm9vdCBs
-b2cgYXQgdGhpcyBsaW5rOgo+ID4gPiA+IGh0dHBzOi8vdGVybWJpbi5jb20vMXR3bC4KPiA+ID4g
-PiAKPiA+ID4gPiBQbGVhc2UgY29ycmVjdCBtZSBpZiBJJ20gd3JvbmcuCj4gPiA+ID4gCj4gPiA+
-ID4gWzFdOgo+ID4gPiA+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2L0NBQVlz
-Mj1nUXZraFRlaW9NbXFSRFZHamR0TkZfdmhCK3ZtXzFkSEp4UE5pNzVZRFFfUUBtYWlsLmdtYWls
-LmNvbS8KPiA+ID4gPiBbMl06Cj4gPiA+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgt
-cmlzY3YvMjAyMzA1MjYtYXN0cmlkZS1kZXRvbmF0b3ItOWFlMTIwMDUxMTU5QHdlbmR5Lwo+ID4g
-PiA+IFszXTogaHR0cHM6Ly9naXRodWIuY29tL21hcnRpbnJhZGV2L2dkYi1wdC1kdW1wCj4gPiA+
-IAo+ID4gPiBUaGFua3MgZm9yIHRoZSB0aG9yb3VnaCByZXBvcnQsIHJlYWxseSBhcHByZWNpYXRl
-ZC4KPiA+ID4gCj4gPiA+IFNvIHRoZXJlIGFyZSBtdWx0aXBsZSBpc3N1ZXMgaGVyZToKPiA+ID4g
-Cj4gPiA+IC0gdGhlIGZpcnN0IG9uZSBpcyB0aGF0IHRoZSBtZW1vcnkgcmVnaW9uIGZvciBvcGVu
-c2JpIGlzIG1hcmtlZAo+ID4gPiBhcyBub3QKPiA+ID4gY2FjaGVhYmxlIGluIHRoZSBlZmkgbWVt
-b3J5IG1hcCwgYW5kIHRoZW4gdGhpcyByZWdpb24gaXMgbm90Cj4gPiA+IG1hcHBlZCBpbgo+ID4g
-PiB0aGUgbGluZWFyIG1hcHBpbmc6Cj4gPiA+IFvCoMKgwqAgMC4wMDAwMDBdIGVmaTrCoMKgIDB4
-MDAwMDgwMDAwMDAwLTB4MDAwMDgwMDNmZmZmIFtSZXNlcnZlZMKgwqDCoAo+ID4gPiB8wqDCoCB8
-Cj4gPiA+IMKgfMKgIHzCoCB8wqAgfMKgIHzCoCB8wqAgfMKgIHzCoMKgIHzCoCB8wqAgfMKgIHxV
-Q10KPiA+ID4gCj4gCj4gQEFsZXg6IFRoZSBPcGVuU0JJIHJlZ2lvbiBpcyBtYXJrZWQgcmVzZXJ2
-ZWQgYmVjYXVzZSBFREsyIGNob29zZXMgdG8KPiBkbyB0aGF0IGV4cGxpY2l0bHkgYXMgZXhwbGFp
-bmVkIGJ5IFN1bmlsLgo+IEkgZG9uJ3QgdGhpbmsgVUMgaGFzIHRvIGRvIGFueXRoaW5nIHdpdGgg
-aXQuIEFsbCB0aGUgRUZJIG1lbW9yeQo+IHJlZ2lvbnMgYXJlIFVDLgo+IAo+ID4gPiAtIHRoZSBz
-ZWNvbmQgb25lICh0aGF0IEkgZmVlbCBhIGJpdCBhc2hhbWVkIG9mLi4uKSBpcyB0aGF0IEkgZGlk
-Cj4gPiA+IG5vdAo+ID4gPiBjaGVjayB0aGUgYWxpZ25tZW50IG9mIHRoZSB2aXJ0dWFsIGFkZHJl
-c3Mgd2hlbiBjaG9vc2luZyB0aGUgbWFwCj4gPiA+IHNpemUKPiA+ID4gaW4gYmVzdF9tYXBfc2l6
-ZSgpIGFuZCB0aGVuIHdlIGVuZCB1cCB0cnlpbmcgdG8gbWFwIGEgcGh5c2ljYWwKPiA+ID4gcmVn
-aW9uCj4gPiA+IGFsaWduZWQgb24gMk1CIHRoYXQgaXMgYWN0dWFsbHkgbm90IGFsaWduZWQgb24g
-Mk1CIHZpcnR1YWxseQo+ID4gPiBiZWNhdXNlCj4gPiA+IHRoZSBvcGVuc2JpIHJlZ2lvbiBpcyBu
-b3QgbWFwcGVkIGF0IGFsbC4KPiA+ID4gCj4gPiA+IC0gdGhlIHBvc3NpYmxlIHRoaXJkIG9uZSBp
-cyB0aGF0IHdlIHNob3VsZCBub3QgbWFwIHRoZSBsaW5lYXIKPiA+ID4gbWFwcGluZwo+ID4gPiB1
-c2luZyA0SyBwYWdlcywgdGhpcyB3b3VsZCBiZSBzbG93IGluIG15IG9waW5pb24sIGFuZCBJIHRo
-aW5rIHdlCj4gPiA+IHNob3VsZCB3YXN0ZSBhIGJpdCBvZiBtZW1vcnkgdG8gYWxpZ24gdmEgYW5k
-IHBhIG9uIGEgMk1CCj4gPiA+IGJvdW5kYXJ5Lgo+ID4gPiAKPiA+ID4gU28gSSdsbCBmaXggdGhl
-IHNlY29uZCBpc3N1ZSwgYW5kIHBvc3NpYmx5IHRoZSB0aGlyZCBvbmUsIGFuZCBpZgo+ID4gPiBu
-bwo+ID4gPiBvbmUgbG9va3MgaW50byB3aHkgdGhlIG9wZW5zYmkgcmVnaW9uIGlzIG1hcHBlZCBp
-biBVQywgSSdsbCB0YWtlCj4gPiA+IGEKPiA+ID4gbG9vayBhdCBlZGsyLgo+ID4gPiAKPiA+IEhp
-IEFsZXgsCj4gPiAKPiA+IEVESzIgbWFya3Mgb3BlbnNiaSByYW5nZSBhcyByZXNlcnZlZCBtZW1v
-cnkgaW4gRUZJIG1hcC4gQWNjb3JkaW5nCj4gPiB0byBEVAo+ID4gc3BlYywgaWYgdGhlIG5vLW1h
-cCBpcyBub3Qgc2V0LCB3ZSBuZWVkIHRvIG1hcmsgaXQgYXMKPiA+IEVmaUJvb3RTZXJ2aWNlc0Rh
-dGEgYnV0IEVmaUJvb3RTZXJ2aWNlc0RhdGEgaXMgYWN0dWFsbHkgY29uc2lkZXJlZAo+ID4gYXMK
-PiA+IGZyZWUgbWVtb3J5IGluIGtlcm5lbCwgYXMgcGVyIFVFRkkgc3BlYy4gVG8gYXZvaWQga2Vy
-bmVsIHVzaW5nIHRoaXMKPiA+IG1lbW9yeSwgd2UgZGV2aWF0ZWQgZnJvbSB0aGUgRFQgc3BlYyBm
-b3Igb3BlbnNiaSByYW5nZXMuCj4gPiAKPiAKPiBJTU8sIHRoYXQgc2hvdWxkIGJlIHRoZSBjb3Jy
-ZWN0IHdheSB1bmxlc3Mgd2UgY2FuIGNoYW5nZSBpdCB0bwo+IEVmaVJ1blNlcnZpY2VzRGF0YS9D
-b2RlLgo+IExvb2tpbmcgYXQgVS1Cb290IGNvZGUsIGl0IHNldHMgdGhlIG5vLW1hcCByZWdpb24g
-dG8KPiBFZmlCb290U2VydmljZXNEYXRhIHdoaWNoIG1heSBjYXVzZQo+IGlzc3VlcyBpbiBSSVND
-LVYgYXMgd2VsbCBpZiB3ZSBsaW5lYXIgbWFwcGluZyBzZXRzIHVwIHRoZSBpbml0aWFsCj4gMk1C
-LgoKU2VtYW50aWNhbGx5IEkgdGhpbmsgbm8tbWFwIG1lYW5zIHRoZSBrZXJuZWwgc2hvdWxkIG5v
-dCBiZSB1dGlsaXppbmcKaXQsIHNvIGl0IHNob3VsZCBiZSBFZmlSdW5TZXJ2aWNlc0RhdGEgaW5z
-dGVhZC4KCj4gCj4gCj4gPiBMZXQgbWUga25vdyB5b3VyIHRob3VnaHRzIGhvdyB3ZSBjYW4gaGFu
-ZGxlIHRoaXMgYmV0dGVyIGluIEVESzIKPiA+IGNvbnNpZGVyaW5nIGl0IGhhcyB0byBzdXBwb3J0
-IEFDUEkgYWxzby4KPiA+IAo+ID4gVGhhbmtzLAo+ID4gU3VuaWwKPiA+IAo+ID4gX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiA+IGxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdAo+ID4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4gaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo+IAo+IAo+
-IAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+This patch series is to refactor arch related functions for register
+parsing, which follows up the discussion for v1:
+https://lore.kernel.org/lkml/20230520025537.1811986-1-leo.yan@linaro.org/
+
+Compared to patch series v1, this patch series introduces new functions
+perf_arch_reg_{ip|sp}(), so this can allow the tool to support cross
+analysis.
+
+To verify the cross analysis, I used below steps:
+
+- Firstly, I captured perf data on Arm64 machine:
+
+  $ perf record --call-graph fp -- ./test_program
+
+  Or ...
+
+  $ perf record --call-graph dwarf -- ./test_program
+
+  Then, I also archived associated debug data:
+
+  $ perf archive
+
+- Secondly, I copied the perf data file and debug tar file on my x86
+  machine:
+
+  $ scp perf.data perf.data.tar.bz2 leoy@IP_ADDRESS:/target/path/
+
+- On x86 machine, I need to build perf for support multi-arch unwinding:
+
+  $ git clone http://git.savannah.gnu.org/r/libunwind.git
+  $ cd libunwind
+  $ autoreconf -i
+
+  # Build and install libunwind aarch64:
+  $ ./configure prefix=/home/leoy/Work/tools/libunwind/install/ \
+	--target=aarch64-linux-gnu CC=x86_64-linux-gnu-gcc
+  $ make && make install
+
+  # Build and install libunwind x86:
+  $ ./configure prefix=/home/leoy/Work/tools/libunwind/install/ \
+	--target=x86_64-linux-gnu CC=x86_64-linux-gnu-gcc
+  $ make && make install
+
+- Build perf tool for support multi-archs:
+
+  $ cd $LINUX/tools/perf
+  $ make VF=1 DEBUG=1 LIBUNWIND_DIR=/home/leoy/Work/tools/libunwind/install
+
+At the end, I verified the x86 perf tool can do cross analysis for aarch64's
+perf data file.
+
+Note, I still see x86 perf tool cannot display the complete callgraph
+for aarch64, but it should not the issue caused by this series, which
+will be addressed by separate patches.
+
+I also built this patch series on my Arm64 and x86 machines, both can
+compile perf tool successfully; but I have no chance to build other
+archs natively.
+
+Changes from v1:
+- For support cross analysis for IP/SP registers, introduced patch 0002
+  (James Clark, Ian Rogers).
+
+
+Leo Yan (6):
+  perf parse-regs: Refactor arch register parsing functions
+  perf parse-regs: Introduce functions perf_arch_reg_{ip|sp}()
+  perf unwind: Use perf_arch_reg_{ip|sp}() to substitute macros
+  perf parse-regs: Remove unused macros PERF_REG_{IP|SP}
+  perf parse-regs: Remove PERF_REGS_{MAX|MASK} from common code
+  perf parse-regs: Move out arch specific header from util/perf_regs.h
+
+ tools/perf/arch/arm/include/perf_regs.h       |   3 -
+ tools/perf/arch/arm/util/perf_regs.c          |  11 +
+ tools/perf/arch/arm/util/unwind-libdw.c       |   1 +
+ tools/perf/arch/arm64/include/perf_regs.h     |   3 -
+ tools/perf/arch/arm64/util/machine.c          |   1 +
+ tools/perf/arch/arm64/util/perf_regs.c        |   6 +
+ tools/perf/arch/arm64/util/unwind-libdw.c     |   1 +
+ tools/perf/arch/csky/include/perf_regs.h      |   3 -
+ tools/perf/arch/csky/util/perf_regs.c         |  11 +
+ tools/perf/arch/csky/util/unwind-libdw.c      |   1 +
+ tools/perf/arch/loongarch/include/perf_regs.h |   2 -
+ tools/perf/arch/loongarch/util/perf_regs.c    |  11 +
+ tools/perf/arch/loongarch/util/unwind-libdw.c |   1 +
+ tools/perf/arch/mips/include/perf_regs.h      |   2 -
+ tools/perf/arch/mips/util/perf_regs.c         |  11 +
+ tools/perf/arch/powerpc/include/perf_regs.h   |   3 -
+ tools/perf/arch/powerpc/util/perf_regs.c      |   6 +
+ tools/perf/arch/powerpc/util/unwind-libdw.c   |   1 +
+ tools/perf/arch/riscv/include/perf_regs.h     |   3 -
+ tools/perf/arch/riscv/util/perf_regs.c        |  11 +
+ tools/perf/arch/riscv/util/unwind-libdw.c     |   1 +
+ tools/perf/arch/s390/include/perf_regs.h      |   3 -
+ tools/perf/arch/s390/util/perf_regs.c         |  11 +
+ tools/perf/arch/s390/util/unwind-libdw.c      |   1 +
+ tools/perf/arch/x86/include/perf_regs.h       |   2 -
+ tools/perf/arch/x86/util/perf_regs.c          |   6 +
+ tools/perf/arch/x86/util/unwind-libdw.c       |   1 +
+ tools/perf/util/Build                         |   1 +
+ tools/perf/util/evsel.c                       |   6 +-
+ tools/perf/util/libunwind/arm64.c             |   2 -
+ tools/perf/util/libunwind/x86_32.c            |   2 -
+ tools/perf/util/perf-regs-arch/Build          |   9 +
+ .../util/perf-regs-arch/perf_regs_aarch64.c   |  96 +++
+ .../perf/util/perf-regs-arch/perf_regs_arm.c  |  60 ++
+ .../perf/util/perf-regs-arch/perf_regs_csky.c | 100 +++
+ .../util/perf-regs-arch/perf_regs_loongarch.c |  91 +++
+ .../perf/util/perf-regs-arch/perf_regs_mips.c |  87 ++
+ .../util/perf-regs-arch/perf_regs_powerpc.c   | 145 ++++
+ .../util/perf-regs-arch/perf_regs_riscv.c     |  92 +++
+ .../perf/util/perf-regs-arch/perf_regs_s390.c |  96 +++
+ .../perf/util/perf-regs-arch/perf_regs_x86.c  |  98 +++
+ tools/perf/util/perf_regs.c                   | 772 ++----------------
+ tools/perf/util/perf_regs.h                   |  49 +-
+ tools/perf/util/unwind-libdw.c                |   7 +-
+ tools/perf/util/unwind-libunwind-local.c      |   6 +-
+ tools/perf/util/unwind.h                      |   8 -
+ 46 files changed, 1078 insertions(+), 766 deletions(-)
+ create mode 100644 tools/perf/util/perf-regs-arch/Build
+ create mode 100644 tools/perf/util/perf-regs-arch/perf_regs_aarch64.c
+ create mode 100644 tools/perf/util/perf-regs-arch/perf_regs_arm.c
+ create mode 100644 tools/perf/util/perf-regs-arch/perf_regs_csky.c
+ create mode 100644 tools/perf/util/perf-regs-arch/perf_regs_loongarch.c
+ create mode 100644 tools/perf/util/perf-regs-arch/perf_regs_mips.c
+ create mode 100644 tools/perf/util/perf-regs-arch/perf_regs_powerpc.c
+ create mode 100644 tools/perf/util/perf-regs-arch/perf_regs_riscv.c
+ create mode 100644 tools/perf/util/perf-regs-arch/perf_regs_s390.c
+ create mode 100644 tools/perf/util/perf-regs-arch/perf_regs_x86.c
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
