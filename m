@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1485C7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 08:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49DDC77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 08:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F/fCvVsLMex61h5H4nLQIzO0YzfzILyAXAFBuPKLxfk=; b=YYraWPmZiZcEsv
-	hxtg6VFYU5VYKMEtb1Z6IJY5L6ut4taDmCLD0/VMua8XOex89MJu0TBxReZxSiLqHfYMVnHCCNLCd
-	ZJxGf5EH8i6ia4jf6aTf5pDSEaBpgPEFsSSFbJKsJ3V9jUMXNGG8SSZlW9XbDG1NVDmFG474anLa+
-	71iVykOa7OngK+iMZlxir72cW+I1MuiJ5kmY4nmoVwrADr+aCSIcgyaYf8wMTr7xdNPTdrMLapdT8
-	fiBteziRJHI3rcqox2lHNmcS9Kxc/Lg9n1kkSnBE7+i2zSugJZaFsy+4zNuDtuNlSNuc0fCOls5F4
-	Xlc3OQdnxPvijhqwJCUQ==;
+	List-Owner; bh=X0a/dert6SKcOIjEl6aij9jqyf5NP6ru2qsQ4+IcbPA=; b=DXpA/Bs6fQHEDH
+	zSmc7HvzICJ2rgmPITlWbjUWhdiKlb8JA6PMkYqtVCPwNUEthrUqT8p1Rk6yQ3CL165SsmhjWG07Q
+	XV7NuN+KWbPt/Z7hnZn1Rec8YylzzoPvLsLB8ov/FAo/TSMLktrT6ZAysMRfOEur+8EeJinHxxcHd
+	CzyNepUXFijEDVrtCP5ZdZ0USBughsdhiu/ABTh/g6HibxKzkLmlcqr5/U0kkSbOlZienopiMEcEs
+	axr/+B8EJKgeB7B4XKmhrbtmgO6Wo7iACeFMEPwe5Wiu0y/bhKE2Q8eQELbKCXx57wlsUsTmhja4K
+	jpq6cMyrKOudLMCVczhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6oiI-005105-2R;
-	Wed, 07 Jun 2023 08:40:18 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1q6onk-0052O7-1T;
+	Wed, 07 Jun 2023 08:45:56 +0000
+Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6oiG-0050yL-2r
+	id 1q6ong-0052JI-1h
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 08:40:18 +0000
-Received: from ip5b412278.dynamic.kabel-deutschland.de ([91.65.34.120] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1q6oi6-0006LM-Ch; Wed, 07 Jun 2023 10:40:06 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: Keith Zhao <keith.zhao@starfivetech.com>,
- Shengyu Qu <wiagn233@outlook.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-media@vger.kernel.org,
- linaro-mm-sig@lists.linaro.org, David Airlie <airlied@gmail.com>,
- Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com,
- Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Jagan Teki <jagan@edgeble.ai>, Chris Morgan <macromorgan@hotmail.com>,
- Jack Zhu <jack.zhu@starfivetech.com>,
- Shengyang Chen <shengyang.chen@starfivetech.com>,
- Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: Re: [PATCH 1/9] dt-bindings: display: Add yamls for JH7110 display subsystem
-Date: Wed, 07 Jun 2023 10:40:04 +0200
-Message-ID: <3560873.iIbC2pHGDl@diego>
-In-Reply-To: <20230606-geometry-blurb-1f0f07d4bf6a@spud>
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
- <1991848.PYKUYFuaPT@diego> <20230606-geometry-blurb-1f0f07d4bf6a@spud>
-MIME-Version: 1.0
+	Wed, 07 Jun 2023 08:45:54 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id 795C0320097A;
+	Wed,  7 Jun 2023 04:45:44 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Wed, 07 Jun 2023 04:45:44 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1686127544; x=1686213944; bh=Ik
+	Di7QwNx6iJE0bqHUZciVFMTfDlg3S9jqMA7XfZt1Y=; b=LhwJuMwo6RO/JlCi0P
+	+/suC/ngoczAEQfZSyFCOKn/UT7JYT0X1wsCRDk4IPh7fgflAVHu3hCRAWXWgo2s
+	Rwmsj2EjL7V2P/eD4xUhbnC91/5EHcEG4RKEUh6JqmWRIziGcYRS2u/71vSYjyU1
+	KKXCsk6bRqjFb0hBQn8Zh//3ryFo+tsIIzY+W9ksk1lnXeXz0SnP5GYpk/I339RR
+	cAIwHt2zafobvBv/ReCk81clTVpQE5zYwV2nn/pdPM2crk2uhwf12sHqWOA82gNk
+	KiW6EuD1nEKWcuLZd41DO89Hj8rwCZpVe0UxjoD62sUjB9XHGY9Hd0Tjm4H8M7WY
+	wd0w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1686127544; x=1686213944; bh=IkDi7QwNx6iJE
+	0bqHUZciVFMTfDlg3S9jqMA7XfZt1Y=; b=f9d9nXP5/Kr5sI/3jDd/+lOPV2am7
+	7/F5AiF+v15j6Y1FGJfAPpe2GmH6ha8aabo7ob5t+uR0XRtoFQ4CoDaL5VGPZ6kv
+	FFkqhdtGV6G2KKf3b2qWQ90CJMyM7Ier8WY8grcixoi1PdaGpKFURLDX3CCm5a9Q
+	6aDsj8RlP5LgXWoUCHPV9uISYX32lzxZUlV5JxBczPTk2C7FheFKc8VMvz58NcFT
+	sJ4BEc4Kk6SzJhNBhsLtBicO80DRNtkpU8+ZmJ/VkXLcX7B1PINhbPI2L4sb12S3
+	HG/DKPTmydRFeTepMML047gN1M2ecYoDbadmc427CtLq0IEGOA04MAdmg==
+X-ME-Sender: <xms:tkOAZLNxuSWWCUm5Pw2rD5cIho5ZHkdDkDU79a8S87KlAvFXwO56Yw>
+    <xme:tkOAZF9XFv8fa5UByXGs-vztaD9Er73ejW75SvgkpUfF_wzFxbx-HwAuIiPM7sy0x
+    wUZ0MJVQtDfp9HCc8Y>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrgedtgedgtdeiucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepjeeuieeuffefheeffeethfejhfefteeiueekudeihfegtdelveejuefhgfdt
+    fedtnecuffhomhgrihhnpehmuhhslhdqlhhisggtrdhorhhgnecuvehluhhsthgvrhfuih
+    iivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:tkOAZKTl9pOm5IMUk0bH_h8J0-2AVlYV0KhZRNYPduZriz1yAoYREQ>
+    <xmx:tkOAZPuKhAK6iuZKeYcwoYc24PiPUeQeLTlogXYo3w-nQRHoyiWhhw>
+    <xmx:tkOAZDdz9CyIbqc9-lDUau8F1p_bedk4FULAFFRl_mh3IZUM5UXCLQ>
+    <xmx:uEOAZP50cNVmjDrs7EsNKYWv6vLkyVaERF6TQPHK7KdYU-Q6Xedv2g>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id D6E39B60086; Wed,  7 Jun 2023 04:45:42 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-447-ge2460e13b3-fm-20230525.001-ge2460e13
+Mime-Version: 1.0
+Message-Id: <b80f021a-30b7-47e9-8455-3844be157cc2@app.fastmail.com>
+In-Reply-To: <20230607051914.667047-1-falcon@tinylab.org>
+References: <4fcdd08c-e6fb-40b7-9f2b-77f96e798b37@app.fastmail.com>
+ <20230607051914.667047-1-falcon@tinylab.org>
+Date: Wed, 07 Jun 2023 10:45:22 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Zhangjin Wu" <falcon@tinylab.org>, "Willy Tarreau" <w@1wt.eu>
+Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-riscv@lists.infradead.org,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas@t-8ch.de>
+Subject: Re: [PATCH v3 1/3] tools/nolibc: fix up #error compile failures with -ENOSYS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_014016_924295_B425E576 
-X-CRM114-Status: GOOD (  33.51  )
+X-CRM114-CacheID: sfid-20230607_014552_833295_1E7D177C 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,86 +101,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 7. Juni 2023, 00:37:53 CEST schrieb Conor Dooley:
-> On Wed, Jun 07, 2023 at 12:22:33AM +0200, Heiko St=FCbner wrote:
-> > Am Dienstag, 6. Juni 2023, 20:41:17 CEST schrieb Shengyu Qu:
-> > > > On Fri, Jun 02, 2023 at 03:40:35PM +0800, Keith Zhao wrote:
-> > > >> Add bindings for JH7110 display subsystem which
-> > > >> has a display controller verisilicon dc8200
-> > > >> and an HDMI interface.
-> =
+On Wed, Jun 7, 2023, at 07:19, Zhangjin Wu wrote:
+>> On Sat, Jun 3, 2023, at 11:01, Zhangjin Wu wrote:
+>
+> Yeah, agreed, we can clean up them one by one, If split them to their own
+> syscalls, I have two questions (for Arnd, and Willy too):
+>
+> 1. do we need to add the corresponding library routines at the same time?
+>
+>   Use llseek() as an example, there will be llseek() and lsee64(). If off_t
+>   would be converted to 64bit, then, they can be simply added as follows:
+>
+>     #define lseek64 lseek
+>     #define llseek lseek
+>
+>   Or something like this:
+>
+>     static __attribute__((unused))
+>     loff_t lseek(int fd, loff_t offset, int whence)
+>     {
+>     	return lseek(fd, offset, whence);
+>     }
+>
+>     static __attribute__((unused))
+>     off64_t lseek(int fd, off64_t offset, int whence)
+>     {
+>     	return lseek(fd, offset, whence);
+>     }
+>
+>   This one aligns with the other already added library routines.
+>
+>   Which one do you like more?
 
-> > > >> +description:
-> > > >> +  The StarFive SoC uses the HDMI signal transmiter based on innos=
-ilicon IP
-> > > > Is innosilicon the same thing as verisilicon? Also
-> > > > s/transmiter/transmitter/, both here and in the title.
-> > > =
+lseek() is probably not a good example, as the llseek and lseek64
+library functions are both nonstandard, and I'd suggest leaving them
+out of nolibc altogether.
 
-> > > I think that is not the same, I remember Rockchip has used a HDMI =
+Are there any examples of functions where we actually want mulitple
+versions?
 
-> > > transmitter from
-> > > =
+> 2. If so, how to cope with the new types when add the library routines?
+>
+>   Still use the above llseek() as an example, If not use '#define' method,
+>   We may need to declare loff_t and off64_t in std.h too:
+>
+>     #define off64_t off_t
+>     #define loff_t off_t
+>
+>   Or align with the other new types, use 'typedef' instead of '#define'.
 
-> > > Innosilicon, and there is a existing driver for that in mainline.
-> > =
+If we do want to include the explicit off64_t interfaces from glibc,
+I'd suggest doing it the same way as musl:
+https://git.musl-libc.org/cgit/musl/tree/include/unistd.h#n201
 
-> > Yep, I think Innosilicon is the company you turn to when you want to sa=
-ve
-> > a bit of money ;-) . In the bigger SoCs Rockchip most of the time uses
-> > Designware hdmi blocks and looking at the history only the rk3036 ever
-> > used an Innosilicon block.
-> > =
+>
+>> This patch is a step in that direction though, so I think that's
+>> totally fine.
+>
+> Thanks, so, can I pick your Reviewed-by for the first two patches? I'm ready to
+> send v4 now ;-)
 
-> > Looking at the history, 2016 really was a long time ago :-D.
-> > =
+Yes, please do.
 
-> > > So Keith, if that's true, I think it is better to seperate the HDMI =
-
-> > > stuff and reuse existing driver.
-> > =
-
-> > I'm not so sure about that - at least from a cursory glance :-) .
-> > =
-
-> > The registers do look slightly different and I don't know how much
-> > the IP changed between the rk3036-version and the jh7110 version.
-> > =
-
-> > At the very least, I know my rk3036 board isn't booting right now, so
-> > I can't really provide help for generalizing the rockchip-driver.
-> > =
-
-> > At the very least both the binding and driver could drop the "starfive-=
-hdmi"
-> > and actually use the Innosilicon in the naming somewhere, so that it's
-> > clear for future developers :-)
-> =
-
-> Seeing "based on" always makes me a little bit nervous to be honest when
-> it comes to using a compatible from the IP. Is it the IP? What version
-> is it? etc. Perhaps "starfive,jh7110-hdmi" & falling back to some sort
-> of "innosilicon,hdmi" would be more future/IP-silliness proof.
-> Driver can always be generic & bind against "innosilicon,hdmi" until
-> that becomes impossible.
-
-
-what Connor said makes a lot of sense. Just name the compatible
-after the actual implementation - aka "starfive,jh7110-hdmi" .
-
-This is similar to what the rk3036 does with its
-"rockchip,rk3036-inno-hdmi". That way you're nicely independent
-and future proof.
-
-
-Heiko
-
-
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
