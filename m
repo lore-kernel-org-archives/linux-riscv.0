@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE3CC7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 08:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8559C7EE29
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 09:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o9UHuVTnQaMXcwVO8W3LwvXGZi4xaC04EHQDbpVBhdU=; b=zm+HC4XvJn/Ota
-	1WGQEZflqPXtNxG30f0RNyBs9/yMVbFlIHU9b3zx5vCFxw47N6mwVXXAgQPhBDXWAEvc9JcCnxieM
-	gVuzaXBfCSYIbGU7Tz687WReaGAi9nsIdtxOslLS3CLbcMLQuFRmXWSIXvRctbfZC7fS5uCPp8OF2
-	vDAomKIlLi5UIp29kwVgdLLjLdBgzSOJHg3eS1DHNcW8oMFM+XLl+aYAeeOe7g+sur4nQjyCj/8x9
-	fLqaVPRvhETJhMuKTSoWDk6DD2YlekpBJnQvEDDU+nDBQqs8/PdZRZp+Ov0CXlJ2hOi+hROaDG9e8
-	V4yCq03FDBHj+a+K7Yjg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=54e4qrhwdjZYBy9mL2JTm1PahOIcrQhpGxsMAH4CV2o=; b=BXmMZYsHCv6UG2
+	gf/mtv8wWtUR7vHSSLFK15EmBhrMfT0hPp/Xe73t1q3uWhIiJUiuYm64imEaxRbiZKXPLzGuqfL67
+	0qQC8HcymEASkT6hEmQY4hslhDKYnJIhS75Iz0HgE5EG3FOduLHBhbOWRwEMSS9WN9lnH3kcdocP/
+	FXNnHZ7xcoulI9XcV23UkVSycsE9dDcrRtMjTbqjVi2jqRGUwwEOZPlwSnrClnUbLmxfZDIesZ9Y9
+	Fx2qtsK2yVP1TnMNk2LPaNc84vIXACp0mcgAlz/7rnmEbUYSRfqgaaQVcNEhcHqXrm5Sk5OFxhBD6
+	E6KWQ0bi0RpeHsfe3aBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6owF-0055SA-2c;
-	Wed, 07 Jun 2023 08:54:43 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1q6pOE-005DsH-0C;
+	Wed, 07 Jun 2023 09:23:38 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6owD-0055Pr-0T
+	id 1q6pO9-005Dps-2N
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 08:54:42 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <l.stach@pengutronix.de>)
-	id 1q6ovb-0007f2-IU; Wed, 07 Jun 2023 10:54:03 +0200
-Message-ID: <e0eeae3b35e8efac7c577ca3159abcf7f43d5082.camel@pengutronix.de>
-Subject: Re: [PATCH 3/9] drm/verisilicon: Add basic drm driver
-From: Lucas Stach <l.stach@pengutronix.de>
-To: Keith Zhao <keith.zhao@starfivetech.com>,
- dri-devel@lists.freedesktop.org,  devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
- linux-media@vger.kernel.org,  linaro-mm-sig@lists.linaro.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Sumit Semwal
- <sumit.semwal@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Shengyang Chen <shengyang.chen@starfivetech.com>, Conor Dooley
- <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Thomas Zimmermann
- <tzimmermann@suse.de>, Jagan Teki <jagan@edgeble.ai>, Rob Herring
- <robh+dt@kernel.org>, Chris Morgan <macromorgan@hotmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Bjorn Andersson <andersson@kernel.org>,
- Changhuang Liang <changhuang.liang@starfivetech.com>, Jack Zhu
- <jack.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, Shawn Guo
- <shawnguo@kernel.org>, christian.koenig@amd.com
-Date: Wed, 07 Jun 2023 10:53:57 +0200
-In-Reply-To: <20230602074043.33872-4-keith.zhao@starfivetech.com>
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
-	 <20230602074043.33872-4-keith.zhao@starfivetech.com>
-User-Agent: Evolution 3.46.4 (3.46.4-1.fc37) 
+	Wed, 07 Jun 2023 09:23:36 +0000
+X-QQ-mid: bizesmtp76t1686129784tl9oaodx
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 07 Jun 2023 17:23:03 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: XBN7tc9DADIFM7iJZj/3G7Db0AryQR0jjbOpzlxnxKCoLoFzk5a9wv39TaYWu
+	ORYSoDohQWzfiO2HMD9c3nIiwV7hU7SvXXsgjVVEgIKzzWzlIEj+SIIOgeMWIhK8gieeJqj
+	El0KIX7ZCs4DEV4VU8uoQg4sGFiOSRnDWIX15ZHeVMSaA2vNR03IXhOavencDcqiA/FXcRV
+	gSN5OkZFthKYp+2Y3EkQGbcFAJt+uj3xYqmlNOiFWm1Qge73AXDVlTBMS30VJc19M0esJCS
+	blGSJzEItp1FH42FFapLAV6sUEFBgVPR+rZOP/9/So1cNojn7EJgk6dD5r88UNv2WYjL+cy
+	3ufanl8BnMM1Ej2IbElHh/5IxP7Buw/5pA32TbbCeFJVevY0TKat15DKUdsL7LqipDUbRwJ
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 10563508675985585977
+From: Zhangjin Wu <falcon@tinylab.org>
+To: thomas@t-8ch.de,
+	w@1wt.eu
+Cc: falcon@tinylab.org,
+	arnd@arndb.de,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 0/3] nolibc: add part2 of support for rv32
+Date: Wed,  7 Jun 2023 17:23:01 +0800
+Message-Id: <cover.1686128703.git.falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: l.stach@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_015441_186221_E465C8B5 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20230607_022334_095179_1C8750EB 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,141 +74,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Keith,
+Hi, Willy
 
-Am Freitag, dem 02.06.2023 um 15:40 +0800 schrieb Keith Zhao:
-> Add a basic platform driver of the DRM driver for JH7110 SoC.
-> 
-> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
-> ---
->  MAINTAINERS                          |   2 +
->  drivers/gpu/drm/Kconfig              |   2 +
->  drivers/gpu/drm/Makefile             |   1 +
->  drivers/gpu/drm/verisilicon/Kconfig  |  13 ++
->  drivers/gpu/drm/verisilicon/Makefile |   6 +
->  drivers/gpu/drm/verisilicon/vs_drv.c | 284 +++++++++++++++++++++++++++
->  drivers/gpu/drm/verisilicon/vs_drv.h |  48 +++++
->  include/uapi/drm/drm_fourcc.h        |  83 ++++++++
->  include/uapi/drm/vs_drm.h            |  50 +++++
->  9 files changed, 489 insertions(+)
->  create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
->  create mode 100644 drivers/gpu/drm/verisilicon/Makefile
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.c
->  create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.h
->  create mode 100644 include/uapi/drm/vs_drm.h
-> 
-> 
-> [...]
-> +#endif /* __VS_DRV_H__ */
-> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
-> index de703c6be969..af4fb50f9207 100644
-> --- a/include/uapi/drm/drm_fourcc.h
-> +++ b/include/uapi/drm/drm_fourcc.h
-> @@ -419,6 +419,7 @@ extern "C" {
->  #define DRM_FORMAT_MOD_VENDOR_ARM     0x08
->  #define DRM_FORMAT_MOD_VENDOR_ALLWINNER 0x09
->  #define DRM_FORMAT_MOD_VENDOR_AMLOGIC 0x0a
-> +#define DRM_FORMAT_MOD_VENDOR_VS      0x0b
->  
->  /* add more to the end as needed */
->  
-> @@ -1519,6 +1520,88 @@ drm_fourcc_canonicalize_nvidia_format_mod(__u64 modifier)
->  #define AMD_FMT_MOD_CLEAR(field) \
->  	(~((__u64)AMD_FMT_MOD_##field##_MASK << AMD_FMT_MOD_##field##_SHIFT))
->  
-> +#define DRM_FORMAT_MOD_VS_TYPE_NORMAL        0x00
-> +#define DRM_FORMAT_MOD_VS_TYPE_COMPRESSED    0x01
-> +#define DRM_FORMAT_MOD_VS_TYPE_CUSTOM_10BIT  0x02
-> +#define DRM_FORMAT_MOD_VS_TYPE_MASK     ((__u64)0x3 << 54)
-> +
-> +#define fourcc_mod_vs_code(type, val) \
-> +	fourcc_mod_code(VS, ((((__u64)type) << 54) | (val)))
-> +
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_MODE_MASK    0x3F
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X8_XMAJOR   0x00
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X8_YMAJOR   0x01
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X4     0x02
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X4      0x03
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_4X8      0x04
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_16X4   0x06
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_64X4     0x07
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X4     0x08
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_256X1  0x09
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_128X1  0x0A
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_64X4   0x0B
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_256X2  0x0C
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_128X2  0x0D
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_128X4  0x0E
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_64X1   0x0F
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X8     0x10
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X16     0x11
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_512X1  0x12
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_32X4   0x13
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_64X2   0x14
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_32X2   0x15
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_32X1   0x16
-> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_16X1   0x17
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_128X4    0x18
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_256X4    0x19
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_512X4    0x1A
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X16    0x1B
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X16    0x1C
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_64X16    0x1D
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_128X8    0x1E
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X4_S    0x1F
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X4_S   0x20
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X4_S   0x21
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X4_LSB 0x22
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X4_LSB 0x23
-> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X8     0x24
-> +
-> +#define DRM_FORMAT_MOD_VS_DEC_ALIGN_32      (0x01 << 6)
-> +#define DRM_FORMAT_MOD_VS_DEC_ALIGN_64      (0x01 << 7)
-> +
-> +#define fourcc_mod_vs_dec_code(tile, align) \
-> +	fourcc_mod_vs_code(DRM_FORMAT_MOD_VS_TYPE_COMPRESSED, \
-> +				((tile) | (align)))
-> +
-> +#define DRM_FORMAT_MOD_VS_NORM_MODE_MASK        0x1F
-> +#define DRM_FORMAT_MOD_VS_LINEAR                0x00
-> +#define DRM_FORMAT_MOD_VS_TILED4x4              0x01
-> +#define DRM_FORMAT_MOD_VS_SUPER_TILED_XMAJOR    0x02
-> +#define DRM_FORMAT_MOD_VS_SUPER_TILED_YMAJOR    0x03
-> +#define DRM_FORMAT_MOD_VS_TILE_8X8              0x04
-> +#define DRM_FORMAT_MOD_VS_TILE_MODE1            0x05
-> +#define DRM_FORMAT_MOD_VS_TILE_MODE2            0x06
-> +#define DRM_FORMAT_MOD_VS_TILE_8X4              0x07
-> +#define DRM_FORMAT_MOD_VS_TILE_MODE4            0x08
-> +#define DRM_FORMAT_MOD_VS_TILE_MODE5            0x09
-> +#define DRM_FORMAT_MOD_VS_TILE_MODE6            0x0A
-> +#define DRM_FORMAT_MOD_VS_SUPER_TILED_XMAJOR_8X4    0x0B
-> +#define DRM_FORMAT_MOD_VS_SUPER_TILED_YMAJOR_4X8    0x0C
-> +#define DRM_FORMAT_MOD_VS_TILE_Y                0x0D
-> +#define DRM_FORMAT_MOD_VS_TILE_128X1            0x0F
-> +#define DRM_FORMAT_MOD_VS_TILE_256X1            0x10
-> +#define DRM_FORMAT_MOD_VS_TILE_32X1             0x11
-> +#define DRM_FORMAT_MOD_VS_TILE_64X1             0x12
-> +#define DRM_FORMAT_MOD_VS_TILE_MODE4X4          0x15
-> +
-> +#define fourcc_mod_vs_norm_code(tile) \
-> +	fourcc_mod_vs_code(DRM_FORMAT_MOD_VS_TYPE_NORMAL, \
-> +				(tile))
-> +
-> +#define fourcc_mod_vs_custom_code(tile) \
-> +	fourcc_mod_vs_code(DRM_FORMAT_MOD_VS_TYPE_CUSTOM_10BIT, \
-> +				(tile))
-> +
+This is the v4 part2 of support for rv32 (v3 [1]), it applied the
+suggestions from Thomas, Arnd [2] and you [3]. now, the rv32 compile
+support almost aligned with x86 except the extra KARCH to make kernel
+happy, thanks very much for your nice review!
 
-You are opening a new namespace for what is effectively the VIVANTE
-tiling. While your list seems much more exhaustive than the (reverse
-engineered) list provided under the VIVANTE namespace, this is still
-unacceptable as it adds new aliases for existing modifiers.
+Since the 'override' method mentioned in [4] split the whole Makefile
+context to two parts, it may make the code not that easy to maintain,
+so, this patchset goes back to the KARCH (suggested from Willy, before,
+I used something like _ARCH) passing method, as suggested by Willy, we
+also aligned the KARCH assignment with the other variables.
 
-Also any modifier additions should be in a separate patch and not
-buried in another change.
+Changes from v3 -> v4:
 
-Regards,
-Lucas
+* No new changes in the first two except a new Reviewed-by line from Arnd
+
+* selftests/nolibc: riscv: customize makefile for rv32
+
+  Do it like the other architectures, especially like x86.
+
+  The difference from x86 is, the top-level kernel Makefile doesn't
+  accept riscv32 and riscv64, it only accept riscv, to make kernel happy,
+  a KARCH variable is added for riscv32 and riscv64, and then passed to
+  kernel with ARCH=$(KARCH).
+
+  Since tools/include/nolibc/Makefile shares arch-riscv.h between riscv32
+  and riscv64 and there is a headers_standalone target who called kernel
+  headers and headers_install, so, pass ARCH=$(KARCH) to it too.
+
+Did compile test for aarch64, rv32 and rv64, include run-user and run.
+
+Note, this is required with the default config from the
+20230606-nolibc-rv32+stkp7a branch of [5]:
+
+    diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
+    index ce02bb09651b..72bd8fe0cad6 100644
+    --- a/kernel/rcu/tasks.h
+    +++ b/kernel/rcu/tasks.h
+    @@ -1934,11 +1934,13 @@ void show_rcu_tasks_gp_kthreads(void)
+     }
+     #endif /* #ifndef CONFIG_TINY_RCU */
+     
+    +#ifdef CONFIG_TASKS_RCU
+     struct task_struct *get_rcu_tasks_gp_kthread(void)
+     {
+            return rcu_tasks.kthread_ptr;
+     }
+     EXPORT_SYMBOL_GPL(get_rcu_tasks_gp_kthread);
+    +#endif
+     
+     #ifdef CONFIG_PROVE_RCU
+     struct rcu_tasks_test_desc {
+
+
+Best regards,
+Zhangjin
+
+---
+
+[1]: https://lore.kernel.org/linux-riscv/cover.1685780412.git.falcon@tinylab.org/
+[2]: https://lore.kernel.org/linux-riscv/d1c83340-af4c-4780-a101-b9d22b47379c@app.fastmail.com/
+[3]: https://lore.kernel.org/lkml/ZIAywHvr6UB1J4of@1wt.eu/
+[4]: https://lore.kernel.org/lkml/20230607063314.671429-1-falcon@tinylab.org/
+[5]: https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
+
+
+
+Zhangjin Wu (3):
+  tools/nolibc: fix up #error compile failures with -ENOSYS
+  tools/nolibc: fix up undeclared syscall macros with #ifdef and -ENOSYS
+  selftests/nolibc: riscv: customize makefile for rv32
+
+ tools/include/nolibc/sys.h              | 38 ++++++++++++++++---------
+ tools/testing/selftests/nolibc/Makefile | 20 +++++++++++--
+ 2 files changed, 42 insertions(+), 16 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
