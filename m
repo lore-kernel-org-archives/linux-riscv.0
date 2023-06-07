@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E18C7EE25
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 17:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1615C7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 18:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LeT/WK3fd66M366VR429MP46yWG4tH/UIXAXA1Djs1o=; b=Px7FlmSGGtYxNVMTLLdpDBG8XB
-	6MEavfRUg/oCskk+a62gtnkHXXfIpBlakHWPToO0I7U8oEDqwBA2y8YcG8Zh4V/RIrTqjNp1AMzOf
-	saqWWYoNIoPTccfupBvgbHeN/qUF8dsBwTc/ZnIjmAQHrVpQA+u8xSAqiPYsAKTVWMF7Jiri7KLmV
-	9bv5/4XGsBbHaXR9OowB1NW2uuklim1xQBr9fHFOiNjhY/u8d7nZ7rjH9u+Nura1mBqzinIt8lOKm
-	zhHPtVq+AZ8wPE+jTpZ1ocPeomiq7Ex95wy47boZZH8zt68OWdpaN2JUl9GooakZpEMsqiF3fbNIj
-	l4wPuJEA==;
+	bh=pY7Xi45TawZa0quQpAfecmcFkxA1TXH+1Du+/hMVUJc=; b=pDZmyEjHEnc0YXYuYo+R2P+38b
+	W3jGu+fslgPi1X86930ibFbFqZz/3OJhR0knlJD3kiCVPSG1/urtU7Lww4NoLLNlCLkkcIbGjPbwD
+	EUMalnVh9sU1L/wNSShoJVyzWJl1ceVHcLaA+AQWjMYpQVu1PIJF1gOgQpjSXWneHqYVoUjOU14PF
+	kKDVz5Wmz+lesqlfnKFXz4sRefYc58Xneky/Z1Un+O4c7rDwdXDTcEn+w1+67nklVuLq+bUdaTARS
+	rIOjI1yUC8SvBDVsUVOnJxho7kwuyjznWuoJWsmksZgK7hTRhcaaKWTnrArsSljtbam5tyFRnXjls
+	JYJGOgLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6x9P-006jWS-0K;
-	Wed, 07 Jun 2023 17:40:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q6xix-006o52-3D;
+	Wed, 07 Jun 2023 18:17:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6x9L-006jVV-1O;
-	Wed, 07 Jun 2023 17:40:48 +0000
+	id 1q6xiv-006o4I-0i
+	for linux-riscv@lists.infradead.org;
+	Wed, 07 Jun 2023 18:17:34 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 05B96639A3;
-	Wed,  7 Jun 2023 17:40:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93C66C433EF;
-	Wed,  7 Jun 2023 17:40:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 98D1860AAF;
+	Wed,  7 Jun 2023 18:17:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76BFDC433D2;
+	Wed,  7 Jun 2023 18:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686159646;
-	bh=5x1EtOELFmRO9NktsOdM5lQT/q9FGsv1ZyUrNKs4x5E=;
+	s=k20201202; t=1686161852;
+	bh=Ag8b6jclnIS3ni+j5UQhwSXc0W17dRqILjpn9E7ZUQ8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W5gSo9DrkbgHb+qdJWHgnt9FSbYbLVexi6Zggwplxt/YGImwhEw3y/Tk7Xrl0Bu5r
-	 tm7ezUjD31fAfK97ettHJOF0KU8j5qGlgS/sqhqgXRr2K6W/9DBdcYUhjIOOYV7CQk
-	 /ITCUj2yu+sLZlNMZku3xq6LXFrCA8zkoU6jpFMM6Txggbi7kCUhAKXAfwRw5VkLqy
-	 A3Y9+ef2b5AXqMB+9rJXpVAIgFAZhu2DmbyoOKk0ztTyBw5Z8NjXvieLLZGlu5OHSi
-	 q/3FsiQA651mCQidHU8M7xB5thXMwjh1U0jwb84SxDIl1+8kjbg3oTutFz6PTU2W4t
-	 D7QQYJ3Kr9G4g==
-Date: Wed, 7 Jun 2023 18:40:40 +0100
+	b=FiouR0Ej+H6nlg65fXSk7tiRWif1fAW7Ennjo+mAK1TmLYnAab6SBxOgeJsmqVJq9
+	 GJTVt+c+vq9rwo3fHcxIQqWUDvY6Q/w8mZZ5DxlFEhaS70Af5vhFhNtXlOeYxyDmyN
+	 +UDyF+s2LcemwyStZaTNGlqRod6/i+LSWJSeqcun/w7kds9e3j26Rz7hV8Ky5jDN87
+	 MlIThW7UjApWMoP7K137joHNb0A9ToQ6Yb1ZoKaOCzkEeAGyngppBcVKM0ugb4amDM
+	 wh6z0JjCXnuTQBcSwMbCPwNXk5vN3pYrAmLvfbiGjuFZ9USlahQv+5cQXMpKu5gQr5
+	 7LU+4L4VaAPdQ==
+Date: Wed, 7 Jun 2023 19:17:28 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Minda Chen <minda.chen@starfivetech.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Pawel Laszczak <pawell@cadence.com>,
-	Peter Chen <peter.chen@kernel.org>,
-	Roger Quadros <rogerq@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
-	linux-usb@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+To: Woody Zhang <woodylab@foxmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Mason Huo <mason.huo@starfivetech.com>
-Subject: Re: [PATCH v6 7/7] riscv: dts: starfive: Add USB dts configuration
- for JH7110
-Message-ID: <20230607-helium-handler-5dc9616ebf2c@spud>
-References: <20230518112750.57924-1-minda.chen@starfivetech.com>
- <20230518112750.57924-8-minda.chen@starfivetech.com>
- <20230525-cross-daybreak-24dfed69e5d0@spud>
- <2023052909-speed-cackle-294e@gregkh>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, alexghiti@rivosinc.com
+Subject: Re: [PATCH] riscv: reserve DTB before possible memblock allocation
+Message-ID: <20230607-jogging-grudging-70dede86bc53@spud>
+References: <tencent_B15C0F1F3105597D0DCE7DADC96C5EB5CF0A@qq.com>
 MIME-Version: 1.0
-In-Reply-To: <2023052909-speed-cackle-294e@gregkh>
+In-Reply-To: <tencent_B15C0F1F3105597D0DCE7DADC96C5EB5CF0A@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_104047_542841_5CEA1770 
-X-CRM114-Status: GOOD (  23.00  )
+X-CRM114-CacheID: sfid-20230607_111733_345101_0CD1B212 
+X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,84 +70,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1309028594817361779=="
+Content-Type: multipart/mixed; boundary="===============2547165613802602371=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1309028594817361779==
+--===============2547165613802602371==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vgIzego1nIcf0ymV"
+	protocol="application/pgp-signature"; boundary="J+jihW930ktvqPjh"
 Content-Disposition: inline
 
 
---vgIzego1nIcf0ymV
+--J+jihW930ktvqPjh
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, May 29, 2023 at 03:46:21PM +0100, Greg Kroah-Hartman wrote:
-> On Thu, May 25, 2023 at 10:36:38PM +0100, Conor Dooley wrote:
-> > Greg,
-> >=20
-> > On Thu, May 18, 2023 at 07:27:50PM +0800, Minda Chen wrote:
-> > > Add USB wrapper layer and Cadence USB3 controller dts
-> > > configuration for StarFive JH7110 SoC and VisionFive2
-> > > Board.
-> > > USB controller connect to PHY, The PHY dts configuration
-> > > are also added.
-> > >=20
-> > > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-> >=20
-> > > diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/bo=
-ot/dts/starfive/jh7110.dtsi
-> > > index 71a8e9acbe55..b65f06c5b1b7 100644
-> > > --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> > > +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> > > @@ -366,6 +366,59 @@
-> > >  			status =3D "disabled";
-> > >  		};
-> > > =20
-> > > +		usb0: usb@10100000 {
-> > > +			compatible =3D "starfive,jh7110-usb";
-> > > +			ranges =3D <0x0 0x0 0x10100000 0x100000>;
-> > > +			#address-cells =3D <1>;
-> > > +			#size-cells =3D <1>;
-> > > +			starfive,stg-syscon =3D <&stg_syscon 0x4>;
-> > > +			clocks =3D <&stgcrg JH7110_STGCLK_USB0_LPM>,
-> >=20
-> > Please don't pick this patch, if the rest of the series is applicable,
-> > as this will break building the dtb as stgcrg does not yet exist in any
-> > maintainer tree.
++CC Alex, you should take a look at this patch.
+
+On Wed, Jun 07, 2023 at 09:35:19PM +0800, Woody Zhang wrote:
+> It's possible that early_init_fdt_scan_reserved_mem() allocates memory
+> from memblock for dynamic reserved memory in `/reserved-memory` node.
+> Any fixed reservation must be done before that to avoid potential
+> conflicts.
 >=20
-> Ok, I'll just take patch 6/7 then.
+> Reserve the DTB in memblock just after early scanning it.
 
-I think I missed this mail somehow. 5/7 had the binding for the driver
-so probably that should've gone via the USB tree too?
-Should apply on its own (no deps on the phy patches) & has dt-binding
-maintainer reviews.
-
-`b4 am -P 5 20230518112750.57924-6-minda.chen@starfivetech.com` if
-that's your cup of tea.
+The rationale makes sense to me, I am just wondering what compelling
+reason there is to move it away from the memblock_reserve()s for the
+initd and vmlinux? Moving it above early_init_fdt_scan_reserved_mem()
+should be the sufficient minimum & would keep things together.
 
 Cheers,
 Conor.
 
---vgIzego1nIcf0ymV
+>=20
+> Signed-off-by: Woody Zhang <woodylab@foxmail.com>
+> ---
+>  arch/riscv/kernel/setup.c | 10 ++++++++++
+>  arch/riscv/mm/init.c      |  9 ---------
+>  2 files changed, 10 insertions(+), 9 deletions(-)
+>=20
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 36b026057503..c147fa8da929 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/console.h>
+>  #include <linux/screen_info.h>
+>  #include <linux/of_fdt.h>
+> +#include <linux/libfdt.h>
+>  #include <linux/sched/task.h>
+>  #include <linux/smp.h>
+>  #include <linux/efi.h>
+> @@ -256,6 +257,15 @@ static void __init parse_dtb(void)
+>  		pr_err("No DTB passed to the kernel\n");
+>  	}
+> =20
+> +	/*
+> +	 * If DTB is built in, no need to reserve its memblock.
+> +	 * Otherwise, do reserve it but avoid using
+> +	 * early_init_fdt_reserve_self() since __pa() does
+> +	 * not work for DTB pointers that are fixmap addresses
+> +	 */
+> +	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
+> +		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+> +
+>  #ifdef CONFIG_CMDLINE_FORCE
+>  	strscpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+>  	pr_info("Forcing kernel command line to: %s\n", boot_command_line);
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index c6bb966e4123..f8c9a79acd94 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -254,15 +254,6 @@ static void __init setup_bootmem(void)
+>  	 */
+>  	early_init_fdt_scan_reserved_mem();
+> =20
+> -	/*
+> -	 * If DTB is built in, no need to reserve its memblock.
+> -	 * Otherwise, do reserve it but avoid using
+> -	 * early_init_fdt_reserve_self() since __pa() does
+> -	 * not work for DTB pointers that are fixmap addresses
+> -	 */
+> -	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
+> -		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+> -
+>  	dma_contiguous_reserve(dma32_phys_limit);
+>  	if (IS_ENABLED(CONFIG_64BIT))
+>  		hugetlb_cma_reserve(PUD_SHIFT - PAGE_SHIFT);
+> --=20
+> 2.39.2
+>=20
+
+--J+jihW930ktvqPjh
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIDBGAAKCRB4tDGHoIJi
-0vawAPkBNDTHTHPC6w2XGoY5UUHdUCl4RKD8ZVfiHewbpE6lXQEAn+hXtRuVk1F2
-vvte4pcKTDdaQXhDYOg7OTeNqQiSHQk=
-=R+dc
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIDJtwAKCRB4tDGHoIJi
+0pCXAP99xsCphB3DBvIziKavjWB1iLOkD+X3H97tW1E7cMtkzAEArXHyHtW6kTX/
+gRag6vi2QGqXh4hG1YvtqvIpp1G2MQE=
+=yaX+
 -----END PGP SIGNATURE-----
 
---vgIzego1nIcf0ymV--
+--J+jihW930ktvqPjh--
 
 
---===============1309028594817361779==
+--===============2547165613802602371==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -173,5 +188,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1309028594817361779==--
+--===============2547165613802602371==--
 
