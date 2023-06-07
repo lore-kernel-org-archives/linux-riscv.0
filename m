@@ -4,87 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4C3BC7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 05:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B139DC7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 05:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G10buMTf6El06h9j3tiYOkqsxXM78QFk/tXNzq6VZP0=; b=iv5ynxJVjLttCe
-	UY16/4R2ZgoKir4uX/LB1obeAoS7cQOFk4lTmoFBBiFRJTtO3J60Dtd4QhXqd7c1BgQ65bYRg8RLA
-	i0P69/59Ewpv/Za5ncGLJbMkCR+uoS1wDWGQzpkORg69YatGj01wKLxC2A3iTkDctxhIKcwP8P9TN
-	5FwggmNNSbzlmwIejftcDI1tZ/KbOco4zShtUOibCcBLfDKmThnxTjjoE9OuqYXI53yI/uTVECUTb
-	CMU83k9I51G7eGrIw09SMzPBOQqCp617pPB+yCm5JmAe+mRQD5mB3F5DT0TnNKx8FO6onm6C7WsxV
-	B7/nIliQCpqq+m5wc2Sw==;
+	List-Owner; bh=8OHTKyJEoPQChAX1E/mmpiE0yXxQBj+eg4efevZxmAg=; b=FUXMKqUfe0s03/
+	Ba41hUcKaIzSpNg/daGk6MECGBPZ6T3umI37ntYttoSh78DpZfozrGLThJnJof0qU1NIqz5QAvlm3
+	7dgG6r3qTbReTjI38YQovjjR/wNkHL6ln0e/whZRm+vwoZQwFbw6GdXmOJNSBfa4J1XZ7yQQf4cTD
+	TKLBdvxxEDw71GrKMs61lth+GKW5bwpESJqb6rhLEZ3ofu7zz+yPxkZ/3ZmsN65Khydi1VHUL0nvg
+	XanTqpTM+IzwpyagVJ0Z5NJGB1hRYV7uZHL29EexQRev+nz9Skhk+fU3Ug5MqnJTx6AGgH5iAn3FQ
+	dknBr1RQJ2PXmTBY1QxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6lLA-004NQZ-2i;
-	Wed, 07 Jun 2023 05:04:12 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1q6laC-004PoS-0A;
+	Wed, 07 Jun 2023 05:19:44 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6lL8-004NPQ-1Q
+	id 1q6la7-004Pm0-0z
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 05:04:11 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-777ac4344f9so93702839f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Jun 2023 22:04:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1686114248; x=1688706248;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ee1qHw85e1eBuIdTgig6finUlPCk2EHIHBldhRjpTW8=;
-        b=OlSi4zFOBdfhM/9fHTRPXVQIgMX47mJAkJXrVv5KF5pz/WxqZXoQCduHEFKhManpO7
-         KTDg0Z6xT7TBRvCR9p09OHs7kQwsLLqr7TuD/ckBw/BWx/xl+T2CPih3OovP4CZszGqd
-         9PU2ldNC1ZZZjbMfqbWLne60ymEHFiHGCPZVOhJg8P8nF6kg+xZpAiLR8RMjYP9VfpEN
-         MeExXgXTBydcEj2ruDuphqNm4tksbGuBygXxlE/7NFXdkOkmO9PgkUI56MiSz5yIfVgQ
-         s3g7Sa4CCWcSk02uIqrXWSCp8J0DBgb8VCalYMSaBUbweLU0fyKDymtRwxtUir/gt/K7
-         CfZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686114248; x=1688706248;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ee1qHw85e1eBuIdTgig6finUlPCk2EHIHBldhRjpTW8=;
-        b=KT6xJICIvxx8oeWL/9eq63T58RsKrGXrHncTl22g8EXNG4VMqEo24Wy1IF7yeDZuyR
-         NzsVpANPtASvZb3QqF32pgF3LRdeKPSCRiqJ/4p7OghuO7PD/auDRm5R/5KhAYuFXBM/
-         nq/Q3SwFda6JJ3ro7jDBGOHbnidDxuoITFc1l3+7lkXCe2uyJEIPKGz2Z6XOkPg4rjq/
-         NtnxG8EWNIo8p9qm+NPyt14dlDG6Vv9bsOLcSy3nvHPUCWwRGq15Zad94m/catpqOynp
-         Frg1kuL1CE4KFpSO/A1QKfcDD93h0pzCzLORsHVGNLeSK98rQgPdwfVUTHJUp2CVx7Xy
-         74bA==
-X-Gm-Message-State: AC+VfDxvpEBOw/KCEFGi6vWjyOVy0/PLJCxA7M6OIGQ/xjtwFzpimxlN
-	9K0XfGZm2FYaGmvOjQJnJHIszs75FGJicMLBM32Mkg==
-X-Google-Smtp-Source: ACHHUZ4Z/iohestmpyscDyMKSE2JiJGGdU65tjAlQFbm9eJHYAacPAnDBkWRMxzeQTL6/kERoYlX3w==
-X-Received: by 2002:a05:6870:c82b:b0:19f:1947:551 with SMTP id ee43-20020a056870c82b00b0019f19470551mr3995485oab.6.1686113763954;
-        Tue, 06 Jun 2023 21:56:03 -0700 (PDT)
-Received: from sunil-laptop ([106.51.83.242])
-        by smtp.gmail.com with ESMTPSA id ed43-20020a056870b7ab00b001726cfeea97sm5564537oab.29.2023.06.06.21.55.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jun 2023 21:56:03 -0700 (PDT)
-Date: Wed, 7 Jun 2023 10:25:56 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH v1 -next 1/2] RISC-V: ACPI : Fix for usage of pointers in
- different address space
-Message-ID: <ZIAN3OHhPbvgj0uV@sunil-laptop>
-References: <20230605143512.707533-1-sunilvl@ventanamicro.com>
- <20230605143512.707533-2-sunilvl@ventanamicro.com>
- <20230606-conduit-cupped-1791a640713b@spud>
+	Wed, 07 Jun 2023 05:19:41 +0000
+X-QQ-mid: bizesmtp71t1686115155t27gq16b
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 07 Jun 2023 13:19:14 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: G46xFj+wOV9ykUVNNQSk0ai1FCe8wBOCLmMzZ7Pq9KMAMo+Ve+JiiOCA59xXL
+	LB+wGdNEQ5CzSFxziqNgxV9VzBrE8HihejgKfwc/We1fHyyT2wAfikXPh26ziGGx97VgxAR
+	83s5NEOIzdP0+/C0LsLXZqD2C7eJw9tWBBvEWyf5wILHUYui/R4KysjOnWWAkUrkyPZ/Ain
+	/+3yOZNyyrP9hKwwUj2867Yzp2MSXS7ySdlYuMGqfzxJjNZk6lj3LtDpHpadq6mIp1P4snf
+	A6h3q1T1eI1OCqfzYqaS17X89RyvzKsGlHkm3d0GjyktR60s98HEBmzD8vO+VKCUFK095h+
+	VO/5+WyaSOTdsgTnCHpjrCpEsbn4EmrUgfyPFlWN4JnWE0tQxvOotFuzblVkx648JDWe2HX
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 4025936494722067388
+From: Zhangjin Wu <falcon@tinylab.org>
+To: arnd@arndb.de,
+	w@1wt.eu
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	thomas@t-8ch.de
+Subject: Re: [PATCH v3 1/3] tools/nolibc: fix up #error compile failures with -ENOSYS
+Date: Wed,  7 Jun 2023 13:19:14 +0800
+Message-Id: <20230607051914.667047-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <4fcdd08c-e6fb-40b7-9f2b-77f96e798b37@app.fastmail.com>
+References: <4fcdd08c-e6fb-40b7-9f2b-77f96e798b37@app.fastmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230606-conduit-cupped-1791a640713b@spud>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_220410_484801_A54DEC97 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20230606_221939_665246_9CABD7AD 
+X-CRM114-Status: GOOD (  21.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +76,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+> On Sat, Jun 3, 2023, at 11:01, Zhangjin Wu wrote:
+> >
+> > Suggested-by: Arnd Bergmann <arnd@arndb.de>
+> > Link:
+> > https://lore.kernel.org/linux-riscv/5e7d2adf-e96f-41ca-a4c6-5c87a25d4c9c@app.fastmail.com/
+> > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > ---
+> >  tools/include/nolibc/sys.h | 26 +++++++++++++-------------
+> >  1 file changed, 13 insertions(+), 13 deletions(-)
+> >
+> > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> > index 856249a11890..78c86f124335 100644
+> > --- a/tools/include/nolibc/sys.h
+> > +++ b/tools/include/nolibc/sys.h
+> > @@ -124,7 +124,7 @@ int sys_chmod(const char *path, mode_t mode)
+> >  #elif defined(__NR_chmod)
+> >  	return my_syscall2(__NR_chmod, path, mode);
+> >  #else
+> > -#error Neither __NR_fchmodat nor __NR_chmod defined, cannot implement
+> > sys_chmod()
+> > +	return -ENOSYS;
+> >  #endif
+> >  }
+>
+> I think the most logical would be to have each syscall (chmod,
+> fchmodat, ...) have its own function that returns -ENOSYS if
+> that is not defined, and have the logic that decides which one
+> to use as a separate function.
+>
 
-On Tue, Jun 06, 2023 at 04:35:29PM +0100, Conor Dooley wrote:
-> Hey Sunil,
-> 
-> On Mon, Jun 05, 2023 at 08:05:11PM +0530, Sunil V L wrote:
-> > The arch specific __acpi_map_table can be wrapper around either
-> > early_memremap or early_ioremap. But early_memremap
-> > routine works with normal pointers whereas __acpi_map_table expects
-> > pointers in iomem address space. This causes kernel test bot to fail
-> > while using the sparse tool. Fix the issue by using early_ioremap and
-> > similar fix done for __acpi_unmap_table.
-> > 
-> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes: https://lore.kernel.org/oe-kbuild-all/202305201427.I7QhPjNW-lkp@intel.com/
-> 
-> Is this
-> Fixes: a91a9ffbd3a5 ("RISC-V: Add support to build the ACPI core")
-> ?
-Yes, I missed it. Will add.
+Yeah, agreed, we can clean up them one by one, If split them to their own
+syscalls, I have two questions (for Arnd, and Willy too):
 
-Thanks!
-Sunil
+1. do we need to add the corresponding library routines at the same time?
+
+  Use llseek() as an example, there will be llseek() and lsee64(). If off_t
+  would be converted to 64bit, then, they can be simply added as follows:
+
+    #define lseek64 lseek
+    #define llseek lseek
+
+  Or something like this:
+
+    static __attribute__((unused))
+    loff_t lseek(int fd, loff_t offset, int whence)
+    {
+    	return lseek(fd, offset, whence);
+    }
+
+    static __attribute__((unused))
+    off64_t lseek(int fd, off64_t offset, int whence)
+    {
+    	return lseek(fd, offset, whence);
+    }
+
+  This one aligns with the other already added library routines.
+
+  Which one do you like more?
+
+2. If so, how to cope with the new types when add the library routines?
+
+  Still use the above llseek() as an example, If not use '#define' method,
+  We may need to declare loff_t and off64_t in std.h too:
+
+    #define off64_t off_t
+    #define loff_t off_t
+
+  Or align with the other new types, use 'typedef' instead of '#define'.
+
+  And further, use poll() as an example, in its manpage [1], there may be some
+  new types, such as 'nfds_t', but 'int' is used in tools/include/nolibc/sys.h
+  currently, do we need to add nfds_t?
+
+  The 'idtypes_t' and 'id_t' types used by waitid() [2] is similar, both
+  of them can simply use the 'int' type.
+
+The above two questions are important to the coming patches, it may determine
+how I should tune the new llseek() and waitid() syscalls and their library
+routines. very welcome your suggestions.
+
+> This patch is a step in that direction though, so I think that's
+> totally fine.
+
+Thanks, so, can I pick your Reviewed-by for the first two patches? I'm ready to
+send v4 now ;-)
+
+Best regards,
+Zhangjin
+
+---
+[1]: https://linux.die.net/man/2/poll
+[2]: https://linux.die.net/man/2/waitid
+
+>
+>      Arnd
 
 _______________________________________________
 linux-riscv mailing list
