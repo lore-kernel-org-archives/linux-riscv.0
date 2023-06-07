@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C07C6C83005
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 20:37:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 197B7C7EE25
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 20:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SS30cRfu4bRrQzDhSgZ/QNThqRnM4rbLCBEaFmH3MaM=; b=GIuXxfms5XRcGR
-	5i65jQbVGIMtqPp2MbrzIjgJ6OTpw24gFTPtQ8tc7DebVOrpFsrairMzz27nt8/LLeAamC3gqYprd
-	XBqnOKtW5/8i6BW0xDxJt0kt18vhw5ibBikEOphBAA1ZFW9ZQekAC6mUjsLoUbaz0l8xmkUCQXJS6
-	+//YMJwoDPE6pzCn30LDXJ/c08/gFplzNTr8Zq4OACPj2RTmkz3EVsDQ8XuVr3M8DzwhPMldYwaA5
-	pjUWoOfeU9Pt9GdYKw3LeKGuduWDhj8L3IhjQXrNlgHp+Z3Ic0x84Ytura3Ijpj3nvf2XJN+le+qa
-	7W5qNDHKlXvLDaeM8PaQ==;
+	List-Owner; bh=4A7FRLjqLDnQqeiopZUrXjtLLXXPYZ292liZFh9sIic=; b=Lu3M6rERdZLSTV
+	toXROThr8gQXfw8ijujD2HM7rCMzEu516uY16xKyDsyj+K/ImOVAc5w8EnBBh67XShb00IeuIBIJN
+	vBxsMs07oqIrlQcCnHFvUMY241XInzzpy4D23FDHvCJbDQIQf17UeX+VV5n8EAUd7+QFeg7dXzpRf
+	SimwewPd2eESZ1gXrB1bxIw/zkgNxOhm4FamCE+6UQmelDA37VvRNGuVrHh3PCnqS4O3BttSFV075
+	7dRuG4mbH2fUzvzrt6odGBEdQ2vT6mWsYLEVzU9ooSkJl3fsTbMSOcLi/k6JlxH6574Jri5gWDHqJ
+	eswc5q1jE6DLxMs3I6RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6zuT-0079YX-1l;
-	Wed, 07 Jun 2023 20:37:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q703w-007BJ1-1T;
+	Wed, 07 Jun 2023 20:47:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6zuQ-0079XI-1t
+	id 1q703t-007BHj-0H
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 20:37:36 +0000
+	Wed, 07 Jun 2023 20:47:22 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id CFB7D645A0;
-	Wed,  7 Jun 2023 20:37:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDF2DC433EF;
-	Wed,  7 Jun 2023 20:37:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A5B1F646AF;
+	Wed,  7 Jun 2023 20:47:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60873C433EF;
+	Wed,  7 Jun 2023 20:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1686170253;
-	bh=c5ZuE0yaAWFLmKZiWkPwIe9FoGlS6223SAYh/GBDZus=;
+	s=korg; t=1686170840;
+	bh=1gHrGw5o8xpsvZU9kheSjgjtAMjYM4s74H91KO94IsM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YsWeTfPJ2AAJM1vNKJAuCnV2XGDaOwUCxczpRcSB1TtJc8WBamJue8qM9nmsVp2ZH
-	 /o22Tbe/sVrYen7KMFae1FwcPkaP+bc5b2Nv0IwgtyCjlu5kVi+XHjg8IyCLnel+59
-	 riodbQzgV+zhs0H+ByudBso5X+KG0X+dbMAotuvQ=
+	b=Aus1aGwD8A9csBzg9rSWMy6tr83dXPGm2FUqb34S1Gr9qcabi0ilUj+oNAtJeCBtc
+	 Epfm2VqwykSgB2z8yZ1bTNitxCBqmvtj1VziKDolx+zfvqzBq8SP6tF4imz9uhg8aw
+	 zYMXkoB4d8dHF0FYOPJDR9QqOi6IPHr1C8d9MQh4=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -54,17 +54,17 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	dmaengine@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.1 015/225] dmaengine: pl330: rename _start to prevent build error
-Date: Wed,  7 Jun 2023 22:13:28 +0200
-Message-ID: <20230607200913.846911858@linuxfoundation.org>
+Subject: [PATCH 5.10 012/120] dmaengine: pl330: rename _start to prevent build error
+Date: Wed,  7 Jun 2023 22:15:28 +0200
+Message-ID: <20230607200901.304221767@linuxfoundation.org>
 X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230607200913.334991024@linuxfoundation.org>
-References: <20230607200913.334991024@linuxfoundation.org>
+In-Reply-To: <20230607200900.915613242@linuxfoundation.org>
+References: <20230607200900.915613242@linuxfoundation.org>
 User-Agent: quilt/0.67
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_133734_715114_C73E037C 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20230607_134721_201908_35A070EA 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,7 +119,7 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/dma/pl330.c b/drivers/dma/pl330.c
-index 0d9257fbdfb0d..b4731fe6bbc14 100644
+index 5bbae99f2d34e..6f697b3f2c184 100644
 --- a/drivers/dma/pl330.c
 +++ b/drivers/dma/pl330.c
 @@ -1050,7 +1050,7 @@ static bool _trigger(struct pl330_thread *thrd)
@@ -131,7 +131,7 @@ index 0d9257fbdfb0d..b4731fe6bbc14 100644
  {
  	switch (_state(thrd)) {
  	case PL330_STATE_FAULT_COMPLETING:
-@@ -1702,7 +1702,7 @@ static int pl330_update(struct pl330_dmac *pl330)
+@@ -1704,7 +1704,7 @@ static int pl330_update(struct pl330_dmac *pl330)
  			thrd->req_running = -1;
  
  			/* Get going again ASAP */
@@ -140,7 +140,7 @@ index 0d9257fbdfb0d..b4731fe6bbc14 100644
  
  			/* For now, just make a list of callbacks to be done */
  			list_add_tail(&descdone->rqd, &pl330->req_done);
-@@ -2089,7 +2089,7 @@ static void pl330_tasklet(struct tasklet_struct *t)
+@@ -2091,7 +2091,7 @@ static void pl330_tasklet(struct tasklet_struct *t)
  	} else {
  		/* Make sure the PL330 Channel thread is active */
  		spin_lock(&pch->thread->dmac->lock);
@@ -149,7 +149,7 @@ index 0d9257fbdfb0d..b4731fe6bbc14 100644
  		spin_unlock(&pch->thread->dmac->lock);
  	}
  
-@@ -2107,7 +2107,7 @@ static void pl330_tasklet(struct tasklet_struct *t)
+@@ -2109,7 +2109,7 @@ static void pl330_tasklet(struct tasklet_struct *t)
  			if (power_down) {
  				pch->active = true;
  				spin_lock(&pch->thread->dmac->lock);
