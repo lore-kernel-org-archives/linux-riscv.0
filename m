@@ -4,42 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86EAC7EE29
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 09:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF11C7EE2F
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 09:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pj50dO1GIk/Tg7M6NY7JLkJz+/a5qst/JBFE5qudFLU=; b=XJ7nXkV4z/ELmX
-	qnkfEbKPtrEiu/PfwKLbFxJQumDmfngOaa0XcX4OWyW9c5YavKikt/ar5wlfT4YI3FfQcYmlxznif
-	4y99Lp6BSpTcpqTS+1zLeuymZgsimc1s2XSFkOMqwLVeehgjWSSg5m591gj3hB6CIz4YoxjkFtBiZ
-	FWPEteIbcm4U4Ictno/UhKMnoY2wbBI3H1F9RiZ1fgbRl9d9xjclQWgDQ1mnN4PSOuuSfXYEeshUS
-	qn3j749A1EiqGmayS3K490EPShbrm5hnkK0ea5osIiRgZxeI9bdzZTHgcotUqmdBv/inz7SQ1DYq+
-	1bwiCx1+Wmc7GAlszj9Q==;
+	List-Owner; bh=C/6GB/dVUiOhcQmEfyHnHxlr1ZoevFNO5qIkPMg88sg=; b=jub4fr2wL0v6VD
+	RP7ztHJ994B2/x8qdCM0bMqgmxD9GFJbI+UVzkqUg3jaWXvRrLBMDhEnR+OItQlJgkRV2r2C3qOkU
+	89P0sInoYJsvxRFrFEzUxoizDhm+lf6k4JO0DGSXqKiBN0mvxVFeVTeHFQ4lyFRk6gL1vNRheTNhW
+	4Wxx0GuQwrC0uYl91+l+ynBEBYlgwbxDBSzHYCh4pMz1zJrWZ4SaG4sU5SVnEITxR95QSWvJW6nxe
+	M6EB+L4wNwlHpAjNM0mc9wRuOjPdKilw0AqfGc0TlXFHTw1lDcsOdCBo4ESaZINuyc++x9wR3yu3O
+	D4P4avjDUQoIVcPIiiVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6pRX-005F2j-2o;
-	Wed, 07 Jun 2023 09:27:03 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1q6paf-005Gzt-2r;
+	Wed, 07 Jun 2023 09:36:29 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6pRV-005Ezm-1V
+	id 1q6pac-005GyO-12
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 09:27:03 +0000
-X-QQ-mid: bizesmtp85t1686130004t6q4nk80
+	Wed, 07 Jun 2023 09:36:28 +0000
+X-QQ-mid: bizesmtp71t1686130553tmsdhqdy
 Received: from linux-lab-host.localdomain ( [61.141.77.49])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 07 Jun 2023 17:26:42 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: ILHsT53NKPj2LqWj5vPyBfMEU/EQPK5yuVIJM9GKtuNMJ/hPIBysmg81s1Gz8
-	MkS3Lc5amQL/k7yLa8D+oVg2tmKv06roQQbcHxNopt+q4lhrjDKo9IKh0bT6+zrelNB00bw
-	QEmIVod6Rz2V6rwRmV9eu74xuYISdx3nhJfhAdmnoCXhxuFLzJvvvh4PkO8yDSXqzHpKfaZ
-	QS+7MAonVNqy4ephWB7/ZPT3CcsHK1l/5ZHNgmfCejGPizJglGYb3h3XKuSZGD75+TpXlbC
-	d9+GuHkdjxLCGaB7V3NeIDZJPRehsSntXVHqnFGmOhygN6tnnOQu9TKRTHdGfa3HIxVPCLG
-	0GmlGQp0tZS5pUXTdEMyj3xn5SKRblWKqMcFzZlQ6xLJlIZDEsqvdwAe//jdKDwkvZpTgXz
+	id ; Wed, 07 Jun 2023 17:35:52 +0800 (CST)
+X-QQ-SSF: 00200000000000D0V000000A0000000
+X-QQ-FEAT: lkL5M32tl2CKtzfdmJppNXVfPo4dxxS2i5yjRnmFQwVRtg9qihhO/bdGb8f45
+	yWn2uxZLxaR03l3EEyG3ZSe+rmOHf0zQcc978/tiuiHl9/xeA/a5gsfw1Iz5iwm9HgXYtxx
+	PP8ebuEvcyWxkYw5KtdUj/NMNt0ADHXsRQs4S7w5o7GFUXvGt70EaVa1Z9M2HAzmkU0j/3+
+	Ly/ztVpho8T0NWn1hGi9u1c3QjZoSjFOtbvsYaVB9tnmAOJ4B3oiKbDMiv+FjFA+JDdXPCE
+	Izip3hN+MT1jbZAgpNtiTLAHenU2xXWtiLfC3EzFz8W4ty+E3z3Xdes0vghwexbdeA149FC
+	1h5T5I9ph8YUWFsHRh2goaMbO2tFv9l+YES8qlLlsYf4mDSk5c1NABZFvisRPFGLWZakBFf
+	qSvd39YkcwE=
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14623160687677460193
+X-BIZMAIL-ID: 14568529187218780332
 From: Zhangjin Wu <falcon@tinylab.org>
 To: thomas@t-8ch.de,
 	w@1wt.eu
@@ -48,9 +49,9 @@ Cc: falcon@tinylab.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 1/3] tools/nolibc: fix up #error compile failures with -ENOSYS
-Date: Wed,  7 Jun 2023 17:24:12 +0800
-Message-Id: <149f2f9b6db8f927298446b0e92fda2d0a3430ae.1686128703.git.falcon@tinylab.org>
+Subject: [PATCH v4 2/3] tools/nolibc: fix up undeclared syscall macros with #ifdef and -ENOSYS
+Date: Wed,  7 Jun 2023 17:27:52 +0800
+Message-Id: <1b2ace57de2f47ae0da4457845594baf59f7e06d.1686128703.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1686128703.git.falcon@tinylab.org>
 References: <cover.1686128703.git.falcon@tinylab.org>
@@ -58,8 +59,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_022701_828759_6B8F6C84 
-X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-CacheID: sfid-20230607_023626_681632_4297E888 
+X-CRM114-Status: UNSURE (   9.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,165 +73,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Compiling nolibc for rv32 got such errors:
-
-    In file included from nolibc/sysroot/riscv/include/nolibc.h:99,
-                     from nolibc/sysroot/riscv/include/errno.h:26,
-                     from nolibc/sysroot/riscv/include/stdio.h:14,
-                     from tools/testing/selftests/nolibc/nolibc-test.c:12:
-    nolibc/sysroot/riscv/include/sys.h:946:2: error: #error Neither __NR_ppoll nor __NR_poll defined, cannot implement sys_poll()
-      946 | #error Neither __NR_ppoll nor __NR_poll defined, cannot implement sys_poll()
-          |  ^~~~~
-    nolibc/sysroot/riscv/include/sys.h:1062:2: error: #error None of __NR_select, __NR_pselect6, nor __NR__newselect defined, cannot implement sys_select()
-     1062 | #error None of __NR_select, __NR_pselect6, nor __NR__newselect defined, cannot implement sys_select()
-
-If a syscall is not supported by a target platform, 'return -ENOSYS' is
-better than '#error', which lets the other syscalls work as-is and
-allows developers to fix up the test failures reported by nolibc-test
-one by one later.
-
-This converts all of the '#error' to 'return -ENOSYS', so, all of the
-'#error' failures are fixed.
-
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Link: https://lore.kernel.org/linux-riscv/5e7d2adf-e96f-41ca-a4c6-5c87a25d4c9c@app.fastmail.com/
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
----
- tools/include/nolibc/sys.h | 26 +++++++++++++-------------
- 1 file changed, 13 insertions(+), 13 deletions(-)
-
-diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-index 856249a11890..78c86f124335 100644
---- a/tools/include/nolibc/sys.h
-+++ b/tools/include/nolibc/sys.h
-@@ -124,7 +124,7 @@ int sys_chmod(const char *path, mode_t mode)
- #elif defined(__NR_chmod)
- 	return my_syscall2(__NR_chmod, path, mode);
- #else
--#error Neither __NR_fchmodat nor __NR_chmod defined, cannot implement sys_chmod()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -153,7 +153,7 @@ int sys_chown(const char *path, uid_t owner, gid_t group)
- #elif defined(__NR_chown)
- 	return my_syscall3(__NR_chown, path, owner, group);
- #else
--#error Neither __NR_fchownat nor __NR_chown defined, cannot implement sys_chown()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -251,7 +251,7 @@ int sys_dup2(int old, int new)
- #elif defined(__NR_dup2)
- 	return my_syscall2(__NR_dup2, old, new);
- #else
--#error Neither __NR_dup3 nor __NR_dup2 defined, cannot implement sys_dup2()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -351,7 +351,7 @@ pid_t sys_fork(void)
- #elif defined(__NR_fork)
- 	return my_syscall0(__NR_fork);
- #else
--#error Neither __NR_clone nor __NR_fork defined, cannot implement sys_fork()
-+	return -ENOSYS;
- #endif
- }
- #endif
-@@ -648,7 +648,7 @@ int sys_link(const char *old, const char *new)
- #elif defined(__NR_link)
- 	return my_syscall2(__NR_link, old, new);
- #else
--#error Neither __NR_linkat nor __NR_link defined, cannot implement sys_link()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -700,7 +700,7 @@ int sys_mkdir(const char *path, mode_t mode)
- #elif defined(__NR_mkdir)
- 	return my_syscall2(__NR_mkdir, path, mode);
- #else
--#error Neither __NR_mkdirat nor __NR_mkdir defined, cannot implement sys_mkdir()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -729,7 +729,7 @@ long sys_mknod(const char *path, mode_t mode, dev_t dev)
- #elif defined(__NR_mknod)
- 	return my_syscall3(__NR_mknod, path, mode, dev);
- #else
--#error Neither __NR_mknodat nor __NR_mknod defined, cannot implement sys_mknod()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -848,7 +848,7 @@ int sys_open(const char *path, int flags, mode_t mode)
- #elif defined(__NR_open)
- 	return my_syscall3(__NR_open, path, flags, mode);
- #else
--#error Neither __NR_openat nor __NR_open defined, cannot implement sys_open()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -943,7 +943,7 @@ int sys_poll(struct pollfd *fds, int nfds, int timeout)
- #elif defined(__NR_poll)
- 	return my_syscall3(__NR_poll, fds, nfds, timeout);
- #else
--#error Neither __NR_ppoll nor __NR_poll defined, cannot implement sys_poll()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -1059,7 +1059,7 @@ int sys_select(int nfds, fd_set *rfds, fd_set *wfds, fd_set *efds, struct timeva
- #endif
- 	return my_syscall5(__NR__newselect, nfds, rfds, wfds, efds, timeout);
- #else
--#error None of __NR_select, __NR_pselect6, nor __NR__newselect defined, cannot implement sys_select()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -1196,7 +1196,7 @@ int sys_stat(const char *path, struct stat *buf)
- #elif defined(__NR_stat)
- 	ret = my_syscall2(__NR_stat, path, &stat);
- #else
--#error Neither __NR_newfstatat nor __NR_stat defined, cannot implement sys_stat()
-+	return -ENOSYS;
- #endif
- 	buf->st_dev          = stat.st_dev;
- 	buf->st_ino          = stat.st_ino;
-@@ -1243,7 +1243,7 @@ int sys_symlink(const char *old, const char *new)
- #elif defined(__NR_symlink)
- 	return my_syscall2(__NR_symlink, old, new);
- #else
--#error Neither __NR_symlinkat nor __NR_symlink defined, cannot implement sys_symlink()
-+	return -ENOSYS;
- #endif
- }
- 
-@@ -1312,7 +1312,7 @@ int sys_unlink(const char *path)
- #elif defined(__NR_unlink)
- 	return my_syscall1(__NR_unlink, path);
- #else
--#error Neither __NR_unlinkat nor __NR_unlink defined, cannot implement sys_unlink()
-+	return -ENOSYS;
- #endif
- }
- 
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q29tcGlsaW5nIG5vbGliYyBmb3IgcnYzMiBnb3Qgc3VjaCBlcnJvcnM6CgogICAgbm9saWJjL3N5
+c3Jvb3QvcmlzY3YvaW5jbHVkZS9zeXMuaDogSW4gZnVuY3Rpb24g4oCYc3lzX2dldHRpbWVvZmRh
+eeKAmToKICAgIG5vbGliYy9zeXNyb290L3Jpc2N2L2luY2x1ZGUvc3lzLmg6NTU3OjIxOiBlcnJv
+cjog4oCYX19OUl9nZXR0aW1lb2ZkYXnigJkgdW5kZWNsYXJlZCAoZmlyc3QgdXNlIGluIHRoaXMg
+ZnVuY3Rpb24pOyBkaWQgeW91IG1lYW4g4oCYc3lzX2dldHRpbWVvZmRheeKAmT8KICAgICAgNTU3
+IHwgIHJldHVybiBteV9zeXNjYWxsMihfX05SX2dldHRpbWVvZmRheSwgdHYsIHR6KTsKICAgICAg
+ICAgIHwgICAgICAgICAgICAgICAgICAgICBefn5+fn5+fn5+fn5+fn5+fgogICAgbm9saWJjL3N5
+c3Jvb3QvcmlzY3YvaW5jbHVkZS9zeXMuaDogSW4gZnVuY3Rpb24g4oCYc3lzX2xzZWVr4oCZOgog
+ICAgbm9saWJjL3N5c3Jvb3QvcmlzY3YvaW5jbHVkZS9zeXMuaDo2NzU6MjE6IGVycm9yOiDigJhf
+X05SX2xzZWVr4oCZIHVuZGVjbGFyZWQgKGZpcnN0IHVzZSBpbiB0aGlzIGZ1bmN0aW9uKQogICAg
+ICA2NzUgfCAgcmV0dXJuIG15X3N5c2NhbGwzKF9fTlJfbHNlZWssIGZkLCBvZmZzZXQsIHdoZW5j
+ZSk7CiAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fgogICAgbm9saWJj
+L3N5c3Jvb3QvcmlzY3YvaW5jbHVkZS9zeXMuaDogSW4gZnVuY3Rpb24g4oCYc3lzX3dhaXQ04oCZ
+OgogICAgbm9saWJjL3N5c3Jvb3QvcmlzY3YvaW5jbHVkZS9zeXMuaDoxMzQxOjIxOiBlcnJvcjog
+4oCYX19OUl93YWl0NOKAmSB1bmRlY2xhcmVkIChmaXJzdCB1c2UgaW4gdGhpcyBmdW5jdGlvbikK
+ICAgICAxMzQxIHwgIHJldHVybiBteV9zeXNjYWxsNChfX05SX3dhaXQ0LCBwaWQsIHN0YXR1cywg
+b3B0aW9ucywgcnVzYWdlKTsKCklmIGEgc3lzY2FsbCBtYWNybyBpcyBub3Qgc3VwcG9ydGVkIGJ5
+IGEgdGFyZ2V0IHBsYXRmb3JtLCB3cmFwIGl0IHdpdGgKJyNpZmRlZicgYW5kICdyZXR1cm4gLUVO
+T1NZUycgZm9yIHRoZSAnI2Vsc2UnIGJyYW5jaCwgd2hpY2ggbGV0cyB0aGUKb3RoZXIgc3lzY2Fs
+bHMgd29yayBhcy1pcyBhbmQgYWxsb3dzIGRldmVsb3BlcnMgdG8gZml4IHVwIHRoZSB0ZXN0CmZh
+aWx1cmVzIHJlcG9ydGVkIGJ5IG5vbGliYy10ZXN0IG9uZSBieSBvbmUgbGF0ZXIuCgpUaGlzIHdy
+YXBzIGFsbCBvZiB0aGUgZmFpbGVkIHN5c2NhbGwgbWFjcm9zIHdpdGggJyNpZmRlZicgYW5kICdy
+ZXR1cm4KLUVOT1NZUycgZm9yIHRoZSAnI2Vsc2UnIGJyYW5jaCwgc28sIGFsbCBvZiB0aGUgdW5k
+ZWNsYXJlZCBmYWlsdXJlcyBhcmUKZml4ZWQuCgpTdWdnZXN0ZWQtYnk6IEFybmQgQmVyZ21hbm4g
+PGFybmRAYXJuZGIuZGU+Ckxpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2
+LzVlN2QyYWRmLWU5NmYtNDFjYS1hNGM2LTVjODdhMjVkNGM5Y0BhcHAuZmFzdG1haWwuY29tLwpS
+ZXZpZXdlZC1ieTogQXJuZCBCZXJnbWFubiA8YXJuZEBhcm5kYi5kZT4KU2lnbmVkLW9mZi1ieTog
+WmhhbmdqaW4gV3UgPGZhbGNvbkB0aW55bGFiLm9yZz4KLS0tCiB0b29scy9pbmNsdWRlL25vbGli
+Yy9zeXMuaCB8IDEyICsrKysrKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDEyIGluc2VydGlvbnMo
+KykKCmRpZmYgLS1naXQgYS90b29scy9pbmNsdWRlL25vbGliYy9zeXMuaCBiL3Rvb2xzL2luY2x1
+ZGUvbm9saWJjL3N5cy5oCmluZGV4IDc4Yzg2ZjEyNDMzNS4uNTQ2NGY5M2U4NjNlIDEwMDY0NAot
+LS0gYS90b29scy9pbmNsdWRlL25vbGliYy9zeXMuaAorKysgYi90b29scy9pbmNsdWRlL25vbGli
+Yy9zeXMuaApAQCAtNTU0LDcgKzU1NCwxMSBAQCBsb25nIGdldHBhZ2VzaXplKHZvaWQpCiBzdGF0
+aWMgX19hdHRyaWJ1dGVfXygodW51c2VkKSkKIGludCBzeXNfZ2V0dGltZW9mZGF5KHN0cnVjdCB0
+aW1ldmFsICp0diwgc3RydWN0IHRpbWV6b25lICp0eikKIHsKKyNpZmRlZiBfX05SX2dldHRpbWVv
+ZmRheQogCXJldHVybiBteV9zeXNjYWxsMihfX05SX2dldHRpbWVvZmRheSwgdHYsIHR6KTsKKyNl
+bHNlCisJcmV0dXJuIC1FTk9TWVM7CisjZW5kaWYKIH0KIAogc3RhdGljIF9fYXR0cmlidXRlX18o
+KHVudXNlZCkpCkBAIC02NzIsNyArNjc2LDExIEBAIGludCBsaW5rKGNvbnN0IGNoYXIgKm9sZCwg
+Y29uc3QgY2hhciAqbmV3KQogc3RhdGljIF9fYXR0cmlidXRlX18oKHVudXNlZCkpCiBvZmZfdCBz
+eXNfbHNlZWsoaW50IGZkLCBvZmZfdCBvZmZzZXQsIGludCB3aGVuY2UpCiB7CisjaWZkZWYgX19O
+Ul9sc2VlawogCXJldHVybiBteV9zeXNjYWxsMyhfX05SX2xzZWVrLCBmZCwgb2Zmc2V0LCB3aGVu
+Y2UpOworI2Vsc2UKKwlyZXR1cm4gLUVOT1NZUzsKKyNlbmRpZgogfQogCiBzdGF0aWMgX19hdHRy
+aWJ1dGVfXygodW51c2VkKSkKQEAgLTEzMzgsNyArMTM0NiwxMSBAQCBpbnQgdW5saW5rKGNvbnN0
+IGNoYXIgKnBhdGgpCiBzdGF0aWMgX19hdHRyaWJ1dGVfXygodW51c2VkKSkKIHBpZF90IHN5c193
+YWl0NChwaWRfdCBwaWQsIGludCAqc3RhdHVzLCBpbnQgb3B0aW9ucywgc3RydWN0IHJ1c2FnZSAq
+cnVzYWdlKQogeworI2lmZGVmIF9fTlJfd2FpdDQKIAlyZXR1cm4gbXlfc3lzY2FsbDQoX19OUl93
+YWl0NCwgcGlkLCBzdGF0dXMsIG9wdGlvbnMsIHJ1c2FnZSk7CisjZWxzZQorCXJldHVybiAtRU5P
+U1lTOworI2VuZGlmCiB9CiAKIHN0YXRpYyBfX2F0dHJpYnV0ZV9fKCh1bnVzZWQpKQotLSAKMi4y
+NS4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
