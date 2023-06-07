@@ -4,48 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 814E7C7EE25
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 04:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4C3BC7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 05:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xZax4/xZQktnGpVY1nDvU4Eew8W48aMZTzQ94t2EFsk=; b=COc6IlZno10oAG
-	mJ6rkok7iD1E7kqDT7ESiP3JTuHP314RY5oJcMbL+s4JUgttcON3YW7ELYYCU/B3wFCjCPx0xw5rI
-	4sQkPYieiH4ATXM2MFt02qjpIMuMlbnNe9xYl1mYJNAnIfFBZXwdiwSbn5oKfV2ib7nKeV32Wptzc
-	3inSkBPsdNpfgJBv24KvN5x/OZfs++Du8l74rXBTscWKppIekuBgheoLZ2q6ssMEhLRHAu1K2+Hep
-	Wudu0Biv78vAKWHPdF5CJlczwbh8bVJxhTvzFgZBHdTGAAuJVZZZ+H6MepgnygP4Vopj3KYtoyQTL
-	/tGwE0rYBvB8eF0KHVmw==;
+	List-Owner; bh=G10buMTf6El06h9j3tiYOkqsxXM78QFk/tXNzq6VZP0=; b=iv5ynxJVjLttCe
+	UY16/4R2ZgoKir4uX/LB1obeAoS7cQOFk4lTmoFBBiFRJTtO3J60Dtd4QhXqd7c1BgQ65bYRg8RLA
+	i0P69/59Ewpv/Za5ncGLJbMkCR+uoS1wDWGQzpkORg69YatGj01wKLxC2A3iTkDctxhIKcwP8P9TN
+	5FwggmNNSbzlmwIejftcDI1tZ/KbOco4zShtUOibCcBLfDKmThnxTjjoE9OuqYXI53yI/uTVECUTb
+	CMU83k9I51G7eGrIw09SMzPBOQqCp617pPB+yCm5JmAe+mRQD5mB3F5DT0TnNKx8FO6onm6C7WsxV
+	B7/nIliQCpqq+m5wc2Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6kbn-004GsY-3A;
-	Wed, 07 Jun 2023 04:17:19 +0000
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6kbl-004Grq-1y
+	id 1q6lLA-004NQZ-2i;
+	Wed, 07 Jun 2023 05:04:12 +0000
+Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q6lL8-004NPQ-1Q
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 04:17:19 +0000
-Received: (from willy@localhost)
-	by mail.home.local (8.17.1/8.17.1/Submit) id 3574HDVJ030768;
-	Wed, 7 Jun 2023 06:17:13 +0200
-Date: Wed, 7 Jun 2023 06:17:13 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Zhangjin Wu <falcon@tinylab.org>
-Cc: arnd@arndb.de, thomas@t-8ch.de, linux-kernel@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 3/3] selftests/nolibc: riscv: customize makefile for
- rv32
-Message-ID: <ZIAEybZdXywKv43C@1wt.eu>
-References: <20230606120755.548017-1-falcon@tinylab.org>
- <20230607012032.585223-1-falcon@tinylab.org>
+	Wed, 07 Jun 2023 05:04:11 +0000
+Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-777ac4344f9so93702839f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Jun 2023 22:04:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1686114248; x=1688706248;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ee1qHw85e1eBuIdTgig6finUlPCk2EHIHBldhRjpTW8=;
+        b=OlSi4zFOBdfhM/9fHTRPXVQIgMX47mJAkJXrVv5KF5pz/WxqZXoQCduHEFKhManpO7
+         KTDg0Z6xT7TBRvCR9p09OHs7kQwsLLqr7TuD/ckBw/BWx/xl+T2CPih3OovP4CZszGqd
+         9PU2ldNC1ZZZjbMfqbWLne60ymEHFiHGCPZVOhJg8P8nF6kg+xZpAiLR8RMjYP9VfpEN
+         MeExXgXTBydcEj2ruDuphqNm4tksbGuBygXxlE/7NFXdkOkmO9PgkUI56MiSz5yIfVgQ
+         s3g7Sa4CCWcSk02uIqrXWSCp8J0DBgb8VCalYMSaBUbweLU0fyKDymtRwxtUir/gt/K7
+         CfZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686114248; x=1688706248;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ee1qHw85e1eBuIdTgig6finUlPCk2EHIHBldhRjpTW8=;
+        b=KT6xJICIvxx8oeWL/9eq63T58RsKrGXrHncTl22g8EXNG4VMqEo24Wy1IF7yeDZuyR
+         NzsVpANPtASvZb3QqF32pgF3LRdeKPSCRiqJ/4p7OghuO7PD/auDRm5R/5KhAYuFXBM/
+         nq/Q3SwFda6JJ3ro7jDBGOHbnidDxuoITFc1l3+7lkXCe2uyJEIPKGz2Z6XOkPg4rjq/
+         NtnxG8EWNIo8p9qm+NPyt14dlDG6Vv9bsOLcSy3nvHPUCWwRGq15Zad94m/catpqOynp
+         Frg1kuL1CE4KFpSO/A1QKfcDD93h0pzCzLORsHVGNLeSK98rQgPdwfVUTHJUp2CVx7Xy
+         74bA==
+X-Gm-Message-State: AC+VfDxvpEBOw/KCEFGi6vWjyOVy0/PLJCxA7M6OIGQ/xjtwFzpimxlN
+	9K0XfGZm2FYaGmvOjQJnJHIszs75FGJicMLBM32Mkg==
+X-Google-Smtp-Source: ACHHUZ4Z/iohestmpyscDyMKSE2JiJGGdU65tjAlQFbm9eJHYAacPAnDBkWRMxzeQTL6/kERoYlX3w==
+X-Received: by 2002:a05:6870:c82b:b0:19f:1947:551 with SMTP id ee43-20020a056870c82b00b0019f19470551mr3995485oab.6.1686113763954;
+        Tue, 06 Jun 2023 21:56:03 -0700 (PDT)
+Received: from sunil-laptop ([106.51.83.242])
+        by smtp.gmail.com with ESMTPSA id ed43-20020a056870b7ab00b001726cfeea97sm5564537oab.29.2023.06.06.21.55.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Jun 2023 21:56:03 -0700 (PDT)
+Date: Wed, 7 Jun 2023 10:25:56 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v1 -next 1/2] RISC-V: ACPI : Fix for usage of pointers in
+ different address space
+Message-ID: <ZIAN3OHhPbvgj0uV@sunil-laptop>
+References: <20230605143512.707533-1-sunilvl@ventanamicro.com>
+ <20230605143512.707533-2-sunilvl@ventanamicro.com>
+ <20230606-conduit-cupped-1791a640713b@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230607012032.585223-1-falcon@tinylab.org>
+In-Reply-To: <20230606-conduit-cupped-1791a640713b@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_211718_244338_D428B2ED 
-X-CRM114-Status: GOOD (  29.45  )
+X-CRM114-CacheID: sfid-20230606_220410_484801_A54DEC97 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,129 +101,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Conor,
 
-On Wed, Jun 07, 2023 at 09:20:32AM +0800, Zhangjin Wu wrote:
-> Arnd, Thomas, Willy
+On Tue, Jun 06, 2023 at 04:35:29PM +0100, Conor Dooley wrote:
+> Hey Sunil,
 > 
-> > > >     +# Additional ARCH settings for riscv
-> > > >     +ifeq ($(ARCH),riscv32)
-> > > >     +        SRCARCH := riscv
-> > > >     +endif
-> > > >     +ifeq ($(ARCH),riscv64)
-> > > >     +        SRCARCH := riscv
-> > > >     +endif
-> > > >     +
-> > > >      export cross_compiling :=
-> > > >      ifneq ($(SRCARCH),$(SUBARCH))
-> > > >      cross_compiling := 1
-> > >
-> > > I've never been a big fan of the top-level $(ARCH) setting
-> > > in the kernel, is there a reason this has to be the same
-> > > as the variable in tools/include/nolibc? If not, I'd just
-> > > leave the Linux Makefile unchanged.
-> > >
-> > > For userspace we have a lot more target names than
-> > > arch/*/ directories in the kernel, and I don't think
-> > > I'd want to enumerate all the possibilities in the
-> > > build system globally.
+> On Mon, Jun 05, 2023 at 08:05:11PM +0530, Sunil V L wrote:
+> > The arch specific __acpi_map_table can be wrapper around either
+> > early_memremap or early_ioremap. But early_memremap
+> > routine works with normal pointers whereas __acpi_map_table expects
+> > pointers in iomem address space. This causes kernel test bot to fail
+> > while using the sparse tool. Fix the issue by using early_ioremap and
+> > similar fix done for __acpi_unmap_table.
+> > 
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Closes: https://lore.kernel.org/oe-kbuild-all/202305201427.I7QhPjNW-lkp@intel.com/
+> 
+> Is this
+> Fixes: a91a9ffbd3a5 ("RISC-V: Add support to build the ACPI core")
+> ?
+Yes, I missed it. Will add.
 
-Actually it's not exactly used by nolibc, except to pass to the kernel
-for the install part to extract kernel headers (make headers_install).
-It's one of the parts that has required to stick to most of the kernel's
-variables very closely (the other one being for nolibc-test which needs
-to build a kernel).
-
-> Good news, I did find a better solution without touching the top-level
-> Makefile, that is overriding the ARCH to 'riscv' just before the targets
-> and after we got the necessary settings with the original ARCH=riscv32
-> or ARCH=riscv64, but it requires to convert the '=' assignments to ':=',
-> which is not that hard to do and it is more acceptable, just verified it
-> and it worked well.
-> 
->     ...
-> 
->      LDFLAGS := -s
-> 
->     +# top-level kernel Makefile only accept ARCH=riscv, override ARCH to make kernel happy
->     +ifneq ($(findstring riscv,$(ARCH)),)
->     +override ARCH := riscv
->     +endif
->     +
-
-That can be one approach indeed. Another one if we continue to face
-difficulties for this one would be to use a distinct KARCH variable
-to assign to ARCH in all kernel-specific operations.
-
->      help:
->             @echo "Supported targets under selftests/nolibc:"
->             @echo "  all          call the \"run\" target below"
-> 
-> This change is not that big, and the left changes can keep consistent with the
-> other platforms. but I still need to add a standalone patch to convert the '='
-> to ':=' to avoid the before setting using our new overridded ARCH.
-
-I don't even see why the other ones below are needed, given that as
-long as they remain assigned as macros, they will be replaced in-place
-where they are used, so they will reference the last known assignment
-to ARCH.
-
->     ++ b/tools/testing/selftests/nolibc/Makefile
->     @@ -26,7 +26,7 @@ IMAGE_riscv64    = arch/riscv/boot/Image
->      IMAGE_riscv      = arch/riscv/boot/Image
->      IMAGE_s390       = arch/s390/boot/bzImage
->      IMAGE_loongarch  = arch/loongarch/boot/vmlinuz.efi
->     -IMAGE            = $(IMAGE_$(ARCH))
->     +IMAGE           := $(IMAGE_$(ARCH))
->      IMAGE_NAME       = $(notdir $(IMAGE))
-> 
->      # default kernel configurations that appear to be usable
->     @@ -41,7 +41,7 @@ DEFCONFIG_riscv64    = defconfig
->      DEFCONFIG_riscv      = defconfig
->      DEFCONFIG_s390       = defconfig
->      DEFCONFIG_loongarch  = defconfig
->     -DEFCONFIG            = $(DEFCONFIG_$(ARCH))
->     +DEFCONFIG           := $(DEFCONFIG_$(ARCH))
-> 
->      # optional tests to run (default = all)
->      TEST =
->     @@ -58,7 +58,7 @@ QEMU_ARCH_riscv64    = riscv64
->      QEMU_ARCH_riscv      = riscv64
->      QEMU_ARCH_s390       = s390x
->      QEMU_ARCH_loongarch  = loongarch64
->     -QEMU_ARCH            = $(QEMU_ARCH_$(ARCH))
->     +QEMU_ARCH           := $(QEMU_ARCH_$(ARCH))
-> 
->      # QEMU_ARGS : some arch-specific args to pass to qemu
->      QEMU_ARGS_i386       = -M pc -append "console=ttyS0,9600 i8042.noaux panic=-1 $(TEST:%=NOLIBC_TEST=%)"
->     @@ -72,7 +72,7 @@ QEMU_ARGS_riscv64    = -M virt -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_T
->      QEMU_ARGS_riscv      = -M virt -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
->      QEMU_ARGS_s390       = -M s390-ccw-virtio -m 1G -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
->      QEMU_ARGS_loongarch  = -M virt -append "console=ttyS0,115200 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
->     -QEMU_ARGS            = $(QEMU_ARGS_$(ARCH)) $(QEMU_ARGS_EXTRA)
->     +QEMU_ARGS           := $(QEMU_ARGS_$(ARCH)) $(QEMU_ARGS_EXTRA)
-> 
->      # OUTPUT is only set when run from the main makefile, otherwise
->      # it defaults to this nolibc directory.
->     @@ -87,11 +87,18 @@ endif
->      CFLAGS_riscv32 = -march=rv32im -mabi=ilp32
->      CFLAGS_s390 = -m64
->      CFLAGS_STACKPROTECTOR ?= $(call cc-option,-mstack-protector-guard=global $(call cc-option,-fstack-protector-all))
->     -CFLAGS  ?= -Os -fno-ident -fno-asynchronous-unwind-tables -std=c89 \
->     +CFLAGS_default := -Os -fno-ident -fno-asynchronous-unwind-tables -std=c89 \
->                     $(call cc-option,-fno-stack-protector) \
->                     $(CFLAGS_$(ARCH)) $(CFLAGS_STACKPROTECTOR)
->     +
->     +CFLAGS  ?= $(CFLAGS_default)
-
-Why did you need to split this one like this instead of proceeding
-like for the other ones ? Because of the "?=" maybe ? Please
-double-check that you really need to turn this from a macro to a
-variable, if as I suspect it it's not needed, it would be even
-simpler.
-
-Thanks,
-Willy
+Thanks!
+Sunil
 
 _______________________________________________
 linux-riscv mailing list
