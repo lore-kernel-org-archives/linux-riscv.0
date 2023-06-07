@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDEBC77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 05:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B8DC77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 05:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9gQrtScmt19n9MS7BG43ufkq2MpoLbRjAedgg5CDq7s=; b=POsrwvQVVTYVG/
-	/cdufjmxVQMKmhkO4wQqlki20e2i2AtwSMRAk2R8ln8wihGVJia02o8SAx6LZBBIrjkbDi/JBGKn/
-	zTjBMtulJfAhcJABbQb02gGy23O3XqgAPngUpTkwG2edY/0IbcRZ/vc8pdOWh8ljZdK/wZTzCX+1W
-	2WsPdX+ko8gaebaUZaE4L9ZL7QklWDcyxo7ZpAl4fxW0AwP3lvBl5Xc0h5HMr8E2eK2XUAIoBhO/T
-	0YXoeF0sV77rGhFCJg/Qc4wSrED52N+44B4W9slBVzmNbrrG2fh4/b89nv7+GbYtYmqA3ghOPPc/h
-	aJsBMmt9AySbzwZA8Dew==;
+	List-Owner; bh=8wkTlDjYOxsT6Uzt4olTWu2rjlLGYNoM2Qq+wZjeirc=; b=hCeUoS6HDKDVoa
+	OHDVz/XPKFf6GUyX3S18cqkCRsqdvtN5qlzbIVBJtLPhO0NIV2E/Muq7mo7SAk7ny/qHZC9/HKJ8u
+	FgjzyuCpJ5Nvtgl42L9qOeyV8UclCJ8z9h922+qR0RHzwrrZ0ExV8EWo5iSOjW5eXzkVv/I9AYVzO
+	M0UTYb0qVWkiH6R32UcDSdWrkkiCIC+CdKk/xk6MMSoqIm78+jyiaraeimVMz5m+Wt6FeWeWa1FDM
+	0j4+KISFyZ38Q4Y5b8+2deQ2NON3MySXhI5gQrUpbmSXWRxZ8dQn4cG7kyqWInX+tz1NXWycHXfQ7
+	uqF3VL+lbGE4be/Wncnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6ltc-004S5u-39;
-	Wed, 07 Jun 2023 05:39:48 +0000
+	id 1q6m5p-004Tob-1i;
+	Wed, 07 Jun 2023 05:52:25 +0000
 Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6ltZ-004S3w-2L
+	id 1q6m5k-004Tmy-22
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 05:39:47 +0000
-X-QQ-mid: bizesmtp83t1686116362t3310e0v
+	Wed, 07 Jun 2023 05:52:24 +0000
+X-QQ-mid: bizesmtp70t1686117122tlw2aohn
 Received: from linux-lab-host.localdomain ( [61.141.77.49])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 07 Jun 2023 13:39:20 +0800 (CST)
+	id ; Wed, 07 Jun 2023 13:52:00 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: pQPC2yl/OPKHnEh0fu3Xx+jOViHnsOolz5ZP698W9YEzxBo2d2Sj6Ako9agp4
-	HhQVLy0P7NcbJ7WM0j4C3bDh/L8eXj+GG1DSBNrSLdzg2dKC+5AVjps/hs2AZ3xvav4rrzn
-	+uqbh8unqZcF3L3nLpALMjPc3b8Rd5uKcGNjAlWKL3X4fOx3z7GUDvl+JPaRAfjDuOPGY3x
-	CvKdR2AIXZC4lIVJ6zxzCagzEnKLVbtSjFO1nLsguI7TD1LSLS6Q/H2DvhyTt289oT5S59m
-	WnfHrmKJBe/9JCs5ANlhvxI39JeQN+OpjK1iZUTr2XAKVYRBVhpfTMiKlL1YpWC9Vh0GVok
-	CvhcpaK8f8l3eZIlic8EbIV8Y6mYv60VyZRxr8L/jKdbMZ0l9PWr2/WJa96AJsDrbjEY0a9
+X-QQ-FEAT: 7L1V3dHhUFNwsCYRlWfHiijmi2tXCINUn3YioqGbuOxs/CPWofUR/InpqT49J
+	9b0cchLC0VK3ORkZ/8q/onk4NKY4mNzZCJaxDJu+EyFMxF5re0ekuIoPMp5wFYl6tYBVEj8
+	X+myOvogX1rqOB7aF76W6Mzr6O6jCfib+BpInN/83g+1nYuplhKIlCAzTuIphJG7c2RBfZq
+	12wdO26wIO08Y5LDCswdjH0U/5OKBpmqob3d6XTTI4dW1JtPmxwC96SQ20EdkaxHaVXruKx
+	nbF3H8KOyLwDs0GnIMlOFRpgQCNHFYDVt3wftQILgXQzRAHpOwlzSayojXwFnaYeVo9xapm
+	78TRVoBIoJKAKQHPl7ejgG6RYWjp66ZUDiOvSCPrese08cpbFHlp1Yt+mOqVAV1qfC7P8Ye
+	F+VzuWsvtfA=
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 287981042937728525
+X-BIZMAIL-ID: 18357036349121096708
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
+Cc: falcon@tinylab.org,
+	arnd@arndb.de,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	thomas@t-8ch.de
-Subject: Re: [PATCH v2 4/4] tools/nolibc: sys.h: apply __syscall() helper
-Date: Wed,  7 Jun 2023 13:39:20 +0800
-Message-Id: <20230607053920.667272-1-falcon@tinylab.org>
+Subject: Re: [PATCH 1/4] selftests/nolibc: add a test-report target
+Date: Wed,  7 Jun 2023 13:52:00 +0800
+Message-Id: <20230607055200.667447-1-falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ZIAB7bFYegCuXT9g@1wt.eu>
-References: <ZIAB7bFYegCuXT9g@1wt.eu>
+In-Reply-To: <20230605065459.153001-1-falcon@tinylab.org>
+References: <20230605065459.153001-1-falcon@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_223946_088503_65FC55AE 
-X-CRM114-Status: GOOD (  43.85  )
+X-CRM114-CacheID: sfid-20230606_225220_986052_BE26BA00 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,151 +77,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Wed, Jun 07, 2023 at 08:34:06AM +0800, Zhangjin Wu wrote:
-> > > Hi Zhangjin,
+Hi, Willy
+
+> > On Mon, Jun 05, 2023 at 11:48:52AM +0800, Zhangjin Wu wrote:
+> > > A standalone test-report target is added to let the run, run-user and
+> > > rerun targets share them.
 > > > 
-> > > On 2023-06-06 16:17:38+0800, Zhangjin Wu wrote:
-> > > > Use __syscall() helper to shrink 252 lines of code.
-> > > > 
-> > > >     $ git show HEAD^:tools/include/nolibc/sys.h | wc -l
-> > > >     1425
-> > > >     $ git show HEAD:tools/include/nolibc/sys.h | wc -l
-> > > >     1173
-> > > >     $ echo "1425-1173" | bc -l
-> > > >     252
-> > > > 
-> > > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> > > > ---
-> > > >  tools/include/nolibc/sys.h | 336 +++++--------------------------------
-> > > >  1 file changed, 42 insertions(+), 294 deletions(-)
-> > > > 
-> > > > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-> > > > index f6e3168b3e50..0cfc5157845a 100644
-> > > > --- a/tools/include/nolibc/sys.h
-> > > > +++ b/tools/include/nolibc/sys.h
-> > > > @@ -108,13 +108,7 @@ int sys_chdir(const char *path)
-> > > >  static __attribute__((unused))
-> > > >  int chdir(const char *path)
-> > > >  {
-> > > > -	int ret = sys_chdir(path);
-> > > > -
-> > > > -	if (ret < 0) {
-> > > > -		SET_ERRNO(-ret);
-> > > > -		ret = -1;
-> > > > -	}
-> > > > -	return ret;
-> > > > +	return __syscall(chdir, path);
+> > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > > ---
+> > >  tools/testing/selftests/nolibc/Makefile | 26 ++++++++++++-------------
+> > >  1 file changed, 13 insertions(+), 13 deletions(-)
 > > > 
-> > > To be honest I'm still not a big fan of the __syscall macro.
-> > > It's a bit too magic for too little gain.
-> > > 
-> > > The commit message argues that the patches make the code shorter.
-> > > 
-> > > However doing 
-> > > 
-> > > __sysret(sys_chdir(path));
-> > > 
-> > > instead of
-> > > 
-> > > __syscall(chdir, path);
-> > > 
-> > > is only three characters longer and the same amout of lines.
-> > >
+> > > diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
+> > > index be4159837494..8149ace2938a 100644
+> > > --- a/tools/testing/selftests/nolibc/Makefile
+> > > +++ b/tools/testing/selftests/nolibc/Makefile
+> > > @@ -127,14 +127,18 @@ nolibc-test: nolibc-test.c sysroot/$(ARCH)/include
+> > >  libc-test: nolibc-test.c
+> > >  	$(QUIET_CC)$(CC) -o $@ $<
+> > >  
+> > > -# qemu user-land test
+> > > -run-user: nolibc-test
+> > > -	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
+> > > +test-report:
+> > >  	$(Q)awk '/\[OK\]$$/{p++} /\[FAIL\]$$/{f++} /\[SKIPPED\]$$/{s++} \
+> > >  	         END{ printf("%d test(s) passed, %d skipped, %d failed.", p, s, f); \
+> > >  	         if (s+f > 0) printf(" See all results in %s\n", ARGV[1]); else print; }' \
+> > >  	         $(CURDIR)/run.out
+> > >  
+> > > +# qemu user-land test
+> > > +_run-user: nolibc-test
+> > > +	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
+> > > +
+> > > +run-user: _run-user test-report
+> > > +
 > > 
-> > Yeah, I do like your version too, it looks consise too, the only not
-> > comfortable part is there are dual calls in one line.
+> > This will not reliably work, there's no ordering here, nothing guarantees
+> > that test-report will run *after* _run-user (e.g. make -j). Another
+> > approach is needed if you want to factor this, but in general creating
+> > sequences in makefiles is difficult and often more painful than having
+> > 3 times the same 3 lines.
+> >
 > 
-> For those who want to debug, having less macros or magic stuff is always
-> better, and in this essence I too find that Thomas' version is more
-> expressive about what is being done. Also, if some syscalls require a
-> specific handling (e.g. mmap() needs to return MAP_FAILED instead), it's
-> much easier to change only the code dealing with the return value and
-> errno setting than having to guess how to reimplement what was magically
-> done in a macro.
+> Ok, thanks, what about this?
+> 
+>     # LOG_REPORT: report the test results
+>     LOG_REPORT   := awk '/\[OK\][\r]*$$/{p++} /\[FAIL\][\r]*$$/{f++} /\[SKIPPED\][\r]*$$/{s++} \
+> 	                 END{ printf("%d test(s) passed, %d skipped, %d failed.", p, s, f); \
+> 	                 printf(" See all results in %s\n", ARGV[1]); }'
+> 
+>     run-user: nolibc-test
+> 	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
+> 	$(Q)$(LOG_REPORT) $(CURDIR)/run.out
+> 
+>     run: kernel
+> 	$(Q)qemu-system-$(QEMU_ARCH) -display none -no-reboot -kernel "$(srctree)/$(IMAGE)" -serial stdio $(QEMU_ARGS) > "$(CURDIR)/run.out"
+> 	$(Q)$(LOG_REPORT) $(CURDIR)/run.out
+> 
+>     rerun:
+> 	$(Q)qemu-system-$(QEMU_ARCH) -display none -no-reboot -kernel "$(srctree)/$(IMAGE)" -serial stdio $(QEMU_ARGS) > "$(CURDIR)/run.out"
+> 	$(Q)$(LOG_REPORT) $(CURDIR)/run.out
+> 
+> Or we directly add a standalone test report script? something like
+> tools/testing/selftests/nolibc/report.sh
+> 
+>     #!/bin/sh
+>     #
+>     # report.sh -- report the test results of nolibc-test
+>     #
+>     
+>     LOG_FILE=$1
+>     [ ! -f "$LOG_FILE" ] && echo "Usage: $0 /path/to/run.out"
+>     
+>     awk '
+>         /\[OK\][\r]*$$/{ p++ }
+>         /\[FAIL\][\r]*$$/{ f++ }
+>         /\[SKIPPED\][\r]*$$/{ s++ }
+>     
+>         END {
+>             printf("%d test(s) passed, %d skipped, %d failed.", p, s, f);
+>             printf(" See all results in %s\n", ARGV[1]);
+>         }' $LOG_FILE
+> 
+> And use it like this:
+> 
+>     LOG_REPORT           = $(CURDIR)/report.sh
 >
 
-Ok, so, let's go with Thomas' version ;-)
+I plan to renew this patchset, which one of the above methods do you
+prefer?
 
-> > > Otherwise we would have syscall() _syscall() and __syscall() each doing
-> > > different things.
-> > >
-> > 
-> > Yes, I'm worried about this too, although the compilers may help a
-> > little, but it is too later.
-> 
-> The issue is for the person who remembers "I need to use 'syscall'" but
-> never remembering the number of underscores nor the variations.
+For the always print statement:
 
-Yeah, it is hard to remember.
+    printf(" See all results in %s\n", ARGV[1]); }'
 
-> 
-> > Just brain storming, What about another non-similar name, for example,
-> > __syswrap() or __sysin() ?
-> > 
-> > Or even convert __sysret() to __sysout() and __syscall() to __sysin(),
-> > do you like it? or even __sysexit(), __sysentry(), but the __sysexit()
-> > may be misused with sys_exit().
-> 
-> I'd rather use "__set_errno()" to explicitly mention that it's only
-> used to set errno, but sysret would be fine as well IMHO as if we're
-> purist, it also normalizes the return value.
->
+I will paste the reason why I need it, as mentioned in [1], if you still
+need a clean test report, I will give up this change ;-)
 
-Ok, let's take the shorter sysret() seems no similar sys_xxx calls.
-
-> >     /* Syscall return helper, set errno as -ret when ret < 0 */
-> >     static __inline__ __attribute__((unused, always_inline))
-> >     long __sysout(long ret)
-> >     {
-> >     	if (ret < 0) {
-> >     		SET_ERRNO(-ret);
-> >     		ret = -1;
-> >     	}
-> >     	return ret;
-> >     }
-> >     
-> >     /* Syscall call helper, use syscall name instead of syscall number */
-> >     #define __sysin(name, ...) __sysout(sys_##name(__VA_ARGS__))
-> > 
-> >     static __attribute__((unused))
-> >     int brk(void *addr)
-> >     {
-> >     	return __sysout(sys_brk(addr) ? 0 : -ENOMEM);
-> >     }
-> > 
-> >     static __attribute__((unused))
-> >     int chdir(const char *path)
-> >     {
-> >     	return __sysin(chdir, path);
-> >     }
-> 
-> I still don't find this intuitive at all.
-> 
-> > If we really want something like __syscall()/__sysret(), I do think they
-> > should be a pair ;-)
-> 
-> Then one being called "call" while the other one being "ret" do form a
-> pair, no ?
-
-The 'ret' currently is a part of our old '__syscall', seems not that like a
-'pair', it differs from entry/exit ;-)
-
-As a summary, will use 'sysret()' and something like:
-
-   static __attribute__((unused))
-   int chdir(const char *path)
-   {
-   	return sysret(chdir(path));
-   }
-
-to renew the syscall helper patchset, Thanks you very much.
-
-Best regards,
+Thanks,
 Zhangjin
+---
+[1]: https://lore.kernel.org/linux-riscv/20230605070508.153407-1-falcon@tinylab.org/ 
 
-> 
-> Thanks,
-> Willy
+> Best regards,
+> Zhangjin
+>
+> > Willy
 
 _______________________________________________
 linux-riscv mailing list
