@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9507DC77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 19:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5184EC7EE43
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 20:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FyhrpI/6o55AQdaoZaNdZJfxg9aDPTioAPUXGH3i9ZM=; b=0kFhJmi6BZr3I7
-	65jgms67ysTJZUldWndorpAwe/6Qf86tyZgm0Rd/d4QHW/cnF3rCdlVOjtqBMa9wTI2Wur4KrKuuU
-	DLiJTGMbx2WJxf+qtJCCZhHyHhMZ70R6yoWEEId4ITXISIOuU9Ym2Lw5HvngAvU6CJdek/pSILSfU
-	6qyEZQX59+HktNtfRfZjqO2OjO4xluxLQmCldO4vj+/8GR3uFO/iiVKY9nRdD0y8XpuzcckqXsFT5
-	ZtzEzocZGl23eZnRqsRrb+pbBOfcTplDMPvuRyZMdp2GBJoooKYOA7EcD2Cmx64CsftlWLcS6Ai9N
-	FSTjwcL52gw/zDxsXuyg==;
+	List-Owner; bh=orFZdCgi0k8uO7gswWd7mMT1OhxncMhm9uB77xxemtA=; b=eKCknBlIA+Y6nf
+	H5L54s5nGKFDgH6KHrlENtS0MPqF4FeNUsssCntBJZXOK/PeGVtK1uHuQMRH8RQLmHMPVCpGLA2ZV
+	LeDjyUupWQfdlz9NnmtqQ7NtVvof5w3Ke8GSj8AOdc2QRRTO/hVO8MEcjQFWBR0ZK8LzeqMifDqAE
+	ickAgIE9lffVMkYFjV3IPNJWoRHuajVxvFYQTxzuux+Fr9JC+O+h2xynrNm1BK2CNkzLCOdmaMWvr
+	n4OnbeyWFqDYef2ZBSk/37q03B86h5VkyqNBzOct66k7/TupDzxZqRX9nUkaZ222kXoNdvh08cQfH
+	kDAWL0z0bAuIz5Y6cG3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6zB0-0071Na-2k;
-	Wed, 07 Jun 2023 19:50:38 +0000
-Received: from mail-il1-f176.google.com ([209.85.166.176])
+	id 1q6zOC-0073NU-08;
+	Wed, 07 Jun 2023 20:04:16 +0000
+Received: from mail-io1-f47.google.com ([209.85.166.47])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6zAx-0071Lx-1O
+	id 1q6zO7-0073M8-0v
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 19:50:37 +0000
-Received: by mail-il1-f176.google.com with SMTP id e9e14a558f8ab-33b04c8f3eeso6993835ab.0
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Jun 2023 12:50:30 -0700 (PDT)
+	Wed, 07 Jun 2023 20:04:14 +0000
+Received: by mail-io1-f47.google.com with SMTP id ca18e2360f4ac-77ac2eb07a3so55823839f.2
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Jun 2023 13:04:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686167430; x=1688759430;
+        d=1e100.net; s=20221208; t=1686168247; x=1688760247;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jxz+VSY3OchR10r0VISpQdXnKAXD7OegfTXcHZuDAYI=;
-        b=UDoKeuLhy9r17vfXjn0VnF//ziMgxTPbJFhiT44aAkF/KZ9Mayo84B0uWgTAzjQ7rb
-         9WDJ+ircO2B6xWu0H+umnSfJ6I4YvRHWYEDElrdVx8bs4e79F1vK+lo6DdpsiBcjlD+3
-         /UZwsL2J4DUbPvazvRKA0WMfDkvxfn9Ve+Wlo2pr3M38cPGHafn5vXmJPbOpnlTmgqeY
-         sRVIA3ze6YgTybTU9vJPyva31dZYLCYHw6fHs102v5CN7zimcQ0aBZRRdb6TnWtRMFWw
-         fKJlVn1pPJvbjRsVSVW8HgCRMmxQv5iyOqNpujePgB6bhGUKAymd73GVrP1wsJD5lUcI
-         oayA==
-X-Gm-Message-State: AC+VfDxDVG27A1dAbWpv0ygtHar/vMGE5sD6xpWyXNwyVG6AEj4c452J
-	C2I9GqczsA1NBw55z2kSoG0KSA1lLQ==
-X-Google-Smtp-Source: ACHHUZ6tTOede3FtgEtqDJNqsgOvBRsC+XBRPLf51VdMkdKwVWMknIrdONxR0TfLO75XXTRxbToixw==
-X-Received: by 2002:a92:d34a:0:b0:33b:820:41ad with SMTP id a10-20020a92d34a000000b0033b082041admr5387661ilh.9.1686167429947;
-        Wed, 07 Jun 2023 12:50:29 -0700 (PDT)
+        bh=raWNAi0peUWVI3Y9OrLkCkchq3HuytUBPEeFbP0ENuk=;
+        b=VF867/bIcGW7zPM8dYip5H/Yqn6NzAaH95TVEUyXwq95oZ5cGtNO4mrce9+1Y+RV1f
+         9yGh15L4/791FkqPE+Ijt2dhlWUzr8IUeZXze0K+NedcmjZEqaXD3S4ssSh27soRaxvm
+         B1pB3lGa0fCjjH0guJpfsN+AEZdrZLEm9fiQeQMg7T+6dkEVl9tqRTd9R/HE5iPa4itu
+         aBb7o5kYUyIRAo5sn3PEb+ZH9pLeQbZB6s8NK8nPaEsBHw5zSPuUswcJe36OzpJnru+/
+         5fvnPBOkUplGumONq/fnzT/BOE6jW6NZvPPYLOgF6rc5ywvrzfYQn3Bk2AhPriLBr8HE
+         qk6Q==
+X-Gm-Message-State: AC+VfDwuVXaCkr3jBkerU483Xm5l+00IJx/5Q36/NpEccDEKNf4Qgo1m
+	H6FbXxvcYIF1X0nfAGSLNg==
+X-Google-Smtp-Source: ACHHUZ45IDkIGT2Q9JMkxSSYM+aG/391kCQL1L54WXzc5BgP8ucqjIEn8nrFNK3DEjXExINnGSY8NQ==
+X-Received: by 2002:a5d:8703:0:b0:776:fc02:184e with SMTP id u3-20020a5d8703000000b00776fc02184emr6236322iom.14.1686168247383;
+        Wed, 07 Jun 2023 13:04:07 -0700 (PDT)
 Received: from robh_at_kernel.org ([64.188.179.250])
-        by smtp.gmail.com with ESMTPSA id h14-20020a926c0e000000b0033af42a969asm3910489ilc.57.2023.06.07.12.50.28
+        by smtp.gmail.com with ESMTPSA id n7-20020a02cc07000000b0041cce10544dsm3696709jap.123.2023.06.07.13.04.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jun 2023 12:50:29 -0700 (PDT)
-Received: (nullmailer pid 3907121 invoked by uid 1000);
-	Wed, 07 Jun 2023 19:50:27 -0000
-Date: Wed, 7 Jun 2023 13:50:27 -0600
+        Wed, 07 Jun 2023 13:04:06 -0700 (PDT)
+Received: (nullmailer pid 3931893 invoked by uid 1000);
+	Wed, 07 Jun 2023 20:04:03 -0000
+Date: Wed, 7 Jun 2023 14:04:03 -0600
 From: Rob Herring <robh@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-serial@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>
-Subject: Re: [PATCH v4 01/10] dt-bindings: vendor-prefixes: add bouffalolab
-Message-ID: <20230607195027.GA3894404-robh@kernel.org>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-serial@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>
+Subject: Re: [PATCH v4 06/10] dt-bindings: riscv: Add bouffalolab bl808 board
+ compatibles
+Message-ID: <20230607200403.GA3909108-robh@kernel.org>
 References: <20230518152244.2178-1-jszhang@kernel.org>
- <20230518152244.2178-2-jszhang@kernel.org>
- <a45c9193-aa63-650f-dbb3-14b6c3f74eeb@sholland.org>
- <ZGneH+ApaQVvv3SW@xhacker>
+ <20230518152244.2178-7-jszhang@kernel.org>
+ <c6e44e14-35b2-da09-5e8c-4d47e7a7a055@sholland.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZGneH+ApaQVvv3SW@xhacker>
+In-Reply-To: <c6e44e14-35b2-da09-5e8c-4d47e7a7a055@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_125035_472049_1CDB1968 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20230607_130411_324271_1D3BAA66 
+X-CRM114-Status: GOOD (  32.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +84,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 21, 2023 at 05:02:23PM +0800, Jisheng Zhang wrote:
-> On Thu, May 18, 2023 at 09:53:12PM -0500, Samuel Holland wrote:
-> > Hi Jisheng,
-> > 
-> > Thanks for updating this series!
-> > 
-> > On 5/18/23 10:22, Jisheng Zhang wrote:
-> > > In the following commits, we will support bl808 SoC which is from
-> > > Bouffalo Lab Technology (Nanjing) Co., Ltd.
-> > > 
-> > > Add bouffalolab vendor prefix binding.
-> > > 
-> > > Link: https://en.bouffalolab.com/
-> > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > ---
-> > >  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
-> > >  1 file changed, 2 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > > index 82d39ab0231b..3566346f2f9e 100644
-> > > --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > > +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> > > @@ -200,6 +200,8 @@ patternProperties:
-> > >      description: BOE Technology Group Co., Ltd.
-> > >    "^bosch,.*":
-> > >      description: Bosch Sensortec GmbH
-> > > +  "^bouffalolab,.*":
-> > > +    description: Bouffalo Lab Technology (Nanjing) Co., Ltd.
-> > 
-> > Have you thought about using the "bflb" abbreviation as the vendor
+On Thu, May 18, 2023 at 10:31:35PM -0500, Samuel Holland wrote:
+> Hi Jisheng, DT maintainers,
 > 
-> I did think about bflb vs bouffalolab. Here is what I thought: I came
-> across "marvell" vs "mrvl" sevral years ago, I got an impression
-> "marvell" vendor prefix is preferred if I read the discussions
-> correctly.
+> On 5/18/23 10:22, Jisheng Zhang wrote:
+> > Several SoMs and boards are available that feature the Bouffalolab
+> > bl808 SoC. Document the compatible strings.
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> >  .../bindings/riscv/bouffalolab.yaml           | 29 +++++++++++++++++++
+> >  1 file changed, 29 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/riscv/bouffalolab.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/riscv/bouffalolab.yaml b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
+> > new file mode 100644
+> > index 000000000000..3b25d1a5d04a
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
+> > @@ -0,0 +1,29 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/riscv/bouffalolab.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Bouffalo Lab Technology SoC-based boards
+> > +
+> > +maintainers:
+> > +  - Jisheng Zhang <jszhang@kernel.org>
+> > +
+> > +description:
+> > +  Bouffalo Lab Technology SoC-based boards
+> > +
+> > +properties:
+> > +  $nodename:
+> > +    const: '/'
+> > +  compatible:
+> > +    oneOf:
+> > +      - description: Carrier boards for the Sipeed M1s SoM
+> > +        items:
+> > +          - enum:
+> > +              - sipeed,m1s-dock
+> > +          - const: sipeed,m1s
+> > +          - const: bouffalolab,bl808
 > 
-> As for Bouffalolab vendor prefix, I have no preference, maybe DT
-> maintainers can provide inputs here.
-> Rob, Conor, Krzysztof, what's your opinion?
+> As mentioned in the message for patch 5, "The Bouffalolab bl808 SoC
+> contains three riscv CPUs, namely M0, D0 and LP. The D0 is 64bit RISC-V
+> GC compatible, so can run linux."
+> 
+> I have also been running U-Boot and NOMMU Linux on the less powerful,
+> but still quite fast, "M0" core. However, this core needs a different
+> DTB because:
+>  1) The CPU is different (T-HEAD E907 instead of C906).
+>  2) The interrupt routing is completely different.
+>     a. The M0 core contains a CLIC instead of a PLIC.
+>     b. The peripherals in the SoC are split between two buses. Those
+>        on one bus have their IRQs directly connected to M0, and share
+>        a multiplexed IRQ connection to D0; and vice versa for the
+>        other bus. So each bus's interrupt-parent needs to be swapped.
 
-The general preference is to match the vendor's domain name (minus the 
-.com, etc.). Originally, the preference was stock ticker symbol, but 
-we've pretty much moved away from that.
+Can't you include the dts file and then just override 
+'interrupt-parent'? 
 
-So that's 'bouffalolab'.
+> Using some preprocessor magic like we did for Allwinner and Renesas, I
+> was able to share most of the SoC and board DTs between the cores[1].
+> However, this still ends up with two DTs for each board. So here are my
+> questions:
+>  - Is this acceptable?
+>  - Is there precedent for how we should name the two board DTs?
+>  - How does this affect the board and SoC compatible strings?
+>    - Should there be a separate "bouffalolab,bl808-d0" in addition to
+>      "bouffalolab,bl808"?
 
-Acked-by: Rob Herring <robh@kernel.org>
+Probably. A DT is ultimately the view of the hardware from a CPU's 
+perspective. Different views, different compatibles.
+
+>    - Is it acceptable to use the same board compatible string for both,
+>      since the _board_ part of the DT does not change, only things
+>      inside the SoC?
+
+Yes.
+
+> 
+> It would be possible to avoid having two DTs per board by guarding all
+> of the differences behind "#ifdef CONFIG_64BIT", but that seems wrong
+> because you would end up with two totally incompatible DTBs named the
+> same thing, depending on how the DTB was built.
+
+You can't have CONFIG_ options in .dts files.
 
 Rob
 
