@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96D9C7EE29
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 06:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF5EC7EE29
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 06:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rZDrLLpvnAshhnXiyY2n8k4+xXH6q2ufXl5Ioc3skoA=; b=EWh/OzaZWkWrRn
-	eCNJ6SOjsmxdSk52j/YEDRR9rT6XkiFIw7RNnDGVgrywbwB1wJBQoR+Y5nEloQlyr7JtdteQkkBIr
-	HEK4ddzxDmKcBXGI/jOzmgRu8hwv5yma3onoMa0iNGpnCIEPt763Oehi/S8Zy1ReqI+3yKcNRwPso
-	exuhjqHfgOfQEYTa/aA1E5h5GP0+AFA+FdPONYOom8+BWuEgnVGAtqj74mtL2SqbR982XzMt/Qht0
-	OFFE+u4n8vRCWDxvg7s80IRQ2S1yIA//aX+Pt2KvBxfNhQvFBIl0Bd9Pruiz8/qk4HDnKDkiEIqPm
-	9XqLRbil06noTuJ8qB5A==;
+	List-Owner; bh=gjq5Dm8ZN9AG+N82euOx7u9cUHOECqiOxMUruJExGj8=; b=3HjOlQEv+MtZZL
+	x35nsLkulQGZMdw151FkWLRz8dseCYz34Lnfmdfjqm2U9LSjpM2lwB9UObew6vMl3hUFKOSg+yj+2
+	oNFT1v43OebFqbN3uTuRKmQY7nDWpyy1II5BAlzMNnfZCrKoG17tbZmmAkHF9hKBmwfaklfpQK+Fv
+	uffULr38nveXFrP+aJlC/y9V2+uLpHalkn6I5o/Z6s1wPlH+opaZFCP+dfr9CTpnqgkYYOJB/qDJD
+	FSQsrP+pjhMNMTGs7EDyfahnItDnlD3JyeQ//aEuIPfE0GpCq/TfIbzoR6Y3zBKyCdPkVVjKArUey
+	pYBM2L23QqdN9G5zICGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6mOc-004WBf-16;
-	Wed, 07 Jun 2023 06:11:50 +0000
-Received: from mga14.intel.com ([192.55.52.115])
+	id 1q6mjr-004Zq8-0N;
+	Wed, 07 Jun 2023 06:33:47 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6mOZ-004W9b-1G;
-	Wed, 07 Jun 2023 06:11:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1686118307; x=1717654307;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ToiD6lApZwUXrNQbqPwEcvsm0OD6OfqG72fOvkaWaf4=;
-  b=XyNkjqG4jIHaQmKm1mB6VgISz5Pdy21VJdBlH1ngZPaGBgfrkfPxDLjp
-   wXhqPXCu7KZCGeilbJHUd571FSPTvTqaAOVU/siMwn5mjao8M1NO41y2M
-   w6t9shuoVMMYXuF3+KY6f/4czlomVLXYOfaToEnUbjveg0ScLqD5DJeId
-   dW0yNR2FMLZHjZ+4uN3EOIFc4TT84rSZnRYHjkN41QgK9VmRwUZDTyt+y
-   Mxi2msQHVBewHOhMj3Q8+mBOYnbz9a4wif9Uyb7yxmAqv8HCiZ4rOS0dq
-   brv2omsRqY9VaCIoqK6U6tesVKeVWg5mZbQbTSFdvTxWfGK8az00z2Cf5
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10733"; a="356907021"
-X-IronPort-AV: E=Sophos;i="6.00,223,1681196400"; 
-   d="scan'208";a="356907021"
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jun 2023 23:11:45 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10733"; a="659811894"
-X-IronPort-AV: E=Sophos;i="6.00,223,1681196400"; 
-   d="scan'208";a="659811894"
-Received: from lkp-server01.sh.intel.com (HELO 15ab08e44a81) ([10.239.97.150])
-  by orsmga003.jf.intel.com with ESMTP; 06 Jun 2023 23:11:42 -0700
-Received: from kbuild by 15ab08e44a81 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1q6mOT-0006E3-1l;
-	Wed, 07 Jun 2023 06:11:41 +0000
-Date: Wed, 7 Jun 2023 14:11:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v3 3/5] arm64: libstub: Move KASLR handling functions to
- efi-stub-helper.c
-Message-ID: <202306071357.IBYToqAc-lkp@intel.com>
-References: <20230606123242.20804-4-alexghiti@rivosinc.com>
+	id 1q6mjn-004Zn8-0V
+	for linux-riscv@lists.infradead.org;
+	Wed, 07 Jun 2023 06:33:45 +0000
+X-QQ-mid: bizesmtp67t1686119596tf3boez7
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 07 Jun 2023 14:33:15 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: /XOqoV/ugIFDbT4y2awD+CiNwXw5I6PSTTIzx+mn+CafNu/W3BnUUcHMoLbAp
+	Y7B1xRgSjArkir490WuNY7GGD8xEStgaFtxkUNQSpJzLjmZn2vxmdIcFvhBVv60dmv5bMdh
+	9VmB6nH+QV1WBPYxJsjmtoXn3iMkeu4PtNBUkRexu92i7G3pkU1J4YEYrZ/2QO9AF1mkpsE
+	yREdlpHuSQyo3mHqhCwhQzMKBj7EUEc3yCPqtZgH3/EXO39ZDch/Kk4AyBdhP3sBeKj7JkP
+	FVPD4D7OW4j71AIfUdHv9tL5isKV+LRxtjT2X5ig8mZXC6qfS9IDxfIoqT5hHJigyxLIQSy
+	1ym+eT0brw/XkWo6peu8dldr5BcYVQuDrfutlZzpWZq3svXKgTqj+sjkaCjM439WEISg8PH
+	RnXia1PXPA0=
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15709502711661880930
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu
+Cc: arnd@arndb.de,
+	falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	thomas@t-8ch.de
+Subject: Re: [PATCH v3 3/3] selftests/nolibc: riscv: customize makefile for rv32
+Date: Wed,  7 Jun 2023 14:33:14 +0800
+Message-Id: <20230607063314.671429-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <ZIAEybZdXywKv43C@1wt.eu>
+References: <ZIAEybZdXywKv43C@1wt.eu>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230606123242.20804-4-alexghiti@rivosinc.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_231147_441801_571EB17E 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20230606_233343_524180_4EBB479B 
+X-CRM114-Status: GOOD (  27.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +77,178 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
+> On Wed, Jun 07, 2023 at 09:20:32AM +0800, Zhangjin Wu wrote:
+> > Arnd, Thomas, Willy
+> >     ...
+> >
+> >      LDFLAGS := -s
+> >
+> >     +# top-level kernel Makefile only accept ARCH=riscv, override ARCH to make kernel happy
+> >     +ifneq ($(findstring riscv,$(ARCH)),)
+> >     +override ARCH := riscv
+> >     +endif
+> >     +
+>
+> That can be one approach indeed. Another one if we continue to face
+> difficulties for this one would be to use a distinct KARCH variable
+> to assign to ARCH in all kernel-specific operations.
+>
 
-kernel test robot noticed the following build warnings:
+Yeah, I have replied that method to Arnd and Thomas too, it looks like this:
 
-[auto build test WARNING on efi/next]
-[also build test WARNING on linus/master v6.4-rc5 next-20230606]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+    ifneq ($(findstring riscv,$(ARCH)),)
+      _ARCH = riscv
+    else
+      _ARCH = $(ARCH)
+    endif
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Introduce-virtual-kernel-mapping-KASLR/20230606-203849
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git next
-patch link:    https://lore.kernel.org/r/20230606123242.20804-4-alexghiti%40rivosinc.com
-patch subject: [PATCH v3 3/5] arm64: libstub: Move KASLR handling functions to efi-stub-helper.c
-config: i386-randconfig-i063-20230607 (https://download.01.org/0day-ci/archive/20230607/202306071357.IBYToqAc-lkp@intel.com/config)
-compiler: clang version 15.0.7 (https://github.com/llvm/llvm-project.git 8dfdcc7b7bf66834a761bd8de445840ef68e4d1a)
-reproduce (this is a W=1 build):
-        mkdir -p ~/bin
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        git remote add efi https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git
-        git fetch efi next
-        git checkout efi/next
-        b4 shazam https://lore.kernel.org/r/20230606123242.20804-4-alexghiti@rivosinc.com
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang ~/bin/make.cross W=1 O=build_dir ARCH=i386 olddefconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang ~/bin/make.cross W=1 O=build_dir ARCH=i386 SHELL=/bin/bash drivers/firmware/
+    ...
 
-If you fix the issue, kindly add following tag where applicable
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202306071357.IBYToqAc-lkp@intel.com/
+    sysroot/$(ARCH)/include:
+	$(Q)rm -rf sysroot/$(ARCH) sysroot/sysroot
+	$(QUIET_MKDIR)mkdir -p sysroot
+	$(Q)$(MAKE) -C ../../../include/nolibc ARCH=$(_ARCH) OUTPUT=$(CURDIR)/sysroot/ headers_standalone
+	$(Q)mv sysroot/sysroot sysroot/$(ARCH)
 
-All warnings (new ones prefixed by >>):
+    defconfig:
+    	$(Q)$(MAKE) -C $(srctree) ARCH=$(_ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
 
-   In file included from drivers/firmware/efi/libstub/x86-stub.c:19:
->> drivers/firmware/efi/libstub/efistub.h:1145:59: warning: non-void function does not return a value [-Wreturn-type]
-   static inline unsigned long efi_get_kimg_min_align(void) {}
-                                                             ^
-   1 warning generated.
---
-   In file included from drivers/firmware/efi/libstub/efi-stub-helper.c:17:
->> drivers/firmware/efi/libstub/efistub.h:1145:59: warning: non-void function does not return a value [-Wreturn-type]
-   static inline unsigned long efi_get_kimg_min_align(void) {}
-                                                             ^
-   drivers/firmware/efi/libstub/efi-stub-helper.c:867:2: warning: call to undeclared function 'caches_clean_inval_pou'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           caches_clean_inval_pou(*image_addr, *image_addr + kernel_codesize);
-           ^
-   2 warnings generated.
+    kernel: initramfs
+    	$(Q)$(MAKE) -C $(srctree) ARCH=$(_ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
 
+Using KARCH seems better than _ARCH:
 
-vim +1145 drivers/firmware/efi/libstub/efistub.h
+    ifneq ($(findstring riscv,$(ARCH)),)
+      KARCH = riscv
+    else
+      KARCH = $(ARCH)
+    endif
 
-  1143	
-  1144	#ifndef efi_get_kimg_min_align
-> 1145	static inline unsigned long efi_get_kimg_min_align(void) {}
-  1146	#define efi_get_kimg_min_align efi_get_kimg_min_align
-  1147	#endif
-  1148	
+    ...
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+    sysroot/$(ARCH)/include:
+	$(Q)rm -rf sysroot/$(ARCH) sysroot/sysroot
+	$(QUIET_MKDIR)mkdir -p sysroot
+	$(Q)$(MAKE) -C ../../../include/nolibc ARCH=$(KARCH) OUTPUT=$(CURDIR)/sysroot/ headers_standalone
+	$(Q)mv sysroot/sysroot sysroot/$(ARCH)
+
+    defconfig:
+    	$(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
+
+    kernel: initramfs
+    	$(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
+
+but the new method mentioned here differs, it split the whole Makefile
+to two 'parts', the before part accept something like ARCH=riscv32,
+ARCH=riscv64, ARCH=riscv, the after part use the ARCH=riscv, this avoid
+touch the targets context:
+
+    ...
+    QEMU_ARCH            = $(QEMU_ARCH_$(ARCH))
+    +QEMU_ARCH           := $(QEMU_ARCH_$(ARCH))
+
+     # QEMU_ARGS : some arch-specific args to pass to qemu
+     QEMU_ARGS_i386       = -M pc -append "console=ttyS0,9600 i8042.noaux panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+    @@ -61,10 +67,12 @@ QEMU_ARGS_x86        = -M pc -append "console=ttyS0,9600 i8042.noaux panic=-1 $(
+     QEMU_ARGS_arm64      = -M virt -cpu cortex-a53 -append "panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_arm        = -M virt -append "panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_mips       = -M malta -append "panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+    +QEMU_ARGS_riscv32    = -M virt -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+    +QEMU_ARGS_riscv64    = -M virt -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_riscv      = -M virt -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_s390       = -M s390-ccw-virtio -m 1G -append "console=ttyS0 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+     QEMU_ARGS_loongarch  = -M virt -append "console=ttyS0,115200 panic=-1 $(TEST:%=NOLIBC_TEST=%)"
+    -QEMU_ARGS            = $(QEMU_ARGS_$(ARCH)) $(QEMU_ARGS_EXTRA)
+    +QEMU_ARGS           := $(QEMU_ARGS_$(ARCH)) $(QEMU_ARGS_EXTRA)
+
+     # OUTPUT is only set when run from the main makefile, otherwise
+     # it defaults to this nolibc directory.
+    @@ -76,13 +84,24 @@ else
+     Q=@
+     endif
+
+    +CFLAGS_riscv32 = -march=rv32im -mabi=ilp32
+     CFLAGS_s390 = -m64
+     CFLAGS_STACKPROTECTOR ?= $(call cc-option,-mstack-protector-guard=global $(call cc-option,-fstack-protector-all))
+    -CFLAGS  ?= -Os -fno-ident -fno-asynchronous-unwind-tables -std=c89 \
+    +CFLAGS_default := -Os -fno-ident -fno-asynchronous-unwind-tables -std=c89 \
+                    $(call cc-option,-fno-stack-protector) \
+                    $(CFLAGS_$(ARCH)) $(CFLAGS_STACKPROTECTOR)
+    +
+    +CFLAGS  ?= $(CFLAGS_default)
+     LDFLAGS := -s
+
+    ... variable assignments before this line ...
+
+    +# Some architectures share the same arch/<ARCH>/ source code tree among the <ARCH>xyz variants
+    +# Top-level kernel Makefile only accepts ARCH=<ARCH>, override <ARCH>xyz variants to make kernel happy
+    +ARCHS := riscv
+    +_ARCH := $(strip $(foreach arch, $(ARCHS), $(if $(findstring x$(arch),x$(ARCH)),$(arch))))
+    +ifneq ($(_ARCH),)
+    +override ARCH := $(_ARCH)
+    +endif
+    +
+
+    ... targets after this line ...
+
+[1]: https://lore.kernel.org/lkml/20230606120755.548017-1-falcon@tinylab.org/#R
+
+> >      help:
+> >             @echo "Supported targets under selftests/nolibc:"
+> >             @echo "  all          call the \"run\" target below"
+> >
+> > This change is not that big, and the left changes can keep consistent with the
+> > other platforms. but I still need to add a standalone patch to convert the '='
+> > to ':=' to avoid the before setting using our new overridded ARCH.
+>
+> I don't even see why the other ones below are needed, given that as
+> long as they remain assigned as macros, they will be replaced in-place
+> where they are used, so they will reference the last known assignment
+> to ARCH.
+
+The reason is really:
+
+    "they will reference the last known assignment to ARCH"
+
+If we use something like 'KARCH' or '_ARCH' and not override the ARCH in the
+middle, then, no need to touch the ':' and '?='. otherwise, the variable will
+accept something like QEMU_ARGS_riscv for riscv32, it breaks our requirement.
+
+>
+>        ...
+> >      CFLAGS_s390 = -m64 CFLAGS_STACKPROTECTOR ?= $(call
+> >      cc-option,-mstack-protector-guard=global $(call
+> >      cc-option,-fstack-protector-all)) -CFLAGS  ?= -Os -fno-ident
+> >      -fno-asynchronous-unwind-tables -std=c89 \ +CFLAGS_default :=
+> >      -Os -fno-ident -fno-asynchronous-unwind-tables -std=c89 \
+> >      $(call cc-option,-fno-stack-protector) \ $(CFLAGS_$(ARCH))
+> >      $(CFLAGS_STACKPROTECTOR) + +CFLAGS  ?= $(CFLAGS_default)
+>
+> Why did you need to split this one like this instead of proceeding
+> like for the other ones ? Because of the "?=" maybe ? Please
+> double-check that you really need to turn this from a macro to a
+> variable, if as I suspect it it's not needed, it would be even
+> simpler.
+
+It depends on the method we plan to use, just as explained above.
+
+For a standalone KARCH, no need to touch the assignment, otherwise, we
+should let the assignment take effect immediately to avoid they use the
+one we plan to override.
+
+For the KARCH method, I will tune it to be more scalable like this:
+
+    ARCHS = riscv
+    _ARCH = $(strip $(foreach arch, $(ARCHS), $(if $(findstring x$(arch),x$(ARCH)),$(arch))))
+    KARCH = $(or $(_ARCH),$(ARCH))
+
+Willy, Which one do you prefer?
+
+Thanks,
+Zhangjin
+
+>
+> Thanks, Willy
 
 _______________________________________________
 linux-riscv mailing list
