@@ -4,99 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF33EC77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 07:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A143C7EE29
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 08:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gcuoya1uYro8lYGNKd/GRTIHMaERRDYVgzzq1dWLPao=; b=gvgShvm/gL/mCx
-	TsLiyAFbLbZeWqRW3D6fCNxWrv31VEMv6/m4Qtr7ysz8TRTQhCpoVZgnIxI3vLEMCaD7wsmdSVTRa
-	d1hkOo4TcbkVaxQZ177JjItq3SOuY0FWoaImRK+8r1KuFtHST+apkJZWPXG8q9DpwupemG3lUAxr5
-	qG6WT7Jun2dBUuRprTqc3Klsgq8JvOSEst9e4KBZT+cgSxwnF4juCADTuaW6wjLHkYQufVAxgGhwe
-	S8MrEXKqGl7KY/Id1aZ3RVO332C3l45DZ1uMgXtGKSWiSLQxbg0YR8gSjj9lowJpW4b/da16u6bv+
-	h78E4ckb0mxFeoCehyig==;
+	List-Owner; bh=V4BIVPw16o2pLA92dpIvY76RD86vxrAXj6emqp3o/sw=; b=ucEwr2eUfHpV2V
+	IfIqUNNBFqR8sRIcNmgDFtI/xPqgszIg4TePra+tVddB9T8xrNEj8Ls5QOvfffb5uwCnitvoj3Rfb
+	7J2BI3aLk1lZmxmrudjO4VqvfeMBUNQ8HqWafQTzZVhZMZlTZfQsMoP4wywdsncIQ0VSrkxj1yypB
+	X9D24bGHu2q9zARK2tc3xsGd0uiuVhuuPrzUtigDW6o0s4SVtYrUPuptcLG99e/2xnJyzjjf6UZMF
+	tCaIzmHCANs8r5QNh+3fe2Uo0ZAUWPUo8CNLfjzNUN3JhWCF+PVTICsFvPRC+Lpt5F7uG4L0kMpih
+	ZfurqQMAA0DyRoP4wynw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6nkA-004luQ-2L;
-	Wed, 07 Jun 2023 07:38:10 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1q6oGR-004tEj-0Z;
+	Wed, 07 Jun 2023 08:11:31 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6nk7-004lsP-0w
+	id 1q6oGM-004tC4-39
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 07:38:09 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-977d55ac17bso583092466b.3
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Jun 2023 00:38:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1686123485; x=1688715485;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WNSVpTGK/l9iZwOWNmHI2F19yNhHKxnKGcZzUtPUdPM=;
-        b=ULkXjzQUh10+WTvid47PSYTfNolUEhpdm0pUGX4COa+AKaF56Lo1LEWLnJJLkMTtDk
-         1bu8DW26K2ZWIKauxfZBMLPFVq+1NaKdyWF36l+Djo6nB8KezB+LlKmThOeAOcQokC77
-         rd6mUJw2vIcay0nQc4onaXwFdHtel0CItpPmLaaB6SPBbHvwT+gDZWCSX3SULDuXVwQR
-         rEcJWNiETnCPR2sBojc8GzYqz9YevQgC0fruyK4yGMYGqmaLkb/3kg69m5d2Ctsk71zV
-         eITRSn697jIqgkelnOEW++XCjaltRsY+vxgXcGOWy4b0lvZ6y6qkeR9Qewzg2dl41Rq+
-         ml/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686123485; x=1688715485;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WNSVpTGK/l9iZwOWNmHI2F19yNhHKxnKGcZzUtPUdPM=;
-        b=C/TbsGd8L7IfGMxIl2C8co+/R07FHPDKYYkEHfnMvICJbHHemg7WWH+Zi8XORHahum
-         fai65Vn6UikemBM5XGye9nedxjPbYFvzxHb5RzSErpugipAcr9m7oXxZongRLhFtMDYa
-         jb+wi9SwRdpOdYYqdknTY25V0y05td2nmp/Y/wttw8P1am7XJXPA0sOsYRvHOFuZkCc2
-         TjcBTLWjZh6lnUPg41fGBXqluz96841M5mdVJQFsP64xlDRrQlKAnEazARdlAc2T3Rbh
-         ns2QHJJ5sEnnRQdmCa5ePX7woXK8ZaUfVatDqZMsKtuPIDZi/a4+jRhl6rcZN+CoLj//
-         3VPw==
-X-Gm-Message-State: AC+VfDzxjP0CbU9g+gYpzKBoMG84RnPjhcx0K5snCCLOn325eqTG6nXD
-	irJgOZbL1OHAQb+OgilaWz283Q==
-X-Google-Smtp-Source: ACHHUZ4eKaPNF9Y7Ctvy7bb6DgDgKJYoGYQGb84V/eSeixnqSw+c+G9oT2Nf3z6Gs7xy3BpZkwvUJg==
-X-Received: by 2002:a17:907:9710:b0:974:c1c:8217 with SMTP id jg16-20020a170907971000b009740c1c8217mr5128815ejc.55.1686123485324;
-        Wed, 07 Jun 2023 00:38:05 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.219.26])
-        by smtp.gmail.com with ESMTPSA id bv13-20020a170906b1cd00b00978743b54bdsm1369725ejb.78.2023.06.07.00.38.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 07 Jun 2023 00:38:04 -0700 (PDT)
-Message-ID: <d97987f2-58e1-f46f-4b33-ccc72285d089@linaro.org>
-Date: Wed, 7 Jun 2023 09:38:02 +0200
+	Wed, 07 Jun 2023 08:11:29 +0000
+X-QQ-mid: bizesmtp75t1686125468tf9po345
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 07 Jun 2023 16:11:07 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: t+YzzcYcY/yIcYJBJAauvIxKKd3tsAr7koUSEaZ8zaovQMdGosVaKCJWd1dp3
+	3AznNfz7xPXMB8v22KQ8la1jDw6ACQcuAKPOVu7cB1q7cKLlyIcQZXGavNxuFNICM4jCdPQ
+	nZrcg4DQXzkFRYrT/IojBq86LZRVcJQqGP1AScW7qZp08DggRkTsU6bdmqtrIp+BmEtqmkR
+	2G2ci7QeoAEVBkMnnD6+HfWm/zydQlvvTIAfL1Vb868dLorSnZjS7qZay+c4VTzR5XLZ7O7
+	KLS1kzeO6ZT4y4b3pGClyfonwGhBZ8IrLpFBzwruN8EXA20Q5XX1xsuPUDrl3YmD+9DamKs
+	60AenKfN4R3T8cpMJEV+s5zy7QMho8seioMXwWLzM+UGSb69+GuhKP4LxYV01+hKo2YYlq4
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15885581524704403754
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu
+Cc: arnd@arndb.de,
+	falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	thomas@t-8ch.de
+Subject: Re: [PATCH v3 3/3] selftests/nolibc: riscv: customize makefile for rv32
+Date: Wed,  7 Jun 2023 16:11:03 +0800
+Message-Id: <20230607081103.746962-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <ZIAywHvr6UB1J4of@1wt.eu>
+References: <ZIAywHvr6UB1J4of@1wt.eu>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.2
-Subject: Re: [PATCH 2/9] riscv: dts: starfive: jh7110: add dc&hdmi controller
- node
-Content-Language: en-US
-To: Keith Zhao <keith.zhao@starfivetech.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
-Cc: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com,
- Bjorn Andersson <andersson@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Shawn Guo <shawnguo@kernel.org>, Jagan Teki <jagan@edgeble.ai>,
- Chris Morgan <macromorgan@hotmail.com>, Jack Zhu
- <jack.zhu@starfivetech.com>, Shengyang Chen
- <shengyang.chen@starfivetech.com>,
- Changhuang Liang <changhuang.liang@starfivetech.com>
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
- <20230602074043.33872-3-keith.zhao@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230602074043.33872-3-keith.zhao@starfivetech.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_003807_335114_FDA8C30E 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20230607_011127_335737_BEA049E0 
+X-CRM114-Status: GOOD (  39.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,197 +76,176 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/06/2023 09:40, Keith Zhao wrote:
-> Add the dc controller and hdmi node for the Starfive JH7110 SoC.
-> 
-> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
-> ---
->  .../jh7110-starfive-visionfive-2.dtsi         | 87 +++++++++++++++++++
->  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 46 ++++++++++
->  2 files changed, 133 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> index 1155b97b593d..8dc6c8a15c59 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-> @@ -31,6 +31,21 @@ memory@40000000 {
->  		reg = <0x0 0x40000000 0x1 0x0>;
->  	};
->  
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		linux,cma {
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +			size = <0x0 0x20000000>;
-> +			alignment = <0x0 0x1000>;
-> +			alloc-ranges = <0x0 0x80000000 0x0 0x20000000>;
-> +			linux,cma-default;
-> +		};
-> +	};
-> +
->  	gpio-restart {
->  		compatible = "gpio-restart";
->  		gpios = <&sysgpio 35 GPIO_ACTIVE_HIGH>;
-> @@ -214,6 +229,41 @@ GPOEN_DISABLE,
->  			slew-rate = <0>;
->  		};
->  	};
-> +
-> +	hdmi_pins: hdmi-0 {
-> +		hdmi-scl-pins {
-> +			pinmux = <GPIOMUX(0, GPOUT_SYS_HDMI_DDC_SCL,
-> +					     GPOEN_SYS_HDMI_DDC_SCL,
-> +					     GPI_SYS_HDMI_DDC_SCL)>;
-> +			input-enable;
-> +			bias-pull-up;
-> +		};
-> +
-> +		hdmi-sda-pins {
-> +			pinmux = <GPIOMUX(1, GPOUT_SYS_HDMI_DDC_SDA,
-> +					     GPOEN_SYS_HDMI_DDC_SDA,
-> +					     GPI_SYS_HDMI_DDC_SDA)>;
-> +			input-enable;
-> +			bias-pull-up;
-> +		};
-> +
-> +		hdmi-cec-pins {
-> +			pinmux = <GPIOMUX(14, GPOUT_SYS_HDMI_CEC_SDA,
-> +					     GPOEN_SYS_HDMI_CEC_SDA,
-> +					     GPI_SYS_HDMI_CEC_SDA)>;
-> +			input-enable;
-> +			bias-pull-up;
-> +		};
-> +
-> +		hdmi-hpd-pins {
-> +			pinmux = <GPIOMUX(15, GPOUT_HIGH,
-> +					     GPOEN_ENABLE,
-> +					     GPI_SYS_HDMI_HPD)>;
-> +			input-enable;
-> +			bias-disable; /* external pull-up */
-> +		};
-> +	};
-> +
->  };
->  
->  &uart0 {
-> @@ -221,3 +271,40 @@ &uart0 {
->  	pinctrl-0 = <&uart0_pins>;
->  	status = "okay";
->  };
-> +
-> +&voutcrg {
-> +	status = "okay";
-> +};
-> +
-> +&display {
-> +	status = "okay";
-> +};
-> +
-> +&hdmi {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&hdmi_pins>;
-> +
-> +	hdmi_in: port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		hdmi_input: endpoint@0 {
-> +			reg = <0>;
-> +			remote-endpoint = <&dc_out_dpi0>;
+> On Wed, Jun 07, 2023 at 02:33:14PM +0800, Zhangjin Wu wrote:
+> >
+> >     ifneq ($(findstring riscv,$(ARCH)),)
+> >       KARCH = riscv
+> >     else
+> >       KARCH = $(ARCH)
+> >     endif
+> (...)
+>
+> At least it suggests what it's going to be used for instead of just
+> being marked as "special" (something the underscore does).
+>
 
-This does not make any sense. You wrote in bindings that this is display
-output, but you call it HDMI input. If this is input, where is your output?
+Yeah.
 
-> +		};
-> +	};
-> +};
-> +
-> +&dc8200 {
-> +	status = "okay";
-> +
-> +	dc_out: port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		dc_out_dpi0: endpoint@0 {
-> +			reg = <0>;
-> +			remote-endpoint = <&hdmi_input>;
-> +		};
-> +
+> > but the new method mentioned here differs, it split the whole Makefile
+> > to two 'parts', the before part accept something like ARCH=riscv32,
+> > ARCH=riscv64, ARCH=riscv, the after part use the ARCH=riscv, this avoid
+> > touch the targets context:
+>
+> We don't care about touching *code*. What is important is that it scales
+> and is understandable, thus maintainable. Code that has many exceptions
+> or requires a lot of head scratching to figure what's being done is a
+> pain to maintain and nobody wants to take the risk to touch it. That was
+> exactly the purpose of the enumeration of per-target args, flags etc in
+> the makefile: nobody needs to be expert in multiple areas to touch their
+> own area. If we face a showstopper, we need to address it, and not work
+> around it for the sake of touching less context.
+>
 
-Stray blank line.
+Get it clearly.
 
-> +	};
-> +};
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 9acb5fb1716d..66be6e65a066 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -249,6 +249,11 @@ tdm_ext: tdm-ext-clock {
->  		#clock-cells = <0>;
->  	};
->  
-> +	display: display-subsystem {
-> +		compatible = "verisilicon,display-subsystem";
+> >     ... variable assignments before this line ...
+> >
+> >     +# Some architectures share the same arch/<ARCH>/ source code tree among the <ARCH>xyz variants
+> >     +# Top-level kernel Makefile only accepts ARCH=<ARCH>, override <ARCH>xyz variants to make kernel happy
+> >     +ARCHS := riscv
+> >     +_ARCH := $(strip $(foreach arch, $(ARCHS), $(if $(findstring x$(arch),x$(ARCH)),$(arch))))
+> >     +ifneq ($(_ARCH),)
+> >     +override ARCH := $(_ARCH)
+> >     +endif
+> >     +
+>
+> So actually this is a perfect example of head scratching for me. I suspect
+> it would replace x86_64 with x86 if x86 would be placed there for example,
+> though it would not change anything for i386. Maybe for s390/s390x,
+> arm/arm64 or ppc/ppc64 etc it would act similarly while these are different
+> archs. Thus this seems to be trying to generalize a rule around a single
+> particular case.
+>
 
-Drop fake nodes which do not represent hardware. Instead, DTS and
-bindings should describe real hardware.
+It is true, we did worry about when users wrongly add new ARCH in the
+list, a generic way is very hard before we really use them.
 
+> Probably that instead this particular case should be addressed explicitly
+> until we find a generalization (if ever) to other archs:
+>
+>   ifeq($(ARCH),riscv32)
+>   override ARCH := riscv
+>   else ifeq($(ARCH),riscv64)
+>   override ARCH := riscv
+>   endif
+>   endif
+>
+> Or maybe even better you can decide to remap arch names explicitly:
+>
+>   # use KARCH_from=to to rename ARCH from $from to $to past this point.
+>   KARCH_riscv32 := riscv
+>   KARCH_riscv64 := riscv
+>   ...
+>   ifneq($(KARCH_$(ARCH)),)
+>   override ARCH := $(KARCH_$(ARCH))
+>   endif
+>
 
-> +		ports = <&dc_out>;
-> +	};
-> +
->  	soc {
->  		compatible = "simple-bus";
->  		interrupt-parent = <&plic>;
-> @@ -570,5 +575,46 @@ voutcrg: clock-controller@295c0000 {
->  			#reset-cells = <1>;
->  			power-domains = <&pwrc JH7110_PD_VOUT>;
->  		};
-> +
-> +		dc8200: dc8200@29400000 {
+This did inspire me a lot, so, what about simply go back to the KARCH
+method without any overriding:
 
-Node names should be generic. See also explanation and list of examples
-in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+    diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
+    index 4a3a105e1fdf..bde635b083f4 100644
+    --- a/tools/testing/selftests/nolibc/Makefile
+    +++ b/tools/testing/selftests/nolibc/Makefile
+    @@ -14,6 +14,12 @@ include $(srctree)/scripts/subarch.include
+     ARCH = $(SUBARCH)
+     endif
 
-> +			compatible = "verisilicon,dc8200";
-> +			reg = <0x0 0x29400000 0x0 0x100>,
-> +			      <0x0 0x29400800 0x0 0x2000>,
-> +			      <0x0 0x295B0000 0x0 0x90>;
-> +			interrupts = <95>;
-> +			clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_DISP_AXI>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_PIX0>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_PIX1>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_AXI>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_CORE>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_AHB>,
-> +				<&hdmitx0_pixelclk>,
-> +				<&voutcrg JH7110_VOUTCLK_DC8200_PIX>;
-> +			clock-names = "clk_vout_noc_disp",
-> +				"clk_vout_pix0","clk_vout_pix1",
+    +# kernel supported ARCH names by architecture
+    +KARCH_riscv32    = riscv
+    +KARCH_riscv64    = riscv
+    +KARCH_riscv      = riscv
+    +KARCH            = $(or $(KARCH_$(ARCH)),$(ARCH))
+    +
+     # kernel image names by architecture
+     IMAGE_i386       = arch/x86/boot/bzImage
+     IMAGE_x86_64     = arch/x86/boot/bzImage
+    @@ -21,6 +27,8 @@ IMAGE_x86        = arch/x86/boot/bzImage
+     IMAGE_arm64      = arch/arm64/boot/Image
+     IMAGE_arm        = arch/arm/boot/zImage
+     IMAGE_mips       = vmlinuz
 
-Fix alignment
+And this:
 
-> +				"clk_vout_axi","clk_vout_core",
-> +				"clk_vout_vout_ahb","hdmitx0_pixel",
-> +				"clk_vout_dc8200";
-> +			resets = <&voutcrg JH7110_VOUTRST_DC8200_AXI>,
-> +				 <&voutcrg JH7110_VOUTRST_DC8200_AHB>,
-> +				 <&voutcrg JH7110_VOUTRST_DC8200_CORE>;
-> +			reset-names = "rst_vout_axi","rst_vout_ahb",
-> +						"rst_vout_core";
+    @@ -117,7 +132,7 @@ sysroot: sysroot/$(ARCH)/include
+     sysroot/$(ARCH)/include:
+            $(Q)rm -rf sysroot/$(ARCH) sysroot/sysroot
+            $(QUIET_MKDIR)mkdir -p sysroot
+    -       $(Q)$(MAKE) -C ../../../include/nolibc ARCH=$(ARCH) OUTPUT=$(CURDIR)/sysroot/ headers_standalone
+    +       $(Q)$(MAKE) -C ../../../include/nolibc ARCH=$(KARCH) OUTPUT=$(CURDIR)/sysroot/ headers_standalone
+            $(Q)mv sysroot/sysroot sysroot/$(ARCH)
 
-Fix alignment.
+     nolibc-test: nolibc-test.c sysroot/$(ARCH)/include
+    @@ -141,10 +156,10 @@ initramfs: nolibc-test
+            $(Q)cp nolibc-test initramfs/init
 
+     defconfig:
+    -       $(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
+    +       $(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
 
+     kernel: initramfs
+    -       $(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
+    +       $(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
+
+It is almost consistent with the original Makefile now.
+
+I do like this method more than the override method now, the override
+method may break the maintainability a lot especially that the
+developers may be hard to know which ARCH value it is when he touch a
+line of the Makefile.
+
+> And this does deserve an explicit note in the makefile that anything
+> using $(ARCH) using a macro will see the renamed arch while anything
+> using it as a variable before that line will see the original one.
+>
+> If you want to avoid the '=' vs ':=' mess you can even keep a copy of
+> the original ARCH at the beginning of the makefile:
+>
+>   # keep a copy of the arch name requested by the user, for use later
+>   # when the original form is preferred over the kernel's arch name.
+>   USER_ARCH = $(ARCH)
+>
+
+Yeah, a copy is good for the override case.
+
+> > Willy, Which one do you prefer?
+>
+> The most explicit ones like above. Generally speaking when you try to
+> add support for your own arch here, you look there for similar ones,
+> where commands are called, and read in reverse mode till the beginning,
+> hoping to understand the transformations. I think the current ones and
+> the proposed ones above are self-explanatory. Anything doing too much
+> magic renaming or doing too much hard-coded automatic stuff can quickly
+> obfuscate the principle and make things more complicated. I already
+> despise "override" because it messes up with macros, but I agree it can
+> sometimes have some value. If you dup it into ORIG_ARCH or USER_ARCH,
+> and modify the few lines overriding arch in an explicit manner, I think
+> it would preserve its maintainability.
+>
+
+Agree, let's give up the 'override' stuff.
+
+> What do you think ?
+
+So, let's go with the KARCH method if you agree too.
 
 Best regards,
-Krzysztof
+Zhangjin
 
+>
+> thanks,
+> Willy
 
 _______________________________________________
 linux-riscv mailing list
