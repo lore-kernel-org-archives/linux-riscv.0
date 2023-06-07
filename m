@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65201C77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 13:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 179CEC77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 13:37:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y51mzK75xpECNi6zWxnFEVWNghyVLKWxe2pZ6a68Ygg=; b=osGAEIgJS8JOny
-	bRRUhd0vS9ETp/zMs5oK/KTBizdP2ZS37Q4iuZ3QX2p9VJW0k5T5PmObB6mJJ4Ci3P2uaX3skhvPy
-	3GeIcd6XHKgb7ATYxCOtujA5rutcwhzV/hacdrJiyGlaC3RVTVlk/mkB6N3lSqODKvc922Lu99bB4
-	7kJ6eDOI2dA87LSVdHXBdqW9fApB6EK/i1z9aeI8x1hvUiRJDEAktDeh53GfxPiq+oGXnIgGqACHi
-	3jJDlq6HKbO0WdcwwJHy9soQ91RuOOylF6MmY33hSGBXq9ArFYyCilwO6DmtOHy6HOJu5f0kguymp
-	i6kzjtBeA77cklx+0f+g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wRZ2cN5pNXz8gH220AEyBfxYb809nKMvooFCyWZlFw8=; b=NzJyeUxuudvtdo
+	iKhbTgN0et9Byzh3sFR8DlqdMVAHsiRmDmCYHcvBkcI4AzQk6dNSF3RjlOQX3tpB+2K8vhSzmL5SU
+	8CGN3oALB/e81P8RMOnDuss4WNtMnhVgo8J6fG2Ztu1vtQEZ3I319UlJ8qrSsyDISGa5xZsXYpgwh
+	oYKS9dajoAQkwLbfZewehPFYBb/HaYryBs+gTAk+cvujiQcVLZEIXm8qRjJgIobkmoPI4W1jzXLyU
+	rneuJW5nO+4oEYzuQcx11G5J/aurxC1hppHPNabqGpBOpS9Je7G/Ckyu8x8WSbgDU73p/7DyIYGOO
+	EcCRIAqKb9Z53LXhVnVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6tBu-00666F-1y;
-	Wed, 07 Jun 2023 13:27:10 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1q6tLl-0067FF-07;
+	Wed, 07 Jun 2023 13:37:21 +0000
+Received: from out162-62-57-252.mail.qq.com ([162.62.57.252])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6tBq-00664S-1w
+	id 1q6tLi-0067DX-1h
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 13:27:08 +0000
-X-QQ-mid: bizesmtp79t1686144406t8q8sh1i
-Received: from linux-lab-host.localdomain ( [61.141.77.49])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 07 Jun 2023 21:26:44 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: gSGF8h2+s1IeuyvNvsjPqo51c92Oei+VMiWk3neliuJycIgEbNKvZYuLZeUAz
-	lFnZwQGxKatqDuzMJQohZXLRw7ojULNOb0uySR+PI0K0wz6TMCdQK5KMg3dv/ZBa7cf690j
-	F3aLIkjJfE3lX4ajZr1YhoqbesoV5tm1xPa4dgHqPRx4tnlNdb6/oenJsj48MaPH/aQufsD
-	Sp37ssx34gS5ZLeJOCeKoo5c5NvhJHhx8r8CLz/vloLE2w420Q6cPe+pfk1Nc0dUfNqTu1N
-	bTMFDwxFV3/+1jfMLT8XM9JJBvPv1sXabROdq0SdWbp1kI1zQZpLo2ym5FGUTuy7u2kcCrp
-	vmlng70HKM3MPHoViSeRec/NWnaWjkBVaCo2c1qQ8V6lsgomCqO0G6+7IgnbvNrTd1PJFeS
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11098037038039291754
-From: Zhangjin Wu <falcon@tinylab.org>
-To: arnd@arndb.de
-Cc: falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
+	Wed, 07 Jun 2023 13:37:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1686145002;
+	bh=BPguxngCcatQFXlBdF+cO4v4EYUu4CjSbAh+qgMu1hI=;
+	h=From:To:Cc:Subject:Date;
+	b=HGFYRNnynM4+R8XRpOzxNtHpcDgz1GbhTUPZEBWdoFMQeh8KaeXCZV/un7v3IHV+V
+	 kQCZGyUJzzPD6Z9oB498gMi1iaHkRRApALbELqlRKaGSLp8KGUab85m5NNsZAHdXn5
+	 yAxdBmAwem3H2MT5r8EvfLW4sVpm2Imdk5+nk5LY=
+Received: from localhost ([101.224.149.128])
+	by newxmesmtplogicsvrszc2-0.qq.com (NewEsmtp) with SMTP
+	id 928874E8; Wed, 07 Jun 2023 21:36:40 +0800
+X-QQ-mid: xmsmtpt1686145000tb1eyu550
+Message-ID: <tencent_B15C0F1F3105597D0DCE7DADC96C5EB5CF0A@qq.com>
+X-QQ-XMAILINFO: NioaTWkRhWwaYWTxZeEaVMvYT+6+8WBXxjru4PK5DK6okfUQA1P7v2En+zPoE5
+	 1z2hnrATIIcrCuuKw/AznibA2SzpN7O3IfFjLKOySd5ejj03Pxk8w1pZjsUaZnJrwbZ5AW/EbbcG
+	 a90pH9d6d6woHq6WHb24b77J0mciKoDab6wKeYEx/hyy7vMdmqhocNJGCMWaZfKUfhNq+o4FT7GC
+	 jYcT+QmzbY8XnyB2+g5RsKnVevJecvqymIQONDidDQPY7x62h8xgJp6JNyNB4iNISOsAGQ4lRGwn
+	 4zv6yH9Z71tLcLrrk9lBE6geVDESfMc+gyN+4iYiyVzRddH4AujsPKOFLZeKfhxiW3NR1nd2RWI4
+	 sJIjWvjtPLFCF0Xzk/ZuB7IjByv7ZWdGQN2osyyHnVcRzCBpgS9QpWHgvHBqlE72dQGybw8y4I4a
+	 2x4NfozxHwGMVjk8yCKxug4SVOp1OQiCzBDf4ujU11UQXhk3vHCeOiDb4HMYbmy5trXZAR0l5Ebl
+	 QpTjD6shVS3GgNgmHpmHCPAZW2mTsiQzWaYyYUkHySFrQ8nYOiuRN/YhOYwn/COs0tLwsVTEHcqs
+	 GCouN6JX+hopwcLkPi3kmY9qyATKAha4WFEcDj11X9ob87AuHlF8g1FhUGEBlO2jfHgw+Vw0cOie
+	 NxsY08ofqoVLiws8bDxLNYQeLNEGRbQHcOzK8SgIhJuQEXGpBr0M5p5TrZWlg+zK3W1gzg8f9YuQ
+	 9+fuOuw8FvLTILBeZB+SUbtJVkzF2l/+V33p2q/+ySyJ7FFCcQSwc+r39vRdtTf39lxhrhAfD0tK
+	 tsNheMtt+YMjKZS2i+7qIkGhfjFtZEijis50o0Hupr7hqqUXxBbyajaqsKRuCpeaYhUaFI5p0fom
+	 KrZXXKX0sEbADejJWLTbfpK3EvqfNouJvZqtPGQCI2Va5jPl6ZT5b7SUKkiOVM3Y+dsC/4FCN9V8
+	 5OOc4af7zAERcA1+hs/nVYu2XgQ6wEhhWEgL0Zpnw=
+From: Woody Zhang <woodylab@foxmail.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de,
-	w@1wt.eu
-Subject: Re: [PATCH v3 1/3] tools/nolibc: fix up #error compile failures with -ENOSYS
-Date: Wed,  7 Jun 2023 21:26:44 +0800
-Message-Id: <20230607132644.824792-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <635d1aaf-3982-4404-9c05-05e51800691e@app.fastmail.com>
-References: <635d1aaf-3982-4404-9c05-05e51800691e@app.fastmail.com>
+	linux-kernel@vger.kernel.org
+Cc: Woody Zhang <woodylab@foxmail.com>
+Subject: [PATCH] riscv: reserve DTB before possible memblock allocation
+Date: Wed,  7 Jun 2023 21:35:19 +0800
+X-OQ-MSGID: <20230607133518.2472995-1-woodylab@foxmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_062706_974516_F46BBFF6 
-X-CRM114-Status: GOOD (  29.83  )
+X-CRM114-CacheID: sfid-20230607_063719_085956_E70FBF31 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,101 +84,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Wed, Jun 7, 2023, at 11:46, Zhangjin Wu wrote:
-> >> On Wed, Jun 7, 2023, at 07:19, Zhangjin Wu wrote:
-> >
-> > Ok, agree, as the 64bit version of lseek may be enough for nolibc, if a target
-> > application really require, they can add the alias themselves.
-> >
-> >> Are there any examples of functions where we actually want mulitple
-> >> versions?
-> >>
-> >
-> > For example, the following ones are related to the syscalls being added,
-> > all of them have similar library routines in current sys.h:
-> >
-> > * waitid, https://linux.die.net/man/2/waitid
-> > * ppoll, https://linux.die.net/man/2/ppoll
-> > * pselect, https://linux.die.net/man/2/pselect6
-> > * clock_gettime, https://linux.die.net/man/2/clock_gettime
-> >
-> > The similar routines are put in right side:
-> >
-> > * waitid --> waitpid, wait, wait4
-> > * ppoll --> poll
-> > * pselect --> select
-> > * clock_gettime --> gettimeofday
-> 
-> Ok, I think these are all useful to have in both versions.
-> 
-> All four of these examples are old enough that I think it's
-> sufficient just expose them to userspace as the bare system
-> calls, and have the older library calls be implemented using
-> them without a fallback to the native syscalls of the same
-> name on architectures that have both, newer architectures
-> would only have the latest version anyway.
->
+It's possible that early_init_fdt_scan_reserved_mem() allocates memory
+from memblock for dynamic reserved memory in `/reserved-memory` node.
+Any fixed reservation must be done before that to avoid potential
+conflicts.
 
-Ok, Thanks, I have already added parts of them, will send waitid and
-64bit lseek at first.
+Reserve the DTB in memblock just after early scanning it.
 
-> > For the clock_gettime, it may also let us think about if we need to add
-> > its friends (clock_getres, clock_settime) together.
-> 
-> Yes, I think that makes sense. We also need clock_settime()
-> to implement settimeofday() on rv32.
->
+Signed-off-by: Woody Zhang <woodylab@foxmail.com>
+---
+ arch/riscv/kernel/setup.c | 10 ++++++++++
+ arch/riscv/mm/init.c      |  9 ---------
+ 2 files changed, 10 insertions(+), 9 deletions(-)
 
-Ok.
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 36b026057503..c147fa8da929 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -16,6 +16,7 @@
+ #include <linux/console.h>
+ #include <linux/screen_info.h>
+ #include <linux/of_fdt.h>
++#include <linux/libfdt.h>
+ #include <linux/sched/task.h>
+ #include <linux/smp.h>
+ #include <linux/efi.h>
+@@ -256,6 +257,15 @@ static void __init parse_dtb(void)
+ 		pr_err("No DTB passed to the kernel\n");
+ 	}
+ 
++	/*
++	 * If DTB is built in, no need to reserve its memblock.
++	 * Otherwise, do reserve it but avoid using
++	 * early_init_fdt_reserve_self() since __pa() does
++	 * not work for DTB pointers that are fixmap addresses
++	 */
++	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
++		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
++
+ #ifdef CONFIG_CMDLINE_FORCE
+ 	strscpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+ 	pr_info("Forcing kernel command line to: %s\n", boot_command_line);
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index c6bb966e4123..f8c9a79acd94 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -254,15 +254,6 @@ static void __init setup_bootmem(void)
+ 	 */
+ 	early_init_fdt_scan_reserved_mem();
+ 
+-	/*
+-	 * If DTB is built in, no need to reserve its memblock.
+-	 * Otherwise, do reserve it but avoid using
+-	 * early_init_fdt_reserve_self() since __pa() does
+-	 * not work for DTB pointers that are fixmap addresses
+-	 */
+-	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
+-		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+-
+ 	dma_contiguous_reserve(dma32_phys_limit);
+ 	if (IS_ENABLED(CONFIG_64BIT))
+ 		hugetlb_cma_reserve(PUD_SHIFT - PAGE_SHIFT);
+-- 
+2.39.2
 
-> Ideally, I'd love to extend the tooling around system calls
-> in the kernel so we can automatically generate the low-level
-> wrapper functions from syscall.tbl,
-
-That's cool.
-
-BTW, I did something on dead syscall elimination [1] (DSE, RFC
-patchset), a v1 has been prepared locally, but not sent out yet.
-
-It also requires to work with the syscall.tbl or the generic
-include/uapi/asm-generic/unistd.h, welcome your feedback on the RFC
-patchset [1] and you should be the right reviewer of the coming v1 ;-)
-
-The left issue of RFC version is finding a way to not KEEP the exception
-entries (in ld script) added by get_user/put_user() if the corresponding
-syscalls are not really used, such KEEPs of exception entries reverts
-the ownership from "syscalls -> get_user/put_user" to "get_user/put_user
--> syscalls" and blocks the gc'ing of the sections of such syscalls.
-
-In the coming v1, I used a script trick to drop the wrongly KEPT
-exception entries to allow drop all of the unused syscalls at last. Will
-clean up them asap. But it is a little slow and looks ugly, it is only
-for a further demo of the possibility.
-
-In v2 of DSE, I'm wondering whether it is possible to drop all of the
-manually added KEEP operations from ld scripts and use some conditional
-attributes (for the sections added by get_user/put_user) to build the
-'used' references from "syscalls" to "sections created by
-get_user/put_user", this may need support from gcc and ld, welcome your
-suggestions too, thanks.
-
-And that RFC patchset added a patch to record the used 'syscalls' in
-nolibc automatically ;-)
-
-[1]: https://lore.kernel.org/linux-riscv/cover.1676594211.git.falcon@tinylab.org/
-[2]: https://reviews.llvm.org/D96838
-
-> but this needs a lot of
-> other work that you should not need to depend on for what
-> you are doing right now.
-
-Ok, welcome to share any progress.
-
-Thanks,
-Zhangjin
-
-> 
->      Arnd
 
 _______________________________________________
 linux-riscv mailing list
