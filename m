@@ -4,49 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A603BC77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 14:49:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E18C7EE25
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 17:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LPyf6HErFBnEL7V9P/Cd7rwyI6vjXpQz4z7mvYxh384=; b=MmgkFyJCG49h/t
-	tw1EGDs0JJh+4lGmhVRSFiA8l/CdyewczPH3t5Vzxg5qS8wop/QE/6+GWylgIz0YBqcVy8odsk1qk
-	vBdPwHlhBPbFDx/qaAlftzsHIAPIsaPIfwXSvZP5uDcAooOnB6cLo86bpefOdUf7h7pyV0xe+KQ6Y
-	CMg6bFEm4wPmiK9b+T/R0YFVHaPOeYx8vDCMUnFiZBwceP+1lv9MSijnQOR/gHeDebTRJu+qKHe8H
-	l9/wfNQX2s5drAYgch8GMXudLm1cwyVoiVrFRtg+7hHwcKiE0BNOGdQjgf75b3CL/fxbjY0DqBDE5
-	dF5vTJNX8g3VNFCFSSiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LeT/WK3fd66M366VR429MP46yWG4tH/UIXAXA1Djs1o=; b=Px7FlmSGGtYxNVMTLLdpDBG8XB
+	6MEavfRUg/oCskk+a62gtnkHXXfIpBlakHWPToO0I7U8oEDqwBA2y8YcG8Zh4V/RIrTqjNp1AMzOf
+	saqWWYoNIoPTccfupBvgbHeN/qUF8dsBwTc/ZnIjmAQHrVpQA+u8xSAqiPYsAKTVWMF7Jiri7KLmV
+	9bv5/4XGsBbHaXR9OowB1NW2uuklim1xQBr9fHFOiNjhY/u8d7nZ7rjH9u+Nura1mBqzinIt8lOKm
+	zhHPtVq+AZ8wPE+jTpZ1ocPeomiq7Ex95wy47boZZH8zt68OWdpaN2JUl9GooakZpEMsqiF3fbNIj
+	l4wPuJEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6uTO-006ISj-1k;
-	Wed, 07 Jun 2023 14:49:18 +0000
-Received: from fgw20-7.mail.saunalahti.fi ([62.142.5.81])
+	id 1q6x9P-006jWS-0K;
+	Wed, 07 Jun 2023 17:40:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6uTK-006IPf-0G
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 14:49:15 +0000
-Received: from localhost (88-113-24-87.elisa-laajakaista.fi [88.113.24.87])
-	by fgw20.mail.saunalahti.fi (Halon) with ESMTP
-	id 7314a8b2-0542-11ee-b3cf-005056bd6ce9;
-	Wed, 07 Jun 2023 17:49:05 +0300 (EEST)
-From: andy.shevchenko@gmail.com
-Date: Wed, 7 Jun 2023 17:49:05 +0300
-To: Jiasheng Jiang <jiasheng@iscas.ac.cn>
-Cc: andy.shevchenko@gmail.com, oe-kbuild-all@lists.linux.dev,
-	linus.walleij@linaro.org, brgl@bgdev.pl, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, linux-gpio@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] gpio: ath79: Add missing check for platform_get_irq
-Message-ID: <ZICY4dTgZZGpiDPY@surfacebook>
-References: <20230607070819.48553-1-jiasheng@iscas.ac.cn>
+	id 1q6x9L-006jVV-1O;
+	Wed, 07 Jun 2023 17:40:48 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 05B96639A3;
+	Wed,  7 Jun 2023 17:40:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93C66C433EF;
+	Wed,  7 Jun 2023 17:40:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686159646;
+	bh=5x1EtOELFmRO9NktsOdM5lQT/q9FGsv1ZyUrNKs4x5E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W5gSo9DrkbgHb+qdJWHgnt9FSbYbLVexi6Zggwplxt/YGImwhEw3y/Tk7Xrl0Bu5r
+	 tm7ezUjD31fAfK97ettHJOF0KU8j5qGlgS/sqhqgXRr2K6W/9DBdcYUhjIOOYV7CQk
+	 /ITCUj2yu+sLZlNMZku3xq6LXFrCA8zkoU6jpFMM6Txggbi7kCUhAKXAfwRw5VkLqy
+	 A3Y9+ef2b5AXqMB+9rJXpVAIgFAZhu2DmbyoOKk0ztTyBw5Z8NjXvieLLZGlu5OHSi
+	 q/3FsiQA651mCQidHU8M7xB5thXMwjh1U0jwb84SxDIl1+8kjbg3oTutFz6PTU2W4t
+	 D7QQYJ3Kr9G4g==
+Date: Wed, 7 Jun 2023 18:40:40 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Minda Chen <minda.chen@starfivetech.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Pawel Laszczak <pawell@cadence.com>,
+	Peter Chen <peter.chen@kernel.org>,
+	Roger Quadros <rogerq@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-usb@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Mason Huo <mason.huo@starfivetech.com>
+Subject: Re: [PATCH v6 7/7] riscv: dts: starfive: Add USB dts configuration
+ for JH7110
+Message-ID: <20230607-helium-handler-5dc9616ebf2c@spud>
+References: <20230518112750.57924-1-minda.chen@starfivetech.com>
+ <20230518112750.57924-8-minda.chen@starfivetech.com>
+ <20230525-cross-daybreak-24dfed69e5d0@spud>
+ <2023052909-speed-cackle-294e@gregkh>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230607070819.48553-1-jiasheng@iscas.ac.cn>
+In-Reply-To: <2023052909-speed-cackle-294e@gregkh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_074914_279279_04E171DC 
-X-CRM114-Status: GOOD (  25.48  )
+X-CRM114-CacheID: sfid-20230607_104047_542841_5CEA1770 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,68 +85,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1309028594817361779=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Wed, Jun 07, 2023 at 03:08:19PM +0800, Jiasheng Jiang kirjoitti:
-> On Tue, 6 Jun 2023 17:46:36 +0800 Andy Shevchenko wrote:
-> > Tue, Jun 06, 2023 at 12:28:17PM +0300, andy.shevchenko@gmail.com kirjoitti:
-> >> Tue, Jun 06, 2023 at 11:18:41AM +0800, Jiasheng Jiang kirjoitti:
 
-...
-
-> >> > Add the missing check for platform_get_irq() and return error
-> >> > if it fails.
-> >> > The returned error code will be dealed with in
-> >> > module_platform_driver(ath79_gpio_driver) and the driver will not
-> >> > be registered.
-> >> 
-> >> No, this functional change and has not to be for the fixes unless _this_ is the
-> >> regression you are fixing. Did the driver work before at some point as after
-> >> this change?
-> 
-> I will remove the fixes tag in v4.
-> 
-> > To be more clear, answer to the following questions:
-> > 1) does driver work with wrong DT configuration?
-> > 2a) if yes, does it make sense, i.e. the hardware functioning usefully?
-> > 2b) if yes, can we guarantee there are no broken configurations in the wild?
-> > 
-> > Depending on the answers correct your code and/or commit message.
-
-The above is a list of the questions you need to investigate.
-(Note, it takes several minutes on elixir.bootlin.com to check
- some of this, but I'm not the author of the code)
-
-> >> Otherwise you have to _justify_ that this functional change won't break
-> >> existing setups (with broked IRQ in Device Tree, for example).
-> 
-> Sorry, I do not quite understand what you mean.
-> I have no idea how these questions are related to my patch.
-
-The IRQ is usually provided by Device Tree or ACPI (here is DT only case).
-Then the platform code converts that to resource which this driver consumes.
-That resource is used when instantiating GPIO (IRQ) chip.
-
-> Do you mean I should not fail the ->probe() if there is wrong IRQ numbering in the DT?
-
-I don't know. The commit message of your change should elaborate this.
-
-> Please tell me the relationship between these questions and my patch.
-
-The tight relationship. The patch changes the flow. Either
-you shouldn't do that, or be aware and explain why it's not
-a problem. Or get it done differently.
-
--- 
-With Best Regards,
-Andy Shevchenko
+--===============1309028594817361779==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="vgIzego1nIcf0ymV"
+Content-Disposition: inline
 
 
+--vgIzego1nIcf0ymV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, May 29, 2023 at 03:46:21PM +0100, Greg Kroah-Hartman wrote:
+> On Thu, May 25, 2023 at 10:36:38PM +0100, Conor Dooley wrote:
+> > Greg,
+> >=20
+> > On Thu, May 18, 2023 at 07:27:50PM +0800, Minda Chen wrote:
+> > > Add USB wrapper layer and Cadence USB3 controller dts
+> > > configuration for StarFive JH7110 SoC and VisionFive2
+> > > Board.
+> > > USB controller connect to PHY, The PHY dts configuration
+> > > are also added.
+> > >=20
+> > > Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+> >=20
+> > > diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/bo=
+ot/dts/starfive/jh7110.dtsi
+> > > index 71a8e9acbe55..b65f06c5b1b7 100644
+> > > --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > > +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > > @@ -366,6 +366,59 @@
+> > >  			status =3D "disabled";
+> > >  		};
+> > > =20
+> > > +		usb0: usb@10100000 {
+> > > +			compatible =3D "starfive,jh7110-usb";
+> > > +			ranges =3D <0x0 0x0 0x10100000 0x100000>;
+> > > +			#address-cells =3D <1>;
+> > > +			#size-cells =3D <1>;
+> > > +			starfive,stg-syscon =3D <&stg_syscon 0x4>;
+> > > +			clocks =3D <&stgcrg JH7110_STGCLK_USB0_LPM>,
+> >=20
+> > Please don't pick this patch, if the rest of the series is applicable,
+> > as this will break building the dtb as stgcrg does not yet exist in any
+> > maintainer tree.
+>=20
+> Ok, I'll just take patch 6/7 then.
+
+I think I missed this mail somehow. 5/7 had the binding for the driver
+so probably that should've gone via the USB tree too?
+Should apply on its own (no deps on the phy patches) & has dt-binding
+maintainer reviews.
+
+`b4 am -P 5 20230518112750.57924-6-minda.chen@starfivetech.com` if
+that's your cup of tea.
+
+Cheers,
+Conor.
+
+--vgIzego1nIcf0ymV
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIDBGAAKCRB4tDGHoIJi
+0vawAPkBNDTHTHPC6w2XGoY5UUHdUCl4RKD8ZVfiHewbpE6lXQEAn+hXtRuVk1F2
+vvte4pcKTDdaQXhDYOg7OTeNqQiSHQk=
+=R+dc
+-----END PGP SIGNATURE-----
+
+--vgIzego1nIcf0ymV--
+
+
+--===============1309028594817361779==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1309028594817361779==--
+
