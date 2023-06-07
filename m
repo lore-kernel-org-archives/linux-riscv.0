@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51A3C7EE25
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 13:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65201C77B7A
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 13:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DTpDSOYyyfpH6Uf35EeuCU04+HPfDK4yF2S0sKhhtzo=; b=Uij6F5qezFsaME
-	kGfUXRm0s3Yl3L1iQu6J5P+6oHvEBGj8Vth4JpdPhU8scCws2e5wC0Z+IQYJqvYFkn4M6WHmj6PJv
-	+l9UnewLGY6rGWhHCaQX0FVNjY977IfNR8HjMmi3JybdTXaQpaGsB3Ap/NYospK8nHaVZZLzFXfvQ
-	OA0odjTj4Wkp+GD5DXn5lZK+ntNJbkIwx40vQjotM6Gt1L+9ZRfaximu5/C0CwaaxZmqDXU74qMAX
-	1WNQAsGWJOYGetSRMK0Y9v71smCvU5kl0ExGFNE9rBpRoZjPA3EuXEBK58PzsiGhwC8XP8Nu+NJ9G
-	KiQU4UgH2l9VjRUV0MOg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=y51mzK75xpECNi6zWxnFEVWNghyVLKWxe2pZ6a68Ygg=; b=osGAEIgJS8JOny
+	bRRUhd0vS9ETp/zMs5oK/KTBizdP2ZS37Q4iuZ3QX2p9VJW0k5T5PmObB6mJJ4Ci3P2uaX3skhvPy
+	3GeIcd6XHKgb7ATYxCOtujA5rutcwhzV/hacdrJiyGlaC3RVTVlk/mkB6N3lSqODKvc922Lu99bB4
+	7kJ6eDOI2dA87LSVdHXBdqW9fApB6EK/i1z9aeI8x1hvUiRJDEAktDeh53GfxPiq+oGXnIgGqACHi
+	3jJDlq6HKbO0WdcwwJHy9soQ91RuOOylF6MmY33hSGBXq9ArFYyCilwO6DmtOHy6HOJu5f0kguymp
+	i6kzjtBeA77cklx+0f+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6sv5-0062FB-0I;
-	Wed, 07 Jun 2023 13:09:47 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1q6tBu-00666F-1y;
+	Wed, 07 Jun 2023 13:27:10 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6sv1-0062Bq-0h
+	id 1q6tBq-00664S-1w
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 13:09:44 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-3f6da07ff00so74028455e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Jun 2023 06:09:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user; t=1686143379; x=1688735379;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rnMyzOk/vTKWlLvg7he0gtZ2J/frXqKetJaHL/fDdnk=;
-        b=H0VOkUH6kFiFRhSSWjrvom6LWeHzTSED2VI5HUYUNPRl3GSZCeNaJGycMsblRsW78r
-         RCy/urUE8RI81gri6nKuhQbc2gyg0bRJw2L/nWKhTY2BPLy013V8ASmnM4OCXT820UvI
-         GwS8ukXlG6X0KJVAspARMB9ZXjMaeyLGMcwZ2Nujzr6+15iEKVFm8Gkqm3heOCVnUUKH
-         BCuAg9gqUaFD9/Lqx2LYByNp3gHt7ny6xszNq5/tlAd89XEUZoBA5n+etUkiM7fbgeMi
-         vCXF63ONggfFfyH+DsMT3SjAOQnTfLMHGT+ohduYU/hYCT9GOjep8iUrpFNxp6F2fFWW
-         To3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686143379; x=1688735379;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rnMyzOk/vTKWlLvg7he0gtZ2J/frXqKetJaHL/fDdnk=;
-        b=CzclFaD6GDOuBtRvN19xxZrTioPzKJGMBqlWx1ggZLHtX8FrwaALL+RAM2AupcVprp
-         dD9pg+cCsIfngMy4X5jWQsk9axyx5yKAYdP3i7ygdEOsDnXIZob/cgEEK8MG1RVDFX+b
-         bi3ZauCIvDgfSJwcmTGcn7wYwN3+meS7MBtGKfkvI0geQrz27gY/5OGv5IWsDCbLN0Kb
-         7Rg0gZZRkxwK2t8SSNsoEz8KLtmkepdugJPMFr93+M1SC6W2uJYWlCxhG8Q+Qxk+8RnZ
-         XwVz7i8t2MpurlYIE3q+VbCw0lhBRXa8xgN6k4pms3z/vdC0EQtOugCjl3SLfaqo3TV+
-         Xi/w==
-X-Gm-Message-State: AC+VfDwzx3vx/OdcnGb0M+9lS8umi4VJVbEq/jrbM1Ss9k1RExbOCt9a
-	vAY7HIbVl9XYrblAVoJ3+R8pOA==
-X-Google-Smtp-Source: ACHHUZ5Kxfe6zUKRliJXHJzL98zZQOfit49/YUSl3Eqmnm+9qVN4eSDGNJ3xfiznZgTmdSxzHwclbA==
-X-Received: by 2002:a7b:c457:0:b0:3f6:f2b2:15c9 with SMTP id l23-20020a7bc457000000b003f6f2b215c9mr5057736wmi.37.1686143379440;
-        Wed, 07 Jun 2023 06:09:39 -0700 (PDT)
-Received: from smtpclient.apple ([131.111.5.246])
-        by smtp.gmail.com with ESMTPSA id k9-20020adfe8c9000000b0030644bdefd8sm15284117wrn.52.2023.06.07.06.09.38
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 07 Jun 2023 06:09:38 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.500.231\))
-Subject: Re: [PATCH -fixes] riscv: Check the virtual alignment before choosing
- a map size
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20230607125851.63370-1-alexghiti@rivosinc.com>
-Date: Wed, 7 Jun 2023 14:09:28 +0100
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Jones <ajones@ventanamicro.com>,
- Rob Herring <robh@kernel.org>,
- Anup Patel <anup@brainfault.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- Song Shuai <songshuaishuai@tinylab.org>
-Message-Id: <E8ECB3E5-8DDA-443A-AD00-D337708DBE4C@jrtc27.com>
-References: <20230607125851.63370-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-X-Mailer: Apple Mail (2.3731.500.231)
+	Wed, 07 Jun 2023 13:27:08 +0000
+X-QQ-mid: bizesmtp79t1686144406t8q8sh1i
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 07 Jun 2023 21:26:44 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: gSGF8h2+s1IeuyvNvsjPqo51c92Oei+VMiWk3neliuJycIgEbNKvZYuLZeUAz
+	lFnZwQGxKatqDuzMJQohZXLRw7ojULNOb0uySR+PI0K0wz6TMCdQK5KMg3dv/ZBa7cf690j
+	F3aLIkjJfE3lX4ajZr1YhoqbesoV5tm1xPa4dgHqPRx4tnlNdb6/oenJsj48MaPH/aQufsD
+	Sp37ssx34gS5ZLeJOCeKoo5c5NvhJHhx8r8CLz/vloLE2w420Q6cPe+pfk1Nc0dUfNqTu1N
+	bTMFDwxFV3/+1jfMLT8XM9JJBvPv1sXabROdq0SdWbp1kI1zQZpLo2ym5FGUTuy7u2kcCrp
+	vmlng70HKM3MPHoViSeRec/NWnaWjkBVaCo2c1qQ8V6lsgomCqO0G6+7IgnbvNrTd1PJFeS
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11098037038039291754
+From: Zhangjin Wu <falcon@tinylab.org>
+To: arnd@arndb.de
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	thomas@t-8ch.de,
+	w@1wt.eu
+Subject: Re: [PATCH v3 1/3] tools/nolibc: fix up #error compile failures with -ENOSYS
+Date: Wed,  7 Jun 2023 21:26:44 +0800
+Message-Id: <20230607132644.824792-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <635d1aaf-3982-4404-9c05-05e51800691e@app.fastmail.com>
+References: <635d1aaf-3982-4404-9c05-05e51800691e@app.fastmail.com>
+MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_060943_296726_04B52E70 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20230607_062706_974516_F46BBFF6 
+X-CRM114-Status: GOOD (  29.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,54 +71,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNyBKdW4gMjAyMywgYXQgMTM6NTgsIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9z
-aW5jLmNvbT4gd3JvdGU6Cj4gCj4gV2UgdXNlZCB0byBvbmx5IGNoZWNrIHRoZSBhbGlnbm1lbnQg
-b2YgdGhlIHBoeXNpY2FsIGFkZHJlc3MgdG8gZGVjaWRlCj4gd2hpY2ggbWFwcGluZyB3b3VsZCBm
-aXQgZm9yIGEgY2VydGFpbiByZWdpb24gb2YgdGhlIGxpbmVhciBtYXBwaW5nLCBidXQKPiBpdCBp
-cyBub3QgZW5vdWdoIHNpbmNlIHRoZSB2aXJ0dWFsIGFkZHJlc3MgbXVzdCBhbHNvIGJlIGFsaWdu
-ZWQsIHNvIGNoZWNrCj4gdGhhdCB0b28uCj4gCj4gRml4ZXM6IDMzMzUwNjhmODcyMSAoInJpc2N2
-OiBVc2UgUFVEL1A0RC9QR0QgcGFnZXMgZm9yIHRoZSBsaW5lYXIgbWFwcGluZyIpCj4gUmVwb3J0
-ZWQtYnk6IFNvbmcgU2h1YWkgPHNvbmdzaHVhaXNodWFpQHRpbnlsYWIub3JnPgo+IExpbms6IGh0
-dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2L3RlbmNlbnRfN0MzQjU4MEI0N0MxQjE3
-QzE2NDg4RUMxQHFxLmNvbS8KPiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhn
-aGl0aUByaXZvc2luYy5jb20+Cj4gLS0tCj4gYXJjaC9yaXNjdi9tbS9pbml0LmMgfCAxMyArKysr
-KysrLS0tLS0tCj4gMSBmaWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgNiBkZWxldGlvbnMo
-LSkKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9pbml0LmMgYi9hcmNoL3Jpc2N2L21t
-L2luaXQuYwo+IGluZGV4IGQ0MmVhMzFjN2RlMC4uNTE0M2VlZjRjMDc0IDEwMDY0NAo+IC0tLSBh
-L2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gKysrIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiBAQCAt
-NjYwLDE4ICs2NjAsMTkgQEAgdm9pZCBfX2luaXQgY3JlYXRlX3BnZF9tYXBwaW5nKHBnZF90ICpw
-Z2RwLAo+IGNyZWF0ZV9wZ2RfbmV4dF9tYXBwaW5nKG5leHRwLCB2YSwgcGEsIHN6LCBwcm90KTsK
-PiB9Cj4gCj4gLXN0YXRpYyB1aW50cHRyX3QgX19pbml0IGJlc3RfbWFwX3NpemUocGh5c19hZGRy
-X3QgYmFzZSwgcGh5c19hZGRyX3Qgc2l6ZSkKPiArc3RhdGljIHVpbnRwdHJfdCBfX2luaXQgYmVz
-dF9tYXBfc2l6ZShwaHlzX2FkZHJfdCBwYSwgdWludHB0cl90IHZhLAoKV2h5IG9uIGVhcnRoIGlz
-IHRoaXMgcmV0dXJuaW5nIHVpbnRwdHJfdD8gSXTigJlzIGEgc2l6ZSBub3QgYSBwb2ludGVyLgoK
-SmVzcwoKPiArICAgICAgcGh5c19hZGRyX3Qgc2l6ZSkKPiB7Cj4gLSBpZiAoIShiYXNlICYgKFBH
-RElSX1NJWkUgLSAxKSkgJiYgc2l6ZSA+PSBQR0RJUl9TSVpFKQo+ICsgaWYgKCEocGEgJiAoUEdE
-SVJfU0laRSAtIDEpKSAmJiAhKHZhICYgKFBHRElSX1NJWkUgLSAxKSkgJiYgc2l6ZSA+PSBQR0RJ
-Ul9TSVpFKQo+IHJldHVybiBQR0RJUl9TSVpFOwo+IAo+IC0gaWYgKCEoYmFzZSAmIChQNERfU0la
-RSAtIDEpKSAmJiBzaXplID49IFA0RF9TSVpFKQo+ICsgaWYgKCEocGEgJiAoUDREX1NJWkUgLSAx
-KSkgJiYgISh2YSAmIChQNERfU0laRSAtIDEpKSAmJiBzaXplID49IFA0RF9TSVpFKQo+IHJldHVy
-biBQNERfU0laRTsKPiAKPiAtIGlmICghKGJhc2UgJiAoUFVEX1NJWkUgLSAxKSkgJiYgc2l6ZSA+
-PSBQVURfU0laRSkKPiArIGlmICghKHBhICYgKFBVRF9TSVpFIC0gMSkpICYmICEodmEgJiAoUFVE
-X1NJWkUgLSAxKSkgJiYgc2l6ZSA+PSBQVURfU0laRSkKPiByZXR1cm4gUFVEX1NJWkU7Cj4gCj4g
-LSBpZiAoIShiYXNlICYgKFBNRF9TSVpFIC0gMSkpICYmIHNpemUgPj0gUE1EX1NJWkUpCj4gKyBp
-ZiAoIShwYSAmIChQTURfU0laRSAtIDEpKSAmJiAhKHZhICYgKFBNRF9TSVpFIC0gMSkpICYmIHNp
-emUgPj0gUE1EX1NJWkUpCj4gcmV0dXJuIFBNRF9TSVpFOwo+IAo+IHJldHVybiBQQUdFX1NJWkU7
-Cj4gQEAgLTExNzcsNyArMTE3OCw3IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBjcmVhdGVfbGluZWFy
-X21hcHBpbmdfcmFuZ2UocGh5c19hZGRyX3Qgc3RhcnQsCj4gZm9yIChwYSA9IHN0YXJ0OyBwYSA8
-IGVuZDsgcGEgKz0gbWFwX3NpemUpIHsKPiB2YSA9ICh1aW50cHRyX3QpX192YShwYSk7Cj4gbWFw
-X3NpemUgPSBmaXhlZF9tYXBfc2l6ZSA/IGZpeGVkX21hcF9zaXplIDoKPiAtICAgIGJlc3RfbWFw
-X3NpemUocGEsIGVuZCAtIHBhKTsKPiArICAgIGJlc3RfbWFwX3NpemUocGEsIHZhLCBlbmQgLSBw
-YSk7Cj4gCj4gY3JlYXRlX3BnZF9tYXBwaW5nKHN3YXBwZXJfcGdfZGlyLCB2YSwgcGEsIG1hcF9z
-aXplLAo+ICAgcGdwcm90X2Zyb21fdmEodmEpKTsKPiAtLSAKPiAyLjM5LjIKPiAKPiAKPiBfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+> On Wed, Jun 7, 2023, at 11:46, Zhangjin Wu wrote:
+> >> On Wed, Jun 7, 2023, at 07:19, Zhangjin Wu wrote:
+> >
+> > Ok, agree, as the 64bit version of lseek may be enough for nolibc, if a target
+> > application really require, they can add the alias themselves.
+> >
+> >> Are there any examples of functions where we actually want mulitple
+> >> versions?
+> >>
+> >
+> > For example, the following ones are related to the syscalls being added,
+> > all of them have similar library routines in current sys.h:
+> >
+> > * waitid, https://linux.die.net/man/2/waitid
+> > * ppoll, https://linux.die.net/man/2/ppoll
+> > * pselect, https://linux.die.net/man/2/pselect6
+> > * clock_gettime, https://linux.die.net/man/2/clock_gettime
+> >
+> > The similar routines are put in right side:
+> >
+> > * waitid --> waitpid, wait, wait4
+> > * ppoll --> poll
+> > * pselect --> select
+> > * clock_gettime --> gettimeofday
+> 
+> Ok, I think these are all useful to have in both versions.
+> 
+> All four of these examples are old enough that I think it's
+> sufficient just expose them to userspace as the bare system
+> calls, and have the older library calls be implemented using
+> them without a fallback to the native syscalls of the same
+> name on architectures that have both, newer architectures
+> would only have the latest version anyway.
+>
+
+Ok, Thanks, I have already added parts of them, will send waitid and
+64bit lseek at first.
+
+> > For the clock_gettime, it may also let us think about if we need to add
+> > its friends (clock_getres, clock_settime) together.
+> 
+> Yes, I think that makes sense. We also need clock_settime()
+> to implement settimeofday() on rv32.
+>
+
+Ok.
+
+> Ideally, I'd love to extend the tooling around system calls
+> in the kernel so we can automatically generate the low-level
+> wrapper functions from syscall.tbl,
+
+That's cool.
+
+BTW, I did something on dead syscall elimination [1] (DSE, RFC
+patchset), a v1 has been prepared locally, but not sent out yet.
+
+It also requires to work with the syscall.tbl or the generic
+include/uapi/asm-generic/unistd.h, welcome your feedback on the RFC
+patchset [1] and you should be the right reviewer of the coming v1 ;-)
+
+The left issue of RFC version is finding a way to not KEEP the exception
+entries (in ld script) added by get_user/put_user() if the corresponding
+syscalls are not really used, such KEEPs of exception entries reverts
+the ownership from "syscalls -> get_user/put_user" to "get_user/put_user
+-> syscalls" and blocks the gc'ing of the sections of such syscalls.
+
+In the coming v1, I used a script trick to drop the wrongly KEPT
+exception entries to allow drop all of the unused syscalls at last. Will
+clean up them asap. But it is a little slow and looks ugly, it is only
+for a further demo of the possibility.
+
+In v2 of DSE, I'm wondering whether it is possible to drop all of the
+manually added KEEP operations from ld scripts and use some conditional
+attributes (for the sections added by get_user/put_user) to build the
+'used' references from "syscalls" to "sections created by
+get_user/put_user", this may need support from gcc and ld, welcome your
+suggestions too, thanks.
+
+And that RFC patchset added a patch to record the used 'syscalls' in
+nolibc automatically ;-)
+
+[1]: https://lore.kernel.org/linux-riscv/cover.1676594211.git.falcon@tinylab.org/
+[2]: https://reviews.llvm.org/D96838
+
+> but this needs a lot of
+> other work that you should not need to depend on for what
+> you are doing right now.
+
+Ok, welcome to share any progress.
+
+Thanks,
+Zhangjin
+
+> 
+>      Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
