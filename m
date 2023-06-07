@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF391C7EE43
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 06:41:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3ADC7EE29
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 06:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BmC73ItTnPO68SFePuyEI8xP6EFQMwfQaZB3O9yP55U=; b=ImkDCeItoaqKPmEceoM8s9ejNb
-	rrZadLFYKJLewghfmvq9hOgfbGr2ff32e2exGs/+g5JqE0p/luxGTOQ9HS4tGkxLgtIqHHRad2dGg
-	mRAYcnH8280Vw1CHkYE/F7jUu/aFSoA5Jxq+1bWvOJc3bBAmaAApT/VppQg32ihlzdX5tmzqBffDw
-	qP07M36S+QQ1WFbiHVn0Mf72hVF/H70ndmGC5RL/TUgoP7bdMjDBIPRZ1g5hteK0Kj5IsPnHDG1L1
-	Qo0Hk/T93kkmi1VN/yWgcCWfPBKS0R4rHpA8Kq+9so400KZtVveqvuc8qCK+xEKKVEJCNkw12OVaB
-	qqJQG+tw==;
+	bh=Tf+PzavgahdhWeHD7E5QS7NNdFlJQ+9gl8spilwz7wQ=; b=VKPjcmR1eK/tu4fXW+/EWBCgim
+	yOVvlilEvTEhPEPUDVYM/H9zkNn22/b0QYHhzWazOyjb1hNI8kBe6MrZ06yIXXUT9TC5w46TdAZXw
+	DLKsTgYq4rI+2dKm9yYKClxqsZBCxOxcACN4Tw9rqjMQEvVrYiQJ+GzvPAGtzADZR6HX4ktBiWXUU
+	hNp/KB/9bDbhjliz3dUyZsptmdHsXVY34jvXctwZ7xdpoha77iXQlqG0lqiKlqTYUK2DJGAdt42Gq
+	L3BiBcAeVSAh9mKKnSQ4NB+acZ5FJt+J5QLgcfsQWwNHiq0Zvi7WXlMA46zvXus7X/7ZpyEuzseOi
+	zIfQL9kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6mr0-004bEh-2X;
-	Wed, 07 Jun 2023 06:41:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q6n1M-004coc-0G;
+	Wed, 07 Jun 2023 06:51:52 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6mqy-004bDu-0U
+	id 1q6n1I-004cmg-1K
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 06:41:09 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A55A6636E2;
-	Wed,  7 Jun 2023 06:41:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90074C433EF;
-	Wed,  7 Jun 2023 06:41:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686120067;
-	bh=Px4yR+6OsZ1b/yH6ZdWEW0dyGLZ2w09Hzl1kzNrtJw0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bQg+1HP7Qdi4iQUKM9u6T9UtZIm5jIp8wQ9ZmIp5NRyJ86hGU+vePDRhiuSAYNRm6
-	 Jqk3k+DVuCc5FGFzNbK5Rn2ivpsN+lXHm6xghGiAaTBw+vXoIb8b+rIQrhXf8LZe1D
-	 FzfQShhS4fXXIzN2QaQKrcs2vOf4o+QNrU1ke91Petu2OhppYwnsN47DUoVLk+GuO1
-	 YiT05Z7VfeTyJguCpkfDhKUfEdcHdRCHcQ2CZ1BEHDJysLT+AcRemIMpF/WoZkbiEj
-	 ITOzCH9XmQGcZJTlesoEmjljCT20DtVddq8SEALOmI5RK4DGy2iRhf7brapBRnVvTY
-	 SRomxqX/O+acQ==
-Date: Wed, 7 Jun 2023 08:41:04 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Keith Zhao <keith.zhao@starfivetech.com>, Shengyu Qu <wiagn233@outlook.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com, Bjorn Andersson <andersson@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Jagan Teki <jagan@edgeble.ai>, 
-	Chris Morgan <macromorgan@hotmail.com>, Jack Zhu <jack.zhu@starfivetech.com>, 
-	Shengyang Chen <shengyang.chen@starfivetech.com>, Changhuang Liang <changhuang.liang@starfivetech.com>
-Subject: Re: [PATCH 1/9] dt-bindings: display: Add yamls for JH7110 display
- subsystem
-Message-ID: <ifgjvonhkzcwrklzch5efguor2x6az4m737dwte4uyow7ar5dr@z4glaxse6dou>
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
- <20230602-uncommon-rejoicing-e73c0c475f9f@spud>
- <TY3P286MB26116576E3E502CAE53834599852A@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
- <1991848.PYKUYFuaPT@diego>
- <20230606-geometry-blurb-1f0f07d4bf6a@spud>
+	Wed, 07 Jun 2023 06:51:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1686120708; x=1717656708;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=DhWndPpddaoxUPxyEmfRWSwqvWtGZRWshWcQJxBubLM=;
+  b=yTJwgpI8qSx1f9s5ndTSdtjWbwuzgV9cgu0PlEN+E+M7yzqrYjcsTg+b
+   VMBGz2j7j7E4YwXqoHQvdgqTneqLHTJ1jIHL3ILyeWZiM/lOtuf8onznk
+   tQ56thLCI4Djg8Vdl2rGeObiuKoccVHl+zs7JJO5rGZb0mxd6D/6+KJbW
+   ch9s54Z1EA/royKYoA5Omj2UZY4As1g5OZnSNtJJjVI5LduWWSjgik4vW
+   xUMZRqVYjsbar6cpdRy27SxfZvqVpZZHPdGoYxTRNKaEzzYaf+spqEmIq
+   KBWKV2oT9usUcIPY7GEIYIQ/Jd6m3/voZHexIBNXajwxi5Uj+zyDHXRjA
+   A==;
+X-IronPort-AV: E=Sophos;i="6.00,223,1681196400"; 
+   d="asc'?scan'208";a="217189778"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Jun 2023 23:51:43 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 6 Jun 2023 23:51:43 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Tue, 6 Jun 2023 23:51:40 -0700
+Date: Wed, 7 Jun 2023 07:51:16 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Mason Huo <mason.huo@starfivetech.com>
+CC: Viresh Kumar <viresh.kumar@linaro.org>, "Rafael J. Wysocki"
+	<rafael@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Shengyu Qu <wiagn233@outlook.com>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v4 2/3] cpufreq: dt-platdev: Add JH7110 SOC to the
+ allowlist
+Message-ID: <20230607-process-spinal-321ccf04d7e6@wendy>
+References: <20230606105656.124355-1-mason.huo@starfivetech.com>
+ <20230606105656.124355-3-mason.huo@starfivetech.com>
+ <20230606110804.qns4rolrrj2gku6w@vireshk-i7>
+ <20230606-unsmooth-slip-c80fab59c9b4@wendy>
+ <f29a14dad3d744bba54e561a050bdfaa@EXMBX067.cuchost.com>
 MIME-Version: 1.0
-In-Reply-To: <20230606-geometry-blurb-1f0f07d4bf6a@spud>
+In-Reply-To: <f29a14dad3d744bba54e561a050bdfaa@EXMBX067.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_234108_270418_AFB0A794 
-X-CRM114-Status: GOOD (  37.19  )
+X-CRM114-CacheID: sfid-20230606_235148_628153_FD17FC38 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,94 +91,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3437649527589062177=="
+Content-Type: multipart/mixed; boundary="===============2174528619454696267=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3437649527589062177==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fpldas4cn62wqe46"
+--===============2174528619454696267==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="PguniYfT8h3J0i0C"
 Content-Disposition: inline
 
-
---fpldas4cn62wqe46
-Content-Type: text/plain; charset=iso-8859-1
+--PguniYfT8h3J0i0C
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jun 06, 2023 at 11:37:53PM +0100, Conor Dooley wrote:
-> On Wed, Jun 07, 2023 at 12:22:33AM +0200, Heiko St=FCbner wrote:
-> > Am Dienstag, 6. Juni 2023, 20:41:17 CEST schrieb Shengyu Qu:
-> > > > On Fri, Jun 02, 2023 at 03:40:35PM +0800, Keith Zhao wrote:
-> > > >> Add bindings for JH7110 display subsystem which
-> > > >> has a display controller verisilicon dc8200
-> > > >> and an HDMI interface.
+On Wed, Jun 07, 2023 at 02:04:37AM +0000, Mason Huo wrote:
+> Hi Viresh & Conor,
 >=20
-> > > >> +description:
-> > > >> +  The StarFive SoC uses the HDMI signal transmiter based on innos=
-ilicon IP
-> > > > Is innosilicon the same thing as verisilicon? Also
-> > > > s/transmiter/transmitter/, both here and in the title.
-> > >=20
-> > > I think that is not the same, I remember Rockchip has used a HDMI=20
-> > > transmitter from
-> > >=20
-> > > Innosilicon, and there is a existing driver for that in mainline.
-> >=20
-> > Yep, I think Innosilicon is the company you turn to when you want to sa=
-ve
-> > a bit of money ;-) . In the bigger SoCs Rockchip most of the time uses
-> > Designware hdmi blocks and looking at the history only the rk3036 ever
-> > used an Innosilicon block.
-> >=20
-> > Looking at the history, 2016 really was a long time ago :-D.
-> >=20
-> > > So Keith, if that's true, I think it is better to seperate the HDMI=
-=20
-> > > stuff and reuse existing driver.
-> >=20
-> > I'm not so sure about that - at least from a cursory glance :-) .
-> >=20
-> > The registers do look slightly different and I don't know how much
-> > the IP changed between the rk3036-version and the jh7110 version.
-> >=20
-> > At the very least, I know my rk3036 board isn't booting right now, so
-> > I can't really provide help for generalizing the rockchip-driver.
-> >=20
-> > At the very least both the binding and driver could drop the "starfive-=
-hdmi"
-> > and actually use the Innosilicon in the naming somewhere, so that it's
-> > clear for future developers :-)
->=20
-> Seeing "based on" always makes me a little bit nervous to be honest when
-> it comes to using a compatible from the IP. Is it the IP? What version
-> is it? etc. Perhaps "starfive,jh7110-hdmi" & falling back to some sort
-> of "innosilicon,hdmi" would be more future/IP-silliness proof.
-> Driver can always be generic & bind against "innosilicon,hdmi" until
-> that becomes impossible.
+> Sorry for the confusion.=20
+> Should I re-send the patch series and remove this patch?
+> Or you can just ignore it?
 
-Given that Neil was saying that there's at least two
-generations/revisions/models of an HDMI controller from Innosilicon, I'm
-not sure that compatible is enough to reach that goal anyway.
+I applied the two dts patches yesterday, you shouldn't need to do
+anything.
 
-Maxime
-
---fpldas4cn62wqe46
+--PguniYfT8h3J0i0C
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCZIAmgAAKCRDj7w1vZxhR
-xaQ+AQDViFCjrmBh/FOmfkZnsbFEZqUbyPu3G+ff5Kfs9al3LgEA4TGU5Z1tubCB
-079K0fi4BmqB2ZgKk65Uxw0vctIlIAE=
-=TcBS
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIAo5AAKCRB4tDGHoIJi
+0pBVAP4k0GCPxUv/B+QjWRQshcDqTHSTrBRdE0zfT3GoMOfxDwD7B9gQAFoFQrw3
+IP3CJDRJ4Wg/8jlq6a5qKq/d/BjOmQs=
+=3vSO
 -----END PGP SIGNATURE-----
 
---fpldas4cn62wqe46--
+--PguniYfT8h3J0i0C--
 
 
---===============3437649527589062177==
+--===============2174528619454696267==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -183,5 +140,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3437649527589062177==--
+--===============2174528619454696267==--
 
