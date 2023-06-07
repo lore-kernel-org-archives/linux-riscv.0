@@ -4,42 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6428C7EE29
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 11:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB56C7EE29
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 11:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=E+5/spt8W7jRwbytA+fFe0X/uY0+X4Jqz5ZZx8NiABI=; b=WQ+3rcFdB4g9Es
-	0wieJJCJGhyTPpHykDBGu+nJVO9XBNj08lQhoeS4NuxuI7X/CjPo8XOdkAfXYFNnMskVfvnmStqv0
-	GdsDdHzVlNoOmH8tRK2INC4UOMPXZAZ2LE0S3Py6s5clt8Wt8qcna6LQlJskiERR+xJ3poXpaPaWb
-	UBtpLMk/R74uUY0XeQs3kB2FJ+zI+ZKzGTo5Ms3258+pMLI7rCBjaqxZZ57TrKndbMjfMm4QAr5IL
-	qn8Ux4B9r72tuQXAXcfhnqNPNnFpoIbHENeJPKFGAjz6YioXDCepFp+KGW8CYnBCK3w6lrDmzuazk
-	3Wfsmv4RXhgmU31+DmfA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iSoxC7suOz37otpz4fRCxpS6aFSIOYDTGvmT+bYRdfk=; b=x3zx6U3MhNkvXl
+	/Z7jNkqqiXfUWUTijbOCJMYac6ckSEJdckicYZn3SjyjFzvJ9cMOuKL6TL0JWEGf3qMRc5zRBrfeY
+	HpJ020l7kwtID/HhMaG6X+qsDVTFiKdnyocT+UbgK8RGLpw9oZYfYHYbZkhFb2zimSW9zjbLgFaH5
+	cGJ7rR7uwBSiSfipMlWuuCGJ5cEegySHCUUdJ2pWKHC/YQiF6ljKGnPgzDurE60eD6pk+bW0MU3DV
+	H8iqjkWiM5nwVUy+XXgdqEtr44J0LU72LEYCdqNgMmeqBjBdu5SEm1jvsrbGTVGYMn0WbM+8fVUQf
+	a2ut3BdFihjyecoXZtbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6rM2-005eLi-13;
-	Wed, 07 Jun 2023 11:29:30 +0000
+	id 1q6rNL-005eX2-3D;
+	Wed, 07 Jun 2023 11:30:51 +0000
 Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6rLz-005eKL-0y
+	id 1q6rNI-005eVS-1t
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 11:29:29 +0000
-X-QQ-mid: bizesmtp79t1686137341tbhfj5g6
+	Wed, 07 Jun 2023 11:30:50 +0000
+X-QQ-mid: bizesmtp88t1686137431txjb0ruo
 Received: from linux-lab-host.localdomain ( [61.141.77.49])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 07 Jun 2023 19:29:00 +0800 (CST)
+	id ; Wed, 07 Jun 2023 19:30:30 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: q+yjhizk/eL77uWPsAdnep0mzHEQMbth2xOfZxpWL32hs5VqgL/zmKwk14/Wu
-	i9q8XPfvyhdXG9+3oacVYSQr6FunSQbFvOVbwZwjQv24RB6YKbMH//08rrGS+LL+BSbrRqZ
-	CwnbEjY/+7z/JMzsKqgv6sbEgj0I452l0mX23xA7jCjrQIbCkImtOj7EoGL6pyYUt7UkshA
-	mWct2lQuEKCpcF6JthwUcMbUeXZmqiBPya1w7LlWWa2RniMpOLmdCMGYKkdpMIdFoR87xBT
-	zyVt0HFh417TKiCcYhGJVjDY+gvn/0l9+8eHCG/KlDx+j6PvBTx4Y+0SVn6yaSZXvaY5j0m
-	QAJRD4PQlmSCcB1jJ9qo7Maw3XVxr15+CFbQOZhB8hlaYSTTbAJE1ybwp7nzPPkcOY8DcJL
+X-QQ-FEAT: PS/N6jJLnDYwJEGZC7QAtJWPa/AlKwXo0vmdJ7kjq/mWA0tEQux5qfVTlr0zq
+	V0mQ4yl64VpUmbvnsqbSN7zmeSevRUHmbKOZoV2RqIOt8edl233rqbjgHL+q7xdbYk7qw0T
+	oDbzE70YdzBu94Fz3kB0Vxyk73oAMss5RRcIEMdMbDAKZGDHbrmqZ3shDB9YNI4GPLQbbyC
+	YpefZjfBLWxIf0z9U6lv0MnP+rAzGLTBXjOtyEUJdteCy8j1LYn7FPmZtLhHlVEj+dAmryn
+	bRmbdeOXlRWDFL3U2JhqQGtudiei24trgW3jAVgqAa8iUyA/xMvOA7v8ihmxArblu03CWvf
+	A7TJ2iCs1KR4AhETgTAsng5OTvPUqWD1dzD8jIRVnYXh9ApTgLCxOG2o/o+ts6irrjY3CNF
+	F0Q8oxfdQOU=
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6806432981910364890
+X-BIZMAIL-ID: 11378213777674272868
 From: Zhangjin Wu <falcon@tinylab.org>
 To: thomas@t-8ch.de,
 	w@1wt.eu
@@ -47,18 +48,20 @@ Cc: falcon@tinylab.org,
 	arnd@arndb.de,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 0/3] tools/nolibc: add a new syscall helper
-Date: Wed,  7 Jun 2023 19:28:58 +0800
-Message-Id: <cover.1686135913.git.falcon@tinylab.org>
+	linux-riscv@lists.infradead.org,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Subject: [PATCH v3 1/3] tools/nolibc: sys.h: add a syscall return helper
+Date: Wed,  7 Jun 2023 19:30:09 +0800
+Message-Id: <7cad207c4c4deb41151bd12fa658fb3fc64a5bf1.1686135913.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1686135913.git.falcon@tinylab.org>
+References: <cover.1686135913.git.falcon@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_042927_682128_4B654992 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230607_043048_940882_AD9B028A 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,86 +73,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Willy, Thomas
-
-This is the revision of the v2 syscall helpers [1], it is based on
-20230606-nolibc-rv32+stkp7a of [2]. It doesn't conflict with the v4 of
--ENOSYS patchset [3], so, it is ok to simply merge both of them.
-
-This revision mainly applied Thomas' method, removed the __syscall()
-helper and replaced it with __sysret() instead, because __syscall()
-looks like _syscall() and syscall(), it may mixlead the developers.
-
-Changes from v2 -> v3:
-
-* tools/nolibc: sys.h: add a syscall return helper
-
-  * The __syscall() is removed.
-
-  * Align the code style of __sysret() with the others, and use
-    __inline__ instead of inline (like stdlib.h) to let it work with
-    the default -std=c89 in tools/testing/selftests/nolibc/Makefile
-
-* tools/nolibc: unistd.h: apply __sysret() helper
-
-  As v2.
-
-* tools/nolibc: sys.h: apply __sysret() helper
-
-  replaced __syscall() with __sysret() and merged two separated patches of v2 to one.
-
-Did run-user tests for rv32 (with [3]), rv64 and arm64.
-
-BTW, two questions for Thomas,
-
-* This commit 659a49abc9c2 ("tools/nolibc: validate C89 compatibility")
-  enables -std=c89, why not gnu11 used by kernel ? ;-)
-
-* Do we need to tune the order of the macros in unistd.h like this:
-
-    #define _syscall(N, ...) __sysret(my_syscall##N(__VA_ARGS__))
-    #define _syscall_n(N, ...) _syscall(N, __VA_ARGS__)
-    #define __syscall_narg(_0, _1, _2, _3, _4, _5, _6, N, ...) N
-    #define _sycall_narg(...) __syscall_narg(__VA_ARGS__, 6, 5, 4, 3, 2, 1, 0)
-    #define syscall(...) _syscall_n(_sycall_narg(__VA_ARGS__), ##__VA_ARGS__)
-
-  Before, It works but seems not put in using order:
-
-    #define _syscall(N, ...) __sysret(my_syscall##N(__VA_ARGS__))
-    #define _sycall_narg(...) __syscall_narg(__VA_ARGS__, 6, 5, 4, 3, 2, 1, 0)
-    #define __syscall_narg(_0, _1, _2, _3, _4, _5, _6, N, ...) N
-    #define _syscall_n(N, ...) _syscall(N, __VA_ARGS__)
-    #define syscall(...) _syscall_n(_sycall_narg(__VA_ARGS__), ##__VA_ARGS__)
-
-Thanks.
-
-Best regards,
-Zhangjin
-
----
-[1]: https://lore.kernel.org/linux-riscv/cover.1686036862.git.falcon@tinylab.org/
-[2]: https://git.kernel.org/pub/scm/linux/kernel/git/wtarreau/nolibc.git
-[3]: https://lore.kernel.org/linux-riscv/cover.1686128703.git.falcon@tinylab.org/T/#t
-
-Zhangjin Wu (3):
-  tools/nolibc: sys.h: add a syscall return helper
-  tools/nolibc: unistd.h: apply __sysret() helper
-  tools/nolibc: sys.h: apply __sysret() helper
-
- tools/include/nolibc/sys.h    | 364 +++++-----------------------------
- tools/include/nolibc/unistd.h |  11 +-
- 2 files changed, 55 insertions(+), 320 deletions(-)
-
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TW9zdCBvZiB0aGUgbGlicmFyeSByb3V0aW5lcyBzaGFyZSB0aGUgc2FtZSBzeXNjYWxsIHJldHVy
+biBsb2dpYzoKCiAgSW4gZ2VuZXJhbCwgYSAwIHJldHVybiB2YWx1ZSBpbmRpY2F0ZXMgc3VjY2Vz
+cy4gIEEgLTEgcmV0dXJuIHZhbHVlCiAgaW5kaWNhdGVzIGFuIGVycm9yLCBhbmQgYW4gZXJyb3Ig
+bnVtYmVyIGlzIHN0b3JlZCBpbiBlcnJuby4gWzFdCgpMZXQncyBhZGQgYSBfX3N5c3JldCgpIGhl
+bHBlciBmb3IgdGhlIGFib3ZlIGxvZ2ljIHRvIHNpbXBsaWZ5IHRoZSBjb2RpbmcKYW5kIHNocmlu
+ayB0aGUgY29kZSBsaW5lcyB0b28uCgpUaG9tYXMgc3VnZ2VzdGVkIHRvIHVzZSBpbmxpbmUgZnVu
+Y3Rpb24gaW5zdGVhZCBvZiBtYWNybyBmb3IgX19zeXNyZXQoKS4KCldpbGx5IHN1Z2dlc3RlZCB0
+byBtYWtlIF9fc3lzcmV0KCkgYmUgYWx3YXlzIGlubGluZS4KClsxXTogaHR0cHM6Ly9tYW43Lm9y
+Zy9saW51eC9tYW4tcGFnZXMvbWFuMi9zeXNjYWxsLjIuaHRtbAoKU3VnZ2VzdGVkLWJ5OiBXaWxs
+eSBUYXJyZWF1IDx3QDF3dC5ldT4KTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgt
+cmlzY3YvWkgxK2hraGlBMitJdFN2WEAxd3QuZXUvClN1Z2dlc3RlZC1ieTogVGhvbWFzIFdlacOf
+c2NodWggPGxpbnV4QHdlaXNzc2NodWgubmV0PgpMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9y
+Zy9saW51eC1yaXNjdi9lYTRlNzQ0Mi03MjIzLTQyMTEtYmEyOS03MDgyMWU5MDc4ODhAdC04Y2gu
+ZGUvClNpZ25lZC1vZmYtYnk6IFpoYW5namluIFd1IDxmYWxjb25AdGlueWxhYi5vcmc+Ci0tLQog
+dG9vbHMvaW5jbHVkZS9ub2xpYmMvc3lzLmggfCAxMCArKysrKysrKysrCiAxIGZpbGUgY2hhbmdl
+ZCwgMTAgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL3Rvb2xzL2luY2x1ZGUvbm9saWJjL3N5
+cy5oIGIvdG9vbHMvaW5jbHVkZS9ub2xpYmMvc3lzLmgKaW5kZXggODU2MjQ5YTExODkwLi4xNTA3
+NzcyMDc0NjggMTAwNjQ0Ci0tLSBhL3Rvb2xzL2luY2x1ZGUvbm9saWJjL3N5cy5oCisrKyBiL3Rv
+b2xzL2luY2x1ZGUvbm9saWJjL3N5cy5oCkBAIC0yOCw2ICsyOCwxNiBAQAogI2luY2x1ZGUgImVy
+cm5vLmgiCiAjaW5jbHVkZSAidHlwZXMuaCIKIAorLyogU3lzY2FsbCByZXR1cm4gaGVscGVyLCBz
+ZXQgZXJybm8gYXMgLXJldCB3aGVuIHJldCA8IDAgKi8KK3N0YXRpYyBfX2lubGluZV9fIF9fYXR0
+cmlidXRlX18oKHVudXNlZCwgYWx3YXlzX2lubGluZSkpCitsb25nIF9fc3lzcmV0KGxvbmcgcmV0
+KQoreworCWlmIChyZXQgPCAwKSB7CisJCVNFVF9FUlJOTygtcmV0KTsKKwkJcmV0ID0gLTE7CisJ
+fQorCXJldHVybiByZXQ7Cit9CiAKIC8qIEZ1bmN0aW9ucyBpbiB0aGlzIGZpbGUgb25seSBkZXNj
+cmliZSBzeXNjYWxscy4gVGhleSdyZSBkZWNsYXJlZCBzdGF0aWMgc28KICAqIHRoYXQgdGhlIGNv
+bXBpbGVyIHVzdWFsbHkgZGVjaWRlcyB0byBpbmxpbmUgdGhlbSB3aGlsZSBzdGlsbCBiZWluZyBh
+bGxvd2VkCi0tIAoyLjI1LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
