@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75103C7EE29
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 06:38:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF391C7EE43
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 06:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vORVYI/iKEbH7bReeA/3pmcprKQJ+SZEzLo/hqN/YmQ=; b=VWn/LKFFsc/lm0
-	MC2QA18xw+bbszvVYnWZBbXRC2wL0yKdHj7/fLxq4ZfI+TPhsJfZ+TBH/BBvCZqXQzuP2GaPIzjrC
-	3ycQ3Wknk+XLDn7zPQePfxt3s7usX4rkRYsVTuvg1ALgB5IgOGX9w7iY+flOWjwmbRBGAwckosag3
-	HpPya7BKAluJKqrwZSdxud/VNdygQOgR/K5fc/m5Tp9zxHnk8nWpKVAips/R7F2c7x6DAo669pMPN
-	jrFqq7ZTYyNOa7bZcMCdy8yiNW3YEJnA3+2afT6QUmtyZg6InHS4Fo28Lx25HW/iElh2wR2+ee/5A
-	dAWxyeKmHWF76Wot5Q2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BmC73ItTnPO68SFePuyEI8xP6EFQMwfQaZB3O9yP55U=; b=ImkDCeItoaqKPmEceoM8s9ejNb
+	rrZadLFYKJLewghfmvq9hOgfbGr2ff32e2exGs/+g5JqE0p/luxGTOQ9HS4tGkxLgtIqHHRad2dGg
+	mRAYcnH8280Vw1CHkYE/F7jUu/aFSoA5Jxq+1bWvOJc3bBAmaAApT/VppQg32ihlzdX5tmzqBffDw
+	qP07M36S+QQ1WFbiHVn0Mf72hVF/H70ndmGC5RL/TUgoP7bdMjDBIPRZ1g5hteK0Kj5IsPnHDG1L1
+	Qo0Hk/T93kkmi1VN/yWgcCWfPBKS0R4rHpA8Kq+9so400KZtVveqvuc8qCK+xEKKVEJCNkw12OVaB
+	qqJQG+tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6mom-004aiQ-0Y;
-	Wed, 07 Jun 2023 06:38:52 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1q6mr0-004bEh-2X;
+	Wed, 07 Jun 2023 06:41:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6moj-004agU-2j
+	id 1q6mqy-004bDu-0U
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 06:38:51 +0000
-X-QQ-mid: bizesmtp83t1686119915tg8q219l
-Received: from linux-lab-host.localdomain ( [61.141.77.49])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 07 Jun 2023 14:38:34 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: iDzLjIm7mlarxQ37HSKAlRkd6wcQobjGCjiAbDfTqoqi3jOnoDZE+XK6RTrbj
-	ObGHhN42g8PUfzZBPuXUpkjvQbCXiokReJGKITQvmx9NFIHzBMiof7y51esDkWycvc0Wx6T
-	qycIvqDxO8q+UvKHl1YuFjunWlujYL/1EGYBB3cE6/qAn+4KwLtPfgGfWyhhtxQBwIl4GHn
-	0A9k2ZhUxjBZqf8/TVPgga22YCZ1oxV/4ZrFqA5N20iLvuZYloklbV6AJj8eOKQwFjlPoLf
-	cadevjho7qWVHw12tmGvDk8YOw+IKwM7L3BNBvttDMrp2vf/W3SZjiUk+87UN4Lf2De2E/D
-	/Nd+gcq5qKYyOF4d4ShWPYRcBSwdYGx0vzm1n80Iel2wuQJDeMQfVIQzQgofg==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5675149324483682908
-From: Zhangjin Wu <falcon@tinylab.org>
-To: thomas@t-8ch.de
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	w@1wt.eu
-Subject: Re: [PATCH v2 4/4] tools/nolibc: sys.h: apply __syscall() helper
-Date: Wed,  7 Jun 2023 14:38:34 +0800
-Message-Id: <20230607063834.671562-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <793fc122-1409-4092-b39c-ea348de8ba14@t-8ch.de>
-References: <793fc122-1409-4092-b39c-ea348de8ba14@t-8ch.de>
+	Wed, 07 Jun 2023 06:41:09 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A55A6636E2;
+	Wed,  7 Jun 2023 06:41:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90074C433EF;
+	Wed,  7 Jun 2023 06:41:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686120067;
+	bh=Px4yR+6OsZ1b/yH6ZdWEW0dyGLZ2w09Hzl1kzNrtJw0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bQg+1HP7Qdi4iQUKM9u6T9UtZIm5jIp8wQ9ZmIp5NRyJ86hGU+vePDRhiuSAYNRm6
+	 Jqk3k+DVuCc5FGFzNbK5Rn2ivpsN+lXHm6xghGiAaTBw+vXoIb8b+rIQrhXf8LZe1D
+	 FzfQShhS4fXXIzN2QaQKrcs2vOf4o+QNrU1ke91Petu2OhppYwnsN47DUoVLk+GuO1
+	 YiT05Z7VfeTyJguCpkfDhKUfEdcHdRCHcQ2CZ1BEHDJysLT+AcRemIMpF/WoZkbiEj
+	 ITOzCH9XmQGcZJTlesoEmjljCT20DtVddq8SEALOmI5RK4DGy2iRhf7brapBRnVvTY
+	 SRomxqX/O+acQ==
+Date: Wed, 7 Jun 2023 08:41:04 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Keith Zhao <keith.zhao@starfivetech.com>, Shengyu Qu <wiagn233@outlook.com>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, 
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com, Bjorn Andersson <andersson@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Jagan Teki <jagan@edgeble.ai>, 
+	Chris Morgan <macromorgan@hotmail.com>, Jack Zhu <jack.zhu@starfivetech.com>, 
+	Shengyang Chen <shengyang.chen@starfivetech.com>, Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: Re: [PATCH 1/9] dt-bindings: display: Add yamls for JH7110 display
+ subsystem
+Message-ID: <ifgjvonhkzcwrklzch5efguor2x6az4m737dwte4uyow7ar5dr@z4glaxse6dou>
+References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
+ <20230602-uncommon-rejoicing-e73c0c475f9f@spud>
+ <TY3P286MB26116576E3E502CAE53834599852A@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+ <1991848.PYKUYFuaPT@diego>
+ <20230606-geometry-blurb-1f0f07d4bf6a@spud>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
+In-Reply-To: <20230606-geometry-blurb-1f0f07d4bf6a@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_233850_206587_DC4BD28A 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20230606_234108_270418_AFB0A794 
+X-CRM114-Status: GOOD (  37.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,39 +85,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3437649527589062177=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> Hi Zhangjin,
-> 
-> On 2023-06-07 13:39:20+0800, Zhangjin Wu wrote:
-> > 
-> > As a summary, will use 'sysret()' and something like:
-> > 
-> >    static __attribute__((unused))
-> >    int chdir(const char *path)
-> >    {
-> >    	return sysret(chdir(path));
-> >    }
-> > 
-> > to renew the syscall helper patchset, Thanks you very much.
-> 
-> But please to use the "__" prefix.
-> Otherwise it could conflict with user code.
->
 
-Ok, not yet to modify the code, will reserve the '__sysret()' and convert the
-left parts to this style: '__sysret(chdir(path))', a simple sed script may help
-to do so.
+--===============3437649527589062177==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fpldas4cn62wqe46"
+Content-Disposition: inline
 
-Thanks a lot.
-Zhangjin
 
-> Thomas
+--fpldas4cn62wqe46
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jun 06, 2023 at 11:37:53PM +0100, Conor Dooley wrote:
+> On Wed, Jun 07, 2023 at 12:22:33AM +0200, Heiko St=FCbner wrote:
+> > Am Dienstag, 6. Juni 2023, 20:41:17 CEST schrieb Shengyu Qu:
+> > > > On Fri, Jun 02, 2023 at 03:40:35PM +0800, Keith Zhao wrote:
+> > > >> Add bindings for JH7110 display subsystem which
+> > > >> has a display controller verisilicon dc8200
+> > > >> and an HDMI interface.
+>=20
+> > > >> +description:
+> > > >> +  The StarFive SoC uses the HDMI signal transmiter based on innos=
+ilicon IP
+> > > > Is innosilicon the same thing as verisilicon? Also
+> > > > s/transmiter/transmitter/, both here and in the title.
+> > >=20
+> > > I think that is not the same, I remember Rockchip has used a HDMI=20
+> > > transmitter from
+> > >=20
+> > > Innosilicon, and there is a existing driver for that in mainline.
+> >=20
+> > Yep, I think Innosilicon is the company you turn to when you want to sa=
+ve
+> > a bit of money ;-) . In the bigger SoCs Rockchip most of the time uses
+> > Designware hdmi blocks and looking at the history only the rk3036 ever
+> > used an Innosilicon block.
+> >=20
+> > Looking at the history, 2016 really was a long time ago :-D.
+> >=20
+> > > So Keith, if that's true, I think it is better to seperate the HDMI=
+=20
+> > > stuff and reuse existing driver.
+> >=20
+> > I'm not so sure about that - at least from a cursory glance :-) .
+> >=20
+> > The registers do look slightly different and I don't know how much
+> > the IP changed between the rk3036-version and the jh7110 version.
+> >=20
+> > At the very least, I know my rk3036 board isn't booting right now, so
+> > I can't really provide help for generalizing the rockchip-driver.
+> >=20
+> > At the very least both the binding and driver could drop the "starfive-=
+hdmi"
+> > and actually use the Innosilicon in the naming somewhere, so that it's
+> > clear for future developers :-)
+>=20
+> Seeing "based on" always makes me a little bit nervous to be honest when
+> it comes to using a compatible from the IP. Is it the IP? What version
+> is it? etc. Perhaps "starfive,jh7110-hdmi" & falling back to some sort
+> of "innosilicon,hdmi" would be more future/IP-silliness proof.
+> Driver can always be generic & bind against "innosilicon,hdmi" until
+> that becomes impossible.
+
+Given that Neil was saying that there's at least two
+generations/revisions/models of an HDMI controller from Innosilicon, I'm
+not sure that compatible is enough to reach that goal anyway.
+
+Maxime
+
+--fpldas4cn62wqe46
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCZIAmgAAKCRDj7w1vZxhR
+xaQ+AQDViFCjrmBh/FOmfkZnsbFEZqUbyPu3G+ff5Kfs9al3LgEA4TGU5Z1tubCB
+079K0fi4BmqB2ZgKk65Uxw0vctIlIAE=
+=TcBS
+-----END PGP SIGNATURE-----
+
+--fpldas4cn62wqe46--
+
+
+--===============3437649527589062177==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3437649527589062177==--
+
