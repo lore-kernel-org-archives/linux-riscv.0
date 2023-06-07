@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 179CEC77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 13:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2842DC7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 14:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wRZ2cN5pNXz8gH220AEyBfxYb809nKMvooFCyWZlFw8=; b=NzJyeUxuudvtdo
-	iKhbTgN0et9Byzh3sFR8DlqdMVAHsiRmDmCYHcvBkcI4AzQk6dNSF3RjlOQX3tpB+2K8vhSzmL5SU
-	8CGN3oALB/e81P8RMOnDuss4WNtMnhVgo8J6fG2Ztu1vtQEZ3I319UlJ8qrSsyDISGa5xZsXYpgwh
-	oYKS9dajoAQkwLbfZewehPFYBb/HaYryBs+gTAk+cvujiQcVLZEIXm8qRjJgIobkmoPI4W1jzXLyU
-	rneuJW5nO+4oEYzuQcx11G5J/aurxC1hppHPNabqGpBOpS9Je7G/Ckyu8x8WSbgDU73p/7DyIYGOO
-	EcCRIAqKb9Z53LXhVnVQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X6a0H6p9vW5GVWGNimkDf+cifNftOdpY4AOXvmF5HgI=; b=pnbmmrR0PekQFr
+	PTyRRDWCiDPAPyD3rEIzPLbTZ6LCeV/+GQW+fGPr1cB7bZUKmxZyespTCHBzoP6oBXiZ0083VgvwU
+	+lBvWxgJ9NOf62bGdnvoLG9UokhRj+L/TZsiyGvmvAwtEd3TTMoA+A7SAwfeftlqz6MdRO+fjsXN9
+	dSuq/uMn4FY7qDHpmYn0fBmK4XFEp6i7HWBFCe6+5ZCx9LcBBMbrMwp+BIa0tHxEE1qeWoYVx0Wz/
+	SlhOVV1KeTirrA9YhCt/6sUgBBl4BBlLPxqYQpMwLcajLYK0y9kBy52jfphmziGzDEDubKNYVE37L
+	LaChq8EpXEE3AwPsdWWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6tLl-0067FF-07;
-	Wed, 07 Jun 2023 13:37:21 +0000
-Received: from out162-62-57-252.mail.qq.com ([162.62.57.252])
+	id 1q6two-006E69-2j;
+	Wed, 07 Jun 2023 14:15:38 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6tLi-0067DX-1h
+	id 1q6twj-006E3S-2J
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 13:37:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1686145002;
-	bh=BPguxngCcatQFXlBdF+cO4v4EYUu4CjSbAh+qgMu1hI=;
-	h=From:To:Cc:Subject:Date;
-	b=HGFYRNnynM4+R8XRpOzxNtHpcDgz1GbhTUPZEBWdoFMQeh8KaeXCZV/un7v3IHV+V
-	 kQCZGyUJzzPD6Z9oB498gMi1iaHkRRApALbELqlRKaGSLp8KGUab85m5NNsZAHdXn5
-	 yAxdBmAwem3H2MT5r8EvfLW4sVpm2Imdk5+nk5LY=
-Received: from localhost ([101.224.149.128])
-	by newxmesmtplogicsvrszc2-0.qq.com (NewEsmtp) with SMTP
-	id 928874E8; Wed, 07 Jun 2023 21:36:40 +0800
-X-QQ-mid: xmsmtpt1686145000tb1eyu550
-Message-ID: <tencent_B15C0F1F3105597D0DCE7DADC96C5EB5CF0A@qq.com>
-X-QQ-XMAILINFO: NioaTWkRhWwaYWTxZeEaVMvYT+6+8WBXxjru4PK5DK6okfUQA1P7v2En+zPoE5
-	 1z2hnrATIIcrCuuKw/AznibA2SzpN7O3IfFjLKOySd5ejj03Pxk8w1pZjsUaZnJrwbZ5AW/EbbcG
-	 a90pH9d6d6woHq6WHb24b77J0mciKoDab6wKeYEx/hyy7vMdmqhocNJGCMWaZfKUfhNq+o4FT7GC
-	 jYcT+QmzbY8XnyB2+g5RsKnVevJecvqymIQONDidDQPY7x62h8xgJp6JNyNB4iNISOsAGQ4lRGwn
-	 4zv6yH9Z71tLcLrrk9lBE6geVDESfMc+gyN+4iYiyVzRddH4AujsPKOFLZeKfhxiW3NR1nd2RWI4
-	 sJIjWvjtPLFCF0Xzk/ZuB7IjByv7ZWdGQN2osyyHnVcRzCBpgS9QpWHgvHBqlE72dQGybw8y4I4a
-	 2x4NfozxHwGMVjk8yCKxug4SVOp1OQiCzBDf4ujU11UQXhk3vHCeOiDb4HMYbmy5trXZAR0l5Ebl
-	 QpTjD6shVS3GgNgmHpmHCPAZW2mTsiQzWaYyYUkHySFrQ8nYOiuRN/YhOYwn/COs0tLwsVTEHcqs
-	 GCouN6JX+hopwcLkPi3kmY9qyATKAha4WFEcDj11X9ob87AuHlF8g1FhUGEBlO2jfHgw+Vw0cOie
-	 NxsY08ofqoVLiws8bDxLNYQeLNEGRbQHcOzK8SgIhJuQEXGpBr0M5p5TrZWlg+zK3W1gzg8f9YuQ
-	 9+fuOuw8FvLTILBeZB+SUbtJVkzF2l/+V33p2q/+ySyJ7FFCcQSwc+r39vRdtTf39lxhrhAfD0tK
-	 tsNheMtt+YMjKZS2i+7qIkGhfjFtZEijis50o0Hupr7hqqUXxBbyajaqsKRuCpeaYhUaFI5p0fom
-	 KrZXXKX0sEbADejJWLTbfpK3EvqfNouJvZqtPGQCI2Va5jPl6ZT5b7SUKkiOVM3Y+dsC/4FCN9V8
-	 5OOc4af7zAERcA1+hs/nVYu2XgQ6wEhhWEgL0Zpnw=
-From: Woody Zhang <woodylab@foxmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	Wed, 07 Jun 2023 14:15:36 +0000
+X-QQ-mid: bizesmtp70t1686147307tuwgirwz
+Received: from linux-lab-host.localdomain ( [61.141.77.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 07 Jun 2023 22:15:06 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: 3M0okmaRx3hda9yjQxBgTlXDIeBYTBUIZhPiyCqr68M1QLHysxyV/Xa++1dWh
+	rpU9PDVQlvesrGXg026N1n2+/rgrAcLuq595b0CjO6OtAr+2sxNPZqiE55B2FEOMX6/4Abc
+	4vtLVfieMXgVqyCsKSIWVbefp0PGu0NR+F3rAPHofh8HdqKa/RdqfsJB7tWet5EJYfNqRa3
+	Ff0pU+GCV3Vb3RlVPuRQpZQGI+etbFV9MrY9uEVo+p36OYJSY1fIfeDOEDj9t2ohDU5ni7u
+	Y3iqQuhQde84KL3NTEoFLys2uVvrYWzmJUjg88P2U5j5WLUaHC8g2FivR5cfFTbMsAffjqS
+	gpdJZfQkXSS5bKN6xJ0mFziyLhuNdgKun18rpVx4xTq69dQxjrqjzVlXOEjTqD+w3RTGThY
+	YQs49fGsni8=
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9306648573384316120
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu
+Cc: arnd@arndb.de,
+	falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Woody Zhang <woodylab@foxmail.com>
-Subject: [PATCH] riscv: reserve DTB before possible memblock allocation
-Date: Wed,  7 Jun 2023 21:35:19 +0800
-X-OQ-MSGID: <20230607133518.2472995-1-woodylab@foxmail.com>
-X-Mailer: git-send-email 2.39.2
+	thomas@t-8ch.de
+Subject: Re: [PATCH 1/4] selftests/nolibc: add a test-report target
+Date: Wed,  7 Jun 2023 22:15:02 +0800
+Message-Id: <20230607141502.864645-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <ZIB792FtG6ibOudp@1wt.eu>
+References: <ZIB792FtG6ibOudp@1wt.eu>
 MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_063719_085956_E70FBF31 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20230607_071534_078838_52B14385 
+X-CRM114-Status: GOOD (  28.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,70 +77,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It's possible that early_init_fdt_scan_reserved_mem() allocates memory
-from memblock for dynamic reserved memory in `/reserved-memory` node.
-Any fixed reservation must be done before that to avoid potential
-conflicts.
+On Wed, Jun 07, 2023 at 01:52:00PM +0800, Zhangjin Wu wrote:
+> > Hi, Willy
+> > 
+> (...)
+> > > 
+> > > Ok, thanks, what about this?
+> > > 
+> > >     # LOG_REPORT: report the test results
+> > >     LOG_REPORT   := awk '/\[OK\][\r]*$$/{p++} /\[FAIL\][\r]*$$/{f++} /\[SKIPPED\][\r]*$$/{s++} \
+> > > 	                 END{ printf("%d test(s) passed, %d skipped, %d failed.", p, s, f); \
+> > > 	                 printf(" See all results in %s\n", ARGV[1]); }'
+> > > 
+> > >     run-user: nolibc-test
+> > > 	$(Q)qemu-$(QEMU_ARCH) ./nolibc-test > "$(CURDIR)/run.out" || :
+> > > 	$(Q)$(LOG_REPORT) $(CURDIR)/run.out
+> > > 
+> > >     run: kernel
+> > > 	$(Q)qemu-system-$(QEMU_ARCH) -display none -no-reboot -kernel "$(srctree)/$(IMAGE)" -serial stdio $(QEMU_ARGS) > "$(CURDIR)/run.out"
+> > > 	$(Q)$(LOG_REPORT) $(CURDIR)/run.out
+> > > 
+> > >     rerun:
+> > > 	$(Q)qemu-system-$(QEMU_ARCH) -display none -no-reboot -kernel "$(srctree)/$(IMAGE)" -serial stdio $(QEMU_ARGS) > "$(CURDIR)/run.out"
+> > > 	$(Q)$(LOG_REPORT) $(CURDIR)/run.out
+> > > 
+> > > Or we directly add a standalone test report script? something like
+> > > tools/testing/selftests/nolibc/report.sh
+> > > 
+> > >     #!/bin/sh
+> > >     #
+> > >     # report.sh -- report the test results of nolibc-test
+> > >     #
+> > >     
+> > >     LOG_FILE=$1
+> > >     [ ! -f "$LOG_FILE" ] && echo "Usage: $0 /path/to/run.out"
+> > >     
+> > >     awk '
+> > >         /\[OK\][\r]*$$/{ p++ }
+> > >         /\[FAIL\][\r]*$$/{ f++ }
+> > >         /\[SKIPPED\][\r]*$$/{ s++ }
+> > >     
+> > >         END {
+> > >             printf("%d test(s) passed, %d skipped, %d failed.", p, s, f);
+> > >             printf(" See all results in %s\n", ARGV[1]);
+> > >         }' $LOG_FILE
+> > > 
+> > > And use it like this:
+> > > 
+> > >     LOG_REPORT           = $(CURDIR)/report.sh
+> > >
+> > 
+> > I plan to renew this patchset, which one of the above methods do you
+> > prefer?
+> 
+> IFF it needs to be done I prefer the macro in the Makefile to avoid
+> depending on external scripts that are useless outside of the makefile.
+> BUT, my point remains that I adopted this so that I could quickly and
+> visually check that everything was OK. I'm fine with any other method
+> but I do not want to have to carefully read all these lines to make
+> sure I'm not mixing a "8" with a "0" (I'm mentioning this one because
+> it's exactly the one I had when I decided to add the extra values).
+> For example if you prepend "FAILURE: ", "WARNING: ", "SUCCESS: " in
+> front of these lines to summarize them depending on the highest level
+> encountered (success, skipped, failed), then I'm fine because it's
+> easy to check that all lines show the same word.
+> 
 
-Reserve the DTB in memblock just after early scanning it.
+Ok.
 
-Signed-off-by: Woody Zhang <woodylab@foxmail.com>
----
- arch/riscv/kernel/setup.c | 10 ++++++++++
- arch/riscv/mm/init.c      |  9 ---------
- 2 files changed, 10 insertions(+), 9 deletions(-)
+> > For the always print statement:
+> > 
+> >     printf(" See all results in %s\n", ARGV[1]); }'
+> 
+> Then please put it on its own line without the leading space, this
+> will be even more readable.
+>
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 36b026057503..c147fa8da929 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -16,6 +16,7 @@
- #include <linux/console.h>
- #include <linux/screen_info.h>
- #include <linux/of_fdt.h>
-+#include <linux/libfdt.h>
- #include <linux/sched/task.h>
- #include <linux/smp.h>
- #include <linux/efi.h>
-@@ -256,6 +257,15 @@ static void __init parse_dtb(void)
- 		pr_err("No DTB passed to the kernel\n");
- 	}
- 
-+	/*
-+	 * If DTB is built in, no need to reserve its memblock.
-+	 * Otherwise, do reserve it but avoid using
-+	 * early_init_fdt_reserve_self() since __pa() does
-+	 * not work for DTB pointers that are fixmap addresses
-+	 */
-+	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
-+		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-+
- #ifdef CONFIG_CMDLINE_FORCE
- 	strscpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
- 	pr_info("Forcing kernel command line to: %s\n", boot_command_line);
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index c6bb966e4123..f8c9a79acd94 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -254,15 +254,6 @@ static void __init setup_bootmem(void)
- 	 */
- 	early_init_fdt_scan_reserved_mem();
- 
--	/*
--	 * If DTB is built in, no need to reserve its memblock.
--	 * Otherwise, do reserve it but avoid using
--	 * early_init_fdt_reserve_self() since __pa() does
--	 * not work for DTB pointers that are fixmap addresses
--	 */
--	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
--		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
--
- 	dma_contiguous_reserve(dma32_phys_limit);
- 	if (IS_ENABLED(CONFIG_64BIT))
- 		hugetlb_cma_reserve(PUD_SHIFT - PAGE_SHIFT);
--- 
-2.39.2
+It is a good balance.
 
+This may be more useful if we run this from the kselftest framework,
+seems it is not able to run it from the 'kselftest' target currently,
+here shares something I have tried:
+
+I tried something like this, seems run-user works, but defconfig and run
+not.
+
+    diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
+    index 4a3a105e1fdf..70693f6501c6 100644
+    --- a/tools/testing/selftests/nolibc/Makefile
+    +++ b/tools/testing/selftests/nolibc/Makefile
+    @@ -83,6 +83,8 @@ CFLAGS  ?= -Os -fno-ident -fno-asynchronous-unwind-tables -std=c89 \
+                    $(CFLAGS_$(ARCH)) $(CFLAGS_STACKPROTECTOR)
+     LDFLAGS := -s
+   
+    +NOLIBC_SUBTARGETS ?= run-user
+    +
+     help:
+            @echo "Supported targets under selftests/nolibc:"
+            @echo "  all          call the \"run\" target below"
+    @@ -110,7 +112,9 @@ help:
+            @echo "  IMAGE_NAME    = $(if $(IMAGE_NAME),$(IMAGE_NAME),UNKNOWN_ARCH) [determined from \$$ARCH]"
+            @echo ""
+
+    -all: run
+    +run_tests: $(NOLIBC_SUBTARGETS)
+    +
+    +all: $(NOLIBC_SUBTARGETS)
+
+This can be triggered from the top-level kselftest framework:
+
+    $ make -C /path/to/linux-stable kselftest TARGETS=nolibc NOLIBC_SUBTARGETS=run-user
+
+And seems we still not support O= currently either.
+
+> > I will paste the reason why I need it, as mentioned in [1], if you still
+> > need a clean test report, I will give up this change ;-)
+> 
+> No worries, I don't want to be annoying if you need something, but I
+> don't want to be annoyed by changes either :-)
+> 
+
+Thanks,
+Zhangjin
+
+> thanks,
+> Willy
 
 _______________________________________________
 linux-riscv mailing list
