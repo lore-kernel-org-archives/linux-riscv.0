@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A143C7EE29
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 08:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1485C7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 08:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V4BIVPw16o2pLA92dpIvY76RD86vxrAXj6emqp3o/sw=; b=ucEwr2eUfHpV2V
-	IfIqUNNBFqR8sRIcNmgDFtI/xPqgszIg4TePra+tVddB9T8xrNEj8Ls5QOvfffb5uwCnitvoj3Rfb
-	7J2BI3aLk1lZmxmrudjO4VqvfeMBUNQ8HqWafQTzZVhZMZlTZfQsMoP4wywdsncIQ0VSrkxj1yypB
-	X9D24bGHu2q9zARK2tc3xsGd0uiuVhuuPrzUtigDW6o0s4SVtYrUPuptcLG99e/2xnJyzjjf6UZMF
-	tCaIzmHCANs8r5QNh+3fe2Uo0ZAUWPUo8CNLfjzNUN3JhWCF+PVTICsFvPRC+Lpt5F7uG4L0kMpih
-	ZfurqQMAA0DyRoP4wynw==;
+	List-Owner; bh=F/fCvVsLMex61h5H4nLQIzO0YzfzILyAXAFBuPKLxfk=; b=YYraWPmZiZcEsv
+	hxtg6VFYU5VYKMEtb1Z6IJY5L6ut4taDmCLD0/VMua8XOex89MJu0TBxReZxSiLqHfYMVnHCCNLCd
+	ZJxGf5EH8i6ia4jf6aTf5pDSEaBpgPEFsSSFbJKsJ3V9jUMXNGG8SSZlW9XbDG1NVDmFG474anLa+
+	71iVykOa7OngK+iMZlxir72cW+I1MuiJ5kmY4nmoVwrADr+aCSIcgyaYf8wMTr7xdNPTdrMLapdT8
+	fiBteziRJHI3rcqox2lHNmcS9Kxc/Lg9n1kkSnBE7+i2zSugJZaFsy+4zNuDtuNlSNuc0fCOls5F4
+	Xlc3OQdnxPvijhqwJCUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6oGR-004tEj-0Z;
-	Wed, 07 Jun 2023 08:11:31 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1q6oiI-005105-2R;
+	Wed, 07 Jun 2023 08:40:18 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6oGM-004tC4-39
+	id 1q6oiG-0050yL-2r
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 08:11:29 +0000
-X-QQ-mid: bizesmtp75t1686125468tf9po345
-Received: from linux-lab-host.localdomain ( [61.141.77.49])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 07 Jun 2023 16:11:07 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: t+YzzcYcY/yIcYJBJAauvIxKKd3tsAr7koUSEaZ8zaovQMdGosVaKCJWd1dp3
-	3AznNfz7xPXMB8v22KQ8la1jDw6ACQcuAKPOVu7cB1q7cKLlyIcQZXGavNxuFNICM4jCdPQ
-	nZrcg4DQXzkFRYrT/IojBq86LZRVcJQqGP1AScW7qZp08DggRkTsU6bdmqtrIp+BmEtqmkR
-	2G2ci7QeoAEVBkMnnD6+HfWm/zydQlvvTIAfL1Vb868dLorSnZjS7qZay+c4VTzR5XLZ7O7
-	KLS1kzeO6ZT4y4b3pGClyfonwGhBZ8IrLpFBzwruN8EXA20Q5XX1xsuPUDrl3YmD+9DamKs
-	60AenKfN4R3T8cpMJEV+s5zy7QMho8seioMXwWLzM+UGSb69+GuhKP4LxYV01+hKo2YYlq4
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15885581524704403754
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de
-Subject: Re: [PATCH v3 3/3] selftests/nolibc: riscv: customize makefile for rv32
-Date: Wed,  7 Jun 2023 16:11:03 +0800
-Message-Id: <20230607081103.746962-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ZIAywHvr6UB1J4of@1wt.eu>
-References: <ZIAywHvr6UB1J4of@1wt.eu>
+	Wed, 07 Jun 2023 08:40:18 +0000
+Received: from ip5b412278.dynamic.kabel-deutschland.de ([91.65.34.120] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1q6oi6-0006LM-Ch; Wed, 07 Jun 2023 10:40:06 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: Keith Zhao <keith.zhao@starfivetech.com>,
+ Shengyu Qu <wiagn233@outlook.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org, David Airlie <airlied@gmail.com>,
+ Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com,
+ Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Jagan Teki <jagan@edgeble.ai>, Chris Morgan <macromorgan@hotmail.com>,
+ Jack Zhu <jack.zhu@starfivetech.com>,
+ Shengyang Chen <shengyang.chen@starfivetech.com>,
+ Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: Re: [PATCH 1/9] dt-bindings: display: Add yamls for JH7110 display subsystem
+Date: Wed, 07 Jun 2023 10:40:04 +0200
+Message-ID: <3560873.iIbC2pHGDl@diego>
+In-Reply-To: <20230606-geometry-blurb-1f0f07d4bf6a@spud>
+References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
+ <1991848.PYKUYFuaPT@diego> <20230606-geometry-blurb-1f0f07d4bf6a@spud>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_011127_335737_BEA049E0 
-X-CRM114-Status: GOOD (  39.85  )
+X-CRM114-CacheID: sfid-20230607_014016_924295_B425E576 
+X-CRM114-Status: GOOD (  33.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,181 +74,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Wed, Jun 07, 2023 at 02:33:14PM +0800, Zhangjin Wu wrote:
-> >
-> >     ifneq ($(findstring riscv,$(ARCH)),)
-> >       KARCH = riscv
-> >     else
-> >       KARCH = $(ARCH)
-> >     endif
-> (...)
->
-> At least it suggests what it's going to be used for instead of just
-> being marked as "special" (something the underscore does).
->
+Am Mittwoch, 7. Juni 2023, 00:37:53 CEST schrieb Conor Dooley:
+> On Wed, Jun 07, 2023 at 12:22:33AM +0200, Heiko St=FCbner wrote:
+> > Am Dienstag, 6. Juni 2023, 20:41:17 CEST schrieb Shengyu Qu:
+> > > > On Fri, Jun 02, 2023 at 03:40:35PM +0800, Keith Zhao wrote:
+> > > >> Add bindings for JH7110 display subsystem which
+> > > >> has a display controller verisilicon dc8200
+> > > >> and an HDMI interface.
+> =
 
-Yeah.
+> > > >> +description:
+> > > >> +  The StarFive SoC uses the HDMI signal transmiter based on innos=
+ilicon IP
+> > > > Is innosilicon the same thing as verisilicon? Also
+> > > > s/transmiter/transmitter/, both here and in the title.
+> > > =
 
-> > but the new method mentioned here differs, it split the whole Makefile
-> > to two 'parts', the before part accept something like ARCH=riscv32,
-> > ARCH=riscv64, ARCH=riscv, the after part use the ARCH=riscv, this avoid
-> > touch the targets context:
->
-> We don't care about touching *code*. What is important is that it scales
-> and is understandable, thus maintainable. Code that has many exceptions
-> or requires a lot of head scratching to figure what's being done is a
-> pain to maintain and nobody wants to take the risk to touch it. That was
-> exactly the purpose of the enumeration of per-target args, flags etc in
-> the makefile: nobody needs to be expert in multiple areas to touch their
-> own area. If we face a showstopper, we need to address it, and not work
-> around it for the sake of touching less context.
->
+> > > I think that is not the same, I remember Rockchip has used a HDMI =
 
-Get it clearly.
+> > > transmitter from
+> > > =
 
-> >     ... variable assignments before this line ...
-> >
-> >     +# Some architectures share the same arch/<ARCH>/ source code tree among the <ARCH>xyz variants
-> >     +# Top-level kernel Makefile only accepts ARCH=<ARCH>, override <ARCH>xyz variants to make kernel happy
-> >     +ARCHS := riscv
-> >     +_ARCH := $(strip $(foreach arch, $(ARCHS), $(if $(findstring x$(arch),x$(ARCH)),$(arch))))
-> >     +ifneq ($(_ARCH),)
-> >     +override ARCH := $(_ARCH)
-> >     +endif
-> >     +
->
-> So actually this is a perfect example of head scratching for me. I suspect
-> it would replace x86_64 with x86 if x86 would be placed there for example,
-> though it would not change anything for i386. Maybe for s390/s390x,
-> arm/arm64 or ppc/ppc64 etc it would act similarly while these are different
-> archs. Thus this seems to be trying to generalize a rule around a single
-> particular case.
->
+> > > Innosilicon, and there is a existing driver for that in mainline.
+> > =
 
-It is true, we did worry about when users wrongly add new ARCH in the
-list, a generic way is very hard before we really use them.
+> > Yep, I think Innosilicon is the company you turn to when you want to sa=
+ve
+> > a bit of money ;-) . In the bigger SoCs Rockchip most of the time uses
+> > Designware hdmi blocks and looking at the history only the rk3036 ever
+> > used an Innosilicon block.
+> > =
 
-> Probably that instead this particular case should be addressed explicitly
-> until we find a generalization (if ever) to other archs:
->
->   ifeq($(ARCH),riscv32)
->   override ARCH := riscv
->   else ifeq($(ARCH),riscv64)
->   override ARCH := riscv
->   endif
->   endif
->
-> Or maybe even better you can decide to remap arch names explicitly:
->
->   # use KARCH_from=to to rename ARCH from $from to $to past this point.
->   KARCH_riscv32 := riscv
->   KARCH_riscv64 := riscv
->   ...
->   ifneq($(KARCH_$(ARCH)),)
->   override ARCH := $(KARCH_$(ARCH))
->   endif
->
+> > Looking at the history, 2016 really was a long time ago :-D.
+> > =
 
-This did inspire me a lot, so, what about simply go back to the KARCH
-method without any overriding:
+> > > So Keith, if that's true, I think it is better to seperate the HDMI =
 
-    diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
-    index 4a3a105e1fdf..bde635b083f4 100644
-    --- a/tools/testing/selftests/nolibc/Makefile
-    +++ b/tools/testing/selftests/nolibc/Makefile
-    @@ -14,6 +14,12 @@ include $(srctree)/scripts/subarch.include
-     ARCH = $(SUBARCH)
-     endif
+> > > stuff and reuse existing driver.
+> > =
 
-    +# kernel supported ARCH names by architecture
-    +KARCH_riscv32    = riscv
-    +KARCH_riscv64    = riscv
-    +KARCH_riscv      = riscv
-    +KARCH            = $(or $(KARCH_$(ARCH)),$(ARCH))
-    +
-     # kernel image names by architecture
-     IMAGE_i386       = arch/x86/boot/bzImage
-     IMAGE_x86_64     = arch/x86/boot/bzImage
-    @@ -21,6 +27,8 @@ IMAGE_x86        = arch/x86/boot/bzImage
-     IMAGE_arm64      = arch/arm64/boot/Image
-     IMAGE_arm        = arch/arm/boot/zImage
-     IMAGE_mips       = vmlinuz
+> > I'm not so sure about that - at least from a cursory glance :-) .
+> > =
 
-And this:
+> > The registers do look slightly different and I don't know how much
+> > the IP changed between the rk3036-version and the jh7110 version.
+> > =
 
-    @@ -117,7 +132,7 @@ sysroot: sysroot/$(ARCH)/include
-     sysroot/$(ARCH)/include:
-            $(Q)rm -rf sysroot/$(ARCH) sysroot/sysroot
-            $(QUIET_MKDIR)mkdir -p sysroot
-    -       $(Q)$(MAKE) -C ../../../include/nolibc ARCH=$(ARCH) OUTPUT=$(CURDIR)/sysroot/ headers_standalone
-    +       $(Q)$(MAKE) -C ../../../include/nolibc ARCH=$(KARCH) OUTPUT=$(CURDIR)/sysroot/ headers_standalone
-            $(Q)mv sysroot/sysroot sysroot/$(ARCH)
+> > At the very least, I know my rk3036 board isn't booting right now, so
+> > I can't really provide help for generalizing the rockchip-driver.
+> > =
 
-     nolibc-test: nolibc-test.c sysroot/$(ARCH)/include
-    @@ -141,10 +156,10 @@ initramfs: nolibc-test
-            $(Q)cp nolibc-test initramfs/init
+> > At the very least both the binding and driver could drop the "starfive-=
+hdmi"
+> > and actually use the Innosilicon in the naming somewhere, so that it's
+> > clear for future developers :-)
+> =
 
-     defconfig:
-    -       $(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
-    +       $(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
+> Seeing "based on" always makes me a little bit nervous to be honest when
+> it comes to using a compatible from the IP. Is it the IP? What version
+> is it? etc. Perhaps "starfive,jh7110-hdmi" & falling back to some sort
+> of "innosilicon,hdmi" would be more future/IP-silliness proof.
+> Driver can always be generic & bind against "innosilicon,hdmi" until
+> that becomes impossible.
 
-     kernel: initramfs
-    -       $(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
-    +       $(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
 
-It is almost consistent with the original Makefile now.
+what Connor said makes a lot of sense. Just name the compatible
+after the actual implementation - aka "starfive,jh7110-hdmi" .
 
-I do like this method more than the override method now, the override
-method may break the maintainability a lot especially that the
-developers may be hard to know which ARCH value it is when he touch a
-line of the Makefile.
+This is similar to what the rk3036 does with its
+"rockchip,rk3036-inno-hdmi". That way you're nicely independent
+and future proof.
 
-> And this does deserve an explicit note in the makefile that anything
-> using $(ARCH) using a macro will see the renamed arch while anything
-> using it as a variable before that line will see the original one.
->
-> If you want to avoid the '=' vs ':=' mess you can even keep a copy of
-> the original ARCH at the beginning of the makefile:
->
->   # keep a copy of the arch name requested by the user, for use later
->   # when the original form is preferred over the kernel's arch name.
->   USER_ARCH = $(ARCH)
->
 
-Yeah, a copy is good for the override case.
+Heiko
 
-> > Willy, Which one do you prefer?
->
-> The most explicit ones like above. Generally speaking when you try to
-> add support for your own arch here, you look there for similar ones,
-> where commands are called, and read in reverse mode till the beginning,
-> hoping to understand the transformations. I think the current ones and
-> the proposed ones above are self-explanatory. Anything doing too much
-> magic renaming or doing too much hard-coded automatic stuff can quickly
-> obfuscate the principle and make things more complicated. I already
-> despise "override" because it messes up with macros, but I agree it can
-> sometimes have some value. If you dup it into ORIG_ARCH or USER_ARCH,
-> and modify the few lines overriding arch in an explicit manner, I think
-> it would preserve its maintainability.
->
 
-Agree, let's give up the 'override' stuff.
-
-> What do you think ?
-
-So, let's go with the KARCH method if you agree too.
-
-Best regards,
-Zhangjin
-
->
-> thanks,
-> Willy
 
 _______________________________________________
 linux-riscv mailing list
