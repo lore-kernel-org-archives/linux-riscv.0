@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF583C7EE29
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 11:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C2CDC7EE25
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 12:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=doS/QopOvJqKT9LdqCLGOifhxOsvkfTYPf+XI+tMPi8=; b=I1AYWcqgK/x3j4
-	YPxiiXAZDKQ9HIy4VlrnkptkO68IrkvKQDKnhq/kZH5xDqN6qLmOE3FohMIR1iF0DxhFp4WXC/kJd
-	Pweg4mYjjXS2IRgjAaG8UjHLW8XauEhrXu5yLsy3sc9GYiqpCe1WfDMZd/uQ0dqop7wMgpoZvakMc
-	k2l2ejbDhxBKG6WC5kL/EQo7Eiztipdq/IYNTfhKx+yHGbmGvfAYILXYuFNmdC0MYzdCgXOvRMjaK
-	bx/ZiX9mSIcpgjMeaukcaQZTn6dB0bfyAY71TIPOUdP2Aggm8I7zs5gmul24g1s+bZgFq6tuLxDkq
-	2Scsy6kIGA8WjwvsXoww==;
+	List-Owner; bh=0ChZSyBf5jiRAcF8fHIKZcD/hK1iiF6YChqQ1nRWR/o=; b=Idjlh3K4s5AcCJ
+	o/zbgsVBxL7QJ+SbI5uehUjP74VBRomj8STF5EXZau791YUKLkBRZvsl0EDBN4BhYpMHJrDH1Yjap
+	hTnzEfpl7rHjoi+3e+hDhPqmL/RNd0DGj8NHj+xgFXe6fkrvjH9O3b17rygLoj+JUfh8rPCybYGUL
+	7S5pj9dza5NhNLuwdIOJ8oQHxXooNo9aUESD6LY30w9QCbAZD8hMrc1ICEfITZefd2aP55CtQs9sF
+	0S0UDdme0cxen4lhHbB4w5tCo1ZkHntbxkF6WeWSNHfuENSAGPZyUPstRLh9wzTm2nX5aVxfpOweP
+	0p/xo2qeNxgbI/yyhjlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6rPj-005ey4-38;
-	Wed, 07 Jun 2023 11:33:19 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1q6sQ2-005veB-22;
+	Wed, 07 Jun 2023 12:37:42 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6rPg-005ew1-1g
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 11:33:19 +0000
-X-QQ-mid: bizesmtp87t1686137579t3lkl12f
-Received: from linux-lab-host.localdomain ( [61.141.77.49])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 07 Jun 2023 19:32:58 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: 3M0okmaRx3h8ywErXe7J/ln/Owwvw4BKb+68+heUi/xYXyTph8i0gRpAviEYq
-	4w+dizE1AiIiyAtXAciil5MnjtcYBDeyrfTMRXr94Eik6mnAZDKgiyn4qlYPd8TtI4DmtIf
-	2k89sC9eLgrVkJEke/o2+PJ7HcWCgOB0UW7kN0KtUXcwZWEvtOl6ImydIKGYE23gFgw/NAx
-	HVOOAG08cF5gmD4buzlFpTIW20ru95CGSPgMaNYGwBJxh29zIFHqfjQ6Zlc8HT+OFgJKagw
-	I86b6aky4ZzKP2avI34/RuK1KmwLzNL3NDvMakF3Q0lxxDkbMdV56E6hkE1n4qgsAuiOdyp
-	K+7P4YtCyi47mgdRBkudYGMVqcN5r/UGKzxVWPz/JE79IhF6hWMpldXlN1P6NkKwaDzIOyH
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4620336373278213925
-From: Zhangjin Wu <falcon@tinylab.org>
-To: thomas@t-8ch.de,
-	w@1wt.eu
-Cc: falcon@tinylab.org,
-	arnd@arndb.de,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 3/3] tools/nolibc: sys.h: apply __sysret() helper
-Date: Wed,  7 Jun 2023 19:32:54 +0800
-Message-Id: <e5acbce9d39a60085888befe929618a9cc4f7b42.1686135913.git.falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1686135913.git.falcon@tinylab.org>
-References: <cover.1686135913.git.falcon@tinylab.org>
+	id 1q6sPx-005vaT-0w;
+	Wed, 07 Jun 2023 12:37:40 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-94ea38c90ccso155267266b.1;
+        Wed, 07 Jun 2023 05:37:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1686141453; x=1688733453;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bnQ/nlpXFdeDPVk23AiI85QWmxk4si1+qvDGQ2nGaVk=;
+        b=WdCmcmi6gOeqxet6yu45NdHenR/U+n90arFfFlbF92f1bGKkUxUJcZbgN70kep5JoH
+         a28BTB/g1yUqMFuaG0oRtd+goDlcr5IWteNAtcdGtDczLW8T1oEfO1zTMkyTMRaZJtQB
+         ir+U2yW2RefYHyPwHgNGGRPwn6aj18N5pbozR/bcopObOpzeXEEOp07mvxZqVBNwEVIe
+         yWIxPf8xE1ekX5iNx4B6NJLu89rJegQoaHG0VgWHmVeUJMK8n5fB53uUYnBE4gm8PGlp
+         SKTO0QDN5jtwxOicVMnJC1LrNlR3ChPRu1/lnsVAY0E2cXz/zvyddhTzMSmMi6PuMb1P
+         T2VQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686141453; x=1688733453;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bnQ/nlpXFdeDPVk23AiI85QWmxk4si1+qvDGQ2nGaVk=;
+        b=DczJ+Ulzjj7Y76ZS4cgaXeLE0FEdaUMG+U1bHrd+/ZWubjdpC5EUKws4woQGk3BSbv
+         CSrjB9y/vK1hBl9LwCqzMaH+xSVzZKK7uKgblMZfXiwY/QGNbthcotujykeFssNKFMZD
+         WvLoMt8OPVnWUaabnQzGH21ahuVvYWWdBCP9QZrychLZtq2UYu+l2qfoTzAuGTIJ5IL/
+         RBNmT0nVuDVXOLUgGtlBREXyMzbZPSXv1l7OmJrL9kc7iLSh7p9EzbR4aLUmnsimBqVh
+         O24a7Wr4JsJFbbP/q/MusxktC18Dj6pLOrjmgNfdH/VaHXo86f9Je8QUOQf4dzfDdmE/
+         F3gQ==
+X-Gm-Message-State: AC+VfDzn1MJgbmcMdcCYjhUGXnwJ+I91bJjFyHsrleWTDZI8J3DReWur
+	br94lZ0flxeBa8U8kiuGvQM=
+X-Google-Smtp-Source: ACHHUZ5Os8gHz/sUk05VCKCffL41JXPyEnL05xlbL7bdzUPi2lubA4aZLrQ2dJfHDa3HHg5XmuWhRQ==
+X-Received: by 2002:a17:906:9d:b0:977:c446:3a24 with SMTP id 29-20020a170906009d00b00977c4463a24mr1734728ejc.7.1686141452404;
+        Wed, 07 Jun 2023 05:37:32 -0700 (PDT)
+Received: from localhost ([134.191.220.83])
+        by smtp.gmail.com with ESMTPSA id pw12-20020a17090720ac00b00973fac6065esm6777913ejb.223.2023.06.07.05.37.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Jun 2023 05:37:32 -0700 (PDT)
+Date: Wed, 7 Jun 2023 20:37:11 +0800
+From: Zhi Wang <zhi.wang.linux@gmail.com>
+To: Vipin Sharma <vipinsh@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com,
+ suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
+ will@kernel.org, chenhuacai@kernel.org, aleksandar.qemu.devel@gmail.com,
+ tsbogend@alpha.franken.de, anup@brainfault.org, atishp@atishpatra.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ seanjc@google.com, pbonzini@redhat.com, dmatlack@google.com,
+ ricarkol@google.com, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, kvm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 09/16] KVM: arm64: Document the page table walker
+ actions based on the callback's return value
+Message-ID: <20230607203711.000054ae.zhi.wang.linux@gmail.com>
+In-Reply-To: <ZH9tQjQk7QLyhUQR@google.com>
+References: <20230602160914.4011728-1-vipinsh@google.com>
+	<20230602160914.4011728-10-vipinsh@google.com>
+	<20230605223520.00007fbd.zhi.wang.linux@gmail.com>
+	<ZH9tQjQk7QLyhUQR@google.com>
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_043316_877542_A28E1412 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20230607_053737_332300_3F5FF34A 
+X-CRM114-Status: GOOD (  63.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,680 +104,396 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use __sysret() to shrink most of the library routines to oneline code.
+On Tue, 6 Jun 2023 10:30:42 -0700
+Vipin Sharma <vipinsh@google.com> wrote:
 
-Removed 266 lines of duplicated code.
+> On Mon, Jun 05, 2023 at 10:35:20PM +0800, Zhi Wang wrote:
+> > On Fri,  2 Jun 2023 09:09:07 -0700
+> > Vipin Sharma <vipinsh@google.com> wrote:
+> > 
+> > > Document what the page table walker do when walker callback function returns
+> > > a value.
+> > > 
+> > > Current documentation is not correct as negative error of -EAGAIN on a
+> > > non-shared page table walker doesn't terminate the walker and continues
+> > > to the next step.
+> > > 
+> > > There might be a better place to keep this information, for now this
+> > > documentation will work as a reference guide until a better way is
+> > > found.
+> > >
+> > 
+> > After reading the whole patch series, I was thinking it might be a good
+> > time to improve the way how the visitor function and page table walker
+> > talk to each other. The error code is good enough before, but its meaning
+> > seems limited and vague when the visitor function wants to express more about
+> > what exactly happens inside. I am not sure if it is a good idea to continue
+> > that way: 1. found a new situation. 2. choosing a error code for visitor
+> > function. 3. walker translates the error code into the situation to
+> > handle. 4. document the error code and its actual meaning.
+> > 
+> > Eventually I am afraid that we are going to abuse the error code.
+> 
+> I agree that error numbers are not sufficient and this will become more
+> difficult and cumbersome for more cases in future if we need different
+> behavior based on different error codes for different visitor functions.
+>
+> > 
+> > What about introducing a set of flags for the visitor function to express
+> > what happened and simplify the existing error code?
+> > 
+> 
+> If I understood correctly what you meant, I think this will also end up
+> having the same issue down the line, we are just switching errors with
+> flags as they might not be able to express everything.
+> 
+> "Flags for visitor function to express what happened"  - This is what
+> ret val and errors do.
+> 
 
-Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
----
- tools/include/nolibc/sys.h | 354 +++++--------------------------------
- 1 file changed, 44 insertions(+), 310 deletions(-)
+Thanks so much for the efforts of the sample code.
 
-diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-index 150777207468..4fbefe5adf93 100644
---- a/tools/include/nolibc/sys.h
-+++ b/tools/include/nolibc/sys.h
-@@ -76,13 +76,7 @@ void *sys_brk(void *addr)
- static __attribute__((unused))
- int brk(void *addr)
- {
--	void *ret = sys_brk(addr);
--
--	if (!ret) {
--		SET_ERRNO(ENOMEM);
--		return -1;
--	}
--	return 0;
-+	return __sysret(sys_brk(addr) ? 0 : -ENOMEM);
- }
- 
- static __attribute__((unused))
-@@ -112,13 +106,7 @@ int sys_chdir(const char *path)
- static __attribute__((unused))
- int chdir(const char *path)
- {
--	int ret = sys_chdir(path);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_chdir(path));
- }
- 
- 
-@@ -141,13 +129,7 @@ int sys_chmod(const char *path, mode_t mode)
- static __attribute__((unused))
- int chmod(const char *path, mode_t mode)
- {
--	int ret = sys_chmod(path, mode);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_chmod(path, mode));
- }
- 
- 
-@@ -170,13 +152,7 @@ int sys_chown(const char *path, uid_t owner, gid_t group)
- static __attribute__((unused))
- int chown(const char *path, uid_t owner, gid_t group)
- {
--	int ret = sys_chown(path, owner, group);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_chown(path, owner, group));
- }
- 
- 
-@@ -193,13 +169,7 @@ int sys_chroot(const char *path)
- static __attribute__((unused))
- int chroot(const char *path)
- {
--	int ret = sys_chroot(path);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_chroot(path));
- }
- 
- 
-@@ -216,13 +186,7 @@ int sys_close(int fd)
- static __attribute__((unused))
- int close(int fd)
- {
--	int ret = sys_close(fd);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_close(fd));
- }
- 
- 
-@@ -239,13 +203,7 @@ int sys_dup(int fd)
- static __attribute__((unused))
- int dup(int fd)
- {
--	int ret = sys_dup(fd);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_dup(fd));
- }
- 
- 
-@@ -268,13 +226,7 @@ int sys_dup2(int old, int new)
- static __attribute__((unused))
- int dup2(int old, int new)
- {
--	int ret = sys_dup2(old, new);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_dup2(old, new));
- }
- 
- 
-@@ -292,13 +244,7 @@ int sys_dup3(int old, int new, int flags)
- static __attribute__((unused))
- int dup3(int old, int new, int flags)
- {
--	int ret = sys_dup3(old, new, flags);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_dup3(old, new, flags));
- }
- #endif
- 
-@@ -316,13 +262,7 @@ int sys_execve(const char *filename, char *const argv[], char *const envp[])
- static __attribute__((unused))
- int execve(const char *filename, char *const argv[], char *const envp[])
- {
--	int ret = sys_execve(filename, argv, envp);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_execve(filename, argv, envp));
- }
- 
- 
-@@ -369,13 +309,7 @@ pid_t sys_fork(void)
- static __attribute__((unused))
- pid_t fork(void)
- {
--	pid_t ret = sys_fork();
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_fork());
- }
- 
- 
-@@ -392,13 +326,7 @@ int sys_fsync(int fd)
- static __attribute__((unused))
- int fsync(int fd)
- {
--	int ret = sys_fsync(fd);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_fsync(fd));
- }
- 
- 
-@@ -415,13 +343,7 @@ int sys_getdents64(int fd, struct linux_dirent64 *dirp, int count)
- static __attribute__((unused))
- int getdents64(int fd, struct linux_dirent64 *dirp, int count)
- {
--	int ret = sys_getdents64(fd, dirp, count);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_getdents64(fd, dirp, count));
- }
- 
- 
-@@ -459,13 +381,7 @@ pid_t sys_getpgid(pid_t pid)
- static __attribute__((unused))
- pid_t getpgid(pid_t pid)
- {
--	pid_t ret = sys_getpgid(pid);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_getpgid(pid));
- }
- 
- 
-@@ -545,15 +461,7 @@ static unsigned long getauxval(unsigned long key);
- static __attribute__((unused))
- long getpagesize(void)
- {
--	long ret;
--
--	ret = getauxval(AT_PAGESZ);
--	if (!ret) {
--		SET_ERRNO(ENOENT);
--		return -1;
--	}
--
--	return ret;
-+	return __sysret(getauxval(AT_PAGESZ) ?: -ENOENT);
- }
- 
- 
-@@ -570,13 +478,7 @@ int sys_gettimeofday(struct timeval *tv, struct timezone *tz)
- static __attribute__((unused))
- int gettimeofday(struct timeval *tv, struct timezone *tz)
- {
--	int ret = sys_gettimeofday(tv, tz);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_gettimeofday(tv, tz));
- }
- 
- 
-@@ -614,13 +516,7 @@ int sys_ioctl(int fd, unsigned long req, void *value)
- static __attribute__((unused))
- int ioctl(int fd, unsigned long req, void *value)
- {
--	int ret = sys_ioctl(fd, req, value);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_ioctl(fd, req, value));
- }
- 
- /*
-@@ -636,13 +532,7 @@ int sys_kill(pid_t pid, int signal)
- static __attribute__((unused))
- int kill(pid_t pid, int signal)
- {
--	int ret = sys_kill(pid, signal);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_kill(pid, signal));
- }
- 
- 
-@@ -665,13 +555,7 @@ int sys_link(const char *old, const char *new)
- static __attribute__((unused))
- int link(const char *old, const char *new)
- {
--	int ret = sys_link(old, new);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_link(old, new));
- }
- 
- 
-@@ -688,13 +572,7 @@ off_t sys_lseek(int fd, off_t offset, int whence)
- static __attribute__((unused))
- off_t lseek(int fd, off_t offset, int whence)
- {
--	off_t ret = sys_lseek(fd, offset, whence);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_lseek(fd, offset, whence));
- }
- 
- 
-@@ -717,13 +595,7 @@ int sys_mkdir(const char *path, mode_t mode)
- static __attribute__((unused))
- int mkdir(const char *path, mode_t mode)
- {
--	int ret = sys_mkdir(path, mode);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_mkdir(path, mode));
- }
- 
- 
-@@ -746,13 +618,7 @@ long sys_mknod(const char *path, mode_t mode, dev_t dev)
- static __attribute__((unused))
- int mknod(const char *path, mode_t mode, dev_t dev)
- {
--	int ret = sys_mknod(path, mode, dev);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_mknod(path, mode, dev));
- }
- 
- #ifndef MAP_SHARED
-@@ -810,13 +676,7 @@ int sys_munmap(void *addr, size_t length)
- static __attribute__((unused))
- int munmap(void *addr, size_t length)
- {
--	int ret = sys_munmap(addr, length);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_munmap(addr, length));
- }
- 
- /*
-@@ -836,13 +696,7 @@ int mount(const char *src, const char *tgt,
-           const char *fst, unsigned long flags,
-           const void *data)
- {
--	int ret = sys_mount(src, tgt, fst, flags, data);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_mount(src, tgt, fst, flags, data));
- }
- 
- 
-@@ -876,13 +730,7 @@ int open(const char *path, int flags, ...)
- 		va_end(args);
- 	}
- 
--	ret = sys_open(path, flags, mode);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_open(path, flags, mode));
- }
- 
- 
-@@ -902,13 +750,7 @@ static __attribute__((unused))
- int prctl(int option, unsigned long arg2, unsigned long arg3,
- 		      unsigned long arg4, unsigned long arg5)
- {
--	int ret = sys_prctl(option, arg2, arg3, arg4, arg5);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_prctl(option, arg2, arg3, arg4, arg5));
- }
- 
- 
-@@ -925,13 +767,7 @@ int sys_pivot_root(const char *new, const char *old)
- static __attribute__((unused))
- int pivot_root(const char *new, const char *old)
- {
--	int ret = sys_pivot_root(new, old);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_pivot_root(new, old));
- }
- 
- 
-@@ -960,13 +796,7 @@ int sys_poll(struct pollfd *fds, int nfds, int timeout)
- static __attribute__((unused))
- int poll(struct pollfd *fds, int nfds, int timeout)
- {
--	int ret = sys_poll(fds, nfds, timeout);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_poll(fds, nfds, timeout));
- }
- 
- 
-@@ -983,13 +813,7 @@ ssize_t sys_read(int fd, void *buf, size_t count)
- static __attribute__((unused))
- ssize_t read(int fd, void *buf, size_t count)
- {
--	ssize_t ret = sys_read(fd, buf, count);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_read(fd, buf, count));
- }
- 
- 
-@@ -1007,13 +831,7 @@ ssize_t sys_reboot(int magic1, int magic2, int cmd, void *arg)
- static __attribute__((unused))
- int reboot(int cmd)
- {
--	int ret = sys_reboot(LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, cmd, 0);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_reboot(LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, cmd, 0));
- }
- 
- 
-@@ -1030,13 +848,7 @@ int sys_sched_yield(void)
- static __attribute__((unused))
- int sched_yield(void)
- {
--	int ret = sys_sched_yield();
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_sched_yield());
- }
- 
- 
-@@ -1076,13 +888,7 @@ int sys_select(int nfds, fd_set *rfds, fd_set *wfds, fd_set *efds, struct timeva
- static __attribute__((unused))
- int select(int nfds, fd_set *rfds, fd_set *wfds, fd_set *efds, struct timeval *timeout)
- {
--	int ret = sys_select(nfds, rfds, wfds, efds, timeout);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_select(nfds, rfds, wfds, efds, timeout));
- }
- 
- 
-@@ -1099,13 +905,7 @@ int sys_setpgid(pid_t pid, pid_t pgid)
- static __attribute__((unused))
- int setpgid(pid_t pid, pid_t pgid)
- {
--	int ret = sys_setpgid(pid, pgid);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_setpgid(pid, pgid));
- }
- 
- 
-@@ -1122,13 +922,7 @@ pid_t sys_setsid(void)
- static __attribute__((unused))
- pid_t setsid(void)
- {
--	pid_t ret = sys_setsid();
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_setsid());
- }
- 
- #if defined(__NR_statx)
-@@ -1145,13 +939,7 @@ int sys_statx(int fd, const char *path, int flags, unsigned int mask, struct sta
- static __attribute__((unused))
- int statx(int fd, const char *path, int flags, unsigned int mask, struct statx *buf)
- {
--	int ret = sys_statx(fd, path, flags, mask, buf);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_statx(fd, path, flags, mask, buf));
- }
- #endif
- 
-@@ -1231,13 +1019,7 @@ int sys_stat(const char *path, struct stat *buf)
- static __attribute__((unused))
- int stat(const char *path, struct stat *buf)
- {
--	int ret = sys_stat(path, buf);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_stat(path, buf));
- }
- 
- 
-@@ -1260,13 +1042,7 @@ int sys_symlink(const char *old, const char *new)
- static __attribute__((unused))
- int symlink(const char *old, const char *new)
- {
--	int ret = sys_symlink(old, new);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_symlink(old, new));
- }
- 
- 
-@@ -1300,13 +1076,7 @@ int sys_umount2(const char *path, int flags)
- static __attribute__((unused))
- int umount2(const char *path, int flags)
- {
--	int ret = sys_umount2(path, flags);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_umount2(path, flags));
- }
- 
- 
-@@ -1329,13 +1099,7 @@ int sys_unlink(const char *path)
- static __attribute__((unused))
- int unlink(const char *path)
- {
--	int ret = sys_unlink(path);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_unlink(path));
- }
- 
- 
-@@ -1354,38 +1118,20 @@ pid_t sys_wait4(pid_t pid, int *status, int options, struct rusage *rusage)
- static __attribute__((unused))
- pid_t wait(int *status)
- {
--	pid_t ret = sys_wait4(-1, status, 0, NULL);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_wait4(-1, status, 0, NULL));
- }
- 
- static __attribute__((unused))
- pid_t wait4(pid_t pid, int *status, int options, struct rusage *rusage)
- {
--	pid_t ret = sys_wait4(pid, status, options, rusage);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_wait4(pid, status, options, rusage));
- }
- 
- 
- static __attribute__((unused))
- pid_t waitpid(pid_t pid, int *status, int options)
- {
--	pid_t ret = sys_wait4(pid, status, options, NULL);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_wait4(pid, status, options, NULL));
- }
- 
- 
-@@ -1402,13 +1148,7 @@ ssize_t sys_write(int fd, const void *buf, size_t count)
- static __attribute__((unused))
- ssize_t write(int fd, const void *buf, size_t count)
- {
--	ssize_t ret = sys_write(fd, buf, count);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_write(fd, buf, count));
- }
- 
- 
-@@ -1425,13 +1165,7 @@ int sys_memfd_create(const char *name, unsigned int flags)
- static __attribute__((unused))
- int memfd_create(const char *name, unsigned int flags)
- {
--	ssize_t ret = sys_memfd_create(name, flags);
--
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
--	}
--	return ret;
-+	return __sysret(sys_memfd_create(name, flags));
- }
- 
- /* make sure to include all global symbols */
--- 
-2.25.1
+But when the "ret val" is an error code for pgtable matters, It turns vague.
+We have -EAGAIN to represent "retry" and "-ENONET" to represent PTE not there,
+and they seems end up with different behaviors in different types of pgtable
+walk. That is what I feels off.
+
+visitor_cb has two different requirements of returning the status: 1)
+something wrong happens *not* related to the pgtable, e.g. failing to
+allocate memory. 2) something happens related to the pgtable. e.g PTE doesn't
+exists.
+
+For 1) It is natural to return an error code and the caller might just bail out
+via its error handling path.
+
+I think the core problem is: the two different usages are mixed and they don't
+actually fit with each other. 2) is requiring more details in the future other
+than a simple error code. 
+
+
+For 2) I think it is better have a set of flags. the name of the flags can
+carry more explicit meanings than error code. E.g.:
+
+------------------
+
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 4cd6762bda80..b3f24b321cd7 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -204,6 +204,15 @@ enum kvm_pgtable_walk_flags {
+        KVM_PGTABLE_WALK_HANDLE_FAULT           = BIT(4),
+ };
+
++struct kvm_pgtable_walk_status {
++       union {
++               u8 raw;
++               struct {
++                       unsigned retry:1;
++                       unsigned stop:1;
++                       unsigned ignore:1;
++               	/* more to come */
++               };
++       };
++};
++
+ struct kvm_pgtable_visit_ctx {
+        kvm_pte_t                               *ptep;
+        kvm_pte_t                               old;
+@@ -213,8 +222,10 @@ struct kvm_pgtable_visit_ctx {
+        u64                                     end;
+        u32                                     level;
+        enum kvm_pgtable_walk_flags             flags;
++       struct kvm_pgtable_walk_status          *status;
+ };
+
+ typedef int (*kvm_pgtable_visitor_fn_t)(const struct kvm_pgtable_visit_ctx *ctx,
+                                        enum kvm_pgtable_walk_flags visit);
+
+----------------
+
+Visitor functions sets the flags via ctx->status and kvm_pgtable_walk_xxx can
+check the bits in the ctx to decide what to do for the next.
+
+I can cook a patch for re-factoring this part if we think it is a good idea. 
+
+> "simplify existing error code" - is very dependent on visitor function
+> and caller of page table walker. This might not be able to cover all
+> cases for the future also.
+> 
+> But I do agree that just error code is not sufficient and it will make
+> it harder to handle shared vs non-shared walkers combinations with error
+> code from visitor functions and walk action (exit, next, retry).
+> 
+> One approach I can think of is:
+> Based on the visitor function return value, a page table walker will do
+> 3 things:
+> 
+> 1. Move to next SPTE
+> 2. Retry the current SPTE
+> 3. Exit the walk and return the exit code.
+> 
+> struct kvm_pgtable_walker{}  will have two more callbacks
+> 1. kvm_pgtable_walk_ignore(int ret, enum kvm_pgtable_walk_flags):
+>    This will be set for each walker and walker will check with this
+>    function intead of kvm_pgtable_walk_continue().
+> 
+> 2. kvm_pgtable_walk_retry(int ret, enum kvm_pgtable_walk_flags):
+>    This will be set for each walker and walker will use it in
+>    __kvm_pgtable_walk()  on the return value of __kvm_pgtable_visit() to
+>    retry again.
+> 
+> This will allow to have walker be more configurable and each type of
+> walker can be customized based on vistor function return and
+> shared/non-shared walker combo. It will avoid having visitor function
+> error code handling same in all walkers.
+> 
+> Below is a sample code (compile tested only):
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 850d65f705fa..9a96f61208af 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -243,6 +243,10 @@ struct kvm_pgtable_visit_ctx {
+>  
+>  typedef int (*kvm_pgtable_visitor_fn_t)(const struct kvm_pgtable_visit_ctx *ctx,
+>  					enum kvm_pgtable_walk_flags visit);
+> +struct kvm_pgtable_walker;
+> +typedef bool (*kvm_pgtable_walker_action_fn_t)(const struct kvm_pgtable_walker *walker,
+> +					      int ret);
+> +
+>  
+>  static inline bool kvm_pgtable_walk_shared(const struct kvm_pgtable_visit_ctx *ctx)
+>  {
+> @@ -258,6 +262,8 @@ static inline bool kvm_pgtable_walk_shared(const struct kvm_pgtable_visit_ctx *c
+>   */
+>  struct kvm_pgtable_walker {
+>  	const kvm_pgtable_visitor_fn_t		cb;
+> +	const kvm_pgtable_walker_action_fn_t	ignore;
+> +	const kvm_pgtable_walker_action_fn_t	retry;
+>  	void * const				arg;
+>  	const enum kvm_pgtable_walk_flags	flags;
+>  };
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 364b68013038..28891a9c463a 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -180,6 +180,12 @@ static int kvm_pgtable_visitor_cb(struct kvm_pgtable_walk_data *data,
+>  	return walker->cb(ctx, visit);
+>  }
+>  
+> +static bool kvm_pgtable_walk_retry(const struct kvm_pgtable_walker *walker,
+> +				      int r)
+> +{
+> +	return false;
+> +}
+> +
+>  static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
+>  				      int r)
+>  {
+> @@ -231,7 +237,7 @@ static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
+>  		table = kvm_pte_table(ctx.old, level);
+>  	}
+>  
+> -	if (!kvm_pgtable_walk_continue(data->walker, ret))
+> +	if (!data->walker->ignore(data->walker, ret))
+>  		goto out;
+>  
+>  	if (!table) {
+> @@ -242,14 +248,14 @@ static inline int __kvm_pgtable_visit(struct kvm_pgtable_walk_data *data,
+>  
+>  	childp = (kvm_pteref_t)kvm_pte_follow(ctx.old, mm_ops);
+>  	ret = __kvm_pgtable_walk(data, mm_ops, childp, level + 1);
+> -	if (!kvm_pgtable_walk_continue(data->walker, ret))
+> +	if (!data->walker->ignore(data->walker, ret))
+>  		goto out;
+>  
+>  	if (ctx.flags & KVM_PGTABLE_WALK_TABLE_POST)
+>  		ret = kvm_pgtable_visitor_cb(data, &ctx, KVM_PGTABLE_WALK_TABLE_POST);
+>  
+>  out:
+> -	if (kvm_pgtable_walk_continue(data->walker, ret))
+> +	if (!data->walker->ignore(data->walker, ret))
+>  		return 0;
+>  
+>  	return ret;
+> @@ -260,19 +266,25 @@ static int __kvm_pgtable_walk(struct kvm_pgtable_walk_data *data,
+>  {
+>  	u32 idx;
+>  	int ret = 0;
+> +	kvm_pteref_t pteref;
+>  
+>  	if (WARN_ON_ONCE(level >= KVM_PGTABLE_MAX_LEVELS))
+>  		return -EINVAL;
+>  
+>  	for (idx = kvm_pgtable_idx(data, level); idx < PTRS_PER_PTE; ++idx) {
+> -		kvm_pteref_t pteref = &pgtable[idx];
+> +retry:
+> +		pteref = &pgtable[idx];
+>  
+>  		if (data->addr >= data->end)
+>  			break;
+>  
+>  		ret = __kvm_pgtable_visit(data, mm_ops, pteref, level);
+> -		if (ret)
+> +		if (ret) {
+> +			if (data->walker->retry(data->walker, ret)) {
+> +				goto retry;
+> +			}
+>  			break;
+> +		}
+>  	}
+>  
+>  	return ret;
+> @@ -343,6 +355,8 @@ int kvm_pgtable_get_leaf(struct kvm_pgtable *pgt, u64 addr,
+>  	struct leaf_walk_data data;
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= leaf_walker,
+> +		.ignore = kvm_pgtable_walk_continue,
+> +		.retry	= kvm_pgtable_walk_retry,
+>  		.flags	= KVM_PGTABLE_WALK_LEAF,
+>  		.arg	= &data,
+>  	};
+> @@ -474,6 +488,8 @@ int kvm_pgtable_hyp_map(struct kvm_pgtable *pgt, u64 addr, u64 size, u64 phys,
+>  	};
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= hyp_map_walker,
+> +		.ignore = kvm_pgtable_walk_continue,
+> +		.retry	= kvm_pgtable_walk_retry,
+>  		.flags	= KVM_PGTABLE_WALK_LEAF,
+>  		.arg	= &map_data,
+>  	};
+> @@ -533,6 +549,8 @@ u64 kvm_pgtable_hyp_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  	u64 unmapped = 0;
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= hyp_unmap_walker,
+> +		.ignore = kvm_pgtable_walk_continue,
+> +		.retry	= kvm_pgtable_walk_retry,
+>  		.arg	= &unmapped,
+>  		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
+>  	};
+> @@ -582,6 +600,8 @@ void kvm_pgtable_hyp_destroy(struct kvm_pgtable *pgt)
+>  {
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= hyp_free_walker,
+> +		.ignore = kvm_pgtable_walk_continue,
+> +		.retry	= kvm_pgtable_walk_retry,
+>  		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
+>  	};
+>  
+> @@ -958,6 +978,8 @@ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>  	};
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb		= stage2_map_walker,
+> +		.ignore		= kvm_pgtable_walk_continue,
+> +		.retry		= kvm_pgtable_walk_retry,
+>  		.flags		= flags |
+>  				  KVM_PGTABLE_WALK_TABLE_PRE |
+>  				  KVM_PGTABLE_WALK_LEAF,
+> @@ -989,6 +1011,8 @@ int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>  	};
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb		= stage2_map_walker,
+> +		.ignore		= kvm_pgtable_walk_continue,
+> +		.retry		= kvm_pgtable_walk_retry,
+>  		.flags		= KVM_PGTABLE_WALK_TABLE_PRE |
+>  				  KVM_PGTABLE_WALK_LEAF,
+>  		.arg		= &map_data,
+> @@ -1048,6 +1072,8 @@ int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  {
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= stage2_unmap_walker,
+> +		.ignore	= kvm_pgtable_walk_continue,
+> +		.retry	= kvm_pgtable_walk_retry,
+>  		.arg	= pgt,
+>  		.flags	= KVM_PGTABLE_WALK_LEAF | KVM_PGTABLE_WALK_TABLE_POST,
+>  	};
+> @@ -1070,7 +1096,7 @@ static int stage2_attr_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
+>  
+>  	if (!kvm_pte_valid(ctx->old))
+> -		return -EAGAIN;
+> +		return -ENOENT;
+>  
+>  	data->level = ctx->level;
+>  	data->pte = pte;
+> @@ -1099,6 +1125,23 @@ static int stage2_attr_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  	return 0;
+>  }
+>  
+> +static bool stage2_attr_walker_retry(const struct kvm_pgtable_walker *walker, int ret)
+> +{
+> +	if (ret == -EAGAIN)
+> +		return walker->flags & KVM_PGTABLE_WALK_SHARED
+> +				&& !(walker->flags & KVM_PGTABLE_WALK_HANDLE_FAULT);
+> +	return false;
+> +}
+> +
+> +static bool stage2_attr_walker_ignore(const struct kvm_pgtable_walker * walker, int ret)
+> +{
+> +	if (ret == -EAGAIN)
+> +		return !(walker->flags & KVM_PGTABLE_WALK_SHARED);
+> +	if (ret == -ENOENT)
+> +		return !(walker->flags & KVM_PGTABLE_WALK_HANDLE_FAULT);
+> +	return false;
+> +}
+> +
+>  static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
+>  				    u64 size, kvm_pte_t attr_set,
+>  				    kvm_pte_t attr_clr, kvm_pte_t *orig_pte,
+> @@ -1112,6 +1155,8 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
+>  	};
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb		= stage2_attr_walker,
+> +		.ignore		= stage2_attr_walker_ignore,
+> +		.retry		= stage2_attr_walker_retry,
+>  		.arg		= &data,
+>  		.flags		= flags | KVM_PGTABLE_WALK_LEAF,
+>  	};
+> @@ -1217,6 +1262,8 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  {
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= stage2_flush_walker,
+> +		.ignore	= kvm_pgtable_walk_continue,
+> +		.retry	= kvm_pgtable_walk_retry,
+>  		.flags	= KVM_PGTABLE_WALK_LEAF,
+>  		.arg	= pgt,
+>  	};
+> @@ -1240,6 +1287,8 @@ kvm_pte_t *kvm_pgtable_stage2_create_unlinked(struct kvm_pgtable *pgt,
+>  	};
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb		= stage2_map_walker,
+> +		.ignore		= kvm_pgtable_walk_continue,
+> +		.retry		= kvm_pgtable_walk_retry,
+>  		.flags		= KVM_PGTABLE_WALK_LEAF |
+>  				  KVM_PGTABLE_WALK_SKIP_BBM_TLBI |
+>  				  KVM_PGTABLE_WALK_SKIP_CMO,
+> @@ -1377,6 +1426,8 @@ int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>  {
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= stage2_split_walker,
+> +		.ignore	= kvm_pgtable_walk_continue,
+> +		.retry	= kvm_pgtable_walk_retry,
+>  		.flags	= KVM_PGTABLE_WALK_LEAF,
+>  		.arg	= mc,
+>  	};
+> @@ -1442,6 +1493,8 @@ void kvm_pgtable_stage2_destroy(struct kvm_pgtable *pgt)
+>  	size_t pgd_sz;
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= stage2_free_walker,
+> +		.ignore	= kvm_pgtable_walk_continue,
+> +		.retry	= kvm_pgtable_walk_retry,
+>  		.flags	= KVM_PGTABLE_WALK_LEAF |
+>  			  KVM_PGTABLE_WALK_TABLE_POST,
+>  	};
+> @@ -1457,6 +1510,8 @@ void kvm_pgtable_stage2_free_unlinked(struct kvm_pgtable_mm_ops *mm_ops, void *p
+>  	kvm_pteref_t ptep = (kvm_pteref_t)pgtable;
+>  	struct kvm_pgtable_walker walker = {
+>  		.cb	= stage2_free_walker,
+> +		.ignore	= kvm_pgtable_walk_continue,
+> +		.retry	= kvm_pgtable_walk_retry,
+>  		.flags	= KVM_PGTABLE_WALK_LEAF |
+>  			  KVM_PGTABLE_WALK_TABLE_POST,
+>  	};
 
 
 _______________________________________________
