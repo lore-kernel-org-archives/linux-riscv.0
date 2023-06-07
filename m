@@ -4,95 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28DEEC77B7A
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 03:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADE2C7EE23
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 04:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DZ8oPC2vUygUkebsrijOi6q+CVoXCHLkvWCYRro68UI=; b=PQ4n6PI3KBF9mM
-	27bXbPejY2j+SDXSN4w3gRUwjKp8SGDmzw0qw6PwWhhkccSR47HUcHNiRLkxLiGE1dcGA5qdRlEsS
-	im324JWqmcGkMhg76psyIsfzCeGGpr2wqn4nCLGJ8iq3qbEtFOWov8wj96GHrEqjlXpy+gN1x4DC5
-	UhI2ys1k1h1R3q40ERIMihUaOl3UEV3+KAd38f0kkF57JLO7095XDlHwnUKw3CI58PUNRfuxHXlm0
-	8T0prcMYJ8XFL9gObibbQkEV1pkfNv8Zktq1KaJC+HKr/sjtVNI2nQaWBirLJeW5SrEEq+CVOX7c1
-	OL0lPZuJLMCkuGUbgb1Q==;
+	List-Owner; bh=7MD8DPYrLrnPrO7gpHOGcsUG+FrZEq5icU+LZpFEvZ8=; b=M+nsPgscgv34dH
+	d+85svrP5zUqm/nTNucFMoCccBY5HCE8mHxXEMcLImtZ07vg0A0DfuBw7kdDmYpjUyCgeAeAtSQAi
+	gYLSMDO7Cx/JICYe8TwkrjwLRy8cg7SUKLfscapW3fT0D0zvoGLO0VEEVfGj+6w+0g0qjuT59Klu9
+	jTH9EwctzZ/V2GQa3B7o9z1dW+XW/PQ72L/YErOa3TaSKp5JNPcbvJ6Xoeqc6eW/98Ej+UyB2EZWS
+	MSfKyeF6XK+QFqe87u5jG01nvsV4V0OG7/OB5NFct7aHLRJwiH5YLXzYjXeEJAj2IFG88uTHkO0Ul
+	i3zPE8bxTPFfMePZfw8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6k4H-004CGa-0u;
-	Wed, 07 Jun 2023 03:42:41 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q6k4E-004CFj-24
+	id 1q6kQ5-004FOh-0f;
+	Wed, 07 Jun 2023 04:05:13 +0000
+Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q6kQ0-004FO1-2F
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 Jun 2023 03:42:39 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-651e298be3fso6735909b3a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Jun 2023 20:42:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1686109356; x=1688701356;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5amr3SUDsqzdSzy/47lg6a8IdfkrVtyksktE2N9uX2s=;
-        b=pG9v16DF0kJRXNnHQrtaQv1di9rgPuLK9JyDO3nX1wsvYUfkmBuWSVDD/4etvL6rG0
-         khItlfqQ7lZIknwFLwzRVPHK3llkPaK3WF7/xIxfy2hiW+hAgMjO1lhXeF54pnVVSoFM
-         A4RbZaCKs4AlHPD5LCDp+wUfA1PeQOsuz3wMIqgdqJOADCpZ3eaVI5jqrCP6kTU7kCWD
-         fOQr7/2PYxeLJhs7T//i14GQlS0k/E5+oG+u+vZnpC3mSk03RHlyUWgMMrEuVHsO7z7e
-         qNwhaX1Nj1RARTxkfp6taoYulUx/qw8WE3VPV4QxjdyAhPGTjR2XlJc+RB5HJbkWe7a5
-         Awnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686109356; x=1688701356;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5amr3SUDsqzdSzy/47lg6a8IdfkrVtyksktE2N9uX2s=;
-        b=Bpj7E0KcYVR/V0yEzHVvL9Ba4dW7YC1vOsPajmeOUHb/yymJPaYpzPCtlmX+Fth/BZ
-         8MPlJD9yjvEBfzmTXjuK8BoG1vhdCoyU8KWC4X2pPcjal8rdrN2y9uoRFXmnBgoPRYEL
-         Q2YCTSIU1ikEqq54j81MqjECiWEZDpcDLGW5YuujMEom+nFsVTVPZYln9WpQnAwyk7cc
-         pBGvwmLeaMjisMjoQdt00nmwZ1sDhlH4tmYBRvRaR09E+qJoBopyy6F79+GhDA1AimcH
-         mlMt/A4gLr9m8enxoEnPbn0IAR6RC30KWLYyykC5Ja4iEbJW2EOsY+3RYmd6z/FzxTPs
-         4x9A==
-X-Gm-Message-State: AC+VfDwQ5y50XaJW3+u+1zNRAjdn2E2uY60bxxoqkzWWVUUzfO4jS9ds
-	OlG3vprFQZX+Q+faORCFrivTBw==
-X-Google-Smtp-Source: ACHHUZ5jCaF84UNonxB7KCxf8AOMiF/ye9ip8+WqDMTb1jALjhGRnv+csTkREcknVbiC31dS9AgSNQ==
-X-Received: by 2002:a05:6a00:1794:b0:64d:632a:d0ac with SMTP id s20-20020a056a00179400b0064d632ad0acmr5534707pfg.25.1686109356519;
-        Tue, 06 Jun 2023 20:42:36 -0700 (PDT)
-Received: from localhost ([122.172.87.195])
-        by smtp.gmail.com with ESMTPSA id i8-20020a635408000000b00520b677c645sm8092718pgb.41.2023.06.06.20.42.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Jun 2023 20:42:36 -0700 (PDT)
-Date: Wed, 7 Jun 2023 09:12:34 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Mason Huo <mason.huo@starfivetech.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Shengyu Qu <wiagn233@outlook.com>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v4 2/3] cpufreq: dt-platdev: Add JH7110 SOC to the
- allowlist
-Message-ID: <20230607034234.rgjb43gchkdtpuxw@vireshk-i7>
-References: <20230606105656.124355-1-mason.huo@starfivetech.com>
- <20230606105656.124355-3-mason.huo@starfivetech.com>
- <20230606110804.qns4rolrrj2gku6w@vireshk-i7>
- <20230606-unsmooth-slip-c80fab59c9b4@wendy>
- <f29a14dad3d744bba54e561a050bdfaa@EXMBX067.cuchost.com>
+	Wed, 07 Jun 2023 04:05:11 +0000
+Received: (from willy@localhost)
+	by mail.home.local (8.17.1/8.17.1/Submit) id 3574515M030733;
+	Wed, 7 Jun 2023 06:05:01 +0200
+Date: Wed, 7 Jun 2023 06:05:01 +0200
+From: Willy Tarreau <w@1wt.eu>
+To: Zhangjin Wu <falcon@tinylab.org>
+Cc: thomas@t-8ch.de, arnd@arndb.de, linux-kernel@vger.kernel.org,
+        linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 4/4] tools/nolibc: sys.h: apply __syscall() helper
+Message-ID: <ZIAB7bFYegCuXT9g@1wt.eu>
+References: <7e76f099-4198-421c-8157-430201970c4c@t-8ch.de>
+ <20230607003406.559638-1-falcon@tinylab.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <f29a14dad3d744bba54e561a050bdfaa@EXMBX067.cuchost.com>
+In-Reply-To: <20230607003406.559638-1-falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230606_204238_704870_8C31A32D 
-X-CRM114-Status: UNSURE (   7.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230606_210509_324350_C4B17C5B 
+X-CRM114-Status: GOOD (  34.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,13 +61,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07-06-23, 02:04, Mason Huo wrote:
-> Or you can just ignore it?
+Hi,
 
-I can do that :)
+On Wed, Jun 07, 2023 at 08:34:06AM +0800, Zhangjin Wu wrote:
+> > Hi Zhangjin,
+> > 
+> > On 2023-06-06 16:17:38+0800, Zhangjin Wu wrote:
+> > > Use __syscall() helper to shrink 252 lines of code.
+> > > 
+> > >     $ git show HEAD^:tools/include/nolibc/sys.h | wc -l
+> > >     1425
+> > >     $ git show HEAD:tools/include/nolibc/sys.h | wc -l
+> > >     1173
+> > >     $ echo "1425-1173" | bc -l
+> > >     252
+> > > 
+> > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> > > ---
+> > >  tools/include/nolibc/sys.h | 336 +++++--------------------------------
+> > >  1 file changed, 42 insertions(+), 294 deletions(-)
+> > > 
+> > > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> > > index f6e3168b3e50..0cfc5157845a 100644
+> > > --- a/tools/include/nolibc/sys.h
+> > > +++ b/tools/include/nolibc/sys.h
+> > > @@ -108,13 +108,7 @@ int sys_chdir(const char *path)
+> > >  static __attribute__((unused))
+> > >  int chdir(const char *path)
+> > >  {
+> > > -	int ret = sys_chdir(path);
+> > > -
+> > > -	if (ret < 0) {
+> > > -		SET_ERRNO(-ret);
+> > > -		ret = -1;
+> > > -	}
+> > > -	return ret;
+> > > +	return __syscall(chdir, path);
+> > 
+> > To be honest I'm still not a big fan of the __syscall macro.
+> > It's a bit too magic for too little gain.
+> > 
+> > The commit message argues that the patches make the code shorter.
+> > 
+> > However doing 
+> > 
+> > __sysret(sys_chdir(path));
+> > 
+> > instead of
+> > 
+> > __syscall(chdir, path);
+> > 
+> > is only three characters longer and the same amout of lines.
+> >
+> 
+> Yeah, I do like your version too, it looks consise too, the only not
+> comfortable part is there are dual calls in one line.
 
--- 
-viresh
+For those who want to debug, having less macros or magic stuff is always
+better, and in this essence I too find that Thomas' version is more
+expressive about what is being done. Also, if some syscalls require a
+specific handling (e.g. mmap() needs to return MAP_FAILED instead), it's
+much easier to change only the code dealing with the return value and
+errno setting than having to guess how to reimplement what was magically
+done in a macro.
+
+> > Otherwise we would have syscall() _syscall() and __syscall() each doing
+> > different things.
+> >
+> 
+> Yes, I'm worried about this too, although the compilers may help a
+> little, but it is too later.
+
+The issue is for the person who remembers "I need to use 'syscall'" but
+never remembering the number of underscores nor the variations.
+
+> Just brain storming, What about another non-similar name, for example,
+> __syswrap() or __sysin() ?
+> 
+> Or even convert __sysret() to __sysout() and __syscall() to __sysin(),
+> do you like it? or even __sysexit(), __sysentry(), but the __sysexit()
+> may be misused with sys_exit().
+
+I'd rather use "__set_errno()" to explicitly mention that it's only
+used to set errno, but sysret would be fine as well IMHO as if we're
+purist, it also normalizes the return value.
+
+>     /* Syscall return helper, set errno as -ret when ret < 0 */
+>     static __inline__ __attribute__((unused, always_inline))
+>     long __sysout(long ret)
+>     {
+>     	if (ret < 0) {
+>     		SET_ERRNO(-ret);
+>     		ret = -1;
+>     	}
+>     	return ret;
+>     }
+>     
+>     /* Syscall call helper, use syscall name instead of syscall number */
+>     #define __sysin(name, ...) __sysout(sys_##name(__VA_ARGS__))
+> 
+>     static __attribute__((unused))
+>     int brk(void *addr)
+>     {
+>     	return __sysout(sys_brk(addr) ? 0 : -ENOMEM);
+>     }
+> 
+>     static __attribute__((unused))
+>     int chdir(const char *path)
+>     {
+>     	return __sysin(chdir, path);
+>     }
+
+I still don't find this intuitive at all.
+
+> If we really want something like __syscall()/__sysret(), I do think they
+> should be a pair ;-)
+
+Then one being called "call" while the other one being "ret" do form a
+pair, no ?
+
+Thanks,
+Willy
 
 _______________________________________________
 linux-riscv mailing list
