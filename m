@@ -4,79 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE62BC7EE25
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 18:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C3A0C7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 19:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Date:Message-Id:
-	Subject:References:In-Reply-To:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mFrIaQnZV0GLT+UBzSL5msQW2fI3OUTuyGlOdirP8YI=; b=1649BjCoGeFqHC
-	apQy70La8M0/LL1Tv0WTc0IhR+8KwcjHBzGsX6SxPwAd1VfLyDcJJ1bKI/GU/59u4G1qjN8J/G1UT
-	YHHhlJayLLOCKQc6HkuIvmfopUJBU4cEKsNkx5dasmobELl4JEpqqDTlEe/GtbAHt4ICWI1BxWIBz
-	6Qq6ItYACRhuNLQucMqUBz0tpWv3fVCQuepvxZpw2FcPE3BgfBD+yfCoDkkZutI/3q3SYIaZ5b6Yt
-	C7R1VU3m7Xsc39Y+bgrPcDj7tnx64cAgy98zphWiy8amBBkqATLsDh+57+mtnyct2V7XsLU7D1dRe
-	THgmjLYAazaXeQxc0ESw==;
+	List-Owner; bh=/wk0QXGOUPQPgNTTkpAQ7DNnkECpQ8ZmghPFhQOWkH0=; b=Yv508TFK8nP7RV
+	eeQp6VBz99/+OwiXF9jjrAFq6G34SjQDaQ9LVIN9xStMm6121LFryh71xoBPq7SvZLCLHte9zvSEC
+	3m/JVSCBCa5fOPSkG8V0q4g8xIxkAL6qsj9YD8hO3KA7VOXnReuRQV3RVUghqRqmptkCv1O71B8e1
+	UIug9SQbQjLDDw0+gBxrcXIwHLUNiPJzpHI+6WShG17a40NrkxrYwaP4Tn7xMVX4a/yVKFHjYoOr/
+	CYBXlvgyN5SkldJsRCNEa7fd3CxQkqEFQmdPu4mlB2N7l4bW8MO+gY3FiG/Yr0JsFrWu1n1fFcgzD
+	e+V5T5XI7UuAqAHGkYtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7Klv-00ADmu-2U;
-	Thu, 08 Jun 2023 18:54:11 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1q7KsM-00AF1f-0s;
+	Thu, 08 Jun 2023 19:00:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7Klr-00ADiX-0y
+	id 1q7KsJ-00AF0j-1E
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jun 2023 18:54:08 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-651e298be3fso926126b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Jun 2023 11:54:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1686250440; x=1688842440;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1fJEHFi97DlbjmCUi9KJ74Rwm7pWeUSTdC5PB7cfCM4=;
-        b=EoG2H7AxXXooNLAjrSxKqHnNGdrPa6YAxcOyK9Mn0Xm4mKDG8T+aHYaB0PZrmUkQGC
-         t3Z5SbYWDYLEVkfJnPmL6qGXXgU2TNc2S6DitaYcaOn5zc1DuWGhvV5cmBj2I90aVPPE
-         K27vKR1T2dJ/FR3aiiS4zF3FzxcpW7s2yig8vdN44eseE70dCfL8h6pd7Na5rUTp1EbC
-         5v6aP8SOb2N27R166/EO0ntvoSVHINTwoFprmmXubwUen0+juEa36jhngnANtjSkf7YX
-         RUXq7ZhO/yRTpRctQUIYHovnHXbBah7t7KKuO//zOlfCrVZZeiVtsl9vz8tlmtgpbfyl
-         EUrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686250440; x=1688842440;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1fJEHFi97DlbjmCUi9KJ74Rwm7pWeUSTdC5PB7cfCM4=;
-        b=KVWn9vV9a0lPx0vMMRRBmuT0MB0jkKM9TRquchJXRGa9kaeEFTJr7Vr8FvaVYmSjf6
-         uIecC6g6B9zSQrYvx3BCPMEk3uJeBgyzCSKeODDmziAYKjfZwMirEUtww/02WehjhVoN
-         Ieym6MO3Yjki/Ucmsxhfy8f1HQkYSt4n42+CCCYlyVBzKw59COFu+hjvvc5n9xWHqnqY
-         TVojAYSBiagAgGSDTjt8g4A9lxzXbUbH6qvjTkq+vgtSlY70O758xeNWeksAfhhd+QZf
-         1sm3mXD5u0vfnICL+ByTqmgcLLvI96wzBdRY5UaSR10bCUNK8m6S+tcr9QOgCM4jMvKd
-         hbpQ==
-X-Gm-Message-State: AC+VfDwrQK0EZzH5IXfaOKd6qDf4HT2pr2vTldvujiYBme+IYaG+kbRw
-	25w4lLalwtWRXgVi31I/iUm6OA==
-X-Google-Smtp-Source: ACHHUZ6qOJ2APMDbRsU8BHeHOmULCkvsbeS3GA8+hyX5g4Fxgp48D1t8zMsAuTJKR14dbFoJ3Jgz7Q==
-X-Received: by 2002:a05:6a20:4429:b0:111:97f:6d9d with SMTP id ce41-20020a056a20442900b00111097f6d9dmr9156712pzb.62.1686250440273;
-        Thu, 08 Jun 2023 11:54:00 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id c14-20020aa7880e000000b0063d46ec5777sm1394121pfo.158.2023.06.08.11.53.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Jun 2023 11:53:59 -0700 (PDT)
-In-Reply-To: <20230504072910.3742842-1-ruanjinjie@huawei.com>
-References: <20230504072910.3742842-1-ruanjinjie@huawei.com>
-Subject: Re: [PATCH v3] riscv: fix kprobe __user string arg print fault
- issue
-Message-Id: <168625043497.19063.14436590324361967786.b4-ty@rivosinc.com>
-Date: Thu, 08 Jun 2023 11:53:54 -0700
+	Thu, 08 Jun 2023 19:00:48 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 623496507F;
+	Thu,  8 Jun 2023 19:00:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C0C3AC433D2;
+	Thu,  8 Jun 2023 19:00:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686250845;
+	bh=y4lE6oEoFP0eJ4zD6nKH61KcwLbt8oaSqhE3jRkPibQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=XW3BWEIUmz2OEOxxB1GEvyV74zD+DZZUY7dbA0oCX3lH+ItDMpHna8gnaAdlF1T0z
+	 GrAX8GVltruvjshhFTpsaLL/oZWsaVqM7+Z7k4XwFhoG+ZfqazJi5hdjyIUiAJJlz3
+	 hLgzgDi39o5Wd11CT/7wFRR26vbNtd1kaPUDdPI6xhfvwXDkbcj9qx2N1ESSLrSqTF
+	 dTtMM/MoLfkqq3xNWppiXvumHHAV5gkEwiQqrAhFpQ7BZRWyOCzfsL9z8eXrUeQTTh
+	 ODGdaPE9zcdAEirrKk+ceUpkEKyLlIAMhyzpHQPFHEfkbaIt0HQ5NzZFT62KrQiFwI
+	 kdtjY9ZNEKX+g==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id A1CC0E87232;
+	Thu,  8 Jun 2023 19:00:45 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-  aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  Ruan Jinjie <ruanjinjie@huawei.com>
+Subject: Re: [PATCH v3] riscv: fix kprobe __user string arg print fault issue
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <168625084565.18888.13800044190125074326.git-patchwork-notify@kernel.org>
+Date: Thu, 08 Jun 2023 19:00:45 +0000
+References: <20230504072910.3742842-1-ruanjinjie@huawei.com>
+In-Reply-To: <20230504072910.3742842-1-ruanjinjie@huawei.com>
+To: Ruan Jinjie <ruanjinjie@huawei.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230608_115407_339603_61D33338 
-X-CRM114-Status: UNSURE (   6.01  )
+X-CRM114-CacheID: sfid-20230608_120047_456534_D80ABF8B 
+X-CRM114-Status: UNSURE (   8.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,8 +77,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-On Thu, 04 May 2023 15:29:10 +0800, Ruan Jinjie wrote:
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Thu, 4 May 2023 15:29:10 +0800 you wrote:
 > On riscv qemu platform, when add kprobe event on do_sys_open() to show
 > filename string arg, it just print fault as follow:
 > 
@@ -107,14 +94,15 @@ On Thu, 04 May 2023 15:29:10 +0800, Ruan Jinjie wrote:
 > 
 > [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - [v3] riscv: fix kprobe __user string arg print fault issue
+    https://git.kernel.org/riscv/c/99a670b2069c
 
-[1/1] riscv: fix kprobe __user string arg print fault issue
-      https://git.kernel.org/palmer/c/99a670b2069c
-
-Best regards,
+You are awesome, thank you!
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
