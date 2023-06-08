@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F0DC7EE29
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 19:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C3EEC7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 19:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b0223WBIF6fiVrmVpzVZ2XroPDihtxabq5UB2EQAg3c=; b=t77jbgRJ4EFXxg
-	VzZG0UwGfvFPl5p0q/0+TKZVyWEXptlWPJUFwaiyw6/V6tkAawlKtw9K846inN44TjCU5pYvu2UNS
-	dTFhRiIAgoRXDJurCT0gaoa57T9Qr4SPOmVO2JZaptiU+K2ip8b1mDqH6lo+idTL5Pmkr0gj6wcJa
-	az9NjJJWJVFQdf/UHAa0qBbe3SzEVUcfJ1GTTXwHWi7jXUXiwYW0q3usDtu30geA5RkR3aa/gkrhF
-	Uo/mb5ceZ3GAeIfPRcjQGl59aayLjOXtB/FV8TEebo8Gg9iFzx1Mi4e2uPkPnIlsQ2y1LeyKCc9iY
-	YW9PSZJMHGsQYzXvuuyg==;
+	List-Owner; bh=Qmi0yNiyJfdpUMG3ffwOiTkmdB5N9FsVlx0Wti1NGEo=; b=vUhnPNTeR4ATaj
+	HunT5gW6cn8tNvu0GqoZzfpD5PwYx3B8nlOkL/3ZNJoaxW+++6u938JlNd3HWRKZ8vpXdzowOh+sc
+	wZJk87Vt6lnhGMjHq7oIoBkyONP8kzB1iOTbaG0OfYoHZqYiPy+GXLI9SnqIyoU9Vw4Syz387xZtw
+	eAdE2+zXrCOOyfyqJp3MzfG0gevqW9bv6q5qhz3+0R5qLfBHoAl/RshOEBShguZ3fQf4PcoE03TyU
+	vRYR/2aU1NzRXxwPB4FhVylr4xiNBdU4Yzd9yR3J2dMPt6NEtD+lL05eLlJ6OdGMctx5wbz2fcCmy
+	HO5aOIJDWcf7F9ep0RJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7LOH-00ANtK-15;
-	Thu, 08 Jun 2023 19:33:49 +0000
-Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
+	id 1q7LPi-00AOKB-2g;
+	Thu, 08 Jun 2023 19:35:18 +0000
+Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7LOE-00ANr9-1K
+	id 1q7LPf-00AOHw-17
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jun 2023 19:33:47 +0000
-Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-bad1ae90c2eso1048594276.2
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Jun 2023 12:33:46 -0700 (PDT)
+	Thu, 08 Jun 2023 19:35:16 +0000
+Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-39a523e8209so54833b6e.0
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Jun 2023 12:35:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1686252825; x=1688844825;
+        d=google.com; s=20221208; t=1686252914; x=1688844914;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Tza8VZpBdDATlz3Dj70XvbHnC1ZhEpBq1MlG3gUrqGw=;
-        b=1MipXBHlCgYLfuzhfDW5ZwUI8FUsKSE60AsqsEXw+S0tSnJg5UOmjRzYFHDLdCAJt8
-         yMkipeQIgxyZw78rcQRYlMT5UpzdJcWoIksfCpz/ydUZz6ZkI9xKVrX6kds0LvhIjEzt
-         HS+XptOf+RYBmq4zm9J7IFzhbS7dVhum1cFHfBZOiQ+s0XEOXeKn/G9+gcrTCmXECFnx
-         8UoS3IHRM3ERDzeB2SU7OV6jhVelmg9iMKHzFrc8fJmEIq5uTYUBI9N7JZJvtQPChnnD
-         4+2NEzxtpjJGm4NjJthMMPpAkAfI8kDJwzbA28gjtv0iKudNeA4e3nFqgNhPbC/JEIjR
-         C7cA==
+        bh=kr0PEHV5OnE+EEUWt8DnaCebmsfgt0XKMU/SCuO3z3o=;
+        b=IGMMSO5mseD7tMe+rRtOIzITR5LLF6gSj6DDkJB5GA4sfv+l0xQcNm+4SRn9cSTA+K
+         bzPDoNl4QAtanNBNtw4EO4Jh9TOBqBvtAeMzqVR0kpqSUA/L/bvTchhidEBh3MP4oHsE
+         7zzo3x/NewiOg3sZOatxsUi0TcVM8A38QB4oSQfrmI5m9Mp6eOh1v9F27aPIV0BM3Y9m
+         jqm85o0LQ0rhNRucFZ0i7HQcaeWJpsz64iPtGPt0XsZOnDRNlY3xajIra5PnrJSK9OoE
+         jKjJyQ6PxwcJN3nFoobZxXBieXcQTT3OQ2VZ4F5eEeV/iMRllpjt6DpnkAeaktGC324Y
+         dn+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686252825; x=1688844825;
+        d=1e100.net; s=20221208; t=1686252914; x=1688844914;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Tza8VZpBdDATlz3Dj70XvbHnC1ZhEpBq1MlG3gUrqGw=;
-        b=SDd9ct+/MKXfygmX2lEIvySa48NIPTB9L2oQoQSMUstuZY4EwCZsEE5DxGgI4eNjJU
-         HfuyXt1hKn/ogdff1hKYBEYE7OUTKBW96cn7JquNOuEvsUskIprBVgigjck43ARp/fB4
-         ac5ecJwsBiTdIJZrvyf0nawc3bWMROB20b3pSMQQA1d2cwlCxsyY8uaWjdxeb4icCYbf
-         y+d8XxOpPs5HBc4/ePJtxSkvIS4H6rO2B2Egm6aOz1sq289GsflZWTog3ZJdmq9FBvln
-         YOMWc7x0pyhey8bvT8mP0RaZ8c4DVWmwVhctU7RoxV+FJwvBwKnaJHf0sr2znNuPqvGu
-         yVgQ==
-X-Gm-Message-State: AC+VfDytw8RZ5NnVzrbcnNpbzK6cOwqf37+KzwqVF9tq98GSpEEGGetW
-	bwa4P5HctVkHvwL6Wl6VxWX0qQ==
-X-Google-Smtp-Source: ACHHUZ5fRes1KtQJuT48o2Wy/FuADD12yA75OXTij0wfUrs7MG5//8NY8cIlqChq28IRelwNgydDPg==
-X-Received: by 2002:a25:868e:0:b0:bad:1055:c9fd with SMTP id z14-20020a25868e000000b00bad1055c9fdmr569763ybk.49.1686252825296;
-        Thu, 08 Jun 2023 12:33:45 -0700 (PDT)
+        bh=kr0PEHV5OnE+EEUWt8DnaCebmsfgt0XKMU/SCuO3z3o=;
+        b=ZQ9g819d6A9EIV4Uc9f+RPiOSuXGCmiZXsEkNj4rBQNtyy768Kvpc+pfrxerK8Bqg8
+         1woCtQL2YRDRB451ZCsK979Bz+Fk6ffyY4Yct9TBY6WPOegXpqCTcJqMTNgwbv/zm3dq
+         QKIIbbu831ah1eTfRSqgyACCGAlZuI1LLhxQSl089WepS95wU1X2g9BjTPTJhkJJWrr9
+         7RsSJI9WK5tD+Zxv0gcDpZbucfVG6hpzv271NPU2n6pg1W5lbpLglEsVOwJQLcfE5aIa
+         2baHusEg0CkxP8p4XqwA+mps0glYZldB8liuJvxIPUtpR5lw7O36slthd7rHZkMxWUS/
+         V2JQ==
+X-Gm-Message-State: AC+VfDxiPPWR3Mmlee0bBmfQ8n4OaXYiZh/gPPSQpXsPZKtPegOtWmEg
+	5jzgQqCd+86MRNufcEe+nzi2/A==
+X-Google-Smtp-Source: ACHHUZ7gdIjuH/6E76ySqRN8WufhpANLQ+j2jIa26lg+ERfDlrQvd+huECUh9/LluoEXiOqTeuRs9w==
+X-Received: by 2002:a05:6808:cd:b0:39a:519c:2a6a with SMTP id t13-20020a05680800cd00b0039a519c2a6amr6836715oic.43.1686252914190;
+        Thu, 08 Jun 2023 12:35:14 -0700 (PDT)
 Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id e188-20020a251ec5000000b00baca49c80dcsm448503ybe.28.2023.06.08.12.33.41
+        by smtp.gmail.com with ESMTPSA id g137-20020a0ddd8f000000b0055d8768408dsm108055ywe.105.2023.06.08.12.35.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Jun 2023 12:33:44 -0700 (PDT)
-Date: Thu, 8 Jun 2023 12:33:40 -0700 (PDT)
+        Thu, 08 Jun 2023 12:35:13 -0700 (PDT)
+Date: Thu, 8 Jun 2023 12:35:09 -0700 (PDT)
 From: Hugh Dickins <hughd@google.com>
 X-X-Sender: hugh@ripple.attlocal.net
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -92,14 +92,14 @@ cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>,
     linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
     linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
     linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: [PATCH v2 20/23] sparc: iounit and iommu use pte_offset_kernel()
+Subject: [PATCH v2 21/23] x86: Allow get_locked_pte() to fail
 In-Reply-To: <a4963be9-7aa6-350-66d0-2ba843e1af44@google.com>
-Message-ID: <99962272-12ff-975d-bf7f-7fd5d95a2df5@google.com>
+Message-ID: <b7fa8547-4f28-ec82-9893-1b2eb58e40b4@google.com>
 References: <a4963be9-7aa6-350-66d0-2ba843e1af44@google.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230608_123346_456050_E71888C0 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20230608_123515_386038_96298828 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,42 +116,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-iounit_alloc() and sbus_iommu_alloc() are working from pmd_off_k(),
-so should use pte_offset_kernel() instead of pte_offset_map(), to avoid
-the question of whether a pte_unmap() will be needed to balance.
+In rare transient cases, not yet made possible, pte_offset_map() and
+pte_offset_map_lock() may not find a page table: handle appropriately.
 
 Signed-off-by: Hugh Dickins <hughd@google.com>
 ---
- arch/sparc/mm/io-unit.c | 2 +-
- arch/sparc/mm/iommu.c   | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/x86/kernel/ldt.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/arch/sparc/mm/io-unit.c b/arch/sparc/mm/io-unit.c
-index bf3e6d2fe5d9..133dd42570d6 100644
---- a/arch/sparc/mm/io-unit.c
-+++ b/arch/sparc/mm/io-unit.c
-@@ -244,7 +244,7 @@ static void *iounit_alloc(struct device *dev, size_t len,
- 			long i;
+diff --git a/arch/x86/kernel/ldt.c b/arch/x86/kernel/ldt.c
+index 525876e7b9f4..adc67f98819a 100644
+--- a/arch/x86/kernel/ldt.c
++++ b/arch/x86/kernel/ldt.c
+@@ -367,8 +367,10 @@ static void unmap_ldt_struct(struct mm_struct *mm, struct ldt_struct *ldt)
  
- 			pmdp = pmd_off_k(addr);
--			ptep = pte_offset_map(pmdp, addr);
-+			ptep = pte_offset_kernel(pmdp, addr);
+ 		va = (unsigned long)ldt_slot_va(ldt->slot) + offset;
+ 		ptep = get_locked_pte(mm, va, &ptl);
+-		pte_clear(mm, va, ptep);
+-		pte_unmap_unlock(ptep, ptl);
++		if (!WARN_ON_ONCE(!ptep)) {
++			pte_clear(mm, va, ptep);
++			pte_unmap_unlock(ptep, ptl);
++		}
+ 	}
  
- 			set_pte(ptep, mk_pte(virt_to_page(page), dvma_prot));
- 
-diff --git a/arch/sparc/mm/iommu.c b/arch/sparc/mm/iommu.c
-index 9e3f6933ca13..3a6caef68348 100644
---- a/arch/sparc/mm/iommu.c
-+++ b/arch/sparc/mm/iommu.c
-@@ -358,7 +358,7 @@ static void *sbus_iommu_alloc(struct device *dev, size_t len,
- 				__flush_page_to_ram(page);
- 
- 			pmdp = pmd_off_k(addr);
--			ptep = pte_offset_map(pmdp, addr);
-+			ptep = pte_offset_kernel(pmdp, addr);
- 
- 			set_pte(ptep, mk_pte(virt_to_page(page), dvma_prot));
- 		}
+ 	va = (unsigned long)ldt_slot_va(ldt->slot);
 -- 
 2.35.3
 
