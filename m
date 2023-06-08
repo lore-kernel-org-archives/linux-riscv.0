@@ -4,69 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF94C7EE25
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 18:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AD2C7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 18:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g8lnOp9ZLCh83Ceu0NMFvS0ZClBhxC5yqjg2dEg6VxE=; b=zbZOcp+qR+7GKU
-	p+D7HHriurU21d5BVkvzHt4erfIHeToJGGWj/O+MhNzDbCHfikP+AnG1HOcF/a3SWqEsAMdChf/0W
-	pSqhSAIf5BM/6ZcJVPKhPvZfqGlSlQrWoUKG2/oGeBFcxLay7LpXi/0JC06rqnokThZjt8fUDdEwT
-	QwoBvbbIdMueWsA6yRP0i+i3kvisoZmeqDpGpbXvDLZ+59W5cgknaN5/c0Q2azZhvTAUrznx9Mb9Z
-	SfZRdCeZH8+JL0+FRRzxPNeHY+cdGxsOdXRfbo7QOe/3upIQNYJVgnVAAJdo5oi66fUr/AIEbGVOC
-	gg6IlmTxnOg5oWUr4LdQ==;
+	List-Owner; bh=VSAJfzXuLAtEqPyLLLSJ8lXhQdJYviCT9OVFCreIwiM=; b=gvBND/IhE5kq9Y
+	7rCB92F88E0ksOiNO9TptDTsXadYoB+BqA2b4eFD2DQuW1w2G+bpdzuOOlBwGqSmLtH0SS0LZs9hQ
+	7CgAjFv5H3IQiQv9QIItbHSslSIOFXS88NIavSL31FXWVisZlSo9fJD65I+hKoYBvkYeWwpq01X3/
+	HcNHWdDQ+FFG/YkDoLLtoUhW9FsjGSbUTv9+YurVke4Mjic2qS02VJUVJDn81IAzW5L942HqwW+oF
+	AmHcqpwe2SYJtQzj1NFyOR4L/HkCGk324sez931Oaiz/LjJaTZDUxG7W+ZWep4yKPbtAg4mSWqnkS
+	bivqbXMLlbZEqG9gx0xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7KNC-00AAKN-1f;
-	Thu, 08 Jun 2023 18:28:38 +0000
-Received: from mail-il1-f181.google.com ([209.85.166.181])
+	id 1q7Ka4-00ABv7-1x;
+	Thu, 08 Jun 2023 18:41:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7KNA-00AAJ2-0X
-	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jun 2023 18:28:37 +0000
-Received: by mail-il1-f181.google.com with SMTP id e9e14a558f8ab-33b1da9a8acso4322825ab.3
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Jun 2023 11:28:31 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686248911; x=1688840911;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I6AjDwR0ptMSx+JUF8hl+KxGxvEo5Yse4u2Qkil1oAQ=;
-        b=ayX7uANSb39CD+qcxZcsr3kmjwEPfrHYzeXS/iEfjBVAUFW0o0fxKh5mT6R5qNHaZA
-         7i4X7M4YY3noYRgOhw/6d8wNn6gK1E2hVGdPrUTA++T8VDCbjze0QyN5Pf/EbALI8CHL
-         adkvryikSNmPh6x/Snqk4G6fjObrAcHgVhzF17qe/uu31Y/L0mRZi//E6mwJNAdwZ8eE
-         1e2g0dFF2shsHf284ACz5IU5BJtkxh8QqayJS7osp2KAgj+keySziqUF7hUDVEe5OLly
-         Wu2i3KNcjxLmUlVQDo+rg6fiFSoFtm6K/g9maBd+vqb7YgyUEYXFoP/i6k0U2v5P87eu
-         dL/Q==
-X-Gm-Message-State: AC+VfDzRRNSHUg20v2D3J06edfawRWuBS8/eaa7NtWh6tMaIvHP6Q1Bv
-	D1GIkWVYTmy5xju8jJh2Gg==
-X-Google-Smtp-Source: ACHHUZ6ZgczaCvQ9WREBX6XZ35ncxDkUp3kUdO8Gb7NQSIE0NE4s5OeN57L3IH1YqN0JwR5VbNdOZQ==
-X-Received: by 2002:a92:c908:0:b0:33b:abaf:d493 with SMTP id t8-20020a92c908000000b0033babafd493mr12283395ilp.16.1686248911076;
-        Thu, 08 Jun 2023 11:28:31 -0700 (PDT)
-Received: from robh_at_kernel.org ([64.188.179.250])
-        by smtp.gmail.com with ESMTPSA id l15-20020a92280f000000b0033842c3f6b4sm541876ilf.83.2023.06.08.11.28.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Jun 2023 11:28:30 -0700 (PDT)
-Received: (nullmailer pid 3198330 invoked by uid 1000);
-	Thu, 08 Jun 2023 18:28:28 -0000
-Date: Thu, 8 Jun 2023 12:28:28 -0600
-From: Rob Herring <robh@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>, Saravana Kannan <saravanak@google.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Frank Rowand <frowand.list@gmail.com>, Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v3 02/11] of/irq: Set FWNODE_FLAG_BEST_EFFORT for the
- interrupt controller DT nodes
-Message-ID: <20230608182828.GA3183987-robh@kernel.org>
-References: <20230508142842.854564-1-apatel@ventanamicro.com>
- <20230508142842.854564-3-apatel@ventanamicro.com>
+	id 1q7Ka0-00ABtj-1N;
+	Thu, 08 Jun 2023 18:41:53 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4D0F465066;
+	Thu,  8 Jun 2023 18:41:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A486DC433D2;
+	Thu,  8 Jun 2023 18:41:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686249710;
+	bh=4a7fPJtZnT2G3XUHjxk53JytGZ7vtRhXAZPweGPLJ7Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Zf6igQH5RfRjPL1LLNRp2u8iNNy6O+kF/bGYFX3Nrh8fUdglTmP/qjkVHeDHFuQNr
+	 jn2Uh6KySMX6f0GTo02MvlJp6Rv68cW/69I/MFZtSdKzOt0NBFweVHnVybdzHgWXfl
+	 KvtLJ4ESmigmI/uc0oNYGCIO7NHmoF2IrKkybPAl+gdBXFQ0P23XDeYWK4z9h15oKv
+	 ZKGiTpWdZVp/QxM4gHnWF1LN14ykgAc8/vUL3ndVfxx63Am/uu3wKbhKbUkF+Bi6Ox
+	 4oM/zbXXCqLIwER2tnq6O7dDS4+mh/aE4qybCY5QC5PMes/KnyWH9l0FxBIq6F8Dg4
+	 8wj5ZhMvd7MFQ==
+Date: Thu, 8 Jun 2023 21:41:16 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Song Liu <song@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH 00/13] mm: jit/text allocator
+Message-ID: <20230608184116.GJ52412@kernel.org>
+References: <20230601101257.530867-1-rppt@kernel.org>
+ <ZHjDU/mxE+cugpLj@FVFF77S0Q05N.cambridge.arm.com>
+ <ZHjgIH3aX9dCvVZc@moria.home.lan>
+ <ZHm3zUUbwqlsZBBF@FVFF77S0Q05N>
+ <20230605092040.GB3460@kernel.org>
+ <ZH20XkD74prrdN4u@FVFF77S0Q05N>
+ <CAPhsuW7ntn_HpVWdGK_hYVd3zsPEFToBNfmtt0m6K8SwfxJ66Q@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230508142842.854564-3-apatel@ventanamicro.com>
+In-Reply-To: <CAPhsuW7ntn_HpVWdGK_hYVd3zsPEFToBNfmtt0m6K8SwfxJ66Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230608_112836_203246_206FE3C3 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20230608_114152_558920_67A1CE0D 
+X-CRM114-Status: GOOD (  32.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,67 +97,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+Saravana
-
-On Mon, May 08, 2023 at 07:58:33PM +0530, Anup Patel wrote:
-> The RISC-V APLIC interrupt controller driver is a regular platform
-> driver so we need to ensure that it is probed as soon as possible.
-> To achieve this, we mark the interrupt controller device nodes with
-> FWNODE_FLAG_BEST_EFFORT (just like console DT node).
-> 
-> Fixes: 8f486cab263c ("driver core: fw_devlink: Allow firmware to mark devices as best effort")
-
-It is good practice to Cc the commit author of what you are fixing.
-
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  drivers/of/irq.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-> index 174900072c18..94e1d9245cff 100644
-> --- a/drivers/of/irq.c
-> +++ b/drivers/of/irq.c
-> @@ -535,6 +535,16 @@ void __init of_irq_init(const struct of_device_id *matches)
->  	INIT_LIST_HEAD(&intc_desc_list);
->  	INIT_LIST_HEAD(&intc_parent_list);
->  
-> +	/*
-> +	 * We need interrupt controller platform drivers to work as soon
-
-If it's platform drivers/devices you care about, then perhaps this 
-should be done when platform devices are created.
-
-> +	 * as possible so mark the interrupt controller device nodes with
-> +	 * FWNODE_FLAG_BEST_EFFORT so that fw_delink knows not to delay
-> +	 * the probe of the interrupt controller device for suppliers
-> +	 * without drivers.
-> +	 */
-> +	for_each_node_with_property(np, "interrupt-controller")
-
-This function only operates on nodes matching 'matches', but this 
-operates on everything.
-
-It does make sense that if we init an interrupt controller here, then we 
-will surely want to probe its driver later on. So maybe just move 
-setting FWNODE_FLAG_BEST_EFFORT within 
-for_each_matching_node_and_match() below.
-
-> +		np->fwnode.flags |= FWNODE_FLAG_BEST_EFFORT;
-> +
->  	for_each_matching_node_and_match(np, matches, &match) {
->  		if (!of_property_read_bool(np, "interrupt-controller") ||
->  				!of_device_is_available(np))
-> -- 
-> 2.34.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdW4gMDYsIDIwMjMgYXQgMTE6MjE6NTlBTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6
+Cj4gT24gTW9uLCBKdW4gNSwgMjAyMyBhdCAzOjA54oCvQU0gTWFyayBSdXRsYW5kIDxtYXJrLnJ1
+dGxhbmRAYXJtLmNvbT4gd3JvdGU6Cj4gCj4gWy4uLl0KPiAKPiA+ID4gPiA+IENhbiB5b3UgZ2l2
+ZSBtb3JlIGRldGFpbCBvbiB3aGF0IHBhcmFtZXRlcnMgeW91IG5lZWQ/IElmIHRoZSBvbmx5IGV4
+dHJhCj4gPiA+ID4gPiBwYXJhbWV0ZXIgaXMganVzdCAiZG9lcyB0aGlzIGFsbG9jYXRpb24gbmVl
+ZCB0byBsaXZlIGNsb3NlIHRvIGtlcm5lbAo+ID4gPiA+ID4gdGV4dCIsIHRoYXQncyBub3QgdGhh
+dCBiaWcgb2YgYSBkZWFsLgo+ID4gPiA+Cj4gPiA+ID4gTXkgdGhpbmtpbmcgd2FzIHRoYXQgd2Ug
+YXQgbGVhc3QgbmVlZCB0aGUgc3RhcnQgKyBlbmQgZm9yIGVhY2ggY2FsbGVyLiBUaGF0Cj4gPiA+
+ID4gbWlnaHQgYmUgaXQsIHRiaC4KPiA+ID4KPiA+ID4gRG8geW91IG1lYW4gdGhhdCBtb2R1bGVz
+IHdpbGwgaGF2ZSBzb21ldGhpbmcgbGlrZQo+ID4gPgo+ID4gPiAgICAgICBqaXRfdGV4dF9hbGxv
+YyhzaXplLCBNT0RVTEVTX1NUQVJULCBNT0RVTEVTX0VORCk7Cj4gPiA+Cj4gPiA+IGFuZCBrcHJv
+YmVzIHdpbGwgaGF2ZQo+ID4gPgo+ID4gPiAgICAgICBqaXRfdGV4dF9hbGxvYyhzaXplLCBLUFJP
+QkVTX1NUQVJULCBLUFJPQkVTX0VORCk7Cj4gPiA+ID8KPiA+Cj4gPiBZZXMuCj4gCj4gSG93IGFi
+b3V0IHdlIHN0YXJ0IHdpdGggdHdvIEFQSXM6Cj4gICAgICBqaXRfdGV4dF9hbGxvYyhzaXplKTsK
+PiAgICAgIGppdF90ZXh0X2FsbG9jX3JhbmdlKHNpemUsIHN0YXJ0LCBlbmQpOwo+IAo+IEFGQUlD
+VCwgYXJtNjQgaXMgdGhlIG9ubHkgYXJjaCB0aGF0IHJlcXVpcmVzIHRoZSBsYXR0ZXIgQVBJLiBB
+bmQgVEJILCBJIGFtCj4gbm90IHF1aXRlIGNvbnZpbmNlZCBpdCBpcyBuZWVkZWQuCiAKUmlnaHQg
+bm93IGFybTY0IGFuZCByaXNjdiBvdmVycmlkZSBicGYgYW5kIGtwcm9iZXMgYWxsb2NhdGlvbnMg
+dG8gdXNlIHRoZQplbnRpcmUgdm1hbGxvYyBhZGRyZXNzIHNwYWNlLCBidXQgaGF2aW5nIHRoZSBh
+YmlsaXR5IHRvIGFsbG9jYXRlIGdlbmVyYXRlZApjb2RlIG91dHNpZGUgb2YgbW9kdWxlcyBhcmVh
+IG1heSBiZSB1c2VmdWwgZm9yIG90aGVyIGFyY2hpdGVjdHVyZXMuCgpTdGlsbCB0aGUgc3RhcnQg
+KyBlbmQgZm9yIHRoZSBjYWxsZXJzIGZlZWxzIGJhY2t3YXJkcyB0byBtZSBiZWNhdXNlIHRoZQpj
+YWxsZXJzIGRvIG5vdCBkZWZpbmUgdGhlIHJhbmdlcywgYnV0IHJhdGhlciB0aGUgYXJjaGl0ZWN0
+dXJlcywgc28gd2Ugc3RpbGwKbmVlZCBhIHdheSBmb3IgYXJjaGl0ZWN0dXJlcyB0byBkZWZpbmUg
+aG93IHRoZXkgd2FudCBhbGxvY2F0ZSBtZW1vcnkgZm9yCnRoZSBnZW5lcmF0ZWQgY29kZS4KCj4g
+PiA+IEl0IHNpbGwgY2FuIGJlIGFjaGlldmVkIHdpdGggYSBzaW5nbGUgaml0X2FsbG9jX2FyY2hf
+cGFyYW1zKCksIGp1c3QgYnkKPiA+ID4gYWRkaW5nIGVudW0gaml0X3R5cGUgcGFyYW1ldGVyIHRv
+IGppdF90ZXh0X2FsbG9jKCkuCj4gPgo+ID4gVGhhdCBmZWVscyBiYWNrd2FyZHMgdG8gbWU7IGl0
+IGNlbnRyYWxpemVzIGEgYnVuY2ggb2YgaW5mb3JtYXRpb24gYWJvdXQKPiA+IGRpc3RpbmN0IHVz
+ZXJzIHRvIGJlIGFibGUgdG8gc2hvdmUgdGhhdCBpbnRvIGEgc3RhdGljIGFycmF5LCB3aGVuIHRo
+ZSBjYWxsc2l0ZXMKPiA+IGNhbiBwYXNzIHRoYXQgaW5mb3JtYXRpb24uCj4gCj4gSSB0aGluayB3
+ZSBvbmx5IHR3byB0eXBlIG9mIHVzZXJzOiBtb2R1bGUgYW5kIGV2ZXJ5dGhpbmcgZWxzZSAoZnRy
+YWNlLCBrcHJvYmUsCj4gYnBmIHN0dWZmKS4gVGhlIGtleSBkaWZmZXJlbmNlcyBhcmU6Cj4gCj4g
+ICAxLiBtb2R1bGUgdXNlcyB0ZXh0IGFuZCBkYXRhOyB3aGlsZSBldmVyeXRoaW5nIGVsc2Ugb25s
+eSB1c2VzIHRleHQuCj4gICAyLiBtb2R1bGUgY29kZSBpcyBnZW5lcmF0ZWQgYnkgdGhlIGNvbXBp
+bGVyLCBhbmQgdGh1cyBoYXMgc3Ryb25nZXIKPiAgIHJlcXVpcmVtZW50cyBpbiBhZGRyZXNzIHJh
+bmdlczsgZXZlcnl0aGluZyBlbHNlIGFyZSBnZW5lcmF0ZWQgdmlhIHNvbWUKPiAgIEpJVCBvciBt
+YW51YWwgd3JpdHRlbiBhc3NlbWJseSwgc28gdGhleSBhcmUgbW9yZSBmbGV4aWJsZSB3aXRoIGFk
+ZHJlc3MKPiAgIHJhbmdlcyAoaW4gSklULCB3ZSBjYW4gYXZvaWQgdXNpbmcgaW5zdHJ1Y3Rpb25z
+IHRoYXQgcmVxdWlyZXMgYSBzcGVjaWZpYwo+ICAgYWRkcmVzcyByYW5nZSkuCj4gCj4gVGhlIG5l
+eHQgcXVlc3Rpb24gaXMsIGNhbiB3ZSBoYXZlIHRoZSB0d28gdHlwZXMgb2YgdXNlcnMgc2hhcmUg
+dGhlIHNhbWUKPiBhZGRyZXNzIHJhbmdlcz8gSWYgbm90LCB3ZSBjYW4gcmVzZXJ2ZSB0aGUgcHJl
+ZmVycmVkIHJhbmdlIGZvciBtb2R1bGVzLAo+IGFuZCBsZXQgZXZlcnl0aGluZyBlbHNlIHVzZSB0
+aGUgb3RoZXIgcmFuZ2UuIEkgZG9uJ3Qgc2VlIHJlYXNvbnMgdG8gZnVydGhlcgo+IHNlcGFyYXRl
+IHVzZXJzIGluIHRoZSAiZXZlcnl0aGluZyBlbHNlIiBncm91cC4KIApJIGFncmVlIHRoYXQgd2Ug
+Y2FuIGRlZmluZSBvbmx5IHR3byB0eXBlczogbW9kdWxlcyBhbmQgZXZlcnl0aGluZyBlbHNlIGFu
+ZApsZXQgdGhlIGFyY2hpdGVjdHVyZXMgZGVmaW5lIGlmIHRoZXkgbmVlZCBkaWZmZXJlbnQgcmFu
+Z2VzIGZvciB0aGVzZSB0d28KdHlwZXMsIG9yIHdhbnQgdGhlIHNhbWUgcmFuZ2UgZm9yIGV2ZXJ5
+dGhpbmcuCgpXaXRoIG9ubHkgdHdvIHR5cGVzIHdlIGNhbiBoYXZlIHR3byBBUEkgY2FsbHMgZm9y
+IGFsbG9jLCBhbmQgYSBzaW5nbGUKc3RydWN0dXJlIHRoYXQgZGVmaW5lcyB0aGUgcmFuZ2VzIGV0
+YyBmcm9tIHRoZSBhcmNoaXRlY3R1cmUgc2lkZSByYXRoZXIKdGhhbiBzcHJlYWQgYWxsIG92ZXIu
+CgpMaWtlIHNvbWV0aGluZyBhbG9uZyB0aGVzZSBsaW5lczoKCglzdHJ1Y3QgZXhlY21lbV9yYW5n
+ZSB7CgkJdW5zaWduZWQgbG9uZyAgIHN0YXJ0OwoJCXVuc2lnbmVkIGxvbmcgICBlbmQ7CgkJdW5z
+aWduZWQgbG9uZyAgIGZhbGxiYWNrX3N0YXJ0OwoJCXVuc2lnbmVkIGxvbmcgICBmYWxsYmFja19l
+bmQ7CgkJcGdwcm90X3QgICAgICAgIHBncHJvdDsKCQl1bnNpZ25lZCBpbnQJYWxpZ25tZW50OwoJ
+fTsKCglzdHJ1Y3QgZXhlY21lbV9tb2R1bGVzX3JhbmdlIHsKCQllbnVtIGV4ZWNtZW1fbW9kdWxl
+X2ZsYWdzIGZsYWdzOwoJCXN0cnVjdCBleGVjbWVtX3JhbmdlIHRleHQ7CgkJc3RydWN0IGV4ZWNt
+ZW1fcmFuZ2UgZGF0YTsKCX07CgoJc3RydWN0IGV4ZWNtZW1faml0X3JhbmdlIHsKCQlzdHJ1Y3Qg
+ZXhlY21lbV9yYW5nZSB0ZXh0OwoJfTsKCglzdHJ1Y3QgZXhlY21lbV9wYXJhbXMgewoJCXN0cnVj
+dCBleGVjbWVtX21vZHVsZXNfcmFuZ2UJbW9kdWxlczsKCQlzdHJ1Y3QgZXhlY21lbV9qaXRfcmFu
+Z2UJaml0OwoJfTsKCglzdHJ1Y3QgZXhlY21lbV9wYXJhbXMgKmV4ZWNtZW1fYXJjaF9wYXJhbXMo
+dm9pZCk7CgoJdm9pZCAqZXhlY21lbV90ZXh0X2FsbG9jKHNpemVfdCBzaXplKTsKCXZvaWQgKmV4
+ZWNtZW1fZGF0YV9hbGxvYyhzaXplX3Qgc2l6ZSk7Cgl2b2lkIGV4ZWNtZW1fZnJlZSh2b2lkICpw
+dHIpOwoKCXZvaWQgKmppdF90ZXh0X2FsbG9jKHNpemVfdCBzaXplKTsKCXZvaWQgaml0X2ZyZWUo
+dm9pZCAqcHRyKTsKCk1vZHVsZXMgb3IgYW55dGhpbmcgdGhhdCBtdXN0IGxpdmUgY2xvc2UgdG8g
+dGhlIGtlcm5lbCBpbWFnZSBjYW4gdXNlCmV4ZWNtZW1fKl9hbGxvYygpIGFuZCB0aGUgY2FsbGVy
+cyB0aGF0IGRvbid0IGdlbmVyYWxseSBjYXJlIGFib3V0IHJlbGF0aXZlCmFkZHJlc3Npbmcgd2ls
+bCB1c2Ugaml0X3RleHRfYWxsb2MoKSwgcHJlc3VtaW5nIHRoYXQgYXJjaCB3aWxsIHJlc3RyaWN0
+IGppdApyYW5nZSBpZiBuZWNlc3NhcnksIGxpa2UgZS5nLiBiZWxvdyBmb3IgYXJtNjQgaml0IGNh
+biBiZSBhbnl3aGVyZSBpbgp2bWFsbG9jIGFuZCBmb3IgeDg2IGFuZCBzMzkwIGl0IHdpbGwgc2hh
+cmUgdGhlIG1vZHVsZXMgcmFuZ2UuIAoKCglzdHJ1Y3QgZXhlY21lbV9wYXJhbXMgYXJtNjRfZXhl
+Y21lbSA9IHsKCQkubW9kdWxlcyA9IHsKCQkJLmZsYWdzID0gS0FTQU4sCgkJCS50ZXh0ID0gewoJ
+CQkJLnN0YXJ0ID0gTU9EVUxFU19WQUREUiwKCQkJCS5lbmQgPSBNT0RVTEVTX0VORCwKCQkJCS5w
+Z3Byb3QgPSBQQUdFX0tFUk5FTF9ST1gsCgkJCQkuZmFsbGJhY2tfc3RhcnQgPSBWTUFMTE9DX1NU
+QVJULAoJCQkJLmZhbGxiYWNrX3N0YXJ0ID0gVk1BTExPQ19FTkQsCgkJCX0sCgkJfSwKCQkuaml0
+ID0gewoJCQkudGV4dCA9IHsKCQkJCS5zdGFydCA9IFZNQUxMT0NfU1RBUlQsCgkJCQkuZW5kID0g
+Vk1BTExPQ19FTkQsCgkJCQkucGdwcm90ID0gUEFHRV9LRVJORUxfUk9YLAoJCQl9LAoJCX0sCgl9
+OwoKCS8qIHg4NiBhbmQgczM5MCAqLwoJc3RydWN0IGV4ZWNtZW1fcGFyYW1zIGNpc2NfZXhlY21l
+bSA9IHsKCQkubW9kdWxlcyA9IHsKCQkJLmZsYWdzID0gS0FTQU4sCgkJCS50ZXh0ID0gewoJCQkJ
+LnN0YXJ0ID0gTU9EVUxFU19WQUREUiwKCQkJCS5lbmQgPSBNT0RVTEVTX0VORCwKCQkJCS5wZ3By
+b3QgPSBQQUdFX0tFUk5FTF9ST1gsCgkJCX0sCgkJfSwKCQkuaml0X3JhbmdlID0ge30sCS8qIGlt
+cHBsaWVzIHJldXNpbmcgLm1vZHVsZXMgKi8KCX07CgoJc3RydWN0IGV4ZWNtZW1fcGFyYW1zIGRl
+ZmF1bHRfZXhlY21lbSA9IHsKCQkubW9kdWxlcyA9IHsKCQkJLmZsYWdzID0gS0FTQU4sCgkJCS50
+ZXh0ID0gewoJCQkJLnN0YXJ0ID0gVk1BTExPQ19TVEFSVCwKCQkJCS5lbmQgPSBWTUFMTE9DX0VO
+RCwKCQkJCS5wZ3Byb3QgPSBQQUdFX0tFUk5FTF9FWEVDLAoJCQl9LAoJCX0sCgl9OwoKLS0gClNp
+bmNlcmVseSB5b3VycywKTWlrZS4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
