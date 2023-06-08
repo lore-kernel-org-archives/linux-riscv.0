@@ -4,77 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AADC7EE23
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 19:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF5C3C7EE23
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 19:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pEt1oRhCnJQ2yxhQQsyYbRnWxRdLPh2yeXg2FPkkVio=; b=p8SAnZ3WodAWDqFWsRJDQQfll1
-	+55E666dHy7k0ELhpyCWwL8iosdbZNgaxoIMARSPuilre1OoQkEIwiT8l2ZPKPSgmdUCqs2+IpCkX
-	PO+g/9WcHGH2vInjQCwMpcRQBExM43nLi67t5PsuTcjylC2JiGPAI1gfTsnEb0OodKKSbD6qQZZnD
-	63PPkVg6Dv0q+wVCw0adC1NEKB3KAIx6yV7nvedtV4yV5GD0niWXIUGWitfUOhd0MwcOg/Fal3Fa9
-	5/RqZ98tQBnjHrhFQh3pT5sHQT0Oq0HCUd0b5fD2mlqLxRRXsComfGMjO66epGXrwoJg9P/RyvS1p
-	87XihS9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DgE4yXabn3QK8U6v6QIRqpud9gcysWbSMK7Ux85qoUw=; b=4dMMeK9k1SnUZ1
+	HF63zRpbFSF/g9uzmnBmg8v8BqvOrvyerlbY3ZgG4Zix1tyg+fcKWJzy2swMk9jJvEmbB4dCpUran
+	/OUB7/s1gCnmLiA1N94DBMgS9K/leMT2xNwPW02CLHkNzl5pNghipaOP5C8oqchli2u4G5lfJt5G8
+	CSs141C18iG35hLlX+sL9K5b6w2ESz99g/SruXHDMMFsfU9ClYIMMo32bWaNjACizj1euQxD/A7Hn
+	dy6s+fLUjxyOy9ZzMHF00sSzVSwhQHDff90qSoEW+/5AwX2LhAdwyjZSYMWlfxMdll9LJim5PCTKW
+	j8g63qeaDN5BznEDRSpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7LLC-00AMro-2S;
-	Thu, 08 Jun 2023 19:30:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q7LLq-00AN8r-1X;
+	Thu, 08 Jun 2023 19:31:18 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7LL9-00AMpS-26
+	id 1q7LLo-00AN7E-1Q
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jun 2023 19:30:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0CAC464B27;
-	Thu,  8 Jun 2023 19:30:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC148C4339B;
-	Thu,  8 Jun 2023 19:30:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686252634;
-	bh=Sn9hAi2Kyf0okzCneZ3amJPSCNVbUHG48YWRl4CGl/M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lfdr8/t7jAH4glSpjV2KYZiJ23pFC02NUTTTkCYlLGOvVOrmDCcRICN1I7ckFGeAQ
-	 TPGCO5Yx6pvnH5XLP1XTniYRePwwraYyUDpYJqCXzS6uNl5YuDSEtEqzaa6vast+yd
-	 AMjS+CzLVMzQGuWTQNRSM0Ufd/re+R18iMYOl+Biy/Afeke4T74nR7ID5P7Lx82b2L
-	 1/KMCBpD/NbyjEYVOdgT3myEqZ9cUkkHXTTjYCo/FHA0ZWQmct3tB4tNdElz8hzlKD
-	 dMXMAC24mzOI1YV/emxTct+WnhjV22drqsWa8YBbOCsThta5By4dLh6opE8JHBZsev
-	 ojK/xAa+VBS6A==
-Date: Thu, 8 Jun 2023 20:30:28 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Sean Anderson <sean.anderson@seco.com>,
-	Anup Patel <anup@brainfault.org>,
-	Andrew Jones <ajones@ventanamicro.com>, palmer@dabbelt.com,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Alistair Francis <alistair.francis@wdc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Jessica Clarke <jrtc27@jrtc27.com>, Rick Chen <rick@andestech.com>,
-	Leo <ycliang@andestech.com>, linux-riscv@lists.infradead.org,
-	qemu-riscv@nongnu.org, u-boot@lists.denx.de,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] dt-bindings: riscv: deprecate riscv,isa
-Message-ID: <20230608-cobbler-giving-e0fac2185e11@spud>
-References: <20230518-thermos-sanitary-cf3fbc777ea1@wendy>
- <20230518-4050231ca8dbe93c08cf9c9a@orel>
- <CAAhSdy07Mg_JBF+4ucGFiWdBKh-Ass5G_aUWqBqTnDSFp7S=0A@mail.gmail.com>
- <20230518-hammock-doornail-478e8ea8e6a7@wendy>
- <f7c20090-220c-2805-86ba-b174a89f65b3@seco.com>
- <20230518-monkhood-dispersal-6749b1228b0d@spud>
- <20230530-duller-reset-a34ae111f207@wendy>
- <20230608191537.GA3233857-robh@kernel.org>
+	Thu, 08 Jun 2023 19:31:17 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-565bdae581eso8705437b3.2
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Jun 2023 12:31:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1686252675; x=1688844675;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LRrENG7fj4nSEA3qiqmp7KZ6RwcG7U0j5SldGyBNlNI=;
+        b=xraoP+ub8QawPiBDd1NtmoCJ7Yde5e/+U+FNO1p7rYE1UZXZOAo1PDwcjZq5EwJthR
+         dV+vHCNMFKAoTdxBpkTX1DtrPJTkyYQzzcTJ6+Hvz6BbVAyle5wD2VnxGl+fo8KRjuW1
+         6lph5KG8FATG8Els+mnLkzVfzKtCZbvKkrDIrFy8tA1swRHwRpg7mlfmIfHBFYp2tEz0
+         /MtFJlEM4CazKliayJD7LKXK8RlITlLW8oxbTF1Qs6fFP4vrk+enY/g6/q9Fbkg7+DmC
+         flfsqeHeLuLJ1bEDqfGSKk77gUrt/I37di/bcF7XR9pfVd+mrCw58/52flYr3BiOm9us
+         kFmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686252675; x=1688844675;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LRrENG7fj4nSEA3qiqmp7KZ6RwcG7U0j5SldGyBNlNI=;
+        b=llB9Xrud3ZBslt6YHZ7WLwuU3hg07bFZGq8MvLF1tgFt9pF/soKwZLxoQA8blDzDuY
+         qjdnrtjnwtB2kJPYL2n0dr38AAYYX+5TPVqjRd+gQBwfWC43sSHskatoX3kBTzEP1LDX
+         NIqpd9fMkKgbqxresZY6aJPrHcbSTdkcTsdhXDsH7zIjmckDtvwpDRXddHtbWKiIR+a0
+         Yg/KJ1Wr0ptyFUKv76fhgUvRABrZB8BWsG5Bz9x5aoAvFrjfcT/o4ADlJVoCPDAMWfdy
+         La7LcB7SQULigkGo7A4YsQE6TEUrhm8M3GnlJC15EEhz/Vgw1ywDPn77PygH3AI3Dg0h
+         qcZA==
+X-Gm-Message-State: AC+VfDwfPIyOBqqzvTByynjcPZ8pX40nyH0KIbitC2O1Qhwy3k4z/TSU
+	1uSFvMl/RuDgkDQrfOQ+PsX2kw==
+X-Google-Smtp-Source: ACHHUZ7QSwZkgLD2hJa5LAg1G48lqiWohJ5hVZ29HKnSz0REpapDpLCYy6czmfzJtz/zE4Z2iELuXA==
+X-Received: by 2002:a81:8986:0:b0:561:d1ef:3723 with SMTP id z128-20020a818986000000b00561d1ef3723mr688963ywf.38.1686252675399;
+        Thu, 08 Jun 2023 12:31:15 -0700 (PDT)
+Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
+        by smtp.gmail.com with ESMTPSA id a6-20020a816606000000b0055aaccfa2c7sm114090ywc.91.2023.06.08.12.31.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Jun 2023 12:31:14 -0700 (PDT)
+Date: Thu, 8 Jun 2023 12:31:10 -0700 (PDT)
+From: Hugh Dickins <hughd@google.com>
+X-X-Sender: hugh@ripple.attlocal.net
+To: Andrew Morton <akpm@linux-foundation.org>
+cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
+    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
+    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
+    Suren Baghdasaryan <surenb@google.com>, 
+    Qi Zheng <zhengqi.arch@bytedance.com>, 
+    Peter Zijlstra <peterz@infradead.org>, 
+    Russell King <linux@armlinux.org.uk>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Geert Uytterhoeven <geert@linux-m68k.org>, 
+    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
+    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
+    Michael Ellerman <mpe@ellerman.id.au>, 
+    Alexandre Ghiti <alexghiti@rivosinc.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
+    Christian Borntraeger <borntraeger@linux.ibm.com>, 
+    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+    Alexander Gordeev <agordeev@linux.ibm.com>, 
+    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
+    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
+    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: [PATCH v2 18/23] sparc/hugetlb: pte_alloc_huge() pte_offset_huge()
+In-Reply-To: <a4963be9-7aa6-350-66d0-2ba843e1af44@google.com>
+Message-ID: <c2aeb62f-58f9-d014-ddcd-266267bd97b@google.com>
+References: <a4963be9-7aa6-350-66d0-2ba843e1af44@google.com>
 MIME-Version: 1.0
-In-Reply-To: <20230608191537.GA3233857-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230608_123035_775118_5CF1A99E 
-X-CRM114-Status: GOOD (  34.96  )
+X-CRM114-CacheID: sfid-20230608_123116_490158_0D168EAD 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,123 +111,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3009501440230342601=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+pte_alloc_map() expects to be followed by pte_unmap(), but hugetlb omits
+that: to keep balance in future, use the recently added pte_alloc_huge()
+instead; with pte_offset_huge() a better name for pte_offset_kernel().
 
---===============3009501440230342601==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="J8Z0GTvlCQGm2lQj"
-Content-Disposition: inline
+Signed-off-by: Hugh Dickins <hughd@google.com>
+---
+ arch/sparc/mm/hugetlbpage.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/arch/sparc/mm/hugetlbpage.c b/arch/sparc/mm/hugetlbpage.c
+index d8e0e3c7038d..d7018823206c 100644
+--- a/arch/sparc/mm/hugetlbpage.c
++++ b/arch/sparc/mm/hugetlbpage.c
+@@ -298,7 +298,7 @@ pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
+ 		return NULL;
+ 	if (sz >= PMD_SIZE)
+ 		return (pte_t *)pmd;
+-	return pte_alloc_map(mm, pmd, addr);
++	return pte_alloc_huge(mm, pmd, addr);
+ }
+ 
+ pte_t *huge_pte_offset(struct mm_struct *mm,
+@@ -325,7 +325,7 @@ pte_t *huge_pte_offset(struct mm_struct *mm,
+ 		return NULL;
+ 	if (is_hugetlb_pmd(*pmd))
+ 		return (pte_t *)pmd;
+-	return pte_offset_map(pmd, addr);
++	return pte_offset_huge(pmd, addr);
+ }
+ 
+ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+-- 
+2.35.3
 
---J8Z0GTvlCQGm2lQj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Jun 08, 2023 at 01:15:37PM -0600, Rob Herring wrote:
-> On Tue, May 30, 2023 at 03:12:12PM +0100, Conor Dooley wrote:
-> > On Thu, May 18, 2023 at 10:42:34PM +0100, Conor Dooley wrote:
-> > > On Thu, May 18, 2023 at 02:30:53PM -0400, Sean Anderson wrote:
-> >=20
-> > > >=20
-> > > > Why not just have something like
-> > > >=20
-> > > > mycpu {
-> > > > 	...
-> > > > 	riscv,isa {
-> > > > 		i;
-> > > > 		m;
-> > > > 		a;
-> > > > 		zicsr;
-> > > > 		...
->=20
-> I prefer property names be globally unique. The tools are geared towards=
-=20
-> that too. That's largely a symptom of having 0 type information in the=20
-> DT.
->=20
-> For example if you had an extension called 'reg', it would be a problem.
-
-Per the current ISA rules, that'd not be valid. But then again, I do
-have trust issues & it's not like "reg" is the only property name in DT
-land.
-
-> > > Naming of the node aside (perhaps that could be riscv,isa-extensions)
-> > > there's not something hitting me immediately as to why that is a no-n=
-o.
-> > > If the size is a concern, this would certainly be more efficient & not
-> > > like the probing would be anything other than trivial more difficult
-> > > what I have in my proposal.
-> >=20
-> > Having started messing around with this, one of the main advantages, to
-> > me, of this approach is proper validation.
-> > cpus.yaml has additionalProperties: true in it, which would have had to
-> > be sorted out, or worked around, but creating a child-node with the
-> > properties in it allows setting additionalProperties: false.
->=20
-> That's an issue on my radar to fix. I started that for the Arm cpus.yaml=
-=20
-> a while back. Sadly it involves adding all the misc properties vendors=20
-> added. It's not a lot, but still better to get in front of that for=20
-> Risc-V.
-
-Yeah, guess I can append that to my todo list.
-
-> > > Rob's AFK at the moment, and I was hoping that he would take a look at
-> > > the idea, so I won't respin til he is back, but I'll give this a go in
-> > > the interim.
-> >=20
-> > Mechanically, the conversion of the patch isn't difficult, but I'll sti=
-ll
-> > wait for Rob to come back before sending a v2. But that v2 will more
-> > than likely implement your suggestion.
->=20
-> I haven't read the whole thread, but the initial proposal looks okay to=
-=20
-> me.
->=20
-> Another way you could do this is a list of strings:
->=20
-> riscv,isa-ext =3D "i", "m", "zicsr";
->=20
-> I think we have a helper to test is a string in the list.
-
-Perhaps I should've waited a bit longer than a month for a v2 - I sent
-one this afternoon doing what Sean suggested:
-https://lore.kernel.org/all/20230608-sitting-bath-31eddc03c5a5@spud/
-
-I'll do some poking at the strings and see what I think of it.
-
-Cheers,
-Conor.
-
---J8Z0GTvlCQGm2lQj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIIsVAAKCRB4tDGHoIJi
-0g5YAQC9F/U/qWJxcOhejKFcF7fDmwOe+gCq0sgnacuq/Vu+ZAEAwAZ9EAwNs4oF
-aCnC2JOfp//gPzZTwmsYjjFeeLhAkwA=
-=KmSP
------END PGP SIGNATURE-----
-
---J8Z0GTvlCQGm2lQj--
-
-
---===============3009501440230342601==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3009501440230342601==--
-
