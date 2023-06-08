@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB31EC7EE37
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 14:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF672C7EE29
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 14:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iJ8IIz42zqhdKjZ41OQU1/q2FiA2TyKOEVxHmFZ0eCY=; b=BfDTXedKkNfRj/
-	Rjat04+Xt+Hi7IrMTA835bZLaGeR6n+5F4fVHGFMpO9NssMB3Da6GoHpt5IlfYuRcnXF6ZpBhaA3w
-	R38aejCOR4A+xOFOUwaFdxuDVgo8k2Ms1Nl6dF3zhbL4fijgzxJw93IXsGUItvfkIpsAJm0XgPY5d
-	2gpO65SBX6AAJ7Vwbpd/v+FDS0B84pvaQ3z4jhrB4g5osPkJwc43XMu5VxhPhfk9jKbC5b8wFxZNm
-	2CaTzA6+dd0oIkz5l+eT78TXGIAedkC/fDk1E2paXCOpscZ9K2XweKtx9NPEIunvGiNyuwQYrxuIM
-	YHKsuR17Km7wCb4oIR9g==;
+	List-Owner; bh=dutL/M2GlDtRf7TW/Acq7QvEG/c6cKIAqUBE8kCVAk8=; b=GX0uAUa33G8qPw
+	rzsXeae44Ig2ccgPNdzoOAcP2gx+W72wJ+mut3bWIpyGvi7GNFtPZOmpRFAnBM9MLd6f72MV2CX7o
+	W63c+dw+lWsJwRqUe5MtcEGZ7JuIERk57DLhZGGCMnKEEzpjkIRl4INvEXWuqE/edM0L5xdC5TZlF
+	Q4S6wnkbQ9ZBx/HZoSElQKK2kU+eIvyuX+Z37bJP6ppgETNsHxDsXNRdHrfiaEo8HEsy9Gx3JR8DS
+	p/eN1ZQluzT+UvNN0KuMS+XJxC9N3jPaMBomcodhTEckZf88gvST2pnvOdEZ7fxgpzQZcacFdPSR+
+	gZMtV/yPF8y992jlmCxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7GLM-009aNy-12;
-	Thu, 08 Jun 2023 14:10:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q7Gk6-009ddy-2R;
+	Thu, 08 Jun 2023 14:36:02 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7GLI-009aM6-3A
+	id 1q7Gk3-009dcX-19
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jun 2023 14:10:26 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 26AC560B10;
-	Thu,  8 Jun 2023 14:10:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7CB23C433D2;
-	Thu,  8 Jun 2023 14:10:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686233421;
-	bh=UuSTUIAPSAYL95ZEDOcNCVrYvfTlSpIeyLDoZK+9CwU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=eFxcodm+bFSXdjMlZECpgQdrrROS64IKqOvbbI1BIs9QbUHnRMtCiJDH++uLwPg4u
-	 ai8zUkDXOVlgzA0tRTM5z5CrBgUZGLUDU+sg5VR4jRp4DFOLpSDzCK3eBjUJqW5T+d
-	 S3zfvku1uHTio6baDhkK1N9KEWp2z8m96E06dhq9rxi3FlXSIY8CKLa6yuARkpYkkR
-	 HsXH1i/DU+Li+F5HsLjggFomuu+OxNjafQZMBEmVokHNgnM/wvB4osDBDu/08l2M9d
-	 ckjLCkTnf/P3ju5VOuxSOybBiHVOWm1qUG2TgThI3rZx0v+AkiI57WXTdLUyIAGYIE
-	 fgDo7FQmCiJLg==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 5AACFE451B4;
-	Thu,  8 Jun 2023 14:10:21 +0000 (UTC)
+	Thu, 08 Jun 2023 14:36:01 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-267-NXZg-_eNOaO8RckaE_lZ0g-1; Thu, 08 Jun 2023 15:35:52 +0100
+X-MC-Unique: NXZg-_eNOaO8RckaE_lZ0g-1
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Thu, 8 Jun
+ 2023 15:35:49 +0100
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Thu, 8 Jun 2023 15:35:49 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Zhangjin Wu' <falcon@tinylab.org>, "thomas@t-8ch.de" <thomas@t-8ch.de>,
+	"w@1wt.eu" <w@1wt.eu>
+CC: "arnd@arndb.de" <arnd@arndb.de>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, =?utf-8?B?VGhvbWFzIFdlacOfc2NodWg=?=
+	<linux@weissschuh.net>
+Subject: RE: [PATCH v2 1/4] tools/nolibc: sys.h: add __syscall() and
+ __sysret() helpers
+Thread-Topic: [PATCH v2 1/4] tools/nolibc: sys.h: add __syscall() and
+ __sysret() helpers
+Thread-Index: AQHZmE5QSUsfyUxi2UiZnouHjWtcta+A+37Q
+Date: Thu, 8 Jun 2023 14:35:49 +0000
+Message-ID: <94dd5170929f454fbc0a10a2eb3b108d@AcuMS.aculab.com>
+References: <cover.1686036862.git.falcon@tinylab.org>
+ <a42fb9e1bbe0daf7d8a48ea8f44135ef851030d7.1686036862.git.falcon@tinylab.org>
+In-Reply-To: <a42fb9e1bbe0daf7d8a48ea8f44135ef851030d7.1686036862.git.falcon@tinylab.org>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Fix kfence now that the linear mapping can be backed
- by PUD/P4D/PGD
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <168623342136.30670.5165804559719545344.git-patchwork-notify@kernel.org>
-Date: Thu, 08 Jun 2023 14:10:21 +0000
-References: <20230606130444.25090-1-alexghiti@rivosinc.com>
-In-Reply-To: <20230606130444.25090-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, glider@google.com, elver@google.com,
- dvyukov@google.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, robh@kernel.org, anup@brainfault.org,
- ajones@ventanamicro.com, kasan-dev@googlegroups.com,
- linux-kernel@vger.kernel.org,
- syzbot+a74d57bddabbedd75135@syzkaller.appspotmail.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230608_071025_060676_F9D513E9 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230608_073559_698456_0E3988AC 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +83,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Tue,  6 Jun 2023 15:04:44 +0200 you wrote:
-> RISC-V Kfence implementation used to rely on the fact the linear mapping
-> was backed by at most PMD hugepages, which is not true anymore since
-> commit 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear
-> mapping").
+From: Zhangjin Wu
+> Sent: 06 June 2023 09:10
 > 
-> Instead of splitting PUD/P4D/PGD mappings afterwards, directly map the
-> kfence pool region using PTE mappings by allocating this region before
-> setup_vm_final().
+> most of the library routines share the same code model, let's add two
+> helpers to simplify the coding and shrink the code lines too.
 > 
-> [...]
+...
+> +/* Syscall return helper, set errno as -ret when ret < 0 */
+> +static inline __attribute__((always_inline)) long __sysret(long ret)
+> +{
+> +	if (ret < 0) {
+> +		SET_ERRNO(-ret);
+> +		ret = -1;
+> +	}
+> +	return ret;
+> +}
 
-Here is the summary with links:
-  - riscv: Fix kfence now that the linear mapping can be backed by PUD/P4D/PGD
-    https://git.kernel.org/riscv/c/25abe0db9243
+If that right?
+I thought that that only the first few (1024?) negative values
+got used as errno values.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Do all Linux architectures even use negatives for error?
+I thought at least some used the carry flag.
+(It is the historic method of indicating a system call failure.)
 
+	David
 
-
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
