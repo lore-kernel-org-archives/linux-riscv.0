@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A13C7EE23
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA1CC7EE29
 	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 14:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,57 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4e+l8e/EzcYCDovE0/lxsH7taTsH32I9OBnZEkqaSAA=; b=Y+oS0qRpvYPGhl
-	rCtqn1Dy0qlB49CJePDS4IzEFvY5dXF2WatIjv4/6CKNnZUjKjkgXY+wYFqmWFdHH+xXk/v7A0X7t
-	XIiv3kyz7bnMn4Fa0RDUd0EgBHPB37RyHbsN+G7G5+4Dz2EsKwaiTiHKeohM8BdqYzuN6VXu86N1D
-	JT3RATol41ov8lr8rijBnheOTQPDQ9ZB3xi25+oREIQKU3u+RZVWgZa6HvwnvfW1CkRV+WP0i2fC3
-	FPWfQhVFlLMdlUEfcK3Jah+ofoOprIIzv8vYQPr9xlS9aJ+yfhyTn+X+rJELusl6R/0G7bWmLPhb3
-	m8U/pqB8siAG41X5MJtQ==;
+	List-Owner; bh=1ruIqAA+d6NXvIMOGf7r96VxqFzyxbeWisBEcpIhbhs=; b=KtSi503O7fc3e6
+	wzGnBhWDcF8LuviGELOSbWYyGWVFn4y0RweBUcXxPaqvNChuj+DcattZ0z6IaCVik20IbKWyo54C6
+	PKoOdF4qoW1EYfjm86PjHM8brUN0cxG8mjJpMXjKvHoDqLTRdYcv+YXVuK+Y3lCnMHA9FTnlGqQeY
+	8N7WYlz9Siynu5H4ISjm4fCH46dUbAngQSVowPBEKkMVp9JJNybrtOt/f9/hg+M8Onn0QBWbW+D0q
+	psRuHDUXDdrjY7LwlqlWWGasMXe+zdPNUCn34GmWORK8mpCxQjd0Wr69BM39my9e/xR+yX4WiLQ6A
+	mODEpKssHL/1vUWOcnBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7GLM-009aOE-2l;
-	Thu, 08 Jun 2023 14:10:28 +0000
+	id 1q7GLN-009aOV-1G;
+	Thu, 08 Jun 2023 14:10:29 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7GLI-009aM8-36
+	id 1q7GLJ-009aM5-03
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jun 2023 14:10:26 +0000
+	Thu, 08 Jun 2023 14:10:27 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 35CF064E03;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2110464DFD;
 	Thu,  8 Jun 2023 14:10:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 910F0C4339E;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 81B13C4339B;
 	Thu,  8 Jun 2023 14:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1686233421;
-	bh=M2hdkj/aqger+2hxUCmWq7hrnZFgudHDHrlIG8mCorA=;
+	bh=Xd3JVUfizwLssTthf/9Gvh2qQZKvAiOFqy7tI7keDNk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=SHK5/HCPiCK7LLA9ghCjDWIWcqFKwE+hFRmZqnRFs7eSPR+j2fjG6N619VtOqonyz
-	 i2XOUZjlQ31LKy//mmJQEbmK9m2lgFam1mCxeep5bf450SHKizPYblnR4hcVp2fqRd
-	 Zz/y+o/5FmxlXKp+rwEqvNhOHEiSX1ilMBRDeziJTR0tTD+1pryHV4iFgNCELv0egl
-	 ZmyGGUIcNB28cVBoGDij2FThim8FBA38wrPOckAmgGN64PRyswO3DDnb27K9frdNPO
-	 ZGpL5n8HY4o91Ky9LP5BhvIkVaUmk6tHQ04YDO5T+pundJabJqMoNLJCb+5PgSdMry
-	 XF+weIEX8dyBw==
+	b=cIzkcO3zg8NNuGcsWrNnl1tr6ee+koTWfg5u1zZBR1OFLh/9Xy+fHzJMaIkkaJlA2
+	 6RylHxl2xRYf0a8H3ep2vuO1BpE7eDdu6WKYur5Mwishc6xkARj7VDmraV4OntNUw6
+	 eAAmEIy87IUkdSmkfsK1+SfiGUY1xv7eR81W7yoh+GUpfWV53PUhm6svOHYccCCRAf
+	 3/MBa7g/+s1rmN6ZzpQm3mwhfjdPTLyDSeAQ0dP3syNUr1eJgK27ucq7DLF/hTjNSz
+	 bc1aUzjv73IdGgXukEYWAMv7awwNXrFbyXFIWQQGotB/lrTa5h8VsWsGZqixVABv9a
+	 7BcjAnb1DVF8g==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 739DFE4D031;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 67BD9E87232;
 	Thu,  8 Jun 2023 14:10:21 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH -fixes] riscv: Check the virtual alignment before choosing a
- map size
+Subject: Re: [PATCH v2] riscv: mm: Ensure prot of VM_WRITE and VM_EXEC must be
+ readable
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <168623342146.30670.13170012353498536520.git-patchwork-notify@kernel.org>
+Message-Id: <168623342141.30670.4526253125262728096.git-patchwork-notify@kernel.org>
 Date: Thu, 08 Jun 2023 14:10:21 +0000
-References: <20230607125851.63370-1-alexghiti@rivosinc.com>
-In-Reply-To: <20230607125851.63370-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
+References: <20230425102828.1616812-1-woodrow.shen@sifive.com>
+In-Reply-To: <20230425102828.1616812-1-woodrow.shen@sifive.com>
+To: Woodrow Shen <woodrow.shen@sifive.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, ajones@ventanamicro.com,
- robh@kernel.org, anup@brainfault.org, linux-kernel@vger.kernel.org,
- songshuaishuai@tinylab.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alexghiti@rivosinc.com,
+ greentime.hu@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230608_071025_060341_8D5C93C1 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20230608_071025_097173_1AADD44F 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,22 +83,23 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed,  7 Jun 2023 14:58:51 +0200 you wrote:
-> We used to only check the alignment of the physical address to decide
-> which mapping would fit for a certain region of the linear mapping, but
-> it is not enough since the virtual address must also be aligned, so check
-> that too.
+On Tue, 25 Apr 2023 18:28:28 +0800 you wrote:
+> From: Hsieh-Tseng Shen <woodrow.shen@sifive.com>
 > 
-> Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
-> Reported-by: Song Shuai <songshuaishuai@tinylab.org>
-> Link: https://lore.kernel.org/linux-riscv/tencent_7C3B580B47C1B17C16488EC1@qq.com/
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Commit 8aeb7b17f04e ("RISC-V: Make mmap() with PROT_WRITE imply PROT_READ")
+> allows riscv to use mmap with PROT_WRITE only, and meanwhile mmap with w+x
+> is also permitted. However, when userspace tries to access this page with
+> PROT_WRITE|PROT_EXEC, which causes infinite loop at load page fault as
+> well as it triggers soft lockup. According to riscv privileged spec,
+> "Writable pages must also be marked readable". The fix to drop the
+> `PAGE_COPY_READ_EXEC` and then `PAGE_COPY_EXEC` would be just used instead.
+> This aligns the other arches (i.e arm64) for protection_map.
 > 
 > [...]
 
 Here is the summary with links:
-  - [-fixes] riscv: Check the virtual alignment before choosing a map size
-    https://git.kernel.org/riscv/c/49a0a3731596
+  - [v2] riscv: mm: Ensure prot of VM_WRITE and VM_EXEC must be readable
+    https://git.kernel.org/riscv/c/6569fc12e442
 
 You are awesome, thank you!
 -- 
