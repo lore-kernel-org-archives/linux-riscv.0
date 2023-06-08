@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 040C8C7EE45
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 19:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7EDC87FDC
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 19:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
 	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/0VjDarDzlm1lPe4WkrblQry6E/kU6g7D9FK6CpkNac=; b=y2jZe+lwO0wO3y
-	toMkXWlTUiYDKbC9BSPkNqFAKfTK/lPC9yYTDZKkeiPf5riKmkpo6XlaVlgBGUZCYHtL8mGKEiqQU
-	35XcIhogGOE8X3Tcd8X4gkNsGa0K45QYm+1qcnnsiOOInbzLKRJA4caZX1cAoknfkDWayKvTt2CJO
-	/0yNrY/cELK3QP9Kuo6wyjhIbVExEr1p5JQEvnFB/2LE0mfD/jBVDG+kIhFinxrfUwEVo3poXycVE
-	6WRVqFlUafLW3aND6YSHTrF9Bplvj1BFokVJklZI1lz6TlowEeOZFNuhLin9nviPJUt0m9iU/EoPi
-	0QW2NOH1N5TSxYA+Jyag==;
+	List-Owner; bh=OeXqWXQwGaUoFaYBBxTAZdPn9wqgtKSwUxled0qpcGM=; b=L2aLYPF0jmcdTn
+	fUkR8dz+nsaBFf2dn4oinzGGsFdOuSbpinVPNIjrboiJF9BVub6GX0ZVHW449EM/7WAkdNGQwzMi+
+	cNkzWbW87ZoHh/gEzT20x1FnzE1O+XRYyKMaod/mxkYf1krddlTtkG/Fa5rJHnpO8/XOZHsGs3mBw
+	3Qfy1z/+C/yvfZOV9rn1LyvzpqtEl+R1sBynPtdo0D9MmHHRZVB2TEsOuINyImtDyZa9E7EoZY7uF
+	XeR8rS3AXkTGj13vfj1ConySiY+rJMb7vql66Ua9xKmujx6W0lepN9cbgKSS1Bm+j6QVzA3UK9n8O
+	RNGswddalq10qLUVVWPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7LIB-00ALxK-0m;
-	Thu, 08 Jun 2023 19:27:31 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1q7LJy-00AMMe-0q;
+	Thu, 08 Jun 2023 19:29:22 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7LI8-00ALvn-0V
+	id 1q7LJv-00AML3-1I
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jun 2023 19:27:29 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-565ba2c7554so8716247b3.3
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Jun 2023 12:27:28 -0700 (PDT)
+	Thu, 08 Jun 2023 19:29:20 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-6b2bdca0884so44204a34.2
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Jun 2023 12:29:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1686252447; x=1688844447;
+        d=google.com; s=20221208; t=1686252558; x=1688844558;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jq3xrA6xvDVzvCSVs0I+t9KBGN0vgt1rJHLesOzHUeM=;
-        b=qeZyDOuR1Ocm6uD+TD8H/qooj7RzNFAiwCA/UqStNTHWJ9eTjvcv/8Jq76xJdFB16m
-         9vZjnF1AyEaJnSc8jl/F1i1cVEQ7u2Ksx/OtGK4kAnOQneochRX+8Uo2nfHZ+IrggDdD
-         8+N7/1JLxtH1E0e/CwR5x6nt/ET/TtrIOFNieXovV1RuuXkZkQgSV5Jae+9SGKAEV2ls
-         YNv4h9+C2a+hHml6224b2D5gDdWuYPDND/n0XtPM1ecc2OJLce4FWSFBO4HGDd7/83bC
-         7o6bLjq43ZCC/kx1k33o8ly3OOe+X/CVjUPlD/YBOO/8+E1ljdocxCQmjAw/takWi4D5
-         1nfA==
+        bh=htP458HkQOxv1YJRD6pA18DA04i7K6/u04f92CnMfB0=;
+        b=WqCUQyh4fb72P3Kw38oeD34IYgDMZUJWpeeOOH7KwWFkTIkJBfiV3ibZz3gZzYLVxl
+         lU1gDOTGIJCl22/qWpu3I54yHV8hXoWsW3bLvMizUe696eD4+w5NMItSw+ZsMJ2if+3a
+         8lw8VtiSVvPlHQ/Z7+Qgoipy0NwOKSeRkxeZtlOJSgMtgwHhJFZs8ezKvYFf04NNKV0B
+         o9SvBbVJSNYcgeP1FcAifK+xGopk05Di+EjON5dZeXWscPS5ozLfdvYQvh8DkNTWidtB
+         R65qDn5ks7oQgy0HqDzv818p/gf4omkafkLcO+z9CO+/iNtMlszDRH4pSfFhaygbIVXY
+         l7fA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686252447; x=1688844447;
+        d=1e100.net; s=20221208; t=1686252558; x=1688844558;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jq3xrA6xvDVzvCSVs0I+t9KBGN0vgt1rJHLesOzHUeM=;
-        b=EnJELK8D6ARRkkybBtmU9TU8vakCrnDWcSTYGTAzzulExi29lDv/fs07UwF8wICr35
-         WVOvfM2MOihudlV821/7JLRtFLBPyY8M+G388+FsZkZgVcET7ftnarTrhh/fhYZlPrpx
-         lh542QCF90IwG6aocbxeBUwJ6E5TpBeo22GUXW0RXFTykbnsZsQ6IZrzMTYo4oviXKyX
-         O6d+31VbJ6w9d6SFq+2sCmhCefZuAJjzz5etK5xNtsBmPD9N8WLr1n1i6i7ne81d4CTe
-         nAqze5p8m0L/LxT4Kdoc0ArwAdsx7sGXnsEQ7OLyuBM7Euu4cTpu5cW2Uh0OUnp3dT6S
-         Xy4w==
-X-Gm-Message-State: AC+VfDyJ+5i+nGxetz+GI5F51UgassM4g7jBsK2ieOvEbGOnWh+v0fk2
-	MXsEsukqnMD6+PSazxqTAl6GxQ==
-X-Google-Smtp-Source: ACHHUZ4CKoILR2pPYJTWor9o0GBjI/ipQ0oNmgXRrLGWYF5f0T4KrdmmHl6o2FyAVA33XKtCaimxFg==
-X-Received: by 2002:a0d:ca88:0:b0:569:fdd1:24a7 with SMTP id m130-20020a0dca88000000b00569fdd124a7mr493494ywd.51.1686252447226;
-        Thu, 08 Jun 2023 12:27:27 -0700 (PDT)
+        bh=htP458HkQOxv1YJRD6pA18DA04i7K6/u04f92CnMfB0=;
+        b=M5/uTBdnsl8CuMxmnftargiymrbfzQBJX6SjTIobteYcvR3gU7KIDyRLm5g/+1dNya
+         xGdTnDXe2VO1QTQAx5mX4fNwIO2nU8V23eYHlLb5RzTbJxDdWlAK4m6EPW3X2ZMuVWzv
+         DYl2mccI1x3cg+wPLAse/4VeiVfRp9sa2IjUQnICQ7qETry2zatWfuN7Z0ewz9O0EJxr
+         7yrUgdOcCmN2EGmmUFV4UvCurzTtHP9BP4z0H3tRv5sRpMehkVd3rAVzMTb19Sdc1ABE
+         P0GZbKPVNAzGg+WX8BFF9bMnlEJ/+pgePHuZNYzMa58d+u11g0hQ60EdMzsCIBgYYQK8
+         vC3A==
+X-Gm-Message-State: AC+VfDz3FW6PG9SqNBPt1M3emQang+WHVS6s+gTG6VYu00Qksw58nKPr
+	5LQVnHBkeQopJwYPAis+jj1hMg==
+X-Google-Smtp-Source: ACHHUZ6Glpn+/SneQe2ShIc4+J53+hKNrejmkpSzC+zjJkZt31rnqX9eMZTl3ydPFwIMIfpDuEYaQQ==
+X-Received: by 2002:a05:6830:86:b0:6b2:94a2:2236 with SMTP id a6-20020a056830008600b006b294a22236mr9332824oto.29.1686252558452;
+        Thu, 08 Jun 2023 12:29:18 -0700 (PDT)
 Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id f123-20020a0dc381000000b0054bfc94a10dsm119559ywd.47.2023.06.08.12.27.23
+        by smtp.gmail.com with ESMTPSA id o199-20020a2573d0000000b00bb09977b0basm455193ybc.6.2023.06.08.12.29.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Jun 2023 12:27:26 -0700 (PDT)
-Date: Thu, 8 Jun 2023 12:27:22 -0700 (PDT)
+        Thu, 08 Jun 2023 12:29:17 -0700 (PDT)
+Date: Thu, 8 Jun 2023 12:29:13 -0700 (PDT)
 From: Hugh Dickins <hughd@google.com>
 X-X-Sender: hugh@ripple.attlocal.net
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -92,14 +92,15 @@ cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>,
     linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
     linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
     linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: [PATCH v2 15/23] s390: allow pte_offset_map_lock() to fail
+Subject: [PATCH v2 16/23] s390: gmap use pte_unmap_unlock() not
+ spin_unlock()
 In-Reply-To: <a4963be9-7aa6-350-66d0-2ba843e1af44@google.com>
-Message-ID: <3ff29363-336a-9733-12a1-5c31a45c8aeb@google.com>
+Message-ID: <78873af-e1ec-4f9-47ac-483940ac6daa@google.com>
 References: <a4963be9-7aa6-350-66d0-2ba843e1af44@google.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230608_122728_198508_F2371042 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20230608_122919_447764_D5E8D8F5 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,117 +117,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In rare transient cases, not yet made possible, pte_offset_map() and
-pte_offset_map_lock() may not find a page table: handle appropriately.
-
-Add comment on mm's contract with s390 above __zap_zero_pages(),
-and fix old comment there: must be called after THP was disabled.
+pte_alloc_map_lock() expects to be followed by pte_unmap_unlock(): to
+keep balance in future, pass ptep as well as ptl to gmap_pte_op_end(),
+and use pte_unmap_unlock() instead of direct spin_unlock() (even though
+ptep ends up unused inside the macro).
 
 Signed-off-by: Hugh Dickins <hughd@google.com>
+Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>
 ---
- arch/s390/kernel/uv.c  |  2 ++
- arch/s390/mm/gmap.c    |  9 ++++++++-
- arch/s390/mm/pgtable.c | 12 +++++++++---
- 3 files changed, 19 insertions(+), 4 deletions(-)
+ arch/s390/mm/gmap.c | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
 
-diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
-index cb2ee06df286..3c62d1b218b1 100644
---- a/arch/s390/kernel/uv.c
-+++ b/arch/s390/kernel/uv.c
-@@ -294,6 +294,8 @@ int gmap_make_secure(struct gmap *gmap, unsigned long gaddr, void *uvcb)
- 
- 	rc = -ENXIO;
- 	ptep = get_locked_pte(gmap->mm, uaddr, &ptelock);
-+	if (!ptep)
-+		goto out;
- 	if (pte_present(*ptep) && !(pte_val(*ptep) & _PAGE_INVALID) && pte_write(*ptep)) {
- 		page = pte_page(*ptep);
- 		rc = -EAGAIN;
 diff --git a/arch/s390/mm/gmap.c b/arch/s390/mm/gmap.c
-index dc90d1eb0d55..3a2a31a15ea8 100644
+index 3a2a31a15ea8..f4b6fc746fce 100644
 --- a/arch/s390/mm/gmap.c
 +++ b/arch/s390/mm/gmap.c
-@@ -2537,7 +2537,12 @@ static inline void thp_split_mm(struct mm_struct *mm)
-  * Remove all empty zero pages from the mapping for lazy refaulting
-  * - This must be called after mm->context.has_pgste is set, to avoid
-  *   future creation of zero pages
-- * - This must be called after THP was enabled
-+ * - This must be called after THP was disabled.
-+ *
-+ * mm contracts with s390, that even if mm were to remove a page table,
-+ * racing with the loop below and so causing pte_offset_map_lock() to fail,
-+ * it will never insert a page table containing empty zero pages once
-+ * mm_forbids_zeropage(mm) i.e. mm->context.has_pgste is set.
+@@ -895,12 +895,12 @@ static int gmap_pte_op_fixup(struct gmap *gmap, unsigned long gaddr,
+ 
+ /**
+  * gmap_pte_op_end - release the page table lock
+- * @ptl: pointer to the spinlock pointer
++ * @ptep: pointer to the locked pte
++ * @ptl: pointer to the page table spinlock
   */
- static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
- 			   unsigned long end, struct mm_walk *walk)
-@@ -2549,6 +2554,8 @@ static int __zap_zero_pages(pmd_t *pmd, unsigned long start,
- 		spinlock_t *ptl;
+-static void gmap_pte_op_end(spinlock_t *ptl)
++static void gmap_pte_op_end(pte_t *ptep, spinlock_t *ptl)
+ {
+-	if (ptl)
+-		spin_unlock(ptl);
++	pte_unmap_unlock(ptep, ptl);
+ }
  
- 		ptep = pte_offset_map_lock(walk->mm, pmd, addr, &ptl);
-+		if (!ptep)
-+			break;
- 		if (is_zero_pfn(pte_pfn(*ptep)))
- 			ptep_xchg_direct(walk->mm, addr, ptep, __pte(_PAGE_INVALID));
- 		pte_unmap_unlock(ptep, ptl);
-diff --git a/arch/s390/mm/pgtable.c b/arch/s390/mm/pgtable.c
-index 6effb24de6d9..3bd2ab2a9a34 100644
---- a/arch/s390/mm/pgtable.c
-+++ b/arch/s390/mm/pgtable.c
-@@ -829,7 +829,7 @@ int set_guest_storage_key(struct mm_struct *mm, unsigned long addr,
- 	default:
- 		return -EFAULT;
+ /**
+@@ -1011,7 +1011,7 @@ static int gmap_protect_pte(struct gmap *gmap, unsigned long gaddr,
+ {
+ 	int rc;
+ 	pte_t *ptep;
+-	spinlock_t *ptl = NULL;
++	spinlock_t *ptl;
+ 	unsigned long pbits = 0;
+ 
+ 	if (pmd_val(*pmdp) & _SEGMENT_ENTRY_INVALID)
+@@ -1025,7 +1025,7 @@ static int gmap_protect_pte(struct gmap *gmap, unsigned long gaddr,
+ 	pbits |= (bits & GMAP_NOTIFY_SHADOW) ? PGSTE_VSIE_BIT : 0;
+ 	/* Protect and unlock. */
+ 	rc = ptep_force_prot(gmap->mm, gaddr, ptep, prot, pbits);
+-	gmap_pte_op_end(ptl);
++	gmap_pte_op_end(ptep, ptl);
+ 	return rc;
+ }
+ 
+@@ -1154,7 +1154,7 @@ int gmap_read_table(struct gmap *gmap, unsigned long gaddr, unsigned long *val)
+ 				/* Do *NOT* clear the _PAGE_INVALID bit! */
+ 				rc = 0;
+ 			}
+-			gmap_pte_op_end(ptl);
++			gmap_pte_op_end(ptep, ptl);
+ 		}
+ 		if (!rc)
+ 			break;
+@@ -1248,7 +1248,7 @@ static int gmap_protect_rmap(struct gmap *sg, unsigned long raddr,
+ 			if (!rc)
+ 				gmap_insert_rmap(sg, vmaddr, rmap);
+ 			spin_unlock(&sg->guest_table_lock);
+-			gmap_pte_op_end(ptl);
++			gmap_pte_op_end(ptep, ptl);
+ 		}
+ 		radix_tree_preload_end();
+ 		if (rc) {
+@@ -2156,7 +2156,7 @@ int gmap_shadow_page(struct gmap *sg, unsigned long saddr, pte_t pte)
+ 			tptep = (pte_t *) gmap_table_walk(sg, saddr, 0);
+ 			if (!tptep) {
+ 				spin_unlock(&sg->guest_table_lock);
+-				gmap_pte_op_end(ptl);
++				gmap_pte_op_end(sptep, ptl);
+ 				radix_tree_preload_end();
+ 				break;
+ 			}
+@@ -2167,7 +2167,7 @@ int gmap_shadow_page(struct gmap *sg, unsigned long saddr, pte_t pte)
+ 				rmap = NULL;
+ 				rc = 0;
+ 			}
+-			gmap_pte_op_end(ptl);
++			gmap_pte_op_end(sptep, ptl);
+ 			spin_unlock(&sg->guest_table_lock);
+ 		}
+ 		radix_tree_preload_end();
+@@ -2495,7 +2495,7 @@ void gmap_sync_dirty_log_pmd(struct gmap *gmap, unsigned long bitmap[4],
+ 				continue;
+ 			if (ptep_test_and_clear_uc(gmap->mm, vmaddr, ptep))
+ 				set_bit(i, bitmap);
+-			spin_unlock(ptl);
++			pte_unmap_unlock(ptep, ptl);
+ 		}
  	}
--
-+again:
- 	ptl = pmd_lock(mm, pmdp);
- 	if (!pmd_present(*pmdp)) {
- 		spin_unlock(ptl);
-@@ -850,6 +850,8 @@ int set_guest_storage_key(struct mm_struct *mm, unsigned long addr,
- 	spin_unlock(ptl);
- 
- 	ptep = pte_offset_map_lock(mm, pmdp, addr, &ptl);
-+	if (!ptep)
-+		goto again;
- 	new = old = pgste_get_lock(ptep);
- 	pgste_val(new) &= ~(PGSTE_GR_BIT | PGSTE_GC_BIT |
- 			    PGSTE_ACC_BITS | PGSTE_FP_BIT);
-@@ -938,7 +940,7 @@ int reset_guest_reference_bit(struct mm_struct *mm, unsigned long addr)
- 	default:
- 		return -EFAULT;
- 	}
--
-+again:
- 	ptl = pmd_lock(mm, pmdp);
- 	if (!pmd_present(*pmdp)) {
- 		spin_unlock(ptl);
-@@ -955,6 +957,8 @@ int reset_guest_reference_bit(struct mm_struct *mm, unsigned long addr)
- 	spin_unlock(ptl);
- 
- 	ptep = pte_offset_map_lock(mm, pmdp, addr, &ptl);
-+	if (!ptep)
-+		goto again;
- 	new = old = pgste_get_lock(ptep);
- 	/* Reset guest reference bit only */
- 	pgste_val(new) &= ~PGSTE_GR_BIT;
-@@ -1000,7 +1004,7 @@ int get_guest_storage_key(struct mm_struct *mm, unsigned long addr,
- 	default:
- 		return -EFAULT;
- 	}
--
-+again:
- 	ptl = pmd_lock(mm, pmdp);
- 	if (!pmd_present(*pmdp)) {
- 		spin_unlock(ptl);
-@@ -1017,6 +1021,8 @@ int get_guest_storage_key(struct mm_struct *mm, unsigned long addr,
- 	spin_unlock(ptl);
- 
- 	ptep = pte_offset_map_lock(mm, pmdp, addr, &ptl);
-+	if (!ptep)
-+		goto again;
- 	pgste = pgste_get_lock(ptep);
- 	*key = (pgste_val(pgste) & (PGSTE_ACC_BITS | PGSTE_FP_BIT)) >> 56;
- 	paddr = pte_val(*ptep) & PAGE_MASK;
+ 	gmap_pmd_op_end(gmap, pmdp);
 -- 
 2.35.3
 
