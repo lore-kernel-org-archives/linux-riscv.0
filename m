@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4ACC7EE23
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Jun 2023 23:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E67C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 07:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DLxay9/IjqzkUpEoG7LaAFTSn7VzEV0umGhx8lFWgsg=; b=yROGQYNIAg5aVE
-	xGAphNPEra0pyTzmnwOhZdH0ai45bIY/Bm8kDNbu9Le3L5R4vwvN0vtJjhN68SxdoOSAtBKoebwGA
-	QLd7nNW9b1ToOp37IqcMsTSbAUw7Yhm2Q5kcyxPIouuhDb6G9+vzlZ3kkKTM6OP4EZOo8/MVG30E2
-	9motCDBL9/xpwq5Uxc08BWKbeqbkKw6pcvczDbzeLWynrqemE5YsKlYuQR6Ef80MZutWX1cZCXl/P
-	XdN0maajEtDP4z6z5LpvaiGOd2NnEDpzbQWEgXmflmETbu3RyvWdC0DcbApWgvoEbPRToGPXNQfmr
-	agINFT/Vtu07wgL0FXKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KtrNCd6Nf2XLiJJvYd1p7t2hqU/ihMAaVDoqImDo5Zw=; b=Jn9UpMJDZUQjGwnSmrM8yNSPL7
+	Ia3m3SfCC4KaF5kYLC1hRQ2X/L0fM7/naGxhmDjwn0k9JUQ/HvfOLKgwTAj6UPGdrRW1f/4SLWJ6X
+	Cd2ZThkKeu3rKm/D4y9njoh/DA3GQRWtpcFHFo3o/TZqhlPEDpkYOYECJv7pXqbaCeWIunjIMdTty
+	88M8Oxz+Oh15j3xuyeoUEa0iWV9i0ps3CdQfwcHGo2qWcza93ZfSr3v0XrX3kQz9bzXM8Te7qH0NM
+	Y/4PF7NQ9g8VPi11IrB6aVhKDDDG6qvYqeG+PazthVK6At36JHsIviieK+JD96v9b/y+2TZdGW1tw
+	ruJPCdEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q72zB-007ZZH-1E;
-	Wed, 07 Jun 2023 23:54:41 +0000
-Received: from mga17.intel.com ([192.55.52.151])
+	id 1q79eh-008Kwv-00;
+	Thu, 08 Jun 2023 07:01:59 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q72z7-007ZYK-2s;
-	Wed, 07 Jun 2023 23:54:39 +0000
+	id 1q79ec-008Kvn-1T
+	for linux-riscv@lists.infradead.org;
+	Thu, 08 Jun 2023 07:01:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1686182077; x=1717718077;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1686207714; x=1717743714;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=hbLrss7Fx86V/BsVZBJ2ItyCsnjeR/pNGcf//FjE1+s=;
-  b=XdAW6sGJnddEZaskTolp58kpAWGz20G7VLwhIOCg4jIKcqMS45iLMTYq
-   bhhAUz/HKQqrgvg+P3/Cffm6uJoKYHaZEgZD/dJe4ODSdxDxujbcx7idr
-   YeWc0AL0i7MLtUh7wBIsD1o+h3Q2rZ/jj6nQs289mp57eDoIk7YswT+hJ
-   p/aSu6kji9XDMFKpuNNSYBSU/zHbpHLceWkcXeFLgziUzpqIgUO/f1N+D
-   7AI5s3J+v1XoGPD41I4r+kTcZjSgu84BG6tjApFjP0TrGRYHn8eP3Shpj
-   Xmsf7s/zgiUzMV+Qw2p8E8lDkLPXjDFoXPBGK81ItwHNu0mBf1KEAzK7c
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10734"; a="337503222"
-X-IronPort-AV: E=Sophos;i="6.00,225,1681196400"; 
-   d="scan'208";a="337503222"
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jun 2023 16:54:36 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10734"; a="774826414"
-X-IronPort-AV: E=Sophos;i="6.00,225,1681196400"; 
-   d="scan'208";a="774826414"
-Received: from lkp-server01.sh.intel.com (HELO 15ab08e44a81) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 07 Jun 2023 16:54:34 -0700
-Received: from kbuild by 15ab08e44a81 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1q72z3-000713-1z;
-	Wed, 07 Jun 2023 23:54:33 +0000
-Date: Thu, 8 Jun 2023 07:54:19 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH v3 3/5] arm64: libstub: Move KASLR handling functions to
- efi-stub-helper.c
-Message-ID: <202306080741.ArdxyO6n-lkp@intel.com>
-References: <20230606123242.20804-4-alexghiti@rivosinc.com>
+  bh=ZZLdqZM7DUuJb+zfCqM9sRlIRP3z6YOCxQmfCfYvk1o=;
+  b=Ue27OM/MkXujlocUQPU0sj26Il0xxHLQS4XERmPLOheGdJ4y6dxNgBzg
+   uCqNUgYn01Wx5o7WZEdIbycTt79deC4MNJKD2Ncl/oMKHZd07i9OOApHj
+   XljdHq0fY4gMwLsREzkmCrSTMZlbVReJvzXWp2FpQC5j5DpLTVUOYCYOe
+   0b/o9l0itC1dJVlLurS4liv+ZIJf/BAIY35WWDDWid1dyfpcRZp5m8Rrz
+   ndmo/A1fH2KDEy15Th1IipF5QQqcgcd1qityKItMIPq29vlWHGvG0gnGN
+   x8r5OKiAlyjpotku4R3QNF7nyQownsUZX3JFEIrUYUkdBMmlr+Vmia9Gq
+   w==;
+X-IronPort-AV: E=Sophos;i="6.00,226,1681196400"; 
+   d="asc'?scan'208";a="219382726"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 08 Jun 2023 00:01:43 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 8 Jun 2023 00:01:43 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 8 Jun 2023 00:01:40 -0700
+Date: Thu, 8 Jun 2023 08:01:16 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <linux-riscv@lists.infradead.org>
+CC: <conor@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor
+	<alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, Boqun
+ Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>, Jonathan
+ Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Nathan Chancellor <nathan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>,
+	<rust-for-linux@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>
+Subject: Re: [PATCH v1 0/2] RISC-V: enable rust
+Message-ID: <20230608-dispatch-sneer-aa09bd7b2eb8@wendy>
+References: <20230307102441.94417-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230606123242.20804-4-alexghiti@rivosinc.com>
+In-Reply-To: <20230307102441.94417-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230607_165437_977538_BEB05803 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20230608_000154_580199_B4E03C17 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,59 +85,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5716849815253418961=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
+--===============5716849815253418961==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Ka1WzDdcwslcLLPy"
+Content-Disposition: inline
 
-kernel test robot noticed the following build errors:
+--Ka1WzDdcwslcLLPy
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[auto build test ERROR on efi/next]
-[also build test ERROR on linus/master v6.4-rc5 next-20230607]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Hey Kwang,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Introduce-virtual-kernel-mapping-KASLR/20230606-203849
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git next
-patch link:    https://lore.kernel.org/r/20230606123242.20804-4-alexghiti%40rivosinc.com
-patch subject: [PATCH v3 3/5] arm64: libstub: Move KASLR handling functions to efi-stub-helper.c
-config: arm64-allyesconfig (https://download.01.org/0day-ci/archive/20230608/202306080741.ArdxyO6n-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 12.3.0
-reproduce (this is a W=1 build):
-        mkdir -p ~/bin
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        git remote add efi https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git
-        git fetch efi next
-        git checkout efi/next
-        b4 shazam https://lore.kernel.org/r/20230606123242.20804-4-alexghiti@rivosinc.com
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.3.0 ~/bin/make.cross W=1 O=build_dir ARCH=arm64 olddefconfig
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.3.0 ~/bin/make.cross W=1 O=build_dir ARCH=arm64 SHELL=/bin/bash
+On 08/06/2023 05:46, =EC=86=90=EA=B4=91=ED=9B=88/Tizen Platform Lab(SR)/=EC=
+=82=BC=EC=84=B1=EC=A0=84=EC=9E=90 wrote:
+> Hi,
+> Recently I'm trying to put a rust patch on the risc-v board.
+> I saw a patch [1] and looked through it roughly.
+> Only if llvm(not gcc) is allowed, it looks good with no major problems.
+>=20
+> > I'll revisit this when my thoughts have settled down.
+>=20
+> If you let me know the problematic part, may I try the patch?
+>=20
+> [1] https://lore.kernel.org/linux-riscv/20230405-itinerary-handgrip-
+> a5ffba368148@spud/
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202306080741.ArdxyO6n-lkp@intel.com/
+Yeah, you can definitely try this or the downstream rust-for-linux
+project - both should work well on RISC-V.
+The problematic part is figuring out what ISA extensions are supported
+by the rust compiler being used (and by bindgen), and deciding what to
+put in -march as a result.
 
-All errors (new ones prefixed by >>):
+I think it is unlikely to matter for you, unless you're aggressively
+mixing versions for different parts of your toolchain.
 
-   aarch64-linux-ld: drivers/firmware/efi/libstub/efi-stub-helper.stub.o: in function `__efistub_efi_kaslr_relocate_kernel':
->> __efistub_efi-stub-helper.c:(.init.text+0xfec): undefined reference to `__efistub__end'
->> aarch64-linux-ld: __efistub_efi-stub-helper.c:(.init.text+0xff0): undefined reference to `__efistub__end'
-   aarch64-linux-ld: __efistub_efi-stub-helper.c:(.init.text+0x1058): undefined reference to `__efistub_caches_clean_inval_pou'
-   aarch64-linux-ld: arch/arm64/boot/vmlinuz.efi.elf: hidden symbol `__efistub__end' isn't defined
-   aarch64-linux-ld: final link failed: bad value
+I do intend revisting this, probably after the min. version for rust
+gets bumped, I've just been really busy with other work the last weeks.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Cheers,
+Conor.
+
+--Ka1WzDdcwslcLLPy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIF8rgAKCRB4tDGHoIJi
+0k0tAP9oSP5G1PJWtLGyf1+R6tsih6t/Fcf8f5aQBdxxrsXn/gD/UYOgt9r9Nkht
+w/d+pWUDXdDuNyfeTgh/x6BfVqn+TAo=
+=QM1l
+-----END PGP SIGNATURE-----
+
+--Ka1WzDdcwslcLLPy--
+
+
+--===============5716849815253418961==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5716849815253418961==--
+
