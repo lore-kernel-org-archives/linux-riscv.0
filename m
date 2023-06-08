@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4029AC7EE25
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD8BFC7EE45
 	for <linux-riscv@archiver.kernel.org>; Thu,  8 Jun 2023 14:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,73 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
 	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=410HLikwDbLDQn6EylZDBrKyf+KGZfF/uHEadqFSZMk=; b=zuANz6Kpw2iNsm
-	fUlOvmuOrIKSCi55A+rAALZKpJVhOPp4rBGXbmUuLK2N2lbDiiM0ukZ3t4Qpg9jcNa/8WU1Kn5Jfl
-	byr9UFB50+viBEywlEo75w1QzEKxNKLfAX6ibDZ5zmBrnCOJS0lyqg35mTdoIDAxIXKuWSiEZr472
-	LNrmlwe9spl4ETcOmAEj7E6HyNoDzU+LR3ExYPNJkl9jlriQ7a5pCNO4hq0U1U2P8VZZLfJ93B4fU
-	JPv3xaeXoA544Ov+vHEC1XY8R7UYTPybZbnLyOGFVFhf8Xf4Jw0IxSQfyR58DLIKqhYNgr7i/PwVq
-	cCPz6l5LEOdpDqvgsvfw==;
+	List-Owner; bh=NK/RsWDrq+8McT8j24cnJfiR+neE7hDR0zVwqZ96w/E=; b=R3vl2SB1aZV54F
+	VxcUQsn9HKDDWlbMbyu5hdCNHpHPhA5QFrSDHAQaK4FYxikCvMjTMFblp+n7/mIwtvdhIN+wCTWxX
+	QbZXD8tdg9WfCm4flDtqsKrAcwH2yy4DjWzRXOfDPpVJNJiClgdhcmdj4G9kyYw1qQc9zEBCv0sv1
+	L6KXmNy+nXFlIbSYzNeZwzRY7JZ4dx1SiTHwCWUi74d5pTK+5WxDq+fXdvo5ZL99eYroJOyGzUMMn
+	Ml0O6SaklpehzA1ANSuS3jsGUPpB0bLWx6KjUn7PNH7M5HW0BIioJDoY3SaxrHd9+v/4Ltvs5gut8
+	Ire7UyYMX59kl2isO0DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7GGb-009ZGf-1V;
-	Thu, 08 Jun 2023 14:05:33 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1q7GGY-009ZGI-2s;
+	Thu, 08 Jun 2023 14:05:30 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7GGW-009ZFE-22
+	id 1q7GGU-009ZEf-0E
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 Jun 2023 14:05:29 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-25695bb6461so1339229a91.1
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Jun 2023 07:05:27 -0700 (PDT)
+	Thu, 08 Jun 2023 14:05:28 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1b01dac1a82so3256585ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Jun 2023 07:05:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1686233126; x=1688825126;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1686233121; x=1688825121;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Pn+QJTHajWfG7d1v3e1LYOVtDbu7eUfKqZSk1uMhiJI=;
-        b=qdcSAqjzQG9AgkHSgdnk0Q0Z+MkVX++FcEHQVf8BVaTmnCKgBIpAn90dZxbpBQwvx/
-         w0RNl118wFkBM/N7KtDulHlMQvXUFeGrxPgbq5w9gh/et7LMN6EGej1blWrtEz2BKj7P
-         DTjloCnC4fobsR2GdM10J9CZtzrhQtjmo+z3xMEk9avk35i0e0lxthbCuui4Nv2HZQX8
-         1oy8hF4VG35B6a3K5+pYdkH3rTlAL33GYxkGZJQqkmKepZWsKGqv4NK4XDJQhUpRxaDc
-         0Du19kaXGTQ9NrufuOvcs0BXYLWGTp+6yMogN58/deNR9BOhndXpKcgbTF9OzTmBomnX
-         T6rA==
+        bh=+L5RXpIosXD3TI1NHJa9r2aP5Z6LTTGpeX5TVtmGlUQ=;
+        b=Fw9rSRoxxx67E0NwuI+8hq5zb62R2NWeVkrRz0Wz0saZdBM5f2dWBAymn3NdIBAF0B
+         ukdvaNGerxCfBxnr9tCpROGfG91SgUZB/bD04Z7ar+DYTtCVnEEzQzc7HrWnIDvHxyLS
+         MJ2I4A0U/pBLeexeqGvqifkGaw9kPpcPuHyc739Ob457AEWjgBFEzDSgBGNoN7OydNQe
+         HK04dXdL0DUGq8PuXgtTV8W0wSG55AWqzu9OJbq/S1uO6iGOa4rI1gNK0iJAq6eI27vo
+         aR38JX8Fn7AOJUdOJDEFcWLsXwOgJTJQM2A4Atg7tuzFVNfLdZIvX+Ovg2rM0QYYKnkb
+         Hztg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686233126; x=1688825126;
+        d=1e100.net; s=20221208; t=1686233121; x=1688825121;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Pn+QJTHajWfG7d1v3e1LYOVtDbu7eUfKqZSk1uMhiJI=;
-        b=cKtyIxaIRJTuGbgbILNSuDPhFucDL9B3ymObhGkX/1oqOHkJo4/aqH7Mqx7As+rq8O
-         NyUNAwHRjvSdJB5wnItcMQgbeMWbcqmryQ3AzgQ7nfOL5rcnfsN77FnYN6AwPbnj1iMS
-         nMtx6E/RvBOcvLqCPD0mWuW2FvY6TiAj0QUfEYPohNBRpW/QApdm1Mp51J0ixjalZimG
-         A5lnLtTf7pHtkd+S4euIY8hLq7GGkaCM20tDkNfa4egHkZXprV7SZiAgJrdPVbL7vZ5W
-         vxVwl+qOOCf39pMGNO/54o4e63DxJm2OshnT9HmpBDqiVvB8OOZ2ubo36oZOy2O5xxsu
-         jP8Q==
-X-Gm-Message-State: AC+VfDyUQCwN+efsVjrrNZgtYtXlEPtOo7So8ceRKukuIUb14+CMefkX
-	sGoNiQB8VuQK/Y77HC3HKYgyxw==
-X-Google-Smtp-Source: ACHHUZ5qj7JpWv3n5h049mcDRbvrnPWU2pxzum1X6mufnufFFDh/MhtDwjz8FcgngHxSziImKBqMBA==
-X-Received: by 2002:a17:90a:190d:b0:259:43e1:c81e with SMTP id 13-20020a17090a190d00b0025943e1c81emr2668601pjg.12.1686233126458;
-        Thu, 08 Jun 2023 07:05:26 -0700 (PDT)
+        bh=+L5RXpIosXD3TI1NHJa9r2aP5Z6LTTGpeX5TVtmGlUQ=;
+        b=LGvws4spPD33SXM7AvFMJAaHfBkrtxIbYmpwoZjm8lDIlsMRtVKrP1P/qRsoqrZyHh
+         nJ8qNmqlFP9ez/wSQG5NQBryrBgDrNZyceQpqMCgqBdbkXhPNGkxFo9gcV61a7PWHdf9
+         NIcHCEklQzAdL93U/DEuhurqBsQqPQATwzvzD6otVY7B1gjWQXtsW9/Y/df11G0bysRj
+         wzCtyTECVfCwtzMepi+0EaoYoAK17XApqE15hwqESxIxgUatsc3FfvvGjFgS54uBAdI4
+         W4aJJFCKi1eVqAsySeumOiZBgYwpI09iheuvgoWgIGtX1U7WYeyOOaP6tQzPLLCuXCy4
+         CVng==
+X-Gm-Message-State: AC+VfDwFc95G8YTX+Bcz6Mz/nbZOGgmbteduri5TKRFUiHFjuHUHoCK4
+	xJM387uOxjKHsFcZNYWiW911BPJVp5dQKNeq9G0=
+X-Google-Smtp-Source: ACHHUZ7FxTGImnT787sCxG3Ew6AErJlsl5jEsxSyQ5ocnf2SccL/iSpyb8fDdX+9doRUQjC+BFF5rA==
+X-Received: by 2002:a17:903:2285:b0:1a9:bdf8:f551 with SMTP id b5-20020a170903228500b001a9bdf8f551mr5240052plh.69.1686233121596;
+        Thu, 08 Jun 2023 07:05:21 -0700 (PDT)
 Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id y13-20020a17090aca8d00b0024de39e8746sm3109142pjt.11.2023.06.08.07.05.24
+        by smtp.gmail.com with ESMTPSA id j3-20020a17090276c300b001ac7af58b66sm1470979plt.224.2023.06.08.07.05.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Jun 2023 07:05:24 -0700 (PDT)
-In-Reply-To: <20230607125851.63370-1-alexghiti@rivosinc.com>
-References: <20230607125851.63370-1-alexghiti@rivosinc.com>
-Subject: Re: [PATCH -fixes] riscv: Check the virtual alignment before
- choosing a map size
-Message-Id: <168623309504.19530.15946291448306028872.b4-ty@rivosinc.com>
+        Thu, 08 Jun 2023 07:05:21 -0700 (PDT)
+In-Reply-To: <20230425102828.1616812-1-woodrow.shen@sifive.com>
+References: <20230425102828.1616812-1-woodrow.shen@sifive.com>
+Subject: Re: [PATCH v2] riscv: mm: Ensure prot of VM_WRITE and VM_EXEC must
+ be readable
+Message-Id: <168623309500.19530.8797987048849296109.b4-ty@rivosinc.com>
 Date: Thu, 08 Jun 2023 07:04:55 -0700
 MIME-Version: 1.0
 X-Mailer: b4 0.13-dev-901c5
-Cc: Song Shuai <songshuaishuai@tinylab.org>
+Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu, alexghiti@rivosinc.com,
+  greentime.hu@sifive.com
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>, Andrew Jones <ajones@ventanamicro.com>, Rob Herring <robh@kernel.org>,
-  Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  Alexandre Ghiti <alexghiti@rivosinc.com>
+  Woodrow Shen <woodrow.shen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230608_070528_716936_29BDD2B9 
-X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-CacheID: sfid-20230608_070526_331560_F498B213 
+X-CRM114-Status: UNSURE (   9.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,18 +96,22 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 07 Jun 2023 14:58:51 +0200, Alexandre Ghiti wrote:
-> We used to only check the alignment of the physical address to decide
-> which mapping would fit for a certain region of the linear mapping, but
-> it is not enough since the virtual address must also be aligned, so check
-> that too.
+On Tue, 25 Apr 2023 18:28:28 +0800, Woodrow Shen wrote:
+> Commit 8aeb7b17f04e ("RISC-V: Make mmap() with PROT_WRITE imply PROT_READ")
+> allows riscv to use mmap with PROT_WRITE only, and meanwhile mmap with w+x
+> is also permitted. However, when userspace tries to access this page with
+> PROT_WRITE|PROT_EXEC, which causes infinite loop at load page fault as
+> well as it triggers soft lockup. According to riscv privileged spec,
+> "Writable pages must also be marked readable". The fix to drop the
+> `PAGE_COPY_READ_EXEC` and then `PAGE_COPY_EXEC` would be just used instead.
+> This aligns the other arches (i.e arm64) for protection_map.
 > 
-> 
+> [...]
 
 Applied, thanks!
 
-[1/1] riscv: Check the virtual alignment before choosing a map size
-      https://git.kernel.org/palmer/c/49a0a3731596
+[1/1] riscv: mm: Ensure prot of VM_WRITE and VM_EXEC must be readable
+      https://git.kernel.org/palmer/c/6569fc12e442
 
 Best regards,
 -- 
