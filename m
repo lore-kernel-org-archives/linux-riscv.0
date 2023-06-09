@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4489C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 14:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BE6C7EE29
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 14:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mmdVZFE4puCE0CglDdf4i5jl/Se5z+QxJdPxu3eSSMQ=; b=B0gb+kjuQTMpw9
-	bpvnW6kkuGz7liNc6wK/cyEQbthZxGHMNOWq+7eC7eENwkz4ZMhwnH/yYXApSR79Ejbey5mN5uOaa
-	YhQzLC0x5tw40MD3a9g5T89l+ADV5QADvDdB+QEXIF09ndA0pE55If8V1tAPNvhBN5iXlGSXbBjDR
-	3eQdRy88YVy4zxOusfC2vtHQMA9w9wzx7fue0kQ8ofpnvKk32o3TnvNfDapLnylrOlOCOt357eL/6
-	SejIUlVlm5ahq9a05W2rVYaVcfyYdspbtnMVQzuP+5WUwDThZCT8ialaK3FXAf10uLiQqQxhvg2Jb
-	Vyxx6SGc3VW8bSCtFCgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K+DO5217Djs0vcmIehUcsv81YJ/fzn89itSEM8y/CTk=; b=YS8fFRZcn9i4CwLZGEq+XHa57z
+	XtCktL1ewxbX185xI6BdrX5e//sgyRrCq4F6wMpRy2O884S1Wkse64saRFeCjNExEscThmkYn4Dcq
+	u4nqntYmhm3fq/2W1N4NpHnjbCl3bETLEiLqZsB4C5TMOe9hfKGA+BvNdHtA7SEVyn3O04EFhH2gf
+	Kl/+sUYKilwBSVGp7tdo8RHqAOQYhfxNfV9Lc6W5Agm2p8tUvmvTxYSGN/ahGLbrTK1T0+FgNiryA
+	IUDstmpsr8+wdcOxQXqAzkWMWUCyLDViHUxhK/SCybsfSQBEk1XSQ0i/HY35FCwOvHSEeavDwV+zk
+	MOiufQiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7clq-00DCUH-2p;
-	Fri, 09 Jun 2023 14:07:18 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1q7cz4-00DEvG-0v;
+	Fri, 09 Jun 2023 14:20:58 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7clk-00DCN3-09
+	id 1q7cyz-00DEt7-17
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Jun 2023 14:07:14 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-51480d3e161so2756479a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Jun 2023 07:07:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1686319629; x=1688911629;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ooPHVjG0smBJcw3UZ0KiwpKSUQFuZSPhg2UdcvnKsUM=;
-        b=yaW7mP9M6MFBEQrrcQ8LchzKkkHtq4Gg21y/eYGBsY9PDRtToucGH6n16zU9pTKB2q
-         4jRxao4fuN1JAsNRirGAB27RWhZmxrKBpgE8H7dYvnic7dqPHDcGWFEI/P6/V4dhDn3l
-         /Grh1+iqooa2wnedgxI3IL+kieRQDHusBkXUQI1jv5Y3/op7+R/VpJfRXIrygv00I7q/
-         aklNBncQ1NR1jcxKeLY3gZavuKLKzw6nenoDwusds+ku3VkLZ9PGAAHt7bmo6ssghatn
-         J1kFL3GyDWbTEdA58TuYMEaJ4MAdMd1HFV1cP15Q1KLjCwTCBSxyP8kkktpx5adN7qGz
-         gLGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686319629; x=1688911629;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ooPHVjG0smBJcw3UZ0KiwpKSUQFuZSPhg2UdcvnKsUM=;
-        b=QWkJMFfbQmXWOiE4JOIiSwBs00WaTv0/WXwdIL13xQ4r/6wB/IyVnzn2U7zCrba4ax
-         733XjryY0XNfXu+4CkgVzh46XD4/PSa778QOsxBUdCPPE9putCDguQag/g8HF2MpdyBh
-         TF4bKrzOmWLKVRruewEhi/ZyYDzaB3S1+DYA47K3/pA+uknVazKf7IwqvyaoNIxsuRTs
-         YKaGiDflxqIxBCdfQsb66nfbX0lhxXUzVOGKEr5/lRqv2wU4Fxgj2ZoLcR71gjLE/MAr
-         QdrN8I602wIbm1utkDqAu/ywsizHdlq3Crk7ykjliSnkh874osC+c5NTVNMwq++IEmk8
-         5lRw==
-X-Gm-Message-State: AC+VfDw7jEpW8Do6yWv6GmuxJul2lt6FZl9ofPJUEwuhsrojqVnNR/zb
-	hB1a1kzFCGtHcFVw9fsShYxWTA==
-X-Google-Smtp-Source: ACHHUZ7cWdRLrozxuKakAhxWOXUJREEAfp+XHJuUgpuWZm53+OttM9O6RQiSXAY9ny2k5+749IfDWQ==
-X-Received: by 2002:aa7:ce12:0:b0:514:8e4a:2d71 with SMTP id d18-20020aa7ce12000000b005148e4a2d71mr1134762edv.26.1686319628915;
-        Fri, 09 Jun 2023 07:07:08 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.219.26])
-        by smtp.gmail.com with ESMTPSA id a13-20020a50e70d000000b005149c3fa632sm1806120edn.13.2023.06.09.07.07.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Jun 2023 07:07:08 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] dt-bindings: riscv: cpus: drop unneeded quotes
-Date: Fri,  9 Jun 2023 16:07:06 +0200
-Message-Id: <20230609140706.64623-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.34.1
+	Fri, 09 Jun 2023 14:20:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1686320453; x=1717856453;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KygAYWp1IXX26i2WNOBztQci6E+XF/eMw6ckvbNgMvI=;
+  b=JLjuYyb0OQzn0QxPTPppsKgQ/OKp4k0/l6hSWunOf689Hngg0BOh9KaO
+   2DWA/cqxeahWJG5DyrXbGONNb2vPj+aCxwrafTB/UOkgcAH84tMsVVQbO
+   JYi6GDTpQQBmi9kyMW4Gf7ClyQA+oIE5q+4Jq6ZEdajrjjC1F+PhMZugk
+   5H7P6xlzN6g0b2Ic0tvvJ6rch5Ty6f1aDIZ1CV56iDuDyEuGNzlMKLDdm
+   kQ55XEBdOLg3tSUwU374VzZeU9cG8qfS3702yUgr2PX8Oy5TAqxKe067Z
+   EC2v9g21csyKsF0/udZ3el256y8MIY7h+zGrEm/dLsHB+RjPRWUHgPUZ9
+   A==;
+X-IronPort-AV: E=Sophos;i="6.00,229,1681196400"; 
+   d="asc'?scan'208";a="156290892"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Jun 2023 07:20:40 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Fri, 9 Jun 2023 07:20:36 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Fri, 9 Jun 2023 07:20:33 -0700
+Date: Fri, 9 Jun 2023 15:20:09 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Rob Herring <robh@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Oleksii <oleksii.kurochko@gmail.com>,
+	Anup Patel <apatel@ventanamicro.com>, <qemu-riscv@nongnu.org>,
+	<u-boot@lists.denx.de>, Andrew Jones <ajones@ventanamicro.com>,
+	<palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, Jessica Clarke
+	<jrtc27@jrtc27.com>, Paul Walmsley <paul.walmsley@sifive.com>, Alistair
+ Francis <alistair.francis@wdc.com>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Rick Chen <rick@andestech.com>,
+	<linux-kernel@vger.kernel.org>, Leo <ycliang@andestech.com>
+Subject: Re: [PATCH v2] dt-bindings: riscv: deprecate riscv,isa
+Message-ID: <20230609-glamour-immovable-4211c564745d@wendy>
+References: <20230608-sitting-bath-31eddc03c5a5@spud>
+ <168624654839.3085745.9088493205796442132.robh@kernel.org>
+ <20230608-unlucky-carpenter-b3a95f269712@spud>
+ <CAL_JsqK8pr5itTr8xTOf=h7zOan6giGsQcwQ-zUCbjtpUsosfw@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CAL_JsqK8pr5itTr8xTOf=h7zOan6giGsQcwQ-zUCbjtpUsosfw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230609_070712_095912_758037A4 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230609_072053_462445_E46AE413 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,55 +88,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0347178546177464458=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cleanup bindings dropping unneeded quotes. Once all these are fixed,
-checking for this can be enabled in yamllint.
+--===============0347178546177464458==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="NHIeqlNPMBycrKLW"
+Content-Disposition: inline
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- Documentation/devicetree/bindings/riscv/cpus.yaml | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+--NHIeqlNPMBycrKLW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index db5253a2a74a..8a56473cdd5a 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -61,7 +61,7 @@ properties:
-       hart.  These values originate from the RISC-V Privileged
-       Specification document, available from
-       https://riscv.org/specifications/
--    $ref: "/schemas/types.yaml#/definitions/string"
-+    $ref: /schemas/types.yaml#/definitions/string
-     enum:
-       - riscv,sv32
-       - riscv,sv39
-@@ -95,7 +95,7 @@ properties:
-       While the isa strings in ISA specification are case
-       insensitive, letters in the riscv,isa string must be all
-       lowercase.
--    $ref: "/schemas/types.yaml#/definitions/string"
-+    $ref: /schemas/types.yaml#/definitions/string
-     pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
- 
-   # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
-@@ -120,7 +120,7 @@ properties:
-       - interrupt-controller
- 
-   cpu-idle-states:
--    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-     items:
-       maxItems: 1
-     description: |
--- 
-2.34.1
+On Fri, Jun 09, 2023 at 08:03:44AM -0600, Rob Herring wrote:
 
+> Nope, vendor prefixes don't go in node names. That's not explicit
+> anywhere, but goes against using generic node names.
+
+Yeah, that makes sense.
+
+> Also, note that looking at the DT spec, there's already prior art here
+> with PPC. See "power-isa-*". Though that appears in .dts files, but no
+> kernel code. Maybe you already saw that as your v1 is similar. There's
+> not really much advantage to align with it, but also not much reason
+> to deviate.
+
+I went back and forth on riscv-isa- versus riscv,isa-, picking the , for
+consistency with other properties in the file. I thought that doing it
+like power would be frowned upon & that it might've been done like that
+for historic reasons, especially given existing properties we have for
+riscv ISA related things are vendor properties w/ the comma.
+
+I don't have strong feelings either way though, so if you say s/,/-/
+then that's good by me!
+
+Cheers,
+Conor.
+
+--NHIeqlNPMBycrKLW
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIM1GAAKCRB4tDGHoIJi
+0iJ5AQC4YXI2egYa7v+UQPBEhR84/skUnWg8zWRti453CRoG9gEAs/ydmwxka2yf
+TYI7LPHSIav0274f4+OcOXgyL+YNXAc=
+=XW8B
+-----END PGP SIGNATURE-----
+
+--NHIeqlNPMBycrKLW--
+
+
+--===============0347178546177464458==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0347178546177464458==--
+
