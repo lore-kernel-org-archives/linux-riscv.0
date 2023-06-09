@@ -4,59 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28797C7EE29
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 21:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15644C7EE29
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 23:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xQBFnZM002t1MohOg2zvgONOidKMnHOt6H+DSD26wSM=; b=wIGsMfcwXaVtBF
-	Kxui91DB/GPHnyZFuEWkgwFRywJLYOfOhOlZvmxikXluiVeIZOcQra4HQNWkRvWYmLIEG0jPyzLhR
-	MzXc1HLR6ZEaNp0G+9tdnpwO9DrxVeKrxdtCBcVGRa1Co/o3kP77yugvq2bF7EeRvQUXCgf/ff7gb
-	hD/ZKaDL8mwfyuKOTAE0G2Y3snZG75oPR9OFVtoTXWTBFMDQN6AlB/Xb6A9N7j+G8KgwpvSGNBDMu
-	e+NQ69ktYPbk8eEbLmoP3oPTD8GAGhf9ZHgAImc2HirtEHmeCxwFSGLKHpiiI3xVO3VlmOGde5THG
-	KRgsakRXSV0228CHgJaQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=spC9o/Ar4+TE8rbGF0TbVLA0MqWk4WjvGcAHhBv78EE=; b=O8JUoKsWSVnCfU
+	/zljhmB9cx2cJSDntDeeIxVY8yi3YacH7udyTRfcFPrODwPmE9DjwBtviUEtf2mVEtRO46F+R+uMB
+	bYbqwkjRVbxJNAGDVuMB6QWOYeOtlpxPYm9rwFoPbJeKY2SNR8qkE0aXTtAb4bmbcjaY398P/nhT9
+	9aczvRhp+K9zFz4vjlCLN6HWxIiscImpSjp7VSvwl+luqAHd5bao7xRI5KEdy3elpFc7IWgMVY2ej
+	xb0YaIxkJBPGx5HKxP6Xrr4Leg3l0/GqrzI8lkcXYz5W7pruhqbjYOOvLwAdEIGnRyIlFosvCz5tK
+	zGpDsK1iFVecm6ssgg3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7jYZ-00EIRm-2c;
-	Fri, 09 Jun 2023 21:22:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q7lrI-00Ebzs-1r;
+	Fri, 09 Jun 2023 23:49:32 +0000
+Received: from out203-205-221-191.mail.qq.com ([203.205.221.191])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7jYW-00EIQ4-15;
-	Fri, 09 Jun 2023 21:22:02 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id CD2EC65BBE;
-	Fri,  9 Jun 2023 21:21:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3062CC433EF;
-	Fri,  9 Jun 2023 21:21:56 +0000 (UTC)
-Date: Fri, 9 Jun 2023 17:21:53 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Donglin Peng <pengdonglin@sangfor.com.cn>, mhiramat@kernel.org,
- linux@armlinux.org.uk, mark.rutland@arm.com, will@kernel.org,
- catalin.marinas@arm.com, rmk+kernel@armlinux.org.uk, palmer@dabbelt.com,
- paul.walmsley@sifive.com, aou@eecs.berkeley.edu, tglx@linutronix.de,
- dave.hansen@linux.intel.com, x86@kernel.org, bp@alien8.de, hpa@zytor.com,
- chenhuacai@kernel.org, zhangqing@loongson.cn, kernel@xen0n.name,
- mingo@redhat.com, peterz@infradead.org, xiehuan09@gmail.com,
- dinghui@sangfor.com.cn, huangcun@sangfor.com.cn, dolinux.peng@gmail.com,
- linux-trace-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 3/8] ARM: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-Message-ID: <20230609172153.73b0ef9d@gandalf.local.home>
-In-Reply-To: <c61eb9290c3e817d4d70c429c0e987e3ec51a3c4.1680954589.git.pengdonglin@sangfor.com.cn>
-References: <cover.1680954589.git.pengdonglin@sangfor.com.cn>
-	<c61eb9290c3e817d4d70c429c0e987e3ec51a3c4.1680954589.git.pengdonglin@sangfor.com.cn>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1q7lrD-00EbyZ-2j
+	for linux-riscv@lists.infradead.org;
+	Fri, 09 Jun 2023 23:49:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1686354541;
+	bh=bpuiYw7aOu1hTubouULzt77m8lYy98Ok47YzdGnD6Bk=;
+	h=From:To:Cc:Subject:Date;
+	b=LrZBIqi4Iw8xbGi0h8bClEjDjWbh2gC9VLEc2rEn30f81oU4blqyspuM92g32DMa2
+	 a8zjjAlhhl1OBH5HyNNJ43zody95bU9YvZBvMUySwnP5LaTTWBJYHb2n4OYUjAQnuk
+	 3l25ZP+YN1zfYNVHFQbMAjDyZAampB4kZ4vlHYRA=
+Received: from localhost ([101.224.149.128])
+	by newxmesmtplogicsvrszc5-0.qq.com (NewEsmtp) with SMTP
+	id C3B3E632; Sat, 10 Jun 2023 07:48:59 +0800
+X-QQ-mid: xmsmtpt1686354539tdu6ve0y0
+Message-ID: <tencent_D656D683705F41324657ED3393C3384C7408@qq.com>
+X-QQ-XMAILINFO: NQR8mRxMnur9FKOmyCjEVaaztjBKmlj53eegGO13ZbfN/g5qTleK0aCa+9mAGG
+	 lCiXFH6NvrwMhkmrYUf7BZei8wn3boTZUALlplZs04v8yx5DEAn1qTU7OtKAw7AcsJTisDEU7SQh
+	 xkUkOWc4ExbmSL6iF8LuFHbHgBWk0jeweLFcdhrFEO+wDPHxeiJ5gpQo1fb+bxUdM/bu+IQIkbFy
+	 WFkucEHn8FuZ+v1RCPHZJEKxnlECu2z4dEQF86aLIcu8j+U74rn2EhEbYJGgNY5UxbVTOC6jno3q
+	 dncF3jGtn7jsT9UY91KrSF+UA90E83PIbxJ+0pKBOlhxbJyGiC+Emx2HofJgZWUu7fly2VkfNN/x
+	 SA/2MPNOoIXeazMGGYFu0fnzCxHdn6MvFr3sn7THWM5PPJ2uDoWv7IsQ0FFs6R5Mq1KsPHfZVQw0
+	 fVEG5PrA3PTdY+lQMZqzdOjINO9cPSB8BgODArwAlFCAR5Qa7uzhUSvWx94sXAGNzoeRbFf+SA11
+	 GjZXSfQJo2CUunj96ljRWtry06JqaOJU4nagMMDZ/jLIU/EwQEg+IP9B3Y6jO59aPXOrMdTRSbf5
+	 jDSJyErWvfet2tDPl+NNLrwTJUVQ+v47oacGmQ98t7BMs8J49d+to1vV8FLjjpZ83EyBKnyulN8s
+	 4f6tpT3XfbZHn4geo/H8JWLc/oo5NhOxJkqyVd5F4K0W4tHa42OZqQPKyEJ3NE0kteVQMuWWxern
+	 Q5zMV84tGZnpcYdd8ENvHOV6yE+4vvRk8Qc04vhkKjTdKlSziklGqmVS284aCuzz0biDC6xcgd1t
+	 X++GxwD8uqWqTgqu9Rq0RoBWY7ossa3+cVcVGKV98fer2MtqmZybdgfKdEhtAlLBrBZLtchy5iWG
+	 PEfdywNTlUSdonvQo2ZKd/pckfW2x96DZ12eU6I3/QVw2xItqnr2tMiAhuhJBtKq5f7G804TklTp
+	 p8vHohUZdB/xnGUayWhMqoQ8XCgwl3
+From: Woody Zhang <woodylab@foxmail.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Woody Zhang <woodylab@foxmail.com>
+Subject: [PATCH] riscv: move memblock_allow_resize() after lm is ready
+Date: Sat, 10 Jun 2023 07:43:20 +0800
+X-OQ-MSGID: <20230609234319.839760-1-woodylab@foxmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230609_142200_454127_11D6EF6B 
-X-CRM114-Status: GOOD (  30.74  )
+X-CRM114-CacheID: sfid-20230609_164928_208069_0FD9566B 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,142 +87,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The initial memblock metadata is accessed from kernel image mapping. The
+regions arrays need to "reallocated" from memblock and accessed through
+linear mapping to cover more memblock regions. So the resizing should
+not be allowed until linear mapping is ready. Note that there are
+memblock allocations when building linear mapping.
 
-Hi Russell,
+Signed-off-by: Woody Zhang <woodylab@foxmail.com>
+---
+ arch/riscv/mm/init.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-I noticed that this patch set only went to the linux-arm-kernel mailing
-list but did not include you in the Cc.
-
-Could you give an ack to this patch, and I can take it through my tree?
-
-The full patch set went to linux-arm-kernel where I'm sure you have access
-to.
-
-Thanks!
-
--- Steve
-
-
-On Sat,  8 Apr 2023 05:42:17 -0700
-Donglin Peng <pengdonglin@sangfor.com.cn> wrote:
-
-> The previous patch ("function_graph: Support recording and printing
-> the return value of function") has laid the groundwork for the for
-> the funcgraph-retval, and this modification makes it available on
-> the ARM platform.
-> 
-> We introduce a new structure called fgraph_ret_regs for the ARM platform
-> to hold return registers and the frame pointer. We then fill its content
-> in the return_to_handler and pass its address to the function
-> ftrace_return_to_handler to record the return value.
-> 
-> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
-> ---
-> v10:
->  - Use CONFIG_FUNCTION_GRAPH_TRACER to control fgraph_ret_regs definition
-> 
-> v9:
->  - Fix stack pointer align issues
->  - Update the commit message
-> 
-> v8:
->  - Modify the control range of CONFIG_HAVE_FUNCTION_GRAPH_RETVAL
-> ---
->  arch/arm/Kconfig               |  1 +
->  arch/arm/include/asm/ftrace.h  | 22 ++++++++++++++++++++++
->  arch/arm/kernel/asm-offsets.c  |  8 +++++++-
->  arch/arm/kernel/entry-ftrace.S | 10 ++++++----
->  4 files changed, 36 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index e24a9820e12f..73061379855a 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -98,6 +98,7 @@ config ARM
->  	select HAVE_FAST_GUP if ARM_LPAE
->  	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
->  	select HAVE_FUNCTION_ERROR_INJECTION
-> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
->  	select HAVE_FUNCTION_GRAPH_TRACER
->  	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
->  	select HAVE_GCC_PLUGINS
-> diff --git a/arch/arm/include/asm/ftrace.h b/arch/arm/include/asm/ftrace.h
-> index 7e9251ca29fe..3c457902b355 100644
-> --- a/arch/arm/include/asm/ftrace.h
-> +++ b/arch/arm/include/asm/ftrace.h
-> @@ -77,4 +77,26 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
->  
->  #endif /* ifndef __ASSEMBLY__ */
->  
-> +#ifndef __ASSEMBLY__
-> +#ifdef CONFIG_FUNCTION_GRAPH_TRACER
-> +struct fgraph_ret_regs {
-> +	/* r0 - r3 */
-> +	unsigned long regs[4];
-> +
-> +	unsigned long fp;
-> +	unsigned long __unused;
-> +};
-> +
-> +static inline unsigned long fgraph_ret_regs_return_value(struct fgraph_ret_regs *ret_regs)
-> +{
-> +	return ret_regs->regs[0];
-> +}
-> +
-> +static inline unsigned long fgraph_ret_regs_frame_pointer(struct fgraph_ret_regs *ret_regs)
-> +{
-> +	return ret_regs->fp;
-> +}
-> +#endif /* ifdef CONFIG_FUNCTION_GRAPH_TRACER */
-> +#endif
-> +
->  #endif /* _ASM_ARM_FTRACE */
-> diff --git a/arch/arm/kernel/asm-offsets.c b/arch/arm/kernel/asm-offsets.c
-> index 38121c59cbc2..18bb85115b21 100644
-> --- a/arch/arm/kernel/asm-offsets.c
-> +++ b/arch/arm/kernel/asm-offsets.c
-> @@ -23,6 +23,7 @@
->  #include <asm/suspend.h>
->  #include <asm/vdso_datapage.h>
->  #include <asm/hardware/cache-l2x0.h>
-> +#include <asm/ftrace.h>
->  #include <linux/kbuild.h>
->  #include <linux/arm-smccc.h>
->  #include "signal.h"
-> @@ -170,5 +171,10 @@ int main(void)
->    DEFINE(KEXEC_INDIR_PAGE,	offsetof(struct kexec_relocate_data, kexec_indirection_page));
->    DEFINE(KEXEC_MACH_TYPE,	offsetof(struct kexec_relocate_data, kexec_mach_type));
->    DEFINE(KEXEC_R2,		offsetof(struct kexec_relocate_data, kexec_r2));
-> -  return 0; 
-> +#ifdef CONFIG_FUNCTION_GRAPH_TRACER
-> +  BLANK();
-> +  DEFINE(FGRET_REGS_SIZE,	sizeof(struct fgraph_ret_regs));
-> +  BLANK();
-> +#endif
-> +  return 0;
->  }
-> diff --git a/arch/arm/kernel/entry-ftrace.S b/arch/arm/kernel/entry-ftrace.S
-> index 3e7bcaca5e07..d41a1676608c 100644
-> --- a/arch/arm/kernel/entry-ftrace.S
-> +++ b/arch/arm/kernel/entry-ftrace.S
-> @@ -257,11 +257,13 @@ ENDPROC(ftrace_graph_regs_caller)
->  
->  #ifdef CONFIG_FUNCTION_GRAPH_TRACER
->  ENTRY(return_to_handler)
-> -	stmdb	sp!, {r0-r3}
-> -	add	r0, sp, #16		@ sp at exit of instrumented routine
-> +	mov	ip, sp				@ sp at exit of instrumented routine
-> +	stmdb	sp!, {r0-r3, ip, lr}		@ fill fgraph_ret_regs
-> +	mov	r0, sp
->  	bl	ftrace_return_to_handler
-> -	mov	lr, r0			@ r0 has real ret addr
-> -	ldmia	sp!, {r0-r3}
-> +	mov	lr, r0				@ r0 has real ret addr
-> +	ldmia	sp, {r0-r3}
-> +	add	sp, sp, #FGRET_REGS_SIZE	@ restore stack pointer
->  	ret	lr
->  ENDPROC(return_to_handler)
->  #endif
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 9e9da69720ce..8a33ecbb4d0f 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -258,7 +258,6 @@ static void __init setup_bootmem(void)
+ 	dma_contiguous_reserve(dma32_phys_limit);
+ 	if (IS_ENABLED(CONFIG_64BIT))
+ 		hugetlb_cma_reserve(PUD_SHIFT - PAGE_SHIFT);
+-	memblock_allow_resize();
+ }
+ 
+ #ifdef CONFIG_MMU
+@@ -1250,6 +1249,9 @@ static void __init setup_vm_final(void)
+ 	csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | satp_mode);
+ 	local_flush_tlb_all();
+ 
++	/* Depend on that Linear Mapping is ready */
++	memblock_allow_resize();
++
+ 	pt_ops_set_late();
+ }
+ #else
+-- 
+2.39.2
 
 
 _______________________________________________
