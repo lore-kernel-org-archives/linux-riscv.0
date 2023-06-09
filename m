@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E26C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 14:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B4DC7EE29
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 14:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hCk78Rq4N5XHbMARjTUYUJp8PhYMKk+RgOKPK+gBdJM=; b=ocXg/ul7wR84ez
-	FJ8HdceXaEDf/h63kzVLdlh7bwPA1juk5ZLVRPsvV2JRIK9bGeCJMTnPBsWeluJwIxUM5zIdfQk6J
-	x1ZYyp1CDOGdEwL0xsCZVvVVaGcMNfZMgB6fDa0rhgtnZAS0kEtD0VURoCXK2vjmzhKj/FlhybQcK
-	T9c8Xjcg8MvycvCwgK3xF8uYafFkuPhmVs73a72QPNXQZg5v5VvfAGGHcxGwJRk2plxa15zYKh5iN
-	bLClQPcMZLEtYUuUq6Aa16xTbLzTRNdTpq987mAqlqhFVlszpboshfa3tBEICQJSYsuqrJV/RHxd2
-	A/n2ECpqrB/RRSo7z9Bg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FSCuM/5EVoDVTxt2IPeNxuc0wtOYiKyaVY6cdL2AYBU=; b=zyfb/446XGxUzK
+	f+j96JB+MHoBRaWfq+2xaqrWhZyqwD3OOmvGBrJWsOxRYHbbrTkFXpGPKjIWa0kXAgP80JTUXFV0F
+	Xts5vf/0AuouZ1639uFDDonnLwviHcQWSqRTsEwHMThngfKZ+us71h8Dk6+hcQDxZKOUv454+/hoZ
+	Jo220lwZPmwaQWgIlIMujZPpnk2Qpjsy1RDSyxvNH7nGu5z6ISIJaMHSE7AiJUJz1Dl+0JdXO6TJ3
+	+HzGyjHGv00LPRW6YnD2o1k/9hBoPcg2Li95eZTgaOo/65oNYpFseiShVTwwE+7+hPN3JpXEbENS5
+	LXQVj/kZ3wUFj0BEQZOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7dMX-00DJQa-16;
-	Fri, 09 Jun 2023 14:45:13 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1q7dMZ-00DJRc-0p;
+	Fri, 09 Jun 2023 14:45:15 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7dMT-00DJOP-0g
+	id 1q7dMU-00DJOZ-0l
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Jun 2023 14:45:11 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-65314ee05c6so1545024b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Jun 2023 07:45:06 -0700 (PDT)
+	Fri, 09 Jun 2023 14:45:12 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-652a6bf4e6aso1525656b3a.2
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Jun 2023 07:45:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1686321905; x=1688913905;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TcBA5FIGp9MI+7Ji9YDXcRmXDhCs+5Q0MHSf56Zwu+A=;
-        b=MV5QspRGH8Psh3E4xXnDNyfNHakaCiKm9bRLd+ZFNuLVrB0gEr+8ZEem+xJD5Ph4bc
-         2hmiQEUc3bnBS5Pa8n2MwMLLYpcIt1+UttHiEWgqNw6tpRLjJW76hVkoiduvkDqJacdc
-         fxe1Po2uko+3z+B9XlfLTkdA7YlmGXkibxU8mmT+oeHxM7ePZo0bgQ7hDBcblUBD4Heu
-         mgmegmbP34e/EbpOxrYVXEnm3J4noBbamyw+X1JPTKX85ehRNWRnmA8gz6Iu6yo3zqKR
-         YT85jW2G0s4MW3YpKHfUTs8CFYaf6daqpNq9VKCdJrlgbWMjDNBoCH54iJl2gzvwmIuy
-         JOXg==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1686321907; x=1688913907;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=slFfiATLS6KbBGeLkwlt6rux1fUkrlOTmgnn5cG9CUU=;
+        b=NBQfYFvKoeRVP9NiYWPQiuQIo9tTte0YRhBCFqqBsXYgbxXDjqjGELgNcsRAEuxg6p
+         s9ljX5t/VBwWQP+l3rtZ2ilmf1fBZikRPYr6+p+5gbQ5et0D7pz5SRCfp2wHLhI0HpIZ
+         iOS+5vp/GGUUmH81geer8O6pIl0MCjEP8HDqqv5uXe75zkDDZgpAbz/Sb5ZckgBzxiij
+         9IfZdRfL7FkZzW4EqjaKOgnXn3PAkCMj6qqPhPY2IPr9+aqSR5nN+4ebkEgi8M/9Vkxi
+         R/QUfWaaNR9AzMU2EwA7gi1VuNalSRZDtQYlSLV2Ns28S9MITFIABQ2ZTx9dQzQGEqTt
+         xY2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686321905; x=1688913905;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20221208; t=1686321907; x=1688913907;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=TcBA5FIGp9MI+7Ji9YDXcRmXDhCs+5Q0MHSf56Zwu+A=;
-        b=haGkny9ExgTAB3tm6BgL8HUcT8lAfZchGnWoD1yZe+O3HQF4rQhRr/VZ7Sviquyr09
-         2VWIpA8Vw6jU7LdBicZCSx+FmgF+boZ6kalqnZ1JDul4A3HBpcfr2K9VuFTneB2YsNQu
-         z57fcmXb+S/Fl2mh4DaOdmp9Xy5JXwQCSRlLPQICUNafcihAb8yduwM6jlsmQl8tPI23
-         PwAiLhVABq0teD/R6g2zsbwHVafcX+iZjAsMS2Kz/6tOMdDtkwst6WO+jHOt5zWs5YTP
-         mtzFp8a/M9qir0DbIYxw19rQYOid0BtO+jetOwcJm4T/jOgqmbqs/rrEhOOGtDh5lCPt
-         xQTA==
-X-Gm-Message-State: AC+VfDw+ITx797gC0xlF2l2fdza0WOOcTMxvnZbtdE9tV8vKdX2s6C1W
-	VnTkH6l5W8mRNCoqXosYl8EjSw==
-X-Google-Smtp-Source: ACHHUZ7kgx1TDVZTXASPbO0+eulse3EaOzpwrIoGD8RehZplpZ5JIJgzOjAmmE3ORQZq5N1++sBxsA==
-X-Received: by 2002:a05:6a20:1443:b0:10d:d42:f6bc with SMTP id a3-20020a056a20144300b0010d0d42f6bcmr1409117pzi.41.1686321905617;
-        Fri, 09 Jun 2023 07:45:05 -0700 (PDT)
+        bh=slFfiATLS6KbBGeLkwlt6rux1fUkrlOTmgnn5cG9CUU=;
+        b=f234w5je3PC5rJOOmFZKPBe4jPXRAB9q79rvHZH7Zu5z13TiD3wozRJKzRRTH/xXmV
+         NivIP8k01cDxcDtwPDys3Cv46Nw8gRz7jTcEmcx5CPGDrZCytMjtfhlmeHsFHy2gVl4B
+         aNzRRYKeOfTVbcD/NpmoLeLuNsBNDXBq/ltbMdwEnOVS7m3c8yEcoipX2z2vOyjKiZiK
+         mkIXOMIdVVxyykOMLXiSlIgOc/LQjmKwpzm6RZv+gCj75SBp5bWi2/bR50mHogjQWUx1
+         C1dnqlMU6Hyfu0DrSMfYY9qO9bka7TyPZe/Vr2ChkS1xh6NF7jJ9vEQYeP7cc0QzDgyq
+         4TQw==
+X-Gm-Message-State: AC+VfDwmMPD92LlL/j0NXpgRVUH7JdunZg6mGBu5/9Xf2cb7N7Eq3egn
+	4aOeKduqSDd26/Biy9yXoD2ENkmt5qhPablTCTE=
+X-Google-Smtp-Source: ACHHUZ6EhjBUnoZdMxi0gY/CYXsdhcsyJVfrTEIeo4192q9SlJICqoj//ZSLF38CXNFBwpvKpjlEvQ==
+X-Received: by 2002:a05:6a00:21c9:b0:654:4989:f2b with SMTP id t9-20020a056a0021c900b0065449890f2bmr1335985pfj.1.1686321907024;
+        Fri, 09 Jun 2023 07:45:07 -0700 (PDT)
 Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id m26-20020aa78a1a000000b0065c8c5b3a7dsm2888618pfa.13.2023.06.09.07.45.05
+        by smtp.gmail.com with ESMTPSA id v3-20020aa78503000000b00639fc7124c2sm2845387pfn.148.2023.06.09.07.45.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Jun 2023 07:45:05 -0700 (PDT)
-In-Reply-To: <20230605110724.21391-1-andy.chiu@sifive.com>
-References: <20230605110724.21391-1-andy.chiu@sifive.com>
-Subject: Re: [PATCH -next v21 00/27] riscv: Add vector ISA support
-Message-Id: <168631921599.10550.825478104843856670.b4-ty@rivosinc.com>
-Date: Fri, 09 Jun 2023 07:00:15 -0700
-MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-Cc: Vineet Gupta <vineetg@rivosinc.com>, greentime.hu@sifive.com,
-  Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>,
-  Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, Guo Ren <guoren@kernel.org>
+        Fri, 09 Jun 2023 07:45:06 -0700 (PDT)
+Date: Fri, 09 Jun 2023 07:45:06 -0700 (PDT)
+X-Google-Original-Date: Fri, 09 Jun 2023 07:44:23 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.4-rc6
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
-  anup@brainfault.org, atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-  Andy Chiu <andy.chiu@sifive.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-bf5e8144-98a0-441d-b6df-63978648c75a@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230609_074509_426006_111EB2AB 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20230609_074510_277644_ABCCC551 
+X-CRM114-Status: UNSURE (   6.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,84 +82,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 6966d7988c4fb6af3e395868e9800c07f9e98a30:
 
-On Mon, 05 Jun 2023 11:06:57 +0000, Andy Chiu wrote:
-> This is the v21 patch series for adding Vector extension support in
-> Linux. Please refer to [1] for the introduction of the patchset. The
-> v21 patch series was aimed to solve build issues from v19, provide usage
-> guideline for the prctl interface, and address review comments on v20.
-> 
-> Thank every one who has been reviewing, suggesting on the topic. Hope
-> this get a step closer to the final merge.
-> 
-> [...]
+  riscv: Implement missing huge_ptep_get (2023-06-01 18:15:37 -0700)
 
-Applied, thanks!
+are available in the Git repository at:
 
-[01/27] riscv: Rename __switch_to_aux() -> fpu
-        https://git.kernel.org/palmer/c/419d5d38ac5d
-[02/27] riscv: Extending cpufeature.c to detect V-extension
-        https://git.kernel.org/palmer/c/dc6667a4e7e3
-[03/27] riscv: hwprobe: Add support for probing V in RISCV_HWPROBE_KEY_IMA_EXT_0
-        https://git.kernel.org/palmer/c/162e4df137c1
-[04/27] riscv: Add new csr defines related to vector extension
-        https://git.kernel.org/palmer/c/b5665d2a9432
-[05/27] riscv: Clear vector regfile on bootup
-        https://git.kernel.org/palmer/c/6b533828726a
-[06/27] riscv: Disable Vector Instructions for kernel itself
-        https://git.kernel.org/palmer/c/74abe5a39d3a
-[07/27] riscv: Introduce Vector enable/disable helpers
-        https://git.kernel.org/palmer/c/0a3381a01dcc
-[08/27] riscv: Introduce riscv_v_vsize to record size of Vector context
-        https://git.kernel.org/palmer/c/7017858eb2d7
-[09/27] riscv: Introduce struct/helpers to save/restore per-task Vector state
-        https://git.kernel.org/palmer/c/03c3fcd9941a
-[10/27] riscv: Add task switch support for vector
-        https://git.kernel.org/palmer/c/3a2df6323def
-[11/27] riscv: Allocate user's vector context in the first-use trap
-        https://git.kernel.org/palmer/c/cd054837243b
-[12/27] riscv: Add ptrace vector support
-        https://git.kernel.org/palmer/c/0c59922c769a
-[13/27] riscv: signal: check fp-reserved words unconditionally
-        https://git.kernel.org/palmer/c/a45cedaa1ac0
-[14/27] riscv: signal: Add sigcontext save/restore for vector
-        https://git.kernel.org/palmer/c/8ee0b41898fa
-[15/27] riscv: signal: Report signal frame size to userspace via auxv
-        https://git.kernel.org/palmer/c/e92f469b0771
-[16/27] riscv: signal: validate altstack to reflect Vector
-        https://git.kernel.org/palmer/c/76e22fdc2c26
-[17/27] riscv: prevent stack corruption by reserving task_pt_regs(p) early
-        https://git.kernel.org/palmer/c/c7cdd96eca28
-[18/27] riscv: kvm: Add V extension to KVM ISA
-        https://git.kernel.org/palmer/c/bf78f1ea6e51
-[19/27] riscv: KVM: Add vector lazy save/restore support
-        https://git.kernel.org/palmer/c/0f4b82579716
-[20/27] riscv: hwcap: change ELF_HWCAP to a function
-        https://git.kernel.org/palmer/c/50724efcb370
-[21/27] riscv: Add prctl controls for userspace vector management
-        https://git.kernel.org/palmer/c/1fd96a3e9d5d
-[22/27] riscv: Add sysctl to set the default vector rule for new processes
-        https://git.kernel.org/palmer/c/7ca7a7b9b635
-[23/27] riscv: detect assembler support for .option arch
-        https://git.kernel.org/palmer/c/e4bb020f3dbb
-[24/27] riscv: Enable Vector code to be built
-        https://git.kernel.org/palmer/c/fa8e7cce55da
-[25/27] riscv: Add documentation for Vector
-        https://git.kernel.org/palmer/c/04a4722eeede
-[26/27] selftests: Test RISC-V Vector prctl interface
-        https://git.kernel.org/palmer/c/7cf6198ce22d
-[27/27] selftests: add .gitignore file for RISC-V hwprobe
-        https://git.kernel.org/palmer/c/1e72695137ef
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.4-rc6
 
-Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
+for you to fetch changes up to 99a670b2069c725a7b50318aa681d9cae8f89325:
 
+  riscv: fix kprobe __user string arg print fault issue (2023-06-08 10:23:19 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 6.4-rc6
+
+* A fix to avoid ISA-disallowed privilege mappings that can result from
+  WRITE+EXEC mmap requests from userspace.
+* A fix for kfence to handle the huge pages.
+* A fix to avoid converting misaligned VAs to huge pages.
+* ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE has been selected so kprobe can
+  understand user pointers.
+
+----------------------------------------------------------------
+Alexandre Ghiti (2):
+      riscv: Fix kfence now that the linear mapping can be backed by PUD/P4D/PGD
+      riscv: Check the virtual alignment before choosing a map size
+
+Hsieh-Tseng Shen (1):
+      riscv: mm: Ensure prot of VM_WRITE and VM_EXEC must be readable
+
+Ruan Jinjie (1):
+      riscv: fix kprobe __user string arg print fault issue
+
+ arch/riscv/Kconfig               |  1 +
+ arch/riscv/include/asm/kfence.h  | 33 ---------------------------
+ arch/riscv/include/asm/pgtable.h |  3 +--
+ arch/riscv/mm/init.c             | 48 +++++++++++++++++++++++++++++++---------
+ 4 files changed, 39 insertions(+), 46 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
