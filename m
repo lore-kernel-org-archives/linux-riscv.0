@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52989C7EE29
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 09:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B4F0C7EE25
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 10:23:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=APjttbLhOUjD2+5RjcyTk1Yy2zekUXDZE5nL/yMQ05c=; b=BtY75EGxbCv9ix
-	MacYNVMawkZmTlV42crMa63BAA0xagzPAnxIWv7o5zCCpGMiRSVwC9YHzaTqilmFvzsvpI+u42Qzu
-	g6+5Th1EoX9z6sGXNYj5iPGDT2DWS9aysuj5YKLJIJ//7FxVxcg/UfAMfzKR+LaI1dcLjBVY6ndVZ
-	qM019Jg7WdS7J1WVgtWYt/06AlRPr+9i9H0KdvHCX0LhBOudoM9sXuM10q2YPJ0/9qWJLN18FmLqb
-	afZhXzMQff1fYMXrJdlXGsTrszbhJkL3IrtQewJ0ijj177F4fRYRQkQxP5A8ZK5F55/UVvu28Qr2I
-	aovx/audL2m3skV8xINg==;
+	List-Owner; bh=4Nt9S7r8A0PxlO+xvQZf/VUFv09smAVeoSHKiExrkOE=; b=V8GAD90IStDUZe
+	kJGujUhE+teeb0SNLrGcCIPvDcgRZ2gJVNKiN+FDxIX+BhuWLmF+yJzyZLb8GmFgYZshA0ifqR4sR
+	CV0+atYWPTX9MhMaBpvCNLSk9Fr/oYRRf1avRh9wKraC2XrUY0Mx49Y3HfumX0yKPVca2l9RymkNw
+	HvCICdFLVgD0a69cy8hq2swuK9auO61MczmUFgoeCy5RQI4YGIXkx6H7tmtfGU++zbqIRyBb+PuOH
+	5f/EVnpR4pL33a0Sr+paiYFmHELbA5NUaChCsL2/puX2KDwkfQ3NdtLlLg3jReLBcmibeO1JfX0gS
+	Acm/5N3sL6hhfnoaAcKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7YT0-00CQPu-20;
-	Fri, 09 Jun 2023 09:31:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q7ZHF-00CXep-0G;
+	Fri, 09 Jun 2023 10:23:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7YSu-00CQNp-1C;
-	Fri, 09 Jun 2023 09:31:32 +0000
+	id 1q7ZHB-00CXcc-14;
+	Fri, 09 Jun 2023 10:23:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 83FA5655F1;
-	Fri,  9 Jun 2023 09:31:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51F6BC433EF;
-	Fri,  9 Jun 2023 09:31:22 +0000 (UTC)
-Date: Fri, 9 Jun 2023 10:31:19 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Donglin Peng <pengdonglin@sangfor.com.cn>
-Cc: mhiramat@kernel.org, rostedt@goodmis.org, linux@armlinux.org.uk,
-	mark.rutland@arm.com, will@kernel.org, rmk+kernel@armlinux.org.uk,
-	palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
-	tglx@linutronix.de, dave.hansen@linux.intel.com, x86@kernel.org,
-	bp@alien8.de, hpa@zytor.com, chenhuacai@kernel.org,
-	zhangqing@loongson.cn, kernel@xen0n.name, mingo@redhat.com,
-	peterz@infradead.org, xiehuan09@gmail.com, dinghui@sangfor.com.cn,
-	huangcun@sangfor.com.cn, dolinux.peng@gmail.com,
-	linux-trace-kernel@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 4/8] arm64: ftrace: Enable HAVE_FUNCTION_GRAPH_RETVAL
-Message-ID: <ZILxZ6wrYUnnxT/E@arm.com>
-References: <cover.1680954589.git.pengdonglin@sangfor.com.cn>
- <c78366416ce93f704ae7000c4ee60eb4258c38f7.1680954589.git.pengdonglin@sangfor.com.cn>
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4D4A6651E7;
+	Fri,  9 Jun 2023 10:23:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86858C433EF;
+	Fri,  9 Jun 2023 10:23:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686306203;
+	bh=jokXRQ/Afrc/Il5mpiYP/ZSsYCJK2XP/mW2BduDXGRo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=odWF9annpoAePCQk9W5fYJzKk1nOlX0qTIzryocOT3UuFvJ2w+ZSn8x51I40zgOrY
+	 Gxpifiqr4Xfa5Ux18Vh5m36FfEuWKQreeDyVHZzkrcADV4qsQ5WYukSPVJxjubFuVo
+	 Q42LNL7su5ETj3ou9/6QwORZtG/ZQFqAd5TQfEMX9qxpHyXuSPEKt+Li++0BYpTiSY
+	 GovVrAF5ilDE77N5q0PaeIUYAJosnK7cmPrGxUIvdTiNd7c0bP5IkgspPb4LTsMC++
+	 6IZJRAQv+HaNdr/l0JL5JVaNnJ+296JWPgmGzsbiA1f+DZRkyQTmUxfYPNDyEn54pI
+	 3b832VHPcromw==
+Date: Fri, 9 Jun 2023 11:23:16 +0100
+From: Will Deacon <will@kernel.org>
+To: Song Shuai <songshuaishuai@tinylab.org>
+Cc: catalin.marinas@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, chris@zankel.net, jcmvbkbc@gmail.com,
+	steven.price@arm.com, vincenzo.frascino@arm.com,
+	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com,
+	jeeheng.sia@starfivetech.com, conor.dooley@microchip.com,
+	ajones@ventanamicro.com, linux@armlinux.org.uk,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH V2 2/4] arm64: hibernate: remove WARN_ON in
+ save_processor_state
+Message-ID: <20230609102315.GA3847@willie-the-truck>
+References: <20230609075049.2651723-1-songshuaishuai@tinylab.org>
+ <20230609075049.2651723-3-songshuaishuai@tinylab.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <c78366416ce93f704ae7000c4ee60eb4258c38f7.1680954589.git.pengdonglin@sangfor.com.cn>
+In-Reply-To: <20230609075049.2651723-3-songshuaishuai@tinylab.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230609_023128_448846_B6CEC93B 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20230609_032325_455516_CB46CD4E 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,25 +82,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 08, 2023 at 05:42:18AM -0700, Donglin Peng wrote:
-> The previous patch ("function_graph: Support recording and printing
-> the return value of function") has laid the groundwork for the for
-> the funcgraph-retval, and this modification makes it available on
-> the ARM64 platform.
+On Fri, Jun 09, 2023 at 03:50:47PM +0800, Song Shuai wrote:
+> During hibernation or restoration, freeze_secondary_cpus
+> checks num_online_cpus via BUG_ON, and the subsequent
+> save_processor_state also does the checking with WARN_ON.
 > 
-> We introduce a new structure called fgraph_ret_regs for the ARM64
-> platform to hold return registers and the frame pointer. We then
-> fill its content in the return_to_handler and pass its address to
-> the function ftrace_return_to_handler to record the return value.
+> In the case of CONFIG_PM_SLEEP_SMP=n, freeze_secondary_cpus
+> is not defined, but the sole possible condition to disable
+> CONFIG_PM_SLEEP_SMP is !SMP where num_online_cpus is always 1.
+> We also don't have to check it in save_processor_state.
 > 
-> Reviewed-by: Mark Rutland <mark.rutland@arm.com>
-> Tested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Donglin Peng <pengdonglin@sangfor.com.cn>
+> So remove the unnecessary checking in save_processor_state.
+> 
+> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+> ---
+>  arch/arm64/kernel/hibernate.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
+> index 788597a6b6a2..02870beb271e 100644
+> --- a/arch/arm64/kernel/hibernate.c
+> +++ b/arch/arm64/kernel/hibernate.c
+> @@ -99,7 +99,6 @@ int pfn_is_nosave(unsigned long pfn)
+>  
+>  void notrace save_processor_state(void)
+>  {
+> -	WARN_ON(num_online_cpus() != 1);
+>  }
+>  
+>  void notrace restore_processor_state(void)
 
-We fully trust Mark's reviews ;) but just in case you need an official
-maintainer ack:
+Acked-by: Will Deacon <will@kernel.org>
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Thanks!
+
+Will
 
 _______________________________________________
 linux-riscv mailing list
