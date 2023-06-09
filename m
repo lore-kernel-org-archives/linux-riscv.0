@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BE6C7EE29
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 14:21:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B7B7C7EE43
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 14:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K+DO5217Djs0vcmIehUcsv81YJ/fzn89itSEM8y/CTk=; b=YS8fFRZcn9i4CwLZGEq+XHa57z
-	XtCktL1ewxbX185xI6BdrX5e//sgyRrCq4F6wMpRy2O884S1Wkse64saRFeCjNExEscThmkYn4Dcq
-	u4nqntYmhm3fq/2W1N4NpHnjbCl3bETLEiLqZsB4C5TMOe9hfKGA+BvNdHtA7SEVyn3O04EFhH2gf
-	Kl/+sUYKilwBSVGp7tdo8RHqAOQYhfxNfV9Lc6W5Agm2p8tUvmvTxYSGN/ahGLbrTK1T0+FgNiryA
-	IUDstmpsr8+wdcOxQXqAzkWMWUCyLDViHUxhK/SCybsfSQBEk1XSQ0i/HY35FCwOvHSEeavDwV+zk
-	MOiufQiA==;
+	bh=FiSFYkua/8DNmG+qbosIJxLRroPmEgY5gzEKirnpdrk=; b=2j7o8R/D1UsHg8G+HIlETmWXtj
+	mvOJKnD8E4ADijhphpujebM9dnoKKZZNYz8zRRRQ/uSSRVO28Dj2VIsJqE7NfZ6DdojZwcF/A5BiE
+	BSDLdVZGgTAVHJpd9PdJSbRdtmhTy1I89irRxkKG26268K6p4Bl5i8Ci8zCnolaE15rBxXz9Hcfc4
+	JYCB3w2tFVrDLdIW9xV0v/YPggMtDHQfoVpRbKfzxHHuIep7xtdB5Ri4LUSFiDC8/I7uKUVJtmWOh
+	yDOVHHoXf8mBl92pETVbyVim/2B3qhgsvsa/qPUyU1bWBxbmYxha59cguD8aJA6DiJSCLOOxVPuqS
+	BZb//7uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7cz4-00DEvG-0v;
-	Fri, 09 Jun 2023 14:20:58 +0000
+	id 1q7czs-00DF1p-0P;
+	Fri, 09 Jun 2023 14:21:48 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7cyz-00DEt7-17
+	id 1q7czo-00DF1G-3A
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Jun 2023 14:20:56 +0000
+	Fri, 09 Jun 2023 14:21:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1686320453; x=1717856453;
+  t=1686320504; x=1717856504;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=KygAYWp1IXX26i2WNOBztQci6E+XF/eMw6ckvbNgMvI=;
-  b=JLjuYyb0OQzn0QxPTPppsKgQ/OKp4k0/l6hSWunOf689Hngg0BOh9KaO
-   2DWA/cqxeahWJG5DyrXbGONNb2vPj+aCxwrafTB/UOkgcAH84tMsVVQbO
-   JYi6GDTpQQBmi9kyMW4Gf7ClyQA+oIE5q+4Jq6ZEdajrjjC1F+PhMZugk
-   5H7P6xlzN6g0b2Ic0tvvJ6rch5Ty6f1aDIZ1CV56iDuDyEuGNzlMKLDdm
-   kQ55XEBdOLg3tSUwU374VzZeU9cG8qfS3702yUgr2PX8Oy5TAqxKe067Z
-   EC2v9g21csyKsF0/udZ3el256y8MIY7h+zGrEm/dLsHB+RjPRWUHgPUZ9
-   A==;
+  bh=2a+lt3aPP+ngTS29/z29BKrwVI4Tp9UL/tf+aJWyQX8=;
+  b=QZjXBoFw8hL//vlPO5B7xLCesEhW2l5/dbdvgqjAlcDOWr4NQ7/6iKi3
+   upIvnb158yfImg0SPWjoWbS7iSZ4H2KapnPp9mpz76eoJuzaX6uToQ/UA
+   BF4dGXcKq7qLh3JI6p1RyvlKFVZFBpiJHQftSGkLGkfInx1m2PHHzF2QF
+   s1KJYBiEsGYvoJLCj8LjE7uWKsv/r8zmcmTg5sPeuNJZX0fVKs9ttW0GJ
+   MgTY7HaydKasbJNZZ+Wi2dZyfbekJesV9teMSj5cSpPq7TBw7Tz3I1AVJ
+   1AnpVEbha+S4JJyU8cgeZ8iRXDdIMR23dfRNy4URzAzWKLl4wYftiZX+m
+   w==;
 X-IronPort-AV: E=Sophos;i="6.00,229,1681196400"; 
-   d="asc'?scan'208";a="156290892"
+   d="asc'?scan'208";a="156290937"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Jun 2023 07:20:40 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Jun 2023 07:21:44 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 9 Jun 2023 07:20:36 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.21; Fri, 9 Jun 2023 07:21:43 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 9 Jun 2023 07:20:33 -0700
-Date: Fri, 9 Jun 2023 15:20:09 +0100
+ Transport; Fri, 9 Jun 2023 07:21:42 -0700
+Date: Fri, 9 Jun 2023 15:21:17 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Rob Herring <robh@kernel.org>
-CC: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Oleksii <oleksii.kurochko@gmail.com>,
-	Anup Patel <apatel@ventanamicro.com>, <qemu-riscv@nongnu.org>,
-	<u-boot@lists.denx.de>, Andrew Jones <ajones@ventanamicro.com>,
-	<palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, Jessica Clarke
-	<jrtc27@jrtc27.com>, Paul Walmsley <paul.walmsley@sifive.com>, Alistair
- Francis <alistair.francis@wdc.com>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Rick Chen <rick@andestech.com>,
-	<linux-kernel@vger.kernel.org>, Leo <ycliang@andestech.com>
-Subject: Re: [PATCH v2] dt-bindings: riscv: deprecate riscv,isa
-Message-ID: <20230609-glamour-immovable-4211c564745d@wendy>
-References: <20230608-sitting-bath-31eddc03c5a5@spud>
- <168624654839.3085745.9088493205796442132.robh@kernel.org>
- <20230608-unlucky-carpenter-b3a95f269712@spud>
- <CAL_JsqK8pr5itTr8xTOf=h7zOan6giGsQcwQ-zUCbjtpUsosfw@mail.gmail.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] dt-bindings: riscv: cpus: drop unneeded quotes
+Message-ID: <20230609-discourse-lapped-5217cc4d7ede@wendy>
+References: <20230609140706.64623-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-In-Reply-To: <CAL_JsqK8pr5itTr8xTOf=h7zOan6giGsQcwQ-zUCbjtpUsosfw@mail.gmail.com>
+In-Reply-To: <20230609140706.64623-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230609_072053_462445_E46AE413 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20230609_072145_077914_90CF5CEA 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,59 +82,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0347178546177464458=="
+Content-Type: multipart/mixed; boundary="===============5374225530540766762=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0347178546177464458==
+--===============5374225530540766762==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="NHIeqlNPMBycrKLW"
+	protocol="application/pgp-signature"; boundary="bGQeEsxycwJfD2sU"
 Content-Disposition: inline
 
---NHIeqlNPMBycrKLW
+--bGQeEsxycwJfD2sU
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Jun 09, 2023 at 08:03:44AM -0600, Rob Herring wrote:
+On Fri, Jun 09, 2023 at 04:07:06PM +0200, Krzysztof Kozlowski wrote:
+> Cleanup bindings dropping unneeded quotes. Once all these are fixed,
+> checking for this can be enabled in yamllint.
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> Nope, vendor prefixes don't go in node names. That's not explicit
-> anywhere, but goes against using generic node names.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Yeah, that makes sense.
-
-> Also, note that looking at the DT spec, there's already prior art here
-> with PPC. See "power-isa-*". Though that appears in .dts files, but no
-> kernel code. Maybe you already saw that as your v1 is similar. There's
-> not really much advantage to align with it, but also not much reason
-> to deviate.
-
-I went back and forth on riscv-isa- versus riscv,isa-, picking the , for
-consistency with other properties in the file. I thought that doing it
-like power would be frowned upon & that it might've been done like that
-for historic reasons, especially given existing properties we have for
-riscv ISA related things are vendor properties w/ the comma.
-
-I don't have strong feelings either way though, so if you say s/,/-/
-then that's good by me!
-
-Cheers,
+Thanks,
 Conor.
 
---NHIeqlNPMBycrKLW
+--bGQeEsxycwJfD2sU
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIM1GAAKCRB4tDGHoIJi
-0iJ5AQC4YXI2egYa7v+UQPBEhR84/skUnWg8zWRti453CRoG9gEAs/ydmwxka2yf
-TYI7LPHSIav0274f4+OcOXgyL+YNXAc=
-=XW8B
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIM1XQAKCRB4tDGHoIJi
+0nBVAP0T8hWbMHaBw02aqSDgr7Tl2Q8lR8gW+HR1CNAnRw7BsAEA4TuanTVt5EJl
+qcen++SX5zQGb7LCunLo88GpZK932AI=
+=VSOJ
 -----END PGP SIGNATURE-----
 
---NHIeqlNPMBycrKLW--
+--bGQeEsxycwJfD2sU--
 
 
---===============0347178546177464458==
+--===============5374225530540766762==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -151,5 +132,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0347178546177464458==--
+--===============5374225530540766762==--
 
