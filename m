@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39C0C7EE25
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 14:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E26C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 14:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0y3UDrfuryDr7K7FNciaSrjBr0CIk09fbb9EMAIvZWw=; b=ahkesf6jJwMU+3
-	JsZhRBHTTs/DttZNDf/JQf+Cv9Ef6ICuwhEoLEFul8JLoxPnQKViRD1cqCxDLzaWlW9Kl1NBRJd4b
-	gWIDiMATY5eDPVFlqWWMRzloR4aXYwKq8T3whS1uGpZQeKUklcB9gX/NuZ/tHOIug3FZ7ZC8NWdc0
-	qHvB07OTxeND8ZEDHIrUJhP2r9T2zzfrA1IfDUB0PBXEZ+uIgpfgJnDaRCEi1EzDnbn1e760riASG
-	MNIicIr6SPtAIOAo3a2CKV6fhNp/h4BUGgvw2QJqYVnGcF+N52Y+aVl7ZF1k0ds8d83HxK82FwaN9
-	kBJsBEQsEwf9at9IqGdg==;
+	List-Owner; bh=hCk78Rq4N5XHbMARjTUYUJp8PhYMKk+RgOKPK+gBdJM=; b=ocXg/ul7wR84ez
+	FJ8HdceXaEDf/h63kzVLdlh7bwPA1juk5ZLVRPsvV2JRIK9bGeCJMTnPBsWeluJwIxUM5zIdfQk6J
+	x1ZYyp1CDOGdEwL0xsCZVvVVaGcMNfZMgB6fDa0rhgtnZAS0kEtD0VURoCXK2vjmzhKj/FlhybQcK
+	T9c8Xjcg8MvycvCwgK3xF8uYafFkuPhmVs73a72QPNXQZg5v5VvfAGGHcxGwJRk2plxa15zYKh5iN
+	bLClQPcMZLEtYUuUq6Aa16xTbLzTRNdTpq987mAqlqhFVlszpboshfa3tBEICQJSYsuqrJV/RHxd2
+	A/n2ECpqrB/RRSo7z9Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7dCT-00DHNR-25;
-	Fri, 09 Jun 2023 14:34:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q7dMX-00DJQa-16;
+	Fri, 09 Jun 2023 14:45:13 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7dCQ-00DHMk-1E
+	id 1q7dMT-00DJOP-0g
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Jun 2023 14:34:47 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id ED65D658A1
-	for <linux-riscv@lists.infradead.org>; Fri,  9 Jun 2023 14:34:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61CE6C433D2
-	for <linux-riscv@lists.infradead.org>; Fri,  9 Jun 2023 14:34:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686321285;
-	bh=6hi3QOrXBuWBmFSLc1LCcSZkPYNC/LjyWkqKBdgQtYI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=t2zwqZY++aHOeqkffOIRqTQwaFGYg/NlJ7x1vCYz/K+ZilOefocnMcGfiq6zqcf9a
-	 0uz5FX80e1MTsFaeAsiOt9n82ThnzSWWQFwBB5SQ2JR4xa/BwlmgzkwZGU0gS6cVSS
-	 wWM4IE8G+4mL1pkGa/mLU1KZYCVDHG+rqQnHMIXHbGT0DbiLEUOnHvDzyUYlLX7soc
-	 ZWTGdcvnDa1wt8I+HMTFxSC3fmK6rqAcc1xeiJ/xrVlikzbrJKwa1lHZPJIhZ/WdC2
-	 wzg2HJ8JZaBP4IJqDfoSCd6etqsXNZvushR2eLeRQ0wXuyjMhyOvTn+5hZzXjvaWg9
-	 JNTb8A2CbbPuQ==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-2b1afe57bdfso21030621fa.0
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Jun 2023 07:34:45 -0700 (PDT)
-X-Gm-Message-State: AC+VfDwstHqtqq0tEO1APVkNG5jFnndK4FVBbSx8nac7pJz1HI25UXez
-	DheS00CXpPVKrJ+Dk7lBMuvdK0QSkujpPMHF7A==
-X-Google-Smtp-Source: ACHHUZ5RlhCvj6SZ4qT0ESmlowGIP4EXqIRZ5+cA0hTrUzwiZ/YarhwSg72TilmhiLhF0QJ+br0GiIgWs2wltkkoIHo=
-X-Received: by 2002:a2e:9c90:0:b0:2af:2466:1c18 with SMTP id
- x16-20020a2e9c90000000b002af24661c18mr1326079lji.18.1686321283406; Fri, 09
- Jun 2023 07:34:43 -0700 (PDT)
+	Fri, 09 Jun 2023 14:45:11 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-65314ee05c6so1545024b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Jun 2023 07:45:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1686321905; x=1688913905;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TcBA5FIGp9MI+7Ji9YDXcRmXDhCs+5Q0MHSf56Zwu+A=;
+        b=MV5QspRGH8Psh3E4xXnDNyfNHakaCiKm9bRLd+ZFNuLVrB0gEr+8ZEem+xJD5Ph4bc
+         2hmiQEUc3bnBS5Pa8n2MwMLLYpcIt1+UttHiEWgqNw6tpRLjJW76hVkoiduvkDqJacdc
+         fxe1Po2uko+3z+B9XlfLTkdA7YlmGXkibxU8mmT+oeHxM7ePZo0bgQ7hDBcblUBD4Heu
+         mgmegmbP34e/EbpOxrYVXEnm3J4noBbamyw+X1JPTKX85ehRNWRnmA8gz6Iu6yo3zqKR
+         YT85jW2G0s4MW3YpKHfUTs8CFYaf6daqpNq9VKCdJrlgbWMjDNBoCH54iJl2gzvwmIuy
+         JOXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686321905; x=1688913905;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TcBA5FIGp9MI+7Ji9YDXcRmXDhCs+5Q0MHSf56Zwu+A=;
+        b=haGkny9ExgTAB3tm6BgL8HUcT8lAfZchGnWoD1yZe+O3HQF4rQhRr/VZ7Sviquyr09
+         2VWIpA8Vw6jU7LdBicZCSx+FmgF+boZ6kalqnZ1JDul4A3HBpcfr2K9VuFTneB2YsNQu
+         z57fcmXb+S/Fl2mh4DaOdmp9Xy5JXwQCSRlLPQICUNafcihAb8yduwM6jlsmQl8tPI23
+         PwAiLhVABq0teD/R6g2zsbwHVafcX+iZjAsMS2Kz/6tOMdDtkwst6WO+jHOt5zWs5YTP
+         mtzFp8a/M9qir0DbIYxw19rQYOid0BtO+jetOwcJm4T/jOgqmbqs/rrEhOOGtDh5lCPt
+         xQTA==
+X-Gm-Message-State: AC+VfDw+ITx797gC0xlF2l2fdza0WOOcTMxvnZbtdE9tV8vKdX2s6C1W
+	VnTkH6l5W8mRNCoqXosYl8EjSw==
+X-Google-Smtp-Source: ACHHUZ7kgx1TDVZTXASPbO0+eulse3EaOzpwrIoGD8RehZplpZ5JIJgzOjAmmE3ORQZq5N1++sBxsA==
+X-Received: by 2002:a05:6a20:1443:b0:10d:d42:f6bc with SMTP id a3-20020a056a20144300b0010d0d42f6bcmr1409117pzi.41.1686321905617;
+        Fri, 09 Jun 2023 07:45:05 -0700 (PDT)
+Received: from localhost ([135.180.227.0])
+        by smtp.gmail.com with ESMTPSA id m26-20020aa78a1a000000b0065c8c5b3a7dsm2888618pfa.13.2023.06.09.07.45.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Jun 2023 07:45:05 -0700 (PDT)
+In-Reply-To: <20230605110724.21391-1-andy.chiu@sifive.com>
+References: <20230605110724.21391-1-andy.chiu@sifive.com>
+Subject: Re: [PATCH -next v21 00/27] riscv: Add vector ISA support
+Message-Id: <168631921599.10550.825478104843856670.b4-ty@rivosinc.com>
+Date: Fri, 09 Jun 2023 07:00:15 -0700
 MIME-Version: 1.0
-References: <20230609140706.64623-1-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230609140706.64623-1-krzysztof.kozlowski@linaro.org>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Fri, 9 Jun 2023 08:34:31 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+5oZdHi6B-R1YUEwSOc8x8Vd9sHt1bgp5ydM_hAQJE3w@mail.gmail.com>
-Message-ID: <CAL_Jsq+5oZdHi6B-R1YUEwSOc8x8Vd9sHt1bgp5ydM_hAQJE3w@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: riscv: cpus: drop unneeded quotes
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Conor Dooley <conor@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.13-dev-901c5
+Cc: Vineet Gupta <vineetg@rivosinc.com>, greentime.hu@sifive.com,
+  Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>,
+  Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, Guo Ren <guoren@kernel.org>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+  anup@brainfault.org, atishp@atishpatra.org, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+  Andy Chiu <andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230609_073446_501385_E5ED8984 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20230609_074509_426006_111EB2AB 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +90,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdW4gOSwgMjAyMyBhdCA4OjA34oCvQU0gS3J6eXN6dG9mIEtvemxvd3NraQo8a3J6
-eXN6dG9mLmtvemxvd3NraUBsaW5hcm8ub3JnPiB3cm90ZToKPgo+IENsZWFudXAgYmluZGluZ3Mg
-ZHJvcHBpbmcgdW5uZWVkZWQgcXVvdGVzLiBPbmNlIGFsbCB0aGVzZSBhcmUgZml4ZWQsCj4gY2hl
-Y2tpbmcgZm9yIHRoaXMgY2FuIGJlIGVuYWJsZWQgaW4geWFtbGxpbnQuCj4KPiBTaWduZWQtb2Zm
-LWJ5OiBLcnp5c3p0b2YgS296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+
-Cj4gLS0tCj4gIERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9jcHVzLnlh
-bWwgfCA2ICsrKy0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspLCAzIGRlbGV0
-aW9ucygtKQoKTm90ZSB0aGF0IEkgYWxyZWFkeSBoYXZlIHRoZSB3aG9sZSB0cmVlIGRvbmUuIEp1
-c3Qgbm90IGFsbCBzcGxpdCB1cC4KCkFja2VkLWJ5OiBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwu
-b3JnPgoKPgo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mv
-cmlzY3YvY3B1cy55YW1sIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2
-L2NwdXMueWFtbAo+IGluZGV4IGRiNTI1M2EyYTc0YS4uOGE1NjQ3M2NkZDVhIDEwMDY0NAo+IC0t
-LSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9jcHVzLnlhbWwKPiAr
-KysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmlzY3YvY3B1cy55YW1sCj4g
-QEAgLTYxLDcgKzYxLDcgQEAgcHJvcGVydGllczoKPiAgICAgICAgaGFydC4gIFRoZXNlIHZhbHVl
-cyBvcmlnaW5hdGUgZnJvbSB0aGUgUklTQy1WIFByaXZpbGVnZWQKPiAgICAgICAgU3BlY2lmaWNh
-dGlvbiBkb2N1bWVudCwgYXZhaWxhYmxlIGZyb20KPiAgICAgICAgaHR0cHM6Ly9yaXNjdi5vcmcv
-c3BlY2lmaWNhdGlvbnMvCj4gLSAgICAkcmVmOiAiL3NjaGVtYXMvdHlwZXMueWFtbCMvZGVmaW5p
-dGlvbnMvc3RyaW5nIgo+ICsgICAgJHJlZjogL3NjaGVtYXMvdHlwZXMueWFtbCMvZGVmaW5pdGlv
-bnMvc3RyaW5nCj4gICAgICBlbnVtOgo+ICAgICAgICAtIHJpc2N2LHN2MzIKPiAgICAgICAgLSBy
-aXNjdixzdjM5Cj4gQEAgLTk1LDcgKzk1LDcgQEAgcHJvcGVydGllczoKPiAgICAgICAgV2hpbGUg
-dGhlIGlzYSBzdHJpbmdzIGluIElTQSBzcGVjaWZpY2F0aW9uIGFyZSBjYXNlCj4gICAgICAgIGlu
-c2Vuc2l0aXZlLCBsZXR0ZXJzIGluIHRoZSByaXNjdixpc2Egc3RyaW5nIG11c3QgYmUgYWxsCj4g
-ICAgICAgIGxvd2VyY2FzZS4KPiAtICAgICRyZWY6ICIvc2NoZW1hcy90eXBlcy55YW1sIy9kZWZp
-bml0aW9ucy9zdHJpbmciCj4gKyAgICAkcmVmOiAvc2NoZW1hcy90eXBlcy55YW1sIy9kZWZpbml0
-aW9ucy9zdHJpbmcKPiAgICAgIHBhdHRlcm46IF5ydig/OjY0fDMyKWltYWY/ZD9xP2M/Yj9rP2o/
-cD92P2g/KD86W2hzeHpdKD86W2Etel0pKyk/KD86X1toc3h6XSg/OlthLXpdKSspKiQKPgo+ICAg
-ICMgUklTQy1WIHJlcXVpcmVzICd0aW1lYmFzZS1mcmVxdWVuY3knIGluIC9jcHVzLCBzbyBkaXNh
-bGxvdyBpdCBoZXJlCj4gQEAgLTEyMCw3ICsxMjAsNyBAQCBwcm9wZXJ0aWVzOgo+ICAgICAgICAt
-IGludGVycnVwdC1jb250cm9sbGVyCj4KPiAgICBjcHUtaWRsZS1zdGF0ZXM6Cj4gLSAgICAkcmVm
-OiAnL3NjaGVtYXMvdHlwZXMueWFtbCMvZGVmaW5pdGlvbnMvcGhhbmRsZS1hcnJheScKPiArICAg
-ICRyZWY6IC9zY2hlbWFzL3R5cGVzLnlhbWwjL2RlZmluaXRpb25zL3BoYW5kbGUtYXJyYXkKPiAg
-ICAgIGl0ZW1zOgo+ICAgICAgICBtYXhJdGVtczogMQo+ICAgICAgZGVzY3JpcHRpb246IHwKPiAt
-LQo+IDIuMzQuMQo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+
+On Mon, 05 Jun 2023 11:06:57 +0000, Andy Chiu wrote:
+> This is the v21 patch series for adding Vector extension support in
+> Linux. Please refer to [1] for the introduction of the patchset. The
+> v21 patch series was aimed to solve build issues from v19, provide usage
+> guideline for the prctl interface, and address review comments on v20.
+> 
+> Thank every one who has been reviewing, suggesting on the topic. Hope
+> this get a step closer to the final merge.
+> 
+> [...]
+
+Applied, thanks!
+
+[01/27] riscv: Rename __switch_to_aux() -> fpu
+        https://git.kernel.org/palmer/c/419d5d38ac5d
+[02/27] riscv: Extending cpufeature.c to detect V-extension
+        https://git.kernel.org/palmer/c/dc6667a4e7e3
+[03/27] riscv: hwprobe: Add support for probing V in RISCV_HWPROBE_KEY_IMA_EXT_0
+        https://git.kernel.org/palmer/c/162e4df137c1
+[04/27] riscv: Add new csr defines related to vector extension
+        https://git.kernel.org/palmer/c/b5665d2a9432
+[05/27] riscv: Clear vector regfile on bootup
+        https://git.kernel.org/palmer/c/6b533828726a
+[06/27] riscv: Disable Vector Instructions for kernel itself
+        https://git.kernel.org/palmer/c/74abe5a39d3a
+[07/27] riscv: Introduce Vector enable/disable helpers
+        https://git.kernel.org/palmer/c/0a3381a01dcc
+[08/27] riscv: Introduce riscv_v_vsize to record size of Vector context
+        https://git.kernel.org/palmer/c/7017858eb2d7
+[09/27] riscv: Introduce struct/helpers to save/restore per-task Vector state
+        https://git.kernel.org/palmer/c/03c3fcd9941a
+[10/27] riscv: Add task switch support for vector
+        https://git.kernel.org/palmer/c/3a2df6323def
+[11/27] riscv: Allocate user's vector context in the first-use trap
+        https://git.kernel.org/palmer/c/cd054837243b
+[12/27] riscv: Add ptrace vector support
+        https://git.kernel.org/palmer/c/0c59922c769a
+[13/27] riscv: signal: check fp-reserved words unconditionally
+        https://git.kernel.org/palmer/c/a45cedaa1ac0
+[14/27] riscv: signal: Add sigcontext save/restore for vector
+        https://git.kernel.org/palmer/c/8ee0b41898fa
+[15/27] riscv: signal: Report signal frame size to userspace via auxv
+        https://git.kernel.org/palmer/c/e92f469b0771
+[16/27] riscv: signal: validate altstack to reflect Vector
+        https://git.kernel.org/palmer/c/76e22fdc2c26
+[17/27] riscv: prevent stack corruption by reserving task_pt_regs(p) early
+        https://git.kernel.org/palmer/c/c7cdd96eca28
+[18/27] riscv: kvm: Add V extension to KVM ISA
+        https://git.kernel.org/palmer/c/bf78f1ea6e51
+[19/27] riscv: KVM: Add vector lazy save/restore support
+        https://git.kernel.org/palmer/c/0f4b82579716
+[20/27] riscv: hwcap: change ELF_HWCAP to a function
+        https://git.kernel.org/palmer/c/50724efcb370
+[21/27] riscv: Add prctl controls for userspace vector management
+        https://git.kernel.org/palmer/c/1fd96a3e9d5d
+[22/27] riscv: Add sysctl to set the default vector rule for new processes
+        https://git.kernel.org/palmer/c/7ca7a7b9b635
+[23/27] riscv: detect assembler support for .option arch
+        https://git.kernel.org/palmer/c/e4bb020f3dbb
+[24/27] riscv: Enable Vector code to be built
+        https://git.kernel.org/palmer/c/fa8e7cce55da
+[25/27] riscv: Add documentation for Vector
+        https://git.kernel.org/palmer/c/04a4722eeede
+[26/27] selftests: Test RISC-V Vector prctl interface
+        https://git.kernel.org/palmer/c/7cf6198ce22d
+[27/27] selftests: add .gitignore file for RISC-V hwprobe
+        https://git.kernel.org/palmer/c/1e72695137ef
+
+Best regards,
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
