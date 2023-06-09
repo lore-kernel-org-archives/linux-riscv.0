@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB08C7EE2F
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 07:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E06C7EE29
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 07:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zj1pDy2Ui2ykD3qjgfL75rSrXtrJdLxnYyEcbF867as=; b=jqZ3A5Jq1X2/uw
-	FBIrYQOHbDvWENGO6+OFgf1G7WjYZ6fQQWK2cIwZleJ3RUqhwE2OA8ssolZxITE0VAblGSy8zmSHb
-	RYBmJ4g+0yyPz42zXF+Xz/zIG5CZwIEH8dbJ0rQfijEkB9pu5eDodBpMFqwVEmL70/VBTGGDCQEhL
-	WuAXByygtmypb6Kk9Bz2EtMc43cOViOqdzYOaOv8oXhETryqqWAqNlpgDP/kNJcy2yn4KEzrmt6jr
-	SgfKuUU58+H9P7jcz4KkK15q/R6tOE90gGtH/S55J6dRuKCMcBVsjQAkIPaHfsB4EFKqMw5cZi7TX
-	EFiIE88/L9lL4+oItRhg==;
+	List-Owner; bh=xTUNCNHjjryf/+afpSWTWDrEHFFfTxNBH5WZsf7XxtE=; b=PWqCiCtro2/Orv
+	43yFL+Xo86Rtm0yvRexdmUalsuCzN+Nd//eWtn9uSJ4NzBsP90CXNFJiYfs8Cv3cAU7fuPwdZ5epz
+	Sw/bLebyBBtxMojwtw5W6Wf9171nKecJY5kY4eyaaHzMscvgi4P3nPloE2qOC9luy3Xya6N94YXJR
+	8lbq05ft0AjhHAKJf0rILXAJ+6LUJZK0slzU6dELyYoQXWEEaAiieXyzMkNHEwWWIBul6wQMqXx5m
+	WWeXELA3Q8t3ncxy9ZA1LAm8DzoW2SswgrIFLqQKXjiVsQRTzJ9MEEDdzs94+VftjZGb7enXFoMN6
+	t6r+9N/IA3eFtvlLJJAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7WyP-00C8J8-1K;
-	Fri, 09 Jun 2023 07:55:53 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1q7WyS-00C8Kj-01;
+	Fri, 09 Jun 2023 07:55:56 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7WyL-00C8Gy-2P
+	id 1q7WyP-00C8J2-2H
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Jun 2023 07:55:51 +0000
-X-QQ-mid: bizesmtp75t1686297192tngrrsv3
+	Fri, 09 Jun 2023 07:55:55 +0000
+X-QQ-mid: bizesmtp75t1686297197t84smj5p
 Received: from localhost.localdomain ( [58.240.82.166])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 09 Jun 2023 15:53:11 +0800 (CST)
+	id ; Fri, 09 Jun 2023 15:53:16 +0800 (CST)
 X-QQ-SSF: 01200000000000908000000A0000000
-X-QQ-FEAT: 3M0okmaRx3ggkGfYbCwXKFcJVxYo7gx8Sd8QId2cLz94QTT20Ue9kVFXfH7mk
-	XRXlTwTPdy4vaDs5QViLJiCIfTnjIdM9r0mNkM/Lo3tRdqRvMoViq+uW6suj/6O70CZSodZ
-	yBkndruclxcfHizm+Fcgr3DrJVwpcAoftfoXGn+7GgsyQkty+8LJ4UE1s3/3RBGpPMOHVeK
-	ATBQplGoG5mPSJPc3SB14N13nmWOdlD/iBdWVzvi5FYQ2rgb/sK7huHvdmi2+iOBgjNj3p+
-	efTBedwnRLQ+FO9VOscQFfyuQWNvAHv9gArJiuKQYS+RslHMEsQxfCrZNFCY3pvsv1MQX35
-	Zk6sV93P4gpMhJFjQp1Zd3fFu6+4uY89VJEcQV3S3Cg0AvEvqQ8ahkzsyLvhQ==
+X-QQ-FEAT: eSZ1CZgv+JDrzqJXUyJ/mcu057NGxL1xBlezD+yoPQqZOp/XEym+SAkiqR8mP
+	y/mpdUlUsr3GccK7aytaQDnPMxaiHL0++ERM3P1l+Z/Ht3BibeLCrNg1poYm/nD5zSwsdMD
+	x72PQm0lIBAV69smXv3fYf+3+HlF6GoJyEZQNabbUaICIzb/E+0kXyTuI+T+To9yodHmBDi
+	lHBYo3hnlIeaXt+2+yLenDhJTnsQ2nxYthPnKi+X7qAPucOcklQ2F4jIZVhOcufgT5JU8AT
+	Y+xJXmSZCBgWSYe/O0u0TIksw1pW0bqCG4b+661yftYmZawpM3HxK5RHa0LJQUgbugjwNuR
+	WIICypWsMDvDee8ZyVamLyn6/2XgGOU6joVIrGjkqnxJHXfJbmwurL5VSNFuQ==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10720794791275635707
+X-BIZMAIL-ID: 2352795355600838194
 From: Song Shuai <songshuaishuai@tinylab.org>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -60,9 +60,9 @@ Cc: linux@armlinux.org.uk,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH V2 3/4] riscv: hibernate: remove WARN_ON in save_processor_state
-Date: Fri,  9 Jun 2023 15:50:48 +0800
-Message-Id: <20230609075049.2651723-4-songshuaishuai@tinylab.org>
+Subject: [PATCH V2 4/4] xtensa: hibernate: remove WARN_ON in save_processor_state
+Date: Fri,  9 Jun 2023 15:50:49 +0800
+Message-Id: <20230609075049.2651723-5-songshuaishuai@tinylab.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20230609075049.2651723-1-songshuaishuai@tinylab.org>
 References: <20230609075049.2651723-1-songshuaishuai@tinylab.org>
@@ -70,8 +70,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230609_005550_103961_EC1F58E1 
-X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-CacheID: sfid-20230609_005554_064968_8D8C231C 
+X-CRM114-Status: UNSURE (   7.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,24 +100,23 @@ We also don't have to check it in save_processor_state.
 
 So remove the unnecessary checking in save_processor_state.
 
-Fixes: c0317210012e ("RISC-V: Add arch functions to support hibernation/suspend-to-disk")
 Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
 ---
- arch/riscv/kernel/hibernate.c | 1 -
+ arch/xtensa/kernel/hibernate.c | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/hibernate.c b/arch/riscv/kernel/hibernate.c
-index 395f835f067c..86f1c9ab6b0b 100644
---- a/arch/riscv/kernel/hibernate.c
-+++ b/arch/riscv/kernel/hibernate.c
-@@ -119,7 +119,6 @@ int pfn_is_nosave(unsigned long pfn)
+diff --git a/arch/xtensa/kernel/hibernate.c b/arch/xtensa/kernel/hibernate.c
+index 06984327d6e2..314602bbf431 100644
+--- a/arch/xtensa/kernel/hibernate.c
++++ b/arch/xtensa/kernel/hibernate.c
+@@ -14,7 +14,6 @@ int pfn_is_nosave(unsigned long pfn)
  
  void notrace save_processor_state(void)
  {
 -	WARN_ON(num_online_cpus() != 1);
- }
- 
- void notrace restore_processor_state(void)
+ #if XTENSA_HAVE_COPROCESSORS
+ 	local_coprocessors_flush_release_all();
+ #endif
 -- 
 2.20.1
 
