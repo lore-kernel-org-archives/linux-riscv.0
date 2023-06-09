@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F381DC7EE2E
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 08:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63907C7EE25
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Jun 2023 09:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qGpTeHpNByCbR+rXgCKERTYqeGdeAMmgVtp/EiGz4pQ=; b=tZZA7CTcVhYxRL
-	LLG4My00DStVzk8reD8qKv5kWi8LvWq15VJ4TE/PF4uFKMybItP1WSIAXm9LIpfFjOdZVPh0pfBgF
-	RV82wOpkk2jdHhl62eQp7PY+HPv4PmOxLJENxsuD8+LWuikhZ9bw77WusQbNBJthSf9vzRQsodZR6
-	6m8ZRQV6jjNFOnBhvlGQQQhJfTIhg30B+s3mXCXLV1vm+c3b4rB7HCTbdusxSVoUqv6hbuK3vdeMR
-	SuxmL2TZwpqxLJ0VUWOZPg4SRx0r1ON6beYIX6prUMjLDjfIOmVPRDngHjavGiDDcqkgpIOes0NPX
-	jh8ObC8sRyY+ux8vcoRQ==;
+	List-Owner; bh=uiLWRFjXPj8nFz/tavZui9lRF5WAUVCS0SxFUg7o1Yg=; b=zrPR5iBZRVq1mP
+	mO2a4NmHJzund8WrHYXC7CSZNWU8XFVYQ7S6E6l0d8dTwrAPUpdD3TXHzyms9PFWUzTMWSOi7RgpD
+	PuLfLWST6Sqq2R39g7FERRw9drof5NNVyd8IjOqMcKpbYPrkCH9NCDE4cXITV3bZTwlbhS3s+qpxA
+	2Z0LyA4L6YtEngPX3R0054RxLNnaVRXEzpDt+/S2teQB5tblR8ZyD8rIKLVYsp15TgGBssehxvV8H
+	2Q60HgC7Ce7UDau5+bi1/nMtYG7qiWkKu4LFfi4ekmgJak6KBwFgGogYt6gFXt2kESjKgR+ptiLf4
+	w4YCyTs/ytMiMtmYsHPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7XBG-00CBAu-1l;
-	Fri, 09 Jun 2023 08:09:10 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1q7YDG-00CNgQ-04;
+	Fri, 09 Jun 2023 09:15:18 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q7XBD-00CB9I-1S
+	id 1q7YDD-00CNfM-2f
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 Jun 2023 08:09:08 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-565e6beb7aaso13701817b3.2
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Jun 2023 01:09:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1686298146; x=1688890146;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=D+JG9ScbeIgWCoIoD1lrBSynxF7pZ7ZmtCOtSuAlDGQ=;
-        b=RfeoHUBLwqk9vTTBDLCpOuzNXpllWDEkPYc6yjXtxGCPNmX/rvie991AU10lJs4XbF
-         9RzbOtcSEpi5Rh8KstlxITQN3Ffo4ROyfYENBHFqs9HkcG3CFgO7j5lBQrxeeGMGBjp2
-         NZdxOQon49qNf9HZ1Qgrz3xC18+gnVg36Hvk5SsHYUm7h4j5tszvUdFL2KV4ehwHCBOk
-         gyj3AdqSIMMtQdGmRCxc7HYtfEU+n7ezPeWYkyEIY3KjdS94V8qvWswp+jF2hFiGMFim
-         NoPZGExtzKBOx7SOm5zC/zUvIhzRSqstVSVI3uYZkXeW9ex9SLXGk6aLeA5PY5ojGjGB
-         epOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686298146; x=1688890146;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=D+JG9ScbeIgWCoIoD1lrBSynxF7pZ7ZmtCOtSuAlDGQ=;
-        b=FT/MboedOILSPzm82VtyGyMYvk0fFrMMB3iqpEAWzc1eDzGMVNRDDuETn9xsuwyLkY
-         1Eo9gr0Ua2npq2jc/OgJsspX3Mn2YHfDqEOtEqoz71I7o+GTzGjhnMbkM2yI99W7BLDR
-         WRfzAescpu1txTZJrkxCYbGvuzJ2T7pDIVq3gM8NeRFWU0UG0PXXTIqsdjhd0IiYQw/3
-         B5+lf5Nq0c7rvTe2xUun1IAqLNGLUuMQuZdLzMd//u1354cYeM2UtK9ujc7ofdEHHNjT
-         1W8r2DrkdhjsAg9fKSgYuQnl9NgBJNcLRciVa265aIsWPPFcvzpbmvZBdoq7R7fc5wO8
-         2Vzw==
-X-Gm-Message-State: AC+VfDxwgPkR8b0+pZ2rhJs6zNXBHT/XU7NoTkuVYwe1R8F375yZSdBt
-	AAwOC3SBTuG3bTqNRJNltP6SMA==
-X-Google-Smtp-Source: ACHHUZ5DQYcZ9JTl8EUp4l7QLImYygbjncdx8ql55YYe3IsFqc7F1XNEab87Po2zAxMo3TGE3P0BfA==
-X-Received: by 2002:a0d:e684:0:b0:565:e87f:a78f with SMTP id p126-20020a0de684000000b00565e87fa78fmr500342ywe.25.1686298145738;
-        Fri, 09 Jun 2023 01:09:05 -0700 (PDT)
-Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id n19-20020a819c53000000b005688f7596ccsm453200ywa.78.2023.06.09.01.09.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Jun 2023 01:09:04 -0700 (PDT)
-Date: Fri, 9 Jun 2023 01:08:52 -0700 (PDT)
-From: Hugh Dickins <hughd@google.com>
-X-X-Sender: hugh@ripple.attlocal.net
-To: Andrew Morton <akpm@linux-foundation.org>
-cc: Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
-    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
-    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
-    Suren Baghdasaryan <surenb@google.com>, 
-    Qi Zheng <zhengqi.arch@bytedance.com>, 
-    Peter Zijlstra <peterz@infradead.org>, 
-    Russell King <linux@armlinux.org.uk>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Geert Uytterhoeven <geert@linux-m68k.org>, 
-    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
-    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
-    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
-    Michael Ellerman <mpe@ellerman.id.au>, 
-    Alexandre Ghiti <alexghiti@rivosinc.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
-    Christian Borntraeger <borntraeger@linux.ibm.com>, 
-    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-    Alexander Gordeev <agordeev@linux.ibm.com>, 
-    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
-    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
-    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
-    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: [PATCH v2 07/23 fix] mips: update_mmu_cache() can replace __update_tlb():
- fix
-In-Reply-To: <178970b0-1539-8aac-76fd-972c6c46ec17@google.com>
-Message-ID: <6852be98-64e6-6092-d1c-13124b97bc75@google.com>
-References: <a4963be9-7aa6-350-66d0-2ba843e1af44@google.com> <178970b0-1539-8aac-76fd-972c6c46ec17@google.com>
+	Fri, 09 Jun 2023 09:15:17 +0000
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
+ relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ uk-mta-311-q9nRy84GPH-DWMN5iDJwaQ-1; Fri, 09 Jun 2023 10:15:08 +0100
+X-MC-Unique: q9nRy84GPH-DWMN5iDJwaQ-1
+Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
+ (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 9 Jun
+ 2023 10:15:05 +0100
+Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
+ id 15.00.1497.048; Fri, 9 Jun 2023 10:15:05 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Zhangjin Wu' <falcon@tinylab.org>, "thomas@t-8ch.de" <thomas@t-8ch.de>
+CC: "arnd@arndb.de" <arnd@arndb.de>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "w@1wt.eu" <w@1wt.eu>
+Subject: RE: [PATCH v2 1/4] tools/nolibc: sys.h: add __syscall() and
+ __sysret() helpers
+Thread-Topic: [PATCH v2 1/4] tools/nolibc: sys.h: add __syscall() and
+ __sysret() helpers
+Thread-Index: AQHZmozMSUsfyUxi2UiZnouHjWtcta+CLgRA
+Date: Fri, 9 Jun 2023 09:15:05 +0000
+Message-ID: <13d8756927914b578b076babc8b7f7fb@AcuMS.aculab.com>
+References: <9edb16b4-0d3f-4355-a7b1-684a28f9b4cb@t-8ch.de>
+ <20230609044230.165494-1-falcon@tinylab.org>
+In-Reply-To: <20230609044230.165494-1-falcon@tinylab.org>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230609_010907_487509_2C7FFA85 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20230609_021516_151571_D724EFF3 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,59 +81,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I expect this to fix the
-arch/mips/mm/tlb-r4k.c:300:16: warning: variable 'pmdp' set but not used
-reported by the kernel test robot; but I am uncomfortable rearranging
-lines in this tlb_probe_hazard() area, and would be glad for review and
-testing by someone familiar with mips - thanks in advance!
+From: Zhangjin Wu
+> Sent: 09 June 2023 05:43
+> 
+> Hi, Thomas, David, Willy
+> 
+> > Hi David,
+> >
+> > On 2023-06-08 14:35:49+0000, David Laight wrote:
+> > > From: Zhangjin Wu
+> > > > Sent: 06 June 2023 09:10
+> > > >
+> > > > most of the library routines share the same code model, let's add two
+> > > > helpers to simplify the coding and shrink the code lines too.
+> > > >
+> > > ...
+> > > > +/* Syscall return helper, set errno as -ret when ret < 0 */
+> > > > +static inline __attribute__((always_inline)) long __sysret(long ret)
+> > > > +{
+> > > > +	if (ret < 0) {
+> > > > +		SET_ERRNO(-ret);
+> > > > +		ret = -1;
+> > > > +	}
+> > > > +	return ret;
+> > > > +}
+> > >
+> > > If that right?
+> > > I thought that that only the first few (1024?) negative values
+> > > got used as errno values.
+> > >
+> 
+> Thanks David, this question did inspire me to think about the syscalls
+> who returns pointers, we didn't touch them yet:
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202306091304.cNVIspK0-lkp@intel.com/
-Signed-off-by: Hugh Dickins <hughd@google.com>
----
- arch/mips/mm/tlb-r4k.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+I'm also not sure whether lseek() is expected to return values
+that would be negative.
 
-diff --git a/arch/mips/mm/tlb-r4k.c b/arch/mips/mm/tlb-r4k.c
-index c96725d17cab..80fc90d8d2f1 100644
---- a/arch/mips/mm/tlb-r4k.c
-+++ b/arch/mips/mm/tlb-r4k.c
-@@ -293,11 +293,13 @@ void local_flush_tlb_one(unsigned long page)
- void update_mmu_cache(struct vm_area_struct *vma,
- 		      unsigned long address, pte_t *ptep)
- {
--	unsigned long flags;
-+#ifdef CONFIG_MIPS_HUGE_TLB_SUPPORT
- 	pgd_t *pgdp;
- 	p4d_t *p4dp;
- 	pud_t *pudp;
- 	pmd_t *pmdp;
-+#endif
-+	unsigned long flags;
- 	int idx, pid;
- 
- 	/*
-@@ -316,15 +318,15 @@ void update_mmu_cache(struct vm_area_struct *vma,
- 		pid = read_c0_entryhi() & cpu_asid_mask(&current_cpu_data);
- 		write_c0_entryhi(address | pid);
- 	}
--	pgdp = pgd_offset(vma->vm_mm, address);
- 	mtc0_tlbw_hazard();
- 	tlb_probe();
- 	tlb_probe_hazard();
-+	idx = read_c0_index();
-+#ifdef CONFIG_MIPS_HUGE_TLB_SUPPORT
-+	pgdp = pgd_offset(vma->vm_mm, address);
- 	p4dp = p4d_offset(pgdp, address);
- 	pudp = pud_offset(p4dp, address);
- 	pmdp = pmd_offset(pudp, address);
--	idx = read_c0_index();
--#ifdef CONFIG_MIPS_HUGE_TLB_SUPPORT
- 	/* this could be a huge page  */
- 	if (ptep == (pte_t *)pmdp) {
- 		unsigned long lo;
--- 
-2.35.3
+(I do remember having to patch out some checks (not Linux) in order to use:
+    echo -n xxxx | dd of=/dev/kmem oseek=nnn
+in order to patch a live kernel!)
+
+Technically read() and write() can do longer transfers, but
+Linux limits them to MAXINT.
+IIRC both BSD and SYSV allow drivers return all values (except -1)
+form ioctl().
+
+The check for -4095UL is probably reasonable.
+
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 
 _______________________________________________
