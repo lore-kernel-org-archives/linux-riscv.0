@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58712C7EE43
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 15:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8E5C7EE29
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 15:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FGUKdmexniNdwAs3zqX1Q6OYZP16+v1qfEoF5dJ2VC4=; b=awsThWi6DkgREmjOKyleqm4NeS
-	URR3I87MmrB+iLn4JTlrJuyAE7GypEq/Tkj/3EEqK1XOIRANyyzfnsneIO3buF3lDQAykkqGWCjGy
-	cRd55LZnwVkXHk3Gf25fwaP+aTKB3fD7cNzgYxIrEGNhvuTEwRcuO92R0tUurnntwWinqZkabpOrb
-	X26tvU0ixgCEFJKqWgXcq8TY+k2d0xLta90oEBVMhBVCbEzxPJrkcj293mqnptRPE5FAALJBP/FZF
-	Xtl3z43dT5ZZ6qg4cBH19JnA2VChfZhovR57yKp1CtnA6cypebxr2kYmzSn270yiHAAwHg5Imxc3b
-	WKtdwNiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=x+PctyJg0qbN9PHBo4o0HsdWKfzyBloFlPXU3Djh4c8=; b=n1hp2ovq+an2bd
+	CkGfKC31Yje4iekWzzXZbcapnPXKBQRwxV1nJcnypl6Ui6urFFQNtnAHgdtxWGoAD/5ZyNg/VTg8M
+	P9jfd0DT73TFVKthBg0+gkhv+XvxlY8Kl3OtWxYBfTFfQuFekcrkgzADrP43K36RDvuEvVj4sO0r/
+	xPdME8dRb5mvs/FzAYdoDZ1301pG9ikKeNCB6w+Y2LdTEHqyPw/0jErlIWCYcqptnKbcfkU7Gi7zT
+	eK/Mxg+SmHZ4G6zu1aMNHJ9TH3HXakhlpR8+F/713PK25h14qh4GsgAYUfs9XEiDvpezD0YOyLy6Y
+	agnJ356+YuMIrkJkZyiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q80lP-00GTwb-1x;
-	Sat, 10 Jun 2023 15:44:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q80pM-00GUN3-0i;
+	Sat, 10 Jun 2023 15:48:32 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q80lM-00GTwA-1X
-	for linux-riscv@lists.infradead.org;
-	Sat, 10 Jun 2023 15:44:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D4C2560DE8;
-	Sat, 10 Jun 2023 15:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F872C433EF;
-	Sat, 10 Jun 2023 15:44:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686411863;
-	bh=/d0aPoZrtu5RnKE0NB858Rjj6Plv6oc8XWir1e+Z0OY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Tzc+aW9U+5W1DD0JHawm+1C7ABCtr0K7hHNw3f+PaNOaGBFFZtZyySMGRE9lFmr1J
-	 8TY+Zn+wiYlwQfsH2znwsp/5R6/cWfpWw0IOn/j/pJu+hawmtJKeIe4Bm7g+mdlAy4
-	 MA2JJ91Gzj61NZhIs8VroSha5XY5hw7APoMO4schlS9tYXmeSeO7q6rX6PSt68eTvu
-	 O6W/K9WV5BXLhvSJ66O9twll9+gArNyUjC3ouWODl7gHsiwZn44BMDo+gN/iLJlNCb
-	 mzsgbRJtD/rgt/SqimhRlHrPHWCgxDeh3TAix1gtVF5QOWM5NilWA/qDyxZRzVQJmP
-	 VstojO26hwG8A==
-Date: Sat, 10 Jun 2023 16:44:19 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Woody Zhang <woodylab@foxmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: move memblock_allow_resize() after lm is ready
-Message-ID: <20230610-ultimate-moisture-630c7672358b@spud>
-References: <tencent_D656D683705F41324657ED3393C3384C7408@qq.com>
+	id 1q80pI-00GULU-2X;
+	Sat, 10 Jun 2023 15:48:30 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-977d6aa3758so508547966b.0;
+        Sat, 10 Jun 2023 08:48:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1686412101; x=1689004101;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=k+PV93m/s/NOXGrP+XMGqPRSJ4bMSqkEUav/3Sp/SUo=;
+        b=Q34XAtI54cIkhZYDotBTosBNKqeEtdaBGe/lHaZqbJ89DP58Z/qRC8OTHcB46m0Kz6
+         tYZDXB+eN1elN5uNcii6qfMo6QKRIew8HjOzxQnKjwfYtI8QH1TzeUvWXuWVjRKibAo5
+         oVqMa4yTNjPEnNLgASQGu+aEY31Mbd917fBUDjhMO0Jmw5zvHhRIwxxFUd6iayTCvK9d
+         2vdziEGtDX7yJ1vOOUw2skkhT6BdgQ8ZbyeDMLE9Qj8kL9nHchSq7AQxBYFVVRWghCFM
+         YkRPhqh9GgQAtJhC/Q9VULCI/TWMOpYGFRb/+xGzdTsj4a39ByFyLMzf8KrZU7Lyb0SW
+         OxDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686412101; x=1689004101;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=k+PV93m/s/NOXGrP+XMGqPRSJ4bMSqkEUav/3Sp/SUo=;
+        b=KynSGy3QohLYjaYPgEJX1D4Q4/nGAane+DlV9JbmXIRKy4tm1ae0VY9tetbYUUnmur
+         tZYqCx0kwtUh+rhHuZswBjZOQhTUHifMqBnlprmjDHZ2Tud4W0ZlDlnJrYiwbbGeoP3w
+         tk4MzmNMWwVVQQv7I3wqdYK0cqZbgr2tE9SBM9A4DP6QbKusNecOGDDiaiFT9/pM9SAv
+         C+NCsP48Mfo47lLAZCtZFBYqd+OSXpz1naE3Ji5zYU4rWplyx0H911eUAycczMP5Ld+9
+         50HJ2Qcoc/a9z0ui3Mkx18SE7qCFlA3HZmzTELB8mfLH7fzze/Qy/6W/B+RfF36+eME3
+         zkBg==
+X-Gm-Message-State: AC+VfDwfsGernpuhpQyUb622Z0gSOs5bG/97vOBSbdpWZ4myI61Jc2p7
+	/WmQgJVnlMBxRFnjTobvdm/y4NQ71hrYUuDRajI=
+X-Google-Smtp-Source: ACHHUZ4+yt8TVxdmv/KLF0owdyYhjmUilZj8tEPlviShNxjxsyve8eoayZ040B9uZ/VhtH2U+1jPZUtc7w/UhVrwtao=
+X-Received: by 2002:a17:907:728d:b0:96b:6fb:38d6 with SMTP id
+ dt13-20020a170907728d00b0096b06fb38d6mr6295931ejc.65.1686412100664; Sat, 10
+ Jun 2023 08:48:20 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <tencent_D656D683705F41324657ED3393C3384C7408@qq.com>
+References: <20230610122934.953106-1-bigunclemax@gmail.com>
+ <20230610122934.953106-3-bigunclemax@gmail.com> <20230610-ranged-outboard-2aaa0cc36cbd@spud>
+In-Reply-To: <20230610-ranged-outboard-2aaa0cc36cbd@spud>
+From: Maxim Kiselev <bigunclemax@gmail.com>
+Date: Sat, 10 Jun 2023 18:48:08 +0300
+Message-ID: <CALHCpMhHxAdDMGmpD9i2Kt93XqyrW_ABzr7FZSE-0+54LwgzPw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/3] dt-bindings: iio: adc: Add Allwinner
+ D1/T113s/R329/T507 SoCs GPADC
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-iio@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Cosmin Tanislav <demonsingur@gmail.com>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>, William Breathitt Gray <william.gray@linaro.org>, 
+	ChiYuan Huang <cy_huang@richtek.com>, Ramona Bolboaca <ramona.bolboaca@analog.com>, 
+	Ibrahim Tilki <Ibrahim.Tilki@analog.com>, Caleb Connolly <caleb.connolly@linaro.org>, 
+	ChiaEn Wu <chiaen_wu@richtek.com>, Haibo Chen <haibo.chen@nxp.com>, 
+	=?UTF-8?Q?Leonard_G=C3=B6hrs?= <l.goehrs@pengutronix.de>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230610_084424_561373_01CEC236 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20230610_084828_831543_F52C2193 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,64 +102,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4871911740360842927=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4871911740360842927==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ktqcJ4plNqwb0t69"
-Content-Disposition: inline
-
-
---ktqcJ4plNqwb0t69
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Jun 10, 2023 at 07:43:20AM +0800, Woody Zhang wrote:
-$subject: "riscv: move memblock_allow_resize() after lm is ready"
-
-s/lm/linear map/ if you resubmit, please.
-
-> The initial memblock metadata is accessed from kernel image mapping. The
-> regions arrays need to "reallocated" from memblock and accessed through
-> linear mapping to cover more memblock regions. So the resizing should
-> not be allowed until linear mapping is ready. Note that there are
-> memblock allocations when building linear mapping.
->=20
-> Signed-off-by: Woody Zhang <woodylab@foxmail.com>
-
-What commit does this fix?
-
-Cheers,
-Conor.
-
---ktqcJ4plNqwb0t69
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZISaUgAKCRB4tDGHoIJi
-0laWAP4z2lkAoDmsLz77dp1mJR+bLMchM0rK0Ts2lt7Tph8YogEA9p/sz+WuUouz
-GEVID6D/Inc6RxHIbBNY3VziLdR0ZgI=
-=w7Ug
------END PGP SIGNATURE-----
-
---ktqcJ4plNqwb0t69--
-
-
---===============4871911740360842927==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4871911740360842927==--
-
+SGV5LAoK0YHQsSwgMTAg0LjRjtC9LiAyMDIz4oCv0LMuINCyIDE4OjA2LCBDb25vciBEb29sZXkg
+PGNvbm9yQGtlcm5lbC5vcmc+OgoKLi4uCgo+ID4rCj4gPisgICAgcmVxdWlyZWQ6Cj4gPisgICAg
+ICAtIHJlZwo+ID4rCj4gPisgICAgYWRkaXRpb25hbFByb3BlcnRpZXM6IGZhbHNlCj4gPisKPiA+
+K3JlcXVpcmVkOgo+ID4rICAtICIjaW8tY2hhbm5lbC1jZWxscyIKPiA+KyAgLSBjbG9ja3MKPiA+
+KyAgLSBjb21wYXRpYmxlCj4gPisgIC0gaW50ZXJydXB0cwo+ID4rICAtIHJlZwo+ID4rICAtIHJl
+c2V0cwo+ID4rCj4gPit1bmV2YWx1YXRlZFByb3BlcnRpZXM6IGZhbHNlCj4KPiBIb3cgY29tZSB0
+aGlzIG9uZSBjaGFuZ2VkIHRvIHVuZXZhbHVhdGVkUHJvcGVydGllczogZmFsc2U/Cj4gV2Fzbid0
+IGl0IGZvciB0aGUgQURDIHRoYXQgd2UgcHJldmlvdXNseSBkaXNjdXNzZWQgd2hldGhlcgo+IGFk
+ZGl0aW9uYWxQcm9wZXJ0aWVzOiBmYWxzZSB3YXMgY29ycmVjdCBvciBub3Q/CgpIbW0sIEkgY2hh
+bmdlZCBpdCB0byBgdW5ldmFsdWF0ZWRQcm9wZXJ0aWVzOiBmYWxzZWAgYXMgeW91IHN1Z2dlc3Rl
+ZAppbiB0aGlzIG1lc3NhZ2UKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDIzMDYwNC1h
+ZnRlcm5vb24tZnJpZ2h0ZW4tNDIyMjIwMTA1NTdiQHNwdWQvCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
