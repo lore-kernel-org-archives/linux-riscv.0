@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80570C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 23:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD48C7EE29
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 23:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mSNgw3SlXFYDqGSxuUWSNtVcfONE0V6xVoGR+q8Y7Rs=; b=KRsLxbQjOdXJH6
-	lP79E2yiL+4E1KigcuWfY1lLzhbsOjAN/BRiS0WExaN/guKBLR/pnLFY07FOHuYucFgfspM+zOV9w
-	stmvGPKv0fjssPV1NK3K9njm2nsraFkNpij4eKvG0rADERLw53cpmOyJsGCTSpQSjZ6l9DqB1pNAw
-	JIvAAl6JOIbqiIAlBlLFIXYylAVRiZN3ifmva3zrvbpHpYbpYin44DewohFma+xTkDDjz/aNpy0yK
-	UdrVYe5c1hOEOIS/iZn4F2ssrxIeHFoHjlvcVepfuH6vmJyWQoF/fA1xQMz6ieysigil2mc5Ob6dN
-	JDOYrYQZAayZSt13XUow==;
+	List-Owner; bh=79oZWsHP+qh0DQGMisGSjvd/HTAm19UQWd04rudIxCg=; b=0bOXPxVSAAOxRo
+	HnFu4t7tbb9VMiK4UVt0w1i/H4/RwHx1CVNNyeULHC7Eos6dANwdroor+Ixy68KN9K40Yec752Ln/
+	FAjqB+qnzMDZCuhDDf3T6BiHgZOsV2KhrtF3K6fxhkw6UQlBcAGMR+3Y4OwPuQadwPT1bCFfqkF6O
+	wJj6PN2Ntv5ObRRmtZyc3w6W2fHnMSlZ/55Ui/eiuzVUAkv8mUqAX8Ygp6EtUjjnpzSLUTTUUTehW
+	b2Si+A2zyMhkKP7s0/9JyN7Is9s6+IFD9kenY5c5toZ1J9Ts0rx6ch+yQ5MWC5F9ehOMxy7KKPTKQ
+	DmGHWSBohjYHLr7H5J5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q87zV-00HFxr-38;
-	Sat, 10 Jun 2023 23:27:30 +0000
-Received: from out162-62-57-137.mail.qq.com ([162.62.57.137])
+	id 1q883Q-00HGM6-0h;
+	Sat, 10 Jun 2023 23:31:32 +0000
+Received: from out203-205-251-53.mail.qq.com ([203.205.251.53])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q87zR-00HFwl-0P
+	id 1q883M-00HGKq-36
 	for linux-riscv@lists.infradead.org;
-	Sat, 10 Jun 2023 23:27:28 +0000
+	Sat, 10 Jun 2023 23:31:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1686439635;
-	bh=Fn02ERRTdshIy31ivri71MFDl08htZpi5ZW/1B1Yklk=;
+	s=s201512; t=1686439885;
+	bh=tXNXBoX/8GWPAzhXpR088r8mBroUaYWOvlVGNgeHP54=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fi7ctKGI38Lr+zJl8aCoN8p3HwkUaIjb4aPRpRCZ7ac2sWLRcy5ehPljNvn1YghbY
-	 QGAAG5nZO5kcYtc6h1aaDzqq3GwenQpyoTE6xCtvQ2bk2+UFJx2D80LcM349ZAHJn4
-	 FT+MP/zQ/Fc9LfqSiCzH7xL1cEo3m5eKg8dhUhJg=
+	b=SSHHPiuD4dlNC5Q+N85ZFLIsXxWvEEgMSMsQqJ478AibeU97ve3gp9z93L9HAV0oT
+	 qoCPoeVc4ysVP4wVlILst9SXZjSLt8NNaUcn4hobol4254uhrubQKRizY9vABLbsSo
+	 zNAFfjT707em8BCkz+6UCinPMPaJB0JiIhZCcCZw=
 Received: from localhost ([101.224.149.128])
-	by newxmesmtplogicsvrszc2-1.qq.com (NewEsmtp) with SMTP
-	id 6C88D4B4; Sun, 11 Jun 2023 07:27:08 +0800
-X-QQ-mid: xmsmtpt1686439628t5vxva631
-Message-ID: <tencent_06282B9141D32F1D19BE2BB41998E1612607@qq.com>
-X-QQ-XMAILINFO: MR/iVh5QLeie/ax1XRHrhBLZq6mCcLiuvDNt/91BzhUp23FvjncXJ7GelEe3vM
-	 9OAGxznL5b2IhQ28j88ewmLPJ3lH3nD/j6FA1YP8aNEjbE0aYxSc602m22PyY5pTGqT17iolSgf+
-	 IrqCx4Zi6HmEqVVPMapH0ioVbBJwLiiwVtiv5H4KOxgvH9AM5zb3nR1cHmfn6M7MGjdcodXvggSz
-	 gOjRh1qmAXSZDviwLVUP7imhArz3DWJUVDrWFhWbF+muhLKzneucXXx3jmvC+LdPUGC+/D7ZQFLV
-	 AUVbzoLaYy95K8y6wrJskoGPruHFjkqe1fSbBH8CDuWjX51RTYucuPkzaVfROFsRQCvO/D2Pb/eO
-	 VcNyBBElLm0cC1ia5z0ACkysYN19UqskQ+teQRpSx5TNwnzHrL6+x65ek6j8UkUVCb0OIecbF6+L
-	 l80g9Ylm7c6aHQXv0CozzrpJO+Aq7c+NX2lk8poCTzy9y5wVK1rOdRD6OifEVsnwW9h7EB8zVhqQ
-	 MJ5kl8gAc2Dk2Akm6Q24MkToF7FIHSj4THhg+9n7/rTP0S/6qYIdOhOeXpNMsMCML5KBek7UUgqf
-	 MgeqEeZUFkn2KXLQIkRN000bluhWfugfnziETRgnca2fD9O9PUaKISZWsaaImOB+7gOFwB4k9wPH
-	 vmkVNNqTv8Y/KuQFQ6GVcYfYo6Di1bgQyfcQHkafGqtpLCMdma4eNTld0bQNX4vZdewtXL/m08YS
-	 QAL0l1gmXF593b5xMriqDT8t/E4BthO2/HrhseEZnzScWyB9QH2hCX6H83R9JHHVE8NbZEjZN9ZD
-	 7waUowtBucgKsyWtuM1ioqh07sAjQFSL2fOVfHnjYtAm/6kNluWJnUTJJX4HiJbNA/sxL7CSQyoU
-	 pSpN3w7dotYXlUfdHAGFxZxD+yYRxxgPrV8JbvH2lZMhCqNrRORrG2WiqCNf+HWdVi7inHuS8HYa
-	 d6MNI1w9TXpiNO/8u6eA==
-Date: Sun, 11 Jun 2023 07:27:08 +0800
+	by newxmesmtplogicsvrsza12-0.qq.com (NewEsmtp) with SMTP
+	id 7C416E97; Sun, 11 Jun 2023 07:31:04 +0800
+X-QQ-mid: xmsmtpt1686439864tva22xybf
+Message-ID: <tencent_72C3F44CD3565F83575F5632D9574C331208@qq.com>
+X-QQ-XMAILINFO: N55MlACpQQDvPmFA5/PFp+NUprXsnOa3gaeg+T0xnTJErPckCigM5gNWVKebJn
+	 Z0dB47tzM2nUg/kItl8WxsIjNkYDSHK4N8yC6Om9OrzKTGRQrCaNS4XbBM10EZHbkfuVQbXeDRCs
+	 YQz1kdqebSWsVPgNi0w5DDHschLNwO2nBiCwbEZxiLN9A5s0lNsjSIFifyyt70hVadNYpsn/6GzF
+	 EBENGowGgu1IAIcrvQp8+CpszIfeV3aIXWMYEkr8BvTrPzfiluExXEm1dYjMkQI63Huun2A+MSHs
+	 y2GfDN23pwkOBrfWD05k1C9SLI9o3m4lz2qbIjkjVoaUySKePNOivS2FfIsQK81QnxfdId07OZCj
+	 9PvQNtKeNpjzIMlhWaSqFcdjXPCfP+gY+RQpcVVNUHOqyd17qxrtE9Wwy48orR+JMYx9lmMkPL0D
+	 faFQb8aCbk/YCrPRdC8RPJCzeK0k3JWOAoCfTQ7e+O+7ctlFHnNhGqQ4DTuWsd0jfM6NJb6WvwmG
+	 he8VW0FMNSKboloBNI04CAPmohAESTgUO1jPuWPqJ1CVUAXq1k2qgM3lcyBvAEEx5P72oJqtchkd
+	 iDUXjna4Xe/AHxiO7gY9KRe1D12RmxIFg3ESKsHRMnWpAlmqhdjoefjkG4wE05E4XHsXXxHAmVzV
+	 0jdlcnZzwmG9F3wiPc/zXBkj++7SUz9C5gjD2nCtR8iMewQ/7syLuKtVWENmRGFQ0LgjelgjxGq1
+	 XowJ6G09mS+DT6Q91z42+mEggtL2/+KqLDpsQCyptehxFDoi4uZCIsa+30N9e8pJgIxrFQv0dwN7
+	 HmRPy2l3HnPmRo94+Fd/AC/1xt7y4lOrYIkG0vPd8+d1hA42nWzelpcFp+DGf/+oyH/bt+isyhUo
+	 QrWfJsS3hUByijKI2z4DStf/Id5+Jrb+oTrsfM9jHbJyQjRNW3piqtGAKnjgc58w40T0wJZYOvqQ
+	 EW15Wqlu7+VMYoBZQmbgItqozuu4ht
+Date: Sun, 11 Jun 2023 07:31:03 +0800
 From: Woody Zhang <woodylab@foxmail.com>
 To: Conor Dooley <conor@kernel.org>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: reserve DTB before possible memblock allocation
-X-OQ-MSGID: <ZIUGzGfoEivEICkQ@dev>
-References: <tencent_B15C0F1F3105597D0DCE7DADC96C5EB5CF0A@qq.com>
- <20230607-jogging-grudging-70dede86bc53@spud>
- <CAHVXubggydGfNu3OzcxWXREJbB+G9dmr9sFD7vXhVxbG-N58Pg@mail.gmail.com>
- <20230610-ability-mockup-f6aa71bad6a1@spud>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: move memblock_allow_resize() after lm is ready
+X-OQ-MSGID: <ZIUHtxzmBi8h3JM+@dev>
+References: <tencent_D656D683705F41324657ED3393C3384C7408@qq.com>
+ <20230610-ultimate-moisture-630c7672358b@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230610-ability-mockup-f6aa71bad6a1@spud>
+In-Reply-To: <20230610-ultimate-moisture-630c7672358b@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230610_162726_139148_76EC22DE 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20230610_163129_308011_59DFF118 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +84,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBKdW4gMTAsIDIwMjMgYXQgMDQ6NDE6MTdQTSArMDEwMCwgQ29ub3IgRG9vbGV5IHdy
-b3RlOgo+T24gVGh1LCBKdW4gMDgsIDIwMjMgYXQgMDk6NDk6NDRBTSArMDIwMCwgQWxleGFuZHJl
-IEdoaXRpIHdyb3RlOgo+PiBPbiBXZWQsIEp1biA3LCAyMDIzIGF0IDg6MTfigK9QTSBDb25vciBE
-b29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+PiA+Cj4+ID4gK0NDIEFsZXgsIHlvdSBz
-aG91bGQgdGFrZSBhIGxvb2sgYXQgdGhpcyBwYXRjaC4KPj4gPgo+PiA+IE9uIFdlZCwgSnVuIDA3
-LCAyMDIzIGF0IDA5OjM1OjE5UE0gKzA4MDAsIFdvb2R5IFpoYW5nIHdyb3RlOgo+PiA+ID4gSXQn
-cyBwb3NzaWJsZSB0aGF0IGVhcmx5X2luaXRfZmR0X3NjYW5fcmVzZXJ2ZWRfbWVtKCkgYWxsb2Nh
-dGVzIG1lbW9yeQo+PiA+ID4gZnJvbSBtZW1ibG9jayBmb3IgZHluYW1pYyByZXNlcnZlZCBtZW1v
-cnkgaW4gYC9yZXNlcnZlZC1tZW1vcnlgIG5vZGUuCj4+ID4gPiBBbnkgZml4ZWQgcmVzZXJ2YXRp
-b24gbXVzdCBiZSBkb25lIGJlZm9yZSB0aGF0IHRvIGF2b2lkIHBvdGVudGlhbAo+PiA+ID4gY29u
-ZmxpY3RzLgo+PiA+ID4KPj4gPiA+IFJlc2VydmUgdGhlIERUQiBpbiBtZW1ibG9jayBqdXN0IGFm
-dGVyIGVhcmx5IHNjYW5uaW5nIGl0Lgo+PiA+Cj4+ID4gVGhlIHJhdGlvbmFsZSBtYWtlcyBzZW5z
-ZSB0byBtZSwgSSBhbSBqdXN0IHdvbmRlcmluZyB3aGF0IGNvbXBlbGxpbmcKPj4gPiByZWFzb24g
-dGhlcmUgaXMgdG8gbW92ZSBpdCBhd2F5IGZyb20gdGhlIG1lbWJsb2NrX3Jlc2VydmUoKXMgZm9y
-IHRoZQo+PiA+IGluaXRkIGFuZCB2bWxpbnV4PyBNb3ZpbmcgaXQgYWJvdmUgZWFybHlfaW5pdF9m
-ZHRfc2Nhbl9yZXNlcnZlZF9tZW0oKQo+PiA+IHNob3VsZCBiZSB0aGUgc3VmZmljaWVudCBtaW5p
-bXVtICYgd291bGQga2VlcCB0aGluZ3MgdG9nZXRoZXIuCj4KPj4gVGhhbmtzIENvbm9yLgo+PiAK
-Pj4gU28gdGhlIHBhdGNoIGxvb2tzIGdvb2QgdG8gbWUuCj4+IAo+PiBCdXQgSSBmaW5kIHRoaXMg
-ZnJhZ2lsZToKPj4gCj4+IC0gd2UgZG8gbm90IGNoZWNrIG1lbWJsb2NrX3Jlc2VydmUoKSByZXR1
-cm4gdmFsdWUgdG8gbWFrZSBzdXJlIHRoZQo+PiByZXNlcnZhdGlvbiByZWFsbHkgaGFwcGVuZWQg
-KGFuZCBxdWlja2x5IGxvb2tpbmcgYXQgdGhlIGNvZGUsIEknbSBub3QKPj4gZXZlbiBzdXJlIGl0
-IHJldHVybnMgYW4gZXJyb3IgaWYgdGhlIHJlZ2lvbiB3YXMgYWxyZWFkeSBhbGxvY2F0ZWQpLgo+
-PiAtIHdlIGhhdmUgdG8gbWFrZSBzdXJlIG5vIG1lbWJsb2NrIGFsbG9jYXRpb24gaGFwcGVucyBi
-ZWZvcmUgc2V0dXBfYm9vdG1lbSgpLgo+PiAtIHdlIGFsc28gaGF2ZSB0byBjaGVjayB0aGF0IG5v
-IGZpeGVkIG1lbWJsb2NrX3Jlc2VydmUoKSBoYXBwZW5zIGFmdGVyLgo+PiAKPj4gVGhlIGxhc3Qg
-MiBwb2ludHMgbWF5IHNvdW5kIG5hdHVyYWwsIGJ1dCB3ZSdsbCBoYXZlIHRvIHRha2UgZ3JlYXQg
-Y2FyZQo+PiB3aGVuIGFkZGluZyBzb21lIGNvZGUgYXJvdW5kIGhlcmUuIEknbSB3b3JraW5nIG9u
-IGFuICJlYXJseSBib290Cj4+IGRvY3VtZW50IiBhbmQgSSdsbCBhZGQgc29tZXRoaW5nIGFib3V0
-IHRoYXQsIGJ1dCBhIHJ1bnRpbWUgdGhpbmcgd291bGQKPj4gYmUgd2F5IGJldHRlciBJTU8uCj4+
-IAo+PiBZb3UgY2FuIGFkZDoKPj4gCj4+IFJldmlld2VkLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFs
-ZXhnaGl0aUByaXZvc2luYy5jb20+Cj4KPmJ0dyBBbGV4L1dvb2R5LCB3aGF0IGlzIHRoZSBhcHBy
-b3ByaWF0ZSBGaXhlcyB0YWcgaGVyZT8KCkluIGVmNjlkMjU1OWZlOSAoInJpc2N2OiBNb3ZlIGVh
-cmx5IGR0YiBtYXBwaW5nIGludG8gdGhlIGZpeG1hcCByZWdpb24iKSwKQWxleCBtb3ZlIGVhcmx5
-X2luaXRfZmR0X3NjYW5fcmVzZXJ2ZWRfbWVtIHRvIHNldHVwX2Jvb3RtZW0oKSB0byBwcmV2ZW50
-Cm1lbW9yeSBhbGxvY2F0aW9ucyBiZWZvcmUgb2YgcmVzZXJ2YXRpb25zLiBCdXQgaXQgc2hvdWxk
-IG5vdCBiZSBwdXQgYmVmb3JlCkRUQiByZXNlcnZhdGlvbi4KCgpXb29keQoKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sat, Jun 10, 2023 at 04:44:19PM +0100, Conor Dooley wrote:
+>On Sat, Jun 10, 2023 at 07:43:20AM +0800, Woody Zhang wrote:
+>$subject: "riscv: move memblock_allow_resize() after lm is ready"
+>
+>s/lm/linear map/ if you resubmit, please.
+
+Thanks, will send a v2.
+
+>
+>> The initial memblock metadata is accessed from kernel image mapping. The
+>> regions arrays need to "reallocated" from memblock and accessed through
+>> linear mapping to cover more memblock regions. So the resizing should
+>> not be allowed until linear mapping is ready. Note that there are
+>> memblock allocations when building linear mapping.
+>> 
+>> Signed-off-by: Woody Zhang <woodylab@foxmail.com>
+>
+>What commit does this fix?
+
+Fixes: 671f9a3e2e24 ("RISC-V: Setup initial page tables in two stages")
+
+Will add this tag in v2.
+
+Woody
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
