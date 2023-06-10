@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724E1C7EE43
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 17:25:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FEDC77B7A
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 17:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EeApfGgXR/swgzr4tGyXnDOgvPBWxjhysrRlJ1ZjV/0=; b=YkTbwKZYHVFGO1
-	FT8quZFo1cUDz+ddrerkOVojvec7oHq3Q9Y38rNbyPzKyv06PpWaQXo0LEFnCjEHh+/WzTPpRVWrX
-	lBI0xJnJfBp8asxPxekiTixhkumAXrXANEYxnver+jnIagG1YNWwU3t0Fc41qC8+G86uanlf+ksMi
-	a1LRiWkxHQnKlnXFdYtu0OB32SiheXDqwQQ8tFme+3Bdz538ycK/QdDUCgZB8esvUtTSxs2Ub60Th
-	8RSIKGPCCIyQc6Oe/QQEI0+6w6BgJ6WydWtCHY8HQxhslc/l2GnxvHW1vjkQDPXQtpeap+ooDAWGh
-	r9yybZBFazbAi9zCJXNw==;
+	List-Owner; bh=GiOs6/OCBYn5ZA9bst7IHVYj2CTvQ87/hTm0b46zC6U=; b=Kav34MhSbRzEkD
+	sMl692hOVMvf4qSfqOq1ngdQgbHZOlFMIW2xYPDSAO7kJTTLXBT1jQJhrffVLNodZwEFOm+ulSlir
+	kBh9bQUGPYr6tJ/y6iZX2BWNUlcvoQCdAdWcj3Oh8hyoTo9Ih+Wd1tvXpe1F6eMGTzTewgriBUddk
+	xdBKbfCLL0gtt69J4x5KmiCA1ls7TQAfxL8muQsNrvNQ4vcEpc6+RFwgorFTh+qD6SfXcXdWIig6m
+	vaFvyt3g3JYwrShxp2HdtoEKEY7XoqL+BRp1WVyfFO77WyJ6HYXrPvv3aL6JvALxJMcp7uOi6f7P2
+	SwGBV5NMPFklmldi2dew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q82L8-00GewT-2l;
-	Sat, 10 Jun 2023 17:25:26 +0000
+	id 1q82oL-00Gicz-0a;
+	Sat, 10 Jun 2023 17:55:37 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q82L6-00Getv-0P
-	for linux-riscv@lists.infradead.org;
-	Sat, 10 Jun 2023 17:25:25 +0000
+	id 1q82oI-00GibT-18;
+	Sat, 10 Jun 2023 17:55:35 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B0FD761567;
-	Sat, 10 Jun 2023 17:25:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46019C4339C;
-	Sat, 10 Jun 2023 17:25:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A0B6D61031;
+	Sat, 10 Jun 2023 17:55:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFE88C433D2;
+	Sat, 10 Jun 2023 17:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686417923;
-	bh=tuqTKew1pmcWljWXjwIE2elKVYInmZpla1AX7Tht4Qg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oXBwE1ORTw48+VW7+mlJJrrhcA7HLqhUB+nf5HY9Xlztjidq61XVGXytcYEQ27ptM
-	 oPpZIvwcgdui/Bsiuj8ikSTclKZmSBL0Fpw8tEMETxt9E4ldi1j6ZR5+z1dle3spBL
-	 wcjZDQsaZ0pTRoJHgtkRSyjxxVFsNFVzxLFcAHHtoA7qmFzNxAQH0zSEjXpcave89b
-	 HhrC0EUXy6Q9al2iAxrIrirv5TcOfu18jvi1jYhVb1c3ven+s2sJbBZ2fgkM0Tjg8P
-	 0WlQ4UueYqc89YpUZ0NtyDYHSsZn5kOaAvC3ElstCieo4nOwZ3wBXAXqK9hm3FEWsa
-	 c6qqVxvh9NPsg==
-From: Conor Dooley <conor@kernel.org>
-To: palmer@dabbelt.com
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 6/6] dt-bindings: riscv: cpus: switch to unevaluatedProperties: false
-Date: Sat, 10 Jun 2023 18:24:53 +0100
-Message-Id: <20230610-koala-bronze-3592637a5d1f@spud>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230610-snaking-version-81ae5abb7573@spud>
-References: <20230610-snaking-version-81ae5abb7573@spud>
+	s=k20201202; t=1686419733;
+	bh=Z7CDYiZUhDciWFfHCWXIbPWCYecbEDUP0+fYC7qnEIE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=TAJ3nnNaH/YW5/D3Hcc7UM2mzrLOh4yB5AwCexral7DO+cJBaaer4N50jLHJxh0Ij
+	 do27NCukKDieM4s9l33g5VChkQ5iAMItocYdHzhMMg/wgqN6NVeYhXhvgjMd4boT2y
+	 y8VjTNay3js48W8Ame3xXUkYAZ0z2HhNpTyKxUayiF6QeGxYKb17dLPPGN+JpsP22r
+	 fNQgrE180WTO4vCpUN6mFsj0imY6XkXs1sIUgYla/w/glfjpbW87yAF0ggFgQddkhV
+	 PbFBVuCrGPRj4VrTLsDf6HJP3YPJmbq0Y63EvyOUvdlk+UXDFVUvQTZZPfhXfXHn5r
+	 YdaNIyi3kKLVw==
+Date: Sat, 10 Jun 2023 19:12:04 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Maksim Kiselev <bigunclemax@gmail.com>
+Cc: linux-iio@vger.kernel.org, Andy Shevchenko <andy.shevchenko@gmail.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Cosmin Tanislav
+ <demonsingur@gmail.com>, Ramona Bolboaca <ramona.bolboaca@analog.com>,
+ William Breathitt Gray <william.gray@linaro.org>, ChiYuan Huang
+ <cy_huang@richtek.com>, Ibrahim Tilki <Ibrahim.Tilki@analog.com>, ChiaEn Wu
+ <chiaen_wu@richtek.com>, Arnd Bergmann <arnd@arndb.de>, Leonard
+ =?UTF-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>, Hugo Villeneuve
+ <hvilleneuve@dimonoff.com>, Caleb Connolly <caleb.connolly@linaro.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs
+ GPADC
+Message-ID: <20230610191204.007c0159@jic23-huawei>
+In-Reply-To: <20230610122934.953106-2-bigunclemax@gmail.com>
+References: <20230610122934.953106-1-bigunclemax@gmail.com>
+	<20230610122934.953106-2-bigunclemax@gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=729; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=vzC5e7CTr+OJcy6GMX4g4oH7k/Hrsknp/1aNi4L7f2Y=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCktGx+emDH74qOflh+v/bC2/ByocltEcKedr2dId+3rg y9OGvwV6ShlYRDjYJAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBEslkZGRa+n5rY6vD+zadV fzef3sXSf+O60tuuSwaS0Y+3dfZrOUQy/BVsc8h4+GVB96vqpUc45tqt/jN/+kOpuoft/5cVu56 uCOUEAA==
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230610_102524_207275_C0C4C15B 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20230610_105534_437456_373B74D7 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +91,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Sat, 10 Jun 2023 15:29:07 +0300
+Maksim Kiselev <bigunclemax@gmail.com> wrote:
 
-To permit validation of cpu nodes, swap "additionalProperties: true"
-out for "unevaluatedProperties: false".
+> From: Maxim Kiselev <bigunclemax@gmail.com>
+> 
+> The General Purpose ADC (GPADC) can convert the external signal into
+> a certain proportion of digital value, to realize the measurement of
+> analog signal, which can be applied to power detection and key detection.
+> 
+> Theoretically, this ADC can support up to 16 channels. All SoCs below
+> contain this GPADC IP. The only difference between them is the number
+> of available channels:
+> 
+>  T113 - 1 channel
+>  D1   - 2 channels
+>  R329 - 4 channels
+>  T507 - 4 channels
+> 
+> Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
+> Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- Documentation/devicetree/bindings/riscv/cpus.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Looks good to me. Just the issue Connor pointed out in the DT binding to resolve.
+Note that this will be cutting it fine for this cycle, but 'might'
+make it in if the stars align.  If not it will need to wait for next cycle.
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 5e2db35411f1..d82d5c872a0e 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -152,7 +152,7 @@ required:
-   - riscv,isa
-   - interrupt-controller
- 
--additionalProperties: true
-+unevaluatedProperties: false
- 
- examples:
-   - |
--- 
-2.39.2
-
+Jonathan
 
 _______________________________________________
 linux-riscv mailing list
