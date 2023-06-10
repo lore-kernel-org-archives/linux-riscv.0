@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1640FC7EE29
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 17:59:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7875AC7EE29
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 18:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t9Lh219SOAA/hnh/RykDL2nqn7HqrFCzLpFypJXZ3tA=; b=m9E8LPlhDVTEWHxNm/59d2yNqC
-	/tBnEFhYUro/JyFSasZd9tu6SFmqp7P72KZ4W99NEn4sBuRZp9RnSr8QXVsPjBfM8wRJn2WZhklE5
-	4N9P2u/O0gOtDbaZhgyQPzmPQJzfbI2z36S5eK7/2sw9ipEerLYh4nNMX/X3f61bFd7/LiJYW5HuP
-	auuj59yx82ok5Ui958rQZzkBqya1gjBa96IINKltOQFfke+497a9HHUoBVJ/cvS7l8Mdw8qiCvXKu
-	187ZejuGlj3oW6frvGElTdZOBFfVmFsVp30ktZc1yq+PVksXPqZalCo2tB9LCuW9j4JSUvVTEHwle
-	ao3vQ9UA==;
+	bh=VtSdmwyYlFimFS5XWoueJjonEUJ7RPM5924Witt/dXc=; b=howCw1nXfiEjp1POza7VhpFyCv
+	sqHblewh7UeR+6TG8UrdlBrRvMWdboyJrG+bJ9x4G1DBcD4W0+J/ChbBCaRxLGz5yTs4ipfkNg0hF
+	Rb7dMFXNIrGi3XVmS5lPR8U0ncxvtHdSAlIezbT5H6cu5un9fDhAl72cacqP9ykbzQnSinxjXIlMk
+	RIJ2oJH2Z+M1xlWsvKBkgro8sg6wfA3S6TRzGMjUBBHs8QSyg5zysR3RyaUHCqTsp+BrE8915pgxw
+	yW/5rykpoKE99imFdW+2sOcZvbNNF5ACv0aWP84thKI2fUp7HZDKmYeyOvzxw10c3QlbH225C26p+
+	c/lXSImA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q82sH-00GjPI-28;
-	Sat, 10 Jun 2023 17:59:41 +0000
+	id 1q82uF-00GjgI-0J;
+	Sat, 10 Jun 2023 18:01:43 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q82sE-00GjON-2O;
-	Sat, 10 Jun 2023 17:59:39 +0000
+	id 1q82uB-00Gjeu-0p;
+	Sat, 10 Jun 2023 18:01:40 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1E38260C99;
-	Sat, 10 Jun 2023 17:59:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DAFAC433D2;
-	Sat, 10 Jun 2023 17:59:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9D5C561A35;
+	Sat, 10 Jun 2023 18:01:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6D94C433D2;
+	Sat, 10 Jun 2023 18:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686419976;
-	bh=324/nSprEXjx3/4ifqHmnHXL3quqYl+6QpzMOZ+i0e4=;
+	s=k20201202; t=1686420098;
+	bh=lklu6izAOiwJ8VmIzzbqh8xtnkfI9N34tzyzoxGqvxY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ihinwVsf7EWheCryMaS73Y+fLmVsjcCX9jynU1z6WRiX3DuE8Zl1hNHupJ09bLgni
-	 bgb2GnPANnD7LS94BaIFIwWhnYY7A2No4XjZ13psv4P6lcAKnSWTUZn2448JWBouMr
-	 H+ZIWlyS5l9kWWMiUeemiKbEiCF2KfzClI+QcdplVglfg3M0FtZo+H7+LdD+2ZLeMi
-	 mzLSG16TgjMmZq0Py+nFIR0LL0Bb06p5jFevjqus5D8KN9KIZ03IArzqNeUEyJRWQX
-	 RdtwcPN8lKIzu7KoYiwcaczYBW/tEiU9bzWGt2HbicneKhVsXtp8xFPxOIhXj7CWXC
-	 2CKwsqmnIv/NQ==
-Date: Sat, 10 Jun 2023 18:59:29 +0100
+	b=FPUaIb2hwDOg/DAOeQYvD/9TjqUSW0Vlr6Su35DH5dxGtBiqUH/L8tY3BFeiq5SRJ
+	 610Fc4ELRP0WLrYcNL3eubINLJdiUZaULSZNxu0HxEFTzvdrR0gsrZHAjGp5dfCBCb
+	 Y0cFQmNPYtSasBbtF8t38jPGEwBPlVR6XtTjzFaNkIbOhu1KmvTpLPHiOTpZxnPo3h
+	 1u8VZj2b3ltxYEi4VNLmgSSrH/3/GkUb67M4VKGHmZf+53Lmnwjy0S5j9sYK4p7ASv
+	 u7Af0BBPnHAKg1WCa4O5odTGRRpMfrcl/Kp1IkxTyu244Oa1A1GjTkvfUG3BZ0ZmZU
+	 0xf4lftXbfFlw==
+Date: Sat, 10 Jun 2023 19:01:31 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Maxim Kiselev <bigunclemax@gmail.com>
 Cc: linux-kernel@vger.kernel.org, Vasily Khoruzhick <anarsoul@gmail.com>,
@@ -65,16 +65,17 @@ Cc: linux-kernel@vger.kernel.org, Vasily Khoruzhick <anarsoul@gmail.com>,
 	linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v1 3/3] dt-bindings: thermal: sun8i: Add binding for
  D1/T113s THS controller
-Message-ID: <20230610-enlarged-agonize-0e9219f9921d@spud>
+Message-ID: <20230610-crumpet-spender-4133090a4728@spud>
 References: <20230610141739.999268-1-bigunclemax@gmail.com>
  <20230610141739.999268-4-bigunclemax@gmail.com>
  <20230610-rehire-amid-2517f43504c0@spud>
  <CALHCpMiEmc8L=O86_x7-KkBHFwf2QpuP0M7ugz7dNPr71cpJmQ@mail.gmail.com>
+ <20230610-enlarged-agonize-0e9219f9921d@spud>
 MIME-Version: 1.0
-In-Reply-To: <CALHCpMiEmc8L=O86_x7-KkBHFwf2QpuP0M7ugz7dNPr71cpJmQ@mail.gmail.com>
+In-Reply-To: <20230610-enlarged-agonize-0e9219f9921d@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230610_105938_888754_591E4242 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20230610_110139_377706_65ECD5B6 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,76 +87,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7401441498920764043=="
+Content-Type: multipart/mixed; boundary="===============6701450073071774098=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7401441498920764043==
+--===============6701450073071774098==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Hu94nUGXXByK8w7k"
+	protocol="application/pgp-signature"; boundary="Y9leMd3iPIBr4SeW"
 Content-Disposition: inline
 
 
---Hu94nUGXXByK8w7k
+--Y9leMd3iPIBr4SeW
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Jun 10, 2023 at 06:30:48PM +0300, Maxim Kiselev wrote:
-> =D1=81=D0=B1, 10 =D0=B8=D1=8E=D0=BD. 2023=E2=80=AF=D0=B3. =D0=B2 17:52, C=
-onor Dooley <conor@kernel.org>:
+On Sat, Jun 10, 2023 at 06:59:29PM +0100, Conor Dooley wrote:
+> On Sat, Jun 10, 2023 at 06:30:48PM +0300, Maxim Kiselev wrote:
+> > =D1=81=D0=B1, 10 =D0=B8=D1=8E=D0=BD. 2023=E2=80=AF=D0=B3. =D0=B2 17:52,=
+ Conor Dooley <conor@kernel.org>:
+> >=20
+> > ...
+> >=20
+> > >
+> > > Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
+> > > Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
+> > >
+> > >> Why do you have 2 sign-offs that are both you w/ different spellings?
+> >=20
+> > Sorry for that. I accidentally signed it twice.
+> >=20
+> > ...
+> >=20
+> > > +  - |
+> > > +    thermal-sensor@2009400 {
+> > > +          compatible =3D "allwinner,sun20i-d1-ths";
+> > > +          reg =3D <0x02009400 0x400>;
+> > > +          interrupts =3D <0 90 0>;
+> > > +          clocks =3D <&ccu 0>;
+> > > +          clock-names =3D "bus";
+> > > +          resets =3D <&ccu 2>;
+> > > +          nvmem-cells =3D <&ths_calibration>;
+> > > +          nvmem-cell-names =3D "calibration";
+> > > +          #thermal-sensor-cells =3D <0>;
+> > >
+> > >> Is this calibration required, or optional, for the d1?
+> >=20
+> > Calibration data for the D1 is optional as for the H6.
+> > (But without it, the sensor data will be inaccurate).
 >=20
-> ...
->=20
-> >
-> > Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
-> > Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
-> >
-> >> Why do you have 2 sign-offs that are both you w/ different spellings?
->=20
-> Sorry for that. I accidentally signed it twice.
->=20
-> ...
->=20
-> > +  - |
-> > +    thermal-sensor@2009400 {
-> > +          compatible =3D "allwinner,sun20i-d1-ths";
-> > +          reg =3D <0x02009400 0x400>;
-> > +          interrupts =3D <0 90 0>;
-> > +          clocks =3D <&ccu 0>;
-> > +          clock-names =3D "bus";
-> > +          resets =3D <&ccu 2>;
-> > +          nvmem-cells =3D <&ths_calibration>;
-> > +          nvmem-cell-names =3D "calibration";
-> > +          #thermal-sensor-cells =3D <0>;
-> >
-> >> Is this calibration required, or optional, for the d1?
->=20
-> Calibration data for the D1 is optional as for the H6.
-> (But without it, the sensor data will be inaccurate).
+> Okay. Modulo the signoff:
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Okay. Modulo the signoff:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Wait, that's not what I meant to say... Clearly turned my brain off for
+a moment. If it is not going to function correctly without the
+calibration data, why not make the calibration data required for the
+d1's ths?
 
 Cheers,
 Conor.
 
---Hu94nUGXXByK8w7k
+--Y9leMd3iPIBr4SeW
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIS6AQAKCRB4tDGHoIJi
-0mIxAP0Z0nJBW9IvYaLg3JZ0QkCPW8ByQAELNYI7OJWCvFzSagD/RjpEIdIWBIMz
-fIc7+Dh1sntIbmOh0+71Nu4lyjVlLws=
-=TcS+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIS6ewAKCRB4tDGHoIJi
+0rexAP9jASDb8H99wbQ++SNJJrD6f2j8d4daxWokKAsYNldy5gEAlK+BUZY0DFLe
+BHRNoCoB9c0U6VXpkEMipQbMB/UvsgI=
+=6tgd
 -----END PGP SIGNATURE-----
 
---Hu94nUGXXByK8w7k--
+--Y9leMd3iPIBr4SeW--
 
 
---===============7401441498920764043==
+--===============6701450073071774098==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -166,5 +173,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7401441498920764043==--
+--===============6701450073071774098==--
 
