@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6B9C7EE29
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724E1C7EE43
 	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 17:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nz/WMEFkhUTkAzsFhDRHvKmxX8QaMLrqEf7v/mGQ3ho=; b=zPFz2ZyVunxuNN
-	XtSxKNR9A5s2d/jjeijav66jwl1i3AfQPK+7jeOQrND7a2krVsMDbZxFDnirnq842ooiS9JeTjyUR
-	+znm9l+tYolUFtu6gt1dpejVl92pkJhK+B8rNgO8c381R9Z1BtRlWG+k5kmoE+ERVHXfr+aM2P394
-	55aqtNWSmPFBuvuFPACzBnmuvWwJpSmdTJrcWVeGg7scGKRwUc8XQ4y5wb9Aak9vCTn2LbrcJEiCU
-	Gl3mte2ujyyGQ6uLou2BENTYdRPiI1sueprbVRYOpI1+Ykvx6Z+NIVuZx8GlDPmSqKTtQu4E03yjP
-	xtoNtTz5fh6x8aWqiQVg==;
+	List-Owner; bh=EeApfGgXR/swgzr4tGyXnDOgvPBWxjhysrRlJ1ZjV/0=; b=YkTbwKZYHVFGO1
+	FT8quZFo1cUDz+ddrerkOVojvec7oHq3Q9Y38rNbyPzKyv06PpWaQXo0LEFnCjEHh+/WzTPpRVWrX
+	lBI0xJnJfBp8asxPxekiTixhkumAXrXANEYxnver+jnIagG1YNWwU3t0Fc41qC8+G86uanlf+ksMi
+	a1LRiWkxHQnKlnXFdYtu0OB32SiheXDqwQQ8tFme+3Bdz538ycK/QdDUCgZB8esvUtTSxs2Ub60Th
+	8RSIKGPCCIyQc6Oe/QQEI0+6w6BgJ6WydWtCHY8HQxhslc/l2GnxvHW1vjkQDPXQtpeap+ooDAWGh
+	r9yybZBFazbAi9zCJXNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q82L7-00GevL-0R;
-	Sat, 10 Jun 2023 17:25:25 +0000
+	id 1q82L8-00GewT-2l;
+	Sat, 10 Jun 2023 17:25:26 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q82L3-00Get4-2p
+	id 1q82L6-00Getv-0P
 	for linux-riscv@lists.infradead.org;
-	Sat, 10 Jun 2023 17:25:23 +0000
+	Sat, 10 Jun 2023 17:25:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6C3E6611A5;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B0FD761567;
+	Sat, 10 Jun 2023 17:25:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46019C4339C;
 	Sat, 10 Jun 2023 17:25:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED653C4339E;
-	Sat, 10 Jun 2023 17:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686417920;
-	bh=hm8DFtI0+spkXUeJgFAB5WoC+koaV/CfCqr4C9q9gnA=;
+	s=k20201202; t=1686417923;
+	bh=tuqTKew1pmcWljWXjwIE2elKVYInmZpla1AX7Tht4Qg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HFjqa4SyfhT6CpI0rgZuv7zUWeXAq40+W98EwPO70oi7ZQc+vq7zs6NtCYQbRhUO0
-	 RVPxmZM7MUiOLJ3xgULwcdDPAGtprU2eggSwt0d61GgHaCJc34Jr5F+Y79iPFNN7eQ
-	 ozZVS6rsMywFaXbvux5cXvJxrsjiww6Kz7c49pXaURJWFPHVtg07KglrRX2c4PTy2W
-	 KUPdxIixl9LTNsUtmeJCykDF+oxZKmA79LHPGREA8frTZX0XYkx9zpEHtEYNkd7gdz
-	 jnH5KfFks8DiP1WzD1Z2+KB/4+kNy584yFK1FKjYSH4SiHsCVgHI/nlqV167kI6pu6
-	 tVf8eLQdB2UUQ==
+	b=oXBwE1ORTw48+VW7+mlJJrrhcA7HLqhUB+nf5HY9Xlztjidq61XVGXytcYEQ27ptM
+	 oPpZIvwcgdui/Bsiuj8ikSTclKZmSBL0Fpw8tEMETxt9E4ldi1j6ZR5+z1dle3spBL
+	 wcjZDQsaZ0pTRoJHgtkRSyjxxVFsNFVzxLFcAHHtoA7qmFzNxAQH0zSEjXpcave89b
+	 HhrC0EUXy6Q9al2iAxrIrirv5TcOfu18jvi1jYhVb1c3ven+s2sJbBZ2fgkM0Tjg8P
+	 0WlQ4UueYqc89YpUZ0NtyDYHSsZn5kOaAvC3ElstCieo4nOwZ3wBXAXqK9hm3FEWsa
+	 c6qqVxvh9NPsg==
 From: Conor Dooley <conor@kernel.org>
 To: palmer@dabbelt.com
 Cc: conor@kernel.org,
@@ -54,19 +54,18 @@ Cc: conor@kernel.org,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 5/6] dt-bindings: riscv: cpus: document cpu-supply
-Date: Sat, 10 Jun 2023 18:24:52 +0100
-Message-Id: <20230610-quaintly-eastcoast-c006ff4ce942@spud>
+Subject: [PATCH v1 6/6] dt-bindings: riscv: cpus: switch to unevaluatedProperties: false
+Date: Sat, 10 Jun 2023 18:24:53 +0100
+Message-Id: <20230610-koala-bronze-3592637a5d1f@spud>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230610-snaking-version-81ae5abb7573@spud>
 References: <20230610-snaking-version-81ae5abb7573@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=849; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=f3zWC+rsKH2/myZR3Jx3qGAL8gTZdvoMweP7fwlgFq4=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCktGx8u3/X1x4NSbceCwBLds7qTVCYkvr+r+mprrELeT dvuM5OzOkpZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRjc8YGS4/ds35MPtkR/2L g8F9lh4ub7Um/zWOMIyusfTaqd2f/4KR4YaSrKbsw58LTt9NNbeaW/WIKT3obUSkH9fkvFVf5zx 9zQgA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=729; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=vzC5e7CTr+OJcy6GMX4g4oH7k/Hrsknp/1aNi4L7f2Y=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCktGx+emDH74qOflh+v/bC2/ByocltEcKedr2dId+3rg y9OGvwV6ShlYRDjYJAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBEslkZGRa+n5rY6vD+zadV fzef3sXSf+O60tuuSwaS0Y+3dfZrOUQy/BVsc8h4+GVB96vqpUc45tqt/jN/+kOpuoft/5cVu56 uCOUEAA==
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230610_102521_954523_D2081FE1 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230610_102524_207275_C0C4C15B 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +84,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-To facilitate switching to "unevaluatedProperties: false", document the
-cpu-supply property that is already in use in several Allwinner
-devicetrees.
+To permit validation of cpu nodes, swap "additionalProperties: true"
+out for "unevaluatedProperties: false".
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 00d1e273f1a9..5e2db35411f1 100644
+index 5e2db35411f1..d82d5c872a0e 100644
 --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
 +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -62,6 +62,10 @@ properties:
-   clocks:
-     maxItems: 1
+@@ -152,7 +152,7 @@ required:
+   - riscv,isa
+   - interrupt-controller
  
-+  cpu-supply:
-+    description:
-+      Regulator supplying the CPU's power rail.
-+
-   mmu-type:
-     description:
-       Identifies the MMU address translation mode used on this
+-additionalProperties: true
++unevaluatedProperties: false
+ 
+ examples:
+   - |
 -- 
 2.39.2
 
