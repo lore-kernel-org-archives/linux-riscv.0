@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF40C7EE2F
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 16:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF1A8C83005
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 17:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hormqxzI9oMoAEzzvBH5hNbDlcFf5Z7gGcKXu7/DJe0=; b=BwPLE5frj2Fs7m
-	zPEmSr542Okb6Ezev1sbALbk4ygt5P4NQ08/rNoHz/GKhqEo+O4Nr90J1O/esiHwDbH2thtiwqu0o
-	MFoSfGc4WcCkXltIE1Tem04qRIc0k0Acapjv9Sb+2uZfa0K1pRtAiDkIhnILQEaojStwq9zj4nUq9
-	a6zf4KpIlSO+PzvTwDs4BuMn1+oDyM/fdxxUbyDdK9D6D6FOzlHH6HboH22jDJUO2kwhiQiUuF5rs
-	yiNfkNC2I1GojLNEc9W23DjI467rQ2OF2kFD+iSVZNIwYROcvjXUnqi1hq3jMNTIT3lsncXGRQivb
-	CnA6p8rhjaXW+tWoJUfQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TJMM73Fwn0BGWQqaqbAFSNAlJS0+gqUAmQhoalgAeRk=; b=n07zcEXANZ/8cc
+	PSXcqonX2dlNV5KqZRi4oJehyUh7c2fdSnpvxhtXGzd2qIQaWGSAFVwTWMX07U2uLrCZMXFnqul8A
+	birFd6qCB1RiPRtsQYvjlb1OEq0F3G2MxQFY8E+1xKnshZ2WZXLq4rk8FlvoCHHwxsTKQecuOnLIH
+	PAY3D8pY0L+54TAn1//Mvu5YGWT4ZLkBtLrrQbMwizuTXl526A88o+cdPYAK3owO7KNuvtw2jNl46
+	YtMc8sSa8PcCyxGh4OFlpHt6hOpgmJ1TFOQqIHSM2rcQocVXG4JHNFA8Zgq1xACYfXf6CKXrxSjea
+	gtX9igcemiOA96BwwKwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q81ve-00GcNR-2E;
-	Sat, 10 Jun 2023 16:59:06 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1q82Ky-00Ger2-0Z;
+	Sat, 10 Jun 2023 17:25:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q81va-00GcMW-2x
+	id 1q82Kw-00Gepu-0R
 	for linux-riscv@lists.infradead.org;
-	Sat, 10 Jun 2023 16:59:04 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-98-8BQbVs2MNh2fTOBXaJ3mkg-1; Sat, 10 Jun 2023 17:58:58 +0100
-X-MC-Unique: 8BQbVs2MNh2fTOBXaJ3mkg-1
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sat, 10 Jun
- 2023 17:58:54 +0100
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Sat, 10 Jun 2023 17:58:54 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: David Laight <David.Laight@ACULAB.COM>, 'Zhangjin Wu'
-	<falcon@tinylab.org>, "w@1wt.eu" <w@1wt.eu>
-CC: "arnd@arndb.de" <arnd@arndb.de>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "thomas@t-8ch.de" <thomas@t-8ch.de>
-Subject: RE: [PATCH v2 4/4] tools/nolibc: sys.h: apply __syscall() helper
-Thread-Topic: [PATCH v2 4/4] tools/nolibc: sys.h: apply __syscall() helper
-Thread-Index: AQHZmQJ1YTdtMnXhOkqSBnIhvL9uWq+EPW+ggAAJOcA=
-Date: Sat, 10 Jun 2023 16:58:54 +0000
-Message-ID: <6dcd7c69f95f4fed8cc3d0add1f7d6e9@AcuMS.aculab.com>
-References: <ZIAB7bFYegCuXT9g@1wt.eu>
- <20230607053920.667272-1-falcon@tinylab.org>
- <0295105fe0744200bf2ef99e5bf7bc09@AcuMS.aculab.com>
-In-Reply-To: <0295105fe0744200bf2ef99e5bf7bc09@AcuMS.aculab.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Sat, 10 Jun 2023 17:25:15 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E54C561010;
+	Sat, 10 Jun 2023 17:25:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 754CCC433D2;
+	Sat, 10 Jun 2023 17:25:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686417909;
+	bh=+CGO6+qAMKLfPjunyiWqLb8FIpRIF17JdrAj2A38lbQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Guf3S4EcErxRdPDv1P4FruQrkdW3AAtM9QrK9OPiiciRmjTpUlIGA0ohCxpbwLqpV
+	 gBPdZwXUy57hV28Ht4RHj4Tyc8H/IOZBvtJ960dCBXMdeoQ1Ak5vNAJiMLSbFDgUvl
+	 SjwkfOcMODgKVUdsNn+DMGkptR1AMYB3L9CBPVEC0YmdsKrzHXHP0LORnfRtveBr7M
+	 NXG3gEBjpO/AhwLIcISEdjB/pYqISUJwpJE2iLejQL1pnhssJ0TpLWoYlIjvTUIIP/
+	 gjeMEuEnamAKxle46Vxo5iLT0OwydGFqiOZEAlDgk9vLMB4yaxtVyb/0xGDjnws52s
+	 q2P6saDY/0Ctw==
+From: Conor Dooley <conor@kernel.org>
+To: palmer@dabbelt.com
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/6] dt-bindings: riscv: cpus: switch to unevaluatedProperties: false
+Date: Sat, 10 Jun 2023 18:24:47 +0100
+Message-Id: <20230610-snaking-version-81ae5abb7573@spud>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+X-Developer-Signature: v=1; a=openpgp-sha256; l=972; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=/IRjjbSMe5wvcyT1lUiwzTIegPvYC2KIb2FTQX8vuGA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCktGx/IHfklX+DUwN6ZMHef0mKr4rVxgUaiVR6n3S9F2 f9zeeLTUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIkcbmD4Z5gq1rNnv5voLV/n hv9Nygu/ftxWcc2wUIRHWfih+J9HaxgZlt94UDal7M+Ld7caDx2/dVJRyTrMqjPJ8Luv6iXJ9J4 OdgA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230610_095903_243123_8DE7961C 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20230610_102514_221451_4F5A17CE 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,54 +81,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: David Laight
-> Sent: 10 June 2023 17:34
-> 
-> From: Zhangjin Wu
-> > Sent: 07 June 2023 06:39
-> ...
-> > As a summary, will use 'sysret()' and something like:
-> >
-> >    static __attribute__((unused))
-> >    int chdir(const char *path)
-> >    {
-> >    	return sysret(chdir(path));
-> >    }
-> >
-> > to renew the syscall helper patchset, Thanks you very much.
-> 
-> While I'm all for using 'cpp-magic' to abstract and (hopefully)
-> simplify things. Token-pasting the sys_ here doesn't seem to gain
-> anything.
-> Anyone grepping the code for 'sys_chdir' is also going to
-> wonder where it is used.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-I think I've spotted a later version of the patch
-that doesn't paste the sys_
+Do the various bits needed to drop the additionalProperties: true that
+we currently have in riscv/cpu.yaml, to permit actually enforcing what
+people put in cpus nodes.
 
-> There might be scope for something like:
-> #define syscall_wrapper(func, type) \
-> 	static __attribute__((unused)) \
-> 	int func(type *arg) \
-> 	{ \
-> 		return sysret(sys_#func(arg)); \
-> 	}
-> and then:
-> syscall_wrapper(chdir, const char *)
-> would expand to the code above.
-> 
-> I think you'd need separate defines for each number of arguments.
+CC: Rob Herring <robh+dt@kernel.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: linux-riscv@lists.infradead.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
 
-It is also worth pointing out that once the 'static unused'
-functions have been defined, all the #define 'goop' used to
-define them can be summarily #undef'ed.
-That (mostly) solves the namespace problem.
+Conor Dooley (6):
+  dt-bindings: riscv: cpus: add a ref the common cpu schema
+  dt-bindings: riscv: cpus: allow clocks property
+  dt-bindings: riscv: cpus: add a ref to thermal-cooling-cells
+  dt-bindings: riscv: cpus: permit operating-points-v2
+  dt-bindings: riscv: cpus: document cpu-supply
+  dt-bindings: riscv: cpus: switch to unevaluatedProperties: false
 
-	David
+ .../devicetree/bindings/riscv/cpus.yaml         | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+-- 
+2.39.2
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
