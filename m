@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB64C7EE29
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 15:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B91F4C7EE29
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Jun 2023 15:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ruEj52fVRI9olsg6vzk4Ja8z/7SBKO9EOkaLAQQXeJw=; b=YfyqSKYw2FhGOL
-	zs9s3349bsY4ReiWy4YS6Wkv/Xymu1lK+sOw0fGtgTCw6C63VlX/XMrmiuEapap5m5nlvJ8rwCLts
-	zYWRviQWTGLZFhaH0RoyegQmqg78piMIM4xUjCVaux1Y6Yr/1kUzI3723PGeMmbTRU98ChLfn0+kq
-	71Io2rUCiLX1W8SiONEvTiwVWzYAgJpHBCnk0sxR1a+8AWeYKxVf0sDvIoQskzo5Ggo2Nb/FMAkqi
-	8y5wSft8/PLwpe9FjUoFUWM1w+QT1oaaY2cRU0myKc9TBZoYNlM67wwXYb02eHQUR521VVyfDoKAG
-	nPy0JKbVamg3Qs9YBXpg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E1UKa81mHVafU5OK8Jq8kOACllX4YGRqbw5u9ZKss4E=; b=UTOX0RfKF4GAWF6uRdplWtHQU8
+	j/m5GhZ6xzlvcftdEkEaw80HJn6NfCs1k4jk7HxZA3I95pQTHJpGQEKtW9lpPqsSGiCmuvxWnrxPB
+	dMduOrk0FkowLvubr8Nb3/ekEJAjseXalx2f70m/M4rQQPvE2CKlN1eNU4C4tDjQ/GUDk+3aJD8ER
+	4OaVwGUjWPNb1wubVM0xtqD00rjZGs+EAPAaiUxD3MuTPJ7sqoD/RzzDBIBdYQ9T8N16iy8fKhEpq
+	fA5uZkGn4r7PtE2x0CPMVTPgR0XS9Yot2Eo5FQNTUqHtPrGDNwSfLuX+5mC1CgaDYWUsLCi1wHdSn
+	VyTBAcFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q80YX-00GSYm-08;
-	Sat, 10 Jun 2023 15:31:09 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1q80hJ-00GTQA-2g;
+	Sat, 10 Jun 2023 15:40:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q80YS-00GSXO-2L;
-	Sat, 10 Jun 2023 15:31:06 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-977cf86aae5so419530966b.0;
-        Sat, 10 Jun 2023 08:31:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1686411060; x=1689003060;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IxPCqAAcwCfGdUZiMxaBjYAZU0A3wquYmcYNKNjhuUY=;
-        b=VW/oFge+/+Orjlr3UpOgqadtUtBJ58tLJh7c0ptmvXHTALLI1Zz51N8TQSh9+aWdzL
-         7VvgNo2iitsbJxxSrRsWx2ElXrUNQuqwp58AqaSWSR4MSb2p9jFQXMx61pVnLw9CzoxG
-         +r0AdHepDGV1z/buMuMRwTLzgjk7Czyiwrfdwe7PF5abkrNROckIPIIXpr7LBt7cY1sp
-         EGzLGx82Tf4t+lCcuIQJGM9ENkfSvd62acQeVjSUx6IeJnINgNEDTEQ/AnZoyEfE7ybl
-         KA2+DI0SydJ5SmngpTSk2UYMStrAzFTfDFZ5jYHKRZcjhkat9scfDh6JIkCrSwnTMZ4g
-         7YcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686411060; x=1689003060;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IxPCqAAcwCfGdUZiMxaBjYAZU0A3wquYmcYNKNjhuUY=;
-        b=Uzg6gd72NnUg7z/iOGATDeZK3eFNYYFUhvJEx3BldusRcE4De8jFJQKBON844ITRUZ
-         XrSqWLRHSCWaiKgMx5QuBffDxZQR/+8HQ5zBkrtnESVdxoX4kmFz4awf5mppaENOH7hf
-         sFyTxf61wAadeEBB5I0G3WmRK5jVRBn5V2iccU9n9U8O14dmoeb+jHXzCZ3EV3mnOrGU
-         kRDpZkqzs7XFwEgq06uwQf3Oo4MbN+7+YotGZcgWm+5SDDIFbLOp77sM2EGBHf+vUTA3
-         xBJ1cbpmaILvbRJtGcmBdivStrIj23V7qJxcBLcDyO4yB15Vdvw0ICBSy196lNPqwmAD
-         M4wg==
-X-Gm-Message-State: AC+VfDz4Ez04UhXDFN9eAv4D7FOKbSLMLGZkFyamG1vhBlQOoTA36bZ2
-	4mmzVAdrxbEpmcxAwmz9r2wgvJaqTEEtOCMiWGo=
-X-Google-Smtp-Source: ACHHUZ5ze2gv8QfGmKLPkmbnKeZqHcnYPyn27zxIIkW9XeukUemNkvD0q1gl/Wy1GyoPAlHRwGYvRgduuF0eBtVKhis=
-X-Received: by 2002:a17:907:c15:b0:97b:4c8f:c44f with SMTP id
- ga21-20020a1709070c1500b0097b4c8fc44fmr3530103ejc.46.1686411059681; Sat, 10
- Jun 2023 08:30:59 -0700 (PDT)
+	id 1q80hF-00GTOv-1y;
+	Sat, 10 Jun 2023 15:40:11 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A527C60BFF;
+	Sat, 10 Jun 2023 15:40:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BDD7C433D2;
+	Sat, 10 Jun 2023 15:40:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686411605;
+	bh=/Ofoh0I1XnlXPrUcylaPl3zI8vSXYdbK5AqQOlhyJDM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FTaoUii41+/zbN5OnM2Xrz2U59v9x8zJlTSmJR5e9KOVhvdnpBNuwO7wFfRZjHk1N
+	 BlbVt6KQEdybsiIJwqbeltnfJvzTD/Z1og+HgFBmanz8ghO5DTsqw+F218G+A38q0x
+	 YKeKD0W8cvRfPS3BpG0BShu+OuPfGmdzD9ECN7SpVRxCrbY+0jpBYHt4L+EV5nX3Gn
+	 6o1LHFnz3lOA15xh9m+934txSGLram2NB4QHAqjpyPiQsEzZuqDZWDgftHZoyvmBZL
+	 bROCWlt2SjnE6MsckVPKaNGPC3q1hC1WIei/MaAKe8XOSMvmRy1p6KU4ck6oTJMf/B
+	 cDsoi+TJrxWig==
+Date: Sat, 10 Jun 2023 16:39:59 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Song Shuai <songshuaishuai@tinylab.org>
+Cc: catalin.marinas@arm.com, will@kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, chris@zankel.net,
+	jcmvbkbc@gmail.com, steven.price@arm.com, vincenzo.frascino@arm.com,
+	leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com,
+	jeeheng.sia@starfivetech.com, conor.dooley@microchip.com,
+	ajones@ventanamicro.com, linux@armlinux.org.uk,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH V2 3/4] riscv: hibernate: remove WARN_ON in
+ save_processor_state
+Message-ID: <20230610-immerse-stained-e07fa52fa978@spud>
+References: <20230609075049.2651723-1-songshuaishuai@tinylab.org>
+ <20230609075049.2651723-4-songshuaishuai@tinylab.org>
 MIME-Version: 1.0
-References: <20230610141739.999268-1-bigunclemax@gmail.com>
- <20230610141739.999268-4-bigunclemax@gmail.com> <20230610-rehire-amid-2517f43504c0@spud>
-In-Reply-To: <20230610-rehire-amid-2517f43504c0@spud>
-From: Maxim Kiselev <bigunclemax@gmail.com>
-Date: Sat, 10 Jun 2023 18:30:48 +0300
-Message-ID: <CALHCpMiEmc8L=O86_x7-KkBHFwf2QpuP0M7ugz7dNPr71cpJmQ@mail.gmail.com>
-Subject: Re: [PATCH v1 3/3] dt-bindings: thermal: sun8i: Add binding for
- D1/T113s THS controller
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Vasily Khoruzhick <anarsoul@gmail.com>, 
-	Yangtao Li <tiny.windzz@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Amit Kucheria <amitk@kernel.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+In-Reply-To: <20230609075049.2651723-4-songshuaishuai@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230610_083104_770441_2BE0176D 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230610_084009_762198_A91B0338 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,27 +75,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8543139148887249318=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-0YHQsSwgMTAg0LjRjtC9LiAyMDIz4oCv0LMuINCyIDE3OjUyLCBDb25vciBEb29sZXkgPGNvbm9y
-QGtlcm5lbC5vcmc+OgoKLi4uCgo+Cj4gU2lnbmVkLW9mZi1ieTogTWF4aW0gS2lzZWxldiA8Ymln
-dW5jbGVtYXhAZ21haWwuY29tPgo+IFNpZ25lZC1vZmYtYnk6IE1ha3NpbSBLaXNlbGV2IDxiaWd1
-bmNsZW1heEBnbWFpbC5jb20+Cj4KPj4gV2h5IGRvIHlvdSBoYXZlIDIgc2lnbi1vZmZzIHRoYXQg
-YXJlIGJvdGggeW91IHcvIGRpZmZlcmVudCBzcGVsbGluZ3M/CgpTb3JyeSBmb3IgdGhhdC4gSSBh
-Y2NpZGVudGFsbHkgc2lnbmVkIGl0IHR3aWNlLgoKLi4uCgo+ICsgIC0gfAo+ICsgICAgdGhlcm1h
-bC1zZW5zb3JAMjAwOTQwMCB7Cj4gKyAgICAgICAgICBjb21wYXRpYmxlID0gImFsbHdpbm5lcixz
-dW4yMGktZDEtdGhzIjsKPiArICAgICAgICAgIHJlZyA9IDwweDAyMDA5NDAwIDB4NDAwPjsKPiAr
-ICAgICAgICAgIGludGVycnVwdHMgPSA8MCA5MCAwPjsKPiArICAgICAgICAgIGNsb2NrcyA9IDwm
-Y2N1IDA+Owo+ICsgICAgICAgICAgY2xvY2stbmFtZXMgPSAiYnVzIjsKPiArICAgICAgICAgIHJl
-c2V0cyA9IDwmY2N1IDI+Owo+ICsgICAgICAgICAgbnZtZW0tY2VsbHMgPSA8JnRoc19jYWxpYnJh
-dGlvbj47Cj4gKyAgICAgICAgICBudm1lbS1jZWxsLW5hbWVzID0gImNhbGlicmF0aW9uIjsKPiAr
-ICAgICAgICAgICN0aGVybWFsLXNlbnNvci1jZWxscyA9IDwwPjsKPgo+PiBJcyB0aGlzIGNhbGli
-cmF0aW9uIHJlcXVpcmVkLCBvciBvcHRpb25hbCwgZm9yIHRoZSBkMT8KCkNhbGlicmF0aW9uIGRh
-dGEgZm9yIHRoZSBEMSBpcyBvcHRpb25hbCBhcyBmb3IgdGhlIEg2LgooQnV0IHdpdGhvdXQgaXQs
-IHRoZSBzZW5zb3IgZGF0YSB3aWxsIGJlIGluYWNjdXJhdGUpLgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============8543139148887249318==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="rZXGa7jE6687ew2c"
+Content-Disposition: inline
+
+
+--rZXGa7jE6687ew2c
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Jun 09, 2023 at 03:50:48PM +0800, Song Shuai wrote:
+> During hibernation or restoration, freeze_secondary_cpus
+> checks num_online_cpus via BUG_ON, and the subsequent
+> save_processor_state also does the checking with WARN_ON.
+>=20
+> In the case of CONFIG_PM_SLEEP_SMP=3Dn, freeze_secondary_cpus
+> is not defined, but the sole possible condition to disable
+> CONFIG_PM_SLEEP_SMP is !SMP where num_online_cpus is always 1.
+> We also don't have to check it in save_processor_state.
+>=20
+> So remove the unnecessary checking in save_processor_state.
+
+In the future, please write function with a () in commit
+messages, so freeze_secondary_cpus() etc.
+Otherwise,
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+>=20
+> Fixes: c0317210012e ("RISC-V: Add arch functions to support hibernation/s=
+uspend-to-disk")
+> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+> ---
+>  arch/riscv/kernel/hibernate.c | 1 -
+>  1 file changed, 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/kernel/hibernate.c b/arch/riscv/kernel/hibernate.c
+> index 395f835f067c..86f1c9ab6b0b 100644
+> --- a/arch/riscv/kernel/hibernate.c
+> +++ b/arch/riscv/kernel/hibernate.c
+> @@ -119,7 +119,6 @@ int pfn_is_nosave(unsigned long pfn)
+> =20
+>  void notrace save_processor_state(void)
+>  {
+> -	WARN_ON(num_online_cpus() !=3D 1);
+>  }
+> =20
+>  void notrace restore_processor_state(void)
+> --=20
+> 2.20.1
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--rZXGa7jE6687ew2c
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZISZTgAKCRB4tDGHoIJi
+0vJyAP9EKfmf2sqixNnKmlQNpfPiKuUhZxNlT3lhCKkpFnqHngEAhvOHTbsZXvDm
+ySeqtdfo8Ycj13L8JonolaCh/5o9uQA=
+=qLxy
+-----END PGP SIGNATURE-----
+
+--rZXGa7jE6687ew2c--
+
+
+--===============8543139148887249318==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8543139148887249318==--
+
