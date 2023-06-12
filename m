@@ -4,94 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CA3C7EE2F
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 19:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60392C88CB2
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 21:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VF9ZmTZVorKg0m+OaKvcvaE2Wt5uVc/vGitQn/ceuNM=; b=IF8B7vqzYZyWGj
-	wGkcOng90iJC6oWv7Lmv5wOxR6csuisOAFJcaFiGcagWIXa3TTCqZG3XsdPcGIfRocdRkvHjCBjT4
-	v4APzbO0tEJWvinkKOZYXwwC4JUZwt6/606d2xk9eycXob6FarQNAfhXPK9BSaeB2Ccrh5sHZcNZV
-	IaENjFuvMyy7b5PKBk7tMFbG2mM6G6KA3tvHOUIedJLhRch5c+QLlo847e4AI2EI3tJ4dhAGD/eFY
-	yl4wxK9dOHJVjTS6JMkJfIUjzLOH8IuS9qUXzZQS7kw21dnEVFiOOQxjGa800g/BZOw2JRhWDdIGg
-	VQVrbAabDcvTxjcglb9A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=d/SajnrYpQal0B2COub3DpGDn5nFpIW2G/RM/DcMVZY=; b=NjXTItEXH3nXSD
+	U58fGff7k07n/aO6+qvICqdf9rrqCQ31brkWhx4TnQSuW1UZocjm9xjHbxcWeV98Hku+DFDsH368A
+	cyXN92yIagk39LTEZw9KiDIvygIrCWdlFaWUrreElIk5G/GzP51JuoDDUqDaS+4+zukIxvv97+ySX
+	oMmTtC7AsySUozXW5aUnvYL4JbZlWGzw/+7apr/QjW2QSgzo+P1rYH31YN4pCvRAtVbGvXsJ2X1Bw
+	9lkOmegSoiNwkrVkCozJSe7RyuMT77RFNh7/uYgIOw/kMO2+kqVOtkfBg0H+60nAL2UatYWblxx1V
+	UWsAD9RCBWMsFQRwHqZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8nUt-005AJ2-1y;
-	Mon, 12 Jun 2023 19:46:39 +0000
-Received: from mail-yb1-f173.google.com ([209.85.219.173])
+	id 1q8oiZ-005Mts-0N;
+	Mon, 12 Jun 2023 21:04:51 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8nUq-005AI5-0N;
-	Mon, 12 Jun 2023 19:46:37 +0000
-Received: by mail-yb1-f173.google.com with SMTP id 3f1490d57ef6-bb3a77abd7bso5114790276.0;
-        Mon, 12 Jun 2023 12:46:35 -0700 (PDT)
+	id 1q8oiW-005Mrm-0t;
+	Mon, 12 Jun 2023 21:04:49 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-56d0dbbfc61so20174957b3.2;
+        Mon, 12 Jun 2023 14:04:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1686603886; x=1689195886;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/6pdu881MOfYV84y7VWiKcwnRMuA78CxiUeG+tta1a0=;
+        b=AczjUHTxusxNkOV7VOEz6qxIWLPwqleq1d3zEUXquo3Fhsoe1KG76B/gUTqOv/33pt
+         hkZpJlkJ76KcjlL6x+InhPSbBDifa6NLLiEoUNkBXYArrGr7STcImjuc2VoeU9NxvC54
+         lebWddx8WzULKd+NI5c/Uram1goESu9pTxdzE6eH38FehdYYICJ+bMuQn+ugw7AsVbL/
+         Ov7eTgdYCG1Jz6kQBnoPdVHFrSKaQB695zJO8R2Ai20iELWwDV05kAAdjc5zIkHXp/c4
+         vxfy2MDQ46mM15p8VfpaN3wDCzp8jtDUPX+KA7Bdo1ZYDTCwrfTMRa5pYDNMk4zv//aF
+         toWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686599194; x=1689191194;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QqdHZRyf0AXNBHWGF0CLQrBOhqQeYTmWOmQD+ocjfOs=;
-        b=C3y1ZjLFqaA2btW791/8qFih7w6x5Sr4yexxAk/cbWjvdUHqX4ZJmOq40M091jKh3G
-         bQNDv0y5U/uaWDC+gW1IQeVBfTHdgJt4Gze1nrxES4kdm1q7jlBg1IZbi3aXzc660Cxd
-         EVu6iOdwf7TxFrX65645AB4DjwrRKJJ++8G9zovbUNc6s+WhLPiSUDGZDQSkYFwDcHxa
-         si2bGBzW1SrwRNUV7wphpHxZymo4g2x1u3mm5aqgBtD6QtrMWsyziT2pTFth7UoQkPZi
-         MM7MMvAZMQUHFpvlUTrYFXuxI0gTTIXB4tjAgLVFogtdkLJXPOD90LFUQsWr2AE/4gGo
-         j7LQ==
-X-Gm-Message-State: AC+VfDxjabMhkF0YGB9xNN6iJ0D7tF73NmqzEK0V7T2UpD8rSdBGfkkh
-	NmaPRxuEfAnUYX3+owPUhnsiWrlZBwaPYg==
-X-Google-Smtp-Source: ACHHUZ7qLSDWwKVylGxwZTd04gW4K9Xk4T+cYhep7fv96lOU8RhOHfKATxpcLdGxW8shkejBfySOeQ==
-X-Received: by 2002:a25:32d4:0:b0:bd0:1f43:5618 with SMTP id y203-20020a2532d4000000b00bd01f435618mr698604yby.58.1686599194282;
-        Mon, 12 Jun 2023 12:46:34 -0700 (PDT)
-Received: from mail-yb1-f176.google.com (mail-yb1-f176.google.com. [209.85.219.176])
-        by smtp.gmail.com with ESMTPSA id k7-20020a258c07000000b00bb0ae4221b8sm2637261ybl.43.2023.06.12.12.46.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jun 2023 12:46:34 -0700 (PDT)
-Received: by mail-yb1-f176.google.com with SMTP id 3f1490d57ef6-ba86ea269e0so5104111276.1;
-        Mon, 12 Jun 2023 12:46:34 -0700 (PDT)
-X-Received: by 2002:a05:6358:c6a9:b0:12b:db2f:9d2b with SMTP id
- fe41-20020a056358c6a900b0012bdb2f9d2bmr2288064rwb.22.1686598742584; Mon, 12
- Jun 2023 12:39:02 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1686603886; x=1689195886;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/6pdu881MOfYV84y7VWiKcwnRMuA78CxiUeG+tta1a0=;
+        b=ShZmuoTMgQ3Vw+daZtmWjrIrQctmrBTANoqSNGm69RghWp6zStP0V41NN/2RFIl5t0
+         PT3ZfoLcEbxf3WEXXyRUScKjMvizsLtg0hZ4pZkTFXFq1FiiKLyyb/SAXuqV1K8gajL6
+         /rmhGN13l7+13AmEYf4h6gYyZKBsTIPPVL/kC80Q7LZXoBDqWrzgnREy7x4M+1BBOVN6
+         +CFkDUI/Xfs1bxsYY9oqpkrM8J1DHzzgNHrLx6qEkCYIHxshRT/an8ca1021q+lwIP0b
+         y+r/pBp46y7K/62Eb+5l8R+zGKFfZywjsZy3CSPGxyShuYGC2tVYPip/MKG7PUFG9Phe
+         5DZQ==
+X-Gm-Message-State: AC+VfDxkF6Xx5RO/KkzRLBVT1drtnmXk6SkDuVkBcJ644WEEUeycuXOQ
+	HPtL3Vjcp4yh0F5Q8MwC/IQ=
+X-Google-Smtp-Source: ACHHUZ4D/9qj+eGd5vw1y9G2WYuQd6/SQmHuMHA9sQRxkw6xMG4/k6MTzo+MEXSeyQMTFJpwz0FYww==
+X-Received: by 2002:a0d:cb83:0:b0:56d:4b3:c1cd with SMTP id n125-20020a0dcb83000000b0056d04b3c1cdmr6860688ywd.40.1686603885891;
+        Mon, 12 Jun 2023 14:04:45 -0700 (PDT)
+Received: from unknowna0e70b2ca394.attlocal.net ([2600:1700:2f7d:1800::16])
+        by smtp.googlemail.com with ESMTPSA id s125-20020a817783000000b00569eb609458sm2757115ywc.81.2023.06.12.14.04.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jun 2023 14:04:45 -0700 (PDT)
+From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>
+Cc: linux-mm@kvack.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org,
+	kvm@vger.kernel.org,
+	Hugh Dickins <hughd@google.com>,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Jonas Bonn <jonas@southpole.se>,
+	David Hildenbrand <david@redhat.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Richard Weinberger <richard@nod.at>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>
+Subject: [PATCH v4 00/34] Split ptdesc from struct page
+Date: Mon, 12 Jun 2023 14:03:49 -0700
+Message-Id: <20230612210423.18611-1-vishal.moola@gmail.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-References: <20230612172805.681179-1-eric.devolder@oracle.com> <20230612172805.681179-8-eric.devolder@oracle.com>
-In-Reply-To: <20230612172805.681179-8-eric.devolder@oracle.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 12 Jun 2023 21:38:50 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXAbRVALNVwFhO1S3zsOuVj7OidEF8=0K=qQ-kFn6JQiA@mail.gmail.com>
-Message-ID: <CAMuHMdXAbRVALNVwFhO1S3zsOuVj7OidEF8=0K=qQ-kFn6JQiA@mail.gmail.com>
-Subject: Re: [PATCH v1 07/21] m68k/kexec: refactor for kernel/Kconfig.kexec
-To: Eric DeVolder <eric.devolder@oracle.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	chenhuacai@kernel.org, tsbogend@alpha.franken.de, 
-	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
-	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, 86@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, kernel@xen0n.name, 
-	mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
-	borntraeger@linux.ibm.com, svens@linux.ibm.com, hpa@zytor.com, 
-	keescook@chromium.org, paulmck@kernel.org, peterz@infradead.org, 
-	frederic@kernel.org, akpm@linux-foundation.org, ardb@kernel.org, 
-	samitolvanen@google.com, juerg.haefliger@canonical.com, arnd@arndb.de, 
-	rmk+kernel@armlinux.org.uk, linus.walleij@linaro.org, 
-	sebastian.reichel@collabora.com, rppt@kernel.org, 
-	kirill.shutemov@linux.intel.com, anshuman.khandual@arm.com, ziy@nvidia.com, 
-	masahiroy@kernel.org, ndesaulniers@google.com, mhiramat@kernel.org, 
-	ojeda@kernel.org, thunder.leizhen@huawei.com, xin3.li@intel.com, 
-	tj@kernel.org, gregkh@linuxfoundation.org, tsi@tuyoix.net, bhe@redhat.com, 
-	hbathini@linux.ibm.com, sourabhjain@linux.ibm.com, boris.ostrovsky@oracle.com, 
-	konrad.wilk@oracle.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230612_124636_158910_C66F4E78 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20230612_140448_321528_45DBEC87 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,26 +116,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMTIsIDIwMjMgYXQgNzoyOeKAr1BNIEVyaWMgRGVWb2xkZXIgPGVyaWMuZGV2
-b2xkZXJAb3JhY2xlLmNvbT4gd3JvdGU6Cj4gVGhlIGtleGVjIGFuZCBjcmFzaCBrZXJuZWwgb3B0
-aW9ucyBhcmUgcHJvdmlkZWQgaW4gdGhlIGNvbW1vbgo+IGtlcm5lbC9LY29uZmlnLmtleGVjLiBV
-dGlsaXplIHRoZSBjb21tb24gb3B0aW9ucyBhbmQgcHJvdmlkZQo+IHRoZSBBUkNIX0hBU18gYW5k
-IEFSQ0hfU1VQUE9SVFNfIGVudHJpZXMgdG8gcmVjcmVhdGUgdGhlCj4gZXF1aXZhbGVudCBzZXQg
-b2YgS0VYRUMgYW5kIENSQVNIIG9wdGlvbnMuCj4KPiBTaWduZWQtb2ZmLWJ5OiBFcmljIERlVm9s
-ZGVyIDxlcmljLmRldm9sZGVyQG9yYWNsZS5jb20+CgpSZXZpZXdlZC1ieTogR2VlcnQgVXl0dGVy
-aG9ldmVuIDxnZWVydEBsaW51eC1tNjhrLm9yZz4KQWNrZWQtYnk6IEdlZXJ0IFV5dHRlcmhvZXZl
-biA8Z2VlcnRAbGludXgtbTY4ay5vcmc+CgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAgICAgICAg
-ICAgICAgICAgICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90
-cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29u
-YWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBo
-YWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInBy
-b2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+The MM subsystem is trying to shrink struct page. This patchset
+introduces a memory descriptor for page table tracking - struct ptdesc.
+
+This patchset introduces ptdesc, splits ptdesc from struct page, and
+converts many callers of page table constructor/destructors to use ptdescs.
+
+Ptdesc is a foundation to further standardize page tables, and eventually
+allow for dynamic allocation of page tables independent of struct page.
+However, the use of pages for page table tracking is quite deeply
+ingrained and varied across archictectures, so there is still a lot of
+work to be done before that can happen.
+
+This is rebased on next-20230609.
+
+v4:
+  Got more Acked-bys
+  Fixed m68k compilation issue
+  Dropped unnecessary casts
+  Cleanup some fields in struct ptdesc
+
+Vishal Moola (Oracle) (34):
+  mm: Add PAGE_TYPE_OP folio functions
+  s390: Use _pt_s390_gaddr for gmap address tracking
+  s390: Use pt_frag_refcount for pagetables
+  pgtable: Create struct ptdesc
+  mm: add utility functions for ptdesc
+  mm: Convert pmd_pgtable_page() to pmd_ptdesc()
+  mm: Convert ptlock_alloc() to use ptdescs
+  mm: Convert ptlock_ptr() to use ptdescs
+  mm: Convert pmd_ptlock_init() to use ptdescs
+  mm: Convert ptlock_init() to use ptdescs
+  mm: Convert pmd_ptlock_free() to use ptdescs
+  mm: Convert ptlock_free() to use ptdescs
+  mm: Create ptdesc equivalents for pgtable_{pte,pmd}_page_{ctor,dtor}
+  powerpc: Convert various functions to use ptdescs
+  x86: Convert various functions to use ptdescs
+  s390: Convert various gmap functions to use ptdescs
+  s390: Convert various pgalloc functions to use ptdescs
+  mm: Remove page table members from struct page
+  pgalloc: Convert various functions to use ptdescs
+  arm: Convert various functions to use ptdescs
+  arm64: Convert various functions to use ptdescs
+  csky: Convert __pte_free_tlb() to use ptdescs
+  hexagon: Convert __pte_free_tlb() to use ptdescs
+  loongarch: Convert various functions to use ptdescs
+  m68k: Convert various functions to use ptdescs
+  mips: Convert various functions to use ptdescs
+  nios2: Convert __pte_free_tlb() to use ptdescs
+  openrisc: Convert __pte_free_tlb() to use ptdescs
+  riscv: Convert alloc_{pmd, pte}_late() to use ptdescs
+  sh: Convert pte_free_tlb() to use ptdescs
+  sparc64: Convert various functions to use ptdescs
+  sparc: Convert pgtable_pte_page_{ctor, dtor}() to ptdesc equivalents
+  um: Convert {pmd, pte}_free_tlb() to use ptdescs
+  mm: Remove pgtable_{pmd, pte}_page_{ctor, dtor}() wrappers
+
+ Documentation/mm/split_page_table_lock.rst    |  12 +-
+ .../zh_CN/mm/split_page_table_lock.rst        |  14 +-
+ arch/arm/include/asm/tlb.h                    |  12 +-
+ arch/arm/mm/mmu.c                             |   6 +-
+ arch/arm64/include/asm/tlb.h                  |  14 +-
+ arch/arm64/mm/mmu.c                           |   7 +-
+ arch/csky/include/asm/pgalloc.h               |   4 +-
+ arch/hexagon/include/asm/pgalloc.h            |   8 +-
+ arch/loongarch/include/asm/pgalloc.h          |  27 ++-
+ arch/loongarch/mm/pgtable.c                   |   7 +-
+ arch/m68k/include/asm/mcf_pgalloc.h           |  41 ++--
+ arch/m68k/include/asm/sun3_pgalloc.h          |   8 +-
+ arch/m68k/mm/motorola.c                       |   4 +-
+ arch/mips/include/asm/pgalloc.h               |  31 +--
+ arch/mips/mm/pgtable.c                        |   7 +-
+ arch/nios2/include/asm/pgalloc.h              |   8 +-
+ arch/openrisc/include/asm/pgalloc.h           |   8 +-
+ arch/powerpc/mm/book3s64/mmu_context.c        |  10 +-
+ arch/powerpc/mm/book3s64/pgtable.c            |  32 +--
+ arch/powerpc/mm/pgtable-frag.c                |  46 ++--
+ arch/riscv/include/asm/pgalloc.h              |   8 +-
+ arch/riscv/mm/init.c                          |  16 +-
+ arch/s390/include/asm/pgalloc.h               |   4 +-
+ arch/s390/include/asm/tlb.h                   |   4 +-
+ arch/s390/mm/gmap.c                           | 222 +++++++++++-------
+ arch/s390/mm/pgalloc.c                        | 126 +++++-----
+ arch/sh/include/asm/pgalloc.h                 |   9 +-
+ arch/sparc/mm/init_64.c                       |  17 +-
+ arch/sparc/mm/srmmu.c                         |   5 +-
+ arch/um/include/asm/pgalloc.h                 |  18 +-
+ arch/x86/mm/pgtable.c                         |  46 ++--
+ arch/x86/xen/mmu_pv.c                         |   2 +-
+ include/asm-generic/pgalloc.h                 |  62 +++--
+ include/asm-generic/tlb.h                     |  11 +
+ include/linux/mm.h                            | 155 ++++++++----
+ include/linux/mm_types.h                      |  14 --
+ include/linux/page-flags.h                    |  20 +-
+ include/linux/pgtable.h                       |  60 +++++
+ mm/memory.c                                   |   8 +-
+ 39 files changed, 664 insertions(+), 449 deletions(-)
+
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
