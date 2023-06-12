@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE72C87FF1
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 05:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEEADC88C83
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 05:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zdMo/zlk2A82RuW4wB/o3C5BVxDwiG8l2QpgEctVJDU=; b=y2IBiY2iIyMSS6
-	+jokINoO0spMApARWs5GPoG7EWs2bh3G01x6zZ87KvBu6Blg7tmV5d0o/A00coD+Z1XfrcZhPjXW1
-	BUHhbC1niOeWt6OntxMI1X9OLlRi9F7Um8cGeUryhrHNy4fKCEen+IitmgGcQTypKPqDdYCQ1d8HV
-	NsfVKw/ndffLwg+FmHAYgHJI7vx+W3fr3yxwwfov+XFHAy0jnC7ZoU4THEJqwQ3UDv6cSzqUqO0r4
-	2qn5wu6lDfvWiWp5uIsG0s3VScOBjAlFgRwpHgNPpT+oGZrMm7zVuo8+l0iCoTHrpjYG2GLjVLJLV
-	6nCtXOvkjjGn1fIi918w==;
+	List-Owner; bh=44oh/FEG78cm8WIAADms/MHqpZyatPp5O3lFHfJ5v+E=; b=nttnVHSe00ac6f
+	1ZBtQeP2hcDH1v3HzBkedmhkJLziihMN31ZmjE9JuXrLtAmVlIi/EpXRcy67TUbVNNMJVUVB2orL2
+	v4eJ7COF3MnOtcA2FhB79P434wzagaUAvnUlwIAnMGnl0zI9VexuNydPmZ3Duf24lovLsRwKTty1h
+	2u/uBMGP1BKPOF6s/hvHIQn/AvdHgnzwwiFHS/nln98YGwMwiu6OpsWCh/NAy7+3XNKbit78nxG9M
+	nB7Jn1YhUlDFZGQ5bYeZTSGJ14pcNY2wsaRxDDdDYhIpOfSM3WMj3Zj6d5UclkqnluPxwH18ROqzD
+	Il7HbX3a2M4vDMYC2g2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8aHZ-002fhp-02;
-	Mon, 12 Jun 2023 05:40:01 +0000
-Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
+	id 1q8aHe-002fkW-0E;
+	Mon, 12 Jun 2023 05:40:06 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8aHW-002fgg-1O
+	id 1q8aHb-002fjH-20
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jun 2023 05:39:59 +0000
-Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-1a2c85ef3c2so2490735fac.0
-        for <linux-riscv@lists.infradead.org>; Sun, 11 Jun 2023 22:39:58 -0700 (PDT)
+	Mon, 12 Jun 2023 05:40:04 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-19674cab442so2467785fac.3
+        for <linux-riscv@lists.infradead.org>; Sun, 11 Jun 2023 22:40:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1686548398; x=1689140398;
+        d=ventanamicro.com; s=google; t=1686548403; x=1689140403;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=n5vQwpyR3/1vG/MlBdXYEenCvwMIo2s7ZFYf5nDLaQE=;
-        b=ZyfxYqMM0W3OMxKPrxCUyAqJqZUedm09S/hgWYlTNUjmk1lt/PAZaWYOl3RBSjc3P9
-         fLE+te6gevh1tGcgCGwh9pomh5vVqWVYR3SNK2c9a0Jdrmjqu7U/DicwzwaIHUDPa28R
-         fT6PmcP7ePMJzzNJ7aMJOTayJNr/QVRovWdVgI7Auw9we1utiIUWQ85Dj7azGba8Hfu9
-         eaqOZAJsYaDPjr6V/5iIcAeZ/sbTUvbB3XzUTicbdtSix0e+hbEZ9eF4vwXrac+eURtM
-         GGjvFB6wf12a9Ioal/9mRjwRH/ONVGnlZssqpD5jsRfnhuLoTuXZ9efsPSJMqJoYudBE
-         MBJg==
+        bh=qy2FvnQ7sT+hFfzfZbK6StB7FDfBUwIcnd7vowD7Hdo=;
+        b=fKgyV64IuuDp42oIE6+vlEALvMZVYR6v+zRX2M6KBdp2U1Q4EEebp+gWJClqMF1XXk
+         OLG79st9/QNYq31F77kDNAqW5yxqzjZ/ljYG9ZCiIhBYqfERkkZZQkMmWp1DKH5TNdMY
+         vXwGTZP9VPOUhOKsd6hbPeiYhZlI/rvmafAKC/3+1ih6jsO+O29QAWjMS+laB5KoHEvV
+         GwwTRhkKPI0XRfYBv7/a6FrBe9Y+HxKOlxG2qFED5Y+OpmdtPrKVe6cF16ZoSPqwH9kV
+         zYhhgtK4v0R8WlZnF2eixvx1n0GVXz/t83u1plyp4pJ+FBjsPOuJFY+3CynImlF53wg4
+         93xg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686548398; x=1689140398;
+        d=1e100.net; s=20221208; t=1686548403; x=1689140403;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n5vQwpyR3/1vG/MlBdXYEenCvwMIo2s7ZFYf5nDLaQE=;
-        b=Yfxvk1/oiWY0d2dLOS97zxLyHrnr09HwEUP0/Gn4ZFJKxFGHXHOMlfWmQO67tDyMGF
-         BfeeVDPHtSMChVI3W9G3lyk+heqBqP52sgUyACUB2uOE/kEnrmxHK4D2DCHk4/h5KF0s
-         DLAiXRjY32zThBrCcrnsaWHj/Wy0gHgqsQ8xKgo7BQqY4x3oaPnFWuf6yN7RXlnuQyAk
-         RFWiFOP2GydzwOmFXQxyCMyEr5rOYCI5kswvxsT+slCQHbSP2H8lWaCRp7V48A3kNcRC
-         gQW835PG0JR8M8wakm3lBA9wQ8LUN5M56cCHk2y61omBky3BRHykWk1TjiVfgja2rKHY
-         hyIw==
-X-Gm-Message-State: AC+VfDx4YoB/i044YUyRiq01KMjO7BFfMk5Vtixtj1Oem/C/kayCAKEK
-	rI73PidBl33e7twfqRlWDZggtw==
-X-Google-Smtp-Source: ACHHUZ6hNnfLTutLBApy3ZYFF4oPh2xc1Whmz0Ha4z6+g9y2w3zVx0DmRzQWRqL7d3LLjPWIpK+MxQ==
-X-Received: by 2002:a05:6870:8544:b0:19f:7917:fe5a with SMTP id w4-20020a056870854400b0019f7917fe5amr4409038oaj.46.1686548397700;
-        Sun, 11 Jun 2023 22:39:57 -0700 (PDT)
+        bh=qy2FvnQ7sT+hFfzfZbK6StB7FDfBUwIcnd7vowD7Hdo=;
+        b=GM1IvMYYMKIAeSfE6ccHk3R7P4tIvEcftjQEuLLZTgyEvJIhVyo2Fc9MsIw6uWwODs
+         VbugM653dBgX5ggolNHGPqIUeZLp0dKpQTylMimUhMu2uzD/7CKvOR0nb5JvV/dLHqZp
+         QIBoEEC0+ZJRXIZp8d/jkQ/7jegG3za25ZfzDqEoo61/hH4oixmkNbZc6uDA7hfPDo7X
+         5XiJg5LBK+ccTg0pQgjxPtpsfuEPHuXrXPvk4EwD8NFI/j1WP8Fyt3hKYJaFpv9nYlD9
+         4AJ1gBDdOouTbucXf//jtrbBAT5Rqw7xxm9Ewl+1ytNOhlNYMgWzCQunqM5mNjgMV4Tr
+         2yaw==
+X-Gm-Message-State: AC+VfDybOfyV6myQ7Z3uY3fa/4a8z5tWvHutatruzqFdATz4WoOsmQEc
+	sPWxMi9Mu72FGy4L8FYc5df9fQ==
+X-Google-Smtp-Source: ACHHUZ5kPec2p3OADgxcfQzu4nQmjeX0kue8Qhu5qVqg39cFrxryxf6q488ZF3QT6feTgV7ykRUpYg==
+X-Received: by 2002:a05:6870:2207:b0:19f:5701:8c47 with SMTP id i7-20020a056870220700b0019f57018c47mr5001745oaf.9.1686548402860;
+        Sun, 11 Jun 2023 22:40:02 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id lv19-20020a056871439300b001a30d846520sm5534869oab.7.2023.06.11.22.39.53
+        by smtp.gmail.com with ESMTPSA id lv19-20020a056871439300b001a30d846520sm5534869oab.7.2023.06.11.22.39.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Jun 2023 22:39:57 -0700 (PDT)
+        Sun, 11 Jun 2023 22:40:02 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Paolo Bonzini <pbonzini@redhat.com>,
 	Atish Patra <atishp@atishpatra.org>
@@ -74,16 +74,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>,
 	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v2 03/10] RISC-V: KVM: Add APLIC related defines
-Date: Mon, 12 Jun 2023 11:09:25 +0530
-Message-Id: <20230612053932.58604-4-apatel@ventanamicro.com>
+Subject: [PATCH v2 04/10] RISC-V: KVM: Set kvm_riscv_aia_nr_hgei to zero
+Date: Mon, 12 Jun 2023 11:09:26 +0530
+Message-Id: <20230612053932.58604-5-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230612053932.58604-1-apatel@ventanamicro.com>
 References: <20230612053932.58604-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230611_223958_473909_0A4E012F 
-X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-CacheID: sfid-20230611_224003_667845_042A425C 
+X-CRM114-Status: UNSURE (   9.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,81 +101,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We add APLIC related defines in a separate header so that different
-parts of KVM code can share it. Once AIA drivers are merged will
-have a common APLIC header shared by both KVM and IRQCHIP driver.
+We hard-code the kvm_riscv_aia_nr_hgei to zero until IMSIC HW
+guest file support is added in KVM RISC-V.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 Reviewed-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/kvm_aia_aplic.h | 58 ++++++++++++++++++++++++++
- 1 file changed, 58 insertions(+)
- create mode 100644 arch/riscv/include/asm/kvm_aia_aplic.h
+ arch/riscv/kvm/aia.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/kvm_aia_aplic.h b/arch/riscv/include/asm/kvm_aia_aplic.h
-new file mode 100644
-index 000000000000..6dd1a4809ec1
---- /dev/null
-+++ b/arch/riscv/include/asm/kvm_aia_aplic.h
-@@ -0,0 +1,58 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2021 Western Digital Corporation or its affiliates.
-+ * Copyright (C) 2022 Ventana Micro Systems Inc.
-+ */
-+#ifndef __KVM_RISCV_AIA_IMSIC_H
-+#define __KVM_RISCV_AIA_IMSIC_H
+diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
+index c78c06d99e39..3f97575707eb 100644
+--- a/arch/riscv/kvm/aia.c
++++ b/arch/riscv/kvm/aia.c
+@@ -408,7 +408,7 @@ int kvm_riscv_aia_alloc_hgei(int cpu, struct kvm_vcpu *owner,
+ 
+ 	raw_spin_unlock_irqrestore(&hgctrl->lock, flags);
+ 
+-	/* TODO: To be updated later by AIA in-kernel irqchip support */
++	/* TODO: To be updated later by AIA IMSIC HW guest file support */
+ 	if (hgei_va)
+ 		*hgei_va = NULL;
+ 	if (hgei_pa)
+@@ -610,6 +610,14 @@ int kvm_riscv_aia_init(void)
+ 	if (kvm_riscv_aia_nr_hgei)
+ 		kvm_riscv_aia_nr_hgei--;
+ 
++	/*
++	 * Number of usable HGEI lines should be minimum of per-HART
++	 * IMSIC guest files and number of bits in HGEIE
++	 *
++	 * TODO: To be updated later by AIA IMSIC HW guest file support
++	 */
++	kvm_riscv_aia_nr_hgei = 0;
 +
-+#include <linux/bitops.h>
-+
-+#define APLIC_MAX_IDC			BIT(14)
-+#define APLIC_MAX_SOURCE		1024
-+
-+#define APLIC_DOMAINCFG			0x0000
-+#define APLIC_DOMAINCFG_RDONLY		0x80000000
-+#define APLIC_DOMAINCFG_IE		BIT(8)
-+#define APLIC_DOMAINCFG_DM		BIT(2)
-+#define APLIC_DOMAINCFG_BE		BIT(0)
-+
-+#define APLIC_SOURCECFG_BASE		0x0004
-+#define APLIC_SOURCECFG_D		BIT(10)
-+#define APLIC_SOURCECFG_CHILDIDX_MASK	0x000003ff
-+#define APLIC_SOURCECFG_SM_MASK	0x00000007
-+#define APLIC_SOURCECFG_SM_INACTIVE	0x0
-+#define APLIC_SOURCECFG_SM_DETACH	0x1
-+#define APLIC_SOURCECFG_SM_EDGE_RISE	0x4
-+#define APLIC_SOURCECFG_SM_EDGE_FALL	0x5
-+#define APLIC_SOURCECFG_SM_LEVEL_HIGH	0x6
-+#define APLIC_SOURCECFG_SM_LEVEL_LOW	0x7
-+
-+#define APLIC_IRQBITS_PER_REG		32
-+
-+#define APLIC_SETIP_BASE		0x1c00
-+#define APLIC_SETIPNUM			0x1cdc
-+
-+#define APLIC_CLRIP_BASE		0x1d00
-+#define APLIC_CLRIPNUM			0x1ddc
-+
-+#define APLIC_SETIE_BASE		0x1e00
-+#define APLIC_SETIENUM			0x1edc
-+
-+#define APLIC_CLRIE_BASE		0x1f00
-+#define APLIC_CLRIENUM			0x1fdc
-+
-+#define APLIC_SETIPNUM_LE		0x2000
-+#define APLIC_SETIPNUM_BE		0x2004
-+
-+#define APLIC_GENMSI			0x3000
-+
-+#define APLIC_TARGET_BASE		0x3004
-+#define APLIC_TARGET_HART_IDX_SHIFT	18
-+#define APLIC_TARGET_HART_IDX_MASK	0x3fff
-+#define APLIC_TARGET_GUEST_IDX_SHIFT	12
-+#define APLIC_TARGET_GUEST_IDX_MASK	0x3f
-+#define APLIC_TARGET_IPRIO_MASK	0xff
-+#define APLIC_TARGET_EIID_MASK	0x7ff
-+
-+#endif
+ 	/* Initialize guest external interrupt line management */
+ 	rc = aia_hgei_init();
+ 	if (rc)
 -- 
 2.34.1
 
