@@ -4,57 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D51CC7EE2F
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 21:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 404B7C88CB8
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 21:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QJlpVkAHdfEMnm+cejlRk73UCGqfqvNh7/c3wHiXULs=; b=G3hHeaxJC1npIr
-	z6ua5ZraggU6OvAGA5rGuWn/UIByJd2Yw92iAA9jtQ+M4FAuqlHxG4XnlIW0L7OYYOOoKRQhqvEvg
-	uNS4FlFAMSEq7VxM915yjemdwUcRul0dELbTy4x1D0iiaKwm3tHBzBjArxlljHQhlxzKLfUxyQNQ0
-	6C4AwssjBXhIMp+DZDfYrC1+VeJ/r6qAPrNTDmjwDxnfWLYp1oSebwT7qORHD05u0C2rQftrKO6Ge
-	Qj0S14IJ0hKcPcU9Sw8rtZM+hXE8Lz+/PyL0FkmDtukHsisC1Xr1vqerWX/2knvohWRIdYghXUnq3
-	vnEeLTtkFM7iuly+0Xlw==;
+	List-Owner; bh=VOJe8roOIXQfx2zHde+spvLOBvKuHQ0tNA2ZIMn2Ky0=; b=LuRDCNdCeKRdWv
+	3jcVWEMRPBbUZE8swWnK57i2+0FhKn4/E4Kke7R2mfoTEB0QHjUfW5+47BHHRTRi4+TC8tHzgGWno
+	pSLSuzqHTQQz3Nkv7l/c9ogi2Lo90OLnIZAlgbc8bH+H0gb+fGaw/dXJfsVpCANF5yPIJRIWLtm5Z
+	ZX9yIy+aQConV93t9pBPtNv9ak6zc9orXUd3WR9UsWXDDJ1VKuL0wgPsmhejYkN7+meh1sdLDdLRW
+	hqByBFJhVWufY/uXIOdoQIMfWQOsuT0wJLUCF99+ugf0Rnq6nxG7t2xLti/NoeAp+WDw5yKa1v124
+	tZ8UmoC030VjWlcqYFkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8ojE-005Nbv-0w;
-	Mon, 12 Jun 2023 21:05:32 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1q8ojJ-005Ngy-0I;
+	Mon, 12 Jun 2023 21:05:37 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8oik-005MzV-0n
-	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jun 2023 21:05:06 +0000
-Received: from i53875b22.versanet.de ([83.135.91.34] helo=phil.lan)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1q8oib-0005fR-6D; Mon, 12 Jun 2023 23:04:53 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Cc: heiko@sntech.de,
-	aou@eecs.berkeley.edu,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	conor.dooley@microchip.com,
+	id 1q8oil-005N6I-2a;
+	Mon, 12 Jun 2023 21:05:07 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-56cf916aaa2so27688047b3.3;
+        Mon, 12 Jun 2023 14:05:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1686603902; x=1689195902;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7hP9xC8dm7FmaxDqq4kyW1FngYvGoyLv+4GJfd5pZsk=;
+        b=CJYIsJwgfTu/y/lqnJP/t9il82a33oAqvZUzCAqj1B6hDybKBkJzlI1M4tHng7gsKh
+         wjldrdty5LsQxwcte5A4qzxTSyPWsC3prP09MuDZHhuDdW+KkIuzhNtB1OGIf0fmEYwq
+         PbjgzzODbpwoqx2q55Rq1VMyrgJdF+EsVRaRlosxhaI2WYgY5mJZUdNXguDU4uoU3hsT
+         HNsA8NDHAaVm+vxqugHLiha5If8egzZBwoJM3N2OKUEJMszToVmHBrGqCteUXmcF8+W9
+         CJfXWgYf4SrrnrL4x4+oaqBHqtUA2nnqH+olViH9ENIys3R1pjxamFF3W5tG5eZyHhYN
+         +FGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686603902; x=1689195902;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7hP9xC8dm7FmaxDqq4kyW1FngYvGoyLv+4GJfd5pZsk=;
+        b=P6W5bihBUgbUUYkU8mDje/1logNYz9TGapBl1B3JdAAVWiEnKEoyY4Qx40v7OVy9RM
+         RlW6Hzob/cWkVfuAxMepu5hFeWd/5FayQ6iIJX9e5IFav4FfAkmg1YsE6nG2b0DchBU0
+         MKc328Ds0iDYZDvQ34DRuS/G9mRr60LTMRuoIppD13T3GYp5bhNMLjNcFUEqJXfmCvCl
+         iixaf+hVS3CEIyPkfLW0z3uaMlV0RB5s8/3TnFEAdP/8GEP4pz2ERcgYn15/+yJJ3kgz
+         Me/baXufqCQVWqtva3DnTMChvdsKD1c6HEHDCTbp4O55pLyhjc2leYB5ui1NDmkKEJ5I
+         e+Uw==
+X-Gm-Message-State: AC+VfDxVh6YXqs/hjaMHS6x1LrKogENh4BUx1AqONEBQl5+mGVdEDSZM
+	cZan3N2fPwiViPNjBpw/5KA=
+X-Google-Smtp-Source: ACHHUZ5ktkx/ASoBV55sneLmyoKAwlH0/qlI6IE3eWY9yaMnSemMH48l10CKm48pG/hNrIF3qCc62g==
+X-Received: by 2002:a0d:d713:0:b0:56d:5286:51f5 with SMTP id z19-20020a0dd713000000b0056d528651f5mr1015907ywd.28.1686603902249;
+        Mon, 12 Jun 2023 14:05:02 -0700 (PDT)
+Received: from unknowna0e70b2ca394.attlocal.net ([2600:1700:2f7d:1800::16])
+        by smtp.googlemail.com with ESMTPSA id s125-20020a817783000000b00569eb609458sm2757115ywc.81.2023.06.12.14.05.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jun 2023 14:05:01 -0700 (PDT)
+From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>
+Cc: linux-mm@kvack.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	christoph.muellner@vrull.eu,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH v5 1/4] RISC-V: add Zbc extension detection
-Date: Mon, 12 Jun 2023 23:04:39 +0200
-Message-Id: <20230612210442.1805962-2-heiko.stuebner@vrull.eu>
-X-Mailer: git-send-email 2.39.0
-In-Reply-To: <20230612210442.1805962-1-heiko.stuebner@vrull.eu>
-References: <20230612210442.1805962-1-heiko.stuebner@vrull.eu>
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org,
+	kvm@vger.kernel.org,
+	Hugh Dickins <hughd@google.com>,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+Subject: [PATCH v4 08/34] mm: Convert ptlock_ptr() to use ptdescs
+Date: Mon, 12 Jun 2023 14:03:57 -0700
+Message-Id: <20230612210423.18611-9-vishal.moola@gmail.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20230612210423.18611-1-vishal.moola@gmail.com>
+References: <20230612210423.18611-1-vishal.moola@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230612_140502_321562_5BF80CE3 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20230612_140503_879906_E3526516 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,91 +109,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+This removes some direct accesses to struct page, working towards
+splitting out struct ptdesc from struct page.
 
-Add handling for Zbc extension.
-
-Zbc provides instruction for carry-less multiplication.
-
-Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
 ---
- arch/riscv/Kconfig             | 22 ++++++++++++++++++++++
- arch/riscv/include/asm/hwcap.h |  1 +
- arch/riscv/kernel/cpu.c        |  1 +
- arch/riscv/kernel/cpufeature.c |  1 +
- 4 files changed, 25 insertions(+)
+ arch/x86/xen/mmu_pv.c |  2 +-
+ include/linux/mm.h    | 14 +++++++-------
+ 2 files changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a3d54cd14fca..754cd154eca5 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -523,6 +523,28 @@ config RISCV_ISA_ZBB
+diff --git a/arch/x86/xen/mmu_pv.c b/arch/x86/xen/mmu_pv.c
+index b3b8d289b9ab..f469862e3ef4 100644
+--- a/arch/x86/xen/mmu_pv.c
++++ b/arch/x86/xen/mmu_pv.c
+@@ -651,7 +651,7 @@ static spinlock_t *xen_pte_lock(struct page *page, struct mm_struct *mm)
+ 	spinlock_t *ptl = NULL;
  
- 	   If you don't know what to do here, say Y.
+ #if USE_SPLIT_PTE_PTLOCKS
+-	ptl = ptlock_ptr(page);
++	ptl = ptlock_ptr(page_ptdesc(page));
+ 	spin_lock_nest_lock(ptl, &mm->page_table_lock);
+ #endif
  
-+config TOOLCHAIN_HAS_ZBC
-+	bool
-+	default y
-+	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbc)
-+	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbc)
-+	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-+	depends on AS_IS_GNU
-+
-+config RISCV_ISA_ZBC
-+	bool "Zbc extension support for bit manipulation instructions"
-+	depends on TOOLCHAIN_HAS_ZBC
-+	depends on !XIP_KERNEL && MMU
-+	default y
-+	help
-+	   Adds support to dynamically detect the presence of the ZBC
-+	   extension (carry-less multiplication) and enable its usage.
-+
-+	   The Zbc extension provides instructions clmul, clmulh and clmulr
-+	   to accelerate carry-less multiplications.
-+
-+	   If you don't know what to do here, say Y.
-+
- config RISCV_ISA_ZICBOM
- 	bool "Zicbom extension support for non-coherent DMA operation"
- 	depends on MMU
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index e6c288ac4581..e48ac52b9174 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -47,6 +47,7 @@
- #define RISCV_ISA_EXT_ZICBOZ		34
- #define RISCV_ISA_EXT_SMAIA		35
- #define RISCV_ISA_EXT_SSAIA		36
-+#define RISCV_ISA_EXT_ZBC		37
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index e6f1be2a405e..bb934d51390f 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -2828,9 +2828,9 @@ void __init ptlock_cache_init(void);
+ bool ptlock_alloc(struct ptdesc *ptdesc);
+ extern void ptlock_free(struct page *page);
  
- #define RISCV_ISA_EXT_MAX		64
- #define RISCV_ISA_EXT_NAME_LEN_MAX	32
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 637263f9a7b9..bbff98d4712a 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -188,6 +188,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
- 	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
- 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
- 	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-+	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
- 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
- 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index de2d16300f69..f46281f1e439 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -261,6 +261,7 @@ void __init riscv_fill_hwcap(void)
- 				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
- 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
- 				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
-+				SET_ISA_EXT_MAP("zbc", RISCV_ISA_EXT_ZBC);
- 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
- 				SET_ISA_EXT_MAP("zicboz", RISCV_ISA_EXT_ZICBOZ);
- 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+-static inline spinlock_t *ptlock_ptr(struct page *page)
++static inline spinlock_t *ptlock_ptr(struct ptdesc *ptdesc)
+ {
+-	return page->ptl;
++	return ptdesc->ptl;
+ }
+ #else /* ALLOC_SPLIT_PTLOCKS */
+ static inline void ptlock_cache_init(void)
+@@ -2846,15 +2846,15 @@ static inline void ptlock_free(struct page *page)
+ {
+ }
+ 
+-static inline spinlock_t *ptlock_ptr(struct page *page)
++static inline spinlock_t *ptlock_ptr(struct ptdesc *ptdesc)
+ {
+-	return &page->ptl;
++	return &ptdesc->ptl;
+ }
+ #endif /* ALLOC_SPLIT_PTLOCKS */
+ 
+ static inline spinlock_t *pte_lockptr(struct mm_struct *mm, pmd_t *pmd)
+ {
+-	return ptlock_ptr(pmd_page(*pmd));
++	return ptlock_ptr(page_ptdesc(pmd_page(*pmd)));
+ }
+ 
+ static inline bool ptlock_init(struct page *page)
+@@ -2869,7 +2869,7 @@ static inline bool ptlock_init(struct page *page)
+ 	VM_BUG_ON_PAGE(*(unsigned long *)&page->ptl, page);
+ 	if (!ptlock_alloc(page_ptdesc(page)))
+ 		return false;
+-	spin_lock_init(ptlock_ptr(page));
++	spin_lock_init(ptlock_ptr(page_ptdesc(page)));
+ 	return true;
+ }
+ 
+@@ -2939,7 +2939,7 @@ static inline struct ptdesc *pmd_ptdesc(pmd_t *pmd)
+ 
+ static inline spinlock_t *pmd_lockptr(struct mm_struct *mm, pmd_t *pmd)
+ {
+-	return ptlock_ptr(ptdesc_page(pmd_ptdesc(pmd)));
++	return ptlock_ptr(pmd_ptdesc(pmd));
+ }
+ 
+ static inline bool pmd_ptlock_init(struct page *page)
 -- 
-2.39.0
+2.40.1
 
 
 _______________________________________________
