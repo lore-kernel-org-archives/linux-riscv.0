@@ -4,86 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AA5C7EE37
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 05:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1112C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 06:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/qHYxMo4RbGDtZk16pgzZR3gzpqrdSaJo5XSwPrfDV8=; b=KlH0fVgprZ3dTu
-	KPJNG/zhvW55CxlzSQ9nUfngJUfaQn1BXtLp2Mxt7/KuC2dUWKBn4pb+KPkJAma8vpwCQe5Ggt2qz
-	TZ/SB2e0kp/q4hlWGDsVZZx7xDqMajjM/31WJ6v/ljv3OTcHH8aGJe8EvrpD16oj8ioxOelwJgrs8
-	CJmleqPMauOvw4sXiOSZNbv77gWeQCJEEvIrba440EMQGJ/yqAiq3B1oIZ1gOTS6bgTTwLKb2msE4
-	8TmqnWjRifT2y8gQNG4yJsrnudmPiei6djJ3+B3xMdMpjtCuhr2ID74Ytmblr9dJWwfLlATwRCqwv
-	4E2RGCKFqJUwvnFBsDYQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aUWXCcJRTLi6ck3rfDdf1ZIFxyTFlb0HKxErWoc9LCk=; b=iVFEIqsDjfmzSl
+	k6dN/+8FprHsxyXCxX0dRi39LKw9d3AjnAQB0Y6QL2X74SH1JgQYiwZRJOGOezsXXGQv1tc3NyYXl
+	xULgwt5DVyj+Zy3kb1PEEVJndGOT6aVS2qwZXq/drG7Ui70oC8t3V49w8lCHolZSQnMkChx6HA3Qd
+	BWHizEvjcw+KPumXmjv1h9dwQuaZHbknFBWixMDhy3I4ZdX3TL2KSbodFQdPMM1BJslO7d2pKjZJs
+	H43cLuY2wtU/yXJcGRC/+inUa+X9WjO7mmsyP2lbjgL0tKbG4w/XrFoI1sH11x5HU8wzQ4za1p5g1
+	PjK45JA12i1LYmRnPx/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8aI9-002g5f-1a;
-	Mon, 12 Jun 2023 05:40:37 +0000
-Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
+	id 1q8b8V-002mMj-2d;
+	Mon, 12 Jun 2023 06:34:43 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8aI6-002g2Y-0V
-	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jun 2023 05:40:36 +0000
-Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-19f30256921so2648341fac.1
-        for <linux-riscv@lists.infradead.org>; Sun, 11 Jun 2023 22:40:34 -0700 (PDT)
+	id 1q8b8S-002mLw-0M;
+	Mon, 12 Jun 2023 06:34:41 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-30fb4b3e62fso808859f8f.2;
+        Sun, 11 Jun 2023 23:34:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1686548432; x=1689140432;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PZnZ5+OjGREkSkyG6QnA5JwIHZ1MgkxpDO0yDwMpGdU=;
-        b=BVZUdpHJAykoMWigPWWyjUrFI1QVlNWpuDtR/RhvEgtN/yRE06Nnb7dSKcsGKyOJa/
-         jz5L4/2GHGpvwkPheEdBHOam1CWKf5GMaM5oeLZyGaJkTO7NntxQms4ETpTjZ6AWaOtB
-         GS6gbz52bkwjsGjEgVRSVDlUkln0xRe5ZMVuATJhW/BHqUfUTvsm4d7beOfHNuKBrM9K
-         qis6jwuik+WWVpcMcGLIpO8bjrdVkqBiAYuDljpfd07GmjvwFpvIEQQl4pIVaOClvx47
-         lQ+/6Hc8C3o7773N6Nl2MhCCluuT7+a9oaJye807d+MNARqK8G41qFHwXg7EsnC/bLDA
-         RKIw==
+        d=gmail.com; s=20221208; t=1686551678; x=1689143678;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0Wat54lnLjucqBUhCyCz2jjA942pDQtZohk+myr2KU4=;
+        b=c2zzRyWDsD9NA/NQkSWJl9TYXJpYTRoWVyrQJIqWKkJge3T4w4eXHIbyqIM227yTDD
+         +82SXmmwVQlQOmgWR0fmPw0cshkPbniT7JJ282anh1Ucg1zljdtJh5LL9zMrMN5n80tM
+         AXtaE8Y2ghuoVNoX2CQoQGov2jouSHTdP7O3OA+ijRzjnObWic7xtk9O99Vidl0H3ik5
+         2wbGJ5RZy0rhlIpYnv3LgmC5R1Sri99aLUaUOl9wGxyHLFWX9hQiAEf3LXV2GIjNuMM7
+         BvboEyN7Uc1FJZAU2O84iaBhVClYWnI4aXlHjDkuGHm0XAxibzcrSeOh3w0zxyhD8pHP
+         z4iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686548432; x=1689140432;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PZnZ5+OjGREkSkyG6QnA5JwIHZ1MgkxpDO0yDwMpGdU=;
-        b=SzEsj4pMikDXof9QNyHCQMluDcj2tRE2i2plIRV4Aml2EA3jpVnIn+Ue7tCvRaMYdy
-         tz8XlArA7pf7XtE8hOQ/6e/lYzJfQ+YmRYj3ctuiYHH0DK1wP7ol2ctMnx0Zwb1btfon
-         mQvju1y7iUiMHP/kWri4Eg2GSuZr659dTRlRV8iOcsOK2k0B28n5ruN2RL9P0w4exW2m
-         q5JTWgCDpWyABzW+fq3L9tzdVYf68nFT4hLggp3m7FFyfhcarslHYLxEBIHMCvij8aOF
-         kMAZ+0OFKxiMZmLvg7GiKUjWSGoGUf6GsOIdIcluOg/SNOopXZL3O3DocOxrXXqL5mT0
-         NYaA==
-X-Gm-Message-State: AC+VfDx56pb5fbmsqjweQmgYJubrwka5f+NrZPR9RqEoY0qXKBMpb8pm
-	5/ggKxidaTcxnjlsGHfG5b0q7A==
-X-Google-Smtp-Source: ACHHUZ4edMeLTd1bFBAWvO0cBHaggZHgbET5p1vxNEV7k50958TwGfBsk5xAqFOawHCu2dUHdkoU0g==
-X-Received: by 2002:a05:6870:a89a:b0:1a0:bbee:c1de with SMTP id eb26-20020a056870a89a00b001a0bbeec1demr4268965oab.1.1686548432345;
-        Sun, 11 Jun 2023 22:40:32 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id lv19-20020a056871439300b001a30d846520sm5534869oab.7.2023.06.11.22.40.27
+        d=1e100.net; s=20221208; t=1686551678; x=1689143678;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0Wat54lnLjucqBUhCyCz2jjA942pDQtZohk+myr2KU4=;
+        b=N0HMbenwYziFO0hGcy724dPQrndswEjg2CERzWo00SFftuSVjakoavsQ8cvdCBsxgV
+         FUoXTKtcPYku3dpTUbREeZA+byyKjIUZz/m3nZ9u0KmrZhBN8bp/D11dn+xGIpAlqooz
+         iMsg6zZXC8+Gp3DpBkufivlMlW66oQs+Bp6Lc47A3+BAbTiKKqwDNAOR91OzZFwGdhQL
+         netW3KeNUmy9NKsz9+MksqDvZ5qNytCFAHUL+o/yJcuSDZiNWAEgReel6kFneArzjEbo
+         wez3gjVVen4kqH4YlQgpXD0LBE38xnksVXV7M/s0yPksHYfSW3RGAn2ptUeywWHw8Zbj
+         GqGw==
+X-Gm-Message-State: AC+VfDzjf4VdBUF2l2n+/46Jkw9dzi9Lk8J4yGqrvaa6ZqoHsEskWFR6
+	Z9BrJZI9yrytFhoPXtJor6E=
+X-Google-Smtp-Source: ACHHUZ4U/ycWnSfITPfKvps91ZElflobta8YYppwQmKfPG5h9wzmgirJll+nMPk5Wu6GeYuJqEpRtw==
+X-Received: by 2002:a5d:5704:0:b0:30f:bc21:1ce4 with SMTP id a4-20020a5d5704000000b0030fbc211ce4mr2153510wrv.14.1686551677565;
+        Sun, 11 Jun 2023 23:34:37 -0700 (PDT)
+Received: from user-PC.. ([178.134.198.138])
+        by smtp.gmail.com with ESMTPSA id o7-20020adfeac7000000b002fed865c55esm11484811wrn.56.2023.06.11.23.34.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Jun 2023 22:40:32 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+        Sun, 11 Jun 2023 23:34:37 -0700 (PDT)
+From: Maksim Kiselev <bigunclemax@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Maksim Kiselev <bigunclemax@gmail.com>,
+	Vasily Khoruzhick <anarsoul@gmail.com>,
+	Yangtao Li <tiny.windzz@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Amit Kucheria <amitk@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v2 10/10] RISC-V: KVM: Expose IMSIC registers as attributes of AIA irqchip
-Date: Mon, 12 Jun 2023 11:09:32 +0530
-Message-Id: <20230612053932.58604-11-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230612053932.58604-1-apatel@ventanamicro.com>
-References: <20230612053932.58604-1-apatel@ventanamicro.com>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: Add D1/T113s thermal sensor controller support
+Date: Mon, 12 Jun 2023 09:34:16 +0300
+Message-Id: <20230612063429.3343061-1-bigunclemax@gmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230611_224034_230094_CFA46EB7 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20230611_233440_172423_CB8AFF83 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,326 +110,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We expose IMSIC registers as KVM device attributes of the in-kernel
-AIA irqchip device. This will allow KVM user-space to save/restore
-IMISC state of each VCPU using KVM device ioctls().
+This series adds support for Allwinner D1/T113s thermal sensor controller.
+THIS controller is similar to the one on H6, but with only one sensor and
+uses a different scale and offset values.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/include/asm/kvm_aia.h  |   3 +
- arch/riscv/include/uapi/asm/kvm.h |  17 +++
- arch/riscv/kvm/aia_device.c       |  29 ++++-
- arch/riscv/kvm/aia_imsic.c        | 170 ++++++++++++++++++++++++++++++
- 4 files changed, 217 insertions(+), 2 deletions(-)
+v4:
+- Dropeed DT bindings example
 
-diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-index a4f6ebf90e31..1f37b600ca47 100644
---- a/arch/riscv/include/asm/kvm_aia.h
-+++ b/arch/riscv/include/asm/kvm_aia.h
-@@ -97,6 +97,9 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu);
- int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
- 				 unsigned long *val, unsigned long new_val,
- 				 unsigned long wr_mask);
-+int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
-+				bool write, unsigned long *val);
-+int kvm_riscv_aia_imsic_has_attr(struct kvm *kvm, unsigned long type);
- void kvm_riscv_vcpu_aia_imsic_reset(struct kvm_vcpu *vcpu);
- int kvm_riscv_vcpu_aia_imsic_inject(struct kvm_vcpu *vcpu,
- 				    u32 guest_index, u32 offset, u32 iid);
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 9ed822fc5589..61d7fecc4899 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -255,6 +255,23 @@ enum KVM_RISCV_SBI_EXT_ID {
-  */
- #define KVM_DEV_RISCV_AIA_GRP_APLIC		3
- 
-+/*
-+ * The lower 12-bits of the device attribute type contains the iselect
-+ * value of the IMSIC register (range 0x70-0xFF) whereas the higher order
-+ * bits contains the VCPU id.
-+ */
-+#define KVM_DEV_RISCV_AIA_GRP_IMSIC		4
-+#define KVM_DEV_RISCV_AIA_IMSIC_ISEL_BITS	12
-+#define KVM_DEV_RISCV_AIA_IMSIC_ISEL_MASK	\
-+		((1U << KVM_DEV_RISCV_AIA_IMSIC_ISEL_BITS) - 1)
-+#define KVM_DEV_RISCV_AIA_IMSIC_MKATTR(__vcpu, __isel)	\
-+		(((__vcpu) << KVM_DEV_RISCV_AIA_IMSIC_ISEL_BITS) | \
-+		 ((__isel) & KVM_DEV_RISCV_AIA_IMSIC_ISEL_MASK))
-+#define KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(__attr)	\
-+		((__attr) & KVM_DEV_RISCV_AIA_IMSIC_ISEL_MASK)
-+#define KVM_DEV_RISCV_AIA_IMSIC_GET_VCPU(__attr)	\
-+		((__attr) >> KVM_DEV_RISCV_AIA_IMSIC_ISEL_BITS)
-+
- /* One single KVM irqchip, ie. the AIA */
- #define KVM_NR_IRQCHIPS			1
- 
-diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
-index 17dba92a90e1..ac7bd98301a3 100644
---- a/arch/riscv/kvm/aia_device.c
-+++ b/arch/riscv/kvm/aia_device.c
-@@ -326,7 +326,7 @@ static int aia_set_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
- 	u32 nr;
- 	u64 addr;
- 	int nr_vcpus, r = -ENXIO;
--	unsigned long type = (unsigned long)attr->attr;
-+	unsigned long v, type = (unsigned long)attr->attr;
- 	void __user *uaddr = (void __user *)(long)attr->addr;
- 
- 	switch (attr->group) {
-@@ -373,6 +373,15 @@ static int aia_set_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
- 		r = kvm_riscv_aia_aplic_set_attr(dev->kvm, type, nr);
- 		mutex_unlock(&dev->kvm->lock);
- 
-+		break;
-+	case KVM_DEV_RISCV_AIA_GRP_IMSIC:
-+		if (copy_from_user(&v, uaddr, sizeof(v)))
-+			return -EFAULT;
-+
-+		mutex_lock(&dev->kvm->lock);
-+		r = kvm_riscv_aia_imsic_rw_attr(dev->kvm, type, true, &v);
-+		mutex_unlock(&dev->kvm->lock);
-+
- 		break;
- 	}
- 
-@@ -385,7 +394,7 @@ static int aia_get_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
- 	u64 addr;
- 	int nr_vcpus, r = -ENXIO;
- 	void __user *uaddr = (void __user *)(long)attr->addr;
--	unsigned long type = (unsigned long)attr->attr;
-+	unsigned long v, type = (unsigned long)attr->attr;
- 
- 	switch (attr->group) {
- 	case KVM_DEV_RISCV_AIA_GRP_CONFIG:
-@@ -434,6 +443,20 @@ static int aia_get_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
- 		if (copy_to_user(uaddr, &nr, sizeof(nr)))
- 			return -EFAULT;
- 
-+		break;
-+	case KVM_DEV_RISCV_AIA_GRP_IMSIC:
-+		if (copy_from_user(&v, uaddr, sizeof(v)))
-+			return -EFAULT;
-+
-+		mutex_lock(&dev->kvm->lock);
-+		r = kvm_riscv_aia_imsic_rw_attr(dev->kvm, type, false, &v);
-+		mutex_unlock(&dev->kvm->lock);
-+		if (r)
-+			return r;
-+
-+		if (copy_to_user(uaddr, &v, sizeof(v)))
-+			return -EFAULT;
-+
- 		break;
- 	}
- 
-@@ -472,6 +495,8 @@ static int aia_has_attr(struct kvm_device *dev, struct kvm_device_attr *attr)
- 		break;
- 	case KVM_DEV_RISCV_AIA_GRP_APLIC:
- 		return kvm_riscv_aia_aplic_has_attr(dev->kvm, attr->attr);
-+	case KVM_DEV_RISCV_AIA_GRP_IMSIC:
-+		return kvm_riscv_aia_imsic_has_attr(dev->kvm, attr->attr);
- 	}
- 
- 	return -ENXIO;
-diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
-index 2dc09dcb8ab5..8f108cfa80e5 100644
---- a/arch/riscv/kvm/aia_imsic.c
-+++ b/arch/riscv/kvm/aia_imsic.c
-@@ -277,6 +277,33 @@ static u32 imsic_mrif_topei(struct imsic_mrif *mrif, u32 nr_eix, u32 nr_msis)
- 	return 0;
- }
- 
-+static int imsic_mrif_isel_check(u32 nr_eix, unsigned long isel)
-+{
-+	u32 num = 0;
-+
-+	switch (isel) {
-+	case IMSIC_EIDELIVERY:
-+	case IMSIC_EITHRESHOLD:
-+		break;
-+	case IMSIC_EIP0 ... IMSIC_EIP63:
-+		num = isel - IMSIC_EIP0;
-+		break;
-+	case IMSIC_EIE0 ... IMSIC_EIE63:
-+		num = isel - IMSIC_EIE0;
-+		break;
-+	default:
-+		return -ENOENT;
-+	};
-+#ifndef CONFIG_32BIT
-+	if (num & 0x1)
-+		return -EINVAL;
-+#endif
-+	if ((num / 2) >= nr_eix)
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
- static int imsic_mrif_rmw(struct imsic_mrif *mrif, u32 nr_eix,
- 			  unsigned long isel, unsigned long *val,
- 			  unsigned long new_val, unsigned long wr_mask)
-@@ -407,6 +434,86 @@ static void imsic_vsfile_read(int vsfile_hgei, int vsfile_cpu, u32 nr_eix,
- 			 imsic_vsfile_local_read, &idata, 1);
- }
- 
-+struct imsic_vsfile_rw_data {
-+	int hgei;
-+	int isel;
-+	bool write;
-+	unsigned long val;
-+};
-+
-+static void imsic_vsfile_local_rw(void *data)
-+{
-+	struct imsic_vsfile_rw_data *idata = data;
-+	unsigned long new_hstatus, old_hstatus, old_vsiselect;
-+
-+	old_vsiselect = csr_read(CSR_VSISELECT);
-+	old_hstatus = csr_read(CSR_HSTATUS);
-+	new_hstatus = old_hstatus & ~HSTATUS_VGEIN;
-+	new_hstatus |= ((unsigned long)idata->hgei) << HSTATUS_VGEIN_SHIFT;
-+	csr_write(CSR_HSTATUS, new_hstatus);
-+
-+	switch (idata->isel) {
-+	case IMSIC_EIDELIVERY:
-+		if (idata->write)
-+			imsic_vs_csr_write(IMSIC_EIDELIVERY, idata->val);
-+		else
-+			idata->val = imsic_vs_csr_read(IMSIC_EIDELIVERY);
-+		break;
-+	case IMSIC_EITHRESHOLD:
-+		if (idata->write)
-+			imsic_vs_csr_write(IMSIC_EITHRESHOLD, idata->val);
-+		else
-+			idata->val = imsic_vs_csr_read(IMSIC_EITHRESHOLD);
-+		break;
-+	case IMSIC_EIP0 ... IMSIC_EIP63:
-+	case IMSIC_EIE0 ... IMSIC_EIE63:
-+#ifndef CONFIG_32BIT
-+		if (idata->isel & 0x1)
-+			break;
-+#endif
-+		if (idata->write)
-+			imsic_eix_write(idata->isel, idata->val);
-+		else
-+			idata->val = imsic_eix_read(idata->isel);
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	csr_write(CSR_HSTATUS, old_hstatus);
-+	csr_write(CSR_VSISELECT, old_vsiselect);
-+}
-+
-+static int imsic_vsfile_rw(int vsfile_hgei, int vsfile_cpu, u32 nr_eix,
-+			   unsigned long isel, bool write,
-+			   unsigned long *val)
-+{
-+	int rc;
-+	struct imsic_vsfile_rw_data rdata;
-+
-+	/* We can only access register if we have a IMSIC VS-file */
-+	if (vsfile_cpu < 0 || vsfile_hgei <= 0)
-+		return -EINVAL;
-+
-+	/* Check IMSIC register iselect */
-+	rc = imsic_mrif_isel_check(nr_eix, isel);
-+	if (rc)
-+		return rc;
-+
-+	/* We can only access register on local CPU */
-+	rdata.hgei = vsfile_hgei;
-+	rdata.isel = isel;
-+	rdata.write = write;
-+	rdata.val = (write) ? *val : 0;
-+	on_each_cpu_mask(cpumask_of(vsfile_cpu),
-+			 imsic_vsfile_local_rw, &rdata, 1);
-+
-+	if (!write)
-+		*val = rdata.val;
-+
-+	return 0;
-+}
-+
- static void imsic_vsfile_local_clear(int vsfile_hgei, u32 nr_eix)
- {
- 	u32 i;
-@@ -758,6 +865,69 @@ int kvm_riscv_vcpu_aia_imsic_rmw(struct kvm_vcpu *vcpu, unsigned long isel,
- 	return rc;
- }
- 
-+int kvm_riscv_aia_imsic_rw_attr(struct kvm *kvm, unsigned long type,
-+				bool write, unsigned long *val)
-+{
-+	u32 isel, vcpu_id;
-+	unsigned long flags;
-+	struct imsic *imsic;
-+	struct kvm_vcpu *vcpu;
-+	int rc, vsfile_hgei, vsfile_cpu;
-+
-+	if (!kvm_riscv_aia_initialized(kvm))
-+		return -ENODEV;
-+
-+	vcpu_id = KVM_DEV_RISCV_AIA_IMSIC_GET_VCPU(type);
-+	vcpu = kvm_get_vcpu_by_id(kvm, vcpu_id);
-+	if (!vcpu)
-+		return -ENODEV;
-+
-+	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
-+	imsic = vcpu->arch.aia_context.imsic_state;
-+
-+	read_lock_irqsave(&imsic->vsfile_lock, flags);
-+
-+	rc = 0;
-+	vsfile_hgei = imsic->vsfile_hgei;
-+	vsfile_cpu = imsic->vsfile_cpu;
-+	if (vsfile_cpu < 0) {
-+		if (write) {
-+			rc = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix,
-+					    isel, NULL, *val, -1UL);
-+			imsic_swfile_extirq_update(vcpu);
-+		} else
-+			rc = imsic_mrif_rmw(imsic->swfile, imsic->nr_eix,
-+					    isel, val, 0, 0);
-+	}
-+
-+	read_unlock_irqrestore(&imsic->vsfile_lock, flags);
-+
-+	if (!rc && vsfile_cpu >= 0)
-+		rc = imsic_vsfile_rw(vsfile_hgei, vsfile_cpu, imsic->nr_eix,
-+				     isel, write, val);
-+
-+	return rc;
-+}
-+
-+int kvm_riscv_aia_imsic_has_attr(struct kvm *kvm, unsigned long type)
-+{
-+	u32 isel, vcpu_id;
-+	struct imsic *imsic;
-+	struct kvm_vcpu *vcpu;
-+
-+	if (!kvm_riscv_aia_initialized(kvm))
-+		return -ENODEV;
-+
-+	vcpu_id = KVM_DEV_RISCV_AIA_IMSIC_GET_VCPU(type);
-+	vcpu = kvm_get_vcpu_by_id(kvm, vcpu_id);
-+	if (!vcpu)
-+		return -ENODEV;
-+
-+	isel = KVM_DEV_RISCV_AIA_IMSIC_GET_ISEL(type);
-+	imsic = vcpu->arch.aia_context.imsic_state;
-+	return imsic_mrif_isel_check(imsic->nr_eix, isel);
-+}
-+
- void kvm_riscv_vcpu_aia_imsic_reset(struct kvm_vcpu *vcpu)
- {
- 	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
+v3:
+- Fixed SoB tag again
+
+v2:
+- Fixed SoB tag
+- Moved binding patch before driver changes
+
+v1:
+- Initial version
+
+Maxim Kiselev (3):
+  dt-bindings: thermal: sun8i: Add binding for D1/T113s THS controller
+  thermal: sun8i: Add D1/T113s THS controller support
+  riscv: dts: allwinner: d1: Add thermal sensor and thermal zone
+
+ .../thermal/allwinner,sun8i-a83t-ths.yaml     |  7 ++++-
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 26 +++++++++++++++++++
+ drivers/thermal/sun8i_thermal.c               | 13 ++++++++++
+ 3 files changed, 45 insertions(+), 1 deletion(-)
+
 -- 
-2.34.1
+2.39.2
 
 
 _______________________________________________
