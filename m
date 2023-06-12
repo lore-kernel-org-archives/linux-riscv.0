@@ -4,110 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD541CA9ED2
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 21:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 787DEC7EE2F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 21:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jngaPSPjtuDXG6LmIfYg6TDMtME6T0zA852zieMR+lc=; b=gA02YI6XZ+fYex
-	X3PUuFvVAtwLLEbZLg/mvZmHuPqenus/RfYT32vM0gZhEZu9qZsPKxe8LA1EwR2wAMqyNBUnPvH0G
-	Zy3xXsA8eCCWD0k4MtbOMzEZ7eW7ITj4EHPztmNZ4KRiostOZ1cTxrq2SCuJVgD24qCIGmyjX5yL4
-	7sBUoyXi7GYiZUpfqwI5j7GfTVWvosFWJghOHAlT3d0fLF5DIvbXul7ZNHt9+fQ/AEjNixxklE6ti
-	CveGk7qYTufgq9nz89Pd0z1zxgxiaO29OUGRQMU7tV00WXyud+p2Jjbj8poPjWHsDMYY64rBnXHfi
-	sLP05yhtxCqG4AvTzr/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vHpBUAjreBxcWKeeI7lpZ/bAv/Uj7MAh5qriQjIwifg=; b=w0H1g3HjBDnEf0CCngFR0BSrcs
+	w1MdjETNg/8pVZfQWGMhpfWLrk/o1psCmC4FZHDkI8EnZoeqGJ1XDn/aemX/+dFzhAT70V/6nSGPJ
+	ZeCVS1hrDp6nyCXaG6cxbKzI47xhQNhQvfC7XUGHBJ3JpUsGLh66nCi28Ehwz/PuBChuGbhoFBw/F
+	IPnF8vGldLD8GN3/U4dZvihKNRnxi6NroPaE80PEmvcs8ls7EFjK8pwyfiOnRHIHsvOQTmo/U3a9E
+	81eb+wOWJwYvQWC3Ju2cNYt9+76YKvSH+XDp6dsaY115Ubq69NhAxa0LzZZ5nKGcxP9WO/Xcjxx1i
+	gkGuk2Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8olt-005QkK-0d;
-	Mon, 12 Jun 2023 21:08:17 +0000
-Received: from casper.infradead.org ([90.155.50.34])
+	id 1q8p16-005UhJ-2d;
+	Mon, 12 Jun 2023 21:24:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8ojh-005OBC-0S;
-	Mon, 12 Jun 2023 21:06:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=cQ/uV998f7GBK3U8fEwXlOSI96PW+5wzkUNMHiphdSU=; b=WDcxvj4JBQ3yWt92tkTHp0Zk1C
-	7HMkzLXUTcdqgtIFQYYm6NibATJ8ZQrKayzhIAkI3yH2tTZA7kjMNSdSVZzav0Zn7JETM5krZ3FWg
-	JrxsFKBDj0yWly0Tl4/wggODP1sTLo9YDreQSsWShoTxuZHVASZNRFm/zM6n7heUhFJ0xjiMlLVUY
-	j9MkvxlBu858zPoHwaKF9Q8kiNvwShcwloz4BaLSlQDxDUmwL/Rs/rFl6biNfttl6m/QJgDfPaay3
-	ZEfbyON+ym20WFId37/myRIVdmPDXwhWpdeCC6ub8hObU3jn6zsMaJ5oN2YXC6K9H13VPRsK9DOn4
-	YLpUnVMg==;
-Received: from mail-oa1-x31.google.com ([2001:4860:4864:20::31])
-	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1q8ojc-0034R5-9R; Mon, 12 Jun 2023 21:05:59 +0000
-Received: by mail-oa1-x31.google.com with SMTP id 586e51a60fabf-1a670ac3650so1761321fac.1;
-        Mon, 12 Jun 2023 14:05:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1686603953; x=1689195953;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cQ/uV998f7GBK3U8fEwXlOSI96PW+5wzkUNMHiphdSU=;
-        b=Tn4mHghr2z50QboRcFFwBXnQDC7dmOVTmd7q6odwa9ofCDQNfilhaBNviFDHX8SrYA
-         fagx19tWV5xnG2unDu30AzBD8hFIWArocnuzCUa1K7AMS5VYUgKKhDVTLptGD0WPUw8/
-         ZX9JliY6gx8+hXM3OztwRe71m1A+kx2eLC7qxtJVOpdoP5HVloTMtr0/abQT4yyYQOzs
-         IVhZgoGgAdf28rfS5OorktySibfeqB5FLW0b+HoIsUsy+Q3Hv3TNg2zjbv2EGrbvSAhn
-         +UJqDlCblQUHBUCUqLriRDZ3qurN8WXPOHGnwhy4vkGIt3E2YX1KhqR56pPwBtbb673W
-         dPyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686603953; x=1689195953;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cQ/uV998f7GBK3U8fEwXlOSI96PW+5wzkUNMHiphdSU=;
-        b=ha15z9bB4WlV6DRWjiWKGIMrC8rPdeb5I0JSfEHGeht5bjzHivJD/W1ymoC3XL0pPc
-         ww2bSEgBQ198EFQkus0jCIQrsI2Nmr1vkhqMHiXNGzpfPseY3k4vmBuBE/Y0GcAix7vV
-         IF/8p2VenVTcqklnCs/HONHuISaKouBrO96AQt6LstruHn6n0Qzt4qr67ukK1xkcyvTZ
-         nPr61//0KB6omgfx2fBxWI1TDC4Nc0KJUypvoYQ9nOTdICeCanHkCTIJYqNHArTlaxC9
-         aoRGALYH8qGmRMcGix4HT8pjQSd6G6C0CHPpkU54f+wKnw3I28kKlR6tG9AhjIHHVhJ1
-         LOEQ==
-X-Gm-Message-State: AC+VfDz54DQJJnNYX7Cpf/UGzjhfnVuzce+R25rg6gLO6aJ+4lByuPvC
-	umtEAsXROsirPW89Vsvlzvw=
-X-Google-Smtp-Source: ACHHUZ4ThTH5LM1afe2PTTFtQ0ZfGkzFFO1FbLLwGaoZUh9UZKP9YYPXqsENj3drsF2z7+M8WUTgQg==
-X-Received: by 2002:a05:6870:2207:b0:19f:5701:8c47 with SMTP id i7-20020a056870220700b0019f57018c47mr6429537oaf.9.1686603953383;
-        Mon, 12 Jun 2023 14:05:53 -0700 (PDT)
-Received: from unknowna0e70b2ca394.attlocal.net ([2600:1700:2f7d:1800::16])
-        by smtp.googlemail.com with ESMTPSA id s125-20020a817783000000b00569eb609458sm2757115ywc.81.2023.06.12.14.05.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jun 2023 14:05:53 -0700 (PDT)
-From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>
-Cc: linux-mm@kvack.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org,
-	kvm@vger.kernel.org,
-	Hugh Dickins <hughd@google.com>,
-	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	Richard Weinberger <richard@nod.at>
-Subject: [PATCH v4 33/34] um: Convert {pmd, pte}_free_tlb() to use ptdescs
-Date: Mon, 12 Jun 2023 14:04:22 -0700
-Message-Id: <20230612210423.18611-34-vishal.moola@gmail.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230612210423.18611-1-vishal.moola@gmail.com>
-References: <20230612210423.18611-1-vishal.moola@gmail.com>
+	id 1q8p14-005Ugf-0R
+	for linux-riscv@lists.infradead.org;
+	Mon, 12 Jun 2023 21:23:59 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8C8E261EA8;
+	Mon, 12 Jun 2023 21:23:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DFFEC433EF;
+	Mon, 12 Jun 2023 21:23:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686605037;
+	bh=Le3gA2ClE6ECL6WF9fV8Q54wWv/RXKwEzvYFXFKgqDA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JzaWBe097VzKJvl0oBZkVur7A0DKcS4yn5zcvAcJUhnuXNZhfYLv/fpjG1HqJ246k
+	 o9uvOq5NK6Ex58+pRdpTgDveEEWcqjdmHkPe6soCi+7qyCcs+cx+2z1njQCFAHPRoU
+	 uffrFY/Oljmq0iF23XmmYHHfJ9J8Nty98dYeJ9625mRzqe3s5pz0DsaoNt3q/Y4T5G
+	 L1LiDsOYM5vsrmS/jqTEF8Us+X4Xh4w4kkmMTxu5JiMiDLlkNCngJ/+MceOMvDfZVU
+	 wW9cEVA6nRM2bb8GDSGcdWu10UuDOcdpScFsrgAfLatrZd9q4tLV8mt/oYAR+R7WtJ
+	 SXMsqLe0lhR2A==
+Date: Mon, 12 Jun 2023 22:23:50 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Sean Anderson <sean.anderson@seco.com>,
+	Anup Patel <anup@brainfault.org>,
+	Andrew Jones <ajones@ventanamicro.com>, palmer@dabbelt.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Alistair Francis <alistair.francis@wdc.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Jessica Clarke <jrtc27@jrtc27.com>, Rick Chen <rick@andestech.com>,
+	Leo <ycliang@andestech.com>, linux-riscv@lists.infradead.org,
+	qemu-riscv@nongnu.org, u-boot@lists.denx.de,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] dt-bindings: riscv: deprecate riscv,isa
+Message-ID: <20230612-relic-fetal-1beeae3455aa@spud>
+References: <20230518-thermos-sanitary-cf3fbc777ea1@wendy>
+ <20230518-4050231ca8dbe93c08cf9c9a@orel>
+ <CAAhSdy07Mg_JBF+4ucGFiWdBKh-Ass5G_aUWqBqTnDSFp7S=0A@mail.gmail.com>
+ <20230518-hammock-doornail-478e8ea8e6a7@wendy>
+ <f7c20090-220c-2805-86ba-b174a89f65b3@seco.com>
+ <20230518-monkhood-dispersal-6749b1228b0d@spud>
+ <20230530-duller-reset-a34ae111f207@wendy>
+ <20230608191537.GA3233857-robh@kernel.org>
+ <20230608-cobbler-giving-e0fac2185e11@spud>
 MIME-Version: 1.0
+In-Reply-To: <20230608-cobbler-giving-e0fac2185e11@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230612_220556_340184_451B7285 
-X-CRM114-Status: UNSURE (   8.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230612_142358_258911_D97F9460 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,57 +87,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3013123389537938239=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Part of the conversions to replace pgtable constructor/destructors with
-ptdesc equivalents. Also cleans up some spacing issues.
 
-Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
----
- arch/um/include/asm/pgalloc.h | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+--===============3013123389537938239==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="RnjcFuwrw0FxHlVc"
+Content-Disposition: inline
 
-diff --git a/arch/um/include/asm/pgalloc.h b/arch/um/include/asm/pgalloc.h
-index 8ec7cd46dd96..de5e31c64793 100644
---- a/arch/um/include/asm/pgalloc.h
-+++ b/arch/um/include/asm/pgalloc.h
-@@ -25,19 +25,19 @@
-  */
- extern pgd_t *pgd_alloc(struct mm_struct *);
- 
--#define __pte_free_tlb(tlb,pte, address)		\
--do {							\
--	pgtable_pte_page_dtor(pte);			\
--	tlb_remove_page((tlb),(pte));			\
-+#define __pte_free_tlb(tlb, pte, address)			\
-+do {								\
-+	pagetable_pte_dtor(page_ptdesc(pte));			\
-+	tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));	\
- } while (0)
- 
- #ifdef CONFIG_3_LEVEL_PGTABLES
- 
--#define __pmd_free_tlb(tlb, pmd, address)		\
--do {							\
--	pgtable_pmd_page_dtor(virt_to_page(pmd));	\
--	tlb_remove_page((tlb),virt_to_page(pmd));	\
--} while (0)						\
-+#define __pmd_free_tlb(tlb, pmd, address)			\
-+do {								\
-+	pagetable_pmd_dtor(virt_to_ptdesc(pmd));			\
-+	tlb_remove_page_ptdesc((tlb), virt_to_ptdesc(pmd));	\
-+} while (0)
- 
- #endif
- 
--- 
-2.40.1
 
+--RnjcFuwrw0FxHlVc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Rob,
+Before I press on with more versions...
+
+On Thu, Jun 08, 2023 at 08:30:28PM +0100, Conor Dooley wrote:
+> On Thu, Jun 08, 2023 at 01:15:37PM -0600, Rob Herring wrote:
+> > On Tue, May 30, 2023 at 03:12:12PM +0100, Conor Dooley wrote:
+> > > On Thu, May 18, 2023 at 10:42:34PM +0100, Conor Dooley wrote:
+> > > > On Thu, May 18, 2023 at 02:30:53PM -0400, Sean Anderson wrote:
+> > >=20
+> > > > >=20
+> > > > > Why not just have something like
+> > > > >=20
+> > > > > mycpu {
+> > > > > 	...
+> > > > > 	riscv,isa {
+> > > > > 		i;
+> > > > > 		m;
+> > > > > 		a;
+> > > > > 		zicsr;
+> > > > > 		...
+> >=20
+> > I prefer property names be globally unique. The tools are geared toward=
+s=20
+> > that too. That's largely a symptom of having 0 type information in the=
+=20
+> > DT.
+> >=20
+> > For example if you had an extension called 'reg', it would be a problem.
+>=20
+> Per the current ISA rules, that'd not be valid. But then again, I do
+> have trust issues & it's not like "reg" is the only property name in DT
+> land.
+
+=2E..you say "prefer" here. Is that a NAK, or a "you keep the pieces"?
+
+--RnjcFuwrw0FxHlVc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIeM5gAKCRB4tDGHoIJi
+0uzcAQDu/tJVEgDQEG2BFIFoTPaZznrjs1Il4oaLCWo/dTGTigEAtYV2jXPQafdF
+DrSPBnySqez+fzXzA9+5KTRu5WWsKg8=
+=Olcx
+-----END PGP SIGNATURE-----
+
+--RnjcFuwrw0FxHlVc--
+
+
+--===============3013123389537938239==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3013123389537938239==--
+
