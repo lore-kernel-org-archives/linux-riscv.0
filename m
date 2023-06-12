@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD93C7EE23
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 07:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E360FC7EE23
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 07:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+9otrKa/m7dFJKL18Nkg1d8vQM2VvRBBgL2bhWPTls0=; b=nSe6Qp2CvpbbjP
-	8Cb4+kYf8Uoj8Rg6eyvAtOk3FWDJqfmyjq7G1JdhWPu3oVy6tX/PLFK9u8O9kLcnNlut+e+1J5Pl8
-	ScEN0w7EkKPJfovi7xj8BBQMUnndQJdlhj7b3eEcMSWRqL5Uq45GH6/IHbGE7pnX65wtvOW5KLdjM
-	juCPTjFwmuHjC3Gf9CwE1nI5ru/JN9+0Gs0SKAWAk0ADMK8LEazLzR5rZCIGxu1HFozOx1RQC+KHU
-	mpsYqT88+n+hUaZr+FBvnJ6MXzcgpwuEB54BDWGtRw+41u7QKfsjxML6uP/QMF7CdZ5bBOBQVpP1u
-	q+Ad6dps27Dm9RrR8biA==;
+	List-Owner; bh=K33ETBHjAbO0oGTOi2T6P6eH7xpnOsAcnhW06MYBrCc=; b=Z5cW7WMQURxICD
+	/0S8rEoTRey2+vIr1SmdTuQmxBJDm7XkJc4sM+orHN+JHLKQa3WFs9HwwiJk5Yr5niggqQfV+FsSa
+	pHq+zgUCPfv6puMrcWBqzBMeamUoGgXiaRYZVL1h5TODP8GohGTAgV3FbX84d2iipX75mA2zceQiu
+	Ik17v3Rdfoa2b4F09Wt31Oeo0ph6r+7xZHbqpu5DGV6XKbafLcZ8Qt8scOJLyPlYkZBr7wM0d8/71
+	zt2W+f0Crg7BJsD8Sr/rtv7qSBMZV7aEzQrkRe9JU4EZrmLZzNyb9DuYKRyXCSzTNBl77bC189raI
+	wDO2k851/sWLekhZT8Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8c1g-002vG3-1m;
-	Mon, 12 Jun 2023 07:31:44 +0000
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
+	id 1q8c3Y-002vbC-2i;
+	Mon, 12 Jun 2023 07:33:40 +0000
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8c1c-002vFF-3B
+	id 1q8c3V-002vaR-2K
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jun 2023 07:31:42 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-6b2d9ea4901so1357625a34.1
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jun 2023 00:31:39 -0700 (PDT)
+	Mon, 12 Jun 2023 07:33:38 +0000
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-6b2a4cb5776so2339952a34.0
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Jun 2023 00:33:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1686555099; x=1689147099;
+        d=ventanamicro.com; s=google; t=1686555217; x=1689147217;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nx5q9fhjV96LWcx6Jfdpvto0r7F5SkawxjUbzYMVbU0=;
-        b=eT5XQlBp3JB6as/gjlQ5au2yEWvcA0ehIUsxCZGBzEmeNx0MNIfmOvcf+RPT1vP0oX
-         Y+7HgcnqJkC+pNuTXX4hhomMxdSASeICstbLqYzLp0mmBpkgq8WVscHD3xK7t7tfmKd5
-         ipC9jAjS5UQ7feubrMoKrlov1vAdeaZTrPqvGbz5h0Vpl/J9d91/thC7dsh/qqJCpfPY
-         efJMSfeFWvXGO59M6wfZSh89HFvv+HARTtzqPcju5XlEte9qAy885bv49Ce45Iu6dAWS
-         gyEqquZrBpmhFdSFMEqQAdZ90e+MCXf6QBnlUixZTF9kx+rtFHZ0mQThRoUE5Obbh1Mf
-         miBQ==
+        bh=sH9+9VxCvpbiTFFppMcfbBVPxw/EPavqd6zQGr7R/aM=;
+        b=ab6l2ynLF+WlLZBwPOh7ztGUYxo2bBmUbFYFnGtyQwZcZP4M8yJF0/F5lmG5viTGpz
+         knbf3Ld1Lj0CNFYXZrjbbLNjvPxaX2zjuKn2DwwzRgat7BKBZK93ysa99iufetol5zu/
+         Gf0jcHfXMIJ73z2Z+Yw2/PSbp7++05yH0ANI2h1iUBz1gD+5yzXmoDKGYAICPaCNu/A6
+         w155h7ldm51mQAd4/NKfDoKVhrvBcNqfQYJdboLr+Zz8elrVM/XrCQ8hq2XgHgsczDXr
+         NRQtVl1zz2VWgrO0PP84LKGcaKP0pcIWPTtmFnKTLsc/3FMtcAoG2KyQKGSlcchYHr+4
+         9XoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686555099; x=1689147099;
+        d=1e100.net; s=20221208; t=1686555217; x=1689147217;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nx5q9fhjV96LWcx6Jfdpvto0r7F5SkawxjUbzYMVbU0=;
-        b=SkigmToURhjlBPH+Pjxp+4I2JydzpGYy1xDVi+B7dTjtYliNx7mqVLl5c3pU/Bvg9U
-         8Svo1kWjYOws5Klg4/iz55xBOIrLug9FTJxsHdhD+JN6/ngBk0usZcRVCcwNrNVjut2b
-         7jQ/AaKaf40cyzibmgYpHB3Nx4s43pr7lEkVL8nNxzJJ8Duiv5MFFmKa08t4Wx5FDH1+
-         yzJOUXe7opWY1xM6unHRww3149+9r2Ajc7JzuOitTu0+e3sFC2LTe7KMrFhcul84efEF
-         VnIIeuQbGquPwK7Oky46D272Y8gFtmArmSClGE9HfVqTsaxD+bDsGFVyb8lhLQoWmvzs
-         V8iw==
-X-Gm-Message-State: AC+VfDxzMdJXbBGRtw7loEH8lJj70uS8woT0n/hRMhy6IF70xxRbf/AC
-	DzKfpGFkNLJniW7J/gHKJOSgVw==
-X-Google-Smtp-Source: ACHHUZ5Ap9pNRWhgpC8RvE81RET8/5ETAo0vrRv256Y4Zcz9SkmYPZaSO3HQiai2JyOZSVOBWpGZPw==
-X-Received: by 2002:a05:6830:110f:b0:6b2:9c7f:bcc5 with SMTP id w15-20020a056830110f00b006b29c7fbcc5mr5691081otq.22.1686555099149;
-        Mon, 12 Jun 2023 00:31:39 -0700 (PDT)
+        bh=sH9+9VxCvpbiTFFppMcfbBVPxw/EPavqd6zQGr7R/aM=;
+        b=lixseXXeiveb6ZXK0EcNid7eOPToE0EgyfmPCA2FzoAwko35DMEnTy3smng9x7/BIQ
+         73eGr+z62vZkLFtancglSdyZPp1OBsbqteU6V3+zt0/UnXDHZGa2b4fIgb+dONgxgyPN
+         9ACQg3WmPfDjnoN6ezcVsy3tHkKIjB+JLdWvAsIRR3F7O4Zx7vwZ4B4s4mBtpelvvIPJ
+         QRHVG+WSXA8XuzD1lVQrJmrT/mLZJbdyKF/QMdobnfHBp3DF5IMJnB+6Pz8jaEbtyNYv
+         sxkDtJWZauSLLH3axdHtR0QOk6ZGx3rXWlpCTu8i+syxNyDnT1Nau5mdf5yQgCGM8wXb
+         ZVTw==
+X-Gm-Message-State: AC+VfDw+wl8rBBQq81FccIv6k/7pM6NqXkGcE5jiqmlnU4GbgA0qILZl
+	qyJaoLbrpB3Ziw+7xjaFaTIpWA==
+X-Google-Smtp-Source: ACHHUZ68MTAY1eRJRYgYY8ftiOpK7rEOI/BZIFxKXhEmd7X2tHL3vMnLcgTrb1o8pV5N1uUWvlY49A==
+X-Received: by 2002:a05:6830:18e5:b0:6b2:ab63:6e6 with SMTP id d5-20020a05683018e500b006b2ab6306e6mr5995178otf.26.1686555216945;
+        Mon, 12 Jun 2023 00:33:36 -0700 (PDT)
 Received: from sunil-laptop ([106.51.184.72])
-        by smtp.gmail.com with ESMTPSA id p16-20020a0568301d5000b006a64043ed69sm3674667oth.56.2023.06.12.00.31.35
+        by smtp.gmail.com with ESMTPSA id c8-20020a9d4808000000b006b296562566sm3651491otf.79.2023.06.12.00.33.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jun 2023 00:31:38 -0700 (PDT)
-Date: Mon, 12 Jun 2023 13:01:31 +0530
+        Mon, 12 Jun 2023 00:33:36 -0700 (PDT)
+Date: Mon, 12 Jun 2023 13:03:28 +0530
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: Conor Dooley <conor@kernel.org>
 Cc: palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>,
@@ -70,17 +70,18 @@ Cc: palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>,
 	Yangyu Chen <cyy@cyyself.name>, Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 2/7] RISC-V: split early & late of_node to hartid
- mapping
-Message-ID: <ZIbJ02v1c/dG3ywb@sunil-laptop>
+Subject: Re: [PATCH v3 3/7] RISC-V: validate riscv,isa at boot, not during
+ ISA string parsing
+Message-ID: <ZIbKSDHSzHhXf5c9@sunil-laptop>
 References: <20230607-audacity-overhaul-82bb867a825f@spud>
- <20230607-glade-pastel-d8cbd9d9f3c6@spud>
+ <20230607-guts-blurry-67e711acf328@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230607-glade-pastel-d8cbd9d9f3c6@spud>
+In-Reply-To: <20230607-guts-blurry-67e711acf328@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230612_003141_019648_F6D05110 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20230612_003337_758379_F32C07E8 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,29 +98,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 07, 2023 at 09:28:26PM +0100, Conor Dooley wrote:
+On Wed, Jun 07, 2023 at 09:28:27PM +0100, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Some back and forth with Drew [1] about riscv_fill_hwcap() resulted in
-> the realisation that it is not very useful to parse the DT & perform
-> validation of riscv,isa every time we would like to get the id for a
-> hart.
+> Since riscv_fill_hwcap() now only iterates over possible cpus, the
+> basic validation of whether riscv,isa contains "rv<width>" can be moved
+> to riscv_early_of_processor_hartid().
 > 
-> Although it is no longer called in riscv_fill_hwcap(),
-> riscv_of_processor_hartid() is called in several other places.
-> Notably in setup_smp() it forms part of the logic for filling the mask
-> of possible CPUs. Since a possible CPU must have passed this basic
-> validation of riscv,isa, a repeat validation is not required.
+> Further, "ima" support is required by the kernel, so reject any CPU not
+> fitting the bill.
 > 
-> Rename riscv_of_processor_id() to riscv_early_of_processor_id(),
-> which will be called from setup_smp() & introduce a new
-> riscv_of_processor_id() which makes use of the pre-populated mask of
-> possible cpus.
-> 
-> Link: https://lore.kernel.org/linux-riscv/xvdswl3iyikwvamny7ikrxo2ncuixshtg3f6uucjahpe3xpc5c@ud4cz4fkg5dj/ [1]
 > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
+
 Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
 
 _______________________________________________
