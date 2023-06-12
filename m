@@ -4,83 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D27C7EE2F
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 15:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDBFC7EE2F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 15:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nREP9UfipaKgqtawT96uMlpLaohZLglizC14UukRDy8=; b=oatssWIaYml5rT
-	b3368bGaiEeRkOXXMTrXddX9JxTqzAcEqNSwoQQJqOSd0pCpECAdIZdQsbmdEFZNChDw8GFplPh66
-	uAqoKqLPpESZcJyfuCABQTQJDAmjoKlq4TgjobofWeHP1a7xGFZbfjz7tFao8wxGaeodhahneW5ko
-	03OOte/2XIlieOkq8F/Zh2AnmoqViFaz2TPffjnjjCVmBq7if7GrhBz+fbX39AklBhhD3OSzNs9YH
-	JMAwu3o+L9aLoRZbGY2kz0KcX1obp34zvLe9eBltuA90mgqL/gWdOpo9BYc/8X6+q+JMh4p8NH8xb
-	bwwbxBcH5j9hiM/UVU9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=4lR5rFaWpQHfMjtgjXcLriPFRngVnNoruNIw68CpVMc=; b=Nr1eJIbIjPvzjD3gTpXiZJlKsI
+	fJX1JfqRVWGv01YUrV9+g/PNMY5a0LRGPkhXTmgvwFNukEqHuIQ6eklGU4A8jq/WFLfr7x1l9YWJe
+	eIjXZJDeem0YfQzi45gvhqRaokmHd8IQFMvnEH2NNurTo45XneW7BPxA1Ba5Fxe/ukqyZ/k3wvSlp
+	euUaFfI3aA/dx88wK8MQ7dVXIfnSzCHYj/TTvEf3+DDdslnKTnCvOGkqjVCEfDLme48fmv9y+EOQ9
+	T1CStwnCnkk7VxP4OlG9o4icXArHoJmvdsKf8QVH75INSHD1KCjXzBAPTjxLn8Nmq950EaleIBj3h
+	LIUsQ4Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8j1R-004Njc-1X;
-	Mon, 12 Jun 2023 14:59:57 +0000
-Received: from mail-io1-f51.google.com ([209.85.166.51])
+	id 1q8jUR-004U19-33;
+	Mon, 12 Jun 2023 15:29:55 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8j1N-004NiT-2o;
-	Mon, 12 Jun 2023 14:59:55 +0000
-Received: by mail-io1-f51.google.com with SMTP id ca18e2360f4ac-77ae5865366so219598039f.0;
-        Mon, 12 Jun 2023 07:59:52 -0700 (PDT)
+	id 1q8jUP-004U03-0J
+	for linux-riscv@lists.infradead.org;
+	Mon, 12 Jun 2023 15:29:54 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-39ca120c103so1364223b6e.2
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Jun 2023 08:29:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1686583791; x=1689175791;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+L3sNBGkEDm+nY+O6ThdBKE7WdymZq4deKq6djroJ+4=;
+        b=go09bCif4ImXiCWgjVptfkS9gXEy0+VB5/+YiVIIRg/UaF0J/xL24VDZEuptVDNfL1
+         TrKC73Qm8r/vjS4Dp1y7404UdPFirmviByLME8pnKRyqb4YDCW63IpUOf642JoPHe6bj
+         APrd9Nse/u+hCdTqF61XybXoApKjTARMyWt8tjlL6fu6estIpaQhGDh0SEmtdRd2Ja88
+         c5kKfKXmD3BKOwYJlqaYos0cL435spWC59lFgnIQbC2gpYTnhA+qnFMw3cfyRwK0Q48p
+         ONlTAEDfPvkyMx7opPf3w0a7TeNZJ3ePeKlgU/Fc/GmQfGTlA5fGoxqFZ78zyQ0sRjQp
+         EYwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686581992; x=1689173992;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20221208; t=1686583791; x=1689175791;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=07dB69ZZGyTHxP/KSd9bxJ1LwTeCS3J4mCqoCOU8mcc=;
-        b=NG9inoNGZFeMDqnjoaPgn8KCo4OjsRsBhzXrEGpQ9wksiPIxIP8VQPcBOMiZrYaCHj
-         tUFRbU1qxKqEIws3mSeFaJtuc52kTXgWwcnapLaNY6AqK43Um+2E9eCIH1v953F8dK3P
-         y2Nn8Wjt39nYql/l1VSu3QGYFG0n5uHp+gA8eux7PYNTIZ5jQ3tSxcrYQHAzGKkVuga+
-         Fd+klyyEqYNrQp6ILY7mwfvDPZ/daYAekA65iGZReh790Rmip6HQ9m48X7XtkgVQrHX/
-         nLu76Gm+z8rUy9it+b5oHIHhdQSLJGGqIw7+bEodkGZGAXLYYm69hlmpLUSkBOsCrLmd
-         y3Vw==
-X-Gm-Message-State: AC+VfDyAGDcv2JDH7hlPRSCkBeWRRr9x+eoTfn1iqvxv8IUmaGcOrfnX
-	4WVr2lB3oyBvpVo5CYL0EQ==
-X-Google-Smtp-Source: ACHHUZ6KNQPN7jVXTXBkLnNdRrMFykMu72Ussv53FDlxV/WfKOF6aT/n3DU/YcGQQfoex66gY6aZAQ==
-X-Received: by 2002:a6b:a05:0:b0:777:b531:eb56 with SMTP id z5-20020a6b0a05000000b00777b531eb56mr8460626ioi.7.1686581992169;
-        Mon, 12 Jun 2023 07:59:52 -0700 (PDT)
-Received: from robh_at_kernel.org ([64.188.179.250])
-        by smtp.gmail.com with ESMTPSA id a24-20020a6b6618000000b00752f62cd3bdsm3260506ioc.12.2023.06.12.07.59.48
+        bh=+L3sNBGkEDm+nY+O6ThdBKE7WdymZq4deKq6djroJ+4=;
+        b=CDe9y8kA2ex8b12xQwgLGEbLkHu50bFIkLEvq5dp8FNOlg1O9tjmijm4UzsfWLsUnW
+         J2zQr9HEOQ8vYoblbCpHEoFDLXnsNPjs9S5pu7/UqlHYYdxmxX4anYrlq90+Vpvd9VOV
+         xLDAipim+K5rdSjHNrdyIvfwIJTFH7dwm4QDmozZxATr/V4JX2RVT6XOrKfRlk+DcLv3
+         jk+aVnFfmB9faH2mEcuT6k/RBMoVZ50UPMmDx2qL6Vm4kTSm3zDH+RtZnB06uo+9R5j2
+         vGWlFDqeb42mrI0X0kbLQ3xPfFhzPQutgUuDDLoIMutFshStDjC6fNFArmAEchiw2ebf
+         AlwA==
+X-Gm-Message-State: AC+VfDz240zcGSsgGugs567wvX5ZuKdc0MUvfhdoBPl/CMWxngpKLwjz
+	dCsH8V356aQ4GGUsXTa1un2Gmr7ec/SD9k2Gbpw=
+X-Google-Smtp-Source: ACHHUZ57XwJNmqydEfIp4zrTcUdo5NXQTs9MhZtPtZpjHailChIEu86ekE94sWUuxvP9d3aojoVRKQ==
+X-Received: by 2002:aca:230b:0:b0:394:4642:7148 with SMTP id e11-20020aca230b000000b0039446427148mr4426563oie.48.1686583790671;
+        Mon, 12 Jun 2023 08:29:50 -0700 (PDT)
+Received: from localhost ([135.180.227.0])
+        by smtp.gmail.com with ESMTPSA id rj6-20020a17090b3e8600b002599ef80ab9sm9418417pjb.3.2023.06.12.08.29.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jun 2023 07:59:51 -0700 (PDT)
-Received: (nullmailer pid 39495 invoked by uid 1000);
-	Mon, 12 Jun 2023 14:59:47 -0000
-Date: Mon, 12 Jun 2023 08:59:47 -0600
-From: Rob Herring <robh@kernel.org>
-To: Maksim Kiselev <bigunclemax@gmail.com>
-Cc: linux-iio@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>, 
-	Lars-Peter Clausen <lars@metafoo.de>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Cosmin Tanislav <demonsingur@gmail.com>, 
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Arnd Bergmann <arnd@arndb.de>, ChiaEn Wu <chiaen_wu@richtek.com>, 
-	Ibrahim Tilki <Ibrahim.Tilki@analog.com>, ChiYuan Huang <cy_huang@richtek.com>, 
-	Ramona Bolboaca <ramona.bolboaca@analog.com>, 
-	William Breathitt Gray <william.gray@linaro.org>, =?UTF-8?Q?Leonard_G=C3=B6hrs?= <l.goehrs@pengutronix.de>, 
-	Caleb Connolly <caleb.connolly@linaro.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 2/3] dt-bindings: iio: adc: Add Allwinner
- D1/T113s/R329/T507 SoCs GPADC
-Message-ID: <20230612145947.GA37083-robh@kernel.org>
-References: <20230610202005.1118049-1-bigunclemax@gmail.com>
- <20230610202005.1118049-3-bigunclemax@gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230610202005.1118049-3-bigunclemax@gmail.com>
+        Mon, 12 Jun 2023 08:29:49 -0700 (PDT)
+Date: Mon, 12 Jun 2023 08:29:49 -0700 (PDT)
+X-Google-Original-Date: Mon, 12 Jun 2023 08:29:45 PDT (-0700)
+Subject: Re: [PATCH RFC 0/2] RISC-V: T-Head vector handling
+In-Reply-To: <mhng-6d6a325c-4adb-4d9a-98a0-012c75b4562e@palmer-ri-x1c9a>
+CC: linux-riscv@lists.infradead.org, samuel@sholland.org,
+  christoph.muellner@vrull.eu, heiko@sntech.de, Conor Dooley <conor.dooley@microchip.com>,
+  linux-kernel@vger.kernel.org, heiko.stuebner@vrull.eu
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: heiko@sntech.de, guoren@kernel.org
+Message-ID: <mhng-ca852a2c-a1c7-4b14-a9a2-f2bd4541d6b7@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230612_075953_907417_78E2107C 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20230612_082953_401364_27AE9558 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,129 +87,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 10, 2023 at 11:19:49PM +0300, Maksim Kiselev wrote:
-> From: Maxim Kiselev <bigunclemax@gmail.com>
-> 
-> Allwinner's D1/T113s/R329/T507 SoCs have a new general purpose ADC.
-> This ADC is the same for all of this SoCs. The only difference is
-> the number of available channels.
-> 
-> Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
-> ---
->  .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    | 91 +++++++++++++++++++
->  1 file changed, 91 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> new file mode 100644
-> index 000000000000..43256ad2b7ed
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> @@ -0,0 +1,91 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/iio/adc/allwinner,sun20i-d1-gpadc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner D1 General Purpose ADC
-> +
-> +maintainers:
-> +  - Maksim Kiselev <bigunclemax@gmail.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - allwinner,sun20i-d1-gpadc
-> +
-> +  "#io-channel-cells":
-> +    const: 1
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 0
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +patternProperties:
-> +  "^channel@([0-15])$":
+On Tue, 14 Mar 2023 22:29:41 PDT (-0700), Palmer Dabbelt wrote:
+> On Tue, 28 Feb 2023 13:54:33 PST (-0800), heiko@sntech.de wrote:
+>> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+>>
+>> As is widely known the T-Head C9xx cores used for example in the
+>> Allwinner D1 implement an older non-ratified variant of the vector spec.
+>>
+>> While userspace will probably have a lot more problems implementing
+>> support for both, on the kernel side the needed changes are actually
+>> somewhat small'ish and can be handled via alternatives somewhat nicely.
+>>
+>> With this patchset I could run the same userspace program (picked from
+>> some riscv-vector-test repository) that does some vector additions on
+>> both qemu and a d1-nezha board. On both platforms it ran sucessfully and
+>> even produced the same results.
+>>
+>>
+>> As can be seen in the todo list, there are 2 places where the changed
+>> SR_VS location still needs to be handled in the next revision
+>> (assembly + ALTERNATIVES + constants + probably stringify resulted in
+>>  some grey hair so far already)
+>>
+>>
+>> ToDo:
+>> - follow along with the base vector patchset
+>> - handle SR_VS access in _save_context and _secondary_start_sbi
+>>
+>>
+>> Heiko Stuebner (2):
+>>   RISC-V: define the elements of the VCSR vector CSR
+>>   RISC-V: add T-Head vector errata handling
+>>
+>>  arch/riscv/Kconfig.erratas           |  13 +++
+>>  arch/riscv/errata/thead/errata.c     |  32 ++++++
+>>  arch/riscv/include/asm/csr.h         |  31 +++++-
+>>  arch/riscv/include/asm/errata_list.h |  62 +++++++++++-
+>>  arch/riscv/include/asm/vector.h      | 139 +++++++++++++++++++++++++--
+>>  5 files changed, 261 insertions(+), 16 deletions(-)
+>
+> I have no opposition to calling the T-Head vector stuff an errata
+> against V, the RISC-V folks have already made it quite apparent that
+> anything goes here.  I would like to get the standard V uABI sorted out
+> first, though, as there's still a lot of moving pieces there.  It's kind
+> of hard here as T-Head got thrown under the bus, but I'm not sure what
+> else to do about it.
 
-0-15? That's not how regex's work. Unit-addresses are in hex as well.
-
-"^channel@[0-9a-f]$"
-
-> +    $ref: adc.yaml
-> +    type: object
-> +    description:
-> +      Represents the internal channels of the ADC.
-> +
-> +    properties:
-> +      reg:
-> +        items:
-> +          minimum: 0
-> +          maximum: 15
-> +
-> +    required:
-> +      - reg
-> +
-> +    unevaluatedProperties: false
-> +
-> +required:
-> +  - "#io-channel-cells"
-> +  - clocks
-> +  - compatible
-> +  - interrupts
-> +  - reg
-> +  - resets
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/sun20i-d1-ccu.h>
-> +    #include <dt-bindings/reset/sun20i-d1-ccu.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    gpadc: adc@2009000 {
-> +        compatible = "allwinner,sun20i-d1-gpadc";
-> +        reg = <0x2009000 0x1000>;
-> +        clocks = <&ccu CLK_BUS_GPADC>;
-> +        resets = <&ccu RST_BUS_GPADC>;
-> +        interrupts = <73 IRQ_TYPE_LEVEL_HIGH>;
-> +        #io-channel-cells = <1>;
-> +
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        channel@0 {
-> +            reg = <0>;
-> +        };
-> +
-> +        channel@1 {
-> +            reg = <1>;
-> +        };
-> +    };
-> +...
-> -- 
-> 2.39.2
-> 
+The V-1.0 support has been merged, so I think we're good to go.  Does 
+someone mind re-spinning this against for-next so it lines up with all 
+the new user interfaces?
 
 _______________________________________________
 linux-riscv mailing list
