@@ -4,34 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A550C7EE2E
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 11:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 785CBC83005
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Jun 2023 11:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=H8mxwwxZXF4N40dhHgIPm39QoyLqSe3R6l2/yfdgOZI=; b=T8J9XmVKL2QyyZ
-	T/lJdj0eqRHv+AY4B/C/Jujsdy8V6boHzkw0pCiku+GMVDzMEnOv8pA1xBOLlC6UXXpy7Xf2S7CQF
-	luajqAFwjDacv7NuJIyR09vB88Jtyd0azZCNepjwAX6cSGzb1yeFzUMs+hEJBhcwiwAnpaGdSDnwz
-	Bi24BjNIwti3VAdiMpQEqZ46aUSuJe6dK45tNA8A2h4WHtLBxcK4VdbHPdsNHF4mOzMs9uDUXgYH7
-	ZlXiNP6a7mgG8PNX27Wrc+cty1xcAzUNIIf/iIcYbl1uU0Ih79KBNuQ4sfPfOo57AEepHHU/wCTkF
-	DRSCUs8J54kJ7fIbTkGQ==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PlndbOwCXaElGMEzLkbJXJVOBLO6Ms80wSFniuVZM0c=; b=XP5rd0XhtPJbW6
+	Lu0xloEzyzpugYxF1Eh3K3K0UpcyuYFPPM0nj1UUp+uwfoXrv1sYfKlWR33fzDBbwbG2KLkFuwI9b
+	Ge+XqElZCJbckbKf8H51EgR6cgCf4cgm37/K8rufkSr4gDZ7mJq5WUOQWQcRLcoYtuRwsS23JjACE
+	9yGEvhxeshnWv6IOw/SRVjz9JLB409RYdyKz2rgw/Zx0WW4Hm61lLSLgeH7UrHfFMFxga7DBemVcw
+	rhpaoX76l2XjAiXSlhFFoXE5zWR2+AoGMZnq5kx9AsMCSzPN15jZeN0zkka1NAHGK1tAZMmz8krJq
+	H20yS47UND1UbYszpVJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8fJ7-003hNz-0w;
-	Mon, 12 Jun 2023 11:01:57 +0000
+	id 1q8fJC-003hQ5-1z;
+	Mon, 12 Jun 2023 11:02:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q8fJA-003hP1-3A;
+	Mon, 12 Jun 2023 11:02:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=75Zu/u6SAZNWQm0yOL9I7E1oX/vnjn3lpBR4UsGEpTI=; b=R8PMK9+/BT+BFPhoLFMrdPcfT6
+	fqnZoIArcsu2kYL3DlKmtAi9NpMuLcUyTTPfYwRg71WKJS7q6VfmtauXGVDY7XJR8lHmF89sjq7Wn
+	pHAB/iNCfxGjTg2xW7KuNqjxVZRs/WNNfZ3sTAUkN3FewUWQ5mI/3Jckvm79ZrbtxNUbTrMe9z5tq
+	L0Zrp9AYj1QxMFevEc3g6ckqV4tGGFDTIv6uoFwsQ0YAV+FAI2g7+Fw4Brs3QpjrV5Sq0yuh1OSoj
+	Mn+QbOrz4YGuavNXqVw8w8khXzR4PoWo2v6MjzDZuzLxMgo6Vh/PyFANseqIEM44XEfgpABrFDcx6
+	9Udz75Tg==;
 Received: from mail.loongson.cn ([114.242.206.163])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8fJ1-003hIb-2z;
-	Mon, 12 Jun 2023 11:01:55 +0000
+	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q8fJ6-008mgS-09;
+	Mon, 12 Jun 2023 11:01:59 +0000
 Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8BxrOoU+4Zk_rUDAA--.8006S3;
-	Mon, 12 Jun 2023 19:01:40 +0800 (CST)
+	by gateway (Coremail) with SMTP id _____8BxL_AV+4ZkBLYDAA--.8149S3;
+	Mon, 12 Jun 2023 19:01:41 +0800 (CST)
 Received: from linux.localdomain (unknown [113.200.148.30])
-	by localhost.localdomain (Coremail) with SMTP id AQAAf8AxfcoQ+4Zk19QVAA--.54161S2;
-	Mon, 12 Jun 2023 19:01:37 +0800 (CST)
+	by localhost.localdomain (Coremail) with SMTP id AQAAf8AxfcoQ+4Zk19QVAA--.54161S3;
+	Mon, 12 Jun 2023 19:01:40 +0800 (CST)
 From: Tiezhu Yang <yangtiezhu@loongson.cn>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -43,32 +57,33 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	loongson-kernel@lists.loongnix.cn
-Subject: [PATCH v1 0/2] Unify uapi bitsperlong.h
-Date: Mon, 12 Jun 2023 19:01:32 +0800
-Message-Id: <1686567694-20099-1-git-send-email-yangtiezhu@loongson.cn>
+Subject: [PATCH v1 1/2] asm-generic: Unify uapi bitsperlong.h for arm64, riscv and loongarch
+Date: Mon, 12 Jun 2023 19:01:33 +0800
+Message-Id: <1686567694-20099-2-git-send-email-yangtiezhu@loongson.cn>
 X-Mailer: git-send-email 2.1.0
-X-CM-TRANSID: AQAAf8AxfcoQ+4Zk19QVAA--.54161S2
+In-Reply-To: <1686567694-20099-1-git-send-email-yangtiezhu@loongson.cn>
+References: <1686567694-20099-1-git-send-email-yangtiezhu@loongson.cn>
+X-CM-TRANSID: AQAAf8AxfcoQ+4Zk19QVAA--.54161S3
 X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoW7WF17Jr1xtF4fKrWkCw1fZrc_yoW8CFW5pF
-	93ArnxWF45CrWayw15Ja4jqryUJ3yxGr4jgay2qry8GrWIvF1UJrsYkrs7Ca47JayUXFn5
-	ur93Gry5G3WDK3cCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
+X-Coremail-Antispam: 1Uk129KBj93XoW3tF4DXFy8ZrW8Xr17WFyDArc_yoWDCrWUpF
+	95Crn7GF40krWak3yrJF1Igry5A393GF4UtFW2gry0vrWxJF18Gr4v9FsxCa4xJayqqryr
+	uF9agry5Gan8t3cCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
 	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
 	0xBIdaVrnRJUUUkFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
 	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
 	xVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
-	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE
+	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE
 	14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x
 	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
 	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcV
-	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF
-	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
-	CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jOuc_UUUUU=
+	C0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF
+	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7
+	CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jOb18UUUUU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230612_040152_639046_397B8012 
-X-CRM114-Status: UNSURE (   6.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230612_120156_944995_BE6B3EFF 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +101,249 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-v1:
-  -- Rebase on 6.4-rc6
-  -- Only unify uapi bitsperlong.h for arm64, riscv and loongarch
-  -- Remove uapi bitsperlong.h of hexagon and microblaze in a new patch
+Now we specify the minimal version of GCC as 5.1 and Clang/LLVM as 11.0.0
+in Documentation/process/changes.rst, __CHAR_BIT__ and __SIZEOF_LONG__ are
+usable, it is probably fine to unify the definition of __BITS_PER_LONG as
+(__CHAR_BIT__ * __SIZEOF_LONG__) in asm-generic uapi bitsperlong.h.
 
-Here is the RFC patch:
-https://lore.kernel.org/linux-arch/1683615903-10862-1-git-send-email-yangtiezhu@loongson.cn/
+In order to keep safe and avoid regression, only unify uapi bitsperlong.h
+for arm64, riscv and loongarch which are added since the linux-3.x days.
 
-Tiezhu Yang (2):
-  asm-generic: Unify uapi bitsperlong.h for arm64, riscv and loongarch
-  tools arch: Remove uapi bitsperlong.h of hexagon and microblaze
-
- arch/arm64/include/uapi/asm/bitsperlong.h          | 24 -------------------
+Suggested-by: Xi Ruoyao <xry111@xry111.site>
+Link: https://lore.kernel.org/all/d3e255e4746de44c9903c4433616d44ffcf18d1b.camel@xry111.site/
+Suggested-by: Arnd Bergmann <arnd@arndb.de>
+Link: https://lore.kernel.org/linux-arch/a3a4f48a-07d4-4ed9-bc53-5d383428bdd2@app.fastmail.com/
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
+ arch/arm64/include/uapi/asm/bitsperlong.h          | 24 ----------------------
  arch/loongarch/include/uapi/asm/bitsperlong.h      |  9 --------
- arch/riscv/include/uapi/asm/bitsperlong.h          | 14 -----------
- include/uapi/asm-generic/bitsperlong.h             | 10 ++++++++
- tools/arch/arm64/include/uapi/asm/bitsperlong.h    | 24 -------------------
- tools/arch/hexagon/include/uapi/asm/bitsperlong.h  | 27 ----------------------
+ arch/riscv/include/uapi/asm/bitsperlong.h          | 14 -------------
+ include/uapi/asm-generic/bitsperlong.h             | 10 +++++++++
+ tools/arch/arm64/include/uapi/asm/bitsperlong.h    | 24 ----------------------
  .../arch/loongarch/include/uapi/asm/bitsperlong.h  |  9 --------
- .../arch/microblaze/include/uapi/asm/bitsperlong.h |  2 --
- tools/arch/riscv/include/uapi/asm/bitsperlong.h    | 14 -----------
- tools/include/uapi/asm-generic/bitsperlong.h       | 11 +++++++++
- tools/include/uapi/asm/bitsperlong.h               |  6 -----
- 11 files changed, 21 insertions(+), 129 deletions(-)
+ tools/arch/riscv/include/uapi/asm/bitsperlong.h    | 14 -------------
+ tools/include/uapi/asm-generic/bitsperlong.h       | 11 ++++++++++
+ tools/include/uapi/asm/bitsperlong.h               |  6 ------
+ 9 files changed, 21 insertions(+), 100 deletions(-)
  delete mode 100644 arch/arm64/include/uapi/asm/bitsperlong.h
  delete mode 100644 arch/loongarch/include/uapi/asm/bitsperlong.h
  delete mode 100644 arch/riscv/include/uapi/asm/bitsperlong.h
  delete mode 100644 tools/arch/arm64/include/uapi/asm/bitsperlong.h
- delete mode 100644 tools/arch/hexagon/include/uapi/asm/bitsperlong.h
  delete mode 100644 tools/arch/loongarch/include/uapi/asm/bitsperlong.h
- delete mode 100644 tools/arch/microblaze/include/uapi/asm/bitsperlong.h
  delete mode 100644 tools/arch/riscv/include/uapi/asm/bitsperlong.h
 
+diff --git a/arch/arm64/include/uapi/asm/bitsperlong.h b/arch/arm64/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 485d60be..0000000
+--- a/arch/arm64/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,24 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- *
+- * This program is free software; you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License version 2 as
+- * published by the Free Software Foundation.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#ifndef __ASM_BITSPERLONG_H
+-#define __ASM_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG 64
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif	/* __ASM_BITSPERLONG_H */
+diff --git a/arch/loongarch/include/uapi/asm/bitsperlong.h b/arch/loongarch/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 00b4ba1..0000000
+--- a/arch/loongarch/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,9 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-#ifndef __ASM_LOONGARCH_BITSPERLONG_H
+-#define __ASM_LOONGARCH_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG (__SIZEOF_LONG__ * 8)
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif /* __ASM_LOONGARCH_BITSPERLONG_H */
+diff --git a/arch/riscv/include/uapi/asm/bitsperlong.h b/arch/riscv/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 7d0b32e..0000000
+--- a/arch/riscv/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,14 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- * Copyright (C) 2015 Regents of the University of California
+- */
+-
+-#ifndef _UAPI_ASM_RISCV_BITSPERLONG_H
+-#define _UAPI_ASM_RISCV_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG (__SIZEOF_POINTER__ * 8)
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif /* _UAPI_ASM_RISCV_BITSPERLONG_H */
+diff --git a/include/uapi/asm-generic/bitsperlong.h b/include/uapi/asm-generic/bitsperlong.h
+index 693d9a4..fb104f9 100644
+--- a/include/uapi/asm-generic/bitsperlong.h
++++ b/include/uapi/asm-generic/bitsperlong.h
+@@ -3,6 +3,15 @@
+ #define _UAPI__ASM_GENERIC_BITS_PER_LONG
+ 
+ /*
++ * In order to keep safe and avoid regression, only unify uapi
++ * bitsperlong.h for arm64, riscv and loongarch which are added
++ * since the linux-3.x days. See the following link for more info:
++ * https://lore.kernel.org/linux-arch/b9624545-2c80-49a1-ac3c-39264a591f7b@app.fastmail.com/
++ */
++#if defined(__aarch64__) || defined(__riscv) || defined(__loongarch__)
++#define __BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
++#else
++/*
+  * There seems to be no way of detecting this automatically from user
+  * space, so 64 bit architectures should override this in their
+  * bitsperlong.h. In particular, an architecture that supports
+@@ -12,5 +21,6 @@
+ #ifndef __BITS_PER_LONG
+ #define __BITS_PER_LONG 32
+ #endif
++#endif
+ 
+ #endif /* _UAPI__ASM_GENERIC_BITS_PER_LONG */
+diff --git a/tools/arch/arm64/include/uapi/asm/bitsperlong.h b/tools/arch/arm64/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 485d60be..0000000
+--- a/tools/arch/arm64/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,24 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- *
+- * This program is free software; you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License version 2 as
+- * published by the Free Software Foundation.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#ifndef __ASM_BITSPERLONG_H
+-#define __ASM_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG 64
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif	/* __ASM_BITSPERLONG_H */
+diff --git a/tools/arch/loongarch/include/uapi/asm/bitsperlong.h b/tools/arch/loongarch/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 00b4ba1..0000000
+--- a/tools/arch/loongarch/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,9 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-#ifndef __ASM_LOONGARCH_BITSPERLONG_H
+-#define __ASM_LOONGARCH_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG (__SIZEOF_LONG__ * 8)
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif /* __ASM_LOONGARCH_BITSPERLONG_H */
+diff --git a/tools/arch/riscv/include/uapi/asm/bitsperlong.h b/tools/arch/riscv/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 0b9b58b..0000000
+--- a/tools/arch/riscv/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,14 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- * Copyright (C) 2015 Regents of the University of California
+- */
+-
+-#ifndef _UAPI_ASM_RISCV_BITSPERLONG_H
+-#define _UAPI_ASM_RISCV_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG (__SIZEOF_POINTER__ * 8)
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif /* _UAPI_ASM_RISCV_BITSPERLONG_H */
+diff --git a/tools/include/uapi/asm-generic/bitsperlong.h b/tools/include/uapi/asm-generic/bitsperlong.h
+index 23e6c41..fb104f9 100644
+--- a/tools/include/uapi/asm-generic/bitsperlong.h
++++ b/tools/include/uapi/asm-generic/bitsperlong.h
+@@ -1,7 +1,17 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+ #ifndef _UAPI__ASM_GENERIC_BITS_PER_LONG
+ #define _UAPI__ASM_GENERIC_BITS_PER_LONG
+ 
+ /*
++ * In order to keep safe and avoid regression, only unify uapi
++ * bitsperlong.h for arm64, riscv and loongarch which are added
++ * since the linux-3.x days. See the following link for more info:
++ * https://lore.kernel.org/linux-arch/b9624545-2c80-49a1-ac3c-39264a591f7b@app.fastmail.com/
++ */
++#if defined(__aarch64__) || defined(__riscv) || defined(__loongarch__)
++#define __BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
++#else
++/*
+  * There seems to be no way of detecting this automatically from user
+  * space, so 64 bit architectures should override this in their
+  * bitsperlong.h. In particular, an architecture that supports
+@@ -11,5 +21,6 @@
+ #ifndef __BITS_PER_LONG
+ #define __BITS_PER_LONG 32
+ #endif
++#endif
+ 
+ #endif /* _UAPI__ASM_GENERIC_BITS_PER_LONG */
+diff --git a/tools/include/uapi/asm/bitsperlong.h b/tools/include/uapi/asm/bitsperlong.h
+index da52065..c65267a 100644
+--- a/tools/include/uapi/asm/bitsperlong.h
++++ b/tools/include/uapi/asm/bitsperlong.h
+@@ -1,8 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #if defined(__i386__) || defined(__x86_64__)
+ #include "../../../arch/x86/include/uapi/asm/bitsperlong.h"
+-#elif defined(__aarch64__)
+-#include "../../../arch/arm64/include/uapi/asm/bitsperlong.h"
+ #elif defined(__powerpc__)
+ #include "../../../arch/powerpc/include/uapi/asm/bitsperlong.h"
+ #elif defined(__s390__)
+@@ -13,12 +11,8 @@
+ #include "../../../arch/mips/include/uapi/asm/bitsperlong.h"
+ #elif defined(__ia64__)
+ #include "../../../arch/ia64/include/uapi/asm/bitsperlong.h"
+-#elif defined(__riscv)
+-#include "../../../arch/riscv/include/uapi/asm/bitsperlong.h"
+ #elif defined(__alpha__)
+ #include "../../../arch/alpha/include/uapi/asm/bitsperlong.h"
+-#elif defined(__loongarch__)
+-#include "../../../arch/loongarch/include/uapi/asm/bitsperlong.h"
+ #else
+ #include <asm-generic/bitsperlong.h>
+ #endif
 -- 
 2.1.0
 
