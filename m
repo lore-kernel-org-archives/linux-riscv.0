@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D46AFEB64D0
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 16:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DB2EB64D0
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 16:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IpkK5Qu+UNaebJVXsHaVJEAV/MrWDDcjo9MOZPIbWYs=; b=3r/yt5Pc70HoJI
-	BgO0a7cR3fpBOZbJMdPsDVwUcXY4UsJ1PiEUPI2j5MqJcoQvZpr4G+HQY/XP3N+fNBjz3S+9VNNON
-	UZnhWDbwfrVszJfo5wY3rzUvPWwnOnGnqioJ6iyzdAH2CKThheZSR/nvn7fi1ualKjFH12dxPuAGy
-	RgyBFDZwBjlNS+7C9vb2pDpCHjjQTZl5bRp4LS63AYeO9T0VL9SPjEhmKQ58JB013oWqZVAX1mLpi
-	9UXKZh7HORbg6TLY/XaAMUbF4GadgVZMla6sTv+n3ZFLJqrIcfLwXQn1KWTbxk10q5+mz9E841UFf
-	7kDRL0Y90/yl3epupI9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lo8qBRrCE91JGMILhDRA9gv6Mx0x1bxInQZm5V+TlFw=; b=dLExwuAymMCSfmCdLOrnuDwxLK
+	Sx8KBxr/UTJO1gAwL2wHDXKnw52UPg9EYkJRxDs9KT+SVFsp0YLTIwhN0ChacvKKVM2Me9qeXvYJI
+	4mpVoPUOUG+kek2daHLp4uSGnFU+3ceTcNQ9JO805GVyqgRryMmb6bV5257Qj8TkODKLT98KUWXGj
+	yUfZmPBEvGnwE4z0M8+xLE5GcRpLWju1o5Na1PcHcjiuI1xo52YDHfU++1j6XV9uGuAZuVj2sxtkM
+	5C0LfNIgkEJ3NSh4BOR/g8ftlOL7E4zB1WfM6F2IZveEKTlzS2J3G1v8z9PwIMdo7oiXjR99SHeCN
+	e7VBwv0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q96uC-008bFV-1F;
-	Tue, 13 Jun 2023 16:30:04 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q96u6-008bC2-2q
+	id 1q97E8-008dWX-0f;
+	Tue, 13 Jun 2023 16:50:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q97E1-008dVB-1E
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jun 2023 16:30:02 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 81C507FEF;
-	Wed, 14 Jun 2023 00:29:22 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 13 Jun
- 2023 20:58:59 +0800
-Received: from localhost.localdomain (113.72.145.34) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 13 Jun
- 2023 20:58:58 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng
-	<hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>, "William
- Qiu" <william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: [PATCH v5 7/7] riscv: dts: starfive: jh7110: Add PLL clock source in SYSCRG node
-Date: Tue, 13 Jun 2023 20:58:52 +0800
-Message-ID: <20230613125852.211636-8-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230613125852.211636-1-xingyu.wu@starfivetech.com>
-References: <20230613125852.211636-1-xingyu.wu@starfivetech.com>
+	Tue, 13 Jun 2023 16:50:39 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 888F562AD9;
+	Tue, 13 Jun 2023 16:50:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A759C433F0;
+	Tue, 13 Jun 2023 16:50:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686675031;
+	bh=Nv1pXyuTqEu6mOHPgx8NQsMlkyzGVtvusfjtLrcedoY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Wmp6ZRO0Qu+0rQJ0/0qe3l7hbvU5M1ltWeIjgpcgqbmyAKZRUiYH0sA6M7b8VPl2D
+	 9apYHFu4qbMH8R/ZBJQf0Spwff/twYMbFF8zluCYSm46KR1n2r6+lZtytQoA3Hfql3
+	 Z5zApMApymCOxfUY0+lAfEKPF5ltFqXiCUBSN8i2lWPT0kHCSDyiQ7hU+vFZW2r487
+	 OXZIPpxC06ZWfNOYmIaWwytWoW80ouCQ+1NBnthlRlJWyZjYDD6/j5eSVnLjT1nZvD
+	 ATeOwDF4pZwM8DlpfYTE2EOr6yW12Lq7ozwGC22lXmm4C2QHSjSawRtGB6GxD6IWQv
+	 AlPVN+PRZBO3A==
+Date: Tue, 13 Jun 2023 17:50:25 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Nylon Chen <nylon.chen@sifive.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	jszhang@kernel.org, conor.dooley@microchip.com,
+	ajones@ventanamicro.com, aou@eecs.berkeley.edu, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, greentime.hu@sifive.com,
+	zong.li@sifive.com, nylon7717@gmail.com
+Subject: Re: [PATCH] RISC-V: Support 32_PCREL relocation type in kernel module
+Message-ID: <20230613-geologist-rasping-e3ff17bf3906@spud>
+References: <20230613072644.10487-1-nylon.chen@sifive.com>
 MIME-Version: 1.0
-X-Originating-IP: [113.72.145.34]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <20230613072644.10487-1-nylon.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230613_092959_130680_E96243FE 
+X-CRM114-CacheID: sfid-20230613_095033_571349_B20C831B 
 X-CRM114-Status: UNSURE (   9.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -76,47 +72,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3135352021167864622=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Modify the SYSCRG node to add PLL clocks input from
-PLL clocks driver.
 
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+--===============3135352021167864622==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="xYzP2JSiD7E4tKSI"
+Content-Disposition: inline
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 11dd4c9d64b0..cdfd036a0e6c 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -452,12 +452,16 @@ syscrg: clock-controller@13020000 {
- 				 <&gmac1_rgmii_rxin>,
- 				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
- 				 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
--				 <&tdm_ext>, <&mclk_ext>;
-+				 <&tdm_ext>, <&mclk_ext>,
-+				 <&pllclk JH7110_CLK_PLL0_OUT>,
-+				 <&pllclk JH7110_CLK_PLL1_OUT>,
-+				 <&pllclk JH7110_CLK_PLL2_OUT>;
- 			clock-names = "osc", "gmac1_rmii_refin",
- 				      "gmac1_rgmii_rxin",
- 				      "i2stx_bclk_ext", "i2stx_lrck_ext",
- 				      "i2srx_bclk_ext", "i2srx_lrck_ext",
--				      "tdm_ext", "mclk_ext";
-+				      "tdm_ext", "mclk_ext",
-+				      "pll0_out", "pll1_out", "pll2_out";
- 			#clock-cells = <1>;
- 			#reset-cells = <1>;
- 		};
--- 
-2.25.1
 
+--xYzP2JSiD7E4tKSI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Jun 13, 2023 at 03:26:44PM +0800, Nylon Chen wrote:
+> Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+
+You need to write a commit message chief :/
+E.g., explain wasn't this needed before and is now.
+
+Cheers,
+Conor.
+
+--xYzP2JSiD7E4tKSI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIieUQAKCRB4tDGHoIJi
+0gLpAQDPRjGUMu1+/upVQjqGeEGrhPoeaMmtMSIOV4D8fcCa6QD/VP9jfr4RQo7S
+sVUkaur7Pm2HtETlRNbQRwBAQ1NH2go=
+=8bSn
+-----END PGP SIGNATURE-----
+
+--xYzP2JSiD7E4tKSI--
+
+
+--===============3135352021167864622==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3135352021167864622==--
+
