@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E30EB64D8
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 15:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9294EEB64D0
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 15:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qhkk8x5JdD6x+3eTYXXPSHW9wMqufwLDeZ3C37zdvtk=; b=mU9kBinSEZjQxz
-	h/3n5NXG2dQVMdXPshlHDX+Q6DKQ4+GP5FNRy19oYYJMpCSjl4EVZjcAYB6E6ctnu9dFnZa6aKnVg
-	b8SxDWo2BLzIC63amdur5L6zx8FgajCzVtjaIXn6PdycgKrXPDikOo5J/IWNqC9+nmONDsV9MLnNt
-	AoJmYQ0lnmpWGy18LStM1/CHGN1ev2swRuKb1Qt38aaAIr8aDfCenji4FpFvyFanE4Q4qMNb7P0Ik
-	4IlCQ+SG1JaH6R0yz1yni14gQX2vPGXSHHJdcPGurKl8/D3CgPgSyrXZp9WtxA53xyk8KgqDuzRWf
-	uU3QzLSQq08ZEk3jHkyw==;
+	List-Owner; bh=Ty5TWFdGPRmlfcRkMwcKYHWDMBTjwUXIsbmq2XRg4oo=; b=HHeOZL/O2Fc7/j
+	m77dZ4la4E1pSoAUQaHyws80W4iUHGBI4FHzc2Z3eCSBtTnCxiKn7dfvfHvDNL/q7O/pDqJCrO9Sx
+	dc++enXCkA9qZLxHbcq+JWAxMeXt0We+AytL/khv0nGtNoWPB1vFufoUoZBZ8/bz7BDQnJ4XGZ6k8
+	qvXzkkVPTHYKlABOE+b51rZUQwLe2Y3gQ6A7ZM5qR3lQamUThCd/edOr0oKw912OYc3kxM0i9W8BT
+	998lvH02hHjFWZbXIZoj0k4A2cbHt8iRWIczYArXzIXr1nPD0ZdZAQXE4kMeUPRR4778K4XYKCHtf
+	lpD5kx4cahmQ+Pl3uofg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q963k-008UGc-0u;
-	Tue, 13 Jun 2023 15:35:52 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1q963m-008UHw-2s;
+	Tue, 13 Jun 2023 15:35:54 +0000
+Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q963d-008UBg-0I
+	id 1q963i-008UFg-2P
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jun 2023 15:35:48 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-39ab96e6aefso3417869b6e.1
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Jun 2023 08:35:43 -0700 (PDT)
+	Tue, 13 Jun 2023 15:35:53 +0000
+Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-38c35975545so3607651b6e.1
+        for <linux-riscv@lists.infradead.org>; Tue, 13 Jun 2023 08:35:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1686670542; x=1689262542;
+        d=ventanamicro.com; s=google; t=1686670550; x=1689262550;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=N2Xd9VrBwLbHtLKIQskpVMxqXuUIvC51FdoSD93zF58=;
-        b=eoDG88MPohQdD8mTy13OLdX2W8nk3lkOY7N/bPjxNBYi0Vv3N8OVnfd0FU/nsMIMgl
-         SsXoSqpVhq1E1lHktImYF6Ehvf6+LfsX8r6QWsdCWYRsaj+2kssVdlR4E75yiArARoFg
-         VGPCHUGwSy7HUO3GHtnxBWwPoJx1RDH73dD1JWRZ4N4cifO4f3bDmNZ9aZrlm+mpA0pq
-         GaFzQyLnUrf3j3rtMEjbzkGSRXFzWB/rI+GCfKBoPjbsC5mbpHv9ulNqZ/BxZEM3NSgy
-         LUrS+4dmRel9oWXxqXUcrEGWFBMZOhtLij2yXuQovR7xCUgw+kubX5ePh/gS4vnvwEIC
-         LmnA==
+        bh=YjPmtbt5dpp3nV1ppkSLOwXIjTqZCsmy4toORZe/818=;
+        b=Swu4hszULQzPuPzBt7iqf7LrNn3pbjBkMCsVSv0eHYkgdWXz+ssLl7XTId4Nr5rzC+
+         8a3/nOLQ58HBh1itV5d3Zm1Q5o/F/sG56/XMn/lM7XnGldDZFhvJaLBGVX3ct4r9PaUq
+         5xO2UMfIQ8LB3/+IweLxBeFM5jNSHy8V6LJ2QcsPHefylqBWPP/Fg76wn8cuwCSZoYE0
+         Hn3w6RKopilic4uboB8qNvybBC/uHDgpVqXXH5WZGqI4sWPZATWZqmo2PQA7vdOSKVnH
+         ZyKKq+H3CDcbycD+IazyO/GnO4bAGuQlmH8rMA4VeTT5U46wMBVBwupa7M1pKv9PNj6p
+         5Abg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686670542; x=1689262542;
+        d=1e100.net; s=20221208; t=1686670550; x=1689262550;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=N2Xd9VrBwLbHtLKIQskpVMxqXuUIvC51FdoSD93zF58=;
-        b=FlYIDQy4BctIdP0FNsXboAR0WW69eD7gx1Ca/NBaoG9QqHmcH7MYEzA30FK/nw3klA
-         bwiarKgVMyGsv6c9HktghIR6bXsPriIEv20+m8C/mIxOszUpF8df1x6ShqQg8YPZomK5
-         rLaw89IbMBj9teDnw3Y3vdjoi4EjwI3Qq5czqSda5sxwr0BOE6R8e3K5C48H19rIffmo
-         xoAX8gxhWo6JmU0rUsbN/bHa975A6IVd2GjMpreUxIJwroQKwWyxedzfbTCCt672Ngt1
-         bcyF3O8ix6AtaG5zm+PTGQkR/Vjw09r56FwLebA/NWr7QUsrycukt9gNqUBCN+otShDC
-         CB9g==
-X-Gm-Message-State: AC+VfDzAn9updyvYOIiV3bQO65SbLP6ZE52esg0mLSxfNRg1qZSr8lY5
-	UPC3c2821QFeE8lZsuN6xnNbyQ==
-X-Google-Smtp-Source: ACHHUZ4fGN6+pLsSEZtbSZN+RvQPBaMKXCh9QusFq41gaS7bI9BEqNW3PdifLeNjp8b1Uwl6EKWtOA==
-X-Received: by 2002:a05:6808:1448:b0:399:169:75d8 with SMTP id x8-20020a056808144800b00399016975d8mr9406572oiv.35.1686670542358;
-        Tue, 13 Jun 2023 08:35:42 -0700 (PDT)
+        bh=YjPmtbt5dpp3nV1ppkSLOwXIjTqZCsmy4toORZe/818=;
+        b=R7i5fPNHUGfWz0gtzvLcZ6TWCZBapMNRwAXS74wXALDpmFNSZJ/tiHu2K7Iue4rnc0
+         HmwBCTkKMct5M3OSHcSLJ6mk7f8rjslVgn/gGCEKqvYFhpmZXq66VekoDn1omAY8qiNF
+         CoOtrSHzPoep3G4raczsS10zl0dLKk8WY4kmr26TBih26IevcFzs3kAy8k/nlNLLVYJp
+         8C5gpSnFoDDy3XvxWXiKwfbRjfMfcZCD0N3/Sn4JoE3LNrtBK+5Uroiz2LdVA+JUTDci
+         PV6+Uq/3kEbe4g+KNVYkHX32CiT+66/WUMkKIsT980OEw+7v6NxetXsOCw1nAQilFBXi
+         VY5g==
+X-Gm-Message-State: AC+VfDy2ueJSwXyDhCFdfN+GgB8E2k1sa9XkEyZeRGXD6xJqkYo2Q8UI
+	Xk6CHp2GOKzYhmbJRl/smEqEZQ==
+X-Google-Smtp-Source: ACHHUZ7Tg1xp84o5UNsIGFouFyCklTip/xPfGoAYw3cqzXxDnJEowsGdk1gdK+IhU0wBCwPu3ab6ww==
+X-Received: by 2002:a54:408e:0:b0:38e:d739:6f3f with SMTP id i14-20020a54408e000000b0038ed7396f3fmr6723088oii.56.1686670549823;
+        Tue, 13 Jun 2023 08:35:49 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id n2-20020acabd02000000b0039ce305ea4fsm1630807oif.14.2023.06.13.08.35.35
+        by smtp.gmail.com with ESMTPSA id n2-20020acabd02000000b0039ce305ea4fsm1630807oif.14.2023.06.13.08.35.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 Jun 2023 08:35:42 -0700 (PDT)
+        Tue, 13 Jun 2023 08:35:49 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -82,18 +82,17 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	iommu@lists.linux.dev,
-	Anup Patel <apatel@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4 09/10] RISC-V: Select APLIC and IMSIC drivers
-Date: Tue, 13 Jun 2023 21:04:14 +0530
-Message-Id: <20230613153415.350528-10-apatel@ventanamicro.com>
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v4 10/10] MAINTAINERS: Add entry for RISC-V AIA drivers
+Date: Tue, 13 Jun 2023 21:04:15 +0530
+Message-Id: <20230613153415.350528-11-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230613153415.350528-1-apatel@ventanamicro.com>
 References: <20230613153415.350528-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230613_083545_130304_67E1A1DD 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20230613_083550_789112_2A128F0E 
+X-CRM114-Status: UNSURE (   9.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,29 +110,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The QEMU virt machine supports AIA emulation and we also have
-quite a few RISC-V platforms with AIA support under development
-so let us select APLIC and IMSIC drivers for all RISC-V platforms.
+Add myself as maintainer for RISC-V AIA drivers including the
+RISC-V INTC driver which supports both AIA and non-AIA platforms.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/Kconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ MAINTAINERS | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index ff37d8ebe989..19233d59be37 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -136,6 +136,8 @@ config RISCV
- 	select PCI_DOMAINS_GENERIC if PCI
- 	select PCI_MSI if PCI
- 	select RISCV_ALTERNATIVE if !XIP_KERNEL
-+	select RISCV_APLIC
-+	select RISCV_IMSIC
- 	select RISCV_INTC
- 	select RISCV_TIMER if RISCV_SBI
- 	select SIFIVE_PLIC
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 51da90e60004..2d474eb902fa 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -18136,6 +18136,18 @@ S:	Maintained
+ F:	drivers/mtd/nand/raw/r852.c
+ F:	drivers/mtd/nand/raw/r852.h
+ 
++RISC-V AIA DRIVERS
++M:	Anup Patel <anup@brainfault.org>
++L:	linux-riscv@lists.infradead.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
++F:	Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
++F:	drivers/irqchip/irq-riscv-aplic.c
++F:	drivers/irqchip/irq-riscv-imsic.c
++F:	drivers/irqchip/irq-riscv-intc.c
++F:	include/linux/irqchip/riscv-aplic.h
++F:	include/linux/irqchip/riscv-imsic.h
++
+ RISC-V ARCHITECTURE
+ M:	Paul Walmsley <paul.walmsley@sifive.com>
+ M:	Palmer Dabbelt <palmer@dabbelt.com>
 -- 
 2.34.1
 
