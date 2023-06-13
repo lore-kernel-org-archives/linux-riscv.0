@@ -4,103 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1DABC7EE2F
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 01:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFC1C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 01:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=07GqI0e9rMkQd2V1nXXkRShpn7vEZ7bKPZTSwnaxmj0=; b=IewfqfKHKynJ5d
-	qWpHgqZDwVlZlfI3uYQd9yHJfaU5Jv5+VLc+YL+5X9kEQTNVeM1fOqTSNdzge79umLJfDI4fZ6Bd3
-	n0VEWm+0uwWAG3XuI5W2qfORylEBWZnK6Da2yK4UZQLbwGXaiw4rPkIafYlID632pWIODH9MnktB6
-	32Mg92+bwxKM2MG4bx5aJU0L+E8rFinz+2X1b3SHNqYwrlVEnzEJloZpqCX43QQqD2ySqA8+fINW0
-	1fF5p4YGIPtOCOw64zUc5EHGPha+P8Xc0QSF7/niiAIRehQJx7qbTfwK3Sp0kreAA0Fz0F/Nkuhga
-	oMm82eg6O1vbp5G+0J5w==;
+	List-Owner; bh=iCOi8zq3LdQbbbdF7J4H/D4hZ80AET2ngQ9fVF9Xfz0=; b=HHdAkhohZm0LD2
+	VyxDlREVbYBLxZZoffATgIvays23BdPk7gPaafOgeZpSjKOlI5LkU2elSJjdeaHp37AFCsAKpLoqo
+	pyAnaztvjMsZzFXRZ9b8u+u/MjZ2ENXpkAtkbUSKUbPZExz2V2A2WyREhIhWeRS2D+yOPEQppcBsk
+	CS8COzMQUmGVyC3rWymZPBVoBox7O8flICC8iTIftpLP45rmVavPaUh8b7RsibAvWQNyi3R3tR9JY
+	wF4XOliF87/v1Lu24wCAgLYZAbt/iTg20bU28KkCmjbh3Js5HC5NzLdrr6hbQ5yRWx/vc0lZ2NbfY
+	m7HKn4zAMttq8uzZDh+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8sOW-006VDD-0f;
-	Tue, 13 Jun 2023 01:00:24 +0000
-Received: from mail-ed1-f53.google.com ([209.85.208.53])
+	id 1q8swl-006aaH-02;
+	Tue, 13 Jun 2023 01:35:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8rEe-006Bmw-03
+	id 1q8swj-006aZk-11
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 Jun 2023 23:46:09 +0000
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-510d6b939bfso8562984a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jun 2023 16:46:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1686613563; x=1689205563;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8wbDZKmo9VP00ABKYaLGQ28GM2QOo4QwYdlCxLvFQV0=;
-        b=xTqZLje4stFH7gdg9tw2fGuaNoAlSVyZ9bZDgTUiGpVn1rKnmnRRB/wOdsBKdk3M45
-         XyM6zqrGB41V6amFO878oAEpaEipM+J+IhZ6OUQnO6vb96iOf43xb+cTOPWDW6SPGUvU
-         wbzhN3iKgf+ErheqSRMoxFxfGjuBsXPFyA9Nf8eealnhw6j5dxAexUg8TC0HYjPKNm9+
-         cmH1X+muu7EXkJdtUp+5TMYcw4rbxC4VhQQvi+yG5WIIqUjSEFDaY+a9WqK4wgXHrhfU
-         58f1vI8ofPwecC+2UBaX1dI7mOlCr37zZFNYbepf9z+FBvhotWk1bkOhqbtAhvfg0arh
-         BtYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686613563; x=1689205563;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8wbDZKmo9VP00ABKYaLGQ28GM2QOo4QwYdlCxLvFQV0=;
-        b=kztLdpD2uyG4UwbC0a3ATW0UHJ/w9xoNwsdUep7FMsUfI41IeX0wtPGarXbXnr3RiB
-         kIOOsqDe37WDqjN5MKZnHZ/QhiRmNt9FyPBotdrR6iRlowTt49mypWX48ERhtQwCm+k4
-         3QmiAsFq6dKjEkG39jiH70wKJwKr4Ys634gpHg+as3zvgOFMd728aAToG9UQNskvCfMB
-         SkfcSS9XeopSoqtK3Ww8LhquyiAZDVAc8BINV02sBLpxpuYmdajp0/PksmOaf6KqJerX
-         yG6BkDnn3u/obr+8HAtmWC+57HkNZyDBwXqEtXJC20BKv00zHbwGqMy0h9nsXcI+Hekp
-         BPVg==
-X-Gm-Message-State: AC+VfDxpfqght8eY7zeYMEqO+Vd3c4jywzgi7SN8LFmRilr2ragq3NI2
-	lZDGfCBp1WLLs5M0GoSxpQaizw==
-X-Google-Smtp-Source: ACHHUZ5ctYtCeisGQ2uomlCypPix/oMuhk7GCBAQ91QMqgz33FoH6mnEV6NDszFqNC1dju2nqgRtMA==
-X-Received: by 2002:a05:6402:898:b0:514:77f5:d77c with SMTP id e24-20020a056402089800b0051477f5d77cmr6507743edy.1.1686613563154;
-        Mon, 12 Jun 2023 16:46:03 -0700 (PDT)
-Received: from [10.10.0.115] ([185.140.244.249])
-        by smtp.gmail.com with ESMTPSA id x22-20020aa7cd96000000b0050bca43ff55sm5689515edv.68.2023.06.12.16.46.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jun 2023 16:46:02 -0700 (PDT)
-Message-ID: <a242cbd8-3ae5-62b0-fbb8-92a51dd7bc18@linaro.org>
-Date: Tue, 13 Jun 2023 01:46:00 +0200
+	Tue, 13 Jun 2023 01:35:46 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A574961228;
+	Tue, 13 Jun 2023 01:35:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07FA1C433D2;
+	Tue, 13 Jun 2023 01:35:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686620144;
+	bh=EyKtx/gDko9LOVZRYx0rrPp+HzWImhwqZmdgxYsGfHk=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=IEhIJZftAkwCaFLqvA0d1c++2oY5umfjfor9LtyRx62u1UWPdZZBm5XGLUHcjPPy1
+	 GyG9oEw0h5y8N3HQ2UEA7sn5v4esxtoY+91sp0Iacil8GHN3ix6n4ngDlQlEf6kU/4
+	 HRmEj3r6PqD2jzc3qbC8AqX0ncT7xhXTlDH0lCK0r8c2vrjkJhDTQBsS0W7Awh3vJc
+	 RwyC3y+QrdshoIpWu38ckKmwmicaDm+ORMSH6fl3Hw1VD7Dek4mEkCzJewLOoZ0uk9
+	 FbULImDyIUgeDrex8Imf5Bbd5hh0KKZRD+RdWrfadP4QFPYxmvYbhSm05jlh86udiK
+	 3ZbRyN3zOaFQw==
+Message-ID: <91c3373b5b00afc1910b704a16c1ac89.sboyd@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.11.2
-Subject: Re: [patch V4 07/37] x86/smpboot: Restrict soft_restart_cpu() to SEV
-Content-Language: en-US
-To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
-Cc: x86@kernel.org, David Woodhouse <dwmw2@infradead.org>,
- Andrew Cooper <andrew.cooper3@citrix.com>, Brian Gerst <brgerst@gmail.com>,
- Arjan van de Veen <arjan@linux.intel.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Paul McKenney <paulmck@kernel.org>,
- Tom Lendacky <thomas.lendacky@amd.com>,
- Sean Christopherson <seanjc@google.com>,
- Oleksandr Natalenko <oleksandr@natalenko.name>,
- Paul Menzel <pmenzel@molgen.mpg.de>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
- Piotr Gorski <lucjan.lucjanov@gmail.com>,
- Usama Arif <usama.arif@bytedance.com>, Juergen Gross <jgross@suse.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- xen-devel@lists.xenproject.org, Russell King <linux@armlinux.org.uk>,
- Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>, linux-csky@vger.kernel.org,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Mark Rutland <mark.rutland@arm.com>, Sabin Rapan <sabrapan@amazon.com>,
- "Michael Kelley (LINUX)" <mikelley@microsoft.com>,
- Ross Philipson <ross.philipson@oracle.com>
-References: <20230512203426.452963764@linutronix.de>
- <20230512205255.822234014@linutronix.de>
-From: =?UTF-8?Q?Philippe_Mathieu-Daud=c3=a9?= <philmd@linaro.org>
-In-Reply-To: <20230512205255.822234014@linutronix.de>
+In-Reply-To: <20230515054402.27633-3-frank.li@vivo.com>
+References: <20230515054402.27633-1-frank.li@vivo.com> <20230515054402.27633-3-frank.li@vivo.com>
+Subject: Re: [PATCH 2/3] clk: thead: add support for the T-HEAD TH1520 CCU
+From: Stephen Boyd <sboyd@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, Wei Fu <wefu@redhat.com>, Yangtao Li <frank.li@vivo.com>, mturquette@baylibre.com
+Date: Mon, 12 Jun 2023 18:35:41 -0700
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230612_164608_058544_896181CF 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20230612_183545_444420_43B6999A 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,21 +67,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTIvNS8yMyAyMzowNywgVGhvbWFzIEdsZWl4bmVyIHdyb3RlOgo+IEZyb206IFRob21hcyBH
-bGVpeG5lciA8dGdseEBsaW51dHJvbml4LmRlPgo+IAo+IE5vdyB0aGF0IHRoZSBDUFUwIGhvdHBs
-dWcgY3J1ZnQgaXMgZ29uZSwgdGhlIG9ubHkgdXNlciBpcyBBTUQgU0VWLgo+IAo+IFNpZ25lZC1v
-ZmYtYnk6IFRob21hcyBHbGVpeG5lciA8dGdseEBsaW51dHJvbml4LmRlPgo+IFRlc3RlZC1ieTog
-TWljaGFlbCBLZWxsZXkgPG1pa2VsbGV5QG1pY3Jvc29mdC5jb20+Cj4gLS0tCj4gICBhcmNoL3g4
-Ni9rZXJuZWwvY2FsbHRodW5rcy5jIHwgICAgMiArLQo+ICAgYXJjaC94ODYva2VybmVsL2hlYWRf
-MzIuUyAgICB8ICAgMTQgLS0tLS0tLS0tLS0tLS0KPiAgIGFyY2gveDg2L2tlcm5lbC9oZWFkXzY0
-LlMgICAgfCAgICAyICstCj4gICAzIGZpbGVzIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMTYg
-ZGVsZXRpb25zKC0pCgpSZXZpZXdlZC1ieTogUGhpbGlwcGUgTWF0aGlldS1EYXVkw6kgPHBoaWxt
-ZEBsaW5hcm8ub3JnPgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+Quoting Yangtao Li (2023-05-14 22:44:00)
+> diff --git a/drivers/clk/clk-th1520.c b/drivers/clk/clk-th1520.c
+> new file mode 100644
+> index 000000000000..5dfa9e5207e2
+> --- /dev/null
+> +++ b/drivers/clk/clk-th1520.c
+> @@ -0,0 +1,999 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2023 Vivo Communication Technology Co. Ltd.
+> + * Authors: Yangtao Li <frank.li@vivo.com>
+> + */
+> +
+[....]
+> +
+> +
+> +static CLK_FIXED_FACTOR_HW(pll_gmac_100m_clk, "pll-gmac-100m",
+> +                          &pll_gmac_clk.common.hw,
+> +                          10, 1, 0);
+> +
+> +static const char * const uart_parents[] = { "pll-gmac-100m", "osc24m" };
+> +struct ccu_mux uart_clk = {
+> +       .mux    = TH_CCU_ARG(0, 1),
+> +       .common = {
+> +               .reg            = 0x210,
+> +               .hw.init        = CLK_HW_INIT_PARENTS("uart",
+
+Don't use strings for clk tree topology. Instead use clk_parent_data or
+clk_hw pointers directly.
+
+> +                                             uart_parents,
+> +                                             &ccu_mux_ops,
+> +                                             0),
+> +       }
+> +};
+> +};
+> +
+> +static const struct regmap_config config = {
+
+Namespace this, th1520_clk_regmap_config[]
+
+> +       .reg_bits = 32,
+> +       .val_bits = 32,
+> +       .reg_stride = 4,
+> +       .fast_io = true,
+> +};
+> +
+> +static int th1520_clock_probe(struct platform_device *pdev)
+> +{
+> +       struct device *dev = &pdev->dev;
+> +       struct regmap *map;
+> +       void __iomem *regs;
+> +       int ret, i;
+> +
+> +       regs = devm_platform_ioremap_resource(pdev, 0);
+> +       if (IS_ERR(regs))
+> +               return PTR_ERR(regs);
+> +
+> +       map = devm_regmap_init_mmio(dev, regs, &config);
+> +       if (IS_ERR(map))
+> +               return PTR_ERR(map);
+> +
+> +       for (i = 0; i < ARRAY_SIZE(th1520_clks); i++)
+> +               th1520_clks[i]->map = map;
+> +
+> +       for (i = 0; i < th1520_hw_clks.num; i++) {
+> +               ret = devm_clk_hw_register(dev, th1520_hw_clks.hws[i]);
+> +               if (ret)
+> +                       return ret;
+> +       }
+> +
+> +       ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
+> +                                       &th1520_hw_clks);
+> +       if (ret)
+> +               return ret;
+> +
+> +       return 0;
+> +}
+> +
+> +static const struct of_device_id clk_match_table[] = {
+
+Namespace this, th1520_clk_match_table[]
+
+> +       {
+> +               .compatible = "thead,th1520-ccu",
+> +       },
+> +       { /* sentinel */ },
+> +};
+> +MODULE_DEVICE_TABLE(of, clk_match_table);
+> +
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
