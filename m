@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428FFC77B7A
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 07:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B74C7EE29
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 07:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1I4g1L1LZVuurrGJPXbjGUxhmXBg5ha813t1LX0CXsM=; b=CBECYVa5mrB4HJ
-	QutNMLpzCkKlc6DNrX9K7gaVdRuNBcZCIeFVtQ+psT4Qg9K+iHOeq9hTWg/QIAgPZmuOtWM71RbBq
-	xp2xEsHubxusmYsQEBqrkgJElPlT5v5TuEeVmzax3soEmZnskv1u0yp5RyxFo0G7QZp223ACQLxUv
-	d2F4ot2yfN9nyKL3Vmx/jUTPz1vSrq02CZlhHUnfflrH1YvqiRXnf/JnbTHyM/nOlfjU07fW8DuPc
-	dssLK0hKEQX3Eq5wZIoYL1DZuDTLD1GDqbTimgkay7GY4V7zS8STO1wfHmtwnt5f1L9gVOXvta6xO
-	yHTw4eCcyiA6ogNEj3Gg==;
+	List-Owner; bh=UCdVb66HhRr5+2aGncAfpyTTydvGThTyjni1c/uqO6g=; b=bZ91JTNHF2F0Ue
+	CwxSE9DNqtBR1WjrmvQY4v8SwgSivyeIxJ2aGeJe/cB82JU4VXUUSctCdAFnc5ThwEoxrPWt5LkOx
+	WolVASKIdTrlNOt1cWpdQdpwNDW4nQ3CSnHCC1T4bNbRNGAvDkj3gix1ZqGayIcZl/k0T4sgGGbx8
+	1yHE5cnKBdk8k6DcRvP+1m9bz4Mn5Z7SgfFsZc99U9DEgOnJIgwQKmC7Kn+nJMGk/2gEP5yIDFnRl
+	f0Ui4uyV/keiIZ/sOAKJyLzq6LtHiSzRsPzmD40ixWf+PvCH4aieCl08i0VacperQmtakBXYah0Ps
+	vPHoqLpVvZFmmToFzA2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8yhf-007FwV-2v;
-	Tue, 13 Jun 2023 07:44:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q8ysf-007I9N-2o;
+	Tue, 13 Jun 2023 07:55:57 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8yhb-007Fux-2V;
-	Tue, 13 Jun 2023 07:44:33 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5069B6132D;
-	Tue, 13 Jun 2023 07:44:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E078FC433D2;
-	Tue, 13 Jun 2023 07:44:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686642270;
-	bh=ez0I+RKRhMdZt82NML91fPb7fzRC4/NkCFA3IdK3cEg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HyA2VS9kwVTQsYOWOuof1Z4qJ92ct0+rpQ0B5SIAzOL2Mz6wp6NoYwA7DcLYOqzj9
-	 Q8Z9RGOQt5lsRA8Nc33tC8G7SiwN9ipBSdD03bBdhpX4MycI3Vh7vOT7ypJVtsouWv
-	 8Bsg5dlRSFLhnsq+PWCSJc5VolYLva+SeDgrT92N096TEl0/uLmsJvVPLGz9OK3/dz
-	 OYm6tEkeVT/cDyaIgk5UyxE5b/W7hyDcldGwNesOYI9EZOqwD7xGIveZKNt/lp9izm
-	 uoBjmwxoGZjGvj7XWF9lQv7iNjjhyG9sIxFni/WcE8h+xW9r48P7ifrawWGz2rEEWN
-	 FKciDs53eQHeQ==
-Date: Tue, 13 Jun 2023 10:43:47 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Rick Edgecombe <rick.p.edgecombe@intel.com>
-Cc: x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-api@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>,
-	Balbir Singh <bsingharora@gmail.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Cyrill Gorcunov <gorcunov@gmail.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Eugene Syromiatnikov <esyr@redhat.com>,
-	Florian Weimer <fweimer@redhat.com>,
-	"H . J . Lu" <hjl.tools@gmail.com>, Jann Horn <jannh@google.com>,
-	Jonathan Corbet <corbet@lwn.net>, Kees Cook <keescook@chromium.org>,
-	Mike Kravetz <mike.kravetz@oracle.com>,
-	Nadav Amit <nadav.amit@gmail.com>, Oleg Nesterov <oleg@redhat.com>,
-	Pavel Machek <pavel@ucw.cz>, Peter Zijlstra <peterz@infradead.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Weijiang Yang <weijiang.yang@intel.com>,
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
-	John Allen <john.allen@amd.com>, kcc@google.com, eranian@google.com,
-	jamorris@linux.microsoft.com, dethoma@microsoft.com,
-	akpm@linux-foundation.org, Andrew.Cooper3@citrix.com,
-	christina.schimpe@intel.com, david@redhat.com, debug@rivosinc.com,
-	szabolcs.nagy@arm.com, torvalds@linux-foundation.org,
-	broonie@kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	Michal Simek <monstr@monstr.eu>, Dinh Nguyen <dinguyen@kernel.org>,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	Linus Torvalds <torvalds@linuxfoundation.org>
-Subject: Re: [PATCH v9 01/42] mm: Rename arch pte_mkwrite()'s to
- pte_mkwrite_novma()
-Message-ID: <20230613074347.GR52412@kernel.org>
-References: <20230613001108.3040476-1-rick.p.edgecombe@intel.com>
- <20230613001108.3040476-2-rick.p.edgecombe@intel.com>
+	id 1q8ysd-007I8z-1v
+	for linux-riscv@lists.infradead.org;
+	Tue, 13 Jun 2023 07:55:57 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-bc4ed01b5d4so2023376276.1
+        for <linux-riscv@lists.infradead.org>; Tue, 13 Jun 2023 00:55:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1686642953; x=1689234953;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GqkMTpZSPTrtiBwrlg2HB9jORG0uNI2X+Q54yKxHyHA=;
+        b=X1lH0zTSm/2trYaS1XeQ55Q9hA/9/r0gKILDhIP3BM1V9j/9FcNnlTg8C6eqes6MhY
+         kEEujrjfs/bXMw2MXXaDIEhSffQ3ZxmyyehIWQMaGdQ83t9lijLU+cai3uaF5ZNQ3hJ1
+         U4h+mNKlmJ4enUA0b9qIy8BcA850nZF9q8DNphIsqHIDVsbimRdE1m2LdXqy6pRLVSor
+         CuNaeb3ZHWvaqWp2UlX8SxpNaeTb54BL1Y6A72HUI8F4MxEPteEgE7OxPWAGRl2KwREW
+         FSjlxEtmon50dMqJgkzch8RTCiRJz+wMgeMWSkqDFbH4doZHuoKH0L9GHXdRo8TV+x0S
+         4DDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686642953; x=1689234953;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GqkMTpZSPTrtiBwrlg2HB9jORG0uNI2X+Q54yKxHyHA=;
+        b=hIGlexXfH86winYEVDjyoIUbC2CdVVXekpA21bznHy2UJVoFLsPPK1RLlWFtxcyzc3
+         aBmZJjjwfqN3CmvwmznlInLkrAwiqu0Zoma+j+GSnrDaD30SZMaGNib2j8kGzHU/fE7H
+         sxUWr41o/sH2YfRNYEwsgiTmwn8PdOolGHaQeIEq21LEaPOaKayJa7z2U2jkAocud14d
+         OCZPl2r2GGA0YrITXjourHdNMXl4zA5kgkeXo0MU5kOmtqC8+CddS5EXoUEaUIl897i/
+         zl9J+ObrTpx5caCF5p8LK/OTOo85N4ifeeVSrbaJ/5K79eantFnI5iPKcqjH7L7vTha5
+         Jdyw==
+X-Gm-Message-State: AC+VfDzC4KUXPq7KmMvGwwDRCfi3x/qkkyYz5V8WdYnQuxjhIbyYCYiH
+	rkFZfo9Rm4jRbi7gxHdYp1YX5uvdD+Mwhu28zTwS+A==
+X-Google-Smtp-Source: ACHHUZ7O4IuL4c5Qy6TEcv499ftciQaYRXdKcvbuS5ivN5I0ThoFAm05aH64SAu17/J52IMOAeGVAiqoO7kjJSXAUJs=
+X-Received: by 2002:a0d:fd83:0:b0:56d:4014:dd20 with SMTP id
+ n125-20020a0dfd83000000b0056d4014dd20mr982407ywf.30.1686642952928; Tue, 13
+ Jun 2023 00:55:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230613001108.3040476-2-rick.p.edgecombe@intel.com>
+References: <20230508142842.854564-1-apatel@ventanamicro.com>
+ <20230508142842.854564-8-apatel@ventanamicro.com> <ZGIrOKIT8uHcNqbQ@nvidia.com>
+In-Reply-To: <ZGIrOKIT8uHcNqbQ@nvidia.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Tue, 13 Jun 2023 13:25:41 +0530
+Message-ID: <CAK9=C2V9o4FsFXAfRHLGSuJaDubwM_HSL7keTYeWb_vFDNLd7g@mail.gmail.com>
+Subject: Re: [PATCH v3 07/11] irqchip/riscv-imsic: Improve IOMMU DMA support
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Frank Rowand <frowand.list@gmail.com>, 
+	Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, 
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	iommu@lists.linux.dev, Vincent Chen <vincent.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230613_004431_913022_A193AC1D 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20230613_005555_664529_E74562AF 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,80 +90,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 12, 2023 at 05:10:27PM -0700, Rick Edgecombe wrote:
-> The x86 Shadow stack feature includes a new type of memory called shadow
-> stack. This shadow stack memory has some unusual properties, which requires
-> some core mm changes to function properly.
-> 
-> One of these unusual properties is that shadow stack memory is writable,
-> but only in limited ways. These limits are applied via a specific PTE
-> bit combination. Nevertheless, the memory is writable, and core mm code
-> will need to apply the writable permissions in the typical paths that
-> call pte_mkwrite(). Future patches will make pte_mkwrite() take a VMA, so
-> that the x86 implementation of it can know whether to create regular
-> writable memory or shadow stack memory.
-
-Nit:                            ^ mapping?
-
-> But there are a couple of challenges to this. Modifying the signatures of
-> each arch pte_mkwrite() implementation would be error prone because some
-> are generated with macros and would need to be re-implemented. Also, some
-> pte_mkwrite() callers operate on kernel memory without a VMA.
-> 
-> So this can be done in a three step process. First pte_mkwrite() can be
-> renamed to pte_mkwrite_novma() in each arch, with a generic pte_mkwrite()
-> added that just calls pte_mkwrite_novma(). Next callers without a VMA can
-> be moved to pte_mkwrite_novma(). And lastly, pte_mkwrite() and all callers
-> can be changed to take/pass a VMA.
-> 
-> Start the process by renaming pte_mkwrite() to pte_mkwrite_novma() and
-> adding the pte_mkwrite() wrapper in linux/pgtable.h. Apply the same
-> pattern for pmd_mkwrite(). Since not all archs have a pmd_mkwrite_novma(),
-> create a new arch config HAS_HUGE_PAGE that can be used to tell if
-> pmd_mkwrite() should be defined. Otherwise in the !HAS_HUGE_PAGE cases the
-> compiler would not be able to find pmd_mkwrite_novma().
-> 
-> No functional change.
-> 
-> Cc: linux-doc@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-alpha@vger.kernel.org
-> Cc: linux-snps-arc@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-csky@vger.kernel.org
-> Cc: linux-hexagon@vger.kernel.org
-> Cc: linux-ia64@vger.kernel.org
-> Cc: loongarch@lists.linux.dev
-> Cc: linux-m68k@lists.linux-m68k.org
-> Cc: Michal Simek <monstr@monstr.eu>
-> Cc: Dinh Nguyen <dinguyen@kernel.org>
-> Cc: linux-mips@vger.kernel.org
-> Cc: openrisc@lists.librecores.org
-> Cc: linux-parisc@vger.kernel.org
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-sh@vger.kernel.org
-> Cc: sparclinux@vger.kernel.org
-> Cc: linux-um@lists.infradead.org
-> Cc: linux-arch@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> Suggested-by: Linus Torvalds <torvalds@linuxfoundation.org>
-> Signed-off-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-> Link: https://lore.kernel.org/lkml/CAHk-=wiZjSu7c9sFYZb3q04108stgHff2wfbokGCCgW7riz+8Q@mail.gmail.com/
-
-Reviewed-by: Mike Rapoport (IBM) <rppt@kernel.org>
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBNYXkgMTUsIDIwMjMgYXQgNjoyM+KAr1BNIEphc29uIEd1bnRob3JwZSA8amdnQG52
+aWRpYS5jb20+IHdyb3RlOgo+Cj4gT24gTW9uLCBNYXkgMDgsIDIwMjMgYXQgMDc6NTg6MzhQTSAr
+MDUzMCwgQW51cCBQYXRlbCB3cm90ZToKPiA+IFdlIGhhdmUgYSBzZXBhcmF0ZSBSSVNDLVYgSU1T
+SUMgTVNJIGFkZHJlc3MgZm9yIGVhY2ggQ1BVIHNvIGNoYW5naW5nCj4gPiBNU0kgKG9yIElSUSkg
+YWZmaW5pdHkgcmVzdWx0cyBpbiByZS1wcm9ncmFtbWluZyBvZiBNU0kgYWRkcmVzcyBpbgo+ID4g
+dGhlIFBDSWUgKG9yIHBsYXRmb3JtKSBkZXZpY2UuCj4gPgo+ID4gQ3VycmVudGx5LCB0aGUgaW9t
+bXVfZG1hX3ByZXBhcmVfbXNpKCkgaXMgY2FsbGVkIG9ubHkgb25jZSBhdCB0aGUKPiA+IHRpbWUg
+b2YgSVJRIGFsbG9jYXRpb24gc28gSU9NTVUgRE1BIGRvbWFpbiB3aWxsIG9ubHkgaGF2ZSBtYXBw
+aW5nCj4gPiBmb3Igb25lIE1TSSBwYWdlLiBUaGlzIG1lYW5zIGlvbW11X2RtYV9jb21wb3NlX21z
+aV9tc2coKSBjYWxsZWQKPiA+IGJ5IGltc2ljX2lycV9jb21wb3NlX21zaV9tc2coKSB3aWxsIGFs
+d2F5cyB1c2UgdGhlIHNhbWUgTVNJIHBhZ2UKPiA+IGlycmVzcGVjdGl2ZSB0byB0YXJnZXQgQ1BV
+IE1TSSBhZGRyZXNzLiBJbiBvdGhlciB3b3JkcywgY2hhbmdpbmcKPiA+IE1TSSAob3IgSVJRKSBh
+ZmZpbml0eSBmb3IgZGV2aWNlIHVzaW5nIElPTU1VIERNQSBkb21haW4gd2lsbCBub3QKPiA+IHdv
+cmsuCj4gPgo+ID4gVG8gYWRkcmVzcyBhYm92ZSBpc3N1ZSwgd2UgZG8gdGhlIGZvbGxvd2luZzoK
+PiA+IDEpIE1hcCBNU0kgcGFnZXMgZm9yIGFsbCBDUFVzIGluIGltc2ljX2lycV9kb21haW5fYWxs
+b2MoKQo+ID4gICAgdXNpbmcgaW9tbXVfZG1hX3ByZXBhcmVfbXNpKCkuCj4gPiAyKSBBZGQgYSBu
+ZXcgaW9tbXVfZG1hX3NlbGVjdF9tc2koKSBBUEkgdG8gc2VsZWN0IGEgc3BlY2lmaWMKPiA+ICAg
+IE1TSSBwYWdlIGZyb20gYSBzZXQgb2YgYWxyZWFkeSBtYXBwZWQgTVNJIHBhZ2VzLgo+ID4gMykg
+VXNlIGlvbW11X2RtYV9zZWxlY3RfbXNpKCkgdG8gc2VsZWN0IGEgc3BlY2lmaWMgTVNJIHBhZ2UK
+PiA+ICAgIGJlZm9yZSBjYWxsaW5nIGlvbW11X2RtYV9jb21wb3NlX21zaV9tc2coKSBpbgo+ID4g
+ICAgaW1zaWNfaXJxX2NvbXBvc2VfbXNpX21zZygpLgo+Cj4gSXMgdGhlcmUgYW4gaW9tbXUgZHJp
+dmVyIHNvbWV3aGVyZSBpbiBhbGwgdGhpcz8gSSBkb24ndCBvYnZpb3VzbHkgc2VlCj4gb25lPwoK
+U29ycnkgZm9yIHRoZSBkZWxheWVkIHJlc3BvbnNlLgoKVGhlIFJJU0MtViBJT01NVSBzcGVjaWZp
+Y2F0aW9uIGlzIGZyb3plbiBhbmQgd2lsbCBiZSByYXRpZmllZC9yZWxlYXNlZAphbnl0aW1lIHRo
+aXMgbW9udGggb3IgbmV4dC4KaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2LW5vbi1pc2EvcmlzY3Yt
+aW9tbXUvcmVsZWFzZXMvZG93bmxvYWQvdjEuMC1yYzYvcmlzY3YtaW9tbXUucGRmCgpUaGUgUklT
+Qy1WIElPTU1VIGRyaXZlciB3aWxsIGJlIHNlbmQtb3V0IG9uIExLTUwgcHJldHR5IHNvb24KaHR0
+cHM6Ly9naXRodWIuY29tL3RqZXpuYWNoL2xpbnV4L3RyZWUvdGplem5hY2gvcmlzY3YtaW9tbXUK
+d2hpY2ggY2FuIGJlIHRlc3RlZCBvbiBRRU1VCmh0dHBzOi8vZ2l0aHViLmNvbS90amV6bmFjaC9x
+ZW11L3RyZWUvdGplem5hY2gvcmlzY3YtaW9tbXUKCj4KPiBUaGVyZSBzaG91bGQgYmUgbm8gcmVh
+c29uIHRvIHVzZSB0aGUgZG1hLWlvbW11LmMgc3R1ZmYganVzdCB0byBtYWtlCj4gaW50ZXJydXB0
+cyB3b3JrLCB0aGF0IGlzIG9ubHkgbmVjZXNzYXJ5IGlmIHRoZXJlIGlzIGFuIGlvbW11LCBhbmQg
+dGhlCj4gcGxhdGZvcm0gYXJjaGl0ZWN0dXJlIHJlcXVpcmVzIHRoZSBpb21tdSB0byBoYXZlIHRo
+ZSBNU0kgcmVnaW9uCj4gcHJvZ3JhbW1lZCBpbnRvIElPUFRFcy4KPgo+IEFuZCBJJ2QgYmUgbXVj
+aCBoYXBwaWVyIGlmIHdlIGNvdWxkIGNsZWFuIHRoaXMgZGVzaWduIHVwIGJlZm9yZSByaXNjLXYK
+PiBzdGFydHMgdXNpbmcgaXQgdG9vIDpcCj4KClN1cmUsIEkgd2lsbCBzZW5kLW91dCB2NCBpbiB0
+aGUgbmV4dCBmZXcgZGF5cy4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
