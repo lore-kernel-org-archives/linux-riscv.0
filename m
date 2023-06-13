@@ -4,90 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1469EB64D0
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 18:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB20CEB64D0
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 18:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yLPFq1/Th0JUuL3e/cmLM2BLfxti/vythG6IrFbZRKQ=; b=QU1ZbQRA1kN1CE
-	dVHicndzURO4iXt3bEChR/otf/ZK41qg2fTa5PtFrHXcgx8+875feDEVRVPjsUFKGGLz5fo5v33MH
-	+QbKUxvV9vY7f2Di+NwMpIUYv/LTIaCNLeAh2FToS4t9lD/HSND8UYAUVjt3jI4W2wgc88v6PrGqh
-	TvELR7FmC8S7m9I7/P3PCdHXnapa8Qe+shbn8YiA4M8EwobGJQfqKBLsxpBCPi20U9ntivG68c9OQ
-	i8ynOzjhExP7H+uohbRN63ymB8UoMQKAVF37OOVgnUduR6HvWKW6TKHE+v2cSJR3RaUI3p/HtIe6u
-	AjiaHuK5em4UnW9jnkUQ==;
+	List-Owner; bh=IhBR64004aWBl0rWTBzjysf9yxrqzeDPGtQB7agZPiI=; b=Kzp+nvkwXJJgJc
+	xP7BG1OvkB/DLh5HT2qGOnwLM0QPNjc0HaN9zaPzlhuzWQNgAIPfEaW5D9Z+/jXCx0ohWAceJEmx+
+	+HqjPJf33E9a7PpS3I89UOOiP5ULh2+J2CXN/NwtCrgGST8ex2bdHFMZzQmz8Kr3iBlhp6BiYQCsK
+	spZ20+jGvnykurCs6F0WpiJF5bhM6wt4rBr/ysd1s84nuwz/K0mEP6VXzdsm7tk/wO64WAnzRMFpv
+	GQhlcKLrihNUmaKlHohiNXWgrTneusQqjDn5A9+eO4mLUJtcwAYl8ssQQt77BhNLLBi6TEgrNvhqt
+	1NeOyWvD6g2jYaYQizZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q98qj-008rSA-0R;
-	Tue, 13 Jun 2023 18:34:37 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1q99C2-008uEy-0l;
+	Tue, 13 Jun 2023 18:56:38 +0000
+Received: from out-37.mta1.migadu.com ([95.215.58.37])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q98qe-008rR1-36
+	id 1q99Bt-008uBA-35
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jun 2023 18:34:35 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-97458c97333so957998166b.2
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Jun 2023 11:34:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1686681268; x=1689273268;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NtcqOw9tGOLwmlWw5dD/FwSbu+eMTAPAiQdNyorGdKs=;
-        b=TF06f9ZKq7pMgbq7ormbfzR+qN7ngTNxN1iQAXw5U5DuvJrUq1xjjW5xw9Ize6wSp7
-         EYxB2YzFz/QtVppI3GMbtwa4xgZ9sRQc3f4t8YBK/meyV6UR1DiBbMgwpXwOIgNKFs33
-         U87sFC0COYk9vce4kBnTGAGE2hazjZOGeQSpl2b7BLjyXbNQiuFuyb5xpd60z2nQkxnA
-         4ykIXEPRyNRfLYITKW1o/rh6DBnkOaeN2/hn1ZF0+4KTDPZWhyejI8hH3+tu0EYeYbJB
-         EJffQ0cUT8Gpm0QKBn3ydp3Uf+0X+hUyQ9Savf8KEz8OyniD+XdZ/s6VAtYcnNCFkcFq
-         8qsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686681268; x=1689273268;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NtcqOw9tGOLwmlWw5dD/FwSbu+eMTAPAiQdNyorGdKs=;
-        b=Xll5EENqwp1Mmgd35g1HIaaikyeeYjutaQTM/AM8ChNFJMhDGkiE99+hnu8sihunEN
-         RNBoxLF63VWXvlATrEMVqeV2MSaTD/tn1woLCJ9cT93BdwKF+Ll7nKZnmV8TD9B14CHV
-         j8iwmtarVaiPvvJnZHfM+gqGb7d9dy8GbfVAxeMl/81Qtb/6MxGUoEL1Q258MSILl8MS
-         hFzVsQCov8JteQ5TTwv04tOKcRqHXQeASfUMgT2ra5Y5V55gAr+54dtTLIJsS8IxqC47
-         bmDgLyMdC1rchVt02bgavNdZaD8zZYjg1u4wFVRY1P+RIV9wYjbDM/bZY30IujYUnB0m
-         /zaQ==
-X-Gm-Message-State: AC+VfDxZrN69rEQSvz03h/CyJo3Ok8qP23b8Oro3VgmyAohzoQVksXSZ
-	kdrotZgYv8/CF2MNaWjBZpKjNg==
-X-Google-Smtp-Source: ACHHUZ5h4YyZdlSWo9Eiykl6LWg95TEWZGgJxSeDzTRZm8HcaKkAKbdZzhGVqPwl1h+uQO5nbWUlYg==
-X-Received: by 2002:a17:907:eac:b0:978:8925:7a08 with SMTP id ho44-20020a1709070eac00b0097889257a08mr15533059ejc.72.1686681268157;
-        Tue, 13 Jun 2023 11:34:28 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.219.26])
-        by smtp.gmail.com with ESMTPSA id pv12-20020a170907208c00b0096b4ec45e10sm6946337ejb.139.2023.06.13.11.34.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 Jun 2023 11:34:27 -0700 (PDT)
-Message-ID: <75508c4d-d86e-f88f-191f-dd870ebe7bd7@linaro.org>
-Date: Tue, 13 Jun 2023 20:34:25 +0200
+	Tue, 13 Jun 2023 18:56:36 +0000
+Date: Tue, 13 Jun 2023 14:56:14 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1686682581;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cI/+VKexODe7tgazUH0uBbszHN+Sh5VjQJKMcYicSKU=;
+	b=UteSpuaAfbQ2NCJDHT0DaE6LH+0KCxqxliA1u1CiHpYLEp/BHx0yHT4z2wyOm1k0K155IH
+	1TdtqXMsJtk9bqAzUZ31aQXTksL2s2n1Q4RGfHebraQUDr3MhWO8yy+4wsaox2mGxQ3YRe
+	XgmITo5ci4OCni1zywcC85bIuHv1vdI=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kent Overstreet <kent.overstreet@linux.dev>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Song Liu <song@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH 00/13] mm: jit/text allocator
+Message-ID: <ZIi7zmey0w61EG25@moria.home.lan>
+References: <20230601101257.530867-1-rppt@kernel.org>
+ <ZHjDU/mxE+cugpLj@FVFF77S0Q05N.cambridge.arm.com>
+ <ZHjgIH3aX9dCvVZc@moria.home.lan>
+ <ZHm3zUUbwqlsZBBF@FVFF77S0Q05N>
+ <20230605092040.GB3460@kernel.org>
+ <ZH20XkD74prrdN4u@FVFF77S0Q05N>
+ <CAPhsuW7ntn_HpVWdGK_hYVd3zsPEFToBNfmtt0m6K8SwfxJ66Q@mail.gmail.com>
+ <20230608184116.GJ52412@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH v5 3/7] dt-bindings: clock: jh7110-syscrg: Add PLL clock
- inputs
-Content-Language: en-US
-To: Xingyu Wu <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Conor Dooley <conor+dt@kernel.org>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Hal Feng <hal.feng@starfivetech.com>,
- William Qiu <william.qiu@starfivetech.com>, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20230613125852.211636-1-xingyu.wu@starfivetech.com>
- <20230613125852.211636-4-xingyu.wu@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230613125852.211636-4-xingyu.wu@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20230608184116.GJ52412@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230613_113433_007409_861FC6E3 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20230613_115631_111287_21142DA5 
+X-CRM114-Status: GOOD (  23.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,114 +93,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2023 14:58, Xingyu Wu wrote:
-> Add optional PLL clock inputs from PLL clock generator.
-
-Are you sure that PLLs are optional? Usually they are not...
-
-> 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  .../clock/starfive,jh7110-syscrg.yaml         | 56 +++++++++++++++++++
->  1 file changed, 56 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-> index 84373ae31644..5536e5f9e20b 100644
-> --- a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-> @@ -39,6 +39,33 @@ properties:
->            - description: External TDM clock
->            - description: External audio master clock
->  
-> +      - items:
-> +          - description: Main Oscillator (24 MHz)
-> +          - description: GMAC1 RMII reference or GMAC1 RGMII RX
-> +          - description: External I2S TX bit clock
-> +          - description: External I2S TX left/right channel clock
-> +          - description: External I2S RX bit clock
-> +          - description: External I2S RX left/right channel clock
-> +          - description: External TDM clock
-> +          - description: External audio master clock
-> +          - description: PLL0
-> +          - description: PLL1
-> +          - description: PLL2
-
-Add these three to the existing entry with minItems.
-
-> +
-> +      - items:
-> +          - description: Main Oscillator (24 MHz)
-> +          - description: GMAC1 RMII reference
-> +          - description: GMAC1 RGMII RX
-> +          - description: External I2S TX bit clock
-> +          - description: External I2S TX left/right channel clock
-> +          - description: External I2S RX bit clock
-> +          - description: External I2S RX left/right channel clock
-> +          - description: External TDM clock
-> +          - description: External audio master clock
-> +          - description: PLL0
-> +          - description: PLL1
-> +          - description: PLL2
-
-Add these three to the existing entry with minItems.
-
-
-
-> +
->    clock-names:
->      oneOf:
->        - items:
-> @@ -64,6 +91,35 @@ properties:
->            - const: tdm_ext
->            - const: mclk_ext
->  
-> +      - items:
-> +          - const: osc
-> +          - enum:
-> +              - gmac1_rmii_refin
-> +              - gmac1_rgmii_rxin
-> +          - const: i2stx_bclk_ext
-> +          - const: i2stx_lrck_ext
-> +          - const: i2srx_bclk_ext
-> +          - const: i2srx_lrck_ext
-> +          - const: tdm_ext
-> +          - const: mclk_ext
-> +          - const: pll0_out
-> +          - const: pll1_out
-> +          - const: pll2_out
-
-Add these three to the existing entry with minItems.
-
-
-> +
-> +      - items:
-> +          - const: osc
-> +          - const: gmac1_rmii_refin
-> +          - const: gmac1_rgmii_rxin
-> +          - const: i2stx_bclk_ext
-> +          - const: i2stx_lrck_ext
-> +          - const: i2srx_bclk_ext
-> +          - const: i2srx_lrck_ext
-> +          - const: tdm_ext
-> +          - const: mclk_ext
-> +          - const: pll0_out
-> +          - const: pll1_out
-> +          - const: pll2_out
-
-Add these three to the existing entry with minItems.
-
-
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdW4gMDgsIDIwMjMgYXQgMDk6NDE6MTZQTSArMDMwMCwgTWlrZSBSYXBvcG9ydCB3
+cm90ZToKPiBPbiBUdWUsIEp1biAwNiwgMjAyMyBhdCAxMToyMTo1OUFNIC0wNzAwLCBTb25nIExp
+dSB3cm90ZToKPiA+IE9uIE1vbiwgSnVuIDUsIDIwMjMgYXQgMzowOeKAr0FNIE1hcmsgUnV0bGFu
+ZCA8bWFyay5ydXRsYW5kQGFybS5jb20+IHdyb3RlOgo+ID4gCj4gPiBbLi4uXQo+ID4gCj4gPiA+
+ID4gPiA+IENhbiB5b3UgZ2l2ZSBtb3JlIGRldGFpbCBvbiB3aGF0IHBhcmFtZXRlcnMgeW91IG5l
+ZWQ/IElmIHRoZSBvbmx5IGV4dHJhCj4gPiA+ID4gPiA+IHBhcmFtZXRlciBpcyBqdXN0ICJkb2Vz
+IHRoaXMgYWxsb2NhdGlvbiBuZWVkIHRvIGxpdmUgY2xvc2UgdG8ga2VybmVsCj4gPiA+ID4gPiA+
+IHRleHQiLCB0aGF0J3Mgbm90IHRoYXQgYmlnIG9mIGEgZGVhbC4KPiA+ID4gPiA+Cj4gPiA+ID4g
+PiBNeSB0aGlua2luZyB3YXMgdGhhdCB3ZSBhdCBsZWFzdCBuZWVkIHRoZSBzdGFydCArIGVuZCBm
+b3IgZWFjaCBjYWxsZXIuIFRoYXQKPiA+ID4gPiA+IG1pZ2h0IGJlIGl0LCB0YmguCj4gPiA+ID4K
+PiA+ID4gPiBEbyB5b3UgbWVhbiB0aGF0IG1vZHVsZXMgd2lsbCBoYXZlIHNvbWV0aGluZyBsaWtl
+Cj4gPiA+ID4KPiA+ID4gPiAgICAgICBqaXRfdGV4dF9hbGxvYyhzaXplLCBNT0RVTEVTX1NUQVJU
+LCBNT0RVTEVTX0VORCk7Cj4gPiA+ID4KPiA+ID4gPiBhbmQga3Byb2JlcyB3aWxsIGhhdmUKPiA+
+ID4gPgo+ID4gPiA+ICAgICAgIGppdF90ZXh0X2FsbG9jKHNpemUsIEtQUk9CRVNfU1RBUlQsIEtQ
+Uk9CRVNfRU5EKTsKPiA+ID4gPiA/Cj4gPiA+Cj4gPiA+IFllcy4KPiA+IAo+ID4gSG93IGFib3V0
+IHdlIHN0YXJ0IHdpdGggdHdvIEFQSXM6Cj4gPiAgICAgIGppdF90ZXh0X2FsbG9jKHNpemUpOwo+
+ID4gICAgICBqaXRfdGV4dF9hbGxvY19yYW5nZShzaXplLCBzdGFydCwgZW5kKTsKPiA+IAo+ID4g
+QUZBSUNULCBhcm02NCBpcyB0aGUgb25seSBhcmNoIHRoYXQgcmVxdWlyZXMgdGhlIGxhdHRlciBB
+UEkuIEFuZCBUQkgsIEkgYW0KPiA+IG5vdCBxdWl0ZSBjb252aW5jZWQgaXQgaXMgbmVlZGVkLgo+
+ICAKPiBSaWdodCBub3cgYXJtNjQgYW5kIHJpc2N2IG92ZXJyaWRlIGJwZiBhbmQga3Byb2JlcyBh
+bGxvY2F0aW9ucyB0byB1c2UgdGhlCj4gZW50aXJlIHZtYWxsb2MgYWRkcmVzcyBzcGFjZSwgYnV0
+IGhhdmluZyB0aGUgYWJpbGl0eSB0byBhbGxvY2F0ZSBnZW5lcmF0ZWQKPiBjb2RlIG91dHNpZGUg
+b2YgbW9kdWxlcyBhcmVhIG1heSBiZSB1c2VmdWwgZm9yIG90aGVyIGFyY2hpdGVjdHVyZXMuCj4g
+Cj4gU3RpbGwgdGhlIHN0YXJ0ICsgZW5kIGZvciB0aGUgY2FsbGVycyBmZWVscyBiYWNrd2FyZHMg
+dG8gbWUgYmVjYXVzZSB0aGUKPiBjYWxsZXJzIGRvIG5vdCBkZWZpbmUgdGhlIHJhbmdlcywgYnV0
+IHJhdGhlciB0aGUgYXJjaGl0ZWN0dXJlcywgc28gd2Ugc3RpbGwKPiBuZWVkIGEgd2F5IGZvciBh
+cmNoaXRlY3R1cmVzIHRvIGRlZmluZSBob3cgdGhleSB3YW50IGFsbG9jYXRlIG1lbW9yeSBmb3IK
+PiB0aGUgZ2VuZXJhdGVkIGNvZGUuCgpTbywgdGhlIHN0YXJ0ICsgZW5kIGp1c3QgY29tZXMgZnJv
+bSB0aGUgbmVlZCB0byBrZWVwIHJlbGF0aXZlIHBvaW50ZXJzCnVuZGVyIGEgY2VydGFpbiBzaXpl
+LiBJIHRoaW5rIHRoaXMgY291bGQgYmUganVzdCBhIGZsYWcsIEkgc2VlIG5vIHJlYXNvbgp0byBl
+eHBvc2UgYWN0dWFsIGFkZHJlc3NlcyBoZXJlLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
