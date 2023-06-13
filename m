@@ -4,80 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B76FCC43458
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 13:29:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99977EB64D8
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 13:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=csjIOmtLsgauXOpjZA5eRG8xjC4uxSharZKRd8Nh2iM=; b=MUqWP22p6rOo+p
-	s28cnlQyFt0hwubYXW+zvZL0ye19rRxpMVyMPmhbMTrfvVQwfpNanWKP3vY/HVHJnvxJ+nrj/OzEL
-	ITBRxqixuJBui+u2rjeER3dQU4h7xdZAuHCKalygBuyY5ePJRLsJOuwmv5CKe3tVVtcnphBCD7vmb
-	i1m6TiCyezUV23aXe6fmdlIpOBeVuGvvqHi1LO0cEsfMDKmM/XxlqiahXcNSed1o7wJUcVYgTY0Mb
-	KoI3hqEM+377o9+zmsYfSMChbpyLktjkyj5pC+rbvsFbtCuVyfsIetemC6mpwqqgLzFpQVxszTbCj
-	agku1Wpa1AWe+AE+MJ3Q==;
+	List-Owner; bh=IJvVRNKcelUyfIav+YyHbMeDkuNW8lh/5KGWXZaE3qY=; b=jGPiZmymWMIMLT
+	y/waXFGOmtn93jowImAZAi0DqabLa9Vq5okoDJtlMrl8FN7/PxXg8+2KBLvJ04qvINOet7cHstoRu
+	h6NJ92o/2fFaiQDN9Nz59Sph6S3Bhe84EJVVPghTDTqvcCg98oiZwMBeUYw2kvna8OiW6PqiAW9mM
+	bwIWPtMjSj+SmcLFQj/8G3XeByD5L5h51JF94W036UnJsODqCruhDmEz29xbtuoL9vaXOfIjxInlB
+	Q8CG7c5auqeaDBqZOKLYUUplMeBx2g5EHakfmLp7EXaXLhY/H7f2aKIZc2QP7/Nkrh4spc57sYmcp
+	rrdC9rI4uT6TzzKF9uCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q944s-008BKG-0a;
-	Tue, 13 Jun 2023 13:28:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q944p-008BIy-20
+	id 1q94Co-008CjK-33;
+	Tue, 13 Jun 2023 13:37:06 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q94Ci-008CdT-1F
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jun 2023 13:28:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 024E963635
-	for <linux-riscv@lists.infradead.org>; Tue, 13 Jun 2023 13:28:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A71FC43331
-	for <linux-riscv@lists.infradead.org>; Tue, 13 Jun 2023 13:28:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686662929;
-	bh=Tq282l+C2Dr1lf2RPS2aM+A8Oyr7+h44UW4Jg8xfhbs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KcgaJ6b3WJUNmYRSAfZ6WsF8uW14i0pHGUqfQ8qbVrnwHv8mkwzliNY52bKdNkzyw
-	 8oaUyvyCC780GZKnZH7KC9oC6otccI0eauPbGL9IgmQtnO3R5aSpv5ARer1rB32lkF
-	 2d4uKUE5XCBpIUm5U4BSU4DCrQpbGaie4LwHbJj1Siu5+1zT/muUy+h3szYViKJAFw
-	 oVzVrwW8F/o7VbqwygRlpxQFJUoAcazKCkvWPkHe6zjm75poQ3WFbTO3ZlMYb9/Dkz
-	 pw/ooL9JV7uYkoyjm75SLOFnSjhj13q03rSWUvGniN9XsFR1qwltOw2Ujx5sQGuDZH
-	 pj3hxljD5e64g==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-2b1b72dc2feso67528821fa.3
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Jun 2023 06:28:48 -0700 (PDT)
-X-Gm-Message-State: AC+VfDy0ZX5scaORzr4oE5PG5Gl3BROPiPPRLOekhKWhCNufgVLlIizh
-	1KQZ+PmxdO9Swj+IHCRc0Jma8buv/FXPmmIpWg==
-X-Google-Smtp-Source: ACHHUZ7xEzfSwXxw+hZJuk+2aAUcZRqN2kDCLuPdkshb6lV2DAnOexM7QB+9J/ErB3X9G0jVZAtdNv9Xt6ie8WSLIls=
-X-Received: by 2002:a2e:9595:0:b0:2b3:3de8:7330 with SMTP id
- w21-20020a2e9595000000b002b33de87330mr747015ljh.29.1686662926823; Tue, 13 Jun
- 2023 06:28:46 -0700 (PDT)
+	Tue, 13 Jun 2023 13:37:05 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D58CB24DCF1;
+	Tue, 13 Jun 2023 21:36:11 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 13 Jun
+ 2023 20:58:55 +0800
+Received: from localhost.localdomain (113.72.145.34) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 13 Jun
+ 2023 20:58:54 +0800
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng
+	<hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>, "William
+ Qiu" <william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>
+Subject: [PATCH v5 2/7] dt-bindings: soc: starfive: Add StarFive syscon module
+Date: Tue, 13 Jun 2023 20:58:47 +0800
+Message-ID: <20230613125852.211636-3-xingyu.wu@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230613125852.211636-1-xingyu.wu@starfivetech.com>
+References: <20230613125852.211636-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-References: <20230518-thermos-sanitary-cf3fbc777ea1@wendy> <20230518-4050231ca8dbe93c08cf9c9a@orel>
- <CAAhSdy07Mg_JBF+4ucGFiWdBKh-Ass5G_aUWqBqTnDSFp7S=0A@mail.gmail.com>
- <20230518-hammock-doornail-478e8ea8e6a7@wendy> <f7c20090-220c-2805-86ba-b174a89f65b3@seco.com>
- <20230518-monkhood-dispersal-6749b1228b0d@spud> <20230530-duller-reset-a34ae111f207@wendy>
- <20230608191537.GA3233857-robh@kernel.org> <20230608-cobbler-giving-e0fac2185e11@spud>
- <20230612-relic-fetal-1beeae3455aa@spud>
-In-Reply-To: <20230612-relic-fetal-1beeae3455aa@spud>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 13 Jun 2023 07:28:34 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+CJ-mEcEujd5Sk4SLvgTfUX1A7NRXYcMDqkoViDYxTXw@mail.gmail.com>
-Message-ID: <CAL_Jsq+CJ-mEcEujd5Sk4SLvgTfUX1A7NRXYcMDqkoViDYxTXw@mail.gmail.com>
-Subject: Re: [PATCH v1] dt-bindings: riscv: deprecate riscv,isa
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Sean Anderson <sean.anderson@seco.com>, 
-	Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, palmer@dabbelt.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Alistair Francis <alistair.francis@wdc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Atish Patra <atishp@atishpatra.org>, Jessica Clarke <jrtc27@jrtc27.com>, 
-	Rick Chen <rick@andestech.com>, Leo <ycliang@andestech.com>, 
-	linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org, u-boot@lists.denx.de, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Originating-IP: [113.72.145.34]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230613_062851_870278_0278048F 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20230613_063700_889362_556F3331 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,34 +75,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMTIsIDIwMjMgYXQgMzoyM+KAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBSb2IsCj4gQmVmb3JlIEkgcHJlc3Mgb24gd2l0aCBtb3JlIHZl
-cnNpb25zLi4uCj4KPiBPbiBUaHUsIEp1biAwOCwgMjAyMyBhdCAwODozMDoyOFBNICswMTAwLCBD
-b25vciBEb29sZXkgd3JvdGU6Cj4gPiBPbiBUaHUsIEp1biAwOCwgMjAyMyBhdCAwMToxNTozN1BN
-IC0wNjAwLCBSb2IgSGVycmluZyB3cm90ZToKPiA+ID4gT24gVHVlLCBNYXkgMzAsIDIwMjMgYXQg
-MDM6MTI6MTJQTSArMDEwMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+ID4gPiA+IE9uIFRodSwgTWF5
-IDE4LCAyMDIzIGF0IDEwOjQyOjM0UE0gKzAxMDAsIENvbm9yIERvb2xleSB3cm90ZToKPiA+ID4g
-PiA+IE9uIFRodSwgTWF5IDE4LCAyMDIzIGF0IDAyOjMwOjUzUE0gLTA0MDAsIFNlYW4gQW5kZXJz
-b24gd3JvdGU6Cj4gPiA+ID4KPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gV2h5IG5vdCBqdXN0IGhh
-dmUgc29tZXRoaW5nIGxpa2UKPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gbXljcHUgewo+ID4gPiA+
-ID4gPiAgICAgICAuLi4KPiA+ID4gPiA+ID4gICAgICAgcmlzY3YsaXNhIHsKPiA+ID4gPiA+ID4g
-ICAgICAgICAgICAgICBpOwo+ID4gPiA+ID4gPiAgICAgICAgICAgICAgIG07Cj4gPiA+ID4gPiA+
-ICAgICAgICAgICAgICAgYTsKPiA+ID4gPiA+ID4gICAgICAgICAgICAgICB6aWNzcjsKPiA+ID4g
-PiA+ID4gICAgICAgICAgICAgICAuLi4KPiA+ID4KPiA+ID4gSSBwcmVmZXIgcHJvcGVydHkgbmFt
-ZXMgYmUgZ2xvYmFsbHkgdW5pcXVlLiBUaGUgdG9vbHMgYXJlIGdlYXJlZCB0b3dhcmRzCj4gPiA+
-IHRoYXQgdG9vLiBUaGF0J3MgbGFyZ2VseSBhIHN5bXB0b20gb2YgaGF2aW5nIDAgdHlwZSBpbmZv
-cm1hdGlvbiBpbiB0aGUKPiA+ID4gRFQuCj4gPiA+Cj4gPiA+IEZvciBleGFtcGxlIGlmIHlvdSBo
-YWQgYW4gZXh0ZW5zaW9uIGNhbGxlZCAncmVnJywgaXQgd291bGQgYmUgYSBwcm9ibGVtLgo+ID4K
-PiA+IFBlciB0aGUgY3VycmVudCBJU0EgcnVsZXMsIHRoYXQnZCBub3QgYmUgdmFsaWQuIEJ1dCB0
-aGVuIGFnYWluLCBJIGRvCj4gPiBoYXZlIHRydXN0IGlzc3VlcyAmIGl0J3Mgbm90IGxpa2UgInJl
-ZyIgaXMgdGhlIG9ubHkgcHJvcGVydHkgbmFtZSBpbiBEVAo+ID4gbGFuZC4KPgo+IC4uLnlvdSBz
-YXkgInByZWZlciIgaGVyZS4gSXMgdGhhdCBhIE5BSywgb3IgYSAieW91IGtlZXAgdGhlIHBpZWNl
-cyI/CgpEb24ndCBkbyB0aGUgYWJvdmUgbm9kZS4KClJvYgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: William Qiu <william.qiu@starfivetech.com>
+
+Add documentation to describe StarFive System Controller Registers.
+
+Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+---
+ .../soc/starfive/starfive,jh7110-syscon.yaml  | 62 +++++++++++++++++++
+ MAINTAINERS                                   |  7 +++
+ 2 files changed, 69 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+
+diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+new file mode 100644
+index 000000000000..a81190f8a54d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+@@ -0,0 +1,62 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 SoC system controller
++
++maintainers:
++  - William Qiu <william.qiu@starfivetech.com>
++
++description: |
++  The StarFive JH7110 SoC system controller provides register information such
++  as offset, mask and shift to configure related modules such as MMC and PCIe.
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - const: starfive,jh7110-sys-syscon
++          - const: syscon
++          - const: simple-mfd
++      - items:
++          - enum:
++              - starfive,jh7110-aon-syscon
++              - starfive,jh7110-stg-syscon
++          - const: syscon
++
++  reg:
++    maxItems: 1
++
++  clock-controller:
++    $ref: /schemas/clock/starfive,jh7110-pll.yaml#
++    type: object
++
++  "#power-domain-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: starfive,jh7110-aon-syscon
++    then:
++      required:
++        - "#power-domain-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    syscon@10240000 {
++        compatible = "starfive,jh7110-stg-syscon", "syscon";
++        reg = <0x10240000 0x1000>;
++    };
++
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f794002a192e..ae037ba7fc47 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20122,6 +20122,12 @@ S:	Supported
+ F:	Documentation/devicetree/bindings/mmc/starfive*
+ F:	drivers/mmc/host/dw_mmc-starfive.c
+ 
++STARFIVE JH7110 SYSCON
++M:	William Qiu <william.qiu@starfivetech.com>
++M:	Xingyu Wu <xingyu.wu@starfivetech.com>
++S:	Supported
++F:	Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
++
+ STARFIVE JH71X0 CLOCK DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
+ M:	Hal Feng <hal.feng@starfivetech.com>
+@@ -20159,6 +20165,7 @@ STARFIVE SOC DRIVERS
+ M:	Conor Dooley <conor@kernel.org>
+ S:	Maintained
+ T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
++F:	Documentation/devicetree/bindings/soc/starfive/
+ F:	drivers/soc/starfive/
+ 
+ STARFIVE TRNG DRIVER
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
