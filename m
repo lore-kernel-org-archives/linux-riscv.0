@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B34C77B7A
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 04:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78085C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 06:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ag+2ljqqRbByBw2Rl3XpXL5YfyXDgIIkKsNKMQay1dE=; b=LmldVwC8LFOxWX
-	TVVzn+2nvWwjg4esb+VHqqyT41I4FoeacEdoSv7vmjGP2TJqvZiU8pQdc3lz50AmZF1AoFgEg9bI5
-	zfozlfv6ZIK5+Ms450DPf5aQTMT4LRaRzFRhb9RDzYgQKBHmagW5k/gRS53kdcpL1n32q4iqxVaHT
-	qrheqr0kRmHJewuMTLIHaeFE4Di9sNWWtiopQ/vzAwz45s85/o23Mk6YXLq5uTred9e571Y+KNUHf
-	t0hq3sGD8OyIOjg5yRwu/dbCFnP1FrYubuO+zgneTC8c9HTjHwRulmNujw+uI9pBvCLq81do5FL9o
-	DfDmD87nuAI5E06mTsLA==;
+	List-Owner; bh=VQYhxhfR/7PQQHI9mWVRl16V1WZ2TBc3cXiNJ0gCIBY=; b=T2KsnzoUjCuUpU
+	FYYak8U6mVNZ+XxdSSGWqKN/C6C4G70SlxQJOgfyV4c8fu/YbbaPPu6wYKu0EpkRUC14h6Jf6GLWh
+	I7AcWLdt0+a4xkhnNQwzxKZFm4P3UiMjNZuk7F2suaDDRcEqIvTbnlL9LmKGm265ZLqUJlB/mAMIB
+	jep9MBrX4QSDcOaOowLXcW5jz7U8gqsx20sL4+BWWBHQ0+jLYR3PkSu8jtuHtW3Lg1YdsGBF3Eqwe
+	ZjnNplKgxkx2YunVZ2Ct4fmko/8tH1AwBJHu5h/JbP0pqj4rB0phGdTMoc1ihWvhMfM6lDrX2/b2N
+	1K0k9Beq41hssN0hmUlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8vru-006tyK-1o;
-	Tue, 13 Jun 2023 04:42:58 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1q8xeQ-0075n6-1w;
+	Tue, 13 Jun 2023 06:37:10 +0000
+Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8vrr-006txl-1X
+	id 1q8xeN-0075lW-0r
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jun 2023 04:42:57 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-51873e43986so399816a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Jun 2023 21:42:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1686631372; x=1689223372;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CzwXO5LLinsbc81q9m0mJrThXDrRsGSZgZKBrqcWDhU=;
-        b=Re/JoZDdl7WWFhPNRzXIFIPRLlnyd5pZGoZse5aP6tFTQ1ruH4SblQBU/qotEyJ8+O
-         iMqIDMjO/+jluK8C/6EtzKspe3cTT3unitXHicVeJQf2SUUyk0agBJRXEkoityiA8USl
-         v82m85Hryu0TtYHH2IvWElQGzoJEg1Hu9nIdWCU1jFX2Bahe/MV3MRRvw/Ijm+3gPMB5
-         oTjOChfwoW7JOm9AYO1Uq0jt6SzTUsTP/bekTVKCXC9wOrzlXcAHZw8HEfWsXmQurh+D
-         6NBihHB3EucGRXJ+Rsd7kWSihtlrYwnUX7Kmnsaw2UqKgcpvTyaaNakSa1BFWTDPXa4R
-         HabA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686631372; x=1689223372;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CzwXO5LLinsbc81q9m0mJrThXDrRsGSZgZKBrqcWDhU=;
-        b=RD+0cZFHyz6XCiiKueky53iG76HrR3Fj8zPfGN6+JTbEora3cUCPHi4MSssR2wdI6D
-         L3p0lU1bPo+AawtJdc/oAseIMMROTjNVia/3dYK3Cw+shTMucZ78p3JV2VCsjpCUJWf1
-         YRcu5qcxPHJsFiYMERs8NKe3V3+0WQos/u0jcay5lQKk6xa5wBReJJ8Hvjo/06m1ZWRb
-         1+cY03Z9wQVV8A2g3MnQSdCK4twRQcWh+FxrSo5ZIsopql7S0FHu0G5Eo5nf5g/5ScHm
-         +pd1F0PX56V8UusCos+jcJJTIcNkFZKUUYIzb1mhAkjvSDrOutfldP/qjItEM7tNBWG1
-         k+yA==
-X-Gm-Message-State: AC+VfDy4FLhAIEjoctXvudpOhPRuxJtxzUEmFLxCXXqQeJ/KtpNXXZ1/
-	CSrEJD480zHFSxOawoJwebvmqdMOf8b7yCn/z1vSiA==
-X-Google-Smtp-Source: ACHHUZ4ETr5UZ3VbtqL8LS3ZVa0OXp7qvMh694ytmLxSCEv5jRu14utuMLjd7mOBnSDm2aadOjxLwJ3P3GoNW1vtYdA=
-X-Received: by 2002:aa7:c553:0:b0:508:3b1f:e6b5 with SMTP id
- s19-20020aa7c553000000b005083b1fe6b5mr5571374edr.15.1686631371900; Mon, 12
- Jun 2023 21:42:51 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230508142842.854564-1-apatel@ventanamicro.com>
- <20230508142842.854564-3-apatel@ventanamicro.com> <20230608182828.GA3183987-robh@kernel.org>
- <CAGETcx_4OH=EmSUL2-rwKa=1uoOj+AH_xn4PoPsc0kt_aU0WOg@mail.gmail.com>
- <CAK9=C2V1LH0739Nq5Ji7gGbgbyFtNAtBYR43fU7vr9omD5tKSA@mail.gmail.com> <CAGETcx--aEEB6ag1qGcEeygPyZM9Q-T1NOY+wK911LGJGisN8Q@mail.gmail.com>
-In-Reply-To: <CAGETcx--aEEB6ag1qGcEeygPyZM9Q-T1NOY+wK911LGJGisN8Q@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 13 Jun 2023 10:12:40 +0530
-Message-ID: <CAAhSdy2p6K70fc2yZLPdVGqEq61Y8F7WVT2J8st5mQrzBi4WHg@mail.gmail.com>
-Subject: Re: [PATCH v3 02/11] of/irq: Set FWNODE_FLAG_BEST_EFFORT for the
- interrupt controller DT nodes
-To: Saravana Kannan <saravanak@google.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Frank Rowand <frowand.list@gmail.com>, 
-	Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, iommu@lists.linux.dev
+	Tue, 13 Jun 2023 06:37:09 +0000
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+	by mailout.west.internal (Postfix) with ESMTP id 52BFF32006F5;
+	Tue, 13 Jun 2023 02:36:59 -0400 (EDT)
+Received: from imap50 ([10.202.2.100])
+  by compute1.internal (MEProxy); Tue, 13 Jun 2023 02:37:00 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1686638218; x=1686724618; bh=3F
+	ZTRxLrHXD3Xm5q4Gr9FJo1SoQ3BCmMhPOkll2o7pw=; b=Z1Q5htHfdGX5fBNvv4
+	sveyeHD0Hwx1nBULbzz4lGXbxo6P7l2zrE+3IC/veQLUUTsJr3DQ5ye55vgawVPP
+	Z/A9EwVoOhUtkzh0nrSpiCgwiAI4KPgn+HrZ6/1ovOBiRNfS9yIBDT7tEAkCOqDh
+	73cJBUPLzTlHAtdD4bnatgr4GrBRHjhWzjVl8X7NkDwNQwVXqlnyQoW+DLliTZXx
+	15aeBFU1kourbUW6Sp2z9VBoAfaFf+mUF3NTIcUpokvSdxjcY0Gw1+vG2pOzbNjb
+	ITkDQUyHjR6/ilt2Dwnfs+tfdK5vWMEuqeivWEvvlgPaAJD6Wf9djZ2qY55HjpMe
+	Pbew==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1686638218; x=1686724618; bh=3FZTRxLrHXD3X
+	m5q4Gr9FJo1SoQ3BCmMhPOkll2o7pw=; b=m6iNhMZ+Zn4Krpl3SHtx2X8RAz0ff
+	e8TSRlW5bTRnzraYYJeOrLdy2jjL6hTbApLUD4zwOVbyIlvA++UsJ2aPTBrCK3D6
+	9Pu2PP+rzdcQcMvXsxVoW87Hp0Iu6aOx2NN/EWM6EL8ZwmQIT6Mrql5tkWP3LrlV
+	s45Pc1HFG98isBVyGRrSfnTuFICuEj0k5nf8CwCu1H/wfyBJF0K5WZEEIQ/B+Cq7
+	wJuJOi/NeomHEEgS9tVwP1xmSZRZH43RPFqgiotmbnyGvRQCaOzZfF4Nw1RlHyZw
+	TWu3wgPqjty+TezvnauB47Nbp4RfdGuEqVQq/sa0C5xjqxHxU35t3b2uA==
+X-ME-Sender: <xms:ig6IZHjxvmCEGYiVMNt3t-f8TivcklBZWqM6qye8_JlDamPbaHXKFQ>
+    <xme:ig6IZEC81LBtFICISnpaqFE0kc4VE1Ztf6AedC1zCRAKuGXsPqL6o-RRqNgCal4Wf
+    JsRyaf2FpWzUKdceQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrgeduiedguddufecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdfu
+    thgvfhgrnhcuqfdktfgvrghrfdcuoehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhmqe
+    enucggtffrrghtthgvrhhnpeefudejvdejuddvjeejudekgfeikeevveevleeitddvtedu
+    jeegjeejgfeugfeiudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrih
+    hlfhhrohhmpehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:ig6IZHH_FW5IDhG5XbukEga-97ECL21KVm2yXWtd35blv9dDqHuCCA>
+    <xmx:ig6IZES17GFt_TuoSBGbUAAALgR5_Vf7Bd8Jl9P9ij_7KiVDE_PmGw>
+    <xmx:ig6IZEwKmKtr5TpsPALaV1g-MsiZQDtI3a77vzmaSbw9rU1OTe0IhA>
+    <xmx:ig6IZLmkKySqM5X0srh4F9E50VuyRVe70Aog6zksBgAsK_2mXGLrtA>
+Feedback-ID: i84414492:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 6F0A91700093; Tue, 13 Jun 2023 02:36:58 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-492-g08e3be04ba-fm-20230607.003-g08e3be04
+Mime-Version: 1.0
+Message-Id: <75071be8-272d-45e7-989f-5d717f313fe2@app.fastmail.com>
+In-Reply-To: <20230228215435.3366914-3-heiko@sntech.de>
+References: <20230228215435.3366914-1-heiko@sntech.de>
+ <20230228215435.3366914-3-heiko@sntech.de>
+Date: Tue, 13 Jun 2023 02:35:53 -0400
+From: "Stefan O'Rear" <sorear@fastmail.com>
+To: "Heiko Stuebner" <heiko@sntech.de>, palmer@dabbelt.com
+Cc: linux-riscv@lists.infradead.org, samuel@sholland.org, guoren@kernel.org,
+ christoph.muellner@vrull.eu, conor.dooley@microchip.com,
+ linux-kernel@vger.kernel.org, "Heiko Stuebner" <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH RFC 2/2] RISC-V: add T-Head vector errata handling
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230612_214255_732576_70F4797F 
-X-CRM114-Status: GOOD (  33.36  )
+X-CRM114-CacheID: sfid-20230612_233707_792550_A0C6CBE9 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,71 +101,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBKdW4gMTAsIDIwMjMgYXQgMjo0N+KAr0FNIFNhcmF2YW5hIEthbm5hbiA8c2FyYXZh
-bmFrQGdvb2dsZS5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBKdW4gOSwgMjAyMyBhdCA0OjQw4oCv
-QU0gQW51cCBQYXRlbCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+ID4KPiA+IE9u
-IEZyaSwgSnVuIDksIDIwMjMgYXQgMTozNeKAr0FNIFNhcmF2YW5hIEthbm5hbiA8c2FyYXZhbmFr
-QGdvb2dsZS5jb20+IHdyb3RlOgo+ID4gPgo+ID4gPiBPbiBUaHUsIEp1biA4LCAyMDIzIGF0IDEx
-OjI44oCvQU0gUm9iIEhlcnJpbmcgPHJvYmhAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+ID4KPiA+
-ID4gPiArU2FyYXZhbmEKPiA+ID4gPgo+ID4gPiA+IE9uIE1vbiwgTWF5IDA4LCAyMDIzIGF0IDA3
-OjU4OjMzUE0gKzA1MzAsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gPiA+ID4gPiBUaGUgUklTQy1WIEFQ
-TElDIGludGVycnVwdCBjb250cm9sbGVyIGRyaXZlciBpcyBhIHJlZ3VsYXIgcGxhdGZvcm0KPiA+
-ID4gPiA+IGRyaXZlciBzbyB3ZSBuZWVkIHRvIGVuc3VyZSB0aGF0IGl0IGlzIHByb2JlZCBhcyBz
-b29uIGFzIHBvc3NpYmxlLgo+ID4gPiA+ID4gVG8gYWNoaWV2ZSB0aGlzLCB3ZSBtYXJrIHRoZSBp
-bnRlcnJ1cHQgY29udHJvbGxlciBkZXZpY2Ugbm9kZXMgd2l0aAo+ID4gPiA+ID4gRldOT0RFX0ZM
-QUdfQkVTVF9FRkZPUlQgKGp1c3QgbGlrZSBjb25zb2xlIERUIG5vZGUpLgo+ID4gPiA+ID4KPiA+
-ID4gPiA+IEZpeGVzOiA4ZjQ4NmNhYjI2M2MgKCJkcml2ZXIgY29yZTogZndfZGV2bGluazogQWxs
-b3cgZmlybXdhcmUgdG8gbWFyayBkZXZpY2VzIGFzIGJlc3QgZWZmb3J0IikKPiA+ID4gPgo+ID4g
-PiA+IEl0IGlzIGdvb2QgcHJhY3RpY2UgdG8gQ2MgdGhlIGNvbW1pdCBhdXRob3Igb2Ygd2hhdCB5
-b3UgYXJlIGZpeGluZy4KPiA+ID4gPgo+ID4gPiA+ID4gU2lnbmVkLW9mZi1ieTogQW51cCBQYXRl
-bCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+Cj4gPiA+ID4gPiAtLS0KPiA+ID4gPiA+ICBkcml2
-ZXJzL29mL2lycS5jIHwgMTAgKysrKysrKysrKwo+ID4gPiA+ID4gIDEgZmlsZSBjaGFuZ2VkLCAx
-MCBpbnNlcnRpb25zKCspCj4gPiA+ID4gPgo+ID4gPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMv
-b2YvaXJxLmMgYi9kcml2ZXJzL29mL2lycS5jCj4gPiA+ID4gPiBpbmRleCAxNzQ5MDAwNzJjMTgu
-Ljk0ZTFkOTI0NWNmZiAxMDA2NDQKPiA+ID4gPiA+IC0tLSBhL2RyaXZlcnMvb2YvaXJxLmMKPiA+
-ID4gPiA+ICsrKyBiL2RyaXZlcnMvb2YvaXJxLmMKPiA+ID4gPiA+IEBAIC01MzUsNiArNTM1LDE2
-IEBAIHZvaWQgX19pbml0IG9mX2lycV9pbml0KGNvbnN0IHN0cnVjdCBvZl9kZXZpY2VfaWQgKm1h
-dGNoZXMpCj4gPiA+ID4gPiAgICAgICBJTklUX0xJU1RfSEVBRCgmaW50Y19kZXNjX2xpc3QpOwo+
-ID4gPiA+ID4gICAgICAgSU5JVF9MSVNUX0hFQUQoJmludGNfcGFyZW50X2xpc3QpOwo+ID4gPiA+
-ID4KPiA+ID4gPiA+ICsgICAgIC8qCj4gPiA+ID4gPiArICAgICAgKiBXZSBuZWVkIGludGVycnVw
-dCBjb250cm9sbGVyIHBsYXRmb3JtIGRyaXZlcnMgdG8gd29yayBhcyBzb29uCj4gPiA+ID4KPiA+
-ID4gPiBJZiBpdCdzIHBsYXRmb3JtIGRyaXZlcnMvZGV2aWNlcyB5b3UgY2FyZSBhYm91dCwgdGhl
-biBwZXJoYXBzIHRoaXMKPiA+ID4gPiBzaG91bGQgYmUgZG9uZSB3aGVuIHBsYXRmb3JtIGRldmlj
-ZXMgYXJlIGNyZWF0ZWQuCj4gPiA+ID4KPiA+ID4gPiA+ICsgICAgICAqIGFzIHBvc3NpYmxlIHNv
-IG1hcmsgdGhlIGludGVycnVwdCBjb250cm9sbGVyIGRldmljZSBub2RlcyB3aXRoCj4gPiA+ID4g
-PiArICAgICAgKiBGV05PREVfRkxBR19CRVNUX0VGRk9SVCBzbyB0aGF0IGZ3X2RlbGluayBrbm93
-cyBub3QgdG8gZGVsYXkKPiA+ID4gPiA+ICsgICAgICAqIHRoZSBwcm9iZSBvZiB0aGUgaW50ZXJy
-dXB0IGNvbnRyb2xsZXIgZGV2aWNlIGZvciBzdXBwbGllcnMKPiA+ID4gPiA+ICsgICAgICAqIHdp
-dGhvdXQgZHJpdmVycy4KPiA+ID4gPiA+ICsgICAgICAqLwo+ID4gPiA+ID4gKyAgICAgZm9yX2Vh
-Y2hfbm9kZV93aXRoX3Byb3BlcnR5KG5wLCAiaW50ZXJydXB0LWNvbnRyb2xsZXIiKQo+ID4gPiA+
-Cj4gPiA+ID4gVGhpcyBmdW5jdGlvbiBvbmx5IG9wZXJhdGVzIG9uIG5vZGVzIG1hdGNoaW5nICdt
-YXRjaGVzJywgYnV0IHRoaXMKPiA+ID4gPiBvcGVyYXRlcyBvbiBldmVyeXRoaW5nLgo+ID4gPiA+
-Cj4gPiA+ID4gSXQgZG9lcyBtYWtlIHNlbnNlIHRoYXQgaWYgd2UgaW5pdCBhbiBpbnRlcnJ1cHQg
-Y29udHJvbGxlciBoZXJlLCB0aGVuIHdlCj4gPiA+ID4gd2lsbCBzdXJlbHkgd2FudCB0byBwcm9i
-ZSBpdHMgZHJpdmVyIGxhdGVyIG9uLiBTbyBtYXliZSBqdXN0IG1vdmUKPiA+ID4gPiBzZXR0aW5n
-IEZXTk9ERV9GTEFHX0JFU1RfRUZGT1JUIHdpdGhpbgo+ID4gPiA+IGZvcl9lYWNoX21hdGNoaW5n
-X25vZGVfYW5kX21hdGNoKCkgYmVsb3cuCj4gPiA+ID4KPiA+ID4gPiA+ICsgICAgICAgICAgICAg
-bnAtPmZ3bm9kZS5mbGFncyB8PSBGV05PREVfRkxBR19CRVNUX0VGRk9SVDsKPiA+ID4gPiA+ICsK
-PiA+ID4KPiA+ID4gRGVmaW5pdGUgTmFjay4gWW91IGFyZSBwcmV0dHkgbXVjaCBkaXNhYmxpbmcg
-ZndfZGV2bGluayBmb3IgYWxsCj4gPiA+IGludGVycnVwdCBjb250cm9sbGVycy4gVGhlcmUgYXJl
-IHBsZW50eSBvZiBleGFtcGxlcyBvZiB0aGUgSVJRIGRyaXZlcnMKPiA+ID4gYmVpbmcgbmVlZGVk
-IHZlcnkgZWFybHkgb24gYW5kIHN0aWxsIHByb2JpbmcgcHJvcGVybHkgd2l0aG91dCB0aGUgbmVl
-ZAo+ID4gPiBmb3IgdGhpcyBmbGFnLiBQbGVhc2UgZml4IHlvdXIgZHJpdmVyL0RULgo+ID4KPiA+
-IE9rYXksIEkgd2lsbCB0cnkgdG8gc2V0IEZXTk9ERV9GTEFHX0JFU1RfRUZGT1JUIG9ubHkgZm9y
-Cj4gPiBBUExJQyBkZXZpY2Vfbm9kZSB2aWEgSVJRQ0hJUF9ERUNMQVJFKCkuCj4KPiBObywgbXkg
-cG9pbnQgaXMgdGhhdCB5b3UgdmVyeSBsaWtlbHkgZG9uJ3QgbmVlZCB0byB1c2UgdGhhdCBmbGFn
-Lgo+Cj4gV2hhdCBleGFjdGx5IGlzIHRoZSBwcm9ibGVtIHlvdSBhcmUgZmFjaW5nPyBQb2ludCB0
-byBhbiBleGFtcGxlIFJJU0MtVgo+IGR0cyAobm90IGR0c2kpIGluIHVwc3RyZWFtIGFuZCBnaXZl
-IHNwZWNpZmljcyBwbGVhc2UuCgpUaGUgQVBMSUMgaXJxY2hpcCBkcml2ZXIgYWRkZWQgYnkgdGhp
-cyBzZXJpZXMgaXMgYSBwbGF0Zm9ybSBkcml2ZXIuIEl0CnVzZWQgdG8gd29yayBmaW5lIHdpdGhv
-dXQgc2V0dGluZyBGV05PREVfRkxBR19CRVNUX0VGRk9SVApmbGFnIGluIGZ3bm9kZSBidXQgYWZ0
-ZXIgY29tbWl0IDhmNDg2Y2FiMjYzYyB0aGUgQVBMSUMgaXJxY2hpcApkcml2ZXIgZGlkIG5vdCBw
-cm9iZSBoZW5jZSB0aGlzIGZpeC4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Feb 28, 2023, at 4:54 PM, Heiko Stuebner wrote:
+> @@ -29,6 +78,7 @@ static __always_inline bool has_vector(void)
+>  static inline void __vstate_clean(struct pt_regs *regs)
+>  {
+>  	regs->status = (regs->status & ~(SR_VS)) | SR_VS_CLEAN;
+> +
+>  }
+> 
+>  static inline void vstate_off(struct pt_regs *regs)
+> @@ -58,30 +108,75 @@ static __always_inline void rvv_disable(void)
+> 
+>  static __always_inline void __vstate_csr_save(struct __riscv_v_state *dest)
+>  {
+> -	asm volatile (
+> +	register u32 t1 asm("t1") = (SR_FS);
+> +
+> +	/*
+> +	 * CSR_VCSR is defined as
+> +	 * [2:1] - vxrm[1:0]
+> +	 * [0] - vxsat
+> +	 * The earlier vector spec implemented by T-Head uses separate
+> +	 * registers for the same bit-elements, so just combine those
+> +	 * into the existing output field.
+> +	 *
+> +	 * Additionally T-Head cores need FS to be enabled when accessing
+> +	 * the VXRM and VXSAT CSRs, otherwise ending in illegal instructions.
+> +	 */
+> +	asm volatile (ALTERNATIVE(
+>  		"csrr	%0, " CSR_STR(CSR_VSTART) "\n\t"
+>  		"csrr	%1, " CSR_STR(CSR_VTYPE) "\n\t"
+>  		"csrr	%2, " CSR_STR(CSR_VL) "\n\t"
+>  		"csrr	%3, " CSR_STR(CSR_VCSR) "\n\t"
+> +		__nops(5),
+> +		"csrs	sstatus, t1\n\t"
+> +		"csrr	%0, " CSR_STR(CSR_VSTART) "\n\t"
+> +		"csrr	%1, " CSR_STR(CSR_VTYPE) "\n\t"
+> +		"csrr	%2, " CSR_STR(CSR_VL) "\n\t"
+> +		"csrr	%3, " CSR_STR(THEAD_C9XX_CSR_VXRM) "\n\t"
+> +		"slliw	%3, %3, " CSR_STR(VCSR_VXRM_SHIFT) "\n\t"
+> +		"csrr	t4, " CSR_STR(THEAD_C9XX_CSR_VXSAT) "\n\t"
+> +		"or	%3, %3, t4\n\t"
+> +		"csrc	sstatus, t1\n\t",
+> +		THEAD_VENDOR_ID,
+> +		ERRATA_THEAD_VECTOR, CONFIG_ERRATA_THEAD_VECTOR)
+>  		: "=r" (dest->vstart), "=r" (dest->vtype), "=r" (dest->vl),
+> -		  "=r" (dest->vcsr) : :);
+> +		  "=r" (dest->vcsr) : "r"(t1) : "t4");
+>  }
+> 
+>  static __always_inline void __vstate_csr_restore(struct __riscv_v_state *src)
+>  {
+> -	asm volatile (
+> +	register u32 t1 asm("t1") = (SR_FS);
+> +
+> +	/*
+> +	 * Similar to __vstate_csr_save above, restore values for the
+> +	 * separate VXRM and VXSAT CSRs from the vcsr variable.
+> +	 */
+> +	asm volatile (ALTERNATIVE(
+>  		"vsetvl	 x0, %2, %1\n\t"
+>  		"csrw	" CSR_STR(CSR_VSTART) ", %0\n\t"
+>  		"csrw	" CSR_STR(CSR_VCSR) ", %3\n\t"
+> +		__nops(6),
+> +		"csrs	sstatus, t1\n\t"
+> +		"vsetvl	 x0, %2, %1\n\t"
+> +		"csrw	" CSR_STR(CSR_VSTART) ", %0\n\t"
+> +		"srliw	t4, %3, " CSR_STR(VCSR_VXRM_SHIFT) "\n\t"
+> +		"andi	t4, t4, " CSR_STR(VCSR_VXRM_MASK) "\n\t"
+> +		"csrw	" CSR_STR(THEAD_C9XX_CSR_VXRM) ", t4\n\t"
+> +		"andi	%3, %3, " CSR_STR(VCSR_VXSAT_MASK) "\n\t"
+> +		"csrw	" CSR_STR(THEAD_C9XX_CSR_VXSAT) ", %3\n\t"
+> +		"csrc	sstatus, t1\n\t",
+> +		THEAD_VENDOR_ID,
+> +		ERRATA_THEAD_VECTOR, CONFIG_ERRATA_THEAD_VECTOR)
+>  		: : "r" (src->vstart), "r" (src->vtype), "r" (src->vl),
+> -		    "r" (src->vcsr) :);
+> +		    "r" (src->vcsr), "r"(t1): "t4");
+>  }
+
+vxrm and vxsat are part of fcsr in 0.7.1, so they should already have been
+handled by __fstate_save and __fstate_restore, and this code is likely to
+misbehave (saving the new process's vxrm/vxsat in the old process's save area
+because float state is swapped before vector state in __switch_to).
+
+-s
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
