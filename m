@@ -4,81 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B74C7EE29
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 07:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962EEC7EE29
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 08:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UCdVb66HhRr5+2aGncAfpyTTydvGThTyjni1c/uqO6g=; b=bZ91JTNHF2F0Ue
-	CwxSE9DNqtBR1WjrmvQY4v8SwgSivyeIxJ2aGeJe/cB82JU4VXUUSctCdAFnc5ThwEoxrPWt5LkOx
-	WolVASKIdTrlNOt1cWpdQdpwNDW4nQ3CSnHCC1T4bNbRNGAvDkj3gix1ZqGayIcZl/k0T4sgGGbx8
-	1yHE5cnKBdk8k6DcRvP+1m9bz4Mn5Z7SgfFsZc99U9DEgOnJIgwQKmC7Kn+nJMGk/2gEP5yIDFnRl
-	f0Ui4uyV/keiIZ/sOAKJyLzq6LtHiSzRsPzmD40ixWf+PvCH4aieCl08i0VacperQmtakBXYah0Ps
-	vPHoqLpVvZFmmToFzA2A==;
+	List-Owner; bh=TPZdzb+6rK9mjY+nD+WUv07YUVUK0HTmq3M4+7LwfW0=; b=DLYcsC2cHLosSa
+	lxan3ubJI5FDJ3H0Eta+L7MRXPD83Pu5CoBNMTAKIjTJzswQrZTgR/Ut8DfjVKFqHaYbmJ3dy1ZF0
+	WFktPrXy3Ws0YJEXyCKa99VtbjIyAwmyzESteN4MBMNxM2vZrMBbaTWd9c2gj22gcRRoOsQYHKQqU
+	PcQApDDBH+wqgEt9LjeU1vcG1K8lPvdfHVo0vAGYO0t/5HUf3r2DqJ2bNbxVfOezLFsRdyEKTq8s7
+	4MqrZpTz6SqSZCew4kxbKcLMcscFEt/Mzd7GczDAaKUqAL118TokSJ+f8jdsreEi5PMD7Wdn4FQ7E
+	yDd1v/aqjYSeCJrhRxDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8ysf-007I9N-2o;
-	Tue, 13 Jun 2023 07:55:57 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1q8yxh-007JKA-04;
+	Tue, 13 Jun 2023 08:01:09 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8ysd-007I8z-1v
+	id 1q8yxb-007JIf-2d
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jun 2023 07:55:57 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-bc4ed01b5d4so2023376276.1
-        for <linux-riscv@lists.infradead.org>; Tue, 13 Jun 2023 00:55:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1686642953; x=1689234953;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GqkMTpZSPTrtiBwrlg2HB9jORG0uNI2X+Q54yKxHyHA=;
-        b=X1lH0zTSm/2trYaS1XeQ55Q9hA/9/r0gKILDhIP3BM1V9j/9FcNnlTg8C6eqes6MhY
-         kEEujrjfs/bXMw2MXXaDIEhSffQ3ZxmyyehIWQMaGdQ83t9lijLU+cai3uaF5ZNQ3hJ1
-         U4h+mNKlmJ4enUA0b9qIy8BcA850nZF9q8DNphIsqHIDVsbimRdE1m2LdXqy6pRLVSor
-         CuNaeb3ZHWvaqWp2UlX8SxpNaeTb54BL1Y6A72HUI8F4MxEPteEgE7OxPWAGRl2KwREW
-         FSjlxEtmon50dMqJgkzch8RTCiRJz+wMgeMWSkqDFbH4doZHuoKH0L9GHXdRo8TV+x0S
-         4DDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686642953; x=1689234953;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GqkMTpZSPTrtiBwrlg2HB9jORG0uNI2X+Q54yKxHyHA=;
-        b=hIGlexXfH86winYEVDjyoIUbC2CdVVXekpA21bznHy2UJVoFLsPPK1RLlWFtxcyzc3
-         aBmZJjjwfqN3CmvwmznlInLkrAwiqu0Zoma+j+GSnrDaD30SZMaGNib2j8kGzHU/fE7H
-         sxUWr41o/sH2YfRNYEwsgiTmwn8PdOolGHaQeIEq21LEaPOaKayJa7z2U2jkAocud14d
-         OCZPl2r2GGA0YrITXjourHdNMXl4zA5kgkeXo0MU5kOmtqC8+CddS5EXoUEaUIl897i/
-         zl9J+ObrTpx5caCF5p8LK/OTOo85N4ifeeVSrbaJ/5K79eantFnI5iPKcqjH7L7vTha5
-         Jdyw==
-X-Gm-Message-State: AC+VfDzC4KUXPq7KmMvGwwDRCfi3x/qkkyYz5V8WdYnQuxjhIbyYCYiH
-	rkFZfo9Rm4jRbi7gxHdYp1YX5uvdD+Mwhu28zTwS+A==
-X-Google-Smtp-Source: ACHHUZ7O4IuL4c5Qy6TEcv499ftciQaYRXdKcvbuS5ivN5I0ThoFAm05aH64SAu17/J52IMOAeGVAiqoO7kjJSXAUJs=
-X-Received: by 2002:a0d:fd83:0:b0:56d:4014:dd20 with SMTP id
- n125-20020a0dfd83000000b0056d4014dd20mr982407ywf.30.1686642952928; Tue, 13
- Jun 2023 00:55:52 -0700 (PDT)
+	Tue, 13 Jun 2023 08:01:07 +0000
+Received: from i53875b22.versanet.de ([83.135.91.34] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1q8yxK-0000QG-0v; Tue, 13 Jun 2023 10:00:46 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ herbert@gondor.apana.org.au, davem@davemloft.net, conor.dooley@microchip.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org, christoph.muellner@vrull.eu
+Subject: Re: [PATCH v5 4/4] RISC-V: crypto: add accelerated GCM GHASH implementation
+Date: Tue, 13 Jun 2023 10:00:44 +0200
+Message-ID: <2236193.NgBsaNRSFp@diego>
+In-Reply-To: <20230613031006.GD883@sol.localdomain>
+References: <20230612210442.1805962-1-heiko.stuebner@vrull.eu>
+ <20230612210442.1805962-5-heiko.stuebner@vrull.eu>
+ <20230613031006.GD883@sol.localdomain>
 MIME-Version: 1.0
-References: <20230508142842.854564-1-apatel@ventanamicro.com>
- <20230508142842.854564-8-apatel@ventanamicro.com> <ZGIrOKIT8uHcNqbQ@nvidia.com>
-In-Reply-To: <ZGIrOKIT8uHcNqbQ@nvidia.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Tue, 13 Jun 2023 13:25:41 +0530
-Message-ID: <CAK9=C2V9o4FsFXAfRHLGSuJaDubwM_HSL7keTYeWb_vFDNLd7g@mail.gmail.com>
-Subject: Re: [PATCH v3 07/11] irqchip/riscv-imsic: Improve IOMMU DMA support
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Frank Rowand <frowand.list@gmail.com>, 
-	Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	iommu@lists.linux.dev, Vincent Chen <vincent.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230613_005555_664529_E74562AF 
-X-CRM114-Status: GOOD (  24.33  )
+X-CRM114-CacheID: sfid-20230613_010105_175576_C04FD9D3 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,48 +60,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXkgMTUsIDIwMjMgYXQgNjoyM+KAr1BNIEphc29uIEd1bnRob3JwZSA8amdnQG52
-aWRpYS5jb20+IHdyb3RlOgo+Cj4gT24gTW9uLCBNYXkgMDgsIDIwMjMgYXQgMDc6NTg6MzhQTSAr
-MDUzMCwgQW51cCBQYXRlbCB3cm90ZToKPiA+IFdlIGhhdmUgYSBzZXBhcmF0ZSBSSVNDLVYgSU1T
-SUMgTVNJIGFkZHJlc3MgZm9yIGVhY2ggQ1BVIHNvIGNoYW5naW5nCj4gPiBNU0kgKG9yIElSUSkg
-YWZmaW5pdHkgcmVzdWx0cyBpbiByZS1wcm9ncmFtbWluZyBvZiBNU0kgYWRkcmVzcyBpbgo+ID4g
-dGhlIFBDSWUgKG9yIHBsYXRmb3JtKSBkZXZpY2UuCj4gPgo+ID4gQ3VycmVudGx5LCB0aGUgaW9t
-bXVfZG1hX3ByZXBhcmVfbXNpKCkgaXMgY2FsbGVkIG9ubHkgb25jZSBhdCB0aGUKPiA+IHRpbWUg
-b2YgSVJRIGFsbG9jYXRpb24gc28gSU9NTVUgRE1BIGRvbWFpbiB3aWxsIG9ubHkgaGF2ZSBtYXBw
-aW5nCj4gPiBmb3Igb25lIE1TSSBwYWdlLiBUaGlzIG1lYW5zIGlvbW11X2RtYV9jb21wb3NlX21z
-aV9tc2coKSBjYWxsZWQKPiA+IGJ5IGltc2ljX2lycV9jb21wb3NlX21zaV9tc2coKSB3aWxsIGFs
-d2F5cyB1c2UgdGhlIHNhbWUgTVNJIHBhZ2UKPiA+IGlycmVzcGVjdGl2ZSB0byB0YXJnZXQgQ1BV
-IE1TSSBhZGRyZXNzLiBJbiBvdGhlciB3b3JkcywgY2hhbmdpbmcKPiA+IE1TSSAob3IgSVJRKSBh
-ZmZpbml0eSBmb3IgZGV2aWNlIHVzaW5nIElPTU1VIERNQSBkb21haW4gd2lsbCBub3QKPiA+IHdv
-cmsuCj4gPgo+ID4gVG8gYWRkcmVzcyBhYm92ZSBpc3N1ZSwgd2UgZG8gdGhlIGZvbGxvd2luZzoK
-PiA+IDEpIE1hcCBNU0kgcGFnZXMgZm9yIGFsbCBDUFVzIGluIGltc2ljX2lycV9kb21haW5fYWxs
-b2MoKQo+ID4gICAgdXNpbmcgaW9tbXVfZG1hX3ByZXBhcmVfbXNpKCkuCj4gPiAyKSBBZGQgYSBu
-ZXcgaW9tbXVfZG1hX3NlbGVjdF9tc2koKSBBUEkgdG8gc2VsZWN0IGEgc3BlY2lmaWMKPiA+ICAg
-IE1TSSBwYWdlIGZyb20gYSBzZXQgb2YgYWxyZWFkeSBtYXBwZWQgTVNJIHBhZ2VzLgo+ID4gMykg
-VXNlIGlvbW11X2RtYV9zZWxlY3RfbXNpKCkgdG8gc2VsZWN0IGEgc3BlY2lmaWMgTVNJIHBhZ2UK
-PiA+ICAgIGJlZm9yZSBjYWxsaW5nIGlvbW11X2RtYV9jb21wb3NlX21zaV9tc2coKSBpbgo+ID4g
-ICAgaW1zaWNfaXJxX2NvbXBvc2VfbXNpX21zZygpLgo+Cj4gSXMgdGhlcmUgYW4gaW9tbXUgZHJp
-dmVyIHNvbWV3aGVyZSBpbiBhbGwgdGhpcz8gSSBkb24ndCBvYnZpb3VzbHkgc2VlCj4gb25lPwoK
-U29ycnkgZm9yIHRoZSBkZWxheWVkIHJlc3BvbnNlLgoKVGhlIFJJU0MtViBJT01NVSBzcGVjaWZp
-Y2F0aW9uIGlzIGZyb3plbiBhbmQgd2lsbCBiZSByYXRpZmllZC9yZWxlYXNlZAphbnl0aW1lIHRo
-aXMgbW9udGggb3IgbmV4dC4KaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2LW5vbi1pc2EvcmlzY3Yt
-aW9tbXUvcmVsZWFzZXMvZG93bmxvYWQvdjEuMC1yYzYvcmlzY3YtaW9tbXUucGRmCgpUaGUgUklT
-Qy1WIElPTU1VIGRyaXZlciB3aWxsIGJlIHNlbmQtb3V0IG9uIExLTUwgcHJldHR5IHNvb24KaHR0
-cHM6Ly9naXRodWIuY29tL3RqZXpuYWNoL2xpbnV4L3RyZWUvdGplem5hY2gvcmlzY3YtaW9tbXUK
-d2hpY2ggY2FuIGJlIHRlc3RlZCBvbiBRRU1VCmh0dHBzOi8vZ2l0aHViLmNvbS90amV6bmFjaC9x
-ZW11L3RyZWUvdGplem5hY2gvcmlzY3YtaW9tbXUKCj4KPiBUaGVyZSBzaG91bGQgYmUgbm8gcmVh
-c29uIHRvIHVzZSB0aGUgZG1hLWlvbW11LmMgc3R1ZmYganVzdCB0byBtYWtlCj4gaW50ZXJydXB0
-cyB3b3JrLCB0aGF0IGlzIG9ubHkgbmVjZXNzYXJ5IGlmIHRoZXJlIGlzIGFuIGlvbW11LCBhbmQg
-dGhlCj4gcGxhdGZvcm0gYXJjaGl0ZWN0dXJlIHJlcXVpcmVzIHRoZSBpb21tdSB0byBoYXZlIHRo
-ZSBNU0kgcmVnaW9uCj4gcHJvZ3JhbW1lZCBpbnRvIElPUFRFcy4KPgo+IEFuZCBJJ2QgYmUgbXVj
-aCBoYXBwaWVyIGlmIHdlIGNvdWxkIGNsZWFuIHRoaXMgZGVzaWduIHVwIGJlZm9yZSByaXNjLXYK
-PiBzdGFydHMgdXNpbmcgaXQgdG9vIDpcCj4KClN1cmUsIEkgd2lsbCBzZW5kLW91dCB2NCBpbiB0
-aGUgbmV4dCBmZXcgZGF5cy4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Am Dienstag, 13. Juni 2023, 05:10:06 CEST schrieb Eric Biggers:
+> Hi Heiko,
+> =
+
+> On Mon, Jun 12, 2023 at 11:04:42PM +0200, Heiko Stuebner wrote:
+> > diff --git a/arch/riscv/crypto/ghash-riscv64-zbc.pl b/arch/riscv/crypto=
+/ghash-riscv64-zbc.pl
+> > new file mode 100644
+> > index 000000000000..677c438a44bf
+> > --- /dev/null
+> > +++ b/arch/riscv/crypto/ghash-riscv64-zbc.pl
+> > @@ -0,0 +1,427 @@
+> > +#! /usr/bin/env perl
+> > +# Copyright 2022 The OpenSSL Project Authors. All Rights Reserved.
+> > +#
+> > +# Licensed under the Apache License 2.0 (the "License").  You may not =
+use
+> > +# this file except in compliance with the License.  You can obtain a c=
+opy
+> > +# in the file LICENSE in the source distribution or at
+> > +# https://www.openssl.org/source/license.html
+> > +
+> > +# This file is dual-licensed and is also available under the following
+> > +# terms:
+> > +#
+> > +# Copyright (c) 2023, Christoph M=FCllner <christoph.muellner@vrull.eu>
+> > +# All rights reserved.
+> > +#
+> > +# Redistribution and use in source and binary forms, with or without
+> > +# modification, are permitted provided that the following conditions
+> > +# are met:
+> > +# 1. Redistributions of source code must retain the above copyright
+> > +#    notice, this list of conditions and the following disclaimer.
+> > +# 2. Redistributions in binary form must reproduce the above copyright
+> > +#    notice, this list of conditions and the following disclaimer in t=
+he
+> > +#    documentation and/or other materials provided with the distributi=
+on.
+> =
+
+> Is this worded properly for a dual license?  The paragraph about the Apac=
+he
+> License makes it sound like the Apache License must always be complied wi=
+th:
+> "You may not use this file except in compliance with the License."
+> =
+
+> So I worry that this could be interpreted as:
+> =
+
+>     Apache-2.0 AND BSD-2-Clause
+> =
+
+> instead of
+> =
+
+>     Apache-2.0 OR BSD-2-Clause
+> =
+
+> It needs to be the latter.
+> =
+
+> So I think the file header needs to be clarified w.r.t. the dual license.
+
+Hmm, I think the =
+
+	"This file is dual-licensed and is also available under the following term=
+s"
+should be pretty clear?
+
+Also this is wording openSSL uses since 2004 in other parts like
+crypto/LPdir_*.c . So I'd guess any "issue" should've come up already
+in all these years?
+
+
+> Side note: can you please also include a SPDX-License-Identifier?
+
+ok, will add them
+
+
+Heiko
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
