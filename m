@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC2ADC88CB6
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 03:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B00D3C7EE2E
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Jun 2023 03:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=arkJcpqOZUx34whWSWr2CSOKDp84uCoNrG2yfQ1zMBI=; b=ID+R/WR2gVOmxQ
-	lrCTbZ26qcnwL7s3yAFf0mngBVP3OnPrq3Jrcl8GHuvlznGO2MZibbIaJpGRYqZmMqa9c2jBYwNaL
-	vY1MYIUgnmqWquQ7AdcLGX0WJTDjMsTyCw93jlHccULSh6NZtLRohY+MqF1zITzxtuuILGowiRfz1
-	+qMv8bLyXMot73ooW0tMII0rMiNb/IHKRC9skCHpU4SpE7M6K7iHyB4tjjBYQ854e+5o0XnYNeQRu
-	SFZ1WfhlIx1H1DZ2zymcTRf85Hz2yewu2WxSyYg9GEN0UqD99wR80lryII4XTM5xfIyG/vyvIqa6E
-	BdEIwKGDQSQPBngLITPg==;
+	List-Owner; bh=iwsNvxBzwmWLYQssti9qPspFYXsvCyCZXbpabMV7iac=; b=pxEnUg03mg7376
+	PQQ731jVENK9b4eppCvb3jRs+rWxMgnVZTCZk68U1bjnokAm2Do2W4p45NaFigk1jVpgVHQKkU0r9
+	XCozMGfT6pZBFK2ANN7RgdVIxXVLgO4CHuBCbuBDhepTiT3OFMUovnO1JW3jq1wWiWspCzmVpEzGg
+	Y0sb6PX+B4UwPfcIbRg0slQNVCjVTb4uZyUlNsaqvnhDTa+coxbreWmZdOkueFgi+UjKR2zx4JtQh
+	sOXrX3GWP48s3AQJ0I5DKcbBK4WnT8LYeeD6BPhl7ljKQdqWLoHacj8NduQ1SKgjelZNXagC68U34
+	AZ9PHKbeRvmxvAyZOM4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8uIY-006jqd-1q;
-	Tue, 13 Jun 2023 03:02:22 +0000
+	id 1q8uQ8-006kmr-2A;
+	Tue, 13 Jun 2023 03:10:12 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q8uIV-006jpQ-1W
+	id 1q8uQ6-006km6-0g
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 Jun 2023 03:02:20 +0000
+	Tue, 13 Jun 2023 03:10:11 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 16D48619C0;
-	Tue, 13 Jun 2023 03:02:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25F47C433EF;
-	Tue, 13 Jun 2023 03:02:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9147460C43;
+	Tue, 13 Jun 2023 03:10:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FAEFC433D2;
+	Tue, 13 Jun 2023 03:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686625338;
-	bh=QE/bJwOrqp//Jql9+14/MwBTyhw4er96hvgONGtQRQA=;
+	s=k20201202; t=1686625809;
+	bh=hzoTsWIe+W0MkQt7OpjaB2OEQVikCx9KmTVgfu6i3Wo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fmFutB7UJyIqIvyYtzg1AhRZiCqep9yi7UDUTZD+BRwy69iezaNkdsmMzjfXkNDkF
-	 uq1944kIbErb3We3MTv2UfHDOJhnAakKbShcn8gxn9Ek6+a93OlDiNM3W8XbAOc5Mb
-	 eACE/U6o9yjpFlxF02c7JlDOccZjNV8T9K/sg6ZWGR1paTU3AgwWRErDIhSBSkP7Z7
-	 nBO64y9c/jjjL/RVX3c3kY1uym4Lh4PP4MACduOmXaZEEJqCEPU5xfBbC60Gj7xT0c
-	 p5iL/yfQtr88Y2hO5W/gGWwB5jAKyTgwz9L6CUZmw6Tg78mKJQ7Aqnu89AETEYoJTZ
-	 IHUWlMs3YxGIA==
-Date: Mon, 12 Jun 2023 20:02:16 -0700
+	b=pnafMXnHRAo1NxIlBZFL9ihkEP1KfM1H8Yp3cuF+8urOjaDUVOt9wwl4/Ks0gz36Z
+	 dag2AQTYEAJxdFoQ0N2XI3voddu79ZtYbl/y3iQZbWmz2evoACnJL5o2gvewFbylRi
+	 LadR44/l78Z3hSZGpyaywKyt0gqT/+rSPpODXFQgJv5N1Gvfj5jcsEkGaDQFSNfhg0
+	 3IcFHaIlKte10s/oLbmQnBKPl91rPEFt/O9TzoFKJgLp6JheYL1C66ufWbtDL+A6nB
+	 inGBOis0buSEcDFI91tYICDjnIfQs1M7U8gqQS2oueT2kP3ODVVn9bypunTffGNnTy
+	 cWUd0azpxZSbQ==
+Date: Mon, 12 Jun 2023 20:10:06 -0700
 From: Eric Biggers <ebiggers@kernel.org>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
@@ -53,15 +53,17 @@ Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
 	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
 	christoph.muellner@vrull.eu,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v5 0/4] Implement GCM ghash using Zbc and Zbkb extensions
-Message-ID: <20230613030216.GC883@sol.localdomain>
+Subject: Re: [PATCH v5 4/4] RISC-V: crypto: add accelerated GCM GHASH
+ implementation
+Message-ID: <20230613031006.GD883@sol.localdomain>
 References: <20230612210442.1805962-1-heiko.stuebner@vrull.eu>
+ <20230612210442.1805962-5-heiko.stuebner@vrull.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230612210442.1805962-1-heiko.stuebner@vrull.eu>
+In-Reply-To: <20230612210442.1805962-5-heiko.stuebner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230612_200219_545988_30519D53 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20230612_201010_310752_E2E77C5A 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +75,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Hi Heiko,
 
-On Mon, Jun 12, 2023 at 11:04:38PM +0200, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> 
-> This was originally part of my vector crypto series, but was part
-> of a separate openssl merge request implementing GCM ghash as using
-> non-vector extensions.
-> 
-> As that pull-request
->     https://github.com/openssl/openssl/pull/20078
-> got merged recently into openssl, we could also check if this could
-> go into the kernel as well and provide a base for further accelerated
-> cryptographic support.
+On Mon, Jun 12, 2023 at 11:04:42PM +0200, Heiko Stuebner wrote:
+> diff --git a/arch/riscv/crypto/ghash-riscv64-zbc.pl b/arch/riscv/crypto/g=
+hash-riscv64-zbc.pl
+> new file mode 100644
+> index 000000000000..677c438a44bf
+> --- /dev/null
+> +++ b/arch/riscv/crypto/ghash-riscv64-zbc.pl
+> @@ -0,0 +1,427 @@
+> +#! /usr/bin/env perl
+> +# Copyright 2022 The OpenSSL Project Authors. All Rights Reserved.
+> +#
+> +# Licensed under the Apache License 2.0 (the "License").  You may not use
+> +# this file except in compliance with the License.  You can obtain a copy
+> +# in the file LICENSE in the source distribution or at
+> +# https://www.openssl.org/source/license.html
+> +
+> +# This file is dual-licensed and is also available under the following
+> +# terms:
+> +#
+> +# Copyright (c) 2023, Christoph M=FCllner <christoph.muellner@vrull.eu>
+> +# All rights reserved.
+> +#
+> +# Redistribution and use in source and binary forms, with or without
+> +# modification, are permitted provided that the following conditions
+> +# are met:
+> +# 1. Redistributions of source code must retain the above copyright
+> +#    notice, this list of conditions and the following disclaimer.
+> +# 2. Redistributions in binary form must reproduce the above copyright
+> +#    notice, this list of conditions and the following disclaimer in the
+> +#    documentation and/or other materials provided with the distribution.
 
-I'm still a bit skeptical of the usefulness of a standalone "ghash"
-implementation, when in practice it will only be used as part of "gcm(aes)".
-Directly implementing "gcm(aes)" (instead of relying on crypto/gcm.c to compose
-"ghash" and "ctr(aes)") also allows some performance optimizations.
+Is this worded properly for a dual license?  The paragraph about the Apache
+License makes it sound like the Apache License must always be complied with:
+"You may not use this file except in compliance with the License."
 
-I asked about this on v4
-(https://lore.kernel.org/linux-crypto/ZCSG71bRuTzVutdm@gmail.com/),
-but I didn't receive a response.
+So I worry that this could be interpreted as:
 
-Any thoughts on this?
+    Apache-2.0 AND BSD-2-Clause
+
+instead of
+
+    Apache-2.0 OR BSD-2-Clause
+
+It needs to be the latter.
+
+So I think the file header needs to be clarified w.r.t. the dual license.
+
+Side note: can you please also include a SPDX-License-Identifier?
 
 - Eric
 
