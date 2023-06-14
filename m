@@ -4,72 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B860DEB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 13:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0787CEB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 13:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EOrXhpTT6CLH+nqjn2CW3M1Oae77FR24rt0kxfkQ9/c=; b=45y1kHxjxFzMaY
-	KDGTFiO4D8iC6g990ER/4eKMuQ3WxaZWAA4c4oKAu3JlqTV/ocNcL18Up2K384aqqYGTMXg3BRlau
-	gf0L1PR8euVZSP2d5BYc2zjf1lHOqDLgKCMzJrjCo80+xEkd4sVXUeriZ5G1iB2kGR5Vh2X6L610/
-	CTUFhEwZXK5MANX1DYT2/ieCuDNuJWdxld/pXXeLKtzQP0DvI+H7JYz5rTIZLRO9ou0ybo/HvzKT2
-	VelfL5SmjkrBn2zbIOFJjGMItXM1oRPPGxu3YzUx/USel2f7VYgSUvZjjoYRUuQHQWayoDlNI5UQW
-	IwjS4ThXlnNRerhKo9ig==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D82vjLWCR1ptPED5L6qOndEEuWPj0AE9Rjd3L+BiSw4=; b=vaA01cIA9PEULn
+	rJATft7lUyRbxrE6fuEwqxRbCe6u5zRrdIAMqO03ny7nmE0awlj2HYmACpZmhTNkXd38bi+glzCZz
+	QnmmIj0aMuUxhapWYsbCqPIDUKem2zfRAn5H/hVYyH8Ih3bAwunveaUc06qXnPILLp/unPTb8ZzeE
+	uYi4rIRAC8Sld4KpqE7fUODW4/cBizkNh85WKJpD+r22Jr4/dmhIFtTsnE4tBbeSPNh3ZVN9lWqEp
+	sJ/cwW+kuygYzG/zR+CrYAyfe4I84H5V+++iSCja6iWxKt5RWG9yVniJ0+9v5SGke8YghZepCHAzB
+	26yZ5nXSuoHFpqcGJjbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9QS3-00Bjcs-2V;
-	Wed, 14 Jun 2023 13:22:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q9QXM-00BkII-0c;
+	Wed, 14 Jun 2023 13:27:48 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9QS0-00BjbJ-0d;
-	Wed, 14 Jun 2023 13:22:17 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A19786175C;
-	Wed, 14 Jun 2023 13:22:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D64C433C0;
-	Wed, 14 Jun 2023 13:22:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686748935;
-	bh=0vqssVcI3AzSm6ZYzSMTFzLW0LK2ArpvNNFnyd0jDMg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PwXP+1XbNJMc5dDtJjP8fRUbMVOfgYZkiV/CSEiQO+53OUw1mxkM7TNacSN2UVnvq
-	 Mwxs/DwA39lzTfMai8ygKMhnw/8A5txEm5g+274q1AspzudJm5ujeZxuL5SlxzV7kr
-	 XEeamoxRIjx3hqKKprCq30b101V9LmtVD7C/YrzqjcfWDUt0IERYcZ+YUZAUB1qm6M
-	 qU2wy/k+HKKhrQ/qrF2cNssBn4aoQYbJEpcB5m9Vm0+PGaXZfYQhkb0YSbhsS/HNdF
-	 f2cI0J/nTygASR5eUp+uYZzIW/J3GUH1QtysQDebu/WsZ8JxpIwHAuYB2k8FX53JGd
-	 49yjsQPz5+zOQ==
-Date: Wed, 14 Jun 2023 16:21:37 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	Hugh Dickins <hughd@google.com>,
-	David Hildenbrand <david@redhat.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>
-Subject: Re: [PATCH v4 03/34] s390: Use pt_frag_refcount for pagetables
-Message-ID: <20230614132137.GB52412@kernel.org>
-References: <20230612210423.18611-1-vishal.moola@gmail.com>
- <20230612210423.18611-4-vishal.moola@gmail.com>
+	id 1q9QXI-00BkHa-16;
+	Wed, 14 Jun 2023 13:27:45 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-30fcde6a73cso1430283f8f.2;
+        Wed, 14 Jun 2023 06:27:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1686749263; x=1689341263;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0JybOUC/usbiCh45KPFPiAH4HAFzWlMk/CzyDoXTHvw=;
+        b=CG5wzZzFulGLaWBywnh8vLcrY5OVo7hkm5vSWNCEWtnOD85u9HtIENjHgSX00MLAsH
+         qa1qB3iNLBrezxUoLMEdmxxjmvmTlHXnEeQfYsfR83kLYB2+oCUgJg2Z2BIgmtCG0h7S
+         1M0jGBwIjGFly8IEGPyYxAdpHVZKtKkZToP1z1C7o/2wJsWtA+elysJk6qCbeFMDGq4X
+         +XNPjuFC4FIKWTLS3ssWD0VM+EX5hsnxHB2aMBTPgXZkFccBUFr6hQqEIoXgmqDIHQC/
+         LPrDBYesH7bx47sKqMk6NTLxytV0TYoMEi36NLiH4w+xUkQewjU/2VuXYRo2vaEdmPXh
+         x1BQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686749263; x=1689341263;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0JybOUC/usbiCh45KPFPiAH4HAFzWlMk/CzyDoXTHvw=;
+        b=fH5jxt249U15njAv4rUVTYTZDJO151vqoBJgwdMyc+FGmLgwP4AkC6BSj/1TRB+Fup
+         ZS4IaBl1+2sxcBwNwsZWkjVTp1nEhQlY2F3nel3RmbFMUiZLy2RmOrOyr9mnDD+RY7FT
+         MawfjyRaMw3kyq8KFuIpxyGG4g0WKUmUsiiy5KmGSSl8LcmKjudroWR6BisfB4ePrCaj
+         QW85NHRsZpIUz8mafdYszfiVAW2i56Hv1fxaQHDTdOpqmLMKhFDHbOZ57RUuOwf9HeuM
+         Ctv7gyX2kZpr/eIvlqCdkReHNvi/VWPyPV1ZSojYaAL1aDfeeuOjRFr3wqafnqn3TTcY
+         Hoiw==
+X-Gm-Message-State: AC+VfDwO4cRQNLkG08F8Unqv4f723oMzpYPltKD6GFNkB+UUF/mImeV3
+	L9K1Aen/WJSkZPYnAMtlgnQ=
+X-Google-Smtp-Source: ACHHUZ6B95mYcyIWglkX2AJPo2Edd/kEP1c2r0xHxgEWg3TfS9jBQwDsg+SwBmR7NaedLam4ntbNUw==
+X-Received: by 2002:a05:6000:51:b0:30a:f3ca:17bb with SMTP id k17-20020a056000005100b0030af3ca17bbmr7486540wrx.35.1686749262663;
+        Wed, 14 Jun 2023 06:27:42 -0700 (PDT)
+Received: from user-PC.. ([92.51.95.194])
+        by smtp.gmail.com with ESMTPSA id l6-20020a5d4bc6000000b003047ae72b14sm18295017wrt.82.2023.06.14.06.27.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jun 2023 06:27:42 -0700 (PDT)
+From: Maksim Kiselev <bigunclemax@gmail.com>
+To: linux-iio@vger.kernel.org
+Cc: Maksim Kiselev <bigunclemax@gmail.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Andy Shevchenko <andy.shevchenko@gmail.com>,
+	Cosmin Tanislav <demonsingur@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	ChiYuan Huang <cy_huang@richtek.com>,
+	Marcus Folkesson <marcus.folkesson@gmail.com>,
+	Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
+	Ramona Bolboaca <ramona.bolboaca@analog.com>,
+	Caleb Connolly <caleb.connolly@linaro.org>,
+	William Breathitt Gray <william.gray@linaro.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Mike Looijmans <mike.looijmans@topic.nl>,
+	=?UTF-8?q?Leonard=20G=C3=B6hrs?= <l.goehrs@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v6 0/3] Add support for Allwinner GPADC on D1/T113s/R329/T507 SoCs
+Date: Wed, 14 Jun 2023 16:26:24 +0300
+Message-Id: <20230614132644.699425-1-bigunclemax@gmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230612210423.18611-4-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_062216_315916_017D274C 
-X-CRM114-Status: GOOD (  29.93  )
+X-CRM114-CacheID: sfid-20230614_062744_404695_C06F1105 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,157 +118,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 12, 2023 at 02:03:52PM -0700, Vishal Moola (Oracle) wrote:
-> s390 currently uses _refcount to identify fragmented page tables.
-> The page table struct already has a member pt_frag_refcount used by
-> powerpc, so have s390 use that instead of the _refcount field as well.
-> This improves the safety for _refcount and the page table tracking.
-> 
-> This also allows us to simplify the tracking since we can once again use
-> the lower byte of pt_frag_refcount instead of the upper byte of _refcount.
-> 
-> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
+This series adds support for general purpose ADC (GPADC) on new
+Allwinner's SoCs, such as D1, T113s, T507 and R329. The implemented driver
+provides basic functionality for getting ADC channels data.
 
-One nit below, otherwise
+Change History:
+v6:
+- Fixed DT bindings regexp for channel properties
+- Dropped checking the max number of channels from the drivers code
+  (This is redundant as we raly on DT bindings check)
 
-Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
+v5:
+- Fixed DT bindings properties for child nodes
 
-> ---
->  arch/s390/mm/pgalloc.c | 38 +++++++++++++++-----------------------
->  1 file changed, 15 insertions(+), 23 deletions(-)
-> 
-> diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
-> index 66ab68db9842..6b99932abc66 100644
-> --- a/arch/s390/mm/pgalloc.c
-> +++ b/arch/s390/mm/pgalloc.c
-> @@ -182,20 +182,17 @@ void page_table_free_pgste(struct page *page)
->   * As follows from the above, no unallocated or fully allocated parent
->   * pages are contained in mm_context_t::pgtable_list.
->   *
-> - * The upper byte (bits 24-31) of the parent page _refcount is used
-> + * The lower byte (bits 0-7) of the parent page pt_frag_refcount is used
->   * for tracking contained 2KB-pgtables and has the following format:
->   *
->   *   PP  AA
-> - * 01234567    upper byte (bits 24-31) of struct page::_refcount
-> + * 01234567    upper byte (bits 0-7) of struct page::pt_frag_refcount
+v4:
+- Fixed DT bindings warnings
+- Used GENMASK to clear the irq register
+- Minor formatting fixes
 
-Nit:              lower
+v3:
+- Added DT bindings dual license, fixed property order and example formatting
+- Added explanations comments for timeout and mutex
+- Dropped unnecessary regmap and used readl/writel instead
+- Added error message about getting channel number
+- Renamed labels and variables to make them self-explanatory
 
->   *   ||  ||
->   *   ||  |+--- upper 2KB-pgtable is allocated
->   *   ||  +---- lower 2KB-pgtable is allocated
->   *   |+------- upper 2KB-pgtable is pending for removal
->   *   +-------- lower 2KB-pgtable is pending for removal
->   *
-> - * (See commit 620b4e903179 ("s390: use _refcount for pgtables") on why
-> - * using _refcount is possible).
-> - *
->   * When 2KB-pgtable is allocated the corresponding AA bit is set to 1.
->   * The parent page is either:
->   *   - added to mm_context_t::pgtable_list in case the second half of the
-> @@ -243,11 +240,12 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
->  		if (!list_empty(&mm->context.pgtable_list)) {
->  			page = list_first_entry(&mm->context.pgtable_list,
->  						struct page, lru);
-> -			mask = atomic_read(&page->_refcount) >> 24;
-> +			mask = atomic_read(&page->pt_frag_refcount);
->  			/*
->  			 * The pending removal bits must also be checked.
->  			 * Failure to do so might lead to an impossible
-> -			 * value of (i.e 0x13 or 0x23) written to _refcount.
-> +			 * value of (i.e 0x13 or 0x23) written to
-> +			 * pt_frag_refcount.
->  			 * Such values violate the assumption that pending and
->  			 * allocation bits are mutually exclusive, and the rest
->  			 * of the code unrails as result. That could lead to
-> @@ -259,8 +257,8 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
->  				bit = mask & 1;		/* =1 -> second 2K */
->  				if (bit)
->  					table += PTRS_PER_PTE;
-> -				atomic_xor_bits(&page->_refcount,
-> -							0x01U << (bit + 24));
-> +				atomic_xor_bits(&page->pt_frag_refcount,
-> +							0x01U << bit);
->  				list_del(&page->lru);
->  			}
->  		}
-> @@ -281,12 +279,12 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
->  	table = (unsigned long *) page_to_virt(page);
->  	if (mm_alloc_pgste(mm)) {
->  		/* Return 4K page table with PGSTEs */
-> -		atomic_xor_bits(&page->_refcount, 0x03U << 24);
-> +		atomic_xor_bits(&page->pt_frag_refcount, 0x03U);
->  		memset64((u64 *)table, _PAGE_INVALID, PTRS_PER_PTE);
->  		memset64((u64 *)table + PTRS_PER_PTE, 0, PTRS_PER_PTE);
->  	} else {
->  		/* Return the first 2K fragment of the page */
-> -		atomic_xor_bits(&page->_refcount, 0x01U << 24);
-> +		atomic_xor_bits(&page->pt_frag_refcount, 0x01U);
->  		memset64((u64 *)table, _PAGE_INVALID, 2 * PTRS_PER_PTE);
->  		spin_lock_bh(&mm->context.lock);
->  		list_add(&page->lru, &mm->context.pgtable_list);
-> @@ -323,22 +321,19 @@ void page_table_free(struct mm_struct *mm, unsigned long *table)
->  		 * will happen outside of the critical section from this
->  		 * function or from __tlb_remove_table()
->  		 */
-> -		mask = atomic_xor_bits(&page->_refcount, 0x11U << (bit + 24));
-> -		mask >>= 24;
-> +		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x11U << bit);
->  		if (mask & 0x03U)
->  			list_add(&page->lru, &mm->context.pgtable_list);
->  		else
->  			list_del(&page->lru);
->  		spin_unlock_bh(&mm->context.lock);
-> -		mask = atomic_xor_bits(&page->_refcount, 0x10U << (bit + 24));
-> -		mask >>= 24;
-> +		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x10U << bit);
->  		if (mask != 0x00U)
->  			return;
->  		half = 0x01U << bit;
->  	} else {
->  		half = 0x03U;
-> -		mask = atomic_xor_bits(&page->_refcount, 0x03U << 24);
-> -		mask >>= 24;
-> +		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x03U);
->  	}
->  
->  	page_table_release_check(page, table, half, mask);
-> @@ -368,8 +363,7 @@ void page_table_free_rcu(struct mmu_gather *tlb, unsigned long *table,
->  	 * outside of the critical section from __tlb_remove_table() or from
->  	 * page_table_free()
->  	 */
-> -	mask = atomic_xor_bits(&page->_refcount, 0x11U << (bit + 24));
-> -	mask >>= 24;
-> +	mask = atomic_xor_bits(&page->pt_frag_refcount, 0x11U << bit);
->  	if (mask & 0x03U)
->  		list_add_tail(&page->lru, &mm->context.pgtable_list);
->  	else
-> @@ -391,14 +385,12 @@ void __tlb_remove_table(void *_table)
->  		return;
->  	case 0x01U:	/* lower 2K of a 4K page table */
->  	case 0x02U:	/* higher 2K of a 4K page table */
-> -		mask = atomic_xor_bits(&page->_refcount, mask << (4 + 24));
-> -		mask >>= 24;
-> +		mask = atomic_xor_bits(&page->pt_frag_refcount, mask << 4);
->  		if (mask != 0x00U)
->  			return;
->  		break;
->  	case 0x03U:	/* 4K page table with pgstes */
-> -		mask = atomic_xor_bits(&page->_refcount, 0x03U << 24);
-> -		mask >>= 24;
-> +		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x03U);
->  		break;
->  	}
->  
-> -- 
-> 2.40.1
-> 
-> 
+v2:
+- Added lastch flag to avoid addition work for already selected channel
+- Added reset assertion on module remove
+- Added dynamic channel allocation and dropped iio_chan_spec arrays
+- Changed IIO_CHAN_INFO_SCALE type to FRACTIONAL_LOG2
+- Dropped separate compatible strings and configs for T113s and R329
+- Fixed includes
+- Fixed Kconfig description
+- Removed duplicate probe error messages
+- Used FIELD_PREP for bit setup
+
+v1:
+- Initial version
+
+
+Maksim Kiselev (3):
+  iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
+  dt-bindings: iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
+  riscv: dts: allwinner: d1: Add GPADC node
+
+ .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    |  91 ++++++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  10 +
+ drivers/iio/adc/Kconfig                       |  10 +
+ drivers/iio/adc/Makefile                      |   1 +
+ drivers/iio/adc/sun20i-gpadc-iio.c            | 276 ++++++++++++++++++
+ 5 files changed, 388 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
+ create mode 100644 drivers/iio/adc/sun20i-gpadc-iio.c
 
 -- 
-Sincerely yours,
-Mike.
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
