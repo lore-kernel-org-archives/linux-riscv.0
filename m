@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C795DEB64DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 15:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7B9EB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 15:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yAwb2LqCbWsrDOjH35ELzL5krBQcYVuR9uMRcPo9oh4=; b=WNvDfdVIVgXj8I
-	W1cKdhj6mzGsLVC719F3TTwiJ+JxEqIp7X4oe43mWkbQ7uaPZaVqFXQJuy3cDwVCGjTG7ij/3PWbk
-	C9+4bNjFC1NxAvZNmD5wi+DDO1zeT2XhaQTer50fhMvbzkvKqNdXh+VNNJy17ScL5U567XqSmycJL
-	MctNip3znG5Ncbe9hEnDFADeMMiMvV9PBUBPAL8SYs6F1boqjHtxHh+GQZydeVx4KRrbg0C64acxv
-	OS/X9+96zGnLUxbiDYRzjGuQ6uZlSFhLRTJXUTZVQN87XiJPHVX3HVPbvQDF8w4AN5mnaJSqv1SZu
-	4r9X9gXlW7z30MBFtdgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KcdAwlKkOnBMbB9AyOhWdZ8qXrsiVAFNrKGIDlq9wSc=; b=gqhAdR8WuEIJK1oLFCieda7dms
+	0mc1mz4pvb+cFQCWCw8iVNmpk6c9IXDbU7XtLP5VU4UhO1XziIKcjhHTFREUztbi7v8cwsjim8I1X
+	n3q+jRyijk2HQD64m0Dn7vy8KkBlAfKFNhZ9NccCBUjBEPJO/SY0pEd1LrjB11KOLWbOp0HkId16n
+	83P8nHW5Pcua/m1pir13mHtfyF9sYXLKE8pCep3LW03Om8Qgy9MldaD/Thya6Ll1c42/g/lCk2tNF
+	Cx1cwluI6D3gjhCxJAWMeYYP2ieymm0BH2IBCARvDj86l10m1VpHN9uFvPj9fvch0jt0G+TAzhbF1
+	21uy4E5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9RyZ-00Bz1g-2L;
-	Wed, 14 Jun 2023 14:59:59 +0000
+	id 1q9S1u-00Bzbr-1T;
+	Wed, 14 Jun 2023 15:03:26 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9RyW-00Bz0W-13;
-	Wed, 14 Jun 2023 14:59:57 +0000
+	id 1q9S1r-00Bzb0-31
+	for linux-riscv@lists.infradead.org;
+	Wed, 14 Jun 2023 15:03:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id CE70D63CDA;
-	Wed, 14 Jun 2023 14:59:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CD37C433C8;
-	Wed, 14 Jun 2023 14:59:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2DE6664340;
+	Wed, 14 Jun 2023 15:03:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AEF5C433C8;
+	Wed, 14 Jun 2023 15:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686754795;
-	bh=Snf0vvy1ZfRMDrG2QV2GY/XXoVVQULhRbHTUN6/ozYs=;
+	s=k20201202; t=1686755002;
+	bh=LEt2pBYL7CigE1zEaRaDO5CTS69Z8c7codyCYkofPlg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yb6roLWgU1FpArbgMhm3suW779Jdabd7l+H7dMd2zBGyrh0BOeY5wtdMql6biURZl
-	 v4iwBz/HuCXVMtg61KO5mBWTrhq69oDtUrOThilHfsnE8uTE2ZygL8lFanhWvJUrqE
-	 vMcJQ9egXs+J1/HmerJQneWZPIb7WwKm6eCArSImVwb+BZcAaye0RccD/lcNjLTILt
-	 TGcYSdafz5ds7jjw5qQKCC3YeIHWy3SRi7PvyD5uV8jIRQEF+KcbULtCXAQiLGBilE
-	 AxzTGwTNCf+5ligff90SIYQR5ysfy1RO+UiN0WBtTnV4rm3ThxZVJb9CHZkUcTgAgY
-	 VSYQ3btc5Uccg==
-Date: Wed, 14 Jun 2023 17:59:17 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	Hugh Dickins <hughd@google.com>
-Subject: Re: [PATCH v4 19/34] pgalloc: Convert various functions to use
- ptdescs
-Message-ID: <20230614145917.GR52412@kernel.org>
-References: <20230612210423.18611-1-vishal.moola@gmail.com>
- <20230612210423.18611-20-vishal.moola@gmail.com>
+	b=cl5xcE7xsFiWw1tORLb3Cr9abHfqVlN5zVheDN2OuHYk/LGpOY+Z295mDlFLKxLMO
+	 2pgKIYBAlJ0GcqVx28nUJNfcM9Bk39NIXXUuSN9++U8rlE8ck+pLGI3TNn1ApR/vQo
+	 hAkFb/Rmf+fKdBBrsulw9hxCdf2flgP8XTdhbQcsRwuMPcOptxcIo6lvHv9o6xmQkD
+	 PDgQ0nrKTOwxt8IlmCKZTNoSbPsjLoDMnyz8UjcyJXK5SRSYToylgaG6x1CrhxZVvj
+	 y9PlQfD49xp+Grmt6UxCqo++jI8JgUYkaXmgi1PU3Uk8T9HanISI2cqzZ+vg4TJVfu
+	 wGgLaEncEmIlQ==
+Date: Wed, 14 Jun 2023 16:03:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	krzysztof.kozlowski@linaro.org, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: riscv: cpus: drop unneeded quotes
+Message-ID: <20230614-credibly-pluck-0495779ada5d@spud>
+References: <20230609-discourse-lapped-5217cc4d7ede@wendy>
+ <mhng-c1f5c918-1b72-4a2b-91c0-eea05dab14b7@palmer-ri-x1c9>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230612210423.18611-20-vishal.moola@gmail.com>
+In-Reply-To: <mhng-c1f5c918-1b72-4a2b-91c0-eea05dab14b7@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_075956_449455_4E7AA272 
-X-CRM114-Status: GOOD (  24.51  )
+X-CRM114-CacheID: sfid-20230614_080324_048090_A5CD942B 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,217 +74,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5752969284033618033=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 12, 2023 at 02:04:08PM -0700, Vishal Moola (Oracle) wrote:
-> As part of the conversions to replace pgtable constructor/destructors with
-> ptdesc equivalents, convert various page table functions to use ptdescs.
-> 
-> Some of the functions use the *get*page*() helper functions. Convert
-> these to use pagetable_alloc() and ptdesc_address() instead to help
-> standardize page tables further.
-> 
-> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
-> ---
->  include/asm-generic/pgalloc.h | 62 +++++++++++++++++++++--------------
->  1 file changed, 37 insertions(+), 25 deletions(-)
-> 
-> diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
-> index a7cf825befae..3fd6ce79e654 100644
-> --- a/include/asm-generic/pgalloc.h
-> +++ b/include/asm-generic/pgalloc.h
-> @@ -18,7 +18,11 @@
->   */
->  static inline pte_t *__pte_alloc_one_kernel(struct mm_struct *mm)
->  {
-> -	return (pte_t *)__get_free_page(GFP_PGTABLE_KERNEL);
-> +	struct ptdesc *ptdesc = pagetable_alloc(GFP_PGTABLE_KERNEL, 0);
-> +
-> +	if (!ptdesc)
-> +		return NULL;
-> +	return ptdesc_address(ptdesc);
->  }
->  
->  #ifndef __HAVE_ARCH_PTE_ALLOC_ONE_KERNEL
-> @@ -41,7 +45,7 @@ static inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
->   */
->  static inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
->  {
-> -	free_page((unsigned long)pte);
-> +	pagetable_free(virt_to_ptdesc(pte));
->  }
->  
->  /**
-> @@ -49,7 +53,7 @@ static inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
->   * @mm: the mm_struct of the current context
->   * @gfp: GFP flags to use for the allocation
->   *
-> - * Allocates a page and runs the pgtable_pte_page_ctor().
-> + * Allocates a ptdesc and runs the pagetable_pte_ctor().
 
-Allocates memory for page table and ptdesc
+--===============5752969284033618033==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="PV8595nD57bx5mfz"
+Content-Disposition: inline
 
->   *
->   * This function is intended for architectures that need
->   * anything beyond simple page allocation or must have custom GFP flags.
 
-The Return: description here should be fixed up
+--PV8595nD57bx5mfz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> @@ -58,17 +62,17 @@ static inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
->   */
->  static inline pgtable_t __pte_alloc_one(struct mm_struct *mm, gfp_t gfp)
->  {
-> -	struct page *pte;
-> +	struct ptdesc *ptdesc;
->  
-> -	pte = alloc_page(gfp);
-> -	if (!pte)
-> +	ptdesc = pagetable_alloc(gfp, 0);
-> +	if (!ptdesc)
->  		return NULL;
-> -	if (!pgtable_pte_page_ctor(pte)) {
-> -		__free_page(pte);
-> +	if (!pagetable_pte_ctor(ptdesc)) {
-> +		pagetable_free(ptdesc);
->  		return NULL;
->  	}
->  
-> -	return pte;
-> +	return ptdesc_page(ptdesc);
->  }
->  
->  #ifndef __HAVE_ARCH_PTE_ALLOC_ONE
-> @@ -76,7 +80,7 @@ static inline pgtable_t __pte_alloc_one(struct mm_struct *mm, gfp_t gfp)
->   * pte_alloc_one - allocate a page for PTE-level user page table
->   * @mm: the mm_struct of the current context
->   *
-> - * Allocates a page and runs the pgtable_pte_page_ctor().
-> + * Allocates a ptdesc and runs the pagetable_pte_ctor().
+On Wed, Jun 14, 2023 at 07:46:12AM -0700, Palmer Dabbelt wrote:
+> On Fri, 09 Jun 2023 07:21:17 PDT (-0700), Conor Dooley wrote:
+> > On Fri, Jun 09, 2023 at 04:07:06PM +0200, Krzysztof Kozlowski wrote:
+> > > Cleanup bindings dropping unneeded quotes. Once all these are fixed,
+> > > checking for this can be enabled in yamllint.
+> > >=20
+> > > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> >=20
+> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+>=20
+> Did you want me to pick this up in the RISC-V tree, or is it aimed somewh=
+ere
+> else?
 
-Allocates memory for page table and ptdesc
+Usually subsystem, or in this case arch, maintainers should take the
+bindings patches. So that'd be you ;)
 
->   *
->   * Return: `struct page` initialized as page table or %NULL on error
+--PV8595nD57bx5mfz
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Return: ptdesc ...
+-----BEGIN PGP SIGNATURE-----
 
->   */
-> @@ -98,8 +102,10 @@ static inline pgtable_t pte_alloc_one(struct mm_struct *mm)
->   */
->  static inline void pte_free(struct mm_struct *mm, struct page *pte_page)
->  {
-> -	pgtable_pte_page_dtor(pte_page);
-> -	__free_page(pte_page);
-> +	struct ptdesc *ptdesc = page_ptdesc(pte_page);
-> +
-> +	pagetable_pte_dtor(ptdesc);
-> +	pagetable_free(ptdesc);
->  }
->  
->  
-> @@ -110,7 +116,7 @@ static inline void pte_free(struct mm_struct *mm, struct page *pte_page)
->   * pmd_alloc_one - allocate a page for PMD-level page table
->   * @mm: the mm_struct of the current context
->   *
-> - * Allocates a page and runs the pgtable_pmd_page_ctor().
-> + * Allocates a ptdesc and runs the pagetable_pmd_ctor().
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZInWtgAKCRB4tDGHoIJi
+0un5AQCSNBTFePFa+t7bxX4UnEM53NaEfGDqBHaxM75f0smrwQEAofUW6ZXXVhva
+Nm+4b9RihEYapjfffhBtj5KQhVz8LQE=
+=8DCH
+-----END PGP SIGNATURE-----
 
-Allocate memory for page table and ptdesc
+--PV8595nD57bx5mfz--
 
->   * Allocations use %GFP_PGTABLE_USER in user context and
->   * %GFP_PGTABLE_KERNEL in kernel context.
->   *
-> @@ -118,28 +124,30 @@ static inline void pte_free(struct mm_struct *mm, struct page *pte_page)
->   */
->  static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long addr)
->  {
-> -	struct page *page;
-> +	struct ptdesc *ptdesc;
->  	gfp_t gfp = GFP_PGTABLE_USER;
->  
->  	if (mm == &init_mm)
->  		gfp = GFP_PGTABLE_KERNEL;
-> -	page = alloc_page(gfp);
-> -	if (!page)
-> +	ptdesc = pagetable_alloc(gfp, 0);
-> +	if (!ptdesc)
->  		return NULL;
-> -	if (!pgtable_pmd_page_ctor(page)) {
-> -		__free_page(page);
-> +	if (!pagetable_pmd_ctor(ptdesc)) {
-> +		pagetable_free(ptdesc);
->  		return NULL;
->  	}
-> -	return (pmd_t *)page_address(page);
-> +	return ptdesc_address(ptdesc);
->  }
->  #endif
->  
->  #ifndef __HAVE_ARCH_PMD_FREE
->  static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
->  {
-> +	struct ptdesc *ptdesc = virt_to_ptdesc(pmd);
-> +
->  	BUG_ON((unsigned long)pmd & (PAGE_SIZE-1));
-> -	pgtable_pmd_page_dtor(virt_to_page(pmd));
-> -	free_page((unsigned long)pmd);
-> +	pagetable_pmd_dtor(ptdesc);
-> +	pagetable_free(ptdesc);
->  }
->  #endif
->  
-> @@ -149,11 +157,15 @@ static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
->  
->  static inline pud_t *__pud_alloc_one(struct mm_struct *mm, unsigned long addr)
->  {
-> -	gfp_t gfp = GFP_PGTABLE_USER;
-> +	gfp_t gfp = GFP_PGTABLE_USER | __GFP_ZERO;
 
-GFP_PGTABLE_USER already contains __GFP_ZERO
-
-> +	struct ptdesc *ptdesc;
->  
->  	if (mm == &init_mm)
->  		gfp = GFP_PGTABLE_KERNEL;
-> -	return (pud_t *)get_zeroed_page(gfp);
-> +	ptdesc = pagetable_alloc(gfp, 0);
-> +	if (!ptdesc)
-> +		return NULL;
-> +	return ptdesc_address(ptdesc);
->  }
->  
->  #ifndef __HAVE_ARCH_PUD_ALLOC_ONE
-> @@ -175,7 +187,7 @@ static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
->  static inline void __pud_free(struct mm_struct *mm, pud_t *pud)
->  {
->  	BUG_ON((unsigned long)pud & (PAGE_SIZE-1));
-> -	free_page((unsigned long)pud);
-> +	pagetable_free(virt_to_ptdesc(pud));
->  }
->  
->  #ifndef __HAVE_ARCH_PUD_FREE
-> @@ -190,7 +202,7 @@ static inline void pud_free(struct mm_struct *mm, pud_t *pud)
->  #ifndef __HAVE_ARCH_PGD_FREE
->  static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
->  {
-> -	free_page((unsigned long)pgd);
-> +	pagetable_free(virt_to_ptdesc(pgd));
->  }
->  #endif
->  
-> -- 
-> 2.40.1
-> 
-> 
-
--- 
-Sincerely yours,
-Mike.
+--===============5752969284033618033==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5752969284033618033==--
+
