@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 760A2EB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 15:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7A8EB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 15:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XL1w4hliN7EyX7ixI6MAq0RVM1sLT9IbC1MnfCK7WaA=; b=lO6K69g46vsmqZ
-	LdGmdyMbmLPWsyQZpZgDaQ3zNmEchUUSCpmDQq3TzoGlG4vSfaI5ktbIPg2GwKFVP7u2AW7hecEB6
-	QQOrFLUpB15LM6iQ69NrIhoo0EbH1/ssZugZDyR/939yBsOV1sZEpW+x+RV52TbrI4fShSGipeWVx
-	cfqT/l8j+IQbnbHI2ZW4z3ZVt5IaUN5H6jDwoqC+58RYNfKJdEsJLig8hmf2oMfTb3F5mtTp0O+ou
-	q6vLl17v4N7mBdOgNYweIoibA52b7TLnubW/diEKDMjS+/XhyJ8HS3U7vNfIKaku1M2aXoR1NA5LL
-	qjnZ52QzdYltSWuTskjA==;
+	List-Owner; bh=gL3IwUqH7Vo0EG835WTBW4zbceyQ9uzYijsv/mg01+c=; b=gm1aRquEfgPKeR
+	vm0G4IwjfWAlCfuH4ux9Je/hBtkRUT4Vk5bdWKTyN4Dr4w9BcaKk02HBsUG5xfX0r7dC2s/alAea3
+	UBcmRs884jnh1xy2Z0BtB6HSov7NXlDRMP9e12hVTQCxPc/zQge3YSF3XxjTpWbMcxwtw1lBonll7
+	8G4n0ew1rjtZSdAjn+WtsMiYFzTems5QDq6PQ0cG+7L2SA0R78OpbYxoC9b25RY4ffpnatk6m3gpy
+	zz4Z+5BnjIS6hw5zR0fN94v5iuMjwL7o99hbLL4Foh2BPXWey170uIGhplTDHLf6EbAxDK9RGIfvl
+	Xti78nxzzgnyHnLy+99A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9SFd-00C2P7-2U;
-	Wed, 14 Jun 2023 15:17:37 +0000
+	id 1q9SG9-00C2bZ-0n;
+	Wed, 14 Jun 2023 15:18:09 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9SFa-00C2NZ-1S;
-	Wed, 14 Jun 2023 15:17:35 +0000
+	id 1q9SG4-00C2XR-0j;
+	Wed, 14 Jun 2023 15:18:06 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E203360C11;
-	Wed, 14 Jun 2023 15:17:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4DEFC433CA;
-	Wed, 14 Jun 2023 15:17:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id ACE9E63EB4;
+	Wed, 14 Jun 2023 15:18:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67DA4C433C8;
+	Wed, 14 Jun 2023 15:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686755853;
-	bh=1S/7d32fWbuV27InCljg6kvJ/jUmDBZh0FnqMBK6hHQ=;
+	s=k20201202; t=1686755883;
+	bh=law0Zw5GwZ4vUNNNJfg9xYUAxoAT1vEtTRSmu8uyTiU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zs01V1OMCQW9SGjoiM8833e4+GgLf+roxCp+ov/6p9qYwn56wOxhtLVwhJBsT7OTn
-	 GmKNr7uX+7PKLTTatiHu1h0uEJz56DdL9TKqVqAb2j/OoYwLYcpoymomSf3Vf49OoP
-	 yZFZoPUVg+zzeaw1qOVp7XommunMKxMETOeiXXwG1fruyJmVlSU1jjsRgmJeqGNLq+
-	 7Qw3V4aZAWAo+5aqDc7z4QbZ0aSE7DJmDeFcTGvIfVMtmqiMPos6cFk8QO6kEUCdUY
-	 C0Hs9o3XgkyQ8iM1Y5etTMXrjXaUuF82+5JCj8C2wU2HvHjg68S/JmOt57YphvSLka
-	 2vW1ji2mH198A==
-Date: Wed, 14 Jun 2023 18:16:55 +0300
+	b=cB937Fc379p2H6sidrtQvcyE7SjhSVDiQ8fsfmvBYud73st4wP2Qr6CFo6WX9/s01
+	 JYMAIyN+HTRUEnFbhSLa+5Bn06wSCkvLo2zbfe78NcaE+yN0m1csBgyzH+54BdgaWi
+	 hkj4tSqaMdn2dDgxx8M+SxKDaATfhmPSw7zNp6q69zKYgpuwrRcJK0OU5fI0Lc5b7j
+	 +QW7NONIzYePXcwPMPgPxV4DoA23QefODa2dgADcpUJVKL052M5kYJPDNeYMVnlftS
+	 C4Vh7z6LpoOu9Cg6NCMdB+LohoR3p8kQll2UeaT5KBeo1s+c1aEFnsfa9r1LjcJVdi
+	 JIaKu8RQMiB8g==
+Date: Wed, 14 Jun 2023 18:17:26 +0300
 From: Mike Rapoport <rppt@kernel.org>
 To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -57,17 +57,18 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	Hugh Dickins <hughd@google.com>, Dinh Nguyen <dinguyen@kernel.org>
-Subject: Re: [PATCH v4 27/34] nios2: Convert __pte_free_tlb() to use ptdescs
-Message-ID: <20230614151655.GZ52412@kernel.org>
+	Hugh Dickins <hughd@google.com>, Jonas Bonn <jonas@southpole.se>
+Subject: Re: [PATCH v4 28/34] openrisc: Convert __pte_free_tlb() to use
+ ptdescs
+Message-ID: <20230614151726.GA52412@kernel.org>
 References: <20230612210423.18611-1-vishal.moola@gmail.com>
- <20230612210423.18611-28-vishal.moola@gmail.com>
+ <20230612210423.18611-29-vishal.moola@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230612210423.18611-28-vishal.moola@gmail.com>
+In-Reply-To: <20230612210423.18611-29-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_081734_531045_142B414B 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20230614_081804_308596_98501D32 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,7 +85,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 12, 2023 at 02:04:16PM -0700, Vishal Moola (Oracle) wrote:
+On Mon, Jun 12, 2023 at 02:04:17PM -0700, Vishal Moola (Oracle) wrote:
 > Part of the conversions to replace pgtable constructor/destructors with
 > ptdesc equivalents.
 > 
@@ -93,28 +94,28 @@ On Mon, Jun 12, 2023 at 02:04:16PM -0700, Vishal Moola (Oracle) wrote:
 Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
 
 > ---
->  arch/nios2/include/asm/pgalloc.h | 8 ++++----
+>  arch/openrisc/include/asm/pgalloc.h | 8 ++++----
 >  1 file changed, 4 insertions(+), 4 deletions(-)
 > 
-> diff --git a/arch/nios2/include/asm/pgalloc.h b/arch/nios2/include/asm/pgalloc.h
-> index ecd1657bb2ce..ce6bb8e74271 100644
-> --- a/arch/nios2/include/asm/pgalloc.h
-> +++ b/arch/nios2/include/asm/pgalloc.h
-> @@ -28,10 +28,10 @@ static inline void pmd_populate(struct mm_struct *mm, pmd_t *pmd,
+> diff --git a/arch/openrisc/include/asm/pgalloc.h b/arch/openrisc/include/asm/pgalloc.h
+> index b7b2b8d16fad..c6a73772a546 100644
+> --- a/arch/openrisc/include/asm/pgalloc.h
+> +++ b/arch/openrisc/include/asm/pgalloc.h
+> @@ -66,10 +66,10 @@ extern inline pgd_t *pgd_alloc(struct mm_struct *mm)
 >  
->  extern pgd_t *pgd_alloc(struct mm_struct *mm);
+>  extern pte_t *pte_alloc_one_kernel(struct mm_struct *mm);
 >  
-> -#define __pte_free_tlb(tlb, pte, addr)				\
-> -	do {							\
-> -		pgtable_pte_page_dtor(pte);			\
-> -		tlb_remove_page((tlb), (pte));			\
-> +#define __pte_free_tlb(tlb, pte, addr)					\
-> +	do {								\
-> +		pagetable_pte_dtor(page_ptdesc(pte));			\
-> +		tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));	\
->  	} while (0)
+> -#define __pte_free_tlb(tlb, pte, addr)	\
+> -do {					\
+> -	pgtable_pte_page_dtor(pte);	\
+> -	tlb_remove_page((tlb), (pte));	\
+> +#define __pte_free_tlb(tlb, pte, addr)				\
+> +do {								\
+> +	pagetable_pte_dtor(page_ptdesc(pte));			\
+> +	tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));	\
+>  } while (0)
 >  
->  #endif /* _ASM_NIOS2_PGALLOC_H */
+>  #endif
 > -- 
 > 2.40.1
 > 
