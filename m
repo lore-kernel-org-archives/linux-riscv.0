@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D04EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 09:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 159E0EB64DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 09:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vp3ZAKLSscg0/GN0YVM35tPXFsm7J3oAzBv2RqXImrY=; b=R+/WM+pPGXeBA5
-	xfj3oKSEnoOdvtj9pROOkC3ofBgVPe5EjiW/a+dyDhNjS0zN0gUWmfGTxbp1ATu7NbKYmnry8WQHZ
-	re59cAaKkUqXzL1aBY1Sgz+8wfCa9qC64H6V/KLUvGOg8DxW5SkVOjrUA9X5UmG+FTBvI3zMD0DIR
-	UG8KiIrAl22S/5VdaHHeRD76a/1BMYVjkLZ/ZI1DLu/mY7gRnmbBXe+sHrog7x+MIaEDtOfQAKzl2
-	m4zdNGVGH37Ie1ougbH61zK29/SjZCkh8xngXAtz4oCEmT75qjiniQDujyD4FnhMphXBm0E+9Xpr3
-	LJA6Gau0vmD2SaN/Uv3g==;
+	List-Owner; bh=cqPNv0lPa7jtqQZYA8yTVeKiaSxGzYtV2rdhNMSjOhc=; b=t1x76BCnI8UnYy
+	allwUuJa50xb00LeaAEjnGsYkt/RYPrwYhelEbyw+M8b5NP1gZZTKc9MoyXAuv+VSgmL7FRlgXSsc
+	n+Q4oqvYydbzysVTXJpJt1hVBC7Mqz6HhhpvwTZlJgtyn+NPvFiGGB3e91y/WxDxexrm3Xb11Xn8Z
+	/x1IFf/gNWH9AkZ7YdMBqz08VKTdgggB1Il6pnNjpC8Q4bOxes/SxEuap5MXppHqzTqNDdM5Wfqku
+	xvBhCixX4D6XrNMhuHjXARNb8Ur4BOycHnbzlw8DgvyIFNzrhxL80oIaQCZEy3HVkDKg1bqn3kZjd
+	EfNpTw3U6Rg9YJBuP8pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9Mar-00B1Ze-20;
-	Wed, 14 Jun 2023 09:15:09 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9Man-00B1VJ-01;
-	Wed, 14 Jun 2023 09:15:07 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E749E822A;
-	Wed, 14 Jun 2023 17:14:21 +0800 (CST)
-Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 14 Jun
- 2023 17:14:22 +0800
-Received: from [192.168.125.107] (113.72.145.34) by EXMBX062.cuchost.com
- (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 14 Jun
- 2023 17:14:21 +0800
-Message-ID: <3c213435-12f1-2692-be4c-c1f5d43b76dc@starfivetech.com>
-Date: Wed, 14 Jun 2023 17:14:19 +0800
+	id 1q9Mpb-00B4Ud-36;
+	Wed, 14 Jun 2023 09:30:23 +0000
+Received: from mail-yw1-f171.google.com ([209.85.128.171])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1q9MpY-00B4Rv-0N;
+	Wed, 14 Jun 2023 09:30:21 +0000
+Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-56d4f50427cso5150397b3.3;
+        Wed, 14 Jun 2023 02:30:20 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686735019; x=1689327019;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sUg4qrNPX3u1L7teHyX+L+B+2nv6pGpY1jj7jQmio6E=;
+        b=Jn2wTqDTCW9BGUkxpmlkOL+j7cq70y9y1YkDpxHbPKS2YJq7CwP7xr31ny3PmIr1mv
+         k+MreWDPdp+gl2W5MkraIu3FexJWX41peqELhhstHxcZoPFSOY+zY2zBMs/gcsujeYFU
+         h9OnqJmZLn0/h0g2IBkG8kOorWygaqs7l5D/1L84+WQMV+sXCGFH7T31bdMW9HFdENrR
+         UaaZyVDnumwfihD+tLFAAqpscACzLsqnHRJ09HaVIs0bL+lGD9r/1KIHMayubFb9jt6U
+         SP4yWuUIIcd6F3ua3/HM3mH9P0i/6Q4wjrVSJxokN3F99H73jjrcWsv0QjM3mUVV7ox1
+         7egw==
+X-Gm-Message-State: AC+VfDxy7aAzBVk3ozA9I1ezZcHnIfgwEiMKlE6qNTxsipap90KrPZOk
+	s2jBeqMQQURZSV+Wkh2IebmSVN1OUwMQvA==
+X-Google-Smtp-Source: ACHHUZ6qjy+11yb5IfLjK/0A0UC0u4YGNWOw8dcsz/dmjsomucF/TAuZD/NbgPuSjtjaRBx1k4lzwg==
+X-Received: by 2002:a25:b4c:0:b0:bd7:4ee7:887b with SMTP id 73-20020a250b4c000000b00bd74ee7887bmr1323042ybl.37.1686735018436;
+        Wed, 14 Jun 2023 02:30:18 -0700 (PDT)
+Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com. [209.85.128.173])
+        by smtp.gmail.com with ESMTPSA id k34-20020a25b2a2000000b00bcdb7d2a03bsm1194774ybj.17.2023.06.14.02.30.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 14 Jun 2023 02:30:17 -0700 (PDT)
+Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-57001c0baddso5177117b3.2;
+        Wed, 14 Jun 2023 02:30:17 -0700 (PDT)
+X-Received: by 2002:a25:6b47:0:b0:ba8:2009:ccbb with SMTP id
+ o7-20020a256b47000000b00ba82009ccbbmr1338474ybm.46.1686735017346; Wed, 14 Jun
+ 2023 02:30:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.2
-Subject: Re: [PATCH v5 0/3] Add JH7110 MIPI DPHY RX support
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-CC: Jack Zhu <jack.zhu@starfivetech.com>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20230529121503.3544-1-changhuang.liang@starfivetech.com>
-Content-Language: en-US
-From: Changhuang Liang <changhuang.liang@starfivetech.com>
-In-Reply-To: <20230529121503.3544-1-changhuang.liang@starfivetech.com>
-X-Originating-IP: [113.72.145.34]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX062.cuchost.com
- (172.16.6.62)
-X-YovoleRuleAgent: yovoleflag
+References: <20230612210423.18611-1-vishal.moola@gmail.com>
+ <20230612210423.18611-28-vishal.moola@gmail.com> <e52c7a74-da68-08d2-54e2-f95a8c5b52e7@kernel.org>
+In-Reply-To: <e52c7a74-da68-08d2-54e2-f95a8c5b52e7@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 14 Jun 2023 11:30:05 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXPASfLM8St_JZOW3Wke+ickJoo1oDr+orRbTERy=Zgwg@mail.gmail.com>
+Message-ID: <CAMuHMdXPASfLM8St_JZOW3Wke+ickJoo1oDr+orRbTERy=Zgwg@mail.gmail.com>
+Subject: Re: [PATCH v4 27/34] nios2: Convert __pte_free_tlb() to use ptdescs
+To: Dinh Nguyen <dinguyen@kernel.org>
+Cc: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-um@lists.infradead.org, xen-devel@lists.xenproject.org, 
+	kvm@vger.kernel.org, Hugh Dickins <hughd@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_021505_227449_7A0D0ECD 
-X-CRM114-Status: UNSURE (   7.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230614_023020_151447_90F2ACE6 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +88,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/5/29 20:15, Changhuang Liang wrote:
-> This patchset adds mipi dphy rx driver for the StarFive JH7110 SoC.
-> It is used to transfer CSI camera data. The series has been tested on
-> the VisionFive 2 board.
-> 
-> This patchset should be applied after the patchset [1] [2]:
-> [1] https://lore.kernel.org/all/20230518101234.143748-1-xingyu.wu@starfivetech.com/
-> [2] https://lore.kernel.org/all/20230519060202.15296-1-changhuang.liang@starfivetech.com/
-> 
-
-Hi, Vinod and Kishon
-
-Could you please help to review and give me some suggestions
-for this patch series? Thank you for your time.
-
-Best regards,
-Changhuang
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgRGluaCwKCk9uIFdlZCwgSnVuIDE0LCAyMDIzIGF0IDEyOjE34oCvQU0gRGluaCBOZ3V5ZW4g
+PGRpbmd1eWVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+IE9uIDYvMTIvMjMgMTY6MDQsIFZpc2hhbCBN
+b29sYSAoT3JhY2xlKSB3cm90ZToKPiA+IFBhcnQgb2YgdGhlIGNvbnZlcnNpb25zIHRvIHJlcGxh
+Y2UgcGd0YWJsZSBjb25zdHJ1Y3Rvci9kZXN0cnVjdG9ycyB3aXRoCj4gPiBwdGRlc2MgZXF1aXZh
+bGVudHMuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogVmlzaGFsIE1vb2xhIChPcmFjbGUpIDx2aXNo
+YWwubW9vbGFAZ21haWwuY29tPgo+ID4gLS0tCj4gPiAgIGFyY2gvbmlvczIvaW5jbHVkZS9hc20v
+cGdhbGxvYy5oIHwgOCArKysrLS0tLQo+ID4gICAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25z
+KCspLCA0IGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL25pb3MyL2luY2x1
+ZGUvYXNtL3BnYWxsb2MuaCBiL2FyY2gvbmlvczIvaW5jbHVkZS9hc20vcGdhbGxvYy5oCj4gPiBp
+bmRleCBlY2QxNjU3YmIyY2UuLmNlNmJiOGU3NDI3MSAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvbmlv
+czIvaW5jbHVkZS9hc20vcGdhbGxvYy5oCj4gPiArKysgYi9hcmNoL25pb3MyL2luY2x1ZGUvYXNt
+L3BnYWxsb2MuaAo+ID4gQEAgLTI4LDEwICsyOCwxMCBAQCBzdGF0aWMgaW5saW5lIHZvaWQgcG1k
+X3BvcHVsYXRlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCBwbWRfdCAqcG1kLAo+ID4KPiA+ICAgZXh0
+ZXJuIHBnZF90ICpwZ2RfYWxsb2Moc3RydWN0IG1tX3N0cnVjdCAqbW0pOwo+ID4KPiA+IC0jZGVm
+aW5lIF9fcHRlX2ZyZWVfdGxiKHRsYiwgcHRlLCBhZGRyKSAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBcCj4gPiAtICAgICBkbyB7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIFwKPiA+IC0gICAgICAgICAgICAgcGd0YWJsZV9wdGVfcGFnZV9k
+dG9yKHB0ZSk7ICAgICAgICAgICAgICAgICAgICAgXAo+ID4gLSAgICAgICAgICAgICB0bGJfcmVt
+b3ZlX3BhZ2UoKHRsYiksIChwdGUpKTsgICAgICAgICAgICAgICAgICBcCj4gPiArI2RlZmluZSBf
+X3B0ZV9mcmVlX3RsYih0bGIsIHB0ZSwgYWRkcikgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBcCj4gPiArICAgICBkbyB7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gKyAgICAgICAgICAgICBwYWdldGFi
+bGVfcHRlX2R0b3IocGFnZV9wdGRlc2MocHRlKSk7ICAgICAgICAgICAgICAgICAgIFwKPiA+ICsg
+ICAgICAgICAgICAgdGxiX3JlbW92ZV9wYWdlX3B0ZGVzYygodGxiKSwgKHBhZ2VfcHRkZXNjKHB0
+ZSkpKTsgICAgICBcCj4gPiAgICAgICB9IHdoaWxlICgwKQo+ID4KPiA+ICAgI2VuZGlmIC8qIF9B
+U01fTklPUzJfUEdBTExPQ19IICovCj4KPiBBcHBsaWVkIQoKSSBkb24ndCB0aGluayB5b3UgY2Fu
+IGp1c3QgYXBwbHkgdGhpcyBwYXRjaCwgYXMgdGhlIG5ldyBmdW5jdGlvbnMKd2VyZSBvbmx5IGlu
+dHJvZHVjZWQgaW4gW1BBVENIIHY0IDA1LzM0XSBvZiB0aGlzIHNlcmllcy4KCkdye29ldGplLGVl
+dGluZ31zLAoKICAgICAgICAgICAgICAgICAgICAgICAgR2VlcnQKCi0tIApHZWVydCBVeXR0ZXJo
+b2V2ZW4gLS0gVGhlcmUncyBsb3RzIG9mIExpbnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4
+LW02OGsub3JnCgpJbiBwZXJzb25hbCBjb252ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3Bs
+ZSwgSSBjYWxsIG15c2VsZiBhIGhhY2tlci4gQnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5h
+bGlzdHMgSSBqdXN0IHNheSAicHJvZ3JhbW1lciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLSBMaW51cyBUb3J2YWxkcwoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
