@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4104CEB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 01:22:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA3EEB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 01:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=rmi2kx/DEmOiqJAfSAS/AZ8M/LMXJlhSK54u/vkYac4=; b=vSK47ird5noShThb0G4TTp2Dnt
-	1T0XTHhZ2d5ElRPNWM9s7I8stUk9ei8nqfbpezPZaV4OTqXG9AytK1LyDS0greykgXVId0HQUlPHi
-	0t1G8aa3idt0ZGtt4mVShyG6eWR3sx1p2blfPJv0iuaRkG140ksWyZx79C+SNCuWzDgqmfUjcc7xp
-	CAvYk3aun1ImCVqgVuFf1foWIZO0MpE/4RCqfiVEAo2arLp9S2Zhk3vtBbPYpKGon9bFbmj4sSD7f
-	kAE8FOUaYSD/RCe1m4YbOcgY1W5VteibwMoq+lFme+vHulp/E+mHVuJJ5Po8jf/p0HkIiuB16oUmK
-	csL6l0TQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cPsSky3VKzrBCf53aEuweasn+Hc/MwIKp4jctFP1Tfs=; b=IL8nEirSQiCK43
+	eVvkll7LIFGxi9JcTbHsoNGZag0xnbrvf01iT9JuZ0wpsWUaPp0l136EPN7W4HNRc72YDA9+3syFt
+	dkQqPC545ntTsTrkI2PuYc2hRaXNCu4oHpufV53GC9ZRwoiEoKn6LwjAqrGZki9hRo5/vRMPDlgTE
+	zewFXu6XZPUivle5KVYT4r6lOi5pk1TIWay/dTIx2FJsdtDNO/WwpoZp3Gbo7Sxeu4QXv2IfZlQiv
+	zo3435xQUQP8u/jn5Wztm7pVUQYRW+Di2AVpMV01NHQ6YGOVb3PkzOAYTOyotQ1CquR30zOGATAia
+	x4NkdrcsvOGgHWvO//wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9FDp-009cBW-1c;
-	Wed, 14 Jun 2023 01:22:53 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1q9FLG-009d6Q-2z;
+	Wed, 14 Jun 2023 01:30:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9FDg-009c8G-2B;
-	Wed, 14 Jun 2023 01:22:51 +0000
-Received: from dggpemm500006.china.huawei.com (unknown [172.30.72.56])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Qgng45C3bzLmks;
-	Wed, 14 Jun 2023 09:20:48 +0800 (CST)
-Received: from [10.174.178.55] (10.174.178.55) by
- dggpemm500006.china.huawei.com (7.185.36.236) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.23; Wed, 14 Jun 2023 09:22:36 +0800
-Subject: Re: [PATCH v1 05/21] arm64/kexec: refactor for kernel/Kconfig.kexec
-To: Eric DeVolder <eric.devolder@oracle.com>, <linux@armlinux.org.uk>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
-	<geert@linux-m68k.org>, <tsbogend@alpha.franken.de>,
-	<James.Bottomley@HansenPartnership.com>, <deller@gmx.de>,
-	<ysato@users.sourceforge.jp>, <dalias@libc.org>,
-	<glaubitz@physik.fu-berlin.de>, <tglx@linutronix.de>, <mingo@redhat.com>,
-	<bp@alien8.de>, <dave.hansen@linux.intel.com>, <86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-ia64@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-m68k@lists.linux-m68k.org>, <linux-mips@vger.kernel.org>,
-	<linux-parisc@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
-	<linux-sh@vger.kernel.org>
-CC: <kernel@xen0n.name>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
-	<christophe.leroy@csgroup.eu>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <hca@linux.ibm.com>,
-	<gor@linux.ibm.com>, <agordeev@linux.ibm.com>, <borntraeger@linux.ibm.com>,
-	<svens@linux.ibm.com>, <hpa@zytor.com>, <keescook@chromium.org>,
-	<paulmck@kernel.org>, <peterz@infradead.org>, <frederic@kernel.org>,
-	<akpm@linux-foundation.org>, <ardb@kernel.org>, <samitolvanen@google.com>,
-	<juerg.haefliger@canonical.com>, <arnd@arndb.de>,
-	<rmk+kernel@armlinux.org.uk>, <linus.walleij@linaro.org>,
-	<sebastian.reichel@collabora.com>, <rppt@kernel.org>,
-	<kirill.shutemov@linux.intel.com>, <anshuman.khandual@arm.com>,
-	<ziy@nvidia.com>, <masahiroy@kernel.org>, <ndesaulniers@google.com>,
-	<mhiramat@kernel.org>, <ojeda@kernel.org>, <xin3.li@intel.com>,
-	<tj@kernel.org>, <gregkh@linuxfoundation.org>, <tsi@tuyoix.net>,
-	<bhe@redhat.com>, <hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
-	<boris.ostrovsky@oracle.com>, <konrad.wilk@oracle.com>
-References: <20230612172805.681179-1-eric.devolder@oracle.com>
- <20230612172805.681179-6-eric.devolder@oracle.com>
-From: "Leizhen (ThunderTown)" <thunder.leizhen@huawei.com>
-Message-ID: <29427d7c-7d81-9bda-0067-d17b51952cb4@huawei.com>
-Date: Wed, 14 Jun 2023 09:22:35 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+	id 1q9FL9-009d4E-0Q
+	for linux-riscv@lists.infradead.org;
+	Wed, 14 Jun 2023 01:30:32 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 661AE62FA9;
+	Wed, 14 Jun 2023 01:30:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 590BBC433CA;
+	Wed, 14 Jun 2023 01:30:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686706224;
+	bh=1A5KVVxyg74MwDhILMrc7YVC1sXoGN2aGyDkI3U1yBE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=K/Of8m8qr2TUrQVMpfPXNwNqCv2zlN6kheHcyvdAPkU9GAWJoWGsKTT/J4RVKEvxF
+	 ptp1rv1wNXqK4RJrIHEMcFkF+v1hDcawvC4mOdZ0AA5f40I95W+xuiMKHxwk4AD94o
+	 dyV6B9OpoZCzyXkD+IcvT/S3eebd9j/ZLYOWHk8jtcng42ove4BeNayzJPnVjU/Bqy
+	 aEpFCBvr9RQUxLt58W2AbEVVKcCuYYpIE8flY33TcJbNT5k4l32HLk9E0deTMxq5+j
+	 yxQ6vZ0Kb/hFSTqa+NABim8qfb98YFzUZ1Z9VZ4GINXcWl/+rcBXIpNUjVa8MaedN4
+	 qh6476CsNMn1g==
+From: guoren@kernel.org
+To: arnd@arndb.de,
+	guoren@kernel.org,
+	palmer@rivosinc.com,
+	conor.dooley@microchip.com,
+	heiko@sntech.de,
+	jszhang@kernel.org,
+	bjorn@kernel.org,
+	cleger@rivosinc.com
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH -next V13 0/3] riscv: Add independent irq/softirq stacks support
+Date: Tue, 13 Jun 2023 21:30:15 -0400
+Message-Id: <20230614013018.2168426-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-In-Reply-To: <20230612172805.681179-6-eric.devolder@oracle.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.178.55]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemm500006.china.huawei.com (7.185.36.236)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230613_182245_030958_F28B2AA7 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20230613_183027_254600_8CD5C0E2 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,110 +77,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/6/13 1:27, Eric DeVolder wrote:
-> The kexec and crash kernel options are provided in the common
-> kernel/Kconfig.kexec. Utilize the common options and provide
-> the ARCH_HAS_ and ARCH_SUPPORTS_ entries to recreate the
-> equivalent set of KEXEC and CRASH options.
-> 
-> Signed-off-by: Eric DeVolder <eric.devolder@oracle.com>
-> ---
->  arch/arm64/Kconfig | 61 ++++++++--------------------------------------
->  1 file changed, 10 insertions(+), 51 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 343e1e1cae10..33552476a877 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1433,60 +1433,19 @@ config PARAVIRT_TIME_ACCOUNTING
->  
->  	  If in doubt, say N here.
->  
-> -config KEXEC
-> -	depends on PM_SLEEP_SMP
-> -	select KEXEC_CORE
-> -	bool "kexec system call"
-> -	help
-> -	  kexec is a system call that implements the ability to shutdown your
-> -	  current kernel, and to start another kernel.  It is like a reboot
-> -	  but it is independent of the system firmware.   And like a reboot
-> -	  you can start any kernel with it, not just Linux.
-> -
-> -config KEXEC_FILE
-> -	bool "kexec file based system call"
-> -	select KEXEC_CORE
-> -	select HAVE_IMA_KEXEC if IMA
-> -	help
-> -	  This is new version of kexec system call. This system call is
-> -	  file based and takes file descriptors as system call argument
-> -	  for kernel and initramfs as opposed to list of segments as
-> -	  accepted by previous system call.
-> -
-> -config KEXEC_SIG
-> -	bool "Verify kernel signature during kexec_file_load() syscall"
-> -	depends on KEXEC_FILE
-> -	help
-> -	  Select this option to verify a signature with loaded kernel
-> -	  image. If configured, any attempt of loading a image without
-> -	  valid signature will fail.
-> -
-> -	  In addition to that option, you need to enable signature
-> -	  verification for the corresponding kernel image type being
-> -	  loaded in order for this to work.
-> +config ARCH_HAS_KEXEC
-> +	def_bool PM_SLEEP_SMP
->  
-> -config KEXEC_IMAGE_VERIFY_SIG
-> -	bool "Enable Image signature verification support"
-> -	default y
-> -	depends on KEXEC_SIG
-> -	depends on EFI && SIGNED_PE_FILE_VERIFICATION
-> -	help
-> -	  Enable Image signature verification support.
-
-I don't see an alternative to this option. It's used in
-arch/arm64/kernel/kexec_image.c:135
-
-> -
-> -comment "Support for PE file signature verification disabled"
-> -	depends on KEXEC_SIG
-> -	depends on !EFI || !SIGNED_PE_FILE_VERIFICATION
-> +config ARCH_HAS_KEXEC_FILE
-> +	def_bool y
->  
-> -config CRASH_DUMP
-> -	bool "Build kdump crash kernel"
-> -	help
-> -	  Generate crash dump after being started by kexec. This should
-> -	  be normally only set in special crash dump kernels which are
-> -	  loaded in the main kernel with kexec-tools into a specially
-> -	  reserved region and then later executed after a crash by
-> -	  kdump/kexec.
-> +config ARCH_SUPPORTS_KEXEC_FILE
-> +	def_bool y
-> +	depends on KEXEC_FILE
-> +	select HAVE_IMA_KEXEC if IMA
->  
-> -	  For more details see Documentation/admin-guide/kdump/kdump.rst
-> +config ARCH_HAS_CRASH_DUMP
-> +	def_bool y
->  
->  config TRANS_TABLE
->  	def_bool y
-> 
-
--- 
-Regards,
-  Zhen Lei
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhpcyBwYXRjaCBzZXJp
+ZXMgYWRkcyBpbmRlcGVuZGVudCBpcnEvc29mdGlycSBzdGFja3MgdG8gZGVjcmVhc2UgdGhlCnBy
+ZXNzIG9mIHRoZSB0aHJlYWQgc3RhY2suIEFsc28sIGFkZCBhIHRocmVhZCBTVEFDS19TSVpFIGNv
+bmZpZyBmb3IKdXNlcnMgdG8gYWRqdXN0IHRoZSBwcm9wZXIgc2l6ZSBkdXJpbmcgY29tcGlsZSB0
+aW1lLgoKVGhpcyBwYXRjaCBzZXJpZXMgYmVsb25nZWQgdG8gdGhlIGdlbmVyaWMgZW50cnksIHdo
+aWNoIGhhcyBiZWVuIG1lcmdlZAp0byBmb3ItbmV4dCBub3cuCgp2MTM6CiAtIFJlYmFzZSBvbiBy
+aXNjdi9mb3ItbmV4dCBjb21taXQgZDVlNDVlODEwZTBlICgiTWVyZ2UgcGF0Y2ggc2VyaWVzCiAg
+ICJyaXNjdjogQWRkIHZlY3RvciBJU0Egc3VwcG9ydCIiKQogLSBSbW92ZSB1bm5lY2Vzc2FyeSBC
+VUlMRF9CVUdfT04oKS4gKFRoeCBDbMOpbWVudCkKCnYxMjoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
+cmcvbGludXgtcmlzY3YvMjAyMzA1MjkwODQ2MDAuMjg3ODEzMC0xLWd1b3JlbkBrZXJuZWwub3Jn
+LwogLSBSZWJhc2Ugb24gcGFsbWVyL2Zvci1uZXh0ICgyMDIzMDUyOSkKIC0gTW92ZSBERUNMQVJF
+X1BFUl9DUFUodWxvbmcgKiwgaXJxX3N0YWNrX3B0cikgaW50byBpcnFfc3RhY2suaCAoVGh4CiAg
+IENvbm9yKQogLSBPcHRpbWl6ZSBjb21taXQgbXNnCgp2MTE6Cmh0dHBzOi8vbG9yZS5rZXJuZWwu
+b3JnL2xpbnV4LXJpc2N2LzIwMjMwMzI0MDcxMjM5LjE1MTY3Ny0xLWd1b3JlbkBrZXJuZWwub3Jn
+LwogLSBSZWJhc2Ugb24gcGFsbWVyL2Zvci1uZXh0ICgyMDIzMDMyNCkKIC0gU2VwYXJhdGUgZnJv
+bSBnZW5lcmljIGVudHJ5IHBhdGNoIHNlcmllcy4KCnYxMDoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
+cmcvbGludXgtcmlzY3YvMjAyMjEyMDgwMjU4MTYuMTM4NzEyLTEtZ3VvcmVuQGtlcm5lbC5vcmcv
+CiAtIFJlYmFzZSBvbiBwYWxtZXIvZm9yLW5leHQgYnJhbmNoICgyMDIyMTIwOCkKIC0gUmVtb3Zl
+IHVucmVsYXRlZCBwYXRjaGVzIGZyb20gdGhlIHNlcmllcyAoU3VnZ2VzdGVkLWJ5OiBCam9ybikK
+IC0gRml4dXAgVHlwb3MuCgp2OToKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3Yv
+MjAyMjExMzAwMzQwNTkuODI2NTk5LTEtZ3VvcmVuQGtlcm5lbC5vcmcvCiAtIEZpeHVwIE5SX3N5
+c2NhbGxzIGNoZWNrIChieSBCZW4gSHV0Y2hpbmdzKQogLSBBZGQgVGVzdGVkLWJ5OiBKaXNoZW5n
+IFpoYW5nCgp2ODoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjExMDMw
+NzUwNDcuMTYzNDkyMy0xLWd1b3JlbkBrZXJuZWwub3JnLwogLSBSZWJhc2Ugb24gcGFsbWVyL2Zv
+ci1uZXh0IGJyYW5jaCAoMjAyMjExMDIpCiAtIEFkZCBzYXZlL3Jlc3RvcmVfZnJvbV94NV90b194
+MzEgLm1hY3JvIChKaXNoZW5nWmhhbmcpCiAtIENvbnNvbGlkYXRlIHJldF9mcm9tX2tlcm5lbF90
+aHJlYWQgaW50byByZXRfZnJvbV9mb3JrIChKaXNoZW5nWmhhbmcpCiAtIE9wdGltaXplIF9fbm9p
+bnN0cl9zZWN0aW9uIGNvbW1lbnQgKEppYW5nc2hhbkxhaSkKCnY3OgpodHRwczovL2xvcmUua2Vy
+bmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMTAxNTExNDcwMi4zNDg5OTg5LTEtZ3VvcmVuQGtlcm5l
+bC5vcmcvCiAtIEZpeHVwIHJlZ3NfaXJxc19kaXNhYmxlZCB3aXRoIFNSX1BJRQogLSBPcHRpbWl6
+ZSBzdGFja2xlYWtfZXJhc2UgLT4gc3RhY2tsZWFrX2VyYXNlX29uX3Rhc2tfc3RhY2sgKFRoeCBN
+YXJrCiAgIFJ1dGxhbmQpCiAtIEFkZCBCVUdfT04oIWlycXNfZGlzYWJsZWQoKSkgaW4gdHJhcCBo
+YW5kbGVycwogLSBVc2luZyByZWdzX2lycXNfZGlzYWJsZWQgaW4gX19kb19wYWdlX2ZhdWx0CiAt
+IFJlbW92ZSB1bm5lY2Vzc2FyeSBpcnEgZGlzYWJsZSBpbiByZXRfZnJvbV9leGNlcHRpb24gYW5k
+IGFkZCBjb21tZW50Cgp2NjoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAy
+MjEwMDIwMTI0NTEuMjM1MTEyNy0xLWd1b3JlbkBrZXJuZWwub3JnLwogLSBVc2UgVEhFQURfU0la
+RV9PUkRFUiBmb3IgdGhyZWFkIHNpemUgYWRqdXN0bWVudCBpbiBrY29uZmlnIChUaHggQXJuZCkK
+IC0gTW92ZSBjYWxsX29uX3N0YWNrIHRvIGlubGluZSBzdHlsZSAoVGh4IFBldGVyIFppamxzdHJh
+KQogLSBGaXh1cCBmcCBjaGFpbiBicm9rZW4gKFRoeCBDaGVuIFpob25namluKQogLSBSZW1vdmUg
+Y29tbW9uIGVudHJ5IG1vZGlmaWNhdGlvbiwgYW5kIGZpeHVwIHBhZ2VfZmF1bHQgZW50cnkgKFRo
+eAogICBQZXRlciBaaWpsc3RyYSkKIC0gVHJlYXQgc29tZSB0cmFwcyBhcyBubWkgZW50cnkgKFRo
+eCBQZXRlciBaaWpsc3RyYSkKCnY1OgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNj
+di8yMDIyMDkxODE1NTI0Ni4xMjAzMjkzLTEtZ3VvcmVuQGtlcm5lbC5vcmcvCiAtIEFkZCByaXNj
+diBvd24gc3RhY2tsZWFrIHBhdGNoIGluc3RlYWQgb2YgZ2VuZXJpYyBlbnRyeSBtb2RpZmljYXRp
+b24KICAgKGJ5IE1hcmsgUnV0bGFuZCkKIC0gQWRkIEVYUEVSVCBkZXBlbmRlbmN5IGZvciBUSFJF
+QURfU0laRSAoYnkgQXJuZCkKIC0gQWRkIEVYUEVSVCBkZXBlbmRlbmN5IGZvciBJUlFfU1RBQ0sg
+KGJ5IFNlYmFzdGlhbiwgRGF2aWQgTGFpZ2h0KQogLSBDb3JyZWN0ZWQgX190cmFwX3NlY3Rpb24g
+KGJ5IFBldGVyIFppamxzdHJhKQogLSBBZGQgVGVzdGVkLWJ5IChZaXBlbmcgWm91KQogLSBVc2Ug
+Q09ORklHX1NPRlRJUlFfT05fT1dOX1NUQUNLIHJlcGxhY2UgIiNpZm5kZWYgQ09ORklHX1BSRUVN
+UFRfUlQiCiAtIEZpeHVwIHN5c3RyYWNlX2VudGVyIGNvbXBpbGUgZXJyb3IKIC0gRml4dXAgZXhp
+dF90b191c2VyX21vZGVfcHJlcGFyZSBwcmVlbXB0X2Rpc2FibGUgd2FybmluZwoKVjQ6Cmh0dHBz
+Oi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIwOTA4MDIyNTA2LjEyNzU3OTktMS1n
+dW9yZW5Aa2VybmVsLm9yZy8KIC0gRml4dXAgZW50cnkuUyB3aXRoICJsYSIgYnVnIChieSBDb25v
+ci5Eb29sZXkpCiAtIEZpeHVwIG1pc3Npbmcgbm9pbnN0ciBidWcgKGJ5IFBldGVyIFppamxzdHJh
+KQoKVjM6Cmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIwOTA2MDM1NDIz
+LjYzNDYxNy0xLWd1b3JlbkBrZXJuZWwub3JnLwogLSBGaXh1cCBDT05GSUdfQ09NUEFUPW4gY29t
+cGlsZSBlcnJvcgogLSBBZGQgVEhSRUFEX1NJWkVfT1JERVIgY29uZmlnCiAtIE9wdGltaXplIGVs
+Zl9rZXhlYy5jIHdhcm5pbmcgZml4dXAKIC0gQWRkIHN0YXRpYyB0byBpcnFfc3RhY2tfcHRyIGRl
+ZmluaXRpb24KClYyOgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMDkw
+NDA3MjYzNy44NjE5LTEtZ3VvcmVuQGtlcm5lbC5vcmcvCiAtIEZpeHVwIGNvbXBpbGUgZXJyb3Ig
+YnkgaW5jbHVkZSAicmlzY3Y6IHB0cmFjZTogUmVtb3ZlIGR1cGxpY2F0ZQogICBvcGVyYXRpb24i
+CiAtIEZpeHVwIGNvbXBpbGUgd2FybmluZwogICBSZXBvcnRlZC1ieToga2VybmVsIHRlc3Qgcm9i
+b3QgPGxrcEBpbnRlbC5jb20+CiAtIEFkZCB0ZXN0IHJlcG8gbGluayBpbiBjb3ZlciBsZXR0ZXIK
+ClYxOgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMDkwMzE2MzgwOC4x
+OTU0MTMxLTEtZ3VvcmVuQGtlcm5lbC5vcmcvCgpHdW8gUmVuICgzKToKICByaXNjdjogc3RhY2s6
+IFN1cHBvcnQgSEFWRV9JUlFfRVhJVF9PTl9JUlFfU1RBQ0sKICByaXNjdjogc3RhY2s6IFN1cHBv
+cnQgSEFWRV9TT0ZUSVJRX09OX09XTl9TVEFDSwogIHJpc2N2OiBzdGFjazogQWRkIGNvbmZpZyBv
+ZiB0aHJlYWQgc3RhY2sgc2l6ZQoKIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAg
+ICB8IDE5ICsrKysrKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2lycV9zdGFjay5oICAgfCAz
+MCArKysrKysrKysrKysKIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaCB8IDE0
+ICsrLS0tLQogYXJjaC9yaXNjdi9rZXJuZWwvaXJxLmMgICAgICAgICAgICAgIHwgNjggKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyAgICAgICAg
+ICAgIHwgMzUgKysrKysrKysrKysrKy0KIDUgZmlsZXMgY2hhbmdlZCwgMTUzIGluc2VydGlvbnMo
+KyksIDEzIGRlbGV0aW9ucygtKQogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vaXJxX3N0YWNrLmgKCi0tIAoyLjM2LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
