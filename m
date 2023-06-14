@@ -4,76 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542C7EB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 16:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DD8EB64DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 16:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRjc9GS3IZ7YGtrWpoDQUMeDUkvjzQ27CEV78eLL2cw=; b=BxnL3Q51xIvh6dTFKggqqxLinG
-	HXBUs0P7z/Ue3DhIquBrkQtFfU36km3jb3dIN9vN3NinOVBoMUu0h6ISlY4esM+KBqX8+iUDVyP5E
-	IOKDy7MTaV5mt4EGX6FQ4cUny9r9gxj/Q9Z/KRQdQJpclCRuI/09akXcT6cXncD6UzLGDQZafHz4u
-	vDUQczLgyNO0WvvyDFFhEWsYnolF71x/GVJPSC1y8+LH0Fy+NPl0dCKSuAmXNnACKDZXpOLJmggwG
-	boE8OhDezN6poY4AmQcmTTBZHFUAMWzf9sO9+Kohh5b6HRnOoSrjKbE2l9WoHP/Pf5hFCfPCgFtzu
-	FJHxg8bA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=J/n2BvzFJpNXgd0hBw4ZLlY8mV/DivKlfLP9x812axI=; b=yhiL4K9t7qehoh
+	bGxYPVB6ZhSQas884MDuEZx4J6Isele1LTM0etZhIDWL3gtXMrRX3bkmcb3ssE3h61SNpc1aA9Xpe
+	JJYFK0uc8Wgfwvht5jDC1iIy0TXvMnsWH8xV0/Z0T2E++oj0/ws/YeWWGqeDQG/IgdNGOPkQdXqH/
+	lgjSOS2Mv1E/5mGS9TBUroH/ESjcfnTQbkC7pC3BOLJvt/ruPouOwEusE3Zq9XjFwEcPB4e2MJXzR
+	yS5WO9fWr76rQ3cHQi0y/TRtUuVLJlQ5Wjf7x02uDm1hag5mAzTYkPzJjrv6R7JfkpKfzmpQfTgwY
+	X2xk7QXgSYNg0DEtOZUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9TbL-00CFD7-0Z;
-	Wed, 14 Jun 2023 16:44:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q9ThF-00CGAE-2C;
+	Wed, 14 Jun 2023 16:50:13 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9TbI-00CFC3-0X
+	id 1q9ThB-00CG8A-1N
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jun 2023 16:44:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7FC9A60AF4;
-	Wed, 14 Jun 2023 16:44:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52EFBC433C8;
-	Wed, 14 Jun 2023 16:43:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686761042;
-	bh=AbksTDj0Cr11HjVk9ndl4fxdbz4KeyrvhEW07BZm7RE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fzMgfRjaZkDQ+FOJ6dtazBXiBUyBQCh5OuId0BfGCJL6lwjfCnuwyySZ6oF/kRRVj
-	 bC28i264sOrYpVyv9CDTbe+Tj+Fb2J3UomvZo3csfGfI4QJ62D2+rxExs8Fy1WECG0
-	 tK2DLmgufO1pwcMdXBcFfkQFFxYpm9Bbuv+ZU3HgyRyQuleaZb+ZKvk8kjgwp+rJ78
-	 e00zb1dnuGAj3/nE4JH7iE2JEo4SfF5MPjrJ1h+KYTI83kIWY+yf61KwTDXOvo+dhd
-	 gNVCTNWO0yQaHeW3KBkDeW0/IG/rw03pvu5HAdbaINuqwnNlQ4afRKvPrAvlZeW9dX
-	 76SQ9ok++D/vA==
-Date: Wed, 14 Jun 2023 17:43:57 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Prabhakar <prabhakar.csengg@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>, Andrew Jones <ajones@ventanamicro.com>,
+	Wed, 14 Jun 2023 16:50:11 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-3f86a7f3a65so21519461cf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Jun 2023 09:50:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1686761406; x=1689353406;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2Xh6X95qQ4DKgCGH6vSh1zNOD+c5n9iWRwnQijGvBds=;
+        b=dsskxX9aeYFjsrOcIx3DHDQpEY4ERJCKdwVqYZCSpgugbUzHGvRMkohghaw4/+u8Wy
+         wcvIylrAGJmwAq/pVQUec7zDf/W41hOfu805hrZGAp1J2PDCKQOapMj/YEqVrF8MBicr
+         OAEI+IV+qixaozNZGYSaH1Y5uF85sBn6W2AzMPJ6er4nKcP+RwiOuRs5VYOXaqUhFWUs
+         7Kawvn2xj3fhcTXWZ8lLQrdqKk818nnwDp9OaprO2/kXgC3sWv6i14DRZeSuQ1p4mf4w
+         2K+CFzY3gKpZIHeJDGQsz4fBXVzUIZkLfpdWGVZ8w/mP5vqAzZsW2zFFrbpkiR19z+V/
+         K4lA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686761406; x=1689353406;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2Xh6X95qQ4DKgCGH6vSh1zNOD+c5n9iWRwnQijGvBds=;
+        b=Uawp6KZp9sm52kix6yc2vnVHIalMQJRhumHSjhHw9bRLoXxVKDNPeUO9oMdWdmbfko
+         cP43942iCgAF/lty8O4f1jEboJIbSzkZo1xLFejuqJqiKdIPlltU2WuEZW9QpVw4/GaV
+         cBZIvBkH+cAmhboGOabER9rXNCylydWbcUulq2BmOrGvyoM14QsqS0NYNrDJIHNEQ5JI
+         GCRCjFQd09JR4M2KDdrnN7Iy8tKeGmC8DtFqE+kc3cmqRwq2s06V9uAtvrklTnY+1kTW
+         VbuNQd1Rvr4GPpeaVSYecUwa/blXqxKrS+PYqMNdRjgQWE0lS3iqbBawcqYLM57j2Is/
+         EOeQ==
+X-Gm-Message-State: AC+VfDzNVOfGAYf27fcCitb9BTGcDHyskQzS0cBuw64W0xC/1hVjAxAB
+	YfSf6nmG77Q49jqmTId2QSCZMA==
+X-Google-Smtp-Source: ACHHUZ66gdwAQVn8ETVVjnmelI9LapHpISswaU4wiKmZDwt9r7b0rzQ0VjaameNq5XrIkQhgzt3XBg==
+X-Received: by 2002:a05:622a:354:b0:3f8:4905:9533 with SMTP id r20-20020a05622a035400b003f849059533mr2381471qtw.50.1686761406694;
+        Wed, 14 Jun 2023 09:50:06 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-68-25-194.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.25.194])
+        by smtp.gmail.com with ESMTPSA id bb6-20020a05622a1b0600b003e1cf472b17sm4236320qtb.97.2023.06.14.09.50.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jun 2023 09:50:05 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.95)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1q9Th6-005A4Q-Ov;
+	Wed, 14 Jun 2023 13:50:04 -0300
+Date: Wed, 14 Jun 2023 13:50:04 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-riscv@lists.infradead.org,
-	Christoph Hellwig <hch@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v9 3/6] riscv: mm: dma-noncoherent: nonstandard cache
- operations support
-Message-ID: <20230614-bundle-greedless-91581fdbdce8@spud>
-References: <20230614104759.228372-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230614104759.228372-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAMuHMdWApGKsS8DU7-=6j6WaRBDZ8Amig2NtA8f8=PbGKoFQjQ@mail.gmail.com>
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	iommu@lists.linux.dev, Vincent Chen <vincent.chen@sifive.com>
+Subject: Re: [PATCH v4 06/10] irqchip/riscv-imsic: Improve IOMMU DMA support
+Message-ID: <ZInvvMZvrP4U/LL+@ziepe.ca>
+References: <20230613153415.350528-1-apatel@ventanamicro.com>
+ <20230613153415.350528-7-apatel@ventanamicro.com>
+ <ZInSqC6b7RPD1nzX@ziepe.ca>
+ <CAK9=C2XBObBGh2R2pxVgM0E1gFPBn4m7DKzoTxEmDdZ9V1QLrA@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdWApGKsS8DU7-=6j6WaRBDZ8Amig2NtA8f8=PbGKoFQjQ@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <CAK9=C2XBObBGh2R2pxVgM0E1gFPBn4m7DKzoTxEmDdZ9V1QLrA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_094404_289654_63F93F70 
-X-CRM114-Status: GOOD (  28.60  )
+X-CRM114-CacheID: sfid-20230614_095009_765134_7D6C42A5 
+X-CRM114-Status: GOOD (  27.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,119 +107,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3027236692410431611=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3027236692410431611==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="l7qMsMb3x+g0a+Wz"
-Content-Disposition: inline
-
-
---l7qMsMb3x+g0a+Wz
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Jun 14, 2023 at 02:53:26PM +0200, Geert Uytterhoeven wrote:
-> Hi Prabhakar,
->=20
-> On Wed, Jun 14, 2023 at 12:48=E2=80=AFPM Prabhakar <prabhakar.csengg@gmai=
-l.com> wrote:
-> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> >
-> > Introduce support for nonstandard noncoherent systems in the RISC-V
-> > architecture. It enables function pointer support to handle cache
-> > management in such systems.
-> >
-> > This patch adds a new configuration option called
-> > "RISCV_NONSTANDARD_CACHE_OPS." This option is a boolean flag that
-> > depends on "RISCV_DMA_NONCOHERENT" and enables the function pointer
-> > support for cache management in nonstandard noncoherent systems.
-> >
-> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > ---
-> > v8 -> v9
-> > * New patch
->=20
-> Thanks for your patch!
->=20
-> > --- /dev/null
-> > +++ b/arch/riscv/include/asm/dma-noncoherent.h
-> > @@ -0,0 +1,28 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +/*
-> > + * Copyright (C) 2023 Renesas Electronics Corp.
-> > + */
-> > +
-> > +#ifndef __ASM_DMA_NONCOHERENT_H
-> > +#define __ASM_DMA_NONCOHERENT_H
-> > +
-> > +#include <linux/dma-direct.h>
-> > +
-> > +/*
-> > + * struct riscv_cache_ops - Structure for CMO function pointers
-> > + *
-> > + * @clean: Function pointer for clean cache
-> > + * @inval: Function pointer for invalidate cache
-> > + * @flush: Function pointer for flushing the cache
-> > + */
-> > +struct riscv_cache_ops {
-> > +       void (*clean)(phys_addr_t paddr, unsigned long size);
-> > +       void (*inval)(phys_addr_t paddr, unsigned long size);
-> > +       void (*flush)(phys_addr_t paddr, unsigned long size);
-> > +};
->=20
-> I guess the naming can be improved?
->=20
-> .clean() is used by arch_dma_cache_wback() / arch_wb_cache_pmem(),
-> .inval() is used by arch_dma_cache_inv() / arch_invalidate_pmem(),
-> .flush() is used by arch_dma_cache_wback_inv() / arch_dma_prep_coherent().
->=20
-> Perhaps .wback(), .inv(), .wback_inv() are more clear?
->=20
-> I understand this is subject to bikeshedding...
-> But hey, how many innocent bits of data have already been lost due
-> to cache semantic mismatches?
-
-Given this is based on Arnd's stuff, +1 on the bikeshed. The names have
-been chosen I guess to match the CBOM extensions naming.
-
-Otherwise, I had it in my head that the next revision of this was going
-to take patches 8 & 9 from Arnd's series, to align the semantics. Not
-that it really bothers me, just means this will have to wait for the
-cross-arch series, when pretty sure Arnd suggested not depending on that
-any more... Am I missing something Prabhakar?
-
-Other than the bikeshedding, no objections.
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
---l7qMsMb3x+g0a+Wz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZInuTAAKCRB4tDGHoIJi
-0mehAP0QJVAWl4QlY0rgtJuCCW2wWXiwHW7Opw7NAhq2tdzsMwD9FPKY2ISdjIAj
-wLfm2XMMYQuqT1og8iUEnl0XhGDPGgA=
-=FBZR
------END PGP SIGNATURE-----
-
---l7qMsMb3x+g0a+Wz--
-
-
---===============3027236692410431611==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3027236692410431611==--
-
+T24gV2VkLCBKdW4gMTQsIDIwMjMgYXQgMDk6NDc6NTNQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90
+ZToKPiBPbiBXZWQsIEp1biAxNCwgMjAyMyBhdCA4OjE24oCvUE0gSmFzb24gR3VudGhvcnBlIDxq
+Z2dAemllcGUuY2E+IHdyb3RlOgo+ID4KPiA+IE9uIFR1ZSwgSnVuIDEzLCAyMDIzIGF0IDA5OjA0
+OjExUE0gKzA1MzAsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gPiA+IFdlIGhhdmUgYSBzZXBhcmF0ZSBS
+SVNDLVYgSU1TSUMgTVNJIGFkZHJlc3MgZm9yIGVhY2ggQ1BVIHNvIGNoYW5naW5nCj4gPiA+IE1T
+SSAob3IgSVJRKSBhZmZpbml0eSByZXN1bHRzIGluIHJlLXByb2dyYW1taW5nIG9mIE1TSSBhZGRy
+ZXNzIGluCj4gPiA+IHRoZSBQQ0llIChvciBwbGF0Zm9ybSkgZGV2aWNlLgo+ID4gPgo+ID4gPiBD
+dXJyZW50bHksIHRoZSBpb21tdV9kbWFfcHJlcGFyZV9tc2koKSBpcyBjYWxsZWQgb25seSBvbmNl
+IGF0IHRoZQo+ID4gPiB0aW1lIG9mIElSUSBhbGxvY2F0aW9uIHNvIElPTU1VIERNQSBkb21haW4g
+d2lsbCBvbmx5IGhhdmUgbWFwcGluZwo+ID4gPiBmb3Igb25lIE1TSSBwYWdlLiBUaGlzIG1lYW5z
+IGlvbW11X2RtYV9jb21wb3NlX21zaV9tc2coKSBjYWxsZWQKPiA+ID4gYnkgaW1zaWNfaXJxX2Nv
+bXBvc2VfbXNpX21zZygpIHdpbGwgYWx3YXlzIHVzZSB0aGUgc2FtZSBNU0kgcGFnZQo+ID4gPiBp
+cnJlc3BlY3RpdmUgdG8gdGFyZ2V0IENQVSBNU0kgYWRkcmVzcy4gSW4gb3RoZXIgd29yZHMsIGNo
+YW5naW5nCj4gPiA+IE1TSSAob3IgSVJRKSBhZmZpbml0eSBmb3IgZGV2aWNlIHVzaW5nIElPTU1V
+IERNQSBkb21haW4gd2lsbCBub3QKPiA+ID4gd29yay4KPiA+Cj4gPiBZb3UgZGlkbid0IGFuc3dl
+ciBteSBxdWVzdGlvbiBmcm9tIGxhc3QgdGltZSAtIHRoZXJlIHNlZW1zIHRvIGJlIG5vCj4gPiBp
+b21tdSBkcml2ZXIgaGVyZSBzbyB3aHkgYXJlIHlvdSBtZXNzaW5nIHdpdGggaW9tbXVfZG1hX3By
+ZXBhcmVfbXNpKCk/Cj4gPgo+ID4gVGhpcyBwYXRoIGlzIG9ubHkgZm9yIHBsYXRmb3JtcyB0aGF0
+IGhhdmUgSU9NTVUgZHJpdmVycyB0aGF0IHRyYW5zbGF0ZQo+ID4gdGhlIE1TSSB3aW5kb3cuIFlv
+dSBzaG91bGQgYWRkIHRoaXMgY29kZSB0byBsaW5rIHRoZSBpbnRlcnJ1cHQKPiA+IGNvbnRyb2xs
+ZXIgdG8gdGhlIGlvbW11IGRyaXZlciB3aGVuIHlvdSBpbnRyb2R1Y2UgdGhlIGlvbW11IGRyaXZl
+ciwKPiA+IG5vdCBpbiB0aGlzIHNlcmllcz8KPiA+Cj4gPiBBbmQsIGFzIEkgc2FpZCBiZWZvcmUs
+IEknZCBsaWtlIHRvIE5PVCBzZWUgbmV3IHVzZXJzIG9mCj4gPiBpb21tdV9kbWFfcHJlcGFyZV9t
+c2koKSBzaW5jZSBpdCBpcyBhIHZlcnkgcHJvYmxlbWF0aWMgQVBJLgo+ID4KPiA+IFRoaXMgaGFj
+a2luZyBvZiBpdCBoZXJlIGlzIG5vdCBtYWtpbmcgaXQgYmV0dGVyIDooCj4gCj4gSSBtaXN1bmRl
+cnN0b29kIHlvdXIgcHJldmlvdXMgY29tbWVudHMuCj4gCj4gV2UgY2FuIGNlcnRhaW5seSBkZWFs
+IHdpdGggdGhpcyBsYXRlciB3aGVuIHRoZSBJT01NVQo+IGRyaXZlciBpcyBhdmFpbGFibGUgZm9y
+IFJJU0MtVi4gSSB3aWxsIGRyb3AgdGhpcyBwYXRjaCBpbiB0aGUKPiBuZXh0IHJldmlzaW9uLgoK
+Tm90IG9ubHkganVzdCB0aGlzIHBhdGNoIGJ1dCB0aGUgY2FsbHMgdG8gaW9tbXVfZG1hX3ByZXBh
+cmVfbXNpKCkgYW5kCnJlbGF0ZWQgQVBJcyBpbiB0aGUgcHJpb3IgcGF0Y2ggdG9vLiBBc3N1bWUg
+dGhlIE1TSSB3aW5kb3cgaXMgZGlyZWN0bHkKdmlzaWJsZSB0byBETUEgd2l0aG91dCB0cmFuc2xh
+dGlvbi4KCldoZW4geW91IGNvbWUgd2l0aCBhbiBpb21tdSBkcml2ZXIgd2UgY2FuIGRpc2N1c3Mg
+aG93IGJlc3QgdG8gcHJvY2VlZC4KClRoYW5rcywKSmFzb24KCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
