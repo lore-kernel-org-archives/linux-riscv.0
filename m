@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F87EB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 13:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B604EEB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 13:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q7QMCgcrCrQ5D/obgfdB6mqHuEvjV5E6ozlNoScFRTY=; b=E62R4V5MIrdGUt
-	YnT+zwoO2ax4kMFWEceFT1/3aVOsTAjm3XN5MYlGRNlsFBiEFQMOiPEYRRMOCMoFraxB4KHVVX9UH
-	7518Q6uNGcxMCojifU1vGfA+gm3GZLwaW7JhGNdOhpYdVpSYHQ8kSLn1gPPURAvVPSSr98jfwOvZA
-	yWBAraoK9mq+qWjeQhmobq0RxGQwz3e1gc54FMqYTXG2fh5UDyKA4npHoYd8tcx9jqY+e07vi4tr0
-	k1mJ0qc1esgYvvr83PkoplCpKYvYjkJM/GyEyefu0x4+q7eLP9HK0c09s2ljF9QksG3nw+q+qhfds
-	VVzpyHJSKD8FAJ1iqpeA==;
+	List-Owner; bh=jEdbMbqCZT4+e5r72M0MUrroT2+yRxadJJRJJ6nQpq0=; b=Un1GJTLX15Mjuf
+	0ungFkBT/y3ljdsNQJLkjBnTrGJqt4yHgkCQceP/koa8krwF4UYHHn49UF+jQ+cuGiMYDiDAibWfQ
+	mPePFODb7Qc2dHkr6ZlhSeHone2iTWDffVhg0y739VGuXTxx0sBzAxf8trKivcRevSvsjYK+/AXW/
+	W1lU7WZSgRD/FPXBRRxVK7bqnBKIB7NAcHMDBgp38wn9SZkuGZq8pBjDo9XLPs8I2SHfa7Gn+Fwrg
+	zpCg3p75vLuc6MKLtcconOfSGznbzqAUuH7SktYxu9vA+7VRAtmsDyMNH1ZpLb336wikeLFLo04hs
+	sYZOwDHqh7Ew9WECWBYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9Qw1-00Bobg-14;
-	Wed, 14 Jun 2023 13:53:17 +0000
+	id 1q9R17-00Bq82-0E;
+	Wed, 14 Jun 2023 13:58:33 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9Qvy-00BoaM-2O;
-	Wed, 14 Jun 2023 13:53:16 +0000
+	id 1q9R14-00Bq77-0z;
+	Wed, 14 Jun 2023 13:58:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3128961F1E;
-	Wed, 14 Jun 2023 13:53:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36061C433C9;
-	Wed, 14 Jun 2023 13:53:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C25E463EA8;
+	Wed, 14 Jun 2023 13:58:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0141C433C8;
+	Wed, 14 Jun 2023 13:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686750793;
-	bh=i+dWwopS2R2pjDCoeERaU9nBu0jCYzS/lwxwHCWXb4I=;
+	s=k20201202; t=1686751109;
+	bh=zODqmBJZryq+bXrqw2+dO7/Egr05l6EFGh7EoAR+f5Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TGto5Dvi/HN8fU/LSHI/Xe9mWSqjuoMuAggxIeDsDpSdGjOz+OD5Q61dYnwlfUI2u
-	 12eC8JWZkY3dBTcv69CxtYmzohm/TspcjrDl3Zxm+eVFHQ1BuvWvblYU6lS5nHTdB4
-	 4jgzdRwk6I0iRkcg+lC5rT6e/+Zoj8O4Z4XMzKkrAI3Xrl//xHCT0oSrSqy8qzE0DR
-	 HFjNZU76vrLc90NskBD5ZmADqSbItjU5wL2oiacXptUySDzj5MWQp2048o6t9bgjHk
-	 3J9d7i2fEQepFckTIKlCANmHRPvvJQeN1+/+mCtl5JH8j+CkcnEmQVaXh28mzw5CiW
-	 A7drC/yoaT/Vw==
-Date: Wed, 14 Jun 2023 16:52:36 +0300
+	b=lSDu5H7KOZKMWJOQe/RZf66XvE8x+eCZ2Ytzhs66p+GHx+ddxnclpSnPyGBBVOC05
+	 kntWJ9TrG8h428EjebftgV+rAv2YXAhTb0cmqdcy2uTjvuT0Ga5hGuS9drSzCT7vEe
+	 lZBUTVYDwjRpPWR0zfBUHmtTwZ2dHpcIOTvlm3uWIc27APHLBBUO1V3IJqvs3/W4hf
+	 V4LiUm2GDpkcLNAf56LDxlLuEAL6oO/16Aw5vUDA8I/ZMKz2QG0XPQLr9Bk8rgf5Zl
+	 R9Y5FHwwoN9JyP4cz6UUoLxJJznNWVeOmwWxNxC0W9lJyus9Kc2Q39K0WgkNq1Cbbd
+	 +hjJK6ETZawtw==
+Date: Wed, 14 Jun 2023 16:57:51 +0300
 From: Mike Rapoport <rppt@kernel.org>
 To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -58,16 +58,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
 	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
 	Hugh Dickins <hughd@google.com>
-Subject: Re: [PATCH v4 09/34] mm: Convert pmd_ptlock_init() to use ptdescs
-Message-ID: <20230614135236.GH52412@kernel.org>
+Subject: Re: [PATCH v4 10/34] mm: Convert ptlock_init() to use ptdescs
+Message-ID: <20230614135751.GI52412@kernel.org>
 References: <20230612210423.18611-1-vishal.moola@gmail.com>
- <20230612210423.18611-10-vishal.moola@gmail.com>
+ <20230612210423.18611-11-vishal.moola@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230612210423.18611-10-vishal.moola@gmail.com>
+In-Reply-To: <20230612210423.18611-11-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_065314_863378_7AD2B2E8 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20230614_065830_428647_AE0AD806 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,7 +84,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 12, 2023 at 02:03:58PM -0700, Vishal Moola (Oracle) wrote:
+On Mon, Jun 12, 2023 at 02:03:59PM -0700, Vishal Moola (Oracle) wrote:
 > This removes some direct accesses to struct page, working towards
 > splitting out struct ptdesc from struct page.
 > 
@@ -93,47 +93,61 @@ On Mon, Jun 12, 2023 at 02:03:58PM -0700, Vishal Moola (Oracle) wrote:
 Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
 
 > ---
->  include/linux/mm.h | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
+>  include/linux/mm.h | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
 > 
 > diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index bb934d51390f..daecf1db6cf1 100644
+> index daecf1db6cf1..f48e626d9c98 100644
 > --- a/include/linux/mm.h
 > +++ b/include/linux/mm.h
-> @@ -2942,12 +2942,12 @@ static inline spinlock_t *pmd_lockptr(struct mm_struct *mm, pmd_t *pmd)
->  	return ptlock_ptr(pmd_ptdesc(pmd));
+> @@ -2857,7 +2857,7 @@ static inline spinlock_t *pte_lockptr(struct mm_struct *mm, pmd_t *pmd)
+>  	return ptlock_ptr(page_ptdesc(pmd_page(*pmd)));
 >  }
 >  
-> -static inline bool pmd_ptlock_init(struct page *page)
-> +static inline bool pmd_ptlock_init(struct ptdesc *ptdesc)
+> -static inline bool ptlock_init(struct page *page)
+> +static inline bool ptlock_init(struct ptdesc *ptdesc)
 >  {
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> -	page->pmd_huge_pte = NULL;
-> +	ptdesc->pmd_huge_pte = NULL;
->  #endif
-> -	return ptlock_init(page);
-> +	return ptlock_init(ptdesc_page(ptdesc));
+>  	/*
+>  	 * prep_new_page() initialize page->private (and therefore page->ptl)
+> @@ -2866,10 +2866,10 @@ static inline bool ptlock_init(struct page *page)
+>  	 * It can happen if arch try to use slab for page table allocation:
+>  	 * slab code uses page->slab_cache, which share storage with page->ptl.
+>  	 */
+> -	VM_BUG_ON_PAGE(*(unsigned long *)&page->ptl, page);
+> -	if (!ptlock_alloc(page_ptdesc(page)))
+> +	VM_BUG_ON_PAGE(*(unsigned long *)&ptdesc->ptl, ptdesc_page(ptdesc));
+> +	if (!ptlock_alloc(ptdesc))
+>  		return false;
+> -	spin_lock_init(ptlock_ptr(page_ptdesc(page)));
+> +	spin_lock_init(ptlock_ptr(ptdesc));
+>  	return true;
 >  }
 >  
->  static inline void pmd_ptlock_free(struct page *page)
-> @@ -2967,7 +2967,7 @@ static inline spinlock_t *pmd_lockptr(struct mm_struct *mm, pmd_t *pmd)
+> @@ -2882,13 +2882,13 @@ static inline spinlock_t *pte_lockptr(struct mm_struct *mm, pmd_t *pmd)
 >  	return &mm->page_table_lock;
 >  }
+>  static inline void ptlock_cache_init(void) {}
+> -static inline bool ptlock_init(struct page *page) { return true; }
+> +static inline bool ptlock_init(struct ptdesc *ptdesc) { return true; }
+>  static inline void ptlock_free(struct page *page) {}
+>  #endif /* USE_SPLIT_PTE_PTLOCKS */
 >  
-> -static inline bool pmd_ptlock_init(struct page *page) { return true; }
-> +static inline bool pmd_ptlock_init(struct ptdesc *ptdesc) { return true; }
->  static inline void pmd_ptlock_free(struct page *page) {}
->  
->  #define pmd_huge_pte(mm, pmd) ((mm)->pmd_huge_pte)
-> @@ -2983,7 +2983,7 @@ static inline spinlock_t *pmd_lock(struct mm_struct *mm, pmd_t *pmd)
->  
->  static inline bool pgtable_pmd_page_ctor(struct page *page)
+>  static inline bool pgtable_pte_page_ctor(struct page *page)
 >  {
-> -	if (!pmd_ptlock_init(page))
-> +	if (!pmd_ptlock_init(page_ptdesc(page)))
+> -	if (!ptlock_init(page))
+> +	if (!ptlock_init(page_ptdesc(page)))
 >  		return false;
 >  	__SetPageTable(page);
 >  	inc_lruvec_page_state(page, NR_PAGETABLE);
+> @@ -2947,7 +2947,7 @@ static inline bool pmd_ptlock_init(struct ptdesc *ptdesc)
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>  	ptdesc->pmd_huge_pte = NULL;
+>  #endif
+> -	return ptlock_init(ptdesc_page(ptdesc));
+> +	return ptlock_init(ptdesc);
+>  }
+>  
+>  static inline void pmd_ptlock_free(struct page *page)
 > -- 
 > 2.40.1
 > 
