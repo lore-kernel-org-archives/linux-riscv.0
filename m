@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA3EEB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 01:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D82EB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 01:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cPsSky3VKzrBCf53aEuweasn+Hc/MwIKp4jctFP1Tfs=; b=IL8nEirSQiCK43
-	eVvkll7LIFGxi9JcTbHsoNGZag0xnbrvf01iT9JuZ0wpsWUaPp0l136EPN7W4HNRc72YDA9+3syFt
-	dkQqPC545ntTsTrkI2PuYc2hRaXNCu4oHpufV53GC9ZRwoiEoKn6LwjAqrGZki9hRo5/vRMPDlgTE
-	zewFXu6XZPUivle5KVYT4r6lOi5pk1TIWay/dTIx2FJsdtDNO/WwpoZp3Gbo7Sxeu4QXv2IfZlQiv
-	zo3435xQUQP8u/jn5Wztm7pVUQYRW+Di2AVpMV01NHQ6YGOVb3PkzOAYTOyotQ1CquR30zOGATAia
-	x4NkdrcsvOGgHWvO//wg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gjFOeNQ3RY7khZaLzD3e3ndoQG1ElWPo03aB3uzfFJs=; b=PvOMHX1RjIOVRl
+	5XcDX3V0I8sreiQdjbiS0F1VetP/fF21K3ThsziQcIcbOOv9uDp4OiB36rNe1FzsdF4MWP7zGBazj
+	IhsEbh3WanRfPNCkvQAQUuLiGjaRMkoC83MMEAmd56Wuazy2g27hEgmxNwvaFEAtIccEVhuWVYVhR
+	6cVtSw78RQ/1B+de3Xij0rRELzgD1CRHUPBnh0mX0j/Xn4VMPYuPuMloUDSvYhnzTvBHssqWoPVSp
+	IjHF1N9lLSkS51id/oMljl8RsNbbSkkEyXR2y0h2HcQeC30BdhbrhrpUtGYLcYWUheUisQmGIHKM/
+	3sdXNB6ZXaUrMW1d/5HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9FLG-009d6Q-2z;
-	Wed, 14 Jun 2023 01:30:34 +0000
+	id 1q9FLI-009d72-1u;
+	Wed, 14 Jun 2023 01:30:36 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9FL9-009d4E-0Q
+	id 1q9FLD-009d5p-2w
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jun 2023 01:30:32 +0000
+	Wed, 14 Jun 2023 01:30:35 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 661AE62FA9;
-	Wed, 14 Jun 2023 01:30:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 590BBC433CA;
-	Wed, 14 Jun 2023 01:30:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 58058619E3;
+	Wed, 14 Jun 2023 01:30:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F1C7C433C8;
+	Wed, 14 Jun 2023 01:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686706224;
-	bh=1A5KVVxyg74MwDhILMrc7YVC1sXoGN2aGyDkI3U1yBE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=K/Of8m8qr2TUrQVMpfPXNwNqCv2zlN6kheHcyvdAPkU9GAWJoWGsKTT/J4RVKEvxF
-	 ptp1rv1wNXqK4RJrIHEMcFkF+v1hDcawvC4mOdZ0AA5f40I95W+xuiMKHxwk4AD94o
-	 dyV6B9OpoZCzyXkD+IcvT/S3eebd9j/ZLYOWHk8jtcng42ove4BeNayzJPnVjU/Bqy
-	 aEpFCBvr9RQUxLt58W2AbEVVKcCuYYpIE8flY33TcJbNT5k4l32HLk9E0deTMxq5+j
-	 yxQ6vZ0Kb/hFSTqa+NABim8qfb98YFzUZ1Z9VZ4GINXcWl/+rcBXIpNUjVa8MaedN4
-	 qh6476CsNMn1g==
+	s=k20201202; t=1686706230;
+	bh=iT82mDfcbsJU8gzbcrM/NjkddpYqzVIJB0ER0mXt9RQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DItFaqVwyVZfghto0Bh8xCeovRtD/Z0suxiTAWh05dXsyaR2dSLivgDymyJm9TiNX
+	 i2qiqsszBI+qmJYpHYnRYL+bBiXqqgq9uOyLlxFsqo3OmutVy3syO7RjjX+GPsX9V+
+	 Tr36lIgYuP1sHknpDuBl52E8M63WcYOUT2za6yqxEYoKmC0v3T7jUvPqYWzDtMoIFC
+	 7aLmq22dOSit3DBZMCcKalCkeE+4vRfqo+8bjjbl+x5ujIbvH27HHGu3rsVCEQ2aHL
+	 I3QlA5dHTsPv2lQczF4tuWYQ3MPW1lAxOgAkWC9pATWeSPNQvObSVv7kJP4GxHf/df
+	 sYPlZjGpYsU1w==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -58,14 +58,16 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH -next V13 0/3] riscv: Add independent irq/softirq stacks support
-Date: Tue, 13 Jun 2023 21:30:15 -0400
-Message-Id: <20230614013018.2168426-1-guoren@kernel.org>
+Subject: [PATCH -next V13 2/3] riscv: stack: Support HAVE_SOFTIRQ_ON_OWN_STACK
+Date: Tue, 13 Jun 2023 21:30:17 -0400
+Message-Id: <20230614013018.2168426-3-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20230614013018.2168426-1-guoren@kernel.org>
+References: <20230614013018.2168426-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230613_183027_254600_8CD5C0E2 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20230613_183032_047661_84ABF0CF 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +79,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhpcyBwYXRjaCBzZXJp
-ZXMgYWRkcyBpbmRlcGVuZGVudCBpcnEvc29mdGlycSBzdGFja3MgdG8gZGVjcmVhc2UgdGhlCnBy
-ZXNzIG9mIHRoZSB0aHJlYWQgc3RhY2suIEFsc28sIGFkZCBhIHRocmVhZCBTVEFDS19TSVpFIGNv
-bmZpZyBmb3IKdXNlcnMgdG8gYWRqdXN0IHRoZSBwcm9wZXIgc2l6ZSBkdXJpbmcgY29tcGlsZSB0
-aW1lLgoKVGhpcyBwYXRjaCBzZXJpZXMgYmVsb25nZWQgdG8gdGhlIGdlbmVyaWMgZW50cnksIHdo
-aWNoIGhhcyBiZWVuIG1lcmdlZAp0byBmb3ItbmV4dCBub3cuCgp2MTM6CiAtIFJlYmFzZSBvbiBy
-aXNjdi9mb3ItbmV4dCBjb21taXQgZDVlNDVlODEwZTBlICgiTWVyZ2UgcGF0Y2ggc2VyaWVzCiAg
-ICJyaXNjdjogQWRkIHZlY3RvciBJU0Egc3VwcG9ydCIiKQogLSBSbW92ZSB1bm5lY2Vzc2FyeSBC
-VUlMRF9CVUdfT04oKS4gKFRoeCBDbMOpbWVudCkKCnYxMjoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
-cmcvbGludXgtcmlzY3YvMjAyMzA1MjkwODQ2MDAuMjg3ODEzMC0xLWd1b3JlbkBrZXJuZWwub3Jn
-LwogLSBSZWJhc2Ugb24gcGFsbWVyL2Zvci1uZXh0ICgyMDIzMDUyOSkKIC0gTW92ZSBERUNMQVJF
-X1BFUl9DUFUodWxvbmcgKiwgaXJxX3N0YWNrX3B0cikgaW50byBpcnFfc3RhY2suaCAoVGh4CiAg
-IENvbm9yKQogLSBPcHRpbWl6ZSBjb21taXQgbXNnCgp2MTE6Cmh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL2xpbnV4LXJpc2N2LzIwMjMwMzI0MDcxMjM5LjE1MTY3Ny0xLWd1b3JlbkBrZXJuZWwub3Jn
-LwogLSBSZWJhc2Ugb24gcGFsbWVyL2Zvci1uZXh0ICgyMDIzMDMyNCkKIC0gU2VwYXJhdGUgZnJv
-bSBnZW5lcmljIGVudHJ5IHBhdGNoIHNlcmllcy4KCnYxMDoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
-cmcvbGludXgtcmlzY3YvMjAyMjEyMDgwMjU4MTYuMTM4NzEyLTEtZ3VvcmVuQGtlcm5lbC5vcmcv
-CiAtIFJlYmFzZSBvbiBwYWxtZXIvZm9yLW5leHQgYnJhbmNoICgyMDIyMTIwOCkKIC0gUmVtb3Zl
-IHVucmVsYXRlZCBwYXRjaGVzIGZyb20gdGhlIHNlcmllcyAoU3VnZ2VzdGVkLWJ5OiBCam9ybikK
-IC0gRml4dXAgVHlwb3MuCgp2OToKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3Yv
-MjAyMjExMzAwMzQwNTkuODI2NTk5LTEtZ3VvcmVuQGtlcm5lbC5vcmcvCiAtIEZpeHVwIE5SX3N5
-c2NhbGxzIGNoZWNrIChieSBCZW4gSHV0Y2hpbmdzKQogLSBBZGQgVGVzdGVkLWJ5OiBKaXNoZW5n
-IFpoYW5nCgp2ODoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjExMDMw
-NzUwNDcuMTYzNDkyMy0xLWd1b3JlbkBrZXJuZWwub3JnLwogLSBSZWJhc2Ugb24gcGFsbWVyL2Zv
-ci1uZXh0IGJyYW5jaCAoMjAyMjExMDIpCiAtIEFkZCBzYXZlL3Jlc3RvcmVfZnJvbV94NV90b194
-MzEgLm1hY3JvIChKaXNoZW5nWmhhbmcpCiAtIENvbnNvbGlkYXRlIHJldF9mcm9tX2tlcm5lbF90
-aHJlYWQgaW50byByZXRfZnJvbV9mb3JrIChKaXNoZW5nWmhhbmcpCiAtIE9wdGltaXplIF9fbm9p
-bnN0cl9zZWN0aW9uIGNvbW1lbnQgKEppYW5nc2hhbkxhaSkKCnY3OgpodHRwczovL2xvcmUua2Vy
-bmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMTAxNTExNDcwMi4zNDg5OTg5LTEtZ3VvcmVuQGtlcm5l
-bC5vcmcvCiAtIEZpeHVwIHJlZ3NfaXJxc19kaXNhYmxlZCB3aXRoIFNSX1BJRQogLSBPcHRpbWl6
-ZSBzdGFja2xlYWtfZXJhc2UgLT4gc3RhY2tsZWFrX2VyYXNlX29uX3Rhc2tfc3RhY2sgKFRoeCBN
-YXJrCiAgIFJ1dGxhbmQpCiAtIEFkZCBCVUdfT04oIWlycXNfZGlzYWJsZWQoKSkgaW4gdHJhcCBo
-YW5kbGVycwogLSBVc2luZyByZWdzX2lycXNfZGlzYWJsZWQgaW4gX19kb19wYWdlX2ZhdWx0CiAt
-IFJlbW92ZSB1bm5lY2Vzc2FyeSBpcnEgZGlzYWJsZSBpbiByZXRfZnJvbV9leGNlcHRpb24gYW5k
-IGFkZCBjb21tZW50Cgp2NjoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAy
-MjEwMDIwMTI0NTEuMjM1MTEyNy0xLWd1b3JlbkBrZXJuZWwub3JnLwogLSBVc2UgVEhFQURfU0la
-RV9PUkRFUiBmb3IgdGhyZWFkIHNpemUgYWRqdXN0bWVudCBpbiBrY29uZmlnIChUaHggQXJuZCkK
-IC0gTW92ZSBjYWxsX29uX3N0YWNrIHRvIGlubGluZSBzdHlsZSAoVGh4IFBldGVyIFppamxzdHJh
-KQogLSBGaXh1cCBmcCBjaGFpbiBicm9rZW4gKFRoeCBDaGVuIFpob25namluKQogLSBSZW1vdmUg
-Y29tbW9uIGVudHJ5IG1vZGlmaWNhdGlvbiwgYW5kIGZpeHVwIHBhZ2VfZmF1bHQgZW50cnkgKFRo
-eAogICBQZXRlciBaaWpsc3RyYSkKIC0gVHJlYXQgc29tZSB0cmFwcyBhcyBubWkgZW50cnkgKFRo
-eCBQZXRlciBaaWpsc3RyYSkKCnY1OgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNj
-di8yMDIyMDkxODE1NTI0Ni4xMjAzMjkzLTEtZ3VvcmVuQGtlcm5lbC5vcmcvCiAtIEFkZCByaXNj
-diBvd24gc3RhY2tsZWFrIHBhdGNoIGluc3RlYWQgb2YgZ2VuZXJpYyBlbnRyeSBtb2RpZmljYXRp
-b24KICAgKGJ5IE1hcmsgUnV0bGFuZCkKIC0gQWRkIEVYUEVSVCBkZXBlbmRlbmN5IGZvciBUSFJF
-QURfU0laRSAoYnkgQXJuZCkKIC0gQWRkIEVYUEVSVCBkZXBlbmRlbmN5IGZvciBJUlFfU1RBQ0sg
-KGJ5IFNlYmFzdGlhbiwgRGF2aWQgTGFpZ2h0KQogLSBDb3JyZWN0ZWQgX190cmFwX3NlY3Rpb24g
-KGJ5IFBldGVyIFppamxzdHJhKQogLSBBZGQgVGVzdGVkLWJ5IChZaXBlbmcgWm91KQogLSBVc2Ug
-Q09ORklHX1NPRlRJUlFfT05fT1dOX1NUQUNLIHJlcGxhY2UgIiNpZm5kZWYgQ09ORklHX1BSRUVN
-UFRfUlQiCiAtIEZpeHVwIHN5c3RyYWNlX2VudGVyIGNvbXBpbGUgZXJyb3IKIC0gRml4dXAgZXhp
-dF90b191c2VyX21vZGVfcHJlcGFyZSBwcmVlbXB0X2Rpc2FibGUgd2FybmluZwoKVjQ6Cmh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIwOTA4MDIyNTA2LjEyNzU3OTktMS1n
-dW9yZW5Aa2VybmVsLm9yZy8KIC0gRml4dXAgZW50cnkuUyB3aXRoICJsYSIgYnVnIChieSBDb25v
-ci5Eb29sZXkpCiAtIEZpeHVwIG1pc3Npbmcgbm9pbnN0ciBidWcgKGJ5IFBldGVyIFppamxzdHJh
-KQoKVjM6Cmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIwOTA2MDM1NDIz
-LjYzNDYxNy0xLWd1b3JlbkBrZXJuZWwub3JnLwogLSBGaXh1cCBDT05GSUdfQ09NUEFUPW4gY29t
-cGlsZSBlcnJvcgogLSBBZGQgVEhSRUFEX1NJWkVfT1JERVIgY29uZmlnCiAtIE9wdGltaXplIGVs
-Zl9rZXhlYy5jIHdhcm5pbmcgZml4dXAKIC0gQWRkIHN0YXRpYyB0byBpcnFfc3RhY2tfcHRyIGRl
-ZmluaXRpb24KClYyOgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMDkw
-NDA3MjYzNy44NjE5LTEtZ3VvcmVuQGtlcm5lbC5vcmcvCiAtIEZpeHVwIGNvbXBpbGUgZXJyb3Ig
-YnkgaW5jbHVkZSAicmlzY3Y6IHB0cmFjZTogUmVtb3ZlIGR1cGxpY2F0ZQogICBvcGVyYXRpb24i
-CiAtIEZpeHVwIGNvbXBpbGUgd2FybmluZwogICBSZXBvcnRlZC1ieToga2VybmVsIHRlc3Qgcm9i
-b3QgPGxrcEBpbnRlbC5jb20+CiAtIEFkZCB0ZXN0IHJlcG8gbGluayBpbiBjb3ZlciBsZXR0ZXIK
-ClYxOgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMDkwMzE2MzgwOC4x
-OTU0MTMxLTEtZ3VvcmVuQGtlcm5lbC5vcmcvCgpHdW8gUmVuICgzKToKICByaXNjdjogc3RhY2s6
-IFN1cHBvcnQgSEFWRV9JUlFfRVhJVF9PTl9JUlFfU1RBQ0sKICByaXNjdjogc3RhY2s6IFN1cHBv
-cnQgSEFWRV9TT0ZUSVJRX09OX09XTl9TVEFDSwogIHJpc2N2OiBzdGFjazogQWRkIGNvbmZpZyBv
-ZiB0aHJlYWQgc3RhY2sgc2l6ZQoKIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAg
-ICB8IDE5ICsrKysrKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2lycV9zdGFjay5oICAgfCAz
-MCArKysrKysrKysrKysKIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaCB8IDE0
-ICsrLS0tLQogYXJjaC9yaXNjdi9rZXJuZWwvaXJxLmMgICAgICAgICAgICAgIHwgNjggKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyAgICAgICAg
-ICAgIHwgMzUgKysrKysrKysrKysrKy0KIDUgZmlsZXMgY2hhbmdlZCwgMTUzIGluc2VydGlvbnMo
-KyksIDEzIGRlbGV0aW9ucygtKQogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vaXJxX3N0YWNrLmgKCi0tIAoyLjM2LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Guo Ren <guoren@linux.alibaba.com>
+
+Add the HAVE_SOFTIRQ_ON_OWN_STACK feature for the IRQ_STACKS config, and
+the irq and softirq use the same irq_stack of percpu.
+
+Tested-by: Jisheng Zhang <jszhang@kernel.org>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/Kconfig      |  6 ++++--
+ arch/riscv/kernel/irq.c | 35 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 39 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a8368fe7be14..f515cb101c19 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -591,11 +591,13 @@ config FPU
+ 	  If you don't know what to do here, say Y.
+ 
+ config IRQ_STACKS
+-	bool "Independent irq stacks" if EXPERT
++	bool "Independent irq & softirq stacks" if EXPERT
+ 	default y
+ 	select HAVE_IRQ_EXIT_ON_IRQ_STACK
++	select HAVE_SOFTIRQ_ON_OWN_STACK
+ 	help
+-	  Add independent irq stacks for percpu to prevent kernel stack overflows.
++	  Add independent irq & softirq stacks for percpu to prevent kernel stack
++	  overflows. We may save some memory footprint by disabling IRQ_STACKS.
+ 
+ endmenu # "Platform type"
+ 
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index a1dcf8e43b3c..d0577cc6a081 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -11,6 +11,9 @@
+ #include <linux/module.h>
+ #include <linux/seq_file.h>
+ #include <asm/sbi.h>
++#include <asm/smp.h>
++#include <asm/softirq_stack.h>
++#include <asm/stacktrace.h>
+ 
+ static struct fwnode_handle *(*__get_intc_node)(void);
+ 
+@@ -56,6 +59,38 @@ static void init_irq_stacks(void)
+ 		per_cpu(irq_stack_ptr, cpu) = per_cpu(irq_stack, cpu);
+ }
+ #endif /* CONFIG_VMAP_STACK */
++
++#ifdef CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
++void do_softirq_own_stack(void)
++{
++#ifdef CONFIG_IRQ_STACKS
++	if (on_thread_stack()) {
++		ulong *sp = per_cpu(irq_stack_ptr, smp_processor_id())
++					+ IRQ_STACK_SIZE/sizeof(ulong);
++		__asm__ __volatile(
++		"addi	sp, sp, -"RISCV_SZPTR  "\n"
++		REG_S"  ra, (sp)		\n"
++		"addi	sp, sp, -"RISCV_SZPTR  "\n"
++		REG_S"  s0, (sp)		\n"
++		"addi	s0, sp, 2*"RISCV_SZPTR "\n"
++		"move	sp, %[sp]		\n"
++		"call	__do_softirq		\n"
++		"addi	sp, s0, -2*"RISCV_SZPTR"\n"
++		REG_L"  s0, (sp)		\n"
++		"addi	sp, sp, "RISCV_SZPTR   "\n"
++		REG_L"  ra, (sp)		\n"
++		"addi	sp, sp, "RISCV_SZPTR   "\n"
++		:
++		: [sp] "r" (sp)
++		: "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7",
++		  "t0", "t1", "t2", "t3", "t4", "t5", "t6",
++		  "memory");
++	} else
++#endif
++		__do_softirq();
++}
++#endif /* CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK */
++
+ #else
+ static void init_irq_stacks(void) {}
+ #endif /* CONFIG_IRQ_STACKS */
+-- 
+2.36.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
