@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37846EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 19:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D167EB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 19:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+piilWv2PkbEEuMvxoAe5JOjjZ/C4V/4+uCDR3+u4dg=; b=Vmu61SYOd/43nWE1EMP/xbjEO1
-	ZDu8kQsqnHaEp22DHnt8TBiFVK+km0ovbmq/TItLKFlBD35k91moPBP83f1oYCtPaVw+znkJLMRTK
-	jqPybEt+UggsFlEEFujXi8Q6tLLjIJW/3r3oqL1sDfh3uJkkp9wC9JK4Zof9OVWQIA/+XbvLrvDt4
-	8kUWf6AmkbkIJ04zdWx2vl7GyvHGGqxmSQGbFx8P8HRshB0X+/1uQqQicbugqlbaFzG65XwvaDrdp
-	wvPepFcZMtWitIR8vQdNCs3ZekjJqpSGNxbZYngdQhcFVz/I3YNWVHVi6yLjIySugSFgPDV39wbVy
-	HjTfFKNA==;
+	bh=Bo2pNk9IPCl2hZ/ePSQ6THUk9jdXyyP19Z4rfGA5IIc=; b=lrRAKUNnfHiSj40U/kMIWcen5d
+	aT5GgDUXkqcDEruKGYC72Kz3QiOM18hUP8+Y5QpGAEFu0IB9qFNViSNyODTzo7DWUNW3fY+bqUpa9
+	/fS2S+7iA6EgFSFzwcCuM42QWwT5DHUJP3rfz1jJ93Z3Xf0tyCJpHPwXgLBKGtHd9dUcfmPW3jpol
+	50VTFUucAyY3xinyjOr/8R5kqeWJD1XZuPHfCcpWMnoXjPdpKk0zVUyBaiKdKjWm+PTQTBOOL/e+H
+	18vJRHZU2xTcvhwA3nbqjsLt+tcBOOERYNCVvgW/oTZYpxaGWGgScxpeIt0I2g3kUuWhr5ZGxLVR1
+	CR/r63CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9W9V-00CXuG-1z;
-	Wed, 14 Jun 2023 19:27:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q9WYe-00Cb6E-37;
+	Wed, 14 Jun 2023 19:53:32 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9W9S-00CXtN-21
+	id 1q9WYa-00Cb4D-2w
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jun 2023 19:27:31 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EF4D662FD6;
-	Wed, 14 Jun 2023 19:27:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4C2FC433C0;
-	Wed, 14 Jun 2023 19:27:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686770849;
-	bh=T2ORHO5yFSlNbPCHm8exnTbQMAiovym6Yw8Agz5UFng=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mTMCil+hklnlF1wdBdgexpCOuFi7k1H8k1v4rWagRqV3dxUorHBVWLvou82XCQT8/
-	 jGgNlk8Ejwuimir91p35ihiH6bHZUUrwQqRDeRZgQL1tDYxS/Ig7Y28b2KpoP74PQP
-	 kjFwt2HNJmkbJL06LaIx9f95tFxmKDQAkPlvRt0PTrDM/HhW3/Bm1lH46mPgZ2kYA3
-	 AkRZ7zBaMSKFK5ptaSPTUDDg+omBNLLOKpL41HRYpqsUsDS37laN3QtBlcz1E3dMGk
-	 JXhBGHlC+rn9z6ohcuooizlA1WQTPc5Jc1eq9JeNUTEIu7fvwCZjNQBV1UBO6JP6Ck
-	 2bTCSnLKgL2KQ==
-Date: Wed, 14 Jun 2023 20:27:23 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Saravana Kannan <saravanak@google.com>,
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	iommu@lists.linux.dev
-Subject: Re: [PATCH v4 07/10] dt-bindings: interrupt-controller: Add RISC-V
- advanced PLIC
-Message-ID: <20230614-devotee-repave-37d670dbfb7c@spud>
-References: <20230613153415.350528-1-apatel@ventanamicro.com>
- <20230613153415.350528-8-apatel@ventanamicro.com>
+	Wed, 14 Jun 2023 19:53:31 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1q9WYC-0000rI-PC; Wed, 14 Jun 2023 21:53:04 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1q9WYB-007QQ6-O6; Wed, 14 Jun 2023 21:53:03 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1q9WYA-00EI97-Gm; Wed, 14 Jun 2023 21:53:02 +0200
+Date: Wed, 14 Jun 2023 21:53:02 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: daire.mcnamara@microchip.com
+Cc: conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com,
+	robh@kernel.org, bhelgaas@google.com, linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 3/8] PCI: microchip: enable building this driver as a
+ module
+Message-ID: <20230614195302.4oefoainw3bn6pmh@pengutronix.de>
+References: <20230614155556.4095526-1-daire.mcnamara@microchip.com>
+ <20230614155556.4095526-4-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <20230613153415.350528-8-apatel@ventanamicro.com>
+In-Reply-To: <20230614155556.4095526-4-daire.mcnamara@microchip.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_122730_764378_6163505A 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20230614_125328_944079_F3BB477A 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,98 +70,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8279629277712202503=="
+Content-Type: multipart/mixed; boundary="===============5355770530033309572=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8279629277712202503==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5BjMorMatJMI/kO2"
+--===============5355770530033309572==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zkk5goccekctlxud"
 Content-Disposition: inline
 
 
---5BjMorMatJMI/kO2
-Content-Type: text/plain; charset=us-ascii
+--zkk5goccekctlxud
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hey Anup,
+Hello Daire,
 
-Mostly looks good, once minor comment.
+On Wed, Jun 14, 2023 at 04:55:51PM +0100, daire.mcnamara@microchip.com wrot=
+e:
+> From: Daire McNamara <daire.mcnamara@microchip.com>
+>=20
+> Enable building this driver as a module. The expected use case is the
+> driver is built as a module, is installed when needed, and cannot be
+> removed once installed.
+>=20
+> The remove() callback is not implemented as removing a driver with
+> INTx and MSI interrupt handling is inherently unsafe.
 
-On Tue, Jun 13, 2023 at 09:04:12PM +0530, Anup Patel wrote:
+The relevant thing here is not that there is no .remove callback (which
+doesn't make the driver non-removable) but that the driver has
+=2Esuppress_bind_attrs =3D true.
+=20
+With that properly mentioned in the changelog, the patch is fine for me.
 
-> +  riscv,children:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    minItems: 1
-> +    maxItems: 1024
-> +    items:
-> +      maxItems: 1
-> +    description:
-> +      A list of child APLIC domains for the given APLIC domain. Each child
-> +      APLIC domain is assigned a child index in increasing order, with the
-> +      first child APLIC domain assigned child index 0. The APLIC domain child
-> +      index is used by firmware to delegate interrupts from the given APLIC
-> +      domain to a particular child APLIC domain.
-> +
-> +  riscv,delegation:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    minItems: 1
-> +    maxItems: 1024
-> +    items:
-> +      items:
-> +        - description: child APLIC domain phandle
-> +        - description: first interrupt number of the parent APLIC domain (inclusive)
-> +        - description: last interrupt number of the parent APLIC domain (inclusive)
-> +    description:
-> +      A interrupt delegation list where each entry is a triple consisting
-> +      of child APLIC domain phandle, first interrupt number of the parent
-> +      APLIC domain, and last interrupt number of the parent APLIC domain.
-> +      Firmware must configure interrupt delegation registers based on
-> +      interrupt delegation list.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupt-controller
-> +  - "#interrupt-cells"
-> +  - riscv,num-sources
-> +
-> +anyOf:
-> +  - required:
-> +      - interrupts-extended
-> +  - required:
-> +      - msi-parent
+Best regards
+Uwe
 
-Not sure if you missed this from the last version, but I asked if we
-needed a
-	dependencies:
-	  riscv,delegate: [ riscv,children ]
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
 
-IOW, I don't think it is valid to have a delegation without having
-children?
-
-Otherwise,
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
---5BjMorMatJMI/kO2
+--zkk5goccekctlxud
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIoUmwAKCRB4tDGHoIJi
-0s8OAQC9Z5JXorm19qiau/8bfDQbErjoln46aJVOZhOB61Zs4AEAldzBD4e5sVZx
-BB4EhiqD4OULcq1ms+OtgVW6TW7zIgE=
-=hrI0
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmSKGp0ACgkQj4D7WH0S
+/k4HEwf/YK/Kh7Sjdv9pCpDMYW1gbkDfUssQC0nNSXYQDywPqo687VoR60lZCQ7L
+ObykeoDwqVdJcUHQRomaMcW3tncNxLn7+1q+VVFaQgOMIvdfh7mkMmnuDyIx/sRa
+JTRPN+JlC+4dur36CppUzKmCCDZvU/sJYBx8Vjb5bIXWtJlkhhGrPRI9JKH9I7xs
+QCAmPlqpfGErf7b4N3oFD1ac4JWcTP4Bhh+3on09BcQEJh0kqRieH30z4A2CjJQ4
+xKp1r4Tr2O2b7ks+9Y0I5mBw+dIN7QALIBzCa4PaR7605HPfQyQ49S9EbuW7NEdP
+f3o2HFN/EPhZjuiQWlmr2FDRO9bOkw==
+=UzMh
 -----END PGP SIGNATURE-----
 
---5BjMorMatJMI/kO2--
+--zkk5goccekctlxud--
 
 
---===============8279629277712202503==
+--===============5355770530033309572==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -185,5 +141,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8279629277712202503==--
+--===============5355770530033309572==--
 
