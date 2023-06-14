@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA23AC001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 15:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3755FEB64DD
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 15:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qou5X4pszGDcS80w7PCL5JOMWg6uw1Lzr7AWWEDls/Y=; b=mUcU+UtSFGNceg
-	NIOO95EDwon+TQp7KkWb8BcEMzYIGX4HLxhUAGlcnznzt/PwqKuyWzsS3AwXlqlrbEGvT/A/4VxCx
-	E/HHXAjZuiE9UXEPHdONsHzmnLLaRNAhh82F6cmfczLCLYTIAhQ15KgMJi7KRgbloisNJEQoMxPKQ
-	EKyGAnXVNcRXUJTFnSq5heN0BMoXcCl4sVdv0uIZ0or63FnGEi/HMYBozuO9SCk3yOg1qNf4LqI/s
-	gXJxUvmW4Gq1G5maAPIh4QbVvFobxjSR7WqWRt6AqM3LW0mBivUe9YU3Uq83koFr6lwuguz8EEmiB
-	UBKsm16pcRrzdkUTVxMw==;
+	List-Owner; bh=QVF6DxGa30+QONtFUe3KCOm0hfFH0PF5GWSmiTMPq8o=; b=TZ4xS2iffOogep
+	0BHbjRQOGOMHl/PwbP8bwVrnAzy+1ZsXFAhQCmsnTyNLI9K9xLRz0ylgRPs0ZasPafaNgP9MdlK1I
+	mTzIiPCObQkztIux2nkGpFTZLTyu5hLPK7zoxePtfyDNrTCd2mU//+pXOND+uq0acFYTMBkCJVRfK
+	Q7xIO3J0s5iQ88kE07c1xvr96MrPQDx/fAC/wLEUWYFgA7+28c4R8t45R1RJYaNQT/2BeMahvQJUl
+	oJH/p01r40XuiJQHNfe4ta45P8H3KYa/gb0YXDKOO34A/Er/LdXwfa8QSuC+stpjTfIAdYOxl1pCH
+	0j0gj9Bu80CVfzbt61SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9Sr4-00C8MA-0C;
+	id 1q9Sr4-00C8MO-1r;
 	Wed, 14 Jun 2023 15:56:18 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9Sqy-00C8Jd-3A
+	id 1q9Sr0-00C8Il-0r
 	for linux-riscv@lists.infradead.org;
 	Wed, 14 Jun 2023 15:56:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1686758172; x=1718294172;
+  t=1686758173; x=1718294173;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=S5vCuw78EMxUcrUT8ddX5mKyVGeG/2vvPlNqjUVfk1A=;
-  b=h8JbECllSy2AIrhWnOYexXrfKL4jlM40gNYw406xFVrbrk9fjRNPtJI0
-   J/Wnrs9Ng0vDLUa0Jk/UTf4vKjuPddMrqzli1AS7Y6dEf3zKvKLlMwUIW
-   /ZQMBOS7FBWTRti25uRZD0POxoce9uZ4gcgEUeJOwURgIJ3xkuFfHgVfl
-   yGgCTPIWQ0DM0V61WtkzcJsprF1T7srirFNIqm+XTLkI974dSkKLv/m+d
-   vfUAwIcaG4NI73HQ6A0QwinOJ7gT5MjxyRjbUOeqdqC79yGiINmkEWf62
-   A+/wzTy97Al6vbfHcd4AtqsnMx0ZQvM/a/uPGmHuRNEUoom96v3kdwwlj
-   Q==;
+  bh=iQVdQ5/Fd7A+l93rxa4YuqFXIveaFWB1LxC6Y87vXmk=;
+  b=rfVwe+VGL9hUdY1srw/K2cLxipYI6yf9wVv80NaFCUDBjFPwNULh/kW2
+   beiPe4kk6FqXvE/X4Fq6MqF/mLheicfIp+0UHdzxCaZLclvXUBCjnhILr
+   7iuwmiON2diLnYBUvxnMFqmaVEM67ex4dj1oy8iCOptA9ZV6RKwEyy4HM
+   J5I8M0+ji4DYmkFGWEJ/1WHPi7SOSwW3Wzot+Fl05IYsGHlxcbvUoWBtC
+   +CqqIojB2ci+tygD7oXGysuhlPOf3dD+7DFjxZZj0jAbdQTU4uZdno2jp
+   HOA+p7naqljvuMW4cBU+Wv9km2yVzRl3B8+oagiVvDKQIEkQL3X+RBn/W
+   g==;
 X-IronPort-AV: E=Sophos;i="6.00,242,1681196400"; 
-   d="scan'208";a="230124311"
+   d="scan'208";a="156969572"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Jun 2023 08:56:11 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Jun 2023 08:56:03 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 14 Jun 2023 08:56:11 -0700
+ 15.1.2507.21; Wed, 14 Jun 2023 08:56:02 -0700
 Received: from daire-X570.emdalo.com (10.10.115.15) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.21 via Frontend Transport; Wed, 14 Jun 2023 08:56:09 -0700
+ 15.1.2507.21 via Frontend Transport; Wed, 14 Jun 2023 08:56:01 -0700
 From: <daire.mcnamara@microchip.com>
 To: <conor.dooley@microchip.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
 	<robh@kernel.org>, <bhelgaas@google.com>, <linux-pci@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>
 CC: Daire McNamara <daire.mcnamara@microchip.com>
-Subject: [PATCH v1 5/8] PCI: microchip: Enable event handlers to access bridge and ctrl ptrs
-Date: Wed, 14 Jun 2023 16:55:53 +0100
-Message-ID: <20230614155556.4095526-6-daire.mcnamara@microchip.com>
+Subject: [PATCH v1 1/8] PCI: microchip: Correct the DED and SEC interrupt bit offsets
+Date: Wed, 14 Jun 2023 16:55:49 +0100
+Message-ID: <20230614155556.4095526-2-daire.mcnamara@microchip.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230614155556.4095526-1-daire.mcnamara@microchip.com>
 References: <20230614155556.4095526-1-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_085613_021270_4B37F532 
-X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-CacheID: sfid-20230614_085614_365737_4ADD86FD 
+X-CRM114-Status: UNSURE (   8.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,92 +86,39 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Daire McNamara <daire.mcnamara@microchip.com>
 
-Minor re-organisation so that event handlers can access both a pointer
-to the bridge area of the PCIe Root Port and the ctrl area of the PCIe
-Root Port.
+The SEC and DED interrupt bits were the wrong way round so the SEC
+interrupt handler attempted to mask, unmask, and clear the DED interrupt
+and vice versa. Correct the bit offsets so each interrupt handler
+operates properly.
 
+Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip PolarFire PCIe controller driver")
 Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/pci/controller/pcie-microchip-host.c | 31 ++++++++++----------
- 1 file changed, 16 insertions(+), 15 deletions(-)
+ drivers/pci/controller/pcie-microchip-host.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-index 2efd48ef79d8..444ba99b070b 100644
+index 5e710e485464..dd5245904c87 100644
 --- a/drivers/pci/controller/pcie-microchip-host.c
 +++ b/drivers/pci/controller/pcie-microchip-host.c
-@@ -654,9 +654,10 @@ static inline u32 reg_to_event(u32 reg, struct event_map field)
- 	return (reg & field.reg_mask) ? BIT(field.event_bit) : 0;
- }
- 
--static u32 pcie_events(void __iomem *addr)
-+static u32 pcie_events(struct mc_pcie *port)
- {
--	u32 reg = readl_relaxed(addr);
-+	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-+	u32 reg = readl_relaxed(ctrl_base_addr + PCIE_EVENT_INT);
- 	u32 val = 0;
- 	int i;
- 
-@@ -666,9 +667,10 @@ static u32 pcie_events(void __iomem *addr)
- 	return val;
- }
- 
--static u32 sec_errors(void __iomem *addr)
-+static u32 sec_errors(struct mc_pcie *port)
- {
--	u32 reg = readl_relaxed(addr);
-+	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-+	u32 reg = readl_relaxed(ctrl_base_addr + SEC_ERROR_INT);
- 	u32 val = 0;
- 	int i;
- 
-@@ -678,9 +680,10 @@ static u32 sec_errors(void __iomem *addr)
- 	return val;
- }
- 
--static u32 ded_errors(void __iomem *addr)
-+static u32 ded_errors(struct mc_pcie *port)
- {
--	u32 reg = readl_relaxed(addr);
-+	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-+	u32 reg = readl_relaxed(ctrl_base_addr + DED_ERROR_INT);
- 	u32 val = 0;
- 	int i;
- 
-@@ -690,9 +693,10 @@ static u32 ded_errors(void __iomem *addr)
- 	return val;
- }
- 
--static u32 local_events(void __iomem *addr)
-+static u32 local_events(struct mc_pcie *port)
- {
--	u32 reg = readl_relaxed(addr);
-+	void __iomem *bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-+	u32 reg = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
- 	u32 val = 0;
- 	int i;
- 
-@@ -704,15 +708,12 @@ static u32 local_events(void __iomem *addr)
- 
- static u32 get_events(struct mc_pcie *port)
- {
--	void __iomem *bridge_base_addr =
--		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
--	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
- 	u32 events = 0;
- 
--	events |= pcie_events(ctrl_base_addr + PCIE_EVENT_INT);
--	events |= sec_errors(ctrl_base_addr + SEC_ERROR_INT);
--	events |= ded_errors(ctrl_base_addr + DED_ERROR_INT);
--	events |= local_events(bridge_base_addr + ISTATUS_LOCAL);
-+	events |= pcie_events(port);
-+	events |= sec_errors(port);
-+	events |= ded_errors(port);
-+	events |= local_events(port);
- 
- 	return events;
- }
+@@ -167,12 +167,12 @@
+ #define EVENT_PCIE_DLUP_EXIT			2
+ #define EVENT_SEC_TX_RAM_SEC_ERR		3
+ #define EVENT_SEC_RX_RAM_SEC_ERR		4
+-#define EVENT_SEC_AXI2PCIE_RAM_SEC_ERR		5
+-#define EVENT_SEC_PCIE2AXI_RAM_SEC_ERR		6
++#define EVENT_SEC_PCIE2AXI_RAM_SEC_ERR		5
++#define EVENT_SEC_AXI2PCIE_RAM_SEC_ERR		6
+ #define EVENT_DED_TX_RAM_DED_ERR		7
+ #define EVENT_DED_RX_RAM_DED_ERR		8
+-#define EVENT_DED_AXI2PCIE_RAM_DED_ERR		9
+-#define EVENT_DED_PCIE2AXI_RAM_DED_ERR		10
++#define EVENT_DED_PCIE2AXI_RAM_DED_ERR		9
++#define EVENT_DED_AXI2PCIE_RAM_DED_ERR		10
+ #define EVENT_LOCAL_DMA_END_ENGINE_0		11
+ #define EVENT_LOCAL_DMA_END_ENGINE_1		12
+ #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
 -- 
 2.25.1
 
