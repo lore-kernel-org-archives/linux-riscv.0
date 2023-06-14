@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586CEEB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 14:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB56C001DF
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 14:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=y98SNQEUUFE3cL/GlHbTZ/H4yPTcYEDSDykNBbYDurc=; b=smEwtISGUoQ31U0PymT9c5E0lv
-	CLHLSVFAFMsK5n03Fine72w5kqwPXff85QaasT2KLfhUiEt67SOBh//2wM4Xl62DGWXtWh603x8da
-	XLRy3XoVmIhCJc2WJjEoUPMB4fWgmfisUB1ge5hp1uZn+2JTiCqv67PPVN21BwOkf2isvDhGgG0Xz
-	oWpbB5hWt/ME1cKZcTYQDiZtWVoW5HCXA+GXk+sBnqO+fpkVvA6KYidD67k85QiYcuHZodlueLcW/
-	EyMy0g1gAZrsWvLztTP4dadKEkjl3jpeFHy5wCD/P5j/OnJ8knZF1yk46RD4fNXHKo7S1L/KOO5CX
-	AIlGVhJQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4ZwEFjS39qtMyLbctywiZPtxmOwgziQNR3ffoPV81/I=; b=roskvGQjKMJLXC
+	ayPznF8k8WwOdXK3uQv9Qrz02IaHp/mr3eDMDKXHMmL1Wgs29aLVVPTcJG6G8j8lXkK+Bbe1GiF7L
+	XBVxyh3XqNOJHc6iY/eEBl3/7J/Hd+vZQ4n3ZQvRSEwDK1MMA6AHPgSRy41ffhFLVLz2j0qhDsJiL
+	3Njlopiub+7qtw01xb/wQ142Ec9LVFyRMoQLinsj5u96oV1tosy0CaRZ0NPKCa76fsrvuOwf/eyQn
+	FlirrZDTBKpMLPGJMDSwjKyPd9+kK9UyqIVA1P6U0Dl3R5adcB36mu0QWZ6nr7wNyJuaB7+7soPrw
+	J1KcN/rZBvjdTMAEzEJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9RoJ-00BxDK-0F;
-	Wed, 14 Jun 2023 14:49:23 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1q9Rsw-00BxyF-2V;
+	Wed, 14 Jun 2023 14:54:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9RoF-00BxCD-3B
-	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jun 2023 14:49:21 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1b3b3f67ad6so36532315ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Jun 2023 07:49:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1686754158; x=1689346158;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GKRPE21e3VYfChpFhohDRbV1xWyVB/8sEvcGY/fQRtY=;
-        b=StLoc1kVQd8T9vYMLq0d7MyCHvxTL+0SIFZNTaA2rIaV3Q3TxJP1T2XFTGwcKZ7Bso
-         bjLkgFqON00qrD7vOcMG2nwP2tUTvOQC4Qz+ruaJSoRXbMJ8zekx905259Ej/nz/EsDh
-         ppaseEAxZUyq3/AJ/WiMvkfPVXRbf8FWxpP33b0SXtob2sIropYCCwdhc+4pBSpIR7Hp
-         do+JfGRUQu+3phZg888rY2sShfFKoC/S+D6mwXll2Km/ak94SKgD02sGR4eBQRi1q5eU
-         0uKI5zn0olHna/hKqL7AjcqQslXL5DgkUMsAAcmPmvkqOMBYQ3pjbXd60iDL6i/lfIfm
-         xbxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686754158; x=1689346158;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GKRPE21e3VYfChpFhohDRbV1xWyVB/8sEvcGY/fQRtY=;
-        b=DSRzPU66jEaDWx6G9SqJ2G4b4kHgTImljWkz7UPti8ssjelJ9nbxD2yRaHjRweIH21
-         HDmvWlf+VYH4Vm5i5ZhAl4YCxiQhdXmK2Ua0ZYGdkacD2VjbxKCIZG3NJW/fCoi6Ppol
-         7kwEtAHb8Cgtn7WbEHHo6hTWAKVOGzJAoVhwfv0Dgi30a5oAElRASS+jpB++kSwT7C0H
-         usylXfglShazWmHgIlXfIwGNjXzG/sySbtwsu3hjZ4AtBinhumuo681YEjHZt5WXiwBp
-         Tl8vPlGiiS2dW9FGEF8AWXMNcfU+HfK28EOenZGSNK3f1XikH1sm3INY0MGMDVTAhK2a
-         5g2A==
-X-Gm-Message-State: AC+VfDzYIzFFwcbS/cAS2Jm6GYhzBZ4hO4cnBE+FvrVViKKSkpPddBLt
-	HJDiKHApHkvcvH8Pgp9G6wzbSEKad5Dwv+Edng4=
-X-Google-Smtp-Source: ACHHUZ76y61nmrxgu/6Uj1VU/Fx1+aYmcHGqSELnwIIfd1gkpGJDnTmM8AnZnj0eFQIjXvfyvmNj0Q==
-X-Received: by 2002:a17:903:32d1:b0:1af:cbb1:845 with SMTP id i17-20020a17090332d100b001afcbb10845mr16027525plr.16.1686754158383;
-        Wed, 14 Jun 2023 07:49:18 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id bi8-20020a170902bf0800b001b3d7205401sm5552790plb.303.2023.06.14.07.49.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jun 2023 07:49:17 -0700 (PDT)
-Date: Wed, 14 Jun 2023 07:49:17 -0700 (PDT)
-X-Google-Original-Date: Wed, 14 Jun 2023 07:49:15 PDT (-0700)
-Subject: Re: [PATCH v2 0/4] riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-In-Reply-To: <20230523165502.2592-1-jszhang@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  Arnd Bergmann <arnd@arndb.de>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  linux-arch@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang@kernel.org
-Message-ID: <mhng-4483745f-f356-454c-8c2a-5f0e5b6c9739@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1q9Rst-00Bxx2-04;
+	Wed, 14 Jun 2023 14:54:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7B66B64337;
+	Wed, 14 Jun 2023 14:54:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2F20C433C0;
+	Wed, 14 Jun 2023 14:53:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686754446;
+	bh=aUxoRMWQndKzGf4Pu7KWMeOI/WoSZl9BaSxpwilOg7U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jZwYpBVV3Znjt/2r1/XmhShCVNutgqeq3trQicfEgjJSgiA24WGgfoHn4JPicd8He
+	 rS8NLkit65oXPztWCIk1plc/L0WWZ1stJCGO0xc9wMl4POqoTrOZPublJSijHPF4oz
+	 YlEcjE5Kwe8W73hiYvKQSbG68Y5Kyn6lFrlJJDjGKeMTC6UZAwh79rs3bU7nluQGBU
+	 tiS60ivJdA1OXEq/xKwuvgxelAM+i8GtKwUxe5gT00CZzdwQsaCSrG5/5u9c1vIGyV
+	 elULRRCAhePhL/Al9xGEtorsHTDGauC6YCgaYOxRHSZ2eYhHw9pEXNQZFB7ZzH7n03
+	 HSw2Jfv0l97fA==
+Date: Wed, 14 Jun 2023 17:53:28 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+	Hugh Dickins <hughd@google.com>
+Subject: Re: [PATCH v4 18/34] mm: Remove page table members from struct page
+Message-ID: <20230614145328.GQ52412@kernel.org>
+References: <20230612210423.18611-1-vishal.moola@gmail.com>
+ <20230612210423.18611-19-vishal.moola@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230612210423.18611-19-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_074920_024633_013C4A3B 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20230614_075407_143053_4D1DCF09 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +79,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 May 2023 09:54:58 PDT (-0700), jszhang@kernel.org wrote:
-> When trying to run linux with various opensource riscv core on
-> resource limited FPGA platforms, for example, those FPGAs with less
-> than 16MB SDRAM, I want to save mem as much as possible. One of the
-> major technologies is kernel size optimizations, I found that riscv
-> does not currently support HAVE_LD_DEAD_CODE_DATA_ELIMINATION, which
-> passes -fdata-sections, -ffunction-sections to CFLAGS and passes the
-> --gc-sections flag to the linker.
->
-> This not only benefits my case on FPGA but also benefits defconfigs.
-> Here are some notable improvements from enabling this with defconfigs:
->
-> nommu_k210_defconfig:
->    text    data     bss     dec     hex
-> 1112009  410288   59837 1582134  182436     before
->  962838  376656   51285 1390779  1538bb     after
->
-> rv32_defconfig:
->    text    data     bss     dec     hex
-> 8804455 2816544  290577 11911576 b5c198     before
-> 8692295 2779872  288977 11761144 b375f8     after
->
-> defconfig:
->    text    data     bss     dec     hex
-> 9438267 3391332  485333 13314932 cb2b74     before
-> 9285914 3350052  483349 13119315 c82f53     after
->
-> patch1 and patch2 are clean ups.
-> patch3 fixes a typo.
-> patch4 finally enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION for riscv.
->
-> NOTE: Zhangjin Wu firstly sent out a patch to enable dead code
-> elimination for riscv several months ago, I didn't notice it until
-> yesterday. Although it missed some preparations and some sections's
-> keeping, he is the first person to enable this feature for riscv. To
-> ease merging, this series take his patch into my entire series and
-> makes patch4 authored by him after getting his ack to reflect
-> the above fact.
->
-> Since v1:
->   - collect Reviewed-by, Tested-by tag
->   - Make patch4 authored by Zhangjin Wu, add my co-developed-by tag
->
-> Jisheng Zhang (3):
->   riscv: move options to keep entries sorted
->   riscv: vmlinux-xip.lds.S: remove .alternative section
->   vmlinux.lds.h: use correct .init.data.* section name
->
-> Zhangjin Wu (1):
->   riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
->
->  arch/riscv/Kconfig                  |  13 +-
->  arch/riscv/kernel/vmlinux-xip.lds.S |   6 -
->  arch/riscv/kernel/vmlinux.lds.S     |   6 +-
->  include/asm-generic/vmlinux.lds.h   |   2 +-
->  4 files changed, 11 insertions(+), 16 deletions(-)
+On Mon, Jun 12, 2023 at 02:04:07PM -0700, Vishal Moola (Oracle) wrote:
+> The page table members are now split out into their own ptdesc struct.
+> Remove them from struct page.
+> 
+> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
 
-Do you have a base commit for this?  It's not applying to 6.4-rc1 and 
-the patchwork bot couldn't find one either.
+Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
+
+> ---
+>  include/linux/mm_types.h | 14 --------------
+>  include/linux/pgtable.h  |  3 ---
+>  2 files changed, 17 deletions(-)
+> 
+> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+> index 6161fe1ae5b8..31ffa1be21d0 100644
+> --- a/include/linux/mm_types.h
+> +++ b/include/linux/mm_types.h
+> @@ -141,20 +141,6 @@ struct page {
+>  		struct {	/* Tail pages of compound page */
+>  			unsigned long compound_head;	/* Bit zero is set */
+>  		};
+> -		struct {	/* Page table pages */
+> -			unsigned long _pt_pad_1;	/* compound_head */
+> -			pgtable_t pmd_huge_pte; /* protected by page->ptl */
+> -			unsigned long _pt_s390_gaddr;	/* mapping */
+> -			union {
+> -				struct mm_struct *pt_mm; /* x86 pgds only */
+> -				atomic_t pt_frag_refcount; /* powerpc */
+> -			};
+> -#if ALLOC_SPLIT_PTLOCKS
+> -			spinlock_t *ptl;
+> -#else
+> -			spinlock_t ptl;
+> -#endif
+> -		};
+>  		struct {	/* ZONE_DEVICE pages */
+>  			/** @pgmap: Points to the hosting device page map. */
+>  			struct dev_pagemap *pgmap;
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index c405f74d3875..33cc19d752b3 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -1019,10 +1019,7 @@ struct ptdesc {
+>  TABLE_MATCH(flags, __page_flags);
+>  TABLE_MATCH(compound_head, pt_list);
+>  TABLE_MATCH(compound_head, _pt_pad_1);
+> -TABLE_MATCH(pmd_huge_pte, pmd_huge_pte);
+>  TABLE_MATCH(mapping, _pt_s390_gaddr);
+> -TABLE_MATCH(pt_mm, pt_mm);
+> -TABLE_MATCH(ptl, ptl);
+>  #undef TABLE_MATCH
+>  static_assert(sizeof(struct ptdesc) <= sizeof(struct page));
+>  
+> -- 
+> 2.40.1
+> 
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
