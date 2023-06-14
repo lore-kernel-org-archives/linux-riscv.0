@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442B2EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 14:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF9AEB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 14:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V7DyveCflhRRf1WyvYFu7BCD8vkRu9Gw5Q5IcLRzF74=; b=KYF3cB13l3chgk
-	dNbt3jttrGthOX+GSisX6/JSXXRgZrlSkpDfrMBrY9ZJsIHeORXs0fFucHIZBTT6zH1wCjcAdAj7r
-	dVcIDyS8XPQei/XIauEtBxAD9DWm2DySlJVOvmiWGSsv3M6ftAafh0Ucn0nS5ommxdqR1EQePK8XD
-	k69hOoXzBu37J8IJy9visAgBQSh/iUvK9EdFo1EVSVPxf7DA08zdSDCMAStCnm9FgbCp7lLcxeCBy
-	1Z1j86fLNyVBEgwHvq5UEIRMKhO/oPNOTovqEFvxAGeVKVGjhBWycBgjZiHp3X6zQmF94LhMX/N7+
-	IWmxwnnQZ5l3zLEFe1ug==;
+	List-Owner; bh=yVwb/ocQHod9ZBq1Cpq+S2I9+gkwqMeVJpkeYLPLRHs=; b=bxNoEs77w0VCqU
+	KVMdUIZXkvTTbZCKZBv609+tApihneFv6i8K5A0uns8d/oCXe41+okmlqJC25atdNJHZHXj4hPwmQ
+	8IVHtg1eG6Iw/GANfkWKegvWy2ZuI8DPdUytja62ZbKdS9MW0Qf6ap4kIlZKQon+k/TJ4oDvom7JW
+	XtGw1a1xgG6Wg38pvBquq3aOhSg6QlkoiAb++f8elxkm3mZrGJr3j04nV8MEiNkdygTtSqI2H3VOj
+	0tXQD3AqWZQ9kY0idlw3JiGqq7l/QNT2zrfx3V7213lt/bM+EmU/Nqi0Rf2sLU09woGhcADkk3jOc
+	Whkb0gFbOHSuGxQQuqBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9RLz-00Bt7O-2e;
-	Wed, 14 Jun 2023 14:20:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1q9RPs-00BtmJ-1n;
+	Wed, 14 Jun 2023 14:24:08 +0000
+Received: from mail-il1-f181.google.com ([209.85.166.181])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9RLw-00Bt5u-12;
-	Wed, 14 Jun 2023 14:20:06 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C2ECB610D5;
-	Wed, 14 Jun 2023 14:20:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA8CFC433C8;
-	Wed, 14 Jun 2023 14:19:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686752403;
-	bh=msIQzzbJVOpmfYjD76BXOfuKQSvBA8DkGXsTDNo7F6k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rDmqmXQ7/igDzWzKHWbbYSxsjI011+Qu0wfAX+xrJpGzScpx6c+TijBp42WTBHVHg
-	 NMmFssQgKjcddaqFVOPxQIHovSCNhsGM78nzLy5IbF4NK4cENbZRynU7sbyPZQ0OJ2
-	 u/YLiI/yye6XVAHtU6FTIMwuBcUtFL1dW8Vds6vGnufNWMWundcXWjgqsCICj6W4Dp
-	 4phecE7fv+X9AppCQNzdJLoMn5npv3j2tWHnKsD12s3s/OF7tMN1vBabdXbvjijdFZ
-	 e04wiDqE9JOa0+z6hm50Ui8dV1VvUlrYxaQY9WH+tDrmbOoYiIFulWKAMNy2BNR/ES
-	 9cyaCj1LKvc6w==
-Date: Wed, 14 Jun 2023 17:19:24 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	Hugh Dickins <hughd@google.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: Re: [PATCH v4 14/34] powerpc: Convert various functions to use
- ptdescs
-Message-ID: <20230614141924.GM52412@kernel.org>
-References: <20230612210423.18611-1-vishal.moola@gmail.com>
- <20230612210423.18611-15-vishal.moola@gmail.com>
+	id 1q9RPo-00BtlI-0l;
+	Wed, 14 Jun 2023 14:24:05 +0000
+Received: by mail-il1-f181.google.com with SMTP id e9e14a558f8ab-340b7da7e3aso1215865ab.3;
+        Wed, 14 Jun 2023 07:24:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686752642; x=1689344642;
+        h=date:subject:message-id:references:in-reply-to:cc:to:from
+         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=//LQdmeIx8VDOjysyrkzNeX5nkq2mzKxfmFr/6gfOOo=;
+        b=VnKes1l3H5U0OrCyV1KCr4q7otvnPxRp9C8mwGBiJ4QO/iNOgII1KHxnpSYU6cpdPG
+         GpqUT/BxhvmjxASGcL2Qt8vgdqj+o+iyt6unsuHh4T+R+QSRRpxRUBRnmASIt/xPthS6
+         fgiRcykM4ix4RWDAd16SjaD9ayGSF+tiwbtxP+RmvhGe8Lp/pJ6TdSHrpO41qxFsK2m/
+         T0dOf1cdEWIBPJHsoMocezh1RvW+HzOwF0vLyyYFeLQn7UxIH7NRf1fwrlV1m1CpiGXw
+         t53hUwRxWAeIVb1+c1MDVq+It7ICn11m6zA15UI55nUum8oJLV89qK+7XKvE3PSy1UAJ
+         71uA==
+X-Gm-Message-State: AC+VfDwAk7+NvKf4LuQrBNq2Zm76crKpMXLamGpDPgXp4jVsCih+zP1I
+	W5Jy8Mm2cqdSTctOGgER6A==
+X-Google-Smtp-Source: ACHHUZ7wXmcmWVBGnccJZukbwYP+C9yoCz/N62Wnj/yTIO7plH80L5GUh4kr2WXJ6/m3J00pZBVtGQ==
+X-Received: by 2002:a92:db47:0:b0:33d:a34a:2d42 with SMTP id w7-20020a92db47000000b0033da34a2d42mr12955717ilq.20.1686752642282;
+        Wed, 14 Jun 2023 07:24:02 -0700 (PDT)
+Received: from robh_at_kernel.org ([64.188.179.250])
+        by smtp.gmail.com with ESMTPSA id c5-20020a02a405000000b0041848ea6594sm4885425jal.34.2023.06.14.07.23.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jun 2023 07:24:01 -0700 (PDT)
+Received: (nullmailer pid 1344045 invoked by uid 1000);
+	Wed, 14 Jun 2023 14:23:58 -0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230612210423.18611-15-vishal.moola@gmail.com>
+From: Rob Herring <robh@kernel.org>
+To: Maksim Kiselev <bigunclemax@gmail.com>
+Cc: Rob Herring <robh+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	devicetree@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-arm-kernel@lists.infradead.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Lars-Peter Clausen <lars@metafoo.de>, linux-riscv@lists.infradead.org, 
+	Ramona Bolboaca <ramona.bolboaca@analog.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	William Breathitt Gray <william.gray@linaro.org>, Jonathan Cameron <jic23@kernel.org>, 
+	Cosmin Tanislav <demonsingur@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Chen-Yu Tsai <wens@csie.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-iio@vger.kernel.org, 
+	Ibrahim Tilki <Ibrahim.Tilki@analog.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
+	Samuel Holland <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	ChiYuan Huang <cy_huang@richtek.com>, =?UTF-8?Q?Leonard_G=C3=B6hrs?= <l.goehrs@pengutronix.de>, 
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>, Caleb Connolly <caleb.connolly@linaro.org>, 
+	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, ChiaEn Wu <chiaen_wu@richtek.com>, 
+	Haibo Chen <haibo.chen@nxp.com>, Andy Shevchenko <andy.shevchenko@gmail.com>, 
+	Mike Looijmans <mike.looijmans@topic.nl>
+In-Reply-To: <20230614132644.699425-3-bigunclemax@gmail.com>
+References: <20230614132644.699425-1-bigunclemax@gmail.com>
+ <20230614132644.699425-3-bigunclemax@gmail.com>
+Message-Id: <168675263824.1343935.18392695577959894991.robh@kernel.org>
+Subject: Re: [PATCH v6 2/3] dt-bindings: iio: adc: Add Allwinner
+ D1/T113s/R329/T507 SoCs GPADC
+Date: Wed, 14 Jun 2023 08:23:58 -0600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_072004_448695_8EDB2252 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20230614_072404_273881_6CC401A2 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,223 +98,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 12, 2023 at 02:04:03PM -0700, Vishal Moola (Oracle) wrote:
-> In order to split struct ptdesc from struct page, convert various
-> functions to use ptdescs.
+
+On Wed, 14 Jun 2023 16:26:26 +0300, Maksim Kiselev wrote:
+> Allwinner's D1/T113s/R329/T507 SoCs have a new general purpose ADC.
+> This ADC is the same for all of this SoCs. The only difference is
+> the number of available channels.
 > 
-> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
-
-Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
-
+> Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  arch/powerpc/mm/book3s64/mmu_context.c | 10 +++---
->  arch/powerpc/mm/book3s64/pgtable.c     | 32 +++++++++---------
->  arch/powerpc/mm/pgtable-frag.c         | 46 +++++++++++++-------------
->  3 files changed, 44 insertions(+), 44 deletions(-)
-> 
-> diff --git a/arch/powerpc/mm/book3s64/mmu_context.c b/arch/powerpc/mm/book3s64/mmu_context.c
-> index c766e4c26e42..1715b07c630c 100644
-> --- a/arch/powerpc/mm/book3s64/mmu_context.c
-> +++ b/arch/powerpc/mm/book3s64/mmu_context.c
-> @@ -246,15 +246,15 @@ static void destroy_contexts(mm_context_t *ctx)
->  static void pmd_frag_destroy(void *pmd_frag)
->  {
->  	int count;
-> -	struct page *page;
-> +	struct ptdesc *ptdesc;
->  
-> -	page = virt_to_page(pmd_frag);
-> +	ptdesc = virt_to_ptdesc(pmd_frag);
->  	/* drop all the pending references */
->  	count = ((unsigned long)pmd_frag & ~PAGE_MASK) >> PMD_FRAG_SIZE_SHIFT;
->  	/* We allow PTE_FRAG_NR fragments from a PTE page */
-> -	if (atomic_sub_and_test(PMD_FRAG_NR - count, &page->pt_frag_refcount)) {
-> -		pgtable_pmd_page_dtor(page);
-> -		__free_page(page);
-> +	if (atomic_sub_and_test(PMD_FRAG_NR - count, &ptdesc->pt_frag_refcount)) {
-> +		pagetable_pmd_dtor(ptdesc);
-> +		pagetable_free(ptdesc);
->  	}
->  }
->  
-> diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
-> index 85c84e89e3ea..1212deeabe15 100644
-> --- a/arch/powerpc/mm/book3s64/pgtable.c
-> +++ b/arch/powerpc/mm/book3s64/pgtable.c
-> @@ -306,22 +306,22 @@ static pmd_t *get_pmd_from_cache(struct mm_struct *mm)
->  static pmd_t *__alloc_for_pmdcache(struct mm_struct *mm)
->  {
->  	void *ret = NULL;
-> -	struct page *page;
-> +	struct ptdesc *ptdesc;
->  	gfp_t gfp = GFP_KERNEL_ACCOUNT | __GFP_ZERO;
->  
->  	if (mm == &init_mm)
->  		gfp &= ~__GFP_ACCOUNT;
-> -	page = alloc_page(gfp);
-> -	if (!page)
-> +	ptdesc = pagetable_alloc(gfp, 0);
-> +	if (!ptdesc)
->  		return NULL;
-> -	if (!pgtable_pmd_page_ctor(page)) {
-> -		__free_pages(page, 0);
-> +	if (!pagetable_pmd_ctor(ptdesc)) {
-> +		pagetable_free(ptdesc);
->  		return NULL;
->  	}
->  
-> -	atomic_set(&page->pt_frag_refcount, 1);
-> +	atomic_set(&ptdesc->pt_frag_refcount, 1);
->  
-> -	ret = page_address(page);
-> +	ret = ptdesc_address(ptdesc);
->  	/*
->  	 * if we support only one fragment just return the
->  	 * allocated page.
-> @@ -331,12 +331,12 @@ static pmd_t *__alloc_for_pmdcache(struct mm_struct *mm)
->  
->  	spin_lock(&mm->page_table_lock);
->  	/*
-> -	 * If we find pgtable_page set, we return
-> +	 * If we find ptdesc_page set, we return
->  	 * the allocated page with single fragment
->  	 * count.
->  	 */
->  	if (likely(!mm->context.pmd_frag)) {
-> -		atomic_set(&page->pt_frag_refcount, PMD_FRAG_NR);
-> +		atomic_set(&ptdesc->pt_frag_refcount, PMD_FRAG_NR);
->  		mm->context.pmd_frag = ret + PMD_FRAG_SIZE;
->  	}
->  	spin_unlock(&mm->page_table_lock);
-> @@ -357,15 +357,15 @@ pmd_t *pmd_fragment_alloc(struct mm_struct *mm, unsigned long vmaddr)
->  
->  void pmd_fragment_free(unsigned long *pmd)
->  {
-> -	struct page *page = virt_to_page(pmd);
-> +	struct ptdesc *ptdesc = virt_to_ptdesc(pmd);
->  
-> -	if (PageReserved(page))
-> -		return free_reserved_page(page);
-> +	if (pagetable_is_reserved(ptdesc))
-> +		return free_reserved_ptdesc(ptdesc);
->  
-> -	BUG_ON(atomic_read(&page->pt_frag_refcount) <= 0);
-> -	if (atomic_dec_and_test(&page->pt_frag_refcount)) {
-> -		pgtable_pmd_page_dtor(page);
-> -		__free_page(page);
-> +	BUG_ON(atomic_read(&ptdesc->pt_frag_refcount) <= 0);
-> +	if (atomic_dec_and_test(&ptdesc->pt_frag_refcount)) {
-> +		pagetable_pmd_dtor(ptdesc);
-> +		pagetable_free(ptdesc);
->  	}
->  }
->  
-> diff --git a/arch/powerpc/mm/pgtable-frag.c b/arch/powerpc/mm/pgtable-frag.c
-> index 20652daa1d7e..8961f1540209 100644
-> --- a/arch/powerpc/mm/pgtable-frag.c
-> +++ b/arch/powerpc/mm/pgtable-frag.c
-> @@ -18,15 +18,15 @@
->  void pte_frag_destroy(void *pte_frag)
->  {
->  	int count;
-> -	struct page *page;
-> +	struct ptdesc *ptdesc;
->  
-> -	page = virt_to_page(pte_frag);
-> +	ptdesc = virt_to_ptdesc(pte_frag);
->  	/* drop all the pending references */
->  	count = ((unsigned long)pte_frag & ~PAGE_MASK) >> PTE_FRAG_SIZE_SHIFT;
->  	/* We allow PTE_FRAG_NR fragments from a PTE page */
-> -	if (atomic_sub_and_test(PTE_FRAG_NR - count, &page->pt_frag_refcount)) {
-> -		pgtable_pte_page_dtor(page);
-> -		__free_page(page);
-> +	if (atomic_sub_and_test(PTE_FRAG_NR - count, &ptdesc->pt_frag_refcount)) {
-> +		pagetable_pte_dtor(ptdesc);
-> +		pagetable_free(ptdesc);
->  	}
->  }
->  
-> @@ -55,25 +55,25 @@ static pte_t *get_pte_from_cache(struct mm_struct *mm)
->  static pte_t *__alloc_for_ptecache(struct mm_struct *mm, int kernel)
->  {
->  	void *ret = NULL;
-> -	struct page *page;
-> +	struct ptdesc *ptdesc;
->  
->  	if (!kernel) {
-> -		page = alloc_page(PGALLOC_GFP | __GFP_ACCOUNT);
-> -		if (!page)
-> +		ptdesc = pagetable_alloc(PGALLOC_GFP | __GFP_ACCOUNT, 0);
-> +		if (!ptdesc)
->  			return NULL;
-> -		if (!pgtable_pte_page_ctor(page)) {
-> -			__free_page(page);
-> +		if (!pagetable_pte_ctor(ptdesc)) {
-> +			pagetable_free(ptdesc);
->  			return NULL;
->  		}
->  	} else {
-> -		page = alloc_page(PGALLOC_GFP);
-> -		if (!page)
-> +		ptdesc = pagetable_alloc(PGALLOC_GFP, 0);
-> +		if (!ptdesc)
->  			return NULL;
->  	}
->  
-> -	atomic_set(&page->pt_frag_refcount, 1);
-> +	atomic_set(&ptdesc->pt_frag_refcount, 1);
->  
-> -	ret = page_address(page);
-> +	ret = ptdesc_address(ptdesc);
->  	/*
->  	 * if we support only one fragment just return the
->  	 * allocated page.
-> @@ -82,12 +82,12 @@ static pte_t *__alloc_for_ptecache(struct mm_struct *mm, int kernel)
->  		return ret;
->  	spin_lock(&mm->page_table_lock);
->  	/*
-> -	 * If we find pgtable_page set, we return
-> +	 * If we find ptdesc_page set, we return
->  	 * the allocated page with single fragment
->  	 * count.
->  	 */
->  	if (likely(!pte_frag_get(&mm->context))) {
-> -		atomic_set(&page->pt_frag_refcount, PTE_FRAG_NR);
-> +		atomic_set(&ptdesc->pt_frag_refcount, PTE_FRAG_NR);
->  		pte_frag_set(&mm->context, ret + PTE_FRAG_SIZE);
->  	}
->  	spin_unlock(&mm->page_table_lock);
-> @@ -108,15 +108,15 @@ pte_t *pte_fragment_alloc(struct mm_struct *mm, int kernel)
->  
->  void pte_fragment_free(unsigned long *table, int kernel)
->  {
-> -	struct page *page = virt_to_page(table);
-> +	struct ptdesc *ptdesc = virt_to_ptdesc(table);
->  
-> -	if (PageReserved(page))
-> -		return free_reserved_page(page);
-> +	if (pagetable_is_reserved(ptdesc))
-> +		return free_reserved_ptdesc(ptdesc);
->  
-> -	BUG_ON(atomic_read(&page->pt_frag_refcount) <= 0);
-> -	if (atomic_dec_and_test(&page->pt_frag_refcount)) {
-> +	BUG_ON(atomic_read(&ptdesc->pt_frag_refcount) <= 0);
-> +	if (atomic_dec_and_test(&ptdesc->pt_frag_refcount)) {
->  		if (!kernel)
-> -			pgtable_pte_page_dtor(page);
-> -		__free_page(page);
-> +			pagetable_pte_dtor(ptdesc);
-> +		pagetable_free(ptdesc);
->  	}
->  }
-> -- 
-> 2.40.1
-> 
+>  .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    | 91 +++++++++++++++++++
+>  1 file changed, 91 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
 > 
 
--- 
-Sincerely yours,
-Mike.
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml: patternProperties:^channel@[0-9a-f]+$:properties:reg:items: 'oneOf' conditional failed, one must be fixed:
+	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml: patternProperties:^channel@[0-9a-f]+$:properties:reg:items: 'anyOf' conditional failed, one must be fixed:
+		'Maksimum' is not one of ['$ref', 'additionalItems', 'additionalProperties', 'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependentRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minimum', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patternProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedProperties', 'uniqueItems']
+		'type' was expected
+		from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+	{'minimum': 0, 'Maksimum': 15} is not of type 'array'
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml: patternProperties:^channel@[0-9a-f]+$:properties:reg: 'anyOf' conditional failed, one must be fixed:
+	'maxItems' is a required property
+		hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+	'items' is not one of ['maxItems', 'description', 'deprecated']
+	'items' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml: patternProperties:^channel@[0-9a-f]+$:properties:reg:items: 'oneOf' conditional failed, one must be fixed:
+		/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml: patternProperties:^channel@[0-9a-f]+$:properties:reg:items: 'anyOf' conditional failed, one must be fixed:
+			'maxItems' is a required property
+				hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+			'minimum' is not one of ['maxItems', 'description', 'deprecated']
+			'Maksimum' is not one of ['maxItems', 'description', 'deprecated']
+			Additional properties are not allowed ('Maksimum', 'minimum' were unexpected)
+				hint: Arrays must be described with a combination of minItems/maxItems/items
+			'Maksimum' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+			hint: cell array properties must define how many entries and what the entries are when there is more than one entry.
+			from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+		{'minimum': 0, 'Maksimum': 15} is not of type 'array'
+		hint: "items" can be a list defining each entry or a schema applying to all items. A list has an implicit size. A schema requires minItems/maxItems to define the size.
+		from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+	hint: cell array properties must define how many entries and what the entries are when there is more than one entry.
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230614132644.699425-3-bigunclemax@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
 _______________________________________________
 linux-riscv mailing list
