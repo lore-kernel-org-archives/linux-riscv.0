@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33827C0015E
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 15:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B624CEB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 15:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=dElvivMFs+4n3sb/PrnMKgC9Jdl+gVKuF1+RO3H3OGE=; b=HSKlB65aECk5OF1yeL1kKMXGER
-	scV+2xZ8rfVpmba3YtF7OoNDeRP8f7I6TO4H8cXtbOJ7HJBYFC5PKpO6fS9kY4mgWCFaZwIKpaA8X
-	7coEebAkdXmA81lO7VJeDOs3ELNoWxU83ESKH3C0R9wOc5Q3KfY6yfmUZAqUdJs30lfaOscaw8lm6
-	3AXZ56wkOQwh+nXvvjWcxMYxwxnU2mLzI9CzdPeusSjMDW5j5x3KzVHwPykpxoMeXotkJ6kldFKNn
-	P3CSKbkARtCMuH/ddErlBqxCdNldyYZeaJMxefDQbMaAup+bcM65ZgIqVfr+ZgLSroQ+JYru9jeFX
-	aMKS3N9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=njvfh+sVF08nQSQWFG+MpDr70lwVitRoizyEJjtbGns=; b=QmTKk0pJZlXJNT
+	OO1lKgXkyOTCkSFHAbBPxfIceKvemdkwlMry2A2bBfAxnJm/PpXcQzi0Z8n+TVDLlVtSsvda1tGNV
+	JEcx7v9vJnepex/m9CAe8hNFA/YZHK6mx3+o91g3KgCMbyOXQC6wcxwS4UCeGXNNKIrqfewncI0Gh
+	UWIz9Fp9muGhHZ0c+76TDLCK5U4v3iGzQtQ33NkuDF7F12u1SQMkzpK51l3pbcGonyXyzKDr07YBb
+	x8aUOo7BDuIzOSrsmJbPRILKsdcm4eXk3yuuKgSbEdt7xmPTD5O+3A5GdWHorRk0XDID7NcVka52K
+	c7RVz4WxHZXL6Wg1AwgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9S4V-00C03T-19;
-	Wed, 14 Jun 2023 15:06:07 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1q9S4Y-00C05F-1n;
+	Wed, 14 Jun 2023 15:06:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9S4Q-00C027-0d
-	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jun 2023 15:06:06 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-6667c54839bso258392b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Jun 2023 08:06:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1686755160; x=1689347160;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=T+ba+k+Uik7gkIXtpKVTlI2mwc1CHEshQrw4/m8gjUQ=;
-        b=JirB+nvqJpGztfu59P4yoXYKW3FcejMQW/rC1p2oKGVSvC3r/o6LDjwNmjLA/KShGy
-         h2+SDcFS6ZnHmYxH1qggfkSc0p9CpxcOWKySYU1uPZT8JOWwmCYK44MOD17vXtgSVKsN
-         BFgFA4Ki6XBiTwqt+q2WNlGQM2FBuMYJr65sX1grNl/PSs81pjG2FyaFDi6gSUA5gi0n
-         57qHDRgyoHWIwW04xFObw4a61CaRSZfWZPPy5ikwZpEbbrxAFqK8Afk2bpNCKWRA/L+C
-         LHJgrWVuB+mELZLywTY/wm2CnBm5O2HXARr9b2a6xeqzkNSBsca0lESA4Uhf3iONuT6g
-         M2vg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686755160; x=1689347160;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T+ba+k+Uik7gkIXtpKVTlI2mwc1CHEshQrw4/m8gjUQ=;
-        b=brRYXZ+8XvB5GmE7l2k4lrqmsNpbzAE6aH7r/8lR3AT9ch960gdXWpkJS9IBAhaAwp
-         t5Q6XNLSuYV8/7mUYoi/yUtwRn4P/OCUOkT5V1j7x9U2QgOnLTit07VxIXdI3AjKt8rr
-         LisJqdfrDC8XrMkqeoHCPIZjS2MFxJMUNaH2YYm5UGBroFQ+8/EbOypYlLPfj/NAnj+w
-         W1zg8xYXEZDQSGHbvCGFnjA89/XDPTPruN8OeEIbR2Wnd/slFdUj5FOpRim3S2J4jln1
-         4R+OvxM4E0iupgx9z6MBryC3HCHPB+XKjZG1Mlx0aUUjBtPM9pul1WHxBZ8/yCfX/9X8
-         a49g==
-X-Gm-Message-State: AC+VfDzs0jv2XJJLUyAj70QAuF5a/CCK+JOiv3wj6aNf1OsisKUHVn9N
-	7LuJRDJ+TYcQYBdz5EW+F3W49w==
-X-Google-Smtp-Source: ACHHUZ5uBaS+Vs92J0AT6i0i6DWL2Oh99vhbTu9sYIkmkzB0zT68q445XTXpwUF6X18AWl/lHjE+GQ==
-X-Received: by 2002:a05:6a20:729d:b0:100:3964:6cb with SMTP id o29-20020a056a20729d00b00100396406cbmr2377315pzk.40.1686755160386;
-        Wed, 14 Jun 2023 08:06:00 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id x17-20020aa793b1000000b00640dbf177b8sm10547721pff.37.2023.06.14.08.05.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 14 Jun 2023 08:06:00 -0700 (PDT)
-Date: Wed, 14 Jun 2023 08:06:00 -0700 (PDT)
-X-Google-Original-Date: Wed, 14 Jun 2023 08:05:58 PDT (-0700)
-Subject: Re: [PATCH] dt-bindings: riscv: cpus: drop unneeded quotes
-In-Reply-To: <20230614-credibly-pluck-0495779ada5d@spud>
-CC: Conor Dooley <conor.dooley@microchip.com>, krzysztof.kozlowski@linaro.org,
-  robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-32141387-ea5c-4aea-b0b2-ac22c18b4cab@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1q9S4V-00C03C-11;
+	Wed, 14 Jun 2023 15:06:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id AEB8463C32;
+	Wed, 14 Jun 2023 15:06:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69A5AC433C8;
+	Wed, 14 Jun 2023 15:05:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686755166;
+	bh=mYL5daBcxMikalMhh9cCFY+r9XquqesA54K3hjfOLTg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=STNRxM+Y/xkG0QyBoc53kcCb5yG1Ly+XJdRdHc/zJ1TCbDaJDD0OuxmfQFFT6l7Kq
+	 qCp4eYGEWaY44zLye/aA/Sc6bwWU7i2YmGCf+enSLd3bLx7RIr/9d9ksK/M8XETdpa
+	 h/shck3gYngL3WCudQKzi54g1OqDGBTFn+RvxrwG+iuix2d51fV9RXhELY1o9p6nzP
+	 PK46LJSg5B9o0xTe73U8Gbss933xivoRdOgA30zw2Sz2WY7mXiXJkZyDnMtU6ViDZX
+	 9gqDJzLtn1zUkTLc7vaWLzH0+Q5q/9ETD/YLmVjUjGTzC8B0nzsq7nYMwwuGkaFucZ
+	 jo9CN9hwdi+0A==
+Date: Wed, 14 Jun 2023 18:05:28 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+	Hugh Dickins <hughd@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v4 21/34] arm64: Convert various functions to use ptdescs
+Message-ID: <20230614150528.GT52412@kernel.org>
+References: <20230612210423.18611-1-vishal.moola@gmail.com>
+ <20230612210423.18611-22-vishal.moola@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230612210423.18611-22-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_080602_231150_B334AD9B 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20230614_080607_450412_CBFE22F7 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +80,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 Jun 2023 08:03:18 PDT (-0700), Conor Dooley wrote:
-> On Wed, Jun 14, 2023 at 07:46:12AM -0700, Palmer Dabbelt wrote:
->> On Fri, 09 Jun 2023 07:21:17 PDT (-0700), Conor Dooley wrote:
->> > On Fri, Jun 09, 2023 at 04:07:06PM +0200, Krzysztof Kozlowski wrote:
->> > > Cleanup bindings dropping unneeded quotes. Once all these are fixed,
->> > > checking for this can be enabled in yamllint.
->> > > 
->> > > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> > 
->> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->> 
->> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
->> 
->> Did you want me to pick this up in the RISC-V tree, or is it aimed somewhere
->> else?
->
-> Usually subsystem, or in this case arch, maintainers should take the
-> bindings patches. So that'd be you ;)
+On Mon, Jun 12, 2023 at 02:04:10PM -0700, Vishal Moola (Oracle) wrote:
+> As part of the conversions to replace pgtable constructor/destructors with
+> ptdesc equivalents, convert various page table functions to use ptdescs.
+> 
+> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
 
-Cool, it's queued up.  I'm just put a bunch of stuff in the queue and I 
-think something's failing so it might take a bit to make for-next.
+Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
+
+> ---
+>  arch/arm64/include/asm/tlb.h | 14 ++++++++------
+>  arch/arm64/mm/mmu.c          |  7 ++++---
+>  2 files changed, 12 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
+> index c995d1f4594f..2c29239d05c3 100644
+> --- a/arch/arm64/include/asm/tlb.h
+> +++ b/arch/arm64/include/asm/tlb.h
+> @@ -75,18 +75,20 @@ static inline void tlb_flush(struct mmu_gather *tlb)
+>  static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pte,
+>  				  unsigned long addr)
+>  {
+> -	pgtable_pte_page_dtor(pte);
+> -	tlb_remove_table(tlb, pte);
+> +	struct ptdesc *ptdesc = page_ptdesc(pte);
+> +
+> +	pagetable_pte_dtor(ptdesc);
+> +	tlb_remove_ptdesc(tlb, ptdesc);
+>  }
+>  
+>  #if CONFIG_PGTABLE_LEVELS > 2
+>  static inline void __pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmdp,
+>  				  unsigned long addr)
+>  {
+> -	struct page *page = virt_to_page(pmdp);
+> +	struct ptdesc *ptdesc = virt_to_ptdesc(pmdp);
+>  
+> -	pgtable_pmd_page_dtor(page);
+> -	tlb_remove_table(tlb, page);
+> +	pagetable_pmd_dtor(ptdesc);
+> +	tlb_remove_ptdesc(tlb, ptdesc);
+>  }
+>  #endif
+>  
+> @@ -94,7 +96,7 @@ static inline void __pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmdp,
+>  static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pudp,
+>  				  unsigned long addr)
+>  {
+> -	tlb_remove_table(tlb, virt_to_page(pudp));
+> +	tlb_remove_ptdesc(tlb, virt_to_ptdesc(pudp));
+>  }
+>  #endif
+>  
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index af6bc8403ee4..5867a0e917b9 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -426,6 +426,7 @@ static phys_addr_t __pgd_pgtable_alloc(int shift)
+>  static phys_addr_t pgd_pgtable_alloc(int shift)
+>  {
+>  	phys_addr_t pa = __pgd_pgtable_alloc(shift);
+> +	struct ptdesc *ptdesc = page_ptdesc(phys_to_page(pa));
+>  
+>  	/*
+>  	 * Call proper page table ctor in case later we need to
+> @@ -433,12 +434,12 @@ static phys_addr_t pgd_pgtable_alloc(int shift)
+>  	 * this pre-allocated page table.
+>  	 *
+>  	 * We don't select ARCH_ENABLE_SPLIT_PMD_PTLOCK if pmd is
+> -	 * folded, and if so pgtable_pmd_page_ctor() becomes nop.
+> +	 * folded, and if so pagetable_pte_ctor() becomes nop.
+>  	 */
+>  	if (shift == PAGE_SHIFT)
+> -		BUG_ON(!pgtable_pte_page_ctor(phys_to_page(pa)));
+> +		BUG_ON(!pagetable_pte_ctor(ptdesc));
+>  	else if (shift == PMD_SHIFT)
+> -		BUG_ON(!pgtable_pmd_page_ctor(phys_to_page(pa)));
+> +		BUG_ON(!pagetable_pmd_ctor(ptdesc));
+>  
+>  	return pa;
+>  }
+> -- 
+> 2.40.1
+> 
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
