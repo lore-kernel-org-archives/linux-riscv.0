@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845AEEB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 13:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B860DEB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 13:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=evSZthC1EklPz3/gx6ysEdBPgqqdbGof0j8RDJPujLo=; b=ocZwJ0jjHiEBWJ
-	LAfXB/07CbGv2HRuevesey4ZYgSG0ifPIZ/3VZ4oizx7/LMIVnHHk84qoOCSGkMjEFIsJ/OZ63MNs
-	UMCWDlEgMSH6ZBqhw+7DviFxI2QrXMJbH5LVoP9HEkw80+VXwoPO9s6e6PtyqkPw4TGoL5IIYfvhf
-	HrNkVD0gwoEQK82yj1j5dmtxh2WeVfQuOZLXPI+bewbjGufGrSCUoDuKmve3inrK2pnkIcnue5fa5
-	5v7zIVpGsGCi9mkdt8bgMkSmJvpIn607QFDOtkYCZu2v/F1BL6XFeuJ6/rYEg7CtXfddHXSbgrNZM
-	faIx4J/TdrJr83Eec2gw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EOrXhpTT6CLH+nqjn2CW3M1Oae77FR24rt0kxfkQ9/c=; b=45y1kHxjxFzMaY
+	KDGTFiO4D8iC6g990ER/4eKMuQ3WxaZWAA4c4oKAu3JlqTV/ocNcL18Up2K384aqqYGTMXg3BRlau
+	gf0L1PR8euVZSP2d5BYc2zjf1lHOqDLgKCMzJrjCo80+xEkd4sVXUeriZ5G1iB2kGR5Vh2X6L610/
+	CTUFhEwZXK5MANX1DYT2/ieCuDNuJWdxld/pXXeLKtzQP0DvI+H7JYz5rTIZLRO9ou0ybo/HvzKT2
+	VelfL5SmjkrBn2zbIOFJjGMItXM1oRPPGxu3YzUx/USel2f7VYgSUvZjjoYRUuQHQWayoDlNI5UQW
+	IwjS4ThXlnNRerhKo9ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9QPy-00BjP0-0o;
-	Wed, 14 Jun 2023 13:20:10 +0000
-Received: from out203-205-251-82.mail.qq.com ([203.205.251.82])
+	id 1q9QS3-00Bjcs-2V;
+	Wed, 14 Jun 2023 13:22:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9QPv-00BjNp-0E
-	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jun 2023 13:20:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1686748801;
-	bh=fXwHkUmx1HmK4V5IxIkkFQGLk2Gvfoe3n2Hd3Qi5cWg=;
-	h=From:To:Cc:Subject:Date;
-	b=TIhbkdh6BRa8QULGFLKqmAeChJqQmDAZpwfzvmY2Rms0Rbs8fNju75MxT6g0kzDIE
-	 hpJGj+jYpofjzcs6RT9OgHE7VsEq91m700XLxFaBTBq7JkreMdVmvEUUJYiLyvJSmQ
-	 Or3AkA/m0xtqunZHPi+sfBlw2QndBnKaUdQOZ4X8=
-Received: from localhost ([101.224.149.128])
-	by newxmesmtplogicsvrszb6-0.qq.com (NewEsmtp) with SMTP
-	id 4E78406A; Wed, 14 Jun 2023 21:19:39 +0800
-X-QQ-mid: xmsmtpt1686748779t9wp6qxru
-Message-ID: <tencent_FBB94CE615C5CCE7701CD39C15CCE0EE9706@qq.com>
-X-QQ-XMAILINFO: MNQ2FIpgVwZb6RJ8t41sGPm9Tx/DnC468oSMXaRkV3kaHxeUZ48LYbUCe/uFhG
-	 0cKfVQ8/xSe8OhBkUTIhpCB7YxVmLjqgd3MeX3a0wVXSbO0Ka8JuRGQJlgBfVFhPSPLw9Zr58qYi
-	 MaI0C1rHyxyeb+HCmqy5H11TpcOhNarUGIthBettkRtNOyrxGcMlf8J5tIu2ds4YlPMFuqq7tFGN
-	 fhtMG8MnV7RxFONYA2+LGJjjnKLr6N/moVEBZltwOIBbDwkFe+c0PV7vrLJR2KFq+VFuwmz0zPHs
-	 bkPk9MU3XXCPXlekuTNJG9fFthqM4OlQNJyw5CfhkibtwQ1aTWXMC1PN+ouEu6kDM3PLOsZX7Fm7
-	 6YsTdwOtv3cvdi9lqZnUdcv05HKOkT9nzqkCSh+HLQDzP4poVlXSAjDJ4pvwzLYZslx+0R/XICWR
-	 os0GwFq6QU7hSaCWRvOqEXE0Qby2rQ1Pskd7stXPF1sJpB1aNbVWU4Jjd0/ZbAtAFAvrjkW8o9hK
-	 esrE1iOMqs5e+BpxyN24+HOhx6bWPS++qKhDUE/KCVfbb7lctP5WikvknNq7j85dwfVhFkwSS/oX
-	 oHi2cwN5ihbokLzSYBDSTRhueVywshKRpDrLIjmtEeq/k++6DmzWdf/QUlmj1kxEXOkJZbl2qfiW
-	 fuFyfukB/I5EwthD7uY/bqvueZ3dhUiLNmZLA648vifBKH5sXvBjj19kzh0TesIHBcJ1PQjMy+W1
-	 tj0SpmczdGh75477m2WWmwguXci1n7MYRFLJ2YlAVc4zOq8rtlO7IYCH7ewnikrb6nf3kmtwfSvP
-	 RfIvVyAHqi+6erpjxkhThCq9ZgyyQbNj1m3HDO+vT3rRfeLO7cCK34Jiu4jXCQBctvqjTlvm4LxZ
-	 aUXkBq5AnucCWbopgl9TZHeqenzymx0wRkPDzGp0q/C2g4UhPZf1dz8I1lsNgiM0bpJ1x+0ZMFVt
-	 4Z42Vt+58JGeDDMn+6r1JbXMVnONITyOKTaAtAcni0hjMScB7ZjQ==
-X-QQ-XMAILREADINFO: NBwrrjlpHXpInKmvoY9CzUo=
-From: Woody Zhang <woodylab@foxmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Woody Zhang <woodylab@foxmail.com>
-Subject: [PATCH v3] riscv: move memblock_allow_resize() after linear mapping is ready
-Date: Wed, 14 Jun 2023 21:19:07 +0800
-X-OQ-MSGID: <20230614131906.2303856-1-woodylab@foxmail.com>
-X-Mailer: git-send-email 2.39.2
+	id 1q9QS0-00BjbJ-0d;
+	Wed, 14 Jun 2023 13:22:17 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A19786175C;
+	Wed, 14 Jun 2023 13:22:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D64C433C0;
+	Wed, 14 Jun 2023 13:22:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686748935;
+	bh=0vqssVcI3AzSm6ZYzSMTFzLW0LK2ArpvNNFnyd0jDMg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PwXP+1XbNJMc5dDtJjP8fRUbMVOfgYZkiV/CSEiQO+53OUw1mxkM7TNacSN2UVnvq
+	 Mwxs/DwA39lzTfMai8ygKMhnw/8A5txEm5g+274q1AspzudJm5ujeZxuL5SlxzV7kr
+	 XEeamoxRIjx3hqKKprCq30b101V9LmtVD7C/YrzqjcfWDUt0IERYcZ+YUZAUB1qm6M
+	 qU2wy/k+HKKhrQ/qrF2cNssBn4aoQYbJEpcB5m9Vm0+PGaXZfYQhkb0YSbhsS/HNdF
+	 f2cI0J/nTygASR5eUp+uYZzIW/J3GUH1QtysQDebu/WsZ8JxpIwHAuYB2k8FX53JGd
+	 49yjsQPz5+zOQ==
+Date: Wed, 14 Jun 2023 16:21:37 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+	Hugh Dickins <hughd@google.com>,
+	David Hildenbrand <david@redhat.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>
+Subject: Re: [PATCH v4 03/34] s390: Use pt_frag_refcount for pagetables
+Message-ID: <20230614132137.GB52412@kernel.org>
+References: <20230612210423.18611-1-vishal.moola@gmail.com>
+ <20230612210423.18611-4-vishal.moola@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230612210423.18611-4-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_062007_429794_CE80A84E 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20230614_062216_315916_017D274C 
+X-CRM114-Status: GOOD (  29.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,110 +86,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The initial memblock metadata is accessed from kernel image mapping. The
-regions arrays need to "reallocated" from memblock and accessed through
-linear mapping to cover more memblock regions. So the resizing should
-not be allowed until linear mapping is ready. Note that there are
-memblock allocations when building linear mapping.
+On Mon, Jun 12, 2023 at 02:03:52PM -0700, Vishal Moola (Oracle) wrote:
+> s390 currently uses _refcount to identify fragmented page tables.
+> The page table struct already has a member pt_frag_refcount used by
+> powerpc, so have s390 use that instead of the _refcount field as well.
+> This improves the safety for _refcount and the page table tracking.
+> 
+> This also allows us to simplify the tracking since we can once again use
+> the lower byte of pt_frag_refcount instead of the upper byte of _refcount.
+> 
+> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
 
-This patch is similar to 24cc61d8cb5a ("arm64: memblock: don't permit
-memblock resizing until linear mapping is up").
+One nit below, otherwise
 
-In following log, many memblock regions are reserved before
-create_linear_mapping_page_table(). And then it triggered reallocation
-of memblock.reserved.regions and memcpy the old array in kernel image
-mapping to the new array in linear mapping which caused a page fault.
+Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
 
-[    0.000000] memblock_reserve: [0x00000000bf01f000-0x00000000bf01ffff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] memblock_reserve: [0x00000000bf021000-0x00000000bf021fff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] memblock_reserve: [0x00000000bf023000-0x00000000bf023fff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] memblock_reserve: [0x00000000bf025000-0x00000000bf025fff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] memblock_reserve: [0x00000000bf027000-0x00000000bf027fff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] memblock_reserve: [0x00000000bf029000-0x00000000bf029fff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] memblock_reserve: [0x00000000bf02b000-0x00000000bf02bfff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] memblock_reserve: [0x00000000bf02d000-0x00000000bf02dfff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] memblock_reserve: [0x00000000bf02f000-0x00000000bf02ffff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] memblock_reserve: [0x00000000bf030000-0x00000000bf030fff] early_init_fdt_scan_reserved_mem+0x28c/0x2c6
-[    0.000000] OF: reserved mem: 0x0000000080000000..0x000000008007ffff (512 KiB) map non-reusable mmode_resv0@80000000
-[    0.000000] memblock_reserve: [0x00000000bf000000-0x00000000bf001fed] paging_init+0x19a/0x5ae
-[    0.000000] memblock_phys_alloc_range: 4096 bytes align=0x1000 from=0x0000000000000000 max_addr=0x0000000000000000 alloc_pmd_fixmap+0x14/0x1c
-[    0.000000] memblock_reserve: [0x000000017ffff000-0x000000017fffffff] memblock_alloc_range_nid+0xb8/0x128
-[    0.000000] memblock: reserved is doubled to 256 at [0x000000017fffd000-0x000000017fffe7ff]
-[    0.000000] Unable to handle kernel paging request at virtual address ff600000ffffd000
-[    0.000000] Oops [#1]
-[    0.000000] Modules linked in:
-[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.4.0-rc1-00011-g99a670b2069c #66
-[    0.000000] Hardware name: riscv-virtio,qemu (DT)
-[    0.000000] epc : __memcpy+0x60/0xf8
-[    0.000000]  ra : memblock_double_array+0x192/0x248
-[    0.000000] epc : ffffffff8081d214 ra : ffffffff80a3dfc0 sp : ffffffff81403bd0
-[    0.000000]  gp : ffffffff814fbb38 tp : ffffffff8140dac0 t0 : 0000000001600000
-[    0.000000]  t1 : 0000000000000000 t2 : 000000008f001000 s0 : ffffffff81403c60
-[    0.000000]  s1 : ffffffff80c0bc98 a0 : ff600000ffffd000 a1 : ffffffff80c0bcd8
-[    0.000000]  a2 : 0000000000000c00 a3 : ffffffff80c0c8d8 a4 : 0000000080000000
-[    0.000000]  a5 : 0000000000080000 a6 : 0000000000000000 a7 : 0000000080200000
-[    0.000000]  s2 : ff600000ffffd000 s3 : 0000000000002000 s4 : 0000000000000c00
-[    0.000000]  s5 : ffffffff80c0bc60 s6 : ffffffff80c0bcc8 s7 : 0000000000000000
-[    0.000000]  s8 : ffffffff814fd0a8 s9 : 000000017fffe7ff s10: 0000000000000000
-[    0.000000]  s11: 0000000000001000 t3 : 0000000000001000 t4 : 0000000000000000
-[    0.000000]  t5 : 000000008f003000 t6 : ff600000ffffd000
-[    0.000000] status: 0000000200000100 badaddr: ff600000ffffd000 cause: 000000000000000f
-[    0.000000] [<ffffffff8081d214>] __memcpy+0x60/0xf8
-[    0.000000] [<ffffffff80a3e1a2>] memblock_add_range.isra.14+0x12c/0x162
-[    0.000000] [<ffffffff80a3e36a>] memblock_reserve+0x6e/0x8c
-[    0.000000] [<ffffffff80a123fc>] memblock_alloc_range_nid+0xb8/0x128
-[    0.000000] [<ffffffff80a1256a>] memblock_phys_alloc_range+0x5e/0x6a
-[    0.000000] [<ffffffff80a04732>] alloc_pmd_fixmap+0x14/0x1c
-[    0.000000] [<ffffffff80a0475a>] alloc_p4d_fixmap+0xc/0x14
-[    0.000000] [<ffffffff80a04a36>] create_pgd_mapping+0x98/0x17c
-[    0.000000] [<ffffffff80a04e9e>] create_linear_mapping_range.constprop.10+0xe4/0x112
-[    0.000000] [<ffffffff80a05bb8>] paging_init+0x3ec/0x5ae
-[    0.000000] [<ffffffff80a03354>] setup_arch+0xb2/0x576
-[    0.000000] [<ffffffff80a00726>] start_kernel+0x72/0x57e
-[    0.000000] Code: b303 0285 b383 0305 be03 0385 be83 0405 bf03 0485 (b023) 00ef
-[    0.000000] ---[ end trace 0000000000000000 ]---
-[    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
-[    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+> ---
+>  arch/s390/mm/pgalloc.c | 38 +++++++++++++++-----------------------
+>  1 file changed, 15 insertions(+), 23 deletions(-)
+> 
+> diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
+> index 66ab68db9842..6b99932abc66 100644
+> --- a/arch/s390/mm/pgalloc.c
+> +++ b/arch/s390/mm/pgalloc.c
+> @@ -182,20 +182,17 @@ void page_table_free_pgste(struct page *page)
+>   * As follows from the above, no unallocated or fully allocated parent
+>   * pages are contained in mm_context_t::pgtable_list.
+>   *
+> - * The upper byte (bits 24-31) of the parent page _refcount is used
+> + * The lower byte (bits 0-7) of the parent page pt_frag_refcount is used
+>   * for tracking contained 2KB-pgtables and has the following format:
+>   *
+>   *   PP  AA
+> - * 01234567    upper byte (bits 24-31) of struct page::_refcount
+> + * 01234567    upper byte (bits 0-7) of struct page::pt_frag_refcount
 
-Fixes: 671f9a3e2e24 ("RISC-V: Setup initial page tables in two stages")
-Signed-off-by: Woody Zhang <woodylab@foxmail.com>
----
-Changes in v3:
- - Add panic log for the bug case.
- - Move memblock_allow_resize to paging_init per suggestions from Alex and
-   Song Shuai.
+Nit:              lower
 
-Changes in v2:
- - Refine commit log
----
- arch/riscv/mm/init.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+>   *   ||  ||
+>   *   ||  |+--- upper 2KB-pgtable is allocated
+>   *   ||  +---- lower 2KB-pgtable is allocated
+>   *   |+------- upper 2KB-pgtable is pending for removal
+>   *   +-------- lower 2KB-pgtable is pending for removal
+>   *
+> - * (See commit 620b4e903179 ("s390: use _refcount for pgtables") on why
+> - * using _refcount is possible).
+> - *
+>   * When 2KB-pgtable is allocated the corresponding AA bit is set to 1.
+>   * The parent page is either:
+>   *   - added to mm_context_t::pgtable_list in case the second half of the
+> @@ -243,11 +240,12 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
+>  		if (!list_empty(&mm->context.pgtable_list)) {
+>  			page = list_first_entry(&mm->context.pgtable_list,
+>  						struct page, lru);
+> -			mask = atomic_read(&page->_refcount) >> 24;
+> +			mask = atomic_read(&page->pt_frag_refcount);
+>  			/*
+>  			 * The pending removal bits must also be checked.
+>  			 * Failure to do so might lead to an impossible
+> -			 * value of (i.e 0x13 or 0x23) written to _refcount.
+> +			 * value of (i.e 0x13 or 0x23) written to
+> +			 * pt_frag_refcount.
+>  			 * Such values violate the assumption that pending and
+>  			 * allocation bits are mutually exclusive, and the rest
+>  			 * of the code unrails as result. That could lead to
+> @@ -259,8 +257,8 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
+>  				bit = mask & 1;		/* =1 -> second 2K */
+>  				if (bit)
+>  					table += PTRS_PER_PTE;
+> -				atomic_xor_bits(&page->_refcount,
+> -							0x01U << (bit + 24));
+> +				atomic_xor_bits(&page->pt_frag_refcount,
+> +							0x01U << bit);
+>  				list_del(&page->lru);
+>  			}
+>  		}
+> @@ -281,12 +279,12 @@ unsigned long *page_table_alloc(struct mm_struct *mm)
+>  	table = (unsigned long *) page_to_virt(page);
+>  	if (mm_alloc_pgste(mm)) {
+>  		/* Return 4K page table with PGSTEs */
+> -		atomic_xor_bits(&page->_refcount, 0x03U << 24);
+> +		atomic_xor_bits(&page->pt_frag_refcount, 0x03U);
+>  		memset64((u64 *)table, _PAGE_INVALID, PTRS_PER_PTE);
+>  		memset64((u64 *)table + PTRS_PER_PTE, 0, PTRS_PER_PTE);
+>  	} else {
+>  		/* Return the first 2K fragment of the page */
+> -		atomic_xor_bits(&page->_refcount, 0x01U << 24);
+> +		atomic_xor_bits(&page->pt_frag_refcount, 0x01U);
+>  		memset64((u64 *)table, _PAGE_INVALID, 2 * PTRS_PER_PTE);
+>  		spin_lock_bh(&mm->context.lock);
+>  		list_add(&page->lru, &mm->context.pgtable_list);
+> @@ -323,22 +321,19 @@ void page_table_free(struct mm_struct *mm, unsigned long *table)
+>  		 * will happen outside of the critical section from this
+>  		 * function or from __tlb_remove_table()
+>  		 */
+> -		mask = atomic_xor_bits(&page->_refcount, 0x11U << (bit + 24));
+> -		mask >>= 24;
+> +		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x11U << bit);
+>  		if (mask & 0x03U)
+>  			list_add(&page->lru, &mm->context.pgtable_list);
+>  		else
+>  			list_del(&page->lru);
+>  		spin_unlock_bh(&mm->context.lock);
+> -		mask = atomic_xor_bits(&page->_refcount, 0x10U << (bit + 24));
+> -		mask >>= 24;
+> +		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x10U << bit);
+>  		if (mask != 0x00U)
+>  			return;
+>  		half = 0x01U << bit;
+>  	} else {
+>  		half = 0x03U;
+> -		mask = atomic_xor_bits(&page->_refcount, 0x03U << 24);
+> -		mask >>= 24;
+> +		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x03U);
+>  	}
+>  
+>  	page_table_release_check(page, table, half, mask);
+> @@ -368,8 +363,7 @@ void page_table_free_rcu(struct mmu_gather *tlb, unsigned long *table,
+>  	 * outside of the critical section from __tlb_remove_table() or from
+>  	 * page_table_free()
+>  	 */
+> -	mask = atomic_xor_bits(&page->_refcount, 0x11U << (bit + 24));
+> -	mask >>= 24;
+> +	mask = atomic_xor_bits(&page->pt_frag_refcount, 0x11U << bit);
+>  	if (mask & 0x03U)
+>  		list_add_tail(&page->lru, &mm->context.pgtable_list);
+>  	else
+> @@ -391,14 +385,12 @@ void __tlb_remove_table(void *_table)
+>  		return;
+>  	case 0x01U:	/* lower 2K of a 4K page table */
+>  	case 0x02U:	/* higher 2K of a 4K page table */
+> -		mask = atomic_xor_bits(&page->_refcount, mask << (4 + 24));
+> -		mask >>= 24;
+> +		mask = atomic_xor_bits(&page->pt_frag_refcount, mask << 4);
+>  		if (mask != 0x00U)
+>  			return;
+>  		break;
+>  	case 0x03U:	/* 4K page table with pgstes */
+> -		mask = atomic_xor_bits(&page->_refcount, 0x03U << 24);
+> -		mask >>= 24;
+> +		mask = atomic_xor_bits(&page->pt_frag_refcount, 0x03U);
+>  		break;
+>  	}
+>  
+> -- 
+> 2.40.1
+> 
+> 
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 4fa420faa780..1306149aad57 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -267,7 +267,6 @@ static void __init setup_bootmem(void)
- 	dma_contiguous_reserve(dma32_phys_limit);
- 	if (IS_ENABLED(CONFIG_64BIT))
- 		hugetlb_cma_reserve(PUD_SHIFT - PAGE_SHIFT);
--	memblock_allow_resize();
- }
- 
- #ifdef CONFIG_MMU
-@@ -1370,6 +1369,9 @@ void __init paging_init(void)
- {
- 	setup_bootmem();
- 	setup_vm_final();
-+
-+	/* Depend on that Linear Mapping is ready */
-+	memblock_allow_resize();
- }
- 
- void __init misc_mem_init(void)
 -- 
-2.39.2
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
