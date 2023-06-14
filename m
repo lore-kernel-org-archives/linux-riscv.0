@@ -4,81 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB17EB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 12:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE990EB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 12:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ltkhe9BOFO+EpYawG4pYuKtayGqZ700usN8O+CwVo5g=; b=Ov5ANzoBKfun+Y
-	NbkVoPTQooeGnPyalHgRLPVzoSjfxAsxmkvR97BiypWlTsaVXBfgogu34alB2wm5Tm1kTbxsymuMk
-	EX7oZ6TKMGug0A6xwOfwanFAKmM4DME3wmZNnZpInHSID4T1fgZy7v47AzidiLTBF1Z7aIw4EIw9g
-	r5GmoL30y1gPCgoMBtDe6zgSAOWbTn7K+4EY+f12j2MuyH4hcUTkUv1uWBY+Z8GL96i1mkF1XMqqv
-	NQkjSd4Cf+LsQnfevlO/LXN6lmJEPJ/LocPA2u4Uc+d6AfUKUvK2PBOc8FdEFefTKcB7liQ6ghr1M
-	dOpzHBGS2a3VY6KRaqbA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lm9X6KOb/a5J2dNzcXzNqHunhb8IT26eGSPvTLlM1xI=; b=DssrjjRTMNG0Rs
+	eb6OK+9n6eDpHcJhe3ZydiH0UjGllfu3+xLn7XyW3OtjpxVmP6O7kKTO224XoRei1wky0YEYgvEVO
+	DI1kmrTkFy4W1cKJFm1BUPMu5LLhpE3UR7x6TP6tsd+2MK0y40p7cxzxvLAsD7XAVaH2Dyii+uLQh
+	AR2YUI3brx9G3fOfpbuFpudceSFW7C8QptWQ6cWiDeeOTcBPTVga7qhQuijjP/jXwkJNswml0DprG
+	29q4aiQAezVqp7FMy24mfEroejUqlR6iFt/m8NtQSIQ+rQwkCRilQlh7U6eco1TOmYIilDU/8GBhi
+	kuXhhWNtXqCPX+yw5cKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9Q0Q-00BfnS-1Z;
-	Wed, 14 Jun 2023 12:53:46 +0000
-Received: from mail-ot1-f51.google.com ([209.85.210.51])
+	id 1q9Q2M-00Bg3A-2F;
+	Wed, 14 Jun 2023 12:55:46 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9Q0N-00BfmE-1P
-	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jun 2023 12:53:45 +0000
-Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-6b13e2af122so4173969a34.2
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Jun 2023 05:53:42 -0700 (PDT)
+	id 1q9Q2J-00Bg0k-2o;
+	Wed, 14 Jun 2023 12:55:45 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-307d20548adso4807049f8f.0;
+        Wed, 14 Jun 2023 05:55:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1686747341; x=1689339341;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=f4a+nqynai93p3DslnYapWoLBaBt6oixAJaqzvjoA2A=;
+        b=O7bqwRo9lqTLd0GymqyDJ/F7I5npZ3EjGhqdc8H3z76pJF+lG6ctgHpTwrGS13GdeJ
+         7/+hPgUpA7T81p6dBhiwsmDmSLI6YRtANIy5njh4PLpnZFxoVlEtMM2jCZpGI4ULOpws
+         lbZy49S4H5M104U/AMIj/GdKhxXCOX2/DYD03RarZYLu2D2saslnN2zqChnZIGpUUCr/
+         5laFVT1VMh6J2ECV7iqvALDhM6ApBsXH3ElHD4cuypHY2tURBT8rcE7Fe7vtBeDT6G9u
+         aByQdm+gWh963O0oAxOTS97kALwPMyubxCNNW7EGWRpz2OlqLbaNogz987Mvkv3xkHDn
+         1uag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686747222; x=1689339222;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3XWEKvAMOuR1l+m/B+1m8slMbaOUqRu1ZrBY3HpAHis=;
-        b=dOZUuX8i3JLoN/YNfhfXlGljfKLcQ+C5/XthWMJWhtN5S6FR7j5ZMRZTnvrv6Hm3+f
-         rXSuj6M1YhT7kNkxmCcmD1H7kYEZ8aQBurSNlKPBysulLljP3p1cZ2zmUN1fuvUnVYuq
-         6ThiWACiJmKlE7lM2XPFYV5YG+GAZX1sTkeXXSbH5DiICzMM9/hvSwpYDpXLjIRFeM9F
-         pNQpZhkhozjMEq7Du4F9yGdBKCfvjNcpi/sdqF02PDfJiwpH7dNakTmX+hBesmS59CRZ
-         a8IUGwmpeNmQXysHWyQnLZk+/VYztadwTZaF8TiiFmx7soqiGmTJL2/2sD63st1Fu4i6
-         qyjg==
-X-Gm-Message-State: AC+VfDx5doPOUjQc2j7V7O9HbiT5bId6RrL9TBSrRz+mIXlNKLluOQ5C
-	JsUbpAreFBQtw0aPUmkvYCKJ10Kmx9CVAg==
-X-Google-Smtp-Source: ACHHUZ5X10EpUbwtmGrKOTJvx1ELhd01ldo2j0nBaYqTFPloyvm7SPox8jM5qpKLm78jPdD2eiQVPA==
-X-Received: by 2002:a05:6830:1548:b0:6af:9900:1a87 with SMTP id l8-20020a056830154800b006af99001a87mr10605262otp.29.1686747221930;
-        Wed, 14 Jun 2023 05:53:41 -0700 (PDT)
-Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com. [209.85.161.42])
-        by smtp.gmail.com with ESMTPSA id f22-20020a9d6c16000000b006ac87b54ca4sm5709643otq.34.2023.06.14.05.53.39
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Jun 2023 05:53:40 -0700 (PDT)
-Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-5556e2bddf9so550478eaf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 14 Jun 2023 05:53:39 -0700 (PDT)
-X-Received: by 2002:a05:6359:a26:b0:129:c25e:1cb0 with SMTP id
- el38-20020a0563590a2600b00129c25e1cb0mr8260221rwb.30.1686747219592; Wed, 14
- Jun 2023 05:53:39 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1686747341; x=1689339341;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=f4a+nqynai93p3DslnYapWoLBaBt6oixAJaqzvjoA2A=;
+        b=D5ZK9UVQrHRPhSJJMNVYJjiLuM1Y0+Id7HXmR2C4uVwzwW2rdSGrcHDgq1gynE/t54
+         qghmWLvxWfJdGvJlqAdcl66s4Ac8m5LUt5frW+rutBy8NQpTTfCVsscrz8G0P/5O6y8+
+         Iib4+HhT0xGdLqA6FUwzMjFFpUmKuq+19N1/axYkTpKGZJ6fvL/7XSYV3hUpjV+crmLg
+         cUMN5wc72h//0cryIZVrQ2+xyclmlOtd6bjVp8GsFKJb6D8nKRythuctE6Xs9mCcHL/E
+         6QyEEnR0qSfxbfMdkbIO5f53g2vmEQCUt1isNka6LGlp7u/AJTYQ6cMdsT/Nevs7yAtV
+         1TPA==
+X-Gm-Message-State: AC+VfDxsyWRf6PS8sfqiBroookjei2g8VpEPdF4zWWW/7me2IwOITMWQ
+	8IPcb1sNmLFsKGSjF/Nd1DY=
+X-Google-Smtp-Source: ACHHUZ5CgQtLa5Ylyn328rgorrSA/Y3m894rHJvNMi4kR8Twg1Hc7ZqF2fyloHx8zTEu2k8bZ90qfw==
+X-Received: by 2002:adf:dc42:0:b0:306:28f4:963c with SMTP id m2-20020adfdc42000000b0030628f4963cmr9087095wrj.23.1686747340807;
+        Wed, 14 Jun 2023 05:55:40 -0700 (PDT)
+Received: from user-PC.. ([92.51.95.194])
+        by smtp.gmail.com with ESMTPSA id c21-20020a05600c0ad500b003f7310a3ffasm17402522wmr.2.2023.06.14.05.55.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jun 2023 05:55:40 -0700 (PDT)
+From: Maksim Kiselev <bigunclemax@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Maksim Kiselev <bigunclemax@gmail.com>,
+	Vasily Khoruzhick <anarsoul@gmail.com>,
+	Yangtao Li <tiny.windzz@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Amit Kucheria <amitk@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5 0/3] Add D1/T113s thermal sensor controller support
+Date: Wed, 14 Jun 2023 15:55:18 +0300
+Message-Id: <20230614125530.660597-1-bigunclemax@gmail.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-References: <20230614104759.228372-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20230614104759.228372-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20230614104759.228372-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 14 Jun 2023 14:53:26 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWApGKsS8DU7-=6j6WaRBDZ8Amig2NtA8f8=PbGKoFQjQ@mail.gmail.com>
-Message-ID: <CAMuHMdWApGKsS8DU7-=6j6WaRBDZ8Amig2NtA8f8=PbGKoFQjQ@mail.gmail.com>
-Subject: Re: [PATCH v9 3/6] riscv: mm: dma-noncoherent: nonstandard cache
- operations support
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor.dooley@microchip.com>, 
-	Guo Ren <guoren@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Samuel Holland <samuel@sholland.org>, 
-	linux-riscv@lists.infradead.org, Christoph Hellwig <hch@infradead.org>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_055343_479139_25ABB592 
-X-CRM114-Status: GOOD (  25.43  )
+X-CRM114-CacheID: sfid-20230614_055543_910157_1BF9AAC5 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,51 +105,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUHJhYmhha2FyLAoKT24gV2VkLCBKdW4gMTQsIDIwMjMgYXQgMTI6NDjigK9QTSBQcmFiaGFr
-YXIgPHByYWJoYWthci5jc2VuZ2dAZ21haWwuY29tPiB3cm90ZToKPiBGcm9tOiBMYWQgUHJhYmhh
-a2FyIDxwcmFiaGFrYXIubWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20+Cj4KPiBJbnRyb2R1
-Y2Ugc3VwcG9ydCBmb3Igbm9uc3RhbmRhcmQgbm9uY29oZXJlbnQgc3lzdGVtcyBpbiB0aGUgUklT
-Qy1WCj4gYXJjaGl0ZWN0dXJlLiBJdCBlbmFibGVzIGZ1bmN0aW9uIHBvaW50ZXIgc3VwcG9ydCB0
-byBoYW5kbGUgY2FjaGUKPiBtYW5hZ2VtZW50IGluIHN1Y2ggc3lzdGVtcy4KPgo+IFRoaXMgcGF0
-Y2ggYWRkcyBhIG5ldyBjb25maWd1cmF0aW9uIG9wdGlvbiBjYWxsZWQKPiAiUklTQ1ZfTk9OU1RB
-TkRBUkRfQ0FDSEVfT1BTLiIgVGhpcyBvcHRpb24gaXMgYSBib29sZWFuIGZsYWcgdGhhdAo+IGRl
-cGVuZHMgb24gIlJJU0NWX0RNQV9OT05DT0hFUkVOVCIgYW5kIGVuYWJsZXMgdGhlIGZ1bmN0aW9u
-IHBvaW50ZXIKPiBzdXBwb3J0IGZvciBjYWNoZSBtYW5hZ2VtZW50IGluIG5vbnN0YW5kYXJkIG5v
-bmNvaGVyZW50IHN5c3RlbXMuCj4KPiBTaWduZWQtb2ZmLWJ5OiBMYWQgUHJhYmhha2FyIDxwcmFi
-aGFrYXIubWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20+Cj4gLS0tCj4gdjggLT4gdjkKPiAq
-IE5ldyBwYXRjaAoKVGhhbmtzIGZvciB5b3VyIHBhdGNoIQoKPiAtLS0gL2Rldi9udWxsCj4gKysr
-IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9kbWEtbm9uY29oZXJlbnQuaAo+IEBAIC0wLDAgKzEs
-MjggQEAKPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb25seSAqLwo+ICsv
-Kgo+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMjMgUmVuZXNhcyBFbGVjdHJvbmljcyBDb3JwLgo+ICsg
-Ki8KPiArCj4gKyNpZm5kZWYgX19BU01fRE1BX05PTkNPSEVSRU5UX0gKPiArI2RlZmluZSBfX0FT
-TV9ETUFfTk9OQ09IRVJFTlRfSAo+ICsKPiArI2luY2x1ZGUgPGxpbnV4L2RtYS1kaXJlY3QuaD4K
-PiArCj4gKy8qCj4gKyAqIHN0cnVjdCByaXNjdl9jYWNoZV9vcHMgLSBTdHJ1Y3R1cmUgZm9yIENN
-TyBmdW5jdGlvbiBwb2ludGVycwo+ICsgKgo+ICsgKiBAY2xlYW46IEZ1bmN0aW9uIHBvaW50ZXIg
-Zm9yIGNsZWFuIGNhY2hlCj4gKyAqIEBpbnZhbDogRnVuY3Rpb24gcG9pbnRlciBmb3IgaW52YWxp
-ZGF0ZSBjYWNoZQo+ICsgKiBAZmx1c2g6IEZ1bmN0aW9uIHBvaW50ZXIgZm9yIGZsdXNoaW5nIHRo
-ZSBjYWNoZQo+ICsgKi8KPiArc3RydWN0IHJpc2N2X2NhY2hlX29wcyB7Cj4gKyAgICAgICB2b2lk
-ICgqY2xlYW4pKHBoeXNfYWRkcl90IHBhZGRyLCB1bnNpZ25lZCBsb25nIHNpemUpOwo+ICsgICAg
-ICAgdm9pZCAoKmludmFsKShwaHlzX2FkZHJfdCBwYWRkciwgdW5zaWduZWQgbG9uZyBzaXplKTsK
-PiArICAgICAgIHZvaWQgKCpmbHVzaCkocGh5c19hZGRyX3QgcGFkZHIsIHVuc2lnbmVkIGxvbmcg
-c2l6ZSk7Cj4gK307CgpJIGd1ZXNzIHRoZSBuYW1pbmcgY2FuIGJlIGltcHJvdmVkPwoKLmNsZWFu
-KCkgaXMgdXNlZCBieSBhcmNoX2RtYV9jYWNoZV93YmFjaygpIC8gYXJjaF93Yl9jYWNoZV9wbWVt
-KCksCi5pbnZhbCgpIGlzIHVzZWQgYnkgYXJjaF9kbWFfY2FjaGVfaW52KCkgLyBhcmNoX2ludmFs
-aWRhdGVfcG1lbSgpLAouZmx1c2goKSBpcyB1c2VkIGJ5IGFyY2hfZG1hX2NhY2hlX3diYWNrX2lu
-digpIC8gYXJjaF9kbWFfcHJlcF9jb2hlcmVudCgpLgoKUGVyaGFwcyAud2JhY2soKSwgLmludigp
-LCAud2JhY2tfaW52KCkgYXJlIG1vcmUgY2xlYXI/CgpJIHVuZGVyc3RhbmQgdGhpcyBpcyBzdWJq
-ZWN0IHRvIGJpa2VzaGVkZGluZy4uLgpCdXQgaGV5LCBob3cgbWFueSBpbm5vY2VudCBiaXRzIG9m
-IGRhdGEgaGF2ZSBhbHJlYWR5IGJlZW4gbG9zdCBkdWUKdG8gY2FjaGUgc2VtYW50aWMgbWlzbWF0
-Y2hlcz8KCkdye29ldGplLGVldGluZ31zLAoKICAgICAgICAgICAgICAgICAgICAgICAgR2VlcnQK
-CgotLQpHZWVydCBVeXR0ZXJob2V2ZW4gLS0gVGhlcmUncyBsb3RzIG9mIExpbnV4IGJleW9uZCBp
-YTMyIC0tIGdlZXJ0QGxpbnV4LW02OGsub3JnCgpJbiBwZXJzb25hbCBjb252ZXJzYXRpb25zIHdp
-dGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15c2VsZiBhIGhhY2tlci4gQnV0CndoZW4gSSdt
-IHRhbGtpbmcgdG8gam91cm5hbGlzdHMgSSBqdXN0IHNheSAicHJvZ3JhbW1lciIgb3Igc29tZXRo
-aW5nIGxpa2UgdGhhdC4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLSBMaW51cyBU
-b3J2YWxkcwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This series adds support for Allwinner D1/T113s thermal sensor controller.
+THIS controller is similar to the one on H6, but with only one sensor and
+uses a different scale and offset values.
+
+v5:
+- Dropeed 'thermal-zones' node from sunxi-d1s-t113.dtsi
+
+v4:
+- Dropeed DT bindings example
+
+v3:
+- Fixed SoB tag again
+
+v2:
+- Fixed SoB tag
+- Moved binding patch before driver changes
+
+v1:
+- Initial version
+
+Maxim Kiselev (3):
+  dt-bindings: thermal: sun8i: Add binding for D1/T113s THS controller
+  thermal: sun8i: Add D1/T113s THS controller support
+  riscv: dts: allwinner: d1: Add thermal sensor
+
+ .../thermal/allwinner,sun8i-a83t-ths.yaml       |  7 ++++++-
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi      | 17 +++++++++++++++++
+ drivers/thermal/sun8i_thermal.c                 | 13 +++++++++++++
+ 3 files changed, 36 insertions(+), 1 deletion(-)
+
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
