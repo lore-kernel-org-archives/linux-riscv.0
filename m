@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F56AEB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 21:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F79EB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Jun 2023 21:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PAA/W2fjW0DttKJFkQhq7AHWdsr8bpiXpjhQOxRy+xs=; b=NFE+c15tYvFXmO
-	lb9u89M0kQCIMD+cjX3fSDPuEh/TzeMIXuSHMVBqt/Kjr26IYgBSuguBw8ztVv4ma7NnyXuV7okOF
-	lkCDLu1cjYb3hTq4Zq3u1MIxeFjZIulEveIYeqdKLNu5EUpBeCZODY6zVCfqmlLWqoQNREZNQ9jQx
-	NYBOUrMz2bp7EHTHjB3bk80dKM9Mq1BCk3jgKILe2Y9LEhFhug/QNOh9NSZz4Ej2bNqvGW/31UJJH
-	qhzEuQXU8q88jInqQU3R6u9gi5/e9lEm+Dl+pSceN8JgExTTaDe03/Z1UlsvMlXtdPp6t+uL8PMZQ
-	1v6l+kwwaJ0F/h/HZX2g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2eSyyjfJ8exRkJhtg8HSmlbBDZoJEC3xovrlvDttfqQ=; b=mXrgUJZWGiWZoN
+	35NyAsFn1o9Z5zf8MyiClMg90gEqrHr9MsairOc1xLhqLtUqFWxpMBM63ZR63r8/OzvAj4apjx2VR
+	9tmCwRnUrsYngNog1Qb1YB4bBEkpR+NiQJkuyDNAwOhNsegGBpcbN7XBgqjy4oj8Kc39ARbDg0grQ
+	TxFnLa1w7vi5IOFw8nQmdZH4kPAtlBu4DkHA1nehUpdU5uDgrAQwJf/k+ajmjTWnmISUu9kEW02oy
+	gUSgji5R64jEXNE6Jh7IS0sL6RZ2PKD0xPcIAT0h0XfaRWeNQF5hePuV2qBO144DWjIlgcXT2BWy7
+	seBr40tD2gH9896+OSLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9XtX-00CjWi-1w;
-	Wed, 14 Jun 2023 21:19:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q9XxY-00Ck2T-2y;
+	Wed, 14 Jun 2023 21:23:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9XtU-00CjW0-30
-	for linux-riscv@lists.infradead.org;
-	Wed, 14 Jun 2023 21:19:10 +0000
+	id 1q9XxU-00Ck0w-2V;
+	Wed, 14 Jun 2023 21:23:18 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 70ADA60DF4;
-	Wed, 14 Jun 2023 21:19:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 268C5C433C8;
-	Wed, 14 Jun 2023 21:19:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 34A296257E;
+	Wed, 14 Jun 2023 21:23:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E219C433C8;
+	Wed, 14 Jun 2023 21:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686777547;
-	bh=UEhz/kpeox3MvxRfpolw9Y3cKpiMR3f1Bj+mCSrsu+w=;
-	h=From:Date:Subject:To:Cc:From;
-	b=GzJN/pOX0gp/xstmlig24vmyKpwxXIYsnKum50WEILylD4i6NTZFzKYVhffUDxW1Z
-	 XfP3kJEiqS+53Z56BzKvRJWl4cEsXDphkVNy+DQNzIwXOwcsHHjnpj3L1guuKBw/hK
-	 Nti/cS6HDhwvoFs/OnnPPv1R5aTlFX7llyepiWR9tdJTSxhyAmaw13FMj/V+4t+m12
-	 omVscywuF6a6xs8I2zCR2jW1FVzEqxEHt2YFQtmnSO2O0XYMsJR9ULTbp5It/FMSeI
-	 scbeCkf0FRyKN6q71Lilt9y90n4UZqGzYZzM5XUc8GNfEr8dGEUIBk9Ks9ZHFkdoQ8
-	 YTK3QY5/fgFzw==
-From: Mark Brown <broonie@kernel.org>
-Date: Wed, 14 Jun 2023 22:18:58 +0100
-Subject: [PATCH] selftests/mm: Fix cross compilation with LLVM
+	s=k20201202; t=1686777794;
+	bh=sfZlQC0KRiU3VFMaS6H5djLiaDuaR3UyKKAHotXoEC4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JSy2cjQ3EfZqDH+GRmJ+mjVAAcseGIvPUq3lquiQxXqEjjGqwU+HemD7F3wiC1btN
+	 oSofDjGtfqLFUZE6+eF26LaNmlZ0XJSVLI8h3M4XLmim/HM29Na3QWm9DVPo2aVCXI
+	 K79BAGLxK+0MfFwKGWozB9O2gr9yZd3Cu5CIDwhRjdpR3tn5b309NHjtR2IQGAy5FI
+	 ii48Ct/zrPJGlO6GMB0nxU3tTn8XzvIvT2D58R4sk2Mn4rxTjXdkRPrgiKhp+20BR7
+	 UEwrTSQZ099UBshJbATcCyWw+lXzjKCSDECSlkjbQFiwFpFsJU9nBH5UIC1JXPi4An
+	 txkWeQKuOaEyQ==
+Message-ID: <5729b45b-6a19-2aa8-8722-c50e6a1fceea@kernel.org>
+Date: Wed, 14 Jun 2023 16:23:10 -0500
 MIME-Version: 1.0
-Message-Id: <20230614-kselftest-mm-llvm-v1-1-180523f277d3@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAMIuimQC/x2NQQqDQAwAvyI5N6Db1kK/UnqImtTg7loSsQXx7
- 117nIFhNnA2ZYd7tYHxqq5zLtCcKuhHyi9GHQpDqMO5bpsLTs5RFvYFU8IY14QUrnQbSIRagdJ
- 15IydUe7Ho/zMNh36bSz6/a8ez33/AdkJN7h6AAAA
-To: Andrew Morton <akpm@linux-foundation.org>, 
- Shuah Khan <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>
-Cc: linux-mm@kvack.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- llvm@lists.linux.dev, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.13-dev-c6835
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3189; i=broonie@kernel.org;
- h=from:subject:message-id; bh=UEhz/kpeox3MvxRfpolw9Y3cKpiMR3f1Bj+mCSrsu+w=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBkii7IGttHdFnUF0lmq6L7TPI3idmAEp2wD+7pMnu+
- wqAt+VyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZIouyAAKCRAk1otyXVSH0OZoCA
- CB/4e2WEwUuvnxjdo+IKA2oPKHQrf9LrGE8Bum4qjdJu1TWsTJNE2T1qrdmYPXAQZFQYlmViy7AeDT
- l21o4NRfo4DZmLv6rx3O49Lq+orAst4ATm/P3+uFGOH08jBnhGTAULa/4edYKGQO/xVq3BKr8zSyBn
- 2at4XPXbnZzWMqx/LUDYTS699PrfTxw3ZA1q78EnuQMxxhn+RYZdESgpPYMs7kd6wkGE+d5ZUJbJqL
- ku8wS2yMyX66n13s89P4L824wzcEDcenfJDGTyiQyh3xBP1kueox5NrVPUwAT63but7/Wz82WcRQGZ
- DGUl9W9QiMMHEckJYUrVY6fLz5cnkt
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v4 27/34] nios2: Convert __pte_free_tlb() to use ptdescs
+Content-Language: en-US
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+ xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+ Hugh Dickins <hughd@google.com>
+References: <20230612210423.18611-1-vishal.moola@gmail.com>
+ <20230612210423.18611-28-vishal.moola@gmail.com>
+ <e52c7a74-da68-08d2-54e2-f95a8c5b52e7@kernel.org>
+ <CAMuHMdXPASfLM8St_JZOW3Wke+ickJoo1oDr+orRbTERy=Zgwg@mail.gmail.com>
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <CAMuHMdXPASfLM8St_JZOW3Wke+ickJoo1oDr+orRbTERy=Zgwg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_141909_075995_D8460736 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20230614_142316_914364_9BCEB3AE 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,94 +84,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently the MM selftests attempt to work out the target architecture by
-using CROSS_COMPILE or otherwise querying the host machine, storing the
-target architecture in a variable called MACHINE rather than the usual ARCH
-though as far as I can tell (including for x86_64) the value is the same as
-we would use for architecture.
-
-When cross compiling with LLVM we don't need a CROSS_COMPILE as LLVM can
-support many target architectures in a single build so this logic does not
-work, CROSS_COMPILE is not set and we end up selecting tests for the host
-rather than target architecture. Fix this by using the more standard ARCH
-to describe the architecture, taking it from the environment if specified.
-
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/mm/Makefile | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
-
-diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
-index 23af4633f0f4..4f0c50c33ba7 100644
---- a/tools/testing/selftests/mm/Makefile
-+++ b/tools/testing/selftests/mm/Makefile
-@@ -5,12 +5,15 @@ LOCAL_HDRS += $(selfdir)/mm/local_config.h $(top_srcdir)/mm/gup_test.h
- 
- include local_config.mk
- 
-+ifeq ($(ARCH),)
-+
- ifeq ($(CROSS_COMPILE),)
- uname_M := $(shell uname -m 2>/dev/null || echo not)
- else
- uname_M := $(shell echo $(CROSS_COMPILE) | grep -o '^[a-z0-9]\+')
- endif
--MACHINE ?= $(shell echo $(uname_M) | sed -e 's/aarch64.*/arm64/' -e 's/ppc64.*/ppc64/')
-+ARCH ?= $(shell echo $(uname_M) | sed -e 's/aarch64.*/arm64/' -e 's/ppc64.*/ppc64/')
-+endif
- 
- # Without this, failed build products remain, with up-to-date timestamps,
- # thus tricking Make (and you!) into believing that All Is Well, in subsequent
-@@ -65,7 +68,7 @@ TEST_GEN_PROGS += ksm_tests
- TEST_GEN_PROGS += ksm_functional_tests
- TEST_GEN_PROGS += mdwe_test
- 
--ifeq ($(MACHINE),x86_64)
-+ifeq ($(ARCH),x86_64)
- CAN_BUILD_I386 := $(shell ./../x86/check_cc.sh "$(CC)" ../x86/trivial_32bit_program.c -m32)
- CAN_BUILD_X86_64 := $(shell ./../x86/check_cc.sh "$(CC)" ../x86/trivial_64bit_program.c)
- CAN_BUILD_WITH_NOPIE := $(shell ./../x86/check_cc.sh "$(CC)" ../x86/trivial_program.c -no-pie)
-@@ -87,13 +90,13 @@ TEST_GEN_PROGS += $(BINARIES_64)
- endif
- else
- 
--ifneq (,$(findstring $(MACHINE),ppc64))
-+ifneq (,$(findstring $(ARCH),ppc64))
- TEST_GEN_PROGS += protection_keys
- endif
- 
- endif
- 
--ifneq (,$(filter $(MACHINE),arm64 ia64 mips64 parisc64 ppc64 riscv64 s390x sparc64 x86_64))
-+ifneq (,$(filter $(ARCH),arm64 ia64 mips64 parisc64 ppc64 riscv64 s390x sparc64 x86_64))
- TEST_GEN_PROGS += va_high_addr_switch
- TEST_GEN_PROGS += virtual_address_range
- TEST_GEN_PROGS += write_to_hugetlbfs
-@@ -112,7 +115,7 @@ $(TEST_GEN_PROGS): vm_util.c
- $(OUTPUT)/uffd-stress: uffd-common.c
- $(OUTPUT)/uffd-unit-tests: uffd-common.c
- 
--ifeq ($(MACHINE),x86_64)
-+ifeq ($(ARCH),x86_64)
- BINARIES_32 := $(patsubst %,$(OUTPUT)/%,$(BINARIES_32))
- BINARIES_64 := $(patsubst %,$(OUTPUT)/%,$(BINARIES_64))
- 
-
----
-base-commit: 858fd168a95c5b9669aac8db6c14a9aeab446375
-change-id: 20230614-kselftest-mm-llvm-a25a7daffa6f
-
-Best regards,
--- 
-Mark Brown <broonie@kernel.org>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiA2LzE0LzIzIDA0OjMwLCBHZWVydCBVeXR0ZXJob2V2ZW4gd3JvdGU6Cj4gSGkgRGluaCwK
+PiAKPiBPbiBXZWQsIEp1biAxNCwgMjAyMyBhdCAxMjoxN+KAr0FNIERpbmggTmd1eWVuIDxkaW5n
+dXllbkBrZXJuZWwub3JnPiB3cm90ZToKPj4gT24gNi8xMi8yMyAxNjowNCwgVmlzaGFsIE1vb2xh
+IChPcmFjbGUpIHdyb3RlOgo+Pj4gUGFydCBvZiB0aGUgY29udmVyc2lvbnMgdG8gcmVwbGFjZSBw
+Z3RhYmxlIGNvbnN0cnVjdG9yL2Rlc3RydWN0b3JzIHdpdGgKPj4+IHB0ZGVzYyBlcXVpdmFsZW50
+cy4KPj4+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBWaXNoYWwgTW9vbGEgKE9yYWNsZSkgPHZpc2hhbC5t
+b29sYUBnbWFpbC5jb20+Cj4+PiAtLS0KPj4+ICAgIGFyY2gvbmlvczIvaW5jbHVkZS9hc20vcGdh
+bGxvYy5oIHwgOCArKysrLS0tLQo+Pj4gICAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygr
+KSwgNCBkZWxldGlvbnMoLSkKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9uaW9zMi9pbmNsdWRl
+L2FzbS9wZ2FsbG9jLmggYi9hcmNoL25pb3MyL2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+Pj4gaW5k
+ZXggZWNkMTY1N2JiMmNlLi5jZTZiYjhlNzQyNzEgMTAwNjQ0Cj4+PiAtLS0gYS9hcmNoL25pb3My
+L2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+Pj4gKysrIGIvYXJjaC9uaW9zMi9pbmNsdWRlL2FzbS9w
+Z2FsbG9jLmgKPj4+IEBAIC0yOCwxMCArMjgsMTAgQEAgc3RhdGljIGlubGluZSB2b2lkIHBtZF9w
+b3B1bGF0ZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgcG1kX3QgKnBtZCwKPj4+Cj4+PiAgICBleHRl
+cm4gcGdkX3QgKnBnZF9hbGxvYyhzdHJ1Y3QgbW1fc3RydWN0ICptbSk7Cj4+Pgo+Pj4gLSNkZWZp
+bmUgX19wdGVfZnJlZV90bGIodGxiLCBwdGUsIGFkZHIpICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIFwKPj4+IC0gICAgIGRvIHsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgXAo+Pj4gLSAgICAgICAgICAgICBwZ3RhYmxlX3B0ZV9wYWdlX2R0
+b3IocHRlKTsgICAgICAgICAgICAgICAgICAgICBcCj4+PiAtICAgICAgICAgICAgIHRsYl9yZW1v
+dmVfcGFnZSgodGxiKSwgKHB0ZSkpOyAgICAgICAgICAgICAgICAgIFwKPj4+ICsjZGVmaW5lIF9f
+cHRlX2ZyZWVfdGxiKHRsYiwgcHRlLCBhZGRyKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIFwKPj4+ICsgICAgIGRvIHsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4+PiArICAgICAgICAgICAgIHBhZ2V0YWJs
+ZV9wdGVfZHRvcihwYWdlX3B0ZGVzYyhwdGUpKTsgICAgICAgICAgICAgICAgICAgXAo+Pj4gKyAg
+ICAgICAgICAgICB0bGJfcmVtb3ZlX3BhZ2VfcHRkZXNjKCh0bGIpLCAocGFnZV9wdGRlc2MocHRl
+KSkpOyAgICAgIFwKPj4+ICAgICAgICB9IHdoaWxlICgwKQo+Pj4KPj4+ICAgICNlbmRpZiAvKiBf
+QVNNX05JT1MyX1BHQUxMT0NfSCAqLwo+Pgo+PiBBcHBsaWVkIQo+IAo+IEkgZG9uJ3QgdGhpbmsg
+eW91IGNhbiBqdXN0IGFwcGx5IHRoaXMgcGF0Y2gsIGFzIHRoZSBuZXcgZnVuY3Rpb25zCj4gd2Vy
+ZSBvbmx5IGludHJvZHVjZWQgaW4gW1BBVENIIHY0IDA1LzM0XSBvZiB0aGlzIHNlcmllcy4KPiAK
+CkFoLCB0aGFua3MgZm9yIHRoZSBwb2ludGVyIQoKRGluaAoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
