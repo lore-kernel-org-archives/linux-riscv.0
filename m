@@ -4,61 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97632EB64D8
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 00:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3054EB64D8
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 00:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
-	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ao+k55xjTfoZl4MWqT5Va4v4lKXo33wH3U76tW7OljU=; b=0/srdHivRDkmn2
-	CdT67MbzX95o4KiheLBL6Q5IZ5QixWEDoX10npjpQJKDl4E13Yk1Mxliok42Fq7+PTG6LAnYjsvLb
-	Tt3NB36FRqk7N2OnlSKzmbSfNTUVsTs2MbsnZEtZC78PpZ/cA2Sm/YTRF7c/bzh8R58izCjV7mBZh
-	1ZyjsTavtkwxvUdpZQyNWNY1RDDaBZsLsFvmg3tDrVE8jLOCXQsVzJzdJ0GjQR8H3tPtqXdvEruSp
-	oPN3ffNULAbu1kFbAy3QnXir4EoGAc4F5tF1OXFiMOANMWuzl+1H3cBb1dahQL9bcpo8X6QO2le63
-	RKatJ/KmTTXT6iOsFn5Q==;
+	List-Owner; bh=1PIi53z/p6tAETPVk0KtB5HIl0fEmCbRQuS480Ajt8c=; b=R+MK2WXhjmybjx
+	jXUMXqmP9++efj9gxoIegLUNCTn8etdKRnqPjFnDkqCV1J74CyK0WxWtgdHvtzJaDW1A4KcRMqTga
+	E1/40j0DYdLRrv7D6L0tt5N0FBb7KAcTVyXkMhZ8mv7VF4x9WO/wTLc6dVPBcAZXqP8oFKcQRfJRN
+	QGOfyjAzDG+IoKciXYDcwdl6sydYHHeDijUSEtsCbVAEN7jdj47T7TF1Q5bNNcZZvXsAzOFY6YoSR
+	3Db7IyS6eUJWC6uSyhtPMmFZr48aoP8CmixVy4iX/hBzC5pYNaREfibhuWTtZ88EkfxQGEU8X13Eo
+	roBouqrU/ZqZwwti3UAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9aj0-00D83G-03;
-	Thu, 15 Jun 2023 00:20:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q9apT-00D8iy-0E;
+	Thu, 15 Jun 2023 00:27:11 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9aix-00D82n-0T
+	id 1q9apO-00D8fE-32
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jun 2023 00:20:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 750F260DD7;
-	Thu, 15 Jun 2023 00:20:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D401EC433C8;
-	Thu, 15 Jun 2023 00:20:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686788425;
-	bh=ozv6giPzGRmfPQuuB5WiAMIv+WoZnlC14A7qr+rfDI0=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=fNvwp91OD4u/aRRucVtnnzbLVjb8nGkhseyxYbrgGkqYJU1kUsrMKzJ+yWd/tTwdc
-	 21uNiFAu6SEuJlQa6yFHT0JrOuy9te6VMWT0TwPsZ6ecCUXUOiVlPaEtx1t00KrEHr
-	 tfltbesbpdcqI1ecgpPexmoSTZ1B0h+tiw0GteXedDxoFxATBt57StUL6c+knzyeXA
-	 0jTPlQq0VloUkgH20At8N++y8FKGn46XPWH6lFzTxb2/cYEUZlva5uaOh33tjAwN3L
-	 Tgkn9JASl5Xgj1BIDvNeqoX9omDBw0fHjFWVc4mJoR8IEh5/+8dJcaPw0hJd6oGLtU
-	 6r6L/AJRq4pDg==
-Message-ID: <3d583029c237b29deb49159a1a64d04f.sboyd@kernel.org>
+	Thu, 15 Jun 2023 00:27:09 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-56ff9cc91b4so15081927b3.0
+        for <linux-riscv@lists.infradead.org>; Wed, 14 Jun 2023 17:26:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1686788819; x=1689380819;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DnWlt5Rs3KXon7VRWQ16gguJVnALQ3ZmklO6Frv1x8M=;
+        b=WRHrIu3gJ2wGOTVICPuRYrvd1c7L0vJmrlkgymQr/8tluUcC03co9peWifCQEP1BsY
+         n1bcKbEoAy3csFFfNr5H+pB6uC7G+M6NDOY8RplOtmKbo0R9oGV+MU9bx9fwzUqBE6qz
+         UoP7JSR/WImIB+BSu++yiJd2ccucSuR3F/8O1ueWLj3eeb3W7W3deV4ilVi0Hz02Zt93
+         TjoBiZtPZ+PXM7D8IHAIhSy81RgpuYrpZDW9wXrDupoXxD94l+mSwBro2iU8DdUEQdKI
+         M+gCDPVaDv5mY02cBNtASY+U3YkMeuVD/52uz72mGD+cYhnjUb+L8OIbARxgrlvrjLd5
+         w90A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686788819; x=1689380819;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DnWlt5Rs3KXon7VRWQ16gguJVnALQ3ZmklO6Frv1x8M=;
+        b=jWQhcpMpKIF9v+D/Mu/g9e42zJplzp7VDIvc2UJdqLmmhEp28zG8F8D/RB7dBJDYHi
+         WB3eTWfokXiw7J2jzclN/ypRnDy8B9F98rE/4etl8Obdwum6RTatd/tLtTc5nx1ge8Dh
+         kwhva/l6bd9hou3ciLvBmoV8tu85hwDxGi+VAVhC+jZ6+Z4n+nY6ob1RY/9oHXKStzTX
+         tKE02W1R6cKs4+dE9d0nD+9iglKa17fZtVUJHI1tlGcNS0h4wvWqQB8eDqyYCJhfyO5e
+         YdkUdcSd6+0NerpXvWoFxG0PzYMR0XIAMwPSSJtnXNqE1/sXGFw500722NJzK5/hgYDJ
+         fVhA==
+X-Gm-Message-State: AC+VfDz60m/W8y65gUIDCSvrTXN0TCUlYrWEw9QB1CMCf/RfNOiA2iYk
+	ErSy28uewQdxvmfXvZZKDSLTwA==
+X-Google-Smtp-Source: ACHHUZ7bmVwEeref/EmuNgObqE0Cze454MmZYUDZGEjkaQsMh2xmkr5i3f3fpHWj6dmJHfcSbaICaw==
+X-Received: by 2002:a81:8744:0:b0:56d:31bb:7388 with SMTP id x65-20020a818744000000b0056d31bb7388mr3076697ywf.49.1686788819041;
+        Wed, 14 Jun 2023 17:26:59 -0700 (PDT)
+Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
+        by smtp.gmail.com with ESMTPSA id h81-20020a815354000000b0055a881abfc3sm2421337ywb.135.2023.06.14.17.26.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Jun 2023 17:26:57 -0700 (PDT)
+Date: Wed, 14 Jun 2023 17:26:43 -0700 (PDT)
+From: Hugh Dickins <hughd@google.com>
+X-X-Sender: hugh@ripple.attlocal.net
+To: Nathan Chancellor <nathan@kernel.org>
+cc: Hugh Dickins <hughd@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+    Mike Kravetz <mike.kravetz@oracle.com>, Mike Rapoport <rppt@kernel.org>, 
+    "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
+    Matthew Wilcox <willy@infradead.org>, David Hildenbrand <david@redhat.com>, 
+    Suren Baghdasaryan <surenb@google.com>, 
+    Qi Zheng <zhengqi.arch@bytedance.com>, 
+    Peter Zijlstra <peterz@infradead.org>, 
+    Russell King <linux@armlinux.org.uk>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    Geert Uytterhoeven <geert@linux-m68k.org>, 
+    Greg Ungerer <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Helge Deller <deller@gmx.de>, John David Anglin <dave.anglin@bell.net>, 
+    "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, 
+    Michael Ellerman <mpe@ellerman.id.au>, 
+    Alexandre Ghiti <alexghiti@rivosinc.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
+    Christian Borntraeger <borntraeger@linux.ibm.com>, 
+    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+    Alexander Gordeev <agordeev@linux.ibm.com>, 
+    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+    "David S. Miller" <davem@davemloft.net>, Chris Zankel <chris@zankel.net>, 
+    Max Filippov <jcmvbkbc@gmail.com>, x86@kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org, 
+    linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH v2 07/23] mips: update_mmu_cache() can replace
+ __update_tlb()
+In-Reply-To: <20230614231758.GA1503611@dev-arch.thelio-3990X>
+Message-ID: <f5526f17-9d78-f7ea-427a-7e76bfeb6b8@google.com>
+References: <a4963be9-7aa6-350-66d0-2ba843e1af44@google.com> <178970b0-1539-8aac-76fd-972c6c46ec17@google.com> <20230614231758.GA1503611@dev-arch.thelio-3990X>
 MIME-Version: 1.0
-In-Reply-To: <20230428070005.41192-1-yang.lee@linux.alibaba.com>
-References: <20230428070005.41192-1-yang.lee@linux.alibaba.com>
-Subject: Re: [PATCH -next] clk: sifive: Use devm_platform_ioremap_resource()
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Yang Li <yang.lee@linux.alibaba.com>
-To: Yang Li <yang.lee@linux.alibaba.com>, mturquette@baylibre.com
-Date: Wed, 14 Jun 2023 17:20:23 -0700
-User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230614_172027_685944_CE1142B6 
-X-CRM114-Status: UNSURE (   6.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230614_172706_986464_68046D17 
+X-CRM114-Status: GOOD (  42.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,15 +118,203 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Yang Li (2023-04-28 00:00:05)
-> Convert platform_get_resource(),devm_ioremap_resource() to a single
-> call to devm_platform_ioremap_resource(), as this is exactly what this
-> function does.
-> 
-> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
-> ---
+On Wed, 14 Jun 2023, Nathan Chancellor wrote:
 
-Applied to clk-next
+> Hi Hugh,
+> 
+> On Thu, Jun 08, 2023 at 12:17:24PM -0700, Hugh Dickins wrote:
+> > Don't make update_mmu_cache() a wrapper around __update_tlb(): call it
+> > directly, and use the ptep (or pmdp) provided by the caller, instead of
+> > re-calling pte_offset_map() - which would raise a question of whether a
+> > pte_unmap() is needed to balance it.
+> > 
+> > Check whether the "ptep" provided by the caller is actually the pmdp,
+> > instead of testing pmd_huge(): or test pmd_huge() too and warn if it
+> > disagrees?  This is "hazardous" territory: needs review and testing.
+> > 
+> > Signed-off-by: Hugh Dickins <hughd@google.com>
+> > ---
+> >  arch/mips/include/asm/pgtable.h | 15 +++------------
+> >  arch/mips/mm/tlb-r3k.c          |  5 +++--
+> >  arch/mips/mm/tlb-r4k.c          |  9 +++------
+> >  3 files changed, 9 insertions(+), 20 deletions(-)
+> > 
+> > diff --git a/arch/mips/include/asm/pgtable.h b/arch/mips/include/asm/pgtable.h
+> > index 574fa14ac8b2..9175dfab08d5 100644
+> > --- a/arch/mips/include/asm/pgtable.h
+> > +++ b/arch/mips/include/asm/pgtable.h
+> > @@ -565,15 +565,8 @@ static inline pte_t pte_swp_clear_exclusive(pte_t pte)
+> >  }
+> >  #endif
+> >  
+> > -extern void __update_tlb(struct vm_area_struct *vma, unsigned long address,
+> > -	pte_t pte);
+> > -
+> > -static inline void update_mmu_cache(struct vm_area_struct *vma,
+> > -	unsigned long address, pte_t *ptep)
+> > -{
+> > -	pte_t pte = *ptep;
+> > -	__update_tlb(vma, address, pte);
+> > -}
+> > +extern void update_mmu_cache(struct vm_area_struct *vma,
+> > +	unsigned long address, pte_t *ptep);
+> >  
+> >  #define	__HAVE_ARCH_UPDATE_MMU_TLB
+> >  #define update_mmu_tlb	update_mmu_cache
+> > @@ -581,9 +574,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
+> >  static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+> >  	unsigned long address, pmd_t *pmdp)
+> >  {
+> > -	pte_t pte = *(pte_t *)pmdp;
+> > -
+> > -	__update_tlb(vma, address, pte);
+> > +	update_mmu_cache(vma, address, (pte_t *)pmdp);
+> >  }
+> >  
+> >  /*
+> > diff --git a/arch/mips/mm/tlb-r3k.c b/arch/mips/mm/tlb-r3k.c
+> > index 53dfa2b9316b..e5722cd8dd6d 100644
+> > --- a/arch/mips/mm/tlb-r3k.c
+> > +++ b/arch/mips/mm/tlb-r3k.c
+> > @@ -176,7 +176,8 @@ void local_flush_tlb_page(struct vm_area_struct *vma, unsigned long page)
+> >  	}
+> >  }
+> >  
+> > -void __update_tlb(struct vm_area_struct *vma, unsigned long address, pte_t pte)
+> > +void update_mmu_cache(struct vm_area_struct *vma,
+> > +		      unsigned long address, pte_t *ptep)
+> >  {
+> >  	unsigned long asid_mask = cpu_asid_mask(&current_cpu_data);
+> >  	unsigned long flags;
+> > @@ -203,7 +204,7 @@ void __update_tlb(struct vm_area_struct *vma, unsigned long address, pte_t pte)
+> >  	BARRIER;
+> >  	tlb_probe();
+> >  	idx = read_c0_index();
+> > -	write_c0_entrylo0(pte_val(pte));
+> > +	write_c0_entrylo0(pte_val(*ptep));
+> >  	write_c0_entryhi(address | pid);
+> >  	if (idx < 0) {					/* BARRIER */
+> >  		tlb_write_random();
+> > diff --git a/arch/mips/mm/tlb-r4k.c b/arch/mips/mm/tlb-r4k.c
+> > index 1b939abbe4ca..c96725d17cab 100644
+> > --- a/arch/mips/mm/tlb-r4k.c
+> > +++ b/arch/mips/mm/tlb-r4k.c
+> > @@ -290,14 +290,14 @@ void local_flush_tlb_one(unsigned long page)
+> >   * updates the TLB with the new pte(s), and another which also checks
+> >   * for the R4k "end of page" hardware bug and does the needy.
+> >   */
+> > -void __update_tlb(struct vm_area_struct * vma, unsigned long address, pte_t pte)
+> > +void update_mmu_cache(struct vm_area_struct *vma,
+> > +		      unsigned long address, pte_t *ptep)
+> >  {
+> >  	unsigned long flags;
+> >  	pgd_t *pgdp;
+> >  	p4d_t *p4dp;
+> >  	pud_t *pudp;
+> >  	pmd_t *pmdp;
+> > -	pte_t *ptep;
+> >  	int idx, pid;
+> >  
+> >  	/*
+> > @@ -326,10 +326,9 @@ void __update_tlb(struct vm_area_struct * vma, unsigned long address, pte_t pte)
+> >  	idx = read_c0_index();
+> >  #ifdef CONFIG_MIPS_HUGE_TLB_SUPPORT
+> >  	/* this could be a huge page  */
+> > -	if (pmd_huge(*pmdp)) {
+> > +	if (ptep == (pte_t *)pmdp) {
+> >  		unsigned long lo;
+> >  		write_c0_pagemask(PM_HUGE_MASK);
+> > -		ptep = (pte_t *)pmdp;
+> >  		lo = pte_to_entrylo(pte_val(*ptep));
+> >  		write_c0_entrylo0(lo);
+> >  		write_c0_entrylo1(lo + (HPAGE_SIZE >> 7));
+> > @@ -344,8 +343,6 @@ void __update_tlb(struct vm_area_struct * vma, unsigned long address, pte_t pte)
+> >  	} else
+> >  #endif
+> >  	{
+> > -		ptep = pte_offset_map(pmdp, address);
+> > -
+> >  #if defined(CONFIG_PHYS_ADDR_T_64BIT) && defined(CONFIG_CPU_MIPS32)
+> >  #ifdef CONFIG_XPA
+> >  		write_c0_entrylo0(pte_to_entrylo(ptep->pte_high));
+> > -- 
+> > 2.35.3
+> > 
+> 
+> I just bisected a crash while powering down a MIPS machine in QEMU to
+> this change as commit 8044511d3893 ("mips: update_mmu_cache() can
+> replace __update_tlb()") in linux-next.
+
+Thank you, Nathan, that's very helpful indeed.  This patch certainly knew
+that it wanted testing, and I'm glad to hear that it is now seeing some.
+
+While powering down?  The messages below look like it was just coming up,
+but no doubt that's because you were bisecting (or because I'm unfamiliar
+with what messages to expect there).  It's probably irrelevant information,
+but I wonder whether the (V)machine worked well enough for a while before
+you first powered down and spotted the problem, or whether it's never got
+much further than trying to run init (busybox)?  I'm trying to get a feel
+for whether the problem occurs under common or uncommon conditions.
+
+> Unfortunately, I can still
+> reproduce it with the existing fix you have for this change on the
+> mailing list, which is present in next-20230614.
+
+Right, that later fix was only for a build warning, nothing functional
+(or at least I hoped that it wasn't making any functional difference).
+
+Thanks a lot for the detailed instructions below: unfortunately, those
+would draw me into a realm of testing I've never needed to enter before,
+so a lot of time spent on setup and learning.  Usually, I just stare at
+the source.
+
+What this probably says is that I should revert most my cleanup there,
+and keep as close to the existing code as possible.  But some change is
+needed, and I may need to understand (or have a good guess at) what was
+going wrong, to decide what kind of retreat will be successful.
+
+Back to the source for a while: I hope I'll find examples in nearby MIPS
+kernel source (and git history), which will hint at the right way forward.
+Then send you a patch against next-20230614 to try, when I'm reasonably
+confident that it's enough to satisfy my purpose, but likely not to waste
+your time.
+
+Thanks, until later,
+Hugh
+
+> 
+> I can reproduce it with the GCC 13.1.0 on kernel.org [1].
+> 
+>   $ make -skj"$(nproc)" ARCH=mips CROSS_COMPILE=mips-linux- mrproper malta_defconfig vmlinux
+> 
+>   $ qemu-system-mipsel \
+>       -display none \
+>       -nodefaults \
+>       -cpu 24Kf \
+>       -machine malta \
+>       -kernel vmlinux \
+>       -initrd rootfs.cpio \
+>       -m 512m \
+>       -serial mon:stdio
+>   ...
+>   Linux version 6.4.0-rc6-next-20230614 (nathan@dev-arch.thelio-3990X) (mips-linux-gcc (GCC) 13.1.0, GNU ld (GNU Binutils) 2.40) #1 SMP Wed Jun 14 16:13:02 MST 2023
+>   ...
+>   Run /init as init process
+>   process '/bin/busybox' started with executable stack
+>   do_page_fault(): sending SIGSEGV to init for invalid read access from 0000003c
+>   epc = 77b893dc in ld-uClibc-1.0.39.so[77b84000+8000]
+>   ra  = 77b8930c in ld-uClibc-1.0.39.so[77b84000+8000]
+>   Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+>   ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+> 
+> The rootfs is available at [2] if it is needed. I am more than happy to
+> provide additional information or test patches if necessary.
+> 
+> [1]: https://mirrors.edge.kernel.org/pub/tools/crosstool/
+> [2]: https://github.com/ClangBuiltLinux/boot-utils/releases/download/20230609-194440/mipsel-rootfs.cpio.zst
+> 
+> Cheers,
+> Nathan
 
 _______________________________________________
 linux-riscv mailing list
