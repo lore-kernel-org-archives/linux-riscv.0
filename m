@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7282EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 08:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA8EEB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 08:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2CUFSC9VUcccdQC0dAIkN9jKx+GrA2NhPD54udFfFlo=; b=MWGCIJ6LyjXFfr
-	iYXM4k1V+kkzWTACybf2IPmR3513D2phcxHiXAfvAaPMSQlyyrNMwgwfuUNUeiTTQWDNveQJH8HCx
-	BqiAFbqdRKsNoYihyaQJBVUii27J+5raYgC2RWWnEL9kYmWfQOBXOKsFDuyWb6zlQZHsaE0ZHsflL
-	2odxDLZrTdCsP6GJeyeZUPUdZRzYP8o6pbdr+0u5+98CzdhNSqOvAktBcjIOaAL1hhXaR81f7qqnx
-	G84g81bbjmRjDn1UK96QIf6E4YLobrUbw3UqzPaqXtBiICnpwSefpwagJWQ3IOCkUqnpbAcedYNvw
-	E/xy2pbaQhTGcoW8e3aQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wjS9ma6jul0bVpF0NXzPw+iVDiE9enUkU/A7aGS6lB0=; b=ro1viyPpG+Ta1ZtWTte6W49IMw
+	GrGpPvb0Ej5ii7FpEaoSh+roc9c7PXjyJyQDlLW3BJ30eAsE5SJuZPZVrxnV4h8AnaNWVZ1Pe28HU
+	zaAXr3u/mpgll6jV0rl35Ill1oyk+8NdkHpnR1bVXiC/HT+SxnUxsf4xJ8wYBy9zM8pAg/7Q/wxQW
+	K4bSbJjtOKTSRKUkaBoDs4CF1ohD4JxvOK6+oFunM1IvzqZLtly8zNdFvnu0NoULwKainM5/CWyhG
+	g0uWb78k+3RmKtzF1bJACMbZuayNwC/aFVN3EoBpe2C0/mq6HHCGvrv4RLKt45xirI6d6LCTXYE02
+	85SaKoXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9i1G-00E7ZD-2s;
-	Thu, 15 Jun 2023 08:07:50 +0000
-Received: from smtp-out1.suse.de ([2001:67c:2178:6::1c])
+	id 1q9i5P-00E843-0V;
+	Thu, 15 Jun 2023 08:12:07 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9i1D-00E7Ww-2O
+	id 1q9i5M-00E837-0M
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jun 2023 08:07:49 +0000
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out1.suse.de (Postfix) with ESMTP id 7239622384;
-	Thu, 15 Jun 2023 08:07:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1686816462; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mP4cVRtg1Zot55n0E8/s57K6td9e+eRW0Qf0nPD1Puw=;
-	b=BVHS5z7riMfLlFWJBxKJqLBmf89d1jTwJx+4T8dCuEmV7DQb+ZeKILBUIfUhB3S0yUr8oY
-	1g33oCoV4gG6iEM8qP9bQ8pbW/Pv70eHExTt+Oc3SbOqKd0vDdIXdfs9nRaJyf5DgQ7exb
-	mEpX3Js72X8/uECyoIezrCo9VJw79+Q=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1686816462;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mP4cVRtg1Zot55n0E8/s57K6td9e+eRW0Qf0nPD1Puw=;
-	b=8gtEFc3JYefULzfkiyeMTf+PGnyUpEtqxxUpIYO8Z6dyye8tCwUlgTUi/IH6mCgeOB9/jN
-	EOE4SoIJ2rFtwVDw==
-Received: from hawking.suse.de (unknown [10.168.4.11])
-	by relay2.suse.de (Postfix) with ESMTP id 4F3212C141;
-	Thu, 15 Jun 2023 08:07:42 +0000 (UTC)
-Received: by hawking.suse.de (Postfix, from userid 17005)
-	id 411914A037D; Thu, 15 Jun 2023 10:07:42 +0200 (CEST)
-From: Andreas Schwab <schwab@suse.de>
+	Thu, 15 Jun 2023 08:12:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1686816724; x=1718352724;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zMvFbd2Dmpe15HsekBKSTxJnEfVLCvXumharhvUUlYA=;
+  b=zmBcnV6o9XGZbE/JLJOSHTZ+5UEfeiVDyELmksFmbxXGY98u4kxGkwtQ
+   ReZBdR5EUEbkGnM2dPn16jJS93704M6vD4yxXglk3H7f3PsWsZD7ZY262
+   x/DS3L4rq+BCYP0vhnGn8/xXMzDohQAcEiNbgfD5Zhn+WO9MPCjXLJgkq
+   7E08HD2EROy5m0rQXpaOJbtflVg1qXBV2PMxXsBzpbOwMcWPHq6/gaIqv
+   t9HDuxdZsU09alNpDEpbcrtHjT/+KP+MVyO7MAqnYLX3lXeDZmAFHi86y
+   mSN2VxvxTc6ntO7ce5KfHGXjPxN9SJmKOHnHH98NflfahmbXZQAV4md6I
+   w==;
+X-IronPort-AV: E=Sophos;i="6.00,244,1681196400"; 
+   d="asc'?scan'208";a="230254116"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Jun 2023 01:12:02 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 15 Jun 2023 01:12:01 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 15 Jun 2023 01:11:59 -0700
+Date: Thu, 15 Jun 2023 09:11:33 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
 To: Nylon Chen <nylon.chen@sifive.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
-  jszhang@kernel.org,  ajones@ventanamicro.com,  aou@eecs.berkeley.edu,
-  palmer@dabbelt.com,  paul.walmsley@sifive.com,  greentime.hu@sifive.com,
-  zong.li@sifive.com,  nylon7717@gmail.com
+CC: <schwab@suse.de>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <jszhang@kernel.org>,
+	<ajones@ventanamicro.com>, <aou@eecs.berkeley.edu>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <greentime.hu@sifive.com>, <zong.li@sifive.com>,
+	<nylon7717@gmail.com>
 Subject: Re: [PATCH v2] RISC-V: Support 32_PCREL relocation type in kernel
  module
-In-Reply-To: <CAHh=Yk_=oZJ6eY3jJzLavub5rGsvY=MKv4tGXeiqkz+rgJHwDQ@mail.gmail.com>
-	(Nylon Chen's message of "Thu, 15 Jun 2023 15:52:27 +0800")
+Message-ID: <20230615-luxurious-rewire-84ff9d639fea@wendy>
 References: <20230615072302.25638-1-nylon.chen@sifive.com>
-	<20230615-unvisited-deceit-9beab8ce987a@wendy>
-	<CAHh=Yk_=oZJ6eY3jJzLavub5rGsvY=MKv4tGXeiqkz+rgJHwDQ@mail.gmail.com>
-X-Yow: I'll eat ANYTHING that's BRIGHT BLUE!!
-Date: Thu, 15 Jun 2023 10:07:42 +0200
-Message-ID: <mvmwn052lo1.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+ <20230615-unvisited-deceit-9beab8ce987a@wendy>
+ <CAHh=Yk_=oZJ6eY3jJzLavub5rGsvY=MKv4tGXeiqkz+rgJHwDQ@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CAHh=Yk_=oZJ6eY3jJzLavub5rGsvY=MKv4tGXeiqkz+rgJHwDQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_010747_923517_51BDF25A 
-X-CRM114-Status: UNSURE (   4.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230615_011204_156521_C10144EA 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,23 +84,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7293449725142976012=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jun 15 2023, Nylon Chen wrote:
+--===============7293449725142976012==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="h6NhA6OhD5BBwWq3"
+Content-Disposition: inline
 
-> I mean, when we use the flag "-fasynchronous-unwind-tables,"
+--h6NhA6OhD5BBwWq3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Why?
+Hey Nylon,
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+Firstly, no html emails please :/
+
+On Thu, Jun 15, 2023 at 03:52:27PM +0800, Nylon Chen wrote:
+> Conor Dooley <conor.dooley@microchip.com<mailto:conor.dooley@microchip.co=
+m>> =E6=96=BC 2023=E5=B9=B46=E6=9C=8815=E6=97=A5 =E9=80=B1=E5=9B=9B =E4=B8=
+=8B=E5=8D=883:38=E5=AF=AB=E9=81=93=EF=BC=9A
+> > On Thu, Jun 15, 2023 at 03:23:02PM +0800, Nylon Chen wrote:
+> > > Fix the 'unsupported relocation type' error caused by
+> > > enabling the -fasynchronous-unwind-tables flag,
+> > > which generates relocation types that are not supported.
+> >
+> > What commit adds the -fasynchronous-unwind-tables flag?
+> sorry my description is not correct, please allow me to add
+>=20
+> I mean, when we use the flag "-fasynchronous-unwind-tables," it generates
+> the relocation type R_RISCV_32_PCCREL. However, this type is currently not
+> supported, so an error will occur.
+
+(snip)
+
+> > Should there be a Fixes: tag for that commit?
+
+> yes, I will do it.
+
+What mainline commit actually enables this flag?
+
+Cheers,
+Conor.
+
+--h6NhA6OhD5BBwWq3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIrHtQAKCRB4tDGHoIJi
+0kYXAP4vjUBQC0nRI2nk+JJ2TuSAyNZbfK027v2MExRK2/XFZQD8Dsh0kgG+u+mL
+zmBMKAzwFIGn34kWR9aFPZrhGcm0HAY=
+=HQMi
+-----END PGP SIGNATURE-----
+
+--h6NhA6OhD5BBwWq3--
+
+
+--===============7293449725142976012==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7293449725142976012==--
+
