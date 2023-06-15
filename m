@@ -4,96 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F55DEB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 14:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7665DEB64DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 15:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:To:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OCUV5ZLmrRA4WewQh3y9OmSwaIXI7VIKXd555YDjvqI=; b=KpE71CNb1EvrHw
-	zKtqs04SQ1rKlQ6kj+9i1p8QbMxLBIhaq8Qb6DGcSsgtEHXaM3OKvuCkGlXPOTbhyoejJoO13XwXO
-	QKN8jFLpIv2y47CeuV/zUNwnAJOwX0MrLPyY/GrDFB58AaupuD31ndBdZ+Dfg1TxE8eoCtdbSETKS
-	xIa8EACBFTe84gFCjca9VHxyEEOhSuTNTHgRL1Tc/Tq0R4NhhIaMl6IwJxZq8gvkX4mjOfQ2+0hBK
-	zz4+hbmCaann4p6dQJqWFumWg5yXl5wg1Lx5GtELuooHXImvmD9LpM7QzjwszqJ4EXw4eKIKDsNjO
-	c6YNZ5DqJ3DRjPlY8Ydw==;
+	List-Owner; bh=PIDS3cQ6dlPjOUc1eptnOAnGJpUB9GBC2jXROJm5GCw=; b=VNDdjuUYVsPlp8
+	NHj3v3ICWbQCm1Q8VZ9tLuyOd81T8WEosGkkP/xfRFtkprU2ogiZLvhboQi7/QCpJ0HPoDnp2wEgX
+	I0UWAmDxk6nNVlIT2dMO02YjOtkJum2u4mAr7XMNYILcK5breU3rz6C40XLmHI/Jj8cPQXUzzsIgR
+	sgVijrzmkfy1O0Bi0Sa4YJXr5LjsMxbLi5P6btoWs4TqOXnQOGylGxpXWue+ErdkuyvvAe1Z4KgQl
+	XpuWv2CN2eaIyRaCJTMgyabj91yTr5lkZ/hVixJp+EFwUwdloWaJvHZlGI7cyF1czMLCSM805VFGZ
+	yxDMr51E5VDH/npCa/NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9oEF-00FCCN-0u;
-	Thu, 15 Jun 2023 14:45:39 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1q9ow8-00FIxw-2b;
+	Thu, 15 Jun 2023 15:31:00 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9oEC-00FCAL-0x;
-	Thu, 15 Jun 2023 14:45:37 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-4f76a223ca5so2606280e87.3;
-        Thu, 15 Jun 2023 07:45:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1686840334; x=1689432334;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wV92pSpCVmnx9n4E1q+MRb4GksMGgD+y07OYM0/qT58=;
-        b=aIzfv4Mjupmq37gyHvFs8F/LSK3Xj9YVHKM2j607IKnuOkrvGZAVssXNMRXeWX+dmV
-         /AABX0+ICsavEYJX+R3R3oC/NUjWUAt54gfecZ3dQ96G9nKrk4AmGMC0G7j9Lbv1SgaH
-         HquSTWXbpgXY4d8vkgRan3VK+R5OFrH+2Tzl6vO74LPZSu7DHUE/j3uzddwaTKvx2H/t
-         5202qourcPHXWuCglvCP6CdoV+V9kEbAap/hK6RIej9iv8rZpwVYy0hFRMU8uItAvMrz
-         5CsyEKHBt1Sfnna5pi9Im9hGJRY1hJVT/ZiTBhH9OukB8sEog1MjIDrMhfm4o4YpicQL
-         mQiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686840334; x=1689432334;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wV92pSpCVmnx9n4E1q+MRb4GksMGgD+y07OYM0/qT58=;
-        b=iIWVheGAbi5pzUnPISxksFbu/cdJtBKLcCy6HFKMEdt0VjXkJeN6eAp4MD9S13Uy3w
-         7+1c4NMP9CLnTYdP7Db3FSLnhbp1CJVFAkZ8JR1MNQpBdyXrePQHnHDCRE33hcRS9MaY
-         fty6vWJeWR4kJ+C9TwYMgCBranKqB/A/bB80JUMM0mO+IAEVd3oGpfE2d+Cz/BxHpvCC
-         u/XHm8t96ObeVUARjlz7/LzVlt52x483TDmmPLLQ6EbnnAcmluf6dVUrDyVBbCF6Vi1Z
-         b94FzBdsk36w6gyOgTulP0PjrZLrk22Qsfs439FJayXxTRiGuNPqC50inZOBOEpC2PCg
-         sAjQ==
-X-Gm-Message-State: AC+VfDw7IBrwbVAsA2bTcvab1W5adCQVFbZ5XmkhqiUHDefT4ygNhl/b
-	ein/qvm3N/9F/30+Sdcn5Q==
-X-Google-Smtp-Source: ACHHUZ7JCXFEpcyRUkA34U51/Dy11OR5ITEbLUmrZUsxSsG6Is9Uo9yDnK3rcDKYLGftkk2WwnqeoQ==
-X-Received: by 2002:a19:e01e:0:b0:4f8:4348:e000 with SMTP id x30-20020a19e01e000000b004f84348e000mr1324141lfg.13.1686840333381;
-        Thu, 15 Jun 2023 07:45:33 -0700 (PDT)
-Received: from localhost.localdomain (mail.pulsar-telecom.ru. [94.181.180.60])
-        by smtp.gmail.com with ESMTPSA id h7-20020ac25967000000b004f13f4ec267sm244451lfp.186.2023.06.15.07.45.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jun 2023 07:45:32 -0700 (PDT)
-From: Aleksandr Shubin <privatesub2@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: Aleksandr Shubin <privatesub2@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 3/3] riscv: dts: allwinner: d1: Add pwm node
-Date: Thu, 15 Jun 2023 17:43:58 +0300
-Message-Id: <20230615144423.828698-4-privatesub2@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230615144423.828698-1-privatesub2@gmail.com>
-References: <20230615144423.828698-1-privatesub2@gmail.com>
+	id 1q9ow7-00FIxZ-2y
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 15 Jun 2023 15:30:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=IjsASemYXe70MuG/jFDHUGpgy+oTPQPMzVD6s8GufOQ=; b=j51nMy24ZkeC38dgGJ5DVYtjpP
+	5KiAJwMr3yJ1cQz/UJcR0kzUFWz5pKETfc9/NzEef7YqnJtYWK8PzVI/ny2pWTPyPdXmyyjR38mMR
+	4C5R1iJ0kbtexIXNRx9LSRGQe980NxGJDLApjwjulkDgj7cM67a88mkASc0brnLH74F8M732GlHRQ
+	SizmwxB/uQwgu6Awz8HfIfQBwwaURMeDFnGM9EWn/be/ARHCrZA/klKKjVTtg63P2xnZgSfRWoF3c
+	vAV1SaUEFRAKioUgpnV6HV7DMN0p00rA40CnXeQEeLt7weBpmrv+OjR6UFP818gnNGnNNMiMr22Ht
+	2+fyqsdw==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by casper.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1q9ow1-007nSQ-4M
+	for linux-riscv@lists.infradead.org; Thu, 15 Jun 2023 15:30:56 +0000
+Received: from loongson.cn (unknown [111.18.159.104])
+	by gateway (Coremail) with SMTP id _____8BxrOqdLotkX5oFAA--.11847S3;
+	Thu, 15 Jun 2023 23:30:37 +0800 (CST)
+Received: from [192.168.68.106] (unknown [111.18.159.104])
+	by localhost.localdomain (Coremail) with SMTP id AQAAf8BxTMqbLotkfCscAA--.5583S3;
+	Thu, 15 Jun 2023 23:30:36 +0800 (CST)
+Message-ID: <901a6a33-7b1f-449e-7089-00aa50329d07@loongson.cn>
+Date: Thu, 15 Jun 2023 23:30:36 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.4.0
+To: guoren@kernel.org
+Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, loongson-kernel@lists.loongnix.cn,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, yangtiezhu@loongson.cn
+References: <CAJF2gTRqdP-RVSMshwzJuAcm1bBeg1-wZU_k_Oo409=O4QZR-w@mail.gmail.com>
+Subject: Re: [PATCH] riscv: uprobes: Restore thread.bad_cause
+Content-Language: en-US
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+In-Reply-To: <CAJF2gTRqdP-RVSMshwzJuAcm1bBeg1-wZU_k_Oo409=O4QZR-w@mail.gmail.com>
+X-CM-TRANSID: AQAAf8BxTMqbLotkfCscAA--.5583S3
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
+	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
+	BjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26c
+	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
+	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxV
+	AFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x02
+	67AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44
+	I27wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2
+	jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCYjI0SjxkI62
+	AI1cAE67vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E
+	5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtV
+	W8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY
+	1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI
+	0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxU
+	7_MaUUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_074536_339206_AE9AE401 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20230615_163053_799023_06C22418 
+X-CRM114-Status: UNSURE (   3.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,46 +93,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-D1 and T113s contain a pwm controller with 8 channels.
-This controller is supported by the sun20i-pwm driver.
+ping, what is the status of this patch which has been received Acked-by
+and Reviewed-by:
 
-Add a device tree node for it.
+https://lore.kernel.org/linux-riscv/1682214146-3756-1-git-send-email-yangtiezhu@loongson.cn/
 
-Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
----
- arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-index 922e8e0e2c09..50f0f761527b 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-@@ -127,6 +127,18 @@ uart3_pb_pins: uart3-pb-pins {
- 			};
- 		};
- 
-+		pwm: pwm@2000c00 {
-+			compatible = "allwinner,sun20i-d1-pwm";
-+			reg = <0x02000c00 0x400>;
-+			clocks = <&dcxo>,
-+				 <&ccu CLK_BUS_PWM>;
-+			clock-names = "hosc", "bus";
-+			resets = <&ccu RST_BUS_PWM>;
-+			allwinner,pwm-channels = <8>;
-+			status = "disabled";
-+			#pwm-cells = <0x3>;
-+		};
-+
- 		ccu: clock-controller@2001000 {
- 			compatible = "allwinner,sun20i-d1-ccu";
- 			reg = <0x2001000 0x1000>;
--- 
-2.25.1
+Thanks,
+Tiezhu
 
 
 _______________________________________________
