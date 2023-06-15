@@ -4,88 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B911AEB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 09:47:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE0AEB64DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 09:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M+hCh56E3DR0WxlPON51qwUw8YjruESOGqrx5O0A6fU=; b=u5pku6ZgNg6iUd
-	g9wcGpXQR8lfxwDuGur0NtMC44tbCjq5g4srVimWcu80nC6Tjj8N8f2wMJgFvdnv5JnYgNyj6O595
-	Ek/Hy0eV/IQPqtsnDmfJLPYGigyzAAd9URM99QW8r2XnIxBFa2+wA6iPaT+UXynjU1YIu63QamPgx
-	BdhD8tinbMZm5GSoWxJt5fzxW4/n78rQ+hiyM17nOMwGDVhXDhbwPLZGR0oLO2TAiL2Fl4WHpxJ5C
-	2QqWcu6/EyAkYQPHxf3d8S5qdewu4A287gozcnvKW9GAxcBqbuWPVUTT7bRaqF8BzWI8KYjtcyXDK
-	RND7B4tKZOxv2a7htPCg==;
+	List-Owner; bh=OSzW17rh0CauljVCuOugHYjUjXIDpJGOSAOSITmWeX4=; b=jLKyE/3v0v4OO0
+	lDkGmVDn3MRlaNK7IjnFOjLhfTdwLEEXPDelUskVh5Ao5P41C6S2p3v5hQUkB23fRMh8TF1MKBVjK
+	hwrlimK3bz4CKsM4PLxvH4f2pw5riwQgIx8e1vhP6skaKNMMBVYcx9HRG2kg/rcbYIgOtQWpIDTSx
+	GHJbcFvniQK0LaNBVYjzdaAAbBPxmFnI9lh72MezPAyVCwXb2TQr8zBPPAmdcUwlbVtbWxMZ9pKy0
+	/bMOgswnLVT6yIAfhQxZ9m6V8LUCtwDRRCOGGCo0IZa1IX9tD/O1I0d9Ha8PN6MaRf1NrYbrLUWXd
+	fzdm+aDQbW8iR132r5qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9jZu-00EMGW-22;
-	Thu, 15 Jun 2023 09:47:42 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1q9jbZ-00EMVd-1q;
+	Thu, 15 Jun 2023 09:49:25 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9jZs-00EMFx-0O
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jun 2023 09:47:41 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1b3c578c602so32037405ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jun 2023 02:47:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1686822459; x=1689414459;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dcIbsuTuras7nhZRKwXQYUq8Gmb7hiznRWwdCPO8xpM=;
-        b=aQGO6ueCJziuDO+nAGnGz5QTl5OIKIrHs2i/hdOQKmAgBl4NTbEF1FRxIZGr6oiKVr
-         /kynnbR43iXhit/NSlrXDmfTvgDE0HhrlyCWduduh9BjVekMKhHhBRlq8lT/ipShEooi
-         cMHo6Yn0pimsYW+JmQcRZyz8zv6gw8saL1C+qbe5FXq91uU8D4P4d7oQB+CKeFY6Cw8F
-         0cyghIRKVXG5pm5m8XSsNklnZv0BqLC1QRHKZQhHwt6IwB36xAaTm2sErgNDdYsyF5EO
-         xEzPHJJSm82TCnY6gEwxT21zSgLm07cT8e6ZxUcKMyag9W9EnGAr5bpmO0T0QlL8QMcd
-         AMQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686822459; x=1689414459;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dcIbsuTuras7nhZRKwXQYUq8Gmb7hiznRWwdCPO8xpM=;
-        b=UNTcPaifsiqe99sXl2mI/cuctSbToGhoHehxxsbg4nMD3wb3cTGwyPa/TsPlcuXynW
-         ePcvTIaPB6kZp640HDH22aUFfiFY/MYxcCp6J70T2Txbu9AuFBekO4wPa366ND1CUxbU
-         IIQw2foduMCYdv0dA8siIeDKlnHVOymGAqYQcY65ZdoTu/dGGa6NqzybwP99uK6NeXIC
-         AuC15ObZV8AV52IJIyI03SSnZYzGh4QNiI9zjTR0v1OHZOb4+ka/2uHb4oza1Sl+Wmj4
-         xQVq3BSEZyIaJt3s8P4iK4I5wqJqUJoJAZqCYhNQ/+jdv3DXVux5zRb964Spfx6kq/0b
-         dyZQ==
-X-Gm-Message-State: AC+VfDzwlxJhapWX9ci/lpYTl/clfe6o+VlKcpebHhFWNxU4hplIW+cD
-	VMdLdYu2Wla+FKXhS8JOojBZkw==
-X-Google-Smtp-Source: ACHHUZ4DB1lofP+kyQ79jZotePluoFWtcHF3WEHWh7MQjOnnqgczFkuipTQ03MximRBmBW9a4rI9mg==
-X-Received: by 2002:a17:903:244e:b0:1b3:c7c7:74ae with SMTP id l14-20020a170903244e00b001b3c7c774aemr12312783pls.45.1686822458748;
-        Thu, 15 Jun 2023 02:47:38 -0700 (PDT)
-Received: from hsinchu15 (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id w22-20020a170902d71600b001a64851087bsm4800996ply.272.2023.06.15.02.47.36
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 15 Jun 2023 02:47:38 -0700 (PDT)
-Date: Thu, 15 Jun 2023 17:47:33 +0800
-From: Nylon Chen <nylon.chen@sifive.com>
-To: Andreas Schwab <schwab@suse.de>
-Cc: Conor Dooley <conor.dooley@microchip.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, jszhang@kernel.org,
-	ajones@ventanamicro.com, aou@eecs.berkeley.edu, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, greentime.hu@sifive.com,
-	zong.li@sifive.com, nylon7717@gmail.com
-Subject: Re: [PATCH v2] RISC-V: Support 32_PCREL relocation type in kernel
- module
-Message-ID: <20230615094732.GA8710@hsinchu15>
-References: <20230615072302.25638-1-nylon.chen@sifive.com>
- <20230615-unvisited-deceit-9beab8ce987a@wendy>
- <CAHh=Yk_=oZJ6eY3jJzLavub5rGsvY=MKv4tGXeiqkz+rgJHwDQ@mail.gmail.com>
- <20230615-luxurious-rewire-84ff9d639fea@wendy>
- <20230615084310.GA780@hsinchu15>
- <mvmo7lh2ip6.fsf@suse.de>
+	id 1q9jbU-00EMT2-2y;
+	Thu, 15 Jun 2023 09:49:23 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.54])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Qhcs36BWrzLmp5;
+	Thu, 15 Jun 2023 17:47:19 +0800 (CST)
+Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.23; Thu, 15 Jun
+ 2023 17:49:10 +0800
+Message-ID: <852b8777-3c6e-f76b-0413-1c66629f33cd@huawei.com>
+Date: Thu, 15 Jun 2023 17:49:10 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mvmo7lh2ip6.fsf@suse.de>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH -next v5 1/2] riscv: kdump: Implement
+ crashkernel=X,[high,low]
+To: Baoquan He <bhe@redhat.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
+	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
+	<atishp@rivosinc.com>, <thunder.leizhen@huawei.com>, <horms@kernel.org>
+References: <20230511085139.1039088-1-chenjiahao16@huawei.com>
+ <20230511085139.1039088-2-chenjiahao16@huawei.com>
+ <ZHwKFADVXyNYJBCp@MiWiFi-R3L-srv>
+Content-Language: en-US
+From: "chenjiahao (C)" <chenjiahao16@huawei.com>
+In-Reply-To: <ZHwKFADVXyNYJBCp@MiWiFi-R3L-srv>
+X-Originating-IP: [10.67.108.26]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_024740_173253_16548467 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20230615_024921_286565_D34D9C42 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,31 +71,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 15, 2023 at 11:11:49AM +0200, Andreas Schwab wrote:
-> On Jun 15 2023, Nylon Chen wrote:
+
+On 2023/6/4 11:50, Baoquan He wrote:
+> Hi Jiahao,
 >
-Hi Andreas,
-> > Because LLVM currently has it enabled by default(https://reviews.llvm.org/D145164), it will generate this
-> > relocation type.
-> >
-> >>From what I know, GCC will also enable it in the future.
-> 
-> That's why the kernel explicitly disables it.
-Ok, thanks for your feedback, after I cross-tested, there is indeed no relevant relocation type generated.
+> On 05/11/23 at 04:51pm, Chen Jiahao wrote:
+> ......
+>> @@ -1300,14 +1325,34 @@ static void __init reserve_crashkernel(void)
+>>   		return;
+>>   	}
+>>   
+>> -	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
+>> +	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
+>>   				&crash_size, &crash_base);
+>> -	if (ret || !crash_size)
+>> +	if (ret == -ENOENT) {
+>> +		/* Fallback to crashkernel=X,[high,low] */
+>> +		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
+>> +		if (ret || !crash_size)
+>> +			return;
+>> +
+>> +		/*
+>> +		 * crashkernel=Y,low is valid only when crashkernel=X,high
+>> +		 * is passed.
+>> +		 */
+>> +		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
+>> +		if (ret == -ENOENT)
+>> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+>> +		else if (ret)
+>> +			return;
+>> +
+>> +		search_end = memblock_end_of_DRAM();
+>> +	} else if (ret || !crash_size) {
+>> +		/* Invalid argument value specified */
+>>   		return;
+>> +	}
+> The parsing part looks great, while you didn't mark if it's specified
+> high reservation, please see later comment why it's needed.
+>
+>>   
+>>   	crash_size = PAGE_ALIGN(crash_size);
+>>   
+>>   	if (crash_base) {
+>> +		fixed_base = true;
+>>   		search_start = crash_base;
+>>   		search_end = crash_base + crash_size;
+>>   	}
+>> @@ -1320,17 +1365,31 @@ static void __init reserve_crashkernel(void)
+>>   	 * swiotlb can work on the crash kernel.
+>>   	 */
+>>   	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+>> -					       search_start,
+>> -					       min(search_end, (unsigned long) SZ_4G));
+>> +					       search_start, search_end);
+> If it's a specified high reservation, you have
+> search_start = memblock_start_of_DRAM();
+> search_end = memblock_end_of_DRAM();
+>
+> Then it attempts to search top down first time here.
+>
+>>   	if (crash_base == 0) {
+>> -		/* Try again without restricting region to 32bit addressible memory */
+>> +		if (fixed_base) {
+>> +			pr_warn("crashkernel: allocating failed with given size@offset\n");
+>> +			return;
+>> +		}
+>> +		search_end = memblock_end_of_DRAM();
+>> +
+>> +		/* Try again above the region of 32bit addressible memory */
+>>   		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
+>> -						search_start, search_end);
+>> +						       search_start, search_end);
+> If crashkernel=,high case, the first attempt failed, here it assigns
+> search_end with memblock_end_of_DRAM(). It's the exactly the same
+> attempt, why is that needed? Why don't you use a local variable 'high'
+> to mark the crashkernel=,hig, then judge when deciding how to adjsut the
+> reservation range.
+>
+> Do I misunderstand the code?
+>
+> Thanks
+> Baoquan
 
-If this error no longer occurs.
+You are right. Here I use search_end = memblock_end_of_DRAM() for the
+first attempt on "crashkernel=,high" case, but it will not distinct from
+other cases if the first attempt fails.
 
-I am open to the idea of adding this patch to the upstream and would like to hear your thoughts on whether it is still necessary. 
-> 
-> -- 
-> Andreas Schwab, SUSE Labs, schwab@suse.de
-> GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-> "And now for something completely different."
+I have read your latest refactor on Arm64, introducing the "high" flag
+is a good choice, the logic gets more straightforward when handling
+crashkernel=,high case and retrying.
+
+Following that logic, here introducing and set "high" flag when parsing
+cmdline, when the first attempt failed:
+
+if fixed_base:
+     failed and return;
+
+if set high:
+     search_start = memblock_start_of_DRAM();
+     search_end = (unsigned long)dma32_phys_limit;
+else:
+     search_start = (unsigned long)dma32_phys_limit;
+     search_end = memblock_end_of_DRAM();
+
+second attempt with new {search_start, search_end}
+...
+
+This should handle "crashkernel=,high" case correctly and avoid cross
+4G reservation.
+
+Is that logic correct, or is any other problem missed?
+
+Thanks,
+Jiahao
+
+>
+>>   		if (crash_base == 0) {
+>>   			pr_warn("crashkernel: couldn't allocate %lldKB\n",
+>>   				crash_size >> 10);
+>>   			return;
+>>   		}
+>> +
+>> +		if (!crash_low_size)
+>> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+>> +	}
+>> +
+>> +	if ((crash_base > dma32_phys_limit - crash_low_size) &&
+>> +	    crash_low_size && reserve_crashkernel_low(crash_low_size)) {
+>> +		memblock_phys_free(crash_base, crash_size);
+>> +		return;
+>>   	}
+>>   
+>>   	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
+>> -- 
+>> 2.31.1
+>>
 
 _______________________________________________
 linux-riscv mailing list
