@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF7CEB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 07:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7282EB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 08:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2BEqYHLRwWgHRuttLgU+3gOfHN5qCKNJISiTH4BkttY=; b=dbo+a7j64e6EWx
-	/Hejqv+YTwClswb/+M31qSABd2gibjvOEy5u3bqd2WAQ3WNGsRZCArElM9wdwCLpDZp5Q/T9TCj4J
-	C+IMLwEMxaulgDCUyHMhqgCtAHl/te9BcXnad6/MxDJGf2lOMtX8tQmLcjTF8t8/wsvL+lqhWyzN1
-	hxsLoaJ9wSKOETyJXlLne/WTjYHE3G456KiT+mQ6JKf9tbK+ywSRkG8ZwrFwb55gflohBLGY1sHbg
-	9Sfnjq8lpzyXeCGO2ZuZh5BOrBS5+1BL+CDkx9tmYCATclkr6PBqwCq0kzYpFZN5gKBuqev1cs37i
-	/DU8phGtBxUU00U1FCcA==;
+	List-Owner; bh=2CUFSC9VUcccdQC0dAIkN9jKx+GrA2NhPD54udFfFlo=; b=MWGCIJ6LyjXFfr
+	iYXM4k1V+kkzWTACybf2IPmR3513D2phcxHiXAfvAaPMSQlyyrNMwgwfuUNUeiTTQWDNveQJH8HCx
+	BqiAFbqdRKsNoYihyaQJBVUii27J+5raYgC2RWWnEL9kYmWfQOBXOKsFDuyWb6zlQZHsaE0ZHsflL
+	2odxDLZrTdCsP6GJeyeZUPUdZRzYP8o6pbdr+0u5+98CzdhNSqOvAktBcjIOaAL1hhXaR81f7qqnx
+	G84g81bbjmRjDn1UK96QIf6E4YLobrUbw3UqzPaqXtBiICnpwSefpwagJWQ3IOCkUqnpbAcedYNvw
+	E/xy2pbaQhTGcoW8e3aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9hrM-00E5xa-1E;
-	Thu, 15 Jun 2023 07:57:36 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1q9i1G-00E7ZD-2s;
+	Thu, 15 Jun 2023 08:07:50 +0000
+Received: from smtp-out1.suse.de ([2001:67c:2178:6::1c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9hrG-00E5v7-37
+	id 1q9i1D-00E7Ww-2O
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jun 2023 07:57:33 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-56896c77434so16626467b3.0
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jun 2023 00:57:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1686815849; x=1689407849;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xLt61v9ssqW8THTFBubZKFO6yUx9jJyRuoagCfuj5p4=;
-        b=sqOjHZl7egAhowGBIl8syIGU5uGIW1wSh5YqCADkB0Zmhbwaikuj12BL/Atk+qYS71
-         8dY5tiV1rX4DjXNhrE2xJeIEdceT4TUB4AfmV60Sg7nUR26TxpBkZUfQbEPDRpELwXiM
-         3HDz0uXJ5pPS05kzKVjfB3TERQuwjHm7feUY48emv6g2FTDXB9kM0valHSq3MAkeYNdE
-         mA/iBYPYSlEE3tWbGq5EWumSWyWn91B8nqrAaue3xEBOGl9H7R/5SfVVFZg7lrOxN+sl
-         dQY9293XfHEDMeAx5R4qX4oCaN7KwBo3Iv/M+KCSiSSfPpdtHzovKysKwSYDtQgZOCuN
-         1f9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686815849; x=1689407849;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xLt61v9ssqW8THTFBubZKFO6yUx9jJyRuoagCfuj5p4=;
-        b=IvbCOlHvTtHvd4XRus9raoinG/rf593zfwqcPuShek+EcRtfjK4o3mvkOyUn2QPO45
-         WrWo6ew5uvrlD18n4qx4VD7Lz2Y+T5uaHFIBFGpE8GjDj9Gs1lpPftmJ4NaQcYheay4B
-         voCBM8Y8fJD3+K+7msbqH7GVzdvlKiuz7abwx9nRUByHBfUmsz1sqMx/CuS5O+WoEJdn
-         rgmJEB99R+nAA8DnAZMhVmiWFuwcLB4qUaLCWs6KU/3sJRGB9S+xKev6xTLM+w3z3KR4
-         LpeXZ8lE102y/qU53vVl870FLTzF+QavLEjCgY556gIKvjyFvmt3zE9eRrYy31WID6Wj
-         f2eQ==
-X-Gm-Message-State: AC+VfDyLLuD+bC5ZSKnVYKzh65ZEicNLQbHzFKeIzZwH04LV6MMXUu69
-	nBQsKZj+AL8UTNFINU6VFsWbA7aVu/Wf3fQZq0eZ5H+S
-X-Google-Smtp-Source: ACHHUZ7WkxW4gg02vDJcQOsCLmdXn2XBXedO6GCP0YsU33dh0gQYY291P8lwRaex9WlgnYowIiPsYQ==
-X-Received: by 2002:a0d:d9c9:0:b0:56d:244:ab13 with SMTP id b192-20020a0dd9c9000000b0056d0244ab13mr4185666ywe.28.1686815849226;
-        Thu, 15 Jun 2023 00:57:29 -0700 (PDT)
-Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
-        by smtp.gmail.com with ESMTPSA id w10-20020a0dd40a000000b00568a207aaedsm4237877ywd.68.2023.06.15.00.57.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jun 2023 00:57:28 -0700 (PDT)
-Date: Thu, 15 Jun 2023 00:57:19 -0700 (PDT)
-From: Hugh Dickins <hughd@google.com>
-X-X-Sender: hugh@ripple.attlocal.net
-To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-cc: Andrew Morton <akpm@linux-foundation.org>, 
-    Matthew Wilcox <willy@infradead.org>, 
-    Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
-    Vasily Gorbik <gor@linux.ibm.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-    Heiko Carstens <hca@linux.ibm.com>, 
-    Christian Borntraeger <borntraeger@linux.ibm.com>, 
-    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-    Alexander Gordeev <agordeev@linux.ibm.com>, linux-mm@kvack.org, 
-    linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-    linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-    loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-    linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
-    linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-    linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-    sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
-    xen-devel@lists.xenproject.org, kvm@vger.kernel.org, 
-    Hugh Dickins <hughd@google.com>
-Subject: Re: [PATCH v4 04/34] pgtable: Create struct ptdesc
-In-Reply-To: <20230612210423.18611-5-vishal.moola@gmail.com>
-Message-ID: <fd63179-6ad6-fd86-79d6-2833c91111f8@google.com>
-References: <20230612210423.18611-1-vishal.moola@gmail.com> <20230612210423.18611-5-vishal.moola@gmail.com>
+	Thu, 15 Jun 2023 08:07:49 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+	by smtp-out1.suse.de (Postfix) with ESMTP id 7239622384;
+	Thu, 15 Jun 2023 08:07:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1686816462; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mP4cVRtg1Zot55n0E8/s57K6td9e+eRW0Qf0nPD1Puw=;
+	b=BVHS5z7riMfLlFWJBxKJqLBmf89d1jTwJx+4T8dCuEmV7DQb+ZeKILBUIfUhB3S0yUr8oY
+	1g33oCoV4gG6iEM8qP9bQ8pbW/Pv70eHExTt+Oc3SbOqKd0vDdIXdfs9nRaJyf5DgQ7exb
+	mEpX3Js72X8/uECyoIezrCo9VJw79+Q=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1686816462;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mP4cVRtg1Zot55n0E8/s57K6td9e+eRW0Qf0nPD1Puw=;
+	b=8gtEFc3JYefULzfkiyeMTf+PGnyUpEtqxxUpIYO8Z6dyye8tCwUlgTUi/IH6mCgeOB9/jN
+	EOE4SoIJ2rFtwVDw==
+Received: from hawking.suse.de (unknown [10.168.4.11])
+	by relay2.suse.de (Postfix) with ESMTP id 4F3212C141;
+	Thu, 15 Jun 2023 08:07:42 +0000 (UTC)
+Received: by hawking.suse.de (Postfix, from userid 17005)
+	id 411914A037D; Thu, 15 Jun 2023 10:07:42 +0200 (CEST)
+From: Andreas Schwab <schwab@suse.de>
+To: Nylon Chen <nylon.chen@sifive.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
+  jszhang@kernel.org,  ajones@ventanamicro.com,  aou@eecs.berkeley.edu,
+  palmer@dabbelt.com,  paul.walmsley@sifive.com,  greentime.hu@sifive.com,
+  zong.li@sifive.com,  nylon7717@gmail.com
+Subject: Re: [PATCH v2] RISC-V: Support 32_PCREL relocation type in kernel
+ module
+In-Reply-To: <CAHh=Yk_=oZJ6eY3jJzLavub5rGsvY=MKv4tGXeiqkz+rgJHwDQ@mail.gmail.com>
+	(Nylon Chen's message of "Thu, 15 Jun 2023 15:52:27 +0800")
+References: <20230615072302.25638-1-nylon.chen@sifive.com>
+	<20230615-unvisited-deceit-9beab8ce987a@wendy>
+	<CAHh=Yk_=oZJ6eY3jJzLavub5rGsvY=MKv4tGXeiqkz+rgJHwDQ@mail.gmail.com>
+X-Yow: I'll eat ANYTHING that's BRIGHT BLUE!!
+Date: Thu, 15 Jun 2023 10:07:42 +0200
+Message-ID: <mvmwn052lo1.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_005731_012918_2DCD4AB0 
-X-CRM114-Status: GOOD (  28.46  )
+X-CRM114-CacheID: sfid-20230615_010747_923517_51BDF25A 
+X-CRM114-Status: UNSURE (   4.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,134 +90,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 Jun 2023, Vishal Moola (Oracle) wrote:
+On Jun 15 2023, Nylon Chen wrote:
 
-> Currently, page table information is stored within struct page. As part
-> of simplifying struct page, create struct ptdesc for page table
-> information.
-> 
-> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
+> I mean, when we use the flag "-fasynchronous-unwind-tables,"
 
-Vishal, as I think you have already guessed, your ptdesc series and
-my pte_free_defer() "mm: free retracted page table by RCU" series are
-on a collision course.
+Why?
 
-Probably just trivial collisions in most architectures, which either
-of us can easily adjust to the other; powerpc likely to be more awkward,
-but fairly easily resolved; s390 quite a problem.
-
-I've so far been unable to post a v2 of my series (and powerpc and s390
-were stupidly wrong in the v1), because a good s390 patch is not yet
-decided - Gerald Schaefer and I are currently working on that, on the
-s390 list (I took off most Ccs until we are settled and I can post v2).
-
-As you have no doubt found yourself, s390 has sophisticated handling of
-free half-pages already, and I need to add rcu_head usage in there too:
-it's tricky to squeeze it all in, and ptdesc does not appear to help us
-in any way (though mostly it's just changing some field names, okay).
-
-If ptdesc were actually allowing a flexible structure which architectures
-could add into, that would (in some future) be nice; but of course at
-present it's still fitting it all into one struct page, and mandating
-new restrictions which just make an architecture's job harder.
-
-Some notes on problematic fields below FYI.
-
-> ---
->  include/linux/pgtable.h | 51 +++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 51 insertions(+)
-> 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index c5a51481bbb9..330de96ebfd6 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -975,6 +975,57 @@ static inline void ptep_modify_prot_commit(struct vm_area_struct *vma,
->  #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
->  #endif /* CONFIG_MMU */
->  
-> +
-> +/**
-> + * struct ptdesc - Memory descriptor for page tables.
-> + * @__page_flags: Same as page flags. Unused for page tables.
-> + * @pt_list: List of used page tables. Used for s390 and x86.
-> + * @_pt_pad_1: Padding that aliases with page's compound head.
-> + * @pmd_huge_pte: Protected by ptdesc->ptl, used for THPs.
-> + * @_pt_s390_gaddr: Aliases with page's mapping. Used for s390 gmap only.
-> + * @pt_mm: Used for x86 pgds.
-> + * @pt_frag_refcount: For fragmented page table tracking. Powerpc and s390 only.
-> + * @ptl: Lock for the page table.
-> + *
-> + * This struct overlays struct page for now. Do not modify without a good
-> + * understanding of the issues.
-> + */
-> +struct ptdesc {
-> +	unsigned long __page_flags;
-> +
-> +	union {
-> +		struct list_head pt_list;
-
-I shall be needing struct rcu_head rcu_head (or pt_rcu_head or whatever,
-if you prefer) in this union too.  Sharing the lru or pt_list with rcu_head
-is what's difficult to get right and efficient on s390 - and if ptdesc gave
-us an independent rcu_head for each page table, that would be a blessing!
-but sadly not, it still has to squeeze into a struct page.
-
-> +		struct {
-> +			unsigned long _pt_pad_1;
-> +			pgtable_t pmd_huge_pte;
-> +		};
-> +	};
-> +	unsigned long _pt_s390_gaddr;
-> +
-> +	union {
-> +		struct mm_struct *pt_mm;
-> +		atomic_t pt_frag_refcount;
-
-Whether s390 will want pt_mm is not yet decided: I want to use it,
-Gerald prefers to go without it; but if we do end up using it,
-then pt_frag_refcount is a luxury we would have to give up.
-
-s390 does very well already with its _refcount tricks, and I'd expect
-powerpc's simpler but more wasteful implementation to work as well
-with _refcount too - I know that a few years back, powerpc did misuse
-_refcount (it did not allow for speculative accesses, thought it had
-sole ownership of that field); but s390 copes well with that, and I
-expect powerpc can do so too, without the luxury of pt_frag_refcount.
-
-But I've no desire to undo powerpc's use of pt_frag_refcount:
-just warning that we may want to undo any use of it in s390.
-
-I thought I had more issues to mention, probably Gerald will
-remind me of a whole new unexplored dimension! gmap perhaps.
-
-Hugh
-
-> +	};
-> +
-> +#if ALLOC_SPLIT_PTLOCKS
-> +	spinlock_t *ptl;
-> +#else
-> +	spinlock_t ptl;
-> +#endif
-> +};
-> +
-> +#define TABLE_MATCH(pg, pt)						\
-> +	static_assert(offsetof(struct page, pg) == offsetof(struct ptdesc, pt))
-> +TABLE_MATCH(flags, __page_flags);
-> +TABLE_MATCH(compound_head, pt_list);
-> +TABLE_MATCH(compound_head, _pt_pad_1);
-> +TABLE_MATCH(pmd_huge_pte, pmd_huge_pte);
-> +TABLE_MATCH(mapping, _pt_s390_gaddr);
-> +TABLE_MATCH(pt_mm, pt_mm);
-> +TABLE_MATCH(ptl, ptl);
-> +#undef TABLE_MATCH
-> +static_assert(sizeof(struct ptdesc) <= sizeof(struct page));
-> +
->  /*
->   * No-op macros that just return the current protection value. Defined here
->   * because these macros can be used even if CONFIG_MMU is not defined.
-> -- 
-> 2.40.1
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
