@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC1E3EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 07:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14522EB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 07:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cx8C0GSz/eTX7vU9TUZX1KZ3AVYBROW62Tp7CQlFEdE=; b=IeAU7euifcWRA+
-	xh8MGLVKw/FHv+qeAfDe87jOl2+ji9+4s6P7Ga5iMNrs0i5wkHTJVaRt998Pf5H8kN9h+fKDv/loK
-	T3nK+W/+PBn47ad8SUk6mArcy1EidsMWDczN0Bmv4SvO4G+lvbgshsmTOcpwbfIz6BFdTtOUAtJyP
-	zZzlM3R2Zth6/lkLujrzVMseIAU1iSMSztE8XodcTXgZ0W/tfbuc5vMoYbesyGgYlYsV8cnBIl3B9
-	HyyJP79jnPfinNNe1dBJR0FVzW3w+m79qhrn+bLsHxMQKykIGTJStReXoAIZJWnY0mCcs4UH6a59g
-	CFDmu/mjXGQfFyTsXPrg==;
+	List-Owner; bh=nxaUowKepHGQyZi8MTe1XfohNU6kD9KU6wuvvKqtv+A=; b=A9DzaRXx21AzEi
+	/9SEc/hviIyW4cEUCWxug7taYKXmGwYIxLUPxvem1njRnVfkavgwecxVxFvvZ9UTqCch1hn75XsN1
+	VtYkZyFGtJ5CrgSMGU9GU4FC3BuKdhu+5RGQBTC+dlblPViP+5OGeI2W6Ps2GztXfTKXi5ez0yrTe
+	VReqF7Rc3V/CQ6OTm+HD6JOVHt0CvgK0jUZdTg1WZAT55VKKXpF+zQU3HMspdYbA9BWf/KYOKPt4s
+	krrE5Z3mlyJ7gvYcDMy8Em8LgJVRzR4G8RsCv1br8DcXk5jwpNKBcYXGmWHNT4QzUcdirVIfvQ1YI
+	ymt9c8YysGyLw1sGVlwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9hXO-00E2HC-2v;
-	Thu, 15 Jun 2023 07:36:58 +0000
-Received: from smtp-out1.suse.de ([195.135.220.28])
+	id 1q9hZ9-00E2nF-2E;
+	Thu, 15 Jun 2023 07:38:47 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9hXM-00E2Ed-0q
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jun 2023 07:36:57 +0000
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out1.suse.de (Postfix) with ESMTP id 8CAC2223B2;
-	Thu, 15 Jun 2023 07:36:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1686814612; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/mNKNRzgrkQfqOq8GTGe9odKYtIpMuAwcvj9zeiuqgw=;
-	b=Lu8WGmF85lTLuhf5Gyy3Yo5wo0x0osKeUw+ji8hm68oDiiHp8xzEYhzNjgUDvPAtNFtZbl
-	L3OPxe2EWc76ocU3E6In49ZpwBYkPXtkFXkZAbwocmewhrLDCK1D5sPqHgpyqP2g1Zz5YH
-	RpAiG7e/Wfd25vCKyWrMEEhvOwgTLBM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1686814612;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/mNKNRzgrkQfqOq8GTGe9odKYtIpMuAwcvj9zeiuqgw=;
-	b=vjBv/v3Z+RpYnN8Hx46rPshftjifDI2uhymBnnTN2V1ayq7u9EPO4luNWSHxWHwJ6wDf+j
-	yD8RN6TIfRNYuVAQ==
-Received: from hawking.suse.de (unknown [10.168.4.11])
-	by relay2.suse.de (Postfix) with ESMTP id 4A2322C141;
-	Thu, 15 Jun 2023 07:36:51 +0000 (UTC)
-Received: by hawking.suse.de (Postfix, from userid 17005)
-	id 38C684A037D; Thu, 15 Jun 2023 09:36:51 +0200 (CEST)
-From: Andreas Schwab <schwab@suse.de>
-To: Nylon Chen <nylon.chen@sifive.com>
-Cc: linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
-  jszhang@kernel.org,  ajones@ventanamicro.com,
-  conor.dooley@microchip.com,  aou@eecs.berkeley.edu,  palmer@dabbelt.com,
-  paul.walmsley@sifive.com,  greentime.hu@sifive.com,  zong.li@sifive.com,
-  nylon7717@gmail.com
-Subject: Re: [PATCH v2] RISC-V: Support 32_PCREL relocation type in kernel
- module
-In-Reply-To: <20230615072302.25638-1-nylon.chen@sifive.com> (Nylon Chen's
-	message of "Thu, 15 Jun 2023 15:23:02 +0800")
-References: <20230615072302.25638-1-nylon.chen@sifive.com>
-X-Yow: ...PENGUINS are floating by...
-Date: Thu, 15 Jun 2023 09:36:51 +0200
-Message-ID: <mvm5y7p41nw.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1q9hYv-00E2i7-2T;
+	Thu, 15 Jun 2023 07:38:35 +0000
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4A1B84000F;
+	Thu, 15 Jun 2023 07:38:27 +0000 (UTC)
+Message-ID: <4c511218-eb54-0ec4-6820-265f06d91730@ghiti.fr>
+Date: Thu, 15 Jun 2023 09:38:26 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v2 06/10] drivers: perf: Implement perf event mmap support
+ in the legacy backend
+Content-Language: en-US
+To: Andrew Jones <ajones@ventanamicro.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+ Ian Rogers <irogers@google.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
+ Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20230512085321.13259-1-alexghiti@rivosinc.com>
+ <20230512085321.13259-7-alexghiti@rivosinc.com>
+ <20230531-705f2911e8d66938ece04905@orel>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230531-705f2911e8d66938ece04905@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_003656_467265_F078B6E5 
-X-CRM114-Status: UNSURE (   4.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230615_003834_098266_9185CFFA 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,24 +92,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jun 15 2023, Nylon Chen wrote:
 
-> Fix the 'unsupported relocation type' error caused by
-> enabling the -fasynchronous-unwind-tables flag,
-> which generates relocation types that are not supported.
+On 31/05/2023 16:27, Andrew Jones wrote:
+> On Fri, May 12, 2023 at 10:53:17AM +0200, Alexandre Ghiti wrote:
+>> Implement the needed callbacks in the legacy driver so that we can
+>> directly access the counters through perf in userspace.
+>>
+>> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+>> ---
+>>   drivers/perf/riscv_pmu_legacy.c | 28 ++++++++++++++++++++++++++++
+>>   1 file changed, 28 insertions(+)
+>>
+>> diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+>> index ffe09d857366..f0f5bd856f66 100644
+>> --- a/drivers/perf/riscv_pmu_legacy.c
+>> +++ b/drivers/perf/riscv_pmu_legacy.c
+>> @@ -74,6 +74,31 @@ static void pmu_legacy_ctr_start(struct perf_event *event, u64 ival)
+>>   	local64_set(&hwc->prev_count, initial_val);
+>>   }
+>>   
+>> +static uint8_t pmu_legacy_csr_index(struct perf_event *event)
+>> +{
+>> +	return event->hw.idx;
+>> +}
+>> +
+>> +static void pmu_legacy_event_mapped(struct perf_event *event, struct mm_struct *mm)
+>> +{
+>> +	/* In legacy mode, the first 3 CSRs are available. */
+> Shouldn't this be
+>
+>   /* In legacy mode, the first and third CSR are available. */
+>
+> ?
 
-arch/riscv/Makefile has
-KBUILD_CFLAGS += -fno-asynchronous-unwind-tables -fno-unwind-tables
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+Yes, I guess this comment is not right in this context, so I'll remove 
+the comment entirely as it does bring much.
+
+
+>> +	if (event->attr.config != PERF_COUNT_HW_CPU_CYCLES &&
+>> +	    event->attr.config != PERF_COUNT_HW_INSTRUCTIONS)
+>> +		return;
+>> +
+>> +	event->hw.flags |= PERF_EVENT_FLAG_USER_READ_CNT;
+>> +}
+>> +
+>> +static void pmu_legacy_event_unmapped(struct perf_event *event, struct mm_struct *mm)
+>> +{
+>> +	/* In legacy mode, the first 3 CSRs are available. */
+> same comment
+>
+>> +	if (event->attr.config != PERF_COUNT_HW_CPU_CYCLES &&
+>> +	    event->attr.config != PERF_COUNT_HW_INSTRUCTIONS)
+>> +		return;
+>> +
+>> +	event->hw.flags &= ~PERF_EVENT_FLAG_USER_READ_CNT;
+>> +}
+>> +
+>>   /*
+>>    * This is just a simple implementation to allow legacy implementations
+>>    * compatible with new RISC-V PMU driver framework.
+>> @@ -94,6 +119,9 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
+>>   	pmu->ctr_get_width = NULL;
+>>   	pmu->ctr_clear_idx = NULL;
+>>   	pmu->ctr_read = pmu_legacy_read_ctr;
+>> +	pmu->event_mapped = pmu_legacy_event_mapped;
+>> +	pmu->event_unmapped = pmu_legacy_event_unmapped;
+>> +	pmu->csr_index = pmu_legacy_csr_index;
+>>   
+>>   	perf_pmu_register(&pmu->pmu, RISCV_PMU_LEGACY_PDEV_NAME, PERF_TYPE_RAW);
+>>   }
+>> -- 
+>> 2.37.2
+>>
+> Otherwise,
+>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+
+Thanks!
+
 
 _______________________________________________
 linux-riscv mailing list
