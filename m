@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 536E5EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 19:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F7AEB64DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 20:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2SFcWgpVQlBI2HrIzO/QnLLBtqtCYjnymrnUMEXuiPc=; b=MLDMSbO7K9+2OHiINvk1Hj2olG
-	uTumBy4pNY/kOqdq2PysugnVeTLnrqbMoNDRYIemp43LLh8EDkmASC+ZmwJAFUCn4Df6+ntGziaE7
-	eo4wM32PQY1ejhyRBpTmQuGKkaHLyMzydhUOQvsmTNp/IiVYdbESZW08V4V+vCSKb8Gch1Cmhns7N
-	6DN4C42dNCOJ+DNVTsCOsFyXgkviNca+tuyKUcDAfgy1t+U5kOO4isxWSRe2jQJ2GWhD/jmCb27c9
-	2aTTeFqsz9RWIGyOBqFwDjJceU5NBdkWqxKV+2SkoT0YGEdLSU54iuvyl31vUf4Urnfs9/LNRdwwQ
-	q8z6+6hw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=vvBWPG+oBWxwIcxEYWhFNmNEzeYRqmFjhILTk/+azm4=; b=rpE9q9v4Lkj3fIQ0lcVIiA59ff
+	AL/tev8+sPX7ZWN0MhouJu2HU6PEXJUo+0GG1Dl7xJKykqEARBb+wfq2sSMKCKMh1wfHHNfk+ohDe
+	Tw3nsStQYJWATNc5kASKLVfRdDq3LbsO2hntJYXfLOgzj+U4QvTI4pNLHurr7Xl/8YLkyKQ00VSq9
+	mwhdeVDDfEgq+IK4Q/TXXx+BCLjbFyqrQ7OVv5q5sK6Sth61GAzveRH3GjTrQSjuaOuPhzKerkH/r
+	Q4tIJammKZxeHbTD7HMKtyx1/O4RChNcCFsIA6dtBc91XTy8nKjx0U8arwQvXJ16+r9QSMh2OGtse
+	tnbQVn9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9shO-00Fuz2-0g;
-	Thu, 15 Jun 2023 19:32:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1q9tfC-00G2LC-1s;
+	Thu, 15 Jun 2023 20:33:50 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9shL-00FuyQ-18
+	id 1q9tf9-00G2KO-0n
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jun 2023 19:32:00 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B5BA360B4C;
-	Thu, 15 Jun 2023 19:31:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75D75C433C0;
-	Thu, 15 Jun 2023 19:31:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686857518;
-	bh=kictF58Z8Tqb0WvcwXz864a+VzNXEgr7VntV2dSR0Ds=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SAQXO2dJSrFg0f7YL7VcbzpYm4NMOqoMCluGrUsiuBb/sYLbvRvCKQNy3+y6UC1V5
-	 MAzUteY4hiAJgKHUKzjNyF6cvlI8IUk+zNcocFrBGx6kVflU2ByUfCsfs4UEWF80R3
-	 HvozHMkAJI1Fc9OpDUeuJeP4gP8BOkVIxcuYEQFQuqFw8rKmIZgDFXSDjFKPdPOlqP
-	 POS32emQCSwXLahcm4DCUXdxz03D3zYA9qOrcvn++MR7C4G6M7lXgQF5mCXlrYuRGP
-	 xe9TsgRC0uixNb8646kL1YcV+jsx1bqtgrt0WvK9T8I0ooL+FYt8XD2Z0ts7pVCNbm
-	 ss7WSwUV6+zow==
-Date: Thu, 15 Jun 2023 20:31:51 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Saravana Kannan <saravanak@google.com>
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	iommu@lists.linux.dev
-Subject: Re: [PATCH v4 08/10] irqchip: Add RISC-V advanced PLIC driver
-Message-ID: <20230615-thyself-doornail-f0545ada9176@spud>
-References: <20230613153415.350528-1-apatel@ventanamicro.com>
- <20230613153415.350528-9-apatel@ventanamicro.com>
- <CAGETcx-hoPNanAwe4++6roqBXwSdc7z6Ei=-r9z6qFG1U7xVXg@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CAGETcx-hoPNanAwe4++6roqBXwSdc7z6Ei=-r9z6qFG1U7xVXg@mail.gmail.com>
+	Thu, 15 Jun 2023 20:33:49 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1b3f66dda65so244295ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jun 2023 13:33:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1686861225; x=1689453225;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KXoqyFl6N42XXs5/XZCP4kZOyXwyyDGAo56en1oKrIg=;
+        b=UaT0+aW2qwNdtoM8Il2nbvuDcmFbAh7ZexiLCA2t017iCkJpzXxPtlEhhhLRIGLGPT
+         Wd0Flzda5t7aWg0UvUGm5yGgZjob/jcb0HnQsXfjnTwYT9DHvMWlJ5Y2OXe5pGboADgO
+         AhNPDQyNvZXKoSiOZF+e2XKOdIVHiJFV0hqbEK0PKvIgul2Rju5MTcRneinGlIEKmU6b
+         tiPAQUz2m9F8helQzCKcx1uXYOyXr3I8FmVzxKZjcxxlbgMdLONURjaH11VENky4I0p9
+         FGb0Zeb53eLnVY1xlK3LocQ/0OULokST4vIKD4b8sW1s+d4qkgF6nCT3vXEOQcULDjjA
+         Hwbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686861225; x=1689453225;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KXoqyFl6N42XXs5/XZCP4kZOyXwyyDGAo56en1oKrIg=;
+        b=YfHuH0soJODfCqKVTdF6U2MGwkmHZUW5ypT4rCObzAkmyn/RottqYceCJYbKTwvkfI
+         CDiCSETsPFGnyg7tbggVnyKYaLj9LMFfvkZly4b/mTH2eKadOj9GITE60hqbZ5YgAWu3
+         laedabTSnpAR3jv55De6tGmEgQMrEQpN8BEa53xMKz+s4nTN/Hd+Q7q/1G0pRIqgrm9d
+         5/S7XslrvjIDszXu/xYZY24XFuB0R2bVulzfZx51bKSOmCkkRRho5m3X1ilXnhbQiu9c
+         1+aCR4vnPNMNHMwECvXHYenetqqqYUZQPz2v4emQZbI/+Z82cPkytSMlk3nryOdCYKHq
+         LiQA==
+X-Gm-Message-State: AC+VfDwywpDlLJTn1/JRr9sYENo0aRIvzNL7ho5HKyQqxvKGPo7vVWot
+	AnCzh1pxGJrlOwn182zTAh+dmP5LzS0NT6qXM6g=
+X-Google-Smtp-Source: ACHHUZ6UgGy3GDHNxS9W6mJ/G8BQxY0/GeWMyw4j+Wxk7kmKcrvwvxPB3c7r48snzCLhYB7ISQkWiA==
+X-Received: by 2002:a17:902:d509:b0:1b0:4a37:9ccc with SMTP id b9-20020a170902d50900b001b04a379cccmr37472plg.62.1686861225101;
+        Thu, 15 Jun 2023 13:33:45 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id g18-20020a170902869200b001aaf2e8b1eesm14354126plo.248.2023.06.15.13.33.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Jun 2023 13:33:44 -0700 (PDT)
+Date: Thu, 15 Jun 2023 13:33:44 -0700 (PDT)
+X-Google-Original-Date: Thu, 15 Jun 2023 13:33:05 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Clobber V registers on syscalls
+In-Reply-To: <2357195.3bzvq7fpCv@basile.remlab.net>
+CC: linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: remi@remlab.net
+Message-ID: <mhng-10fcb0a9-cf4a-4416-ae30-120838a45bdb@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_123159_498955_1BAE564F 
-X-CRM114-Status: GOOD (  29.17  )
+X-CRM114-CacheID: sfid-20230615_133347_511957_A99153C4 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,111 +85,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4837349062904866472=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4837349062904866472==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="SvxDNUXYoM4it6RY"
-Content-Disposition: inline
-
-
---SvxDNUXYoM4it6RY
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Saravana,
-
-On Thu, Jun 15, 2023 at 12:17:08PM -0700, Saravana Kannan wrote:
-> On Tue, Jun 13, 2023 at 8:35=E2=80=AFAM Anup Patel <apatel@ventanamicro.c=
-om> wrote:
-
-btw, please try to delete the 100s of lines of unrelated context when
-replying
-
-> > +static int __init aplic_dt_init(struct device_node *node,
-> > +                               struct device_node *parent)
-> > +{
-> > +       /*
-> > +        * The APLIC platform driver needs to be probed early
-> > +        * so for device tree:
-> > +        *
-> > +        * 1) Set the FWNODE_FLAG_BEST_EFFORT flag in fwnode which
-> > +        *    provides a hint to the device driver core to probe the
-> > +        *    platform driver early.
-> > +        * 2) Clear the OF_POPULATED flag in device_node because
-> > +        *    of_irq_init() sets it which prevents creation of
-> > +        *    platform device.
-> > +        */
-> > +       node->fwnode.flags |=3D FWNODE_FLAG_BEST_EFFORT;
->=20
-> NACK. You are blindly plastering flags without trying to understand
-> the real issue and fixing this correctly.
->=20
-> > +       of_node_clear_flag(node, OF_POPULATED);
-> > +       return 0;
-> > +}
-> > +IRQCHIP_DECLARE(riscv_aplic, "riscv,aplic", aplic_dt_init);
->=20
-> This macro pretty much skips the entire driver core framework to probe
-> and calls init and you are supposed to initialize the device when the
-> init function is called.
->=20
-> If you want your device/driver to follow the proper platform driver
-> path (which is recommended), then you need to use the
-> IRQCHIP_PLATFORM_DRIVER_BEGIN() and related macros. Grep for plenty of ex=
-amples.
->=20
-> I offered to help you debug this issue and I asked for a dts file that
-> corresponds to a board you are testing this on and seeing an issue.
-
-There isn't a dts file for this because there's no publicly available
-hardware that actually has an APLIC. Maybe Ventana have pre-production
-silicon that has it, but otherwise it's a QEMU job.
-
-Cheers,
-Conor.
-
-> But you haven't answered my question [1] and are pointing to some
-> random commit and blaming it. That commit has no impact on any
-> existing devices/drivers.
->=20
-> Hi Marc,
->=20
-> Please consider this patch Nacked as long as FWNODE_FLAG_BEST_EFFORT
-> is used or until Anup actually works with us to debug the real issue.
->=20
-> -Saravana
-> [1] - https://lore.kernel.org/lkml/CAAhSdy2p6K70fc2yZLPdVGqEq61Y8F7WVT2J8=
-st5mQrzBi4WHg@mail.gmail.com/
-
---SvxDNUXYoM4it6RY
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZItnJwAKCRB4tDGHoIJi
-0oNdAP9y41MDXvHACoZ/dwEG8Hy5OZRNoJvZmNm6Lx2BVfvqWgD+L4A6erWOa4eW
-QmND+OPAsLKLIP9O9/cMGnzZJ/jvLQs=
-=UPBa
------END PGP SIGNATURE-----
-
---SvxDNUXYoM4it6RY--
-
-
---===============4837349062904866472==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4837349062904866472==--
-
+T24gVGh1LCAxNSBKdW4gMjAyMyAxMDozNjozMSBQRFQgKC0wNzAwKSwgcmVtaUByZW1sYWIubmV0
+IHdyb3RlOgo+IExlIGtlc2tpdmlpa2tvbmEgMTQuIGtlc8Oka3V1dGEgMjAyMywgMTkuMzUuMzQg
+RUVTVCBQYWxtZXIgRGFiYmVsdCBhIMOpY3JpdCA6Cj4+IFRoZSBWIHJlZ2lzdGVycyBhcmUgY2xv
+YmJlcmVkIGJ5IHN0YW5kYXJkIEFCSSBmdW5jdGlvbnMsIHNvIHVzZXJzcGFjZQo+PiBwcm9iYWJs
+eSBkb2Vzbid0IGhhdmUgYW55dGhpbmcgdXNlZnVsIGluIHRoZW0gYnkgdGhlIHRpbWUgd2UgZ2V0
+IHRvIHRoZQo+PiBrZXJuZWwuCj4KPiBJbmRlZWQsIGZvciB5b3VyIHR5cGljYWwgc3lzdGVtIGNh
+bGwsIHdyYXBwZWQgYnkgdHdvIG9yIG1vcmUgbGF5ZXJzIG9mIAo+IGZ1bmN0aW9uIGNhbGxzIGlu
+c2lkZSBsaWJjLCB1c2Vyc3BhY2Ugd2lsbCB0cmVhdCB0aGUgcmVnaXN0ZXJzIGFzIGNsb2JiZXJl
+ZCAKPiBhbnlob3cuCj4KPiBCdXQgQUZBSVUsIG90aGVyIGFyY2hpdGVjdHVyZXMgZG9uJ3QgZ3Jh
+dHVpdGlvdXNseSBjbG9iYmVyIFNJTUQgb3IgdmVjdG9yIAo+IHJlZ2lzdGVycywgZXZlbiB0aG9z
+ZSB0aGF0IGFyZSBjYWxsZWUtY2xvYmJlcmVkIGJ5IHRoZWlyIHJlc3BlY3RpdmUgZnVuY3Rpb24g
+Cj4gY2FsbGluZyBjb252ZW50aW9uLCBvciBkbyB0aGV5PwoKSUlVQyBhcm02NCBoYXMgc29tZSBz
+aW1pbGFyIGNvZGUsIGF0IGxlYXN0IHRoYXQncyB3aGF0IHRoZSBjb21tZW50IHNheXMgCihhbmQg
+SSBnb3QgdGhlIGNsb2JiZXJpbmcgViBzdGF0ZSBmcm9tIEFybSkKCiAgICAvKgogICAgICogQXMg
+cGVyIHRoZSBBQkkgZXhpdCBTTUUgc3RyZWFtaW5nIG1vZGUgYW5kIGNsZWFyIHRoZSBTVkUgc3Rh
+dGUgbm90CiAgICAgKiBzaGFyZWQgd2l0aCBGUFNJTUQgb24gc3lzY2FsbCBlbnRyeS4KICAgICAq
+LwogICAgc3RhdGljIGlubGluZSB2b2lkIGZwX3VzZXJfZGlzY2FyZCh2b2lkKQoKaWYgd2UgZG9u
+J3QgY2xvYmJlciBvbiBzeXNjYWxscyB0aGVuIHdlJ2xsIGxpa2VseSBuZWVkIHNvbWUgd2F5IGZv
+ciAKdXNlcnNwYWNlIHRvIGluZm9ybSB0aGUga2VybmVsIHRoYXQgViBzdGF0ZSBjYW4gYmUgZGlz
+Y2FyZGVkLgoKPiBGV0lXLCBBcm0gaXMgZ29pbmcgdGhlIG9wcG9zaXRlIGRpcmVjdGlvbiB3aXRo
+IAo+IHRoZWlyIGhpZ2hlciBwcml2aWxlZ2UgY2FsbHMgKG5ld2VyIHZlcnNpb25zIG9mIFNNQ0ND
+IGRlZmluZSBob3cgdG8gcHJlc2VydmUgCj4gU1ZFIHZlY3RvcnMpLgoKVGhhdCBoYXMgYSBzbGln
+aHRseSBkaWZmZXJlbnQgY29zdCBzdHJ1Y3R1cmUsIHRob3VnaDogaW4gdGhlIGtlcm5lbCBWIAp3
+b3VsZCB1c3VhbGx5IGJlIG9mZiwgc28gdGhlcmUncyBhbHJlYWR5IGEgc3Ryb25nIGluZGljYXRp
+b24gd2hlbiB0aGUgCnNhdmUvcmVzdG9yZSBpcyB1c2VmdWwuCgo+IFRoZSBrZXJuZWwgY2Fubm90
+IHNpbXBseSBjbG9iYmVyIHJlZ2lzdGVycywgYXMgdGhhdCB3b3VsZCBsaWtlbHkgY2F1c2UgZGF0
+YSAKPiBsZWFrYWdlIGZyb20ga2VybmVsIHRvIHVzZXIgbW9kZS4gU28gaXQgaXMgdW5jbGVhciB3
+aGF0IHRoZSBiZW5lZml0cyB3b3VsZCBiZSAKCldoYXQncyB0aGUgZGF0YSBsZWFrYWdlPyAgVW5s
+ZXNzIEknbSBtaXNzaW5nIHNvbWV0aGluZyBzZXR0aW5nIHRoZSAKc3N0YXR1cy52cz1vZmYgd2ls
+bCByZXN1bHQgaW4gdXNlcnNwYWNlIHRyYXBwaW5nIGluIGFueSBWIHN0YXRlIGFjY2VzcywgCnNv
+IGlmIHdlJ3JlIGxlYWtpbmcgc29tZXRoaW5nIHdlJ3JlIHByb2JhYmx5IGFsc28gYXQgcmlzayBv
+ZiBsZWFraW5nIGl0IApmb3IgbmV3L2Nsb25lZCBwcm9jZXNzZXMuCgpUaGF0IHNhaWQsIHdlIGRv
+IG5lZWQgdG8gdGhpbmsgYWJvdXQgc3BlY3VsYXRpdmUgc2lkZS1jaGFubmVsczogd2l0aCB0aGUg
+ClYgY3J5cHRvIHN0dWZmIHRoZXJlIHdpbGwgYmUga2V5cyBpbiBWIHJlZ2lzdGVycyBhbmQgb3Ro
+ZXIgYXJjaGl0ZWN0dXJlcyAKaGF2ZSBoYWQgZXhwbG9pdGFibGUgaXNzdWVzIHJlbGF0ZWQgdG8g
+bGF6eSBzYXZlL3Jlc3RvcmUgYW5kIApzcGVjdWxhdGlvbi4gIE1heWJlIGl0J3MgYmVzdCB0byBq
+dXN0IHdhaXQgb24gdGhhdCwgdGhvdWdoPyAgV2UnZCAKaWRlYWxseSB3YW50IHNvbWUgY2Fub25p
+Y2FsIHNlcXVlbmNlIGluIHRoZSBJU0EgYnV0IHRoZSBmYXN0ZXN0IHdheSB0byAKZG8gdGhhdCBp
+cyBwcm9iYWJseSB0byBqdXN0IHdhaXQgZm9yIGFuIGV4cGxvaXQgdG8gc2hvdyB1cC4KCj4gaGVy
+ZS4gQW5kIEkgZmVhciB0aGF0IHRoZXJlIHdpbGwgYmUgbGVzcyBjb252ZW50aW9uYWwgdXNlIGNh
+c2VzIHdoZW5jZSBpdCAKPiBtYWtlcyBzZW5zZSB0byBwcmVzZXJ2ZSByZWdpc3RlcnMgb24gc3lz
+dGVtIGNhbGxzLgo+Cj4gRm9yIGV4YW1wbGUgYW4gaW5saW5lIG9yIGNvbXBpbGVyIGludHJpbnNp
+YyBpbXBsZW1lbnRhdGlvbiBvZiBDKysyMC9DMlggCj4gYXRvbWljLXdhaXQvYXRvbWljLW5vdGlm
+eSwgd2hpY2ggd291bGQgcHJlc3VtYWJseSBpbnZva2UgdGhlIGZ1dGV4KCkgc3lzY2FsbCAKPiBv
+biBMaW51eCwgbWF5YmU/PwoKSXQnZCBoYXZlIHRvIGJlIGEgcHJldHR5IHNwZWNpYWwgY2FzZTog
+YXQgbGVhc3QgaW4gbGlic3RkYysrIGFuZCBnbGliYyAKdGhlIGZ1dGV4IGNhbGxzIGFyZSBiZWhp
+bmQgZnVuY3Rpb24gY2FsbHMsIHNvIHRoZSBWIHJlZ2lzdGVycyBhcmUgCmFscmVhZHkgY2xvYmJl
+cmVkIGJ5IHRoZSB0aW1lIHRoZSBrZXJuZWwgaGFzIGJlZW4gZW50ZXJlZCAoYXQgbGVhc3QgZm9y
+IAphbnl0aGluZyBmb2xsb3dpbmcgdGhlIHN0YW5kYXJkIEFCSXMpLgoKPgo+IC0tIAo+IOmbt+ex
+s+KAp+W+t+WwvC3lupPlsJTokpkKPiBodHRwOi8vd3d3LnJlbWxhYi5uZXQvCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
