@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84006EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 16:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5758FEB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 16:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oWIrv5aPDn/aA9N4rxnmJL94NpbKqrR2h9Ww147+zQg=; b=XROdiZZidrnXVKNf+CbwVZx8N2
-	mT49TxqKv52YFUsqZyF2I5i+x9IdI8DcxtV+JnbKD437yQMiSXzro5gUqm2I1kOy8OTlnfGLCdoZ0
-	Ln/vu4E/Kjf2lcp/qyw+Aaf38OXlnsRepR3xNiM58ghT8EXG4SE2ey9ecIpDmNBiFn6hwMKLzVQgX
-	eRowE5MNv2o0rXwwUZ+ch3gKII39spDYTJCQFgOMZe7gECVRBaf1Q05nMwqbgrqaeB8wITv6EIvDJ
-	uSMCCCgzKGeO+Fu4b7AHEZmZikpXIq2x1LEOJLHVdA/bQ/M8a40bS53qrvqouJeDJz75wRd5ptRzS
-	PIV3dCtw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zih5BYqznojDxzYaoGaHzfHrWcnMy9qsmN3F5PMNjJA=; b=1kt0sijZ6pKa4L
+	3IPvkiZ9AJi8kGG4OG3yD7fn+Gt6+YYJZbFDdZlEGxCrZUDrPgZhEAPkFpj289sEbQcy1EaTEzSIO
+	nZZYyAr7oUd9XADN1xDxaXBJEZ56nS3b3g6JT0vLKSkDh9H56hZfLAk77jJpxJOWEWaqYHjiS1S94
+	eg9rIzThspqvgTgZHoyks0GCohvKMZ8YRyc6RoiuxXq+D2tN1yT0xDgqbmoq413CNCw9cpYs2q/m6
+	muXynqrWGJqcbXIC2VWFxNEt0Use2n46yk+zSnOlSPtFWB6ErznS5qllQOT4gtift4ZjUnAMSDbZF
+	Tc02QFrIkCSctL3kiMSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9pyQ-00FS7u-2Z;
-	Thu, 15 Jun 2023 16:37:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9pyN-00FS70-1C;
-	Thu, 15 Jun 2023 16:37:24 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E041161999;
-	Thu, 15 Jun 2023 16:37:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D897C433C0;
-	Thu, 15 Jun 2023 16:37:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686847042;
-	bh=qNA7RNRSn7+N0rXsnB3tLIGZpW49dK4CI81wmGijPKI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FILfp0XhsCAEFvj3KRRIeHhk7gSO6N4Xy03NeLRNCYvAfs29VNg7/UETFjJROjcyE
-	 P7DvhjAWHw5fxoTtxnxgIyP2OVcMoejHbl2e0qXLatlGYmVhgBzPqvUTgNjZD7radt
-	 I+fxhhS4VccMG1ebjsplRSfpSyMh073Grs7hun14/7Cz70d6pMl4g7qgYug6f93dK2
-	 0ftJSIpAiSrxL6jJas7mr2fW1UW0zqVr6oZqDZsqdz4jlfuQacCWByttPYsW7csUgy
-	 cg0u9K9Ll0Wvg8lgWIRZtFJX06unxfnLh0VZzlBco6Aa7NcFiN9DG58rbf30ksxRoM
-	 rZqpJ2R98E6IQ==
-Date: Thu, 15 Jun 2023 17:37:15 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Maxime Ripard <mripard@kernel.org>, linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-Message-ID: <20230615-display-encounter-9a7a78562ff8@spud>
-References: <20230615144423.828698-1-privatesub2@gmail.com>
- <20230615144423.828698-2-privatesub2@gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <20230615144423.828698-2-privatesub2@gmail.com>
+	id 1q9q2H-00FSeO-2p;
+	Thu, 15 Jun 2023 16:41:25 +0000
+Received: from gate.crashing.org ([63.228.1.57])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1q9q2D-00FSdW-0y;
+	Thu, 15 Jun 2023 16:41:23 +0000
+Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
+	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 35FGJsTl017085;
+	Thu, 15 Jun 2023 11:19:54 -0500
+Received: (from segher@localhost)
+	by gate.crashing.org (8.14.1/8.14.1/Submit) id 35FGJqSI017082;
+	Thu, 15 Jun 2023 11:19:52 -0500
+X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
+Date: Thu, 15 Jun 2023 11:19:52 -0500
+From: Segher Boessenkool <segher@kernel.crashing.org>
+To: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Eric DeVolder <eric.devolder@oracle.com>, linux@armlinux.org.uk,
+        catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+        geert@linux-m68k.org, tsbogend@alpha.franken.de,
+        James.Bottomley@HansenPartnership.com, deller@gmx.de,
+        ysato@users.osdn.me, dalias@libc.org, glaubitz@physik.fu-berlin.de,
+        tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+        dave.hansen@linux.intel.com, 86@kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@vger.kernel.org, linux-mips@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-sh@vger.kernel.org, peterz@infradead.org,
+        linus.walleij@linaro.org, thunder.leizhen@huawei.com, hpa@zytor.com,
+        kernel@xen0n.name, ardb@kernel.org, tsi@tuyoix.net,
+        agordeev@linux.ibm.com, paulmck@kernel.org, bhe@redhat.com,
+        masahiroy@kernel.org, konrad.wilk@oracle.com,
+        sebastian.reichel@collabora.com, samitolvanen@google.com,
+        ojeda@kernel.org, juerg.haefliger@canonical.com,
+        borntraeger@linux.ibm.com, frederic@kernel.org, arnd@arndb.de,
+        mhiramat@kernel.org, aou@eecs.berkeley.edu, keescook@chromium.org,
+        gor@linux.ibm.com, anshuman.khandual@arm.com, hca@linux.ibm.com,
+        xin3.li@intel.com, npiggin@gmail.com, rmk+kernel@armlinux.org.uk,
+        paul.walmsley@sifive.com, boris.ostrovsky@oracle.com, ziy@nvidia.com,
+        hbathini@linux.ibm.com, gregkh@linuxfoundation.org,
+        kirill.shutemov@linux.intel.com, ndesaulniers@google.com,
+        sourabhjain@linux.ibm.com, palmer@dabbelt.com, svens@linux.ibm.com,
+        tj@kernel.org, akpm@linux-foundation.org, rppt@kernel.org
+Subject: Re: [PATCH v1 10/21] powerpc/kexec: refactor for kernel/Kconfig.kexec
+Message-ID: <20230615161952.GD19790@gate.crashing.org>
+References: <20230612172805.681179-1-eric.devolder@oracle.com> <20230612172805.681179-11-eric.devolder@oracle.com> <87fs6tflfi.fsf@mail.lhotse>
+Mime-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <87fs6tflfi.fsf@mail.lhotse>
+User-Agent: Mutt/1.4.2.3i
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_093723_481907_0107F491 
-X-CRM114-Status: GOOD (  24.28  )
+X-CRM114-CacheID: sfid-20230615_094121_920161_FAEE2852 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,145 +85,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7826360567864967499=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jun 15, 2023 at 01:34:25PM +1000, Michael Ellerman wrote:
+> Eric DeVolder <eric.devolder@oracle.com> writes:
+> > -config KEXEC_FILE
+> > -	bool "kexec file based system call"
+> > -	select KEXEC_CORE
+> > -	select HAVE_IMA_KEXEC if IMA
+> > -	select KEXEC_ELF
+> > -	depends on PPC64
+> > -	depends on CRYPTO=y
+> > -	depends on CRYPTO_SHA256=y
+> ...
+> > +
+> > +config ARCH_HAS_KEXEC_FILE
+> > +	def_bool PPC64 && CRYPTO && CRYPTO_SHA256
+> 
+> The =y's got lost here.
+> 
+> I think they were both meaningful, because both options are tristate. So
+> this previously required them to be built-in (=y), whereas after your
+> patch it will allow them to be modules.
+> 
+> I don't know for sure that those options need to be built-in, but that's
+> what the code does now, so this patch shouldn't change it, at least
+> without an explanation.
 
---===============7826360567864967499==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="F7o1AoRcl0OiOFh0"
-Content-Disposition: inline
-
-
---F7o1AoRcl0OiOFh0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Aleksandr,
-
-On Thu, Jun 15, 2023 at 05:43:56PM +0300, Aleksandr Shubin wrote:
-> Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-> controller witch is different from the previous pwm-sun4i.
->=20
-> D1 and T113s SoCs have one PWM controller with 8 channels.
-> R329 SoC has two PWM controllers in both power domains, one of
-> them has 9 channels (CPUX one) and the other has 6 (CPUS one).
-
-It would be good to note that the D1 and T113 are identical in terms of
-peripherals, they differ only in the architecture of the CPU core, and
-even share the majority of their DT. Because of that, using the same
-compatible makes sense.
-The R329 is a different SoC though, and should have a different
-compatible string added, especially as there is a difference in the
-number of channels. It would be fine to use the current compatible for
-the D1 as a fallback.
-The allwinner,pwm-channels property should probably only be allowed on
-the R329 and only allow the values of 6 & 9.
-
-> Add a device tree binding for them.
->=20
-> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> ---
->  .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 70 +++++++++++++++++++
->  1 file changed, 70 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20=
-i-pwm.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.y=
-aml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> new file mode 100644
-> index 000000000000..e5f9cb2d5c4f
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> @@ -0,0 +1,70 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner D1, T113-S3 and R329 PWM
-> +
-> +maintainers:
-> +  - Chen-Yu Tsai <wens@csie.org>
-> +  - Maxime Ripard <mripard@kernel.org>
-
-BTW, this should probably be you, since you have the hardware with this
-SoC.
-
-> +
-> +allOf:
-> +  - $ref: pwm.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: allwinner,sun20i-d1-pwm
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#pwm-cells":
-> +    const: 3
-> +
-> +  clocks:
-> +    items:
-> +      - description: 24 MHz oscillator
-> +      - description: Bus Clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: hosc
-> +      - const: bus
-> +
-> +  resets:
-> +    items:
-> +      - description: module reset
-
-Don't need the items here, because there is only one. You can just do
-"maxItems: 1" instead.
-
-> +  allwinner,pwm-channels:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: The number of PWM channels configured for this instance
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#pwm-cells"
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - allwinner,pwm-channels
-
-Cheers,
-Conor.
-
---F7o1AoRcl0OiOFh0
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIs+OwAKCRB4tDGHoIJi
-0hCRAQClhbz58ZFGWg/0NsMGr2czXIOEYRr3Icjm1MXyaIbQ2QD+JOxFNrOUEjYR
-q1YQ5xn6ccQNAWrTPBc2nULAXNeBUwI=
-=zm+X
------END PGP SIGNATURE-----
-
---F7o1AoRcl0OiOFh0--
+This patch shouldn't change it at all, period.  If you want to change it
+(and that sounds like a good idea, if it is possible anyway), that
+should be a separate patch.
 
 
---===============7826360567864967499==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Segher
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7826360567864967499==--
-
