@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0FA0EB64DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 17:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A934EB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 18:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ufSvk95a1Gwl2cYnd1G5Zzkdi50b1l6NjZ1xam1qv+s=; b=0iF9SKNR40UZ7s
-	MEg6xwNzi38u8VlCyy4kkMymlJtDu6FTlgOwFBnRuz4HSdGAnOWowZgklD4CNpyw6H35welsS1B2z
-	jb055KH0R9PcTdSXQbw0krJSrEdBgVHqqgq5tYXA9oloe3yIqaZigf0Ga0PNydDedIbnEwtwQQTbJ
-	Fz7dfpPpxviwPDw8v2JyQPSfF74ENYYkzMv624KTU0Ie7Ek6EelUaJhPViywe1pqJQD7EfMCIwKgX
-	KD7c18oFk43bQeHhvkoqH4n8dPP0e+0KpiOozR3VqLhPiph394sciPuvBNFToa0HdP3MeVccDTOZu
-	RVhvregGMU9qpg5/vEag==;
+	List-Owner; bh=OiAtj5/SuT9XSlunklNGkxM8itKVYbh9/2KcyA9QPfY=; b=TeP1eAoZ8UD0VN
+	6mGoDd1jxifiIWsZicsn7MgDArgYF1YKVTQ+ZZqmnz0Vfg3hvMQdVcwhmdNqISEb22FEVNef1As0q
+	+gOcOkGnjlLWLeeF+K+F00NQjVV51cUBmKBZYp5O8CEgzEiVW/vwVGqv0gm5NeemEiH0KMUmDCtR4
+	RH/75mNHWx/NEceoF9NXremlzK2y65t7Be0EWmn3bw+IYjzozS9B8XB0uguTdNUjWaoOXrXEL5UNq
+	MPJ7FwCJIw4CDuv154Ze4ITebzVJhGHKl+mqXpqPl8XUpLbZjq3MavG3ZQMbtAuSsdZdXe0BTDbaa
+	6rDu5CD+JczEeeOhhd6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9r4Q-00FeOT-0O;
-	Thu, 15 Jun 2023 17:47:42 +0000
-Received: from mail-il1-f175.google.com ([209.85.166.175])
+	id 1q9rhw-00FkJI-2B;
+	Thu, 15 Jun 2023 18:28:32 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9r4N-00FeMh-0i
+	id 1q9rht-00FkIK-0o
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jun 2023 17:47:40 +0000
-Received: by mail-il1-f175.google.com with SMTP id e9e14a558f8ab-340bba768acso7666835ab.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Jun 2023 10:47:36 -0700 (PDT)
+	Thu, 15 Jun 2023 18:28:30 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1b3db8f3d94so28155575ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Jun 2023 11:28:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1686853708; x=1689445708;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mVChjkIcSM6+MNaIJlrMcShBmvjcuV4uPlBpX4ONGWQ=;
+        b=lzrKOx2r8o63tyQknjMShqZ4Ks/nGd467s+Q0mwp9tGYafN2VMWGj2AZwRDIE5/QmW
+         IxetuEwfkkPeA7eAQ9Qw/bPCBX2ElYrh5rDTXo2iqQxyfOzJ5adnWwc6kVR5GD30IqLF
+         KugNlFI6+qP85LG4QdoZp0nCBb4pazWHP8DDNy6g0giRkvsLuWYpyKXgpB7rnh7ixv+O
+         wY6MmeG4owCwb266i7BFJLNdp3uvQoQRn4kWJKio9CLxIB0TF+x4OPAUBJZs6uK5HMsX
+         /iw5a92V3hLmvvxdMIT5/rrt/aBsVoP1u6dU0T9X1RyAU0zZreyzaOrang21qu/Z0Plz
+         m4jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686851256; x=1689443256;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IXUuU+bjTRUlDh30kMbjfqbr6PEXiONI6qJ0Ou76ZMM=;
-        b=cTTpP/xy02d5S5XPAK9a49I6cDOw7cRdkERDhhqXlEs3ipsLrflRuX2xu63YLbnmW7
-         hIMEzN/lHCC43soUdWhynEpAJRLXFmnjPDfjbVOhLhEdKWFx9LUgC2Ae5jrG91O+FS6J
-         UvNqoDx1rJ1OzQDMFZNT/rttNPdOCZcPYJ65VyNPKFIOenoTcQUcpcgrb1Ts+62J0SBP
-         IA1V6assSbHyM9INZuvtq2VWp6UyxXLYyh3UekxYwznk+sYP4MMdIRP+6safF9GNu6BO
-         2dsND98XToI+ilpbk5Q399NaeKsM6tP1Ux5dR77mpXAdGBVh6/mX3Shihb7AcJJOsme1
-         TzVA==
-X-Gm-Message-State: AC+VfDwYoysotQM4QtkQrQQCFDZ/bqcsapeoH36RHza8s2nbNTnH1Z/y
-	AnpLxxDbDq0XUTmPGdlkDbqsobSiDg==
-X-Google-Smtp-Source: ACHHUZ4rcf0f5VD09/y2OdnlU6rJyVmdPxbV3gdxcOg2VFvtQm13Yr7CRD75ZN4ywJL3AJeDxmxjbA==
-X-Received: by 2002:a92:ce08:0:b0:340:5928:e048 with SMTP id b8-20020a92ce08000000b003405928e048mr171435ilo.11.1686851256291;
-        Thu, 15 Jun 2023 10:47:36 -0700 (PDT)
-Received: from robh_at_kernel.org ([64.188.179.250])
-        by smtp.gmail.com with ESMTPSA id o8-20020a92d388000000b00341c0710169sm609236ilo.46.2023.06.15.10.47.34
+        d=1e100.net; s=20221208; t=1686853708; x=1689445708;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mVChjkIcSM6+MNaIJlrMcShBmvjcuV4uPlBpX4ONGWQ=;
+        b=Fe4WZXo72iUA42gLBsjfG50v0NxQpW6PLv2xicSNLTsoXs7bUNolFyBF89FH2dBUh2
+         YS978mjHd1Z/bnaO9aNDU6EwEiesvMbq6FejmyveTumlUfe9k51eAXwZ0m+PSDXqdFy/
+         SXwx1DIx84gbko25wEkccby3vq6gG4lBZ6zURJciw2+9fKqIiBO/XBb+2XkO9cxQT6qp
+         V1nrafnYJGURMZ1CylmX/RtbXNClGKjvjp6DfQsLmgoP1BhoWoJBgp3FT3k9vyQkXlCg
+         KrSxf3to88fSDaMJJS/RZrCbWDAGO+DroGBO0zA1AxGzsuQLmo/UryrkEL08jvKGydDI
+         1YXQ==
+X-Gm-Message-State: AC+VfDxVKTI6ly3RqbMRZv3FdpkHEIuNw7RF9QHO/lfxhdVCnhiP5NnL
+	Qe/j1nzInHuhCwSXYc6lnVsAJg==
+X-Google-Smtp-Source: ACHHUZ5yt0VPK6NWeZnlY/aLP9daDWJTbT4CRFJ5q0WhZJ1UafvOtwLd1fkMFTX274W9OpO2trsQxA==
+X-Received: by 2002:a17:903:2311:b0:1ae:1364:6079 with SMTP id d17-20020a170903231100b001ae13646079mr17199372plh.44.1686853707702;
+        Thu, 15 Jun 2023 11:28:27 -0700 (PDT)
+Received: from localhost ([135.180.227.0])
+        by smtp.gmail.com with ESMTPSA id p11-20020a1709026b8b00b001b39ffff838sm10598209plk.25.2023.06.15.11.28.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Jun 2023 10:47:35 -0700 (PDT)
-Received: (nullmailer pid 1252912 invoked by uid 1000);
-	Thu, 15 Jun 2023 17:47:34 -0000
-Date: Thu, 15 Jun 2023 11:47:34 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: palmer@dabbelt.com, Conor Dooley <conor.dooley@microchip.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 0/6] dt-bindings: riscv: cpus: switch to
- unevaluatedProperties: false
-Message-ID: <20230615174734.GA1240678-robh@kernel.org>
-References: <20230610-snaking-version-81ae5abb7573@spud>
+        Thu, 15 Jun 2023 11:28:26 -0700 (PDT)
+In-Reply-To: <20230606-rehab-monsoon-12c17bbe08e3@wendy>
+References: <20230606-rehab-monsoon-12c17bbe08e3@wendy>
+Subject: Re: [PATCH v2] Documentation: RISC-V: patch-acceptance: mention
+ patchwork's role
+Message-Id: <168684928914.25663.18359435106543749767.b4-ty@rivosinc.com>
+Date: Thu, 15 Jun 2023 10:14:49 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230610-snaking-version-81ae5abb7573@spud>
+X-Mailer: b4 0.13-dev-901c5
+Cc: Conor Dooley <conor@kernel.org>, =C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>,
+  Paul Walmsley <paul.walmsley@sifive.com>, Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
+  linux-doc@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_104739_265622_3E0A0E61 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20230615_112829_509190_C2A6D8D4 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +95,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 10, 2023 at 06:24:47PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Do the various bits needed to drop the additionalProperties: true that
-> we currently have in riscv/cpu.yaml, to permit actually enforcing what
-> people put in cpus nodes.
 
-Arm needs pretty much all the same properties. I started on adding them 
-to cpu.yaml a while back. Let me finish that up.
+On Tue, 06 Jun 2023 07:59:19 +0100, Conor Dooley wrote:
+> Palmer suggested at some point, not sure if it was in one of the
+> weekly linux-riscv syncs, or a conversation at FOSDEM, that we
+> should document the role of the automation running on our patchwork
+> instance plays in patch acceptance.
+> 
+> Add a short note to the patch-acceptance document to that end.
+> 
+> [...]
 
-> 
-> CC: Rob Herring <robh+dt@kernel.org>
-> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-> CC: Paul Walmsley <paul.walmsley@sifive.com>
-> CC: Palmer Dabbelt <palmer@dabbelt.com>
-> CC: linux-riscv@lists.infradead.org
-> CC: devicetree@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-> 
-> Conor Dooley (6):
->   dt-bindings: riscv: cpus: add a ref the common cpu schema
->   dt-bindings: riscv: cpus: allow clocks property
+Applied, thanks!
 
-I just have 'clocks: true', so if you want to keep this setting it to 1 
-clock that's fine. But I imagine that it's just a matter of time until 
-someone wants more clocks.
+[1/1] Documentation: RISC-V: patch-acceptance: mention patchwork's role
+      https://git.kernel.org/palmer/c/b104dbedbe61
 
->   dt-bindings: riscv: cpus: add a ref to thermal-cooling-cells
->   dt-bindings: riscv: cpus: permit operating-points-v2
->   dt-bindings: riscv: cpus: document cpu-supply
->   dt-bindings: riscv: cpus: switch to unevaluatedProperties: false
-> 
->  .../devicetree/bindings/riscv/cpus.yaml         | 17 ++++++++++++++++-
->  1 file changed, 16 insertions(+), 1 deletion(-)
-> 
-> -- 
-> 2.39.2
-> 
+Best regards,
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
+
 
 _______________________________________________
 linux-riscv mailing list
