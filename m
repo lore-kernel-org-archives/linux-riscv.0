@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA387EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 21:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739E2EB64DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 21:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRZev0XJTKcbBTlLXDyIvrHW45kNTC6XxYiBsah5VZ0=; b=UnlVxcuM7cbjoJFBBeULSdxDt+
-	UCmaMZgEWFr7CgAraoT546+rCsgWcpfFoygTGc+dpaxhAE5WM3N417lPuAiNlkqY2U5D1ug3LScG9
-	TFS4WTgdTQgAbl6WBsseXTOz51yVuvdHjSl3Pi6TIuw3VoW2M3itjwtd+LI4pbtUQ+1XlAdQFEGog
-	wuAawt8aObeQSGYrmJM4YVE/l+uwxITYxgFZt6qeC8Ur2B9odNrDf1ZOeqIBwCgwM4jzaIioxZgRf
-	LNpH0V71xnBpw5pko4XNbB9hx5yA3yoyaQVhyulHcMnPw0h5eSq7T7YDI7BDFGwvKS2HSn3GPDPFa
-	nAFcBGWA==;
+	bh=2S2FR7PM4StlXYklbkNCg0no9yT4ZWGx+2V0As2xheE=; b=KQoAThpc0scRBKcY/quorhRItF
+	zdYQABLhkbXxR1Ja+oJkWkUDYpCjBSFJDr1ldsHVrPEdDyK2cii1bb6246dt2FLXs4egOf6cd1MDa
+	PcdeC8C3oRzSTAIPakGJTCjpd9G0gl8sgj5XVC/2rPp/O8e8Z15wyayMxoNk37KhAnJNjJoHcgfxy
+	VUbrNanKUxDgX2+omAp5V+kbz5erYw8SDff2YkKynrLIC+stigCIFCI2MO2zpHz8OpWTBFZx7drW0
+	CI0vHcE/jM5N2JPNzDE++2p1iqeu3vsM1U4Ojlyy9rZpCXFfHYIlaS0LlC00NVoWLD3hOB+iTiL2t
+	oVaxtXdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9uFa-00G6tb-20;
-	Thu, 15 Jun 2023 21:11:26 +0000
+	id 1q9uPa-00G7uZ-31;
+	Thu, 15 Jun 2023 21:21:46 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9uFX-00G6t7-0I
-	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jun 2023 21:11:24 +0000
+	id 1q9uPY-00G7u1-12;
+	Thu, 15 Jun 2023 21:21:45 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 53DE061321;
-	Thu, 15 Jun 2023 21:11:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F257BC433C8;
-	Thu, 15 Jun 2023 21:11:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BC8EE62081;
+	Thu, 15 Jun 2023 21:21:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01CADC433C8;
+	Thu, 15 Jun 2023 21:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686863481;
-	bh=f6BYmxI2Iwx1LZlCng+4zSURb7GTNwhasqaqeXVlWf8=;
+	s=k20201202; t=1686864103;
+	bh=yEJ1sVebWOjpqJF7Ce+024H12ihDLGhFejIzI51dkA4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GHTCVJEIu6LhXPV9s0x+KkfdfV98v69zWe5KEpbttJysjY6GWvAWAF6/BtMXiVhfX
-	 U44FXJOqjdYxW5iV2Ro3IQ7wF/+OHqPnzl0fi/WDkGXm1ZikWx8p8nmc1VpFnXsCDN
-	 HHvu74jqHLEWuzsm1xpFfw/5OcRXiDGqnagBJ4jcPf/g7STSaRON70Plib3Ky+r9qh
-	 G3+M04ZMHqR3zBFWlkOsDNoiwmY9RPWOWr/N4XjL+d/4Nbp/jYwzwWrgIIRPwKg2VZ
-	 RCDbGs5TxMRGfEf1KMJhJmvFfOwcygPwl9al+o2/08G+MOF3fLRG+ggqec77CdnyG4
-	 X3wajSCxleQ3g==
-Date: Thu, 15 Jun 2023 22:11:15 +0100
+	b=YcNKYEcjPsJehqtPbRYFE7N6WFFHDMEvvgaGYe8BzpaM6VEOC3gEI4D6Gu/SwZ+jS
+	 /BYZOukFZbbSfEbJ83MVuvNp8GX98Hl/VGofHWdrHVJr9vtDH+dEzHz46eCjddmWfv
+	 b1v4X5qNsw8uDY9Q8atCZChuFzAEpFloEdaWMAe6lZ9maHFlgIEmJW4n5gUCOvgV2T
+	 VqnKUk0BXJp7LMDvsMgchb5+jte3Z2EprOdxpcAHUXCMhEKKYgDVJFi0tqGOyu+K8o
+	 ffZ6N0+GwAjpdWYh4Gd3s045VTooAy6DhjGmPEbclSSPt1yDyCBY0Epum6vZocMxd0
+	 g8pj/Wy5Ir1NQ==
+Date: Thu, 15 Jun 2023 22:21:34 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Saravana Kannan <saravanak@google.com>
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+To: Maksim Kiselev <bigunclemax@gmail.com>
+Cc: linux-iio@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	iommu@lists.linux.dev
-Subject: Re: [PATCH v4 08/10] irqchip: Add RISC-V advanced PLIC driver
-Message-ID: <20230615-contempt-crave-00d80f3cb369@spud>
-References: <20230613153415.350528-1-apatel@ventanamicro.com>
- <20230613153415.350528-9-apatel@ventanamicro.com>
- <CAGETcx-hoPNanAwe4++6roqBXwSdc7z6Ei=-r9z6qFG1U7xVXg@mail.gmail.com>
- <20230615-thyself-doornail-f0545ada9176@spud>
- <CAGETcx__Qt868abh-F_fu7ijMSWXciLjdjWiWf60e4_p78xb8w@mail.gmail.com>
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Andy Shevchenko <andy.shevchenko@gmail.com>,
+	Cosmin Tanislav <demonsingur@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Haibo Chen <haibo.chen@nxp.com>, ChiaEn Wu <chiaen_wu@richtek.com>,
+	Leonard =?iso-8859-1?Q?G=F6hrs?= <l.goehrs@pengutronix.de>,
+	Caleb Connolly <caleb.connolly@linaro.org>,
+	ChiYuan Huang <cy_huang@richtek.com>,
+	Ramona Bolboaca <ramona.bolboaca@analog.com>,
+	Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
+	William Breathitt Gray <william.gray@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Mike Looijmans <mike.looijmans@topic.nl>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 3/3] riscv: dts: allwinner: d1: Add GPADC node
+Message-ID: <20230615-overact-lard-9402836697f5@spud>
+References: <20230615205540.1803975-1-bigunclemax@gmail.com>
+ <20230615205540.1803975-4-bigunclemax@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAGETcx__Qt868abh-F_fu7ijMSWXciLjdjWiWf60e4_p78xb8w@mail.gmail.com>
+In-Reply-To: <20230615205540.1803975-4-bigunclemax@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_141123_231716_45866CCD 
-X-CRM114-Status: GOOD (  49.50  )
+X-CRM114-CacheID: sfid-20230615_142144_400747_B147FCB2 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,144 +94,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2261479579814430053=="
+Content-Type: multipart/mixed; boundary="===============3030771764725040085=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2261479579814430053==
+--===============3030771764725040085==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5MO7euHf3MkXTMTS"
+	protocol="application/pgp-signature"; boundary="NWC+jNAdJ4jwAH42"
 Content-Disposition: inline
 
 
---5MO7euHf3MkXTMTS
-Content-Type: text/plain; charset=utf-8
+--NWC+jNAdJ4jwAH42
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jun 15, 2023 at 01:45:55PM -0700, Saravana Kannan wrote:
-> On Thu, Jun 15, 2023 at 12:31=E2=80=AFPM Conor Dooley <conor@kernel.org> =
-wrote:
-> > On Thu, Jun 15, 2023 at 12:17:08PM -0700, Saravana Kannan wrote:
-> > > On Tue, Jun 13, 2023 at 8:35=E2=80=AFAM Anup Patel <apatel@ventanamic=
-ro.com> wrote:
-> >
-> > btw, please try to delete the 100s of lines of unrelated context when
-> > replying
+On Thu, Jun 15, 2023 at 11:55:22PM +0300, Maksim Kiselev wrote:
+> This patch adds declaration of the general purpose ADC for D1
+> and T113s SoCs.
 >=20
-> I always feel like some people like me to do this and others don't.
-> Also, at times, people might want to reference the other lines of code
-> when replying to my point. That's why I generally leave them in.
+> Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
 
-Yah, perhaps I cull too aggressively but there's a middle ground ;)
-
-> > > > +static int __init aplic_dt_init(struct device_node *node,
-> > > > +                               struct device_node *parent)
-> > > > +{
-> > > > +       /*
-> > > > +        * The APLIC platform driver needs to be probed early
-> > > > +        * so for device tree:
-> > > > +        *
-> > > > +        * 1) Set the FWNODE_FLAG_BEST_EFFORT flag in fwnode which
-> > > > +        *    provides a hint to the device driver core to probe the
-> > > > +        *    platform driver early.
-> > > > +        * 2) Clear the OF_POPULATED flag in device_node because
-> > > > +        *    of_irq_init() sets it which prevents creation of
-> > > > +        *    platform device.
-> > > > +        */
-> > > > +       node->fwnode.flags |=3D FWNODE_FLAG_BEST_EFFORT;
-> > >
-> > > NACK. You are blindly plastering flags without trying to understand
-> > > the real issue and fixing this correctly.
-> > >
-> > > > +       of_node_clear_flag(node, OF_POPULATED);
->=20
-> Also, this part is not needed if the macros I mentioned below are used.
->=20
-> > > > +       return 0;
-> > > > +}
-> > > > +IRQCHIP_DECLARE(riscv_aplic, "riscv,aplic", aplic_dt_init);
-> > >
-> > > This macro pretty much skips the entire driver core framework to probe
-> > > and calls init and you are supposed to initialize the device when the
-> > > init function is called.
-> > >
-> > > If you want your device/driver to follow the proper platform driver
-> > > path (which is recommended), then you need to use the
-> > > IRQCHIP_PLATFORM_DRIVER_BEGIN() and related macros. Grep for plenty o=
-f examples.
-> > >
-> > > I offered to help you debug this issue and I asked for a dts file that
-> > > corresponds to a board you are testing this on and seeing an issue.
-> >
-> > There isn't a dts file for this because there's no publicly available
-> > hardware that actually has an APLIC. Maybe Ventana have pre-production
-> > silicon that has it, but otherwise it's a QEMU job.
->=20
-> 1. QEMU example is fine too if it can be reproduced. I just asked for
-> a dts file because I need the full global view of the dependencies. At
-> a minimum, I'd at least expect to see some example DT and explanation
-> of what dependency is causing the IRQ device to not be initialized on
-> time, etc. Instead I just see random uses of flags with no description
-> of the actual issue.
-
-It's Anup's responsibility to provide you with that information, I have
-not reproduced this issue, so I won't mislead you with QEMU invocations
-that may not be what's required to reproduce.
-
-> 2. If it's not a dts available upstream, why should these drivers be
-> accepted? I thought the norm was to only accept drivers that can
-> actually be used.
-
-I think it's not unusual (and desirable?) to start the upstreaming
-process for stuff before hardware is publicly available, so that once it
-is, support is already upstream, or close to. I do know that people have
-tested this series in FPGA based hardware emulation platforms etc.
-Posting patches for it also helps avoid duplication of effort between
-the various vendors in RISC-V land, who would otherwise have to write
-their own drivers. Also, the documented RISC-V policy for accepting
-support for ISA stuff says:
-	We'll only accept patches for new modules or extensions if the
-	specifications for those modules or extensions are listed as being
-	unlikely to be incompatibly changed in the future.  For
-	specifications from the RISC-V foundation this means "Frozen"
-	(Documentation/riscv/patch-acceptance.rst)
-AIA (the spec behind the APLIC/IMSIC) is frozen, and qualifies from a
-RISC-V point of view. What Marc is willing to accept, in terms of
-pre-production hardware support, is up to him obviously!
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Cheers,
 Conor.
 
-> > > But you haven't answered my question [1] and are pointing to some
-> > > random commit and blaming it. That commit has no impact on any
-> > > existing devices/drivers.
-> > >
-> > > Hi Marc,
-> > >
-> > > Please consider this patch Nacked as long as FWNODE_FLAG_BEST_EFFORT
-> > > is used or until Anup actually works with us to debug the real issue.
-> > >
-> > > -Saravana
-> > > [1] - https://lore.kernel.org/lkml/CAAhSdy2p6K70fc2yZLPdVGqEq61Y8F7WV=
-T2J8st5mQrzBi4WHg@mail.gmail.com/
-
---5MO7euHf3MkXTMTS
+--NWC+jNAdJ4jwAH42
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIt+cwAKCRB4tDGHoIJi
-0nnEAQDxEIRFIDNPXvGHgVa6uRz9xO4r9whJObzgPApSdQr3JQEAiDafcQs0Dg4D
-mLy/wkW8n6yrfsnZXbQAnV2HcunXtQQ=
-=/2YI
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIuA3gAKCRB4tDGHoIJi
+0hhUAP9/W2wEpDsdB/Sc22oil+LX2XhuR7HCsY8W1oqAguqBagD/T8gxH24r/hy1
+AaVKYORuvL5Bv/c/MlUxLX7izpr1rg8=
+=Y/s0
 -----END PGP SIGNATURE-----
 
---5MO7euHf3MkXTMTS--
+--NWC+jNAdJ4jwAH42--
 
 
---===============2261479579814430053==
+--===============3030771764725040085==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -233,5 +146,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2261479579814430053==--
+--===============3030771764725040085==--
 
