@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED44EB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 22:55:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91884EB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Jun 2023 22:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IUHH8wzd9PxRvRznsbfsm713ey1AAYxgczn3koJHq3g=; b=lnmkO8Z6FfVkCE
-	N0RMVJzVrucApDt5rfTuStCV+Z48X0hPK4d4VMr0GU7dzpJNm2F1C794zXBIVUz4AT9kheG0WCes7
-	wdaZSV5mb/PJXZCrKLM3fVCgBeAY4s0cQQZF9xItg4lYF7H1s2aA8z6KSNOGKpl9CJ1iy0N18kbEM
-	ZBx9zYtpDxNfwt0TDLrnZGfdILlZYe1Rjv8HnlKydXKe/7+UpTlQ/Y44zC9735FRZ60qk84kBF3kK
-	PMfEMAnd9m2EPub/O5ZPhzByTO8hZaEFFAvy/XjX6rLluQyxGcCEXPDCM/OFYZkOUTrhiRbMgRnJ0
-	Bf+PshuRnqaWm0DfdJCQ==;
+	List-Owner; bh=SRb1LD0FmYOaargtuwXBoFrZKpLy6vszwqQWWTl62JA=; b=ycFGPSJ6l3wB5u
+	M5XXvd0lj+YezyD06TbXPZMQPFXCjhZCfwnmiJmr0BEjirDbjQXWBRMcDPlrZKZ/0FOxn/wpG7at0
+	PSt1X/X7WtsQml5s1ZJ6o9JV+ERwH3GKl8YzdlOr7xi5tlGFbh80mLRtBcx4ANSOyOLqMcWReb/fY
+	mEHfI47UZDulGYsRIl9JyJFe3PBu0EhAi/rmLF8QOfPrjvRwRpdEpHnR2XuGk3f4Cc32WkWM/KvHD
+	FdGCV/Eg9JYS09g/W52P229Aglfy8kAK0w5lREiWjSSukOKkeUJIPQgVJmNnfrqDo3LAdGsd7u/oT
+	l5lHdJY8kzHeK0T5n10w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9vrj-00GHnX-27;
-	Thu, 15 Jun 2023 22:54:55 +0000
+	id 1q9vrn-00GHoU-0p;
+	Thu, 15 Jun 2023 22:54:59 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1q9vrh-00GHmX-2E
+	id 1q9vrk-00GHna-0d
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 Jun 2023 22:54:54 +0000
+	Thu, 15 Jun 2023 22:54:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 301C060F13;
-	Thu, 15 Jun 2023 22:54:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89A2DC433C9;
-	Thu, 15 Jun 2023 22:54:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B1C3C61AC0;
+	Thu, 15 Jun 2023 22:54:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F26B3C433CA;
+	Thu, 15 Jun 2023 22:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686869692;
-	bh=Df043vgm6CnnvUWCZd+vj+oFrnFuv7Ap9nxevuDGXJk=;
+	s=k20201202; t=1686869695;
+	bh=uOdg4scVwQQzL8UZnROnPCCRu7Nfdm5eCRa5kHL1u3w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YlHWY7F7AYPflO0rB6nuP/YL0uYkct0iT0RW4smQHkv38NoiU3x5EZpgJDHsw712j
-	 Vp38wT2BA44kvTWC/0jULlBRzX7oyJ0gqRvCwFmbRzF5+/Zn7D5gHIFdK7d8WePt7a
-	 q9c1djYEMs0r7zJj8s7xwGz0mv6MB8TYG89M7gUn8t4G8yg8Jnjb3x58NwsKpozVPm
-	 3AaNRwGhHTGoBdtEBYI6wwLFK6egoozkefyYjD4OEu6DKSPMdZwVlAdas2A45Waq78
-	 mY0ZCkVPBjhsKLbhiVAtMdc4vlY2tkNveEUAuQ8t2oMb7I/x4U9n6VaQtAffjJhkLp
-	 d/7f1X5bty+Pw==
+	b=E7dnoqhMqsNpKE8pAOzKNBWZs2o3jqvpczL4+qj/AnHRAbA+aMbrugl5xHi0SGH8p
+	 3QYW/NRiH3p1pwIvE0NvC5eh8etZ52ICkyfNOYgbr8KrpW772LN1+zxnN+Eo9bA0Ga
+	 Q9upHj2X2cnQhgXHBZpU5AB5u8MiwoxTXmTB7zsNL2O+hEWZW07vQdpsnWDulbEme3
+	 EqlDOvJGX3X1Cf7tTaSBdH+Jet1qUPYP86nbYEMLxP1KrMutgAL3sKbgmfn4hA+sGv
+	 e4yiroGQHTlUV2ClVw69H4osMbp5083FmA45b+9n2lfWrh1IobvSzbBEs3fK0+rSLs
+	 Y21RKq4cMVWrA==
 From: Conor Dooley <conor@kernel.org>
 To: palmer@dabbelt.com
 Cc: conor@kernel.org,
@@ -55,19 +55,18 @@ Cc: conor@kernel.org,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/2] dt-bindings: riscv: cpus: add a ref the common cpu schema
-Date: Thu, 15 Jun 2023 23:50:14 +0100
-Message-Id: <20230615-dubiously-parasail-79d34cefedce@spud>
+Subject: [PATCH v2 2/2] dt-bindings: riscv: cpus: switch to unevaluatedProperties: false
+Date: Thu, 15 Jun 2023 23:50:15 +0100
+Message-Id: <20230615-viper-stoic-1ff8efd7d51d@spud>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230615-creamer-emu-ade0fa0bdb68@spud>
 References: <20230615-creamer-emu-ade0fa0bdb68@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1511; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=xnf8UGz7+fdKaOoNLsbw78HDVnw230rwRyuBbYLfg8w=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCndUxebKtwsSK6TCBAy6ShyYUjtPmOi/sPXT+gG59cVH ceOzzzfUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIlM9GT47xnJvjnj5KeFukfl DqfV74nYoee2pvqvxfIPrfsOlGcwTmVkmPxO+7B23oY3m97O6v5sfVKvI5D5qdWH0hm7Kkvl9bq K+QA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=729; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=u/qrBFnL9e9PAex6e6NvnAWTZV+52ZOaw3F8Q/zOFMA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCndUxdfseKvjwla7JCU5jYp+vURlY9nUq7/K9Hpfz5/1 v5sm8Z7HaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjI8ysMf4WPBhXM3/362eI7 DlOZuQsNDnz3a7r51NT3r8yktv6Xhy4x/E84uNkwqIsh666IkITAudpLDw9Ov2TN+aiVfedRdq6 MDnYA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230615_155453_774769_4A12AF4E 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230615_155456_277572_4209D1AE 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,44 +85,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-To permit validation of RISC-V cpu nodes, "additionalProperties: true"
-needs to be swapped for "unevaluatedProperties: false". To facilitate
-this in a way that passes dt_binding_check, a reference to the cpu
-schema is required.
-
-Disallow the generic cache-op-block-size property that that drags in,
-since the RISC-V CBO extensions do not require a common size, and have
-individual properties.
+To permit validation of cpu nodes, swap "additionalProperties: true"
+out for "unevaluatedProperties: false".
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 3d2934b15e80..e89a10d9c06b 100644
+index e89a10d9c06b..144da86718c1 100644
 --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
 +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -23,6 +23,9 @@ description: |
-   two cores, each of which has two hyperthreads, could be described as
-   having four harts.
+@@ -143,7 +143,7 @@ required:
+   - riscv,isa
+   - interrupt-controller
  
-+allOf:
-+  - $ref: /schemas/cpu.yaml#
-+
- properties:
-   compatible:
-     oneOf:
-@@ -98,6 +101,9 @@ properties:
-     $ref: "/schemas/types.yaml#/definitions/string"
-     pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
+-additionalProperties: true
++unevaluatedProperties: false
  
-+  # RISC-V has multiple properties for cache op block sizes as the sizes
-+  # differ between individual CBO extensions
-+  cache-op-block-size: false
-   # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
-   timebase-frequency: false
- 
+ examples:
+   - |
 -- 
 2.39.2
 
