@@ -4,79 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 922E4EB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 08:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4ACDEB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 08:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oML1tlfUxRcEMzTbFWl3zHduN/+yt8eeQa4GDMFf0ZI=; b=Vw9eaDv3fnfsCm
-	r1oFJqycUxStP8fRWnFl5968WZHbeYBgQu53icLpEWmBva/9FQKKz2CktrnFMWK31+bYPb1CLsa++
-	RTPVnP902kibK1Qa0fknLlnjNEbP2wtUTwTz0dE2JdSB0f436rSbEUeoIORV35luDy8e1dyERdH/Q
-	2MidodSC1NMgnYgo5PzvImnRkpVcuh4uvy/8yhyQLJtiVWYMTXUzJXPeTvABnoHhkY+OPQK9PtbCo
-	OQ6LAkx1xXr0wjdgiKbBv4LuzXEqhfQdCjqb2M3GhOMlcUIg9+L8gAXlrN3TFbq7NPrZFq8qkl6R5
-	Gr0xRV+8yBG6tzyLjlZw==;
+	List-Owner; bh=pwAjgZQAXramau76zxL1HBV52puPPJOreSDwCDYK2R8=; b=vNF2ZNOwSO/Xv6
+	fotsTxQUrxgKLXE6jde/QK6kK/JH9WMwW2SFlPVuAKS5dY/yniuKNDNjOEaD7IQ1AKyPQqIt29hU6
+	pFqFZxgH1G3Cv1CefVsVGn2aC0BgOVVpjWPRGrlRwSv4FJLx4AQ8rjN17fNgxU2qW2M4ubaf39TEK
+	0pKnNM7rlG/QUBrnsxdfgasZPgAh3I7L0KCZBqTT/Eoryj1YSjIPcGaTF5TLSOBj3RD5UTRDZmAVY
+	/CJj/+yiykJ1JAO+3XIyob8QCI7p4zfB5fiCJnOXMyEZth1MoDt86dtw1kziWMDJXDBpJ9QQ8BKii
+	thv1uNQFQQsu23ppCQsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA4ok-00HGsS-1d;
-	Fri, 16 Jun 2023 08:28:26 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1qA4rs-00HHKf-1P;
+	Fri, 16 Jun 2023 08:31:40 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA4oh-00HGr2-1f
+	id 1qA4ro-00HHJf-1h
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jun 2023 08:28:25 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2b45c289615so1257021fa.1
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Jun 2023 01:28:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google; t=1686904101; x=1689496101;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LZCqAGjRKDvEoatemozoXx1FoWJTpUzjMGwy/qF8g/8=;
-        b=JwldKiQ0TB5xwMKUZIM3Sewt0gaaQKVVgk21JApvEvBQYPpsTN2Zqr4JqgFbWYFNmL
-         tzhVTu0yvEsEb4QsfVkIiDOD3KW80NFwC3yVhgsF9V3kZX6VLlQqjCMB0zlZtZK93yr3
-         alc0LbjCSWLj3u/pIpWKtOfZ2jAoqnO4GxYl4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1686904101; x=1689496101;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LZCqAGjRKDvEoatemozoXx1FoWJTpUzjMGwy/qF8g/8=;
-        b=W9kA22az4i/bZbZACeh0vGdEgD+XmvkQ7EyLTaHdKNM0wNwr51P50vYuT7x0RNYZKV
-         J9GYkUms06OAvOu9QkgWGpEMEQ7O3vSALwUdnp3ml+aUy/fn4eS+/dkYtIeG2lFF6P54
-         djdY9nw5PXqq9Ak5X7yeOgoGl0vX7hmFQdfI9dt6VO2ml3Oo1zeo//zzybxyEEA0M7C1
-         EkRP2JSPAQ3Zx8XB13NbreMEIWiV1XDsDEKgGBnDL6LwRRwtGDjakX4S5qBoU0K6csLe
-         00DE8/h98afZfHd9w959vHUYO8nnl0g7yI3yydgPzbdjQEFEubTzqXfdV02xGx9piSt2
-         Emjg==
-X-Gm-Message-State: AC+VfDx6DaM3dHfPUn3I9rNvo9x6jiTRAAK/5+DCc4IfaCRBcVL+OTKX
-	shxKXHKKqQWSeAxiYfhJFWFbAh64W1Tn5OakRxt2
-X-Google-Smtp-Source: ACHHUZ56TziHoZxjzqlSenTHxGQzrOu7m8nSQ8jAwhCsCTSWZVoNUnVvDh+QFfMtHzF5cXvsWIqhYxl5XU8WgpNfj9Y=
-X-Received: by 2002:a2e:330f:0:b0:2a8:bd1f:a377 with SMTP id
- d15-20020a2e330f000000b002a8bd1fa377mr1210632ljc.20.1686904101308; Fri, 16
- Jun 2023 01:28:21 -0700 (PDT)
+	Fri, 16 Jun 2023 08:31:38 +0000
+Received: from [167.98.27.226] (helo=[10.35.6.111])
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1qA4qw-009I4S-AX; Fri, 16 Jun 2023 09:30:43 +0100
+Message-ID: <3f264505-af11-b667-fc82-a5310982ef8b@codethink.co.uk>
+Date: Fri, 16 Jun 2023 09:30:42 +0100
 MIME-Version: 1.0
-References: <20230512085321.13259-1-alexghiti@rivosinc.com> <20230512085321.13259-6-alexghiti@rivosinc.com>
-In-Reply-To: <20230512085321.13259-6-alexghiti@rivosinc.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 16 Jun 2023 01:28:09 -0700
-Message-ID: <CAOnJCUL8t-BMfLX0uvjbFK9TFVyqEdCnkYN9aE0hB4NXEtRHZw@mail.gmail.com>
-Subject: Re: [PATCH v2 05/10] riscv: Prepare for user-space perf event mmap support
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH 1/3] soc: sifive: Add SiFive private L2 cache support
+Content-Language: en-GB
+To: Eric Lin <eric.lin@sifive.com>, conor@kernel.org, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu, maz@kernel.org,
+ chenhuacai@kernel.org, baolu.lu@linux.intel.com, will@kernel.org,
+ kan.liang@linux.intel.com, nnac123@linux.ibm.com, pierre.gondois@arm.com,
+ huangguangbin2@huawei.com, jgross@suse.com, chao.gao@intel.com,
+ maobibo@loongson.cn, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dslin1010@gmail.com
+Cc: Nick Hu <nick.hu@sifive.com>, Zong Li <zong.li@sifive.com>
+References: <20230616063210.19063-1-eric.lin@sifive.com>
+ <20230616063210.19063-2-eric.lin@sifive.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <20230616063210.19063-2-eric.lin@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_012823_558876_3D0307A6 
-X-CRM114-Status: GOOD (  30.64  )
+X-CRM114-CacheID: sfid-20230616_013136_724812_DE688BF1 
+X-CRM114-Status: GOOD (  35.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,137 +65,326 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMTIsIDIwMjMgYXQgMTo1OOKAr0FNIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
-aXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBQcm92aWRlIGFsbCB0aGUgbmVjZXNzYXJ5IGJp
-dHMgaW4gdGhlIGdlbmVyaWMgcmlzY3YgcG11IGRyaXZlciB0byBiZQo+IGFibGUgdG8gbW1hcCBw
-ZXJmIGV2ZW50cyBpbiB1c2Vyc3BhY2U6IHRoZSBoZWF2eSBsaWZ0aW5nIGxpZXMgaW4gdGhlCj4g
-ZHJpdmVyIGJhY2tlbmQsIG5hbWVseSB0aGUgbGVnYWN5IGFuZCBzYmkgaW1wbGVtZW50YXRpb25z
-Lgo+Cj4gTm90ZSB0aGF0IGFyY2hfcGVyZl91cGRhdGVfdXNlcnBhZ2UgaXMgYWxtb3N0IGEgY29w
-eSBvZiBhcm02NCBjb2RlLgo+Cj4gU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4
-Z2hpdGlAcml2b3NpbmMuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSAg
-ICAgfCAgMiArLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wZXJmX2V2ZW50LmMgfCA1OCArKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gIGRyaXZlcnMvcGVyZi9yaXNjdl9wbXUuYyAg
-ICAgICB8IDQxICsrKysrKysrKysrKysrKysrKysrKysrKwo+ICBpbmNsdWRlL2xpbnV4L3BlcmYv
-cmlzY3ZfcG11LmggfCAgNCArKysKPiAgNCBmaWxlcyBjaGFuZ2VkLCAxMDQgaW5zZXJ0aW9ucygr
-KSwgMSBkZWxldGlvbigtKQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwv
-cGVyZl9ldmVudC5jCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUg
-Yi9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+IGluZGV4IDRjZjMwM2E3NzlhYi4uMGQyMTVm
-ZDk4NjBkIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCj4gKysrIGIv
-YXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUKPiBAQCAtNzAsNyArNzAsNyBAQCBvYmotJChDT05G
-SUdfRFlOQU1JQ19GVFJBQ0UpICArPSBtY291bnQtZHluLm8KPgo+ICBvYmotJChDT05GSUdfVFJB
-Q0VfSVJRRkxBR1MpICAgKz0gdHJhY2VfaXJxLm8KPgo+IC1vYmotJChDT05GSUdfUEVSRl9FVkVO
-VFMpICAgICAgKz0gcGVyZl9jYWxsY2hhaW4ubwo+ICtvYmotJChDT05GSUdfUEVSRl9FVkVOVFMp
-ICAgICAgKz0gcGVyZl9jYWxsY2hhaW4ubyBwZXJmX2V2ZW50Lm8KPiAgb2JqLSQoQ09ORklHX0hB
-VkVfUEVSRl9SRUdTKSAgICs9IHBlcmZfcmVncy5vCj4gIG9iai0kKENPTkZJR19SSVNDVl9TQkkp
-ICAgICAgICAgICAgICAgICs9IHNiaS5vCj4gIGlmZXEgKCQoQ09ORklHX1JJU0NWX1NCSSksIHkp
-Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3BlcmZfZXZlbnQuYyBiL2FyY2gvcmlz
-Y3Yva2VybmVsL3BlcmZfZXZlbnQuYwo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAw
-MDAwMDAwMDAwLi45NDE3NGEwZmMyNTEKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvYXJjaC9yaXNj
-di9rZXJuZWwvcGVyZl9ldmVudC5jCj4gQEAgLTAsMCArMSw1OCBAQAo+ICsvLyBTUERYLUxpY2Vu
-c2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5Cj4gKyNpbmNsdWRlIDxsaW51eC9zY2hlZF9jbG9j
-ay5oPgo+ICsKPiArdm9pZCBhcmNoX3BlcmZfdXBkYXRlX3VzZXJwYWdlKHN0cnVjdCBwZXJmX2V2
-ZW50ICpldmVudCwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IHBlcmZf
-ZXZlbnRfbW1hcF9wYWdlICp1c2VycGcsIHU2NCBub3cpCj4gK3sKPiArICAgICAgIHN0cnVjdCBj
-bG9ja19yZWFkX2RhdGEgKnJkOwo+ICsgICAgICAgdW5zaWduZWQgaW50IHNlcTsKPiArICAgICAg
-IHU2NCBuczsKPiArCj4gKyAgICAgICB1c2VycGctPmNhcF91c2VyX3RpbWUgPSAwOwo+ICsgICAg
-ICAgdXNlcnBnLT5jYXBfdXNlcl90aW1lX3plcm8gPSAwOwo+ICsgICAgICAgdXNlcnBnLT5jYXBf
-dXNlcl90aW1lX3Nob3J0ID0gMDsKPiArICAgICAgIHVzZXJwZy0+Y2FwX3VzZXJfcmRwbWMgPQo+
-ICsgICAgICAgICAgICAgICAhIShldmVudC0+aHcuZmxhZ3MgJiBQRVJGX0VWRU5UX0ZMQUdfVVNF
-Ul9SRUFEX0NOVCk7Cj4gKwo+ICsgICAgICAgdXNlcnBnLT5wbWNfd2lkdGggPSA2NDsKPiArCgpU
-aGUgY291bnRlciB3aWR0aCBpcyA2NCBmb3IgY3ljbGUgJiBpbnN0cmV0LiBPdGhlciBocG1jb3Vu
-dGVyIGNhbiBoYXZlCmRpZmZlcmVudCB3aWR0aC4KVGhpcyBpbmZvcm1hdGlvbiBzaG91bGQgcmV0
-cmlldmVkIGZyb20gY291bnRlciBpbmZvLgoKPiArICAgICAgIGRvIHsKPiArICAgICAgICAgICAg
-ICAgcmQgPSBzY2hlZF9jbG9ja19yZWFkX2JlZ2luKCZzZXEpOwo+ICsKPiArICAgICAgICAgICAg
-ICAgdXNlcnBnLT50aW1lX211bHQgPSByZC0+bXVsdDsKPiArICAgICAgICAgICAgICAgdXNlcnBn
-LT50aW1lX3NoaWZ0ID0gcmQtPnNoaWZ0Owo+ICsgICAgICAgICAgICAgICB1c2VycGctPnRpbWVf
-emVybyA9IHJkLT5lcG9jaF9uczsKPiArICAgICAgICAgICAgICAgdXNlcnBnLT50aW1lX2N5Y2xl
-cyA9IHJkLT5lcG9jaF9jeWM7Cj4gKyAgICAgICAgICAgICAgIHVzZXJwZy0+dGltZV9tYXNrID0g
-cmQtPnNjaGVkX2Nsb2NrX21hc2s7Cj4gKwo+ICsgICAgICAgICAgICAgICAvKgo+ICsgICAgICAg
-ICAgICAgICAgKiBTdWJ0cmFjdCB0aGUgY3ljbGUgYmFzZSwgc3VjaCB0aGF0IHNvZnR3YXJlIHRo
-YXQKPiArICAgICAgICAgICAgICAgICogZG9lc24ndCBrbm93IGFib3V0IGNhcF91c2VyX3RpbWVf
-c2hvcnQgc3RpbGwgJ3dvcmtzJwo+ICsgICAgICAgICAgICAgICAgKiBhc3N1bWluZyBubyB3cmFw
-cy4KPiArICAgICAgICAgICAgICAgICovCj4gKyAgICAgICAgICAgICAgIG5zID0gbXVsX3U2NF91
-MzJfc2hyKHJkLT5lcG9jaF9jeWMsIHJkLT5tdWx0LCByZC0+c2hpZnQpOwo+ICsgICAgICAgICAg
-ICAgICB1c2VycGctPnRpbWVfemVybyAtPSBuczsKPiArCj4gKyAgICAgICB9IHdoaWxlIChzY2hl
-ZF9jbG9ja19yZWFkX3JldHJ5KHNlcSkpOwo+ICsKPiArICAgICAgIHVzZXJwZy0+dGltZV9vZmZz
-ZXQgPSB1c2VycGctPnRpbWVfemVybyAtIG5vdzsKPiArCj4gKyAgICAgICAvKgo+ICsgICAgICAg
-ICogdGltZV9zaGlmdCBpcyBub3QgZXhwZWN0ZWQgdG8gYmUgZ3JlYXRlciB0aGFuIDMxIGR1ZSB0
-bwo+ICsgICAgICAgICogdGhlIG9yaWdpbmFsIHB1Ymxpc2hlZCBjb252ZXJzaW9uIGFsZ29yaXRo
-bSBzaGlmdGluZyBhCj4gKyAgICAgICAgKiAzMi1iaXQgdmFsdWUgKG5vdyBzcGVjaWZpZXMgYSA2
-NC1iaXQgdmFsdWUpIC0gcmVmZXIKPiArICAgICAgICAqIHBlcmZfZXZlbnRfbW1hcF9wYWdlIGRv
-Y3VtZW50YXRpb24gaW4gcGVyZl9ldmVudC5oLgo+ICsgICAgICAgICovCj4gKyAgICAgICBpZiAo
-dXNlcnBnLT50aW1lX3NoaWZ0ID09IDMyKSB7Cj4gKyAgICAgICAgICAgICAgIHVzZXJwZy0+dGlt
-ZV9zaGlmdCA9IDMxOwo+ICsgICAgICAgICAgICAgICB1c2VycGctPnRpbWVfbXVsdCA+Pj0gMTsK
-PiArICAgICAgIH0KPiArCj4gKyAgICAgICAvKgo+ICsgICAgICAgICogSW50ZXJuYWwgdGltZWtl
-ZXBpbmcgZm9yIGVuYWJsZWQvcnVubmluZy9zdG9wcGVkIHRpbWVzCj4gKyAgICAgICAgKiBpcyBh
-bHdheXMgY29tcHV0ZWQgd2l0aCB0aGUgc2NoZWRfY2xvY2suCj4gKyAgICAgICAgKi8KPiArICAg
-ICAgIHVzZXJwZy0+Y2FwX3VzZXJfdGltZSA9IDE7Cj4gKyAgICAgICB1c2VycGctPmNhcF91c2Vy
-X3RpbWVfemVybyA9IDE7Cj4gKyAgICAgICB1c2VycGctPmNhcF91c2VyX3RpbWVfc2hvcnQgPSAx
-Owo+ICt9Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXUuYyBiL2RyaXZlcnMv
-cGVyZi9yaXNjdl9wbXUuYwo+IGluZGV4IGViY2E1ZWFiOWM5Yi4uYWY2OWRhMjY4MjQ2IDEwMDY0
-NAo+IC0tLSBhL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXUuYwo+ICsrKyBiL2RyaXZlcnMvcGVyZi9y
-aXNjdl9wbXUuYwo+IEBAIC0xNzEsNiArMTcxLDggQEAgaW50IHJpc2N2X3BtdV9ldmVudF9zZXRf
-cGVyaW9kKHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCkKPgo+ICAgICAgICAgbG9jYWw2NF9zZXQo
-Jmh3Yy0+cHJldl9jb3VudCwgKHU2NCktbGVmdCk7Cj4KPiArICAgICAgIHBlcmZfZXZlbnRfdXBk
-YXRlX3VzZXJwYWdlKGV2ZW50KTsKPiArCj4gICAgICAgICByZXR1cm4gb3ZlcmZsb3c7Cj4gIH0K
-Pgo+IEBAIC0yNjcsNiArMjY5LDkgQEAgc3RhdGljIGludCByaXNjdl9wbXVfZXZlbnRfaW5pdChz
-dHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQpCj4gICAgICAgICBod2MtPmlkeCA9IC0xOwo+ICAgICAg
-ICAgaHdjLT5ldmVudF9iYXNlID0gbWFwcGVkX2V2ZW50Owo+Cj4gKyAgICAgICBpZiAocnZwbXUt
-PmV2ZW50X2luaXQpCj4gKyAgICAgICAgICAgICAgIHJ2cG11LT5ldmVudF9pbml0KGV2ZW50KTsK
-PiArCj4gICAgICAgICBpZiAoIWlzX3NhbXBsaW5nX2V2ZW50KGV2ZW50KSkgewo+ICAgICAgICAg
-ICAgICAgICAvKgo+ICAgICAgICAgICAgICAgICAgKiBGb3Igbm9uLXNhbXBsaW5nIHJ1bnMsIGxp
-bWl0IHRoZSBzYW1wbGVfcGVyaW9kIHRvIGhhbGYKPiBAQCAtMjgzLDYgKzI4OCwzOSBAQCBzdGF0
-aWMgaW50IHJpc2N2X3BtdV9ldmVudF9pbml0KHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCkKPiAg
-ICAgICAgIHJldHVybiAwOwo+ICB9Cj4KPiArc3RhdGljIGludCByaXNjdl9wbXVfZXZlbnRfaWR4
-KHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCkKPiArewo+ICsgICAgICAgc3RydWN0IHJpc2N2X3Bt
-dSAqcnZwbXUgPSB0b19yaXNjdl9wbXUoZXZlbnQtPnBtdSk7Cj4gKwo+ICsgICAgICAgaWYgKCEo
-ZXZlbnQtPmh3LmZsYWdzICYgUEVSRl9FVkVOVF9GTEFHX1VTRVJfUkVBRF9DTlQpKQo+ICsgICAg
-ICAgICAgICAgICByZXR1cm4gMDsKPiArCj4gKyAgICAgICBpZiAocnZwbXUtPmNzcl9pbmRleCkK
-PiArICAgICAgICAgICAgICAgcmV0dXJuIHJ2cG11LT5jc3JfaW5kZXgoZXZlbnQpICsgMTsKPiAr
-Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiArc3RhdGljIHZvaWQgcmlzY3ZfcG11X2V2
-ZW50X21hcHBlZChzdHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQsIHN0cnVjdCBtbV9zdHJ1Y3QgKm1t
-KQo+ICt7Cj4gKyAgICAgICBzdHJ1Y3QgcmlzY3ZfcG11ICpydnBtdSA9IHRvX3Jpc2N2X3BtdShl
-dmVudC0+cG11KTsKPiArCj4gKyAgICAgICBpZiAocnZwbXUtPmV2ZW50X21hcHBlZCkgewo+ICsg
-ICAgICAgICAgICAgICBydnBtdS0+ZXZlbnRfbWFwcGVkKGV2ZW50LCBtbSk7Cj4gKyAgICAgICAg
-ICAgICAgIHBlcmZfZXZlbnRfdXBkYXRlX3VzZXJwYWdlKGV2ZW50KTsKPiArICAgICAgIH0KPiAr
-fQo+ICsKPiArc3RhdGljIHZvaWQgcmlzY3ZfcG11X2V2ZW50X3VubWFwcGVkKHN0cnVjdCBwZXJm
-X2V2ZW50ICpldmVudCwgc3RydWN0IG1tX3N0cnVjdCAqbW0pCj4gK3sKPiArICAgICAgIHN0cnVj
-dCByaXNjdl9wbXUgKnJ2cG11ID0gdG9fcmlzY3ZfcG11KGV2ZW50LT5wbXUpOwo+ICsKPiArICAg
-ICAgIGlmIChydnBtdS0+ZXZlbnRfdW5tYXBwZWQpIHsKPiArICAgICAgICAgICAgICAgcnZwbXUt
-PmV2ZW50X3VubWFwcGVkKGV2ZW50LCBtbSk7Cj4gKyAgICAgICAgICAgICAgIHBlcmZfZXZlbnRf
-dXBkYXRlX3VzZXJwYWdlKGV2ZW50KTsKPiArICAgICAgIH0KPiArfQo+ICsKPiAgc3RydWN0IHJp
-c2N2X3BtdSAqcmlzY3ZfcG11X2FsbG9jKHZvaWQpCj4gIHsKPiAgICAgICAgIHN0cnVjdCByaXNj
-dl9wbXUgKnBtdTsKPiBAQCAtMzA3LDYgKzM0NSw5IEBAIHN0cnVjdCByaXNjdl9wbXUgKnJpc2N2
-X3BtdV9hbGxvYyh2b2lkKQo+ICAgICAgICAgfQo+ICAgICAgICAgcG11LT5wbXUgPSAoc3RydWN0
-IHBtdSkgewo+ICAgICAgICAgICAgICAgICAuZXZlbnRfaW5pdCAgICAgPSByaXNjdl9wbXVfZXZl
-bnRfaW5pdCwKPiArICAgICAgICAgICAgICAgLmV2ZW50X21hcHBlZCAgID0gcmlzY3ZfcG11X2V2
-ZW50X21hcHBlZCwKPiArICAgICAgICAgICAgICAgLmV2ZW50X3VubWFwcGVkID0gcmlzY3ZfcG11
-X2V2ZW50X3VubWFwcGVkLAo+ICsgICAgICAgICAgICAgICAuZXZlbnRfaWR4ICAgICAgPSByaXNj
-dl9wbXVfZXZlbnRfaWR4LAo+ICAgICAgICAgICAgICAgICAuYWRkICAgICAgICAgICAgPSByaXNj
-dl9wbXVfYWRkLAo+ICAgICAgICAgICAgICAgICAuZGVsICAgICAgICAgICAgPSByaXNjdl9wbXVf
-ZGVsLAo+ICAgICAgICAgICAgICAgICAuc3RhcnQgICAgICAgICAgPSByaXNjdl9wbXVfc3RhcnQs
-Cj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaCBiL2luY2x1ZGUv
-bGludXgvcGVyZi9yaXNjdl9wbXUuaAo+IGluZGV4IDlmNzBkOTQ5NDJlMC4uMTQ1MmM4YWYzYjY3
-IDEwMDY0NAo+IC0tLSBhL2luY2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaAo+ICsrKyBiL2lu
-Y2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaAo+IEBAIC01NSw2ICs1NSwxMCBAQCBzdHJ1Y3Qg
-cmlzY3ZfcG11IHsKPiAgICAgICAgIHZvaWQgICAgICAgICAgICAoKmN0cl9zdGFydCkoc3RydWN0
-IHBlcmZfZXZlbnQgKmV2ZW50LCB1NjQgaW5pdF92YWwpOwo+ICAgICAgICAgdm9pZCAgICAgICAg
-ICAgICgqY3RyX3N0b3ApKHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCwgdW5zaWduZWQgbG9uZyBm
-bGFnKTsKPiAgICAgICAgIGludCAgICAgICAgICAgICAoKmV2ZW50X21hcCkoc3RydWN0IHBlcmZf
-ZXZlbnQgKmV2ZW50LCB1NjQgKmNvbmZpZyk7Cj4gKyAgICAgICB2b2lkICAgICAgICAgICAgKCpl
-dmVudF9pbml0KShzdHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQpOwo+ICsgICAgICAgdm9pZCAgICAg
-ICAgICAgICgqZXZlbnRfbWFwcGVkKShzdHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQsIHN0cnVjdCBt
-bV9zdHJ1Y3QgKm1tKTsKPiArICAgICAgIHZvaWQgICAgICAgICAgICAoKmV2ZW50X3VubWFwcGVk
-KShzdHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQsIHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKTsKPiArICAg
-ICAgIHVpbnQ4X3QgICAgICAgICAoKmNzcl9pbmRleCkoc3RydWN0IHBlcmZfZXZlbnQgKmV2ZW50
-KTsKPgo+ICAgICAgICAgc3RydWN0IGNwdV9od19ldmVudHMgICAgX19wZXJjcHUgKmh3X2V2ZW50
-czsKPiAgICAgICAgIHN0cnVjdCBobGlzdF9ub2RlICAgICAgIG5vZGU7Cj4gLS0KPiAyLjM3LjIK
-PgoKCi0tIApSZWdhcmRzLApBdGlzaAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+On 16/06/2023 07:32, Eric Lin wrote:
+> This adds SiFive private L2 cache driver which will show
+> cache config information when booting and add cpu hotplug
+> callback functions.
+> 
+> Signed-off-by: Eric Lin <eric.lin@sifive.com>
+> Signed-off-by: Nick Hu <nick.hu@sifive.com>
+> Reviewed-by: Zong Li <zong.li@sifive.com>
+> ---
+>   drivers/soc/sifive/Kconfig            |   8 +
+>   drivers/soc/sifive/Makefile           |   1 +
+>   drivers/soc/sifive/sifive_pl2.h       |  25 ++++
+>   drivers/soc/sifive/sifive_pl2_cache.c | 202 ++++++++++++++++++++++++++
+>   include/linux/cpuhotplug.h            |   1 +
+>   5 files changed, 237 insertions(+)
+>   create mode 100644 drivers/soc/sifive/sifive_pl2.h
+>   create mode 100644 drivers/soc/sifive/sifive_pl2_cache.c
+> 
+> diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
+> index e86870be34c9..573564295058 100644
+> --- a/drivers/soc/sifive/Kconfig
+> +++ b/drivers/soc/sifive/Kconfig
+> @@ -7,4 +7,12 @@ config SIFIVE_CCACHE
+>   	help
+>   	  Support for the composable cache controller on SiFive platforms.
+>   
+> +config SIFIVE_PL2
+> +	bool "Sifive private L2 Cache controller"
+> +	help
+> +	  Support for the private L2 cache controller on SiFive platforms.
+> +	  The SiFive Private L2 Cache Controller is per hart and communicates
+> +	  with both the upstream L1 caches and downstream L3 cache or memory,
+> +	  enabling a high-performance cache subsystem.
+> +
+>   endif
+> diff --git a/drivers/soc/sifive/Makefile b/drivers/soc/sifive/Makefile
+> index 1f5dc339bf82..707493e1c691 100644
+> --- a/drivers/soc/sifive/Makefile
+> +++ b/drivers/soc/sifive/Makefile
+> @@ -1,3 +1,4 @@
+>   # SPDX-License-Identifier: GPL-2.0
+>   
+>   obj-$(CONFIG_SIFIVE_CCACHE)	+= sifive_ccache.o
+> +obj-$(CONFIG_SIFIVE_PL2)	+= sifive_pl2_cache.o
+> diff --git a/drivers/soc/sifive/sifive_pl2.h b/drivers/soc/sifive/sifive_pl2.h
+> new file mode 100644
+> index 000000000000..57aa1019d5ed
+> --- /dev/null
+> +++ b/drivers/soc/sifive/sifive_pl2.h
+> @@ -0,0 +1,25 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2023 SiFive, Inc.
+> + *
+> + */
+> +
+> +#ifndef _SIFIVE_PL2_H
+> +#define _SIFIVE_PL2_H
+> +
+> +#define SIFIVE_PL2_CONFIG1_OFFSET	0x1000
+> +#define SIFIVE_PL2_CONFIG0_OFFSET	0x1008
+> +#define SIFIVE_PL2_PMCLIENT_OFFSET	0x2800
+> +
+> +struct sifive_pl2_state {
+> +	void __iomem *pl2_base;
+> +	u32 config1;
+> +	u32 config0;
+> +	u64 pmclientfilter;
+> +};
+> +
+> +int sifive_pl2_pmu_init(void);
+> +int sifive_pl2_pmu_probe(struct device_node *pl2_node,
+> +			 void __iomem *pl2_base, int cpu);
+> +
+> +#endif /*_SIFIVE_PL2_H */
+> diff --git a/drivers/soc/sifive/sifive_pl2_cache.c b/drivers/soc/sifive/sifive_pl2_cache.c
+> new file mode 100644
+> index 000000000000..aeb51d576af9
+> --- /dev/null
+> +++ b/drivers/soc/sifive/sifive_pl2_cache.c
+> @@ -0,0 +1,202 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * SiFive private L2 cache controller Driver
+> + *
+> + * Copyright (C) 2018-2023 SiFive, Inc.
+> + */
+> +
+> +#define pr_fmt(fmt) "pL2CACHE: " fmt
+> +
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/io.h>
+> +#include <linux/cpu_pm.h>
+> +#include <linux/cpuhotplug.h>
+> +#include "sifive_pl2.h"
+> +
+> +static DEFINE_PER_CPU(struct sifive_pl2_state, sifive_pl2_state);
+> +
+> +static void sifive_pl2_state_save(struct sifive_pl2_state *pl2_state)
+> +{
+> +	void __iomem *pl2_base = pl2_state->pl2_base;
+> +
+> +	if (!pl2_base)
+> +		return;
+
+is this test realy needed?
+
+> +
+> +	pl2_state->config1 = readl(pl2_base + SIFIVE_PL2_CONFIG1_OFFSET);
+> +	pl2_state->config0 = readl(pl2_base + SIFIVE_PL2_CONFIG0_OFFSET);
+> +	pl2_state->pmclientfilter = readq(pl2_base + SIFIVE_PL2_PMCLIENT_OFFSET);
+> +}
+> +
+> +static void sifive_pl2_state_restore(struct sifive_pl2_state *pl2_state)
+> +{
+> +	void __iomem *pl2_base = pl2_state->pl2_base;
+> +
+> +	if (!pl2_base)
+> +		return;
+> +
+> +	writel(pl2_state->config1, pl2_base + SIFIVE_PL2_CONFIG1_OFFSET);
+> +	writel(pl2_state->config0, pl2_base + SIFIVE_PL2_CONFIG0_OFFSET);
+> +	writeq(pl2_state->pmclientfilter, pl2_base + SIFIVE_PL2_PMCLIENT_OFFSET);
+> +}
+> +
+> +/*
+> + * CPU Hotplug call back function
+> + */
+> +static int sifive_pl2_online_cpu(unsigned int cpu)
+> +{
+> +	struct sifive_pl2_state *pl2_state = this_cpu_ptr(&sifive_pl2_state);
+> +
+> +	sifive_pl2_state_restore(pl2_state);
+> +
+> +	return 0;
+> +}
+> +
+> +static int sifive_pl2_offline_cpu(unsigned int cpu)
+> +{
+> +	struct sifive_pl2_state *pl2_state = this_cpu_ptr(&sifive_pl2_state);
+> +
+> +	/* Save the pl2 state */
+> +	sifive_pl2_state_save(pl2_state);
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + *  PM notifer for suspend to ram
+> + */
+> +#ifdef CONFIG_CPU_PM
+> +static int sifive_pl2_pm_notify(struct notifier_block *b, unsigned long cmd,
+> +				void *v)
+> +{
+> +	struct sifive_pl2_state *pl2_state = this_cpu_ptr(&sifive_pl2_state);
+> +
+> +	switch (cmd) {
+> +	case CPU_PM_ENTER:
+> +		/* Save the pl2 state */
+> +		sifive_pl2_state_save(pl2_state);
+> +		break;
+> +	case CPU_PM_ENTER_FAILED:
+> +	case CPU_PM_EXIT:
+> +		sifive_pl2_state_restore(pl2_state);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+> +static struct notifier_block sifive_pl2_pm_notifier_block = {
+> +	.notifier_call = sifive_pl2_pm_notify,
+> +};
+> +
+> +static inline void sifive_pl2_pm_init(void)
+> +{
+> +	cpu_pm_register_notifier(&sifive_pl2_pm_notifier_block);
+> +}
+> +
+> +#else
+> +static inline void sifive_pl2_pm_init(void) { }
+> +#endif /* CONFIG_CPU_PM */
+> +
+> +static const struct of_device_id sifive_pl2_cache_of_ids[] = {
+> +	{ .compatible = "sifive,pL2Cache0" },
+> +	{ .compatible = "sifive,pL2Cache1" },
+
+why the single cap here? I think that looks ugly.
+
+> +	{ /* sentinel value */ }
+> +};
+> +
+> +static void pl2_config_read(void __iomem *pl2_base, int cpu)
+> +{
+> +	u32 regval, bank, way, set, cacheline;
+> +
+> +	regval = readl(pl2_base);
+> +	bank = regval & 0xff;
+> +	pr_info("in the CPU: %d\n", cpu);
+> +	pr_info("No. of Banks in the cache: %d\n", bank);
+> +	way = (regval & 0xff00) >> 8;
+> +	pr_info("No. of ways per bank: %d\n", way);
+> +	set = (regval & 0xff0000) >> 16;
+> +	pr_info("Total sets: %llu\n", (uint64_t)1 << set);
+> +	cacheline = (regval & 0xff000000) >> 24;
+> +	pr_info("Bytes per cache block: %llu\n", (uint64_t)1 << cacheline);
+> +	pr_info("Size: %d\n", way << (set + cacheline));
+
+
+please either remove this or make it a single line, this is just going 
+to spam the log with any system with more than one cpu core.
+
+> +}
+> +
+> +static int sifive_pl2_cache_dev_probe(struct platform_device *pdev)
+> +{
+> +	struct resource *res;
+> +	int cpu, ret = -EINVAL;
+> +	struct device_node *cpu_node, *pl2_node;
+> +	struct sifive_pl2_state *pl2_state = NULL;
+> +	void __iomem *pl2_base;
+> +
+> +	/* Traverse all cpu nodes to find the one mapping to its pl2 node. */
+> +	for_each_cpu(cpu, cpu_possible_mask) {
+> +		cpu_node = of_cpu_device_node_get(cpu);
+> +		pl2_node = of_parse_phandle(cpu_node, "next-level-cache", 0);
+> +
+> +		/* Found it! */
+> +		if (dev_of_node(&pdev->dev) == pl2_node) {
+> +			/* Use cpu to get its percpu data sifive_pl2_state. */
+> +			pl2_state = per_cpu_ptr(&sifive_pl2_state, cpu);
+> +			break;
+> +		}
+> +	}
+> +
+> +	if (!pl2_state) {
+> +		pr_err("Not found the corresponding cpu_node in dts.\n");
+> +		goto early_err;
+> +	}
+> +
+> +	/* Set base address of select and counter registers. */
+> +	pl2_base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+> +	if (IS_ERR(pl2_base)) {
+> +		ret = PTR_ERR(pl2_base);
+> +		goto early_err;
+> +	}
+> +
+> +	/* Print pL2 configs. */
+> +	pl2_config_read(pl2_base, cpu);
+> +	pl2_state->pl2_base = pl2_base;
+> +
+> +	return 0;
+> +
+> +early_err:
+> +	return ret;
+> +}
+> +
+> +static struct platform_driver sifive_pl2_cache_driver = {
+> +	.driver = {
+> +		   .name = "SiFive-pL2-cache",
+> +		   .of_match_table = sifive_pl2_cache_of_ids,
+> +		   },
+> +	.probe = sifive_pl2_cache_dev_probe,
+> +};
+> +
+> +static int __init sifive_pl2_cache_init(void)
+> +{
+> +	int ret;
+> +
+> +	ret = cpuhp_setup_state(CPUHP_AP_RISCV_SIFIVE_PL2_ONLINE,
+> +				"soc/sifive/pl2:online",
+> +				      sifive_pl2_online_cpu,
+> +				      sifive_pl2_offline_cpu);
+> +	if (ret < 0) {
+> +		pr_err("Failed to register CPU hotplug notifier %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret = platform_driver_register(&sifive_pl2_cache_driver);
+> +	if (ret) {
+> +		pr_err("Failed to register sifive_pl2_cache_driver: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	sifive_pl2_pm_init();
+> +
+> +	return ret;
+> +}
+> +
+> +device_initcall(sifive_pl2_cache_init);
+> diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+> index 0f1001dca0e0..35cd5ba0030b 100644
+> --- a/include/linux/cpuhotplug.h
+> +++ b/include/linux/cpuhotplug.h
+> @@ -207,6 +207,7 @@ enum cpuhp_state {
+>   	CPUHP_AP_IRQ_AFFINITY_ONLINE,
+>   	CPUHP_AP_BLK_MQ_ONLINE,
+>   	CPUHP_AP_ARM_MVEBU_SYNC_CLOCKS,
+> +	CPUHP_AP_RISCV_SIFIVE_PL2_ONLINE,
+>   	CPUHP_AP_X86_INTEL_EPB_ONLINE,
+>   	CPUHP_AP_PERF_ONLINE,
+>   	CPUHP_AP_PERF_X86_ONLINE,
+
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
