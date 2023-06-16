@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4942DEB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 08:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 922E4EB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 08:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1l+AMPM9jl5W9wayPxlNW1IQafPWmOegykrOByxX0oo=; b=Cin8ZniAoKDfFRrto790sY2CVE
-	Z32N4ZJxqww8iIz6WF98bvSXTWbywLY+RUWVXmimc7AR4fpH5o2RYHiL+8lg6J7r431nZXPd+a2Gu
-	+ILF82hdK1Qgy9fgSCTJ67NlYZG4MsVRjHP9vejGttdy7E4F7UzVBOrD7lecGdhiOOXlmetvvcrXu
-	FZoNkXHrA/Ko8/NhqdywD3XiJM18AqsSX8suVSrsOcV52S/cFATIrb33mxrudqYtUCUAVfkVxLUQi
-	L8LKGe/v7DthXdMA4Ebj1uAWCB7nrHCHs+RNfuf3q9/25cZNjuqusCZqYSqDtLdCSNvtu1p5+Cmyx
-	qz1pJm+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oML1tlfUxRcEMzTbFWl3zHduN/+yt8eeQa4GDMFf0ZI=; b=Vw9eaDv3fnfsCm
+	r1oFJqycUxStP8fRWnFl5968WZHbeYBgQu53icLpEWmBva/9FQKKz2CktrnFMWK31+bYPb1CLsa++
+	RTPVnP902kibK1Qa0fknLlnjNEbP2wtUTwTz0dE2JdSB0f436rSbEUeoIORV35luDy8e1dyERdH/Q
+	2MidodSC1NMgnYgo5PzvImnRkpVcuh4uvy/8yhyQLJtiVWYMTXUzJXPeTvABnoHhkY+OPQK9PtbCo
+	OQ6LAkx1xXr0wjdgiKbBv4LuzXEqhfQdCjqb2M3GhOMlcUIg9+L8gAXlrN3TFbq7NPrZFq8qkl6R5
+	Gr0xRV+8yBG6tzyLjlZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA4RV-00HDwJ-2A;
-	Fri, 16 Jun 2023 08:04:25 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1qA4ok-00HGsS-1d;
+	Fri, 16 Jun 2023 08:28:26 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA4RQ-00HDuQ-35
+	id 1qA4oh-00HGr2-1f
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jun 2023 08:04:23 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qA4Qh-0004eP-9N; Fri, 16 Jun 2023 10:03:35 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qA4Qc-007m4w-5h; Fri, 16 Jun 2023 10:03:30 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qA4Qb-00Eget-5c; Fri, 16 Jun 2023 10:03:29 +0200
-Date: Fri, 16 Jun 2023 10:03:26 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Maxime Ripard <mripard@kernel.org>, linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
- support
-Message-ID: <20230616080326.2vtkfeyzwx542hk7@pengutronix.de>
-References: <20230615144423.828698-1-privatesub2@gmail.com>
- <20230615144423.828698-3-privatesub2@gmail.com>
+	Fri, 16 Jun 2023 08:28:25 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2b45c289615so1257021fa.1
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Jun 2023 01:28:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google; t=1686904101; x=1689496101;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LZCqAGjRKDvEoatemozoXx1FoWJTpUzjMGwy/qF8g/8=;
+        b=JwldKiQ0TB5xwMKUZIM3Sewt0gaaQKVVgk21JApvEvBQYPpsTN2Zqr4JqgFbWYFNmL
+         tzhVTu0yvEsEb4QsfVkIiDOD3KW80NFwC3yVhgsF9V3kZX6VLlQqjCMB0zlZtZK93yr3
+         alc0LbjCSWLj3u/pIpWKtOfZ2jAoqnO4GxYl4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686904101; x=1689496101;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LZCqAGjRKDvEoatemozoXx1FoWJTpUzjMGwy/qF8g/8=;
+        b=W9kA22az4i/bZbZACeh0vGdEgD+XmvkQ7EyLTaHdKNM0wNwr51P50vYuT7x0RNYZKV
+         J9GYkUms06OAvOu9QkgWGpEMEQ7O3vSALwUdnp3ml+aUy/fn4eS+/dkYtIeG2lFF6P54
+         djdY9nw5PXqq9Ak5X7yeOgoGl0vX7hmFQdfI9dt6VO2ml3Oo1zeo//zzybxyEEA0M7C1
+         EkRP2JSPAQ3Zx8XB13NbreMEIWiV1XDsDEKgGBnDL6LwRRwtGDjakX4S5qBoU0K6csLe
+         00DE8/h98afZfHd9w959vHUYO8nnl0g7yI3yydgPzbdjQEFEubTzqXfdV02xGx9piSt2
+         Emjg==
+X-Gm-Message-State: AC+VfDx6DaM3dHfPUn3I9rNvo9x6jiTRAAK/5+DCc4IfaCRBcVL+OTKX
+	shxKXHKKqQWSeAxiYfhJFWFbAh64W1Tn5OakRxt2
+X-Google-Smtp-Source: ACHHUZ56TziHoZxjzqlSenTHxGQzrOu7m8nSQ8jAwhCsCTSWZVoNUnVvDh+QFfMtHzF5cXvsWIqhYxl5XU8WgpNfj9Y=
+X-Received: by 2002:a2e:330f:0:b0:2a8:bd1f:a377 with SMTP id
+ d15-20020a2e330f000000b002a8bd1fa377mr1210632ljc.20.1686904101308; Fri, 16
+ Jun 2023 01:28:21 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230615144423.828698-3-privatesub2@gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20230512085321.13259-1-alexghiti@rivosinc.com> <20230512085321.13259-6-alexghiti@rivosinc.com>
+In-Reply-To: <20230512085321.13259-6-alexghiti@rivosinc.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Fri, 16 Jun 2023 01:28:09 -0700
+Message-ID: <CAOnJCUL8t-BMfLX0uvjbFK9TFVyqEdCnkYN9aE0hB4NXEtRHZw@mail.gmail.com>
+Subject: Re: [PATCH v2 05/10] riscv: Prepare for user-space perf event mmap support
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+	Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Andrew Jones <ajones@ventanamicro.com>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_010421_326199_ABB19BB2 
-X-CRM114-Status: GOOD (  46.34  )
+X-CRM114-CacheID: sfid-20230616_012823_558876_3D0307A6 
+X-CRM114-Status: GOOD (  30.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,506 +88,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1571161758050861082=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============1571161758050861082==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="omtys6jenmiw526p"
-Content-Disposition: inline
-
-
---omtys6jenmiw526p
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-this isn't a complete review, just a first quick look. Up to you if you
-follow up with a v2 fixing the things here. If you don't I will take a
-deeper look at a later time.
-
-On Thu, Jun 15, 2023 at 05:43:57PM +0300, Aleksandr Shubin wrote:
-> Allwinner's D1, T113-S3 and R329 SoCs have a quite different PWM
-> controllers with ones supported by pwm-sun4i driver.
->=20
-> This patch adds a PWM controller driver for Allwinner's D1,
-> T113-S3 and R329 SoCs. The main difference between these SoCs
-> is the number of channels defined by the DT property.
->=20
-> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> ---
->  drivers/pwm/Kconfig      |  12 ++
->  drivers/pwm/Makefile     |   1 +
->  drivers/pwm/pwm-sun20i.c | 364 +++++++++++++++++++++++++++++++++++++++
->  3 files changed, 377 insertions(+)
->  create mode 100644 drivers/pwm/pwm-sun20i.c
->=20
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 8df861b1f4a3..b435e50fbd3e 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -594,6 +594,18 @@ config PWM_SUN4I
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-sun4i.
-> =20
-> +config PWM_SUN20I
-> +	tristate "Allwinner D1/T113s/R329 PWM support"
-> +	depends on ARCH_SUNXI || COMPILE_TEST
-> +	depends on COMMON_CLK
-> +	help
-> +	  Generic PWM framework driver for Allwinner D1/T113s/R329 SoCs.
-> +	  The main difference between these SoCs is the number of
-> +	  channels defined by the DT property.
-
-That is a detail that better fits into a code comment in the driver. The
-user choosing if they should enable PWM_SUN20I or not, don't need to
-know that.
-
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-sun20i.
-> +
->  config PWM_SUNPLUS
->  	tristate "Sunplus PWM support"
->  	depends on ARCH_SUNPLUS || COMPILE_TEST
-> [...]
-> diff --git a/drivers/pwm/pwm-sun20i.c b/drivers/pwm/pwm-sun20i.c
-> new file mode 100644
-> index 000000000000..100b0f3bcec0
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-sun20i.c
-> @@ -0,0 +1,364 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * PWM Controller Driver for sunxi platforms (D1, T113-S3 and R329)
-> + *
-> + * Copyright (c) 2023 Aleksandr Shubin <privatesub2@gmail.com>
-> + */
-
-Please add a "Limitations" section here answering the following
-questions:
-
- - Is a currently running period completed when a new pwm_state is
-   applied that has .enabled =3D true? What about .enabled =3D false?
- - How does the PWM behave when disabled? Typical behaviours are: drives
-   to inactive level, just freezes or goes HIGH-Z.
-
-Stick to the format that is used in other drivers to make this easily
-grepable.
-
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/clk.h>
-> +#include <linux/reset.h>
-
-alphabetic ordering please
-
-> +#define PWM_CLK_CFG_REG(chan)		(0x20 + (((chan) >> 1) * 0x4))
-> +#define PWM_CLK_SRC			7
-> +#define PWM_CLK_SRC_MASK		GENMASK(8, PWM_CLK_SRC)
-> +#define PWM_CLK_DIV_M			0
-> +#define PWM_CLK_DIV_M_MASK		GENMASK(3, PWM_CLK_DIV_M)
-> +
-> +#define PWM_CLK_GATE_REG		0x40
-> +#define PWM_CLK_GATING(chan)		BIT(chan)
-> +
-> +#define PWM_ENABLE_REG			0x80
-> +#define PWM_EN(chan)			BIT(chan)
-> +
-> +#define PWM_CTL_REG(chan)		(0x100 + (chan) * 0x20)
-> +#define PWM_ACT_STA			BIT(8)
-> +#define PWM_PRESCAL_K			0
-> +#define PWM_PRESCAL_K_MASK		GENMASK(7, PWM_PRESCAL_K)
-> +
-> +#define PWM_PERIOD_REG(chan)		(0x104 + (chan) * 0x20)
-> +#define PWM_ENTIRE_CYCLE		16
-> +#define PWM_ENTIRE_CYCLE_MASK		GENMASK(31, PWM_ENTIRE_CYCLE)
-> +#define PWM_ACT_CYCLE			0
-> +#define PWM_ACT_CYCLE_MASK		GENMASK(15, PWM_ACT_CYCLE)
-> +
-> +#define SET_VALUE(reg_val, val, name) \
-> +		 (reg_val =3D (((reg_val) & ~name##_MASK) | ((val) << (name))))
-> +#define GET_VALUE(reg_val, name) \
-> +		 (((reg_val) & ~name##_MASK) >> (name))
-
-Please use FIELD_GET here instead. This works nice with dropping
-PWM_PRESCAL_K and renaming PWM_PRESCAL_K_MASK to PWM_PRESCAL_K.
-
-> [...]
-> +static int sun20i_pwm_get_state(struct pwm_chip *chip,
-> +				struct pwm_device *pwm,
-> +				struct pwm_state *state)
-> +{
-> +	struct sun20i_pwm_chip *sun20i_chip =3D to_sun20i_pwm_chip(chip);
-> +	u64 clk_rate, tmp;
-> +	u32 val;
-> +	u16 clk_div, act_cycle;
-> +	u8 prescal, div_id;
-> +	u8 chn =3D pwm->hwpwm;
-> +
-> +	mutex_lock(&sun20i_chip->mutex);
-> +
-> +	val =3D sun20i_pwm_readl(sun20i_chip, PWM_CLK_CFG_REG(pwm->hwpwm));
-> +	div_id =3D GET_VALUE(val, PWM_CLK_DIV_M);
-> +	if (GET_VALUE(val, PWM_CLK_SRC) =3D=3D 0)
-> +		clk_rate =3D clk_get_rate(sun20i_chip->clk_hosc);
-> +	else
-> +		clk_rate =3D clk_get_rate(sun20i_chip->clk_bus);
-> +
-> +	val =3D sun20i_pwm_readl(sun20i_chip, PWM_CTL_REG(pwm->hwpwm));
-> +	if (PWM_ACT_STA & val)
-> +		state->polarity =3D PWM_POLARITY_NORMAL;
-> +	else
-> +		state->polarity =3D PWM_POLARITY_INVERSED;
-> +
-> +	prescal =3D PWM_PRESCAL_K & val;
-> +
-> +	val =3D sun20i_pwm_readl(sun20i_chip, PWM_ENABLE_REG);
-> +	if (PWM_EN(chn) & val)
-> +		state->enabled =3D true;
-> +	else
-> +		state->enabled =3D false;
-> +
-> +	val =3D sun20i_pwm_readl(sun20i_chip, PWM_PERIOD_REG(pwm->hwpwm));
-> +	act_cycle =3D GET_VALUE(val, PWM_ACT_CYCLE);
-> +	clk_div =3D GET_VALUE(val, PWM_ENTIRE_CYCLE);
-> +
-> +	tmp =3D act_cycle * prescal * (1U << div_id) * NSEC_PER_SEC;
-> +	state->duty_cycle =3D DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
-> +	tmp =3D clk_div * prescal * (1U << div_id) * NSEC_PER_SEC;
-> +	state->period =3D DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
-
-You have to use ROUND_UP here to make
-
-	.get_state(mypwm, &state);
-	.apply(mypwm, &state);
-
-idempotent. Test your driver with PWM_DEBUG enabled. With an appropriate
-test sequence this should tell you such things. Test with something
-like:
-
-	for i in some_range:
-		pwm_apply_state(mypwm, { .enabled =3D true, .period =3D i, .duty_cycle =
-=3D 0 })
-	for i in reversed(some_range):
-		pwm_apply_state(mypwm, { .enabled =3D true, .period =3D i, .duty_cycle =
-=3D 0 })
-
-	for i in [0, someperiod]:
-		pwm_apply_state(mypwm, { .enabled =3D true, .period =3D someperiod, .duty=
-_cycle =3D i })
-	for i in reversed([0, someperiod]):
-		pwm_apply_state(mypwm, { .enabled =3D true, .period =3D someperiod, .duty=
-_cycle =3D i })
-
-> +	mutex_unlock(&sun20i_chip->mutex);
-> +
-> +	return 0;
-> +}
-> +
-> +static int sun20i_pwm_apply(struct pwm_chip *chip, struct pwm_device *pw=
-m,
-> +			    const struct pwm_state *state)
-> +{
-> +	struct pwm_state curstate;
-> +	int ret =3D 0;
-> +	u32 clk_gate, clk_cfg, pwm_en, ctl, period;
-> +	u64 bus_rate, hosc_rate, clk_div, val, clk_rate;
-> +	u16 prescaler, div_m;
-> +	bool use_bus_clk;
-> +	struct sun20i_pwm_chip *sun20i_chip =3D to_sun20i_pwm_chip(chip);
-> +
-> +	mutex_lock(&sun20i_chip->mutex);
-> +	pwm_get_state(pwm, &curstate);
-
-Don't call pwm API functions in lowlevel driver. Even less while holding
-a lock. If you need the previous state, using pwm->state is fine.
-
-> +	pwm_en =3D sun20i_pwm_readl(sun20i_chip, PWM_ENABLE_REG);
-> +	if (state->polarity !=3D curstate.polarity ||
-> +	    state->duty_cycle !=3D curstate.duty_cycle ||
-> +	    state->period !=3D curstate.period) {
-> +		ctl =3D sun20i_pwm_readl(sun20i_chip, PWM_CTL_REG(pwm->hwpwm));
-> +		clk_cfg =3D sun20i_pwm_readl(sun20i_chip, PWM_CLK_CFG_REG(pwm->hwpwm));
-> +		hosc_rate =3D clk_get_rate(sun20i_chip->clk_hosc);
-> +		bus_rate =3D clk_get_rate(sun20i_chip->clk_bus);
-> +
-> +		if (pwm_en & PWM_EN(pwm->hwpwm ^ 1)) {
-> +			/* check period only */
-> +			if (GET_VALUE(clk_cfg, PWM_CLK_SRC) =3D=3D 0)
-> +				clk_rate =3D hosc_rate;
-> +			else
-> +				clk_rate =3D bus_rate;
-> +
-> +			val =3D state->period * clk_rate;
-
-This might overflow.
-
-> +			do_div(val, NSEC_PER_SEC);
-> +
-> +			div_m =3D GET_VALUE(clk_cfg, PWM_CLK_DIV_M);
-> +
-> +			/* calculate and set prescaler, PWM entire cycle */
-> +			clk_div =3D val;
-> +			for (prescaler =3D 0; clk_div > 65535; prescaler++) {
-> +				if (prescaler >=3D 256) {
-> +					dev_err(sun20i_chip->chip.dev, "Period is too long\n");
-
-dev_err in .apply() isn't a good idea. Please fail silently.
-
-Also you should configure the biggest period the hardware can support
-that isn't bigger than state->period. So the requested period cannot be
-too long.
-
-> +					ret =3D -EINVAL;
-> +					goto unlock_mutex;
-> +				}
-> +
-> +				clk_div =3D val;
-> +				do_div(clk_div, 1U << div_m);
-
-This can be simplified to clk_div >> div_m.
-
-> +				do_div(clk_div, prescaler + 1);
-> +			}
-
-I wonder if prescaler can be calculated without a loop.
-
-> +		} else {
-> +			/* check period and select clock source */
-> +			use_bus_clk =3D false;
-> +			val =3D state->period * hosc_rate;
-> +			do_div(val, NSEC_PER_SEC);
-> +			if (val <=3D 1) {
-> +				use_bus_clk =3D true;
-> +				val =3D state->period * bus_rate;
-> +				do_div(val, NSEC_PER_SEC);
-> +				if (val <=3D 1) {
-> +					dev_err(sun20i_chip->chip.dev, "Period is too small\n");
-> +					ret =3D -EINVAL;
-> +					goto unlock_mutex;
-> +				}
-> +			}
-> +
-> +			if (use_bus_clk)
-> +				SET_VALUE(clk_cfg, 1, PWM_CLK_SRC);
-> +			else
-> +				SET_VALUE(clk_cfg, 0, PWM_CLK_SRC);
-> +
-> +			/* calculate and set prescaler, M factor, PWM entire cycle */
-> +			clk_div =3D val;
-> +			for (prescaler =3D div_m =3D 0; clk_div > 65535; prescaler++) {
-> +				if (prescaler >=3D 256) {
-> +					prescaler =3D 0;
-> +					div_m++;
-> +					if (div_m >=3D 9) {
-> +						dev_err(sun20i_chip->chip.dev, "Period is too long\n");
-> +						ret =3D -EINVAL;
-> +						goto unlock_mutex;
-> +					}
-> +				}
-> +
-> +				clk_div =3D val;
-> +				do_div(clk_div, 1U << div_m);
-> +				do_div(clk_div, prescaler + 1);
-> +			}
-> +
-> +			/* set up the M factor */
-> +			SET_VALUE(clk_cfg, div_m, PWM_CLK_DIV_M);
-> +
-> +			sun20i_pwm_writel(sun20i_chip, clk_cfg, PWM_CLK_CFG_REG(pwm->hwpwm));
-> +		}
-> +
-> +		period =3D sun20i_pwm_readl(sun20i_chip, PWM_PERIOD_REG(pwm->hwpwm));
-> +
-> +		SET_VALUE(period, clk_div, PWM_ENTIRE_CYCLE);
-> +		SET_VALUE(ctl, prescaler, PWM_PRESCAL_K);
-
-Are there any fields in PWM_PERIOD_REG(pwm->hwpwm) you're not
-recalculating? If not, you can skip reading the register and use
-FIELD_PREP instead of SET_VALUE.
-
-> +
-> +		/* set duty cycle */
-> +		val =3D state->period;
-> +		do_div(val, clk_div);
-> +		clk_div =3D state->duty_cycle;
-> +		do_div(clk_div, val);
-> +		if (clk_div > 65535)
-> +			clk_div =3D 65535;
-> +
-> +		SET_VALUE(period, clk_div, PWM_ACT_CYCLE);
-> +		sun20i_pwm_writel(sun20i_chip, period, PWM_PERIOD_REG(pwm->hwpwm));
-> +
-> +		if (state->polarity =3D=3D PWM_POLARITY_NORMAL)
-> +			ctl |=3D PWM_ACT_STA;
-> +		else
-> +			ctl &=3D ~PWM_ACT_STA;
-> +
-> +		sun20i_pwm_writel(sun20i_chip, ctl, PWM_CTL_REG(pwm->hwpwm));
-> +	}
-> +
-> +	if (state->enabled !=3D curstate.enabled) {
-> +		clk_gate =3D sun20i_pwm_readl(sun20i_chip, PWM_CLK_GATE_REG);
-> +
-> +		if (state->enabled) {
-> +			clk_gate |=3D PWM_CLK_GATING(pwm->hwpwm);
-> +			pwm_en |=3D PWM_EN(pwm->hwpwm);
-> +		} else {
-> +			clk_gate &=3D ~PWM_CLK_GATING(pwm->hwpwm);
-> +			pwm_en &=3D ~PWM_EN(pwm->hwpwm);
-> +		}
-
-Disabling (probably) needs to be handled earlier. Consider your PWM is
-enabled with say .period =3D 5000 and .duty_cycle =3D 0. If now
-
-	pwm_apply_state(&mypwm, &(struct pwm_state){ .period =3D 5000, .duty_cycle=
- =3D 5000, .enabled =3D false })
-
-is called, the output might become active before gating becomes
-effective. It's not always possible to prevent such spikes, but if it
-is, please do.
-
-> +		sun20i_pwm_writel(sun20i_chip, pwm_en, PWM_ENABLE_REG);
-> +		sun20i_pwm_writel(sun20i_chip, clk_gate, PWM_CLK_GATE_REG);
-> +	}
-> +
-> +unlock_mutex:
-> +	mutex_unlock(&sun20i_chip->mutex);
-> +
-> +	return ret;
-> +}
-> [...]
-> +static int sun20i_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct sun20i_pwm_chip *sun20i_chip;
-> +	int ret;
-> +
-> +	sun20i_chip =3D devm_kzalloc(&pdev->dev, sizeof(*sun20i_chip), GFP_KERN=
-EL);
-> +	if (!sun20i_chip)
-> +		return -ENOMEM;
-> +
-> +	sun20i_chip->base =3D devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(sun20i_chip->base))
-> +		return PTR_ERR(sun20i_chip->base);
-> +
-> +	sun20i_chip->clk_bus =3D devm_clk_get(&pdev->dev, "bus");
-
-consider using devm_clk_get_enabled()
-
-> +	if (IS_ERR(sun20i_chip->clk_bus)) {
-> +		dev_err(&pdev->dev, "Failed to get bus clock\n");
-> +		return PTR_ERR(sun20i_chip->clk_bus);
-
-Please make this:
-
-	return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_bus),
-			     "Failed to get bus clock\n");
-
-ditto for the other error paths.
-
-> +	}
-> +
-> +	sun20i_chip->clk_hosc =3D devm_clk_get(&pdev->dev, "hosc");
-> +	if (IS_ERR(sun20i_chip->clk_hosc)) {
-> +		dev_err(&pdev->dev, "Failed to get hosc clock\n");
-> +		return PTR_ERR(sun20i_chip->clk_hosc);
-> +	}
-> +
-> +	sun20i_chip->rst =3D devm_reset_control_get(&pdev->dev, NULL);
-> +	if (IS_ERR(sun20i_chip->rst)) {
-> +		dev_err(&pdev->dev, "Failed to get bus reset\n");
-> +		return PTR_ERR(sun20i_chip->rst);
-> +	}
-> +
-> +	/* Deassert reset */
-> +	ret =3D reset_control_deassert(sun20i_chip->rst);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Failed to deassert reset\n");
-> +		return ret;
-> +	}
-> +
-> +	ret =3D clk_prepare_enable(sun20i_chip->clk_bus);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Failed to ungate bus clock\n");
-> +		goto err_bus;
-> +	}
-> +
-> +	ret =3D of_property_read_u32(pdev->dev.of_node,
-> +				   "allwinner,pwm-channels",
-> +				   &sun20i_chip->chip.npwm);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Can't get pwm-channels\n");
-> +		goto err_pwm_add;
-> +	}
-> +
-> +	sun20i_chip->chip.dev =3D &pdev->dev;
-> +	sun20i_chip->chip.ops =3D &sun20i_pwm_ops;
-> +
-> +	mutex_init(&sun20i_chip->mutex);
-
-If the hardware is enabled, please make sure that the needed clocks are
-not disabled.
-
-> +	ret =3D pwmchip_add(&sun20i_chip->chip);
-> +	if (ret < 0) {
-> +		dev_err(&pdev->dev, "Failed to add PWM chip: %d\n", ret);
-> +		goto err_pwm_add;
-> +	}
-> +
-> +	platform_set_drvdata(pdev, sun20i_chip);
-> +
-> +	return 0;
-> +
-> +err_pwm_add:
-> +	clk_disable_unprepare(sun20i_chip->clk_bus);
-> +err_bus:
-> +	reset_control_assert(sun20i_chip->rst);
-> +	return ret;
-> +}
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---omtys6jenmiw526p
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmSMF00ACgkQj4D7WH0S
-/k7sEQgAspa88ofdGgi7mlHIUrSkqDb6X5/7Ym54FYjTv3Wyt8CfohvpsJWpXJIl
-5vmZXy1DNM41IQSd7wfDOHb+BNhZQJS1PwSAL1bnon0/KaU6PlYB8OLY0FKtPMee
-GYQ8DSkeFbmdSWQJtHLHQFdKvhCnVkQ0799cifI8sFqm1bqQr9BU4Ix88V1G6aV5
-HERtfPLsemBbDvTpVXp+bUn2rOuWtJSWx816HeeV2kqkKiJPuUS23cvhnrVo16i/
-wUiMGcg0JXxvXW7AfOWOSSY3Wf2b0n3yW1r5EyxVDQlbw2axp/Ld4DiXjiRy44cp
-0u1IHdt/q/k0WmAdiEPkZQkykxbhbg==
-=p5z5
------END PGP SIGNATURE-----
-
---omtys6jenmiw526p--
-
-
---===============1571161758050861082==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1571161758050861082==--
-
+T24gRnJpLCBNYXkgMTIsIDIwMjMgYXQgMTo1OOKAr0FNIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
+aXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBQcm92aWRlIGFsbCB0aGUgbmVjZXNzYXJ5IGJp
+dHMgaW4gdGhlIGdlbmVyaWMgcmlzY3YgcG11IGRyaXZlciB0byBiZQo+IGFibGUgdG8gbW1hcCBw
+ZXJmIGV2ZW50cyBpbiB1c2Vyc3BhY2U6IHRoZSBoZWF2eSBsaWZ0aW5nIGxpZXMgaW4gdGhlCj4g
+ZHJpdmVyIGJhY2tlbmQsIG5hbWVseSB0aGUgbGVnYWN5IGFuZCBzYmkgaW1wbGVtZW50YXRpb25z
+Lgo+Cj4gTm90ZSB0aGF0IGFyY2hfcGVyZl91cGRhdGVfdXNlcnBhZ2UgaXMgYWxtb3N0IGEgY29w
+eSBvZiBhcm02NCBjb2RlLgo+Cj4gU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4
+Z2hpdGlAcml2b3NpbmMuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSAg
+ICAgfCAgMiArLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wZXJmX2V2ZW50LmMgfCA1OCArKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gIGRyaXZlcnMvcGVyZi9yaXNjdl9wbXUuYyAg
+ICAgICB8IDQxICsrKysrKysrKysrKysrKysrKysrKysrKwo+ICBpbmNsdWRlL2xpbnV4L3BlcmYv
+cmlzY3ZfcG11LmggfCAgNCArKysKPiAgNCBmaWxlcyBjaGFuZ2VkLCAxMDQgaW5zZXJ0aW9ucygr
+KSwgMSBkZWxldGlvbigtKQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwv
+cGVyZl9ldmVudC5jCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUg
+Yi9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+IGluZGV4IDRjZjMwM2E3NzlhYi4uMGQyMTVm
+ZDk4NjBkIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCj4gKysrIGIv
+YXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUKPiBAQCAtNzAsNyArNzAsNyBAQCBvYmotJChDT05G
+SUdfRFlOQU1JQ19GVFJBQ0UpICArPSBtY291bnQtZHluLm8KPgo+ICBvYmotJChDT05GSUdfVFJB
+Q0VfSVJRRkxBR1MpICAgKz0gdHJhY2VfaXJxLm8KPgo+IC1vYmotJChDT05GSUdfUEVSRl9FVkVO
+VFMpICAgICAgKz0gcGVyZl9jYWxsY2hhaW4ubwo+ICtvYmotJChDT05GSUdfUEVSRl9FVkVOVFMp
+ICAgICAgKz0gcGVyZl9jYWxsY2hhaW4ubyBwZXJmX2V2ZW50Lm8KPiAgb2JqLSQoQ09ORklHX0hB
+VkVfUEVSRl9SRUdTKSAgICs9IHBlcmZfcmVncy5vCj4gIG9iai0kKENPTkZJR19SSVNDVl9TQkkp
+ICAgICAgICAgICAgICAgICs9IHNiaS5vCj4gIGlmZXEgKCQoQ09ORklHX1JJU0NWX1NCSSksIHkp
+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3BlcmZfZXZlbnQuYyBiL2FyY2gvcmlz
+Y3Yva2VybmVsL3BlcmZfZXZlbnQuYwo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAw
+MDAwMDAwMDAwLi45NDE3NGEwZmMyNTEKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvYXJjaC9yaXNj
+di9rZXJuZWwvcGVyZl9ldmVudC5jCj4gQEAgLTAsMCArMSw1OCBAQAo+ICsvLyBTUERYLUxpY2Vu
+c2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5Cj4gKyNpbmNsdWRlIDxsaW51eC9zY2hlZF9jbG9j
+ay5oPgo+ICsKPiArdm9pZCBhcmNoX3BlcmZfdXBkYXRlX3VzZXJwYWdlKHN0cnVjdCBwZXJmX2V2
+ZW50ICpldmVudCwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IHBlcmZf
+ZXZlbnRfbW1hcF9wYWdlICp1c2VycGcsIHU2NCBub3cpCj4gK3sKPiArICAgICAgIHN0cnVjdCBj
+bG9ja19yZWFkX2RhdGEgKnJkOwo+ICsgICAgICAgdW5zaWduZWQgaW50IHNlcTsKPiArICAgICAg
+IHU2NCBuczsKPiArCj4gKyAgICAgICB1c2VycGctPmNhcF91c2VyX3RpbWUgPSAwOwo+ICsgICAg
+ICAgdXNlcnBnLT5jYXBfdXNlcl90aW1lX3plcm8gPSAwOwo+ICsgICAgICAgdXNlcnBnLT5jYXBf
+dXNlcl90aW1lX3Nob3J0ID0gMDsKPiArICAgICAgIHVzZXJwZy0+Y2FwX3VzZXJfcmRwbWMgPQo+
+ICsgICAgICAgICAgICAgICAhIShldmVudC0+aHcuZmxhZ3MgJiBQRVJGX0VWRU5UX0ZMQUdfVVNF
+Ul9SRUFEX0NOVCk7Cj4gKwo+ICsgICAgICAgdXNlcnBnLT5wbWNfd2lkdGggPSA2NDsKPiArCgpU
+aGUgY291bnRlciB3aWR0aCBpcyA2NCBmb3IgY3ljbGUgJiBpbnN0cmV0LiBPdGhlciBocG1jb3Vu
+dGVyIGNhbiBoYXZlCmRpZmZlcmVudCB3aWR0aC4KVGhpcyBpbmZvcm1hdGlvbiBzaG91bGQgcmV0
+cmlldmVkIGZyb20gY291bnRlciBpbmZvLgoKPiArICAgICAgIGRvIHsKPiArICAgICAgICAgICAg
+ICAgcmQgPSBzY2hlZF9jbG9ja19yZWFkX2JlZ2luKCZzZXEpOwo+ICsKPiArICAgICAgICAgICAg
+ICAgdXNlcnBnLT50aW1lX211bHQgPSByZC0+bXVsdDsKPiArICAgICAgICAgICAgICAgdXNlcnBn
+LT50aW1lX3NoaWZ0ID0gcmQtPnNoaWZ0Owo+ICsgICAgICAgICAgICAgICB1c2VycGctPnRpbWVf
+emVybyA9IHJkLT5lcG9jaF9uczsKPiArICAgICAgICAgICAgICAgdXNlcnBnLT50aW1lX2N5Y2xl
+cyA9IHJkLT5lcG9jaF9jeWM7Cj4gKyAgICAgICAgICAgICAgIHVzZXJwZy0+dGltZV9tYXNrID0g
+cmQtPnNjaGVkX2Nsb2NrX21hc2s7Cj4gKwo+ICsgICAgICAgICAgICAgICAvKgo+ICsgICAgICAg
+ICAgICAgICAgKiBTdWJ0cmFjdCB0aGUgY3ljbGUgYmFzZSwgc3VjaCB0aGF0IHNvZnR3YXJlIHRo
+YXQKPiArICAgICAgICAgICAgICAgICogZG9lc24ndCBrbm93IGFib3V0IGNhcF91c2VyX3RpbWVf
+c2hvcnQgc3RpbGwgJ3dvcmtzJwo+ICsgICAgICAgICAgICAgICAgKiBhc3N1bWluZyBubyB3cmFw
+cy4KPiArICAgICAgICAgICAgICAgICovCj4gKyAgICAgICAgICAgICAgIG5zID0gbXVsX3U2NF91
+MzJfc2hyKHJkLT5lcG9jaF9jeWMsIHJkLT5tdWx0LCByZC0+c2hpZnQpOwo+ICsgICAgICAgICAg
+ICAgICB1c2VycGctPnRpbWVfemVybyAtPSBuczsKPiArCj4gKyAgICAgICB9IHdoaWxlIChzY2hl
+ZF9jbG9ja19yZWFkX3JldHJ5KHNlcSkpOwo+ICsKPiArICAgICAgIHVzZXJwZy0+dGltZV9vZmZz
+ZXQgPSB1c2VycGctPnRpbWVfemVybyAtIG5vdzsKPiArCj4gKyAgICAgICAvKgo+ICsgICAgICAg
+ICogdGltZV9zaGlmdCBpcyBub3QgZXhwZWN0ZWQgdG8gYmUgZ3JlYXRlciB0aGFuIDMxIGR1ZSB0
+bwo+ICsgICAgICAgICogdGhlIG9yaWdpbmFsIHB1Ymxpc2hlZCBjb252ZXJzaW9uIGFsZ29yaXRo
+bSBzaGlmdGluZyBhCj4gKyAgICAgICAgKiAzMi1iaXQgdmFsdWUgKG5vdyBzcGVjaWZpZXMgYSA2
+NC1iaXQgdmFsdWUpIC0gcmVmZXIKPiArICAgICAgICAqIHBlcmZfZXZlbnRfbW1hcF9wYWdlIGRv
+Y3VtZW50YXRpb24gaW4gcGVyZl9ldmVudC5oLgo+ICsgICAgICAgICovCj4gKyAgICAgICBpZiAo
+dXNlcnBnLT50aW1lX3NoaWZ0ID09IDMyKSB7Cj4gKyAgICAgICAgICAgICAgIHVzZXJwZy0+dGlt
+ZV9zaGlmdCA9IDMxOwo+ICsgICAgICAgICAgICAgICB1c2VycGctPnRpbWVfbXVsdCA+Pj0gMTsK
+PiArICAgICAgIH0KPiArCj4gKyAgICAgICAvKgo+ICsgICAgICAgICogSW50ZXJuYWwgdGltZWtl
+ZXBpbmcgZm9yIGVuYWJsZWQvcnVubmluZy9zdG9wcGVkIHRpbWVzCj4gKyAgICAgICAgKiBpcyBh
+bHdheXMgY29tcHV0ZWQgd2l0aCB0aGUgc2NoZWRfY2xvY2suCj4gKyAgICAgICAgKi8KPiArICAg
+ICAgIHVzZXJwZy0+Y2FwX3VzZXJfdGltZSA9IDE7Cj4gKyAgICAgICB1c2VycGctPmNhcF91c2Vy
+X3RpbWVfemVybyA9IDE7Cj4gKyAgICAgICB1c2VycGctPmNhcF91c2VyX3RpbWVfc2hvcnQgPSAx
+Owo+ICt9Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXUuYyBiL2RyaXZlcnMv
+cGVyZi9yaXNjdl9wbXUuYwo+IGluZGV4IGViY2E1ZWFiOWM5Yi4uYWY2OWRhMjY4MjQ2IDEwMDY0
+NAo+IC0tLSBhL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXUuYwo+ICsrKyBiL2RyaXZlcnMvcGVyZi9y
+aXNjdl9wbXUuYwo+IEBAIC0xNzEsNiArMTcxLDggQEAgaW50IHJpc2N2X3BtdV9ldmVudF9zZXRf
+cGVyaW9kKHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCkKPgo+ICAgICAgICAgbG9jYWw2NF9zZXQo
+Jmh3Yy0+cHJldl9jb3VudCwgKHU2NCktbGVmdCk7Cj4KPiArICAgICAgIHBlcmZfZXZlbnRfdXBk
+YXRlX3VzZXJwYWdlKGV2ZW50KTsKPiArCj4gICAgICAgICByZXR1cm4gb3ZlcmZsb3c7Cj4gIH0K
+Pgo+IEBAIC0yNjcsNiArMjY5LDkgQEAgc3RhdGljIGludCByaXNjdl9wbXVfZXZlbnRfaW5pdChz
+dHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQpCj4gICAgICAgICBod2MtPmlkeCA9IC0xOwo+ICAgICAg
+ICAgaHdjLT5ldmVudF9iYXNlID0gbWFwcGVkX2V2ZW50Owo+Cj4gKyAgICAgICBpZiAocnZwbXUt
+PmV2ZW50X2luaXQpCj4gKyAgICAgICAgICAgICAgIHJ2cG11LT5ldmVudF9pbml0KGV2ZW50KTsK
+PiArCj4gICAgICAgICBpZiAoIWlzX3NhbXBsaW5nX2V2ZW50KGV2ZW50KSkgewo+ICAgICAgICAg
+ICAgICAgICAvKgo+ICAgICAgICAgICAgICAgICAgKiBGb3Igbm9uLXNhbXBsaW5nIHJ1bnMsIGxp
+bWl0IHRoZSBzYW1wbGVfcGVyaW9kIHRvIGhhbGYKPiBAQCAtMjgzLDYgKzI4OCwzOSBAQCBzdGF0
+aWMgaW50IHJpc2N2X3BtdV9ldmVudF9pbml0KHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCkKPiAg
+ICAgICAgIHJldHVybiAwOwo+ICB9Cj4KPiArc3RhdGljIGludCByaXNjdl9wbXVfZXZlbnRfaWR4
+KHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCkKPiArewo+ICsgICAgICAgc3RydWN0IHJpc2N2X3Bt
+dSAqcnZwbXUgPSB0b19yaXNjdl9wbXUoZXZlbnQtPnBtdSk7Cj4gKwo+ICsgICAgICAgaWYgKCEo
+ZXZlbnQtPmh3LmZsYWdzICYgUEVSRl9FVkVOVF9GTEFHX1VTRVJfUkVBRF9DTlQpKQo+ICsgICAg
+ICAgICAgICAgICByZXR1cm4gMDsKPiArCj4gKyAgICAgICBpZiAocnZwbXUtPmNzcl9pbmRleCkK
+PiArICAgICAgICAgICAgICAgcmV0dXJuIHJ2cG11LT5jc3JfaW5kZXgoZXZlbnQpICsgMTsKPiAr
+Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiArc3RhdGljIHZvaWQgcmlzY3ZfcG11X2V2
+ZW50X21hcHBlZChzdHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQsIHN0cnVjdCBtbV9zdHJ1Y3QgKm1t
+KQo+ICt7Cj4gKyAgICAgICBzdHJ1Y3QgcmlzY3ZfcG11ICpydnBtdSA9IHRvX3Jpc2N2X3BtdShl
+dmVudC0+cG11KTsKPiArCj4gKyAgICAgICBpZiAocnZwbXUtPmV2ZW50X21hcHBlZCkgewo+ICsg
+ICAgICAgICAgICAgICBydnBtdS0+ZXZlbnRfbWFwcGVkKGV2ZW50LCBtbSk7Cj4gKyAgICAgICAg
+ICAgICAgIHBlcmZfZXZlbnRfdXBkYXRlX3VzZXJwYWdlKGV2ZW50KTsKPiArICAgICAgIH0KPiAr
+fQo+ICsKPiArc3RhdGljIHZvaWQgcmlzY3ZfcG11X2V2ZW50X3VubWFwcGVkKHN0cnVjdCBwZXJm
+X2V2ZW50ICpldmVudCwgc3RydWN0IG1tX3N0cnVjdCAqbW0pCj4gK3sKPiArICAgICAgIHN0cnVj
+dCByaXNjdl9wbXUgKnJ2cG11ID0gdG9fcmlzY3ZfcG11KGV2ZW50LT5wbXUpOwo+ICsKPiArICAg
+ICAgIGlmIChydnBtdS0+ZXZlbnRfdW5tYXBwZWQpIHsKPiArICAgICAgICAgICAgICAgcnZwbXUt
+PmV2ZW50X3VubWFwcGVkKGV2ZW50LCBtbSk7Cj4gKyAgICAgICAgICAgICAgIHBlcmZfZXZlbnRf
+dXBkYXRlX3VzZXJwYWdlKGV2ZW50KTsKPiArICAgICAgIH0KPiArfQo+ICsKPiAgc3RydWN0IHJp
+c2N2X3BtdSAqcmlzY3ZfcG11X2FsbG9jKHZvaWQpCj4gIHsKPiAgICAgICAgIHN0cnVjdCByaXNj
+dl9wbXUgKnBtdTsKPiBAQCAtMzA3LDYgKzM0NSw5IEBAIHN0cnVjdCByaXNjdl9wbXUgKnJpc2N2
+X3BtdV9hbGxvYyh2b2lkKQo+ICAgICAgICAgfQo+ICAgICAgICAgcG11LT5wbXUgPSAoc3RydWN0
+IHBtdSkgewo+ICAgICAgICAgICAgICAgICAuZXZlbnRfaW5pdCAgICAgPSByaXNjdl9wbXVfZXZl
+bnRfaW5pdCwKPiArICAgICAgICAgICAgICAgLmV2ZW50X21hcHBlZCAgID0gcmlzY3ZfcG11X2V2
+ZW50X21hcHBlZCwKPiArICAgICAgICAgICAgICAgLmV2ZW50X3VubWFwcGVkID0gcmlzY3ZfcG11
+X2V2ZW50X3VubWFwcGVkLAo+ICsgICAgICAgICAgICAgICAuZXZlbnRfaWR4ICAgICAgPSByaXNj
+dl9wbXVfZXZlbnRfaWR4LAo+ICAgICAgICAgICAgICAgICAuYWRkICAgICAgICAgICAgPSByaXNj
+dl9wbXVfYWRkLAo+ICAgICAgICAgICAgICAgICAuZGVsICAgICAgICAgICAgPSByaXNjdl9wbXVf
+ZGVsLAo+ICAgICAgICAgICAgICAgICAuc3RhcnQgICAgICAgICAgPSByaXNjdl9wbXVfc3RhcnQs
+Cj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaCBiL2luY2x1ZGUv
+bGludXgvcGVyZi9yaXNjdl9wbXUuaAo+IGluZGV4IDlmNzBkOTQ5NDJlMC4uMTQ1MmM4YWYzYjY3
+IDEwMDY0NAo+IC0tLSBhL2luY2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaAo+ICsrKyBiL2lu
+Y2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaAo+IEBAIC01NSw2ICs1NSwxMCBAQCBzdHJ1Y3Qg
+cmlzY3ZfcG11IHsKPiAgICAgICAgIHZvaWQgICAgICAgICAgICAoKmN0cl9zdGFydCkoc3RydWN0
+IHBlcmZfZXZlbnQgKmV2ZW50LCB1NjQgaW5pdF92YWwpOwo+ICAgICAgICAgdm9pZCAgICAgICAg
+ICAgICgqY3RyX3N0b3ApKHN0cnVjdCBwZXJmX2V2ZW50ICpldmVudCwgdW5zaWduZWQgbG9uZyBm
+bGFnKTsKPiAgICAgICAgIGludCAgICAgICAgICAgICAoKmV2ZW50X21hcCkoc3RydWN0IHBlcmZf
+ZXZlbnQgKmV2ZW50LCB1NjQgKmNvbmZpZyk7Cj4gKyAgICAgICB2b2lkICAgICAgICAgICAgKCpl
+dmVudF9pbml0KShzdHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQpOwo+ICsgICAgICAgdm9pZCAgICAg
+ICAgICAgICgqZXZlbnRfbWFwcGVkKShzdHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQsIHN0cnVjdCBt
+bV9zdHJ1Y3QgKm1tKTsKPiArICAgICAgIHZvaWQgICAgICAgICAgICAoKmV2ZW50X3VubWFwcGVk
+KShzdHJ1Y3QgcGVyZl9ldmVudCAqZXZlbnQsIHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKTsKPiArICAg
+ICAgIHVpbnQ4X3QgICAgICAgICAoKmNzcl9pbmRleCkoc3RydWN0IHBlcmZfZXZlbnQgKmV2ZW50
+KTsKPgo+ICAgICAgICAgc3RydWN0IGNwdV9od19ldmVudHMgICAgX19wZXJjcHUgKmh3X2V2ZW50
+czsKPiAgICAgICAgIHN0cnVjdCBobGlzdF9ub2RlICAgICAgIG5vZGU7Cj4gLS0KPiAyLjM3LjIK
+PgoKCi0tIApSZWdhcmRzLApBdGlzaAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
