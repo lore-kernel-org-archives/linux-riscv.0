@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6163EB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 10:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B559AEB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 10:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ESx/JeeQ7cfC1seVgLE4bUgWLrykWLrWpXswoMPMGq8=; b=VeW0OsFAQZLeSc0Ek990MowV4K
-	aixOXz4RSUKnxyYhs5JOISHqoSaOtOHrPcOhsjvcFLrDkWffIQ8mgCLmo+rvZdioqgl/rFmIyunZn
-	pguRo1CjmChQnW6NYYsf3hJUNSXFp8/WOFrNi6BT8FA1MLhY2VJ+TnIadmN35NYzrx/Ek/fUWC6jI
-	OkCkf8gMsDJ0MpR3M5OO0qI0DJ82taqpHJSwpBeFs77NFKUKFU6OkXffcvFiJrucUVE6h+1pVW03h
-	O5f70Qc8cenIjYJqjzDPDgjIUDeDGx87bsgtXqFGaFWZnDUX0imOYXhah9UxIvjMEYCVsjVrsXZL6
-	ezbRaBDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DyX58PF2J8Oxj0w9E9FFr1Rn4mbBAf1wTWwVe2D2u0E=; b=gLUhmszq1HLFlp
+	hMHbkMFfZae4tSzfBEbFdWQMFX093V1aJ9ZuV2JpHqjtpl9pgDQI93AOwYE5EEDGkV1n54PXbUjtA
+	Qml4Bx1Tdfqd8Pa09Rl41h7QJCcsv3BVME/SDHJS/PZa6WPoZ+NRVhKXmg3Rl/ixI8pLq7xHrmX21
+	UgPqfMZbuKJew49DU029SrdL80b788UM/1auTwPtvZJB+iBUCH2pTZJyfV5YMeIfHu7djstwVpC83
+	+gFBNW3+0SdI7ejPacJOCNPMq2YCtVhDx3sZ0DC6TfCmiKgrUKFidQj3orCOhOVRVpDELs8wbJtgV
+	+7ZGpbKFzkF8o1g0bs3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA6SR-00HZlq-0e;
-	Fri, 16 Jun 2023 10:13:31 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qA6eR-00015F-16;
+	Fri, 16 Jun 2023 10:25:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA6SO-00HZlO-1q
+	id 1qA6eP-00014D-06
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jun 2023 10:13:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1686910408; x=1718446408;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=YpSM1w+IYXXoUKSojagF+UoCf/8hiOK0HsM860yz38E=;
-  b=x8GaDBO93AJNI8beGQfsCylbIlpJpJ1JtTbkYnJJ2VixP1g/c5tHwlEj
-   mwOZMy22M9szW7tj+PWRko9VdMntMEmJFxSQpEQ4Xsni6N08QnyrdPoED
-   whnePP9zBT/opuxDiSo4b9Ny+Yk0MtQKtAPnLrsb1C6YBl4WmampdEPFn
-   yvsGfErYNlmY+mUPjHVyKvQaMY5hH48//RmX0EDWaqsGz+8V7I7wUs1hs
-   oOQQo2zb74lZjeIAuHA4Xkwbz5TGKPPauPSyMeLyaUqSm3E5m7hWXtzUi
-   3Xj+AC/Of7TGmjYdIX3lrYtQ4GuMEbhWxoyPzdcztwmRfZpEQHId0OqsP
-   w==;
-X-IronPort-AV: E=Sophos;i="6.00,247,1681196400"; 
-   d="asc'?scan'208";a="157251792"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 16 Jun 2023 03:13:27 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 16 Jun 2023 03:13:27 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 16 Jun 2023 03:13:23 -0700
-Date: Fri, 16 Jun 2023 11:12:57 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Eric Lin <eric.lin@sifive.com>
-CC: <conor@kernel.org>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>, <maz@kernel.org>,
-	<chenhuacai@kernel.org>, <baolu.lu@linux.intel.com>, <will@kernel.org>,
-	<kan.liang@linux.intel.com>, <nnac123@linux.ibm.com>,
-	<pierre.gondois@arm.com>, <huangguangbin2@huawei.com>, <jgross@suse.com>,
-	<chao.gao@intel.com>, <maobibo@loongson.cn>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <dslin1010@gmail.com>, Greentime Hu
-	<greentime.hu@sifive.com>, Zong Li <zong.li@sifive.com>, Nick Hu
-	<nick.hu@sifive.com>
-Subject: Re: [PATCH 2/3] soc: sifive: Add SiFive private L2 cache PMU driver
-Message-ID: <20230616-revision-speed-a83dc926b334@wendy>
-References: <20230616063210.19063-1-eric.lin@sifive.com>
- <20230616063210.19063-3-eric.lin@sifive.com>
+	Fri, 16 Jun 2023 10:25:54 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7BC116356C;
+	Fri, 16 Jun 2023 10:25:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F38D1C433B8;
+	Fri, 16 Jun 2023 10:25:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1686911152;
+	bh=3gJBdkkoAodYuniUryayjLAqsHJEVzhZbdczoKm57UI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=eNw0yfMea/53qmKDgJ04BlSUJL8G4y18cm+ktFXU68qvA5LNQyYXQuXH5pTOHGcA6
+	 KFMNRBRpttkgk6XjklE4/WKfLCCaNiu9hUQhE0jc0AinxkBEu/nYrCLmCbr3d1f8zL
+	 QePVtZ8BqROeMvNzLmqLRIwcNlDPUdr+AEPEV6SUDeUeoYDRnVVQY2iXktpoc+n699
+	 zLtWQOHDHf+5GhNH7hdinz/O6DtulSSrmml+1nQOxBvLTaIhBsyJAvetRifePWiuOH
+	 x+lmYjnin1Gl0wqBMNJkkRKe7fOH6u5r4PDo/mCiPbhu5M8afN7+U1aejzq7As5B5F
+	 DmiH00aSHtNGA==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Sasha Levin <sashal@kernel.org>,
+	hca@linux.ibm.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	masahiroy@kernel.org,
+	nathan@kernel.org,
+	svens@linux.ibm.com,
+	linux-s390@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.3 15/30] s390/purgatory: disable branch profiling
+Date: Fri, 16 Jun 2023 06:25:03 -0400
+Message-Id: <20230616102521.673087-15-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230616102521.673087-1-sashal@kernel.org>
+References: <20230616102521.673087-1-sashal@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230616063210.19063-3-eric.lin@sifive.com>
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.3.8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_031328_733263_B06DF74E 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20230616_032553_108654_F21D1F20 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,91 +85,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0393246782216082584=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0393246782216082584==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ElvD8fTDzec/LOV5"
-Content-Disposition: inline
+From: Alexander Gordeev <agordeev@linux.ibm.com>
 
---ElvD8fTDzec/LOV5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[ Upstream commit 03c5c83b70dca3729a3eb488e668e5044bd9a5ea ]
 
-On Fri, Jun 16, 2023 at 02:32:09PM +0800, Eric Lin wrote:
-> From: Greentime Hu <greentime.hu@sifive.com>
->=20
-> This adds SiFive private L2 cache PMU driver. User
-> can use perf tool to profile by event name and event id.
->=20
-> Example:
-> $ perf stat -C 0 -e /sifive_pl2_pmu/inner_acquire_block_btot/
->                 -e /sifive_pl2_pmu/inner_acquire_block_ntob/
->                 -e /sifive_pl2_pmu/inner_acquire_block_ntot/ ls
->=20
->  Performance counter stats for 'CPU(s) 0':
->=20
->                300      sifive_pl2_pmu/inner_acquire_block_btot/
->              17801      sifive_pl2_pmu/inner_acquire_block_ntob/
->               5253      sifive_pl2_pmu/inner_acquire_block_ntot/
->=20
->        0.088917326 seconds time elapsed
->=20
-> $ perf stat -C 0 -e /sifive_pl2_pmu/event=3D0x10001/
->                 -e /sifive_pl2_pmu/event=3D0x4001/
->                 -e /sifive_pl2_pmu/event=3D0x8001/ ls
->=20
->  Performance counter stats for 'CPU(s) 0':
->=20
->                251      sifive_pl2_pmu/event=3D0x10001/
->               2620      sifive_pl2_pmu/event=3D0x4001/
->                644      sifive_pl2_pmu/event=3D0x8001/
->=20
->        0.092827110 seconds time elapsed
->=20
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Eric Lin <eric.lin@sifive.com>
-> Reviewed-by: Zong Li <zong.li@sifive.com>
-> Reviewed-by: Nick Hu <nick.hu@sifive.com>
-> ---
->  drivers/soc/sifive/Kconfig            |   9 +
->  drivers/soc/sifive/Makefile           |   1 +
->  drivers/soc/sifive/sifive_pl2.h       |  20 +
->  drivers/soc/sifive/sifive_pl2_cache.c |  16 +
->  drivers/soc/sifive/sifive_pl2_pmu.c   | 669 ++++++++++++++++++++++++++
+Avoid linker error for randomly generated config file that
+has CONFIG_BRANCH_PROFILE_NONE enabled and make it similar
+to riscv, x86 and also to commit 4bf3ec384edf ("s390: disable
+branch profiling for vdso").
 
-Perf drivers should be in drivers/perf, no?
+Reviewed-by: Vasily Gorbik <gor@linux.ibm.com>
+Signed-off-by: Alexander Gordeev <agordeev@linux.ibm.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/s390/purgatory/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
 
-Cheers,
-Conor.
+diff --git a/arch/s390/purgatory/Makefile b/arch/s390/purgatory/Makefile
+index 32573b4f9bd20..cc8cf5abea158 100644
+--- a/arch/s390/purgatory/Makefile
++++ b/arch/s390/purgatory/Makefile
+@@ -26,6 +26,7 @@ KBUILD_CFLAGS += -Wno-pointer-sign -Wno-sign-compare
+ KBUILD_CFLAGS += -fno-zero-initialized-in-bss -fno-builtin -ffreestanding
+ KBUILD_CFLAGS += -Os -m64 -msoft-float -fno-common
+ KBUILD_CFLAGS += -fno-stack-protector
++KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
+ KBUILD_CFLAGS += $(CLANG_FLAGS)
+ KBUILD_CFLAGS += $(call cc-option,-fno-PIE)
+ KBUILD_AFLAGS := $(filter-out -DCC_USING_EXPOLINE,$(KBUILD_AFLAGS))
+-- 
+2.39.2
 
---ElvD8fTDzec/LOV5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIw1qQAKCRB4tDGHoIJi
-0q20AP0SJ+XMu+AbrLQcuJNmsYqvVW9wc6xBagHa9pzRoEw0mwD+K5s2+gB8wow+
-BqnI6l1BRUx8VsrF6VfTnTaE4ZlUJQM=
-=YDC2
------END PGP SIGNATURE-----
-
---ElvD8fTDzec/LOV5--
-
-
---===============0393246782216082584==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0393246782216082584==--
-
