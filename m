@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD1F5EB64D8
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 10:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5587EB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 10:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r9byv/PvEqKc5mwRcbG6G0wIlFccqfdqegMhMZlrP8E=; b=KORPwxXHGxQTg4
-	PEjMJRYbCxRahGmnx0qbICOP7/MJnMOpdfYGkEZiNLR5DMfaS6vIz6Tn8C67Tr+pGmZuWXoAAjAeO
-	xuvShwlGAOJtvjxF9OY3ZSPCwgtKFp4kyq/LljG+PghhXounKw8j8cW9pjxmPpGCGyKWstXUybzW0
-	ySR0hI5h25o8MSyGODL073shzIdGaNAx0yr9I7w51B7d0TyhqE0j1h3jNiFCapdxx5OHkwRDII8p2
-	+mb0Y21N1gIOymbdgru5MNauX+r0f5PWo0oR20kdw3mOv2U8kXYa+ncxNX1kH2LE8m3Wm6Nr3icFe
-	tGp8pzsGJIP9RJdUKBjg==;
+	List-Owner; bh=pbhr/NTahXInecJOmFq8TziD47QAOyAPMqN+NTns//k=; b=eDJAbdZeCPuwS6
+	/48vZL32EdKc03r8N/yylriIybfPDWvBvVkbDf68UuaY6RMyFE2VpqzdBskW7/IixYb0klpcwhdD/
+	/fbUVrLFEEc6YhVOS11JnfjnEMvu0VFhj/VwCPIuCZDudW8iP+Ug8GwFG0AqLlEdwZM0N4hUZR/w3
+	3BKV8MRvu7Ce4YabZxuVh6VyBB4zrgiCjbpb8yyl11MaGUeZu4kRJRxy0+UnN9LCJNb0pN+H6ta3f
+	ipfYJt6d1vJovwSUZOcB4FscptqZt4RSV+lYLtrD/kQHqb3FY5Ljve1dKuZzYNLnX2yv7ev6hSIYK
+	chSkhDU/LnUnZXAQeD4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA6g9-00022x-20;
-	Fri, 16 Jun 2023 10:27:41 +0000
+	id 1qA6gf-0002Sn-2L;
+	Fri, 16 Jun 2023 10:28:13 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA6g7-00021c-26
+	id 1qA6gc-0002Q8-2w
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jun 2023 10:27:40 +0000
+	Fri, 16 Jun 2023 10:28:12 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2C5B26360D;
-	Fri, 16 Jun 2023 10:27:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230DEC433C9;
-	Fri, 16 Jun 2023 10:27:37 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 628EB636CF;
+	Fri, 16 Jun 2023 10:28:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48438C433C0;
+	Fri, 16 Jun 2023 10:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686911258;
-	bh=/2eu/IzHEjIEziEOgpfNknSs8ILwYCCzdmfnALL8w/Y=;
+	s=k20201202; t=1686911289;
+	bh=CPJtvXq+0UcPj+i21l3YUmyr8tluJ4O7kby0EZfq1Rk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TeE4lABO3LhB1axvrQrpi/kO/fLDnn1yXcR4b2o8GWkULyBgSq3uvYQmQ0c1hkLEg
-	 D9ALZ1RB81v1XWPJvNz7V6WZ2yZqmY817ky1o4ozXT7AoEWHNmrM/ucFxxMAdNdzNh
-	 dM2va06obvqGI4Yj5SYHNwlTV21w42hoA4W/hBPSONVCTlffGK1Vqtz6XVeZ7dTsQL
-	 vTECMlGuvqCIxTOg8uy0+LKWG9qMXWvwbe9jLzBp6wOL68Ta15kYsoOBBWc5FH8DIf
-	 Sroj1fkOUjdxA4JSLuMYeuF+ugHcVOSMuFr4K+d9EXFo7uDWNBGQ2jE0d2Tj10EvEL
-	 S35nVmnOA41tw==
+	b=c1umlr3UJIfQ/sOB5CLMHNf9mXXhhnz3/EZsqrkoRsq+Hwk40atBSh2csgRpObHQ7
+	 G6PTDteOtX+/2ZwxcK/Bqmr8A88V6aC3ZnnE9HO/3TnyPtTlV3Ijdc8nNDo4fSc1Iy
+	 P1wpo7bFVNIxwYJPHbKOlHI9f9UbAMNK8Pt4r0jfstrOc18Yg0e1gVS0Pw9aK5FY8t
+	 4usVTS3VYBxGHZRfPjvmcRVqwq3MrXHEfYiUkFa2HlccD0HZqUK7RnP1UJXRMDYGMw
+	 d3uyGRunsV2kmDyztZn71BQg8A9EkgVdbQTxh001BDPohjpUjs9pY6wdobp2xbcXRl
+	 EpZ3BI0iKhW2w==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -60,19 +60,19 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	nathan@kernel.org,
 	linux-s390@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 08/16] s390/purgatory: disable branch profiling
-Date: Fri, 16 Jun 2023 06:27:11 -0400
-Message-Id: <20230616102721.673775-8-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.10 07/14] s390/purgatory: disable branch profiling
+Date: Fri, 16 Jun 2023 06:27:44 -0400
+Message-Id: <20230616102753.673975-7-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230616102721.673775-1-sashal@kernel.org>
-References: <20230616102721.673775-1-sashal@kernel.org>
+In-Reply-To: <20230616102753.673975-1-sashal@kernel.org>
+References: <20230616102753.673975-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.15.117
+X-stable-base: Linux 5.10.184
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_032739_726466_EDC0BA0D 
-X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-CacheID: sfid-20230616_032810_989368_13032CCB 
+X-CRM114-Status: UNSURE (   7.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,10 +107,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/s390/purgatory/Makefile b/arch/s390/purgatory/Makefile
-index 360ada80d20c3..d22ec8acb13c5 100644
+index 21c4ebe29b9a2..a93c9aba834be 100644
 --- a/arch/s390/purgatory/Makefile
 +++ b/arch/s390/purgatory/Makefile
-@@ -26,6 +26,7 @@ KBUILD_CFLAGS += -Wno-pointer-sign -Wno-sign-compare
+@@ -25,6 +25,7 @@ KBUILD_CFLAGS += -Wno-pointer-sign -Wno-sign-compare
  KBUILD_CFLAGS += -fno-zero-initialized-in-bss -fno-builtin -ffreestanding
  KBUILD_CFLAGS += -c -MD -Os -m64 -msoft-float -fno-common
  KBUILD_CFLAGS += -fno-stack-protector
