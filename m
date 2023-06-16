@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305C8EB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 10:12:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6163EB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 10:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IchnMwNXBiEt09Lv0hUxzYyL67WXrGoNO814bmJXZDo=; b=NC/hyIc2u5Ad/UWRtDnm+jM2Mt
-	uXpMc6jMYiaVrUHfebSFdhQMjqU46iUtfn6BIIRQEovZz7W/N+Pt7LuyJ5LjbQ8qiTJmCvDY+0h51
-	XG4i935fsLCqaYy7H9uDWMmzs8FN72+hvNU7pGQm0qNR/L8IAUOVbKP0TeAY1OIsZlV8Pm+bH7Ofb
-	PAxYk3K/8hcCidhwmxBvsABswtN3JffHjPEelyMhOpFYJ2w/BwJDtTuGbBAPix6/hHbs2201uB3Go
-	GCFQRqfHNHEyfGHfsugNZ7Sw8zdQgCRQw5rULhiLClg1Un1eSWfXWxrsHwyKs6r/AkZ9nl51BXXX/
-	2cNodS/w==;
+	bh=ESx/JeeQ7cfC1seVgLE4bUgWLrykWLrWpXswoMPMGq8=; b=VeW0OsFAQZLeSc0Ek990MowV4K
+	aixOXz4RSUKnxyYhs5JOISHqoSaOtOHrPcOhsjvcFLrDkWffIQ8mgCLmo+rvZdioqgl/rFmIyunZn
+	pguRo1CjmChQnW6NYYsf3hJUNSXFp8/WOFrNi6BT8FA1MLhY2VJ+TnIadmN35NYzrx/Ek/fUWC6jI
+	OkCkf8gMsDJ0MpR3M5OO0qI0DJ82taqpHJSwpBeFs77NFKUKFU6OkXffcvFiJrucUVE6h+1pVW03h
+	O5f70Qc8cenIjYJqjzDPDgjIUDeDGx87bsgtXqFGaFWZnDUX0imOYXhah9UxIvjMEYCVsjVrsXZL6
+	ezbRaBDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA6R3-00HZcc-1J;
-	Fri, 16 Jun 2023 10:12:05 +0000
+	id 1qA6SR-00HZlq-0e;
+	Fri, 16 Jun 2023 10:13:31 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA6R0-00HZaV-09
+	id 1qA6SO-00HZlO-1q
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 Jun 2023 10:12:03 +0000
+	Fri, 16 Jun 2023 10:13:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1686910321; x=1718446321;
+  t=1686910408; x=1718446408;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=8PTgZpEiLPMpSVSdcmzuYsdAeMPqe+xF/Qpo/bvYr4c=;
-  b=VYNB0u79Ljbix7baFuX1RulcTJWIVhfxnubVEOdAVfNr0ZSKP4gFmTL/
-   2fvKrYXgS/JboOV4hcQx1mE1NVYsrPt3azdtdWABFl9t+y3tiIZSxnqmg
-   OfSnfgDqu42Z+WLoSK45e12ciEzdHLZjEpK4PqJ22QjqbbEKsqt1YvCLy
-   TowiF/ba4Ox/tUbgmz0F+JFuKvhyxV7rhOgjK81ntR3k6g/dfrmfrpO/g
-   KumeYgfhEWH6m80e5YjQROQjvA3l2ANkD3gRDw3ZCvxkfi0NHLUjeCfhj
-   lXG9YzBReI4ZELb2ePWiQMrPjbASEJHobn6/RW9sISfmlA44BYLlsDpxE
-   g==;
+  bh=YpSM1w+IYXXoUKSojagF+UoCf/8hiOK0HsM860yz38E=;
+  b=x8GaDBO93AJNI8beGQfsCylbIlpJpJ1JtTbkYnJJ2VixP1g/c5tHwlEj
+   mwOZMy22M9szW7tj+PWRko9VdMntMEmJFxSQpEQ4Xsni6N08QnyrdPoED
+   whnePP9zBT/opuxDiSo4b9Ny+Yk0MtQKtAPnLrsb1C6YBl4WmampdEPFn
+   yvsGfErYNlmY+mUPjHVyKvQaMY5hH48//RmX0EDWaqsGz+8V7I7wUs1hs
+   oOQQo2zb74lZjeIAuHA4Xkwbz5TGKPPauPSyMeLyaUqSm3E5m7hWXtzUi
+   3Xj+AC/Of7TGmjYdIX3lrYtQ4GuMEbhWxoyPzdcztwmRfZpEQHId0OqsP
+   w==;
 X-IronPort-AV: E=Sophos;i="6.00,247,1681196400"; 
-   d="asc'?scan'208";a="157251664"
+   d="asc'?scan'208";a="157251792"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 16 Jun 2023 03:11:54 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 16 Jun 2023 03:13:27 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 16 Jun 2023 03:11:03 -0700
+ 15.1.2507.21; Fri, 16 Jun 2023 03:13:27 -0700
 Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 16 Jun 2023 03:11:00 -0700
-Date: Fri, 16 Jun 2023 11:10:34 +0100
+ Transport; Fri, 16 Jun 2023 03:13:23 -0700
+Date: Fri, 16 Jun 2023 11:12:57 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Eric Lin <eric.lin@sifive.com>
 CC: <conor@kernel.org>, <robh+dt@kernel.org>,
@@ -65,18 +65,18 @@ CC: <conor@kernel.org>, <robh+dt@kernel.org>,
 	<pierre.gondois@arm.com>, <huangguangbin2@huawei.com>, <jgross@suse.com>,
 	<chao.gao@intel.com>, <maobibo@loongson.cn>,
 	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <dslin1010@gmail.com>, Zong Li
-	<zong.li@sifive.com>, Nick Hu <nick.hu@sifive.com>
-Subject: Re: [PATCH 3/3] dt-bindings: riscv: sifive: Add SiFive Private L2
- cache controller
-Message-ID: <20230616-renovate-country-12b9873b4494@wendy>
+	<linux-kernel@vger.kernel.org>, <dslin1010@gmail.com>, Greentime Hu
+	<greentime.hu@sifive.com>, Zong Li <zong.li@sifive.com>, Nick Hu
+	<nick.hu@sifive.com>
+Subject: Re: [PATCH 2/3] soc: sifive: Add SiFive private L2 cache PMU driver
+Message-ID: <20230616-revision-speed-a83dc926b334@wendy>
 References: <20230616063210.19063-1-eric.lin@sifive.com>
- <20230616063210.19063-4-eric.lin@sifive.com>
+ <20230616063210.19063-3-eric.lin@sifive.com>
 MIME-Version: 1.0
-In-Reply-To: <20230616063210.19063-4-eric.lin@sifive.com>
+In-Reply-To: <20230616063210.19063-3-eric.lin@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_031202_199442_7F87A61F 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20230616_031328_733263_B06DF74E 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,170 +88,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5213252123712949964=="
+Content-Type: multipart/mixed; boundary="===============0393246782216082584=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5213252123712949964==
+--===============0393246782216082584==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ssNWi0cU4z5MFoHT"
+	protocol="application/pgp-signature"; boundary="ElvD8fTDzec/LOV5"
 Content-Disposition: inline
 
---ssNWi0cU4z5MFoHT
+--ElvD8fTDzec/LOV5
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey Eric,
-
-On Fri, Jun 16, 2023 at 02:32:10PM +0800, Eric Lin wrote:
-> This add YAML DT binding documentation for SiFive Private L2
-> cache controller
+On Fri, Jun 16, 2023 at 02:32:09PM +0800, Eric Lin wrote:
+> From: Greentime Hu <greentime.hu@sifive.com>
 >=20
+> This adds SiFive private L2 cache PMU driver. User
+> can use perf tool to profile by event name and event id.
+>=20
+> Example:
+> $ perf stat -C 0 -e /sifive_pl2_pmu/inner_acquire_block_btot/
+>                 -e /sifive_pl2_pmu/inner_acquire_block_ntob/
+>                 -e /sifive_pl2_pmu/inner_acquire_block_ntot/ ls
+>=20
+>  Performance counter stats for 'CPU(s) 0':
+>=20
+>                300      sifive_pl2_pmu/inner_acquire_block_btot/
+>              17801      sifive_pl2_pmu/inner_acquire_block_ntob/
+>               5253      sifive_pl2_pmu/inner_acquire_block_ntot/
+>=20
+>        0.088917326 seconds time elapsed
+>=20
+> $ perf stat -C 0 -e /sifive_pl2_pmu/event=3D0x10001/
+>                 -e /sifive_pl2_pmu/event=3D0x4001/
+>                 -e /sifive_pl2_pmu/event=3D0x8001/ ls
+>=20
+>  Performance counter stats for 'CPU(s) 0':
+>=20
+>                251      sifive_pl2_pmu/event=3D0x10001/
+>               2620      sifive_pl2_pmu/event=3D0x4001/
+>                644      sifive_pl2_pmu/event=3D0x8001/
+>=20
+>        0.092827110 seconds time elapsed
+>=20
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 > Signed-off-by: Eric Lin <eric.lin@sifive.com>
 > Reviewed-by: Zong Li <zong.li@sifive.com>
 > Reviewed-by: Nick Hu <nick.hu@sifive.com>
-
-Firstly, bindings need to come before the driver using them.
-
 > ---
->  .../bindings/riscv/sifive,pL2Cache0.yaml      | 81 +++++++++++++++++++
->  1 file changed, 81 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/sifive,pL2Cac=
-he0.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/riscv/sifive,pL2Cache0.yam=
-l b/Documentation/devicetree/bindings/riscv/sifive,pL2Cache0.yaml
-> new file mode 100644
-> index 000000000000..b5d8d4a39dde
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/sifive,pL2Cache0.yaml
+>  drivers/soc/sifive/Kconfig            |   9 +
+>  drivers/soc/sifive/Makefile           |   1 +
+>  drivers/soc/sifive/sifive_pl2.h       |  20 +
+>  drivers/soc/sifive/sifive_pl2_cache.c |  16 +
+>  drivers/soc/sifive/sifive_pl2_pmu.c   | 669 ++++++++++++++++++++++++++
 
-Cache bindings have moved to devicetree/bindings/cache.
-
-> @@ -0,0 +1,81 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright (C) 2023 SiFive, Inc.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/sifive,pL2Cache0.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SiFive Private L2 Cache Controller
-> +
-> +maintainers:
-> +  - Greentime Hu  <greentime.hu@sifive.com>
-> +  - Eric Lin      <eric.lin@sifive.com>
-
-Drop the alignment here please.
-
-> +
-> +description:
-> +  The SiFive Private L2 Cache Controller is per hart and communicates wi=
-th both the upstream
-> +  L1 caches and downstream L3 cache or memory, enabling a high-performan=
-ce cache subsystem.
-> +  All the properties in ePAPR/DeviceTree specification applies for this =
-platform.
-
-Please wrap before 80 characters.
-
-> +
-> +allOf:
-> +  - $ref: /schemas/cache-controller.yaml#
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - sifive,pL2Cache0
-> +          - sifive,pL2Cache1
-
-Why is this select: required?
-
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - sifive,pL2Cache0
-> +          - sifive,pL2Cache1
-
-What is the difference between these? (and drop the caps please)
-
-Should this also not fall back to "cache"?
-
-> +
-> +  cache-block-size:
-> +    const: 64
-> +
-> +  cache-level:
-> +    const: 2
-> +
-> +  cache-sets:
-> +    const: 512
-> +
-> +  cache-size:
-> +    const: 262144
-> +
-> +  cache-unified: true
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  next-level-cache: true
-> +
-> +additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - cache-block-size
-> +  - cache-level
-> +  - cache-sets
-> +  - cache-size
-> +  - cache-unified
-> +  - reg
-> +
-> +examples:
-> +  - |
-> +    pl2@10104000 {
-
-cache-controller@
+Perf drivers should be in drivers/perf, no?
 
 Cheers,
 Conor.
 
-> +        compatible =3D "sifive,pL2Cache0";
-> +        cache-block-size =3D <64>;
-> +        cache-level =3D <2>;
-> +        cache-sets =3D <512>;
-> +        cache-size =3D <262144>;
-> +        cache-unified;
-> +        reg =3D <0x10104000 0x4000>;
-> +        next-level-cache =3D <&L4>;
-> +    };
-> --=20
-> 2.40.1
->=20
-
---ssNWi0cU4z5MFoHT
+--ElvD8fTDzec/LOV5
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIw1GgAKCRB4tDGHoIJi
-0gNOAQCIJoftwKLE7w2VWLh+kuM2k8LgVXAVjLDyCKgmSzTT0AD/deRzPJgKXPwV
-MMGvlTkxTrxIz9e+3MVzNEw/6+WpHQY=
-=Q4Dq
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIw1qQAKCRB4tDGHoIJi
+0q20AP0SJ+XMu+AbrLQcuJNmsYqvVW9wc6xBagHa9pzRoEw0mwD+K5s2+gB8wow+
+BqnI6l1BRUx8VsrF6VfTnTaE4ZlUJQM=
+=YDC2
 -----END PGP SIGNATURE-----
 
---ssNWi0cU4z5MFoHT--
+--ElvD8fTDzec/LOV5--
 
 
---===============5213252123712949964==
+--===============0393246782216082584==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -262,5 +174,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5213252123712949964==--
+--===============0393246782216082584==--
 
