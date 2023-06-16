@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527ADEB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 18:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85089EB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 18:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IwhtITBHVhJefRoSYbzbGvlVm7ZTdXmJFDMK0XQhqgw=; b=BBinBCPRtafCH+IP26reI+qgrI
-	vyHQDsqiwgilV3bDGBbIlBIbUdO2vswqgRnjBME+30sGr+NhXBfzW2RPUlR1Dfl1GZiX1VByJixKK
-	fBQ3XuQmGtFK9HrOSoAoF3d1Vsc4ntgTE/z6AUA1j/V9S0ncIs045S4BOUm0Y69Za7bMAcrHoUpZS
-	lbtxu3B0S2ENsGjsDTWu7+T7HhpB5xxKOgn8C67nYZ6fZ4416eXObBhq2/DA5fxRZahzHQFJPDgHm
-	vyf7s4X36BOkaUHBGSsBas1EFrGpUd8j+89Y3PAFCg3/ETXZqIie/CTIPA9dl86yPOxMBs+RpdRTF
-	JLwxZnAA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TJ3R98CTLCaC2yerXuI8BYpXwJg1i+fv3TMS4PR6lbY=; b=ih+YlAi6mpRDgE
+	K6e5nE0BuzVRZ1/j4rUnxq/XZYZEdYD9rGkk/0PrEtuz7U/7/tniXUH70T5UHUKcxvciCegqOsskl
+	ntGlkg65GgJJGI976afYXitz8cpBDyGfcY6taGGSOUeU4f0oNPECyM6LFsc/rpr7V4ypLXFBl2Tru
+	luUtJQ+LHeGRUl33Pcwv/pLXhUTDZWYA7jus7dsdEGehhp4e6XfOPwAisuK5x6oGbaSee1//D9TXZ
+	Sqsd3Egl0+Gcz8Du7w/stkronp2epvrKL4/Eu8gb0CYVI3MS6GFmZtcRE0C2vJIwC6mgTCesXPbpJ
+	45cGSwBvQUOO6zYYkssA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAEdH-001VU7-3A;
-	Fri, 16 Jun 2023 18:57:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qAEdW-001VYR-1u;
+	Fri, 16 Jun 2023 18:57:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAEdE-001VSs-1o;
-	Fri, 16 Jun 2023 18:57:13 +0000
+	id 1qAEdU-001VXN-0v
+	for linux-riscv@lists.infradead.org;
+	Fri, 16 Jun 2023 18:57:29 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1B9F4626E3;
-	Fri, 16 Jun 2023 18:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C397C433C8;
-	Fri, 16 Jun 2023 18:57:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BC8C762D6D;
+	Fri, 16 Jun 2023 18:57:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3028BC433C0;
+	Fri, 16 Jun 2023 18:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686941831;
-	bh=vv/cmdovIkwrhLiTwDyTYR3pLEAnNU7iGqvbKxXb4LE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cjwtWBQ8DQYPMPpoGd9LEI3YSXNa1CDIjV9EAL4LDAkFKlQOEB/tXjPb8ev9Vyluy
-	 5cNqBGbbhNpt0hQcQOarx7D2uDbvD90VmwKjFDfYrBwuWl/TtuBJwJO4z0JxYi6hG0
-	 W+kChJ+xObPABXkazzq/IhEY+PwSpz8oeMh04RmYmhDzja5UfqGXo/Bj2IL+e5KYl7
-	 IcsUJZtNS929pvmcwsFhBiyFnTyDWViPXlv1+0BSkZRMngMGH+sB5Tho6YoV4Tm+pV
-	 09Wrey2BxRVZDGJIhr6okUOYHHyps/rd7kzn5t5MZvKDJC0j9erRpKBZAQ3BX1TinK
-	 IhRXOKWiV4hmQ==
-Date: Fri, 16 Jun 2023 19:57:05 +0100
-From: Conor Dooley <conor@kernel.org>
-To: =?utf-8?B?0JDQu9C10LrRgdCw0L3QtNGAINCo0YPQsdC40L0=?= <privatesub2@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Maxime Ripard <mripard@kernel.org>, linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-Message-ID: <20230616-stopped-bunny-619cf684c9cb@spud>
-References: <20230615144423.828698-1-privatesub2@gmail.com>
- <20230615144423.828698-2-privatesub2@gmail.com>
- <20230615-display-encounter-9a7a78562ff8@spud>
- <CAF4idNksCzkh0WMhvb7ecqYfJRLw33GrpT1+eL5S9ydS8Uu-BA@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CAF4idNksCzkh0WMhvb7ecqYfJRLw33GrpT1+eL5S9ydS8Uu-BA@mail.gmail.com>
+	s=k20201202; t=1686941847;
+	bh=aBiANHfc7WlRsOXJs3SS4tlihuGbK31wTJiW8w+GHAI=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=HawpRXdpPRLre/nNAR0w12jD39h/2TyEHBPUVv4zaM6krmuPPSYc2+NKPAwLvNqKq
+	 vyhnKD0WORt46RxrQzpcvSE39j0K40i0PdB1SF2U+YgNhniOd4FfTYuPfLyM/p5On9
+	 OQrwWHOWX3F7y6OzuhdQJwcSqAPST84aVs1x3KublgMse9hf1y7uinaJZXmGEPT8xi
+	 VzHz6v+5/uIzQpc1TXjPjL5C7o5mTJukRZJZBQ3vA+EcWMtEU2Zfcmh/SChVx6B4En
+	 kerlYFqK3rR0LR4Ie1tcDPXEyZTnmK/CPOkq3wdWR8hojvpwKQskSCr5qcav7WgnRu
+	 NKjUld5HGTnag==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 19CF8E21EE4;
+	Fri, 16 Jun 2023 18:57:27 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fix for 6.4-rc7
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-7c3e3b18-17a7-4bf5-a977-f287ef6d18b7@palmer-ri-x1c9>
+References: <mhng-7c3e3b18-17a7-4bf5-a977-f287ef6d18b7@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <mhng-7c3e3b18-17a7-4bf5-a977-f287ef6d18b7@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.4-rc7
+X-PR-Tracked-Commit-Id: b104dbedbe61d89a933479f8effce6409037ef73
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: f4fd69a32551036ac84bf4487b680167df77477d
+Message-Id: <168694184709.2801.4867806136487239028.pr-tracker-bot@kernel.org>
+Date: Fri, 16 Jun 2023 18:57:27 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_115712_682137_32E6BC83 
-X-CRM114-Status: GOOD (  27.61  )
+X-CRM114-CacheID: sfid-20230616_115728_372581_64BA3310 
+X-CRM114-Status: UNSURE (   3.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,80 +78,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0147667975207689477=="
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The pull request you sent on Fri, 16 Jun 2023 08:53:34 -0700 (PDT):
 
---===============0147667975207689477==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="BTfG3I7wYmbJRwEO"
-Content-Disposition: inline
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.4-rc7
 
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/f4fd69a32551036ac84bf4487b680167df77477d
 
---BTfG3I7wYmbJRwEO
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thank you!
 
-On Fri, Jun 16, 2023 at 11:02:12AM +0300, =D0=90=D0=BB=D0=B5=D0=BA=D1=81=D0=
-=B0=D0=BD=D0=B4=D1=80 =D0=A8=D1=83=D0=B1=D0=B8=D0=BD wrote:
-> =D1=87=D1=82, 15 =D0=B8=D1=8E=D0=BD. 2023=E2=80=AF=D0=B3. =D0=B2 19:37, C=
-onor Dooley <conor@kernel.org>:
-> > On Thu, Jun 15, 2023 at 05:43:56PM +0300, Aleksandr Shubin wrote:
-> > > Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-> > > controller witch is different from the previous pwm-sun4i.
-> > >
-> > > D1 and T113s SoCs have one PWM controller with 8 channels.
-> > > R329 SoC has two PWM controllers in both power domains, one of
-> > > them has 9 channels (CPUX one) and the other has 6 (CPUS one).
-> >
-> > It would be good to note that the D1 and T113 are identical in terms of
-> > peripherals, they differ only in the architecture of the CPU core, and
-> > even share the majority of their DT. Because of that, using the same
-> > compatible makes sense.
-> > The R329 is a different SoC though, and should have a different
-> > compatible string added, especially as there is a difference in the
-> > number of channels. It would be fine to use the current compatible for
-> > the D1 as a fallback.
-> > The allwinner,pwm-channels property should probably only be allowed on
-> > the R329 and only allow the values of 6 & 9.
->=20
->=20
-> Maybe would it be better to allow only 8 channels for D1 and only 6 and 9
-> channels for R329?
-
-If you're on a D1, you don't need a dt property to tell you the number
-of channels, you already know it to be 8. Couple ways driver could
-implement that, for example: if the dt-binding requires the property on
-the R329, you could set 8 as the default and overwrite it if the
-property exists - which would only be permitted on the R329.
-Up to you.
-
---BTfG3I7wYmbJRwEO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZIywgQAKCRB4tDGHoIJi
-0iUSAQC6ORafqrG5LIGTBeO7kYUGeuQKemVu5IOojEnUDdNgzQD/XD0jXcAx7S8i
-OAlzQpXZMNiBbh73ztIgkb5Xk2l1RAU=
-=GAvr
------END PGP SIGNATURE-----
-
---BTfG3I7wYmbJRwEO--
-
-
---===============0147667975207689477==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0147667975207689477==--
-
