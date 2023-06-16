@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4D9EB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 08:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 521FFC001B1
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 08:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Akr07HrBzi39Qn40qhMDlF2VjuXk7Qjdawlk51h23Bc=; b=FptRKbM3qTl31g
-	xTnbbrFL/lVwj+JCYkO4+mGvNJ4jsLCm6KtxUbnimWHz6z6iFqa0QK7YWhNCj2eGFBRr9nihvbzUW
-	34++hvv4oCXktFlCGobOcmw52i/WFZUS4IRAH7VRZilSp+D8WDZz+1C9gw17y4EReHkYETrOnoj+o
-	kL0BCHfHafn02EqVnHy9nPnyST3mXOnEvZ9C5Va+y5AiYnQUUExb3NHD6zVD+LqN8xthgjnuvBZxK
-	+eOUGjR7sJ4KNQMFzv4hJm3Hb+OhixtRuqGy9IQpVN8/6TeJOj5Qw6a1B2RBVpUBZAL7bl2l9joYg
-	R6gtYCvkKyZPyBQvfw8w==;
+	List-Owner; bh=kdXtB9tGujfvC594VhfttwAVaf01zKpwrL9Qm0RfBY8=; b=sboz2SOzqyw9gL
+	vZpyBZBe8jQz9B97xmQuAVX1o84APkc7tZ3rODME5xdm+wk8r2JRz1xzjrr4cBbmba6T3hHlX3Ayv
+	T9AmtueEIeUc7LaItaAZl8apk2DuO6YM9l68m8cxMeg4ygKF3pYXL/J+LErdYCpNFdGEZ7bD0XJYA
+	ppU89kjt3Qorefo75gaqhB1NLE/OOz4ls9aQ6KatuwihsaKMdWVMObx7qnfgpOPnYz2Kc9UnxVid2
+	W910s1lnKa30+HC+6mTfAoX6CKXLuN1rx8GdiKU9s4E/hdnEn0ih4HuMuw2QesBQ/HiVnKOAJuvyC
+	4No53y9fKUc9gak7dpTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA5CO-00HLw9-2X;
-	Fri, 16 Jun 2023 08:52:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qA5CZ-00HM6b-01;
+	Fri, 16 Jun 2023 08:53:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA5CK-00HLro-0k;
-	Fri, 16 Jun 2023 08:52:49 +0000
+	id 1qA5CU-00HM1T-0P;
+	Fri, 16 Jun 2023 08:53:00 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 98E8863179;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6FE8F63179;
+	Fri, 16 Jun 2023 08:52:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56BDBC433B7;
 	Fri, 16 Jun 2023 08:52:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63411C433CD;
-	Fri, 16 Jun 2023 08:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686905566;
-	bh=AxRcB1rbG7MX4ajPnkYNEbWMZh1yl4AN5nTT9Qz7DHU=;
+	s=k20201202; t=1686905576;
+	bh=SlBOw3U7lsp9qLHlWO7lhIx8iQG/0zpTGMZK7G5/it8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZchgUMnnGJtygAK+raIh8zX9M61bZysDceEU+itjtebjtydTZ0C8fH1hI5bi4yGBb
-	 0+mHlJlsA3sTSWJjXOVsf+IFNO63l+46LQ4D8pW+jkx2afKib/rMkLoAvh4O974KxA
-	 QCl4Bqu8K2hxeNPu/cB6HvnMBzBbnvOHtf3y2YLFQGcwRgm1+P0WIvE/z5ZbUIw91u
-	 ba1rD6V2jMggpxQpwYe/sAWEddvOz0cJmvshYC2bRpQgDYIvsL6oUpJnQkOfJkKIux
-	 i+LFm6hoyQ9aaY4Ey4iQt1b/bqoxupbOQ2/L2miYy/B9MD5ckQj1/ij4pRHCf3zadw
-	 X6rUYOmGj4t1Q==
+	b=hYgQUzoC3B593p/Dgn3+TPdeozzDLlm25AwOJLKar+VYJDrbbr1SdOshPlvaqnZ8s
+	 oK4MqcxpbnUG6MN7D2/qW05fsNi7mGmQ8dkORzT35xnDbj/W36F4FOLgzNY6M4PcNO
+	 R3dJCpZ2E2H3cOtS1aHqXGRpmTKYKqXX++q6sKyIgoNy1Dep39n7ShkhJ3lsnlw8th
+	 aR1/N9N5ytcJ2bDrtfUkFPDUA8Szf79x0wrzFCuYoJoIX5C0i1dhO9TiZnBW1OemBT
+	 RXhSF4tkazIA43z1geCwwCrTDTs/h4A7kL6naX8kmJ5EqzOEA8QYfISw3S41ve05F0
+	 LFf/ib3wO4hbg==
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Andrew Morton <akpm@linux-foundation.org>,
@@ -84,16 +84,16 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	x86@kernel.org
-Subject: [PATCH v2 11/12] x86/ftrace: enable dynamic ftrace without CONFIG_MODULES
-Date: Fri, 16 Jun 2023 11:50:37 +0300
-Message-Id: <20230616085038.4121892-12-rppt@kernel.org>
+Subject: [PATCH v2 12/12] kprobes: remove dependcy on CONFIG_MODULES
+Date: Fri, 16 Jun 2023 11:50:38 +0300
+Message-Id: <20230616085038.4121892-13-rppt@kernel.org>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20230616085038.4121892-1-rppt@kernel.org>
 References: <20230616085038.4121892-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_015248_346041_753DC92B 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20230616_015258_287572_78D88699 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,61 +112,181 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (IBM)" <rppt@kernel.org>
 
-Dynamic ftrace must allocate memory for code and this was impossible
-without CONFIG_MODULES.
+kprobes depended on CONFIG_MODULES because it has to allocate memory for
+code.
 
-With execmem separated from the modules code, execmem_text_alloc() is
-available regardless of CONFIG_MODULES.
+Since code allocations are now implemented with execmem, kprobes can be
+enabled in non-modular kernels.
 
-Remove dependency of dynamic ftrace on CONFIG_MODULES and make
-CONFIG_DYNAMIC_FTRACE select CONFIG_EXECMEM in Kconfig.
+Add #ifdef CONFIG_MODULE guards for the code dealing with kprobes inside
+modules, make CONFIG_KPROBES select CONFIG_EXECMEM and drop the
+dependency of CONFIG_KPROBES on CONFIG_MODULES.
 
 Signed-off-by: Mike Rapoport (IBM) <rppt@kernel.org>
 ---
- arch/x86/Kconfig         |  1 +
- arch/x86/kernel/ftrace.c | 10 ----------
- 2 files changed, 1 insertion(+), 10 deletions(-)
+ arch/Kconfig                |  2 +-
+ kernel/kprobes.c            | 43 +++++++++++++++++++++----------------
+ kernel/trace/trace_kprobe.c | 11 ++++++++++
+ 3 files changed, 37 insertions(+), 19 deletions(-)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 53bab123a8ee..ab64bbef9e50 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -35,6 +35,7 @@ config X86_64
- 	select SWIOTLB
- 	select ARCH_HAS_ELFCORE_COMPAT
- 	select ZONE_DMA32
-+	select EXECMEM if DYNAMIC_FTRACE
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 205fd23e0cad..f2e9f82c7d0d 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -39,9 +39,9 @@ config GENERIC_ENTRY
  
- config FORCE_DYNAMIC_FTRACE
- 	def_bool y
-diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
-index f77c63bb3203..a824a5d3b129 100644
---- a/arch/x86/kernel/ftrace.c
-+++ b/arch/x86/kernel/ftrace.c
-@@ -261,8 +261,6 @@ void arch_ftrace_update_code(int command)
- /* Currently only x86_64 supports dynamic trampolines */
- #ifdef CONFIG_X86_64
+ config KPROBES
+ 	bool "Kprobes"
+-	depends on MODULES
+ 	depends on HAVE_KPROBES
+ 	select KALLSYMS
++	select EXECMEM
+ 	select TASKS_RCU if PREEMPTION
+ 	help
+ 	  Kprobes allows you to trap at almost any kernel address and
+diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+index 37c928d5deaf..2c2ba29d3f9a 100644
+--- a/kernel/kprobes.c
++++ b/kernel/kprobes.c
+@@ -1568,6 +1568,7 @@ static int check_kprobe_address_safe(struct kprobe *p,
+ 		goto out;
+ 	}
  
--#ifdef CONFIG_MODULES
--/* Module allocation simplifies allocating memory for code */
- static inline void *alloc_tramp(unsigned long size)
- {
- 	return execmem_text_alloc(size);
-@@ -271,14 +269,6 @@ static inline void tramp_free(void *tramp)
- {
- 	execmem_free(tramp);
++#ifdef CONFIG_MODULES
+ 	/* Check if 'p' is probing a module. */
+ 	*probed_mod = __module_text_address((unsigned long) p->addr);
+ 	if (*probed_mod) {
+@@ -1591,6 +1592,8 @@ static int check_kprobe_address_safe(struct kprobe *p,
+ 			ret = -ENOENT;
+ 		}
+ 	}
++#endif
++
+ out:
+ 	preempt_enable();
+ 	jump_label_unlock();
+@@ -2484,24 +2487,6 @@ int kprobe_add_area_blacklist(unsigned long start, unsigned long end)
+ 	return 0;
  }
--#else
--/* Trampolines can only be created if modules are supported */
--static inline void *alloc_tramp(unsigned long size)
--{
--	return NULL;
--}
--static inline void tramp_free(void *tramp) { }
--#endif
  
- /* Defined as markers to the end of the ftrace default trampolines */
- extern void ftrace_regs_caller_end(void);
+-/* Remove all symbols in given area from kprobe blacklist */
+-static void kprobe_remove_area_blacklist(unsigned long start, unsigned long end)
+-{
+-	struct kprobe_blacklist_entry *ent, *n;
+-
+-	list_for_each_entry_safe(ent, n, &kprobe_blacklist, list) {
+-		if (ent->start_addr < start || ent->start_addr >= end)
+-			continue;
+-		list_del(&ent->list);
+-		kfree(ent);
+-	}
+-}
+-
+-static void kprobe_remove_ksym_blacklist(unsigned long entry)
+-{
+-	kprobe_remove_area_blacklist(entry, entry + 1);
+-}
+-
+ int __weak arch_kprobe_get_kallsym(unsigned int *symnum, unsigned long *value,
+ 				   char *type, char *sym)
+ {
+@@ -2566,6 +2551,25 @@ static int __init populate_kprobe_blacklist(unsigned long *start,
+ 	return ret ? : arch_populate_kprobe_blacklist();
+ }
+ 
++#ifdef CONFIG_MODULES
++/* Remove all symbols in given area from kprobe blacklist */
++static void kprobe_remove_area_blacklist(unsigned long start, unsigned long end)
++{
++	struct kprobe_blacklist_entry *ent, *n;
++
++	list_for_each_entry_safe(ent, n, &kprobe_blacklist, list) {
++		if (ent->start_addr < start || ent->start_addr >= end)
++			continue;
++		list_del(&ent->list);
++		kfree(ent);
++	}
++}
++
++static void kprobe_remove_ksym_blacklist(unsigned long entry)
++{
++	kprobe_remove_area_blacklist(entry, entry + 1);
++}
++
+ static void add_module_kprobe_blacklist(struct module *mod)
+ {
+ 	unsigned long start, end;
+@@ -2667,6 +2671,7 @@ static struct notifier_block kprobe_module_nb = {
+ 	.notifier_call = kprobes_module_callback,
+ 	.priority = 0
+ };
++#endif
+ 
+ void kprobe_free_init_mem(void)
+ {
+@@ -2726,8 +2731,10 @@ static int __init init_kprobes(void)
+ 	err = arch_init_kprobes();
+ 	if (!err)
+ 		err = register_die_notifier(&kprobe_exceptions_nb);
++#ifdef CONFIG_MODULES
+ 	if (!err)
+ 		err = register_module_notifier(&kprobe_module_nb);
++#endif
+ 
+ 	kprobes_initialized = (err == 0);
+ 	kprobe_sysctls_init();
+diff --git a/kernel/trace/trace_kprobe.c b/kernel/trace/trace_kprobe.c
+index 59cda19a9033..cf804e372554 100644
+--- a/kernel/trace/trace_kprobe.c
++++ b/kernel/trace/trace_kprobe.c
+@@ -111,6 +111,7 @@ static nokprobe_inline bool trace_kprobe_within_module(struct trace_kprobe *tk,
+ 	return strncmp(module_name(mod), name, len) == 0 && name[len] == ':';
+ }
+ 
++#ifdef CONFIG_MODULES
+ static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
+ {
+ 	char *p;
+@@ -129,6 +130,12 @@ static nokprobe_inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
+ 
+ 	return ret;
+ }
++#else
++static inline bool trace_kprobe_module_exist(struct trace_kprobe *tk)
++{
++	return false;
++}
++#endif
+ 
+ static bool trace_kprobe_is_busy(struct dyn_event *ev)
+ {
+@@ -670,6 +677,7 @@ static int register_trace_kprobe(struct trace_kprobe *tk)
+ 	return ret;
+ }
+ 
++#ifdef CONFIG_MODULES
+ /* Module notifier call back, checking event on the module */
+ static int trace_kprobe_module_callback(struct notifier_block *nb,
+ 				       unsigned long val, void *data)
+@@ -704,6 +712,7 @@ static struct notifier_block trace_kprobe_module_nb = {
+ 	.notifier_call = trace_kprobe_module_callback,
+ 	.priority = 1	/* Invoked after kprobe module callback */
+ };
++#endif
+ 
+ static int __trace_kprobe_create(int argc, const char *argv[])
+ {
+@@ -1797,8 +1806,10 @@ static __init int init_kprobe_trace_early(void)
+ 	if (ret)
+ 		return ret;
+ 
++#ifdef CONFIG_MODULES
+ 	if (register_module_notifier(&trace_kprobe_module_nb))
+ 		return -EINVAL;
++#endif
+ 
+ 	return 0;
+ }
 -- 
 2.35.1
 
