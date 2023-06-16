@@ -4,128 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 555D6EB64D8
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 12:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA72EB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 12:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0H4SHEuonm/l1wAdPhGfGfxE2rlxIvGfY5ezk9uolY4=; b=TOS06A+yIgnL3W
-	VBGPNZ/0yYw3yhABT+uf3wFNbeLdwJbsVqxiPxHo1G+B8sUqG+GP8vt4XnivAKtJ+fMrQS7483wy0
-	84iZyKiU669kStG1cVC+5qBJe7uD7ghBTngxTamHVL8r3kWcjjfur0kuPZAM5h42NuXFZgPJ6biPz
-	N1PzJl8XI+wfNWPZiIAwU9fJ1qFffzpfdgVTZH8RN/9RNreHkc0otdiBxKqMRkCrc3oAM8I3dOQZA
-	QKvQVbVhX0Zc3+nvI/8DSMVkQlm1UVvU4qxW5iQQ40NHSwa3b8Q679I4zt3hLVCpR0e4n/8r2EsCo
-	YwY7EW+2095que1dqCXQ==;
+	List-Owner; bh=p673/HkiCGDKROPa/RToPdSNIufoek48bb3KdQtNCbg=; b=ilrE0aB67t/548
+	P3XWdjPZOM3KNZw8KULIZrtvIV6BoJM4U65WKWplRg/eBT8seQ26+8kGZ5q6JCYXTUvDRtrazQTEv
+	XxDjOUUpWAZsdi+fDRoB9YQq8VnAiJ3+dGuVq9HeIT4YNr6mp2oyEkHuzgP0c/zznomYfXeC+3XGD
+	TsRdyawSlVD4lsw5TWZFlAEyHzmnC/5Ne5EmPwtvN2G2OMhgxsmMsyrIXdtgBiqz18alsa+lxIou5
+	fVYsJA15n1HS5tLvRJiDC88bZpVHZPHBER+i+2C3N52aQa5lsXPyBFoFKbuUN9HBCJREZz38e6LxH
+	FG+B5yS0XIFJvo/X4L0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA8iv-000aLE-0K;
-	Fri, 16 Jun 2023 12:38:41 +0000
-Received: from mail-dm6nam11on2062c.outbound.protection.outlook.com ([2a01:111:f400:7eaa::62c] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1qA8z2-000c4X-2L;
+	Fri, 16 Jun 2023 12:55:20 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qA8ir-000aJb-2f;
-	Fri, 16 Jun 2023 12:38:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=PbEipcviY9zGC0ab2wKX0TynH5hnPwh7Zzgp297OD8mpBKjqEAQevQ7v7R7ySMPRWJ2YkEGs+oWogWO8kjser9lsyVrFbIO5/xB9VFw4Vmr3rT36GwHAQgbmmg8P0I03kL4xjA9/5/dw3ikiHi0rB2ZORSfZRWdDFyyQDvXce/5SDxmRN82ApjEw61jvy41ZkP5KAONThUOI6udozUn6pMgjIOz5f78j1ya+R7H8EPQPQYol2ICFESylNYVtun7I7794EMoqUvyrVZhWkGf2af1IdYM4EsgeDVQMiJ55WNO71a+lp8J5WjdxZsA9Js3XN959l14Tr9Hz/aZTp/nKnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RBR3YGss3cI0UzYEflUIczDUB09k7UkNH7V/zqmf6Yg=;
- b=cjWEL+XYktzuLL44i0EyitI6dfUhZOf77T+tZ860X+6amPwhF2u7r08Mo/2teW589MdkU57ssBm+N5YoGr61g/+90C0HkPylyOOSIUsmOcc2iPBOoMOO1ep4sEs5opNKm/HGP39vu92XeeGe5s8+KvTUiNJzLxAfspku9QsUdoLlb3WnWIbHsWtDBQgIOx4kKuTawJKdUpeXHCX+BbUGeVAiBszmxBB6MYtTWP/scuxElJMqjW8Wrx5p7gzQsyvzPS7Uc+f8eXr6wbIHlNgLdq/s8wxpTO/Jpw0erqhRMIJ4izGwlAlG/rYtV+kUuE6A82mNNKLAjJyQdllzrl9rqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RBR3YGss3cI0UzYEflUIczDUB09k7UkNH7V/zqmf6Yg=;
- b=ceBbog0E+AeI1CoNtHw0AldT8zR8BRFnDlIuDqAN3xf70U9Ys3W2Pf7Ii+9xhaSlCUzUhSXokfRZ249xX1bc5OBWaxYpt+SNkl3jc3an6d38Pw7TN/5uiPPaRQ+WI7lVWNfQQqf9KRjxEuNkihTjnCiNLiGb4ulyCx1pJZv3GmH9k8lYnl6StluaDiE6CFuc4ZAyBf8D5JmssK5lwdOp7mN8UpD/WycIYjYV/p0PsdU3dypOkVqdFSPqcj+ijiM3g7diavbnhQA+JsJMWgeO1RHO84tNvZx1+0N4IrZYygDLIPCEdX+yE5yJIjowQDIuGP7GTae86vPGu3IBW+Dluw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16)
- by IA0PR12MB7577.namprd12.prod.outlook.com (2603:10b6:208:43e::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6500.25; Fri, 16 Jun
- 2023 12:38:28 +0000
-Received: from LV2PR12MB5869.namprd12.prod.outlook.com
- ([fe80::f7a7:a561:87e9:5fab]) by LV2PR12MB5869.namprd12.prod.outlook.com
- ([fe80::f7a7:a561:87e9:5fab%7]) with mapi id 15.20.6477.037; Fri, 16 Jun 2023
- 12:38:28 +0000
-Date: Fri, 16 Jun 2023 09:38:27 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	Hugh Dickins <hughd@google.com>
-Subject: Re: [PATCH v4 04/34] pgtable: Create struct ptdesc
-Message-ID: <ZIxXw9ERkYv+ipdd@nvidia.com>
-References: <20230612210423.18611-1-vishal.moola@gmail.com>
- <20230612210423.18611-5-vishal.moola@gmail.com>
-Content-Disposition: inline
-In-Reply-To: <20230612210423.18611-5-vishal.moola@gmail.com>
-X-ClientProxiedBy: BL0PR0102CA0025.prod.exchangelabs.com
- (2603:10b6:207:18::38) To LV2PR12MB5869.namprd12.prod.outlook.com
- (2603:10b6:408:176::16)
+	id 1qA8z0-000c3k-0V;
+	Fri, 16 Jun 2023 12:55:19 +0000
+Received: from [167.98.27.226] (helo=[10.35.6.111])
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1qA8yv-009RVR-6E; Fri, 16 Jun 2023 13:55:14 +0100
+Message-ID: <f0026ebc-aa35-6242-fab2-02ee35afa8b2@codethink.co.uk>
+Date: Fri, 16 Jun 2023 13:55:13 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR12MB5869:EE_|IA0PR12MB7577:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8506705d-9a30-4258-c03b-08db6e6695d5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: A1HBD5wD+23hljrt/BZDQ+Nq0kQdQCxvg+5QYwtqH0PvCuU0t+WZTcNeWVcPSeddfw7FwpKwPSrzyhfwIFb4hbe3Dduz5Td9kFUULTputVDH5dop9R47s7pwKtPLRnpWid3osDc+RoVSBxi84loqCiol4HKOOCUThtivw5p+7V305zg163JS80jbz6Nbq33o3bjiVsMdxEeAapbh4c4h3rPAzTJikGnn3Wrm/TEz6VRCcF3jf+jXw7+/vok0zU4ANfZeCsKt01GrQj2ezq8NXwRdrdT55uUbXCy+jb6ciQj1ACmXOz+HWEnpi10Hl431bujZ1n/wtxXeujt1xHRxMNCZYEg7cH4WHt0EcO6iSdWRE7I4KpFSC7sb/Egaf0o+sloQMWQ+cWXh/eDpR7gTC7SdCAGWsDSa6eNBjXFOT1GkV5M9Li8KLsT99nJhh2gBXNIjDoYLUG+B2bEw0S6dZSNuVgytIQDnSS0sALAJwdZQkUcoU0XJYlraVVs1V3XsZmbJXu67VfObirhEb2VdePBKCG0xTu/hVG5KZ3pK88IYnu342H9g+3Tw41/InV9v8wYuAqUSipnmQL/CDErDlnXvLwsGeSujy5kXXpRKMihuCi/JvMsMVHcgkoDKieULI/y91b+0usAD19Wh6QpfmA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5869.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(376002)(136003)(346002)(366004)(396003)(39860400002)(451199021)(5660300002)(38100700002)(186003)(2616005)(83380400001)(2906002)(6506007)(6512007)(7416002)(478600001)(26005)(6916009)(66946007)(316002)(66476007)(6486002)(66556008)(8936002)(8676002)(41300700001)(86362001)(4326008)(36756003)(54906003)(67856001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/Irqnl8o7kuP7oMmsP7PZvxKq7x2MmLRtDR+Vgt5CkkvQCJm2lPuWCVSvzo6?=
- =?us-ascii?Q?EbSIh+gkp9UQMFnOC7TLMnZfJ9XORFM9u3h+C9G9T174M+Cr6B7Q1q8D0YQ6?=
- =?us-ascii?Q?ucDM/oEkFCVR7DZVQxsSWRtKh0Pys7OtL9Rexlr+CSROsJqX4p2u/c19b1kH?=
- =?us-ascii?Q?7VERJjIDRwtpfgFovjP95eL1HQMOHpJjcVt5I0hFmKBR6vC4chQRWwSgtDe0?=
- =?us-ascii?Q?GAhbRzQTgrncE/F2yKzxlod6TFgXF4+6kg8XzzQgHbpaHSWU1p+Fu9cdbcO/?=
- =?us-ascii?Q?ppcDma4W0nRi5KmTeClGmwb9gYdpdpaALHBS86rfBHHUjfLkon+4CaVr7L63?=
- =?us-ascii?Q?T+xiQqf58weB/ZJ7hC5aY/Rj3rn58pbOzXMFWjxRKBBhQKAQlIWUOz4q8aQ5?=
- =?us-ascii?Q?uMf+69CwroesnC4uK4bdIJKkwYB5KYLnxUmH5lceQTyX9US/wb04E9C8WmO8?=
- =?us-ascii?Q?d2Igorxe7kyhchQ3YoAifJowzDausi3w9XkgwCygcId7CuV+D0NG3krnXG7+?=
- =?us-ascii?Q?8OWJr0TlKxY8HY3CWB5cjoZprye1VkM6yKqK9TBC5O9nPQxAlfzlXA42zTy7?=
- =?us-ascii?Q?cib2mo2WMjA8Cn0XJU+92IsShh0d3LxuZNaC+H0Caosp9AcATityFkNmEVNF?=
- =?us-ascii?Q?IdqnRm5asjVXFUZ4MDlimjrs4X0NLD9ZB4R9EHQi3cpCJBq708reJGCRorjW?=
- =?us-ascii?Q?+g3+p3Cg2ZyoKdOCndqVgQ7WtZr+5t0AoCpWQ0xi8LbjevjEhI9Py3rbAVvj?=
- =?us-ascii?Q?6lWh9Fp7szpCvF8T0/3HPd2+wkCpQaGj+/yDF1dvHHrLdmgCSYo4wckaQxhR?=
- =?us-ascii?Q?2lsRQwZEMRbD44vineIy9pxCbfESFWeG5A6bSf3slk57ghdXAbu9CEoZ6jcl?=
- =?us-ascii?Q?OpDI7lobgYTPDBZFjM0h7oZS4CuSfpuR++xNUeCAgOsu8T7Ds8Dpluq8uX4n?=
- =?us-ascii?Q?9Jm8cg8Jt0WoIRtPGEW5i9Isit3cyifJ7dZyKhGLLfgm+M/UKz6XVfhQjsOV?=
- =?us-ascii?Q?8bpZrzwmFG9rscMg9MSDwoy1bxx5Pc/yufiRFf5kAEtL1caZM8GTILicpeHK?=
- =?us-ascii?Q?hrE/7mGA8DpvM+qLBSjUIhEleXhmYzoVneHhJGXUncswjykpaBi+xGVkmHit?=
- =?us-ascii?Q?7K1tbHXYmlELlYTqdOdrlfy5CchSvODQE3VEx7/8JKKEi6k9uC6hiN35VKMR?=
- =?us-ascii?Q?k1Ca8xzyUotdpcK4BfCwnuujpOE+bhKZah11psUhKDLIJ1DDQoBxsei6C7az?=
- =?us-ascii?Q?jl86JF6Os4p3oTZRz0Cfi2jfp1uFhCbJa7YVzR3xLNzT6odu8kpKHZcMbrnG?=
- =?us-ascii?Q?rJ0kVqPp/XW1F8JHCv4NKt446tO6B8lxGlfEi5hT4t0LWRMb8iWRvhR1QZLX?=
- =?us-ascii?Q?IjClfLE/su4iY/Uas0HpwhAycdwOaATK2/OlucyTwlJs+75NV4LmT4VuMAsY?=
- =?us-ascii?Q?E9DcShxP5bbFHq9wZ3maqkQMutw0YJhOZzXZqWTlQWq82e9gin9apVec6eCa?=
- =?us-ascii?Q?fUBpj9ANJGOGl3b8d06YR9CjL8EX8qzHHJLwYrwngykFvIeJwVnKPJWnrq2x?=
- =?us-ascii?Q?d1/tocPhkWuPEB6GZDs=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8506705d-9a30-4258-c03b-08db6e6695d5
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5869.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2023 12:38:28.6370
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F8WtUVEqEUr+4a6ARSihpj6oeN2X6Diaq/r9BANH+D4NwEndUZStIxp4szriDpA4
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7577
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH] riscv: kvm: define vcpu_sbi_ext_pmu in header
+Content-Language: en-GB
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+ kvm@vger.kernel.org, linux-kernel@vger.kernel.org, palmer@dabbelt.com,
+ anup@brainfault.org, atishp@atishpatra.or
+References: <20230616115410.166244-1-ben.dooks@codethink.co.uk>
+ <20230616-founder-speech-6f57f22e1412@wendy>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <20230616-founder-speech-6f57f22e1412@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_053837_894034_49E005A3 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20230616_055518_200379_5E4C5C9F 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,76 +59,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 12, 2023 at 02:03:53PM -0700, Vishal Moola (Oracle) wrote:
-> Currently, page table information is stored within struct page. As part
-> of simplifying struct page, create struct ptdesc for page table
-> information.
+On 16/06/2023 13:22, Conor Dooley wrote:
+> Hey Ben,
 > 
-> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
-> ---
->  include/linux/pgtable.h | 51 +++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 51 insertions(+)
+> On Fri, Jun 16, 2023 at 12:54:10PM +0100, Ben Dooks wrote:
+>> Sparse is giving a warning about vcpu_sbi_ext_pmu not being
+>> defined, so add a definition to the relevant header to fix
+>> the following:
+>>
+>> arch/riscv/kvm/vcpu_sbi_pmu.c:81:37: warning: symbol 'vcpu_sbi_ext_pmu' was not declared. Should it be static?
+>>
+>> Fixes: 3e5e56c60a1477 ("riscv: kvm: move extern sbi_ext declarations to a header")
 > 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index c5a51481bbb9..330de96ebfd6 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -975,6 +975,57 @@ static inline void ptep_modify_prot_commit(struct vm_area_struct *vma,
->  #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
->  #endif /* CONFIG_MMU */
->  
-> +
-> +/**
-> + * struct ptdesc - Memory descriptor for page tables.
-> + * @__page_flags: Same as page flags. Unused for page tables.
-> + * @pt_list: List of used page tables. Used for s390 and x86.
-> + * @_pt_pad_1: Padding that aliases with page's compound head.
-> + * @pmd_huge_pte: Protected by ptdesc->ptl, used for THPs.
-> + * @_pt_s390_gaddr: Aliases with page's mapping. Used for s390 gmap only.
-> + * @pt_mm: Used for x86 pgds.
-> + * @pt_frag_refcount: For fragmented page table tracking. Powerpc and s390 only.
-> + * @ptl: Lock for the page table.
-> + *
-> + * This struct overlays struct page for now. Do not modify without a good
-> + * understanding of the issues.
-> + */
-> +struct ptdesc {
-> +	unsigned long __page_flags;
-> +
-> +	union {
-> +		struct list_head pt_list;
-> +		struct {
-> +			unsigned long _pt_pad_1;
-> +			pgtable_t pmd_huge_pte;
-> +		};
-> +	};
-> +	unsigned long _pt_s390_gaddr;
-> +
-> +	union {
-> +		struct mm_struct *pt_mm;
-> +		atomic_t pt_frag_refcount;
-> +	};
-> +
-> +#if ALLOC_SPLIT_PTLOCKS
-> +	spinlock_t *ptl;
-> +#else
-> +	spinlock_t ptl;
-> +#endif
-> +};
+> You sure this is the right fixes tag? This code didn't exist when I
+> wrote that commit, should the fixes tag not be
+> 	Fixes: cbddc4c4cb9e ("RISC-V: KVM: Add SBI PMU extension support")
+> instead?
 
-I think you should include the memcg here too? It needs to be valid
-for a ptdesc, even if we don't currently deref it through the ptdesc
-type.
+I think you're right there.
 
-Also, do you see a way to someday put a 'struct rcu_head' into here?
+> Cheers,
+> Conor.
+> 
+>> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+>> ---
+>>   arch/riscv/include/asm/kvm_vcpu_sbi.h | 3 +++
+>>   arch/riscv/kvm/vcpu_sbi.c             | 4 +---
+>>   2 files changed, 4 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+>> index 4278125a38a5..b94c7e958da7 100644
+>> --- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
+>> +++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+>> @@ -66,4 +66,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
+>>   extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
+>>   extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
+>>   
+>> +#ifdef CONFIG_RISCV_PMU_SBI
+>> +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu;
+>> +#endif
+>>   #endif /* __RISCV_KVM_VCPU_SBI_H__ */
+>> diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+>> index e52fde504433..c973d92a0ba5 100644
+>> --- a/arch/riscv/kvm/vcpu_sbi.c
+>> +++ b/arch/riscv/kvm/vcpu_sbi.c
+>> @@ -20,9 +20,7 @@ static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_v01 = {
+>>   };
+>>   #endif
+>>   
+>> -#ifdef CONFIG_RISCV_PMU_SBI
+>> -extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu;
+>> -#else
+>> +#ifndef CONFIG_RISCV_PMU_SBI
+>>   static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu = {
+>>   	.extid_start = -1UL,
+>>   	.extid_end = -1UL,
+>> -- 
+>> 2.39.2
+>>
 
-Thanks,
-Jason
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
+
 
 _______________________________________________
 linux-riscv mailing list
