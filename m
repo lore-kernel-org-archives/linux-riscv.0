@@ -4,196 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F15EB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 17:03:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC43C001B1
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Jun 2023 17:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dvUB2AZkFxumJGu05xfbNM54xg1F1aAzz8xCbxdUgz0=; b=gQzm9FSQ7y5GXP
-	cBgoICMNS59L/YuW2tk5vOI8P68mOJIB/kWmZ6fskPJZk4BsMbRmLjbO518PeNSVMYO6RXntUCZeo
-	Bqhv7mpe5LL8I3Z9BExUb2bInAPOFcRGHJ7ZXt5aNl8y1G1vxYAEqAABIFvp2hsJgoRINDG1NVdzb
-	p850sOcYUd3Ziv9re27w8GgvAL8zXEbOOWZLP8WaQLV47T+q/XBHPCaHn1jvjtwJyBVQ6yYtLqHs5
-	VHgpENJCphcNGROmhypx5CSGDL/ysAJ4HeYAyW3NtEujGlT2cFbD3B95PKgLWphydRKVZPPEKYjuF
-	+xsOo98h8gHm6eBk8uYw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:From
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=y8u8fWKdhONg1RkENA6tNoVwAzF8RfB67405pWf5QO0=; b=zS1zHIww9SPDKs
+	8ePG9eF5jAJ8WEGxgKZktE5j6Lwx+ne2SikDYbasfX3+0TWGBy5E8Q3s8OvV6oqIrfrkeur/H8Vwn
+	mv/KwQloL29Llq/hrSBc5Ioll6EPMLYaGq5cnWGgqaaT25iosQUT+a4KiJBeM/j84W4Ayy7549dFK
+	bPWqkeQv8cv2fma4/TN+bJ3Zwh1zToK0ViYYXtdOSKcHBNc3yTSVn9QIpuAoVgsaJg/YahY1fAhS3
+	+pUyyuLQsl0hzO5EoW6OpdX14vV/9DP1l6jz06w9GsUZKApuQ9aqUJ8h3tJdPb34oeAz5fQ8oOlNo
+	7QuFbA3KcahtEVQTZViQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qACqi-001E1h-1t;
-	Fri, 16 Jun 2023 17:03:00 +0000
-Received: from mga04.intel.com ([192.55.52.120])
+	id 1qADgx-001MHw-33;
+	Fri, 16 Jun 2023 17:56:59 +0000
+Received: from mga07.intel.com ([134.134.136.100])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qACqf-001E0a-06;
-	Fri, 16 Jun 2023 17:02:58 +0000
+	id 1qADgt-001MGU-2R;
+	Fri, 16 Jun 2023 17:56:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1686934977; x=1718470977;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=zHd3TS71swFhG8RMGSnlbtJ7WI0MBrRbGEKCUVGjX0Q=;
-  b=DmXyP278gnQXEQr3yIm+vn6SPqfXu9L9Yi6AEFuyC31YYnv9L0lh9+Ep
-   oubFelojJWptRWmeoyX48Xc1c15zw0pNE+BMKxmZQjRzHbP2JLi4TjZK+
-   0GrlHKbl61bT8tLGSmlN1hGMeMt0PvnGjBgn7kEFASDDp2U1wpRMrIdVw
-   utKuHCxUtFEjKUwRvnut9eDuZNijGwWESZ9LR3GnWxkZlCRiwk3mseidW
-   t6VxAYzrC85TNdXa0u89qyfDBdRJQEbdkuOQ5+QftO2yMTJHEyUStoCrr
-   wsq4JOTy8ua0ikz9qKt9t5W9dOsp0uzNHRv3VQwlXcaC4Jb3pG32iXimx
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10743"; a="358135430"
+  t=1686938215; x=1718474215;
+  h=date:from:to:cc:subject:message-id;
+  bh=dHryKIkk8/2CTQfcM0R17XhQOqNhailCRjnxMpU/Z2k=;
+  b=loOzvDn+awKtHT5JB4KJSf+oUHKOY5FwKebtNV9VTf4IY+eIJp12iUHP
+   nH+UTuWykoWIS6rNRyF+0RTHphR9+xtR84VrB/+XvewkgSKj6mxQAyYGN
+   Irk+y49yk8Ey+nRLOwONmSvGNeUq6AMNNlQVSB0dS6+Vb96Jwn1aS/knI
+   9xFIbUaFIaEuqat3jbXAnGGOWN1C1GFFE6fqAqOqw+xcBnOS9avYGo5mM
+   9+94svzuiomvM+9P85mirysuTJP4bcSnRHpZhVBasMducoBl+nIMh5D/t
+   Lq63lOgwIpQ3fIou20ijUybFYLcPGIa0oV3HAyp+urjEIbN+MT+umJpBI
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10743"; a="425213643"
 X-IronPort-AV: E=Sophos;i="6.00,248,1681196400"; 
-   d="scan'208";a="358135430"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2023 10:02:54 -0700
+   d="scan'208";a="425213643"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2023 10:56:52 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10743"; a="716092462"
+X-IronPort-AV: E=McAfee;i="6600,9927,10743"; a="742744959"
 X-IronPort-AV: E=Sophos;i="6.00,248,1681196400"; 
-   d="scan'208";a="716092462"
-Received: from fmsmsx601.amr.corp.intel.com ([10.18.126.81])
-  by fmsmga007.fm.intel.com with ESMTP; 16 Jun 2023 10:02:53 -0700
-Received: from fmsmsx611.amr.corp.intel.com (10.18.126.91) by
- fmsmsx601.amr.corp.intel.com (10.18.126.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.23; Fri, 16 Jun 2023 10:02:53 -0700
-Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
- fmsmsx611.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.23; Fri, 16 Jun 2023 10:02:52 -0700
-Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
- fmsmsx610.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.23 via Frontend Transport; Fri, 16 Jun 2023 10:02:52 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.104)
- by edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.23; Fri, 16 Jun 2023 10:02:52 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=aNpY7uIBBNXVqe2fOVLh9gLcMfp1euWmmgIP4qOmo39/LuNts/nPYPYCq5K3ICnpBKaWGQPkeR4yD4iKp/lrujywlAP5emcgONW+Nnon3BFic4aTh4PSFGC+3XoW0KgDYgHtV60065wSGiMhfmhN+KN5D3cWDT4YC+XvaphSbsppWYCIfqnhakPnsSdP3jDBLdzs4SZTV31u/9xucd35qoksu33rM2Nt2PsEqXbTJ4G7697ANMNwbT0liyDZy9FuQoJ/zvRecpjJv341BLOFgfBoIYKHbGZYa0tnpbPuiDWUGA9zF3cGjKJ2qSvT0LdffPucZ2ZGkEpMSAmiWmaq1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zHd3TS71swFhG8RMGSnlbtJ7WI0MBrRbGEKCUVGjX0Q=;
- b=nusVKTysbu35+Mmh/CeuEzRLT5sBtpL5JtDAH+562fKEE58+Pfu1VYstTkhIR4H7y1GM76p6oBXJsypAJGZbXEAZsJ3dHnftuVRJqiZGVvH8G7qJSivcj4VNSTlepgHy+T6hgpwx7sluRiB00e5T+Kbk4Yy99brTdmG0Wto26ZWt5VDXpMIPN5SOtW8o/oYN5X1f1u9UR2GRRzp2TDxte3rSdgCBQkSZ49DUvCHsJPWhTxgfzDMjcmKUaONm/bThqw2MuZDsczJnWj0EL6LskUDSR9Le209m8SDY6fDSlFJwmn4ByEsquTETXkiuwY2CybBbHcRcIa/uAZ8d7hR8AQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from MN0PR11MB5963.namprd11.prod.outlook.com (2603:10b6:208:372::10)
- by PH0PR11MB5015.namprd11.prod.outlook.com (2603:10b6:510:39::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6500.25; Fri, 16 Jun
- 2023 17:02:50 +0000
-Received: from MN0PR11MB5963.namprd11.prod.outlook.com
- ([fe80::6984:19a5:fe1c:dfec]) by MN0PR11MB5963.namprd11.prod.outlook.com
- ([fe80::6984:19a5:fe1c:dfec%7]) with mapi id 15.20.6500.029; Fri, 16 Jun 2023
- 17:02:50 +0000
-From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"rppt@kernel.org" <rppt@kernel.org>
-CC: "tglx@linutronix.de" <tglx@linutronix.de>, "mcgrof@kernel.org"
-	<mcgrof@kernel.org>, "deller@gmx.de" <deller@gmx.de>, "davem@davemloft.net"
-	<davem@davemloft.net>, "nadav.amit@gmail.com" <nadav.amit@gmail.com>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "hca@linux.ibm.com" <hca@linux.ibm.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"kent.overstreet@linux.dev" <kent.overstreet@linux.dev>,
-	"puranjay12@gmail.com" <puranjay12@gmail.com>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"chenhuacai@kernel.org" <chenhuacai@kernel.org>, "tsbogend@alpha.franken.de"
-	<tsbogend@alpha.franken.de>, "linux-trace-kernel@vger.kernel.org"
-	<linux-trace-kernel@vger.kernel.org>, "linux-parisc@vger.kernel.org"
-	<linux-parisc@vger.kernel.org>, "christophe.leroy@csgroup.eu"
-	<christophe.leroy@csgroup.eu>, "x86@kernel.org" <x86@kernel.org>,
-	"mpe@ellerman.id.au" <mpe@ellerman.id.au>, "mark.rutland@arm.com"
-	<mark.rutland@arm.com>, "rostedt@goodmis.org" <rostedt@goodmis.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"will@kernel.org" <will@kernel.org>, "dinguyen@kernel.org"
-	<dinguyen@kernel.org>, "naveen.n.rao@linux.ibm.com"
-	<naveen.n.rao@linux.ibm.com>, "sparclinux@vger.kernel.org"
-	<sparclinux@vger.kernel.org>, "linux-modules@vger.kernel.org"
-	<linux-modules@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "song@kernel.org" <song@kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>
-Subject: Re: [PATCH v2 00/12] mm: jit/text allocator
-Thread-Topic: [PATCH v2 00/12] mm: jit/text allocator
-Thread-Index: AQHZoC+0c1p3dpPJ0Umm53KR18jBkK+NqGKA
-Date: Fri, 16 Jun 2023 17:02:50 +0000
-Message-ID: <557b2205c6826ce00c4cb76d8d8679807eb0ff58.camel@intel.com>
-References: <20230616085038.4121892-1-rppt@kernel.org>
-In-Reply-To: <20230616085038.4121892-1-rppt@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.44.4-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MN0PR11MB5963:EE_|PH0PR11MB5015:EE_
-x-ms-office365-filtering-correlation-id: c0a47551-35b1-4512-9c4b-08db6e8b8441
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: TejL0XHybv9fjD47zhrpMJcVYKnhdJKohm/7rGrV3fadxqN8WIDf6LCbTqORF3P1sk6Ko9gkPRsVgACdvD5ZzrxN0slwwKScNK8F9sGfyNz4UTNwldVYSAIQ69EXd91H1LNnaKjkGz1/2f8Vc4UHE8gMsTMeQhDb1oJ+CCAhJqRS6TFOikZu1vhJP92S4qwrv2LQE1HkVLZtKRD7nC25rBnrp6dQPrykP/3zt4v90cxYeM2HrxmDPxKaPPyYQenbMGysmQvbXUq8oNPGGXxODpRVL7d1X6TqOd4B7vX0t7D8izAGIdVNxwBhVSKCB/t26BE8DyjvlbQK8iG/QF+JAK8+UHIEo5CnNo9D1qgr7ty8bsBgDCmpBopEX++nS+3oSd1UZo7IFptABls/ncDpaToldWtCvMAOq1WODlSLsKExfjKeif8Ve7QmYvFmnPGRlGBtJTHLVLDD+xsUJe9tMz57hUWMeZiH4eZyajrwWIYGc2gO8wvx8FDeH8VBwhgROdWBXAg37oXRRNCfC13mFI+m3MoE2B3HdbK9oNM5V2UfT+pxB4Hq3NYk88DHWRcuNb2/rJq459CBmcYo/AjvwnhlTSs+XhyJ+v74SCflgYw3o6l2ReHHhqkDXUxBUge4
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR11MB5963.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(136003)(376002)(366004)(396003)(39860400002)(346002)(451199021)(5660300002)(38100700002)(82960400001)(122000001)(186003)(2616005)(2906002)(4744005)(6506007)(6512007)(7406005)(7416002)(478600001)(26005)(38070700005)(66446008)(66946007)(316002)(66476007)(6486002)(71200400001)(64756008)(66556008)(8936002)(8676002)(41300700001)(86362001)(76116006)(91956017)(4326008)(36756003)(54906003)(110136005);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZG5DcElmUE5vbk9WUkgyTFpkamxXNXgxMURNSkZrcytOWnFCRlpVQjdjZmow?=
- =?utf-8?B?MVcrMTE5VUJyUHZaNHVoZ1JoUkhNOHkzWXVjaDBrYm9yM25QbDJrWGJ5Q0py?=
- =?utf-8?B?a3QvVFlPWGlNUHBQQzROWEwxN01nTjYzdSttTHJWUm92VzBEdmJvdkRBNWRw?=
- =?utf-8?B?bDBxNU00cmNMWjY2eHZqNmtFMU55Z3RJRGt6K0ZzeXNST0JoZDZTaFJuUTRm?=
- =?utf-8?B?R0p3aTZpRStTeXBvZmVGeDZQTUFXdlJZSVV2L3M4N1ZIOU11UEg3ZXRGMTNw?=
- =?utf-8?B?eGtXN25HVFE3NmZnT2ZjMzR1NFJ1MG00WnRaWEVvTC9WWUxPR1JRS1Y3Uk5r?=
- =?utf-8?B?RFFISENjbFcvd01wYXBYUFVoOVVPc3U0WmQyc3lKYzUrTGRNdzd6V1lLK0hI?=
- =?utf-8?B?aEVhd29FZTFyK2NZQithQmR4bktxSk16c0xqSmo2TmhxQ3YvV2VlZGd6bTJy?=
- =?utf-8?B?YlBrRTFid3ZhMmlpbWhtZ1U1RXVKRmlBaXBGZ3VDbVlRaTVLalF0TjllRTln?=
- =?utf-8?B?UnF0ZEJiVk5Gblp0aUxHTVlGclNkemtLcDlWMEFIS1Zrd3NRamhEZEhlNGdv?=
- =?utf-8?B?MktwQktPWXhXd2RIK0dzTVJ5LzVqejFDU1ZwVVFmdkFvY3JpS3pxeE5kVkxy?=
- =?utf-8?B?WE1YTjJkbEdjMDJpYzRpdU1aUllqV2o0S2pEL1NtV0ZpSXBjRE9iVTR6RTNO?=
- =?utf-8?B?QmZHNUd3eHNlc3BMMkVzNGpaR24yQzA4QVpyZnU4T3V4ZnFOcFJ4NXdSN3Fs?=
- =?utf-8?B?eHVxNEZBRS8yeVpaeEt4aUZPY2tYQkkxb0VQWlZxODNBUXJBT2xvQnNFcldo?=
- =?utf-8?B?VDhoZXRtZXZzMDJ4L2ZJbXdIVTBsbXVRR1JjVlprbzBnQ3ZRRGZ5bmp4RVgr?=
- =?utf-8?B?Lyt0TG9ibWFnd2ZjT3hzS0lZZXoveStLWnE1Yzg3L09JUlVFcUxHcndaSDJF?=
- =?utf-8?B?S01ra3RyaC9sd3pzeUNNM3g0MFFxc0VBd042Skg0RnExRzhjSUhRM1dCNlhq?=
- =?utf-8?B?TmhYQlpLWU9QQ1dOMTFZZnR0dDMrYkg3OXlXY0t4UlRWM1RmS3RNMHdvckRz?=
- =?utf-8?B?cXVuUFVQM2FyYjl5QzJzNXhKT05qRStrRldNT1RMN3dMQ3hxSzRDcnBlTGk2?=
- =?utf-8?B?b2FtTU96cTBDUkEzTTA0OFhzVDRXY09UcWs1MEdEY1hLNENrNkVUdk9TQ1E0?=
- =?utf-8?B?K3VXZ3VoSVZ1OUJUMFlkVXFtQUtBTkFUanlES3BHb3pFMFlwempvclpGOEs0?=
- =?utf-8?B?NEc2ZzNRVmlObVcvazRwUFJadk4vV2ZUQ01tYnJmRk4vbjQ4ZU1kdk1TYktq?=
- =?utf-8?B?WWVYUlhzM0w0NjQzS0VRcm8rdklXU3ZSZWJLU0VFOWZMa2JQRThFRWsvdmdE?=
- =?utf-8?B?RjYrMExEb0xXVzJkTEFRUlYwOVlvd2U4NCtDUFFINVpnemZyc2pWNGZpKzVE?=
- =?utf-8?B?MDdyWFA5MEpWM2dveUpKTG1ITlQ2dVhNbWtNYlBFUUEzNlFaNGlraWZXV1hW?=
- =?utf-8?B?eEVRVWJYZW1SbWdwcTM3cGNrUGhJdXlNUG9RSmFndndBWkJQaGZsc25tb3gv?=
- =?utf-8?B?OUZianlNa1dkSGJMWWZkTFFvcnRWSm1sZlFYSjY5MFB2UmpBRmZ0RmlJSjkr?=
- =?utf-8?B?MEk5bDdSVlJ1YW5RWkRZWlFTYVMrVDV0SjZ4elBaNXBtWENmZ2FiTmt4RzE5?=
- =?utf-8?B?TllTT0YvTy9YdG1CbVBvSjd2R0RHNWNPYzcyeWhXbGZ4WG8rWXVWdmVEelNa?=
- =?utf-8?B?cEJrMzF2ZGpYcEhGQmtZUXZFc04rbkJmWWZPVHoyd1h6SWhpbEcrRHJIOVJ4?=
- =?utf-8?B?TXZHYWE4aEptczJmZHcwN1M1ZEszejRtbFBvZzc4V1I0dmROWiswZS9ydW5V?=
- =?utf-8?B?Z29pVi9BZjZEa0VCM0xldjRvM2dqWVJrdkpCcjIybHpFT2czQTZkTmZrcUZD?=
- =?utf-8?B?R2RpVUszRk5zUklwUTlGR3FvaHkwd3YwK0NoYk1ldlpwUUtHWmZiWW13RzJE?=
- =?utf-8?B?WmZBdWJVRk1ZYjNuOHZBeTJPOWR0elpzeFRjeW9Ya1lFbzNjNCsvZGVoSmZK?=
- =?utf-8?B?RU1YcXdsQW4xL3lqUzVrWStjUW0rYlJsbm9VQ3BIalVqWkxMaExJZ1NxZmlG?=
- =?utf-8?B?eWEzeWc2b2xZaHVjWVJFRm5DSW9aTzloMVJzeURTNkJvRlBNUHF0UFBuMzFr?=
- =?utf-8?B?NlE9PQ==?=
-Content-ID: <007468AB03AB764CA8371FF7D2F58E71@namprd11.prod.outlook.com>
-MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB5963.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c0a47551-35b1-4512-9c4b-08db6e8b8441
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jun 2023 17:02:50.1302
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: AxNS+ahK+DX1qWqlhMqp8dGmxRY2V1uAK49QA5AQIKPjhPYDLmEE/uWc8XataiNhlTucVUMvPXTbfyxsBS2XERmqw4bOuyDR4kHjwNoPlVg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB5015
-X-OriginatorOrg: intel.com
+   d="scan'208";a="742744959"
+Received: from lkp-server01.sh.intel.com (HELO 783282924a45) ([10.239.97.150])
+  by orsmga008.jf.intel.com with ESMTP; 16 Jun 2023 10:56:47 -0700
+Received: from kbuild by 783282924a45 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qADgk-0001f2-1u;
+	Fri, 16 Jun 2023 17:56:46 +0000
+Date: Sat, 17 Jun 2023 01:56:43 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Linux Memory Management List <linux-mm@kvack.org>,
+ apparmor@lists.ubuntu.com, intel-gfx@lists.freedesktop.org,
+ kunit-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-btrfs@vger.kernel.org,
+ linux-cifs@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-leds@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-scsi@vger.kernel.org, linux-usb@vger.kernel.org,
+ lvs-devel@vger.kernel.org, netdev@vger.kernel.org,
+ ntfs3@lists.linux.dev, samba-technical@lists.samba.org
+Subject: [linux-next:master] BUILD REGRESSION
+ f7efed9f38f886edb450041b82a6f15d663c98f8
+Message-ID: <202306170124.CtQqzf0I-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_100257_114310_FEB62DDE 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20230616_105655_943224_11B18908 
+X-CRM114-Status: UNSURE (   5.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,37 +86,297 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2023-06-16 at 11:50 +0300, Mike Rapoport wrote:
-> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> 
-> Hi,
-> 
-> module_alloc() is used everywhere as a mean to allocate memory for
-> code.
-> 
-> Beside being semantically wrong, this unnecessarily ties all
-> subsystmes
-> that need to allocate code, such as ftrace, kprobes and BPF to
-> modules and
-> puts the burden of code allocation to the modules code.
-> 
-> Several architectures override module_alloc() because of various
-> constraints where the executable memory can be located and this
-> causes
-> additional obstacles for improvements of code allocation.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+branch HEAD: f7efed9f38f886edb450041b82a6f15d663c98f8  Add linux-next specific files for 20230616
 
-I like how this series leaves the allocation code centralized at the
-end of it because it will be much easier when we get to ROX, huge page,
-text_poking() type stuff.
+Error/Warning reports:
 
-I guess that's the idea. I'm just catching up on what you and Song have
-been up to.
+https://lore.kernel.org/oe-kbuild-all/202306100035.VTusNhm4-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306122223.HHER4zOo-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306141719.MJHClSrC-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306141934.UKmM9bFX-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306142017.23VmBLmG-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306151506.goHEegOd-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306160203.DB48f7wR-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306160811.nV1bMsK4-lkp@intel.com
 
+Error/Warning: (recently discovered and may have been fixed)
+
+arch/parisc/kernel/pdt.c:65:6: warning: no previous prototype for 'arch_report_meminfo' [-Wmissing-prototypes]
+drivers/block/pktcdvd.c:1371:13: warning: stack frame size (2496) exceeds limit (2048) in 'pkt_handle_packets' [-Wframe-larger-than]
+drivers/char/mem.c:164:25: error: implicit declaration of function 'unxlate_dev_mem_ptr'; did you mean 'xlate_dev_mem_ptr'? [-Werror=implicit-function-declaration]
+drivers/gpu/drm/i915/display/intel_display_power.h:255:70: error: declaration of 'struct seq_file' will not be visible outside of this function [-Werror,-Wvisibility]
+drivers/leds/leds-cht-wcove.c:144:21: warning: no previous prototype for 'cht_wc_leds_brightness_get' [-Wmissing-prototypes]
+drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c:1036:1: warning: the frame size of 1112 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+drivers/scsi/FlashPoint.c:1712:12: warning: stack frame size (4208) exceeds limit (2048) in 'FlashPoint_HandleInterrupt' [-Wframe-larger-than]
+fs/ntfs3/super.c:1094:12: warning: stack frame size (2384) exceeds limit (2048) in 'ntfs_fill_super' [-Wframe-larger-than]
+lib/kunit/executor_test.c:138:4: warning: cast from 'void (*)(const void *)' to 'kunit_action_t *' (aka 'void (*)(void *)') converts to incompatible function type [-Wcast-function-type-strict]
+lib/kunit/test.c:775:38: warning: cast from 'void (*)(const void *)' to 'kunit_action_t *' (aka 'void (*)(void *)') converts to incompatible function type [-Wcast-function-type-strict]
+security/apparmor/policy_unpack.c:1173: warning: expecting prototype for verify_dfa_accept_xindex(). Prototype was for verify_dfa_accept_index() instead
+
+Unverified Error/Warning (likely false positive, please contact us if interested):
+
+drivers/net/ethernet/mellanox/mlx5/core/lib/devcom.c:98 mlx5_devcom_register_device() error: uninitialized symbol 'tmp_dev'.
+drivers/opp/core.c:2710 dev_pm_opp_xlate_performance_state() warn: variable dereferenced before check 'src_table' (see line 2698)
+drivers/usb/cdns3/cdns3-starfive.c:23: warning: expecting prototype for cdns3(). Prototype was for USB_STRAP_HOST() instead
+fs/btrfs/volumes.c:6404 btrfs_map_block() error: we previously assumed 'mirror_num_ret' could be null (see line 6242)
+fs/smb/client/cifsfs.c:982 cifs_smb3_do_mount() warn: possible memory leak of 'cifs_sb'
+fs/smb/client/cifssmb.c:4089 CIFSFindFirst() warn: missing error code? 'rc'
+fs/smb/client/cifssmb.c:4216 CIFSFindNext() warn: missing error code? 'rc'
+fs/smb/client/connect.c:2775 cifs_match_super() error: 'tlink' dereferencing possible ERR_PTR()
+fs/smb/client/connect.c:2974 generic_ip_connect() error: we previously assumed 'socket' could be null (see line 2962)
+lib/kunit/test.c:336 __kunit_abort() warn: ignoring unreachable code.
+make[2]: *** No rule to make target 'rustdoc'.
+{standard input}: Error: local label `"2" (instance number 9 of a fb label)' is not defined
+{standard input}:1097: Error: pcrel too far
+
+Error/Warning ids grouped by kconfigs:
+
+gcc_recent_errors
+|-- arm-randconfig-r046-20230615
+|   `-- drivers-media-platform-verisilicon-rockchip_vpu981_hw_av1_dec.c:warning:the-frame-size-of-bytes-is-larger-than-bytes
+|-- i386-allyesconfig
+|   `-- drivers-leds-leds-cht-wcove.c:warning:no-previous-prototype-for-cht_wc_leds_brightness_get
+|-- i386-randconfig-m021-20230614
+|   |-- drivers-opp-core.c-dev_pm_opp_xlate_performance_state()-warn:variable-dereferenced-before-check-src_table-(see-line-)
+|   |-- fs-smb-client-cifsfs.c-cifs_smb3_do_mount()-warn:possible-memory-leak-of-cifs_sb
+|   |-- fs-smb-client-cifssmb.c-CIFSFindFirst()-warn:missing-error-code-rc
+|   |-- fs-smb-client-cifssmb.c-CIFSFindNext()-warn:missing-error-code-rc
+|   |-- fs-smb-client-connect.c-cifs_match_super()-error:tlink-dereferencing-possible-ERR_PTR()
+|   `-- fs-smb-client-connect.c-generic_ip_connect()-error:we-previously-assumed-socket-could-be-null-(see-line-)
+|-- microblaze-randconfig-m031-20230614
+|   `-- drivers-opp-core.c-dev_pm_opp_xlate_performance_state()-warn:variable-dereferenced-before-check-src_table-(see-line-)
+|-- mips-randconfig-m041-20230615
+|   |-- drivers-opp-core.c-dev_pm_opp_xlate_performance_state()-warn:variable-dereferenced-before-check-src_table-(see-line-)
+|   |-- fs-btrfs-volumes.c-btrfs_map_block()-error:we-previously-assumed-mirror_num_ret-could-be-null-(see-line-)
+|   `-- lib-kunit-test.c-__kunit_abort()-warn:ignoring-unreachable-code.
+|-- parisc-allyesconfig
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-defconfig
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-randconfig-c004-20230614
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-randconfig-r001-20230616
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-randconfig-r011-20230615
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-randconfig-r021-20230615
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-randconfig-r036-20230615
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-randconfig-s042-20230614
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc64-defconfig
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- riscv-allmodconfig
+|   `-- drivers-usb-cdns3-cdns3-starfive.c:warning:expecting-prototype-for-cdns3().-Prototype-was-for-USB_STRAP_HOST()-instead
+|-- riscv-allyesconfig
+|   `-- drivers-usb-cdns3-cdns3-starfive.c:warning:expecting-prototype-for-cdns3().-Prototype-was-for-USB_STRAP_HOST()-instead
+|-- riscv-randconfig-s031-20230612
+|   |-- arch-riscv-kernel-signal.c:sparse:sparse:incorrect-type-in-assignment-(different-address-spaces)-expected-void-noderef-__user-datap-got-void
+|   `-- arch-riscv-kernel-signal.c:sparse:sparse:incorrect-type-in-initializer-(different-address-spaces)-expected-void-__x-got-void-noderef-__user-assigned-datap
+|-- sh-allmodconfig
+|   |-- drivers-char-mem.c:error:implicit-declaration-of-function-unxlate_dev_mem_ptr
+|   |-- standard-input:Error:local-label-(instance-number-of-a-fb-label)-is-not-defined
+|   `-- standard-input:Error:pcrel-too-far
+|-- sh-j2_defconfig
+|   `-- drivers-char-mem.c:error:implicit-declaration-of-function-unxlate_dev_mem_ptr
+|-- x86_64-allyesconfig
+|   `-- drivers-leds-leds-cht-wcove.c:warning:no-previous-prototype-for-cht_wc_leds_brightness_get
+`-- x86_64-randconfig-m001-20230612
+    |-- drivers-net-ethernet-mellanox-mlx5-core-lib-devcom.c-mlx5_devcom_register_device()-error:uninitialized-symbol-tmp_dev-.
+    |-- fs-smb-client-cifsfs.c-cifs_smb3_do_mount()-warn:possible-memory-leak-of-cifs_sb
+    |-- fs-smb-client-cifssmb.c-CIFSFindFirst()-warn:missing-error-code-rc
+    |-- fs-smb-client-cifssmb.c-CIFSFindNext()-warn:missing-error-code-rc
+    |-- fs-smb-client-connect.c-cifs_match_super()-error:tlink-dereferencing-possible-ERR_PTR()
+    `-- fs-smb-client-connect.c-generic_ip_connect()-error:we-previously-assumed-socket-could-be-null-(see-line-)
+clang_recent_errors
+|-- hexagon-buildonly-randconfig-r002-20230615
+|   |-- lib-kunit-executor_test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|-- hexagon-randconfig-r025-20230615
+|   |-- lib-kunit-executor_test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|-- hexagon-randconfig-r041-20230615
+|   |-- lib-kunit-executor_test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|-- i386-randconfig-i001-20230614
+|   `-- security-apparmor-policy_unpack.c:warning:expecting-prototype-for-verify_dfa_accept_xindex().-Prototype-was-for-verify_dfa_accept_index()-instead
+|-- i386-randconfig-i012-20230615
+|   `-- security-apparmor-policy_unpack.c:warning:expecting-prototype-for-verify_dfa_accept_xindex().-Prototype-was-for-verify_dfa_accept_index()-instead
+|-- i386-randconfig-i013-20230615
+|   `-- drivers-gpu-drm-i915-display-intel_display_power.h:error:declaration-of-struct-seq_file-will-not-be-visible-outside-of-this-function-Werror-Wvisibility
+|-- riscv-buildonly-randconfig-r001-20230615
+|   |-- drivers-block-pktcdvd.c:warning:stack-frame-size-()-exceeds-limit-()-in-pkt_handle_packets
+|   |-- drivers-scsi-FlashPoint.c:warning:stack-frame-size-()-exceeds-limit-()-in-FlashPoint_HandleInterrupt
+|   `-- fs-ntfs3-super.c:warning:stack-frame-size-()-exceeds-limit-()-in-ntfs_fill_super
+|-- riscv-randconfig-r042-20230615
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|-- s390-randconfig-r026-20230615
+|   |-- lib-kunit-executor_test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|-- x86_64-randconfig-a005-20230614
+|   |-- net-netfilter-ipvs-ip_vs_proto.o:warning:objtool:.init.text:unexpected-end-of-section
+|   `-- security-apparmor-policy_unpack.c:warning:expecting-prototype-for-verify_dfa_accept_xindex().-Prototype-was-for-verify_dfa_accept_index()-instead
+|-- x86_64-randconfig-a015-20230615
+|   `-- drivers-net-ethernet-jme.o:warning:objtool:.text.jme_check_link:unexpected-end-of-section
+|-- x86_64-randconfig-r003-20230616
+|   `-- security-apparmor-policy_unpack.c:warning:expecting-prototype-for-verify_dfa_accept_xindex().-Prototype-was-for-verify_dfa_accept_index()-instead
+`-- x86_64-rhel-8.3-rust
+    |-- make:No-rule-to-make-target-rustdoc-.
+    `-- security-apparmor-policy_unpack.c:warning:expecting-prototype-for-verify_dfa_accept_xindex().-Prototype-was-for-verify_dfa_accept_index()-instead
+
+elapsed time: 733m
+
+configs tested: 135
+configs skipped: 5
+
+tested configs:
+alpha                            allyesconfig   gcc  
+alpha                               defconfig   gcc  
+arc                              allyesconfig   gcc  
+arc                                 defconfig   gcc  
+arc                        nsimosci_defconfig   gcc  
+arc                  randconfig-r043-20230615   gcc  
+arc                           tb10x_defconfig   gcc  
+arm                              alldefconfig   clang
+arm                              allmodconfig   gcc  
+arm                              allyesconfig   gcc  
+arm                         axm55xx_defconfig   gcc  
+arm                        clps711x_defconfig   gcc  
+arm                                 defconfig   gcc  
+arm                          gemini_defconfig   gcc  
+arm                           imxrt_defconfig   gcc  
+arm                      integrator_defconfig   gcc  
+arm                             mxs_defconfig   clang
+arm                         nhk8815_defconfig   gcc  
+arm                  randconfig-r046-20230615   gcc  
+arm                         s5pv210_defconfig   clang
+arm                        spear6xx_defconfig   gcc  
+arm                           sunxi_defconfig   gcc  
+arm64                            allyesconfig   gcc  
+arm64                               defconfig   gcc  
+csky                                defconfig   gcc  
+hexagon      buildonly-randconfig-r002-20230615   clang
+hexagon              randconfig-r024-20230615   clang
+hexagon              randconfig-r025-20230615   clang
+hexagon              randconfig-r035-20230615   clang
+hexagon              randconfig-r041-20230615   clang
+hexagon              randconfig-r045-20230615   clang
+i386                             allyesconfig   gcc  
+i386                              debian-10.3   gcc  
+i386                                defconfig   gcc  
+i386                 randconfig-i001-20230614   clang
+i386                 randconfig-i002-20230614   clang
+i386                 randconfig-i003-20230614   clang
+i386                 randconfig-i004-20230614   clang
+i386                 randconfig-i005-20230614   clang
+i386                 randconfig-i006-20230614   clang
+i386                 randconfig-i011-20230615   clang
+i386                 randconfig-i012-20230615   clang
+i386                 randconfig-i013-20230615   clang
+i386                 randconfig-i014-20230615   clang
+i386                 randconfig-i015-20230615   clang
+i386                 randconfig-i016-20230615   clang
+i386                 randconfig-r015-20230615   clang
+loongarch                        allmodconfig   gcc  
+loongarch                         allnoconfig   gcc  
+loongarch                           defconfig   gcc  
+loongarch            randconfig-r013-20230615   gcc  
+m68k                             allmodconfig   gcc  
+m68k                             allyesconfig   gcc  
+m68k                                defconfig   gcc  
+m68k                 randconfig-r012-20230615   gcc  
+m68k                 randconfig-r016-20230615   gcc  
+m68k                 randconfig-r033-20230615   gcc  
+m68k                        stmark2_defconfig   gcc  
+m68k                           virt_defconfig   gcc  
+microblaze   buildonly-randconfig-r005-20230615   gcc  
+mips                             allmodconfig   gcc  
+mips                             allyesconfig   gcc  
+mips                  cavium_octeon_defconfig   clang
+mips                     decstation_defconfig   gcc  
+mips                    maltaup_xpa_defconfig   gcc  
+mips                        omega2p_defconfig   clang
+mips                 randconfig-r023-20230615   gcc  
+mips                   sb1250_swarm_defconfig   clang
+nios2                               defconfig   gcc  
+nios2                randconfig-r005-20230616   gcc  
+nios2                randconfig-r014-20230615   gcc  
+parisc                           allyesconfig   gcc  
+parisc                              defconfig   gcc  
+parisc               randconfig-r001-20230616   gcc  
+parisc               randconfig-r011-20230615   gcc  
+parisc               randconfig-r021-20230615   gcc  
+parisc               randconfig-r036-20230615   gcc  
+parisc64                            defconfig   gcc  
+powerpc                          allmodconfig   gcc  
+powerpc                           allnoconfig   gcc  
+powerpc                        cell_defconfig   gcc  
+powerpc                     kilauea_defconfig   clang
+powerpc                      makalu_defconfig   gcc  
+powerpc                     ppa8548_defconfig   clang
+powerpc                      walnut_defconfig   clang
+riscv                            allmodconfig   gcc  
+riscv                             allnoconfig   gcc  
+riscv                            allyesconfig   gcc  
+riscv        buildonly-randconfig-r001-20230615   clang
+riscv                               defconfig   gcc  
+riscv                randconfig-r042-20230615   clang
+riscv                          rv32_defconfig   gcc  
+s390                             allmodconfig   gcc  
+s390                             allyesconfig   gcc  
+s390                                defconfig   gcc  
+s390                 randconfig-r026-20230615   clang
+s390                 randconfig-r044-20230615   clang
+sh                               allmodconfig   gcc  
+sh                                  defconfig   gcc  
+sh                         ecovec24_defconfig   gcc  
+sh                               j2_defconfig   gcc  
+sh                          kfr2r09_defconfig   gcc  
+sh                          landisk_defconfig   gcc  
+sh                   randconfig-r031-20230615   gcc  
+sparc                            allyesconfig   gcc  
+sparc        buildonly-randconfig-r003-20230615   gcc  
+sparc        buildonly-randconfig-r004-20230615   gcc  
+sparc                               defconfig   gcc  
+sparc                       sparc32_defconfig   gcc  
+sparc64              randconfig-r004-20230616   gcc  
+sparc64              randconfig-r006-20230616   gcc  
+sparc64              randconfig-r022-20230615   gcc  
+sparc64              randconfig-r032-20230615   gcc  
+um                               alldefconfig   gcc  
+um                                  defconfig   gcc  
+um                             i386_defconfig   gcc  
+um                           x86_64_defconfig   gcc  
+x86_64                           allyesconfig   gcc  
+x86_64                              defconfig   gcc  
+x86_64                                  kexec   gcc  
+x86_64               randconfig-a001-20230614   clang
+x86_64               randconfig-a002-20230614   clang
+x86_64               randconfig-a003-20230614   clang
+x86_64               randconfig-a004-20230614   clang
+x86_64               randconfig-a005-20230614   clang
+x86_64               randconfig-a006-20230614   clang
+x86_64               randconfig-a011-20230615   clang
+x86_64               randconfig-a012-20230615   clang
+x86_64               randconfig-a013-20230615   clang
+x86_64               randconfig-a014-20230615   clang
+x86_64               randconfig-a015-20230615   clang
+x86_64               randconfig-a016-20230615   clang
+x86_64               randconfig-r003-20230616   clang
+x86_64                          rhel-8.3-rust   clang
+x86_64                               rhel-8.3   gcc  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
