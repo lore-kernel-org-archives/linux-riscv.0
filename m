@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34CBEB64D9
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 15:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF82C0015E
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 16:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z9XtYR/mRX8cMoi70CtDoBxaPBwEiuHftPxWfR1vQ2o=; b=ik9VCzR8XDGnmZ
-	kcI2IIwhz4aU+Fs7jMe2HKushuTIq3JjxCYWsr3mxkp9sBfYwYhM8TVSOCvbDyxNaRGxrj++nnrsL
-	kWIcsboAejiJqseWTutT6H8YhdBDcic+E4Z5udEB5OLXvkWP7dZqjYQTt7vnYSDhigDUM7vFIZF2i
-	GBBBXlvSzUVTi8KMei8Cxjtm93WCb9c/Ukv+cLtqy4Oq0iLCE0aCRwq1UaC+0fepLcJkJKHySFT/z
-	4BtoRCVuIoDSI/+609o8ZCjet/jHSfcMOI7IqBpHTLXX8MYpTiQe5EsHW5fzv8+SDo+gFed4MOQrZ
-	GsVONsvsQ2kY8zNyajSQ==;
+	List-Owner; bh=notC75QFTnJGDdPAU7myFjLE6/5tL1UcsRRLAI7XQKc=; b=JfmZTqOTL/XAiW
+	SGI9E4RFN7QZL7zM6PA3peiTFgIJrGWhspJ6JvAkHnYtbikDHCs+UhJF8Z6o/Nvm2MXI/K5exCroP
+	NfDyQdtv5QjrYtfmlwPPHm/bZvOZKa+MiJIu0kIfzvVxECALlFPNJBzYPB8s7AdXHT30kWvUxEx9X
+	TSZFimy/64gr8c7ZGUK29cIJgfBnYq395f6IAedTsewPvG7V3Dd7k9I8IpmQ4jNoLaPg+2FC9V8K+
+	2ITVWxImiUEKFKwQ9wkQ0oY9TL/rvhPCwBrD+AfOvpsXsjDzeQC5xUtvHjWgTydRm5rnRKH0Pz1GL
+	cyPSNxHoGAZkjt6Bvw2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAXzE-003pbT-0s;
-	Sat, 17 Jun 2023 15:37:12 +0000
-Received: from out-11.mta0.migadu.com ([91.218.175.11])
+	id 1qAYlQ-003tSz-1g;
+	Sat, 17 Jun 2023 16:27:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAXz9-003pZc-1M
+	id 1qAYlN-003tSK-1A
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Jun 2023 15:37:10 +0000
-Date: Sat, 17 Jun 2023 11:36:58 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1687016225;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gkXjdfOcfNeiSkHnMLeI301HhtsXBRoYstWMSEINMeY=;
-	b=bYJe9WRiSRM7w/M47iLquWHHUju4li/dPcwoEprDi3YlwcaYBjxpWs1nL0UujvT6xyWL/M
-	S2Ghsqn2fpzAD+9R1F0Wx9PyfySyz0oJLdRx0TD6TfwLRge4cekLdS4qLEUtsEWtm6ack0
-	XRAL5F0yJ/NulC1WuvN1fyiNm3tO1UM=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Kent Overstreet <kent.overstreet@linux.dev>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Song Liu <song@kernel.org>, linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Sat, 17 Jun 2023 16:26:58 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DF94960F71;
+	Sat, 17 Jun 2023 16:26:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F697C433CC;
+	Sat, 17 Jun 2023 16:26:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687019216;
+	bh=SPJDcPMwrrlzSG74QPkv587ksGll4C/xWYjG7hI2xKQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=k2ykfh7EjPhM7ZUVmbO9bWK2evu+5Qawj1w4FOwYFihn5wmG7ZAaG4kg6i/BzWV4w
+	 2Red1wsns7E8rxWYmH4Hwn8Fe6oG/C8nvnOhvHXUGD0XTuWmy5DQsaRg/WbCuuLyzm
+	 MGbOMUGeCzLkBL92xDgnXA1KQSOYyHCfbLtyIziOltVpXuQn+/cy9BUbBvbdvg/4gf
+	 zKicAu5dwCvNidcJmav3gnPnkZi9erhX40GyUB16+kiIUyMVWqOxAZu+XlV8+x++e9
+	 QO6NgyNhwqhfpWfIFii4u7MorlqmVyH4iBJA4xxUDLyDUHlXuQCXcie8nir72i0EW8
+	 hRopKsY56omzg==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, netdev@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 07/12] arm64, execmem: extend execmem_params for
- generated code definitions
-Message-ID: <ZI3TGhJ2y5SBWmnA@moria.home.lan>
-References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-8-rppt@kernel.org>
- <CAPhsuW6BG2oVrGDOpCKyOEvU9fBOboYYhducv96KUBe276Mvng@mail.gmail.com>
- <20230617065759.GT52412@kernel.org>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 1/8] dt-bindings: interrupt-controller: Add T-HEAD's TH1520 PLIC
+Date: Sun, 18 Jun 2023 00:15:22 +0800
+Message-Id: <20230617161529.2092-2-jszhang@kernel.org>
+X-Mailer: git-send-email 2.40.0
+In-Reply-To: <20230617161529.2092-1-jszhang@kernel.org>
+References: <20230617161529.2092-1-jszhang@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230617065759.GT52412@kernel.org>
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230617_083707_612872_E49D7C0B 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20230617_092657_439930_082BEAA1 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,26 +88,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 17, 2023 at 09:57:59AM +0300, Mike Rapoport wrote:
-> > This is growing fast. :) We have 3 now: text, data, jit. And it will be
-> > 5 when we split data into rw data, ro data, ro after init data. I wonder
-> > whether we should still do some type enum here. But we can revisit
-> > this topic later.
-> 
-> I don't think we'd need 5. Four at most :)
-> 
-> I don't know yet what would be the best way to differentiate RW and RO
-> data, but ro_after_init surely won't need a new type. It either will be
-> allocated as RW and then the caller will have to set it RO after
-> initialization is done, or it will be allocated as RO and the caller will
-> have to do something like text_poke to update it.
+Add compatible string for T-HEAD TH1520 plic.
 
-Perhaps ro_after_init could use the same allocation interface and share
-pages with ro pages - if we just added a refcount for "this page
-currently needs to be rw, module is still loading?"
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+---
+ .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
+ 1 file changed, 1 insertion(+)
 
-text_poke() approach wouldn't be workable, you'd have to audit and fix
-all module init code in the entire kernel.
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index f75736a061af..0fa9b862e4a5 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -65,6 +65,7 @@ properties:
+       - items:
+           - enum:
+               - allwinner,sun20i-d1-plic
++              - thead,th1520-plic
+           - const: thead,c900-plic
+       - items:
+           - const: sifive,plic-1.0.0
+-- 
+2.40.0
+
 
 _______________________________________________
 linux-riscv mailing list
