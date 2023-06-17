@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03C4EB64D9
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 06:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC80EB64D9
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 13:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=deY5HMn6M2GDfCQ5PONHzHFpsUxdrtjH6CJS9fDS/FY=; b=h/5nWCMTXfJcMr
-	G+eqMfHD5eD86nPpU28SH/P3BAfAHR85fLc1zx5yBAs3kszX0tXUnh22+YOrjnONJGRu/f8UtqsSW
-	eyeoMttGvm2IpoU8l0wKRIvWb/oZcNwMpA3DJvT8k4KUPJomQsqApNxvuNKBqWtfWygrLyilHMNON
-	yEYntt7aS+EUpoYJHiOw1GYEraayMbD34eSegqDMn5jfUtX2oNS++QUprkkVylVL6aefIClXFhrjy
-	LlyUmtNv5h1JDlk61JTWobLf0dwBMbq0bpu6+AMUer299JyPmK64ceSxUSMxy6buBcCibBiD5koyJ
-	aU27D1EoXC6L1KVTzWIQ==;
+	List-Owner; bh=cSHrTDcEzhvNeF0rBnhnTHPACiJH10Lgkp7bHv0qUfI=; b=APrRgp6OCmYTS5
+	lQvIDIcATrasCs/AYzUB/WTRJjEhIvRsXXbBHExzZCGcevUl+HbvNCk7/gldvbNQz5QaTmE9l+vVo
+	IVj111u/zbeOX1cL4G/DmTOUYFa78MskoelGW6r6h9zdZI9DGhKPWzxtCkzt1w1tpv+861d4SmuQ6
+	5G6I9iYJnEAA1mtO0Ddi9nHiWY6iNzbNDJSIYhSXpX8j6DFIq5MjSPLIrWi8UJHgKFRRXuJH461aL
+	ZmhAwb6+KuCja+UMf5SZvoZw0ZFnZ0S+3l57D6D4ju/pKSUinw7/4hyZjR7oIzQ6Mx30pq8+ZJBjD
+	JIkzRzZb8oJEGvwpQTVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAPtd-002wp4-0h;
-	Sat, 17 Jun 2023 06:58:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qAWIs-003hGw-1f;
+	Sat, 17 Jun 2023 13:49:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAPtZ-002wml-1y;
-	Sat, 17 Jun 2023 06:58:50 +0000
+	id 1qAWIo-003hFG-2n;
+	Sat, 17 Jun 2023 13:49:20 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2E11B6068F;
-	Sat, 17 Jun 2023 06:58:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9588BC433C0;
-	Sat, 17 Jun 2023 06:58:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 10C0861222;
+	Sat, 17 Jun 2023 13:49:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A19BC433C8;
+	Sat, 17 Jun 2023 13:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686985126;
-	bh=9S4P8JW7Aw6+2ZoVDniU5EdIBLc9OdiTvqw3YA9ECf4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nHkTyW+hctadrgmIg2I6LaptKR6YKkmtmdcOS/HSni9feQ5p1DZtCSX6Dnam1slU3
-	 FLDQnf/OEx1d4jSPxMmAwLEhSg3dDkigyXgxGzkX1VJc1UJnkk6n01fCEZ0qwx4ELP
-	 r6wbjQNoXnPg5HveUgv1zS7owOZuF5kej34YgRIGZdC2tH3sGX0H+MpQa784HSW6mk
-	 qjN9Au7ZhvMEPLupJ+gAv5/GudEwZVVlLyNGJFO9CDGv8qdQ0I+Zmw8CDlXcjxb8w/
-	 RZuOMQ5h8Q4Z/8VeTux+zm8PEK9dnLGg98fBUnC+4CbpTq0gKeC8d5BMUXJufl+4IU
-	 tPAEuFrGSOYnA==
-Date: Sat, 17 Jun 2023 09:57:59 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, netdev@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 07/12] arm64, execmem: extend execmem_params for
- generated code definitions
-Message-ID: <20230617065759.GT52412@kernel.org>
-References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-8-rppt@kernel.org>
- <CAPhsuW6BG2oVrGDOpCKyOEvU9fBOboYYhducv96KUBe276Mvng@mail.gmail.com>
+	s=k20201202; t=1687009750;
+	bh=504yc8iPPjU8NVzPNBErG7ipfm0t5oxlemyrrJViFX0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tjon9VrmDrWjBjdgLGkvf/8Fb+HKIMLZwjsReYzLHRZ8QGRpVntYczSD/rl+YMHHA
+	 Xjwx8Sgg8hmJjCMaC1wi+IgUQRXM0f0anVkTYddzchDDiV68bFQn+H27ye03DP9q2e
+	 UUL037fuM7skmcPqT56XRBVi9fzNfIdlyBT/b4LDwD6g+1Hjyr+BA4FA6HDnCupdYw
+	 Gkf9895nfE8jlylfQ0Xcop5SqbJDIKJIJOcubgWUe1U9lnaGwGr9mwM7Eo9/vzpMKA
+	 btKbwrIEWqNHfwEdpdjr0JjLNTqQ64y1Vtre6qzAtAKmRldzmXGLcMhLLYcPxUE5Fb
+	 E5l/44Ln30euQ==
+Date: Sat, 17 Jun 2023 14:48:55 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Maksim Kiselev <bigunclemax@gmail.com>
+Cc: linux-iio@vger.kernel.org, Andy Shevchenko <andy.shevchenko@gmail.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Heiko Stuebner
+ <heiko.stuebner@vrull.eu>, Cosmin Tanislav <demonsingur@gmail.com>, Haibo
+ Chen <haibo.chen@nxp.com>, Leonard =?UTF-8?B?R8O2aHJz?=
+ <l.goehrs@pengutronix.de>, Caleb Connolly <caleb.connolly@linaro.org>, Hugo
+ Villeneuve <hvilleneuve@dimonoff.com>, Mike Looijmans
+ <mike.looijmans@topic.nl>, ChiYuan Huang <cy_huang@richtek.com>, Ramona
+ Bolboaca <ramona.bolboaca@analog.com>, Ibrahim Tilki
+ <Ibrahim.Tilki@analog.com>, William Breathitt Gray
+ <william.gray@linaro.org>, Arnd Bergmann <arnd@arndb.de>, ChiaEn Wu
+ <chiaen_wu@richtek.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 1/3] iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs
+ GPADC
+Message-ID: <20230617144855.0388c4ff@jic23-huawei>
+In-Reply-To: <20230615205540.1803975-2-bigunclemax@gmail.com>
+References: <20230615205540.1803975-1-bigunclemax@gmail.com>
+	<20230615205540.1803975-2-bigunclemax@gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAPhsuW6BG2oVrGDOpCKyOEvU9fBOboYYhducv96KUBe276Mvng@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_235849_758235_68EB9D2E 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20230617_064918_984959_1697AE5F 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,50 +88,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdW4gMTYsIDIwMjMgYXQgMDE6MDU6MjlQTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6
-Cj4gT24gRnJpLCBKdW4gMTYsIDIwMjMgYXQgMTo1MuKAr0FNIE1pa2UgUmFwb3BvcnQgPHJwcHRA
-a2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gRnJvbTogIk1pa2UgUmFwb3BvcnQgKElCTSkiIDxy
-cHB0QGtlcm5lbC5vcmc+Cj4gPgo+ID4gVGhlIG1lbW9yeSBhbGxvY2F0aW9ucyBmb3Iga3Byb2Jl
-cyBvbiBhcm02NCBjYW4gYmUgcGxhY2VkIGFueXdoZXJlIGluCj4gPiB2bWFsbG9jIGFkZHJlc3Mg
-c3BhY2UgYW5kIGN1cnJlbnRseSB0aGlzIGlzIGltcGxlbWVudGVkIHdpdGggYW4gb3ZlcnJpZGUK
-PiA+IG9mIGFsbG9jX2luc25fcGFnZSgpIGluIGFybTY0Lgo+ID4KPiA+IEV4dGVuZCBleGVjbWVt
-X3BhcmFtcyB3aXRoIGEgcmFuZ2UgZm9yIGdlbmVyYXRlZCBjb2RlIGFsbG9jYXRpb25zIGFuZAo+
-ID4gbWFrZSBrcHJvYmVzIG9uIGFybTY0IHVzZSB0aGlzIGV4dGVuc2lvbiByYXRoZXIgdGhhbiBv
-dmVycmlkZQo+ID4gYWxsb2NfaW5zbl9wYWdlKCkuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogTWlr
-ZSBSYXBvcG9ydCAoSUJNKSA8cnBwdEBrZXJuZWwub3JnPgo+ID4gLS0tCj4gPiAgYXJjaC9hcm02
-NC9rZXJuZWwvbW9kdWxlLmMgICAgICAgICB8ICA5ICsrKysrKysrKwo+ID4gIGFyY2gvYXJtNjQv
-a2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMgfCAgNyAtLS0tLS0tCj4gPiAgaW5jbHVkZS9saW51eC9l
-eGVjbWVtLmggICAgICAgICAgICB8IDExICsrKysrKysrKysrCj4gPiAgbW0vZXhlY21lbS5jICAg
-ICAgICAgICAgICAgICAgICAgICB8IDE0ICsrKysrKysrKysrKystCj4gPiAgNCBmaWxlcyBjaGFu
-Z2VkLCAzMyBpbnNlcnRpb25zKCspLCA4IGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQg
-YS9hcmNoL2FybTY0L2tlcm5lbC9tb2R1bGUuYyBiL2FyY2gvYXJtNjQva2VybmVsL21vZHVsZS5j
-Cj4gPiBpbmRleCBjM2Q5OTlmM2EzZGQuLjUyYjA5NjI2YmMwZiAxMDA2NDQKPiA+IC0tLSBhL2Fy
-Y2gvYXJtNjQva2VybmVsL21vZHVsZS5jCj4gPiArKysgYi9hcmNoL2FybTY0L2tlcm5lbC9tb2R1
-bGUuYwo+ID4gQEAgLTMwLDYgKzMwLDEzIEBAIHN0YXRpYyBzdHJ1Y3QgZXhlY21lbV9wYXJhbXMg
-ZXhlY21lbV9wYXJhbXMgPSB7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAuYWxpZ25tZW50
-ID0gTU9EVUxFX0FMSUdOLAo+ID4gICAgICAgICAgICAgICAgIH0sCj4gPiAgICAgICAgIH0sCj4g
-PiArICAgICAgIC5qaXQgPSB7Cj4gPiArICAgICAgICAgICAgICAgLnRleHQgPSB7Cj4gPiArICAg
-ICAgICAgICAgICAgICAgICAgICAuc3RhcnQgPSBWTUFMTE9DX1NUQVJULAo+ID4gKyAgICAgICAg
-ICAgICAgICAgICAgICAgLmVuZCA9IFZNQUxMT0NfRU5ELAo+ID4gKyAgICAgICAgICAgICAgICAg
-ICAgICAgLmFsaWdubWVudCA9IDEsCj4gPiArICAgICAgICAgICAgICAgfSwKPiA+ICsgICAgICAg
-fSwKPiA+ICB9Owo+IAo+IFRoaXMgaXMgZ3Jvd2luZyBmYXN0LiA6KSBXZSBoYXZlIDMgbm93OiB0
-ZXh0LCBkYXRhLCBqaXQuIEFuZCBpdCB3aWxsIGJlCj4gNSB3aGVuIHdlIHNwbGl0IGRhdGEgaW50
-byBydyBkYXRhLCBybyBkYXRhLCBybyBhZnRlciBpbml0IGRhdGEuIEkgd29uZGVyCj4gd2hldGhl
-ciB3ZSBzaG91bGQgc3RpbGwgZG8gc29tZSB0eXBlIGVudW0gaGVyZS4gQnV0IHdlIGNhbiByZXZp
-c2l0Cj4gdGhpcyB0b3BpYyBsYXRlci4KCkkgZG9uJ3QgdGhpbmsgd2UnZCBuZWVkIDUuIEZvdXIg
-YXQgbW9zdCA6KQoKSSBkb24ndCBrbm93IHlldCB3aGF0IHdvdWxkIGJlIHRoZSBiZXN0IHdheSB0
-byBkaWZmZXJlbnRpYXRlIFJXIGFuZCBSTwpkYXRhLCBidXQgcm9fYWZ0ZXJfaW5pdCBzdXJlbHkg
-d29uJ3QgbmVlZCBhIG5ldyB0eXBlLiBJdCBlaXRoZXIgd2lsbCBiZQphbGxvY2F0ZWQgYXMgUlcg
-YW5kIHRoZW4gdGhlIGNhbGxlciB3aWxsIGhhdmUgdG8gc2V0IGl0IFJPIGFmdGVyCmluaXRpYWxp
-emF0aW9uIGlzIGRvbmUsIG9yIGl0IHdpbGwgYmUgYWxsb2NhdGVkIGFzIFJPIGFuZCB0aGUgY2Fs
-bGVyIHdpbGwKaGF2ZSB0byBkbyBzb21ldGhpbmcgbGlrZSB0ZXh0X3Bva2UgdG8gdXBkYXRlIGl0
-LgogCj4gT3RoZXIgdGhhbiB0aGF0Cj4gCj4gQWNrZWQtYnk6IFNvbmcgTGl1IDxzb25nQGtlcm5l
-bC5vcmc+CgotLSAKU2luY2VyZWx5IHlvdXJzLApNaWtlLgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, 15 Jun 2023 23:55:20 +0300
+Maksim Kiselev <bigunclemax@gmail.com> wrote:
+
+> The General Purpose ADC (GPADC) can convert the external signal into
+> a certain proportion of digital value, to realize the measurement of
+> analog signal, which can be applied to power detection and key detection.
+> 
+> Theoretically, this ADC can support up to 16 channels. All SoCs below
+> contain this GPADC IP. The only difference between them is the number
+> of available channels:
+> 
+>  T113 - 1 channel
+>  D1   - 2 channels
+>  R329 - 4 channels
+>  T507 - 4 channels
+> 
+> Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
+> Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
+> ---
+>  drivers/iio/adc/Kconfig            |  10 ++
+>  drivers/iio/adc/Makefile           |   1 +
+>  drivers/iio/adc/sun20i-gpadc-iio.c | 276 +++++++++++++++++++++++++++++
+>  3 files changed, 287 insertions(+)
+>  create mode 100644 drivers/iio/adc/sun20i-gpadc-iio.c
+> 
+> diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+> index eb2b09ef5d5b..deff7ae704ce 100644
+> --- a/drivers/iio/adc/Kconfig
+> +++ b/drivers/iio/adc/Kconfig
+> @@ -1123,6 +1123,16 @@ config SUN4I_GPADC
+>  	  To compile this driver as a module, choose M here: the module will be
+>  	  called sun4i-gpadc-iio.
+>  
+> +config SUN20I_GPADC
+> +	tristate "Support for the Allwinner SoCs GPADC"
+I applied this and started a build test before noticing that this Kconfig description
+is very vague and matches the one for the existing 4i driver...
+
+The 'Support for the' bit also isn't appropriate for what you see in make menuconfig
+menu etc.   Please come up with something descriptive. Maybe
+"sun20i and similar SoC GPADC"?
+
+Bonus points if you change the text for the 4i at the same time to be
+more meaningful. I clearly missed that in review a long time ago!
+
+It's now too late anyway for the 6.5 cycle, so no particular rush though
+I can queue this up for build testing whilst waiting for 6.5-rc1 to come
+along (I'll rebase my tree on that once available) and it will then end up
+in next etc.
+
+Jonathan
+
+> +	depends on ARCH_SUNXI || COMPILE_TEST
+> +	help
+> +	  Say yes here to build support for Allwinner (D1, T113, T507 and R329)
+> +	  SoCs GPADC. This ADC provides up to 16 channels.
+> +
+> +	  To compile this driver as a module, choose M here: the module will be
+> +	  called sun20i-gpadc-iio.
+> +
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
