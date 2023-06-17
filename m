@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1D6EB64DB
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 16:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18722EB64D9
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 16:27:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kKryX7BAoloF+FG/gdZ61/nnMLTmsySVf9gHbZqWnl8=; b=gz7WxeQES+jX+A
-	mdXFRQiLH8e8b7aeB0/hcDD7GMv4b1rBRi52FJC8Nqu2mnkDX7kUmoqIV9wkQIjz7vRKGwOXDYyaf
-	8HdQJ9S+xSVAgZek8e6lRLkOWCQ4KCaalkElJ/soz07GKMpN4CSCh6an0E5Ny6z0X6SjRb/Tr77hu
-	A1LeevsxqPy8l6J/KAbMOpZa68hs3xhxp6Nm7LlICcEvQLqF/IHf27Cb02Zfvc4OYdMcsLK7sEWaF
-	G61RKuzLqCkBxxm+AYMCirXlEzDDcvRU59rHYOToSCq4H043/BTMH7MdoZw73LZSiOov7KP55zCMj
-	RzUCN51ZE4dlDzl4Tzag==;
+	List-Owner; bh=GukcrDy7fMD2woMp22gSmklMmtYVk3NwFMWHJTLS0Z8=; b=RY5+n4ikXzPMzH
+	DaDMNDF4cbevZ8PCK3wtAZI47ig300m90e9RzHpBy5N7GUQPRuPN1M4sptAvMlhOj6th8XFmim6Br
+	RgOQABajXRPQdKBiVFIQ2QVXfLny8OqNITr+RGvKYCJY0tqKUNi7rB/vGGk6RnChLXWzGddpmn8aI
+	Gy5vmWKzhzKzZi+f3RKs44/VteqgiueT1d91FExl+4ZcS5tOGCU2sTSrtqwar6nAJIh2gg0uZSVUm
+	x3su7sWFgt5mG5yoqHRj7/EDit5++sXv7Now8ZPT0Zo5QBamaVUyjF4+o/pCmYlF9gatbAUZ7xAcH
+	HROJc7gRyO15Aeu7f70Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAYln-003tc7-1S;
-	Sat, 17 Jun 2023 16:27:23 +0000
+	id 1qAYls-003teq-0T;
+	Sat, 17 Jun 2023 16:27:28 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAYlk-003taw-32
+	id 1qAYlp-003tdD-2G
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Jun 2023 16:27:22 +0000
+	Sat, 17 Jun 2023 16:27:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8236361141;
-	Sat, 17 Jun 2023 16:27:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADFA5C433C8;
-	Sat, 17 Jun 2023 16:27:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 461D760BA8;
+	Sat, 17 Jun 2023 16:27:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 334E4C433C0;
+	Sat, 17 Jun 2023 16:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687019240;
-	bh=tuyRjugUtNnv9NSvg0JKtT6JTySfG2QjgD5pYhGE3Oo=;
+	s=k20201202; t=1687019244;
+	bh=15h31Gq485ARLyon5H9bm78eqGG5GpNtnkp3TJY8+4s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rLemWZcmp8D3z8QRkuuDf2liEEtC/neuEkSmoLSHnQgiOwulQ7eCL/KBpJl/rE7vD
-	 JsSZ7N3EO5eX40xP6q9hxFDd+WPWvBpQNSbyo1UlzK7m6yoyfDzOEug7yDnSj9Fvzt
-	 nKCg/BZZqu33EPlM0+umikiChGZTZREweHOfuARN/WVQ0TLKBBsX6Ceagyp7pAoTPd
-	 mOC5vFCkJXkH33fDdscyRniDJTOsqMdatDrVeOLEry1ZzoDRoLeO3oQ0yu9YySZAZF
-	 EKqUT7hzvN73HeXK1nCs/c8NEeZnncnkWCHCu/f8TxBQdKxKHIWISGi0u3n95wWZFw
-	 3jJlEXSWOSoyQ==
+	b=bUcCSHlXWz8OFVrESwROBhwI5K2nR0kk3xQ1Y0ggV+4bN2ztD8fjNnx+lOC9QoLja
+	 2EcFpI6AFbr8WK290wnO6rYD+tNSbFhScpf39CJQGF1J9X5ZScD/wVutAcsFtIq1bg
+	 GDIxqZ4cKpbgNQVFI0mkTXZUZKWi1gIO9Ih2YTI4IY+052KxIN5gr+6FJdz06DUkt7
+	 o3oVmfhkIXPpBYp9jlc6PWHIGqZkx4Pu7dlrRg0lQxKEK094ViP98LUeeM888vAlnQ
+	 r0x3Gw/XwFtfMQs2YwjH6voAy9g/mTY999c+5mUScETLEt5jVm9c+uYQGr4uosMr9a
+	 WJSPTCjEMg4IQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Marc Zyngier <maz@kernel.org>,
@@ -60,17 +60,18 @@ Cc: Guo Ren <guoren@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 7/8] MAINTAINERS: add entry for T-HEAD RISC-V SoC
-Date: Sun, 18 Jun 2023 00:15:28 +0800
-Message-Id: <20230617161529.2092-8-jszhang@kernel.org>
+	Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v3 8/8] riscv: defconfig: enable T-HEAD SoC
+Date: Sun, 18 Jun 2023 00:15:29 +0800
+Message-Id: <20230617161529.2092-9-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 In-Reply-To: <20230617161529.2092-1-jszhang@kernel.org>
 References: <20230617161529.2092-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230617_092721_019618_EB28AF7A 
-X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-CacheID: sfid-20230617_092725_812965_D6CA6D52 
+X-CRM114-Status: UNSURE (   8.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,33 +89,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, I would like to maintain the T-HEAD RISC-V SoC support.
+Enable T-HEAD SoC config in defconfig to allow the default
+upstream kernel to boot on Sipeed Lichee Pi 4A board.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Guo Ren <guoren@kernel.org>
 ---
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/riscv/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e0ad886d3163..68805b09654f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18162,6 +18162,14 @@ F:	drivers/perf/riscv_pmu.c
- F:	drivers/perf/riscv_pmu_legacy.c
- F:	drivers/perf/riscv_pmu_sbi.c
- 
-+RISC-V THEAD SoC SUPPORT
-+M:	Jisheng Zhang <jszhang@kernel.org>
-+M:	Guo Ren <guoren@kernel.org>
-+M:	Fu Wei <wefu@redhat.com>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	arch/riscv/boot/dts/thead/
-+
- RNBD BLOCK DRIVERS
- M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
- M:	Jack Wang <jinpu.wang@ionos.com>
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index d98d6e90b2b8..109e4b5b003c 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -27,6 +27,7 @@ CONFIG_EXPERT=y
+ CONFIG_PROFILING=y
+ CONFIG_SOC_MICROCHIP_POLARFIRE=y
+ CONFIG_ARCH_RENESAS=y
++CONFIG_ARCH_THEAD=y
+ CONFIG_SOC_SIFIVE=y
+ CONFIG_SOC_STARFIVE=y
+ CONFIG_ARCH_SUNXI=y
 -- 
 2.40.0
 
