@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC57EEB64DB
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 06:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03C4EB64D9
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 06:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mAoZuQDBuA26L07Lis12yFbRzUeN7HvKB4FRK0oc6+o=; b=eeJgUQIu8WS0Gg
-	JWqo5Ey3sO0xjRrii3u3Gmrac88jiFKvtM2KOVPcSqC2to/hUtm/Zmg4SMz+dM8rgjYQLgRbaQ0n0
-	gZcDLCiIbuJ8sMyRBhrrSBq8o24QEBFsNDUQpl4Y0UriS7SQers7Oq3eVX1E74mJOHnxzDrgOHL5k
-	pFiIUs/W3xK8Y7isMTJnt0qgkJTU5ow9KWXYCUqn+JD6QCVlHDlOLVusbBn97Fo2e/RVkjs5GXUew
-	AuknqRhGKLU93jjHWkQIKN0Kxm7GM4vVV+lu+HjeYZ//4HgJc+6wr8VEbaV2XRV5t6SH7gBdytxM2
-	TAX7g9vgaL1hMVaoTiAQ==;
+	List-Owner; bh=deY5HMn6M2GDfCQ5PONHzHFpsUxdrtjH6CJS9fDS/FY=; b=h/5nWCMTXfJcMr
+	G+eqMfHD5eD86nPpU28SH/P3BAfAHR85fLc1zx5yBAs3kszX0tXUnh22+YOrjnONJGRu/f8UtqsSW
+	eyeoMttGvm2IpoU8l0wKRIvWb/oZcNwMpA3DJvT8k4KUPJomQsqApNxvuNKBqWtfWygrLyilHMNON
+	yEYntt7aS+EUpoYJHiOw1GYEraayMbD34eSegqDMn5jfUtX2oNS++QUprkkVylVL6aefIClXFhrjy
+	LlyUmtNv5h1JDlk61JTWobLf0dwBMbq0bpu6+AMUer299JyPmK64ceSxUSMxy6buBcCibBiD5koyJ
+	aU27D1EoXC6L1KVTzWIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAPo3-002w6q-2O;
-	Sat, 17 Jun 2023 06:53:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qAPtd-002wp4-0h;
+	Sat, 17 Jun 2023 06:58:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAPo0-002w4f-1B;
-	Sat, 17 Jun 2023 06:53:05 +0000
+	id 1qAPtZ-002wml-1y;
+	Sat, 17 Jun 2023 06:58:50 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DF07561087;
-	Sat, 17 Jun 2023 06:53:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22C22C433C0;
-	Sat, 17 Jun 2023 06:52:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2E11B6068F;
+	Sat, 17 Jun 2023 06:58:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9588BC433C0;
+	Sat, 17 Jun 2023 06:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1686984783;
-	bh=s5IbUS/R9FUeza7Uno3Hll+WeqZYFms0rCFRllsd4i8=;
+	s=k20201202; t=1686985126;
+	bh=9S4P8JW7Aw6+2ZoVDniU5EdIBLc9OdiTvqw3YA9ECf4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O0jdChYvxLTPBx1BOB1xElON4yTO54jJpqqtDjBH7kzjTk7h8ut1Zvwg88nJSwHD5
-	 dR46BC1yX4kfsB9fmhzM3g5FAiBBJ7EopEe68OhToY9ZvFD0H28XYCChSftyR0QUBZ
-	 RDI9hk6abzU7ADT2Mp8RObMy225YcvgqAzj8bWooQ/IUkq2S0z3QH97xrM4q9eh/eL
-	 W9Ix4DLih/xlZ3Zq9c6AydZXL5tY2UznK8+LjAqeaAIVsE4aQyWtPv0n7kE5DQG+KX
-	 YYFIH+XCs7DhkCWkawXBSwV8RH6HWXBuasnHhsf1ZYp1zsYvUdnbybweDJ02yKksNs
-	 +4CfHcBEs1MPg==
-Date: Sat, 17 Jun 2023 09:52:16 +0300
+	b=nHkTyW+hctadrgmIg2I6LaptKR6YKkmtmdcOS/HSni9feQ5p1DZtCSX6Dnam1slU3
+	 FLDQnf/OEx1d4jSPxMmAwLEhSg3dDkigyXgxGzkX1VJc1UJnkk6n01fCEZ0qwx4ELP
+	 r6wbjQNoXnPg5HveUgv1zS7owOZuF5kej34YgRIGZdC2tH3sGX0H+MpQa784HSW6mk
+	 qjN9Au7ZhvMEPLupJ+gAv5/GudEwZVVlLyNGJFO9CDGv8qdQ0I+Zmw8CDlXcjxb8w/
+	 RZuOMQ5h8Q4Z/8VeTux+zm8PEK9dnLGg98fBUnC+4CbpTq0gKeC8d5BMUXJufl+4IU
+	 tPAEuFrGSOYnA==
+Date: Sat, 17 Jun 2023 09:57:59 +0300
 From: Mike Rapoport <rppt@kernel.org>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+To: Song Liu <song@kernel.org>
 Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Christophe Leroy <christophe.leroy@csgroup.eu>,
@@ -63,7 +63,7 @@ Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Puranjay Mohan <puranjay12@gmail.com>,
 	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
 	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
@@ -74,17 +74,18 @@ Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
 	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
 	loongarch@lists.linux.dev, netdev@vger.kernel.org,
 	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 12/12] kprobes: remove dependcy on CONFIG_MODULES
-Message-ID: <20230617065216.GS52412@kernel.org>
+Subject: Re: [PATCH v2 07/12] arm64, execmem: extend execmem_params for
+ generated code definitions
+Message-ID: <20230617065759.GT52412@kernel.org>
 References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-13-rppt@kernel.org>
- <87r0qbmy14.fsf@all.your.base.are.belong.to.us>
+ <20230616085038.4121892-8-rppt@kernel.org>
+ <CAPhsuW6BG2oVrGDOpCKyOEvU9fBOboYYhducv96KUBe276Mvng@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <87r0qbmy14.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <CAPhsuW6BG2oVrGDOpCKyOEvU9fBOboYYhducv96KUBe276Mvng@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230616_235304_445097_6739AA21 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20230616_235849_758235_68EB9D2E 
+X-CRM114-Status: GOOD (  25.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,54 +97,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 16, 2023 at 01:44:55PM +0200, Bj=F6rn T=F6pel wrote:
-> Mike Rapoport <rppt@kernel.org> writes:
-> =
-
-> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> >
-> > kprobes depended on CONFIG_MODULES because it has to allocate memory for
-> > code.
-> =
-
-> I think you can remove the MODULES dependency from BPF_JIT as well:
-
-Yeah, I think so. Thanks!
- =
-
-> --8<--
-> diff --git a/kernel/bpf/Kconfig b/kernel/bpf/Kconfig
-> index 2dfe1079f772..fa4587027f8b 100644
-> --- a/kernel/bpf/Kconfig
-> +++ b/kernel/bpf/Kconfig
-> @@ -41,7 +41,6 @@ config BPF_JIT
->         bool "Enable BPF Just In Time compiler"
->         depends on BPF
->         depends on HAVE_CBPF_JIT || HAVE_EBPF_JIT
-> -       depends on MODULES
->         help
->           BPF programs are normally handled by a BPF interpreter. This op=
-tion
->           allows the kernel to generate native code when a program is loa=
-ded
-> --8<--
-> =
-
-> =
-
-> Bj=F6rn
-
--- =
-
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKdW4gMTYsIDIwMjMgYXQgMDE6MDU6MjlQTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6
+Cj4gT24gRnJpLCBKdW4gMTYsIDIwMjMgYXQgMTo1MuKAr0FNIE1pa2UgUmFwb3BvcnQgPHJwcHRA
+a2VybmVsLm9yZz4gd3JvdGU6Cj4gPgo+ID4gRnJvbTogIk1pa2UgUmFwb3BvcnQgKElCTSkiIDxy
+cHB0QGtlcm5lbC5vcmc+Cj4gPgo+ID4gVGhlIG1lbW9yeSBhbGxvY2F0aW9ucyBmb3Iga3Byb2Jl
+cyBvbiBhcm02NCBjYW4gYmUgcGxhY2VkIGFueXdoZXJlIGluCj4gPiB2bWFsbG9jIGFkZHJlc3Mg
+c3BhY2UgYW5kIGN1cnJlbnRseSB0aGlzIGlzIGltcGxlbWVudGVkIHdpdGggYW4gb3ZlcnJpZGUK
+PiA+IG9mIGFsbG9jX2luc25fcGFnZSgpIGluIGFybTY0Lgo+ID4KPiA+IEV4dGVuZCBleGVjbWVt
+X3BhcmFtcyB3aXRoIGEgcmFuZ2UgZm9yIGdlbmVyYXRlZCBjb2RlIGFsbG9jYXRpb25zIGFuZAo+
+ID4gbWFrZSBrcHJvYmVzIG9uIGFybTY0IHVzZSB0aGlzIGV4dGVuc2lvbiByYXRoZXIgdGhhbiBv
+dmVycmlkZQo+ID4gYWxsb2NfaW5zbl9wYWdlKCkuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogTWlr
+ZSBSYXBvcG9ydCAoSUJNKSA8cnBwdEBrZXJuZWwub3JnPgo+ID4gLS0tCj4gPiAgYXJjaC9hcm02
+NC9rZXJuZWwvbW9kdWxlLmMgICAgICAgICB8ICA5ICsrKysrKysrKwo+ID4gIGFyY2gvYXJtNjQv
+a2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMgfCAgNyAtLS0tLS0tCj4gPiAgaW5jbHVkZS9saW51eC9l
+eGVjbWVtLmggICAgICAgICAgICB8IDExICsrKysrKysrKysrCj4gPiAgbW0vZXhlY21lbS5jICAg
+ICAgICAgICAgICAgICAgICAgICB8IDE0ICsrKysrKysrKysrKystCj4gPiAgNCBmaWxlcyBjaGFu
+Z2VkLCAzMyBpbnNlcnRpb25zKCspLCA4IGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQg
+YS9hcmNoL2FybTY0L2tlcm5lbC9tb2R1bGUuYyBiL2FyY2gvYXJtNjQva2VybmVsL21vZHVsZS5j
+Cj4gPiBpbmRleCBjM2Q5OTlmM2EzZGQuLjUyYjA5NjI2YmMwZiAxMDA2NDQKPiA+IC0tLSBhL2Fy
+Y2gvYXJtNjQva2VybmVsL21vZHVsZS5jCj4gPiArKysgYi9hcmNoL2FybTY0L2tlcm5lbC9tb2R1
+bGUuYwo+ID4gQEAgLTMwLDYgKzMwLDEzIEBAIHN0YXRpYyBzdHJ1Y3QgZXhlY21lbV9wYXJhbXMg
+ZXhlY21lbV9wYXJhbXMgPSB7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAuYWxpZ25tZW50
+ID0gTU9EVUxFX0FMSUdOLAo+ID4gICAgICAgICAgICAgICAgIH0sCj4gPiAgICAgICAgIH0sCj4g
+PiArICAgICAgIC5qaXQgPSB7Cj4gPiArICAgICAgICAgICAgICAgLnRleHQgPSB7Cj4gPiArICAg
+ICAgICAgICAgICAgICAgICAgICAuc3RhcnQgPSBWTUFMTE9DX1NUQVJULAo+ID4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgLmVuZCA9IFZNQUxMT0NfRU5ELAo+ID4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgLmFsaWdubWVudCA9IDEsCj4gPiArICAgICAgICAgICAgICAgfSwKPiA+ICsgICAgICAg
+fSwKPiA+ICB9Owo+IAo+IFRoaXMgaXMgZ3Jvd2luZyBmYXN0LiA6KSBXZSBoYXZlIDMgbm93OiB0
+ZXh0LCBkYXRhLCBqaXQuIEFuZCBpdCB3aWxsIGJlCj4gNSB3aGVuIHdlIHNwbGl0IGRhdGEgaW50
+byBydyBkYXRhLCBybyBkYXRhLCBybyBhZnRlciBpbml0IGRhdGEuIEkgd29uZGVyCj4gd2hldGhl
+ciB3ZSBzaG91bGQgc3RpbGwgZG8gc29tZSB0eXBlIGVudW0gaGVyZS4gQnV0IHdlIGNhbiByZXZp
+c2l0Cj4gdGhpcyB0b3BpYyBsYXRlci4KCkkgZG9uJ3QgdGhpbmsgd2UnZCBuZWVkIDUuIEZvdXIg
+YXQgbW9zdCA6KQoKSSBkb24ndCBrbm93IHlldCB3aGF0IHdvdWxkIGJlIHRoZSBiZXN0IHdheSB0
+byBkaWZmZXJlbnRpYXRlIFJXIGFuZCBSTwpkYXRhLCBidXQgcm9fYWZ0ZXJfaW5pdCBzdXJlbHkg
+d29uJ3QgbmVlZCBhIG5ldyB0eXBlLiBJdCBlaXRoZXIgd2lsbCBiZQphbGxvY2F0ZWQgYXMgUlcg
+YW5kIHRoZW4gdGhlIGNhbGxlciB3aWxsIGhhdmUgdG8gc2V0IGl0IFJPIGFmdGVyCmluaXRpYWxp
+emF0aW9uIGlzIGRvbmUsIG9yIGl0IHdpbGwgYmUgYWxsb2NhdGVkIGFzIFJPIGFuZCB0aGUgY2Fs
+bGVyIHdpbGwKaGF2ZSB0byBkbyBzb21ldGhpbmcgbGlrZSB0ZXh0X3Bva2UgdG8gdXBkYXRlIGl0
+LgogCj4gT3RoZXIgdGhhbiB0aGF0Cj4gCj4gQWNrZWQtYnk6IFNvbmcgTGl1IDxzb25nQGtlcm5l
+bC5vcmc+CgotLSAKU2luY2VyZWx5IHlvdXJzLApNaWtlLgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
