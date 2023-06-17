@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E054EB64D9
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 20:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68145EB64DA
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 20:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=25pqOpqaWLxRWAxUKYTXZe9VMmdJFPkdLEQl5AA9Wd4=; b=M7Gdh6jSGyTqgp
-	4JZ6b0roQZlI3x9D+nFKCSrN2dKe8n7xjGxZRsRDMI3nLylzzTqeBiZrRM1iVUA/+9O9oHPOsbOj+
-	L2+kK3DLLbhNDYLV1lQa182XzEwM7A5sQVEYjgyBONupPWSC7NoM73tDwd4jH3sLYEgeCixkaZXvR
-	JUhTgFYaoMn5KLXIqCPGbJvEJOXfVzpa89vcB2SLSRLkrNfs8zMNe3jae9YTs0YGqUzf9OutOiZQ7
-	njgMldLM+UIcPswXKZCGzRSXU7Qaw1z6Uhu2ovvZ6tiLjG+w3Knj+LePwlqBNsoAaYnT3roTG8mJX
-	IRUCGADAFVBWoqzslhww==;
+	List-Owner; bh=vh/rOlh5nFput0ULrZMAo8lWT9yrn8KGaoNx8WS0J4Q=; b=dmBVXP7V01jbBy
+	CM8Unk2sZHl8Z8KzQLRl1yktIcfZKSIhG82uZlXQhfSBDowaKFGUlnLgTunJSIw0tsMLlA68e74it
+	D19wxD5u3fINrP2gd0prjY3/XAVK/Q4EQHtPOxwiTzuIXrpi6cPaoSd+e/r8YT+Usq8ocUTYdHPna
+	x7Do+gYKjBRc3+tA2gQvNH+vJujRI7Re4JxIrekwVpvP531eebmVaPmql7J946KLfiVrOSanOFJ7d
+	8i/eA/nsJfXPRFnKweCKI3e3FaNu2WBBAnUGnBYg2VmWtB4xZ1T2dypikVKbRkTYQta8Xk3z6Mpj/
+	Qu1eZRLKY64UKXXGzcgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAcYY-004IsL-2G;
-	Sat, 17 Jun 2023 20:29:58 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1qAcg1-004K2B-1z;
+	Sat, 17 Jun 2023 20:37:41 +0000
+Received: from out-8.mta1.migadu.com ([95.215.58.8])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAcYV-004Iqx-2B
+	id 1qAcfz-004K07-0F
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Jun 2023 20:29:56 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-519274f7b05so2836029a12.3
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Jun 2023 13:29:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1687033793; x=1689625793;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WotXs+XtzzrhlYB5laz6cnJm1VOdwaPgisww3kS+BtM=;
-        b=lW9fTA9v9HxxmIHFjctBcM5mJ8sibJgQJFs7a+noaiQ3kf+VggSz3rxCQS77BYbuKj
-         ibyDg5uP78O5Ypgznaqh1Y8JVeE+0649VRACesm/ssk3yZRpIKxHwqt8sBiR5QwvpnrQ
-         ym94m87zIjd+jps/yrzwuUFHyyz/kBbeYTQM3IDQlWp+Tuyek65gi3/hZHV3GwZL4dFA
-         4muMUlITlw2uO8ywZPtFhKoIdbzxUc0+4qaAbl+qdxHOu4ExleWtWpUpqCpIDKJJEmGn
-         5T04eLpsuGKo1r2rRhWP7VBJL7dSFL9qcNT32JOCE8QXZpu94h2rTmVHE/QlafnT4wXm
-         beog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687033793; x=1689625793;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WotXs+XtzzrhlYB5laz6cnJm1VOdwaPgisww3kS+BtM=;
-        b=Cp5E4pZvNkrylV2DMLzwR8XMRbnflrG75Sh78KKskUYWK0dpb/yKqokR1u9eD38HVk
-         mV1+ttEC2alNdhQYb9ebVGspgsg+WfwL6B4Q64YQlRNjAWyRTVajvGLy5IKTOSUwTDJX
-         A70+wqcCRm++q9UCSfpbnI01YQu6IRO2F6nZLAkmw3PCuPkK05GO+eNJwuhPBszNTpDA
-         3IkSz1r6PrRdmBZRzOaU2fQuOGms3Oc5biPiG83qeP2h5MmoTA9EiTEBYOquVh+Eycvg
-         u3FnPdw73iOxb4iCZTJUCKIKAyockSarF3PfxCh91H1uIXhRKesr7/IdoF9bCCZOEAXe
-         UT2Q==
-X-Gm-Message-State: AC+VfDxQXJW7tYRfHYDL1fb38V5ds1Qk/66/4N38spfOKxFS0gWjQxZg
-	+65l5a3mBhX6rbVAk4F/VOkFtw==
-X-Google-Smtp-Source: ACHHUZ53sBLPaVvnnGgxK0nUyl1GvLMLow9cJxFJcPNV2oyhFecpAq7IGFCYchBcJkCqaWuR6eSlkw==
-X-Received: by 2002:a17:907:3187:b0:96f:c0b0:f137 with SMTP id xe7-20020a170907318700b0096fc0b0f137mr5548380ejb.16.1687033793351;
-        Sat, 17 Jun 2023 13:29:53 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.219.26])
-        by smtp.gmail.com with ESMTPSA id u2-20020a1709064ac200b00977eda0ea29sm12728337ejt.14.2023.06.17.13.29.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 17 Jun 2023 13:29:52 -0700 (PDT)
-Message-ID: <fe1f44f0-3c6d-4375-6aad-286d6d539d73@linaro.org>
-Date: Sat, 17 Jun 2023 22:29:50 +0200
+	Sat, 17 Jun 2023 20:37:40 +0000
+Date: Sat, 17 Jun 2023 16:37:29 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1687034256;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=q0VmYCbqCGEwwRm9p2gHyBMkJehgKoo9YX+I+uEXlwI=;
+	b=dfNjewHVuYudVnc8TKpcch6UyyxsC62EekInr+KCF+/d5W19oLEbYgWNkxwMPmu6LU+6YJ
+	DDxDUAUrcbSRUp/oMghsBWa2J9HukZTCZ/JGCQrtkNxjPDHNM3pSHNKVBsHXTHpr3HEdfU
+	c38+ELnaz0YDpRbuK0hGGk55HYtUVFk=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kent Overstreet <kent.overstreet@linux.dev>
+To: Song Liu <song@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v2 07/12] arm64, execmem: extend execmem_params for
+ generated code definitions
+Message-ID: <ZI4Zifzfi/5qBNMw@moria.home.lan>
+References: <20230616085038.4121892-1-rppt@kernel.org>
+ <20230616085038.4121892-8-rppt@kernel.org>
+ <CAPhsuW6BG2oVrGDOpCKyOEvU9fBOboYYhducv96KUBe276Mvng@mail.gmail.com>
+ <20230617065759.GT52412@kernel.org>
+ <ZI3TGhJ2y5SBWmnA@moria.home.lan>
+ <CAPhsuW4KDriCDfQ40MKKQ3AjyeRbEUJxjqoBLipe5AJMxY3U-w@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH v3] Documentation/process: add soc maintainer handbook
-To: Conor Dooley <conor@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: "Conor.Dooley" <conor.dooley@microchip.com>, soc@kernel.org,
- Jonathan Corbet <corbet@lwn.net>, devicetree@vger.kernel.org,
- krzysztof.kozlowski+dt@linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Olof Johansson <olof@lixom.net>,
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>,
- Randy Dunlap <rdunlap@infradead.org>
-References: <20230606-escapable-stuffed-7ca5033e7741@wendy>
- <05c50d10-080b-43ab-9131-98f71508ac2d@app.fastmail.com>
- <20230617-succulent-surgery-3dbbf9454737@spud>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230617-succulent-surgery-3dbbf9454737@spud>
+Content-Disposition: inline
+In-Reply-To: <CAPhsuW4KDriCDfQ40MKKQ3AjyeRbEUJxjqoBLipe5AJMxY3U-w@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230617_132955_750069_764E296B 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20230617_133739_258972_6F764950 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +95,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/06/2023 20:32, Conor Dooley wrote:
-> Hey Arnd,
-> 
-> On Tue, Jun 06, 2023 at 12:23:26PM +0200, Arnd Bergmann wrote:
->> On Tue, Jun 6, 2023, at 10:27, Conor Dooley wrote:
->>> Arnd suggested that adding a maintainer handbook for the SoC "subsystem"
->>> would be helpful in trying to bring on board maintainers for the various
->>> new platforms cropping up in RISC-V land.
->>>
->>> Add a document briefly describing the role of the SoC subsystem and some
->>> basic advice for (new) platform maintainers.
->>>
->>> Suggested-by: Arnd Bergmann <arnd@arndb.de>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->>> ---
->>> Changes in v3:
->>> - sort out a rake of spelling/grammar bits spotted by Randy, apart from
->>>   the one noted as a suggestion
->>> - drop the refs for document filepaths
->>
->> Thanks, I've applied this in the soc/newsoc branch of the soc tree
->> now, which is where I'm already queuing new platforms.
-> 
-> Having cited this document for the first time, it came to mind that I
-> never mentioned putting the submaintainer trees into linux-next. Should
-> I send a follow-up patch for that, or do you think that that isn't
-
-This is common maintainer stuff, so every maintainer - not only SoC
-related - should ensure his tree is in next. I would trim all such
-common things from the document and store it somewhere else, because
-otherwise people will just not read it.
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBKdW4gMTcsIDIwMjMgYXQgMDk6Mzg6MTdBTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6
+Cj4gT24gU2F0LCBKdW4gMTcsIDIwMjMgYXQgODozN+KAr0FNIEtlbnQgT3ZlcnN0cmVldAo+IDxr
+ZW50Lm92ZXJzdHJlZXRAbGludXguZGV2PiB3cm90ZToKPiA+Cj4gPiBPbiBTYXQsIEp1biAxNywg
+MjAyMyBhdCAwOTo1Nzo1OUFNICswMzAwLCBNaWtlIFJhcG9wb3J0IHdyb3RlOgo+ID4gPiA+IFRo
+aXMgaXMgZ3Jvd2luZyBmYXN0LiA6KSBXZSBoYXZlIDMgbm93OiB0ZXh0LCBkYXRhLCBqaXQuIEFu
+ZCBpdCB3aWxsIGJlCj4gPiA+ID4gNSB3aGVuIHdlIHNwbGl0IGRhdGEgaW50byBydyBkYXRhLCBy
+byBkYXRhLCBybyBhZnRlciBpbml0IGRhdGEuIEkgd29uZGVyCj4gPiA+ID4gd2hldGhlciB3ZSBz
+aG91bGQgc3RpbGwgZG8gc29tZSB0eXBlIGVudW0gaGVyZS4gQnV0IHdlIGNhbiByZXZpc2l0Cj4g
+PiA+ID4gdGhpcyB0b3BpYyBsYXRlci4KPiA+ID4KPiA+ID4gSSBkb24ndCB0aGluayB3ZSdkIG5l
+ZWQgNS4gRm91ciBhdCBtb3N0IDopCj4gPiA+Cj4gPiA+IEkgZG9uJ3Qga25vdyB5ZXQgd2hhdCB3
+b3VsZCBiZSB0aGUgYmVzdCB3YXkgdG8gZGlmZmVyZW50aWF0ZSBSVyBhbmQgUk8KPiA+ID4gZGF0
+YSwgYnV0IHJvX2FmdGVyX2luaXQgc3VyZWx5IHdvbid0IG5lZWQgYSBuZXcgdHlwZS4gSXQgZWl0
+aGVyIHdpbGwgYmUKPiA+ID4gYWxsb2NhdGVkIGFzIFJXIGFuZCB0aGVuIHRoZSBjYWxsZXIgd2ls
+bCBoYXZlIHRvIHNldCBpdCBSTyBhZnRlcgo+ID4gPiBpbml0aWFsaXphdGlvbiBpcyBkb25lLCBv
+ciBpdCB3aWxsIGJlIGFsbG9jYXRlZCBhcyBSTyBhbmQgdGhlIGNhbGxlciB3aWxsCj4gPiA+IGhh
+dmUgdG8gZG8gc29tZXRoaW5nIGxpa2UgdGV4dF9wb2tlIHRvIHVwZGF0ZSBpdC4KPiA+Cj4gPiBQ
+ZXJoYXBzIHJvX2FmdGVyX2luaXQgY291bGQgdXNlIHRoZSBzYW1lIGFsbG9jYXRpb24gaW50ZXJm
+YWNlIGFuZCBzaGFyZQo+ID4gcGFnZXMgd2l0aCBybyBwYWdlcyAtIGlmIHdlIGp1c3QgYWRkZWQg
+YSByZWZjb3VudCBmb3IgInRoaXMgcGFnZQo+ID4gY3VycmVudGx5IG5lZWRzIHRvIGJlIHJ3LCBt
+b2R1bGUgaXMgc3RpbGwgbG9hZGluZz8iCj4gCj4gSWYgd2UgZG9uJ3QgcmVsYXggcnVsZXMgd2l0
+aCByZWFkIG9ubHksIHdlIHdpbGwgaGF2ZSB0byBzZXBhcmF0ZSBydywgcm8sCj4gYW5kIHJvX2Fm
+dGVyX2luaXQuIEJ1dCB3ZSBjYW4gc3RpbGwgaGF2ZSBwYWdlIHNoYXJpbmc6Cj4gCj4gVHdvIG1v
+ZHVsZXMgY2FuIHB1dCBydyBkYXRhIG9uIHRoZSBzYW1lIHBhZ2UuCj4gV2l0aCB0ZXh0IHBva2Ug
+KHJvIGRhdGEgcG9rZSB0byBiZSBhY2N1cmF0ZSksIHR3byBtb2R1bGVzIGNhbiBwdXQKPiBybyBk
+YXRhIG9uIHRoZSBzYW1lIHBhZ2UuCj4gCj4gPiB0ZXh0X3Bva2UoKSBhcHByb2FjaCB3b3VsZG4n
+dCBiZSB3b3JrYWJsZSwgeW91J2QgaGF2ZSB0byBhdWRpdCBhbmQgZml4Cj4gPiBhbGwgbW9kdWxl
+IGluaXQgY29kZSBpbiB0aGUgZW50aXJlIGtlcm5lbC4KPiAKPiBBZ3JlZWQuIEZvciB0aGlzIHJl
+YXNvbiwgZWFjaCBtb2R1bGUgaGFzIHRvIGhhdmUgaXRzIG93biBwYWdlKHMpIGZvcgo+IHJvX2Fm
+dGVyX2luaXQgZGF0YS4KClJlbGF4aW5nIHBhZ2UgcGVybWlzc2lvbnMgdG8gYWxsb3cgZm9yIHBh
+Z2Ugc2hhcmluZyBjb3VsZCBhbHNvIGJlIGEKY29uZmlnIG9wdGlvbi4gRm9yIGFyY2hzIHdpdGgg
+NjRrIHBhZ2VzIGl0IHNlZW1zIHdvcnRod2hpbGUuCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
