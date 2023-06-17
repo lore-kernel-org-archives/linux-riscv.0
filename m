@@ -4,86 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68145EB64DA
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 20:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D64BEB64D9
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Jun 2023 20:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vh/rOlh5nFput0ULrZMAo8lWT9yrn8KGaoNx8WS0J4Q=; b=dmBVXP7V01jbBy
-	CM8Unk2sZHl8Z8KzQLRl1yktIcfZKSIhG82uZlXQhfSBDowaKFGUlnLgTunJSIw0tsMLlA68e74it
-	D19wxD5u3fINrP2gd0prjY3/XAVK/Q4EQHtPOxwiTzuIXrpi6cPaoSd+e/r8YT+Usq8ocUTYdHPna
-	x7Do+gYKjBRc3+tA2gQvNH+vJujRI7Re4JxIrekwVpvP531eebmVaPmql7J946KLfiVrOSanOFJ7d
-	8i/eA/nsJfXPRFnKweCKI3e3FaNu2WBBAnUGnBYg2VmWtB4xZ1T2dypikVKbRkTYQta8Xk3z6Mpj/
-	Qu1eZRLKY64UKXXGzcgg==;
+	List-Owner; bh=Oba7UqqE0UAXwfRCdjPBum6+wmPc0JlzlQyT4B91YqE=; b=EzkUOk1N7r1bka
+	X+fGke9XTcr/nfdKA8mxC4h2DD3oee8Q+ivJpaNwIr2jgaGGJ/Eekzi7/PiqeR5BTxPTg+0/0fwEY
+	7sKKeipoNyEW5yX58XusMoGLVncXbHhG8kx/yDtQyiRcjtJZ0ryphj5lbkP394nlRS0oT6YVWNyCd
+	26BSradaHcy3j0CWPn4gJfsPDOERXA0pZ2QqYGfQ0Zd9r4OHmNZkW07jqYy6Z/ZwxZgqYuVwHHYgs
+	yp/9XXi2/ZZ7rPC/e5/a5sGv+N+jNP0bkuJSUl4vwQO1dthXx2PrjMoKKyrFbfUjE5kmgz3Nx6u+r
+	p+pfbpJaZ9iFYo79ncCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAcg1-004K2B-1z;
-	Sat, 17 Jun 2023 20:37:41 +0000
-Received: from out-8.mta1.migadu.com ([95.215.58.8])
+	id 1qAchE-004KLy-2s;
+	Sat, 17 Jun 2023 20:38:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAcfz-004K07-0F
+	id 1qAchC-004KKU-0v
 	for linux-riscv@lists.infradead.org;
-	Sat, 17 Jun 2023 20:37:40 +0000
-Date: Sat, 17 Jun 2023 16:37:29 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1687034256;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q0VmYCbqCGEwwRm9p2gHyBMkJehgKoo9YX+I+uEXlwI=;
-	b=dfNjewHVuYudVnc8TKpcch6UyyxsC62EekInr+KCF+/d5W19oLEbYgWNkxwMPmu6LU+6YJ
-	DDxDUAUrcbSRUp/oMghsBWa2J9HukZTCZ/JGCQrtkNxjPDHNM3pSHNKVBsHXTHpr3HEdfU
-	c38+ELnaz0YDpRbuK0hGGk55HYtUVFk=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Kent Overstreet <kent.overstreet@linux.dev>
-To: Song Liu <song@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, netdev@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 07/12] arm64, execmem: extend execmem_params for
- generated code definitions
-Message-ID: <ZI4Zifzfi/5qBNMw@moria.home.lan>
+	Sat, 17 Jun 2023 20:38:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C002261259;
+	Sat, 17 Jun 2023 20:38:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61E59C433CA;
+	Sat, 17 Jun 2023 20:38:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687034333;
+	bh=WVP/rhexoYDXJAhdCS8+aXf4gLUVAzDkioEZAL3bkuY=;
+	h=In-Reply-To:References:Date:From:To:Cc:Subject:From;
+	b=JKzE4z2tSEoLkc7ndZWnN4X7rPbZEhhlfrZyLWi07NSuE063OnjnC6kfUU9bDE7Q9
+	 dYA+ZpDXUBD2TgjoWFjLAe+1VQ5WrMEQP2Oc9RGbVW9Wm4fut1k9el1xGXrGAH5XMV
+	 Vnj1FFJmE2x7cDhuvv0urvwR7eE2IJsG6wxHbKmZVXtzDiEbQttYBzKZysC9OE/47n
+	 JBkqqNwFgve/J61DF6GlrPrdaUiX2HWbrE8tfOts8C1LTzC7qOduTMdCt7JxlC8PRU
+	 FJrqMxXtr7sBOMLN0/Tey+NujGr9peRqjts6e1zOlWFY5KMatDCGIXdhGrkirNWaIE
+	 ASCBN9CMJq/6w==
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailauth.nyi.internal (Postfix) with ESMTP id 4D15627C005B;
+	Sat, 17 Jun 2023 16:38:51 -0400 (EDT)
+Received: from imap48 ([10.202.2.98])
+  by compute3.internal (MEProxy); Sat, 17 Jun 2023 16:38:51 -0400
+X-ME-Sender: <xms:2RmOZAtF4kawe3C5LWsJNWQ25geVFsDB-J3eVTm4naED3U4-j3ZFyA>
+    <xme:2RmOZNdjefCtSEpuXyhr3rhTFxcEuYpuIPYT9noXuC5ioHZHbuzE6pY15kbU4Az-n
+    KsL6vgRcAh63E8_HrY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrgedvjedgudehudcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
+    nhguhicunfhuthhomhhirhhskhhifdcuoehluhhtoheskhgvrhhnvghlrdhorhhgqeenuc
+    ggtffrrghtthgvrhhnpeevfffgvefhieetudeuteegvedvveduveetfeevffduieevfedu
+    tdeliedtledugfenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrh
+    fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghnugihodhmvghsmhhtphgr
+    uhhthhhpvghrshhonhgrlhhithihqdduudeiudekheeifedvqddvieefudeiiedtkedqlh
+    huthhopeepkhgvrhhnvghlrdhorhhgsehlihhnuhigrdhluhhtohdruhhs
+X-ME-Proxy: <xmx:2hmOZLwE9-bVWo7RnP5AgBJjz5OzMrxujaBVgN9FDA0qATIFW3Zhpw>
+    <xmx:2hmOZDNYoe8sH-Qwz4aFz3clai7LpDSTfbbgbACuWdxzEgAb13tbEg>
+    <xmx:2hmOZA8kOMIqCUhH3mWr1mKvGVtcde2JYkSEZ4c4kedl90XEPGeTog>
+    <xmx:2xmOZO8tHx8Uf0_GzjXidaY35xpRYs0lINfwa1sT1FrfVdAWjlcBDg>
+Feedback-ID: ieff94742:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id E1AA531A0063; Sat, 17 Jun 2023 16:38:49 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-496-g8c46984af0-fm-20230615.001-g8c46984a
+Mime-Version: 1.0
+Message-Id: <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
+In-Reply-To: <20230616085038.4121892-3-rppt@kernel.org>
 References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-8-rppt@kernel.org>
- <CAPhsuW6BG2oVrGDOpCKyOEvU9fBOboYYhducv96KUBe276Mvng@mail.gmail.com>
- <20230617065759.GT52412@kernel.org>
- <ZI3TGhJ2y5SBWmnA@moria.home.lan>
- <CAPhsuW4KDriCDfQ40MKKQ3AjyeRbEUJxjqoBLipe5AJMxY3U-w@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAPhsuW4KDriCDfQ40MKKQ3AjyeRbEUJxjqoBLipe5AJMxY3U-w@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+ <20230616085038.4121892-3-rppt@kernel.org>
+Date: Sat, 17 Jun 2023 13:38:29 -0700
+From: "Andy Lutomirski" <luto@kernel.org>
+To: "Mike Rapoport" <rppt@kernel.org>,
+ "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>
+Cc: "Andrew Morton" <akpm@linux-foundation.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "David S. Miller" <davem@davemloft.net>,
+ "Dinh Nguyen" <dinguyen@kernel.org>,
+ "Heiko Carstens" <hca@linux.ibm.com>, "Helge Deller" <deller@gmx.de>,
+ "Huacai Chen" <chenhuacai@kernel.org>,
+ "Kent Overstreet" <kent.overstreet@linux.dev>,
+ "Luis Chamberlain" <mcgrof@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nadav Amit" <nadav.amit@gmail.com>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Puranjay Mohan" <puranjay12@gmail.com>,
+ "Rick P Edgecombe" <rick.p.edgecombe@intel.com>,
+ "Russell King (Oracle)" <linux@armlinux.org.uk>,
+ "Song Liu" <song@kernel.org>, "Steven Rostedt" <rostedt@goodmis.org>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Will Deacon" <will@kernel.org>,
+ bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev, netdev@vger.kernel.org,
+ sparclinux@vger.kernel.org, "the arch/x86 maintainers" <x86@kernel.org>
+Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and jit_text_alloc()
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230617_133739_258972_6F764950 
-X-CRM114-Status: GOOD (  26.27  )
+X-CRM114-CacheID: sfid-20230617_133854_404342_B6BB9854 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,42 +123,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBKdW4gMTcsIDIwMjMgYXQgMDk6Mzg6MTdBTSAtMDcwMCwgU29uZyBMaXUgd3JvdGU6
-Cj4gT24gU2F0LCBKdW4gMTcsIDIwMjMgYXQgODozN+KAr0FNIEtlbnQgT3ZlcnN0cmVldAo+IDxr
-ZW50Lm92ZXJzdHJlZXRAbGludXguZGV2PiB3cm90ZToKPiA+Cj4gPiBPbiBTYXQsIEp1biAxNywg
-MjAyMyBhdCAwOTo1Nzo1OUFNICswMzAwLCBNaWtlIFJhcG9wb3J0IHdyb3RlOgo+ID4gPiA+IFRo
-aXMgaXMgZ3Jvd2luZyBmYXN0LiA6KSBXZSBoYXZlIDMgbm93OiB0ZXh0LCBkYXRhLCBqaXQuIEFu
-ZCBpdCB3aWxsIGJlCj4gPiA+ID4gNSB3aGVuIHdlIHNwbGl0IGRhdGEgaW50byBydyBkYXRhLCBy
-byBkYXRhLCBybyBhZnRlciBpbml0IGRhdGEuIEkgd29uZGVyCj4gPiA+ID4gd2hldGhlciB3ZSBz
-aG91bGQgc3RpbGwgZG8gc29tZSB0eXBlIGVudW0gaGVyZS4gQnV0IHdlIGNhbiByZXZpc2l0Cj4g
-PiA+ID4gdGhpcyB0b3BpYyBsYXRlci4KPiA+ID4KPiA+ID4gSSBkb24ndCB0aGluayB3ZSdkIG5l
-ZWQgNS4gRm91ciBhdCBtb3N0IDopCj4gPiA+Cj4gPiA+IEkgZG9uJ3Qga25vdyB5ZXQgd2hhdCB3
-b3VsZCBiZSB0aGUgYmVzdCB3YXkgdG8gZGlmZmVyZW50aWF0ZSBSVyBhbmQgUk8KPiA+ID4gZGF0
-YSwgYnV0IHJvX2FmdGVyX2luaXQgc3VyZWx5IHdvbid0IG5lZWQgYSBuZXcgdHlwZS4gSXQgZWl0
-aGVyIHdpbGwgYmUKPiA+ID4gYWxsb2NhdGVkIGFzIFJXIGFuZCB0aGVuIHRoZSBjYWxsZXIgd2ls
-bCBoYXZlIHRvIHNldCBpdCBSTyBhZnRlcgo+ID4gPiBpbml0aWFsaXphdGlvbiBpcyBkb25lLCBv
-ciBpdCB3aWxsIGJlIGFsbG9jYXRlZCBhcyBSTyBhbmQgdGhlIGNhbGxlciB3aWxsCj4gPiA+IGhh
-dmUgdG8gZG8gc29tZXRoaW5nIGxpa2UgdGV4dF9wb2tlIHRvIHVwZGF0ZSBpdC4KPiA+Cj4gPiBQ
-ZXJoYXBzIHJvX2FmdGVyX2luaXQgY291bGQgdXNlIHRoZSBzYW1lIGFsbG9jYXRpb24gaW50ZXJm
-YWNlIGFuZCBzaGFyZQo+ID4gcGFnZXMgd2l0aCBybyBwYWdlcyAtIGlmIHdlIGp1c3QgYWRkZWQg
-YSByZWZjb3VudCBmb3IgInRoaXMgcGFnZQo+ID4gY3VycmVudGx5IG5lZWRzIHRvIGJlIHJ3LCBt
-b2R1bGUgaXMgc3RpbGwgbG9hZGluZz8iCj4gCj4gSWYgd2UgZG9uJ3QgcmVsYXggcnVsZXMgd2l0
-aCByZWFkIG9ubHksIHdlIHdpbGwgaGF2ZSB0byBzZXBhcmF0ZSBydywgcm8sCj4gYW5kIHJvX2Fm
-dGVyX2luaXQuIEJ1dCB3ZSBjYW4gc3RpbGwgaGF2ZSBwYWdlIHNoYXJpbmc6Cj4gCj4gVHdvIG1v
-ZHVsZXMgY2FuIHB1dCBydyBkYXRhIG9uIHRoZSBzYW1lIHBhZ2UuCj4gV2l0aCB0ZXh0IHBva2Ug
-KHJvIGRhdGEgcG9rZSB0byBiZSBhY2N1cmF0ZSksIHR3byBtb2R1bGVzIGNhbiBwdXQKPiBybyBk
-YXRhIG9uIHRoZSBzYW1lIHBhZ2UuCj4gCj4gPiB0ZXh0X3Bva2UoKSBhcHByb2FjaCB3b3VsZG4n
-dCBiZSB3b3JrYWJsZSwgeW91J2QgaGF2ZSB0byBhdWRpdCBhbmQgZml4Cj4gPiBhbGwgbW9kdWxl
-IGluaXQgY29kZSBpbiB0aGUgZW50aXJlIGtlcm5lbC4KPiAKPiBBZ3JlZWQuIEZvciB0aGlzIHJl
-YXNvbiwgZWFjaCBtb2R1bGUgaGFzIHRvIGhhdmUgaXRzIG93biBwYWdlKHMpIGZvcgo+IHJvX2Fm
-dGVyX2luaXQgZGF0YS4KClJlbGF4aW5nIHBhZ2UgcGVybWlzc2lvbnMgdG8gYWxsb3cgZm9yIHBh
-Z2Ugc2hhcmluZyBjb3VsZCBhbHNvIGJlIGEKY29uZmlnIG9wdGlvbi4gRm9yIGFyY2hzIHdpdGgg
-NjRrIHBhZ2VzIGl0IHNlZW1zIHdvcnRod2hpbGUuCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Jun 16, 2023, at 1:50 AM, Mike Rapoport wrote:
+> From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+>
+> module_alloc() is used everywhere as a mean to allocate memory for code.
+>
+> Beside being semantically wrong, this unnecessarily ties all subsystems
+> that need to allocate code, such as ftrace, kprobes and BPF to modules
+> and puts the burden of code allocation to the modules code.
+>
+> Several architectures override module_alloc() because of various
+> constraints where the executable memory can be located and this causes
+> additional obstacles for improvements of code allocation.
+>
+> Start splitting code allocation from modules by introducing
+> execmem_text_alloc(), execmem_free(), jit_text_alloc(), jit_free() APIs.
+>
+> Initially, execmem_text_alloc() and jit_text_alloc() are wrappers for
+> module_alloc() and execmem_free() and jit_free() are replacements of
+> module_memfree() to allow updating all call sites to use the new APIs.
+>
+> The intention semantics for new allocation APIs:
+>
+> * execmem_text_alloc() should be used to allocate memory that must reside
+>   close to the kernel image, like loadable kernel modules and generated
+>   code that is restricted by relative addressing.
+>
+> * jit_text_alloc() should be used to allocate memory for generated code
+>   when there are no restrictions for the code placement. For
+>   architectures that require that any code is within certain distance
+>   from the kernel image, jit_text_alloc() will be essentially aliased to
+>   execmem_text_alloc().
+>
+
+Is there anything in this series to help users do the appropriate synchronization when the actually populate the allocated memory with code?  See here, for example:
+
+https://lore.kernel.org/linux-fsdevel/cb6533c6-cea0-4f04-95cf-b8240c6ab405@app.fastmail.com/T/#u
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
