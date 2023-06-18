@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F31EB64D7
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jun 2023 08:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4AA0EB64D7
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jun 2023 12:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7MVxkuuQXt5kWtMtiRGVZt2zfHPkTg42bXG6PH9o4Oc=; b=iVeGnvlhDjiahL
-	dem22CardacnbTzE4D+PLXCFYxytJuASdQZEzUFobD9OW2ka7yLHu1ys1YKj4MkGNp19zhPXGRb5P
-	SSl0tIQETGwrkdXicfSciW1IC8SglXOikX07lJAXPvLgsqmOwlac55Eq85X2cTxUzws8g5F2uhHMu
-	GCmZuyOt5IptHsMFXXwJ0iiMziBllxrmdtnXe0MOazvlwd2mz0YlOl5lO5s+YVx1HKfwf/1SKxa5h
-	NlEqLqOoQky3XbWxXjpVXVi6EIgHZc0oJ08LMNzGW//TVldbu7DOfHYxnzcOAZML5tUm0t3OGWrXa
-	IA3D9gIvGvmdleOlALrA==;
+	List-Owner; bh=CVcw3Vt5vz2390fqtZGYF2XR1mxCewa+MVCQGxkqDFw=; b=KfEaMf8m6r8E50
+	vM4nYs/omhQdWZUSCTS0Mfq9qKOfDT5W+1OagMblUU0LC5mGjENQKQXMW0VMv+f5aNq1w9LWu40ex
+	fUPc9TzR95HCIFyAKYHoI1b2umMPwMHj1y+s4dNPu48QX+0BvWSv1qouzgusOPnKzr+1ztn/XjE/G
+	cBDDJcnqXvtaV+wE5T5XwJ/SDGyzle46ahCahBUwCsH6wRKlLJT0MLX0bdSwxmFLqmaEmgWOu/Y1q
+	kSiRV7COX4hp7wUqp5QSCjZKj8LJ3jCF31fWZbpFamToPdhwRKkFGl3jZq+Dm0TatLxh9w4Yy6sfi
+	W7TdPsAvHp03lO3vPR9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAnLb-005PQI-2e;
-	Sun, 18 Jun 2023 08:01:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAnLY-005POT-0W;
-	Sun, 18 Jun 2023 08:01:17 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id ADABC60F01;
-	Sun, 18 Jun 2023 08:01:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DA1EC433C0;
-	Sun, 18 Jun 2023 08:01:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687075275;
-	bh=JOdF7gdXvqBjASqKs6SWBkQKDgB3N69nrNaZPukvaeM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sRSVsUz+8qwPDTD+DbQ8ZGj3oxWbs6Q2yclpQ5oA01FgfO3x99AMq57vy9vTmKGCz
-	 zxsNFAk2tsVXc2/ZMKN5WrqHKwwq7cFYa5f3HPOYIxlAVh8JcIK7E8a/4ukOQRZ4nx
-	 MkY7brx+YmsqJJOWjKI+esA6758vzynczNeZM28mb8D2036W2Ac3dVaBq4RYIRm2lO
-	 UwBKETxVcKwPW5jcSjXTb+3J9p7JSrJABXAw2lEoobsEXKewtbcSu8Iyl/ROefguVb
-	 JB6NowqZPjsvgPvrW3+OErG+qxYX7mjk/nhQmoo1FPg/indEYGUiochf7rWuDn85yN
-	 s8jpvUG70jw+A==
-Date: Sun, 18 Jun 2023 11:00:27 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Andy Lutomirski <luto@kernel.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>,
-	"Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Song Liu <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, netdev@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	the arch/x86 maintainers <x86@kernel.org>
-Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and
- jit_text_alloc()
-Message-ID: <20230618080027.GA52412@kernel.org>
-References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-3-rppt@kernel.org>
- <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
+	id 1qArQt-005sRv-2f;
+	Sun, 18 Jun 2023 12:23:03 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qArQn-005sNt-0O;
+	Sun, 18 Jun 2023 12:23:01 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DAC017FEF;
+	Sun, 18 Jun 2023 20:22:08 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 18 Jun
+ 2023 20:22:08 +0800
+Received: from [192.168.125.127] (113.72.145.217) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Sun, 18 Jun
+ 2023 20:22:07 +0800
+Message-ID: <a91f4167-e797-435f-8867-dbef4b109df8@starfivetech.com>
+Date: Sun, 18 Jun 2023 20:22:05 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v6 5/7] dt-bindings: usb: Add StarFive JH7110 USB
+ controller
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>
+CC: Conor Dooley <conor@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Vinod Koul <vkoul@kernel.org>, "Kishon
+ Vijay Abraham I" <kishon@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Pawel Laszczak
+	<pawell@cadence.com>, Peter Chen <peter.chen@kernel.org>, Roger Quadros
+	<rogerq@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-usb@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Mason Huo" <mason.huo@starfivetech.com>
+References: <20230518112750.57924-1-minda.chen@starfivetech.com>
+ <20230518112750.57924-6-minda.chen@starfivetech.com>
+ <20230525-shopper-handbrake-27fc06aede32@spud>
+ <5124e6a8-8ca6-71a5-19d6-8c15e954c458@starfivetech.com>
+ <20230526-grain-cubical-e0af96202007@wendy>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <20230526-grain-cubical-e0af96202007@wendy>
+X-Originating-IP: [113.72.145.217]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230618_010116_278170_A10D4216 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20230618_052258_121986_671936DE 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,53 +88,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 17, 2023 at 01:38:29PM -0700, Andy Lutomirski wrote:
-> On Fri, Jun 16, 2023, at 1:50 AM, Mike Rapoport wrote:
-> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> >
-> > module_alloc() is used everywhere as a mean to allocate memory for code.
-> >
-> > Beside being semantically wrong, this unnecessarily ties all subsystems
-> > that need to allocate code, such as ftrace, kprobes and BPF to modules
-> > and puts the burden of code allocation to the modules code.
-> >
-> > Several architectures override module_alloc() because of various
-> > constraints where the executable memory can be located and this causes
-> > additional obstacles for improvements of code allocation.
-> >
-> > Start splitting code allocation from modules by introducing
-> > execmem_text_alloc(), execmem_free(), jit_text_alloc(), jit_free() APIs.
-> >
-> > Initially, execmem_text_alloc() and jit_text_alloc() are wrappers for
-> > module_alloc() and execmem_free() and jit_free() are replacements of
-> > module_memfree() to allow updating all call sites to use the new APIs.
-> >
-> > The intention semantics for new allocation APIs:
-> >
-> > * execmem_text_alloc() should be used to allocate memory that must reside
-> >   close to the kernel image, like loadable kernel modules and generated
-> >   code that is restricted by relative addressing.
-> >
-> > * jit_text_alloc() should be used to allocate memory for generated code
-> >   when there are no restrictions for the code placement. For
-> >   architectures that require that any code is within certain distance
-> >   from the kernel image, jit_text_alloc() will be essentially aliased to
-> >   execmem_text_alloc().
-> >
+
+
+On 2023/5/26 21:13, Conor Dooley wrote:
+> On Fri, May 26, 2023 at 06:24:48PM +0800, Minda Chen wrote:
 > 
-> Is there anything in this series to help users do the appropriate
-> synchronization when the actually populate the allocated memory with
-> code?  See here, for example:
+>> >> +title: StarFive JH7110 wrapper module for the Cadence USBSS-DRD controller
+>> > 
+>> > I think you told Krzysztof you'd rename this to "StarFive JH7110 Cadence
+>> > USBSS-DRD SoC controller"?
+>> > 
+>> The previous title describe whole USB controller for previous dts node is
+>> merged. Now the dts node is split. 
+>> "starfive,jh7110-usb" just contain starfive wrapper layer dts configuration.
+> 
+> Okay, I must have misunderstood the conversation on the previous
+> version. Sorry about that.
+> 
+>> > Otherwise, it looks like all the stuff from him and Rob have been sorted
+>> > out, so other than $title this is
+>> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> 
 
-This series only factors out the executable allocations from modules and
-puts them in a central place.
-Anything else would go on top after this lands.
- 
-> https://lore.kernel.org/linux-fsdevel/cb6533c6-cea0-4f04-95cf-b8240c6ab405@app.fastmail.com/T/#u
+Hi Greg
+Can this patch can be applied to Linux-USB-next tree? Since this patch is reviewed by Conor.
 
--- 
-Sincerely yours,
-Mike.
+List Below is Conor's previous E-mail.
+
+   I think I missed this mail somehow. 5/7 had the binding for the driver
+   so probably that should've gone via the USB tree too?
+   Should apply on its own (no deps on the phy patches) & has dt-binding
+   maintainer reviews.
+
+   `b4 am -P 5 20230518112750.57924-6-minda.chen@starfivetech.com` if
+   that's your cup of tea.
 
 _______________________________________________
 linux-riscv mailing list
