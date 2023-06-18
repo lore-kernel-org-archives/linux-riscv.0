@@ -4,46 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE28EB64D9
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jun 2023 00:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F31EB64D7
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Jun 2023 08:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9owfYNerJ5btrHYEijBkM2+Z3yl5L8LQgABL3woG1Cc=; b=Y8ZTw6pYuKDhRy
-	AwOduJ0z9uxqmgf5gseiJJ/TA9UBzvrlsnn74k2uC4OPz+Y02j0UKo0DwZT8kQ3nCsazUll2NQPha
-	tdc3H9owgEb8xOTHUF4DlCiLX9trsUvzzeZOdfgdZrLkrjiMdUZ3o/9p3+osh2r37npWoMnWY4peY
-	omqBYyvM+A9lG4xtozShuWELFn8yk+44gqIfMbU8DxdKsNGsMmYydwKIurC0qAGoaecNJ4Pvu2C3d
-	PusJOy0EoLtnvoph+cI+RvzO/nb3oHkaeIu8YgSujneW7LXxcxoiNpd7I1cbrj1YucL+LDG+keCfx
-	i9f+GJjagZzdRUZBmUxg==;
+	List-Owner; bh=7MVxkuuQXt5kWtMtiRGVZt2zfHPkTg42bXG6PH9o4Oc=; b=iVeGnvlhDjiahL
+	dem22CardacnbTzE4D+PLXCFYxytJuASdQZEzUFobD9OW2ka7yLHu1ys1YKj4MkGNp19zhPXGRb5P
+	SSl0tIQETGwrkdXicfSciW1IC8SglXOikX07lJAXPvLgsqmOwlac55Eq85X2cTxUzws8g5F2uhHMu
+	GCmZuyOt5IptHsMFXXwJ0iiMziBllxrmdtnXe0MOazvlwd2mz0YlOl5lO5s+YVx1HKfwf/1SKxa5h
+	NlEqLqOoQky3XbWxXjpVXVi6EIgHZc0oJ08LMNzGW//TVldbu7DOfHYxnzcOAZML5tUm0t3OGWrXa
+	IA3D9gIvGvmdleOlALrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAg5M-004hFr-1E;
-	Sun, 18 Jun 2023 00:16:04 +0000
-Received: from [2601:1c2:980:9ec0::2764]
-	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1qAf55-004ax0-0r;
-	Sat, 17 Jun 2023 23:11:43 +0000
-Message-ID: <41ff75d4-aef4-cfec-2bef-afc8223e548e@infradead.org>
-Date: Sat, 17 Jun 2023 16:11:40 -0700
+	id 1qAnLb-005PQI-2e;
+	Sun, 18 Jun 2023 08:01:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qAnLY-005POT-0W;
+	Sun, 18 Jun 2023 08:01:17 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id ADABC60F01;
+	Sun, 18 Jun 2023 08:01:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DA1EC433C0;
+	Sun, 18 Jun 2023 08:01:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687075275;
+	bh=JOdF7gdXvqBjASqKs6SWBkQKDgB3N69nrNaZPukvaeM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sRSVsUz+8qwPDTD+DbQ8ZGj3oxWbs6Q2yclpQ5oA01FgfO3x99AMq57vy9vTmKGCz
+	 zxsNFAk2tsVXc2/ZMKN5WrqHKwwq7cFYa5f3HPOYIxlAVh8JcIK7E8a/4ukOQRZ4nx
+	 MkY7brx+YmsqJJOWjKI+esA6758vzynczNeZM28mb8D2036W2Ac3dVaBq4RYIRm2lO
+	 UwBKETxVcKwPW5jcSjXTb+3J9p7JSrJABXAw2lEoobsEXKewtbcSu8Iyl/ROefguVb
+	 JB6NowqZPjsvgPvrW3+OErG+qxYX7mjk/nhQmoo1FPg/indEYGUiochf7rWuDn85yN
+	 s8jpvUG70jw+A==
+Date: Sun, 18 Jun 2023 11:00:27 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Andy Lutomirski <luto@kernel.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick P Edgecombe <rick.p.edgecombe@intel.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Song Liu <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	the arch/x86 maintainers <x86@kernel.org>
+Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and
+ jit_text_alloc()
+Message-ID: <20230618080027.GA52412@kernel.org>
+References: <20230616085038.4121892-1-rppt@kernel.org>
+ <20230616085038.4121892-3-rppt@kernel.org>
+ <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.2
-Subject: Re: arch/riscv/mm/init.c:1204:48: sparse: sparse: cast truncates bits
- from constant value (100000000 becomes 0)
-Content-Language: en-US
-To: kernel test robot <lkp@intel.com>, Yimin Gu <ustcymgu@gmail.com>,
- Nick Kossifidis <mick@ics.forth.gr>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@rivosinc.com>, Jesse Taube <Mr.Bossman075@gmail.com>,
- Damien Le Moal <damien.lemoal@opensource.wdc.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-References: <202305171743.3LP5XWzV-lkp@intel.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <202305171743.3LP5XWzV-lkp@intel.com>
+Content-Disposition: inline
+In-Reply-To: <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230618_010116_278170_A10D4216 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,145 +104,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+ Nick
-+ linux-riscv
+On Sat, Jun 17, 2023 at 01:38:29PM -0700, Andy Lutomirski wrote:
+> On Fri, Jun 16, 2023, at 1:50 AM, Mike Rapoport wrote:
+> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> >
+> > module_alloc() is used everywhere as a mean to allocate memory for code.
+> >
+> > Beside being semantically wrong, this unnecessarily ties all subsystems
+> > that need to allocate code, such as ftrace, kprobes and BPF to modules
+> > and puts the burden of code allocation to the modules code.
+> >
+> > Several architectures override module_alloc() because of various
+> > constraints where the executable memory can be located and this causes
+> > additional obstacles for improvements of code allocation.
+> >
+> > Start splitting code allocation from modules by introducing
+> > execmem_text_alloc(), execmem_free(), jit_text_alloc(), jit_free() APIs.
+> >
+> > Initially, execmem_text_alloc() and jit_text_alloc() are wrappers for
+> > module_alloc() and execmem_free() and jit_free() are replacements of
+> > module_memfree() to allow updating all call sites to use the new APIs.
+> >
+> > The intention semantics for new allocation APIs:
+> >
+> > * execmem_text_alloc() should be used to allocate memory that must reside
+> >   close to the kernel image, like loadable kernel modules and generated
+> >   code that is restricted by relative addressing.
+> >
+> > * jit_text_alloc() should be used to allocate memory for generated code
+> >   when there are no restrictions for the code placement. For
+> >   architectures that require that any code is within certain distance
+> >   from the kernel image, jit_text_alloc() will be essentially aliased to
+> >   execmem_text_alloc().
+> >
+> 
+> Is there anything in this series to help users do the appropriate
+> synchronization when the actually populate the allocated memory with
+> code?  See here, for example:
 
-On 5/17/23 03:09, kernel test robot wrote:
-> Hi Yimin,
-> 
-> FYI, the error/warning was bisected to this commit, please ignore it if it's irrelevant.
-> 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   f1fcbaa18b28dec10281551dfe6ed3a3ed80e3d6
-> commit: b5e2c507b06c9d36411845149162a804ae7b04a9 riscv: Kconfig: Allow RV32 to build with no MMU
-> date:   7 weeks ago
-> config: riscv-randconfig-s041-20230517
-> compiler: riscv32-linux-gcc (GCC) 12.1.0
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # apt-get install sparse
->         # sparse version: v0.6.4-39-gce1a6720-dirty
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b5e2c507b06c9d36411845149162a804ae7b04a9
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout b5e2c507b06c9d36411845149162a804ae7b04a9
->         # save the config file
->         mkdir build_dir && cp config build_dir/.config
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=riscv olddefconfig
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__' O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/mm/ fs/ext4/
-> 
-> If you fix the issue, kindly add following tag where applicable
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202305171743.3LP5XWzV-lkp@intel.com/
-> 
-> sparse warnings: (new ones prefixed by >>)
->    WARNING: invalid argument to '-march': '_zihintpause'
->>> arch/riscv/mm/init.c:1204:48: sparse: sparse: cast truncates bits from constant value (100000000 becomes 0)
+This series only factors out the executable allocations from modules and
+puts them in a central place.
+Anything else would go on top after this lands.
+ 
+> https://lore.kernel.org/linux-fsdevel/cb6533c6-cea0-4f04-95cf-b8240c6ab405@app.fastmail.com/T/#u
 
-^^^ please see below.
-
-> --
->    WARNING: invalid argument to '-march': '_zihintpause'
->    fs/ext4/mballoc.c: note: in included file (through include/linux/timex.h, include/linux/time32.h, include/linux/time.h, ...):
->>> arch/riscv/include/asm/timex.h:25:16: sparse: sparse: cast removes address space '__iomem' of expression
->>> arch/riscv/include/asm/timex.h:25:16: sparse: sparse: incorrect type in argument 1 (different address spaces) @@     expected void const volatile [noderef] __iomem *addr @@     got unsigned int [usertype] * @@
->    arch/riscv/include/asm/timex.h:25:16: sparse:     expected void const volatile [noderef] __iomem *addr
->    arch/riscv/include/asm/timex.h:25:16: sparse:     got unsigned int [usertype] *
->>> arch/riscv/include/asm/timex.h:25:16: sparse: sparse: incorrect type in argument 1 (different address spaces) @@     expected void const volatile [noderef] __iomem *addr @@     got unsigned int [usertype] * @@
->    arch/riscv/include/asm/timex.h:25:16: sparse:     expected void const volatile [noderef] __iomem *addr
->    arch/riscv/include/asm/timex.h:25:16: sparse:     got unsigned int [usertype] *
->    fs/ext4/mballoc.c:2942:13: sparse: sparse: context imbalance in 'ext4_mb_seq_structs_summary_start' - wrong count at exit
-> 
-> vim +1204 arch/riscv/mm/init.c
-> 
-> 671f9a3e2e24cd Anup Patel      2019-06-28  1154  
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1155  /*
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1156   * reserve_crashkernel() - reserves memory for crash kernel
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1157   *
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1158   * This function reserves memory area given in "crashkernel=" kernel command
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1159   * line parameter. The memory reserved is used by dump capture kernel when
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1160   * primary kernel is crashing.
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1161   */
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1162  static void __init reserve_crashkernel(void)
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1163  {
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1164  	unsigned long long crash_base = 0;
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1165  	unsigned long long crash_size = 0;
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1166  	unsigned long search_start = memblock_start_of_DRAM();
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1167  	unsigned long search_end = memblock_end_of_DRAM();
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1168  
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1169  	int ret = 0;
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1170  
-> d414cb379ac35e Jisheng Zhang   2022-03-23  1171  	if (!IS_ENABLED(CONFIG_KEXEC_CORE))
-> d414cb379ac35e Jisheng Zhang   2022-03-23  1172  		return;
-> 5640975003d023 Nick Kossifidis 2021-04-19  1173  	/*
-> 5640975003d023 Nick Kossifidis 2021-04-19  1174  	 * Don't reserve a region for a crash kernel on a crash kernel
-> 5640975003d023 Nick Kossifidis 2021-04-19  1175  	 * since it doesn't make much sense and we have limited memory
-> 5640975003d023 Nick Kossifidis 2021-04-19  1176  	 * resources.
-> 5640975003d023 Nick Kossifidis 2021-04-19  1177  	 */
-> 5640975003d023 Nick Kossifidis 2021-04-19  1178  	if (is_kdump_kernel()) {
-> 5640975003d023 Nick Kossifidis 2021-04-19  1179  		pr_info("crashkernel: ignoring reservation request\n");
-> 5640975003d023 Nick Kossifidis 2021-04-19  1180  		return;
-> 5640975003d023 Nick Kossifidis 2021-04-19  1181  	}
-> 5640975003d023 Nick Kossifidis 2021-04-19  1182  
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1183  	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1184  				&crash_size, &crash_base);
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1185  	if (ret || !crash_size)
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1186  		return;
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1187  
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1188  	crash_size = PAGE_ALIGN(crash_size);
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1189  
-> a7259df7670240 Mike Rapoport   2021-09-02  1190  	if (crash_base) {
-> a7259df7670240 Mike Rapoport   2021-09-02  1191  		search_start = crash_base;
-> a7259df7670240 Mike Rapoport   2021-09-02  1192  		search_end = crash_base + crash_size;
-> a7259df7670240 Mike Rapoport   2021-09-02  1193  	}
-> a7259df7670240 Mike Rapoport   2021-09-02  1194  
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1195  	/*
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1196  	 * Current riscv boot protocol requires 2MB alignment for
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1197  	 * RV64 and 4MB alignment for RV32 (hugepage size)
-> decf89f86ecd3c Nick Kossifidis 2021-11-26  1198  	 *
-> decf89f86ecd3c Nick Kossifidis 2021-11-26  1199  	 * Try to alloc from 32bit addressible physical memory so that
-> decf89f86ecd3c Nick Kossifidis 2021-11-26  1200  	 * swiotlb can work on the crash kernel.
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1201  	 */
-> decf89f86ecd3c Nick Kossifidis 2021-11-26  1202  	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
-> decf89f86ecd3c Nick Kossifidis 2021-11-26  1203  					       search_start,
-> decf89f86ecd3c Nick Kossifidis 2021-11-26 @1204  					       min(search_end, (unsigned long) SZ_4G));
-
-SZ_4G = 0x100000000, truncated to unsigned long (32 bits), becomes 0, so min() is 0.
-Or am I not following this correctly?
-
-Should the second param to min() be changed to SZ_4G - 1
-or is this not an issue?
-
-> decf89f86ecd3c Nick Kossifidis 2021-11-26  1205  	if (crash_base == 0) {
-> decf89f86ecd3c Nick Kossifidis 2021-11-26  1206  		/* Try again without restricting region to 32bit addressible memory */
-> a7259df7670240 Mike Rapoport   2021-09-02  1207  		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
-> a7259df7670240 Mike Rapoport   2021-09-02  1208  						search_start, search_end);
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1209  		if (crash_base == 0) {
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1210  			pr_warn("crashkernel: couldn't allocate %lldKB\n",
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1211  				crash_size >> 10);
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1212  			return;
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1213  		}
-> decf89f86ecd3c Nick Kossifidis 2021-11-26  1214  	}
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1215  
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1216  	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1217  		crash_base, crash_base + crash_size, crash_size >> 20);
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1218  
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1219  	crashk_res.start = crash_base;
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1220  	crashk_res.end = crash_base + crash_size - 1;
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1221  }
-> e53d28180d4d0f Nick Kossifidis 2021-04-19  1222  
-> 
-> :::::: The code at line 1204 was first introduced by commit
-> :::::: decf89f86ecd3c3c3de81c562010d5797bea3de1 riscv: try to allocate crashkern region from 32bit addressible memory
-> 
-> :::::: TO: Nick Kossifidis <mick@ics.forth.gr>
-> :::::: CC: Palmer Dabbelt <palmer@rivosinc.com>
-> 
-
-Thanks.
 -- 
-~Randy
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
