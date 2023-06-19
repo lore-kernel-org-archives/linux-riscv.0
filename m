@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 456F6EB64DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 10:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5ECCEB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 11:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JYoE47woL0mDaM24GF64eGXIFuW3TFHSJY5fhUFMnag=; b=ucfaVHWsm0g5HU
-	+Emcb/GlwHp216wvh83ogVR5w9eQvzOV19vHslElLlq78GC0STnyZ0zceQnVtZiq+quCFDSpORVSC
-	BTpx0VUNQ+g9J2B/RssxBaBd2OopC7iphtZzdBwxdxg6qkL5bc+cuB5+4wacVtk9BAX1fCQ+5/pV9
-	0QVsywPK2s4/JzQYpXv4Fbqcj8z4TN4yVw+xRzyPi2AKG4IDcxw5q4JFPF1T6b+iu+rsR9cYYuAOf
-	FIOq20s/QhAaxGjkNIYARtqX6Q4i6GiuUQYyWBHuMTHH8RMZ+mFi7bYXk9O+Jrv19M8fwwj4t3yUd
-	8+i32+k7OSiBUWpOuiEw==;
+	List-Owner; bh=jccYqNuHyPtEc4ZMdRefaeAX2jrQwXatzAIA6uNu0/U=; b=kcrywvq0sgNMyB
+	6OrK8mo/3zfXP2KG1oImlXdD7lofM323GMeYwdmme1x12iqiDKvo27lvDvOEhCZbJgG9V4wIMFb2v
+	3VuSe3ZMSvOafk8yumU018Jlc1Sg63uty6PG4oXeIx3rO3kI3W0ZE/eij0BOdNwKZ4xIDy1MEny7i
+	2c6CQwkHAlxFCiAlh3UIduUfW32eXyskN2r1mToQnGA+0SMo7t08VR7AbKCPuO7hjyKs+/v0cylyl
+	OQJ5G9qDgvmvZw3NQptDhyBBce4TFxV17zi/FKNVrjcIKNDYeN+sM3toQiNH0E3e7O1ikKHiX7sNI
+	XzHCUkbnpmaIJ/7mLdvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBC0B-0089IS-2i;
-	Mon, 19 Jun 2023 10:20:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qBCd0-008IYo-0d;
+	Mon, 19 Jun 2023 11:00:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBC07-0089Hm-31
+	id 1qBCcy-008IWo-0Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 10:20:49 +0000
+	Mon, 19 Jun 2023 11:00:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6789E60B46;
-	Mon, 19 Jun 2023 10:20:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A24BC433C0;
-	Mon, 19 Jun 2023 10:20:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 005F060B7F;
+	Mon, 19 Jun 2023 11:00:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8866C433CB;
+	Mon, 19 Jun 2023 11:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687170046;
-	bh=2D07gGDATS9E+8E2s5eIZqWDqDUa7PH9sWevS6mL1X4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BaKIzJNhVcurYkIAZwCk/WpUNFptpzFOigpBkHDo4KJquXAr/34IIyRgt8GfVeKZL
-	 ulGJCTWmyciesGFJIaJ6zWqYRf19bDcbMeTkRPtI9vAd8PvUl9OREk9/7IQNQTj597
-	 OQwxtHwIEuwPjqud7rtdavOMUEljCmgswslOUzkUh1HEpNgYCKFQa45cJv5UeU3M1l
-	 a/NZH+Qa4pYlZ+hRGh4T5Ex4bNaHJVhXEXE7oZY/h7dl9Qf+wVDGP933xAP1IRnxsn
-	 hM8VO35C1LrruPdiyYsnHpNHUK+6H80kcIrfLqHozRgi9x+HkuF/yxDnWwvHL9tjgN
-	 zNPeyqXaztcXw==
-Date: Mon, 19 Jun 2023 12:20:37 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: daire.mcnamara@microchip.com
-Cc: conor.dooley@microchip.com, kw@linux.com, robh@kernel.org,
-	bhelgaas@google.com, linux-pci@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 7/8] PCI: microchip: Gather MSI information from
- hardware config registers
-Message-ID: <ZJAr9Rvvn6MRrJz+@lpieralisi>
-References: <20230614155556.4095526-1-daire.mcnamara@microchip.com>
- <20230614155556.4095526-8-daire.mcnamara@microchip.com>
+	s=k20201202; t=1687172454;
+	bh=P18pbPD6vuPCbw9QzcSrESz215K6BSQTQUGHn6iOUK4=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Dwx8LFrJ7rLWMmUfb0tJSP7XvGxgFgEueH00zQOUnB8zJJeygOklU7wf0+ziYphoz
+	 MKN/FCzS+maQ/DBPLAFgYUDJYRTDZTMNGjT09piDXz5sZz0dNwqkIdLbQwdV/R6eRp
+	 7vjSv3vs8ucZPpx4aqmavUf4I6Nd29F4VNSStx7IptPnzDsEQA7cA/fh/snJRKpxej
+	 BaVFamiK+0CPq4DVcbS5zC75QNR8wHO8+hI7YEWtunUOTUZJjZQQHOQ2gSKSY9e4HG
+	 HoTS0hzmGCp0HEalcPO7VHsuAZEeopFZ59J/93qls9XXJpQr8m6fbPe2nZzJeaxGs6
+	 w+pua1pdkaFXQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet
+ <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH 1/2] Documentation: riscv: Add early boot document
+In-Reply-To: <20230619094705.51337-1-alexghiti@rivosinc.com>
+References: <20230619094705.51337-1-alexghiti@rivosinc.com>
+Date: Mon, 19 Jun 2023 13:00:51 +0200
+Message-ID: <87sfanbtss.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230614155556.4095526-8-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_032048_081254_6022EA6E 
-X-CRM114-Status: GOOD (  27.27  )
+X-CRM114-CacheID: sfid-20230619_040056_263936_6FB14D01 
+X-CRM114-Status: UNSURE (   5.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,196 +73,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 14, 2023 at 04:55:55PM +0100, daire.mcnamara@microchip.com wrote:
-> From: Daire McNamara <daire.mcnamara@microchip.com>
-> 
-> The PCIe Root Complex on PolarFire SoC is configured at bitstream creation
-> time using Libero.  Key MSI-related parameters include the number of
-> MSIs (1/2/4/8/16/32) and the MSI address. In the device driver, extract
-> this information from hw registers at init time, and use it to configure
-> MSI system, including configuring MSI capability structure correctly in
-> configuration space.
-> 
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  drivers/pci/controller/pcie-microchip-host.c | 73 +++++++++++---------
->  1 file changed, 40 insertions(+), 33 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-> index 751f0243deb4..9ff0fb04b953 100644
-> --- a/drivers/pci/controller/pcie-microchip-host.c
-> +++ b/drivers/pci/controller/pcie-microchip-host.c
-> @@ -20,8 +20,7 @@
->  #include "../pci.h"
->  
->  /* Number of MSI IRQs */
-> -#define MC_NUM_MSI_IRQS				32
-> -#define MC_NUM_MSI_IRQS_CODED			5
-> +#define MC_MAX_NUM_MSI_IRQS			32
->  
->  /* PCIe Bridge Phy and Controller Phy offsets */
->  #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
-> @@ -31,6 +30,11 @@
->  #define MC_PCIE_CTRL_ADDR			(MC_PCIE1_CTRL_ADDR)
->  
->  /* PCIe Bridge Phy Regs */
-> +#define PCIE_PCI_IRQ_DW0			0xa8
-> +#define  MSIX_CAP_MASK				BIT(31)
-> +#define  NUM_MSI_MSGS_MASK			GENMASK(6, 4)
-> +#define  NUM_MSI_MSGS_SHIFT			4
-> +
->  #define IMASK_LOCAL				0x180
->  #define  DMA_END_ENGINE_0_MASK			0x00000000u
->  #define  DMA_END_ENGINE_0_SHIFT			0
-> @@ -79,7 +83,6 @@
->  #define IMASK_HOST				0x188
->  #define ISTATUS_HOST				0x18c
->  #define IMSI_ADDR				0x190
-> -#define  MSI_ADDR				0x190
->  #define ISTATUS_MSI				0x194
->  
->  /* PCIe Master table init defines */
-> @@ -158,8 +161,6 @@
->  
->  /* PCIe Config space MSI capability structure */
->  #define MC_MSI_CAP_CTRL_OFFSET			0xe0u
-> -#define  MC_MSI_MAX_Q_AVAIL			(MC_NUM_MSI_IRQS_CODED << 1)
-> -#define  MC_MSI_Q_SIZE				(MC_NUM_MSI_IRQS_CODED << 4)
->  
->  /* Events */
->  #define EVENT_PCIE_L2_EXIT			0
-> @@ -259,7 +260,7 @@ struct mc_msi {
->  	struct irq_domain *dev_domain;
->  	u32 num_vectors;
->  	u64 vector_phy;
-> -	DECLARE_BITMAP(used, MC_NUM_MSI_IRQS);
-> +	DECLARE_BITMAP(used, MC_MAX_NUM_MSI_IRQS);
->  };
->  
->  struct mc_pcie {
-> @@ -382,25 +383,29 @@ static struct {
->  
->  static char poss_clks[][5] = { "fic0", "fic1", "fic2", "fic3" };
->  
-> -static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *base)
-> +static void mc_pcie_fixup_ecam(struct mc_pcie *port, void __iomem *ecam)
->  {
->  	struct mc_msi *msi = &port->msi;
-> -	u32 cap_offset = MC_MSI_CAP_CTRL_OFFSET;
-> -	u16 msg_ctrl = readw_relaxed(base + cap_offset + PCI_MSI_FLAGS);
-> -
-> -	msg_ctrl |= PCI_MSI_FLAGS_ENABLE;
-> -	msg_ctrl &= ~PCI_MSI_FLAGS_QMASK;
-> -	msg_ctrl |= MC_MSI_MAX_Q_AVAIL;
-> -	msg_ctrl &= ~PCI_MSI_FLAGS_QSIZE;
-> -	msg_ctrl |= MC_MSI_Q_SIZE;
-> -	msg_ctrl |= PCI_MSI_FLAGS_64BIT;
-> -
-> -	writew_relaxed(msg_ctrl, base + cap_offset + PCI_MSI_FLAGS);
-> -
-> +	u16 reg;
-> +	u8 queue_size;
-> +
-> +	/* Fixup MSI enable flag */
-> +	reg = readw_relaxed(ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_FLAGS);
-> +	reg |= PCI_MSI_FLAGS_ENABLE;
-> +	writew_relaxed(reg, ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_FLAGS);
-> +
-> +	/* Fixup PCI MSI queue flags */
-> +	queue_size = reg & PCI_MSI_FLAGS_QMASK;
-> +	queue_size >>= 1;
-> +	reg &= ~PCI_MSI_FLAGS_QSIZE;
-> +	reg |= queue_size << 4;
-> +	writew_relaxed(reg, ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_FLAGS);
-> +
-> +	/* Fixup MSI addr fields */
->  	writel_relaxed(lower_32_bits(msi->vector_phy),
-> -		       base + cap_offset + PCI_MSI_ADDRESS_LO);
-> +		       ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_ADDRESS_LO);
->  	writel_relaxed(upper_32_bits(msi->vector_phy),
-> -		       base + cap_offset + PCI_MSI_ADDRESS_HI);
-> +		       ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_ADDRESS_HI);
-
-This hunk is just code refactoring that has nothing to do AFAICS with
-the commit log purpose, a patch must have a single logical purpose.
-
->  }
->  
->  static void mc_handle_msi(struct irq_desc *desc)
-> @@ -473,10 +478,7 @@ static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
->  {
->  	struct mc_pcie *port = domain->host_data;
->  	struct mc_msi *msi = &port->msi;
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  	unsigned long bit;
-> -	u32 val;
->  
->  	mutex_lock(&msi->lock);
->  	bit = find_first_zero_bit(msi->used, msi->num_vectors);
-> @@ -490,11 +492,6 @@ static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
->  	irq_domain_set_info(domain, virq, bit, &mc_msi_bottom_irq_chip,
->  			    domain->host_data, handle_edge_irq, NULL, NULL);
->  
-> -	/* Enable MSI interrupts */
-> -	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
-> -	val |= PM_MSI_INT_MSI_MASK;
-> -	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
-> -
->  	mutex_unlock(&msi->lock);
->  
->  	return 0;
-> @@ -1117,6 +1114,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
->  	struct mc_pcie *port;
->  	void __iomem *bridge_base_addr;
->  	int ret;
-> +	u32 val;
->  
->  	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
->  	if (!port)
-> @@ -1137,11 +1135,20 @@ static int mc_platform_init(struct pci_config_window *cfg)
->  
->  	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
->  
-> -	port->msi.vector_phy = MSI_ADDR;
-> -	port->msi.num_vectors = MC_NUM_MSI_IRQS;
-> +	/* Allow enabling MSI by disabling MSI-X */
-
-Mmm..see above. It is not clear to me what this patch does overall, for
-certain it does more that what's stated in the commit log and this ought
-to be fixed.
-
-Lorenzo
-
-> +	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
-> +	val &= ~MSIX_CAP_MASK;
-> +	writel(val, bridge_base_addr + PCIE_PCI_IRQ_DW0);
-> +
-> +	/* Pick num vectors from bitfile programmed onto FPGA fabric */
-> +	val = readl(bridge_base_addr + PCIE_PCI_IRQ_DW0);
-> +	val &= NUM_MSI_MSGS_MASK;
-> +	val >>= NUM_MSI_MSGS_SHIFT;
-> +
-> +	port->msi.num_vectors = 1 << val;
->  
-> -	/* Hardware doesn't setup MSI by default */
-> -	mc_pcie_enable_msi(port, cfg->win);
-> +	/* Pick vector address from design */
-> +	port->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
->  
->  	/* Configure Address Translation Table 0 for PCIe config space */
->  	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & 0xffffffff,
-> -- 
-> 2.25.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cml0ZXM6Cgo+IFRoaXMg
+ZG9jdW1lbnQgZGVzY3JpYmVzIHRoZSBjb25zdHJhaW50cyBhbmQgcmVxdWlyZW1lbnRzIG9mIHRo
+ZSBlYXJseQo+IGJvb3QgcHJvY2VzcyBpbiBhIFJJU0MtViBrZXJuZWwuCj4KPiBTemlnbmVkLW9m
+Zi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgoKQWRkaXRpb25h
+bCAneic7ICJTaWduZWQtb2ZmLWJ5OiIKCk5pY2Ugd3JpdGV1cCEKClJldmlld2VkLWJ5OiBCasO2
+cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+CgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
