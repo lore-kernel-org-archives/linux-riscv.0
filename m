@@ -4,117 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 915CAEB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 17:09:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D1CEB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 18:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=phGHZe7dNE4hDeaigkg6XDqPyQkmSts7QIzqwwDWXAg=; b=a52cIaYzw7vlbD
-	ixLctCKgg08LidMFygPg6NvYQ9RfUL4lwdIQUntZLLO2qRhTZ/igcTzPB3AgooGT7wsm1GdxbouVI
-	MvKvi+BDVysXyXUe9LJi2UIT84I7D85RZqlEnf6bxwee04ljaCA9mZEz99iKMMEWovA7VYv+gh9Yk
-	5kjtvhmaL7KRGYrhzL4LMHpX+jouHkS0rZqC9SpSAoffefpapDDfDuk2JhDWC3y2CHbeuCe/MGl26
-	aKk3aGT0zymJhFBS0jMR93eDyO4S0N11MjYID935u9XZqva0Dt6wunWl8dkKlrtYgwzsN69w8Gljq
-	BO0SDNc4dYem7/G6XdSQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xPZmdV9wJ51R5SVJHb6f3GXe3usFyD9GKaTNkOV41L0=; b=qDNYV9f2EGpE52
+	Sa2HFLJdi4oYuzPVg336VbNvmJi/oJBOZNan5MUtTscblfv+SpJN2rMjJpJy4+wBXAiveNuYR6FtY
+	xTrU4tjyIo+vdWdmDcMnUmasOzjDYH/E3Bf1FYiwFVk+/s1NjCwxJTFDl3ZuI6ziwKeRh4X0EKX5R
+	MhY9aDDQfCFGzW6qj/fi/T0xCUm73KjYDHr+znqQOFVPDdw/vFtlb1yE/fvkjJZhOh6C2zgWfrD5V
+	DDK8BT8B+/V0L7PmweVLsPW6vzEsEO3wbd21/L0hHTwB09jViVcokfm/y14urfMgGXaDOXtxVt0K8
+	ObxqxpqAxxxR8ca9VR5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBINg-0093P9-19;
-	Mon, 19 Jun 2023 17:09:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qBJS6-009B23-13;
+	Mon, 19 Jun 2023 18:18:10 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBINc-0093Nn-31
+	id 1qBJS2-009B19-2h
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 17:09:30 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2470460E76;
-	Mon, 19 Jun 2023 17:09:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2BBEC433C0;
-	Mon, 19 Jun 2023 17:09:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687194567;
-	bh=JAKwTrp1uinVAtoLWlXEGNS+fEBZEu6il2wWrUqzEzo=;
-	h=In-Reply-To:References:Date:From:To:Cc:Subject:From;
-	b=YEOROC7YGunxOkL9NsbJwROPW3V877k09rIaiwwEQBd6bVLJWdMjusQxoVnbsuD5D
-	 SKibXVd7FHc2nMr1tudbdYIZvJGYXAOuK4akurudUoPTNxoZjnK21I5AdFijJrVbol
-	 wMmYZdLv8Hw2umDYdeUGRbNj+IGHaRZ0DomN5ubTCsJ6NBLT+yY4qE1y7ajOHRP1RW
-	 KGFKHX9UnHaE0jcV0Lk398WnGNpxO+L8j061yUD+7F16bO6b13PKK3oASVquk5plTv
-	 fi30eJK4gcno8KPn/VoCZ0cPaw9JHH45FBctirdWyvzfVojpY1MuX3tVhu6B84K6vz
-	 1DQlrW9fvYTQw==
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailauth.nyi.internal (Postfix) with ESMTP id BDC6027C0054;
-	Mon, 19 Jun 2023 13:09:24 -0400 (EDT)
-Received: from imap48 ([10.202.2.98])
-  by compute3.internal (MEProxy); Mon, 19 Jun 2023 13:09:24 -0400
-X-ME-Sender: <xms:wouQZL1KKgLu09W-gITBMTpyAXyCop721KHeRNSzShP91di0wPWHmw>
-    <xme:wouQZKG8Wf_3R-mPlBMuIdAgUtqSh1IoF1oSxFnk9i4TgZk6ENhss3V_yoaRPv-RL
-    TAuvGDsGQbdSiWuWsY>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrgeefvddguddtjecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
-    nhguhicunfhuthhomhhirhhskhhifdcuoehluhhtoheskhgvrhhnvghlrdhorhhgqeenuc
-    ggtffrrghtthgvrhhnpedvhfeuvddthfdufffhkeekffetgffhledtleegffetheeugeej
-    ffduhefgteeihfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
-    hrohhmpegrnhguhidomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudduiedu
-    keehieefvddqvdeifeduieeitdekqdhluhhtoheppehkvghrnhgvlhdrohhrgheslhhinh
-    hugidrlhhuthhordhush
-X-ME-Proxy: <xmx:wouQZL5OetLa4Clx3-k8PoL2vfJibp2bgnqmJ2SvMc_usNTskAjOCQ>
-    <xmx:wouQZA2n3SB0X1LUMOotkjWhlqzrq7LHl-_hgrAS7-wGIbb0zOE8Fw>
-    <xmx:wouQZOGStaRHYVBRbGjqqlxYN_stg3xW85Vh8QJme5E9zOhMY7GQOQ>
-    <xmx:xIuQZOK5iPdRAlFtT5-Mu5Cjdtszefp8KfJWF6OppfL2ayIjz9WFYA>
-Feedback-ID: ieff94742:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 5BFB531A0063; Mon, 19 Jun 2023 13:09:22 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-496-g8c46984af0-fm-20230615.001-g8c46984a
-Mime-Version: 1.0
-Message-Id: <a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com>
-In-Reply-To: <20230618080027.GA52412@kernel.org>
-References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-3-rppt@kernel.org>
- <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
- <20230618080027.GA52412@kernel.org>
-Date: Mon, 19 Jun 2023 10:09:02 -0700
-From: "Andy Lutomirski" <luto@kernel.org>
-To: "Mike Rapoport" <rppt@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
- "Kees Cook" <keescook@chromium.org>
-Cc: "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "David S. Miller" <davem@davemloft.net>,
- "Dinh Nguyen" <dinguyen@kernel.org>,
- "Heiko Carstens" <hca@linux.ibm.com>, "Helge Deller" <deller@gmx.de>,
- "Huacai Chen" <chenhuacai@kernel.org>,
- "Kent Overstreet" <kent.overstreet@linux.dev>,
- "Luis Chamberlain" <mcgrof@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nadav Amit" <nadav.amit@gmail.com>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Puranjay Mohan" <puranjay12@gmail.com>,
- "Rick P Edgecombe" <rick.p.edgecombe@intel.com>,
- "Russell King (Oracle)" <linux@armlinux.org.uk>,
- "Song Liu" <song@kernel.org>, "Steven Rostedt" <rostedt@goodmis.org>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Will Deacon" <will@kernel.org>,
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, netdev@vger.kernel.org,
- sparclinux@vger.kernel.org, "the arch/x86 maintainers" <x86@kernel.org>
-Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and jit_text_alloc()
+	Mon, 19 Jun 2023 18:18:08 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-54f71fa7e41so1953573a12.3
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Jun 2023 11:18:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687198685; x=1689790685;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=m+OeXFhNDzLM0zPaS4YH2PeNnnnlp4kA8+TzrtJqYiQ=;
+        b=yGQBhWODfMO4QGE36VsSLSajaVcCis5FFQV7l6lTne6poXtOXDYHv3XekY/i1umY3r
+         PMlGtLQHdE2ZHw3zqX0HFSFXPOFiVRX5B3WrBCyovdt9rI8a2UKzwFpdZIq6bik0P578
+         +B8Ox7+33MQcvBtzVuZcFJQSYU7qTngF567zp/2jBjZOh3ebP+d3QTX5cmvr8yQqPpx3
+         H9CccXSazhBk3DyVn7xMoTkjQxaY9DxsjBbXgNeSCIaepf2WfFgj3i6bR+KEn9rlcnnZ
+         yyHciBR14WSJoBc2HCZRvNYRjHE+d8RtoddT83CHpvHo83Q7vnSDII7tLCJGB4Ba41Dk
+         /QBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1687198685; x=1689790685;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m+OeXFhNDzLM0zPaS4YH2PeNnnnlp4kA8+TzrtJqYiQ=;
+        b=iRX3ieGiWJ69zip6n7JhGWQI6AgS0WYpgS7nXY6ibJnMV88gW/BSDQNfuUiaOh1uZq
+         tK1mKKxJrZOWTB8of1cMpP7Js8UVJs5pMgO6BAl9fNtg5sPX4y1nZSBeF6kETe8bgYBM
+         lEdmaKJokqZAiFKwdoxk8HW3pl+HwpxfUAtZwNSDA5Rbq+ZoWlQYN8GtvaOOUCDT3Q7C
+         PjyUFkCFjrtc/fEswlUDnde2CBpqHTyIlR6BEmSOKBCmOxrIin6leTDERUFDaYogQ3nC
+         o7zhiJBSX7GXGYTeVHkgXDITQwQVadNzyY+862L6nFjrapmCjA23xm9mrg+fURpUU8Ht
+         PwSg==
+X-Gm-Message-State: AC+VfDwrQbzbbrTma1rSJncNG7u0xHbrjnq2f69Vj91+cLWwf/J3IDq1
+	dcTog8UxCnNBdsi5dqx0j6Nh643ieFaaBDHwyr0=
+X-Google-Smtp-Source: ACHHUZ4E2oHq722lM/8InAXAnc+Ik7Y9l7F4JDd/tR/Ws44CQ3tXFNCFXFEkMu8GykT+Zyr4UCJBsA==
+X-Received: by 2002:a17:902:ea01:b0:1b0:3576:c2a9 with SMTP id s1-20020a170902ea0100b001b03576c2a9mr8392670plg.33.1687198684992;
+        Mon, 19 Jun 2023 11:18:04 -0700 (PDT)
+Received: from localhost ([135.180.227.0])
+        by smtp.gmail.com with ESMTPSA id q18-20020a170902b11200b001b050df0a93sm158427plr.93.2023.06.19.11.18.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jun 2023 11:18:04 -0700 (PDT)
+Subject: [PATCH v2] RISC-V: Document that V registers are clobbered on syscalls
+Date: Mon, 19 Jun 2023 11:04:12 -0700
+Message-Id: <20230619180411.12946-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.40.1
+MIME-Version: 1.0
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org, bjorn@kernel.org, remi@remlab.net
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_100929_054414_F0F41B7D 
-X-CRM114-Status: GOOD (  39.53  )
+X-CRM114-CacheID: sfid-20230619_111807_088347_86E19642 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,95 +88,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This is included in the ISA manual, but it's pretty common for bits of
+the ISA manual that are actually ABI to change.  So let's document it
+explicitly.
 
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+Changes since v1 <20230614163534.18668-1-palmer@rivosinc.com>:
 
-On Sun, Jun 18, 2023, at 1:00 AM, Mike Rapoport wrote:
-> On Sat, Jun 17, 2023 at 01:38:29PM -0700, Andy Lutomirski wrote:
->> On Fri, Jun 16, 2023, at 1:50 AM, Mike Rapoport wrote:
->> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
->> >
->> > module_alloc() is used everywhere as a mean to allocate memory for code.
->> >
->> > Beside being semantically wrong, this unnecessarily ties all subsystems
->> > that need to allocate code, such as ftrace, kprobes and BPF to modules
->> > and puts the burden of code allocation to the modules code.
->> >
->> > Several architectures override module_alloc() because of various
->> > constraints where the executable memory can be located and this causes
->> > additional obstacles for improvements of code allocation.
->> >
->> > Start splitting code allocation from modules by introducing
->> > execmem_text_alloc(), execmem_free(), jit_text_alloc(), jit_free() APIs.
->> >
->> > Initially, execmem_text_alloc() and jit_text_alloc() are wrappers for
->> > module_alloc() and execmem_free() and jit_free() are replacements of
->> > module_memfree() to allow updating all call sites to use the new APIs.
->> >
->> > The intention semantics for new allocation APIs:
->> >
->> > * execmem_text_alloc() should be used to allocate memory that must reside
->> >   close to the kernel image, like loadable kernel modules and generated
->> >   code that is restricted by relative addressing.
->> >
->> > * jit_text_alloc() should be used to allocate memory for generated code
->> >   when there are no restrictions for the code placement. For
->> >   architectures that require that any code is within certain distance
->> >   from the kernel image, jit_text_alloc() will be essentially aliased to
->> >   execmem_text_alloc().
->> >
->> 
->> Is there anything in this series to help users do the appropriate
->> synchronization when the actually populate the allocated memory with
->> code?  See here, for example:
->
-> This series only factors out the executable allocations from modules and
-> puts them in a central place.
-> Anything else would go on top after this lands.
+* Remove the code change, just update the documentation.  We might still
+  want to do something in the code, but that's still under discussion so
+  let's get the docs sorted out for now.
+---
+ Documentation/riscv/vector.rst | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Hmm.
-
-On the one hand, there's nothing wrong with factoring out common code. On the other hand, this is probably the right time to at least start thinking about synchronization, at least to the extent that it might make us want to change this API.  (I'm not at all saying that this series should require changes -- I'm just saying that this is a good time to think about how this should work.)
-
-The current APIs, *and* the proposed jit_text_alloc() API, don't actually look like the one think in the Linux ecosystem that actually intelligently and efficiently maps new text into an address space: mmap().
-
-On x86, you can mmap() an existing file full of executable code PROT_EXEC and jump to it with minimal synchronization (just the standard implicit ordering in the kernel that populates the pages before setting up the PTEs and whatever user synchronization is needed to avoid jumping into the mapping before mmap() finishes).  It works across CPUs, and the only possible way userspace can screw it up (for a read-only mapping of read-only text, anyway) is to jump to the mapping too early, in which case userspace gets a page fault.  Incoherence is impossible, and no one needs to "serialize" (in the SDM sense).
-
-I think the same sequence (from userspace's perspective) works on other architectures, too, although I think more cache management is needed on the kernel's end.  As far as I know, no Linux SMP architecture needs an IPI to map executable text into usermode, but I could easily be wrong.  (IIRC RISC-V has very developer-unfriendly icache management, but I don't remember the details.)
-
-Of course, using ptrace or any other FOLL_FORCE to modify text on x86 is rather fraught, and I bet many things do it wrong when userspace is multithreaded.  But not in production because it's mostly not used in production.)
-
-But jit_text_alloc() can't do this, because the order of operations doesn't match.  With jit_text_alloc(), the executable mapping shows up before the text is populated, so there is no atomic change from not-there to populated-and-executable.  Which means that there is an opportunity for CPUs, speculatively or otherwise, to start filling various caches with intermediate states of the text, which means that various architectures (even x86!) may need serialization.
-
-For eBPF- and module- like use cases, where JITting/code gen is quite coarse-grained, perhaps something vaguely like:
-
-jit_text_alloc() -> returns a handle and an executable virtual address, but does *not* map it there
-jit_text_write() -> write to that handle
-jit_text_map() -> map it and synchronize if needed (no sync needed on x86, I think)
-
-could be more efficient and/or safer.
-
-(Modules could use this too.  Getting alternatives right might take some fiddling, because off the top of my head, this doesn't match how it works now.)
-
-To make alternatives easier, this could work, maybe (haven't fully thought it through):
-
-jit_text_alloc()
-jit_text_map_rw_inplace() -> map at the target address, but RW, !X
-
-write the text and apply alternatives
-
-jit_text_finalize() -> change from RW to RX *and synchronize*
-
-jit_text_finalize() would either need to wait for RCU (possibly extra heavy weight RCU to get "serialization") or send an IPI.
-
-This is slower than the alloc, write, map solution, but allows alternatives to be applied at the final address.
-
-
-Even fancier variants where the writing is some using something like use_temporary_mm() might even make sense.
-
-
-To what extent does performance matter for the various users?  module loading is slow, and I don't think we care that much.  eBPF loaded is not super fast, and we care to a limited extent.  I *think* the bcachefs use case needs to be very fast, but I'm not sure it can be fast and supportable.
-
-Anyway, food for thought.
+diff --git a/Documentation/riscv/vector.rst b/Documentation/riscv/vector.rst
+index 48f189d79e41..96f0fedece73 100644
+--- a/Documentation/riscv/vector.rst
++++ b/Documentation/riscv/vector.rst
+@@ -130,3 +130,9 @@ processes in form of sysctl knob:
+ 
+     Modifying the system default enablement status does not affect the enablement
+     status of any existing process of thread that do not make an execve() call.
++
++3.  Vector Register State Across System Calls
++---------------------------------------------
++
++As indicated by version 1.0 of the V extension, vector registers are clobbered
++by system calls.
+-- 
+2.40.1
 
 
 _______________________________________________
