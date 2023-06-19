@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CE5EB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 09:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B814EB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 09:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7rQZNVMUjQrubfXOcZtLswfyU54oV6g6SFdhoRGkEfo=; b=RTJsors61meGMJ
-	VhZTIp09NRwJUV57J2tic/6/PBZuouKLVTFYsGdSw9Ti8Myq7ANYU2aimWg3xh73A0jwt7oojEOqr
-	SVIB2nsnnuDo8jupvJ2NyXVJuCxB3M9deXaR/kw7JZ3bDFG7riRS6k3NU7Wf1V8mAgQzMDTrN+umy
-	mWYE7zWmI/q8qFH0TjQk7bgjI2jbC+z0B7KWl1mYQoD83bx3sntEaGS3wEDT4kwsG43aPa5qygtSN
-	RcQcCet16ybRZYfXmhfYIrWMr8R33JzoSri/o5VCcy1JNG0XUUIy6iW7dvCp/EaFnrTtR/mxpRFC+
-	upESybIcC3lnQwIeyb6g==;
+	List-Owner; bh=//xV0eNLULIrgyg6z0GHKJCoZoQV0nR7dWIoPtA6SF8=; b=eX8Xj/ScCbFkSP
+	DixZ9Tkdv7nsajGddymWJi1TsRq3wk5g0fu3KUGQdTrlO0zfPTa32KeNB8BXVPru4D4obVTZvZ+uX
+	kZgYtjJRdEou3ONBxj2cP3lskABG9F8uC7f2Y21T+Cw3JPAtw6uJcKPHQQl31Gyt0GbOip/PVzF/G
+	ZTg3MSMyc8CULMT33I3UQooeXi22dmBrsefMWfnD/Jhap/zzeXROb0qajn7++2NVF/AP4nqJcoQgY
+	kTmgxjIbO9gTxYohk29dsiYEYQQU/ffPVPythLyyzSQuuco4lJnEQRQc0iJ+v3A6l+8X843gCA1C/
+	brAxToupYMZDRt73gNHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBBUi-0084W1-0W;
-	Mon, 19 Jun 2023 09:48:20 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBBUf-0084Ui-2X
-	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 09:48:19 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2b479d53d48so8828861fa.1
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Jun 2023 02:48:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687168095; x=1689760095;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a7SPByKyVPiwN/2FqCBqpnqbBRCuyopKfDoQFMlp0Pg=;
-        b=bmSQnUrSqleWQxuOOJHziLNGlBJwx1UmYKUBfklFbIAeB8U5h+81cjA0KCNl57VTYO
-         rZvlBcOFaUUyFHTEG+yRnEw07mP9+WfL/4Txb116IzGJsUz1ELXUrtn10GHImlG5DJBe
-         eBxc6JULv/EB+xxGYnt3+yQ59Zv/vaIxQX2maQOtsQ65MzCZuLdm8K54vr6jp/JNEdcV
-         1sgOSt40aD6vKH7ZCysoB8p2tM69MNOZMA7uPedLmtiX4ZHN7gmptkIUHDxb7KmDak2u
-         OnUFoPuH+P9Dz6cXFGLciHGUarCskCtl9DMguvm4L443Qw9ECl4f6S75avXowA7wsNye
-         +e8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687168095; x=1689760095;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=a7SPByKyVPiwN/2FqCBqpnqbBRCuyopKfDoQFMlp0Pg=;
-        b=F5i9sHuhXnWvFWWCSKYqb5ZLTX4R/bJOO+Pq32JFTBaX9vYJ8FlrPak2Lxq2lGMWvB
-         CiO4wXhqaEQf4+yBHB97M52k0Sz0BmU/hHwAU7uZnM5gaZ6FxBASAca5UNOEowjE6sa4
-         NlfK4gVPPtiLu8MNWisSP0BIn6q/gRJ4SWF8NI+35IU9dQVa1pKQrx2RVFPqpQiuLz0g
-         rcrkQUXVl/M6FDkQ5DvvGsNecck5gB8aHvOLSzauUd9B33SWEeN/szqN5ppup6EfjZPD
-         W6P5cfG1I8oGiFs8CyFL6eatiAfRQslCTbBI3phg3SfbmcsRnPHhs/HNteImkXM+RKoh
-         qDoA==
-X-Gm-Message-State: AC+VfDxQ5jWgLz9bRoQMGtebUkE0fdMwU5qkeh0BGV9+b2syZqwT4yay
-	zBMJCCyN5hPiqup9CK/LU8Kftg==
-X-Google-Smtp-Source: ACHHUZ6DUJj3ieHmVMQb0BYF1rpy+Y5YBvOqhmgE2Rm97iwaM6H/IWbHWp57ylDtA+4wY/TOIqW+Sg==
-X-Received: by 2002:a2e:9c03:0:b0:2b4:6bc2:a540 with SMTP id s3-20020a2e9c03000000b002b46bc2a540mr1989324lji.15.1687168095301;
-        Mon, 19 Jun 2023 02:48:15 -0700 (PDT)
-Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id c25-20020a05600c0ad900b003f18b942338sm10217564wmr.3.2023.06.19.02.48.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jun 2023 02:48:15 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 2/2] Documentation: riscv: Update boot image header since EFI stub is supported
-Date: Mon, 19 Jun 2023 11:47:05 +0200
-Message-Id: <20230619094705.51337-2-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230619094705.51337-1-alexghiti@rivosinc.com>
-References: <20230619094705.51337-1-alexghiti@rivosinc.com>
+	id 1qBBUu-0084bb-1p;
+	Mon, 19 Jun 2023 09:48:32 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qBBUr-0084Uq-0y;
+	Mon, 19 Jun 2023 09:48:31 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 380888565;
+	Mon, 19 Jun 2023 17:48:06 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 19 Jun
+ 2023 17:48:06 +0800
+Received: from ubuntu.localdomain (113.72.145.217) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 19 Jun
+ 2023 17:48:05 +0800
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
+	<conor@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+	<kishon@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Roger Quadros <rogerq@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-riscv@lists.infradead.org>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Minda Chen <minda.chen@starfivetech.com>,
+	Mason Huo <mason.huo@starfivetech.com>
+Subject: [PATCH v7 5/5] riscv: dts: starfive: Add PCIe PHY dts configuration for JH7110
+Date: Mon, 19 Jun 2023 17:47:59 +0800
+Message-ID: <20230619094759.21013-6-minda.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230619094759.21013-1-minda.chen@starfivetech.com>
+References: <20230619094759.21013-1-minda.chen@starfivetech.com>
 MIME-Version: 1.0
+X-Originating-IP: [113.72.145.217]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_024817_821173_6F025A5E 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20230619_024829_500384_91281B66 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,37 +78,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The EFI stub is supported on RISC-V so update the documentation that
-explains how the boot image header was reused to support it.
+Add PCIe PHY dts configuration for StarFive JH7110 SoC.
+PCIe0 PHY can be use as USB 3.0 PHY.
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- Documentation/riscv/boot-image-header.rst | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/Documentation/riscv/boot-image-header.rst b/Documentation/riscv/boot-image-header.rst
-index a4a45310c4c4..df2ffc173e80 100644
---- a/Documentation/riscv/boot-image-header.rst
-+++ b/Documentation/riscv/boot-image-header.rst
-@@ -28,11 +28,11 @@ header in future.
- Notes
- =====
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 4c5fdb905da8..7e5c3ae83aa1 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -353,6 +353,18 @@
+ 			status = "disabled";
+ 		};
  
--- This header can also be reused to support EFI stub for RISC-V in future. EFI
--  specification needs PE/COFF image header in the beginning of the kernel image
--  in order to load it as an EFI application. In order to support EFI stub,
--  code0 should be replaced with "MZ" magic string and res3(at offset 0x3c) should
--  point to the rest of the PE/COFF header.
-+- This header is also reused to support EFI stub for RISC-V. EFI specification
-+  needs PE/COFF image header in the beginning of the kernel image in order to
-+  load it as an EFI application. In order to support EFI stub, code0 is replaced
-+  with "MZ" magic string and res3(at offset 0x3c) points to the rest of the
-+  PE/COFF header.
- 
- - version field indicate header version number
- 
++		pciephy0: phy@10210000 {
++			compatible = "starfive,jh7110-pcie-phy";
++			reg = <0x0 0x10210000 0x0 0x10000>;
++			#phy-cells = <0>;
++		};
++
++		pciephy1: phy@10220000 {
++			compatible = "starfive,jh7110-pcie-phy";
++			reg = <0x0 0x10220000 0x0 0x10000>;
++			#phy-cells = <0>;
++		};
++
+ 		uart3: serial@12000000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x0 0x12000000 0x0 0x10000>;
 -- 
-2.39.2
+2.17.1
 
 
 _______________________________________________
