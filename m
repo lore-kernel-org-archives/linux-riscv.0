@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1948EB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 11:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFF0EB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 12:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NHch0iipl/0Gj5n7J14/24hMXSVro2HjInAr/40f2ko=; b=zTZ4HX1wD+j5+c
-	ACi8UWo8UcwW6cUmMDSuIrq0hr0c1LbONChhfNhMPjDot6v7Gr0TL2p4G6rgjCyuRigIC6uXUmYax
-	QIeId8JGkyJw8ahLEgjLShWy6oHyC4T6hDLB7gnPRYtZYjsjjZSmnWNfXcUdlARDJIt0pYIbauH7y
-	GmC3TmFCkDTbdWMbWiCL3iB6qw1yBSz5+hWBLJCSLvIB0pzhvV6JC7f5bpczqJLTv++ZT27SpuAau
-	Ug2aVWNk3kkC0M4jYBT8GmsxRc3oc3Qi3RYNGHg2e31vLWZdgqVgTsf7eorKjKYUQDi49vhrQsLmG
-	lYHOqg/um2aOcIXVFCeg==;
+	List-Owner; bh=vR8d1CEEubczFRwEWrVqv1uT5r12U8rTwD1ZmM1mkn0=; b=xIEGMrVMickxq3
+	UZ77Klf/2nltkOojk74ehdVR36Nw30vu7DXuF2plKYtrS9PTMgWAWADADnc699j2uqyPObcJ25/9J
+	g5dyL069Ls35jU1oMkMO5YFFgPq5CgUd6jKgYjxpnzJETnGEhdOmMyx1BD08ATELC7mdAO5lolArX
+	1v9BORV3DE4IJXBjCJyADITWlRmgoIMSj4LqM5LZWRmKLxQvfNznlLJ/WMoty7f+cZxZ/Sgyci2UG
+	WwZ5EJ+QJaMQKjeNnlr0YvskCLlu+Ckhxix3kjmqSDTOudzhzgzWOA5VFA5IPOsgqCt/Rrws2NYry
+	n61DEESGuj8nL78g0hfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBD9c-008NVM-0A;
-	Mon, 19 Jun 2023 11:34:40 +0000
-Received: from out-37.mta0.migadu.com ([91.218.175.37])
+	id 1qBDpe-008Sec-1y;
+	Mon, 19 Jun 2023 12:18:06 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBD9Y-008NSF-1o
+	id 1qBDpb-008Se9-2d
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 11:34:38 +0000
-Date: Mon, 19 Jun 2023 07:34:26 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1687174472;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Tt3RWh8BEKoqLhK86LDh7llJ14l6KCTXk/okAyPXAzA=;
-	b=i+cENnWbA17Y+F/fishc8UmKkX2d11aFrfbkEA/RSeJGs8DaK+pP54Vf1C7aoZ8NsEj74R
-	cXaE50KWXHIuXWZXVuGC783hgIjWLesjrEEDAYhwTaqLKdCoI85w4n4+GuOUgBvzA2QigP
-	oa1A17/zsm0VN2UgH6YNfjC3Cc/g4gI=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Kent Overstreet <kent.overstreet@linux.dev>
-To: Andy Lutomirski <luto@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>,
-	"Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Song Liu <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, netdev@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	the arch/x86 maintainers <x86@kernel.org>
-Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and
- jit_text_alloc()
-Message-ID: <20230619113426.c37bpwvdagbzyevn@moria.home.lan>
-References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-3-rppt@kernel.org>
- <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
+	Mon, 19 Jun 2023 12:18:05 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-9829b12b80fso529483866b.2
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Jun 2023 05:18:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1687177081; x=1689769081;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=f3JGorfIUhRBEEat5SkdMS+cAsBErGeh9mcIh09Qj5Y=;
+        b=ftxfXuW39arEC753qySrvJyMUiTqn6xXH5WaTT1BEErA00SpJLIGp9w1kBUhU5vEJv
+         f6anxtOmKpET56EN48/cEnd0SwK+yj51n1MEtBCTPp7el9yUoItaJ6F/hFGj4gShuteI
+         BaQ1LQa6nXrDN0P5PelotjCKHziaLP6gEuIS0sK3MPkvSK5q14sHaTbIdMqqeWK4KuUP
+         Fc7Kk3JX16pEdBOl1xbceR7RizKgfzdt849uuItHQfnmyhTplWRPVWhgxectJ2aAwkrY
+         NSApPi7LL9fZJGS3slUXFwI/emASv9VZqaYzA9/0RB6ZswwB0K2OAXTimSVDYDMgSXhI
+         /C8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1687177081; x=1689769081;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=f3JGorfIUhRBEEat5SkdMS+cAsBErGeh9mcIh09Qj5Y=;
+        b=kwTy8YaAAv7PWgVzb6K+pRkOia2zPWXksoyHHcAKWzl79fZL8LD6R0U/w5VwNVpLFk
+         syhIcDTbp/R4Rgm2790qIelKrH7ROBMLNY7TE/u8szsQXDlO4ZmqB2T54F+YyKV3H1hw
+         yzBRJng7aEjFDUF8z6DH+r+LJrvpb1wgfUT4OrpqiWle14/NE+X+MA/ZoY9Honw1NfaH
+         KDSla0UBvi/3+/LDIdchpL/VJRWOXogjld8wqdhZX5KXldX0Lu18wWz21ff4kSdiN6ga
+         xnfO1pjBp2KIcO9WrOuerkBEKaOWh0rh2bNJqIKMoCPUcngO7497KxfVIf0T92/oSV3K
+         njjw==
+X-Gm-Message-State: AC+VfDx3hoDc6F/q66W0zJVc1BsO5i2ir0U+Don3ZTk0MiZJkqTxVpgP
+	X6DbxVotRniFPIY/J0MPYqcOZg==
+X-Google-Smtp-Source: ACHHUZ5dSNOSmu50TYQOnRntKgNAkfQOjYhYtzl3XEVqerIDIPhndh1rJ+XHu5SZ33ZICY6HRcEyeA==
+X-Received: by 2002:a17:907:e8b:b0:988:9b29:5647 with SMTP id ho11-20020a1709070e8b00b009889b295647mr2506074ejc.77.1687177081353;
+        Mon, 19 Jun 2023 05:18:01 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.219.26])
+        by smtp.gmail.com with ESMTPSA id qw19-20020a170906fcb300b00988c3e96294sm1029432ejb.30.2023.06.19.05.17.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Jun 2023 05:18:00 -0700 (PDT)
+Message-ID: <4937f9c4-a0e0-fd37-d71b-e7488b2a1062@linaro.org>
+Date: Mon, 19 Jun 2023 14:17:58 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH v3 1/3] dt-bindings: qspi: cdns,qspi-nor: Add clocks for
+ StarFive JH7110 SoC
+Content-Language: en-US
+To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Ziv Xu <ziv.xu@starfivetech.com>
+References: <20230619083517.415597-1-william.qiu@starfivetech.com>
+ <20230619083517.415597-2-william.qiu@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230619083517.415597-2-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_043436_780743_2D289DD5 
-X-CRM114-Status: GOOD (  21.55  )
+X-CRM114-CacheID: sfid-20230619_051803_918230_80105CBB 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +100,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 17, 2023 at 01:38:29PM -0700, Andy Lutomirski wrote:
-> On Fri, Jun 16, 2023, at 1:50 AM, Mike Rapoport wrote:
-> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> >
-> > module_alloc() is used everywhere as a mean to allocate memory for code.
-> >
-> > Beside being semantically wrong, this unnecessarily ties all subsystems
-> > that need to allocate code, such as ftrace, kprobes and BPF to modules
-> > and puts the burden of code allocation to the modules code.
-> >
-> > Several architectures override module_alloc() because of various
-> > constraints where the executable memory can be located and this causes
-> > additional obstacles for improvements of code allocation.
-> >
-> > Start splitting code allocation from modules by introducing
-> > execmem_text_alloc(), execmem_free(), jit_text_alloc(), jit_free() APIs.
-> >
-> > Initially, execmem_text_alloc() and jit_text_alloc() are wrappers for
-> > module_alloc() and execmem_free() and jit_free() are replacements of
-> > module_memfree() to allow updating all call sites to use the new APIs.
-> >
-> > The intention semantics for new allocation APIs:
-> >
-> > * execmem_text_alloc() should be used to allocate memory that must reside
-> >   close to the kernel image, like loadable kernel modules and generated
-> >   code that is restricted by relative addressing.
-> >
-> > * jit_text_alloc() should be used to allocate memory for generated code
-> >   when there are no restrictions for the code placement. For
-> >   architectures that require that any code is within certain distance
-> >   from the kernel image, jit_text_alloc() will be essentially aliased to
-> >   execmem_text_alloc().
-> >
+On 19/06/2023 10:35, William Qiu wrote:
+> The QSPI controller needs three clock items to work properly on StarFive
+> JH7110 SoC, so there is need to change the maxItems's value to 3. Other
+> platforms do not have this constraint.
 > 
-> Is there anything in this series to help users do the appropriate synchronization when the actually populate the allocated memory with code?  See here, for example:
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../bindings/spi/cdns,qspi-nor.yaml           | 20 ++++++++++++++++++-
+>  1 file changed, 19 insertions(+), 1 deletion(-)
 > 
-> https://lore.kernel.org/linux-fsdevel/cb6533c6-cea0-4f04-95cf-b8240c6ab405@app.fastmail.com/T/#u
+> diff --git a/Documentation/devicetree/bindings/spi/cdns,qspi-nor.yaml b/Documentation/devicetree/bindings/spi/cdns,qspi-nor.yaml
+> index b310069762dd..1b83cbb9a086 100644
+> --- a/Documentation/devicetree/bindings/spi/cdns,qspi-nor.yaml
+> +++ b/Documentation/devicetree/bindings/spi/cdns,qspi-nor.yaml
+> @@ -26,6 +26,15 @@ allOf:
+>              const: starfive,jh7110-qspi
+>      then:
+>        properties:
+> +        clocks:
+> +          maxItems: 3
+> +
+> +        clock-names:
+> +          items:
+> +            - const: ref
+> +            - const: ahb
+> +            - const: apb
 
-We're still in need of an arch independent text_poke() api.
+You are duplicating top-level property. Define the items only in one
+place. If this list is applicable to everything, then in top-level property.
+
+> +
+>          resets:
+>            minItems: 2
+>            maxItems: 3
+> @@ -38,6 +47,9 @@ allOf:
+>  
+>      else:
+>        properties:
+> +        clocks:
+> +          maxItems: 1
+
+clock-names is missing. They must be in sync with clocks. What is the
+first clock?
+
+> +
+>          resets:
+>            maxItems: 2
+>  
+> @@ -70,7 +82,13 @@ properties:
+>      maxItems: 1
+>  
+>    clocks:
+> -    maxItems: 1
+> +    maxItems: 3
+
+
+You did not test it before sending. minItems is missing.
+
+> +
+> +  clock-names:
+> +    items:
+> +      - const: ref
+> +      - const: ahb
+> +      - const: apb
+
+
+>  
+>    cdns,fifo-depth:
+>      description:
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
