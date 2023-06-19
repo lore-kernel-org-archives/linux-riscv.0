@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA57BC0015E
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67430EB64DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=51KkBDAF9QBCdST2IGY0i2vLpfxuDHTQRBHGSI6q3Rs=; b=QUsVuFICuXnb3I
-	rNcOUwxN1RkLHtRqkMviz5EPplOIKRBigW41v1bm+RgHpin4rH+G8UhWD7G939l0K+NUV3YIZX3rH
-	JU3UWSbI4RJt05yKFZODhfyXp5/O/Ea8uB7C8c2oFW6d7zjklW3uAmSJPG0pe6Kb2X2swd11nOSXC
-	jlsWuo98n2QeNLQSTGfNS7NJLVGgj1iMob6MN4jpsrotbJFXhFFGRgKp8tTiIF3HfpyM1guLt2udU
-	t8EhnTfgl2MUov4h8G6+721so4gN0JkWLPnHRNzCsELPQRqbvQHyW0QmqMD5LjnkOnWPaDs45ORS0
-	lH+feX2zykaStnWr2C0g==;
+	List-Owner; bh=2wnayIfGVn9F86TcDyynKLIdBqcWjfcLITBpfU0Af7M=; b=FyzBWNE0tztRNU
+	Gy3MmlINNPmbCTdhJ5qzsP+jmMy9LZVZIoiHdhq7YXdum7B5lur4nE/T0pMDiUYB8QpW53eWzbNEo
+	AJHgrZ9f2ylJhqzSPatd53o7ojt54mTEBiEY5Y8QBhs4wah8XDVCUEtAEOi7/7rIkhW9mqb3R4OQg
+	RG+Z7PgCEknyxpLE4E444PBJ1qfgO4+PEe55Xf+rQT5xlTNCYZG9JpnB4lFphTA4xq0M+JMU+Oazt
+	D8rdHHkzl4FetkYgVrucS5daaNW+Ib3Gi82I7K4zhUJK5Yg0K+05q74gnP26IvX//1LeWzng6Kjzj
+	O1oy+ZK/T/Trla/5oKHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBH3F-008oQx-1r;
-	Mon, 19 Jun 2023 15:44:21 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1qBH3a-008oYu-0Z;
+	Mon, 19 Jun 2023 15:44:42 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBH3C-008oP7-0z;
-	Mon, 19 Jun 2023 15:44:19 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-4f769c37d26so4650160e87.1;
-        Mon, 19 Jun 2023 08:44:17 -0700 (PDT)
+	id 1qBH3X-008oXU-0G;
+	Mon, 19 Jun 2023 15:44:40 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-4f7677a94d1so4690227e87.0;
+        Mon, 19 Jun 2023 08:44:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1687189456; x=1689781456;
+        d=gmail.com; s=20221208; t=1687189477; x=1689781477;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=aL5sq5Lugahi7hv9X9W+s9NTZzWQgnxxieVUqmZWN4k=;
-        b=VlMXwrYDrcRTxXvQ1Ol2PWCQ2fyrtvbAqE/t+vlPR8747qVBGnU5d9Tv/hKHVIuXJA
-         7SaDhGQx5zaACLBAc2UyuvIFoyMZJSERYb4Nu+OOUxbKKViBqRmJ5lb8tibqiWq//7xV
-         ajhMtYeXWaV0YPrvL0SWxYanEs8/7JT5gxpCbIqjZtrQ1oBBm/VycFQRjMcMZsK/U5+F
-         jJT0lpx4HrEPZJDYZH9PZzRtZPb25jnF1WjgL/V08hsoN08ppO/WBak4mHw6Mo+OkPtU
-         C7CXB394fmNmkMvPB6p2PS96XcTYrmlpCtwoqpTk8N1VxqD5fBrZQ7GbyULFHIA/4wTz
-         O0rQ==
+        bh=A2xW1pdD4hh2VGs4Mpg9cKE/j/pXz/wg2o6KnZsreRQ=;
+        b=SXi9EuYemDFlDxp0BqouWi1+qLw4f2dj8Wiuwrapoqielba8KLGExvIZVg831z4yh3
+         n9YHgewmBi/vaHWDfDGSKEpC72HxQIzH8PcrDpN3EpQZvZMqRoHVJ7V8WC0h071yrRd/
+         yjJ1KFmUABIwfoo0Cwrw7pSyffKMlHGB0qgS1k8qkXTXKQ+OBnZ0SQ8rnR2diuoSUD5B
+         fWhRAyGZkSnFTAsdlUAwXFnx2UYjxddxGfSfNnLGrO2nqRd1bq9WNetJYb+RsWW85ED2
+         zjFc46hV/eGrfqKuG/LfBj6tpbAUcdzezYY8RJOCeJSfHi2CKqHwiHBukPmYhJlnsQkq
+         VzPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687189456; x=1689781456;
+        d=1e100.net; s=20221208; t=1687189477; x=1689781477;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aL5sq5Lugahi7hv9X9W+s9NTZzWQgnxxieVUqmZWN4k=;
-        b=ejkzbx8Cy9u0jOOoPz6vbRr2h56en7oEO+/uz0893kPOs5b3zcDGPy0b1F8ndYMX04
-         8pNkd8uJLMiiwqo534KYx1Oms270KRLOdKHf9dtK9GkSndv+NGIDWiQahpEyRPEsofKJ
-         MMlYYP6yRphIhmAxd6XN5WZ4jt7y29hUBd66cGy2Xo8Ze/WT2j/de9BNN7lAtvQnQa8M
-         3Gf2/7MOf0VEjVhaSv8oNSJ1VNu4oM0seaB2zi71+s6p5UM3vSTDAOmDcJGoZVsYQ153
-         Obp9+Np/fDcaJBrUoNgQLyu/NX+ZNIvcLaXKJlJDJQnHfS/RC0g3+bcHUeZ4Aa/iH307
-         Q7cw==
-X-Gm-Message-State: AC+VfDxPKJ6hRVD/b5eEyQidBB6ZIfNGUw3XWNr6O6fYB3Wuy5EvJi/h
-	gGWqi8KNQfwTznjWKl0UsQI=
-X-Google-Smtp-Source: ACHHUZ4Dv4HGN1j4+laQB9t9R+Su/3+4i4db+7e5rU0DHCTVsgQKOUMFnDc/XZKjypM1PqixorU7ig==
-X-Received: by 2002:a19:790a:0:b0:4f8:417b:c752 with SMTP id u10-20020a19790a000000b004f8417bc752mr5353354lfc.44.1687189455711;
-        Mon, 19 Jun 2023 08:44:15 -0700 (PDT)
+        bh=A2xW1pdD4hh2VGs4Mpg9cKE/j/pXz/wg2o6KnZsreRQ=;
+        b=V6rhqC3Xj6cgO8vL6KuchG2FCvfZJcWdSJMEwIM5go+p8V5XxLwu1/BFuj+5LWHUN7
+         /Xqp+zhxcYGheP797S/+G7YZUG2ZdCNVTshRFnBvGAbmyFtxusN+KUi/tdvyfA4v2Uvo
+         91NWI5qPj2YGmZ32aMe4ziL5W9tziSmFajMBumi+qS2uq3wOQTJ45j/eYatsSNLIWP+C
+         aONM+Ofainont15L9HwDC2nsmIzUiK/BlSGJRICgd6u+oTvn0RVOu/1htz1PBe61IEZE
+         ZzJSEVN9jaTjY/ojWGcLXM8axeXTJivNxQSaLP6aswN6Wi8MRC4TnzchDMrlaIgbS6h0
+         pZNg==
+X-Gm-Message-State: AC+VfDyx3nhNPTX6SgmPMxR0q0dcumKjuVaNOhEkfLSbVXhR2z6ame3q
+	nlK58pchk8QO6eC4OrvMAro=
+X-Google-Smtp-Source: ACHHUZ6fyzgyF6IaPo1cFaZ/Jbu3BHrWZiNQ4Ii9axwoUxhdnuwBR6cJW7DJpqJrgj7c7vZ8IZ/jdQ==
+X-Received: by 2002:a19:505b:0:b0:4f8:5af4:73ef with SMTP id z27-20020a19505b000000b004f85af473efmr4062285lfj.28.1687189477519;
+        Mon, 19 Jun 2023 08:44:37 -0700 (PDT)
 Received: from user-PC.. ([178.134.198.138])
-        by smtp.gmail.com with ESMTPSA id f11-20020a19ae0b000000b004f85e53250bsm1207144lfc.191.2023.06.19.08.44.11
+        by smtp.gmail.com with ESMTPSA id f11-20020a19ae0b000000b004f85e53250bsm1207144lfc.191.2023.06.19.08.44.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jun 2023 08:44:15 -0700 (PDT)
+        Mon, 19 Jun 2023 08:44:37 -0700 (PDT)
 From: Maksim Kiselev <bigunclemax@gmail.com>
 To: linux-iio@vger.kernel.org
 Cc: Maksim Kiselev <bigunclemax@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
 	Jonathan Cameron <jic23@kernel.org>,
 	Lars-Peter Clausen <lars@metafoo.de>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -80,31 +79,33 @@ Cc: Maksim Kiselev <bigunclemax@gmail.com>,
 	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
 	Andy Shevchenko <andy.shevchenko@gmail.com>,
 	Cosmin Tanislav <demonsingur@gmail.com>,
-	=?UTF-8?q?Leonard=20G=C3=B6hrs?= <l.goehrs@pengutronix.de>,
-	ChiaEn Wu <chiaen_wu@richtek.com>,
-	ChiYuan Huang <cy_huang@richtek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Ramona Bolboaca <ramona.bolboaca@analog.com>,
+	=?UTF-8?q?Leonard=20G=C3=B6hrs?= <l.goehrs@pengutronix.de>,
+	ChiYuan Huang <cy_huang@richtek.com>,
 	Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
+	ChiaEn Wu <chiaen_wu@richtek.com>,
 	William Breathitt Gray <william.gray@linaro.org>,
 	Arnd Bergmann <arnd@arndb.de>,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Quentin Schulz <quentin.schulz@free-electrons.com>,
+	Mike Looijmans <mike.looijmans@topic.nl>,
 	Maxime Ripard <mripard@kernel.org>,
+	Quentin Schulz <quentin.schulz@free-electrons.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v8 3/4] dt-bindings: iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
-Date: Mon, 19 Jun 2023 18:42:26 +0300
-Message-Id: <20230619154252.3951913-4-bigunclemax@gmail.com>
+Subject: [PATCH v8 4/4] riscv: dts: allwinner: d1: Add GPADC node
+Date: Mon, 19 Jun 2023 18:42:27 +0300
+Message-Id: <20230619154252.3951913-5-bigunclemax@gmail.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230619154252.3951913-1-bigunclemax@gmail.com>
 References: <20230619154252.3951913-1-bigunclemax@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_084418_344289_504AFD2F 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20230619_084439_119127_ED995F4F 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,114 +122,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allwinner's D1/T113s/R329/T507 SoCs have a new general purpose ADC.
-This ADC is the same for all of this SoCs. The only difference is
-the number of available channels.
+This patch adds declaration of the general purpose ADC for D1
+and T113s SoCs.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
 ---
- .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    | 91 +++++++++++++++++++
- 1 file changed, 91 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
+ arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-new file mode 100644
-index 000000000000..7ef46c90ebc8
---- /dev/null
-+++ b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-@@ -0,0 +1,91 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iio/adc/allwinner,sun20i-d1-gpadc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index 922e8e0e2c09..cb353d5805cb 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -138,6 +138,16 @@ ccu: clock-controller@2001000 {
+ 			#reset-cells = <1>;
+ 		};
+ 
++		gpadc: adc@2009000 {
++			compatible = "allwinner,sun20i-d1-gpadc";
++			reg = <0x2009000 0x400>;
++			clocks = <&ccu CLK_BUS_GPADC>;
++			resets = <&ccu RST_BUS_GPADC>;
++			interrupts = <SOC_PERIPHERAL_IRQ(57) IRQ_TYPE_LEVEL_HIGH>;
++			status = "disabled";
++			#io-channel-cells = <1>;
++		};
 +
-+title: Allwinner D1 General Purpose ADC
-+
-+maintainers:
-+  - Maksim Kiselev <bigunclemax@gmail.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - allwinner,sun20i-d1-gpadc
-+
-+  "#io-channel-cells":
-+    const: 1
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-+  clocks:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  reg:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+patternProperties:
-+  "^channel@[0-9a-f]+$":
-+    $ref: adc.yaml
-+    type: object
-+    description:
-+      Represents the internal channels of the ADC.
-+
-+    properties:
-+      reg:
-+        items:
-+          minimum: 0
-+          maximum: 15
-+
-+    required:
-+      - reg
-+
-+    unevaluatedProperties: false
-+
-+required:
-+  - "#io-channel-cells"
-+  - clocks
-+  - compatible
-+  - interrupts
-+  - reg
-+  - resets
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/sun20i-d1-ccu.h>
-+    #include <dt-bindings/reset/sun20i-d1-ccu.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    gpadc: adc@2009000 {
-+        compatible = "allwinner,sun20i-d1-gpadc";
-+        reg = <0x2009000 0x400>;
-+        clocks = <&ccu CLK_BUS_GPADC>;
-+        resets = <&ccu RST_BUS_GPADC>;
-+        interrupts = <73 IRQ_TYPE_LEVEL_HIGH>;
-+        #io-channel-cells = <1>;
-+
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        channel@0 {
-+            reg = <0>;
-+        };
-+
-+        channel@1 {
-+            reg = <1>;
-+        };
-+    };
-+...
+ 		dmic: dmic@2031000 {
+ 			compatible = "allwinner,sun20i-d1-dmic",
+ 				     "allwinner,sun50i-h6-dmic";
 -- 
 2.39.2
 
