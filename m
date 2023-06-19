@@ -4,65 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8838EB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE50EB64DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zxo6KMmRBd/Nt+z2e+tSAK76B9ahRvSv8OuE9xZ3nDE=; b=tTSX5422ruCSDj
-	aE5b2CaQKtFF/6JaMmLp5MGbQ064N2H9r/naDLDcRNJ+dGXAjy5skzeovp2XvEi7FM6+aeulSkW2O
-	vIw6WAMtLiuOny2e3SqgsxFp/6mMQ75UYGMKQ8dZilF2+00zpVlrJvUu4ipPXgHvglg1a+FAssGM5
-	plpkj7CmRlwPzJdBzRyFhEh03hZeu4XEyvZE6UaNK6IcxocgstTyEGu7dMiUGYoPgReAjHgdJ/yr3
-	aKRIb4NrbFHnbg6uORHc+kupJ9ibL547WpEJTtQZz9b/jvwVFmvnBs0EAPgyuW8IoYWzp16joEaBa
-	nsfvgSpMIUrzP2gXWz4A==;
+	List-Owner; bh=65+ohQA4XRf2CQcIvcRNfJOMyaiUbp9pbU+tRVUmcXY=; b=y1qrTbzXtPFrPI
+	HPHcmvTBmKvebZF646YcxLv+BBtAlCu998RxZ/diZHuSIfTlLuduLiP7DASLkKsnk1YvmXq8jRDgc
+	G0bugFz4uFtQ7bOGNIQVPyvskxP/mYvmwJ54sSBXWrCOp2bDwBGyJ34xnM+v3/NBjHNHG3HET9B+E
+	42ESzo90DFm+xohm5dn0AZx5hFnuSrh76tn9OC05dQz+OZjaiq00trDCNQbGK3PakRD2ll75BJwGG
+	G/hxTC+eLOnSEFIh3l4kWIv7bhsrAf4Ky0zUXypU3/IrR5/A+VMgjR7938khhOr6qQZHzHxDaZhHZ
+	I7LiDUHiHz5/o/HSWakw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBH2F-008o3T-05;
-	Mon, 19 Jun 2023 15:43:19 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1qBH2X-008o9L-1p;
+	Mon, 19 Jun 2023 15:43:37 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBH2C-008o1q-0z
-	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 15:43:17 +0000
-X-QQ-mid: bizesmtp69t1687189376ti8rnzfh
-Received: from linux-lab-host.localdomain ( [116.30.126.60])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 19 Jun 2023 23:42:55 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: +ynUkgUhZJmZnOoZiuIrMXfznkHM+fe2DLac6X2hCaoz93yo9fZDMpk5Spd0r
-	mSF8dENOviLg1tJwZf5i8XjFY7wh/EMzZ6we+sOjSPbex/IT+t42oXh6kLDmrKNsWRn0ZF/
-	DFeHcdSDq8QFtvEYZv9uWfXNKxTja9BzUqs50Q06SuXTkrBvBT+CAC6q/1Z73+U/J2Xlwdt
-	xxO6gjkBoZiC1MW+pwmr2iY1RcucnfvBZOhdE1tSrZ3u6S0u2JqXjNoP46emcM30tBF3/T4
-	uKUNiyw5muanaQef8DBnvLIGF7LXRmwiDWnqcnPjlLS8FU4mQOlT9jBBWlRUZZO8eobjKTC
-	rjDgHEPm5h3js4fPiteWFYHPVhq5vAKE5HZes7Mp5ce4PX+uP2yLvdCR/VRrw==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6609999703960132723
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: david.laight@aculab.com,
-	arnd@arndb.de,
-	falcon@tinylab.org,
+	id 1qBH2V-008o7d-0N;
+	Mon, 19 Jun 2023 15:43:36 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-4f871c93a5fso1460531e87.2;
+        Mon, 19 Jun 2023 08:43:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1687189413; x=1689781413;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=By9LviJpFD6M31Xuvf8iRdC/f7qq5558NMtCfn3H0qE=;
+        b=IsdcirYiybQ9DgqSQax5rr1IUuYvwIv8sXacQA3PptD5vmSsVvVnua0Yyw0/pIB3E1
+         /+5dbWfz5ouAnktDaYJhrRkNVW6mWTnZ7rw8UomJq8jQwTJUjodwJ3XOvnbyQAkM1Hwv
+         w6H1RvNeuFcs5lsSFjnaTXW1BVUcG5+BaDtiw2r4UBqeGQtKbevlf9sPYWMGcYmx88mg
+         Zfw80n71GUExELHO8yISSdiI61YS+seyOJgr0EgA3yXTwqsjADWuyw0VI3an+rmKSbAE
+         aIqCU925PykndGkDQm1Ojm0o/6vQmeXBlc/jSmpYVEUmL6LiC3po0OP19K6Npx/UM9RS
+         o0rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1687189413; x=1689781413;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=By9LviJpFD6M31Xuvf8iRdC/f7qq5558NMtCfn3H0qE=;
+        b=Z5GdFdVm4MHLE6XhQmZ4WjviRh/wACOYQIQgU7d6BxSIYG7ToBFiEHZ7b3YaqerxKE
+         VGtU7XGLpEVv97XPp0MWSLndf2jAj3oZ15mYvgkhSF1pvgJAl+DSPDiGXIYBPmqDjv8d
+         L879eOY7+ZUXIkeDXuPH8AgrUjx5EZT++v9/C3ic83J09c6+tzmM01N9F4pPdCZt0Hy3
+         SHBKik5lXArPtwkQ/RQIchDBHUL6mHZfGq6ZEKH3ob1NKV76Mh49qD/5kZsNIoTMppBE
+         iMqDFRNZYg51thpF8/azt2CA46KY4H9LjJXduBJ9oV7K/dbDXV/mupwQXsEjwY3E0RPr
+         AUQA==
+X-Gm-Message-State: AC+VfDyf1Cu3UMKYm1R9RiGW+WX0x6izcxxvMr7wFwXTuqU6YPrapGjD
+	HgVJEubqvmcqqaQJI7qAX6s=
+X-Google-Smtp-Source: ACHHUZ7SZr0BfAlnP0I+J+Ztm3YUYwpYJ5m1CVqsbJXoe5r6Dql+Pd7bzmdwb6JD3xJgMILfAb2W3w==
+X-Received: by 2002:a19:f201:0:b0:4f4:dd51:aec7 with SMTP id q1-20020a19f201000000b004f4dd51aec7mr4719115lfh.54.1687189412587;
+        Mon, 19 Jun 2023 08:43:32 -0700 (PDT)
+Received: from user-PC.. ([178.134.198.138])
+        by smtp.gmail.com with ESMTPSA id f11-20020a19ae0b000000b004f85e53250bsm1207144lfc.191.2023.06.19.08.43.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jun 2023 08:43:32 -0700 (PDT)
+From: Maksim Kiselev <bigunclemax@gmail.com>
+To: linux-iio@vger.kernel.org
+Cc: Maksim Kiselev <bigunclemax@gmail.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Andy Shevchenko <andy.shevchenko@gmail.com>,
+	Cosmin Tanislav <demonsingur@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?UTF-8?q?Leonard=20G=C3=B6hrs?= <l.goehrs@pengutronix.de>,
+	ChiYuan Huang <cy_huang@richtek.com>,
+	Ramona Bolboaca <ramona.bolboaca@analog.com>,
+	Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
+	ChiaEn Wu <chiaen_wu@richtek.com>,
+	William Breathitt Gray <william.gray@linaro.org>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Mike Looijmans <mike.looijmans@topic.nl>,
+	Quentin Schulz <quentin.schulz@free-electrons.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Subject: [PATCH v4 02/10] tools/nolibc: unistd.h: apply __sysret() helper
-Date: Mon, 19 Jun 2023 23:42:26 +0800
-Message-Id: <2d88e5573cfd5761757d4f9ebb528d62e9e29377.1687187451.git.falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1687187451.git.falcon@tinylab.org>
-References: <cover.1687187451.git.falcon@tinylab.org>
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v8 1/4] iio: adc: Kconfig change description for Allwinner GPADC
+Date: Mon, 19 Jun 2023 18:42:24 +0300
+Message-Id: <20230619154252.3951913-2-bigunclemax@gmail.com>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230619154252.3951913-1-bigunclemax@gmail.com>
+References: <20230619154252.3951913-1-bigunclemax@gmail.com>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_084316_644662_20E53F97 
-X-CRM114-Status: UNSURE (   7.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230619_084335_164915_273D9340 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +119,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VXNlIF9fc3lzcmV0KCkgdG8gc2hyaW5rIHRoZSB3aG9sZSBfc3lzY2FsbCgpIHRvIG9uZWxpbmUg
-Y29kZS4KClJldmlld2VkLWJ5OiBUaG9tYXMgV2Vpw59zY2h1aCA8bGludXhAd2Vpc3NzY2h1aC5u
-ZXQ+ClNpZ25lZC1vZmYtYnk6IFpoYW5namluIFd1IDxmYWxjb25AdGlueWxhYi5vcmc+Ci0tLQog
-dG9vbHMvaW5jbHVkZS9ub2xpYmMvdW5pc3RkLmggfCAxMSArLS0tLS0tLS0tLQogMSBmaWxlIGNo
-YW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxMCBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS90b29s
-cy9pbmNsdWRlL25vbGliYy91bmlzdGQuaCBiL3Rvb2xzL2luY2x1ZGUvbm9saWJjL3VuaXN0ZC5o
-CmluZGV4IDBlODMyZTEwYTBiMi4uZmFiYzg0NmY3OTdiIDEwMDY0NAotLS0gYS90b29scy9pbmNs
-dWRlL25vbGliYy91bmlzdGQuaAorKysgYi90b29scy9pbmNsdWRlL25vbGliYy91bmlzdGQuaApA
-QCAtNTYsMTYgKzU2LDcgQEAgaW50IHRjc2V0cGdycChpbnQgZmQsIHBpZF90IHBpZCkKIAlyZXR1
-cm4gaW9jdGwoZmQsIFRJT0NTUEdSUCwgJnBpZCk7CiB9CiAKLSNkZWZpbmUgX3N5c2NhbGwoTiwg
-Li4uKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IFwKLSh7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIFwKLQlsb25nIF9yZXQgPSBteV9zeXNjYWxsIyNOKF9f
-VkFfQVJHU19fKTsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAotCWlmIChfcmV0IDwg
-MCkgeyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBcCi0JCVNFVF9FUlJOTygtX3JldCk7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgXAotCQlfcmV0ID0gLTE7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIFwKLQl9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAotCV9yZXQ7ICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBc
-Ci19KQotCisjZGVmaW5lIF9zeXNjYWxsKE4sIC4uLikgX19zeXNyZXQobXlfc3lzY2FsbCMjTihf
-X1ZBX0FSR1NfXykpCiAjZGVmaW5lIF9zeXNjYWxsX25hcmcoLi4uKSBfX3N5c2NhbGxfbmFyZyhf
-X1ZBX0FSR1NfXywgNiwgNSwgNCwgMywgMiwgMSwgMCkKICNkZWZpbmUgX19zeXNjYWxsX25hcmco
-XzAsIF8xLCBfMiwgXzMsIF80LCBfNSwgXzYsIE4sIC4uLikgTgogI2RlZmluZSBfc3lzY2FsbF9u
-KE4sIC4uLikgX3N5c2NhbGwoTiwgX19WQV9BUkdTX18pCi0tIAoyLjI1LjEKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This patch adds SoCs names to Allwinner GPADC description to
+make it more informative.
+
+Fixes: d1caa9905538 ("iio: adc: add support for Allwinner SoCs ADC")
+Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
+---
+ drivers/iio/adc/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+index eb2b09ef5d5b..d93868684c7b 100644
+--- a/drivers/iio/adc/Kconfig
++++ b/drivers/iio/adc/Kconfig
+@@ -1105,7 +1105,7 @@ config STMPE_ADC
+ 	  built-in ADC block (stmpe811).
+ 
+ config SUN4I_GPADC
+-	tristate "Support for the Allwinner SoCs GPADC"
++	tristate "Allwinner A10/A13/A31 and similar GPADCs driver"
+ 	depends on IIO
+ 	depends on MFD_SUN4I_GPADC || MACH_SUN8I
+ 	depends on THERMAL || !THERMAL_OF
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
