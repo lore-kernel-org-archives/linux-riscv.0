@@ -4,86 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFBB9EB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BC3EB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r9KjXS8+Jr3rQwsh4U2t6uVb9pWaVvCSxZezXFALFtc=; b=mokwbKkZYoslMy
-	fiNutaFK84KvwrXgLiNNL4yUX3cecDts1OvzogHPCNLe5Mljgzw12zPVTjcesCCHxyLY6sjioVCWg
-	Q95q8rE+Mzpye8wXYgDPW1sJ9eylRpasF4e/k4yw+SCgZp2Y1PaKNtoqXqQEPaqnesY3DYzfQ96Dk
-	uwpYUfXGGun1trTAUVSmBpyKhzZrWuh0Lpa6hQpDgZf4bvI7KVJrPpWIdDDY86SLSSDL+zNI5A1u1
-	OPc5vzCOVPr39mwZG4kHY8MePJvlqdIdA3MkeuNNGyXJHWawvuq78DIY/Uf2c4KLhjtwNX4a8UfBJ
-	HmTRDrS+wYArO45BjgXg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7kjw8SefXvSaG0zsjU+6V3I1qQuyhMO8++gAHuoIE8E=; b=jSBr8I7kqGgVGN
+	j6PnQnxUraO/6JfyWFSP7QjfFdNb0nhxwK4L72BL7OJltGwcRcyAjStczZomgePONM3L/OkYgvq3w
+	N2yvk0d0vOfZYhqrHixFfNlk3eo5VZ6DgCjCrCpUDrVnPYmpWKHVZz0Ri0y2FCmbHIvWfK0BdtY7N
+	J7Mw6btq9b4Wzr48582yU7MkeVJn6zi4ChEwnjX2aiuTKg9z2SunBrCPqmgXeVmXyCW/CdGvweN0f
+	w1ofgfLYnKzrTuBNEf1ZAfUV24nNTzljgSOc5585pYoKl5iQPvUP+CwIfl+FSMARv9ySvlfz6ayoZ
+	/JzvYsn5kTRwKF55pm3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBGju-008mCx-2r;
-	Mon, 19 Jun 2023 15:24:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qBGzi-008nly-2c;
+	Mon, 19 Jun 2023 15:40:42 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBGjq-008mAM-3C;
-	Mon, 19 Jun 2023 15:24:20 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0183660CFB;
-	Mon, 19 Jun 2023 15:24:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AA4DC433C8;
-	Mon, 19 Jun 2023 15:24:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687188257;
-	bh=N4a6+AKTlpfQu+hNLgDTvYGemlpqgXPewbtXySTT2Wk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kRzjt2nDIAl4X26ojRiB8w8CJVn45eTmiPbIYkIvDYRBR/QR7IVpfAXYd9FpfNQDQ
-	 OvemWMKmfnlcr5GwcS7TCX2oTJmzf2fUUsDJHf2Oq+4RHGmHWKbk0CASnuDz6Gk1Ld
-	 1e26ENdIJqn1qjqL2vy8CRe3zudh+ZqjAZ7btzz+Jja4UEKxYRLaqjs+hNR8TPWi48
-	 sYyUqJtdsNHbcbOzxo9zMe/AaYlu9nZhYjfHu5NSh21mKAk+otvslcioi5dkhxeNTF
-	 EnxnECqDbcsPkYZvvYUeyjGiH7IzMmaAIOnWvmMc+HuAd2WDWUtK2BFwEfTtd03m+J
-	 SY9K1sARFWi7g==
-Date: Mon, 19 Jun 2023 18:23:34 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Will Deacon <will@kernel.org>, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-mm@kvack.org, linux-modules@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v2 06/12] mm/execmem: introduce execmem_data_alloc()
-Message-ID: <20230619152334.GC52412@kernel.org>
-References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-7-rppt@kernel.org>
- <87jzw0qu3s.ffs@tglx>
+	id 1qBGzf-008nkT-0Q
+	for linux-riscv@lists.infradead.org;
+	Mon, 19 Jun 2023 15:40:42 +0000
+X-QQ-mid: bizesmtp74t1687189213tv6onhfr
+Received: from linux-lab-host.localdomain ( [116.30.126.60])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 19 Jun 2023 23:40:12 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: vLOCICHxEeCdPu6sxmPtsZK2JR41RQr69IIe96Zy/WgX2mbiQUxlN61O1ndW5
+	UXzJ/B3lyJL6i/R4h2zRfxILs4UT4iZK/xKxFXfZAStwRkWnCA54CN1R+h240f1a7vUDO3/
+	vMoRBnTqis9myq4zdL+BbIlnDjNPZ962VZv3wXbhNiRgYZI2w3Dj/SdjGuNHQO3j1f6zjKM
+	UZTSf39u/FPW9KwavQfUU+v5KDVtC11x9oecSsl8y8FJPAOhzbc0MbKcryZKBLiVLdItFmA
+	aUj65E8V8cq0Uv3Npj72F0SD/lHFd0Ewb7iBcLfUmCR1xMxTG+vhiFhjqf20Jl7rfolA9lw
+	PeOBTP07LE3SqrAjWC6NlCkB2M4sTqroI+QAmozZOxeapmlPnk=
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11779720520343571934
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu
+Cc: david.laight@aculab.com,
+	arnd@arndb.de,
+	falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	thomas@t-8ch.de
+Subject: [PATCH v4 00/10] tools/nolibc: add a new syscall helper
+Date: Mon, 19 Jun 2023 23:40:10 +0800
+Message-Id: <cover.1687187451.git.falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87jzw0qu3s.ffs@tglx>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_082419_123520_0151F1A2 
-X-CRM114-Status: GOOD (  26.52  )
+X-CRM114-CacheID: sfid-20230619_084039_467632_AEB10B86 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,66 +75,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 19, 2023 at 12:32:55AM +0200, Thomas Gleixner wrote:
-> Mike!
-> 
-> Sorry for being late on this ...
-> 
-> On Fri, Jun 16 2023 at 11:50, Mike Rapoport wrote:
-> 
-> The fact that my suggestions had a 'mod_' namespace prefix does not make
-> any of my points moot.
+Hi, Thomas, David, Willy
 
-The prefix does not matter. What matters is what we are trying to abstract.
-Your suggestion is based of the memory used by modules. I'm abstracting
-address spaces for different types of executable and related memory. They
-are similar, yes, but they are not the same.
+Thanks very much for your kindly review.
 
-The TEXT, INIT_TEXT and *_DATA do not match to what we have from arch POV.
-They have modules with text, rw data, ro data and ro after init data and
-the memory for the generated code. The memory for modules and memory for
-other users have different restrictions for their placement, so using a
-single TEXT type for them is semantically wrong. BPF and kprobes do not
-necessarily must be at the same address range as modules and init text does
-not differ from normal text.
+This is the revision of v3 "tools/nolibc: add a new syscall helper" [1],
+this mainly applies the suggestion from David in this reply [2] and
+rebased everything on the dev.2023.06.14a branch of linux-rcu [3].
 
-> Song did an extremly good job in abstracting things out, but you decided
-> to ditch his ground work instead of building on it and keeping the good
-> parts. That's beyond sad.
+The old __sysret() doesn't support the syscalls with pointer return
+value, this revision now supports such syscalls. The left mmap() syscall
+is converted to use this new __sysret() with additional test cases.
 
-Actually not. The core idea to describe address range suitable for code
-allocations with a structure and have arch code initialize this structure
-at boot and be done with it is the same. But I don't think vmalloc
-parameters belong there, they should be completely encapsulated in the
-allocator. Having fallback range named explicitly is IMO clearer than an
-array of address spaces.
+Changes from v3 -> v4:
 
-I accept your point that the structures describing ranges for different
-types should be unified and I've got carried away with making the wrappers
-to convert that structure to parameters to the core allocation function.
+* tools/nolibc: sys.h: add a syscall return helper
+  tools/nolibc: unistd.h: apply __sysret() helper
+  tools/nolibc: sys.h: apply __sysret() helper
 
-I've chosen to define ranges as fields in the containing structure rather
-than enum with types and an array because I strongly feel that the callers
-should not care about these parameters. These parameters are defined by
-architecture and the callers should not need to know how each and every
-arch defines restrictions suitable for modules, bpf or kprobes.
+  The original v3 series, no code change, except the Reviewed-by lines
+  from Thomas.
 
-That's also the reason to have different names for API calls, exactly to
-avoid having alloc(KPROBES,...), alloc(BPF, ...), alloc(MODULES, ...) an so
-on.
+* tools/nolibc: unistd.h: reorder the syscall macros
 
-All in all, if I filter all the ranting, this boils down to having a
-unified structure for all the address ranges and passing this structure
-from the wrappers to the core alloc as is rather that translating it to
-separate parameters, with which I agree.
+  reorder the syscall macros in using order and align most of them.
 
-> Thanks,
-> 
->         tglx
+* tools/nolibc: add missing my_syscall6() for mips
+
+  required by mmap() syscall, this is the last missing my_syscall6().
+
+* tools/nolibc: __sysret: support syscalls who return a pointer
+
+  Apply suggestion from David.  
+
+  Let __sysret() also supports syscalls with pointer return value, so, the
+  return value is converted to unsigned long and the comparing of < 0 is
+  converted to the comparing of [(unsigned long)-MAX_ERRNO, (unsigned long)-1].
+
+  This also allows return a huge value (not pointer) with highest bit as 1.
+
+  It is able to merge this one to the first one if necessary.
+
+* tools/nolibc: clean up mmap() support
+
+  Apply new __sysret(), clean up #ifdef and some macros.
+
+* selftests/nolibc: add EXPECT_PTREQ, EXPECT_PTRNE and EXPECT_PTRER
+  selftests/nolibc: add sbrk_0 to test current brk getting
+  selftests/nolibc: add mmap and munmap test cases
+
+  Add some mmap & munmap test cases and the corresponding helpers, to
+  verify one of the new helpers, a sbrk_0 test case is also added.
+
+Best regards,
+Zhangjin
+---
+[1]: https://lore.kernel.org/linux-riscv/87e7a391-b97b-4001-b12a-76d20790563e@t-8ch.de/
+[2]: https://lore.kernel.org/linux-riscv/94dd5170929f454fbc0a10a2eb3b108d@AcuMS.aculab.com/
+[3]: https://git.kernel.org/pub/scm/linux/kernel/git/paulmck/linux-rcu.git/
+
+Zhangjin Wu (10):
+  tools/nolibc: sys.h: add a syscall return helper
+  tools/nolibc: unistd.h: apply __sysret() helper
+  tools/nolibc: sys.h: apply __sysret() helper
+  tools/nolibc: unistd.h: reorder the syscall macros
+  tools/nolibc: add missing my_syscall6() for mips
+  tools/nolibc: __sysret: support syscalls who return a pointer
+  tools/nolibc: clean up mmap() support
+  selftests/nolibc: add EXPECT_PTREQ, EXPECT_PTRNE and EXPECT_PTRER
+  selftests/nolibc: add sbrk_0 to test current brk getting
+  selftests/nolibc: add mmap and munmap test cases
+
+ tools/include/nolibc/arch-mips.h             |  26 ++
+ tools/include/nolibc/nolibc.h                |   9 +-
+ tools/include/nolibc/sys.h                   | 391 +++----------------
+ tools/include/nolibc/types.h                 |  11 +
+ tools/include/nolibc/unistd.h                |  13 +-
+ tools/testing/selftests/nolibc/nolibc-test.c |  90 +++++
+ 6 files changed, 191 insertions(+), 349 deletions(-)
 
 -- 
-Sincerely yours,
-Mike.
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
