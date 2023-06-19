@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5ECCEB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 11:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1948EB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 11:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jccYqNuHyPtEc4ZMdRefaeAX2jrQwXatzAIA6uNu0/U=; b=kcrywvq0sgNMyB
-	6OrK8mo/3zfXP2KG1oImlXdD7lofM323GMeYwdmme1x12iqiDKvo27lvDvOEhCZbJgG9V4wIMFb2v
-	3VuSe3ZMSvOafk8yumU018Jlc1Sg63uty6PG4oXeIx3rO3kI3W0ZE/eij0BOdNwKZ4xIDy1MEny7i
-	2c6CQwkHAlxFCiAlh3UIduUfW32eXyskN2r1mToQnGA+0SMo7t08VR7AbKCPuO7hjyKs+/v0cylyl
-	OQJ5G9qDgvmvZw3NQptDhyBBce4TFxV17zi/FKNVrjcIKNDYeN+sM3toQiNH0E3e7O1ikKHiX7sNI
-	XzHCUkbnpmaIJ/7mLdvQ==;
+	List-Owner; bh=NHch0iipl/0Gj5n7J14/24hMXSVro2HjInAr/40f2ko=; b=zTZ4HX1wD+j5+c
+	ACi8UWo8UcwW6cUmMDSuIrq0hr0c1LbONChhfNhMPjDot6v7Gr0TL2p4G6rgjCyuRigIC6uXUmYax
+	QIeId8JGkyJw8ahLEgjLShWy6oHyC4T6hDLB7gnPRYtZYjsjjZSmnWNfXcUdlARDJIt0pYIbauH7y
+	GmC3TmFCkDTbdWMbWiCL3iB6qw1yBSz5+hWBLJCSLvIB0pzhvV6JC7f5bpczqJLTv++ZT27SpuAau
+	Ug2aVWNk3kkC0M4jYBT8GmsxRc3oc3Qi3RYNGHg2e31vLWZdgqVgTsf7eorKjKYUQDi49vhrQsLmG
+	lYHOqg/um2aOcIXVFCeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBCd0-008IYo-0d;
-	Mon, 19 Jun 2023 11:00:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qBD9c-008NVM-0A;
+	Mon, 19 Jun 2023 11:34:40 +0000
+Received: from out-37.mta0.migadu.com ([91.218.175.37])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBCcy-008IWo-0Y
+	id 1qBD9Y-008NSF-1o
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 11:00:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 005F060B7F;
-	Mon, 19 Jun 2023 11:00:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8866C433CB;
-	Mon, 19 Jun 2023 11:00:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687172454;
-	bh=P18pbPD6vuPCbw9QzcSrESz215K6BSQTQUGHn6iOUK4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=Dwx8LFrJ7rLWMmUfb0tJSP7XvGxgFgEueH00zQOUnB8zJJeygOklU7wf0+ziYphoz
-	 MKN/FCzS+maQ/DBPLAFgYUDJYRTDZTMNGjT09piDXz5sZz0dNwqkIdLbQwdV/R6eRp
-	 7vjSv3vs8ucZPpx4aqmavUf4I6Nd29F4VNSStx7IptPnzDsEQA7cA/fh/snJRKpxej
-	 BaVFamiK+0CPq4DVcbS5zC75QNR8wHO8+hI7YEWtunUOTUZJjZQQHOQ2gSKSY9e4HG
-	 HoTS0hzmGCp0HEalcPO7VHsuAZEeopFZ59J/93qls9XXJpQr8m6fbPe2nZzJeaxGs6
-	 w+pua1pdkaFXQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet
- <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH 1/2] Documentation: riscv: Add early boot document
-In-Reply-To: <20230619094705.51337-1-alexghiti@rivosinc.com>
-References: <20230619094705.51337-1-alexghiti@rivosinc.com>
-Date: Mon, 19 Jun 2023 13:00:51 +0200
-Message-ID: <87sfanbtss.fsf@all.your.base.are.belong.to.us>
+	Mon, 19 Jun 2023 11:34:38 +0000
+Date: Mon, 19 Jun 2023 07:34:26 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1687174472;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Tt3RWh8BEKoqLhK86LDh7llJ14l6KCTXk/okAyPXAzA=;
+	b=i+cENnWbA17Y+F/fishc8UmKkX2d11aFrfbkEA/RSeJGs8DaK+pP54Vf1C7aoZ8NsEj74R
+	cXaE50KWXHIuXWZXVuGC783hgIjWLesjrEEDAYhwTaqLKdCoI85w4n4+GuOUgBvzA2QigP
+	oa1A17/zsm0VN2UgH6YNfjC3Cc/g4gI=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kent Overstreet <kent.overstreet@linux.dev>
+To: Andy Lutomirski <luto@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick P Edgecombe <rick.p.edgecombe@intel.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Song Liu <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	the arch/x86 maintainers <x86@kernel.org>
+Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and
+ jit_text_alloc()
+Message-ID: <20230619113426.c37bpwvdagbzyevn@moria.home.lan>
+References: <20230616085038.4121892-1-rppt@kernel.org>
+ <20230616085038.4121892-3-rppt@kernel.org>
+ <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_040056_263936_6FB14D01 
-X-CRM114-Status: UNSURE (   5.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230619_043436_780743_2D289DD5 
+X-CRM114-Status: GOOD (  21.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,17 +93,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cml0ZXM6Cgo+IFRoaXMg
-ZG9jdW1lbnQgZGVzY3JpYmVzIHRoZSBjb25zdHJhaW50cyBhbmQgcmVxdWlyZW1lbnRzIG9mIHRo
-ZSBlYXJseQo+IGJvb3QgcHJvY2VzcyBpbiBhIFJJU0MtViBrZXJuZWwuCj4KPiBTemlnbmVkLW9m
-Zi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgoKQWRkaXRpb25h
-bCAneic7ICJTaWduZWQtb2ZmLWJ5OiIKCk5pY2Ugd3JpdGV1cCEKClJldmlld2VkLWJ5OiBCasO2
-cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+CgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sat, Jun 17, 2023 at 01:38:29PM -0700, Andy Lutomirski wrote:
+> On Fri, Jun 16, 2023, at 1:50 AM, Mike Rapoport wrote:
+> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> >
+> > module_alloc() is used everywhere as a mean to allocate memory for code.
+> >
+> > Beside being semantically wrong, this unnecessarily ties all subsystems
+> > that need to allocate code, such as ftrace, kprobes and BPF to modules
+> > and puts the burden of code allocation to the modules code.
+> >
+> > Several architectures override module_alloc() because of various
+> > constraints where the executable memory can be located and this causes
+> > additional obstacles for improvements of code allocation.
+> >
+> > Start splitting code allocation from modules by introducing
+> > execmem_text_alloc(), execmem_free(), jit_text_alloc(), jit_free() APIs.
+> >
+> > Initially, execmem_text_alloc() and jit_text_alloc() are wrappers for
+> > module_alloc() and execmem_free() and jit_free() are replacements of
+> > module_memfree() to allow updating all call sites to use the new APIs.
+> >
+> > The intention semantics for new allocation APIs:
+> >
+> > * execmem_text_alloc() should be used to allocate memory that must reside
+> >   close to the kernel image, like loadable kernel modules and generated
+> >   code that is restricted by relative addressing.
+> >
+> > * jit_text_alloc() should be used to allocate memory for generated code
+> >   when there are no restrictions for the code placement. For
+> >   architectures that require that any code is within certain distance
+> >   from the kernel image, jit_text_alloc() will be essentially aliased to
+> >   execmem_text_alloc().
+> >
+> 
+> Is there anything in this series to help users do the appropriate synchronization when the actually populate the allocated memory with code?  See here, for example:
+> 
+> https://lore.kernel.org/linux-fsdevel/cb6533c6-cea0-4f04-95cf-b8240c6ab405@app.fastmail.com/T/#u
+
+We're still in need of an arch independent text_poke() api.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
