@@ -4,107 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4084BEB64DA
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8838EB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sMIj7MRedu8czn2oZsUHvfaqe4aT5ISPuyKBvyKhj+Y=; b=rvnyeAhr0C7LCX
-	PFjRcOUElKugoTKRcNF8csFFxOHVtwrI7IQCldOgQC/MoyxqRDZr2r8+3bgJLwafe91SeoVnDb1s3
-	iQFLng0tp0ZDL6MkGtLVmmv16JCjmlrv2G3NrPewVcQ9xTOSXQsm4Ct/ovmzWyyPFbDRq4xzcFrJP
-	1W3Aw//zWg6pm4QYuU0cak7/Cu3YwK8t9rRTtJQjktObrw6DytjP1tynW0Rfp9V5HtkP3V4xqOZch
-	J/psIIpB9L/iDZGexfKRTi4SufuFD5kReeKW6La1K0f56FyGs8i+KPEVudNlFQZBhvNm7WHvp448X
-	uFuMgHv2X05KKRF9n9KQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zxo6KMmRBd/Nt+z2e+tSAK76B9ahRvSv8OuE9xZ3nDE=; b=tTSX5422ruCSDj
+	aE5b2CaQKtFF/6JaMmLp5MGbQ064N2H9r/naDLDcRNJ+dGXAjy5skzeovp2XvEi7FM6+aeulSkW2O
+	vIw6WAMtLiuOny2e3SqgsxFp/6mMQ75UYGMKQ8dZilF2+00zpVlrJvUu4ipPXgHvglg1a+FAssGM5
+	plpkj7CmRlwPzJdBzRyFhEh03hZeu4XEyvZE6UaNK6IcxocgstTyEGu7dMiUGYoPgReAjHgdJ/yr3
+	aKRIb4NrbFHnbg6uORHc+kupJ9ibL547WpEJTtQZz9b/jvwVFmvnBs0EAPgyuW8IoYWzp16joEaBa
+	nsfvgSpMIUrzP2gXWz4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBH27-008o1G-0i;
-	Mon, 19 Jun 2023 15:43:11 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1qBH2F-008o3T-05;
+	Mon, 19 Jun 2023 15:43:19 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBH24-008nzR-1T;
-	Mon, 19 Jun 2023 15:43:09 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-4f87592eccfso893789e87.2;
-        Mon, 19 Jun 2023 08:43:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1687189383; x=1689781383;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ONxNNZw/qmdwlne5gEPTK3bLBdHTya93hQkUoKWnPqE=;
-        b=QzFQD0kW5M7hiQP0BvScCgizwq82HavcztJnTml/MMDEMrA9ytHqYflCzsjgHLoBA7
-         ro+hTf+n4XIV7mQz9+v8jVS3NAzHV+/pkvfpG+AuiWc39fiOwvxSVd1dJwVVqE83OggC
-         sBlYxFgc2S0pgTfFhe01MLcf9FkfMdcKpCXxtf03TkWsiS3v6IR1ERBMjXJjd+zb0j/7
-         0otLD1Eyh6wu90VrPmoGsAVCZ2P+7LCFexg3EYF6RqqoX4qWcE5sPv35JoxYmy47rvdk
-         /6MsgPCeVmKMt2KI3Beju3sisLU9oEwamwt6pp1WoUQHb0w9mDEFhBlxaSogONGIJRWt
-         YEiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687189383; x=1689781383;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ONxNNZw/qmdwlne5gEPTK3bLBdHTya93hQkUoKWnPqE=;
-        b=Q+c53Mhe7Jji+NnTndJTZOIy2cccgZDafxOqBneyN+FZH3PL0ycPveguHz+QloXPOn
-         cIlA+4+udOWOwqk4KwGDa+5fYEuL40/z5/xEfRXnH+yfcSeEcQbY/sussVCGE87W1SK6
-         LOhE03yKIzQHJ8FJbiFY1Hgm/hEhoMP1JgLVxfD2aPBkmairiMprJwsh0SuCCE3CcID4
-         ZBb+T029dWqG5IO00PtFe9/atBATlIUMSwN/06luGaC7/gBXWyVHAXWLD2MeANQe8QBg
-         7iUPSI5SJc7L1S3HZ8752h8NEKacg1ueWrGE7OEmIopbvaYSDnbgT+17jkC2QAud72Ha
-         PFUA==
-X-Gm-Message-State: AC+VfDz/4H+ymILFoWh+xgMKJOxGbVD3w/ccb1CpkklaPawR3vkI4/Nw
-	Ry7OzD5X1m1LAktq4pEo81U=
-X-Google-Smtp-Source: ACHHUZ4yL4aD+qEJZ0h0+bGI3YNOliImTCvoONhBTFNNWCuE57QQWU4tZRBQX1lukt9ksOQnP13AQg==
-X-Received: by 2002:a19:e04d:0:b0:4e8:4abf:f19d with SMTP id g13-20020a19e04d000000b004e84abff19dmr5744863lfj.15.1687189382656;
-        Mon, 19 Jun 2023 08:43:02 -0700 (PDT)
-Received: from user-PC.. ([178.134.198.138])
-        by smtp.gmail.com with ESMTPSA id f11-20020a19ae0b000000b004f85e53250bsm1207144lfc.191.2023.06.19.08.42.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jun 2023 08:43:02 -0700 (PDT)
-From: Maksim Kiselev <bigunclemax@gmail.com>
-To: linux-iio@vger.kernel.org
-Cc: Maksim Kiselev <bigunclemax@gmail.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Cosmin Tanislav <demonsingur@gmail.com>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	ChiYuan Huang <cy_huang@richtek.com>,
-	=?UTF-8?q?Leonard=20G=C3=B6hrs?= <l.goehrs@pengutronix.de>,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Ramona Bolboaca <ramona.bolboaca@analog.com>,
-	Ibrahim Tilki <Ibrahim.Tilki@analog.com>,
-	ChiaEn Wu <chiaen_wu@richtek.com>,
-	William Breathitt Gray <william.gray@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Mike Looijmans <mike.looijmans@topic.nl>,
-	Quentin Schulz <quentin.schulz@free-electrons.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+	id 1qBH2C-008o1q-0z
+	for linux-riscv@lists.infradead.org;
+	Mon, 19 Jun 2023 15:43:17 +0000
+X-QQ-mid: bizesmtp69t1687189376ti8rnzfh
+Received: from linux-lab-host.localdomain ( [116.30.126.60])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 19 Jun 2023 23:42:55 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: +ynUkgUhZJmZnOoZiuIrMXfznkHM+fe2DLac6X2hCaoz93yo9fZDMpk5Spd0r
+	mSF8dENOviLg1tJwZf5i8XjFY7wh/EMzZ6we+sOjSPbex/IT+t42oXh6kLDmrKNsWRn0ZF/
+	DFeHcdSDq8QFtvEYZv9uWfXNKxTja9BzUqs50Q06SuXTkrBvBT+CAC6q/1Z73+U/J2Xlwdt
+	xxO6gjkBoZiC1MW+pwmr2iY1RcucnfvBZOhdE1tSrZ3u6S0u2JqXjNoP46emcM30tBF3/T4
+	uKUNiyw5muanaQef8DBnvLIGF7LXRmwiDWnqcnPjlLS8FU4mQOlT9jBBWlRUZZO8eobjKTC
+	rjDgHEPm5h3js4fPiteWFYHPVhq5vAKE5HZes7Mp5ce4PX+uP2yLvdCR/VRrw==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 6609999703960132723
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu
+Cc: david.laight@aculab.com,
+	arnd@arndb.de,
+	falcon@tinylab.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v8 0/4] Add support for Allwinner GPADC on D1/T113s/R329/T507 SoCs
-Date: Mon, 19 Jun 2023 18:42:23 +0300
-Message-Id: <20230619154252.3951913-1-bigunclemax@gmail.com>
-X-Mailer: git-send-email 2.39.2
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	thomas@t-8ch.de,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Subject: [PATCH v4 02/10] tools/nolibc: unistd.h: apply __sysret() helper
+Date: Mon, 19 Jun 2023 23:42:26 +0800
+Message-Id: <2d88e5573cfd5761757d4f9ebb528d62e9e29377.1687187451.git.falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1687187451.git.falcon@tinylab.org>
+References: <cover.1687187451.git.falcon@tinylab.org>
 MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_084308_499791_C21DA75C 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20230619_084316_644662_20E53F97 
+X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,78 +74,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds support for general purpose ADC (GPADC) on new
-Allwinner's SoCs, such as D1, T113s, T507 and R329. The implemented driver
-provides basic functionality for getting ADC channels data.
-
-Change History:
-v8:
-- Added patch that changes Kconfig description for previous Allwinner GPADC
-- Changed Kconfig description for this GPADC driver
-- Fixed 'reg' range for gpadc node in 'sunxi-d1s-t113.dtsi'
-
-v7:
-- Fixed typo in DT bindings property
-
-v6:
-- Fixed DT bindings regexp for channel properties
-- Dropped checking the max number of channels from the drivers code
-  (This is redundant as we raly on DT bindings check)
-
-v5:
-- Fixed DT bindings properties for child nodes
-
-v4:
-- Fixed DT bindings warnings
-- Used GENMASK to clear the irq register
-- Minor formatting fixes
-
-v3:
-- Added DT bindings dual license, fixed property order and example formatting
-- Added explanations comments for timeout and mutex
-- Dropped unnecessary regmap and used readl/writel instead
-- Added error message about getting channel number
-- Renamed labels and variables to make them self-explanatory
-
-v2:
-- Added lastch flag to avoid addition work for already selected channel
-- Added reset assertion on module remove
-- Added dynamic channel allocation and dropped iio_chan_spec arrays
-- Changed IIO_CHAN_INFO_SCALE type to FRACTIONAL_LOG2
-- Dropped separate compatible strings and configs for T113s and R329
-- Fixed includes
-- Fixed Kconfig description
-- Removed duplicate probe error messages
-- Used FIELD_PREP for bit setup
-
-v1:
-- Initial version
-
-Maksim Kiselev (4):
-  iio: adc: Kconfig change description for Allwinner GPADC
-  iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
-  dt-bindings: iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
-  riscv: dts: allwinner: d1: Add GPADC node
-
- .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    |  91 ++++++
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  10 +
- drivers/iio/adc/Kconfig                       |  12 +-
- drivers/iio/adc/Makefile                      |   1 +
- drivers/iio/adc/sun20i-gpadc-iio.c            | 276 ++++++++++++++++++
- 5 files changed, 389 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
- create mode 100644 drivers/iio/adc/sun20i-gpadc-iio.c
-
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VXNlIF9fc3lzcmV0KCkgdG8gc2hyaW5rIHRoZSB3aG9sZSBfc3lzY2FsbCgpIHRvIG9uZWxpbmUg
+Y29kZS4KClJldmlld2VkLWJ5OiBUaG9tYXMgV2Vpw59zY2h1aCA8bGludXhAd2Vpc3NzY2h1aC5u
+ZXQ+ClNpZ25lZC1vZmYtYnk6IFpoYW5namluIFd1IDxmYWxjb25AdGlueWxhYi5vcmc+Ci0tLQog
+dG9vbHMvaW5jbHVkZS9ub2xpYmMvdW5pc3RkLmggfCAxMSArLS0tLS0tLS0tLQogMSBmaWxlIGNo
+YW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxMCBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS90b29s
+cy9pbmNsdWRlL25vbGliYy91bmlzdGQuaCBiL3Rvb2xzL2luY2x1ZGUvbm9saWJjL3VuaXN0ZC5o
+CmluZGV4IDBlODMyZTEwYTBiMi4uZmFiYzg0NmY3OTdiIDEwMDY0NAotLS0gYS90b29scy9pbmNs
+dWRlL25vbGliYy91bmlzdGQuaAorKysgYi90b29scy9pbmNsdWRlL25vbGliYy91bmlzdGQuaApA
+QCAtNTYsMTYgKzU2LDcgQEAgaW50IHRjc2V0cGdycChpbnQgZmQsIHBpZF90IHBpZCkKIAlyZXR1
+cm4gaW9jdGwoZmQsIFRJT0NTUEdSUCwgJnBpZCk7CiB9CiAKLSNkZWZpbmUgX3N5c2NhbGwoTiwg
+Li4uKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IFwKLSh7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIFwKLQlsb25nIF9yZXQgPSBteV9zeXNjYWxsIyNOKF9f
+VkFfQVJHU19fKTsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAotCWlmIChfcmV0IDwg
+MCkgeyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBcCi0JCVNFVF9FUlJOTygtX3JldCk7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgXAotCQlfcmV0ID0gLTE7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIFwKLQl9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAotCV9yZXQ7ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBc
+Ci19KQotCisjZGVmaW5lIF9zeXNjYWxsKE4sIC4uLikgX19zeXNyZXQobXlfc3lzY2FsbCMjTihf
+X1ZBX0FSR1NfXykpCiAjZGVmaW5lIF9zeXNjYWxsX25hcmcoLi4uKSBfX3N5c2NhbGxfbmFyZyhf
+X1ZBX0FSR1NfXywgNiwgNSwgNCwgMywgMiwgMSwgMCkKICNkZWZpbmUgX19zeXNjYWxsX25hcmco
+XzAsIF8xLCBfMiwgXzMsIF80LCBfNSwgXzYsIE4sIC4uLikgTgogI2RlZmluZSBfc3lzY2FsbF9u
+KE4sIC4uLikgX3N5c2NhbGwoTiwgX19WQV9BUkdTX18pCi0tIAoyLjI1LjEKCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
