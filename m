@@ -4,91 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEE5EB64DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 14:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D317EB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 14:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qV5FvaH5x3hMbCwbEuUuim8F4Bt0pIxaAGbGfNtaVPE=; b=Z/GNJ/CWcoGxG2ut7Vu463JIc3
-	W988+4E/HzJ8+OtIyCakpn7M0zg8NIqlewK6IOR0gbQB6ljQB8JbA2Priyeg4t4b8KcTe0bKxjWDn
-	LFvTVwDny6WYjNjQfn/tUyLICYOUnazos8HmXssYr18DKF/4mLhAoaHVKtmyIeSth6Tsp+WXHrHWl
-	DsdwyDD8/jIaFJoB7A/qTqx3uk3r5YdlX5NxU0RjwbPg30qlA+8JxAzdmGIXLw4pemBOwtmAhaH3A
-	yORLq4w1cJS5e81B5m+fKuX/bbyJaYT/afhrkqxzITqO8FLgsogqknNKJpAFJXyRfvRllWoIcfIVc
-	K3UHvmyA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pdIj4mfTTZGe6j7RBeNNFbl0iX0hMHoLqVqiwsR6+rk=; b=OwVkyF7coyYNpj
+	3srfqvHydwFQyydxIFVw5Lu/nii5NLt/rjp8wtXeVlNnbOl22PU7QATAh0aPm6WOF3JOFl4iP7Ja3
+	8L+dq7P0zf61QtdbpCGeXupoxLimGcFpSXNNQ++aoJXXV7Vao6REfRYTseTt5wNm+ta6oYd4/hvPe
+	cvNSV+cF5ymvMlLo6N/2aSl5AXAJ9jIjYRgFc6SwxZ10HQ5v/MT2bsgePbaevEgerBQza/7TcOIx2
+	jn77VONb5+W2JmGL8ZgnPmgxPmJO2jaoBmqtK1D7L5Y1BbTZUO1f2JpT6xwZWTQRNAXR0s5ja3oCt
+	NOMHejpnpm8I39gHFGGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBFm5-008dYQ-2Z;
-	Mon, 19 Jun 2023 14:22:33 +0000
-Received: from smtp-out1.suse.de ([195.135.220.28])
+	id 1qBG8X-008fwA-0j;
+	Mon, 19 Jun 2023 14:45:45 +0000
+Received: from mga01.intel.com ([192.55.52.88])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBFm3-008dWX-1a
-	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 14:22:33 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 4E46C2189A;
-	Mon, 19 Jun 2023 14:22:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1687184547; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ywjVukmToU8k6hdCdSSEnWj9wcqGQTjDhK/qRMDRYos=;
-	b=Ql+MwzwIQNf/VBcGuKV3L3rRd/qQBmSBH2D57o/k3hSkP/8UxE/dfnIGU373Oc7J7iQGEC
-	hGhlKQz8n3jKmpjeKtw9jc//GbF5l3hKoCqRVXcNJ1MtkXrkgGXZ2pGZ3lACN8v/50/c18
-	tcEhvXOHtcbqRvUU4kLcCV6GdIV7f6o=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1687184547;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ywjVukmToU8k6hdCdSSEnWj9wcqGQTjDhK/qRMDRYos=;
-	b=fuXJtLQR5Czn4lK2ttgweKxBT7d09EJ8h3rlcWfUn4tkmHo1vbZOnIjvyhM0zsH/iqBoS7
-	sX1iT0zmCCsFtpBg==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id D7915138E8;
-	Mon, 19 Jun 2023 14:22:26 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
-	by imap2.suse-dmz.suse.de with ESMTPSA
-	id caG0M6JkkGTRIAAAMHmgww
-	(envelope-from <tzimmermann@suse.de>); Mon, 19 Jun 2023 14:22:26 +0000
-Message-ID: <f7ded369-e384-db01-dc8c-6a5183f20409@suse.de>
-Date: Mon, 19 Jun 2023 16:22:26 +0200
+	id 1qBG8U-008fuu-0i;
+	Mon, 19 Jun 2023 14:45:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1687185942; x=1718721942;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=yoEByqBkambGkCJiJIubqQfRE/V06XGkaD+JTvok5Kw=;
+  b=KX9YoiaNUO93e7UCxJTEjYriLR4jGiCmANktF8zceV0P9jzrxYH5iL2T
+   QhtCmB3cwo0h2GYOQ92FM2PBaZX4ZjAR1Zu+UkD2NO2P2t2db0slwTlry
+   oJkHMUVLtI/m1VCgI/We7hocxO64n6X7sknmH8qYSK1G0OE5+KP9TyhAR
+   BXgEAVLGJM948kyVj4erGoAxkqgOpBrOJRDpfnWRuv4V75lStzgq76Xw/
+   k8vMGsR7KdhoNLxrVgIsuJPTXLQ7Eo9oO1mn/J7PLlZt2rEkzhyQt0yN5
+   zBr486fyzWMxsa9MARPCXneUcZp6kOqdYTAgByLpAMqPXxsjYcsAiG/fS
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10746"; a="388725058"
+X-IronPort-AV: E=Sophos;i="6.00,254,1681196400"; 
+   d="scan'208";a="388725058"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jun 2023 07:45:37 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10746"; a="743478143"
+X-IronPort-AV: E=Sophos;i="6.00,254,1681196400"; 
+   d="scan'208";a="743478143"
+Received: from lkp-server01.sh.intel.com (HELO 783282924a45) ([10.239.97.150])
+  by orsmga008.jf.intel.com with ESMTP; 19 Jun 2023 07:45:33 -0700
+Received: from kbuild by 783282924a45 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qBG8K-0004o6-25;
+	Mon, 19 Jun 2023 14:45:32 +0000
+Date: Mon, 19 Jun 2023 22:45:26 +0800
+From: kernel test robot <lkp@intel.com>
+To: Minda Chen <minda.chen@starfivetech.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Conor Dooley <conor@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Roger Quadros <rogerq@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Mason Huo <mason.huo@starfivetech.com>
+Subject: Re: [PATCH v7 4/5] phy: starfive: Add JH7110 PCIE 2.0 PHY driver
+Message-ID: <202306192215.TvQco9m6-lkp@intel.com>
+References: <20230619094759.21013-5-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH 4/9] drm/verisilicon: Add gem driver for JH7110 SoC
-To: Keith Zhao <keith.zhao@starfivetech.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Shengyang Chen <shengyang.chen@starfivetech.com>,
- Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Jagan Teki <jagan@edgeble.ai>, Rob Herring <robh+dt@kernel.org>,
- Chris Morgan <macromorgan@hotmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Changhuang Liang <changhuang.liang@starfivetech.com>,
- Jack Zhu <jack.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Shawn Guo <shawnguo@kernel.org>, christian.koenig@amd.com
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
- <20230602074043.33872-5-keith.zhao@starfivetech.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-In-Reply-To: <20230602074043.33872-5-keith.zhao@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20230619094759.21013-5-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_072231_674588_D0703FE7 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20230619_074542_270323_D50806EE 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,146 +91,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0167323124483376639=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---===============0167323124483376639==
-Content-Language: en-US
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------AQmo0XbTycWWIDd2erzQxco5"
+Hi Minda,
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------AQmo0XbTycWWIDd2erzQxco5
-Content-Type: multipart/mixed; boundary="------------nV5DH2JaYJn29RZXOOhf0f8I";
- protected-headers="v1"
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: Keith Zhao <keith.zhao@starfivetech.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Shengyang Chen <shengyang.chen@starfivetech.com>,
- Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Jagan Teki <jagan@edgeble.ai>, Rob Herring <robh+dt@kernel.org>,
- Chris Morgan <macromorgan@hotmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Changhuang Liang <changhuang.liang@starfivetech.com>,
- Jack Zhu <jack.zhu@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Shawn Guo <shawnguo@kernel.org>, christian.koenig@amd.com
-Message-ID: <f7ded369-e384-db01-dc8c-6a5183f20409@suse.de>
-Subject: Re: [PATCH 4/9] drm/verisilicon: Add gem driver for JH7110 SoC
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
- <20230602074043.33872-5-keith.zhao@starfivetech.com>
-In-Reply-To: <20230602074043.33872-5-keith.zhao@starfivetech.com>
+kernel test robot noticed the following build errors:
 
---------------nV5DH2JaYJn29RZXOOhf0f8I
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on linus/master v6.4-rc7 next-20230619]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-SGkNCg0KQW0gMDIuMDYuMjMgdW0gMDk6NDAgc2NocmllYiBLZWl0aCBaaGFvOg0KPiBUaGlz
-IHBhdGNoIGltcGxlbWVudHMgZ2VtIHJlbGF0ZWQgQVBJcyBmb3IgSkg3MTAwIFNvQy4NCg0K
-cGxlYXNlIGFsc28gc2VlIG15IG90aGVyIHJlcGx5IHRvIHRoaXMgcGF0Y2guIE15IG1haWwg
-Y2xpZW50IGhhZCBhIGJ1ZyANCmJlZm9yZSBJIGNvdWxkIGZpbmlzaCBpdC4gQmVsb3cgYXJl
-IHNvbWUgbW9yZSBjb21tZW50cy4NCg0KPiANCj4gU2lnbmVkLW9mZi1ieTogS2VpdGggWmhh
-byA8a2VpdGguemhhb0BzdGFyZml2ZXRlY2guY29tPg0KPiAtLS0NClsuLi5dDQo+ICsjaWZu
-ZGVmIF9fVlNfR0VNX0hfXw0KPiArI2RlZmluZSBfX1ZTX0dFTV9IX18NCj4gKw0KPiArI2lu
-Y2x1ZGUgPGxpbnV4L2RtYS1idWYuaD4NCj4gKw0KPiArI2luY2x1ZGUgPGRybS9kcm1fZ2Vt
-Lmg+DQo+ICsjaW5jbHVkZSA8ZHJtL2RybV9wcmltZS5oPg0KPiArDQo+ICsjaW5jbHVkZSAi
-dnNfZHJ2LmgiDQo+ICsvKg0KPiArICoNCj4gKyAqIEBiYXNlOiBkcm0gZ2VtIG9iamVjdC4N
-Cj4gKyAqIEBzaXplOiBzaXplIHJlcXVlc3RlZCBmcm9tIHVzZXINCj4gKyAqIEBjb29raWU6
-IGNvb2tpZSByZXR1cm5lZCBieSBkbWFfYWxsb2NfYXR0cnMNCj4gKyAqCS0gbm90IGtlcm5l
-bCB2aXJ0dWFsIGFkZHJlc3Mgd2l0aCBETUFfQVRUUl9OT19LRVJORUxfTUFQUElORw0KPiAr
-ICogQGRtYV9hZGRyOiBidXMgYWRkcmVzcyhhY2Nlc3NlZCBieSBkbWEpIHRvIGFsbG9jYXRl
-ZCBtZW1vcnkgcmVnaW9uLg0KPiArICoJLSB0aGlzIGFkZHJlc3MgY291bGQgYmUgcGh5c2lj
-YWwgYWRkcmVzcyB3aXRob3V0IElPTU1VIGFuZA0KPiArICoJZGV2aWNlIGFkZHJlc3Mgd2l0
-aCBJT01NVS4NCj4gKyAqIEBkbWFfYXR0cnM6IGF0dHJpYnV0ZSBmb3IgRE1BIEFQSQ0KPiAr
-ICogQGdldF9wYWdlczogZmxhZyBmb3IgbWFudWFsbHkgYXBwbHlpbmcgZm9yIG5vbi1jb250
-aWd1b3VzIG1lbW9yeS4NCj4gKyAqIEBwYWdlczogQXJyYXkgb2YgYmFja2luZyBwYWdlcy4N
-Cj4gKyAqIEBzZ3Q6IEltcG9ydGVkIHNnX3RhYmxlLg0KPiArICoNCj4gKyAqLw0KPiArc3Ry
-dWN0IHZzX2dlbV9vYmplY3Qgew0KPiArCXN0cnVjdCBkcm1fZ2VtX29iamVjdAliYXNlOw0K
-PiArCXNpemVfdAkJCXNpemU7DQo+ICsJdm9pZAkJCSpjb29raWU7DQo+ICsJZG1hX2FkZHJf
-dAkJZG1hX2FkZHI7DQo+ICsJdTMyCQkJCWlvdmE7DQo+ICsJdW5zaWduZWQgbG9uZwlkbWFf
-YXR0cnM7DQo+ICsJYm9vbAkJCWdldF9wYWdlczsNCj4gKwlzdHJ1Y3QgcGFnZQkJKipwYWdl
-czsNCj4gKwlzdHJ1Y3Qgc2dfdGFibGUgKnNndDsNCj4gK307DQo+ICsNCj4gK3N0YXRpYyBp
-bmxpbmUNCj4gK3N0cnVjdCB2c19nZW1fb2JqZWN0ICp0b192c19nZW1fb2JqZWN0KHN0cnVj
-dCBkcm1fZ2VtX29iamVjdCAqb2JqKQ0KPiArew0KPiArCXJldHVybiBjb250YWluZXJfb2Yo
-b2JqLCBzdHJ1Y3QgdnNfZ2VtX29iamVjdCwgYmFzZSk7DQo+ICt9DQo+ICsNCj4gK3N0cnVj
-dCB2c19nZW1fb2JqZWN0ICp2c19nZW1fY3JlYXRlX29iamVjdChzdHJ1Y3QgZHJtX2Rldmlj
-ZSAqZGV2LA0KPiArCQkJCQkgICBzaXplX3Qgc2l6ZSk7DQo+ICsNCj4gK2ludCB2c19nZW1f
-cHJpbWVfdm1hcChzdHJ1Y3QgZHJtX2dlbV9vYmplY3QgKm9iaiwgc3RydWN0IGlvc3lzX21h
-cCAqbWFwKTsNCj4gK3ZvaWQgdnNfZ2VtX3ByaW1lX3Z1bm1hcChzdHJ1Y3QgZHJtX2dlbV9v
-YmplY3QgKm9iaiwgc3RydWN0IGlvc3lzX21hcCAqbWFwKTsNCg0KSSdkIGNvbnNpZGVyIHRo
-aXMgYmFkIHN0eWxlLiBZb3VyIGZ1bmN0aW9ucyBhcmUgaW4gdGhlIHZzXyBuYW1lc3BhY2Us
-IHNvIA0KdGhleSBzaG91bGQgdGFrZSBhIHZzX2dlbV9vYmplY3QgYXMgZmlyc3QgYXJndW1l
-bnQuIFJhdGhlciBpbXBsZW1lbnQgDQp2c19nZW1fcHJpbWVfdm1hcChzdHJ1Y3QgdnNfZ2Vt
-X29iamVjdCAqdnNfb2JqLCBzdHJ1Y3QgaW9zeXNfbWFwICptYXApDQphbmQgX3Z1bm1hcCgp
-IGFuZCBfbW1hcCgpLg0KDQpGb3IgdGhlIGNhbGxiYWNrcyBpbiBzdHJ1Y3QgZHJtX2dlbW9i
-amVjdF9mdW5jcywgeW91IGNhbiB3cml0ZSBzbWFsbCANCndyYXBwZXJzIGFyb3VuZCB0aGUg
-aGVscGVycyB0byBkbyB0aGUgdHlwZSBjYXN0aW5nLiBTZWUgDQpkcm1fZ2VtX3NobWVtX29i
-amVjdF9tbWFwKCkgYW5kIGRybV9nZW1fc2htZW1fbW1hcCgpIGZvciBhbiBleGFtcGxlLg0K
-DQpodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51eC9sYXRlc3Qvc291cmNlL2luY2x1
-ZGUvZHJtL2RybV9nZW1fc2htZW1faGVscGVyLmgjTDIzMw0KDQoNCg0KPiArDQo+ICtpbnQg
-dnNfZ2VtX3ByaW1lX21tYXAoc3RydWN0IGRybV9nZW1fb2JqZWN0ICpvYmosDQo+ICsJCSAg
-ICAgIHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hKTsNCj4gKw0KPiAraW50IHZzX2dlbV9k
-dW1iX2NyZWF0ZShzdHJ1Y3QgZHJtX2ZpbGUgKmZpbGVfcHJpdiwNCj4gKwkJICAgICAgIHN0
-cnVjdCBkcm1fZGV2aWNlICpkcm0sDQo+ICsJCSAgICAgICBzdHJ1Y3QgZHJtX21vZGVfY3Jl
-YXRlX2R1bWIgKmFyZ3MpOw0KPiArDQo+ICtpbnQgdnNfZ2VtX21tYXAoc3RydWN0IGZpbGUg
-KmZpbHAsIHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hKTsNCj4gKw0KPiArc3RydWN0IHNn
-X3RhYmxlICp2c19nZW1fcHJpbWVfZ2V0X3NnX3RhYmxlKHN0cnVjdCBkcm1fZ2VtX29iamVj
-dCAqb2JqKTsNCj4gKw0KPiArc3RydWN0IGRybV9nZW1fb2JqZWN0ICp2c19nZW1fcHJpbWVf
-aW1wb3J0KHN0cnVjdCBkcm1fZGV2aWNlICpkZXYsDQo+ICsJCQkJCSAgIHN0cnVjdCBkbWFf
-YnVmICpkbWFfYnVmKTsNCj4gK3N0cnVjdCBkcm1fZ2VtX29iamVjdCAqDQo+ICt2c19nZW1f
-cHJpbWVfaW1wb3J0X3NnX3RhYmxlKHN0cnVjdCBkcm1fZGV2aWNlICpkZXYsDQo+ICsJCQkg
-ICAgIHN0cnVjdCBkbWFfYnVmX2F0dGFjaG1lbnQgKmF0dGFjaCwNCj4gKwkJCSAgICAgc3Ry
-dWN0IHNnX3RhYmxlICpzZ3QpOw0KPiArDQo+ICsjZW5kaWYgLyogX19WU19HRU1fSF9fICov
-DQoNCi0tIA0KVGhvbWFzIFppbW1lcm1hbm4NCkdyYXBoaWNzIERyaXZlciBEZXZlbG9wZXIN
-ClNVU0UgU29mdHdhcmUgU29sdXRpb25zIEdlcm1hbnkgR21iSA0KRnJhbmtlbnN0cmFzc2Ug
-MTQ2LCA5MDQ2MSBOdWVybmJlcmcsIEdlcm1hbnkNCkdGOiBJdm8gVG90ZXYsIEFuZHJldyBN
-eWVycywgQW5kcmV3IE1jRG9uYWxkLCBCb3VkaWVuIE1vZXJtYW4NCkhSQiAzNjgwOSAoQUcg
-TnVlcm5iZXJnKQ0K
+url:    https://github.com/intel-lab-lkp/linux/commits/Minda-Chen/dt-bindings-phy-Add-StarFive-JH7110-PCIe-PHY/20230619-184756
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20230619094759.21013-5-minda.chen%40starfivetech.com
+patch subject: [PATCH v7 4/5] phy: starfive: Add JH7110 PCIE 2.0 PHY driver
+config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20230619/202306192215.TvQco9m6-lkp@intel.com/config)
+compiler: s390-linux-gcc (GCC) 12.3.0
+reproduce: (https://download.01.org/0day-ci/archive/20230619/202306192215.TvQco9m6-lkp@intel.com/reproduce)
 
---------------nV5DH2JaYJn29RZXOOhf0f8I--
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202306192215.TvQco9m6-lkp@intel.com/
 
---------------AQmo0XbTycWWIDd2erzQxco5
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature"
+All errors (new ones prefixed by >>, old ones prefixed by <<):
 
------BEGIN PGP SIGNATURE-----
+>> ERROR: modpost: "devm_platform_ioremap_resource" [drivers/phy/starfive/phy-jh7110-pcie.ko] undefined!
+ERROR: modpost: "devm_ioremap_resource" [drivers/dma/qcom/hdma.ko] undefined!
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/fsl-edma.ko] undefined!
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/idma64.ko] undefined!
+ERROR: modpost: "iounmap" [drivers/tty/ipwireless/ipwireless.ko] undefined!
+ERROR: modpost: "ioremap" [drivers/tty/ipwireless/ipwireless.ko] undefined!
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/char/xillybus/xillybus_of.ko] undefined!
+ERROR: modpost: "devm_memremap" [drivers/misc/open-dice.ko] undefined!
+ERROR: modpost: "devm_memunmap" [drivers/misc/open-dice.ko] undefined!
+ERROR: modpost: "iounmap" [drivers/net/ethernet/8390/pcnet_cs.ko] undefined!
+WARNING: modpost: suppressed 19 unresolved symbol warnings because there were too many)
 
-wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmSQZKIFAwAAAAAACgkQlh/E3EQov+Dh
-sg/9FK6lyEoYAw1QEf7gjCF9MaR0OxJb/gGkeJsLnmfPwbjmHytGMUlUQEOkKo9BUdQHBx8wH7Sl
-6FCw7hCTHTSHVXb/I7IE/TsSbPijqFOeMdQAvUMdy1g/EV/K3U3DE3YtqX4/IYCYna+wPduHzxOJ
-r5VSgWZfZVskQxqAUPaTLbWlt9JoXlGB+KfoMFX02kJA5yu0Gag1q60C88eyvUGehuhSkTe4aEfq
-CewqJ6+qGUGCStV81G9WJM0swEoFH+yThuNylfOR3KDcibC1zsUoQ1EJgZv4Zu9CjDgNOv1dNBeM
-yqcRO9VZnTunJ2QK8v8c1po0XyZnDgx/JbqGvKFcbpOng30ODvk9qDnVw/oY+I3tCwT07pgDTlOc
-FpyyBH56sdhwiLQ4kQMF/K6CEomDvudttRBURlZ758SbmQcLgEq8wLqnaMfYdKIl+YWiIl9sFb5o
-y5Zu8OT7RMdockxADbi44cWyZ9u0A2k/AqQBItNwSf+j0KPVzQd6FSCejMSynDFRp55ggLXu5XdF
-QlFAzCDD6eUw0zbOa93PQir5cFH4RpXMDcNDSNFRc9cmJP8mXLklM+oCmIeLq8B8qJFet+FDLm4C
-YgGLzd/sjr59jNjS2BQ0fVeJGFID5bJY6FPyho9xUirldXVdJJhHf4NB6hLNo4dGy8W/r4H5s1MS
-qZM=
-=yGOr
------END PGP SIGNATURE-----
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for USB_PHY
+   Depends on [n]: USB_SUPPORT [=n]
+   Selected by [m]:
+   - PHY_STARFIVE_JH7110_PCIE [=m]
 
---------------AQmo0XbTycWWIDd2erzQxco5--
-
-
---===============0167323124483376639==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0167323124483376639==--
-
