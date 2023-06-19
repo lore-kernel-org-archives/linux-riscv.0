@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 876B1EB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F77EEB64DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 15:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g7OI99EJtdkc2d8l9l2QvOzPDwT8wKobslDNbjAt9Uo=; b=VYMzeGQCvsjg9m
-	I7VkV9LdfK35tfQdCDJNFWXYdilyYIwT2SnWYVrJ2mCVnds3PnHJMfbmEk/0cQA95eBw99Xx05UnV
-	mpPE41Q5OJGF3XroMoq4No+xxVC/jn7V1eci1oooVLWgpJslmjGKz1pOBxpJ6p+egicMCVCRenJJK
-	0pO3ID/HBtgcdaD3nUbVDNaT5t+ybu+QpuDNeJqu5FRVcccMDep23/P1W816As33mD1QAHlrg977k
-	Wx+fhMz2u+bWHvmPL9iSPYgeVlFSDvxOPlrFKkso1Ql0XwWIxuguyDHTS9QOUDuGelcJtTyJS1xTM
-	NOVqM+ZcUf/PVYndPjPw==;
+	List-Owner; bh=SQnaX+gJTY7CTB2CvVQBvc5YadilhOb7wnsHqLe5j4s=; b=B/4HsHwX8mHsPz
+	CTNN4PzX5scOrIDLTy9C2PHYj7qO1ha99SPpDgx/0itS2L1vYtugISnjyUhLjkjHj111iayniuBWu
+	ZoiI0PTv8U5aizn6ELZ81rHppHt3SHA7y3lD4JS/mEblcf+c1+x9GIuga9qXuMlBGsJM95IIG2n7l
+	Et0Gh3AnAzCScg4Pj294pQX6UXh48CEomLv+MlN5Lonr151DYy0B8KF00Xp1qk3cdm4tpKVVc+64T
+	uFMtNE9ttNfs4rZhDkMgYwoau0bgk4NoSymCQNKvuo/kWazL52UXnIb1YjrZWsRJBD8M2P0yvqqwR
+	8VJTInR44ixfJTKeiiEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBH9K-008ptW-0W;
-	Mon, 19 Jun 2023 15:50:38 +0000
+	id 1qBHAS-008q9f-2H;
+	Mon, 19 Jun 2023 15:51:48 +0000
 Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBH9G-008ps4-2j
+	id 1qBHAP-008q7A-00
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 15:50:36 +0000
-X-QQ-mid: bizesmtp65t1687189816tdj31vkq
+	Mon, 19 Jun 2023 15:51:47 +0000
+X-QQ-mid: bizesmtp64t1687189887tg4fzjsv
 Received: from linux-lab-host.localdomain ( [116.30.126.60])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 19 Jun 2023 23:50:14 +0800 (CST)
+	id ; Mon, 19 Jun 2023 23:51:26 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: lJ9dImo9Gpeyz8IOKq+GcNXt5bf5lKsHx4krldfzto/2klwvpwlW5zu4HsFMO
-	T3D5l8mDvV8FkGonqQzuWoU43QdE6GRR6PIVIB0HxaHgFBH0BglfRFDghFmMPBZM8DI5II7
-	1VmJ6Lw8HBn/7eZ94UtUuKdSkNOVFWWoatTOu/yoQdknRrDgAMarKa+RO+x/sJPTWthw60d
-	FOPdQ9jEm8q4jTAlrRtzy/dOgsqWUQkAXSGHiUxYPOh0i7mnXppFlh6qDQrVDFpSYG70mbs
-	HCEsMn0XqQDYpLsRzogrLqNBsOjF9Vx78SpiIXCEViHeVbcUwPuoB20V4Mq9sMAQiVDcul0
-	3A3z92ODahZBnR/e1BhsIBg5cub/ZAWqKvEcrF71WY0VAO9OHRUliKtrQKgw8FfmlatbISe
+X-QQ-FEAT: 5q30pvLz2icBH/caXxT27x4f9FBSJcYyNdLV7m3J8v2Ry7takMP0mXa7DT1i3
+	jQwPJO38Q3Zvqx2UcT3WQjrB96lfe6DY5IP8gMxXL0flRy+x+YiGwXSCxfPaniPbV/rHyxs
+	yoCZLQy3AZVEbwKpQFcTc9cslDqmauQUwqfn8v36BVI4qnUnlhFcGWHj9fDtwxI8XCdfYIv
+	i9fBc5Z6q3dWlxGEJI1/wI4qq4HDv2X/movyUNAkL1VkfOgx0kA6MUkYC6oLN4eefLH/mRc
+	tao0Zr/YcNcFkXKtnmghIGRbaKk31qEouoCTsHb4mhVL4uhexQC/kBtEQnAz7gZoTN4Yoz5
+	6O2NyuOrm0FK53k38XqBR3Z/A38eOqjxexOj5nmTN6RQsEeT+lQZW4+A4mKEA==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1071758241014777112
+X-BIZMAIL-ID: 6198696245822752568
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: david.laight@aculab.com,
@@ -48,11 +48,10 @@ Cc: david.laight@aculab.com,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de,
-	David Laight <David.Laight@ACULAB.COM>
-Subject: [PATCH v4 06/10] tools/nolibc: __sysret: support syscalls who return a pointer
-Date: Mon, 19 Jun 2023 23:48:21 +0800
-Message-Id: <aae854b2de881f9bc1c82ab9dda53b51d7330c9a.1687187451.git.falcon@tinylab.org>
+	thomas@t-8ch.de
+Subject: [PATCH v4 07/10] tools/nolibc: clean up mmap() support
+Date: Mon, 19 Jun 2023 23:51:20 +0800
+Message-Id: <b1162bc16ce5c397e99925e49317756c110e6f1a.1687187451.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1687187451.git.falcon@tinylab.org>
 References: <cover.1687187451.git.falcon@tinylab.org>
@@ -60,8 +59,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_085035_188728_37F0923A 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20230619_085145_343516_DC67C0C4 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +77,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To support syscalls (e.g. mmap()) who return a pointer and to allow the
-pointer as big as possible, we should convert the negated errno value to
-unsigned long (uintptr_t), otherwise, in signed long, a potential big
-pointer (whose highest bit is 1) will be treated as a failure.
+Do several cleanups together:
 
-tools/include/nolibc/errno.h defines the MAX_ERRNO, let's use it
-directly. after converting to unsigned long, the negative errno value
-from -1 to -MAX_ERRNO becomes something like '~1 + 1' (every bit is 1)
-to '~MAX_ERRNO + 1', '~1 + 1' is the biggest, '~MAX_ERRNO + 1' is the
-smallest, so, the check becomes:
+- Since all supported architectures have my_syscall6() now, remove the
+  #ifdef check.
 
-    if (ret <= (unsigned long)-1 && ret >= (unsigned long)-MAX_ERRNO) {
-        ...
-    }
+- Move the mmap() related macros to tools/include/nolibc/types.h
 
-Since (unsigned long)-1 is the biggest unsigned long value, it is always
-true if bigger than (unsigned long)-MAX_ERRNO, so, just reserve the
-following check is enough:
+- Apply the new __sysret() to convert the calling of sys_map() to
+  oneline code
 
-    if (ret >= (unsigned long)-MAX_ERRNO) {
-        ...
-    }
-
-Suggested-by: David Laight <David.Laight@ACULAB.COM>
-Link: https://lore.kernel.org/linux-riscv/94dd5170929f454fbc0a10a2eb3b108d@AcuMS.aculab.com/
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- tools/include/nolibc/sys.h | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+ tools/include/nolibc/sys.h   | 24 +-----------------------
+ tools/include/nolibc/types.h | 11 +++++++++++
+ 2 files changed, 12 insertions(+), 23 deletions(-)
 
 diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-index 4fbefe5adf93..8a6e16472d54 100644
+index 8a6e16472d54..1c02cec3bcd9 100644
 --- a/tools/include/nolibc/sys.h
 +++ b/tools/include/nolibc/sys.h
-@@ -28,13 +28,16 @@
- #include "errno.h"
- #include "types.h"
- 
--/* Syscall return helper, set errno as -ret when ret < 0 */
-+
-+/* Syscall return helper for library routines
-+ * set errno as -ret when ret in [-MAX_ERRNO, -1]
-+ */
- static __inline__ __attribute__((unused, always_inline))
--long __sysret(long ret)
-+long __sysret(unsigned long ret)
- {
--	if (ret < 0) {
--		SET_ERRNO(-ret);
--		ret = -1;
-+	if (ret >= (unsigned long)-MAX_ERRNO) {
-+		SET_ERRNO(-(long)ret);
-+		return -1;
- 	}
- 	return ret;
+@@ -624,26 +624,11 @@ int mknod(const char *path, mode_t mode, dev_t dev)
+ 	return __sysret(sys_mknod(path, mode, dev));
  }
+ 
+-#ifndef MAP_SHARED
+-#define MAP_SHARED		0x01	/* Share changes */
+-#define MAP_PRIVATE		0x02	/* Changes are private */
+-#define MAP_SHARED_VALIDATE	0x03	/* share + validate extension flags */
+-#endif
+-
+-#ifndef MAP_FAILED
+-#define MAP_FAILED ((void *)-1)
+-#endif
+-
+ #ifndef sys_mmap
+ static __attribute__((unused))
+ void *sys_mmap(void *addr, size_t length, int prot, int flags, int fd,
+ 	       off_t offset)
+ {
+-#ifndef my_syscall6
+-	/* Function not implemented. */
+-	return (void *)-ENOSYS;
+-#else
+-
+ 	int n;
+ 
+ #if defined(__NR_mmap2)
+@@ -654,20 +639,13 @@ void *sys_mmap(void *addr, size_t length, int prot, int flags, int fd,
+ #endif
+ 
+ 	return (void *)my_syscall6(n, addr, length, prot, flags, fd, offset);
+-#endif
+ }
+ #endif
+ 
+ static __attribute__((unused))
+ void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset)
+ {
+-	void *ret = sys_mmap(addr, length, prot, flags, fd, offset);
+-
+-	if ((unsigned long)ret >= -4095UL) {
+-		SET_ERRNO(-(long)ret);
+-		ret = MAP_FAILED;
+-	}
+-	return ret;
++	return (void *)__sysret((unsigned long)sys_mmap(addr, length, prot, flags, fd, offset));
+ }
+ 
+ static __attribute__((unused))
+diff --git a/tools/include/nolibc/types.h b/tools/include/nolibc/types.h
+index f96e28bff4ba..f889d4e0ac7e 100644
+--- a/tools/include/nolibc/types.h
++++ b/tools/include/nolibc/types.h
+@@ -81,6 +81,17 @@
+ #define MAXPATHLEN     (PATH_MAX)
+ #endif
+ 
++/* flags for mmap */
++#ifndef MAP_SHARED
++#define MAP_SHARED		0x01	/* Share changes */
++#define MAP_PRIVATE		0x02	/* Changes are private */
++#define MAP_SHARED_VALIDATE	0x03	/* share + validate extension flags */
++#endif
++
++#ifndef MAP_FAILED
++#define MAP_FAILED ((void *)-1)
++#endif
++
+ /* whence values for lseek() */
+ #define SEEK_SET       0
+ #define SEEK_CUR       1
 -- 
 2.25.1
 
