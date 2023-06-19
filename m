@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33994EB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 12:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D40EB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 12:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qbq8kJOYR33nJVCWW7SsMX0HzcRyLU9EubdgdUxO5ak=; b=hrnLI4kJhv/Kjh
-	t+Sou8GsytSwQs6amyv64ay/CLP3cvNl2pmSn3SupSey0g75y5g5G4KjKWdLg1oqEYxkZOEDmY0h2
-	4QopqaTbTDLvRAhByZYZPn0aMUgST7QK6G86rYoIKbeh4blTP288lnrP8ekDYUyOiVRyA+1pWazqT
-	SxrhT7/eQ7NTlzyF3tAPjH+I7nbw8ibl1qhdqFKt3vIiC1JnXCB/z6CnkXtE/2U44X0rMm2zAOycp
-	1YQa28QTmju6FUuXhr2iaBteoCEWFfwf1A6r95StkuM1yIeD9lD/uY7ZD3cTOnCnEgNkQJVTiwD6w
-	lG28C1Ce25xGFy3oTPRg==;
+	List-Owner; bh=JyfTxdVfDkfsrV7NLV1618dqOByaE8LjpA8EF/EwMu0=; b=i9/aatfuqwVI2S
+	4xj6VZIqakdAeNe8LIoqT79uMFQ9Ju8v+7/cGC0o9gFgf5aQ3sGN0ejPMJpJ5Rid4EKgGS3Z12A3B
+	Y+VHAoRlsQt/AUvwqXcEjY+AHsdtjWB1gKFRBNb1EZdHBnhUCv1fMeTL3akDOLLFjYBaP1OOmA9cY
+	njmakBuRyFMxvIsHP7Ol4aR/ooEpprcqFfJprgLRdLHdvbu+o7sgjLN/B5qxugar7ck33qBcnUna+
+	oYsO3nyfWgRbdqa0ZeTOBjdp2Z52a5nsSqDa3FRTt6nPSGpVDGjlweXddUq9fwZjUXHKtSkqkimnW
+	bISNwBIJw5HwTDehu6AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBDz9-008TkH-0P;
-	Mon, 19 Jun 2023 12:27:55 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qBDzx-008Tqk-0e;
+	Mon, 19 Jun 2023 12:28:45 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBDz6-008Tj0-0G
+	id 1qBDzu-008TpT-1x
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 12:27:53 +0000
-X-QQ-mid: bizesmtp66t1687177631teie4acy
+	Mon, 19 Jun 2023 12:28:44 +0000
+X-QQ-mid: bizesmtp81t1687177707tmneyvcl
 Received: from linux-lab-host.localdomain ( [116.30.126.60])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 19 Jun 2023 20:27:10 +0800 (CST)
+	id ; Mon, 19 Jun 2023 20:28:26 +0800 (CST)
 X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: FVl8EHhfVR4G8njjimH22Yic6dkZ/h69DI80pcJOhgqYGvZ/p2pAaliIhKcCV
-	E2+RX78p2BQadDdb1HY3kl9GzWyCiyTmwr4LHv+OGA+S9WNC/ll+g68ESp594/X4kMaOphE
-	vh2WS3CuISBsyl3Zz8fGxxQiLLuoLKlSt3i1DJBxrhCqNFbafjCsK6PiFPlBhiVnO9zrTPp
-	DlMsNAixfnzM4wnTPRdMU6LO1myVXaj+DDdtE8KSdsUz6rj7JsIww6pmS9w0DjbVzGUVl6x
-	j0Mu6TJlhXjREv5DVU2tF5ejBOyvD+jjmeyLM9yjpUbPyP4VlLiP+tJPQwZ7dEzhYI7ng/4
-	zAQBbLmoodaPmW2bY7PuhOtE17nv67t3cNSXEPjaZPp+bYdRNCYfbInGOOuiaTx6rlcgFDz
+X-QQ-FEAT: 5q30pvLz2ic279cw/a00XjnqZBNnxTgxLNGC6G7VMExOCnBfI7C0htyxxzWKY
+	LA5v3ik8/oYs8zCaHGKjtZ/1V4+e1Iwh4i0Rpn+oiq9SYoh6jr/S99wvl/1vEr8p0R4z3ms
+	lgaKQkeqhhNBuB42rTLW0FAGdmmwyykpGkXnchmNDkOAZZ2ilQ+0MpMlTmlCIa9kQYeOtlY
+	BEZOrE68ogo7OmquvaAJweTQn7BQflcMhTRoZ62o4IY59iZqqBLjqz9z2aUByaD/FfITuvj
+	6WkOZamXc1txAV3HCZJMNwX/kUVydRmuN1Ep+b7mcNTrFyElbsr7yRiHP3vb4XQ/d423peo
+	hKWy5deLwn5KsqDutzogRy0HI4veS/4vusbw+UVoxz58OxqseAmqa5ffwrsFA==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 9699929361938748553
+X-BIZMAIL-ID: 4499761798430525214
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: falcon@tinylab.org,
@@ -48,9 +48,9 @@ Cc: falcon@tinylab.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	thomas@t-8ch.de
-Subject: [PATCH v5 3/5] selftests/nolibc: allow customize kernel specific ARCH variable
-Date: Mon, 19 Jun 2023 20:27:06 +0800
-Message-Id: <0deeb36e44db5abb936a99d855b86a3c76d2a102.1687176996.git.falcon@tinylab.org>
+Subject: [PATCH v5 4/5] tools/nolibc: add kernel and nolibc specific ARCH variables
+Date: Mon, 19 Jun 2023 20:28:23 +0800
+Message-Id: <be68f6023139b94152ae13f101caef8b4d671a3a.1687176996.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1687176996.git.falcon@tinylab.org>
 References: <cover.1687176996.git.falcon@tinylab.org>
@@ -58,8 +58,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_052752_411026_F4AAAFB2 
-X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-CacheID: sfid-20230619_052842_940168_415C9547 
+X-CRM114-Status: UNSURE (   7.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,49 +77,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some architectures (e.g. riscv, mips) share the same ARCH variable (the
-one supported by top-level kernel Makefile) between 32bit and 64bit
-architecture variants and even more, some of them have little endian and
-big endian variants.
+Like the KARCH added for tools/testing/selftests/nolibc/Makefile, adds
+KARCH for tools/include/nolibc/Makefile too, at the same time, adds
+NARCH for the ARCH supported by nolibc (arch-<NARCH>.h).
 
-Let's add KARCH to allow architectures customize their own kernel
-specific ARCH variable, so, ARCH=$(KARCH) is required by all of the
-top-level kernel Makefile targets.
+It allows users to customize both kernel and nolibc specific ARCH
+variables for different architectures and their variants easily.
 
-Suggested-by: Willy Tarreau <w@1wt.eu>
-Link: https://lore.kernel.org/lkml/ZIAywHvr6UB1J4of@1wt.eu/
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- tools/testing/selftests/nolibc/Makefile | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ tools/include/nolibc/Makefile | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
-index 000621f21adc..ebecb8cfd947 100644
---- a/tools/testing/selftests/nolibc/Makefile
-+++ b/tools/testing/selftests/nolibc/Makefile
-@@ -14,6 +14,9 @@ include $(srctree)/scripts/subarch.include
- ARCH = $(SUBARCH)
+diff --git a/tools/include/nolibc/Makefile b/tools/include/nolibc/Makefile
+index 64d67b080744..14a6416fa57f 100644
+--- a/tools/include/nolibc/Makefile
++++ b/tools/include/nolibc/Makefile
+@@ -23,8 +23,14 @@ else
+ Q=@
  endif
  
+-nolibc_arch := $(patsubst arm64,aarch64,$(ARCH))
+-arch_file := arch-$(nolibc_arch).h
 +# kernel supported ARCH names by architecture
 +KARCH            = $(or $(KARCH_$(ARCH)),$(ARCH))
 +
- # kernel image names by architecture
- IMAGE_i386       = arch/x86/boot/bzImage
- IMAGE_x86_64     = arch/x86/boot/bzImage
-@@ -143,10 +146,10 @@ initramfs: nolibc-test
- 	$(Q)cp nolibc-test initramfs/init
++# nolibc supported ARCH names by architecture
++NARCH_arm64      = aarch64
++NARCH            = $(or $(NARCH_$(ARCH)),$(ARCH))
++
++arch_file := arch-$(NARCH).h
+ all_files := \
+ 		compiler.h \
+ 		ctype.h \
+@@ -83,8 +89,8 @@ headers:
+ 	fi > $(OUTPUT)sysroot/include/arch.h
  
- defconfig:
--	$(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
-+	$(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) mrproper $(DEFCONFIG) prepare
+ headers_standalone: headers
+-	$(Q)$(MAKE) -C $(srctree) headers
+-	$(Q)$(MAKE) -C $(srctree) headers_install INSTALL_HDR_PATH=$(OUTPUT)sysroot
++	$(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) headers
++	$(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) headers_install INSTALL_HDR_PATH=$(OUTPUT)sysroot
  
- kernel: initramfs
--	$(Q)$(MAKE) -C $(srctree) ARCH=$(ARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
-+	$(Q)$(MAKE) -C $(srctree) ARCH=$(KARCH) CC=$(CC) CROSS_COMPILE=$(CROSS_COMPILE) $(IMAGE_NAME) CONFIG_INITRAMFS_SOURCE=$(CURDIR)/initramfs
- 
- # run the tests after building the kernel
- run: kernel
+ clean:
+ 	$(call QUIET_CLEAN, nolibc) rm -rf "$(OUTPUT)sysroot"
 -- 
 2.25.1
 
