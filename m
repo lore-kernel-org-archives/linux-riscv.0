@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BB0EB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 16:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FCEEB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 16:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6MJuctMuxt7dwCwudX58+L4oV98jHrUwpd5R8DNWzdA=; b=jLVBuLlXqcIuZd
-	33IRR4i8xRk4d8fQ6C8kf0L6wrKHhJk//fOEsBqF3zBpUwmqC92cXPMgr0lMfcuTidLeKaby9mUHB
-	b+m92WhkIbi39AIC6s38oasr5WDDUauFK6fibeVSk9/ow4xkxCREO/8QccmtaoAoyyErNC0AP/os/
-	EXYjycejvYBKpAtI5u/vjqcsjBMN6xV0ix01y4fKIMyDmRprqgRwRl095o6PHm9Fb8pCv93z+o1f7
-	5KKodaTAT1TBD/4XOH9/bss3e7cCseUSWdXSobO+cdVZ9dsr6zHZLPcV5ZhUymveSwRauhboOwbRM
-	J67Ha75Zxi38yUyUL1Gw==;
+	List-Owner; bh=DoIoPOK8GOsT+PaQXHvbLvRluYq/kmNcF+/rumnBxto=; b=QF4d1rZWPFOns8
+	4R5t3+EV6wtoSN4KP24hm+EmeLNPTFOdQ12ULe7l0wCYho4QbaPa2aXrT64uMxvIjCVKelw6X7dNm
+	XO6NxpBXjkO8Knx/h/pp+iGwXV/j1Mp6v0LThPKTYExPATJPFFAePgvhSkWBsFwBAnFUX1c2ujzJl
+	Tk1CE87CReyHELXCayYjVxqAUrB118MnsAK1lJjIQGbOsCVZUw122p2y0F7+grgzuFcpEUoLwJ1qv
+	OLAJwlAEUqHe2JevrncqpifFOtg7W9TSKqMuZndPbDpFjXm1CvIoczooWPCcpqSym4nc3+sD96yJa
+	KiLe6AZm85I583QKtHZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBHX5-008ut9-1Y;
-	Mon, 19 Jun 2023 16:15:11 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1qBI34-008zGu-27;
+	Mon, 19 Jun 2023 16:48:14 +0000
+Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBHX1-008us1-0m
+	id 1qBI32-008zFs-06
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 16:15:10 +0000
-X-QQ-mid: bizesmtp81t1687191285t01nawk2
-Received: from linux-lab-host.localdomain ( [116.30.126.60])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 20 Jun 2023 00:14:44 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: ZdHcY4j9T+JijOCEaI8NmadI1bU2NcMWNN0LyKkwYd78IIfSGuJNw4ExYDsC6
-	4p+ypSy34TXQkH2u4G361x0wwuIvn+6JwClrIj35FYTsUsypkzVae2C/aLNMHgTDkvGKkUC
-	b7iX+Sg3k2OiyMGpOpz+YEcBx0k9YEj4udS4iTsULv4XQd5W002HtAam6/ruHiJTzk6lVMj
-	MonXQf1k6YcDfjUOz1FGyI5E07uFJI6QFGlddPjOFY/v29nn2HUpS+QxyKmzAX2JLhwPnZZ
-	AdngcSwJgBVlEuh3xUzyI40+sxnz16o3BkySAiORsqLOHVGN7sfTQtxygVthRzMIhxGG7HU
-	9D1KBqNWPyarbrI+fC4pCeml0sgPg==
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 15276055031568297956
-From: Zhangjin Wu <falcon@tinylab.org>
-To: falcon@tinylab.org
-Cc: arnd@arndb.de,
-	david.laight@aculab.com,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de,
-	w@1wt.eu
-Subject: [PATCH v4 10/10] selftests/nolibc: add mmap and munmap test cases
-Date: Tue, 20 Jun 2023 00:14:44 +0800
-Message-Id: <20230619161444.285353-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <9c46f648cd8c784405afed565bed120f0a2f239e.1687187451.git.falcon@tinylab.org>
-References: <9c46f648cd8c784405afed565bed120f0a2f239e.1687187451.git.falcon@tinylab.org>
+	Mon, 19 Jun 2023 16:48:13 +0000
+Received: from localhost (unknown [IPv6:2601:281:8300:73::5f6])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id 62AE449B;
+	Mon, 19 Jun 2023 16:48:07 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 62AE449B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1687193287; bh=8mEQ2qVV3NQ4ryWzZHEZukEHUKHAb2sehmACRxBJOtA=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=VL5sJ1X0jkd152hPF9+Ibi6d/g3SjtNhHWIXDYGjhSEs8A3W+4o7Hjw+KkuZlkcCu
+	 35G3rTcG76vCRJ9itFN4aVqaVRk/nRrcHGAYBj50dafgxCaEajW2SvX4GvKIOKqb3k
+	 GossMbnM+Ht9Jo3ZqqNe4eUZ5a3ZV6vQXT6IYb5IiTSPnzndlV92CfF8Fgjc+UI2kb
+	 CqVt4JG6lNzFO5I2SNMP0h47va+q2VR3T/pEoRaU8f2B0BNJatxvdD85iG4wklVxOX
+	 EdyOPbuJV3bTmnvk28yRvjCkjq+P4zsAMT8Di0g4n/iTAfTfQW7WMjJGQOopuSyJ5D
+	 nVDRiuSzxvfdQ==
+From: Jonathan Corbet <corbet@lwn.net>
+To: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Atish Kumar Patra
+ <atishp@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] Documentation: riscv: Add early boot document
+In-Reply-To: <20230619-sponge-armful-6beeaf4a8624@spud>
+References: <20230619094705.51337-1-alexghiti@rivosinc.com>
+ <20230619-kerchief-unmixed-cfdbeb1cf242@wendy>
+ <CAHVXubjV=0HNyc0-UMAQRQfi4ZUnwH8dmghV-BGogZsJiumtZA@mail.gmail.com>
+ <20230619-sponge-armful-6beeaf4a8624@spud>
+Date: Mon, 19 Jun 2023 10:48:06 -0600
+Message-ID: <87r0q7v1o9.fsf@meer.lwn.net>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_091507_627552_38B6E609 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20230619_094812_077186_2E6B6F28 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,112 +72,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-> Three mmap/munmap related test cases are added:
-> 
-> - mmap(NULL, 0, PROT_READ, MAP_PRIVATE, 0, 0), MAP_FAILED, EINVAL)
-> 
->   The length argument must be greater than 0, otherwise, fail with -EINVAL.
-> 
-> - munmap((void *)-1, 4*1024), -1, EINVAL)
->
-
-Sorry, this message doesn't match the code, will change it in new revison.
-
->   Invalid (void *)-1 address fail with -EINVAL.
-> 
-> - test_mmap_munmap(4*1024)
-> 
->   It finds a init file, mmap() it and then munmap().
-> 
-> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> ---
->  tools/testing/selftests/nolibc/nolibc-test.c | 31 ++++++++++++++++++++
->  1 file changed, 31 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-> index 80ab29e2887c..f7c0ca72cb28 100644
-> --- a/tools/testing/selftests/nolibc/nolibc-test.c
-> +++ b/tools/testing/selftests/nolibc/nolibc-test.c
-> @@ -592,6 +592,34 @@ static int test_stat_timestamps(void)
->  	return 0;
->  }
->  
-> +int test_mmap_munmap(int size)
-> +{
-> +	char init_files[5][20] = {"/init", "/sbin/init", "/etc/init", "/bin/init", "/bin/sh"};
-> +	int ret, fd, i;
-> +	void *mem;
-> +
-> +	for (i = 0; i < 5; i++) {
-> +		ret = fd = open(init_files[i], O_RDONLY);
-> +		if (ret < 0)
-> +			continue;
-> +		else
-> +			break;
-> +	}
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	mem = mmap(NULL, size, PROT_READ, MAP_SHARED, fd, 0);
-> +	if (mem == MAP_FAILED)
-> +		return -1;
-> +
-
-And here need a close(fd):
-
-	if (mem == MAP_FAILED) {
-		close(fd);
-		return -1;
-	}
-
-> +	ret = munmap(mem, size);
-> +	if (ret < 0)
-> +		return ret;
-> +
-
-And here too:
-
-	if (ret < 0) {
-		close(fd);
-		return ret;
-	}
-
-
-> +	return close(fd);
-
-	close(fd);
-	return 0;
-
-Thanks,
-Zhangjin
-
-> +}
-> +
-> +
->  /* Run syscall tests between IDs <min> and <max>.
->   * Return 0 on success, non-zero on failure.
->   */
-> @@ -666,6 +694,9 @@ int run_syscall(int min, int max)
->  		CASE_TEST(lseek_m1);          EXPECT_SYSER(1, lseek(-1, 0, SEEK_SET), -1, EBADF); break;
->  		CASE_TEST(lseek_0);           EXPECT_SYSER(1, lseek(0, 0, SEEK_SET), -1, ESPIPE); break;
->  		CASE_TEST(mkdir_root);        EXPECT_SYSER(1, mkdir("/", 0755), -1, EEXIST); break;
-> +		CASE_TEST(mmap_bad);          EXPECT_PTRER(1, mmap(NULL, 0, PROT_READ, MAP_PRIVATE, 0, 0), MAP_FAILED, EINVAL); break;
-> +		CASE_TEST(munmap_bad);        EXPECT_SYSER(1, munmap((void *)-1, 0), -1, EINVAL); break;
-> +		CASE_TEST(mmap_good);         EXPECT_SYSZR(1, test_mmap_munmap(4*1024)); break;
->  		CASE_TEST(open_tty);          EXPECT_SYSNE(1, tmp = open("/dev/null", 0), -1); if (tmp != -1) close(tmp); break;
->  		CASE_TEST(open_blah);         EXPECT_SYSER(1, tmp = open("/proc/self/blah", 0), -1, ENOENT); if (tmp != -1) close(tmp); break;
->  		CASE_TEST(poll_null);         EXPECT_SYSZR(1, poll(NULL, 0, 0)); break;
-> -- 
-> 2.25.1
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cml0ZXM6Cgo+IE9uIE1vbiwgSnVuIDE5
+LCAyMDIzIGF0IDA0OjA0OjUyUE0gKzAyMDAsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPj4gT24g
+TW9uLCBKdW4gMTksIDIwMjMgYXQgMjoyNuKAr1BNIENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5
+QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+PiA+IE9uIE1vbiwgSnVuIDE5LCAyMDIzIGF0IDExOjQ3
+OjA0QU0gKzAyMDAsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPgo+PiA+ID4gZGlmZiAtLWdpdCBh
+L0RvY3VtZW50YXRpb24vcmlzY3YvYm9vdC5yc3QgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L2Jvb3Qu
+cnN0Cj4+ID4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+PiA+ID4gaW5kZXggMDAwMDAwMDAwMDAw
+Li5iMDIyMzA4MThiNzkKPj4gPiA+IC0tLSAvZGV2L251bGwKPj4gPiA+ICsrKyBiL0RvY3VtZW50
+YXRpb24vcmlzY3YvYm9vdC5yc3QKPj4gPiA+IEBAIC0wLDAgKzEsMTgxIEBACj4+ID4gPiArLi4g
+U1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPj4gPiA+ICsKPj4gPiA+ICs9PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KPj4gPiA+ICtFYXJseSBib290
+IHJlcXVpcmVtZW50cy9jb25zdHJhaW50cyBvbiBSSVNDLVYKPj4gPiA+ICs9PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KPj4gPgo+PiA+IFBsZWFzZSB1c2UgInRp
+dGxlIGNhc2UiLCBoZXJlIGFuZCBlbHNld2hlcmUgaW4gdGhlIGRvYy4KPj4gCj4+IFlvdSBtZWFu
+IHVzaW5nICJ0aXRsZTogIiBpbnN0ZWFkIG9mICI9PT09Ij8gT3IgdXNpbmcgdXBwZXJjYXNlIGZv
+ciB0aGUKPj4gZmlyc3QgbGV0dGVyIG9mIGVhY2ggd29yZD8gRllJIEkgZm9sbG93ZWQKPj4gaHR0
+cHM6Ly9kb2NzLmtlcm5lbC5vcmcvZG9jLWd1aWRlL3NwaGlueC5odG1sP2hpZ2hsaWdodD10aXRs
+ZSNzcGVjaWZpYy1ndWlkZWxpbmVzLWZvci10aGUta2VybmVsLWRvY3VtZW50YXRpb24KPgo+IFRo
+ZSBsYXR0ZXIuIFRoYXQncyB3ZWlyZCwgSSBndWVzcyBpdCB3b3VsZCBiZSBuaWNlIHRvIHNlZSB3
+aGF0IEpvbgo+IHRoaW5rcyBhYm91dCB0aGF0LgoKSSBoYXZlIE5ldmVyIEJlZW4gRm9uZCBvZiBF
+eGNlc3NpdmUgVXNlIG9mIENhcGl0YWwgTGV0dGVycywgc28gbXkKcHJlZmVyZW5jZSB3b3VsZCBi
+ZSBjYXBpdGFsaXphdGlvbiBhcyBpbiBhIG5vcm1hbCBzZW50ZW5jZS4KClRoYXQgc2FpZCwgSSBk
+b24ndCByZWFsbHkgZmVlbCB0aGF0IHNvbWV0aGluZyBsaWtlIHRoaXMgaXMgaW1wb3J0YW50CmVu
+b3VnaCB0aGF0IHdlIG5lZWQgdG8gZGVmaW5lIGFuZCBlbmZvcmNlIGEgcG9saWN5IGFyb3VuZCBp
+dC4gIElmIHRoZQptYWludGFpbmVycyBmb3Igc3BlY2lmaWMgc3Vic3lzdGVtcyBmZWVsIGRpZmZl
+cmVudGx5LCB0aGVuIEkgZ3Vlc3MKdGhhdCdzIHVwIHRvIHRoZW0uCgpUaGFua3MsCgpqb24KCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
