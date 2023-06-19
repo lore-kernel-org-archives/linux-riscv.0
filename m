@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CF7EB64DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 08:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7552DEB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Jun 2023 08:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x8DPRYK1Sz0KLCj2eMATpE7qPhg9YEpCYEDkwLkcU7I=; b=Qi4OQQmvwqzUKL
-	gfUFZ7I7TMnjHxwL5D8zsmoLgIFSpS4MBDV+8h+msKZpn4NRx7qStO+Uonbm/CXvzkEi4lwXQBC/F
-	dZQuxZai3okMhPpJesjB6PgijQ715ZHH6letggAYSIu8ZYbclgHqguRHglrUi0TKphAFIZzZ6IcFy
-	VdohACGf7RU7Lo2YcpjzO9Ej13PGJ3+2u5pMVApzw5LImD3BMMr8RL28rc9BFfDvLDEDlivA5uhF0
-	6YMTtWnDF0jG27iiKG5L+jv8YeldGMsWjWevnfd8/ENXSIoHOANfTVHxFfwbqiMKCRF2731AZaQl6
-	ZaqwipBMGo2yazAX4uow==;
+	List-Owner; bh=8V8YCL13JUXFKGHeQkVaZ2rKxHlXzHBmuQXbQGSwcO0=; b=w7d6+e98+eiQgP
+	bBPU+xP8GWSYq2e3R+nMAmIDcsi+ORaVrIVYT+7Jo3fnDCmhrFnJGZRqLTXOfFklUbiVwhuHXUAtT
+	lPRnVo1XlwTbEtmocVrthH/msK9PcCCzAy3p40G65blibWFyBWstSedEHwALkgeTtd+NnSAoT9626
+	yQP/lIalV0cNM+N4FKRKfUKFGwIVlXaF4h49+l5+uCE21qwyA62IhstXu9RmabP4xGNifebTSbvt/
+	KyvGaRQOHpX2J8woxnY11Yj7dj0/2M2czJu49lR9mnzHbyTaWsSN4y/P6ayOYyQjy2VA5InzFFECt
+	4nmHLDdlD3HshpQ89g6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBAMc-007qHv-1r;
-	Mon, 19 Jun 2023 08:35:54 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1qBAMk-007qKo-2h;
+	Mon, 19 Jun 2023 08:36:02 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBAMU-007qCy-0G
+	id 1qBAMg-007qFB-2m
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 Jun 2023 08:35:48 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	Mon, 19 Jun 2023 08:36:00 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 8CF0424E2B2;
-	Mon, 19 Jun 2023 16:35:20 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 19 Jun
- 2023 16:35:20 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D8A338485;
+	Mon, 19 Jun 2023 16:35:19 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 19 Jun
+ 2023 16:35:19 +0800
 Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
  by EXMBX068.cuchost.com (172.16.6.68) with Microsoft SMTP Server (TLS) id
  15.0.1497.42; Mon, 19 Jun 2023 16:35:19 +0800
@@ -45,9 +45,9 @@ CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
 	<conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Ziv Xu
 	<ziv.xu@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>
-Subject: [PATCH v3 3/3] riscv: dts: starfive: Add QSPI controller node for StarFive JH7110 SoC
-Date: Mon, 19 Jun 2023 16:35:17 +0800
-Message-ID: <20230619083517.415597-4-william.qiu@starfivetech.com>
+Subject: [PATCH v3 2/3] spi: cadence-quadspi: Add clock configuration for StarFive JH7110 QSPI
+Date: Mon, 19 Jun 2023 16:35:16 +0800
+Message-ID: <20230619083517.415597-3-william.qiu@starfivetech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230619083517.415597-1-william.qiu@starfivetech.com>
 References: <20230619083517.415597-1-william.qiu@starfivetech.com>
@@ -57,9 +57,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX068.cuchost.com
  (172.16.6.68)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_013546_413063_B4E3A6E2 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230619_013559_222983_44034729 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,89 +75,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the quad spi controller node for the StarFive JH7110 SoC.
+Add QSPI clock operation in device probe.
 
-Co-developed-by: Ziv Xu <ziv.xu@starfivetech.com>
-Signed-off-by: Ziv Xu <ziv.xu@starfivetech.com>
 Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202306022017.UbwjjWRN-lkp@intel.com/
+Reported-by: Julia Lawall <julia.lawall@inria.fr>
+Closes: https://lore.kernel.org/r/202306040644.6ZHs55x4-lkp@intel.com/
 ---
- .../jh7110-starfive-visionfive-2.dtsi         | 32 +++++++++++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      | 18 +++++++++++
- 2 files changed, 50 insertions(+)
+ drivers/spi/spi-cadence-quadspi.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-index 2a6d81609284..22212c1150f9 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
-@@ -126,6 +126,38 @@ &i2c6 {
- 	status = "okay";
- };
+diff --git a/drivers/spi/spi-cadence-quadspi.c b/drivers/spi/spi-cadence-quadspi.c
+index 6ddb2dfc0f00..8774f9aaff61 100644
+--- a/drivers/spi/spi-cadence-quadspi.c
++++ b/drivers/spi/spi-cadence-quadspi.c
+@@ -63,6 +63,8 @@ struct cqspi_st {
+ 	struct platform_device	*pdev;
+ 	struct spi_master	*master;
+ 	struct clk		*clk;
++	struct clk_bulk_data	*clks;
++	int			num_clks;
+ 	unsigned int		sclk;
  
-+&qspi {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	nor_flash: flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg=<0>;
-+		cdns,read-delay = <5>;
-+		spi-max-frequency = <12000000>;
-+		cdns,tshsl-ns = <1>;
-+		cdns,tsd2d-ns = <1>;
-+		cdns,tchsh-ns = <1>;
-+		cdns,tslch-ns = <1>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			spl@0 {
-+				reg = <0x0 0x20000>;
-+			};
-+			uboot@100000 {
-+				reg = <0x100000 0x300000>;
-+			};
-+			data@f00000 {
-+				reg = <0xf00000 0x100000>;
-+			};
-+		};
-+	};
-+};
-+
- &sysgpio {
- 	i2c0_pins: i2c0-0 {
- 		i2c-pins {
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index 4c5fdb905da8..0b24f9e66e67 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -440,6 +440,24 @@ i2c6: i2c@12060000 {
- 			status = "disabled";
- 		};
+ 	void __iomem		*iobase;
+@@ -1715,6 +1717,16 @@ static int cqspi_probe(struct platform_device *pdev)
+ 	}
  
-+		qspi: spi@13010000 {
-+			compatible = "starfive,jh7110-qspi", "cdns,qspi-nor";
-+			reg = <0x0 0x13010000 0x0 0x10000
-+				0x0 0x21000000 0x0 0x400000>;
-+			interrupts = <25>;
-+			clocks = <&syscrg JH7110_SYSCLK_QSPI_REF>,
-+				 <&syscrg JH7110_SYSCLK_QSPI_AHB>,
-+				 <&syscrg JH7110_SYSCLK_QSPI_APB>;
-+			clock-names = "ref", "ahb", "apb";
-+			resets = <&syscrg JH7110_SYSRST_QSPI_APB>,
-+				 <&syscrg JH7110_SYSRST_QSPI_AHB>,
-+				 <&syscrg JH7110_SYSRST_QSPI_REF>;
-+			reset-names = "qspi", "qspi-ocp", "rstc_ref";
-+			cdns,fifo-depth = <256>;
-+			cdns,fifo-width = <4>;
-+			cdns,trigger-address = <0x0>;
-+		};
+ 	if (of_device_is_compatible(pdev->dev.of_node, "starfive,jh7110-qspi")) {
++		cqspi->num_clks = devm_clk_bulk_get_all(dev, &cqspi->clks);
++		if (cqspi->num_clks < 0) {
++			dev_err(dev, "Cannot claim clock: %u\n", cqspi->num_clks);
++			return -EINVAL;
++		}
 +
- 		syscrg: clock-controller@13020000 {
- 			compatible = "starfive,jh7110-syscrg";
- 			reg = <0x0 0x13020000 0x0 0x10000>;
++		ret = clk_bulk_prepare_enable(cqspi->num_clks, cqspi->clks);
++		if (ret)
++			dev_err(dev, "Cannot enable clock clks\n");
++
+ 		rstc_ref = devm_reset_control_get_optional_exclusive(dev, "rstc_ref");
+ 		if (IS_ERR(rstc_ref)) {
+ 			ret = PTR_ERR(rstc_ref);
+@@ -1816,6 +1828,9 @@ static void cqspi_remove(struct platform_device *pdev)
+ 
+ 	clk_disable_unprepare(cqspi->clk);
+ 
++	if (of_device_is_compatible(pdev->dev.of_node, "starfive,jh7110-qspi"))
++		clk_bulk_disable_unprepare(cqspi->num_clks, cqspi->clks);
++
+ 	pm_runtime_put_sync(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
+ }
+@@ -1831,6 +1846,9 @@ static int cqspi_suspend(struct device *dev)
+ 
+ 	clk_disable_unprepare(cqspi->clk);
+ 
++	if (of_device_is_compatible(dev->of_node, "starfive,jh7110-qspi"))
++		clk_bulk_disable_unprepare(cqspi->num_clks, cqspi->clks);
++
+ 	return ret;
+ }
+ 
+@@ -1840,6 +1858,8 @@ static int cqspi_resume(struct device *dev)
+ 	struct spi_master *master = dev_get_drvdata(dev);
+ 
+ 	clk_prepare_enable(cqspi->clk);
++	if (of_device_is_compatible(dev->of_node, "starfive,jh7110-qspi"))
++		clk_bulk_prepare_enable(cqspi->num_clks, cqspi->clks);
+ 	cqspi_wait_idle(cqspi);
+ 	cqspi_controller_init(cqspi);
+ 
 -- 
 2.34.1
 
