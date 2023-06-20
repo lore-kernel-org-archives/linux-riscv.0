@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C64EB64D7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 20:22:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1978EB64D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 20:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FuIc6iT3Fe0GSPosj7ApQg5vcPZTiT1dN2sH8it4J3M=; b=M8rdk1lXjGagC+nJqUQQpfO5GF
-	pAYxITnx6fNXXE6rjpkrQNE0eO04R1t4QiufpTbaQS7oElL6ZmqeZh064OdyTGwl8p1DdxSLS61NU
-	ESj0uu+BIk5ssMJsO3ieOwQCQCQWxJtcWu75zxNb1fvDZPzwSdeAJg2E8XHKHuPSkT9q9EN00e2H0
-	mVjqBte2Okm2CGNA0mRx9CxZs5jo2aSTJRD9mty+zIs5kSKjhZxooEp1DoRZo7ugfH/V8sXlnoZde
-	E0ylj7UXUFUF5lhc5QKi2JGJdMYtWEMFtb9/lIY3fc7f8uvChhVcMzAHYYy6vbymj0BZdt5UraCrn
-	P5Ruj9Sw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=73wllfVK/9cTvgURp3oMpbbbKchUxC4RRoQrK1IySoU=; b=F+OtoL5b18OoJI
+	3aBhFbFprl7xwkrhsEz9JWzF6Dg/spbYOinvSwf35HU5ZsrfoIMKI2S8/eVsZjvxlquiXf9/JpPhT
+	M1WmqInQZVvuAlDH7DBl6gEjWSpokmzqXh8DpIikp0AC8O9AaZkenxAXOd28hwERwABMid2LYHs+7
+	2Imudd76p1e2fvrmo/j6QnEdLvCRTqPBI54ovBgjuqVTDaoUb9z4ZKei76iCp0npGP/YTPIyFrpXH
+	ufBbq+sYV6FghUe6vUwSOAy5SuZSyDOf/lJei56m/MmSmcBrq1afypS6MR2Z9b1/PMOgUXXLwqBXo
+	j+F4f+yjGYGZ3H2TWxYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBhsJ-00CHbk-3D;
-	Tue, 20 Jun 2023 20:22:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qBhwU-00CHyC-1b;
+	Tue, 20 Jun 2023 20:27:10 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBhsH-00CHbD-0d
+	id 1qBhwR-00CHxX-2O
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jun 2023 20:22:51 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7E0E560F1D;
-	Tue, 20 Jun 2023 20:22:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3B0CC433C0;
-	Tue, 20 Jun 2023 20:22:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687292567;
-	bh=w7w3SFTWbViJUJYrEq3MbkerW9/irnfhy/TKE1nu0kw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oSsD40Z3JoJI0m//pg9xtA9cadY8q9NsbFZdKWbOxhyCXNqQ97LyfrfG5Hapj+daZ
-	 soq+jqW4SE0A4OnOU8ayCiYRT9oI8P4UwwPgZPr1miTu1Cq1uk+h7C0zD7sI+OagqL
-	 PoSpOSoPm8KpinvP/DYK+iQoXzQ3wIqXdjsfuf9OwZ4PAAP5g5k1gGsbcqGirxN50k
-	 IGbGxwO6tCboiEFolb1fgTHGvMu8z/vVSGu8THa5m4tmznWC85+ZAgB90M0bmOFc+I
-	 EFElGQhLPQkRDPXRqQ5neBflewTWPc2JbmxOcN2y0YMJ+yvJCWh7JbD1FSAqRcDi4s
-	 /qTQWDgjUdFtw==
-Date: Tue, 20 Jun 2023 21:22:43 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: ndesaulniers@google.com, falcon@tinylab.org, guoren@kernel.org,
-	linux-riscv@lists.infradead.org, npiggin@gmail.com,
-	Paul Walmsley <paul.walmsley@sifive.com>, paulburton@kernel.org,
-	vincent.chen@sifive.com, tim.bird@sony.com, llvm@lists.linux.dev
-Subject: Re: [PATCH v3] RISC-V: Enable dead code elimination
-Message-ID: <20230620-hull-boxy-63d71a9c376d@spud>
-References: <ZJIIUn8Da15neIwI@google.com>
- <mhng-ae249af7-37cc-400c-be0d-c1fa6f75c8ef@palmer-ri-x1c9a>
+	Tue, 20 Jun 2023 20:27:09 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-3ff27d3d2f8so16067111cf.0
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Jun 2023 13:27:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1687292825; x=1689884825;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=joo/oUAWScXUdXgTaCSTcx5W8m20bjJhgiK7mdH4uqM=;
+        b=W+9Rv1sZOq6oZr2lDOufXCdjfH1TXAdwRfgbp7OcKuv28uOSUMf274oz1Vj/7FmKdM
+         wY/SBudpQcbMbx6VFhL26bqoh7uvomkSTIQnYT9+EzR6ntrnL/tyPhO1wTEWTrjq2Osn
+         gTjSunV/8BEM3RWMoWYkzZRdemJaHir+rKWsLH015fOl/7pMufBzismYaTTgCJ0twfc1
+         F3vB6FXTyxSWBYN9BA8Ufvd9pEO5ASz2GVxp6sHXRzUhj5JQEssMj0gnyzXhf+AyUeIJ
+         IgziBY4mf8nslmvDaPC03iM62I0RuBNahWLSjQjeywCZTGC2vlcPYrIBDk7vgxTtx7/W
+         pOdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1687292825; x=1689884825;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=joo/oUAWScXUdXgTaCSTcx5W8m20bjJhgiK7mdH4uqM=;
+        b=VoA9rlwz4mgTCNRpu4InvR2MWJWcCNfZiK1kzdJq9okHNgkjM3cLGHx81hBAh6Bc5J
+         d/dK3WjJXY6qjY4SAH9pyitwTtInsFfg4gnwxWeJ8kXt88Rx7r/QzI3RyQeAtAH4X2Cn
+         OGsWNPqzdUEVDElZ8iWWeGQGkHOlgNTU5Qcz22yfIaeSUfFYmaICJFQ+vlmONJZNFB18
+         LsqtLOkXywqxsZiQW0H5b0Uf1d+u+PGibXhP1ZoGQ9BK3pCka2huVMr5S+y5ph3EEMK9
+         24dqvYlHho9WkVwMEalM+DgRgXLIUjOm6bN+PD9Rc/1+YLlNdRI1CP43JfQg0U2xZ+rQ
+         uLeA==
+X-Gm-Message-State: AC+VfDzGIDBZM47sudTZkOiyDEla7iyWFOH/Y1um6BlgKv1l7Qwla2sw
+	J54UxCmZgrokBzZNBZpra7UTgELau1FPgFl7ag1J6Q==
+X-Google-Smtp-Source: ACHHUZ6WUkKcA+wkBZ5oNpUXeh8vRWU3VXOcG+U7JcCReMr8oADvkSp7vl51NZvqEd2fl7N4KzLjLdzciC5xrB2u9i4=
+X-Received: by 2002:a05:6214:1d24:b0:632:80f:4734 with SMTP id
+ f4-20020a0562141d2400b00632080f4734mr1684835qvd.40.1687292825121; Tue, 20 Jun
+ 2023 13:27:05 -0700 (PDT)
 MIME-Version: 1.0
+References: <ZJIIUn8Da15neIwI@google.com> <mhng-ae249af7-37cc-400c-be0d-c1fa6f75c8ef@palmer-ri-x1c9a>
 In-Reply-To: <mhng-ae249af7-37cc-400c-be0d-c1fa6f75c8ef@palmer-ri-x1c9a>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Tue, 20 Jun 2023 16:26:53 -0400
+Message-ID: <CAKwvOdnZ8+CrBGCDhzi8o8UrOjg-CyuRO=OLKpx9X4iGheV77Q@mail.gmail.com>
+Subject: Re: [PATCH v3] RISC-V: Enable dead code elimination
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: falcon@tinylab.org, Conor Dooley <conor@kernel.org>, guoren@kernel.org, 
+	linux-riscv@lists.infradead.org, npiggin@gmail.com, 
+	Paul Walmsley <paul.walmsley@sifive.com>, paulburton@kernel.org, vincent.chen@sifive.com, 
+	tim.bird@sony.com, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230620_132249_279750_9D40D878 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20230620_132707_804343_50A0E7C5 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,78 +85,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0066587332350649841=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0066587332350649841==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9LpfEV1HEiJhq2XX"
-Content-Disposition: inline
-
-
---9LpfEV1HEiJhq2XX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jun 20, 2023 at 01:17:26PM -0700, Palmer Dabbelt wrote:
-> On Tue, 20 Jun 2023 13:13:06 PDT (-0700), ndesaulniers@google.com wrote:
-> > On Wed, May 17, 2023 at 04:29:36PM +0800, Zhangjin Wu wrote:
-> > > Select CONFIG_HAVE_LD_DEAD_CODE_DATA_ELIMINATION for RISC-V, allowing
-> > > the user to enable dead code elimination. In order for this to work,
-> > > ensure that we keep the alternative table by annotating them with KEE=
-P.
-> > >=20
-> >=20
-> > Just cross referencing the report from Palmer against v2; I see orphan
-> > section warnings from the linker related to the EFI stub when building
-> > allmodconfig with this patch applied.
-> >=20
-> > v2: thread for reference.
-> > https://lore.kernel.org/linux-riscv/CAKwvOdmsgMN5oQpDLh12D0X-CfQDtHC-Et=
-xHcBnADkhnyitMKQ@mail.gmail.com/
->=20
-> Sorry for replying to the v2, I'm marking that as superseeded in patchwor=
-k.
-> IIUC it is a real issue on your end too?  I'm also not 100% sure about the
-> hang, I just let LLD cook for about 10 minutes before I noticed it was st=
-ill
-> running and posted.
-
-Repeating myself for the sake of the archives or w/e, two different
-submitters with differing version numbers. The v2 from Jisheng is more
-recent than the v3 here from Zhangjin, they agreed in this mail thread
-to merge their work.
-
-Cheers,
-Conor.
-
---9LpfEV1HEiJhq2XX
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJIKkwAKCRB4tDGHoIJi
-0kisAQDhsmEvyojjUjLcr2DhngYymr7Gg4n3GQRg9wqofZJ0cgD/R6g2DroNboBz
-SPcUBxBi7zt/xuIYqlNF7rvPD94k9g8=
-=cihs
------END PGP SIGNATURE-----
-
---9LpfEV1HEiJhq2XX--
-
-
---===============0066587332350649841==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0066587332350649841==--
-
+T24gVHVlLCBKdW4gMjAsIDIwMjMgYXQgNDoxN+KAr1BNIFBhbG1lciBEYWJiZWx0IDxwYWxtZXJA
+cml2b3NpbmMuY29tPiB3cm90ZToKPgo+IE9uIFR1ZSwgMjAgSnVuIDIwMjMgMTM6MTM6MDYgUERU
+ICgtMDcwMCksIG5kZXNhdWxuaWVyc0Bnb29nbGUuY29tIHdyb3RlOgo+ID4gT24gV2VkLCBNYXkg
+MTcsIDIwMjMgYXQgMDQ6Mjk6MzZQTSArMDgwMCwgWmhhbmdqaW4gV3Ugd3JvdGU6Cj4gPj4gU2Vs
+ZWN0IENPTkZJR19IQVZFX0xEX0RFQURfQ09ERV9EQVRBX0VMSU1JTkFUSU9OIGZvciBSSVNDLVYs
+IGFsbG93aW5nCj4gPj4gdGhlIHVzZXIgdG8gZW5hYmxlIGRlYWQgY29kZSBlbGltaW5hdGlvbi4g
+SW4gb3JkZXIgZm9yIHRoaXMgdG8gd29yaywKPiA+PiBlbnN1cmUgdGhhdCB3ZSBrZWVwIHRoZSBh
+bHRlcm5hdGl2ZSB0YWJsZSBieSBhbm5vdGF0aW5nIHRoZW0gd2l0aCBLRUVQLgo+ID4+Cj4gPgo+
+ID4gSnVzdCBjcm9zcyByZWZlcmVuY2luZyB0aGUgcmVwb3J0IGZyb20gUGFsbWVyIGFnYWluc3Qg
+djI7IEkgc2VlIG9ycGhhbgo+ID4gc2VjdGlvbiB3YXJuaW5ncyBmcm9tIHRoZSBsaW5rZXIgcmVs
+YXRlZCB0byB0aGUgRUZJIHN0dWIgd2hlbiBidWlsZGluZwo+ID4gYWxsbW9kY29uZmlnIHdpdGgg
+dGhpcyBwYXRjaCBhcHBsaWVkLgo+ID4KPiA+IHYyOiB0aHJlYWQgZm9yIHJlZmVyZW5jZS4KPiA+
+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2L0NBS3d2T2Rtc2dNTjVvUXBETGgx
+MkQwWC1DZlFEdEhDLUV0eEhjQm5BRGtobnlpdE1LUUBtYWlsLmdtYWlsLmNvbS8KPgo+IFNvcnJ5
+IGZvciByZXBseWluZyB0byB0aGUgdjIsIEknbSBtYXJraW5nIHRoYXQgYXMgc3VwZXJzZWVkZWQg
+aW4KPiBwYXRjaHdvcmsuICBJSVVDIGl0IGlzIGEgcmVhbCBpc3N1ZSBvbiB5b3VyIGVuZCB0b28/
+ICBJJ20gYWxzbyBub3QgMTAwJQo+IHN1cmUgYWJvdXQgdGhlIGhhbmcsIEkganVzdCBsZXQgTExE
+IGNvb2sgZm9yIGFib3V0IDEwIG1pbnV0ZXMgYmVmb3JlIEkKPiBub3RpY2VkIGl0IHdhcyBzdGls
+bCBydW5uaW5nIGFuZCBwb3N0ZWQuCgpZZXM7IGlmIHRoaXMgaXMgbWVyZ2VkLCBvdXIgQ0kgYnVp
+bGRzIG9mIEFSQ0g9cmlzY3YgYWxsbW9kY29uZmlnIHdpbGwgZ28gcmVkLgoKSSBhc3N1bWUgYSBs
+aW5rZXIgc2NyaXB0IHNvbWV3aGVyZSBuZWVkcyB0byBiZSB1cGRhdGVkLCBidXQgSSBoYXZlbid0
+CmZvdW5kIGlmL3doZXJlIHRoZSBlZmkgc3R1YidzIGlzLgoKZHJpdmVycy9maXJtd2FyZS9lZmkv
+bGlic3R1Yi96Ym9vdC5sZHMgcGVyaGFwcz8KCk9uIFR1ZSwgSnVuIDIwLCAyMDIzIGF0IDQ6MjLi
+gK9QTSBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gUmVwZWF0aW5n
+IG15c2VsZiBmb3IgdGhlIHNha2Ugb2YgdGhlIGFyY2hpdmVzIG9yIHcvZSwgdHdvIGRpZmZlcmVu
+dAo+IHN1Ym1pdHRlcnMgd2l0aCBkaWZmZXJpbmcgdmVyc2lvbiBudW1iZXJzLiBUaGUgdjIgZnJv
+bSBKaXNoZW5nIGlzIG1vcmUKPiByZWNlbnQgdGhhbiB0aGUgdjMgaGVyZSBmcm9tIFpoYW5namlu
+LCB0aGV5IGFncmVlZCBpbiB0aGlzIG1haWwgdGhyZWFkCj4gdG8gbWVyZ2UgdGhlaXIgd29yay4K
+Ci0tIApUaGFua3MsCn5OaWNrIERlc2F1bG5pZXJzCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
