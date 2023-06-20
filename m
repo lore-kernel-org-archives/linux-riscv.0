@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252D3EB64DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 01:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0EC6C0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 01:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CH2y9Ma3iGde1kxJYav/g0v+9jFOyXdERWVj32SMmUM=; b=F+b4seWXnuceQm
-	nkXUaJ6w6IiceJk0NMwNktseN2SbFYRTR0XT0IHdRutua81uSpF8OZPbx2k1u9EH1DDlXCKZsqa63
-	6KvPczSYcCRMXrDD8djFnG/FXFCtjO9Qzuh1oEueXI6JSlAB3uESXJXTh/+IbmZFCmGT/wcFqYhpk
-	I5dhfc0w4jnEvEljS7QGbkpPRR+AuJVW7ykEWEkCLfrfQyZR6P5IfwFPJEoP9pmrKPDW9yCxG9bSt
-	/D6uco46Ih7wFcB78RhU1P8WWZC+WwOAfKJHMnOtF/XHJ1hHmJiN3ocRbFRU1vxxH0QYvyKNHitDE
-	jrCIUhjBfvPDMNZ15zXA==;
+	List-Owner; bh=KkaSYtl9a+jw+lqC+3NXtNOg4gx7KdDdzM5o6RdGqu0=; b=hv7VPfTQwsmDAC
+	BxuwFWl0sZ/y1mRZoHkh07B/BIto9r2Ej9m6jcWslLMAcaXdjfTnBjZMO6cccHvezu0y61/toWf8w
+	hpSRure/816XsNoZhY3TmHpcInwypoNZbUXgdDnA/3m9/nwO6WjSn3wwFAcYUkImhYbQBbgyVl16X
+	8yj0W4lYm0R+9vhl28gegsjofw1BYpVDoT1uRhKXLF1Mwsbo4H5Y6QwlriCd1lC1ZntY+Drk0WEPo
+	g/ELdGwL0Ev6LRWZyp+jazRCD1OaJ6VB3tboAP59dl9yh3hxSGJZUvB93swL2mBtyeQb5HYN0hDRA
+	MTDy6G2StN5sALHONCwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBPjU-009pYg-1n;
-	Tue, 20 Jun 2023 01:00:32 +0000
+	id 1qBPjV-009pZK-0n;
+	Tue, 20 Jun 2023 01:00:33 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBPjO-009pUX-0H
-	for linux-riscv@lists.infradead.org;
+	id 1qBPjO-009pUU-0D;
 	Tue, 20 Jun 2023 01:00:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1992760EC9;
-	Tue, 20 Jun 2023 01:00:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 045F6C433CA;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8D09E60C4A;
 	Tue, 20 Jun 2023 01:00:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DE71FC433C0;
+	Tue, 20 Jun 2023 01:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687222824;
-	bh=wKn3JK30iCELZzAybdtpR5nHk34wWPJ1QywkzzhvQ0k=;
+	s=k20201202; t=1687222823;
+	bh=d1EVAIuUCkQo8k/ULkkFYkAV6A3t5sHL69vz5H1Z1a8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=F7Ydm/tK+13fLP9A9NcnuVJC950Qz765+hxiBCCuSw5NBR9HnXzPpKf3yEfKt2luk
-	 WjLNeteyf8hshL0a7b16KTCEYWQ0F7VA/LMGbFCfgtIZV+WQ/cfWhE4V/p9MoF70dT
-	 Ou27prk09vZr8p+pw46UArC39zsniH5bBw/9abVr05D3oodZQ/yaxDyNhGDEss45uN
-	 T2wbxNKh95UufklR8PagZNoPYcLFyppjMZLMw8vnYcVsyabkqLLYVa2U8ULu512N00
-	 eWM+Bw6MJp1MM1/MPLmsUWo6a9RemcSR5QErv0iKp65RtD7N4Uh58k4l9lu7iyKMBy
-	 A6qQViXvRbiqw==
+	b=dVywihqGfCS3dskFd6RjHIXYmAsUMhLaLN30lwloXCa9Up8R1yHKpBGaPZxyWzbL5
+	 3NzveDV4CJK7bcJhceRXCRjUagX6eD1HXk8PV5PFrBZkGdI2PCDpp2dHbuYAeA9gby
+	 ys+YG9PqEZS/pdNU4cIA+9mYTXM6hspfw/0uKcIwpRo8h94xSvQePdwI30u6xCzUjQ
+	 mXqZZJ0QyxGKA15M56Y0I4mM5TPLOd/L54N8hgeuMh+uZh9orUr9mcJX4rFfpg5iUh
+	 S4Y+zza0Bhh3oB0g5PnolNorNEN0DF/ojAuMfC+aORERzLG4BtiHelSr7BK7llrJy+
+	 h3r2QjqUUOvfg==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D6011C561EE;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id BE7EDE301F8;
 	Tue, 20 Jun 2023 01:00:23 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/3] RISC-V: Export Zba, Zbb to usermode via hwprobe
+Subject: Re: [PATCH v2 -next 0/2] RISC-V ACPI: Assorted fixes
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <168722282387.22807.6974446089239901729.git-patchwork-notify@kernel.org>
+Message-Id: <168722282377.22807.11943189274896706189.git-patchwork-notify@kernel.org>
 Date: Tue, 20 Jun 2023 01:00:23 +0000
-References: <20230509182504.2997252-1-evan@rivosinc.com>
-In-Reply-To: <20230509182504.2997252-1-evan@rivosinc.com>
-To: Evan Green <evan@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, palmer@rivosinc.com,
- apatel@ventanamicro.com, aou@eecs.berkeley.edu, corbet@lwn.net,
- abrestic@rivosinc.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, conor.dooley@microchip.com,
- coelacanthus@outlook.com, jszhang@kernel.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, heiko.stuebner@vrull.eu, ajones@ventanamicro.com
+References: <20230607112417.782085-1-sunilvl@ventanamicro.com>
+In-Reply-To: <20230607112417.782085-1-sunilvl@ventanamicro.com>
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
+ aou@eecs.berkeley.edu, anup@brainfault.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, atishp@atishpatra.org, will@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_180026_172780_3D155DFC 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20230619_180026_151068_78C96594 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,28 +83,21 @@ Hello:
 This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Tue,  9 May 2023 11:25:00 -0700 you wrote:
-> This change detects the presence of Zba, Zbb, and Zbs extensions and exports
-> them per-hart to userspace via the hwprobe mechanism. Glibc can then use
-> these in setting up hwcaps-based library search paths.
+On Wed,  7 Jun 2023 16:54:15 +0530 you wrote:
+> This series fixes couple of issues required to complete the previously
+> merged basic ACPI support series.
 > 
-> There's a little bit of extra housekeeping here: the first change adds
-> Zba and Zbs to the set of extensions the kernel recognizes, and the second
-> change starts tracking ISA features per-hart (in addition to the ANDed
-> mask of features across all harts which the kernel uses to make
-> decisions). Now that we track the ISA information per-hart, we could
-> even fix up /proc/cpuinfo to accurately report extension per-hart,
-> though I've left that out of this series for now.
+> 1) Kernel test bot has found a new warning using the sparse tool. Though
+> I believe this warning exists for other architectures also,
+> I don't see an issue fixing this for RISC-V.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/3] RISC-V: Add Zba, Zbs extension probing
-    https://git.kernel.org/riscv/c/c6699baf1064
-  - [v2,2/3] RISC-V: Track ISA extensions per hart
-    https://git.kernel.org/riscv/c/82e9c66e81c8
-  - [v2,3/3] RISC-V: hwprobe: Expose Zba, Zbb, and Zbs
-    https://git.kernel.org/riscv/c/c0baf321038d
+  - [v2,-next,1/2] RISC-V: ACPI : Fix for usage of pointers in different address space
+    https://git.kernel.org/riscv/c/3b426d4b5b14
+  - [v2,-next,2/2] RISC-V/perf: Use standard interface to get INTC domain
+    https://git.kernel.org/riscv/c/ca7473cb8312
 
 You are awesome, thank you!
 -- 
