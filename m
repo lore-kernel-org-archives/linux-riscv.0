@@ -4,119 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF229EB64D8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 17:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A23EB64D8
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 17:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AoPig7K82ExYYBOqknPDJmG4dny07W47bDbYq8yW3x0=; b=2TXOPQKeQQPy7p
-	vPJ/ErXguOJxJpEtj9lWJpSRODEPBmTzNbzNoJkx+Vpo/qafja3JmaZGVaXtE9kdEqDy4Xmta7E/7
-	U3/JFviokq3qSGVMisPBPmrUjDMKdWg6MZ5Fcipz5RTMfhN/6HN+qnHpEWri8U9TF+JyZKvEuQR6x
-	fwGZQVF66ptrWVSyNTYfKwMAOUxIAJP+1cw0K3wAN6t/0eRlAxmdKwDI0UsfplX9WNZh4kqcYTRto
-	XMyxrLM6F6UWcJMcub2TSS+pBqDgIhOAe9R26DlcSMmmZuI7LnS0u8KD5TJq/hTJVP0avqPTFuqj3
-	mgtFP8pQmk6BB03X8pAQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VF3cgQvSr+VlDcOm79P5XO5Aa9ZHzAT6Yyzr6ZoxG+Q=; b=cc8jHyy1sqriO0
+	azAmYudRGMSrisAL259pTl7WlmTmtIGAHqlIu/D7p0wKVIfTwfXV6ayatty5lnzZRDZPlQvyJbL+b
+	KXYS2TPMBXD0Teuylut0qlApPOM7r0DOl3hL9outizp/Jf2PaSK29DJ40RIVZn//h/MB+ENEW5d/d
+	RrDe8Rjol1SIl7ATVxiePAfFT7b6zb4jN43XTQu1fySnr0C3hsATUgsgz4vE4WaAWU2NeMQMFiBaG
+	+XbJa0kk7vdoQBYtYk1Zl5H5wI3jauluCEBk0HIE3ijV9IetWvqgo3/oNebK5ebBSZIcugTUC6hSv
+	PJYS/FUPzd2pqmooH5Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBf69-00BvW0-1D;
-	Tue, 20 Jun 2023 17:24:57 +0000
+	id 1qBfQ1-00By6X-0v;
+	Tue, 20 Jun 2023 17:45:29 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBf67-00BvUe-13
+	id 1qBfPy-00By5e-2L
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jun 2023 17:24:56 +0000
+	Tue, 20 Jun 2023 17:45:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 22F736131C;
-	Tue, 20 Jun 2023 17:24:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFB89C433C0;
-	Tue, 20 Jun 2023 17:24:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8518261346;
+	Tue, 20 Jun 2023 17:45:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EEA8C433C8;
+	Tue, 20 Jun 2023 17:45:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687281893;
-	bh=Rd2KQT7Sg/jj2vpD/+cypNQq21vO707uBhL4Wt60ONQ=;
-	h=In-Reply-To:References:Date:From:To:Cc:Subject:From;
-	b=S0nBKMBymT7QgN7x8a89rfrJmeCB9n8O7Yfrne22w/1XbfEHmFl1Rqalu8V/ctdwS
-	 YreKhbQDy/vrV6XZmrrg4bizue1smNoWLhFBgswQZanSO4Ro92yaaAarg99MPxLbzh
-	 yKpDLNdRGTmfjIOljRoFNpPZHwH7wQAxmm3pHmr/BMx7AD4TENI+Rdqs8cBj0HzkcA
-	 AtzbtBIHLvIwmOtc7p98zex7yFJwdycS0VkoDAf/l+jTz0QeCFN00hEKQ7OjiUPAvB
-	 1clLx9hEwjZPVs40/3CKaXd3OODSbCepYMVDnv8Im1RrAg3NVZTc3mdnFGl41caa5W
-	 PQziUw7BgRvUg==
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailauth.nyi.internal (Postfix) with ESMTP id C920427C005A;
-	Tue, 20 Jun 2023 13:24:51 -0400 (EDT)
-Received: from imap48 ([10.202.2.98])
-  by compute3.internal (MEProxy); Tue, 20 Jun 2023 13:24:51 -0400
-X-ME-Sender: <xms:4uCRZGPuv7m8KaXFojrVeCbfWrMZ7IJoui-4aoDexdm_V34ZG0-I6g>
-    <xme:4uCRZE-OH2xt14uLz-FF7dbdv-gHG5w14JwsdNtUTTBditVKBbvq_q8tXxJx8iDzO
-    WaowhDX_m63-nZ50aI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrgeefhedgleduucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtgfesthhqredtreerjeenucfhrhhomhepfdet
-    nhguhicunfhuthhomhhirhhskhhifdcuoehluhhtoheskhgvrhhnvghlrdhorhhgqeenuc
-    ggtffrrghtthgvrhhnpeduveffvdegvdefhfegjeejlefgtdffueekudfgkeduvdetvddu
-    ieeluefgjeeggfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
-    hrohhmpegrnhguhidomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqudduiedu
-    keehieefvddqvdeifeduieeitdekqdhluhhtoheppehkvghrnhgvlhdrohhrgheslhhinh
-    hugidrlhhuthhordhush
-X-ME-Proxy: <xmx:4uCRZNTpfg2cGu-JZbGK0lauKT6LTXTvSpjwrRQTqsoePCHX_VolEg>
-    <xmx:4uCRZGtzcXFiHy54TUV3vETkj3W0NygxpQUty3hSE43wjAfN8bvT-A>
-    <xmx:4uCRZOcK6KfTYx9uY7noUEoncUDShNm2IP8FjLgB4nFv3QpkDL6MpA>
-    <xmx:4-CRZOAOrENLDeV3AOynkkTJ3wDHPyrZf0jxchqFsnzGmPnTrQoXvQ>
-Feedback-ID: ieff94742:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 85C9831A0063; Tue, 20 Jun 2023 13:24:50 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
-Mime-Version: 1.0
-Message-Id: <6145cabf-d016-4dba-b5d2-0fb793352058@app.fastmail.com>
-In-Reply-To: <7F566E60-C371-449B-992B-0C435AD6016B@gmail.com>
-References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-3-rppt@kernel.org>
- <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
- <20230618080027.GA52412@kernel.org>
- <a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com>
- <7F566E60-C371-449B-992B-0C435AD6016B@gmail.com>
-Date: Tue, 20 Jun 2023 10:24:29 -0700
-From: "Andy Lutomirski" <luto@kernel.org>
-To: "Nadav Amit" <nadav.amit@gmail.com>, "Song Liu" <song@kernel.org>
-Cc: "Mike Rapoport" <rppt@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
- "Kees Cook" <keescook@chromium.org>,
- "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "David S. Miller" <davem@davemloft.net>,
- "Dinh Nguyen" <dinguyen@kernel.org>,
- "Heiko Carstens" <hca@linux.ibm.com>, "Helge Deller" <deller@gmx.de>,
- "Huacai Chen" <chenhuacai@kernel.org>,
- "Kent Overstreet" <kent.overstreet@linux.dev>,
- "Luis Chamberlain" <mcgrof@kernel.org>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Puranjay Mohan" <puranjay12@gmail.com>,
- "Rick P Edgecombe" <rick.p.edgecombe@intel.com>,
- "Russell King (Oracle)" <linux@armlinux.org.uk>,
- "Steven Rostedt" <rostedt@goodmis.org>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Will Deacon" <will@kernel.org>,
- bpf <bpf@vger.kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org, linux-mm <linux-mm@kvack.org>,
- linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390 <linux-s390@vger.kernel.org>,
- linux-trace-kernel@vger.kernel.org,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, loongarch@lists.linux.dev,
- netdev@vger.kernel.org, sparclinux@vger.kernel.org,
- "the arch/x86 maintainers" <x86@kernel.org>
-Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and jit_text_alloc()
+	s=k20201202; t=1687283124;
+	bh=s1tq1ZDjdzFB2GkT5pO6cNB1MDeTYdM68tmhr1OE9PQ=;
+	h=From:Date:Subject:To:Cc:From;
+	b=Bn01cZPlsTPkLSSJI+6+6aZbotW6eFX0AVgIoaXdsZrryG17lqJUyPR0gG8oTTQkf
+	 fA6itNU9zy8R3YQe93nVawa9N/M9WNXVGcIJ8yiIPH+v32o7zG4nIEOEC/JWFSdIPc
+	 5Bu9Lx2KdMrO2D5NlyEYt8HD2S7GRMCYdyJuSqyoY/YIystZEx8XmrvagJtfgR4YFr
+	 bseQxUJxEIurhAFbR274/EgyKVOVghAaM/peJfiVqV4CNE18DPwiOlt6PMJxGCPIcj
+	 GJmZMIh4YH3QoGhgoBEqauOaBZeCsG+ouHcDXytIgaZvND2+IBL5jZM6lkwunyvuMu
+	 b/kDaXZWiBXTw==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Tue, 20 Jun 2023 17:44:50 +0000
+Subject: [PATCH 6.3] riscv: Link with '-z norelro'
+MIME-Version: 1.0
+Message-Id: <20230620-6-3-fix-got-relro-error-lld-v1-1-f3e71ec912d1@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAJHlkWQC/x3NywqDMBCF4VeRWXdKkoH08iqli0RHDaRJmZEii
+ O9u7PLnwHc2UJbECs9uA+Ff0lRLC3vpoJ9DmRjT0BqccWS8M+iRcEwrTnVB4SwVWaQK5jwgPW4
+ jWevu3kRoQgzKGCWUfj6NT9CF5Ry+ws34377AXwne+34AtHwpposAAAA=
+To: gregkh@linuxfoundation.org, sashal@kernel.org
+Cc: palmer@dabbelt.com, conor@kernel.org, ndesaulniers@google.com, 
+ nathan@kernel.org, linux-riscv@lists.infradead.org, stable@vger.kernel.org, 
+ llvm@lists.linux.dev, kernel test robot <lkp@intel.com>
+X-Mailer: b4 0.13-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1838; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=s1tq1ZDjdzFB2GkT5pO6cNB1MDeTYdM68tmhr1OE9PQ=;
+ b=owGbwMvMwCEmm602sfCA1DTG02pJDCkTn27JOxd3cO3pT4z33m7YLTUn/NUSca0JUxvTwxvP/
+ jrjedn5W0cpC4MYB4OsmCJL9WPV44aGc84y3jg1CWYOKxPIEAYuTgGYiLY5I8O53D8ck/R22ZhP
+ TSzvFpoZ5GFtpiw3tUxzv+f2eU2xl9kZGX6+aM2+opszZa+ZUqbTpwonxznXmUqWi4RPf6Am7pF
+ 4mRMA
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230620_102455_463389_30D362D7 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20230620_104526_857071_DFAD87D4 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,66 +80,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiBNb24sIEp1biAxOSwgMjAyMywgYXQgMToxOCBQTSwgTmFkYXYgQW1pdCB3cm90ZToKPj4g
-T24gSnVuIDE5LCAyMDIzLCBhdCAxMDowOSBBTSwgQW5keSBMdXRvbWlyc2tpIDxsdXRvQGtlcm5l
-bC5vcmc+IHdyb3RlOgo+PiAKPj4gQnV0IGppdF90ZXh0X2FsbG9jKCkgY2FuJ3QgZG8gdGhpcywg
-YmVjYXVzZSB0aGUgb3JkZXIgb2Ygb3BlcmF0aW9ucyBkb2Vzbid0IG1hdGNoLiAgV2l0aCBqaXRf
-dGV4dF9hbGxvYygpLCB0aGUgZXhlY3V0YWJsZSBtYXBwaW5nIHNob3dzIHVwIGJlZm9yZSB0aGUg
-dGV4dCBpcyBwb3B1bGF0ZWQsIHNvIHRoZXJlIGlzIG5vIGF0b21pYyBjaGFuZ2UgZnJvbSBub3Qt
-dGhlcmUgdG8gcG9wdWxhdGVkLWFuZC1leGVjdXRhYmxlLiAgV2hpY2ggbWVhbnMgdGhhdCB0aGVy
-ZSBpcyBhbiBvcHBvcnR1bml0eSBmb3IgQ1BVcywgc3BlY3VsYXRpdmVseSBvciBvdGhlcndpc2Us
-IHRvIHN0YXJ0IGZpbGxpbmcgdmFyaW91cyBjYWNoZXMgd2l0aCBpbnRlcm1lZGlhdGUgc3RhdGVz
-IG9mIHRoZSB0ZXh0LCB3aGljaCBtZWFucyB0aGF0IHZhcmlvdXMgYXJjaGl0ZWN0dXJlcyAoZXZl
-biB4ODYhKSBtYXkgbmVlZCBzZXJpYWxpemF0aW9uLgo+PiAKPj4gRm9yIGVCUEYtIGFuZCBtb2R1
-bGUtIGxpa2UgdXNlIGNhc2VzLCB3aGVyZSBKSVR0aW5nL2NvZGUgZ2VuIGlzIHF1aXRlIGNvYXJz
-ZS1ncmFpbmVkLCBwZXJoYXBzIHNvbWV0aGluZyB2YWd1ZWx5IGxpa2U6Cj4+IAo+PiBqaXRfdGV4
-dF9hbGxvYygpIC0+IHJldHVybnMgYSBoYW5kbGUgYW5kIGFuIGV4ZWN1dGFibGUgdmlydHVhbCBh
-ZGRyZXNzLCBidXQgZG9lcyAqbm90KiBtYXAgaXQgdGhlcmUKPj4gaml0X3RleHRfd3JpdGUoKSAt
-PiB3cml0ZSB0byB0aGF0IGhhbmRsZQo+PiBqaXRfdGV4dF9tYXAoKSAtPiBtYXAgaXQgYW5kIHN5
-bmNocm9uaXplIGlmIG5lZWRlZCAobm8gc3luYyBuZWVkZWQgb24geDg2LCBJIHRoaW5rKQo+Cj4g
-QW5keSwgd291bGQgeW91IG1pbmQgZXhwbGFpbmluZyB3aHkgeW91IHRoaW5rIGEgc3luYyBpcyBu
-b3QgbmVlZGVkPyBJIAo+IG1lYW4gSSBoYXZlIGEg4oCcZmVlbGluZ+KAnSB0aGF0IHBlcmhhcHMg
-VFNPIGNhbiBndWFyYW50ZWUgc29tZXRoaW5nIGJhc2VkIAo+IG9uIHRoZSBvcmRlciBvZiB3cml0
-ZSBhbmQgcGFnZS10YWJsZSB1cGRhdGUuIElzIHRoYXQgdGhlIGFyZ3VtZW50PwoKU29ycnksIHdo
-ZW4gSSBzYXkgIm5vIHN5bmMiIEkgbWVhbiBubyBjcm9zcy1DUFUgc3luY2hyb25pemF0aW9uLiAg
-SSdtIGFzc3VtaW5nIHRoZSB1bmRlcmx5aW5nIHNlcXVlbmNlIG9mIGV2ZW50cyBpczoKCmFsbG9j
-YXRlIHBoeXNpY2FsIHBhZ2VzIChqaXRfdGV4dF9hbGxvYykKCndyaXRlIHRvIHRoZW0gKHdpdGgg
-TU9WLCBtZW1jcHksIHdoYXRldmVyKSwgdmlhIHRoZSBkaXJlY3QgbWFwIG9yIHZpYSBhIHRlbXBv
-cmFyeSBtbQoKZG8gYW4gYXBwcm9wcmlhdGUgKmxvY2FsKiBiYXJyaWVyICh3aGljaCwgb24geDg2
-LCBpcyBwcm9iYWJseSBpbXBsaWVkIGJ5IFRTTywgYXMgdGhlIHN1YnNlcXVlbnQgcGFnZXRhYmxl
-IGNoYW5nZSBpcyBhdCBsZWFzdCBhIHJlbGVhc2U7IGFsc28sIGFueSBhbnkgcHJldmlvdXMgdGVt
-cG9yYXJ5IG1tIHN0dWZmIHdvdWxkIGhhdmUgZG9uZSBNT1YgQ1IzIGFmdGVyd2FyZHMsIHdoaWNo
-IGlzIGEgZnVsbCAic2VyaWFsaXppbmciIGJhcnJpZXIpCgpvcHRpb25hbGx5IHphcCB0aGUgZGly
-ZWN0IG1hcCB2aWEgSVBJLCBhc3N1bWluZyB0aGUgcGFnZXMgYXJlIGRpcmVjdCBtYXBwZWQgKGJ1
-dCB0aGlzIGNvdWxkIGJlIGF2b2lkZWQgd2l0aCBhIHNtYXJ0IGVub3VnaCBhbGxvY2F0b3IgYW5k
-IHRlbXBvcmFyeV9tbSBhYm92ZSkKCmluc3RhbGwgdGhlIGZpbmFsIFJYIFBURSAoaml0X3RleHRf
-bWFwKSwgd2hpY2ggZG9lcyBhIE1PViBvciBtYXliZSBhIExPQ0sgQ01QWENIRzE2Qi4gIE5vdGUg
-dGhhdCB0aGUgdmlydHVhbCBhZGRyZXNzIGluIHF1ZXN0aW9uIHdhcyBub3QgcmVhZGFibGUgb3Ig
-ZXhlY3V0YWJsZSBiZWZvcmUgdGhpcywgYW5kIGFsbCBDUFVzIGhhdmUgc2VyaWFsaXplZCBzaW5j
-ZSB0aGUgbGFzdCB0aW1lIGl0IHdhcyBleGVjdXRhYmxlLgoKZWl0aGVyIGp1bXAgdG8gdGhlIG5l
-dyB0ZXh0IGxvY2FsbHksIG9yOgoKMS4gRG8gYSBzdG9yZS1yZWxlYXNlIHRvIHRlbGwgb3RoZXIg
-Q1BVcyB0aGF0IHRoZSB0ZXh0IGlzIG1hcHBlZAoyLiBPdGhlciBDUFUgZG9lcyBhIGxvYWQtYWNx
-dWlyZSB0byBkZXRlY3QgdGhhdCB0aGUgdGV4dCBpcyBtYXBwZWQgYW5kIGp1bXBzIHRvIHRoZSB0
-ZXh0CgpUaGlzIGlzIGFsbCBhcHByb3hpbWF0ZWx5IHRoZSBzYW1lIHRoaW5nIHRoYXQgcGxhaW4g
-b2xkIG1tYXAoLi4uLCBQUk9UX0VYRUMsIC4uLikgZG9lcy4KCj4KPiBPbiB0aGlzIHJlZ2FyZCwg
-b25lIHRoaW5nIHRoYXQgSSBjbGVhcmx5IGRvIG5vdCB1bmRlcnN0YW5kIGlzIHdoeSAKPiAqdG9k
-YXkqIGl0IGlzIG9rIGZvciB1c2VycyBvZiBicGZfYXJjaF90ZXh0X2NvcHkoKSBub3QgdG8gY2Fs
-bCAKPiB0ZXh0X3Bva2Vfc3luYygpLiBBbSBJIG1pc3Npbmcgc29tZXRoaW5nPwoKSSBjYW5ub3Qg
-ZXhwbGFpbiB0aGlzLCBiZWNhdXNlIEkgc3VzcGVjdCB0aGUgY3VycmVudCBjb2RlIGlzIHdyb25n
-LiAgQnV0IGl0J3Mgb25seSB3cm9uZyBhY3Jvc3MgQ1BVcywgYmVjYXVzZSBicGZfYXJjaF90ZXh0
-X2NvcHkgZ29lcyB0aHJvdWdoIHRleHRfcG9rZV9jb3B5LCB3aGljaCBjYWxscyB1bnVzZV90ZW1w
-b3JhcnlfbW0oKSwgd2hpY2ggaXMgc2VyaWFsaXppbmcuICBBbmQgaXQncyBwbGF1c2libGUgdGhh
-dCBtb3N0IGVCUEYgdXNlIGNhc2VzIGRvbid0IGFjdHVhbGx5IGNhdXNlIHRoZSBsb2FkZWQgcHJv
-Z3JhbSB0byBnZXQgdXNlZCBvbiBhIGRpZmZlcmVudCBDUFUgd2l0aG91dCBmaXJzdCBzZXJpYWxp
-emluZyBvbiB0aGUgQ1BVIHRoYXQgZW5kcyB1cCB1c2luZyBpdC4gIChDb250ZXh0IHN3aXRjaGVz
-IGFuZCBpbnRlcnJ1cHRzIGFyZSBzZXJpYWxpemluZy4pCgpGUkVEIGNvdWxkIG1ha2UgaW50ZXJy
-dXB0cyBub24tc2VyaWFsaXppbmcuIEkgc2luY2VyZWx5IGhvcGUgdGhhdCBGUkVEIGRvZXNuJ3Qg
-Y2F1c2UgdGhpcyBhbGwgdG8gZmFsbCBhcGFydC4KCi0tQW5keQoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This patch fixes a stable only patch, so it has no direct upstream
+equivalent.
+
+After a stable only patch to explicitly handle the '.got' section to
+handle an orphan section warning from the linker, certain configurations
+error when linking with ld.lld, which enables relro by default:
+
+  ld.lld: error: section: .got is not contiguous with other relro sections
+
+This has come up with other architectures before, such as arm and arm64
+in commit 0cda9bc15dfc ("ARM: 9038/1: Link with '-z norelro'") and
+commit 3b92fa7485eb ("arm64: link with -z norelro regardless of
+CONFIG_RELOCATABLE"). Additionally, '-z norelro' is used unconditionally
+for RISC-V upstream after commit 26e7aacb83df ("riscv: Allow to
+downgrade paging mode from the command line"), which alluded to this
+issue for the same reason. Bring 6.3 in line with mainline and link with
+'-z norelro', which resolves the above link failure.
+
+Fixes: e6d1562dd4e9 ("riscv: vmlinux.lds.S: Explicitly handle '.got' section")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202306192231.DJmWr6BX-lkp@intel.com/
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ arch/riscv/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index b05e833a022d..d46b6722710f 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -7,7 +7,7 @@
+ #
+ 
+ OBJCOPYFLAGS    := -O binary
+-LDFLAGS_vmlinux :=
++LDFLAGS_vmlinux := -z norelro
+ ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
+ 	LDFLAGS_vmlinux := --no-relax
+ 	KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
+
+---
+base-commit: f2427f9a3730e9a1a11b69f6b767f7f2fad87523
+change-id: 20230620-6-3-fix-got-relro-error-lld-397f3112860b
+
+Best regards,
+-- 
+Nathan Chancellor <nathan@kernel.org>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
