@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A0EEB64DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 01:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78931EB64DA
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 01:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bcFpsMBo3C/IaT/UpWJwmOkWpqPFcyl5oY+0cxjCS/A=; b=Hbcr018umlReWB
-	j3yp9Ro31iyg3PHhqevvgKu781C4AhoUlY61DG8PTsApynTo8FDAjQGdfj5Ax9j+QaxxRLlV37vdy
-	QkYN+EtvFyiOhdJf5xty6ls4V4KcJh19XLDPwtyN3ekdyDM6eDNcGSX6lbehk9AvRLWQufWNK7Tn1
-	DYX6g2Y6KXb4mBddQlTRj4Hjns7moP2pWuen62/fSL6UQ5BghturZvmAQAFZAvI50619zCTTANrm9
-	DS6Yu5EDXULt/tyXF7/9sY3yzaamWKIBenXDF9e38JqlfXbvw/pfjrpCicoESrj9HhxjdQ79JWWLk
-	PKQMGQS/UVB36mMO2vhw==;
+	List-Owner; bh=UzFAvUAois8XsrqKrgI68ugugPeqK3hf42D+2vrbyMY=; b=pDqCWgU+ec3s73
+	kSMXNHSZzW8SfjlQCmTkVtyeD7UA/3mr6+5ta/U7kigypdDumKsgwzFObjhf4M0f5wtqNcsHkVrp9
+	lrADLWwOFZftXzO2blJxfQAyBmsNnvqFHD/x4qIOqgiQN0NcfbrH05OP6sfXajMJVigokxira0jnU
+	zAZFzwbxMVErcZEt2Cc1u1nisBbgWsgQnn1IMFLrX2XDJQS3VvvS5eHO1ND6ubNsnbxOnPDw8JcK3
+	BEmKcjuc2plX3ZEclKp8k0EXXpdyIA4TDNwYnt/zRI5/jE/Y7ntxSuEIaX2X0RqV3OWdBET3D+Heq
+	BvvQn/J6hBiani0HenkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBPjQ-009pW6-29;
-	Tue, 20 Jun 2023 01:00:28 +0000
+	id 1qBPjT-009pY1-1X;
+	Tue, 20 Jun 2023 01:00:31 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBPjO-009pUV-0D
+	id 1qBPjO-009pUT-05
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jun 2023 01:00:27 +0000
+	Tue, 20 Jun 2023 01:00:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id AB7BF60F6E;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 98D0160F4F;
 	Tue, 20 Jun 2023 01:00:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0B8ADC433CC;
-	Tue, 20 Jun 2023 01:00:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EEAC6C433C9;
+	Tue, 20 Jun 2023 01:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1687222824;
-	bh=HxZDtofb5pX33p3Ctz7U3WBbaZaZS2yuTqlJTW0+Bpo=;
+	bh=m/bds2qI0I7nlVEDozWBkVc/6egEMeDsV/8HStsN4z4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=hJpVUuC5CPGB5vi2HPFO6t8I9iNSVJEe4OUcmf3rVBwAFB25GizEWiybgyUWZUlDe
-	 ZxtRjgniUX+460DgckOH2UW4zCeBwQ8z8UDgawnhiM6qKGuymhAg5lb1O6IrCQHSro
-	 yGkliC1cUa0w0TWSjDtZX6NXN5aAQ8niG3A7WP4v2S+xhmB9SKoonP86AJWKlFvuUT
-	 ovScnLkgf8M42OJdDw78pJs3Oa6iJuYhJtkkDigTQ4aemzUc2bU4acjrw7wP44CT/V
-	 cuWMjEtjRT+QMUpn/kvs14iSqbTfl9UNvW371iPsKQhuW2TZkTNyxGxRQPex5jiQZb
-	 rZlkz7Ntjd5PQ==
+	b=rdW3s00rS+h79iJWRc2WnutP++TKWYBPoSbAqw+xSYnu5frnlgP7HrbKr++TSPbmr
+	 /ncvhGoxZJWV/yQhoUBui8QXQgJIeMonsBEiQZZ2d/XUkTjJK3KYGrxqHzEaVk4kmH
+	 PYj+vcofq9ZNWMBP58eyhL6cW7Wzs/bbnimAcoYtQpbHQFQSA8I6T/xTr2eWa8q2hI
+	 MgDBnVhFP1E/Cxh+1j1GqUUy8d6SQXDxbQ8gHNRYjayjefZsuYYeMbUjBUMVoffWfM
+	 fGsDobSxfJazK5Zd/STF0xdANPykqHGc5l/PiGZd9A17uUwXeYuOlU555VgDaJdTnH
+	 2D/HILve1t+Qw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id E0BC5E301FA;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id CBFE3C43168;
 	Tue, 20 Jun 2023 01:00:23 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: hibernation: Remove duplicate call of
- suspend_restore_csrs
+Subject: Re: [PATCH] riscv: hibernation: Replace jalr with jr before
+ suspend_restore_regs
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <168722282391.22807.12383716949139026057.git-patchwork-notify@kernel.org>
+Message-Id: <168722282382.22807.3982031186213234976.git-patchwork-notify@kernel.org>
 Date: Tue, 20 Jun 2023 01:00:23 +0000
-References: <20230519102908.253458-1-suagrfillet@gmail.com>
-In-Reply-To: <20230519102908.253458-1-suagrfillet@gmail.com>
+References: <20230519060854.214138-1-suagrfillet@gmail.com>
+In-Reply-To: <20230519060854.214138-1-suagrfillet@gmail.com>
 To: Song Shuai <suagrfillet@gmail.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, mason.huo@starfivetech.com,
- leyfoon.tan@starfivetech.com, ajones@ventanamicro.com,
- jeeheng.sia@starfivetech.com, linux-kernel@vger.kernel.org,
- songshuaishuai@tinylab.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, jeeheng.sia@starfivetech.com,
+ mason.huo@starfivetech.com, conor.dooley@microchip.com,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_180026_152562_A45D313F 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230619_180026_148322_338078E0 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,21 +85,18 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Fri, 19 May 2023 18:29:08 +0800 you wrote:
-> The suspend_restore_csrs is called in both __hibernate_cpu_resume
-> and the `else` of subsequent swsusp_arch_suspend.
-> 
-> Removing the first call makes both suspend_{save,restore}_csrs
-> left in swsusp_arch_suspend for clean code.
+On Fri, 19 May 2023 14:08:54 +0800 you wrote:
+> No need to link the x1/ra reg via jalr before suspend_restore_regs
+> So it's better to replace jalr with jr.
 > 
 > Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
-> 
-> [...]
+> ---
+>  arch/riscv/kernel/hibernate-asm.S | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 
 Here is the summary with links:
-  - riscv: hibernation: Remove duplicate call of suspend_restore_csrs
-    https://git.kernel.org/riscv/c/c6399b893043
+  - riscv: hibernation: Replace jalr with jr before suspend_restore_regs
+    https://git.kernel.org/riscv/c/650ea2a1dd96
 
 You are awesome, thank you!
 -- 
