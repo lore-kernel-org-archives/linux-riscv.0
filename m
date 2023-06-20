@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C62BEB64DB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD01EEB64DC
 	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 01:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eVPB5Eyv2LSBJ1omH0HiLnwscExeElpX8bjwzNbA7O0=; b=UwHT6vW9Pv9pB0
-	kH1qerWfz6Cw4Mj9JQu2/aEVSOBji9Z6kZAODKMTT9iGeiZ02u6bwPmzMNAWMq1E0bpmR+o/8iQbr
-	40Dr4oigci1VLTMEmOldTtEA7tTQNV/aSsWH0jkMkAa7VKdX9vfSRd8RTgM0bJ8YVKjfJYWZ4MhZ/
-	VxFvobMLuiFHcc0ZUTvfC6+ZzPeUevPGSknXNqLWShwy6YVQID5pXACSFUAKvaXMRp9frmFijNgxS
-	/h5H1OqOyLD+CXnDYtWsREzYD8EuYlHqQyaBg4uSRPBB+KhZM1Kpp2bxhUL50KSauHc32Gcm7mQVq
-	t8ADEIXF0+pEeqZvws9w==;
+	List-Owner; bh=axa8fEwSo+2fvydnbFKghoXfGAH1+Kai8fZYfjrjY64=; b=rfU40Qs9mVXl9X
+	SClVAXOuy1Yw92+NahRYAYataF0PSoYnGWGgaFRPnZZjlL4Xv8OGTwhg2CoiXCG9N5HptEIP9h+xI
+	FD78hS/jqoGE9pXWOWZ7/9jUzOSvx0IXURNSn/DewQEJa/h2/gUs7lOJbsAdOTb3FRTj+vmIN4PaH
+	itf+DaLE37m3/T/R/PLZnyxVHH2TWO4pBd/aXaRdriTGEYauNNyjBXXT52CF2L7E0VW3SZmd0ypSD
+	K3yVUjKzz2J9KXTQ3FCcfAfK4rB3+78Nf0Lp0p/h6zW6C6hoiWnBDgEFSfwWtAKBB8F+/OugI6lg5
+	jNFTSx8rXFNNslHgvfxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBPjV-009pZk-2f;
-	Tue, 20 Jun 2023 01:00:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qBPjW-009pad-1z;
+	Tue, 20 Jun 2023 01:00:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBPjP-009pVf-2U
+	id 1qBPjT-009pUY-0p
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 Jun 2023 01:00:29 +0000
+	Tue, 20 Jun 2023 01:00:32 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3219260F7A;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2367660F70;
 	Tue, 20 Jun 2023 01:00:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 24D5FC433CB;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 193F8C433CD;
 	Tue, 20 Jun 2023 01:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1687222824;
-	bh=i+bkBGyvWdYTzpAuClogxpBwgpL1xJGlOgV4zpfwFvk=;
+	bh=mGh3gLTaDGrGvROv15Q2QfAPdhKQZa/YqomrnytzirA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=i5TrPzeDUtdGThVJUdeeuXnGMhhXwNhK/o2qo6Y/66rnbiQYM0elJY5AAPIptSjWW
-	 fW9xRDTR8TMh2QxLP3nk79+Ms81jithGN2MljY7/J+itMQe17PdJxCcr9ByBcnV4B9
-	 /m0bAqZEbt03RxTht4uehz6x5R3ElON8qmiHD3xb5Gz4vHabq0htYhiKYJNgqrV4uk
-	 25gDhHX1K6y1+c4f2MW/AVDuqZ285pXphFYyyh2gA+g+7E/JlDlOTerDfV+t0VrLyH
-	 nX80a+FvzSI8LqllpkqORmxNbDmC7cA/MVfxmZm05qsJ7t9rG8V82OwO+B8m/x6RuZ
-	 Qbbg2tZR/fvVg==
+	b=GTqaVbN+vWc84aq5GCPqfy/3EydClkGdysSoEmktHg7l/RGSGh6L0JzrUfa4O1zG2
+	 MoE/t8FezR91D3eXtYjgxxys36CM4HWAxL1Q2xj97rdJkW5+s8mEPUMybwjCA64gzq
+	 yV1qY+fJQOCmc8T4H4SuEEKNwM7OQe3x5+WEZBlOGahlYqLf7Avux3sPUpUBuZTOMQ
+	 cph985S8072ydSIOaOS4f2cwK1yEyBy+57M58SbXSOEvwZEKQK9nMXPH0ecXz0gC3B
+	 vtYSJdDeSQdXqr16Q82KceI41/p7kKiQqkM1ahOunannVRgqrpK5vwqQRvCGbNBxm+
+	 cUwmgKCk4A9yw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 0DAC7E301F8;
-	Tue, 20 Jun 2023 01:00:24 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id EC158C4316A;
+	Tue, 20 Jun 2023 01:00:23 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv: mm: stub extable related functions/macros for !MMU
+Subject: Re: [PATCH V2] riscv: hibernation: Remove duplicate call of
+ suspend_restore_csrs
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <168722282405.22807.12021813710687983255.git-patchwork-notify@kernel.org>
-Date: Tue, 20 Jun 2023 01:00:24 +0000
-References: <20230509152641.805-1-jszhang@kernel.org>
-In-Reply-To: <20230509152641.805-1-jszhang@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
+Message-Id: <168722282396.22807.1023067349151086213.git-patchwork-notify@kernel.org>
+Date: Tue, 20 Jun 2023 01:00:23 +0000
+References: <20230522025020.285042-1-songshuaishuai@tinylab.org>
+In-Reply-To: <20230522025020.285042-1-songshuaishuai@tinylab.org>
+To: Song Shuai <songshuaishuai@tinylab.org>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, suagrfillet@gmail.com,
+ mason.huo@starfivetech.com, leyfoon.tan@starfivetech.com,
+ ajones@ventanamicro.com, jeeheng.sia@starfivetech.com,
+ linux-kernel@vger.kernel.org, conor.dooley@microchip.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230619_180027_847225_F3FEBFC8 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230619_180031_345704_CA142251 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,19 +86,23 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Tue,  9 May 2023 23:26:41 +0800 you wrote:
-> extable relies on the MMU to work properly, so it's useless to
-> include __ex_table sections and build extable related functions for
-> !MMU case.
+On Mon, 22 May 2023 10:50:20 +0800 you wrote:
+> The suspend_restore_csrs is called in both __hibernate_cpu_resume
+> and the `else` of subsequent swsusp_arch_suspend.
 > 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
+> Removing the first call makes both suspend_{save,restore}_csrs
+> left in swsusp_arch_suspend for clean code.
+> 
+> Fixes: c0317210012e ("RISC-V: Add arch functions to support hibernation/suspend-to-disk")
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: JeeHeng Sia <jeeheng.sia@starfivetech.com>
+> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] riscv: mm: stub extable related functions/macros for !MMU
-    https://git.kernel.org/riscv/c/de658bcf0333
+  - [V2] riscv: hibernation: Remove duplicate call of suspend_restore_csrs
+    https://git.kernel.org/riscv/c/c6399b893043
 
 You are awesome, thank you!
 -- 
