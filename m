@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A79EB64D8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C634EEB64DC
 	for <linux-riscv@archiver.kernel.org>; Tue, 20 Jun 2023 19:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,71 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
 	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5v4OuxpsdoyXV99khOz23TLMCsmDSa+sx66AU2f0eRg=; b=tyn2zsIU6A7Wt+
-	BzZpDoFP/WJIT8ygeKdp/GeJn0LJOicPML5IxxRVgcKQUEpJsmXCa/KckJPajK5U9JBMa2rjO0/6u
-	j4mptbNEB1yYkK5i0BptCNdWGiyCdnKkSU2CBK/zRzIgavCmnYatyOOjNugVLqtAhEnyOCp61lNyZ
-	DwpAXDOdReCtwcGBJxwmHR5lKxvp85kOMXwOjdeJmX/2j7PVFPWwL0uroUYWWFhSpB3HNNaeoyH2S
-	86E1wgmbisyRZtUvodR1wfFW57+23Kh06bs50GsDsHBhTD6e21eqXArKDLnO/XoW55eL4/Eyi7bw9
-	I9SBBDqhtEpm3oTvVcPA==;
+	List-Owner; bh=QY5VtL3xv2AYBjmYWowWh41x0sTz8abO+dq0ezs0OpE=; b=Zb8HRG+Z2bC4vq
+	fqAGAj+5qcngT9VnV62AFhMfklw9jf33QfPzr11SM+kuiVIUKSQaMhl2Ir8psYdMNvrisXAq7G71V
+	xtNqUGWGQykX6sJ2PyMomueffdty1edMijCZHyNrxAClEsh7wh94NhAv3ba4nbB7zGmFWc3tA0aPM
+	UmI/vZ/o6mXFUdtR2swmKtTF55dRyrHmCeYXSTkcGOt8qs5lEONI6+CLzKF5Sa+DjLmty/SHNXswM
+	dwr/Pq3DVeCBKGB/vWiHe1YHXo5UQeOwYzaW0MA2+yyKafV9V2Qjx+2ysyfGsphuk6u+r7kEq0+Cu
+	EvWGcGISUaW6Qk3Mu6Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBh45-00CBGX-0q;
-	Tue, 20 Jun 2023 19:30:57 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1qBh44-00CBGS-2P;
+	Tue, 20 Jun 2023 19:30:56 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBh42-00CBEx-0j
+	id 1qBh41-00CBEh-2J
 	for linux-riscv@lists.infradead.org;
 	Tue, 20 Jun 2023 19:30:55 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1b51780c1b3so39659675ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Jun 2023 12:30:53 -0700 (PDT)
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1b51414b080so29496095ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Jun 2023 12:30:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687289453; x=1689881453;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687289451; x=1689881451;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=pSlhmSL2kU9Xbi63wct+B70WsJdLHYOGLNkscGggduE=;
-        b=flNLHVIr+QyF5Nx1TtqrBWSHkg9WFJWdlhg0ySaMqu1C8VEP09aNmL/u3czZfQJjPF
-         YQfAhACPaswaYkR2llW4D0KiaDZPZfD1d6zybjKZPkybBIEvBku3+M6FfxJeqw2P6GaD
-         FM9pdZdmkSfSyBJ0bclyVG4yh4R+4ev6VORg8zjrGTrr9+KPZOcFhigYnb0t+xwUWlZT
-         LIgYvj/J7Af9yHevImDGlg/WBUPTaJ/G83zve8hzr4XzOPzugGvIlg1qpMDkv7ZSGHK7
-         IrpzjGBqD68/DUOgWPzLK+Ek5N8EdBvIQry6W8QZJStsObyuTq9k+QRC0v5zMGXewp1s
-         AlQw==
+        bh=5Jak4VAiKyxNW2MF2c52goYxqj84zATitJ45PnIg+zA=;
+        b=jj/nx4Q6wNcCgENH9upzbuBBoImgkFJF8LxIGxpgWSB9SKXU30q8kWo4GaX1UuvSB7
+         cdjPBn1/jMj2LABx1PB07h45Myd+qD0uZNHctKmuR7hdIGlPAXaZf18758E9K8cweq0F
+         /3uGiQhsp4cG7LQ3UQdWKcjMSHK/s3CFpJoltpwy2aIusr/E8xAKJ/MVI/OPvv1CcaAi
+         DBPLtM1clszs6abhLfytm+rQXgx31+E/6QSuORzUZA+P9p+lUOEsEnjP23tZpBUzAhwb
+         RXTlrEmySXpJagjNknKVF0WIz+sxt/WFkHeEWDzv68GAwO4obOG1SWoHpfEdEjT5roOr
+         3MCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687289453; x=1689881453;
+        d=1e100.net; s=20221208; t=1687289451; x=1689881451;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pSlhmSL2kU9Xbi63wct+B70WsJdLHYOGLNkscGggduE=;
-        b=DXJF5+Cbn8VKu9vndHkjl52J/4dQvQ38leBMv3U2C3eOUhiSw8+p1Fpx+rs1XiGTKx
-         /CyTI/H+zHXODKwm34I0psj+QuXLiGs5TVvc/ugwcwGHeKtozCl+/us1yasPTOLptfKx
-         MKpYW1TlcUB/XndgrXxuRtedrL2DCO7YwohiDjC1JOvSO96eru5wYK50JY4fsFQBZduY
-         w7/TFohepRWx7IW9dZfNzMVMsgVkD0VrG/62IJFnr60eK6FxQUOz9sE0MwQie3YzUF+5
-         klUdpFHyUM3q9dS0Z7ilzIof59KUhvJefnPxbFZTmGM2kJ5B6tSorBS2VnfpiOAH2eiT
-         hUwA==
-X-Gm-Message-State: AC+VfDzd7J1sFazeOL5icGlUqKDbTQTcqdwWtDsSGo94QJi1sxVvFnrZ
-	EalH+wiIDZB6K6Y93sXjqAOc+A==
-X-Google-Smtp-Source: ACHHUZ6xHwg6uQ16euXDtpmFrxepvcbcTpjPEhdF6d8QU10aa+wOO+jkalRWbMhkjV6A1/gDwKjOtQ==
-X-Received: by 2002:a17:903:2284:b0:1b6:66f1:35b3 with SMTP id b4-20020a170903228400b001b666f135b3mr6878161plh.50.1687289452723;
-        Tue, 20 Jun 2023 12:30:52 -0700 (PDT)
+        bh=5Jak4VAiKyxNW2MF2c52goYxqj84zATitJ45PnIg+zA=;
+        b=DYvgRYzAab2F4lFevXUsGgPnUOCvXVltaaa58QcjnNcUeVjYeSJDNYsw9l23ntMUjW
+         HAZay+bRaKCCcRIjTc8BH6qByAv49vgyAIm1BS6MQRJreTcdcuwhNgt5GXz1AOMQ8P7M
+         wIAOkI0jf7vgXljOaF5/bbrX6kh4WRYyhTZ2vCw2eYctnUdLXq8P+yDG5YEaLTXA9p/o
+         dsgT3Zm6Pa9lWFvxB8r5W9xLx7GJrOnqOGlmMXPcbQJO7ALGRZZLaxev2pfDst1U/j/e
+         piJd/9uMjEjGaHKqW20pu7cBeBAMG3EwXWAGq4xg7P/cZEXnQsHVgl1+ESm0eDwW9bCy
+         hw5A==
+X-Gm-Message-State: AC+VfDyN9ARQ4dINlRPIQUB06zPIqD3SXTQI0i7496GMs9O3TidNCvmO
+	V1ROqLGk0/e8yyqsDtMrbExiAhOpl0hnoK7CqO8=
+X-Google-Smtp-Source: ACHHUZ5X8f2vx2Z0B3hkaw5OWyJtmMa5qKAxvgJNC9XDE9TuY7k834Xx2Ye3EvrakXc/fvbarw16zg==
+X-Received: by 2002:a17:902:cec9:b0:1af:f751:1be4 with SMTP id d9-20020a170902cec900b001aff7511be4mr12796873plg.63.1687289451482;
+        Tue, 20 Jun 2023 12:30:51 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id im16-20020a170902bb1000b001ae59169f05sm1989478plb.182.2023.06.20.12.30.52
+        by smtp.gmail.com with ESMTPSA id d14-20020a170902b70e00b001b0034557afsm2000604pls.15.2023.06.20.12.30.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jun 2023 12:30:52 -0700 (PDT)
-In-Reply-To: <1682214146-3756-1-git-send-email-yangtiezhu@loongson.cn>
-References: <1682214146-3756-1-git-send-email-yangtiezhu@loongson.cn>
-Subject: Re: [PATCH] riscv: uprobes: Restore thread.bad_cause
-Message-Id: <168728927546.19726.7304186466225291370.b4-ty@rivosinc.com>
+        Tue, 20 Jun 2023 12:30:49 -0700 (PDT)
+In-Reply-To: <20230523165942.2630-1-jszhang@kernel.org>
+References: <20230523165942.2630-1-jszhang@kernel.org>
+Subject: Re: [PATCH] riscv: mm: try VMA lock-based page fault handling
+ first
+Message-Id: <168728927543.19726.6287680101393948485.b4-ty@rivosinc.com>
 Date: Tue, 20 Jun 2023 12:27:55 -0700
 MIME-Version: 1.0
 X-Mailer: b4 0.13-dev-901c5
-Cc: Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, loongson-kernel@lists.loongnix.cn
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  Suren Baghdasaryan <surenb@google.com>
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-  Albert Ou <aou@eecs.berkeley.edu>, Tiezhu Yang <yangtiezhu@loongson.cn>
+  Albert Ou <aou@eecs.berkeley.edu>, Jisheng Zhang <jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230620_123054_264909_737F9247 
-X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-CacheID: sfid-20230620_123053_967714_D5858357 
+X-CRM114-Status: UNSURE (   8.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,17 +96,21 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 23 Apr 2023 09:42:26 +0800, Tiezhu Yang wrote:
-> thread.bad_cause is saved in arch_uprobe_pre_xol(), it should be restored
-> in arch_uprobe_{post,abort}_xol() accordingly, otherwise the save operation
-> is meaningless, this change is similar with x86 and powerpc.
+On Wed, 24 May 2023 00:59:42 +0800, Jisheng Zhang wrote:
+> Attempt VMA lock-based page fault handling first, and fall back to the
+> existing mmap_lock-based handling if that fails.
 > 
+> A simple running the ebizzy benchmark on Lichee Pi 4A shows that
+> PER_VMA_LOCK can improve the ebizzy benchmark by about 32.68%. In
+> theory, the more CPUs, the bigger improvement, but I don't have any
+> HW platform which has more than 4 CPUs.
 > 
+> [...]
 
 Applied, thanks!
 
-[1/1] riscv: uprobes: Restore thread.bad_cause
-      https://git.kernel.org/palmer/c/58b1294dd1d6
+[1/1] riscv: mm: try VMA lock-based page fault handling first
+      https://git.kernel.org/palmer/c/648321fa0d97
 
 Best regards,
 -- 
