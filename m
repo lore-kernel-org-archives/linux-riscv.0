@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47DE3EB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 15:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D46EEB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 15:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+tFtwZkYw20pq2Uc/miv/gMm2m+CqMoRJUYn2XbIoA=; b=BYCGhdEuYSDJOSxTqaoner+TUj
-	doTh76yUb7zlU4TF/n7NY2w5UfPb1FvL8AiXB+XO8yABbI6w6wn8TSRtFcecNT2P3MQa0t9lQnF/4
-	WQL6TedQ3pWbxR9nNfQ8wFvmZKG9GmjZaRoi5w32v8FtynWYhWbhPR3c0K/encaH5CSOH+8wfiiNc
-	Hzv4NzzoNRqPA9AktacwgaEOVadRxu/9oO0BGDt4nW359CVr/WY+8RmG5NJhwjOCrJ204MGr8/pT9
-	q3/X2OD9Dj5ctXRezPBNCOEiiuGZiT19WEFFgyQSN6XsNBiPiUTtHBRLKW0wbFcM86VnPIZmciyxi
-	+mKQWo6g==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OWNGjZmLR5Vx7YgfVnObqWrH7gKe4YeC5K7McZg0BgE=; b=M7gWK6ULiJeUBq
+	2ba1tAlbmf3ruMmGBoysw5zyVWntAEfqAfcTZSGL07fAjnusdn6mz6N8TeXHcZ8Cz1PiYXl1Luy3F
+	diZlJVi1U8+22saidTio1eQME+h4xHQQ1m6oJbNgvvi6VZdlWQ+x+RyB2kSgkV94DIGnJYAuyUuv8
+	OR+VLqzqf8H5a+tBBTNNxkO3TKcCUPoEWV3rz5DPrE7eWCd/n3bCFgcdJTNN7ZW1I10iSs7iOg35c
+	NHcDlLZ9KDhlWIjSnDPjp00c+hL6WhaYcFl/ud3c0a5rWPuSi4QJ8RqdoTrak6kNaGP5ag2g7gjZl
+	aaCtki9dHiN5gXMxROWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBzaT-00EvId-26;
-	Wed, 21 Jun 2023 15:17:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qC00d-00EzVQ-1x;
+	Wed, 21 Jun 2023 15:44:39 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBzaQ-00EvI1-0b
+	id 1qC00Z-00EzUK-2z
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jun 2023 15:17:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5CD646157D;
-	Wed, 21 Jun 2023 15:17:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFD77C433C0;
-	Wed, 21 Jun 2023 15:17:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687360651;
-	bh=XeX3n2Ex4fOTZjDwqLGXcfRd6/4GgUf3KTctiEH8LGk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mxD2EJcFfTQ8e0cNCj5ca8stnZ+HWvu2Z6jfzHsH40oDNnGqGsGsTxUp7OZXR1bYn
-	 L2Cu5aduSVIyfzDJaQJ8LBD9PZPlimATgUAaYJhLHhjXuqjmSUDNZDfmXYdGkRXX1D
-	 SZuf5sWQDgcP9i//v6Js7lLFgh8H/1xh9l/iNPW3WQFx5xYhnSjBywD0RiJx3X3fxd
-	 HyY+OqhP0dKpoidf4iSM7md2bDRx2WcWd3MSgW6MeTKz3BM6w/fj3+jLyZNEB8eKL0
-	 /vSntbHj3I3fuwXmj9Oa+2Zbtg7OYxrqqWWHfc7MKnKkfDCKuJKfl0JkBGuJONuHey
-	 GHEFZKeNjMxwg==
-Date: Wed, 21 Jun 2023 16:17:24 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Eric Lin <eric.lin@sifive.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, aou@eecs.berkeley.edu, maz@kernel.org,
-	chenhuacai@kernel.org, baolu.lu@linux.intel.com, will@kernel.org,
-	kan.liang@linux.intel.com, nnac123@linux.ibm.com,
-	pierre.gondois@arm.com, jgross@suse.com, chao.gao@intel.com,
-	maobibo@loongson.cn, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dslin1010@gmail.com, Greentime Hu <greentime.hu@sifive.com>,
-	Zong Li <zong.li@sifive.com>, Nick Hu <nick.hu@sifive.com>,
-	mark.rutland@arm.com, arnd@arndb.de
-Subject: Re: [PATCH 2/3] soc: sifive: Add SiFive private L2 cache PMU driver
-Message-ID: <20230621-stupor-violin-930ccc7d7593@spud>
-References: <20230616063210.19063-1-eric.lin@sifive.com>
- <20230616063210.19063-3-eric.lin@sifive.com>
- <20230616-revision-speed-a83dc926b334@wendy>
- <CAPqJEFo5genyjY7qJBaESzeppbEnTiDe9qzv98ETLhWfMZeG4A@mail.gmail.com>
+	Wed, 21 Jun 2023 15:44:38 +0000
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+X-GND-Sasl: alex@ghiti.fr
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 23F836000B;
+	Wed, 21 Jun 2023 15:44:25 +0000 (UTC)
+Message-ID: <536551b6-4215-bb2e-d309-6cbfe87205aa@ghiti.fr>
+Date: Wed, 21 Jun 2023 17:44:25 +0200
 MIME-Version: 1.0
-In-Reply-To: <CAPqJEFo5genyjY7qJBaESzeppbEnTiDe9qzv98ETLhWfMZeG4A@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v4 1/1] riscv: mm: use svinval instructions instead of
+ sfence.vma
+Content-Language: en-US
+To: Mayuresh Chitale <mchitale@ventanamicro.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: =Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
+ linux-riscv@lists.infradead.org
+References: <20230621124133.779572-1-mchitale@ventanamicro.com>
+ <20230621124133.779572-2-mchitale@ventanamicro.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230621124133.779572-2-mchitale@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230621_081734_315132_E37F0065 
-X-CRM114-Status: GOOD (  21.89  )
+X-CRM114-CacheID: sfid-20230621_084436_268337_29CCEA3B 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,147 +67,142 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6246015032779429635=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Mayuresh,
 
---===============6246015032779429635==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="lvXd4hUgqP0KdRuW"
-Content-Disposition: inline
-
-
---lvXd4hUgqP0KdRuW
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Arnd, Perf people,
-
-On Tue, Jun 20, 2023 at 11:14:32AM +0800, Eric Lin wrote:
-> On Fri, Jun 16, 2023 at 6:13=E2=80=AFPM Conor Dooley <conor.dooley@microc=
-hip.com> wrote:
-> >
-> > On Fri, Jun 16, 2023 at 02:32:09PM +0800, Eric Lin wrote:
-> > > From: Greentime Hu <greentime.hu@sifive.com>
-> > >
-> > > This adds SiFive private L2 cache PMU driver. User
-> > > can use perf tool to profile by event name and event id.
-> > >
-> > > Example:
-> > > $ perf stat -C 0 -e /sifive_pl2_pmu/inner_acquire_block_btot/
-> > >                 -e /sifive_pl2_pmu/inner_acquire_block_ntob/
-> > >                 -e /sifive_pl2_pmu/inner_acquire_block_ntot/ ls
-> > >
-> > >  Performance counter stats for 'CPU(s) 0':
-> > >
-> > >                300      sifive_pl2_pmu/inner_acquire_block_btot/
-> > >              17801      sifive_pl2_pmu/inner_acquire_block_ntob/
-> > >               5253      sifive_pl2_pmu/inner_acquire_block_ntot/
-> > >
-> > >        0.088917326 seconds time elapsed
-> > >
-> > > $ perf stat -C 0 -e /sifive_pl2_pmu/event=3D0x10001/
-> > >                 -e /sifive_pl2_pmu/event=3D0x4001/
-> > >                 -e /sifive_pl2_pmu/event=3D0x8001/ ls
-> > >
-> > >  Performance counter stats for 'CPU(s) 0':
-> > >
-> > >                251      sifive_pl2_pmu/event=3D0x10001/
-> > >               2620      sifive_pl2_pmu/event=3D0x4001/
-> > >                644      sifive_pl2_pmu/event=3D0x8001/
-> > >
-> > >        0.092827110 seconds time elapsed
-> > >
-> > > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> > > Signed-off-by: Eric Lin <eric.lin@sifive.com>
-> > > Reviewed-by: Zong Li <zong.li@sifive.com>
-> > > Reviewed-by: Nick Hu <nick.hu@sifive.com>
-> > > ---
-> > >  drivers/soc/sifive/Kconfig            |   9 +
-> > >  drivers/soc/sifive/Makefile           |   1 +
-> > >  drivers/soc/sifive/sifive_pl2.h       |  20 +
-> > >  drivers/soc/sifive/sifive_pl2_cache.c |  16 +
-> > >  drivers/soc/sifive/sifive_pl2_pmu.c   | 669 ++++++++++++++++++++++++=
-++
-> >
-> > Perf drivers should be in drivers/perf, no?
-> >
->=20
-> Hi Conor,
->=20
-> Yes, I see most of the drivers are in the drivers/perf.
->=20
-> But I grep perf_pmu_register(), it seems not all the pmu drivers are
-> in drivers/perf as below:
->=20
-> arch/arm/mach-imx/mmdc.c:517:   ret =3D
-> perf_pmu_register(&(pmu_mmdc->pmu), name, -1);
-> arch/arm/mm/cache-l2x0-pmu.c:552:       ret =3D
-> perf_pmu_register(l2x0_pmu, l2x0_name, -1);
-> ...
-> drivers/dma/idxd/perfmon.c:627: rc =3D perf_pmu_register(&idxd_pmu->pmu,
-> idxd_pmu->name, -1);
-> drivers/fpga/dfl-fme-perf.c:904:static int
-> fme_perf_pmu_register(struct platform_device *pdev,
-> drivers/fpga/dfl-fme-perf.c:929:        ret =3D perf_pmu_register(pmu, na=
-me, -1);
-> ...
-> drivers/gpu/drm/amd/amdgpu/amdgpu_pmu.c:549:    ret =3D
-> perf_pmu_register(&pmu_entry->pmu, pmu_name, -1);
-> drivers/gpu/drm/i915/i915_pmu.c:1190:   ret =3D
-> perf_pmu_register(&pmu->base, pmu->name, -1);
-> drivers/hwtracing/coresight/coresight-etm-perf.c:907:   ret =3D
-> perf_pmu_register(&etm_pmu, CORESIGHT_ETM_PMU_NAME, -1);
-> drivers/hwtracing/ptt/hisi_ptt.c:895:   ret =3D
-> perf_pmu_register(&hisi_ptt->hisi_ptt_pmu, pmu_name, -1);
-> drivers/iommu/intel/perfmon.c:570:      return
-> perf_pmu_register(&iommu_pmu->pmu, iommu_pmu->pmu.name, -1);
-> drivers/nvdimm/nd_perf.c:309:   rc =3D perf_pmu_register(&nd_pmu->pmu,
-> nd_pmu->pmu.name, -1);
-> ...
->=20
-> I just wondering what kind of pmu drivers should be in drivers/perf
-> and what kind of pmu drivers should not be in drivers/perf.
-> Thanks.
-
-To be quite honest, I have no idea.
-I'm just a wee bit wary of taking anything that appears to have another
-home via drivers/soc. I'd rather break drivers out, using the aux bus or
-similar if need be, so that people who are knowledgeable in an area are
-CCed on patches.
-Hopefully Arnd or the Perf people can offer some guidance here. If it
-does go into drivers/soc, it'll need a review from someone knowledgeable
-of perf anyway.
-
-Cheers,
-Conor.
-
---lvXd4hUgqP0KdRuW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJMUhAAKCRB4tDGHoIJi
-0gQPAP9NA5+xGxexqqs9oKDQy5JFuGFIRMNc1wrRkTfe1WpeaQEAnpjQJ6IBF65+
-oBS810J/hKoiRXGWz+RIZLvb6+b7MQs=
-=s8XO
------END PGP SIGNATURE-----
-
---lvXd4hUgqP0KdRuW--
+On 21/06/2023 14:41, Mayuresh Chitale wrote:
+> When svinval is supported the local_flush_tlb_page*
+> functions would prefer to use the following sequence
+> to optimize the tlb flushes instead of a simple sfence.vma:
+>
+> sfence.w.inval
+> svinval.vma
+>    .
+>    .
+> svinval.vma
+> sfence.inval.ir
+>
+> The maximum number of consecutive svinval.vma instructions
+> that can be executed in local_flush_tlb_page* functions is
+> limited to PTRS_PER_PTE. This is required to avoid soft
+> lockups and the approach is similar to that used in arm64.
+>
+> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> ---
+>   arch/riscv/mm/tlbflush.c | 62 ++++++++++++++++++++++++++++++++++++----
+>   1 file changed, 56 insertions(+), 6 deletions(-)
+>
+> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+> index 77be59aadc73..ade0b5cf8b47 100644
+> --- a/arch/riscv/mm/tlbflush.c
+> +++ b/arch/riscv/mm/tlbflush.c
+> @@ -5,6 +5,12 @@
+>   #include <linux/sched.h>
+>   #include <asm/sbi.h>
+>   #include <asm/mmu_context.h>
+> +#include <asm/hwcap.h>
+> +#include <asm/insn-def.h>
+> +
+> +#define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
+> +
+> +static unsigned long tlb_flush_all_threshold __read_mostly = PTRS_PER_PTE;
 
 
---===============6246015032779429635==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+The threshold is quite high to me: internally, we computed that 
+something like 50 would be a good bet, because to me, 512 * sfence.vma 
+(or svinval equivalent) takes way more time than just flushing the whole 
+tlb (even with the whole refill I'd say). How did you get this number? 
+And this value is micro-architecture dependent, so we need to find a 
+consensus or a mechanism to allow a vendor to change it.
+
+FYI, x86 threshold is 33 (can't find right now the pointer sorry).
+
+
+>   
+>   static inline void local_flush_tlb_all_asid(unsigned long asid)
+>   {
+> @@ -26,19 +32,63 @@ static inline void local_flush_tlb_page_asid(unsigned long addr,
+>   static inline void local_flush_tlb_range(unsigned long start,
+>   		unsigned long size, unsigned long stride)
+>   {
+> -	if (size <= stride)
+> -		local_flush_tlb_page(start);
+> -	else
+> +	if ((size / stride) <= tlb_flush_all_threshold) {
+
+
+If size is not aligned on stride, you could get another page to flush so 
+you do not respect the threshold. In my patchset, I used DIV_ROUND_UP.
+
+
+> +		if (has_svinval()) {
+> +			asm volatile(SFENCE_W_INVAL() ::: "memory");
+> +			while (size) {
+> +				asm volatile(SINVAL_VMA(%0, zero)
+> +					     : : "r" (start) : "memory");
+> +				start += stride;
+> +				if (size > stride)
+> +					size -= stride;
+> +				else
+> +					size = 0;
+> +			}
+> +			asm volatile(SFENCE_INVAL_IR() ::: "memory");
+> +		} else {
+> +			while (size) {
+> +				local_flush_tlb_page(start);
+> +				start += stride;
+> +				if (size > stride)
+> +					size -= stride;
+> +				else
+> +					size = 0;
+> +			}
+> +		}
+> +	} else {
+>   		local_flush_tlb_all();
+> +	}
+>   }
+>   
+>   static inline void local_flush_tlb_range_asid(unsigned long start,
+>   		unsigned long size, unsigned long stride, unsigned long asid)
+>   {
+> -	if (size <= stride)
+> -		local_flush_tlb_page_asid(start, asid);
+> -	else
+> +	if ((size / stride) <= tlb_flush_all_threshold) {
+> +		if (has_svinval()) {
+> +			asm volatile(SFENCE_W_INVAL() ::: "memory");
+> +			while (size) {
+> +				asm volatile(SINVAL_VMA(%0, %1) : : "r" (start),
+> +					     "r" (asid) : "memory");
+> +				start += stride;
+> +				if (size > stride)
+> +					size -= stride;
+> +				else
+> +					size = 0;
+> +			}
+> +			asm volatile(SFENCE_INVAL_IR() ::: "memory");
+> +		} else {
+> +			while (size) {
+> +				local_flush_tlb_page_asid(start, asid);
+> +				start += stride;
+> +				if (size > stride)
+> +					size -= stride;
+> +				else
+> +					size = 0;
+> +			}
+> +		}
+> +	} else {
+>   		local_flush_tlb_all_asid(asid);
+> +	}
+>   }
+>   
+>   static void __ipi_flush_tlb_all(void *info)
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6246015032779429635==--
-
