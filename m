@@ -4,59 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C4A6EB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 16:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F898EB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 16:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dEshUNt9rmZ9N46nsanBZOmL/9ldP/v1Zlh2eelopBM=; b=XdEiyROBEOKHWH
-	DVAL3bBw6EKKh70C9y4e6gjYUZsfy6pVeMdwQLzYjudRUzHB8aNvYJ6/p3DfbpiNt8lP0SlKUfwP3
-	gkaXE6S46lJwQv6Hb4CPbjCNN9fo0vFE/5ldaQDYaWZCyxiLgtXMZ3XvN/V4Zszq/2XavR+RsrmPO
-	zFwgdEodmj5sJT/sL9vC9Qx1f+Rr3ZFhJgmIUyibwEKG58hl/ZZ8Me0J+TLBUwz+zdmSwVS+dQSDf
-	loncKz6L633IPUUFiinl2+0GfrRdEm0FiWp9sp5+qIn+kS7CBZx9oodty4PSjTz9ssQUj/voNmrej
-	rec9xjfLJxjusmtwb4ow==;
+	List-Owner; bh=6ZOnry4UPmY/8OXAvB9h4WplBn7dwcriaXPKDCNzcpo=; b=iyaPHeGqHKiU4O
+	6pbYIIQgCZf+YqjuUz1tzQXnn6/q73KwML2WzEJkKC2Lfsyp9hK4TWh1hdTgVZdua17rpArNUJTSp
+	j1gpF4UTrMkYZZ64NHRGr8hjE7G+TKHAmrfiDycmzKiERMsDHvIN+JAdKyNssP2jYaxDuIsWK7M48
+	D3fze+slaHDRryvYTOLxDQNeiw2OGnWZ/Tyz1qcmPQJD/TuORdhJ+R0EcOj2bduQlmWqytOUtlHl7
+	Ux25EVVFs1yj0BvqsFAP4E0iU0ssgi91axB0VPOSijQcLfbJMF3OAUyCo9+7lOGT9Du90XhN8AvYu
+	l/MpC2UXTNyvuRqEAGGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qC0zp-00F8GT-0T;
-	Wed, 21 Jun 2023 16:47:53 +0000
-Received: from tulikuusama2.dnainternet.net ([83.102.40.151])
+	id 1qC12p-00F8sV-1J;
+	Wed, 21 Jun 2023 16:50:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qC0zl-00F8EI-2C
-	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jun 2023 16:47:52 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by tulikuusama2.dnainternet.net (Postfix) with ESMTP id D61551AB42;
-	Wed, 21 Jun 2023 19:47:42 +0300 (EEST)
-X-Virus-Scanned: DNA Internet at dnainternet.net
-Received: from tulikuusama2.dnainternet.net ([83.102.40.151])
-	by localhost (tulikuusama2.dnainternet.net [127.0.0.1]) (DNA Internet, port 10041)
-	with ESMTP id ZzNQi-nukK-g; Wed, 21 Jun 2023 19:47:42 +0300 (EEST)
-Received: from luumupuu2.dnainternet.net (luumupuu2.dnainternet.net [83.102.40.55])
-	by tulikuusama2.dnainternet.net (Postfix) with ESMTP id 6FEF21A212;
-	Wed, 21 Jun 2023 19:47:42 +0300 (EEST)
-Received: from basile.localnet (87-92-194-88.rev.dnainternet.fi [87.92.194.88])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1qC12l-00F8rN-1Y;
+	Wed, 21 Jun 2023 16:50:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by luumupuu2.dnainternet.net (Postfix) with ESMTPS id C5F6C79;
-	Wed, 21 Jun 2023 19:47:37 +0300 (EEST)
-From: =?ISO-8859-1?Q?R=E9mi?= Denis-Courmont <remi@remlab.net>
-To: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org,
- Andy Chiu <andy.chiu@sifive.com>
-Cc: =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Subject: Re: [PATCH] RISC-V: Clobber V registers on syscalls
-Date: Wed, 21 Jun 2023 19:47:37 +0300
-Message-ID: <12784326.9UPPK3MAeB@basile.remlab.net>
-Organization: Remlab
-In-Reply-To: <878rccoprt.fsf@all.your.base.are.belong.to.us>
-References: <mhng-6bb8dac2-33c3-410f-82ce-36554e497e9c@palmer-ri-x1c9>
- <878rccoprt.fsf@all.your.base.are.belong.to.us>
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3D3C6615DD;
+	Wed, 21 Jun 2023 16:50:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96030C433C8;
+	Wed, 21 Jun 2023 16:50:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687366253;
+	bh=nRDgHtA8hqej023ToUhLoZFNoVkS+qHIHVfPG/sX2HM=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=ZyW7hIwOiMuVBWbNLKkUGG4I9ld9sU+55M4ZDtjpb54AQkZkjrW2BAQpUQDsBScUV
+	 3PuViCowDv3Bh65idoeIVGTOkyHEoIL1b2dC7j3xNY75mpWFddVIKrc+1BtooEGsEG
+	 e/W29ML5aWligBRBGCkUt8zz0q42K8B1DFB8acM9a3AodCf3X2UrAc7M5tj+QzaIJ3
+	 BNU9X9pGdKljGOCb/rjllAVrKb5Q0YONOpcuvdetSA7nDoLJjqbTznsYdA3e/pOQr+
+	 ICEH22H0gKf07QhrEh2lPU2+jAbQ9m6lwbXYETYMIVq5QZlLXIOlJBhglEsFLf9vur
+	 hkWXTdIwRXM4w==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 241B6CE3A04; Wed, 21 Jun 2023 09:50:53 -0700 (PDT)
+Date: Wed, 21 Jun 2023 09:50:53 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, x86@kernel.org,
+	David Woodhouse <dwmw@infradead.org>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Brian Gerst <brgerst@gmail.com>,
+	Arjan van de Veen <arjan@linux.intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Oleksandr Natalenko <oleksandr@natalenko.name>,
+	Paul Menzel <pmenzel@molgen.mpg.de>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Piotr Gorski <lucjan.lucjanov@gmail.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Juergen Gross <jgross@suse.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	xen-devel@lists.xenproject.org,
+	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	linux-csky@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-mips@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sabin Rapan <sabrapan@amazon.com>
+Subject: Re: [patch 05/37] x86/topology: Remove CPU0 hotplug option
+Message-ID: <b487a394-0a70-4ec9-ac43-0e8fb14ad110@paulmck-laptop>
+References: <20230414225551.858160935@linutronix.de>
+ <20230414232309.510911744@linutronix.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230414232309.510911744@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230621_094750_053450_50AB427D 
-X-CRM114-Status: GOOD (  33.79  )
+X-CRM114-CacheID: sfid-20230621_095055_601924_01EE20C8 
+X-CRM114-Status: GOOD (  23.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,85 +101,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: paulmck@kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGUga2Vza2l2aWlra29uYSAyMS4ga2Vzw6RrdXV0YSAyMDIzLCAxNy4yNi4xNCBFRVNUIEJqw7Zy
-biBUw7ZwZWwgYSDDqWNyaXQgOgo+IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29t
-PiB3cml0ZXM6Cj4gPiBPbiBNb24sIDE5IEp1biAyMDIzIDEyOjAxOjIwIFBEVCAoLTA3MDApLCBi
-am9ybkBrZXJuZWwub3JnIHdyb3RlOgo+ID4+IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3Np
-bmMuY29tPiB3cml0ZXM6Cj4gPj4gCj4gPj4gWy4uLl0KPiA+PiAKPiA+Pj4+PiArCQlyaXNjdl92
-X3ZzdGF0ZV9vZmYocmVncyk7Cj4gPj4+Pj4gKwo+ID4+Pj4gCj4gPj4+PiBOb3Qgb2ZmLCByaWdo
-dD8gSXNuJ3QgaXQgX19yaXNjdl92X3ZzdGF0ZV9jbGVhbigpIHRoYXQgeW91J2QgbGlrZSB0bwo+
-ID4+Pj4gY2FsbD8gU29tZXRoaW5nIGxpa2U6Cj4gPj4+PiAKPiA+Pj4+IHN0YXRpYyB2b2lkIHZz
-dGF0ZV9kaXNjYXJkKHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ID4+Pj4gewo+ID4+Pj4gCj4gPj4+
-PiAgICAgICAgaWYgKChyZWdzLT5zdGF0dXMgJiBTUl9WUykgPT0gU1JfVlNfRElSVFkpCj4gPj4+
-PiAgICAgICAgCj4gPj4+PiAgICAgICAgICAgICAgICBfX3Jpc2N2X3ZfdnN0YXRlX2NsZWFuKHJl
-Z3MpOwo+ID4+Pj4gCj4gPj4+PiB9Cj4gPj4+PiAKPiA+Pj4+IENvbXBsZW1lbnRlZCBieSBhICFW
-IGNvbmZpZyB2YXJpYW50Lgo+ID4+PiAKPiA+Pj4gSSB0aGluayBpdCdzIGp1c3QgYSBxdWVzdGlv
-biBvZiB3aGF0IHdlJ3JlIHRyeWluZyB0byBkbyBoZXJlOiBjbGVhbgo+ID4+PiBhdm9pZHMgdGhl
-IGtlcm5lbCBWIHN0YXRlIHNhdmUsIGJ1dCB1bmxlc3MgdGhlIGtlcm5lbCBkZWNpZGVzIHRvIHVz
-ZSBWCj4gPj4+IGR1cmluZyB0aGUgc3lzY2FsbCB0aGUgcmVnaXN0ZXIgY29udGVudHMgd2lsbCBz
-dGlsbCBiZSB1c2FibGUgYnkKPiA+Pj4gdXNlcnNwYWNlLiAgTWF5YmUgdGhhdCdzIGZpbmUgYW5k
-IHdlIGNhbiBqdXN0IHJlbHkgb24gdGhlIElTQSBzcGVjLAo+ID4+PiB0aG91Z2g/ICBJIHNlbnQg
-YW5vdGhlciBwYXRjaCB0byBqdXN0IGRvY3VtZW50IGl0IGluIExpbnV4LCBldmVuIGlmIGl0J3MK
-PiA+Pj4gaW4gdGhlIElTQSBzcGVjIGl0IHNlZW1zIHdvcnRoIGhhdmluZyBpbiB0aGUga2VybmVs
-IGFzIHdlbGwuCj4gPj4+IAo+ID4+PiBUaGF0IHNhaWQsIEkgdGhpbmsgdGhlIHJpZ2h0IHRoaW5n
-IHRvIGRvIGhlcmUgbWlnaHQgYmUgdG8gemVybyB0aGUgVgo+ID4+PiByZWdpc3RlciBzdGF0ZSBh
-bmQgc2V0IGl0IHRvIGluaXRpYWw6IHRoYXQgd2F5IHdlIGNhbiBwcmV2ZW50IHVzZXJzcGFjZQo+
-ID4+PiBmcm9tIGFjY2lkZW50YWxseSByZWx5aW5nIG9uIHRoZSBzdGF0ZSBzYXZlLCBidXQgd2Ug
-Y2FuIGFsc28gYXZvaWQgdGhlCj4gPj4+IHRyYXAgdGhhdCB3b3VsZCBjb21lIGZyb20gdHVybmlu
-ZyBpdCBvZmYuICBUaGF0IGxldHMgdXMgZ2l2ZSB0aGUKPiA+Pj4gaGFyZHdhcmUgYSBuaWNlIGNs
-ZWFuIGluZGljYXRpb24gd2hlbiB0aGUgViBzdGF0ZSBpc24ndCBpbiB1c2UsIHdoaWNoCj4gPj4+
-IHdpbGwgaG9wZWZ1bGx5IGhlbHAgdXMgYXZvaWQgdGhlIHNhdmUvcmVzdG9yZSBwZXJmb3JtYW5j
-ZSBpc3N1ZXMgdGhhdAo+ID4+PiBvdGhlciBwb3J0cyBoYXZlIGhpdC4KPiA+PiAKPiA+PiBGV0lX
-LCBJIHRoaW5rIHRoYXQncyBhIG11Y2ggYmV0dGVyIGlkZWEgdGhhbiB0dXJuaW5nIFYgb2ZmLiBJ
-IGFsc28gbGlrZQo+ID4+IHRoYXQgaXQnbGwgcHJldmVudGluZyB1c2VybGFuZCB0byByZWx5IG9u
-IHByZS1lY2FsbCBzdGF0ZS4KPiA+IAo+ID4gT0ssIGFueW9uZSBlbHNlIG9wcG9zZWQ/Cj4gPiAK
-PiA+IFdlJ3JlIGtpbmQgb2YgaW4gdGhlIHdlZWRzIG9uIHBlcmZvcm1hbmNlLCBJIHRoaW5rIHdl
-J2QgbmVlZCBIVyB0byBrbm93Cj4gPiBmb3Igc3VyZSBpZiBlaXRoZXIgaXMgYW4gaXNzdWUuICBT
-ZWVtcyBiZXN0IHRvIGp1c3QgcGxheSBpdCBzYWZlIFdSVCB0aGUKPiA+IHVBQkkgZm9yIG5vdywg
-d2UgY2FuIGFsd2F5cyBkZWFsIHdpdGggYW55IHBlcmZvcm1hbmNlIGlzc3VlcyBpZiB0aGUKPiA+
-IGV4aXN0Lgo+IAo+IEhlcmUncyB0aGUgcGF0Y2ggeW91IG1lbnRpb25lZCBhdCB0aGUgUFcgc3lu
-Y2h1cDsgSSd2ZSBrZXB0IHRoZSBTdWJqZWN0Cj4gYW5kIHN1Y2ggaWYgeW91IHdhbid0IHRvIGFw
-cGx5IGl0LiBMTUsgaWYgeW91J2QgbGlrZSBhIHByb3BlciBvbmUuCj4gCj4gLS0KPiAKPiBTdWJq
-ZWN0OiBbUEFUQ0hdIHJpc2N2OiBEaXNjYXJkIHZlY3RvciBzdGF0ZSBvbiBzeXNjYWxscwo+IE1J
-TUUtVmVyc2lvbjogMS4wCj4gQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PVVURi04
-Cj4gQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogOGJpdAo+IAo+IFRoZSBSSVNDLVYgdmVjdG9y
-IHNwZWNpZmljYXRpb24gc3RhdGVzOgo+ICAgRXhlY3V0aW5nIGEgc3lzdGVtIGNhbGwgY2F1c2Vz
-IGFsbCBjYWxsZXItc2F2ZWQgdmVjdG9yIHJlZ2lzdGVycwo+ICAgKHYwLXYzMSwgdmwsIHZ0eXBl
-KSBhbmQgdnN0YXJ0IHRvIGJlY29tZSB1bnNwZWNpZmllZC4KPiAKPiBUaGUgdmVjdG9yIHN0YXR1
-cyBpcyBzZXQgdG8gSW5pdGlhbCwgYW5kIHRoZSB2ZWN0b3Igc3RhdGUgaXMKPiBleHBsaWNpdGx5
-IHplcm9lZC4gVGhhdCB3YXkgd2UgY2FuIHByZXZlbnQgdXNlcnNwYWNlIGZyb20gYWNjaWRlbnRh
-bGx5Cj4gcmVseWluZyBvbiB0aGUgc3RhdGVkIHNhdmUuCj4gCj4gU2lnbmVkLW9mZi1ieTogQmrD
-tnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgo+IC0tLQo+IGFyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vdmVjdG9yLmggfCAyNCArKysrKysrKysrKysrKysrKysrKysrKysKPiAgYXJjaC9yaXNj
-di9rZXJuZWwvdHJhcHMuYyAgICAgICB8ICAyICsrCj4gIDIgZmlsZXMgY2hhbmdlZCwgMjYgaW5z
-ZXJ0aW9ucygrKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rv
-ci5oCj4gYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oIGluZGV4IDA0YzBiMDdiZjZj
-ZC4uYjMwMjBkMDY0ZjQyIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVj
-dG9yLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oCj4gQEAgLTE2Myw2
-ICsxNjMsMjkgQEAgc3RhdGljIGlubGluZSB2b2lkIF9fc3dpdGNoX3RvX3ZlY3RvcihzdHJ1Y3QK
-PiB0YXNrX3N0cnVjdCAqcHJldiwgdm9pZCByaXNjdl92X3ZzdGF0ZV9jdHJsX2luaXQoc3RydWN0
-IHRhc2tfc3RydWN0ICp0c2spOwo+ICBib29sIHJpc2N2X3ZfdnN0YXRlX2N0cmxfdXNlcl9hbGxv
-d2VkKHZvaWQpOwo+IAo+ICtzdGF0aWMgaW5saW5lIHZvaWQgcmlzY3Zfdl92c3RhdGVfZGlzY2Fy
-ZChzdHJ1Y3QgcHRfcmVncyAqcmVncykKPiArewo+ICsJdW5zaWduZWQgbG9uZyB2bDsKPiArCj4g
-KwlpZiAoIXJpc2N2X3ZfdnN0YXRlX3F1ZXJ5KHJlZ3MpKQo+ICsJCXJldHVybjsKPiArCj4gKwly
-aXNjdl92X3ZzdGF0ZV9vbihyZWdzKTsKPiArCj4gKwlyaXNjdl92X2VuYWJsZSgpOwo+ICsJYXNt
-IHZvbGF0aWxlICgKPiArCQkiLm9wdGlvbiBwdXNoXG5cdCIKPiArCQkiLm9wdGlvbiBhcmNoLCAr
-dlxuXHQiCj4gKwkJInZzZXR2bGkJJTAsIHgwLCBlOCwgbTgsIHRhLCBtYVxuXHQiCj4gKwkJInZt
-di52LmkJdjAsIDBcblx0Igo+ICsJCSJ2bXYudi5pCXY4LCAwXG5cdCIKPiArCQkidm12LnYuaQl2
-MTYsIDBcblx0Igo+ICsJCSJ2bXYudi5pCXYyNCwgMFxuXHQiCj4gKwkJIi5vcHRpb24gcG9wXG5c
-dCIKPiArCQk6ICI9JnIiICh2bCkgOiA6ICJtZW1vcnkiKTsKPiArCXJpc2N2X3ZfZGlzYWJsZSgp
-OwoKU2hvdWxkbid0IHRoaXMgYWxzbyBzZXQgYHZpbGxgIHRvIDEgdXNpbmcgYHZzZXR2bGA/CgpJ
-biBmYWN0LCBhIGZhc3RlciBhbHRlcm5hdGl2ZSBtYXkgeWV0IGJlIHRvICpvbmx5KiBzZXQgYW4g
-aW52YWxpZCB2ZWN0b3IgCmNvbmZpZ3VyYXRpb24uIEl0J3MgcmF0aGVyIHVubGlrZWx5IHRoYXQg
-dXNlci1zcGFjZSBjb2RlIHdvdWxkIHNldCBhIHZhbGlkIApjb25maWd1cmF0aW9uIGFuZCB1c2Ug
-dmVjdG9ycyB3aXRob3V0IGxvYWRpbmcgdGhlbSBmaXJzdC4gSWYgaXQgZXZlciBkb2VzLCB0aGVu
-IAppdCdzIHNvIGJyb2tlbiB0aGF0IHRoZSBrZXJuZWwgcHJvYmFibHkgZG9lc24ndCBuZWVkIHRv
-IGNhcmUuCgotLSAK6Zu357Gz4oCn5b635bC8LeW6k+WwlOiSmQpodHRwOi8vd3d3LnJlbWxhYi5u
-ZXQvCgoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sat, Apr 15, 2023 at 01:44:21AM +0200, Thomas Gleixner wrote:
+> This was introduced together with commit e1c467e69040 ("x86, hotplug: Wake
+> up CPU0 via NMI instead of INIT, SIPI, SIPI") to eventually support
+> physical hotplug of CPU0:
+> 
+>  "We'll change this code in the future to wake up hard offlined CPU0 if
+>   real platform and request are available."
+> 
+> 11 years later this has not happened and physical hotplug is not officially
+> supported. Remove the cruft.
+> 
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+> ---
+>  Documentation/admin-guide/kernel-parameters.txt |   14 ---
+>  Documentation/core-api/cpu_hotplug.rst          |   13 ---
+>  arch/x86/Kconfig                                |   43 ----------
+>  arch/x86/include/asm/cpu.h                      |    3 
+>  arch/x86/kernel/topology.c                      |   98 ------------------------
+>  arch/x86/power/cpu.c                            |   37 ---------
+>  6 files changed, 6 insertions(+), 202 deletions(-)
+
+[ . . . ]
+
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -2294,49 +2294,6 @@ config HOTPLUG_CPU
+>  	def_bool y
+>  	depends on SMP
+>  
+> -config BOOTPARAM_HOTPLUG_CPU0
+
+Removing this requires also removing its use in rcutorture.
+
+I have therefore queued the commit below in -rcu, but please feel
+free to take it along with the BOOTPARAM_HOTPLUG_CPU0-removal patch.
+Just please let me know if you do.
+
+(Yes, I finally got back to testing -next.  Why do you ask?)
+
+							Thanx, Paul
+
+------------------------------------------------------------------------
+
+commit 95588de780c0e81004b72526aa3e3ef5ce054719
+Author: Paul E. McKenney <paulmck@kernel.org>
+Date:   Wed Jun 21 09:44:52 2023 -0700
+
+    rcutorture: Remove obsolete BOOTPARAM_HOTPLUG_CPU0 Kconfig option
+    
+    Now that the BOOTPARAM_HOTPLUG_CPU0 Kconfig option is in the process of
+    being removed, it is time to remove rcutorture's use of it.
+    
+    Link: https://lore.kernel.org/lkml/20230414232309.510911744@linutronix.de/
+    Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+    Cc: Thomas Gleixner <tglx@linutronix.de>
+    Cc: <x86@kernel.org>
+
+diff --git a/tools/testing/selftests/rcutorture/configs/rcu/TREE01 b/tools/testing/selftests/rcutorture/configs/rcu/TREE01
+index 04831ef1f9b5..8ae41d5f81a3 100644
+--- a/tools/testing/selftests/rcutorture/configs/rcu/TREE01
++++ b/tools/testing/selftests/rcutorture/configs/rcu/TREE01
+@@ -15,4 +15,3 @@ CONFIG_DEBUG_LOCK_ALLOC=n
+ CONFIG_RCU_BOOST=n
+ CONFIG_DEBUG_OBJECTS_RCU_HEAD=n
+ CONFIG_RCU_EXPERT=y
+-CONFIG_BOOTPARAM_HOTPLUG_CPU0=y
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
