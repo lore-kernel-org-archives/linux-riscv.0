@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49159EB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 08:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2665EB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 08:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a0TbKxrCwOaPVfZ9DYIijrzazMxue7aZcc2ZCkIVXvo=; b=DkeiGbbzhWnXrs
-	zAj7w79/yiAJZq+OESQ0vueEHJ486oY6Hl6LV3j+htt+8E1RrHdeXberFPGMGqymbvXlNT7sMYHVi
-	NhKXQ5HoTaEtBGH33Fd5jhpTaQo4e47OAo+D/LCLGbm+vRwzSQ5RRC1ZqwNcYFEW/RJg0ze+nWB+B
-	wEp1pPDQsLbClstVVYT3mXUw783+mq0csbZep1/Ue7o9wc6y5XAKoa5q5+dmQcD3bZDnfUkdoKX2U
-	gF/TexC5osve+Kzn+7GhGuLvR+SCJiLuxHESRJEPf37GT+KrG4JkNihHwA9qIM1/y4++TA1YoThy8
-	y64+BIenTkfyDlvCduxQ==;
+	List-Owner; bh=ej7TPCcVmiU7HQSV/iMyVmeyzjHJAMePYJbdNcUJ76w=; b=TAZGMhoKInBHSq
+	Hbd2kTzmg4nP5XN2yN2cV8uhaHiCyQJIVbOYrFxiJIWCYSn0Eifc8HtcF73glT1VWjUnfZCiDRMge
+	reQHjMahLNpBuFOMJ2qaXwITAxBWdiceQspnVA8ZxObO0mH47yrmOC0Zdk2d1u+VNgmxcz7LVb6DI
+	06bbju8S9NAQKSv5CGO8QXnPHL2J8FcXm9iOVPeo5CLuzC3++e1L8w8I5bBkDp6KNL1HqD3GXNoBb
+	4sfISyydDGXWkdFJ+/TYFGMkaVdyOzTtOaaqtA0zz41Aypnm2l6RuaE9N4eByxXZzTthc7gqF/w66
+	loMQuNJbdsfAdeBz2fwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBt06-00DffR-1U;
-	Wed, 21 Jun 2023 08:15:38 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBt02-00DfdS-29
-	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jun 2023 08:15:37 +0000
-X-QQ-mid: bizesmtp66t1687335309teso3e1f
-Received: from [192.168.1.114] ( [58.240.82.166])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 21 Jun 2023 16:15:07 +0800 (CST)
-X-QQ-SSF: 00200000000000B08000000A0000000
-X-QQ-FEAT: RmDZc/K2LPHkePvbIYcyOcv8WSIevYLqRYqULiUoktSn0E2lvPBqJpf71nLkt
-	UKsOQIaYUe++kA+kbZWbzKXhtxnKBgyLTia2YCXoXgg7gJZvGTKP5hAleuBugb0uIq3+XNg
-	D7fnGuzAfzTl8WRh9AoKQt+Y3CvB374QPb0JuVhPZQU4zE7i076y2fowONxcdjzv2qYjR/9
-	Zc3ZaPUwWrQs0zjBtAOlj77oHOhtMnrcXtiHkVRn8692t89EEOzFsRKPHHelFCdHHp4tHY5
-	pYZ1XbWcVizVlVFof9p7one/rRjQhdN2BDKRi5AFX7epcYwNK59QEQJxcRwCkl/DHGxMLiV
-	XPc1K3x+kyhouMPcAozftDjtN9NnxgD/K31bfa7qrMRF7yWVBE=
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13412959673347868458
-Message-ID: <131BBACE35371733+d5902eda-c4ea-b74d-a17c-70fd1a166b6f@tinylab.org>
-Date: Wed, 21 Jun 2023 16:15:07 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.0
-Subject: Re: [PATCH v2 2/3] Documentation: riscv: Add early boot document
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet
- <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor.dooley@microchip.com>,
- Sunil V L <sunilvl@ventanamicro.com>, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- songshuaishuai@tinylab.org
-References: <20230621072234.9900-1-alexghiti@rivosinc.com>
- <20230621072234.9900-2-alexghiti@rivosinc.com>
-From: Song Shuai <songshuaishuai@tinylab.org>
-In-Reply-To: <20230621072234.9900-2-alexghiti@rivosinc.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-3
+	id 1qBtN9-00DifT-17;
+	Wed, 21 Jun 2023 08:39:27 +0000
+Received: from mail.loongson.cn ([114.242.206.163])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qBtN3-00DidK-3A;
+	Wed, 21 Jun 2023 08:39:24 +0000
+Received: from loongson.cn (unknown [113.200.148.30])
+	by gateway (Coremail) with SMTP id _____8DxNsUwt5JkrxEAAA--.144S3;
+	Wed, 21 Jun 2023 16:39:12 +0800 (CST)
+Received: from linux.localdomain (unknown [113.200.148.30])
+	by localhost.localdomain (Coremail) with SMTP id AQAAf8Ax3c4st5JkmlAAAA--.2097S3;
+	Wed, 21 Jun 2023 16:39:11 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-arch@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	loongson-kernel@lists.loongnix.cn
+Subject: [PATCH v2 1/2] asm-generic: Unify uapi bitsperlong.h for arm64, riscv and loongarch
+Date: Wed, 21 Jun 2023 16:39:07 +0800
+Message-Id: <1687336748-4898-2-git-send-email-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.1.0
+In-Reply-To: <1687336748-4898-1-git-send-email-yangtiezhu@loongson.cn>
+References: <1687336748-4898-1-git-send-email-yangtiezhu@loongson.cn>
+X-CM-TRANSID: AQAAf8Ax3c4st5JkmlAAAA--.2097S3
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj93XoW3tF4DXFy8ZrW8Xr17WFyDArc_yoWDZrWfpF
+	95Crn7WF40krWak3yrGF1Igry5A393GF4UtFWjgry0qrWxJF18Gr4v9FsIka4xJayvqryr
+	uF9agry5Gan8t3cCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUk2b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
+	xVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx
+	1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv
+	67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l42xK82IYc2
+	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
+	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0x
+	vE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE
+	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6x
+	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUcDDGUUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230621_011535_006282_0F13D168 
-X-CRM114-Status: GOOD (  47.43  )
+X-CRM114-CacheID: sfid-20230621_013922_442685_04F7A403 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,174 +81,263 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMy82LzIxIDE1OjIyLCBBbGV4YW5kcmUgR2hpdGkg5YaZ6YGTOgo+IFRoaXMgZG9j
-dW1lbnQgZGVzY3JpYmVzIHRoZSBjb25zdHJhaW50cyBhbmQgcmVxdWlyZW1lbnRzIG9mIHRoZSBl
-YXJseQo+IGJvb3QgcHJvY2VzcyBpbiBhIFJJU0MtViBrZXJuZWwuCj4gCj4gU2lnbmVkLW9mZi1i
-eTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+IFJldmlld2VkLWJ5
-OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4gLS0tCj4gICBEb2N1bWVudGF0
-aW9uL3Jpc2N2L2Jvb3QtaW1hZ2UtaGVhZGVyLnJzdCB8ICAgMyAtCj4gICBEb2N1bWVudGF0aW9u
-L3Jpc2N2L2Jvb3QucnN0ICAgICAgICAgICAgICB8IDE3MCArKysrKysrKysrKysrKysrKysrKysr
-Cj4gICBEb2N1bWVudGF0aW9uL3Jpc2N2L2luZGV4LnJzdCAgICAgICAgICAgICB8ICAgMSArCj4g
-ICAzIGZpbGVzIGNoYW5nZWQsIDE3MSBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+ICAg
-Y3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vcmlzY3YvYm9vdC5yc3QKPiAKPiBkaWZm
-IC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9yaXNjdi9ib290LWltYWdlLWhlYWRlci5yc3QgYi9Eb2N1
-bWVudGF0aW9uL3Jpc2N2L2Jvb3QtaW1hZ2UtaGVhZGVyLnJzdAo+IGluZGV4IGQ3NzUyNTMzODY1
-Zi4uYTRhNDUzMTBjNGM0IDEwMDY0NAo+IC0tLSBhL0RvY3VtZW50YXRpb24vcmlzY3YvYm9vdC1p
-bWFnZS1oZWFkZXIucnN0Cj4gKysrIGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9ib290LWltYWdlLWhl
-YWRlci5yc3QKPiBAQCAtNyw5ICs3LDYgQEAgQm9vdCBpbWFnZSBoZWFkZXIgaW4gUklTQy1WIExp
-bnV4Cj4gICAKPiAgIFRoaXMgZG9jdW1lbnQgb25seSBkZXNjcmliZXMgdGhlIGJvb3QgaW1hZ2Ug
-aGVhZGVyIGRldGFpbHMgZm9yIFJJU0MtViBMaW51eC4KPiAgIAo+IC1UT0RPOgo+IC0gIFdyaXRl
-IGEgY29tcGxldGUgYm9vdGluZyBndWlkZS4KPiAtCj4gICBUaGUgZm9sbG93aW5nIDY0LWJ5dGUg
-aGVhZGVyIGlzIHByZXNlbnQgaW4gZGVjb21wcmVzc2VkIExpbnV4IGtlcm5lbCBpbWFnZTo6Cj4g
-ICAKPiAgIAl1MzIgY29kZTA7CQkgIC8qIEV4ZWN1dGFibGUgY29kZSAqLwo+IGRpZmYgLS1naXQg
-YS9Eb2N1bWVudGF0aW9uL3Jpc2N2L2Jvb3QucnN0IGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9ib290
-LnJzdAo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi4wMTllZTgx
-ODY4NmQKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9ib290LnJz
-dAo+IEBAIC0wLDAgKzEsMTcwIEBACj4gKy4uIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwt
-Mi4wCj4gKwo+ICs9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PQo+ICtSSVNDLVYgS2VybmVsIEJvb3QgUmVxdWlyZW1lbnRzIGFuZCBDb25zdHJhaW50cwo+ICs9
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQo+ICsKPiArOkF1
-dGhvcjogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+ICs6RGF0ZTog
-MjMgTWF5IDIwMjMKPiArCj4gK1RoaXMgZG9jdW1lbnQgZGVzY3JpYmVzIHdoYXQgdGhlIFJJU0Mt
-ViBrZXJuZWwgZXhwZWN0cyBmcm9tIGJvb3Rsb2FkZXJzIGFuZAo+ICtmaXJtd2FyZSwgYnV0IGFs
-c28gdGhlIGNvbnN0cmFpbnRzIHRoYXQgYW55IGRldmVsb3BlciBtdXN0IGhhdmUgaW4gbWluZCB3
-aGVuCj4gK3RvdWNoaW5nIHRoZSBlYXJseSBib290IHByb2Nlc3MuIEZvciB0aGUgcHVycG9zZXMg
-b2YgdGhpcyBkb2N1bWVudCwgdGhlCj4gKydlYXJseSBib290IHByb2Nlc3MnIHJlZmVycyB0byBh
-bnkgY29kZSB0aGF0IHJ1bnMgYmVmb3JlIHRoZSBmaW5hbCB2aXJ0dWFsCj4gK21hcHBpbmcgaXMg
-c2V0IHVwLgo+ICsKPiArUHJlLWtlcm5lbCBSZXF1aXJlbWVudHMgYW5kIENvbnN0cmFpbnRzCj4g
-Kz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQo+ICsKPiArVGhlIFJJU0Mt
-ViBrZXJuZWwgZXhwZWN0cyB0aGUgZm9sbG93aW5nIG9mIGJvb3Rsb2FkZXJzIGFuZCBwbGF0Zm9y
-bSBmaXJtd2FyZToKPiArCj4gK1JlZ2lzdGVyIHN0YXRlCj4gKy0tLS0tLS0tLS0tLS0tCj4gKwo+
-ICtUaGUgUklTQy1WIGtlcm5lbCBleHBlY3RzOgo+ICsKPiArICAqIGAkYTBgIHRvIGNvbnRhaW4g
-dGhlIGhhcnRpZCBvZiB0aGUgY3VycmVudCBjb3JlLgo+ICsgICogYCRhMWAgdG8gY29udGFpbiB0
-aGUgYWRkcmVzcyBvZiB0aGUgZGV2aWNldHJlZSBpbiBtZW1vcnkuCj4gKwo+ICtDU1Igc3RhdGUK
-PiArLS0tLS0tLS0tCj4gKwo+ICtUaGUgUklTQy1WIGtlcm5lbCBleHBlY3RzOgo+ICsKPiArICAq
-IGAkc2F0cCA9IDBgOiB0aGUgTU1VLCBpZiBwcmVzZW50LCBtdXN0IGJlIGRpc2FibGVkLgo+ICsK
-PiArUmVzZXJ2ZWQgbWVtb3J5IGZvciByZXNpZGVudCBmaXJtd2FyZQo+ICstLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4gKwo+ICtUaGUgUklTQy1WIGtlcm5lbCBtdXN0IG5v
-dCBtYXAgYW55IHJlc2lkZW50IG1lbW9yeSwgb3IgbWVtb3J5IHByb3RlY3RlZCB3aXRoCj4gK1BN
-UHMsIGluIHRoZSBkaXJlY3QgbWFwcGluZywgc28gdGhlIGZpcm13YXJlIG11c3QgY29ycmVjdGx5
-IG1hcmsgdGhvc2UgcmVnaW9ucwo+ICthcyBwZXIgdGhlIGRldmljZXRyZWXCoHNwZWNpZmljYXRp
-b24gYW5kL29yIHRoZSBVRUZJIHNwZWNpZmljYXRpb24uCj4gKwo+ICtLZXJuZWwgbG9jYXRpb24K
-PiArLS0tLS0tLS0tLS0tLS0tCj4gKwo+ICtUaGUgUklTQy1WIGtlcm5lbCBleHBlY3RzIHRvIGJl
-IHBsYWNlZCBhdCBhIFBNRCBib3VuZGFyeSAoMk1CIGFsaWduZWQgZm9yIHJ2NjQKPiArYW5kIDRN
-QiBhbGlnbmVkIGZvciBydjMyKS4gTm90ZSB0aGF0IHRoZSBFRkkgc3R1YiB3aWxsIHBoeXNpY2Fs
-bHkgcmVsb2NhdGUgdGhlCj4gK2tlcm5lbCBpZiB0aGF0J3Mgbm90IHRoZSBjYXNlLgo+ICsKPiAr
-SGFyZHdhcmUgZGVzY3JpcHRpb24KPiArLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiArCj4gK1RoZSBm
-aXJtd2FyZSBjYW4gcGFzcyBlaXRoZXIgYSBkZXZpY2V0cmVlIG9yIEFDUEkgdGFibGVzIHRvIHRo
-ZSBSSVNDLVYga2VybmVsLgo+ICsKPiArVGhlIGRldmljZXRyZWUgaXMgZWl0aGVyIHBhc3NlZCBk
-aXJlY3RseSB0byB0aGUga2VybmVsIGZyb20gdGhlIHByZXZpb3VzIHN0YWdlCj4gK3VzaW5nIHRo
-ZSBgJGExYCByZWdpc3Rlciwgb3Igd2hlbiBib290aW5nIHdpdGggVUVGSSwgaXQgY2FuIGJlIHBh
-c3NlZCB1c2luZyB0aGUKPiArRUZJIGNvbmZpZ3VyYXRpb24gdGFibGUuCj4gKwo+ICtUaGUgQUNQ
-SSB0YWJsZXMgYXJlIHBhc3NlZCB0byB0aGUga2VybmVsIHVzaW5nIHRoZSBFRkkgY29uZmlndXJh
-dGlvbiB0YWJsZS4gSW4KPiArdGhpcyBjYXNlLCBhIHRpbnkgZGV2aWNldHJlZSBpcyBzdGlsbCBj
-cmVhdGVkIGJ5IHRoZSBFRkkgc3R1Yi4gUGxlYXNlIHJlZmVyIHRvCj4gKyJFRkkgc3R1YiBhbmQg
-ZGV2aWNldHJlZSIgdHJlZSBzZWN0aW9uIGJlbG93IGZvciBkZXRhaWxzIGFib3V0IHRoaXMgZGV2
-aWNldHJlZS4KPiArCj4gK0tlcm5lbCBlbnRyYW5jZQo+ICstLS0tLS0tLS0tLS0tLS0KPiArCj4g
-K09uIFNNUCBzeXN0ZW1zLCB0aGVyZSBhcmUgMiBtZXRob2RzIHRvIGVudGVyIHRoZSBrZXJuZWw6
-Cj4gKwo+ICstIGBSSVNDVl9CT09UX1NQSU5XQUlUYDogdGhlIGZpcm13YXJlIHJlbGVhc2VzIGFs
-bCBoYXJ0cyBpbiB0aGUga2VybmVsLCBvbmUgaGFydAo+ICsgIHdpbnMgYSBsb3R0ZXJ5IGFuZCBl
-eGVjdXRlcyB0aGUgZWFybHkgYm9vdCBjb2RlIHdoaWxlIHRoZSBvdGhlciBoYXJ0cyBhcmUKPiAr
-ICBwYXJrZWQgd2FpdGluZyBmb3IgdGhlIGluaXRpYWxpemF0aW9uIHRvIGZpbmlzaC4gVGhpcyBt
-ZXRob2QgaXMgbW9zdGx5IHVzZWQgdG8KPiArICBzdXBwb3J0IG9sZGVyIGZpcm13YXJlcyB3aXRo
-b3V0IFNCSSBIU00gZXh0ZW5zaW9uIGFuZCBNLW1vZGUgUklTQy1WIGtlcm5lbC4KPiArLSBgT3Jk
-ZXJlZCBib290aW5nYDogdGhlIGZpcm13YXJlIHJlbGVhc2VzIG9ubHkgb25lIGhhcnQgdGhhdCB3
-aWxsIGV4ZWN1dGUgdGhlCj4gKyAgaW5pdGlhbGl6YXRpb24gcGhhc2UgYW5kIHRoZW4gd2lsbCBz
-dGFydCBhbGwgb3RoZXIgaGFydHMgdXNpbmcgdGhlIFNCSSBIU00KPiArICBleHRlbnNpb24uIFRo
-ZSBvcmRlcmVkIGJvb3RpbmcgbWV0aG9kIGlzIHRoZSBwcmVmZXJyZWQgYm9vdGluZyBtZXRob2Qg
-Zm9yCj4gKyAgYm9vdGluZyB0aGUgUklTQy1WIGtlcm5lbCBiZWNhdXNlIGl0IGNhbiBzdXBwb3J0
-IGNwdSBob3RwbHVnIGFuZCBrZXhlYy4KPiArCj4gK1VFRkkKPiArLS0tLQo+ICsKPiArVUVGSSBt
-ZW1vcnkgbWFwCj4gK35+fn5+fn5+fn5+fn5+fgo+ICsKPiArV2hlbiBib290aW5nIHdpdGggVUVG
-SSwgdGhlIFJJU0MtViBrZXJuZWwgd2lsbCB1c2Ugb25seSB0aGUgRUZJIG1lbW9yeSBtYXAgdG8K
-PiArcG9wdWxhdGUgdGhlIHN5c3RlbSBtZW1vcnkuCj4gKwo+ICtUaGUgVUVGSSBmaXJtd2FyZSBt
-dXN0IHBhcnNlIHRoZSBzdWJub2RlcyBvZiB0aGUgYC9yZXNlcnZlZC1tZW1vcnlgIGRldmljZXRy
-ZWUKPiArbm9kZSBhbmQgYWJpZGUgYnkgdGhlIGRldmljZXRyZWUgc3BlY2lmaWNhdGlvbiB0byBj
-b252ZXJ0IHRoZSBhdHRyaWJ1dGVzIG9mCj4gK3Rob3NlIHN1Ym5vZGVzIChgbm8tbWFwYCBhbmQg
-YHJldXNhYmxlYCkgaW50byB0aGVpciBjb3JyZWN0IEVGSSBlcXVpdmFsZW50Cj4gKyhyZWZlciB0
-byBzZWN0aW9uICIzLjUuNCAvcmVzZXJ2ZWQtbWVtb3J5IGFuZCBVRUZJIiBvZiB0aGUgZGV2aWNl
-dHJlZQo+ICtzcGVjaWZpY2F0aW9uIHYwLjQtcmMxKS4KYXBwZW5kIHRoaXMgbm90ZSA/CgpOb3Rl
-IHRoYXQgUklTQy1WIGVkazIgZGl2ZXJnZXMgZnJvbSB0aGUgZGV2aWNldHJlZSBzcGVjaWZpY2F0
-aW9uIHRvIApkZWNsYXJlIHRoZSAhbm8tbWFwIHJlZ2lvbnMgYXMgRWZpUmVzZXJ2ZWRNZW1vcnlU
-eXBlIGluc3RlYWQgb2YgCkVmaUJvb3RTZXJ2aWNlc0RhdGEuCj4gKwo+ICtSSVNDVl9FRklfQk9P
-VF9QUk9UT0NPTAo+ICt+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fgo+ICsKPiArV2hlbiBib290aW5n
-IHdpdGggVUVGSSwgdGhlIEVGSSBzdHViIHJlcXVpcmVzIHRoZSBib290IGhhcnRpZCBpbiBvcmRl
-ciB0byBwYXNzCj4gK2l0IHRvIHRoZSBSSVNDLVYga2VybmVsIGluIGAkYTFgLiBUaGUgRUZJIHN0
-dWIgcmV0cmlldmVzIHRoZSBib290IGhhcnRpZCB1c2luZwo+ICtvbmUgb2YgdGhlIGZvbGxvd2lu
-ZyBtZXRob2RzOgo+ICsKPiArLSBgUklTQ1ZfRUZJX0JPT1RfUFJPVE9DT0xgICgqKnByZWZlcnJl
-ZCoqKS4KPiArLSBgYm9vdC1oYXJ0aWRgIGRldmljZXRyZWUgc3Vibm9kZSAoKipkZXByZWNhdGVk
-KiopLgo+ICsKPiArQW55IG5ldyBmaXJtd2FyZSBtdXN0IGltcGxlbWVudCBgUklTQ1ZfRUZJX0JP
-T1RfUFJPVE9DT0xgIGFzIHRoZSBkZXZpY2V0cmVlCj4gK2Jhc2VkIGFwcHJvYWNoIGlzIGRlcHJl
-Y2F0ZWQgbm93Lgo+ICsKPiArRWFybHkgQm9vdCBSZXF1aXJlbWVudHMgYW5kIENvbnN0cmFpbnRz
-Cj4gKz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQo+ICsKPiArVGhlIFJJ
-U0MtViBrZXJuZWwncyBlYXJseSBib290IHByb2Nlc3Mgb3BlcmF0ZXMgdW5kZXIgdGhlIGZvbGxv
-d2luZyBjb25zdHJhaW50czoKPiArCj4gK0VGSSBzdHViIGFuZCBkZXZpY2V0cmVlCj4gKy0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tCj4gKwo+ICtXaGVuIGJvb3Rpbmcgd2l0aCBVRUZJLCB0aGUgZGV2
-aWNldHJlZSBpcyBzdXBwbGVtZW50ZWQgKG9yIGNyZWF0ZWQpIGJ5IHRoZSBFRkkKPiArc3R1YiB3
-aXRoIHRoZSBzYW1lIHBhcmFtZXRlcnMgYXMgYXJtNjQgd2hpY2ggYXJlIGRlc2NyaWJlZCBhdCB0
-aGUgcGFyYWdyYXBoCj4gKyJVRUZJIGtlcm5lbCBzdXBwb3J0IG9uIEFSTSIgaW4gRG9jdW1lbnRh
-dGlvbi9hcm0vdWVmaS5yc3QuCj4gKwo+ICtWaXJ0dWFsIG1hcHBpbmcgaW5zdGFsbGF0aW9uCj4g
-Ky0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiArCj4gK1RoZSBpbnN0YWxsYXRpb24gb2Yg
-dGhlIHZpcnR1YWwgbWFwcGluZyBpcyBkb25lIGluIDIgc3RlcHMgaW4gdGhlIFJJU0MtViBrZXJu
-ZWw6Cj4gKwo+ICsxLiA6YzpmdW5jOmBzZXR1cF92bWAgaW5zdGFsbHMgYSB0ZW1wb3Jhcnkga2Vy
-bmVsIG1hcHBpbmcgaW4KPiArICAgOmM6dmFyOmBlYXJseV9wZ19kaXJgIHdoaWNoIGFsbG93cyBk
-aXNjb3Zlcnkgb2YgdGhlIHN5c3RlbSBtZW1vcnkuIE9ubHkgdGhlCj4gKyAgIGtlcm5lbCB0ZXh0
-L2RhdGEgYXJlIG1hcHBlZCBhdCB0aGlzIHBvaW50LiBXaGVuIGVzdGFibGlzaGluZyB0aGlzIG1h
-cHBpbmcsIG5vCj4gKyAgIGFsbG9jYXRpb24gY2FuIGJlIGRvbmUgKHNpbmNlIHRoZSBzeXN0ZW0g
-bWVtb3J5IGlzIG5vdCBrbm93biB5ZXQpLCBzbwo+ICsgICA6Yzp2YXI6YGVhcmx5X3BnX2RpcmAg
-cGFnZSB0YWJsZSBpcyBzdGF0aWNhbGx5IGFsbG9jYXRlZCAodXNpbmcgb25seSBvbmUKPiArICAg
-dGFibGUgZm9yIGVhY2ggbGV2ZWwpLgo+ICsKPiArMi4gOmM6ZnVuYzpgc2V0dXBfdm1fZmluYWxg
-IGNyZWF0ZXMgdGhlIGZpbmFsIGtlcm5lbCBtYXBwaW5nIGluCj4gKyAgIDpjOnZhcjpgc3dhcHBl
-cl9wZ19kaXJgIGFuZCB0YWtlcyBhZHZhbnRhZ2Ugb2YgdGhlIGRpc2NvdmVyZWQgc3lzdGVtIG1l
-bW9yeQo+ICsgICB0byBjcmVhdGUgdGhlIGxpbmVhciBtYXBwaW5nLiBXaGVuIGVzdGFibGlzaGlu
-ZyB0aGlzIG1hcHBpbmcsIHRoZSBrZXJuZWwKPiArICAgY2FuIGFsbG9jYXRlIG1lbW9yeSBidXQg
-Y2Fubm90IGFjY2VzcyBpdCBkaXJlY3RseSAoc2luY2UgdGhlIGRpcmVjdCBtYXBwaW5nCj4gKyAg
-IGlzIG5vdCBwcmVzZW50IHlldCksIHNvIGl0IHVzZXMgdGVtcG9yYXJ5IG1hcHBpbmdzIGluIHRo
-ZSBmaXhtYXAgcmVnaW9uIHRvCj4gKyAgIGJlIGFibGUgdG8gYWNjZXNzIHRoZSBuZXdseSBhbGxv
-Y2F0ZWQgcGFnZSB0YWJsZSBsZXZlbHMuCj4gKwo+ICtGb3IgOmM6ZnVuYzpgdmlydF90b19waHlz
-YCBhbmQgOmM6ZnVuYzpgcGh5c190b192aXJ0YCB0byBiZSBhYmxlIHRvIGNvcnJlY3RseQo+ICtj
-b252ZXJ0IGRpcmVjdCBtYXBwaW5nIGFkZHJlc3NlcyB0byBwaHlzaWNhbCBhZGRyZXNzZXMsIHRo
-ZXkgbmVlZCB0byBrbm93IHRoZQo+ICtzdGFydCBvZiB0aGUgRFJBTS4gVGhpcyBoYXBwZW5zIGFm
-dGVyIHN0ZXAgMSwgcmlnaHQgYmVmb3JlIHN0ZXAgMiBpbnN0YWxscyB0aGUKPiArZGlyZWN0IG1h
-cHBpbmcgKHNlZSA6YzpmdW5jOmBzZXR1cF9ib290bWVtYCBmdW5jdGlvbiBpbiBhcmNoL3Jpc2N2
-L21tL2luaXQuYykuCj4gK0FueSB1c2FnZSBvZiB0aG9zZSBtYWNyb3MgYmVmb3JlIHRoZSBmaW5h
-bCB2aXJ0dWFsIG1hcHBpbmcgaXMgaW5zdGFsbGVkIG11c3QKPiArYmUgY2FyZWZ1bGx5IGV4YW1p
-bmVkLgo+ICsKPiArRGV2aWNlLXRyZWUgbWFwcGluZyB2aWEgZml4bWFwCj4gKy0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLQo+ICsKPiArVGhlIFJJU0MtViBrZXJuZWwgdXNlcyB0aGUgZml4
-bWFwIHJlZ2lvbiB0byBtYXAgdGhlIGRldmljZXRyZWUgYmVjYXVzZSB0aGUKPiArZGV2aWNldHJl
-ZSB2aXJ0dWFsIG1hcHBpbmcgbXVzdCByZW1haW4gdGhlIHNhbWUgYmV0d2VlbiA6YzpmdW5jOmBz
-ZXR1cF92bWAgYW5kCj4gKzpjOmZ1bmM6YHNldHVwX3ZtX2ZpbmFsYCBjYWxscyBzaW5jZSB0aGUg
-OmM6dmFyOmByZXNlcnZlZF9tZW1gIGFycmF5IGlzCj4gK2luaXRpYWxpemVkIHdpdGggdmlydHVh
-bCBhZGRyZXNzZXMgZXN0YWJsaXNoZWQgYnkgOmM6ZnVuYzpgc2V0dXBfdm1gIGFuZCB1c2VkCj4g
-K3dpdGggdGhlIG1hcHBpbmcgZXN0YWJsaXNoZWQgYnkgOmM6ZnVuYzpgc2V0dXBfdm1fZmluYWxg
-Lgo+ICsKPiArUHJlLU1NVSBleGVjdXRpb24KPiArLS0tLS0tLS0tLS0tLS0tLS0KPiArCj4gK0Eg
-ZmV3IHBpZWNlcyBvZiBjb2RlIG5lZWQgdG8gcnVuIGJlZm9yZSBldmVuIHRoZSBmaXJzdCB2aXJ0
-dWFsIG1hcHBpbmcgaXMKPiArZXN0YWJsaXNoZWQuIFRoZXNlIGFyZSB0aGUgaW5zdGFsbGF0aW9u
-IG9mIHRoZSBmaXJzdCB2aXJ0dWFsIG1hcHBpbmcgaXRzZWxmLAo+ICtwYXRjaGluZyBvZiBlYXJs
-eSBhbHRlcm5hdGl2ZXMgYW5kIHRoZSBlYXJseSBwYXJzaW5nIG9mIHRoZSBrZXJuZWwgY29tbWFu
-ZCBsaW5lLgo+ICtUaGF0IGNvZGUgbXVzdCBiZSB2ZXJ5IGNhcmVmdWxseSBjb21waWxlZCBhczoK
-PiArCj4gKy0gYC1mbm8tcGllYDogVGhpcyBpcyBuZWVkZWQgZm9yIHJlbG9jYXRhYmxlIGtlcm5l
-bHMgd2hpY2ggdXNlIGAtZlBJRWAsIHNpbmNlCj4gKyAgb3RoZXJ3aXNlLCBhbnkgYWNjZXNzIHRv
-IGEgZ2xvYmFsIHN5bWJvbCB3b3VsZCBnbyB0aHJvdWdoIHRoZSBHT1Qgd2hpY2ggaXMKPiArICBv
-bmx5IHJlbG9jYXRlZCB2aXJ0dWFsbHkuCj4gKy0gYC1tY21vZGVsPW1lZGFueWA6IEFueSBhY2Nl
-c3MgdG8gYSBnbG9iYWwgc3ltYm9sIG11c3QgYmUgUEMtcmVsYXRpdmUgdG8gYXZvaWQKPiArICBh
-bnkgcmVsb2NhdGlvbnMgdG8gaGFwcGVuIGJlZm9yZSB0aGUgTU1VIGlzIHNldHVwLgo+ICstICph
-bGwqIGluc3RydW1lbnRhdGlvbiBtdXN0IGFsc28gYmUgZGlzYWJsZWQgKHRoYXQgaW5jbHVkZXMg
-S0FTQU4sIGZ0cmFjZSBhbmQKPiArICBvdGhlcnMpLgo+ICsKPiArQXMgdXNpbmcgYSBzeW1ib2wg
-ZnJvbSBhIGRpZmZlcmVudCBjb21waWxhdGlvbiB1bml0IHJlcXVpcmVzIHRoaXMgdW5pdCB0byBi
-ZQo+ICtjb21waWxlZCB3aXRoIHRob3NlIGZsYWdzLCB3ZSBhZHZpc2UsIGFzIG11Y2ggYXMgcG9z
-c2libGUsIG5vdCB0byB1c2UgZXh0ZXJuYWwKPiArc3ltYm9scy4KPiBkaWZmIC0tZ2l0IGEvRG9j
-dW1lbnRhdGlvbi9yaXNjdi9pbmRleC5yc3QgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L2luZGV4LnJz
-dAo+IGluZGV4IDE3NWE5MWRiMDIwMC4uMWY2NjA2MmRlZjZkIDEwMDY0NAo+IC0tLSBhL0RvY3Vt
-ZW50YXRpb24vcmlzY3YvaW5kZXgucnN0Cj4gKysrIGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9pbmRl
-eC5yc3QKPiBAQCAtNSw2ICs1LDcgQEAgUklTQy1WIGFyY2hpdGVjdHVyZQo+ICAgLi4gdG9jdHJl
-ZTo6Cj4gICAgICAgOm1heGRlcHRoOiAxCj4gICAKPiArICAgIGJvb3QKPiAgICAgICBib290LWlt
-YWdlLWhlYWRlcgo+ICAgICAgIHZtLWxheW91dAo+ICAgICAgIGh3cHJvYmUKCi0tIApUaGFua3MK
-U29uZyBTaHVhaQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+Now we specify the minimal version of GCC as 5.1 and Clang/LLVM as 11.0.0
+in Documentation/process/changes.rst, __CHAR_BIT__ and __SIZEOF_LONG__ are
+usable, it is probably fine to unify the definition of __BITS_PER_LONG as
+(__CHAR_BIT__ * __SIZEOF_LONG__) in asm-generic uapi bitsperlong.h.
+
+In order to keep safe and avoid regression, only unify uapi bitsperlong.h
+for some archs such as arm64, riscv and loongarch which are using newer
+toolchains that have the definitions of __CHAR_BIT__ and __SIZEOF_LONG__.
+
+Suggested-by: Xi Ruoyao <xry111@xry111.site>
+Link: https://lore.kernel.org/all/d3e255e4746de44c9903c4433616d44ffcf18d1b.camel@xry111.site/
+Suggested-by: Arnd Bergmann <arnd@arndb.de>
+Link: https://lore.kernel.org/linux-arch/a3a4f48a-07d4-4ed9-bc53-5d383428bdd2@app.fastmail.com/
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
+ arch/arm64/include/uapi/asm/bitsperlong.h          | 24 ----------------------
+ arch/loongarch/include/uapi/asm/bitsperlong.h      |  9 --------
+ arch/riscv/include/uapi/asm/bitsperlong.h          | 14 -------------
+ include/uapi/asm-generic/bitsperlong.h             | 11 ++++++++++
+ tools/arch/arm64/include/uapi/asm/bitsperlong.h    | 24 ----------------------
+ .../arch/loongarch/include/uapi/asm/bitsperlong.h  |  9 --------
+ tools/arch/riscv/include/uapi/asm/bitsperlong.h    | 14 -------------
+ tools/include/uapi/asm-generic/bitsperlong.h       | 12 +++++++++++
+ tools/include/uapi/asm/bitsperlong.h               |  6 ------
+ 9 files changed, 23 insertions(+), 100 deletions(-)
+ delete mode 100644 arch/arm64/include/uapi/asm/bitsperlong.h
+ delete mode 100644 arch/loongarch/include/uapi/asm/bitsperlong.h
+ delete mode 100644 arch/riscv/include/uapi/asm/bitsperlong.h
+ delete mode 100644 tools/arch/arm64/include/uapi/asm/bitsperlong.h
+ delete mode 100644 tools/arch/loongarch/include/uapi/asm/bitsperlong.h
+ delete mode 100644 tools/arch/riscv/include/uapi/asm/bitsperlong.h
+
+diff --git a/arch/arm64/include/uapi/asm/bitsperlong.h b/arch/arm64/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 485d60be..0000000
+--- a/arch/arm64/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,24 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- *
+- * This program is free software; you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License version 2 as
+- * published by the Free Software Foundation.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#ifndef __ASM_BITSPERLONG_H
+-#define __ASM_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG 64
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif	/* __ASM_BITSPERLONG_H */
+diff --git a/arch/loongarch/include/uapi/asm/bitsperlong.h b/arch/loongarch/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 00b4ba1..0000000
+--- a/arch/loongarch/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,9 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-#ifndef __ASM_LOONGARCH_BITSPERLONG_H
+-#define __ASM_LOONGARCH_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG (__SIZEOF_LONG__ * 8)
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif /* __ASM_LOONGARCH_BITSPERLONG_H */
+diff --git a/arch/riscv/include/uapi/asm/bitsperlong.h b/arch/riscv/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 7d0b32e..0000000
+--- a/arch/riscv/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,14 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- * Copyright (C) 2015 Regents of the University of California
+- */
+-
+-#ifndef _UAPI_ASM_RISCV_BITSPERLONG_H
+-#define _UAPI_ASM_RISCV_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG (__SIZEOF_POINTER__ * 8)
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif /* _UAPI_ASM_RISCV_BITSPERLONG_H */
+diff --git a/include/uapi/asm-generic/bitsperlong.h b/include/uapi/asm-generic/bitsperlong.h
+index 693d9a4..0f2d225 100644
+--- a/include/uapi/asm-generic/bitsperlong.h
++++ b/include/uapi/asm-generic/bitsperlong.h
+@@ -3,6 +3,16 @@
+ #define _UAPI__ASM_GENERIC_BITS_PER_LONG
+ 
+ /*
++ * In order to keep safe and avoid regression, only unify uapi
++ * bitsperlong.h for some archs which are using newer toolchains
++ * that have the definitions of __CHAR_BIT__ and __SIZEOF_LONG__.
++ * See the following link for more info:
++ * https://lore.kernel.org/linux-arch/b9624545-2c80-49a1-ac3c-39264a591f7b@app.fastmail.com/
++ */
++#if defined(__CHAR_BIT__) && defined(__SIZEOF_LONG__)
++#define __BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
++#else
++/*
+  * There seems to be no way of detecting this automatically from user
+  * space, so 64 bit architectures should override this in their
+  * bitsperlong.h. In particular, an architecture that supports
+@@ -12,5 +22,6 @@
+ #ifndef __BITS_PER_LONG
+ #define __BITS_PER_LONG 32
+ #endif
++#endif
+ 
+ #endif /* _UAPI__ASM_GENERIC_BITS_PER_LONG */
+diff --git a/tools/arch/arm64/include/uapi/asm/bitsperlong.h b/tools/arch/arm64/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 485d60be..0000000
+--- a/tools/arch/arm64/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,24 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- *
+- * This program is free software; you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License version 2 as
+- * published by the Free Software Foundation.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+- */
+-#ifndef __ASM_BITSPERLONG_H
+-#define __ASM_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG 64
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif	/* __ASM_BITSPERLONG_H */
+diff --git a/tools/arch/loongarch/include/uapi/asm/bitsperlong.h b/tools/arch/loongarch/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 00b4ba1..0000000
+--- a/tools/arch/loongarch/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,9 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-#ifndef __ASM_LOONGARCH_BITSPERLONG_H
+-#define __ASM_LOONGARCH_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG (__SIZEOF_LONG__ * 8)
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif /* __ASM_LOONGARCH_BITSPERLONG_H */
+diff --git a/tools/arch/riscv/include/uapi/asm/bitsperlong.h b/tools/arch/riscv/include/uapi/asm/bitsperlong.h
+deleted file mode 100644
+index 0b9b58b..0000000
+--- a/tools/arch/riscv/include/uapi/asm/bitsperlong.h
++++ /dev/null
+@@ -1,14 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright (C) 2012 ARM Ltd.
+- * Copyright (C) 2015 Regents of the University of California
+- */
+-
+-#ifndef _UAPI_ASM_RISCV_BITSPERLONG_H
+-#define _UAPI_ASM_RISCV_BITSPERLONG_H
+-
+-#define __BITS_PER_LONG (__SIZEOF_POINTER__ * 8)
+-
+-#include <asm-generic/bitsperlong.h>
+-
+-#endif /* _UAPI_ASM_RISCV_BITSPERLONG_H */
+diff --git a/tools/include/uapi/asm-generic/bitsperlong.h b/tools/include/uapi/asm-generic/bitsperlong.h
+index 23e6c41..0f2d225 100644
+--- a/tools/include/uapi/asm-generic/bitsperlong.h
++++ b/tools/include/uapi/asm-generic/bitsperlong.h
+@@ -1,7 +1,18 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+ #ifndef _UAPI__ASM_GENERIC_BITS_PER_LONG
+ #define _UAPI__ASM_GENERIC_BITS_PER_LONG
+ 
+ /*
++ * In order to keep safe and avoid regression, only unify uapi
++ * bitsperlong.h for some archs which are using newer toolchains
++ * that have the definitions of __CHAR_BIT__ and __SIZEOF_LONG__.
++ * See the following link for more info:
++ * https://lore.kernel.org/linux-arch/b9624545-2c80-49a1-ac3c-39264a591f7b@app.fastmail.com/
++ */
++#if defined(__CHAR_BIT__) && defined(__SIZEOF_LONG__)
++#define __BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
++#else
++/*
+  * There seems to be no way of detecting this automatically from user
+  * space, so 64 bit architectures should override this in their
+  * bitsperlong.h. In particular, an architecture that supports
+@@ -11,5 +22,6 @@
+ #ifndef __BITS_PER_LONG
+ #define __BITS_PER_LONG 32
+ #endif
++#endif
+ 
+ #endif /* _UAPI__ASM_GENERIC_BITS_PER_LONG */
+diff --git a/tools/include/uapi/asm/bitsperlong.h b/tools/include/uapi/asm/bitsperlong.h
+index da52065..c65267a 100644
+--- a/tools/include/uapi/asm/bitsperlong.h
++++ b/tools/include/uapi/asm/bitsperlong.h
+@@ -1,8 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #if defined(__i386__) || defined(__x86_64__)
+ #include "../../../arch/x86/include/uapi/asm/bitsperlong.h"
+-#elif defined(__aarch64__)
+-#include "../../../arch/arm64/include/uapi/asm/bitsperlong.h"
+ #elif defined(__powerpc__)
+ #include "../../../arch/powerpc/include/uapi/asm/bitsperlong.h"
+ #elif defined(__s390__)
+@@ -13,12 +11,8 @@
+ #include "../../../arch/mips/include/uapi/asm/bitsperlong.h"
+ #elif defined(__ia64__)
+ #include "../../../arch/ia64/include/uapi/asm/bitsperlong.h"
+-#elif defined(__riscv)
+-#include "../../../arch/riscv/include/uapi/asm/bitsperlong.h"
+ #elif defined(__alpha__)
+ #include "../../../arch/alpha/include/uapi/asm/bitsperlong.h"
+-#elif defined(__loongarch__)
+-#include "../../../arch/loongarch/include/uapi/asm/bitsperlong.h"
+ #else
+ #include <asm-generic/bitsperlong.h>
+ #endif
+-- 
+2.1.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
