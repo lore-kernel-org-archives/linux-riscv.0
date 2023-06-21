@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35654EB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 11:58:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27954EB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 12:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=px8w/3cDTHJvC0FSxfD8XImsaNvYrjYUZOuc56Q6Ogg=; b=cjkztpZTXhFvU5
-	OYN+j8mc7OaKvy/7xnUJOobRIpfIZeAnFUoPRO6CM57rPiXIH+GGKXYBggfKOtrR8g/yhrv+F62g7
-	S0ZrBZ9gDev+TgU3OXrPljveEqyEyaJay6wffReeVJqY6hR9ViskFBcoJZ1vUbSYgmYbk1L6jz59W
-	rd1ZCkEahV38X4/gfCLElIYyvoveBaOtBQIDqBLc6wWhcTKPTvr+gDeqB7bvtu9LLdxwKHhH6/yqf
-	5uc4OfIBCoQFLhVQFindz+WLP74uAk8+yJtPMkGz7qKfgb44tQ5ApJ3/U4kh848dn6qu5jmmm63QI
-	7s492oliTPQ/omIPDYQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xl9lLLHPuF5Rg/np4KDM/7jKCreH8Pq8gFQSYXlBMGM=; b=40SfeLavkZ+IyA0k3y6knOFbhG
+	chcqeIyNu0OhAWLrHHwVlNQo+sVUkDt4rNbq6dHGazXsTY/HQTCyNXwcCF6uTYdk0kHMWV00kaoE5
+	qTT7e5AjaeViP+6vTyccXSTJTWMyWLOfRBucYqkzBMkhhhUFcb2O+oiga7OaRSggSXeKpbmLHsgae
+	FWK5C2yLrcyE8dKKFpzljmj+iIpdSv4fTNL1ZryA8yAI0L/LStW85DhL4xAuSb8DhV3powMnSqbcg
+	tOuQop50jWTDGG4urHlQbBJSoKRo+bmKoUnI25G4ShLSmPjclEbue9MRcFz2eZFOIX0bwR34XqeAd
+	t4bO/oeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBwTx-00ESv2-15;
-	Wed, 21 Jun 2023 11:58:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qBwkh-00EVZj-0I;
+	Wed, 21 Jun 2023 12:15:59 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBwTu-00ESu5-1q;
-	Wed, 21 Jun 2023 11:58:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1DC3D614E9;
-	Wed, 21 Jun 2023 11:58:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5208C433C8;
-	Wed, 21 Jun 2023 11:58:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687348717;
-	bh=zjlaqUJd/M2XG3eUFn4mMZVwk591aoxerwCGAG/o7Kg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HH2K6wz1VGKLKMLtvE0b4Iv/nxoeEKa+38PupxaUY2AxourukKfqZ9jcB5o7NUqyw
-	 sb+dYFkRi/KB8EEzEstq04IWUTuzAkCRgJ1Vpj020oEco12DfL5Vy+jkKP9N6GPTl0
-	 cDwiVvpDXeIrdLKynX8Gr4oK2fgKEgZSm2rgE/enKb2aKwT9g9LEU2psDIynmFi3zF
-	 Ir2vR09ejfeBzfKSlNzrkC5dvheSUOjbydClg5C+39yFx5MWfF2cVt5j5EMAGiOBam
-	 WPT3jZVD2gqpgXkwrAvQ9BsoDIryMXF2yoygQ9liWRBn0GScDDRYB+KD63NxNMOWpJ
-	 0TDFJnZAaENww==
-Date: Wed, 21 Jun 2023 17:28:33 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Minda Chen <minda.chen@starfivetech.com>,
-	kernel test robot <lkp@intel.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Conor Dooley <conor@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Roger Quadros <rogerq@kernel.org>, oe-kbuild-all@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Mason Huo <mason.huo@starfivetech.com>
-Subject: Re: [PATCH v7 4/5] phy: starfive: Add JH7110 PCIE 2.0 PHY driver
-Message-ID: <ZJLl6Sb0hPdYUGC0@matsya>
-References: <20230619094759.21013-5-minda.chen@starfivetech.com>
- <202306192215.TvQco9m6-lkp@intel.com>
- <d4824941-85dd-d378-be5b-072907b1169d@starfivetech.com>
- <20230621-duckbill-scarf-fa79744cd42d@wendy>
+	id 1qBwke-00EVYI-0W
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Jun 2023 12:15:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1687349756; x=1718885756;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=o33O9E/sTQij2wF7nfbm1fbzPvGMPtF4b4Czb9FyI8w=;
+  b=CwedElHE0WETdCZrzpUOC+ikSju7y8U2PIWDOLDO+Vdzc48DAnsubwUt
+   m0l9LHXgfd/Q4W81WeHWChsCNGhTVPkmQutgrK5zj/Z7bJtIlS4gkoeOM
+   TZCmKFXx9XAssHAzRqYON5jRhh+Fl81a7N7Cv44tWrdUWsIAkZ+8hTCRC
+   sciCkSDw6jXhhlhEjVfZALj3G5NpPfTNgoOu1XpUxleDPsQkE5dovAuJx
+   28NfPyaHGk0Ot1XL4xyHxkGPnTj/Y3fCTkKqoMNG6mlGt/vVDTJPZLgCJ
+   3V6UnG/POiLKw/W1LXTqnBIaxZiqQuO7B+nxVLxY20W22ArUo0p0yzcdV
+   Q==;
+X-IronPort-AV: E=Sophos;i="6.00,260,1681196400"; 
+   d="asc'?scan'208";a="219694599"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 21 Jun 2023 05:15:54 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 21 Jun 2023 05:15:53 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 21 Jun 2023 05:15:51 -0700
+Date: Wed, 21 Jun 2023 13:15:24 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v2 2/3] Documentation: riscv: Add early boot document
+Message-ID: <20230621-attempt-unstirred-567b0352176a@wendy>
+References: <20230621072234.9900-1-alexghiti@rivosinc.com>
+ <20230621072234.9900-2-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230621-duckbill-scarf-fa79744cd42d@wendy>
+In-Reply-To: <20230621072234.9900-2-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230621_045838_687130_59A84314 
-X-CRM114-Status: GOOD (  24.11  )
+X-CRM114-CacheID: sfid-20230621_051556_380306_61BD89EB 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +78,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, Song Shuai <songshuaishuai@tinylab.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============2332722728048044189=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21-06-23, 12:44, Conor Dooley wrote:
-> Hey,
-> 
-> On Wed, Jun 21, 2023 at 05:29:34PM +0800, Minda Chen wrote:
-> > On 2023/6/19 22:45, kernel test robot wrote:
-> > > kernel test robot noticed the following build errors:
-> > > 
-> > > [auto build test ERROR on robh/for-next]
-> > > [also build test ERROR on linus/master v6.4-rc7 next-20230619]
-> > > [If your patch is applied to the wrong git tree, kindly drop us a note.
-> > > And when submitting patch, we suggest to use '--base' as documented in
-> > > https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> > > 
-> > > url:    https://github.com/intel-lab-lkp/linux/commits/Minda-Chen/dt-bindings-phy-Add-StarFive-JH7110-PCIe-PHY/20230619-184756
-> > > base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-> > > patch link:    https://lore.kernel.org/r/20230619094759.21013-5-minda.chen%40starfivetech.com
-> > > patch subject: [PATCH v7 4/5] phy: starfive: Add JH7110 PCIE 2.0 PHY driver
-> > > config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20230619/202306192215.TvQco9m6-lkp@intel.com/config)
-> > > compiler: s390-linux-gcc (GCC) 12.3.0
-> > > reproduce: (https://download.01.org/0day-ci/archive/20230619/202306192215.TvQco9m6-lkp@intel.com/reproduce)
-> > > 
-> > > If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> > > the same patch/commit), kindly add following tags
-> > > | Reported-by: kernel test robot <lkp@intel.com>
-> > > | Closes: https://lore.kernel.org/oe-kbuild-all/202306192215.TvQco9m6-lkp@intel.com/
-> > > 
-> > > All errors (new ones prefixed by >>, old ones prefixed by <<):
-> > > 
-> > >>> ERROR: modpost: "devm_platform_ioremap_resource" [drivers/phy/starfive/phy-jh7110-pcie.ko] undefined!
-> 
-> > I can not find this error. devm_platform_ioremap_resource is an exported symbol
-> 
-> I asked Arnd about this since the error confused me too. Arnd pointed
-> out that this "allmodconfig" isn't really allmodconfig as PCI is
-> disabled. On s390, CONFIG_HAS_IOMEM depends on PCI and thus none of
-> this devres stuff is usable without it. He suggested that you make the
-> driver depend on USB_SUPPORT, which in turn depends on HAS_IOMEM.
+--===============2332722728048044189==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="n3xCvkrHFE9ObyCr"
+Content-Disposition: inline
 
-Or add HAS_IOMEM as few drivers already do :-)
+--n3xCvkrHFE9ObyCr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> 
-> Cheers,
-> Conor.
-> 
-> > > ERROR: modpost: "devm_ioremap_resource" [drivers/dma/qcom/hdma.ko] undefined!
-> > > ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/fsl-edma.ko] undefined!
-> > > ERROR: modpost: "devm_platform_ioremap_resource" [drivers/dma/idma64.ko] undefined!
-> > > ERROR: modpost: "iounmap" [drivers/tty/ipwireless/ipwireless.ko] undefined!
-> > > ERROR: modpost: "ioremap" [drivers/tty/ipwireless/ipwireless.ko] undefined!
-> > > ERROR: modpost: "devm_platform_ioremap_resource" [drivers/char/xillybus/xillybus_of.ko] undefined!
-> > > ERROR: modpost: "devm_memremap" [drivers/misc/open-dice.ko] undefined!
-> > > ERROR: modpost: "devm_memunmap" [drivers/misc/open-dice.ko] undefined!
-> > > ERROR: modpost: "iounmap" [drivers/net/ethernet/8390/pcnet_cs.ko] undefined!
-> > > WARNING: modpost: suppressed 19 unresolved symbol warnings because there were too many)
-> > >> Kconfig warnings: (for reference only)
-> > >    WARNING: unmet direct dependencies detected for USB_PHY
-> > >    Depends on [n]: USB_SUPPORT [=n]
-> > >    Selected by [m]:
-> > >    - PHY_STARFIVE_JH7110_PCIE [=m]
-> > > 
-> > I will fix it.
+Hey Alex,
+
+On Wed, Jun 21, 2023 at 09:22:33AM +0200, Alexandre Ghiti wrote:
+> This document describes the constraints and requirements of the early
+> boot process in a RISC-V kernel.
+
+Thanks a lot for writing this & implementing the feedback :)
+I had one or two minor comments about rather long sentences, but there's
+little point I think in respinning for that, so I have ignored them.
+Other than that, didn't spot anything new on this second reading.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Cheers,
+Conor.
+
+--n3xCvkrHFE9ObyCr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJLp3AAKCRB4tDGHoIJi
+0mK+AQCazV/48ocacOBemauABiD3W3ckxoRGUXlGgRGjJmhQPgD/Q0WBQAi95q/m
+lAjRrZfXGyJ2XQqkfntxou17Ja1gXwU=
+=KT1X
+-----END PGP SIGNATURE-----
+
+--n3xCvkrHFE9ObyCr--
 
 
-
--- 
-~Vinod
+--===============2332722728048044189==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2332722728048044189==--
+
