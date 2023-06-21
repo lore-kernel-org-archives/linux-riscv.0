@@ -4,67 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E2DEB64DD
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 18:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B71AFEB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 18:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N2ULRhqauUYpEPLnWA49tGVPXlI/4uB9wmq2rRkfFAM=; b=1pw9PZvTGDm/H8fmr4x45/GkVn
-	XOQyGO0VTHbIL/ffOcz0vlXedNRtjBtgRZidVOMFZ9UgOggd0MWqHr9g0C6GdLdSq75Us9U/DCOZ3
-	7lOXOhkFBusmRfqgdWOX4z1dRg912hV+B1Jq6sHzjViOk7PTHHRu4Aw2pVPI6mbMRYsGeB4Uj4Dpx
-	zVetQ25x3odZWp5fETW8ZMja+ghb5F8bNRXKaITSpCNUCm+gdqXLgEeenig0LupmRDzzP/YG6CIPb
-	zmDvRGaJQjmhmknqRwE8ks92IhakAIvxFUY5bxYRSOkwkjqmhlkNgFV8LXM2cNUzlVlAo2hGvheYA
-	wGg4Jxog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DzXAvZMaVS5aYjBQrYmn26MvgkqKJD3NCMKL6fR43HQ=; b=jGv/N8qtj8XeKO
+	OvwkL7wPdbKCnkUEz/a4qfxC/r2jIJZw+VUhnhIfiqcmJy5Og1WAviujMO6xrTDoGvXTzUnP/0u9T
+	tGJ5KTdfy9deXCLnyiNZydRmHq64H9flcJuWAqQfPe49p8Jv4aRKEF52VAzb6Ye2umPOcu7iEE/i0
+	2jLSanYa1sUoIUQ14+VapFB67kw8+g19cNY3wLvGYUOeMXtGN+3n6ZOLRK25zZ3kVNULCs2IJNjnV
+	sRiYjgyk0zMJFYG83sLcCl/iMB4c4y5tJrroP0ih+v7oJ6cBngyj/f2AKvql0AjEFoKt9QsaviugW
+	su2bW3QvJKHgjDCbsv3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qC2m6-00FRAj-0I;
-	Wed, 21 Jun 2023 18:41:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qC2sw-00FSAC-1l;
+	Wed, 21 Jun 2023 18:48:54 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qC2m3-00FR9d-1h
+	id 1qC2ss-00FS5u-1R
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jun 2023 18:41:48 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D57B961657;
-	Wed, 21 Jun 2023 18:41:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85F37C433C0;
-	Wed, 21 Jun 2023 18:41:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687372906;
-	bh=6KYc2c7oOXRFu/RZ/MRT/iHTPpfsspYLvcXsDKK4hIk=;
+	Wed, 21 Jun 2023 18:48:52 +0000
+Date: Wed, 21 Jun 2023 20:48:43 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=t-8ch.de; s=mail;
+	t=1687373324; bh=K7GIk7uEvmoc9FWOicXHtA/QKVy8xu48Me8OQ6sPdtw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OGDacF/ao4XnsWMMhLyxJ/uT4j5P7EXb4aQf6lEEUMhsmXn70wxs3di7suICOdVtl
-	 ekD4+GH1CSJujpJh3ZzPklVMoJXRZwQgXQPMdm1axhHl/zfNBhmCZaxyFNdBoce7KF
-	 cSA2Gifa8WlgJvXjBwVrDz7PiGevwvy6VsSIJMBXlYvEmDnEoog9T8ZgY0JdV6BTAq
-	 REBNkULqbbUuNJ9ImJZR8aPHk8QiktVVBRXgFq1ljZfvDJjEv/mp/mYh70YkMEVont
-	 4Kv81FZaPzeyd54oLvqq0p4WoBpG6NV28rX8S94/ead3rPrrSAHXKRk8ALqc46eUGa
-	 g/tL0sAA9/bCw==
-Date: Wed, 21 Jun 2023 19:41:42 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	wefu@redhat.com
-Subject: Re: linux-next: Tree for Jun 21 (riscv/errata/thead)
-Message-ID: <20230621-sandal-jogger-5dd9618daa85@spud>
-References: <20230621145917.3635a2f1@canb.auug.org.au>
- <14aa23d6-b4c2-190f-0d6c-22a82befa04d@infradead.org>
- <20230621-playoff-wireless-0dcfce9711ff@spud>
- <ab38f6af-cb68-a918-1a63-2e7c927a8ffc@infradead.org>
+	b=sndpqHdOhqYDseVfPJKdVYV8EPQpnkKnbMjylWcvseJzuXOOeCFxH/HHGQZw1zETm
+	 t5T5zd11sqSxgxI9tDY8MkGBV6S9041mlWP3nmtZdLHrDQRruUxrGFgJMwPsgUOe/3
+	 88AcTxzv/nCpQ4WMnVN1lpQp94jcsQ87kc8E7U40=
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas@t-8ch.de>
+To: Zhangjin Wu <falcon@tinylab.org>
+Cc: w@1wt.eu, david.laight@aculab.com, arnd@arndb.de, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 07/10] tools/nolibc: clean up mmap() support
+Message-ID: <31d85464-5731-4df6-8fcd-2b0be11eac90@t-8ch.de>
+References: <cover.1687187451.git.falcon@tinylab.org>
+ <b1162bc16ce5c397e99925e49317756c110e6f1a.1687187451.git.falcon@tinylab.org>
 MIME-Version: 1.0
-In-Reply-To: <ab38f6af-cb68-a918-1a63-2e7c927a8ffc@infradead.org>
+Content-Disposition: inline
+In-Reply-To: <b1162bc16ce5c397e99925e49317756c110e6f1a.1687187451.git.falcon@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230621_114147_618467_6FB01B14 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20230621_114851_126926_D2675017 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +59,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2035344338550568489=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 2023-06-19 23:51:20+0800, Zhangjin Wu wrote:
+> Do several cleanups together:
+> 
+> - Since all supported architectures have my_syscall6() now, remove the
+>   #ifdef check.
+> 
+> - Move the mmap() related macros to tools/include/nolibc/types.h
+> 
+> - Apply the new __sysret() to convert the calling of sys_map() to
+>   oneline code
+> 
+> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> ---
+>  tools/include/nolibc/sys.h   | 24 +-----------------------
+>  tools/include/nolibc/types.h | 11 +++++++++++
+>  2 files changed, 12 insertions(+), 23 deletions(-)
+> 
+> diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> index 8a6e16472d54..1c02cec3bcd9 100644
+> --- a/tools/include/nolibc/sys.h
+> +++ b/tools/include/nolibc/sys.h
+> @@ -624,26 +624,11 @@ int mknod(const char *path, mode_t mode, dev_t dev)
+>  	return __sysret(sys_mknod(path, mode, dev));
+>  }
+>  
+> -#ifndef MAP_SHARED
+> -#define MAP_SHARED		0x01	/* Share changes */
+> -#define MAP_PRIVATE		0x02	/* Changes are private */
+> -#define MAP_SHARED_VALIDATE	0x03	/* share + validate extension flags */
+> -#endif
+> -
+> -#ifndef MAP_FAILED
+> -#define MAP_FAILED ((void *)-1)
+> -#endif
+> -
+>  #ifndef sys_mmap
+>  static __attribute__((unused))
+>  void *sys_mmap(void *addr, size_t length, int prot, int flags, int fd,
+>  	       off_t offset)
 
---===============2035344338550568489==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="n8FVmxrgiZgPXLh3"
-Content-Disposition: inline
+This could return a plain integer type instead to save some casts.
+Not sure if API compatibility is guaranteed for the raw sys_ functions.
 
-
---n8FVmxrgiZgPXLh3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Jun 21, 2023 at 11:40:31AM -0700, Randy Dunlap wrote:
-> On 6/21/23 11:31, Conor Dooley wrote:
-> > On Wed, Jun 21, 2023 at 11:25:14AM -0700, Randy Dunlap wrote:
-> >> On 6/20/23 21:59, Stephen Rothwell wrote:
-> >>> Hi all,
-> >>>
-> >>> Changes since 20230620:
-> >>>
-> >>
-> >> on riscv 32-bit:
-> >=20
-> > Is XIP_KERNEL enabled? And if so, does this fix it?
->=20
-> Yes. and Yes.
-> Thanks.
->=20
-> for your patch:
-> Reviewed-by: Randy Dunlap <rdunlap@infradead.org>
-> Tested-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
-
-Great, thanks Randy. I'll do the needful.
-
---n8FVmxrgiZgPXLh3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJNEZgAKCRB4tDGHoIJi
-0jlTAP4/F12XTZhuHgwt102bym8iyOdB1MY/FBYlYRfBpSwHgwEAzZvzJlTGAENb
-KBXx9mVrEzkGqnq1LlGiSrhthEc7TQk=
-=Um3f
------END PGP SIGNATURE-----
-
---n8FVmxrgiZgPXLh3--
-
-
---===============2035344338550568489==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>  {
+> -#ifndef my_syscall6
+> -	/* Function not implemented. */
+> -	return (void *)-ENOSYS;
+> -#else
+> -
+>  	int n;
+>  
+>  #if defined(__NR_mmap2)
+> @@ -654,20 +639,13 @@ void *sys_mmap(void *addr, size_t length, int prot, int flags, int fd,
+>  #endif
+>  
+>  	return (void *)my_syscall6(n, addr, length, prot, flags, fd, offset);
+> -#endif
+>  }
+>  #endif
+>  
+>  static __attribute__((unused))
+>  void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset)
+>  {
+> -	void *ret = sys_mmap(addr, length, prot, flags, fd, offset);
+> -
+> -	if ((unsigned long)ret >= -4095UL) {
+> -		SET_ERRNO(-(long)ret);
+> -		ret = MAP_FAILED;
+> -	}
+> -	return ret;
+> +	return (void *)__sysret((unsigned long)sys_mmap(addr, length, prot, flags, fd, offset));
+>  }
+>  
+>  static __attribute__((unused))
+> diff --git a/tools/include/nolibc/types.h b/tools/include/nolibc/types.h
+> index f96e28bff4ba..f889d4e0ac7e 100644
+> --- a/tools/include/nolibc/types.h
+> +++ b/tools/include/nolibc/types.h
+> @@ -81,6 +81,17 @@
+>  #define MAXPATHLEN     (PATH_MAX)
+>  #endif
+>  
+> +/* flags for mmap */
+> +#ifndef MAP_SHARED
+> +#define MAP_SHARED		0x01	/* Share changes */
+> +#define MAP_PRIVATE		0x02	/* Changes are private */
+> +#define MAP_SHARED_VALIDATE	0x03	/* share + validate extension flags */
+> +#endif
+> +
+> +#ifndef MAP_FAILED
+> +#define MAP_FAILED ((void *)-1)
+> +#endif
+> +
+>  /* whence values for lseek() */
+>  #define SEEK_SET       0
+>  #define SEEK_CUR       1
+> -- 
+> 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2035344338550568489==--
-
