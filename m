@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514B8EB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 06:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6798FEB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 06:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EGKi78eesrBkGK08bzfKSpQf2Why5HLLT/JyxWCQ6vk=; b=fvpsIcXzyfYIM7
-	1MqtIhPvhhG0dyQhKY7tSWg3V2cX99U/HuHELULxo0TKfdtEnVVBJ6z6OOgzySAVg6MMyd714LpEm
-	WXLuvCvYehJg420153eNo72Qa0K+mAT/5U8AEQ2tbuLBRutmK+G9/OD/vFMSyvKRdKcq4rbiNP3mu
-	wsZdNGgNJ8g8oR1XbeFkTSNE7bdtyIQbY3/uaynCS3lWiX1FLfiVOmk8s58ag9exYmFN4evU3ufeI
-	Xxev/1BXTuQQO9bmfoLagLjDO+4qnkGqvVNTFMpJIiosjByIi9EjCgYAP6LmcAH66KCWDBPPAs5VO
-	T5x9GAh2/Ri1Q7dQsKDQ==;
+	List-Owner; bh=tTjLJ1gOK6EmQXSNs98tv4QZHV3crbzekSukAXQS8uY=; b=EHaHx2tSUcgfe9
+	y7Y/SQ3ZuIJ97+lsbxMIaFtGOLhOjMIU4O2HjGu4G19ZKymZ2IGL9hwipEARU4I4RU5+T9D+s/bim
+	0xwxxG96pyJxc87uPMterdFK9+7LM+o+bHnvBwPGiCcCI6gUddRABRH7j4RWG4xdGm8gSGS/zwt1c
+	3yQI/DpgBcogCjYpwqHxLiHHLCl7CDvKH0XF5qZu9tkpJoN8ePQbNBcbR56K4lyZwzti6vg5xkzbD
+	wXCLu+bVCUmv4FDYwGa1OmxveacFd31D/nsGYisdPZ3zhSv/f8Nfc+RmSlNuej9hEEhsCMWniTaWt
+	FCbomIyvdNnaiJE7Lvng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBqyS-00DMcf-0s;
-	Wed, 21 Jun 2023 06:05:48 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBqyO-00DMaM-07
+	id 1qBr82-00DO5E-1Z;
+	Wed, 21 Jun 2023 06:15:42 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qBr7z-00DO3m-0Q
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jun 2023 06:05:47 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 8781024E276;
-	Wed, 21 Jun 2023 14:04:59 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 21 Jun
- 2023 14:04:59 +0800
-Received: from [192.168.120.57] (171.223.208.138) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 21 Jun
- 2023 14:04:58 +0800
-Message-ID: <4bed9d52-6729-6e0d-5267-17d8f6eb892a@starfivetech.com>
-Date: Wed, 21 Jun 2023 14:04:56 +0800
+	Wed, 21 Jun 2023 06:15:41 +0000
+Received: from dggpemm100001.china.huawei.com (unknown [172.30.72.55])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4QmCqY4CnszLmsC;
+	Wed, 21 Jun 2023 14:13:29 +0800 (CST)
+Received: from [10.174.177.243] (10.174.177.243) by
+ dggpemm100001.china.huawei.com (7.185.36.93) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Wed, 21 Jun 2023 14:15:26 +0800
+Message-ID: <aba31303-e992-9ad7-995f-d159f79a55f7@huawei.com>
+Date: Wed, 21 Jun 2023 14:15:26 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: Add QSPI controller node for
- StarFive JH7110 SoC
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<devicetree@vger.kernel.org>, <linux-spi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Ziv Xu
-	<ziv.xu@starfivetech.com>
-References: <20230619083517.415597-1-william.qiu@starfivetech.com>
- <20230619083517.415597-4-william.qiu@starfivetech.com>
- <7b7694da-8b40-d76a-adca-4cf9aa206ff4@linaro.org>
+ Thunderbird/102.10.1
+Subject: Re: [PATCH] riscv: mm: try VMA lock-based page fault handling first
 Content-Language: en-US
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <7b7694da-8b40-d76a-adca-4cf9aa206ff4@linaro.org>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+To: Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Suren
+ Baghdasaryan <surenb@google.com>
+References: <20230523165942.2630-1-jszhang@kernel.org>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+In-Reply-To: <20230523165942.2630-1-jszhang@kernel.org>
+X-Originating-IP: [10.174.177.243]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm100001.china.huawei.com (7.185.36.93)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230620_230544_409402_C8428F72 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20230620_231539_506409_522FD49A 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,98 +67,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/6/19 20:20, Krzysztof Kozlowski wrote:
-> On 19/06/2023 10:35, William Qiu wrote:
->> Add the quad spi controller node for the StarFive JH7110 SoC.
->> 
->> Co-developed-by: Ziv Xu <ziv.xu@starfivetech.com>
->> Signed-off-by: Ziv Xu <ziv.xu@starfivetech.com>
->> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
->> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->>  .../jh7110-starfive-visionfive-2.dtsi         | 32 +++++++++++++++++++
->>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 18 +++++++++++
->>  2 files changed, 50 insertions(+)
->> 
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
->> index 2a6d81609284..22212c1150f9 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
->> @@ -126,6 +126,38 @@ &i2c6 {
->>  	status = "okay";
->>  };
->>  
->> +&qspi {
->> +	#address-cells = <1>;
->> +	#size-cells = <0>;
->> +
->> +	nor_flash: flash@0 {
->> +		compatible = "jedec,spi-nor";
->> +		reg=<0>;
-> 
-> Missing spaces.
-> 
-Will fix.
->> +		cdns,read-delay = <5>;
->> +		spi-max-frequency = <12000000>;
->> +		cdns,tshsl-ns = <1>;
->> +		cdns,tsd2d-ns = <1>;
->> +		cdns,tchsh-ns = <1>;
->> +		cdns,tslch-ns = <1>;
->> +
->> +		partitions {
->> +			compatible = "fixed-partitions";
->> +			#address-cells = <1>;
->> +			#size-cells = <1>;
->> +
->> +			spl@0 {
->> +				reg = <0x0 0x20000>;
->> +			};
->> +			uboot@100000 {
->> +				reg = <0x100000 0x300000>;
->> +			};
->> +			data@f00000 {
->> +				reg = <0xf00000 0x100000>;
->> +			};
->> +		};
->> +	};
->> +};
->> +
->>  &sysgpio {
->>  	i2c0_pins: i2c0-0 {
->>  		i2c-pins {
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> index 4c5fdb905da8..0b24f9e66e67 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->> @@ -440,6 +440,24 @@ i2c6: i2c@12060000 {
->>  			status = "disabled";
->>  		};
->>  
->> +		qspi: spi@13010000 {
->> +			compatible = "starfive,jh7110-qspi", "cdns,qspi-nor";
->> +			reg = <0x0 0x13010000 0x0 0x10000
->> +				0x0 0x21000000 0x0 0x400000>;
-> 
-> This should be two items so <>, <>. Not one item.
-> 
-> Best regards,
-> Krzysztof
-> 
-Will fix.
-Thanks for taking time to review this patch series.
-
-Best reagards
-William
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDIzLzUvMjQgMDo1OSwgSmlzaGVuZyBaaGFuZyB3cm90ZToKPiBBdHRlbXB0IFZNQSBs
+b2NrLWJhc2VkIHBhZ2UgZmF1bHQgaGFuZGxpbmcgZmlyc3QsIGFuZCBmYWxsIGJhY2sgdG8gdGhl
+Cj4gZXhpc3RpbmcgbW1hcF9sb2NrLWJhc2VkIGhhbmRsaW5nIGlmIHRoYXQgZmFpbHMuCj4gCj4g
+QSBzaW1wbGUgcnVubmluZyB0aGUgZWJpenp5IGJlbmNobWFyayBvbiBMaWNoZWUgUGkgNEEgc2hv
+d3MgdGhhdAo+IFBFUl9WTUFfTE9DSyBjYW4gaW1wcm92ZSB0aGUgZWJpenp5IGJlbmNobWFyayBi
+eSBhYm91dCAzMi42OCUuIEluCj4gdGhlb3J5LCB0aGUgbW9yZSBDUFVzLCB0aGUgYmlnZ2VyIGlt
+cHJvdmVtZW50LCBidXQgSSBkb24ndCBoYXZlIGFueQo+IEhXIHBsYXRmb3JtIHdoaWNoIGhhcyBt
+b3JlIHRoYW4gNCBDUFVzLgo+IAo+IFRoaXMgaXMgdGhlIHJpc2N2IHZhcmlhbnQgb2YgIng4Ni9t
+bTogdHJ5IFZNQSBsb2NrLWJhc2VkIHBhZ2UgZmF1bHQKPiBoYW5kbGluZyBmaXJzdCIuCj4gCj4g
+U2lnbmVkLW9mZi1ieTogSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgo+IC0tLQo+
+IEFueSBwZXJmb3JtYW5jZSBudW1iZXJzIGFyZSB3ZWxjb21lISBFc3BlY2lhbGx5IHRoZSBudW1i
+ZXJzIG9uIEhXCj4gcGxhdGZvcm1zIHdpdGggOCBvciBtb3JlIENQVXMuCj4gCj4gICBhcmNoL3Jp
+c2N2L0tjb25maWcgICAgfCAgMSArCj4gICBhcmNoL3Jpc2N2L21tL2ZhdWx0LmMgfCAzMyArKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgIDIgZmlsZXMgY2hhbmdlZCwgMzQgaW5z
+ZXJ0aW9ucygrKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jp
+c2N2L0tjb25maWcKPiBpbmRleCA2MmU4NGZlZTJjZmQuLmI5NThmNjdmOWExMiAxMDA2NDQKPiAt
+LS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBAQCAt
+NDIsNiArNDIsNyBAQCBjb25maWcgUklTQ1YKPiAgIAlzZWxlY3QgQVJDSF9TVVBQT1JUU19ERUJV
+R19QQUdFQUxMT0MgaWYgTU1VCj4gICAJc2VsZWN0IEFSQ0hfU1VQUE9SVFNfSFVHRVRMQkZTIGlm
+IE1NVQo+ICAgCXNlbGVjdCBBUkNIX1NVUFBPUlRTX1BBR0VfVEFCTEVfQ0hFQ0sgaWYgTU1VCj4g
+KwlzZWxlY3QgQVJDSF9TVVBQT1JUU19QRVJfVk1BX0xPQ0sgaWYgTU1VCgpubyBuZWVkIGlmIG1t
+de+8jCAgc2VlIFBFUl9WTUFfTE9DSwoKCmNvbmZpZyBQRVJfVk1BX0xPQ0sKICAgICAgICAgYm9v
+bCAiYWxsb3cgVk1BIGxvY2stYmFzZWQgcGFnZSBmYXVsdCIKICAgICAgICAgZGVmX2Jvb2wgeQog
+ICAgICAgICBkZXBlbmRzIG9uIEFSQ0hfU1VQUE9SVFNfUEVSX1ZNQV9MT0NLICYmIE1NVSAmJiBT
+TVAKClJldmlld2VkLWJ5OiBLZWZlbmcgV2FuZyA8d2FuZ2tlZmVuZy53YW5nQGh1YXdlaS5jb20+
+Cgo+ICAgCXNlbGVjdCBBUkNIX1VTRV9NRU1URVNUCj4gICAJc2VsZWN0IEFSQ0hfVVNFX1FVRVVF
+RF9SV0xPQ0tTCj4gICAJc2VsZWN0IEFSQ0hfV0FOVF9ERUZBVUxUX1RPUERPV05fTU1BUF9MQVlP
+VVQgaWYgTU1VCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0vZmF1bHQuYyBiL2FyY2gvcmlz
+Y3YvbW0vZmF1bHQuYwo+IGluZGV4IDg2ODVmODVhNzQ3NC4uZWNjZGRkZjI2ZjRiIDEwMDY0NAo+
+IC0tLSBhL2FyY2gvcmlzY3YvbW0vZmF1bHQuYwo+ICsrKyBiL2FyY2gvcmlzY3YvbW0vZmF1bHQu
+Ywo+IEBAIC0yODYsNiArMjg2LDM2IEBAIHZvaWQgaGFuZGxlX3BhZ2VfZmF1bHQoc3RydWN0IHB0
+X3JlZ3MgKnJlZ3MpCj4gICAJCWZsYWdzIHw9IEZBVUxUX0ZMQUdfV1JJVEU7Cj4gICAJZWxzZSBp
+ZiAoY2F1c2UgPT0gRVhDX0lOU1RfUEFHRV9GQVVMVCkKPiAgIAkJZmxhZ3MgfD0gRkFVTFRfRkxB
+R19JTlNUUlVDVElPTjsKPiArI2lmZGVmIENPTkZJR19QRVJfVk1BX0xPQ0sKPiArCWlmICghKGZs
+YWdzICYgRkFVTFRfRkxBR19VU0VSKSkKPiArCQlnb3RvIGxvY2tfbW1hcDsKPiArCj4gKwl2bWEg
+PSBsb2NrX3ZtYV91bmRlcl9yY3UobW0sIGFkZHIpOwo+ICsJaWYgKCF2bWEpCj4gKwkJZ290byBs
+b2NrX21tYXA7Cj4gKwo+ICsJaWYgKHVubGlrZWx5KGFjY2Vzc19lcnJvcihjYXVzZSwgdm1hKSkp
+IHsKPiArCQl2bWFfZW5kX3JlYWQodm1hKTsKPiArCQlnb3RvIGxvY2tfbW1hcDsKPiArCX0KPiAr
+Cj4gKwlmYXVsdCA9IGhhbmRsZV9tbV9mYXVsdCh2bWEsIGFkZHIsIGZsYWdzIHwgRkFVTFRfRkxB
+R19WTUFfTE9DSywgcmVncyk7Cj4gKwl2bWFfZW5kX3JlYWQodm1hKTsKPiArCj4gKwlpZiAoIShm
+YXVsdCAmIFZNX0ZBVUxUX1JFVFJZKSkgewo+ICsJCWNvdW50X3ZtX3ZtYV9sb2NrX2V2ZW50KFZN
+QV9MT0NLX1NVQ0NFU1MpOwo+ICsJCWdvdG8gZG9uZTsKPiArCX0KPiArCWNvdW50X3ZtX3ZtYV9s
+b2NrX2V2ZW50KFZNQV9MT0NLX1JFVFJZKTsKPiArCj4gKwlpZiAoZmF1bHRfc2lnbmFsX3BlbmRp
+bmcoZmF1bHQsIHJlZ3MpKSB7Cj4gKwkJaWYgKCF1c2VyX21vZGUocmVncykpCj4gKwkJCW5vX2Nv
+bnRleHQocmVncywgYWRkcik7Cj4gKwkJcmV0dXJuOwo+ICsJfQo+ICtsb2NrX21tYXA6Cj4gKyNl
+bmRpZiAvKiBDT05GSUdfUEVSX1ZNQV9MT0NLICovCj4gKwo+ICAgcmV0cnk6Cj4gICAJbW1hcF9y
+ZWFkX2xvY2sobW0pOwo+ICAgCXZtYSA9IGZpbmRfdm1hKG1tLCBhZGRyKTsKPiBAQCAtMzU1LDYg
+KzM4NSw5IEBAIHZvaWQgaGFuZGxlX3BhZ2VfZmF1bHQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4g
+ICAKPiAgIAltbWFwX3JlYWRfdW5sb2NrKG1tKTsKPiAgIAo+ICsjaWZkZWYgQ09ORklHX1BFUl9W
+TUFfTE9DSwo+ICtkb25lOgo+ICsjZW5kaWYKPiAgIAlpZiAodW5saWtlbHkoZmF1bHQgJiBWTV9G
+QVVMVF9FUlJPUikpIHsKPiAgIAkJdHNrLT50aHJlYWQuYmFkX2NhdXNlID0gY2F1c2U7Cj4gICAJ
+CW1tX2ZhdWx0X2Vycm9yKHJlZ3MsIGFkZHIsIGZhdWx0KTsKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
