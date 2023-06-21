@@ -4,123 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1587EB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 05:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514B8EB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 06:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E+Z+YC9zGOtB4g9ENByZl1mU2LQpL0H1+DffWsT6EI8=; b=d/5sPldZkmfNnm
-	uku8Mq/bPEiT/tBf2QeuCs7UcomI9R1jPuQxnGOGcyO9iCkBh9jxtxv4vntYNYgtwNO19cWLswYR8
-	so5N4jGdZcGJZW/i4lj+4cMX7xURGfwIoCj4vh1wriR4fBhSSymyIO+KLY9JcBQuPZcCCZW2AawoN
-	Te6VW3eELEnRrham1L5OqsxZYwNrLkq7h7T5Rg6OD0xCXQOWT9HwgcZ0z7rPtRAhAuzmJ+kCAmM97
-	bYNkaviRe/QRaqH0MwgULAKT403jDNW7WrbD3xyKv9qe/i+Oe4H6gU/hwhno8U8QpMDIj0WLPpGCF
-	Eki2g/PRmJGHPfA2UoNw==;
+	List-Owner; bh=EGKi78eesrBkGK08bzfKSpQf2Why5HLLT/JyxWCQ6vk=; b=fvpsIcXzyfYIM7
+	1MqtIhPvhhG0dyQhKY7tSWg3V2cX99U/HuHELULxo0TKfdtEnVVBJ6z6OOgzySAVg6MMyd714LpEm
+	WXLuvCvYehJg420153eNo72Qa0K+mAT/5U8AEQ2tbuLBRutmK+G9/OD/vFMSyvKRdKcq4rbiNP3mu
+	wsZdNGgNJ8g8oR1XbeFkTSNE7bdtyIQbY3/uaynCS3lWiX1FLfiVOmk8s58ag9exYmFN4evU3ufeI
+	Xxev/1BXTuQQO9bmfoLagLjDO+4qnkGqvVNTFMpJIiosjByIi9EjCgYAP6LmcAH66KCWDBPPAs5VO
+	T5x9GAh2/Ri1Q7dQsKDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBpyo-00DGWh-1K;
-	Wed, 21 Jun 2023 05:02:06 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBpyl-00DGW3-1N;
-	Wed, 21 Jun 2023 05:02:04 +0000
-Received: from pps.filterd (m0353726.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 35L4eTwW029028;
-	Wed, 21 Jun 2023 05:00:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : message-id : references : content-type : in-reply-to :
- mime-version; s=pp1; bh=kKqaLyNJce361zibCoiA0gBnI6xOEyoycLhuJOf/Gs0=;
- b=QN/q8bhMangxR7YTXy17HLyVi6/G1O7RNdNZBb/bGnXShwTIrm3uq7g7V0v/E0gGS6oC
- ipI27Nxw7pzEr3aNT2HsXYuzE6icYzB1rc+7R55wU63rcAOKuhXA7cN+ly8V2XEOMBue
- sJaQ29GB8j/TuOdaXepdQte42inmADlTGFtXg6+GhUY3KPRIndINHhrQNTUWfbBbJRvP
- QYtfDqVgSlHEWMjV33/fRx8HSJ0eLM+wj75ExrcizEX21KJXyyOhXqPRa1y3juKnYN5t
- r9QwprUvf32vp14SNunpN4zkiyVUulSSmUOWse6qzimyjbTlhUsXr0vjEVhXN/bk9g7p hA== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3rbskk1177-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Jun 2023 05:00:42 +0000
-Received: from m0353726.ppops.net (m0353726.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 35L4g54N001282;
-	Wed, 21 Jun 2023 05:00:41 GMT
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3rbskk114e-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Jun 2023 05:00:41 +0000
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
-	by ppma03ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 35KMdnEw011075;
-	Wed, 21 Jun 2023 05:00:37 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma03ams.nl.ibm.com (PPS) with ESMTPS id 3r94f52hx0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Jun 2023 05:00:36 +0000
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 35L50Xkp51511760
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 21 Jun 2023 05:00:33 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 52AF520040;
-	Wed, 21 Jun 2023 05:00:33 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E24BF20043;
-	Wed, 21 Jun 2023 05:00:28 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.171.35.125])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 21 Jun 2023 05:00:28 +0000 (GMT)
-Date: Wed, 21 Jun 2023 07:00:27 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Eric DeVolder <eric.devolder@oracle.com>, Mimi Zohar <zohar@linux.ibm.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-        chenhuacai@kernel.org, geert@linux-m68k.org, tsbogend@alpha.franken.de,
-        James.Bottomley@hansenpartnership.com, deller@gmx.de,
-        ysato@users.sourceforge.jp, dalias@libc.org,
-        glaubitz@physik.fu-berlin.de, tglx@linutronix.de, mingo@redhat.com,
-        bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-sh@vger.kernel.org, kernel@xen0n.name, mpe@ellerman.id.au,
-        npiggin@gmail.com, christophe.leroy@csgroup.eu,
-        paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-        hca@linux.ibm.com, gor@linux.ibm.com, borntraeger@linux.ibm.com,
-        svens@linux.ibm.com, hpa@zytor.com, keescook@chromium.org,
-        paulmck@kernel.org, peterz@infradead.org, frederic@kernel.org,
-        akpm@linux-foundation.org, ardb@kernel.org, samitolvanen@google.com,
-        juerg.haefliger@canonical.com, arnd@arndb.de,
-        rmk+kernel@armlinux.org.uk, linus.walleij@linaro.org,
-        sebastian.reichel@collabora.com, rppt@kernel.org,
-        kirill.shutemov@linux.intel.com, anshuman.khandual@arm.com,
-        ziy@nvidia.com, masahiroy@kernel.org, ndesaulniers@google.com,
-        mhiramat@kernel.org, ojeda@kernel.org, thunder.leizhen@huawei.com,
-        xin3.li@intel.com, tj@kernel.org, gregkh@linuxfoundation.org,
-        tsi@tuyoix.net, bhe@redhat.com, hbathini@linux.ibm.com,
-        sourabhjain@linux.ibm.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com
-Subject: Re: [PATCH v2 12/13] s390/kexec: refactor for kernel/Kconfig.kexec
-Message-ID: <ZJKD690QaX1IgiAz@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20230619145801.1064716-1-eric.devolder@oracle.com>
- <20230619145801.1064716-13-eric.devolder@oracle.com>
-Content-Disposition: inline
-In-Reply-To: <20230619145801.1064716-13-eric.devolder@oracle.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 3XxZUnG0tiAtapczX7p05vIqAJoPa-f-
-X-Proofpoint-GUID: I-zaEuvbTS6JyBDC0PeGxtax3HbIXcwx
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+	id 1qBqyS-00DMcf-0s;
+	Wed, 21 Jun 2023 06:05:48 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qBqyO-00DMaM-07
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Jun 2023 06:05:47 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 8781024E276;
+	Wed, 21 Jun 2023 14:04:59 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 21 Jun
+ 2023 14:04:59 +0800
+Received: from [192.168.120.57] (171.223.208.138) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 21 Jun
+ 2023 14:04:58 +0800
+Message-ID: <4bed9d52-6729-6e0d-5267-17d8f6eb892a@starfivetech.com>
+Date: Wed, 21 Jun 2023 14:04:56 +0800
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.591,FMLib:17.11.176.26
- definitions=2023-06-21_03,2023-06-16_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011
- lowpriorityscore=0 suspectscore=0 mlxlogscore=999 mlxscore=0
- impostorscore=0 bulkscore=0 priorityscore=1501 adultscore=0 phishscore=0
- malwarescore=0 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2305260000 definitions=main-2306210039
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH v3 3/3] riscv: dts: starfive: Add QSPI controller node for
+ StarFive JH7110 SoC
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<devicetree@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Ziv Xu
+	<ziv.xu@starfivetech.com>
+References: <20230619083517.415597-1-william.qiu@starfivetech.com>
+ <20230619083517.415597-4-william.qiu@starfivetech.com>
+ <7b7694da-8b40-d76a-adca-4cf9aa206ff4@linaro.org>
+Content-Language: en-US
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <7b7694da-8b40-d76a-adca-4cf9aa206ff4@linaro.org>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230620_220203_497533_8FD4BA2B 
-X-CRM114-Status: GOOD (  35.05  )
+X-CRM114-CacheID: sfid-20230620_230544_409402_C8428F72 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,157 +81,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 19, 2023 at 10:58:00AM -0400, Eric DeVolder wrote:
 
-Hi Eric,
 
-> The kexec and crash kernel options are provided in the common
-> kernel/Kconfig.kexec. Utilize the common options and provide
-> the ARCH_SUPPORTS_ and ARCH_SELECTS_ entries to recreate the
-> equivalent set of KEXEC and CRASH options.
+On 2023/6/19 20:20, Krzysztof Kozlowski wrote:
+> On 19/06/2023 10:35, William Qiu wrote:
+>> Add the quad spi controller node for the StarFive JH7110 SoC.
+>> 
+>> Co-developed-by: Ziv Xu <ziv.xu@starfivetech.com>
+>> Signed-off-by: Ziv Xu <ziv.xu@starfivetech.com>
+>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+>> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+>> ---
+>>  .../jh7110-starfive-visionfive-2.dtsi         | 32 +++++++++++++++++++
+>>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 18 +++++++++++
+>>  2 files changed, 50 insertions(+)
+>> 
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+>> index 2a6d81609284..22212c1150f9 100644
+>> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+>> @@ -126,6 +126,38 @@ &i2c6 {
+>>  	status = "okay";
+>>  };
+>>  
+>> +&qspi {
+>> +	#address-cells = <1>;
+>> +	#size-cells = <0>;
+>> +
+>> +	nor_flash: flash@0 {
+>> +		compatible = "jedec,spi-nor";
+>> +		reg=<0>;
 > 
-> NOTE: The original Kconfig has a KEXEC_SIG which depends on
-> MODULE_SIG_FORMAT. However, attempts to keep the MODULE_SIG_FORMAT
-> dependency (using the strategy outlined in this series, and other
-> techniques) results in 'error: recursive dependency detected'
-> on CRYPTO. This occurs due to any path through KEXEC_SIG
-> attempting to select CRYPTO is ultimately dependent upon CRYPTO:
+> Missing spaces.
 > 
->  CRYPTO
->   <- ARCH_SUPPORTS_KEXEC_FILE
->      <- KEXEC_FILE
->         <- KEXEC_SIG
+Will fix.
+>> +		cdns,read-delay = <5>;
+>> +		spi-max-frequency = <12000000>;
+>> +		cdns,tshsl-ns = <1>;
+>> +		cdns,tsd2d-ns = <1>;
+>> +		cdns,tchsh-ns = <1>;
+>> +		cdns,tslch-ns = <1>;
+>> +
+>> +		partitions {
+>> +			compatible = "fixed-partitions";
+>> +			#address-cells = <1>;
+>> +			#size-cells = <1>;
+>> +
+>> +			spl@0 {
+>> +				reg = <0x0 0x20000>;
+>> +			};
+>> +			uboot@100000 {
+>> +				reg = <0x100000 0x300000>;
+>> +			};
+>> +			data@f00000 {
+>> +				reg = <0xf00000 0x100000>;
+>> +			};
+>> +		};
+>> +	};
+>> +};
+>> +
+>>  &sysgpio {
+>>  	i2c0_pins: i2c0-0 {
+>>  		i2c-pins {
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> index 4c5fdb905da8..0b24f9e66e67 100644
+>> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>> @@ -440,6 +440,24 @@ i2c6: i2c@12060000 {
+>>  			status = "disabled";
+>>  		};
+>>  
+>> +		qspi: spi@13010000 {
+>> +			compatible = "starfive,jh7110-qspi", "cdns,qspi-nor";
+>> +			reg = <0x0 0x13010000 0x0 0x10000
+>> +				0x0 0x21000000 0x0 0x400000>;
 > 
-> Therefore, the solution is to drop the MODULE_SIG_FORMAT dependency
-> for KEXEC_SIG. In practice, however, MODULE_SIG_FORMAT is still
-> configured-in as the use of KEXEC_SIG is in step with the use of
-> SYSTEM_DATA_VERIFICATION, which does select MODULE_SIG_FORMAT.
-
-No, it is actually the other way around.
-Could you please provide the correct explanation?
-
-AFAICT the MODULE_SIG_FORMAT dependency was introduced with commit
-c8424e776b09 ("MODSIGN: Export module signature definitions") and
-in fact was not necessary, since s390 did/does not use mod_check_sig()
-anyway. So the SYSTEM_DATA_VERIFICATION could have left intact.
-
-However, the original SYSTEM_DATA_VERIFICATION seems sane and I do
-not understand why other architectures do not have it also? May be
-Mimi Zohar (putting on CC) could explain that?
-
-It looks like such dependency actually exists in implicit form
-(which you picked from x86):
-
-	In addition to this option, you need to enable signature
-	verification for the corresponding kernel image type being
-	loaded in order for this to work.
-
-Does it mean that if an architecture did not enable the signature
-verification type explicitly the linker could fail - both before
-and after you series?
-
-Thanks!
-
-> Not ideal, but results in equivalent .config files for s390.
+> This should be two items so <>, <>. Not one item.
 > 
-> Signed-off-by: Eric DeVolder <eric.devolder@oracle.com>
-> ---
->  arch/s390/Kconfig | 65 ++++++++++++++---------------------------------
->  1 file changed, 19 insertions(+), 46 deletions(-)
+> Best regards,
+> Krzysztof
 > 
-> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-> index 6dab9c1be508..58dc124433ca 100644
-> --- a/arch/s390/Kconfig
-> +++ b/arch/s390/Kconfig
-> @@ -243,6 +243,25 @@ config PGTABLE_LEVELS
->  
->  source "kernel/livepatch/Kconfig"
->  
-> +config ARCH_DEFAULT_KEXEC
-> +	def_bool y
-> +
-> +config ARCH_SUPPORTS_KEXEC
-> +	def_bool y
-> +
-> +config ARCH_SUPPORTS_KEXEC_FILE
-> +	def_bool CRYPTO && CRYPTO_SHA256 && CRYPTO_SHA256_S390
-> +
-> +config ARCH_HAS_KEXEC_PURGATORY
-> +	def_bool KEXEC_FILE
-> +
-> +config ARCH_SUPPORTS_CRASH_DUMP
-> +	def_bool y
-> +	help
-> +	  Refer to <file:Documentation/s390/zfcpdump.rst> for more details on this.
-> +	  This option also enables s390 zfcpdump.
-> +	  See also <file:Documentation/s390/zfcpdump.rst>
-> +
->  menu "Processor type and features"
->  
->  config HAVE_MARCH_Z10_FEATURES
-> @@ -481,36 +500,6 @@ config SCHED_TOPOLOGY
->  
->  source "kernel/Kconfig.hz"
->  
-> -config KEXEC
-> -	def_bool y
-> -	select KEXEC_CORE
-> -
-> -config KEXEC_FILE
-> -	bool "kexec file based system call"
-> -	select KEXEC_CORE
-> -	depends on CRYPTO
-> -	depends on CRYPTO_SHA256
-> -	depends on CRYPTO_SHA256_S390
-> -	help
-> -	  Enable the kexec file based system call. In contrast to the normal
-> -	  kexec system call this system call takes file descriptors for the
-> -	  kernel and initramfs as arguments.
-> -
-> -config ARCH_HAS_KEXEC_PURGATORY
-> -	def_bool y
-> -	depends on KEXEC_FILE
-> -
-> -config KEXEC_SIG
-> -	bool "Verify kernel signature during kexec_file_load() syscall"
-> -	depends on KEXEC_FILE && MODULE_SIG_FORMAT
-> -	help
-> -	  This option makes kernel signature verification mandatory for
-> -	  the kexec_file_load() syscall.
-> -
-> -	  In addition to that option, you need to enable signature
-> -	  verification for the corresponding kernel image type being
-> -	  loaded in order for this to work.
-> -
->  config KERNEL_NOBP
->  	def_bool n
->  	prompt "Enable modified branch prediction for the kernel by default"
-> @@ -732,22 +721,6 @@ config VFIO_AP
->  
->  endmenu
->  
-> -menu "Dump support"
-> -
-> -config CRASH_DUMP
-> -	bool "kernel crash dumps"
-> -	select KEXEC
-> -	help
-> -	  Generate crash dump after being started by kexec.
-> -	  Crash dump kernels are loaded in the main kernel with kexec-tools
-> -	  into a specially reserved region and then later executed after
-> -	  a crash by kdump/kexec.
-> -	  Refer to <file:Documentation/s390/zfcpdump.rst> for more details on this.
-> -	  This option also enables s390 zfcpdump.
-> -	  See also <file:Documentation/s390/zfcpdump.rst>
-> -
-> -endmenu
-> -
->  config CCW
->  	def_bool y
->  
-> -- 
-> 2.31.1
-> 
+Will fix.
+Thanks for taking time to review this patch series.
+
+Best reagards
+William
 
 _______________________________________________
 linux-riscv mailing list
