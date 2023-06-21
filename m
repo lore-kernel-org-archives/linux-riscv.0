@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE55DEB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 19:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69AEEB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 19:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:Message-ID:To:From:CC:In-Reply-To:Subject:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=smDsk9xRG3Ewv1wM9PyJ2ZTgoHBOzH2DdxnqCVM+Tmg=; b=JuDwCFoAGo5/V6
-	Wr/u4R1TBkxqYzpLodn8ptRCShpKGg7Hc1g2EW6fD4umYFCppWBcDQQhy8tqMVEZwA+PHr2oroAbc
-	aPspHDNSGy5mG/RIjgmKeKOtwN82C4XwdnxkFlRq6tL9hpGIhN/Hs3PLxaADoBK0BLfMx1dcDOalX
-	r5Y13rb9/XNGCKoWDbSSdMXMIQnmzvy769NSBV4A8CkL73gENWcRMckMahaNbQ+ijIQbbBSHmtZdZ
-	iL70sLKHm3s6q8Kzy0WWRxalr3PujQjuMZxFX6ELrwwGJpRDAVkKL6O92k7dCdXP6ZoOepe0gys1D
-	EY0QqWgdvI3VAbl8JcLA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=aJEc84P+SSjcNqj+ChWwrUWUXZgP6LkEbtxcM9bTSSQ=; b=xTpuME8dcvSvZjX7ddaz4EZLX6
+	77G2f7zPr5aXVMUqLea7/BebDzrjYCzMBLbnZ8uNpHtUUsNLh7medICxIaSGq5jHzQHK7w789Z/7X
+	9cHCxZCJamIwoih4MS4pfpq35gnknjbMqEJrnVsTX2zH1/K3KccibUJoi1C96TLSLMi01r0MAemIT
+	KRhKYR80CvVakwUd7lJM/kqAAXD7evuGzzJGiAif8LjEX/Xs443RwvdFuWlpMXSmhOEWL89RtZox9
+	u21HB3mTrs+/0nt/WJ+d/npZU+YQAwcuod49xJN2v/XNTKCf3ndgIz+U6ZEDSYgN8cdGAQygHCIjx
+	PAwEPiCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qC3md-00FaUt-0a;
-	Wed, 21 Jun 2023 19:46:27 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1qC3wy-00FbiV-2b;
+	Wed, 21 Jun 2023 19:57:08 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qC3mZ-00FaTu-31
+	id 1qC3wv-00Fbhf-15
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jun 2023 19:46:25 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-543cc9541feso3503723a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Jun 2023 12:46:23 -0700 (PDT)
+	Wed, 21 Jun 2023 19:57:06 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1b543f7e53aso40810105ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Jun 2023 12:57:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1687376782; x=1689968782;
-        h=message-id:to:from:cc:in-reply-to:subject:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=yAEYX8p4xEPzztgSX6jBgXp6p/Xb2RUIX5fAtspxlsk=;
-        b=O+py1+Rpcwp6w+AR4wey7NcLDxvddKtqNBonT+E2kowjbpXM93WK2d43d5Lo5eadvb
-         i1DD8KpxveaNKlUarBlGyvv63EeTdAtgxwo23u1pgyTF7sMO2mlwVF04KbyxzEbx2IBq
-         SVO7gg7973NHQ5PTrGDCCXBdnKUOJiIhuf0NTRX3jPr5EEE369JzQbXVvqwODDHVK80h
-         H5vDaJf2v9Gcr8imIk5JdCHcKtI0UlFmWGXHvOMXroAd/7QvwD7ulLCMX3q7tP2dskCM
-         GDPPpffLk6SXcGT+pZT3hWOQu6LHlBrT6Gd4QG7Dye4iUkxqC2t1+iztrMudIflP44WK
-         oUJg==
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1687377424; x=1689969424;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=G/oCsBAha5TlkusYS9TJvUJvw6Xp0GQ+FaZxtlvSIy8=;
+        b=31NOzH8T0+2VDO2CYEqSKyHjSx4gVZR51gmxRjnAqCA52GzLUvZWT/t9nYLXZAL+qi
+         ywsalk0MVUxrtPZPbbn3QEezt/ckSPGzZQKVLq90m3dtRiguXqvJzIVfdy4tU1YDwyKp
+         EGC+ePLAG5XxzTRYBcm0iLsvYjTF/QX3rxkUHYAVSS95DEznN25qtG1xtNMXwA9rpc7y
+         hkwKF7JdRkoOwg6MmaahIrHH9SPz4ePLRXSkSCVQpWYyj6gHvwGtvOZQ6p5AMUsan8H5
+         Jvsq+vmqVAzVHoxpXomDTyNqb3a5WmGugRiDjm1+Q1Qi0xBlQBkYg2FWXbmEbAi+namd
+         d1qA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687376782; x=1689968782;
-        h=message-id:to:from:cc:in-reply-to:subject:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yAEYX8p4xEPzztgSX6jBgXp6p/Xb2RUIX5fAtspxlsk=;
-        b=aDEnNgJylptgAk+VHeM+72CH6MD5/KnfQ3zfJPPTaYCx4GpLCBqAm4PFrocr31ca5c
-         c2vEmpzXZucbi4J+IKgukkvdjeBH9sc+SVM5XPgNOTbMLXxu3wl7y1XLFelLsAnfb8bS
-         Nzynq63+tH6NPro8KfY0qL9zXZFt4rV1I4i+3sPSO5sKk6TPrI32QECFrkn9iMm4QdAk
-         Tp0iNlk89jRd5oq7auGRyXgfHz4NzTYonmNTaMz/RksgsM+NEmumrD5AZJBuF68Zr7ap
-         Z9uxiYEIcuFanxoI3+70izEtnbhQ7RHftZwm+bNbE5RfnkVnM/xu0aeQzwIEL8CtPrbd
-         WLCg==
-X-Gm-Message-State: AC+VfDyiLB+VZaF7BZ13+FamYebnNX6qt8/pS/zk3AsVLnfgI7HO5f+X
-	ygj/sf+t2ZthQ6xzi5s80ClXNw==
-X-Google-Smtp-Source: ACHHUZ7++iionK3i1+rBjCBOM2BOzaovcT/5zgI9IHyrmKGBJktrKL9rdXh969Ib7fB+ucArnYBWvQ==
-X-Received: by 2002:a05:6a20:13d9:b0:123:89f0:ec6b with SMTP id ho25-20020a056a2013d900b0012389f0ec6bmr1062014pzc.47.1687376782376;
-        Wed, 21 Jun 2023 12:46:22 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1687377424; x=1689969424;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=G/oCsBAha5TlkusYS9TJvUJvw6Xp0GQ+FaZxtlvSIy8=;
+        b=X4xlOkmGNi5osqj4EC28ctnV1Viv3ypIu5C97tF82Pd/UBgR0n7u2S4MWT+jXPzEs7
+         aiFQj1ocDYng/EB4rGj64YtezWneLzOh+07Wk91GQ07G2BFa48OP4wbGNp2nryAv0/Q3
+         UyQwii8cBy3PkDwRGjVn7b0oJVSLDgCg1mpaSO/BW+ZuQ50s9aZwCHb0oKjW2lRInYcc
+         pEeDitnmafajJTlevvR9t9fqIQ8bTE6gN2fd9Eiq+XalASJJ5Iljbhc95ywKpj1tHc/B
+         JS2f9NxzN3OUy6BhP66ackBIYjRQIwXqUt+nKUn7euuFkPdsYHJ4HZLQ8QYGakwBXVQj
+         9wMg==
+X-Gm-Message-State: AC+VfDy/xSCOrgdD8QtSwhzQf2IvrIv+sdQYNnUCyAKkw9Mry92HYrol
+	K6GXHcy+JLvaJmHlTEbltL7epjRsv5n7yerw+2Y=
+X-Google-Smtp-Source: ACHHUZ4PlOcgGzuvd/vrGBXWSweqjzis58nvu5gGAEW7a+L7+rBFMlDT/k/NAs79bhYMEn3+FtkAjw==
+X-Received: by 2002:a17:902:6b45:b0:1ac:84dd:6d1f with SMTP id g5-20020a1709026b4500b001ac84dd6d1fmr14999678plt.1.1687377423613;
+        Wed, 21 Jun 2023 12:57:03 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id fe15-20020a056a002f0f00b006687f6727e1sm3222011pfb.206.2023.06.21.12.46.21
+        by smtp.gmail.com with ESMTPSA id 13-20020a170902c10d00b0019aaab3f9d7sm3860360pli.113.2023.06.21.12.57.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Jun 2023 12:46:21 -0700 (PDT)
-Date: Wed, 21 Jun 2023 12:46:21 -0700 (PDT)
-X-Google-Original-Date: Wed, 21 Jun 2023 12:45:41 PDT (-0700)
-Subject: Re: [PATCH v2 0/4] riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-In-Reply-To: <mhng-1d790a82-44ad-4b9c-bfe4-6303f09b0705@palmer-ri-x1c9a>
-CC: bjorn@kernel.org, Conor Dooley <conor@kernel.org>, jszhang@kernel.org,
-  llvm@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  Arnd Bergmann <arnd@arndb.de>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  linux-arch@vger.kernel.org
+        Wed, 21 Jun 2023 12:57:02 -0700 (PDT)
+Date: Wed, 21 Jun 2023 12:57:02 -0700 (PDT)
+X-Google-Original-Date: Wed, 21 Jun 2023 12:56:23 PDT (-0700)
+Subject: Re: [PATCH v1] RISC-V: make ARCH_THEAD preclude XIP_KERNEL
+In-Reply-To: <20230621-panorama-stuffing-f24b26546972@spud>
+CC: linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>,
+  Conor Dooley <conor.dooley@microchip.com>, rdunlap@infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, jszhang@kernel.org, linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: ndesaulniers@google.com, nathan@kernel.org
-Message-ID: <mhng-ad2d02fa-2d4d-4bf1-ab2a-fd84fa4bcb40@palmer-ri-x1c9a>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-2c7ad1c9-cba1-4501-ae38-0ffb3d5bf487@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230621_124624_187787_37CCEB08 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20230621_125705_370771_5D6809F8 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,77 +87,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============1298054329718760124=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1298054329718760124==
-Content-Type: text/plain
-
-On Wed, 21 Jun 2023 11:19:31 PDT (-0700), Palmer Dabbelt wrote:
-> On Wed, 21 Jun 2023 10:51:15 PDT (-0700), bjorn@kernel.org wrote:
->> Conor Dooley <conor@kernel.org> writes:
->>
->> [...]
->>
->>>> So I'm no longer actually sure there's a hang, just something slow.
->>>> That's even more of a grey area, but I think it's sane to call a 1-hour
->>>> link time a regression -- unless it's expected that this is just very
->>>> slow to link?
->>>
->>> I dunno, if it was only a thing for allyesconfig, then whatever - but
->>> it's gonna significantly increase build times for any large kernels if LLD
->>> is this much slower than LD. Regression in my book.
->>>
->>> I'm gonna go and experiment with mixed toolchain builds, I'll report
->>> back..
->>
->> I took palmer/for-next (1bd2963b2175 ("Merge patch series "riscv: enable
->> HAVE_LD_DEAD_CODE_DATA_ELIMINATION"")) for a tuxmake build with llvm-16:
->>
->>   | ~/src/tuxmake/run -v --wrapper ccache --target-arch riscv \
->>   |     --toolchain=llvm-16 --runtime docker --directory . -k \
->>   |     allyesconfig
->>
->> Took forever, but passed after 2.5h.
+On Wed, 21 Jun 2023 12:00:31 PDT (-0700), Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 >
-> Thanks.  I just re-ran mine 17/trunk LLD under time (rather that just
-> checking top sometimes), it's at 1.5h but even that seems quite long.
+> Randy reported build errors in linux-next where XIP_KERNEL was enabled.
+> ARCH_THEAD requires alternatives to support the non-standard ISA
+> extensions used by the THEAD cores, which are mutually exclusive with
+> XIP kernels. Clone the dependency list from the Allwinner entry, since
+> Allwinner's D1 uses T-Head cores with the same non-standard extensions.
 >
-> I guess this is sort of up to the LLVM folks: if it's expected that DCE
-> takes a very long time to link then I'm not opposed to allowing it, but
-> if this is probably a bug in LLD then it seems best to turn it off until
-> we sort things out over there.
+> Reported-by: Randy Dunlap <rdunlap@infradead.org>
+> Reviewed-by: Randy Dunlap <rdunlap@infradead.org>
+> Tested-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
+> Link: https://lore.kernel.org/all/ab38f6af-cb68-a918-1a63-2e7c927a8ffc@infradead.org/
+> Fixes: da47ce003963 ("riscv: Add the T-HEAD SoC family Kconfig option")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> CC: Paul Walmsley <paul.walmsley@sifive.com>
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: Albert Ou <aou@eecs.berkeley.edu>
+> CC: Jisheng Zhang <jszhang@kernel.org>
+> CC: linux-riscv@lists.infradead.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  arch/riscv/Kconfig.socs | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> I think maybe Nick or Nathan is the best bet to know?
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index ce10a38dff37..6833d01e2e70 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -43,6 +43,7 @@ config ARCH_SUNXI
+>
+>  config ARCH_THEAD
+>  	bool "T-HEAD RISC-V SoCs"
+> +	depends on MMU && !XIP_KERNEL
+>  	select ERRATA_THEAD
+>  	help
+>  	  This enables support for the RISC-V based T-HEAD SoCs.
 
-Looks like it's about 2h for me.  I'm going to drop these from my 
-staging tree in the interest of making progress on other stuff, but if 
-this is just expected behavior them I'm OK taking them (though that's 
-too much compute for me to test regularly):
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-$ time ../../../../llvm/install/bin/ld.lld -melf64lriscv -z noexecstack -r -o vmlinux.o --whole-archive vmlinux.a --no-whole-archive --start-group ./drivers/firmware/efi/libstub/lib.a --end-group                                                                                                                                    
-
-real    111m50.678s
-user    111m18.739s
-sys     1m13.147s
-
->> CONFIG_CC_VERSION_TEXT="Debian clang version 16.0.6 (++20230610113307+7cbf1a259152-1~exp1~20230610233402.106)"
->>
->>
->> Björn
-
-
---===============1298054329718760124==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+I don't have an ARCH_THEAD, though, so not sure where this is aimed at.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1298054329718760124==--
