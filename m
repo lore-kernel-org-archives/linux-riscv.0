@@ -4,126 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E6DEB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 22:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5BCEB64D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 23:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aC/psL8LkFga2bic7xM6xjoYxFkk/GYhkM9sMrfeG7Y=; b=OelbSasxoSvaLC
-	WGzVYgZthzKW93j9q/tK9YUi2Dfm4wtbiUh1o9eUuyc5GOaXQnPjdkkQFQMeGJt9Nh2iy3Q4kffcr
-	+c7C1JgbgBDIqWW3zOSFl0R0e6kWJ7IZHB3HIhQD+LVALI0bo7hruAw7Pg6ipwyvVJyRaCsjnLY5U
-	KES1qkLKFTyVg2pnkjWo3zo4zDNIfCwH6RJGoWv6dwZbnKWuAayql2vPwBUjJWWNAOyQOcoGTJlZL
-	a5YVbrIsBEPiPsBsymw0cbFnXrk63xgsgTAgeDJpVkTrS4O+ETPcO+3aulTjsw4/TH9tWE1Mt92Tz
-	YPvlmIkByNk8rubOWpcQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=LVvUNyu90AIhL5G3SKYsG7BR4K1HuEzBpMnBklmn0nY=; b=1bKbvATmliekCJvkj7raLFw9lM
+	S6eRMui8nU0sjNzdH9UFUvH+QQQZBs2wVOltKJ+AeCatWnF9llx8+X7+H1fWWtcUglZUbBLBDohNe
+	AYfAe3vb3qR6dFJ7SDDBvBDKHxWZikILSL5l8Fw/DSB9RaXM8UhUJZsvDjKBpW0kdCbF7He2VmMoX
+	OeOaCyRTBAhK6xZrgl5DA7VcF0+3bkYEPLKjRhJhg0TNAi0/7xTqH8SE+WBFpZa6edbsmD/TqMoCj
+	7M1SYGV9qQgy8tm+S3Cm8j0ZiIhgPcKuxU2aIoqLJ8t4EfHFxHdc6uAby9r3C/XxXnQf2IH+Os891
+	euztbbbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qC6Ed-00FttM-2y;
-	Wed, 21 Jun 2023 22:23:31 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1qC74G-00G123-2h;
+	Wed, 21 Jun 2023 23:16:52 +0000
+Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qC6Ec-00Ftso-0b;
-	Wed, 21 Jun 2023 22:23:31 +0000
-Received: from pps.filterd (m0353727.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 35LLceqD020127;
-	Wed, 21 Jun 2023 22:23:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
- from : to : cc : date : in-reply-to : references : content-type :
- mime-version : content-transfer-encoding; s=pp1;
- bh=twHnZ9LZXyCdzFJSikPPS2cXIq/+7siyPXRk460Htms=;
- b=Ot8RK4iaywiK1SGE0vTVJhXsK7qD0NfiAU9srQaqP4e0E5JbyFo1CIXrt982ssP7oQ3I
- aZdC+9+IeEhDDmgPQ1H+135MIEcyLyvXJGn9eqj8viglJPHe4rdBLlNjXl+4tzItGIg5
- NkggAhaJsXbAVmc40xroxWMBssTqjLL78+P+pxIZ3Oe2m4Prrt6lOYa38IP+s2NmM6OW
- 0+HG/+JccegQbt9uKajGe/6By2OLSSxAC3EQ6XrQPLx3BYFeyppAmX++/Ilw4vNGiwoB
- LG4rTNYxF73DgEsWUMH04G64wqtJlVrKC1N+tBbyNUdBTBjCroGlz/Dkp9+UY11cs8bZ LQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3rc919h6xj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Jun 2023 22:23:03 +0000
-Received: from m0353727.ppops.net (m0353727.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 35LMCVOM014060;
-	Wed, 21 Jun 2023 22:23:02 GMT
-Received: from ppma03wdc.us.ibm.com (ba.79.3fa9.ip4.static.sl-reverse.com [169.63.121.186])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3rc919h6x1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Jun 2023 22:23:02 +0000
-Received: from pps.filterd (ppma03wdc.us.ibm.com [127.0.0.1])
-	by ppma03wdc.us.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 35LKsGSs016692;
-	Wed, 21 Jun 2023 22:23:00 GMT
-Received: from smtprelay07.dal12v.mail.ibm.com ([9.208.130.99])
-	by ppma03wdc.us.ibm.com (PPS) with ESMTPS id 3r94f66emv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Jun 2023 22:23:00 +0000
-Received: from smtpav05.wdc07v.mail.ibm.com (smtpav05.wdc07v.mail.ibm.com [10.39.53.232])
-	by smtprelay07.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 35LMMxO516908784
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 21 Jun 2023 22:22:59 GMT
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 151C858059;
-	Wed, 21 Jun 2023 22:22:59 +0000 (GMT)
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9D92258053;
-	Wed, 21 Jun 2023 22:22:52 +0000 (GMT)
-Received: from li-f45666cc-3089-11b2-a85c-c57d1a57929f.ibm.com (unknown [9.61.17.230])
-	by smtpav05.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 21 Jun 2023 22:22:52 +0000 (GMT)
-Message-ID: <7fdade2c2b091461b5e696327cc420cf9789daf5.camel@linux.ibm.com>
-Subject: Re: [PATCH v2 12/13] s390/kexec: refactor for kernel/Kconfig.kexec
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Eric DeVolder
-	 <eric.devolder@oracle.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-        chenhuacai@kernel.org, geert@linux-m68k.org, tsbogend@alpha.franken.de,
-        James.Bottomley@hansenpartnership.com, deller@gmx.de,
-        ysato@users.sourceforge.jp, dalias@libc.org,
-        glaubitz@physik.fu-berlin.de, tglx@linutronix.de, mingo@redhat.com,
-        bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-sh@vger.kernel.org, kernel@xen0n.name, mpe@ellerman.id.au,
-        npiggin@gmail.com, christophe.leroy@csgroup.eu,
-        paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-        hca@linux.ibm.com, gor@linux.ibm.com, borntraeger@linux.ibm.com,
-        svens@linux.ibm.com, hpa@zytor.com, keescook@chromium.org,
-        paulmck@kernel.org, peterz@infradead.org, frederic@kernel.org,
-        akpm@linux-foundation.org, ardb@kernel.org, samitolvanen@google.com,
-        juerg.haefliger@canonical.com, arnd@arndb.de,
-        rmk+kernel@armlinux.org.uk, linus.walleij@linaro.org,
-        sebastian.reichel@collabora.com, rppt@kernel.org,
-        kirill.shutemov@linux.intel.com, anshuman.khandual@arm.com,
-        ziy@nvidia.com, masahiroy@kernel.org, ndesaulniers@google.com,
-        mhiramat@kernel.org, ojeda@kernel.org, thunder.leizhen@huawei.com,
-        xin3.li@intel.com, tj@kernel.org, gregkh@linuxfoundation.org,
-        tsi@tuyoix.net, bhe@redhat.com, hbathini@linux.ibm.com,
-        sourabhjain@linux.ibm.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com
-Date: Wed, 21 Jun 2023 18:22:52 -0400
-In-Reply-To: <ZJKD690QaX1IgiAz@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20230619145801.1064716-1-eric.devolder@oracle.com>
-	 <20230619145801.1064716-13-eric.devolder@oracle.com>
-	 <ZJKD690QaX1IgiAz@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-X-Mailer: Evolution 3.28.5 (3.28.5-18.el8) 
-Mime-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: A0xU2IGjRL44QhWtskIUDcoDDAzlrqkc
-X-Proofpoint-ORIG-GUID: dllZ298DcKriG7GVLaW-qyk4RJTHD_2f
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.591,FMLib:17.11.176.26
- definitions=2023-06-21_12,2023-06-16_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 spamscore=0
- mlxscore=0 adultscore=0 malwarescore=0 clxscore=1011 phishscore=0
- priorityscore=1501 mlxlogscore=975 bulkscore=0 lowpriorityscore=0
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2305260000 definitions=main-2306210186
+	id 1qC74D-00G10x-13
+	for linux-riscv@lists.infradead.org;
+	Wed, 21 Jun 2023 23:16:51 +0000
+Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-39eab4bbe8aso4324866b6e.1
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Jun 2023 16:16:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1687389408; x=1689981408;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=i4rVo+mVuxwtsu5V/lfGRBX4yPfbkTSPEFbP6fD5ewc=;
+        b=ynlXNaUoh/2z3rEdd1Va2R2axXixILIPeHORpLCzMZFE4V5uoPzD6gTlz8xvGi7FLw
+         +VRVTQYk/pcqdjxOvJYSGgg0swZPDjpZiJatNrSWftPI41PnMZDHh8sVzH0r4ggzZAgM
+         Iiv9tLFyNubuodIKnHaT1YYYAVw2SYUPnLG3wJ5TNr6B17otEm4BgQyBE9hB+41xUKz0
+         9oi0CRc3jOzbiD2XLIxegSmBkuLzWq7hwxQnE+N1/CL0YdiqdSV3JhJ5/SRpkXdxTYv6
+         sBX531AaxRF/fVBfP6jHV1N9v8xWdbltKqut2dfIMIkPnUTPix9LpjZwtS8hg5N8XneG
+         dWSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1687389408; x=1689981408;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=i4rVo+mVuxwtsu5V/lfGRBX4yPfbkTSPEFbP6fD5ewc=;
+        b=Df9sY0qBcYH5eYc0OpurLnGDwNK5RpGeEgLrqZG0e9v7nxYvEywspGMMBU2vsZrbl7
+         ukx+87dIgiASaWPrO9oPB6/q22UpYruLU9UQDbstbzFEk56hhuZnzfuN6no37d7Vv7H8
+         ffSgzqt9IpqzXG1HyF38x9amLm35MhHSyE9CtAq1vF9OVyY/Vn09KRbQ7vV2037PqJ5S
+         bit7PGq6yXKjP8zWW4BLTY/NoRfFsOmcVHL8hsVa2eWOesu3Gdfk7NGKoEYdT7vZ6kPT
+         6rRJtDA9Lk10jq3icLDUhoBxLpUXanM3UKoqjxWSSiOKgd1ukeJRt9b/un0S4RorHMB0
+         8p+w==
+X-Gm-Message-State: AC+VfDzrVHdUfkFL8Xc2HjmFN2p5I6iwIZ4Nlw1rtTs3VGechY5+7083
+	rWSwOyju0WwZu2WEsQB2jCnzFHTugMkB2/5Mwxo=
+X-Google-Smtp-Source: ACHHUZ7FzNIAt4g+zr/JDyKcWdgMUIdnWlvI6D6LcF1SXHZE1wWG50I3TVQxeb7L9o0KolDHaB+/Bw==
+X-Received: by 2002:a54:4095:0:b0:39e:e048:410 with SMTP id i21-20020a544095000000b0039ee0480410mr9145253oii.42.1687389407789;
+        Wed, 21 Jun 2023 16:16:47 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id l3-20020a17090a72c300b0025930e50e28sm9355230pjk.41.2023.06.21.16.16.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Jun 2023 16:16:47 -0700 (PDT)
+Date: Wed, 21 Jun 2023 16:16:47 -0700 (PDT)
+X-Google-Original-Date: Wed, 21 Jun 2023 16:16:07 PDT (-0700)
+Subject: Re: [PATCH v1] RISC-V: make ARCH_THEAD preclude XIP_KERNEL
+In-Reply-To: <20230621-grass-pregame-8fa7cd7bdb96@spud>
+CC: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>,
+  rdunlap@infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  jszhang@kernel.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-462c879c-bdd5-4b0c-8144-4618bd2e0499@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230621_152330_249834_0CD3E753 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20230621_161649_581294_94CCDE5B 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,25 +87,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2023-06-21 at 07:00 +0200, Alexander Gordeev wrote:
-> AFAICT the MODULE_SIG_FORMAT dependency was introduced with commit
-> c8424e776b09 ("MODSIGN: Export module signature definitions") and
-> in fact was not necessary, since s390 did/does not use mod_check_sig()
-> anyway. So the SYSTEM_DATA_VERIFICATION could have left intact.
+On Wed, 21 Jun 2023 13:00:38 PDT (-0700), Conor Dooley wrote:
+> On Wed, Jun 21, 2023 at 12:57:02PM -0700, Palmer Dabbelt wrote:
+>
+>> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> 
+>> I don't have an ARCH_THEAD, though, so not sure where this is aimed at.
+>
+> I need to take it, I applied the patches.
+> Sorry, probably should have said it below the --- line.
 
-FYI, this patch was included in the patch set to allow IMA to verify
-the kexec kernel image appended signature on OpenPOWER.
-
--- 
-thanks,
-
-Mimi
-
+No problem, I figured they were over there somewhere -- just kind of 
+hard to keep track with how much is in flight right now ;)
 
 _______________________________________________
 linux-riscv mailing list
