@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A945EB64D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 14:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47DE3EB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Jun 2023 15:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:Message-ID:To:From:CC:In-Reply-To:Subject:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=hRKcspmkOgfZKtKlAE8MNgP8wnxkzWqCcWf8O8G2uIc=; b=Vthj0Dg1sTDK46
-	b/V1l2HxVxKHJ9sFcsugNcHvEPnpkRmF6XYvU8FRSiOss/2miwEFRzQvyYMhCQw1UOFrC9SAsMfS0
-	V8l4wmKQQ+m+MlzGAAh1obqsmo1zTJxENTOpaHHYccUTPfBQ7s0pu+OFuFvd7OY+DUJJONb/9R31D
-	sToQmL+29MxB+/eJjv/GdNuFdxFCQ+vldKRpBnprjlYEDbXGc2D9aTfR2rPITgxBvFpfI1UdoZ+T2
-	+b3Xt3HxwXA8E8YbRG/87kvMkyEUDAy8H/Abs0AGQGb06V0odUgtzAAyiLhOFaWjhcFn6VjE70hB3
-	+rMXVxm2Bwu0e6Lj/X7Q==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q+tFtwZkYw20pq2Uc/miv/gMm2m+CqMoRJUYn2XbIoA=; b=BYCGhdEuYSDJOSxTqaoner+TUj
+	doTh76yUb7zlU4TF/n7NY2w5UfPb1FvL8AiXB+XO8yABbI6w6wn8TSRtFcecNT2P3MQa0t9lQnF/4
+	WQL6TedQ3pWbxR9nNfQ8wFvmZKG9GmjZaRoi5w32v8FtynWYhWbhPR3c0K/encaH5CSOH+8wfiiNc
+	Hzv4NzzoNRqPA9AktacwgaEOVadRxu/9oO0BGDt4nW359CVr/WY+8RmG5NJhwjOCrJ204MGr8/pT9
+	q3/X2OD9Dj5ctXRezPBNCOEiiuGZiT19WEFFgyQSN6XsNBiPiUTtHBRLKW0wbFcM86VnPIZmciyxi
+	+mKQWo6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBzDj-00EsRd-0U;
-	Wed, 21 Jun 2023 14:54:07 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1qBzaT-00EvId-26;
+	Wed, 21 Jun 2023 15:17:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qBzDf-00EsKd-14
+	id 1qBzaQ-00EvI1-0b
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 Jun 2023 14:54:05 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-54fba092ef5so4757660a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Jun 2023 07:54:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1687359241; x=1689951241;
-        h=message-id:to:from:cc:in-reply-to:subject:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=NEunxZx+vC6MelzaldzUGnTGO3Vi7pASMkXGIahe5XA=;
-        b=i7XzxVV4Mf+kiHnx8OI4XIUzUBrOOuUtw83TzX3ObDbNWldX5/knsM5Z2FozYWGskt
-         uNRng4wZP0+SujABsdgqz1QZNhasjdAC/XgLe8untJc3BOUSLbL8m7SGqaPj1i5VkJEZ
-         QnS48sKtYZHITrVtQwPui2pIwiZkhNYhy0rYbe1aD+v72N9qiza9ZOlTFRLclUodtjN+
-         NrEvHgRiSMhAdpjyGz85d2NkUna8ge7v54x+Xr/3I5T1grXRXnIsnyfokY6/z08eyrD+
-         XA/N8l73U68N4MAq9/GclduZgp9EjNQOFJQ2Vp1/obiRyBYHj0bBel8zCDBHBXojUjty
-         KswQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687359241; x=1689951241;
-        h=message-id:to:from:cc:in-reply-to:subject:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NEunxZx+vC6MelzaldzUGnTGO3Vi7pASMkXGIahe5XA=;
-        b=RcqMXH0VBtFmx9Yvx089sj7eVnN4WrDEx2PAmH6ePyygJVV03IQsNWwkqGM/6Hpe06
-         ytasx4s8DTjWDylmXHIH7bRcwkt30XIgtdaUVv7SSZmIsliGcn4pXMF9Dx6G45bzVnVk
-         g4hlVOa0gci3z93RXWphGR7cZeGmDhONUd1Hwtj2Ex/bFzSHL5tloIXtoOqvcL82hJHT
-         8xXCwtUcwxF+9gVx39/yYlQdsGOu4X8vRs4Zy1B4ALws50yLwsVdCjH2sJ9dhSDNAfCX
-         BJPGi4lrbIyqoSmOs8rCkYJ6ENnDkHOzZh6/YQpYdYn9LACkZ7GGdE0oBY9T4Adgh8wi
-         nOMw==
-X-Gm-Message-State: AC+VfDyRasq4FQ3yI5fqhSNQnHVcohMsL+ku88k2oCDeb1u3OlKbROgE
-	ZMhDqJuw+M4R/oTOOeaNlCBGew==
-X-Google-Smtp-Source: ACHHUZ5qKimugwIwWMm1fA+NHwlYg1WzZa5xNfgcuxC0docRuW4FMER/iDzKWVeYBtiFfDVC/1wnBQ==
-X-Received: by 2002:a17:903:1250:b0:1ac:aba5:7885 with SMTP id u16-20020a170903125000b001acaba57885mr18055679plh.47.1687359240597;
-        Wed, 21 Jun 2023 07:54:00 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id d12-20020a170902cecc00b001b03a7a40e7sm3638417plg.19.2023.06.21.07.53.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Jun 2023 07:53:59 -0700 (PDT)
-Date: Wed, 21 Jun 2023 07:53:59 -0700 (PDT)
-X-Google-Original-Date: Wed, 21 Jun 2023 07:53:17 PDT (-0700)
-Subject: Re: [PATCH v2 0/4] riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-In-Reply-To: <mhng-8caf7779-aa9e-496a-b2ee-2e6d6d1d76ff@palmer-ri-x1c9a>
-CC: Conor Dooley <conor@kernel.org>, jszhang@kernel.org, llvm@lists.linux.dev,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: ndesaulniers@google.com
-Message-ID: <mhng-861ea8a6-c92c-4a78-a1a6-dfb4df554aee@palmer-ri-x1c9a>
+	Wed, 21 Jun 2023 15:17:35 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5CD646157D;
+	Wed, 21 Jun 2023 15:17:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFD77C433C0;
+	Wed, 21 Jun 2023 15:17:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687360651;
+	bh=XeX3n2Ex4fOTZjDwqLGXcfRd6/4GgUf3KTctiEH8LGk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mxD2EJcFfTQ8e0cNCj5ca8stnZ+HWvu2Z6jfzHsH40oDNnGqGsGsTxUp7OZXR1bYn
+	 L2Cu5aduSVIyfzDJaQJ8LBD9PZPlimATgUAaYJhLHhjXuqjmSUDNZDfmXYdGkRXX1D
+	 SZuf5sWQDgcP9i//v6Js7lLFgh8H/1xh9l/iNPW3WQFx5xYhnSjBywD0RiJx3X3fxd
+	 HyY+OqhP0dKpoidf4iSM7md2bDRx2WcWd3MSgW6MeTKz3BM6w/fj3+jLyZNEB8eKL0
+	 /vSntbHj3I3fuwXmj9Oa+2Zbtg7OYxrqqWWHfc7MKnKkfDCKuJKfl0JkBGuJONuHey
+	 GHEFZKeNjMxwg==
+Date: Wed, 21 Jun 2023 16:17:24 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Eric Lin <eric.lin@sifive.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, aou@eecs.berkeley.edu, maz@kernel.org,
+	chenhuacai@kernel.org, baolu.lu@linux.intel.com, will@kernel.org,
+	kan.liang@linux.intel.com, nnac123@linux.ibm.com,
+	pierre.gondois@arm.com, jgross@suse.com, chao.gao@intel.com,
+	maobibo@loongson.cn, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dslin1010@gmail.com, Greentime Hu <greentime.hu@sifive.com>,
+	Zong Li <zong.li@sifive.com>, Nick Hu <nick.hu@sifive.com>,
+	mark.rutland@arm.com, arnd@arndb.de
+Subject: Re: [PATCH 2/3] soc: sifive: Add SiFive private L2 cache PMU driver
+Message-ID: <20230621-stupor-violin-930ccc7d7593@spud>
+References: <20230616063210.19063-1-eric.lin@sifive.com>
+ <20230616063210.19063-3-eric.lin@sifive.com>
+ <20230616-revision-speed-a83dc926b334@wendy>
+ <CAPqJEFo5genyjY7qJBaESzeppbEnTiDe9qzv98ETLhWfMZeG4A@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CAPqJEFo5genyjY7qJBaESzeppbEnTiDe9qzv98ETLhWfMZeG4A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230621_075403_587133_9DF52D96 
-X-CRM114-Status: GOOD (  33.62  )
+X-CRM114-CacheID: sfid-20230621_081734_315132_E37F0065 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,124 +81,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============9048507471893907727=="
+Content-Type: multipart/mixed; boundary="===============6246015032779429635=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============9048507471893907727==
-Content-Type: text/plain
 
-On Tue, 20 Jun 2023 17:13:17 PDT (-0700), Palmer Dabbelt wrote:
-> On Tue, 20 Jun 2023 14:08:33 PDT (-0700), Palmer Dabbelt wrote:
->> On Tue, 20 Jun 2023 13:47:07 PDT (-0700), ndesaulniers@google.com wrote:
->>> On Tue, Jun 20, 2023 at 4:41 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>>>
->>>> On Tue, 20 Jun 2023 13:32:32 PDT (-0700), ndesaulniers@google.com wrote:
->>>> > On Tue, Jun 20, 2023 at 4:13 PM Conor Dooley <conor@kernel.org> wrote:
->>>> >>
->>>> >> On Tue, Jun 20, 2023 at 04:05:55PM -0400, Nick Desaulniers wrote:
->>>> >> > On Mon, Jun 19, 2023 at 6:06 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>>> >> > > On Thu, 15 Jun 2023 06:54:33 PDT (-0700), Palmer Dabbelt wrote:
->>>> >> > > > On Wed, 14 Jun 2023 09:25:49 PDT (-0700), jszhang@kernel.org wrote:
->>>> >> > > >> On Wed, Jun 14, 2023 at 07:49:17AM -0700, Palmer Dabbelt wrote:
->>>> >> > > >>> On Tue, 23 May 2023 09:54:58 PDT (-0700), jszhang@kernel.org wrote:
->>>> >>
->>>> >> > > >> Commit 3b90b09af5be ("riscv: Fix orphan section warnings caused by
->>>> >> > > >> kernel/pi") touches vmlinux.lds.S, so to make the merge easy, this
->>>> >> > > >> series is based on 6.4-rc2.
->>>> >> > > >
->>>> >> > > > Thanks.
->>>> >> > >
->>>> >> > > Sorry to be so slow here, but I think this is causing LLD to hang on
->>>> >> > > allmodconfig.  I'm still getting to the bottom of it, there's a few
->>>> >> > > other things I have in flight still.
->>>> >> >
->>>> >> > Confirmed with v3 on mainline (linux-next is pretty red at the moment).
->>>> >> > https://lore.kernel.org/linux-riscv/20230517082936.37563-1-falcon@tinylab.org/
->>>> >>
->>>> >> Just FYI Nick, there's been some concurrent work here from different
->>>> >> people working on the same thing & the v3 you linked (from Zhangjin) was
->>>> >> superseded by this v2 (from Jisheng).
->>>> >
->>>> > Ah! I've been testing the deprecated patch set, sorry I just looked on
->>>> > lore for "dead code" on riscv-linux and grabbed the first thread,
->>>> > without noticing the difference in authors or new version numbers for
->>>> > distinct series. ok, nevermind my noise.  I'll follow up with the
->>>> > correct patch set, sorry!
->>>>
->>>> Ya, I hadn't even noticed the v3 because I pretty much only look at
->>>> patchwork these days.  Like we talked about in IRC, I'm going to go test
->>>> the merge of this one and see what's up -- I've got it staged at
->>>> <https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=for-next&id=1bd2963b21758a773206a1cb67c93e7a8ae8a195>,
->>>> though that won't be a stable hash if it's actually broken...
->>>
->>> Ok, https://lore.kernel.org/linux-riscv/20230523165502.2592-1-jszhang@kernel.org/
->>> built for me.  If you're seeing a hang, please let me know what
->>> version of LLD you're using and I'll build that tag from source to see
->>> if I can reproduce, then bisect if so.
->>>
->>> $ ARCH=riscv LLVM=1 /usr/bin/time -v make -j128 allmodconfig vmlinux
->>> ...
->>>         Elapsed (wall clock) time (h:mm:ss or m:ss): 2:35.68
->>> ...
->>>
->>> Tested-by: Nick Desaulniers <ndesaulniers@google.com> # build
->>
->> OK, it triggered enough of a rebuild that it might take a bit for
->> anything to filter out.
->
-> I'm on LLVM 16.0.2
->
->     $ git describe
->     llvmorg-16.0.2
->     $ git log | head -n1
->     commit 18ddebe1a1a9bde349441631365f0472e9693520
->
-> that seems to hang for me -- or at least run for an hour without
-> completing, so I assume it's hung.  I'm not wed to 16.0.2, it just
-> happens to be the last time I bumped the toolchain.  I'm moving to
-> 16.0.5 to see if that changes anything.
-
-That also takes at least an hour to link.  I tried running on LLVM trunk 
-from last night
-
-    $ git log | head -n1
-    commit 5e9173c43a9b97c8614e36d6f754317f731e71e9
-
-and that completed.  Just as a curiosity I tried to re-spin it to see 
-how long it takes, and it's been running for 23 minutes so far.
-
-So I'm no longer actually sure there's a hang, just something slow.  
-That's even more of a grey area, but I think it's sane to call a 1-hour 
-link time a regression -- unless it's expected that this is just very 
-slow to link?
-
->
->>
->> Thanks!
->>
->>>
->>>>
->>>> >
->>>> >>
->>>> >> Cheers,
->>>> >> Conor.
->>>> >
->>>> >
->>>> >
->>>> > --
->>>> > Thanks,
->>>> > ~Nick Desaulniers
->>>
->>>
->>>
->>> --
->>> Thanks,
->>> ~Nick Desaulniers
+--===============6246015032779429635==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="lvXd4hUgqP0KdRuW"
+Content-Disposition: inline
 
 
---===============9048507471893907727==
+--lvXd4hUgqP0KdRuW
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Arnd, Perf people,
+
+On Tue, Jun 20, 2023 at 11:14:32AM +0800, Eric Lin wrote:
+> On Fri, Jun 16, 2023 at 6:13=E2=80=AFPM Conor Dooley <conor.dooley@microc=
+hip.com> wrote:
+> >
+> > On Fri, Jun 16, 2023 at 02:32:09PM +0800, Eric Lin wrote:
+> > > From: Greentime Hu <greentime.hu@sifive.com>
+> > >
+> > > This adds SiFive private L2 cache PMU driver. User
+> > > can use perf tool to profile by event name and event id.
+> > >
+> > > Example:
+> > > $ perf stat -C 0 -e /sifive_pl2_pmu/inner_acquire_block_btot/
+> > >                 -e /sifive_pl2_pmu/inner_acquire_block_ntob/
+> > >                 -e /sifive_pl2_pmu/inner_acquire_block_ntot/ ls
+> > >
+> > >  Performance counter stats for 'CPU(s) 0':
+> > >
+> > >                300      sifive_pl2_pmu/inner_acquire_block_btot/
+> > >              17801      sifive_pl2_pmu/inner_acquire_block_ntob/
+> > >               5253      sifive_pl2_pmu/inner_acquire_block_ntot/
+> > >
+> > >        0.088917326 seconds time elapsed
+> > >
+> > > $ perf stat -C 0 -e /sifive_pl2_pmu/event=3D0x10001/
+> > >                 -e /sifive_pl2_pmu/event=3D0x4001/
+> > >                 -e /sifive_pl2_pmu/event=3D0x8001/ ls
+> > >
+> > >  Performance counter stats for 'CPU(s) 0':
+> > >
+> > >                251      sifive_pl2_pmu/event=3D0x10001/
+> > >               2620      sifive_pl2_pmu/event=3D0x4001/
+> > >                644      sifive_pl2_pmu/event=3D0x8001/
+> > >
+> > >        0.092827110 seconds time elapsed
+> > >
+> > > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> > > Signed-off-by: Eric Lin <eric.lin@sifive.com>
+> > > Reviewed-by: Zong Li <zong.li@sifive.com>
+> > > Reviewed-by: Nick Hu <nick.hu@sifive.com>
+> > > ---
+> > >  drivers/soc/sifive/Kconfig            |   9 +
+> > >  drivers/soc/sifive/Makefile           |   1 +
+> > >  drivers/soc/sifive/sifive_pl2.h       |  20 +
+> > >  drivers/soc/sifive/sifive_pl2_cache.c |  16 +
+> > >  drivers/soc/sifive/sifive_pl2_pmu.c   | 669 ++++++++++++++++++++++++=
+++
+> >
+> > Perf drivers should be in drivers/perf, no?
+> >
+>=20
+> Hi Conor,
+>=20
+> Yes, I see most of the drivers are in the drivers/perf.
+>=20
+> But I grep perf_pmu_register(), it seems not all the pmu drivers are
+> in drivers/perf as below:
+>=20
+> arch/arm/mach-imx/mmdc.c:517:   ret =3D
+> perf_pmu_register(&(pmu_mmdc->pmu), name, -1);
+> arch/arm/mm/cache-l2x0-pmu.c:552:       ret =3D
+> perf_pmu_register(l2x0_pmu, l2x0_name, -1);
+> ...
+> drivers/dma/idxd/perfmon.c:627: rc =3D perf_pmu_register(&idxd_pmu->pmu,
+> idxd_pmu->name, -1);
+> drivers/fpga/dfl-fme-perf.c:904:static int
+> fme_perf_pmu_register(struct platform_device *pdev,
+> drivers/fpga/dfl-fme-perf.c:929:        ret =3D perf_pmu_register(pmu, na=
+me, -1);
+> ...
+> drivers/gpu/drm/amd/amdgpu/amdgpu_pmu.c:549:    ret =3D
+> perf_pmu_register(&pmu_entry->pmu, pmu_name, -1);
+> drivers/gpu/drm/i915/i915_pmu.c:1190:   ret =3D
+> perf_pmu_register(&pmu->base, pmu->name, -1);
+> drivers/hwtracing/coresight/coresight-etm-perf.c:907:   ret =3D
+> perf_pmu_register(&etm_pmu, CORESIGHT_ETM_PMU_NAME, -1);
+> drivers/hwtracing/ptt/hisi_ptt.c:895:   ret =3D
+> perf_pmu_register(&hisi_ptt->hisi_ptt_pmu, pmu_name, -1);
+> drivers/iommu/intel/perfmon.c:570:      return
+> perf_pmu_register(&iommu_pmu->pmu, iommu_pmu->pmu.name, -1);
+> drivers/nvdimm/nd_perf.c:309:   rc =3D perf_pmu_register(&nd_pmu->pmu,
+> nd_pmu->pmu.name, -1);
+> ...
+>=20
+> I just wondering what kind of pmu drivers should be in drivers/perf
+> and what kind of pmu drivers should not be in drivers/perf.
+> Thanks.
+
+To be quite honest, I have no idea.
+I'm just a wee bit wary of taking anything that appears to have another
+home via drivers/soc. I'd rather break drivers out, using the aux bus or
+similar if need be, so that people who are knowledgeable in an area are
+CCed on patches.
+Hopefully Arnd or the Perf people can offer some guidance here. If it
+does go into drivers/soc, it'll need a review from someone knowledgeable
+of perf anyway.
+
+Cheers,
+Conor.
+
+--lvXd4hUgqP0KdRuW
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJMUhAAKCRB4tDGHoIJi
+0gQPAP9NA5+xGxexqqs9oKDQy5JFuGFIRMNc1wrRkTfe1WpeaQEAnpjQJ6IBF65+
+oBS810J/hKoiRXGWz+RIZLvb6+b7MQs=
+=s8XO
+-----END PGP SIGNATURE-----
+
+--lvXd4hUgqP0KdRuW--
+
+
+--===============6246015032779429635==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -212,4 +223,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============9048507471893907727==--
+--===============6246015032779429635==--
+
