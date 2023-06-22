@@ -4,50 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9A8EB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 17:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C19EB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 17:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4BqxeYaby9lzVweTQrxKE6zOIKUo4dm5BkmWGeYnXV0=; b=lKj12uom37jXr1
-	vSqJojO89zNbdM4Np8RTCQ2IoRfGpqV3m2MPc+/eAkKlvxdg+QWKkLlojr+3gLRqOTcui42tims0y
-	ovGLXnYcjNLLsAy1B8Y3IHxS9VtSl1h7CbCqQc93LECyMOFeNz143ZmiVlLWrecCfJdzyXCNJHZLV
-	YqM0Zgmsh+inuGmHX+FaiLR8p9VUkJ0/eBqJRG9mabNtgGX+WBOINvLn56P+JMlOv5IVSpmPytn1N
-	eIcOJwqcYkz2C6sJVY7l525g1abB/ZL4KrT2NKdZslzGMtsTPpLdeZ67Uwp7e/rPyOl+e5G0lyg3r
-	b8T8y4ZE7aKNB9xFOJeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wWMBNlI+svsVkRV+aptGBWOY1/+3S/FvcmXSDPtlBfw=; b=PNQOS1NKWKGwmBkYRxPC47ZZKo
+	kPMmfT4spIk3TGEYR26egazcqq8AqOJa/W1h4uMILH+o5sH8BsuvUJHBIDV3agGY7vHuyn1+L+17v
+	T781MYBRC6ViGmldRQCjfUSMOze41CkFIukQsfpLsu5gxKAlVaOelpKbjjREdQuP0hCgSs6gKWoHp
+	CE1gsRVLUq6NvGqx3Hx1G0/aYpcQwoYrg+Em+PAkqsfETOwyRli1RBIcbSNApK2z4HAmb/36hbyIx
+	TuM+rhngJDrb9cS9bz4IZBtChf170dekkOABIFyGbYGfxBnr2yO9WvYVruwWpnYoGHEuinMQHZE7T
+	lwT+lACg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCOHV-001MCh-1y;
-	Thu, 22 Jun 2023 17:39:41 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1qCOJ8-001MSe-0l;
+	Thu, 22 Jun 2023 17:41:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCOHS-001MBR-0b
+	id 1qCOJ5-001MRq-0s
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jun 2023 17:39:39 +0000
-Received: from i53875bdf.versanet.de ([83.135.91.223] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1qCOHN-0001Ae-3y; Thu, 22 Jun 2023 19:39:33 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: palmer@dabbelt.com, Stefan O'Rear <sorear@fastmail.com>
-Cc: linux-riscv@lists.infradead.org, samuel@sholland.org, guoren@kernel.org,
- christoph.muellner@vrull.eu, conor.dooley@microchip.com,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 2/2] RISC-V: add T-Head vector errata handling
-Date: Thu, 22 Jun 2023 19:39:32 +0200
-Message-ID: <1941316.PYKUYFuaPT@diego>
-In-Reply-To: <75071be8-272d-45e7-989f-5d717f313fe2@app.fastmail.com>
-References: <20230228215435.3366914-1-heiko@sntech.de>
- <20230228215435.3366914-3-heiko@sntech.de>
- <75071be8-272d-45e7-989f-5d717f313fe2@app.fastmail.com>
+	Thu, 22 Jun 2023 17:41:20 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BA7D7618CA;
+	Thu, 22 Jun 2023 17:41:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9155BC433C0;
+	Thu, 22 Jun 2023 17:41:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687455678;
+	bh=YAOh3PltHuv3oiVdQk7pp6PuM5ji7zkTeX46kRr9GsA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SLLthQNjRf6xNoc1hI5BkPHrZjL1FjjBmrbUNEM7rLK76EaHjMAwPGMaYsnG4NMgH
+	 XGl317enxqEC0vOWOlZvBoLZsOWU/iRi5WgOywc+9VRbTpGs3AADnq1ioaStdEZULn
+	 0HAPYCYsBsc9BKf9d6GgyK3cMYVsk880L0Vqq/mBFtHlJj4j77qVUZ7ubZ9nD9jRqt
+	 QC9TzCb3fGYYmv4/H0GUCLyuQQtuSiS89PSvYT7FG5ZbS1BXGec+ZFc9g3YIBzqiHd
+	 VgOByMiNMzIjJOht5jGLtLICV6qfbNvt4eVgOOwF1YxZQY77Xp9U3vrZcnz7yWg+s2
+	 Q5mskb8E5DMfg==
+Date: Thu, 22 Jun 2023 18:41:13 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v2 2/3] Documentation: riscv: Add early boot document
+Message-ID: <20230622-clone-overfed-21ec0886e904@spud>
+References: <20230621072234.9900-1-alexghiti@rivosinc.com>
+ <20230621072234.9900-2-alexghiti@rivosinc.com>
+ <20230621-d6da578719f8af903d6746ef@orel>
+ <20230622-4af59422f118ea634836d351@orel>
+ <CAHVXubgJQhShbOfaQeOTxM61g_tUnLBxa-0JK+WE+YQRGkYRQA@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CAHVXubgJQhShbOfaQeOTxM61g_tUnLBxa-0JK+WE+YQRGkYRQA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230622_103938_244296_5A52A863 
-X-CRM114-Status: GOOD (  20.77  )
+X-CRM114-CacheID: sfid-20230622_104119_385483_0A78E7ED 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,121 +71,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, Song Shuai <songshuaishuai@tinylab.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: multipart/mixed; boundary="===============8250850524460153860=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
 
-Am Dienstag, 13. Juni 2023, 08:35:53 CEST schrieb Stefan O'Rear:
-> On Tue, Feb 28, 2023, at 4:54 PM, Heiko Stuebner wrote:
-> > @@ -29,6 +78,7 @@ static __always_inline bool has_vector(void)
-> >  static inline void __vstate_clean(struct pt_regs *regs)
-> >  {
-> >  	regs->status = (regs->status & ~(SR_VS)) | SR_VS_CLEAN;
-> > +
-> >  }
-> > 
-> >  static inline void vstate_off(struct pt_regs *regs)
-> > @@ -58,30 +108,75 @@ static __always_inline void rvv_disable(void)
-> > 
-> >  static __always_inline void __vstate_csr_save(struct __riscv_v_state *dest)
-> >  {
-> > -	asm volatile (
-> > +	register u32 t1 asm("t1") = (SR_FS);
-> > +
-> > +	/*
-> > +	 * CSR_VCSR is defined as
-> > +	 * [2:1] - vxrm[1:0]
-> > +	 * [0] - vxsat
-> > +	 * The earlier vector spec implemented by T-Head uses separate
-> > +	 * registers for the same bit-elements, so just combine those
-> > +	 * into the existing output field.
-> > +	 *
-> > +	 * Additionally T-Head cores need FS to be enabled when accessing
-> > +	 * the VXRM and VXSAT CSRs, otherwise ending in illegal instructions.
-> > +	 */
-> > +	asm volatile (ALTERNATIVE(
-> >  		"csrr	%0, " CSR_STR(CSR_VSTART) "\n\t"
-> >  		"csrr	%1, " CSR_STR(CSR_VTYPE) "\n\t"
-> >  		"csrr	%2, " CSR_STR(CSR_VL) "\n\t"
-> >  		"csrr	%3, " CSR_STR(CSR_VCSR) "\n\t"
-> > +		__nops(5),
-> > +		"csrs	sstatus, t1\n\t"
-> > +		"csrr	%0, " CSR_STR(CSR_VSTART) "\n\t"
-> > +		"csrr	%1, " CSR_STR(CSR_VTYPE) "\n\t"
-> > +		"csrr	%2, " CSR_STR(CSR_VL) "\n\t"
-> > +		"csrr	%3, " CSR_STR(THEAD_C9XX_CSR_VXRM) "\n\t"
-> > +		"slliw	%3, %3, " CSR_STR(VCSR_VXRM_SHIFT) "\n\t"
-> > +		"csrr	t4, " CSR_STR(THEAD_C9XX_CSR_VXSAT) "\n\t"
-> > +		"or	%3, %3, t4\n\t"
-> > +		"csrc	sstatus, t1\n\t",
-> > +		THEAD_VENDOR_ID,
-> > +		ERRATA_THEAD_VECTOR, CONFIG_ERRATA_THEAD_VECTOR)
-> >  		: "=r" (dest->vstart), "=r" (dest->vtype), "=r" (dest->vl),
-> > -		  "=r" (dest->vcsr) : :);
-> > +		  "=r" (dest->vcsr) : "r"(t1) : "t4");
-> >  }
-> > 
-> >  static __always_inline void __vstate_csr_restore(struct __riscv_v_state *src)
-> >  {
-> > -	asm volatile (
-> > +	register u32 t1 asm("t1") = (SR_FS);
-> > +
-> > +	/*
-> > +	 * Similar to __vstate_csr_save above, restore values for the
-> > +	 * separate VXRM and VXSAT CSRs from the vcsr variable.
-> > +	 */
-> > +	asm volatile (ALTERNATIVE(
-> >  		"vsetvl	 x0, %2, %1\n\t"
-> >  		"csrw	" CSR_STR(CSR_VSTART) ", %0\n\t"
-> >  		"csrw	" CSR_STR(CSR_VCSR) ", %3\n\t"
-> > +		__nops(6),
-> > +		"csrs	sstatus, t1\n\t"
-> > +		"vsetvl	 x0, %2, %1\n\t"
-> > +		"csrw	" CSR_STR(CSR_VSTART) ", %0\n\t"
-> > +		"srliw	t4, %3, " CSR_STR(VCSR_VXRM_SHIFT) "\n\t"
-> > +		"andi	t4, t4, " CSR_STR(VCSR_VXRM_MASK) "\n\t"
-> > +		"csrw	" CSR_STR(THEAD_C9XX_CSR_VXRM) ", t4\n\t"
-> > +		"andi	%3, %3, " CSR_STR(VCSR_VXSAT_MASK) "\n\t"
-> > +		"csrw	" CSR_STR(THEAD_C9XX_CSR_VXSAT) ", %3\n\t"
-> > +		"csrc	sstatus, t1\n\t",
-> > +		THEAD_VENDOR_ID,
-> > +		ERRATA_THEAD_VECTOR, CONFIG_ERRATA_THEAD_VECTOR)
-> >  		: : "r" (src->vstart), "r" (src->vtype), "r" (src->vl),
-> > -		    "r" (src->vcsr) :);
-> > +		    "r" (src->vcsr), "r"(t1): "t4");
-> >  }
-> 
-> vxrm and vxsat are part of fcsr in 0.7.1, so they should already have been
-> handled by __fstate_save and __fstate_restore, and this code is likely to
-> misbehave (saving the new process's vxrm/vxsat in the old process's save area
-> because float state is swapped before vector state in __switch_to).
-
-I'm not sure I follow your description but may be overlooking or have
-misunderstood something.
-
-Somehow I way to often have trouble resolving CSR addresses, but according
-to openSBI, FCSR has the location of 0x3
-(#define CSR_FCSR 0x003 in include/sbi/riscv_encoding.h)
-
-where CSR_VXSAT and CSR_VXRM are at 0x9 and 0xa respectively.
-(#define CSR_VXSAT 0x9 and  #define CSR_VXRM 0xa)
+--===============8250850524460153860==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="kh9jAV9zzKnGH3pC"
+Content-Disposition: inline
 
 
-And looking at __fstate_save + __fstate_restore the only CSRs accessed seem
-to be CSR_STATUS and FCSR itself.
+--kh9jAV9zzKnGH3pC
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I definitly won't claim to be right, but don't see the issue yet.
+On Thu, Jun 22, 2023 at 07:32:23PM +0200, Alexandre Ghiti wrote:
+> On Thu, Jun 22, 2023 at 7:24=E2=80=AFPM Andrew Jones <ajones@ventanamicro=
+=2Ecom> wrote:
+> >
+> > On Wed, Jun 21, 2023 at 02:19:50PM +0200, Andrew Jones wrote:
+> > > On Wed, Jun 21, 2023 at 09:22:33AM +0200, Alexandre Ghiti wrote:
+> > ...
+> > > > +Hardware description
+> > > > +--------------------
+> > > > +
+> > > > +The firmware can pass either a devicetree or ACPI tables to the RI=
+SC-V kernel.
+> > > > +
+> > > > +The devicetree is either passed directly to the kernel from the pr=
+evious stage
+> > > > +using the `$a1` register, or when booting with UEFI, it can be pas=
+sed using the
+> > > > +EFI configuration table.
+> > > > +
+> > > > +The ACPI tables are passed to the kernel using the EFI configurati=
+on table. In
+> > > > +this case, a tiny devicetree is still created by the EFI stub. Ple=
+ase refer to
+> > > > +"EFI stub and devicetree" tree section below for details about thi=
+s devicetree.
+> > >                              ^ redundant 'tree' here
+> > >
+> >
+> > Can whoever applies this drop this 'tree' I pointed while applying?
+>=20
+> Yes, sorry: @Conor Dooley give me the overly long lines you wanted me
+> to break and I'll send a v3, it won't take much time and I'll fix this
+> too!
+
+Look, I said it was pure pedantry on my part, and not something that
+helps with understanding. You've been warned!
+
+diff --git a/Documentation/riscv/boot.rst b/Documentation/riscv/boot.rst
+index 019ee818686d..a52793fd9f6c 100644
+--- a/Documentation/riscv/boot.rst
++++ b/Documentation/riscv/boot.rst
+@@ -143,11 +143,12 @@ be carefully examined.
+ Device-tree mapping via fixmap
+ ------------------------------
+=20
+-The RISC-V kernel uses the fixmap region to map the devicetree because the
+-devicetree virtual mapping must remain the same between :c:func:`setup_vm`=
+ and
+-:c:func:`setup_vm_final` calls since the :c:var:`reserved_mem` array is
+-initialized with virtual addresses established by :c:func:`setup_vm` and u=
+sed
+-with the mapping established by :c:func:`setup_vm_final`.
++
++As the :c:var:`reserved_mem` array is initialized with virtual addresses
++established by :c:func:`setup_vm`, and used with the mapping established by
++:c:func:`setup_vm_final`, the RISC-V kernel uses the fixmap region to map =
+the
++devicetree. This ensures that the same virtual mapping is used by both
++functions.
+=20
+ Pre-MMU execution
+ -----------------
+
+--kh9jAV9zzKnGH3pC
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJSHuQAKCRB4tDGHoIJi
+0jsVAQDEXMV48OW7eoZ1+j6mFXAUoK4gEfiDynMorze08Q3uqgEA6tiHd5oOT7Lt
+VRIIRuWAwkwl7eEczS4ibrV8mm0sAAo=
+=BX7b
+-----END PGP SIGNATURE-----
+
+--kh9jAV9zzKnGH3pC--
 
 
-Thanks for a hint
-Heiko
-
-
+--===============8250850524460153860==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8250850524460153860==--
+
