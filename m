@@ -4,81 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0423EB64D8
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 18:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B93EB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 18:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=i1XLmA+ydCdqUS2jTm64uW660HXFarC2Jtk860hOmtk=; b=Z4cXA06PzVKgsZfoxI6SEir8Cr
-	25OKhFT9pp16RqaigPVE5JvFE2lAucnnr2uI088mb/J00S/aAl8USPYCGgHe4pamPkbN7Ruta3RM6
-	hRt6uHD+e6qsN7IC8lUTTd1UJJbZWoKf3Ff/pIdk4NDSWKgr23VW8NPYSqQPc5L780ZMZGtueQmDh
-	iJFtf35o+3UBzXkZb9LYwOjpZDNlnx+DEOOXc/3inwfwcmvqlFqnuvQS8zUSMmhtr/u28FWA2KrRC
-	g4XAnDPNGJgLchmE7RJAxQhSVGI7/OHAIsX3NbAG5HqYY81tO316Dg3cE9Y5wrEodq3qiqxpqt5ZU
-	kJLiImFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XaS1ntvXrNAbo3644Z6kxOVwYUAhDmBm7hjemM79Fpo=; b=HCBc2RMV2+Lnre
+	RQ5BOkKzTBr7qsn7zV8vsBOnHn+qsBEL92qcE/8OPKiqYvaIcHgzUQdXh696b36KmMIdOWYZjBL2h
+	wpnprduwSApZwKw6i3fIxVlO88mEAa2sNTHN+3sCnNv4Y/dMIuoYRarBPX36jMlMTFa2lPmylCpWy
+	DvXkLtwz6PQ8DsoSbZP4P98+Aj0djkFMFwbywF4Au/iOyNx7C68qA0reGcMp6fwzP9iqc2y7sMlOg
+	e1QVCPa7WeVN29cZZtWfkUl414T7OLQUEFnGjq3sISGvu632TOqcsb9XDhAePlh1oYZ/6C6tfqFi1
+	4iPak7QMWvVIqArIEsDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCP3F-001Rx9-38;
-	Thu, 22 Jun 2023 18:29:01 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1qCPWN-001VWl-2T;
+	Thu, 22 Jun 2023 18:59:07 +0000
+Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCP3C-001Rve-2G
+	id 1qCPWL-001VVn-1f
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jun 2023 18:29:00 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-25ecfb3947eso4517554a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Jun 2023 11:28:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1687458537; x=1690050537;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=B5pPpV6BAFD4TLifWvN0B+3IxsV4SDIF9ZR1S6R6SGE=;
-        b=GOmTF2DlxvZqeQDfyI78OemXdjjQfH9Ilk9xRzUi71d/sCw8jLLoug968FmGh07Ltx
-         Voh/jniYcRHtU/7LyIhjU1V1X4YWiQz0OqrC5aIc/dKhqPgwJ1vaLFE3QAnNTNYw3VQk
-         3tGIHx5hG/BYPINBwTJzR12n3lGUp9YGUVcAonaJQU3U4pY+jR5JxMyaUBZ1x9BTcbvY
-         Ib8sSgWv8cthmnaxHu00qSv3/+tH4Ld22o5PXyhysImm9YYTypP5+MWkPF7RHNU3Q6dG
-         gfpN96h5zSZ1LPtCCfSKCNarzZFLbG7QmKt2/sXmxh8r5pyFWXqngliQqYEP37v60cmh
-         p8fQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687458537; x=1690050537;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B5pPpV6BAFD4TLifWvN0B+3IxsV4SDIF9ZR1S6R6SGE=;
-        b=LXUgx/VDJx9TOSVrGHudtD11qH+W0Knc7J78kTG2IOHe/SxfFJh20lkTXYRCPgewUR
-         258Ywo2otfCGdz4wC8l3ssP13PIRyjwbJeUOsiyvr44drHsOcLHEjB+NFsptJyG7rCAS
-         y88oJj+4jZsklrGi+nUkGw2B79+TDNdq4XzVe+DKbHy47AMxp1VJhDSutRV7TscbRNzN
-         gaBVPL2NPdrJeu2rr0Zv3/ymwijNKmhmHT1dpUsTFHpX/nOAP/5toIxWrKqMGrsrAAKb
-         lIcGuO3aoALQx0wIY8uK33oWUN7kWeUBYrkqOYiAVHnEAXWJ3ignvyemWc1/a5HFq/be
-         M+4g==
-X-Gm-Message-State: AC+VfDy/Z2IJI/TtQLByVAS0hIPmtK9r7TfGJwaN05JpoZa/AaonI0My
-	SRMAbh7Ix2YC2JtawzbYTOdPlw==
-X-Google-Smtp-Source: ACHHUZ4oQkDG7Am9kGaWj5ODKkVsXUlKPHI5unROmVOojf7emxVsqdA3Lmr2qF5VVkxWA5ukDwCMug==
-X-Received: by 2002:a17:902:c94d:b0:1b6:b73a:553d with SMTP id i13-20020a170902c94d00b001b6b73a553dmr1272775pla.58.1687458537333;
-        Thu, 22 Jun 2023 11:28:57 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id jn9-20020a170903050900b001a69c1c78e7sm5713586plb.71.2023.06.22.11.28.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jun 2023 11:28:56 -0700 (PDT)
-Date: Thu, 22 Jun 2023 11:28:56 -0700 (PDT)
-X-Google-Original-Date: Thu, 22 Jun 2023 11:27:05 PDT (-0700)
-Subject: Re: (subset) [PATCH V2 0/4] Remove WARN_ON in save_processor_state
-In-Reply-To: <168736259084.605458.4732376069158804322.b4-ty@arm.com>
-CC: Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, chris@zankel.net, jcmvbkbc@gmail.com, steven.price@arm.com,
-  vincenzo.frascino@arm.com, leyfoon.tan@starfivetech.com, mason.huo@starfivetech.com,
-  jeeheng.sia@starfivetech.com, Conor Dooley <conor.dooley@microchip.com>, ajones@ventanamicro.com,
-  songshuaishuai@tinylab.org, linux@armlinux.org.uk, linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Message-ID: <mhng-d670ba57-2c68-4d38-8ad9-795f8ca3b69d@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Thu, 22 Jun 2023 18:59:07 +0000
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+	by mailout.nyi.internal (Postfix) with ESMTP id 421455C01A0;
+	Thu, 22 Jun 2023 14:58:59 -0400 (EDT)
+Received: from imap50 ([10.202.2.100])
+  by compute1.internal (MEProxy); Thu, 22 Jun 2023 14:58:59 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:sender:subject:subject:to:to; s=fm2; t=
+	1687460339; x=1687546739; bh=2ATLxKVF7C47OWMyNOiJ4IVAUvlLTr2PQjO
+	03XrYwtQ=; b=jhMw2Ska+eZgeHO3+++5OD0l49PGliWvSy8fP31gex+XeJFNm+/
+	ctTOnjSUriBk3YanRaQE4vhhOiMaQdFLSZVbq6SKL891lWcfNQvVp0IficXkD3ur
+	Qr6LsBzKtp72CXlpdy1mkANu2ZFlt/FRdMWOq/qOzyZN6S02AXxe6vrbu7xsBeXh
+	0sofux24YHFG/IrWZxftgMTr44BZ9fIoiTNqUlkzNvzwgD4RiUrbSFsjoOBWBGcz
+	y1xEFprOPhayp9Hg4sRIAIW8VPF+Ry87kroPV6PDMWmIsOEUQyZ4nxZQQSBFKiUR
+	Fi6/pNoGYD4QjTHF6OEnemBdtdUrlkky7/w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
+	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1687460339; x=1687546739; bh=2ATLxKVF7C47OWMyNOiJ4IVAUvlLTr2PQjO
+	03XrYwtQ=; b=L2YsXMW+IEJEFtXPrtZcD1ui9pto5WQBzlhgdWm7aqGkV5DMr+L
+	Ykb6/YBCH9g7WyK+vV3S3GmFMJesJA/yFMv1L5u+ewK//AT1uz434o1d54nEPdRy
+	IgF4LBIOh8PP6mfURQ0dDVUA6qWHzQavq+1vtzDExzZpq7Hy+rcw1fVztuJamrwW
+	wTPIDkR26/gHpqifTBS3/s+yka9npE++AlBZQdTwXHZEcVkID/qZIkfM7qIZkmM6
+	cOTY0N2LRVHH8C7mAuQukgibPfTOlmWrJBtArfWg3rtZ2JbDBxYGel6PBtGoXqQq
+	ouAW4Q9n0RFG7sazqT+FNMpjm0a0d4iK9VA==
+X-ME-Sender: <xms:8pmUZHz-TsAhn36bFy8ivSrmfn8ofkBe4VxPTV3Otp9F3eobfVGJEg>
+    <xme:8pmUZPTei0QfRD1CbHGWAmjHp1aReIB8qFPZ7_NnDlXVJ8Z6tvP8Lcki49529Wn2-
+    ytkw9iJz99myc2pvw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrgeeguddgudefudcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefofgggkfgjfhffhffvvefutgfgsehtqhertderreejnecuhfhrohhmpedf
+    ufhtvghfrghnucfqkdftvggrrhdfuceoshhorhgvrghrsehfrghsthhmrghilhdrtghomh
+    eqnecuggftrfgrthhtvghrnhepgedvvdegveekteduhedvkeehveekhfeuveffkeethedv
+    udekgeffhfeigeefveeunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrg
+    hilhhfrhhomhepshhorhgvrghrsehfrghsthhmrghilhdrtghomh
+X-ME-Proxy: <xmx:8pmUZBV-LfLOyF46PVDBM9kaEZreix_cZKnto2GkDqOrz_HlA-VsPA>
+    <xmx:8pmUZBj55LIctWugk_DYCmUum2agcBcJZc0hVb9c8R_1dr1PWGPjzQ>
+    <xmx:8pmUZJBjrZFREGFhGDb3EsykrMNvVjWHHhAXFyl_caBsactX_m2_WA>
+    <xmx:85mUZM6eDv-dO7ZEgdECxzMGeEMeyjXGo1Xf8ZbAA0LjwCZM8Vyu3Q>
+Feedback-ID: i84414492:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 7A8371700093; Thu, 22 Jun 2023 14:58:58 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
+Mime-Version: 1.0
+Message-Id: <23381fc8-c297-46ed-9e11-a2643e18e4c9@app.fastmail.com>
+In-Reply-To: <1941316.PYKUYFuaPT@diego>
+References: <20230228215435.3366914-1-heiko@sntech.de>
+ <20230228215435.3366914-3-heiko@sntech.de>
+ <75071be8-272d-45e7-989f-5d717f313fe2@app.fastmail.com>
+ <1941316.PYKUYFuaPT@diego>
+Date: Thu, 22 Jun 2023 14:58:37 -0400
+From: "Stefan O'Rear" <sorear@fastmail.com>
+To: "Heiko Stuebner" <heiko@sntech.de>, "Palmer Dabbelt" <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org, samuel@sholland.org, guoren@kernel.org,
+ christoph.muellner@vrull.eu, conor.dooley@microchip.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC 2/2] RISC-V: add T-Head vector errata handling
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230622_112858_744720_78342BDE 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20230622_115905_628606_929CE255 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,37 +104,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 Jun 2023 08:51:43 PDT (-0700), Catalin Marinas wrote:
-> On Fri, 09 Jun 2023 15:50:45 +0800, Song Shuai wrote:
->> During hibernation or restoration, freeze_secondary_cpus
->> checks num_online_cpus via BUG_ON, and the subsequent
->> save_processor_state also does the checking with WARN_ON.
->>
->> In the case of CONFIG_PM_SLEEP_SMP=n, freeze_secondary_cpus
->> is not defined, but the sole possible condition to disable
->> CONFIG_PM_SLEEP_SMP is !SMP where num_online_cpus is always 1.
->> We also don't have to check it in save_processor_state.
->>
->> [...]
->
-> Applied to arm64 (for-next/misc), thanks!
->
-> I couldn't tell whether this series would go in as a whole but given
-> that the patches are independent, I picked up the arm64 one.
->
-> [2/4] arm64: hibernate: remove WARN_ON in save_processor_state
->       https://git.kernel.org/arm64/c/615af0021a61
-
-I was pretty much in the same spot until I saw this, so I'm picking the 
-RISC-V bit and just ignoring the rest.  It's testing so it might take a bit to
-land in linux-next, but seems pretty safe.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdW4gMjIsIDIwMjMsIGF0IDE6MzkgUE0sIEhlaWtvIFN0w7xibmVyIHdyb3RlOgo+
+IEFtIERpZW5zdGFnLCAxMy4gSnVuaSAyMDIzLCAwODozNTo1MyBDRVNUIHNjaHJpZWIgU3RlZmFu
+IE8nUmVhcjoKPj4gdnhybSBhbmQgdnhzYXQgYXJlIHBhcnQgb2YgZmNzciBpbiAwLjcuMSwgc28g
+dGhleSBzaG91bGQgYWxyZWFkeSBoYXZlIGJlZW4KPj4gaGFuZGxlZCBieSBfX2ZzdGF0ZV9zYXZl
+IGFuZCBfX2ZzdGF0ZV9yZXN0b3JlLCBhbmQgdGhpcyBjb2RlIGlzIGxpa2VseSB0bwo+PiBtaXNi
+ZWhhdmUgKHNhdmluZyB0aGUgbmV3IHByb2Nlc3MncyB2eHJtL3Z4c2F0IGluIHRoZSBvbGQgcHJv
+Y2VzcydzIHNhdmUgYXJlYQo+PiBiZWNhdXNlIGZsb2F0IHN0YXRlIGlzIHN3YXBwZWQgYmVmb3Jl
+IHZlY3RvciBzdGF0ZSBpbiBfX3N3aXRjaF90bykuCj4KPiBJJ20gbm90IHN1cmUgSSBmb2xsb3cg
+eW91ciBkZXNjcmlwdGlvbiBidXQgbWF5IGJlIG92ZXJsb29raW5nIG9yIGhhdmUKPiBtaXN1bmRl
+cnN0b29kIHNvbWV0aGluZy4KPgo+IFNvbWVob3cgSSB3YXkgdG8gb2Z0ZW4gaGF2ZSB0cm91Ymxl
+IHJlc29sdmluZyBDU1IgYWRkcmVzc2VzLCBidXQgYWNjb3JkaW5nCj4gdG8gb3BlblNCSSwgRkNT
+UiBoYXMgdGhlIGxvY2F0aW9uIG9mIDB4Mwo+ICgjZGVmaW5lIENTUl9GQ1NSIDB4MDAzIGluIGlu
+Y2x1ZGUvc2JpL3Jpc2N2X2VuY29kaW5nLmgpCj4KPiB3aGVyZSBDU1JfVlhTQVQgYW5kIENTUl9W
+WFJNIGFyZSBhdCAweDkgYW5kIDB4YSByZXNwZWN0aXZlbHkuCj4gKCNkZWZpbmUgQ1NSX1ZYU0FU
+IDB4OSBhbmQgICNkZWZpbmUgQ1NSX1ZYUk0gMHhhKQo+Cj4KPiBBbmQgbG9va2luZyBhdCBfX2Zz
+dGF0ZV9zYXZlICsgX19mc3RhdGVfcmVzdG9yZSB0aGUgb25seSBDU1JzIGFjY2Vzc2VkIHNlZW0K
+PiB0byBiZSBDU1JfU1RBVFVTIGFuZCBGQ1NSIGl0c2VsZi4KPgo+IEkgZGVmaW5pdGx5IHdvbid0
+IGNsYWltIHRvIGJlIHJpZ2h0LCBidXQgZG9uJ3Qgc2VlIHRoZSBpc3N1ZSB5ZXQuCj4KPgo+IFRo
+YW5rcyBmb3IgYSBoaW50Cj4gSGVpa28KCkFyZSB5b3UgYXdhcmUgb2YgIjMuNy4gVmVjdG9yIEZp
+eGVkLVBvaW50IEZpZWxkcyBpbiBmY3NyIiBpbgpyaXNjdi12LXNwZWMtMC43LjEucGRmPwoKLXMK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
