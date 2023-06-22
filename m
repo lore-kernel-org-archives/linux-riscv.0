@@ -4,55 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623ECEB64DC
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 23:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3678FEB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 23:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1guLFsnsz1780FTb2TzQ/pCrEoHYZ35IiDXOaVTsnJc=; b=gZQuVrUHzEEBJg
-	4HSwARMDgb2pCoLhh47wBH7hpwzefxfTGlZ7PUccy8LDaCYPKqSAyFnZWQjRHjiosLJRYjlwjhoU1
-	c4dnZ+MUuhgyroKu/HnFY1HNNMME+5zmrdrhqYSwK734X7v7DZVSqi2OUpiSLWe1HZ7KdIFzNHAW4
-	/tAU9qAm9FfSk+j6SFaeU45lXN3iQ9Zw0muMLMLOp8x1ScfG067A49+5+MHXqUuZmSNDN4sORypKk
-	GJqSrnmNaJtP2HpVU2V7ZzlIbr3+8d9LSNHt6CkF8FFHf1H2lxNF1Lo30ncyiK7XAFJbKJP10DPPw
-	eVvxdQwxe2lSJbXoi0Qg==;
+	List-Owner; bh=6AMY3ryiFr50IlBqvpDC28zcJQOLvzKcihPB7m6Elgk=; b=b8MUhCXjg975Gp
+	PwqlGoTzxj/tzDYBtja1A3Kg+Y4aNfKf0Pdr4nBRMGVhEIZtjAQNIn6FJRKZn7JtddilUOqxNfEsK
+	Hco9/Z04om90M+lUk5xrMjOgWpdTXxleeOcjlDbBsCicmv32fh1m0c8nUEz2YQL9bZizKAK5/fMDM
+	DoashwxdHLtPnIF3AwvpBaqoTaaviwwkMj2rHSNA22ije9eIaQJoTVD00uYzVp+iaZrutoKMYJdam
+	YoTCN7v/NWzyRYDueh0QTy3h5cfSNmJpUCzq7ND9C/XOdddAXIkySa/rsPAnymFXcjjOuFATEbbqa
+	RYgPF8p5wZfdFk2dRGiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCTUZ-0021cr-14;
-	Thu, 22 Jun 2023 23:13:31 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1qCTZ3-0022K7-2v;
+	Thu, 22 Jun 2023 23:18:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCTUT-0021Zg-0V
+	id 1qCTZ1-0022Ji-0m
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jun 2023 23:13:27 +0000
-Received: from i53875bdf.versanet.de ([83.135.91.223] helo=phil.lan)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1qCTUP-0002nK-9C; Fri, 23 Jun 2023 01:13:21 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Cc: linux-riscv@lists.infradead.org,
-	samuel@sholland.org,
-	guoren@kernel.org,
-	christoph.muellner@vrull.eu,
-	heiko@sntech.de,
-	conor.dooley@microchip.com,
-	linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH v2 2/3] RISC-V: move vector-available status into a dedicated variable
-Date: Fri, 23 Jun 2023 01:13:04 +0200
-Message-Id: <20230622231305.631331-3-heiko@sntech.de>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230622231305.631331-1-heiko@sntech.de>
-References: <20230622231305.631331-1-heiko@sntech.de>
+	Thu, 22 Jun 2023 23:18:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8D70361937;
+	Thu, 22 Jun 2023 23:18:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D2B9C433C9;
+	Thu, 22 Jun 2023 23:18:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687475886;
+	bh=IYLn4He+dUn8jWbCQgvPNmcloMkzjwQQPUXE3ulHjvI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FqI9zOD6e2gifJtG76n7U3TKoxxXnwhs8M0UVHn+MoXE52sfvxjhrHr/L4bynI5IZ
+	 TZz+VD9RENvfCSgpMrQ+VF28i/dHiYcg5WBUO0ZV71CJjU2f6kFZKxFqsj2xtYvLFm
+	 suhnTWft40hlVMtigVCYunFiJmuRyrTRdzytgoLMZsJgLoWFTivJb8PzlQ56DsMB49
+	 cy5YFWPHgQLkN3WrMjyBuCOV0t8GnsE1F90PVMexwe7AWSbULY3qNWGwgH/Evp5Edy
+	 658iKVi1zSDH43vP0xDQt24YoAQV/VwSrEa6Ia5CbjSdLXQ18zRTmcXovIRetKlWap
+	 lXG6bkPQ3NRZA==
+Date: Thu, 22 Jun 2023 23:18:03 +0000
+From: Nathan Chancellor <nathan@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: bjorn@kernel.org, ndesaulniers@google.com,
+	Conor Dooley <conor@kernel.org>, jszhang@kernel.org,
+	llvm@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>,
+	aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+Message-ID: <20230622231803.GA1790165@dev-arch.thelio-3990X>
+References: <20230622215327.GA1135447@dev-arch.thelio-3990X>
+ <mhng-6c34765c-126d-4e6c-8904-e002d49a4336@palmer-ri-x1c9a>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-6c34765c-126d-4e6c-8904-e002d49a4336@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230622_161325_198355_49FE4AA0 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20230622_161807_382296_380F2D2F 
+X-CRM114-Status: GOOD (  55.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,95 +80,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+On Thu, Jun 22, 2023 at 03:16:51PM -0700, Palmer Dabbelt wrote:
+> On Thu, 22 Jun 2023 14:53:27 PDT (-0700), nathan@kernel.org wrote:
+> > On Wed, Jun 21, 2023 at 11:19:31AM -0700, Palmer Dabbelt wrote:
+> > > On Wed, 21 Jun 2023 10:51:15 PDT (-0700), bjorn@kernel.org wrote:
+> > > > Conor Dooley <conor@kernel.org> writes:
+> > > >
+> > > > [...]
+> > > >
+> > > > > > So I'm no longer actually sure there's a hang, just something
+> > > > > > slow.  That's even more of a grey area, but I think it's sane to
+> > > > > > call a 1-hour link time a regression -- unless it's expected
+> > > > > > that this is just very slow to link?
+> > > > >
+> > > > > I dunno, if it was only a thing for allyesconfig, then whatever - but
+> > > > > it's gonna significantly increase build times for any large kernels if LLD
+> > > > > is this much slower than LD. Regression in my book.
+> > > > >
+> > > > > I'm gonna go and experiment with mixed toolchain builds, I'll report
+> > > > > back..
+> > > >
+> > > > I took palmer/for-next (1bd2963b2175 ("Merge patch series "riscv: enable
+> > > > HAVE_LD_DEAD_CODE_DATA_ELIMINATION"")) for a tuxmake build with llvm-16:
+> > > >
+> > > >   | ~/src/tuxmake/run -v --wrapper ccache --target-arch riscv \
+> > > >   |     --toolchain=llvm-16 --runtime docker --directory . -k \
+> > > >   |     allyesconfig
+> > > >
+> > > > Took forever, but passed after 2.5h.
+> > > 
+> > > Thanks.  I just re-ran mine 17/trunk LLD under time (rather that just
+> > > checking top sometimes), it's at 1.5h but even that seems quite long.
+> > > 
+> > > I guess this is sort of up to the LLVM folks: if it's expected that DCE
+> > > takes a very long time to link then I'm not opposed to allowing it, but if
+> > > this is probably a bug in LLD then it seems best to turn it off until we
+> > > sort things out over there.
+> > > 
+> > > I think maybe Nick or Nathan is the best bet to know?
+> > 
+> > I can confirm a regression with allyesconfig but not allmodconfig using
+> > LLVM 16.0.6 on my 80-core Ampere Altra system.
+> > 
+> > allmodconfig: 8m 4s
+> > allmodconfig + CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=n: 7m 4s
+> > allyesconfig: 1h 58m 30s
+> > allyesconfig + CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=n: 12m 41s
+> 
+> Are those backwards?  I'm getting super slow builds after merging the patch
+> set, not before -- though apologize in advance if I'm reading it wrong, I'm
+> well on my way to falling asleep already ;)
 
-There is at least one core implementing the wrong vector specification,
-which cannot claim to implement the v extension but still is able to
-do vectors similar to v.
+I know I already responded to you around this on IRC but I will do it
+here too for the benefit of others following this thread.
 
-To not hack around this by claiming to do v, move the has_vector() return
-to act similar to riscv_noncoherent_supported() and move to a separate
-variable that can be set for example from errata code.
+These numbers are from the patchset applied on top of dad9774deaf1
+("Merge tag 'timers-urgent-2023-06-21' of
+git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip"); in other words,
+allmodconfig and allyesconfig have CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=y
+so turning it off is basically like building allmodconfig and
+allyesconfig before the patchset was applied.
 
-Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
----
- arch/riscv/include/asm/vector.h | 5 ++++-
- arch/riscv/kernel/setup.c       | 6 ++++++
- arch/riscv/kernel/vector.c      | 8 ++++++++
- 3 files changed, 18 insertions(+), 1 deletion(-)
+> > I am sure there is something that ld.lld can do better, given GNU ld
+> > does not have any problems as earlier established, so that should
+> > definitely be explored further. I see Nick already had a response about
+> > writing up a report (I wrote most of this before that email so I am
+> > still sending this one).
+> > 
+> > However, allyesconfig is pretty special and not really indicative of a
+> > "real world" kernel build in my opinion (which will either be a fully
+> > modular kernel to allow use on a wide range of hardware or a monolithic
+> > kernel with just the drivers needed for a specific platform, which will
+> > be much smaller than allyesconfig); it has given us problems with large
+> > kernels before on other architectures.
+> 
+> I totally agree that allyesconfig is an oddity, but it's something that does
+> get regularly build tested so a big build time hit there is going to cause
+> trouble -- maybe not for users, but it'll be a problem for maintainers and
+> that's way more likely to get me yelled at ;)
 
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index 04c0b07bf6cd..315c96d2b4d0 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -19,13 +19,16 @@
- #include <asm/csr.h>
- #include <asm/asm.h>
- 
-+extern bool riscv_v_supported;
-+void riscv_vector_supported(void);
-+
- extern unsigned long riscv_v_vsize;
- int riscv_v_setup_vsize(void);
- bool riscv_v_first_use_handler(struct pt_regs *regs);
- 
- static __always_inline bool has_vector(void)
- {
--	return riscv_has_extension_unlikely(RISCV_ISA_EXT_v);
-+	return riscv_v_supported;
- }
- 
- static inline void __riscv_v_vstate_clean(struct pt_regs *regs)
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 971fe776e2f8..952dfb90525e 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -36,6 +36,7 @@
- #include <asm/thread_info.h>
- #include <asm/kasan.h>
- #include <asm/efi.h>
-+#include <asm/vector.h>
- 
- #include "head.h"
- 
-@@ -308,6 +309,11 @@ void __init setup_arch(char **cmdline_p)
- 	riscv_fill_hwcap();
- 	init_rt_signal_env();
- 	apply_boot_alternatives();
-+
-+	if (IS_ENABLED(CONFIG_RISCV_ISA_V) &&
-+	    riscv_isa_extension_available(NULL, v))
-+		riscv_vector_supported();
-+
- 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
- 	    riscv_isa_extension_available(NULL, ZICBOM))
- 		riscv_noncoherent_supported();
-diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-index f9c8e19ab301..74178fb71805 100644
---- a/arch/riscv/kernel/vector.c
-+++ b/arch/riscv/kernel/vector.c
-@@ -22,6 +22,9 @@
- 
- static bool riscv_v_implicit_uacc = IS_ENABLED(CONFIG_RISCV_ISA_V_DEFAULT_ENABLE);
- 
-+bool riscv_v_supported;
-+EXPORT_SYMBOL_GPL(riscv_v_supported);
-+
- unsigned long riscv_v_vsize __read_mostly;
- EXPORT_SYMBOL_GPL(riscv_v_vsize);
- 
-@@ -274,3 +277,8 @@ static int riscv_v_init(void)
- 	return riscv_v_sysctl_init();
- }
- core_initcall(riscv_v_init);
-+
-+void riscv_vector_supported(void)
-+{
-+	riscv_v_supported = true;
-+}
--- 
-2.39.2
+Agreed. That comment was more around justification for opting out of
+CONFIG_LD_DEAD_CODE_DATA_ELIMINATION with these configurations, since
+CONFIG_COMPILE_TEST has effective become "am I allmodconfig or
+allyesconfig?" nowadays.
 
+> > CONFIG_LD_DEAD_CODE_DATA_ELIMINATION is already marked with 'depends on
+> > EXPERT' and its help text mentions its perils, so it does not seem
+> > unreasonable to me to add an additional dependency on !COMPILE_TEST so
+> > that allmodconfig and allyesconfig cannot flip this on, something like
+> > the following perhaps?
+> > 
+> > diff --git a/init/Kconfig b/init/Kconfig
+> > index 32c24950c4ce..25434cbd2a6e 100644
+> > --- a/init/Kconfig
+> > +++ b/init/Kconfig
+> > @@ -1388,7 +1388,7 @@ config HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+> >  config LD_DEAD_CODE_DATA_ELIMINATION
+> >  	bool "Dead code and data elimination (EXPERIMENTAL)"
+> >  	depends on HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+> > -	depends on EXPERT
+> > +	depends on EXPERT && !COMPILE_TEST
+> >  	depends on $(cc-option,-ffunction-sections -fdata-sections)
+> >  	depends on $(ld-option,--gc-sections)
+> >  	help
+> > 
+> > If applying that dependency to all architectures is too much, the
+> > selection in arch/riscv/Kconfig could be gated on the same condition.
+> 
+> Is the regression for all ports, or just RISC-V?  I'm fine gating this with
+> some sort of Kconfig flag, if it's just impacting RISC-V then it seems sane
+> to keep it over here.
+
+I am not sure. Only mips selects HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+unconditionally and we don't test ARCH=mips all{mod,yes}config (not sure
+why off the top of my head). powerpc selects it when using objtool for
+mcount generation, which only happens for ppc32 (which we don't test
+heavily or with large kernels) or using '-mprofile-kernel', which clang
+does not support.
+
+If you wanted to restrict it to just LD_IS_BFD in arch/riscv/Kconfig,
+that would be fine with me too.
+
+  select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if LD_IS_BFD
+
+Nick said he would work on a report for the LLVM side, so as long as
+this issue is handled in some way to avoid regressing LLD builds until
+it is resolved, I don't think there is anything else for the kernel to
+do. We like to have breadcrumbs via issue links, not sure if the report
+will be internal to Google or on LLVM's issue tracker though;
+regardless, we will have to touch this block to add a version check
+later, at which point we can add a link to the fix in LLD.
+
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
