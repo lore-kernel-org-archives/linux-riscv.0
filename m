@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA45DEB64D8
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 19:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E6CEB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 19:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FeIP/9KgcutpdLWolo6wQ5eCXbNgDX5fwpujak6mgvk=; b=n+KcevEEbWKbf0
-	8/a0TqoKECE3fzsuHOIii4bXFIEe6pUjExffMApLW6dsR1jXo5996scrJWcGDdSRGG1ayuJBnVqav
-	VKCEmDwFiDDiEiSBZ4mZYNasjPjDpdmMfvHDn60v2xlvOA8L9XI2yFiPAbAbFOa5WtdI0/VCVS0oB
-	BOit6B579rNXqvuqfkA5hqebX2leS79Bhh84XCRiwsneFpDdjeE/OTYSmA/k2PFPdoINReQvdAUjy
-	lFVwWeqy3ijzTxeofcWie7dHt9AC2JmhOUv2xqewn3HulNEdtLdriDix/MLS+w3S0MuaqY6qzTzIA
-	kvOq2+hG2tHWH8QRqpfw==;
+	List-Owner; bh=OpQ+uR5XlGm2Dk/pCUJf+EKtNCM8trrIhNbvGp3smBg=; b=Fh0Nu3UDi8yB8I
+	O+6ku97cKsLfiZ+9VFhPL5DPt1qrghUWX0xioKskQj3ZAgBsgKtFGnwgpAqyd6LZQMsoLBHnJOWgJ
+	+d1yDBT2uB7fYh2TYVsbPoPxHbNc1P099Er0er8I5icY5zlXjYKMqatwWBcpzN1d91rfsy/bDoy8A
+	8z1AZ0tsvKtNslvXwZGKBVvr67lJy/Ocy5Yz2unVb5XKRi1KByLCSP4tHIRMBrbwY8oIw3eEBmrdI
+	uBD39Tz5evoJWe9Iqzq3dCgDqXiKvFczaUznVWq/mi/s7JM5MLzFlRcislCMK0nFSB/bqkrwyjk3c
+	QL8hNnGir0d87ItB3KZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCPgD-001WsE-0k;
-	Thu, 22 Jun 2023 19:09:17 +0000
+	id 1qCQ3X-001ZAp-0M;
+	Thu, 22 Jun 2023 19:33:23 +0000
 Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCPg8-001Wqq-38
+	id 1qCQ3T-001Z9D-1C
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jun 2023 19:09:15 +0000
-X-QQ-mid: bizesmtp68t1687460925t3449k82
+	Thu, 22 Jun 2023 19:33:21 +0000
+X-QQ-mid: bizesmtp81t1687462371tfakqj4c
 Received: from linux-lab-host.localdomain ( [116.30.126.60])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 23 Jun 2023 03:08:43 +0800 (CST)
-X-QQ-SSF: 01200000000000D0V000000A0000000
-X-QQ-FEAT: zT6n3Y95oi0+GF2rz41IpqKmQQtPn9dIE2aj0KkXMIaCuzLAVuWvOc3JP5oeO
-	PKznVlOojlNN6dUd5Tr33s/TsUPIxkR/zyEGfmHjEhnYEGfmqpPLcHD6P44A3G0OtsIngvF
-	zg8X/8uKlWtzEIjFJNh9Ehw81v8ZGwOSu2nEKWXvPcLYUKpP8OLaOTK3yX9FWRe+wlt/wW1
-	Cjjg9MamTX7Ydembt+uVrXDW/myWX152jB9blHmVoU9/TqU1kj0d2hRbhF3XtI77FI3slHf
-	jxB8z+eCNy+gZVBtxzvpTJPhcVlMwsRZYsAcVsA5bJooVK3U2mqFfztB79sbX+oFQFDynek
-	Gv1xDLxCtuiH78WOuPu9VSZCYQEaH9Pl3OOyZ/ZhJgSBZCh/EqUlpzwqhhbhQ==
+	id ; Fri, 23 Jun 2023 03:32:50 +0800 (CST)
+X-QQ-SSF: 01200000002000D0V000B00A0000000
+X-QQ-FEAT: zW5H9jc4KG5qk2INlrOP0oS9aFEXIUGWb1JwxtxbbF7iDK84gQmYLdPeVVZPn
+	UvasRXhCpwWJbIxwFY9KHzOHNQu8BsDVeK3i4ofJpmf6dnH+uUe1FVlFbEIb0r4baDoUW2W
+	YanngRC4rPxrBFpafMd/y0dAlHsQE291QGGPnULqyKsSZX7g4t7JAiorA9fUJ/x1b0XDJ4u
+	UwJ7ojKQdhByAAWoTb1X4/dyQ8ucSc7kX4bopfhI51vptYKUBSM/P2zCp7yVibcOePQglAj
+	zCCq77kf/8V0783pvUNeDavvPtquL8P4KF2bY0HZrxLjJ6gZgyhjNiesB1ezyYWi+dFKX7a
+	EmzvyxkEmDYcwfKIzGkqENi4Sf8b+OxupCFvMBmVUh2NVIdBfgwSAUyD/4KAQ==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11068915257765438877
+X-BIZMAIL-ID: 12040008740416056767
 From: Zhangjin Wu <falcon@tinylab.org>
 To: thomas@t-8ch.de
 Cc: arnd@arndb.de,
@@ -49,18 +49,18 @@ Cc: arnd@arndb.de,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	w@1wt.eu
-Subject: Re: [PATCH v4 07/10] tools/nolibc: clean up mmap() support
-Date: Fri, 23 Jun 2023 03:08:43 +0800
-Message-Id: <20230622190843.1189684-1-falcon@tinylab.org>
+Subject: Re: [PATCH v4 10/10] selftests/nolibc: add mmap and munmap test cases
+Date: Fri, 23 Jun 2023 03:32:49 +0800
+Message-Id: <20230622193249.1190336-1-falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <31d85464-5731-4df6-8fcd-2b0be11eac90@t-8ch.de>
-References: <31d85464-5731-4df6-8fcd-2b0be11eac90@t-8ch.de>
+In-Reply-To: <bff82ea6-610b-4471-a28b-6c76c28604a6@t-8ch.de>
+References: <bff82ea6-610b-4471-a28b-6c76c28604a6@t-8ch.de>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230622_120913_332801_FC03FAB1 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20230622_123319_707474_62B4F9F3 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,115 +79,112 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi, Thomas
 
-> On 2023-06-19 23:51:20+0800, Zhangjin Wu wrote:
-> > Do several cleanups together:
+> On 2023-06-19 23:55:41+0800, Zhangjin Wu wrote:
+> > Three mmap/munmap related test cases are added:
 > > 
-> > - Since all supported architectures have my_syscall6() now, remove the
-> >   #ifdef check.
+> > - mmap(NULL, 0, PROT_READ, MAP_PRIVATE, 0, 0), MAP_FAILED, EINVAL)
 > > 
-> > - Move the mmap() related macros to tools/include/nolibc/types.h
+> >   The length argument must be greater than 0, otherwise, fail with -EINVAL.
 > > 
-> > - Apply the new __sysret() to convert the calling of sys_map() to
-> >   oneline code
+> > - munmap((void *)-1, 4*1024), -1, EINVAL)
+> > 
+> >   Invalid (void *)-1 address fail with -EINVAL.
+> > 
+> > - test_mmap_munmap(4*1024)
+> > 
+> >   It finds a init file, mmap() it and then munmap().
 > > 
 > > Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 > > ---
-> >  tools/include/nolibc/sys.h   | 24 +-----------------------
-> >  tools/include/nolibc/types.h | 11 +++++++++++
-> >  2 files changed, 12 insertions(+), 23 deletions(-)
+> >  tools/testing/selftests/nolibc/nolibc-test.c | 31 ++++++++++++++++++++
+> >  1 file changed, 31 insertions(+)
 > > 
-> > diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-> > index 8a6e16472d54..1c02cec3bcd9 100644
-> > --- a/tools/include/nolibc/sys.h
-> > +++ b/tools/include/nolibc/sys.h
-> > @@ -624,26 +624,11 @@ int mknod(const char *path, mode_t mode, dev_t dev)
-> >  	return __sysret(sys_mknod(path, mode, dev));
+> > diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
+> > index 80ab29e2887c..f7c0ca72cb28 100644
+> > --- a/tools/testing/selftests/nolibc/nolibc-test.c
+> > +++ b/tools/testing/selftests/nolibc/nolibc-test.c
+> > @@ -592,6 +592,34 @@ static int test_stat_timestamps(void)
+> >  	return 0;
 > >  }
 > >  
-> > -#ifndef MAP_SHARED
-> > -#define MAP_SHARED		0x01	/* Share changes */
-> > -#define MAP_PRIVATE		0x02	/* Changes are private */
-> > -#define MAP_SHARED_VALIDATE	0x03	/* share + validate extension flags */
-> > -#endif
-> > -
-> > -#ifndef MAP_FAILED
-> > -#define MAP_FAILED ((void *)-1)
-> > -#endif
-> > -
-> >  #ifndef sys_mmap
-> >  static __attribute__((unused))
-> >  void *sys_mmap(void *addr, size_t length, int prot, int flags, int fd,
-> >  	       off_t offset)
+> > +int test_mmap_munmap(int size)
+> > +{
+> > +	char init_files[5][20] = {"/init", "/sbin/init", "/etc/init", "/bin/init", "/bin/sh"};
 > 
-> This could return a plain integer type instead to save some casts.
-> Not sure if API compatibility is guaranteed for the raw sys_ functions.
->
+> Why not /proc/1/exe or even /proc/self/exe?
+> 
+> I know your other series tries to remove the procfs dependency, but
+> we're not there yet :-).
+> 
 
-Seems musl simply not provide the sys_xxx() functions, but let the library
-routines call __syscall() directly. If we can treat these sys_xxx() as internal
-functions, perhaps we can simply let the return type of sys_xxx() as 'long' to.
+Yeah, '/proc/self/exe' is a choice, if so, the 'has_proc' should be added ;-)
 
-    $ grep "^void \*sys_" -ur tools/include/nolibc/sys.h 
-    void *sys_brk(void *addr)
-    void *sys_mmap(void *addr, size_t length, int prot, int flags, int fd,
+> Also does it make sense to pass a size parameter?
+> Why not use either PAGE_SIZE or the real size of the binary from
+> fstat().
+> 
+
+Ok, as the manpage of mmap shows:
+
+       For mmap(), offset must be a multiple of the underlying huge page
+       size.  The system automatically aligns length to be a multiple of
+       the underlying huge page size.
+
+       For munmap(), addr, and length must both be a multiple of the
+       underlying huge page size.
+
+perhaps we should do further tests:
+
+* the real size/length
+* even > the real size
+* the PAGE_SIZE
+* not aligned with PAGE_SIZE
+
+If such tests are required, the 'size' and even 'offset' arguments could be
+provided to cover different combination or we do such tests internally, then,
+the arguments are not required.
 
 Thanks,
 Zhangjin
 
-
-> >  {
-> > -#ifndef my_syscall6
-> > -	/* Function not implemented. */
-> > -	return (void *)-ENOSYS;
-> > -#else
-> > -
-> >  	int n;
-> >  
-> >  #if defined(__NR_mmap2)
-> > @@ -654,20 +639,13 @@ void *sys_mmap(void *addr, size_t length, int prot, int flags, int fd,
-> >  #endif
-> >  
-> >  	return (void *)my_syscall6(n, addr, length, prot, flags, fd, offset);
-> > -#endif
-> >  }
-> >  #endif
-> >  
-> >  static __attribute__((unused))
-> >  void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset)
-> >  {
-> > -	void *ret = sys_mmap(addr, length, prot, flags, fd, offset);
-> > -
-> > -	if ((unsigned long)ret >= -4095UL) {
-> > -		SET_ERRNO(-(long)ret);
-> > -		ret = MAP_FAILED;
-> > -	}
-> > -	return ret;
-> > +	return (void *)__sysret((unsigned long)sys_mmap(addr, length, prot, flags, fd, offset));
-> >  }
-> >  
-> >  static __attribute__((unused))
-> > diff --git a/tools/include/nolibc/types.h b/tools/include/nolibc/types.h
-> > index f96e28bff4ba..f889d4e0ac7e 100644
-> > --- a/tools/include/nolibc/types.h
-> > +++ b/tools/include/nolibc/types.h
-> > @@ -81,6 +81,17 @@
-> >  #define MAXPATHLEN     (PATH_MAX)
-> >  #endif
-> >  
-> > +/* flags for mmap */
-> > +#ifndef MAP_SHARED
-> > +#define MAP_SHARED		0x01	/* Share changes */
-> > +#define MAP_PRIVATE		0x02	/* Changes are private */
-> > +#define MAP_SHARED_VALIDATE	0x03	/* share + validate extension flags */
-> > +#endif
+> > +	int ret, fd, i;
+> > +	void *mem;
 > > +
-> > +#ifndef MAP_FAILED
-> > +#define MAP_FAILED ((void *)-1)
-> > +#endif
+> > +	for (i = 0; i < 5; i++) {
+> > +		ret = fd = open(init_files[i], O_RDONLY);
+> > +		if (ret < 0)
+> > +			continue;
+> > +		else
+> > +			break;
+> > +	}
+> > +	if (ret < 0)
+> > +		return ret;
 > > +
-> >  /* whence values for lseek() */
-> >  #define SEEK_SET       0
-> >  #define SEEK_CUR       1
+> > +	mem = mmap(NULL, size, PROT_READ, MAP_SHARED, fd, 0);
+> > +	if (mem == MAP_FAILED)
+> > +		return -1;
+> > +
+> > +	ret = munmap(mem, size);
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	return close(fd);
+> > +}
+> > +
+> > +
+> >  /* Run syscall tests between IDs <min> and <max>.
+> >   * Return 0 on success, non-zero on failure.
+> >   */
+> > @@ -666,6 +694,9 @@ int run_syscall(int min, int max)
+> >  		CASE_TEST(lseek_m1);          EXPECT_SYSER(1, lseek(-1, 0, SEEK_SET), -1, EBADF); break;
+> >  		CASE_TEST(lseek_0);           EXPECT_SYSER(1, lseek(0, 0, SEEK_SET), -1, ESPIPE); break;
+> >  		CASE_TEST(mkdir_root);        EXPECT_SYSER(1, mkdir("/", 0755), -1, EEXIST); break;
+> > +		CASE_TEST(mmap_bad);          EXPECT_PTRER(1, mmap(NULL, 0, PROT_READ, MAP_PRIVATE, 0, 0), MAP_FAILED, EINVAL); break;
+> > +		CASE_TEST(munmap_bad);        EXPECT_SYSER(1, munmap((void *)-1, 0), -1, EINVAL); break;
+> > +		CASE_TEST(mmap_good);         EXPECT_SYSZR(1, test_mmap_munmap(4*1024)); break;
+> >  		CASE_TEST(open_tty);          EXPECT_SYSNE(1, tmp = open("/dev/null", 0), -1); if (tmp != -1) close(tmp); break;
+> >  		CASE_TEST(open_blah);         EXPECT_SYSER(1, tmp = open("/proc/self/blah", 0), -1, ENOENT); if (tmp != -1) close(tmp); break;
+> >  		CASE_TEST(poll_null);         EXPECT_SYSZR(1, poll(NULL, 0, 0)); break;
 > > -- 
 > > 2.25.1
 > > 
