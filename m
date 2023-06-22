@@ -4,85 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40FAEB64D8
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 15:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40500EB64D8
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 15:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=oJ+aemW6lLol5fR8qmYGKCMFM6c6s9hKWVmbBtlpEQk=; b=pid9a5xSt3Mr9WOodZvAa5d4QW
-	S+Sfp7Qo6s0qkI8MiPf2tbbs3VEJRR37h5foswPItFwrYDN/ua4lKZdERXQsJQqbFnL3WZtvKQ7Kw
-	CTyX+MNeOUOkyjibJrIf9efoqfqI4QsnPX2dkcqkXhefUTfM8NEqHkNW0gKVjor5i1dN4d7MV3JR3
-	gS8UJQvx6XL934TlQosRjr3PKQUuI+q2eukMgYgZgJveYvxR6G6qEXyUenlbbANUJ73yug4JxqY7m
-	dLa4uV69HJgBLHRqJi6HlJJ+LH9L6fxYcdLqHXYbm9bpcJ8KJBYMADKXaxw/sriQIqpnNqvd8hHVr
-	p0QWJgDA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kz5LF0zHMvIfMjwcFn1UI+0b2ClwcZKTBtXsADP8yCg=; b=0WaSio6BXvsp4A
+	uu6lsRHlv9eAnQ0GFJgZU+byPN51zmW1GlMGIoSaqLXWZUssJ+ts692e9nvonxyXWNxFO1zBQfqrB
+	EBZtMDLo6KP++R2UTwtIqN3Dix90VrFY0bJodfGmVvvXAIdRnWmlG6FIoBCWIK9AWrQkPl1jFoAya
+	t6yN0elck6vIdnOJrlfXyVsB7lrYR4KDoHmJDuevFGi11bPA4htfYXO/vkN58IkkqxymTTtpt3O9R
+	YjU74a/4/UQm2X1oIV1T7s+jamtoQT2e2ZnFhzxtHHwcCH/eh3c2XrSH8tVueGEJXDi8CNjYoRJFa
+	O9QHQgBaSQOC15vyyBEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCLp9-0014aD-28;
-	Thu, 22 Jun 2023 15:02:15 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1qCLwk-0015bs-2Q;
+	Thu, 22 Jun 2023 15:10:06 +0000
+Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCLp7-0014Yb-0j
-	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jun 2023 15:02:14 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-1b51780bed0so56459375ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Jun 2023 08:02:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1687446130; x=1690038130;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=faWv91VP2z/YbKZA+qDwvC+H5Ebg0LphINaB6C6XGBI=;
-        b=mt+u4MU2N69BdCB48EipZPFZvxxegmfx/OHOcyc/fM4PZHcrYAkSQWkcdFUsmp5rNU
-         a6j2G9cgP05nAPrTpXTrKstR8E5BoO42DmiP6/AZUuIG/6/BBMLFuw5aAo/SAHPeZdEg
-         DNvDehDx9+J7nZG9sBU7G6/wpPi2vu+msKWiZ8QFox3/ruMzFIOZCnfnj843xufxdgu9
-         MeGUmiA7Z/dRVBK3NdT9B4ymhpM9c0qpwKNXpegEvvYhn5T1kxweIZjlNE+fattEVIvn
-         jG1RiXKH3SvzlebwvUPYmft34NdlnUAiikYo4SRSggxh+pPF10pxJtEKozp+lS8TepIG
-         aHrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687446130; x=1690038130;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=faWv91VP2z/YbKZA+qDwvC+H5Ebg0LphINaB6C6XGBI=;
-        b=KN/OJb710yVC6p7vF2uhJ/r+bKbXa/edbfkwN2LEdbRxRVuqT/9c3YixzfuXekKYYa
-         2KoeBzdYvtlYSz7xDa/IPrAJiLUx7tSrTcquRX1RDQE+BOqu94bte8g/3IPjg2j/6DEU
-         2StDZA5hEe9wFZM1zZKh/ZL2+ztzdPYFUeFikS7TM3divGTBz7qHFpVCQtgKcNsKZzMP
-         m9Ap65naQY6cNkRv+UKrqJWjVOfoK94/G11lNCfrBvOHhGJpY3N62HhR4AkRf5LcPPdm
-         ZpeLycAJqahqC4owH3XwoFGwcEdCLdAIMbWN5gX17SADD06Vxx2GT3WorNf+YvNdsJnn
-         qvKg==
-X-Gm-Message-State: AC+VfDx98OwSEun3KzjBWUni8g3kmEimEz8M18Vzom6NuR7hpnH8SyNk
-	hEe9FDWLurb61B5XJh1YNx9rmQ==
-X-Google-Smtp-Source: ACHHUZ7sxI2/l9NYWY43UXjLd7//zIrvDML1M6VqO+WFrtnEGO/KRuc42ZZ7KlADjiu835vi4h/IOA==
-X-Received: by 2002:a17:902:f7c6:b0:1ae:14d:8d0a with SMTP id h6-20020a170902f7c600b001ae014d8d0amr15965819plw.29.1687446130063;
-        Thu, 22 Jun 2023 08:02:10 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id z7-20020a170902708700b001b3dada0e78sm5466709plk.258.2023.06.22.08.02.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jun 2023 08:02:09 -0700 (PDT)
-Date: Thu, 22 Jun 2023 08:02:09 -0700 (PDT)
-X-Google-Original-Date: Thu, 22 Jun 2023 08:01:29 PDT (-0700)
-Subject: Re: [PATCH 11/14] init: consolidate prototypes in linux/init.h
-In-Reply-To: <20230517131102.934196-12-arnd@kernel.org>
-CC: akpm@linux-foundation.org, linux-mm@kvack.org, Arnd Bergmann <arnd@arndb.de>,
-  linux@armlinux.org.uk, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-  monstr@monstr.eu, tsbogend@alpha.franken.de, deller@gmx.de, mpe@ellerman.id.au,
-  hca@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com, x86@kernel.org, rafael@kernel.org,
-  paul@paul-moore.com, eparis@redhat.com, dennis@kernel.org, tj@kernel.org, cl@linux.com,
-  pavel@ucw.cz, peterz@infradead.org, longman@redhat.com, boqun.feng@gmail.com,
-  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
-  linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-  linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, audit@vger.kernel.org, linux-pm@vger.kernel.org,
-  linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: arnd@kernel.org
-Message-ID: <mhng-eb6e6d97-fe40-4755-9be5-eb75a690d88c@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1qCLwg-0015Zt-2v;
+	Thu, 22 Jun 2023 15:10:04 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id 7B1773200258;
+	Thu, 22 Jun 2023 11:09:56 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Thu, 22 Jun 2023 11:09:57 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1687446596; x=1687532996; bh=UF
+	Ik7GqKMTQQbMewPZ3JZd1cKUV2IvhZU7QLYY4nLQk=; b=VqXzuiAnU40BIyTBrS
+	9/SRN8hrv7scO6zI3Wgs3SMHosS7t3TIJr1SBen8U4HVEj75R1HMftaR11UagFuI
+	dQDwOO6WznyWPpjHfiZA/qhgUCvAGQy5BbZaxLT8/yzptS5v9ubV79kwpAGGxQuM
+	DE1SwgGx2/ZH4LHcTmR8+ATYG4+1ChyqonunUcwENZ8WIemWrIms+PVug0q2eEMY
+	TSR/0Lv+VsDmf75Ax2ZUYJHD9iEFh1NOs/D996wZlKS3iocCzmdyaCf0ugaZ8754
+	mkrP5Erd8AZHVvjwPj+SwlMzINCbTf+N7Ax13yVW7pywBRzZV7toq41p/Zg6HRml
+	8+aA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1687446596; x=1687532996; bh=UFIk7GqKMTQQb
+	MewPZ3JZd1cKUV2IvhZU7QLYY4nLQk=; b=GDkxVJy0ljSrkyo6YnDKY4pFJLdfF
+	2IiwBq716JjjpA1//mgjXXP5rcXOZixDJgoknebyqw1EqT2D2QU8dP8YL2NcTi1O
+	IcPYk8faxiG7shlcm1dGUo/6sDJPCw3Xx0CSF1UrFWPh0CpWGKFhWKa1eSkHxUvZ
+	hQKxsPVNrue7m49ASD49SHR8b6Ycrxepba23aSdmT5JPYAnwwLCp85qf4tpFV9QC
+	s7uZrWeg6Rcr0aeiWooXqJ01AnWywTF72j+hj2YO3Lel+WKAuW51T7GBsJGC4tEX
+	zBWePkKQBus17YZIOFzKmp68jsxY9m/bGzWsIxe3JfxKnYUSnioOb56VA==
+X-ME-Sender: <xms:QmSUZLkPh6E0UqDs8VS6ZyRN4qZgBuUFafXc6Are0ycgDlrH6NDVqg>
+    <xme:QmSUZO0DJFPef8z4dg0gEklyqcQOteSgU8sjn_ihzdZQGYc5BSSDYBjdql0sceTKV
+    t-Mz_Lh8TLjXlZnyUY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrgeeguddgkeegucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepvefhffeltdegheeffffhtdegvdehjedtgfekueevgfduffettedtkeekueef
+    hedunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpe
+    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:QmSUZBryuN3fCOL33LL87iiMJqMuPdQ374jsU4AyA3x_IUnaAeTNqw>
+    <xmx:QmSUZDndHZJxE8ISniqoZMrjyBRb3ilM9dINXYaxUJ00LFwhgi62PA>
+    <xmx:QmSUZJ0rSKbadaLwaeA2sIbRM2gI4zZSyduBaxYgvlWuucs5KccdXw>
+    <xmx:RGSUZGlj-v19qlVP4kskwEzbSFARUROY_1DQ0zqqUTkr7VMXuaT54Q>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 7DFC4B60089; Thu, 22 Jun 2023 11:09:54 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
+Mime-Version: 1.0
+Message-Id: <1412dbaf-56f4-418b-85ea-681b1c44cc26@app.fastmail.com>
+In-Reply-To: <1687443219-11946-1-git-send-email-yangtiezhu@loongson.cn>
+References: <1687443219-11946-1-git-send-email-yangtiezhu@loongson.cn>
+Date: Thu, 22 Jun 2023 17:09:34 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Tiezhu Yang" <yangtiezhu@loongson.cn>
+Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, Linux-Arch <linux-arch@vger.kernel.org>,
+ bpf@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ loongson-kernel@lists.loongnix.cn
+Subject: Re: [PATCH v3 0/2] Unify uapi bitsperlong.h
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230622_080213_263977_1015A2DF 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20230622_081003_406416_435C6A24 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,89 +101,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 May 2023 06:10:59 PDT (-0700), arnd@kernel.org wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Thu, Jun 22, 2023, at 16:13, Tiezhu Yang wrote:
+> v3:
+>   -- Check the definition of __BITS_PER_LONG first at
+>      the beginning of uapi/asm-generic/bitsperlong.h
 >
-> The init/main.c file contains some extern declarations for functions
-> defined in architecture code, and it defines some other functions that
-> are called from architecture code with a custom prototype. Both of those
-> result in warnings with 'make W=1':
+> v2:
+>   -- Check __CHAR_BIT__ and __SIZEOF_LONG__ rather than
+>      __aarch64__, __riscv, __loongarch__, thanks Ruoyao
+>   -- Update the code comment and commit message
 >
-> init/calibrate.c:261:37: error: no previous prototype for 'calibrate_delay_is_known' [-Werror=missing-prototypes]
-> init/main.c:790:20: error: no previous prototype for 'mem_encrypt_init' [-Werror=missing-prototypes]
-> init/main.c:792:20: error: no previous prototype for 'poking_init' [-Werror=missing-prototypes]
-> arch/arm64/kernel/irq.c:122:13: error: no previous prototype for 'init_IRQ' [-Werror=missing-prototypes]
-> arch/arm64/kernel/time.c:55:13: error: no previous prototype for 'time_init' [-Werror=missing-prototypes]
-> arch/x86/kernel/process.c:935:13: error: no previous prototype for 'arch_post_acpi_subsys_init' [-Werror=missing-prototypes]
-> init/calibrate.c:261:37: error: no previous prototype for 'calibrate_delay_is_known' [-Werror=missing-prototypes]
-> kernel/fork.c:991:20: error: no previous prototype for 'arch_task_cache_init' [-Werror=missing-prototypes]
+> v1:
+>   -- Rebase on 6.4-rc6
+>   -- Only unify uapi bitsperlong.h for arm64, riscv and loongarch
+>   -- Remove uapi bitsperlong.h of hexagon and microblaze in a new patch
 >
-> Add prototypes for all of these in include/linux/init.h or another
-> appropriate header, and remove the duplicate declarations from
-> architecture specific code.
->
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arm/include/asm/irq.h          |  1 -
->  arch/microblaze/include/asm/setup.h |  2 --
->  arch/mips/include/asm/irq.h         |  1 -
->  arch/parisc/kernel/smp.c            |  1 -
->  arch/powerpc/include/asm/irq.h      |  1 -
->  arch/riscv/include/asm/irq.h        |  2 --
->  arch/riscv/include/asm/timex.h      |  2 --
->  arch/s390/kernel/entry.h            |  2 --
->  arch/sh/include/asm/irq.h           |  1 -
->  arch/sh/include/asm/rtc.h           |  2 --
->  arch/sparc/include/asm/irq_32.h     |  1 -
->  arch/sparc/include/asm/irq_64.h     |  1 -
->  arch/sparc/include/asm/timer_64.h   |  1 -
->  arch/sparc/kernel/kernel.h          |  4 ----
->  arch/x86/include/asm/irq.h          |  2 --
->  arch/x86/include/asm/mem_encrypt.h  |  3 ---
->  arch/x86/include/asm/time.h         |  1 -
->  arch/x86/include/asm/tsc.h          |  1 -
->  include/linux/acpi.h                |  3 ++-
->  include/linux/delay.h               |  1 +
->  include/linux/init.h                | 20 ++++++++++++++++++++
->  init/main.c                         | 18 ------------------
->  22 files changed, 23 insertions(+), 48 deletions(-)
+> Here is the RFC patch:
+> https://lore.kernel.org/linux-arch/1683615903-10862-1-git-send-email-yangtiezhu@loongson.cn/
 
-...
+I've applied these to the asm-generic tree now
 
-> diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-> index 43b9ebfbd943..8e10a94430a2 100644
-> --- a/arch/riscv/include/asm/irq.h
-> +++ b/arch/riscv/include/asm/irq.h
-> @@ -16,6 +16,4 @@ void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void));
->
->  struct fwnode_handle *riscv_get_intc_hwnode(void);
->
-> -extern void __init init_IRQ(void);
-> -
->  #endif /* _ASM_RISCV_IRQ_H */
-> diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-> index d6a7428f6248..a06697846e69 100644
-> --- a/arch/riscv/include/asm/timex.h
-> +++ b/arch/riscv/include/asm/timex.h
-> @@ -88,6 +88,4 @@ static inline int read_current_timer(unsigned long *timer_val)
->  	return 0;
->  }
->
-> -extern void time_init(void);
-> -
->  #endif /* _ASM_RISCV_TIMEX_H */
+Thanks,
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
-
-Thanks!
-
-
+   Arnd
 
 _______________________________________________
 linux-riscv mailing list
