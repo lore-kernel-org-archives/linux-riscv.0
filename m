@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A93EB64D8
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 08:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EBAEB64D8
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 12:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:From:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=IwAWoJ4oiXrb2jDj32WinKrndG92NkQA5d5c6WAlvpo=; b=hQDTF+K9nfTUZH
-	eTrV4vGui3TzdWibb7aAtPf+cf5/oFni2UBZZTD7kEYqH1/tOD4y310nu0CFXZ0NXmZ9DR+MHtHZo
-	/xXQiOwON0f18D6+4/2t4Y0gDfsofp6EpCKImO1/QZgvYldpc63aXYxewOP4tqDvclOXTWfNDI6PU
-	VEePTdBdhBO0fs17+65Z3dj528aj8wTmX8D90poughqSqlYwUyLgT3f0T4hbrZxRnw+q7LFYpJauU
-	0VfsODx4+XMJEtzHn4lUHiSqi0Zr67APzpZYvN8IpB3TWi+K+p2wqCpAqhkFniYToB0K3S1wfNESc
-	lnto9o9M2FDb71HUlYLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LdfpSJGjutWZ9uveV9UmPTuBwCvgWgG1CrRi7FVPhxQ=; b=uYVxFVvXoKPGo+xVxXn49mtKRc
+	faKAKgPt4/ZUEN9Tt+dAvTQwV9UGHPX8XcmroTWeCXAdd9iFo2su3Svik3QIEfn7eCL4RThKLy115
+	QKzSxM9NoIroZH7pH6kqqHEX80O+TRzAeFVB6SXj0bst6Z6STAibXW3/JPHXw/WCVseB+BLIU6CM7
+	CtrXqXkN9LjAoiUUoBb7R+6NxyAYvGIIdfvXCwmvWm8JbeJqPD9w8EqZyGPDyacFHrTYppiSJ8s5s
+	HpIPVmyAIPWbTlnQtR715+NNd731VtUct5LFs1reFVGgLLB2/WVqeW5ENBwU/mHw/U3hk+E1DUuQq
+	MEI54z4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCFMi-00HMyU-2J;
-	Thu, 22 Jun 2023 08:08:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qCJlu-000eZj-1F;
+	Thu, 22 Jun 2023 12:50:46 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCFMf-00HMy3-11
-	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jun 2023 08:08:26 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5F45361795;
-	Thu, 22 Jun 2023 08:08:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EC56C433C0;
-	Thu, 22 Jun 2023 08:08:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1687421303;
-	bh=yFq9Zyr6bfzKa8zhqccBba3/9IvWR8bp0YdV2XNmgvo=;
-	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=zkPIBCJaqlv0ttgXKfzaTcGZPsNUdUcwvubcFmV8eQzsvbl+hyPJxF8pUB6yITACb
-	 xQst4kN9hyyamesm3RnDqZP5Uj/n7LTWRxwQacBC6/pgxPtn1IukkPZ0HwaSW7jNzY
-	 Jx+h9Ukhybgd3wA66jemstEG51NsfDVBkyP9h7Q4=
-Subject: Patch "riscv: Link with '-z norelro'" has been added to the 6.3-stable tree
-To: 202306192231.DJmWr6BX-lkp@intel.com,conor@kernel.org,gregkh@linuxfoundation.org,linux-riscv@lists.infradead.org,lkp@intel.com,llvm@lists.linux.dev,nathan@kernel.org,ndesaulniers@google.com,palmer@dabbelt.com,palmer@rivosinc.com,sashal@kernel.org
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Thu, 22 Jun 2023 10:08:21 +0200
-In-Reply-To: <20230620-6-3-fix-got-relro-error-lld-v1-1-f3e71ec912d1@kernel.org>
-Message-ID: <2023062221-moving-eastward-9967@gregkh>
+	id 1qCJlt-000eZ5-2F;
+	Thu, 22 Jun 2023 12:50:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:References:To:Subject:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=onHLT2YG9Snm1ehd7uM2IQJnaRzMQJUwXItZCaN+V7g=; b=TbxbzXNpEcKT6ZTaWTKLFGOpYw
+	uSKKSwb6amUpGxgxpqcn61zwwrBxz2C1JYf0cGoJXGktLhTEYj25ba31lZEBx/p+Yp5U29daTEntB
+	Qrt2cpj+3mB5jvtwdGHsPKoC15x4JJFVb+I1pN9rYyKiDPJcPqASd2Niv+CJTsf78uDabdxO00XLL
+	AfKGW7j02NnP6o3uIj+BSETZQljmXI3zlB8soDTvee0p5PZsI/WMUqW80JUjAEQ3Myno45qib3/uD
+	T3YZ1K3hKoamGQWjgLofQjiASYYgTG3MQl9ypYgrD19iUyNq//DWi1amUZbvo592k7dsrUdgxQnbR
+	Iqy3qD5g==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by casper.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1qCJll-00Fbxs-95; Thu, 22 Jun 2023 12:50:41 +0000
+Received: from loongson.cn (unknown [113.200.148.30])
+	by gateway (Coremail) with SMTP id _____8BxU8SMQ5Rku28AAA--.775S3;
+	Thu, 22 Jun 2023 20:50:21 +0800 (CST)
+Received: from [10.130.0.149] (unknown [113.200.148.30])
+	by localhost.localdomain (Coremail) with SMTP id AQAAf8CxWM2LQ5RkrxwCAA--.11455S3;
+	Thu, 22 Jun 2023 20:50:19 +0800 (CST)
+Subject: Re: [PATCH v2 1/2] asm-generic: Unify uapi bitsperlong.h for arm64,
+ riscv and loongarch
+To: kernel test robot <lkp@intel.com>, Arnd Bergmann <arnd@arndb.de>
+References: <1687336748-4898-2-git-send-email-yangtiezhu@loongson.cn>
+ <202306220334.C80BpATp-lkp@intel.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-arch@vger.kernel.org, bpf@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, loongson-kernel@lists.loongnix.cn
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+Message-ID: <27295ba8-f57e-61c1-9cc4-f2207fd97ae0@loongson.cn>
+Date: Thu, 22 Jun 2023 20:50:19 +0800
+User-Agent: Mozilla/5.0 (X11; Linux mips64; rv:45.0) Gecko/20100101
+ Thunderbird/45.4.0
 MIME-Version: 1.0
-X-stable: commit
-X-Patchwork-Hint: ignore 
+In-Reply-To: <202306220334.C80BpATp-lkp@intel.com>
+X-CM-TRANSID: AQAAf8CxWM2LQ5RkrxwCAA--.11455S3
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj9xXoWrtF1ktrWrtFWDtr1xCF13Jrc_yoW3Wrb_A3
+	4aywsrGr1S9Fyqqws8CwsaqFyDJayUC3sruwn5Jw4DGFWIkw48Jws3W3srJF4kKrZxtw13
+	ZasYqr9Yyw17KosvyTuYvTs0mTUanT9S1TB71UUUUjUqnTZGkaVYY2UrUUUUj1kv1TuYvT
+	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
+	cSsGvfJTRUUUbqkYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
+	vaj40_Wr0E3s1l1IIY67AEw4v_JrI_Jryl8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	W8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6r4UJVWxJr1ln4kS14v26r1Y6r17M2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12
+	xvs2x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r12
+	6r1DMcIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr4
+	1lc7I2V7IY0VAS07AlzVAYIcxG8wCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxG
+	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km07C267AKxVWUXVWUAwC20s026c02F40E14
+	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkG
+	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4U
+	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jeXdbUUU
+	UU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230622_010825_436527_42B4EAAA 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20230622_135039_912165_6040C118 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,81 +97,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-This is a note to let you know that I've just added the patch titled
 
-    riscv: Link with '-z norelro'
+On 06/22/2023 04:04 AM, kernel test robot wrote:
+> Hi Tiezhu,
+>
+> kernel test robot noticed the following build warnings:
+>
 
-to the 6.3-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+...
 
-The filename of the patch is:
-     riscv-link-with-z-norelro.patch
-and it can be found in the queue-6.3 subdirectory.
+>    In file included from include/asm-generic/bitsperlong.h:5:
+>>> include/uapi/asm-generic/bitsperlong.h:13:9: warning: '__BITS_PER_LONG' macro redefined [-Wmacro-redefined]
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+Oh, thanks for the report, I am sorry.
 
+In order to silence the build warning, it should check the definition
+of __BITS_PER_LONG first at the beginning of bitsperlong.h, like this:
 
-From nathan@kernel.org  Thu Jun 22 09:37:45 2023
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Tue, 20 Jun 2023 17:44:50 +0000
-Subject: riscv: Link with '-z norelro'
-To: gregkh@linuxfoundation.org, sashal@kernel.org
-Cc: palmer@dabbelt.com, conor@kernel.org, ndesaulniers@google.com, nathan@kernel.org, linux-riscv@lists.infradead.org, stable@vger.kernel.org, llvm@lists.linux.dev, kernel test robot <lkp@intel.com>
-Message-ID: <20230620-6-3-fix-got-relro-error-lld-v1-1-f3e71ec912d1@kernel.org>
+#ifndef __BITS_PER_LONG
 
-From: Nathan Chancellor <nathan@kernel.org>
+#if defined(__CHAR_BIT__) && defined(__SIZEOF_LONG__)
+#define __BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
+#else
+#define __BITS_PER_LONG 32
+#endif
 
-This patch fixes a stable only patch, so it has no direct upstream
-equivalent.
+#endif
 
-After a stable only patch to explicitly handle the '.got' section to
-handle an orphan section warning from the linker, certain configurations
-error when linking with ld.lld, which enables relro by default:
+I will test and then send v3 later.
 
-  ld.lld: error: section: .got is not contiguous with other relro sections
+Thanks,
+Tiezhu
 
-This has come up with other architectures before, such as arm and arm64
-in commit 0cda9bc15dfc ("ARM: 9038/1: Link with '-z norelro'") and
-commit 3b92fa7485eb ("arm64: link with -z norelro regardless of
-CONFIG_RELOCATABLE"). Additionally, '-z norelro' is used unconditionally
-for RISC-V upstream after commit 26e7aacb83df ("riscv: Allow to
-downgrade paging mode from the command line"), which alluded to this
-issue for the same reason. Bring 6.3 in line with mainline and link with
-'-z norelro', which resolves the above link failure.
-
-Fixes: e6d1562dd4e9 ("riscv: vmlinux.lds.S: Explicitly handle '.got' section")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202306192231.DJmWr6BX-lkp@intel.com/
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/riscv/Makefile |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -7,7 +7,7 @@
- #
- 
- OBJCOPYFLAGS    := -O binary
--LDFLAGS_vmlinux :=
-+LDFLAGS_vmlinux := -z norelro
- ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
- 	LDFLAGS_vmlinux := --no-relax
- 	KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
-
-
-Patches currently in stable-queue which might be from nathan@kernel.org are
-
-queue-6.3/riscv-link-with-z-norelro.patch
 
 _______________________________________________
 linux-riscv mailing list
