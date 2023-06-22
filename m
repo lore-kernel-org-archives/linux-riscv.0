@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36F8EB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 22:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793CAEB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 22:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tW+hUUZ1xF+T3LEbcsRcoKd+RFdwot7l9y9wXGSxJzQ=; b=4Jt3KRUirPtWuG
-	2uIL9k5aXM44GKZLl48lvyJT9H2HIdH3a9tzstBHePrNhIoaRH8ykCcF2oX/Nf/dOkp4EitEHgcDy
-	Z9SiXn7VDukJ5b+wwIzdalSkNNApO+xnx7fF1VRf7080KToorlhpb5zGnLWbKxlC8P88B5yZHEuJk
-	PM/CS8QkJGbmqbivUqXqAj9lCz1XHSXRbJv2VfCtf9v55JtYanuYEG4wmYiGp3BcXbuJecQOCjmNV
-	9gBPZWn16rymW27BJZ7AiD9lPnSi4OdcJluFFuDkuyuiY/UN5Msi7aKaTuXpSb6dhfUMmClga5WaC
-	RuU6ywiHpIUNRLlsWxsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=MIKsJCaX5kfPqB10G5TMcPzEdbef/za3NBty/Aiz610=; b=gY54WTCFf1yycQ5a6i/f77othh
+	9kEuizooVZDcd4yS4NPvhbREMfVsr9yDjEFlvZCRVpaRohgEjdlddtmE4zZLjVlTVEMrzls5011hj
+	i2tdZ3B/7bzgawzggHSrpHh+3dJIN8qot3hTrwoXC24DAnzkNVJ7izDNaBraWA5Lz383r9aRvQw3G
+	EbuM3wJxCVUSlCg5DGqxauKvnvpLcLmOwg7nqF/EdULu8HcrACXQY2em1uD/G+jPLy/ZORE4KCt5A
+	yyTNbW+Rid8rwJRgVNqXyzMrPS923nXHL0fGYOi4csfoZ8ZnfX7pm776KAN+AKC4QLSXf4VA3xaI9
+	e6V0cZ1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCSeF-001wYS-14;
-	Thu, 22 Jun 2023 22:19:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qCSkc-001x8C-1m;
+	Thu, 22 Jun 2023 22:26:02 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCSeC-001wXd-1y
+	id 1qCSkZ-001x6x-0b
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jun 2023 22:19:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BC96861917;
-	Thu, 22 Jun 2023 22:19:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251F9C433C0;
-	Thu, 22 Jun 2023 22:19:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687472362;
-	bh=A9VvNykLz9DrO11Maf8GL49zew+dosNugH7pJY2QwrE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=e991ei1In0uHAR/xWW6uM623ROOVIugv1+cPXJREVhIX8XswtkIIY0JmxG8Ma1gjG
-	 pPdUwHs6N0McwRsdMI5JT10UjBFe9r4zzWGnsdsnqsPRNqMHdtsLrxvwr8WGH1hFDz
-	 TnaGikX3ZwvzYJC8YqlbWEvm2WQzciSH+vMO4GDvRy+zU4SXQa990vznphb2uQDaUW
-	 4cwoyaSHf6i5VXYi7/bWfucoRAfaG1WT6P/Qir/OBqZ7tEzmQIcJGfisMXrkPp6FWb
-	 8DYLTy6N8PCD/FxA4eD3JzSysAPTZbMNRDtlLLhLPF1J3u+MX7M6vlXjjQR8P4k+U+
-	 aadjCjNV3IIHA==
-From: Conor Dooley <conor@kernel.org>
-To: palmer@dabbelt.com
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] RISC-V: fixup ISA string parser merge conflict
-Date: Thu, 22 Jun 2023 23:18:43 +0100
-Message-Id: <20230622-smartly-gauntlet-a68b523e2dc3@spud>
-X-Mailer: git-send-email 2.39.2
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2097; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=3trQSbECpghQxSbQGd7W5O6RyNfC698+/q2PvU96QWk=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClTTux/+jpIzPHqpxV7cl7sePhRXkBpj2d4uy2TShKn/ 7pL+rHbOkpZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRVzYMv1mcPh1n2BpQdWbP DtmnGkaac8L3XlC9rSbfuyBAx8ZrijTDPx3W52+Enxt0CXt5nS/4Nu9Tt8Nj64+fZdgnisYc+hO qzwkA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+	Thu, 22 Jun 2023 22:26:00 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1b4f95833c7so42339145ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Jun 2023 15:25:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1687472754; x=1690064754;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eokW7ZiNVf5rdPhD+X+NIocq7dfbxCBS0wRkL6mOMZs=;
+        b=fyVEumVBwxTvQRlpTBFwGLE3+G6JqbrGtJnY4S81UhW9ihjbXm9bCQpo72EzQDCIQm
+         0TCI3aBi5NEYL6az1U4r3IZr9ffryuPOPfYTX28VGfGbzz9C+ES2mPEZGfgdHUnAz6YO
+         jpkHHxM82QXxgRbdkyQyxRe4t2zMstl/kxL4PwrF+da2R9+Mmh55Wj3+okfJ68LHBYpF
+         DypksVBLLDFfxjDfkAHzzs1hGKbYffGpEDhGLYRKplLRonG1A8PlumI9Tcz8IYuPcP/d
+         Gs/v4ckbD6wYIYb8hLhq1mipZKny9XhR3uU1z9KHrWqG/CB3tpazqi/QVjsLc69KsX+O
+         Yj+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1687472754; x=1690064754;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eokW7ZiNVf5rdPhD+X+NIocq7dfbxCBS0wRkL6mOMZs=;
+        b=Bysnn7Usd8DA2Y8UvglhtK9v3RXfDwxGu6Vdk4K9lGy97XZHrgCnH/PMwArPlbeEVA
+         4XWn8cjULnB12Eu+0KdbS6xnQevah5eygRZ51AiyHkXBrjSToCRC0v8eI+2gI80pnOOR
+         wsMzrFE+HeRgsDkHQmuXsJ0eygZqfszlrBXINH91HM0iap7U3X/XoirHxcQmUAF/A/V8
+         sMO9iXS2gZywbC4oMbBmt6ZgZ0I4cPOmSmEgTe7wY8Bub6IDWBrzusw60zOLeDlK6jHk
+         /ArOaeHVRBjOcoLWNQoj9+tM/Z3tNvG3GaDmVGuc0DUroqw/GYo5Dqg5/Rxdg5PBA/Vy
+         Tl5A==
+X-Gm-Message-State: AC+VfDxuBc2kRjqIjXbZcH7rZet1HlDVPy61fBgNhqDGummr+98CKgd9
+	mlumi+Iya8A7zX8+xRT3PTzp211piwoFFgtxFuNIdQ==
+X-Google-Smtp-Source: ACHHUZ55vqGZQVIh+y9D2lGn8wRWkX0C/N9J6fH3MwuUoSrJZOp0xMlfzgFVZUuGKjU9bunUaSvPlA==
+X-Received: by 2002:a17:902:a3c7:b0:1b4:fd48:d734 with SMTP id q7-20020a170902a3c700b001b4fd48d734mr13320008plb.47.1687472754371;
+        Thu, 22 Jun 2023 15:25:54 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id w13-20020a170902d3cd00b001b3d8ac1b72sm5822043plb.216.2023.06.22.15.25.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Jun 2023 15:25:53 -0700 (PDT)
+Date: Thu, 22 Jun 2023 15:25:53 -0700 (PDT)
+X-Google-Original-Date: Thu, 22 Jun 2023 15:25:11 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: fixup ISA string parser merge conflict
+In-Reply-To: <20230622-smartly-gauntlet-a68b523e2dc3@spud>
+CC: Conor Dooley <conor@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
+  linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-61dcc7d1-370b-49e7-ae4a-4ff79840b226@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230622_151924_710260_A9BD40BC 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20230622_152559_249100_C5EA56A5 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,72 +86,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Thu, 22 Jun 2023 15:18:43 PDT (-0700), Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> Commit 6589450fa2e3 ("Merge patch series "ISA string parser cleanups"")
+> has interacted poorly with commit 16252e018a30 ("Merge patch series
+> "RISC-V: Export Zba, Zbb to usermode via hwprobe""), as there were some
+> semantic conflicts between the former which added more users of the
+> "this_isa" bitmap which the latter removed.
+>
+> Fixes: 6589450fa2e3 ("Merge patch series "ISA string parser cleanups"")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> As promised, feel free to squash ;)
 
-Commit 6589450fa2e3 ("Merge patch series "ISA string parser cleanups"")
-has interacted poorly with commit 16252e018a30 ("Merge patch series
-"RISC-V: Export Zba, Zbb to usermode via hwprobe""), as there were some
-semantic conflicts between the former which added more users of the
-"this_isa" bitmap which the latter removed.
+Thanks, I will ;)
 
-Fixes: 6589450fa2e3 ("Merge patch series "ISA string parser cleanups"")
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-As promised, feel free to squash ;)
----
- arch/riscv/kernel/cpufeature.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
-
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 8ecd6f0af213..bdcf460ea53d 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -131,7 +131,6 @@ void __init riscv_fill_hwcap(void)
- 	for_each_possible_cpu(cpu) {
- 		struct riscv_isainfo *isainfo = &hart_isa[cpu];
- 		unsigned long this_hwcap = 0;
--		DECLARE_BITMAP(this_isa, RISCV_ISA_EXT_MAX);
- 
- 		if (acpi_disabled) {
- 			node = of_cpu_device_node_get(cpu);
-@@ -162,7 +161,6 @@ void __init riscv_fill_hwcap(void)
- 		 */
- 		isa += 4;
- 
--		bitmap_zero(this_isa, RISCV_ISA_EXT_MAX);
- 		while (*isa) {
- 			const char *ext = isa++;
- 			const char *ext_end = isa;
-@@ -323,8 +321,8 @@ void __init riscv_fill_hwcap(void)
- 		 * Linux requires the following extensions, so we may as well
- 		 * always set them.
- 		 */
--		set_bit(RISCV_ISA_EXT_ZICSR, this_isa);
--		set_bit(RISCV_ISA_EXT_ZIFENCEI, this_isa);
-+		set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
-+		set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
- 
- 		/*
- 		 * These ones were as they were part of the base ISA when the
-@@ -332,8 +330,8 @@ void __init riscv_fill_hwcap(void)
- 		 * unconditionally where `i` is in riscv,isa on DT systems.
- 		 */
- 		if (acpi_disabled) {
--			set_bit(RISCV_ISA_EXT_ZICNTR, this_isa);
--			set_bit(RISCV_ISA_EXT_ZIHPM, this_isa);
-+			set_bit(RISCV_ISA_EXT_ZICNTR, isainfo->isa);
-+			set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
- 		}
- 
- 		/*
--- 
-2.39.2
-
+> ---
+>  arch/riscv/kernel/cpufeature.c | 10 ++++------
+>  1 file changed, 4 insertions(+), 6 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 8ecd6f0af213..bdcf460ea53d 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -131,7 +131,6 @@ void __init riscv_fill_hwcap(void)
+>  	for_each_possible_cpu(cpu) {
+>  		struct riscv_isainfo *isainfo = &hart_isa[cpu];
+>  		unsigned long this_hwcap = 0;
+> -		DECLARE_BITMAP(this_isa, RISCV_ISA_EXT_MAX);
+>
+>  		if (acpi_disabled) {
+>  			node = of_cpu_device_node_get(cpu);
+> @@ -162,7 +161,6 @@ void __init riscv_fill_hwcap(void)
+>  		 */
+>  		isa += 4;
+>
+> -		bitmap_zero(this_isa, RISCV_ISA_EXT_MAX);
+>  		while (*isa) {
+>  			const char *ext = isa++;
+>  			const char *ext_end = isa;
+> @@ -323,8 +321,8 @@ void __init riscv_fill_hwcap(void)
+>  		 * Linux requires the following extensions, so we may as well
+>  		 * always set them.
+>  		 */
+> -		set_bit(RISCV_ISA_EXT_ZICSR, this_isa);
+> -		set_bit(RISCV_ISA_EXT_ZIFENCEI, this_isa);
+> +		set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
+> +		set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
+>
+>  		/*
+>  		 * These ones were as they were part of the base ISA when the
+> @@ -332,8 +330,8 @@ void __init riscv_fill_hwcap(void)
+>  		 * unconditionally where `i` is in riscv,isa on DT systems.
+>  		 */
+>  		if (acpi_disabled) {
+> -			set_bit(RISCV_ISA_EXT_ZICNTR, this_isa);
+> -			set_bit(RISCV_ISA_EXT_ZIHPM, this_isa);
+> +			set_bit(RISCV_ISA_EXT_ZICNTR, isainfo->isa);
+> +			set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
+>  		}
+>
+>  		/*
 
 _______________________________________________
 linux-riscv mailing list
