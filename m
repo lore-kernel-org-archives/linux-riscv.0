@@ -4,80 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2620DC0015E
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 12:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFFF8EB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 12:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JDpPzlC6nJk9HcRRpNLx7T5z5NKLunxVdzS3D3BZ33M=; b=igTRyvjLQuQuUE
-	b4utQ75X1E1Nm7tCrcffHcwbGnVkxj1CORoVdmm7HVVCbCy3heWxJBV1RNRecur5Ul/oiEIOHUbxz
-	BG2m5AQINzt4GptoeeFv3KhC1tXExghMT+G75g2XIZjnj+ZHpAS/sjZuaKChLsLlBTvCOcT39sZbR
-	d0Obx92HfkyrbQbLv9+NwZXTQH8aA/Qnlmd5bJ6MaQt3cHmcGxWFeMeErU5noSY72i9jy4qHJWpxj
-	uD0+axc22rvqPtgf/sdBdyyThk6H3NziCyp2qAnj6h1ZeTjKtBQRXvNNhQLpPwqTBheCii3hoxNsr
-	gHryhbnBUhucyQWsZotA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2GntphODYgAbar6ZrRo+bcoQKlwkwosRP8Qc7daVo2M=; b=u5tTd1g1/c0eLt
+	/fBSR7jnW/J6AG3azPPmaIcXk+aKacZQDUKz4dOz/rLdcnJ2vqdqEN5HkG/boTtMz6ifrCRFxSZ4I
+	j8mMWWCmLoDES36fRmwCwsyGz/nMbOsBODSghGmrt2Bzuh67rBD/ngbfjtCpuRSQeM/hKEDwoCl//
+	pv0VIgr/JzzF+4Out0wHCktaD765ARhth1xzgim2vzOwUXuINqmF8tWcs7tdQT+DrDr8cCgh0Ii2O
+	i7LJADYWxnkq1t0C/DT9kHeoOm4YLjx3nWJ0vI+xhWboydrsWeLm6+rOVSL3ajOOKQFP34Vzlm8KV
+	YKP0upm2OOvQZgYcRYLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCg4I-003YUl-11;
-	Fri, 23 Jun 2023 12:39:14 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1qCgEd-003a5g-34;
+	Fri, 23 Jun 2023 12:49:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCg4E-003YTs-3D
+	id 1qCgEb-003a4n-0h
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jun 2023 12:39:12 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-25ecc11961dso430452a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 23 Jun 2023 05:39:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1687523942; x=1690115942;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kkdE+cfSylJ+712UudViAal8RnuHXojgZSHU75O0ktk=;
-        b=BfZ/OKajCUysHsuTmmD6KA7Ha2jpLWEFzX5A108/3f5MSUyPWsnDHkjQLvrCasct0O
-         Djzhi/+i8bl2xHGBKKr6tlQ3Y0Xdhh5tCSj1poONxbWO26aVyh4E+XFo+rYvHvDKwtUK
-         AMtaYefyyCOKbBqzAcI0ZnJrEqFRyCBkWDwzE/lRYfeBa6Njp4hy/JrITpgcH3xwZRTn
-         FeyPecGqOlH2620WX2vEFuRw4aJuaQMIk71/tp7OHEVFE5NphxCiDGBnoXw/0vd4yFd8
-         lurY0+eLQCrA70jkA6c4EoJYATPA887P7wzrhSc1MxCDXaF1X99bGv5p3kn5/mjIVhWh
-         3bcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687523942; x=1690115942;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kkdE+cfSylJ+712UudViAal8RnuHXojgZSHU75O0ktk=;
-        b=OtX+HnabqjWl7aNWWq5D+nC98V6j+B6+Up+Q6F/V+ITkVPOYl5QJwsaMmFGsAlLO5M
-         YtNuMOBQamqdGt806shzQMVi77qgnQXJwBfubI7m3/itE/vrgVHHkVPe70duORA/N4aj
-         fR6KhMYQdghXPYIb6Kv9VMJjSYUNB91hZlIQcZg2dumY5zBpxBVpuOe4tT90IIIk2pPk
-         cDNVM+bPUumVBxDReaKznxjNiLe8Oiv7LlSGKUk1l3jdgzKl3EHrCEvZPZs6BPCdpNdw
-         BgSSEVojO+Ufz4z9BMBHxNEooR0KWhf6vcrpUNtaCFxJGjTSmKULwqsODlO+9hRJ+x1t
-         Ek0w==
-X-Gm-Message-State: AC+VfDw6tEKoxR+4XfE4FKNijpL0z1Oy//WmfJXA9uh4XiM74PQWGsgo
-	LMYFP/mVe+/Ro3krhwcrjyZMMQ==
-X-Google-Smtp-Source: ACHHUZ5EoF2OLNQawIWIiyQtv0zvnMSFwAh+0rp9e+0n5+oWRWF+lz3QxYfJiQrwClBBaqsg4U7t4A==
-X-Received: by 2002:a17:90b:1d03:b0:25e:a057:afa with SMTP id on3-20020a17090b1d0300b0025ea0570afamr13833061pjb.13.1687523941855;
-        Fri, 23 Jun 2023 05:39:01 -0700 (PDT)
-Received: from mchitale-vm.. ([103.97.165.210])
-        by smtp.googlemail.com with ESMTPSA id x9-20020a17090a1f8900b0025bf330903esm5749117pja.1.2023.06.23.05.38.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Jun 2023 05:39:01 -0700 (PDT)
-From: Mayuresh Chitale <mchitale@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Atish Patra <atishp@atishpatra.org>,
+	Fri, 23 Jun 2023 12:49:54 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CC28D61A22;
+	Fri, 23 Jun 2023 12:49:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3191BC433C0;
+	Fri, 23 Jun 2023 12:49:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687524591;
+	bh=9jQs0S7PGplotxU57o2pvvL0Cr/c4F03tmay59rArwI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=j8Wqa0v9XlimtVUmIin2dvD0fnRgMA7b4U28B0NWLIDYi1qvR9Ktx3/8v1bgNf5Jh
+	 HXGZJIVO9MqsoeCUlVQBZWxz9SWcRaiySP/HwRetmN15uXQOb9Ky2YLq2OggS/c1Gi
+	 1pO51CHvYn1hpFtK5Axn8lM8rsJlrINOm/fPDGowDJCoPORW0aDyoeIPo6yBrHYyJQ
+	 E+4jyW7yToQsA2gz8bEkPRf+MRoL9N/WHa2ClDP//nL1rltx+/wFc7V83nU9tF0ATe
+	 ZNtYzPE4oUmNiv/Q83eqM9P9SmtXG23njnA/JfHPq8lhd1sDQtJBy3wuE0+WLATwjb
+	 VYeKusnC6qG/Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1qCgEW-007keF-Ga;
+	Fri, 23 Jun 2023 13:49:48 +0100
+Date: Fri, 23 Jun 2023 13:49:47 +0100
+Message-ID: <86mt0qbaxg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Saravana Kannan <saravanak@google.com>,
 	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 0/1] Risc-V Svinval support
-Date: Fri, 23 Jun 2023 18:08:48 +0530
-Message-Id: <20230623123849.1425805-1-mchitale@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	iommu@lists.linux.dev,
+	Android Kernel Team <kernel-team@android.com>
+Subject: Re: [PATCH v4 08/10] irqchip: Add RISC-V advanced PLIC driver
+In-Reply-To: <CAK9=C2XNAXaorxeNAB02o3_mYe3fsDSHS7rj=5+=q=d67Od60A@mail.gmail.com>
+References: <20230613153415.350528-1-apatel@ventanamicro.com>
+	<20230613153415.350528-9-apatel@ventanamicro.com>
+	<CAGETcx-hoPNanAwe4++6roqBXwSdc7z6Ei=-r9z6qFG1U7xVXg@mail.gmail.com>
+	<CAAhSdy3WH_nrKC-3AC4RHn9=crh6mPzaKO8jmAeo2j8-VJnT5g@mail.gmail.com>
+	<CAGETcx_DkuyZ+c50QmA7eu8vUByfVosABugZpd7R8NgR8Wc-FA@mail.gmail.com>
+	<CAK9=C2X4+aTs=+WdE0ba1qPDu67TiAKgE2Rx-qqD5+TJwYCKOQ@mail.gmail.com>
+	<CAGETcx_KJURkxEuZOgPZR=fA4CaHnAwwRfU_JLJ28absFWAtzg@mail.gmail.com>
+	<CAK9=C2XNAXaorxeNAB02o3_mYe3fsDSHS7rj=5+=q=d67Od60A@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, saravanak@google.com, anup@brainfault.org, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, robin.murphy@arm.com, joro@8bytes.org, will@kernel.org, frowand.list@gmail.com, atishp@atishpatra.org, ajones@ventanamicro.com, conor@kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, iommu@lists.linux.dev, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230623_053911_055093_FFD62B35 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230623_054953_360958_D22976EE 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,37 +111,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds support for the Svinval extension as defined in the
-Risc V Privileged specification. 
+[here, let me trim all of this nonsense...]
 
-Changes in v5:
-- Reduce tlb flush threshold to 64
-- Improve implementation of local_flush_tlb* functions
+On Fri, 23 Jun 2023 12:47:00 +0100,
+Anup Patel <apatel@ventanamicro.com> wrote:
+> > No. My previous email asking you to NOT use IRQCHIP_DECLARE() and
+> > instead use IRQCHIP_PLATFORM_DRIVER_BEGIN/END() macros.
+> 
+> I tried IRQCHIP_PLATFORM_DRIVER_BEGIN/END() macros but these
+> macros are not suitable for APLIC driver because we need platform device
+> pointer in the APLIC probe() to create platform MSI device domain (refer,
+> platform_msi_create_device_domain()).
 
-Changes in v4:
-- Rebase and refactor as per latest changes on torvalds/master
-- Drop patch 1 in the series
+Oh come on. How hard have you tried? Have you even looked at the other
+drivers in the tree to see how they solve this insurmountable problem
+with a *single* line of code?
 
-Changes in v3:
-- Fix incorrect vma used for sinval instructions
-- Use unified static key mechanism for svinval
-- Rebased on torvalds/master
+        pdev = of_find_device_by_node(node);
 
-Changes in v2:
-- Rebased on 5.18-rc3
-- update riscv_fill_hwcap to probe Svinval extension
+That's it.
 
+> Further, I tried setting the "suppress_bind_attrs" flag in "struct
+> platform_driver aplic_driver" just like the
+> IRQCHIP_PLATFORM_DRIVER_END() macro but this did not work.
 
-Mayuresh Chitale (1):
-  riscv: mm: use svinval instructions instead of sfence.vma
+I'm not sure how relevant this is to the conversation.
 
- arch/riscv/include/asm/tlbflush.h |  1 +
- arch/riscv/mm/tlbflush.c          | 66 +++++++++++++++++++++++++++----
- 2 files changed, 59 insertions(+), 8 deletions(-)
+	M.
 
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
