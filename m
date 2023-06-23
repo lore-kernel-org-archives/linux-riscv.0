@@ -4,66 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3678FEB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Jun 2023 23:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 855F5EB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 02:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-ID:Date
+	:Subject:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6AMY3ryiFr50IlBqvpDC28zcJQOLvzKcihPB7m6Elgk=; b=b8MUhCXjg975Gp
-	PwqlGoTzxj/tzDYBtja1A3Kg+Y4aNfKf0Pdr4nBRMGVhEIZtjAQNIn6FJRKZn7JtddilUOqxNfEsK
-	Hco9/Z04om90M+lUk5xrMjOgWpdTXxleeOcjlDbBsCicmv32fh1m0c8nUEz2YQL9bZizKAK5/fMDM
-	DoashwxdHLtPnIF3AwvpBaqoTaaviwwkMj2rHSNA22ije9eIaQJoTVD00uYzVp+iaZrutoKMYJdam
-	YoTCN7v/NWzyRYDueh0QTy3h5cfSNmJpUCzq7ND9C/XOdddAXIkySa/rsPAnymFXcjjOuFATEbbqa
-	RYgPF8p5wZfdFk2dRGiQ==;
+	List-Owner; bh=WNk7i6T4IwhJtvh7RkD4XR68hGZUjQfUEFGwBcPKmGQ=; b=mox39wRP8EezPi
+	rnGW/9c/xOWbuTagTnk4vpct4gaeG6UzD1EN/4YJaf05oXJgHtuRwHeQHHy6XdxrM6VFGx9xqW7Qv
+	jrKRkXQ5j2fr/6rTEWdI1zr6nWisHNxAQ19hivSuJ2500LLaJIgQJrGxhz0/koGvatpyxTBz9fAZU
+	nXieAnRICm6Ko6BdaH/VO9YHBPXjPv17Ym74zOY0a3TL05LCqAAfZoYnKG/bsGSMtWM5NqcurCjVS
+	3xKQLKGmZdEAu4Afy1dWgMewHQFAM0e1q/E8XoLPjBWmyONA3EnGes3K1elTwGldRxBvtTEhJ3aoq
+	fkfh9iEXmM0ML/NNefoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCTZ3-0022K7-2v;
-	Thu, 22 Jun 2023 23:18:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qCWgt-002Le4-1d;
+	Fri, 23 Jun 2023 02:38:27 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCTZ1-0022Ji-0m
+	id 1qCWgo-002Lcw-1t
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 Jun 2023 23:18:08 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8D70361937;
-	Thu, 22 Jun 2023 23:18:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D2B9C433C9;
-	Thu, 22 Jun 2023 23:18:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687475886;
-	bh=IYLn4He+dUn8jWbCQgvPNmcloMkzjwQQPUXE3ulHjvI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FqI9zOD6e2gifJtG76n7U3TKoxxXnwhs8M0UVHn+MoXE52sfvxjhrHr/L4bynI5IZ
-	 TZz+VD9RENvfCSgpMrQ+VF28i/dHiYcg5WBUO0ZV71CJjU2f6kFZKxFqsj2xtYvLFm
-	 suhnTWft40hlVMtigVCYunFiJmuRyrTRdzytgoLMZsJgLoWFTivJb8PzlQ56DsMB49
-	 cy5YFWPHgQLkN3WrMjyBuCOV0t8GnsE1F90PVMexwe7AWSbULY3qNWGwgH/Evp5Edy
-	 658iKVi1zSDH43vP0xDQt24YoAQV/VwSrEa6Ia5CbjSdLXQ18zRTmcXovIRetKlWap
-	 lXG6bkPQ3NRZA==
-Date: Thu, 22 Jun 2023 23:18:03 +0000
-From: Nathan Chancellor <nathan@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: bjorn@kernel.org, ndesaulniers@google.com,
-	Conor Dooley <conor@kernel.org>, jszhang@kernel.org,
-	llvm@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>,
-	aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-Message-ID: <20230622231803.GA1790165@dev-arch.thelio-3990X>
-References: <20230622215327.GA1135447@dev-arch.thelio-3990X>
- <mhng-6c34765c-126d-4e6c-8904-e002d49a4336@palmer-ri-x1c9a>
+	Fri, 23 Jun 2023 02:38:25 +0000
+Received: from epcas1p4.samsung.com (unknown [182.195.41.48])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20230623023815epoutp04bed65ab1a625b6813cc2cc99979e4ee4~rKUzAyMP62733727337epoutp04b
+	for <linux-riscv@lists.infradead.org>; Fri, 23 Jun 2023 02:38:15 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20230623023815epoutp04bed65ab1a625b6813cc2cc99979e4ee4~rKUzAyMP62733727337epoutp04b
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1687487895;
+	bh=t6bz5/WMl+attlJ8z2J/K3Hx7jIpIjvIzKJ3RR2SDbc=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=LXyI+CEWeH68zyeJsJcUCOtmt82JvmyAUdIbvCbGPVUELhVJ+dMRDC5IW1hqFePti
+	 bslzr0W/oqstEBjyTsTKSLD6gB0TWwxUeDUQZMdfFYod76ly4zeOO5qVpm7uCb+nZK
+	 /n/zYLK80R/2aWeM2ECRCQmu2Y/fjAgbf5wO2Ad4=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas1p4.samsung.com (KnoxPortal) with ESMTP id
+	20230623023814epcas1p4cb284261016d405ad44336e518892860~rKUyWjCIR1742617426epcas1p4X;
+	Fri, 23 Jun 2023 02:38:14 +0000 (GMT)
+Received: from epsmges1p3.samsung.com (unknown [182.195.36.134]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4QnLyF2JmYz4x9Q0; Fri, 23 Jun
+	2023 02:38:13 +0000 (GMT)
+Received: from epcas1p1.samsung.com ( [182.195.41.45]) by
+	epsmges1p3.samsung.com (Symantec Messaging Gateway) with SMTP id
+	70.F9.27561.59505946; Fri, 23 Jun 2023 11:38:13 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20230623023812epcas1p13b3db03a36582821bfdf72870e47f5ce~rKUw-TnNm0338703387epcas1p1v;
+	Fri, 23 Jun 2023 02:38:12 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20230623023812epsmtrp2c8c5af59f24308e920e343fce4e34f4d~rKUw9plJ92501025010epsmtrp2X;
+	Fri, 23 Jun 2023 02:38:12 +0000 (GMT)
+X-AuditID: b6c32a37-f96e8a8000006ba9-eb-64950595f04f
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	25.55.30535.49505946; Fri, 23 Jun 2023 11:38:12 +0900 (KST)
+Received: from hoegeunkwon02 (unknown [10.113.111.147]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20230623023812epsmtip27867c91e630842aff751872889868b60~rKUwlTJ562584825848epsmtip2U;
+	Fri, 23 Jun 2023 02:38:12 +0000 (GMT)
+From: "Hoegeun Kwon" <hoegeun.kwon@samsung.com>
+To: "'Keith Zhao'" <keith.zhao@starfivetech.com>,
+	<dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-media@vger.kernel.org>, <linaro-mm-sig@lists.linaro.org>
+Cc: "'Krzysztof Kozlowski'" <krzysztof.kozlowski+dt@linaro.org>, "'Sumit
+ Semwal'" <sumit.semwal@linaro.org>, "'Emil Renner Berthing'"
+	<kernel@esmil.dk>, "'Shengyang	Chen'" <shengyang.chen@starfivetech.com>,
+	"'Conor Dooley'" <conor+dt@kernel.org>, "'Albert Ou'"
+	<aou@eecs.berkeley.edu>, "'Thomas Zimmermann'" <tzimmermann@suse.de>,
+	"'Jagan Teki'" <jagan@edgeble.ai>, "'Rob Herring'" <robh+dt@kernel.org>,
+	"'Chris	Morgan'" <macromorgan@hotmail.com>, "'Paul Walmsley'"
+	<paul.walmsley@sifive.com>, "'Bjorn Andersson'" <andersson@kernel.org>,
+	"'Changhuang Liang'" <changhuang.liang@starfivetech.com>, "'Jack Zhu'"
+	<jack.zhu@starfivetech.com>, "'Palmer Dabbelt'" <palmer@dabbelt.com>,
+	"'Shawn Guo'" <shawnguo@kernel.org>, <christian.koenig@amd.com>,
+	<hoegeun.kwon@samsung.com>
+In-Reply-To: <20230602074043.33872-10-keith.zhao@starfivetech.com>
+Subject: RE: [PATCH 9/9] drm/verisilicon: Add starfive hdmi driver
+Date: Fri, 23 Jun 2023 11:38:12 +0900
+Message-ID: <003a01d9a57b$c140f340$43c2d9c0$@samsung.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-6c34765c-126d-4e6c-8904-e002d49a4336@palmer-ri-x1c9a>
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: ko
+Thread-Index: AQHK7J7EDNi28QL/fafUThSYAJZYqAE+oOKkAhkAlx6vmlxLAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA02TeUyTZxzH9/R9+7Zgyl6gjmeIW/fGseDkKOfDBLMoyis7JOD+cIuyjr7c
+	lNoWAy6TRpFwlMtj2IoBDM6kY0O5xjlnIdyiQTcCqAhlCAv3NVwZWcvLNv77/L7P737y42N2
+	JTxHfqxMxShkkgSKsMbrWl1cXa9yr0o9jGM2qC4zANWadDxUrD+MZkaauKiipY+DStr6uOjJ
+	yhyB5m5nE6grPRNH35vKcGS8RqDxCi1AeZOjGFp+MspBjxuLCaS5U8tFdUvpBMrMV3PR1GMN
+	hjJ0r6OLLW08NFnjgArvjxGo+9kSD9VMF3I/fJO+2P83QU9PTeF0k3EOp1szl3l0Zt4GThs1
+	vQRdpc8i6Ke/NRP0SE4Hh64uT6OHN4wYnVejB3T/hQEePfxAQFf3fE0vVb0VSn4eHxDDSKSM
+	QsTIIpOksbLoQOqj8IhDET6+HmJXsT/yo0QySSITSAV9HOp6JDbBvA9KdEaSkGyWQiVKJeV+
+	IECRlKxiRDFJSlUgxcilCXIfuZtSkqhMlkW7yRjVB2IPD08fs+OX8TE5/THy7j0pa/1VuBos
+	784GVnxIesOKhWFONrDm25H1AC5qftwyFgEsGP0LY41VAG/M5HOzAX8zRNsQyOotAG4MFAHW
+	mAZw/aGJsOQlSHdYUdnHtTwISROAjet5m14YeY2A49MG3JLKijwIO1+GWdDejD1ruyyxOPku
+	bOsycS0sIP1h83A9wbIt7NKO4xbGyLfhTzPFGDuDCL76/Tsuqwvh9ayMTV1oTjmZM4RbykJy
+	zApmNeQSbEAQ7Bno4bJsD//oqOGx7AiXZlu2fOLh886BLVbBF12vAMte8N6tyxxLzxjpAisb
+	3Vn5HdhgugHYHmzg7Ipma1kCmJlhx7o4wwn1L1tVnWB37m1OAaB02ybTbZtMt20a3f/FSgGu
+	B28wcmViNKMUy73+++vIpMQqsHkpe/3qwbcz824GwOEDA4B8jBIKdlddktoJpJLUs4wiKUKR
+	nMAoDcDHvOtCzHFnZJL51GSqCLG3v4e3r6eXNxL7iikHwdBErtSOjJaomHiGkTOKf+M4fCtH
+	NeeC5qzn8zPR5cXyS25x5I6M9pcnonYFaI6cbnMRGd8bPHrI+e7so+tR5KhR2G644nTOb3+J
+	ZqdN9BAtTu/tSHk/7qGupKyrs3dPaWpIs/v0n2mhrx2fwniqYOHlu7H7Kmc/KVcVjvh+4xK2
+	r+jXsmDn8FMxacfS2w/6Op2sHSxUl5GiQBd9XZrHyYnzD3R38JJ7/abwuOPqCr3R69T+1dim
+	WylDAUencoNu7pB3hK2lEucPnBONrM+X/Vx+ulLwwpBavHJsvKh6dLF1cL5TmxJy/7OFDWvP
+	w8OPhqpuZlCrtp4LISe0rt7DpfbqqB9ic/ILEpje4E+fUbZfaUtr855+4TAxT+HKGIl4L6ZQ
+	Sv4BzpYLR7IEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupkleLIzCtJLcpLzFFi42LZdlhJXncK69QUgxmH1S22ddhYbP09i91i
+	zipXi7f3d7NarNl7jsli/pFzrBZXvr5ns3i/vIvN4mRLB4vF6t8LWSwez2CzeLJmJqNF34uH
+	zBZfrjxksri8aw6bRc+GrawW2z63sFl09DewWry83MNs0TaL36J17xF2ixdbxC0mHnzEZnHq
+	7md2iy1vJrI6SHq0XvrL5vHm5UsWj92P37N4HO74wu7R0fePxeNxzxk2j02rOtk87lzbw+Zx
+	v/s4k8fmJfUet/89Zvbo27KK0eNS83V2j9tneT02n672+LxJLkAgissmJTUnsyy1SN8ugSuj
+	+1JGwSmVih+XNrE0MH6R7WLk4JAQMJGYudO2i5GLQ0hgN6PElqObmboYOYHiMhKr+rewQtQI
+	Sxw+XAxR84pRonPxDUaQGjYBfYk168+xgtgiAo1MEpumVYAUMQssYZM4cv0wE0THCUaJg9/u
+	M4NM4hRwkjjxPAjEFAYyT/+QBullEVCVOHLyN9gcXgFLiT23d7BB2IISJ2c+YQGxmQX0JNav
+	n8MIYctLbH87hxniTgWJn0+XsULERSRmd7YxQ9zjJPGi+xbLBEbhWUhGzUIyahaSUbOQtC9g
+	ZFnFKJlaUJybnltsWGCUl1quV5yYW1yal66XnJ+7iRGcWrS0djDuWfVB7xAjEwfjIUYJDmYl
+	EV7ZTZNShHhTEiurUovy44tKc1KLDzFKc7AoifN+e92bIiSQnliSmp2aWpBaBJNl4uCUamDK
+	e95waAvbRuVGUancplrtjAtGUxbePzd75d39IpP1XE4mSDD9XBlwYu+S5IZPHcUa23qK370P
+	kL0v76J54t3dc/9m/P9j+lU/p2dBsMIKIYflG5hlzRmvF54vW7JJbY5tcneuhN/UvRpLbrf9
+	6GjzCE9+88v+uqVNWrFMlGS4/EJ/4er/K16/u/X4ro61NNPDGVPlW0wEl8V/36XDb7XARvey
+	+56j0luCV2rI2R/8u/Bts9YMFb3+ktDbOjcMnqYvfDnDN/7O7bjQy/YO0wRsvkzKl3Hxu7q1
+	RvhuDLvms0OPjKbPiTz6a/dmMSHJQq5teiq+z73tJqdnbOQ9WGXnJC11JngXG8/bfY+eP4pT
+	YinOSDTUYi4qTgQAsXTsDpwDAAA=
+X-CMS-MailID: 20230623023812epcas1p13b3db03a36582821bfdf72870e47f5ce
+X-Msg-Generator: CA
+X-Sendblock-Type: SVC_REQ_APPROVE
+CMS-TYPE: 101P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20230602081437epcas1p36b7961b1d3f01dbed3fe2672a92e9d92
+References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
+	<CGME20230602081437epcas1p36b7961b1d3f01dbed3fe2672a92e9d92@epcas1p3.samsung.com>
+	<20230602074043.33872-10-keith.zhao@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230622_161807_382296_380F2D2F 
-X-CRM114-Status: GOOD (  55.19  )
+X-CRM114-CacheID: sfid-20230622_193823_327888_E6EDE62D 
+X-CRM114-Status: GOOD (  24.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,139 +156,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 22, 2023 at 03:16:51PM -0700, Palmer Dabbelt wrote:
-> On Thu, 22 Jun 2023 14:53:27 PDT (-0700), nathan@kernel.org wrote:
-> > On Wed, Jun 21, 2023 at 11:19:31AM -0700, Palmer Dabbelt wrote:
-> > > On Wed, 21 Jun 2023 10:51:15 PDT (-0700), bjorn@kernel.org wrote:
-> > > > Conor Dooley <conor@kernel.org> writes:
-> > > >
-> > > > [...]
-> > > >
-> > > > > > So I'm no longer actually sure there's a hang, just something
-> > > > > > slow.  That's even more of a grey area, but I think it's sane to
-> > > > > > call a 1-hour link time a regression -- unless it's expected
-> > > > > > that this is just very slow to link?
-> > > > >
-> > > > > I dunno, if it was only a thing for allyesconfig, then whatever - but
-> > > > > it's gonna significantly increase build times for any large kernels if LLD
-> > > > > is this much slower than LD. Regression in my book.
-> > > > >
-> > > > > I'm gonna go and experiment with mixed toolchain builds, I'll report
-> > > > > back..
-> > > >
-> > > > I took palmer/for-next (1bd2963b2175 ("Merge patch series "riscv: enable
-> > > > HAVE_LD_DEAD_CODE_DATA_ELIMINATION"")) for a tuxmake build with llvm-16:
-> > > >
-> > > >   | ~/src/tuxmake/run -v --wrapper ccache --target-arch riscv \
-> > > >   |     --toolchain=llvm-16 --runtime docker --directory . -k \
-> > > >   |     allyesconfig
-> > > >
-> > > > Took forever, but passed after 2.5h.
-> > > 
-> > > Thanks.  I just re-ran mine 17/trunk LLD under time (rather that just
-> > > checking top sometimes), it's at 1.5h but even that seems quite long.
-> > > 
-> > > I guess this is sort of up to the LLVM folks: if it's expected that DCE
-> > > takes a very long time to link then I'm not opposed to allowing it, but if
-> > > this is probably a bug in LLD then it seems best to turn it off until we
-> > > sort things out over there.
-> > > 
-> > > I think maybe Nick or Nathan is the best bet to know?
-> > 
-> > I can confirm a regression with allyesconfig but not allmodconfig using
-> > LLVM 16.0.6 on my 80-core Ampere Altra system.
-> > 
-> > allmodconfig: 8m 4s
-> > allmodconfig + CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=n: 7m 4s
-> > allyesconfig: 1h 58m 30s
-> > allyesconfig + CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=n: 12m 41s
+Hi Keith,
+
+There is a problem with stopping when changing modes.
+
+Below test log
+
+root:~> modetest -Mstarfive -c
+Connectors:
+id      encoder status          name            size (mm)       modes
+encoders
+116     115     connected       HDMI-A-1        320x180         51      115
+  modes:
+        index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
+  #0 1280x800 59.91 1280 1328 1360 1440 800 803 809 823 71000 flags: phsync,
+pvsync; type: preferred, driver
+  #1 1920x1080 60.00 1920 2008 2052 2200 1080 1084 1089 1125 148500 flags:
+phsync, pvsync; type: driver
+[...]
+
+root:~> modetest -Mstarfive -s 116:#0 -v
+setting mode 1280x800-59.91Hz on connectors 116, crtc 31
+freq: 60.65Hz
+freq: 59.91Hz
+freq: 59.91Hz
+
+root:~> modetest -Mstarfive -s 116:#1 -v
+setting mode 1920x1080-60.00Hz on connectors 116, crtc 31
+[   94.535626] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
+[   94.560985] rcu:     1-...0: (20 ticks this GP)
+idle=c9bc/1/0x4000000000000000 softirq=3869/3871 fqs=1120
+[   94.589532] rcu:     (detected by 3, t=5264 jiffies, g=4645, q=63
+ncpus=4)
+[   94.615335] Task dump for CPU 1:
+[   94.637723] task:modetest        state:R  running task     stack:0
+pid:407   ppid:397    flags:0x00000008
+[   94.667299] Call Trace:
+[   94.689297] [<ffffffff80d1e8fc>] __schedule+0x2a8/0xa52
+[   94.714221] [<ffffffff80d1f100>] schedule+0x5a/0xdc
+[   94.738626] [<ffffffff80d25a14>] schedule_timeout+0x220/0x2a6
+[   94.763762] [<ffffffff80d2037a>] wait_for_completion+0xfe/0x126
+[   94.789073] [<ffffffff8002ffe4>] kthread_flush_worker+0x82/0xa0
+
+
+> -----Original Message-----
+> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of
+> Keith Zhao
+> Sent: Friday, June 2, 2023 4:41 PM
+> To: dri-devel@lists.freedesktop.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-riscv@lists.infradead.org; linux-
+> media@vger.kernel.org; linaro-mm-sig@lists.linaro.org
+> Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>; Sumit Semwal
+> <sumit.semwal@linaro.org>; Emil Renner Berthing <kernel@esmil.dk>;
+> Shengyang Chen <shengyang.chen@starfivetech.com>; Conor Dooley
+> <conor+dt@kernel.org>; Albert Ou <aou@eecs.berkeley.edu>; Thomas
+> Zimmermann <tzimmermann@suse.de>; Jagan Teki <jagan@edgeble.ai>; Rob
+> Herring <robh+dt@kernel.org>; Chris Morgan <macromorgan@hotmail.com>; Paul
+> Walmsley <paul.walmsley@sifive.com>; Keith Zhao
+> <keith.zhao@starfivetech.com>; Bjorn Andersson <andersson@kernel.org>;
+> Changhuang Liang <changhuang.liang@starfivetech.com>; Jack Zhu
+> <jack.zhu@starfivetech.com>; Palmer Dabbelt <palmer@dabbelt.com>; Shawn
+> Guo <shawnguo@kernel.org>; christian.koenig@amd.com
+> Subject: [PATCH 9/9] drm/verisilicon: Add starfive hdmi driver
 > 
-> Are those backwards?  I'm getting super slow builds after merging the patch
-> set, not before -- though apologize in advance if I'm reading it wrong, I'm
-> well on my way to falling asleep already ;)
-
-I know I already responded to you around this on IRC but I will do it
-here too for the benefit of others following this thread.
-
-These numbers are from the patchset applied on top of dad9774deaf1
-("Merge tag 'timers-urgent-2023-06-21' of
-git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip"); in other words,
-allmodconfig and allyesconfig have CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=y
-so turning it off is basically like building allmodconfig and
-allyesconfig before the patchset was applied.
-
-> > I am sure there is something that ld.lld can do better, given GNU ld
-> > does not have any problems as earlier established, so that should
-> > definitely be explored further. I see Nick already had a response about
-> > writing up a report (I wrote most of this before that email so I am
-> > still sending this one).
-> > 
-> > However, allyesconfig is pretty special and not really indicative of a
-> > "real world" kernel build in my opinion (which will either be a fully
-> > modular kernel to allow use on a wide range of hardware or a monolithic
-> > kernel with just the drivers needed for a specific platform, which will
-> > be much smaller than allyesconfig); it has given us problems with large
-> > kernels before on other architectures.
+> Add HDMI dirver for StarFive SoC JH7110.
 > 
-> I totally agree that allyesconfig is an oddity, but it's something that does
-> get regularly build tested so a big build time hit there is going to cause
-> trouble -- maybe not for users, but it'll be a problem for maintainers and
-> that's way more likely to get me yelled at ;)
+> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+> ---
+>  drivers/gpu/drm/verisilicon/Kconfig         |  11 +
+>  drivers/gpu/drm/verisilicon/Makefile        |   1 +
+>  drivers/gpu/drm/verisilicon/starfive_hdmi.c | 928 ++++++++++++++++++++
+> drivers/gpu/drm/verisilicon/starfive_hdmi.h | 296 +++++++
+>  drivers/gpu/drm/verisilicon/vs_drv.c        |   6 +
+>  drivers/gpu/drm/verisilicon/vs_drv.h        |   4 +
+>  6 files changed, 1246 insertions(+)
+>  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.c
+>  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.h
 
-Agreed. That comment was more around justification for opting out of
-CONFIG_LD_DEAD_CODE_DATA_ELIMINATION with these configurations, since
-CONFIG_COMPILE_TEST has effective become "am I allmodconfig or
-allyesconfig?" nowadays.
+[...]
 
-> > CONFIG_LD_DEAD_CODE_DATA_ELIMINATION is already marked with 'depends on
-> > EXPERT' and its help text mentions its perils, so it does not seem
-> > unreasonable to me to add an additional dependency on !COMPILE_TEST so
-> > that allmodconfig and allyesconfig cannot flip this on, something like
-> > the following perhaps?
-> > 
-> > diff --git a/init/Kconfig b/init/Kconfig
-> > index 32c24950c4ce..25434cbd2a6e 100644
-> > --- a/init/Kconfig
-> > +++ b/init/Kconfig
-> > @@ -1388,7 +1388,7 @@ config HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-> >  config LD_DEAD_CODE_DATA_ELIMINATION
-> >  	bool "Dead code and data elimination (EXPERIMENTAL)"
-> >  	depends on HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-> > -	depends on EXPERT
-> > +	depends on EXPERT && !COMPILE_TEST
-> >  	depends on $(cc-option,-ffunction-sections -fdata-sections)
-> >  	depends on $(ld-option,--gc-sections)
-> >  	help
-> > 
-> > If applying that dependency to all architectures is too much, the
-> > selection in arch/riscv/Kconfig could be gated on the same condition.
-> 
-> Is the regression for all ports, or just RISC-V?  I'm fine gating this with
-> some sort of Kconfig flag, if it's just impacting RISC-V then it seems sane
-> to keep it over here.
+> diff --git a/drivers/gpu/drm/verisilicon/starfive_hdmi.c
+> b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
+> new file mode 100644
+> index 000000000000..128ecca03309
+> --- /dev/null
+> +++ b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
+> @@ -0,0 +1,928 @@
 
-I am not sure. Only mips selects HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-unconditionally and we don't test ARCH=mips all{mod,yes}config (not sure
-why off the top of my head). powerpc selects it when using objtool for
-mcount generation, which only happens for ppc32 (which we don't test
-heavily or with large kernels) or using '-mprofile-kernel', which clang
-does not support.
+[...]
 
-If you wanted to restrict it to just LD_IS_BFD in arch/riscv/Kconfig,
-that would be fine with me too.
+> +static int starfive_hdmi_setup(struct starfive_hdmi *hdmi,
+> +			       struct drm_display_mode *mode) {
 
-  select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if LD_IS_BFD
+[...]
 
-Nick said he would work on a report for the LLVM side, so as long as
-this issue is handled in some way to avoid regressing LLD builds until
-it is resolved, I don't think there is anything else for the kernel to
-do. We like to have breadcrumbs via issue links, not sure if the report
-will be internal to Google or on LLVM's issue tracker though;
-regardless, we will have to touch this block to add a version check
-later, at which point we can add a link to the fix in LLD.
+> +	return 0;
+> +}
+> +
+> +static void starfive_hdmi_encoder_mode_set(struct drm_encoder *encoder,
+> +					   struct drm_display_mode *mode,
+> +					   struct drm_display_mode
+*adj_mode) {
+> +	struct starfive_hdmi *hdmi = encoder_to_hdmi(encoder);
+> +
+> +	starfive_hdmi_setup(hdmi, adj_mode);
 
-Cheers,
-Nathan
+When starfive_hdmi_setup runs here,
+when changing the mode, a problem occurs because try to write a value to reg
+in a state that is not resumed after suspend.
+
+> +
+> +	memcpy(&hdmi->previous_mode, adj_mode, sizeof(hdmi-
+> >previous_mode)); }
+> +
+> +static void starfive_hdmi_encoder_enable(struct drm_encoder *encoder) {
+> +	struct starfive_hdmi *hdmi = encoder_to_hdmi(encoder);
+> +
+> +	pm_runtime_get_sync(hdmi->dev);
+
+So if move the call point of starfive_hdmi_setup here, it works normally.
+
+> +}
+
+Best regards,
+Hoegeun
+
+
 
 _______________________________________________
 linux-riscv mailing list
