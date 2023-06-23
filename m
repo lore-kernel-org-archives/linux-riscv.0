@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F61EEB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 16:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3F0EB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 17:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C3AcxAVpk4AN/PjDzHoIzIjpmZ0Gw92wqfwQ8QQSg08=; b=kwBtnezDvQHnJ7
-	lxct+RT3T6leJq/3K172U9pxsdNSwf40kXldtC6uLmaF/auOiAqJF57h6cAv2ALSkQD7eAjP6oFEm
-	HluQPl9AyRIhme60T4XWpjBSJ7XD2qtjjTMXZbA1/FxMGm+JCb6Md2CmxQHzxWWwjKcw6pLpG4rSY
-	0HPDeKY3I7cWCfhdsPEQAyv5ngPAJEzUrOWGQBX/5fEreIawan46sg54GG+fLx3NCs0UV/gYaNjGv
-	fli3ZD2dscAMffcoeYn1/YjqxaEtRVYvO/QPjePhpNZwDrd7MfkYFoLaWPcwx4FgAPIGFAvl6kp7b
-	HXnyIXtpOv6SRiv3CDrw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H0X0xcyDJeboCprRa3sgH7gfwbUL7ePPCbfMzFMLZM0=; b=bbh0Jz4a1iG2m2dv8YYyNtB7JZ
+	Pxr0UBz7HRyTHEYN2kxym1pYGR37gcf4cZUTDPOvYGJ/xD1MW1BPOp7+i+d/FtxFIb7HjqMYBylPE
+	5F4UEAg5nuE4e87FDrhy/T+/CMi6WVMFCaUSyotLU00AgnZCHaIXPkTgbfFr/kjcFejDTT5M3Xdxg
+	xOfhxu0YuN/94kYB/cFlc8MpTKV1vbzJc8oWuAOKv39mz0f8O9wFyG2bLlLQUOAmBxSlrSI51fmNX
+	Bkc+1Rm01js7NRay0bCitWwjVY8YoR3KRX+xwmy5MJthcIFLXFGxwyDWnIy36WF9dEEXzEbHnDjsm
+	CzDiCjUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCjj3-0045I7-24;
-	Fri, 23 Jun 2023 16:33:33 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1qCkQ8-004BSy-2E;
+	Fri, 23 Jun 2023 17:18:04 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCjj0-0045Gf-3C
+	id 1qCkQ6-004BS3-11
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jun 2023 16:33:32 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-988689a5f44so78758366b.1
-        for <linux-riscv@lists.infradead.org>; Fri, 23 Jun 2023 09:33:28 -0700 (PDT)
+	Fri, 23 Jun 2023 17:18:03 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-6687446eaccso682801b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 23 Jun 2023 10:18:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1687538007; x=1690130007;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=F+1ixJV2FYmj+SoA0cV3gTRANTZOKE/jEW6S67bqJuk=;
-        b=XxZa31d1ORlVsrrmdP58C3CyuRyekaw/LYrXsRM1RlTB+EbLl0xnuCPm1Id4Bbytqe
-         lnazcYGbn3/qXj8gniE5qy7yQpxH6bmP9HFAaqTFbogHyzkzyJ6j7k7D6xhae4mrnj9u
-         NAP9aIdheXlR4DXz9YR6q20dHYmlp6gr4p+ofygDy9GxNptyYCddhoC27qdj5oCU+2C3
-         rbeVnjAb145Dq2TT+1eegK8r6snFRXoYv7fsp6vw1pHkdltLNmZQL2deaV65sqw9GBVB
-         7PyksJKk1GTw3ynMTsXoTfOjO6kf9iysiPDz2FCM55k7CDHdCsE69dPaI/R5xP9/mOQZ
-         g29g==
+        d=google.com; s=20221208; t=1687540680; x=1690132680;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LfbqvLK9Qfv4YF15RNhH25UogTHD/trEiy3T/djOfaI=;
+        b=xOUmQpxHu7os+Nl9EESJkSZpvheHF8R0/sK0BJUwzYmbVPkrFsxgP0foSUrW6iU4aq
+         UF3xAkqE/VQAdENo2u2TZQK4mAiELlsY6HtfQ43Cm8EmQg1yaSwXCM5MBtld7piogO6f
+         +EhhdZef5ZKc8DVOi+seiGnsx3r8I2oEXhtM37lXnlpfMEFseJyRe83uUgPhvd+REw1j
+         PJBVzSmoaqCMXKyOoBrT+HjbScoIx8Uva/BygNV9SPRldIqdXvoicmEGg06guAEaRYaC
+         /P1XRwjnSw2pdUekcxWt35N5S23ReO09GHZaQGrQcOWzcAuU/4vfBkzun4QRLzoP07Ye
+         bvGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687538007; x=1690130007;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=F+1ixJV2FYmj+SoA0cV3gTRANTZOKE/jEW6S67bqJuk=;
-        b=ASGvo5sZ4pjy/peWXlUnbnssUyv52hjyDbUyZa+6p8DwHg7sKv+GD+LNYhGs1qheit
-         6RbxjXirwhDlOZSL3bnOgj/JLghJ6rEBOGoJ0Vte+r3d0lMBCAblTjBKXjnnWFDfxwQ+
-         FseKYFlCgYQqVIph91UKg9mC2trQ9+uG5M0zpKuIMh17cEn7285ZLN6c8mT34UOztmNS
-         DYJfu2R8ItdEBDp/14AvTjWx8mGA7oc6DWtLIndhTRiO4bow+edrwiPOjVEG/U2jsjZF
-         E3bItSnp3DjrsMgS4sqsfKkEAd4isgb2Ow6dBKT6Dus0SqMHsHScSQ0Sp1DkbKKyYMHd
-         clfg==
-X-Gm-Message-State: AC+VfDyu3AnvSOJIRSGzOq/wGxHZN8GUiOUjArJAtiBpsr1E9SkQvqWB
-	wUd0SS9TGjhzRSDaOi/n5C27cg==
-X-Google-Smtp-Source: ACHHUZ5Sm8pZbl0baYUGugIGtVPSSYfHmWwbJvqIMXKaivS52KQEH2NwX0y29m0cH+LRZ94VIhhO6w==
-X-Received: by 2002:a17:907:934e:b0:989:5d0:3189 with SMTP id bv14-20020a170907934e00b0098905d03189mr13163559ejc.33.1687538006857;
-        Fri, 23 Jun 2023 09:33:26 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.219.26])
-        by smtp.gmail.com with ESMTPSA id d1-20020a1709064c4100b0096f7cf96525sm6245528ejw.146.2023.06.23.09.33.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 Jun 2023 09:33:26 -0700 (PDT)
-Message-ID: <d962285e-b3f0-6225-316c-39a7d16808cd@linaro.org>
-Date: Fri, 23 Jun 2023 18:33:23 +0200
+        d=1e100.net; s=20221208; t=1687540680; x=1690132680;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LfbqvLK9Qfv4YF15RNhH25UogTHD/trEiy3T/djOfaI=;
+        b=DYMBz7LsFFYcGR4l/A/RMrUJRyY3t90Ftxq2+1qLczgYaUjeIKREA3Q3m7a9ZOySig
+         ltGIT35CcQjutrsHySg00EWzJdWWbXKdjiVNlCnRL08q/uJ7H7TGn6YAp85v+DjmGizd
+         QRKDUigAXaNyFMVE+b0F/4VzhOaK5OvdYhmf3NtIKcDu+WIz3oQuGiB+2MY2NKJyOC1i
+         q4Zp3ucABOUj5yDSsNaLNrMi4PXm2ZeM34m5NOUHbdApzYwzMtQ/2PqXux5psB0IhOBP
+         PKtNDTiR32hcE7q/u8zrofcSGuMT3mjKuxmGEUHrsRn9pmFUJOIpy6iLARA9w0yHgLjf
+         T/Sg==
+X-Gm-Message-State: AC+VfDzfRMynxm0JYO1iv/yO2zJyT75pVlUzfJcZePKxBMX7gssWWtO7
+	UxI+rR76rNQO7IZqa2BPC1SoSg==
+X-Google-Smtp-Source: ACHHUZ4lpjXjmkmvEJ7+K6VgK2zU9ROdY2N4oWlN6oIFVB3ihHYUvHLy/UW9KTFd/fdmKnI/faz0Jg==
+X-Received: by 2002:a05:6a00:1989:b0:668:8b43:8ded with SMTP id d9-20020a056a00198900b006688b438dedmr15678103pfl.26.1687540680069;
+        Fri, 23 Jun 2023 10:18:00 -0700 (PDT)
+Received: from google.com ([2620:15c:2d1:203:bcd2:2fb7:43de:322f])
+        by smtp.gmail.com with ESMTPSA id g11-20020aa7818b000000b0064fd4a6b306sm6320547pfi.76.2023.06.23.10.17.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Jun 2023 10:17:59 -0700 (PDT)
+Date: Fri, 23 Jun 2023 10:17:54 -0700
+From: Nick Desaulniers <ndesaulniers@google.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, bjorn@kernel.org,
+	Conor Dooley <conor@kernel.org>, jszhang@kernel.org,
+	llvm@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>,
+	aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+Message-ID: <ZJXTwqZIkXLxXaSi@google.com>
+References: <20230622215327.GA1135447@dev-arch.thelio-3990X>
+ <mhng-6c34765c-126d-4e6c-8904-e002d49a4336@palmer-ri-x1c9a>
+ <20230622231803.GA1790165@dev-arch.thelio-3990X>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH v2 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-Content-Language: en-US
-To: Aleksandr Shubin <privatesub2@gmail.com>, linux-kernel@vger.kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Andre Przywara <andre.przywara@arm.com>, linux-pwm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-References: <20230623150012.1201552-1-privatesub2@gmail.com>
- <20230623150012.1201552-2-privatesub2@gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230623150012.1201552-2-privatesub2@gmail.com>
+Content-Type: multipart/mixed; boundary="Ntym+K/CqqiHps72"
+Content-Disposition: inline
+In-Reply-To: <20230622231803.GA1790165@dev-arch.thelio-3990X>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230623_093331_040448_492B53DE 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20230623_101802_360699_1DA0C436 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,109 +93,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 23/06/2023 16:59, Aleksandr Shubin wrote:
-> Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-> controller witch is different from the previous pwm-sun4i.
-> 
-> The D1 and T113 are identical in terms of peripherals,
-> they differ only in the architecture of the CPU core, and
-> even share the majority of their DT. Because of that,
-> using the same compatible makes sense.
-> The R329 is a different SoC though, and should have
-> a different compatible string added, especially as there
-> is a difference in the number of channels.
-> 
-> D1 and T113s SoCs have one PWM controller with 8 channels.
-> R329 SoC has two PWM controllers in both power domains, one of
-> them has 9 channels (CPUX one) and the other has 6 (CPUS one).
-> 
-> Add a device tree binding for them.
-> 
-> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-> ---
->  .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 83 +++++++++++++++++++
->  1 file changed, 83 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> new file mode 100644
-> index 000000000000..eec9d1dd67c2
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> @@ -0,0 +1,83 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner D1, T113-S3 and R329 PWM
-> +
-> +maintainers:
-> +  - Aleksandr Shubin <privatesub2@gmail.com>
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - const: allwinner,sun20i-d1-pwm
-> +      - items:
-> +          - const: allwinner,sun20i-r329-pwm
-> +          - const: allwinner,sun20i-d1-pwm
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#pwm-cells":
-> +    const: 3
-> +
-> +  clocks:
-> +    items:
-> +      - description: 24 MHz oscillator
-> +      - description: Bus Clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: hosc
-> +      - const: bus
-> +
-> +  resets:
-> +    maxItems: 1
-> +    description: module reset
-> +
-> +allOf:
-> +  - $ref: pwm.yaml#
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: allwinner,sun20i-r329-pwm
-> +
-> +    then:
-> +      properties:
-> +        allwinner,pwm-channels:
-> +          $ref: /schemas/types.yaml#/definitions/uint32
-> +          description: The number of PWM channels configured for this instance
-> +          enum: [6, 9]
-> +
 
-Your DTS says this is 8, so you did not test it. Why do you need it in
-the first place? r329 can have both 6 and 9?
+--Ntym+K/CqqiHps72
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Anyway, this won't work with additionalProperties, which you would see
-with testing. Don't define properties in allOf. Also switch to
-unevaluatedProperties: false.
+On Thu, Jun 22, 2023 at 11:18:03PM +0000, Nathan Chancellor wrote:
+> If you wanted to restrict it to just LD_IS_BFD in arch/riscv/Kconfig,
+> that would be fine with me too.
+> 
+>   select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if LD_IS_BFD
 
-Best regards,
-Krzysztof
+Hi Jisheng, would you mind sending a v3 with the attached patch applied
+on top / at the end of your series?
 
+> 
+> Nick said he would work on a report for the LLVM side, so as long as
+> this issue is handled in some way to avoid regressing LLD builds until
+> it is resolved, I don't think there is anything else for the kernel to
+> do. We like to have breadcrumbs via issue links, not sure if the report
+> will be internal to Google or on LLVM's issue tracker though;
+> regardless, we will have to touch this block to add a version check
+> later, at which point we can add a link to the fix in LLD.
+
+https://github.com/ClangBuiltLinux/linux/issues/1881
+
+--Ntym+K/CqqiHps72
+Content-Type: text/x-diff; charset=us-ascii
+Content-Disposition: attachment;
+	filename="0001-riscv-disable-DEAD_CODE_ELIMINATION-for-LLD.patch"
+
+From 3e5e010958ee41b9fb408cfade8fb017c2fe7169 Mon Sep 17 00:00:00 2001
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Fri, 23 Jun 2023 10:06:17 -0700
+Subject: [PATCH] riscv: disable HAVE_LD_DEAD_CODE_DATA_ELIMINATION for LLD
+
+Linking allyesconfig with ld.lld-17 with CONFIG_DEAD_CODE_ELIMINATION=y
+takes hours.  Assuming this is a performance regression that can be
+fixed, tentatively disable this for now so that allyesconfig builds
+don't start timing out.  If and when there's a fix to ld.lld, this can
+be converted to a version check instead so that users of older but still
+supported versions of ld.lld don't hurt themselves by enabling
+CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=y.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/1881
+Reported-by: Palmer Dabbelt <palmer@dabbelt.com>
+Suggested-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+Hi Jisheng, would you mind sending a v3 with this patch on top/at the
+end of your patch series?
+
+ arch/riscv/Kconfig | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 8effe5bb7788..0573991e9b78 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -116,7 +116,8 @@ config RISCV
+ 	select HAVE_KPROBES if !XIP_KERNEL
+ 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+ 	select HAVE_KRETPROBES if !XIP_KERNEL
+-	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION
++	# https://github.com/ClangBuiltLinux/linux/issues/1881
++	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
+ 	select HAVE_MOVE_PMD
+ 	select HAVE_MOVE_PUD
+ 	select HAVE_PCI
+-- 
+2.41.0.162.gfafddb0af9-goog
+
+
+--Ntym+K/CqqiHps72
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--Ntym+K/CqqiHps72--
+
