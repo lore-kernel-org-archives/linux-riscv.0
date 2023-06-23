@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDCCDEB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 08:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E174EB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 09:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rV5zC/ioJu+Yp4N6cs5yKr3CT3jmFu6IYNRuqe/3Ud0=; b=BSjXZinwcPvgUK
-	ZlG+sB+Ej9oDfMDqaN4rfYwg/c3W3Ic9SoL64JbgiayoC2MCOaBpe6ODvUclYiPzYkVRzwP6IGAk3
-	rRzyqyXHFx0vbSEKQCFaBUdL0jyUKUo8kNQq40wMkgXvBHvHnox6sNaOcsE9GYuhM1WHB4xGHgrFv
-	9EgMr/ypltyl2eG/ztwNo+UTTjuB8GpDmXw5BG3JR4Ygat3PeAwbwCZkrMfrUsoNdjxo+ZcX/kc32
-	o8WM9zpDvEdm0dRnS5DuLcJSQzReuEIDm8d1s1W9xcLpsg3lo+WXhka8IQuqvLuvT54mQWbB6FFhn
-	NLZ0Px0nWojPx10LLIpA==;
+	List-Owner; bh=Tklb9L3eQwlEyo7mBDd6a6hioY/lzpA17TLBqMUqxpM=; b=N9JRCAISrqkGwx
+	xV+Zq7G4yBkpxev/bZ1/3eIeyTB7I2yfXIp1CQgDS1CYN5KoIhBmgfJnB+ZWQJfQmR8DiBj3kNzHB
+	oBZKQWMXDV2vSeEJ8/w4a0kNwTypFm5+qVJFTkKgyJXnrpdZKxc3xz5V9KrUJ0i0iJuOsHQt7DCdt
+	wmehxm/kwkvqi6loTB8Wrh8dTXIGvikMwmMrEyfuxAiThHRjOecG/TFDhHm4t7fKwArwghAQZAJa+
+	UJ8e7GHugs/Hqrf/EVIsal4ZeikYlSET4A8Cn9EdbrnXjhxquOVYCJs0wxYAKJOnvb/9dt9rIPa4f
+	3EJz6AxxVb8t3QMaD3vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCcTd-002xNb-26;
-	Fri, 23 Jun 2023 08:49:09 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1qCcqI-00304d-0V;
+	Fri, 23 Jun 2023 09:12:34 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCcTa-002xLp-0H
+	id 1qCcqD-00303S-0E
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jun 2023 08:49:08 +0000
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 107A2E0005;
-	Fri, 23 Jun 2023 08:48:55 +0000 (UTC)
-Message-ID: <02ee9366-436a-4be6-5a79-05874f999b88@ghiti.fr>
-Date: Fri, 23 Jun 2023 10:48:55 +0200
+	Fri, 23 Jun 2023 09:12:32 +0000
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 0F7B43F732
+	for <linux-riscv@lists.infradead.org>; Fri, 23 Jun 2023 09:12:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1687511541;
+	bh=KFsSxKg0fjfznhicIfMHQlOmSjN+PVRg8x167vcTUcg=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=SUiw4VRihU29xZ/5WNmUOVcqfo/uuHaYDD222Ds2/cdADRNBxVf4WscAK2vbjDlFu
+	 6gQrbLR4Bshs4DxAdjWmFRSEnap4Mm5eZjSKOG64NnfodxkogtK6R3nqr2X/EQt2Cn
+	 JVEChJI5mLGRtC2+v9Qee1aoy1zAyIOtoyIdhWXbv/H/lwWNf3s8qV085eN0CnXcQV
+	 IAKU8yovxGwN6OrhwY3qHwsQzTE761ZzqDwJAmjlUTREkizvEhdzwP42irLyECgf7A
+	 FM42jPxN6QpFdoYDTdtO4PujfF5JtPw+V9R5hZOnFNSMC8mwaRD1Mz34dWaphSTJ8d
+	 IHqNiyJs+mA2w==
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-3ff263bfb9bso8163011cf.2
+        for <linux-riscv@lists.infradead.org>; Fri, 23 Jun 2023 02:12:21 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1687511540; x=1690103540;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KFsSxKg0fjfznhicIfMHQlOmSjN+PVRg8x167vcTUcg=;
+        b=TR3Y+iGGkfOGgTKhMenR7+/7IJGrUz9uzNqCkQfWlf7qHE3zaUpjpAgIY1pKyaYqYE
+         NHkhYioKWj5SFRj1mfJ0LDHMM9OgAPGrDE6D4q0O+0UfEzrRsfCUwzxyxgt3bYbnEdDM
+         wIUoJPVCMAjGimzrQNs9Uf9G+r2V1vS7Ah1DC5oDpsMFMwbweHvmGkXpXLOc3a9Oyybo
+         Nd6v0Kb7giJ7M9DkhQrBsYvfpwoJFsjSsU1ISCb6QhZge3SDIErGveg+onoAeInPoXwL
+         hm3GBipi8GoUsNZ/HYqUdIsVYgPjkWYrCb8FAtXSRKhZCLkQkmuVqk/MwyWGIiDjcWhK
+         poJQ==
+X-Gm-Message-State: AC+VfDxMGH2RMQ7DSrPyYfoI4icNir5GatnzLxMNoJZEkMTLIBqD8hTH
+	aYPyHxebSbinjC+KxA6kgPDhPfDwKM2CEEadXOIcA1/sXlPh2lbUBX6LfzncGoA052MkXjFJQfX
+	+HGcYzl4m8+bI/rlZ6b2kT6xQwS+2ewIj5KD3qqo/Rd1MOnM2P1wMVrR+O29EJw==
+X-Received: by 2002:a05:622a:20b:b0:3f4:dec2:76cc with SMTP id b11-20020a05622a020b00b003f4dec276ccmr16083633qtx.49.1687511539973;
+        Fri, 23 Jun 2023 02:12:19 -0700 (PDT)
+X-Google-Smtp-Source: ACHHUZ4S0zZ9I6LFJdzcnCgnIflAUsGc2Y0T/BdRYb6VyEod8M93pZHx62Ir3GUE+Zfsc192u9F6fs5rju7QnKMi93g=
+X-Received: by 2002:a05:622a:20b:b0:3f4:dec2:76cc with SMTP id
+ b11-20020a05622a020b00b003f4dec276ccmr16083578qtx.49.1687511538573; Fri, 23
+ Jun 2023 02:12:18 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v2 2/3] Documentation: riscv: Add early boot document
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
- linux-doc@vger.kernel.org, Song Shuai <songshuaishuai@tinylab.org>,
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
-References: <20230621072234.9900-1-alexghiti@rivosinc.com>
- <20230621072234.9900-2-alexghiti@rivosinc.com>
- <20230621-d6da578719f8af903d6746ef@orel>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230621-d6da578719f8af903d6746ef@orel>
+References: <20230228215435.3366914-1-heiko@sntech.de> <20230228215435.3366914-3-heiko@sntech.de>
+In-Reply-To: <20230228215435.3366914-3-heiko@sntech.de>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Fri, 23 Jun 2023 11:12:02 +0200
+Message-ID: <CAJM55Z_wLRaQsBHQu4Cdot4KDgUOjfh1G_b4TD4z=VFQwCmpPg@mail.gmail.com>
+Subject: Re: [PATCH RFC 2/2] RISC-V: add T-Head vector errata handling
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, samuel@sholland.org, 
+	guoren@kernel.org, christoph.muellner@vrull.eu, conor.dooley@microchip.com, 
+	linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230623_014906_410878_C89999C6 
-X-CRM114-Status: GOOD (  40.49  )
+X-CRM114-CacheID: sfid-20230623_021229_516230_1348048F 
+X-CRM114-Status: GOOD (  36.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,182 +92,457 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIxLzA2LzIwMjMgMTQ6MTksIEFuZHJldyBKb25lcyB3cm90ZToKPiBPbiBXZWQsIEp1biAy
-MSwgMjAyMyBhdCAwOToyMjozM0FNICswMjAwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4+IFRo
-aXMgZG9jdW1lbnQgZGVzY3JpYmVzIHRoZSBjb25zdHJhaW50cyBhbmQgcmVxdWlyZW1lbnRzIG9m
-IHRoZSBlYXJseQo+PiBib290IHByb2Nlc3MgaW4gYSBSSVNDLVYga2VybmVsLgo+Pgo+PiBTaWdu
-ZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4+IFJl
-dmlld2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4+IC0tLQo+PiAg
-IERvY3VtZW50YXRpb24vcmlzY3YvYm9vdC1pbWFnZS1oZWFkZXIucnN0IHwgICAzIC0KPj4gICBE
-b2N1bWVudGF0aW9uL3Jpc2N2L2Jvb3QucnN0ICAgICAgICAgICAgICB8IDE3MCArKysrKysrKysr
-KysrKysrKysrKysrCj4+ICAgRG9jdW1lbnRhdGlvbi9yaXNjdi9pbmRleC5yc3QgICAgICAgICAg
-ICAgfCAgIDEgKwo+PiAgIDMgZmlsZXMgY2hhbmdlZCwgMTcxIGluc2VydGlvbnMoKyksIDMgZGVs
-ZXRpb25zKC0pCj4+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vcmlzY3YvYm9v
-dC5yc3QKPj4KPj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vcmlzY3YvYm9vdC1pbWFnZS1o
-ZWFkZXIucnN0IGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9ib290LWltYWdlLWhlYWRlci5yc3QKPj4g
-aW5kZXggZDc3NTI1MzM4NjVmLi5hNGE0NTMxMGM0YzQgMTAwNjQ0Cj4+IC0tLSBhL0RvY3VtZW50
-YXRpb24vcmlzY3YvYm9vdC1pbWFnZS1oZWFkZXIucnN0Cj4+ICsrKyBiL0RvY3VtZW50YXRpb24v
-cmlzY3YvYm9vdC1pbWFnZS1oZWFkZXIucnN0Cj4+IEBAIC03LDkgKzcsNiBAQCBCb290IGltYWdl
-IGhlYWRlciBpbiBSSVNDLVYgTGludXgKPj4gICAKPj4gICBUaGlzIGRvY3VtZW50IG9ubHkgZGVz
-Y3JpYmVzIHRoZSBib290IGltYWdlIGhlYWRlciBkZXRhaWxzIGZvciBSSVNDLVYgTGludXguCj4+
-ICAgCj4+IC1UT0RPOgo+PiAtICBXcml0ZSBhIGNvbXBsZXRlIGJvb3RpbmcgZ3VpZGUuCj4+IC0K
-Pj4gICBUaGUgZm9sbG93aW5nIDY0LWJ5dGUgaGVhZGVyIGlzIHByZXNlbnQgaW4gZGVjb21wcmVz
-c2VkIExpbnV4IGtlcm5lbCBpbWFnZTo6Cj4+ICAgCj4+ICAgCXUzMiBjb2RlMDsJCSAgLyogRXhl
-Y3V0YWJsZSBjb2RlICovCj4+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3Jpc2N2L2Jvb3Qu
-cnN0IGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9ib290LnJzdAo+PiBuZXcgZmlsZSBtb2RlIDEwMDY0
-NAo+PiBpbmRleCAwMDAwMDAwMDAwMDAuLjAxOWVlODE4Njg2ZAo+PiAtLS0gL2Rldi9udWxsCj4+
-ICsrKyBiL0RvY3VtZW50YXRpb24vcmlzY3YvYm9vdC5yc3QKPj4gQEAgLTAsMCArMSwxNzAgQEAK
-Pj4gKy4uIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4+ICsKPj4gKz09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Cj4+ICtSSVNDLVYgS2VybmVs
-IEJvb3QgUmVxdWlyZW1lbnRzIGFuZCBDb25zdHJhaW50cwo+PiArPT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KPj4gKwo+PiArOkF1dGhvcjogQWxleGFuZHJl
-IEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+PiArOkRhdGU6IDIzIE1heSAyMDIzCj4+
-ICsKPj4gK1RoaXMgZG9jdW1lbnQgZGVzY3JpYmVzIHdoYXQgdGhlIFJJU0MtViBrZXJuZWwgZXhw
-ZWN0cyBmcm9tIGJvb3Rsb2FkZXJzIGFuZAo+PiArZmlybXdhcmUsIGJ1dCBhbHNvIHRoZSBjb25z
-dHJhaW50cyB0aGF0IGFueSBkZXZlbG9wZXIgbXVzdCBoYXZlIGluIG1pbmQgd2hlbgo+PiArdG91
-Y2hpbmcgdGhlIGVhcmx5IGJvb3QgcHJvY2Vzcy4gRm9yIHRoZSBwdXJwb3NlcyBvZiB0aGlzIGRv
-Y3VtZW50LCB0aGUKPj4gKydlYXJseSBib290IHByb2Nlc3MnIHJlZmVycyB0byBhbnkgY29kZSB0
-aGF0IHJ1bnMgYmVmb3JlIHRoZSBmaW5hbCB2aXJ0dWFsCj4+ICttYXBwaW5nIGlzIHNldCB1cC4K
-Pj4gKwo+PiArUHJlLWtlcm5lbCBSZXF1aXJlbWVudHMgYW5kIENvbnN0cmFpbnRzCj4+ICs9PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KPj4gKwo+PiArVGhlIFJJU0MtViBr
-ZXJuZWwgZXhwZWN0cyB0aGUgZm9sbG93aW5nIG9mIGJvb3Rsb2FkZXJzIGFuZCBwbGF0Zm9ybSBm
-aXJtd2FyZToKPj4gKwo+PiArUmVnaXN0ZXIgc3RhdGUKPj4gKy0tLS0tLS0tLS0tLS0tCj4+ICsK
-Pj4gK1RoZSBSSVNDLVYga2VybmVsIGV4cGVjdHM6Cj4+ICsKPj4gKyAgKiBgJGEwYCB0byBjb250
-YWluIHRoZSBoYXJ0aWQgb2YgdGhlIGN1cnJlbnQgY29yZS4KPj4gKyAgKiBgJGExYCB0byBjb250
-YWluIHRoZSBhZGRyZXNzIG9mIHRoZSBkZXZpY2V0cmVlIGluIG1lbW9yeS4KPj4gKwo+PiArQ1NS
-IHN0YXRlCj4+ICstLS0tLS0tLS0KPj4gKwo+PiArVGhlIFJJU0MtViBrZXJuZWwgZXhwZWN0czoK
-Pj4gKwo+PiArICAqIGAkc2F0cCA9IDBgOiB0aGUgTU1VLCBpZiBwcmVzZW50LCBtdXN0IGJlIGRp
-c2FibGVkLgo+PiArCj4+ICtSZXNlcnZlZCBtZW1vcnkgZm9yIHJlc2lkZW50IGZpcm13YXJlCj4+
-ICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4+ICsKPj4gK1RoZSBSSVND
-LVYga2VybmVsIG11c3Qgbm90IG1hcCBhbnkgcmVzaWRlbnQgbWVtb3J5LCBvciBtZW1vcnkgcHJv
-dGVjdGVkIHdpdGgKPj4gK1BNUHMsIGluIHRoZSBkaXJlY3QgbWFwcGluZywgc28gdGhlIGZpcm13
-YXJlIG11c3QgY29ycmVjdGx5IG1hcmsgdGhvc2UgcmVnaW9ucwo+PiArYXMgcGVyIHRoZSBkZXZp
-Y2V0cmVlwqBzcGVjaWZpY2F0aW9uIGFuZC9vciB0aGUgVUVGSSBzcGVjaWZpY2F0aW9uLgo+PiAr
-Cj4+ICtLZXJuZWwgbG9jYXRpb24KPj4gKy0tLS0tLS0tLS0tLS0tLQo+PiArCj4+ICtUaGUgUklT
-Qy1WIGtlcm5lbCBleHBlY3RzIHRvIGJlIHBsYWNlZCBhdCBhIFBNRCBib3VuZGFyeSAoMk1CIGFs
-aWduZWQgZm9yIHJ2NjQKPj4gK2FuZCA0TUIgYWxpZ25lZCBmb3IgcnYzMikuIE5vdGUgdGhhdCB0
-aGUgRUZJIHN0dWIgd2lsbCBwaHlzaWNhbGx5IHJlbG9jYXRlIHRoZQo+PiAra2VybmVsIGlmIHRo
-YXQncyBub3QgdGhlIGNhc2UuCj4+ICsKPj4gK0hhcmR3YXJlIGRlc2NyaXB0aW9uCj4+ICstLS0t
-LS0tLS0tLS0tLS0tLS0tLQo+PiArCj4+ICtUaGUgZmlybXdhcmUgY2FuIHBhc3MgZWl0aGVyIGEg
-ZGV2aWNldHJlZSBvciBBQ1BJIHRhYmxlcyB0byB0aGUgUklTQy1WIGtlcm5lbC4KPj4gKwo+PiAr
-VGhlIGRldmljZXRyZWUgaXMgZWl0aGVyIHBhc3NlZCBkaXJlY3RseSB0byB0aGUga2VybmVsIGZy
-b20gdGhlIHByZXZpb3VzIHN0YWdlCj4+ICt1c2luZyB0aGUgYCRhMWAgcmVnaXN0ZXIsIG9yIHdo
-ZW4gYm9vdGluZyB3aXRoIFVFRkksIGl0IGNhbiBiZSBwYXNzZWQgdXNpbmcgdGhlCj4+ICtFRkkg
-Y29uZmlndXJhdGlvbiB0YWJsZS4KPj4gKwo+PiArVGhlIEFDUEkgdGFibGVzIGFyZSBwYXNzZWQg
-dG8gdGhlIGtlcm5lbCB1c2luZyB0aGUgRUZJIGNvbmZpZ3VyYXRpb24gdGFibGUuIEluCj4+ICt0
-aGlzIGNhc2UsIGEgdGlueSBkZXZpY2V0cmVlIGlzIHN0aWxsIGNyZWF0ZWQgYnkgdGhlIEVGSSBz
-dHViLiBQbGVhc2UgcmVmZXIgdG8KPj4gKyJFRkkgc3R1YiBhbmQgZGV2aWNldHJlZSIgdHJlZSBz
-ZWN0aW9uIGJlbG93IGZvciBkZXRhaWxzIGFib3V0IHRoaXMgZGV2aWNldHJlZS4KPiAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICBeIHJlZHVuZGFudCAndHJlZScgaGVyZQo+Cj4+ICsKPj4g
-K0tlcm5lbCBlbnRyYW5jZQo+PiArLS0tLS0tLS0tLS0tLS0tCj4+ICsKPj4gK09uIFNNUCBzeXN0
-ZW1zLCB0aGVyZSBhcmUgMiBtZXRob2RzIHRvIGVudGVyIHRoZSBrZXJuZWw6Cj4+ICsKPj4gKy0g
-YFJJU0NWX0JPT1RfU1BJTldBSVRgOiB0aGUgZmlybXdhcmUgcmVsZWFzZXMgYWxsIGhhcnRzIGlu
-IHRoZSBrZXJuZWwsIG9uZSBoYXJ0Cj4+ICsgIHdpbnMgYSBsb3R0ZXJ5IGFuZCBleGVjdXRlcyB0
-aGUgZWFybHkgYm9vdCBjb2RlIHdoaWxlIHRoZSBvdGhlciBoYXJ0cyBhcmUKPj4gKyAgcGFya2Vk
-IHdhaXRpbmcgZm9yIHRoZSBpbml0aWFsaXphdGlvbiB0byBmaW5pc2guIFRoaXMgbWV0aG9kIGlz
-IG1vc3RseSB1c2VkIHRvCj4+ICsgIHN1cHBvcnQgb2xkZXIgZmlybXdhcmVzIHdpdGhvdXQgU0JJ
-IEhTTSBleHRlbnNpb24gYW5kIE0tbW9kZSBSSVNDLVYga2VybmVsLgo+PiArLSBgT3JkZXJlZCBi
-b290aW5nYDogdGhlIGZpcm13YXJlIHJlbGVhc2VzIG9ubHkgb25lIGhhcnQgdGhhdCB3aWxsIGV4
-ZWN1dGUgdGhlCj4+ICsgIGluaXRpYWxpemF0aW9uIHBoYXNlIGFuZCB0aGVuIHdpbGwgc3RhcnQg
-YWxsIG90aGVyIGhhcnRzIHVzaW5nIHRoZSBTQkkgSFNNCj4+ICsgIGV4dGVuc2lvbi4gVGhlIG9y
-ZGVyZWQgYm9vdGluZyBtZXRob2QgaXMgdGhlIHByZWZlcnJlZCBib290aW5nIG1ldGhvZCBmb3IK
-Pj4gKyAgYm9vdGluZyB0aGUgUklTQy1WIGtlcm5lbCBiZWNhdXNlIGl0IGNhbiBzdXBwb3J0IGNw
-dSBob3RwbHVnIGFuZCBrZXhlYy4KPj4gKwo+PiArVUVGSQo+PiArLS0tLQo+PiArCj4+ICtVRUZJ
-IG1lbW9yeSBtYXAKPj4gK35+fn5+fn5+fn5+fn5+fgo+PiArCj4+ICtXaGVuIGJvb3Rpbmcgd2l0
-aCBVRUZJLCB0aGUgUklTQy1WIGtlcm5lbCB3aWxsIHVzZSBvbmx5IHRoZSBFRkkgbWVtb3J5IG1h
-cCB0bwo+PiArcG9wdWxhdGUgdGhlIHN5c3RlbSBtZW1vcnkuCj4+ICsKPj4gK1RoZSBVRUZJIGZp
-cm13YXJlIG11c3QgcGFyc2UgdGhlIHN1Ym5vZGVzIG9mIHRoZSBgL3Jlc2VydmVkLW1lbW9yeWAg
-ZGV2aWNldHJlZQo+PiArbm9kZSBhbmQgYWJpZGUgYnkgdGhlIGRldmljZXRyZWUgc3BlY2lmaWNh
-dGlvbiB0byBjb252ZXJ0IHRoZSBhdHRyaWJ1dGVzIG9mCj4+ICt0aG9zZSBzdWJub2RlcyAoYG5v
-LW1hcGAgYW5kIGByZXVzYWJsZWApIGludG8gdGhlaXIgY29ycmVjdCBFRkkgZXF1aXZhbGVudAo+
-PiArKHJlZmVyIHRvIHNlY3Rpb24gIjMuNS40IC9yZXNlcnZlZC1tZW1vcnkgYW5kIFVFRkkiIG9m
-IHRoZSBkZXZpY2V0cmVlCj4+ICtzcGVjaWZpY2F0aW9uIHYwLjQtcmMxKS4KPj4gKwo+PiArUklT
-Q1ZfRUZJX0JPT1RfUFJPVE9DT0wKPj4gK35+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4+ICsKPj4g
-K1doZW4gYm9vdGluZyB3aXRoIFVFRkksIHRoZSBFRkkgc3R1YiByZXF1aXJlcyB0aGUgYm9vdCBo
-YXJ0aWQgaW4gb3JkZXIgdG8gcGFzcwo+PiAraXQgdG8gdGhlIFJJU0MtViBrZXJuZWwgaW4gYCRh
-MWAuIFRoZSBFRkkgc3R1YiByZXRyaWV2ZXMgdGhlIGJvb3QgaGFydGlkIHVzaW5nCj4+ICtvbmUg
-b2YgdGhlIGZvbGxvd2luZyBtZXRob2RzOgo+PiArCj4+ICstIGBSSVNDVl9FRklfQk9PVF9QUk9U
-T0NPTGAgKCoqcHJlZmVycmVkKiopLgo+PiArLSBgYm9vdC1oYXJ0aWRgIGRldmljZXRyZWUgc3Vi
-bm9kZSAoKipkZXByZWNhdGVkKiopLgo+PiArCj4+ICtBbnkgbmV3IGZpcm13YXJlIG11c3QgaW1w
-bGVtZW50IGBSSVNDVl9FRklfQk9PVF9QUk9UT0NPTGAgYXMgdGhlIGRldmljZXRyZWUKPj4gK2Jh
-c2VkIGFwcHJvYWNoIGlzIGRlcHJlY2F0ZWQgbm93Lgo+PiArCj4+ICtFYXJseSBCb290IFJlcXVp
-cmVtZW50cyBhbmQgQ29uc3RyYWludHMKPj4gKz09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PQo+PiArCj4+ICtUaGUgUklTQy1WIGtlcm5lbCdzIGVhcmx5IGJvb3QgcHJvY2Vz
-cyBvcGVyYXRlcyB1bmRlciB0aGUgZm9sbG93aW5nIGNvbnN0cmFpbnRzOgo+PiArCj4+ICtFRkkg
-c3R1YiBhbmQgZGV2aWNldHJlZQo+PiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPj4gKwo+PiAr
-V2hlbiBib290aW5nIHdpdGggVUVGSSwgdGhlIGRldmljZXRyZWUgaXMgc3VwcGxlbWVudGVkIChv
-ciBjcmVhdGVkKSBieSB0aGUgRUZJCj4+ICtzdHViIHdpdGggdGhlIHNhbWUgcGFyYW1ldGVycyBh
-cyBhcm02NCB3aGljaCBhcmUgZGVzY3JpYmVkIGF0IHRoZSBwYXJhZ3JhcGgKPj4gKyJVRUZJIGtl
-cm5lbCBzdXBwb3J0IG9uIEFSTSIgaW4gRG9jdW1lbnRhdGlvbi9hcm0vdWVmaS5yc3QuCj4+ICsK
-Pj4gK1ZpcnR1YWwgbWFwcGluZyBpbnN0YWxsYXRpb24KPj4gKy0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0KPj4gKwo+PiArVGhlIGluc3RhbGxhdGlvbiBvZiB0aGUgdmlydHVhbCBtYXBwaW5n
-IGlzIGRvbmUgaW4gMiBzdGVwcyBpbiB0aGUgUklTQy1WIGtlcm5lbDoKPj4gKwo+PiArMS4gOmM6
-ZnVuYzpgc2V0dXBfdm1gIGluc3RhbGxzIGEgdGVtcG9yYXJ5IGtlcm5lbCBtYXBwaW5nIGluCj4+
-ICsgICA6Yzp2YXI6YGVhcmx5X3BnX2RpcmAgd2hpY2ggYWxsb3dzIGRpc2NvdmVyeSBvZiB0aGUg
-c3lzdGVtIG1lbW9yeS4gT25seSB0aGUKPj4gKyAgIGtlcm5lbCB0ZXh0L2RhdGEgYXJlIG1hcHBl
-ZCBhdCB0aGlzIHBvaW50LiBXaGVuIGVzdGFibGlzaGluZyB0aGlzIG1hcHBpbmcsIG5vCj4+ICsg
-ICBhbGxvY2F0aW9uIGNhbiBiZSBkb25lIChzaW5jZSB0aGUgc3lzdGVtIG1lbW9yeSBpcyBub3Qg
-a25vd24geWV0KSwgc28KPj4gKyAgIDpjOnZhcjpgZWFybHlfcGdfZGlyYCBwYWdlIHRhYmxlIGlz
-IHN0YXRpY2FsbHkgYWxsb2NhdGVkICh1c2luZyBvbmx5IG9uZQo+PiArICAgdGFibGUgZm9yIGVh
-Y2ggbGV2ZWwpLgo+PiArCj4+ICsyLiA6YzpmdW5jOmBzZXR1cF92bV9maW5hbGAgY3JlYXRlcyB0
-aGUgZmluYWwga2VybmVsIG1hcHBpbmcgaW4KPj4gKyAgIDpjOnZhcjpgc3dhcHBlcl9wZ19kaXJg
-IGFuZCB0YWtlcyBhZHZhbnRhZ2Ugb2YgdGhlIGRpc2NvdmVyZWQgc3lzdGVtIG1lbW9yeQo+PiAr
-ICAgdG8gY3JlYXRlIHRoZSBsaW5lYXIgbWFwcGluZy4gV2hlbiBlc3RhYmxpc2hpbmcgdGhpcyBt
-YXBwaW5nLCB0aGUga2VybmVsCj4+ICsgICBjYW4gYWxsb2NhdGUgbWVtb3J5IGJ1dCBjYW5ub3Qg
-YWNjZXNzIGl0IGRpcmVjdGx5IChzaW5jZSB0aGUgZGlyZWN0IG1hcHBpbmcKPj4gKyAgIGlzIG5v
-dCBwcmVzZW50IHlldCksIHNvIGl0IHVzZXMgdGVtcG9yYXJ5IG1hcHBpbmdzIGluIHRoZSBmaXht
-YXAgcmVnaW9uIHRvCj4+ICsgICBiZSBhYmxlIHRvIGFjY2VzcyB0aGUgbmV3bHkgYWxsb2NhdGVk
-IHBhZ2UgdGFibGUgbGV2ZWxzLgo+PiArCj4+ICtGb3IgOmM6ZnVuYzpgdmlydF90b19waHlzYCBh
-bmQgOmM6ZnVuYzpgcGh5c190b192aXJ0YCB0byBiZSBhYmxlIHRvIGNvcnJlY3RseQo+PiArY29u
-dmVydCBkaXJlY3QgbWFwcGluZyBhZGRyZXNzZXMgdG8gcGh5c2ljYWwgYWRkcmVzc2VzLCB0aGV5
-IG5lZWQgdG8ga25vdyB0aGUKPj4gK3N0YXJ0IG9mIHRoZSBEUkFNLiBUaGlzIGhhcHBlbnMgYWZ0
-ZXIgc3RlcCAxLCByaWdodCBiZWZvcmUgc3RlcCAyIGluc3RhbGxzIHRoZQo+PiArZGlyZWN0IG1h
-cHBpbmcgKHNlZSA6YzpmdW5jOmBzZXR1cF9ib290bWVtYCBmdW5jdGlvbiBpbiBhcmNoL3Jpc2N2
-L21tL2luaXQuYykuCj4+ICtBbnkgdXNhZ2Ugb2YgdGhvc2UgbWFjcm9zIGJlZm9yZSB0aGUgZmlu
-YWwgdmlydHVhbCBtYXBwaW5nIGlzIGluc3RhbGxlZCBtdXN0Cj4+ICtiZSBjYXJlZnVsbHkgZXhh
-bWluZWQuCj4+ICsKPj4gK0RldmljZS10cmVlIG1hcHBpbmcgdmlhIGZpeG1hcAo+PiArLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4+ICsKPj4gK1RoZSBSSVNDLVYga2VybmVsIHVzZXMg
-dGhlIGZpeG1hcCByZWdpb24gdG8gbWFwIHRoZSBkZXZpY2V0cmVlIGJlY2F1c2UgdGhlCj4+ICtk
-ZXZpY2V0cmVlIHZpcnR1YWwgbWFwcGluZyBtdXN0IHJlbWFpbiB0aGUgc2FtZSBiZXR3ZWVuIDpj
-OmZ1bmM6YHNldHVwX3ZtYCBhbmQKPj4gKzpjOmZ1bmM6YHNldHVwX3ZtX2ZpbmFsYCBjYWxscyBz
-aW5jZSB0aGUgOmM6dmFyOmByZXNlcnZlZF9tZW1gIGFycmF5IGlzCj4+ICtpbml0aWFsaXplZCB3
-aXRoIHZpcnR1YWwgYWRkcmVzc2VzIGVzdGFibGlzaGVkIGJ5IDpjOmZ1bmM6YHNldHVwX3ZtYCBh
-bmQgdXNlZAo+PiArd2l0aCB0aGUgbWFwcGluZyBlc3RhYmxpc2hlZCBieSA6YzpmdW5jOmBzZXR1
-cF92bV9maW5hbGAuCj4+ICsKPj4gK1ByZS1NTVUgZXhlY3V0aW9uCj4+ICstLS0tLS0tLS0tLS0t
-LS0tLQo+PiArCj4+ICtBIGZldyBwaWVjZXMgb2YgY29kZSBuZWVkIHRvIHJ1biBiZWZvcmUgZXZl
-biB0aGUgZmlyc3QgdmlydHVhbCBtYXBwaW5nIGlzCj4+ICtlc3RhYmxpc2hlZC4gVGhlc2UgYXJl
-IHRoZSBpbnN0YWxsYXRpb24gb2YgdGhlIGZpcnN0IHZpcnR1YWwgbWFwcGluZyBpdHNlbGYsCj4+
-ICtwYXRjaGluZyBvZiBlYXJseSBhbHRlcm5hdGl2ZXMgYW5kIHRoZSBlYXJseSBwYXJzaW5nIG9m
-IHRoZSBrZXJuZWwgY29tbWFuZCBsaW5lLgo+PiArVGhhdCBjb2RlIG11c3QgYmUgdmVyeSBjYXJl
-ZnVsbHkgY29tcGlsZWQgYXM6Cj4+ICsKPj4gKy0gYC1mbm8tcGllYDogVGhpcyBpcyBuZWVkZWQg
-Zm9yIHJlbG9jYXRhYmxlIGtlcm5lbHMgd2hpY2ggdXNlIGAtZlBJRWAsIHNpbmNlCj4+ICsgIG90
-aGVyd2lzZSwgYW55IGFjY2VzcyB0byBhIGdsb2JhbCBzeW1ib2wgd291bGQgZ28gdGhyb3VnaCB0
-aGUgR09UIHdoaWNoIGlzCj4+ICsgIG9ubHkgcmVsb2NhdGVkIHZpcnR1YWxseS4KPj4gKy0gYC1t
-Y21vZGVsPW1lZGFueWA6IEFueSBhY2Nlc3MgdG8gYSBnbG9iYWwgc3ltYm9sIG11c3QgYmUgUEMt
-cmVsYXRpdmUgdG8gYXZvaWQKPj4gKyAgYW55IHJlbG9jYXRpb25zIHRvIGhhcHBlbiBiZWZvcmUg
-dGhlIE1NVSBpcyBzZXR1cC4KPj4gKy0gKmFsbCogaW5zdHJ1bWVudGF0aW9uIG11c3QgYWxzbyBi
-ZSBkaXNhYmxlZCAodGhhdCBpbmNsdWRlcyBLQVNBTiwgZnRyYWNlIGFuZAo+PiArICBvdGhlcnMp
-Lgo+PiArCj4+ICtBcyB1c2luZyBhIHN5bWJvbCBmcm9tIGEgZGlmZmVyZW50IGNvbXBpbGF0aW9u
-IHVuaXQgcmVxdWlyZXMgdGhpcyB1bml0IHRvIGJlCj4+ICtjb21waWxlZCB3aXRoIHRob3NlIGZs
-YWdzLCB3ZSBhZHZpc2UsIGFzIG11Y2ggYXMgcG9zc2libGUsIG5vdCB0byB1c2UgZXh0ZXJuYWwK
-Pj4gK3N5bWJvbHMuCj4+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3Jpc2N2L2luZGV4LnJz
-dCBiL0RvY3VtZW50YXRpb24vcmlzY3YvaW5kZXgucnN0Cj4+IGluZGV4IDE3NWE5MWRiMDIwMC4u
-MWY2NjA2MmRlZjZkIDEwMDY0NAo+PiAtLS0gYS9Eb2N1bWVudGF0aW9uL3Jpc2N2L2luZGV4LnJz
-dAo+PiArKysgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L2luZGV4LnJzdAo+PiBAQCAtNSw2ICs1LDcg
-QEAgUklTQy1WIGFyY2hpdGVjdHVyZQo+PiAgIC4uIHRvY3RyZWU6Ogo+PiAgICAgICA6bWF4ZGVw
-dGg6IDEKPj4gICAKPj4gKyAgICBib290Cj4+ICAgICAgIGJvb3QtaW1hZ2UtaGVhZGVyCj4+ICAg
-ICAgIHZtLWxheW91dAo+PiAgICAgICBod3Byb2JlCj4+IC0tIAo+PiAyLjM5LjIKPj4KPiBPdGhl
-cndpc2UgbG9va3MgZ29vZCB0byBtZS4KCgpJIGFzc3VtZSBJIGNhbiBhZGQgeW91ciBSQiBoZXJl
-LCBkb24ndCB3YXN0ZSB0aW1lIGFuc3dlcmluZyBpZiBJJ20gcmlnaHQgOikKClRoYW5rcyEKCgo+
-Cj4gVGhhbmtzLAo+IGRyZXcKPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+On Tue, 28 Feb 2023 at 22:56, Heiko Stuebner <heiko@sntech.de> wrote:
+>
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+>
+> T-Head C9xx cores implement an older version (0.7.1) of the vector
+> specification.
+>
+> Relevant changes concerning the kernel are:
+> - different placement of the SR_VS bit for the vector unit status
+> - different encoding of the vsetvli instruction
+> - different instructions for loads and stores
+>
+> And a fixed VLEN of 128.
+>
+> The in-kernel access to vector instances is limited to the save and
+> restore of process states so the above mentioned areas can simply be
+> handled via the alternatives framework, similar to other T-Head specific
+> issues.
+>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> ---
+>  arch/riscv/Kconfig.erratas           |  13 +++
+>  arch/riscv/errata/thead/errata.c     |  32 ++++++
+>  arch/riscv/include/asm/csr.h         |  26 ++++-
+>  arch/riscv/include/asm/errata_list.h |  62 +++++++++++-
+>  arch/riscv/include/asm/vector.h      | 139 +++++++++++++++++++++++++--
+>  5 files changed, 256 insertions(+), 16 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
+> index 69621ae6d647..624cefc9fcd7 100644
+> --- a/arch/riscv/Kconfig.erratas
+> +++ b/arch/riscv/Kconfig.erratas
+> @@ -79,4 +79,17 @@ config ERRATA_THEAD_PMU
+>
+>           If you don't know what to do here, say "Y".
+>
+> +config ERRATA_THEAD_VECTOR
+> +       bool "Apply T-Head Vector errata"
+> +       depends on ERRATA_THEAD && RISCV_ISA_V
+> +       default y
+> +       help
+> +         The T-Head C9xx cores implement an earlier version 0.7.1
+> +         of the vector extensions.
+> +
+> +         This will apply the necessary errata to handle the non-standard
+> +         behaviour via when switch to and from vector mode for processes.
+> +
+> +         If you don't know what to do here, say "Y".
+> +
+>  endmenu # "CPU errata selection"
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index fac5742d1c1e..55b3aaa2468a 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -12,6 +12,7 @@
+>  #include <asm/cacheflush.h>
+>  #include <asm/errata_list.h>
+>  #include <asm/patch.h>
+> +#include <asm/vector.h>
+>  #include <asm/vendorid_list.h>
+>
+>  static bool errata_probe_pbmt(unsigned int stage,
+> @@ -63,6 +64,34 @@ static bool errata_probe_pmu(unsigned int stage,
+>         return true;
+>  }
+>
+> +static bool errata_probe_vector(unsigned int stage,
+> +                               unsigned long arch_id, unsigned long impid)
+> +{
+> +       if (!IS_ENABLED(CONFIG_ERRATA_THEAD_VECTOR))
+> +               return false;
+> +
+> +       /* target-c9xx cores report arch_id and impid as 0 */
+> +       if (arch_id != 0 || impid != 0)
+> +               return false;
+> +
+> +       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT) {
+> +               /*
+> +                * Disable VECTOR to detect illegal usage of vector in kernel.
+> +                * This is normally done in _start_kernel but with the
+> +                * vector-1.0 SR_VS bits. VS is using [24:23] on T-Head's
+> +                * vector-0.7.1 and the vector-1.0-bits are unused there.
+> +                */
+> +               csr_clear(CSR_STATUS, SR_VS_THEAD);
+> +               return false;
+> +       }
+> +
+> +       /* let has_vector() return true and set the static vlen */
+> +       static_branch_enable(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_VECTOR]);
+> +       riscv_vsize = 128 / 8 * 32;
+> +
+> +       return true;
+> +}
+> +
+>  static u32 thead_errata_probe(unsigned int stage,
+>                               unsigned long archid, unsigned long impid)
+>  {
+> @@ -77,6 +106,9 @@ static u32 thead_errata_probe(unsigned int stage,
+>         if (errata_probe_pmu(stage, archid, impid))
+>                 cpu_req_errata |= BIT(ERRATA_THEAD_PMU);
+>
+> +       if (errata_probe_vector(stage, archid, impid))
+> +               cpu_req_errata |= BIT(ERRATA_THEAD_VECTOR);
+> +
+>         return cpu_req_errata;
+>  }
+>
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 8b06f2472915..8d16c11487aa 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -24,11 +24,27 @@
+>  #define SR_FS_CLEAN    _AC(0x00004000, UL)
+>  #define SR_FS_DIRTY    _AC(0x00006000, UL)
+>
+> -#define SR_VS           _AC(0x00000600, UL) /* Vector Status */
+> -#define SR_VS_OFF       _AC(0x00000000, UL)
+> -#define SR_VS_INITIAL   _AC(0x00000200, UL)
+> -#define SR_VS_CLEAN     _AC(0x00000400, UL)
+> -#define SR_VS_DIRTY     _AC(0x00000600, UL)
+> +#define SR_VS_OFF              _AC(0x00000000, UL)
+> +
+> +#define SR_VS_1_0              _AC(0x00000600, UL) /* Vector Status */
+> +#define SR_VS_INITIAL_1_0      _AC(0x00000200, UL)
+> +#define SR_VS_CLEAN_1_0                _AC(0x00000400, UL)
+> +#define SR_VS_DIRTY_1_0                _AC(0x00000600, UL)
+> +
+> +#define SR_VS_THEAD            _AC(0x01800000, UL) /* Vector Status */
+> +#define SR_VS_INITIAL_THEAD    _AC(0x00800000, UL)
+> +#define SR_VS_CLEAN_THEAD      _AC(0x01000000, UL)
+> +#define SR_VS_DIRTY_THEAD      _AC(0x01800000, UL)
+> +
+> +/*
+> + * Always default to vector-1.0 handling in assembly and let the broken
+> + * implementations handle their case separately.
+> + */
+> +#ifdef __ASSEMBLY__
+> +#define SR_VS                  SR_VS_1_0
+> +#else
+> +
+> +#endif
+>
+>  #define SR_XS          _AC(0x00018000, UL) /* Extension Status */
+>  #define SR_XS_OFF      _AC(0x00000000, UL)
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index 95e626b7281e..3f93cdd1599f 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -19,7 +19,8 @@
+>  #define        ERRATA_THEAD_PBMT 0
+>  #define        ERRATA_THEAD_CMO 1
+>  #define        ERRATA_THEAD_PMU 2
+> -#define        ERRATA_THEAD_NUMBER 3
+> +#define        ERRATA_THEAD_VECTOR 3
+> +#define        ERRATA_THEAD_NUMBER 4
+>  #endif
+>
+>  #define        CPUFEATURE_SVPBMT 0
+> @@ -157,6 +158,65 @@ asm volatile(ALTERNATIVE(                                          \
+>         : "=r" (__ovl) :                                                \
+>         : "memory")
+>
+> +#ifdef CONFIG_ERRATA_THEAD_PBMT
+> +
+> +#define ALT_VS_SHIFT 61
+> +#define ALT_THEAD_VS_SHIFT 59
+> +#define ALT_THEAD_SR_VS(_val, _vs)                                     \
+> +asm(ALTERNATIVE(  "li %0, %1\t\nslli %0,%0,%3",                                \
+> +                 "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID,        \
+> +                       ERRATA_THEAD_PBMT, CONFIG_ERRATA_THEAD_PBMT)    \
+> +               : "=r"(_val)                                            \
+> +               : "I"(prot##_MAIN >> ALT_SVPBMT_SHIFT),         \
+> +                 "I"(prot##_THEAD >> ALT_THEAD_PBMT_SHIFT),            \
+> +                 "I"(ALT_SVPBMT_SHIFT),                                \
+> +                 "I"(ALT_THEAD_PBMT_SHIFT))
+> +#else
+> +#define ALT_THEAD_SR_VS(_val ## _MAIN)
+> +#endif
+> +
+> +#ifdef CONFIG_ERRATA_THEAD_VECTOR
+> +
+> +#define THEAD_C9XX_CSR_VXSAT                   0x9
+> +#define THEAD_C9XX_CSR_VXRM                    0xa
+> +
+> +/*
+> + * Vector 0.7.1 as used for example on T-Head Xuantie cores, uses an older
+> + * encoding for vsetvli (ta, ma vs. d1), so provide an instruction for
+> + * vsetvli     t4, x0, e8, m8, d1
+> + */
+> +#define THEAD_VSETVLI_T4X0E8M8D1       ".long  0x00307ed7\n\t"
+> +
+> +/*
+> + * While in theory, the vector-0.7.1 vsb.v and vlb.v result in the same
+> + * encoding as the standard vse8.v and vle8.v, compilers seem to optimize
+> + * the call resulting in a different encoding and then using a value for
+> + * the "mop" field that is not part of vector-0.7.1
+> + * So encode specific variants for vstate_save and _restore.
+> + */
+> +#define THEAD_VSB_V_V0T0               ".long  0x02028027\n\t"
+> +#define THEAD_VSB_V_V8T0               ".long  0x02028427\n\t"
+> +#define THEAD_VSB_V_V16T0              ".long  0x02028827\n\t"
+> +#define THEAD_VSB_V_V24T0              ".long  0x02028c27\n\t"
+> +#define THEAD_VLB_V_V0T0               ".long  0x012028007\n\t"
+> +#define THEAD_VLB_V_V8T0               ".long  0x012028407\n\t"
+> +#define THEAD_VLB_V_V16T0              ".long  0x012028807\n\t"
+> +#define THEAD_VLB_V_V24T0              ".long  0x012028c07\n\t"
+> +
+> +#define ALT_SR_VS_VECTOR_1_0_SHIFT     9
+> +#define ALT_SR_VS_THEAD_SHIFT          23
+> +
+> +#define ALT_SR_VS(_val, prot)                                          \
+> +asm(ALTERNATIVE("li %0, %1\t\nslli %0,%0,%3",                          \
+> +               "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID,          \
+> +               ERRATA_THEAD_VECTOR, CONFIG_ERRATA_THEAD_VECTOR)        \
+> +               : "=r"(_val)                                            \
+> +               : "I"(prot##_1_0 >> ALT_SR_VS_VECTOR_1_0_SHIFT),        \
+> +                 "I"(prot##_THEAD >> ALT_SR_VS_THEAD_SHIFT),           \
+> +                 "I"(ALT_SR_VS_VECTOR_1_0_SHIFT),                      \
+> +                 "I"(ALT_SR_VS_THEAD_SHIFT))
+> +#endif /* CONFIG_ERRATA_THEAD_VECTOR */
+> +
+>  #endif /* __ASSEMBLY__ */
+>
+>  #endif
+> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+> index ad9e6161dd89..ad91f783316e 100644
+> --- a/arch/riscv/include/asm/vector.h
+> +++ b/arch/riscv/include/asm/vector.h
+> @@ -15,6 +15,55 @@
+>  #include <asm/hwcap.h>
+>  #include <asm/csr.h>
+>  #include <asm/asm.h>
+> +#include <asm/errata_list.h>
+> +
+> +#ifdef CONFIG_ERRATA_THEAD_VECTOR
+> +
+> +static inline u32 riscv_sr_vs(void)
+> +{
+> +       u32 val;
+> +
+> +       ALT_SR_VS(val, SR_VS);
+> +       return val;
+> +}
+> +
+> +static inline u32 riscv_sr_vs_initial(void)
+> +{
+> +       u32 val;
+> +
+> +       ALT_SR_VS(val, SR_VS_INITIAL);
+> +       return val;
+> +}
+> +
+> +static inline u32 riscv_sr_vs_clean(void)
+> +{
+> +       u32 val;
+> +
+> +       ALT_SR_VS(val, SR_VS_CLEAN);
+> +       return val;
+> +}
+> +
+> +static inline u32 riscv_sr_vs_dirty(void)
+> +{
+> +       u32 val;
+> +
+> +       ALT_SR_VS(val, SR_VS_DIRTY);
+> +       return val;
+> +}
+> +
+> +#define SR_VS          riscv_sr_vs()
+> +#define SR_VS_INITIAL  riscv_sr_vs_initial()
+> +#define SR_VS_CLEAN    riscv_sr_vs_clean()
+> +#define SR_VS_DIRTY    riscv_sr_vs_dirty()
+> +
+> +#else /* CONFIG_ERRATA_THEAD_VECTOR */
+> +
+> +#define SR_VS          SR_VS_1_0
+> +#define SR_VS_INITIAL  SR_VS_INITIAL_1_0
+> +#define SR_VS_CLEAN    SR_VS_CLEAN_1_0
+> +#define SR_VS_DIRTY    SR_VS_DIRTY_1_0
+> +
+> +#endif /* CONFIG_ERRATA_THEAD_VECTOR */
+>
+>  #define CSR_STR(x) __ASM_STR(x)
+>
+> @@ -29,6 +78,7 @@ static __always_inline bool has_vector(void)
+>  static inline void __vstate_clean(struct pt_regs *regs)
+>  {
+>         regs->status = (regs->status & ~(SR_VS)) | SR_VS_CLEAN;
+> +
+>  }
+>
+>  static inline void vstate_off(struct pt_regs *regs)
+> @@ -58,30 +108,75 @@ static __always_inline void rvv_disable(void)
+>
+>  static __always_inline void __vstate_csr_save(struct __riscv_v_state *dest)
+>  {
+> -       asm volatile (
+> +       register u32 t1 asm("t1") = (SR_FS);
+> +
+> +       /*
+> +        * CSR_VCSR is defined as
+> +        * [2:1] - vxrm[1:0]
+> +        * [0] - vxsat
+> +        * The earlier vector spec implemented by T-Head uses separate
+> +        * registers for the same bit-elements, so just combine those
+> +        * into the existing output field.
+> +        *
+> +        * Additionally T-Head cores need FS to be enabled when accessing
+> +        * the VXRM and VXSAT CSRs, otherwise ending in illegal instructions.
+> +        */
+> +       asm volatile (ALTERNATIVE(
+>                 "csrr   %0, " CSR_STR(CSR_VSTART) "\n\t"
+>                 "csrr   %1, " CSR_STR(CSR_VTYPE) "\n\t"
+>                 "csrr   %2, " CSR_STR(CSR_VL) "\n\t"
+>                 "csrr   %3, " CSR_STR(CSR_VCSR) "\n\t"
+> +               __nops(5),
+> +               "csrs   sstatus, t1\n\t"
+> +               "csrr   %0, " CSR_STR(CSR_VSTART) "\n\t"
+> +               "csrr   %1, " CSR_STR(CSR_VTYPE) "\n\t"
+> +               "csrr   %2, " CSR_STR(CSR_VL) "\n\t"
+> +               "csrr   %3, " CSR_STR(THEAD_C9XX_CSR_VXRM) "\n\t"
+> +               "slliw  %3, %3, " CSR_STR(VCSR_VXRM_SHIFT) "\n\t"
+> +               "csrr   t4, " CSR_STR(THEAD_C9XX_CSR_VXSAT) "\n\t"
+> +               "or     %3, %3, t4\n\t"
+> +               "csrc   sstatus, t1\n\t",
+> +               THEAD_VENDOR_ID,
+> +               ERRATA_THEAD_VECTOR, CONFIG_ERRATA_THEAD_VECTOR)
+>                 : "=r" (dest->vstart), "=r" (dest->vtype), "=r" (dest->vl),
+> -                 "=r" (dest->vcsr) : :);
+> +                 "=r" (dest->vcsr) : "r"(t1) : "t4");
+>  }
+>
+>  static __always_inline void __vstate_csr_restore(struct __riscv_v_state *src)
+>  {
+> -       asm volatile (
+> +       register u32 t1 asm("t1") = (SR_FS);
+> +
+> +       /*
+> +        * Similar to __vstate_csr_save above, restore values for the
+> +        * separate VXRM and VXSAT CSRs from the vcsr variable.
+> +        */
+> +       asm volatile (ALTERNATIVE(
+>                 "vsetvl  x0, %2, %1\n\t"
+>                 "csrw   " CSR_STR(CSR_VSTART) ", %0\n\t"
+>                 "csrw   " CSR_STR(CSR_VCSR) ", %3\n\t"
+> +               __nops(6),
+> +               "csrs   sstatus, t1\n\t"
+> +               "vsetvl  x0, %2, %1\n\t"
+> +               "csrw   " CSR_STR(CSR_VSTART) ", %0\n\t"
+> +               "srliw  t4, %3, " CSR_STR(VCSR_VXRM_SHIFT) "\n\t"
+> +               "andi   t4, t4, " CSR_STR(VCSR_VXRM_MASK) "\n\t"
+> +               "csrw   " CSR_STR(THEAD_C9XX_CSR_VXRM) ", t4\n\t"
+> +               "andi   %3, %3, " CSR_STR(VCSR_VXSAT_MASK) "\n\t"
+> +               "csrw   " CSR_STR(THEAD_C9XX_CSR_VXSAT) ", %3\n\t"
+> +               "csrc   sstatus, t1\n\t",
+> +               THEAD_VENDOR_ID,
+> +               ERRATA_THEAD_VECTOR, CONFIG_ERRATA_THEAD_VECTOR)
+>                 : : "r" (src->vstart), "r" (src->vtype), "r" (src->vl),
+> -                   "r" (src->vcsr) :);
+> +                   "r" (src->vcsr), "r"(t1): "t4");
+>  }
+
+Hi Heiko,
+
+Just for my understanding. Here you're adding 5 and 6 nops to the (in
+the future) common case? If so, then why not use a static branch? That
+should only add 1 nop and be easier to read/understand.
+
+/Emil
+
+>  static inline void __vstate_save(struct __riscv_v_state *save_to, void *datap)
+>  {
+>         rvv_enable();
+>         __vstate_csr_save(save_to);
+> -       asm volatile (
+> +
+> +       asm volatile (ALTERNATIVE(
+> +               "nop\n\t"
+>                 "vsetvli        t4, x0, e8, m8, ta, ma\n\t"
+>                 "vse8.v         v0, (%0)\n\t"
+>                 "add            %0, %0, t4\n\t"
+> @@ -89,8 +184,18 @@ static inline void __vstate_save(struct __riscv_v_state *save_to, void *datap)
+>                 "add            %0, %0, t4\n\t"
+>                 "vse8.v         v16, (%0)\n\t"
+>                 "add            %0, %0, t4\n\t"
+> -               "vse8.v         v24, (%0)\n\t"
+> -               : : "r" (datap) : "t4", "memory");
+> +               "vse8.v         v24, (%0)\n\t",
+> +               "mv             t0, %0\n\t"
+> +               THEAD_VSETVLI_T4X0E8M8D1
+> +               THEAD_VSB_V_V0T0
+> +               "addi           t0, t0, 128\n\t"
+> +               THEAD_VSB_V_V8T0
+> +               "addi           t0, t0, 128\n\t"
+> +               THEAD_VSB_V_V16T0
+> +               "addi           t0, t0, 128\n\t"
+> +               THEAD_VSB_V_V24T0, THEAD_VENDOR_ID,
+> +               ERRATA_THEAD_VECTOR, CONFIG_ERRATA_THEAD_VECTOR)
+> +               : : "r" (datap) : "t0", "t4", "memory");
+>         rvv_disable();
+>  }
+>
+> @@ -98,7 +203,9 @@ static inline void __vstate_restore(struct __riscv_v_state *restore_from,
+>                                     void *datap)
+>  {
+>         rvv_enable();
+> -       asm volatile (
+> +
+> +       asm volatile (ALTERNATIVE(
+> +               "nop\n\t"
+>                 "vsetvli        t4, x0, e8, m8, ta, ma\n\t"
+>                 "vle8.v         v0, (%0)\n\t"
+>                 "add            %0, %0, t4\n\t"
+> @@ -106,8 +213,20 @@ static inline void __vstate_restore(struct __riscv_v_state *restore_from,
+>                 "add            %0, %0, t4\n\t"
+>                 "vle8.v         v16, (%0)\n\t"
+>                 "add            %0, %0, t4\n\t"
+> -               "vle8.v         v24, (%0)\n\t"
+> -               : : "r" (datap) : "t4");
+> +               "vle8.v         v24, (%0)\n\t",
+> +
+> +               "mv             t0, %0\n\t"
+> +               THEAD_VSETVLI_T4X0E8M8D1
+> +               THEAD_VLB_V_V0T0
+> +               "addi           t0, t0, 128\n\t"
+> +               THEAD_VLB_V_V8T0
+> +               "addi           %0, %0, 128\n\t"
+> +               THEAD_VLB_V_V16T0
+> +               "addi           %0, %0, 128\n\t"
+> +               THEAD_VLB_V_V24T0, THEAD_VENDOR_ID,
+> +               ERRATA_THEAD_VECTOR, CONFIG_ERRATA_THEAD_VECTOR)
+> +               : : "r" (datap) : "t0", "t4");
+> +
+>         __vstate_csr_restore(restore_from);
+>         rvv_disable();
+>  }
+> --
+> 2.39.0
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
