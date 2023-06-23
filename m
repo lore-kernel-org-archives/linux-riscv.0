@@ -4,90 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87924C001B0
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 09:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E048EB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 10:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W0JY3rH/7vfIEQJvkxNRp1pHZLLmQKNHaIUsGugpmyk=; b=oxQMg43fWdeWsw
-	45eeSS9UpAD9vyf+DUOVWca2NBleVMbcinP7Uinb3sNfmtQYELnNxoKGYddVw1SIcbGSH7Ne87jaA
-	c1kRdCtqeNPmz7l24yrVjyZG6PdenhHPLrI6iXpNadKbUDY/elLPBcCSTMjdQW/fYVnNjlbTYLyXB
-	2oz9O2wjvUhvHfUpYsAgX876qVLwClSlF89prl70RsagZ9YIinRAT0wdJ2xbmJUZlzEmK5PHWfPjn
-	Pofs037QF/LJpCwBL08qQUhfgXHC8yIKtlkIgwOrV1mNmBNLyVi0T6ch/sF60oJswKF3jJL3onZRp
-	iAQ4OO2bUbHDcWUZMCHg==;
+	List-Owner; bh=yq+5AEbYYtvMGQg+KSQBcFXciKAfKkUYwoNvNIQCKG8=; b=prEPCvK/zGV4k4
+	9lxAkZYQPb0kdM8LtC0Qts84RvxiWphfHGVb8jRNeIkve3DYCX+fvbQVIltNNdftpd1jjCSX2IaQ0
+	Ls49ntQfpu5dGG4ksP4pMw+S3pJI9FmJbw1hLbB0tPXy6Jo+ff6r93PZu3+x6VGXWbTqK/I25XKCh
+	tuC07BCoVChtCFVWU13dbkQOPBjdqh5utay2ZplIOBvR0YpVdF1yX8fTCMNFEuDX3vNXp3FYUKUbR
+	sChLs+EuqK9B5beQBChDyXAGr+2A4f4myJkOGVpTTOeD79d12bUpAupVcrGJPMTsNFJxle4MFdeFi
+	aHhphoVgqz8XqhCXsc2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCdYC-0035Mr-1X;
-	Fri, 23 Jun 2023 09:57:56 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1qCdwC-0039zE-2h;
+	Fri, 23 Jun 2023 10:22:44 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCdY9-0035MS-1o
+	id 1qCdw9-0039wV-1j
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jun 2023 09:57:54 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-3f9bdb01ec0so5824085e9.2
-        for <linux-riscv@lists.infradead.org>; Fri, 23 Jun 2023 02:57:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687514272; x=1690106272;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/pQzPxsmpV8ILmUDokZDt4x2j1OZGQdakvLzX04+Ejg=;
-        b=DRlPNLsK/mZ3irMEYdZmnmDdlPds7DvI5au6/NXLEmObZ0q2j+riTTvnF4pnaba5Eb
-         DH2TXjFL5OFBSrzNE1j4a5aGqGz48UHjYrVhZd3wVtPnW2C22JGEuGjsrq+JpfMRJV2k
-         MkWPC6wPxJC27j2xRo0NYQY4kjlkcSDEwr9JRvSSwtmlCEF3IowczoAHbtWW345VGYQr
-         DLQu/ZwtBg6Q81ga1VMS7w7OdSttnxx7sF4T278R3LjJ8THYdUsFWjekXwF9VxCxViVY
-         kF8/QayqIlynx9XhIUmUIXrLU/LQ5y0rz+dMU2qOPVvjSn5y1zTvusx3LzoxEB2uMWUr
-         2K6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687514272; x=1690106272;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/pQzPxsmpV8ILmUDokZDt4x2j1OZGQdakvLzX04+Ejg=;
-        b=Ak5C74tBoK8u+Z9zOsWNvVd3r/fodiX9H/Oo7gOcywwRBXgR/mv8FH8zrK580TSqMm
-         6OV4Y/QW9YbTmLnfn/SMs4uBFe7mqMi9rlLexHWE5I70OtOOHN9qNtaLpMKQXBvWkeDk
-         +pCE9wdZL/AF3xDjFAMPTLoMJ7FdoFk1fR7m8lbE31VU6Rx4mt3Jz4ZpBDxwzE/UbHOT
-         is27ljkON1dr3FVguDzJ9CuYyzEY5wg2yb0jQd8DAWPqEr2I1eqBVgmaWX2LqZfJflp+
-         Lb72qYIvQy2nJB70exAXmDzd4O0R7TGPio89liL+9SuIBeo/jCRdbYpCEq3YJEg+ivNg
-         bRfQ==
-X-Gm-Message-State: AC+VfDwB+97tfgB/TvrKC+xE1Z4/g1xLnaYA/+92woUOa8OkndiR31TZ
-	2Nr5u6ByJAEvHEKa4GNTdEmJEQ==
-X-Google-Smtp-Source: ACHHUZ7JjYmbOrvMcpUGZTC3uEGAoLXqDRseSay3/vHcvG0f5A9N3KF1iNgjt3GTjbTfRCaqYSCqCQ==
-X-Received: by 2002:a05:600c:230b:b0:3f1:6fb3:ffcc with SMTP id 11-20020a05600c230b00b003f16fb3ffccmr17377352wmo.22.1687514272211;
-        Fri, 23 Jun 2023 02:57:52 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id s9-20020a7bc389000000b003fa745f3264sm1824671wmj.43.2023.06.23.02.57.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Jun 2023 02:57:52 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	Song Shuai <songshuaishuai@tinylab.org>,
-	linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v3 3/3] Documentation: riscv: Update boot image header since EFI stub is supported
-Date: Fri, 23 Jun 2023 11:55:47 +0200
-Message-Id: <20230623095547.51881-3-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230623095547.51881-1-alexghiti@rivosinc.com>
-References: <20230623095547.51881-1-alexghiti@rivosinc.com>
+	Fri, 23 Jun 2023 10:22:42 +0000
+Received: from i53875bdf.versanet.de ([83.135.91.223] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1qCdw4-0005ig-99; Fri, 23 Jun 2023 12:22:36 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Stefan O'Rear <sorear@fastmail.com>
+Cc: linux-riscv@lists.infradead.org, samuel@sholland.org, guoren@kernel.org,
+ christoph.muellner@vrull.eu, conor.dooley@microchip.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC 2/2] RISC-V: add T-Head vector errata handling
+Date: Fri, 23 Jun 2023 12:22:35 +0200
+Message-ID: <1961474.usQuhbGJ8B@diego>
+In-Reply-To: <c01ee919-9abb-4796-9ed4-9bb4565dc863@app.fastmail.com>
+References: <20230228215435.3366914-1-heiko@sntech.de> <9132027.CDJkKcVGEf@diego>
+ <c01ee919-9abb-4796-9ed4-9bb4565dc863@app.fastmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230623_025753_602780_2C5FCCEE 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20230623_032241_578128_681A201E 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,48 +58,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The EFI stub is supported on RISC-V so update the documentation that
-explains how the boot image header was reused to support it.
-
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- Documentation/riscv/boot-image-header.rst | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/Documentation/riscv/boot-image-header.rst b/Documentation/riscv/boot-image-header.rst
-index a4a45310c4c4..df2ffc173e80 100644
---- a/Documentation/riscv/boot-image-header.rst
-+++ b/Documentation/riscv/boot-image-header.rst
-@@ -28,11 +28,11 @@ header in future.
- Notes
- =====
- 
--- This header can also be reused to support EFI stub for RISC-V in future. EFI
--  specification needs PE/COFF image header in the beginning of the kernel image
--  in order to load it as an EFI application. In order to support EFI stub,
--  code0 should be replaced with "MZ" magic string and res3(at offset 0x3c) should
--  point to the rest of the PE/COFF header.
-+- This header is also reused to support EFI stub for RISC-V. EFI specification
-+  needs PE/COFF image header in the beginning of the kernel image in order to
-+  load it as an EFI application. In order to support EFI stub, code0 is replaced
-+  with "MZ" magic string and res3(at offset 0x3c) points to the rest of the
-+  PE/COFF header.
- 
- - version field indicate header version number
- 
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QW0gRnJlaXRhZywgMjMuIEp1bmkgMjAyMywgMDU6MDY6NDQgQ0VTVCBzY2hyaWViIFN0ZWZhbiBP
+J1JlYXI6Cj4gT24gVGh1LCBKdW4gMjIsIDIwMjMsIGF0IDQ6MzUgUE0sIEhlaWtvIFN0w7xibmVy
+IHdyb3RlOgo+ID4gQW0gRG9ubmVyc3RhZywgMjIuIEp1bmkgMjAyMywgMjA6NTg6MzcgQ0VTVCBz
+Y2hyaWViIFN0ZWZhbiBPJ1JlYXI6Cj4gPj4gQXJlIHlvdSBhd2FyZSBvZiAiMy43LiBWZWN0b3Ig
+Rml4ZWQtUG9pbnQgRmllbGRzIGluIGZjc3IiIGluCj4gPj4gcmlzY3Ytdi1zcGVjLTAuNy4xLnBk
+Zj8KPiA+Cj4gPiBvaCB3b3csIHRoYW5rcyBhIGxvdCBmb3IgdGhhdCBwb2ludGVyLCBub3cgSSB1
+bmRlcnN0YW5kIHlvdXIgY29uY2Vybi4KPiA+Cj4gPiBTbyBpbiB2ZWN0b3ItMC43LjEgZmNzclsx
+MDo5XSBtaXJyb3JzIHZ4cm0gYW5kIGZjc3JbOF0gbWlycm9ycyB2eHNhdC4KPiA+Cj4gPgo+ID4g
+T24gYSBwb3NpdGl2ZSBub3RlLCB0aGUgVC1IZWFkIGNvcmVzIHNlZW0gdG8gbm90IGltcGxlbWVu
+dCB0aGUgZnVsbAo+ID4gdmVjdG9yIDAuNy4xIHNwZWNpZmljYXRpb24gYWZ0ZXIgYWxsLCBpbiB0
+aGUgZG9jdW1lbnRhdGlvbiBJIGhhdmUgWzBdCj4gPiBmY3NyWzMxOjhdIGFyZSBkZWNsYXJlZCBh
+cyAiMCIgYW5kIHVwcGVybW9zdCBiaXRzIGFyZSBbNzo1XSBmb3IgdGhlICJmcm0iCj4gPiBmaWVs
+ZC4KPiAKPiBHaXZlbiB0aGF0IHRoZSBwZGYgeW91IGxpbmtlZCBkb2VzIG5vdCBtZW50aW9uIGFu
+eSB2ZWN0b3IgQ1NScywgSSBhbSBub3QKPiBjb25maWRlbnQgdGhhdCBpdCBwcm92aWRlcyBhIGNv
+bXBsZXRlIGFuZCBhY2N1cmF0ZSBkZXNjcmlwdGlvbiBvZiB2ZWN0b3IKPiBmdW5jdGlvbmFsaXR5
+IGluIG90aGVyIHJlZ2lzdGVycyBmb3IgdGhlIEM5MDYgd2l0aCB2ZWN0b3IgZXh0ZW5zaW9uLgo+
+IAo+IEFzc3VtaW5nIHRoYXQgeW91IGhhdmUgYWNjZXNzIHRvIHN1Y2ggYSBjaGlwLCBJIHdvdWxk
+IGJlIG11Y2ggaGFwcGllciB3aXRoCj4gdGhlIHByb3Bvc2VkICJqdXN0IGEgY29tbWVudCIgYXBw
+cm9hY2ggaWYgb3VyIHVuZGVyc3RhbmRpbmcgb2YgdGhlIGJlaGF2aW9yCj4gd2VyZSBjb25maXJt
+ZWQgb24gaGFyZHdhcmUgKHNwZWNpZmljYWxseTogY3NyX3dyaXRlKENTUl9GQ1NSLCAweDcwMCkg
+c2hvdWxkCj4gbm90IGFmZmVjdCBjc3JfcmVhZChDU1JfVlhSTSkgb3IgY3NyX3JlYWQoQ1NSX1ZY
+U0FUKSkuCgpGb3Igb25lLCB5b3UncmUgcmlnaHQgdGhhdCBJIHNob3VsZCBkZWZpbml0bHkgdHJ5
+IHRvIGNvbmZpcm0gdGhpcyBvbiBoYXJkd2FyZSA6LSkgLgoKQnV0IGFsc28gdGhlIFZYU0FUIGFu
+ZCBWWFJNIENTUnMgYXJlIGFjdHVhbGx5IGRvY3VtZW50ZWQgaW4gdGhhdCBwZGYKb24gcGFnZSAz
+MzUKCgpIZWlrbwoKCj4gCj4gLXMKPiAKPiA+IFNvIEkgZ3Vlc3MgYSBjb2RlIGNvbW1lbnQgc2hv
+dWxkIHN1ZmZpY2UgdG8gZXhwbGFpbiA6LSkKPiA+Cj4gPgo+ID4gUmVnYXJkcwo+ID4gSGVpa28K
+PiA+Cj4gPgo+ID4gWzBdIAo+ID4gaHR0cHM6Ly9naXRodWIuY29tL1QtaGVhZC1TZW1pL29wZW5j
+OTA2L2Jsb2IvbWFpbi9kb2MvJUU3JThFJTg0JUU5JTkzJTgxQzkwNiVFNyU5NCVBOCVFNiU4OCVC
+NyVFNiU4OSU4QiVFNSU4NiU4Qy5wZGYKPiA+IDE2LjMuMS4zIOa1rueCueaOp+WItueKtuaAgeWv
+hOWtmOWZqO+8iEZDU1LvvIkgb24gcGFnZSAzMzQKPiAKCgoKCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
