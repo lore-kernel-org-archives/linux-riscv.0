@@ -4,49 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E048EB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 10:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB61EEB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 10:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yq+5AEbYYtvMGQg+KSQBcFXciKAfKkUYwoNvNIQCKG8=; b=prEPCvK/zGV4k4
-	9lxAkZYQPb0kdM8LtC0Qts84RvxiWphfHGVb8jRNeIkve3DYCX+fvbQVIltNNdftpd1jjCSX2IaQ0
-	Ls49ntQfpu5dGG4ksP4pMw+S3pJI9FmJbw1hLbB0tPXy6Jo+ff6r93PZu3+x6VGXWbTqK/I25XKCh
-	tuC07BCoVChtCFVWU13dbkQOPBjdqh5utay2ZplIOBvR0YpVdF1yX8fTCMNFEuDX3vNXp3FYUKUbR
-	sChLs+EuqK9B5beQBChDyXAGr+2A4f4myJkOGVpTTOeD79d12bUpAupVcrGJPMTsNFJxle4MFdeFi
-	aHhphoVgqz8XqhCXsc2w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NTgoiXq2b/Qo0PiiwD7Z8JiZXqYOHkjV6GRaZhdNrZw=; b=YmTEgK9O4gdopg
+	nRCR2GTkaGcDntCGxx+O2iy7usWj5t+URrK8rWjRix0rpsmjjDLj+Ohy1DnJr/Olgp443zzLIJJjj
+	8O3QS1ow0ICfVKTAp7o3ObfrknZYuvuy1tTm5OAB0R3UZ1LQ+ojM/Y4wposL4qcSPa5uBjB/A/BOI
+	ZDzRF4LdpQ6g60x0aFhyf/XHK2J2Zudnvs7TvXQzxHvA2NC20OJNFl5NfqlIfbC8MWY8R/xrg8SKl
+	MX+q/VvlesbgOjo4EGom7PTZJk9vEpJwPIekK1hFD0cpmNcS21nl2UjPKR9nLEw1ByOed8KZXakD1
+	SZbWmu12hgzN5fpsQpyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCdwC-0039zE-2h;
-	Fri, 23 Jun 2023 10:22:44 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1qCe7c-003H3b-1C;
+	Fri, 23 Jun 2023 10:34:32 +0000
+Received: from mga05.intel.com ([192.55.52.43])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCdw9-0039wV-1j
-	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jun 2023 10:22:42 +0000
-Received: from i53875bdf.versanet.de ([83.135.91.223] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1qCdw4-0005ig-99; Fri, 23 Jun 2023 12:22:36 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Stefan O'Rear <sorear@fastmail.com>
-Cc: linux-riscv@lists.infradead.org, samuel@sholland.org, guoren@kernel.org,
- christoph.muellner@vrull.eu, conor.dooley@microchip.com,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 2/2] RISC-V: add T-Head vector errata handling
-Date: Fri, 23 Jun 2023 12:22:35 +0200
-Message-ID: <1961474.usQuhbGJ8B@diego>
-In-Reply-To: <c01ee919-9abb-4796-9ed4-9bb4565dc863@app.fastmail.com>
-References: <20230228215435.3366914-1-heiko@sntech.de> <9132027.CDJkKcVGEf@diego>
- <c01ee919-9abb-4796-9ed4-9bb4565dc863@app.fastmail.com>
+	id 1qCe7Y-003GxD-02;
+	Fri, 23 Jun 2023 10:34:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1687516467; x=1719052467;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Ug0tb+KIthtcBNlWZulbUMsIP+un6qpERH8Wcsp0QfQ=;
+  b=FVcaabBmC2tlLFs7N6ud+BOKDCDppvHjeDHs4YUaE07umlTTddUKftZf
+   LKiI5xilK3wwmsMFXlD4wyBV9dexH1RGZDQ0T2XsYKZuQMfECZJaPDnKy
+   26S9zBVVLt791omhmSkbRGcG3/JRqUT4HbZH7HGOOYl38+2M8a5UIKEPO
+   zH1hMsCPboJ6kFMJn3wvNF7jtJg4kQqaIZgNkGbFVi/7n1QxVTEKRuWoZ
+   91abrXsGoSa+hiaUqhKFQcZsCcNO/7+npWX/hHCOYv8+iF5+zIlR8ypCN
+   6awxEBgi7JRqj70zD6tCaRG5aNYz/VvBF2eSD14O1DArbysawPSwhBQwD
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10749"; a="447112229"
+X-IronPort-AV: E=Sophos;i="6.01,151,1684825200"; 
+   d="scan'208";a="447112229"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2023 03:34:24 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10749"; a="715275624"
+X-IronPort-AV: E=Sophos;i="6.01,151,1684825200"; 
+   d="scan'208";a="715275624"
+Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
+  by orsmga002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2023 03:34:17 -0700
+From: Haibo Xu <haibo1.xu@intel.com>
+To: 
+Cc: xiaobo55x@gmail.com,
+	haibo1.xu@intel.com,
+	ajones@ventanamicro.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	seanjc@google.com,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Shuah Khan <shuah@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	David Matlack <dmatlack@google.com>,
+	Ben Gardon <bgardon@google.com>,
+	Ricardo Koller <ricarkol@google.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: [PATCH v4 00/12] RISCV: Add KVM_GET_REG_LIST API
+Date: Fri, 23 Jun 2023 18:40:02 +0800
+Message-Id: <cover.1687515463.git.haibo1.xu@intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230623_032241_578128_681A201E 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20230623_033428_084078_F0FDFE50 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,41 +102,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW0gRnJlaXRhZywgMjMuIEp1bmkgMjAyMywgMDU6MDY6NDQgQ0VTVCBzY2hyaWViIFN0ZWZhbiBP
-J1JlYXI6Cj4gT24gVGh1LCBKdW4gMjIsIDIwMjMsIGF0IDQ6MzUgUE0sIEhlaWtvIFN0w7xibmVy
-IHdyb3RlOgo+ID4gQW0gRG9ubmVyc3RhZywgMjIuIEp1bmkgMjAyMywgMjA6NTg6MzcgQ0VTVCBz
-Y2hyaWViIFN0ZWZhbiBPJ1JlYXI6Cj4gPj4gQXJlIHlvdSBhd2FyZSBvZiAiMy43LiBWZWN0b3Ig
-Rml4ZWQtUG9pbnQgRmllbGRzIGluIGZjc3IiIGluCj4gPj4gcmlzY3Ytdi1zcGVjLTAuNy4xLnBk
-Zj8KPiA+Cj4gPiBvaCB3b3csIHRoYW5rcyBhIGxvdCBmb3IgdGhhdCBwb2ludGVyLCBub3cgSSB1
-bmRlcnN0YW5kIHlvdXIgY29uY2Vybi4KPiA+Cj4gPiBTbyBpbiB2ZWN0b3ItMC43LjEgZmNzclsx
-MDo5XSBtaXJyb3JzIHZ4cm0gYW5kIGZjc3JbOF0gbWlycm9ycyB2eHNhdC4KPiA+Cj4gPgo+ID4g
-T24gYSBwb3NpdGl2ZSBub3RlLCB0aGUgVC1IZWFkIGNvcmVzIHNlZW0gdG8gbm90IGltcGxlbWVu
-dCB0aGUgZnVsbAo+ID4gdmVjdG9yIDAuNy4xIHNwZWNpZmljYXRpb24gYWZ0ZXIgYWxsLCBpbiB0
-aGUgZG9jdW1lbnRhdGlvbiBJIGhhdmUgWzBdCj4gPiBmY3NyWzMxOjhdIGFyZSBkZWNsYXJlZCBh
-cyAiMCIgYW5kIHVwcGVybW9zdCBiaXRzIGFyZSBbNzo1XSBmb3IgdGhlICJmcm0iCj4gPiBmaWVs
-ZC4KPiAKPiBHaXZlbiB0aGF0IHRoZSBwZGYgeW91IGxpbmtlZCBkb2VzIG5vdCBtZW50aW9uIGFu
-eSB2ZWN0b3IgQ1NScywgSSBhbSBub3QKPiBjb25maWRlbnQgdGhhdCBpdCBwcm92aWRlcyBhIGNv
-bXBsZXRlIGFuZCBhY2N1cmF0ZSBkZXNjcmlwdGlvbiBvZiB2ZWN0b3IKPiBmdW5jdGlvbmFsaXR5
-IGluIG90aGVyIHJlZ2lzdGVycyBmb3IgdGhlIEM5MDYgd2l0aCB2ZWN0b3IgZXh0ZW5zaW9uLgo+
-IAo+IEFzc3VtaW5nIHRoYXQgeW91IGhhdmUgYWNjZXNzIHRvIHN1Y2ggYSBjaGlwLCBJIHdvdWxk
-IGJlIG11Y2ggaGFwcGllciB3aXRoCj4gdGhlIHByb3Bvc2VkICJqdXN0IGEgY29tbWVudCIgYXBw
-cm9hY2ggaWYgb3VyIHVuZGVyc3RhbmRpbmcgb2YgdGhlIGJlaGF2aW9yCj4gd2VyZSBjb25maXJt
-ZWQgb24gaGFyZHdhcmUgKHNwZWNpZmljYWxseTogY3NyX3dyaXRlKENTUl9GQ1NSLCAweDcwMCkg
-c2hvdWxkCj4gbm90IGFmZmVjdCBjc3JfcmVhZChDU1JfVlhSTSkgb3IgY3NyX3JlYWQoQ1NSX1ZY
-U0FUKSkuCgpGb3Igb25lLCB5b3UncmUgcmlnaHQgdGhhdCBJIHNob3VsZCBkZWZpbml0bHkgdHJ5
-IHRvIGNvbmZpcm0gdGhpcyBvbiBoYXJkd2FyZSA6LSkgLgoKQnV0IGFsc28gdGhlIFZYU0FUIGFu
-ZCBWWFJNIENTUnMgYXJlIGFjdHVhbGx5IGRvY3VtZW50ZWQgaW4gdGhhdCBwZGYKb24gcGFnZSAz
-MzUKCgpIZWlrbwoKCj4gCj4gLXMKPiAKPiA+IFNvIEkgZ3Vlc3MgYSBjb2RlIGNvbW1lbnQgc2hv
-dWxkIHN1ZmZpY2UgdG8gZXhwbGFpbiA6LSkKPiA+Cj4gPgo+ID4gUmVnYXJkcwo+ID4gSGVpa28K
-PiA+Cj4gPgo+ID4gWzBdIAo+ID4gaHR0cHM6Ly9naXRodWIuY29tL1QtaGVhZC1TZW1pL29wZW5j
-OTA2L2Jsb2IvbWFpbi9kb2MvJUU3JThFJTg0JUU5JTkzJTgxQzkwNiVFNyU5NCVBOCVFNiU4OCVC
-NyVFNiU4OSU4QiVFNSU4NiU4Qy5wZGYKPiA+IDE2LjMuMS4zIOa1rueCueaOp+WItueKtuaAgeWv
-hOWtmOWZqO+8iEZDU1LvvIkgb24gcGFnZSAzMzQKPiAKCgoKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+KVM_GET_REG_LIST will dump all register IDs that are available to
+KVM_GET/SET_ONE_REG and It's very useful to identify some platform
+regression issue during VM migration.
+
+Patch 1-7 re-structured the get-reg-list test in aarch64 to make some
+of the code as common test framework that can be shared by riscv.
+
+Patch 8 move reject_set check logic to a function so as to check for
+different errno for different registers.
+Patch 9 change to do the get/set operation only on present-blessed list.
+Patch 10 enabled the KVM_GET_REG_LIST API in riscv.
+patch 11-12 added the corresponding kselftest for checking possible
+register regressions.
+
+The get-reg-list kvm selftest was ported from aarch64 and tested with
+Linux 6.4-rc6 on a Qemu riscv64 virt machine.
+
+---
+Changed since v3:
+  * Rebase to Linux 6.4-rc6
+  * Address Andrew's suggestions and comments:
+  *   Move reject_set check logic to a function 
+  *   Only do get/set tests on present blessed list 
+  *   Only enable ISA extension for the specified config
+  *   For disable-not-allowed registers, move them to the filter-reg-list 
+
+Andrew Jones (7):
+  KVM: arm64: selftests: Replace str_with_index with strdup_printf
+  KVM: arm64: selftests: Drop SVE cap check in print_reg
+  KVM: arm64: selftests: Remove print_reg's dependency on vcpu_config
+  KVM: arm64: selftests: Rename vcpu_config and add to kvm_util.h
+  KVM: arm64: selftests: Delete core_reg_fixup
+  KVM: arm64: selftests: Split get-reg-list test code
+  KVM: arm64: selftests: Finish generalizing get-reg-list
+
+Haibo Xu (5):
+  KVM: arm64: selftests: Move reject_set check logic to a function
+  KVM: selftests: Only do get/set tests on present blessed list
+  KVM: riscv: Add KVM_GET_REG_LIST API support
+  KVM: riscv: selftests: Add finalize_vcpu check in run_test
+  KVM: riscv: selftests: Add get-reg-list test
+
+ Documentation/virt/kvm/api.rst                |   2 +-
+ arch/riscv/kvm/vcpu.c                         | 375 +++++++++
+ tools/testing/selftests/kvm/Makefile          |  11 +-
+ .../selftests/kvm/aarch64/get-reg-list.c      | 538 ++-----------
+ tools/testing/selftests/kvm/get-reg-list.c    | 439 ++++++++++
+ .../selftests/kvm/include/kvm_util_base.h     |  16 +
+ .../selftests/kvm/include/riscv/processor.h   |   3 +
+ .../testing/selftests/kvm/include/test_util.h |   2 +
+ tools/testing/selftests/kvm/lib/test_util.c   |  15 +
+ .../selftests/kvm/riscv/get-reg-list.c        | 752 ++++++++++++++++++
+ 10 files changed, 1658 insertions(+), 495 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/get-reg-list.c
+ create mode 100644 tools/testing/selftests/kvm/riscv/get-reg-list.c
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
