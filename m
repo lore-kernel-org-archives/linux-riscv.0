@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB61EEB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 10:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C48CCEB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 10:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NTgoiXq2b/Qo0PiiwD7Z8JiZXqYOHkjV6GRaZhdNrZw=; b=YmTEgK9O4gdopg
-	nRCR2GTkaGcDntCGxx+O2iy7usWj5t+URrK8rWjRix0rpsmjjDLj+Ohy1DnJr/Olgp443zzLIJJjj
-	8O3QS1ow0ICfVKTAp7o3ObfrknZYuvuy1tTm5OAB0R3UZ1LQ+ojM/Y4wposL4qcSPa5uBjB/A/BOI
-	ZDzRF4LdpQ6g60x0aFhyf/XHK2J2Zudnvs7TvXQzxHvA2NC20OJNFl5NfqlIfbC8MWY8R/xrg8SKl
-	MX+q/VvlesbgOjo4EGom7PTZJk9vEpJwPIekK1hFD0cpmNcS21nl2UjPKR9nLEw1ByOed8KZXakD1
-	SZbWmu12hgzN5fpsQpyw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jUfkBkllqM0o9SVXWAd9EDxGsjLny/eS7a/4ZyXnCSw=; b=TAHAhfnlZNBnut
+	5mgnXFCURgk9ETZbQ2nIL0QxP1UPsvMkTUzfJz/cSJga+gGJIWSTa8y2kwvyo96Ium9F+6r/eShbw
+	2G9lAZOY9ibYv06QiULnkvso3HZkYklQ/gp/JgSGixtj089Vka2qePCDa7h3h3UOFrk5ASMSLvTJW
+	ZJ9+ESEY4vQwLeFLovc75NUOYsM0f7RwLCEX5qZXEWudtsE3PEdzw5NXu/pR3lqxqtQt7IHjJNBbX
+	YYeQ9EOlBYPREHzSpi0kMe+4olIyNSIAeCGs46fvtvBIxYD2Vf9/vhAacwqsReS4O85G8TDzzzuaD
+	pF/vAIyhxmgwSjs8F2TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCe7c-003H3b-1C;
-	Fri, 23 Jun 2023 10:34:32 +0000
+	id 1qCe7q-003HFl-1E;
+	Fri, 23 Jun 2023 10:34:46 +0000
 Received: from mga05.intel.com ([192.55.52.43])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCe7Y-003GxD-02;
-	Fri, 23 Jun 2023 10:34:29 +0000
+	id 1qCe7l-003HA2-0Y;
+	Fri, 23 Jun 2023 10:34:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1687516467; x=1719052467;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Ug0tb+KIthtcBNlWZulbUMsIP+un6qpERH8Wcsp0QfQ=;
-  b=FVcaabBmC2tlLFs7N6ud+BOKDCDppvHjeDHs4YUaE07umlTTddUKftZf
-   LKiI5xilK3wwmsMFXlD4wyBV9dexH1RGZDQ0T2XsYKZuQMfECZJaPDnKy
-   26S9zBVVLt791omhmSkbRGcG3/JRqUT4HbZH7HGOOYl38+2M8a5UIKEPO
-   zH1hMsCPboJ6kFMJn3wvNF7jtJg4kQqaIZgNkGbFVi/7n1QxVTEKRuWoZ
-   91abrXsGoSa+hiaUqhKFQcZsCcNO/7+npWX/hHCOYv8+iF5+zIlR8ypCN
-   6awxEBgi7JRqj70zD6tCaRG5aNYz/VvBF2eSD14O1DArbysawPSwhBQwD
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10749"; a="447112229"
+  t=1687516481; x=1719052481;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=iQC6kb1rTOKXEDlru5Ov1HPB6vcRfk5Mp5vR5TxV2Iw=;
+  b=AbIb1dcu2Qn6cqXJiDBpZphUi2DgSiJDUITxqUiHkTYALxDCSiEwhpi1
+   W11ZOwR7Xf1OQ+k8n0IGqxnk3dDZ++hSjOn3OF0xYvZhfigxtFnM6MANp
+   Jfj7jOVRSubeBb48ppLSu203Lai59P1qfpaqKfMwcUqq20poVYQwyhOuw
+   iXbmnx9doKx+ZI5Ma9fWlFHBKWOwnYUtUQ3g4eQfxcZeGAOIBfDPiFcQX
+   9IN4UY0X8JInyAp3z6XgPZPeWdHvFoPd6BozxikFc7Vpf620T9UQLeQs2
+   GVmE81Dr7WSH3SUaCwMP9vPnQrM0FiZbpWh+l0cxciRWfHXMv8P5BphVL
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10749"; a="447112278"
 X-IronPort-AV: E=Sophos;i="6.01,151,1684825200"; 
-   d="scan'208";a="447112229"
+   d="scan'208";a="447112278"
 Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2023 03:34:24 -0700
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2023 03:34:40 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10749"; a="715275624"
+X-IronPort-AV: E=McAfee;i="6600,9927,10749"; a="715275809"
 X-IronPort-AV: E=Sophos;i="6.01,151,1684825200"; 
-   d="scan'208";a="715275624"
+   d="scan'208";a="715275809"
 Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
-  by orsmga002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2023 03:34:17 -0700
+  by orsmga002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2023 03:34:32 -0700
 From: Haibo Xu <haibo1.xu@intel.com>
 To: 
 Cc: xiaobo55x@gmail.com,
@@ -83,14 +83,16 @@ Cc: xiaobo55x@gmail.com,
 	linux-kselftest@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v4 00/12] RISCV: Add KVM_GET_REG_LIST API
-Date: Fri, 23 Jun 2023 18:40:02 +0800
-Message-Id: <cover.1687515463.git.haibo1.xu@intel.com>
+Subject: [PATCH v4 01/12] KVM: arm64: selftests: Replace str_with_index with strdup_printf
+Date: Fri, 23 Jun 2023 18:40:03 +0800
+Message-Id: <6bf03faa291e39fc220cb503cb3ce2556a9c54ca.1687515463.git.haibo1.xu@intel.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1687515463.git.haibo1.xu@intel.com>
+References: <cover.1687515463.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230623_033428_084078_F0FDFE50 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20230623_033441_261030_C7E9D210 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,62 +109,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM_GET_REG_LIST will dump all register IDs that are available to
-KVM_GET/SET_ONE_REG and It's very useful to identify some platform
-regression issue during VM migration.
+From: Andrew Jones <ajones@ventanamicro.com>
 
-Patch 1-7 re-structured the get-reg-list test in aarch64 to make some
-of the code as common test framework that can be shared by riscv.
+The original author of aarch64/get-reg-list.c (me) was wearing
+tunnel vision goggles when implementing str_with_index(). There's
+no reason to have such a special case string function. Instead,
+take inspiration from glib and implement strdup_printf. The
+implementation builds on vasprintf() which requires _GNU_SOURCE,
+but we require _GNU_SOURCE in most files already.
 
-Patch 8 move reject_set check logic to a function so as to check for
-different errno for different registers.
-Patch 9 change to do the get/set operation only on present-blessed list.
-Patch 10 enabled the KVM_GET_REG_LIST API in riscv.
-patch 11-12 added the corresponding kselftest for checking possible
-register regressions.
-
-The get-reg-list kvm selftest was ported from aarch64 and tested with
-Linux 6.4-rc6 on a Qemu riscv64 virt machine.
-
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 ---
-Changed since v3:
-  * Rebase to Linux 6.4-rc6
-  * Address Andrew's suggestions and comments:
-  *   Move reject_set check logic to a function 
-  *   Only do get/set tests on present blessed list 
-  *   Only enable ISA extension for the specified config
-  *   For disable-not-allowed registers, move them to the filter-reg-list 
+ .../selftests/kvm/aarch64/get-reg-list.c      | 23 ++++---------------
+ .../testing/selftests/kvm/include/test_util.h |  2 ++
+ tools/testing/selftests/kvm/lib/test_util.c   | 15 ++++++++++++
+ 3 files changed, 22 insertions(+), 18 deletions(-)
 
-Andrew Jones (7):
-  KVM: arm64: selftests: Replace str_with_index with strdup_printf
-  KVM: arm64: selftests: Drop SVE cap check in print_reg
-  KVM: arm64: selftests: Remove print_reg's dependency on vcpu_config
-  KVM: arm64: selftests: Rename vcpu_config and add to kvm_util.h
-  KVM: arm64: selftests: Delete core_reg_fixup
-  KVM: arm64: selftests: Split get-reg-list test code
-  KVM: arm64: selftests: Finish generalizing get-reg-list
-
-Haibo Xu (5):
-  KVM: arm64: selftests: Move reject_set check logic to a function
-  KVM: selftests: Only do get/set tests on present blessed list
-  KVM: riscv: Add KVM_GET_REG_LIST API support
-  KVM: riscv: selftests: Add finalize_vcpu check in run_test
-  KVM: riscv: selftests: Add get-reg-list test
-
- Documentation/virt/kvm/api.rst                |   2 +-
- arch/riscv/kvm/vcpu.c                         | 375 +++++++++
- tools/testing/selftests/kvm/Makefile          |  11 +-
- .../selftests/kvm/aarch64/get-reg-list.c      | 538 ++-----------
- tools/testing/selftests/kvm/get-reg-list.c    | 439 ++++++++++
- .../selftests/kvm/include/kvm_util_base.h     |  16 +
- .../selftests/kvm/include/riscv/processor.h   |   3 +
- .../testing/selftests/kvm/include/test_util.h |   2 +
- tools/testing/selftests/kvm/lib/test_util.c   |  15 +
- .../selftests/kvm/riscv/get-reg-list.c        | 752 ++++++++++++++++++
- 10 files changed, 1658 insertions(+), 495 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/get-reg-list.c
- create mode 100644 tools/testing/selftests/kvm/riscv/get-reg-list.c
-
+diff --git a/tools/testing/selftests/kvm/aarch64/get-reg-list.c b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
+index d4e1f4af29d6..c152523a5ed4 100644
+--- a/tools/testing/selftests/kvm/aarch64/get-reg-list.c
++++ b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
+@@ -132,19 +132,6 @@ static bool find_reg(__u64 regs[], __u64 nr_regs, __u64 reg)
+ 	return false;
+ }
+ 
+-static const char *str_with_index(const char *template, __u64 index)
+-{
+-	char *str, *p;
+-	int n;
+-
+-	str = strdup(template);
+-	p = strstr(str, "##");
+-	n = sprintf(p, "%lld", index);
+-	strcat(p + n, strstr(template, "##") + 2);
+-
+-	return (const char *)str;
+-}
+-
+ #define REG_MASK (KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK | KVM_REG_ARM_COPROC_MASK)
+ 
+ #define CORE_REGS_XX_NR_WORDS	2
+@@ -163,7 +150,7 @@ static const char *core_id_to_str(struct vcpu_config *c, __u64 id)
+ 	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
+ 		idx = (core_off - KVM_REG_ARM_CORE_REG(regs.regs[0])) / CORE_REGS_XX_NR_WORDS;
+ 		TEST_ASSERT(idx < 31, "%s: Unexpected regs.regs index: %lld", config_name(c), idx);
+-		return str_with_index("KVM_REG_ARM_CORE_REG(regs.regs[##])", idx);
++		return strdup_printf("KVM_REG_ARM_CORE_REG(regs.regs[%lld])", idx);
+ 	case KVM_REG_ARM_CORE_REG(regs.sp):
+ 		return "KVM_REG_ARM_CORE_REG(regs.sp)";
+ 	case KVM_REG_ARM_CORE_REG(regs.pc):
+@@ -178,12 +165,12 @@ static const char *core_id_to_str(struct vcpu_config *c, __u64 id)
+ 	     KVM_REG_ARM_CORE_REG(spsr[KVM_NR_SPSR - 1]):
+ 		idx = (core_off - KVM_REG_ARM_CORE_REG(spsr[0])) / CORE_SPSR_XX_NR_WORDS;
+ 		TEST_ASSERT(idx < KVM_NR_SPSR, "%s: Unexpected spsr index: %lld", config_name(c), idx);
+-		return str_with_index("KVM_REG_ARM_CORE_REG(spsr[##])", idx);
++		return strdup_printf("KVM_REG_ARM_CORE_REG(spsr[%lld])", idx);
+ 	case KVM_REG_ARM_CORE_REG(fp_regs.vregs[0]) ...
+ 	     KVM_REG_ARM_CORE_REG(fp_regs.vregs[31]):
+ 		idx = (core_off - KVM_REG_ARM_CORE_REG(fp_regs.vregs[0])) / CORE_FPREGS_XX_NR_WORDS;
+ 		TEST_ASSERT(idx < 32, "%s: Unexpected fp_regs.vregs index: %lld", config_name(c), idx);
+-		return str_with_index("KVM_REG_ARM_CORE_REG(fp_regs.vregs[##])", idx);
++		return strdup_printf("KVM_REG_ARM_CORE_REG(fp_regs.vregs[%lld])", idx);
+ 	case KVM_REG_ARM_CORE_REG(fp_regs.fpsr):
+ 		return "KVM_REG_ARM_CORE_REG(fp_regs.fpsr)";
+ 	case KVM_REG_ARM_CORE_REG(fp_regs.fpcr):
+@@ -212,13 +199,13 @@ static const char *sve_id_to_str(struct vcpu_config *c, __u64 id)
+ 		n = (id >> 5) & (KVM_ARM64_SVE_NUM_ZREGS - 1);
+ 		TEST_ASSERT(id == KVM_REG_ARM64_SVE_ZREG(n, 0),
+ 			    "%s: Unexpected bits set in SVE ZREG id: 0x%llx", config_name(c), id);
+-		return str_with_index("KVM_REG_ARM64_SVE_ZREG(##, 0)", n);
++		return strdup_printf("KVM_REG_ARM64_SVE_ZREG(%lld, 0)", n);
+ 	case KVM_REG_ARM64_SVE_PREG_BASE ...
+ 	     KVM_REG_ARM64_SVE_PREG_BASE + (1ULL << 5) * KVM_ARM64_SVE_NUM_PREGS - 1:
+ 		n = (id >> 5) & (KVM_ARM64_SVE_NUM_PREGS - 1);
+ 		TEST_ASSERT(id == KVM_REG_ARM64_SVE_PREG(n, 0),
+ 			    "%s: Unexpected bits set in SVE PREG id: 0x%llx", config_name(c), id);
+-		return str_with_index("KVM_REG_ARM64_SVE_PREG(##, 0)", n);
++		return strdup_printf("KVM_REG_ARM64_SVE_PREG(%lld, 0)", n);
+ 	case KVM_REG_ARM64_SVE_FFR_BASE:
+ 		TEST_ASSERT(id == KVM_REG_ARM64_SVE_FFR(0),
+ 			    "%s: Unexpected bits set in SVE FFR id: 0x%llx", config_name(c), id);
+diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
+index a6e9f215ce70..7e0182f837b5 100644
+--- a/tools/testing/selftests/kvm/include/test_util.h
++++ b/tools/testing/selftests/kvm/include/test_util.h
+@@ -186,4 +186,6 @@ static inline uint32_t atoi_non_negative(const char *name, const char *num_str)
+ 	return num;
+ }
+ 
++char *strdup_printf(const char *fmt, ...) __attribute__((format(printf, 1, 2), nonnull(1)));
++
+ #endif /* SELFTEST_KVM_TEST_UTIL_H */
+diff --git a/tools/testing/selftests/kvm/lib/test_util.c b/tools/testing/selftests/kvm/lib/test_util.c
+index b772193f6c18..3e36019eeb4a 100644
+--- a/tools/testing/selftests/kvm/lib/test_util.c
++++ b/tools/testing/selftests/kvm/lib/test_util.c
+@@ -5,6 +5,9 @@
+  * Copyright (C) 2020, Google LLC.
+  */
+ 
++#define _GNU_SOURCE
++#include <stdio.h>
++#include <stdarg.h>
+ #include <assert.h>
+ #include <ctype.h>
+ #include <limits.h>
+@@ -377,3 +380,15 @@ int atoi_paranoid(const char *num_str)
+ 
+ 	return num;
+ }
++
++char *strdup_printf(const char *fmt, ...)
++{
++	va_list ap;
++	char *str;
++
++	va_start(ap, fmt);
++	vasprintf(&str, fmt, ap);
++	va_end(ap);
++
++	return str;
++}
 -- 
 2.34.1
 
