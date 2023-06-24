@@ -4,50 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34749EB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Jun 2023 23:26:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13137C0015E
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jun 2023 00:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zwlER9fXoYqvY17Ry0tO3gFD9zdWbjCQCoYSwDuDfIk=; b=eA+uHNHmV/m8gT
-	vpGJbib4OEQLMH7NR3d/sMLBMtrdRXna8Pmy8e0i90f3M5AkTwPS/gzxT3kl/8/Ri25BSSTuMY80k
-	r4A1mp+Il8Nukzrs3xF6OZPtuNLqJAocLwkiUt8o3kuRi6eXePNnSYYee2ujpHDtxCRYqxMsMGuKH
-	Oxc6ueM7MMpTpSWdOFcyMJs6jO1bY7xHZqHKfzUsLCZXVEAUDx9W78qyE4PSwcdu93DJ96jw+rNd0
-	u8Bchh22gpg7iwuZwyufx4csts9tLyh+51NQTBgzsY7/TW+My5smySJo+xADj8WzxNez9usywIneG
-	KDfWenV99L+4tMHJxQHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UqNZSTNp7htUbswfKgsfCakmI5yaT+O197bbJ1LZRB0=; b=mxPSuV/hTkp6MtRzV4YwaTeWRP
+	VZnbFfGxZoTg7KIkuMLg0hcr/y79Kqga/kZRvEL1+bcoM+1dwJNvect6oT6MExNzj1vznF7JfBjAU
+	fxj809Zv38XjVnXElc12YvqIiGYQ8v+8CcxcC40Gsj2RWdmLOMH+MkBlBvWaBd+fOEaB+/yO0MEG5
+	bXQGH7/a64e2+WzkjLPAwTsqlWTiVZ+LPqHH7aYRjowCql8/vKLhInQikm1gEhBCTjBa4WwNFplBd
+	TZNwo2Zwxxw8JuqgnnR6pEI8FudgEPPc0BUpmH2sM5ADYwDoQzZM21oKQB9TtvruqV5wmTUeiWjKU
+	DQAasPHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCqAa-004pl8-1c;
-	Fri, 23 Jun 2023 23:26:24 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1qCqtH-004tgE-2a;
+	Sat, 24 Jun 2023 00:12:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qCqAY-004pkR-09
+	id 1qCqtF-004tfk-1M
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 Jun 2023 23:26:23 +0000
-Received: from i53875bdf.versanet.de ([83.135.91.223] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1qCqAP-0001F3-Hv; Sat, 24 Jun 2023 01:26:13 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Stefan O'Rear <sorear@fastmail.com>
-Cc: linux-riscv@lists.infradead.org, samuel@sholland.org, guoren@kernel.org,
- christoph.muellner@vrull.eu, conor.dooley@microchip.com,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 2/2] RISC-V: add T-Head vector errata handling
-Date: Sat, 24 Jun 2023 01:26:12 +0200
-Message-ID: <1788842.TLkxdtWsSY@diego>
-In-Reply-To: <1961474.usQuhbGJ8B@diego>
-References: <20230228215435.3366914-1-heiko@sntech.de>
- <c01ee919-9abb-4796-9ed4-9bb4565dc863@app.fastmail.com>
- <1961474.usQuhbGJ8B@diego>
+	Sat, 24 Jun 2023 00:12:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 60CD661B3C;
+	Sat, 24 Jun 2023 00:12:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68425C433C8;
+	Sat, 24 Jun 2023 00:12:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687565550;
+	bh=7xPBiOV590KyrvCfPrfg3HGfvOAZZIKRMPcI3/sL3KU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mQgayS+dAenzmv9UpmDOE40oRy2E5d3izLewRqlcANE4CiboFjJk4xu/aRnjARl8H
+	 Zz+8n7xtKZTAUJAC9FN0Li1j69dnaILz1qVQjHOeHMl6iAAEOVkpyIG1mNLsmhQjSz
+	 Ac8VbW9MltakkSL6y+n8vPKuNO/FUmvlUHLIscV5OXvAf6hJmzi/aV2nNLYPbBG4dk
+	 y5oJtSGrW6TEWpkFiHmEY5DuRY2LR2sM7XuD6ZzSM+LFiMra72DLlvHSO8OLg0vsSl
+	 8JnJ54XhWlVRD6Z91vucVKZSjfpgkNLuDIsFwtF5lXtadcWV8TAjETmP0WkPbIupLJ
+	 RA+6jUEAF5EUw==
+Date: Sat, 24 Jun 2023 01:12:26 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Evan Green <evan@rivosinc.com>
+Subject: Re: [PATCH] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
+Message-ID: <20230624-mortally-parking-68f6bc1dd5ee@spud>
+References: <20230623222353.3742384-1-evan@rivosinc.com>
 MIME-Version: 1.0
+In-Reply-To: <20230623222353.3742384-1-evan@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230623_162622_090796_4A09C479 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20230623_171233_521450_4675B2EC 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,66 +67,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: multipart/mixed; boundary="===============8090476969132346922=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 23. Juni 2023, 12:22:35 CEST schrieb Heiko St=FCbner:
-> Am Freitag, 23. Juni 2023, 05:06:44 CEST schrieb Stefan O'Rear:
-> > On Thu, Jun 22, 2023, at 4:35 PM, Heiko St=FCbner wrote:
-> > > Am Donnerstag, 22. Juni 2023, 20:58:37 CEST schrieb Stefan O'Rear:
-> > >> Are you aware of "3.7. Vector Fixed-Point Fields in fcsr" in
-> > >> riscv-v-spec-0.7.1.pdf?
-> > >
-> > > oh wow, thanks a lot for that pointer, now I understand your concern.
-> > >
-> > > So in vector-0.7.1 fcsr[10:9] mirrors vxrm and fcsr[8] mirrors vxsat.
-> > >
-> > >
-> > > On a positive note, the T-Head cores seem to not implement the full
-> > > vector 0.7.1 specification after all, in the documentation I have [0]
-> > > fcsr[31:8] are declared as "0" and uppermost bits are [7:5] for the "=
-frm"
-> > > field.
-> > =
 
-> > Given that the pdf you linked does not mention any vector CSRs, I am not
-> > confident that it provides a complete and accurate description of vector
-> > functionality in other registers for the C906 with vector extension.
-> > =
-
-> > Assuming that you have access to such a chip, I would be much happier w=
-ith
-> > the proposed "just a comment" approach if our understanding of the beha=
-vior
-> > were confirmed on hardware (specifically: csr_write(CSR_FCSR, 0x700) sh=
-ould
-> > not affect csr_read(CSR_VXRM) or csr_read(CSR_VXSAT)).
-> =
-
-> For one, you're right that I should definitly try to confirm this on hard=
-ware :-) .
-
-ok, so now I know the documentation is wrong.
-
-	before, vxrm 0x0, vxsat 0x0
-writing the 0x700 to fcsr
-	after, vxrm 0x3, vxsat 0x1
-
-Essentially the link between the CSRs really is there - oh fun.
-So we're back at your original concern - sadly.
-
-I guess I need to figure out how to not have this stuff break
-because relying on the fpu parts to handle feels not correct
-at first glance.
+--===============8090476969132346922==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Gxx+ADrwk7P5WV3t"
+Content-Disposition: inline
 
 
-Heiko
+--Gxx+ADrwk7P5WV3t
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Evan,
+
+On Fri, Jun 23, 2023 at 03:23:53PM -0700, Evan Green wrote:
+> In /proc/cpuinfo, most of the information we show for each processor is
+> specific to that hart: marchid, mvendorid, mimpid, processor, hart,
+> compatible, and the mmu size. But the ISA string gets filtered through a
+> lowest common denominator mask, so that if one CPU is missing an ISA
+> extension, no CPUs will show it.
+>=20
+> Now that we track the ISA extensions for each hart, let's report ISA
+> extension info accurately per-hart in /proc/cpuinfo.
+
+No, you can't do this as it breaks the assumptions of userspace that
+this shows the set supported across all harts.
+Sorry, but NAK.
+
+Cheers,
+Conor.
+
+--Gxx+ADrwk7P5WV3t
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJY06gAKCRB4tDGHoIJi
+0jKQAQD+d6MrxtGHBk7NIHGkyEg81xZjoOJGzYQbnAsNIs4PewD/SbbVzF51iu9y
+/tV+pkvbs4VzLZw9XIcyPwfvVIda+Ao=
+=fdGx
+-----END PGP SIGNATURE-----
+
+--Gxx+ADrwk7P5WV3t--
 
 
+--===============8090476969132346922==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8090476969132346922==--
+
