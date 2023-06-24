@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E0BEB64DC
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jun 2023 13:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAFAFEB64DD
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jun 2023 13:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5ixH8qDdpOhtiS+W+XwdgNTTMS9DvqMXtNuQkMRb78s=; b=XXuCDKCK58F9PL
-	6BJwbfrKM9uImJRABuFjEf1HKcVaKaM1ZRYWIMDdj+9y+J43/bdhJLKOnAnaAhMgKcfc3Fu8RBtJm
-	glh4aHuRxDsI644uwr1MHmibHvNjWarXJAtYpZirjGyFGAJ4dVUxwZg/Hi+03xnKofjxbvcoh8TPl
-	kiTciwo8W4tZ3o3cNNp926eI08x22Lqny0xRil5LdlL8Sccj876KVrH0onoPh8cWX5qX9zZuPZcvj
-	VEFBiRq6kyuXZbZptSossH/PluFePl4rDI7yzclhYekohD+0sVfWgN6pIZ6d03N0sZ64qw/vcCQA9
-	eS0cZRYRgGphS9X6ctvw==;
+	List-Owner; bh=YWJ12Y2HwP/B0Zw75SN5Mfu3QJ+opH/W+/LX9PmJS80=; b=JqTNhgRgvbJJ+6
+	TyBpU/5ZYQzuLBFNMCckFaSplCrZ3RwTm4PzG0vAa8FgnnzAsq2wwyUuUXwIR5CzJcW/C4scy/RmC
+	AlekZb8D5a6IX/FG5VKAEs/VARko9BiR8fEq8fh6WkgdsBQwrgLFihJHG7qoz673y5t44K8iBBi/k
+	bYf4cm9trpgi+rkYVt95lTrAiTZegbHe3ubQU8TqhPrGoMx9CdkkB039vrpxZUTtu2seqjor2NCey
+	TQqztg4w69lAQgTsGMuDm0J6P1zjTEQzdLiYpGBtGE4EQz+pO37bctpuHPjBBlrKylA9DfmgfpgRt
+	5+T2N0JnxpsqdAWHrLhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qD38V-0061El-1S;
-	Sat, 24 Jun 2023 13:17:07 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1qD38e-0061Hk-2n;
+	Sat, 24 Jun 2023 13:17:16 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qD38Q-0061DM-1Y;
-	Sat, 24 Jun 2023 13:17:03 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-3fa7eb35a13so12711935e9.0;
-        Sat, 24 Jun 2023 06:17:02 -0700 (PDT)
+	id 1qD38X-0061F7-25;
+	Sat, 24 Jun 2023 13:17:10 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-3f9ede60140so16104955e9.0;
+        Sat, 24 Jun 2023 06:17:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1687612621; x=1690204621;
+        d=gmail.com; s=20221208; t=1687612628; x=1690204628;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=x4HOHpTuxkhDI1uIn7GRBULu0rY5eOvyg0W/1k8C9T4=;
-        b=rUrqWapO4pYhvePnS7Vq1czHnSJ9zPSgqsffqLURJUNHIlAZ8ys2Si7q8pQzxZ74tt
-         FBZszCa8TucARVI8q8sZ9Avu+4Lj6Ctpu46rODvpVqB85qOYaTwYqiX6LQlZb+GFLdXi
-         nW9isyDNnVfiAdioaHD73UdoRS6Hzlo3qFVh2wPjkV/LjRolMt26XqzDM9xRpUkXeV0P
-         a1D+kktEkyFfedDfIJFTLbpXVq1Sv/peqNNlFZGEGDc1PsG8gDz5zzBWi5Q2u+8RNkf7
-         /m2w4STUaHct/MJ2jp2F/Xb8cf5To/tikiCVX745Mml/Wtkd+V3xnDjwHz4NJZWDiild
-         GNgA==
+        bh=Ou3Llv8LccPhD+lVAZHU8h+Zxb2u2iNeLld4FYbDCL0=;
+        b=NLvKfkmODJ7d2w3rY83obV0RROyfN4Jh/Ro2ode6/E4S4XFJcJXyjsKWYOfKOjhW8x
+         pXfDVb1124NzEtabZQXUHmqmWtNYgWGaVGNPllZkGE5e9Qn+qkGU7eWioQpl5vaOsZ7N
+         Q8ZYtWCThoTgD3Pe59L3yF347vv/gcUlsXuYOAWYxHfKlsOkwXuX5QZOVH0r+zxw9gdO
+         KLc8/kwi2EDUxxTByI218Q9nkxa5ZGzY/tG8ghv0iFz1ww4eA+OQVE3/j25Vw9ylv4II
+         okcXkALJkP8xoGaPVZv2Jpnkc9vV9qUAu5FGxTUI9tVQnNYRxcFmy2BQCIsiT605HwXJ
+         gZ5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687612621; x=1690204621;
+        d=1e100.net; s=20221208; t=1687612628; x=1690204628;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=x4HOHpTuxkhDI1uIn7GRBULu0rY5eOvyg0W/1k8C9T4=;
-        b=LL/jIWk9jLErJVXlbW+H/XxUiVsunve4WdS79OQSTHvQ0oDDjOz8rb4Vyhq/9NG/cj
-         DPiyHtga3NUYtYAcnKUZRkRzJrB+/apibLtanR8/0SE/YucnUXVvsuERUjlkB1614amw
-         zvp16e8SDHfnWceRZ/WJ8yfC/6WO4/WuNt0gfoM0I9sVIZBGzyw2LpBXYN3WCVI0O0bg
-         bU+A4cMfR1z2zveXQ+oXsX/YI2WZwGgH2KW0GhmbA9Mk7GvyamGeQI9SHgkROgtzZ7+U
-         13vsM3rmq2g2Xh4VZukRIEPdAoqPuesfBt9a1qI1+8fVOkIr4Q5BfYsMAiBX8FLlRv8f
-         b39A==
-X-Gm-Message-State: AC+VfDwoHPXe+lkxSvu40v5sngRQyNpffDPFDYJQV05pnrGWlf9OBDrD
-	ZWTlDiAc6eGiLm5HGSw/INM=
-X-Google-Smtp-Source: ACHHUZ7xACTfdartW6THNtoCrYALyLgEq0fwWG5cJD775ZZVWt6/8PJrOTn9k1ZPAJRW/uUOUStIWQ==
-X-Received: by 2002:a1c:f70a:0:b0:3f7:34dc:ed0d with SMTP id v10-20020a1cf70a000000b003f734dced0dmr16795214wmh.25.1687612620714;
-        Sat, 24 Jun 2023 06:17:00 -0700 (PDT)
+        bh=Ou3Llv8LccPhD+lVAZHU8h+Zxb2u2iNeLld4FYbDCL0=;
+        b=f3kJ/lFrmaP9vLjdWRKBjPyA/c7gXc5L4Xj+O+idYizDj4VPFUviE1kzHnxm94jDrH
+         R4Z1kXXo0OKZ7+yLfrXOpxaOikv3CdNeZjz3GORgiCCrU6KLAJbOG9R74J/8rrq5sxta
+         BhtHXgF8WDUfVAeT8i51JPQihLoeANHWK8HqpKfkQ8iREzKj00gKIZV8Q9nwoNTxjseb
+         /QDB6xI4ORryUonNGcTI2R3wnCjr/9bMq6TVl8p+NNTspxXttzz57GlZxi3qby+Rfick
+         Lwb4FlWZ+7GVvidjbhjCondLE8aE8dwixsGHcl6dePR3LJ2M24JwH3FbfoD5jqCiRXqZ
+         nSuw==
+X-Gm-Message-State: AC+VfDz+4tdty1CkCVUwTEskeo3UlrsX/nynbNc+/MpqqxBplXs13u3Q
+	eEjy3Hn+Dm7F9U3SsXQc7ic=
+X-Google-Smtp-Source: ACHHUZ4vCWn1Kwx1tyQ9XpYEiYzeBd75zN/pheQbZRhsK9gz7NDagLNjcdUqx0JgxusaY+v6Bcuiuw==
+X-Received: by 2002:a1c:6a0a:0:b0:3f9:2c0:b58 with SMTP id f10-20020a1c6a0a000000b003f902c00b58mr14937759wmc.4.1687612628018;
+        Sat, 24 Jun 2023 06:17:08 -0700 (PDT)
 Received: from user-PC.. ([92.51.95.194])
-        by smtp.gmail.com with ESMTPSA id l1-20020a1ced01000000b003f9b0830107sm5107428wmh.41.2023.06.24.06.16.58
+        by smtp.gmail.com with ESMTPSA id l1-20020a1ced01000000b003f9b0830107sm5107428wmh.41.2023.06.24.06.17.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 Jun 2023 06:17:00 -0700 (PDT)
+        Sat, 24 Jun 2023 06:17:07 -0700 (PDT)
 From: Maksim Kiselev <bigunclemax@gmail.com>
 To: linux-spi@vger.kernel.org
 Cc: Maksim Kiselev <bigunclemax@gmail.com>,
@@ -81,16 +81,16 @@ Cc: Maksim Kiselev <bigunclemax@gmail.com>,
 	linux-sunxi@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 1/3] spi: sun6i: add quirk for dual and quad SPI modes support
-Date: Sat, 24 Jun 2023 16:16:22 +0300
-Message-Id: <20230624131632.2972546-2-bigunclemax@gmail.com>
+Subject: [PATCH v1 2/3] spi: sun6i: add dual and quad SPI modes support for R329/D1/R528/T113s
+Date: Sat, 24 Jun 2023 16:16:23 +0300
+Message-Id: <20230624131632.2972546-3-bigunclemax@gmail.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230624131632.2972546-1-bigunclemax@gmail.com>
 References: <20230624131632.2972546-1-bigunclemax@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230624_061702_523336_D90BF7D0 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20230624_061709_684495_6B5DB036 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,89 +107,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-New Allwinner's SPI controllers can support dual and quad SPI modes.
-To enable one of these modes, we should set the corresponding bit in
-the SUN6I_BURST_CTL_CNT_REG register. DRM (28 bits) for dual mode and
-Quad_EN (29 bits) for quad transmission.
+Listed SoCs have SPI controllers that can operate in dual or quad modes.
+This patch adds dual/quad mode bits for spi_master on these SoCS.
 
 Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
 ---
- drivers/spi/spi-sun6i.c | 29 +++++++++++++++++++++++++----
- 1 file changed, 25 insertions(+), 4 deletions(-)
+ drivers/spi/spi-sun6i.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/spi/spi-sun6i.c b/drivers/spi/spi-sun6i.c
-index 30d541612253..cec2747235ab 100644
+index cec2747235ab..e9144d76bcdb 100644
 --- a/drivers/spi/spi-sun6i.c
 +++ b/drivers/spi/spi-sun6i.c
-@@ -83,6 +83,9 @@
- #define SUN6I_XMIT_CNT_REG		0x34
+@@ -761,6 +761,7 @@ static const struct sun6i_spi_cfg sun8i_h3_spi_cfg = {
  
- #define SUN6I_BURST_CTL_CNT_REG		0x38
-+#define SUN6I_BURST_CTL_CNT_STC_MASK		GENMASK(23, 0)
-+#define SUN6I_BURST_CTL_CNT_DRM			BIT(28)
-+#define SUN6I_BURST_CTL_CNT_QUAD_EN		BIT(29)
- 
- #define SUN6I_TXDATA_REG		0x200
- #define SUN6I_RXDATA_REG		0x300
-@@ -90,6 +93,7 @@
- struct sun6i_spi_cfg {
- 	unsigned long		fifo_depth;
- 	bool			has_clk_ctl;
-+	u32			mode_bits;
+ static const struct sun6i_spi_cfg sun50i_r329_spi_cfg = {
+ 	.fifo_depth	= SUN8I_FIFO_DEPTH,
++	.mode_bits	= SPI_RX_DUAL | SPI_TX_DUAL | SPI_RX_QUAD | SPI_TX_QUAD,
  };
  
- struct sun6i_spi {
-@@ -266,7 +270,7 @@ static int sun6i_spi_transfer_one(struct spi_master *master,
- 	unsigned int div, div_cdr1, div_cdr2, timeout;
- 	unsigned int start, end, tx_time;
- 	unsigned int trig_level;
--	unsigned int tx_len = 0, rx_len = 0;
-+	unsigned int tx_len = 0, rx_len = 0, nbits = 0;
- 	bool use_dma;
- 	int ret = 0;
- 	u32 reg;
-@@ -418,13 +422,29 @@ static int sun6i_spi_transfer_one(struct spi_master *master,
- 	sun6i_spi_write(sspi, SUN6I_GBL_CTL_REG, reg);
- 
- 	/* Setup the transfer now... */
--	if (sspi->tx_buf)
-+	if (sspi->tx_buf) {
- 		tx_len = tfr->len;
-+		nbits = tfr->tx_nbits;
-+	} else if (tfr->rx_buf) {
-+		nbits = tfr->rx_nbits;
-+	}
-+
-+	switch (nbits) {
-+	case SPI_NBITS_DUAL:
-+		reg = SUN6I_BURST_CTL_CNT_DRM;
-+		break;
-+	case SPI_NBITS_QUAD:
-+		reg = SUN6I_BURST_CTL_CNT_QUAD_EN;
-+		break;
-+	case SPI_NBITS_SINGLE:
-+	default:
-+		reg = FIELD_PREP(SUN6I_BURST_CTL_CNT_STC_MASK, tx_len);
-+	}
- 
- 	/* Setup the counters */
-+	sun6i_spi_write(sspi, SUN6I_BURST_CTL_CNT_REG, reg);
- 	sun6i_spi_write(sspi, SUN6I_BURST_CNT_REG, tfr->len);
- 	sun6i_spi_write(sspi, SUN6I_XMIT_CNT_REG, tx_len);
--	sun6i_spi_write(sspi, SUN6I_BURST_CTL_CNT_REG, tx_len);
- 
- 	if (!use_dma) {
- 		/* Fill the TX FIFO */
-@@ -623,7 +643,8 @@ static int sun6i_spi_probe(struct platform_device *pdev)
- 	master->set_cs = sun6i_spi_set_cs;
- 	master->transfer_one = sun6i_spi_transfer_one;
- 	master->num_chipselect = 4;
--	master->mode_bits = SPI_CPOL | SPI_CPHA | SPI_CS_HIGH | SPI_LSB_FIRST;
-+	master->mode_bits = SPI_CPOL | SPI_CPHA | SPI_CS_HIGH | SPI_LSB_FIRST |
-+			    sspi->cfg->mode_bits;
- 	master->bits_per_word_mask = SPI_BPW_MASK(8);
- 	master->dev.of_node = pdev->dev.of_node;
- 	master->auto_runtime_pm = true;
+ static const struct of_device_id sun6i_spi_match[] = {
 -- 
 2.39.2
 
