@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 070D7EB64DA
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jun 2023 13:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9927EEB64DA
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Jun 2023 18:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ijR0aNxt5QEMMa0pRT4WSwv9oRN93H4cemW+Tcp9Zoo=; b=TgLX76+klWpli1
-	OL6Yc1IKibQo6KvQIMODsRJADCwpA+Z/jVpnH7FgaV2cJ3ANu/mGpdT476Kj+wG2UK2an2PE895iF
-	pqp+h3pvb6EYxOU9J8p8Qx/GJ9WR8FaZhiJMEzpQk/+9vFVdKlbZe3FpGqjEWuC8aohltthdKfC8C
-	yfIB+s6UuN5yeY2lCmRU0q0UIFET2ISQDJeDp7s5dJ8FQKfDxmsOgO6nhHSRj2TT9aOcExwyzWm4l
-	MiMxDkcheMtr8L1jDZ4rYszRu23ixsbacbEOJaB/q/Xirc6toHlfkYrujrfyFBJRuMpsmfDT1LT00
-	7ePNg8du3CQA+kzMbp1g==;
+	List-Owner; bh=X7rne0tvzNBxPt49v02+wrQAUNwf4j35Ptr1gLLwVqs=; b=SuccvpBvgY+NhR
+	Q2rxu+XADF6DhYAyepkFUG1wX5eQTS6mqdwjQ1dUHBMPWi60pmjELcWdXNNLOH8vlyR8WqRt1mk+g
+	y9Alu93ot1RIhljspgwYem1ePP8s8UZHNbkBhag74JCD0OlIkeasOpenvZ0EvBUOVxn6/SMxntx0z
+	5otp2uzRIptHCDVXoS6hE4wuM7SDOibqfPe888tJzddiVXKGqiTQdNcaMTPqJKBSn90Gncr2kctLr
+	5XwohuXB4ynVX6zjxCV/xKnwVf/NLXoNN0DqP/hj4YYI11T1ynInO4Di01mfKM+9TVhgpMNxrltOL
+	Hjka7m3qxA+bMHKCvH5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qD38h-0061J4-1l;
-	Sat, 24 Jun 2023 13:17:19 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1qD85q-006OYg-0z;
+	Sat, 24 Jun 2023 18:34:42 +0000
+Received: from mail-pg1-f170.google.com ([209.85.215.170])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qD38f-0061HV-0x;
-	Sat, 24 Jun 2023 13:17:18 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3fa0253b9e7so14312345e9.1;
-        Sat, 24 Jun 2023 06:17:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1687612636; x=1690204636;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KAYPGxSTFPjM3RqhwW9I/u0fjI7Fx45EUbdLcf3Fbbk=;
-        b=RTqZRv+kicZW7QzVJK3ZagJlTPPID3erCQjK8DbAaVPTMWw3b0mjuGV5SQVg3A7Hfp
-         kTP3MO1AV9lx1/fyLW3WpWXj4HmKkLq3zsShiKr+AZkRpIUvDHPemFoM8d6lYuJBkhVf
-         VwXLSS0PvzKxnzoIXhwxmKBAloifepGmC78ZDgEmk5MbVTY+UmUcnQs8jnP7jUKTgQ1t
-         ovA2xPB5nkCELrRww6By/LY2lIhiGufo89h+gKofzrfcx/6CnBLsCo++cVmYMzLAiVW3
-         P2v56HjmRyol/JePLMkvownV0cd+4jPAN3a3PkXbpyjqgTMgtriUwWMRfhDtyahMiisK
-         i7jw==
+	id 1qD85m-006OXd-08
+	for linux-riscv@lists.infradead.org;
+	Sat, 24 Jun 2023 18:34:40 +0000
+Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-54290603887so856869a12.1
+        for <linux-riscv@lists.infradead.org>; Sat, 24 Jun 2023 11:34:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687612636; x=1690204636;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KAYPGxSTFPjM3RqhwW9I/u0fjI7Fx45EUbdLcf3Fbbk=;
-        b=VL4qmPvKqU3PN+Sm50S2o9iI3c4iACE9ptXarlQPGr+KD9v9avHm5owVAIByy1LybV
-         qRVeyWpTzGfhY1XEuv9/frfc4oRQtG82WbVhrx7Y736eoAikGf3DQduTwYwD5ugyAWzF
-         p9GN5JRcvvgRx+NDMnY76zTtccmPf3MI2hCE8R4MZu3HTiowO5TLmPWrBTMReZb6GTMB
-         vD6uqPQPxd5bvYPhu5HPB9eDNAJEqilcR5pY11FLc/UFT4uAmNckzanYIlLVfyElnkn5
-         9mjsMXAeah3i2wLW+LbFebzdKOBsGdqOtHbWf3RRoBAM8fGQORTtH8rhbgkPMI0PPrqN
-         dVSA==
-X-Gm-Message-State: AC+VfDzkx/WagPim7qXB3LxH/WAZmWoVio5tnYg4GIzoBmcqJu8dlXPL
-	HVUthNk5wLmufwoSWr9ZPWI=
-X-Google-Smtp-Source: ACHHUZ6AxRD4qR+dRoN7S7SE01tpvdTdIi7AeyJugnitjFY045wLn75ojjvOMv78elsfe85Qmldkag==
-X-Received: by 2002:a05:600c:245:b0:3fa:838d:adbd with SMTP id 5-20020a05600c024500b003fa838dadbdmr1749644wmj.1.1687612635438;
-        Sat, 24 Jun 2023 06:17:15 -0700 (PDT)
-Received: from user-PC.. ([92.51.95.194])
-        by smtp.gmail.com with ESMTPSA id l1-20020a1ced01000000b003f9b0830107sm5107428wmh.41.2023.06.24.06.17.13
+        d=1e100.net; s=20221208; t=1687631671; x=1690223671;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=50y7QuRKBodc8YNaSDdNunw0doa5v8GtHWwRWDHFDKk=;
+        b=W/IVPKeYNHLIYX8L/hhFYT/x4EJGAStcXB9eb2UUwrt6c5d9yjtC0uA017ShktfFti
+         hmB7c7f2CUfzWZjO7W/A6rL9Zf8knvXKcHdpUktrros2N37YWSw+wy5/18JGgJWzjohx
+         EDQeEZiCfPcCpfxsDPDDVl2AiaXbg9v8F93xTlG9lQwJd47kHljto2WGqpMBBDuh9ozz
+         RSwwKptdLSIFVlkBXWAMYwNr358c5uUHotl/722KykkBddOwik2ptb9MipfNznukgLNJ
+         fx9SyR3Xq96oUCck8qQplx3qrAqywNvOlaBUTQZcv5MJI/1LK0TYvT5m/07rmdaxjwgQ
+         w/xQ==
+X-Gm-Message-State: AC+VfDxaLDaZZSVY4cOlCiU82u3RmpFzEOgzprcPJap9Wzsz0DfUytvu
+	fUdJJjLWL1yyYAXH/miFmdg=
+X-Google-Smtp-Source: ACHHUZ5uMVGqMJ7Rd2OWArZh6D8bOZhrUrh4w3CU31H7VC3deHLqQehtXsqUxGcOUXznlRQkuorMUQ==
+X-Received: by 2002:a17:902:f611:b0:1a6:46f2:4365 with SMTP id n17-20020a170902f61100b001a646f24365mr1242488plg.30.1687631671195;
+        Sat, 24 Jun 2023 11:34:31 -0700 (PDT)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id t1-20020a170902bc4100b001b7e63cfa08sm1142312plz.293.2023.06.24.11.34.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 Jun 2023 06:17:15 -0700 (PDT)
-From: Maksim Kiselev <bigunclemax@gmail.com>
-To: linux-spi@vger.kernel.org
-Cc: Maksim Kiselev <bigunclemax@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Mark Brown <broonie@kernel.org>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 3/3] riscv: dts: allwinner: d1: Add QSPI pins node for pinmux PC port
-Date: Sat, 24 Jun 2023 16:16:24 +0300
-Message-Id: <20230624131632.2972546-4-bigunclemax@gmail.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230624131632.2972546-1-bigunclemax@gmail.com>
-References: <20230624131632.2972546-1-bigunclemax@gmail.com>
+        Sat, 24 Jun 2023 11:34:30 -0700 (PDT)
+Date: Sun, 25 Jun 2023 03:34:28 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: daire.mcnamara@microchip.com
+Cc: conor.dooley@microchip.com, lpieralisi@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH v1 2/8] PCI: microchip: Remove cast warning for
+ devm_add_action_or_reset() arg
+Message-ID: <20230624183428.GF2636347@rocinante>
+References: <20230614155556.4095526-1-daire.mcnamara@microchip.com>
+ <20230614155556.4095526-3-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230614155556.4095526-3-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230624_061717_338456_30CC9AFC 
-X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-CacheID: sfid-20230624_113438_104002_067D69BE 
+X-CRM114-Status: UNSURE (   9.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,35 +84,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinmux node that describes pins on PC port which required for
-QSPI mode.
+[+CC Simon]
 
-Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
----
- arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+Hello,
 
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-index 1bb1e5cae602..9f754dd03d85 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-@@ -131,6 +131,13 @@ uart3_pb_pins: uart3-pb-pins {
- 				pins = "PB6", "PB7";
- 				function = "uart3";
- 			};
-+
-+			/omit-if-no-ref/
-+			qspi0_pc_pins: qspi0-pc-pins {
-+				pins = "PC2", "PC3", "PC4", "PC5", "PC6",
-+				       "PC7";
-+				function = "spi0";
-+			};
- 		};
- 
- 		ccu: clock-controller@2001000 {
--- 
-2.39.2
+> The kernel test robot reported that the ugly cast from
+> void(*)(struct clk *) to void (*)(void *) converts to incompatible
+> function type.  This commit adopts the common convention of creating a
+> trivial stub function that takes a void * and passes it to the
+> underlying function that expects the more specific type.
 
+This is a nice change, but it seems it has been carried along a few other
+series and through their different revisions.  Simon also found the problem
+and addressed it independently per:
+
+  https://lore.kernel.org/linux-pci/20230511-pci-microchip-clk-cast-v1-1-7674f4d4e218@kernel.org
+
+However, we have a few other drivers where we could take care of this, per:
+
+drivers/pci/controller/pcie-microchip-host.c
+864-		return ERR_PTR(ret);
+865-
+866:	devm_add_action_or_reset(dev, (void (*) (void *))clk_disable_unprepare,
+867-				 clk);
+868-
+
+drivers/pci/controller/dwc/pcie-keembay.c
+170-
+171-	ret = devm_add_action_or_reset(dev,
+172:				       (void(*)(void *))clk_disable_unprepare,
+173-				       clk);
+174-	if (ret)
+
+drivers/pci/controller/dwc/pci-meson.c
+189-
+190-	devm_add_action_or_reset(dev,
+191:				 (void (*) (void *))clk_disable_unprepare,
+192-				 clk);
+193-
+
+If neither you nor Simon has objections, I can send a small series to
+address these in a single take.  You could then drop this particular patch
+from v2 of this series, should you send a second revision at some point.
+
+Thoughts?
+
+	Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
