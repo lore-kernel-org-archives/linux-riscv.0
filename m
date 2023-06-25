@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF098EB64DC
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 20:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287B2EB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 20:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=mY9Kmm41orAbDZmid4c8BMQips2PSpsSWc28mLpqn+o=; b=lVcZ9d1U88cWH4VLU3h38aCE5Q
-	GsN+GGXM3HjHGwaNvKsmg3HkNUrgKLb03r66XSFZDGwUVHgd2WBfCUyUdeitoOlvR1L0AmimzCQES
-	CZlJtAeIJmBCO6Pex/5Znqoxi6yPObYFocb8crukPx1TFwpqK8qwVSTVCKqpTtI5Jmn/6cVvnxzlS
-	WObFqbSl2OxVonaCDI2zaqVPcA9n4eFyNyP4ob/R69DAAcKmCLWs3aiAgNXcQ1tgtPwNd6sMAl9/v
-	9bfA8hjqLbanfuEOSrFEy35CkE+yqfbbzY6yHfQ5OBTBguusrmF9jEwHmjp9lW7Ts13T7d7cZIm8U
-	Oc2/CegA==;
+	bh=mY9Kmm41orAbDZmid4c8BMQips2PSpsSWc28mLpqn+o=; b=PX/RtVF6vydTMt4NxIwe/durxB
+	ACyw87IK91s45trwyzlwPWxGMQK7RQjK6XTgIeGBCz5no37DruKF3MDTX+THTpldWidMQtJnNKx4G
+	Dj+L5zHAKJStBcqtIlmMce7b0S0ZvYuRinJdDvh/f6bJy/1tlxw86oyF/Ii2UyTTHoXOOuLC7vDP3
+	dNkqBEbp4HC14RVVmDGcTp2gApNsmYiPU1xSsvhmUkKtEJCManQPa5biktLOIXQy77gs8YoK+7x08
+	MFtVy7ARLEZiwn0wete/Ngffl9MlTxcPGZWrquhsT5kJTGzhETLoQ7yL0Bf+EvckaHRejSUC2ArdI
+	jTcHYCNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDVzt-008c7n-0w;
-	Sun, 25 Jun 2023 20:06:09 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1qDVzs-008c7d-2P;
+	Sun, 25 Jun 2023 20:06:08 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDVzp-008c6p-23
+	id 1qDVzp-008c6k-12
 	for linux-riscv@lists.infradead.org;
 	Sun, 25 Jun 2023 20:06:07 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1b5422163f4so21805255ad.2
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Jun 2023 13:06:04 -0700 (PDT)
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-668704a5b5bso2443766b3a.0
+        for <linux-riscv@lists.infradead.org>; Sun, 25 Jun 2023 13:06:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1687723564; x=1690315564;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1687723561; x=1690315561;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
         bh=6SoUflbTM/FpgEV6FO9AKFH9tH6vucslhbHlIS2yfeM=;
-        b=ZLPdvBMxDTBShZwleMmWJaWVBmf53QN+HrNSZlrWzo2JWiNkfCHstLeTirA6+d9FQ3
-         VqvooySACl3hpPCtF26veDxBeCd+DkDQywGxkxOAhFexK6Sm+ziuAmOEcLTk2w9p+EB4
-         7S+MzM/fwiVCvviLrsr76YVVZio8p/LJi0aEdyDeYi8PfQq0ekupSbLbvj4h9ONc5ZS4
-         Fj6a2JJUcq6M8fN2YNAdlkG6K30KjKjfqwAWiAdQ5ROrYrHGxUFmjanw/l0wh+0dPXCR
-         GWELy3E4TbHoRay8ZUnfazzSjzyI3RJ4YK/xWoepy8lBe5rNih5RWySluB+VGM0/oqdt
-         AWOA==
+        b=HEBsbjGGx1kZCdDVvczFGgbEwibjlGcvAqUzs3KSeYavcoe0OQew/dJPuWJ2fDU8aO
+         LwX7avZVqftVOAzbT3yiuaZXEQxShYdl7QdLan6mHMYEKOXGTW54kY4333QO2wpM6yzn
+         P42LegXOak5nhVcXYqUPTiDv4fscpl/u5jfHgkV7c1ujC1xrRbtzXArl/xAeQ3/m7x0Y
+         32WMkMRZP5G0ubGoVNeS9mXC0J1h1dnB20GWh474Yz4RdqPFmKVLuojNVKijCQ3rOuCJ
+         6Aqnff7fvv0b8omHT3Lc47IOnbX3bqUeL7EGNiTWfUHJJ0TgShiTIpRi6Ng/dtp1LJGU
+         eFIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687723564; x=1690315564;
+        d=1e100.net; s=20221208; t=1687723561; x=1690315561;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
         bh=6SoUflbTM/FpgEV6FO9AKFH9tH6vucslhbHlIS2yfeM=;
-        b=TGTlCgLeUYP3WsVMuAfnKfarZNM2uxEVe9HQXEch0alvLrqlBvIdatdO8jIxUYFGdF
-         Q7sdUc0esyofC0RzzoTeI3g9S5f3IYJNEcC3kktWmP9EdSC/HZ1ik2asUQyml28auEDT
-         XaTu0zp/8jx4kB+xkKpdWllSPJaH/Lc5724ju1YScLCbAUoi6OYTmX2OMOsQF2RW6nRa
-         iAEw/jErw3CdYGjbx+xyLZmzYbSK1g/pI/jnCqlQIR75dQiZlAg/O63cpzpo1o+JbV2l
-         SUDJE6QmdUQerfxcG+AGQUwNXis9w8FPpjk1pXgRWVUK/NIBEYmoK0Xmt4tZ3QzIVavB
-         J6VA==
-X-Gm-Message-State: AC+VfDxhAMrqM9utPtJeF425TTQbY+KXX9v9wzlGyh3izIn5qWBkOZzt
-	o7z8fUCRLYZw1SBZws1RDaySmUqZC7O1FILPtfU=
-X-Google-Smtp-Source: ACHHUZ7qoTL6Fs6w5qVttplqtoBlBRnylqxh9Grb6wLCiQBLyYog7SpdpXr7h1pf1VjgHeT8B6f7mg==
-X-Received: by 2002:a17:902:ecc5:b0:1b7:f98d:5567 with SMTP id a5-20020a170902ecc500b001b7f98d5567mr2921712plh.68.1687723563907;
-        Sun, 25 Jun 2023 13:06:03 -0700 (PDT)
+        b=DMy6gRdbNwrjib/u6729P0rmBJx3SydMDPCHJm+JhL90qoViDcji/yJaklN9zpqrBf
+         eGFKpTpyw1cj909Y7O+GJ/OhinLaBw1XKZs4Yss4k35J+u/XgbVEv6lcHWvSJDVF/AOm
+         ydmzqHb4JOFqv23fLMoUF0YcdrwBSoUCXE3BzwVPtoQiolr8B8iQOrnPzwbqu2bu8HCb
+         D2exaeq9Xh6rKj2betmbydhEDfCVU8tZtASIJLTlgmXrMQ38OJO+IBwnEXRgAXOnT9lx
+         O9Zwl5RiMlthJluT9AEl66tBnMrzdpHWPonS1O6V+5PWJ1wbCwonB7PeRbYPDUpAPjx4
+         kDlA==
+X-Gm-Message-State: AC+VfDxtcRuOydMpcu7fTm5T8M3UvmtzDjmDYEdNLyv/ttB8G/Gcg8Tq
+	C/5AQ3d3LHavqNYcwLXZcID3eQ==
+X-Google-Smtp-Source: ACHHUZ6YpB0pPhcNFt6HBv132zCVyQgfSQKH6WBiygV4lwtb4ywoYCMuSo9j3IXzVhyHYdf/1av8EQ==
+X-Received: by 2002:a05:6a20:918d:b0:126:f0d8:445e with SMTP id v13-20020a056a20918d00b00126f0d8445emr2746471pzd.32.1687723561054;
+        Sun, 25 Jun 2023 13:06:01 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id i9-20020a17090332c900b00192aa53a7d5sm2813875plr.8.2023.06.25.13.06.03
+        by smtp.gmail.com with ESMTPSA id p2-20020a62ab02000000b0067777e960d9sm456469pff.155.2023.06.25.13.05.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Jun 2023 13:06:03 -0700 (PDT)
-Date: Sun, 25 Jun 2023 13:06:03 -0700 (PDT)
+        Sun, 25 Jun 2023 13:05:59 -0700 (PDT)
+Date: Sun, 25 Jun 2023 13:05:59 -0700 (PDT)
 X-Google-Original-Date: Sun, 25 Jun 2023 13:05:16 PDT (-0700)
 Subject: Re: [PATCH v2 0/4] riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
 In-Reply-To: <20230625-radish-comic-b0861fb96023@spud>
@@ -75,7 +75,7 @@ To: Conor Dooley <conor@kernel.org>
 Message-ID: <mhng-c2d55859-cf3b-48ac-bf38-9aa1344fc93c@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230625_130605_673367_67E0F111 
+X-CRM114-CacheID: sfid-20230625_130605_590763_FE34CF35 
 X-CRM114-Status: GOOD (  40.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,6 +92,7 @@ Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+Message-ID: <20230625200559.3dG5ynDhuNtm6DhrWfEs6m4gEPAEcEXMmI9h0rTtrwg@z>
 
 On Sun, 25 Jun 2023 05:43:13 PDT (-0700), Conor Dooley wrote:
 > On Sun, Jun 25, 2023 at 08:24:56PM +0800, Jisheng Zhang wrote:
