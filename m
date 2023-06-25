@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A51EB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 14:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0266EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 14:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c4vHMzsFqGacqeqye/6he3oolN12VxWcu+LZP7zUkF8=; b=5DEot+UtUYseJFUlEObcqTaD6U
-	HUdwwJCxyfoejT663b9jDXAb3F8WfKlEacZALzMrnokRe0k7zSpaFHJLXQ4jZZCLDDVXOoEVhietT
-	qi5VneyjhZ7Qk9Taa/fPAHjVpRsrTYraW2PnsVt2ljneiHrn3jbk6K1hVKTZRIEGou6o/W+KCTdNG
-	gCXEKNcgqMcHgysiqqKnQsxlEBq3B6uqvTn2kIMekkbzfjMwRAnbJIUrXRrH2t8PWaePmf0hm6Wuk
-	JdHtQytiap95Y5Gj7AX3jFlCQlIqV7RU/R0XaWO0Y0hWlTzOQzmlWBsXMq0slX8QPGuc3Oo/EAOXV
-	D2o5IkZA==;
+	bh=aoWCVZaYZnfmnNrXpEBcK7Q3jzBOZhQ3UQhjHrQxWXI=; b=JtvUsffHVDLNTKl9Q8Qj4mFz/n
+	sWjgrh/tJlJ6E6erFDEPyhOuXDZa0MmtE+npCfpHC/6LefRxZISn8Uhrk26MxCUle/+lbzEwzkIqB
+	b4P/yS0swz+8zVH9aiVOdvmIbc126ypNL8uYg/cd0qykanHdxc6syi1Di5ZknHudIY32Px0gSmKyJ
+	PcPh5p7MItM8SV7mPMxbB3HHH8oZDcrue/reOEruLRHihfWWk+mbHRKiRdyCbAQzhL5F9kxnmPbuE
+	I+nIpljBqNX4sjL0FCxRyJs9ks1F3kFo9D68tMUexgvj9Mu03fqpZ9FtWBVdAm9zqxv7aDq+5mHen
+	5CNyprwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDQY6-0087jG-2k;
-	Sun, 25 Jun 2023 14:17:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qDQZv-00888K-31;
+	Sun, 25 Jun 2023 14:18:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDQY3-0087il-2z
+	id 1qDQZs-00887g-2o
 	for linux-riscv@lists.infradead.org;
-	Sun, 25 Jun 2023 14:17:05 +0000
+	Sun, 25 Jun 2023 14:18:58 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C618B60112;
-	Sun, 25 Jun 2023 14:17:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1899BC433C8;
-	Sun, 25 Jun 2023 14:16:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1967160B6A;
+	Sun, 25 Jun 2023 14:18:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83E25C433C0;
+	Sun, 25 Jun 2023 14:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687702622;
-	bh=I1vcyxhtcISQlL0P8GpCG/D7laU7l1dOUyg/BCWm7Xg=;
+	s=k20201202; t=1687702735;
+	bh=eELfk8BQQe7CSBA1iViJovL7FyC1t3NJ0tuD7vTmyyQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gIXuK+6xoktZaHi1lCvzVPzqpy3FLZCqMNeaAwkfVAzPzpCkEEllpR1r45R1RuHaT
-	 TuR9ZxQV3ntaoajXWZ5csZsXQ8dFVwKNPbKRWyqDTBbCQPhFuMQMDqM9sw87OOeHr8
-	 VqTfy3+rejxZGE7qpp7RnPEG86QcnFiMj7qviz+jm+DTbheRP/q5yjyhQgyssB0qY4
-	 UuS2SjtdbHolck0il8DtZCLHpKRYstNVWeE8BCAQRcL92XcW2NH4e3L2ZjVqzy4CVB
-	 wv3yrX6R1YtvGvf/GK8f0/o+VXcfPKZiVZZoQRo5k85S8ZEwpffCSlvSEg0tI26MLS
-	 wVCEdQAzLYJtg==
-Date: Sun, 25 Jun 2023 15:16:55 +0100
+	b=gNXdu/oCbHxoBS+wFq3/5UImorTTdWG2vHm2+aiAyQ3F+c4thmF5h7y1s0Z/sqCEL
+	 r6oCgQWbH9xBIWkZyMUfsKMGV6+7qW7BF6rj4BmUV8bc6IGe0BEqjRMVHPtwz5MGsK
+	 4jwICroWdLTP2blCrg9TFA3u4BxmHa/uUlITI7BtPgdFd+N0peZuqpoaJZtz1H2seE
+	 CJrBc4t/6mozEt46hA1+veLpWtwABU1dZU2T1WPupvcwvxyq8pae+31n0w1aRs0T5j
+	 8MUR0o/yRahFEVBF2ixv+l75TsRm2C3Vy5JBU4b7K46jDmUtC8K9wEVDxnJXEuoWb9
+	 TxSZ6WirPDFfw==
+Date: Sun, 25 Jun 2023 15:18:49 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Song Shuai <songshuaishuai@tinylab.org>
 Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
@@ -56,15 +56,15 @@ Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
 	xianting.tian@linux.alibaba.com, anshuman.khandual@arm.com,
 	heiko@sntech.de, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH V1 0/3] Revert huge-paged linear mapping and its related
- fixups
-Message-ID: <20230625-squire-hulk-d28483ab5ef7@spud>
+Subject: Re: [PATCH V1 1/3] Revert "RISC-V: mark hibernation as nonportable"
+Message-ID: <20230625-multiple-diaper-1db88a75314e@spud>
 References: <20230625140931.1266216-1-songshuaishuai@tinylab.org>
+ <20230625140931.1266216-2-songshuaishuai@tinylab.org>
 MIME-Version: 1.0
-In-Reply-To: <20230625140931.1266216-1-songshuaishuai@tinylab.org>
+In-Reply-To: <20230625140931.1266216-2-songshuaishuai@tinylab.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230625_071704_034924_76E638D5 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20230625_071856_985044_AEAEFFB5 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,64 +76,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4725714666906938625=="
+Content-Type: multipart/mixed; boundary="===============4730979491246772864=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4725714666906938625==
+--===============4730979491246772864==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Z0/mXjtX89gmKaoG"
+	protocol="application/pgp-signature"; boundary="5rU6R4tPsIYzsO+l"
 Content-Disposition: inline
 
 
---Z0/mXjtX89gmKaoG
+--5rU6R4tPsIYzsO+l
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sun, Jun 25, 2023 at 10:09:28PM +0800, Song Shuai wrote:
-> We have encountered these two issues about huge-paged linear mapping sinc=
-e v6.4-rc1:=20
+On Sun, Jun 25, 2023 at 10:09:29PM +0800, Song Shuai wrote:
+> This reverts commit ed309ce522185583b163bd0c74f0d9f299fe1826.
 >=20
-> 1. Bug report: kernel paniced when system hibernates[1]
->  =20
-> OpenSbi [v0.8,v1.3) set the PMP regions as !no-map, and the commit 333506=
-8f8721=20
-> ("riscv: Use PUD/P4D/PGD pages for the linear mapping") mapped them in li=
-near mapping.
-> The hibernation process attempted to save/restore these mapped regions re=
-sulting in access fault.
+> With the commit 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the
+> linear mapping") reverted, the MIN_MEMBLOCK_ADDR points the kernel
+> load address which was placed at a PMD boundary.
+
+> And firmware always
+> correctly mark resident memory, or memory protected with PMP as
+> per the devicetree specification and/or the UEFI specification.
+
+But this is not true? The versions of OpenSBI that you mention in your
+cover letter do not do this.
+Please explain.
+
+> So those regions will not be mapped in the linear mapping and they
+> can be safely saved/restored by hibernation.
 >=20
-> This issue was temporarily fixed by commit ed309ce52218 ("RISC-V: mark hi=
-bernation as nonportable").
-> But as Alex's RFC and Rob's response stats in another thread [2] ,=20
-> "Hibernation is only one case. Speculative accesses could also occur."
-> So this fixing commit seems not the perfect answer to this issue.
+> Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+> ---
+>  arch/riscv/Kconfig | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 5966ad97c30c..17b5fc7f54d4 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -800,11 +800,8 @@ menu "Power management options"
+> =20
+>  source "kernel/power/Kconfig"
+> =20
+> -# Hibernation is only possible on systems where the SBI implementation h=
+as
+> -# marked its reserved memory as not accessible from, or does not run
+> -# from the same memory as, Linux
+>  config ARCH_HIBERNATION_POSSIBLE
+> -	def_bool NONPORTABLE
+> +	def_bool y
+> =20
+>  config ARCH_HIBERNATION_HEADER
+>  	def_bool HIBERNATION
+> --=20
+> 2.20.1
+>=20
 
-This is a misunderstanding, I was not attempting to fix the issue, but
-rather buy time to fix the problem properly, without regressing support
-for hibernation when we do.
-
-Cheers,
-Conor.
-
-
---Z0/mXjtX89gmKaoG
+--5rU6R4tPsIYzsO+l
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJhMVwAKCRB4tDGHoIJi
-0uGBAQC/QRJPIKKal1mDLC95zDLv81ngF6w3fK8jXGP+B9V4pQD9GCV8MCsnF1th
-HIFQcwNPiG7Zw5sBVtBjgefc18iGcwI=
-=cAQy
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJhMyQAKCRB4tDGHoIJi
+0ilaAP4rih3tvcajCwDW0SHvhQ9DqWJq0Zn2Vm8HAQG/CfO9vgEAmBEyl28RPpUW
+ZzBaowc8mzQh7JPK2GtFXOBJBQKwxwE=
+=/uWn
 -----END PGP SIGNATURE-----
 
---Z0/mXjtX89gmKaoG--
+--5rU6R4tPsIYzsO+l--
 
 
---===============4725714666906938625==
+--===============4730979491246772864==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -144,5 +162,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4725714666906938625==--
+--===============4730979491246772864==--
 
