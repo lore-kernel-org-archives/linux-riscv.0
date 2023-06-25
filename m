@@ -4,58 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B0EEB64DC
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 02:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53755EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 07:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kwhw9B4xB4aBueZDCdverO61hvLQhGkx1m56Svmfv2E=; b=KV3yhujZh9pwHFXKHszKtsVRYq
-	AZ7I+e1ZCv5bJcPTgFwhEyOScQfYrS45Xoa3GdV5RqmcC2vCPz7In8XwqXpGfl47mfa2YzQYeAEHI
-	S3ZGrHEhV4BGd6Fs89673ncDH5jWM4vgAA0PV4KFciNRpzrRxqDDLnUQQTaFuOVNgMGTHJWtUvQPi
-	crjnIuvzLcxGEwFXy/7apFxTOHa5Dk1pLxgWJ/TjfJ0NvjxgPoII7SzGS+BjwI2+pMXyhUZUAGf5N
-	B2xS7FDvETkEAanMtbbwEkW9OL2xqmDp6X8pi1s0SAMcIc8GyqiysO7FkgjH2aBDVGIbshoZ1q0Au
-	pz2NyDow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gT6Kl9HBYhuk9UH/En+TleG5WArv9Yp/PnSjSVsAbQw=; b=2oHRk74UsM1wJm
+	0BX+LS1GKGg+DrWlrpJ3vgAQ1ErMZN7Gjw9gg3lMmVDkUQHGz/GhnmEgij7Tz04GJvq7lQqyspboX
+	70YN/K6TzseVOM3vrED7jUlA4wd4/rMCvUdH22rDZZNpW67Zot+prqh6gxKyPm2q+aKngo+OBO4r5
+	XPsNTsLTdYf+tLWIcq8x6vImrU5IMN9PaH66henhvbedMOC1W3GMNmWx+8P9oDfPSeH7djz/LKoEQ
+	fJGWo8TyUV3w2LVNibJ2rL4l0SS6IwTbKR/r/hzQlTzoipn1O1RA/Tn2cYkUok/0T9yemYECLjLi+
+	uQ1KY1Mp1lXTLeVKM3jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDFaP-0072Vb-1T;
-	Sun, 25 Jun 2023 02:34:45 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1qDKe0-007QnT-0u;
+	Sun, 25 Jun 2023 07:58:48 +0000
+Received: from mga05.intel.com ([192.55.52.43])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDFaL-0072Tp-2F
-	for linux-riscv@lists.infradead.org;
-	Sun, 25 Jun 2023 02:34:43 +0000
-X-QQ-mid: bizesmtp71t1687660461t4hq4z3o
-Received: from [192.168.1.114] ( [58.240.82.166])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sun, 25 Jun 2023 10:34:19 +0800 (CST)
-X-QQ-SSF: 00200000000000B0B000000A0000000
-X-QQ-FEAT: 3Jh+sxPGtVmluKPKd5EUFDmRpnFkoh2ELXvzLjAxRXXaPj8SVbvXWVCCTaHze
-	v0SK3Wfa5mGPnjWlH+2ZUJpX+Qj+SHOJ+jhbbZ3BPKh3j7kBykWtYKDj59Obz4iOgi0kfzN
-	Hy+hS9pnPE5sEY0TWplX2piMdCNBDW+2wvJGsK3yoXAuYqmWGwY32LWOq3ws/986c5qLbp9
-	/huydVpiaEDyDs/8WH26qbOaCPJETst29tstzmwhRM+IspIT7X50lLOVw9YJ6Cfm3Yi864Q
-	rCuDEjTGPO8I4/o6CWkBt+x8TckBAGEeUisqHdvvrQ9eStxbEpb8NZ6TR17eduEtlgwOd5q
-	MmZCUzltkUIVBMW2aq4fW1WnhCEDpClaiy+Zt7u5hLyY20eh5U=
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10716706576352357094
-Message-ID: <F2A85F463CC9E2BC+a141a56b-4685-8fb1-4eb7-aa5dcf18f9f2@tinylab.org>
-Date: Sun, 25 Jun 2023 10:34:19 +0800
+	id 1qDKdv-007QlY-21;
+	Sun, 25 Jun 2023 07:58:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1687679923; x=1719215923;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=eTIwvrfKylgiLU30c+QKGL2VdYd5OeJbT6ROhsR0yJI=;
+  b=BaS8GFixg+b0Rv2y9rgXJZXHZJMB26aru050fc8B+JQ4qjGaA9x0Krok
+   +HIPFLax3U4nJDNmr8XS9XQX0w8PF5Xot97BDK3o3bbRc2ecwdptOLPT1
+   6RLnPOpFGRctkUPJQsO+AGg1YikbSWhaJe8BkQoZN5T+pQPLvSsnygS93
+   wcx5pzzmgGxh1+3ZnO+tZEH+7EplB+gqcoumhDuaC3h98R7blgPBpDG0p
+   ySGPtLG8Nej0KiWQhqhYFDXHHNVBY0ypqJqKVa9JVyBZMgiDXANMzYXm0
+   c53cO5d9aeJDUmPQ7nMU1b9nZWNt4ptWvQOxREC14jA66q00xGSIZH37c
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10751"; a="447419944"
+X-IronPort-AV: E=Sophos;i="6.01,156,1684825200"; 
+   d="scan'208";a="447419944"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2023 00:58:41 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10751"; a="693123135"
+X-IronPort-AV: E=Sophos;i="6.01,156,1684825200"; 
+   d="scan'208";a="693123135"
+Received: from lkp-server01.sh.intel.com (HELO 783282924a45) ([10.239.97.150])
+  by orsmga006.jf.intel.com with ESMTP; 25 Jun 2023 00:58:34 -0700
+Received: from kbuild by 783282924a45 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qDKdm-0009sJ-0Z;
+	Sun, 25 Jun 2023 07:58:34 +0000
+Date: Sun, 25 Jun 2023 15:57:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+	Hugh Dickins <hughd@google.com>,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v5 24/33] m68k: Convert various functions to use ptdescs
+Message-ID: <202306251513.WVzxgGxu-lkp@intel.com>
+References: <20230622205745.79707-25-vishal.moola@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.0
-Subject: Re: [PATCH v3 1/3] Documentation: arm: Add bootargs to the table of
- added DT parameters
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-References: <20230623095547.51881-1-alexghiti@rivosinc.com>
-From: Song Shuai <songshuaishuai@tinylab.org>
-In-Reply-To: <20230623095547.51881-1-alexghiti@rivosinc.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-3
+Content-Disposition: inline
+In-Reply-To: <20230622205745.79707-25-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230624_193442_040152_F82ACCB0 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20230625_005843_682598_76D68A23 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,38 +93,183 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMy82LzIzIDE3OjU1LCBBbGV4YW5kcmUgR2hpdGkg5YaZ6YGTOgo+IFRoZSBib290
-YXJncyBub2RlIGlzIGFsc28gYWRkZWQgYnkgdGhlIEVGSSBzdHViIGluIHRoZSBmdW5jdGlvbgo+
-IHVwZGF0ZV9mZHQoKSwgc28gYWRkIGl0IHRvIHRoZSB0YWJsZS4KPiAKPiBTaWduZWQtb2ZmLWJ5
-OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4gLS0tCj4gICBEb2N1
-bWVudGF0aW9uL2FybS91ZWZpLnJzdCB8IDQgKysrLQo+ICAgMSBmaWxlIGNoYW5nZWQsIDMgaW5z
-ZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+IAo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9u
-L2FybS91ZWZpLnJzdCBiL0RvY3VtZW50YXRpb24vYXJtL3VlZmkucnN0Cj4gaW5kZXggYmFlYmU2
-ODhhMDA2Li4yYjdhZDliZDdjZDIgMTAwNjQ0Cj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9hcm0vdWVm
-aS5yc3QKPiArKysgYi9Eb2N1bWVudGF0aW9uL2FybS91ZWZpLnJzdAo+IEBAIC01MCw3ICs1MCw3
-IEBAIFRoZSBzdHViIHBvcHVsYXRlcyB0aGUgRkRUIC9jaG9zZW4gbm9kZSB3aXRoIChhbmQgdGhl
-IGtlcm5lbCBzY2FucyBmb3IpIHRoZQo+ICAgZm9sbG93aW5nIHBhcmFtZXRlcnM6Cj4gICAKPiAg
-ID09PT09PT09PT09PT09PT09PT09PT09PT09ICA9PT09PT0gICA9PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09Cj4gLU5hbWUgICAgICAgICAgICAgICAgICAgICAgICBT
-aXplICAgICBEZXNjcmlwdGlvbgo+ICtOYW1lICAgICAgICAgICAgICAgICAgICAgICAgVHlwZSAg
-ICAgRGVzY3JpcHRpb24KPiAgID09PT09PT09PT09PT09PT09PT09PT09PT09ICA9PT09PT0gICA9
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Cj4gICBsaW51eCx1ZWZp
-LXN5c3RlbS10YWJsZSAgICAgNjQtYml0ICAgUGh5c2ljYWwgYWRkcmVzcyBvZiB0aGUgVUVGSSBT
-eXN0ZW0gVGFibGUuCj4gICAKPiBAQCAtNjcsNCArNjcsNiBAQCBsaW51eCx1ZWZpLW1tYXAtZGVz
-Yy12ZXIgICAgMzItYml0ICAgVmVyc2lvbiBvZiB0aGUgbW1hcCBkZXNjcmlwdG9yIGZvcm1hdC4K
-PiAgIAo+ICAga2FzbHItc2VlZCAgICAgICAgICAgICAgICAgIDY0LWJpdCAgIEVudHJvcHkgdXNl
-ZCB0byByYW5kb21pemUgdGhlIGtlcm5lbCBpbWFnZQo+ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIGJhc2UgYWRkcmVzcyBsb2NhdGlvbi4KPiArCj4gK2Jvb3RhcmdzICAg
-ICAgICAgICAgICAgICAgICBTdHJpbmcgICBLZXJuZWwgY29tbWFuZCBsaW5lCj4gICA9PT09PT09
-PT09PT09PT09PT09PT09PT09PSAgPT09PT09ICAgPT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PQoKUmV2aWV3ZWQtYnk6IFNvbmcgU2h1YWkgPHNvbmdzaHVhaXNodWFp
-QHRpbnlsYWIub3JnPgotLSAKVGhhbmtzClNvbmcgU2h1YWkKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Vishal,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on next-20230622]
+[cannot apply to akpm-mm/mm-everything powerpc/next powerpc/fixes s390/features geert-m68k/for-next geert-m68k/for-linus linus/master v6.4-rc7 v6.4-rc6 v6.4-rc5 v6.4-rc7]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Vishal-Moola-Oracle/mm-Add-PAGE_TYPE_OP-folio-functions/20230623-050011
+base:   next-20230622
+patch link:    https://lore.kernel.org/r/20230622205745.79707-25-vishal.moola%40gmail.com
+patch subject: [PATCH v5 24/33] m68k: Convert various functions to use ptdescs
+config: m68k-randconfig-s051-20230625 (https://download.01.org/0day-ci/archive/20230625/202306251513.WVzxgGxu-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 12.3.0
+reproduce: (https://download.01.org/0day-ci/archive/20230625/202306251513.WVzxgGxu-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202306251513.WVzxgGxu-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   In file included from arch/m68k/include/asm/pgalloc.h:12,
+                    from kernel/fork.c:103:
+   arch/m68k/include/asm/mcf_pgalloc.h: In function 'pgd_alloc':
+>> arch/m68k/include/asm/mcf_pgalloc.h:82:60: error: 'GFP_NOWARN' undeclared (first use in this function); did you mean 'GFP_NOWAIT'?
+      82 |         struct ptdesc *ptdesc = pagetable_alloc((GFP_DMA | GFP_NOWARN) &
+         |                                                            ^~~~~~~~~~
+         |                                                            GFP_NOWAIT
+   arch/m68k/include/asm/mcf_pgalloc.h:82:60: note: each undeclared identifier is reported only once for each function it appears in
+   arch/m68k/include/asm/mcf_pgalloc.h: At top level:
+>> arch/m68k/include/asm/mcf_pgalloc.h:23:16: warning: 'ptdesc_address' is static but used in inline function 'pte_alloc_one_kernel' which is not static
+      23 |         return ptdesc_address(ptdesc);
+         |                ^~~~~~~~~~~~~~
+>> arch/m68k/include/asm/mcf_pgalloc.h:17:33: warning: 'pagetable_alloc' is static but used in inline function 'pte_alloc_one_kernel' which is not static
+      17 |         struct ptdesc *ptdesc = pagetable_alloc((GFP_DMA | __GFP_ZERO) &
+         |                                 ^~~~~~~~~~~~~~~
+>> arch/m68k/include/asm/mcf_pgalloc.h:10:24: warning: 'virt_to_ptdesc' is static but used in inline function 'pte_free_kernel' which is not static
+      10 |         pagetable_free(virt_to_ptdesc(pte));
+         |                        ^~~~~~~~~~~~~~
+>> arch/m68k/include/asm/mcf_pgalloc.h:10:9: warning: 'pagetable_free' is static but used in inline function 'pte_free_kernel' which is not static
+      10 |         pagetable_free(virt_to_ptdesc(pte));
+         |         ^~~~~~~~~~~~~~
+--
+   In file included from arch/m68k/mm/mcfmmu.c:21:
+   arch/m68k/include/asm/mcf_pgalloc.h: In function 'pgd_alloc':
+>> arch/m68k/include/asm/mcf_pgalloc.h:82:60: error: 'GFP_NOWARN' undeclared (first use in this function); did you mean 'GFP_NOWAIT'?
+      82 |         struct ptdesc *ptdesc = pagetable_alloc((GFP_DMA | GFP_NOWARN) &
+         |                                                            ^~~~~~~~~~
+         |                                                            GFP_NOWAIT
+   arch/m68k/include/asm/mcf_pgalloc.h:82:60: note: each undeclared identifier is reported only once for each function it appears in
+   arch/m68k/mm/mcfmmu.c: At top level:
+   arch/m68k/mm/mcfmmu.c:36:13: warning: no previous prototype for 'paging_init' [-Wmissing-prototypes]
+      36 | void __init paging_init(void)
+         |             ^~~~~~~~~~~
+   arch/m68k/mm/mcfmmu.c: In function 'paging_init':
+   arch/m68k/mm/mcfmmu.c:41:37: warning: variable 'bootmem_end' set but not used [-Wunused-but-set-variable]
+      41 |         unsigned long next_pgtable, bootmem_end;
+         |                                     ^~~~~~~~~~~
+   arch/m68k/include/asm/mcf_pgalloc.h: At top level:
+>> arch/m68k/include/asm/mcf_pgalloc.h:23:16: warning: 'ptdesc_address' is static but used in inline function 'pte_alloc_one_kernel' which is not static
+      23 |         return ptdesc_address(ptdesc);
+         |                ^~~~~~~~~~~~~~
+>> arch/m68k/include/asm/mcf_pgalloc.h:17:33: warning: 'pagetable_alloc' is static but used in inline function 'pte_alloc_one_kernel' which is not static
+      17 |         struct ptdesc *ptdesc = pagetable_alloc((GFP_DMA | __GFP_ZERO) &
+         |                                 ^~~~~~~~~~~~~~~
+>> arch/m68k/include/asm/mcf_pgalloc.h:10:24: warning: 'virt_to_ptdesc' is static but used in inline function 'pte_free_kernel' which is not static
+      10 |         pagetable_free(virt_to_ptdesc(pte));
+         |                        ^~~~~~~~~~~~~~
+>> arch/m68k/include/asm/mcf_pgalloc.h:10:9: warning: 'pagetable_free' is static but used in inline function 'pte_free_kernel' which is not static
+      10 |         pagetable_free(virt_to_ptdesc(pte));
+         |         ^~~~~~~~~~~~~~
+
+
+vim +82 arch/m68k/include/asm/mcf_pgalloc.h
+
+     7	
+     8	extern inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
+     9	{
+  > 10		pagetable_free(virt_to_ptdesc(pte));
+    11	}
+    12	
+    13	extern const char bad_pmd_string[];
+    14	
+    15	extern inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
+    16	{
+  > 17		struct ptdesc *ptdesc = pagetable_alloc((GFP_DMA | __GFP_ZERO) &
+    18				~__GFP_HIGHMEM, 0);
+    19	
+    20		if (!ptdesc)
+    21			return NULL;
+    22	
+  > 23		return ptdesc_address(ptdesc);
+    24	}
+    25	
+    26	extern inline pmd_t *pmd_alloc_kernel(pgd_t *pgd, unsigned long address)
+    27	{
+    28		return (pmd_t *) pgd;
+    29	}
+    30	
+    31	#define pmd_populate(mm, pmd, pte) (pmd_val(*pmd) = (unsigned long)(pte))
+    32	
+    33	#define pmd_populate_kernel pmd_populate
+    34	
+    35	static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pgtable,
+    36					  unsigned long address)
+    37	{
+    38		struct ptdesc *ptdesc = virt_to_ptdesc(pgtable);
+    39	
+    40		pagetable_pte_dtor(ptdesc);
+    41		pagetable_free(ptdesc);
+    42	}
+    43	
+    44	static inline pgtable_t pte_alloc_one(struct mm_struct *mm)
+    45	{
+    46		struct ptdesc *ptdesc = pagetable_alloc(GFP_DMA | __GFP_ZERO, 0);
+    47		pte_t *pte;
+    48	
+    49		if (!ptdesc)
+    50			return NULL;
+    51		if (!pagetable_pte_ctor(ptdesc)) {
+    52			pagetable_free(ptdesc);
+    53			return NULL;
+    54		}
+    55	
+    56		pte = ptdesc_address(ptdesc);
+    57		return pte;
+    58	}
+    59	
+    60	static inline void pte_free(struct mm_struct *mm, pgtable_t pgtable)
+    61	{
+    62		struct ptdesc *ptdesc = virt_to_ptdesc(pgtable);
+    63	
+    64		pagetable_pte_dtor(ptdesc);
+    65		pagetable_free(ptdesc);
+    66	}
+    67	
+    68	/*
+    69	 * In our implementation, each pgd entry contains 1 pmd that is never allocated
+    70	 * or freed.  pgd_present is always 1, so this should never be called. -NL
+    71	 */
+    72	#define pmd_free(mm, pmd) BUG()
+    73	
+    74	static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
+    75	{
+    76		pagetable_free(virt_to_ptdesc(pgd));
+    77	}
+    78	
+    79	static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+    80	{
+    81		pgd_t *new_pgd;
+  > 82		struct ptdesc *ptdesc = pagetable_alloc((GFP_DMA | GFP_NOWARN) &
+    83				~__GFP_HIGHMEM, 0);
+    84	
+    85		if (!ptdesc)
+    86			return NULL;
+    87		new_pgd = ptdesc_address(ptdesc);
+    88	
+    89		memcpy(new_pgd, swapper_pg_dir, PTRS_PER_PGD * sizeof(pgd_t));
+    90		memset(new_pgd, 0, PAGE_OFFSET >> PGDIR_SHIFT);
+    91		return new_pgd;
+    92	}
+    93	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
