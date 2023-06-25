@@ -4,88 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD46EB64DC
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 15:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078ADEB64DC
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 16:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bIF6AtgTabMvJ9a5ZgvoK+cnhcBVY9DYgBJ5WmImrIo=; b=tLDgMSiQ0kbVNK
-	oqvgspJWKPqar5zPmdEZVGWSIdeggl/IB7B8qzKm6sy5f3fvKhH+wy+83saOjPYyce5/vtKr88ckd
-	I6O+gondzeeOCJh+JKfLeyNV0qtV9WWa0sPN4+E9qj+ummg+ub6+xWQKYhWN4Rp5vt9SEoMwsRoqq
-	a/b7m9iVctTI9RuunwCDhY0CzLJ207PilCuS8656iAt/oxM7TByLazykszyqxIWEWyMHLSR6TippE
-	7e/3Eyu86N+AwK5FA4PbsgZ+JBXP/fSIMB109vivapqUq2qfBJg+hT4J2S96C5Xq/Qq7qWsApn4at
-	fG5/3Gyc1+i87U5lmwRQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=m88ckw8oJk9Z5SDKHFOXHP3Z89HV/Iq49/HXh+ptscM=; b=G722uc2jBvxPjl
+	sUdl+MuXufIutFxbgkAw/HWG9iAV7VG4rWkHbJuKdxDonbaLnX6mewahXkxak2ya9r+RyMoO75DPY
+	3dXQvjx6nllTrJTLS4JtiWPpJbGICNXW+41MvWjoA8LUtnkc5oBIygJ9EUBJaEAXMiT1BnVxsOE2C
+	nEBRI1vTfZAF+WM9+cH5Am60diWmYVD2S76/SsIR2vUBltCca3knKFC3kiRFfGMMUlZpeGtiWaSMV
+	K77pJhlMj5ShjNAyjskvG0+kdD6uCHVUtdLOBIlS5z4hjkk78Xnf5S+Y0BSNSCTCtwCW/oyHQndYO
+	4cI5I6xN9jjFnsiWxXBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDS4V-008FQg-0h;
-	Sun, 25 Jun 2023 15:54:39 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1qDSOX-008HPn-2C;
+	Sun, 25 Jun 2023 16:15:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDS4R-008FPo-2z
-	for linux-riscv@lists.infradead.org;
-	Sun, 25 Jun 2023 15:54:37 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-668711086f4so1541051b3a.1
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Jun 2023 08:54:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1687708473; x=1690300473;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dm0YHk9E4TjGi+mptYCEwrzbtCNHUYnN3tCdH8cG8RE=;
-        b=LgAYrDKt/VuX88XVOEOOemi2wCnDBfvu9GjOFVgoRZAsrMAS+9yTqxFfIMPu8cnPkN
-         MG4GYKYuxCth3GoGMXXZfbRlKKmx8KRQ+UFO+HuA8MqJ6RQmk+txdGq5IMjZnJPOnJdG
-         BzMm0uG6IRiFKngAUNvpI2UHVA16QlHEcpueWgegGr1UxrlV9vqln7IgDjf12FwXT+Ep
-         GpInU1uGySQVbSoU6hEbnALoQ06n/3q6JIgCDX6lCBwoBONUUmUmKd/ON1TVg0f5a+Gd
-         NAD/a6PTCEiqeEK09DWRUKb8hUa2GUF75qJpNiRu3luKIRHD3GaO3/nNEXCHp/527bmh
-         leTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687708473; x=1690300473;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dm0YHk9E4TjGi+mptYCEwrzbtCNHUYnN3tCdH8cG8RE=;
-        b=NqlfiuRW8eygIe4lcvJjL2hDyvvLSXqeyiHlR9mIjrKQt3x0hmMu9Mvyth74VU5uJA
-         xlQUEsA8xlKBa+9ln18daQbGqTxJyKOOczKQdKejKgNh9YOk96rlbEQzhfjVoQGgxj0Q
-         yll1VAKc4s5bX+bO6zGdsSpejX8nJ2Du/1dispCtvj5pBeKKKi/14rnLRMiZGPW389eK
-         PfCavRcaE2qYP9YW5+HUhFc/E8XSC5+bdRGgVXF+NnuHcO3di43McMwE1/eXQa2sYpya
-         dTzK1T/HiUATrRfD6Z55RF8MtVTC5cNqX28DQSwB+uZkvl5+s9HznwvSfM86YXESA1oK
-         hDdg==
-X-Gm-Message-State: AC+VfDybdVAz9BZJmUFGbt2GGRPO89gWZYtrJJyDog2Ni9GJa6L+txHk
-	jPRu6D2K9K3CuTNQs+f9Sq3ymcmRA+pS50Epbdzrjv4BNmRwisGMQ/yj10mEX9xDvTOJv7Tepb7
-	NkHcW/4BPrfEY74FtUXf4L7PR85g96+JuqYRG9g3JcwStm1KNpYAKWXVF8TfFO42GtKiie2EQ42
-	RzxkxVxOoPCiA+
-X-Google-Smtp-Source: ACHHUZ57GFMQXQ7wTN8tUG+n+M0yxpH2Z1TavLPCGspR5byEl4VCFnRW1SfwJC9naZ62gDXvzkoZ1g==
-X-Received: by 2002:a05:6a20:a121:b0:126:23d:cd10 with SMTP id q33-20020a056a20a12100b00126023dcd10mr8673939pzk.21.1687708472818;
-        Sun, 25 Jun 2023 08:54:32 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id x21-20020aa793b5000000b00673e652985esm985123pff.44.2023.06.25.08.54.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Jun 2023 08:54:32 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com
-Cc: greentime.hu@sifive.com,
-	guoren@linux.alibaba.com,
-	bjorn@kernel.org,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Xianting Tian <xianting.tian@linux.alibaba.com>,
-	Mattias Nissler <mnissler@rivosinc.com>,
-	Richard Henderson <richard.henderson@linaro.org>
-Subject: [PATCH] riscv: vector: only enable interrupts in the first-use trap
-Date: Sun, 25 Jun 2023 15:54:15 +0000
-Message-Id: <20230625155416.18629-1-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
+	id 1qDSOR-008HNO-1j;
+	Sun, 25 Jun 2023 16:15:17 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id F114260BEE;
+	Sun, 25 Jun 2023 16:15:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E463C433C8;
+	Sun, 25 Jun 2023 16:15:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687709714;
+	bh=4/ubcrsJvqhBH/vtuVerDOnT8cLh0Z8x9NdrY0vOnlQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WstfenfqrQraRy6ufCoglL05809oMSEcRfUfndB4rQcusE2zI6TcMHkeBnayI84XA
+	 LeozoS1GxcgX6ngSkoBmbS3qtRRxpB4XJfcJ0UBAlF7QFxeCg91BLDI10maMfpngYE
+	 GUM0fRwCgV10clhNpI2PaQ4gob7CHex19G8gRldqPBuUpM78fGkBpM0UXT8ixelGSU
+	 z1J5NhvB3QyMnCUu0HFkwD1i+NEXK0yL9AmrFlsQbZjM/QMXh/KkJhf0b8d0tCsjR9
+	 O2Kt+FWy9X6r90AuucdbQ5DKiCYwwvRks6UN7t6Eai/BXzXsbKQsTn9de+dLQqBnA/
+	 HFT91PEpPBRoA==
+Date: Sun, 25 Jun 2023 19:14:17 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Andy Lutomirski <luto@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Kees Cook <keescook@chromium.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick P Edgecombe <rick.p.edgecombe@intel.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Song Liu <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	the arch/x86 maintainers <x86@kernel.org>
+Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and
+ jit_text_alloc()
+Message-ID: <20230625161417.GK52412@kernel.org>
+References: <20230616085038.4121892-1-rppt@kernel.org>
+ <20230616085038.4121892-3-rppt@kernel.org>
+ <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
+ <20230618080027.GA52412@kernel.org>
+ <a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230625_085436_035168_6705E8CC 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230625_091515_671391_D9A261A0 
+X-CRM114-Status: GOOD (  56.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,50 +101,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The function irqentry_exit_to_user_mode() must be called with interrupt
-disabled. The caller of do_trap_insn_illegal() also assumes running
-without interrupts. So, we should turn off interrupts after
-riscv_v_first_use_handler() returns.
+On Mon, Jun 19, 2023 at 10:09:02AM -0700, Andy Lutomirski wrote:
+> 
+> On Sun, Jun 18, 2023, at 1:00 AM, Mike Rapoport wrote:
+> > On Sat, Jun 17, 2023 at 01:38:29PM -0700, Andy Lutomirski wrote:
+> >> On Fri, Jun 16, 2023, at 1:50 AM, Mike Rapoport wrote:
+> >> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> >> >
+> >> > module_alloc() is used everywhere as a mean to allocate memory for code.
+> >> >
+> >> > Beside being semantically wrong, this unnecessarily ties all subsystems
+> >> > that need to allocate code, such as ftrace, kprobes and BPF to modules
+> >> > and puts the burden of code allocation to the modules code.
+> >> >
+> >> > Several architectures override module_alloc() because of various
+> >> > constraints where the executable memory can be located and this causes
+> >> > additional obstacles for improvements of code allocation.
+> >> >
+> >> > Start splitting code allocation from modules by introducing
+> >> > execmem_text_alloc(), execmem_free(), jit_text_alloc(), jit_free() APIs.
+> >> >
+> >> > Initially, execmem_text_alloc() and jit_text_alloc() are wrappers for
+> >> > module_alloc() and execmem_free() and jit_free() are replacements of
+> >> > module_memfree() to allow updating all call sites to use the new APIs.
+> >> >
+> >> > The intention semantics for new allocation APIs:
+> >> >
+> >> > * execmem_text_alloc() should be used to allocate memory that must reside
+> >> >   close to the kernel image, like loadable kernel modules and generated
+> >> >   code that is restricted by relative addressing.
+> >> >
+> >> > * jit_text_alloc() should be used to allocate memory for generated code
+> >> >   when there are no restrictions for the code placement. For
+> >> >   architectures that require that any code is within certain distance
+> >> >   from the kernel image, jit_text_alloc() will be essentially aliased to
+> >> >   execmem_text_alloc().
+> >> >
+> >> 
+> >> Is there anything in this series to help users do the appropriate
+> >> synchronization when the actually populate the allocated memory with
+> >> code?  See here, for example:
+> >
+> > This series only factors out the executable allocations from modules and
+> > puts them in a central place.
+> > Anything else would go on top after this lands.
+> 
+> Hmm.
+> 
+> On the one hand, there's nothing wrong with factoring out common code. On
+> the other hand, this is probably the right time to at least start
+> thinking about synchronization, at least to the extent that it might make
+> us want to change this API.  (I'm not at all saying that this series
+> should require changes -- I'm just saying that this is a good time to
+> think about how this should work.)
+> 
+> The current APIs, *and* the proposed jit_text_alloc() API, don't actually
+> look like the one think in the Linux ecosystem that actually
+> intelligently and efficiently maps new text into an address space:
+> mmap().
+> 
+> On x86, you can mmap() an existing file full of executable code PROT_EXEC
+> and jump to it with minimal synchronization (just the standard implicit
+> ordering in the kernel that populates the pages before setting up the
+> PTEs and whatever user synchronization is needed to avoid jumping into
+> the mapping before mmap() finishes).  It works across CPUs, and the only
+> possible way userspace can screw it up (for a read-only mapping of
+> read-only text, anyway) is to jump to the mapping too early, in which
+> case userspace gets a page fault.  Incoherence is impossible, and no one
+> needs to "serialize" (in the SDM sense).
+> 
+> I think the same sequence (from userspace's perspective) works on other
+> architectures, too, although I think more cache management is needed on
+> the kernel's end.  As far as I know, no Linux SMP architecture needs an
+> IPI to map executable text into usermode, but I could easily be wrong.
+> (IIRC RISC-V has very developer-unfriendly icache management, but I don't
+> remember the details.)
+> 
+> Of course, using ptrace or any other FOLL_FORCE to modify text on x86 is
+> rather fraught, and I bet many things do it wrong when userspace is
+> multithreaded.  But not in production because it's mostly not used in
+> production.)
+> 
+> But jit_text_alloc() can't do this, because the order of operations
+> doesn't match.  With jit_text_alloc(), the executable mapping shows up
+> before the text is populated, so there is no atomic change from not-there
+> to populated-and-executable.  Which means that there is an opportunity
+> for CPUs, speculatively or otherwise, to start filling various caches
+> with intermediate states of the text, which means that various
+> architectures (even x86!) may need serialization.
+> 
+> For eBPF- and module- like use cases, where JITting/code gen is quite
+> coarse-grained, perhaps something vaguely like:
+> 
+> jit_text_alloc() -> returns a handle and an executable virtual address,
+> but does *not* map it there
+> jit_text_write() -> write to that handle
+> jit_text_map() -> map it and synchronize if needed (no sync needed on
+> x86, I think)
+> 
+> could be more efficient and/or safer.
+> 
+> (Modules could use this too.  Getting alternatives right might take some
+> fiddling, because off the top of my head, this doesn't match how it works
+> now.)
+> 
+> To make alternatives easier, this could work, maybe (haven't fully
+> thought it through):
+> 
+> jit_text_alloc()
+> jit_text_map_rw_inplace() -> map at the target address, but RW, !X
+> 
+> write the text and apply alternatives
+> 
+> jit_text_finalize() -> change from RW to RX *and synchronize*
+> 
+> jit_text_finalize() would either need to wait for RCU (possibly extra
+> heavy weight RCU to get "serialization") or send an IPI.
 
-Fixes: cd054837243b ("riscv: Allocate user's vector context in the first-use trap")
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
----
- arch/riscv/kernel/traps.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+This essentially how modules work now. The memory is allocated RW, written
+and updated with alternatives and then made ROX in the end with set_memory
+APIs.
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 05ffdcd1424e..1595e246bda1 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -149,12 +149,18 @@ DO_ERROR_INFO(do_trap_insn_fault,
- 
- asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *regs)
- {
-+	bool handled;
-+
- 	if (user_mode(regs)) {
- 		irqentry_enter_from_user_mode(regs);
- 
- 		local_irq_enable();
- 
--		if (!riscv_v_first_use_handler(regs))
-+		handled = riscv_v_first_use_handler(regs);
-+
-+		local_irq_disable();
-+
-+		if (!handled)
- 			do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
- 				      "Oops - illegal instruction");
- 
+The issue with not having the memory mapped X when it's written is that we
+cannot use large pages to map it. One of the goals is to have executable
+memory mapped with large pages and make code allocator able to divide that
+page among several callers.
+
+So the idea was that jit_text_alloc() will have a cache of large pages
+mapped ROX, will allocate memory from those caches and there will be
+jit_update() that uses text poking for writing to that memory.
+
+Upon allocation of a large page to increase the cache, that large page will
+be "invalidated" by filling it with breakpoint instructions (e.g int3 on
+x86)
+
+To improve the performance of this process, we can write to !X copy and
+then text_poke it to the actual address in one go. This will require some
+changes to get the alternatives right.
+
 -- 
-2.17.1
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
