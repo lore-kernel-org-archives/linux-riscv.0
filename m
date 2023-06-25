@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F94EEB64DC
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 08:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA65BEB64DC
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 Jun 2023 12:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nZyGtZh+2Gc9X6aUmVquIRYTPd8Opp3tM8anSYU86bw=; b=akhb3g+S1AQsLC
-	H3zDMLYshMIyA+HCwSRKid3iUrz2SuiZI6NWgT52mR8Piqzh97m+s51np3JPsdNtBqH6H27/s/3BP
-	PqzpYkhMw23nepasH7U3v9kSUlgmxo30c/q/6KyuxpnPeQrb+0VzTc0YcORPh7EDnnis/VCOL2xqn
-	9WtTZpwq8Egn2KmsXpd3Se0gHI3JyOSQVRduYrqzjgOb58+bQXOEpFHi4Qler/uAquygMbWLeQdGL
-	x1NlpgUMCNNgnfQR/ULbkSTs2mTzOBflectsHnqnKUtSh9rV45AIk+xZ3JSGEluPBVKkiC/fESKr1
-	Jgv4I3gLidYrp6ETMdGQ==;
+	List-Owner; bh=ZtRs86vNigN1fNpwE72F9MDz+ai1NKQ+YL7cCxTEDSU=; b=CZ7ysqxxC+dpvY
+	XS7/SFxMtW9eFjIpESL9C/EDlePdcWq04TDc9uAy8RKWLwGvODqGbKqmSABIOlqYJ2r+Am1njC37n
+	meXkUNc+r2ISr00nihWf8XQKHCb3BMOFbVzscPtXNTSKHbMIfcONqYjClmTV/WWwx3xp5eQO1koC4
+	WsQVyQm7rjuWZVwr/8cy7/qcK1FOFRmXQuS7hB9bNO1Km3C0HU8b+9Wxg+jO4bcXO3R+SgejSB1pK
+	QP2Msodr0RjwsCD2yFOH0mLXWKZsmVN1uBAb78wtr6YxMlz/iRARmxEd4jvhMKfB1z76AFIZ/PbxC
+	1EPv4N4N153bzd/jH9uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDLT8-007VWd-2I;
-	Sun, 25 Jun 2023 08:51:38 +0000
-Received: from mail-yw1-f179.google.com ([209.85.128.179])
+	id 1qDOyk-0081Bw-0z;
+	Sun, 25 Jun 2023 12:36:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDLT5-007VUZ-0P;
-	Sun, 25 Jun 2023 08:51:36 +0000
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-5700b15c12fso23298817b3.1;
-        Sun, 25 Jun 2023 01:51:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687683092; x=1690275092;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=e/Aydrd9oAz9wF8VtbGA6a+XUUai3n6kkWsRZbAgo9o=;
-        b=F2xTkhV1LIHNjt8dA3q+jIrTcvB/EwIHQwqb61bTgUMaBxJaXG/xMB6ivEYFS19mw6
-         l5TvBXYiJu6E2uol16dvOmyqeRtP9zeRBlb0UkmZedlhlq3wyrhRSIYoPEeqnUlGNTFj
-         8QULpc8aqwhOwN9fHMXT0/FwowwNe1KhoGw2YBbo7jKvV+4/sLmf6e/uJr6YU1NV9P4z
-         Gu0w4y/eTI4v/SK9LT0759vHLpfN1QkCogddqAvlSD2f8b5M6p0FQmUmlpGmZftKGcGx
-         ycNdSx6+TgTicxmUW6t3jKuM7dr4SRqwCCh7PxzUI3PbmOO0TKu14sZjvD8MRrPcQBX6
-         zAag==
-X-Gm-Message-State: AC+VfDwqxY6ZwFKF8kLkigF/4/yEh9w/A4V+GgUPaMAh5lctziTDhWjG
-	UbJbEEdNY0G5c117qhQV7vtc5bc7u5X1ug==
-X-Google-Smtp-Source: ACHHUZ6Ys7UgKzU9+mUw2CYpxk7QkegJrsm4zxKLfx2MR3vJ32Dcz7KoAkURp6iPJkCVOYVvIz/z6A==
-X-Received: by 2002:a81:75d6:0:b0:56d:2e22:8b31 with SMTP id q205-20020a8175d6000000b0056d2e228b31mr30081695ywc.41.1687683092405;
-        Sun, 25 Jun 2023 01:51:32 -0700 (PDT)
-Received: from mail-yb1-f174.google.com (mail-yb1-f174.google.com. [209.85.219.174])
-        by smtp.gmail.com with ESMTPSA id i18-20020a0ddf12000000b0057328423a05sm729581ywe.80.2023.06.25.01.51.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 25 Jun 2023 01:51:31 -0700 (PDT)
-Received: by mail-yb1-f174.google.com with SMTP id 3f1490d57ef6-c1061f0c282so1488280276.1;
-        Sun, 25 Jun 2023 01:51:30 -0700 (PDT)
-X-Received: by 2002:a25:cc02:0:b0:c13:f86d:3324 with SMTP id
- l2-20020a25cc02000000b00c13f86d3324mr3724376ybf.14.1687683090555; Sun, 25 Jun
- 2023 01:51:30 -0700 (PDT)
+	id 1qDOyg-0081B7-2w
+	for linux-riscv@lists.infradead.org;
+	Sun, 25 Jun 2023 12:36:28 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A147660BB5;
+	Sun, 25 Jun 2023 12:36:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2920C433C8;
+	Sun, 25 Jun 2023 12:36:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687696585;
+	bh=u3i402/+JTuZyHnSMXBRgVRh6kqJvvV5masbo58+O08=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ka0ZF8isPRWjYVco5Sw5TNcvkSZTVTrEp8AETGNcpMawvMVSvoaNlUznpStREkG5R
+	 cjSybVyDKf7VWOvr/BvZyDXfFlNY18IcfQfbOmebwqguKQ7MJnqgBpXkcPCi6h41kG
+	 WhoPgDxdPW6AV5vcceiC3wEqFdnALkkt1ISx0MkW9Q8pQ7Tg5t9TI2Fg15fkEZnend
+	 rD4a5N6XFJwuAx/ALR4sZebkuOQMX1uzXEvOh/yOZ15S88vA1VvfgVMlocnrOabSTH
+	 z64jTsDxtz0/QAdfdHRHBgoC8Fqv4NRrGdbVed2iTwxlU4diY6O3TMrM+4KM8v7njl
+	 c5Jl0QGnpr44g==
+Date: Sun, 25 Jun 2023 20:24:56 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, bjorn@kernel.org,
+	Conor Dooley <conor@kernel.org>, llvm@lists.linux.dev,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	Arnd Bergmann <arnd@arndb.de>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] riscv: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+Message-ID: <ZJgyGD8ZSjVmiprB@xhacker>
+References: <20230622215327.GA1135447@dev-arch.thelio-3990X>
+ <mhng-6c34765c-126d-4e6c-8904-e002d49a4336@palmer-ri-x1c9a>
+ <20230622231803.GA1790165@dev-arch.thelio-3990X>
+ <ZJXTwqZIkXLxXaSi@google.com>
 MIME-Version: 1.0
-References: <20230622205745.79707-1-vishal.moola@gmail.com> <20230622205745.79707-25-vishal.moola@gmail.com>
-In-Reply-To: <20230622205745.79707-25-vishal.moola@gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Sun, 25 Jun 2023 10:51:19 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdU2ZM1oJ7=Br6nezLpxjDQo_07N3T-adOupDm0Jntp=Qg@mail.gmail.com>
-Message-ID: <CAMuHMdU2ZM1oJ7=Br6nezLpxjDQo_07N3T-adOupDm0Jntp=Qg@mail.gmail.com>
-Subject: Re: [PATCH v5 24/33] m68k: Convert various functions to use ptdescs
-To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org, 
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org, 
-	Hugh Dickins <hughd@google.com>, Mike Rapoport <rppt@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <ZJXTwqZIkXLxXaSi@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230625_015135_169912_C294670C 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20230625_053627_052252_3D310013 
+X-CRM114-Status: GOOD (  33.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +76,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVmlzaGFsLAoKT24gVGh1LCBKdW4gMjIsIDIwMjMgYXQgMTA6NTjigK9QTSBWaXNoYWwgTW9v
-bGEgKE9yYWNsZSkKPHZpc2hhbC5tb29sYUBnbWFpbC5jb20+IHdyb3RlOgo+IEFzIHBhcnQgb2Yg
-dGhlIGNvbnZlcnNpb25zIHRvIHJlcGxhY2UgcGd0YWJsZSBjb25zdHJ1Y3Rvci9kZXN0cnVjdG9y
-cyB3aXRoCj4gcHRkZXNjIGVxdWl2YWxlbnRzLCBjb252ZXJ0IHZhcmlvdXMgcGFnZSB0YWJsZSBm
-dW5jdGlvbnMgdG8gdXNlIHB0ZGVzY3MuCj4KPiBTb21lIG9mIHRoZSBmdW5jdGlvbnMgdXNlIHRo
-ZSAqZ2V0KnBhZ2UqKCkgaGVscGVyIGZ1bmN0aW9ucy4gQ29udmVydAo+IHRoZXNlIHRvIHVzZSBw
-YWdldGFibGVfYWxsb2MoKSBhbmQgcHRkZXNjX2FkZHJlc3MoKSBpbnN0ZWFkIHRvIGhlbHAKPiBz
-dGFuZGFyZGl6ZSBwYWdlIHRhYmxlcyBmdXJ0aGVyLgo+Cj4gU2lnbmVkLW9mZi1ieTogVmlzaGFs
-IE1vb2xhIChPcmFjbGUpIDx2aXNoYWwubW9vbGFAZ21haWwuY29tPgoKVGhhbmtzIGZvciB5b3Vy
-IHBhdGNoIQoKPiAtLS0gYS9hcmNoL202OGsvaW5jbHVkZS9hc20vbWNmX3BnYWxsb2MuaAo+ICsr
-KyBiL2FyY2gvbTY4ay9pbmNsdWRlL2FzbS9tY2ZfcGdhbGxvYy5oCgo+ICBzdGF0aWMgaW5saW5l
-IHBnZF90ICpwZ2RfYWxsb2Moc3RydWN0IG1tX3N0cnVjdCAqbW0pCj4gIHsKPiAgICAgICAgIHBn
-ZF90ICpuZXdfcGdkOwo+ICsgICAgICAgc3RydWN0IHB0ZGVzYyAqcHRkZXNjID0gcGFnZXRhYmxl
-X2FsbG9jKChHRlBfRE1BIHwgR0ZQX05PV0FSTikgJgoKMC1kYXkgYWxyZWFkeSB0b2xkIHlvdSBm
-b3IgdjMgdGhhdCBHRlBfTk9XQVJOIGRvZXMgbm90IGV4aXN0LgpQbGVhc2UgdHJ5IGNyb3NzLWNv
-bXBpbGluZyB5b3VyIGNoYW5nZXM6Cmh0dHBzOi8vbWlycm9ycy5lZGdlLmtlcm5lbC5vcmcvcHVi
-L3Rvb2xzL2Nyb3NzdG9vbC8KCj4gKyAgICAgICAgICAgICAgICAgICAgICAgfl9fR0ZQX0hJR0hN
-RU0sIDApOwo+Cj4gLSAgICAgICBuZXdfcGdkID0gKHBnZF90ICopX19nZXRfZnJlZV9wYWdlKEdG
-UF9ETUEgfCBfX0dGUF9OT1dBUk4pOwo+IC0gICAgICAgaWYgKCFuZXdfcGdkKQo+ICsgICAgICAg
-aWYgKCFwdGRlc2MpCj4gICAgICAgICAgICAgICAgIHJldHVybiBOVUxMOwo+ICsgICAgICAgbmV3
-X3BnZCA9IHB0ZGVzY19hZGRyZXNzKHB0ZGVzYyk7Cj4gKwo+ICAgICAgICAgbWVtY3B5KG5ld19w
-Z2QsIHN3YXBwZXJfcGdfZGlyLCBQVFJTX1BFUl9QR0QgKiBzaXplb2YocGdkX3QpKTsKPiAgICAg
-ICAgIG1lbXNldChuZXdfcGdkLCAwLCBQQUdFX09GRlNFVCA+PiBQR0RJUl9TSElGVCk7Cj4gICAg
-ICAgICByZXR1cm4gbmV3X3BnZDsKCkdye29ldGplLGVldGluZ31zLAoKICAgICAgICAgICAgICAg
-ICAgICAgICAgR2VlcnQKCi0tIApHZWVydCBVeXR0ZXJob2V2ZW4gLS0gVGhlcmUncyBsb3RzIG9m
-IExpbnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4LW02OGsub3JnCgpJbiBwZXJzb25hbCBj
-b252ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15c2VsZiBhIGhhY2tl
-ci4gQnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5hbGlzdHMgSSBqdXN0IHNheSAicHJvZ3Jh
-bW1lciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAtLSBMaW51cyBUb3J2YWxkcwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+On Fri, Jun 23, 2023 at 10:17:54AM -0700, Nick Desaulniers wrote:
+> On Thu, Jun 22, 2023 at 11:18:03PM +0000, Nathan Chancellor wrote:
+> > If you wanted to restrict it to just LD_IS_BFD in arch/riscv/Kconfig,
+> > that would be fine with me too.
+> > 
+> >   select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if LD_IS_BFD
+> 
+> Hi Jisheng, would you mind sending a v3 with the attached patch applied
+> on top / at the end of your series?
+
+Hi Nick, Nathan, Palmer,
+
+I saw the series has been applied to riscv-next, so I'm not sure which
+solution would it be, Palmer to apply Nick's patch to riscv-next or
+I to send out v3, any suggestion is appreciated.
+
+Thanks
+> 
+> > 
+> > Nick said he would work on a report for the LLVM side, so as long as
+> > this issue is handled in some way to avoid regressing LLD builds until
+> > it is resolved, I don't think there is anything else for the kernel to
+> > do. We like to have breadcrumbs via issue links, not sure if the report
+> > will be internal to Google or on LLVM's issue tracker though;
+> > regardless, we will have to touch this block to add a version check
+> > later, at which point we can add a link to the fix in LLD.
+> 
+> https://github.com/ClangBuiltLinux/linux/issues/1881
+
+> From 3e5e010958ee41b9fb408cfade8fb017c2fe7169 Mon Sep 17 00:00:00 2001
+> From: Nick Desaulniers <ndesaulniers@google.com>
+> Date: Fri, 23 Jun 2023 10:06:17 -0700
+> Subject: [PATCH] riscv: disable HAVE_LD_DEAD_CODE_DATA_ELIMINATION for LLD
+> 
+> Linking allyesconfig with ld.lld-17 with CONFIG_DEAD_CODE_ELIMINATION=y
+> takes hours.  Assuming this is a performance regression that can be
+> fixed, tentatively disable this for now so that allyesconfig builds
+> don't start timing out.  If and when there's a fix to ld.lld, this can
+> be converted to a version check instead so that users of older but still
+> supported versions of ld.lld don't hurt themselves by enabling
+> CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=y.
+> 
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1881
+> Reported-by: Palmer Dabbelt <palmer@dabbelt.com>
+> Suggested-by: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> ---
+> Hi Jisheng, would you mind sending a v3 with this patch on top/at the
+> end of your patch series?
+> 
+>  arch/riscv/Kconfig | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 8effe5bb7788..0573991e9b78 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -116,7 +116,8 @@ config RISCV
+>  	select HAVE_KPROBES if !XIP_KERNEL
+>  	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+>  	select HAVE_KRETPROBES if !XIP_KERNEL
+> -	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION
+> +	# https://github.com/ClangBuiltLinux/linux/issues/1881
+> +	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
+>  	select HAVE_MOVE_PMD
+>  	select HAVE_MOVE_PUD
+>  	select HAVE_PCI
+> -- 
+> 2.41.0.162.gfafddb0af9-goog
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
