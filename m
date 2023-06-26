@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22530EB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 12:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F2B6EB64D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 12:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MIM+arapBtGaRojVC8c5IBwavuFQUc7DKdj60q/usJY=; b=4L07QPuAB/wxWl
-	szVcXNK//iFRau+feRHhYmUizwNVa/PON40nuHnGoVPRmSq2s1ZCRHt7EhqLhm2RzR8psOihCDbb3
-	jhD54mBDTE+G+4hiIV55aflsSaXQPh/ujqhIJjcPSRIo3tEF5O8YqJ60ZbzcMAxw/QQ6VuW9C2kxK
-	piKMtobuZoJFWaStA+9N4QuF82SR3t35npCREJ/gOQpyG9k8yRT5SKr4u72HNmS1HsLWitDw/3SsI
-	aBwq+PNnhB8tFI9iqU2LPSNHrQBSqjWi7O4O9D4g04RyCDgPLpErDTjiF7n4dwciRAEp4qMGd8t2E
-	mjShVH8/XIbZooZ06QMQ==;
+	List-Owner; bh=vBWreBhpLDyS6Tit3/6wvNOWi3hp1pKZs85oosIGDhQ=; b=hFUbwGeg/J1Lvw
+	am+SA4J3QLVOKrFhg34/bSI66o8u3MEL1S02FSW3zUM+x4GbQc2KEp+noVfe28D6Pvrz7l2CUbAcM
+	nf+cCFx0R7UcoQyGTx9yPZ+VVd7TrxJdD6PVJs3aApkgzQAp9mcOGtfUV7OIA26FRm3KWG9By86VS
+	qIbxtHLsBHILjyyyFQJgm/+3QAAfnrHnRD6izCp+xG5hiVgl3v4V6wdPlAnrt07onYo0J80LtpK40
+	Ay0aHu+8NRfVqM+1+hxnjAt4coZqp7cUJRjHjQosnDjf6zv9UXAkVi/xKGEWvyvNH6fI3TjoB8aa+
+	l35mmI4hTM3OO9qQogUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDlFu-00AC7e-0E;
-	Mon, 26 Jun 2023 12:23:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1qDlHl-00ACQv-2C;
+	Mon, 26 Jun 2023 12:25:37 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDlFp-00AC4e-0r;
-	Mon, 26 Jun 2023 12:23:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E14312F4;
-	Mon, 26 Jun 2023 05:24:12 -0700 (PDT)
-Received: from FVFF77S0Q05N (unknown [10.57.23.38])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA5173F64C;
-	Mon, 26 Jun 2023 05:23:22 -0700 (PDT)
-Date: Mon, 26 Jun 2023 13:23:17 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Puranjay Mohan <puranjay12@gmail.com>
-Cc: Song Liu <song@kernel.org>, Kent Overstreet <kent.overstreet@linux.dev>,
-	Mike Rapoport <rppt@kernel.org>, Andy Lutomirski <luto@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>,
-	"Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, netdev@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	the arch/x86 maintainers <x86@kernel.org>, pjt@google.com,
-	torvalds@linux-foundation.org
-Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and
- jit_text_alloc()
-Message-ID: <ZJmDNbY009G3haH9@FVFF77S0Q05N>
-References: <20230616085038.4121892-3-rppt@kernel.org>
- <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
- <20230618080027.GA52412@kernel.org>
- <a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com>
- <20230625161417.GK52412@kernel.org>
- <90161ac9-3ca0-4c72-b1c4-ab1293e55445@app.fastmail.com>
- <20230625174257.GL52412@kernel.org>
- <20230625180741.jrrtkq55c4jrqh3t@moria.home.lan>
- <CAPhsuW45gmtCVgA0mg6X87x5EOzSmVqq3SCMSR6agyiukiJvEQ@mail.gmail.com>
- <CANk7y0jcakmuF4e9x8z7ZUra=MPx-=xxb0JZ3RrJ+S9Eb9-0_g@mail.gmail.com>
+	id 1qDlHf-00ACPG-0p
+	for linux-riscv@lists.infradead.org;
+	Mon, 26 Jun 2023 12:25:35 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 9C6927FEF;
+	Mon, 26 Jun 2023 20:25:06 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
+ 2023 20:25:06 +0800
+Received: from [192.168.125.124] (113.72.146.167) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
+ 2023 20:25:05 +0800
+Message-ID: <21979d63-1ae7-bda2-f730-4eea5e7de195@starfivetech.com>
+Date: Mon, 26 Jun 2023 20:25:04 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CANk7y0jcakmuF4e9x8z7ZUra=MPx-=xxb0JZ3RrJ+S9Eb9-0_g@mail.gmail.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH v1 4/5] ASoC: starfive: Add JH7110 PWM-DAC driver
+Content-Language: en-US
+To: Hal Feng <hal.feng@starfivetech.com>, Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor@kernel.org>, Xingyu Wu <xingyu.wu@starfivetech.com>, "Emil Renner
+ Berthing" <emil.renner.berthing@canonical.com>, Claudiu Beznea
+	<Claudiu.Beznea@microchip.com>
+CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20230626110909.38718-1-hal.feng@starfivetech.com>
+ <20230626110909.38718-5-hal.feng@starfivetech.com>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <20230626110909.38718-5-hal.feng@starfivetech.com>
+X-Originating-IP: [113.72.146.167]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_052337_419074_70FA2467 
-X-CRM114-Status: GOOD (  73.75  )
+X-CRM114-CacheID: sfid-20230626_052531_960070_F73599D0 
+X-CRM114-Status: GOOD (  24.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,203 +76,870 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMjYsIDIwMjMgYXQgMTE6NTQ6MDJBTSArMDIwMCwgUHVyYW5qYXkgTW9oYW4g
-d3JvdGU6Cj4gT24gTW9uLCBKdW4gMjYsIDIwMjMgYXQgODoxM+KAr0FNIFNvbmcgTGl1IDxzb25n
-QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IE9uIFN1biwgSnVuIDI1LCAyMDIzIGF0IDExOjA3
-4oCvQU0gS2VudCBPdmVyc3RyZWV0Cj4gPiA8a2VudC5vdmVyc3RyZWV0QGxpbnV4LmRldj4gd3Jv
-dGU6Cj4gPiA+Cj4gPiA+IE9uIFN1biwgSnVuIDI1LCAyMDIzIGF0IDA4OjQyOjU3UE0gKzAzMDAs
-IE1pa2UgUmFwb3BvcnQgd3JvdGU6Cj4gPiA+ID4gT24gU3VuLCBKdW4gMjUsIDIwMjMgYXQgMDk6
-NTk6MzRBTSAtMDcwMCwgQW5keSBMdXRvbWlyc2tpIHdyb3RlOgo+ID4gPiA+ID4KPiA+ID4gPiA+
-Cj4gPiA+ID4gPiBPbiBTdW4sIEp1biAyNSwgMjAyMywgYXQgOToxNCBBTSwgTWlrZSBSYXBvcG9y
-dCB3cm90ZToKPiA+ID4gPiA+ID4gT24gTW9uLCBKdW4gMTksIDIwMjMgYXQgMTA6MDk6MDJBTSAt
-MDcwMCwgQW5keSBMdXRvbWlyc2tpIHdyb3RlOgo+ID4gPiA+ID4gPj4KPiA+ID4gPiA+ID4+IE9u
-IFN1biwgSnVuIDE4LCAyMDIzLCBhdCAxOjAwIEFNLCBNaWtlIFJhcG9wb3J0IHdyb3RlOgo+ID4g
-PiA+ID4gPj4gPiBPbiBTYXQsIEp1biAxNywgMjAyMyBhdCAwMTozODoyOVBNIC0wNzAwLCBBbmR5
-IEx1dG9taXJza2kgd3JvdGU6Cj4gPiA+ID4gPiA+PiA+PiBPbiBGcmksIEp1biAxNiwgMjAyMywg
-YXQgMTo1MCBBTSwgTWlrZSBSYXBvcG9ydCB3cm90ZToKPiA+ID4gPiA+ID4+ID4+ID4gRnJvbTog
-Ik1pa2UgUmFwb3BvcnQgKElCTSkiIDxycHB0QGtlcm5lbC5vcmc+Cj4gPiA+ID4gPiA+PiA+PiA+
-Cj4gPiA+ID4gPiA+PiA+PiA+IG1vZHVsZV9hbGxvYygpIGlzIHVzZWQgZXZlcnl3aGVyZSBhcyBh
-IG1lYW4gdG8gYWxsb2NhdGUgbWVtb3J5IGZvciBjb2RlLgo+ID4gPiA+ID4gPj4gPj4gPgo+ID4g
-PiA+ID4gPj4gPj4gPiBCZXNpZGUgYmVpbmcgc2VtYW50aWNhbGx5IHdyb25nLCB0aGlzIHVubmVj
-ZXNzYXJpbHkgdGllcyBhbGwgc3Vic3lzdGVtcwo+ID4gPiA+ID4gPj4gPj4gPiB0aGF0IG5lZWQg
-dG8gYWxsb2NhdGUgY29kZSwgc3VjaCBhcyBmdHJhY2UsIGtwcm9iZXMgYW5kIEJQRiB0byBtb2R1
-bGVzCj4gPiA+ID4gPiA+PiA+PiA+IGFuZCBwdXRzIHRoZSBidXJkZW4gb2YgY29kZSBhbGxvY2F0
-aW9uIHRvIHRoZSBtb2R1bGVzIGNvZGUuCj4gPiA+ID4gPiA+PiA+PiA+Cj4gPiA+ID4gPiA+PiA+
-PiA+IFNldmVyYWwgYXJjaGl0ZWN0dXJlcyBvdmVycmlkZSBtb2R1bGVfYWxsb2MoKSBiZWNhdXNl
-IG9mIHZhcmlvdXMKPiA+ID4gPiA+ID4+ID4+ID4gY29uc3RyYWludHMgd2hlcmUgdGhlIGV4ZWN1
-dGFibGUgbWVtb3J5IGNhbiBiZSBsb2NhdGVkIGFuZCB0aGlzIGNhdXNlcwo+ID4gPiA+ID4gPj4g
-Pj4gPiBhZGRpdGlvbmFsIG9ic3RhY2xlcyBmb3IgaW1wcm92ZW1lbnRzIG9mIGNvZGUgYWxsb2Nh
-dGlvbi4KPiA+ID4gPiA+ID4+ID4+ID4KPiA+ID4gPiA+ID4+ID4+ID4gU3RhcnQgc3BsaXR0aW5n
-IGNvZGUgYWxsb2NhdGlvbiBmcm9tIG1vZHVsZXMgYnkgaW50cm9kdWNpbmcKPiA+ID4gPiA+ID4+
-ID4+ID4gZXhlY21lbV90ZXh0X2FsbG9jKCksIGV4ZWNtZW1fZnJlZSgpLCBqaXRfdGV4dF9hbGxv
-YygpLCBqaXRfZnJlZSgpIEFQSXMuCj4gPiA+ID4gPiA+PiA+PiA+Cj4gPiA+ID4gPiA+PiA+PiA+
-IEluaXRpYWxseSwgZXhlY21lbV90ZXh0X2FsbG9jKCkgYW5kIGppdF90ZXh0X2FsbG9jKCkgYXJl
-IHdyYXBwZXJzIGZvcgo+ID4gPiA+ID4gPj4gPj4gPiBtb2R1bGVfYWxsb2MoKSBhbmQgZXhlY21l
-bV9mcmVlKCkgYW5kIGppdF9mcmVlKCkgYXJlIHJlcGxhY2VtZW50cyBvZgo+ID4gPiA+ID4gPj4g
-Pj4gPiBtb2R1bGVfbWVtZnJlZSgpIHRvIGFsbG93IHVwZGF0aW5nIGFsbCBjYWxsIHNpdGVzIHRv
-IHVzZSB0aGUgbmV3IEFQSXMuCj4gPiA+ID4gPiA+PiA+PiA+Cj4gPiA+ID4gPiA+PiA+PiA+IFRo
-ZSBpbnRlbnRpb24gc2VtYW50aWNzIGZvciBuZXcgYWxsb2NhdGlvbiBBUElzOgo+ID4gPiA+ID4g
-Pj4gPj4gPgo+ID4gPiA+ID4gPj4gPj4gPiAqIGV4ZWNtZW1fdGV4dF9hbGxvYygpIHNob3VsZCBi
-ZSB1c2VkIHRvIGFsbG9jYXRlIG1lbW9yeSB0aGF0IG11c3QgcmVzaWRlCj4gPiA+ID4gPiA+PiA+
-PiA+ICAgY2xvc2UgdG8gdGhlIGtlcm5lbCBpbWFnZSwgbGlrZSBsb2FkYWJsZSBrZXJuZWwgbW9k
-dWxlcyBhbmQgZ2VuZXJhdGVkCj4gPiA+ID4gPiA+PiA+PiA+ICAgY29kZSB0aGF0IGlzIHJlc3Ry
-aWN0ZWQgYnkgcmVsYXRpdmUgYWRkcmVzc2luZy4KPiA+ID4gPiA+ID4+ID4+ID4KPiA+ID4gPiA+
-ID4+ID4+ID4gKiBqaXRfdGV4dF9hbGxvYygpIHNob3VsZCBiZSB1c2VkIHRvIGFsbG9jYXRlIG1l
-bW9yeSBmb3IgZ2VuZXJhdGVkIGNvZGUKPiA+ID4gPiA+ID4+ID4+ID4gICB3aGVuIHRoZXJlIGFy
-ZSBubyByZXN0cmljdGlvbnMgZm9yIHRoZSBjb2RlIHBsYWNlbWVudC4gRm9yCj4gPiA+ID4gPiA+
-PiA+PiA+ICAgYXJjaGl0ZWN0dXJlcyB0aGF0IHJlcXVpcmUgdGhhdCBhbnkgY29kZSBpcyB3aXRo
-aW4gY2VydGFpbiBkaXN0YW5jZQo+ID4gPiA+ID4gPj4gPj4gPiAgIGZyb20gdGhlIGtlcm5lbCBp
-bWFnZSwgaml0X3RleHRfYWxsb2MoKSB3aWxsIGJlIGVzc2VudGlhbGx5IGFsaWFzZWQgdG8KPiA+
-ID4gPiA+ID4+ID4+ID4gICBleGVjbWVtX3RleHRfYWxsb2MoKS4KPiA+ID4gPiA+ID4+ID4+ID4K
-PiA+ID4gPiA+ID4+ID4+Cj4gPiA+ID4gPiA+PiA+PiBJcyB0aGVyZSBhbnl0aGluZyBpbiB0aGlz
-IHNlcmllcyB0byBoZWxwIHVzZXJzIGRvIHRoZSBhcHByb3ByaWF0ZQo+ID4gPiA+ID4gPj4gPj4g
-c3luY2hyb25pemF0aW9uIHdoZW4gdGhlIGFjdHVhbGx5IHBvcHVsYXRlIHRoZSBhbGxvY2F0ZWQg
-bWVtb3J5IHdpdGgKPiA+ID4gPiA+ID4+ID4+IGNvZGU/ICBTZWUgaGVyZSwgZm9yIGV4YW1wbGU6
-Cj4gPiA+ID4gPiA+PiA+Cj4gPiA+ID4gPiA+PiA+IFRoaXMgc2VyaWVzIG9ubHkgZmFjdG9ycyBv
-dXQgdGhlIGV4ZWN1dGFibGUgYWxsb2NhdGlvbnMgZnJvbSBtb2R1bGVzIGFuZAo+ID4gPiA+ID4g
-Pj4gPiBwdXRzIHRoZW0gaW4gYSBjZW50cmFsIHBsYWNlLgo+ID4gPiA+ID4gPj4gPiBBbnl0aGlu
-ZyBlbHNlIHdvdWxkIGdvIG9uIHRvcCBhZnRlciB0aGlzIGxhbmRzLgo+ID4gPiA+ID4gPj4KPiA+
-ID4gPiA+ID4+IEhtbS4KPiA+ID4gPiA+ID4+Cj4gPiA+ID4gPiA+PiBPbiB0aGUgb25lIGhhbmQs
-IHRoZXJlJ3Mgbm90aGluZyB3cm9uZyB3aXRoIGZhY3RvcmluZyBvdXQgY29tbW9uIGNvZGUuIE9u
-Cj4gPiA+ID4gPiA+PiB0aGUgb3RoZXIgaGFuZCwgdGhpcyBpcyBwcm9iYWJseSB0aGUgcmlnaHQg
-dGltZSB0byBhdCBsZWFzdCBzdGFydAo+ID4gPiA+ID4gPj4gdGhpbmtpbmcgYWJvdXQgc3luY2hy
-b25pemF0aW9uLCBhdCBsZWFzdCB0byB0aGUgZXh0ZW50IHRoYXQgaXQgbWlnaHQgbWFrZQo+ID4g
-PiA+ID4gPj4gdXMgd2FudCB0byBjaGFuZ2UgdGhpcyBBUEkuICAoSSdtIG5vdCBhdCBhbGwgc2F5
-aW5nIHRoYXQgdGhpcyBzZXJpZXMKPiA+ID4gPiA+ID4+IHNob3VsZCByZXF1aXJlIGNoYW5nZXMg
-LS0gSSdtIGp1c3Qgc2F5aW5nIHRoYXQgdGhpcyBpcyBhIGdvb2QgdGltZSB0bwo+ID4gPiA+ID4g
-Pj4gdGhpbmsgYWJvdXQgaG93IHRoaXMgc2hvdWxkIHdvcmsuKQo+ID4gPiA+ID4gPj4KPiA+ID4g
-PiA+ID4+IFRoZSBjdXJyZW50IEFQSXMsICphbmQqIHRoZSBwcm9wb3NlZCBqaXRfdGV4dF9hbGxv
-YygpIEFQSSwgZG9uJ3QgYWN0dWFsbHkKPiA+ID4gPiA+ID4+IGxvb2sgbGlrZSB0aGUgb25lIHRo
-aW5rIGluIHRoZSBMaW51eCBlY29zeXN0ZW0gdGhhdCBhY3R1YWxseQo+ID4gPiA+ID4gPj4gaW50
-ZWxsaWdlbnRseSBhbmQgZWZmaWNpZW50bHkgbWFwcyBuZXcgdGV4dCBpbnRvIGFuIGFkZHJlc3Mg
-c3BhY2U6Cj4gPiA+ID4gPiA+PiBtbWFwKCkuCj4gPiA+ID4gPiA+Pgo+ID4gPiA+ID4gPj4gT24g
-eDg2LCB5b3UgY2FuIG1tYXAoKSBhbiBleGlzdGluZyBmaWxlIGZ1bGwgb2YgZXhlY3V0YWJsZSBj
-b2RlIFBST1RfRVhFQwo+ID4gPiA+ID4gPj4gYW5kIGp1bXAgdG8gaXQgd2l0aCBtaW5pbWFsIHN5
-bmNocm9uaXphdGlvbiAoanVzdCB0aGUgc3RhbmRhcmQgaW1wbGljaXQKPiA+ID4gPiA+ID4+IG9y
-ZGVyaW5nIGluIHRoZSBrZXJuZWwgdGhhdCBwb3B1bGF0ZXMgdGhlIHBhZ2VzIGJlZm9yZSBzZXR0
-aW5nIHVwIHRoZQo+ID4gPiA+ID4gPj4gUFRFcyBhbmQgd2hhdGV2ZXIgdXNlciBzeW5jaHJvbml6
-YXRpb24gaXMgbmVlZGVkIHRvIGF2b2lkIGp1bXBpbmcgaW50bwo+ID4gPiA+ID4gPj4gdGhlIG1h
-cHBpbmcgYmVmb3JlIG1tYXAoKSBmaW5pc2hlcykuICBJdCB3b3JrcyBhY3Jvc3MgQ1BVcywgYW5k
-IHRoZSBvbmx5Cj4gPiA+ID4gPiA+PiBwb3NzaWJsZSB3YXkgdXNlcnNwYWNlIGNhbiBzY3JldyBp
-dCB1cCAoZm9yIGEgcmVhZC1vbmx5IG1hcHBpbmcgb2YKPiA+ID4gPiA+ID4+IHJlYWQtb25seSB0
-ZXh0LCBhbnl3YXkpIGlzIHRvIGp1bXAgdG8gdGhlIG1hcHBpbmcgdG9vIGVhcmx5LCBpbiB3aGlj
-aAo+ID4gPiA+ID4gPj4gY2FzZSB1c2Vyc3BhY2UgZ2V0cyBhIHBhZ2UgZmF1bHQuICBJbmNvaGVy
-ZW5jZSBpcyBpbXBvc3NpYmxlLCBhbmQgbm8gb25lCj4gPiA+ID4gPiA+PiBuZWVkcyB0byAic2Vy
-aWFsaXplIiAoaW4gdGhlIFNETSBzZW5zZSkuCj4gPiA+ID4gPiA+Pgo+ID4gPiA+ID4gPj4gSSB0
-aGluayB0aGUgc2FtZSBzZXF1ZW5jZSAoZnJvbSB1c2Vyc3BhY2UncyBwZXJzcGVjdGl2ZSkgd29y
-a3Mgb24gb3RoZXIKPiA+ID4gPiA+ID4+IGFyY2hpdGVjdHVyZXMsIHRvbywgYWx0aG91Z2ggSSB0
-aGluayBtb3JlIGNhY2hlIG1hbmFnZW1lbnQgaXMgbmVlZGVkIG9uCj4gPiA+ID4gPiA+PiB0aGUg
-a2VybmVsJ3MgZW5kLiAgQXMgZmFyIGFzIEkga25vdywgbm8gTGludXggU01QIGFyY2hpdGVjdHVy
-ZSBuZWVkcyBhbgo+ID4gPiA+ID4gPj4gSVBJIHRvIG1hcCBleGVjdXRhYmxlIHRleHQgaW50byB1
-c2VybW9kZSwgYnV0IEkgY291bGQgZWFzaWx5IGJlIHdyb25nLgo+ID4gPiA+ID4gPj4gKElJUkMg
-UklTQy1WIGhhcyB2ZXJ5IGRldmVsb3Blci11bmZyaWVuZGx5IGljYWNoZSBtYW5hZ2VtZW50LCBi
-dXQgSSBkb24ndAo+ID4gPiA+ID4gPj4gcmVtZW1iZXIgdGhlIGRldGFpbHMuKQo+ID4gPiA+ID4g
-Pj4KPiA+ID4gPiA+ID4+IE9mIGNvdXJzZSwgdXNpbmcgcHRyYWNlIG9yIGFueSBvdGhlciBGT0xM
-X0ZPUkNFIHRvIG1vZGlmeSB0ZXh0IG9uIHg4NiBpcwo+ID4gPiA+ID4gPj4gcmF0aGVyIGZyYXVn
-aHQsIGFuZCBJIGJldCBtYW55IHRoaW5ncyBkbyBpdCB3cm9uZyB3aGVuIHVzZXJzcGFjZSBpcwo+
-ID4gPiA+ID4gPj4gbXVsdGl0aHJlYWRlZC4gIEJ1dCBub3QgaW4gcHJvZHVjdGlvbiBiZWNhdXNl
-IGl0J3MgbW9zdGx5IG5vdCB1c2VkIGluCj4gPiA+ID4gPiA+PiBwcm9kdWN0aW9uLikKPiA+ID4g
-PiA+ID4+Cj4gPiA+ID4gPiA+PiBCdXQgaml0X3RleHRfYWxsb2MoKSBjYW4ndCBkbyB0aGlzLCBi
-ZWNhdXNlIHRoZSBvcmRlciBvZiBvcGVyYXRpb25zCj4gPiA+ID4gPiA+PiBkb2Vzbid0IG1hdGNo
-LiAgV2l0aCBqaXRfdGV4dF9hbGxvYygpLCB0aGUgZXhlY3V0YWJsZSBtYXBwaW5nIHNob3dzIHVw
-Cj4gPiA+ID4gPiA+PiBiZWZvcmUgdGhlIHRleHQgaXMgcG9wdWxhdGVkLCBzbyB0aGVyZSBpcyBu
-byBhdG9taWMgY2hhbmdlIGZyb20gbm90LXRoZXJlCj4gPiA+ID4gPiA+PiB0byBwb3B1bGF0ZWQt
-YW5kLWV4ZWN1dGFibGUuICBXaGljaCBtZWFucyB0aGF0IHRoZXJlIGlzIGFuIG9wcG9ydHVuaXR5
-Cj4gPiA+ID4gPiA+PiBmb3IgQ1BVcywgc3BlY3VsYXRpdmVseSBvciBvdGhlcndpc2UsIHRvIHN0
-YXJ0IGZpbGxpbmcgdmFyaW91cyBjYWNoZXMKPiA+ID4gPiA+ID4+IHdpdGggaW50ZXJtZWRpYXRl
-IHN0YXRlcyBvZiB0aGUgdGV4dCwgd2hpY2ggbWVhbnMgdGhhdCB2YXJpb3VzCj4gPiA+ID4gPiA+
-PiBhcmNoaXRlY3R1cmVzIChldmVuIHg4NiEpIG1heSBuZWVkIHNlcmlhbGl6YXRpb24uCj4gPiA+
-ID4gPiA+Pgo+ID4gPiA+ID4gPj4gRm9yIGVCUEYtIGFuZCBtb2R1bGUtIGxpa2UgdXNlIGNhc2Vz
-LCB3aGVyZSBKSVR0aW5nL2NvZGUgZ2VuIGlzIHF1aXRlCj4gPiA+ID4gPiA+PiBjb2Fyc2UtZ3Jh
-aW5lZCwgcGVyaGFwcyBzb21ldGhpbmcgdmFndWVseSBsaWtlOgo+ID4gPiA+ID4gPj4KPiA+ID4g
-PiA+ID4+IGppdF90ZXh0X2FsbG9jKCkgLT4gcmV0dXJucyBhIGhhbmRsZSBhbmQgYW4gZXhlY3V0
-YWJsZSB2aXJ0dWFsIGFkZHJlc3MsCj4gPiA+ID4gPiA+PiBidXQgZG9lcyAqbm90KiBtYXAgaXQg
-dGhlcmUKPiA+ID4gPiA+ID4+IGppdF90ZXh0X3dyaXRlKCkgLT4gd3JpdGUgdG8gdGhhdCBoYW5k
-bGUKPiA+ID4gPiA+ID4+IGppdF90ZXh0X21hcCgpIC0+IG1hcCBpdCBhbmQgc3luY2hyb25pemUg
-aWYgbmVlZGVkIChubyBzeW5jIG5lZWRlZCBvbgo+ID4gPiA+ID4gPj4geDg2LCBJIHRoaW5rKQo+
-ID4gPiA+ID4gPj4KPiA+ID4gPiA+ID4+IGNvdWxkIGJlIG1vcmUgZWZmaWNpZW50IGFuZC9vciBz
-YWZlci4KPiA+ID4gPiA+ID4+Cj4gPiA+ID4gPiA+PiAoTW9kdWxlcyBjb3VsZCB1c2UgdGhpcyB0
-b28uICBHZXR0aW5nIGFsdGVybmF0aXZlcyByaWdodCBtaWdodCB0YWtlIHNvbWUKPiA+ID4gPiA+
-ID4+IGZpZGRsaW5nLCBiZWNhdXNlIG9mZiB0aGUgdG9wIG9mIG15IGhlYWQsIHRoaXMgZG9lc24n
-dCBtYXRjaCBob3cgaXQgd29ya3MKPiA+ID4gPiA+ID4+IG5vdy4pCj4gPiA+ID4gPiA+Pgo+ID4g
-PiA+ID4gPj4gVG8gbWFrZSBhbHRlcm5hdGl2ZXMgZWFzaWVyLCB0aGlzIGNvdWxkIHdvcmssIG1h
-eWJlIChoYXZlbid0IGZ1bGx5Cj4gPiA+ID4gPiA+PiB0aG91Z2h0IGl0IHRocm91Z2gpOgo+ID4g
-PiA+ID4gPj4KPiA+ID4gPiA+ID4+IGppdF90ZXh0X2FsbG9jKCkKPiA+ID4gPiA+ID4+IGppdF90
-ZXh0X21hcF9yd19pbnBsYWNlKCkgLT4gbWFwIGF0IHRoZSB0YXJnZXQgYWRkcmVzcywgYnV0IFJX
-LCAhWAo+ID4gPiA+ID4gPj4KPiA+ID4gPiA+ID4+IHdyaXRlIHRoZSB0ZXh0IGFuZCBhcHBseSBh
-bHRlcm5hdGl2ZXMKPiA+ID4gPiA+ID4+Cj4gPiA+ID4gPiA+PiBqaXRfdGV4dF9maW5hbGl6ZSgp
-IC0+IGNoYW5nZSBmcm9tIFJXIHRvIFJYICphbmQgc3luY2hyb25pemUqCj4gPiA+ID4gPiA+Pgo+
-ID4gPiA+ID4gPj4gaml0X3RleHRfZmluYWxpemUoKSB3b3VsZCBlaXRoZXIgbmVlZCB0byB3YWl0
-IGZvciBSQ1UgKHBvc3NpYmx5IGV4dHJhCj4gPiA+ID4gPiA+PiBoZWF2eSB3ZWlnaHQgUkNVIHRv
-IGdldCAic2VyaWFsaXphdGlvbiIpIG9yIHNlbmQgYW4gSVBJLgo+ID4gPiA+ID4gPgo+ID4gPiA+
-ID4gPiBUaGlzIGVzc2VudGlhbGx5IGhvdyBtb2R1bGVzIHdvcmsgbm93LiBUaGUgbWVtb3J5IGlz
-IGFsbG9jYXRlZCBSVywgd3JpdHRlbgo+ID4gPiA+ID4gPiBhbmQgdXBkYXRlZCB3aXRoIGFsdGVy
-bmF0aXZlcyBhbmQgdGhlbiBtYWRlIFJPWCBpbiB0aGUgZW5kIHdpdGggc2V0X21lbW9yeQo+ID4g
-PiA+ID4gPiBBUElzLgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBUaGUgaXNzdWUgd2l0aCBub3Qg
-aGF2aW5nIHRoZSBtZW1vcnkgbWFwcGVkIFggd2hlbiBpdCdzIHdyaXR0ZW4gaXMgdGhhdCB3ZQo+
-ID4gPiA+ID4gPiBjYW5ub3QgdXNlIGxhcmdlIHBhZ2VzIHRvIG1hcCBpdC4gT25lIG9mIHRoZSBn
-b2FscyBpcyB0byBoYXZlIGV4ZWN1dGFibGUKPiA+ID4gPiA+ID4gbWVtb3J5IG1hcHBlZCB3aXRo
-IGxhcmdlIHBhZ2VzIGFuZCBtYWtlIGNvZGUgYWxsb2NhdG9yIGFibGUgdG8gZGl2aWRlIHRoYXQK
-PiA+ID4gPiA+ID4gcGFnZSBhbW9uZyBzZXZlcmFsIGNhbGxlcnMuCj4gPiA+ID4gPiA+Cj4gPiA+
-ID4gPiA+IFNvIHRoZSBpZGVhIHdhcyB0aGF0IGppdF90ZXh0X2FsbG9jKCkgd2lsbCBoYXZlIGEg
-Y2FjaGUgb2YgbGFyZ2UgcGFnZXMKPiA+ID4gPiA+ID4gbWFwcGVkIFJPWCwgd2lsbCBhbGxvY2F0
-ZSBtZW1vcnkgZnJvbSB0aG9zZSBjYWNoZXMgYW5kIHRoZXJlIHdpbGwgYmUKPiA+ID4gPiA+ID4g
-aml0X3VwZGF0ZSgpIHRoYXQgdXNlcyB0ZXh0IHBva2luZyBmb3Igd3JpdGluZyB0byB0aGF0IG1l
-bW9yeS4KPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gVXBvbiBhbGxvY2F0aW9uIG9mIGEgbGFyZ2Ug
-cGFnZSB0byBpbmNyZWFzZSB0aGUgY2FjaGUsIHRoYXQgbGFyZ2UgcGFnZSB3aWxsCj4gPiA+ID4g
-PiA+IGJlICJpbnZhbGlkYXRlZCIgYnkgZmlsbGluZyBpdCB3aXRoIGJyZWFrcG9pbnQgaW5zdHJ1
-Y3Rpb25zIChlLmcgaW50MyBvbgo+ID4gPiA+ID4gPiB4ODYpCj4gPiA+ID4gPgo+ID4gPiA+ID4g
-SXMgdGhpcyBhY3R1YWxseSB2YWxpZD8gIEluIGJldHdlZW4gaW50MyBhbmQgcmVhbCBjb2RlLCB0
-aGVyZeKAmXMgYQo+ID4gPiA+ID4gcG90ZW50aWFsIHRvcm4gcmVhZCBvZiByZWFsIGNvZGUgbWl4
-ZWQgdXAgd2l0aCAweGNjLgo+ID4gPiA+Cj4gPiA+ID4gWW91IG1lYW4gd2hpbGUgZG9pbmcgdGV4
-dCBwb2tpbmc/Cj4gPiA+Cj4gPiA+IEkgdGhpbmsgd2UndmUgYmVlbiBnZXR0aW5nIGRpc3RyYWN0
-ZWQgYnkgdGV4dF9wb2tlKCkuIHRleHRfcG9rZSgpIGRvZXMKPiA+ID4gdXBkYXRlcyB2aWEgYSBk
-aWZmZXJlbnQgdmlydHVhbCBhZGRyZXNzIHdoaWNoIGludHJvZHVjZSBuZXcKPiA+ID4gc3luY2hy
-b25pYXRpb24gd3JpbmtsZXMsIGJ1dCBpdCdzIG5vdCB0aGUgbWFpbiBpc3N1ZS4KPiA+ID4KPiA+
-ID4gQXMgX3RoaW5rXyBJIHVuZGVyc3RhbmQgaXQsIHRoZSByb290IG9mIHRoZSBpc3N1ZSBpcyB0
-aGF0IHNwZWN1bGF0aXZlCj4gPiA+IGV4ZWN1dGlvbiAtIGFuZCB0aGF0IHBlciBBbmR5LCBzcGVj
-dWxhdGl2ZSBleGVjdXRpb24gZG9lc24ndCBvYmV5IG1lbW9yeQo+ID4gPiBiYXJyaWVycy4KPiA+
-ID4KPiA+ID4gSSBoYXZlIF9ub3RfIGR1ZyBpbnRvIHRoZSBkZXRhaWxzIG9mIGhvdyByZXRwb2xp
-bmVzIHdvcmsgYW5kIGFsbCB0aGUKPiA+ID4gc3BlY3RyZSBzdHVmZiB0aGF0IHdhcyBnb2luZyBv
-biwgYnV0IC0gcmV0cG9saW5lIHVzZXMgbGZlbmNlLCBkb2Vzbid0Cj4gPiA+IGl0PyBBbmQgaWYg
-c3BlY3VsYXRpdmUgZXhlY3V0aW9uIGlzIHRoZSBpc3N1ZSBoZXJlLCBpc24ndCByZXRwb2xpbmUg
-d2hhdAo+ID4gPiB3ZSBuZWVkPwo+ID4gPgo+ID4gPiBGb3IgdGhpcyBwYXJ0aWN1bGFyIGlzc3Vl
-LCBJJ20gbm90IHN1cmUgImludmFsaWRhdGUgYnkgZmlsbGluZyB3aXRoCj4gPiA+IGlsbGVnYWwg
-aW5zdHJ1Y3Rpb25zIiBtYWtlcyBzZW5zZS4gRm9yIHRoYXQgdG8gd29yaywgd291bGQgdGhlIHBy
-b2Nlc3Nvcgo+ID4gPiBoYXZlIHRvIGV4ZWN1dGUgYSBzZXJpYWxpemUgb3BlcmF0aW9uIGFuZCBh
-IHJldHJ5IG9uIGhpdHRpbmcgYW4gaWxsZWdhbAo+ID4gPiBpbnN0cnVjdGlvbiAtIG9yIHBlcmhh
-cHMgd2UgZG8gaW4gdGhlIGludGVycnVwdCBoYW5kbGVyPwo+ID4gPgo+ID4gPiBCdXQgaWYgZmls
-bGluZyB3aXRoIGlsbGVnYWwgaW5zdHJ1Y3Rpb25zIGRvZXMgYWN0IGFzIGEgc3BlY3VsYXRpb24K
-PiA+ID4gYmFycmllciwgdGhlbiB0aGUgaXNzdWUgaXMgdGhhdCBhIHRvcm4gcmVhZCBjb3VsZCBn
-ZW5lcmF0ZSBhIGxlZ2FsIGJ1dAo+ID4gPiBpbmNvcnJlY3QgaW5zdHJ1Y3Rpb24uCj4gPgo+ID4g
-V2hhdCBpcyBhICJ0b3JuIHJlYWQiIGhlcmU/IEkgYXNzdW1lIGl0IGlzIGFuIGluc3RydWN0aW9u
-IHJlYWQgdGhhdAo+ID4gZ29lcyBhdCB0aGUgd3JvbmcgaW5zdHJ1Y3Rpb24gYm91bmRhcnkgKENJ
-U0MpLiBJZiB0aGlzIGlzIGNvcnJlY3QsIGRvCj4gPiB3ZSBuZWVkIHRvIGhhbmRsZSB0b3JuIHJl
-YWQgY2F1c2VkIGJ5IHNvZnR3YXJlIGJ1Zywgb3IgaGFyZHdhcmUKPiA+IGJpdCBmbGlwLCBvciBi
-b3RoPwo+IAo+IE9uIEFSTTY0IChSSVNDKSwgdG9ybiByZWFkcyBjYW4ndCBoYXBwZW4gYmVjYXVz
-ZSB0aGUgaW5zdHJ1Y3Rpb24gZmV0Y2gKPiBpcyB3b3JkIGFsaWduZWQuIElmIHdlIHJlcGxhY2Ug
-dGhlIHdob2xlIGluc3RydWN0aW9uIGF0b21pY2FsbHkgdGhlbiB0aGVyZQo+IHdvbid0IGJlIGhh
-bGYgb2xkIC0gaGFsZiBuZXcgaW5zdHJ1Y3Rpb24gZmV0Y2hlcy4KClVuZm9ydHVuYXRlbHksIHRo
-YXQncyBvbmx5IGd1YXJhbnRlZWQgZm9yIGEgc3Vic2V0IG9mIGluc3RydWN0aW9ucyAoZS5nLiBC
-LApOT1ApLCBhbmQgaW4gZ2VuZXJhbCBDUFVzIGNhbiBmZXRjaCBhbiBpbnN0cnVjdGlvbiBtdWx0
-aXBsZSB0aW1lcywgYW5kIGNvdWxkCmZldGNoIGFyYml0cmFyeSBwb3J0aW9ucyBvZiB0aGUgaW5z
-dHJ1Y3Rpb24gZWFjaCB0aW1lLgoKUGxlYXNlIHNlZSB0aGUgIkNvbmN1cnJlbnQgTW9kaWZpY2F0
-aW9uIGFuZCBFeGVjdXRpb24gb2YgaW5zdHJ1Y3Rpb25zIiBydWxlcyBpbgp0aGUgQVJNIEFSTS4K
-CkZvciBhcm02NCwgaW4gZ2VuZXJhbCwgeW91IG5lZWQgdG8gaW5oaWJpdCBhbnkgY29uY3VycmVu
-dCBleGVjdXRpb24gKGUuZy4gYnkKc3RvcHBpbmctdGhlLXdvcmxkKSB3aGVuIHBhdGNoaW5nIHRl
-eHQsIGFuZCBhZnRlcndhcmRzIHlvdSBuZWVkIGNhY2hlIG1haW50ZW5jZQpmb2xsb3dlZCBieSBh
-IGNvbnRleHQtc3luY3Job25pemF0aW9uLWV2ZW50IChha2luZyB0byBhbiB4ODYgc2VyaWFsaXpp
-bmcKaW5zdHJ1Y3Rpb24pIG9uIENQVXMgd2hpY2ggd2lsbCBleGVjdXRlIHRoZSBuZXcgaW5zdHJ1
-Y3Rpb24ocykuCgpUaGVyZSBhcmUgYSBidW5jaCBvZiBzcGVjaWFsIGNhc2VzIHdoZXJlIHdlIGNh
-biBvbWl0IHNvbWUgb2YgdGhhdCwgYnV0IGluCmdlbmVyYWwgdGhlIGFyY2hpdGVjdHVyYWwgZ3Vh
-cm5hdGVlcyBhcmUgKnZlcnkqIHdlYWsgYW5kIHJlcXVpcmUgU1cgdG8gcGVyZm9ybQpzZXZlcmFs
-IGJpdHMgb2Ygd29yayB0byBndWFyYW50ZWUgdGhlIG5ldyBpbnN0cnVjdGlvbnMgd2lsbCBiZSBl
-eGVjdXRlZCB3aXRob3V0IGlzc3Vlcy4KClRoYW5rcywKTWFyay4KCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+On 2023/6/26 19:09, Hal Feng wrote:
+> Add PWM-DAC driver support for the StarFive JH7110 SoC.
+> 
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+
+Thanks!
+Reviewed-by: Walker Chen <walker.chen@starfivetech.com>
+
+> ---
+>  MAINTAINERS                        |   8 +
+>  sound/soc/starfive/Kconfig         |   9 +
+>  sound/soc/starfive/Makefile        |   1 +
+>  sound/soc/starfive/jh7110_pwmdac.c | 787 +++++++++++++++++++++++++++++
+>  4 files changed, 805 insertions(+)
+>  create mode 100644 sound/soc/starfive/jh7110_pwmdac.c
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 1dc12c5c02f7..a936ba4d5f1d 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -20125,6 +20125,14 @@ S:	Supported
+>  F:	Documentation/devicetree/bindings/mmc/starfive*
+>  F:	drivers/mmc/host/dw_mmc-starfive.c
+>  
+> +STARFIVE JH7110 PWMDAC DRIVER
+> +M:	Hal Feng <hal.feng@starfivetech.com>
+> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac*
+> +F:	sound/soc/codecs/jh7110_pwmdac_transmitter.c
+> +F:	sound/soc/starfive/jh7110_pwmdac.c
+> +
+>  STARFIVE JH71X0 CLOCK DRIVERS
+>  M:	Emil Renner Berthing <kernel@esmil.dk>
+>  M:	Hal Feng <hal.feng@starfivetech.com>
+> diff --git a/sound/soc/starfive/Kconfig b/sound/soc/starfive/Kconfig
+> index fafb681f8c0a..fabef377db8c 100644
+> --- a/sound/soc/starfive/Kconfig
+> +++ b/sound/soc/starfive/Kconfig
+> @@ -7,6 +7,15 @@ config SND_SOC_STARFIVE
+>  	  the Starfive SoCs' Audio interfaces. You will also need to
+>  	  select the audio interfaces to support below.
+>  
+> +config SND_SOC_JH7110_PWMDAC
+> +	tristate "JH7110 PWM-DAC device driver"
+> +	depends on HAVE_CLK && SND_SOC_STARFIVE
+> +	select SND_SOC_GENERIC_DMAENGINE_PCM
+> +	select SND_SOC_JH7110_PWMDAC_DIT
+> +	help
+> +	 Say Y or M if you want to add support for StarFive JH7110
+> +	 PWM-DAC driver.
+> +
+>  config SND_SOC_JH7110_TDM
+>  	tristate "JH7110 TDM device driver"
+>  	depends on HAVE_CLK && SND_SOC_STARFIVE
+> diff --git a/sound/soc/starfive/Makefile b/sound/soc/starfive/Makefile
+> index f7d960211d72..9e958f70ef51 100644
+> --- a/sound/soc/starfive/Makefile
+> +++ b/sound/soc/starfive/Makefile
+> @@ -1,2 +1,3 @@
+>  # StarFive Platform Support
+> +obj-$(CONFIG_SND_SOC_JH7110_PWMDAC) += jh7110_pwmdac.o
+>  obj-$(CONFIG_SND_SOC_JH7110_TDM) += jh7110_tdm.o
+> diff --git a/sound/soc/starfive/jh7110_pwmdac.c b/sound/soc/starfive/jh7110_pwmdac.c
+> new file mode 100644
+> index 000000000000..c3123bd6ea45
+> --- /dev/null
+> +++ b/sound/soc/starfive/jh7110_pwmdac.c
+> @@ -0,0 +1,787 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * jh7110_pwmdac.c -- StarFive JH7110 PWM-DAC driver
+> + *
+> + * Copyright (C) 2021-2023 StarFive Technology Co., Ltd.
+> + *
+> + * Authors: Jenny Zhang
+> + *	    Curry Zhang
+> + *	    Xingyu Wu <xingyu.wu@starfivetech.com>
+> + *	    Hal Feng <hal.feng@starfivetech.com>
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/device.h>
+> +#include <linux/init.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/reset.h>
+> +#include <linux/slab.h>
+> +#include <linux/types.h>
+> +#include <sound/dmaengine_pcm.h>
+> +#include <sound/pcm.h>
+> +#include <sound/pcm_params.h>
+> +#include <sound/soc.h>
+> +
+> +#define JH7110_PWMDAC_WDATA				0x00
+> +#define JH7110_PWMDAC_CTRL				0x04
+> +	#define JH7110_PWMDAC_ENABLE			BIT(0)
+> +	#define JH7110_PWMDAC_SHIFT			BIT(1)
+> +	#define JH7110_PWMDAC_DUTY_CYCLE_SHIFT		2
+> +	#define JH7110_PWMDAC_DUTY_CYCLE_MASK		GENMASK(3, 2)
+> +	#define JH7110_PWMDAC_CNT_N_SHIFT		4
+> +	#define JH7110_PWMDAC_CNT_N_MASK		GENMASK(12, 4)
+> +	#define JH7110_PWMDAC_DATA_CHANGE		BIT(13)
+> +	#define JH7110_PWMDAC_DATA_MODE			BIT(14)
+> +	#define JH7110_PWMDAC_DATA_SHIFT_SHIFT		15
+> +	#define JH7110_PWMDAC_DATA_SHIFT_MASK		GENMASK(17, 15)
+> +
+> +enum JH7110_PWMDAC_SHIFT_VAL {
+> +	PWMDAC_SHIFT_8 = 0,
+> +	PWMDAC_SHIFT_10,
+> +};
+> +
+> +enum JH7110_PWMDAC_DUTY_CYCLE_VAL {
+> +	PWMDAC_CYCLE_LEFT = 0,
+> +	PWMDAC_CYCLE_RIGHT,
+> +	PWMDAC_CYCLE_CENTER,
+> +};
+> +
+> +enum JH7110_PWMDAC_CNT_N_VAL {
+> +	PWMDAC_SAMPLE_CNT_1 = 1,
+> +	PWMDAC_SAMPLE_CNT_2,
+> +	PWMDAC_SAMPLE_CNT_3,
+> +	PWMDAC_SAMPLE_CNT_512 = 512, /* max */
+> +};
+> +
+> +enum JH7110_PWMDAC_DATA_CHANGE_VAL {
+> +	NO_CHANGE = 0,
+> +	CHANGE,
+> +};
+> +
+> +enum JH7110_PWMDAC_DATA_MODE_VAL {
+> +	UNSIGNED_DATA = 0,
+> +	INVERTER_DATA_MSB,
+> +};
+> +
+> +enum JH7110_PWMDAC_DATA_SHIFT_VAL {
+> +	PWMDAC_DATA_LEFT_SHIFT_BIT_0 = 0,
+> +	PWMDAC_DATA_LEFT_SHIFT_BIT_1,
+> +	PWMDAC_DATA_LEFT_SHIFT_BIT_2,
+> +	PWMDAC_DATA_LEFT_SHIFT_BIT_3,
+> +	PWMDAC_DATA_LEFT_SHIFT_BIT_4,
+> +	PWMDAC_DATA_LEFT_SHIFT_BIT_5,
+> +	PWMDAC_DATA_LEFT_SHIFT_BIT_6,
+> +	PWMDAC_DATA_LEFT_SHIFT_BIT_7,
+> +};
+> +
+> +struct jh7110_pwmdac_dev {
+> +	void __iomem *base;
+> +	resource_size_t	mapbase;
+> +	u8 shift;
+> +	u8 duty_cycle;
+> +	u8 cnt_n;
+> +	u8 data_change;
+> +	u8 data_mode;
+> +	u8 data_shift;
+> +
+> +	struct clk_bulk_data clks[2];
+> +	struct reset_control *rst_apb;
+> +	struct device *dev;
+> +	struct snd_dmaengine_dai_dma_data play_dma_data;
+> +	u32 saved_ctrl;
+> +};
+> +
+> +enum jh7110_ct_pwmdac_name {
+> +	PWMDAC_CT_SHIFT = 0,
+> +	PWMDAC_CT_DUTY_CYCLE,
+> +	PWMDAC_CT_DATA_CHANGE,
+> +	PWMDAC_CT_DATA_MODE,
+> +	PWMDAC_CT_DATA_SHIFT,
+> +};
+> +
+> +struct jh7110_ct_pwmdac {
+> +	char *name;
+> +	unsigned int vals;
+> +};
+> +
+> +static const struct jh7110_ct_pwmdac pwmdac_ct_shift[] = {
+> +	{ .name = "8bit", .vals = PWMDAC_SHIFT_8 },
+> +	{ .name = "10bit", .vals = PWMDAC_SHIFT_10 }
+> +};
+> +
+> +static const struct jh7110_ct_pwmdac pwmdac_ct_duty_cycle[] = {
+> +	{ .name = "left", .vals = PWMDAC_CYCLE_LEFT },
+> +	{ .name = "right", .vals = PWMDAC_CYCLE_RIGHT },
+> +	{ .name = "center", .vals = PWMDAC_CYCLE_CENTER }
+> +};
+> +
+> +static const struct jh7110_ct_pwmdac pwmdac_ct_data_change[] = {
+> +	{ .name = "no_change", .vals = NO_CHANGE },
+> +	{ .name = "change", .vals = CHANGE }
+> +};
+> +
+> +static const struct jh7110_ct_pwmdac pwmdac_ct_data_mode[] = {
+> +	{ .name = "unsigned", .vals = UNSIGNED_DATA },
+> +	{ .name = "inverter", .vals = INVERTER_DATA_MSB }
+> +};
+> +
+> +static const struct jh7110_ct_pwmdac pwmdac_ct_data_shift[] = {
+> +	{ .name = "left 0 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_0 },
+> +	{ .name = "left 1 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_1 },
+> +	{ .name = "left 2 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_2 },
+> +	{ .name = "left 3 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_3 },
+> +	{ .name = "left 4 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_4 },
+> +	{ .name = "left 5 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_5 },
+> +	{ .name = "left 6 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_6 },
+> +	{ .name = "left 7 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_7 }
+> +};
+> +
+> +static int jh7110_pwmdac_info(struct snd_ctl_elem_info *uinfo, int pwmdac_ct)
+> +{
+> +	unsigned int items;
+> +
+> +	if (pwmdac_ct == PWMDAC_CT_SHIFT) {
+> +		items = ARRAY_SIZE(pwmdac_ct_shift);
+> +		strcpy(uinfo->value.enumerated.name,
+> +		       pwmdac_ct_shift[uinfo->value.enumerated.item].name);
+> +	} else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE) {
+> +		items = ARRAY_SIZE(pwmdac_ct_duty_cycle);
+> +		strcpy(uinfo->value.enumerated.name,
+> +		       pwmdac_ct_duty_cycle[uinfo->value.enumerated.item].name);
+> +	} else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE) {
+> +		items = ARRAY_SIZE(pwmdac_ct_data_change);
+> +		strcpy(uinfo->value.enumerated.name,
+> +		       pwmdac_ct_data_change[uinfo->value.enumerated.item].name);
+> +	} else if (pwmdac_ct == PWMDAC_CT_DATA_MODE) {
+> +		items = ARRAY_SIZE(pwmdac_ct_data_mode);
+> +		strcpy(uinfo->value.enumerated.name,
+> +		       pwmdac_ct_data_mode[uinfo->value.enumerated.item].name);
+> +	} else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT) {
+> +		items = ARRAY_SIZE(pwmdac_ct_data_shift);
+> +		strcpy(uinfo->value.enumerated.name,
+> +		       pwmdac_ct_data_shift[uinfo->value.enumerated.item].name);
+> +	}
+> +
+> +	uinfo->type = SNDRV_CTL_ELEM_TYPE_ENUMERATED;
+> +	uinfo->count = 1;
+> +	uinfo->value.enumerated.items = items;
+> +	if (uinfo->value.enumerated.item >= items)
+> +		uinfo->value.enumerated.item = items - 1;
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_pwmdac_get(struct snd_kcontrol *kcontrol,
+> +			     struct snd_ctl_elem_value *ucontrol,
+> +			     int pwmdac_ct)
+> +{
+> +	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
+> +	struct jh7110_pwmdac_dev *dev = snd_soc_component_get_drvdata(component);
+> +
+> +	if (pwmdac_ct == PWMDAC_CT_SHIFT)
+> +		ucontrol->value.enumerated.item[0] = dev->shift;
+> +	else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE)
+> +		ucontrol->value.enumerated.item[0] = dev->duty_cycle;
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE)
+> +		ucontrol->value.enumerated.item[0] = dev->data_change;
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_MODE)
+> +		ucontrol->value.enumerated.item[0] = dev->data_mode;
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT)
+> +		ucontrol->value.enumerated.item[0] = dev->data_shift;
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_pwmdac_put(struct snd_kcontrol *kcontrol,
+> +			     struct snd_ctl_elem_value *ucontrol,
+> +			     int pwmdac_ct)
+> +{
+> +	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
+> +	struct jh7110_pwmdac_dev *dev = snd_soc_component_get_drvdata(component);
+> +	int sel = ucontrol->value.enumerated.item[0];
+> +	unsigned int items;
+> +
+> +	if (pwmdac_ct == PWMDAC_CT_SHIFT)
+> +		items = ARRAY_SIZE(pwmdac_ct_shift);
+> +	else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE)
+> +		items = ARRAY_SIZE(pwmdac_ct_duty_cycle);
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE)
+> +		items = ARRAY_SIZE(pwmdac_ct_data_change);
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_MODE)
+> +		items = ARRAY_SIZE(pwmdac_ct_data_mode);
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT)
+> +		items = ARRAY_SIZE(pwmdac_ct_data_shift);
+> +
+> +	if (sel >= items)
+> +		return -EINVAL;
+> +
+> +	if (pwmdac_ct == PWMDAC_CT_SHIFT)
+> +		dev->shift = pwmdac_ct_shift[sel].vals;
+> +	else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE)
+> +		dev->duty_cycle = pwmdac_ct_duty_cycle[sel].vals;
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE)
+> +		dev->data_change = pwmdac_ct_data_change[sel].vals;
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_MODE)
+> +		dev->data_mode = pwmdac_ct_data_mode[sel].vals;
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT)
+> +		dev->data_shift = pwmdac_ct_data_shift[sel].vals;
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_pwmdac_shift_info(struct snd_kcontrol *kcontrol,
+> +				    struct snd_ctl_elem_info *uinfo)
+> +{
+> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_SHIFT);
+> +}
+> +
+> +static int jh7110_pwmdac_shift_get(struct snd_kcontrol *kcontrol,
+> +				   struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_SHIFT);
+> +}
+> +
+> +static int jh7110_pwmdac_shift_put(struct snd_kcontrol *kcontrol,
+> +				   struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_SHIFT);
+> +}
+> +
+> +static int jh7110_pwmdac_duty_cycle_info(struct snd_kcontrol *kcontrol,
+> +					 struct snd_ctl_elem_info *uinfo)
+> +{
+> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_DUTY_CYCLE);
+> +}
+> +
+> +static int jh7110_pwmdac_duty_cycle_get(struct snd_kcontrol *kcontrol,
+> +					struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_DUTY_CYCLE);
+> +}
+> +
+> +static int jh7110_pwmdac_duty_cycle_put(struct snd_kcontrol *kcontrol,
+> +					struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_DUTY_CYCLE);
+> +}
+> +
+> +static int jh7110_pwmdac_data_change_info(struct snd_kcontrol *kcontrol,
+> +					  struct snd_ctl_elem_info *uinfo)
+> +{
+> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_DATA_CHANGE);
+> +}
+> +
+> +static int jh7110_pwmdac_data_change_get(struct snd_kcontrol *kcontrol,
+> +					 struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_DATA_CHANGE);
+> +}
+> +
+> +static int jh7110_pwmdac_data_change_put(struct snd_kcontrol *kcontrol,
+> +					 struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_DATA_CHANGE);
+> +}
+> +
+> +static int jh7110_pwmdac_data_mode_info(struct snd_kcontrol *kcontrol,
+> +					struct snd_ctl_elem_info *uinfo)
+> +{
+> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_DATA_MODE);
+> +}
+> +
+> +static int jh7110_pwmdac_data_mode_get(struct snd_kcontrol *kcontrol,
+> +				       struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_DATA_MODE);
+> +}
+> +
+> +static int jh7110_pwmdac_data_mode_put(struct snd_kcontrol *kcontrol,
+> +				       struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_DATA_MODE);
+> +}
+> +
+> +static int jh7110_pwmdac_data_shift_info(struct snd_kcontrol *kcontrol,
+> +					 struct snd_ctl_elem_info *uinfo)
+> +{
+> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_DATA_SHIFT);
+> +}
+> +
+> +static int jh7110_pwmdac_data_shift_get(struct snd_kcontrol *kcontrol,
+> +					struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_DATA_SHIFT);
+> +}
+> +
+> +static int jh7110_pwmdac_data_shift_put(struct snd_kcontrol *kcontrol,
+> +					struct snd_ctl_elem_value *ucontrol)
+> +{
+> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_DATA_SHIFT);
+> +}
+> +
+> +static inline void jh7110_pwmdac_write_reg(void __iomem *io_base, int reg, u32 val)
+> +{
+> +	writel(val, io_base + reg);
+> +}
+> +
+> +static inline u32 jh7110_pwmdac_read_reg(void __iomem *io_base, int reg)
+> +{
+> +	return readl(io_base + reg);
+> +}
+> +
+> +static void jh7110_pwmdac_set_enable(struct jh7110_pwmdac_dev *dev, bool enable)
+> +{
+> +	u32 value;
+> +
+> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
+> +	if (enable)
+> +		value |= JH7110_PWMDAC_ENABLE;
+> +	else
+> +		value &= ~JH7110_PWMDAC_ENABLE;
+> +
+> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
+> +}
+> +
+> +static void jh7110_pwmdac_set_shift(struct jh7110_pwmdac_dev *dev)
+> +{
+> +	u32 value;
+> +
+> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
+> +	if (dev->shift == PWMDAC_SHIFT_8)
+> +		value &= ~JH7110_PWMDAC_SHIFT;
+> +	else if (dev->shift == PWMDAC_SHIFT_10)
+> +		value |= JH7110_PWMDAC_SHIFT;
+> +
+> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
+> +}
+> +
+> +static void jh7110_pwmdac_set_duty_cycle(struct jh7110_pwmdac_dev *dev)
+> +{
+> +	u32 value;
+> +
+> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
+> +	value &= ~JH7110_PWMDAC_DUTY_CYCLE_MASK;
+> +	value |= (dev->duty_cycle & 0x3) << JH7110_PWMDAC_DUTY_CYCLE_SHIFT;
+> +
+> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
+> +}
+> +
+> +static void jh7110_pwmdac_set_cnt_n(struct jh7110_pwmdac_dev *dev)
+> +{
+> +	u32 value;
+> +
+> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
+> +	value &= ~JH7110_PWMDAC_CNT_N_MASK;
+> +	value |= ((dev->cnt_n - 1) & 0x1ff) << JH7110_PWMDAC_CNT_N_SHIFT;
+> +
+> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
+> +}
+> +
+> +static void jh7110_pwmdac_set_data_change(struct jh7110_pwmdac_dev *dev)
+> +{
+> +	u32 value;
+> +
+> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
+> +	if (dev->data_change == NO_CHANGE)
+> +		value &= ~JH7110_PWMDAC_DATA_CHANGE;
+> +	else if (dev->data_change == CHANGE)
+> +		value |= JH7110_PWMDAC_DATA_CHANGE;
+> +
+> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
+> +}
+> +
+> +static void jh7110_pwmdac_set_data_mode(struct jh7110_pwmdac_dev *dev)
+> +{
+> +	u32 value;
+> +
+> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
+> +	if (dev->data_mode == UNSIGNED_DATA)
+> +		value &= ~JH7110_PWMDAC_DATA_MODE;
+> +	else if (dev->data_mode == INVERTER_DATA_MSB)
+> +		value |= JH7110_PWMDAC_DATA_MODE;
+> +
+> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
+> +}
+> +
+> +static void jh7110_pwmdac_set_data_shift(struct jh7110_pwmdac_dev *dev)
+> +{
+> +	u32 value;
+> +
+> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
+> +	value &= ~JH7110_PWMDAC_DATA_SHIFT_MASK;
+> +	value |= (dev->data_shift & 0x7) << JH7110_PWMDAC_DATA_SHIFT_SHIFT;
+> +
+> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
+> +}
+> +
+> +static void jh7110_pwmdac_set(struct jh7110_pwmdac_dev *dev)
+> +{
+> +	jh7110_pwmdac_set_shift(dev);
+> +	jh7110_pwmdac_set_duty_cycle(dev);
+> +	jh7110_pwmdac_set_cnt_n(dev);
+> +	jh7110_pwmdac_set_enable(dev, true);
+> +
+> +	jh7110_pwmdac_set_data_change(dev);
+> +	jh7110_pwmdac_set_data_mode(dev);
+> +	jh7110_pwmdac_set_data_shift(dev);
+> +}
+> +
+> +static void jh7110_pwmdac_stop(struct jh7110_pwmdac_dev *dev)
+> +{
+> +	jh7110_pwmdac_set_enable(dev, false);
+> +}
+> +
+> +static int jh7110_pwmdac_startup(struct snd_pcm_substream *substream,
+> +				 struct snd_soc_dai *dai)
+> +{
+> +	struct snd_soc_pcm_runtime *rtd = asoc_substream_to_rtd(substream);
+> +	struct snd_soc_dai_link *dai_link = rtd->dai_link;
+> +
+> +	dai_link->stop_dma_first = 1;
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_pwmdac_hw_params(struct snd_pcm_substream *substream,
+> +				   struct snd_pcm_hw_params *params,
+> +				   struct snd_soc_dai *dai)
+> +{
+> +	unsigned long core_clk_rate;
+> +	int ret;
+> +	struct jh7110_pwmdac_dev *dev = dev_get_drvdata(dai->dev);
+> +
+> +	switch (params_rate(params)) {
+> +	case 8000:
+> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_3;
+> +		core_clk_rate = 6144000;
+> +		break;
+> +	case 11025:
+> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_2;
+> +		core_clk_rate = 5644800;
+> +		break;
+> +	case 16000:
+> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_3;
+> +		core_clk_rate = 12288000;
+> +		break;
+> +	case 22050:
+> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
+> +		core_clk_rate = 5644800;
+> +		break;
+> +	case 32000:
+> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
+> +		core_clk_rate = 8192000;
+> +		break;
+> +	case 44100:
+> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
+> +		core_clk_rate = 11289600;
+> +		break;
+> +	case 48000:
+> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
+> +		core_clk_rate = 12288000;
+> +		break;
+> +	default:
+> +		dev_err(dai->dev, "%d rate not supported\n",
+> +			params_rate(params));
+> +		return -EINVAL;
+> +	}
+> +
+> +	switch (params_channels(params)) {
+> +	case 1:
+> +		dev->play_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
+> +		break;
+> +	case 2:
+> +		dev->play_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
+> +		break;
+> +	default:
+> +		dev_err(dai->dev, "%d channels not supported\n",
+> +			params_channels(params));
+> +		return -EINVAL;
+> +	}
+> +
+> +	/*
+> +	 * The clock rate always rounds down when using clk_set_rate()
+> +	 * so increase the rate a bit
+> +	 */
+> +	core_clk_rate += 64;
+> +	jh7110_pwmdac_set(dev);
+> +
+> +	ret = clk_set_rate(dev->clks[1].clk, core_clk_rate);
+> +	if (ret) {
+> +		dev_err(dai->dev,
+> +			"failed to set rate %lu for core clock\n",
+> +			core_clk_rate);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int jh7110_pwmdac_trigger(struct snd_pcm_substream *substream, int cmd,
+> +				 struct snd_soc_dai *dai)
+> +{
+> +	struct jh7110_pwmdac_dev *dev = snd_soc_dai_get_drvdata(dai);
+> +	int ret = 0;
+> +
+> +	switch (cmd) {
+> +	case SNDRV_PCM_TRIGGER_START:
+> +	case SNDRV_PCM_TRIGGER_RESUME:
+> +	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
+> +		jh7110_pwmdac_set(dev);
+> +		break;
+> +
+> +	case SNDRV_PCM_TRIGGER_STOP:
+> +	case SNDRV_PCM_TRIGGER_SUSPEND:
+> +	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
+> +		jh7110_pwmdac_stop(dev);
+> +		break;
+> +	default:
+> +		ret = -EINVAL;
+> +		break;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int jh7110_pwmdac_crg_enable(struct jh7110_pwmdac_dev *dev, bool enable)
+> +{
+> +	int ret;
+> +
+> +	if (enable) {
+> +		ret = clk_bulk_prepare_enable(ARRAY_SIZE(dev->clks), dev->clks);
+> +		if (ret) {
+> +			dev_err(dev->dev, "failed to enable pwmdac clocks\n");
+> +			return ret;
+> +		}
+> +
+> +		ret = reset_control_deassert(dev->rst_apb);
+> +		if (ret) {
+> +			dev_err(dev->dev, "failed to deassert pwmdac apb reset\n");
+> +			goto err_rst_apb;
+> +		}
+> +	} else {
+> +		clk_bulk_disable_unprepare(ARRAY_SIZE(dev->clks), dev->clks);
+> +	}
+> +
+> +	return 0;
+> +
+> +err_rst_apb:
+> +	clk_bulk_disable_unprepare(ARRAY_SIZE(dev->clks), dev->clks);
+> +
+> +	return ret;
+> +}
+> +
+> +static int jh7110_pwmdac_dai_probe(struct snd_soc_dai *dai)
+> +{
+> +	struct jh7110_pwmdac_dev *dev = dev_get_drvdata(dai->dev);
+> +
+> +	dev->play_dma_data.addr = dev->mapbase + JH7110_PWMDAC_WDATA;
+> +	dev->play_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
+> +	dev->play_dma_data.fifo_size = 1;
+> +	dev->play_dma_data.maxburst = 16;
+> +
+> +	snd_soc_dai_init_dma_data(dai, &dev->play_dma_data, NULL);
+> +	snd_soc_dai_set_drvdata(dai, dev);
+> +
+> +	return 0;
+> +}
+> +
+> +#define JH7110_PWMDAC_ENUM_DECL(xname, xinfo, xget, xput) \
+> +{	.iface = SNDRV_CTL_ELEM_IFACE_MIXER, .name = xname, \
+> +	.info = xinfo, .get = xget, .put = xput,}
+> +
+> +static const struct snd_kcontrol_new jh7110_pwmdac_snd_controls[] = {
+> +	JH7110_PWMDAC_ENUM_DECL("shift", jh7110_pwmdac_shift_info,
+> +				jh7110_pwmdac_shift_get,
+> +				jh7110_pwmdac_shift_put),
+> +	JH7110_PWMDAC_ENUM_DECL("duty_cycle", jh7110_pwmdac_duty_cycle_info,
+> +				jh7110_pwmdac_duty_cycle_get,
+> +				jh7110_pwmdac_duty_cycle_put),
+> +	JH7110_PWMDAC_ENUM_DECL("data_change", jh7110_pwmdac_data_change_info,
+> +				jh7110_pwmdac_data_change_get,
+> +				jh7110_pwmdac_data_change_put),
+> +	JH7110_PWMDAC_ENUM_DECL("data_mode", jh7110_pwmdac_data_mode_info,
+> +				jh7110_pwmdac_data_mode_get,
+> +				jh7110_pwmdac_data_mode_put),
+> +	JH7110_PWMDAC_ENUM_DECL("data_shift", jh7110_pwmdac_data_shift_info,
+> +				jh7110_pwmdac_data_shift_get,
+> +				jh7110_pwmdac_data_shift_put),
+> +};
+> +
+> +static int jh7110_pwmdac_component_probe(struct snd_soc_component *component)
+> +{
+> +	snd_soc_add_component_controls(component, jh7110_pwmdac_snd_controls,
+> +				       ARRAY_SIZE(jh7110_pwmdac_snd_controls));
+> +	return 0;
+> +}
+> +
+> +static const struct snd_soc_dai_ops jh7110_pwmdac_dai_ops = {
+> +	.startup	= jh7110_pwmdac_startup,
+> +	.hw_params	= jh7110_pwmdac_hw_params,
+> +	.trigger	= jh7110_pwmdac_trigger,
+> +};
+> +
+> +static const struct snd_soc_component_driver jh7110_pwmdac_component = {
+> +	.name		= "jh7110-pwmdac",
+> +	.probe		= jh7110_pwmdac_component_probe,
+> +};
+> +
+> +static struct snd_soc_dai_driver jh7110_pwmdac_dai = {
+> +	.name		= "jh7110-pwmdac",
+> +	.id		= 0,
+> +	.probe		= jh7110_pwmdac_dai_probe,
+> +	.playback = {
+> +		.channels_min = 1,
+> +		.channels_max = 2,
+> +		.rates = SNDRV_PCM_RATE_8000_48000,
+> +		.formats = SNDRV_PCM_FMTBIT_S16_LE,
+> +	},
+> +	.ops = &jh7110_pwmdac_dai_ops,
+> +};
+> +
+> +static int jh7110_pwmdac_runtime_suspend(struct device *dev)
+> +{
+> +	struct jh7110_pwmdac_dev *pwmdac = dev_get_drvdata(dev);
+> +
+> +	return jh7110_pwmdac_crg_enable(pwmdac, false);
+> +}
+> +
+> +static int jh7110_pwmdac_runtime_resume(struct device *dev)
+> +{
+> +	struct jh7110_pwmdac_dev *pwmdac = dev_get_drvdata(dev);
+> +
+> +	return jh7110_pwmdac_crg_enable(pwmdac, true);
+> +}
+> +
+> +static int jh7110_pwmdac_system_suspend(struct device *dev)
+> +{
+> +	struct jh7110_pwmdac_dev *pwmdac = dev_get_drvdata(dev);
+> +
+> +	/* save the CTRL register value */
+> +	pwmdac->saved_ctrl = jh7110_pwmdac_read_reg(pwmdac->base,
+> +						    JH7110_PWMDAC_CTRL);
+> +	return pm_runtime_force_suspend(dev);
+> +}
+> +
+> +static int jh7110_pwmdac_system_resume(struct device *dev)
+> +{
+> +	struct jh7110_pwmdac_dev *pwmdac = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret = pm_runtime_force_resume(dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* restore the CTRL register value */
+> +	jh7110_pwmdac_write_reg(pwmdac->base, JH7110_PWMDAC_CTRL,
+> +				pwmdac->saved_ctrl);
+> +	return 0;
+> +}
+> +
+> +static const struct dev_pm_ops jh7110_pwmdac_pm_ops = {
+> +	RUNTIME_PM_OPS(jh7110_pwmdac_runtime_suspend,
+> +		       jh7110_pwmdac_runtime_resume, NULL)
+> +	SYSTEM_SLEEP_PM_OPS(jh7110_pwmdac_system_suspend,
+> +			    jh7110_pwmdac_system_resume)
+> +};
+> +
+> +static int jh7110_pwmdac_probe(struct platform_device *pdev)
+> +{
+> +	struct jh7110_pwmdac_dev *dev;
+> +	struct resource *res;
+> +	int ret;
+> +
+> +	dev = devm_kzalloc(&pdev->dev, sizeof(*dev), GFP_KERNEL);
+> +	if (!dev)
+> +		return -ENOMEM;
+> +
+> +	dev->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+> +	if (IS_ERR(dev->base))
+> +		return PTR_ERR(dev->base);
+> +
+> +	dev->mapbase = res->start;
+> +
+> +	dev->clks[0].id = "apb";
+> +	dev->clks[1].id = "core";
+> +
+> +	ret = devm_clk_bulk_get(&pdev->dev, ARRAY_SIZE(dev->clks), dev->clks);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to get pwmdac clocks\n");
+> +		return ret;
+> +	}
+> +
+> +	dev->rst_apb = devm_reset_control_get_exclusive(&pdev->dev, NULL);
+> +	if (IS_ERR(dev->rst_apb)) {
+> +		dev_err(&pdev->dev, "failed to get pwmdac apb reset\n");
+> +		return PTR_ERR(dev->rst_apb);
+> +	}
+> +
+> +	dev->dev = &pdev->dev;
+> +	dev->shift = PWMDAC_SHIFT_8;
+> +	dev->duty_cycle = PWMDAC_CYCLE_CENTER;
+> +	dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
+> +	dev->data_change = NO_CHANGE;
+> +	dev->data_mode = INVERTER_DATA_MSB;
+> +	dev->data_shift = PWMDAC_DATA_LEFT_SHIFT_BIT_0;
+> +
+> +	dev_set_drvdata(&pdev->dev, dev);
+> +	ret = devm_snd_soc_register_component(&pdev->dev,
+> +					      &jh7110_pwmdac_component,
+> +					      &jh7110_pwmdac_dai, 1);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to register dai\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to register pcm\n");
+> +		return ret;
+> +	}
+> +
+> +	pm_runtime_enable(dev->dev);
+> +	if (!pm_runtime_enabled(&pdev->dev)) {
+> +		ret = jh7110_pwmdac_runtime_resume(&pdev->dev);
+> +		if (ret)
+> +			goto err_pm_disable;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_pm_disable:
+> +	pm_runtime_disable(&pdev->dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static int jh7110_pwmdac_remove(struct platform_device *pdev)
+> +{
+> +	pm_runtime_disable(&pdev->dev);
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id jh7110_pwmdac_of_match[] = {
+> +	{ .compatible = "starfive,jh7110-pwmdac" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, jh7110_pwmdac_of_match);
+> +
+> +static struct platform_driver jh7110_pwmdac_driver = {
+> +	.driver		= {
+> +		.name	= "jh7110-pwmdac",
+> +		.of_match_table = jh7110_pwmdac_of_match,
+> +		.pm = pm_ptr(&jh7110_pwmdac_pm_ops),
+> +	},
+> +	.probe		= jh7110_pwmdac_probe,
+> +	.remove		= jh7110_pwmdac_remove,
+> +};
+> +module_platform_driver(jh7110_pwmdac_driver);
+> +
+> +MODULE_AUTHOR("Jenny Zhang");
+> +MODULE_AUTHOR("Curry Zhang");
+> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
+> +MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
+> +MODULE_DESCRIPTION("StarFive JH7110 PWM-DAC driver");
+> +MODULE_LICENSE("GPL");
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
