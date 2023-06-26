@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38160EB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 15:44:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E405AEB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 15:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4yaV/1d2Gas36PB9e67o5E2LrewW5/Vegb4VZFXGR1s=; b=xefk+aKduQQTph
-	M+sez54mPG0XiMyHw5RaLIGQj14zQZndo5spT8hCKns5lMDTEO1NUXHu/F/BG3utQvk4YDXTU0Goq
-	4liqAtDHq5Ex0d4WCF9SNVJpssFPuvegsa+yMBpF67+DOjegzjnaWP3PmqJKFOUnO5EVDfis+KI9N
-	M29n5OFdtIqaIbU5r9no5fofWV/5E8oUZ4el77Tvnj+/qMzvf806dLDuq3oxtpMgM3EyB8vzwZY+P
-	IS6M6HvqZ9ItxTOS8UcB+bUxSU3lFn6P3iw7spSlI1J+eslZwxMeQJHtf8YUnfZNqIvVwecaY9lMg
-	N/e80qZ+2SCgW3Z7Izyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sbk6eVNIj6W5aZpPpAHF8WGcT8KhlP8KJFTTW7i3/M0=; b=AULIX5ms3D6edY8ZlQwJY/Kqg+
+	HguI3WhKHHfqVXz9FTvf1w7i/XooXY6zRAfLJUY78rLPw6YbwwHNHJ2uAzJrM3m+icvtB2aI4zYOB
+	LQWXAKZ9sh5tYPkHQ47m4Waw61o4FwLFEjrle3nGj5ET4TKDd0Lnw+ZR7XxS/QX8c0/BAx6Qqf4iO
+	am3LeFhPxUzqXe6ubddrLHlD0BCAq+GRs2b775b3SkMn3gDYVcHY3BIgz1yK7g6JaigqBv8rD8dAv
+	Zo1+k/JrwR3Xh61vWIc1mRrXWetWhp9p6bqDTcRxq9V9OkiT/EHbJirt06AdfSr7JhZ7CW1KuU+0R
+	LsPKV26g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDoO9-00AXaN-2s;
-	Mon, 26 Jun 2023 15:44:25 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1qDoOJ-00AXcj-2J;
+	Mon, 26 Jun 2023 15:44:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDoO7-00AXYu-00
+	id 1qDoOG-00AXbe-32
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jun 2023 15:44:24 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-991ef0b464cso94048966b.0
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Jun 2023 08:44:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1687794260; x=1690386260;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YnGKBUnRl+54y+0sQxUUlidbsYRaM5LpOGTqtDz4nVQ=;
-        b=M9Tsn1Tzu+mNEA7nnAsQvg1Z5/LByzdzlMl+RHI7ziSvtJYcASi+ZIUPA7nvKXKkGH
-         FIjN2xZvgNpkBU+0ZO8LO7y8pkIx3Yw8fGBt5WsNZUdHaA8HcLZb5n5z75C6LpwLfFjE
-         B2vM7feLwgFywkB8bkAdJ0gkOmTj2340k4jZbwzaECx4KVPOK+ZgAJpCcc7BHFVlgLk6
-         WsZjFwFrLAN5YkAFYOwn/1A65rRXLkfNBubWeBrO/zqtbkd8tYAbwpqs7Ix4VOE9kyg+
-         wjWzCNfopV0iZKN2ERVAp/aAr7pyDUr210MlLfHTPqtIylLYimoOOVyMjNDrXe1rLwY6
-         KHjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687794260; x=1690386260;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YnGKBUnRl+54y+0sQxUUlidbsYRaM5LpOGTqtDz4nVQ=;
-        b=JYsPMkU7exU6ILWflgxi7PAwyg1TgVPxyRTEP/tqH1JiYgY91XKyYXJwvX56lt+t2F
-         aAKFSOgspUzd1hAn2G9I1ddIMGoZjFZACeRUAof7idxeLax37WSGnvHzDdhexollgmKi
-         WDnzsr3VEahqyQ1VgWXCHmYOts3Qcds7unCXLezAlkvuQY4GdtHdTSVVQRNkUZtt+tl4
-         PjjTdQ1/cfc6YMij8bU+zGHUvIVhBOEXBC1IztL7j+MBvyrQyQ6Me5Abj2SKM2k97o9T
-         /NwjCp4/Ren3iWYEGrSFde/8yZE98yXgnziZMcmZZ71fULwlaoKbTRkW7OxMe97IKQFg
-         LPPQ==
-X-Gm-Message-State: AC+VfDzFHv/NIztGip3KBFHn5vF+l5FADTkCW1LRBPIj7NUOxApzBBXM
-	gvMAYNw9qYe5PGf8rVteTN+KBT3rK0Fbgfx/Ulc=
-X-Google-Smtp-Source: ACHHUZ7m80psrFn/+MZPNhekKTjOon7CjlWS/Mw7tUoEfScBbDLcEaFAESaC9Xf5szD4tRWaGLfGjw==
-X-Received: by 2002:a17:906:ee8c:b0:988:8efc:54fa with SMTP id wt12-20020a170906ee8c00b009888efc54famr17250712ejb.37.1687794260001;
-        Mon, 26 Jun 2023 08:44:20 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id pj4-20020a170906d78400b009885a03467csm3388573ejb.31.2023.06.26.08.44.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jun 2023 08:44:19 -0700 (PDT)
-Date: Mon, 26 Jun 2023 17:44:18 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v1 3/9] RISC-V: shunt isa_ext_arr to cpufeature.c
-Message-ID: <20230626-2b8f42ace039368c8e917393@orel>
-References: <20230626-provable-angrily-81760e8c3cc6@wendy>
- <20230626-endowment-crave-d72f9423c5b3@wendy>
- <20230626-79b06f642aa2996098c9353d@orel>
+	Mon, 26 Jun 2023 15:44:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EDFED60E65;
+	Mon, 26 Jun 2023 15:44:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 526FDC433C8;
+	Mon, 26 Jun 2023 15:44:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687794270;
+	bh=endglZUFDa5UVxov1fiUdyi8iiJQpupgN3VbhtvY7jA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ShXTGVkuKqheZRx99U0WroPgO0pcw+X2w7U9HYr4IKp+d70djQFf3CycWcpj69+fL
+	 D4+QPZeJHakBnl+jU3IZRoVbN/nljWMw9tfC8QSAp22NtBR/iC8olUXC2TTpMc9f47
+	 wiiDfNdN/88i0yDdtq7OasmOMswiXxC6PAgFxeF11kdqRx+jUFBeuHMTec3ryo+hyA
+	 u5M/vyChBpvx3xpnWG6T/7InDnWYkps7WnETb1F2VBIapIDd1IhmWeZHhsC3BQXbiG
+	 AbLcZnhyT5UC/s+IpM++eKylqB4mIr+X47YLWS/vNZkWg9wivv7nusHeizmLEhDd/+
+	 u7QZI70p8aTTA==
+Date: Mon, 26 Jun 2023 16:44:23 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, suagrfillet@gmail.com,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	robh+dt@kernel.org, frowand.list@gmail.com, ajones@ventanamicro.com,
+	alexghiti@rivosinc.com, mpe@ellerman.id.au,
+	Arnd Bergmann <arnd@arndb.de>, rppt@kernel.org, samuel@sholland.org,
+	panqinglin2020@iscas.ac.cn, anup@brainfault.org,
+	xianting.tian@linux.alibaba.com, anshuman.khandual@arm.com,
+	heiko@sntech.de, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH V1 1/3] Revert "RISC-V: mark hibernation as nonportable"
+Message-ID: <20230626-woozy-banish-7d109f8ab080@spud>
+References: <20230626-mousy-latter-ad8088de089f@wendy>
+ <mhng-f018e5e3-61f5-47ee-a2ae-95309bbdb208@palmer-ri-x1c9>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230626-79b06f642aa2996098c9353d@orel>
+In-Reply-To: <mhng-f018e5e3-61f5-47ee-a2ae-95309bbdb208@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_084423_044197_552CD2BD 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20230626_084433_073793_4CEC74CD 
+X-CRM114-Status: GOOD (  56.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +77,165 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, conor@kernel.org, Rob Herring <robh+dt@kernel.org>, palmer@dabbelt.com, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Evan Green <evan@rivosinc.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6768365937000721397=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 26, 2023 at 05:29:04PM +0200, Andrew Jones wrote:
-> On Mon, Jun 26, 2023 at 12:19:41PM +0100, Conor Dooley wrote:
-...
-> > +const struct riscv_isa_ext_data riscv_isa_ext[] = {
-> > +	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> > +	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
-> > +	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
-> > +	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
-> > +	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
-> > +	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
-> > +	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
-> > +	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-> > +	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> > +	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-> > +	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> > +	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-> > +	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> > +	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> > +	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> > +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
-> > +	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> > +	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-> 
-> I think we can either drop this null entry or drop the count variable
-> below. My preference would be to drop the count variable, and always
-> loop to the null.
 
-Eh, never mind, the entry isn't null, it's "". Why do we have that entry
-though? I guess it can be dropped?
+--===============6768365937000721397==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dnqy/bk/NdFp4wAB"
+Content-Disposition: inline
 
-Thanks,
-drew
+
+--dnqy/bk/NdFp4wAB
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Jun 26, 2023 at 07:43:42AM -0700, Palmer Dabbelt wrote:
+> On Mon, 26 Jun 2023 06:34:43 PDT (-0700), Conor Dooley wrote:
+> > On Sun, Jun 25, 2023 at 03:36:06PM -0700, Palmer Dabbelt wrote:
+> > > On Sun, 25 Jun 2023 15:15:14 PDT (-0700), Conor Dooley wrote:
+> > > > On Sun, Jun 25, 2023 at 11:09:21PM +0800, Song Shuai wrote:
+> > > > > =E5=9C=A8 2023/6/25 22:18, Conor Dooley =E5=86=99=E9=81=93:
+> > > > > > On Sun, Jun 25, 2023 at 10:09:29PM +0800, Song Shuai wrote:
+> > > > > > > This reverts commit ed309ce522185583b163bd0c74f0d9f299fe1826.
+> > > > > > > > > With the commit 3335068f8721 ("riscv: Use PUD/P4D/PGD pag=
+es
+> > > > > for the
+> > > > > > > linear mapping") reverted, the MIN_MEMBLOCK_ADDR points the k=
+ernel
+> > > > > > > load address which was placed at a PMD boundary.
+> > > > > > > > And firmware always
+> > > > > > > correctly mark resident memory, or memory protected with PMP =
+as
+> > > > > > > per the devicetree specification and/or the UEFI specificatio=
+n.
+> > > > > > > But this is not true? The versions of OpenSBI that you mention
+> > > > > in your
+> > > > > > cover letter do not do this.
+> > > > > > Please explain.
+> > > > > >
+> > > > > > > At this time, OpenSbi [v0.8,v1.3) and edk2(RiscVVirt) indeed
+> > > don't obey the
+> > > > > DT/UEFI spec. This statement is excerpted from "Reserved memory f=
+or resident
+> > > > > firmware" part from the upcoming riscv/boot.rst. It isn't accurat=
+e for now.
+> > > > > How about deleting this one?
+> > > > > It is incorrect, so it will need to be removed, yes.
+> > > > Unfortunately writing a doc does not fix the existing implementatio=
+ns :(
+> > > > > > Actually with 3335068f8721 reverted, the change of
+> > > MIN_MEMBLOCK_ADDR can
+> > > > > avoid the mapping of firmware memory, I will make it clear in the=
+ next
+> > > > > version.
+> > > > > To be honest, I'd like to see this revert as the final commit in
+> > > a
+> > > > series that deals with the problem by actually reserving the region=
+s,
+> > > > rather than a set of reverts that go back to how we were.
+> > > > I was hoping that someone who cares about hibernation support would=
+ be
+> > > > interested in working on that - *cough* starfive *cough*, although =
+maybe
+> > > > they just fixed their OpenSBI and moved on.
+> > > > If there were no volunteers, my intention was to add a firmware err=
+atum
+> > > > that would probe the SBI implementation & version IDs, and add a fi=
+rmware
+> > > > erratum that'd parse the DT for the offending regions and reserve t=
+hem.
+> > >=20
+> > > Is there any actual use case for hibernation on these boards?  Maybe =
+it's
+> > > simpler to just add a "reserved regions actually work" sort of proper=
+ty and
+> > > then have new firmware set it -- that way we can avoid sorting throug=
+h all
+> > > the old stuff nobody cares about and just get on with fixing the stuff
+> > > people use.
+> >=20
+> > What is "old stuff nobody cares about"? The first version of OpenSBI wi=
+th
+> > the fix shipped only the other day, so effectively all current stuff has
+> > this problem. Certainly everything shipping from vendors at the moment
+> > has the problem, and probably whatever downstream, custom versions of
+> > OpenSBI also have it.
+>=20
+> Ya, so "old stuff" is everything -- but that's all already broken, so
+> nothing we can do about it.  IIUC there's nothing shipping that functions
+> correctly here, so it's just a matter of detecting everything before the
+> bug.
+
+g5soc functions correctly, because our HSS (which a small portion of
+OpenSBI is built into) doesn't run out of system memory.
+
+> > Also, the problem isn't just limited to hibernation apparently. I
+> > think it was mentioned in the cover letter that according to Rob,
+> > without being marked as no-map we could also see speculative access &
+> > potentially some of the memory debugging stuff walking these regions.
+>=20
+> We've got a bunch of other problems around speculative accesses to these
+> regions in M-mode, so we'll have to deal with it at some point anyway.
+>=20
+> > I'm not sure how you'd intend communicating "reserved regions actually
+> > work", I figure you mean via DT?
+>=20
+> Somewhere in DT.  I hadn't thought about it a ton, just adding some prope=
+rty
+> that says "this doesn't have the bug" was roughly the idea.
+>=20
+> > I don't really see the benefit of adding a property for those who are
+> > behaving, if we can detect the versions of the one relevant SBI
+> > implementation that are broken at runtime. DT hat on, even less so.
+> > Perhaps I am missing your point, and there's another angle (like trying
+> > to per firmware code)?
+>=20
+> If it's easy to figure out which versions are broken that seems fine to m=
+e.
+> My worry was just that's hard to do (folks forking OpenSBI) and it might =
+be
+> easier to just
+
+You cut yourself off here :/
+If people are forking OpenSBI, but reusing the version/implementation
+info, and changing behaviours, I am not really sure what we are supposed
+to do in general. I'd vote for apply the erratum to those forks, based on
+the version info, until they make changes
+That's pretty much the same thing that'd happen under your proposal anyway?
+I went and sent a PR last week to get a custom ID for the HSS on g5soc so
+that we can be differentiated, everyone else that doesn't want to be
+tarred with the same brush probably should too, if they are sufficiently
+different.
+
+
+--dnqy/bk/NdFp4wAB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJmyVwAKCRB4tDGHoIJi
+0lcLAQDGbWINuzGHr+8g2JlotnQNG5zgkkMr50f2gjkAamrn0wD/XR9n3KLFtArE
+2xd37oPyUzjfpgrFGUbCZ17KW8OnzQI=
+=G6Yj
+-----END PGP SIGNATURE-----
+
+--dnqy/bk/NdFp4wAB--
+
+
+--===============6768365937000721397==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6768365937000721397==--
+
