@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFFAEC001B0
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 16:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 822DDEB64D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 21:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nDv3ijnNlmWHx03621R9bWkYuQ8KUx0fUEMEy5U6CWA=; b=gZnqAIJ2N8r/lF7dnp/SXjNTQL
-	jC7ehMIbsWJvkczsebAIPKVzbRqIqzmHWp4bKB9IqFxVltxMxXmGObO/qKa4WpmoTCyzywvjnHWS+
-	MVqCS5eExzpbL+iNhTHcoUlClap04936ptoXSVBobXTKNP1Mye+smLZzvJirlhubK4E+C5X85n5TA
-	YCm620DsV9djzQReV00hAOnSCUNShgvDo3AEU609F46ZAkUrRyvVWWcdjfjOL4cTeTQfTCsLnO7xD
-	6AXqvm+ure8VoIklPpfAKGA8fk4GkFvjxo4itppC66fb10MCWcV/hugWV1XT3FQ5sHxICDSmh/6wS
-	dyY1KPSw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:To:From:References:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BdSIOkux95+sVkD9BrVxTI3XICE9yiUi5UdvnmJ3zIc=; b=Q0nxzq/FMvGYhP
+	K05cSRH1uVzRyTcbWdIp4AVQj3uxfl2fAZyYHxH5BqqlBLMzJ7ZKQECwqqK29lUf3ik52vdg99SOe
+	eUfNwxjyalgHDNmlXLUmsYTaRMVTKQrCyPe4Th6KBFKppXoACwL4HkTETIqGSIRenOXCwZb7CXvFF
+	p+PPJjUWOnSG+5yvc9B/6AZFJQmj1AMBh9r1zpMrjFGUSizHRXkQ/3TgywY8WIJ/YS1Jt6GABE99q
+	+TnsFJ8lX8dmR5QfAaI02oyXY/AcoRo2mCllxSGe4130u3JP2hJQDofZcals7OwxBOoY67oRwwf+V
+	Smhk+hgzS6CyCdr9aXDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGMG7-00AyIz-1d;
-	Mon, 03 Jul 2023 16:18:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGMG4-00AyI3-1F
+	id 1qDtf9-00B4Ce-1G;
+	Mon, 26 Jun 2023 21:22:19 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qDetE-009QXk-1h
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 16:18:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D43A460F6F;
-	Mon,  3 Jul 2023 16:18:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B815C433C8;
-	Mon,  3 Jul 2023 16:18:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688401115;
-	bh=4LhULQvBv3u4TCWPmGK8mdbqMghJy+yfsY9e+Vry9r4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pD65x7xEqcsiKaRYzuibCnVI2RU/JWnnAlXfqoiFXtZXXcUVq16PIE5wAx5iJBPHj
-	 0dolgSwU29ZLQokGMwlIZ1+ltwiebNOhLPmsuP4yGk2QMRQbZ7K7QJVDxg2GWeQLFp
-	 VukerBXPlmiMTHHXXOFIt2+4DGI2p65lyIoHyg1Y1es0GYH+HDgjfzr3o44NYZSvIs
-	 N3//X+9Ce1i4LRPEyERVeKfHjNvlj25PiyzZqdegD7uA90QEaPQZDXlR/DeP5Vk0cK
-	 gW+Nk7kG8Rpk/BeITJO/ODJSZ4EQHJogvmb/Atr/wcev/99Qi1xwNUgrW3CLUsd3AA
-	 u6tgoVtgqr9DQ==
-Date: Mon, 3 Jul 2023 17:18:30 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 06/11] RISC-V: add missing single letter extension
- definitions
-Message-ID: <20230703-gusto-stout-c5b8bd537885@spud>
-References: <20230703-repayment-vocalist-e4f3eeac2b2a@wendy>
- <20230703-unlocking-straining-5c814e99642b@wendy>
+	Mon, 26 Jun 2023 05:35:58 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id CBF318139;
+	Mon, 26 Jun 2023 13:34:56 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
+ 2023 13:34:56 +0800
+Received: from [192.168.1.115] (180.164.60.184) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
+ 2023 13:34:56 +0800
+Message-ID: <32d1db3e-be6a-5219-b886-14c5f5102a5f@starfivetech.com>
+Date: Mon, 26 Jun 2023 13:34:55 +0800
 MIME-Version: 1.0
-In-Reply-To: <20230703-unlocking-straining-5c814e99642b@wendy>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH 9/9] drm/verisilicon: Add starfive hdmi driver
+Content-Language: en-US
+References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
+ <CGME20230602081437epcas1p36b7961b1d3f01dbed3fe2672a92e9d92@epcas1p3.samsung.com>
+ <20230602074043.33872-10-keith.zhao@starfivetech.com>
+ <003a01d9a57b$c140f340$43c2d9c0$@samsung.com>
+From: Keith Zhao <keith.zhao@starfivetech.com>
+To: undisclosed-recipients:;
+In-Reply-To: <003a01d9a57b$c140f340$43c2d9c0$@samsung.com>
+X-Originating-IP: [180.164.60.184]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_091836_470111_86DBD5D1 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20230625_223552_902044_CEB9B7A2 
+X-CRM114-Status: GOOD (  20.93  )
+X-Mailman-Approved-At: Mon, 26 Jun 2023 14:22:18 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,60 +71,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, palmer@dabbelt.com, Evan Green <evan@rivosinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: multipart/mixed; boundary="===============7769687346528808705=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+yes I tested 
+modetest -M starfive -D 0 -s 116@31:1280x720-59.94 -v
+modetest -M starfive -D 0 -s 116@31:1920x1080 -v
 
---===============7769687346528808705==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="tNKCvW7BqQMvbnRb"
-Content-Disposition: inline
+and the second command will repeat the problem
+as you advise at the beginning
+I call the "starfive_hdmi_setup"  function in the "starfive_hdmi_encoder_enable"
+instead of "starfive_hdmi_encoder_mode_set"
+resolve the problem
+i will add this modify in my next patch
 
+Thank you Hoegeun
 
---tNKCvW7BqQMvbnRb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Jul 03, 2023 at 11:27:58AM +0100, Conor Dooley wrote:
-> To facilitate adding single letter extensions to riscv_isa_ext, add
-> definitions for the extensions present in base_riscv_exts that do not
-> already have them.
->=20
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-=46rom v2 that I forgot:
-Reviewed-by: Evan Green <evan@rivosinc.com>
-https://lore.kernel.org/all/CALs-Hstveza+RF0EP2XArXv1Xy5jQWv1VxjsgFbFZDn_9M=
-03fA@mail.gmail.com/
-
---tNKCvW7BqQMvbnRb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKL01gAKCRB4tDGHoIJi
-0trlAPwMGJBMxUzESKutNZVGGuYbypLVcToW2OIneFcfCB67RwD6Ag1NrRn8cYUv
-9H8ePHqMBaHQ11sajyfC15+udAfC+wE=
-=9hWq
------END PGP SIGNATURE-----
-
---tNKCvW7BqQMvbnRb--
-
-
---===============7769687346528808705==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+On 2023/6/23 10:38, Hoegeun Kwon wrote:
+> Hi Keith,
+> 
+> There is a problem with stopping when changing modes.
+> 
+> Below test log
+> 
+> root:~> modetest -Mstarfive -c
+> Connectors:
+> id      encoder status          name            size (mm)       modes
+> encoders
+> 116     115     connected       HDMI-A-1        320x180         51      115
+>   modes:
+>         index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
+>   #0 1280x800 59.91 1280 1328 1360 1440 800 803 809 823 71000 flags: phsync,
+> pvsync; type: preferred, driver
+>   #1 1920x1080 60.00 1920 2008 2052 2200 1080 1084 1089 1125 148500 flags:
+> phsync, pvsync; type: driver
+> [...]
+> 
+> root:~> modetest -Mstarfive -s 116:#0 -v
+> setting mode 1280x800-59.91Hz on connectors 116, crtc 31
+> freq: 60.65Hz
+> freq: 59.91Hz
+> freq: 59.91Hz
+> 
+> root:~> modetest -Mstarfive -s 116:#1 -v
+> setting mode 1920x1080-60.00Hz on connectors 116, crtc 31
+> [   94.535626] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
+> [   94.560985] rcu:     1-...0: (20 ticks this GP)
+> idle=c9bc/1/0x4000000000000000 softirq=3869/3871 fqs=1120
+> [   94.589532] rcu:     (detected by 3, t=5264 jiffies, g=4645, q=63
+> ncpus=4)
+> [   94.615335] Task dump for CPU 1:
+> [   94.637723] task:modetest        state:R  running task     stack:0
+> pid:407   ppid:397    flags:0x00000008
+> [   94.667299] Call Trace:
+> [   94.689297] [<ffffffff80d1e8fc>] __schedule+0x2a8/0xa52
+> [   94.714221] [<ffffffff80d1f100>] schedule+0x5a/0xdc
+> [   94.738626] [<ffffffff80d25a14>] schedule_timeout+0x220/0x2a6
+> [   94.763762] [<ffffffff80d2037a>] wait_for_completion+0xfe/0x126
+> [   94.789073] [<ffffffff8002ffe4>] kthread_flush_worker+0x82/0xa0
+> 
+> 
+>> -----Original Message-----
+>> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of
+>> Keith Zhao
+>> Sent: Friday, June 2, 2023 4:41 PM
+>> To: dri-devel@lists.freedesktop.org; devicetree@vger.kernel.org; linux-
+>> kernel@vger.kernel.org; linux-riscv@lists.infradead.org; linux-
+>> media@vger.kernel.org; linaro-mm-sig@lists.linaro.org
+>> Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>; Sumit Semwal
+>> <sumit.semwal@linaro.org>; Emil Renner Berthing <kernel@esmil.dk>;
+>> Shengyang Chen <shengyang.chen@starfivetech.com>; Conor Dooley
+>> <conor+dt@kernel.org>; Albert Ou <aou@eecs.berkeley.edu>; Thomas
+>> Zimmermann <tzimmermann@suse.de>; Jagan Teki <jagan@edgeble.ai>; Rob
+>> Herring <robh+dt@kernel.org>; Chris Morgan <macromorgan@hotmail.com>; Paul
+>> Walmsley <paul.walmsley@sifive.com>; Keith Zhao
+>> <keith.zhao@starfivetech.com>; Bjorn Andersson <andersson@kernel.org>;
+>> Changhuang Liang <changhuang.liang@starfivetech.com>; Jack Zhu
+>> <jack.zhu@starfivetech.com>; Palmer Dabbelt <palmer@dabbelt.com>; Shawn
+>> Guo <shawnguo@kernel.org>; christian.koenig@amd.com
+>> Subject: [PATCH 9/9] drm/verisilicon: Add starfive hdmi driver
+>> 
+>> Add HDMI dirver for StarFive SoC JH7110.
+>> 
+>> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+>> ---
+>>  drivers/gpu/drm/verisilicon/Kconfig         |  11 +
+>>  drivers/gpu/drm/verisilicon/Makefile        |   1 +
+>>  drivers/gpu/drm/verisilicon/starfive_hdmi.c | 928 ++++++++++++++++++++
+>> drivers/gpu/drm/verisilicon/starfive_hdmi.h | 296 +++++++
+>>  drivers/gpu/drm/verisilicon/vs_drv.c        |   6 +
+>>  drivers/gpu/drm/verisilicon/vs_drv.h        |   4 +
+>>  6 files changed, 1246 insertions(+)
+>>  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.c
+>>  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.h
+> 
+> [...]
+> 
+>> diff --git a/drivers/gpu/drm/verisilicon/starfive_hdmi.c
+>> b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
+>> new file mode 100644
+>> index 000000000000..128ecca03309
+>> --- /dev/null
+>> +++ b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
+>> @@ -0,0 +1,928 @@
+> 
+> [...]
+> 
+>> +static int starfive_hdmi_setup(struct starfive_hdmi *hdmi,
+>> +			       struct drm_display_mode *mode) {
+> 
+> [...]
+> 
+>> +	return 0;
+>> +}
+>> +
+>> +static void starfive_hdmi_encoder_mode_set(struct drm_encoder *encoder,
+>> +					   struct drm_display_mode *mode,
+>> +					   struct drm_display_mode
+> *adj_mode) {
+>> +	struct starfive_hdmi *hdmi = encoder_to_hdmi(encoder);
+>> +
+>> +	starfive_hdmi_setup(hdmi, adj_mode);
+> 
+> When starfive_hdmi_setup runs here,
+> when changing the mode, a problem occurs because try to write a value to reg
+> in a state that is not resumed after suspend.
+> 
+>> +
+>> +	memcpy(&hdmi->previous_mode, adj_mode, sizeof(hdmi-
+>> >previous_mode)); }
+>> +
+>> +static void starfive_hdmi_encoder_enable(struct drm_encoder *encoder) {
+>> +	struct starfive_hdmi *hdmi = encoder_to_hdmi(encoder);
+>> +
+>> +	pm_runtime_get_sync(hdmi->dev);
+> 
+> So if move the call point of starfive_hdmi_setup here, it works normally.
+> 
+>> +}
+> 
+> Best regards,
+> Hoegeun
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7769687346528808705==--
-
