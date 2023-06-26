@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52AEC0015E
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 11:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 188DFEB64D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 11:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MBu6X6sEtNIiRwA+nEiYbhBQds3bmQu7Fqswt7xKvzE=; b=zsdVkX4epTgn1O
-	//BJGXQRQNcRWwfeBMAhKFOnJVT5sO/h7Ky+w5D7hSB0b9T6LMM+0IYHwwOIszMZLjsIkx5p28LIi
-	CmWfKtPjRn2eB9n7cyy2Kx2JhzJRS0qfOL6WrbA2OelonI0u5YpU/9Fa3APdww1W/dR+rYRGAIax9
-	AYR9QPEuHxTe6tQaAAI/J2WowdrsXDFxejCOBhP7dBqVDxPLsyEkXcebRvXzSaNofAgSIgge1puPM
-	4UTbilQrnWjlEVoqCph8M4aYxD0kzji9lnxedvoNf1q0N8Tv0X+osX3SIQcXlh8h0rj/RO1vNHGkU
-	2v31QExBA6CWF31FO8aQ==;
+	List-Owner; bh=dxX0E3uJEVPkMVAK2XUL1LGsf4lkto3eKifvOAxQ3gI=; b=SVJJ9Og/I9BwHM
+	jCXW1+q/H+gXquec7+WtEDngqAw95TVSDqM4ixtFdLjGl5tUoc4UWklPCpDo7rpBfdjSO8W13iCSJ
+	+QtTHulz401EOLEVIJXbX38W4VZVZ49mFFD9YnyGZ6/j3tomKMgGo/ZNPFUZAL8hKS/sjVIKMx15K
+	6HbZpdmpAjtv1muB3bU+/nZZfoCf5P0x0ggEdSfuYO3SrJmKXpSSbJ15sSSiUS/zWlPdQMDHHAQ7T
+	6D8V92RMpX4NJOcDnuY44AhFlMo4+Rav2I+BuCFbWvxwD0uJZ5GZxwzmMEXlxpyJrPB5NewbOUPZk
+	5lMQxiDyYAeUlC1j0dQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDkHO-00A4C5-37;
+	id 1qDkHQ-00A4Dd-3B;
+	Mon, 26 Jun 2023 11:21:13 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qDkHL-00A3ye-2V;
 	Mon, 26 Jun 2023 11:21:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDkHI-00A48M-33
-	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jun 2023 11:21:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1687778464; x=1719314464;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=B8TDhvFs2NMM5D/MoWXi2C5U9+P2WwesVheXFF9nLYI=;
-  b=jEEGocZm16PzeHSAp9ETQzLtIp+nd54XImyZvReTn9FSPWp0lsYVfJjM
-   IGdF0RHcT6qfmUxa6ALHW1i9T/zsx/DkPP7e4dBoUJH4uAHUHT2p0v81Q
-   YZM8ui4P+xasvBhWhxBXvWFKBdxMB1kltmRcRsJ4E4S7FPJ8Jan/ihCno
-   d4INYS/D41mhyAtdKTeujRpYNbZoiy6FGsbMtTCeLv9E2gu0eG008BmJy
-   wLELt6Ce5ztG4LVj95lRKu8ZhAkxSn87Uyja5PLjWP5nW3r/OfJLK9+ue
-   EYiEuhngFfQ8XnTVus5gkWWpUZQ7g6Pq9hH8GJzKRfNDFM16zAR7yJN41
-   A==;
-X-IronPort-AV: E=Sophos;i="6.01,159,1684825200"; 
-   d="scan'208";a="219824762"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Jun 2023 04:21:04 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 26 Jun 2023 04:21:03 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Mon, 26 Jun 2023 04:21:01 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <palmer@dabbelt.com>
-Subject: [PATCH v1 7/9] RISC-V: split riscv_fill_hwcap() in 3
-Date: Mon, 26 Jun 2023 12:19:45 +0100
-Message-ID: <20230626-prevalent-heaviness-e35188de1225@wendy>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230626-provable-angrily-81760e8c3cc6@wendy>
-References: <20230626-provable-angrily-81760e8c3cc6@wendy>
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id BAEBD24E046;
+	Mon, 26 Jun 2023 19:20:30 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
+ 2023 19:20:30 +0800
+Received: from [192.168.125.127] (113.72.146.167) by EXMBX171.cuchost.com
+ (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
+ 2023 19:20:29 +0800
+Message-ID: <1c6036f2-bacf-2c2c-0649-6ad75ece9e06@starfivetech.com>
+Date: Mon, 26 Jun 2023 19:20:27 +0800
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12001; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=B8TDhvFs2NMM5D/MoWXi2C5U9+P2WwesVheXFF9nLYI=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCkzS/wvBjVMZ5oWL6hspLb1cn2uUVFZucqabQd23yo+VOpy Tf1QRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACYyo4WRYdrCHMNsc4HPsxhTzxXriZ 7xkbb9ID71dWTXxEavzk0nzjIyPHmRuuxnhZXJBHH16Hm79M/p5O4UD767+81BR4e6pVo6HAA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v7 3/5] phy: starfive: Add JH7110 USB 2.0 PHY driver
+Content-Language: en-US
+To: Vinod Koul <vkoul@kernel.org>
+CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley
+	<conor@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Roger Quadros <rogerq@kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <linux-riscv@lists.infradead.org>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Mason Huo <mason.huo@starfivetech.com>
+References: <20230619094759.21013-1-minda.chen@starfivetech.com>
+ <20230619094759.21013-4-minda.chen@starfivetech.com>
+ <ZJLbCbG9+XnGVjKb@matsya>
+From: Minda Chen <minda.chen@starfivetech.com>
+In-Reply-To: <ZJLbCbG9+XnGVjKb@matsya>
+X-Originating-IP: [113.72.146.167]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
+ (172.16.6.91)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_042104_995158_D38F52A1 
-X-CRM114-Status: GOOD (  29.56  )
+X-CRM114-CacheID: sfid-20230626_042108_301090_628C5C54 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,412 +76,273 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, conor@kernel.org, conor.dooley@microchip.com, Rob Herring <robh+dt@kernel.org>, Evan
- Green <evan@rivosinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Before adding more complexity to it, split riscv_fill_hwcap() into 3
-distinct sections:
-- riscv_fill_hwcap() still is the top level function, into which the
-  additional complexity will be added.
-- riscv_fill_hwcap_from_isa_string() handles getting the information
-  from the riscv,isa/ACPI equivalent across harts & the various quirks
-  there
-- riscv_parse_isa_string() does what it says on the tin.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/kernel/cpufeature.c | 350 +++++++++++++++++----------------
- 1 file changed, 182 insertions(+), 168 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 5405d8a58537..366477ba1eea 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -180,29 +180,172 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 
- const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
- 
--void __init riscv_fill_hwcap(void)
-+static void __init riscv_parse_isa_string(unsigned long *this_hwcap, struct riscv_isainfo *isainfo,
-+					  unsigned long *isa2hwcap, const char *isa)
-+{
-+	/*
-+	 * For all possible cpus, we have already validated in
-+	 * the boot process that they at least contain "rv" and
-+	 * whichever of "32"/"64" this kernel supports, and so this
-+	 * section can be skipped.
-+	 */
-+	isa += 4;
-+
-+	while (*isa) {
-+		const char *ext = isa++;
-+		const char *ext_end = isa;
-+		bool ext_long = false, ext_err = false;
-+
-+		switch (*ext) {
-+		case 's':
-+			/*
-+			 * Workaround for invalid single-letter 's' & 'u'(QEMU).
-+			 * No need to set the bit in riscv_isa as 's' & 'u' are
-+			 * not valid ISA extensions. It works until multi-letter
-+			 * extension starting with "Su" appears.
-+			 */
-+			if (ext[-1] != '_' && ext[1] == 'u') {
-+				++isa;
-+				ext_err = true;
-+				break;
-+			}
-+			fallthrough;
-+		case 'S':
-+		case 'x':
-+		case 'X':
-+		case 'z':
-+		case 'Z':
-+			/*
-+			 * Before attempting to parse the extension itself, we find its end.
-+			 * As multi-letter extensions must be split from other multi-letter
-+			 * extensions with an "_", the end of a multi-letter extension will
-+			 * either be the null character or the "_" at the start of the next
-+			 * multi-letter extension.
-+			 *
-+			 * Next, as the extensions version is currently ignored, we
-+			 * eliminate that portion. This is done by parsing backwards from
-+			 * the end of the extension, removing any numbers. This may be a
-+			 * major or minor number however, so the process is repeated if a
-+			 * minor number was found.
-+			 *
-+			 * ext_end is intended to represent the first character *after* the
-+			 * name portion of an extension, but will be decremented to the last
-+			 * character itself while eliminating the extensions version number.
-+			 * A simple re-increment solves this problem.
-+			 */
-+			ext_long = true;
-+			for (; *isa && *isa != '_'; ++isa)
-+				if (unlikely(!isalnum(*isa)))
-+					ext_err = true;
-+
-+			ext_end = isa;
-+			if (unlikely(ext_err))
-+				break;
-+
-+			if (!isdigit(ext_end[-1]))
-+				break;
-+
-+			while (isdigit(*--ext_end))
-+				;
-+
-+			if (tolower(ext_end[0]) != 'p' || !isdigit(ext_end[-1])) {
-+				++ext_end;
-+				break;
-+			}
-+
-+			while (isdigit(*--ext_end))
-+				;
-+
-+			++ext_end;
-+			break;
-+		default:
-+			/*
-+			 * Things are a little easier for single-letter extensions, as they
-+			 * are parsed forwards.
-+			 *
-+			 * After checking that our starting position is valid, we need to
-+			 * ensure that, when isa was incremented at the start of the loop,
-+			 * that it arrived at the start of the next extension.
-+			 *
-+			 * If we are already on a non-digit, there is nothing to do. Either
-+			 * we have a multi-letter extension's _, or the start of an
-+			 * extension.
-+			 *
-+			 * Otherwise we have found the current extension's major version
-+			 * number. Parse past it, and a subsequent p/minor version number
-+			 * if present. The `p` extension must not appear immediately after
-+			 * a number, so there is no fear of missing it.
-+			 *
-+			 */
-+			if (unlikely(!isalpha(*ext))) {
-+				ext_err = true;
-+				break;
-+			}
-+
-+			if (!isdigit(*isa))
-+				break;
-+
-+			while (isdigit(*++isa))
-+				;
-+
-+			if (tolower(*isa) != 'p')
-+				break;
-+
-+			if (!isdigit(*++isa)) {
-+				--isa;
-+				break;
-+			}
-+
-+			while (isdigit(*++isa))
-+				;
-+
-+			break;
-+		}
-+
-+		/*
-+		 * The parser expects that at the start of an iteration isa points to the
-+		 * first character of the next extension. As we stop parsing an extension
-+		 * on meeting a non-alphanumeric character, an extra increment is needed
-+		 * where the succeeding extension is a multi-letter prefixed with an "_".
-+		 */
-+		if (*isa == '_')
-+			++isa;
-+
-+#define SET_ISA_EXT_MAP(name, bit)						\
-+		do {								\
-+			if ((ext_end - ext == sizeof(name) - 1) &&		\
-+			     !strncasecmp(ext, name, sizeof(name) - 1) &&	\
-+			     riscv_isa_extension_check(bit))			\
-+				set_bit(bit, isainfo->isa);			\
-+		} while (false)							\
-+
-+		if (unlikely(ext_err))
-+			continue;
-+		if (!ext_long) {
-+			int nr = tolower(*ext) - 'a';
-+
-+			if (riscv_isa_extension_check(nr)) {
-+				*this_hwcap |= isa2hwcap[nr];
-+				set_bit(nr, isainfo->isa);
-+			}
-+		} else {
-+			for (int i = 0; i < riscv_isa_ext_count; i++)
-+				SET_ISA_EXT_MAP(riscv_isa_ext[i].name,
-+						riscv_isa_ext[i].id);
-+		}
-+#undef SET_ISA_EXT_MAP
-+	}
-+}
-+
-+static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
- {
- 	struct device_node *node;
- 	const char *isa;
--	char print_str[NUM_ALPHA_EXTS + 1];
--	int i, j, rc;
--	unsigned long isa2hwcap[26] = {0};
-+	int rc;
- 	struct acpi_table_header *rhct;
- 	acpi_status status;
- 	unsigned int cpu;
- 
--	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
--	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
--	isa2hwcap['a' - 'a'] = COMPAT_HWCAP_ISA_A;
--	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
--	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
--	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
--	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
--
--	elf_hwcap = 0;
--
--	bitmap_zero(riscv_isa, RISCV_ISA_EXT_MAX);
--
- 	if (!acpi_disabled) {
- 		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
- 		if (ACPI_FAILURE(status))
-@@ -234,158 +377,7 @@ void __init riscv_fill_hwcap(void)
- 			}
- 		}
- 
--		/*
--		 * For all possible cpus, we have already validated in
--		 * the boot process that they at least contain "rv" and
--		 * whichever of "32"/"64" this kernel supports, and so this
--		 * section can be skipped.
--		 */
--		isa += 4;
--
--		while (*isa) {
--			const char *ext = isa++;
--			const char *ext_end = isa;
--			bool ext_long = false, ext_err = false;
--
--			switch (*ext) {
--			case 's':
--				/*
--				 * Workaround for invalid single-letter 's' & 'u'(QEMU).
--				 * No need to set the bit in riscv_isa as 's' & 'u' are
--				 * not valid ISA extensions. It works until multi-letter
--				 * extension starting with "Su" appears.
--				 */
--				if (ext[-1] != '_' && ext[1] == 'u') {
--					++isa;
--					ext_err = true;
--					break;
--				}
--				fallthrough;
--			case 'S':
--			case 'x':
--			case 'X':
--			case 'z':
--			case 'Z':
--				/*
--				 * Before attempting to parse the extension itself, we find its end.
--				 * As multi-letter extensions must be split from other multi-letter
--				 * extensions with an "_", the end of a multi-letter extension will
--				 * either be the null character or the "_" at the start of the next
--				 * multi-letter extension.
--				 *
--				 * Next, as the extensions version is currently ignored, we
--				 * eliminate that portion. This is done by parsing backwards from
--				 * the end of the extension, removing any numbers. This may be a
--				 * major or minor number however, so the process is repeated if a
--				 * minor number was found.
--				 *
--				 * ext_end is intended to represent the first character *after* the
--				 * name portion of an extension, but will be decremented to the last
--				 * character itself while eliminating the extensions version number.
--				 * A simple re-increment solves this problem.
--				 */
--				ext_long = true;
--				for (; *isa && *isa != '_'; ++isa)
--					if (unlikely(!isalnum(*isa)))
--						ext_err = true;
--
--				ext_end = isa;
--				if (unlikely(ext_err))
--					break;
--
--				if (!isdigit(ext_end[-1]))
--					break;
--
--				while (isdigit(*--ext_end))
--					;
--
--				if (tolower(ext_end[0]) != 'p' || !isdigit(ext_end[-1])) {
--					++ext_end;
--					break;
--				}
--
--				while (isdigit(*--ext_end))
--					;
--
--				++ext_end;
--				break;
--			default:
--				/*
--				 * Things are a little easier for single-letter extensions, as they
--				 * are parsed forwards.
--				 *
--				 * After checking that our starting position is valid, we need to
--				 * ensure that, when isa was incremented at the start of the loop,
--				 * that it arrived at the start of the next extension.
--				 *
--				 * If we are already on a non-digit, there is nothing to do. Either
--				 * we have a multi-letter extension's _, or the start of an
--				 * extension.
--				 *
--				 * Otherwise we have found the current extension's major version
--				 * number. Parse past it, and a subsequent p/minor version number
--				 * if present. The `p` extension must not appear immediately after
--				 * a number, so there is no fear of missing it.
--				 *
--				 */
--				if (unlikely(!isalpha(*ext))) {
--					ext_err = true;
--					break;
--				}
--
--				if (!isdigit(*isa))
--					break;
--
--				while (isdigit(*++isa))
--					;
--
--				if (tolower(*isa) != 'p')
--					break;
--
--				if (!isdigit(*++isa)) {
--					--isa;
--					break;
--				}
--
--				while (isdigit(*++isa))
--					;
--
--				break;
--			}
--
--			/*
--			 * The parser expects that at the start of an iteration isa points to the
--			 * first character of the next extension. As we stop parsing an extension
--			 * on meeting a non-alphanumeric character, an extra increment is needed
--			 * where the succeeding extension is a multi-letter prefixed with an "_".
--			 */
--			if (*isa == '_')
--				++isa;
--
--#define SET_ISA_EXT_MAP(name, bit)							\
--			do {								\
--				if ((ext_end - ext == sizeof(name) - 1) &&		\
--				     !strncasecmp(ext, name, sizeof(name) - 1) &&	\
--				     riscv_isa_extension_check(bit))			\
--					set_bit(bit, isainfo->isa);			\
--			} while (false)							\
--
--			if (unlikely(ext_err))
--				continue;
--			if (!ext_long) {
--				int nr = tolower(*ext) - 'a';
--
--				if (riscv_isa_extension_check(nr)) {
--					this_hwcap |= isa2hwcap[nr];
--					set_bit(nr, isainfo->isa);
--				}
--			} else {
--				for (int i = 0; i < riscv_isa_ext_count; i++)
--					SET_ISA_EXT_MAP(riscv_isa_ext[i].name,
--							riscv_isa_ext[i].id);
--			}
--#undef SET_ISA_EXT_MAP
--		}
-+		riscv_parse_isa_string(&this_hwcap, isainfo, isa2hwcap, isa);
- 
- 		/*
- 		 * Linux requires the following extensions, so we may as well
-@@ -422,6 +414,28 @@ void __init riscv_fill_hwcap(void)
- 
- 	if (!acpi_disabled && rhct)
- 		acpi_put_table((struct acpi_table_header *)rhct);
-+}
-+
-+void __init riscv_fill_hwcap(void)
-+{
-+	struct device_node *node;
-+	const char *isa;
-+	char print_str[NUM_ALPHA_EXTS + 1];
-+	int i, j, rc;
-+	unsigned long isa2hwcap[26] = {0};
-+	struct acpi_table_header *rhct;
-+	acpi_status status;
-+	unsigned int cpu;
-+
-+	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
-+	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
-+	isa2hwcap['a' - 'a'] = COMPAT_HWCAP_ISA_A;
-+	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
-+	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
-+	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
-+	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
-+
-+	riscv_fill_hwcap_from_isa_string(isa2hwcap);
- 
- 	/* We don't support systems with F but without D, so mask those out
- 	 * here. */
--- 
-2.40.1
-
+On 2023/6/21 19:12, Vinod Koul wrote:
+> On 19-06-23, 17:47, Minda Chen wrote:
+>> Add Starfive JH7110 SoC USB 2.0 PHY driver support.
+>> USB 2.0 PHY default connect to Cadence USB controller.
+>> 
+>> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
+>> Reviewed-by: Roger Quadros <rogerq@kernel.org>
+>> ---
+>>  MAINTAINERS                           |   6 ++
+>>  drivers/phy/Kconfig                   |   1 +
+>>  drivers/phy/Makefile                  |   1 +
+>>  drivers/phy/starfive/Kconfig          |  15 +++
+>>  drivers/phy/starfive/Makefile         |   2 +
+>>  drivers/phy/starfive/phy-jh7110-usb.c | 150 ++++++++++++++++++++++++++
+>>  6 files changed, 175 insertions(+)
+>>  create mode 100644 drivers/phy/starfive/Kconfig
+>>  create mode 100644 drivers/phy/starfive/Makefile
+>>  create mode 100644 drivers/phy/starfive/phy-jh7110-usb.c
+>> 
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index f794002a192e..d2ce89a8d31c 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -20174,6 +20174,12 @@ S:	Supported
+>>  F:	Documentation/devicetree/bindings/watchdog/starfive*
+>>  F:	drivers/watchdog/starfive-wdt.c
+>>  
+>> +STARFIVE JH71X0 USB PHY DRIVER
+>> +M:	Minda Chen <minda.chen@starfivetech.com>
+>> +S:	Supported
+>> +F:	Documentation/devicetree/bindings/phy/starfive,jh7110-usb-phy.yaml
+>> +F:	drivers/phy/starfive/phy-jh7110-usb.c
+>> +
+>>  STATIC BRANCH/CALL
+>>  M:	Peter Zijlstra <peterz@infradead.org>
+>>  M:	Josh Poimboeuf <jpoimboe@kernel.org>
+>> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+>> index f46e3148d286..0000149edbc4 100644
+>> --- a/drivers/phy/Kconfig
+>> +++ b/drivers/phy/Kconfig
+>> @@ -91,6 +91,7 @@ source "drivers/phy/rockchip/Kconfig"
+>>  source "drivers/phy/samsung/Kconfig"
+>>  source "drivers/phy/socionext/Kconfig"
+>>  source "drivers/phy/st/Kconfig"
+>> +source "drivers/phy/starfive/Kconfig"
+>>  source "drivers/phy/sunplus/Kconfig"
+>>  source "drivers/phy/tegra/Kconfig"
+>>  source "drivers/phy/ti/Kconfig"
+>> diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
+>> index 54f312c10a40..fb3dc9de6111 100644
+>> --- a/drivers/phy/Makefile
+>> +++ b/drivers/phy/Makefile
+>> @@ -31,6 +31,7 @@ obj-y					+= allwinner/	\
+>>  					   samsung/	\
+>>  					   socionext/	\
+>>  					   st/		\
+>> +					   starfive/	\
+>>  					   sunplus/	\
+>>  					   tegra/	\
+>>  					   ti/		\
+>> diff --git a/drivers/phy/starfive/Kconfig b/drivers/phy/starfive/Kconfig
+>> new file mode 100644
+>> index 000000000000..2283feadfc76
+>> --- /dev/null
+>> +++ b/drivers/phy/starfive/Kconfig
+>> @@ -0,0 +1,15 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only
+>> +#
+>> +# Phy drivers for StarFive platforms
+>> +#
+>> +
+>> +config PHY_STARFIVE_JH7110_USB
+>> +	tristate "Starfive JH7110 USB 2.0 PHY support"
+>> +	depends on USB_SUPPORT
+>> +	select GENERIC_PHY
+>> +	select USB_PHY
+>> +	help
+>> +	  Enable this to support the StarFive USB 2.0 PHY,
+>> +	  used with the Cadence USB controller.
+>> +	  If M is selected, the module will be called
+>> +	  phy-jh7110-usb.ko.
+>> diff --git a/drivers/phy/starfive/Makefile b/drivers/phy/starfive/Makefile
+>> new file mode 100644
+>> index 000000000000..52e9a09cc619
+>> --- /dev/null
+>> +++ b/drivers/phy/starfive/Makefile
+>> @@ -0,0 +1,2 @@
+>> +# SPDX-License-Identifier: GPL-2.0
+>> +obj-$(CONFIG_PHY_STARFIVE_JH7110_USB)	+= phy-jh7110-usb.o
+>> diff --git a/drivers/phy/starfive/phy-jh7110-usb.c b/drivers/phy/starfive/phy-jh7110-usb.c
+>> new file mode 100644
+>> index 000000000000..90d788423705
+>> --- /dev/null
+>> +++ b/drivers/phy/starfive/phy-jh7110-usb.c
+>> @@ -0,0 +1,150 @@
+>> +// SPDX-License-Identifier: GPL-2.0+
+>> +/*
+>> + * StarFive JH7110 USB 2.0 PHY driver
+>> + *
+>> + * Copyright (C) 2023 StarFive Technology Co., Ltd.
+>> + * Author: Minda Chen <minda.chen@starfivetech.com>
+>> + */
+>> +
+>> +#include <linux/bits.h>
+>> +#include <linux/clk.h>
+>> +#include <linux/err.h>
+>> +#include <linux/io.h>
+>> +#include <linux/module.h>
+>> +#include <linux/phy/phy.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/usb/of.h>
+>> +
+>> +#define USB_125M_CLK_RATE		125000000
+>> +#define USB_LS_KEEPALIVE_OFF		0x4
+>> +#define USB_LS_KEEPALIVE_ENABLE		BIT(4)
+>> +
+>> +struct jh7110_usb2_phy {
+>> +	struct phy *phy;
+>> +	void __iomem *regs;
+>> +	struct clk *usb_125m_clk;
+>> +	struct clk *app_125m;
+>> +	enum phy_mode mode;
+>> +};
+>> +
+>> +static void jh7110_usb2_mode_set(struct jh7110_usb2_phy *phy)
+>> +{
+>> +	unsigned int val;
+>> +
+>> +	if (phy->mode != PHY_MODE_USB_HOST) {
+>> +		/* Enable the LS speed keep-alive signal */
+>> +		val = readl(phy->regs + USB_LS_KEEPALIVE_OFF);
+>> +		val |= USB_LS_KEEPALIVE_ENABLE;
+>> +		writel(val, phy->regs + USB_LS_KEEPALIVE_OFF);
+>> +	}
+> 
+> looks like this sets only for host, so why not call it
+> jh7110_usb2_set_host_mode() rather than get confused about
+> jh7110_usb2_mode_set/jh7110_usb2_phy_set_mode
+> 
+Thanks , It is only for host, I will change it.
+>> +}
+>> +
+>> +static int jh7110_usb2_phy_set_mode(struct phy *_phy,
+>> +				    enum phy_mode mode, int submode)
+>> +{
+>> +	struct jh7110_usb2_phy *phy = phy_get_drvdata(_phy);
+>> +
+>> +	switch (mode) {
+>> +	case PHY_MODE_USB_HOST:
+>> +	case PHY_MODE_USB_DEVICE:
+>> +	case PHY_MODE_USB_OTG:
+>> +		break;
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	if (mode != phy->mode) {
+>> +		dev_dbg(&_phy->dev, "Changing phy to %d\n", mode);
+>> +		phy->mode = mode;
+>> +		jh7110_usb2_mode_set(phy);
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int jh7110_usb2_phy_init(struct phy *_phy)
+>> +{
+>> +	struct jh7110_usb2_phy *phy = phy_get_drvdata(_phy);
+>> +	int ret;
+>> +
+>> +	ret = clk_set_rate(phy->usb_125m_clk, USB_125M_CLK_RATE);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = clk_prepare_enable(phy->app_125m);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int jh7110_usb2_phy_exit(struct phy *_phy)
+>> +{
+>> +	struct jh7110_usb2_phy *phy = phy_get_drvdata(_phy);
+>> +
+>> +	clk_disable_unprepare(phy->app_125m);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct phy_ops jh7110_usb2_phy_ops = {
+>> +	.init		= jh7110_usb2_phy_init,
+>> +	.exit		= jh7110_usb2_phy_exit,
+>> +	.set_mode	= jh7110_usb2_phy_set_mode,
+>> +	.owner		= THIS_MODULE,
+>> +};
+>> +
+>> +static int jh7110_usb_phy_probe(struct platform_device *pdev)
+>> +{
+>> +	struct jh7110_usb2_phy *phy;
+>> +	struct device *dev = &pdev->dev;
+>> +	struct phy_provider *phy_provider;
+>> +
+>> +	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
+>> +	if (!phy)
+>> +		return -ENOMEM;
+>> +
+>> +	phy->usb_125m_clk = devm_clk_get(dev, "125m");
+>> +	if (IS_ERR(phy->usb_125m_clk))
+>> +		return dev_err_probe(dev, PTR_ERR(phy->usb_125m_clk),
+>> +			"Failed to get 125m clock\n");
+>> +
+>> +	phy->app_125m = devm_clk_get(dev, "app_125m");
+>> +	if (IS_ERR(phy->app_125m))
+>> +		return dev_err_probe(dev, PTR_ERR(phy->app_125m),
+>> +			"Failed to get app 125m clock\n");
+>> +
+>> +	phy->regs = devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(phy->regs))
+>> +		return dev_err_probe(dev, PTR_ERR(phy->regs),
+>> +			"Failed to map phy base\n");
+>> +
+>> +	phy->phy = devm_phy_create(dev, NULL, &jh7110_usb2_phy_ops);
+>> +	if (IS_ERR(phy->phy))
+>> +		return dev_err_probe(dev, PTR_ERR(phy->phy),
+>> +			"Failed to create phy\n");
+>> +
+>> +	phy_set_drvdata(phy->phy, phy);
+>> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+>> +
+>> +	return PTR_ERR_OR_ZERO(phy_provider);
+>> +}
+>> +
+>> +static const struct of_device_id jh7110_usb_phy_of_match[] = {
+>> +	{ .compatible = "starfive,jh7110-usb-phy" },
+>> +	{ /* sentinel */ },
+>> +};
+>> +MODULE_DEVICE_TABLE(of, jh7110_usb_phy_of_match);
+>> +
+>> +static struct platform_driver jh7110_usb_phy_driver = {
+>> +	.probe	= jh7110_usb_phy_probe,
+>> +	.driver = {
+>> +		.of_match_table	= jh7110_usb_phy_of_match,
+>> +		.name  = "jh7110-usb-phy",
+>> +	}
+>> +};
+>> +module_platform_driver(jh7110_usb_phy_driver);
+> 
+> A very light driver, only setting couple of things for hw. Can you
+> explain how phy registers are configured, am sure there would be many
+> more..? Do you rely on bootloader or some other entity for that?
+> 
+Phy Setting is set by reset. Because it is for StarFive JH7110 only. The same as PCIe PHY.
+>> +
+>> +MODULE_DESCRIPTION("StarFive JH7110 USB 2.0 PHY driver");
+>> +MODULE_AUTHOR("Minda Chen <minda.chen@starfivetech.com>");
+>> +MODULE_LICENSE("GPL");
+>> -- 
+>> 2.17.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
