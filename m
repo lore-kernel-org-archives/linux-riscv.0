@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD35EB64D7
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 15:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD4BEB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 15:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lNwUeprW2zu0/8ShM1JbyX7SQOgutMmlLQ0+KuVJTsY=; b=BBuqs/uc6uOnNx
-	DMlWanU2pvozBDOaFWgs94CXiXWOLVO27JZBNoKj4r2npsX8JIRUXdUAwoMf9oNAqlqSrzQMPFBiB
-	pCODxBD09F6HiiILvUkDmzEOmozqRZzp26iZA1FAinVck3OSwUuUeyJCpqA3PsiCNAHqNJX2x1RET
-	kWNfDiEl9M+dDf5I2JM3ssBJO3GFQhnsibnkCG4lfwZZ6od3d8Gt4M0kaIxhCFxSaYiQNdLM4OGcd
-	1wCQTFXHNkfBbNm0oRcoTZIcd7OIG3A39/agUwinRjxXT6S/DW2gbqlP+ZmzxGaLP+56UXodj5ovr
-	cr4mACBvBbZ14a5vhuDA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BjNDojJiw9ewqL7VH7KRG8NX+QMEgi12RZTWz0ZDuSc=; b=Zl32d11ycxGChVoYgMu2tPINQv
+	+bRu3AQJW1XJD69Ss6PinuSjBF6o6Ho6zPVAvbfpmkkUXbqrGIVqL3dVdf2vT1CzJfmHxpT3xIxx6
+	76P2w6yTAuzlCyA7sDlMmlsZrV/H3wOIYtmhfBNxM6931UPRZSID2mnyalpqTiO/ZrMD58GSv1Tix
+	0LnmywwA/E8iUR6LgQS81FvHNsNANLrg572DnGtOWKdIUgg1KqGqYXRTJhDOMLsjSZwgJ1MbI+bVj
+	g6Rqc8q1T/cU6mCCES+IsvCssg99HLQOgCjfUwONk5Ph/XtEoZ6VAcZ67hATfg78NY+FBvuhLQbdm
+	A2A7MZVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDoQh-00AXyS-2V;
-	Mon, 26 Jun 2023 15:47:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qDoV8-00AYQD-1O;
+	Mon, 26 Jun 2023 15:51:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDoQf-00AXy3-1s
+	id 1qDoV5-00AYPZ-1U
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jun 2023 15:47:02 +0000
+	Mon, 26 Jun 2023 15:51:36 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 09D2C60EE2;
-	Mon, 26 Jun 2023 15:47:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 597B4C433C0;
-	Mon, 26 Jun 2023 15:47:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BD15F60EC2;
+	Mon, 26 Jun 2023 15:51:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92307C433C0;
+	Mon, 26 Jun 2023 15:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1687794420;
-	bh=Q60Kt5vlLtP8NFJ/7bDseV+2BBSppFzAzKnhgFt9Has=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=nJYpTvPowv2grZcTH4v+Ljy1s52QpDQy2kgsioY81I9mMXSjRYFgq1B8KFPIjAYhm
-	 OvJcY+Q/9H8De5I/om0K+nUkh6J81V3JbNhJnD0aj1TjQjgD+tKwgTq/Z41Rh4J3WI
-	 Dt7S7GnJzpKELkmKmpXFRaS/VwFw5xygR8N0+0KFXtl5wSlOgReWRTcLAsMDU6sPWh
-	 7QFEYDjvlK1bX0yYzlzaBRzgxY/PPMI271wTJawZ2kASTzdQ6ikQ8vht/spYKv7rez
-	 RwJ5OL4Ji7bjOo4xsFTEnrkMI1tFgUuvOG8ylAHm5ZE0SJqclD9LLty7NS1uu8fK8E
-	 cp62z+Nvkw8jw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Vineet Gupta <vineetg@rivosinc.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- linux-kernel@vger.kernel.org,
- linux@rivosinc.com, Palmer Dabbelt <palmer@rivosinc.com>, =?utf-8?Q?R?=
- =?utf-8?Q?=C3=A9mi?=
- Denis-Courmont <remi@remlab.net>, Darius Rad <darius@bluespec.com>, Andy
- Chiu <andy.chiu@sifive.com>
-Subject: Re: [PATCH] riscv: Discard vector state on syscalls
-In-Reply-To: <b990638b-a86a-ee43-f8b1-18a0a0651ad0@rivosinc.com>
-References: <20230622173613.30722-1-bjorn@kernel.org>
- <b990638b-a86a-ee43-f8b1-18a0a0651ad0@rivosinc.com>
-Date: Mon, 26 Jun 2023 17:46:57 +0200
-Message-ID: <874jmuns3y.fsf@all.your.base.are.belong.to.us>
+	s=k20201202; t=1687794694;
+	bh=cU5DSziNAOrXhpvgrl/54P8ukmcWLFJDRxZj1+C07pc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VEIcsGKJEiUuMAsVgngWJ09kq0Prk8Vkujv5K98yNtKPrwajkjYWIRoQ+SZ2sO1Nv
+	 qIn29afaLaDMc9UCXW2icRn/mFa6GprGZFAScXGDH5A+PQ9Jv+1gInyRQsgZ4i/XCD
+	 iaP2yaBYcLTkk+Pu7sYivagJqraj9OEV5Vw8YPuGD8KqmBlrr58WOnrik21/nZKC8K
+	 bGgqmVxvV8fuvDeSmNmpiZT1qhUEJBbFAaXO4KajjeyV9RnngckTutcrzupp9eH1q9
+	 CdeO8R+Mx1jKBx2d6Fh2M8fFWoR1XJTEXe0+k0KleXdttDl12MHZzRyfLgGT6mzCu0
+	 pvYogUFZ4lxZA==
+Date: Mon, 26 Jun 2023 16:51:29 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH v1 1/9] RISC-V: don't parse dt/acpi isa string to get
+ rv32/rv64
+Message-ID: <20230626-dragonish-romp-9acf4846ae01@spud>
+References: <20230626-provable-angrily-81760e8c3cc6@wendy>
+ <20230626-silk-colonize-824390303994@wendy>
+ <20230626-e3ea7beb39c584bfbf7ee836@orel>
 MIME-Version: 1.0
+In-Reply-To: <20230626-e3ea7beb39c584bfbf7ee836@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_084701_665577_0CE302DC 
-X-CRM114-Status: UNSURE (   5.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230626_085135_539283_9CEE860A 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +70,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Rob Herring <robh+dt@kernel.org>, palmer@dabbelt.com, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Evan Green <evan@rivosinc.com>
+Content-Type: multipart/mixed; boundary="===============3047937789575566389=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VmluZWV0IEd1cHRhIDx2aW5lZXRnQHJpdm9zaW5jLmNvbT4gd3JpdGVzOgoKPiBPbiA2LzIyLzIz
-IDEwOjM2LCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+PiBGcm9tOiBCasO2cm4gVMO2cGVsIDxiam9y
-bkByaXZvc2luYy5jb20+Cj4+Cj4+IFRoZSBSSVNDLVYgdmVjdG9yIHNwZWNpZmljYXRpb24gc3Rh
-dGVzOgo+PiAgICBFeGVjdXRpbmcgYSBzeXN0ZW0gY2FsbCBjYXVzZXMgYWxsIGNhbGxlci1zYXZl
-ZCB2ZWN0b3IgcmVnaXN0ZXJzCj4+ICAgICh2MC12MzEsIHZsLCB2dHlwZSkgYW5kIHZzdGFydCB0
-byBiZWNvbWUgdW5zcGVjaWZpZWQuCj4KPiBTbyB0aGUgb25seSB1c2UgY2FzZSBvZiBzYXZpbmcv
-cmVzdG9yaW5nIFYgcmVncyBpbiBfX3N3aXRjaF90byBpcyBhbiAKPiBpbnRlcnJ1cHQgaW5kdWNl
-ZCB0YXNrIHN3aXRjaCA/CgpZZXMhCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+
+--===============3047937789575566389==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="FRGPr8JGNqOl1Avz"
+Content-Disposition: inline
+
+
+--FRGPr8JGNqOl1Avz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Jun 26, 2023 at 05:14:15PM +0200, Andrew Jones wrote:
+> On Mon, Jun 26, 2023 at 12:19:39PM +0100, Conor Dooley wrote:
+> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> > @@ -333,8 +335,6 @@ static int c_show(struct seq_file *m, void *v)
+> > =20
+> >  		of_node_put(node);
+> >  	} else {
+> > -		if (!acpi_get_riscv_isa(NULL, cpu_id, &isa))
+> > -			print_isa(m, isa);
+> > =20
+>=20
+> Extra blank line here to remove. Actually the whole 'else' can be removed
+> because the print_mmu() call can be brought up above the
+> 'if (acpi_disabled)'
+
+Can it be? I intentionally did not make that change - wasn't sure
+whether re-ordering the fields in there was permissible.
+
+One of the few things I know does parsing of /proc/cpuinfo is:
+https://github.com/google/cpu_features/blob/main/src/impl_riscv_linux.c
+and that doesn't seem to care about the mmu, but does rely on
+vendor/uarch ordering.
+
+Makes me wonder, does ACPI break things by leaving out uarch/vendor
+fields, if there is something that expects them to exist? We should
+not intentionally break stuff in /proc/cpuinfo, but can't say I feel any
+sympathy for naively parsing it.
+
+> >  		print_mmu(m);
+
+
+--FRGPr8JGNqOl1Avz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJm0AQAKCRB4tDGHoIJi
+0gB8AP9iCRWLKExtLLeh6ETpNmcB/2kGTzWN4Odb8Z0n6C+fHQEAnKMQtHI5zAwA
+7wiZ9pJqqpKM4N2JJI1eCwyfl2JjfAQ=
+=OAfc
+-----END PGP SIGNATURE-----
+
+--FRGPr8JGNqOl1Avz--
+
+
+--===============3047937789575566389==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3047937789575566389==--
+
