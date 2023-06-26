@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF3BEB64D7
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 09:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFE1EB64D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 10:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XQ4li+ClA/XsyCTnLbMFgbMXfdwEBUCI2NcKlouBHVw=; b=4Jk1EeZUvs4T5B
-	N2Z/icKOawemII88iUvtyoQ8VTX6kxqCY2vMb/W/EBZ32aUCdGs/HJj+cUPP+sdTHoNJvfymNKO7u
-	TylayNnhdvIAM/yZCFY7lzq1fQ7YC3QWMymbVnI15ad/cMLpc7cCmf6PLHnXcgCEyoKs6xaIlIj34
-	q5Pnezu2wGJdEVxIvv7AW6S+BnMjQoPPUzeWQEYKNlazzB/pLWb+QMc58gPdWbMGDxm+WAfLNxGxH
-	gvESr6YTFPg9g832lu7q4+vVwJEBeM3Xi0JdASJW+IZVh90LNleIAQ2Rjf2AZTbzWEp2CAKn45018
-	5I9SnyftsJJqLNPzt11A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=d8tCJUcI1kf5gWzOC9ViqksGu/sPHHkamlPv55onpxo=; b=PBs133I1HadnAP
+	t6KXhL8wDu5WHhs5WPYYY1oBptdN0w2T7DR74pDzhxkDUiKapVMYbP7ijiWV6VzWp6/HWa6b5cfHD
+	qaDMw/WIQS/AOY0FYeBsjJOI55bby3asjleU4x1kA51uLVJ8wTfMt4UmmHhNMeE5+53nPGsfnCRuq
+	DM/ryhW+6BcLKEsxRkPvd2VpIlLANoc+VxlvckpjirNL+w3iAX29Eef9WfvBhTHSEAalqbg5QRIX8
+	2JUk+JIqGtNmnk0hCs6AVCqxTMa/7zNaPmqxYC2TAXfuAp+27zrrxOe7tsaUc4X1KjMaGbuF9Hs+6
+	UYCJyoYKD8P/meY6283g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDivO-009mSc-1D;
-	Mon, 26 Jun 2023 09:54:22 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1qDjD4-009p5L-2O;
+	Mon, 26 Jun 2023 10:12:38 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDivJ-009mPg-2T;
-	Mon, 26 Jun 2023 09:54:19 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2b6994a8ce3so16956531fa.1;
-        Mon, 26 Jun 2023 02:54:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1687773253; x=1690365253;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BkJiT0hPCVGufk3wfK9OYfFQLFeH4WpXrH92jiyy/So=;
-        b=LI5UZd6nWq3K7Pk9RsvstakVLfRy9rPrPfGF9Jxi7xqsukDqd54gYlmkO8NO2qWlHY
-         laEGLm0NqwaArg2B0U1mb2ZrqnQ9DVwimD6R9fGkz1Yd2PDLrxg65lZLZigg5lTSIx2l
-         56OJh1znTXpgfq6PeFjAtc4vfilcMyYO/Wyxt9uZPzTfS51DnEEvSczgbxwfbCIBHHC0
-         7ypRQx2o2pgmpeEfRoHRRO1a/N4rztkHAi5QRE7HA32OEPIVtwvl4zPvnFeZBbFS9Pc3
-         +XHYPCfQMMO7KjwgAec1IpnT5/TZoHL4STHkcCNJVmExNECcWBSghyv+4KQ48cIUrCZM
-         M6Jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687773253; x=1690365253;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BkJiT0hPCVGufk3wfK9OYfFQLFeH4WpXrH92jiyy/So=;
-        b=YoI1oJgeNhmVZ8MqKZKGoDtCMLwRIzEwkzJGKbP2+pBVXv0AuJWuXI8SnkJF9KIMJa
-         bbhJ/sGG9SoYsJeGO+GA+VR8Y9+hAJgAtIcrO209AhfU1PfzRDfdw8fRKXWzFTsH0KiJ
-         jkowae5jtMhZ/V7ltQ79q60ZQnzl4C3MuYnS12a44vWkuk5FTwchQo68xDm/q0dsOVTS
-         qY7KEUXO5eQrm1CcktTd6ceNVrqJ9J/B5u9tJ/HAgoFV6JR1OWhqxZ9cXvrV7AF20Ym+
-         yk7MQk9JaiOYsKU1whbzijpxIM1I0Wx1uDbx6irPnaNWJnjcpJUWiqEmMH+ejBXCdvsW
-         T3hQ==
-X-Gm-Message-State: AC+VfDwJZQIhm1E3YJ+JXYAMK2/skb4UOJ2rSoOhO9GBbsNBUM5ZsS8o
-	/F8DeuG5879gYogn4mdHu3GFd5G9cUITliMj3rk=
-X-Google-Smtp-Source: ACHHUZ67jMr16NDRNLWv9518HCJB3Am5wfZo0UzBIm/hvCg0LmCzdDMhboQHv94rDq5VEGtQPY2hBiRv+xQ6CfYSFdg=
-X-Received: by 2002:a2e:9183:0:b0:2b4:6e21:637e with SMTP id
- f3-20020a2e9183000000b002b46e21637emr13282046ljg.16.1687773253077; Mon, 26
- Jun 2023 02:54:13 -0700 (PDT)
+	id 1qDjCz-009p48-0r
+	for linux-riscv@lists.infradead.org;
+	Mon, 26 Jun 2023 10:12:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1687774353; x=1719310353;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=2dzmBKq6eW1WGT9V7M02Ursk+5+tTN50HfGzAwGTNnw=;
+  b=W+/1fNizvcai9AUh+gmXQcMdd+QHrmGGpn+e5EhbBu6eFeURZZ57VBke
+   3Cc/8oMG+SOutm/EL41UzCOfK55OpX4BrNOwbXfEwRmLn1HhkWy86YPOx
+   dfst5Wm4beaqi+/qqBJXRCR6I8esIXFexgPSOBY/t7NStgOCOZNDKYnni
+   GxZZWCbCt0WOD2MVrFP8zRKRy55U/u5DXJr4Flx+M37vDqUXtrUnJNQTw
+   nDK38V1XVyLc59NDCcx1hOjcs1TvzK+0ojWHcglky/kH9W/nfi2C3CBbx
+   z2R3ZnCYLdyYq2DTgt4ChQFgzLL7XVUFTfF1oH4Kup9JW/WNOopMw6PYG
+   w==;
+X-IronPort-AV: E=Sophos;i="6.01,159,1684825200"; 
+   d="scan'208";a="219814833"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Jun 2023 03:12:28 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 26 Jun 2023 03:12:21 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Mon, 26 Jun 2023 03:12:18 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <palmer@dabbelt.com>
+CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Alistair Francis
+	<alistair.francis@wdc.com>, Andrew Jones <ajones@ventanamicro.com>, "Anup
+ Patel" <apatel@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>,
+	"Jessica Clarke" <jrtc27@jrtc27.com>, Rick Chen <rick@andestech.com>, Leo
+	<ycliang@andestech.com>, Oleksii <oleksii.kurochko@gmail.com>,
+	<linux-riscv@lists.infradead.org>, <qemu-riscv@nongnu.org>,
+	<u-boot@lists.denx.de>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v3] dt-bindings: riscv: deprecate riscv,isa
+Date: Mon, 26 Jun 2023 11:10:46 +0100
+Message-ID: <20230626-unmarked-atom-70b4d624a386@wendy>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-References: <20230616085038.4121892-1-rppt@kernel.org> <20230616085038.4121892-3-rppt@kernel.org>
- <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com> <20230618080027.GA52412@kernel.org>
- <a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com> <20230625161417.GK52412@kernel.org>
- <90161ac9-3ca0-4c72-b1c4-ab1293e55445@app.fastmail.com> <20230625174257.GL52412@kernel.org>
- <20230625180741.jrrtkq55c4jrqh3t@moria.home.lan> <CAPhsuW45gmtCVgA0mg6X87x5EOzSmVqq3SCMSR6agyiukiJvEQ@mail.gmail.com>
-In-Reply-To: <CAPhsuW45gmtCVgA0mg6X87x5EOzSmVqq3SCMSR6agyiukiJvEQ@mail.gmail.com>
-From: Puranjay Mohan <puranjay12@gmail.com>
-Date: Mon, 26 Jun 2023 11:54:02 +0200
-Message-ID: <CANk7y0jcakmuF4e9x8z7ZUra=MPx-=xxb0JZ3RrJ+S9Eb9-0_g@mail.gmail.com>
-Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and jit_text_alloc()
-To: Song Liu <song@kernel.org>
-Cc: Kent Overstreet <kent.overstreet@linux.dev>, Mike Rapoport <rppt@kernel.org>, 
-	Andy Lutomirski <luto@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Kees Cook <keescook@chromium.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	"David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, 
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Luis Chamberlain <mcgrof@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nadav Amit <nadav.amit@gmail.com>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Rick P Edgecombe <rick.p.edgecombe@intel.com>, 
-	"Russell King (Oracle)" <linux@armlinux.org.uk>, Steven Rostedt <rostedt@goodmis.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
-	Will Deacon <will@kernel.org>, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mips@vger.kernel.org, linux-mm@kvack.org, linux-modules@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	netdev@vger.kernel.org, sparclinux@vger.kernel.org, 
-	"the arch/x86 maintainers" <x86@kernel.org>, pjt@google.com, torvalds@linux-foundation.org
+X-Developer-Signature: v=1; a=openpgp-sha256; l=21028; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=2dzmBKq6eW1WGT9V7M02Ursk+5+tTN50HfGzAwGTNnw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCkzU5SvrXJgistoX5DmfMR/T4tD7k+DysViD1TrW58+MJp/ NVypo5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABOx5mf4n2E0wyX9wu46kerExbyqzy e9/pKqtp/ZROzP3J/mc3ekfWRkuGn1tVVak/1P0KYHeQIqBorPcy+ydCbFry/Lc8nvdnVlBQA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_025417_806556_643BDD44 
-X-CRM114-Status: GOOD (  68.18  )
+X-CRM114-CacheID: sfid-20230626_031233_328800_0A793DCC 
+X-CRM114-Status: GOOD (  36.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,181 +85,520 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdW4gMjYsIDIwMjMgYXQgODoxM+KAr0FNIFNvbmcgTGl1IDxzb25nQGtlcm5lbC5v
-cmc+IHdyb3RlOgo+Cj4gT24gU3VuLCBKdW4gMjUsIDIwMjMgYXQgMTE6MDfigK9BTSBLZW50IE92
-ZXJzdHJlZXQKPiA8a2VudC5vdmVyc3RyZWV0QGxpbnV4LmRldj4gd3JvdGU6Cj4gPgo+ID4gT24g
-U3VuLCBKdW4gMjUsIDIwMjMgYXQgMDg6NDI6NTdQTSArMDMwMCwgTWlrZSBSYXBvcG9ydCB3cm90
-ZToKPiA+ID4gT24gU3VuLCBKdW4gMjUsIDIwMjMgYXQgMDk6NTk6MzRBTSAtMDcwMCwgQW5keSBM
-dXRvbWlyc2tpIHdyb3RlOgo+ID4gPiA+Cj4gPiA+ID4KPiA+ID4gPiBPbiBTdW4sIEp1biAyNSwg
-MjAyMywgYXQgOToxNCBBTSwgTWlrZSBSYXBvcG9ydCB3cm90ZToKPiA+ID4gPiA+IE9uIE1vbiwg
-SnVuIDE5LCAyMDIzIGF0IDEwOjA5OjAyQU0gLTA3MDAsIEFuZHkgTHV0b21pcnNraSB3cm90ZToK
-PiA+ID4gPiA+Pgo+ID4gPiA+ID4+IE9uIFN1biwgSnVuIDE4LCAyMDIzLCBhdCAxOjAwIEFNLCBN
-aWtlIFJhcG9wb3J0IHdyb3RlOgo+ID4gPiA+ID4+ID4gT24gU2F0LCBKdW4gMTcsIDIwMjMgYXQg
-MDE6Mzg6MjlQTSAtMDcwMCwgQW5keSBMdXRvbWlyc2tpIHdyb3RlOgo+ID4gPiA+ID4+ID4+IE9u
-IEZyaSwgSnVuIDE2LCAyMDIzLCBhdCAxOjUwIEFNLCBNaWtlIFJhcG9wb3J0IHdyb3RlOgo+ID4g
-PiA+ID4+ID4+ID4gRnJvbTogIk1pa2UgUmFwb3BvcnQgKElCTSkiIDxycHB0QGtlcm5lbC5vcmc+
-Cj4gPiA+ID4gPj4gPj4gPgo+ID4gPiA+ID4+ID4+ID4gbW9kdWxlX2FsbG9jKCkgaXMgdXNlZCBl
-dmVyeXdoZXJlIGFzIGEgbWVhbiB0byBhbGxvY2F0ZSBtZW1vcnkgZm9yIGNvZGUuCj4gPiA+ID4g
-Pj4gPj4gPgo+ID4gPiA+ID4+ID4+ID4gQmVzaWRlIGJlaW5nIHNlbWFudGljYWxseSB3cm9uZywg
-dGhpcyB1bm5lY2Vzc2FyaWx5IHRpZXMgYWxsIHN1YnN5c3RlbXMKPiA+ID4gPiA+PiA+PiA+IHRo
-YXQgbmVlZCB0byBhbGxvY2F0ZSBjb2RlLCBzdWNoIGFzIGZ0cmFjZSwga3Byb2JlcyBhbmQgQlBG
-IHRvIG1vZHVsZXMKPiA+ID4gPiA+PiA+PiA+IGFuZCBwdXRzIHRoZSBidXJkZW4gb2YgY29kZSBh
-bGxvY2F0aW9uIHRvIHRoZSBtb2R1bGVzIGNvZGUuCj4gPiA+ID4gPj4gPj4gPgo+ID4gPiA+ID4+
-ID4+ID4gU2V2ZXJhbCBhcmNoaXRlY3R1cmVzIG92ZXJyaWRlIG1vZHVsZV9hbGxvYygpIGJlY2F1
-c2Ugb2YgdmFyaW91cwo+ID4gPiA+ID4+ID4+ID4gY29uc3RyYWludHMgd2hlcmUgdGhlIGV4ZWN1
-dGFibGUgbWVtb3J5IGNhbiBiZSBsb2NhdGVkIGFuZCB0aGlzIGNhdXNlcwo+ID4gPiA+ID4+ID4+
-ID4gYWRkaXRpb25hbCBvYnN0YWNsZXMgZm9yIGltcHJvdmVtZW50cyBvZiBjb2RlIGFsbG9jYXRp
-b24uCj4gPiA+ID4gPj4gPj4gPgo+ID4gPiA+ID4+ID4+ID4gU3RhcnQgc3BsaXR0aW5nIGNvZGUg
-YWxsb2NhdGlvbiBmcm9tIG1vZHVsZXMgYnkgaW50cm9kdWNpbmcKPiA+ID4gPiA+PiA+PiA+IGV4
-ZWNtZW1fdGV4dF9hbGxvYygpLCBleGVjbWVtX2ZyZWUoKSwgaml0X3RleHRfYWxsb2MoKSwgaml0
-X2ZyZWUoKSBBUElzLgo+ID4gPiA+ID4+ID4+ID4KPiA+ID4gPiA+PiA+PiA+IEluaXRpYWxseSwg
-ZXhlY21lbV90ZXh0X2FsbG9jKCkgYW5kIGppdF90ZXh0X2FsbG9jKCkgYXJlIHdyYXBwZXJzIGZv
-cgo+ID4gPiA+ID4+ID4+ID4gbW9kdWxlX2FsbG9jKCkgYW5kIGV4ZWNtZW1fZnJlZSgpIGFuZCBq
-aXRfZnJlZSgpIGFyZSByZXBsYWNlbWVudHMgb2YKPiA+ID4gPiA+PiA+PiA+IG1vZHVsZV9tZW1m
-cmVlKCkgdG8gYWxsb3cgdXBkYXRpbmcgYWxsIGNhbGwgc2l0ZXMgdG8gdXNlIHRoZSBuZXcgQVBJ
-cy4KPiA+ID4gPiA+PiA+PiA+Cj4gPiA+ID4gPj4gPj4gPiBUaGUgaW50ZW50aW9uIHNlbWFudGlj
-cyBmb3IgbmV3IGFsbG9jYXRpb24gQVBJczoKPiA+ID4gPiA+PiA+PiA+Cj4gPiA+ID4gPj4gPj4g
-PiAqIGV4ZWNtZW1fdGV4dF9hbGxvYygpIHNob3VsZCBiZSB1c2VkIHRvIGFsbG9jYXRlIG1lbW9y
-eSB0aGF0IG11c3QgcmVzaWRlCj4gPiA+ID4gPj4gPj4gPiAgIGNsb3NlIHRvIHRoZSBrZXJuZWwg
-aW1hZ2UsIGxpa2UgbG9hZGFibGUga2VybmVsIG1vZHVsZXMgYW5kIGdlbmVyYXRlZAo+ID4gPiA+
-ID4+ID4+ID4gICBjb2RlIHRoYXQgaXMgcmVzdHJpY3RlZCBieSByZWxhdGl2ZSBhZGRyZXNzaW5n
-Lgo+ID4gPiA+ID4+ID4+ID4KPiA+ID4gPiA+PiA+PiA+ICogaml0X3RleHRfYWxsb2MoKSBzaG91
-bGQgYmUgdXNlZCB0byBhbGxvY2F0ZSBtZW1vcnkgZm9yIGdlbmVyYXRlZCBjb2RlCj4gPiA+ID4g
-Pj4gPj4gPiAgIHdoZW4gdGhlcmUgYXJlIG5vIHJlc3RyaWN0aW9ucyBmb3IgdGhlIGNvZGUgcGxh
-Y2VtZW50LiBGb3IKPiA+ID4gPiA+PiA+PiA+ICAgYXJjaGl0ZWN0dXJlcyB0aGF0IHJlcXVpcmUg
-dGhhdCBhbnkgY29kZSBpcyB3aXRoaW4gY2VydGFpbiBkaXN0YW5jZQo+ID4gPiA+ID4+ID4+ID4g
-ICBmcm9tIHRoZSBrZXJuZWwgaW1hZ2UsIGppdF90ZXh0X2FsbG9jKCkgd2lsbCBiZSBlc3NlbnRp
-YWxseSBhbGlhc2VkIHRvCj4gPiA+ID4gPj4gPj4gPiAgIGV4ZWNtZW1fdGV4dF9hbGxvYygpLgo+
-ID4gPiA+ID4+ID4+ID4KPiA+ID4gPiA+PiA+Pgo+ID4gPiA+ID4+ID4+IElzIHRoZXJlIGFueXRo
-aW5nIGluIHRoaXMgc2VyaWVzIHRvIGhlbHAgdXNlcnMgZG8gdGhlIGFwcHJvcHJpYXRlCj4gPiA+
-ID4gPj4gPj4gc3luY2hyb25pemF0aW9uIHdoZW4gdGhlIGFjdHVhbGx5IHBvcHVsYXRlIHRoZSBh
-bGxvY2F0ZWQgbWVtb3J5IHdpdGgKPiA+ID4gPiA+PiA+PiBjb2RlPyAgU2VlIGhlcmUsIGZvciBl
-eGFtcGxlOgo+ID4gPiA+ID4+ID4KPiA+ID4gPiA+PiA+IFRoaXMgc2VyaWVzIG9ubHkgZmFjdG9y
-cyBvdXQgdGhlIGV4ZWN1dGFibGUgYWxsb2NhdGlvbnMgZnJvbSBtb2R1bGVzIGFuZAo+ID4gPiA+
-ID4+ID4gcHV0cyB0aGVtIGluIGEgY2VudHJhbCBwbGFjZS4KPiA+ID4gPiA+PiA+IEFueXRoaW5n
-IGVsc2Ugd291bGQgZ28gb24gdG9wIGFmdGVyIHRoaXMgbGFuZHMuCj4gPiA+ID4gPj4KPiA+ID4g
-PiA+PiBIbW0uCj4gPiA+ID4gPj4KPiA+ID4gPiA+PiBPbiB0aGUgb25lIGhhbmQsIHRoZXJlJ3Mg
-bm90aGluZyB3cm9uZyB3aXRoIGZhY3RvcmluZyBvdXQgY29tbW9uIGNvZGUuIE9uCj4gPiA+ID4g
-Pj4gdGhlIG90aGVyIGhhbmQsIHRoaXMgaXMgcHJvYmFibHkgdGhlIHJpZ2h0IHRpbWUgdG8gYXQg
-bGVhc3Qgc3RhcnQKPiA+ID4gPiA+PiB0aGlua2luZyBhYm91dCBzeW5jaHJvbml6YXRpb24sIGF0
-IGxlYXN0IHRvIHRoZSBleHRlbnQgdGhhdCBpdCBtaWdodCBtYWtlCj4gPiA+ID4gPj4gdXMgd2Fu
-dCB0byBjaGFuZ2UgdGhpcyBBUEkuICAoSSdtIG5vdCBhdCBhbGwgc2F5aW5nIHRoYXQgdGhpcyBz
-ZXJpZXMKPiA+ID4gPiA+PiBzaG91bGQgcmVxdWlyZSBjaGFuZ2VzIC0tIEknbSBqdXN0IHNheWlu
-ZyB0aGF0IHRoaXMgaXMgYSBnb29kIHRpbWUgdG8KPiA+ID4gPiA+PiB0aGluayBhYm91dCBob3cg
-dGhpcyBzaG91bGQgd29yay4pCj4gPiA+ID4gPj4KPiA+ID4gPiA+PiBUaGUgY3VycmVudCBBUElz
-LCAqYW5kKiB0aGUgcHJvcG9zZWQgaml0X3RleHRfYWxsb2MoKSBBUEksIGRvbid0IGFjdHVhbGx5
-Cj4gPiA+ID4gPj4gbG9vayBsaWtlIHRoZSBvbmUgdGhpbmsgaW4gdGhlIExpbnV4IGVjb3N5c3Rl
-bSB0aGF0IGFjdHVhbGx5Cj4gPiA+ID4gPj4gaW50ZWxsaWdlbnRseSBhbmQgZWZmaWNpZW50bHkg
-bWFwcyBuZXcgdGV4dCBpbnRvIGFuIGFkZHJlc3Mgc3BhY2U6Cj4gPiA+ID4gPj4gbW1hcCgpLgo+
-ID4gPiA+ID4+Cj4gPiA+ID4gPj4gT24geDg2LCB5b3UgY2FuIG1tYXAoKSBhbiBleGlzdGluZyBm
-aWxlIGZ1bGwgb2YgZXhlY3V0YWJsZSBjb2RlIFBST1RfRVhFQwo+ID4gPiA+ID4+IGFuZCBqdW1w
-IHRvIGl0IHdpdGggbWluaW1hbCBzeW5jaHJvbml6YXRpb24gKGp1c3QgdGhlIHN0YW5kYXJkIGlt
-cGxpY2l0Cj4gPiA+ID4gPj4gb3JkZXJpbmcgaW4gdGhlIGtlcm5lbCB0aGF0IHBvcHVsYXRlcyB0
-aGUgcGFnZXMgYmVmb3JlIHNldHRpbmcgdXAgdGhlCj4gPiA+ID4gPj4gUFRFcyBhbmQgd2hhdGV2
-ZXIgdXNlciBzeW5jaHJvbml6YXRpb24gaXMgbmVlZGVkIHRvIGF2b2lkIGp1bXBpbmcgaW50bwo+
-ID4gPiA+ID4+IHRoZSBtYXBwaW5nIGJlZm9yZSBtbWFwKCkgZmluaXNoZXMpLiAgSXQgd29ya3Mg
-YWNyb3NzIENQVXMsIGFuZCB0aGUgb25seQo+ID4gPiA+ID4+IHBvc3NpYmxlIHdheSB1c2Vyc3Bh
-Y2UgY2FuIHNjcmV3IGl0IHVwIChmb3IgYSByZWFkLW9ubHkgbWFwcGluZyBvZgo+ID4gPiA+ID4+
-IHJlYWQtb25seSB0ZXh0LCBhbnl3YXkpIGlzIHRvIGp1bXAgdG8gdGhlIG1hcHBpbmcgdG9vIGVh
-cmx5LCBpbiB3aGljaAo+ID4gPiA+ID4+IGNhc2UgdXNlcnNwYWNlIGdldHMgYSBwYWdlIGZhdWx0
-LiAgSW5jb2hlcmVuY2UgaXMgaW1wb3NzaWJsZSwgYW5kIG5vIG9uZQo+ID4gPiA+ID4+IG5lZWRz
-IHRvICJzZXJpYWxpemUiIChpbiB0aGUgU0RNIHNlbnNlKS4KPiA+ID4gPiA+Pgo+ID4gPiA+ID4+
-IEkgdGhpbmsgdGhlIHNhbWUgc2VxdWVuY2UgKGZyb20gdXNlcnNwYWNlJ3MgcGVyc3BlY3RpdmUp
-IHdvcmtzIG9uIG90aGVyCj4gPiA+ID4gPj4gYXJjaGl0ZWN0dXJlcywgdG9vLCBhbHRob3VnaCBJ
-IHRoaW5rIG1vcmUgY2FjaGUgbWFuYWdlbWVudCBpcyBuZWVkZWQgb24KPiA+ID4gPiA+PiB0aGUg
-a2VybmVsJ3MgZW5kLiAgQXMgZmFyIGFzIEkga25vdywgbm8gTGludXggU01QIGFyY2hpdGVjdHVy
-ZSBuZWVkcyBhbgo+ID4gPiA+ID4+IElQSSB0byBtYXAgZXhlY3V0YWJsZSB0ZXh0IGludG8gdXNl
-cm1vZGUsIGJ1dCBJIGNvdWxkIGVhc2lseSBiZSB3cm9uZy4KPiA+ID4gPiA+PiAoSUlSQyBSSVND
-LVYgaGFzIHZlcnkgZGV2ZWxvcGVyLXVuZnJpZW5kbHkgaWNhY2hlIG1hbmFnZW1lbnQsIGJ1dCBJ
-IGRvbid0Cj4gPiA+ID4gPj4gcmVtZW1iZXIgdGhlIGRldGFpbHMuKQo+ID4gPiA+ID4+Cj4gPiA+
-ID4gPj4gT2YgY291cnNlLCB1c2luZyBwdHJhY2Ugb3IgYW55IG90aGVyIEZPTExfRk9SQ0UgdG8g
-bW9kaWZ5IHRleHQgb24geDg2IGlzCj4gPiA+ID4gPj4gcmF0aGVyIGZyYXVnaHQsIGFuZCBJIGJl
-dCBtYW55IHRoaW5ncyBkbyBpdCB3cm9uZyB3aGVuIHVzZXJzcGFjZSBpcwo+ID4gPiA+ID4+IG11
-bHRpdGhyZWFkZWQuICBCdXQgbm90IGluIHByb2R1Y3Rpb24gYmVjYXVzZSBpdCdzIG1vc3RseSBu
-b3QgdXNlZCBpbgo+ID4gPiA+ID4+IHByb2R1Y3Rpb24uKQo+ID4gPiA+ID4+Cj4gPiA+ID4gPj4g
-QnV0IGppdF90ZXh0X2FsbG9jKCkgY2FuJ3QgZG8gdGhpcywgYmVjYXVzZSB0aGUgb3JkZXIgb2Yg
-b3BlcmF0aW9ucwo+ID4gPiA+ID4+IGRvZXNuJ3QgbWF0Y2guICBXaXRoIGppdF90ZXh0X2FsbG9j
-KCksIHRoZSBleGVjdXRhYmxlIG1hcHBpbmcgc2hvd3MgdXAKPiA+ID4gPiA+PiBiZWZvcmUgdGhl
-IHRleHQgaXMgcG9wdWxhdGVkLCBzbyB0aGVyZSBpcyBubyBhdG9taWMgY2hhbmdlIGZyb20gbm90
-LXRoZXJlCj4gPiA+ID4gPj4gdG8gcG9wdWxhdGVkLWFuZC1leGVjdXRhYmxlLiAgV2hpY2ggbWVh
-bnMgdGhhdCB0aGVyZSBpcyBhbiBvcHBvcnR1bml0eQo+ID4gPiA+ID4+IGZvciBDUFVzLCBzcGVj
-dWxhdGl2ZWx5IG9yIG90aGVyd2lzZSwgdG8gc3RhcnQgZmlsbGluZyB2YXJpb3VzIGNhY2hlcwo+
-ID4gPiA+ID4+IHdpdGggaW50ZXJtZWRpYXRlIHN0YXRlcyBvZiB0aGUgdGV4dCwgd2hpY2ggbWVh
-bnMgdGhhdCB2YXJpb3VzCj4gPiA+ID4gPj4gYXJjaGl0ZWN0dXJlcyAoZXZlbiB4ODYhKSBtYXkg
-bmVlZCBzZXJpYWxpemF0aW9uLgo+ID4gPiA+ID4+Cj4gPiA+ID4gPj4gRm9yIGVCUEYtIGFuZCBt
-b2R1bGUtIGxpa2UgdXNlIGNhc2VzLCB3aGVyZSBKSVR0aW5nL2NvZGUgZ2VuIGlzIHF1aXRlCj4g
-PiA+ID4gPj4gY29hcnNlLWdyYWluZWQsIHBlcmhhcHMgc29tZXRoaW5nIHZhZ3VlbHkgbGlrZToK
-PiA+ID4gPiA+Pgo+ID4gPiA+ID4+IGppdF90ZXh0X2FsbG9jKCkgLT4gcmV0dXJucyBhIGhhbmRs
-ZSBhbmQgYW4gZXhlY3V0YWJsZSB2aXJ0dWFsIGFkZHJlc3MsCj4gPiA+ID4gPj4gYnV0IGRvZXMg
-Km5vdCogbWFwIGl0IHRoZXJlCj4gPiA+ID4gPj4gaml0X3RleHRfd3JpdGUoKSAtPiB3cml0ZSB0
-byB0aGF0IGhhbmRsZQo+ID4gPiA+ID4+IGppdF90ZXh0X21hcCgpIC0+IG1hcCBpdCBhbmQgc3lu
-Y2hyb25pemUgaWYgbmVlZGVkIChubyBzeW5jIG5lZWRlZCBvbgo+ID4gPiA+ID4+IHg4NiwgSSB0
-aGluaykKPiA+ID4gPiA+Pgo+ID4gPiA+ID4+IGNvdWxkIGJlIG1vcmUgZWZmaWNpZW50IGFuZC9v
-ciBzYWZlci4KPiA+ID4gPiA+Pgo+ID4gPiA+ID4+IChNb2R1bGVzIGNvdWxkIHVzZSB0aGlzIHRv
-by4gIEdldHRpbmcgYWx0ZXJuYXRpdmVzIHJpZ2h0IG1pZ2h0IHRha2Ugc29tZQo+ID4gPiA+ID4+
-IGZpZGRsaW5nLCBiZWNhdXNlIG9mZiB0aGUgdG9wIG9mIG15IGhlYWQsIHRoaXMgZG9lc24ndCBt
-YXRjaCBob3cgaXQgd29ya3MKPiA+ID4gPiA+PiBub3cuKQo+ID4gPiA+ID4+Cj4gPiA+ID4gPj4g
-VG8gbWFrZSBhbHRlcm5hdGl2ZXMgZWFzaWVyLCB0aGlzIGNvdWxkIHdvcmssIG1heWJlIChoYXZl
-bid0IGZ1bGx5Cj4gPiA+ID4gPj4gdGhvdWdodCBpdCB0aHJvdWdoKToKPiA+ID4gPiA+Pgo+ID4g
-PiA+ID4+IGppdF90ZXh0X2FsbG9jKCkKPiA+ID4gPiA+PiBqaXRfdGV4dF9tYXBfcndfaW5wbGFj
-ZSgpIC0+IG1hcCBhdCB0aGUgdGFyZ2V0IGFkZHJlc3MsIGJ1dCBSVywgIVgKPiA+ID4gPiA+Pgo+
-ID4gPiA+ID4+IHdyaXRlIHRoZSB0ZXh0IGFuZCBhcHBseSBhbHRlcm5hdGl2ZXMKPiA+ID4gPiA+
-Pgo+ID4gPiA+ID4+IGppdF90ZXh0X2ZpbmFsaXplKCkgLT4gY2hhbmdlIGZyb20gUlcgdG8gUlgg
-KmFuZCBzeW5jaHJvbml6ZSoKPiA+ID4gPiA+Pgo+ID4gPiA+ID4+IGppdF90ZXh0X2ZpbmFsaXpl
-KCkgd291bGQgZWl0aGVyIG5lZWQgdG8gd2FpdCBmb3IgUkNVIChwb3NzaWJseSBleHRyYQo+ID4g
-PiA+ID4+IGhlYXZ5IHdlaWdodCBSQ1UgdG8gZ2V0ICJzZXJpYWxpemF0aW9uIikgb3Igc2VuZCBh
-biBJUEkuCj4gPiA+ID4gPgo+ID4gPiA+ID4gVGhpcyBlc3NlbnRpYWxseSBob3cgbW9kdWxlcyB3
-b3JrIG5vdy4gVGhlIG1lbW9yeSBpcyBhbGxvY2F0ZWQgUlcsIHdyaXR0ZW4KPiA+ID4gPiA+IGFu
-ZCB1cGRhdGVkIHdpdGggYWx0ZXJuYXRpdmVzIGFuZCB0aGVuIG1hZGUgUk9YIGluIHRoZSBlbmQg
-d2l0aCBzZXRfbWVtb3J5Cj4gPiA+ID4gPiBBUElzLgo+ID4gPiA+ID4KPiA+ID4gPiA+IFRoZSBp
-c3N1ZSB3aXRoIG5vdCBoYXZpbmcgdGhlIG1lbW9yeSBtYXBwZWQgWCB3aGVuIGl0J3Mgd3JpdHRl
-biBpcyB0aGF0IHdlCj4gPiA+ID4gPiBjYW5ub3QgdXNlIGxhcmdlIHBhZ2VzIHRvIG1hcCBpdC4g
-T25lIG9mIHRoZSBnb2FscyBpcyB0byBoYXZlIGV4ZWN1dGFibGUKPiA+ID4gPiA+IG1lbW9yeSBt
-YXBwZWQgd2l0aCBsYXJnZSBwYWdlcyBhbmQgbWFrZSBjb2RlIGFsbG9jYXRvciBhYmxlIHRvIGRp
-dmlkZSB0aGF0Cj4gPiA+ID4gPiBwYWdlIGFtb25nIHNldmVyYWwgY2FsbGVycy4KPiA+ID4gPiA+
-Cj4gPiA+ID4gPiBTbyB0aGUgaWRlYSB3YXMgdGhhdCBqaXRfdGV4dF9hbGxvYygpIHdpbGwgaGF2
-ZSBhIGNhY2hlIG9mIGxhcmdlIHBhZ2VzCj4gPiA+ID4gPiBtYXBwZWQgUk9YLCB3aWxsIGFsbG9j
-YXRlIG1lbW9yeSBmcm9tIHRob3NlIGNhY2hlcyBhbmQgdGhlcmUgd2lsbCBiZQo+ID4gPiA+ID4g
-aml0X3VwZGF0ZSgpIHRoYXQgdXNlcyB0ZXh0IHBva2luZyBmb3Igd3JpdGluZyB0byB0aGF0IG1l
-bW9yeS4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBVcG9uIGFsbG9jYXRpb24gb2YgYSBsYXJnZSBwYWdl
-IHRvIGluY3JlYXNlIHRoZSBjYWNoZSwgdGhhdCBsYXJnZSBwYWdlIHdpbGwKPiA+ID4gPiA+IGJl
-ICJpbnZhbGlkYXRlZCIgYnkgZmlsbGluZyBpdCB3aXRoIGJyZWFrcG9pbnQgaW5zdHJ1Y3Rpb25z
-IChlLmcgaW50MyBvbgo+ID4gPiA+ID4geDg2KQo+ID4gPiA+Cj4gPiA+ID4gSXMgdGhpcyBhY3R1
-YWxseSB2YWxpZD8gIEluIGJldHdlZW4gaW50MyBhbmQgcmVhbCBjb2RlLCB0aGVyZeKAmXMgYQo+
-ID4gPiA+IHBvdGVudGlhbCB0b3JuIHJlYWQgb2YgcmVhbCBjb2RlIG1peGVkIHVwIHdpdGggMHhj
-Yy4KPiA+ID4KPiA+ID4gWW91IG1lYW4gd2hpbGUgZG9pbmcgdGV4dCBwb2tpbmc/Cj4gPgo+ID4g
-SSB0aGluayB3ZSd2ZSBiZWVuIGdldHRpbmcgZGlzdHJhY3RlZCBieSB0ZXh0X3Bva2UoKS4gdGV4
-dF9wb2tlKCkgZG9lcwo+ID4gdXBkYXRlcyB2aWEgYSBkaWZmZXJlbnQgdmlydHVhbCBhZGRyZXNz
-IHdoaWNoIGludHJvZHVjZSBuZXcKPiA+IHN5bmNocm9uaWF0aW9uIHdyaW5rbGVzLCBidXQgaXQn
-cyBub3QgdGhlIG1haW4gaXNzdWUuCj4gPgo+ID4gQXMgX3RoaW5rXyBJIHVuZGVyc3RhbmQgaXQs
-IHRoZSByb290IG9mIHRoZSBpc3N1ZSBpcyB0aGF0IHNwZWN1bGF0aXZlCj4gPiBleGVjdXRpb24g
-LSBhbmQgdGhhdCBwZXIgQW5keSwgc3BlY3VsYXRpdmUgZXhlY3V0aW9uIGRvZXNuJ3Qgb2JleSBt
-ZW1vcnkKPiA+IGJhcnJpZXJzLgo+ID4KPiA+IEkgaGF2ZSBfbm90XyBkdWcgaW50byB0aGUgZGV0
-YWlscyBvZiBob3cgcmV0cG9saW5lcyB3b3JrIGFuZCBhbGwgdGhlCj4gPiBzcGVjdHJlIHN0dWZm
-IHRoYXQgd2FzIGdvaW5nIG9uLCBidXQgLSByZXRwb2xpbmUgdXNlcyBsZmVuY2UsIGRvZXNuJ3QK
-PiA+IGl0PyBBbmQgaWYgc3BlY3VsYXRpdmUgZXhlY3V0aW9uIGlzIHRoZSBpc3N1ZSBoZXJlLCBp
-c24ndCByZXRwb2xpbmUgd2hhdAo+ID4gd2UgbmVlZD8KPiA+Cj4gPiBGb3IgdGhpcyBwYXJ0aWN1
-bGFyIGlzc3VlLCBJJ20gbm90IHN1cmUgImludmFsaWRhdGUgYnkgZmlsbGluZyB3aXRoCj4gPiBp
-bGxlZ2FsIGluc3RydWN0aW9ucyIgbWFrZXMgc2Vuc2UuIEZvciB0aGF0IHRvIHdvcmssIHdvdWxk
-IHRoZSBwcm9jZXNzb3IKPiA+IGhhdmUgdG8gZXhlY3V0ZSBhIHNlcmlhbGl6ZSBvcGVyYXRpb24g
-YW5kIGEgcmV0cnkgb24gaGl0dGluZyBhbiBpbGxlZ2FsCj4gPiBpbnN0cnVjdGlvbiAtIG9yIHBl
-cmhhcHMgd2UgZG8gaW4gdGhlIGludGVycnVwdCBoYW5kbGVyPwo+ID4KPiA+IEJ1dCBpZiBmaWxs
-aW5nIHdpdGggaWxsZWdhbCBpbnN0cnVjdGlvbnMgZG9lcyBhY3QgYXMgYSBzcGVjdWxhdGlvbgo+
-ID4gYmFycmllciwgdGhlbiB0aGUgaXNzdWUgaXMgdGhhdCBhIHRvcm4gcmVhZCBjb3VsZCBnZW5l
-cmF0ZSBhIGxlZ2FsIGJ1dAo+ID4gaW5jb3JyZWN0IGluc3RydWN0aW9uLgo+Cj4gV2hhdCBpcyBh
-ICJ0b3JuIHJlYWQiIGhlcmU/IEkgYXNzdW1lIGl0IGlzIGFuIGluc3RydWN0aW9uIHJlYWQgdGhh
-dAo+IGdvZXMgYXQgdGhlIHdyb25nIGluc3RydWN0aW9uIGJvdW5kYXJ5IChDSVNDKS4gSWYgdGhp
-cyBpcyBjb3JyZWN0LCBkbwo+IHdlIG5lZWQgdG8gaGFuZGxlIHRvcm4gcmVhZCBjYXVzZWQgYnkg
-c29mdHdhcmUgYnVnLCBvciBoYXJkd2FyZQo+IGJpdCBmbGlwLCBvciBib3RoPwoKT24gQVJNNjQg
-KFJJU0MpLCB0b3JuIHJlYWRzIGNhbid0IGhhcHBlbiBiZWNhdXNlIHRoZSBpbnN0cnVjdGlvbiBm
-ZXRjaAppcyB3b3JkIGFsaWduZWQuIElmIHdlIHJlcGxhY2UgdGhlIHdob2xlIGluc3RydWN0aW9u
-IGF0b21pY2FsbHkgdGhlbiB0aGVyZQp3b24ndCBiZSBoYWxmIG9sZCAtIGhhbGYgbmV3IGluc3Ry
-dWN0aW9uIGZldGNoZXMuCgpUaGFua3MsClB1cmFuamF5CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+intro
+=====
+
+When the RISC-V dt-bindings were accepted upstream in Linux, the base
+ISA etc had yet to be ratified. By the ratification of the base ISA,
+incompatible changes had snuck into the specifications - for example the
+Zicsr and Zifencei extensions were spun out of the base ISA.
+
+Fast forward to today, and the reason for this patch.
+Currently the riscv,isa dt property permits only a specific subset of
+the ISA string - in particular it excludes version numbering.
+With the current constraints, it is not possible to discern whether
+"rv64i" means that the hart supports the fence.i instruction, for
+example.
+Future systems may choose to implement their own instruction fencing,
+perhaps using a vendor extension, or they may not implement the optional
+counter extensions. Software needs a way to determine this.
+
+versioning schemes
+==================
+
+"Use the extension versions that are described in the ISA manual" you
+may say, and it's not like this has not been considered.
+Firstly, software that parses the riscv,isa property at runtime will
+need to contain a lookup table of some sort that maps arbitrary versions
+to versions it understands. There is not a consistent application of
+version number applied to extensions, with a higgledy-piggledy
+collection of tags, "bare" and versioned documents awaiting the reader
+on the "recently ratified extensions" page:
+https://wiki.riscv.org/display/HOME/Recently+Ratified+Extensions
+
+	As an aside, and this is reflected in the patch too, since many
+	extensions have yet to appear in a release of the ISA specs,
+	they are defined by commits in their respective "working draft"
+	repositories.
+
+Secondly, there is an issue of backwards compatibility, whereby allowing
+numbers in the ISA string, some parsers may be broken. This would
+require an additional property to be created to even use the versions in
+this manner.
+
+~boolean properties~ string array property
+==========================================
+
+If a new property is needed, the whole approach may as well be looked at
+from the bottom up. A string with limited character choices etc is
+hardly the best approach for communicating extension information to
+software.
+
+Switching to using properties that are defined on a per extension basis,
+allows us to define explicit meanings for the DT representation of each
+extension - rather than the current situation where different operating
+systems or other bits of software may impart different meanings to
+characters in the string.
+Clearly the best source of meanings is the specifications themselves,
+this just provides us the ability to choose at what point in time the
+meaning is set. If an extension changes incompatibility in the future,
+a new property will be required.
+
+Off-list, some of the RVI folks have committed to shoring up the wording
+in either the ISA specifications, the riscv-isa-manual or
+so that in the future, modifications to and additions or removals of
+features will require a new extension. Codifying that assertion
+somewhere would make it quite unlikely that compatibility would be
+broken, but we have the tools required to deal with it, if & when it
+crops up.
+It is in our collective interest, as consumers of extension meanings, to
+define a scheme that enforces compatibility.
+
+The use of individual properties, rather than elements in a single
+string, will also permit validation that the properties have a meaning,
+as well as potentially reject mutually exclusive combinations, or
+enforce dependencies between extensions. That would not have be possible
+with the current dt-schema infrastructure for arbitrary strings, as we
+would need to add a riscv,isa parser to dt-validate!
+That's not implemented in this patch, but rather left as future work (for
+the brave, or the foolish).
+
+acpi
+====
+
+The current ACPI ECR is based on having a single ISA string unfortunately,
+but ideally ACPI will move to another method, perhaps GUIDs, that give
+explicit meaning to extensions.
+
+parser simplicity
+=================
+
+Many systems that parse DT at runtime already implement an function that
+can check for the presence of a string in an array of string, as it is
+similar to the process for parsing a list of compatible strings, so a
+bunch of new, custom, DT parsing should not be needed.
+Getting rid of "riscv,isa" parsing would be a nice simplification, but
+unfortunately for backwards compatibility with old dtbs, existing
+parsers may not be removable - which may greatly simplify
+dt parsing code. In Linux, for example, checking for whether a hart
+supports an extension becomes as simple as:
+	of_property_match_string(node, "riscv,isa-extensions", "zicbom")
+
+vendor extensions
+=================
+
+Compared to riscv,isa, this proposed scheme promotes vendor extensions,
+oft touted as the strength of RISC-V, to first-class citizens.
+At present, extensions are defined as meaning what the RISC-V ISA
+specifications say they do. There is no realistic way of using that
+interface to provide cross-platform definitions for what vendor
+extensions mean. Vendor extensions may also have even less consistency
+than RVI do in terms of versioning, or no care about backwards
+compatibility.
+The new property allows us to assign explicit meanings on a per vendor
+extension basis, backed up by a description of their meanings.
+
+fin
+===
+
+Create a new file to store the extension meanings and a new
+riscv,isa-base property to replace the aspect of riscv,isa that is
+not represented by the new property - the base ISA implemented by a hart.
+
+As a starting point, add properties for extensions currently used in
+Linux.
+
+Finally, mark riscv,isa as deprecated, as removing support for it in
+existing programs would be an ABI break.
+
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Rob Herring <robh+dt@kernel.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+CC: Alistair Francis <alistair.francis@wdc.com>
+CC: Andrew Jones <ajones@ventanamicro.com>
+CC: Anup Patel <apatel@ventanamicro.com>
+CC: Atish Patra <atishp@atishpatra.org>
+CC: Jessica Clarke <jrtc27@jrtc27.com>
+CC: Rick Chen <rick@andestech.com>
+CC: Leo <ycliang@andestech.com>
+CC: Oleksii <oleksii.kurochko@gmail.com>
+CC: linux-riscv@lists.infradead.org
+CC: qemu-riscv@nongnu.org
+CC: u-boot@lists.denx.de
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes in v3:
+- Per Rob's suggestion, switch to an array of strings. Cuts down on the
+  size, compared to booleans. It has a standard mechanism for parsing
+  (you need to parse arrays of strings for compatibles). It still allows
+  for having a limited set of explicitly defined properties - so the
+  advantages over a free-form string still apply.
+- Pick up Palmer's Ack and Review (although I expect that he will be the
+  one to apply this).
+---
+ .../devicetree/bindings/riscv/cpus.yaml       |  43 ++-
+ .../devicetree/bindings/riscv/extensions.yaml | 245 ++++++++++++++++++
+ 2 files changed, 265 insertions(+), 23 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/riscv/extensions.yaml
+
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 67bd239ead0b..74bc92591086 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -25,6 +25,7 @@ description: |
+ 
+ allOf:
+   - $ref: /schemas/cpu.yaml#
++  - $ref: extensions.yaml
+ 
+ properties:
+   compatible:
+@@ -82,25 +83,6 @@ properties:
+     description:
+       The blocksize in bytes for the Zicboz cache operations.
+ 
+-  riscv,isa:
+-    description:
+-      Identifies the specific RISC-V instruction set architecture
+-      supported by the hart.  These are documented in the RISC-V
+-      User-Level ISA document, available from
+-      https://riscv.org/specifications/
+-
+-      Due to revisions of the ISA specification, some deviations
+-      have arisen over time.
+-      Notably, riscv,isa was defined prior to the creation of the
+-      Zicntr, Zicsr, Zifencei and Zihpm extensions and thus "i"
+-      implies "zicntr_zicsr_zifencei_zihpm".
+-
+-      While the isa strings in ISA specification are case
+-      insensitive, letters in the riscv,isa string must be all
+-      lowercase.
+-    $ref: /schemas/types.yaml#/definitions/string
+-    pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
+-
+   # RISC-V has multiple properties for cache op block sizes as the sizes
+   # differ between individual CBO extensions
+   cache-op-block-size: false
+@@ -139,8 +121,17 @@ properties:
+       DMIPS/MHz, relative to highest capacity-dmips-mhz
+       in the system.
+ 
++oneOf:
++  - required:
++      - riscv,isa
++  - required:
++      - riscv,isa-base
++
++dependencies:
++  riscv,isa-base: [ "riscv,isa-extensions" ]
++  riscv,isa-extensions: [ "riscv,isa-base" ]
++
+ required:
+-  - riscv,isa
+   - interrupt-controller
+ 
+ unevaluatedProperties: false
+@@ -160,7 +151,9 @@ examples:
+                 i-cache-sets = <128>;
+                 i-cache-size = <16384>;
+                 reg = <0>;
+-                riscv,isa = "rv64imac";
++                riscv,isa-base = "rv64i";
++                riscv,isa-extensions = "i", "m", "a", "c";
++
+                 cpu_intc0: interrupt-controller {
+                         #interrupt-cells = <1>;
+                         compatible = "riscv,cpu-intc";
+@@ -183,8 +176,10 @@ examples:
+                 i-tlb-size = <32>;
+                 mmu-type = "riscv,sv39";
+                 reg = <1>;
+-                riscv,isa = "rv64imafdc";
+                 tlb-split;
++                riscv,isa-base = "rv64i";
++                riscv,isa-extensions = "i", "m", "a", "f", "d", "c";
++
+                 cpu_intc1: interrupt-controller {
+                         #interrupt-cells = <1>;
+                         compatible = "riscv,cpu-intc";
+@@ -202,8 +197,10 @@ examples:
+                 device_type = "cpu";
+                 reg = <0>;
+                 compatible = "riscv";
+-                riscv,isa = "rv64imafdc";
+                 mmu-type = "riscv,sv48";
++                riscv,isa-base = "rv64i";
++                riscv,isa-extensions = "i", "m", "a", "f", "d", "c";
++
+                 interrupt-controller {
+                         #interrupt-cells = <1>;
+                         interrupt-controller;
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+new file mode 100644
+index 000000000000..af98307f2c2c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -0,0 +1,245 @@
++# SPDX-License-Identifier: (GPL-2.0 OR MIT)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/extensions.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V ISA extensions
++
++maintainers:
++  - Paul Walmsley <paul.walmsley@sifive.com>
++  - Palmer Dabbelt <palmer@sifive.com>
++  - Conor Dooley <conor@kernel.org>
++
++description: |
++  RISC-V has a large number of extensions, some of which are "standard"
++  extensions, meaning they are ratified by RISC-V International, and others
++  are "vendor" extensions.
++  This document defines properties that indicate whether a hart supports a
++  given extension.
++
++  Once a standard extension has been ratified, no changes in behaviour can be
++  made without the creation of a new extension.
++  The properties for standard extensions therefore map to their originally
++  ratified states, with the exception of the I, Zicntr & Zihpm extensions.
++  See the "i" property for more information.
++
++select:
++  properties:
++    compatible:
++      contains:
++        const: riscv
++
++properties:
++  riscv,isa:
++    description:
++      Identifies the specific RISC-V instruction set architecture
++      supported by the hart.  These are documented in the RISC-V
++      User-Level ISA document, available from
++      https://riscv.org/specifications/
++
++      Due to revisions of the ISA specification, some deviations
++      have arisen over time.
++      Notably, riscv,isa was defined prior to the creation of the
++      Zicntr, Zicsr, Zifencei and Zihpm extensions and thus "i"
++      implies "zicntr_zicsr_zifencei_zihpm".
++
++      While the isa strings in ISA specification are case
++      insensitive, letters in the riscv,isa string must be all
++      lowercase.
++    $ref: /schemas/types.yaml#/definitions/string
++    pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
++    deprecated: true
++
++  riscv,isa-base:
++    description:
++      The base ISA implemented by this hart, as described by the 20191213
++      version of the unprivileged ISA specification.
++    enum:
++      - rv32i
++      - rv64i
++
++  riscv,isa-extensions:
++    $ref: /schemas/types.yaml#/definitions/string-array
++    minItems: 1
++    description: Extensions supported by the hart.
++    items:
++      anyOf:
++        # single letter extensions, in canonical order
++        - const: i
++          description: |
++            The base integer instruction set, as ratified in the 20191213
++            version of the unprivileged ISA specification, with the exception of
++            counter access.
++            Counter access was removed after the ratification of the 20191213
++            version of the unprivileged specification and shunted into the
++            Zicntr and Zihpm extensions.
++
++        - const: m
++          description:
++            The standard M extension for integer multiplication and division, as
++            ratified in the 20191213 version of the unprivileged ISA
++            specification.
++
++        - const: a
++          description:
++            The standard A extension for atomic instructions, as ratified in the
++            20191213 version of the unprivileged ISA specification.
++
++        - const: f
++          description:
++            The standard F extension for single-precision floating point, as
++            ratified in the 20191213 version of the unprivileged ISA
++            specification.
++
++        - const: d
++          description:
++            The standard D extension for double-precision floating-point, as
++            ratified in the 20191213 version of the unprivileged ISA
++            specification.
++
++        - const: q
++          description:
++            The standard Q extension for quad-precision floating-point, as
++            ratified in the 20191213 version of the unprivileged ISA
++            specification.
++
++        - const: c
++          description:
++            The standard C extension for compressed instructions, as ratified in
++            the 20191213 version of the unprivileged ISA specification.
++
++        - const: v
++          description:
++            The standard V extension for vector operations, as ratified
++            in-and-around commit 7a6c8ae ("Fix text that describes vfmv.v.f
++            encoding") of the riscv-v-spec.
++
++        - const: h
++          description:
++            The standard H extension for hypervisors as ratified in the 20191213
++            version of the privileged ISA specification.
++
++        # multi-letter extensions, sorted alphanumerically
++        - const: smaia
++          description: |
++            The standard Smaia supervisor-level extension for the advanced
++            interrupt architecture for machine-mode-visible csr and behavioural
++            changes to interrupts as frozen at commit ccbddab ("Merge pull
++            request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
++
++        - const: ssaia
++          description: |
++            The standard Ssaia supervisor-level extension for the advanced
++            interrupt architecture for supervisor-mode-visible csr and
++            behavioural changes to interrupts as frozen at commit ccbddab
++            ("Merge pull request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
++
++        - const: sscofpmf
++          description: |
++            The standard Sscofpmf supervisor-level extension for count overflow
++            and mode-based filtering as ratified at commit 01d1df0 ("Add ability
++            to manually trigger workflow. (#2)") of riscv-count-overflow.
++
++        - const: sstc
++          description: |
++            The standard Sstc supervisor-level extension for time compare as
++            ratified at commit 3f9ed34 ("Add ability to manually trigger
++            workflow. (#2)") of riscv-time-compare.
++
++        - const: svinval
++          description:
++            The standard Svinval supervisor-level extension for fine-grained
++            address-translation cache invalidation as ratified in the 20191213
++            version of the privileged ISA specification.
++
++        - const: svnapot
++          description:
++            The standard Svnapot supervisor-level extensions for napot
++            translation contiguity as ratified in the 20191213 version of the
++            privileged ISA specification.
++
++        - const: svpbmt
++          description:
++            The standard Svpbmt supervisor-level extensions for page-based
++            memory types as ratified in the 20191213 version of the privileged
++            ISA specification.
++
++        - const: zba
++          description: |
++            The standard Zba bit-manipulation extension for address generation
++            acceleration instructions as ratified at commit 6d33919 ("Merge pull
++            request #158 from hirooih/clmul-fix-loop-end-condition") of
++            riscv-bitmanip.
++
++        - const: zbb
++          description: |
++            The standard Zbb bit-manipulation extension for basic bit-manipulation
++            as ratified at commit 6d33919 ("Merge pull request #158 from
++            hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
++
++        - const: zbc
++          description: |
++            The standard Zbc bit-manipulation extension for carry-less
++            multiplication as ratified at commit 6d33919 ("Merge pull request
++            #158 from hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
++
++        - const: zbs
++          description: |
++            The standard Zbs bit-manipulation extension for single-bit
++            instructions as ratified at commit 6d33919 ("Merge pull request #158
++            from hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
++
++        - const: zicbom
++          description:
++            The standard Zicbom extension for base cache management operations as
++            ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
++
++        - const: zicbop
++          description:
++            The standard Zicbop extension for cache-block prefetch instructions
++            as ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of
++            riscv-CMOs.
++
++        - const: zicboz
++          description:
++            The standard Zicboz extension for cache-block zeroing as ratified
++            in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
++
++        - const: zicntr
++          description:
++            The standard Zicntr extension for base counters and timers, as
++            ratified in the 20191213 version of the unprivileged ISA
++            specification.
++
++        - const: zicsr
++          description:
++            The standard Zicsr extension for control and status register
++            instructions, as ratified in the 20191213 version of the
++            unprivileged ISA specification.
++
++        - const: zifencei
++          description:
++            The standard Zifencei extension for instruction-fetch fence, as
++            ratified in the 20191213 version of the unprivileged ISA
++            specification.
++
++        - const: zihintpause
++          description:
++            The standard Zihintpause extension for pause hints, as ratified in
++            commit d8ab5c7 ("Zihintpause is ratified") of the riscv-isa-manual.
++
++        - const: zihpm
++          description:
++            The standard Zihpm extension for hardware performance counters, as
++            ratified in the 20191213 version of the unprivileged ISA
++            specification.
++
++        - const: ztso
++          description:
++            The standard Ztso extension for total store ordering, as ratified
++            in commit 2e5236 ("Ztso is now ratified.") of the
++            riscv-isa-manual.
++
++additionalProperties: true
++...
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
