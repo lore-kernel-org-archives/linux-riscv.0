@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12AE8C001DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 13:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DC4EB64D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 13:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=54lknCm/9A9w6AuvQ6Y4sGXKjAtyqqJ765jzc8pLP3s=; b=XHkAigLiKcdfYT
-	nnlr453pJwJKKZ4F58FFbERh7RNB4gXFNFMKfL54luOBxrejCr29KcZM8uGBniOK0+P5YTci/ZdWi
-	4S7iIH/9xYB54nQC4jLWpThpX72iJ4nHD2NaLrVRfM+GygTFb+XF/ql6L3fv8TBtWLw22hqrrHPSg
-	lOyasVPhXdv5wtHtptyzG74jM9dL3GQ0WmUW7z6JGjdZxcwfnqIqI4Js5hfp08c+Z20MWC8clcTf5
-	UA/5HwBrcCmBqOemvSOzIs7lWpoL5GT8bfKtGKyP/NakywkUPWmNrowjqYd8a3jXvmOWWQF7Wd1o2
-	Hg1gpeVKOuK9Jc9EJnNA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DESmDBffZrENGrnyP7981Q6f9ri8ONV7ES9UF2bg3wU=; b=iDo4ztN/ePsXFqSltp9sgkhN/u
+	DA74ajIYoNt8LvlObaupq9b+OvYFQtGFw/bbPCztRR7stkvYTtNr8NZi6dhDOmd3aFEyYiTGE3AD/
+	9Z2JwABNCKn6LGUbtUixKjpU/KGMyC5i8HmbQ8dgE767retR/8QCIIG4RQsDmIIlkR48YRKHLzWxe
+	T12irt93hdzs7px4C0dWZpStsQnP5kXyGmD0XoMehC89FKhKqF71RhuFaEPXobf+aTvYptgbLHqnw
+	2+CWHBwAHHQ49Uq0QVypw8Pgo6ntbPUzOA5ElVDVROxIDQ46ZDcQOHTClEH27xdff8k6s5NvxzPhm
+	H1qfz3wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDlrA-00AGQq-1h;
-	Mon, 26 Jun 2023 13:02:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDlr5-00AGPZ-0N;
-	Mon, 26 Jun 2023 13:02:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF2D62F4;
-	Mon, 26 Jun 2023 06:02:47 -0700 (PDT)
-Received: from FVFF77S0Q05N (unknown [10.57.23.38])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14E543F64C;
-	Mon, 26 Jun 2023 06:01:57 -0700 (PDT)
-Date: Mon, 26 Jun 2023 14:01:55 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Andy Lutomirski <luto@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>, Kees Cook <keescook@chromium.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nadav Amit <nadav.amit@gmail.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>,
-	"Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Song Liu <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, netdev@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	the arch/x86 maintainers <x86@kernel.org>
-Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and
- jit_text_alloc()
-Message-ID: <ZJmMQ62fW7RO5W2O@FVFF77S0Q05N>
-References: <20230616085038.4121892-1-rppt@kernel.org>
- <20230616085038.4121892-3-rppt@kernel.org>
- <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
- <20230618080027.GA52412@kernel.org>
- <a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com>
+	id 1qDlwk-00AH6u-0a;
+	Mon, 26 Jun 2023 13:07:58 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qDlwh-00AH5T-05
+	for linux-riscv@lists.infradead.org;
+	Mon, 26 Jun 2023 13:07:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1687784875; x=1719320875;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=72rXoisws5aoVjq6A8u6xAy4hwxZtdurVUlSFvLS0h0=;
+  b=YPYCPsTVvWTO9vhEZbPv/G4LpyKM1nblCR9zbfpkkSN+2o9WTIc19HwZ
+   tUD57AwjXK4XfOtKZFePFG+rCy0OSopPEsOcCjB7Gadmsy6yOJR8ZkNax
+   +SWmtqUuW+CJZhxAhn+qIopfwG3bT6rLRi64QPEBRCfdYyK0iGukNnXf3
+   JsY9vFGEuzavIViwqc99yX5uQMld79ZY4lGnIWrBdxp4G2g3XC58u9Eci
+   qoRsYZKUFLlz99ybhPHSodVTMBcxqWM4iH5PK1rb+Uf42WRqMSvq4kX03
+   1JDKS2natHQhm98WGeaYzDd9UAr9vM8EqtilxZr7tA8k50YEz4MHqPk/d
+   w==;
+X-IronPort-AV: E=Sophos;i="6.01,159,1684825200"; 
+   d="asc'?scan'208";a="232202157"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Jun 2023 06:07:44 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 26 Jun 2023 06:07:44 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 26 Jun 2023 06:07:41 -0700
+Date: Mon, 26 Jun 2023 14:07:13 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Evan Green <evan@rivosinc.com>
+Subject: Re: [PATCH 2/2] RISC-V: alternative: Remove feature_probe_func
+Message-ID: <20230626-hardcopy-upchuck-7c37f1a6ef7b@wendy>
+References: <20230623222016.3742145-1-evan@rivosinc.com>
+ <20230623222016.3742145-3-evan@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com>
+In-Reply-To: <20230623222016.3742145-3-evan@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_060207_250298_664BAF07 
-X-CRM114-Status: GOOD (  61.62  )
+X-CRM114-CacheID: sfid-20230626_060755_130510_CD7323C8 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,173 +77,204 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, Samuel Holland <samuel@sholland.org>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>, Simon Hosie <shosie@rivosinc.com>, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: multipart/mixed; boundary="===============5769571512661136645=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 19, 2023 at 10:09:02AM -0700, Andy Lutomirski wrote:
-> On Sun, Jun 18, 2023, at 1:00 AM, Mike Rapoport wrote:
-> > On Sat, Jun 17, 2023 at 01:38:29PM -0700, Andy Lutomirski wrote:
-> >> On Fri, Jun 16, 2023, at 1:50 AM, Mike Rapoport wrote:
-> >> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> >> >
-> >> > module_alloc() is used everywhere as a mean to allocate memory for code.
-> >> >
-> >> > Beside being semantically wrong, this unnecessarily ties all subsystems
-> >> > that need to allocate code, such as ftrace, kprobes and BPF to modules
-> >> > and puts the burden of code allocation to the modules code.
-> >> >
-> >> > Several architectures override module_alloc() because of various
-> >> > constraints where the executable memory can be located and this causes
-> >> > additional obstacles for improvements of code allocation.
-> >> >
-> >> > Start splitting code allocation from modules by introducing
-> >> > execmem_text_alloc(), execmem_free(), jit_text_alloc(), jit_free() APIs.
-> >> >
-> >> > Initially, execmem_text_alloc() and jit_text_alloc() are wrappers for
-> >> > module_alloc() and execmem_free() and jit_free() are replacements of
-> >> > module_memfree() to allow updating all call sites to use the new APIs.
-> >> >
-> >> > The intention semantics for new allocation APIs:
-> >> >
-> >> > * execmem_text_alloc() should be used to allocate memory that must reside
-> >> >   close to the kernel image, like loadable kernel modules and generated
-> >> >   code that is restricted by relative addressing.
-> >> >
-> >> > * jit_text_alloc() should be used to allocate memory for generated code
-> >> >   when there are no restrictions for the code placement. For
-> >> >   architectures that require that any code is within certain distance
-> >> >   from the kernel image, jit_text_alloc() will be essentially aliased to
-> >> >   execmem_text_alloc().
-> >> >
-> >> 
-> >> Is there anything in this series to help users do the appropriate
-> >> synchronization when the actually populate the allocated memory with
-> >> code?  See here, for example:
-> >
-> > This series only factors out the executable allocations from modules and
-> > puts them in a central place.
-> > Anything else would go on top after this lands.
-> 
-> Hmm.
-> 
-> On the one hand, there's nothing wrong with factoring out common code. On the
-> other hand, this is probably the right time to at least start thinking about
-> synchronization, at least to the extent that it might make us want to change
-> this API.  (I'm not at all saying that this series should require changes --
-> I'm just saying that this is a good time to think about how this should
-> work.)
-> 
-> The current APIs, *and* the proposed jit_text_alloc() API, don't actually
-> look like the one think in the Linux ecosystem that actually intelligently
-> and efficiently maps new text into an address space: mmap().
-> 
-> On x86, you can mmap() an existing file full of executable code PROT_EXEC and
-> jump to it with minimal synchronization (just the standard implicit ordering
-> in the kernel that populates the pages before setting up the PTEs and
-> whatever user synchronization is needed to avoid jumping into the mapping
-> before mmap() finishes).  It works across CPUs, and the only possible way
-> userspace can screw it up (for a read-only mapping of read-only text, anyway)
-> is to jump to the mapping too early, in which case userspace gets a page
-> fault.  Incoherence is impossible, and no one needs to "serialize" (in the
-> SDM sense).
-> 
-> I think the same sequence (from userspace's perspective) works on other
-> architectures, too, although I think more cache management is needed on the
-> kernel's end.  As far as I know, no Linux SMP architecture needs an IPI to
-> map executable text into usermode, but I could easily be wrong.  (IIRC RISC-V
-> has very developer-unfriendly icache management, but I don't remember the
-> details.)
+--===============5769571512661136645==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dm2SjiLkQREWuB17"
+Content-Disposition: inline
 
-That's my understanding too, with a couple of details:
+--dm2SjiLkQREWuB17
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-1) After the copy we perform and complete all the data + instruction cache
-   maintenance *before* marking the mapping as executable.
+Hey Evan,
 
-2) Even *after* the mapping is marked executable, a thread could take a
-   spurious fault on an instruction fetch for the new instructions. One way to
-   think about this is that the CPU attempted to speculate the instructions
-   earlier, saw that the mapping was faulting, and placed a "generate a fault
-   here" operation into its pipeline to generate that later.
+On Fri, Jun 23, 2023 at 03:20:16PM -0700, Evan Green wrote:
+> Now that we're testing unaligned memory copy and making that
+> determination generically, there are no more users of the vendor
+> feature_probe_func(). While I think it's probably going to need to come
+> back, there are no users right now, so let's remove it until it's
+> needed.
 
-   The CPU pipeline/OoO-engine/whatever is effectively a transient cache for
-   operations in-flight which is only ever "invalidated" by a
-   context-synchronization-event (akin to an x86 serializing effect).
+How come this is done as a separate patch, rather than delete the dead
+code as part of the probe addition? Ease of review?
 
-   We're only guarnateed to have a new instruction fetch (from the I-cache into
-   the CPU pipeline) after the next context synchronization event (akin to an x86
-   serializing effect), and luckily out exception entry/exit is architecturally
-   guarnateed to provide that (unless we explicitly opt out via a control bit).
+Change itself seems fine to me though, so
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-I know we're a bit lax with that today: I think we omit the
-context-synchronization-event when enabling ftrace callsites, and worse, for
-static keys. Those are both on my TODO list of nasty problems that require
-careful auditing...
+Cheers,
+Conor.
 
-> Of course, using ptrace or any other FOLL_FORCE to modify text on x86 is
-> rather fraught, and I bet many things do it wrong when userspace is
-> multithreaded.  But not in production because it's mostly not used in
-> production.)
+>=20
+> Signed-off-by: Evan Green <evan@rivosinc.com>
+>=20
+> ---
+>=20
+>  arch/riscv/errata/thead/errata.c     |  8 --------
+>  arch/riscv/include/asm/alternative.h |  5 -----
+>  arch/riscv/kernel/alternative.c      | 19 -------------------
+>  arch/riscv/kernel/smpboot.c          |  1 -
+>  4 files changed, 33 deletions(-)
+>=20
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/e=
+rrata.c
+> index c259dc925ec1..bf42857c977f 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -117,11 +117,3 @@ void thead_errata_patch_func(struct alt_entry *begin=
+, struct alt_entry *end,
+>  	if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
+>  		local_flush_icache_all();
+>  }
+> -
+> -void thead_feature_probe_func(unsigned int cpu,
+> -			      unsigned long archid,
+> -			      unsigned long impid)
+> -{
+> -	if ((archid =3D=3D 0) && (impid =3D=3D 0))
+> -		per_cpu(misaligned_access_speed, cpu) =3D RISCV_HWPROBE_MISALIGNED_FAS=
+T;
+> -}
+> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/as=
+m/alternative.h
+> index 6a41537826a7..58ccd2f8cab7 100644
+> --- a/arch/riscv/include/asm/alternative.h
+> +++ b/arch/riscv/include/asm/alternative.h
+> @@ -30,7 +30,6 @@
+>  #define ALT_OLD_PTR(a)			__ALT_PTR(a, old_offset)
+>  #define ALT_ALT_PTR(a)			__ALT_PTR(a, alt_offset)
+> =20
+> -void probe_vendor_features(unsigned int cpu);
+>  void __init apply_boot_alternatives(void);
+>  void __init apply_early_boot_alternatives(void);
+>  void apply_module_alternatives(void *start, size_t length);
+> @@ -53,15 +52,11 @@ void thead_errata_patch_func(struct alt_entry *begin,=
+ struct alt_entry *end,
+>  			     unsigned long archid, unsigned long impid,
+>  			     unsigned int stage);
+> =20
+> -void thead_feature_probe_func(unsigned int cpu, unsigned long archid,
+> -			      unsigned long impid);
+> -
+>  void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_ent=
+ry *end,
+>  				 unsigned int stage);
+> =20
+>  #else /* CONFIG_RISCV_ALTERNATIVE */
+> =20
+> -static inline void probe_vendor_features(unsigned int cpu) { }
+>  static inline void apply_boot_alternatives(void) { }
+>  static inline void apply_early_boot_alternatives(void) { }
+>  static inline void apply_module_alternatives(void *start, size_t length)=
+ { }
+> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternat=
+ive.c
+> index 6b75788c18e6..85056153fa23 100644
+> --- a/arch/riscv/kernel/alternative.c
+> +++ b/arch/riscv/kernel/alternative.c
+> @@ -27,8 +27,6 @@ struct cpu_manufacturer_info_t {
+>  	void (*patch_func)(struct alt_entry *begin, struct alt_entry *end,
+>  				  unsigned long archid, unsigned long impid,
+>  				  unsigned int stage);
+> -	void (*feature_probe_func)(unsigned int cpu, unsigned long archid,
+> -				   unsigned long impid);
+>  };
+> =20
+>  static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_=
+mfr_info)
+> @@ -43,7 +41,6 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufact=
+urer_info_t *cpu_mfr_info
+>  	cpu_mfr_info->imp_id =3D sbi_get_mimpid();
+>  #endif
+> =20
+> -	cpu_mfr_info->feature_probe_func =3D NULL;
+>  	switch (cpu_mfr_info->vendor_id) {
+>  #ifdef CONFIG_ERRATA_SIFIVE
+>  	case SIFIVE_VENDOR_ID:
+> @@ -53,7 +50,6 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufact=
+urer_info_t *cpu_mfr_info
+>  #ifdef CONFIG_ERRATA_THEAD
+>  	case THEAD_VENDOR_ID:
+>  		cpu_mfr_info->patch_func =3D thead_errata_patch_func;
+> -		cpu_mfr_info->feature_probe_func =3D thead_feature_probe_func;
+>  		break;
+>  #endif
+>  	default:
+> @@ -143,20 +139,6 @@ void riscv_alternative_fix_offsets(void *alt_ptr, un=
+signed int len,
+>  	}
+>  }
+> =20
+> -/* Called on each CPU as it starts */
+> -void probe_vendor_features(unsigned int cpu)
+> -{
+> -	struct cpu_manufacturer_info_t cpu_mfr_info;
+> -
+> -	riscv_fill_cpu_mfr_info(&cpu_mfr_info);
+> -	if (!cpu_mfr_info.feature_probe_func)
+> -		return;
+> -
+> -	cpu_mfr_info.feature_probe_func(cpu,
+> -					cpu_mfr_info.arch_id,
+> -					cpu_mfr_info.imp_id);
+> -}
+> -
+>  /*
+>   * This is called very early in the boot process (directly after we run
+>   * a feature detect on the boot CPU). No need to worry about other CPUs
+> @@ -211,7 +193,6 @@ void __init apply_boot_alternatives(void)
+>  	/* If called on non-boot cpu things could go wrong */
+>  	WARN_ON(smp_processor_id() !=3D 0);
+> =20
+> -	probe_vendor_features(0);
+>  	_apply_alternatives((struct alt_entry *)__alt_start,
+>  			    (struct alt_entry *)__alt_end,
+>  			    RISCV_ALTERNATIVES_BOOT);
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index e34a71b4786b..054f2d4474d0 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -246,7 +246,6 @@ asmlinkage __visible void smp_callin(void)
+>  	numa_add_cpu(curr_cpuid);
+>  	set_cpu_online(curr_cpuid, 1);
+>  	check_misaligned_access(curr_cpuid);
+> -	probe_vendor_features(curr_cpuid);
+> =20
+>  	if (has_vector()) {
+>  		if (riscv_v_setup_vsize())
+> --=20
+> 2.34.1
+>=20
 
-I suspect uprobes needs a look too...
+--dm2SjiLkQREWuB17
+Content-Type: application/pgp-signature; name="signature.asc"
 
-I'll need to go dig into all that a bit before I have more of an opinion on the
-shape of the API.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks,
-Mark.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJmNgQAKCRB4tDGHoIJi
+0uZ1AQCaXD/7qRSevo8gVSDWW1BMzamB/j0Byc20k2xUgtD4WQD+J9sfr3d7bckd
+U0eAHnNUuxiYihEdPeHVoeLUk0n8qQ4=
+=4xip
+-----END PGP SIGNATURE-----
 
-> But jit_text_alloc() can't do this, because the order of operations doesn't
-> match.  With jit_text_alloc(), the executable mapping shows up before the
-> text is populated, so there is no atomic change from not-there to
-> populated-and-executable.  Which means that there is an opportunity for CPUs,
-> speculatively or otherwise, to start filling various caches with intermediate
-> states of the text, which means that various architectures (even x86!) may
-> need serialization.
-> 
-> For eBPF- and module- like use cases, where JITting/code gen is quite
-> coarse-grained, perhaps something vaguely like:
-> 
-> jit_text_alloc() -> returns a handle and an executable virtual address, but does *not* map it there
-> jit_text_write() -> write to that handle
-> jit_text_map() -> map it and synchronize if needed (no sync needed on x86, I think)
-> 
-> could be more efficient and/or safer.
-> 
-> (Modules could use this too.  Getting alternatives right might take some
-> fiddling, because off the top of my head, this doesn't match how it works
-> now.)
-> 
-> To make alternatives easier, this could work, maybe (haven't fully thought it through):
-> 
-> jit_text_alloc()
-> jit_text_map_rw_inplace() -> map at the target address, but RW, !X
-> 
-> write the text and apply alternatives
-> 
-> jit_text_finalize() -> change from RW to RX *and synchronize*
-> 
-> jit_text_finalize() would either need to wait for RCU (possibly extra heavy
-> weight RCU to get "serialization") or send an IPI.
-> 
-> This is slower than the alloc, write, map solution, but allows alternatives
-> to be applied at the final address.
-> 
-> 
-> Even fancier variants where the writing is some using something like
-> use_temporary_mm() might even make sense.
-> 
-> 
-> To what extent does performance matter for the various users?  module loading
-> is slow, and I don't think we care that much.  eBPF loaded is not super fast,
-> and we care to a limited extent.  I *think* the bcachefs use case needs to be
-> very fast, but I'm not sure it can be fast and supportable.
-> 
-> Anyway, food for thought.
-> 
+--dm2SjiLkQREWuB17--
+
+
+--===============5769571512661136645==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5769571512661136645==--
+
