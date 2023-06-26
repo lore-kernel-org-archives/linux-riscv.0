@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F2B6EB64D7
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 12:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA574EB64D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 12:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vBWreBhpLDyS6Tit3/6wvNOWi3hp1pKZs85oosIGDhQ=; b=hFUbwGeg/J1Lvw
-	am+SA4J3QLVOKrFhg34/bSI66o8u3MEL1S02FSW3zUM+x4GbQc2KEp+noVfe28D6Pvrz7l2CUbAcM
-	nf+cCFx0R7UcoQyGTx9yPZ+VVd7TrxJdD6PVJs3aApkgzQAp9mcOGtfUV7OIA26FRm3KWG9By86VS
-	qIbxtHLsBHILjyyyFQJgm/+3QAAfnrHnRD6izCp+xG5hiVgl3v4V6wdPlAnrt07onYo0J80LtpK40
-	Ay0aHu+8NRfVqM+1+hxnjAt4coZqp7cUJRjHjQosnDjf6zv9UXAkVi/xKGEWvyvNH6fI3TjoB8aa+
-	l35mmI4hTM3OO9qQogUw==;
+	List-Owner; bh=pUamR1+N2MRkt21PyNIrggeWZDToAmfzB6cOc6KlSC4=; b=EKhbVIGu+S3J1/
+	fL5CvXLGgmCYwBlzctSk7E/p1Pb7RdgIPr+vnmaHfY/kDyt0jV+BeKUMZCuhCjilunk4nOiME+GRm
+	6FW4rX8i7azNMqww05tHYbxsJougnqemnyc4/4K40MLnaJOlPTZNidlvU3vcXfoZMJigzjdsS0T+2
+	/HL8smBe2r9NPyG6gMERM+9n8aoiipNWE8fPsr8Gtpi/gMIGtIaEE30+F3JWxkEfpBm3+kVuu/dyN
+	oI4yMyPY4iTGSd6Zz2ottOVFUV9N/Rku8Bqw/tuKYxRi1tqgCMM7ElgCl6HtNceXgmRrryWmOTcu4
+	M5uNSKF3Kw7ojlZX9mPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDlHl-00ACQv-2C;
-	Mon, 26 Jun 2023 12:25:37 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1qDlNV-00AD81-20;
+	Mon, 26 Jun 2023 12:31:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDlHf-00ACPG-0p
-	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jun 2023 12:25:35 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 9C6927FEF;
-	Mon, 26 Jun 2023 20:25:06 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
- 2023 20:25:06 +0800
-Received: from [192.168.125.124] (113.72.146.167) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
- 2023 20:25:05 +0800
-Message-ID: <21979d63-1ae7-bda2-f730-4eea5e7de195@starfivetech.com>
-Date: Mon, 26 Jun 2023 20:25:04 +0800
+	id 1qDlNR-00AD53-1q;
+	Mon, 26 Jun 2023 12:31:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CBCD22F4;
+	Mon, 26 Jun 2023 05:32:10 -0700 (PDT)
+Received: from FVFF77S0Q05N (unknown [10.57.23.38])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 12EC63F64C;
+	Mon, 26 Jun 2023 05:31:20 -0700 (PDT)
+Date: Mon, 26 Jun 2023 13:31:18 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andy Lutomirski <luto@kernel.org>, Kees Cook <keescook@chromium.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Rick P Edgecombe <rick.p.edgecombe@intel.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Song Liu <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, netdev@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	the arch/x86 maintainers <x86@kernel.org>
+Subject: Re: [PATCH v2 02/12] mm: introduce execmem_text_alloc() and
+ jit_text_alloc()
+Message-ID: <ZJmFFmexl_1GUhIL@FVFF77S0Q05N>
+References: <20230616085038.4121892-1-rppt@kernel.org>
+ <20230616085038.4121892-3-rppt@kernel.org>
+ <f9a7eebe-d36e-4587-b99d-35d4edefdd14@app.fastmail.com>
+ <20230618080027.GA52412@kernel.org>
+ <a17c65c6-863f-4026-9c6f-a04b659e9ab4@app.fastmail.com>
+ <20230625161417.GK52412@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH v1 4/5] ASoC: starfive: Add JH7110 PWM-DAC driver
-Content-Language: en-US
-To: Hal Feng <hal.feng@starfivetech.com>, Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor@kernel.org>, Xingyu Wu <xingyu.wu@starfivetech.com>, "Emil Renner
- Berthing" <emil.renner.berthing@canonical.com>, Claudiu Beznea
-	<Claudiu.Beznea@microchip.com>
-CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20230626110909.38718-1-hal.feng@starfivetech.com>
- <20230626110909.38718-5-hal.feng@starfivetech.com>
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <20230626110909.38718-5-hal.feng@starfivetech.com>
-X-Originating-IP: [113.72.146.167]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20230625161417.GK52412@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_052531_960070_F73599D0 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20230626_053129_707223_583B5C12 
+X-CRM114-Status: GOOD (  59.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,863 +95,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2023/6/26 19:09, Hal Feng wrote:
-> Add PWM-DAC driver support for the StarFive JH7110 SoC.
+On Sun, Jun 25, 2023 at 07:14:17PM +0300, Mike Rapoport wrote:
+> On Mon, Jun 19, 2023 at 10:09:02AM -0700, Andy Lutomirski wrote:
+> > 
+> > On Sun, Jun 18, 2023, at 1:00 AM, Mike Rapoport wrote:
+> > > On Sat, Jun 17, 2023 at 01:38:29PM -0700, Andy Lutomirski wrote:
+> > >> On Fri, Jun 16, 2023, at 1:50 AM, Mike Rapoport wrote:
+> > >> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> > >> >
+> > >> > module_alloc() is used everywhere as a mean to allocate memory for code.
+> > >> >
+> > >> > Beside being semantically wrong, this unnecessarily ties all subsystems
+> > >> > that need to allocate code, such as ftrace, kprobes and BPF to modules
+> > >> > and puts the burden of code allocation to the modules code.
+> > >> >
+> > >> > Several architectures override module_alloc() because of various
+> > >> > constraints where the executable memory can be located and this causes
+> > >> > additional obstacles for improvements of code allocation.
+> > >> >
+> > >> > Start splitting code allocation from modules by introducing
+> > >> > execmem_text_alloc(), execmem_free(), jit_text_alloc(), jit_free() APIs.
+> > >> >
+> > >> > Initially, execmem_text_alloc() and jit_text_alloc() are wrappers for
+> > >> > module_alloc() and execmem_free() and jit_free() are replacements of
+> > >> > module_memfree() to allow updating all call sites to use the new APIs.
+> > >> >
+> > >> > The intention semantics for new allocation APIs:
+> > >> >
+> > >> > * execmem_text_alloc() should be used to allocate memory that must reside
+> > >> >   close to the kernel image, like loadable kernel modules and generated
+> > >> >   code that is restricted by relative addressing.
+> > >> >
+> > >> > * jit_text_alloc() should be used to allocate memory for generated code
+> > >> >   when there are no restrictions for the code placement. For
+> > >> >   architectures that require that any code is within certain distance
+> > >> >   from the kernel image, jit_text_alloc() will be essentially aliased to
+> > >> >   execmem_text_alloc().
+> > >> >
+> > >> 
+> > >> Is there anything in this series to help users do the appropriate
+> > >> synchronization when the actually populate the allocated memory with
+> > >> code?  See here, for example:
+> > >
+> > > This series only factors out the executable allocations from modules and
+> > > puts them in a central place.
+> > > Anything else would go on top after this lands.
+> > 
+> > Hmm.
+> > 
+> > On the one hand, there's nothing wrong with factoring out common code. On
+> > the other hand, this is probably the right time to at least start
+> > thinking about synchronization, at least to the extent that it might make
+> > us want to change this API.  (I'm not at all saying that this series
+> > should require changes -- I'm just saying that this is a good time to
+> > think about how this should work.)
+> > 
+> > The current APIs, *and* the proposed jit_text_alloc() API, don't actually
+> > look like the one think in the Linux ecosystem that actually
+> > intelligently and efficiently maps new text into an address space:
+> > mmap().
+> > 
+> > On x86, you can mmap() an existing file full of executable code PROT_EXEC
+> > and jump to it with minimal synchronization (just the standard implicit
+> > ordering in the kernel that populates the pages before setting up the
+> > PTEs and whatever user synchronization is needed to avoid jumping into
+> > the mapping before mmap() finishes).  It works across CPUs, and the only
+> > possible way userspace can screw it up (for a read-only mapping of
+> > read-only text, anyway) is to jump to the mapping too early, in which
+> > case userspace gets a page fault.  Incoherence is impossible, and no one
+> > needs to "serialize" (in the SDM sense).
+> > 
+> > I think the same sequence (from userspace's perspective) works on other
+> > architectures, too, although I think more cache management is needed on
+> > the kernel's end.  As far as I know, no Linux SMP architecture needs an
+> > IPI to map executable text into usermode, but I could easily be wrong.
+> > (IIRC RISC-V has very developer-unfriendly icache management, but I don't
+> > remember the details.)
+> > 
+> > Of course, using ptrace or any other FOLL_FORCE to modify text on x86 is
+> > rather fraught, and I bet many things do it wrong when userspace is
+> > multithreaded.  But not in production because it's mostly not used in
+> > production.)
+> > 
+> > But jit_text_alloc() can't do this, because the order of operations
+> > doesn't match.  With jit_text_alloc(), the executable mapping shows up
+> > before the text is populated, so there is no atomic change from not-there
+> > to populated-and-executable.  Which means that there is an opportunity
+> > for CPUs, speculatively or otherwise, to start filling various caches
+> > with intermediate states of the text, which means that various
+> > architectures (even x86!) may need serialization.
+> > 
+> > For eBPF- and module- like use cases, where JITting/code gen is quite
+> > coarse-grained, perhaps something vaguely like:
+> > 
+> > jit_text_alloc() -> returns a handle and an executable virtual address,
+> > but does *not* map it there
+> > jit_text_write() -> write to that handle
+> > jit_text_map() -> map it and synchronize if needed (no sync needed on
+> > x86, I think)
+> > 
+> > could be more efficient and/or safer.
+> > 
+> > (Modules could use this too.  Getting alternatives right might take some
+> > fiddling, because off the top of my head, this doesn't match how it works
+> > now.)
+> > 
+> > To make alternatives easier, this could work, maybe (haven't fully
+> > thought it through):
+> > 
+> > jit_text_alloc()
+> > jit_text_map_rw_inplace() -> map at the target address, but RW, !X
+> > 
+> > write the text and apply alternatives
+> > 
+> > jit_text_finalize() -> change from RW to RX *and synchronize*
+> > 
+> > jit_text_finalize() would either need to wait for RCU (possibly extra
+> > heavy weight RCU to get "serialization") or send an IPI.
 > 
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-
-Thanks!
-Reviewed-by: Walker Chen <walker.chen@starfivetech.com>
-
-> ---
->  MAINTAINERS                        |   8 +
->  sound/soc/starfive/Kconfig         |   9 +
->  sound/soc/starfive/Makefile        |   1 +
->  sound/soc/starfive/jh7110_pwmdac.c | 787 +++++++++++++++++++++++++++++
->  4 files changed, 805 insertions(+)
->  create mode 100644 sound/soc/starfive/jh7110_pwmdac.c
+> This essentially how modules work now. The memory is allocated RW, written
+> and updated with alternatives and then made ROX in the end with set_memory
+> APIs.
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 1dc12c5c02f7..a936ba4d5f1d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -20125,6 +20125,14 @@ S:	Supported
->  F:	Documentation/devicetree/bindings/mmc/starfive*
->  F:	drivers/mmc/host/dw_mmc-starfive.c
->  
-> +STARFIVE JH7110 PWMDAC DRIVER
-> +M:	Hal Feng <hal.feng@starfivetech.com>
-> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
-> +S:	Supported
-> +F:	Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac*
-> +F:	sound/soc/codecs/jh7110_pwmdac_transmitter.c
-> +F:	sound/soc/starfive/jh7110_pwmdac.c
-> +
->  STARFIVE JH71X0 CLOCK DRIVERS
->  M:	Emil Renner Berthing <kernel@esmil.dk>
->  M:	Hal Feng <hal.feng@starfivetech.com>
-> diff --git a/sound/soc/starfive/Kconfig b/sound/soc/starfive/Kconfig
-> index fafb681f8c0a..fabef377db8c 100644
-> --- a/sound/soc/starfive/Kconfig
-> +++ b/sound/soc/starfive/Kconfig
-> @@ -7,6 +7,15 @@ config SND_SOC_STARFIVE
->  	  the Starfive SoCs' Audio interfaces. You will also need to
->  	  select the audio interfaces to support below.
->  
-> +config SND_SOC_JH7110_PWMDAC
-> +	tristate "JH7110 PWM-DAC device driver"
-> +	depends on HAVE_CLK && SND_SOC_STARFIVE
-> +	select SND_SOC_GENERIC_DMAENGINE_PCM
-> +	select SND_SOC_JH7110_PWMDAC_DIT
-> +	help
-> +	 Say Y or M if you want to add support for StarFive JH7110
-> +	 PWM-DAC driver.
-> +
->  config SND_SOC_JH7110_TDM
->  	tristate "JH7110 TDM device driver"
->  	depends on HAVE_CLK && SND_SOC_STARFIVE
-> diff --git a/sound/soc/starfive/Makefile b/sound/soc/starfive/Makefile
-> index f7d960211d72..9e958f70ef51 100644
-> --- a/sound/soc/starfive/Makefile
-> +++ b/sound/soc/starfive/Makefile
-> @@ -1,2 +1,3 @@
->  # StarFive Platform Support
-> +obj-$(CONFIG_SND_SOC_JH7110_PWMDAC) += jh7110_pwmdac.o
->  obj-$(CONFIG_SND_SOC_JH7110_TDM) += jh7110_tdm.o
-> diff --git a/sound/soc/starfive/jh7110_pwmdac.c b/sound/soc/starfive/jh7110_pwmdac.c
-> new file mode 100644
-> index 000000000000..c3123bd6ea45
-> --- /dev/null
-> +++ b/sound/soc/starfive/jh7110_pwmdac.c
-> @@ -0,0 +1,787 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * jh7110_pwmdac.c -- StarFive JH7110 PWM-DAC driver
-> + *
-> + * Copyright (C) 2021-2023 StarFive Technology Co., Ltd.
-> + *
-> + * Authors: Jenny Zhang
-> + *	    Curry Zhang
-> + *	    Xingyu Wu <xingyu.wu@starfivetech.com>
-> + *	    Hal Feng <hal.feng@starfivetech.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/device.h>
-> +#include <linux/init.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/reset.h>
-> +#include <linux/slab.h>
-> +#include <linux/types.h>
-> +#include <sound/dmaengine_pcm.h>
-> +#include <sound/pcm.h>
-> +#include <sound/pcm_params.h>
-> +#include <sound/soc.h>
-> +
-> +#define JH7110_PWMDAC_WDATA				0x00
-> +#define JH7110_PWMDAC_CTRL				0x04
-> +	#define JH7110_PWMDAC_ENABLE			BIT(0)
-> +	#define JH7110_PWMDAC_SHIFT			BIT(1)
-> +	#define JH7110_PWMDAC_DUTY_CYCLE_SHIFT		2
-> +	#define JH7110_PWMDAC_DUTY_CYCLE_MASK		GENMASK(3, 2)
-> +	#define JH7110_PWMDAC_CNT_N_SHIFT		4
-> +	#define JH7110_PWMDAC_CNT_N_MASK		GENMASK(12, 4)
-> +	#define JH7110_PWMDAC_DATA_CHANGE		BIT(13)
-> +	#define JH7110_PWMDAC_DATA_MODE			BIT(14)
-> +	#define JH7110_PWMDAC_DATA_SHIFT_SHIFT		15
-> +	#define JH7110_PWMDAC_DATA_SHIFT_MASK		GENMASK(17, 15)
-> +
-> +enum JH7110_PWMDAC_SHIFT_VAL {
-> +	PWMDAC_SHIFT_8 = 0,
-> +	PWMDAC_SHIFT_10,
-> +};
-> +
-> +enum JH7110_PWMDAC_DUTY_CYCLE_VAL {
-> +	PWMDAC_CYCLE_LEFT = 0,
-> +	PWMDAC_CYCLE_RIGHT,
-> +	PWMDAC_CYCLE_CENTER,
-> +};
-> +
-> +enum JH7110_PWMDAC_CNT_N_VAL {
-> +	PWMDAC_SAMPLE_CNT_1 = 1,
-> +	PWMDAC_SAMPLE_CNT_2,
-> +	PWMDAC_SAMPLE_CNT_3,
-> +	PWMDAC_SAMPLE_CNT_512 = 512, /* max */
-> +};
-> +
-> +enum JH7110_PWMDAC_DATA_CHANGE_VAL {
-> +	NO_CHANGE = 0,
-> +	CHANGE,
-> +};
-> +
-> +enum JH7110_PWMDAC_DATA_MODE_VAL {
-> +	UNSIGNED_DATA = 0,
-> +	INVERTER_DATA_MSB,
-> +};
-> +
-> +enum JH7110_PWMDAC_DATA_SHIFT_VAL {
-> +	PWMDAC_DATA_LEFT_SHIFT_BIT_0 = 0,
-> +	PWMDAC_DATA_LEFT_SHIFT_BIT_1,
-> +	PWMDAC_DATA_LEFT_SHIFT_BIT_2,
-> +	PWMDAC_DATA_LEFT_SHIFT_BIT_3,
-> +	PWMDAC_DATA_LEFT_SHIFT_BIT_4,
-> +	PWMDAC_DATA_LEFT_SHIFT_BIT_5,
-> +	PWMDAC_DATA_LEFT_SHIFT_BIT_6,
-> +	PWMDAC_DATA_LEFT_SHIFT_BIT_7,
-> +};
-> +
-> +struct jh7110_pwmdac_dev {
-> +	void __iomem *base;
-> +	resource_size_t	mapbase;
-> +	u8 shift;
-> +	u8 duty_cycle;
-> +	u8 cnt_n;
-> +	u8 data_change;
-> +	u8 data_mode;
-> +	u8 data_shift;
-> +
-> +	struct clk_bulk_data clks[2];
-> +	struct reset_control *rst_apb;
-> +	struct device *dev;
-> +	struct snd_dmaengine_dai_dma_data play_dma_data;
-> +	u32 saved_ctrl;
-> +};
-> +
-> +enum jh7110_ct_pwmdac_name {
-> +	PWMDAC_CT_SHIFT = 0,
-> +	PWMDAC_CT_DUTY_CYCLE,
-> +	PWMDAC_CT_DATA_CHANGE,
-> +	PWMDAC_CT_DATA_MODE,
-> +	PWMDAC_CT_DATA_SHIFT,
-> +};
-> +
-> +struct jh7110_ct_pwmdac {
-> +	char *name;
-> +	unsigned int vals;
-> +};
-> +
-> +static const struct jh7110_ct_pwmdac pwmdac_ct_shift[] = {
-> +	{ .name = "8bit", .vals = PWMDAC_SHIFT_8 },
-> +	{ .name = "10bit", .vals = PWMDAC_SHIFT_10 }
-> +};
-> +
-> +static const struct jh7110_ct_pwmdac pwmdac_ct_duty_cycle[] = {
-> +	{ .name = "left", .vals = PWMDAC_CYCLE_LEFT },
-> +	{ .name = "right", .vals = PWMDAC_CYCLE_RIGHT },
-> +	{ .name = "center", .vals = PWMDAC_CYCLE_CENTER }
-> +};
-> +
-> +static const struct jh7110_ct_pwmdac pwmdac_ct_data_change[] = {
-> +	{ .name = "no_change", .vals = NO_CHANGE },
-> +	{ .name = "change", .vals = CHANGE }
-> +};
-> +
-> +static const struct jh7110_ct_pwmdac pwmdac_ct_data_mode[] = {
-> +	{ .name = "unsigned", .vals = UNSIGNED_DATA },
-> +	{ .name = "inverter", .vals = INVERTER_DATA_MSB }
-> +};
-> +
-> +static const struct jh7110_ct_pwmdac pwmdac_ct_data_shift[] = {
-> +	{ .name = "left 0 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_0 },
-> +	{ .name = "left 1 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_1 },
-> +	{ .name = "left 2 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_2 },
-> +	{ .name = "left 3 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_3 },
-> +	{ .name = "left 4 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_4 },
-> +	{ .name = "left 5 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_5 },
-> +	{ .name = "left 6 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_6 },
-> +	{ .name = "left 7 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_7 }
-> +};
-> +
-> +static int jh7110_pwmdac_info(struct snd_ctl_elem_info *uinfo, int pwmdac_ct)
-> +{
-> +	unsigned int items;
-> +
-> +	if (pwmdac_ct == PWMDAC_CT_SHIFT) {
-> +		items = ARRAY_SIZE(pwmdac_ct_shift);
-> +		strcpy(uinfo->value.enumerated.name,
-> +		       pwmdac_ct_shift[uinfo->value.enumerated.item].name);
-> +	} else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE) {
-> +		items = ARRAY_SIZE(pwmdac_ct_duty_cycle);
-> +		strcpy(uinfo->value.enumerated.name,
-> +		       pwmdac_ct_duty_cycle[uinfo->value.enumerated.item].name);
-> +	} else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE) {
-> +		items = ARRAY_SIZE(pwmdac_ct_data_change);
-> +		strcpy(uinfo->value.enumerated.name,
-> +		       pwmdac_ct_data_change[uinfo->value.enumerated.item].name);
-> +	} else if (pwmdac_ct == PWMDAC_CT_DATA_MODE) {
-> +		items = ARRAY_SIZE(pwmdac_ct_data_mode);
-> +		strcpy(uinfo->value.enumerated.name,
-> +		       pwmdac_ct_data_mode[uinfo->value.enumerated.item].name);
-> +	} else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT) {
-> +		items = ARRAY_SIZE(pwmdac_ct_data_shift);
-> +		strcpy(uinfo->value.enumerated.name,
-> +		       pwmdac_ct_data_shift[uinfo->value.enumerated.item].name);
-> +	}
-> +
-> +	uinfo->type = SNDRV_CTL_ELEM_TYPE_ENUMERATED;
-> +	uinfo->count = 1;
-> +	uinfo->value.enumerated.items = items;
-> +	if (uinfo->value.enumerated.item >= items)
-> +		uinfo->value.enumerated.item = items - 1;
-> +
-> +	return 0;
-> +}
-> +
-> +static int jh7110_pwmdac_get(struct snd_kcontrol *kcontrol,
-> +			     struct snd_ctl_elem_value *ucontrol,
-> +			     int pwmdac_ct)
-> +{
-> +	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
-> +	struct jh7110_pwmdac_dev *dev = snd_soc_component_get_drvdata(component);
-> +
-> +	if (pwmdac_ct == PWMDAC_CT_SHIFT)
-> +		ucontrol->value.enumerated.item[0] = dev->shift;
-> +	else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE)
-> +		ucontrol->value.enumerated.item[0] = dev->duty_cycle;
-> +	else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE)
-> +		ucontrol->value.enumerated.item[0] = dev->data_change;
-> +	else if (pwmdac_ct == PWMDAC_CT_DATA_MODE)
-> +		ucontrol->value.enumerated.item[0] = dev->data_mode;
-> +	else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT)
-> +		ucontrol->value.enumerated.item[0] = dev->data_shift;
-> +
-> +	return 0;
-> +}
-> +
-> +static int jh7110_pwmdac_put(struct snd_kcontrol *kcontrol,
-> +			     struct snd_ctl_elem_value *ucontrol,
-> +			     int pwmdac_ct)
-> +{
-> +	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
-> +	struct jh7110_pwmdac_dev *dev = snd_soc_component_get_drvdata(component);
-> +	int sel = ucontrol->value.enumerated.item[0];
-> +	unsigned int items;
-> +
-> +	if (pwmdac_ct == PWMDAC_CT_SHIFT)
-> +		items = ARRAY_SIZE(pwmdac_ct_shift);
-> +	else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE)
-> +		items = ARRAY_SIZE(pwmdac_ct_duty_cycle);
-> +	else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE)
-> +		items = ARRAY_SIZE(pwmdac_ct_data_change);
-> +	else if (pwmdac_ct == PWMDAC_CT_DATA_MODE)
-> +		items = ARRAY_SIZE(pwmdac_ct_data_mode);
-> +	else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT)
-> +		items = ARRAY_SIZE(pwmdac_ct_data_shift);
-> +
-> +	if (sel >= items)
-> +		return -EINVAL;
-> +
-> +	if (pwmdac_ct == PWMDAC_CT_SHIFT)
-> +		dev->shift = pwmdac_ct_shift[sel].vals;
-> +	else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE)
-> +		dev->duty_cycle = pwmdac_ct_duty_cycle[sel].vals;
-> +	else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE)
-> +		dev->data_change = pwmdac_ct_data_change[sel].vals;
-> +	else if (pwmdac_ct == PWMDAC_CT_DATA_MODE)
-> +		dev->data_mode = pwmdac_ct_data_mode[sel].vals;
-> +	else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT)
-> +		dev->data_shift = pwmdac_ct_data_shift[sel].vals;
-> +
-> +	return 0;
-> +}
-> +
-> +static int jh7110_pwmdac_shift_info(struct snd_kcontrol *kcontrol,
-> +				    struct snd_ctl_elem_info *uinfo)
-> +{
-> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_SHIFT);
-> +}
-> +
-> +static int jh7110_pwmdac_shift_get(struct snd_kcontrol *kcontrol,
-> +				   struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_SHIFT);
-> +}
-> +
-> +static int jh7110_pwmdac_shift_put(struct snd_kcontrol *kcontrol,
-> +				   struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_SHIFT);
-> +}
-> +
-> +static int jh7110_pwmdac_duty_cycle_info(struct snd_kcontrol *kcontrol,
-> +					 struct snd_ctl_elem_info *uinfo)
-> +{
-> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_DUTY_CYCLE);
-> +}
-> +
-> +static int jh7110_pwmdac_duty_cycle_get(struct snd_kcontrol *kcontrol,
-> +					struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_DUTY_CYCLE);
-> +}
-> +
-> +static int jh7110_pwmdac_duty_cycle_put(struct snd_kcontrol *kcontrol,
-> +					struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_DUTY_CYCLE);
-> +}
-> +
-> +static int jh7110_pwmdac_data_change_info(struct snd_kcontrol *kcontrol,
-> +					  struct snd_ctl_elem_info *uinfo)
-> +{
-> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_DATA_CHANGE);
-> +}
-> +
-> +static int jh7110_pwmdac_data_change_get(struct snd_kcontrol *kcontrol,
-> +					 struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_DATA_CHANGE);
-> +}
-> +
-> +static int jh7110_pwmdac_data_change_put(struct snd_kcontrol *kcontrol,
-> +					 struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_DATA_CHANGE);
-> +}
-> +
-> +static int jh7110_pwmdac_data_mode_info(struct snd_kcontrol *kcontrol,
-> +					struct snd_ctl_elem_info *uinfo)
-> +{
-> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_DATA_MODE);
-> +}
-> +
-> +static int jh7110_pwmdac_data_mode_get(struct snd_kcontrol *kcontrol,
-> +				       struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_DATA_MODE);
-> +}
-> +
-> +static int jh7110_pwmdac_data_mode_put(struct snd_kcontrol *kcontrol,
-> +				       struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_DATA_MODE);
-> +}
-> +
-> +static int jh7110_pwmdac_data_shift_info(struct snd_kcontrol *kcontrol,
-> +					 struct snd_ctl_elem_info *uinfo)
-> +{
-> +	return jh7110_pwmdac_info(uinfo, PWMDAC_CT_DATA_SHIFT);
-> +}
-> +
-> +static int jh7110_pwmdac_data_shift_get(struct snd_kcontrol *kcontrol,
-> +					struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_get(kcontrol, ucontrol, PWMDAC_CT_DATA_SHIFT);
-> +}
-> +
-> +static int jh7110_pwmdac_data_shift_put(struct snd_kcontrol *kcontrol,
-> +					struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	return jh7110_pwmdac_put(kcontrol, ucontrol, PWMDAC_CT_DATA_SHIFT);
-> +}
-> +
-> +static inline void jh7110_pwmdac_write_reg(void __iomem *io_base, int reg, u32 val)
-> +{
-> +	writel(val, io_base + reg);
-> +}
-> +
-> +static inline u32 jh7110_pwmdac_read_reg(void __iomem *io_base, int reg)
-> +{
-> +	return readl(io_base + reg);
-> +}
-> +
-> +static void jh7110_pwmdac_set_enable(struct jh7110_pwmdac_dev *dev, bool enable)
-> +{
-> +	u32 value;
-> +
-> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
-> +	if (enable)
-> +		value |= JH7110_PWMDAC_ENABLE;
-> +	else
-> +		value &= ~JH7110_PWMDAC_ENABLE;
-> +
-> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
-> +}
-> +
-> +static void jh7110_pwmdac_set_shift(struct jh7110_pwmdac_dev *dev)
-> +{
-> +	u32 value;
-> +
-> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
-> +	if (dev->shift == PWMDAC_SHIFT_8)
-> +		value &= ~JH7110_PWMDAC_SHIFT;
-> +	else if (dev->shift == PWMDAC_SHIFT_10)
-> +		value |= JH7110_PWMDAC_SHIFT;
-> +
-> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
-> +}
-> +
-> +static void jh7110_pwmdac_set_duty_cycle(struct jh7110_pwmdac_dev *dev)
-> +{
-> +	u32 value;
-> +
-> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
-> +	value &= ~JH7110_PWMDAC_DUTY_CYCLE_MASK;
-> +	value |= (dev->duty_cycle & 0x3) << JH7110_PWMDAC_DUTY_CYCLE_SHIFT;
-> +
-> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
-> +}
-> +
-> +static void jh7110_pwmdac_set_cnt_n(struct jh7110_pwmdac_dev *dev)
-> +{
-> +	u32 value;
-> +
-> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
-> +	value &= ~JH7110_PWMDAC_CNT_N_MASK;
-> +	value |= ((dev->cnt_n - 1) & 0x1ff) << JH7110_PWMDAC_CNT_N_SHIFT;
-> +
-> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
-> +}
-> +
-> +static void jh7110_pwmdac_set_data_change(struct jh7110_pwmdac_dev *dev)
-> +{
-> +	u32 value;
-> +
-> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
-> +	if (dev->data_change == NO_CHANGE)
-> +		value &= ~JH7110_PWMDAC_DATA_CHANGE;
-> +	else if (dev->data_change == CHANGE)
-> +		value |= JH7110_PWMDAC_DATA_CHANGE;
-> +
-> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
-> +}
-> +
-> +static void jh7110_pwmdac_set_data_mode(struct jh7110_pwmdac_dev *dev)
-> +{
-> +	u32 value;
-> +
-> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
-> +	if (dev->data_mode == UNSIGNED_DATA)
-> +		value &= ~JH7110_PWMDAC_DATA_MODE;
-> +	else if (dev->data_mode == INVERTER_DATA_MSB)
-> +		value |= JH7110_PWMDAC_DATA_MODE;
-> +
-> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
-> +}
-> +
-> +static void jh7110_pwmdac_set_data_shift(struct jh7110_pwmdac_dev *dev)
-> +{
-> +	u32 value;
-> +
-> +	value = jh7110_pwmdac_read_reg(dev->base, JH7110_PWMDAC_CTRL);
-> +	value &= ~JH7110_PWMDAC_DATA_SHIFT_MASK;
-> +	value |= (dev->data_shift & 0x7) << JH7110_PWMDAC_DATA_SHIFT_SHIFT;
-> +
-> +	jh7110_pwmdac_write_reg(dev->base, JH7110_PWMDAC_CTRL, value);
-> +}
-> +
-> +static void jh7110_pwmdac_set(struct jh7110_pwmdac_dev *dev)
-> +{
-> +	jh7110_pwmdac_set_shift(dev);
-> +	jh7110_pwmdac_set_duty_cycle(dev);
-> +	jh7110_pwmdac_set_cnt_n(dev);
-> +	jh7110_pwmdac_set_enable(dev, true);
-> +
-> +	jh7110_pwmdac_set_data_change(dev);
-> +	jh7110_pwmdac_set_data_mode(dev);
-> +	jh7110_pwmdac_set_data_shift(dev);
-> +}
-> +
-> +static void jh7110_pwmdac_stop(struct jh7110_pwmdac_dev *dev)
-> +{
-> +	jh7110_pwmdac_set_enable(dev, false);
-> +}
-> +
-> +static int jh7110_pwmdac_startup(struct snd_pcm_substream *substream,
-> +				 struct snd_soc_dai *dai)
-> +{
-> +	struct snd_soc_pcm_runtime *rtd = asoc_substream_to_rtd(substream);
-> +	struct snd_soc_dai_link *dai_link = rtd->dai_link;
-> +
-> +	dai_link->stop_dma_first = 1;
-> +
-> +	return 0;
-> +}
-> +
-> +static int jh7110_pwmdac_hw_params(struct snd_pcm_substream *substream,
-> +				   struct snd_pcm_hw_params *params,
-> +				   struct snd_soc_dai *dai)
-> +{
-> +	unsigned long core_clk_rate;
-> +	int ret;
-> +	struct jh7110_pwmdac_dev *dev = dev_get_drvdata(dai->dev);
-> +
-> +	switch (params_rate(params)) {
-> +	case 8000:
-> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_3;
-> +		core_clk_rate = 6144000;
-> +		break;
-> +	case 11025:
-> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_2;
-> +		core_clk_rate = 5644800;
-> +		break;
-> +	case 16000:
-> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_3;
-> +		core_clk_rate = 12288000;
-> +		break;
-> +	case 22050:
-> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
-> +		core_clk_rate = 5644800;
-> +		break;
-> +	case 32000:
-> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
-> +		core_clk_rate = 8192000;
-> +		break;
-> +	case 44100:
-> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
-> +		core_clk_rate = 11289600;
-> +		break;
-> +	case 48000:
-> +		dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
-> +		core_clk_rate = 12288000;
-> +		break;
-> +	default:
-> +		dev_err(dai->dev, "%d rate not supported\n",
-> +			params_rate(params));
-> +		return -EINVAL;
-> +	}
-> +
-> +	switch (params_channels(params)) {
-> +	case 1:
-> +		dev->play_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_2_BYTES;
-> +		break;
-> +	case 2:
-> +		dev->play_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
-> +		break;
-> +	default:
-> +		dev_err(dai->dev, "%d channels not supported\n",
-> +			params_channels(params));
-> +		return -EINVAL;
-> +	}
-> +
-> +	/*
-> +	 * The clock rate always rounds down when using clk_set_rate()
-> +	 * so increase the rate a bit
-> +	 */
-> +	core_clk_rate += 64;
-> +	jh7110_pwmdac_set(dev);
-> +
-> +	ret = clk_set_rate(dev->clks[1].clk, core_clk_rate);
-> +	if (ret) {
-> +		dev_err(dai->dev,
-> +			"failed to set rate %lu for core clock\n",
-> +			core_clk_rate);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int jh7110_pwmdac_trigger(struct snd_pcm_substream *substream, int cmd,
-> +				 struct snd_soc_dai *dai)
-> +{
-> +	struct jh7110_pwmdac_dev *dev = snd_soc_dai_get_drvdata(dai);
-> +	int ret = 0;
-> +
-> +	switch (cmd) {
-> +	case SNDRV_PCM_TRIGGER_START:
-> +	case SNDRV_PCM_TRIGGER_RESUME:
-> +	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
-> +		jh7110_pwmdac_set(dev);
-> +		break;
-> +
-> +	case SNDRV_PCM_TRIGGER_STOP:
-> +	case SNDRV_PCM_TRIGGER_SUSPEND:
-> +	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
-> +		jh7110_pwmdac_stop(dev);
-> +		break;
-> +	default:
-> +		ret = -EINVAL;
-> +		break;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static int jh7110_pwmdac_crg_enable(struct jh7110_pwmdac_dev *dev, bool enable)
-> +{
-> +	int ret;
-> +
-> +	if (enable) {
-> +		ret = clk_bulk_prepare_enable(ARRAY_SIZE(dev->clks), dev->clks);
-> +		if (ret) {
-> +			dev_err(dev->dev, "failed to enable pwmdac clocks\n");
-> +			return ret;
-> +		}
-> +
-> +		ret = reset_control_deassert(dev->rst_apb);
-> +		if (ret) {
-> +			dev_err(dev->dev, "failed to deassert pwmdac apb reset\n");
-> +			goto err_rst_apb;
-> +		}
-> +	} else {
-> +		clk_bulk_disable_unprepare(ARRAY_SIZE(dev->clks), dev->clks);
-> +	}
-> +
-> +	return 0;
-> +
-> +err_rst_apb:
-> +	clk_bulk_disable_unprepare(ARRAY_SIZE(dev->clks), dev->clks);
-> +
-> +	return ret;
-> +}
-> +
-> +static int jh7110_pwmdac_dai_probe(struct snd_soc_dai *dai)
-> +{
-> +	struct jh7110_pwmdac_dev *dev = dev_get_drvdata(dai->dev);
-> +
-> +	dev->play_dma_data.addr = dev->mapbase + JH7110_PWMDAC_WDATA;
-> +	dev->play_dma_data.addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
-> +	dev->play_dma_data.fifo_size = 1;
-> +	dev->play_dma_data.maxburst = 16;
-> +
-> +	snd_soc_dai_init_dma_data(dai, &dev->play_dma_data, NULL);
-> +	snd_soc_dai_set_drvdata(dai, dev);
-> +
-> +	return 0;
-> +}
-> +
-> +#define JH7110_PWMDAC_ENUM_DECL(xname, xinfo, xget, xput) \
-> +{	.iface = SNDRV_CTL_ELEM_IFACE_MIXER, .name = xname, \
-> +	.info = xinfo, .get = xget, .put = xput,}
-> +
-> +static const struct snd_kcontrol_new jh7110_pwmdac_snd_controls[] = {
-> +	JH7110_PWMDAC_ENUM_DECL("shift", jh7110_pwmdac_shift_info,
-> +				jh7110_pwmdac_shift_get,
-> +				jh7110_pwmdac_shift_put),
-> +	JH7110_PWMDAC_ENUM_DECL("duty_cycle", jh7110_pwmdac_duty_cycle_info,
-> +				jh7110_pwmdac_duty_cycle_get,
-> +				jh7110_pwmdac_duty_cycle_put),
-> +	JH7110_PWMDAC_ENUM_DECL("data_change", jh7110_pwmdac_data_change_info,
-> +				jh7110_pwmdac_data_change_get,
-> +				jh7110_pwmdac_data_change_put),
-> +	JH7110_PWMDAC_ENUM_DECL("data_mode", jh7110_pwmdac_data_mode_info,
-> +				jh7110_pwmdac_data_mode_get,
-> +				jh7110_pwmdac_data_mode_put),
-> +	JH7110_PWMDAC_ENUM_DECL("data_shift", jh7110_pwmdac_data_shift_info,
-> +				jh7110_pwmdac_data_shift_get,
-> +				jh7110_pwmdac_data_shift_put),
-> +};
-> +
-> +static int jh7110_pwmdac_component_probe(struct snd_soc_component *component)
-> +{
-> +	snd_soc_add_component_controls(component, jh7110_pwmdac_snd_controls,
-> +				       ARRAY_SIZE(jh7110_pwmdac_snd_controls));
-> +	return 0;
-> +}
-> +
-> +static const struct snd_soc_dai_ops jh7110_pwmdac_dai_ops = {
-> +	.startup	= jh7110_pwmdac_startup,
-> +	.hw_params	= jh7110_pwmdac_hw_params,
-> +	.trigger	= jh7110_pwmdac_trigger,
-> +};
-> +
-> +static const struct snd_soc_component_driver jh7110_pwmdac_component = {
-> +	.name		= "jh7110-pwmdac",
-> +	.probe		= jh7110_pwmdac_component_probe,
-> +};
-> +
-> +static struct snd_soc_dai_driver jh7110_pwmdac_dai = {
-> +	.name		= "jh7110-pwmdac",
-> +	.id		= 0,
-> +	.probe		= jh7110_pwmdac_dai_probe,
-> +	.playback = {
-> +		.channels_min = 1,
-> +		.channels_max = 2,
-> +		.rates = SNDRV_PCM_RATE_8000_48000,
-> +		.formats = SNDRV_PCM_FMTBIT_S16_LE,
-> +	},
-> +	.ops = &jh7110_pwmdac_dai_ops,
-> +};
-> +
-> +static int jh7110_pwmdac_runtime_suspend(struct device *dev)
-> +{
-> +	struct jh7110_pwmdac_dev *pwmdac = dev_get_drvdata(dev);
-> +
-> +	return jh7110_pwmdac_crg_enable(pwmdac, false);
-> +}
-> +
-> +static int jh7110_pwmdac_runtime_resume(struct device *dev)
-> +{
-> +	struct jh7110_pwmdac_dev *pwmdac = dev_get_drvdata(dev);
-> +
-> +	return jh7110_pwmdac_crg_enable(pwmdac, true);
-> +}
-> +
-> +static int jh7110_pwmdac_system_suspend(struct device *dev)
-> +{
-> +	struct jh7110_pwmdac_dev *pwmdac = dev_get_drvdata(dev);
-> +
-> +	/* save the CTRL register value */
-> +	pwmdac->saved_ctrl = jh7110_pwmdac_read_reg(pwmdac->base,
-> +						    JH7110_PWMDAC_CTRL);
-> +	return pm_runtime_force_suspend(dev);
-> +}
-> +
-> +static int jh7110_pwmdac_system_resume(struct device *dev)
-> +{
-> +	struct jh7110_pwmdac_dev *pwmdac = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = pm_runtime_force_resume(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* restore the CTRL register value */
-> +	jh7110_pwmdac_write_reg(pwmdac->base, JH7110_PWMDAC_CTRL,
-> +				pwmdac->saved_ctrl);
-> +	return 0;
-> +}
-> +
-> +static const struct dev_pm_ops jh7110_pwmdac_pm_ops = {
-> +	RUNTIME_PM_OPS(jh7110_pwmdac_runtime_suspend,
-> +		       jh7110_pwmdac_runtime_resume, NULL)
-> +	SYSTEM_SLEEP_PM_OPS(jh7110_pwmdac_system_suspend,
-> +			    jh7110_pwmdac_system_resume)
-> +};
-> +
-> +static int jh7110_pwmdac_probe(struct platform_device *pdev)
-> +{
-> +	struct jh7110_pwmdac_dev *dev;
-> +	struct resource *res;
-> +	int ret;
-> +
-> +	dev = devm_kzalloc(&pdev->dev, sizeof(*dev), GFP_KERNEL);
-> +	if (!dev)
-> +		return -ENOMEM;
-> +
-> +	dev->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> +	if (IS_ERR(dev->base))
-> +		return PTR_ERR(dev->base);
-> +
-> +	dev->mapbase = res->start;
-> +
-> +	dev->clks[0].id = "apb";
-> +	dev->clks[1].id = "core";
-> +
-> +	ret = devm_clk_bulk_get(&pdev->dev, ARRAY_SIZE(dev->clks), dev->clks);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to get pwmdac clocks\n");
-> +		return ret;
-> +	}
-> +
-> +	dev->rst_apb = devm_reset_control_get_exclusive(&pdev->dev, NULL);
-> +	if (IS_ERR(dev->rst_apb)) {
-> +		dev_err(&pdev->dev, "failed to get pwmdac apb reset\n");
-> +		return PTR_ERR(dev->rst_apb);
-> +	}
-> +
-> +	dev->dev = &pdev->dev;
-> +	dev->shift = PWMDAC_SHIFT_8;
-> +	dev->duty_cycle = PWMDAC_CYCLE_CENTER;
-> +	dev->cnt_n = PWMDAC_SAMPLE_CNT_1;
-> +	dev->data_change = NO_CHANGE;
-> +	dev->data_mode = INVERTER_DATA_MSB;
-> +	dev->data_shift = PWMDAC_DATA_LEFT_SHIFT_BIT_0;
-> +
-> +	dev_set_drvdata(&pdev->dev, dev);
-> +	ret = devm_snd_soc_register_component(&pdev->dev,
-> +					      &jh7110_pwmdac_component,
-> +					      &jh7110_pwmdac_dai, 1);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to register dai\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to register pcm\n");
-> +		return ret;
-> +	}
-> +
-> +	pm_runtime_enable(dev->dev);
-> +	if (!pm_runtime_enabled(&pdev->dev)) {
-> +		ret = jh7110_pwmdac_runtime_resume(&pdev->dev);
-> +		if (ret)
-> +			goto err_pm_disable;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_pm_disable:
-> +	pm_runtime_disable(&pdev->dev);
-> +
-> +	return ret;
-> +}
-> +
-> +static int jh7110_pwmdac_remove(struct platform_device *pdev)
-> +{
-> +	pm_runtime_disable(&pdev->dev);
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id jh7110_pwmdac_of_match[] = {
-> +	{ .compatible = "starfive,jh7110-pwmdac" },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, jh7110_pwmdac_of_match);
-> +
-> +static struct platform_driver jh7110_pwmdac_driver = {
-> +	.driver		= {
-> +		.name	= "jh7110-pwmdac",
-> +		.of_match_table = jh7110_pwmdac_of_match,
-> +		.pm = pm_ptr(&jh7110_pwmdac_pm_ops),
-> +	},
-> +	.probe		= jh7110_pwmdac_probe,
-> +	.remove		= jh7110_pwmdac_remove,
-> +};
-> +module_platform_driver(jh7110_pwmdac_driver);
-> +
-> +MODULE_AUTHOR("Jenny Zhang");
-> +MODULE_AUTHOR("Curry Zhang");
-> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
-> +MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
-> +MODULE_DESCRIPTION("StarFive JH7110 PWM-DAC driver");
-> +MODULE_LICENSE("GPL");
+> The issue with not having the memory mapped X when it's written is that we
+> cannot use large pages to map it. One of the goals is to have executable
+> memory mapped with large pages and make code allocator able to divide that
+> page among several callers.
+> 
+> So the idea was that jit_text_alloc() will have a cache of large pages
+> mapped ROX, will allocate memory from those caches and there will be
+> jit_update() that uses text poking for writing to that memory.
+> 
+> Upon allocation of a large page to increase the cache, that large page will
+> be "invalidated" by filling it with breakpoint instructions (e.g int3 on
+> x86)
+
+Does that work on x86?
+
+That is in no way gauranteed for other architectures; on arm64 you need
+explicit cache maintenance (with I-cache maintenance at the VA to be executed
+from) followed by context-synchronization-events (e.g. via ISB instructions, or
+IPIs).
+
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
