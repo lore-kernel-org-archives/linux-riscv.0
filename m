@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E67EB64D7
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 14:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26EA0EB64D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 14:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dBAzyqfVvFwbOILbdh+oUhHND3GskEYm/JIO7XyL7yM=; b=f31PCE2BAsvCbt
-	GNGAlHl5f78Cb9gWd27jMRNM+dhRl9pgPRhEyZM6Tdm/sNJubmpuPqnUsDOwf06VYtHXu+XDWxCxs
-	YAhU8zkqSNnnlIDTcEcKI7Mrk4yctz5JFoXMMigQOmIXHCAyEEBRoCeKrtPgutiTrr1T1Zlja+awN
-	XH9ILUMqdeSa8xQn0jUpuF89GnanjlfpHPTD79UisNoVEwKXqomcxXfm/34PJGxUFJWlJgkNeYRVw
-	jOau9dwN3QXqbr2e8VCi5wz07d9gTfc9vuHXjDmyj7NLB0ZDybHDa8V9f2/mhwXCbQYMI95I1cWxK
-	ngajvkmtx5i4/eW/ufdQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=241po2+nvcNE+XphD1fxKYh8e4cFjiM4VfzaxhwW6zU=; b=u1FgTcY+BYX7GI
+	dV50eV5ByezxByhnvrxz7Uk7MwMvHFz+rReIoCIiZz7s0ZE/B9zYuyLdd1G2r3GNWPUDgclotwOKl
+	UH6SQbZbz8uauFiBu0MzKMiJVCPefHNofYSP+5TbFQUpIzINSX6n0yt6OKzaKC+RPi60st9FBJTNY
+	/YD+C+9aYbn/TxeTkzk8uhInOs2tbfKuJXJAeNxQ3ITXqt5NvNlwf01l9F4VYQWF8aWI56i7mUE8g
+	Ed8dOXx5tn3XM2tvdB/FnnK1gsdkVPBttNTQwkOYVgathG8GMy9sIEGc/FZ0dkZjGTqtsqzSLVT5G
+	6ZSYh9vYkXZgXagnJL3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDnGp-00AOcr-2q;
-	Mon, 26 Jun 2023 14:32:47 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1qDnKU-00AP3c-1T;
+	Mon, 26 Jun 2023 14:36:34 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDnGm-00AObv-21
+	id 1qDnKS-00AP2s-0Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jun 2023 14:32:46 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-313f61890fbso583875f8f.3
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Jun 2023 07:32:42 -0700 (PDT)
+	Mon, 26 Jun 2023 14:36:33 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-3f9b0f139feso47969555e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Jun 2023 07:36:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687789961; x=1690381961;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0xifpWCjzQTN6wRfQL9oeo1fgrnPC7xl+aGU5N4Yu6A=;
-        b=RVPxNZgu36KUFT5H8FgT+jHwoc06ROYIC9YqiemtZ5d40LXR39skaMUiMgV4EA768/
-         ADZ/bbDHZ5XvnvKFxBJzae9FuiIsNGxKe8fmFnOK1Dzh0TArvqizeXoNF9u4+302W6ba
-         0VxjXyUzgcKCnJGjgQ/nv8cNE1odKGCUPryU92WObg86FpOId32kNMIdaTbvY+nsyWYK
-         XI1cseZM2C26APa4YnVVN5WfVCVxOWBLkGUtHBCQlUqL/OtJpQCEc3hUQUPe+Q+pHKfL
-         34npT3MEvrsNBE2pmyQCTio1783XIupfVLOmnsRvbn1N9XppwGfgNhttduphLK9KFHf3
-         LDKg==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687790189; x=1690382189;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yyS6js1uEQcGpjrlLFsApXkwWbdmfkq2O19nl/ntD9I=;
+        b=0rRx16vPEz4otpjwTB2+xwwCPkN6laJ920t/o9tdeRTI3/IWz7rHFhmjtl4BtcLvbK
+         8sd8i1ixF3tILm07mAiNcvuah+F64takI0yNg5lzTCOlWuLa+ihQipMWAUO2Kp7G97oA
+         Kl18TQkv7lLhVwW0P5B06IdBRRNGQMkZCAXjn1QX/rmD9XuGHUQIL4tjK7oqW4c6xyS2
+         XvOUThw0ASzBjXMK30mELoMgSwN7Os79KpEA2iYAlHD4pXmyBqLFFyOM2aiuoARShzqT
+         tWGzwRLzkTbjzHvkL55xqVOVYZF9H4OdGqOpt8tX1uNXHuhNDjLsqM3YFqXjdOr1B+kV
+         GlJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687789961; x=1690381961;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0xifpWCjzQTN6wRfQL9oeo1fgrnPC7xl+aGU5N4Yu6A=;
-        b=lv097+sX5pf9Ex3Y79D32s8iv4zR1IRupct48wRDHY3lGeaGXNJp629RJhhmZvASGz
-         2GoEvE/999bNIOIa+zw2DOAof7RScvfm7gebtn29QPmakhrZtV5iADZ37BdvYzSAuozR
-         vPI6XucSvwL/sC1tyJxYqnXprJo+yQ4abkAzPX3fOa59xGF8VYqQbcD70TlKdBekSjfI
-         NplDtPHioL6CSAcFinCE7g7JFMrncNfEOF6h5NPoLnNcpA/OC3DQ1oyX7Q8k5em0TCa0
-         cw53Ave1j9t2xvMJ5T7uwjPGdGfxhpJ3SP0hm1lQNnMRf4l6BlRplHr5hp+LxdeSZ0YS
-         Okiw==
-X-Gm-Message-State: AC+VfDwBfE3oNCnaqXxrd3UXV6JS/jAUNJAQNdkDI08Io5/jF5t0HhB2
-	ivCIc8eh6i5AUDGCCYFg4mXToEYU3/2aqidcSpfjNg==
-X-Google-Smtp-Source: ACHHUZ4IgqEOhodScx0AEA+jCLvvL6P5B9+0OYCeO04Najnk8I35USY/Zjm7Rv0b4Mem2ps/tw2L8geqfmafNkXiry0=
-X-Received: by 2002:adf:e98c:0:b0:313:ed13:38d1 with SMTP id
- h12-20020adfe98c000000b00313ed1338d1mr3990360wrm.25.1687789960902; Mon, 26
- Jun 2023 07:32:40 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230623095547.51881-1-alexghiti@rivosinc.com>
- <20230623095547.51881-2-alexghiti@rivosinc.com> <87o7l6mgxg.fsf@meer.lwn.net>
- <CAHVXubhk2xf59XbNiRYKdr4J1yadpeX0KMgW1cFMR4GRN97MYA@mail.gmail.com> <877crrl1jm.fsf@meer.lwn.net>
-In-Reply-To: <877crrl1jm.fsf@meer.lwn.net>
+        d=1e100.net; s=20221208; t=1687790189; x=1690382189;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yyS6js1uEQcGpjrlLFsApXkwWbdmfkq2O19nl/ntD9I=;
+        b=KJtUs4rgg5JiUtTL/G8woAihcinjktCv9Kgwz/rKTaQEqHhISmwONiUS9GHcrWjCm0
+         f5wAty7uIr/M7BL1ZtICACWUm5Crf4D79qFhkgrsn6WCcv1jXnCAB/c4QXbLQXaAw8BP
+         pBAIfjo8odZNJdcCJy8I3X96LzWMkTFjFvfzOPsVoWHYD33ZDE7oUcykI5nq6sHDcqXP
+         1hBfUz7S98063qbG2cxXrJLeoCUQFecfxxyfgMdy075SUOyabu70h7Z3Bbdhftj/lZ44
+         ENrG6supnwljECu+OPRn9GWk7PuCmwLGFXo6AxTnF0qAryJ6pqCON91oOKVPDzY1tdsI
+         3vfw==
+X-Gm-Message-State: AC+VfDyzk0jCtLSv3B57ug0j9mta1RRwUcqQbzlozHNs66XkB0tESP0j
+	bTHczBtXBzLoSkPSvXy4cnkbtw==
+X-Google-Smtp-Source: ACHHUZ5trI2VVLtdJQUt4Re6CkgIlyCdijkloV8ba7d0Pgi+frLUfcc37GZ0qPHllho9aVsX9sOgmw==
+X-Received: by 2002:a1c:6a12:0:b0:3fa:934c:8356 with SMTP id f18-20020a1c6a12000000b003fa934c8356mr3011833wmc.10.1687790188830;
+        Mon, 26 Jun 2023 07:36:28 -0700 (PDT)
+Received: from localhost.localdomain (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id z10-20020a7bc7ca000000b003f8f8fc3c32sm7934552wmk.31.2023.06.26.07.36.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Jun 2023 07:36:28 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Mon, 26 Jun 2023 16:32:30 +0200
-Message-ID: <CAHVXubit1pun1r-TC48TxR0esfDo49=PYFE+c10HBKqQ=AnZxA@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] Documentation: riscv: Add early boot document
-To: Jonathan Corbet <corbet@lwn.net>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Song Shuai <songshuaishuai@tinylab.org>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH v4 1/3] Documentation: arm: Add bootargs to the table of added DT parameters
+Date: Mon, 26 Jun 2023 16:36:24 +0200
+Message-Id: <20230626143626.106584-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_073244_890141_7CA7A17A 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20230626_073632_207784_E62950C3 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +95,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-doc@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Song Shuai <songshuaishuai@tinylab.org>, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBKdW4gMjUsIDIwMjMgYXQgMTA6MznigK9QTSBKb25hdGhhbiBDb3JiZXQgPGNvcmJl
-dEBsd24ubmV0PiB3cm90ZToKPgo+IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5j
-LmNvbT4gd3JpdGVzOgo+Cj4gPj4gUGxlYXNlIGRvbid0IHVzZSA6YzpmdW5jOi4gIElmIHlvdSBq
-dXN0IHdyaXRlIHNldHVwX3ZtKCksIGFsbCB0aGUgcmlnaHQKPiA+PiBtYWdpYyB3aWxsIGhhcHBl
-bi4KPiA+Cj4gPiBUaGUgbWFnaWMgaW5kZWVkIGhhcHBlbnMgd2l0aCB2aXJ0X3RvX3BoeXMoKS9w
-aHlzX3RvX3ZpcnQoKSwgYnV0IG5vdAo+ID4gd2l0aCBzZXR1cF92bSgpOiBpcyB0aGVyZSBzb21l
-dGhpbmcgd2Ugc2hvdWxkIGRvIHdoZW4gZGVjbGFyaW5nIHRob3NlCj4gPiBmdW5jdGlvbnM/Cj4K
-PiBJZiB0aGUgZnVuY3Rpb24gaW4gcXVlc3Rpb24gaGFzIG5vIGtlcm5lbGRvYyBjb21tZW50LCB0
-aGVyZSB3aWxsIGJlCj4gbm90aGluZyB0byBtYWtlIHRoZSBtYWdpYyBsaW5rIHRvLiAgSW4gb3Ro
-ZXIgd29yZHMsIGlmIHlvdSB3YW50IGl0IHRvCj4gbGluayB0byB0aGUgZG9jdW1lbnRhdGlvbiwg
-dGhlIGRvY3VtZW50YXRpb24gbmVlZHMgdG8gYWN0dWFsbHkgZXhpc3QgOikKCk9rLCB0aGF0J3Mg
-Zm9yIGFub3RoZXIgcGF0Y2hzZXQgdGhlbiwgdGhhbmtzIGZvciB5b3VyIGhlbHAhCgo+Cj4gVGhh
-bmtzLAo+Cj4gam9uCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+The bootargs node is also added by the EFI stub in the function
+update_fdt(), so add it to the table.
+
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Reviewed-by: Song Shuai <songshuaishuai@tinylab.org>
+---
+ Documentation/arm/uefi.rst | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/arm/uefi.rst b/Documentation/arm/uefi.rst
+index baebe688a006..2b7ad9bd7cd2 100644
+--- a/Documentation/arm/uefi.rst
++++ b/Documentation/arm/uefi.rst
+@@ -50,7 +50,7 @@ The stub populates the FDT /chosen node with (and the kernel scans for) the
+ following parameters:
+ 
+ ==========================  ======   ===========================================
+-Name                        Size     Description
++Name                        Type     Description
+ ==========================  ======   ===========================================
+ linux,uefi-system-table     64-bit   Physical address of the UEFI System Table.
+ 
+@@ -67,4 +67,6 @@ linux,uefi-mmap-desc-ver    32-bit   Version of the mmap descriptor format.
+ 
+ kaslr-seed                  64-bit   Entropy used to randomize the kernel image
+                                      base address location.
++
++bootargs                    String   Kernel command line
+ ==========================  ======   ===========================================
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
