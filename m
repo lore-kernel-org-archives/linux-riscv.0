@@ -4,88 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 902D9EB64D7
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 15:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8669BEB64D7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 15:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z0bzQ/8jt75zqtgpt38/4U2bbpVaszExH2f5bA6YdlM=; b=nrGxOgdYkFkFrz
-	ICJ6NIwLZb1Fg+q58WQHpUdxH8kJSUC4/x4tHxe+nNFTtBOLdaMbFbaSD//Vq8HXmgEDOaAg9KXtj
-	y2WY3AWnNc4xLbU3hn50zV6HtUZrulhmWN1xrNeGFm0Nj23hACkY2DrC3NribwabXxGBmdp8rmKcN
-	e/86btG23AkC0pueyALX2lO0KPfMpuYs2aE2Mp8wJmaRRWP69kbeNTsonrJEwZCxGw7Re0mW3J64K
-	rma4QxfAiWCDB2VOF71hykGCOFBsOcPyrId+9m1mneYehjhIMUIvC21Fu4tiWQumg5MK9C1ksQ1cZ
-	kuBsdksled6s3w76JWwQ==;
+	List-Owner; bh=cCUmcR4qy6PQISti4y92OTVATtotsNAp94+fN9V+1kE=; b=pNmxcnEiYOPnxW
+	IvxQncPiICvzfDHsKseam4mOFXvhiCMrWhcRL250re91Qel7au7QbbI6TPrmlxk9tSCXJgJ35sZwV
+	jpLv3BNiYuhINdK1uJjNXPxpp/rjDh7Xw/HK8j2U4mCcTOy4xjGYxGvS1ITEH/bq9gv6RAr/tUcSP
+	NR0CZNmPfGJMxyD2EeXDJfTcIViNlIpTTOSG+atGZrtMY/RAIJPqX6cfCEhGKVCxqgSPBXxn61pmt
+	h2gu/5phSjpGMZjW0bo7p5cymmyPbR06PBBYALKaltccVUf8I+KKsNnoeMvNPFeN7Tfa71mk9mkwp
+	9Icv3yPIsONvFQp4tmzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDoGQ-00AVyk-30;
-	Mon, 26 Jun 2023 15:36:26 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1qDoGh-00AW3G-35;
+	Mon, 26 Jun 2023 15:36:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDoGO-00AVxb-18
+	id 1qDoGe-00AW1b-0h
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jun 2023 15:36:25 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-3f9b4a71623so32678515e9.1
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Jun 2023 08:36:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1687793783; x=1690385783;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SnVw1NqNJcB00wQMw/uTf6e21wRfweiPK9JrGx6RcVs=;
-        b=D9mwgzNM/+uNromAIaOtv+8vCdJcxZGi2RkJpT8Xes9k32j6KEUBg8ZKxL33kbAaCO
-         YtZd/Iie+psdVOLf1tA7YXJrbVYWhHMNb8fPmHFSN8Y+neyEhjj+RNTCzW2BBsbImRR8
-         WU97HivRP0HDcLUv1IKfOgsNrRQ7w1/7iyu+v74DMsxZM2AXR9oH/OWA7Gqo19hwNTRz
-         1R9FC6W4bDN38ki+xEOV+cDVd0qR9P5RJy8uVW+tthHX17xTAdMhqmmqwH0QKT7qGpdi
-         IYWZ4kBybxrzzyrk9425FfOt8ztGjwmUGNTGzf6I3cJmKfkDX45pKA0ackIBOnIW9MaP
-         WPsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687793783; x=1690385783;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SnVw1NqNJcB00wQMw/uTf6e21wRfweiPK9JrGx6RcVs=;
-        b=L3b14zJS+mQd3Gk5AYNzxapPtTdteF4+DL2uP3TiURsuogZrCOCecO4PVMbHH75hpd
-         u0Vf8NRIGIMnmsXBsMWnndAmIsltYp83+K7ZD+BfVXrjdFJFzlrd+YmSGDw3O3lqUIFl
-         T8UuyufgVbvNEbhhR4gJGAemweXWCQZgQdhduIzLM4vxcl4GtD8unFYxvAGVzEXwacGi
-         sM26sFbiWuM5hKBa9uCroI81lS7WlnFVkZFB5ku21mnO2xlkJYND1r4L/DlasVgPHgKq
-         H9OY2j64dFQRxfX3Af4kc+MvTI75qTgzAinyYI8qvruo42tJMjEukkWaF3mLmPb2gvSO
-         H5Hg==
-X-Gm-Message-State: AC+VfDzP0giDAXzTkg13NPq3dF1oj6sch85hbMgcCZvJIAiytUsdgN/8
-	qlGQ7AXLYxcwamlAn+jT52hJfQ==
-X-Google-Smtp-Source: ACHHUZ4FEXp87ZB3EcU+bYZN9wHCNNB8g6R8m5tOeOJIbVYlTsm0uefU0pHye2INl7YnnWSdeOC3YA==
-X-Received: by 2002:a1c:4c14:0:b0:3f9:b0c2:9ff7 with SMTP id z20-20020a1c4c14000000b003f9b0c29ff7mr15585537wmf.30.1687793782804;
-        Mon, 26 Jun 2023 08:36:22 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.219.26])
-        by smtp.gmail.com with ESMTPSA id s4-20020adfea84000000b002ca864b807csm7910245wrm.0.2023.06.26.08.36.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 26 Jun 2023 08:36:22 -0700 (PDT)
-Message-ID: <fc726c72-0503-b407-cad1-f24422f02ab2@linaro.org>
-Date: Mon, 26 Jun 2023 17:36:20 +0200
+	Mon, 26 Jun 2023 15:36:42 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7CD0960E65;
+	Mon, 26 Jun 2023 15:36:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 765A7C433C0;
+	Mon, 26 Jun 2023 15:36:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687793798;
+	bh=HtC9qp4BANVt4vrEzf5olbsbO+EbOIIXKwtCPRin6n4=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=CBDkoLtxZ+0RgN+jK/HMzscOAc0kls19RokvszIZ2k/vPzucUNHElG1ZvmSwnDtjD
+	 T1tnW+i2NtFLBxIFa7eYCNYrSe9a5bPq+sIM+/qxa27tmwSsT00fk+x3ylE36qtw4O
+	 gYZBKAnkbVhjY5g/rXy+NZyzKDgZPVAfS9XZu0Oc1R/RS4Oa66fjJmhApwvqyw0KYB
+	 wIkFkAXLe2H0efblxuaEHyP07MoDuS0RPAib1f8udLfcm4aEx1sRH7bAflXvJxO5hk
+	 X2hmxVD83EHh9N7oxjjUzldlPUWtR0jZtbSoCJuFxifJvEAY8ZQuCHdH1g5dnPQ9OB
+	 Hcky6aR/SG+cw==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: linux-riscv@lists.infradead.org, palmer@rivosinc.com
+Subject: Re: [PATCH] RISC-V: Clobber V registers on syscalls
+In-Reply-To: <CABgGipWOaAmXYtNQv0reAwVFQD42wGsZoX2Ba8NYed3xLL3Z4g@mail.gmail.com>
+References: <871qi4334n.fsf@all.your.base.are.belong.to.us>
+ <20230622154738.6403-1-andy.chiu@sifive.com>
+ <87edm3jvub.fsf@all.your.base.are.belong.to.us>
+ <CABgGipWOaAmXYtNQv0reAwVFQD42wGsZoX2Ba8NYed3xLL3Z4g@mail.gmail.com>
+Date: Mon, 26 Jun 2023 17:36:35 +0200
+Message-ID: <878rc6nsl8.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH v1 3/5] ASoC: dt-bindings: Add StarFive JH7110 PWM-DAC
- controller
-Content-Language: en-US
-To: Hal Feng <hal.feng@starfivetech.com>, Mark Brown <broonie@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor@kernel.org>, Walker Chen <walker.chen@starfivetech.com>,
- Xingyu Wu <xingyu.wu@starfivetech.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20230626110909.38718-1-hal.feng@starfivetech.com>
- <20230626110909.38718-4-hal.feng@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230626110909.38718-4-hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_083624_396159_227C0F4C 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20230626_083640_344149_0A38083A 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +71,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/06/2023 13:09, Hal Feng wrote:
-> Add bindings for the PWM-DAC controller on the JH7110
-> RISC-V SoC by StarFive Ltd.
-> 
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  .../sound/starfive,jh7110-pwmdac.yaml         | 76 +++++++++++++++++++
->  1 file changed, 76 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac.yaml b/Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac.yaml
-> new file mode 100644
-> index 000000000000..91a4213f2bd8
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac.yaml
-> @@ -0,0 +1,76 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/sound/starfive,jh7110-pwmdac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 PWM-DAC Controller
-> +
-> +description: |
-
-Do not need '|' unless you need to preserve formatting.
-
-> +  The PWM-DAC Controller uses PWM square wave generators plus RC filters to
-> +  form a DAC for audio play in StarFive JH7110 SoC. This audio play controller
-> +  supports 16 bit audio format, up to 48K sampling frequency , up to left
-
-No space before ,
-
-> +  and right dual channels.
-> +
-> +maintainers:
-> +  - Hal Feng <hal.feng@starfivetec
-
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QW5keSBDaGl1IDxhbmR5LmNoaXVAc2lmaXZlLmNvbT4gd3JpdGVzOgoKPj4gPiBkaWZmIC0tZ2l0
+IGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMK
+Pj4gPiBpbmRleCAyNGQzMDljNmFiOGQuLmUzNmI2OWM5YjA3ZiAxMDA2NDQKPj4gPiAtLS0gYS9h
+cmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCj4+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJh
+cHMuYwo+PiA+IEBAIC0yOTEsMTAgKzI5MSwxNCBAQCBhc21saW5rYWdlIF9fdmlzaWJsZSBfX3Ry
+YXBfc2VjdGlvbiB2b2lkIGRvX3RyYXBfZWNhbGxfdShzdHJ1Y3QgcHRfcmVncyAqcmVncykKPj4g
+PiAgewo+PiA+ICAgICAgIGlmICh1c2VyX21vZGUocmVncykpIHsKPj4gPiAgICAgICAgICAgICAg
+IHVsb25nIHN5c2NhbGwgPSByZWdzLT5hNzsKPj4gPiArICAgICAgICAgICAgIGJvb2wgdl9pc19v
+bjsKPj4gPgo+PiA+ICAgICAgICAgICAgICAgcmVncy0+ZXBjICs9IDQ7Cj4+ID4gICAgICAgICAg
+ICAgICByZWdzLT5vcmlnX2EwID0gcmVncy0+YTA7Cj4+ID4KPj4gPiArICAgICAgICAgICAgIHZf
+aXNfb24gPSByaXNjdl92X3ZzdGF0ZV9xdWVyeShyZWdzKTsKPj4gPiArICAgICAgICAgICAgIHJp
+c2N2X3ZfdnN0YXRlX29mZihyZWdzKTsKPj4gPiArCj4+ID4gICAgICAgICAgICAgICBzeXNjYWxs
+ID0gc3lzY2FsbF9lbnRlcl9mcm9tX3VzZXJfbW9kZShyZWdzLCBzeXNjYWxsKTsKPj4gPgo+PiA+
+ICAgICAgICAgICAgICAgaWYgKHN5c2NhbGwgPCBOUl9zeXNjYWxscykKPj4gPiBAQCAtMzAzLDYg
+KzMwNywxMCBAQCBhc21saW5rYWdlIF9fdmlzaWJsZSBfX3RyYXBfc2VjdGlvbiB2b2lkIGRvX3Ry
+YXBfZWNhbGxfdShzdHJ1Y3QgcHRfcmVncyAqcmVncykKPj4gPiAgICAgICAgICAgICAgICAgICAg
+ICAgcmVncy0+YTAgPSAtRU5PU1lTOwo+PiA+Cj4+ID4gICAgICAgICAgICAgICBzeXNjYWxsX2V4
+aXRfdG9fdXNlcl9tb2RlKHJlZ3MpOwo+PiA+ICsgICAgICAgICAgICAgaWYgKHZfaXNfb24pIHsK
+Pj4gPiArICAgICAgICAgICAgICAgICAgICAgcmlzY3Zfdl92c3RhdGVfZGlzY2FyZChyZWdzKTsK
+Pj4gPiArICAgICAgICAgICAgICAgICAgICAgcmlzY3Zfdl92c3RhdGVfZGlydHkocmVncyk7Cj4+
+Cj4+IEFoISBOZWF0ISBXaHkgZGlydHksIGluc3RlYWQgb2YganVzdCBrZWVwaW5nIHRoZSAic2V0
+IHRvIEluaXRpYWwiIGZyb20KPj4gbXkgZGlmZj8KPgo+IEJvdGggd29yaywgSSB0aGluay4gQnV0
+IGhlcmUgaWYgd2Ugc2V0IGl0IHRvICJvbiIgYWZ0ZXIgZGlzY2FyZGluZwo+IFYtcmVncywgdGhl
+biB0YWtlIGEgY29udGV4dCBzd2l0Y2ggYmVmb3JlIGV4ZWN1dGluZyBhbnkgViBpbnN0cnVjdGlv
+bnMKPiBpbiB1c2VyIHNwYWNlIChkb2VzIG5vdCBjaGFuZ2UgZnV0dXJlIHZzdGF0ZSB0byBkaXJ0
+eSkuIFRoZW4gd2Ugd2lsbAo+IGxlYWsgVi1yZWdzIHByZXZpb3VzbHkgc2V0IGludG8gaXRzIHZz
+dGF0ZS5kYXRhcCBhZnRlciBzd2l0Y2hpbmcgYmFjaywKPiBiZWNhdXNlIHdlIG9ubHkgc2F2ZSBW
+IGNvbnRleHQgaWYgdnN0YXRlIGlzIGRpcnR5LiBTbywgSSB0aGluayBzZXR0aW5nCj4gdnN0YXRl
+IHRvIGRpcnR5IGlzIGEgc2FmZXIgb3B0aW9uLgoKQWgsIHllcywgZ29vZCBwb2ludC4gQW4gYWx0
+ZXJuYXRpdmUgdmFyaWFudCBpcyB0aGlzOgoKLS0tCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL3ZlY3Rvci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZWN0b3IuaAppbmRl
+eCAwNGMwYjA3YmY2Y2QuLjMyYjYxMTVhNTRhNSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS92ZWN0b3IuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oCkBA
+IC0xMzksMTUgKzEzOSw1MSBAQCBzdGF0aWMgaW5saW5lIHZvaWQgcmlzY3Zfdl92c3RhdGVfc2F2
+ZShzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRhc2ssCiAJfQogfQogCitzdGF0aWMgaW5saW5lIHZvaWQg
+X19yaXNjdl92X3ZzdGF0ZV9kaXNjYXJkKHZvaWQpCit7CisJdW5zaWduZWQgbG9uZyB2bCwgdnR5
+cGVfaW52YWwgPSAxVUwgPDwgKEJJVFNfUEVSX0xPTkcgLSAxKTsKKworCXJpc2N2X3ZfZW5hYmxl
+KCk7CisJYXNtIHZvbGF0aWxlICgKKwkJIi5vcHRpb24gcHVzaFxuXHQiCisJCSIub3B0aW9uIGFy
+Y2gsICt2XG5cdCIKKwkJInZzZXR2bGkJJTAsIHgwLCBlOCwgbTgsIHRhLCBtYVxuXHQiCisJCSJ2
+bXYudi5pCXYwLCAwXG5cdCIKKwkJInZtdi52LmkJdjgsIDBcblx0IgorCQkidm12LnYuaQl2MTYs
+IDBcblx0IgorCQkidm12LnYuaQl2MjQsIDBcblx0IgorCQkidnNldHZsCQklMCwgeDAsICUxXG5c
+dCIKKwkJIi5vcHRpb24gcG9wXG5cdCIKKwkJOiAiPSZyIiAodmwpIDogInIiICh2dHlwZV9pbnZh
+bCkgOiAibWVtb3J5Iik7CisJcmlzY3Zfdl9kaXNhYmxlKCk7Cit9CisKK3N0YXRpYyBpbmxpbmUg
+dm9pZCByaXNjdl92X3ZzdGF0ZV9kaXNjYXJkKHN0cnVjdCBwdF9yZWdzICpyZWdzKQoreworCWlm
+ICghcmlzY3Zfdl92c3RhdGVfcXVlcnkocmVncykpCisJCXJldHVybjsKKworCV9fcmlzY3Zfdl92
+c3RhdGVfZGlzY2FyZCgpOworCXJpc2N2X3ZfdnN0YXRlX29uKHJlZ3MpOworfQorCiBzdGF0aWMg
+aW5saW5lIHZvaWQgcmlzY3Zfdl92c3RhdGVfcmVzdG9yZShzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRh
+c2ssCiAJCQkJCSAgc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCiB7Ci0JaWYgKChyZWdzLT5zdGF0dXMg
+JiBTUl9WUykgIT0gU1JfVlNfT0ZGKSB7CisJdW5zaWduZWQgbG9uZyBzdGF0dXMgPSByZWdzLT5z
+dGF0dXMgJiBTUl9WUzsKKworCVdBUk5fT04oc3RhdHVzID09IFNSX1ZTX0RJUlRZKTsKKworCWlm
+IChzdGF0dXMgPT0gU1JfVlNfQ0xFQU4pIHsKIAkJc3RydWN0IF9fcmlzY3Zfdl9leHRfc3RhdGUg
+KnZzdGF0ZSA9ICZ0YXNrLT50aHJlYWQudnN0YXRlOwogCiAJCV9fcmlzY3Zfdl92c3RhdGVfcmVz
+dG9yZSh2c3RhdGUsIHZzdGF0ZS0+ZGF0YXApOwogCQlfX3Jpc2N2X3ZfdnN0YXRlX2NsZWFuKHJl
+Z3MpOworCQlyZXR1cm47CiAJfQorCisJaWYgKHN0YXR1cyA9PSBTUl9WU19JTklUSUFMKQorCQlf
+X3Jpc2N2X3ZfdnN0YXRlX2Rpc2NhcmQoKTsKIH0KIAogc3RhdGljIGlubGluZSB2b2lkIF9fc3dp
+dGNoX3RvX3ZlY3RvcihzdHJ1Y3QgdGFza19zdHJ1Y3QgKnByZXYsCkBAIC0xNzgsNiArMjE0LDcg
+QEAgc3RhdGljIGlubGluZSBib29sIHJpc2N2X3ZfdnN0YXRlX2N0cmxfdXNlcl9hbGxvd2VkKHZv
+aWQpIHsgcmV0dXJuIGZhbHNlOyB9CiAjZGVmaW5lIF9fc3dpdGNoX3RvX3ZlY3RvcihfX3ByZXYs
+IF9fbmV4dCkJZG8ge30gd2hpbGUgKDApCiAjZGVmaW5lIHJpc2N2X3ZfdnN0YXRlX29mZihyZWdz
+KQkJZG8ge30gd2hpbGUgKDApCiAjZGVmaW5lIHJpc2N2X3ZfdnN0YXRlX29uKHJlZ3MpCQkJZG8g
+e30gd2hpbGUgKDApCisjZGVmaW5lIHJpc2N2X3ZfdnN0YXRlX2Rpc2NhcmQocmVncykJCWRvIHt9
+IHdoaWxlICgwKQogCiAjZW5kaWYgLyogQ09ORklHX1JJU0NWX0lTQV9WICovCiAKZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5j
+CmluZGV4IDUxNTg5NjFlYTk3Ny4uNWZmNjNhNzg0YTZkIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2
+L2tlcm5lbC90cmFwcy5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKQEAgLTI5Niw2
+ICsyOTYsOCBAQCBhc21saW5rYWdlIF9fdmlzaWJsZSBfX3RyYXBfc2VjdGlvbiB2b2lkIGRvX3Ry
+YXBfZWNhbGxfdShzdHJ1Y3QgcHRfcmVncyAqcmVncykKIAkJcmVncy0+ZXBjICs9IDQ7CiAJCXJl
+Z3MtPm9yaWdfYTAgPSByZWdzLT5hMDsKIAorCQlyaXNjdl92X3ZzdGF0ZV9kaXNjYXJkKHJlZ3Mp
+OworCiAJCXN5c2NhbGwgPSBzeXNjYWxsX2VudGVyX2Zyb21fdXNlcl9tb2RlKHJlZ3MsIHN5c2Nh
+bGwpOwogCiAJCWlmIChzeXNjYWxsIDwgTlJfc3lzY2FsbHMpCgotLS0KCgpIZXJlLCB3ZSBzaW1w
+bHkgZGlzY2FyZCB0aGUgcmVncyBpZiB0aGUgc3RhdGUgaXMgSW5pdGlhbC4gVGhvdWdodHM/CgoK
+QmrDtnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
