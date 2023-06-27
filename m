@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 718ABEB64D9
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 21:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B764EB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 21:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9tuj6AsPkIkOtrV3CLOwfWna+fzX7b69C+K2cz03om4=; b=kuTwREszusRpiA
-	78YzDdwOyL43CXCCVLIPIPrbhk561jYlzSETfd3Fq7UJdMcYf5sHxjf/Q9fpAfFdM4ZEOmEYE0Enn
-	U2nOna7QMC1iFWS7yxEKXVOh9aaBRtngXm4sK1viJfXrcLEf0xDOT8tUgFf8zmvTBYWKgefHK4Kue
-	FG/DFgbzyF1D2Fp23t3hM/TBaPbvcEqdji4W7ha99yCG0vkWfgkHuj3r0KxeZRxoC38+aAkrQhvph
-	rGPIZhs2qiQRc3bvDOxFsd8UqwnQ/bMMtBRf/NZ6O0frmLdOnSdXZAdLhtjo8dafArbiyy81PZg74
-	XrRC8ZuSdUXJjSHAU8ww==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mbVPHlmGDyWfvfSzNgKLPfZk0MjuCZDdLTX3MjKsMX4=; b=zCHoH9PrLAOm5sUip0wmOwdQjf
+	1KescI1989DQdGn3VDI4cne/KaPale+3grXWnpSFznSLUPV5mCFsGcDRaekbtTMs2oO4fW0FQ6ju3
+	5IZUVMiMbOiNbM+u94nZ3hWV8gPMyruHT5JVrprdboX6Omkf5n3JOC9DlrpqoCpV2dt7Fh5/ehcpk
+	vk2oNu0ECXylFwfH3HDh3HlFsQa+i9SnKlWahwuKpAhmQhDAANdiJRVVdlr8ACyJMbyrT9ToVG2wx
+	ysoGc3MHvgkLAtF6quYK/bH47rDzbIilm+lcmFM/HeKGxyHhCw7RHSpmzshIWYziATcY6rwxIwzPH
+	c5Dhy+ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEFog-00E9Wx-2y;
-	Tue, 27 Jun 2023 21:01:38 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1qEFx0-00EAYg-1Z;
+	Tue, 27 Jun 2023 21:10:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEFod-00E9VP-2I;
-	Tue, 27 Jun 2023 21:01:37 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1b80f2e6c17so18055175ad.0;
-        Tue, 27 Jun 2023 14:01:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1687899692; x=1690491692;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=P+M7tEnjJDtu150UIK78eMZjmbGUtM7e5Fjt8nWZ0yk=;
-        b=EEAFfmkXxvxLQKSckNGd2ZSV3KFogeID+Fu07F5vObGax9BbbGTHMjNPkWpqJAJVcH
-         pQvHfFi3MuvS2en7hgib7UJpPWUapwBCg8rlberKLmSq3DFWM7/xIZN7INLmmqEHLsUh
-         qitezyDQfhSscafezpHggVgt0WLI8tgIl0uMXCJdPAHvlcj4VIjJKb6j7/ZGCnIDizgv
-         wo2zP75PWYpQesW5XMNkIMNlUWOk9aqZVrMomyrANyuVHFRGKdh0f6XzxRPe0kewrYvm
-         0KzGKCqgMKcTqBBhxX7lyhj56QxI4SK/fKCSdPeLy85gsmtVFv88cBuoZEpsI4YCe97K
-         o/WQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687899692; x=1690491692;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=P+M7tEnjJDtu150UIK78eMZjmbGUtM7e5Fjt8nWZ0yk=;
-        b=MiVpPoFC2fwg9vJpbA2nyQ2EQXYht1sHmGCmnWiFtPMYGcPr/BUA/Z9RDsCCYiRFBe
-         E9fZI05HDrvwmJzB0URNBzlDm+bS/fGeI0yqkX6qXWQtr1wYGnhjGkToCh3lKgNix6zu
-         HMhjyJOsO7wC1SK7noGMj10377GM0F35et6ZObRvwpLeKlqkrYpgGwq4/32LveRmnT1X
-         2Zrmt8UlUOXITom5FI3OF2wWB4cBonVt9sl+dxIoz6XYurj5BvKYw236w0wc/qoUiD2n
-         kpTMpuOO6hVmAMX3sJsJlIix0QV4tk1Ob3zjmMlgZNBEQ3DraW6XVzjJY7gKMaHQakIA
-         xNkQ==
-X-Gm-Message-State: AC+VfDwt/xoSMpAhpqodWGbHa4tkqn51I9TzzA5uModcNkigsRLZTlpk
-	X4p5Wstmom2i27qrVpwI9QA=
-X-Google-Smtp-Source: ACHHUZ5Ms+IS+/rtXxolIJxIsutHi1fnnUiL8cEAZTZ1vZL/Fg4JF6S5Mmuw32zf0DumOU0QNMHuig==
-X-Received: by 2002:a17:902:f542:b0:1b5:91:4693 with SMTP id h2-20020a170902f54200b001b500914693mr14752161plf.1.1687899692466;
-        Tue, 27 Jun 2023 14:01:32 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id jl3-20020a170903134300b001ac6b926621sm6363521plb.292.2023.06.27.14.01.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jun 2023 14:01:31 -0700 (PDT)
-Message-ID: <2b7e8b1d-1697-6a25-434d-352f95e6fff2@roeck-us.net>
-Date: Tue, 27 Jun 2023 14:01:29 -0700
+	id 1qEFwy-00EAXj-0K
+	for linux-riscv@lists.infradead.org;
+	Tue, 27 Jun 2023 21:10:13 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8B30B60FD9;
+	Tue, 27 Jun 2023 21:10:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2867C433C0;
+	Tue, 27 Jun 2023 21:10:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687900211;
+	bh=KSyaqdeyazGave2FEEoaPhxTSkgaMYMdBaB6B0YcnpE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EIer1aekcKm5P14EuU7KW1WX/4J/CTm30pf2Mw2bH+L+XGNQ1wdPn5wQQ5CCg7yWe
+	 5JLvwLI37LmH5Cl7kPaHK1NOfQACTNP6V/C8/OawzXScs8q6MDi66VwuzLpBwBYSOu
+	 rxpDlYvDz3GwWsDsgSprc/vt/HWJssTJrVeLGYKufKzvcNxyiGWltNt32t6xXWtyqs
+	 9kPFRAL4t/M8cG066m0ti/ZPXataVnFK2r+efgNqCzYYR+R0lqgIaqhtuwvBNe+4Rv
+	 Qo0OjrjZSUDKSDPb6q4gbHRW6McDZDwM4W/lKRP832U9INP6KEkxRax6erJ+sFGrC1
+	 ytwOsrLj7wfaA==
+Date: Tue, 27 Jun 2023 22:10:06 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charles Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Anup Patel <anup@brainfault.org>, Evan Green <evan@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	.konstantin@linuxfoundation.org
+Subject: Re: [PATCH 0/2] Restrict address space for sv39,sv48,sv57
+Message-ID: <20230627-john-spree-0f82769618c5@spud>
+References: <20230626183611.40479-1-charlie@rivosinc.com>
+ <20230627-eternity-mulberry-e1f4babf06a1@spud>
+ <CA+7dDtKARX35pcgdKopuM6c8oj+TKLRhXcF0+d4MZE51V7Bifg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v5 26/33] nios2: Convert __pte_free_tlb() to use ptdescs
-Content-Language: en-US
-To: Dinh Nguyen <dinguyen@kernel.org>, Vishal Moola <vishal.moola@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
- Hugh Dickins <hughd@google.com>, Mike Rapoport <rppt@kernel.org>,
- Stephen Rothwell <sfr@canb.auug.org.au>
-References: <20230622205745.79707-1-vishal.moola@gmail.com>
- <20230622205745.79707-27-vishal.moola@gmail.com>
- <13bab37c-0f0a-431a-8b67-4379bf4dc541@roeck-us.net>
- <CAOzc2px6VutRkMUTn+M5LFLf1YbRVZFgJ=q7StaApwYRxUWqQA@mail.gmail.com>
- <cc954b15-63ab-9d9f-2d37-1aea78b7f65f@roeck-us.net>
- <b6a5753b-8874-6465-f690-094ee753e038@roeck-us.net>
- <CAOzc2pxdqeaRjYLfOqvMW-AEobTzD9xOP+MyP9nxgEbi1T2r7Q@mail.gmail.com>
- <c3751051-7fc7-7129-b9a7-ead71c576ace@kernel.org>
-From: Guenter Roeck <linux@roeck-us.net>
-In-Reply-To: <c3751051-7fc7-7129-b9a7-ead71c576ace@kernel.org>
+In-Reply-To: <CA+7dDtKARX35pcgdKopuM6c8oj+TKLRhXcF0+d4MZE51V7Bifg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230627_140135_746322_C083FCD9 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20230627_141012_237788_D4259734 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +78,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4870321520450282567=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNi8yNy8yMyAxMzowNSwgRGluaCBOZ3V5ZW4gd3JvdGU6Cj4gCj4gCj4gT24gNi8yNy8yMyAx
-NDo1NiwgVmlzaGFsIE1vb2xhIHdyb3RlOgo+PiBPbiBUdWUsIEp1biAyNywgMjAyMyBhdCAxMjox
-NOKAr1BNIEd1ZW50ZXIgUm9lY2sgPGxpbnV4QHJvZWNrLXVzLm5ldD4gd3JvdGU6Cj4+Pgo+Pj4g
-T24gNi8yNy8yMyAxMjoxMCwgR3VlbnRlciBSb2VjayB3cm90ZToKPj4+PiBPbiA2LzI3LzIzIDEw
-OjQyLCBWaXNoYWwgTW9vbGEgd3JvdGU6Cj4+Pj4+IE9uIE1vbiwgSnVuIDI2LCAyMDIzIGF0IDEw
-OjQ34oCvUE0gR3VlbnRlciBSb2VjayA8bGludXhAcm9lY2stdXMubmV0PiB3cm90ZToKPj4+Pj4+
-Cj4+Pj4+PiBPbiBUaHUsIEp1biAyMiwgMjAyMyBhdCAwMTo1NzozOFBNIC0wNzAwLCBWaXNoYWwg
-TW9vbGEgKE9yYWNsZSkgd3JvdGU6Cj4+Pj4+Pj4gUGFydCBvZiB0aGUgY29udmVyc2lvbnMgdG8g
-cmVwbGFjZSBwZ3RhYmxlIGNvbnN0cnVjdG9yL2Rlc3RydWN0b3JzIHdpdGgKPj4+Pj4+PiBwdGRl
-c2MgZXF1aXZhbGVudHMuCj4+Pj4+Pj4KPj4+Pj4+PiBTaWduZWQtb2ZmLWJ5OiBWaXNoYWwgTW9v
-bGEgKE9yYWNsZSkgPHZpc2hhbC5tb29sYUBnbWFpbC5jb20+Cj4+Pj4+Pj4gQWNrZWQtYnk6IE1p
-a2UgUmFwb3BvcnQgKElCTSkgPHJwcHRAa2VybmVsLm9yZz4KPj4+Pj4+Cj4+Pj4+PiBUaGlzIHBh
-dGNoIGNhdXNlcyBhbGwgbmlvczIgYnVpbGRzIHRvIGZhaWwuCj4+Pj4+Cj4+Pj4+IEl0IGxvb2tz
-IGxpa2UgeW91IHRyaWVkIHRvIGFwcGx5IHRoaXMgcGF0Y2ggb24gaXRzIG93bi4gVGhpcyBwYXRj
-aCBkZXBlbmRzCj4+Pj4+IG9uIHBhdGNoZXMgMDEtMTIgb2YgdGhpcyBwYXRjaHNldCB0byBjb21w
-aWxlIHByb3Blcmx5LiBJJ3ZlIGNyb3NzLWNvbXBpbGVkCj4+Pj4+IHRoaXMgYXJjaGl0ZWN0dXJl
-IGFuZCBpdCB3b3JrZWQsIGJ1dCBsZXQgbWUga25vdyBpZiBzb21ldGhpbmcgZmFpbHMKPj4+Pj4g
-d2hlbiBpdHMgYXBwbGllZCBvbiB0b3Agb2YgdGhvc2UgcGF0Y2hlcyAob3IgdGhlIHJlc3Qgb2Yg
-dGhlIHBhdGNoc2V0KS4KPj4+Pgo+Pj4+Cj4+Pj4gTm8sIEkgZGlkIG5vdCB0cnkgdG8gYXBwbHkg
-dGhpcyBwYXRjaCBvbiBpdHMgb3duLiBJIHRyaWVkIHRvIGJ1aWxkIHllc3RlcmRheSdzCj4+Pj4g
-cGVuZGluZy1maXhlcyBicmFuY2ggb2YgbGludXgtbmV4dC4KPj4+Pgo+Pj4KPj4+IEEgcXVpY2sg
-Y2hlY2sgc2hvd3MgdGhhdCB0aGUgYnVpbGQgZmFpbHMgd2l0aCBuZXh0LTIwMjMwNjI3LiBTZWUg
-bG9nIGJlbG93Lgo+Pgo+PiBBaCBpdCBsb29rcyBsaWtlIHRoaXMgb25lIHNsaXBwZWQgaW50byAt
-bmV4dCBvbiBpdHMgb3duIHNvbWVob3c/IFN0ZXBoZW4sIHBsZWFzZQo+PiBkcm9wIHRoaXMgcGF0
-Y2ggZnJvbSAtbmV4dDsgaXQgc2hvdWxkbid0IGJlIGluIHdpdGhvdXQgdGhlIHJlc3Qgb2YgdGhl
-Cj4+IHBhdGNoc2V0IHdoaWNoCj4+IEkgaW50ZW5kIHRvIGhhdmUgQW5kcmV3IHRha2UgdGhyb3Vn
-aCB0aGUgbW0gdHJlZS4KPj4KPiAKPiBJIGFwb2xvZ2l6ZSwgYnV0IEkgcXVldWUgdGhpcyBwYXRj
-aCB1cCBmb3IgTGludXMgYW5kIGl0J3MgYmVlbiBwdWxsZWQgZm9yIHRoaXMgbWVyZ2Ugd2luZG93
-LiBJIGRpZG4ndCByZWFsaXplIHlvdSB3ZXJlIGdvaW5nIHRvIHRha2UgdGhpcyBwYXRjaHNldCB0
-aHJvdWdoIGFub3RoZXIgdHJlZS4KPiAKPiBTb3JyeSBhYm91dCB0aGF0Lgo+IAoKWWVzLCBpbmRl
-ZWQsIEkganVzdCBjb25maXJtZWQgdGhhdCBhbGwgbmlvczIgYnVpbGRzIGluIHRoZSBtYWlubGlu
-ZSBrZXJuZWwKYXJlIG5vdyBicm9rZW4uCgpHdWVudGVyCgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============4870321520450282567==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="g2C1m2/qKd6bfPLL"
+Content-Disposition: inline
+
+
+--g2C1m2/qKd6bfPLL
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jun 27, 2023 at 01:44:18PM -0700, Charles Jenkins wrote:
+
+- all the random CCs
+
+> On Tue, Jun 27, 2023 at 11:24=E2=80=AFAM Conor Dooley <conor@kernel.org> =
+wrote:
+> > On Mon, Jun 26, 2023 at 11:36:02AM -0700, Charlie Jenkins wrote:
+> > > Make sv39 the default address space for mmap as some applications
+> > > currently depend on this assumption. The RISC-V specification enforces
+> > > that bits outside of the virtual address range are not used, so
+> > > restricting the size of the default address space as such should be
+> > > temporary. A hint address passed to mmap will cause the largest addre=
+ss
+> > > space that fits entirely into the hint to be used. If the hint is less
+> > > than or equal to 1<<38, a 39-bit address will be used. After an addre=
+ss
+> > > space is completely full, the next smallest address space will be use=
+d.
+> > >=20
+> > > Documentation is also added to the RISC-V virtual memory section to  =
+explain
+> > > these changes.
+> >
+> > I don't know what went wrong here, but this never ended up in patchwork
+> > for some reason, although it has appeared on lore. That seems to be via
+> > the docs mailing list, rather than linux-riscv. Could you speak to Atish
+> > and see if he knows what went wrong?
+
+> I talked to Atish, he's not sure what's going on here either. I am going
+> to add him to the CC list.
+
+Atish is the one with admin for the list, I figured he'd be able to tell
+if it got bounced properly. If it got bounced correctly, but didn't
+arrive in patchwork then I don't know.
+
+Usually when a bunch of lists are CCed, multiple entries show up on
+lore, afair. In this case, a bunch of lists were CCed, but only the one
+via linux-doc appeared on lore.
+
+Konstantin, any ideas?
+
+Cheers,
+Conor.
+
+
+--g2C1m2/qKd6bfPLL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJtQLgAKCRB4tDGHoIJi
+0ljlAP9ROA9DCAsi1yLcXbPjuQnORcX/RtbUyCNB0Gi9w2i8jwD/f/6mcf3A2K2t
+XVvq6B8GF69YUvsCQtNH1XZ9vdX8Hwo=
+=VtGo
+-----END PGP SIGNATURE-----
+
+--g2C1m2/qKd6bfPLL--
+
+
+--===============4870321520450282567==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4870321520450282567==--
+
