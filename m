@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF44C0015E
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 11:16:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33BD2EB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 11:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PptYgAxHgjZrHwqFXmjVrExvF+0SPG8FuV1iXu3ECws=; b=prXRx6JTdwC+Gx
-	WFFz4zmF0Y7Oke4DLP+147kQevxg03Q76emRtbyMmsNKA79q30wJHOLK/hBXkLhP+9IK5ENOeSqDd
-	GRYmVP5w4gNHBuKsB1GUeKdssR9othgGmLS6icuFetRRqE2jUpCxkEO7Pkxgn5amYZr3RHUSsIVBq
-	eWgc8a0OE1J1YZPoFh2VOXJYKD28ThxpoGF9D+N0vrMqRpbNjgU4b6JBC9utb9poqqAWNMnrhCs7J
-	nLSh+0D0hiGk2P4MFIcjyVh5UPaaiSJ1SwVGFKhMr6GFAVcVZwo8AcWmhqa1BY/UEBz68+2UpjzsM
-	2WKVfskRvxvOohcXT3pA==;
+	List-Owner; bh=VDH+JTnGX1jk7X+EA48z2K93kg/uoeN+ljhptTnOUm4=; b=WCgoXP0tqfzmjw
+	dMSeaQ3MaEFQUBbv/EOGFRDGo7sKGCeTCYmbfjBnARC7inLefvfPw4sxI98cvmHbOY+6V+X0BeehC
+	qSCaAwCCtjHgn+1WjUNmu4osDG0Hkta3yK7Sh3lERBJmzWgNANroYRhhcs5s62uDQLa9+AoDkNL4v
+	4HrlNVX4mFnttdJrI1syfEdZYfK2ixonTzOPYiH5pdAmgnD1J8D/GpV2eM66oL472EqNNw/vcEud0
+	1MotGMHTnmXawTK4CrK/b2uZo7mxqoJ2tTxGDsSTKryeVtkWkspNSh5soG8msEiNP8WpBfx4FEOE5
+	d3nLqm8J8PcZSyKoSibA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE6gp-00D2MN-0G;
-	Tue, 27 Jun 2023 11:16:55 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1qE6gu-00D2NY-0z;
+	Tue, 27 Jun 2023 11:17:00 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE6gj-00D2Jv-1P
+	id 1qE6gj-00D2Hx-1g
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jun 2023 11:16:53 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-666ed230c81so3911147b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Jun 2023 04:16:46 -0700 (PDT)
+	Tue, 27 Jun 2023 11:16:58 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-26315e20c09so445848a91.2
+        for <linux-riscv@lists.infradead.org>; Tue, 27 Jun 2023 04:16:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1687864606; x=1690456606;
+        d=gmail.com; s=20221208; t=1687864595; x=1690456595;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ne0PfVTRcVEKKxj4M4FGiBreoIJtV1Je4xxVE1tvmME=;
-        b=csDpxKTkeKlIZd1ZxV9bVmVvcOZzBlSSK9G20YV0iihRsK85x5dXSh8ZlyKFUbDdUH
-         qfaRLEWNb407VgQMScSD4pdJ5KI+KQROQ9k40WhCHWYwDzbPcFl64wQqUveoDyCdCcGo
-         yJERQPG0K9LMc8/tONvLSZAZMcRbK4CkgPN+o3jp7D5dOsGSOTuxtg2du6Pa6sTN2L6z
-         OIbd2UFdSe5nmdJSH+hHGRUUUQnweL8xJc81YnFAwztsabVW56GntuKG2sttJgp/OaZE
-         R/wLak3RIpWDAgyrnbftSHraraJ43Aq5oTdVxxIF4Q1K/VF8j5Duog41CmJydTbspLCE
-         AXsA==
+        bh=6jQGtmB8uxxCtle8sZrtPyRR8UqaMM+jvUMrZ5E4+II=;
+        b=V84GLGHpjc1+MxEJgH2AyGaeEBKMKhXhaTSf4pgmlAJNekLi1AauGizFw++6XWzcnl
+         a8C5nVe9W/Uf/Ar/rEL4irBPYcmatehLrNHPZqQvScZ4lB31Dm/K0hteLDtDIHjQRwLB
+         sbrso7NJ0DlHodOJFno0He60GD72raLWsKy2ZefyH95ypDpf5VDPiWe6Lxk8cq6cfBiu
+         8wKb5iYJU6gjZYNDUeWK3unpKO8WuNjRYIGTsmKlYVDfEQClR1rsoS//voOkfZmtDWW7
+         bkKCaGa8LbaImHgT1xMU5Z4OF9h4bhQFm5dJcqN2UIytFudTOdhGhwQCuIgvzxSJt7HK
+         TDDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687864606; x=1690456606;
+        d=1e100.net; s=20221208; t=1687864595; x=1690456595;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Ne0PfVTRcVEKKxj4M4FGiBreoIJtV1Je4xxVE1tvmME=;
-        b=B0XMJk8NL3jIh5mILet4wXeiB/s1TzPTkYNNwPdN2a8aWtkEW31WXSAsdW6eS9rgF1
-         aYSb5skLdeiOLoW1fF86mefq6HNpxBJfYuElVCoO2ZJPzYb3zptK040EfnIi+mSftJiL
-         vLEJz84LF62NtIb/JD3YkgLjCTGrAExx3ncBvMMfMM3HissV4kt+VjQUKx9BBfyWzgmf
-         BiYSv5GjCV8+/RsXdSNPlhsQfKThwlqdQkwkZJL5MZcdNQ0rTuo+/3u6OWf4Z0bcA3JI
-         8/ftC9SzomGLt3VkJweii+H61NalEhHfs2RvLAYqUEBwRZZ7ERMlcZ8HUgvl3FAkSK6/
-         TiUQ==
-X-Gm-Message-State: AC+VfDxbIIDO0iPAmKt3nOntFstBk8v7Dl2nZ6yOOteaDZokhKOHDjQ4
-	nw6SIk/gqYwlXEX6zmdlVPw=
-X-Google-Smtp-Source: ACHHUZ4oXZcb8Nk19kBuR0qLl7TVQDc3WCmmlEl4KaAJtE3CwtrguhJyvOlLyNRYjFiJyVh45TW/Bg==
-X-Received: by 2002:a17:90a:19d6:b0:262:cef9:84f6 with SMTP id 22-20020a17090a19d600b00262cef984f6mr7992734pjj.22.1687864605991;
-        Tue, 27 Jun 2023 04:16:45 -0700 (PDT)
+        bh=6jQGtmB8uxxCtle8sZrtPyRR8UqaMM+jvUMrZ5E4+II=;
+        b=bIktuKbh+G8geM7msY+6C+9giEBtb9LTHEsPTAmnHUcP62H4qScVfivSGK6BSNKHNS
+         kkU8bXO8Em4lMFJ5Lc8McEXiGsIsNf+tqHo4g8D5H2BF73wfH22AYdO/GwTh+qL5h0b+
+         64pPfkkSXAi6iuASjOl1u9qzngzKE9CluERMwe0lqLYXWX732lRSh9J17ai1I+RPyzQ3
+         3atpEqvYIadNiN0aNgiGf/go8kpojEqWyX6OJh0UfqdXmHwHOqS3Eb/TBbYU4XyUNpe4
+         fPbHoglwp/eEhUzwig4E/zR9i+uuNTubu8w9MS9/G8WV0KzWTrZ2XCpX9i/N31SRb2D8
+         WwZg==
+X-Gm-Message-State: AC+VfDztAgOd97dljN+EfXUIlQohsPDNDRtueMM9OR2Fu/+wdFnHndxa
+	bKfoS+DiRws3vZvtmLRBHGQ=
+X-Google-Smtp-Source: ACHHUZ7pJOPB81lViEbund7zxNo450ejmK21kwTs9VyzxT3iqXsl72T+f55+DO5PwAWbX8rYkVZZQQ==
+X-Received: by 2002:a17:90a:7bc7:b0:262:ec71:b88f with SMTP id d7-20020a17090a7bc700b00262ec71b88fmr4778872pjl.25.1687864595405;
+        Tue, 27 Jun 2023 04:16:35 -0700 (PDT)
 Received: from localhost.localdomain ([58.240.82.166])
-        by smtp.gmail.com with ESMTPSA id 8-20020a17090a004800b00262d6ac0140sm5438658pjb.9.2023.06.27.04.16.42
+        by smtp.gmail.com with ESMTPSA id 8-20020a17090a004800b00262d6ac0140sm5438658pjb.9.2023.06.27.04.16.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jun 2023 04:16:45 -0700 (PDT)
+        Tue, 27 Jun 2023 04:16:35 -0700 (PDT)
 From: Song Shuai <suagrfillet@gmail.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -78,17 +78,16 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-trace-kernel@vger.kernel.org,
 	songshuaishuai@tinylab.org
-Subject: [PATCH V11 5/5] samples: ftrace: Make the riscv samples support RV32I
-Date: Tue, 27 Jun 2023 19:16:12 +0800
-Message-Id: <20230627111612.761164-6-suagrfillet@gmail.com>
+Subject: [PATCH V11 2/5] riscv: ftrace: Add ftrace_graph_func
+Date: Tue, 27 Jun 2023 19:16:09 +0800
+Message-Id: <20230627111612.761164-3-suagrfillet@gmail.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20230627111612.761164-1-suagrfillet@gmail.com>
 References: <20230627111612.761164-1-suagrfillet@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230627_041649_475154_8DA7F625 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230627_041649_571543_B1CE6171 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,255 +99,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since the commit f32b4b467ebd ("RISC-V: enable dynamic ftrace for
-RV32I") enables dynamic ftrace for RV32I, make these riscv samples
-also support RV32I.
-
-Link: https://lore.kernel.org/all/mhng-29a592bf-1b25-4c6c-8f37-0d05d39bc093@palmer-ri-x1c9a/
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
----
- samples/ftrace/ftrace-direct-modify.c       | 27 +++++++++--------
- samples/ftrace/ftrace-direct-multi-modify.c | 33 +++++++++++----------
- samples/ftrace/ftrace-direct-multi.c        | 17 ++++++-----
- samples/ftrace/ftrace-direct-too.c          | 25 ++++++++--------
- samples/ftrace/ftrace-direct.c              | 17 ++++++-----
- 5 files changed, 62 insertions(+), 57 deletions(-)
-
-diff --git a/samples/ftrace/ftrace-direct-modify.c b/samples/ftrace/ftrace-direct-modify.c
-index e90ca7b68314..071cf4093a24 100644
---- a/samples/ftrace/ftrace-direct-modify.c
-+++ b/samples/ftrace/ftrace-direct-modify.c
-@@ -23,32 +23,33 @@ extern void my_tramp2(void *);
- static unsigned long my_ip = (unsigned long)schedule;
- 
- #ifdef CONFIG_RISCV
-+#include <asm/asm.h>
- 
- asm (
- "	.pushsection    .text, \"ax\", @progbits\n"
- "	.type		my_tramp1, @function\n"
- "	.globl		my_tramp1\n"
- "   my_tramp1:\n"
--"	addi	sp,sp,-16\n"
--"	sd	t0,0(sp)\n"
--"	sd	ra,8(sp)\n"
-+"	addi	sp,sp,-2*"SZREG"\n"
-+"	"REG_S"	t0,0*"SZREG"(sp)\n"
-+"	"REG_S"	ra,1*"SZREG"(sp)\n"
- "	call	my_direct_func1\n"
--"	ld	t0,0(sp)\n"
--"	ld	ra,8(sp)\n"
--"	addi	sp,sp,16\n"
-+"	"REG_L"	t0,0*"SZREG"(sp)\n"
-+"	"REG_L"	ra,1*"SZREG"(sp)\n"
-+"	addi	sp,sp,2*"SZREG"\n"
- "	jr	t0\n"
- "	.size		my_tramp1, .-my_tramp1\n"
--
- "	.type		my_tramp2, @function\n"
- "	.globl		my_tramp2\n"
-+
- "   my_tramp2:\n"
--"	addi	sp,sp,-16\n"
--"	sd	t0,0(sp)\n"
--"	sd	ra,8(sp)\n"
-+"	addi	sp,sp,-2*"SZREG"\n"
-+"	"REG_S"	t0,0*"SZREG"(sp)\n"
-+"	"REG_S"	ra,1*"SZREG"(sp)\n"
- "	call	my_direct_func2\n"
--"	ld	t0,0(sp)\n"
--"	ld	ra,8(sp)\n"
--"	addi	sp,sp,16\n"
-+"	"REG_L"	t0,0*"SZREG"(sp)\n"
-+"	"REG_L"	ra,1*"SZREG"(sp)\n"
-+"	addi	sp,sp,2*"SZREG"\n"
- "	jr	t0\n"
- "	.size		my_tramp2, .-my_tramp2\n"
- "	.popsection\n"
-diff --git a/samples/ftrace/ftrace-direct-multi-modify.c b/samples/ftrace/ftrace-direct-multi-modify.c
-index 5a81af7b3af3..b754803d0a50 100644
---- a/samples/ftrace/ftrace-direct-multi-modify.c
-+++ b/samples/ftrace/ftrace-direct-multi-modify.c
-@@ -21,38 +21,39 @@ extern void my_tramp1(void *);
- extern void my_tramp2(void *);
- 
- #ifdef CONFIG_RISCV
-+#include <asm/asm.h>
- 
- asm (
- "	.pushsection    .text, \"ax\", @progbits\n"
- "	.type		my_tramp1, @function\n"
- "	.globl		my_tramp1\n"
- "   my_tramp1:\n"
--"       addi	sp,sp,-24\n"
--"       sd	a0,0(sp)\n"
--"       sd	t0,8(sp)\n"
--"       sd	ra,16(sp)\n"
-+"       addi	sp,sp,-3*"SZREG"\n"
-+"       "REG_S"	a0,0*"SZREG"(sp)\n"
-+"       "REG_S"	t0,1*"SZREG"(sp)\n"
-+"       "REG_S"	ra,2*"SZREG"(sp)\n"
- "       mv	a0,t0\n"
- "       call	my_direct_func1\n"
--"       ld	a0,0(sp)\n"
--"       ld	t0,8(sp)\n"
--"       ld	ra,16(sp)\n"
--"       addi	sp,sp,24\n"
-+"       "REG_L"	a0,0*"SZREG"(sp)\n"
-+"       "REG_L"	t0,1*"SZREG"(sp)\n"
-+"       "REG_L"	ra,2*"SZREG"(sp)\n"
-+"       addi	sp,sp,3*"SZREG"\n"
- "	jr	t0\n"
- "	.size		my_tramp1, .-my_tramp1\n"
- 
- "	.type		my_tramp2, @function\n"
- "	.globl		my_tramp2\n"
- "   my_tramp2:\n"
--"       addi	sp,sp,-24\n"
--"       sd	a0,0(sp)\n"
--"       sd	t0,8(sp)\n"
--"       sd	ra,16(sp)\n"
-+"       addi	sp,sp,-3*"SZREG"\n"
-+"       "REG_S"	a0,0*"SZREG"(sp)\n"
-+"       "REG_S"	t0,1*"SZREG"(sp)\n"
-+"       "REG_S"	ra,2*"SZREG"(sp)\n"
- "       mv	a0,t0\n"
- "       call	my_direct_func2\n"
--"       ld	a0,0(sp)\n"
--"       ld	t0,8(sp)\n"
--"       ld	ra,16(sp)\n"
--"       addi	sp,sp,24\n"
-+"       "REG_L"	a0,0*"SZREG"(sp)\n"
-+"       "REG_L"	t0,1*"SZREG"(sp)\n"
-+"       "REG_L"	ra,2*"SZREG"(sp)\n"
-+"       addi	sp,sp,3*"SZREG"\n"
- "	jr	t0\n"
- "	.size		my_tramp2, .-my_tramp2\n"
- "	.popsection\n"
-diff --git a/samples/ftrace/ftrace-direct-multi.c b/samples/ftrace/ftrace-direct-multi.c
-index 0e9bb94edade..a31f43ace85c 100644
---- a/samples/ftrace/ftrace-direct-multi.c
-+++ b/samples/ftrace/ftrace-direct-multi.c
-@@ -16,22 +16,23 @@ void my_direct_func(unsigned long ip)
- extern void my_tramp(void *);
- 
- #ifdef CONFIG_RISCV
-+#include <asm/asm.h>
- 
- asm (
- "       .pushsection    .text, \"ax\", @progbits\n"
- "       .type           my_tramp, @function\n"
- "       .globl          my_tramp\n"
- "   my_tramp:\n"
--"       addi	sp,sp,-24\n"
--"       sd	a0,0(sp)\n"
--"       sd	t0,8(sp)\n"
--"       sd	ra,16(sp)\n"
-+"       addi	sp,sp,-3*"SZREG"\n"
-+"       "REG_S"	a0,0*"SZREG"(sp)\n"
-+"       "REG_S"	t0,1*"SZREG"(sp)\n"
-+"       "REG_S"	ra,2*"SZREG"(sp)\n"
- "       mv	a0,t0\n"
- "       call	my_direct_func\n"
--"       ld	a0,0(sp)\n"
--"       ld	t0,8(sp)\n"
--"       ld	ra,16(sp)\n"
--"       addi	sp,sp,24\n"
-+"       "REG_L"	a0,0*"SZREG"(sp)\n"
-+"       "REG_L"	t0,1*"SZREG"(sp)\n"
-+"       "REG_L"	ra,2*"SZREG"(sp)\n"
-+"       addi	sp,sp,3*"SZREG"\n"
- "       jr	t0\n"
- "       .size           my_tramp, .-my_tramp\n"
- "       .popsection\n"
-diff --git a/samples/ftrace/ftrace-direct-too.c b/samples/ftrace/ftrace-direct-too.c
-index 5c319db48af2..a1f86dd48847 100644
---- a/samples/ftrace/ftrace-direct-too.c
-+++ b/samples/ftrace/ftrace-direct-too.c
-@@ -18,25 +18,26 @@ void my_direct_func(struct vm_area_struct *vma,
- extern void my_tramp(void *);
- 
- #ifdef CONFIG_RISCV
-+#include <asm/asm.h>
- 
- asm (
- "       .pushsection    .text, \"ax\", @progbits\n"
- "       .type           my_tramp, @function\n"
- "       .globl          my_tramp\n"
- "   my_tramp:\n"
--"       addi	sp,sp,-40\n"
--"       sd	a0,0(sp)\n"
--"       sd	a1,8(sp)\n"
--"       sd	a2,16(sp)\n"
--"       sd	t0,24(sp)\n"
--"       sd	ra,32(sp)\n"
-+"       addi	sp,sp,-5*"SZREG"\n"
-+"       "REG_S"	a0,0*"SZREG"(sp)\n"
-+"       "REG_S"	a1,1*"SZREG"(sp)\n"
-+"       "REG_S"	a2,2*"SZREG"(sp)\n"
-+"       "REG_S"	t0,3*"SZREG"(sp)\n"
-+"       "REG_S"	ra,4*"SZREG"(sp)\n"
- "       call	my_direct_func\n"
--"       ld	a0,0(sp)\n"
--"       ld	a1,8(sp)\n"
--"       ld	a2,16(sp)\n"
--"       ld	t0,24(sp)\n"
--"       ld	ra,32(sp)\n"
--"       addi	sp,sp,40\n"
-+"       "REG_L"	a0,0*"SZREG"(sp)\n"
-+"       "REG_L"	a1,1*"SZREG"(sp)\n"
-+"       "REG_L"	a2,2*"SZREG"(sp)\n"
-+"       "REG_L"	t0,3*"SZREG"(sp)\n"
-+"       "REG_L"	ra,4*"SZREG"(sp)\n"
-+"       addi	sp,sp,5*"SZREG"\n"
- "       jr	t0\n"
- "       .size           my_tramp, .-my_tramp\n"
- "       .popsection\n"
-diff --git a/samples/ftrace/ftrace-direct.c b/samples/ftrace/ftrace-direct.c
-index ca95506b0350..fe6b7ef0a2d5 100644
---- a/samples/ftrace/ftrace-direct.c
-+++ b/samples/ftrace/ftrace-direct.c
-@@ -15,21 +15,22 @@ void my_direct_func(struct task_struct *p)
- extern void my_tramp(void *);
- 
- #ifdef CONFIG_RISCV
-+#include <asm/asm.h>
- 
- asm (
- "       .pushsection    .text, \"ax\", @progbits\n"
- "       .type           my_tramp, @function\n"
- "       .globl          my_tramp\n"
- "   my_tramp:\n"
--"       addi	sp,sp,-24\n"
--"       sd	a0,0(sp)\n"
--"       sd	t0,8(sp)\n"
--"       sd	ra,16(sp)\n"
-+"       addi	sp,sp,-3*"SZREG"\n"
-+"       "REG_S"	a0,0*"SZREG"(sp)\n"
-+"       "REG_S"	t0,1*"SZREG"(sp)\n"
-+"       "REG_S"	ra,2*"SZREG"(sp)\n"
- "       call	my_direct_func\n"
--"       ld	a0,0(sp)\n"
--"       ld	t0,8(sp)\n"
--"       ld	ra,16(sp)\n"
--"       addi	sp,sp,24\n"
-+"       "REG_L"	a0,0*"SZREG"(sp)\n"
-+"       "REG_L"	t0,1*"SZREG"(sp)\n"
-+"       "REG_L"	ra,2*"SZREG"(sp)\n"
-+"       addi	sp,sp,3*"SZREG"\n"
- "       jr	t0\n"
- "       .size           my_tramp, .-my_tramp\n"
- "       .popsection\n"
--- 
-2.20.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVyZSBpbXBsZW1lbnRzIGZ0cmFjZV9ncmFwaF9mdW5jIGFzIHRoZSBmdW5jdGlvbiBncmFwaCB0
+cmFjaW5nIGZ1bmN0aW9uCndpdGggRlRSQUNFX1dJVEhfUkVHUyBkZWZpbmVkLgoKZnVuY3Rpb25f
+Z3JhcGhfZnVuYyBnZXRzIHRoZSBwb2ludCBvZiB0aGUgcGFyZW50IElQIGFuZCB0aGUgZnJhbWUg
+cG9pbnRlcgpmcm9tIGZyZWdzIGFuZCBjYWxsIHByZXBhcmVfZnRyYWNlX3JldHVybiBmb3IgZnVu
+Y3Rpb24gZ3JhcGggdHJhY2luZy4KCklmIEZUUkFDRV9XSVRIX1JFR1MgaXNuJ3QgZGVmaW5lZCwg
+dGhlIGVuYWJsZS9kaXNhYmxlIGhlbHBlcnMgb2YKZnRyYWNlX2dyYXBoX1tyZWdzXV9jYWxsIGFy
+ZSByZXZpc2VkIGZvciBzZXJ2aW5nIG9ubHkgZnRyYWNlX2dyYXBoX2NhbGwKaW4gdGhlICFGVFJB
+Q0VfV0lUSF9SRUdTIHZlcnNpb24gZnRyYWNlX2NhbGxlci4KClNpZ25lZC1vZmYtYnk6IFNvbmcg
+U2h1YWkgPHN1YWdyZmlsbGV0QGdtYWlsLmNvbT4KVGVzdGVkLWJ5OiBHdW8gUmVuIDxndW9yZW5A
+a2VybmVsLm9yZz4KU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+CkFj
+a2VkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Ci0tLQogYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9mdHJhY2UuaCB8ICAxMSArLQogYXJjaC9yaXNjdi9rZXJuZWwvZnRyYWNl
+LmMgICAgICB8ICAzMCArKystLQogYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TICB8IDE5
+MCArKysrKysrKysrKysrKysrKysrKysrKysrLS0tLS0tLQogMyBmaWxlcyBjaGFuZ2VkLCAxNzUg
+aW5zZXJ0aW9ucygrKSwgNTYgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS9mdHJhY2UuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRyYWNlLmgKaW5k
+ZXggZDQ3ZDg3YzJkN2UzLi44NGY4NTZhMzI4NmUgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vZnRyYWNlLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9mdHJhY2UuaApA
+QCAtMTA3LDcgKzEwNywxNiBAQCBkbyB7CQkJCQkJCQkJXAogc3RydWN0IGR5bl9mdHJhY2U7CiBp
+bnQgZnRyYWNlX2luaXRfbm9wKHN0cnVjdCBtb2R1bGUgKm1vZCwgc3RydWN0IGR5bl9mdHJhY2Ug
+KnJlYyk7CiAjZGVmaW5lIGZ0cmFjZV9pbml0X25vcCBmdHJhY2VfaW5pdF9ub3AKLSNlbmRpZgor
+CisjaWZkZWYgQ09ORklHX0RZTkFNSUNfRlRSQUNFX1dJVEhfUkVHUworc3RydWN0IGZ0cmFjZV9v
+cHM7CitzdHJ1Y3QgZnRyYWNlX3JlZ3M7Cit2b2lkIGZ0cmFjZV9ncmFwaF9mdW5jKHVuc2lnbmVk
+IGxvbmcgaXAsIHVuc2lnbmVkIGxvbmcgcGFyZW50X2lwLAorCQkgICAgICAgc3RydWN0IGZ0cmFj
+ZV9vcHMgKm9wLCBzdHJ1Y3QgZnRyYWNlX3JlZ3MgKmZyZWdzKTsKKyNkZWZpbmUgZnRyYWNlX2dy
+YXBoX2Z1bmMgZnRyYWNlX2dyYXBoX2Z1bmMKKyNlbmRpZiAvKiBDT05GSUdfRFlOQU1JQ19GVFJB
+Q0VfV0lUSF9SRUdTICovCisKKyNlbmRpZiAvKiBfX0FTU0VNQkxZX18gKi8KIAogI2VuZGlmIC8q
+IENPTkZJR19EWU5BTUlDX0ZUUkFDRSAqLwogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9mdHJhY2UuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2Z0cmFjZS5jCmluZGV4IDAzYTY0MzRhOGNk
+ZC4uZjVhYTI0ZDllMWMxIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9mdHJhY2UuYwor
+KysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9mdHJhY2UuYwpAQCAtMTc4LDMyICsxNzgsMjggQEAgdm9p
+ZCBwcmVwYXJlX2Z0cmFjZV9yZXR1cm4odW5zaWduZWQgbG9uZyAqcGFyZW50LCB1bnNpZ25lZCBs
+b25nIHNlbGZfYWRkciwKIH0KIAogI2lmZGVmIENPTkZJR19EWU5BTUlDX0ZUUkFDRQorI2lmZGVm
+IENPTkZJR19EWU5BTUlDX0ZUUkFDRV9XSVRIX1JFR1MKK3ZvaWQgZnRyYWNlX2dyYXBoX2Z1bmMo
+dW5zaWduZWQgbG9uZyBpcCwgdW5zaWduZWQgbG9uZyBwYXJlbnRfaXAsCisJCSAgICAgICBzdHJ1
+Y3QgZnRyYWNlX29wcyAqb3AsIHN0cnVjdCBmdHJhY2VfcmVncyAqZnJlZ3MpCit7CisJc3RydWN0
+IHB0X3JlZ3MgKnJlZ3MgPSBhcmNoX2Z0cmFjZV9nZXRfcmVncyhmcmVncyk7CisJdW5zaWduZWQg
+bG9uZyAqcGFyZW50ID0gKHVuc2lnbmVkIGxvbmcgKikmcmVncy0+cmE7CisKKwlwcmVwYXJlX2Z0
+cmFjZV9yZXR1cm4ocGFyZW50LCBpcCwgZnJhbWVfcG9pbnRlcihyZWdzKSk7Cit9CisjZWxzZSAv
+KiBDT05GSUdfRFlOQU1JQ19GVFJBQ0VfV0lUSF9SRUdTICovCiBleHRlcm4gdm9pZCBmdHJhY2Vf
+Z3JhcGhfY2FsbCh2b2lkKTsKLWV4dGVybiB2b2lkIGZ0cmFjZV9ncmFwaF9yZWdzX2NhbGwodm9p
+ZCk7CiBpbnQgZnRyYWNlX2VuYWJsZV9mdHJhY2VfZ3JhcGhfY2FsbGVyKHZvaWQpCiB7Ci0JaW50
+IHJldDsKLQotCXJldCA9IF9fZnRyYWNlX21vZGlmeV9jYWxsKCh1bnNpZ25lZCBsb25nKSZmdHJh
+Y2VfZ3JhcGhfY2FsbCwKLQkJCQkgICAgKHVuc2lnbmVkIGxvbmcpJnByZXBhcmVfZnRyYWNlX3Jl
+dHVybiwgdHJ1ZSwgdHJ1ZSk7Ci0JaWYgKHJldCkKLQkJcmV0dXJuIHJldDsKLQotCXJldHVybiBf
+X2Z0cmFjZV9tb2RpZnlfY2FsbCgodW5zaWduZWQgbG9uZykmZnRyYWNlX2dyYXBoX3JlZ3NfY2Fs
+bCwKKwlyZXR1cm4gX19mdHJhY2VfbW9kaWZ5X2NhbGwoKHVuc2lnbmVkIGxvbmcpJmZ0cmFjZV9n
+cmFwaF9jYWxsLAogCQkJCSAgICAodW5zaWduZWQgbG9uZykmcHJlcGFyZV9mdHJhY2VfcmV0dXJu
+LCB0cnVlLCB0cnVlKTsKIH0KIAogaW50IGZ0cmFjZV9kaXNhYmxlX2Z0cmFjZV9ncmFwaF9jYWxs
+ZXIodm9pZCkKIHsKLQlpbnQgcmV0OwotCi0JcmV0ID0gX19mdHJhY2VfbW9kaWZ5X2NhbGwoKHVu
+c2lnbmVkIGxvbmcpJmZ0cmFjZV9ncmFwaF9jYWxsLAotCQkJCSAgICAodW5zaWduZWQgbG9uZykm
+cHJlcGFyZV9mdHJhY2VfcmV0dXJuLCBmYWxzZSwgdHJ1ZSk7Ci0JaWYgKHJldCkKLQkJcmV0dXJu
+IHJldDsKLQotCXJldHVybiBfX2Z0cmFjZV9tb2RpZnlfY2FsbCgodW5zaWduZWQgbG9uZykmZnRy
+YWNlX2dyYXBoX3JlZ3NfY2FsbCwKKwlyZXR1cm4gX19mdHJhY2VfbW9kaWZ5X2NhbGwoKHVuc2ln
+bmVkIGxvbmcpJmZ0cmFjZV9ncmFwaF9jYWxsLAogCQkJCSAgICAodW5zaWduZWQgbG9uZykmcHJl
+cGFyZV9mdHJhY2VfcmV0dXJuLCBmYWxzZSwgdHJ1ZSk7CiB9CisjZW5kaWYgLyogQ09ORklHX0RZ
+TkFNSUNfRlRSQUNFX1dJVEhfUkVHUyAqLwogI2VuZGlmIC8qIENPTkZJR19EWU5BTUlDX0ZUUkFD
+RSAqLwogI2VuZGlmIC8qIENPTkZJR19GVU5DVElPTl9HUkFQSF9UUkFDRVIgKi8KZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3Yva2VybmVsL21jb3VudC1keW4uUyBiL2FyY2gvcmlzY3Yva2VybmVsL21j
+b3VudC1keW4uUwppbmRleCA2NjliODY5N2FhMzguLmZiODI4NmI4MGNmYyAxMDA2NDQKLS0tIGEv
+YXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL21j
+b3VudC1keW4uUwpAQCAtNTcsMzEgKzU3LDE1MCBAQAogCS5lbmRtCiAKICNpZmRlZiBDT05GSUdf
+RFlOQU1JQ19GVFJBQ0VfV0lUSF9SRUdTCi0JLm1hY3JvIFNBVkVfQUxMCisKKy8qKgorKiBTQVZF
+X0FCSV9SRUdTIC0gc2F2ZSByZWdzIGFnYWluc3QgdGhlIHB0X3JlZ3Mgc3RydWN0CisqCisqIEBh
+bGw6IHRlbGwgaWYgc2F2aW5nIGFsbCB0aGUgcmVncworKgorKiBJZiBhbGwgaXMgc2V0LCBhbGwg
+dGhlIHJlZ3Mgd2lsbCBiZSBzYXZlZCwgb3RoZXJ3aXNlIG9ubHkgQUJJCisqIHJlbGF0ZWQgcmVn
+cyAoYTAtYTcsZXBjLHJhIGFuZCBvcHRpb25hbCBzMCkgd2lsbCBiZSBzYXZlZC4KKyoKKyogQWZ0
+ZXIgdGhlIHN0YWNrIGlzIGVzdGFibGlzaGVkLAorKgorKiAwKHNwKSBzdG9yZXMgdGhlIFBDIG9m
+IHRoZSB0cmFjZWQgZnVuY3Rpb24gd2hpY2ggY2FuIGJlIGFjY2Vzc2VkCisqIGJ5ICYoZnJlZ3Mp
+LT5yZWdzLT5lcGMgaW4gdHJhY2luZyBmdW5jdGlvbi4gTm90ZSB0aGF0IHRoZSByZWFsCisqIGZ1
+bmN0aW9uIGVudHJ5IGFkZHJlc3Mgc2hvdWxkIGJlIGNvbXB1dGVkIHdpdGggLUZFTlRSWV9SQV9P
+RkZTRVQuCisqCisqIDgoc3ApIHN0b3JlcyB0aGUgZnVuY3Rpb24gcmV0dXJuIGFkZHJlc3MgKGku
+ZS4gcGFyZW50IElQKSB0aGF0CisqIGNhbiBiZSBhY2Nlc3NlZCBieSAmKGZyZWdzKS0+cmVncy0+
+cmEgaW4gdHJhY2luZyBmdW5jdGlvbi4KKyoKKyogVGhlIG90aGVyIHJlZ3MgYXJlIHNhdmVkIGF0
+IHRoZSByZXNwZWN0aXZlIGxvY2FsdGlvbiBhbmQgYWNjZXNzZWQKKyogYnkgdGhlIHJlc3BlY3Rp
+dmUgcHRfcmVncyBtZW1iZXIuCisqCisqIEhlcmUgaXMgdGhlIGxheW91dCBvZiBzdGFjayBmb3Ig
+eW91ciByZWZlcmVuY2UuCisqCisqIFBUX1NJWkVfT05fU1RBQ0sgIC0+ICArKysrKysrKysKKyog
+ICAgICAgICAgICAgICAgICAgICAgICsgLi4uLi4gKworKiAgICAgICAgICAgICAgICAgICAgICAg
+KyB0My10NiArCisqICAgICAgICAgICAgICAgICAgICAgICArIHMyLXMxMSsKKyogICAgICAgICAg
+ICAgICAgICAgICAgICsgYTAtYTcgKyAtLSsrKystPiBmdHJhY2VfY2FsbGVyIHNhdmVkCisqICAg
+ICAgICAgICAgICAgICAgICAgICArIHMxICAgICsgICArCisqICAgICAgICAgICAgICAgICAgICAg
+ICArIHMwICAgICsgLS0rCisqICAgICAgICAgICAgICAgICAgICAgICArIHQwLXQyICsgICArCisq
+ICAgICAgICAgICAgICAgICAgICAgICArIHRwICAgICsgICArCisqICAgICAgICAgICAgICAgICAg
+ICAgICArIGdwICAgICsgICArCisqICAgICAgICAgICAgICAgICAgICAgICArIHNwICAgICsgICAr
+CisqICAgICAgICAgICAgICAgICAgICAgICArIHJhICAgICsgLS0rIC8vIHBhcmVudCBJUAorKiAg
+ICAgICAgICAgICAgIHNwICAtPiAgKyBlcGMgICArIC0tKyAvLyBQQworKiAgICAgICAgICAgICAg
+ICAgICAgICAgKysrKysrKysrCisqKi8KKwkubWFjcm8gU0FWRV9BQklfUkVHUywgYWxsPTAKIAlh
+ZGRpCXNwLCBzcCwgLVBUX1NJWkVfT05fU1RBQ0sKIAotCVJFR19TIHQwLCAgUFRfRVBDKHNwKQot
+CVJFR19TIHgxLCAgUFRfUkEoc3ApCi0JUkVHX1MgeDIsICBQVF9TUChzcCkKLQlSRUdfUyB4Mywg
+IFBUX0dQKHNwKQotCVJFR19TIHg0LCAgUFRfVFAoc3ApCi0JUkVHX1MgeDUsICBQVF9UMChzcCkK
+LQlzYXZlX2Zyb21feDZfdG9feDMxCisJUkVHX1MJdDAsICBQVF9FUEMoc3ApCisJUkVHX1MJeDEs
+ICBQVF9SQShzcCkKKworCS8vIHNhdmUgdGhlIEFCSSByZWdzCisKKwlSRUdfUwl4MTAsIFBUX0Ew
+KHNwKQorCVJFR19TCXgxMSwgUFRfQTEoc3ApCisJUkVHX1MJeDEyLCBQVF9BMihzcCkKKwlSRUdf
+Uwl4MTMsIFBUX0EzKHNwKQorCVJFR19TCXgxNCwgUFRfQTQoc3ApCisJUkVHX1MJeDE1LCBQVF9B
+NShzcCkKKwlSRUdfUwl4MTYsIFBUX0E2KHNwKQorCVJFR19TCXgxNywgUFRfQTcoc3ApCisKKwkv
+LyBzYXZlIHRoZSBsZWZ0b3ZlciByZWdzCisKKwkuaWYgXGFsbCA9PSAxCisJUkVHX1MJeDIsIFBU
+X1NQKHNwKQorCVJFR19TCXgzLCBQVF9HUChzcCkKKwlSRUdfUwl4NCwgUFRfVFAoc3ApCisJUkVH
+X1MJeDUsIFBUX1QwKHNwKQorCVJFR19TCXg2LCBQVF9UMShzcCkKKwlSRUdfUwl4NywgUFRfVDIo
+c3ApCisJUkVHX1MJeDgsIFBUX1MwKHNwKQorCVJFR19TCXg5LCBQVF9TMShzcCkKKwlSRUdfUwl4
+MTgsIFBUX1MyKHNwKQorCVJFR19TCXgxOSwgUFRfUzMoc3ApCisJUkVHX1MJeDIwLCBQVF9TNChz
+cCkKKwlSRUdfUwl4MjEsIFBUX1M1KHNwKQorCVJFR19TCXgyMiwgUFRfUzYoc3ApCisJUkVHX1MJ
+eDIzLCBQVF9TNyhzcCkKKwlSRUdfUwl4MjQsIFBUX1M4KHNwKQorCVJFR19TCXgyNSwgUFRfUzko
+c3ApCisJUkVHX1MJeDI2LCBQVF9TMTAoc3ApCisJUkVHX1MJeDI3LCBQVF9TMTEoc3ApCisJUkVH
+X1MJeDI4LCBQVF9UMyhzcCkKKwlSRUdfUwl4MjksIFBUX1Q0KHNwKQorCVJFR19TCXgzMCwgUFRf
+VDUoc3ApCisJUkVHX1MJeDMxLCBQVF9UNihzcCkKKworCS8vIHNhdmUgczAgaWYgRlBfVEVTVCBk
+ZWZpbmVkCisKKwkuZWxzZQorI2lmZGVmIEhBVkVfRlVOQ1RJT05fR1JBUEhfRlBfVEVTVAorCVJF
+R19TCXg4LCBQVF9TMChzcCkKKyNlbmRpZgorCS5lbmRpZgogCS5lbmRtCiAKLQkubWFjcm8gUkVT
+VE9SRV9BTEwKLQlSRUdfTCB4MSwgIFBUX1JBKHNwKQotCVJFR19MIHgyLCAgUFRfU1Aoc3ApCi0J
+UkVHX0wgeDMsICBQVF9HUChzcCkKLQlSRUdfTCB4NCwgIFBUX1RQKHNwKQotCS8qIFJlc3RvcmUg
+dDAgd2l0aCBQVF9FUEMgKi8KLQlSRUdfTCB4NSwgIFBUX0VQQyhzcCkKLQlyZXN0b3JlX2Zyb21f
+eDZfdG9feDMxCisJLm1hY3JvIFJFU1RPUkVfQUJJX1JFR1MsIGFsbD0wCisJUkVHX0wJdDAsIFBU
+X0VQQyhzcCkKKwlSRUdfTAl4MSwgUFRfUkEoc3ApCisJUkVHX0wJeDEwLCBQVF9BMChzcCkKKwlS
+RUdfTAl4MTEsIFBUX0ExKHNwKQorCVJFR19MCXgxMiwgUFRfQTIoc3ApCisJUkVHX0wJeDEzLCBQ
+VF9BMyhzcCkKKwlSRUdfTAl4MTQsIFBUX0E0KHNwKQorCVJFR19MCXgxNSwgUFRfQTUoc3ApCisJ
+UkVHX0wJeDE2LCBQVF9BNihzcCkKKwlSRUdfTAl4MTcsIFBUX0E3KHNwKQogCisJLmlmIFxhbGwg
+PT0gMQorCVJFR19MCXgyLCBQVF9TUChzcCkKKwlSRUdfTAl4MywgUFRfR1Aoc3ApCisJUkVHX0wJ
+eDQsIFBUX1RQKHNwKQorCVJFR19MCXg2LCBQVF9UMShzcCkKKwlSRUdfTAl4NywgUFRfVDIoc3Ap
+CisJUkVHX0wJeDgsIFBUX1MwKHNwKQorCVJFR19MCXg5LCBQVF9TMShzcCkKKwlSRUdfTAl4MTgs
+IFBUX1MyKHNwKQorCVJFR19MCXgxOSwgUFRfUzMoc3ApCisJUkVHX0wJeDIwLCBQVF9TNChzcCkK
+KwlSRUdfTAl4MjEsIFBUX1M1KHNwKQorCVJFR19MCXgyMiwgUFRfUzYoc3ApCisJUkVHX0wJeDIz
+LCBQVF9TNyhzcCkKKwlSRUdfTAl4MjQsIFBUX1M4KHNwKQorCVJFR19MCXgyNSwgUFRfUzkoc3Ap
+CisJUkVHX0wJeDI2LCBQVF9TMTAoc3ApCisJUkVHX0wJeDI3LCBQVF9TMTEoc3ApCisJUkVHX0wJ
+eDI4LCBQVF9UMyhzcCkKKwlSRUdfTAl4MjksIFBUX1Q0KHNwKQorCVJFR19MCXgzMCwgUFRfVDUo
+c3ApCisJUkVHX0wJeDMxLCBQVF9UNihzcCkKKworCS5lbHNlCisjaWZkZWYgSEFWRV9GVU5DVElP
+Tl9HUkFQSF9GUF9URVNUCisJUkVHX0wJeDgsIFBUX1MwKHNwKQorI2VuZGlmCisJLmVuZGlmCiAJ
+YWRkaQlzcCwgc3AsIFBUX1NJWkVfT05fU1RBQ0sKIAkuZW5kbQorCisJLm1hY3JvIFBSRVBBUkVf
+QVJHUworCWFkZGkJYTAsIHQwLCAtRkVOVFJZX1JBX09GRlNFVAorCWxhCWExLCBmdW5jdGlvbl90
+cmFjZV9vcAorCVJFR19MCWEyLCAwKGExKQorCW12CWExLCByYQorCW12CWEzLCBzcAorCS5lbmRt
+CisKICNlbmRpZiAvKiBDT05GSUdfRFlOQU1JQ19GVFJBQ0VfV0lUSF9SRUdTICovCiAKKyNpZm5k
+ZWYgQ09ORklHX0RZTkFNSUNfRlRSQUNFX1dJVEhfUkVHUwogRU5UUlkoZnRyYWNlX2NhbGxlcikK
+IAlTQVZFX0FCSQogCkBAIC0xMDcsMzYgKzIyNiwzMSBAQCBmdHJhY2VfZ3JhcGhfY2FsbDoKIAlj
+YWxsCWZ0cmFjZV9zdHViCiAjZW5kaWYKIAlSRVNUT1JFX0FCSQotCWpyIHQwCisJanIJdDAKIEVO
+RFBST0MoZnRyYWNlX2NhbGxlcikKIAotI2lmZGVmIENPTkZJR19EWU5BTUlDX0ZUUkFDRV9XSVRI
+X1JFR1MKKyNlbHNlIC8qIENPTkZJR19EWU5BTUlDX0ZUUkFDRV9XSVRIX1JFR1MgKi8KIEVOVFJZ
+KGZ0cmFjZV9yZWdzX2NhbGxlcikKLQlTQVZFX0FMTAotCi0JYWRkaQlhMCwgdDAsIC1GRU5UUllf
+UkFfT0ZGU0VUCi0JbGEJYTEsIGZ1bmN0aW9uX3RyYWNlX29wCi0JUkVHX0wJYTIsIDAoYTEpCi0J
+bXYJYTEsIHJhCi0JbXYJYTMsIHNwCisJU0FWRV9BQklfUkVHUyAxCisJUFJFUEFSRV9BUkdTCiAK
+IGZ0cmFjZV9yZWdzX2NhbGw6CiAJLmdsb2JhbCBmdHJhY2VfcmVnc19jYWxsCiAJY2FsbAlmdHJh
+Y2Vfc3R1YgogCi0jaWZkZWYgQ09ORklHX0ZVTkNUSU9OX0dSQVBIX1RSQUNFUgotCWFkZGkJYTAs
+IHNwLCBQVF9SQQotCVJFR19MCWExLCBQVF9FUEMoc3ApCi0JYWRkaQlhMSwgYTEsIC1GRU5UUllf
+UkFfT0ZGU0VUCi0jaWZkZWYgSEFWRV9GVU5DVElPTl9HUkFQSF9GUF9URVNUCi0JbXYJYTIsIHMw
+Ci0jZW5kaWYKLWZ0cmFjZV9ncmFwaF9yZWdzX2NhbGw6Ci0JLmdsb2JhbCBmdHJhY2VfZ3JhcGhf
+cmVnc19jYWxsCisJUkVTVE9SRV9BQklfUkVHUyAxCisJanIJdDAKK0VORFBST0MoZnRyYWNlX3Jl
+Z3NfY2FsbGVyKQorCitFTlRSWShmdHJhY2VfY2FsbGVyKQorCVNBVkVfQUJJX1JFR1MgMAorCVBS
+RVBBUkVfQVJHUworCitmdHJhY2VfY2FsbDoKKwkuZ2xvYmFsIGZ0cmFjZV9jYWxsCiAJY2FsbAlm
+dHJhY2Vfc3R1YgotI2VuZGlmCiAKLQlSRVNUT1JFX0FMTAotCWpyIHQwCi1FTkRQUk9DKGZ0cmFj
+ZV9yZWdzX2NhbGxlcikKKwlSRVNUT1JFX0FCSV9SRUdTIDAKKwlqcgl0MAorRU5EUFJPQyhmdHJh
+Y2VfY2FsbGVyKQogI2VuZGlmIC8qIENPTkZJR19EWU5BTUlDX0ZUUkFDRV9XSVRIX1JFR1MgKi8K
+LS0gCjIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
