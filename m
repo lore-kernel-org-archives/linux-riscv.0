@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A67B4EB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 03:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B0BBC0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 03:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XuadLL5qxl215hJX3VMhZKEXJewhgft2t2RB04fppdE=; b=jHANeaQBalgXhA
-	zjh+W6rOnRu3YFa0pvUvqr6gxv6P52apCFJr6hrCoFict8P1juFKopBSwyfE7+Z8VbVObkiX9wz3r
-	dsNCC7TYPnqbRqef6tBlRgOl9j79YkYo0GK01E4LJrVZWW/4JQFDqBYVvapjikPie23AGqCgC9AIS
-	vHyAiKNLNRNibod8AZAqFzq/xN0qgdOhOjdDa/2LRm/jnxzHs9lI/pJGs8CcN/h6FgsiodwanuNq8
-	h0pmP6PHjGj6Nd+ppdDJ5ZZlSD+TCUhC/cTJbAi5B14IfFl/QZy/TaWqNKXGa41dcjJ1u5ypnxmWx
-	4n0ps+mGgCtXHjnrILpA==;
+	List-Owner; bh=RdEt1mYeInCMl6bOLeL1TSU7uB4SGvicTIxWPzgcgYw=; b=fL3MpmzBY1RHNI
+	2TqDgMtmPtNVXCzfEHYBbT+WD2cUyz6FXR/mDILte96EStN/lL61DGwprkcph0vSqHnNTBRg25l/i
+	6yFYMjYaAXVYvYeb8SRQfg7+vnKqwhrVTkhKZY1mpf/M+BzfWO8zOa5Mr36LpLwZBB159MtU3sVGQ
+	ycJdkUdIKiQ5bq8qZ2oY67SWdt2vK4/tMJJkYa5h+ayQfD77ON+b3tCYS4QbBoFSa/L+8+Kk7H4Ut
+	35JoX6ywN6VUzJcUPtlG4EUBPsafvXMhUmvtldjfHmn258dNRRqYcCvLgRmluzgdyib4h4EggERjp
+	5a0lci7S7Hni34XaSrhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDzCE-00BWwX-2S;
-	Tue, 27 Jun 2023 03:16:50 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1qDzCF-00BWxU-2e;
+	Tue, 27 Jun 2023 03:16:51 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDzAx-00BVaF-1E;
-	Tue, 27 Jun 2023 03:15:33 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-56ff9cc91b4so44754567b3.0;
-        Mon, 26 Jun 2023 20:15:29 -0700 (PDT)
+	id 1qDzAx-00BVcK-2X;
+	Tue, 27 Jun 2023 03:15:34 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-570284c7e61so43269707b3.1;
+        Mon, 26 Jun 2023 20:15:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1687835729; x=1690427729;
+        d=gmail.com; s=20221208; t=1687835731; x=1690427731;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wSwuU7fg/k+TT5PagWIdYLap7GxOydHG9fnVI01D6B4=;
-        b=Lg2sjw4Fq7Jsh/1bPb8/Bz5bb4WbWygT3r2OYZVXGMBEwfozbqxm0/F6bIElAKjdHD
-         k9tw765etUmPaJavNHOgRAh4TrN9WtYkyFJDXO4e8zB0CLQ7CKYG2S6Z4giPdak3TlLV
-         dBQDIQS2mzx3Rkho31FJSGH9B3yVhFoSm33zMOn6yvA7Um5yH03kqWlR3ymYgVkxmZrE
-         IJEFqdSDC0V+0/+0zxMFLR8Zuzl0eiDJ5KrxbBEu73g+J0vEbUyjW5NugtcJ2jWIZ/MO
-         3IUWIpYlYW1hiX8BTPI8estSfzK1mYASEDhKfgKz4greHIhYdQhx0bK/LpN/7ezGhpY+
-         FpXA==
+        bh=bhgUYiKwQSwYMGFv9d1r56wjiuPfdLCT9N5JwdJpvSY=;
+        b=NN6JuQbcJSEhuQl119fqyrzmvfTJLSgZNGPIizHO44moV6zy7vRkkkGbpzNnm+T/zk
+         LfpssTQxYHLCLcRT6ur03GhfUH0PR3hr1gEAZWn4KlOVQ/bRaXKu0XwyzIXh7FK2T78w
+         GV5aBHngJRtwmpryMrqg1wnpyNcK63Z6rXozTP8pqdze8wtkdCn+4d6Nxd1VmHHTwiSp
+         Hj2gVskjJaa7d3mxLgebdTWNoaiyWHEkTnVETMwzQNfFNqae/PKVEKJL0sEqbBCs/7Gc
+         Lg3rR1WUfvzFXQfsjuyOG1PSX82wJS5wL2NRG2ks6qk/cPnX1GTuY36dOOOiPPB0JsGq
+         3KdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687835729; x=1690427729;
+        d=1e100.net; s=20221208; t=1687835731; x=1690427731;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wSwuU7fg/k+TT5PagWIdYLap7GxOydHG9fnVI01D6B4=;
-        b=XqfEgIFmSTP2kamvSXjOPhY94U6XljK1PHIhzdlf+tJqp1o3XJfRI9Tyvi4hna/Beu
-         pCg+9uiVWg8ZK3H1fpay7+7a/VcLtSZDpj9JykFt3vKgCLrokVM4pxZneqvYuW08atqq
-         uTKPq+8ScsAOQxOQVBlryODjWqGvZfB58NrwKW3RCcP6IgsPln4aR6YyYVoDLwntwafx
-         k8EKs545P/V+tWp7m7YvHn5vTHJUeE5KmpwXLxw+pAHa0RJM9WDpgeEcCLTsnnoLOTit
-         SyiUaUFIVUZpaYah6IcGIxDAavpKxYylbtCn87bn28yfLCcLP9dVfM4REevisCyIyEJ6
-         sBwA==
-X-Gm-Message-State: AC+VfDzdRVq6UK6ycgE0rn+GrcjT0FqQW7n9JKjcYoNtpEMRBanwMMPA
-	xyBgNuoB5on6MCCyAyUTbmc=
-X-Google-Smtp-Source: ACHHUZ46AY3BqwTWqQUYpGbmhIWT6fwcR58AoQIOUKYPJMkYvs0jOnx1fxcN7fC61p35DP7uAiDexw==
-X-Received: by 2002:a81:6887:0:b0:565:cf47:7331 with SMTP id d129-20020a816887000000b00565cf477331mr37299896ywc.2.1687835728818;
-        Mon, 26 Jun 2023 20:15:28 -0700 (PDT)
+        bh=bhgUYiKwQSwYMGFv9d1r56wjiuPfdLCT9N5JwdJpvSY=;
+        b=GGtQf/e0djMB1ubPHIDsbDZL52pgt3wVNO2JMCdSLh6ib5p0EtOsY4p0d74RLmCULG
+         +RoyqGs4jZtq3Z8KcYT68LKlBhWQABjvE8DgRkRd5sXWMw22HpmSr3Nf+t9ZkcYriamX
+         +1DaRDmR/f5n/vyACYB8vwBAvxC+yZ9sZGVNyKTxCL/FFHkrXZEWGaclO5xalppQRx1/
+         ohajj4e4zm7dYq2ki0lGM0Tk8jayn4U2pDY2J0DO4oeYskmz6QisFA4j7Nd741TBOgod
+         Li39RUnwIGuS8UhpmKKPUT7URMf+DJbHIzoPlDh0JM7o7gL3ew6teymMbfKioynVjXp0
+         5qrQ==
+X-Gm-Message-State: AC+VfDyMTH7+unazU7jAn/5VyUuYsAoM/t1Xvs8z6nXQy1AJ8ud13oE9
+	FsnzEb6zq6VJblrRWDJ0DBs=
+X-Google-Smtp-Source: ACHHUZ77IlfDYtyaiNtbQBvQ+hst+uMDswEhJokbRedTnkaskK+XBmCINjFgoTdvnk/TaS9G8YnT8Q==
+X-Received: by 2002:a81:6cc3:0:b0:56f:fcb0:26f6 with SMTP id h186-20020a816cc3000000b0056ffcb026f6mr25623334ywc.52.1687835730840;
+        Mon, 26 Jun 2023 20:15:30 -0700 (PDT)
 Received: from unknowna0e70b2ca394.attlocal.net ([2600:1700:2f7d:1800::16])
-        by smtp.googlemail.com with ESMTPSA id s4-20020a0dd004000000b0057399b3bd26sm1614798ywd.33.2023.06.26.20.15.26
+        by smtp.googlemail.com with ESMTPSA id s4-20020a0dd004000000b0057399b3bd26sm1614798ywd.33.2023.06.26.20.15.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jun 2023 20:15:28 -0700 (PDT)
+        Mon, 26 Jun 2023 20:15:30 -0700 (PDT)
 From: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Matthew Wilcox <willy@infradead.org>
@@ -84,17 +84,16 @@ Cc: linux-mm@kvack.org,
 	Hugh Dickins <hughd@google.com>,
 	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
 	Mike Rapoport <rppt@kernel.org>
-Subject: [PATCH v6 10/33] mm: Convert pmd_ptlock_free() to use ptdescs
-Date: Mon, 26 Jun 2023 20:14:08 -0700
-Message-Id: <20230627031431.29653-11-vishal.moola@gmail.com>
+Subject: [PATCH v6 11/33] mm: Convert ptlock_free() to use ptdescs
+Date: Mon, 26 Jun 2023 20:14:09 -0700
+Message-Id: <20230627031431.29653-12-vishal.moola@gmail.com>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20230627031431.29653-1-vishal.moola@gmail.com>
 References: <20230627031431.29653-1-vishal.moola@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_201531_439493_F5F8DBBA 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230626_201531_869189_C53A6D18 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,46 +117,73 @@ Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
 Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
 ---
  include/linux/mm.h | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ mm/memory.c        |  4 ++--
+ 2 files changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 4af424e4015a..0221675e4dc5 100644
+index 0221675e4dc5..69e6d6696c44 100644
 --- a/include/linux/mm.h
 +++ b/include/linux/mm.h
-@@ -2934,12 +2934,12 @@ static inline bool pmd_ptlock_init(struct ptdesc *ptdesc)
- 	return ptlock_init(ptdesc);
+@@ -2799,7 +2799,7 @@ static inline void pagetable_free(struct ptdesc *pt)
+ #if ALLOC_SPLIT_PTLOCKS
+ void __init ptlock_cache_init(void);
+ bool ptlock_alloc(struct ptdesc *ptdesc);
+-extern void ptlock_free(struct page *page);
++void ptlock_free(struct ptdesc *ptdesc);
+ 
+ static inline spinlock_t *ptlock_ptr(struct ptdesc *ptdesc)
+ {
+@@ -2815,7 +2815,7 @@ static inline bool ptlock_alloc(struct ptdesc *ptdesc)
+ 	return true;
  }
  
--static inline void pmd_ptlock_free(struct page *page)
-+static inline void pmd_ptlock_free(struct ptdesc *ptdesc)
+-static inline void ptlock_free(struct page *page)
++static inline void ptlock_free(struct ptdesc *ptdesc)
  {
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
--	VM_BUG_ON_PAGE(page->pmd_huge_pte, page);
-+	VM_BUG_ON_PAGE(ptdesc->pmd_huge_pte, ptdesc_page(ptdesc));
- #endif
+ }
+ 
+@@ -2856,7 +2856,7 @@ static inline spinlock_t *pte_lockptr(struct mm_struct *mm, pmd_t *pmd)
+ }
+ static inline void ptlock_cache_init(void) {}
+ static inline bool ptlock_init(struct ptdesc *ptdesc) { return true; }
+-static inline void ptlock_free(struct page *page) {}
++static inline void ptlock_free(struct ptdesc *ptdesc) {}
+ #endif /* USE_SPLIT_PTE_PTLOCKS */
+ 
+ static inline bool pgtable_pte_page_ctor(struct page *page)
+@@ -2870,7 +2870,7 @@ static inline bool pgtable_pte_page_ctor(struct page *page)
+ 
+ static inline void pgtable_pte_page_dtor(struct page *page)
+ {
 -	ptlock_free(page);
-+	ptlock_free(ptdesc_page(ptdesc));
- }
- 
- #define pmd_huge_pte(mm, pmd) (pmd_ptdesc(pmd)->pmd_huge_pte)
-@@ -2952,7 +2952,7 @@ static inline spinlock_t *pmd_lockptr(struct mm_struct *mm, pmd_t *pmd)
- }
- 
- static inline bool pmd_ptlock_init(struct ptdesc *ptdesc) { return true; }
--static inline void pmd_ptlock_free(struct page *page) {}
-+static inline void pmd_ptlock_free(struct ptdesc *ptdesc) {}
- 
- #define pmd_huge_pte(mm, pmd) ((mm)->pmd_huge_pte)
- 
-@@ -2976,7 +2976,7 @@ static inline bool pgtable_pmd_page_ctor(struct page *page)
- 
- static inline void pgtable_pmd_page_dtor(struct page *page)
- {
--	pmd_ptlock_free(page);
-+	pmd_ptlock_free(page_ptdesc(page));
++	ptlock_free(page_ptdesc(page));
  	__ClearPageTable(page);
  	dec_lruvec_page_state(page, NR_PAGETABLE);
  }
+@@ -2939,7 +2939,7 @@ static inline void pmd_ptlock_free(struct ptdesc *ptdesc)
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ 	VM_BUG_ON_PAGE(ptdesc->pmd_huge_pte, ptdesc_page(ptdesc));
+ #endif
+-	ptlock_free(ptdesc_page(ptdesc));
++	ptlock_free(ptdesc);
+ }
+ 
+ #define pmd_huge_pte(mm, pmd) (pmd_ptdesc(pmd)->pmd_huge_pte)
+diff --git a/mm/memory.c b/mm/memory.c
+index 2ff14f50c7b3..8743aef6095b 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -5931,8 +5931,8 @@ bool ptlock_alloc(struct ptdesc *ptdesc)
+ 	return true;
+ }
+ 
+-void ptlock_free(struct page *page)
++void ptlock_free(struct ptdesc *ptdesc)
+ {
+-	kmem_cache_free(page_ptl_cachep, page->ptl);
++	kmem_cache_free(page_ptl_cachep, ptdesc->ptl);
+ }
+ #endif
 -- 
 2.40.1
 
