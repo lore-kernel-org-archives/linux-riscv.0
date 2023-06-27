@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94E4EB64D9
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 09:25:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96071EB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 09:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kWZEBDNKjPu9LvxAIsAFxpW45JXLqt5dc26/vg2mlPE=; b=AVky08FtyIflny
-	Tt3Rz8JEBZgzVqusgUvt+oBDnl8yCwuGGpcJwR3rcSFPOUiSiLf3nM+2BFqK365uhetDDo5VnIcGX
-	y6MXhNLxBZsbUek2XObfuCH1BJnzqxfXJLEXCnnl63k8zozuAJH1j5BgrpSLga7un14A4ktL03PwH
-	7mnJ9wkYcYUkB4J7v8WBpq/u4BlOFYycZAnlYth7neTkPYmg3UY6yZ0rzVI1UEsq1NWzrG89xy6ce
-	MYlrLSLmZkmCOmjh7YbZfW0W+yqE738ZpFZcymCgGqXjIO/kefdA5EoFD2LyRnlYz5pfouoxTn3ba
-	nS9dUk6cmsHqE5piAmyA==;
+	List-Owner; bh=OKADH5054CEqHCxHnezgBTKJsqQsC5r0szEgmKYtMlU=; b=uWth233Eqlqfgw
+	2TfTFi8QM97Gef+fVOXprq5YmQirraqkaSTCOxOYDTKHQhcOe3D/ssdkCWNcTEsJ2Lkm5t7JSzQV2
+	Y5ouOVA00rUvTvVXFtkkhjUh9x0XklASkGyi0u+Uakk5vThPtghCmcfejabgtTKlXAx0cy0SC1CCO
+	mbPemQCaU5DJqVwiWV7KHrof+m0nu+9+Bzs7WdstyZoVbk5bOiGRjmEQsz+NPjl7LKqFcyazotbLw
+	pN0rTZttf5vC+9G9N83+tjSZcFfcw2RUcF2lYKRat795SO1ugsd5QDz7BO0H9Xf2r76h3XHeJbR+m
+	NqvWOb5rUkv4EYLE3auw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE4xF-00Cgbt-1o;
-	Tue, 27 Jun 2023 09:25:45 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1qE59a-00ChmA-1p;
+	Tue, 27 Jun 2023 09:38:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE4x7-00CgZ7-20
-	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jun 2023 09:25:44 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-51d946d2634so2852931a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Jun 2023 02:25:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1687857927; x=1690449927;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KOj/rKh1W20bzLhI6+CfpEHGEjMrtQH/po/GETDVHsw=;
-        b=Kde+tcrEUPsBGZkVEMKyivWmX6DlTttsz0Dh1uLS0JKYecs8QAtdW5j24IgvEWB8+4
-         GQfSYKTaR3LLGUxEqBUh9qY+zpG855DsJiuP01IxV5RVVdm6TiqKnDoKMak1KBHBBCeQ
-         2KG5K9GoU9qd71Wc3oqJBef8ZkrsONRw2GJF71HKwLfR4KOJmcHkbTQOT8tlpUQqm9PC
-         FXgANYgHyChbOzL9Otgf4mfMXRzRA6EwJKJlJ6cJouj3YI3JBTzFQFYKjQghna7aBJNF
-         Y5tUaNbBFJfFubHyCGKpECPPjZM4ugwDf5CTI3tAQAh9qm6OaC0WQjy3YOVIRNgihfTo
-         5kWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687857927; x=1690449927;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KOj/rKh1W20bzLhI6+CfpEHGEjMrtQH/po/GETDVHsw=;
-        b=HroQW9/ELR5lVRpkKiCLcJylTJo6AeJmGeOYzEPNYF0N/V6sd/3sWTk5l+XSOUBh1m
-         wJDmvieJMPqDq0YhZBM5RLiK8hjT0Bn6prrEcmQQkevXt0xknCZzDiWZOLMHI4ztYr7J
-         zNAoxXxhxJ9mkU+MXpLkKEKKLAbCUyDHUVFXl/2gtWloBFCpci5g2ruhOyKs7qZHl1PB
-         b2mHKtwAdV06M0MsGYbLUjSZRGI8WbNP6AVMikfbFkhNgC9/TUGWlmNSIIFVCDiV1sk9
-         OHgXs8DMjrH+Po7w44KcHcwMN5sGny2UiTkB1fLBdsD944kHOemblBuVosPirh/KBfRd
-         qAAw==
-X-Gm-Message-State: AC+VfDyw/BNpo4I2S4ZqIvjChfqVGCSuFlCZis3rGt0zk5E8JYQPyY6W
-	h0PLT6pVvxzK5jOx2six34DzgA==
-X-Google-Smtp-Source: ACHHUZ53srUtilF1FXCHd0bfpyR1MZL6JbioGbmiiLcGrh651hWMiZcHJgBP+9Za+uiECYGwDCZBow==
-X-Received: by 2002:aa7:d4d5:0:b0:51d:3747:f88a with SMTP id t21-20020aa7d4d5000000b0051d3747f88amr6158753edr.31.1687857926518;
-        Tue, 27 Jun 2023 02:25:26 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id s2-20020a056402014200b0051bfc85afaasm3628780edu.86.2023.06.27.02.25.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jun 2023 02:25:26 -0700 (PDT)
-Date: Tue, 27 Jun 2023 11:25:25 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Haibo Xu <haibo1.xu@intel.com>
-Cc: xiaobo55x@gmail.com, maz@kernel.org, oliver.upton@linux.dev, 
-	seanjc@google.com, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, David Matlack <dmatlack@google.com>, 
-	Ben Gardon <bgardon@google.com>, Ricardo Koller <ricarkol@google.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Vipin Sharma <vipinsh@google.com>, 
-	Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v4 12/12] KVM: riscv: selftests: Add get-reg-list test
-Message-ID: <20230627-fd9c8d6f6fc9775884b18312@orel>
-References: <cover.1687515463.git.haibo1.xu@intel.com>
- <17aed82ac2c59de0d64135e54e58c6862f3935b1.1687515463.git.haibo1.xu@intel.com>
+	id 1qE59Y-00Chls-23
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 27 Jun 2023 09:38:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=R4bsPd5TDwVP6VZpwDh0pJ+z3F6SCbi1gN0b38ql1Sc=; b=BB2MmbjeFpFwF6NTfzSJPbo18L
+	umbiOKKOzgtmxQwzj13hr/AvYG5yaQt1YQ9oB+toT0laa4GjwAlNT5wFELlKhVSjmtlxEShjRb8XZ
+	b5I/Q9B9D47KqaENBq8pDNVLdRSXZL/u76LG9PtodKkWScs7BrmNOrTWCRMSa/9rPK904M/0O1kOz
+	71qTYv8aP9ZmXKDa+pXkELI7el6a+p37g/8Fb2ID0+SrMrDkiVDezYy9Ix9IWbuwbUQVfViMFr6Q0
+	b8bq6QApRry55fYvb+vYGoBmtIpPhZ4hX65UA1ms0lqqjgvrqkvmB+xwiVOy1YXt8wTP1UUfrwATf
+	/4QU6neg==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1qE59U-004dLC-1M;
+	Tue, 27 Jun 2023 09:38:24 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 95774300023;
+	Tue, 27 Jun 2023 11:38:23 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 7427D24A3B973; Tue, 27 Jun 2023 11:38:23 +0200 (CEST)
+Date: Tue, 27 Jun 2023 11:38:23 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Eric Lin <eric.lin@sifive.com>
+Cc: Stephane Eranian <eranian@google.com>, mingo@redhat.com,
+	acme@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	namhyung@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+	palmer@dabbelt.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	greentime.hu@sifive.com, vincent.chen@sifive.com
+Subject: Re: [PATCH] perf/core: Add pmu stop before unthrottling to prevent
+ WARNING
+Message-ID: <20230627093823.GV83892@hirez.programming.kicks-ass.net>
+References: <20230602094841.1225-1-eric.lin@sifive.com>
+ <CAPqJEFpamQSbCcD0QJ16u7ctRf1=NYihod6gdZJfxFpE0YUVHQ@mail.gmail.com>
+ <CABPqkBRyqsMnNbokBKepkWq1DtzfB0npXySGbKS1T3nQTwmaAw@mail.gmail.com>
+ <20230621115811.GD2053369@hirez.programming.kicks-ass.net>
+ <CAPqJEFpV8a8D7eA0sspjvThvBxdZhSLPTEbEzN7WiGCAzSnYYg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <17aed82ac2c59de0d64135e54e58c6862f3935b1.1687515463.git.haibo1.xu@intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230627_022537_675974_59CAD51E 
-X-CRM114-Status: GOOD (  25.50  )
+In-Reply-To: <CAPqJEFpV8a8D7eA0sspjvThvBxdZhSLPTEbEzN7WiGCAzSnYYg@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,816 +86,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 23, 2023 at 06:40:14PM +0800, Haibo Xu wrote:
-> get-reg-list test is used to check for KVM registers regressions
-> during VM migration which happens when destination host kernel
-> missing registers that the source host kernel has. The blessed
-> list registers was created by running on v6.4-rc6.
+On Tue, Jun 27, 2023 at 05:08:07PM +0800, Eric Lin wrote:
+
+> > Yeah, Changelog fails to explain how we got to the faulty state -- and
+> > without that we can't judge if the proposed solution actually fixes the
+> > problem or not.
+> >
 > 
-> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
-> ---
->  tools/testing/selftests/kvm/Makefile          |   1 +
->  .../selftests/kvm/include/riscv/processor.h   |   3 +
->  .../selftests/kvm/riscv/get-reg-list.c        | 752 ++++++++++++++++++
->  3 files changed, 756 insertions(+)
->  create mode 100644 tools/testing/selftests/kvm/riscv/get-reg-list.c
+> Hi Stephane, Peter,
 > 
-> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-> index d90cad19c9ee..f7bcda903dd9 100644
-> --- a/tools/testing/selftests/kvm/Makefile
-> +++ b/tools/testing/selftests/kvm/Makefile
-> @@ -174,6 +174,7 @@ TEST_GEN_PROGS_s390x += kvm_binary_stats_test
->  
->  TEST_GEN_PROGS_riscv += demand_paging_test
->  TEST_GEN_PROGS_riscv += dirty_log_test
-> +TEST_GEN_PROGS_riscv += get-reg-list
->  TEST_GEN_PROGS_riscv += kvm_create_max_vcpus
->  TEST_GEN_PROGS_riscv += kvm_page_table_test
->  TEST_GEN_PROGS_riscv += set_memory_region_test
-> diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-> index d00d213c3805..5b62a3d2aa9b 100644
-> --- a/tools/testing/selftests/kvm/include/riscv/processor.h
-> +++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-> @@ -38,6 +38,9 @@ static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t idx,
->  					     KVM_REG_RISCV_TIMER_REG(name), \
->  					     KVM_REG_SIZE_U64)
->  
-> +#define RISCV_ISA_EXT_REG(idx)	__kvm_reg_id(KVM_REG_RISCV_ISA_EXT, \
-> +					     idx, KVM_REG_SIZE_ULONG)
-> +
->  /* L3 index Bit[47:39] */
->  #define PGTBL_L3_INDEX_MASK			0x0000FF8000000000ULL
->  #define PGTBL_L3_INDEX_SHIFT			39
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> new file mode 100644
-> index 000000000000..63f5d6115391
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -0,0 +1,752 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Check for KVM_GET_REG_LIST regressions.
-> + *
-> + * Copyright (c) 2023 Intel Corporation
-> + *
-> + */
-> +#include <stdio.h>
-> +#include "kvm_util.h"
-> +#include "test_util.h"
-> +#include "processor.h"
-> +
-> +#define REG_MASK (KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK)
-> +
-> +bool filter_reg(__u64 reg)
-> +{
-> +	/*
-> +	 * Some ISA extensions are optional and not present on all host,
-> +	 * but they can't be disabled through ISA_EXT registers when present.
-> +	 * So, to make life easy, just filtering out these kind of registers.
-> +	 */
-> +	switch (reg & ~REG_MASK) {
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSTC:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVINVAL:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBB:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSAIA:
-> +		return true;
-> +	default:
-> +		break;
-> +	}
-> +
-> +	return false;
-> +}
-> +
-> +bool reject_set_fail(__u64 reg)
-> +{
-> +	switch (reg & ~REG_MASK) {
-> +	case KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
-> +	case KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
-> +	case KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(frequency):
-> +		return errno != EOPNOTSUPP;
-> +	case KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(state):
-> +		return errno != EINVAL;
-> +	default:
-> +		break;
-> +	}
-> +
-> +	return false;
-> +}
-> +
-> +static const char *config_id_to_str(__u64 id)
-> +{
-> +	/* reg_off is the offset into struct kvm_riscv_config */
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_CONFIG);
-> +
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_CONFIG_REG(isa):
-> +		return "KVM_REG_RISCV_CONFIG_REG(isa)";
-> +	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
-> +		return "KVM_REG_RISCV_CONFIG_REG(zicbom_block_size)";
-> +	case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
-> +		return "KVM_REG_RISCV_CONFIG_REG(zicboz_block_size)";
-> +	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
-> +		return "KVM_REG_RISCV_CONFIG_REG(mvendorid)";
-> +	case KVM_REG_RISCV_CONFIG_REG(marchid):
-> +		return "KVM_REG_RISCV_CONFIG_REG(marchid)";
-> +	case KVM_REG_RISCV_CONFIG_REG(mimpid):
-> +		return "KVM_REG_RISCV_CONFIG_REG(mimpid)";
-> +	}
-> +
-> +	/*
-> +	 * Config regs would grow regularly with new pseudo reg added, so
-> +	 * just show raw id to indicate a new pseudo config reg.
-> +	 */
-> +	return strdup_printf("KVM_REG_RISCV_CONFIG_REG(%lld) /* UNKNOWN */", reg_off);
-> +}
-> +
-> +static const char *core_id_to_str(const char *prefix, __u64 id)
-> +{
-> +	/* reg_off is the offset into struct kvm_riscv_core */
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_CORE);
-> +
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_CORE_REG(regs.pc):
-> +		return "KVM_REG_RISCV_CORE_REG(regs.pc)";
-> +	case KVM_REG_RISCV_CORE_REG(regs.ra):
-> +		return "KVM_REG_RISCV_CORE_REG(regs.ra)";
-> +	case KVM_REG_RISCV_CORE_REG(regs.sp):
-> +		return "KVM_REG_RISCV_CORE_REG(regs.sp)";
-> +	case KVM_REG_RISCV_CORE_REG(regs.gp):
-> +		return "KVM_REG_RISCV_CORE_REG(regs.gp)";
-> +	case KVM_REG_RISCV_CORE_REG(regs.tp):
-> +		return "KVM_REG_RISCV_CORE_REG(regs.tp)";
-> +	case KVM_REG_RISCV_CORE_REG(regs.t0) ... KVM_REG_RISCV_CORE_REG(regs.t2):
-> +		return strdup_printf("KVM_REG_RISCV_CORE_REG(regs.t%lld)",
-> +			   reg_off - KVM_REG_RISCV_CORE_REG(regs.t0));
-> +	case KVM_REG_RISCV_CORE_REG(regs.s0) ... KVM_REG_RISCV_CORE_REG(regs.s1):
-> +		return strdup_printf("KVM_REG_RISCV_CORE_REG(regs.s%lld)",
-> +			   reg_off - KVM_REG_RISCV_CORE_REG(regs.s0));
-> +	case KVM_REG_RISCV_CORE_REG(regs.a0) ... KVM_REG_RISCV_CORE_REG(regs.a7):
-> +		return strdup_printf("KVM_REG_RISCV_CORE_REG(regs.a%lld)",
-> +			   reg_off - KVM_REG_RISCV_CORE_REG(regs.a0));
-> +	case KVM_REG_RISCV_CORE_REG(regs.s2) ... KVM_REG_RISCV_CORE_REG(regs.s11):
-> +		return strdup_printf("KVM_REG_RISCV_CORE_REG(regs.s%lld)",
-> +			   reg_off - KVM_REG_RISCV_CORE_REG(regs.s2) + 2);
-> +	case KVM_REG_RISCV_CORE_REG(regs.t3) ... KVM_REG_RISCV_CORE_REG(regs.t6):
-> +		return strdup_printf("KVM_REG_RISCV_CORE_REG(regs.t%lld)",
-> +			   reg_off - KVM_REG_RISCV_CORE_REG(regs.t3) + 3);
-> +	case KVM_REG_RISCV_CORE_REG(mode):
-> +		return "KVM_REG_RISCV_CORE_REG(mode)";
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown core reg id: 0x%llx", prefix, id);
-> +	return NULL;
-> +}
-> +
-> +#define RISCV_CSR_GENERAL(csr) \
-> +	"KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(" #csr ")"
-> +#define RISCV_CSR_AIA(csr) \
-> +	"KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_REG(" #csr ")"
-> +
-> +static const char *general_csr_id_to_str(__u64 reg_off)
-> +{
-> +	/* reg_off is the offset into struct kvm_riscv_csr */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_CSR_REG(sstatus):
-> +		return RISCV_CSR_GENERAL(sstatus);
-> +	case KVM_REG_RISCV_CSR_REG(sie):
-> +		return RISCV_CSR_GENERAL(sie);
-> +	case KVM_REG_RISCV_CSR_REG(stvec):
-> +		return RISCV_CSR_GENERAL(stvec);
-> +	case KVM_REG_RISCV_CSR_REG(sscratch):
-> +		return RISCV_CSR_GENERAL(sscratch);
-> +	case KVM_REG_RISCV_CSR_REG(sepc):
-> +		return RISCV_CSR_GENERAL(sepc);
-> +	case KVM_REG_RISCV_CSR_REG(scause):
-> +		return RISCV_CSR_GENERAL(scause);
-> +	case KVM_REG_RISCV_CSR_REG(stval):
-> +		return RISCV_CSR_GENERAL(stval);
-> +	case KVM_REG_RISCV_CSR_REG(sip):
-> +		return RISCV_CSR_GENERAL(sip);
-> +	case KVM_REG_RISCV_CSR_REG(satp):
-> +		return RISCV_CSR_GENERAL(satp);
-> +	case KVM_REG_RISCV_CSR_REG(scounteren):
-> +		return RISCV_CSR_GENERAL(scounteren);
-> +	}
-> +
-> +	TEST_FAIL("Unknown general csr reg: 0x%llx", reg_off);
-> +	return NULL;
-> +}
-> +
-> +static const char *aia_csr_id_to_str(__u64 reg_off)
-> +{
-> +	/* reg_off is the offset into struct kvm_riscv_aia_csr */
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_CSR_AIA_REG(siselect):
-> +		return RISCV_CSR_AIA(siselect);
-> +	case KVM_REG_RISCV_CSR_AIA_REG(iprio1):
-> +		return RISCV_CSR_AIA(iprio1);
-> +	case KVM_REG_RISCV_CSR_AIA_REG(iprio2):
-> +		return RISCV_CSR_AIA(iprio2);
-> +	case KVM_REG_RISCV_CSR_AIA_REG(sieh):
-> +		return RISCV_CSR_AIA(sieh);
-> +	case KVM_REG_RISCV_CSR_AIA_REG(siph):
-> +		return RISCV_CSR_AIA(siph);
-> +	case KVM_REG_RISCV_CSR_AIA_REG(iprio1h):
-> +		return RISCV_CSR_AIA(iprio1h);
-> +	case KVM_REG_RISCV_CSR_AIA_REG(iprio2h):
-> +		return RISCV_CSR_AIA(iprio2h);
-> +	}
-> +
-> +	TEST_FAIL("Unknown aia csr reg: 0x%llx", reg_off);
-> +	return NULL;
-> +}
-> +
-> +static const char *csr_id_to_str(const char *prefix, __u64 id)
-> +{
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_CSR);
-> +	__u64 reg_subtype = reg_off & KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	reg_off &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_CSR_GENERAL:
-> +		return general_csr_id_to_str(reg_off);
-> +	case KVM_REG_RISCV_CSR_AIA:
-> +		return aia_csr_id_to_str(reg_off);
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown csr subtype: 0x%llx", prefix, reg_subtype);
-> +	return NULL;
-> +}
-> +
-> +static const char *timer_id_to_str(const char *prefix, __u64 id)
-> +{
-> +	/* reg_off is the offset into struct kvm_riscv_timer */
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_TIMER);
-> +
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_TIMER_REG(frequency):
-> +		return "KVM_REG_RISCV_TIMER_REG(frequency)";
-> +	case KVM_REG_RISCV_TIMER_REG(time):
-> +		return "KVM_REG_RISCV_TIMER_REG(time)";
-> +	case KVM_REG_RISCV_TIMER_REG(compare):
-> +		return "KVM_REG_RISCV_TIMER_REG(compare)";
-> +	case KVM_REG_RISCV_TIMER_REG(state):
-> +		return "KVM_REG_RISCV_TIMER_REG(state)";
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown timer reg id: 0x%llx", prefix, id);
-> +	return NULL;
-> +}
-> +
-> +static const char *fp_f_id_to_str(const char *prefix, __u64 id)
-> +{
-> +	/* reg_off is the offset into struct __riscv_f_ext_state */
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_FP_F);
-> +
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_FP_F_REG(f[0]) ...
-> +	     KVM_REG_RISCV_FP_F_REG(f[31]):
-> +		return strdup_printf("KVM_REG_RISCV_FP_F_REG(f[%lld])", reg_off);
-> +	case KVM_REG_RISCV_FP_F_REG(fcsr):
-> +		return "KVM_REG_RISCV_FP_F_REG(fcsr)";
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown fp_f reg id: 0x%llx", prefix, id);
-> +	return NULL;
-> +}
-> +
-> +static const char *fp_d_id_to_str(const char *prefix, __u64 id)
-> +{
-> +	/* reg_off is the offset into struct __riscv_d_ext_state */
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_FP_D);
-> +
-> +	switch (reg_off) {
-> +	case KVM_REG_RISCV_FP_D_REG(f[0]) ...
-> +	     KVM_REG_RISCV_FP_D_REG(f[31]):
-> +		return strdup_printf("KVM_REG_RISCV_FP_D_REG(f[%lld])", reg_off);
-> +	case KVM_REG_RISCV_FP_D_REG(fcsr):
-> +		return "KVM_REG_RISCV_FP_D_REG(fcsr)";
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown fp_d reg id: 0x%llx", prefix, id);
-> +	return NULL;
-> +}
-> +
-> +static const char *isa_ext_id_to_str(__u64 id)
-> +{
-> +	/* reg_off is the offset into unsigned long kvm_isa_ext_arr[] */
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_ISA_EXT);
-> +
-> +	static const char * const kvm_isa_ext_reg_name[] = {
-> +		"KVM_RISCV_ISA_EXT_A",
-> +		"KVM_RISCV_ISA_EXT_C",
-> +		"KVM_RISCV_ISA_EXT_D",
-> +		"KVM_RISCV_ISA_EXT_F",
-> +		"KVM_RISCV_ISA_EXT_H",
-> +		"KVM_RISCV_ISA_EXT_I",
-> +		"KVM_RISCV_ISA_EXT_M",
-> +		"KVM_RISCV_ISA_EXT_SVPBMT",
-> +		"KVM_RISCV_ISA_EXT_SSTC",
-> +		"KVM_RISCV_ISA_EXT_SVINVAL",
-> +		"KVM_RISCV_ISA_EXT_ZIHINTPAUSE",
-> +		"KVM_RISCV_ISA_EXT_ZICBOM",
-> +		"KVM_RISCV_ISA_EXT_ZICBOZ",
-> +		"KVM_RISCV_ISA_EXT_ZBB",
-> +		"KVM_RISCV_ISA_EXT_SSAIA",
-> +	};
-> +
-> +	if (reg_off >= ARRAY_SIZE(kvm_isa_ext_reg_name)) {
-> +		/*
-> +		 * isa_ext regs would grow regularly with new isa extension added, so
-> +		 * just show "reg" to indicate a new extension.
-> +		 */
-> +		return strdup_printf("%lld /* UNKNOWN */", reg_off);
-> +	}
-> +
-> +	return kvm_isa_ext_reg_name[reg_off];
-> +}
-> +
-> +static const char *sbi_ext_single_id_to_str(__u64 reg_off)
-> +{
-> +	/* reg_off is KVM_RISCV_SBI_EXT_ID */
-> +	static const char * const kvm_sbi_ext_reg_name[] = {
-> +		"KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_V01",
-> +		"KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_TIME",
-> +		"KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_IPI",
-> +		"KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_RFENCE",
-> +		"KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_SRST",
-> +		"KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_HSM",
-> +		"KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_PMU",
-> +		"KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_EXPERIMENTAL",
-> +		"KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_VENDOR",
-> +	};
-> +
-> +	if (reg_off >= ARRAY_SIZE(kvm_sbi_ext_reg_name)) {
-> +		/*
-> +		 * sbi_ext regs would grow regularly with new sbi extension added, so
-> +		 * just show "reg" to indicate a new extension.
-> +		 */
-> +		return strdup_printf("KVM_REG_RISCV_SBI_SINGLE | %lld /* UNKNOWN */", reg_off);
-> +	}
-> +
-> +	return kvm_sbi_ext_reg_name[reg_off];
-> +}
-> +
-> +static const char *sbi_ext_multi_id_to_str(__u64 reg_subtype, __u64 reg_off)
-> +{
-> +	if (reg_off > KVM_REG_RISCV_SBI_MULTI_REG_LAST) {
-> +		/*
-> +		 * sbi_ext regs would grow regularly with new sbi extension added, so
-> +		 * just show "reg" to indicate a new extension.
-> +		 */
-> +		return strdup_printf("%lld /* UNKNOWN */", reg_off);
-> +	}
-> +
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_SBI_MULTI_EN:
-> +		return strdup_printf("KVM_REG_RISCV_SBI_MULTI_EN | %lld", reg_off);
-> +	case KVM_REG_RISCV_SBI_MULTI_DIS:
-> +		return strdup_printf("KVM_REG_RISCV_SBI_MULTI_DIS | %lld", reg_off);
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +static const char *sbi_ext_id_to_str(const char *prefix, __u64 id)
-> +{
-> +	__u64 reg_off = id & ~(REG_MASK | KVM_REG_RISCV_SBI_EXT);
-> +	__u64 reg_subtype = reg_off & KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	reg_off &= ~KVM_REG_RISCV_SUBTYPE_MASK;
-> +
-> +	switch (reg_subtype) {
-> +	case KVM_REG_RISCV_SBI_SINGLE:
-> +		return sbi_ext_single_id_to_str(reg_off);
-> +	case KVM_REG_RISCV_SBI_MULTI_EN:
-> +	case KVM_REG_RISCV_SBI_MULTI_DIS:
-> +		return sbi_ext_multi_id_to_str(reg_subtype, reg_off);
-> +	}
-> +
-> +	TEST_FAIL("%s: Unknown sbi ext subtype: 0x%llx", prefix, reg_subtype);
-> +	return NULL;
-> +}
-> +
-> +void print_reg(const char *prefix, __u64 id)
-> +{
-> +	const char *reg_size = NULL;
-> +
-> +	TEST_ASSERT((id & KVM_REG_ARCH_MASK) == KVM_REG_RISCV,
-> +		    "%s: KVM_REG_RISCV missing in reg id: 0x%llx", prefix, id);
-> +
-> +	switch (id & KVM_REG_SIZE_MASK) {
-> +	case KVM_REG_SIZE_U32:
-> +		reg_size = "KVM_REG_SIZE_U32";
-> +		break;
-> +	case KVM_REG_SIZE_U64:
-> +		reg_size = "KVM_REG_SIZE_U64";
-> +		break;
-> +	case KVM_REG_SIZE_U128:
-> +		reg_size = "KVM_REG_SIZE_U128";
-> +		break;
-> +	default:
-> +		TEST_FAIL("%s: Unexpected reg size: 0x%llx in reg id: 0x%llx",
-> +			  prefix, (id & KVM_REG_SIZE_MASK) >> KVM_REG_SIZE_SHIFT, id);
-> +	}
-> +
-> +	switch (id & KVM_REG_RISCV_TYPE_MASK) {
-> +	case KVM_REG_RISCV_CONFIG:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_CONFIG | %s,\n",
-> +				reg_size, config_id_to_str(id));
-> +		break;
-> +	case KVM_REG_RISCV_CORE:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_CORE | %s,\n",
-> +				reg_size, core_id_to_str(prefix, id));
-> +		break;
-> +	case KVM_REG_RISCV_CSR:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_CSR | %s,\n",
-> +				reg_size, csr_id_to_str(prefix, id));
-> +		break;
-> +	case KVM_REG_RISCV_TIMER:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_TIMER | %s,\n",
-> +				reg_size, timer_id_to_str(prefix, id));
-> +		break;
-> +	case KVM_REG_RISCV_FP_F:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_FP_F | %s,\n",
-> +				reg_size, fp_f_id_to_str(prefix, id));
-> +		break;
-> +	case KVM_REG_RISCV_FP_D:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_FP_D | %s,\n",
-> +				reg_size, fp_d_id_to_str(prefix, id));
-> +		break;
-> +	case KVM_REG_RISCV_ISA_EXT:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_ISA_EXT | %s,\n",
-> +				reg_size, isa_ext_id_to_str(id));
-> +		break;
-> +	case KVM_REG_RISCV_SBI_EXT:
-> +		printf("\tKVM_REG_RISCV | %s | KVM_REG_RISCV_SBI_EXT | %s,\n",
-> +				reg_size, sbi_ext_id_to_str(prefix, id));
-> +		break;
-> +	default:
-> +		TEST_FAIL("%s: Unexpected reg type: 0x%llx in reg id: 0x%llx", prefix,
-> +				(id & KVM_REG_RISCV_TYPE_MASK) >> KVM_REG_RISCV_TYPE_SHIFT, id);
-> +	}
-> +}
-> +
-> +/*
-> + * The current blessed list was primed with the output of kernel version
-> + * v6.4-rc6 and then later updated with new registers.
-> + */
-> +static __u64 base_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(isa),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(mvendorid),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(marchid),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(mimpid),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.pc),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.ra),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.sp),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.gp),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.tp),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t0),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t1),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t2),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s0),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s1),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a0),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a1),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a2),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a3),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a4),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a5),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a6),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.a7),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s2),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s3),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s4),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s5),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s6),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s7),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s8),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s9),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s10),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.s11),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t3),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t4),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t5),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(regs.t6),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CORE | KVM_REG_RISCV_CORE_REG(mode),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(sstatus),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(sie),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(stvec),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(sscratch),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(sepc),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(scause),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(stval),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(sip),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(satp),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_GENERAL | KVM_REG_RISCV_CSR_REG(scounteren),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(frequency),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(time),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(compare),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(state),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_A,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_C,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_I,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_M,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_V01,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_TIME,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_IPI,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_RFENCE,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_SRST,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_HSM,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_PMU,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_EXPERIMENTAL,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_SINGLE | KVM_RISCV_SBI_EXT_VENDOR,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_MULTI_EN | 0,
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_SBI_EXT | KVM_REG_RISCV_SBI_MULTI_DIS | 0,
-> +};
-> +
-> +/*
-> + * The rejects_set list registers that should skip set test.
-> + *  - KVM_REG_RISCV_TIMER_REG(state): set would fail if it was not initialized properly.
-> + *  - KVM_REG_RISCV_TIMER_REG(frequency): set not supported
-> + *  - KVM_REG_RISCV_CONFIG_REG(zicbom_block_size): set not supported
-> + *  - KVM_REG_RISCV_CONFIG_REG(zicboz_block_size): set not supported
-> + */
-> +static __u64 base_rejects_set[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(frequency),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_TIMER | KVM_REG_RISCV_TIMER_REG(state),
-> +};
-> +
-> +static __u64 h_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_H,
-> +};
-> +
-> +static __u64 zicbom_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicbom_block_size),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOM,
-> +};
-> +
-> +static __u64 zicboz_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicboz_block_size),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZICBOZ,
-> +};
-> +
-> +static __u64 zicbom_rejects_set[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicbom_block_size),
-> +};
-> +
-> +static __u64 zicboz_rejects_set[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CONFIG | KVM_REG_RISCV_CONFIG_REG(zicboz_block_size),
-> +};
-> +
-> +static __u64 svpbmt_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVPBMT,
-> +};
-> +
-> +static __u64 sstc_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSTC,
-> +};
-> +
-> +static __u64 svinval_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SVINVAL,
-> +};
-> +
-> +static __u64 zihintpause_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
-> +};
-> +
-> +static __u64 zbb_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_ZBB,
-> +};
-> +
-> +static __u64 aia_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siselect),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(sieh),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(siph),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio1h),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_CSR | KVM_REG_RISCV_CSR_AIA | KVM_REG_RISCV_CSR_AIA_REG(iprio2h),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_SSAIA,
-> +};
-> +
-> +static __u64 fp_f_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[0]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[1]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[2]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[3]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[4]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[5]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[6]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[7]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[8]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[9]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[10]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[11]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[12]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[13]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[14]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[15]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[16]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[17]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[18]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[19]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[20]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[21]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[22]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[23]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[24]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[25]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[26]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[27]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[28]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[29]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[30]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(f[31]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_F | KVM_REG_RISCV_FP_F_REG(fcsr),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_F,
-> +};
-> +
-> +static __u64 fp_d_regs[] = {
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[0]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[1]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[2]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[3]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[4]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[5]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[6]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[7]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[8]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[9]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[10]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[11]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[12]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[13]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[14]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[15]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[16]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[17]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[18]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[19]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[20]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[21]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[22]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[23]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[24]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[25]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[26]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[27]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[28]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[29]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[30]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U64 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(f[31]),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_U32 | KVM_REG_RISCV_FP_D | KVM_REG_RISCV_FP_D_REG(fcsr),
-> +	KVM_REG_RISCV | KVM_REG_SIZE_ULONG | KVM_REG_RISCV_ISA_EXT | KVM_RISCV_ISA_EXT_D,
-> +};
-> +
-> +#define BASE_SUBLIST \
-> +	{"base", .regs = base_regs, .regs_n = ARRAY_SIZE(base_regs), \
-> +	 .rejects_set = base_rejects_set, .rejects_set_n = ARRAY_SIZE(base_rejects_set),}
-> +#define H_REGS_SUBLIST \
-> +	{"h", .feature = KVM_RISCV_ISA_EXT_H, .regs = h_regs, .regs_n = ARRAY_SIZE(h_regs),}
-> +#define ZICBOM_REGS_SUBLIST \
-> +	{"zicbom", .feature = KVM_RISCV_ISA_EXT_ZICBOM, .regs = zicbom_regs, .regs_n = ARRAY_SIZE(zicbom_regs), \
-> +	 .rejects_set = zicbom_rejects_set, .rejects_set_n = ARRAY_SIZE(zicbom_rejects_set),}
-> +#define ZICBOZ_REGS_SUBLIST \
-> +	{"zicboz", .feature = KVM_RISCV_ISA_EXT_ZICBOZ, .regs = zicboz_regs, .regs_n = ARRAY_SIZE(zicboz_regs), \
-> +	 .rejects_set = zicboz_rejects_set, .rejects_set_n = ARRAY_SIZE(zicboz_rejects_set),}
-> +#define SVPBMT_REGS_SUBLIST \
-> +	{"svpbmt", .feature = KVM_RISCV_ISA_EXT_SVPBMT, .regs = svpbmt_regs, .regs_n = ARRAY_SIZE(svpbmt_regs),}
-> +#define SSTC_REGS_SUBLIST \
-> +	{"sstc", .feature = KVM_RISCV_ISA_EXT_SSTC, .regs = sstc_regs, .regs_n = ARRAY_SIZE(sstc_regs),}
-> +#define SVINVAL_REGS_SUBLIST \
-> +	{"svinval", .feature = KVM_RISCV_ISA_EXT_SVINVAL, .regs = svinval_regs, .regs_n = ARRAY_SIZE(svinval_regs),}
-> +#define ZIHINTPAUSE_REGS_SUBLIST \
-> +	{"zihintpause", .feature = KVM_RISCV_ISA_EXT_ZIHINTPAUSE, .regs = zihintpause_regs, .regs_n = ARRAY_SIZE(zihintpause_regs),}
-> +#define ZBB_REGS_SUBLIST \
-> +	{"zbb", .feature = KVM_RISCV_ISA_EXT_ZBB, .regs = zbb_regs, .regs_n = ARRAY_SIZE(zbb_regs),}
-> +#define AIA_REGS_SUBLIST \
-> +	{"aia", .feature = KVM_RISCV_ISA_EXT_SSAIA, .regs = aia_regs, .regs_n = ARRAY_SIZE(aia_regs),}
-> +#define FP_F_REGS_SUBLIST \
-> +	{"fp_f", .feature = KVM_RISCV_ISA_EXT_F, .regs = fp_f_regs, \
-> +		.regs_n = ARRAY_SIZE(fp_f_regs),}
-> +#define FP_D_REGS_SUBLIST \
-> +	{"fp_d", .feature = KVM_RISCV_ISA_EXT_D, .regs = fp_d_regs, \
-> +		.regs_n = ARRAY_SIZE(fp_d_regs),}
-> +
-> +static struct vcpu_reg_list h_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	H_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list zicbom_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	ZICBOM_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list zicboz_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	ZICBOZ_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list svpbmt_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	SVPBMT_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list sstc_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	SSTC_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list svinval_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	SVINVAL_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list zihintpause_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	ZIHINTPAUSE_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list zbb_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	ZBB_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list aia_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	AIA_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list fp_f_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	FP_F_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +static struct vcpu_reg_list fp_d_config = {
-> +	.sublists = {
-> +	BASE_SUBLIST,
-> +	FP_D_REGS_SUBLIST,
-> +	{0},
-> +	},
-> +};
-> +
-> +struct vcpu_reg_list *vcpu_configs[] = {
-> +	&h_config,
-> +	&zicbom_config,
-> +	&zicboz_config,
-> +	&svpbmt_config,
-> +	&sstc_config,
-> +	&svinval_config,
-> +	&zihintpause_config,
-> +	&zbb_config,
-> +	&aia_config,
-> +	&fp_f_config,
-> +	&fp_d_config,
-> +};
-> +int vcpu_configs_n = ARRAY_SIZE(vcpu_configs);
-> -- 
-> 2.34.1
->
+> Most of the pmu driver will call *_pmu_stop(event,0) in the
+> *_pmu_handle_irq() function and update the hwc->state with
+> PERF_HES_STOPPED flag as below:
+> 
+> arch/alpha/kernel/perf_event.c:856:             if
+> (perf_event_overflow(event, &data, regs)) {
+> arch/alpha/kernel/perf_event.c-857-                     /* Interrupts
+> coming too quickly; "throttle" the
+> arch/alpha/kernel/perf_event.c-858-                      * counter,
+> i.e., disable it for a little while.
+> arch/alpha/kernel/perf_event.c-859-                      */
+> arch/alpha/kernel/perf_event.c-860-
+> alpha_pmu_stop(event, 0);
+> arch/alpha/kernel/perf_event.c-861-             }
+> -----
+> arch/arc/kernel/perf_event.c:603:                       if
+> (perf_event_overflow(event, &data, regs))
+> arch/arc/kernel/perf_event.c-604-
+> arc_pmu_stop(event, 0);
+> arch/arc/kernel/perf_event.c-605-               }
+> -----
+> arch/x86/events/amd/core.c:935:         if (perf_event_overflow(event,
+> &data, regs))
+> arch/x86/events/amd/core.c-936-                 x86_pmu_stop(event, 0);
+> arch/x86/events/amd/core.c-937- }
+> -----
+> 
+> However, some of the pmu drivers stop the event in the
+> *_pmu_handle_irq() without updating the hwc->state with
+> PERF_HES_STOPPED flag as below:
+> 
+> arch/arm/kernel/perf_event_v7.c:994:            if
+> (perf_event_overflow(event, &data, regs))
+> arch/arm/kernel/perf_event_v7.c-995-
+> cpu_pmu->disable(event); // <== not update with PERF_HES_STOPPED
+> arch/arm/kernel/perf_event_v7.c-996-    }
+> ------
+> arch/csky/kernel/perf_event.c:1142:             if
+> (perf_event_overflow(event, &data, regs))
+> arch/csky/kernel/perf_event.c-1143-
+> csky_pmu_stop_event(event); // <== not update with PERF_HES_STOPPED
+> arch/csky/kernel/perf_event.c-1144-     }
+> -------
+> arch/loongarch/kernel/perf_event.c:492: if (perf_event_overflow(event,
+> data, regs))
+> arch/loongarch/kernel/perf_event.c-493-
+> loongarch_pmu_disable_event(idx);    // <== not update with
+> PERF_HES_STOPPED
+> arch/loongarch/kernel/perf_event.c-494-}
+> -------
+> arch/mips/kernel/perf_event_mipsxx.c:794:       if
+> (perf_event_overflow(event, data, regs))
+> arch/mips/kernel/perf_event_mipsxx.c-795-
+> mipsxx_pmu_disable_event(idx); // <== not update with PERF_HES_STOPPED
+> arch/mips/kernel/perf_event_mipsxx.c-796-}
+> ....
+> 
+> Furthermore, these drivers did not add event->hw.state checking in
+> *_pmu_start() before starting the event like x86 does:
+> 
+> 1497 static void x86_pmu_start(struct perf_event *event, int flags)
+> 1498 {
+> 1499     struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+> 1500     int idx = event->hw.idx;
+> 1501
+> 1502     if (WARN_ON_ONCE(!(event->hw.state & PERF_HES_STOPPED)))
+> 1503         return;
+> 1504
+> 
+> As a result, these drivers won't trigger the WARN_ON_ONCE warning as
+> shown in this patch.
+> 
+> However, if a pmu driver like RISC-V pmu which didn't call
+> *_pmu_stop(event,0) without updating the hwc->state with
+> PERF_HES_STOPPED flag in the *_pmu_handle_irq() function
+> but has event->hw.state checking in *_pmu_start(), it could trigger
+> the WARN_ON_ONCE warning as shown in this patch.
+> 
+> Therefore, I think we need to call pmu->stop() before unthrottling the
+> event to prevent this warning.
 
-Other than the comments about reject_set_fail() and
-KVM_REG_RISCV_TIMER_REG(state) which I made in a previous
-patch, this looks good to me.
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
+How is that not a pmu driver problem ? I'd think we should be fixing
+those drivers. Mark, do you have have any memories of how the ARM driver
+came to be this way?
 
 _______________________________________________
 linux-riscv mailing list
