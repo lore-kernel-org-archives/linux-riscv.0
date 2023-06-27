@@ -4,88 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55BFFEB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 05:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C7FEB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 05:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T1YNZn6p9UAM4eXoOjSkNdwv7qD6WFugvXxS08U148c=; b=EEqys1yOHfCEX/
-	DQhSFtyqTzqpF0Wp4sZZyKODLxYIIVV2sdIXcibxv+RArtCqBifuG0yQRu/MXXyUsgNVwZFv5P1el
-	Rl2g0GeiS7YzD7Yz+7E6LHZvDNHzMiEkI6VpYmYg/oayGDei8TOW1opaBBc0a8DrXwUD70YnAZPt8
-	cwZMorVsJn1Wt2btzQY8dTUQHYsjLLkEDfQOCwAbAvgGZ0JapG9wPplIL1rq4SBtr8gx98MG+94P4
-	w6tvm4P+nfNtmzCgTwL+yDoL2DlkX7wQmpoTu+YjAe7q26cZiCaU9dmrSqy0CVEr8RTuOf+8UC5aN
-	wbd1pyAL2lI+WMzcgAcw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BuiEbnTGjHRt7WZCkK2FHDDc7Y3WBdt/zdWW+yURo+8=; b=Ct3Oc/6MwxSBlE
+	utrglbeIc6jcfRS/7F1y2vmRMNZVVPhKOXRdmQhaKnNa4jcwdCGDt7kYwGxqYFvBf/10hEPqN34lK
+	wfJLb0Wx0A/8ySb6OTN0hR2dJnw88bOtFa58rqtdTfvuwmw28DdhqN47C8uj2Z2IMndPKf+lPOnaG
+	a850mSrLEcC9+rrtg+3DCEatj2/ORzT09p78cFDN605Od+TGtXhrxQLL6hpGp1y/GNp+1xUr5FL9n
+	r4lOz00B72H+yTovzVzbmQPglqD3yn2+mi8Y8VpO3nXdvRLN7txRMAX1cdhF5soabreOYuQXsZNY/
+	qLzORGlXd+p2XIYoPsKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE1YX-00Bwob-0Y;
-	Tue, 27 Jun 2023 05:48:01 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE1YT-00Bwle-2e;
-	Tue, 27 Jun 2023 05:47:59 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-55ae2075990so878591a12.0;
-        Mon, 26 Jun 2023 22:47:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1687844871; x=1690436871;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bjTPMlxWt9nC/sXrGsrew1h8LID7KP4FRrxfXfknacs=;
-        b=CKCXCuWl0gYpQ4q8YGqBYIHt4kiR1AhHpEiDPYQrq6u+C1EcCN199Rf+TEI2yZgN+R
-         yHF4vksLQaZZNCW1AKLUCeBUhO/zz1T+Q9/6Dn0kQ15ZW6K5TqPmtUB9rSpHUKgxZgiA
-         HSTUVKDZ4xM6L9+zGQEVzY8EH5rZJBCsvXHjcbbzvbKrE2StJxwwReSDEN5b3GfPvLfH
-         eqtt0xPcEOboGwjNakJZJtyOpw0n8CltvqJLvaWUUnjMuBH5yNe38AlJDiG6mzZTOhDy
-         hB/teSyin+eBzVwUgFatWumtP7LykGuBvZNNj+IJUNFfPVWNZBZUcFVQKEBMH4tHKOww
-         HTig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687844871; x=1690436871;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bjTPMlxWt9nC/sXrGsrew1h8LID7KP4FRrxfXfknacs=;
-        b=RdKKETUOVogW1Jgq4BRzSc+pb/M9KcekqoCGIpqlVDzMQT9nWClD4PmqNn9YAj/Qy6
-         IoksCEOVE026AqwD4PAETQhpKGBxCOb9ikqGBdTLYHkY90G2ok9qgH5rcG3Zs2aFbWES
-         DbO3Wgx8Kssmi7UYaILLhC7gK02PgQvnf3gA9OTuwhRBdkWGXVhDQDVSJYpXWLsBCh7I
-         uvMlLAQpL1H9oxB8fFSqrZeAYPtkwszsBh4SsJmUySLr6MIASBmNucgH9/bcB3lU0bun
-         yXivkotlYhgn3Lv5H8Ike8larfxG5NrEHb2tQ3dKeIJrE23r5EoziHHvnynV6ah6Npry
-         ljpA==
-X-Gm-Message-State: AC+VfDxDHTnrCEvvauF+W8TfLlGpBYNoCMUVPqIE3cfyGeSyinTMvHoD
-	QZgBKP6Ff4b5FaJn9PIx0Y0=
-X-Google-Smtp-Source: ACHHUZ7JjW8b6fgOe+JthCsQbs9/NjABXgCew6ba8g3n2m02um8mxuD9LeyNll8XOwuywhMwRgh5kw==
-X-Received: by 2002:a05:6a20:7491:b0:126:8ddd:d786 with SMTP id p17-20020a056a20749100b001268dddd786mr5575003pzd.46.1687844870738;
-        Mon, 26 Jun 2023 22:47:50 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id je5-20020a170903264500b001b8004ff609sm3033756plb.270.2023.06.26.22.47.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jun 2023 22:47:50 -0700 (PDT)
-Date: Mon, 26 Jun 2023 22:47:49 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	Hugh Dickins <hughd@google.com>, Dinh Nguyen <dinguyen@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v5 26/33] nios2: Convert __pte_free_tlb() to use ptdescs
-Message-ID: <13bab37c-0f0a-431a-8b67-4379bf4dc541@roeck-us.net>
-References: <20230622205745.79707-1-vishal.moola@gmail.com>
- <20230622205745.79707-27-vishal.moola@gmail.com>
+	id 1qE1eG-00BzAJ-1x;
+	Tue, 27 Jun 2023 05:53:56 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qE1eB-00Bytm-1H
+	for linux-riscv@lists.infradead.org;
+	Tue, 27 Jun 2023 05:53:54 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DFF4D808F;
+	Tue, 27 Jun 2023 13:53:14 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 27 Jun
+ 2023 13:53:14 +0800
+Received: from localhost.localdomain (183.27.97.206) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 27 Jun
+ 2023 13:53:13 +0800
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Daniel
+ Lezcano" <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+CC: Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Xingyu Wu
+	<xingyu.wu@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Subject: [PATCH v3 0/3] Add timer driver for StarFive JH7110 RISC-V SoC
+Date: Tue, 27 Jun 2023 13:53:10 +0800
+Message-ID: <20230627055313.252519-1-xingyu.wu@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230622205745.79707-27-vishal.moola@gmail.com>
+X-Originating-IP: [183.27.97.206]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_224757_863483_440DA7F0 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20230626_225351_624700_BEA445BB 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,75 +75,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 22, 2023 at 01:57:38PM -0700, Vishal Moola (Oracle) wrote:
-> Part of the conversions to replace pgtable constructor/destructors with
-> ptdesc equivalents.
-> 
-> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
-> Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
+This patch serises are to add timer driver for the StarFive JH7110
+RISC-V SoC. The first patch adds documentation to describe device
+tree bindings. The subsequent patch adds timer driver and support
+JH7110 SoC. The last patch adds device node about timer in JH7110
+dts.
 
-This patch causes all nios2 builds to fail.
+This timer has four free-running 32 bit counters and runs in 24MHz
+clock on StarFive JH7110 SoC. And each channel(counter) triggers
+an interrupt when timeout. They support one-shot mode and
+continuous-run mode.
 
-Building nios2:allnoconfig ... failed
---------------
-Error log:
-<stdin>:1519:2: warning: #warning syscall clone3 not implemented [-Wcpp]
-In file included from mm/memory.c:85:
-mm/memory.c: In function 'free_pte_range':
-arch/nios2/include/asm/pgalloc.h:33:17: error: implicit declaration of function 'pagetable_pte_dtor'; did you mean 'pgtable_pte_page_dtor'? [-Werror=implicit-function-declaration]
-   33 |                 pagetable_pte_dtor(page_ptdesc(pte));                   \
-      |                 ^~~~~~~~~~~~~~~~~~
-include/asm-generic/tlb.h:666:17: note: in expansion of macro '__pte_free_tlb'
-  666 |                 __pte_free_tlb(tlb, ptep, address);             \
-      |                 ^~~~~~~~~~~~~~
-mm/memory.c:193:9: note: in expansion of macro 'pte_free_tlb'
-  193 |         pte_free_tlb(tlb, token, addr);
-      |         ^~~~~~~~~~~~
-arch/nios2/include/asm/pgalloc.h:33:36: error: implicit declaration of function 'page_ptdesc' [-Werror=implicit-function-declaration]
-   33 |                 pagetable_pte_dtor(page_ptdesc(pte));                   \
-      |                                    ^~~~~~~~~~~
-include/asm-generic/tlb.h:666:17: note: in expansion of macro '__pte_free_tlb'
-  666 |                 __pte_free_tlb(tlb, ptep, address);             \
-      |                 ^~~~~~~~~~~~~~
-mm/memory.c:193:9: note: in expansion of macro 'pte_free_tlb'
-  193 |         pte_free_tlb(tlb, token, addr);
-      |         ^~~~~~~~~~~~
-arch/nios2/include/asm/pgalloc.h:34:17: error: implicit declaration of function 'tlb_remove_page_ptdesc'; did you mean 'tlb_remove_page_size'? [-Werror=implicit-function-declaration]
-   34 |                 tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));      \
-      |                 ^~~~~~~~~~~~~~~~~~~~~~
-include/asm-generic/tlb.h:666:17: note: in expansion of macro '__pte_free_tlb'
-  666 |                 __pte_free_tlb(tlb, ptep, address);             \
-      |                 ^~~~~~~~~~~~~~
-mm/memory.c:193:9: note: in expansion of macro 'pte_free_tlb'
-  193 |         pte_free_tlb(tlb, token, addr);
+Changes since v2:
+- Rebased on 6.4-rc7.
+- Merged the header file into the c file.
+- Renamed the functions from 'starfive_' to 'jh7110_'
+- Used function 'clocksource_register_hz' instead of
+  'clocksource_mmio_init'.
 
-> ---
->  arch/nios2/include/asm/pgalloc.h | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/nios2/include/asm/pgalloc.h b/arch/nios2/include/asm/pgalloc.h
-> index ecd1657bb2ce..ce6bb8e74271 100644
-> --- a/arch/nios2/include/asm/pgalloc.h
-> +++ b/arch/nios2/include/asm/pgalloc.h
-> @@ -28,10 +28,10 @@ static inline void pmd_populate(struct mm_struct *mm, pmd_t *pmd,
->  
->  extern pgd_t *pgd_alloc(struct mm_struct *mm);
->  
-> -#define __pte_free_tlb(tlb, pte, addr)				\
-> -	do {							\
-> -		pgtable_pte_page_dtor(pte);			\
-> -		tlb_remove_page((tlb), (pte));			\
-> +#define __pte_free_tlb(tlb, pte, addr)					\
-> +	do {								\
-> +		pagetable_pte_dtor(page_ptdesc(pte));			\
-> +		tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));	\
->  	} while (0)
->  
->  #endif /* _ASM_NIOS2_PGALLOC_H */
-> -- 
-> 2.40.1
-> 
-> 
+v2: https://lore.kernel.org/all/20230320135433.144832-1-xingyu.wu@starfivetech.com/
+
+Changes since v1: 
+- Added description about timer and modified properties' description
+  in dt-bindings.
+- Dropped the 'interrupt-names' and 'clock-frequency' in dt-bindings.
+- Renamed the functions and added 'starfive_'
+- Modified that the driver probe by platform bus.
+
+v1: https://lore.kernel.org/all/20221223094801.181315-1-xingyu.wu@starfivetech.com/
+
+Xingyu Wu (3):
+  dt-bindings: timer: Add timer for StarFive JH7110 SoC
+  clocksource: Add JH7110 timer driver
+  riscv: dts: jh7110: starfive: Add timer node
+
+ .../bindings/timer/starfive,jh7110-timer.yaml |  96 ++++
+ MAINTAINERS                                   |   7 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |  20 +
+ drivers/clocksource/Kconfig                   |  11 +
+ drivers/clocksource/Makefile                  |   1 +
+ drivers/clocksource/timer-jh7110.c            | 485 ++++++++++++++++++
+ 6 files changed, 620 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/timer/starfive,jh7110-timer.yaml
+ create mode 100644 drivers/clocksource/timer-jh7110.c
+
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
