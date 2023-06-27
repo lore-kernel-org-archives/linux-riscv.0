@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF0BEB64D7
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 01:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA49DEB64D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 01:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kB5sgPpbOZM5fcAbW0FFJ07DoQvleDzZK7RJz17/0SI=; b=KSFE+v/WvEyrO+
-	rYh1sz39BvkB3M/fkOjjN/9Xvo0ykEaSKfFohU4v985KNtiaQ0s5nsf7b6Q19hYP75OdI6xTZHqhW
-	JSKI0r1Nq2+O0KyGRMjnHpt/nL6xjv51166zeQVkbHztRCJdiPct9BIGhRWHfWbuQusWuwfuCy1Lb
-	PEv4qZ/mu6y18CfNUtSLCudTb8wYNM3s9qaX1srYU0HrxQpBYHsK0tI2or3tdCXbG4dYjzTmdiC7w
-	w4LUbTzZn9McyMuQvTjAwrKz1TBNe8AEbYjwInuVwJVDVL+kycRWKL1bmKQSqnZonoiXa8MOuYTDh
-	Mtrf5koaeak7nOztA+Jg==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cumMfRm2FPB1sA71Qpm1U11Ey0rnFK8899YNy8N8NYY=; b=dgL3UlyBrpge16
+	WsmGBCLjq3IFutMifmnvPGIIwzaKzP2t9X7roIbeYFxq4ap/G8QgW8EIB0EtVJFSUFw25FMS4bYjJ
+	tYbRgVuJOxZC/+r8mrD2Cqg2B2wnNeXbd01WbUiy4xa3jYadQ0FtPO/WZ2blWJRuXbMPPpFBiH3kZ
+	RUmOC5tUHKN2bpt7XZQItsLSTIcyLxLFsApThbQ/HkK8AziTBWRoI5Svm7vvwwccfZc9w6PLtLkkx
+	rLc6+4yOPAAlRrvHTLfZB8+jvO4/p+vhwhtVNpVj5eXvb0qL6iVkM+Vt/ccnX220rK/9AGdiIw9OC
+	CgRWqHdGeEknwzbml0vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDxw8-00BPDw-0y;
-	Tue, 27 Jun 2023 01:56:08 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1qDxwH-00BPFP-1t;
+	Tue, 27 Jun 2023 01:56:17 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDxw4-00BPCs-1T
+	id 1qDxwE-00BPEz-2x
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jun 2023 01:56:06 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-66869feb7d1so2130638b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Jun 2023 18:56:02 -0700 (PDT)
+	Tue, 27 Jun 2023 01:56:16 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-6687446eaccso3681690b3a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Jun 2023 18:56:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1687830961; x=1690422961;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P/zwlrUQvnJZPB1PxtpNLJ/gginWhf0/3T5xPAclgcE=;
-        b=iRYNiGhoQVw4DS25sIW7bZykH+8FhmIC9jpo04/cPUIQff0T7iftwWfQ1R9W19gk3M
-         CvaWnwsZPioKnFbxGCjRwhT46rVbhyfsm/K6+OPnkDTqFUsER3WWwjS5kBo30D5yXcOF
-         opD99qD2zBOyy6IQW9d2wh/yB1w5s3Srs/tOS0uODcahuTkL0QH3z+5h/RpMSL86wHQW
-         uEKu3VgvlGFHHMjpImRvT3Db4EjYSaxv4dJZJRhyNEC77M8qOG3Jp9xABASbTxEWLrQY
-         vtWnINX1CcHVQ7fREVyltAqD36WjCWWgXUIhzkwbp83mQBUYafqCACK0ouopw80wrEIu
-         enZQ==
+        d=sifive.com; s=google; t=1687830973; x=1690422973;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=M13pNI+jfyNY1PvtRSOXuFPOaeSy8/lZRSanlskEp6c=;
+        b=MZ/BmLloX2LGuYloe3ByZcKIMI//PFiCl7ruP/NhTG+gO1hPmMb6/940ZQjZwHLhIp
+         A8RvfcFlfjJu5oJrsZxmXocdqel0T8qcjboWjYuvqS2NMaP3Fve0w5Tqm6tXoTTwansE
+         n/12pRuR156CsaqIeb9xad5BAefxWDQA+u93+YB3mYuLOEwqj0RQcf6bgc2KoVrRdCJv
+         7oEeztnC0fppdHkeiWxQMdizbUXHtRQDnXMqaufFzPN0WIwe2Tlp3ViwQQaHipRqiUbX
+         sHCp2/KamZMtOH3Vu+2T29ZQLRjeEF1IAB1Sa7UzRIuef3X/hcAovEesN0HMy0fqhthW
+         jbmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687830961; x=1690422961;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=P/zwlrUQvnJZPB1PxtpNLJ/gginWhf0/3T5xPAclgcE=;
-        b=KvzDhQBEPzOeln60tLLOilF3+/u0m+g/PRt8MHcJ4bqP8sSLdFsgLlAgqw0K6yJ+Rw
-         afn5xO23vpRD8RyynNEP6DwA76lsGNc0HQgHnk3O1sg+gcDYzKsYEETeJovyglQFpRMP
-         m+Ug8VYFh4szxTMa43QlkmMJ8e/NZuU6ho65pFm+MVdH2xG4FyzQ/W/KPTRmTA6KCSJv
-         jTZbjHb36UNMl9SL+k0xxw3tsU8+ZNKiT0YPM8Ck+VFSeLY7vv4zUqgHPAXmKU+YT6oh
-         ByTCGZrnJcz79kbMO3g6GVJSNndJ473/zM+4kt8JOCco0JGs+fFMfQlIjFmMR8++Fp4S
-         VGkw==
-X-Gm-Message-State: AC+VfDyrMnlmsrOsbl8H8m+gip+s3IePgiVtKP4jm5HCcOzjX8aNfJy/
-	H+ABlIcd0KE43EWi86T6HLSEoic7GpT8HFYaF313ivdFF5CrDa7pOz9eKlCabEYa7G47UpSKkBl
-	9cD+G7PDYqh266u8o9RfgEow7bhgjy3aJDOfkotKaVpvonAxvthwwxUHhguJxzQD1RJf9lTLXnd
-	z14dUtgnurNgq+
-X-Google-Smtp-Source: ACHHUZ7COrTSsB7bb/hK64fBUw7a1zGar9DCJiA+7HdjDF9Tok2hilzX7ny4H9S1bG9gWF7EKFA/2Q==
-X-Received: by 2002:a05:6a20:7f8a:b0:118:2e5a:efab with SMTP id d10-20020a056a207f8a00b001182e5aefabmr30253680pzj.4.1687830961234;
-        Mon, 26 Jun 2023 18:56:01 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1687830973; x=1690422973;
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=M13pNI+jfyNY1PvtRSOXuFPOaeSy8/lZRSanlskEp6c=;
+        b=dMwga667XkfpB4JA7dDSTAEFGCyo3oVpzRLiREuviO3cqAH0xlcQllWPX+tMS45/q9
+         l5MPI5/v3aPJI398g544fXbtSfgauLZzmtpV34IlkgYvTaD+OQFTBijjSnHDnSS+dQ4u
+         dznukXEaiuyAzNpZxlB9hEJcQxvJirRr1FmW/+I9hWVxT0JDU2TLIjmgZMRBnE4HmjYa
+         19blXy19jUyv10lzo4AmM46hDhg6kpLzL/Aa/xnuz1kGzxDxvGNgrZA4+IJBrOaScPTV
+         i9My4Y7XTTvIT1p2fmCaPfY4bMGGv+ptGh6bcwfiwO2P9AX6YzVPuV/uzJ1Cr8yvkTn0
+         jWew==
+X-Gm-Message-State: AC+VfDxDqoJm2SP6OYYmRZ5WNIVf1oIjFz5fSF3cOJvHqjrHB6fm2TGe
+	7wviU7S3X0zRieKVqvn6AHWL3r+eykKXk6hfHdVHkeaw8YdHnf8EDN8VIBZnGkEmDB1zll1FqeZ
+	fZIik2DD3pBh7IPw/FNFHDaPdy+OPxANhjE5k4bfptEHD36375xJoTJpg4ernYnZ1JenJbFXiOd
+	rQjw+PZM9h0jKd
+X-Google-Smtp-Source: ACHHUZ4Ud6xxKhNlsxZSES1yZu0/JaF1uMBngLu+PQmN1w/XnuFX6EHQ+Sp5YJxjBjmTrjipOekQJQ==
+X-Received: by 2002:a05:6a20:7d8c:b0:11f:6d3c:5418 with SMTP id v12-20020a056a207d8c00b0011f6d3c5418mr36893794pzj.22.1687830972945;
+        Mon, 26 Jun 2023 18:56:12 -0700 (PDT)
 Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id iw4-20020a170903044400b001b80104446fsm2643375plb.20.2023.06.26.18.55.58
+        by smtp.gmail.com with ESMTPSA id iw4-20020a170903044400b001b80104446fsm2643375plb.20.2023.06.26.18.56.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jun 2023 18:56:00 -0700 (PDT)
+        Mon, 26 Jun 2023 18:56:12 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com,
@@ -71,15 +71,17 @@ Cc: vineetg@rivosinc.com,
 	guoren@linux.alibaba.com,
 	bjorn@rivosinc.com,
 	Andy Chiu <andy.chiu@sifive.com>,
+	Shuah Khan <shuah@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [v1, 0/2] Initialize Vector registers in the first-use trap
-Date: Tue, 27 Jun 2023 01:55:53 +0000
-Message-Id: <20230627015556.12329-1-andy.chiu@sifive.com>
+Subject: [v1, 2/2] selftests: Test RISC-V Vector's first-use handler
+Date: Tue, 27 Jun 2023 01:55:55 +0000
+Message-Id: <20230627015556.12329-3-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230627015556.12329-1-andy.chiu@sifive.com>
+References: <20230627015556.12329-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_185604_588202_D6DC94D5 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230626_185614_955257_5C480226 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,24 +99,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Before applying this series, We only initialize the space for saving
-Vector registers. This is not enough as Vector registers themselves also
-neeeded to be initialized before dropping back into userspace. Or, we
-may risk leaking a process's data left in Vector register to another
-process. This can be verified by only applying the second patch and
-running the test.
+This add a test to check if the kernel zero-initializes all V registers
+after the first-use trap handler returns.
 
-Andy Chiu (2):
-  riscv: vector: clear V-reg in the first-use trap
-  selftests: Test RISC-V Vector's first-use handler
+If V registers are not zero-initialized, then the test should fail one
+out of several runs:
 
- arch/riscv/kernel/vector.c                    |  1 +
+```
+ root@sifive-fpga:~# ./v_initval_nolibc
+ # vl = 256
+ not ok 1 detect stale values on v-regesters
+ 0 0 0 0 0 0 0 0   0 0 0 0 0 0 0 0
+ 0 4c 41 4e 47 3d 43 0   50 41 54 48 3d 2f 75 73
+ 72 2f 6c 6f 63 61 6c 2f   73 62 69 6e 3a 2f 75 73
+ 72 2f 6c 6f 63 61 6c 2f   62 69 6e 3a 2f 75 73 72
+ ff ff 81 0 0 0 0 0   0 0 0 0 0 0 0 0
+```
+
+Otherwise, the test passes without errors each run.
+
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+---
  .../testing/selftests/riscv/vector/.gitignore |  1 +
  tools/testing/selftests/riscv/vector/Makefile |  6 +-
  .../selftests/riscv/vector/v_initval_nolibc.c | 68 +++++++++++++++++++
- 4 files changed, 75 insertions(+), 1 deletion(-)
+ 3 files changed, 74 insertions(+), 1 deletion(-)
  create mode 100644 tools/testing/selftests/riscv/vector/v_initval_nolibc.c
 
+diff --git a/tools/testing/selftests/riscv/vector/.gitignore b/tools/testing/selftests/riscv/vector/.gitignore
+index 4f2b4e8a3b08..9ae7964491d5 100644
+--- a/tools/testing/selftests/riscv/vector/.gitignore
++++ b/tools/testing/selftests/riscv/vector/.gitignore
+@@ -1,2 +1,3 @@
+ vstate_exec_nolibc
+ vstate_prctl
++v_initval_nolibc
+diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
+index cd6e80bf995d..bfff0ff4f3be 100644
+--- a/tools/testing/selftests/riscv/vector/Makefile
++++ b/tools/testing/selftests/riscv/vector/Makefile
+@@ -2,7 +2,7 @@
+ # Copyright (C) 2021 ARM Limited
+ # Originally tools/testing/arm64/abi/Makefile
+ 
+-TEST_GEN_PROGS := vstate_prctl
++TEST_GEN_PROGS := vstate_prctl v_initval_nolibc
+ TEST_GEN_PROGS_EXTENDED := vstate_exec_nolibc
+ 
+ include ../../lib.mk
+@@ -13,3 +13,7 @@ $(OUTPUT)/vstate_prctl: vstate_prctl.c ../hwprobe/sys_hwprobe.S
+ $(OUTPUT)/vstate_exec_nolibc: vstate_exec_nolibc.c
+ 	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
+ 		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
++
++$(OUTPUT)/v_initval_nolibc: v_initval_nolibc.c
++	$(CC) -nostdlib -static -include ../../../../include/nolibc/nolibc.h \
++		-Wall $(CFLAGS) $(LDFLAGS) $^ -o $@ -lgcc
+diff --git a/tools/testing/selftests/riscv/vector/v_initval_nolibc.c b/tools/testing/selftests/riscv/vector/v_initval_nolibc.c
+new file mode 100644
+index 000000000000..66764edb0d52
+--- /dev/null
++++ b/tools/testing/selftests/riscv/vector/v_initval_nolibc.c
+@@ -0,0 +1,68 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include "../../kselftest.h"
++#define MAX_VSIZE	(8192 * 32)
++
++void dump(char *ptr, int size)
++{
++	int i = 0;
++
++	for (i = 0; i < size; i++) {
++		if (i != 0) {
++			if (i % 16 == 0)
++				printf("\n");
++			else if (i % 8 == 0)
++				printf("  ");
++		}
++		printf("%02x ", ptr[i]);
++	}
++	printf("\n");
++}
++
++int main(void)
++{
++	int i;
++	unsigned long vl;
++	char *datap, *tmp;
++
++	datap = malloc(MAX_VSIZE);
++	if (!datap) {
++		ksft_test_result_fail("fail to allocate memory for size = %lu\n", MAX_VSIZE);
++		exit(-1);
++	}
++
++	tmp = datap;
++	asm volatile (
++		".option push\n\t"
++		".option arch, +v\n\t"
++		"vsetvli	%0, x0, e8, m8, ta, ma\n\t"
++		"vse8.v		v0, (%2)\n\t"
++		"add		%1, %2, %0\n\t"
++		"vse8.v		v8, (%1)\n\t"
++		"add		%1, %1, %0\n\t"
++		"vse8.v		v16, (%1)\n\t"
++		"add		%1, %1, %0\n\t"
++		"vse8.v		v24, (%1)\n\t"
++		".option pop\n\t"
++		: "=&r" (vl), "=r" (tmp) : "r" (datap) : "memory");
++
++	ksft_print_msg("vl = %lu\n", vl);
++
++	if (datap[0] != 0x00 && datap[0] != 0xff) {
++		ksft_test_result_fail("v-regesters are not properly initialized\n");
++		dump(datap, vl * 4);
++		exit(-1);
++	}
++
++	for (i = 1; i < vl * 4; i++) {
++		if (datap[i] != datap[0]) {
++			ksft_test_result_fail("detect stale values on v-regesters\n");
++			dump(datap, vl * 4);
++			exit(-2);
++		}
++	}
++
++	free(datap);
++	ksft_exit_pass();
++	return 0;
++}
 -- 
 2.17.1
 
