@@ -4,81 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4367BEB64D9
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 04:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAD5EB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 04:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dg9/x2sI1IP12zfVxwun2SeyOTHPGnFiMI09Tp/N/YE=; b=WhKdyTRX6f/pVC
-	FwIav3sceybNNLKcM4ky74SANH9BX4x8+Le3woK77SBtHf6+dGC6DOPREy6LJwVSzBRvwT+ftISrf
-	XKinN33trZ0oKKLrQ1msczcMkWV272++37m6I0ni1Vhhe3ysu445/ZOQR5zy0ZmUdL9vto41tgmJ2
-	rMzn9X/X+T9v2twVGdK9Wn8l39HsJIKA1VDqih2fYrvOy7L0piI5poMkEM24znvl0Y1zpjDuwZ4fo
-	DYfuZEJfuea9CqtoJzC0qqzOJlUs9vQGreOkC3kGH9RjlGIop7dRXUxGHp0aG0rKwIuQgzI/dB4dH
-	kWAbZp/jod9Xl0cJKgyQ==;
+	List-Owner; bh=VG2JL77SHZdH4N8vxGKcgU/PmH7IFmf/tOT+X32fR6A=; b=WS1LJA/cidlgMx
+	U8b6pQmluEb1vVa0okxA9Ni2yHCyauR2Sece+GrdMnl03GHgDYzk65lFIbGuYFBYcexB8r2cOmHsO
+	5K0dDy65XLGDiXWi4bfaOTQ0m3df0c5THh0FaKcKh1Ljq+QqbS8sp6bdbsJ0hrGSAkaXMJqkEKgZ5
+	A7D6HwuiDynPP5+2d2FJh/1um0GCk9tzhsdeb3yYhKfPxnAee8OupfuikL/a4LYznYCwgL0i3d8wU
+	/ObhgtZueo+AkX8NO2jh5A3W6tIXL7pPZ6ljRNQTJ7cJwvdNjNHauGoHnx9iA267pbW5hWc0Qaw8x
+	hbkDva74czDlPg5JS1oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE00a-00BeYt-1D;
-	Tue, 27 Jun 2023 04:08:52 +0000
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+	id 1qE0Z1-00BjUP-1D;
+	Tue, 27 Jun 2023 04:44:27 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE00V-00BeXF-0V
+	id 1qE0Yy-00BjRc-36
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jun 2023 04:08:51 +0000
-Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-765a5b93b5bso180629985a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Jun 2023 21:08:45 -0700 (PDT)
+	Tue, 27 Jun 2023 04:44:26 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-573491c4deeso42692927b3.0
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Jun 2023 21:44:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1687838924; x=1690430924;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yf8KYm9SDdHCbvMq49yvPwBt6bCyUoPOrxML9Y2T6mw=;
-        b=ZwvguHu2TdbTkFgoMUaxXLPUeTYJnhzKqQK2zf57qNwJlYE7hgcqe11Mn7R8Vh9WwL
-         XkwWLwVGKFO1m//RZnt6Z1lxG19ZHtIxb6eR0kzjF14fgNCrSin/TBaqkUg/vSotud/r
-         l6JM8Kdol+HOhTf/XuN+9W11b3CJeIuHVsVvsh/YKk06E+BZhNi6ozCdse9ENk9lxKH1
-         sFllnV3YZ7Ci9X8dO6WPDTfyVp3pRV5Nlz5SMrbwW84IIMeBZt0rRttSLGGbz8MVYTIi
-         bzER1GYokqQpdRGORspXeZQqUnl040IsVFuSwpFl9zCBFpjtjLkaOFQoxyX1T96cI6ZR
-         yf2A==
+        d=google.com; s=20221208; t=1687841060; x=1690433060;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dVtrcXbE5qXWKdJhq2ArhetT4KPRpQBwbjTOuMnTdxE=;
+        b=501HLYHctmk8sIJeTmzxhRx3/mgKpv1jRi1zyxe6IKd5PzvxEUvUlafEKoDqL6yZVr
+         8LPzltfzYfOsnNGE3T6BklB22lAMitCgdhFuhtcXDNR8cn90bt0hxS6/rFyMCnKABSjm
+         /oRswCkgkHFa78/d8yQxqLAP7w+UcywLgaNVEk0kQUj/E5gzTgG4U1Ib/QTJ68K6B1lq
+         DHiArvPKR0yaKTV4AcdaFGyA0a3QVzlRHTqcAyQmjJhyBDsZIisDj9Axezm4VTj3plhb
+         Dus4mDTAcMi1b8nttzH3dDwb6//iZcVcKmqu+MryYnw/GG09jfr1xcEP4Qfwx6utRJkj
+         zVzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687838924; x=1690430924;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yf8KYm9SDdHCbvMq49yvPwBt6bCyUoPOrxML9Y2T6mw=;
-        b=TLrcL00FpbWmtL4J3wPHc4eu5z38jvJhoLOCcbdLUq9kz4orZwUdHcVzhn6CQIU61Z
-         xvAGwQduVYXk99B15Z3a/hYe9+oH2zXQDql5gjtfObn4udOKqoZCAL2ZtzoQ1p1r/MxY
-         xAZG8kNT853SVUxbzy3StYlWDeW//lvzQCoEMYCWq1dGoQDG14To6SJODyOM1fSnpeOz
-         O0aEyBpqZy00QUSP/BuZtMe2aM8qSNMM+XpjUGUOCLjz6Y5C4TQdS7Sq54tPN/juMk6F
-         zO0PaFS7DPXivTYbNv6m4n7T7dqiKVYs2UiTc1KYarZDLYDhT1ApE2CKmReQgy6r8UGm
-         l2Aw==
-X-Gm-Message-State: AC+VfDwO6TXPYoib/+Ku0aoJR7A1M77ZuydsPfOO3wXyveF20dsiRpo0
-	diedv+1/1gKg0WSjvDwsRU0CRg==
-X-Google-Smtp-Source: ACHHUZ5FqGMKLxJfFONY3IKVLAq1woo1nDE3AeDAOQTrXE9Tfp7KHSu2vl4AxWz+AW/e2Ov3MkKRwg==
-X-Received: by 2002:a05:620a:440b:b0:765:3a94:940f with SMTP id v11-20020a05620a440b00b007653a94940fmr19798737qkp.33.1687838924506;
-        Mon, 26 Jun 2023 21:08:44 -0700 (PDT)
-Received: from x1 ([216.250.210.83])
-        by smtp.gmail.com with ESMTPSA id i2-20020a05620a150200b00759300a1ef9sm750770qkk.31.2023.06.26.21.08.36
+        d=1e100.net; s=20221208; t=1687841060; x=1690433060;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dVtrcXbE5qXWKdJhq2ArhetT4KPRpQBwbjTOuMnTdxE=;
+        b=Rr8yFvdwj6SMbOKbwLAegzxhwFsQmrqaGAJs9IKy7bl5F2kdECN7W0nc4e1iOLMwKr
+         M/w6zbu1RuKKyk57J54m0gTq5nzJqhRrSrFX4FHaFnN81bfnv5G5y/DIJI5+KLMFEepV
+         uim4uDgk3aJWDjfgZbx1pm/wn3X7z7O4zAueqcVWaUOWLAo1yoQteWiheN87Fk8GrQSJ
+         eoFvTpWH2Iob5n93B91aqWKd/s0YwEEek7aT3qbxgU0YAbp5Y+WDE3eCEr8BOpvrspNo
+         /Dpx7aesWplcSSGaSRsbILMst02SoBfTtnaHZMIGTSTvd8gvBjG0w7Mji/fdk67UGojZ
+         CxXA==
+X-Gm-Message-State: AC+VfDw66V1dKZVxhFj7NT1Wh2q2cb7lFY4mgZe/i/6JySt97N1v7gYW
+	i9skDoOFjyf/u5yNHAQB75EG1Q==
+X-Google-Smtp-Source: ACHHUZ4LBcIHJ/ynOcwzWzKYI9Mk2cjEWGfgZGpKdMoBZ7/XKupPMOzNiMbSCmgeKveyN334gs70/g==
+X-Received: by 2002:a81:7bc2:0:b0:56d:43cb:da98 with SMTP id w185-20020a817bc2000000b0056d43cbda98mr29864359ywc.29.1687841059932;
+        Mon, 26 Jun 2023 21:44:19 -0700 (PDT)
+Received: from ripple.attlocal.net (172-10-233-147.lightspeed.sntcca.sbcglobal.net. [172.10.233.147])
+        by smtp.gmail.com with ESMTPSA id j8-20020a252308000000b00bf44703efd3sm1487805ybj.6.2023.06.26.21.44.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jun 2023 21:08:44 -0700 (PDT)
-Date: Mon, 26 Jun 2023 21:12:45 -0700
-From: Drew Fustini <dfustini@baylibre.com>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>,
-	OpenSBI <opensbi@lists.infradead.org>,
-	U-Boot Mailing List <u-boot@lists.denx.de>,
-	"open list:RISC-V" <qemu-riscv@nongnu.org>
-Subject: Re: CFP open for RISC-V MC at Linux Plumbers Conference 2023
-Message-ID: <ZJphvbTsp6Q4Dfrq@x1>
-References: <CAOnJCU+uMF-brnyjA1HLhupYPqL0ebOVu+ivrSn2AewuSrhtBw@mail.gmail.com>
+        Mon, 26 Jun 2023 21:44:19 -0700 (PDT)
+Date: Mon, 26 Jun 2023 21:44:08 -0700 (PDT)
+From: Hugh Dickins <hughd@google.com>
+X-X-Sender: hugh@ripple.attlocal.net
+To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
+cc: Andrew Morton <akpm@linux-foundation.org>, 
+    Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org, 
+    linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+    loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+    linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
+    linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+    linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+    sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
+    xen-devel@lists.xenproject.org, kvm@vger.kernel.org, 
+    Hugh Dickins <hughd@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+    Huacai Chen <chenhuacai@kernel.org>, 
+    Geert Uytterhoeven <geert@linux-m68k.org>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, 
+    David Hildenbrand <david@redhat.com>, 
+    Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+    Paul Walmsley <paul.walmsley@sifive.com>, 
+    "David S. Miller" <davem@davemloft.net>, 
+    Richard Weinberger <richard@nod.at>, 
+    Yoshinori Sato <ysato@users.sourceforge.jp>, 
+    Dave Hansen <dave.hansen@linux.intel.com>, Arnd Bergmann <arnd@arndb.de>, 
+    Christophe Leroy <christophe.leroy@csgroup.eu>
+Subject: Re: [PATCH v6 00/33] Split ptdesc from struct page
+In-Reply-To: <20230627031431.29653-1-vishal.moola@gmail.com>
+Message-ID: <e8992eee-4140-427e-bacb-9449f346318@google.com>
+References: <20230627031431.29653-1-vishal.moola@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAOnJCU+uMF-brnyjA1HLhupYPqL0ebOVu+ivrSn2AewuSrhtBw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230626_210847_424485_F49F11DE 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230626_214424_998407_45F44738 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,28 +111,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 19, 2023 at 12:55:39PM -0700, Atish Patra wrote:
-> The CFP for topic proposals for the RISC-V micro conference[1] 2023 is open now.
-> Please submit your proposal before it's too late!
+On Mon, 26 Jun 2023, Vishal Moola (Oracle) wrote:
 
-Thanks for posting. I am looking forward to it!
+> The MM subsystem is trying to shrink struct page. This patchset
+> introduces a memory descriptor for page table tracking - struct ptdesc.
+...
+>  39 files changed, 686 insertions(+), 455 deletions(-)
 
-> The Linux plumbers event will be both in person and remote
-> (hybrid)virtual this year. More details can be found here [2].
-> 
-> We will start accepting proposals after 15th August 2023 to avoid last
-> minute visa/travel hassles.
-> The conference registration sells out pretty quickly too. Thus, we
-> would prefer to sort out the schedule sooner than later.
-> 
-> The final deadline is 15th October 2023 though.
-> 
-> [1] https://lpc.events/event/16/contributions/1148/
+I don't see the point of this patchset: to me it is just obfuscation of
+the present-day tight relationship between page table and struct page.
 
-I think that page is from 2022 and that this would be a better link:
-https://lpc.events/blog/current/index.php/2023/06/23/risc-v-microconference-cfp/
+Matthew already explained:
 
-Drew
+> The intent is to get ptdescs to be dynamically allocated at some point
+> in the ~2-3 years out future when we have finished the folio project ...
+
+So in a kindly mood, I'd say that this patchset is ahead of its time.
+But I can certainly adapt to it, if everyone else sees some point to it.
+
+Hugh
 
 _______________________________________________
 linux-riscv mailing list
