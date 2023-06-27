@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA56EB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 14:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D14DFEB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 14:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FWGuEZzTzIO/7LmVQ65+QsCqmUUOIFr/VYQo8dACENk=; b=V6iLaR4ts2Y14Q
-	Bo0zOCOGjXa2IUXioZ1W6s5ZlqCG/iXUp/6RfCAfBtze1EwSv4C+Djd1csNc8yhIKqU8DNeanXIMm
-	vMlPYbiBm0z54d6IPZrO4mWsQmDL2yOuyNZHfSS8nNNtGGPYPye/+GXFEVF4D4NPM3ay5ltB7PnLz
-	CdlcrXc+ChEHgmo9GichquUismZIibpAD7IuIfpRbTuhAK88GdNr6b/rS9C/pCTFvqKHyod6+wVxb
-	/kD2/1MC3hF6o7eUNMA1xUe6xDJe27piq+u527H2LNPtiG8L2YAATj3thlmv3eAoaltmeZEuJizXl
-	wdLz5nM7ihLNAK7SX8vg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=USoASLwMpZmlgq7rD8ZMyhECa4lad8ccbbig7Xp3FYo=; b=OKUdlfe6WAaeNj
+	g6Vjp+ffGKa0Hlo6/3Mxbcq6tuN8h2AuMxWRM0aVZ31zikbCmuU2DIHJ5RXQDXM6vRPflRk7Frob/
+	pyl7xcwnYI1Tpp7OiW0R2Kixt+vaT69MWol/wbd8ooLFQDwGhM1UfWugRH0yxBgNR7BL0SpHZ+TCt
+	uHC04jLlygTbJI8Lo0eWsPGz+f13vJ2jQvp2A7T/jeqsylBrof5k5sVBpwguner9FYlI0nKpWsbQL
+	jv35iERUA14Ul65SsM6fDCmTFcyYRnWrw1H94EZwAMvxocg190l71v8G0Bm9nn+XqeE8sUoO8oHFZ
+	ZiLz+sRJfWUzSOQ9THlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE9px-00DOX3-2l;
-	Tue, 27 Jun 2023 14:38:33 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1qE9pq-00DOVC-1i;
+	Tue, 27 Jun 2023 14:38:26 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qE9ps-00DOUj-1x
+	id 1qE9pn-00DOTg-2X
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jun 2023 14:38:30 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-3fb10fd9ad3so19909685e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Jun 2023 07:38:25 -0700 (PDT)
+	Tue, 27 Jun 2023 14:38:25 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-3f9b4a71623so44804745e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 27 Jun 2023 07:38:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687876704; x=1690468704;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WHx3gYl8Iw0W58X86iiLjYiqWHDrUKQgdW58J9hMNFo=;
-        b=FTtFb9NUP/FASOPS8uXn1Ce/tmrUwlVuNX2PR/86vGMwUod6PgNIRCWP1uks54i4F9
-         Pds5XWsywwWck3JhyC7zwYuKbYWBMfHYS7NhW/0MxwH43Z0rMp3SZBfMINhwqXsRt4L6
-         BWZmF2mpKAqelz1kMm0/Yj8eR4jfqKpL8uwKGeoRP5lR2L5B5PGvVb2gjqs/RMdgaK/d
-         /sT1/2lEtasaKEJFEFOhWdgkU8Rp/mrpkfYXUUqBEPQ5cMOyet5zVpa5fnfkbIEnEycp
-         lZCJkbMpt+mAYj8wvVyGSxpqwxMFwfWu5ihjRrR/qR8Jvq0F/W9OCbTmCKmjyg8oAnRg
-         rkzQ==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687876699; x=1690468699;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+C41V7RG5y8tus8a2bS6fXzYKHyPug4YX52zYixdqXc=;
+        b=yv/rlGV56Rx4w5dUzZqxeq5KGVYUscxz3mVtXcfwBEl7sAAaz8EkIR7pRo1RvSkaUj
+         rUr0ZuP+7Nh/NPTdSZ0HtaVaSof+gUZU0qs1twkErLIfkAHeARPAcA4wjS7etd34sCJH
+         ie/CvDHYDIa3TeGKLM98hyoQIYaMThelko2Lc4Xs7Ec9/63AhE6wZ8Nk0wL2k9lqHP8K
+         c8SXBfjrGGJvliutBkOYMWpRit6MLCBRj5WL+CNqXOAUz95Ompcg8RQXz0QZf14yg7Q2
+         rBl81WLIA8PZKkMtvgpvXrachnOEjL3gVM6ty+EqBv7wWyHICm7skQDU/9x/FlP42KFC
+         WBoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687876704; x=1690468704;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WHx3gYl8Iw0W58X86iiLjYiqWHDrUKQgdW58J9hMNFo=;
-        b=QkhVPPiQi8xGp8tGzqhqT2pvgLydct6Uis5nmXn9Fn9QH1GuwtNWS1qwS6ycPyO4lU
-         DcSMI0nT8eayttUFPIxZ/KEp5tpqtDoAIIvch8nNz/w1zSI5FoPq9E/nI3HMf3beouy/
-         M1ENzGAEbZ0Id1jt7MifAsVY4bX312RECCw0GrKktX4JK3ar7SjuAoRQlEydTOzXNPqA
-         tcM+IeEjtx7rmtFDs+p/Dvk1nc0aGmv0r1BCKbg6T4A3Bz5dOnVVJFG2woCcR27t/UZQ
-         SrLzuRTFSxUPfGsDyg17bc0X8rQq19qKvidbzhRMl7YmhDBvf+pUdJibPEoTHQ2vjS5W
-         YCjQ==
-X-Gm-Message-State: AC+VfDwVN+gGvTltzoiMFVqiq0brh9G93MHE4QodrUlZyWKnBa2PTMZs
-	yHIEmvmPAGP7bFZAoWyHkQm1qw==
-X-Google-Smtp-Source: ACHHUZ4nqjMHBfhSsc2aV/a4aCgpIz8HXNz9mgF/6ym4aPv0kI9lcEjphKs7zOHhm0vLztzwNlDDTA==
-X-Received: by 2002:a7b:cd1a:0:b0:3fb:7184:53eb with SMTP id f26-20020a7bcd1a000000b003fb718453ebmr2396351wmj.18.1687876704481;
-        Tue, 27 Jun 2023 07:38:24 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1687876699; x=1690468699;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+C41V7RG5y8tus8a2bS6fXzYKHyPug4YX52zYixdqXc=;
+        b=HAyCeXxRUnA6wKjCmal2ne76ysBWpMpsx2v+pxiSK7flQ9pG++guMvB/+7c+T9z2+O
+         IMfizMNnAQmmbGWbn/T0WiqBDOnbS0Ul56V7813aPF4mNjlehB9OEBYBdebcX6rEYozL
+         k5S2Ce6rVMXEvI3JGz9dGwOzb3uNpCeU0QXILjJagiEx4sh79rLyhUAaOa+/kCR8uTWS
+         u2d+vSO2GEdkJPPPAOyxWhF0hsrCpCD/jsX0BT1Lk65Pn0sibu8J59TcyEUf+FIdPF+A
+         fUpr1KRXEfCQYIbrcEhdYnkKGV44mfHvtZ1RQpv66COT0l53a+DwvIBaINwmao/n5sKU
+         wjqw==
+X-Gm-Message-State: AC+VfDzboncZIYNu9NcsG4P0+hIpQvcoXgU5FqDls7uu1JaLq0EyVMk4
+	urBSkdHuUirX5KPz4iVfSrCqaQ==
+X-Google-Smtp-Source: ACHHUZ4+vt4NZ58/U/X3S1zrCFaI/7IJINbviXWuuOta5mxEG3BMIF9gWctFWwGmtg0aVJjJ4Q1Anw==
+X-Received: by 2002:a7b:c050:0:b0:3f8:f45f:5c34 with SMTP id u16-20020a7bc050000000b003f8f45f5c34mr10342762wmc.40.1687876698944;
+        Tue, 27 Jun 2023 07:38:18 -0700 (PDT)
 Received: from vermeer.tail79c99.ts.net ([2a01:cb1d:81a9:dd00:b570:b34c:ffd4:c805])
-        by smtp.gmail.com with ESMTPSA id c21-20020a7bc855000000b003f8fac0ad4bsm10894793wml.17.2023.06.27.07.38.23
+        by smtp.gmail.com with ESMTPSA id c21-20020a7bc855000000b003f8fac0ad4bsm10894793wml.17.2023.06.27.07.38.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jun 2023 07:38:24 -0700 (PDT)
+        Tue, 27 Jun 2023 07:38:18 -0700 (PDT)
 From: Samuel Ortiz <sameo@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -79,16 +78,15 @@ Cc: Samuel Ortiz <sameo@rivosinc.com>,
 	Atish Patra <atishp@rivosinc.com>,
 	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
 	Evan Green <evan@rivosinc.com>
-Subject: [PATCH 2/3] RISC-V: hwprobe: Expose Zbc and the scalar crypto extensions
-Date: Tue, 27 Jun 2023 16:37:43 +0200
-Message-ID: <20230627143747.1599218-3-sameo@rivosinc.com>
+Subject: [PATCH 0/3] RISC-V: archrandom support
+Date: Tue, 27 Jun 2023 16:37:41 +0200
+Message-ID: <20230627143747.1599218-1-sameo@rivosinc.com>
 X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230627143747.1599218-1-sameo@rivosinc.com>
-References: <20230627143747.1599218-1-sameo@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230627_073828_640790_89A69E2B 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20230627_073824_045987_231CAB9F 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,137 +103,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Zbc was missing from a previous Bit-Manipulation extension hwprobe
-patch.
+This patchset adds support for the archrandom API to the RISC-V
+architecture.
 
-Add all scalar crypto extensions bits, and define a macro for setting
-the hwprobe key/pair in a more readable way.
+The ratified crypto scalar extensions provide entropy bits via the seed
+CSR, as exposed by the Zkr extension.
 
-Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
----
- Documentation/riscv/hwprobe.rst       | 33 ++++++++++++++++++++++++
- arch/riscv/include/uapi/asm/hwprobe.h | 11 ++++++++
- arch/riscv/kernel/sys_riscv.c         | 36 ++++++++++++++++-----------
- 3 files changed, 66 insertions(+), 14 deletions(-)
+The first patch of this patchset allows for detecting support of the Zbc
+and all scalar crypto extensions.
 
-diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
-index 19165ebd82ba..3177550106e0 100644
---- a/Documentation/riscv/hwprobe.rst
-+++ b/Documentation/riscv/hwprobe.rst
-@@ -72,11 +72,44 @@ The following keys are defined:
-        extensions.
- 
-   * :c:macro:`RISCV_HWPROBE_EXT_ZBB`: The Zbb extension is supported, as defined
-+      in version 1.0 of the Bit-Manipulation ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZBC`: The Zbc extension is supported, as defined
-        in version 1.0 of the Bit-Manipulation ISA extensions.
- 
-   * :c:macro:`RISCV_HWPROBE_EXT_ZBS`: The Zbs extension is supported, as defined
-        in version 1.0 of the Bit-Manipulation ISA extensions.
- 
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZBKB`: The Zbkb extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZBKC`: The Zbkc extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZBKX`: The Zbkx extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZKND`: The Zknd extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZKNE`: The Zkne extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZKNH`: The Zknh extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZKR`: The Zkr extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZKSED`: The Zksed extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZKSH`: The Zksh extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZKT`: The Zkt extension is supported, as defined
-+    in version 1.0 of the Scalar Cryptography ISA extensions.
-+
- * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
-   information about the selected set of processors.
- 
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 006bfb48343d..8357052061b3 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -29,6 +29,17 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_EXT_ZBA		(1 << 3)
- #define		RISCV_HWPROBE_EXT_ZBB		(1 << 4)
- #define		RISCV_HWPROBE_EXT_ZBS		(1 << 5)
-+#define		RISCV_HWPROBE_EXT_ZBC		(1 << 6)
-+#define		RISCV_HWPROBE_EXT_ZBKB		(1 << 7)
-+#define		RISCV_HWPROBE_EXT_ZBKC		(1 << 8)
-+#define		RISCV_HWPROBE_EXT_ZBKX		(1 << 9)
-+#define		RISCV_HWPROBE_EXT_ZKND		(1 << 10)
-+#define		RISCV_HWPROBE_EXT_ZKNE		(1 << 11)
-+#define		RISCV_HWPROBE_EXT_ZKNH		(1 << 12)
-+#define		RISCV_HWPROBE_EXT_ZKR		(1 << 13)
-+#define		RISCV_HWPROBE_EXT_ZKSED		(1 << 14)
-+#define		RISCV_HWPROBE_EXT_ZKSH		(1 << 15)
-+#define		RISCV_HWPROBE_EXT_ZKT		(1 << 16)
- #define RISCV_HWPROBE_KEY_CPUPERF_0	5
- #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 26ef5526bfb4..df15926196b6 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -145,20 +145,28 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 	for_each_cpu(cpu, cpus) {
- 		struct riscv_isainfo *isainfo = &hart_isa[cpu];
- 
--		if (riscv_isa_extension_available(isainfo->isa, ZBA))
--			pair->value |= RISCV_HWPROBE_EXT_ZBA;
--		else
--			missing |= RISCV_HWPROBE_EXT_ZBA;
--
--		if (riscv_isa_extension_available(isainfo->isa, ZBB))
--			pair->value |= RISCV_HWPROBE_EXT_ZBB;
--		else
--			missing |= RISCV_HWPROBE_EXT_ZBB;
--
--		if (riscv_isa_extension_available(isainfo->isa, ZBS))
--			pair->value |= RISCV_HWPROBE_EXT_ZBS;
--		else
--			missing |= RISCV_HWPROBE_EXT_ZBS;
-+#define SET_HWPROBE_EXT_PAIR(ext)					\
-+		do {							\
-+			if (riscv_isa_extension_available(isainfo->isa, ext)) \
-+				pair->value |= RISCV_HWPROBE_EXT_## ext; \
-+			else						\
-+				missing |= RISCV_HWPROBE_EXT_## ext;	\
-+		} while (false)						\
-+
-+		SET_HWPROBE_EXT_PAIR(ZBA);
-+		SET_HWPROBE_EXT_PAIR(ZBB);
-+		SET_HWPROBE_EXT_PAIR(ZBC);
-+		SET_HWPROBE_EXT_PAIR(ZBS);
-+		SET_HWPROBE_EXT_PAIR(ZBKB);
-+		SET_HWPROBE_EXT_PAIR(ZBKC);
-+		SET_HWPROBE_EXT_PAIR(ZBKX);
-+		SET_HWPROBE_EXT_PAIR(ZKND);
-+		SET_HWPROBE_EXT_PAIR(ZKNE);
-+		SET_HWPROBE_EXT_PAIR(ZKNH);
-+		SET_HWPROBE_EXT_PAIR(ZKR);
-+		SET_HWPROBE_EXT_PAIR(ZKSED);
-+		SET_HWPROBE_EXT_PAIR(ZKSH);
-+		SET_HWPROBE_EXT_PAIR(ZKT);
- 	}
- 
- 	/* Now turn off reporting features if any CPU is missing it. */
+The second patch exposes the Zbc and scalar crypto extensions through
+the hwprobe syscall.
+
+The last patch relies on the first ones to check for the Zkr support,
+and implements get_random_seed_longs by looping through a seed CSR
+read-write to return one long worth of entropy.
+
+Hongren (Zenithal) Zheng (1):
+  RISC-V: add Bitmanip/Scalar Crypto parsing from DT
+
+Samuel Ortiz (2):
+  RISC-V: hwprobe: Expose Zbc and the scalar crypto extensions
+  RISC-V: Implement archrandom when Zkr is available
+
+ Documentation/riscv/hwprobe.rst       | 33 ++++++++++++++
+ arch/riscv/include/asm/archrandom.h   | 66 +++++++++++++++++++++++++++
+ arch/riscv/include/asm/csr.h          |  9 ++++
+ arch/riscv/include/asm/hwcap.h        | 11 +++++
+ arch/riscv/include/uapi/asm/hwprobe.h | 11 +++++
+ arch/riscv/kernel/cpu.c               | 11 +++++
+ arch/riscv/kernel/cpufeature.c        | 30 ++++++++++++
+ arch/riscv/kernel/sys_riscv.c         | 36 +++++++++------
+ 8 files changed, 193 insertions(+), 14 deletions(-)
+ create mode 100644 arch/riscv/include/asm/archrandom.h
+
+
+base-commit: 488833ccdcac118da16701f4ee0673b20ba47fe3
 -- 
 2.41.0
 
