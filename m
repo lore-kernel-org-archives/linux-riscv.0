@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6576EEB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 16:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6561EB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Jun 2023 16:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HY66mPn1T1tt9171+KoqlBN231NuB4ONsFoG0W6zL9A=; b=oWsII2aFd7e7/j
-	bEuPOllAx2svYCAoaWsRVj5+dtJTUwOKxP2whPwCJu/2JgaRS1kXzzzpeE9OYe7Nsu6EOlZT2UG4G
-	wh5mLuMSmT3J8cny1HC5t/yUnB+Lz7TsTA9OP7GGCbj5NE9iApmCkqg8w0MtMaCjujJSWhK5ccOO2
-	YLF6gAhnieq0hxzTLwwUzwSbKR2bGOBTwuykqb7tGXIiZT9XVQ+W510nLfZ42dMhBoBNnkQYo7S4K
-	NlzyMvQwjVoILCRZOmav9stJ5EJemcOgavsAqhHgiM+C9OhRhcd7arPvtsIjsSzlfZoqwhdW+D0SX
-	WEGxZ8UmNVFkw1PPiOEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HTFzl+sE4uBFffnE+cqj9kswS+TCfPpRvBlpVL2XA4U=; b=kMIBBhJ4t6vktMvlW8WFR+UJ2b
+	cfZ866ZUzel3OkgYky1oav9cv4womjr65ypehtNcgv8FOLeAGreK7bWHvovH2da7DlhYLW0RMcj9D
+	T2ADnrfEwdsnoKGDlaNqrafW4Ylht3Q3mgH30eQvStHx7AGyBNnReobjdebka0Vfjtq87gzHh1gBU
+	tXGcUSDHQufQpN7DwduN6vKIkgfqasF9plgz0utJG9hnQEFqwE5DKRp0tnZUkoZf1K7HY+xbgBbZv
+	4pzff/dP0R9qb7rfObgdr4/4KjKAlabSAzjLS5eYdUWIg18mOpp7FWU1wsfZ4gaVLCMC0X1Toug7B
+	uiaSAIjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEBER-00Db7j-2C;
-	Tue, 27 Jun 2023 16:07:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qEBJG-00Dbzd-1J;
+	Tue, 27 Jun 2023 16:12:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEBEN-00Db5g-1j
+	id 1qEBJE-00DbzB-1P
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 Jun 2023 16:07:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1687882068;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hJDOCrbidQ6SQFQe4MgEFJjZ7UTNPrXFah4ZUMjVF/Y=;
-	b=Cc0KwX7LyXS8JYv5xGW2+kada08T3uFyGsb8yTCVnIZMX4XtJxbocE5Ojds0u20/K+87is
-	myxitS0nc+jnkl3smPQ3i2/vDsQnyna8j92dy+nE2BauC8pcvPB3aet2VXVwCWMCIfP96f
-	FZgTv+82jeH/NQ6orFj0L1Qu8UqSMoQ=
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
- [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-637-AqgRl7C7O0GO1poOh_lMyg-1; Tue, 27 Jun 2023 12:07:46 -0400
-X-MC-Unique: AqgRl7C7O0GO1poOh_lMyg-1
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-74faf5008bbso79690685a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 27 Jun 2023 09:07:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687882066; x=1690474066;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hJDOCrbidQ6SQFQe4MgEFJjZ7UTNPrXFah4ZUMjVF/Y=;
-        b=koOnbIggnmc3nkMWbgjqRFIP/AtUAL7Q8CvWo4JWcxkcq6SbbkD0XU7k1XvQ3RWNDe
-         5Vx3KweCEQNyJ0lfmFXtsdkCyMswa7n3VdszWpadshR0y/RZpue3FcQ+iQkO1rjZZFbY
-         2hJleZZlKNQU0DMljq6meYZ+Gi6Vg2QOC0GtvsYqfZueU7dHN+Bvdl2qhP1aONb3FVYt
-         AWYOOxdLSDyyqFHa13GXmN9WWaIqhgr15q6InrdK8j8TEP0BvZslhymwhhslHI1v/VyO
-         ilxOd1hQwWWqI4ygT/U4w+gRNAGnNu+5w0raITzoQQmrVMRRIxNxuc5mjqoXo7tupOjE
-         ETxA==
-X-Gm-Message-State: AC+VfDy2S48ZXMBAF0wRNl8TXxRo818ruu5RlktOt8mC/0+OqvtTS2J/
-	fZdbxpW0mtw/SzocDX2kSeUGkklK3mKTtaeeiHJaxLOa74Z7WwvOY7yaDR8SxmU6dg0rLJ0uTEt
-	GeTtVySp7chmHEp6XyoPn4yPkBVKl
-X-Received: by 2002:a05:620a:4007:b0:765:7b61:46fc with SMTP id h7-20020a05620a400700b007657b6146fcmr12614190qko.7.1687882066218;
-        Tue, 27 Jun 2023 09:07:46 -0700 (PDT)
-X-Google-Smtp-Source: ACHHUZ7UY1eApNq4tXkhQSQVDzyCNrRRXMA0KLJ6oWun1WyljocOJD3jbWnq1iikbRngPAZ/IFjT9Q==
-X-Received: by 2002:a05:620a:4007:b0:765:7b61:46fc with SMTP id h7-20020a05620a400700b007657b6146fcmr12614153qko.7.1687882065917;
-        Tue, 27 Jun 2023 09:07:45 -0700 (PDT)
-Received: from x1n (cpe5c7695f3aee0-cm5c7695f3aede.cpe.net.cable.rogers.com. [99.254.144.39])
-        by smtp.gmail.com with ESMTPSA id m21-20020a05620a13b500b0075ecdc937ffsm1342302qki.41.2023.06.27.09.07.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jun 2023 09:07:45 -0700 (PDT)
-Date: Tue, 27 Jun 2023 12:07:43 -0400
-From: Peter Xu <peterx@redhat.com>
-To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	Hugh Dickins <hughd@google.com>, Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v6 03/33] pgtable: Create struct ptdesc
-Message-ID: <ZJsJT9dLtxaKlxVb@x1n>
-References: <20230627031431.29653-1-vishal.moola@gmail.com>
- <20230627031431.29653-4-vishal.moola@gmail.com>
+	Tue, 27 Jun 2023 16:12:53 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DCC826119F;
+	Tue, 27 Jun 2023 16:12:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A378FC433C9;
+	Tue, 27 Jun 2023 16:12:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687882371;
+	bh=Atowo/Wdq8Wn3n/cF+7b1vU9PFbSs4wDejX0PorKzhg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MWuiKcz+ehV1BaqmYd2RhpqhTVU2Hy4o6C60TsJLTWVZeFMcBQredWMdzs32lm2Qb
+	 uaxd9396K6uiWiM85HdPl1aVaEL+jgP5xu8Rp91YSg8yba4grUiXS2Mo8iQieGTYJc
+	 udBxm2/uXbnL6l6/8V1NYd8ZuAU6JmyvWVC7Kg4DXCjztnUPSwIg1RAVt+e0KKBOab
+	 YwRyJ9Ot+h6be6ysUQbMwcrKHv50IG9FRnJuUaUlHleX546jP2d4rZ85xMXXAad9vo
+	 3Y4Jxa9VnoVqrJR+S06HD65aS/jrxVlnHmYxf5Z6I3ysZfKsCRJMbR8Q/R49XSm3IZ
+	 N52B6S18uz83g==
+Date: Tue, 27 Jun 2023 17:12:48 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?iso-8859-1?Q?R=E9mi?= Denis-Courmont <remi@remlab.net>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 3/3] RISC-V: add T-Head vector errata handling
+Message-ID: <20230627-sandlot-purity-1a27aa7a5275@spud>
+References: <20230622231305.631331-1-heiko@sntech.de>
+ <20230622231305.631331-4-heiko@sntech.de>
+ <2285267.ElGaqSPkdT@basile.remlab.net>
 MIME-Version: 1.0
-In-Reply-To: <20230627031431.29653-4-vishal.moola@gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+In-Reply-To: <2285267.ElGaqSPkdT@basile.remlab.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230627_090751_650041_A567DE4E 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20230627_091252_517118_7FF7F8DA 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,91 +70,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5737861313133193719=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 26, 2023 at 08:14:01PM -0700, Vishal Moola (Oracle) wrote:
-> Currently, page table information is stored within struct page. As part
-> of simplifying struct page, create struct ptdesc for page table
-> information.
-> 
-> Signed-off-by: Vishal Moola (Oracle) <vishal.moola@gmail.com>
-> Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
-> ---
->  include/linux/pgtable.h | 68 +++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 68 insertions(+)
-> 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 5063b482e34f..d46cb709ce08 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -987,6 +987,74 @@ static inline void ptep_modify_prot_commit(struct vm_area_struct *vma,
->  #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
->  #endif /* CONFIG_MMU */
->  
-> +
-> +/**
-> + * struct ptdesc -    Memory descriptor for page tables.
-> + * @__page_flags:     Same as page flags. Unused for page tables.
-> + * @pt_rcu_head:      For freeing page table pages.
-> + * @pt_list:          List of used page tables. Used for s390 and x86.
-> + * @_pt_pad_1:        Padding that aliases with page's compound head.
-> + * @pmd_huge_pte:     Protected by ptdesc->ptl, used for THPs.
-> + * @_pt_s390_gaddr:   Aliases with page's mapping. Used for s390 gmap only.
 
-Should some arch-specific bits (and a few others) always under some
-#ifdefs, so it shouldn't appear on other archs?
+--===============5737861313133193719==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="7Jm+8Dk91hzbNw/2"
+Content-Disposition: inline
 
-> + * @pt_mm:            Used for x86 pgds.
-> + * @pt_frag_refcount: For fragmented page table tracking. Powerpc and s390 only.
-> + * @ptl:              Lock for the page table.
-> + * @__page_type:      Same as page->page_type. Unused for page tables.
-> + * @_refcount:        Same as page refcount. Used for s390 page tables.
-> + * @pt_memcg_data:    Memcg data. Tracked for page tables here.
-> + *
-> + * This struct overlays struct page for now. Do not modify without a good
-> + * understanding of the issues.
-> + */
-> +struct ptdesc {
-> +	unsigned long __page_flags;
-> +
-> +	union {
-> +		struct rcu_head pt_rcu_head;
-> +		struct list_head pt_list;
-> +		struct {
-> +			unsigned long _pt_pad_1;
-> +			pgtable_t pmd_huge_pte;
-> +		};
-> +	};
-> +	unsigned long _pt_s390_gaddr;
-> +
-> +	union {
-> +		struct mm_struct *pt_mm;
-> +		atomic_t pt_frag_refcount;
-> +	};
-> +
-> +	union {
-> +		unsigned long _pt_pad_2;
-> +#if ALLOC_SPLIT_PTLOCKS
-> +		spinlock_t *ptl;
-> +#else
-> +		spinlock_t ptl;
-> +#endif
-> +	};
-> +	unsigned int __page_type;
-> +	atomic_t _refcount;
-> +#ifdef CONFIG_MEMCG
-> +	unsigned long pt_memcg_data;
-> +#endif
-> +};
 
--- 
-Peter Xu
+--7Jm+8Dk91hzbNw/2
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Tue, Jun 27, 2023 at 06:21:14PM +0300, R=E9mi Denis-Courmont wrote:
+> Le perjantaina 23. kes=E4kuuta 2023, 2.13.05 EEST Heiko Stuebner a =E9cri=
+t :
+> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> >=20
+> > T-Head C9xx cores implement an older version (0.7.1) of the vector
+> > specification.
+> >=20
+> > Relevant changes concerning the kernel are:
+> > - different placement of the SR_VS bit for the vector unit status
+> > - different encoding of the vsetvli instruction
+> > - different instructions for loads and stores
+> >=20
+> > And a fixed VLEN of 128.
+>=20
+> Ultimately, conformant hardware also has a fixed VLEN of some value.
+>=20
+> So why is that relevant here? is the vlenb CSR not implemented? And even =
+if=20
+> so, c the value not be retrieved with vsetvli?
+
+I was looking around a bit, and saw a random comment on reddit today
+claiming that the c920 has a vlen of 256. Obviously that conflicts with
+what is written here, but it is reddit...
+Do you know if that is true Heiko, and if it is true, does the c920
+populate archid/impid with non-zero values?
+
+Cheers,
+Conor.
+
+--7Jm+8Dk91hzbNw/2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJsKgAAKCRB4tDGHoIJi
+0kfgAP43QhAxOT/5IwgRnyxkK6qhWDiZ1qZc1F/Lanjb9m9pqQD/VIcThgWq5jRw
+kfxGCjFxJjLt+HGatIlgUbhGBvUmUgo=
+=vJyD
+-----END PGP SIGNATURE-----
+
+--7Jm+8Dk91hzbNw/2--
+
+
+--===============5737861313133193719==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5737861313133193719==--
+
