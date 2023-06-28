@@ -4,80 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6CDDEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 17:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355CBEB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 17:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D2a3sYWV9DgWwjVSyXIHuzaE4OHW2gibin4sn6W/wuc=; b=IFiPyeWTIITa74
-	pislZ6AbjkGyA6tLfAVaOujKVbZzTmOkGvtJgUBQpRvg+dVsmhi8N+QjtkNV0j7kU5D0SpwWdPjmm
-	/R5o+sXNhdiXttNkUphk6NjDMWeSioYqTwlDtiE3au6+jU4mPQ2I2IPl53gZMT1M2R21PRWFpuV72
-	MBUQbJE5w9+/wC723R6Dpxff9U/njMj2ihLc/ClBNT1qRid2/V2BjiNZ48WuKRPxD6bZxh58v4VhT
-	4CQE7aairEj4MvGebveRKfjD6tYbd3ksyB4Bh1DPPTnuL0S7yOB1ch/b1LovS8DpIwKmQEq8UxZby
-	GqCErbm8ulYXs7VJ7XOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SAmOGld/caVN8R1IpvXXVPlXOmWFaCMtzoRy/hXMGGo=; b=14iMuqaqNYMPysHinHvTQx6kQS
+	QzONaGsVfOvc2+jHnZGEAbYhqcaQtl1x3w1DBpYYUJoBcE4N9xIjrMNOYAd+QDS1OrJV6yQZ/3y8j
+	v5Hsb4awdrgWn59xruB0HH0AunMP8RzitheoQoLNzrex12wlk/xPP1liGwjUzXGFxS1K11vqivq7m
+	DLM+gEbCQf5FpAi5lQdgEFIkPhH63sefu0gQB55oOewVxmf9q4JOrzAgPBna2GjLDl7bUKUJvHxYO
+	PR9vBc1h4v8+f/rDJOZmwTCFiatYh3eb9SepBI1Zt/+mc9ngeuzLeLMYe325/lUFSc1JeB4KDl4pg
+	qNjUz8Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEYtK-00GHBQ-0j;
-	Wed, 28 Jun 2023 17:23:42 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1qEYuQ-00GHID-1d;
+	Wed, 28 Jun 2023 17:24:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEYtG-00GHAZ-2u
+	id 1qEYuO-00GHHh-00
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jun 2023 17:23:40 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-2b69ed7d050so833101fa.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Jun 2023 10:23:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687973012; x=1690565012;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kqIqFUPFrsKoIzLWBGgp2HjNxkpNScvy103dAekNK5w=;
-        b=iO+yzmLlBkR+O04yTgo80XMCjE1b80WI/5T4Qt+zTpN+zGPz5uUifYYcilgLFgMHlu
-         KRxvTMs2ZdJ5lItvmKidStNdeww57cz5o093LHLryAOWX0mjEFxB/a5kzgIFkFBD3YlU
-         +D1ZnbfS+sh+CSyY39sAcSRMdmntP6SsFXeNJU0rDO5cbX1P57xW5ZRi6WlYNSHkr0IQ
-         arbyQtQnxWUZGkqsK0ZlsXC6Hpc6EC3nZ9MEER7r4rJ01FEkQzjNOSJ5nrkBS6KXOD+Y
-         aq5OoGfAThvZRw/LqxpPX05JVvc7EhBP60vZwNHAEiCJXpHKfesydgdF0TUxzYFw98/8
-         cNZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687973012; x=1690565012;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kqIqFUPFrsKoIzLWBGgp2HjNxkpNScvy103dAekNK5w=;
-        b=JajXQRW0mwDziAPBkxpaotHaBFVmkIqHucGlNmy+Jc7bI+YyUv3mrSh0C5/8L4La5T
-         buiwJlz8TY1yixEYpbGlCjRZseQ6GtjG42tsFtuwQ6QBn4DYpZNhkAvT9ufif+cu4fxL
-         xPE0N5dRv5jkVUg10MS05yF77T2UGF0gO2+2fG9Qiy+PT5uSsIVj08gD9usWesXUqUgn
-         G/0hNpVkIWTTskiEnylLcF29n8yzSWUDvP9Q1stEs3vOsLxrPlYhESbrg2epiuxM74TO
-         Mkk6PunYjSSh+ndPyAjUA7RU18WVDRo2NWSPgarisoB92vOrUTkJe2kd60z+Lx6b6yq8
-         esvQ==
-X-Gm-Message-State: AC+VfDzNX/ykcnZONYhMhL3LhFoUQosZT9auulEpSMbOpMdJ5y9p81g3
-	+Pl6DXmBK/VOg0X7ZDVvnJ7yuB8brKqcz3jmj/3N4g==
-X-Google-Smtp-Source: ACHHUZ79N/TpxztcIneHGSQv13tw7uydK8uMAMcNq7uhd3nC2sjwlTTVD5XfZdbpiDrun3fawZh0gaSMQ8wx9lp5nbA=
-X-Received: by 2002:a05:6512:e9d:b0:4f9:b6f8:844f with SMTP id
- bi29-20020a0565120e9d00b004f9b6f8844fmr8662285lfb.39.1687973011995; Wed, 28
- Jun 2023 10:23:31 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230628131442.3022772-1-sameo@rivosinc.com> <20230628131442.3022772-2-sameo@rivosinc.com>
-In-Reply-To: <20230628131442.3022772-2-sameo@rivosinc.com>
-From: Evan Green <evan@rivosinc.com>
-Date: Wed, 28 Jun 2023 10:22:56 -0700
-Message-ID: <CALs-HsuccHQiHEtJ+=s-YS0kHLhwOUnDUY7eP5W3BL2Lpx5+9g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
-To: Samuel Ortiz <sameo@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	"Hongren (Zenithal) Zheng" <i@zenithal.me>, linux@rivosinc.com, 
-	Conor Dooley <conor.dooley@microchip.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Heiko Stuebner <heiko.stuebner@vrull.eu>, Anup Patel <apatel@ventanamicro.com>, 
-	linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>, 
-	Atish Patra <atishp@rivosinc.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Wed, 28 Jun 2023 17:24:49 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 58FCD6129E;
+	Wed, 28 Jun 2023 17:24:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 773F0C433C8;
+	Wed, 28 Jun 2023 17:24:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1687973085;
+	bh=Sop1yazDMV/lbh0CwxeOMS0e7MThVMtbfcxDvIY6Dh8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dSRecRJtf1nhaszbsN0TCBX6rcEJD8lDqlCiZxK/c+rNQ5KqgAJzo/BFob79E2NCR
+	 RPurYxvyLHoGAN3GKmHY/cG/kuVpKmHsgw+HB1vrajaXVNV9V3hJMhqMQe/HXNAIUT
+	 0dUNCPXrc7fkEtgtMhZgAb6TE12IWDijpbqG3ShvsQP2YRjknXqaUSD/7EFuw+ulY6
+	 nP9ktEvzTdO0W+IZi/fsKBuXKo5XRcB7WzBG0XK/FjJL3b04sF23QKfJFl8OeeDlLu
+	 KvyqV+f21g6KzVBcwmV6xKUqPAfGze5q6t4oX0S3NHZRoVxRGW7ta6JTuVTOs5aE2K
+	 8js1ra+oT9WgA==
+Date: Wed, 28 Jun 2023 18:24:40 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Evan Green <evan@rivosinc.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	"Hongren (Zenithal) Zheng" <i@zenithal.me>, linux@rivosinc.com,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
 	Jiatai He <jiatai2021@iscas.ac.cn>
+Subject: Re: [PATCH 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
+Message-ID: <20230628-dragonish-lullaby-b44d2df09d66@spud>
+References: <20230627143747.1599218-1-sameo@rivosinc.com>
+ <20230627143747.1599218-2-sameo@rivosinc.com>
+ <CALs-HssMkVikspnEi-Ek2t=ABvFvgptAhsBjk1+aLuVjiP7P7w@mail.gmail.com>
+ <20230627-debating-twelve-da2c1ed60948@spud>
+ <ZJwE5wRVkoND3Z6P@vermeer>
+ <20230628-unfeeling-tavern-edd4f58396fa@wendy>
+ <CALs-HstZe+bw_fY--4FQXfFoA67tvMSaEjKhZ2pRstNT07xBxA@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CALs-HstZe+bw_fY--4FQXfFoA67tvMSaEjKhZ2pRstNT07xBxA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230628_102338_960658_514D782B 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20230628_102448_124324_AACA5726 
+X-CRM114-Status: GOOD (  33.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,30 +85,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6073846976441753126=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBKdW4gMjgsIDIwMjMgYXQgNjoxNeKAr0FNIFNhbXVlbCBPcnRpeiA8c2FtZW9Acml2
-b3NpbmMuY29tPiB3cm90ZToKPgo+IEZyb206ICJIb25ncmVuIChaZW5pdGhhbCkgWmhlbmciIDxp
-QHplbml0aGFsLm1lPgo+Cj4gUGFyc2UgWmIvWmsgcmVsYXRlZCBzdHJpbmcgZnJvbSBEVCBhbmQg
-b3V0cHV0IHRoZW0gdG8gY3B1aW5mby4KPgo+IEl0IGlzIHdvcnRoIG5vdGluZyB0aGF0IHRoZSBT
-Y2FsYXIgQ3J5cHRvIGV4dGVuc2lvbiBkZWZpbmVzICJ6ayIgYXMgYQo+IHNob3J0aGFuZCBmb3Ig
-dGhlIFprbiwgWmtyIGFuZCBaa3QgZXh0ZW5zaW9ucy4gU2luY2UgdGhlIFprbiBvbmUgYWxzbwo+
-IGltcGxpZXMgdGhlIFpia2IsIFpia2MgYW5kIFpia3ggZXh0ZW5zaW9ucywgc2ltcGx5IHBhc3Np
-bmcgdGhlIHZhbGlkCj4gInprIiBleHRlbnNpb24gbmFtZSB0aHJvdWdoIGEgRFQgd2lsbCBlbmFi
-bGUgYWxsIG9mIHRoZSAgWmJrYiwgWmJrYywKPiBaYmt4LCBaa24sIFprciBhbmQgWmt0IGV4dGVu
-c2lvbnMuCj4KPiBBbHNvLCBzaW5jZSB0aGVyZSBjdXJyZW50bHkgaXMgbm8gbWVjaGFuaXNtIHRv
-IG1lcmdlIGFsbCBlbmFibGVkCj4gZXh0ZW5zaW9ucywgdGhlIGdlbmVyYXRlZCBjcHVpbmZvIG91
-dHB1dCBjb3VsZCBiZSByZWxhdGl2ZWx5IGxhcmdlLgo+IEZvciBleGFtcGxlLCBzZXR0aW5nIHRo
-ZSAicmlzY3YsaXNhIiBEVCBwcm9wZXJ0eSB0byAicnY2NGltYWZkY196a196a3MiCj4gd2lsbCBn
-ZW5lcmF0ZSB0aGUgZm9sbG93aW5nIGNwdWluZm8gb3V0cHV0Ogo+ICJydjY0aW1hZmRjX3pia2Jf
-emJrY196Ymt4X3prbmRfemtuZV96a25oX3prcl96a3NlZF96a3NoX3prdCIuCj4KPiBUZXN0ZWQt
-Ynk6IEppYXRhaSBIZSA8amlhdGFpMjAyMUBpc2Nhcy5hYy5jbj4KPiBTaWduZWQtb2ZmLWJ5OiBT
-YW11ZWwgT3J0aXogPHNhbWVvQHJpdm9zaW5jLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBIb25ncmVu
-IChaZW5pdGhhbCkgWmhlbmcgPGlAemVuaXRoYWwubWU+CgpSZXZpZXdlZC1ieTogRXZhbiBHcmVl
-biA8ZXZhbkByaXZvc2luYy5jb20+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+
+--===============6073846976441753126==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Nk2liGfu8KoG29TY"
+Content-Disposition: inline
+
+
+--Nk2liGfu8KoG29TY
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jun 28, 2023 at 10:18:34AM -0700, Evan Green wrote:
+> On Wed, Jun 28, 2023 at 4:10=E2=80=AFAM Conor Dooley <conor.dooley@microc=
+hip.com> wrote:
+> >
+> > On Wed, Jun 28, 2023 at 12:01:11PM +0200, Samuel Ortiz wrote:
+> > > On Tue, Jun 27, 2023 at 07:48:15PM +0100, Conor Dooley wrote:
+> > > > On Tue, Jun 27, 2023 at 11:14:30AM -0700, Evan Green wrote:
+> > > > > On Tue, Jun 27, 2023 at 7:38=E2=80=AFAM Samuel Ortiz <sameo@rivos=
+inc.com> wrote:
+> >
+> > > > > It would be nice to consolidate the ones together that search for=
+ a
+> > > > > single string and set multiple bits, though I don't have any super
+> > > > > elegant ideas for how off the top of my head.
+> > > >
+> > > > I've got a refactor of this code in progress, dropping all of these
+> > > > copy-paste in place of a loop. It certainly looks more elegant than
+> > > > this, but it will fall over a bit for these "one string matches many
+> > > > extensions" cases. See here:
+> > > > https://patchwork.kernel.org/project/linux-riscv/patch/20230626-thi=
+eving-jockstrap-d35d20b535c5@wendy/
+> > > > My immediate thought is to add another element to riscv_isa_ext_dat=
+a,
+> > > > that contains "parent" extensions to check for. Should be fairly do=
+able,
+> > > > I'll whip something up on top of that...
+> > >
+> > > Nice, and thanks for the review.
+> >
+> > > Should I wait for your refactor to be merged before pushing this one?
+> >
+> > I don't know. I think that you should continue on with your series here,
+> > and whichever goes in second gets rebased on top of the other.
+> > I don't think it makes material difference to review of this patchset as
+> > to whether you rebase on top of what I'm working on, so I wouldn't
+> > bother until it gets merged.
+> >
+> > Rather hacky, had less time than expected this morning:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/=
+?h=3Driscv-extensions-strings-supersets
+> > Clearly there's issues with looping to RISCV_ISA_MAX_SUPERSETS & I just
+> > repurposed Zicsr for the sake of testing something in the time I had.
+> >
+> > Evan, at a high level, does that look more elegant to you, or have I ma=
+de
+> > things worse?
+> >
+>=20
+> I see what you're going for at least. It's unfortunate that when
+> someone bumps up RISCV_ISA_MAX_SUPERSETS it squares the whole array.
+> Another way to go might be to define the elements in a separate array,
+> like:
+>=20
+> unsigned int riscv_zks_exts[] =3D {
+>        RISCV_ISA_EXT_ZBKB,
+>        RISCV_ISA_EXT_ZBKC,
+>        ....
+> };
+>=20
+> then the macro entry looks like:
+>=20
+> SET_ISA_EXT_MAP_MULTI("zks", riscv_zks_exts),
+>=20
+> where the SET_ISA_EXT_MAP_MULTI() could use ARRAY_SIZE() to stash both
+> the pointer to the array and the number of elements.
+
+Yup, I like the sound of that. I like the variadic stuff as it'd not
+require defining a bunch of sub-arrays of supersets. I guess if it grows
+too badly, we can just dump it off into another file or w/e.
+
+--Nk2liGfu8KoG29TY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJxs2AAKCRB4tDGHoIJi
+0hyeAPoCJou4iW+SwgKBQCp5o/rvu8bFFnG2SdAC26nA3X5ifAD8Cev8fwX4Y1Qg
+5T7g/LvQlXnVSz10udi5To5hLiisfQM=
+=dznn
+-----END PGP SIGNATURE-----
+
+--Nk2liGfu8KoG29TY--
+
+
+--===============6073846976441753126==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6073846976441753126==--
+
