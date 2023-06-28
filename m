@@ -4,101 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4CFEB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 04:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32419EB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 05:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HM+5qtdld0RZgpPrcI+KO+feUMdpwi9m1Pyc9BR4waY=; b=df1/iHOcq4bbFx
-	wNd0p/z8QRINM/R8+e+V2tPj3BmnWJwRYwfxpK9cO+IRYOcTj40gQjnKIU2PWQhxXuOuML+zYceqW
-	E5JSjrXDPWiB6ssutYr7XOxuU2tWn4EdxRkbgROsqZSZLD098gVL6HKqn4Ld2IRBcgZ7xuYOdIXG9
-	y8AKtp+oWLOu/gPCCtwzzKcZB5diM5HIW9iuutHhr0qjWQYc+7LExZcl+JmeOpx4hd2HNd3TN0xup
-	XvHby5ad0ZuGR79ZM+ryKLziNqTgKeAEMdF4DQfHR2NyDditvsMKPNrgnK4cZ9zcMIOwBBtyT41iT
-	eajbl2WyjjDBHSpaSoCQ==;
+	List-Owner; bh=q2URX9WIpA1GjC3rsgdhuDyx0JW7RNQAiT3bCdeAiqM=; b=sSGrOwPU0JOYUO
+	kFl3rINvS1Tl1GEbZGh/9m0LFm00chzNmSIaWZIMUlxAU6u3qRFahe4IZh8acQYYdSjUoaHkKQvr9
+	at3NujjVrsHbWg9sdLGQ7o2raaa8V8rwtjuu+mIxSnDJSPk8kSvfJoyVr/yddmrz0DF+UeZKj5Ejd
+	myK0/Owf3yhb9Lh9Ihk5erDBNx/3q2kr84O/XLTisVTjEpUA14IqruNlSRNuvweXTqIwK2Rex8s1H
+	SMJ7uAJkSPjmEdJeCsAyELZgLCzcUTJK757owgC9EY76iHT/PwX10M2njo8GLi6Rgiq4cXzOtrX2v
+	8ve+vZXx9ifd06i6qnYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qENDj-00EpI1-0e;
-	Wed, 28 Jun 2023 04:55:59 +0000
-Received: from out4-smtp.messagingengine.com ([66.111.4.28])
+	id 1qEOCN-00Euqy-03;
+	Wed, 28 Jun 2023 05:58:39 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qENDe-00EpFX-0X;
-	Wed, 28 Jun 2023 04:55:56 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id 56E6F5C0078;
-	Wed, 28 Jun 2023 00:55:46 -0400 (EDT)
-Received: from imap50 ([10.202.2.100])
-  by compute1.internal (MEProxy); Wed, 28 Jun 2023 00:55:46 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1687928146; x=1688014546; bh=Dr
-	kfQZA4ZAS1gh0epx3coneRI+oyfY6k0HGVYNs6GJY=; b=Kf9Lwrmr0v8lFU0t92
-	H5QXsii6fPb6Qlu/s5Jp0uC5J4ZhnylbNjKaJBO3MkadNpr25csmXaFVYUwd/Jdx
-	rwaqd26MHUdVq51eQh6lkvQtKqtKJuKr5UXy9s43VL6Gu9tNw1jO6dxaE6wQQPX1
-	L9K7wFv/1UFG9M7SlR7oQCiOD1a8c+Y7O7tzlOOgL51a5jHt17A3DDkJPzg6sBNJ
-	2+PxT0VFfMKulsD6oETx4cHcynBFgT0CQWdti+UpSHGch0KEavZ6L3sQDzdqnQVc
-	ZZEZTlIJkzWsnjFOn6J5cXOq9aV4+Z4SInTTZkM9AO1aPTO+Mes+7tBSanpKAl8Q
-	aq2Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1687928146; x=1688014546; bh=DrkfQZA4ZAS1g
-	h0epx3coneRI+oyfY6k0HGVYNs6GJY=; b=P35eUrXrQAqM/4cW9cePk3hDAlY6c
-	5Jq5RiqyDYbpcUZbJHToh47Pm3G0GiXb1J+qhQp7Lvchuya9rYJLi2+TB/it+TPj
-	6pyomZcT2POh04hrzdnYxHT2d2MHoOMum4qEh/OaOvg5fSj8Cl5poE4V5SmEfP4a
-	MZ4qXPZwHvGEwtdyJ/binLznlrQi7XVSlExKYHioNAMhe/IKTlaglTSjNe8+BiVr
-	LowVo3Wke/5MUitu382SkGvbbxl7s71QV+t7CvBt/D4ynkc2O6gx6Gi8H+CK4NSN
-	k5s/SjC1ODiPgq6ZBYLllsFTyYTsApkB631uP+qrZ9xc3D6bXfALXsvhQ==
-X-ME-Sender: <xms:UL2bZLCUVtFhsnbPWsg-DNYDpJGIzmvHx9MfdyX_h8VfFwSDrNA8Sg>
-    <xme:UL2bZBiLqeUDbJljf0PRLNUpdSRCPKmUFxjqeWj9AcGj9OIHxjU09b5u3XiVSyFC1
-    B3kSp9KHH_AewFJ4g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrtddugdeklecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdfuthgv
-    fhgrnhcuqfdktfgvrghrfdcuoehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhmqeenuc
-    ggtffrrghtthgvrhhnpeehjeelgeekkeelfeeugeekffduveffvdfghfefteejtefgfeek
-    hfekkedttdefudenucffohhmrghinhepshhouhhrtggvfigrrhgvrdhorhhgpdhinhhfrh
-    gruggvrggurdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghi
-    lhhfrhhomhepshhorhgvrghrsehfrghsthhmrghilhdrtghomh
-X-ME-Proxy: <xmx:UL2bZGkhqB3QP820CC7YUMjw4XhGi1hZpsDGe7-GBqI28yiOPzUVWg>
-    <xmx:UL2bZNz7Sc6saWs8J0QtG6-xiksAUBd1a7rRty71JHS7q2G5U2HwAA>
-    <xmx:UL2bZASp24C38Hp_mdkx7_BBAGn-Of_6Yp6QzaCYn024u4Q2LpqRxA>
-    <xmx:Ur2bZJDVYEvgRTpNJKkIiG774eQYP1AnCYcE2ORkKjdUFzt8jhp_bQ>
-Feedback-ID: i84414492:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id C72F21700089; Wed, 28 Jun 2023 00:55:44 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
-Mime-Version: 1.0
-Message-Id: <b911c5e1-458a-456a-abe4-a8964580a85b@app.fastmail.com>
-In-Reply-To: <mhng-97928779-5d76-4390-a84c-398fdc6a0a4f@palmer-ri-x1c9>
-References: <mhng-97928779-5d76-4390-a84c-398fdc6a0a4f@palmer-ri-x1c9>
-Date: Wed, 28 Jun 2023 00:53:38 -0400
-From: "Stefan O'Rear" <sorear@fastmail.com>
-To: "Palmer Dabbelt" <palmer@dabbelt.com>
-Cc: "Andy Chiu" <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
- anup@brainfault.org, "Atish Patra" <atishp@atishpatra.org>,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- "Vineet Gupta" <vineetg@rivosinc.com>, greentime.hu@sifive.com,
- guoren@linux.alibaba.com, "Jonathan Corbet" <corbet@lwn.net>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Heiko Stuebner" <heiko.stuebner@vrull.eu>, "Evan Green" <evan@rivosinc.com>,
- "Conor Dooley" <conor.dooley@microchip.com>,
- "Andrew Jones" <ajones@ventanamicro.com>,
- "Celeste Liu" <coelacanthus@outlook.com>,
- "Andrew Bresticker" <abrestic@rivosinc.com>
-Subject: Re: [PATCH -next v21 03/27] riscv: hwprobe: Add support for probing V in
- RISCV_HWPROBE_KEY_IMA_EXT_0
+	id 1qEOCJ-00Euph-2h;
+	Wed, 28 Jun 2023 05:58:37 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-4f004cc54f4so7545448e87.3;
+        Tue, 27 Jun 2023 22:58:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1687931912; x=1690523912;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=n3aJVivKTsxGgC5bZY9lBEYilnIfeNYiUvGs+4klsT4=;
+        b=EyR1u0N2KUtWsReJgPfwuO7azhk6O5y7csrrwvzN5oUccT+wyVRsmCmFMN0M2eAWQn
+         dbQsxpKMTLbx/085rciYtvkKO/RoltlLBYUS5nwzudg3UcWJNaAUmH3ac1jJ0GF7jK6x
+         hxbNeGLpqI9imb3xmV6UsHBxP8SsmEmtil6HC0aFHJZzZfw3gbbWMJf55z/scE0i6H2s
+         N0Dp7uqpMnOlgB8+XKEGGuLEsTvLjzBz1o/6GLA3UTRojiFSP87+tE1PhIyHCS9uYFds
+         bFv1+4/uBLPiRnJZ5L429ryfCUqb6E7lpt4WV+YF5kvJaRePDWZM7JI91smTG6vv1m3t
+         NXBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1687931912; x=1690523912;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=n3aJVivKTsxGgC5bZY9lBEYilnIfeNYiUvGs+4klsT4=;
+        b=RuvKL8/IKH8WTxoJZ4KczG0cibOQVcEBaRSP5hz1JPD3nL6MG9LIVlwr8bBMbybt/O
+         PjF4Ym7rqeaOVLQDAeTENtwo0y81K1HGpHFG1i6EVi6xEnncluX591AhEFQd1N9zN3uk
+         raps34Kzh9t6q8g74+dfMTcZ812ZsglT7JdHxoAk6Uii4FcVBeFMLgDf7Er6256lPdf4
+         mKqr281zcYi990vTPKDQDm2U8LGPV7g1zL96MOpYYyiPH1HybZvRjhPhWrtQkeSVcwVS
+         Hcd0Whi4wHfl3mGDqFyhtimtsUdoSYfdXXUg/B2W8s40gyoen/EydQtWplORAXUUsuFk
+         zJiA==
+X-Gm-Message-State: AC+VfDwa98WIgDihsB2uI299uof3FVifvyEK9NTu0RrYrjGyOWovkwk5
+	WOAnKvJiD36kuZJWZ6Br4gf2j3wUB4dRHD49A8g=
+X-Google-Smtp-Source: ACHHUZ6G3GAT9ajCN9HnEnSa14/P//f+PSHHiBNlYEdgWCk+bz3CMGjmyPuJIjqhIuitZ1/YwJeJIdz2FvIiBiB2/A0=
+X-Received: by 2002:a05:6512:3d21:b0:4fb:4368:14a1 with SMTP id
+ d33-20020a0565123d2100b004fb436814a1mr7873262lfv.18.1687931912362; Tue, 27
+ Jun 2023 22:58:32 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1687515463.git.haibo1.xu@intel.com> <341feff384c9f8a20ed4aac6e2dda0440d6b84f2.1687515463.git.haibo1.xu@intel.com>
+ <20230627-4d207186c4ef81be43c9d874@orel>
+In-Reply-To: <20230627-4d207186c4ef81be43c9d874@orel>
+From: Haibo Xu <xiaobo55x@gmail.com>
+Date: Wed, 28 Jun 2023 13:58:21 +0800
+Message-ID: <CAJve8ony9nj9LyCAJjtvthR+ABLvSPHvpeE5e5=wr_z44i20qw@mail.gmail.com>
+Subject: Re: [PATCH v4 08/12] KVM: arm64: selftests: Move reject_set check
+ logic to a function
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Haibo Xu <haibo1.xu@intel.com>, maz@kernel.org, oliver.upton@linux.dev, 
+	seanjc@google.com, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, David Matlack <dmatlack@google.com>, 
+	Ben Gardon <bgardon@google.com>, Ricardo Koller <ricarkol@google.com>, 
+	Vishal Annapurve <vannapurve@google.com>, Vipin Sharma <vipinsh@google.com>, 
+	Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230627_215554_633811_73C547FA 
-X-CRM114-Status: GOOD (  47.92  )
+X-CRM114-CacheID: sfid-20230627_225835_892238_5E962316 
+X-CRM114-Status: GOOD (  28.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,212 +95,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 27, 2023, at 9:56 PM, Palmer Dabbelt wrote:
-> On Tue, 27 Jun 2023 17:30:33 PDT (-0700), sorear@fastmail.com wrote:
->> On Mon, Jun 5, 2023, at 7:07 AM, Andy Chiu wrote:
->>> Probing kernel support for Vector extension is available now. This only
->>> add detection for V only. Extenions like Zvfh, Zk are not in this scope.
->>>
->>> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
->>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->>> Reviewed-by: Evan Green <evan@rivosinc.com>
->>> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
->>> ---
->>> Changelog v20:
->>>  - Fix a typo in document, and remove duplicated probes (Heiko)
->>>  - probe V extension in RISCV_HWPROBE_KEY_IMA_EXT_0 key only (Palmer,
->>>    Evan)
->>> ---
->>>  Documentation/riscv/hwprobe.rst       | 3 +++
->>>  arch/riscv/include/uapi/asm/hwprobe.h | 1 +
->>>  arch/riscv/kernel/sys_riscv.c         | 4 ++++
->>>  3 files changed, 8 insertions(+)
->>>
->>> diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
->>> index 9f0dd62dcb5d..7431d9d01c73 100644
->>> --- a/Documentation/riscv/hwprobe.rst
->>> +++ b/Documentation/riscv/hwprobe.rst
->>> @@ -64,6 +64,9 @@ The following keys are defined:
->>>    * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as defined
->>>      by version 2.2 of the RISC-V ISA manual.
->>>
->>> +  * :c:macro:`RISCV_HWPROBE_IMA_V`: The V extension is supported, as defined by
->>> +    version 1.0 of the RISC-V Vector extension manual.
->>> +
->>>  * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
->>>    information about the selected set of processors.
->>>
->>> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h
->>> b/arch/riscv/include/uapi/asm/hwprobe.h
->>> index 8d745a4ad8a2..7c6fdcf7ced5 100644
->>> --- a/arch/riscv/include/uapi/asm/hwprobe.h
->>> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
->>> @@ -25,6 +25,7 @@ struct riscv_hwprobe {
->>>  #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
->>>  #define		RISCV_HWPROBE_IMA_FD		(1 << 0)
->>>  #define		RISCV_HWPROBE_IMA_C		(1 << 1)
->>> +#define		RISCV_HWPROBE_IMA_V		(1 << 2)
->>>  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
->>>  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
->>>  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
->>> diff --git a/arch/riscv/kernel/sys_riscv.c
->>> b/arch/riscv/kernel/sys_riscv.c
->>> index 5db29683ebee..88357a848797 100644
->>> --- a/arch/riscv/kernel/sys_riscv.c
->>> +++ b/arch/riscv/kernel/sys_riscv.c
->>> @@ -10,6 +10,7 @@
->>>  #include <asm/cpufeature.h>
->>>  #include <asm/hwprobe.h>
->>>  #include <asm/sbi.h>
->>> +#include <asm/vector.h>
->>>  #include <asm/switch_to.h>
->>>  #include <asm/uaccess.h>
->>>  #include <asm/unistd.h>
->>> @@ -171,6 +172,9 @@ static void hwprobe_one_pair(struct riscv_hwprobe
->>> *pair,
->>>  		if (riscv_isa_extension_available(NULL, c))
->>>  			pair->value |= RISCV_HWPROBE_IMA_C;
->>>
->>> +		if (has_vector())
->>> +			pair->value |= RISCV_HWPROBE_IMA_V;
->>> +
->>>  		break;
->>
->> I am concerned by the exception this is making.  I believe the intention of
->> riscv_hwprobe is to replace AT_HWCAP as the single point of truth for userspace
->> to make instruction use decisions.  Since this does not check riscv_v_vstate_ctrl_user_allowed,
->> application code which wants to know if V instructions are usable must use
->> AT_HWCAP instead, unlike all other extensions for which the relevant data is
->> available within the hwprobe return.
->
-> I guess we were vague in the docs about what "supported" means, but IIRC 
-> the goal was for riscv_hwprobe() to indicate what's supported by both 
-> the HW and the kernel.  In other words, hwprobe should indicate what's 
-
-Should this be "the HW, the firmware, and the kernel" in the cases where it
-matters, or are you considering the firmware part of the kernel's view of
-the hardware?
-
-> possible to enable -- even if there's some additional steps necessary to 
-> enable it.
->
-> We can at least make this a little more explicit with something like
->
->     diff --git a/Documentation/riscv/hwprobe.rst 
-> b/Documentation/riscv/hwprobe.rst
->     index 19165ebd82ba..7f82a5385bc3 100644
->     --- a/Documentation/riscv/hwprobe.rst
->     +++ b/Documentation/riscv/hwprobe.rst
->     @@ -27,6 +27,13 @@ AND of the values for the specified CPUs. 
-> Usermode can supply NULL for cpus and
->      0 for cpu_count as a shortcut for all online CPUs. There are 
-> currently no flags,
->      this value must be zero for future compatibility.
->     
->     +Calls to `sys_riscv_hwprobe()` indicate the features supported by 
-> both the
->     +kernel and the hardware that the system is running on.  For 
-> example, if the
->     +hardware supports the V extension and the kernel has V support 
-> enabled then
->     +`RISCV_HWPROBE_KEY_IMA_EXT_0`/`RISCV_HWPROBE_IMA_V` will be set 
-> even if the V
->     +extension is disabled via a userspace-controlled tunable such as
->     +`PR_RISCV_V_SET_CONTROL`.
->     +
->      On success 0 is returned, on failure a negative error code is 
-> returned.
->     
->      The following keys are defined:
->     @@ -65,7 +72,10 @@ The following keys are defined:
->          by version 2.2 of the RISC-V ISA manual.
->     
->        * :c:macro:`RISCV_HWPROBE_IMA_V`: The V extension is supported, 
-> as defined by
->     -    version 1.0 of the RISC-V Vector extension manual.
->     +    version 1.0 of the RISC-V Vector extension manual.  For strict 
-> uABI
->     +    compatibility some systems may disable V by default even when 
-> the hardware
->     +    supports in, in which case users must call 
-> `prctl(PR_RISCV_V_SET_CONTROL,
->     +    ...` to explicitly allow V to be used.
->     
->        * :c:macro:`RISCV_HWPROBE_EXT_ZBA`: The Zba address generation 
-> extension is
->             supported, as defined in version 1.0 of the 
-> Bit-Manipulation ISA
->
-> IMO that's the better way to go that to require that userspace tries to enable
-> V via the prctl() first, but we haven't released this yet so in theory we could
-> still change it.
-
-It's certainly a more precise definition but I'm arguing it's not a useful one.
-
-The description of the prctl() in Documentation/riscv/vector.rst is fairly clear
-that it is intended only for use by init systems, and not by libraries.
-
-Would you agree that "V is supported by the hardware and kernel, and could have
-been enabled by the init system but wasn't" is not actionable information for
-most applications and libraries?
-
-https://sourceware.org/pipermail/libc-alpha/2023-April/147062.html proposes to
-use hwprobe to "do things like dynamically choose a memcpy implementation".
-Would you agree that hwprobe as currently defined in for-next is not suitable
-for the purpose described in that message, since it describes features that could
-be enabled, not features that are enabled?
-
-> We'd have a similar discussion for some of the counters that need to feed
-> through the perf interface, though those are still in flight...
-
-The documented intent of the vector prctl is to enable or disable vector use as
-a policy for a tree of processes.  If I understand them correctly the perf
-counter user access patches require _individual processes_ to enable perf
-counters for their own use, which makes it a very different story from the
-perspective of the hwprobe API consumers.
-
--s
-
->> Assuming this is intentional, what is the path forward for future extensions
->> that cannot be used from userspace without additional conditions being met?
->> For instance, if we add support in the future for the Zve* extensions, the V
->> bit would not be set in HWCAP for them, which would require library code to
->> use the prctl interface unless we define the hwcap bits to imply userspace
->> usability.
->
-> In this case a system that supports some of the Zve extensions but not 
-> the full V extension would not be probably from userspace, as V would 
-> not be set anywhere.  The way to support that would be to add new bits 
-> into hwprobe to indicate those extensions, it just wasn't clear that 
-> anyone was interested in building Linux-flavored systems that supported 
-> only some a strict subset of V.
->
-> Happy to see patches if you know of some hardware in the pipeline, though ;)
->
->>
->> -s
->>
->>>  	case RISCV_HWPROBE_KEY_CPUPERF_0:
->>> --
->>> 2.17.1
->>>
->>>
->>> _______________________________________________
->>> linux-riscv mailing list
->>> linux-riscv@lists.infradead.org
->>> http://lists.infradead.org/mailman/listinfo/linux-riscv
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdW4gMjcsIDIwMjMgYXQgNTowOeKAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
+bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBKdW4gMjMsIDIwMjMgYXQgMDY6NDA6
+MTBQTSArMDgwMCwgSGFpYm8gWHUgd3JvdGU6Cj4gPiBObyBmdW5jdGlvbmFsIGNoYW5nZXMuIEp1
+c3QgbW92ZSB0aGUgcmVqZWN0X3NldCBjaGVjayBsb2dpYyB0byBhCj4gPiBmdW5jdGlvbiBzbyB3
+ZSBjYW4gY2hlY2sgZm9yIHNwZWNpZmljIGVycm5vIGZvciBzcGVjaWZpYyByZWdpc3Rlci4KPiA+
+IFRoaXMgaXMgYSBwcmVwYXJhdGlvbiBmb3Igc3VwcG9ydCByZWplY3Rfc2V0IGluIHJpc2N2Lgo+
+ID4KPiA+IFN1Z2dlc3RlZC1ieTogQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNv
+bT4KPiA+IFNpZ25lZC1vZmYtYnk6IEhhaWJvIFh1IDxoYWlibzEueHVAaW50ZWwuY29tPgo+ID4g
+LS0tCj4gPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL2FhcmNoNjQvZ2V0LXJlZy1saXN0
+LmMgfCA4ICsrKysrKysrCj4gPiAgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL2dldC1yZWct
+bGlzdC5jICAgICAgICAgfCA3ICsrKysrKy0KPiA+ICAyIGZpbGVzIGNoYW5nZWQsIDE0IGluc2Vy
+dGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvdG9vbHMvdGVzdGlu
+Zy9zZWxmdGVzdHMva3ZtL2FhcmNoNjQvZ2V0LXJlZy1saXN0LmMgYi90b29scy90ZXN0aW5nL3Nl
+bGZ0ZXN0cy9rdm0vYWFyY2g2NC9nZXQtcmVnLWxpc3QuYwo+ID4gaW5kZXggYWFmMDM1Yzk2OWVj
+Li40ZTJlMWZlODMzZWIgMTAwNjQ0Cj4gPiAtLS0gYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9r
+dm0vYWFyY2g2NC9nZXQtcmVnLWxpc3QuYwo+ID4gKysrIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVz
+dHMva3ZtL2FhcmNoNjQvZ2V0LXJlZy1saXN0LmMKPiA+IEBAIC0yNyw2ICsyNywxNCBAQCBib29s
+IGZpbHRlcl9yZWcoX191NjQgcmVnKQo+ID4gICAgICAgcmV0dXJuIGZhbHNlOwo+ID4gIH0KPiA+
+Cj4gPiArYm9vbCByZWplY3Rfc2V0X2ZhaWwoX191NjQgcmVnKQo+ID4gK3sKPiA+ICsgICAgIGlm
+IChyZWcgPT0gS1ZNX1JFR19BUk02NF9TVkVfVkxTKQo+ID4gKyAgICAgICAgICAgICByZXR1cm4g
+KGVycm5vICE9IEVQRVJNKTsKPiA+ICsKPiA+ICsgICAgIHJldHVybiBmYWxzZTsKPiA+ICt9Cj4K
+PiBJIHRoaW5rIHdlIHNob3VsZCBwYXNzIGVycm5vIGluIGFzIGEgcGFyYW1ldGVyIGFuZCBJIHBy
+ZWZlciBwb3NpdGl2ZQo+IHByZWRpY2F0ZSBmdW5jdGlvbnMsIHNvIEknZCBuYW1lIHRoaXMgY2hl
+Y2tfcmVqZWN0X3NldCgpIGFuZCByZXZlcnNlCj4gdGhlIGxvZ2ljLiBBbHNvLCB3ZSBkb24ndCB3
+YW50IHRvIGNoZWNrIGZvciBLVk1fUkVHX0FSTTY0X1NWRV9WTFMsCj4gYmVjYXVzZSB0aGF0IGR1
+cGxpY2F0ZXMgdGhlIHJlamVjdHMgc2V0LiBJIHNlZSBpbiBhIGxhdGVyIHBhdGNoCj4gdGhhdCBy
+aXNjdiBuZWVkcyB0byBjaGVjayByZWcgYmVjYXVzZSBkaWZmZXJlbnQgZXJyb3JzIGFyZSB1c2Vk
+Cj4gZm9yIGRpZmZlcmVudCByZWdpc3RlcnMsIGJ1dCB0aGF0J3MgYmVjYXVzZSBLVk1fUkVHX1JJ
+U0NWX1RJTUVSX1JFRyhzdGF0ZSkKPiB3YXMgZXJyb25lb3VzbHkgYWRkZWQgdG8gdGhlIHJlamVj
+dHMgc2V0LiBLVk1fUkVHX1JJU0NWX1RJTUVSX1JFRyhzdGF0ZSkKPiBkb2Vzbid0IGJlbG9uZyB0
+aGVyZS4gVGhhdCByZWdpc3RlciBjYW4gYmUgc2V0LCBidXQgaXQgb25seSBzdXBwb3J0cwo+IGNl
+cnRhaW4gaW5wdXQsIG90aGVyd2lzZSwgaXQgY29ycmVjdGx5LCByZXN1bHRzIGluIEVJTlZBTC4g
+V2UnbGwgbmVlZAo+IHRoZSBjb25jZXB0IG9mIGEgInNraXAgc2V0IiB0byBhdm9pZCB0cmlwcGlu
+ZyBvdmVyIHRoYXQgb25lLgo+Cj4gU28sIEkgdGhpbmsgYXJtJ3MgZnVuY3Rpb24gc2hvdWxkIGJl
+Cj4KPiAgYm9vbCBjaGVja19yZWplY3Rfc2V0KGludCBlcnJubykKPiAgewo+ICAgICAgcmV0dXJu
+IGVycm5vID09IEVQRVJNOwo+ICB9Cj4KPiBhbmQgcmlzY3YncyBzaG91bGQgYmUKPgo+ICBib29s
+IGNoZWNrX3JlamVjdF9zZXQoaW50IGVycm5vKQo+ICB7Cj4gICAgICByZXR1cm4gZXJybm8gPT0g
+RU9QTk9UU1VQUDsKPiAgfQo+CgpTdXJlLCB3aWxsIGFkZCBhIG5ldyAnc2tpcHNfc2V0JyBtZW1i
+ZXIgdG8gJ3N0cnVjdCB2Y3B1X3JlZ19zdWJsaXN0JyBhbmQKbW92ZSBLVk1fUkVHX1JJU0NWX1RJ
+TUVSX1JFRyhzdGF0ZSkgcmVnIHRvIGl0LgoKPiA+ICsKPiA+ICAjZGVmaW5lIFJFR19NQVNLIChL
+Vk1fUkVHX0FSQ0hfTUFTSyB8IEtWTV9SRUdfU0laRV9NQVNLIHwgS1ZNX1JFR19BUk1fQ09QUk9D
+X01BU0spCj4gPgo+ID4gICNkZWZpbmUgQ09SRV9SRUdTX1hYX05SX1dPUkRTICAgICAgICAyCj4g
+PiBkaWZmIC0tZ2l0IGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL2dldC1yZWctbGlzdC5j
+IGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL2dldC1yZWctbGlzdC5jCj4gPiBpbmRleCBm
+NmFkNzk5MWE4MTIuLmI5NTZlZTQxMDk5NiAxMDA2NDQKPiA+IC0tLSBhL3Rvb2xzL3Rlc3Rpbmcv
+c2VsZnRlc3RzL2t2bS9nZXQtcmVnLWxpc3QuYwo+ID4gKysrIGIvdG9vbHMvdGVzdGluZy9zZWxm
+dGVzdHMva3ZtL2dldC1yZWctbGlzdC5jCj4gPiBAQCAtOTgsNiArOTgsMTEgQEAgdm9pZCBfX3dl
+YWsgcHJpbnRfcmVnKGNvbnN0IGNoYXIgKnByZWZpeCwgX191NjQgaWQpCj4gPiAgICAgICBwcmlu
+dGYoIlx0MHglbGx4LFxuIiwgaWQpOwo+ID4gIH0KPiA+Cj4gPiArYm9vbCBfX3dlYWsgcmVqZWN0
+X3NldF9mYWlsKF9fdTY0IHJlZykKPiA+ICt7Cj4gPiArICAgICByZXR1cm4gZmFsc2U7Cj4gPiAr
+fQo+ID4gKwo+ID4gICNpZmRlZiBfX2FhcmNoNjRfXwo+ID4gIHN0YXRpYyB2b2lkIHByZXBhcmVf
+dmNwdV9pbml0KHN0cnVjdCB2Y3B1X3JlZ19saXN0ICpjLCBzdHJ1Y3Qga3ZtX3ZjcHVfaW5pdCAq
+aW5pdCkKPiA+ICB7Cj4gPiBAQCAtMjE2LDcgKzIyMSw3IEBAIHN0YXRpYyB2b2lkIHJ1bl90ZXN0
+KHN0cnVjdCB2Y3B1X3JlZ19saXN0ICpjKQo+ID4gICAgICAgICAgICAgICAgICAgICAgIGlmIChz
+LT5yZWplY3RzX3NldCAmJiBmaW5kX3JlZyhzLT5yZWplY3RzX3NldCwgcy0+cmVqZWN0c19zZXRf
+biwgcmVnLmlkKSkgewo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVqZWN0X3Jl
+ZyA9IHRydWU7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXQgPSBfX3ZjcHVf
+aW9jdGwodmNwdSwgS1ZNX1NFVF9PTkVfUkVHLCAmcmVnKTsKPiA+IC0gICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIGlmIChyZXQgIT0gLTEgfHwgZXJybm8gIT0gRVBFUk0pIHsKPiA+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChyZXQgIT0gLTEgfHwgcmVqZWN0X3NldF9mYWls
+KHJlZy5pZCkpIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJp
+bnRmKCIlczogRmFpbGVkIHRvIHJlamVjdCAocmV0PSVkLCBlcnJubz0lZCkgIiwgY29uZmlnX25h
+bWUoYyksIHJldCwgZXJybm8pOwo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBwcmludF9yZWcoY29uZmlnX25hbWUoYyksIHJlZy5pZCk7Cj4gPiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHB1dGNoYXIoJ1xuJyk7Cj4gPiAtLQo+ID4gMi4zNC4x
+Cj4gPgo+Cj4gVGhhbmtzLAo+IGRyZXcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
