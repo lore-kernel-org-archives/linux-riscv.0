@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09792EB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 13:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 705A4EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 13:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xVc4JCTobHyYKfSyi82hS4ZsNOE9fPOOGhh37Hr1ZpU=; b=jc7iiBdHXj95PY
-	vMw1ToD45zs195CCP+jScY0dhe/7wZ8AqGccVFujdXRTPr79p0NhGtqnz6Qwv6hIne9uWSHWPzWe5
-	9U2X8Uh7tc56Hlg0QDPtyNcxXkKkIL0BmgA97DF+mALgjp/ruBABxB/ew9kGz8FDAUuslPdmlv1La
-	ybEWr1EEtnPmsrY8Y8bug2fzBwzXUuHxSNIHRubdaWS8Xul9j7hOhYNCEQ75eAXLu7WZAyBVxN3iz
-	kkRmGoFXEiF+75RV2jzlLTs6qHhq+Jyrn3DBxSJsYGAp39YMJJklPV4DLFG7Ts2cYu2KDtekoMO6c
-	OEgwxuu75zJEL+f/8Qzw==;
+	List-Owner; bh=AyPiuzjFJmaSMO8tMDhKMaIfBZeGo8fSkrbkoF59gwQ=; b=1HIfA4tbCGICQn
+	Wvn3wWguCBYOq69gIZiBnhvpAuN+YaX2+YK9R13lzN2c6oZRandyZ1EaFjHY7oo6ukysl3RDZ5KpY
+	rIVnNWO234ZnS1nVpXrvpt49EWsSTmnKAhWFKNsgHaQZm/MrZcMYJl8edLdKnLhW1WzlPzuGAsk8h
+	SjB2Wrm5Xd2nuOaN1HXuMvI44zCITJD2M7pPSv73n//K/IoxHKa//uVdrC/K4gSLacdb+2IDQjqh6
+	U7oREguKSQ7YuTzMEH3Tej0SPw/Z6/XvFUKjlXCMXdB6v3PLuxU0Yv7ufReNvwPhRWyu/QF1Zoyxr
+	kHZ79sTzVFBL6gTH+8Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEV0q-00FjqR-2N;
-	Wed, 28 Jun 2023 13:15:12 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1qEV2K-00FkDA-0o;
+	Wed, 28 Jun 2023 13:16:44 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEV0m-00FjoB-2u
+	id 1qEV2H-00FkBk-11
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jun 2023 13:15:10 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3090d3e9c92so7531617f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Jun 2023 06:15:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687958107; x=1690550107;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UEDUaqobIEXKBJUJL2QuyVEVDAnOAPT+PycLhsHH0e4=;
-        b=PzpxfbdG1hP8JaT6dGu5MFaJuWjRSgEZs4u66K6iR/KAiam4nJBUjYSvQ8TGXoy+4q
-         v3msqKsXNd1yS7SRhQcy7ZL8ICOg8OxVsNenTnJDmuHHE8o0XnzV17PUmR1OaqTFJUHb
-         l80kTHBXJUsESLmsFFexDiSxsOPxOGvvD/4t7V9fnRf0eAA+AtbX/IyAKiXIbpophLiG
-         0Lu6napv/3ofoE5nfu0y1S7R6XrhGd53UBqqOr+9cYm+QU9rQa7eNEfhv3Vp08SLGuil
-         o/frg8rQgA65BNf+0YiOOOUxHToVQf0mEehTnG/XL4E8vslfJFMrz5UYOTH2oNXNmBS+
-         ODIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687958107; x=1690550107;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UEDUaqobIEXKBJUJL2QuyVEVDAnOAPT+PycLhsHH0e4=;
-        b=Wr9+KmNU0a1qVPJRDqUDgR5NMi0Sn2Ffl5tBjfw4o0LkbROo+f/WoeV6uKGFHTKWNT
-         Qx2uicV4ybn+0JF42Xl+yhrGCeOMA+ZQH7ralth92EYEuoauMUJslsW9dL3aZq2xi00u
-         gDxsFK4JWETfnNSJS2FXZcC/54cTF0AHVXXH9w2wpicF8/c2jSUstykoKCYQNLFYDZMh
-         K72dPXTw1M1fWS26OQ/VpyC2KeJL8u0TXlUn0iOaisyGTmEut2QWiMC5KJQL2kRuk5w+
-         Pa9t+R8LeWN2FJjBTIXbsx0VpNSmA0QstRmSPgHR1wS1mFvjX9h5kwww9cAipqJkcu6m
-         bY6Q==
-X-Gm-Message-State: ABy/qLbMLTz4pNsLftAQAn2wHOmVlA7a57SFiwsUbGyEuDyqp9eWJwCv
-	U7MJ4LJ9InsaeGRLH1pO+C5VnA==
-X-Google-Smtp-Source: APBJJlFWGkJY32HwEpO3mKHGbpfiLr3WFCRee+GHsQt33NWy53Chldwzwg/XwfF9jbPeqO/4lWMJ8A==
-X-Received: by 2002:adf:eb11:0:b0:314:122a:9fe0 with SMTP id s17-20020adfeb11000000b00314122a9fe0mr35636wrn.8.1687958107035;
-        Wed, 28 Jun 2023 06:15:07 -0700 (PDT)
-Received: from vermeer.tail79c99.ts.net ([2a01:cb1d:81a9:dd00:b570:b34c:ffd4:c805])
-        by smtp.gmail.com with ESMTPSA id a11-20020a056000050b00b003110dc7f408sm13456946wrf.41.2023.06.28.06.15.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jun 2023 06:15:06 -0700 (PDT)
-From: Samuel Ortiz <sameo@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org
-Cc: Samuel Ortiz <sameo@rivosinc.com>,
-	linux@rivosinc.com,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Anup Patel <apatel@ventanamicro.com>,
+	Wed, 28 Jun 2023 13:16:43 +0000
+X-QQ-mid: bizesmtp76t1687958175ts14rjnr
+Received: from linux-lab-host.localdomain ( [116.30.129.193])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 28 Jun 2023 21:16:14 +0800 (CST)
+X-QQ-SSF: 01200000000000D0V000000A0000000
+X-QQ-FEAT: 7YFKcddXagi2DVqxpVhCFo/vBHtMVaf8YdumO5sFURZlqB7s7a6X/9zpcHepq
+	iPnG3ViG8HcSLGdZpQrvhSkyOrwOy0h6Y8KUmaU/t7wp1oMA/OcOL4wClUH0CNXRBqMxrMj
+	GIC2HanU6i16pKbLA4pUUdIh34XWQG1o6j3DuERi6steSM2QS/B9rNh6xMOJTVS+A7AWUD1
+	UfXJVTCTX2iF3kWRfOX254z5xX+/tuKpG6mzKcDKXigvnH0AxzW/a/wbLIkM3T/CMMvsx7C
+	wZoPlQgV61dxlMnc65CO5dJ4akf+jSCmbBJTA7K3GFSZ4fsRIRleXmsVgXTncgucLNpMf/b
+	89PJ8cHlmQ7V6djTC3psejkdfzrHomVv6U+zM5Q9fR039DUYyUvMNNy+nzUNQ==
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3330608914897829044
+From: Zhangjin Wu <falcon@tinylab.org>
+To: thomas@t-8ch.de,
+	w@1wt.eu
+Cc: falcon@tinylab.org,
+	arnd@arndb.de,
+	david.laight@aculab.com,
 	linux-kernel@vger.kernel.org,
-	"Hongren (Zenithal) Zheng" <i@zenithal.me>,
-	Guo Ren <guoren@kernel.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>
-Subject: [PATCH v2 3/3] RISC-V: Implement archrandom when Zkr is available
-Date: Wed, 28 Jun 2023 15:14:35 +0200
-Message-ID: <20230628131442.3022772-4-sameo@rivosinc.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230628131442.3022772-1-sameo@rivosinc.com>
-References: <20230628131442.3022772-1-sameo@rivosinc.com>
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5 04/14] tools/nolibc: unistd.h: reorder the syscall macros
+Date: Wed, 28 Jun 2023 21:14:53 +0800
+Message-Id: <0e97fc7e36290e729d07e35db27caacb95354d87.1687957589.git.falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1687957589.git.falcon@tinylab.org>
+References: <cover.1687957589.git.falcon@tinylab.org>
 MIME-Version: 1.0
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230628_061508_936945_2031F020 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20230628_061641_656184_0AED3B93 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,117 +78,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Zkr extension is ratified and provides 16 bits of entropy seed when
-reading the SEED CSR.
+Tune the macros in the using order and align most of them.
 
-We can implement arch_get_random_seed_longs() by doing multiple csrrw to
-that CSR and filling an unsigned long with valid entropy bits.
-
-Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
+Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- arch/riscv/include/asm/archrandom.h | 70 +++++++++++++++++++++++++++++
- arch/riscv/include/asm/csr.h        |  9 ++++
- 2 files changed, 79 insertions(+)
- create mode 100644 arch/riscv/include/asm/archrandom.h
+ tools/include/nolibc/unistd.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/archrandom.h b/arch/riscv/include/asm/archrandom.h
-new file mode 100644
-index 000000000000..8987cd0b891d
---- /dev/null
-+++ b/arch/riscv/include/asm/archrandom.h
-@@ -0,0 +1,70 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Kernel interface for the RISCV arch_random_* functions
-+ *
-+ * Copyright (c) 2023 by Rivos Inc.
-+ *
-+ */
-+
-+#ifndef ASM_RISCV_ARCHRANDOM_H
-+#define ASM_RISCV_ARCHRANDOM_H
-+
-+#include <asm/csr.h>
-+
-+#define SEED_RETRY_LOOPS 10
-+
-+static inline bool __must_check csr_seed_long(unsigned long *v)
-+{
-+	unsigned int retry = SEED_RETRY_LOOPS, valid_seeds = 0;
-+	const int needed_seeds = sizeof(long) / sizeof(u16);
-+	u16 *entropy = (u16 *)v;
-+
-+	do {
-+		/*
-+		 * The SEED CSR (0x015) must be accessed with a read-write
-+		 * instruction.
-+		 */
-+		unsigned long csr_seed = csr_swap(CSR_SEED, 0);
-+
-+		switch (csr_seed & SEED_OPST_MASK) {
-+		case SEED_OPST_ES16:
-+			entropy[valid_seeds++] = csr_seed & SEED_ENTROPY_MASK;
-+			if (valid_seeds == needed_seeds)
-+				return true;
-+			break;
-+
-+		case SEED_OPST_DEAD:
-+			pr_err_once("archrandom: Unrecoverable error\n");
-+			return false;
-+
-+		case SEED_OPST_BIST:
-+		case SEED_OPST_WAIT:
-+		default:
-+			continue;
-+		}
-+	} while (--retry);
-+
-+	return false;
-+}
-+
-+static inline size_t __must_check arch_get_random_longs(unsigned long *v, size_t max_longs)
-+{
-+	return 0;
-+}
-+
-+static inline size_t __must_check arch_get_random_seed_longs(unsigned long *v, size_t max_longs)
-+{
-+	if (!max_longs)
-+		return 0;
-+
-+	/*
-+	 * If Zkr is supported and csr_seed_long succeeds, we return one long
-+	 * worth of entropy.
-+	 */
-+	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZKR) && csr_seed_long(v))
-+		return 1;
-+
-+	return 0;
-+}
-+
-+#endif /* ASM_RISCV_ARCHRANDOM_H */
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index b98b3b6c9da2..7d0ca9082c66 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -389,6 +389,15 @@
- #define CSR_VTYPE		0xc21
- #define CSR_VLENB		0xc22
+diff --git a/tools/include/nolibc/unistd.h b/tools/include/nolibc/unistd.h
+index fabc846f797b..e38f3660c051 100644
+--- a/tools/include/nolibc/unistd.h
++++ b/tools/include/nolibc/unistd.h
+@@ -56,9 +56,9 @@ int tcsetpgrp(int fd, pid_t pid)
+ 	return ioctl(fd, TIOCSPGRP, &pid);
+ }
  
-+/* Scalar Crypto Extension - Entropy */
-+#define CSR_SEED		0x015
-+#define SEED_OPST_MASK		_AC(0xC0000000, UL)
-+#define SEED_OPST_BIST		_AC(0x00000000, UL)
-+#define SEED_OPST_WAIT		_AC(0x40000000, UL)
-+#define SEED_OPST_ES16		_AC(0x80000000, UL)
-+#define SEED_OPST_DEAD		_AC(0xC0000000, UL)
-+#define SEED_ENTROPY_MASK	_AC(0xFFFF, UL)
-+
- #ifdef CONFIG_RISCV_M_MODE
- # define CSR_STATUS	CSR_MSTATUS
- # define CSR_IE		CSR_MIE
+-#define _syscall(N, ...) __sysret(my_syscall##N(__VA_ARGS__))
+-#define _syscall_narg(...) __syscall_narg(__VA_ARGS__, 6, 5, 4, 3, 2, 1, 0)
+ #define __syscall_narg(_0, _1, _2, _3, _4, _5, _6, N, ...) N
++#define _syscall_narg(...) __syscall_narg(__VA_ARGS__, 6, 5, 4, 3, 2, 1, 0)
++#define _syscall(N, ...) __sysret(my_syscall##N(__VA_ARGS__))
+ #define _syscall_n(N, ...) _syscall(N, __VA_ARGS__)
+ #define syscall(...) _syscall_n(_syscall_narg(__VA_ARGS__), ##__VA_ARGS__)
+ 
 -- 
-2.41.0
+2.25.1
 
 
 _______________________________________________
