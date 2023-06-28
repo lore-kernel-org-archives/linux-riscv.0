@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1971EB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 18:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B16C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 19:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CsiM3Of96+B9jjGTCXwDbVkbB45OwvoNZKgxGH2Vadw=; b=VHWsZw4Dh5QI27
-	58jVelziITLOzGoRGRxo/kYZhWBC1y/eSNG3r5AmCdrHJYrjgk7NBQT1xqqQOh68gcfjLNxJG+kGD
-	IoT4x1jqWa0HpUWWzLjNnw7aWNUfsGXt8GGJAEy+seWScmyyxsfHDJlkhX7SdZ7MYtWZuhW5ZgiSu
-	SFP/khzgykWaiK4DhLQ8JeDoOUTqOUM7iJV1T+XWR6NDIJ0v1N/GQYg3LGROzGMfsc/EOp7/VxEPM
-	jyiT9tASlbD8nw2Fv7d0aXKDm2TSWXA7qXSZK1qtfdkPPJa6qkTJ5mBa6INSaEBd5ZtD19T79eyZd
-	oh4Wtcwq2jAcDEw5K/Ig==;
+	List-Owner; bh=SaMFJi9Q6xTLsVkdxeFcAp3TuxdCHHH7ncTTbMA2Tx8=; b=xDGhGZkBn1Wkjs
+	wFzX/tsYCCtsgsoCsY3a8AHzNC4AEhDgksUS0pKjIF+zlj3msQndOVcy0A25R3Fp1ougUesC1vca5
+	dH0N8ycXSAWRyxYC8+mWxHiaDH6PdjJO6MRPi3uIv5nzcS9PbAbmPikuge+OpnCZY90dI+DzKJvpA
+	9sdJPvr87vKS77FJxBLXhZ6wxwhtNFF8MvnhPcCycbyToyLdl9pTg9wt6/dKSSOerP9nmo9ooTwDN
+	DCWxLvma+65E6vQSheXjW7b8DtiosTwstaqbBsbDHvd41OUI6uCnx5H6FzXhjYL8WBWgBeGlv0lq5
+	R5HokG98p85KmCXyoKtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEaOR-00GTOK-2u;
-	Wed, 28 Jun 2023 18:59:55 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qEaPV-00GTnB-2U;
+	Wed, 28 Jun 2023 19:01:01 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEaOP-00GTNG-0P
+	id 1qEaPT-00GTmG-1o
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jun 2023 18:59:54 +0000
-X-QQ-mid: bizesmtp78t1687978735t1k8oxv4
+	Wed, 28 Jun 2023 19:01:01 +0000
+X-QQ-mid: bizesmtp86t1687978810tf2ar9vw
 Received: from linux-lab-host.localdomain ( [116.30.129.193])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 29 Jun 2023 02:58:53 +0800 (CST)
+	id ; Thu, 29 Jun 2023 03:00:08 +0800 (CST)
 X-QQ-SSF: 01200000000000D0W000000A0000000
-X-QQ-FEAT: znfcQSa1hKbNtlJaExe6GfPAoc0Ow5+wEWHtPLG7/Q1ge+0ox0JyU9wMZjrJB
-	FtypQUSuK8tr3GynT9yFI2sUEDe1ixy87NqzzYo8mCDDjD4dEQp9RNDNmknFPKNEDwCqTTl
-	rBh23PghpE0BeEpgR9KmVOl+x6kRiFqrD1NrVUE2gl94i2AKJsaWbJp3ZeZGKvRlk+DQ4Ua
-	uOO9ts/jzsDuTn2eozBWxv4Ec183BmS/Dt8SsvwS8U3L/XhRTcoe1D9KbI2yDgvp4zNzmoO
-	wqXMiCqMx94azMgzMWL/tOLzm3ucmctRTOQ1QXkNIK3OZP5rMZuFMNFnotyiTvh7b8t7Bx6
-	uFwXiRjLkfGw04uw1vIX0ZKUEPWkOUAKqz01NmfaznPq3tpd5uMtTO+IyQZMw==
+X-QQ-FEAT: +ynUkgUhZJneCqf/WiFIlQeErW4hE9O+nEPddl2PRkjGlBZEniPrcbaTTc7s2
+	5f7+aA6vYP9PgLSC4T+j0tcUHwDVAnq8K7wx2MCiGSfUIbExALiKcxf1iKlDVqafqQCqd7u
+	w6L2PnJbHsPLcw/lQuF2hvLgUlEij/5DAIfSAqE1oRd1Y5ZtWZoW+kxKtrEEg616wwLLjoF
+	3yRqaVk1PLD1I42O+doEPlLna5UF0Ob/6v7p7L7gjJVYrJVWrIr8SAIrcz/RsiRD27lBnl5
+	TElxw/lGgBlRGo6OFU0/aBHG2qDnPSoZHBD6UI8D2fq8Cje2g2Dm5BiBWqCmJr2l+N/eX6q
+	xVeXxjtbPRXqoMegPcU9CcfyiG5e0xQGVdKth5kBBUlzsUSr6bbfGY2eD8fsg==
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 10494488464373133128
+X-BIZMAIL-ID: 10657381781421926358
 From: Zhangjin Wu <falcon@tinylab.org>
 To: thomas@t-8ch.de,
 	w@1wt.eu
@@ -48,9 +48,9 @@ Cc: falcon@tinylab.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 06/11] tools/nolibc: i386: shrink _start with _start_c
-Date: Thu, 29 Jun 2023 02:58:43 +0800
-Message-Id: <27783ab1bed69fd99319aa52e03e204ef1160d74.1687976753.git.falcon@tinylab.org>
+Subject: [PATCH v1 07/11] tools/nolibc: x86_64: shrink _start with _start_c
+Date: Thu, 29 Jun 2023 02:59:59 +0800
+Message-Id: <e041d383165f05b964c9b1ce7e5aeb5d0a3a1e09.1687976753.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1687976753.git.falcon@tinylab.org>
 References: <cover.1687976753.git.falcon@tinylab.org>
@@ -58,8 +58,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230628_115953_459483_3460E030 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20230628_120059_904771_ED5F5DC1 
+X-CRM114-Status: UNSURE (   9.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,15 +81,15 @@ Let's move most of the _start operations to _start_c().
 
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- tools/include/nolibc/arch-i386.h | 32 +++++++-------------------------
- 1 file changed, 7 insertions(+), 25 deletions(-)
+ tools/include/nolibc/arch-x86_64.h | 27 ++++++---------------------
+ 1 file changed, 6 insertions(+), 21 deletions(-)
 
-diff --git a/tools/include/nolibc/arch-i386.h b/tools/include/nolibc/arch-i386.h
-index 418554435545..b56046f1d0c0 100644
---- a/tools/include/nolibc/arch-i386.h
-+++ b/tools/include/nolibc/arch-i386.h
-@@ -154,9 +154,6 @@
- 	_eax;								\
+diff --git a/tools/include/nolibc/arch-x86_64.h b/tools/include/nolibc/arch-x86_64.h
+index 4c0192815a59..116dcd8e1413 100644
+--- a/tools/include/nolibc/arch-x86_64.h
++++ b/tools/include/nolibc/arch-x86_64.h
+@@ -153,9 +153,6 @@
+ 	_ret;									\
  })
  
 -char **environ __attribute__((weak));
@@ -97,39 +97,34 @@ index 418554435545..b56046f1d0c0 100644
 -
  /* startup code */
  /*
-  * i386 System V ABI mandates:
-@@ -168,29 +165,14 @@ void __attribute__((weak,noreturn,optimize("omit-frame-pointer"))) __no_stack_pr
+  * x86-64 System V ABI mandates:
+@@ -167,25 +164,13 @@ void __attribute__((weak,noreturn,optimize("omit-frame-pointer"))) __no_stack_pr
  {
  	__asm__ volatile (
  #ifdef _NOLIBC_STACKPROTECTOR
--		"call __stack_chk_init\n"   /* initialize stack protector                    */
+-		"call __stack_chk_init\n"   /* initialize stack protector                          */
 +		"call __stack_chk_init\n"	/* initialize stack protector				*/
  #endif
--		"pop %eax\n"                /* argc   (first arg, %eax)                      */
--		"mov %esp, %ebx\n"          /* argv[] (second arg, %ebx)                     */
--		"lea 4(%ebx,%eax,4),%ecx\n" /* then a NULL then envp (third arg, %ecx)       */
--		"mov %ecx, environ\n"       /* save environ                                  */
--		"xor %ebp, %ebp\n"          /* zero the stack frame                          */
--		"mov %ecx, %edx\n"          /* search for auxv (follows NULL after last env) */
+-		"pop %rdi\n"                /* argc   (first arg, %rdi)                            */
+-		"mov %rsp, %rsi\n"          /* argv[] (second arg, %rsi)                           */
+-		"lea 8(%rsi,%rdi,8),%rdx\n" /* then a NULL then envp (third arg, %rdx)             */
+-		"mov %rdx, environ\n"       /* save environ                                        */
+-		"xor %ebp, %ebp\n"          /* zero the stack frame                                */
+-		"mov %rdx, %rax\n"          /* search for auxv (follows NULL after last env)       */
 -		"0:\n"
--		"add $4, %edx\n"            /* search for auxv using edx, it follows the     */
--		"cmp -4(%edx), %ebp\n"      /* ... NULL after last env (ebp is zero here)    */
+-		"add $8, %rax\n"            /* search for auxv using rax, it follows the           */
+-		"cmp -8(%rax), %rbp\n"      /* ... NULL after last env (rbp is zero here)          */
 -		"jnz 0b\n"
--		"mov %edx, _auxv\n"         /* save it into _auxv                            */
--		"and $-16, %esp\n"          /* x86 ABI : esp must be 16-byte aligned before  */
--		"sub $4, %esp\n"            /* the call instruction (args are aligned)       */
--		"push %ecx\n"               /* push all registers on the stack so that we    */
--		"push %ebx\n"               /* support both regparm and plain stack modes    */
--		"push %eax\n"
--		"call main\n"               /* main() returns the status code in %eax        */
--		"mov %eax, %ebx\n"          /* retrieve exit code (32-bit int)               */
--		"movl $1, %eax\n"           /* NR_exit == 1                                  */
--		"int $0x80\n"               /* exit now                                      */
--		"hlt\n"                     /* ensure it does not                            */
+-		"mov %rax, _auxv\n"         /* save it into _auxv                                  */
+-		"and $-16, %rsp\n"          /* x86 ABI : esp must be 16-byte aligned before call   */
+-		"call main\n"               /* main() returns the status code, we'll exit with it. */
+-		"mov %eax, %edi\n"          /* retrieve exit code (32 bit)                         */
+-		"mov $60, %eax\n"           /* NR_exit == 60                                       */
+-		"syscall\n"                 /* really exit                                         */
+-		"hlt\n"                     /* ensure it does not return                           */
 +		"xor  %ebp, %ebp\n"		/* zero the stack frame					*/
-+		"mov  %esp, %eax\n"		/* save stack pointer to eax, as arg1 of _start_c	*/
-+		"and  $-16, %esp\n"		/* last pushed argument must be 16-byte aligned		*/
-+		"push %eax\n"			/* push arg1 on stack to support plain stack modes too	*/
++		"mov  %rsp, %rdi\n"		/* save stack pointer to rdi, as arg1 of _start_c	*/
++		"and  $-16, %rsp\n"		/* rsp must be 16-byte aligned before call		*/
 +		"call _start_c\n"		/* transfer to c runtime				*/
 +		"hlt\n"				/* ensure it does not return				*/
  	);
