@@ -4,113 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AFB4EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 07:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69979EB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 07:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6zs0ITBlj+LpPxGWTn80+biXL3kTNNhF0VLWWCFCmgk=; b=0rCSwW1bSkBkjn
-	Eojy2HFuLrQQ1ed8WfKQWyX5g3KBDGr0tj4hv/i7S9L9BYQ0az3TdNDLFg7FLE4sZm+Dygcop1EXM
-	BUiCkKhZqsqo2mXWdxo8bg92mkcVSy/FLtBJzTirFAeROf1jcPuVRz5ZymXTMHziyPOl/TQP9PgIx
-	w/DONb/Oojpg2DaKEkgJlzjWS1QLdl3CQfC1vRJGd7aVrfb7OTwqI0R211IjZecSQcxyDURvvOdsE
-	TVjLnq820+Qm3C8525CYA9yXScWM7IRZ5AGnHKQm+oeXoEcb8Yru9FIR26L1SG34U2qQyDB4uxnaU
-	sWAAhUZ1QS2bCKGLkM2g==;
+	List-Owner; bh=YjGTFTcyNM8qrwilDzdo+35mBU/VuTR24byXNbzZXxg=; b=bZKMH5r/9yk/ZS
+	bG9XAAfhzZSqbR+16T5zTfdIl8gTrO9UdNi25XB4qJ0mocE6sAzIrDnA74sm7bCxNy2S8AS2G2Bw3
+	qZ4Gg46GFLd5ucQlFcikJBMlIV98/qkTqJRj0RhEHGrf3XB0QeAqmyxxjTYycrGfK37YwzA34OJt/
+	5hDFSmAV5KBalo0p6j1CszM+EWErXs98e3EkxGIZFK2PWbRphH+bbU74h22Y0aFwqkD1og0m3z7Pe
+	kigHntA9G3GU9ASczws4QpbU7MIiz4UNWGY38GmFYOwgRcnNqFuva3KnrvW6/6DDHwXZZUVps3pso
+	5IgZOBKdLm27qdXBAR1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEPnt-00F50K-0Z;
-	Wed, 28 Jun 2023 07:41:29 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qEPr1-00F5Wx-0J;
+	Wed, 28 Jun 2023 07:44:43 +0000
+Received: from mailgate.ics.forth.gr ([139.91.1.2])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEPnq-00F4xu-1A
+	id 1qEPqx-00F5V7-2E
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jun 2023 07:41:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1687938084;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SH32jNlN6Jqg7DPKFWcTzn8QudVshhtxY6DizRJx1h4=;
-	b=S4D8ghz4dH6SXiRzbL4HnXOL94HXIJ7TdoQEk+FA1LMbfacW8J/dM5fQWvc0FNa8aHq3tS
-	vrn3+YLN+GUNj9reo2frJUtFgMlH2zWx0mTzvWwJIMWHVh+dVFFvcwt3Sl3n6EIQkTGIJP
-	r5U8KKDWOkaQ4BMCoz8w9Ya4U0q2llM=
-Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com
- [209.85.167.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-588-lQAovA5bMBqfHgNBtUEV3Q-1; Wed, 28 Jun 2023 03:41:22 -0400
-X-MC-Unique: lQAovA5bMBqfHgNBtUEV3Q-1
-Received: by mail-lf1-f69.google.com with SMTP id 2adb3069b0e04-4edbdd8268bso4851645e87.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Jun 2023 00:41:22 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687938081; x=1690530081;
-        h=content-transfer-encoding:in-reply-to:subject:organization:from
-         :content-language:references:cc:to:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SH32jNlN6Jqg7DPKFWcTzn8QudVshhtxY6DizRJx1h4=;
-        b=ZSaKhhQU38PmnOgHjx8djQzpZ/PBuskj6mCus4C1427dp+5IGxyWOdYndZgJ6MbHLL
-         vpQ/llc4XNPr2wTdPfmwmc2NGNDt2L7jSKyRoekLIjVMniaRqXDzCayYnNmC/5+Cjks6
-         QNW9yeKXlVsTSJqKZ+H4V/s0TCJWye0e/DIPP2+DmK9VPmZs3mO/bOHNrbPYhclyZLJr
-         fGUVfK0JxEXJAMGXXqkLvqYSNxLotzrlyKdCVzePUjWtNFkorCtIJhY1RIzOudgSkzjM
-         07cV9cxs7DP5VwI5qTI5crs1Kw0Hl7EcvQZPObq9mmmuX0+9v9XNEdrhsoNOsP1ZmzMn
-         NKzQ==
-X-Gm-Message-State: AC+VfDwDzSQFKuWE8lxlLGFTzZB7iy/JXm/RHCoD4LlqQDESHwpdpbcW
-	wN7Pc0PTEmm2/BzpdRh3DVuDN0t2tn5BTqWsohGFJw9EzYJ7L5kwZEmFOQ3oCAme0FthvQ1epy/
-	huyHKNRanEDSckgx6tKFWWtdMoGfk
-X-Received: by 2002:a05:6512:10cb:b0:4fb:9341:9921 with SMTP id k11-20020a05651210cb00b004fb93419921mr540068lfg.52.1687938081209;
-        Wed, 28 Jun 2023 00:41:21 -0700 (PDT)
-X-Google-Smtp-Source: ACHHUZ4/LL8Q6ptsPVewMKWY4urM5AzIoWSMnfr2lL0PypvevicnXRpVgfkYzOOBDpLnug9qgwbQPw==
-X-Received: by 2002:a05:6512:10cb:b0:4fb:9341:9921 with SMTP id k11-20020a05651210cb00b004fb93419921mr540021lfg.52.1687938080672;
-        Wed, 28 Jun 2023 00:41:20 -0700 (PDT)
-Received: from ?IPV6:2003:cb:c715:ef00:fa40:f6df:a68d:a0e4? (p200300cbc715ef00fa40f6dfa68da0e4.dip0.t-ipconnect.de. [2003:cb:c715:ef00:fa40:f6df:a68d:a0e4])
-        by smtp.gmail.com with ESMTPSA id hn10-20020a05600ca38a00b003fba586100fsm3970092wmb.6.2023.06.28.00.41.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Jun 2023 00:41:20 -0700 (PDT)
-Message-ID: <26282cb8-b6b0-f3a0-e82d-b4fec45c5f72@redhat.com>
-Date: Wed, 28 Jun 2023 09:41:18 +0200
+	Wed, 28 Jun 2023 07:44:41 +0000
+Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
+	by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id 35S7iT5E060361
+	for <linux-riscv@lists.infradead.org>; Wed, 28 Jun 2023 10:44:29 +0300 (EEST)
+DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
+	q=dns/txt; i=@ics.forth.gr; t=1687938268; x=1690530268;
+	h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=p8V5keLqZmvghqwdTNhha7x0Up0dRy6dy2mG52JFhz0=;
+	b=UwHN5CAQyRm3KAhAmLCvT14b0hj9J0mgCI4yzHrD4xUrQX7s3YzW3+UOyMtHtO4l
+	+kkat1O6fQcT7gTx5MaItShLs4i5za8q6SnZxTpko7AAxkDV3mWfRt21iGLKiEMg
+	141u7K4iBBVldJpeVFJFkYP85TsewxyDejBLBH+r9sPWEQT7eX3ioA2h+uFnv6u3
+	Cin73X6F4fuOYWgMJgMNmU0VhoGAwX9rpqD7zpXVlA71ogRSRha/MIdnBLRMxvcM
+	/AdTIEdszr/Lh1ig7xHdZ6cAmjUUjPcSubVBbmT7VKHPuyTW8sr2kU/Cy5uAFlK/
+	bXpQDGoxqXU1sae2RAi0dQ==;
+X-AuditID: 8b5b014d-a23ec70000002178-01-649be4dc9c9e
+Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
+	by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id A3.E5.08568.CD4EB946; Wed, 28 Jun 2023 10:44:28 +0300 (EEST)
+X-ICS-AUTH-INFO: Authenticated user: mick at ics.forth.gr
+Message-ID: <6dc3a208-e180-18b4-c87e-50735edd595b@ics.forth.gr>
+Date: Wed, 28 Jun 2023 10:44:26 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-To: Hugh Dickins <hughd@google.com>
-Cc: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Matthew Wilcox <willy@infradead.org>, linux-mm@kvack.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
- xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
- Catalin Marinas <catalin.marinas@arm.com>,
- Huacai Chen <chenhuacai@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "David S. Miller" <davem@davemloft.net>, Richard Weinberger
- <richard@nod.at>, Yoshinori Sato <ysato@users.sourceforge.jp>,
- Dave Hansen <dave.hansen@linux.intel.com>, Arnd Bergmann <arnd@arndb.de>,
- Christophe Leroy <christophe.leroy@csgroup.eu>
-References: <20230627031431.29653-1-vishal.moola@gmail.com>
- <e8992eee-4140-427e-bacb-9449f346318@google.com>
- <ac1c162c-07d8-6084-44ca-a2c1a4183df2@redhat.com>
- <90e643ca-de72-2f4c-f4fe-35e06e1a9277@google.com>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat
-Subject: Re: [PATCH v6 00/33] Split ptdesc from struct page
-In-Reply-To: <90e643ca-de72-2f4c-f4fe-35e06e1a9277@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+ Thunderbird/102.11.0
+Subject: Re: [PATCH 1/2] RISC-V: mm: Restrict address space for sv39,sv48,sv57
+Content-Language: el-GR, en-US
+To: Palmer Dabbelt <palmer@rivosinc.com>, jrtc27@jrtc27.com
+Cc: charlie@rivosinc.com, alexghiti@rivosinc.com,
+        Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor@kernel.org>,
+        Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+        Bjorn Topel <bjorn@rivosinc.com>, anup@brainfault.org,
+        Evan Green <evan@rivosinc.com>, linux-riscv@lists.infradead.org,
+        konstantin@linuxfoundation.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org, linux-mm@kvack.org
+References: <mhng-7914c1d2-d671-4cc4-ba90-f85acb7c8b50@palmer-ri-x1c9>
+From: Nick Kossifidis <mick@ics.forth.gr>
+In-Reply-To: <mhng-7914c1d2-d671-4cc4-ba90-f85acb7c8b50@palmer-ri-x1c9>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprOIsWRmVeSWpSXmKPExsXSHT1dWffOk9kpBpN2qFs8bjzOaNHy4R2r
+	xdbfs9gtNv//wmzx9sYrRot7E7+zWKycuorN4sgUO4s9CycyW+z8/IXRYmHbEhaL6Xfes1nc
+	W/Of1WLb5xY2iwVH0y3aZvE7CHhM/X2GxeNwxxd2j5Xv37F4bFrVyeax6dMkdo/9c9ewe2xe
+	Uu9xY1aEx6Xm6+wenzfJBXBFcdmkpOZklqUW6dslcGXcX76fueAzV8Wa040sDYx3OboYOTkk
+	BEwkPmyezdbFyMUhJHCUUWLa50ZmiISlxOZPL1lAbF4Be4lXr56BxVkEVCVaNjYzQcQFJU7O
+	fAJWIyoQLbH68wVWEFtYwE9i+vKfjCA2s4CcxPtn28HiIgLWEgcOHGUFWcYscJlZYtGMlWCD
+	hATcJDb9eg42iE1AU2L+pYNgNqeAu8SCCfeZIQaZSXRt7YIaKi/RvHU28wRGgVlI7piFZN8s
+	JC2zkLQsYGRZxSiQWGasl5lcrJeWX1SSoZdetIkRHHeMvjsYb29+q3eIkYmD8RCjBAezkgiv
+	2I/pKUK8KYmVValF+fFFpTmpxYcYpTlYlMR5T9guSBYSSE8sSc1OTS1ILYLJMnFwSjUwHfl9
+	5aVUUBHHJcF7/Y8j50tdMu1U/DLliox05Y0v3PKr8jqaPq9xnfd648PUy731PfMs3CsenGt9
+	US6wet33SjWFuheP0l6nLz3gIjVPPYL723a+uweiVy9wCV/UqFfnflqgt5VHs3XxYsPNBSKS
+	IsJ/8/taHD6caRdM4zp23s2qsrrnT1zj0q4lfOuVnlQbHDXJ5/i89+eOy0/WRd3SVFzaL/l1
+	0ZvQkqPml11ELK8vcGkSUzc0d0tS2lv2KSKurkUy10Xm6yuTfT61TC63fzslnD/Xv1jOUJVx
+	1l5OEe0lvR/OTMn9fq106u1ZTOdOz5tc8/WH0h5+W4332z5eaF4XXZ07aXbWk08bvRetUGIp
+	zkg01GIuKk4EAMjdIykqAwAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230628_004126_493762_27AF1B9A 
-X-CRM114-Status: GOOD (  22.12  )
+X-CRM114-CacheID: sfid-20230628_004440_111868_E89E0165 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,69 +94,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27.06.23 22:13, Hugh Dickins wrote:
-> On Tue, 27 Jun 2023, David Hildenbrand wrote:
->> On 27.06.23 06:44, Hugh Dickins wrote:
->>> On Mon, 26 Jun 2023, Vishal Moola (Oracle) wrote:
->>>
->>>> The MM subsystem is trying to shrink struct page. This patchset
->>>> introduces a memory descriptor for page table tracking - struct ptdesc.
->>> ...
->>>>    39 files changed, 686 insertions(+), 455 deletions(-)
->>>
->>> I don't see the point of this patchset: to me it is just obfuscation of
->>> the present-day tight relationship between page table and struct page.
->>>
->>> Matthew already explained:
->>>
->>>> The intent is to get ptdescs to be dynamically allocated at some point
->>>> in the ~2-3 years out future when we have finished the folio project ...
->>>
->>> So in a kindly mood, I'd say that this patchset is ahead of its time.
->>> But I can certainly adapt to it, if everyone else sees some point to it.
->>
->> I share your thoughts, that code churn which will help eventually in the far,
->> far future (not wanting to sound too pessimistic, but it's not going to be
->> there tomorrow ;) ).
->>
->> However, if it's just the same as the other conversions we already did (e.g.,
->> struct slab), then I guess there is no reason to stop now -- the obfuscation
->> already happened.
->>
->> ... or is there a difference regarding this conversion and the previous ones?
-> 
-> I was aware of the struct slab thing, didn't see much point there myself
-> either; but it was welcomed by Vlastimil, and barely affected outside of
-> slab allocators, so I had no reason to object.
-> 
-> You think that if a little unnecessary churn (a *lot* of churn if you
-> include folios, which did save some repeated calls to compound_head())
-> has already occurred, that's a good precedent for allowing more and more?
-
-Well, if you phrase it like that ... no, I'm not in favor of unnecessary 
-churn at all. Yes, folios were/are a lot of churn (IMHO not unnecessary, 
-though).
-
-I'm not a friend of these "overlays"; it all only really makes sense to 
-me once we actually allocate the descriptors dynamically. Maybe some of 
-the existing/ongoing conversions were different (that's why I was asking 
-for the difference, as you said the "struct slab" thing was well received).
-
-If they are primarily only unnecessary churn for now (and unclear 
-when/how it will become useful), I share your opinion.
-
--- 
-Cheers,
-
-David / dhildenb
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNi8yOC8yMyAwMjozNiwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4gT24gVHVlLCAyNyBKdW4g
+MjAyMyAxNTozMjozNiBQRFQgKC0wNzAwKSwganJ0YzI3QGpydGMyNy5jb20gd3JvdGU6Cj4+IE9u
+IDI3IEp1biAyMDIzLCBhdCAyMzoyMSwgQ2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9zaW5j
+LmNvbT4gd3JvdGU6Cj4+Pgo+Pj4gTWFrZSBzdjM5IHRoZSBkZWZhdWx0IGFkZHJlc3Mgc3BhY2Ug
+Zm9yIG1tYXAgYXMgc29tZSBhcHBsaWNhdGlvbnMKPj4+IGN1cnJlbnRseSBkZXBlbmQgb24gdGhp
+cyBhc3N1bXB0aW9uLgo+Pgo+PiBUaGV5IGFyZSBqdXN0IHBsYWluIHdyb25nIHRvby4gU3Y0OCB3
+YXMgaW4gZXZlbiBQcml2IHYxLjEwICh0aGUgZmlyc3QKPj4gc3BlYyB3aGVyZSBzYXRwIHdhcyBu
+YW1lZCBhcyBzdWNoIGFuZCBjb250YWluZWQgdGhlIG1vZGUsIHJhdGhlciB0aGFuCj4+IHJlcXVp
+cmluZyBNLW1vZGXigJlzIGhlbHAgaW4gY29uZmlndXJpbmcgdmlydHVhbCBtZW1vcnkpLCBwcmVk
+YXRpbmcgdGhlCj4+IHJhdGlmaWVkIHYxLjExIHNwZWMuIEEgMzktYml0IGFkZHJlc3Mgc3BhY2Ug
+aXMgcGF0aGV0aWMgYW5kIGhhcwo+PiBpbXBsaWNhdGlvbnMgZm9yIEFTTFIuCj4+Cj4+IEkgc3Ry
+b25nbHkgc3VnZ2VzdCBhcHBsaWNhdGlvbnMgYmUgZm9yY2VkIHRvIHN1cHBvcnQgYXQgbGVhc3Qg
+U3Y0OCwKPj4gd2hpY2ggaXMgdG90YWxseSByZWFzb25hYmxlIGdpdmVuIHRoZSBhZGRyZXNzIHNw
+YWNlIHNpemVzIHVzZWQgYnkgb3RoZXIKPj4gYXJjaGl0ZWN0dXJlcy4gU3Y1NyBpcyBtb3JlIGRp
+c3J1cHRpdmUgdG8gc29tZSBydW50aW1lcywgdGhvdWdoIGlkZWFsbHkKPj4gZXZlbiB0aGF0IHdv
+dWxkIGJlIGZyZWUgZm9yIHRoZSBrZXJuZWwgdG8gdXNlIHJhdGhlciB0aGFuIGNvbW1pdHRpbmcg
+dG8KPj4gbm90IHVzaW5nIGl0IGZvciB0aGUgZGVmYXVsdCB1QUJJLgo+IAo+IEdvIGFuZCBPcGVu
+SkRLIGJvdGggYnJva2Ugd2hlbiB3ZSBleHBhbmRlZCB0aGUgVkEgd2lkdGguwqAgSSBkb24ndCBs
+aWtlIAo+IGl0IGVpdGhlciwgYnV0IGlmIHRoZSBjaGFuZ2UgYnJlYWtzIHVzZXJzcGFjZSB0aGVu
+IGl0J3MgYSByZWdyZXNzaW9uIGFuZCAKPiB3ZSBoYXZlIHRvIGxpdmUgd2l0aCB0aGUgYnVnLgo+
+IAoKSGF2ZSB3ZSBkZWJ1Z2dlZCB0aGlzID8gZG8gd2UgYXQgbGVhc3Qga25vdyB3aHkgdGhleSBi
+cmVhayA/IEp1c3QgCmRpc2FibGluZyBTdjQ4LzU3IGJ5IGRlZmF1bHQgZm9yIGV2ZXJ5b25lIGJl
+Y2F1c2Ugc29tZSB1c2Vyc3BhY2UgYXBwcyAKYnJlYWsgZG9lc24ndCBzZWVtIHRoZSBjb3JyZWN0
+IGFwcHJvYWNoLCBpdCBzZWVtcyBtb3JlIGxpa2UgYSBidWcgaW4gCnVzZXJzcGFjZSBJTUhPLgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
