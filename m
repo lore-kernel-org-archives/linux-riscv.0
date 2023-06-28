@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D65EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 12:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44447EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 12:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1qMYrx4e+Ih42cUUqMXgrvIvvmM27Y7azAYg37zTPFU=; b=exYV1JZDjnjUWR
-	vEkO7doR7pHWJK9/F8bNnhvxXEX1hHXPsHvU06UKp88dO8W/1VNavfO178XVp8NzlcImzyTz//be8
-	o/zyWkmr11di5zdpRpPUwAU6QhyM4+4jfe97iLlglYg8ENZ+muUHQJ1L1BhyeUUequ8tRvzorWa/i
-	D80GUfWcM3HfSlC2L67xLlSl8V48tgnuJM4ZLUr0B0yhAYHqCXSkMH+USOTbpVyivP1eCcB9jQJVz
-	esnrPWY6fhOn+3weXxR2VW7nCn3RaLA6ofbsSyiI+wFKYG6xRt67rIwa/h7UKKZ2khvhaVJfuSmlE
-	ndTG896DSXgauqrvg1QA==;
+	List-Owner; bh=GnB/7zt8CWu3mAyNhC0o2QVLNfOfjkEtAhyCTZhToQ0=; b=LlmwB0zd6CkzdH
+	xvaqp+0yElOujvRLHxsq123RK3hnRIMHhKHpPH4Jnq3aqdqjNQhqKKKWhIXa7ntxb/QZ2NiWJrGHt
+	PRxeIwhHz+gEPEKtkXpvBVxaYWV9eJsMU1DrBP2q0yUzwQ3UknAqF2bEMi3INsTL0NbhTGaLsnhFT
+	jCULXmiL7Nkf1QJ8d86XJTtfIKUulUsGihErQQ0W5Ab4k3Fk2Bk6Qd+x6NLirFVzIlzFuGpyhC6Gi
+	w0asqbuXb0lQmM15/25QXKRxzwT7vqHQkb+YJwNEYStG0P00klLopAZFhVPh+hY2XbWFSF5nlFGHh
+	1qLHmC4EBDWhKzYU8o0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEUI6-00FdmF-1z;
-	Wed, 28 Jun 2023 12:28:58 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1qEUIf-00Fdof-02;
+	Wed, 28 Jun 2023 12:29:33 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEUI3-00Fdla-0u
+	id 1qEUIc-00Fdo4-2C
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jun 2023 12:28:57 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-3fa94ea1caaso8516555e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Jun 2023 05:28:45 -0700 (PDT)
+	Wed, 28 Jun 2023 12:29:32 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-313f1085ac2so3280651f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Jun 2023 05:29:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687955324; x=1690547324;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rOLEBNQo1Inji0t08F3DZcnSffT102MRoN1JGgPzCcY=;
-        b=fLYGP4xQoQLX4keTyqhlrWns1/NqFlBMJnHvTnV9HaARpgysk2tzpoG3Aq23TGicEj
-         zRUlliT73BgV0s41P8T67KpTgjjFhlFyQWjhU4x6fCJ17AcHQruKuoSGGvi95pf5gims
-         egCfFMZ4ixOLix1Jc23upHmHZPBCP02UaBwuM8Yx9R+x692mmxKw9E3jZ0kiSjA9ycst
-         C98eIdKTWIMeBezJDske2doTd5JVpElFuE3End4E0pT17ZKSPnWKzVjhmYO1SM3Ghv5y
-         1QiZ0OQgGmfoT0eshxa1+YZT1Jh3+q/YXppICRKnDAZ5GiLkck1B7SxHVbg403Sx8ZGh
-         T1Fg==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1687955367; x=1690547367;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=y+/73Hn30Z9/qFlAesgRRh1yqPTxLtGthW/sft72KEE=;
+        b=biTFYwLWFXgAh7bC73xZA1eta3vNuT/uPCAiX3RUNlQIesyL3vayeQoPILYKyl40tz
+         +9FZgJhBKE/rS1cQzR3+ZINCITlLUe/3+gMwcQyfDSrNtjPUAU5TmSNfChyxswx1K470
+         LmJaEHQY1JzBTMjwd/JOnmDr0IpODglPqCmHxRan+XS8WufyMlY/940g43KyTUXrimPZ
+         meLgvWj63vCyxwHMICaM21gOo4ERn2pM4ibk1vQ32sFTuhi1SLY4gzWs341IJ8hafhpv
+         jDDeR5URGQNClyuLnr5utfsDLye0WuQX1y01qz98tz8t/V4g5FpiXvgiESfX+9YHwgpQ
+         KDYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1687955324; x=1690547324;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rOLEBNQo1Inji0t08F3DZcnSffT102MRoN1JGgPzCcY=;
-        b=ewWletduQoCIz5oEiP5oOUziyZr+7rEVc9Cxf1zNWjtkxui7nAhIHGJHUQN0Qhjwvy
-         smfgvbwLfqvgkxFKpxFScYh1HgaHPdM7sQZU3r2ysLme7Gq+a62LSYPtlI3j6m4Bn6eh
-         x+dbVC/yz36dsjmC4pJ+a7vqPrjhaEwZYV5cuw8sJu8RyPUnngti91ptGiJbVq5NJg9b
-         ZC9KouQqsJASF7zyI5B1AsgIU+8wHAqGgJHazvDUN+pDiZKlFw+OuMtrhkRMxzLiLqLh
-         9qvIVY0mfNuvdhm2upC3B2yYjeGBwev/0YwvmL7/0rwhWvUpsU0Ys6Gj/84kj71BZsrM
-         GdRg==
-X-Gm-Message-State: AC+VfDzLt27xpVs0583QaBrrxCMCWd+qHG7354q48gLTNJJqLtEGyxuE
-	xYuHSNuKXiKB3e7T+iQw0ICGyA==
-X-Google-Smtp-Source: ACHHUZ6HufTDxFwtPEoJbtj1wzivZBgEUqwyJS1z/7pHQ8CiWI6nPMbKHmqH+gNEi7xsQhXhUNNjgQ==
-X-Received: by 2002:a05:600c:511e:b0:3fa:91d0:8ddb with SMTP id o30-20020a05600c511e00b003fa91d08ddbmr1458860wms.14.1687955324399;
-        Wed, 28 Jun 2023 05:28:44 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1687955367; x=1690547367;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=y+/73Hn30Z9/qFlAesgRRh1yqPTxLtGthW/sft72KEE=;
+        b=F81tR/np24lotOywCUM9T6dHOPGJo/4/QZnHIUva9x2jxAWkA1llaabBFe5bCCWbSx
+         SmPxelC+EvYf7JoxbGyoUk6FHa89LxaqYuAXXX8GEA0U0bEtTZbJjGgdvA8zjcmBG/aQ
+         gciNdpTprR5i5QKTlaPOH7F7qJ39KuDCYJ6WS56d52/kGKiCuh89FNMJjsXF/hqL7HRq
+         DWjktbHY81wV5COzU034R/ZnGNbWiFA2kJkr6LbkLWS/vBMm5Oy2aHiq+dcIw0l1lV2M
+         pAPJ2LBNj8ApEGvHSv24uXhRXc2eUb+YOozLh9pMDuc2M6KAxWwBryxxnqpb9fiiA8p9
+         Q4yw==
+X-Gm-Message-State: AC+VfDxKv9WHNYTLgX9yukqopq3Q+1DGCDRnwJVCn7csW1ZuAPry5OOD
+	p8QHlGtieV7LAJsFi/cCQD3DKw==
+X-Google-Smtp-Source: ACHHUZ7Py18273KjWJU/FbRcTvns9S7wOmxcd7KNdChxScd1mSJl7GXIZLWx+YoWuBYMA8dTprdbGQ==
+X-Received: by 2002:a05:6000:1292:b0:313:f7da:2b7e with SMTP id f18-20020a056000129200b00313f7da2b7emr5491984wrx.20.1687955367689;
+        Wed, 28 Jun 2023 05:29:27 -0700 (PDT)
 Received: from vermeer ([2a01:cb1d:81a9:dd00:b570:b34c:ffd4:c805])
-        by smtp.gmail.com with ESMTPSA id c6-20020a05600c0ac600b003f9c0a7c6bcsm13737062wmr.0.2023.06.28.05.28.42
+        by smtp.gmail.com with ESMTPSA id u14-20020adfdb8e000000b003112ab916cdsm13382663wri.73.2023.06.28.05.29.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jun 2023 05:28:43 -0700 (PDT)
-Date: Wed, 28 Jun 2023 14:28:41 +0200
+        Wed, 28 Jun 2023 05:29:27 -0700 (PDT)
+Date: Wed, 28 Jun 2023 14:29:25 +0200
 From: Samuel Ortiz <sameo@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: Hongren Zheng <i@zenithal.me>, linux-riscv@lists.infradead.org,
+	kernel-janitors@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Jiatai He <jiatai2021@iscas.ac.cn>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux@rivosinc.com, Conor Dooley <conor.dooley@microchip.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	LKML <linux-kernel@vger.kernel.org>, linux@rivosinc.com,
 	Andrew Jones <ajones@ventanamicro.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
-	"Hongren (Zenithal) Zheng" <i@zenithal.me>,
-	Guo Ren <guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
 	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH 3/3] RISC-V: Implement archrandom when Zkr is available
-Message-ID: <ZJwneby7cyBYFRZW@vermeer>
-References: <20230627143747.1599218-1-sameo@rivosinc.com>
- <20230627143747.1599218-4-sameo@rivosinc.com>
- <20230627-grinning-droop-bfbb327f6164@spud>
+	Conor Dooley <conor.dooley@microchip.com>,
+	Evan Green <evan@rivosinc.com>, Guo Ren <guoren@kernel.org>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko.stuebner@vrull.eu>,
+	Stefan O'Rear <sorear@fastmail.com>
+Subject: Re: [PATCH 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
+Message-ID: <ZJwnpTieyeWvEkJ5@vermeer>
+References: <20230627143747.1599218-2-sameo@rivosinc.com>
+ <97a7d701-3b48-252e-6d78-ef3d0e7f8f03@web.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230627-grinning-droop-bfbb327f6164@spud>
+In-Reply-To: <97a7d701-3b48-252e-6d78-ef3d0e7f8f03@web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230628_052855_324025_E34F0B87 
-X-CRM114-Status: GOOD (  36.22  )
+X-CRM114-CacheID: sfid-20230628_052930_721543_98B978AE 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,136 +100,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On Tue, Jun 27, 2023 at 08:09:08PM +0100, Conor Dooley wrote:
-> On Tue, Jun 27, 2023 at 04:37:44PM +0200, Samuel Ortiz wrote:
-> > The Zkr extension is ratified and provides 16 bits of entropy seed when
-> > reading the SEED CSR.
-> > 
-> > We can implement arch_get_random_seed_longs() by doing multiple csrrw to
-> > that CSR and filling an unsigned long with valid entropy bits.
-> > 
-> > Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/archrandom.h | 66 +++++++++++++++++++++++++++++
-> >  arch/riscv/include/asm/csr.h        |  9 ++++
-> >  2 files changed, 75 insertions(+)
-> >  create mode 100644 arch/riscv/include/asm/archrandom.h
-> > 
-> > diff --git a/arch/riscv/include/asm/archrandom.h b/arch/riscv/include/asm/archrandom.h
-> > new file mode 100644
-> > index 000000000000..3d01aab2800a
-> > --- /dev/null
-> > +++ b/arch/riscv/include/asm/archrandom.h
-> > @@ -0,0 +1,66 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +/*
-> > + * Kernel interface for the RISCV arch_random_* functions
-> > + *
-> > + * Copyright (c) 2022 by Rivos Inc.
-> > + *
-> > + */
-> > +
-> > +#ifndef ASM_RISCV_ARCHRANDOM_H
-> > +#define ASM_RISCV_ARCHRANDOM_H
-> > +
-> > +#include <asm/csr.h>
-> > +
-> > +#define PR_PREFIX "Zkr Extension: "
-> 
-> Does pr_fmt() not work for you?
-
-It would, but since this is a header that e.g. gets included in
-random.h, I would have to ifndef it first.
-My v2 is less verbose and gets rid of this prefix anyways.
-
-> Also, "Zkr Extension" doesn't really seem super helpful to a punter if
-> they saw it in a log. Why not s/Zkr Extension/archrandom/, or similar?
-> 
-> > +#define SEED_RETRY_LOOPS 10
-> > +
-> > +static inline bool __must_check csr_seed_long(unsigned long *v)
-> > +{
-> > +	unsigned int retry = SEED_RETRY_LOOPS;
-> > +	unsigned int needed_seeds = sizeof(unsigned long) / 2, valid_seeds = 0;
-> > +	u16 *entropy = (u16 *)v;
-> > +
-> > +	do {
-> > +		/*
-> > +		 * The SEED CSR (0x015) must be accessed with a read-write
-> > +		 * instruction. Moreover, implementations must ignore the write
-> > +		 * value, its purpose is to signal polling for new seed.
-> > +		 */
-> 
-> What relevance does the second half of this comment have to the kernel?
-
-Not much, I will remove it with v2.
-
-> > +		unsigned long csr_seed = csr_swap(CSR_SEED, 0);
-> > +
-> > +		switch (csr_seed & SEED_OPST_MASK) {
-> > +		case SEED_OPST_ES16:
-> > +			entropy[valid_seeds++] = csr_seed & SEED_ENTROPY_MASK;
-> > +			if (valid_seeds == needed_seeds)
-> > +				return true;
-> > +			break;
-> > +
-> > +		case SEED_OPST_DEAD:
-> > +			pr_err_once(PR_PREFIX "Unrecoverable error\n");
-> > +			return false;
-> > +
-> > +		case SEED_OPST_BIST:
-> > +			pr_info(PR_PREFIX "On going Built-in Self Test\n");
-> 
-> tiny nit, "On-going"? My OCD is bother by the capitalisation otherwise.
-
-I removed that one with v2, as it may be a little too chatty.
-
-> > +			fallthrough;
-> > +
-> > +		case SEED_OPST_WAIT:
-> > +		default:
-> > +			continue;
-> > +		}
-> > +
-> > +	} while (--retry);
-> > +
-> > +	return false;
-> > +}
-> > +
-> > +static inline size_t __must_check arch_get_random_longs(unsigned long *v, size_t max_longs)
-> > +{
-> > +	return 0;
-> > +}
-> > +
-> > +static inline size_t __must_check arch_get_random_seed_longs(unsigned long *v, size_t max_longs)
-> > +{
-> > +	return max_longs && riscv_isa_extension_available(NULL, ZKR) && csr_seed_long(v) ? 1 : 0;
-> 
-> Could you please write this in a more readable way, even if that is
-> going to be a lot more verbose? I know you copied it from x86, but
-> that's not really an excuse ;)
-
-Agreed :)
-Fixed as well with v2.
-
-> Also, is there a reason that you opted not to use the alternative-backed
-> riscv_has_extension_[un]likely() here?
-
-I did not know about them, I switched to it with v2 (Made it a likely
-case).
-
-Cheers,
-Samuel.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdW4gMjgsIDIwMjMgYXQgMDE6MjE6MDFQTSArMDIwMCwgTWFya3VzIEVsZnJpbmcg
+d3JvdGU6Cj4g4oCmCj4gPiBUaGlzIHBhdGNoIGFsc28gY2hhbmdlcyB0aGUgbG9naWNhbCBpZCBv
+Zgo+IOKApgo+IAo+IERvZXMgc3VjaCBhIHdvcmRpbmcgcmVhbGx5IGZpdCB0byB0aGUga25vd24g
+cmVxdWlyZW1lbnQg4oCcU29sdmUgb25seSBvbmUgcHJvYmxlbSBwZXIgcGF0Y2gu4oCdPwoKVGhh
+dCBjb21tZW50IGlzIGluYWNjdXJhdGUgYW55d2F5cy4gSSByZW1vdmVkIGl0IGZyb20gdjIgb2Yg
+dGhlIHBhdGNoCnNldC4KCkNoZWVycywKU2FtdWVsLgoKCj4gU2VlIGFsc286Cj4gaHR0cHM6Ly9n
+aXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvdG9ydmFsZHMvbGludXguZ2l0
+L3RyZWUvRG9jdW1lbnRhdGlvbi9wcm9jZXNzL3N1Ym1pdHRpbmctcGF0Y2hlcy5yc3Q/aD12Ni40
+I244MQo+IAo+IAo+IFBsZWFzZSBjaG9vc2UgYW4gaW1wZXJhdGl2ZSBjaGFuZ2Ugc3VnZ2VzdGlv
+bi4KPiAKPiBSZWdhcmRzLAo+IE1hcmt1cwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
