@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E92EB64D7
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 18:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D24BEB64D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 18:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0TXwv8oBrKYfizt94yYOkdqLWBoOb0CK00C1euhhT7Q=; b=jm/h77zp11CdEC
-	Aim+BRj716jQ1leR1OmnPwczyEgx4OFwriR/9M3znkW4Kz0/4bFMzHDcNZVB1SghCidDYeqZCp2qb
-	i+Bb4/LADTyw/gojHINMw8wAHMTfjd0AEiT32eFEN2hL3K8gJ9e6kwW891zAyb0thtGtjRApYqXwW
-	e4EHKP/XdLeMMrduaQHm0gS96jLK0FKt3GzGB8INkuNe6wBlrnHij1YCvQIgslgF7geivSAZiJQMC
-	U550riNYGYPrZTUb747wOf7/tgpj1JSfUYTOQXQib/UoyCFwNhHJvAIWOP78VheJo6FANoXdaHB4b
-	BPpbMOcYKS+oByxXprCQ==;
+	List-Owner; bh=3Flqk6Hgix1whk3rk1oRMPnk/u9kmxzxKY289ur58sk=; b=vYqbSwAnXpJQ7k
+	PVRJJRrTsDDXql5w0ZnpFQglendEx5mvdknsua+MbuG7pae9NmJvhQHmQ2Ux9lQkVYhw08hzYZfe7
+	w9SgiXCTxZQFUWBAh95bh2e9Mhx8kHjtPqgxB1uTIoNZQ3mh067MFudFkeeH/brEmnIH5aa0pJUuC
+	+G7A1wHrvpn0GXGyIPbmsKDatRTuQinfr+E7P8n+k48pRDiem+TKiV1Jzu2IGWl6R2koMHSdS/b1F
+	BkO7OPeaRd+IHcKPlyWNy8bcpLQBZ1Uv0y+3VP7rlpW3lwoTgYXu8JFFpBgonh8HCaA+o/n83Qe/+
+	yTTzWTvOnVJ02Ab1oYxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEaMp-00GT4m-2K;
-	Wed, 28 Jun 2023 18:58:15 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qEaNf-00GTFP-1z;
+	Wed, 28 Jun 2023 18:59:07 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEaMm-00GT3y-29
+	id 1qEaNc-00GTEP-22
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 Jun 2023 18:58:14 +0000
-X-QQ-mid: bizesmtp90t1687978484tji35iud
+	Wed, 28 Jun 2023 18:59:06 +0000
+X-QQ-mid: bizesmtp72t1687978659t3keb3dh
 Received: from linux-lab-host.localdomain ( [116.30.129.193])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 29 Jun 2023 02:54:42 +0800 (CST)
+	id ; Thu, 29 Jun 2023 02:57:38 +0800 (CST)
 X-QQ-SSF: 01200000000000D0W000000A0000000
-X-QQ-FEAT: Lc4bMlOoZUGkpC/7Ifsyooy6DUcO5i0KRvgdG3YbtX646PzLWnBy6Qxr2/y+U
-	ozNqeIN24oj33/Fotsv6FXjKjhpcf5dts1f4iXPVGjLEOyao8iLruCcBq410/Itbx/yQ82D
-	4a/DbSH5mlYrgjNVPOh+05Z7F8YWqIAq1qjLT4KMXlyNwrpo7QCsU1QCoKz7cIBCFcrr/Ty
-	IDCMxPgLOJFrecb2pQfzxgO73wk3O0vG3Jcs9W5Sk1Bx2FAaefhT0X35wITWlcT1vqd/uvw
-	bUFlzoPMtnjOpFjHio6NpWI5h0Xj5DFbj2dO5JQCyMdvzC+NNyc+s2q5cad0Yuidf0no2SX
-	kpAAdeYqkgMSQGSZPfd5ki6h4+yttF3ULm1K+4MDPrKxb1Fr2gGOQLmqydKkQ==
+X-QQ-FEAT: KvvwR/hcPA35iAr8TQYDvxZOkDcgAM3TIY87E/9m40p4dKpVt+fphBTPFnApg
+	cm8CqegYIrMMP7buadH2bcEjPZgnbPX4xzvowbn6G1s+64nmmgJaOe9ns+CWK3tXfrlH+cs
+	/MjQq3sTuUJ5KDFemeGMQPH4c5BE3EkCn7au7Ro17HXjdLJ3FIkMo5p4R+YpMp4wCF7EGMv
+	JaxQCrRYQnno7PmRxBlxC1Q9VJSKY8nwTHVpXkzkHibixC4A2T4aqs6tAIJZ1BNHC91ec0f
+	hmkHi0Te9PGaNE4g7qedn3c3t0lD1E0O0BLd5mr1MnbtknEIdnVRCjLsHVEzxmEUSR67QiS
+	20y+PWFkCrx46YGTbC6zNW4jIwi1YGYyTROXXfQi5Nvnw3mKqQ=
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5556601059308245209
+X-BIZMAIL-ID: 2412116737021503385
 From: Zhangjin Wu <falcon@tinylab.org>
 To: thomas@t-8ch.de,
 	w@1wt.eu
@@ -48,9 +48,9 @@ Cc: falcon@tinylab.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 03/11] tools/nolibc: include crt.h before arch.h
-Date: Thu, 29 Jun 2023 02:54:35 +0800
-Message-Id: <c61b5bc53895e8c6b2f30d59f86067973e6bbce0.1687976753.git.falcon@tinylab.org>
+Subject: [PATCH v1 05/11] tools/nolibc: aarch64: shrink _start with _start_c
+Date: Thu, 29 Jun 2023 02:57:23 +0800
+Message-Id: <1adc51e395e76ad05e15b5d41b6460a191d10997.1687976753.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1687976753.git.falcon@tinylab.org>
 References: <cover.1687976753.git.falcon@tinylab.org>
@@ -58,8 +58,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrsz:qybglogicsvrsz3a-3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230628_115813_003104_CA0FA153 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20230628_115904_969825_8C2992D3 
+X-CRM114-Status: UNSURE (   8.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,123 +77,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The crt.h provides a new _start_c() function, which is required by the
-new assembly _start entry of arch-<ARCH>.h (included by arch.h), let's
-include crt.h before arch.h.
-
-This '#include "crt.h"' doesn't let the new _start_c() work immediately,
-but it is a base of the coming patches to move most of the assembly
-_start operations to the _start_c() function for every supported
-architecture.
+Let's move most of the _start operations to _start_c().
 
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- tools/include/nolibc/Makefile | 1 +
- tools/include/nolibc/nolibc.h | 1 +
- tools/include/nolibc/signal.h | 1 +
- tools/include/nolibc/stdio.h  | 1 +
- tools/include/nolibc/stdlib.h | 1 +
- tools/include/nolibc/sys.h    | 1 +
- tools/include/nolibc/time.h   | 1 +
- tools/include/nolibc/unistd.h | 1 +
- 8 files changed, 8 insertions(+)
+ tools/include/nolibc/arch-aarch64.h | 25 ++++---------------------
+ 1 file changed, 4 insertions(+), 21 deletions(-)
 
-diff --git a/tools/include/nolibc/Makefile b/tools/include/nolibc/Makefile
-index 875e13e3c851..00471e59b11e 100644
---- a/tools/include/nolibc/Makefile
-+++ b/tools/include/nolibc/Makefile
-@@ -37,6 +37,7 @@ NARCH            = $(or $(NARCH_$(ARCH)),$(ARCH))
- arch_file := arch-$(NARCH).h
- all_files := \
- 		compiler.h \
-+		crt.h \
- 		ctype.h \
- 		errno.h \
- 		nolibc.h \
-diff --git a/tools/include/nolibc/nolibc.h b/tools/include/nolibc/nolibc.h
-index 1f8d821000ac..2cc9ccd90d56 100644
---- a/tools/include/nolibc/nolibc.h
-+++ b/tools/include/nolibc/nolibc.h
-@@ -93,6 +93,7 @@
- #define _NOLIBC_H
+diff --git a/tools/include/nolibc/arch-aarch64.h b/tools/include/nolibc/arch-aarch64.h
+index 4a8a6f386865..ef98a751783f 100644
+--- a/tools/include/nolibc/arch-aarch64.h
++++ b/tools/include/nolibc/arch-aarch64.h
+@@ -143,33 +143,16 @@
+ 	_arg1;									\
+ })
  
- #include "std.h"
-+#include "crt.h"
- #include "arch.h"
- #include "types.h"
- #include "sys.h"
-diff --git a/tools/include/nolibc/signal.h b/tools/include/nolibc/signal.h
-index 137552216e46..f0a1418c1cb2 100644
---- a/tools/include/nolibc/signal.h
-+++ b/tools/include/nolibc/signal.h
-@@ -8,6 +8,7 @@
- #define _NOLIBC_SIGNAL_H
- 
- #include "std.h"
-+#include "crt.h"
- #include "arch.h"
- #include "types.h"
- #include "sys.h"
-diff --git a/tools/include/nolibc/stdio.h b/tools/include/nolibc/stdio.h
-index 0eef91daf289..89d3749b3620 100644
---- a/tools/include/nolibc/stdio.h
-+++ b/tools/include/nolibc/stdio.h
-@@ -10,6 +10,7 @@
- #include <stdarg.h>
- 
- #include "std.h"
-+#include "crt.h"
- #include "arch.h"
- #include "errno.h"
- #include "types.h"
-diff --git a/tools/include/nolibc/stdlib.h b/tools/include/nolibc/stdlib.h
-index 902162f80337..0ff7fac40bd4 100644
---- a/tools/include/nolibc/stdlib.h
-+++ b/tools/include/nolibc/stdlib.h
-@@ -8,6 +8,7 @@
- #define _NOLIBC_STDLIB_H
- 
- #include "std.h"
-+#include "crt.h"
- #include "arch.h"
- #include "types.h"
- #include "sys.h"
-diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-index 2c302f3feb71..b6c33c40c037 100644
---- a/tools/include/nolibc/sys.h
-+++ b/tools/include/nolibc/sys.h
-@@ -24,6 +24,7 @@
- #include <linux/reboot.h> /* for LINUX_REBOOT_* */
- #include <linux/prctl.h>
- 
-+#include "crt.h"
- #include "arch.h"
- #include "errno.h"
- #include "types.h"
-diff --git a/tools/include/nolibc/time.h b/tools/include/nolibc/time.h
-index 84655361b9ad..bbe8f9aa3e9b 100644
---- a/tools/include/nolibc/time.h
-+++ b/tools/include/nolibc/time.h
-@@ -8,6 +8,7 @@
- #define _NOLIBC_TIME_H
- 
- #include "std.h"
-+#include "crt.h"
- #include "arch.h"
- #include "types.h"
- #include "sys.h"
-diff --git a/tools/include/nolibc/unistd.h b/tools/include/nolibc/unistd.h
-index e38f3660c051..f1677224bb5a 100644
---- a/tools/include/nolibc/unistd.h
-+++ b/tools/include/nolibc/unistd.h
-@@ -8,6 +8,7 @@
- #define _NOLIBC_UNISTD_H
- 
- #include "std.h"
-+#include "crt.h"
- #include "arch.h"
- #include "types.h"
- #include "sys.h"
+-char **environ __attribute__((weak));
+-const unsigned long *_auxv __attribute__((weak));
+-
+ /* startup code */
+ void __attribute__((weak,noreturn,optimize("omit-frame-pointer"))) __no_stack_protector _start(void)
+ {
+ 	__asm__ volatile (
+ #ifdef _NOLIBC_STACKPROTECTOR
+-		"bl __stack_chk_init\n"   /* initialize stack protector                     */
++		"bl __stack_chk_init\n"	/* initialize stack protector			*/
+ #endif
+-		"ldr x0, [sp]\n"     /* argc (x0) was in the stack                          */
+-		"add x1, sp, 8\n"    /* argv (x1) = sp                                      */
+-		"lsl x2, x0, 3\n"    /* envp (x2) = 8*argc ...                              */
+-		"add x2, x2, 8\n"    /*           + 8 (skip null)                           */
+-		"add x2, x2, x1\n"   /*           + argv                                    */
+-		"adrp x3, environ\n"          /* x3 = &environ (high bits)                  */
+-		"str x2, [x3, #:lo12:environ]\n" /* store envp into environ                 */
+-		"mov x4, x2\n"       /* search for auxv (follows NULL after last env)       */
+-		"0:\n"
+-		"ldr x5, [x4], 8\n"  /* x5 = *x4; x4 += 8                                   */
+-		"cbnz x5, 0b\n"      /* and stop at NULL after last env                     */
+-		"adrp x3, _auxv\n"   /* x3 = &_auxv (high bits)                             */
+-		"str x4, [x3, #:lo12:_auxv]\n" /* store x4 into _auxv                       */
+-		"and sp, x1, -16\n"  /* sp must be 16-byte aligned in the callee            */
+-		"bl main\n"          /* main() returns the status code, we'll exit with it. */
+-		"mov x8, 93\n"       /* NR_exit == 93                                       */
+-		"svc #0\n"
++		"mov x0, sp\n"		/* save stack pointer to x0, as arg1 of _start_c*/
++		"and sp, x0, -16\n"	/* sp must be 16-byte aligned in the callee	*/
++		"bl  _start_c\n"	/* transfer to c runtime			*/
+ 	);
+ 	__builtin_unreachable();
+ }
 -- 
 2.25.1
 
