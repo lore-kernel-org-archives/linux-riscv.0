@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA8FAEB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 00:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A689EB64DC
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Jun 2023 00:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
 	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4HqvgG6pI1yTWi7PSfcqtstOEev35agC+6I/qTGRl5A=; b=X22SKy6j5pOMBK
-	I2g0j/JLoVmNGPmOlV8+ypbgZXRAA5YA71I2DenzOEV3stc+gENDJbHFJ4Hp8pBEKhGpjMWNRDScQ
-	T2wql8SGNmhRN1ufHJzM7elI/56dCUKD8CLFWfiHJgYyqwEjPFLySSdaFbdARiYm/Ok2hvrytbeT5
-	R7mYQMBsOgOtpqc2fp3FiWQREYRx4uOtARubA7mDIWMYrSNlbZsPoDhp0faruIg3BQAeKsyA+2CjS
-	Eg3V4ygXLzrcPV0F/pQ6SAD2ga/hqSt7sF/WEecumW+IMQn/BFk7rjiVaQjnzIXjKyYBb2d9B9tZ5
-	+XBDKntmYRB5S3IPBMSQ==;
+	List-Owner; bh=8VLMJDTE8flhqYRJb94wBWDqjsIQWCV1A2IHzefruug=; b=jssFU8kqevQZEH
+	dczJrLdgOU+GYiXABjPip/OBUtAnfighL0+bRMd1igq4mTe1TqAISzAYZlYrOfqUMxrQtB5M878VY
+	2stVbK/O95lVGeHfemLLmu/d9kOOT0DrJq2in4CPYLrOHbOYCfW1IBdo5l7YGdySHlMNQ39sGcUNE
+	7GBNhcev6Md4r7WpBCe96o5ECOLSPjvV0XmC5lCeeoOV/lbjBIyqnj1awI6/kNP8S4j3xvoAZvC4T
+	7rv2NLv/XAaiYjw2OfSBdySdyEw6UOYI4KXdUG6StyhJqJFuKtkBBvXQiWFePhAuDzBfhz0ody40f
+	F6xt20sRXOc2ihWQoAnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEJ5i-00ERTV-2e;
-	Wed, 28 Jun 2023 00:31:26 +0000
+	id 1qEJ93-00ERka-2S;
+	Wed, 28 Jun 2023 00:34:53 +0000
 Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEJ5f-00ERSP-1w;
-	Wed, 28 Jun 2023 00:31:25 +0000
+	id 1qEJ90-00ERkE-38
+	for linux-riscv@lists.infradead.org;
+	Wed, 28 Jun 2023 00:34:52 +0000
 Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id 98B8C5C014D;
-	Tue, 27 Jun 2023 20:31:16 -0400 (EDT)
+	by mailout.nyi.internal (Postfix) with ESMTP id 4CD235C01C5;
+	Tue, 27 Jun 2023 20:34:50 -0400 (EDT)
 Received: from imap50 ([10.202.2.100])
-  by compute1.internal (MEProxy); Tue, 27 Jun 2023 20:31:16 -0400
+  by compute1.internal (MEProxy); Tue, 27 Jun 2023 20:34:50 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
 	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1687912276; x=1687998676; bh=Gd
-	+embUeOu+6SuIKsLjAuiROY4aDSeIcBFv7Ckb3rMM=; b=SUs3+rVzQ9Kc44D1Ir
-	EfZhhxnwMQKCJYCd6NfF4bzhjN7zGAR33fD7wWFe9QjZwcehgaDfnrwgmwDekq+L
-	PXq7ZpkI/KdtTDmy4onYbuT0MCiD/7yoXlvcNm4X4FdhCQh3l4QKLRfKu8Lf0cEQ
-	GCDd33n8nkYd6rYxkrb5GPsCk06xwS5/rIgmMdUaPiWoCJyW06ASDjNchnymNONe
-	kqpbQtri1RcW4VfPuCIYmbhUs5EwdlWp41nEc2A64nx39gungwCki90ejJKjjDbS
-	xFfRIaivq6uZNlHfQJBHdZ7dhsL9rQxE1yZThEekcYXa59wYxm8rXnd1QDEGUo0D
-	Zgow==
+	:subject:subject:to:to; s=fm2; t=1687912490; x=1687998890; bh=6q
+	RdSl8RgtgnLYAHyN1daelemOofzp4E191q490dyuA=; b=ZcC4sPRI6qZvfIdpPy
+	cuMb2oAZhSnBaXJpLrBgyuLCdeAN8YCzrdDrFLnIjP75164Tkerl0wyaRL5jV1SY
+	cNHOMb20250ehP/AVnvE2QtdrCdoffhqUf5aesy0mojdpVqpz6EdXSvfKkEb4wd0
+	a5lHVOBh4R42SRH6tWP9ybLTtAXXehdOJjNQxKm1jKgFgG4wqSHBdyat+VwnijZr
+	muri1jSxVmSKlORfj9Fu4zPWZ+JOLRW6zmsiWplMikVGF+n9kEee4hrph2Gmuwdd
+	ZxxKjwfLRZqzQbTnFAvyhFI1un4pdsfWmHdv4nLLqUls9BYccLDB+1sMp/5uITu7
+	hKdw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-type:content-type:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1687912276; x=1687998676; bh=Gd+embUeOu+6S
-	uIKsLjAuiROY4aDSeIcBFv7Ckb3rMM=; b=klqGuJPZyF13Jx3BmwizcdEiOuxmP
-	yovHnCA79KVmyf+FB3jwJYhTE7okodz+BZJFdDsIYr+0hnDHFc/T+MOp3ggsxCWu
-	RxNPEOWLog7VNjDPgICgX1WMad1XWJnj4WmUhAPolXkWi3jyBmusbAi0Bw55NCmf
-	ngcIMtRa1VoUgXPUKBdmPDEFDt/23HoikzKCRk8QmkTOkNXhwqEsoSoxPrAmCt7J
-	pdKKh/qGqS4D6kbXcKhqMbkZun0kYwYiXGI+wIbpMj8YrJIa5zXr5BKLY/ROKvkz
-	iBhNowjqGM4uVLH0/wAkLj+kYvUNFnoxz7SL1Un5zGzu0g8/rcZGSNY3Q==
-X-ME-Sender: <xms:Un-bZF9Ec7t5Iqj71s-sqeB2juBUx2wTooDJRUMWE6EqU3bQshpyUA>
-    <xme:Un-bZJuSCxF9zujrrY2FQulHKee-jl6xKh6PfbYrzWZYzeYuOs4NxnjMHJ07Lk3rx
-    gNAq7mX9MyBUZDR_A>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrtddugdefiecutefuodetggdotefrodftvf
+	:x-sasl-enc; s=fm2; t=1687912490; x=1687998890; bh=6qRdSl8RgtgnL
+	YAHyN1daelemOofzp4E191q490dyuA=; b=gITisZwDu+03PaMzN15x4ZErk1auI
+	qv9QSXhSJ0GvRRSWyXM+BK3tqdeh6zZQNi2+TcIp36RDG7/+OYdRqPIOPZ7aogJB
+	yZ8jO/YVqmYBRq112QaAhtRiMiEN77gRF3Elhvw1KEnpDCfAeIimmbz00DGOH5iX
+	6Xa79Mq5w4lmy3tPq/bFMceq3NRHBGfEeO8/9MBSH+Ic9XYrkIUMTlOZeGGzGeIk
+	GaTgiN7CVvEO+vZMRT1C0Nyf4bu9VAq/8w8i2ZKqS3GJ0Qvffc9EbxDagn4b8Kz7
+	XdBSD8doWdmF+HVZ4E9F0mEdU+iKCWDjLcFaJaBHk9M8f3KvBDm7ryRIg==
+X-ME-Sender: <xms:KoCbZK2JNnn6M6rSSzGT1eoSRlgy6rcdveH2DdFdZhFyCC7FTd2mmg>
+    <xme:KoCbZNEoXNUDv3v1inVcoB7mWZIauxoFTgkERMaD8FHdp-OycHrkKKAs_OtA4m5tD
+    W1VkDUEIwAGFPF0Jw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrtddugdefjecutefuodetggdotefrodftvf
     curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
     uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
     fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdfuthgv
@@ -66,40 +67,38 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrtddugdefiecutefuodetggdote
     heevgfeggfektdenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucevlhhush
     htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsohhrvggrrhesfhgr
     shhtmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:Un-bZDAG6S9spu--SH1qBeaeEW-Mk8LOGgpimxQ7czBcZGjwODPFOQ>
-    <xmx:Un-bZJcu6lqmS8nlGSvTtTdDaHoOSS7IVjWjmueGVpWe_AYcUiJo5Q>
-    <xmx:Un-bZKNECT2RWycM06WPjtcF6HLPeH5_1WpqqIQt7l_XupgNmNSzCA>
-    <xmx:VH-bZPfjd3-WwnURFRV0_oD03Fdata9h4EY3DWWHXTsG2zzJr4JE-g>
+X-ME-Proxy: <xmx:KoCbZC5_9Xr-v58LkTdWIArZIuU_OX_hwGHyLGKwS1OGwQgNmGpA_A>
+    <xmx:KoCbZL3mFVIiKnKrxFFL3IP94MZ9WjGnPIU0RbCtsDFCaUswuDtD8w>
+    <xmx:KoCbZNHQIHk1Hfgf_dJomqKPn4S0Ng7M3feScRm-Jm2kuxK-G_tJZQ>
+    <xmx:KoCbZFEyZiumDMKfMlSEbknY4FKytDmRg5lmzobSkCTcwlNejK_YBA>
 Feedback-ID: i84414492:Fastmail
 Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 9E1821700089; Tue, 27 Jun 2023 20:31:14 -0400 (EDT)
+	id 0BE0A1700089; Tue, 27 Jun 2023 20:34:50 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
 Mime-Version: 1.0
-Message-Id: <8af3e53a-ead7-4568-a0f1-2829f5d174e6@app.fastmail.com>
-In-Reply-To: <20230605110724.21391-4-andy.chiu@sifive.com>
-References: <20230605110724.21391-1-andy.chiu@sifive.com>
- <20230605110724.21391-4-andy.chiu@sifive.com>
-Date: Tue, 27 Jun 2023 20:30:33 -0400
+Message-Id: <348f624f-3be0-4df7-ab5d-4a912197d82b@app.fastmail.com>
+In-Reply-To: <20230627143747.1599218-3-sameo@rivosinc.com>
+References: <20230627143747.1599218-1-sameo@rivosinc.com>
+ <20230627143747.1599218-3-sameo@rivosinc.com>
+Date: Tue, 27 Jun 2023 20:34:20 -0400
 From: "Stefan O'Rear" <sorear@fastmail.com>
-To: "Andy Chiu" <andy.chiu@sifive.com>, linux-riscv@lists.infradead.org,
- "Palmer Dabbelt" <palmer@dabbelt.com>, anup@brainfault.org,
- "Atish Patra" <atishp@atishpatra.org>, kvm-riscv@lists.infradead.org,
- kvm@vger.kernel.org
-Cc: vineetg@rivosinc.com, greentime.hu@sifive.com, guoren@linux.alibaba.com,
- "Jonathan Corbet" <corbet@lwn.net>,
+To: "Samuel Ortiz" <sameo@rivosinc.com>,
  "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Heiko Stuebner" <heiko.stuebner@vrull.eu>, "Evan Green" <evan@rivosinc.com>,
- "Conor Dooley" <conor.dooley@microchip.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org
+Cc: linux@rivosinc.com, "Conor Dooley" <conor.dooley@microchip.com>,
  "Andrew Jones" <ajones@ventanamicro.com>,
- "Celeste Liu" <coelacanthus@outlook.com>,
- "Andrew Bresticker" <abrestic@rivosinc.com>
-Subject: Re: [PATCH -next v21 03/27] riscv: hwprobe: Add support for probing V in
- RISCV_HWPROBE_KEY_IMA_EXT_0
+ "Heiko Stuebner" <heiko.stuebner@vrull.eu>,
+ "Anup Patel" <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
+ "Hongren (Zenithal) Zheng" <i@zenithal.me>, "Guo Ren" <guoren@kernel.org>,
+ "Atish Patra" <atishp@rivosinc.com>,
+ =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>,
+ "Evan Green" <evan@rivosinc.com>
+Subject: Re: [PATCH 2/3] RISC-V: hwprobe: Expose Zbc and the scalar crypto extensions
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230627_173123_713635_7AA145DE 
-X-CRM114-Status: GOOD (  24.33  )
+X-CRM114-CacheID: sfid-20230627_173451_104313_1D6CF294 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,94 +115,164 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 5, 2023, at 7:07 AM, Andy Chiu wrote:
-> Probing kernel support for Vector extension is available now. This only
-> add detection for V only. Extenions like Zvfh, Zk are not in this scope.
+On Tue, Jun 27, 2023, at 10:37 AM, Samuel Ortiz wrote:
+> Zbc was missing from a previous Bit-Manipulation extension hwprobe
+> patch.
 >
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Evan Green <evan@rivosinc.com>
-> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Add all scalar crypto extensions bits, and define a macro for setting
+> the hwprobe key/pair in a more readable way.
+>
+> Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
 > ---
-> Changelog v20:
->  - Fix a typo in document, and remove duplicated probes (Heiko)
->  - probe V extension in RISCV_HWPROBE_KEY_IMA_EXT_0 key only (Palmer,
->    Evan)
-> ---
->  Documentation/riscv/hwprobe.rst       | 3 +++
->  arch/riscv/include/uapi/asm/hwprobe.h | 1 +
->  arch/riscv/kernel/sys_riscv.c         | 4 ++++
->  3 files changed, 8 insertions(+)
+>  Documentation/riscv/hwprobe.rst       | 33 ++++++++++++++++++++++++
+>  arch/riscv/include/uapi/asm/hwprobe.h | 11 ++++++++
+>  arch/riscv/kernel/sys_riscv.c         | 36 ++++++++++++++++-----------
+>  3 files changed, 66 insertions(+), 14 deletions(-)
 >
 > diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
-> index 9f0dd62dcb5d..7431d9d01c73 100644
+> index 19165ebd82ba..3177550106e0 100644
 > --- a/Documentation/riscv/hwprobe.rst
 > +++ b/Documentation/riscv/hwprobe.rst
-> @@ -64,6 +64,9 @@ The following keys are defined:
->    * :c:macro:`RISCV_HWPROBE_IMA_C`: The C extension is supported, as defined
->      by version 2.2 of the RISC-V ISA manual.
+> @@ -72,11 +72,44 @@ The following keys are defined:
+>         extensions.
 > 
-> +  * :c:macro:`RISCV_HWPROBE_IMA_V`: The V extension is supported, as defined by
-> +    version 1.0 of the RISC-V Vector extension manual.
+>    * :c:macro:`RISCV_HWPROBE_EXT_ZBB`: The Zbb extension is supported, 
+> as defined
+> +      in version 1.0 of the Bit-Manipulation ISA extensions.
 > +
->  * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains performance
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZBC`: The Zbc extension is supported, 
+> as defined
+>         in version 1.0 of the Bit-Manipulation ISA extensions.
+> 
+>    * :c:macro:`RISCV_HWPROBE_EXT_ZBS`: The Zbs extension is supported, 
+> as defined
+>         in version 1.0 of the Bit-Manipulation ISA extensions.
+> 
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZBKB`: The Zbkb extension is 
+> supported, as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZBKC`: The Zbkc extension is 
+> supported, as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZBKX`: The Zbkx extension is 
+> supported, as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZKND`: The Zknd extension is 
+> supported, as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZKNE`: The Zkne extension is 
+> supported, as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZKNH`: The Zknh extension is 
+> supported, as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZKR`: The Zkr extension is supported, 
+> as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZKSED`: The Zksed extension is 
+> supported, as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZKSH`: The Zksh extension is 
+> supported, as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+> +  * :c:macro:`RISCV_HWPROBE_EXT_ZKT`: The Zkt extension is supported, 
+> as defined
+> +    in version 1.0 of the Scalar Cryptography ISA extensions.
+> +
+>  * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains 
+> performance
 >    information about the selected set of processors.
 > 
 > diff --git a/arch/riscv/include/uapi/asm/hwprobe.h 
 > b/arch/riscv/include/uapi/asm/hwprobe.h
-> index 8d745a4ad8a2..7c6fdcf7ced5 100644
+> index 006bfb48343d..8357052061b3 100644
 > --- a/arch/riscv/include/uapi/asm/hwprobe.h
 > +++ b/arch/riscv/include/uapi/asm/hwprobe.h
-> @@ -25,6 +25,7 @@ struct riscv_hwprobe {
->  #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
->  #define		RISCV_HWPROBE_IMA_FD		(1 << 0)
->  #define		RISCV_HWPROBE_IMA_C		(1 << 1)
-> +#define		RISCV_HWPROBE_IMA_V		(1 << 2)
+> @@ -29,6 +29,17 @@ struct riscv_hwprobe {
+>  #define		RISCV_HWPROBE_EXT_ZBA		(1 << 3)
+>  #define		RISCV_HWPROBE_EXT_ZBB		(1 << 4)
+>  #define		RISCV_HWPROBE_EXT_ZBS		(1 << 5)
+> +#define		RISCV_HWPROBE_EXT_ZBC		(1 << 6)
+> +#define		RISCV_HWPROBE_EXT_ZBKB		(1 << 7)
+> +#define		RISCV_HWPROBE_EXT_ZBKC		(1 << 8)
+> +#define		RISCV_HWPROBE_EXT_ZBKX		(1 << 9)
+> +#define		RISCV_HWPROBE_EXT_ZKND		(1 << 10)
+> +#define		RISCV_HWPROBE_EXT_ZKNE		(1 << 11)
+> +#define		RISCV_HWPROBE_EXT_ZKNH		(1 << 12)
+> +#define		RISCV_HWPROBE_EXT_ZKR		(1 << 13)
+> +#define		RISCV_HWPROBE_EXT_ZKSED		(1 << 14)
+> +#define		RISCV_HWPROBE_EXT_ZKSH		(1 << 15)
+> +#define		RISCV_HWPROBE_EXT_ZKT		(1 << 16)
 >  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
 >  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
 >  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
 > diff --git a/arch/riscv/kernel/sys_riscv.c 
 > b/arch/riscv/kernel/sys_riscv.c
-> index 5db29683ebee..88357a848797 100644
+> index 26ef5526bfb4..df15926196b6 100644
 > --- a/arch/riscv/kernel/sys_riscv.c
 > +++ b/arch/riscv/kernel/sys_riscv.c
-> @@ -10,6 +10,7 @@
->  #include <asm/cpufeature.h>
->  #include <asm/hwprobe.h>
->  #include <asm/sbi.h>
-> +#include <asm/vector.h>
->  #include <asm/switch_to.h>
->  #include <asm/uaccess.h>
->  #include <asm/unistd.h>
-> @@ -171,6 +172,9 @@ static void hwprobe_one_pair(struct riscv_hwprobe 
+> @@ -145,20 +145,28 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe 
 > *pair,
->  		if (riscv_isa_extension_available(NULL, c))
->  			pair->value |= RISCV_HWPROBE_IMA_C;
+>  	for_each_cpu(cpu, cpus) {
+>  		struct riscv_isainfo *isainfo = &hart_isa[cpu];
 > 
-> +		if (has_vector())
-> +			pair->value |= RISCV_HWPROBE_IMA_V;
+> -		if (riscv_isa_extension_available(isainfo->isa, ZBA))
+> -			pair->value |= RISCV_HWPROBE_EXT_ZBA;
+> -		else
+> -			missing |= RISCV_HWPROBE_EXT_ZBA;
+> -
+> -		if (riscv_isa_extension_available(isainfo->isa, ZBB))
+> -			pair->value |= RISCV_HWPROBE_EXT_ZBB;
+> -		else
+> -			missing |= RISCV_HWPROBE_EXT_ZBB;
+> -
+> -		if (riscv_isa_extension_available(isainfo->isa, ZBS))
+> -			pair->value |= RISCV_HWPROBE_EXT_ZBS;
+> -		else
+> -			missing |= RISCV_HWPROBE_EXT_ZBS;
+> +#define SET_HWPROBE_EXT_PAIR(ext)					\
+> +		do {							\
+> +			if (riscv_isa_extension_available(isainfo->isa, ext)) \
+> +				pair->value |= RISCV_HWPROBE_EXT_## ext; \
+> +			else						\
+> +				missing |= RISCV_HWPROBE_EXT_## ext;	\
+> +		} while (false)						\
 > +
->  		break;
+> +		SET_HWPROBE_EXT_PAIR(ZBA);
+> +		SET_HWPROBE_EXT_PAIR(ZBB);
+> +		SET_HWPROBE_EXT_PAIR(ZBC);
+> +		SET_HWPROBE_EXT_PAIR(ZBS);
+> +		SET_HWPROBE_EXT_PAIR(ZBKB);
+> +		SET_HWPROBE_EXT_PAIR(ZBKC);
+> +		SET_HWPROBE_EXT_PAIR(ZBKX);
+> +		SET_HWPROBE_EXT_PAIR(ZKND);
+> +		SET_HWPROBE_EXT_PAIR(ZKNE);
+> +		SET_HWPROBE_EXT_PAIR(ZKNH);
+> +		SET_HWPROBE_EXT_PAIR(ZKR);
 
-I am concerned by the exception this is making.  I believe the intention of
-riscv_hwprobe is to replace AT_HWCAP as the single point of truth for userspace
-to make instruction use decisions.  Since this does not check riscv_v_vstate_ctrl_user_allowed,
-application code which wants to know if V instructions are usable must use
-AT_HWCAP instead, unlike all other extensions for which the relevant data is
-available within the hwprobe return.
-
-Assuming this is intentional, what is the path forward for future extensions
-that cannot be used from userspace without additional conditions being met?
-For instance, if we add support in the future for the Zve* extensions, the V
-bit would not be set in HWCAP for them, which would require library code to
-use the prctl interface unless we define the hwcap bits to imply userspace
-usability.
+Does the presence of a HWPROBE_EXT bit imply that userspace software can
+actually directly use the described feature?  If so, we should probably
+not set ZKR unless mseccfg.USEED=1.
 
 -s
 
->  	case RISCV_HWPROBE_KEY_CPUPERF_0:
+> +		SET_HWPROBE_EXT_PAIR(ZKSED);
+> +		SET_HWPROBE_EXT_PAIR(ZKSH);
+> +		SET_HWPROBE_EXT_PAIR(ZKT);
+>  	}
+> 
+>  	/* Now turn off reporting features if any CPU is missing it. */
 > -- 
-> 2.17.1
+> 2.41.0
 >
 >
 > _______________________________________________
