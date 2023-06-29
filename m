@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AEFEB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 14:04:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5482FEB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 14:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pvlw4C4+g1brYe9XlLeJbuzRPdI/KiJJX+YxiUGP7Xk=; b=rVDQYCEacVheU2VHsmJZNLMfQM
-	gh8QrmDfaU8fi2PUVlgGi8ILMN1vmV2xQRS/VzK6aFtpwmOZEpO4czf5icbzv1i0dmptYJirKZqgj
-	Bj/htecGwvdDvzmKzYA9CTUFaST7aaBVPHntne8dvqet06spV3430P6hiek/lScmCtGawrFNceQJ0
-	006EyCiQkUfOyA4WNKXnd8eROCQsfDRZbYFSMkN/HzdIB+HObpPyHBytFcXUTWhg7CTAlPf8r3OLc
-	v4Dr8OpMX4yZYZhKM+K9X8e/KJi1NAjVyKybPfi7ZrCtNPO2wI2dLOswOrziNEphLQT+AzERHOCJE
-	Y9Rs+ucA==;
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fv3P9vDyUKs1lB+C8Ixxe/ksG0+fT1Hj4k95s1XYRgU=; b=TVBBtvDUs8DleVq6gRnPIvCdAk
+	pM2DHPYms6ZNts/ON8U5iTejpy1uwEDAlG7Eq7Jna4ShwsiV5O3I8Ku/l+e7mWlqEY28fXIdJyD/L
+	pTUkn3/lkPYCX1vzAIVyRFPNLtKwqL5EpeSbPJ7L1+vkiPQJAUGTLDuHSnc2oS0LpaXKs8HpswNgg
+	dmWHZ6ET0kJtApbTr13tD6l7biGSAMUzqNqdV33qmF8quPO7ErO5s167FaqjNTv9PP89t23uYK//m
+	rpU3v0ZEkHv2db9FfkhGTGPdZouGnyD8433WKxL96QKkz1c9wvfcamZCJduJPDcWnmwhhk2ShXsyu
+	p0qNPi8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEsFX-001FnS-1e;
-	Thu, 29 Jun 2023 14:03:55 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qEsR6-001GkN-0E;
+	Thu, 29 Jun 2023 14:15:52 +0000
+Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEsFU-001FmQ-0q
-	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jun 2023 14:03:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688047431; x=1719583431;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0LCje66TrgfndvZbz38XLfCZaJE3/THeERjOD2/AstY=;
-  b=npI9rOfUuuHxJ0R5gZtwYsSZ2SaUqd/vQKNOCUOIa3q9yZQRcGJxgprs
-   6DzWwmLjXRvEAGyADzKcLKuDRa5PwVo1ayo2onusWgZVE1kRG+Jlng49t
-   B6o9b/yRfbddhTyoiNmwHSDPLD8f29MMi53Gzxytkx9VaRYXltfgw0Ze+
-   t+etfbsfMDjzzdhfsZFidRum7hg4yywl4HEfYWxRIXfsm43okizlYPWRv
-   edxX/AspLE95Gjdr2Q6tP3zxny113vvmrBCa0UgW/Awwoxz9aVHWx+Kkf
-   a7Bm81kDlN8wqGv1asZmtmJiuHI+Tq2ZFtW1NFTnOUMhbjyZ6f0ixhRid
-   w==;
-X-IronPort-AV: E=Sophos;i="6.01,168,1684825200"; 
-   d="asc'?scan'208";a="232893173"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Jun 2023 07:03:40 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 29 Jun 2023 07:03:40 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 29 Jun 2023 07:03:37 -0700
-Date: Thu, 29 Jun 2023 15:03:08 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Evan Green <evan@rivosinc.com>
-Subject: Re: [PATCH 1/2] RISC-V: Probe for unaligned access speed
-Message-ID: <20230629-untaxed-tripping-6000bc8c1873@wendy>
-References: <20230623222016.3742145-1-evan@rivosinc.com>
- <20230623222016.3742145-2-evan@rivosinc.com>
- <20230626-veneering-superglue-751719bd967c@wendy>
- <CALs-HsskE1-OkZxFzH9bM6bR9NBW5R4mh5AJScVtnvHbv+Pi6A@mail.gmail.com>
+	id 1qEsR2-001GjE-0k;
+	Thu, 29 Jun 2023 14:15:49 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 115BD1F8BE;
+	Thu, 29 Jun 2023 14:15:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1688048146; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=q65MrPND/7yigyGkkVaQv3PQCRFF3v8RQQr5wgYKJ4U=;
+	b=s5JOc8n8tpgL5OXiwnL8w6zpYIqqlCDaOLW3w88YMpIjRUxkvQkO6NRNIt9jOHN0HgF2Fq
+	CEE12CMxPsuHuR2Rj56wE5TKKGpQSVoKooSGAMqklM3JJkq6OL25h3K07P4Eug37hDXLAc
+	7g/kM59z8HFYepLM6955/HcgLHYADmc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1688048146;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=q65MrPND/7yigyGkkVaQv3PQCRFF3v8RQQr5wgYKJ4U=;
+	b=tEVfZk/EBx5R152Y3wRTv3qKOoinL0AeH3IvxHdRals/NwSpUpuzUq/YkJoHDuV95SXcm2
+	yZ5mytzsE1+h/pAQ==
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 92DC813905;
+	Thu, 29 Jun 2023 14:15:45 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+	by imap2.suse-dmz.suse.de with ESMTPSA
+	id BK8tIhGSnWS0EQAAMHmgww
+	(envelope-from <tzimmermann@suse.de>); Thu, 29 Jun 2023 14:15:45 +0000
+Message-ID: <f9185435-74bb-a325-8fe6-3beb51a66e0a@suse.de>
+Date: Thu, 29 Jun 2023 16:15:44 +0200
 MIME-Version: 1.0
-In-Reply-To: <CALs-HsskE1-OkZxFzH9bM6bR9NBW5R4mh5AJScVtnvHbv+Pi6A@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH 00/12] arch,fbdev: Move screen_info into arch/
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
+ Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
+Cc: Linux-Arch <linux-arch@vger.kernel.org>, linux-hyperv@vger.kernel.org,
+ linux-efi@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-mips@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, loongarch@lists.linux.dev,
+ linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20230629121952.10559-1-tzimmermann@suse.de>
+ <4d711508-c299-49f2-8691-e75d68f2485e@app.fastmail.com>
+From: Thomas Zimmermann <tzimmermann@suse.de>
+In-Reply-To: <4d711508-c299-49f2-8691-e75d68f2485e@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_070352_480777_49B37B08 
-X-CRM114-Status: GOOD (  37.88  )
+X-CRM114-CacheID: sfid-20230629_071548_437278_94AEA279 
+X-CRM114-Status: GOOD (  24.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,112 +95,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-doc@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Yangyu Chen <cyy@cyyself.name>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Xianting Tian <xianting.tian@linux.alibaba.com>, Masahiro Yamada <masahiroy@kernel.org>, Greentime Hu <greentime.hu@sifive.com>, Simon Hosie <shosie@rivosinc.com>, Li Zhengyu <lizhengyu3@huawei.com>, Andrew Jones <ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, Sia Jee Heng <jeeheng.sia@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, Andy Chiu <andy.chiu@sifive.com>
-Content-Type: multipart/mixed; boundary="===============3902926689459258455=="
+Content-Type: multipart/mixed; boundary="===============7187364853455419594=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3902926689459258455==
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--===============7187364853455419594==
+Content-Language: en-US
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="H5dFwnc5H1LxQund"
-Content-Disposition: inline
+ protocol="application/pgp-signature";
+ boundary="------------CFrYrwjwiHrQCUAXlrkYN4LE"
 
---H5dFwnc5H1LxQund
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------CFrYrwjwiHrQCUAXlrkYN4LE
+Content-Type: multipart/mixed; boundary="------------LMXlbR5vBx4VnpM1p0HGCgvn";
+ protected-headers="v1"
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
+ Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
+Cc: Linux-Arch <linux-arch@vger.kernel.org>, linux-hyperv@vger.kernel.org,
+ linux-efi@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-mips@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, loongarch@lists.linux.dev,
+ linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org
+Message-ID: <f9185435-74bb-a325-8fe6-3beb51a66e0a@suse.de>
+Subject: Re: [PATCH 00/12] arch,fbdev: Move screen_info into arch/
+References: <20230629121952.10559-1-tzimmermann@suse.de>
+ <4d711508-c299-49f2-8691-e75d68f2485e@app.fastmail.com>
+In-Reply-To: <4d711508-c299-49f2-8691-e75d68f2485e@app.fastmail.com>
 
-On Tue, Jun 27, 2023 at 12:11:25PM -0700, Evan Green wrote:
-> On Mon, Jun 26, 2023 at 7:15=E2=80=AFAM Conor Dooley <conor.dooley@microc=
-hip.com> wrote:
-> > > +void check_misaligned_access(int cpu)
-> > > +{
-> > > +     unsigned long j0, j1;
-> > > +     struct page *page;
-> > > +     void *dst;
-> > > +     void *src;
-> > > +     long word_copies =3D 0;
-> > > +     long byte_copies =3D 0;
-> > > +     long speed =3D RISCV_HWPROBE_MISALIGNED_SLOW;
-> >
-> > Is this not a change from current behaviour, that may actually lead to
-> > incorrect reporting. Presently, only T-Head stuff sets a speed, so
-> > hwprobe falls back to UNKNOWN for everything else. With this, we will
-> > get slow set, for anything failing the test.
-> > Slow is defined as "Misaligned accesses are supported in hardware, but
-> > are slower than the cooresponding aligned accesses sequences (sic)", but
-> > you have no way of knowing, based on the test you are performing, wheth=
-er
-> > the hardware supports it or if it is emulated by firmware.
-> > Perhaps that is not relevant to userspace, but wanted to know your
-> > thoughts.
-> >
->=20
-> Hm, that's true. EMULATED was an easy one when we were planning to get
-> this info from the DT. It also might be an easy one in the future, if
-> we get an SBI call that allows the kernel to take over misaligned trap
-> handling. We'd then be able to do a misaligned access and see if our
-> trap handler got called.
->=20
-> One option is to leave the value alone if we fail the FAST test
-> (rather than changing it from UNKNOWN to SLOW). This isn't great
-> though, as it effectively makes UNKNOWN synonymous with SLOW, but in a
-> way where usermode can't tell the difference between "I truly don't
-> know" and "I tried the fast test and it failed".
->=20
-> The alternative, as it is now, may mislabel some emulated systems as
-> slow until the new SBI call shows up.
+--------------LMXlbR5vBx4VnpM1p0HGCgvn
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
 
-Make that "mislabel some emulated systems forever", existing systems
-don't magically grow support for new extensions unfortunately.
+SGkNCg0KQW0gMjkuMDYuMjMgdW0gMTU6MzEgc2NocmllYiBBcm5kIEJlcmdtYW5uOg0KPiBP
+biBUaHUsIEp1biAyOSwgMjAyMywgYXQgMTM6NDUsIFRob21hcyBaaW1tZXJtYW5uIHdyb3Rl
+Og0KPj4gVGhlIHZhcmlhYmxlcyBzY3JlZW5faW5mbyBhbmQgZWRpZF9pbmZvIHByb3ZpZGUg
+aW5mb3JtYXRpb24gYWJvdXQNCj4+IHRoZSBzeXN0ZW0ncyBzY3JlZW4sIGFuZCBwb3NzaWJs
+eSBFRElEIGRhdGEgb2YgdGhlIGNvbm5lY3RlZCBkaXNwbGF5Lg0KPj4gQm90aCBhcmUgZGVm
+aW5lZCBhbmQgc2V0IGJ5IGFyY2hpdGVjdHVyZSBjb2RlLiBCdXQgYm90aCB2YXJpYWJsZXMg
+YXJlDQo+PiBkZWNsYXJlZCBpbiBub24tYXJjaCBoZWFkZXIgZmlsZXMuIERlcGVuZGVuY2ll
+cyBhcmUgYXQgYmVhc2UgbG9vc2VseQ0KPj4gdHJhY2tlZC4gVG8gcmVzb2x2ZSB0aGlzLCBt
+b3ZlIHRoZSBnbG9iYWwgc3RhdGUgc2NyZWVuX2luZm8gYW5kIGl0cw0KPj4gY29tcGFuaW9u
+IGVkaWRfaW5mbyBpbnRvIGFyY2gvLiBPbmx5IGRlY2xhcmUgdGhlbSBvbiBhcmNoaXRlY3R1
+cmVzDQo+PiB0aGF0IGRlZmluZSB0aGVtLiBMaXN0IGRlcGVuZGVuY2llcyBvbiB0aGUgdmFy
+aWFibGVzIGluIHRoZSBLY29uZmlnDQo+PiBmaWxlcy4gQWxzbyBjbGVhbiB1cCB0aGUgY2Fs
+bGVycy4NCj4+DQo+PiBQYXRjaCAxIHRvIDQgcmVzb2x2ZSBhIG51bWJlciBvZiB1bm5lY2Vz
+c2FyeSBpbmNsdWRlIHN0YXRlbWVudHMgb2YNCj4+IDxsaW51eC9zY3JlZW5faW5mby5oPi4g
+VGhlIGhlYWRlciBzaG91bGQgb25seSBiZSBpbmNsdWRlZCBpbiBzb3VyY2UNCj4+IGZpbGVz
+IHRoYXQgYWNjZXNzIHN0cnVjdCBzY3JlZW5faW5mby4NCj4+DQo+PiBQYXRjaGVzIDUgdG8g
+NyBtb3ZlIHRoZSBkZWNsYXJhdGlvbiBvZiBzY3JlZW5faW5mbyBhbmQgZWRpZF9pbmZvIHRv
+DQo+PiA8YXNtLWdlbmVyaWMvc2NyZWVuX2luZm8uaD4uIEFyY2hpdGVjdHVyZXMgdGhhdCBw
+cm92aWRlIGVpdGhlciBzZXQNCj4+IGEgS2NvbmZpZyB0b2tlbiB0byBlbmFibGUgdGhlbS4N
+Cj4+DQo+PiBQYXRjaGVzIDggdG8gOSBtYWtlIHVzZXJzIG9mIHNjcmVlbl9pbmZvIGRlcGVu
+ZCBvbiB0aGUgYXJjaGl0ZWN0dXJlJ3MNCj4+IGZlYXR1cmUuDQo+Pg0KPj4gRmluYWxseSwg
+cGF0Y2hlcyAxMCB0byAxMiByZXdvcmsgZmJkZXYncyBoYW5kbGluZyBvZiBmaXJtd2FyZSBF
+RElEDQo+PiBkYXRhIHRvIG1ha2UgdXNlIG9mIGV4aXN0aW5nIGhlbHBlcnMgYW5kIHRoZSBy
+ZWZhY3RvcmVkIGVkaWRfaW5mby4NCj4+DQo+PiBUZXN0ZWQgb24geDg2LTY0LiBCdWlsdCBm
+b3IgYSB2YXJpZXR5IG9mIHBsYXRmb3Jtcy4NCj4gDQo+IFRoaXMgYWxsIGxvb2tzIGxpa2Ug
+YSBuaWNlIGNsZWFudXAhDQoNCkkgZ3Vlc3MgdGhhdCBwYXRjaGVzIDEgdG8gNCBhcmUgdW5j
+b250cm92ZXJzaWFsIGFuZCBjb3VsZCBiZSBsYW5kZWQgDQpxdWlja2x5LiBQYXRjaGVzIDEw
+IHRvIDEyIGFyZSBwcm9iYWJseSBhcyB3ZWxsLg0KDQo+IA0KPj4gRnV0dXJlIGRpcmVjdGlv
+bnM6IHdpdGggdGhlIHBhdGNoc2V0IGluIHBsYWNlLCBpdCB3aWxsIGJlY29tZSBwb3NzaWJs
+ZQ0KPj4gdG8gcHJvdmlkZSBzY3JlZW5faW5mbyBhbmQgZWRpZF9pbmZvIG9ubHkgaWYgdGhl
+cmUgYXJlIHVzZXJzLiBTb21lDQo+PiBhcmNoaXRlY3R1cmVzIGRvIHRoaXMgYnkgdGVzdGlu
+ZyBmb3IgQ09ORklHX1ZULCBDT05GSUdfRFVNTVlfQ09OU09MRSwNCj4+IGV0Yy4gQSBtb3Jl
+IHVuaWZvcm0gYXBwcm9hY2ggd291bGQgYmUgbmljZS4gV2Ugc2hvdWxkIGFsc28gYXR0ZW1w
+dA0KPj4gdG8gbWluaW1pemUgYWNjZXNzIHRvIHRoZSBnbG9iYWwgc2NyZWVuX2luZm8gYXMg
+bXVjaCBhcyBwb3NzaWJsZS4gVG8NCj4+IGRvIHNvLCBzb21lIGRyaXZlcnMsIHN1Y2ggYXMg
+ZWZpZmIgYW5kIHZlc2FmYiwgd291bGQgcmVxdWlyZSBhbiB1cGRhdGUuDQo+PiBUaGUgZmly
+bXdhcmUncyBFRElEIGRhdGEgY291bGQgcG9zc2libHkgbWFkZSBhdmFpbGFibGUgb3V0c2lk
+ZSBvZiBmYmRldi4NCj4+IEZvciBleGFtcGxlLCB0aGUgc2ltcGxlZHJtIGFuZCBvZmRybSBk
+cml2ZXJzIGNvdWxkIHByb3ZpZGUgc3VjaCBkYXRhDQo+PiB0byB1c2Vyc3BhY2UgY29tcG9z
+aXRvcnMuDQo+IA0KPiBJIHN1c3BlY3QgdGhhdCBtb3N0IGFyY2hpdGVjdHVyZXMgdGhhdCBw
+cm92aWRlIGEgc2NyZWVuX2luZm8gb25seQ0KPiBoYXZlIHRoaXMgaW4gb3JkZXIgdG8gY29t
+cGlsZSB0aGUgZnJhbWVidWZmZXIgZHJpdmVycywgYW5kIHByb3ZpZGUNCj4gaGFyZGNvZGVk
+IGRhdGEgdGhhdCBkb2VzIG5vdCBldmVuIHJlZmxlY3QgYW55IHJlYWwgaGFyZHdhcmUuDQoN
+ClRoYXQncyBxdWl0ZSBwb3NzaWJsZS4gT25seSB4ODYncyBib290cGFyYW0gYW5kIEVGSSBj
+b2RlIHNldHMgDQpzY3JlZW5faW5mbyBmcm9tIGV4dGVybmFsIGRhdGEuIFRoZSByZXN0IGlz
+IGhhcmRjb2RlZC4gQSBudW1iZXIgb2YgDQphcmNoaXRlY3R1cmVzIHByb3RlY3Qgc2NyZWVu
+X2luZm8gd2l0aCBDT05GSUdfVlQsIENPTkZJR19EVU1NWV9DT05TT0xFLCANCmV0Yy4gSW4g
+YSBsYXRlciBwYXRjaHNldCwgSSB3YW50ZWQgdG8gY2hhbmdlIHRoaXMgc3VjaCB0aGF0IHRo
+ZXNlIHVzZXJzIA0Kb2Ygc2NyZWVuX2luZm8gd291bGQgZW5hYmxlIHRoZSBmZWF0dXJlIHZp
+YSBzZWxlY3QgaW4gdGhlaXIgS2NvbmZpZy4NCg0KRG8geW91IGtub3cgdGhlIHJlYXNvbiBm
+b3IgdGhpcyBicmFuY2ggaW4gZHVtbXljb246DQoNCmh0dHBzOi8vZWxpeGlyLmJvb3RsaW4u
+Y29tL2xpbnV4L3Y2LjQvc291cmNlL2RyaXZlcnMvdmlkZW8vY29uc29sZS9kdW1teWNvbi5j
+I0wyMQ0KDQpXaGF0IGlzIHNwZWNpYWwgYWJvdXQgYXJtIHRoYXQgZHVtbXljb24gdXNlcyB0
+aGUgc2NyZWVuaW5mbz8NCg0KPiANCj4gV2UgY2FuIHByb2JhYmx5IHJlZHVjZSB0aGUgbnVt
+YmVyIG9mIGFyY2hpdGVjdHVyZXMgdGhhdCBkbyB0aGlzDQo+IGEgbG90LCBlc3BlY2lhbGx5
+IGlmIHdlIGdldCBFRkkgb3V0IG9mIHRoZSBwaWN0dXJlLg0KDQpDYW4geW91IGVsYWJvcmF0
+ZT8NCg0KQmVzdCByZWdhcmRzDQpUaG9tYXMNCg0KPiANCj4gICAgICAgIEFybmQNCg0KLS0g
+DQpUaG9tYXMgWmltbWVybWFubg0KR3JhcGhpY3MgRHJpdmVyIERldmVsb3Blcg0KU1VTRSBT
+b2Z0d2FyZSBTb2x1dGlvbnMgR2VybWFueSBHbWJIDQpGcmFua2Vuc3RyYXNzZSAxNDYsIDkw
+NDYxIE51ZXJuYmVyZywgR2VybWFueQ0KR0Y6IEl2byBUb3RldiwgQW5kcmV3IE15ZXJzLCBB
+bmRyZXcgTWNEb25hbGQsIEJvdWRpZW4gTW9lcm1hbg0KSFJCIDM2ODA5IChBRyBOdWVybmJl
+cmcpDQo=
 
-Realistically though, does it matter to userspace if it is slow because
-the hardware is slow, or if the emulation is slow, since there's not
-really a way for userspace to tell from the syscall by how much it is
-slower.
-It can probably guess that emulation is worse, given how crap the
-speed I see on mpfs is.
+--------------LMXlbR5vBx4VnpM1p0HGCgvn--
 
-I'd rather we did say slow, rather than people start to interpret
-UNKNOWN as slow.
-
-> I'm not sure how bad this is in
-> practice. We could add a subsequent performance bar below which we
-> guess "emulated".
-
-Nah, I don't really think that that is required.
-
-> This probably matches what usermode will use that
-> value for anyway (a synonym for "very slow"), but it's basically the
-> same problem with reversed polarity (we mislabel some slow systems as
-> emulated). I'm open to suggestions!
-
-I think I just agreed with you, give or take. If it is fast, say fast.
-If it is slow, we say it is slow. If we know it is emulated, then we can
-report it being emulated. Is it too late to remove the "hardware" from
-the syscall documentation, IOW s/supported in hardware/supported/?
-
-Please actually describe the assumptions/subtleties in the commit
-message though, so that the rationale for stuff is in the history :)
-
-Cheers,
-Conor.
-
---H5dFwnc5H1LxQund
-Content-Type: application/pgp-signature; name="signature.asc"
+--------------CFrYrwjwiHrQCUAXlrkYN4LE
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJ2PHAAKCRB4tDGHoIJi
-0u12AP9Y4hnYqRbH89CmxyncXU2SpQInIjF2gv52xpsfjjHjSgD+Kupcyjx9JdXL
-IXyCwSeqVgJgGgNYQaIGXrmI/E/Biwo=
-=2Coz
+wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmSdkhAFAwAAAAAACgkQlh/E3EQov+Cu
+Tg//bygjjxurZdvVdIVUnqm52gTBbmuqrg1+0a2A1NhLl3ItDa+Fa8VdwKZMYjT82NZWf6ztWWO+
+3ld/w0vPq53sC5ezkR4UqQVTns8H+SQfIDfmrzAUaZAA/nuW3YSUqb7bdxT20Y5jusJRTE1SwAVr
+e10d9BwV6PFQhW+5B2nKjA+l6ydKSaFtuuk+LcqcPk3hUhjkjCbyde0wQ/xz8vYyQDUnDDu3ps1m
+2eHKIiZYKwio5jBjDHu+VJXenpJlUKoY73Gg07rYULY2oF8gsVojrvrOdPdChtQIICQ8Tfcopx2p
+CZK3p6e6BENp3jZ+LFxTK5vGhU2H3Sqca+8lre6km/Rvndo25RRp0Lx4zQAK4qev3ED7v9IYl5jA
+QypuI5zTr/ZM2gCNznpmRh2nPgI0ANwxXiQ1mwUGNF8WQXcN1AzPXRDol1cgfmR57hBKmSA+hB8u
+NtLxVCUy25j+hFBKSy//2mP1Fs2/rb6Lo5FysOtYvI09HHNN+1LGhVNQ88E2ro22tNMWMKF+3Cws
+NNYJoCXaihkeLtqPXup+tUh3zl2H9QoVMephO9RQlUKK3TyMYW64yXoCpxkeqTdWdFJAHOMgb4DS
+PKAUhXyJn0b4KQ61EqybTsYXnaIt/LglY+Itk1p0OqlJp8p7Pl0LiD520nE2QkO4XKRkehoctFaN
+zKs=
+=lOlT
 -----END PGP SIGNATURE-----
 
---H5dFwnc5H1LxQund--
+--------------CFrYrwjwiHrQCUAXlrkYN4LE--
 
 
---===============3902926689459258455==
+--===============7187364853455419594==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -195,5 +233,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3902926689459258455==--
+--===============7187364853455419594==--
 
