@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB61EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E6FC001B3
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X3m6GDG/CqhtvZ8GHgpthZGPXazztB/90HXs5OA6uD8=; b=YWRAfURN1euKx/
-	thpgjOPIk3yjLmy5vTFtIXxMaUNk640dM0eVod23vRslBRPOR4I8C6xSzoXOCmFgaMXSqjQpW7sNB
-	Tanwfdu6xHKu95Zc3OPm7Ma/JkX69dusPO/AgQbCeqjg3/e08PjEFMfbIwFquzUM0tNoZ2DnCjSR9
-	8Psam4muj14JIqtAxHqSsOqrd4hQpzEKGHsbnE25eSxqDK+5WJRvjjo+LyKJ2C4+tmMCP6ieGh7r4
-	4JWnZla9gx5DdOFVoVhT+NkIp6+ym98vkSYhqZF+MVQ7noWhDaZ1C2WnXerqiYgPYX+aDMKrke8xm
-	dvD8e9mtYqC53MUhFDvg==;
+	List-Owner; bh=G6wiQOO3Yu4bPWbOLe9ENZMnScjQZ8uc8D/dCS81RPk=; b=IrD5XgUJYzLWzD
+	ulyFKi5/0OZc3hZGMU3bM8jOMuXVQV/SFAgoWWs7GR4G27GFcKf+5KGuAi9jlhi0rF3p4OloQXhBD
+	5uPdRovB47T4wPWHS4+jamFVd+yygOwN2Me1cFPiv06vpOM4M8kWJFYfnHhcHV/skvgBWwRLlvxpY
+	kPFG+h2+lZbpTGbSoEpBsgeQue+yxiIYGF56POumlnDM8nztaeDVH/eROi44/N2bCH9KdohhyjoK5
+	75nHDwaWmzNUpGkTXJKRkdbls787nsMirhwVfstOjAw5Wzw3geNmaaZGoH/R7WQ6PSg3nDUdI03dk
+	Q8rq1iLKxABqMX2CYLyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEn2i-000O4b-1V;
-	Thu, 29 Jun 2023 08:30:20 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qEn2g-000O3a-3C;
+	Thu, 29 Jun 2023 08:30:19 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEn2d-000O16-1X
+	id 1qEn2b-000Nzn-0o
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jun 2023 08:30:16 +0000
+	Thu, 29 Jun 2023 08:30:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688027415; x=1719563415;
+  t=1688027413; x=1719563413;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=FyhCBQzwfA+WMj8JPqh8q7RSGYDMWs5+f1Cx9CBdUeU=;
-  b=pTmqSUC7tUzftDcBj6G2Yo/YQOU+fGmpVSVCVPHBhWWbnjCN0Z/wVY2z
-   ig7a+gsi+e0JTP2GccymgKu5EHEPQfBfDjxfMkVSxIUmPD412GEzGEzP8
-   EPeI0R4aVmkA3Fhz6aRMQD/bNN24PE0H9uSYyCNHCNULX8uPofuYUVk6b
-   DsfWxbRcqC9ZtrEng6EMD+wpfmF1kuF/pq8wqHvo0cMTOtFLY5jGH06Xa
-   +U+x06SlXq496rhqUgeYOUXvcMTp9AtBZv2Ire41K2y9uCVt8Wy45AGIp
-   FNdGfRev6Zwb1TWLXdUygQasbv4gezxX5iZRD+ppxOOZ2bME04Api1Wk8
-   Q==;
+  bh=bIs6kqMED+8WeRtoxXsVzTKb8hUL0V34cciMGbaTy6Y=;
+  b=e5nKA+tiUS1Qb0FSmCmBPaiNphsxkz54Hwt2A144p1NAsH9QQiiSdtc7
+   Lp8OdKLHSIoBo3UfVVkTX1w8EMYycZc/m8o40MJd50fnD/L8mNn4cNh5J
+   oNU0BfGu4+AmuStB8p1xPsTkk2d5+BQlTi+6u1Tr/vrA922xh7z77TX8o
+   zpMiD4m6skBhHbtGPkgOYYmWJEeg5ZCKbtmrPeghIzZpw5DV83C7cg4pX
+   p1aPF5/cnNOeg6FpF+SDNe+EkxciQDmIlwHf+gwMGEScuvObg7x+aqRyE
+   V4blR4AL08HbEUeIokJ54vPLcYGl5FuKaZGiUtK02s3ZTlPrPGzYF5vcd
+   w==;
 X-IronPort-AV: E=Sophos;i="6.01,168,1684825200"; 
-   d="scan'208";a="220461307"
+   d="scan'208";a="159104686"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Jun 2023 01:30:14 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Jun 2023 01:30:09 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 29 Jun 2023 01:30:14 -0700
+ 15.1.2507.21; Thu, 29 Jun 2023 01:29:58 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Thu, 29 Jun 2023 01:30:11 -0700
+ Transport; Thu, 29 Jun 2023 01:29:56 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <palmer@dabbelt.com>
-Subject: [PATCH v2 10/10] RISC-V: provide a Kconfig option to disable parsing "riscv,isa"
-Date: Thu, 29 Jun 2023 09:28:56 +0100
-Message-ID: <20230629-resilient-grievance-d782163b09d6@wendy>
+Subject: [PATCH v2 04/10] RISC-V: repurpose riscv_isa_ext array in riscv_fill_hwcap()
+Date: Thu, 29 Jun 2023 09:28:50 +0100
+Message-ID: <20230629-lair-thinner-349e8d9f0e89@wendy>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
 References: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2700; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=FyhCBQzwfA+WMj8JPqh8q7RSGYDMWs5+f1Cx9CBdUeU=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClzHY7obVavUtw9NyBe5vWxwFOv+ZZa9B6d4MElaLi3sH39 L1GJjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzkIx8jw5rVnnHmXF8XyF8z4PaQEv qXySfEuc0x/uets2oXG2dcf8/IcKJg2Z2Q6tpjEw6/avzHMm3O+rCfdR9mrtNeXVv+6JC5DzMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3700; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=bIs6kqMED+8WeRtoxXsVzTKb8hUL0V34cciMGbaTy6Y=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClzHQ7V1O9/urQ6ewEnQ+vNl5feWW7avabv1Zbm7nUrz4fd jeBd0VHKwiDGwSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJ3A9kZJhS9dCBN0zb5VdwyCfH77 O+7X3afe3gqqe7P9/f8aPHw3wOwz+r3WknI/w4BRTTYuWu+DIdN97y1mrG3wR2xolaN424M3kA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_013015_550531_B68BB8F3 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20230629_013013_352497_4E03EEDE 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,79 +77,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, conor@kernel.org, conor.dooley@microchip.com, Rob Herring <robh+dt@kernel.org>, Evan
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, conor@kernel.org, conor.dooley@microchip.com, Rob Herring <robh+dt@kernel.org>, Evan
  Green <evan@rivosinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As it says on the tin, provide a Kconfig option to disabling parsing the
-"riscv,isa" devicetree property. Hide the option behind NONPORTABLE so
-that only those willing to keep the pieces enable it, and make sure the
-default kernel contains the fallback code.
+In riscv_fill_hwcap() riscv_isa_ext array can be looped over, rather
+than duplicating the list of extensions with individual
+SET_ISA_EXT_MAP() usage. While at it, drop the statement-of-the-obvious
+comments from the struct, rename uprop to something more suitable for
+its new use & constify the members.
 
-Suggested-by: Palmer Dabbelt <palmer@rivosinc.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/Kconfig             | 16 ++++++++++++++++
- arch/riscv/kernel/cpu.c        |  3 +++
- arch/riscv/kernel/cpufeature.c |  2 +-
- 3 files changed, 20 insertions(+), 1 deletion(-)
+Changes in v2:
+- Delete the now unused definition
+---
+ arch/riscv/include/asm/hwcap.h |  7 ++-----
+ arch/riscv/kernel/cpu.c        |  5 +++--
+ arch/riscv/kernel/cpufeature.c | 26 +++++++-------------------
+ 3 files changed, 12 insertions(+), 26 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 1d39efe2b940..0e1909ac5947 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -291,6 +291,22 @@ config NONPORTABLE
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 7a57e6109aef..2460ac2fc7ed 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -55,7 +55,6 @@
+ #define RISCV_ISA_EXT_ZIHPM		42
  
- 	  If unsure, say N.
+ #define RISCV_ISA_EXT_MAX		64
+-#define RISCV_ISA_EXT_NAME_LEN_MAX	32
  
-+config NO_RISCV_ISA_FALLBACK
-+	bool "Permit falling back to parsing riscv,isa for extension support"
-+	depends on NONPORTABLE
-+	help
-+	  Parsing the "riscv,isa" devicetree property has been deprecated and
-+	  replaced by a list of explicitly defined strings. For compatibility
-+	  with existing platforms, the kernel will fall back to parsing the
-+	  "riscv,isa" property if the replacements are not found.
-+
-+	  Selecting Y here will result in a kernel without this fallback, and
-+	  will not work on platforms where the devicetree does not contain the
-+	  replacement 	  properties of "riscv,isa-base" and
-+	  "riscv,isa-extensions". Please see the dt-binding, located at
-+	  Documentation/devicetree/bindings/riscv/extensions.yaml for details
-+	  on the replacement properties.
-+
- choice
- 	prompt "Base ISA"
- 	default ARCH_RV64I
+ #ifdef CONFIG_RISCV_M_MODE
+ #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
+@@ -70,10 +69,8 @@
+ unsigned long riscv_get_elf_hwcap(void);
+ 
+ struct riscv_isa_ext_data {
+-	/* Name of the extension displayed to userspace via /proc/cpuinfo */
+-	char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
+-	/* The logical ISA extension ID */
+-	unsigned int isa_ext_id;
++	const unsigned int id;
++	const char *name;
+ };
+ 
+ extern const struct riscv_isa_ext_data riscv_isa_ext[];
 diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 9a4f4a23afcd..86a1d98b8b3b 100644
+index 269a32ceb595..c89abf8ef6de 100644
 --- a/arch/riscv/kernel/cpu.c
 +++ b/arch/riscv/kernel/cpu.c
-@@ -81,6 +81,9 @@ int riscv_early_of_processor_hartid(struct device_node *node, unsigned long *har
- 	return 0;
- 
- old_interface:
-+	if (IS_ENABLED(CONFIG_NO_RISCV_ISA_FALLBACK))
-+		return -ENODEV;
+@@ -164,9 +164,10 @@ static void print_isa_ext(struct seq_file *f)
+ {
+ 	for (int i = 0; i < riscv_isa_ext_count; i++) {
+ 		const struct riscv_isa_ext_data *edata = &riscv_isa_ext[i];
+-		if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
++		if (!__riscv_isa_extension_available(NULL, edata->id))
+ 			continue;
+-		seq_printf(f, "_%s", edata->uprop);
 +
- 	if (of_property_read_string(node, "riscv,isa", &isa)) {
- 		pr_warn("CPU with hartid=%lu has no \"riscv,isa-base\" or \"riscv,isa\" property\n",
- 			*hart);
++		seq_printf(f, "_%s", edata->name);
+ 	}
+ }
+ 
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 2c4503fa984f..f6fb18d2af84 100644
+index fb476153fffc..6d8cd45af723 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -490,7 +490,7 @@ void __init riscv_fill_hwcap(void)
- 	} else {
- 		int ret = riscv_fill_hwcap_from_ext_list(isa2hwcap);
+@@ -99,11 +99,10 @@ static bool riscv_isa_extension_check(int id)
+ 	return true;
+ }
  
--		if (ret) {
-+		if (ret && !IS_ENABLED(CONFIG_NO_RISCV_ISA_FALLBACK)) {
- 			pr_info("Falling back to deprecated \"riscv,isa\"\n");
- 			riscv_fill_hwcap_from_isa_string(isa2hwcap);
+-#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
+-	{							\
+-		.uprop = #UPROP,				\
+-		.isa_ext_id = EXTID,				\
+-	}
++#define __RISCV_ISA_EXT_DATA(_name, _id) {	\
++	.name = #_name,				\
++	.id = _id,				\
++}
+ 
+ /*
+  * The canonical order of ISA extension names in the ISA string is defined in
+@@ -366,20 +365,9 @@ void __init riscv_fill_hwcap(void)
+ 					set_bit(nr, isainfo->isa);
+ 				}
+ 			} else {
+-				/* sorted alphabetically */
+-				SET_ISA_EXT_MAP("smaia", RISCV_ISA_EXT_SMAIA);
+-				SET_ISA_EXT_MAP("ssaia", RISCV_ISA_EXT_SSAIA);
+-				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+-				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+-				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
+-				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
+-				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+-				SET_ISA_EXT_MAP("zba", RISCV_ISA_EXT_ZBA);
+-				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
+-				SET_ISA_EXT_MAP("zbs", RISCV_ISA_EXT_ZBS);
+-				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+-				SET_ISA_EXT_MAP("zicboz", RISCV_ISA_EXT_ZICBOZ);
+-				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
++				for (int i = 0; i < riscv_isa_ext_count; i++)
++					SET_ISA_EXT_MAP(riscv_isa_ext[i].name,
++							riscv_isa_ext[i].id);
+ 			}
+ #undef SET_ISA_EXT_MAP
  		}
 -- 
 2.40.1
