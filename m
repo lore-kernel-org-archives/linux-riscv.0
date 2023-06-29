@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D773EB64DC
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DDEEB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tkk3kjK3JcjfgiM1sWt8df/HuO1UKLpQZywISeJDHA0=; b=W1B7JnK1DMnRA/
-	REVRIvRpEhykt4rxBc47Vk8klwg5koHhykHgT8AnjeUEYm2J6J9L9ZfMKVDgo5nDUV7PUMzmhituZ
-	9WZCwRQmGjSYovvPjpMaGE5is5EjaJf3OrUFoSAAh/VoAlRTHwzU92EzL4yVGtkjaDsBY3FYns74Q
-	FX5VXfFk3JmibjSBv/rXAVoVYGuKihKPavYteHZL9xIi7VLbXV94N/Ui9/PvROE7RsleHon8Y11tE
-	Cx1SnJSNOq2iBvRGsRLKF1E2bEwpkHWEeAP/IFQMrDD1V5HEmReAsKV13TE9/UvLboSkwrGiC9G3q
-	SNr4fykLvLTZ7P8z5Phw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tDE3E5cF5pQDsYTlEyu/yI0w8NsXGQrDVHX4e5XtfZg=; b=j5MWmPf4a+l10y
+	OR9HRxW/xOQK7Kh+N2KwkhFRl17hm4xSWYR0mouV0m12cHHgMwgt4Yv90UFG83FV3TFXGOdah/Sd2
+	4vhO6LXENolbvgrlYDca4YJbm0Y1HwYqPKl/Qx5/30ki1JFYSHJ2n17bZysvOOLL9S1P8rXYrXJ1Z
+	zz2xI6U5aN9gQ1DO1pRDi1aQU8S2uEOG275Cfvk/Zhdbwd19DX0KJ4F7wllFM67x2ghBAmYobyLM/
+	6YyjBiAeTctPDkVWlXb7z9buW1ET8qktrWqVVZaIwydVsM7HJ/dwS3ktq2SdlfyPTGSuWVdp64Wx8
+	No14wXBJBCgBuM4UKB1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEmed-000JKH-0z;
-	Thu, 29 Jun 2023 08:05:27 +0000
-Received: from mga09.intel.com ([134.134.136.24])
+	id 1qEmtX-000MFh-0l;
+	Thu, 29 Jun 2023 08:20:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEmeZ-000JIk-22
+	id 1qEmtU-000MF3-2r
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jun 2023 08:05:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1688025923; x=1719561923;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=5Y+YCSow5LvUte0a0y0qeDa2mDYP7COwAuMVhjDb7ms=;
-  b=FHp++rtM2nyfyTI+ot8wqSRgunNFKyvCNdeRQ+wdSt8HMtsaZMvlduna
-   k44vqqbjwLlU/FgNI0bUSxjMzVdcGazBTXawpIESZYYzOIxUgS2J7tflW
-   IX3yw1N5OvBudrGz6UajOQkeXUS7Yr9HMjfGx0633On0frRDnmQ7gsgGK
-   M4o7CDFHDEiL9ez7s3CGFCe5c8p8n3K1pnsKhKe1E2DBNEHWz42uSwKMc
-   u57AvGMeB8WX9uKeQ2jmj6pl8kcPAv/XMtdJoFJduTWiHIM9E6cRU1Jat
-   5tcG6FyuXMBn6kAnEX5/HJTuR9hZl1FVAOU4u4nDr2NIdDuPvAtBZfUh1
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10755"; a="364596611"
-X-IronPort-AV: E=Sophos;i="6.01,168,1684825200"; 
-   d="scan'208";a="364596611"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jun 2023 01:05:20 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10755"; a="807220312"
-X-IronPort-AV: E=Sophos;i="6.01,168,1684825200"; 
-   d="scan'208";a="807220312"
-Received: from lkp-server01.sh.intel.com (HELO 783282924a45) ([10.239.97.150])
-  by FMSMGA003.fm.intel.com with ESMTP; 29 Jun 2023 01:05:16 -0700
-Received: from kbuild by 783282924a45 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1qEmeR-000Dys-37;
-	Thu, 29 Jun 2023 08:05:15 +0000
-Date: Thu, 29 Jun 2023 16:04:21 +0800
-From: kernel test robot <lkp@intel.com>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	Andy Chiu <andy.chiu@sifive.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	linux-kernel@vger.kernel.org, linux@rivosinc.com,
-	=?iso-8859-1?Q?R=E9mi?= Denis-Courmont <remi@remlab.net>,
-	Darius Rad <darius@bluespec.com>
-Subject: Re: [PATCH v3] riscv: Discard vector state on syscalls
-Message-ID: <202306291513.DwaMo6k7-lkp@intel.com>
-References: <20230629062730.985184-1-bjorn@kernel.org>
+	Thu, 29 Jun 2023 08:20:50 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5EB5F614F4;
+	Thu, 29 Jun 2023 08:20:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53985C433C0;
+	Thu, 29 Jun 2023 08:20:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688026847;
+	bh=eix3asqgstSKaRDosqnGq1xt2TLM2YGz1j/+D6LUbUw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Li0ft4GpCx4QdjFx8Bu0MQQmbfINFOTqPW1UsMc2jx6iV2r5mI+jgoR1BT03Ekiv/
+	 rNAh00T4LGxnPFaYaFYEJUeYMpjSkM5eX2vu5W5RYeqDDNG1/Nwsmts9edq2mbUxik
+	 2uGZJVbqK6FnUezh+J1lnsFy8p8nF1VXy67qHcTGIT5vX6x04UmwLVNE5klSIvdTgS
+	 Jh+kWdtbvGhEfTkZeUOBpuAJkliug8/4V1T5aYfNC4MlsAPttJU9rx5yNjIfFO/6K0
+	 FPky9KXaVEq7VJgeg0KfUuKVP77C0qgeTgSoy67ARCVZPu84Qz8U3d4utxOdoV9n2t
+	 nWYqdv2ygrGxg==
+From: guoren@kernel.org
+To: guoren@kernel.org,
+	palmer@rivosinc.com,
+	paul.walmsley@sifive.co,
+	zong.li@sifive.com,
+	atishp@atishpatra.org,
+	alex@ghiti.fr,
+	jszhang@kernel.org,
+	bjorn@kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH] riscv: pageattr: Fixup synchronization problem between init_mm and active_mm
+Date: Thu, 29 Jun 2023 04:20:32 -0400
+Message-Id: <20230629082032.3481237-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230629062730.985184-1-bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_010523_718272_3E2D0C2C 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20230629_012049_008545_4443B28A 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,211 +77,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Bj=F6rn,
+From: Guo Ren <guoren@linux.alibaba.com>
 
-kernel test robot noticed the following build errors:
+The machine_kexec() uses set_memory_x to add the executable attribute to the
+page table entry of control_code_buffer. It only modifies the init_mm but not
+the current->active_mm. The current kexec process won't use init_mm directly,
+and it depends on minor_pagefault, which is removed by commit 7d3332be011e4
+("riscv: mm: Pre-allocate PGD entries for vmalloc/modules area") of 64BIT. So,
+when it met pud mapping on an MMU_SV39 machine, it caused the following:
 
-[auto build test ERROR on 488833ccdcac118da16701f4ee0673b20ba47fe3]
+ kexec_core: Starting new kernel
+ Will call new kernel at 00300000 from hart id 0
+ FDT image at 747c7000
+ Bye...
+ Unable to handle kernel paging request at virtual address ffffffda23b0d000
+ Oops [#1]
+ Modules linked in:
+ CPU: 0 PID: 53 Comm: uinit Not tainted 6.4.0-rc6 #15
+ Hardware name: Sophgo Mango (DT)
+ epc : 0xffffffda23b0d000
+  ra : machine_kexec+0xa6/0xb0
+ epc : ffffffda23b0d000 ra : ffffffff80008272 sp : ffffffc80c173d10
+  gp : ffffffff8150e1e0 tp : ffffffd9073d2c40 t0 : 0000000000000000
+  t1 : 0000000000000042 t2 : 6567616d69205444 s0 : ffffffc80c173d50
+  s1 : ffffffd9076c4800 a0 : ffffffd9076c4800 a1 : 0000000000300000
+  a2 : 00000000747c7000 a3 : 0000000000000000 a4 : ffffffd800000000
+  a5 : 0000000000000000 a6 : ffffffd903619c40 a7 : ffffffffffffffff
+  s2 : ffffffda23b0d000 s3 : 0000000000300000 s4 : 00000000747c7000
+  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
+  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
+  s11: 0000003f940001a0 t3 : ffffffff815351af t4 : ffffffff815351af
+  t5 : ffffffff815351b0 t6 : ffffffc80c173b50
+ status: 0000000200000100 badaddr: ffffffda23b0d000 cause: 000000000000000c
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Bj-rn-T-pel/riscv-Di=
-scard-vector-state-on-syscalls/20230629-142852
-base:   488833ccdcac118da16701f4ee0673b20ba47fe3
-patch link:    https://lore.kernel.org/r/20230629062730.985184-1-bjorn%40ke=
-rnel.org
-patch subject: [PATCH v3] riscv: Discard vector state on syscalls
-config: riscv-randconfig-r042-20230629 (https://download.01.org/0day-ci/arc=
-hive/20230629/202306291513.DwaMo6k7-lkp@intel.com/config)
-compiler: clang version 17.0.0 (https://github.com/llvm/llvm-project.git 4a=
-5ac14ee968ff0ad5d2cc1ffa0299048db4c88a)
-reproduce: (https://download.01.org/0day-ci/archive/20230629/202306291513.D=
-waMo6k7-lkp@intel.com/reproduce)
+Yes, Using set_memory_x API after boot has the limitation, and at least we
+should synchronize the current->active_mm to fix the problem.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new versio=
-n of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202306291513.DwaMo6k7-lkp@i=
-ntel.com/
+Fixes: d3ab332a5021 ("riscv: add ARCH_HAS_SET_MEMORY support")
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/mm/pageattr.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-All errors (new ones prefixed by >>):
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+index ea3d61de065b..23d169c4ee81 100644
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -123,6 +123,13 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+ 				     &masks);
+ 	mmap_write_unlock(&init_mm);
+ 
++	if (current->active_mm != &init_mm) {
++		mmap_write_lock(current->active_mm);
++		ret =  walk_page_range_novma(current->active_mm, start, end,
++					     &pageattr_ops, NULL, &masks);
++		mmap_write_unlock(current->active_mm);
++	}
++
+ 	flush_tlb_kernel_range(start, end);
+ 
+ 	return ret;
+-- 
+2.36.1
 
-         |                                          ~~~~~~~~~~ ^
-   In file included from arch/riscv/kernel/traps.c:15:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:10:
-   In file included from include/linux/trace_recursion.h:5:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:751:2: warning: performing pointer arithmetic o=
-n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     751 |         insw(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:105:53: note: expanded from macro 'insw'
-     105 | #define insw(addr, buffer, count) __insw(PCI_IOBASE + (addr), bu=
-ffer, count)
-         |                                          ~~~~~~~~~~ ^
-   In file included from arch/riscv/kernel/traps.c:15:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:10:
-   In file included from include/linux/trace_recursion.h:5:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:759:2: warning: performing pointer arithmetic o=
-n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     759 |         insl(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:106:53: note: expanded from macro 'insl'
-     106 | #define insl(addr, buffer, count) __insl(PCI_IOBASE + (addr), bu=
-ffer, count)
-         |                                          ~~~~~~~~~~ ^
-   In file included from arch/riscv/kernel/traps.c:15:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:10:
-   In file included from include/linux/trace_recursion.h:5:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:768:2: warning: performing pointer arithmetic o=
-n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     768 |         outsb(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:118:55: note: expanded from macro 'outsb'
-     118 | #define outsb(addr, buffer, count) __outsb(PCI_IOBASE + (addr), =
-buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from arch/riscv/kernel/traps.c:15:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:10:
-   In file included from include/linux/trace_recursion.h:5:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:777:2: warning: performing pointer arithmetic o=
-n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     777 |         outsw(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:119:55: note: expanded from macro 'outsw'
-     119 | #define outsw(addr, buffer, count) __outsw(PCI_IOBASE + (addr), =
-buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from arch/riscv/kernel/traps.c:15:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:10:
-   In file included from include/linux/trace_recursion.h:5:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:786:2: warning: performing pointer arithmetic o=
-n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     786 |         outsl(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:120:55: note: expanded from macro 'outsl'
-     120 | #define outsl(addr, buffer, count) __outsl(PCI_IOBASE + (addr), =
-buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from arch/riscv/kernel/traps.c:15:
-   In file included from include/linux/kprobes.h:28:
-   In file included from include/linux/ftrace.h:10:
-   In file included from include/linux/trace_recursion.h:5:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:1134:55: warning: performing pointer arithmetic=
- on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-    1134 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + p=
-ort;
-         |                                                   ~~~~~~~~~~ ^
->> arch/riscv/kernel/traps.c:299:3: error: call to undeclared function 'ris=
-cv_v_vstate_discard'; ISO C99 and later do not support implicit function de=
-clarations [-Wimplicit-function-declaration]
-     299 |                 riscv_v_vstate_discard(regs);
-         |                 ^
-   arch/riscv/kernel/traps.c:299:3: note: did you mean 'riscv_v_vstate_quer=
-y'?
-   arch/riscv/include/asm/vector.h:206:20: note: 'riscv_v_vstate_query' dec=
-lared here
-     206 | static inline bool riscv_v_vstate_query(struct pt_regs *regs) { =
-return false; }
-         |                    ^
-   13 warnings and 1 error generated.
-
-
-vim +/riscv_v_vstate_discard +299 arch/riscv/kernel/traps.c
-
-   290	=
-
-   291	asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_r=
-egs *regs)
-   292	{
-   293		if (user_mode(regs)) {
-   294			ulong syscall =3D regs->a7;
-   295	=
-
-   296			regs->epc +=3D 4;
-   297			regs->orig_a0 =3D regs->a0;
-   298	=
-
- > 299			riscv_v_vstate_discard(regs);
-   300	=
-
-   301			syscall =3D syscall_enter_from_user_mode(regs, syscall);
-   302	=
-
-   303			if (syscall < NR_syscalls)
-   304				syscall_handler(regs, syscall);
-   305			else
-   306				regs->a0 =3D -ENOSYS;
-   307	=
-
-   308			syscall_exit_to_user_mode(regs);
-   309		} else {
-   310			irqentry_state_t state =3D irqentry_nmi_enter(regs);
-   311	=
-
-   312			do_trap_error(regs, SIGILL, ILL_ILLTRP, regs->epc,
-   313				"Oops - environment call from U-mode");
-   314	=
-
-   315			irqentry_nmi_exit(regs, state);
-   316		}
-   317	=
-
-
--- =
-
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
