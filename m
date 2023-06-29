@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8B4EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 13:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B079AC001B0
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 13:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUBq/LsKlhmXcy3qpvsWPlXvkepPx35361h9VDFrPUk=; b=v+/UhZ3cdsaXEjwIUkSQhACes1
-	tBTRcKYHgRlbMzLrR4F0BleXxSaRsww+QBSuJ/Rl2Da6aREEKa5/pm+LnvSrJnMSt2l3xtr5wheM0
-	TlnvK3Kd6ENWAKVu4wKwrmKApnrHMoxTjMRPt7Fayel0gsdZvvGoU4s9BK9yNd71IbMeIWX39VXm2
-	yHJFRvLchq5xsWSIIiEN+0mpKG8Vr4Vqt7Eeljo527Is3VCkuKbMaYzlH4FzHSXSwb3B/E/6YeZj/
-	tktYn2sgZe3C02Xf94pz8/oOEMT3uE+2RbpSdq4KNLNPw+HJn6dniG6qSKh7TXsvAj1RqcYCI774B
-	InEa27sA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AuO4sCpar5acOfZKao77rWeci4D3TevhmpkRXbvJCEI=; b=Gt8tGBxg3fj74j
+	Qdkjra5CJpkSOWYnrsqc6EA71JQtblpNrsv0/XQrZwNlJ7ghOSqaXp0KXQpYBBuL61YGONyOGWnjL
+	aC+vMt6ucKk7hHlIR8sqGvQGbYG2vC9bERp8QlvOflyzkHfCv7Z6725mlD+mSZ0JQuqAsRD19DRnQ
+	AM862L4ck3+6eSIw3w9uzWDywguwz4cXXNhCco3w/3tx9wuk7ETLHwZne8n5avd1qxHJ62SueNvJ7
+	iiiX/yjMXIre/oiEAYS5ixssXFI4e47i7omlhLJXIefJTmMcHK0eYpB5w2hcCz02+qIQOsuh1p08o
+	6MihfYWFmzI6TDvO0qFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qErXM-001Aom-0g;
-	Thu, 29 Jun 2023 13:18:16 +0000
-Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
+	id 1qErb5-001BJy-1P;
+	Thu, 29 Jun 2023 13:22:07 +0000
+Received: from wnew3-smtp.messagingengine.com ([64.147.123.17])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qErXI-001AnQ-0z;
-	Thu, 29 Jun 2023 13:18:13 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 29F001FD64;
-	Thu, 29 Jun 2023 13:18:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1688044690; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K5LR3H2yhcLZRfkUpcC1pYuRSidZ3cqdCZg/hSroVmk=;
-	b=iMfm+/ekl0xfXphQ8TVMKTrT9ToRvi4MYfuPCVZZAy+JWtEwFNQpmWYIMp1ahVk0VzxEMc
-	9vdJjhaRzuPHB0EZlpDS2j4gGqL462DXX3aZ/YckBYoB9WMBTuLu9QNIxB5UgNdqSpVH7z
-	52WX/ny9kEUHZSPElxwmGtlhnjwzsns=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1688044690;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K5LR3H2yhcLZRfkUpcC1pYuRSidZ3cqdCZg/hSroVmk=;
-	b=xp7w81/HcKGr6AkcZ0NPWLrSaMy4em6tA16DRyZDyCoK4iK4hZmFtiZeOi0hbEeJ4JV0Im
-	oIingQYV0eMXi6Cw==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id C7381139FF;
-	Thu, 29 Jun 2023 13:18:08 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
-	by imap2.suse-dmz.suse.de with ESMTPSA
-	id 6reCL5CEnWRzcwAAMHmgww
-	(envelope-from <tzimmermann@suse.de>); Thu, 29 Jun 2023 13:18:08 +0000
-Message-ID: <90726a74-69db-3f8e-819d-3a1a10e98992@suse.de>
-Date: Thu, 29 Jun 2023 15:18:07 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH 06/12] arch: Declare screen_info in <asm/screen_info.h>
-Content-Language: en-US
-To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
+	id 1qErb2-001BIi-0q;
+	Thu, 29 Jun 2023 13:22:05 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailnew.west.internal (Postfix) with ESMTP id D62232B00081;
+	Thu, 29 Jun 2023 09:22:00 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Thu, 29 Jun 2023 09:22:03 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1688044920; x=1688052120; bh=sQ
+	O+tpzU86Ruad95sakzckO3PnIV53aaJirVNNGwiuo=; b=4uqnQG/Z1UuyNyyAek
+	0XEemltl5YoKfbuyK7idzOfGbk2sj8tW5sPhftwy7vAcMTe/lNT1CqLxPHHTqxXl
+	b+N4aIXSme583rtEDLHRQQE5RZfTFsD+lTdYY9RefCbOfAlhciUTlKT5u2JXw4I4
+	ztOXsWSrHvNADHnJ68PH1ClsbIkWEIcWMVseJvPUcBCt/bCpX9x+rZSZZO6oAAQb
+	x9SWYdHJXxBC2SICSWUYB8JczQyliaPFo8FiWTtVLKrXWw/KnLs9i/+IAnqxZm8k
+	yqkPPTEwfMl+/IelpxRjc4jeyf7SfLboZoIPnpuMmrGUGm6Jvxy4MC7RByrwgGdC
+	yACQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1688044920; x=1688052120; bh=sQO+tpzU86Rua
+	d95sakzckO3PnIV53aaJirVNNGwiuo=; b=IbgfMem7uDuQxpPEGhflBncHobvLW
+	vpdJgB9HlfrxSWZohr0Jpjmu+TTjCXIaQB0uQ+13MlfVT0itNPNX4vwmIqNieKC6
+	gPv4iflQLslU6lXHYDAvAm799+KHkiXlvXfZM777AHY2iwxEls+3U9z2bO1yeOef
+	wFpfTxWZmsHuvogMZSyJmnFyjemy8yi74cXqbPUy2ZTBAZ4KqNqWtoYlOjGYmlQy
+	PMPbNhtV1XvXdYg2lSN5WBQIEaNfObSZgMdkW8nfVQEunQCLpApHo/cwzRobpAQN
+	ZuHALvp9USqwqc7dcNooNTZaYpKwAFukGjJYFDScEYkfK4BGpwxbvs5wA==
+X-ME-Sender: <xms:eIWdZK2mhUMZoeD5ScJng_-Mw9sdRxOEu_Lgqc28dk7bZK70NYedTw>
+    <xme:eIWdZNGBGclYv6j7-IGwscmhWxPIRk4Bebhe_u_lemBUmyA0MfekuVd4tn5XkkmLX
+    tzaa5AupcGn4LfNDF0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrtdeggdeigecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:eIWdZC5kimzqKYQ1BPs7CvQbOgpGEss3M0RxRwWrIroNsq9V3om0TA>
+    <xmx:eIWdZL1nORBRiFJwbEufwbgzn_wdP_V0r9RSWhxWObhMpewEM8zlHA>
+    <xmx:eIWdZNG9JECFzRVSW1lGw4WP0yMQisPFaCR0eAsEec1IlVvAdRAh7Q>
+    <xmx:eIWdZPlLPgVMB-Zms1gBZ7XMicph5Ie9iaKcHZPRTF7XioY1Fsly84JuoI4>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id F305FB60086; Thu, 29 Jun 2023 09:21:59 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
+Mime-Version: 1.0
+Message-Id: <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
+In-Reply-To: <d3de124c-6aa8-e930-e238-7bd6dd7929a6@suse.de>
+References: <20230629121952.10559-1-tzimmermann@suse.de>
+ <20230629121952.10559-8-tzimmermann@suse.de>
+ <80e3a583-805e-4e8f-a67b-ebe2e4b9a7e5@app.fastmail.com>
+ <d3de124c-6aa8-e930-e238-7bd6dd7929a6@suse.de>
+Date: Thu, 29 Jun 2023 15:21:39 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Thomas Zimmermann" <tzimmermann@suse.de>, "Helge Deller" <deller@gmx.de>,
+ "Daniel Vetter" <daniel@ffwll.ch>, "Dave Airlie" <airlied@gmail.com>
 Cc: linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
  "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
@@ -77,48 +95,22 @@ Cc: linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
  dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
  linux-fbdev@vger.kernel.org, linux-staging@lists.linux.dev,
  Linux-Arch <linux-arch@vger.kernel.org>,
- Richard Henderson <richard.henderson@linaro.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
- <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- guoren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Dinh Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- "David S . Miller" <davem@davemloft.net>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
- Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Frederic Weisbecker <frederic@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- Juerg Haefliger <juerg.haefliger@canonical.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Niklas Schnelle <schnelle@linux.ibm.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Linus Walleij <linus.walleij@linaro.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Mike Rapoport <rppt@kernel.org>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- Zi Yan <ziy@nvidia.com>
-References: <20230629121952.10559-1-tzimmermann@suse.de>
- <20230629121952.10559-7-tzimmermann@suse.de>
- <b31f42c1-4283-4793-b448-f7b9326be5d4@app.fastmail.com>
-From: Thomas Zimmermann <tzimmermann@suse.de>
-In-Reply-To: <b31f42c1-4283-4793-b448-f7b9326be5d4@app.fastmail.com>
+ "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, "Kees Cook" <keescook@chromium.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Frederic Weisbecker" <frederic@kernel.org>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>,
+ "Sami Tolvanen" <samitolvanen@google.com>,
+ "Juerg Haefliger" <juerg.haefliger@canonical.com>
+Subject: Re: [PATCH 07/12] arch/x86: Declare edid_info in <asm/screen_info.h>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_061812_513427_55CFD4DA 
-X-CRM114-Status: GOOD (  22.23  )
+X-CRM114-CacheID: sfid-20230629_062204_331663_129C10B2 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,150 +122,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8405252161746326627=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---===============8405252161746326627==
-Content-Language: en-US
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------lHNoVt04HU1vaNtq3nK0adnX"
+On Thu, Jun 29, 2023, at 15:01, Thomas Zimmermann wrote:
+> Am 29.06.23 um 14:35 schrieb Arnd Bergmann:
+>> On Thu, Jun 29, 2023, at 13:45, Thomas Zimmermann wrote:
+>>> The global variable edid_info contains the firmware's EDID information
+>>> as an extension to the regular screen_info on x86. Therefore move it to
+>>> <asm/screen_info.h>.
+>>>
+>>> Add the Kconfig token ARCH_HAS_EDID_INFO to guard against access on
+>>> architectures that don't provide edid_info. Select it on x86.
+>> 
+>> I'm not sure we need another symbol in addition to
+>> CONFIG_FIRMWARE_EDID. Since all the code behind that
+>> existing symbol is also x86 specific, would it be enough
+>> to just add either 'depends on X86' or 'depends on X86 ||
+>> COMPILE_TEST' there?
+>
+> FIRMWARE_EDID is a user-selectable feature, while ARCH_HAS_EDID_INFO 
+> announces an architecture feature. They do different things.
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------lHNoVt04HU1vaNtq3nK0adnX
-Content-Type: multipart/mixed; boundary="------------NaZYgX4ZbucliJsCgNaPg0G7";
- protected-headers="v1"
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-fbdev@vger.kernel.org, linux-staging@lists.linux.dev,
- Linux-Arch <linux-arch@vger.kernel.org>,
- Richard Henderson <richard.henderson@linaro.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
- <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- guoren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Dinh Nguyen <dinguyen@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- "David S . Miller" <davem@davemloft.net>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
- Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Frederic Weisbecker <frederic@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- Juerg Haefliger <juerg.haefliger@canonical.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Niklas Schnelle <schnelle@linux.ibm.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Linus Walleij <linus.walleij@linaro.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Mike Rapoport <rppt@kernel.org>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- Zi Yan <ziy@nvidia.com>
-Message-ID: <90726a74-69db-3f8e-819d-3a1a10e98992@suse.de>
-Subject: Re: [PATCH 06/12] arch: Declare screen_info in <asm/screen_info.h>
-References: <20230629121952.10559-1-tzimmermann@suse.de>
- <20230629121952.10559-7-tzimmermann@suse.de>
- <b31f42c1-4283-4793-b448-f7b9326be5d4@app.fastmail.com>
-In-Reply-To: <b31f42c1-4283-4793-b448-f7b9326be5d4@app.fastmail.com>
+I still have trouble seeing the difference.
 
---------------NaZYgX4ZbucliJsCgNaPg0G7
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+> Right now, ARCH_HAS_EDID_INFO only works on the old BIOS-based VESA 
+> systems. In the future, I want to add support for EDID data from EFI and 
+> OF as well. It would be stored in edid_info. I assume that the new 
+> symbol will become useful then.
 
-SGkNCg0KQW0gMjkuMDYuMjMgdW0gMTU6MDMgc2NocmllYiBBcm5kIEJlcmdtYW5uOg0KPiBP
-biBUaHUsIEp1biAyOSwgMjAyMywgYXQgMTM6NDUsIFRob21hcyBaaW1tZXJtYW5uIHdyb3Rl
-Og0KPiANCj4+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2FzbS1nZW5lcmljL3NjcmVlbl9pbmZv
-LmgNCj4+IGIvaW5jbHVkZS9hc20tZ2VuZXJpYy9zY3JlZW5faW5mby5oDQo+PiBuZXcgZmls
-ZSBtb2RlIDEwMDY0NA0KPj4gaW5kZXggMDAwMDAwMDAwMDAwMC4uNmZkMGU1MGZhYmZjZA0K
-Pj4gLS0tIC9kZXYvbnVsbA0KPj4gKysrIGIvaW5jbHVkZS9hc20tZ2VuZXJpYy9zY3JlZW5f
-aW5mby5oDQo+PiBAQCAtMCwwICsxLDEyIEBADQo+PiArLyogU1BEWC1MaWNlbnNlLUlkZW50
-aWZpZXI6IEdQTC0yLjAgKi8NCj4+ICsNCj4+ICsjaWZuZGVmIF9BU01fR0VORVJJQ19TQ1JF
-RU5fSU5GT19IDQo+PiArI2RlZmluZSBfQVNNX0dFTkVSSUNfU0NSRUVOX0lORk9fSA0KPj4g
-Kw0KPj4gKyNpbmNsdWRlIDx1YXBpL2xpbnV4L3NjcmVlbl9pbmZvLmg+DQo+PiArDQo+PiAr
-I2lmIGRlZmluZWQoQ09ORklHX0FSQ0hfSEFTX1NDUkVFTl9JTkZPKQ0KPj4gK2V4dGVybiBz
-dHJ1Y3Qgc2NyZWVuX2luZm8gc2NyZWVuX2luZm87DQo+PiArI2VuZGlmDQo+PiArDQo+PiAr
-I2VuZGlmIC8qIF9BU01fR0VORVJJQ19TQ1JFRU5fSU5GT19IICovDQo+PiBkaWZmIC0tZ2l0
-IGEvaW5jbHVkZS9saW51eC9zY3JlZW5faW5mby5oIGIvaW5jbHVkZS9saW51eC9zY3JlZW5f
-aW5mby5oDQo+PiBpbmRleCBlYWI3MDgxMzkyZDUwLi5jNzY0YjlhNTFjMjRiIDEwMDY0NA0K
-Pj4gLS0tIGEvaW5jbHVkZS9saW51eC9zY3JlZW5faW5mby5oDQo+PiArKysgYi9pbmNsdWRl
-L2xpbnV4L3NjcmVlbl9pbmZvLmgNCj4+IEBAIC00LDYgKzQsNiBAQA0KPj4NCj4+ICAgI2lu
-Y2x1ZGUgPHVhcGkvbGludXgvc2NyZWVuX2luZm8uaD4NCj4+DQo+PiAtZXh0ZXJuIHN0cnVj
-dCBzY3JlZW5faW5mbyBzY3JlZW5faW5mbzsNCj4+ICsjaW5jbHVkZSA8YXNtL3NjcmVlbl9p
-bmZvLmg+DQo+Pg0KPiANCj4gV2hhdCBpcyB0aGUgcHVycG9zZSBvZiBhZGRpbmcgYSBmaWxl
-IGluIGFzbS1nZW5lcmljPyBJZiBhbGwNCj4gYXJjaGl0ZWN0dXJlcyB1c2UgdGhlIHNhbWUg
-Z2VuZXJpYyBmaWxlLCBJJ2QganVzdCBsZWF2ZSB0aGUNCj4gZGVjbGFyYXRpb24gaW4gaW5j
-bHVkZS9saW51eC8uIEkgd291bGRuJ3QgYm90aGVyIGFkZGluZyB0aGUNCg0KVGhhdCBhcHBl
-YXJzIGEgYml0ICd1bi1jbGVhbicgZm9yIHNvbWV0aGluZyB0aGF0IGlzIGRlZmluZWQgaW4g
-DQphcmNoaXRlY3R1cmU/IEJ1dCBPSywgSSB3b3VsZCBub3Qgb2JqZWN0Lg0KDQo+ICNpZmRl
-ZiBlaXRoZXIsIGJ1dCBJIGNhbiBzZWUgaG93IHRoYXQgaGVscHMgdHVybiBhIGxpbmsNCj4g
-ZXJyb3IgaW50byBhbiBlYXJsaWVyIGNvbXBpbGUgZXJyb3IuDQoNClllcywgdGhhdCdzIGlu
-dGVudGlvbmFsLiBJZiB0aGVyZSdzIGEgS2NvbmZpZyB0b2tlbiBhbnl3YXksIHdlIGNhbiBh
-bHNvIA0KZmFpbCBlYXJseSBkdXJpbmcgdGhlIGJ1aWxkLg0KDQpCZXN0IHJlZ2FyZHMNClRo
-b21hcw0KDQo+IA0KPiAgICAgICAgQXJuZA0KDQotLSANClRob21hcyBaaW1tZXJtYW5uDQpH
-cmFwaGljcyBEcml2ZXIgRGV2ZWxvcGVyDQpTVVNFIFNvZnR3YXJlIFNvbHV0aW9ucyBHZXJt
-YW55IEdtYkgNCkZyYW5rZW5zdHJhc3NlIDE0NiwgOTA0NjEgTnVlcm5iZXJnLCBHZXJtYW55
-DQpHRjogSXZvIFRvdGV2LCBBbmRyZXcgTXllcnMsIEFuZHJldyBNY0RvbmFsZCwgQm91ZGll
-biBNb2VybWFuDQpIUkIgMzY4MDkgKEFHIE51ZXJuYmVyZykNCg==
+I don't see why an OF based system would have the same limitation
+as legacy BIOS with supporting only a single monitor, if we need
+to have a generic representation of EDID data in DT, that would
+probably be in a per device property anyway.
 
---------------NaZYgX4ZbucliJsCgNaPg0G7--
+I suppose you could use FIRMWARE_EDID on EFI or OF systems without
+the need for a global edid_info structure, but that would not
+share any code with the current fb_firmware_edid() function.
 
---------------lHNoVt04HU1vaNtq3nK0adnX
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature"
-
------BEGIN PGP SIGNATURE-----
-
-wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmSdhI8FAwAAAAAACgkQlh/E3EQov+C6
-/A/9E2UeLuAYO4oVzr7MYxtHJqgMeXKL3iCmAlD5a1SYNi1ixD68cwakP+lI9m4szzDGyNU/sRYL
-Ce3i8WGXgRm991Ydm+ztZ8FO/ph9XOVhq7RFKwEYNy70l+7R56mDOd1ciNpH3MLjEfhoBJ5Xj0cD
-rPf/74n/ptJpdYGsFRJSqo+xj78uWljJdj9YQ6bpUNhOIFAJn+a91kvcreTWoVwBfaXlWevy3dHR
-lAFUpk+Ji1uldEboHSHzFB3V6FQ7odxZ/oW0ykURjjf2TyqrA4MwLtjZQYJqSr6i0cN1Qfn/IR1o
-CHZFJKzcQXgF+jqdXdEmgS3pDi+jmR7paLHGwX0pdlcczcjPuAJ9b0MqjQ5De1mJ1qNTKZCMUHrm
-n6BW6VGyUn4n7x/hieov6MXbqJkEXu9dAJgzNR9SQ/5Dszfwn8IJOGS3plNsPJSBYA1ZRAGmv5mv
-VtscxfEkzLP1f5IM+ukfQ4lfSC+P9B3jbsa6DqQfcr1IBMQiJkbK6XKI9TQwLqxfWlgkdUfjgp4d
-lDwmJfyb7JLxdMktscgr1rlA1KE/jlHX9wxTazYoUnY5uBtdeYco9NNe2fhvRv+c4mfJknGVZ/dR
-F72VPBGenSKLgGoPamSowIKZJ/CpjEecYs7IcjmIoSLJ01STOBrZDRjz8iMNHR7pdZRLjuUSHY+B
-wjM=
-=ZHT8
------END PGP SIGNATURE-----
-
---------------lHNoVt04HU1vaNtq3nK0adnX--
-
-
---===============8405252161746326627==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8405252161746326627==--
-
