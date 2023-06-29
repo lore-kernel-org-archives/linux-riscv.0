@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F241AC04FE1
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 12:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D3CFC04FE2
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 12:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nRgAra4QBCGu3CAcp9gJn9Esyu5AFBJ42Gmhsz2OpQU=; b=3ZG8aLNag8k1FI
-	kktOPibD6UdMwOnWjpMEkDd53eEQn3/IYTzg/ohSV73saHhYoYn6riVkwVrMnlSssj3DENWjTY1CH
-	ddStieQ9qdxeELJ5bX6/rGYPqpxwPztE+w2FVYyhd5FVg90BVmHuzn0QmGQEpvT7tP2ckyAsD3Lij
-	uO+AHOwBn8gMygtb9OfWU99UQKhA1Cr5la4VbtQ2CdorupVQqJieigZ+7Wn+Dt9yEWyhcQUZ14WSW
-	9nuWgHl2/bky641/G/jO2exyzAuzyOuvdMYaIjUIYi/OrhB1dWvTZKsN5uaFrb2HX7ov6epfVV4Om
-	2oDiMYQZhpWTAixCNRZA==;
+	List-Owner; bh=dANERQ31yR2QAZXKlTE8jeQG0Pd7/P/y+hmBMc/IldY=; b=UDmXdvsiTnyiG5
+	U7kDgxUGhhnCiZ96gZwYxU8eTTEErLnINaEQ0SNKBjXAH4weTojns/nkZiR8acc2IB/Bm0WbES1xK
+	ckhZuNLosZaCJbftQ/7Qq6t4m20PUCQ5jiW1spIOuuYMNvM7+5n8ufMSzYBDr9KSOM1sazCG90iBg
+	aDiJpHWkLOb20hs/14ZX0SvwFybmOn2mfd90wHEN61IEtyTgxIoBsT+Nvc53XL/1XIYPY6vk20doV
+	bwDUmG9b1H8zoYICVuoKUDh4TcoCyxcMaqCXERJ5ynLqBKtK0ltj+xZAJFQI/9SvkdmJwWkuCqSec
+	hE27GqBxwtWph4jdwTfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEqdM-0013F3-2b;
-	Thu, 29 Jun 2023 12:20:24 +0000
-Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
+	id 1qEqdK-0013CY-2Y;
+	Thu, 29 Jun 2023 12:20:22 +0000
+Received: from smtp-out1.suse.de ([2001:67c:2178:6::1c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEqd0-0012rW-1u;
-	Thu, 29 Jun 2023 12:20:07 +0000
+	id 1qEqcz-0012pL-1n;
+	Thu, 29 Jun 2023 12:20:06 +0000
 Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 50F121FD67;
-	Thu, 29 Jun 2023 12:20:01 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 1C0E72186B;
+	Thu, 29 Jun 2023 12:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1688041201; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1688041200; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Q8/hObzYgPS0TDvHlNkxQWLSeXSJyMjTeBMLqYqFK4w=;
-	b=UPfSiLPg0fPgXj6DVWbIwAx8SsBG5GL3OD/7mLd65j8fwmU+DvPt3QzSfJKiRMSESoepX9
-	eM5NP2Jl7avazGdPsovrA89jdGZnFXHxxT3O/UdtnP6AQBQmMmB0fb0hdUmBE/YVBR8zBv
-	CQYBtniEcZ5wJ20vfbvuSi9ax+7JLg4=
+	bh=cQ3EDeCSnwNHCvqI9o+8mLXg+vNxeu9dqjNgbn6vW64=;
+	b=d/ONtzMHBHfhPFGJZXFbwxLHKekEj3Ck140ZBA9jozx6NZ9IQncD0ogM4FlYnbVbwD45G1
+	SJ8ei5BmHWMBBnBkm9jXuvlD6yHYAuy3e3PYj4Jw61gdgEKEw5UzbK+mo0r3LVmeUysWir
+	EVI14bZZuCFygATwSv7zxT0YU4yItG4=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1688041201;
+	s=susede2_ed25519; t=1688041200;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Q8/hObzYgPS0TDvHlNkxQWLSeXSJyMjTeBMLqYqFK4w=;
-	b=L3PyCj5jKQ5vE7MYne4nWCsAiDM0bCWXnp9ECQ/thRxLRW/+klbPAr42RqiLHE8RIsU2gZ
-	akbya49XJu79VVCQ==
+	bh=cQ3EDeCSnwNHCvqI9o+8mLXg+vNxeu9dqjNgbn6vW64=;
+	b=f3OsHAg+MvgJYkBzRW/rb3tMUgPoqd73LlNMm0j7gkGvTcrmNDsm3dmRC0NYT1egdnRYUJ
+	PNHfPSmv46ciy1AA==
 Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
 	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id A0F3313905;
-	Thu, 29 Jun 2023 12:20:00 +0000 (UTC)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 61E3213A43;
+	Thu, 29 Jun 2023 12:19:59 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([192.168.254.65])
 	by imap2.suse-dmz.suse.de with ESMTPSA
-	id uIppJvB2nWRlVAAAMHmgww
-	(envelope-from <tzimmermann@suse.de>); Thu, 29 Jun 2023 12:20:00 +0000
+	id wFf0Fu92nWRlVAAAMHmgww
+	(envelope-from <tzimmermann@suse.de>); Thu, 29 Jun 2023 12:19:59 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: arnd@arndb.de,
 	deller@gmx.de,
@@ -84,27 +84,31 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-staging@lists.linux.dev,
 	linux-arch@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Kees Cook <keescook@chromium.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
 	Ard Biesheuvel <ardb@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: [PATCH 09/12] drivers: Add dependencies on CONFIG_ARCH_HAS_SCREEN_INFO
-Date: Thu, 29 Jun 2023 13:45:48 +0200
-Message-ID: <20230629121952.10559-10-tzimmermann@suse.de>
+	Sami Tolvanen <samitolvanen@google.com>,
+	Juerg Haefliger <juerg.haefliger@canonical.com>
+Subject: [PATCH 07/12] arch/x86: Declare edid_info in <asm/screen_info.h>
+Date: Thu, 29 Jun 2023 13:45:46 +0200
+Message-ID: <20230629121952.10559-8-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230629121952.10559-1-tzimmermann@suse.de>
 References: <20230629121952.10559-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_052002_824478_9AA305A2 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20230629_052002_094149_59AA55A7 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,141 +125,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Various files within drivers/ depend on the declaration of the
-screen_info variable. Add this information to Kconfig.
+The global variable edid_info contains the firmware's EDID information
+as an extension to the regular screen_info on x86. Therefore move it to
+<asm/screen_info.h>.
 
-In the case of the dummy console, the dependency exists only
-on ARM. Ignore it on !ARM platforms.
+Add the Kconfig token ARCH_HAS_EDID_INFO to guard against access on
+architectures that don't provide edid_info. Select it on x86.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Daniel Vetter <daniel@ffwll.ch>
-Cc: "K. Y. Srinivasan" <kys@microsoft.com>
-Cc: Haiyang Zhang <haiyangz@microsoft.com>
-Cc: Wei Liu <wei.liu@kernel.org>
-Cc: Dexuan Cui <decui@microsoft.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: x86@kernel.org
+Cc: "H. Peter Anvin" <hpa@zytor.com>
 Cc: Helge Deller <deller@gmx.de>
 Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Javier Martinez Canillas <javierm@redhat.com>
-Cc: Randy Dunlap <rdunlap@infradead.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Kees Cook <keescook@chromium.org>
+Cc: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Frederic Weisbecker <frederic@kernel.org>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>
+Cc: Juerg Haefliger <juerg.haefliger@canonical.com>
 ---
- drivers/firmware/Kconfig      | 1 +
- drivers/firmware/efi/Kconfig  | 1 +
- drivers/gpu/drm/Kconfig       | 1 +
- drivers/hv/Kconfig            | 1 +
- drivers/video/console/Kconfig | 2 ++
- drivers/video/fbdev/Kconfig   | 4 ++++
- 6 files changed, 10 insertions(+)
+ arch/Kconfig                      | 6 ++++++
+ arch/x86/Kconfig                  | 1 +
+ drivers/video/Kconfig             | 3 ---
+ include/asm-generic/screen_info.h | 6 ++++++
+ include/video/edid.h              | 3 ---
+ 5 files changed, 13 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index 0432737bbb8b4..65bbf7422f1db 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -228,6 +228,7 @@ config QCOM_SCM_DOWNLOAD_MODE_DEFAULT
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 2f58293fd7bcb..ee9866e4df2b0 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -1466,6 +1466,12 @@ config ARCH_HAS_NONLEAF_PMD_YOUNG
+ 	  address translations. Page table walkers that clear the accessed bit
+ 	  may use this capability to reduce their search space.
  
- config SYSFB
++config ARCH_HAS_EDID_INFO
++	bool
++	help
++	  Selected by architectures that provide a global instance of
++	  edid_info.
++
+ config ARCH_HAS_SCREEN_INFO
  	bool
-+	depends on ARCH_HAS_SCREEN_INFO
- 	select BOOT_VESA_SUPPORT
- 
- config SYSFB_SIMPLEFB
-diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
-index 043ca31c114eb..963d305421e50 100644
---- a/drivers/firmware/efi/Kconfig
-+++ b/drivers/firmware/efi/Kconfig
-@@ -225,6 +225,7 @@ config EFI_DISABLE_PCI_DMA
- config EFI_EARLYCON
- 	def_bool y
- 	depends on SERIAL_EARLYCON && !ARM && !IA64
-+	depends on ARCH_HAS_SCREEN_INFO
- 	select FONT_SUPPORT
- 	select ARCH_USE_MEMREMAP_PROT
- 
-diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
-index afb3b2f5f4253..63dfc3391d2ff 100644
---- a/drivers/gpu/drm/Kconfig
-+++ b/drivers/gpu/drm/Kconfig
-@@ -366,6 +366,7 @@ source "drivers/gpu/drm/sprd/Kconfig"
- config DRM_HYPERV
- 	tristate "DRM Support for Hyper-V synthetic video device"
- 	depends on DRM && PCI && MMU && HYPERV
-+	depends on ARCH_HAS_SCREEN_INFO
- 	select DRM_KMS_HELPER
- 	select DRM_GEM_SHMEM_HELPER
  	help
-diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
-index 00242107d62e0..3730c9b42a9bd 100644
---- a/drivers/hv/Kconfig
-+++ b/drivers/hv/Kconfig
-@@ -6,6 +6,7 @@ config HYPERV
- 	tristate "Microsoft Hyper-V client drivers"
- 	depends on (X86 && X86_LOCAL_APIC && HYPERVISOR_GUEST) \
- 		|| (ACPI && ARM64 && !CPU_BIG_ENDIAN)
-+	depends on ARCH_HAS_SCREEN_INFO
- 	select PARAVIRT
- 	select X86_HV_CALLBACK_VECTOR if X86
- 	select OF_EARLY_FLATTREE if OF
-diff --git a/drivers/video/console/Kconfig b/drivers/video/console/Kconfig
-index a2a88d42edf0c..b39e2ae039783 100644
---- a/drivers/video/console/Kconfig
-+++ b/drivers/video/console/Kconfig
-@@ -10,6 +10,7 @@ config VGA_CONSOLE
- 	depends on !4xx && !PPC_8xx && !SPARC && !M68K && !PARISC &&  !SUPERH && \
- 		(!ARM || ARCH_FOOTBRIDGE || ARCH_INTEGRATOR || ARCH_NETWINDER) && \
- 		!ARM64 && !ARC && !MICROBLAZE && !OPENRISC && !S390 && !UML
-+	depends on ARCH_HAS_SCREEN_INFO
- 	select APERTURE_HELPERS if (DRM || FB || VFIO_PCI_CORE)
- 	default y
- 	help
-@@ -48,6 +49,7 @@ config SGI_NEWPORT_CONSOLE
- 
- config DUMMY_CONSOLE
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index d7c2bf4ee403d..ee81855116be7 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -76,6 +76,7 @@ config X86
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE	if !X86_PAE
+ 	select ARCH_HAS_DEVMEM_IS_ALLOWED
+ 	select ARCH_HAS_EARLY_DEBUG		if KGDB
++	select ARCH_HAS_EDID_INFO
+ 	select ARCH_HAS_ELF_RANDOMIZE
+ 	select ARCH_HAS_FAST_MULTIPLIER
+ 	select ARCH_HAS_FORTIFY_SOURCE
+diff --git a/drivers/video/Kconfig b/drivers/video/Kconfig
+index d4a72bea56be0..8b2b9ac37c3df 100644
+--- a/drivers/video/Kconfig
++++ b/drivers/video/Kconfig
+@@ -21,9 +21,6 @@ config STI_CORE
+ config VIDEO_CMDLINE
  	bool
-+	depends on ARCH_HAS_SCREEN_INFO || !ARM
- 	default y
  
- config DUMMY_CONSOLE_COLUMNS
-diff --git a/drivers/video/fbdev/Kconfig b/drivers/video/fbdev/Kconfig
-index cecf15418632d..e11d85e802bc7 100644
---- a/drivers/video/fbdev/Kconfig
-+++ b/drivers/video/fbdev/Kconfig
-@@ -655,6 +655,7 @@ config FB_UVESA
- config FB_VESA
- 	bool "VESA VGA graphics support"
- 	depends on (FB = y) && X86
-+	depends on ARCH_HAS_SCREEN_INFO
- 	select APERTURE_HELPERS
- 	select FB_CFB_FILLRECT
- 	select FB_CFB_COPYAREA
-@@ -669,6 +670,7 @@ config FB_VESA
- config FB_EFI
- 	bool "EFI-based Framebuffer Support"
- 	depends on (FB = y) && !IA64 && EFI
-+	depends on ARCH_HAS_SCREEN_INFO
- 	select APERTURE_HELPERS
- 	select DRM_PANEL_ORIENTATION_QUIRKS
- 	select FB_CFB_FILLRECT
-@@ -1089,6 +1091,7 @@ config FB_CARILLO_RANCH
- config FB_INTEL
- 	tristate "Intel 830M/845G/852GM/855GM/865G/915G/945G/945GM/965G/965GM support"
- 	depends on FB && PCI && X86 && AGP_INTEL && EXPERT
-+	depends on ARCH_HAS_SCREEN_INFO
- 	select FB_MODE_HELPERS
- 	select FB_CFB_FILLRECT
- 	select FB_CFB_COPYAREA
-@@ -2185,6 +2188,7 @@ config FB_BROADSHEET
- config FB_HYPERV
- 	tristate "Microsoft Hyper-V Synthetic Video support"
- 	depends on FB && HYPERV
-+	depends on ARCH_HAS_SCREEN_INFO
- 	select FB_CFB_FILLRECT
- 	select FB_CFB_COPYAREA
- 	select FB_CFB_IMAGEBLIT
+-config ARCH_HAS_SCREEN_INFO
+-	bool
+-
+ config VIDEO_NOMODESET
+ 	bool
+ 	default n
+diff --git a/include/asm-generic/screen_info.h b/include/asm-generic/screen_info.h
+index 6fd0e50fabfcd..5efc99c296b40 100644
+--- a/include/asm-generic/screen_info.h
++++ b/include/asm-generic/screen_info.h
+@@ -5,6 +5,12 @@
+ 
+ #include <uapi/linux/screen_info.h>
+ 
++#include <video/edid.h>
++
++#if defined(CONFIG_ARCH_HAS_EDID_INFO)
++extern struct edid_info edid_info;
++#endif
++
+ #if defined(CONFIG_ARCH_HAS_SCREEN_INFO)
+ extern struct screen_info screen_info;
+ #endif
+diff --git a/include/video/edid.h b/include/video/edid.h
+index f614371e9116a..52aabb7060321 100644
+--- a/include/video/edid.h
++++ b/include/video/edid.h
+@@ -4,7 +4,4 @@
+ 
+ #include <uapi/video/edid.h>
+ 
+-#ifdef CONFIG_X86
+-extern struct edid_info edid_info;
+-#endif
+ #endif /* __linux_video_edid_h__ */
 -- 
 2.41.0
 
