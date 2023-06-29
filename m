@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18EE5EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 23:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D70B6EB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 23:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,70 +13,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=m6tiwM+Gxd6KWdEbdMkcigAJzh8pFHI3G37SDer3/oU=; b=wGrU5TJt5P086a/7CARRm47eIO
-	XAe1HVHDz3rjlnraGmhMDGQiXyeqD2Dp1Gw+b+kyFo/HSPhGxjw41xY44LrS88MN1pyGgBL08tyFJ
-	lT95/KI5Z8/bpqG0HmMT5KhJP/47NictxqP/SUFnuCJ9JNPB4jSHrP3gHdbPrjhHTBZJQtvf46vrO
-	uN2pNpTFfActpUV4LH2R0N4AVIakW0y9icxOfCe0fUBphRIkgcg10WMI4In2Ypzt0GSI6n8UXxGdl
-	g+5npgzdUnYziIf5ms/cY93V6uSJmNQdfMHrHM/sBcvDB1PoP3oSXkfidjFdj3Vky2+rFqNQXRJ4V
-	7EJE1Hzg==;
+	bh=afKU1vcHqYsWMGS28L3ulW/XcW9GLLW6fTdKTje20rg=; b=TudtiGq/ijZeBMHtXaf5Mz/R31
+	RzLU3e+R8txYsC4thTdQ2QONyI4yTmvMtLmCLOMJ61IHwnoVRx63ZbkqrhCUY4EVlhgSDrw8IVW6r
+	jvXq+3thjfCcS+3rT1yIBFC5FEcVes02l2UZoJbuwgLJNN3CSM4b3o9xmhPXdQkR967K05BRLalpJ
+	j+fof8GIZTnw3oPfwqc+7jb2C3F3oxoiiP0FzUTqxTIESTWTfLYQSxqc7GgF7u8ZMGM9HARG39AKk
+	5Sh4gEgOmX7BqMAtPRRyYWq40TmhFd07FkBNx1MBu6sRHhSBKXZiTtHigRhkQrZeKhRoo3xKs8/0Z
+	qMc01HeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF1Hz-002Tyk-2g;
-	Thu, 29 Jun 2023 23:43:03 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1qF1Hy-002Txm-28;
+	Thu, 29 Jun 2023 23:43:02 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF1Ht-002Tv1-30
+	id 1qF1Ht-002Tuw-28
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jun 2023 23:43:00 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-56ff81be091so11102947b3.0
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Jun 2023 16:42:54 -0700 (PDT)
+	Thu, 29 Jun 2023 23:42:59 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-c0f35579901so1007839276.0
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Jun 2023 16:42:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1688082173; x=1690674173;
+        d=google.com; s=20221208; t=1688082171; x=1690674171;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rwKLI/qRUKPULIlBC3OTUhb6lfrxfVtcL7RWgMXp+DM=;
-        b=xZ4gzYmgSDP58mOKR8hM46Nd3CktXTb7BWdOsL40ZpOowsFja8hHx4hEpRu7h+8XXt
-         MXlo89FDD72TAUb0aNZwUN9hsD5krX9N6BIDIdgNZjO2+Q9hqoPmMO0wHRAE3CanaHoU
-         CADHRRVIOfgsXUI7G64inFFIC6roC6nRP9g9q4FoTqTZt29i4bySfE6PCOpQKuDFFD+S
-         qmiO+EA4gU+2Idsy+Qnduwt2kaRDhqdZTG4p59yUdS5hMXfpchMb7zXP+BfLtVyISxVO
-         bziwFW/aif6c2MFD81O0+6TPzmJ57qD6QsqQF1V8sU5pSP48L18NjLafTtvf7VZj/Uf6
-         mi7Q==
+        bh=5MN5onT38odilPSNEoZC1Mi9+3N8xJapfm8z7ugW2tI=;
+        b=LtG+9f8lNr90fFI+0QMhjtDA8ze7b45VrCWFW4nvV+BMtZh+noaxCy8vJqhikyQx2W
+         /g5bMoJfwQyzCxXHsfZMaqFOno/7vLhcsmQM8RRs6J1k10YbHdloEaoKRzHArlWZh2oe
+         EMyA7aTeM8Qnncho/1othEg+1iuSj4eImUZAkMny/ecWcCcMigVSPquriE64cQkal2eG
+         uf3oGzOxkGj24hiTpbJ8BT1j+GuEQWHjRQBG0IeNpg4NIWh71wJXzpCx3MJERhXPF0O8
+         35xcQAIAoT+Jorw4NbajO9g3CTzd1Qb87rZJfOVpmSV4VGjdMs/S+9kpDeCP/EvvqXfw
+         8Q5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688082173; x=1690674173;
+        d=1e100.net; s=20221208; t=1688082171; x=1690674171;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rwKLI/qRUKPULIlBC3OTUhb6lfrxfVtcL7RWgMXp+DM=;
-        b=bXVRyV/23OTggekKyuaNmTh4qIlzxyjMw/q9Zr7SXhllLj8yNNc+DC7rYTZ0W56GIB
-         OgMpNcGKgx89W8AXv/n3VtseoGC73EQ4jnvrnSUpdGzyRNsb5115Co56wlZruB2/GkJx
-         FgGBgNFU6n/x3cCvWbgfhLw6AgjseDWlufdqwXSLWbwW1kYhdbtY8BN1o01IKxhCAk0f
-         Gzq4uZW2/d9FDUA7kDh6nsFre8OAVMhycjkwHtoEuDFM8JEL5F0kuN3HgEtWdsZCO9C+
-         Y/g9/VQsyDjufs89wsKwO5wtpHAyO53MQIk4KS+INxZrXPLXPpDG+CbV62VLD6MZSyFj
-         t1tA==
-X-Gm-Message-State: ABy/qLZEAnX8Y2SakeYw+NbUlIgO+VPPQhgplkmdABRzJDJq8ngRg4MX
-	aDsbFd9P84aiNF4Tprd6NhHu2vGh3uHQlrLc8rA=
-X-Google-Smtp-Source: APBJJlGvY9o8TdVQA2iFVhCCB50GqC+vEYRFxxtjURS+zUxZ3uCTPfePcPm+HJkTvW8UT4zvI1DCpmZcRMm1arw/G+E=
+        bh=5MN5onT38odilPSNEoZC1Mi9+3N8xJapfm8z7ugW2tI=;
+        b=R8BXmSNzUIVhxsGy1gp1uLTaqW+tT/bagcUNF8W3U7jKgK6FhpA782nq/v5GX+RMDi
+         YN6IB9y1L2VxJXutpu/igrLFIwHlT4+fsqqHES2Es7943ewpPHt2dTF/MqvZnhjbaIhi
+         9Ch09Uw+nlqn6MnmkuXqYY1rZCyvxk9RurPYT3uq8G7pZXpmebf5Crpm7jrpRePs09LK
+         NPC/JCP44MOdh8DbbN/rRebOgjHSijiiXGP0O7LaVXL0QKtoYYCEyLl71Vl0CjD/rBro
+         TuO2hD061tWKTyqPfxqoXJ61AGRd13LJpsKIAep6y80GRvdIfqCYOS/aOin+8tzsSjYU
+         IOfA==
+X-Gm-Message-State: ABy/qLZ52mP1w3yuv24sA2nG+amNwVzAeb1Td5sRjGoVWK3nksLPJpFk
+	ryby43OHMz4AmwyarYLc3LjC8DVnlVjGWwTIQsU=
+X-Google-Smtp-Source: APBJJlGHGbByNsgOY724SZV19hkyK0T75VDbu520ooERhQ+lRG6ucOFyPWjbmLH7w+DGNK30QWPPvcGekMSjSa/C5O8=
 X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a81:7e0a:0:b0:56f:f62b:7a11 with SMTP
- id o10-20020a817e0a000000b0056ff62b7a11mr6436ywn.8.1688082173423; Thu, 29 Jun
- 2023 16:42:53 -0700 (PDT)
-Date: Thu, 29 Jun 2023 23:42:47 +0000
+ (user=samitolvanen job=sendgmr) by 2002:a25:f621:0:b0:bc7:f6af:8cff with SMTP
+ id t33-20020a25f621000000b00bc7f6af8cffmr7508ybd.2.1688082171394; Thu, 29 Jun
+ 2023 16:42:51 -0700 (PDT)
+Date: Thu, 29 Jun 2023 23:42:46 +0000
 In-Reply-To: <20230629234244.1752366-8-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20230629234244.1752366-8-samitolvanen@google.com>
 X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1898; i=samitolvanen@google.com;
- h=from:subject; bh=Gkp1NJ2f7yYUqQXHMI7a2x2tGYxFA1ILvi7IEKTnass=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBknhb1WHJAgo4Uq6U6j6NflafXu9jZGHzv6JSKG
- I68vAHUjwOJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZJ4W9QAKCRBMtfaEi7xW
- 7ra7DACnV4oH9Zp+lDg83B8KilPxMfwy2imQEk7g4tL0+joJ7XhULu9MfK90xn7TM7i4gtaSYlw
- WWtBPr32oT+mqBypw6Zzzh3TjqvFxGw6L4NBPrew6Zv8Q2DnCsPP3MdTja4RKLIR9eYZz/6MKhY
- KoJ1U2HlLEczeZs9jBPFvTUBeodHLyEcItxzzSMGaK8gSj0HUgan9Y0jDi1r2wlPF9qgKtm/5lF
- e3pkg/Uv3sTKtwhfqNeCqnkBuo3UwEAuXmUP2BKHh1RVZRRHkXsYPbi6hckTUsHIsz/Ei36AaKy
- dYHxMndLyrFMOV55dL9x2qlhOYEwmNjRDotAMG/b0sT09z4txrkykyuszG4sHikOQg5drQ6Qt5K
- Fjw/DqnV9FeYOjowphHAm21MgWwnxwBUALJrWe92r5LVU+EqWAZEFtROnZlRkcsTrt3D8P6ozhM kSPl2dnVwxy5LCbyOS8SfKJPZbyg7P3geJcOGAJ3DcZ0TRSuOpXbTvdhgxFYPSa++A5FQ=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8711; i=samitolvanen@google.com;
+ h=from:subject; bh=cH71RIetyr2QuAmRr+J7d1k89bDxV7/5s6ugVqwLMbQ=;
+ b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBknhb1QV8f/gaDfpgpTdMqS+FPj4u7EksN/UAMk
+ HNeYAk6CA+JAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZJ4W9QAKCRBMtfaEi7xW
+ 7jLMDACCmPDnsW10/UuozU16UpwfnLDHLqBpkQ1jdeCXRT12jmKHWETnIC4WJcHOdF18tQO1AGa
+ v1aeMP0Rr/WdyMDCNLTCcAuSX/Fl7gBgh2YHcPC4+gVO1j93qIopMPNalvL9MXVOuFJ5pjGlm32
+ j1xUE4gXh7w1wSpt+mQ3u74NLOLxdsIf1z1u01ydePmTR7KT6j5XWXBK8DxfbLq+RR1GgL1Rc7H
+ Xdwhy0oj4WHnHNXvxlM0ECKp9uOYSVGdODHaIc5iB+2jnDHEPG+8bs8VO/u4RcjVnwcmtZSKbH9
+ 7n+4xxrmyXjQPpE8SoiWZv85EubD+UvngtjZD/Waf8RrD1oc36lhI6yRl46DBFETa6OaHVu5WJw
+ EHDXKZ2yBHyztJ/bAo952jMSHqTycccYNtU3yqdW9H9hKhFQX6tVwzoOxr+36T9oXLaQh0CBvX4 T6o09yy2NGeWpjZgLuUeZAlHJJYCtMrHFHsZFa+egS2GWjvvrGDOeGjYWGmmKWhR4K45U=
 X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
-Message-ID: <20230629234244.1752366-10-samitolvanen@google.com>
-Subject: [PATCH 2/6] riscv: Add types to indirectly called assembly functions
+Message-ID: <20230629234244.1752366-9-samitolvanen@google.com>
+Subject: [PATCH 1/6] riscv: Implement syscall wrappers
 From: Sami Tolvanen <samitolvanen@google.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>
@@ -84,9 +84,8 @@ Cc: Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google
 	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_164257_966214_E5BC52C8 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230629_164257_704097_CF20449F 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,72 +102,220 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With CONFIG_CFI_CLANG, assembly functions indirectly called
-from C code must be annotated with type identifiers to pass CFI
-checking. Use the SYM_TYPED_START macro to add types to the
-relevant functions.
+Commit f0bddf50586d ("riscv: entry: Convert to generic entry") moved
+syscall handling to C code, which exposed function pointer type
+mismatches that trip fine-grained forward-edge Control-Flow Integrity
+(CFI) checks as syscall handlers are all called through the same
+syscall_t pointer type. To fix the type mismatches, implement pt_regs
+based syscall wrappers similarly to x86 and arm64.
+
+This patch is based on arm64 syscall wrappers added in commit
+4378a7d4be30 ("arm64: implement syscall wrappers"), where the main goal
+was to minimize the risk of userspace-controlled values being used
+under speculation. This may be a concern for riscv in future as well.
+
+Following other architectures, the syscall wrappers generate three
+functions for each syscall; __riscv_<compat_>sys_<name> takes a pt_regs
+pointer and extracts arguments from registers, __se_<compat_>sys_<name>
+is a sign-extension wrapper that casts the long arguments to the
+correct types for the real syscall implementation, which is named
+__do_<compat_>sys_<name>.
 
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 ---
- arch/riscv/kernel/mcount.S        | 5 +++--
- arch/riscv/kernel/suspend_entry.S | 5 +++--
- 2 files changed, 6 insertions(+), 4 deletions(-)
+ arch/riscv/Kconfig                       |  1 +
+ arch/riscv/include/asm/syscall.h         |  5 +-
+ arch/riscv/include/asm/syscall_wrapper.h | 87 ++++++++++++++++++++++++
+ arch/riscv/kernel/compat_syscall_table.c |  8 ++-
+ arch/riscv/kernel/sys_riscv.c            |  6 ++
+ arch/riscv/kernel/syscall_table.c        |  8 ++-
+ 6 files changed, 108 insertions(+), 7 deletions(-)
+ create mode 100644 arch/riscv/include/asm/syscall_wrapper.h
 
-diff --git a/arch/riscv/kernel/mcount.S b/arch/riscv/kernel/mcount.S
-index 30102aadc4d7..712c1d2c2723 100644
---- a/arch/riscv/kernel/mcount.S
-+++ b/arch/riscv/kernel/mcount.S
-@@ -3,6 +3,7 @@
- 
- #include <linux/init.h>
- #include <linux/linkage.h>
-+#include <linux/cfi_types.h>
- #include <asm/asm.h>
- #include <asm/csr.h>
- #include <asm/unistd.h>
-@@ -47,13 +48,13 @@
- 	addi	sp, sp, 4*SZREG
- 	.endm
- 
--ENTRY(ftrace_stub)
-+SYM_TYPED_FUNC_START(ftrace_stub)
- #ifdef CONFIG_DYNAMIC_FTRACE
-        .global MCOUNT_NAME
-        .set    MCOUNT_NAME, ftrace_stub
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a08917f681af..b54a830eb5c6 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -33,6 +33,7 @@ config RISCV
+ 	select ARCH_HAS_SET_MEMORY if MMU
+ 	select ARCH_HAS_STRICT_KERNEL_RWX if MMU && !XIP_KERNEL
+ 	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
++	select ARCH_HAS_SYSCALL_WRAPPER
+ 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+ 	select ARCH_HAS_UBSAN_SANITIZE_ALL
+ 	select ARCH_HAS_VDSO_DATA
+diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+index 0148c6bd9675..121fff429dce 100644
+--- a/arch/riscv/include/asm/syscall.h
++++ b/arch/riscv/include/asm/syscall.h
+@@ -75,7 +75,7 @@ static inline int syscall_get_arch(struct task_struct *task)
  #endif
- 	ret
--ENDPROC(ftrace_stub)
-+SYM_FUNC_END(ftrace_stub)
+ }
  
- #ifdef CONFIG_FUNCTION_GRAPH_TRACER
- ENTRY(return_to_handler)
-diff --git a/arch/riscv/kernel/suspend_entry.S b/arch/riscv/kernel/suspend_entry.S
-index 12b52afe09a4..f7960c7c5f9e 100644
---- a/arch/riscv/kernel/suspend_entry.S
-+++ b/arch/riscv/kernel/suspend_entry.S
-@@ -5,6 +5,7 @@
-  */
+-typedef long (*syscall_t)(ulong, ulong, ulong, ulong, ulong, ulong, ulong);
++typedef long (*syscall_t)(const struct pt_regs *);
+ static inline void syscall_handler(struct pt_regs *regs, ulong syscall)
+ {
+ 	syscall_t fn;
+@@ -87,8 +87,7 @@ static inline void syscall_handler(struct pt_regs *regs, ulong syscall)
+ #endif
+ 		fn = sys_call_table[syscall];
  
- #include <linux/linkage.h>
-+#include <linux/cfi_types.h>
- #include <asm/asm.h>
- #include <asm/asm-offsets.h>
- #include <asm/assembler.h>
-@@ -58,7 +59,7 @@ ENTRY(__cpu_suspend_enter)
- 	ret
- END(__cpu_suspend_enter)
+-	regs->a0 = fn(regs->orig_a0, regs->a1, regs->a2,
+-		      regs->a3, regs->a4, regs->a5, regs->a6);
++	regs->a0 = fn(regs);
+ }
  
--ENTRY(__cpu_resume_enter)
-+SYM_TYPED_FUNC_START(__cpu_resume_enter)
- 	/* Load the global pointer */
- 	.option push
- 	.option norelax
-@@ -94,4 +95,4 @@ ENTRY(__cpu_resume_enter)
+ static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+diff --git a/arch/riscv/include/asm/syscall_wrapper.h b/arch/riscv/include/asm/syscall_wrapper.h
+new file mode 100644
+index 000000000000..1d7942c8a6cb
+--- /dev/null
++++ b/arch/riscv/include/asm/syscall_wrapper.h
+@@ -0,0 +1,87 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * syscall_wrapper.h - riscv specific wrappers to syscall definitions
++ *
++ * Based on arch/arm64/include/syscall_wrapper.h
++ */
++
++#ifndef __ASM_SYSCALL_WRAPPER_H
++#define __ASM_SYSCALL_WRAPPER_H
++
++#include <asm/ptrace.h>
++
++asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *);
++
++#define SC_RISCV_REGS_TO_ARGS(x, ...)				\
++	__MAP(x,__SC_ARGS					\
++	      ,,regs->orig_a0,,regs->a1,,regs->a2		\
++	      ,,regs->a3,,regs->a4,,regs->a5,,regs->a6)
++
++#ifdef CONFIG_COMPAT
++
++#define COMPAT_SYSCALL_DEFINEx(x, name, ...)						\
++	asmlinkage long __riscv_compat_sys##name(const struct pt_regs *regs);		\
++	ALLOW_ERROR_INJECTION(__riscv_compat_sys##name, ERRNO);				\
++	static long __se_compat_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__));		\
++	static inline long __do_compat_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__));	\
++	asmlinkage long __riscv_compat_sys##name(const struct pt_regs *regs)		\
++	{										\
++		return __se_compat_sys##name(SC_RISCV_REGS_TO_ARGS(x,__VA_ARGS__));	\
++	}										\
++	static long __se_compat_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__))		\
++	{										\
++		return __do_compat_sys##name(__MAP(x,__SC_DELOUSE,__VA_ARGS__));	\
++	}										\
++	static inline long __do_compat_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))
++
++#define COMPAT_SYSCALL_DEFINE0(sname)							\
++	asmlinkage long __riscv_compat_sys_##sname(const struct pt_regs *__unused);	\
++	ALLOW_ERROR_INJECTION(__riscv_compat_sys_##sname, ERRNO);			\
++	asmlinkage long __riscv_compat_sys_##sname(const struct pt_regs *__unused)
++
++#define COND_SYSCALL_COMPAT(name) 							\
++	asmlinkage long __weak __riscv_compat_sys_##name(const struct pt_regs *regs);	\
++	asmlinkage long __weak __riscv_compat_sys_##name(const struct pt_regs *regs)	\
++	{										\
++		return sys_ni_syscall();						\
++	}
++
++#define COMPAT_SYS_NI(name) \
++	SYSCALL_ALIAS(__riscv_compat_sys_##name, sys_ni_posix_timers);
++
++#endif /* CONFIG_COMPAT */
++
++#define __SYSCALL_DEFINEx(x, name, ...)						\
++	asmlinkage long __riscv_sys##name(const struct pt_regs *regs);		\
++	ALLOW_ERROR_INJECTION(__riscv_sys##name, ERRNO);			\
++	static long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__));		\
++	static inline long __do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__));	\
++	asmlinkage long __riscv_sys##name(const struct pt_regs *regs)		\
++	{									\
++		return __se_sys##name(SC_RISCV_REGS_TO_ARGS(x,__VA_ARGS__));	\
++	}									\
++	static long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__))		\
++	{									\
++		long ret = __do_sys##name(__MAP(x,__SC_CAST,__VA_ARGS__));	\
++		__MAP(x,__SC_TEST,__VA_ARGS__);					\
++		__PROTECT(x, ret,__MAP(x,__SC_ARGS,__VA_ARGS__));		\
++		return ret;							\
++	}									\
++	static inline long __do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))
++
++#define SYSCALL_DEFINE0(sname)							\
++	SYSCALL_METADATA(_##sname, 0);						\
++	asmlinkage long __riscv_sys_##sname(const struct pt_regs *__unused);	\
++	ALLOW_ERROR_INJECTION(__riscv_sys_##sname, ERRNO);			\
++	asmlinkage long __riscv_sys_##sname(const struct pt_regs *__unused)
++
++#define COND_SYSCALL(name)							\
++	asmlinkage long __weak __riscv_sys_##name(const struct pt_regs *regs);	\
++	asmlinkage long __weak __riscv_sys_##name(const struct pt_regs *regs)	\
++	{									\
++		return sys_ni_syscall();					\
++	}
++
++#define SYS_NI(name) SYSCALL_ALIAS(__riscv_sys_##name, sys_ni_posix_timers);
++
++#endif /* __ASM_SYSCALL_WRAPPER_H */
+diff --git a/arch/riscv/kernel/compat_syscall_table.c b/arch/riscv/kernel/compat_syscall_table.c
+index 651f2b009c28..ad7f2d712f5f 100644
+--- a/arch/riscv/kernel/compat_syscall_table.c
++++ b/arch/riscv/kernel/compat_syscall_table.c
+@@ -9,11 +9,15 @@
+ #include <asm/syscall.h>
  
- 	/* Return to C code */
- 	ret
--END(__cpu_resume_enter)
-+SYM_FUNC_END(__cpu_resume_enter)
+ #undef __SYSCALL
+-#define __SYSCALL(nr, call)      [nr] = (call),
++#define __SYSCALL(nr, call)	asmlinkage long __riscv_##call(const struct pt_regs *);
++#include <asm/unistd.h>
++
++#undef __SYSCALL
++#define __SYSCALL(nr, call)      [nr] = __riscv_##call,
+ 
+ asmlinkage long compat_sys_rt_sigreturn(void);
+ 
+ void * const compat_sys_call_table[__NR_syscalls] = {
+-	[0 ... __NR_syscalls - 1] = sys_ni_syscall,
++	[0 ... __NR_syscalls - 1] = __riscv_sys_ni_syscall,
+ #include <asm/unistd.h>
+ };
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 5db29683ebee..5cc3b9457dfd 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -297,3 +297,9 @@ SYSCALL_DEFINE5(riscv_hwprobe, struct riscv_hwprobe __user *, pairs,
+ 	return do_riscv_hwprobe(pairs, pair_count, cpu_count,
+ 				cpus, flags);
+ }
++
++/* Not defined using SYSCALL_DEFINE0 to avoid error injection */
++asmlinkage long __riscv_sys_ni_syscall(const struct pt_regs *__unused)
++{
++	return -ENOSYS;
++}
+diff --git a/arch/riscv/kernel/syscall_table.c b/arch/riscv/kernel/syscall_table.c
+index 44b1420a2270..dda913764903 100644
+--- a/arch/riscv/kernel/syscall_table.c
++++ b/arch/riscv/kernel/syscall_table.c
+@@ -10,9 +10,13 @@
+ #include <asm/syscall.h>
+ 
+ #undef __SYSCALL
+-#define __SYSCALL(nr, call)	[nr] = (call),
++#define __SYSCALL(nr, call)	asmlinkage long __riscv_##call(const struct pt_regs *);
++#include <asm/unistd.h>
++
++#undef __SYSCALL
++#define __SYSCALL(nr, call)	[nr] = __riscv_##call,
+ 
+ void * const sys_call_table[__NR_syscalls] = {
+-	[0 ... __NR_syscalls - 1] = sys_ni_syscall,
++	[0 ... __NR_syscalls - 1] = __riscv_sys_ni_syscall,
+ #include <asm/unistd.h>
+ };
 -- 
 2.41.0.255.g8b1d071c50-goog
 
