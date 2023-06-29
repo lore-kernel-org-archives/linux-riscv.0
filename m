@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5EACEB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F1C8EB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vH9IuCVywwDi+6I7V+FRDf3krcobQbyNkybxl3F/7KQ=; b=rjBJhcmf5giJM0
-	5+dbXLusapEmNyzYAzuyyzOll7mhg58hvZcfbFlOqpq/L5t/0Lz+vDyv/GcG6H4C8GppHeGjPVjDH
-	aNgc206jNd2ue7sfBaOVxzUgboKlBaDt+CZocaK7wYhIRIGciW0nJvbF/TjKogt2yD698RZpwqTxw
-	P83C+3fYLXzUInXdPbxBEgapz7cdpViLQavdk9zoJaPeZyLktUcgbdsYDIQAYdkNhVOWdGIJrlMeO
-	SeWibrPABTy4RGensKXV60uPDwkDxCLspsmygWB/kPlCJTzZMGTgNgr6HTFGKc28u7kkBlStW4t2R
-	2OE0QFiOH6ueSAZY7ZnQ==;
+	List-Owner; bh=u4JLtHuNeR9yQq+6T1YMOwPPpg9Z6BgbEf2BGUz6cJE=; b=M9h0FvpaEwHdjh
+	JoSEx+p/4xqLGDzkERnArhOgrkdyjGJexm9spp+mo2G+3kW2kBZqBGI7A8GBbP2ZM+TwL8BbQLoR0
+	nSj6RPYN9+B6hEB/gC1UylLJVTSs6D6x6idm5VeTtoJmP8C4bhF++WroSAGypYbzgsp+NIyLOqgpk
+	KTMNB0y8psYh1M4joi3jzNrDjMobJ7JI1aVMp4PcpZ4o9Hezj3y7g0KUqJOkSzFwpKR0w53YPOHpJ
+	lUjFNrk1QrvAcP/D5bvN/ahm3g3c9lORX6L4KWhssclWrNElXfGUEGrel+156KM7wW390Ink6yNAE
+	ek/sF0MgguO1tLk4umtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEn2t-000OCE-1o;
-	Thu, 29 Jun 2023 08:30:31 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qEn2u-000OCz-0f;
+	Thu, 29 Jun 2023 08:30:32 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEn2d-000O0z-1Y
+	id 1qEn2l-000O7F-1c
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jun 2023 08:30:18 +0000
+	Thu, 29 Jun 2023 08:30:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688027415; x=1719563415;
+  t=1688027423; x=1719563423;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=iGe+YwVNmPq1+zqO9UyiaCBbCGF6aB1MOiyT8TFuwhg=;
-  b=f4gArxWGpv6WLeLSGXIwKN0TqUHDSOq6QKSYuY3gdZB8EJZY+VHKwp/9
-   vqIYmp9TwPeFPEeyUTgkg6Dc7mdrODv7pvV3gppK9/+dVFbc/pvHiwKm6
-   oCX2qiqTdjOouUqOBguhc2q4087G9tlpJ7GDNV9w7IpyElFXXQa4f8YDN
-   tXP2l32aXaCIh4zguMHooJiFM+3kX3zKhnKUG8yGxcNpUsrhbWQevT4gV
-   fp6hn/jXB3YUwxHCOJVgSnsFcQpQD0KhtW3JxTQ9foLfSY5FCWvg8lPJD
-   UoF/130yPpJtumPV9IPC9MSY4Y5sALStW2h34ZAElLIX3gLjBfm9Y7ezO
-   w==;
+  bh=19N0qNDtQxBiEwr1QgI1H4EeYKq+lA8J3+dC/I8+GXA=;
+  b=fKrFIZ4qSKfeycJIESkN9ZVwb14A/g2Qi6S6iRtZNP6iIBicApRUjV4q
+   RgLOqlS7DpKOZzqKzOuy7i8DChnwtDm2KmWgNCxva3n2BOI+XR+YWS6Lc
+   yXsA0UKct6aobbUql/h66ghpExNra508wfZV5ZPotbLWSFNnWGOqkxQYG
+   aVdps/sq29UiM/rrm8kd4wplRUTrKSMmK8TtwHPEaxfc09XmMeuAZrYM4
+   MJEOwlvXs+YRG8HiJdn52+iTjgVL+VwGi/vkItXj0JrpE14L3jnVKHLHF
+   72Opdb5A29k7ef6Ji/xqGhCiuA2KRWr8ysIo53HoqrH1cmiZEFLY0MpCe
+   g==;
 X-IronPort-AV: E=Sophos;i="6.01,168,1684825200"; 
-   d="scan'208";a="159104706"
+   d="scan'208";a="220461351"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Jun 2023 01:30:11 -0700
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Jun 2023 01:30:22 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 29 Jun 2023 01:30:06 -0700
+ 15.1.2507.21; Thu, 29 Jun 2023 01:30:11 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Thu, 29 Jun 2023 01:30:03 -0700
+ Transport; Thu, 29 Jun 2023 01:30:09 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <palmer@dabbelt.com>
-Subject: [PATCH v2 07/10] RISC-V: split riscv_fill_hwcap() in 3
-Date: Thu, 29 Jun 2023 09:28:53 +0100
-Message-ID: <20230629-hazy-creative-cd4e936f6d99@wendy>
+Subject: [PATCH v2 09/10] RISC-V: try new extension properties in of_early_processor_hartid()
+Date: Thu, 29 Jun 2023 09:28:55 +0100
+Message-ID: <20230629-steersman-denim-9427eca04e44@wendy>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
 References: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11968; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=iGe+YwVNmPq1+zqO9UyiaCBbCGF6aB1MOiyT8TFuwhg=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClzHQ4LM/6OtAp34fj85oLWvKcLvr55Ix0nsrr0QWHO1wVv PpnGdZSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAitXcY/tfI7WhwKOthvOXFECvB+y 8y9ceqfOecoPgVVVP2furf1cHwPyzNYv2ZJY9X9JgGOpv7Gfqtvn3vi8VNxeuH9wlF3lPbyAsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1585; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=19N0qNDtQxBiEwr1QgI1H4EeYKq+lA8J3+dC/I8+GXA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClzHQ5fdzgSvfBCmtG03eGaVsov3W68mr3acflL3j9PJf9V HFRr7ChlYRDjYJAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBEmLMYGe4/vs2m+q2M53vonZ1z41 9LXy1heD698LP9JtG7C99d/pLB8FdcJptxm9PcM9pasUcc48L8M8TYm+a7LVBjX1Z3Nj/8GB8A
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_013015_615424_A8A2478E 
-X-CRM114-Status: GOOD (  30.02  )
+X-CRM114-CacheID: sfid-20230629_013023_566348_4C5F4F06 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,401 +84,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Before adding more complexity to it, split riscv_fill_hwcap() into 3
-distinct sections:
-- riscv_fill_hwcap() still is the top level function, into which the
-  additional complexity will be added.
-- riscv_fill_hwcap_from_isa_string() handles getting the information
-  from the riscv,isa/ACPI equivalent across harts & the various quirks
-  there
-- riscv_parse_isa_string() does what it says on the tin.
+To fully deprecate the kernel's use of "riscv,isa",
+of_early_processor_hartid() needs to first try using the new properties,
+before falling back to "riscv,isa".
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-Changes in v2:
-- Drop unused variables
----
- arch/riscv/kernel/cpufeature.c | 345 +++++++++++++++++----------------
- 1 file changed, 177 insertions(+), 168 deletions(-)
+ arch/riscv/kernel/cpu.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index bf7e8e8852f0..41aedeaecb61 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -178,29 +178,172 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index d0dfd88221df..9a4f4a23afcd 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -61,8 +61,29 @@ int riscv_early_of_processor_hartid(struct device_node *node, unsigned long *har
+ 		return -ENODEV;
+ 	}
  
- const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
++	if (of_property_read_string(node, "riscv,isa-base", &isa))
++		goto old_interface;
++
++	if (IS_ENABLED(CONFIG_32BIT) && strncasecmp(isa, "rv32i", 5))
++		return -ENODEV;
++
++	if (IS_ENABLED(CONFIG_64BIT) && strncasecmp(isa, "rv64i", 5))
++		return -ENODEV;
++
++	if (!of_property_present(node, "riscv,isa-extensions"))
++		return -ENODEV;
++
++	if (of_property_match_string(node, "riscv,isa-extensions", "i") < 0 ||
++	    of_property_match_string(node, "riscv,isa-extensions", "m") < 0 ||
++	    of_property_match_string(node, "riscv,isa-extensions", "a") < 0)
++		return -ENODEV;
++
++	return 0;
++
++old_interface:
+ 	if (of_property_read_string(node, "riscv,isa", &isa)) {
+-		pr_warn("CPU with hartid=%lu has no \"riscv,isa\" property\n", *hart);
++		pr_warn("CPU with hartid=%lu has no \"riscv,isa-base\" or \"riscv,isa\" property\n",
++			*hart);
+ 		return -ENODEV;
+ 	}
  
--void __init riscv_fill_hwcap(void)
-+static void __init riscv_parse_isa_string(unsigned long *this_hwcap, struct riscv_isainfo *isainfo,
-+					  unsigned long *isa2hwcap, const char *isa)
-+{
-+	/*
-+	 * For all possible cpus, we have already validated in
-+	 * the boot process that they at least contain "rv" and
-+	 * whichever of "32"/"64" this kernel supports, and so this
-+	 * section can be skipped.
-+	 */
-+	isa += 4;
-+
-+	while (*isa) {
-+		const char *ext = isa++;
-+		const char *ext_end = isa;
-+		bool ext_long = false, ext_err = false;
-+
-+		switch (*ext) {
-+		case 's':
-+			/*
-+			 * Workaround for invalid single-letter 's' & 'u'(QEMU).
-+			 * No need to set the bit in riscv_isa as 's' & 'u' are
-+			 * not valid ISA extensions. It works until multi-letter
-+			 * extension starting with "Su" appears.
-+			 */
-+			if (ext[-1] != '_' && ext[1] == 'u') {
-+				++isa;
-+				ext_err = true;
-+				break;
-+			}
-+			fallthrough;
-+		case 'S':
-+		case 'x':
-+		case 'X':
-+		case 'z':
-+		case 'Z':
-+			/*
-+			 * Before attempting to parse the extension itself, we find its end.
-+			 * As multi-letter extensions must be split from other multi-letter
-+			 * extensions with an "_", the end of a multi-letter extension will
-+			 * either be the null character or the "_" at the start of the next
-+			 * multi-letter extension.
-+			 *
-+			 * Next, as the extensions version is currently ignored, we
-+			 * eliminate that portion. This is done by parsing backwards from
-+			 * the end of the extension, removing any numbers. This may be a
-+			 * major or minor number however, so the process is repeated if a
-+			 * minor number was found.
-+			 *
-+			 * ext_end is intended to represent the first character *after* the
-+			 * name portion of an extension, but will be decremented to the last
-+			 * character itself while eliminating the extensions version number.
-+			 * A simple re-increment solves this problem.
-+			 */
-+			ext_long = true;
-+			for (; *isa && *isa != '_'; ++isa)
-+				if (unlikely(!isalnum(*isa)))
-+					ext_err = true;
-+
-+			ext_end = isa;
-+			if (unlikely(ext_err))
-+				break;
-+
-+			if (!isdigit(ext_end[-1]))
-+				break;
-+
-+			while (isdigit(*--ext_end))
-+				;
-+
-+			if (tolower(ext_end[0]) != 'p' || !isdigit(ext_end[-1])) {
-+				++ext_end;
-+				break;
-+			}
-+
-+			while (isdigit(*--ext_end))
-+				;
-+
-+			++ext_end;
-+			break;
-+		default:
-+			/*
-+			 * Things are a little easier for single-letter extensions, as they
-+			 * are parsed forwards.
-+			 *
-+			 * After checking that our starting position is valid, we need to
-+			 * ensure that, when isa was incremented at the start of the loop,
-+			 * that it arrived at the start of the next extension.
-+			 *
-+			 * If we are already on a non-digit, there is nothing to do. Either
-+			 * we have a multi-letter extension's _, or the start of an
-+			 * extension.
-+			 *
-+			 * Otherwise we have found the current extension's major version
-+			 * number. Parse past it, and a subsequent p/minor version number
-+			 * if present. The `p` extension must not appear immediately after
-+			 * a number, so there is no fear of missing it.
-+			 *
-+			 */
-+			if (unlikely(!isalpha(*ext))) {
-+				ext_err = true;
-+				break;
-+			}
-+
-+			if (!isdigit(*isa))
-+				break;
-+
-+			while (isdigit(*++isa))
-+				;
-+
-+			if (tolower(*isa) != 'p')
-+				break;
-+
-+			if (!isdigit(*++isa)) {
-+				--isa;
-+				break;
-+			}
-+
-+			while (isdigit(*++isa))
-+				;
-+
-+			break;
-+		}
-+
-+		/*
-+		 * The parser expects that at the start of an iteration isa points to the
-+		 * first character of the next extension. As we stop parsing an extension
-+		 * on meeting a non-alphanumeric character, an extra increment is needed
-+		 * where the succeeding extension is a multi-letter prefixed with an "_".
-+		 */
-+		if (*isa == '_')
-+			++isa;
-+
-+#define SET_ISA_EXT_MAP(name, bit)						\
-+		do {								\
-+			if ((ext_end - ext == sizeof(name) - 1) &&		\
-+			     !strncasecmp(ext, name, sizeof(name) - 1) &&	\
-+			     riscv_isa_extension_check(bit))			\
-+				set_bit(bit, isainfo->isa);			\
-+		} while (false)							\
-+
-+		if (unlikely(ext_err))
-+			continue;
-+		if (!ext_long) {
-+			int nr = tolower(*ext) - 'a';
-+
-+			if (riscv_isa_extension_check(nr)) {
-+				*this_hwcap |= isa2hwcap[nr];
-+				set_bit(nr, isainfo->isa);
-+			}
-+		} else {
-+			for (int i = 0; i < riscv_isa_ext_count; i++)
-+				SET_ISA_EXT_MAP(riscv_isa_ext[i].name,
-+						riscv_isa_ext[i].id);
-+		}
-+#undef SET_ISA_EXT_MAP
-+	}
-+}
-+
-+static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
- {
- 	struct device_node *node;
- 	const char *isa;
--	char print_str[NUM_ALPHA_EXTS + 1];
--	int i, j, rc;
--	unsigned long isa2hwcap[26] = {0};
-+	int rc;
- 	struct acpi_table_header *rhct;
- 	acpi_status status;
- 	unsigned int cpu;
- 
--	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
--	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
--	isa2hwcap['a' - 'a'] = COMPAT_HWCAP_ISA_A;
--	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
--	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
--	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
--	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
--
--	elf_hwcap = 0;
--
--	bitmap_zero(riscv_isa, RISCV_ISA_EXT_MAX);
--
- 	if (!acpi_disabled) {
- 		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
- 		if (ACPI_FAILURE(status))
-@@ -232,158 +375,7 @@ void __init riscv_fill_hwcap(void)
- 			}
- 		}
- 
--		/*
--		 * For all possible cpus, we have already validated in
--		 * the boot process that they at least contain "rv" and
--		 * whichever of "32"/"64" this kernel supports, and so this
--		 * section can be skipped.
--		 */
--		isa += 4;
--
--		while (*isa) {
--			const char *ext = isa++;
--			const char *ext_end = isa;
--			bool ext_long = false, ext_err = false;
--
--			switch (*ext) {
--			case 's':
--				/*
--				 * Workaround for invalid single-letter 's' & 'u'(QEMU).
--				 * No need to set the bit in riscv_isa as 's' & 'u' are
--				 * not valid ISA extensions. It works until multi-letter
--				 * extension starting with "Su" appears.
--				 */
--				if (ext[-1] != '_' && ext[1] == 'u') {
--					++isa;
--					ext_err = true;
--					break;
--				}
--				fallthrough;
--			case 'S':
--			case 'x':
--			case 'X':
--			case 'z':
--			case 'Z':
--				/*
--				 * Before attempting to parse the extension itself, we find its end.
--				 * As multi-letter extensions must be split from other multi-letter
--				 * extensions with an "_", the end of a multi-letter extension will
--				 * either be the null character or the "_" at the start of the next
--				 * multi-letter extension.
--				 *
--				 * Next, as the extensions version is currently ignored, we
--				 * eliminate that portion. This is done by parsing backwards from
--				 * the end of the extension, removing any numbers. This may be a
--				 * major or minor number however, so the process is repeated if a
--				 * minor number was found.
--				 *
--				 * ext_end is intended to represent the first character *after* the
--				 * name portion of an extension, but will be decremented to the last
--				 * character itself while eliminating the extensions version number.
--				 * A simple re-increment solves this problem.
--				 */
--				ext_long = true;
--				for (; *isa && *isa != '_'; ++isa)
--					if (unlikely(!isalnum(*isa)))
--						ext_err = true;
--
--				ext_end = isa;
--				if (unlikely(ext_err))
--					break;
--
--				if (!isdigit(ext_end[-1]))
--					break;
--
--				while (isdigit(*--ext_end))
--					;
--
--				if (tolower(ext_end[0]) != 'p' || !isdigit(ext_end[-1])) {
--					++ext_end;
--					break;
--				}
--
--				while (isdigit(*--ext_end))
--					;
--
--				++ext_end;
--				break;
--			default:
--				/*
--				 * Things are a little easier for single-letter extensions, as they
--				 * are parsed forwards.
--				 *
--				 * After checking that our starting position is valid, we need to
--				 * ensure that, when isa was incremented at the start of the loop,
--				 * that it arrived at the start of the next extension.
--				 *
--				 * If we are already on a non-digit, there is nothing to do. Either
--				 * we have a multi-letter extension's _, or the start of an
--				 * extension.
--				 *
--				 * Otherwise we have found the current extension's major version
--				 * number. Parse past it, and a subsequent p/minor version number
--				 * if present. The `p` extension must not appear immediately after
--				 * a number, so there is no fear of missing it.
--				 *
--				 */
--				if (unlikely(!isalpha(*ext))) {
--					ext_err = true;
--					break;
--				}
--
--				if (!isdigit(*isa))
--					break;
--
--				while (isdigit(*++isa))
--					;
--
--				if (tolower(*isa) != 'p')
--					break;
--
--				if (!isdigit(*++isa)) {
--					--isa;
--					break;
--				}
--
--				while (isdigit(*++isa))
--					;
--
--				break;
--			}
--
--			/*
--			 * The parser expects that at the start of an iteration isa points to the
--			 * first character of the next extension. As we stop parsing an extension
--			 * on meeting a non-alphanumeric character, an extra increment is needed
--			 * where the succeeding extension is a multi-letter prefixed with an "_".
--			 */
--			if (*isa == '_')
--				++isa;
--
--#define SET_ISA_EXT_MAP(name, bit)							\
--			do {								\
--				if ((ext_end - ext == sizeof(name) - 1) &&		\
--				     !strncasecmp(ext, name, sizeof(name) - 1) &&	\
--				     riscv_isa_extension_check(bit))			\
--					set_bit(bit, isainfo->isa);			\
--			} while (false)							\
--
--			if (unlikely(ext_err))
--				continue;
--			if (!ext_long) {
--				int nr = tolower(*ext) - 'a';
--
--				if (riscv_isa_extension_check(nr)) {
--					this_hwcap |= isa2hwcap[nr];
--					set_bit(nr, isainfo->isa);
--				}
--			} else {
--				for (int i = 0; i < riscv_isa_ext_count; i++)
--					SET_ISA_EXT_MAP(riscv_isa_ext[i].name,
--							riscv_isa_ext[i].id);
--			}
--#undef SET_ISA_EXT_MAP
--		}
-+		riscv_parse_isa_string(&this_hwcap, isainfo, isa2hwcap, isa);
- 
- 		/*
- 		 * Linux requires the following extensions, so we may as well
-@@ -420,6 +412,23 @@ void __init riscv_fill_hwcap(void)
- 
- 	if (!acpi_disabled && rhct)
- 		acpi_put_table((struct acpi_table_header *)rhct);
-+}
-+
-+void __init riscv_fill_hwcap(void)
-+{
-+	char print_str[NUM_ALPHA_EXTS + 1];
-+	int i, j;
-+	unsigned long isa2hwcap[26] = {0};
-+
-+	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
-+	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
-+	isa2hwcap['a' - 'a'] = COMPAT_HWCAP_ISA_A;
-+	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
-+	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
-+	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
-+	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
-+
-+	riscv_fill_hwcap_from_isa_string(isa2hwcap);
- 
- 	/* We don't support systems with F but without D, so mask those out
- 	 * here. */
 -- 
 2.40.1
 
