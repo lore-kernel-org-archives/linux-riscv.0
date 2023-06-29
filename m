@@ -4,68 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A045BEB64DC
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 14:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00359C04A6A
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 14:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lNHpW+N+FkLBc0JO2/K8YjX9XcM/G4yAl005TAm/rPM=; b=3h2jTNTXJaWWyk
-	EackzoHt829iwFHMsku9+D1tyx/RaSOdf6MeCCFVedBLgWOUTnUqOwWi9rf9SuW5DS2OPXqdyQGSq
-	HIbtGdowbEGTOmLFiE4Caujs+vOkQyYLDyrgsJryKP4yqQ7gBm1oaWpC/zV4njQzzD/VZb6hJDCWM
-	JagDTKXcxv9F+MtuwPJYxJbztdy9RfxrhyvMksn1NmP76FST4DXgTvXJQwidKmba8jL+3T1+ySRUH
-	TS2CyInqEvB2f46X97/jOQR1ZQg4Lw/OSqj8ryV0YaWDB/kfMRHhPqmOw3dO5x8BHe62xRClArkYp
-	ZK/vf3qmKujOfP9/ORTA==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mStixHxxeTyUsZHgqwqcbuTQbTTaRg9+btQMTjlG+iw=; b=i/iyGClId4SWcp
+	eBi+fL/Dyj9zIUCiudl2h6sYhH5atKKdKPxuHamvJNKyvX9mWTG9Qyae8eeoe8GpnHZCgOP3eBRj4
+	IzOSCHhCCW9tccWdMktRmj2x3CRel2G8HzwHqc92fH2y6vQ9U4vSpqRNo3NH+hcvVjx09ElgOrNCi
+	oLU/9IRj+bztrnJBUYp1s/nYQolF75RjgfXxJRm90WsflfjlLaLyc7+tKaXjZGJzQahgD8SyvUS+k
+	sudkPKDxHYSq/6w/CwM9SWw6sZRDhPY/83oLFMJ3oSH3jk1ACu8Lmt7Xcsn+RWfJK2kLWDIPnNSrh
+	hld54EIkZf+VipQ4RfjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEsXg-001HYr-1L;
-	Thu, 29 Jun 2023 14:22:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qEseZ-001IRT-05;
+	Thu, 29 Jun 2023 14:29:47 +0000
+Received: from wnew4-smtp.messagingengine.com ([64.147.123.18])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEsXc-001HYQ-2l
-	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jun 2023 14:22:38 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E602D61562;
-	Thu, 29 Jun 2023 14:22:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86F7FC433C0;
-	Thu, 29 Jun 2023 14:22:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688048555;
-	bh=noPPya2IB97xos3514fxrM3ffrnnYQnlEv4tZ/dVCTQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Nw9ivVGkcedTNaWaMrJ0K3JrlUoIxliZ5dXSbmRiyfUuu+YrTflYxVKSLmcawyIo4
-	 rL08oZQkRRoHuAyls+Dympl8oogYLFeuMIDz+pKLF+dPxhPvP8GMS4mzy0knHz06h4
-	 CscQ9tnTdfZoS3Sy0S3zH3pddlBU8fvXxsOT/sl8YzlSfQ5tBbpBqJlYtlNC7bVbWq
-	 nw9X89ptz0Gq0ZGm+ovPexLyAGyRMxG+4roaBUvxCVcbseMb1e7eR2HvMRwpHcKElf
-	 FuoOIXdwRYy/mtwyIMk3IqKD2cwf+jPHWazA2CkW3ZJhNVFHkPfkEDzOP7gwPEZukC
-	 TTBUCGohNPwXw==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	Andy Chiu <andy.chiu@sifive.com>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	linux-kernel@vger.kernel.org,
-	linux@rivosinc.com,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	=?UTF-8?q?R=C3=A9mi=20Denis-Courmont?= <remi@remlab.net>,
-	Darius Rad <darius@bluespec.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4] riscv: Discard vector state on syscalls
-Date: Thu, 29 Jun 2023 16:22:28 +0200
-Message-Id: <20230629142228.1125715-1-bjorn@kernel.org>
-X-Mailer: git-send-email 2.39.2
-MIME-Version: 1.0
+	id 1qEseW-001IPc-0G;
+	Thu, 29 Jun 2023 14:29:45 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailnew.west.internal (Postfix) with ESMTP id 9B6A02B000A4;
+	Thu, 29 Jun 2023 10:29:38 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Thu, 29 Jun 2023 10:29:40 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1688048978; x=1688056178; bh=nG
+	nJsyAJyrvJkwnkSe1+RvyafOFNiNiqyHMsPO1u6Xk=; b=2EcylAr+2IQK5P7b6p
+	/vjLbGIHf8i+8rzMt8chAuFq+c5T2nXA6rNsTNzOdtksQ6e0sAw9/eRHtOar+WHl
+	hAsaWivSScicHRc+IOwIVIkXzMKCHS/A9Ffztx8GB0RJptxk+yUbu3OXBw/f3KTQ
+	oPUWqOApNqupZeOxA1+KamV7Y1R9j5wdLjjMttKjfSUmTUPTzRkr/PbCf7BFCJf4
+	mDKkwIwEguDSpZs+nb5nQ5ZSuOg9qrQBVpn/A0WtJOxqM4NA4/h3SXbcRbNONYzA
+	I5y/p+xe7tbFRUhSHoYPvHtNe3/fi0gTCERIIZJ9/fLQnFzpbVcymrZbyXkaYBBK
+	ODIg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1688048978; x=1688056178; bh=nGnJsyAJyrvJk
+	wnkSe1+RvyafOFNiNiqyHMsPO1u6Xk=; b=qcZu2F7J3I03fwrcSPg8dsLuhFIrS
+	ucycm657dud2E6uYWskFVqcIfgSe/dBt8fFB6+XQTy/fANN6a1BuztN45oTSanNT
+	XxVMQih8LW415rbF6tRZPCXSpwn+ekET+YIRIH1036pYAwUd1Fb1ijQRv3N+j2GN
+	AxU6byz7HLauD8dLGeOrAT3BJrYb8oPjklQK9FEAS/EPJOPUSZb+pzy/zrsduOA2
+	IVQQiY6wMEEkf+oC5juPiNw0sDEEHj+C7FUzhU16m7yof5koi7/AUsQnx7vi7hIE
+	YvfD9R33aPOCag5rTXjki4uvznKy226FqetZdturkKSXU4rXB99QQtsyg==
+X-ME-Sender: <xms:UZWdZPQFtBYsPdlXlUSdNixOakdgSk0rQ0sJEW2WMk3NI57JBkFXZA>
+    <xme:UZWdZAzd5cSzTnb4-3WR64AVGeqojUQ8_r8RCWCNfeGwQuSKyph38WHIvHfKtGQ9D
+    iuBERCaWpz0v8yUOfI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrtdeggdejjecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:UZWdZE0-6IC7fBNDeGBvpnGm2Zr-dhEGRLTF93khPbJEJ5EkVp6Jfw>
+    <xmx:UZWdZPAguwQt8yn2qe__L5Yzs-USfTNjeEYazXWLDNvlZmzvvwKQYg>
+    <xmx:UZWdZIhqyNx_om12J_mIvSUHmK-q2dXchnc5mILhG3AL8P9Et1GMBA>
+    <xmx:UpWdZB0EDG72hkx-t3BFD4YV93ZdrsN0Q1V64IlAbDxvxvOYULKpsP-j2j8>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id C13A1B60089; Thu, 29 Jun 2023 10:29:37 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
+Mime-Version: 1.0
+Message-Id: <0783a7ec-b779-4033-9877-f6eacc65c575@app.fastmail.com>
+In-Reply-To: <4d711508-c299-49f2-8691-e75d68f2485e@app.fastmail.com>
+References: <20230629121952.10559-1-tzimmermann@suse.de>
+ <4d711508-c299-49f2-8691-e75d68f2485e@app.fastmail.com>
+Date: Thu, 29 Jun 2023 16:29:17 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Thomas Zimmermann" <tzimmermann@suse.de>, "Helge Deller" <deller@gmx.de>,
+ "Daniel Vetter" <daniel@ffwll.ch>, "Dave Airlie" <airlied@gmail.com>
+Cc: Linux-Arch <linux-arch@vger.kernel.org>, linux-hyperv@vger.kernel.org,
+ linux-efi@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-mips@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, loongarch@lists.linux.dev,
+ linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 00/12] arch,fbdev: Move screen_info into arch/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_072237_044718_A0E59A83 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20230629_072944_146716_F8C8036B 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,76 +108,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKVGhlIFJJU0MtViB2ZWN0
-b3Igc3BlY2lmaWNhdGlvbiBzdGF0ZXM6CiAgRXhlY3V0aW5nIGEgc3lzdGVtIGNhbGwgY2F1c2Vz
-IGFsbCBjYWxsZXItc2F2ZWQgdmVjdG9yIHJlZ2lzdGVycwogICh2MC12MzEsIHZsLCB2dHlwZSkg
-YW5kIHZzdGFydCB0byBiZWNvbWUgdW5zcGVjaWZpZWQuCgpUaGUgdmVjdG9yIHJlZ2lzdGVycyBh
-cmUgc2V0IHRvIGFsbCAxcywgdmlsbCBpcyBzZXQgKGludmFsaWQpLCBhbmQgdGhlCnZlY3RvciBz
-dGF0dXMgaXMgc2V0IHRvIERpcnR5LgoKVGhhdCB3YXkgd2UgY2FuIHByZXZlbnQgdXNlcnNwYWNl
-IGZyb20gYWNjaWRlbnRhbGx5IHJlbHlpbmcgb24gdGhlCnN0YXRlZCBzYXZlLgoKUsOpbWkgcG9p
-bnRlZCBvdXQgWzFdIHRoYXQgd3JpdGluZyB0byB0aGUgcmVnaXN0ZXJzIG1pZ2h0IGJlCnN1cGVy
-Zmx1b3VzLCBhbmQgc2V0dGluZyB2aWxsIGlzIHN1ZmZpY2llbnQuCgpMaW5rOiBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8xMjc4NDMyNi45VVBQSzNNQWVCQGJhc2lsZS5yZW1s
-YWIubmV0LyAjIFsxXQpTdWdnZXN0ZWQtYnk6IERhcml1cyBSYWQgPGRhcml1c0BibHVlc3BlYy5j
-b20+ClN1Z2dlc3RlZC1ieTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+ClN1
-Z2dlc3RlZC1ieTogUsOpbWkgRGVuaXMtQ291cm1vbnQgPHJlbWlAcmVtbGFiLm5ldD4KU2lnbmVk
-LW9mZi1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgotLS0KCnYzLT52NDoK
-ICBGaXhlZCBidWlsZCBDT05GSUdfUklTQ1ZfSVNBX1Y9biBidWlsZHMgKENvbm9yKQoKdjItPnYz
-OgogIFNldCBzdGF0ZSB0byBEaXJ0eSBhZnRlciBkaXNjYXJkLCBmb3IgcHJvcGVyIHB0cmFjZSgp
-IGhhbmRsaW5nCiAgKEFuZHkpCgp2MS0+djI6CiAgUHJvcGVyIHJlZ2lzdGVyIHJlc3RvcmUgZm9y
-IGluaXRpYWwgc3RhdGUgKEFuZHkpCiAgU2V0IHJlZ2lzdGVycyB0byAxcywgYW5kIG5vdCAwcyAo
-RGFyaXVzKQoKLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oIHwgMzQgKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrCiBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jICAg
-ICAgIHwgIDIgKysKIDIgZmlsZXMgY2hhbmdlZCwgMzYgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVjdG9yLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3ZlY3Rvci5oCmluZGV4IDA0YzBiMDdiZjZjZC4uM2Q3ODkzMGNhYjUxIDEwMDY0NAotLS0g
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZlY3Rvci5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vdmVjdG9yLmgKQEAgLTMzLDYgKzMzLDExIEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3Jp
-c2N2X3ZfdnN0YXRlX2NsZWFuKHN0cnVjdCBwdF9yZWdzICpyZWdzKQogCXJlZ3MtPnN0YXR1cyA9
-IChyZWdzLT5zdGF0dXMgJiB+U1JfVlMpIHwgU1JfVlNfQ0xFQU47CiB9CiAKK3N0YXRpYyBpbmxp
-bmUgdm9pZCBfX3Jpc2N2X3ZfdnN0YXRlX2RpcnR5KHN0cnVjdCBwdF9yZWdzICpyZWdzKQorewor
-CXJlZ3MtPnN0YXR1cyA9IChyZWdzLT5zdGF0dXMgJiB+U1JfVlMpIHwgU1JfVlNfRElSVFk7Cit9
-CisKIHN0YXRpYyBpbmxpbmUgdm9pZCByaXNjdl92X3ZzdGF0ZV9vZmYoc3RydWN0IHB0X3JlZ3Mg
-KnJlZ3MpCiB7CiAJcmVncy0+c3RhdHVzID0gKHJlZ3MtPnN0YXR1cyAmIH5TUl9WUykgfCBTUl9W
-U19PRkY7CkBAIC0xMjgsNiArMTMzLDM0IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3Jpc2N2X3Zf
-dnN0YXRlX3Jlc3RvcmUoc3RydWN0IF9fcmlzY3Zfdl9leHRfc3RhdGUgKnJlc3RvcmVfCiAJcmlz
-Y3Zfdl9kaXNhYmxlKCk7CiB9CiAKK3N0YXRpYyBpbmxpbmUgdm9pZCBfX3Jpc2N2X3ZfdnN0YXRl
-X2Rpc2NhcmQodm9pZCkKK3sKKwl1bnNpZ25lZCBsb25nIHZsLCB2dHlwZV9pbnZhbCA9IDFVTCA8
-PCAoQklUU19QRVJfTE9ORyAtIDEpOworCisJcmlzY3Zfdl9lbmFibGUoKTsKKwlhc20gdm9sYXRp
-bGUgKAorCQkiLm9wdGlvbiBwdXNoXG5cdCIKKwkJIi5vcHRpb24gYXJjaCwgK3Zcblx0IgorCQki
-dnNldHZsaQklMCwgeDAsIGU4LCBtOCwgdGEsIG1hXG5cdCIKKwkJInZtdi52LmkJdjAsIC0xXG5c
-dCIKKwkJInZtdi52LmkJdjgsIC0xXG5cdCIKKwkJInZtdi52LmkJdjE2LCAtMVxuXHQiCisJCSJ2
-bXYudi5pCXYyNCwgLTFcblx0IgorCQkidnNldHZsCQklMCwgeDAsICUxXG5cdCIKKwkJIi5vcHRp
-b24gcG9wXG5cdCIKKwkJOiAiPSZyIiAodmwpIDogInIiICh2dHlwZV9pbnZhbCkgOiAibWVtb3J5
-Iik7CisJcmlzY3Zfdl9kaXNhYmxlKCk7Cit9CisKK3N0YXRpYyBpbmxpbmUgdm9pZCByaXNjdl92
-X3ZzdGF0ZV9kaXNjYXJkKHN0cnVjdCBwdF9yZWdzICpyZWdzKQoreworCWlmICgocmVncy0+c3Rh
-dHVzICYgU1JfVlMpID09IFNSX1ZTX09GRikKKwkJcmV0dXJuOworCisJX19yaXNjdl92X3ZzdGF0
-ZV9kaXNjYXJkKCk7CisJX19yaXNjdl92X3ZzdGF0ZV9kaXJ0eShyZWdzKTsKK30KKwogc3RhdGlj
-IGlubGluZSB2b2lkIHJpc2N2X3ZfdnN0YXRlX3NhdmUoc3RydWN0IHRhc2tfc3RydWN0ICp0YXNr
-LAogCQkJCSAgICAgICBzdHJ1Y3QgcHRfcmVncyAqcmVncykKIHsKQEAgLTE3Myw2ICsyMDYsNyBA
-QCBzdGF0aWMgaW5saW5lIGJvb2wgcmlzY3Zfdl9maXJzdF91c2VfaGFuZGxlcihzdHJ1Y3QgcHRf
-cmVncyAqcmVncykgeyByZXR1cm4gZmFscwogc3RhdGljIGlubGluZSBib29sIHJpc2N2X3ZfdnN0
-YXRlX3F1ZXJ5KHN0cnVjdCBwdF9yZWdzICpyZWdzKSB7IHJldHVybiBmYWxzZTsgfQogc3RhdGlj
-IGlubGluZSBib29sIHJpc2N2X3ZfdnN0YXRlX2N0cmxfdXNlcl9hbGxvd2VkKHZvaWQpIHsgcmV0
-dXJuIGZhbHNlOyB9CiAjZGVmaW5lIHJpc2N2X3ZfdnNpemUgKDApCisjZGVmaW5lIHJpc2N2X3Zf
-dnN0YXRlX2Rpc2NhcmQocmVncykJCWRvIHt9IHdoaWxlICgwKQogI2RlZmluZSByaXNjdl92X3Zz
-dGF0ZV9zYXZlKHRhc2ssIHJlZ3MpCQlkbyB7fSB3aGlsZSAoMCkKICNkZWZpbmUgcmlzY3Zfdl92
-c3RhdGVfcmVzdG9yZSh0YXNrLCByZWdzKQlkbyB7fSB3aGlsZSAoMCkKICNkZWZpbmUgX19zd2l0
-Y2hfdG9fdmVjdG9yKF9fcHJldiwgX19uZXh0KQlkbyB7fSB3aGlsZSAoMCkKZGlmZiAtLWdpdCBh
-L2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCmlu
-ZGV4IDUxNTg5NjFlYTk3Ny4uNWZmNjNhNzg0YTZkIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tl
-cm5lbC90cmFwcy5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKQEAgLTI5Niw2ICsy
-OTYsOCBAQCBhc21saW5rYWdlIF9fdmlzaWJsZSBfX3RyYXBfc2VjdGlvbiB2b2lkIGRvX3RyYXBf
-ZWNhbGxfdShzdHJ1Y3QgcHRfcmVncyAqcmVncykKIAkJcmVncy0+ZXBjICs9IDQ7CiAJCXJlZ3Mt
-Pm9yaWdfYTAgPSByZWdzLT5hMDsKIAorCQlyaXNjdl92X3ZzdGF0ZV9kaXNjYXJkKHJlZ3MpOwor
-CiAJCXN5c2NhbGwgPSBzeXNjYWxsX2VudGVyX2Zyb21fdXNlcl9tb2RlKHJlZ3MsIHN5c2NhbGwp
-OwogCiAJCWlmIChzeXNjYWxsIDwgTlJfc3lzY2FsbHMpCgpiYXNlLWNvbW1pdDogNDg4ODMzY2Nk
-Y2FjMTE4ZGExNjcwMWY0ZWUwNjczYjIwYmE0N2ZlMwotLSAKMi4zOS4yCgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Jun 29, 2023, at 15:31, Arnd Bergmann wrote:
+> On Thu, Jun 29, 2023, at 13:45, Thomas Zimmermann wrote:
+>>
+>> Future directions: with the patchset in place, it will become possible
+>> to provide screen_info and edid_info only if there are users. Some
+>> architectures do this by testing for CONFIG_VT, CONFIG_DUMMY_CONSOLE,
+>> etc. A more uniform approach would be nice. We should also attempt
+>> to minimize access to the global screen_info as much as possible. To
+>> do so, some drivers, such as efifb and vesafb, would require an update.
+>> The firmware's EDID data could possibly made available outside of fbdev.
+>> For example, the simpledrm and ofdrm drivers could provide such data
+>> to userspace compositors.
+>
+> I suspect that most architectures that provide a screen_info only
+> have this in order to compile the framebuffer drivers, and provide
+> hardcoded data that does not even reflect any real hardware.
+>
+> We can probably reduce the number of architectures that do this
+> a lot, especially if we get EFI out of the picture.
+
+I tried to have another look at who uses what, and here are
+some observations:
+
+- EFIFB and hyperv are the only ones that are relevant on modern
+  systmes, and they are only used on systems using EFI, so they
+  could use a separate data structure that is defined as part of
+  drivers/firmware/efi. This would likely mean we don't have to
+  define a separate screen_info for arm64, loongarch, ia64 and
+  riscv, and could separate the legacy vgacon/vesafb stuff on
+  arm32 from the efi side.
+
+- FB_SIS can likely be marked 'depends on X86' like FB_INTEL,
+  it seems to depend on x86 BOOT_VESA_SUPPORT.
+
+- FB_VGA16 is currently support on powerpc and enabled on
+  one defconfig (pasemi), which I'm fairly sure is a mistake,
+  so this could be made x86 specific as well.
+
+- VGA_CONSOLE has a complicated Kconfig dependency list that
+  lists platforms without VGA support but I think this is better
+  expressed with a positive list. It looks like csky, hexagon,
+  nios2 and xtensa should be excluded here and not provide
+  screen_info.
+
+- arm and mips only need to provide screen_info on machines
+  with VGA_CONSOLE. On Arm we have a dependency on
+  footbridge/integrator/netwinder, while on mips the
+  dependency can be added to the platforms that fill
+  the info (mips, malta, sibyte, sni).
+
+- DUMMY_CONSOLE only uses screen_info on arm, and this should
+  likely be limited to the three obsolete machines that
+  support VGACON. Almost all Arm machines use DT these days
+  and won't ever fill the screen info dynamically.
+
+      Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
