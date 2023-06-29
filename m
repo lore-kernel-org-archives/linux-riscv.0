@@ -4,100 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8BDEB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 14:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCBFFEB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 16:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GEM6r21sC2BoiZj7euPmUn+HDBNnR5OKeyfcBfy3wjg=; b=1W1FSC5wvtKhCo
-	JyYCu5rlpVPcQRd5+cLHe3gzqp4o1VQh94DqmktxVYAwTpXqBBFvTIkhbZWxt6FRU0T2i8Hdz5M03
-	1v+bhZaZvulxQcUcmQu1MXqK7W6rloKGrFBfduF52wPeeRrm4TMK/MrqXXscISOImss8E3gaSb3ab
-	3CiqHvo8Dti5Bn/iCcGYbgqmzYawBHhCaWfbxJSqUHeUUrTSO/v+0sqHj1fEO0xxVTT8RpZz5SmH6
-	AG2Fx2+8LpbVV0a0rzyqdNjiM+dTEk4VkiIJkiHQZhmJzaSsKnuvmMqdWhQWg2TiEfEbxdYOK6afC
-	88N8x+w2O4mDZSaJBeUw==;
+	List-Owner; bh=Tl+AaQqjBtEGDrTi5i+fVCGPUv/3zZcOnIEb1jjPtvs=; b=qBkv7FrOBCS307
+	zEwAOJHE98r7XBc4PK1J+baFkPLMULT6lcOV3PPW+tD86e2Y19Pw6eqdLM1oVQOjAEAeL/ImoBcwf
+	lB1Mh2EugwjY/yvDm32lCqYupaItADAz8S5ktZui8GAk77HVmMnPPtPiY/Gpt45gpSiSUVrBXOSLh
+	ye6aMotIO5MtAaLSrxcfXzPDL7FItiBgd7U5CbjviG0p8+5nsLq0zHPb+hHRE9zemyH3fn0sAKFI9
+	Ir4iznBf3NJCAlcc35gTi1Y45kFIKyPpjUp9RgMOdDGfjT+aCgB/lW8XCKtcJBJVUgRJ3dV7Lol/Z
+	eGOKYaey6cNQWz1SaTbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEsrW-001KFr-0k;
-	Thu, 29 Jun 2023 14:43:10 +0000
-Received: from wnew4-smtp.messagingengine.com ([64.147.123.18])
+	id 1qEu9x-001Udp-0G;
+	Thu, 29 Jun 2023 16:06:17 +0000
+Received: from 10.mo582.mail-out.ovh.net ([87.98.157.236])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEsrS-001KEb-1H;
-	Thu, 29 Jun 2023 14:43:07 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.west.internal (Postfix) with ESMTP id 2C0362B000BB;
-	Thu, 29 Jun 2023 10:43:04 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Thu, 29 Jun 2023 10:43:05 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm1; t=1688049783; x=1688056983; bh=tH
-	SCuJbmuJlT+unyX4wdwm35F06LE8SCy+Og6X/m9DI=; b=FV9nO/j/Xdm5cnG6UB
-	sO9u8qjWkG4zOqKUhXnhJ2RYfN1MZ3Kurqn85lEsJl7vkP5a/wdBWaFdfq4uSulg
-	eD/TXf6t4GqPVAoNus5HnjtbA1vX8VrBrjgri2vE0OiP2BSb5Sz/Pa2C0OcILLNa
-	uvFS7KDmA3Z+PSTaIcpOvOnZyAi2yVT1FzCqp7iRvA0LJt1+wRraHFLOR3jih5Cs
-	jATcgblkM7OGPteVBvXmW3paY0tjSC/B5Xw7fxmwX1f73RjswI9pT+zjkQRu+TqM
-	Zsrmd0IqOKzH2xm5FLjlXxLg/SYtjqX8WBuItuEotXdBlqMlSIKnBw9uSc0kSFc4
-	WB+Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1688049783; x=1688056983; bh=tHSCuJbmuJlT+
-	unyX4wdwm35F06LE8SCy+Og6X/m9DI=; b=IEg6bOdqZ2fgoUmwXVc8pb/uyJ2CC
-	MOuLn/CZcijB/QkegFpO4zpbp2YYMXm7i7Fu54Datj1E0vkDR3DKgAUxo6z+GWk3
-	vXwluBuok2nikCjYscmpRjVF9aIs6Z3Xj7fdUsirXf+m9AdUwVoMNKOO0MYZ2R8w
-	hgGHbzL0Ar9zadbigZQorDDjOWkOiah/gEi8RJBLof77Nwpm9iJ+r3Tp7gQ7XU3u
-	cozoUBEjOyE8ENgbEKdyPutCHcAWlVtfgQdZBYVqqbmbh2K14vwZE6PMJ4Kx6p2+
-	/+OkyxEaQgOqymqPNrwdxRUuj9S7LqeMaozoifwtEIa8O5rZRMCvumLJw==
-X-ME-Sender: <xms:d5idZJS-d-u9H6tAL4MVNUn3dLrNSbL4IruMnHIE3CpKi0-H693WSQ>
-    <xme:d5idZCw5mye3ObeRK8d2o0AvifT1I5cjzGyLezIYCpTQRj35g9ypte7NqWzs7GoN6
-    8Sm_DjOg0zV1YdZSVw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrtdeggdektdcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
-    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
-    gvrhhnpeevveeggeffjeeuieduheefhfehgfdujeetjeelueejjeffueeiudefveffhffh
-    ffenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucevlhhushhtvghrufhiiigvpe
-    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:d5idZO03ZSZrR92W5cJwJ7vDJs6WpKIlFRy9Xhuyzbi0CT-ygNCtuw>
-    <xmx:d5idZBAqt6Jponm39fmOqP5dZQFGbDIwwMJa-8NcLHlCdZdcXxv0nw>
-    <xmx:d5idZCgNy7rtA7-MCt1uXVV-VTEogehRKv7jDtzZjAfQWu979t5spw>
-    <xmx:d5idZD1uiRApbuVHCCuiXmm0gt_m0UjKra-phrbnLG5pdPkdVgK1VG-MnKk>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 44DBDB60086; Thu, 29 Jun 2023 10:43:03 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
-Mime-Version: 1.0
-Message-Id: <ce4ddce0-ceea-426c-b348-d22468d7c402@app.fastmail.com>
-In-Reply-To: <f9185435-74bb-a325-8fe6-3beb51a66e0a@suse.de>
-References: <20230629121952.10559-1-tzimmermann@suse.de>
- <4d711508-c299-49f2-8691-e75d68f2485e@app.fastmail.com>
- <f9185435-74bb-a325-8fe6-3beb51a66e0a@suse.de>
-Date: Thu, 29 Jun 2023 16:42:42 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Thomas Zimmermann" <tzimmermann@suse.de>, "Helge Deller" <deller@gmx.de>,
- "Daniel Vetter" <daniel@ffwll.ch>, "Dave Airlie" <airlied@gmail.com>
-Cc: Linux-Arch <linux-arch@vger.kernel.org>, linux-hyperv@vger.kernel.org,
- linux-efi@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-mips@vger.kernel.org, linux-fbdev@vger.kernel.org,
- dri-devel@lists.freedesktop.org, loongarch@lists.linux.dev,
- linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 00/12] arch,fbdev: Move screen_info into arch/
+	id 1qEu9t-001UcR-0T
+	for linux-riscv@lists.infradead.org;
+	Thu, 29 Jun 2023 16:06:15 +0000
+Received: from director8.ghost.mail-out.ovh.net (unknown [10.108.1.112])
+	by mo582.mail-out.ovh.net (Postfix) with ESMTP id 1C0BF272DA
+	for <linux-riscv@lists.infradead.org>; Thu, 29 Jun 2023 16:06:06 +0000 (UTC)
+Received: from ghost-submission-6684bf9d7b-jjccx (unknown [10.110.115.101])
+	by director8.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 5CA781FD81;
+	Thu, 29 Jun 2023 16:06:05 +0000 (UTC)
+Received: from courmont.net ([37.59.142.102])
+	by ghost-submission-6684bf9d7b-jjccx with ESMTPSA
+	id 6K0SEu2rnWRLegEAx5K4IQ
+	(envelope-from <remi@remlab.net>); Thu, 29 Jun 2023 16:06:05 +0000
+Authentication-Results: garm.ovh; auth=pass (GARM-102R00462b49bf9-edcf-4eeb-9952-1c40042ce9f5,
+                    F84C1CB5A676BA8784C093282B10E490F1B88DE6) smtp.auth=postmaster@courmont.net
+X-OVh-ClientIp: 87.92.194.88
+From: =?ISO-8859-1?Q?R=E9mi?= Denis-Courmont <remi@remlab.net>
+To: palmer@dabbelt.com, linux-riscv@lists.infradead.org, heiko@sntech.de,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] RISC-V: add T-Head vector errata handling
+Date: Thu, 29 Jun 2023 19:06:04 +0300
+Message-ID: <3235072.aeNJFYEL58@basile.remlab.net>
+Organization: Remlab
+In-Reply-To: <20230622231305.631331-4-heiko@sntech.de>
+References: <20230622231305.631331-1-heiko@sntech.de>
+ <20230622231305.631331-4-heiko@sntech.de>
+MIME-Version: 1.0
+X-Ovh-Tracer-Id: 12388839627150727643
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: 0
+X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedviedrtdeggdeljecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfqggfjpdevjffgvefmvefgnecuuegrihhlohhuthemucehtddtnecunecujfgurhephffvufffkfhojghfggfgtgesthhqredttddtjeenucfhrhhomheptformhhiucffvghnihhsqdevohhurhhmohhnthcuoehrvghmihesrhgvmhhlrggsrdhnvghtqeenucggtffrrghtthgvrhhnpeffgedthfegveefhffhffehvddtvdetgfelveeuueekkeetvefgtdfgffdvhfegveenucffohhmrghinheprhgvmhhlrggsrdhnvghtnecukfhppeduvdejrddtrddtrddupdekjedrledvrdduleegrdekkedpfeejrdehledrudegvddruddtvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduvdejrddtrddtrddupdhmrghilhhfrhhomhepoehrvghmihesrhgvmhhlrggsrdhnvghtqedpnhgspghrtghpthhtohepuddprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdfovfetjfhoshhtpehmohehkedvpdhmohguvgepshhmthhpohhuth
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_074306_461559_7C12AB60 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20230629_090613_488958_C9E8FF61 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,54 +69,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 29, 2023, at 16:15, Thomas Zimmermann wrote:
-> Am 29.06.23 um 15:31 schrieb Arnd Bergmann:
->> On Thu, Jun 29, 2023, at 13:45, Thomas Zimmermann wrote:
->>> Future directions: with the patchset in place, it will become possible
->>> to provide screen_info and edid_info only if there are users. Some
->>> architectures do this by testing for CONFIG_VT, CONFIG_DUMMY_CONSOLE,
->>> etc. A more uniform approach would be nice. We should also attempt
->>> to minimize access to the global screen_info as much as possible. To
->>> do so, some drivers, such as efifb and vesafb, would require an update.
->>> The firmware's EDID data could possibly made available outside of fbdev.
->>> For example, the simpledrm and ofdrm drivers could provide such data
->>> to userspace compositors.
->> 
->> I suspect that most architectures that provide a screen_info only
->> have this in order to compile the framebuffer drivers, and provide
->> hardcoded data that does not even reflect any real hardware.
->
-> That's quite possible. Only x86's bootparam and EFI code sets 
-> screen_info from external data. The rest is hardcoded. A number of 
-> architectures protect screen_info with CONFIG_VT, CONFIG_DUMMY_CONSOLE, 
-> etc. In a later patchset, I wanted to change this such that these users 
-> of screen_info would enable the feature via select in their Kconfig.
->
-> Do you know the reason for this branch in dummycon:
->
-> https://elixir.bootlin.com/linux/v6.4/source/drivers/video/console/dummycon.c#L21
->
-> What is special about arm that dummycon uses the screeninfo?
-
-I can only guess myself, but I see that the values are only ever
-set from the old ATAGS data, and not from DT on any of the
-modern ones, and my interpretation is that this is meant to
-match whatever the vga console was set to on the three
-platforms that support vgacon.
- 
-I see this was added in linux-2.1.111, just before the
-corresponding sparc specific hack was removed, but I don't have
-patch descriptions from that era. Russell might remember, or know
-if that is actually still needed.
-
-   Arnd
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CUhpLAoKTGUgcGVyamFudGFpbmEgMjMuIGtlc8Oka3V1dGEgMjAyMywgMi4xMy4wNSBFRVNUIEhl
+aWtvIFN0dWVibmVyIGEgw6ljcml0IDoKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9lcnJhdGFfbGlzdC5oCj4gYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VycmF0YV9saXN0
+LmggaW5kZXggZmIxYTgxMGYzZDhjLi5hYjIxZmFkYmU5YzYKPiAxMDA2NDQKPiAtLS0gYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL2VycmF0YV9saXN0LmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2VycmF0YV9saXN0LmgKPiBAQCAtMTU0LDYgKzE1NSw0OCBAQCBhc20gdm9sYXRpbGUo
+QUxURVJOQVRJVkUoCQkJCQoJCVwKPiAKPiAgCTogIj1yIiAoX19vdmwpIDoJCQkJCQkKXAo+ICAJ
+OiAibWVtb3J5IikKPiAKPiArI2lmZGVmIENPTkZJR19FUlJBVEFfVEhFQURfVkVDVE9SCj4gKwo+
+ICsjZGVmaW5lIFRIRUFEX0M5WFhfQ1NSX1ZYU0FUCQkJMHg5Cj4gKyNkZWZpbmUgVEhFQURfQzlY
+WF9DU1JfVlhSTQkJCTB4YQo+ICsKPiArLyoKPiArICogVmVjdG9yIDAuNy4xIGFzIHVzZWQgZm9y
+IGV4YW1wbGUgb24gVC1IZWFkIFh1YW50aWUgY29yZXMsIHVzZXMgYW4gb2xkZXIKPiArICogZW5j
+b2RpbmcgZm9yIHZzZXR2bGkgKHRhLCBtYSB2cy4gZDEpLCBzbyBwcm92aWRlIGFuIGluc3RydWN0
+aW9uIGZvcgo+ICsgKiB2c2V0dmxpCXQ0LCB4MCwgZTgsIG04LCBkMQo+ICsgKi8KPiArI2RlZmlu
+ZSBUSEVBRF9WU0VUVkxJX1Q0WDBFOE04RDEJIi5sb25nCTB4MDAzMDdlZDdcblx0IgoKVGhhdCBp
+cyBlcXVpdmFsZW50IHRvLCBhbmQgKElNSE8pIG11Y2ggbGVzcyBsZWdpYmxlIHRoYW46CiIuaW5z
+biAgIGkgT1BfViwgNywgdDQsIHgwLCAzIgpPciBldmVuIGlmIHlvdSBkb24ndCBtaW5kIHNlY29u
+ZC1ndWVzc2luZyBSVlYgMS4wIGFzc2VtYmxlcnM6CiJ2c2V0dmxpIHQ0LCB6ZXJvLCBlOCwgbTgs
+IHR1LCBtdSIKCkVpdGhlciB3YXksIHlvdSBkb24ndCBuZWVkIHRvIGhhcmQtY29kZSBYLXJlZ2lz
+dGVyIG9wZXJhbmRzIGluIGFzc2VtYmxlciAKbWFjcm9zICh0aG91Z2ggeW91IGRvIHVuZm9ydHVu
+YXRlbHkgbmVlZCB0byBoYXJkLWNvZGUgViByZWdpc3RlciBvcGVyYW5kcyBpZiAKeW91IHVzZSAu
+aW5zbikuCgo+ICsKPiArLyoKPiArICogV2hpbGUgaW4gdGhlb3J5LCB0aGUgdmVjdG9yLTAuNy4x
+IHZzYi52IGFuZCB2bGIudiByZXN1bHQgaW4gdGhlIHNhbWUKPiArICogZW5jb2RpbmcgYXMgdGhl
+IHN0YW5kYXJkIHZzZTgudiBhbmQgdmxlOC52LAoKTm90IG9ubHkgaW4gdGhlb3J5LiB2c2U4LnYg
+YW5kIHZsZTgudiBoYXZlIG9ubHkgb25lIHBvc3NpYmxlIGVuY29kaW5nIGVhY2ggCihmb3IgZ2l2
+ZW4gb3BlcmFuZHMpLgoKPiBjb21waWxlcnMgc2VlbSB0byBvcHRpbWl6ZQoKTml0OiBCeSAiY29t
+cGlsZXJzIiwgZG8geW91IG1lYW4gImFzc2VtYmxlcnMiPyBUaGF0J3MgYSBiaXQgbWlzbGVhZGlu
+ZyB0byBtZS4KCj4gKyAqIHRoZSBjYWxsIHJlc3VsdGluZyBpbiBhIGRpZmZlcmVudCBlbmNvZGlu
+ZyBhbmQgdGhlbiB1c2luZyBhIHZhbHVlIGZvcgo+ICsgKiB0aGUgIm1vcCIgZmllbGQgdGhhdCBp
+cyBub3QgcGFydCBvZiB2ZWN0b3ItMC43LjEKClVoLCBubz8gVGhleSB1c2UgbWV3ID0gMGIwIGFu
+ZCBtb3AgPSAwYjAwLCB3aGljaCBjb3JyZXNwb25kcyB0byBtb3AgPSAwYjAwMC4KCj4gKyAqIFNv
+IGVuY29kZSBzcGVjaWZpYyB2YXJpYW50cyBmb3IgdnN0YXRlX3NhdmUgYW5kIF9yZXN0b3JlLgo+
+ICsgKi8KPiArI2RlZmluZSBUSEVBRF9WU0JfVl9WMFQwCQkiLmxvbmcJMHgwMjAyODAyN1xuXHQi
+CgpUaGF0J3MgInZzZTgudiB2MCwgKHQwKSIsIGF0IGxlYXN0IGFzIGFzc2VtYmxlZCB3aXRoIGJp
+bnV0aWxzIDIuNDAuNTAuMjAyMzA2MjUgCihmcm9tIERlYmlhbiB1bnN0YWJsZSkuIEkgZG9uJ3Qg
+dW5kZXJzdGFuZCB0aGUgcmF0aW9uYWxlIGZvciBoYXJkLWNvZGluZyBmcm9tIAp0aGUgYWJvdmUg
+Y29tbWVudC4gTWF5YmUgdGhhdCdzIGp1c3QgbWUgYmVpbmcgYW4gaWRpb3QsIGJ1dCBpZiBzbywg
+dGhlbiB0aGUgCmNvbW1lbnQgb3VnaHQgdG8gYmUgY2xhcmlmaWVkLgoKKEkgZG8gcmVhbGlzZSB0
+aGF0IHZzZTgudiBhbmQgdnNiLnYgYXJlIG5vdCBleGFjdGx5IGVxdWl2YWxlbnQgaW4gYmVoYXZp
+b3VyLCAKYnV0IGhlcmUsIHRoZSBjb25jZXJuIHNob3VsZCBiZSB0aGUgYXNzZW1ibGVyLCBub3Qg
+dGhlIHByb2Nlc3Nvci4pCgo+ICsjZGVmaW5lIFRIRUFEX1ZTQl9WX1Y4VDAJCSIubG9uZwkweDAy
+MDI4NDI3XG5cdCIKPiArI2RlZmluZSBUSEVBRF9WU0JfVl9WMTZUMAkJIi5sb25nCTB4MDIwMjg4
+Mjdcblx0Igo+ICsjZGVmaW5lIFRIRUFEX1ZTQl9WX1YyNFQwCQkiLmxvbmcJMHgwMjAyOGMyN1xu
+XHQiCj4gKyNkZWZpbmUgVEhFQURfVkxCX1ZfVjBUMAkJIi5sb25nCTB4MDEyMDI4MDA3XG5cdCIK
+ClRoaXMgaGFzIG9uZSBuaWJibGUgdG9vIG1hbnkgZm9yIGEgMzItYml0IHZhbHVlLgoKQW5kIHdo
+eSB1c2Ugc2lnbi1leHRlbmRlZCBsb2Fkcz8gWmVyby1leHRlbmRlZCBsb2FkcyB3b3VsZCBoYXZl
+IHRoZSBleGFjdCBzYW1lIAplbmNvZGluZyBhcyB2bGU4LnYsIGFuZCBub3QgbmVlZCB0aGlzIGRh
+cmsgbWFnaWMsIEFGQUlDVC4KCj4gKyNkZWZpbmUgVEhFQURfVkxCX1ZfVjhUMAkJIi5sb25nCTB4
+MDEyMDI4NDA3XG5cdCIKPiArI2RlZmluZSBUSEVBRF9WTEJfVl9WMTZUMAkJIi5sb25nCTB4MDEy
+MDI4ODA3XG5cdCIKPiArI2RlZmluZSBUSEVBRF9WTEJfVl9WMjRUMAkJIi5sb25nCTB4MDEyMDI4
+YzA3XG5cdCIKPiArCj4gKyNkZWZpbmUgQUxUX1NSX1ZTX1ZFQ1RPUl8xXzBfU0hJRlQJOQo+ICsj
+ZGVmaW5lIEFMVF9TUl9WU19USEVBRF9TSElGVAkJMjMKPiArCj4gKyNkZWZpbmUgQUxUX1NSX1ZT
+KF92YWwsIHByb3QpCQkJCQkKCVwKPiArYXNtKEFMVEVSTkFUSVZFKCJsaSAlMCwgJTFcdFxuc2xs
+aSAlMCwlMCwlMyIsCQkJCQpcCj4gKwkJImxpICUwLCAlMlx0XG5zbGxpICUwLCUwLCU0IiwgVEhF
+QURfVkVORE9SX0lELAkJClwKPiArCQlFUlJBVEFfVEhFQURfVkVDVE9SLCBDT05GSUdfRVJSQVRB
+X1RIRUFEX1ZFQ1RPUikJXAo+ICsJCTogIj1yIihfdmFsKQkJCQkJCglcCj4gKwkJOiAiSSIocHJv
+dCMjXzFfMCA+PiBBTFRfU1JfVlNfVkVDVE9SXzFfMF9TSElGVCksCVwKPiArCQkgICJJIihwcm90
+IyNfVEhFQUQgPj4gQUxUX1NSX1ZTX1RIRUFEX1NISUZUKSwJCQpcCj4gKwkJICAiSSIoQUxUX1NS
+X1ZTX1ZFQ1RPUl8xXzBfU0hJRlQpLAkJCQpcCj4gKwkJICAiSSIoQUxUX1NSX1ZTX1RIRUFEX1NI
+SUZUKSkKPiArI2VuZGlmIC8qIENPTkZJR19FUlJBVEFfVEhFQURfVkVDVE9SICovCj4gKwo+ICAj
+ZW5kaWYgLyogX19BU1NFTUJMWV9fICovCj4gCj4gICNlbmRpZgoKLS0gCuODrOODn+ODu+ODh+OD
+iy3jgq/jg7zjg6vjg6Ljg7MKaHR0cDovL3d3dy5yZW1sYWIubmV0LwoKCgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
