@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F1C8EB64DC
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E7C0EB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u4JLtHuNeR9yQq+6T1YMOwPPpg9Z6BgbEf2BGUz6cJE=; b=M9h0FvpaEwHdjh
-	JoSEx+p/4xqLGDzkERnArhOgrkdyjGJexm9spp+mo2G+3kW2kBZqBGI7A8GBbP2ZM+TwL8BbQLoR0
-	nSj6RPYN9+B6hEB/gC1UylLJVTSs6D6x6idm5VeTtoJmP8C4bhF++WroSAGypYbzgsp+NIyLOqgpk
-	KTMNB0y8psYh1M4joi3jzNrDjMobJ7JI1aVMp4PcpZ4o9Hezj3y7g0KUqJOkSzFwpKR0w53YPOHpJ
-	lUjFNrk1QrvAcP/D5bvN/ahm3g3c9lORX6L4KWhssclWrNElXfGUEGrel+156KM7wW390Ink6yNAE
-	ek/sF0MgguO1tLk4umtg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sjF/Q/PH9wOxU53TkQ/zi5/Jl4w9A8eMYbLhn7Gndaw=; b=iSggRAhgjb9Fp5
+	2D/WK2ejSJYdSSsjDN8Em0cyXN1xlYMBS7/lielRvPpdtBA09+Q3CJZnoPP0m5bjgICB/jJJTzH18
+	00ItydEfv5a77dCkQjFrLzasI+Tf2thqOR3p1HEXnCsSHc9oUY8O6Om/oDc4Vk2xkim3brl8xtxBN
+	eq5PTkE8vPvNuIJVfvjjsdx/mK273R6+c/XlZID1J889MAdnn1gtVshkSdYua7M+mV7PSFOfIAIWs
+	u2q/IwvB0AiosWcZxVlgm1Ck9J/9QO8hgeEbktjMlDRkOT7rb0N51TNdAH85zyxvCBcNdYHQ6xd9+
+	iLQ/SW2RghlcsrFk2Ytw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEn2u-000OCz-0f;
-	Thu, 29 Jun 2023 08:30:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qEn30-000OIG-0O;
+	Thu, 29 Jun 2023 08:30:38 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEn2l-000O7F-1c
+	id 1qEn2w-000OEQ-0s
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jun 2023 08:30:24 +0000
+	Thu, 29 Jun 2023 08:30:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688027423; x=1719563423;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=19N0qNDtQxBiEwr1QgI1H4EeYKq+lA8J3+dC/I8+GXA=;
-  b=fKrFIZ4qSKfeycJIESkN9ZVwb14A/g2Qi6S6iRtZNP6iIBicApRUjV4q
-   RgLOqlS7DpKOZzqKzOuy7i8DChnwtDm2KmWgNCxva3n2BOI+XR+YWS6Lc
-   yXsA0UKct6aobbUql/h66ghpExNra508wfZV5ZPotbLWSFNnWGOqkxQYG
-   aVdps/sq29UiM/rrm8kd4wplRUTrKSMmK8TtwHPEaxfc09XmMeuAZrYM4
-   MJEOwlvXs+YRG8HiJdn52+iTjgVL+VwGi/vkItXj0JrpE14L3jnVKHLHF
-   72Opdb5A29k7ef6Ji/xqGhCiuA2KRWr8ysIo53HoqrH1cmiZEFLY0MpCe
-   g==;
+  t=1688027434; x=1719563434;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=KZlJAN5cRFkMBY+OE7iYPyyn0+Rt2+bwI5SCEwY9G6w=;
+  b=12KX6nuJClfxgp1paKDw/O34ndtERYEHGsVP8XULPGUuPKiT8vsH4DYs
+   zmLzbAmE10dtBOe8dOzrwrIas2MjP4zMPuNhuXzYPrBpQ2j1RD+wGSUhK
+   5+79LOuqjCP/dF8NO6G/SUro3fe4hJEd6mPdkzt2X+4bIsUE8oMroI8Lf
+   ZvG3HcYGihIddMJh23RAwJ4N19cTyhlK+ZLij2jUWCO0oYRXCVAa0UFl9
+   LAi3Z9RAoigCfpUWbR+2GGKYu59HpV0fgwNfEdN4fplDoK+wCrNPQo0/W
+   Tyi3Lu24x2vEvqoTxVG0al2StrrC1zIJ5TB1EbkiWvh10sO5fb1DN73h4
+   Q==;
 X-IronPort-AV: E=Sophos;i="6.01,168,1684825200"; 
-   d="scan'208";a="220461351"
+   d="scan'208";a="222438401"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Jun 2023 01:30:22 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Jun 2023 01:30:33 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 29 Jun 2023 01:30:11 -0700
+ 15.1.2507.21; Thu, 29 Jun 2023 01:29:47 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Thu, 29 Jun 2023 01:30:09 -0700
+ Transport; Thu, 29 Jun 2023 01:29:45 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <palmer@dabbelt.com>
-Subject: [PATCH v2 09/10] RISC-V: try new extension properties in of_early_processor_hartid()
-Date: Thu, 29 Jun 2023 09:28:55 +0100
-Message-ID: <20230629-steersman-denim-9427eca04e44@wendy>
+Subject: [PATCH v2 00/10] RISC-V: Probe DT extension support using riscv,isa-extensions & riscv,isa-base
+Date: Thu, 29 Jun 2023 09:28:46 +0100
+Message-ID: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
-References: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1585; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=19N0qNDtQxBiEwr1QgI1H4EeYKq+lA8J3+dC/I8+GXA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClzHQ5fdzgSvfBCmtG03eGaVsov3W68mr3acflL3j9PJf9V HFRr7ChlYRDjYJAVU2RJvN3XIrX+j8sO5563MHNYmUCGMHBxCsBEmLMYGe4/vs2m+q2M53vonZ1z41 9LXy1heD698LP9JtG7C99d/pLB8FdcJptxm9PcM9pasUcc48L8M8TYm+a7LVBjX1Z3Nj/8GB8A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2381; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=KZlJAN5cRFkMBY+OE7iYPyyn0+Rt2+bwI5SCEwY9G6w=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClzHQ6sUZ67SmqNvMmMG9E6TdErs2tDlNre2DdU5QauPux1 RCOpo5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABP5ycHwVy7+XkjYS6+NnC/eOz6O+p 8+k+Ov1S7hneVrmIqWXX4lp8nwh+NyhL7gbKMN3G8bNXeL62yIUp187NWfH29Pznr95gDzK2YA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_013023_566348_4C5F4F06 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20230629_013034_409788_A3074210 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +82,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To fully deprecate the kernel's use of "riscv,isa",
-of_early_processor_hartid() needs to first try using the new properties,
-before falling back to "riscv,isa".
+Hey,
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/kernel/cpu.c | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+Based on my latest iteration of deprecating riscv,isa [1], here's an
+implementation of the new properties for Linux. The first few patches,
+up to "RISC-V: split riscv_fill_hwcap() in 3", are all prep work that
+further tames some of the extension related code, on top of my already
+applied series that cleans up the ISA string parser.
+Perhaps "RISC-V: shunt isa_ext_arr to cpufeature.c" is a bit gratuitous,
+but I figured a bit of coalescing of extension related data structures
+would be a good idea. Note that riscv,isa will still be used in the
+absence of the new properties. Palmer suggested adding a Kconfig option
+to turn off the fallback for DT, which I have gone and done. It's locked
+behind the NONPORTABLE option for good reason.
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index d0dfd88221df..9a4f4a23afcd 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -61,8 +61,29 @@ int riscv_early_of_processor_hartid(struct device_node *node, unsigned long *har
- 		return -ENODEV;
- 	}
- 
-+	if (of_property_read_string(node, "riscv,isa-base", &isa))
-+		goto old_interface;
-+
-+	if (IS_ENABLED(CONFIG_32BIT) && strncasecmp(isa, "rv32i", 5))
-+		return -ENODEV;
-+
-+	if (IS_ENABLED(CONFIG_64BIT) && strncasecmp(isa, "rv64i", 5))
-+		return -ENODEV;
-+
-+	if (!of_property_present(node, "riscv,isa-extensions"))
-+		return -ENODEV;
-+
-+	if (of_property_match_string(node, "riscv,isa-extensions", "i") < 0 ||
-+	    of_property_match_string(node, "riscv,isa-extensions", "m") < 0 ||
-+	    of_property_match_string(node, "riscv,isa-extensions", "a") < 0)
-+		return -ENODEV;
-+
-+	return 0;
-+
-+old_interface:
- 	if (of_property_read_string(node, "riscv,isa", &isa)) {
--		pr_warn("CPU with hartid=%lu has no \"riscv,isa\" property\n", *hart);
-+		pr_warn("CPU with hartid=%lu has no \"riscv,isa-base\" or \"riscv,isa\" property\n",
-+			*hart);
- 		return -ENODEV;
- 	}
- 
+In v2, I've also come up with a more reasonable name for the new
+function I added & fixed up various comments from Drew and Evan.
+
+Cheers,
+Conor.
+
+[1] https://lore.kernel.org/all/20230626-unmarked-atom-70b4d624a386@wendy/
+
+CC: Rob Herring <robh+dt@kernel.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>
+CC: Andrew Jones <ajones@ventanamicro.com>
+CC: Heiko Stuebner <heiko.stuebner@vrull.eu>
+CC: Evan Green <evan@rivosinc.com>
+CC: Sunil V L <sunilvl@ventanamicro.com>
+CC: linux-riscv@lists.infradead.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+
+Conor Dooley (9):
+  RISC-V: drop a needless check in print_isa_ext()
+  RISC-V: shunt isa_ext_arr to cpufeature.c
+  RISC-V: repurpose riscv_isa_ext array in riscv_fill_hwcap()
+  RISC-V: add missing single letter extension definitions
+  RISC-V: add single letter extensions to riscv_isa_ext
+  RISC-V: split riscv_fill_hwcap() in 3
+  RISC-V: enable extension detection from new properties
+  RISC-V: try new extension properties in of_early_processor_hartid()
+  RISC-V: provide a Kconfig option to disable parsing "riscv,isa"
+
+Heiko Stuebner (1):
+  RISC-V: don't parse dt/acpi isa string to get rv32/rv64
+
+ arch/riscv/Kconfig             |  16 ++
+ arch/riscv/include/asm/hwcap.h |  16 +-
+ arch/riscv/kernel/cpu.c        | 158 +++-------
+ arch/riscv/kernel/cpufeature.c | 507 +++++++++++++++++++++------------
+ 4 files changed, 398 insertions(+), 299 deletions(-)
+
 -- 
 2.40.1
 
