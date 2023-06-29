@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DDEEB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A352BEB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 08:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tDE3E5cF5pQDsYTlEyu/yI0w8NsXGQrDVHX4e5XtfZg=; b=j5MWmPf4a+l10y
-	OR9HRxW/xOQK7Kh+N2KwkhFRl17hm4xSWYR0mouV0m12cHHgMwgt4Yv90UFG83FV3TFXGOdah/Sd2
-	4vhO6LXENolbvgrlYDca4YJbm0Y1HwYqPKl/Qx5/30ki1JFYSHJ2n17bZysvOOLL9S1P8rXYrXJ1Z
-	zz2xI6U5aN9gQ1DO1pRDi1aQU8S2uEOG275Cfvk/Zhdbwd19DX0KJ4F7wllFM67x2ghBAmYobyLM/
-	6YyjBiAeTctPDkVWlXb7z9buW1ET8qktrWqVVZaIwydVsM7HJ/dwS3ktq2SdlfyPTGSuWVdp64Wx8
-	No14wXBJBCgBuM4UKB1Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0SBBJAHN9SnmNaUUX0M2twMkjjxFuhmvznIS3lEmz98=; b=xPws/EM3RrXJGQ
+	jv1svSnYfCWJ4zmrHLPlu2ZQPzvQQrOS2y3V5Q798hy/gVzt0tdofVDdXbTL7rfEbpDHdrBAJGDP5
+	UkgImkSUqK0xTGNeuqnF8bX17QXGA5omVI49FVAYxTm9IcsFZHhf/02U9gRYtFru9o94jX4pREf65
+	XHpIVV3pZQSF/3ChuMg+VpSkc6PgCdQDu8OT4up6iSGBzr5BHMuZCIRdCbedGthMvRpIjyJe5xYdQ
+	F5MgyEokfRaleGz1jBjwRWsrHRoltr5Stu7Gnz5cKlIUcZOEyxMK4wYqd743jImn6akDVlfXlaxEl
+	nnE5cMxDLXBOTnMxummw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEmtX-000MFh-0l;
-	Thu, 29 Jun 2023 08:20:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qEn2c-000O0b-03;
+	Thu, 29 Jun 2023 08:30:14 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qEmtU-000MF3-2r
+	id 1qEn2Y-000NxK-3D
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jun 2023 08:20:50 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5EB5F614F4;
-	Thu, 29 Jun 2023 08:20:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53985C433C0;
-	Thu, 29 Jun 2023 08:20:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688026847;
-	bh=eix3asqgstSKaRDosqnGq1xt2TLM2YGz1j/+D6LUbUw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Li0ft4GpCx4QdjFx8Bu0MQQmbfINFOTqPW1UsMc2jx6iV2r5mI+jgoR1BT03Ekiv/
-	 rNAh00T4LGxnPFaYaFYEJUeYMpjSkM5eX2vu5W5RYeqDDNG1/Nwsmts9edq2mbUxik
-	 2uGZJVbqK6FnUezh+J1lnsFy8p8nF1VXy67qHcTGIT5vX6x04UmwLVNE5klSIvdTgS
-	 Jh+kWdtbvGhEfTkZeUOBpuAJkliug8/4V1T5aYfNC4MlsAPttJU9rx5yNjIfFO/6K0
-	 FPky9KXaVEq7VJgeg0KfUuKVP77C0qgeTgSoy67ARCVZPu84Qz8U3d4utxOdoV9n2t
-	 nWYqdv2ygrGxg==
-From: guoren@kernel.org
-To: guoren@kernel.org,
-	palmer@rivosinc.com,
-	paul.walmsley@sifive.co,
-	zong.li@sifive.com,
-	atishp@atishpatra.org,
-	alex@ghiti.fr,
-	jszhang@kernel.org,
-	bjorn@kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH] riscv: pageattr: Fixup synchronization problem between init_mm and active_mm
-Date: Thu, 29 Jun 2023 04:20:32 -0400
-Message-Id: <20230629082032.3481237-1-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
+	Thu, 29 Jun 2023 08:30:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1688027411; x=1719563411;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=K/3KO+Sn7iAB26kNDVGJP0twzMITJyOfWkzd9A2nZjo=;
+  b=qrpv357JqN3x1rULkeG8SvgYaKKt8SKUXjWhSYSQMe/YE0Y/6kend+BG
+   0EbITtXFlDVlxUDznWBNH3gSmX9ptVG9joF5aKFAh8sh6zWxNvLZCzX2j
+   sXo1tS7oE0geaJx6yp1SSf1bCAau1urzIO1Da9IKQAn8Kp+1XAcJvKfMZ
+   XY3Xmlg3ZwWUyl3O6bG7dBjWL04nw5u9DgZasihJOpPRddFNUUF04NOL+
+   wXlIMfZDGhnjKZJM3XisPvUxD6TNYlU4v3vSdu9NBjFNKHpbehaJfDC5l
+   74CfoCtJKJYhfz9DFs2S6ikXhxxPWxhimVJ+fZFyrhI+Tu3MTcbnoCjgC
+   g==;
+X-IronPort-AV: E=Sophos;i="6.01,168,1684825200"; 
+   d="scan'208";a="218155930"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Jun 2023 01:29:57 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 29 Jun 2023 01:29:50 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Thu, 29 Jun 2023 01:29:48 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <palmer@dabbelt.com>
+Subject: [PATCH v2 01/10] RISC-V: don't parse dt/acpi isa string to get rv32/rv64
+Date: Thu, 29 Jun 2023 09:28:47 +0100
+Message-ID: <20230629-fruit-syndrome-74e32af9c8ad@wendy>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
+References: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2434; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=UJAC/sZOfHsqO8ubaZdFS5UN7qeloghiBAOtP5WmH0o=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDClzHQ6un8fYz/RnncHnE2n3TnRc3rF78ubp2sESpiVe/10u l4YGdZSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BeAiGxj+aX2XvMTf3Ln2caF4mP0cA5 n9uWomvG2yhUv6nyxb3cWay8iw/Gbwad/JV+tO+l85I/4g9WjVnH81ZwIkm1aLrFsw+XssAwA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_012049_008545_4443B28A 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20230629_013011_172595_82D1FD13 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +77,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, conor@kernel.org, conor.dooley@microchip.com, Rob Herring <robh+dt@kernel.org>, Evan
+ Green <evan@rivosinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-The machine_kexec() uses set_memory_x to add the executable attribute to the
-page table entry of control_code_buffer. It only modifies the init_mm but not
-the current->active_mm. The current kexec process won't use init_mm directly,
-and it depends on minor_pagefault, which is removed by commit 7d3332be011e4
-("riscv: mm: Pre-allocate PGD entries for vmalloc/modules area") of 64BIT. So,
-when it met pud mapping on an MMU_SV39 machine, it caused the following:
+When filling hwcap the kernel already expects the isa string to start with
+rv32 if CONFIG_32BIT and rv64 if CONFIG_64BIT.
 
- kexec_core: Starting new kernel
- Will call new kernel at 00300000 from hart id 0
- FDT image at 747c7000
- Bye...
- Unable to handle kernel paging request at virtual address ffffffda23b0d000
- Oops [#1]
- Modules linked in:
- CPU: 0 PID: 53 Comm: uinit Not tainted 6.4.0-rc6 #15
- Hardware name: Sophgo Mango (DT)
- epc : 0xffffffda23b0d000
-  ra : machine_kexec+0xa6/0xb0
- epc : ffffffda23b0d000 ra : ffffffff80008272 sp : ffffffc80c173d10
-  gp : ffffffff8150e1e0 tp : ffffffd9073d2c40 t0 : 0000000000000000
-  t1 : 0000000000000042 t2 : 6567616d69205444 s0 : ffffffc80c173d50
-  s1 : ffffffd9076c4800 a0 : ffffffd9076c4800 a1 : 0000000000300000
-  a2 : 00000000747c7000 a3 : 0000000000000000 a4 : ffffffd800000000
-  a5 : 0000000000000000 a6 : ffffffd903619c40 a7 : ffffffffffffffff
-  s2 : ffffffda23b0d000 s3 : 0000000000300000 s4 : 00000000747c7000
-  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
-  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
-  s11: 0000003f940001a0 t3 : ffffffff815351af t4 : ffffffff815351af
-  t5 : ffffffff815351b0 t6 : ffffffc80c173b50
- status: 0000000200000100 badaddr: ffffffda23b0d000 cause: 000000000000000c
+So when recreating the runtime isa-string we can also just go the other way
+to get the correct starting point for it.
 
-Yes, Using set_memory_x API after boot has the limitation, and at least we
-should synchronize the current->active_mm to fix the problem.
-
-Fixes: d3ab332a5021 ("riscv: add ARCH_HAS_SET_MEMORY support")
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/mm/pageattr.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+Changes in v2:
+- Delete the whole else & pull print_mmu() above it, since that's common
+  code now
+---
+ arch/riscv/kernel/cpu.c | 21 +++++++++------------
+ 1 file changed, 9 insertions(+), 12 deletions(-)
 
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index ea3d61de065b..23d169c4ee81 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -123,6 +123,13 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
- 				     &masks);
- 	mmap_write_unlock(&init_mm);
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index a2fc952318e9..2fb5e8e1df52 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -253,13 +253,16 @@ static void print_isa_ext(struct seq_file *f)
+  */
+ static const char base_riscv_exts[13] = "imafdqcbkjpvh";
  
-+	if (current->active_mm != &init_mm) {
-+		mmap_write_lock(current->active_mm);
-+		ret =  walk_page_range_novma(current->active_mm, start, end,
-+					     &pageattr_ops, NULL, &masks);
-+		mmap_write_unlock(current->active_mm);
-+	}
+-static void print_isa(struct seq_file *f, const char *isa)
++static void print_isa(struct seq_file *f)
+ {
+ 	int i;
+ 
+ 	seq_puts(f, "isa\t\t: ");
+-	/* Print the rv[64/32] part */
+-	seq_write(f, isa, 4);
++	if (IS_ENABLED(CONFIG_32BIT))
++		seq_write(f, "rv32", 4);
++	else
++		seq_write(f, "rv64", 4);
 +
- 	flush_tlb_kernel_range(start, end);
+ 	for (i = 0; i < sizeof(base_riscv_exts); i++) {
+ 		if (__riscv_isa_extension_available(NULL, base_riscv_exts[i] - 'a'))
+ 			/* Print only enabled the base ISA extensions */
+@@ -316,27 +319,21 @@ static int c_show(struct seq_file *m, void *v)
+ 	unsigned long cpu_id = (unsigned long)v - 1;
+ 	struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo, cpu_id);
+ 	struct device_node *node;
+-	const char *compat, *isa;
++	const char *compat;
  
- 	return ret;
+ 	seq_printf(m, "processor\t: %lu\n", cpu_id);
+ 	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
++	print_isa(m);
++		print_mmu(m);
+ 
+ 	if (acpi_disabled) {
+ 		node = of_get_cpu_node(cpu_id, NULL);
+-		if (!of_property_read_string(node, "riscv,isa", &isa))
+-			print_isa(m, isa);
+ 
+-		print_mmu(m);
+ 		if (!of_property_read_string(node, "compatible", &compat) &&
+ 		    strcmp(compat, "riscv"))
+ 			seq_printf(m, "uarch\t\t: %s\n", compat);
+ 
+ 		of_node_put(node);
+-	} else {
+-		if (!acpi_get_riscv_isa(NULL, cpu_id, &isa))
+-			print_isa(m, isa);
+-
+-		print_mmu(m);
+ 	}
+ 
+ 	seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
 -- 
-2.36.1
+2.40.1
 
 
 _______________________________________________
