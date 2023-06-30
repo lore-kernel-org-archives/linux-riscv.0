@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DEEEB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 06:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B5CDEB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 07:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=38XujyEVksIV3r7K3O45PskLWmtxj+p/DSJqfkAy5oA=; b=I3qO8B9sxqTQXMf3brSqRzR9OF
-	fmBQBTW1XgxZ38/ruIP/Cr7pqSrFnHjPT1u2tAj9xzDkp/4MasZ+eAit42RKYrcXOztYPyyP3C13G
-	qhBnt9OmHG8FwdNIsd4D0E/lLWX/g34cGuNtt+q6FSENPlbAMxbjJWJmwZS9v5NtWyLj3Lqac/Vy/
-	Y1MgRKielzDAuBDpfC7HI0vrqnAPE0h75OrDLqNsUszNsx5GNyySzbO0SFCyIwvXZW7f3sWN2JAB8
-	tySrIji1jgJp2iTIyPuuRxBbMT2jRlmrukW0QlKM3D3LpwMiTBUh7uIuRiXbIK5VfULncu6qOvvS0
-	CnzOjrqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sIRFGU/DeYZ9JgEfH5JuucldQURabMEZhOaOZW4p/6M=; b=44QUNRhC7FzJZD
+	PXEuNuAE8B8nduoxBsyHckIDIUbLU0AChrCi3etTs8YOCafAUCRwCkIGB1c9c1YMXBAG2AvTW8Agk
+	DEXpwy9PFzdPSj+mknoeWdmENZasPp5JJdBhtqNUtgwF+KXf3miUK+1HP7A8lEkrQyxyJP9Qm4qNY
+	MotAHH0aK+lUKSULn79VNYDwM/qrN6wydwAYOVYazOLrPS0CdEvTxqk963hdwKNjcVKdoJmDptzPR
+	5AQPf1yLd7ajRKS6bq9BBrNffqsWlUO3MVwd3mo6Lk+2XtMRoI258aJdG+eaWZmip73X0u6Yb9cWa
+	lOR8eI09DPq7cyfB5Www==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF7iD-0030mb-0W;
-	Fri, 30 Jun 2023 06:34:33 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qF8Yt-0035s2-2c;
+	Fri, 30 Jun 2023 07:28:59 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF7iA-0030lb-0P
+	id 1qF8Yq-0035rV-15
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 06:34:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688106869; x=1719642869;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1WSIQqLvb2+/sUh6WEvq/CXC6xJpvh4r2DJzZW3eU28=;
-  b=W28RyI9Rr3ghO9LIYJUrirmSKlpL6pZsBfKFAFNa8p1Ig7eeDKGdX45r
-   ZQPUxPjTtC0NykI2/GH2v/Gq861liZ8nTXc5I3MQiozNLfnZFMbCkVQ9G
-   G4i8TOgQP8raochXaYFh9nmMokGO5RTn7mhGj7nI6R0LyySqzYLRol9tX
-   Ci6wy4ZKyJ3Ox9aRKEewUmSrYuwEywuXj0ugksMAO6P4BrMDQB+fkstAN
-   m1w90ZJrNIFexEKwQyHrtEVOZcxEa5tQWG1FkNKE75EGGs49Ao8/xbp5V
-   /N6fkRcbZqO9maRfdNkVMPhHMoOj3k0KAE/BnO3bs2zFn0BTNpKB8denY
-   Q==;
-X-IronPort-AV: E=Sophos;i="6.01,169,1684825200"; 
-   d="asc'?scan'208";a="233041245"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Jun 2023 23:34:26 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 29 Jun 2023 23:34:26 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 29 Jun 2023 23:34:24 -0700
-Date: Fri, 30 Jun 2023 07:33:55 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Song Shuai <suagrfillet@gmail.com>
-Subject: Re: [PATCH] riscv: BUG_ON() for no cpu nodes in setup_smp
-Message-ID: <20230630-tightrope-clatter-6eed9875a76f@wendy>
-References: <20230629105839.1160895-1-suagrfillet@gmail.com>
- <20230629-maverick-kelp-17327f04482a@wendy>
- <0787532c-4520-6d01-c50c-63df207f570c@gmail.com>
+	Fri, 30 Jun 2023 07:28:58 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-3fbc54cab6fso7000285e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 00:28:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1688110134; x=1690702134;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=I5hnHLVzBmXjX34BGgWyrCPO1253WX/LErEgN1o82kw=;
+        b=eK2veF+sXiK1f6F6Ryz5qMNL9KR/JTqWXWrwnauwpwS4S2SbOBqWreg1jOJof/xVr6
+         0tdT3sN2XYtKm9WDfJ2k7n4TXdxKVci2gO70/ZBV0L/xLVzwGFu3b96hWOpZyyH0/64X
+         Y/4FwEgA6nhnDElwm6Wpx+urEsujsFQGyi5UzZEfMeqTdzZki4Ko3IdbDq8lmJe6yfqn
+         U+3VI14iYpbKJEN437PH7YTuB8U8zsV87c6AtfGGyc/VndWngDD3BjE2mDDT6GDx1ZxL
+         cAfi46T+yP5eIwBSlrYJg02MG5pq3lfJtdmUubVtXkQ6aZD96dQRq9mY6p31s5dqFcv0
+         u+pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688110134; x=1690702134;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=I5hnHLVzBmXjX34BGgWyrCPO1253WX/LErEgN1o82kw=;
+        b=bD6ZVr0Po2Py3Wk4NQv6x0IECNthed6nJ3cr1g4DTgarCOjEI9AEEn9Z0ncFKho/X2
+         6XHc9Qiuo29bQ7arpHaEKGoARVWa6L7Fbseh9993QS1FtgWudB9Bn/Jp3aA8tPLXKH6I
+         wjaM6w1l2EIV4N3SGSpV+ZBhEfH3G3ShpjxuwvmGJgiZLT2KP/baEa+60vNPcsZER18D
+         cqqDLZIlvWhjjzkZii0yr5JgAGAV77sDj3YQj/WbeM9XtYMqSZxKEAwYdY58mgM3PLJd
+         A8WW4PyVs/hvUShmHvit3dYpmTDO5WfLT8HkJrA/vM1OhMXUtKvAp/s0sFZ+toBnhLqY
+         TIUQ==
+X-Gm-Message-State: AC+VfDxi9mcwt7h7a8+UetppzlO0caNiHfLyhtEKVGhGSlx9yObK7daY
+	2vBcfvxKKL7qwNjwNScuqCqkbg==
+X-Google-Smtp-Source: ACHHUZ7OfWejyvRwW+wSH4AjjfHdFJ4CbX0pfF0ylt/EErynx8bdIVuRTP62VNT4HzszPH01RgaI3A==
+X-Received: by 2002:a05:600c:3649:b0:3f9:bf0f:1ceb with SMTP id y9-20020a05600c364900b003f9bf0f1cebmr1450795wmq.37.1688110134199;
+        Fri, 30 Jun 2023 00:28:54 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id l21-20020a7bc455000000b003fa95c466a1sm13851044wmi.5.2023.06.30.00.28.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Jun 2023 00:28:53 -0700 (PDT)
+Date: Fri, 30 Jun 2023 09:28:52 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v2 03/10] RISC-V: shunt isa_ext_arr to cpufeature.c
+Message-ID: <20230630-1a540679d6cf0275511bfbfc@orel>
+References: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
+ <20230629-museum-playhouse-6dbe7e573f2c@wendy>
 MIME-Version: 1.0
-In-Reply-To: <0787532c-4520-6d01-c50c-63df207f570c@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20230629-museum-playhouse-6dbe7e573f2c@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_233430_284748_B26A864C 
-X-CRM114-Status: GOOD (  26.36  )
+X-CRM114-CacheID: sfid-20230630_002856_376684_EF8C9A4F 
+X-CRM114-Status: GOOD (  34.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,96 +85,231 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: apatel@ventanamicro.com, aou@eecs.berkeley.edu, leyfoon.tan@starfivetech.com, linux-kernel@vger.kernel.org, palmer@dabbelt.com, evan@rivosinc.com, paul.walmsley@sifive.com, greentime.hu@sifive.com, linux-riscv@lists.infradead.org, heiko.stuebner@vrull.eu, ajones@ventanamicro.com
-Content-Type: multipart/mixed; boundary="===============6530476980739558828=="
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, conor@kernel.org, Rob Herring <robh+dt@kernel.org>, palmer@dabbelt.com, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Evan Green <evan@rivosinc.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6530476980739558828==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="b/dkXq258KlMHHb5"
-Content-Disposition: inline
+On Thu, Jun 29, 2023 at 09:28:49AM +0100, Conor Dooley wrote:
+> To facilitate using one struct to define extensions, rather than having
+> several, shunt isa_ext_arr to cpufeature.c, where it will be used for
+> probing extension presence also.
+> As that scope of the array as widened, prefix it with riscv & drop the
+> type from the variable name.
+> 
+> Since the new array is const, print_isa() needs a wee bit of cleanup to
+> avoid complaints about losing the const qualifier.
+> 
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> Changes in v2:
+> - Drop the empty element from the end of the array, it was adding a bug
+>   anyway as I was not decrementing the result of ARRAY_SIZE() by one.
+>   Likely I meant to drop it originally and forgot, as dropping the
+>   decrement was intentional.
 
---b/dkXq258KlMHHb5
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I don't think v1 introduced a bug, because you changed the condition to
+'<' from '<=' to account for not subtracting one. Both the original code
+and v1 were doing a useless __riscv_isa_extension_available() check of
+RISCV_ISA_EXT_MAX, though, which this version removes.
 
-Hey,
-
-On Fri, Jun 30, 2023 at 11:02:18AM +0800, Song Shuai wrote:
-> =E5=9C=A8 2023/6/29 20:33, Conor Dooley =E5=86=99=E9=81=93:
-> > On Thu, Jun 29, 2023 at 06:58:39PM +0800, Song Shuai wrote:
-> > > When booting with ACPI tables, the tiny devictree created by
-> > > EFI Stub doesn't provide cpu nodes.
-> >=20
->=20
-> "When only the ACPI tables are passed to kernel, the tiny..."
-> That seems more accurate. We can use "acpi=3D" kernel
-> parameter to manually enable/disable ACPI.
->=20
-> > What are the conditions that are required to reproduce this issue?
-> > When booting with ACPI, why is acpi_disabled true?
-> > In my naivety, that seems like a bigger problem to address. >
->=20
-> Actually, I appended the "acpi=3Doff" to kernel cmdline for testing the "=
-off"
-> option. That would set acpi_disabled as true.
-
-Yeah, I figured it was intentionally misconfiguration of your kernel,
-given that you've tested other niche conditions and reported bugs, just
-was not clear from your commit message whether this was a real bugTM
-that should be fixed, or some sort of "you booted a kernel that can't be
-used on this system".
-
-> > > That's unclear, so bug for no cpu nodes before
-> > > of_parse_and_init_cpus().
-> >=20
-> > What is unclear? That the reason for the BUG() was that there were no
-> > cpu nodes, since it could also be that there were CPU nodes but they
-> > were disabled etc?
->=20
-> The BUG() in of_parse_and_init_cpus() indicates there was no boot cpu fou=
-nd
-> in the devicetree , not there were no cpu nodes in the devices.
-> That's the "unclear" I mean.
-
-Yup, please put that in the commit message so that people don't have to
-figure out your intent ;)
-
-> > Or, better yet, move the whole thing into of_parse_and_init_cpus() in
-> > the first place? You could drop most of the comment in the process,
-> > since I think the details of how you hit this problem would likely not
-> > be helpful to anyone that hit it under different conditions.
-
-> ok, I'll apply these comments if you're ok with my replies.
-
-Yup, thanks!
-
---b/dkXq258KlMHHb5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJ53TwAKCRB4tDGHoIJi
-0iT0AQDEE78wXiDe+YaX++QhWnHTqv8BlF6Rj4+iQGYrk70/fQD/R3SVLgqmER+C
-5ugD+ASSeOvI1+0WWT5ZjkQppaybagQ=
-=LWeE
------END PGP SIGNATURE-----
-
---b/dkXq258KlMHHb5--
+Thanks,
+drew
 
 
---===============6530476980739558828==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> ---
+>  arch/riscv/include/asm/hwcap.h |  3 ++
+>  arch/riscv/kernel/cpu.c        | 75 +---------------------------------
+>  arch/riscv/kernel/cpufeature.c | 67 ++++++++++++++++++++++++++++++
+>  3 files changed, 72 insertions(+), 73 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index f041bfa7f6a0..7a57e6109aef 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -76,6 +76,9 @@ struct riscv_isa_ext_data {
+>  	unsigned int isa_ext_id;
+>  };
+>  
+> +extern const struct riscv_isa_ext_data riscv_isa_ext[];
+> +extern const size_t riscv_isa_ext_count;
+> +
+>  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
+>  
+>  #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index ddd7634e4c1d..269a32ceb595 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -160,81 +160,10 @@ arch_initcall(riscv_cpuinfo_init);
+>  
+>  #ifdef CONFIG_PROC_FS
+>  
+> -#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
+> -	{							\
+> -		.uprop = #UPROP,				\
+> -		.isa_ext_id = EXTID,				\
+> -	}
+> -
+> -/*
+> - * The canonical order of ISA extension names in the ISA string is defined in
+> - * chapter 27 of the unprivileged specification.
+> - *
+> - * Ordinarily, for in-kernel data structures, this order is unimportant but
+> - * isa_ext_arr defines the order of the ISA string in /proc/cpuinfo.
+> - *
+> - * The specification uses vague wording, such as should, when it comes to
+> - * ordering, so for our purposes the following rules apply:
+> - *
+> - * 1. All multi-letter extensions must be separated from other extensions by an
+> - *    underscore.
+> - *
+> - * 2. Additional standard extensions (starting with 'Z') must be sorted after
+> - *    single-letter extensions and before any higher-privileged extensions.
+> -
+> - * 3. The first letter following the 'Z' conventionally indicates the most
+> - *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
+> - *    If multiple 'Z' extensions are named, they must be ordered first by
+> - *    category, then alphabetically within a category.
+> - *
+> - * 3. Standard supervisor-level extensions (starting with 'S') must be listed
+> - *    after standard unprivileged extensions.  If multiple supervisor-level
+> - *    extensions are listed, they must be ordered alphabetically.
+> - *
+> - * 4. Standard machine-level extensions (starting with 'Zxm') must be listed
+> - *    after any lower-privileged, standard extensions.  If multiple
+> - *    machine-level extensions are listed, they must be ordered
+> - *    alphabetically.
+> - *
+> - * 5. Non-standard extensions (starting with 'X') must be listed after all
+> - *    standard extensions. If multiple non-standard extensions are listed, they
+> - *    must be ordered alphabetically.
+> - *
+> - * An example string following the order is:
+> - *    rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
+> - *
+> - * New entries to this struct should follow the ordering rules described above.
+> - */
+> -static struct riscv_isa_ext_data isa_ext_arr[] = {
+> -	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+> -	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
+> -	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
+> -	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+> -	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
+> -	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+> -	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
+> -	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
+> -	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
+> -	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
+> -	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+> -	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+> -	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> -	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+> -	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+> -	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+> -	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> -	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+> -};
+> -
+>  static void print_isa_ext(struct seq_file *f)
+>  {
+> -	struct riscv_isa_ext_data *edata;
+> -	int i = 0, arr_sz;
+> -
+> -	arr_sz = ARRAY_SIZE(isa_ext_arr) - 1;
+> -
+> -	for (i = 0; i <= arr_sz; i++) {
+> -		edata = &isa_ext_arr[i];
+> +	for (int i = 0; i < riscv_isa_ext_count; i++) {
+> +		const struct riscv_isa_ext_data *edata = &riscv_isa_ext[i];
+>  		if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
+>  			continue;
+>  		seq_printf(f, "_%s", edata->uprop);
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index bdcf460ea53d..fb476153fffc 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -99,6 +99,73 @@ static bool riscv_isa_extension_check(int id)
+>  	return true;
+>  }
+>  
+> +#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
+> +	{							\
+> +		.uprop = #UPROP,				\
+> +		.isa_ext_id = EXTID,				\
+> +	}
+> +
+> +/*
+> + * The canonical order of ISA extension names in the ISA string is defined in
+> + * chapter 27 of the unprivileged specification.
+> + *
+> + * Ordinarily, for in-kernel data structures, this order is unimportant but
+> + * isa_ext_arr defines the order of the ISA string in /proc/cpuinfo.
+> + *
+> + * The specification uses vague wording, such as should, when it comes to
+> + * ordering, so for our purposes the following rules apply:
+> + *
+> + * 1. All multi-letter extensions must be separated from other extensions by an
+> + *    underscore.
+> + *
+> + * 2. Additional standard extensions (starting with 'Z') must be sorted after
+> + *    single-letter extensions and before any higher-privileged extensions.
+> + *
+> + * 3. The first letter following the 'Z' conventionally indicates the most
+> + *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
+> + *    If multiple 'Z' extensions are named, they must be ordered first by
+> + *    category, then alphabetically within a category.
+> + *
+> + * 3. Standard supervisor-level extensions (starting with 'S') must be listed
+> + *    after standard unprivileged extensions.  If multiple supervisor-level
+> + *    extensions are listed, they must be ordered alphabetically.
+> + *
+> + * 4. Standard machine-level extensions (starting with 'Zxm') must be listed
+> + *    after any lower-privileged, standard extensions.  If multiple
+> + *    machine-level extensions are listed, they must be ordered
+> + *    alphabetically.
+> + *
+> + * 5. Non-standard extensions (starting with 'X') must be listed after all
+> + *    standard extensions. If multiple non-standard extensions are listed, they
+> + *    must be ordered alphabetically.
+> + *
+> + * An example string following the order is:
+> + *    rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
+> + *
+> + * New entries to this struct should follow the ordering rules described above.
+> + */
+> +const struct riscv_isa_ext_data riscv_isa_ext[] = {
+> +	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+> +	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
+> +	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
+> +	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
+> +	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
+> +	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+> +	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
+> +	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
+> +	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
+> +	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
+> +	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+> +	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+> +	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> +	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+> +	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+> +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+> +	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> +};
+> +
+> +const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
+> +
+>  void __init riscv_fill_hwcap(void)
+>  {
+>  	struct device_node *node;
+> -- 
+> 2.40.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6530476980739558828==--
-
