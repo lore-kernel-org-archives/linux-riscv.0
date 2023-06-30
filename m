@@ -4,99 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA97C0015E
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 07:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64768EB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 07:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CMSGWK36zYZeFvTylTis7ZuwnPjFZbq1jRl6MnXQAhw=; b=CgpEWGW5x00Wqk0CgXHMtA3ciw
-	S6ewFKJmBBfoRnmAkow5riiRDpXXky3S3RPqPKncAP86J5Wqlrdz23rHnCCfjCifAA+GRVk4NnBzu
-	F4NYQViCdImeXQ75+WIlndh6mkJshNfbMq9ts1+iQAZahHM1bp6FhA6yqZ09t9m00ykfLXRzGlPNV
-	B+rn+5oyAfwkaoS4IFnqXjkVDmgqy7fzTdH3c9ShGb0O7OTyd/Jj+dtMhxcacDXWxcirOoyvquXEe
-	3uhH8r8S1V9lcY030U39YAO30YHND+7mzOI7ofHbpmrijpVSS6H8bDTGmUGwbRTzHT/zvSvH5Icdt
-	RhYx6N9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8N+kCtjYL/LrSZk8pb2e9E78Eveefio23ldnqZg35BA=; b=XP7oONvp0nG4La
+	BAhAtAzV81qd3UC76ZySZy09I/yZcR2QQ39S2lsezZZFbawgTytJA27Lq9tlLaieRXUnYYKcNjn20
+	Eos9U1S+i0F6pKdHog2OIjyhMxnnASS4rKwFPSSRyUuUHuCnyHiIljeAx++BxJxE4TKDI7UJ2+mAs
+	vq7lhWBQOoZcYFVYsPGcJq6RvvsZOk2i9gs45/Kyi78/35WGuNZ1S+6/9qjlYtGESGFGyRytrtaeH
+	CoOD+7/oSXaOU2GiRo8JDjlO03/SDjiPc9Bu8sOf/uWnAnBxma4wYNlTl0jFZrhH2gLCD48+GLek3
+	dF3LLtZ3xzegI417aiVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF8pg-0037KH-21;
-	Fri, 30 Jun 2023 07:46:20 +0000
-Received: from smtp-out2.suse.de ([195.135.220.29])
+	id 1qF8qE-0037S8-2b;
+	Fri, 30 Jun 2023 07:46:54 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF8pc-0037IR-1H;
-	Fri, 30 Jun 2023 07:46:18 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 4BFC21FD5E;
-	Fri, 30 Jun 2023 07:46:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1688111173; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=s+v7TzEsD6peXuEp+SUxn6T7G+IGk1te1iZtcpAk67w=;
-	b=U5S0JZy6WbjyJY0i+chUuJjKDtyzvNR562iDu4mAoeIRYiMaQH05DYn3oC2IDHuCJ3la0d
-	6efMYRbFWwT6WipW7DuzCUm5fOh+iBRlRjda9BeHpkLO1xMw6kBvbeEfXf4OoC4HGF0uY4
-	zaQwtseSPMY8DGPVwfpIGEUiwJgpXQc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1688111173;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=s+v7TzEsD6peXuEp+SUxn6T7G+IGk1te1iZtcpAk67w=;
-	b=X8HFoQg8L0Cu/1xVytv0JrQeNcv7odrUfIRvQXZWtOmDKktKfLxyOGVAR3qIcYAPoHvLdQ
-	4fb9jtJZixVDtrAw==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 899A313915;
-	Fri, 30 Jun 2023 07:46:12 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
-	by imap2.suse-dmz.suse.de with ESMTPSA
-	id ZRQNIESInmT0OQAAMHmgww
-	(envelope-from <tzimmermann@suse.de>); Fri, 30 Jun 2023 07:46:12 +0000
-Message-ID: <ef7b3899-7d18-8018-47fa-aac0efaa61f4@suse.de>
-Date: Fri, 30 Jun 2023 09:46:11 +0200
+	id 1qF8qC-0037R0-0m
+	for linux-riscv@lists.infradead.org;
+	Fri, 30 Jun 2023 07:46:53 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-51d885b0256so1876694a12.2
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 00:46:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1688111210; x=1690703210;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gkEVUn+BSGCw26Br9R1zJay0XQU2Hj1OrR3nyO4XYMs=;
+        b=pXW7rqo2IPCCQNelaVb4brBvc66A3ZsWjaSvhuweZhbnHl52z8pQnkZvsPvTuVFnjl
+         O8sSSJB0DWG46EaLZsvx1SOe+L/d37a9A0x6Pevillxw2A/kVu0f3BQT78pI7QFeCwZp
+         G2RZH9s5TafP0LSUNkJZ3Ovd/EcLBs6haxbhhkqWvvDTwNZql5nbOBbMc5AJLWw96j01
+         bO7wHfy0r8BbfI23SDIZN5JRXVO6/sOLrrKypk3TSwwoR7EpX8rRtDLO05FoUywhlI/N
+         xI1lmHzC5sKJ2bN+jiDxyTOWr1cTFW4pxG+g1r0ycbnhuIqVpMPXwBTgLmCn5DF5EVoZ
+         TaZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688111210; x=1690703210;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gkEVUn+BSGCw26Br9R1zJay0XQU2Hj1OrR3nyO4XYMs=;
+        b=FquVwzqIWw005wzXto8O/Tqy+hc/Zn47s8QkcEFJD2/SSwrjLfW7y/Vx6JD+gdmY97
+         3oRaKQB8AB/nO3MH7TQcw5xDgqJtcqjs7wEAkbnae1LKom/k9I8jVetTFWPAx5sr8fvR
+         vEq9YB4M6YG5aeConn74MpsxXBh/lnGdhmtPY/nCNa1h3fOi9iLBa3cTXxKNJm7r8WPX
+         X6gDGcbReBRZKCCAyIDn8oG9ZxKxSd3rthEmdj1MatPqwrXQNn141OeeyjZSelcOMyEX
+         1xk+DBhh5d6nOmcAFIMLHMC+FVGZFV9W7KRq5pp56BdgDn9hI9DJWlF9SuBCw804Y90z
+         qD7A==
+X-Gm-Message-State: ABy/qLalJfTf7SwTcmTdobsPLa2sUmXcgLXZCAlNtil5cSmX7xZxfyLP
+	mCMLQIvr0p9ILplwdJn1oqtxMw==
+X-Google-Smtp-Source: APBJJlFgqHa9gDbozF0P92T72GWSMIP3fuYpYu4HFpS6dAtkIvNTi5BLg3397B7OHXeTVHiRxxPH/Q==
+X-Received: by 2002:aa7:d98f:0:b0:51d:e59c:6190 with SMTP id u15-20020aa7d98f000000b0051de59c6190mr1208294eds.2.1688111209947;
+        Fri, 30 Jun 2023 00:46:49 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id i12-20020aa7dd0c000000b0051830f22825sm6503023edv.90.2023.06.30.00.46.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Jun 2023 00:46:49 -0700 (PDT)
+Date: Fri, 30 Jun 2023 09:46:48 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v2 10/10] RISC-V: provide a Kconfig option to disable
+ parsing "riscv,isa"
+Message-ID: <20230630-7d0f6fe66c9415315d491f15@orel>
+References: <20230629-landed-popsicle-ab46ab3b46d9@spud>
+ <mhng-f060b5c8-aa99-4952-b1e1-ee85a92e6b07@palmer-ri-x1c9a>
+ <20230629-angled-gallantly-8fe7451a25fa@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH 07/12] arch/x86: Declare edid_info in <asm/screen_info.h>
-Content-Language: en-US
-To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-fbdev@vger.kernel.org, linux-staging@lists.linux.dev,
- Linux-Arch <linux-arch@vger.kernel.org>, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Frederic Weisbecker <frederic@kernel.org>,
- Nicholas Piggin <npiggin@gmail.com>, Ard Biesheuvel <ardb@kernel.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- Juerg Haefliger <juerg.haefliger@canonical.com>
-References: <20230629121952.10559-1-tzimmermann@suse.de>
- <20230629121952.10559-8-tzimmermann@suse.de>
- <80e3a583-805e-4e8f-a67b-ebe2e4b9a7e5@app.fastmail.com>
- <d3de124c-6aa8-e930-e238-7bd6dd7929a6@suse.de>
- <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
-From: Thomas Zimmermann <tzimmermann@suse.de>
-In-Reply-To: <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
+Content-Disposition: inline
+In-Reply-To: <20230629-angled-gallantly-8fe7451a25fa@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_004616_580481_4A99E41D 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20230630_004652_276535_F9A528DE 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,150 +87,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8781892601738119483=="
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, heiko.stuebner@vrull.eu, Evan Green <evan@rivosinc.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---===============8781892601738119483==
-Content-Language: en-US
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------2PcBvNvj4NxOJT00dP00OAEN"
+On Thu, Jun 29, 2023 at 10:44:18PM +0100, Conor Dooley wrote:
+> On Thu, Jun 29, 2023 at 02:16:49PM -0700, Palmer Dabbelt wrote:
+> > On Thu, 29 Jun 2023 13:20:55 PDT (-0700), Conor Dooley wrote:
+...
+> > > +bool __initdata riscv_isa_fallback_cmdline = false;
+> > > +static int __init riscv_isa_fallback_setup(char *__unused)
+> > 
+> > Maybe it's better to support =true and =false here?  Not sure it matters,
+> > we're already down a rabbit hole ;)
+> 
+> Dunno, not implemented a cmdline param before. Seemed "cleaner" to check
+> for presence, don't really care so I'll adapt to w/e.
+>
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------2PcBvNvj4NxOJT00dP00OAEN
-Content-Type: multipart/mixed; boundary="------------mO7mj780JaYWOEkXFpUrFA6g";
- protected-headers="v1"
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
- loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-fbdev@vger.kernel.org, linux-staging@lists.linux.dev,
- Linux-Arch <linux-arch@vger.kernel.org>, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Frederic Weisbecker <frederic@kernel.org>,
- Nicholas Piggin <npiggin@gmail.com>, Ard Biesheuvel <ardb@kernel.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- Juerg Haefliger <juerg.haefliger@canonical.com>
-Message-ID: <ef7b3899-7d18-8018-47fa-aac0efaa61f4@suse.de>
-Subject: Re: [PATCH 07/12] arch/x86: Declare edid_info in <asm/screen_info.h>
-References: <20230629121952.10559-1-tzimmermann@suse.de>
- <20230629121952.10559-8-tzimmermann@suse.de>
- <80e3a583-805e-4e8f-a67b-ebe2e4b9a7e5@app.fastmail.com>
- <d3de124c-6aa8-e930-e238-7bd6dd7929a6@suse.de>
- <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
-In-Reply-To: <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
+I don't have a strong preference here, but to throw in more food for
+thought, I see this DT-v1 vs. DT-v2 choice to be a bit analogous to the
+DT vs. ACPI choice. The 'acpi' command line parameter, for RISC-V, can
+be 'off', 'on', and 'force', where
 
---------------mO7mj780JaYWOEkXFpUrFA6g
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+  off -- disable ACPI if default was on
+  on -- enable ACPI but allow fallback to DT
+  force -- enable ACPI if default was off
 
-SGkNCg0KQW0gMjkuMDYuMjMgdW0gMTU6MjEgc2NocmllYiBBcm5kIEJlcmdtYW5uOg0KPiBP
-biBUaHUsIEp1biAyOSwgMjAyMywgYXQgMTU6MDEsIFRob21hcyBaaW1tZXJtYW5uIHdyb3Rl
-Og0KPj4gQW0gMjkuMDYuMjMgdW0gMTQ6MzUgc2NocmllYiBBcm5kIEJlcmdtYW5uOg0KPj4+
-IE9uIFRodSwgSnVuIDI5LCAyMDIzLCBhdCAxMzo0NSwgVGhvbWFzIFppbW1lcm1hbm4gd3Jv
-dGU6DQo+Pj4+IFRoZSBnbG9iYWwgdmFyaWFibGUgZWRpZF9pbmZvIGNvbnRhaW5zIHRoZSBm
-aXJtd2FyZSdzIEVESUQgaW5mb3JtYXRpb24NCj4+Pj4gYXMgYW4gZXh0ZW5zaW9uIHRvIHRo
-ZSByZWd1bGFyIHNjcmVlbl9pbmZvIG9uIHg4Ni4gVGhlcmVmb3JlIG1vdmUgaXQgdG8NCj4+
-Pj4gPGFzbS9zY3JlZW5faW5mby5oPi4NCj4+Pj4NCj4+Pj4gQWRkIHRoZSBLY29uZmlnIHRv
-a2VuIEFSQ0hfSEFTX0VESURfSU5GTyB0byBndWFyZCBhZ2FpbnN0IGFjY2VzcyBvbg0KPj4+
-PiBhcmNoaXRlY3R1cmVzIHRoYXQgZG9uJ3QgcHJvdmlkZSBlZGlkX2luZm8uIFNlbGVjdCBp
-dCBvbiB4ODYuDQo+Pj4NCj4+PiBJJ20gbm90IHN1cmUgd2UgbmVlZCBhbm90aGVyIHN5bWJv
-bCBpbiBhZGRpdGlvbiB0bw0KPj4+IENPTkZJR19GSVJNV0FSRV9FRElELiBTaW5jZSBhbGwg
-dGhlIGNvZGUgYmVoaW5kIHRoYXQNCj4+PiBleGlzdGluZyBzeW1ib2wgaXMgYWxzbyB4ODYg
-c3BlY2lmaWMsIHdvdWxkIGl0IGJlIGVub3VnaA0KPj4+IHRvIGp1c3QgYWRkIGVpdGhlciAn
-ZGVwZW5kcyBvbiBYODYnIG9yICdkZXBlbmRzIG9uIFg4NiB8fA0KPj4+IENPTVBJTEVfVEVT
-VCcgdGhlcmU/DQo+Pg0KPj4gRklSTVdBUkVfRURJRCBpcyBhIHVzZXItc2VsZWN0YWJsZSBm
-ZWF0dXJlLCB3aGlsZSBBUkNIX0hBU19FRElEX0lORk8NCj4+IGFubm91bmNlcyBhbiBhcmNo
-aXRlY3R1cmUgZmVhdHVyZS4gVGhleSBkbyBkaWZmZXJlbnQgdGhpbmdzLg0KPiANCj4gSSBz
-dGlsbCBoYXZlIHRyb3VibGUgc2VlaW5nIHRoZSBkaWZmZXJlbmNlLg0KDQpUaGUgaWRlYSBo
-ZXJlIGlzIHRoYXQgQVJDSF9IQVNfIHNpZ25hbHMgdGhlIGFyY2hpdGVjdHVyZSdzIHN1cHBv
-cnQgZm9yIA0KdGhlIGZlYXR1cmUuICBEcml2ZXJzIHNldCAnZGVwZW5kcyBvbicgaW4gdGhl
-aXIgS2NvbmZpZy4NCg0KQW5vdGhlciBLY29uZmlnIHRva2VuLCBWSURFT19TQ1JFRU5fSU5G
-TyBvciBGSVJNV0FSRV9FRElELCB3b3VsZCB0aGVuIA0KYWN0dWFsbHkgZW5hYmxlIHRoZSBm
-ZWF0dXJlLiAgRHJpdmVycyBzZWxlY3QgVklERU9fU0NSRUVOX0lORk8gb3IgDQpGSVJNV0FS
-RV9FRElEIGFuZCB0aGUgYXJjaGl0ZWN0dXJlcyBjb250YWlucyBjb2RlIGxpa2UNCg0KI2lm
-ZGVmIFZJREVPX1NDUkVFTl9JTkZPDQpzdHJ1Y3Qgc2NyZWVuX2luZm8gc2NyZWVuX2luZm8g
-PSB7DQoJLyogc2V0IHZhbHVlcyBoZXJlICovDQp9DQojZW5kaWYNCg0KVGhpcyBhbGxvd3Mg
-dXMgdG8gZGlzYWJsZSBjb2RlIHRoYXQgcmVxdWlyZXMgc2NyZWVuX2luZm8vZWRpZF9pbmZv
-LCBidXQgDQphbHNvIGRpc2FibGUgc2NyZWVuX2luZm8vZWRpZF9pbmZvIHVubGVzcyBzdWNo
-IGNvZGUgaGFzIGJlZW4gZW5hYmxlZCBpbiANCnRoZSBrZXJuZWwgY29uZmlnLg0KDQpTb21l
-IGFyY2hpdGVjdHVyZXMgY3VycmVudGx5IG1pbWljIHRoaXMgYnkgZ3VhcmRpbmcgc2NyZWVu
-X2luZm8gd2l0aCANCmlmZGVmIENPTkZJR19WVCBvciBzaW1pbGFyLiBJJ2QgbGlrZSB0byBt
-YWtlIHRoaXMgbW9yZSBmbGV4aWJsZS4gVGhlIA0KY29zdCBvZiBhIGZldyBtb3JlIGludGVy
-bmFsIEtjb25maWcgdG9rZW5zIHNlZW1zIG5lZ2xpZ2libGUuDQoNCj4gDQo+PiBSaWdodCBu
-b3csIEFSQ0hfSEFTX0VESURfSU5GTyBvbmx5IHdvcmtzIG9uIHRoZSBvbGQgQklPUy1iYXNl
-ZCBWRVNBDQo+PiBzeXN0ZW1zLiBJbiB0aGUgZnV0dXJlLCBJIHdhbnQgdG8gYWRkIHN1cHBv
-cnQgZm9yIEVESUQgZGF0YSBmcm9tIEVGSSBhbmQNCj4+IE9GIGFzIHdlbGwuIEl0IHdvdWxk
-IGJlIHN0b3JlZCBpbiBlZGlkX2luZm8uIEkgYXNzdW1lIHRoYXQgdGhlIG5ldw0KPj4gc3lt
-Ym9sIHdpbGwgYmVjb21lIHVzZWZ1bCB0aGVuLg0KPiANCj4gSSBkb24ndCBzZWUgd2h5IGFu
-IE9GIGJhc2VkIHN5c3RlbSB3b3VsZCBoYXZlIHRoZSBzYW1lIGxpbWl0YXRpb24NCj4gYXMg
-bGVnYWN5IEJJT1Mgd2l0aCBzdXBwb3J0aW5nIG9ubHkgYSBzaW5nbGUgbW9uaXRvciwgaWYg
-d2UgbmVlZA0KPiB0byBoYXZlIGEgZ2VuZXJpYyByZXByZXNlbnRhdGlvbiBvZiBFRElEIGRh
-dGEgaW4gRFQsIHRoYXQgd291bGQNCj4gcHJvYmFibHkgYmUgaW4gYSBwZXIgZGV2aWNlIHBy
-b3BlcnR5IGFueXdheS4NCg0KU29ycnkgdGhhdCB3YXMgbXkgbWlzdGFrZS4gT0YgaGFzIG5v
-dGhpbmcgdG8gZG8gd2l0aCB0aGlzLg0KDQo+IA0KPiBJIHN1cHBvc2UgeW91IGNvdWxkIHVz
-ZSBGSVJNV0FSRV9FRElEIG9uIEVGSSBvciBPRiBzeXN0ZW1zIHdpdGhvdXQNCj4gdGhlIG5l
-ZWQgZm9yIGEgZ2xvYmFsIGVkaWRfaW5mbyBzdHJ1Y3R1cmUsIGJ1dCB0aGF0IHdvdWxkIG5v
-dA0KPiBzaGFyZSBhbnkgY29kZSB3aXRoIHRoZSBjdXJyZW50IGZiX2Zpcm13YXJlX2VkaWQo
-KSBmdW5jdGlvbi4NCg0KVGhlIGN1cnJlbnQgY29kZSBpcyBidWlsZCBvbiB0b3Agb2Ygc2Ny
-ZWVuX2luZm8gYW5kIGVkaWRfaW5mby4gSSdkIA0KcHJlZmVyYWJseSBub3QgcmVwbGFjZSB0
-aGF0LCBpZiBwb3NzaWJsZS4NCg0KQmVzdCByZWdhcmRzDQpUaG9tYXMNCg0KPiANCj4gICAg
-ICAgQXJuZA0KDQotLSANClRob21hcyBaaW1tZXJtYW5uDQpHcmFwaGljcyBEcml2ZXIgRGV2
-ZWxvcGVyDQpTVVNFIFNvZnR3YXJlIFNvbHV0aW9ucyBHZXJtYW55IEdtYkgNCkZyYW5rZW5z
-dHJhc3NlIDE0NiwgOTA0NjEgTnVlcm5iZXJnLCBHZXJtYW55DQpHRjogSXZvIFRvdGV2LCBB
-bmRyZXcgTXllcnMsIEFuZHJldyBNY0RvbmFsZCwgQm91ZGllbiBNb2VybWFuDQpIUkIgMzY4
-MDkgKEFHIE51ZXJuYmVyZykNCg==
+So, if the default of the isa fallback command line option will depend on
+Kconfig, then we may also want a 'force'.
 
---------------mO7mj780JaYWOEkXFpUrFA6g--
-
---------------2PcBvNvj4NxOJT00dP00OAEN
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature"
-
------BEGIN PGP SIGNATURE-----
-
-wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmSeiEMFAwAAAAAACgkQlh/E3EQov+As
-5Q/9H55ggR4DmBaaIorbgBWGfEk+cZYwIsKGIz88GTA+c5VuSIo6Mc6nMauV6sDZwQuqK4aWIzzR
-jVTZ+JGcp3h1o6Cb0aTHu4wIa0XkYCuT1Lo7p8q02mhS2T/EtbkiMAktmfNBBOCQ2Fp1RYjL5Fnx
-D8F1O/+gATcQgYGWJ4V3Y0khLBjCIhqZLpoDUZgvIznRExZlWP+eZ/NIuYR/PiM7/z0Gu/p+FZEo
-XIZrcJeJGET5ciMIAmV2d8zLT2YAwSz0bsLLYt5xyeZkVZBUKuQ93wUicuYaqXHIqpUz760GPe3M
-uITt6uKCQQHv2MOawwpy/YMei3eFhbCAixdayLHfhcyo1u3fnGsQWaLYStVYNnkfTEEb3abRZrUz
-gR90CVdui0m94ExphiWAzSjj/SbKYkUc0haYzE/CHronlSSiqHhTDghKfjEli6yS8cAAxSDZVcgw
-pggFLw7Xz3f+ITbu/zV1QzMHX5bOV+3ThWxpDGXmeQ4k60lx80NaI3unnFQqi4KN0Gyu2i2ptFNU
-KRuLox9gnQf9J50AkJOShkapFUjTVNDwxJ0Ftikb/pv/UXdsLrnWzrPgi4Qn6Y49jqHRb2wNFcIF
-erX2SS+S6zYk36Pg6L77ceHnxC0rIaZBtZ81YxFtMiZ9l8YV2rJS8orASwSIzF/yPiZXZgFY3ZQm
-S2Y=
-=pDNZ
------END PGP SIGNATURE-----
-
---------------2PcBvNvj4NxOJT00dP00OAEN--
-
-
---===============8781892601738119483==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8781892601738119483==--
-
