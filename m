@@ -4,80 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC4FEB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 08:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4973AEB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 08:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p1TA/whKJv9y1HDKijDkXdLYEb1MDntp8qhB+tE+A0w=; b=LvJSlkPPWW3XIC
-	7EvyCyRLYhRNK2kk1FISwTtZO/dZLGOEGPaRudr3q99MEKzSW1Eccroe/sSwv1bAFYhjgHu592sOR
-	2fmLsFGlu0dDSeALEcRpHCi3vAsmOAkBa+H/2S6wTbhV9O4IgosXX7VlRwKwvPxUiiKQtzNLhZMj/
-	/FPWffkHcQe2p3itXxc5v/qbzkPFL3m/Pk6UGjg1i2gNirLZABXYjBkb5N/bQ0l+d+VMJNJyWw7lV
-	yflINyJSsBxemAS0+teJhfGhxG4Ny6IkYw6bA/LEmUtqHsuGVze5GzLc2Un73mWd1lew7pi7eQKkB
-	ub2HMvev+bfLle5t3PdQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vt9aJkWIl645UYOl+q9wrsdlDxhog3yKQPDbErabejk=; b=C7gonM0WW3/qn5
+	GfGzRd4B9/xk9Ub8lOc/cA4Ivk09gUYPFxbOsb3Npq/9iVr3HxPifqbhhTvgDmMnlWSazbcCXjGBB
+	cFVVvkXyhHHUrX9yFVama2dp69lmi5G8jNnMS/n6oDVcX5t0VxKOBrvXdIU+bqnj+G/cVluQIXJgd
+	kjRTLICTzVFViE6NBmd6Ibh/wBa2Ny1F5F7byCC6wpclCAmWUsto8gtuSzWqROwlX3pXHdbiu0N6v
+	TOinSiPItZRPiKehfPcYUdFyfoA/Wj4lQRoFkIDhXTQHFqqgG+Lepx0u/clGZpHzKvh4hrLecvx9H
+	lgHXalYoUO0FIlI+xeZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF9Vn-003At3-0D;
-	Fri, 30 Jun 2023 08:29:51 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1qF9Xc-003B2Y-1l;
+	Fri, 30 Jun 2023 08:31:44 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF9Vj-003AsZ-2b
+	id 1qF9XZ-003B1F-0V
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 08:29:49 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-272-sTh1UJeJMDO3OsTYjnjZSA-1; Fri, 30 Jun 2023 09:29:43 +0100
-X-MC-Unique: sTh1UJeJMDO3OsTYjnjZSA-1
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Fri, 30 Jun
- 2023 09:29:42 +0100
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Fri, 30 Jun 2023 09:29:42 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Evan Green' <evan@rivosinc.com>
-CC: Jessica Clarke <jrtc27@jrtc27.com>, Palmer Dabbelt <palmer@rivosinc.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, Yangyu Chen
-	<cyy@cyyself.name>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren
-	<guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv
-	<linux-riscv@lists.infradead.org>, Jonathan Corbet <corbet@lwn.net>,
-	"Xianting Tian" <xianting.tian@linux.alibaba.com>, Masahiro Yamada
-	<masahiroy@kernel.org>, Greentime Hu <greentime.hu@sifive.com>, Simon Hosie
-	<shosie@rivosinc.com>, Li Zhengyu <lizhengyu3@huawei.com>, Andrew Jones
-	<ajones@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alexghiti@rivosinc.com>, Ley Foon Tan <leyfoon.tan@starfivetech.com>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Heiko Stuebner
-	<heiko.stuebner@vrull.eu>, Anup Patel <apatel@ventanamicro.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Sia Jee Heng
-	<jeeheng.sia@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Andy
- Chiu" <andy.chiu@sifive.com>
-Subject: RE: [PATCH 1/2] RISC-V: Probe for unaligned access speed
-Thread-Topic: [PATCH 1/2] RISC-V: Probe for unaligned access speed
-Thread-Index: AQHZqSszK74IXZi1x0Sk5pxi8WFXO6+hr6jwgACq1QCAAKe+MA==
-Date: Fri, 30 Jun 2023 08:29:42 +0000
-Message-ID: <b9a23f8947014fdbb625d67134ed796d@AcuMS.aculab.com>
-References: <20230623222016.3742145-1-evan@rivosinc.com>
- <20230623222016.3742145-2-evan@rivosinc.com>
- <64F2D853-61E5-49CF-BAB5-AAFB8697683E@jrtc27.com>
- <CALs-HssZG8daTJaRK8JPT0VRk=23CtO6B_5kq4Xa_DdLELjaZw@mail.gmail.com>
- <53dc6959cc8849d6b66676ad48c1376a@AcuMS.aculab.com>
- <CALs-HstgcnK=prSHm9D7bqWc05q52ObA5kozmxzr-euR=CFfKw@mail.gmail.com>
-In-Reply-To: <CALs-HstgcnK=prSHm9D7bqWc05q52ObA5kozmxzr-euR=CFfKw@mail.gmail.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	Fri, 30 Jun 2023 08:31:43 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-31114b46d62so1809964f8f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 01:31:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688113899; x=1690705899;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=I7xu9e/8zpZngb/8IehgWdJUCcpoeDVm3vpzs3Qy7mo=;
+        b=H865ZtJHjbuc6MuFVYa6SgB+ccoXiHGJQIfADr+zwMK/j+TvVpF9r811O5KdXbAu5+
+         8rnETbuyrAMsXoADgBZsmqyWAJr2v0SEQYshs1SJYhCXKgyoO6o3PJr4ldpS8G81FyDD
+         5pJH5cSvZ1+TDWcK6vDQAbBn+F15tFvNuOhYAQrzT4I29Y6oNdLKn4cLGQ+ogAC/S4FO
+         VTT6g+Rr36ezXTugl0LhtdCY68hxlgD8P8RQc//MOZj5goxL8G/fFJl97Hi8BBomykLL
+         ifR/3V7HCfdYcA93pumIwoaa/E8SI7eQ7OroZqiDb/jdJyXWhiTW+FiT0P9QtP8R7EOe
+         vpZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688113899; x=1690705899;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=I7xu9e/8zpZngb/8IehgWdJUCcpoeDVm3vpzs3Qy7mo=;
+        b=eJ4ZTWeKnxCJdP3Wy+0nLH2Ff9YuaGHGduHL5S5UP8bDDnqQ2EzwrRm782k+igaL7L
+         MU9npBCsLFLb/rpYafz4BGjcojPWeQMdVbpGPuP9B9EblS39yvrYpmZTnjNRSZsCmAD6
+         BA41xTDdG6FbHZMvynUrFsro99JOjfN1kANOdI8DNon77AcIab58NCl9A5n5FmBGYM3H
+         hqGiatmni8ddwOF8MMIJDkTDI4nK3McR9fvWNr2c4KzPdEE92acPibLJr3v5LlWb3ZYg
+         WwK5vde7V3jvI9GnpqFYQv9i1Pfrrmvh/lcAGKebyrAn94kRWNwShV09sSsVwPEYUpFB
+         PErg==
+X-Gm-Message-State: ABy/qLYZZ7y32FWTDJ74Rm0jNO5kOhgMKxJYDexQBUbIZn29lDiiK08F
+	aRQSL7WNgBQMROVszPt5L6uoNA==
+X-Google-Smtp-Source: APBJJlF2cVmZSXyEpZo5Wr+x3JPdjgQAG++Uz1dQG5lH+T/9n8SPtY5CQ+JHQXWfIJwLUbsOsOGQcg==
+X-Received: by 2002:adf:f60c:0:b0:313:e741:1caa with SMTP id t12-20020adff60c000000b00313e7411caamr1823926wrp.25.1688113898731;
+        Fri, 30 Jun 2023 01:31:38 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id h15-20020a05600004cf00b0030e52d4c1bcsm17976111wri.71.2023.06.30.01.31.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Jun 2023 01:31:38 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@atishpatra.org>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v3 00/10] riscv: Allow userspace to directly access perf counters
+Date: Fri, 30 Jun 2023 10:30:03 +0200
+Message-Id: <20230630083013.102334-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_012948_107041_BFD8863F 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20230630_013141_288760_2B713BB1 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,48 +109,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-...
-> Yeah, one thing I could do is disable interrupts, measure the cycle
-> count of doing an individual iteration, do this N times, and take the
-> minimum value as the time to compare. In the end I'll then have two
-> numbers to compare, like I do in this patch. In theory the variance on
-> that should be really tight. N will have to depend on the overall
-> amount of time I'm taking so as not to shut interrupts off for very
-> long. Let me experiment with this and see how the results look.
-> -Evan
+riscv used to allow direct access to cycle/time/instret counters,
+bypassing the perf framework, this patchset intends to allow the user to
+mmap any counter when accessed through perf. But we can't break the
+existing behaviour so we introduce a sysctl perf_user_access like arm64
+does, which defaults to the legacy mode described above.
 
-I doubt you'll need many iterations or a long test.
+This version needs openSBI v1.3 *and* a fix that went upstream lately
+(https://lore.kernel.org/lkml/20230616114831.3186980-1-maz@kernel.org/T/).
 
-You can do tests in userspace without disabling pre-emption
-or interrupts - the large/silly values they generate are
-easily ignored.
+**Important**: In this version, the default mode is now user access, not
+the legacy so some applications will break.
 
-I suspect you'll get enough info from something like:
-	unsigned long x[2];
-	volatile unsigned long *p = (void *)((unsigned char *)x + 1);
-	full_cpu_barrier()
-	start = rdtsc();
-	full_cpu_barrier();
-	*p; *p; *p; *p; *p; *p; *p; *p;
-	*p; *p; *p; *p; *p; *p; *p; *p;
-	full_cpu_barrier()
-	elapsed = rdtsc() - start;
-Once the i-cache is loaded it should be pretty constant.
-For aligned addresses I'd expect each extra '*p' to be
-one more clock.
-With hardware support for misaligned transfers at most
-2 clocks (test on x86 and it will be 1 clock).
-The emulated version will be 100s or 1000s.
-	
-I'm not sure how much of a cpu barrier you need.
-Definitely needs to wait for all memory accesses
-and the rdtsc().
+base-commit-tag: v6.4-rc6
 
-	David
+Changes in v3:
+v3:
+- patch 1 now contains the ref to the faulty commit (no Fixes tag as it is only a comment), as Andrew suggested
+- Removed RISCV_PMU_LEGACY_TIME from patch 3, as Andrew suggested
+- Rename RISCV_PMU_PDEV_NAME to "riscv-pmu-sbi", patch4 is just cosmetic now, as Andrew suggested
+- Removed a few useless (and wrong) comments, as Andrew suggested
+- Simplify arch_perf_update_userpage code, as Andrew suggested
+- Documentation now mentions that time CSR is *always* accessible, whatever the mode, as suggested by Andrew
+- Removed CYCLEH reference and add TODO for rv32 support, as suggested by Atish
+- Do not rename the pmu instance as Atish suggested
+- Set pmc_width only if rdpmc is enabled and CONFIG_RISCV_PMU is set and the event is a hw event
+- Move arch_perf_update_userpage https://lore.kernel.org/lkml/20230616114831.3186980-1-maz@kernel.org/T/
+- **Switch to user mode access by default**
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+Changes in v2:
+- Split into smaller patches, way better!
+- Add RB from Conor
+- Simplify the way we checked riscv architecture
+- Fix race mmap and other thread running on other cpus
+- Use hwc when available
+- Set all userspace access flags in event_init, too cumbersome to handle sysctl changes
+- Fix arch_perf_update_userpage for pmu other than riscv-pmu by renaming pmu driver
+- Fixed kernel test robot build error
+- Fixed documentation (Andrew and Bagas)
+- perf testsuite passes mmap tests in all 3 modes
+
+Alexandre Ghiti (10):
+  perf: Fix wrong comment about default event_idx
+  include: riscv: Fix wrong include guard in riscv_pmu.h
+  riscv: Make legacy counter enum match the HW numbering
+  drivers: perf: Rename riscv pmu sbi driver
+  riscv: Prepare for user-space perf event mmap support
+  drivers: perf: Implement perf event mmap support in the legacy backend
+  drivers: perf: Implement perf event mmap support in the SBI backend
+  Documentation: admin-guide: Add riscv sysctl_perf_user_access
+  tools: lib: perf: Implement riscv mmap support
+  perf: tests: Adapt mmap-basic.c for riscv
+
+ Documentation/admin-guide/sysctl/kernel.rst |  26 ++-
+ drivers/perf/riscv_pmu.c                    | 113 +++++++++++
+ drivers/perf/riscv_pmu_legacy.c             |  28 ++-
+ drivers/perf/riscv_pmu_sbi.c                | 196 +++++++++++++++++++-
+ include/linux/perf/riscv_pmu.h              |  12 +-
+ include/linux/perf_event.h                  |   3 +-
+ tools/lib/perf/mmap.c                       |  65 +++++++
+ tools/perf/tests/mmap-basic.c               |   4 +-
+ 8 files changed, 427 insertions(+), 20 deletions(-)
+
+-- 
+2.39.2
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
