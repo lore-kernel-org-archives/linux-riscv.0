@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E4FEB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 15:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2EBCEB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 16:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nRCItltErwYgW6rQX1nukgzUh4hrzHLtaPA3TmxyCXU=; b=f/X0h3BjDrI17q
-	iW6zQywIUfdaz2OFIJ24t4bxngsXjR9yipgJt3gjB5CkasWGVSQ+1gfCwINDcZyW6yHA+uHU9Mt3C
-	Dxzmt01Ez9sJAjjbIwG5t9hE06hCHFkKBfUMbBtXC5ZjaoNMqlxJcdh7UHzQYjRWCF7MHR4Om8BC0
-	0zmdWPNni9QgH7psoxgM3DxY8cWRMhHcjob/VqPSOe4Sq4QG3JKOOTB11PZKgViIkXmyfxRfAjGIj
-	nGhPqdL1rOQTZuFnRt0bz26yu0NT+Rj3Mefu9xzZdb9Ju+2JaYVn+g/2QxmrL7nwrVIAog6UPj5Dw
-	gANvDqe6O+bsHQDBARiQ==;
+	List-Owner; bh=UIyubAnMqz0TU1CYOY7g9+uPIuTpRI95fnA/wHyXzVM=; b=n0Fnw+8NsPUo0W
+	GJPpAycrmAhAUFKjH1HvMGguQfMnbupwkg9E7Vo0u5fmdZaJS0lTiZ86vkjsNMXYOGyZbwG3N6YOS
+	pQvKzR6BDl3IhVb34dd/ekG8qUL9/SiBY/zgOzM5fHmpODdhXyBDyb8z+fiX8a7ZuiW43idmna7VG
+	CPvVvgm4W1SfhvGX/CdRzTt99OwRIJH5lKTDIZu1K1yl0zO57zlyIxjyAGmNHduR70onNq3suPPqC
+	rJOeOipAkVM3N6TZNOolOu0UqJ1ppERKzt08GjINOzJnWEO8d6p8o6fViUV4BvBh0tnbMLApNGp1F
+	UQwPhrgojUYV9cBBCmKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFGNN-003yt8-11;
-	Fri, 30 Jun 2023 15:49:37 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qFHGz-0045XZ-1k;
+	Fri, 30 Jun 2023 16:47:05 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFGNH-003ypi-08
+	id 1qFHGx-0045Wj-1B
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 15:49:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688140170; x=1719676170;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=4dAL77W/cVduaFRJe/5jcsk3XTr960C4xPzZSEjWaHo=;
-  b=vDpXGvU6r25t5McGySCoQbdbPt7KF9W0FjHKdvXl3UhXWFZ2BvXw2YWa
-   LPCah76ktTxyWOUrgMfFzLORJ5wQegDLKtdEO8/xVxof3twAEK31DXQFY
-   49H+IBfa2e8aLiWy5viy1EP0Bi/1syEEDsJTfIs2UCA2hXB5NmScGD5/O
-   OFBJL0YsmNug71MUqQZQNeBQT5g+IwyM5kR+mkp3q472qWCLCHq7QI/ai
-   RMWgkYJ+OXFQddTeTNRykz1WYBb6PUcCxEIeFkf/lynBxyUf8thAfVdR0
-   saxd9TxXC1BRtTLlMapfU9EZkwo7afE12rHN5ZGABbWmHFLJ4T3O33ceS
-   g==;
-X-IronPort-AV: E=Sophos;i="6.01,171,1684825200"; 
-   d="scan'208";a="159339761"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Jun 2023 08:49:30 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 30 Jun 2023 08:49:15 -0700
-Received: from daire-X570.amer.actel.com (10.10.115.15) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.21 via Frontend Transport; Fri, 30 Jun 2023 08:49:13 -0700
-From: <daire.mcnamara@microchip.com>
-To: <conor@kernel.org>
-CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
-	<conor.dooley@microchip.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring
-	<robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>
-Subject: [PATCH v2 5/8] PCI: microchip: Clean up initialisation of interrupts
-Date: Fri, 30 Jun 2023 16:48:56 +0100
-Message-ID: <20230630154859.2049521-6-daire.mcnamara@microchip.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230630154859.2049521-1-daire.mcnamara@microchip.com>
-References: <20230630154859.2049521-1-daire.mcnamara@microchip.com>
+	Fri, 30 Jun 2023 16:47:04 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-2b6a152a933so32702821fa.1
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 09:46:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1688143618; x=1690735618;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=sYWz+2+v0oWfMG7VOE8sajye5qUMu35LIpd38kZpYk4=;
+        b=bE7AM12LzqFtQydt+UMBpdsl/D7OThQhEDvxHSgy4Y99IiBMNaWCq/5iTk3EZQH1NG
+         xBQUEDlDuz7pPAdHmHLJnXU0YpY08GpSc+Bg+bHCisWYhFjOjJF3TP092RbotfvyB10+
+         Uf/ICMbczWGwMd79Sy9q4ZC1tXR8hyvKJKcQM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688143618; x=1690735618;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sYWz+2+v0oWfMG7VOE8sajye5qUMu35LIpd38kZpYk4=;
+        b=X4aeJ5fKJS5WFUTnF+XgN84yb8MlxiHzIcPYlpTddkgPsM/38K+lCG5kj2+rov+D9q
+         o0lEq30VCFOxbhuLdxJyyyQ6+ZMlPNrrPN4fQ92zevUZCDSZqXdXz7B5N806i7Cgjr2b
+         ULqSTsJrZsZ9hz32rOVY/XvJnxbQ+sM5sq9sN08VqY/Jr4x0SoK27A4QvwAnrkPnUYuG
+         zC24p+A2i9rrmxyGrnLvP0VTnJZpnyMWe5hUD/9YTqDAbnowUs1kvFYAZPQZqbJNQZyl
+         ImBWGEjYE8YMLAlUazsvrEJWVy76dRiFYnhAv9MKg7WP5cQLHOPCHLM3faveigJonEXT
+         fhVw==
+X-Gm-Message-State: ABy/qLakbf9LLdymJV0WyUZfysFmDWNC/ksMAL/NYKMpwn4uTo39wyPT
+	15RvlcYbuJMNS1wRRDCjnIKu+xlviF7ln7jxtYLSnhtY
+X-Google-Smtp-Source: APBJJlEqzF1SfoKCUGnPGx1OKxnZGxU46txFFVdHX5xI811rbdYGWHkcQRutX97Eq2zKtuv1d6vrFw==
+X-Received: by 2002:a2e:908c:0:b0:2b5:9d78:213d with SMTP id l12-20020a2e908c000000b002b59d78213dmr2424416ljg.16.1688143617771;
+        Fri, 30 Jun 2023 09:46:57 -0700 (PDT)
+Received: from mail-lf1-f43.google.com (mail-lf1-f43.google.com. [209.85.167.43])
+        by smtp.gmail.com with ESMTPSA id 5-20020a05651c008500b002b6c5bbc9aesm862063ljq.91.2023.06.30.09.46.57
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 30 Jun 2023 09:46:57 -0700 (PDT)
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-4fb9ae4cef6so3378546e87.3
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 09:46:57 -0700 (PDT)
+X-Received: by 2002:a05:6512:3dac:b0:4f8:4245:ed57 with SMTP id
+ k44-20020a0565123dac00b004f84245ed57mr3479038lfv.35.1688143616777; Fri, 30
+ Jun 2023 09:46:56 -0700 (PDT)
 MIME-Version: 1.0
+References: <mhng-ebcc1b82-5dd0-4f2d-824e-8d9250374abf@palmer-ri-x1c9>
+In-Reply-To: <mhng-ebcc1b82-5dd0-4f2d-824e-8d9250374abf@palmer-ri-x1c9>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Fri, 30 Jun 2023 09:46:39 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wgqQCAtA4cVev0g3A6RCD16s1p-_TAUeVkGE0_yS2ehyA@mail.gmail.com>
+Message-ID: <CAHk-=wgqQCAtA4cVev0g3A6RCD16s1p-_TAUeVkGE0_yS2ehyA@mail.gmail.com>
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.5 Merge Window, Part 1
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_084931_144046_BF7C169E 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20230630_094703_432092_4D210AC7 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,262 +93,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Daire McNamara <daire.mcnamara@microchip.com>
+On Fri, 30 Jun 2023 at 08:40, Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>
+> There's one merge conflict in MAINTAINERS
 
-Refactor interrupt handling in _init() function into
-disable_interrupts(), init_interrupts(), clear_sec_errors() and clear
-ded_errors().  It was unwieldy and prone to bugs. Then clearly disable
-interrupts as soon as possible and only enable interrupts after address
-translation is setup to prevent spurious axi2pcie and pcie2axi
-translation errors being reported
+Yes, but your suggested resolution is wrong. That "ACPI SERIAL ..."
+entry was moved downwards to be in the right place alphabetically, so
+the entry next to your new RISC-V entry actually needs to be removed.
 
-Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/pci/controller/pcie-microchip-host.c | 164 +++++++++++--------
- 1 file changed, 100 insertions(+), 64 deletions(-)
+You seem to just have kept it, so your resolution caused a dup.
 
-diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-index a81e6d25e347..6b28442ffe5a 100644
---- a/drivers/pci/controller/pcie-microchip-host.c
-+++ b/drivers/pci/controller/pcie-microchip-host.c
-@@ -112,6 +112,7 @@
- #define  SEC_ERROR_INT_RX_RAM_SEC_ERR_INT	GENMASK(7, 4)
- #define  SEC_ERROR_INT_PCIE2AXI_RAM_SEC_ERR_INT	GENMASK(11, 8)
- #define  SEC_ERROR_INT_AXI2PCIE_RAM_SEC_ERR_INT	GENMASK(15, 12)
-+#define  SEC_ERROR_INT_ALL_RAM_SEC_ERR_INT	GENMASK(15, 0)
- #define  NUM_SEC_ERROR_INTS			(4)
- #define SEC_ERROR_INT_MASK			0x2c
- #define DED_ERROR_INT				0x30
-@@ -119,6 +120,7 @@
- #define  DED_ERROR_INT_RX_RAM_DED_ERR_INT	GENMASK(7, 4)
- #define  DED_ERROR_INT_PCIE2AXI_RAM_DED_ERR_INT	GENMASK(11, 8)
- #define  DED_ERROR_INT_AXI2PCIE_RAM_DED_ERR_INT	GENMASK(15, 12)
-+#define  DED_ERROR_INT_ALL_RAM_DED_ERR_INT	GENMASK(15, 0)
- #define  NUM_DED_ERROR_INTS			(4)
- #define DED_ERROR_INT_MASK			0x34
- #define ECC_CONTROL				0x38
-@@ -471,10 +473,7 @@ static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
- {
- 	struct mc_pcie *port = domain->host_data;
- 	struct mc_msi *msi = &port->msi;
--	void __iomem *bridge_base_addr =
--		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
- 	unsigned long bit;
--	u32 val;
- 
- 	mutex_lock(&msi->lock);
- 	bit = find_first_zero_bit(msi->used, msi->num_vectors);
-@@ -488,11 +487,6 @@ static int mc_irq_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 	irq_domain_set_info(domain, virq, bit, &mc_msi_bottom_irq_chip,
- 			    domain->host_data, handle_edge_irq, NULL, NULL);
- 
--	/* Enable MSI interrupts */
--	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
--	val |= PM_MSI_INT_MSI_MASK;
--	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
--
- 	mutex_unlock(&msi->lock);
- 
- 	return 0;
-@@ -986,39 +980,73 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
- 	return 0;
- }
- 
--static int mc_platform_init(struct pci_config_window *cfg)
-+static inline void mc_clear_secs(struct mc_pcie *port)
- {
--	struct device *dev = cfg->parent;
--	struct platform_device *pdev = to_platform_device(dev);
--	struct mc_pcie *port;
--	void __iomem *bridge_base_addr;
--	void __iomem *ctrl_base_addr;
--	int ret;
--	int irq;
--	int i, intx_irq, msi_irq, event_irq;
-+	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-+
-+	writel_relaxed(SEC_ERROR_INT_ALL_RAM_SEC_ERR_INT, ctrl_base_addr +
-+		       SEC_ERROR_INT);
-+	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_EVENT_CNT);
-+}
-+
-+static inline void mc_clear_deds(struct mc_pcie *port)
-+{
-+	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-+
-+	writel_relaxed(DED_ERROR_INT_ALL_RAM_DED_ERR_INT, ctrl_base_addr +
-+		       DED_ERROR_INT);
-+	writel_relaxed(0, ctrl_base_addr + DED_ERROR_EVENT_CNT);
-+}
-+
-+static void mc_disable_interrupts(struct mc_pcie *port)
-+{
-+	void __iomem *bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-+	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
- 	u32 val;
--	int err;
- 
--	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
--	if (!port)
--		return -ENOMEM;
--	port->dev = dev;
-+	/* Ensure ECC bypass is enabled */
-+	val = ECC_CONTROL_TX_RAM_ECC_BYPASS |
-+	      ECC_CONTROL_RX_RAM_ECC_BYPASS |
-+	      ECC_CONTROL_PCIE2AXI_RAM_ECC_BYPASS |
-+	      ECC_CONTROL_AXI2PCIE_RAM_ECC_BYPASS;
-+	writel_relaxed(val, ctrl_base_addr + ECC_CONTROL);
- 
--	ret = mc_pcie_init_clks(dev);
--	if (ret) {
--		dev_err(dev, "failed to get clock resources, error %d\n", ret);
--		return -ENODEV;
--	}
-+	/* Disable SEC errors and clear any outstanding */
-+	writel_relaxed(SEC_ERROR_INT_ALL_RAM_SEC_ERR_INT, ctrl_base_addr +
-+		       SEC_ERROR_INT_MASK);
-+	mc_clear_secs(port);
- 
--	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
--	if (IS_ERR(port->axi_base_addr))
--		return PTR_ERR(port->axi_base_addr);
-+	/* Disable DED errors and clear any outstanding */
-+	writel_relaxed(DED_ERROR_INT_ALL_RAM_DED_ERR_INT, ctrl_base_addr +
-+		       DED_ERROR_INT_MASK);
-+	mc_clear_deds(port);
- 
--	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
--	ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-+	/* Disable local interrupts and clear any outstanding */
-+	writel_relaxed(0, bridge_base_addr + IMASK_LOCAL);
-+	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_LOCAL);
-+	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_MSI);
-+
-+	/* Disable PCIe events and clear any outstanding */
-+	val = PCIE_EVENT_INT_L2_EXIT_INT |
-+	      PCIE_EVENT_INT_HOTRST_EXIT_INT |
-+	      PCIE_EVENT_INT_DLUP_EXIT_INT |
-+	      PCIE_EVENT_INT_L2_EXIT_INT_MASK |
-+	      PCIE_EVENT_INT_HOTRST_EXIT_INT_MASK |
-+	      PCIE_EVENT_INT_DLUP_EXIT_INT_MASK;
-+	writel_relaxed(val, ctrl_base_addr + PCIE_EVENT_INT);
-+
-+	/* Disable host interrupts and clear any outstanding */
-+	writel_relaxed(0, bridge_base_addr + IMASK_HOST);
-+	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
-+}
-+
-+static int mc_init_interrupts(struct platform_device *pdev, struct mc_pcie *port)
-+{
-+	struct device *dev = &pdev->dev;
-+	int irq;
-+	int i, intx_irq, msi_irq, event_irq;
-+	int ret;
- 
--	port->msi.vector_phy = MSI_ADDR;
--	port->msi.num_vectors = MC_NUM_MSI_IRQS;
- 	ret = mc_pcie_init_irq_domains(port);
- 	if (ret) {
- 		dev_err(dev, "failed creating IRQ domains\n");
-@@ -1036,11 +1064,11 @@ static int mc_platform_init(struct pci_config_window *cfg)
- 			return -ENXIO;
- 		}
- 
--		err = devm_request_irq(dev, event_irq, mc_event_handler,
-+		ret = devm_request_irq(dev, event_irq, mc_event_handler,
- 				       0, event_cause[i].sym, port);
--		if (err) {
-+		if (ret) {
- 			dev_err(dev, "failed to request IRQ %d\n", event_irq);
--			return err;
-+			return ret;
- 		}
- 	}
- 
-@@ -1065,44 +1093,52 @@ static int mc_platform_init(struct pci_config_window *cfg)
- 	/* Plug the main event chained handler */
- 	irq_set_chained_handler_and_data(irq, mc_handle_event, port);
- 
--	/* Hardware doesn't setup MSI by default */
--	mc_pcie_enable_msi(port, cfg->win);
-+	return 0;
-+}
- 
--	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
--	val |= PM_MSI_INT_INTX_MASK;
--	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
-+static int mc_platform_init(struct pci_config_window *cfg)
-+{
-+	struct device *dev = cfg->parent;
-+	struct platform_device *pdev = to_platform_device(dev);
-+	struct mc_pcie *port;
-+	void __iomem *bridge_base_addr;
-+	int ret;
- 
--	writel_relaxed(val, ctrl_base_addr + ECC_CONTROL);
-+	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-+	if (!port)
-+		return -ENOMEM;
-+	port->dev = dev;
- 
--	val = PCIE_EVENT_INT_L2_EXIT_INT |
--	      PCIE_EVENT_INT_HOTRST_EXIT_INT |
--	      PCIE_EVENT_INT_DLUP_EXIT_INT;
--	writel_relaxed(val, ctrl_base_addr + PCIE_EVENT_INT);
-+	ret = mc_pcie_init_clks(dev);
-+	if (ret) {
-+		dev_err(dev, "failed to get clock resources, error %d\n", ret);
-+		return -ENODEV;
-+	}
- 
--	val = SEC_ERROR_INT_TX_RAM_SEC_ERR_INT |
--	      SEC_ERROR_INT_RX_RAM_SEC_ERR_INT |
--	      SEC_ERROR_INT_PCIE2AXI_RAM_SEC_ERR_INT |
--	      SEC_ERROR_INT_AXI2PCIE_RAM_SEC_ERR_INT;
--	writel_relaxed(val, ctrl_base_addr + SEC_ERROR_INT);
--	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_INT_MASK);
--	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_EVENT_CNT);
-+	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
-+	if (IS_ERR(port->axi_base_addr))
-+		return PTR_ERR(port->axi_base_addr);
- 
--	val = DED_ERROR_INT_TX_RAM_DED_ERR_INT |
--	      DED_ERROR_INT_RX_RAM_DED_ERR_INT |
--	      DED_ERROR_INT_PCIE2AXI_RAM_DED_ERR_INT |
--	      DED_ERROR_INT_AXI2PCIE_RAM_DED_ERR_INT;
--	writel_relaxed(val, ctrl_base_addr + DED_ERROR_INT);
--	writel_relaxed(0, ctrl_base_addr + DED_ERROR_INT_MASK);
--	writel_relaxed(0, ctrl_base_addr + DED_ERROR_EVENT_CNT);
-+	mc_disable_interrupts(port);
- 
--	writel_relaxed(0, bridge_base_addr + IMASK_HOST);
--	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
-+	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-+
-+	port->msi.vector_phy = MSI_ADDR;
-+	port->msi.num_vectors = MC_NUM_MSI_IRQS;
-+
-+	/* Hardware doesn't setup MSI by default */
-+	mc_pcie_enable_msi(port, cfg->win);
- 
- 	/* Configure Address Translation Table 0 for PCIe config space */
- 	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & 0xffffffff,
- 			     cfg->res.start, resource_size(&cfg->res));
- 
--	return mc_pcie_setup_windows(pdev, port);
-+	ret = mc_pcie_setup_windows(pdev, port);
-+	if (ret)
-+		return ret;
-+
-+	/* Address translation is up; safe to enable interrupts */
-+	return mc_init_interrupts(pdev, port);
- }
- 
- static const struct pci_ecam_ops mc_ecam_ops = {
--- 
-2.25.1
+The hint from git is the '++' at the beginning of the line:
 
+> ++ACPI SERIAL MULTI INSTANTIATE DRIVER
+> ++M:    Hans de Goede <hdegoede@redhat.com>
+> ++L:    platform-driver-x86@vger.kernel.org
+> ++S:    Maintained
+> ++F:    drivers/platform/x86/serial-multi-instantiate.c
+> ++
+
+which means that git thinks that your merge added those lines from
+thin air (ie they didn't exist in either parent).
+
+NOTE! A '++' line is not a sign of a mis-merge in general. It is
+*purely* a hint. It happens for perfectly fine merges when you either
+end up moving lines around enough that git doesn't see where they came
+from.
+
+Or, perhaps more commonly, when the merge conflict was due to both
+sides changing the same exact same code, and the merge resolution
+comes from neither one directly, but is new code that has combinations
+of both changes.
+
+Anyway, don't worry about it, I appreciate the heads-up regardless and
+I always do my own merge resolutions. I just decided to try to use
+this as a "this is how git works" moment.
+
+Basically, trivial merges where things were just added or removed next
+to each other will normally not result in "++" or "--" lines, so it
+can be a hint that something went wrong if you *thought* your merge
+was trivial, but git gives that kind of output for the end result.
+
+But don't think that "++" means "wrong". It really is just a sign that
+maybe the merge resolution needed a lot of care. And sometimes it's
+entirely a false positive - if git *really* understood merges 100%
+correctly all the time, we'd never need any manual conflict resolution
+at all ;)
+
+                  Linus
 
 _______________________________________________
 linux-riscv mailing list
