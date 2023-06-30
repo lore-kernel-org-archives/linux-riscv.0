@@ -4,77 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15FDEB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 11:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77379EB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 11:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YdQTsOnF2bs8qz6qNU9KvsAe1Vi6jJqrBTOj0vmLrCI=; b=xdFE6XRxoEJykj
-	6dLqTf/veOhm/KmEEypBJ1xnX613ejHO2lAQihLP0NcseLgQapQthnqUtsWFJgeRItWTwMcovKDHy
-	RNTyUi8RGvF1/ZlCeqhj6pUfxrHbB4P7na4ujL5PCmur+hOwqYr8cl0Ln9pJErPzb+5gaoXYeeDRk
-	ewwpYGaTC2gj4O4I7QPLwFmWMkxb9xwzvsaj5LtYuirEWv8JtcPFWTyBcbUKJEbIrAwG+ir+6WkJQ
-	dEiOWsntytEwGkFZxOhSApHOXc16g7ixO5Gzf+4KW9k0ZX/Am0oyCSaSPeI7meqBwi2QYhQQDBqCA
-	kESqxEmSQ9RXjfKvTJ3w==;
+	List-Owner; bh=p9Lm1vH3iPjdDaogiB5sjtYBweuHEJ9bA2k4Zt2Uz5Y=; b=1QTD/U/4On8XES
+	gAu7m5TwyzjFAZ+jNtmt4Ps7GICIwA0/XzeWLWcuFKhmfHInz7dvo/nVoS0Lbo0zoCrXgxYW66zSs
+	/wKarPxty1UGkz/t+e1lQZ0TbkKyO3TW0VMW1Qltuy/qLddoFTm9XCTVU/181cjZHRVJ8FmgRRkfG
+	xH+EiERmuuhplxTx/wVEZJxxQnJlOMG0g1Ng30d7HWx05lCMUP2yLzbJ2BogBfcOrDzWXD9sE1HQm
+	19qS6OJX/nhb9/1sJdq2ZJeKOCbDhnfoRZjFJfkuUlCL3vuhb0gboLnd622DKvvhqYQOuY0igYx3Q
+	tsJ1kHVx2BWziSsdycnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFCDM-003aIq-16;
-	Fri, 30 Jun 2023 11:23:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qFChD-003cfn-0d;
+	Fri, 30 Jun 2023 11:53:51 +0000
+Received: from new1-smtp.messagingengine.com ([66.111.4.221])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFCDI-003aI9-27
-	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 11:22:58 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 97AEA61728
-	for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 11:22:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F21F0C433AB
-	for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 11:22:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688124174;
-	bh=HIgffZnOosSIcjOP1dB+R/SNrBLEPOgvVYTtQ+OoMbc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=iC9Y0Eb2Z2MrXa6Y0C3L0itdnUhM4boFSN3EVF2hfwwESwXo2f0xnysTU4DH55i8q
-	 LPRCqB1weLDnb1l/6wVnR26XX6yvfBBjDiwiCnWAD+1Q8tj7lgbNPv9QNYG3oXhCYi
-	 jhoRAa0IscmrtkjZetLnY0SUfy6bT1P9ix6uoengTcF8SfJxq6sRNwBBw6YKmaHmat
-	 Hk+finD67UsNPxNmVWFr5EqEGCImxrkyJfW4S0fSJo6AEaxNGlsb1/ODu+nXFEyQHL
-	 DDaDryi0GmannFjCqZzQhFhLnJK/4U5QqwMzl9zCmtDH7+5Z/gF0qyEkmHLaUvG2DI
-	 YLz91LavDYzNw==
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-3fb4146e8deso21799745e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 04:22:53 -0700 (PDT)
-X-Gm-Message-State: ABy/qLYMSGwECObvlGI8kye8T4Voj4PGpaMB26hrwS2p0cwl9yVbfNmr
-	t5/I58xbQyCMB2HDgAWZ0sN4wDFiPZmJDIBBtGg=
-X-Google-Smtp-Source: APBJJlEl3R3agomzm6d8TGvRI5Iv/j9uIUWV2C5RvtxdK+YCyx2E8/q4piZNcSGztOcV2x6OLVr/LPL52UVCqEccBUc=
-X-Received: by 2002:a7b:c3c1:0:b0:3fb:c77e:80f6 with SMTP id
- t1-20020a7bc3c1000000b003fbc77e80f6mr1426408wmj.36.1688124172132; Fri, 30 Jun
- 2023 04:22:52 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230222033021.983168-1-guoren@kernel.org> <20230222033021.983168-5-guoren@kernel.org>
- <ZJ2PBosSQtSX28Mf@wychelm> <CAJF2gTRPYDxDpia=o6oqbt_8_5hqAQk-pwY1uPwUjcxCFg1EPw@mail.gmail.com>
-In-Reply-To: <CAJF2gTRPYDxDpia=o6oqbt_8_5hqAQk-pwY1uPwUjcxCFg1EPw@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 30 Jun 2023 07:22:40 -0400
-X-Gmail-Original-Message-ID: <CAJF2gTTRViivgy3njDc1k7A-jaSFUsyo2VPg2JwEAwx=H3mR4w@mail.gmail.com>
-Message-ID: <CAJF2gTTRViivgy3njDc1k7A-jaSFUsyo2VPg2JwEAwx=H3mR4w@mail.gmail.com>
-Subject: Re: [PATCH -next V17 4/7] riscv: entry: Convert to generic entry
-To: Daniel Thompson <daniel.thompson@linaro.org>
-Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, 
-	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com, 
-	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org, 
-	chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org, 
-	mark.rutland@arm.com, ben@decadent.org.uk, bjorn@kernel.org, 
-	palmer@dabbelt.com, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Yipeng Zou <zouyipeng@huawei.com>, Vincent Chen <vincent.chen@sifive.com>
+	id 1qFCh9-003cdr-0j;
+	Fri, 30 Jun 2023 11:53:48 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailnew.nyi.internal (Postfix) with ESMTP id C8F845842A1;
+	Fri, 30 Jun 2023 07:53:45 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Fri, 30 Jun 2023 07:53:45 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm1; t=1688126025; x=1688133225; bh=ya
+	Hy0NgB4QI7znLtjDpufXmMXzZcSHw23m7h8BkLYBc=; b=10KOp+CzUmojO7ZSQ7
+	q9c3tAJBmOd76hg6sonOk40OjKAR6/QOPiz7XUomr8IP6aN19s7N9Q20gnTBA8OU
+	H+ET1KWhVc0oqozGAYUdc7B70SAPMdGIyEmEipUjQs98dHfF9mAUgsaeXHru8OlA
+	Z6b+3BUsGbAouqrpsuvP8THkbsAzAbWArrjQjssrDfLJHYAxMJ1nD0US1BwUxLpH
+	Khsbp9i0wfMK4NjF83UPBZQU2Xe9X8o6q5JmvVGPeBGgXYJSti5i4d4Vr++XzGjN
+	1deBUgFU/w8tfA/bjpGKl2V8A3IgBHPWHWftg2j80IDtUUtjFI/5ldbjH9jVYmeY
+	G2pw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1688126025; x=1688133225; bh=yaHy0NgB4QI7z
+	nLtjDpufXmMXzZcSHw23m7h8BkLYBc=; b=VLzmPefoROKUnYgyH59xLO28GGD4n
+	I4lte/pn3WzX95H4eQRtTSBAb90fH5FqIscW92NizI9x3K9rvYkB4k9q6ajV1EbD
+	VxE8AOWeA5gd3Truhe/A9kaDx6LrP7Tl4Y9XFamiioeruNo4WJqflkjaHJ0nsHcv
+	J2r4IJGTVqOt1B1dMbybj/sbd/LzIbl5CzvfvEtuw8uPdvo7PAFEKVHhv2+1X9Xd
+	qEBjQf6xoQoJmFw77YwpNSZG5Kn1KzEpYegVmCRAHDr3owvr/EeqaPrEmVGD6Gmw
+	mfm5v+sxS/9Ml4UMUnNpdnRbqLCJ6zjTnHpvZojc13GhJnUu+kDlq3vDg==
+X-ME-Sender: <xms:SMKeZCxMqe5zxyzHHEyo_jowh1NvQkg3HAWm1oxMk5pEwCXuDt8nPQ>
+    <xme:SMKeZOQSC2GjFmKEVBEJ34bdcsM63u6r5Bbn1HzIVxPff5ENjvEYekcilieyCztL0
+    OOiy6d_8S9V2AG4VWM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrtdeigdeggecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:SMKeZEU7QF7lH3eivuj7P9AQVrp-KepGLUxX15AeZTjz07bNrMm_5Q>
+    <xmx:SMKeZIimGJWbUJHe4AXjoJoG2-DRyW8QkepPJWqWF6Y-rgF7svHorw>
+    <xmx:SMKeZEDcwFLycbP_cRSrtSET1YHYJvelMIMgwIjYVgEhFWn2ec6cwQ>
+    <xmx:ScKeZMj8q19ja7k4QwyGQviRl-VaDcpKWJEn2nnWWhOtIymUXjLwrw>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 94900B60093; Fri, 30 Jun 2023 07:53:44 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
+Mime-Version: 1.0
+Message-Id: <dd5aa01e-afad-48d2-bf4c-4a58b74f1644@app.fastmail.com>
+In-Reply-To: <ef7b3899-7d18-8018-47fa-aac0efaa61f4@suse.de>
+References: <20230629121952.10559-1-tzimmermann@suse.de>
+ <20230629121952.10559-8-tzimmermann@suse.de>
+ <80e3a583-805e-4e8f-a67b-ebe2e4b9a7e5@app.fastmail.com>
+ <d3de124c-6aa8-e930-e238-7bd6dd7929a6@suse.de>
+ <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
+ <ef7b3899-7d18-8018-47fa-aac0efaa61f4@suse.de>
+Date: Fri, 30 Jun 2023 13:53:24 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Thomas Zimmermann" <tzimmermann@suse.de>, "Helge Deller" <deller@gmx.de>,
+ "Daniel Vetter" <daniel@ffwll.ch>, "Dave Airlie" <airlied@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, linux-staging@lists.linux.dev,
+ Linux-Arch <linux-arch@vger.kernel.org>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, "Kees Cook" <keescook@chromium.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Frederic Weisbecker" <frederic@kernel.org>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>,
+ "Sami Tolvanen" <samitolvanen@google.com>,
+ "Juerg Haefliger" <juerg.haefliger@canonical.com>
+Subject: Re: [PATCH 07/12] arch/x86: Declare edid_info in <asm/screen_info.h>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_042256_771570_D7D6F44E 
-X-CRM114-Status: GOOD (  29.75  )
+X-CRM114-CacheID: sfid-20230630_045347_332750_24B0B344 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,82 +124,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdW4gMzAsIDIwMjMgYXQgNzoxNuKAr0FNIEd1byBSZW4gPGd1b3JlbkBrZXJuZWwu
-b3JnPiB3cm90ZToKPgo+IE9uIFRodSwgSnVuIDI5LCAyMDIzIGF0IDEwOjAy4oCvQU0gRGFuaWVs
-IFRob21wc29uCj4gPGRhbmllbC50aG9tcHNvbkBsaW5hcm8ub3JnPiB3cm90ZToKPiA+Cj4gPiBP
-biBUdWUsIEZlYiAyMSwgMjAyMyBhdCAxMDozMDoxOFBNIC0wNTAwLCBndW9yZW5Aa2VybmVsLm9y
-ZyB3cm90ZToKPiA+ID4gRnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+
-ID4gPgo+ID4gPiBUaGlzIHBhdGNoIGNvbnZlcnRzIHJpc2N2IHRvIHVzZSB0aGUgZ2VuZXJpYyBl
-bnRyeSBpbmZyYXN0cnVjdHVyZSBmcm9tCj4gPiA+IGtlcm5lbC9lbnRyeS8qLiBUaGUgZ2VuZXJp
-YyBlbnRyeSBtYWtlcyBtYWludGFpbmVycycgd29yayBlYXNpZXIgYW5kCj4gPiA+IGNvZGVzIG1v
-cmUgZWxlZ2FudC4gSGVyZSBhcmUgdGhlIGNoYW5nZXM6Cj4gPiA+Cj4gPiA+ICAtIE1vcmUgY2xl
-YXIgZW50cnkuUyB3aXRoIGhhbmRsZV9leGNlcHRpb24gYW5kIHJldF9mcm9tX2V4Y2VwdGlvbgo+
-ID4gPiAgLSBHZXQgcmlkIG9mIGNvbXBsZXggY3VzdG9tIHNpZ25hbCBpbXBsZW1lbnRhdGlvbgo+
-ID4gPiAgLSBNb3ZlIHN5c2NhbGwgcHJvY2VkdXJlIGZyb20gYXNzZW1ibHkgdG8gQywgd2hpY2gg
-aXMgbXVjaCBtb3JlCj4gPiA+ICAgIHJlYWRhYmxlLgo+ID4gPiAgLSBDb25uZWN0IHJldF9mcm9t
-X2ZvcmsgJiByZXRfZnJvbV9rZXJuZWxfdGhyZWFkIHRvIGdlbmVyaWMgZW50cnkuCj4gPiA+ICAt
-IFdyYXAgd2l0aCBpcnFlbnRyeV9lbnRlci9leGl0IGFuZCBzeXNjYWxsX2VudGVyL2V4aXRfZnJv
-bV91c2VyX21vZGUKPiA+ID4gIC0gVXNlIHRoZSBzdGFuZGFyZCBwcmVlbXB0aW9uIGNvZGUgaW5z
-dGVhZCBvZiBjdXN0b20KPiA+ID4KPiA+ID4gU3VnZ2VzdGVkLWJ5OiBIdWFjYWkgQ2hlbiA8Y2hl
-bmh1YWNhaUBrZXJuZWwub3JnPgo+ID4gPiBSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympv
-cm5Acml2b3NpbmMuY29tPgo+ID4gPiBUZXN0ZWQtYnk6IFlpcGVuZyBab3UgPHpvdXlpcGVuZ0Bo
-dWF3ZWkuY29tPgo+ID4gPiBUZXN0ZWQtYnk6IEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVs
-Lm9yZz4KPiA+ID4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEu
-Y29tPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+
-ID4gQ2M6IEJlbiBIdXRjaGluZ3MgPGJlbkBkZWNhZGVudC5vcmcudWs+Cj4gPgo+ID4gQXBvbG9n
-aWVzIGZvciB0aGUgbGF0ZSBmZWVkYmFjayBidXQgSSd2ZSBiZWVuIHN3YW1wZWQgbGF0ZWx5IGFu
-ZCBvbmx5Cj4gPiByZWNlbnRseSBnb3Qgcm91bmQgdG8gcnVubmluZyB0aGUgZnVsbCBrZ2RiIHRl
-c3Qgc3VpdGUgb24gdGhlIHY2LjQKPiA+IHNlcmllcy4KPiA+Cj4gPiBUaGUga2dkYiB0ZXN0IHN1
-aXRlIGluY2x1ZGVzIGEgY291cGxlIG9mIHRlc3RzIHRoYXQgdmVyaWZ5IHRoYXQgdGhlCj4gPiBz
-eXN0ZW0gcmVzdW1lcyBhZnRlciBicmVha3BvaW50aW5nIGR1ZSB0byBhIEJVRygpOgo+ID4gaHR0
-cHM6Ly9naXRodWIuY29tL2RhbmllbC10aG9tcHNvbi9rZ2RidGVzdC9ibG9iL21hc3Rlci90ZXN0
-cy90ZXN0X2tkYl9mYXVsdF9pbmplY3Rpb24ucHkjTDI0LUw0NQo+ID4KPiA+IFRoZXNlIHRlc3Rz
-IGhhdmUgcmVncmVzc2VkIG9uIHJpc2N2IGJldHdlZW4gdjYuMyBhbmQgdjYuNCBhbmQgYSBiaXNl
-Y3QKPiA+IGlzIHBvaW50aW5nIGF0IHRoaXMgcGF0Y2guIFdpdGggdGhlc2UgY2hhbmdlcyBpbiBw
-bGFjZSB0aGVuLCBhZnRlciBrZGIKPiA+IHJlc3VtZXMgdGhlIHN5c3RlbSwgdGhlIEJVRygpIG1l
-c3NhZ2UgaXMgcHJpbnRlZCBhcyBub3JtYWwgYnV0IHRoZW4KPiA+IGltbWVkaWF0ZWx5IGZhaWxz
-LiBGcm9tIHRoZSBiYWNrdHJhY2UgaXQgbG9va3MgbGlrZSB0aGUgbmV3IGVudHJ5L2V4aXQKPiA+
-IGNvZGUgY2Fubm90IGFkdmFuY2UgcGFzdCBhIGNvbXBpbGVkIGJyZWFrcG9pbnQgaW5zdHJ1Y3Rp
-b246Cj4gPiB+fn4KPiA+IFBBTklDOiBGYXRhbCBleGNlcHRpb24gaW4gaW50ZXJydXB0Cj4gSXQg
-Y29tZXMgZnJvbToKPiB2b2lkIGRpZShzdHJ1Y3QgcHRfcmVncyAqcmVncywgLi4uCj4gewo+IC4u
-Lgo+IGlmIChpbl9pbnRlcnJ1cHQoKSkKPiAgICAgICAgIHBhbmljKCJGYXRhbCBleGNlcHRpb24g
-aW4gaW50ZXJydXB0Iik7Cj4gLi4uCj4KPiBXZSBjb3VsZCBhZGQgYSBkdW1wX2JhY2t0cmFjZSB0
-byBzZWUgd2hhdCBoYXBwZW5lZDoKPiBpZiAoaW5faW50ZXJydXB0KCkpIHsKPiArICAgICAgZHVt
-cF9iYWNrdHJhY2UocmVncywgTlVMTCwgS0VSTl9ERUZBVUxUKTsKU29ycnksIGl0IHNob3VsZCBi
-ZToKKyAgICAgICAgZHVtcF9iYWNrdHJhY2UoTlVMTCwgTlVMTCwgS0VSTl9ERUZBVUxUKTsKV2Ug
-bmVlZCBjdXJyZW50IHN0YWNrIGluZm8sIG5vdCBleGNlcHRpb24gY29udGV4dC4KCgo+ICAgICAg
-ICAgcGFuaWMoIkZhdGFsIGV4Y2VwdGlvbiBpbiBpbnRlcnJ1cHQiKTsKPiB9Cj4KPgo+Cj4gPgo+
-ID4gRW50ZXJpbmcga2RiIChjdXJyZW50PTB4ZmY2MDAwMDAwMWEyYTI4MCwgcGlkIDEwNCkgb24g
-cHJvY2Vzc29yIDEgZHVlIHRvCj4gPiBOb25NYXNrCj4gPiBhYmxlIEludGVycnVwdCBAIDB4ZmZm
-ZmZmZmY4MDBiYjNjNAo+ID4gWzFda2RiPiBidAo+ID4gU3RhY2sgdHJhY2ViYWNrIGZvciBwaWQg
-MTA0Cj4gPiAweGZmNjAwMDAwMDFhMmEyODAgICAgICAxMDQgICAgICAgOTIgIDEgICAgMSAgIFIg
-IDB4ZmY2MDAwMDAwMWEyYWM1MAo+ID4gKmVjaG8KPiA+IENQVTogMSBQSUQ6IDEwNCBDb21tOiBl
-Y2hvIFRhaW50ZWQ6IEcgICAgICBECj4gPiA2LjMuMC1yYzEtMDAwMDMtZ2YwYmRkZjUwNTg2ZCAj
-MTE5Cj4gPiBIYXJkd2FyZSBuYW1lOiByaXNjdi12aXJ0aW8scWVtdSAoRFQpCj4gPiBDYWxsIFRy
-YWNlOgo+ID4gWzxmZmZmZmZmZjgwMDA1MGRjPl0gZHVtcF9iYWNrdHJhY2UrMHgxYy8weDI0Cj4g
-PiBbPGZmZmZmZmZmODA4NDU4Zjg+XSBzaG93X3N0YWNrKzB4MmMvMHgzOAo+ID4gWzxmZmZmZmZm
-ZjgwODUxYjAwPl0gZHVtcF9zdGFja19sdmwrMHgzYy8weDU0Cj4gPiBbPGZmZmZmZmZmODA4NTFi
-MmM+XSBkdW1wX3N0YWNrKzB4MTQvMHgxYwo+ID4gWzxmZmZmZmZmZjgwMGJjNGI4Pl0ga2RiX2R1
-bXBfc3RhY2tfb25fY3B1KzB4NjQvMHg2Ngo+ID4gWzxmZmZmZmZmZjgwMGMzZDJhPl0ga2RiX3No
-b3dfc3RhY2srMHg4Mi8weDg4Cj4gPiBbPGZmZmZmZmZmODAwYzNkYzA+XSBrZGJfYnQxKzB4OTAv
-MHhmMgo+ID4gWzxmZmZmZmZmZjgwMGM0MjA2Pl0ga2RiX2J0KzB4MzRjLzB4Mzg0Cj4gPiBbPGZm
-ZmZmZmZmODAwYzFkMjg+XSBrZGJfcGFyc2UrMHgyN2EvMHg2MTgKPiA+IFs8ZmZmZmZmZmY4MDBj
-MjU2Nj5dIGtkYl9tYWluX2xvb3ArMHgzYjIvMHg4ZmEKPiA+IFs8ZmZmZmZmZmY4MDBjNGM1YT5d
-IGtkYl9zdHViKzB4MWJhLzB4M2E4Cj4gPiBbPGZmZmZmZmZmODAwYmJiYTg+XSBrZ2RiX2NwdV9l
-bnRlcisweDM0Mi8weDViYQo+ID4gWzxmZmZmZmZmZjgwMGJjM2RhPl0ga2dkYl9oYW5kbGVfZXhj
-ZXB0aW9uKzB4ZTAvMHgxMWEKPiA+IFs8ZmZmZmZmZmY4MDAwODEwYz5dIGtnZGJfcmlzY3Zfbm90
-aWZ5KzB4ODYvMHhiNAo+ID4gWzxmZmZmZmZmZjgwMDJmMjEwPl0gbm90aWZ5X2RpZSsweDZhLzB4
-YTYKPiA+IFs8ZmZmZmZmZmY4MDAwNGRiMD5dIGhhbmRsZV9icmVhaysweDcwLzB4ZTAKPiA+IFs8
-ZmZmZmZmZmY4MDg1MjQ2Mj5dIGRvX3RyYXBfYnJlYWsrMHg0OC8weDVjCj4gPiBbPGZmZmZmZmZm
-ODAwMDM1OTg+XSByZXRfZnJvbV9leGNlcHRpb24rMHgwLzB4NjQKPiA+IFs8ZmZmZmZmZmY4MDBi
-YjNjND5dIGtnZGJfY29tcGlsZWRfYnJlYWsrMHgwLzB4MTQKPiA+IH5+fgo+ID4KPiA+Cj4gPiBE
-YW5pZWwuCj4KPgo+Cj4gLS0KPiBCZXN0IFJlZ2FyZHMKPiAgR3VvIFJlbgoKCgotLQpCZXN0IFJl
-Z2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Fri, Jun 30, 2023, at 09:46, Thomas Zimmermann wrote:
+> Am 29.06.23 um 15:21 schrieb Arnd Bergmann:
+>> On Thu, Jun 29, 2023, at 15:01, Thomas Zimmermann wrote:
+>>> Am 29.06.23 um 14:35 schrieb Arnd Bergmann:
+>>>> On Thu, Jun 29, 2023, at 13:45, Thomas Zimmermann wrote:
+>
+>>>
+>>> FIRMWARE_EDID is a user-selectable feature, while ARCH_HAS_EDID_INFO
+>>> announces an architecture feature. They do different things.
+>> 
+>> I still have trouble seeing the difference.
+>
+> The idea here is that ARCH_HAS_ signals the architecture's support for 
+> the feature.  Drivers set 'depends on' in their Kconfig.
+>
+> Another Kconfig token, VIDEO_SCREEN_INFO or FIRMWARE_EDID, would then 
+> actually enable the feature.  Drivers select VIDEO_SCREEN_INFO or 
+> FIRMWARE_EDID and the architectures contains code like
+
+Fair enough. In that case, I guess FIRMWARE_EDID will just depend on
+ARCH_HAS_EDID_INFO, or possibly "depends on FIRMWARE_EDID || EFI"
+after it starts calling into an EFI specific function, right?
+
+> #ifdef VIDEO_SCREEN_INFO
+> struct screen_info screen_info = {
+> 	/* set values here */
+> }
+> #endif
+>
+> This allows us to disable code that requires screen_info/edid_info, but 
+> also disable screen_info/edid_info unless such code has been enabled in 
+> the kernel config.
+>
+> Some architectures currently mimic this by guarding screen_info with 
+> ifdef CONFIG_VT or similar. I'd like to make this more flexible. The 
+> cost of a few more internal Kconfig tokens seems negligible.
+
+I definitely get it for the screen_info, which needs the complexity.
+For ARCHARCH_HAS_EDID_INFO I would hope that it's never selected by
+anything other than x86, so I would still go with just a dependency
+on x86 for simplicity, but I don't mind having the extra symbol if that
+keeps it more consistent with how the screen_info is handled.
+
+>> I suppose you could use FIRMWARE_EDID on EFI or OF systems without
+>> the need for a global edid_info structure, but that would not
+>> share any code with the current fb_firmware_edid() function.
+>
+> The current code is build on top of screen_info and edid_info. I'd 
+> preferably not replace that, if possible.
+
+One way I could imagine this looking in the end would be
+something like
+
+struct screen_info *fb_screen_info(struct device *dev)
+{
+      struct screen_info *si = NULL;
+
+      if (IS_ENABLED(CONFIG_EFI))
+            si = efi_get_screen_info(dev);
+
+      if (IS_ENABLED(CONFIG_ARCH_HAS_SCREEN_INFO) && !si)
+            si = screen_info;
+
+      return si;
+}
+
+corresponding to fb_firmware_edid(). With this, any driver
+that wants to access screen_info would call this function
+instead of using the global pointer, plus either NULL pointer
+check or a CONFIG_ARCH_HAS_SCREEN_INFO dependency.
+
+This way we could completely eliminate the global screen_info
+on arm64, riscv, and loongarch but still use the efi and
+hyperv framebuffer/drm drivers.
+
+    Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
