@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3929EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Jun 2023 23:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7871CEB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 01:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=D4cEl1JfEgqHD7mecq2z+HGT7H4tgiw+BY4yf4R5wHI=; b=OOcQI82oFvDxrA0OTH8CiYeCGK
-	CjQmLmTIRbeF0OeA04FtHT34ZEO+oAy+9GXofae57jt5nTeywEfVDPAAzpXII4m8fbC4RiIzNWeL9
-	DAVoqNKgHmbev7aaNPJXgMEBdFHKU8+yBdu0zAcWjqu5yHk5SjQkBw/xHQ+BA6SE8HO0lfjLm2MlY
-	0Rs/l26dxzzhCtLv6CpbyinRGdgeFZLFKvz2Vw+skngmmyoEg7Zv3h6X6V7smII5/K/91tdHIuSun
-	08TPS0zhzaRZt873HaAIqbACxK7uabWxrOl1WYsCTVQMjSwZ5BI9rBZwQfbggzg2WcPgS7mwSM+3r
-	Ut+gZFUg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kZvfrvmOrS9p++Mtm68GG5/GztnQ4Hake3DdI5zfq1A=; b=lHeb7+kY09u6hS
+	NhBubJuvC660SX89KlUcoo/5tbjh2bf6QPz8jWZZ5WRcYD5bipdmrq8Bjo67QhDCmBwlzLy7IcsLh
+	FWagnaXh9Mm4YsTgYkznrVjUjLZ81//pm4OoIsJOK6j0wRVMH4a7jJ8Lk0xxKL6NXFK8JoGAvHcPd
+	0VFTWe3hrjaysrLkfdkYV2tXfmKu8W3uWvYjgjm5ow2sgtiD1q9nC62bwWDLF/SwQ1xnNnRdW/Wlo
+	CGZU8fA2616RxqqhakCW4ic3esOsTbf+KwowEsJ5Ew0ruSX67GMEzFKj2IDXRpChgwgkgSnYcO6YL
+	etGKVqtpyp2dM7fL59/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF1I0-002Tz0-36;
-	Thu, 29 Jun 2023 23:43:04 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF1Hw-002Twe-0k
+	id 1qF3AT-002e39-34;
+	Fri, 30 Jun 2023 01:43:25 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qF3AP-002e00-0f
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 Jun 2023 23:43:01 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-66eba523cd9so799956b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Jun 2023 16:42:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1688082179; x=1690674179;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=c9Xlw8wqmc7m2gTD7N39tQeUlWC1WXyQLWb4QZRUB8Y=;
-        b=p3VLofC9uBlj4VqikzkpTVhIEDvSp6dp7csrh8LTmsJ2AioG7ohNPCyZXFqNRY4xl2
-         67M3uESl94bLO1M1ieHMv3cFZxN3FFyNQ0yWBa3oxuxiEFwLMPd34J+muGl+kMjVt8sZ
-         IaP7ZZcHfBi6OBW/hhL8waRnsfqbeMv3qP1yH2A1MZMIWsagGhMutscPGf6/l0CtmEJC
-         eH4izIvergiWXqGTOpw9Vsbk5iEj4hbcxvhKT+YPCyTIG/cK4TBss9B64FaAeElrkph/
-         /FmsTHj9LxHPV+CVsN5UMIBeeHMoz+ubIgnc4AlwKuZkWfAvt5iWCuI+vv7VU5neuWXL
-         aJyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688082179; x=1690674179;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c9Xlw8wqmc7m2gTD7N39tQeUlWC1WXyQLWb4QZRUB8Y=;
-        b=RMwoU54iT12mSOrkx3aOkpxdGv01qGzaU71TXd32h9TWKpK17MYvi2XIbBDHwAAgXq
-         T7HAZDNznR2fVRuk1kzNTs1ZOzl+ka8paHcj/a428sjMT/PLLONE4tZ/M/PqMhEc68rQ
-         0WCIiLUL0Df+Md4+MgTIyENiwp+siM7OoEkApnGRfcR1/5frZWHaAiHQvE0NHarU+yNY
-         lyazSXq20guujFep2fN91Zf/k1xeyRsOWjKNJPYKZl99JqHAdFGlVnf438+eZqUaGkau
-         pucofGNXbPWDw0nfDAcD87LG8Rci57+qY6fQOlLaUhlKk7/1Bh1IeOuYIgfwDhXVrQra
-         wOyQ==
-X-Gm-Message-State: ABy/qLbXr5/m57l0fTXBqkie8tQQln9EADh2LLKS4+rO/iG5dNOzxLZK
-	h/dnfL7GtV4EK5flE4N/UNp3iPAR7Nuy9RG/2kk=
-X-Google-Smtp-Source: APBJJlFHLSu7NeB6EU8tOB3/UHptwEsU/4w39fszUoslEvKjGXk+rTe4axHVWR092ZKjtQWWIfnwLK3jAyxYC69lOLA=
-X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
- (user=samitolvanen job=sendgmr) by 2002:a05:6a00:1783:b0:668:69fa:f795 with
- SMTP id s3-20020a056a00178300b0066869faf795mr751698pfg.2.1688082178828; Thu,
- 29 Jun 2023 16:42:58 -0700 (PDT)
-Date: Thu, 29 Jun 2023 23:42:50 +0000
-In-Reply-To: <20230629234244.1752366-8-samitolvanen@google.com>
-Mime-Version: 1.0
-References: <20230629234244.1752366-8-samitolvanen@google.com>
-X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=722; i=samitolvanen@google.com;
- h=from:subject; bh=gs+HqEOxqge1JD2H3C2OtV2QqbKbTGj0I3LUMBMWFOw=;
- b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBknhb1mBbGJYC+ijqffqvxPbBoNNe723klVhBkW
- m8HhCBORNaJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZJ4W9QAKCRBMtfaEi7xW
- 7nW7DACWpElrAA2aMey2/F1+uNsTn4cuQjvpzYjhSgMneDZUzTvG9j2obc9IHVDVv2V35NZZ4Rx
- qYnhvOXv6ow3iGv+8NVoRor2ccyLXINBkBk/bdzyJ+g5Iz6AutmOsyLdDODLa+au96lNnKDLqq+
- Txok6LqZKNvnTtmBO01sSp+NaX0Fhils37JKcU6zNe4QxFb9dq6jTzowqNUjIX5wJ5zoAHL2T0s
- tLymrEt+OZ5ON9rDFrhMSYiF/P47V6jz8+j2F6hEFzx/c06i14VwYtWoLPoOv/HD6BOPuit+m3q
- W9JWzrIJwcyWdDLlG9ukewzXluZOrbvAQVgin2f6Le7Y2mvWOHldJvFbUa8nYeErwxYpRjXoIFy
- 8tVOHkO6lNvnaruOkuaq0Szw25ktCiQV0nrgU30ZQ/JnEO6BozZdXZC/CZ6K3n3QL1cUDQqAgHg I0w0CpD9whXokITAv8X6e6UXd4zEDbwHvv3Zk7/XIwHjMo0Doyr1T55fqBfmjLc35Zmb0=
-X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
-Message-ID: <20230629234244.1752366-13-samitolvanen@google.com>
-Subject: [PATCH 5/6] riscv/purgatory: Disable CFI
-From: Sami Tolvanen <samitolvanen@google.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
+	Fri, 30 Jun 2023 01:43:23 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 419057FD3;
+	Fri, 30 Jun 2023 09:42:32 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 30 Jun
+ 2023 09:42:32 +0800
+Received: from [192.168.125.93] (183.27.97.206) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 30 Jun
+ 2023 09:42:31 +0800
+Message-ID: <ebb6c688-1a96-5167-2e50-ee18ebd0a5d7@starfivetech.com>
+Date: Fri, 30 Jun 2023 09:42:30 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v1 1/5] ASoC: dt-bindings: Add StarFive JH7110 dummy
+ PWM-DAC transmitter
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Mark Brown
+	<broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela
+	<perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Walker
+ Chen" <walker.chen@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20230626110909.38718-1-hal.feng@starfivetech.com>
+ <20230626110909.38718-2-hal.feng@starfivetech.com>
+ <92171465-d2ba-c3ba-aa55-0f705e924a0f@linaro.org>
+Content-Language: en-US
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <92171465-d2ba-c3ba-aa55-0f705e924a0f@linaro.org>
+X-Originating-IP: [183.27.97.206]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_164300_277117_C25E022B 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230629_184321_439012_80D303BE 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +83,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Filter out CC_FLAGS_CFI when CONFIG_CFI_CLANG.
+On Mon, 26 Jun 2023 17:32:04 +0200, Krzysztof Kozlowski wrote:
+> On 26/06/2023 13:09, Hal Feng wrote:
+>> Add bindings for StarFive JH7110 dummy PWM-DAC transmitter.
+>> 
+>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>> ---
+>>  .../sound/starfive,jh7110-pwmdac-dit.yaml     | 38 +++++++++++++++++++
+>>  1 file changed, 38 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac-dit.yaml
+>> 
+>> diff --git a/Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac-dit.yaml b/Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac-dit.yaml
+>> new file mode 100644
+>> index 000000000000..bc43e3b1e9d2
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/sound/starfive,jh7110-pwmdac-dit.yaml
+>> @@ -0,0 +1,38 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/sound/starfive,jh7110-pwmdac-dit.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive JH7110 Dummy PWM-DAC Transmitter
+>> +
+>> +maintainers:
+>> +  - Hal Feng <hal.feng@starfivetech.com>
+>> +
+>> +allOf:
+>> +  - $ref: dai-common.yaml#
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-pwmdac-dit
+>> +
+>> +  "#sound-dai-cells":
+>> +    const: 0
+>> +
+>> +  sound-name-prefix: true
+> 
+> Drop
 
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
----
- arch/riscv/purgatory/Makefile | 4 ++++
- 1 file changed, 4 insertions(+)
+Will fix it.
 
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index dc20e166983e..9e6476719abb 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -77,6 +77,10 @@ ifdef CONFIG_STACKPROTECTOR_STRONG
- PURGATORY_CFLAGS_REMOVE		+= -fstack-protector-strong
- endif
- 
-+ifdef CONFIG_CFI_CLANG
-+PURGATORY_CFLAGS_REMOVE		+= $(CC_FLAGS_CFI)
-+endif
-+
- CFLAGS_REMOVE_purgatory.o	+= $(PURGATORY_CFLAGS_REMOVE)
- CFLAGS_purgatory.o		+= $(PURGATORY_CFLAGS)
- 
--- 
-2.41.0.255.g8b1d071c50-goog
+> 
+>> +
+>> +required:
+>> +  - compatible
+>> +  - "#sound-dai-cells"
+>> +
+>> +additionalProperties: false
+> 
+> Instead: unevaluatedProperties: false
 
+Will fix. Thanks.
+
+>> +
+>> +examples:
+>> +  - |
+>> +    pwmdac-dit {
+> 
+> pwmdac?
+
+No. For a similar implementation, you can refer to "spdif-dit" in
+
+arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
+
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
