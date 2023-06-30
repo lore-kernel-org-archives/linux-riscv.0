@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C90EB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 10:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619B3EB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 10:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kIEz98qJ31B4H81Pt3ckkmi+J90rHKQmrImiM8aFw3w=; b=ao7JB8uPRKIKr7
-	pGLdJ1CIFu552He4WMho8aTCR9OWEk9XGQmbMX8eczXHxJy00q6+n8fNoFM6b4srCiE0488yZMSkF
-	cL14dAAnW+SYQGSRgB+aB89udqF1LTeJheUysIWstddgczwr4NqNOv2WQR6HyDHpQxjeHvcAz2yZo
-	TDrT4Wh2SOBIuUm+Ne2p+U4qRso7y70IM3zlUqLKNhdDqjzK+5HyLyChlrrKh39YcTc6c4+B+3aZw
-	2KVyY+pvR+Hi1E5rOxhO4QhrNsJU5DP8F7k3LiOcjdvmnOQq5QOgpHwerMJub29A7bOeGz9Mghxrn
-	NqKAiRHq1x1fldZC1Uhg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7gJ7Apg+iwHSEzL+qpbHxBNe8PgVZ0D6lcBFCBWr7TA=; b=MGf+8Ty0MgSUzl
+	HohpwqSD+v9FEJtQCDwXjIu+YJxfl9QkU1chBTESA8RILNcSpk2rIbrKBDdV/Y4OMRnVe0SDbBgMq
+	O/C6VWYLVCdB5TzbfYRQz+JM1D5ALhUSO3SfTda4bC0balpVeJlhRQxjCpRXerjfcQwu3vF+qMnIK
+	Db2lywXZarOHk3MUJb2DuMMy0dKNAveFaay+nsNHm4lpvW12lR0i+LYIj5BNyG48/l4Z6muisQ0bc
+	zGOSA0eGGgmEup8rputzR5MHPYOSF0IbuCDJrKmCpSYijQ/P5UClXcNLZKkxpWgHWISaFZCqU0z8F
+	kYlRYfmukrmslYmpJWYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFBT6-003NJR-17;
-	Fri, 30 Jun 2023 10:35:12 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1qFBqx-003TVb-1x;
+	Fri, 30 Jun 2023 10:59:51 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFBT2-003NHU-0p
+	id 1qFBqu-003TSz-1V
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 10:35:10 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-98dfb3f9af6so211403666b.2
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 03:35:06 -0700 (PDT)
+	Fri, 30 Jun 2023 10:59:49 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1b80ba9326bso13272465ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 03:59:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1688121305; x=1690713305;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aIpEGvFXrs8o97FGml0s9iS/MpzyaImfG5Q+Ha+S4rk=;
-        b=Pa9I9sD8aoveHuo5s0uVgd8tNUEW0sJ61kej0dmwT4IQqKaVVnOWDSFhGcmpXdsyMa
-         O8g0+grHMbOyc21MOZrirw3K2oqzfnAq5DuBNNxslOFGnjbOU1gURVPKT2COlriQzVI4
-         qSv2iorZqqMXZETI1R1z7KZ4gaWGayca1oDUvV1umBwxvJ/cNT8MNXSlFHIlzxmp+1dI
-         WwwuJ+7e1e2hgz2cFbd9CWuTFCeK37qQ25dZe8g232SyAQIgpCP3G/QXW9X43lQw7kYP
-         l1ygIETj5LA3gXiQYghkg9hUKVr9GRt1ljJ1DWzRo1KSUOvg7xrA9jLsgHOqafXRT9Wc
-         hLyA==
+        d=gmail.com; s=20221208; t=1688122786; x=1690714786;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VFrE+nd0LeR05nJ5NVrdpn/ufPx0wKCGgMdooQskSO8=;
+        b=M62+hmz8SSePadjJXz71Q8pq7HqyWXfJKK/UQMiabow3oyGMUgm9ZYsRS94utLkGwI
+         4Wsx8nROvO2Ib0/xd8v+4KdX2+7yeDpFd5PBrM/dyfF0cPN0HDkK8yPsCFqjHhPnDZXL
+         quDB65UYh0TTv3lJ4aNeRNfp+vCd5lD3o/yRO4Ik/sboKP7QdKchzdOJx4l89gjXSUVU
+         Zha2W5a4WkGTTDf2oN8cpQYk168Nwfu7penKwi8uFSmIj/UPW8riJ3sGbXwYr2R9WVvR
+         EqRiKLhEiPN2d7/DHGt+EG669RXUmp/OKDjXXErwGitM5CIaMYqHPHHdRKUQPAYCDMu9
+         ZVIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688121305; x=1690713305;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aIpEGvFXrs8o97FGml0s9iS/MpzyaImfG5Q+Ha+S4rk=;
-        b=j/OtdEKCOW/kR7crTX35VxygFtFD8vZit2rIhhtNo0fAv25ZUTpJDJNsRsgNcIAJDE
-         5EyBvk0fHa6+n9UfLzjW9WgxuVVtTrgAOT6aQ6Mk6wDXlF8YSZlsMrxrh9SjO01qfD/K
-         eSN1dA1FdwaG7t3pFoJpHn6z4NZ5PAkvEU3cqb2+yPOYLgYKAEHyP2+pXtzmp+5kkhyh
-         S2Vdc7aArgXmyNvGT40v/2HO8kU0mPg8LogvlWjOUTEFn8uLFTPChiqicPWr0afG6dVW
-         x6TgoLsyPj6NZJSX/JgBt83+pj5ph9cLf7nOjZHhWlQrW4X1KzkfnQ+zXF4UDXi1ajR3
-         VDlQ==
-X-Gm-Message-State: ABy/qLYjdzmU0A7oHEotlg413FsKuyV+ROzcptoiKVlV+wQXTyAbkOHe
-	JpFYVr+hUin+yWQAkNyCKqxfDhB9jjtpudkaJ1w=
-X-Google-Smtp-Source: APBJJlFI4nzgC9G6s9EsR/Gn6ZOe43adgLRDEgX9KqwfVxRhQo4NY7mFu+YK8TxklGgFUZipBiY9gw==
-X-Received: by 2002:a17:906:4b49:b0:98e:477d:36c0 with SMTP id j9-20020a1709064b4900b0098e477d36c0mr1579960ejv.47.1688121305353;
-        Fri, 30 Jun 2023 03:35:05 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id k26-20020a17090627da00b00992e94bcfabsm460906ejc.167.2023.06.30.03.35.04
+        d=1e100.net; s=20221208; t=1688122786; x=1690714786;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VFrE+nd0LeR05nJ5NVrdpn/ufPx0wKCGgMdooQskSO8=;
+        b=UBGhSHn+m4kjnzXa9mVAO7M09HDbcWt14q1bHqfqulVGIEwHjyV3ZpWuR5U0DGZ3mi
+         Vc+Pn0AHrxD+O7rVkutki6ZswJgjl8DbnpyvJvr7j7QWupnUytU9yZg8/j100ij+5vuo
+         Mlzl8s64UArQGbYwBI83lzMSdztFa81mV5jx1rFQvLi+AQU6wJkDoY/RY7Irk67IfCV2
+         1gg7QsS3B7i56c55gyVvrGK/T7mjExVflglaKVjSKkovbABLW03yHOyLabqG9yPBmJuy
+         rm/EgmrYi0fX8G0SFpsoO3lYqOpPsP5NNRCVECjidYV3Bfzt54qDmsSaKiKGGG/0ucWC
+         8Hcw==
+X-Gm-Message-State: ABy/qLb+IoJXbwdhzLqwP2XrvukGbbfy+2cGbqMDL2HGxLw0c9YQbaf1
+	BFs9saB1y2s5K8/W7E4pmLM=
+X-Google-Smtp-Source: APBJJlEorxDlYCCE4k4tSFhPD6RKUovabJRUTk9iGyqV1FTWpz/+wHvtljhQWARdjwkL2hP5M9x61g==
+X-Received: by 2002:a17:90a:4b:b0:262:df8e:fcb6 with SMTP id 11-20020a17090a004b00b00262df8efcb6mr1998839pjb.43.1688122786288;
+        Fri, 30 Jun 2023 03:59:46 -0700 (PDT)
+Received: from localhost.localdomain ([2408:843e:c10:118:1a0:d87f:f44e:7fe7])
+        by smtp.gmail.com with ESMTPSA id q9-20020a17090a68c900b0025bf1ea918asm10435172pjj.55.2023.06.30.03.59.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Jun 2023 03:35:04 -0700 (PDT)
-Date: Fri, 30 Jun 2023 12:35:03 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
-	Rob Herring <robh@kernel.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 03/10] riscv: Make legacy counter enum match the HW
- numbering
-Message-ID: <20230630-ba45f06f3d9faba17c6d8f6a@orel>
-References: <20230630083013.102334-1-alexghiti@rivosinc.com>
- <20230630083013.102334-4-alexghiti@rivosinc.com>
+        Fri, 30 Jun 2023 03:59:45 -0700 (PDT)
+From: Song Shuai <suagrfillet@gmail.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com,
+	ajones@ventanamicro.com,
+	sunilvl@ventanamicro.com,
+	heiko.stuebner@vrull.eu,
+	apatel@ventanamicro.com,
+	suagrfillet@gmail.com,
+	evan@rivosinc.com,
+	greentime.hu@sifive.com,
+	leyfoon.tan@starfivetech.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V2] riscv: Add BUG_ON() for no cpu nodes in devicetree
+Date: Fri, 30 Jun 2023 18:59:38 +0800
+Message-Id: <20230630105938.1377262-1-suagrfillet@gmail.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230630083013.102334-4-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_033508_295141_DEA333AD 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20230630_035948_502614_30696F01 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,34 +100,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 30, 2023 at 10:30:06AM +0200, Alexandre Ghiti wrote:
-> RISCV_PMU_LEGACY_INSTRET used to be set to 1 whereas the offset of this
-> hardware counter from CSR_CYCLE is actually 2: make this offset match the
-> real hw offset so that we can directly expose those values to userspace.
-> 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  drivers/perf/riscv_pmu_legacy.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
-> index ca9e20bfc7ac..6a000abc28bb 100644
-> --- a/drivers/perf/riscv_pmu_legacy.c
-> +++ b/drivers/perf/riscv_pmu_legacy.c
-> @@ -13,7 +13,7 @@
->  #include <linux/platform_device.h>
->  
->  #define RISCV_PMU_LEGACY_CYCLE		0
-> -#define RISCV_PMU_LEGACY_INSTRET	1
-> +#define RISCV_PMU_LEGACY_INSTRET	2
->  
->  static bool pmu_init_done;
->  
-> -- 
-> 2.39.2
->
+When only the ACPI tables are passed to kernel, the tiny devictree created
+by EFI Stub doesn't provide cpu nodes.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+While if append the "acpi=off" to kernel cmdline to disable ACPI for kernel
+the BUG_ON() in of_parse_and_init_cpus() indicates there's no boot cpu
+found in the devicetree, not there're no cpu nodes in the devicetree.
+
+Add BUG_ON() in the first place of of_parse_and_init_cpus() to make it clear.
+
+Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+---
+Changes since V1:
+https://lore.kernel.org/linux-riscv/20230629105839.1160895-1-suagrfillet@gmail.com/
+- revise the commit-msg and move the BUG_ON into of_parse_and_init_cpus() as Conor suggests
+
+---
+ arch/riscv/kernel/smpboot.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 6ca2b5309aab..04d33afbdf55 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -147,6 +147,8 @@ static void __init of_parse_and_init_cpus(void)
+ 	int cpuid = 1;
+ 	int rc;
+ 
++	BUG_ON(!of_get_next_cpu_node(NULL));
++
+ 	cpu_set_ops(0);
+ 
+ 	for_each_of_cpu_node(dn) {
+-- 
+2.20.1
+
 
 _______________________________________________
 linux-riscv mailing list
