@@ -4,58 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8C46EB64D7
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 18:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE45CEB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 18:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vl0pdnO0tL2g/m6BoGUYIXHlOs4fNOWUI3ma12S9v5g=; b=Im65R+OzkGmEiRVs1MA3OmaSyD
-	disxiGA+pDy5+UaRuUTRNGTURPPvMaKfFR8ssnWKvuYQmWiN1An5gooQ5iFFwMkPW200+jFGGPGGf
-	M6G0Qlh28BCtZOWJbcn4ZrSsNJQH2hwcJlgmSFURc1DvsnbeEZlFvHw1goo94TUHbJ2w7OznBJXCV
-	vSgL0/sumZhb4LoV5Hv4gJU90+4Q22bkjIjsG6pYpIk43fIwmYc69soOASW4Hd3Mv5ZwmQd/KioH0
-	y1Ifz0j/eAgdvi5M2CFki9K2GMbkzUQ7wSTK2P/H2Zkl9TOP//ObOMFjmKm+6KuiXn/XNThIkzHyL
-	gbWY8W+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=/v4QfcqAEc3iHRjrM7PImln0A4Y5pTBNwyaqjOR0ma8=; b=KZnR7csysv/CizDfgbgaTh7/+N
+	bSf3ikgUwLInqGZ+IQm7uWXry9Nnl0L7TB+sx9sSUPVCp4KWP5q8gIWQI+au3/CVfO9OuPh4RQdMA
+	8Ryvh0PHxrWzL9ph68iwnhCQ5LPmykRXElC/yIwl54oZFeeFr5TFTPS+7iutl2WSOdRWPbTkK7P3/
+	wGT7eBbpnZn6bJfBr32jGxoplywots3FVI22kNDxA7KhrlCi7buT8GJKm0b9UuNAYo26wbk5OnYP0
+	RSKRmtEQCz0JHH7fq1qSr4GPnlV7dtBPSOOuI71/i7Lnr1pNHLosclhsKB8CQHgBa3hk5rmZbHKXg
+	MUyXIbGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFJ1q-004KHg-1t;
-	Fri, 30 Jun 2023 18:39:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qFJ9T-004L7G-2b;
+	Fri, 30 Jun 2023 18:47:27 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFJ1n-004KHA-1r
+	id 1qFJ9Q-004L6g-1M
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 18:39:33 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1CCC1617E9;
-	Fri, 30 Jun 2023 18:39:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B3D9C433C9;
-	Fri, 30 Jun 2023 18:39:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688150369;
-	bh=JbGXqFMUL4n0IXDBBVJY0wDuDAmp//TQtfDTWQWC1S0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EHWU2HJsleIlof4nj8Jezwrh779vlPlDUF/E19/a8nRNhPg0nyO1iycU0B1Vp1w3a
-	 eOneXB9PV9oAQkCaabaVFi+qWqKe0ASFeB4uKYXQDUU247VO40VWKzIRY4U4gVwgvg
-	 AEiFHBMkmd23uILQI7joEgd80EDaPtdRf5C7xFYwdK3ZMWCqqrSu6fN2Lg+LDM1iE+
-	 nn0J5LREsxGsH3T15/rhFJBpOoCDyIfYXmXTK0sDQh/sd7iF4OrquzvHP5HTCj/AFf
-	 h/LjnNc+0kBnODOcDqdf2puXiQP6TdQn1o8RSF8V8NK0IZcuePfWWchJMETCQfdVjf
-	 QPtHjSVng1oTA==
-Date: Fri, 30 Jun 2023 19:39:24 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Song Shuai <suagrfillet@gmail.com>
-Subject: Re: [PATCH V2] riscv: Add BUG_ON() for no cpu nodes in devicetree
-Message-ID: <20230630-blasphemy-tapestry-85755d24cbc3@spud>
-References: <20230630105938.1377262-1-suagrfillet@gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <20230630105938.1377262-1-suagrfillet@gmail.com>
+	Fri, 30 Jun 2023 18:47:26 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-5577900c06bso1631650a12.2
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 11:47:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688150842; x=1690742842;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RDeUgk8u4frArpfMVDM55aE/xcXSay9wQzPSdheHYEA=;
+        b=g9IPKSF0UQ1vFNaIem07DEhkl4m0lUJjPbUrP2177eRfDGX/u8dPqYnTmHDYMckCWC
+         8s5+YawaKSJTH7qJ3J7hXEJbCi5FVCg+KukwrqfYJmPbUK4qLe6n6YUe8105hL48buA6
+         MBZNIEGl0V25BtMZTeDYFHXOfoQFrJc2RcKkGd3sSri53zeq5KbHpbkjlsSJTczCbHi9
+         vV6uKnR3jJFo14jMSpje8B7pWTu58VlbZeIR5UL90xDqFZT8IPQ5FxxEl7RC0/MX/aac
+         BwjB2QS1DLXyMYvvkiOWZlWxOJj/d6TJkcRkPm5RLPA1EpHiEpL3JX2f8Mk8vVtBwCGb
+         lIZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688150842; x=1690742842;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RDeUgk8u4frArpfMVDM55aE/xcXSay9wQzPSdheHYEA=;
+        b=NbCdLqg0WkRhd+j15m2Vh4jDTLQCfCfiNjw12T/QvmKyy0PWjdNf5koSzwVmVRR1Ut
+         F5eXHSILy2+4ZSaVCSMfeUpinsxC9sGXj3bH1GpU64aqjKHMgi+Psfj5lYZCssRTYhl8
+         fD6zjp8o3jgKo/PUlEjVwFA13isFVVUlMl/bhCmJuth5ycucDxtSCx+WU8y5wDIY/YbC
+         5qA0zAPRznDGXp24TvFXL20ViOD3Z5YPCB9jYzwbFw3hO8C1qEthwlrHc7ElSUS7cgzi
+         ln017emMSZoOPCW47Z5Gm34o7YFJIfPufwmQE2IRjobeqzmzfFA4zOJ9tX0HCBixAZhp
+         B+7A==
+X-Gm-Message-State: AC+VfDxJRme1pKxpq6gZ9VY+XCMFfSjRQsUZMPh/G8oYXMBtZlXUzJ6o
+	MyGrSZ9f17kx8l6QL7h4xEN1bTLIXZfxGzWz+mI=
+X-Google-Smtp-Source: ACHHUZ4xPTrBqSmUI0B2MxLjDx5UgVEfQBqv0zte5PY3szQ4Oagy9fKcFzSILPmAALNHi1CYib6bQA==
+X-Received: by 2002:a05:6a20:3d89:b0:12c:9100:362f with SMTP id s9-20020a056a203d8900b0012c9100362fmr4200760pzi.4.1688150841660;
+        Fri, 30 Jun 2023 11:47:21 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id 3-20020aa79103000000b00634dde2992bsm4165174pfh.132.2023.06.30.11.47.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Jun 2023 11:47:20 -0700 (PDT)
+Date: Fri, 30 Jun 2023 11:47:20 -0700 (PDT)
+X-Google-Original-Date: Fri, 30 Jun 2023 11:46:35 PDT (-0700)
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.5 Merge Window, Part 1
+In-Reply-To: <CAHk-=wgqQCAtA4cVev0g3A6RCD16s1p-_TAUeVkGE0_yS2ehyA@mail.gmail.com>
+CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-784b868b-bc5c-44b4-ae82-3929f67ac5dc@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_113931_694986_04EC0291 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20230630_114724_684838_7BD610FE 
+X-CRM114-Status: GOOD (  28.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,108 +85,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: apatel@ventanamicro.com, aou@eecs.berkeley.edu, leyfoon.tan@starfivetech.com, linux-kernel@vger.kernel.org, conor.dooley@microchip.com, palmer@dabbelt.com, evan@rivosinc.com, paul.walmsley@sifive.com, greentime.hu@sifive.com, linux-riscv@lists.infradead.org, heiko.stuebner@vrull.eu, ajones@ventanamicro.com
-Content-Type: multipart/mixed; boundary="===============2387514321646820659=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 30 Jun 2023 09:46:39 PDT (-0700), Linus Torvalds wrote:
+> On Fri, 30 Jun 2023 at 08:40, Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>>
+>> There's one merge conflict in MAINTAINERS
+>
+> Yes, but your suggested resolution is wrong. That "ACPI SERIAL ..."
+> entry was moved downwards to be in the right place alphabetically, so
+> the entry next to your new RISC-V entry actually needs to be removed.
+>
+> You seem to just have kept it, so your resolution caused a dup.
 
---===============2387514321646820659==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="pEfCFaD3T3JEELWO"
-Content-Disposition: inline
+Ah, sorry -- I didn't look all that closely because it was just a 
+MAINTAINERS update and I knew you just take these all as hints...
 
+>
+> The hint from git is the '++' at the beginning of the line:
+>
+>> ++ACPI SERIAL MULTI INSTANTIATE DRIVER
+>> ++M:    Hans de Goede <hdegoede@redhat.com>
+>> ++L:    platform-driver-x86@vger.kernel.org
+>> ++S:    Maintained
+>> ++F:    drivers/platform/x86/serial-multi-instantiate.c
+>> ++
+>
+> which means that git thinks that your merge added those lines from
+> thin air (ie they didn't exist in either parent).
+>
+> NOTE! A '++' line is not a sign of a mis-merge in general. It is
+> *purely* a hint. It happens for perfectly fine merges when you either
+> end up moving lines around enough that git doesn't see where they came
+> from.
+>
+> Or, perhaps more commonly, when the merge conflict was due to both
+> sides changing the same exact same code, and the merge resolution
+> comes from neither one directly, but is new code that has combinations
+> of both changes.
+>
+> Anyway, don't worry about it, I appreciate the heads-up regardless and
+> I always do my own merge resolutions. I just decided to try to use
 
---pEfCFaD3T3JEELWO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+... and ya, I figured it was better to just send it anyway.
 
-On Fri, Jun 30, 2023 at 06:59:38PM +0800, Song Shuai wrote:
-> When only the ACPI tables are passed to kernel, the tiny devictree created
-> by EFI Stub doesn't provide cpu nodes.
->=20
-> While if append the "acpi=3Doff" to kernel cmdline to disable ACPI for ke=
-rnel
-> the BUG_ON() in of_parse_and_init_cpus() indicates there's no boot cpu
-> found in the devicetree, not there're no cpu nodes in the devicetree.
->=20
-> Add BUG_ON() in the first place of of_parse_and_init_cpus() to make it cl=
-ear.
->=20
-> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+> this as a "this is how git works" moment.
 
-I'm still not really convinced that this is needed - not finding the
-boot CPU is a strong a hint as any that your DT is completely broken.
-Especially if you intentionally go out of your way to disable ACPI on a
-system that requires it to boot.
+Awesome, thanks.  I poke around the git merge resolution stuff, but I'm 
+never 100% sure so I usually just look at the resulting output files and 
+then just paste in whatever git says as a heads up ;)
 
-I'll leave it up to Palmer or whoever to determine whether this is a
-valuable change. Code change itself much improved though, thanks - I'd
-give an R-b/A-b other than that I question whether there's any value in
-adding another BUG_ON(). You could've kept the part of the comment that
-explained what the error meant though, but that's not a big deal.
+> Basically, trivial merges where things were just added or removed next
+> to each other will normally not result in "++" or "--" lines, so it
+> can be a hint that something went wrong if you *thought* your merge
+> was trivial, but git gives that kind of output for the end result.
+>
+> But don't think that "++" means "wrong". It really is just a sign that
+> maybe the merge resolution needed a lot of care. And sometimes it's
+> entirely a false positive - if git *really* understood merges 100%
+> correctly all the time, we'd never need any manual conflict resolution
+> at all ;)
 
-Thanks,
-Conor.
+OK, I think that makes sense.  Hopefully I can remember next time one 
+comes up.
 
-> ---
-> Changes since V1:
-> https://lore.kernel.org/linux-riscv/20230629105839.1160895-1-suagrfillet@=
-gmail.com/
-> - revise the commit-msg and move the BUG_ON into of_parse_and_init_cpus()=
- as Conor suggests
->=20
-> ---
->  arch/riscv/kernel/smpboot.c | 2 ++
->  1 file changed, 2 insertions(+)
->=20
-> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> index 6ca2b5309aab..04d33afbdf55 100644
-> --- a/arch/riscv/kernel/smpboot.c
-> +++ b/arch/riscv/kernel/smpboot.c
-> @@ -147,6 +147,8 @@ static void __init of_parse_and_init_cpus(void)
->  	int cpuid =3D 1;
->  	int rc;
-> =20
-> +	BUG_ON(!of_get_next_cpu_node(NULL));
-> +
->  	cpu_set_ops(0);
-> =20
->  	for_each_of_cpu_node(dn) {
-> --=20
-> 2.20.1
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---pEfCFaD3T3JEELWO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJ8hXAAKCRB4tDGHoIJi
-0n0fAQDjUvMTHOr4kKEEdu3GUgoPc+gt3psWvOlqlbuqIZRUbgEA/2rTzeDYuN95
-qa96Tk5EV4N8Xwu5/juvgz8Ob3nQ5AA=
-=Y0wJ
------END PGP SIGNATURE-----
-
---pEfCFaD3T3JEELWO--
-
-
---===============2387514321646820659==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+>                   Linus
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2387514321646820659==--
-
