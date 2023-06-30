@@ -4,76 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B5CDEB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 07:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA97C0015E
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 07:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sIRFGU/DeYZ9JgEfH5JuucldQURabMEZhOaOZW4p/6M=; b=44QUNRhC7FzJZD
-	PXEuNuAE8B8nduoxBsyHckIDIUbLU0AChrCi3etTs8YOCafAUCRwCkIGB1c9c1YMXBAG2AvTW8Agk
-	DEXpwy9PFzdPSj+mknoeWdmENZasPp5JJdBhtqNUtgwF+KXf3miUK+1HP7A8lEkrQyxyJP9Qm4qNY
-	MotAHH0aK+lUKSULn79VNYDwM/qrN6wydwAYOVYazOLrPS0CdEvTxqk963hdwKNjcVKdoJmDptzPR
-	5AQPf1yLd7ajRKS6bq9BBrNffqsWlUO3MVwd3mo6Lk+2XtMRoI258aJdG+eaWZmip73X0u6Yb9cWa
-	lOR8eI09DPq7cyfB5Www==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CMSGWK36zYZeFvTylTis7ZuwnPjFZbq1jRl6MnXQAhw=; b=CgpEWGW5x00Wqk0CgXHMtA3ciw
+	S6ewFKJmBBfoRnmAkow5riiRDpXXky3S3RPqPKncAP86J5Wqlrdz23rHnCCfjCifAA+GRVk4NnBzu
+	F4NYQViCdImeXQ75+WIlndh6mkJshNfbMq9ts1+iQAZahHM1bp6FhA6yqZ09t9m00ykfLXRzGlPNV
+	B+rn+5oyAfwkaoS4IFnqXjkVDmgqy7fzTdH3c9ShGb0O7OTyd/Jj+dtMhxcacDXWxcirOoyvquXEe
+	3uhH8r8S1V9lcY030U39YAO30YHND+7mzOI7ofHbpmrijpVSS6H8bDTGmUGwbRTzHT/zvSvH5Icdt
+	RhYx6N9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF8Yt-0035s2-2c;
-	Fri, 30 Jun 2023 07:28:59 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1qF8pg-0037KH-21;
+	Fri, 30 Jun 2023 07:46:20 +0000
+Received: from smtp-out2.suse.de ([195.135.220.29])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF8Yq-0035rV-15
-	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 07:28:58 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-3fbc54cab6fso7000285e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 00:28:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1688110134; x=1690702134;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=I5hnHLVzBmXjX34BGgWyrCPO1253WX/LErEgN1o82kw=;
-        b=eK2veF+sXiK1f6F6Ryz5qMNL9KR/JTqWXWrwnauwpwS4S2SbOBqWreg1jOJof/xVr6
-         0tdT3sN2XYtKm9WDfJ2k7n4TXdxKVci2gO70/ZBV0L/xLVzwGFu3b96hWOpZyyH0/64X
-         Y/4FwEgA6nhnDElwm6Wpx+urEsujsFQGyi5UzZEfMeqTdzZki4Ko3IdbDq8lmJe6yfqn
-         U+3VI14iYpbKJEN437PH7YTuB8U8zsV87c6AtfGGyc/VndWngDD3BjE2mDDT6GDx1ZxL
-         cAfi46T+yP5eIwBSlrYJg02MG5pq3lfJtdmUubVtXkQ6aZD96dQRq9mY6p31s5dqFcv0
-         u+pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688110134; x=1690702134;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I5hnHLVzBmXjX34BGgWyrCPO1253WX/LErEgN1o82kw=;
-        b=bD6ZVr0Po2Py3Wk4NQv6x0IECNthed6nJ3cr1g4DTgarCOjEI9AEEn9Z0ncFKho/X2
-         6XHc9Qiuo29bQ7arpHaEKGoARVWa6L7Fbseh9993QS1FtgWudB9Bn/Jp3aA8tPLXKH6I
-         wjaM6w1l2EIV4N3SGSpV+ZBhEfH3G3ShpjxuwvmGJgiZLT2KP/baEa+60vNPcsZER18D
-         cqqDLZIlvWhjjzkZii0yr5JgAGAV77sDj3YQj/WbeM9XtYMqSZxKEAwYdY58mgM3PLJd
-         A8WW4PyVs/hvUShmHvit3dYpmTDO5WfLT8HkJrA/vM1OhMXUtKvAp/s0sFZ+toBnhLqY
-         TIUQ==
-X-Gm-Message-State: AC+VfDxi9mcwt7h7a8+UetppzlO0caNiHfLyhtEKVGhGSlx9yObK7daY
-	2vBcfvxKKL7qwNjwNScuqCqkbg==
-X-Google-Smtp-Source: ACHHUZ7OfWejyvRwW+wSH4AjjfHdFJ4CbX0pfF0ylt/EErynx8bdIVuRTP62VNT4HzszPH01RgaI3A==
-X-Received: by 2002:a05:600c:3649:b0:3f9:bf0f:1ceb with SMTP id y9-20020a05600c364900b003f9bf0f1cebmr1450795wmq.37.1688110134199;
-        Fri, 30 Jun 2023 00:28:54 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id l21-20020a7bc455000000b003fa95c466a1sm13851044wmi.5.2023.06.30.00.28.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Jun 2023 00:28:53 -0700 (PDT)
-Date: Fri, 30 Jun 2023 09:28:52 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 03/10] RISC-V: shunt isa_ext_arr to cpufeature.c
-Message-ID: <20230630-1a540679d6cf0275511bfbfc@orel>
-References: <20230629-rebuttal-vagueness-a699deb7c7b3@wendy>
- <20230629-museum-playhouse-6dbe7e573f2c@wendy>
+	id 1qF8pc-0037IR-1H;
+	Fri, 30 Jun 2023 07:46:18 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 4BFC21FD5E;
+	Fri, 30 Jun 2023 07:46:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1688111173; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=s+v7TzEsD6peXuEp+SUxn6T7G+IGk1te1iZtcpAk67w=;
+	b=U5S0JZy6WbjyJY0i+chUuJjKDtyzvNR562iDu4mAoeIRYiMaQH05DYn3oC2IDHuCJ3la0d
+	6efMYRbFWwT6WipW7DuzCUm5fOh+iBRlRjda9BeHpkLO1xMw6kBvbeEfXf4OoC4HGF0uY4
+	zaQwtseSPMY8DGPVwfpIGEUiwJgpXQc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1688111173;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=s+v7TzEsD6peXuEp+SUxn6T7G+IGk1te1iZtcpAk67w=;
+	b=X8HFoQg8L0Cu/1xVytv0JrQeNcv7odrUfIRvQXZWtOmDKktKfLxyOGVAR3qIcYAPoHvLdQ
+	4fb9jtJZixVDtrAw==
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 899A313915;
+	Fri, 30 Jun 2023 07:46:12 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+	by imap2.suse-dmz.suse.de with ESMTPSA
+	id ZRQNIESInmT0OQAAMHmgww
+	(envelope-from <tzimmermann@suse.de>); Fri, 30 Jun 2023 07:46:12 +0000
+Message-ID: <ef7b3899-7d18-8018-47fa-aac0efaa61f4@suse.de>
+Date: Fri, 30 Jun 2023 09:46:11 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230629-museum-playhouse-6dbe7e573f2c@wendy>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH 07/12] arch/x86: Declare edid_info in <asm/screen_info.h>
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
+ Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, linux-staging@lists.linux.dev,
+ Linux-Arch <linux-arch@vger.kernel.org>, Thomas Gleixner
+ <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ Nicholas Piggin <npiggin@gmail.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Sami Tolvanen <samitolvanen@google.com>,
+ Juerg Haefliger <juerg.haefliger@canonical.com>
+References: <20230629121952.10559-1-tzimmermann@suse.de>
+ <20230629121952.10559-8-tzimmermann@suse.de>
+ <80e3a583-805e-4e8f-a67b-ebe2e4b9a7e5@app.fastmail.com>
+ <d3de124c-6aa8-e930-e238-7bd6dd7929a6@suse.de>
+ <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
+From: Thomas Zimmermann <tzimmermann@suse.de>
+In-Reply-To: <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_002856_376684_EF8C9A4F 
-X-CRM114-Status: GOOD (  34.35  )
+X-CRM114-CacheID: sfid-20230630_004616_580481_4A99E41D 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,231 +108,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, conor@kernel.org, Rob Herring <robh+dt@kernel.org>, palmer@dabbelt.com, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Evan Green <evan@rivosinc.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8781892601738119483=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 29, 2023 at 09:28:49AM +0100, Conor Dooley wrote:
-> To facilitate using one struct to define extensions, rather than having
-> several, shunt isa_ext_arr to cpufeature.c, where it will be used for
-> probing extension presence also.
-> As that scope of the array as widened, prefix it with riscv & drop the
-> type from the variable name.
-> 
-> Since the new array is const, print_isa() needs a wee bit of cleanup to
-> avoid complaints about losing the const qualifier.
-> 
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Changes in v2:
-> - Drop the empty element from the end of the array, it was adding a bug
->   anyway as I was not decrementing the result of ARRAY_SIZE() by one.
->   Likely I meant to drop it originally and forgot, as dropping the
->   decrement was intentional.
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--===============8781892601738119483==
+Content-Language: en-US
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------2PcBvNvj4NxOJT00dP00OAEN"
 
-I don't think v1 introduced a bug, because you changed the condition to
-'<' from '<=' to account for not subtracting one. Both the original code
-and v1 were doing a useless __riscv_isa_extension_available() check of
-RISCV_ISA_EXT_MAX, though, which this version removes.
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------2PcBvNvj4NxOJT00dP00OAEN
+Content-Type: multipart/mixed; boundary="------------mO7mj780JaYWOEkXFpUrFA6g";
+ protected-headers="v1"
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
+ Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, linux-staging@lists.linux.dev,
+ Linux-Arch <linux-arch@vger.kernel.org>, Thomas Gleixner
+ <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ Nicholas Piggin <npiggin@gmail.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Sami Tolvanen <samitolvanen@google.com>,
+ Juerg Haefliger <juerg.haefliger@canonical.com>
+Message-ID: <ef7b3899-7d18-8018-47fa-aac0efaa61f4@suse.de>
+Subject: Re: [PATCH 07/12] arch/x86: Declare edid_info in <asm/screen_info.h>
+References: <20230629121952.10559-1-tzimmermann@suse.de>
+ <20230629121952.10559-8-tzimmermann@suse.de>
+ <80e3a583-805e-4e8f-a67b-ebe2e4b9a7e5@app.fastmail.com>
+ <d3de124c-6aa8-e930-e238-7bd6dd7929a6@suse.de>
+ <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
+In-Reply-To: <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
 
-Thanks,
-drew
+--------------mO7mj780JaYWOEkXFpUrFA6g
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
+
+SGkNCg0KQW0gMjkuMDYuMjMgdW0gMTU6MjEgc2NocmllYiBBcm5kIEJlcmdtYW5uOg0KPiBP
+biBUaHUsIEp1biAyOSwgMjAyMywgYXQgMTU6MDEsIFRob21hcyBaaW1tZXJtYW5uIHdyb3Rl
+Og0KPj4gQW0gMjkuMDYuMjMgdW0gMTQ6MzUgc2NocmllYiBBcm5kIEJlcmdtYW5uOg0KPj4+
+IE9uIFRodSwgSnVuIDI5LCAyMDIzLCBhdCAxMzo0NSwgVGhvbWFzIFppbW1lcm1hbm4gd3Jv
+dGU6DQo+Pj4+IFRoZSBnbG9iYWwgdmFyaWFibGUgZWRpZF9pbmZvIGNvbnRhaW5zIHRoZSBm
+aXJtd2FyZSdzIEVESUQgaW5mb3JtYXRpb24NCj4+Pj4gYXMgYW4gZXh0ZW5zaW9uIHRvIHRo
+ZSByZWd1bGFyIHNjcmVlbl9pbmZvIG9uIHg4Ni4gVGhlcmVmb3JlIG1vdmUgaXQgdG8NCj4+
+Pj4gPGFzbS9zY3JlZW5faW5mby5oPi4NCj4+Pj4NCj4+Pj4gQWRkIHRoZSBLY29uZmlnIHRv
+a2VuIEFSQ0hfSEFTX0VESURfSU5GTyB0byBndWFyZCBhZ2FpbnN0IGFjY2VzcyBvbg0KPj4+
+PiBhcmNoaXRlY3R1cmVzIHRoYXQgZG9uJ3QgcHJvdmlkZSBlZGlkX2luZm8uIFNlbGVjdCBp
+dCBvbiB4ODYuDQo+Pj4NCj4+PiBJJ20gbm90IHN1cmUgd2UgbmVlZCBhbm90aGVyIHN5bWJv
+bCBpbiBhZGRpdGlvbiB0bw0KPj4+IENPTkZJR19GSVJNV0FSRV9FRElELiBTaW5jZSBhbGwg
+dGhlIGNvZGUgYmVoaW5kIHRoYXQNCj4+PiBleGlzdGluZyBzeW1ib2wgaXMgYWxzbyB4ODYg
+c3BlY2lmaWMsIHdvdWxkIGl0IGJlIGVub3VnaA0KPj4+IHRvIGp1c3QgYWRkIGVpdGhlciAn
+ZGVwZW5kcyBvbiBYODYnIG9yICdkZXBlbmRzIG9uIFg4NiB8fA0KPj4+IENPTVBJTEVfVEVT
+VCcgdGhlcmU/DQo+Pg0KPj4gRklSTVdBUkVfRURJRCBpcyBhIHVzZXItc2VsZWN0YWJsZSBm
+ZWF0dXJlLCB3aGlsZSBBUkNIX0hBU19FRElEX0lORk8NCj4+IGFubm91bmNlcyBhbiBhcmNo
+aXRlY3R1cmUgZmVhdHVyZS4gVGhleSBkbyBkaWZmZXJlbnQgdGhpbmdzLg0KPiANCj4gSSBz
+dGlsbCBoYXZlIHRyb3VibGUgc2VlaW5nIHRoZSBkaWZmZXJlbmNlLg0KDQpUaGUgaWRlYSBo
+ZXJlIGlzIHRoYXQgQVJDSF9IQVNfIHNpZ25hbHMgdGhlIGFyY2hpdGVjdHVyZSdzIHN1cHBv
+cnQgZm9yIA0KdGhlIGZlYXR1cmUuICBEcml2ZXJzIHNldCAnZGVwZW5kcyBvbicgaW4gdGhl
+aXIgS2NvbmZpZy4NCg0KQW5vdGhlciBLY29uZmlnIHRva2VuLCBWSURFT19TQ1JFRU5fSU5G
+TyBvciBGSVJNV0FSRV9FRElELCB3b3VsZCB0aGVuIA0KYWN0dWFsbHkgZW5hYmxlIHRoZSBm
+ZWF0dXJlLiAgRHJpdmVycyBzZWxlY3QgVklERU9fU0NSRUVOX0lORk8gb3IgDQpGSVJNV0FS
+RV9FRElEIGFuZCB0aGUgYXJjaGl0ZWN0dXJlcyBjb250YWlucyBjb2RlIGxpa2UNCg0KI2lm
+ZGVmIFZJREVPX1NDUkVFTl9JTkZPDQpzdHJ1Y3Qgc2NyZWVuX2luZm8gc2NyZWVuX2luZm8g
+PSB7DQoJLyogc2V0IHZhbHVlcyBoZXJlICovDQp9DQojZW5kaWYNCg0KVGhpcyBhbGxvd3Mg
+dXMgdG8gZGlzYWJsZSBjb2RlIHRoYXQgcmVxdWlyZXMgc2NyZWVuX2luZm8vZWRpZF9pbmZv
+LCBidXQgDQphbHNvIGRpc2FibGUgc2NyZWVuX2luZm8vZWRpZF9pbmZvIHVubGVzcyBzdWNo
+IGNvZGUgaGFzIGJlZW4gZW5hYmxlZCBpbiANCnRoZSBrZXJuZWwgY29uZmlnLg0KDQpTb21l
+IGFyY2hpdGVjdHVyZXMgY3VycmVudGx5IG1pbWljIHRoaXMgYnkgZ3VhcmRpbmcgc2NyZWVu
+X2luZm8gd2l0aCANCmlmZGVmIENPTkZJR19WVCBvciBzaW1pbGFyLiBJJ2QgbGlrZSB0byBt
+YWtlIHRoaXMgbW9yZSBmbGV4aWJsZS4gVGhlIA0KY29zdCBvZiBhIGZldyBtb3JlIGludGVy
+bmFsIEtjb25maWcgdG9rZW5zIHNlZW1zIG5lZ2xpZ2libGUuDQoNCj4gDQo+PiBSaWdodCBu
+b3csIEFSQ0hfSEFTX0VESURfSU5GTyBvbmx5IHdvcmtzIG9uIHRoZSBvbGQgQklPUy1iYXNl
+ZCBWRVNBDQo+PiBzeXN0ZW1zLiBJbiB0aGUgZnV0dXJlLCBJIHdhbnQgdG8gYWRkIHN1cHBv
+cnQgZm9yIEVESUQgZGF0YSBmcm9tIEVGSSBhbmQNCj4+IE9GIGFzIHdlbGwuIEl0IHdvdWxk
+IGJlIHN0b3JlZCBpbiBlZGlkX2luZm8uIEkgYXNzdW1lIHRoYXQgdGhlIG5ldw0KPj4gc3lt
+Ym9sIHdpbGwgYmVjb21lIHVzZWZ1bCB0aGVuLg0KPiANCj4gSSBkb24ndCBzZWUgd2h5IGFu
+IE9GIGJhc2VkIHN5c3RlbSB3b3VsZCBoYXZlIHRoZSBzYW1lIGxpbWl0YXRpb24NCj4gYXMg
+bGVnYWN5IEJJT1Mgd2l0aCBzdXBwb3J0aW5nIG9ubHkgYSBzaW5nbGUgbW9uaXRvciwgaWYg
+d2UgbmVlZA0KPiB0byBoYXZlIGEgZ2VuZXJpYyByZXByZXNlbnRhdGlvbiBvZiBFRElEIGRh
+dGEgaW4gRFQsIHRoYXQgd291bGQNCj4gcHJvYmFibHkgYmUgaW4gYSBwZXIgZGV2aWNlIHBy
+b3BlcnR5IGFueXdheS4NCg0KU29ycnkgdGhhdCB3YXMgbXkgbWlzdGFrZS4gT0YgaGFzIG5v
+dGhpbmcgdG8gZG8gd2l0aCB0aGlzLg0KDQo+IA0KPiBJIHN1cHBvc2UgeW91IGNvdWxkIHVz
+ZSBGSVJNV0FSRV9FRElEIG9uIEVGSSBvciBPRiBzeXN0ZW1zIHdpdGhvdXQNCj4gdGhlIG5l
+ZWQgZm9yIGEgZ2xvYmFsIGVkaWRfaW5mbyBzdHJ1Y3R1cmUsIGJ1dCB0aGF0IHdvdWxkIG5v
+dA0KPiBzaGFyZSBhbnkgY29kZSB3aXRoIHRoZSBjdXJyZW50IGZiX2Zpcm13YXJlX2VkaWQo
+KSBmdW5jdGlvbi4NCg0KVGhlIGN1cnJlbnQgY29kZSBpcyBidWlsZCBvbiB0b3Agb2Ygc2Ny
+ZWVuX2luZm8gYW5kIGVkaWRfaW5mby4gSSdkIA0KcHJlZmVyYWJseSBub3QgcmVwbGFjZSB0
+aGF0LCBpZiBwb3NzaWJsZS4NCg0KQmVzdCByZWdhcmRzDQpUaG9tYXMNCg0KPiANCj4gICAg
+ICAgQXJuZA0KDQotLSANClRob21hcyBaaW1tZXJtYW5uDQpHcmFwaGljcyBEcml2ZXIgRGV2
+ZWxvcGVyDQpTVVNFIFNvZnR3YXJlIFNvbHV0aW9ucyBHZXJtYW55IEdtYkgNCkZyYW5rZW5z
+dHJhc3NlIDE0NiwgOTA0NjEgTnVlcm5iZXJnLCBHZXJtYW55DQpHRjogSXZvIFRvdGV2LCBB
+bmRyZXcgTXllcnMsIEFuZHJldyBNY0RvbmFsZCwgQm91ZGllbiBNb2VybWFuDQpIUkIgMzY4
+MDkgKEFHIE51ZXJuYmVyZykNCg==
+
+--------------mO7mj780JaYWOEkXFpUrFA6g--
+
+--------------2PcBvNvj4NxOJT00dP00OAEN
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature"
+
+-----BEGIN PGP SIGNATURE-----
+
+wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmSeiEMFAwAAAAAACgkQlh/E3EQov+As
+5Q/9H55ggR4DmBaaIorbgBWGfEk+cZYwIsKGIz88GTA+c5VuSIo6Mc6nMauV6sDZwQuqK4aWIzzR
+jVTZ+JGcp3h1o6Cb0aTHu4wIa0XkYCuT1Lo7p8q02mhS2T/EtbkiMAktmfNBBOCQ2Fp1RYjL5Fnx
+D8F1O/+gATcQgYGWJ4V3Y0khLBjCIhqZLpoDUZgvIznRExZlWP+eZ/NIuYR/PiM7/z0Gu/p+FZEo
+XIZrcJeJGET5ciMIAmV2d8zLT2YAwSz0bsLLYt5xyeZkVZBUKuQ93wUicuYaqXHIqpUz760GPe3M
+uITt6uKCQQHv2MOawwpy/YMei3eFhbCAixdayLHfhcyo1u3fnGsQWaLYStVYNnkfTEEb3abRZrUz
+gR90CVdui0m94ExphiWAzSjj/SbKYkUc0haYzE/CHronlSSiqHhTDghKfjEli6yS8cAAxSDZVcgw
+pggFLw7Xz3f+ITbu/zV1QzMHX5bOV+3ThWxpDGXmeQ4k60lx80NaI3unnFQqi4KN0Gyu2i2ptFNU
+KRuLox9gnQf9J50AkJOShkapFUjTVNDwxJ0Ftikb/pv/UXdsLrnWzrPgi4Qn6Y49jqHRb2wNFcIF
+erX2SS+S6zYk36Pg6L77ceHnxC0rIaZBtZ81YxFtMiZ9l8YV2rJS8orASwSIzF/yPiZXZgFY3ZQm
+S2Y=
+=pDNZ
+-----END PGP SIGNATURE-----
+
+--------------2PcBvNvj4NxOJT00dP00OAEN--
 
 
-> ---
->  arch/riscv/include/asm/hwcap.h |  3 ++
->  arch/riscv/kernel/cpu.c        | 75 +---------------------------------
->  arch/riscv/kernel/cpufeature.c | 67 ++++++++++++++++++++++++++++++
->  3 files changed, 72 insertions(+), 73 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index f041bfa7f6a0..7a57e6109aef 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -76,6 +76,9 @@ struct riscv_isa_ext_data {
->  	unsigned int isa_ext_id;
->  };
->  
-> +extern const struct riscv_isa_ext_data riscv_isa_ext[];
-> +extern const size_t riscv_isa_ext_count;
-> +
->  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
->  
->  #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index ddd7634e4c1d..269a32ceb595 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -160,81 +160,10 @@ arch_initcall(riscv_cpuinfo_init);
->  
->  #ifdef CONFIG_PROC_FS
->  
-> -#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
-> -	{							\
-> -		.uprop = #UPROP,				\
-> -		.isa_ext_id = EXTID,				\
-> -	}
-> -
-> -/*
-> - * The canonical order of ISA extension names in the ISA string is defined in
-> - * chapter 27 of the unprivileged specification.
-> - *
-> - * Ordinarily, for in-kernel data structures, this order is unimportant but
-> - * isa_ext_arr defines the order of the ISA string in /proc/cpuinfo.
-> - *
-> - * The specification uses vague wording, such as should, when it comes to
-> - * ordering, so for our purposes the following rules apply:
-> - *
-> - * 1. All multi-letter extensions must be separated from other extensions by an
-> - *    underscore.
-> - *
-> - * 2. Additional standard extensions (starting with 'Z') must be sorted after
-> - *    single-letter extensions and before any higher-privileged extensions.
-> -
-> - * 3. The first letter following the 'Z' conventionally indicates the most
-> - *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
-> - *    If multiple 'Z' extensions are named, they must be ordered first by
-> - *    category, then alphabetically within a category.
-> - *
-> - * 3. Standard supervisor-level extensions (starting with 'S') must be listed
-> - *    after standard unprivileged extensions.  If multiple supervisor-level
-> - *    extensions are listed, they must be ordered alphabetically.
-> - *
-> - * 4. Standard machine-level extensions (starting with 'Zxm') must be listed
-> - *    after any lower-privileged, standard extensions.  If multiple
-> - *    machine-level extensions are listed, they must be ordered
-> - *    alphabetically.
-> - *
-> - * 5. Non-standard extensions (starting with 'X') must be listed after all
-> - *    standard extensions. If multiple non-standard extensions are listed, they
-> - *    must be ordered alphabetically.
-> - *
-> - * An example string following the order is:
-> - *    rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
-> - *
-> - * New entries to this struct should follow the ordering rules described above.
-> - */
-> -static struct riscv_isa_ext_data isa_ext_arr[] = {
-> -	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> -	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
-> -	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
-> -	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
-> -	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
-> -	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
-> -	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
-> -	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-> -	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> -	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-> -	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> -	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-> -	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> -	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> -	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> -	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
-> -	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> -	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-> -};
-> -
->  static void print_isa_ext(struct seq_file *f)
->  {
-> -	struct riscv_isa_ext_data *edata;
-> -	int i = 0, arr_sz;
-> -
-> -	arr_sz = ARRAY_SIZE(isa_ext_arr) - 1;
-> -
-> -	for (i = 0; i <= arr_sz; i++) {
-> -		edata = &isa_ext_arr[i];
-> +	for (int i = 0; i < riscv_isa_ext_count; i++) {
-> +		const struct riscv_isa_ext_data *edata = &riscv_isa_ext[i];
->  		if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
->  			continue;
->  		seq_printf(f, "_%s", edata->uprop);
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index bdcf460ea53d..fb476153fffc 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -99,6 +99,73 @@ static bool riscv_isa_extension_check(int id)
->  	return true;
->  }
->  
-> +#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
-> +	{							\
-> +		.uprop = #UPROP,				\
-> +		.isa_ext_id = EXTID,				\
-> +	}
-> +
-> +/*
-> + * The canonical order of ISA extension names in the ISA string is defined in
-> + * chapter 27 of the unprivileged specification.
-> + *
-> + * Ordinarily, for in-kernel data structures, this order is unimportant but
-> + * isa_ext_arr defines the order of the ISA string in /proc/cpuinfo.
-> + *
-> + * The specification uses vague wording, such as should, when it comes to
-> + * ordering, so for our purposes the following rules apply:
-> + *
-> + * 1. All multi-letter extensions must be separated from other extensions by an
-> + *    underscore.
-> + *
-> + * 2. Additional standard extensions (starting with 'Z') must be sorted after
-> + *    single-letter extensions and before any higher-privileged extensions.
-> + *
-> + * 3. The first letter following the 'Z' conventionally indicates the most
-> + *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
-> + *    If multiple 'Z' extensions are named, they must be ordered first by
-> + *    category, then alphabetically within a category.
-> + *
-> + * 3. Standard supervisor-level extensions (starting with 'S') must be listed
-> + *    after standard unprivileged extensions.  If multiple supervisor-level
-> + *    extensions are listed, they must be ordered alphabetically.
-> + *
-> + * 4. Standard machine-level extensions (starting with 'Zxm') must be listed
-> + *    after any lower-privileged, standard extensions.  If multiple
-> + *    machine-level extensions are listed, they must be ordered
-> + *    alphabetically.
-> + *
-> + * 5. Non-standard extensions (starting with 'X') must be listed after all
-> + *    standard extensions. If multiple non-standard extensions are listed, they
-> + *    must be ordered alphabetically.
-> + *
-> + * An example string following the order is:
-> + *    rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
-> + *
-> + * New entries to this struct should follow the ordering rules described above.
-> + */
-> +const struct riscv_isa_ext_data riscv_isa_ext[] = {
-> +	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> +	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
-> +	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
-> +	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
-> +	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
-> +	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
-> +	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
-> +	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-> +	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> +	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-> +	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> +	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-> +	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> +	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> +	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
-> +	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> +};
-> +
-> +const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
-> +
->  void __init riscv_fill_hwcap(void)
->  {
->  	struct device_node *node;
-> -- 
-> 2.40.1
-> 
+--===============8781892601738119483==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8781892601738119483==--
+
