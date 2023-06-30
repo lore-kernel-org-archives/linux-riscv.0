@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58AE5EB64D9
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 01:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30301EB64D9
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 01:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A2haqgDMmBsQMIyPoTdTirQqTuSHyK+f5x9mGtSjMf8=; b=GOuXk5VaXdXBMB
-	uWc1MRVbusILWPV0Buoshvi0rbs8QKzGUWHDkFzB3fnM9wkIuovuH48IDE673eK7ntLd14MqXawsx
-	u6gOHfPviIf8yLxERkk711DjzBN02dT+vTIuqjnqQOmLIfGH2qSfpdXhQqgRFoLJ0Xz4F6NNsZkH0
-	Xt5EfsKJpUPReE8b7cm5HqJGLliK7UYcdVuXoOk+dA3Qkyx4o+T1lqdc451cSsPCU7R1lenjIk5Ay
-	Lkhuuh52mWwMuPxVwKyor5pJ+i6J/iT7PasBnbZGkAXy4SjmydwJcZL9VEP8Yvxt01ExDATtgQSfi
-	UIZwBdiccc66aJ8RuP7Q==;
+	List-Owner; bh=mjZC7ylfypCQRV03hWeHH1PLj9piMWNiDwCS+Ia8JxA=; b=cIIu/5+MEkj55m
+	slTjj8PHgkp23ji/kAEzTnPcZHogewYdSBH4dzF4afEyANUtu0RQVq9DsXe6BLP43fKmWuGlfWTl9
+	9N8+zWvk+crAp7fWpbLEZ3EVrhAwwzOMiaF1onNBBr8QZgONChbIvY7cSB/7QPAFRlSeLzzKlwWVM
+	1pOfvpBHgvgXdc97cS2xLa4DFFepuUbalDuOo/CDZir23dwfe/qDxuIThcT1khxhgbOFCNRZgxV3F
+	KMBAD1h42wLRJOotgXqT3rgRpt41W9uvZn+zyTqlBJTJvVMBxVrmiEf1Eg2T/dU7sFlnNqGEwaIws
+	seOBoe7sSBB/eoVjB+fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF3DK-002eMl-0C;
-	Fri, 30 Jun 2023 01:46:22 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1qF3O7-002fYB-1K;
+	Fri, 30 Jun 2023 01:57:31 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qF3DG-002eL7-2y
+	id 1qF3O4-002fXO-1r
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 01:46:20 +0000
+	Fri, 30 Jun 2023 01:57:30 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id D76DF24E245;
-	Fri, 30 Jun 2023 09:45:51 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 0DD8124DE30;
+	Fri, 30 Jun 2023 09:57:04 +0800 (CST)
 Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 30 Jun
- 2023 09:45:51 +0800
+ 2023 09:57:04 +0800
 Received: from [192.168.125.93] (183.27.97.206) by EXMBX172.cuchost.com
  (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 30 Jun
- 2023 09:45:50 +0800
-Message-ID: <4ed97fd6-a99c-0be8-aff5-61021be59422@starfivetech.com>
-Date: Fri, 30 Jun 2023 09:45:49 +0800
+ 2023 09:57:03 +0800
+Message-ID: <0312262c-28c0-9445-c6f7-2079a57db8c7@starfivetech.com>
+Date: Fri, 30 Jun 2023 09:57:02 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.3.2
-Subject: Re: [PATCH v1 2/5] ASoC: codecs: Add StarFive JH7110 dummy PWM-DAC
- transmitter driver
+Subject: Re: [PATCH v1 1/5] ASoC: dt-bindings: Add StarFive JH7110 dummy
+ PWM-DAC transmitter
 Content-Language: en-US
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Mark Brown
 	<broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela
@@ -56,17 +56,17 @@ To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Mark Brown
 CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 References: <20230626110909.38718-1-hal.feng@starfivetech.com>
- <20230626110909.38718-3-hal.feng@starfivetech.com>
- <4c421206-39a2-d98e-f75d-f5d269e881ff@linaro.org>
+ <20230626110909.38718-2-hal.feng@starfivetech.com>
+ <006ddacd-0496-70d1-3310-99b16706de84@linaro.org>
 From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <4c421206-39a2-d98e-f75d-f5d269e881ff@linaro.org>
+In-Reply-To: <006ddacd-0496-70d1-3310-99b16706de84@linaro.org>
 X-Originating-IP: [183.27.97.206]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
  (172.16.6.92)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230629_184619_250384_6550DE2A 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20230629_185728_811757_20EEC38A 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +83,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 26 Jun 2023 17:33:57 +0200, Krzysztof Kozlowski wrote:
+On Mon, 26 Jun 2023 17:34:56 +0200, Krzysztof Kozlowski wrote:
 > On 26/06/2023 13:09, Hal Feng wrote:
->> Add a dummy transmitter driver for StarFive JH7110 PWM-DAC module.
->> StarFive JH7110 PWM-DAC controller uses this driver.
->> 
->> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->>  sound/soc/codecs/Kconfig                     |  4 ++
->>  sound/soc/codecs/Makefile                    |  2 +
->>  sound/soc/codecs/jh7110_pwmdac_transmitter.c | 74 ++++++++++++++++++++
->>  3 files changed, 80 insertions(+)
->>  create mode 100644 sound/soc/codecs/jh7110_pwmdac_transmitter.c
->> 
+>> Add bindings for StarFive JH7110 dummy PWM-DAC transmitter.
 > 
 > ...
 > 
+>> +required:
+>> +  - compatible
+>> +  - "#sound-dai-cells"
 >> +
->> +static struct platform_driver pwmdac_dit_driver = {
->> +	.probe		= pwmdac_dit_probe,
->> +	.driver		= {
->> +		.name	= DRV_NAME,
->> +		.of_match_table = of_match_ptr(pwmdac_dit_dt_ids),
->> +	},
->> +};
+>> +additionalProperties: false
 >> +
->> +module_platform_driver(pwmdac_dit_driver);
->> +
->> +MODULE_DESCRIPTION("StarFive JH7110 dummy PWM-DAC transmitter driver");
->> +MODULE_LICENSE("GPL");
->> +MODULE_ALIAS("platform:" DRV_NAME);
+>> +examples:
+>> +  - |
+>> +    pwmdac-dit {
+>> +        compatible = "starfive,jh7110-pwmdac-dit";
+>> +        #sound-dai-cells = <0>;
 > 
-> Drop. You don't need it. If you need it, it means you miss proper ID table.
+> BTW, I don't see any resources here. Neither in the driver. I think you
+> just added this for driver, not for a real hardware.
 
-OK. I will drop it in the next version. Thanks.
+Yes, this is a dummy PWM-DAC transmitter as described in the title. The
+StarFive JH7110 PWM-DAC module doesn't need a hardware codec, but a
+dummy codec is needed for the driver.
+
+For a similar implementation, you can refer to
+sound/soc/codecs/spdif_transmitter.c
 
 Best regards,
 Hal
