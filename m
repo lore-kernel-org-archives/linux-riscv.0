@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93600EB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 19:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC241EB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 20:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EwQLZgOWtzSgsJgtWCoFBn2oZ6m7oCr3UrvTP+HZzbE=; b=fXg6wtHjkMBtQNoX5hQDMZ7/U5
-	/znsG+vxV4osyXphuL4XY3YZ53p1l3494VUlgPKf4RXZzeuZ7WZhhiEK5fBScrRBX7+Xyelq5QWWe
-	vTO70CZ+0dEGCfQEXQie/JD72FxiagNMzpXJUsQXiz+0J/M82fnHG8Saxx3N2S2UoeYLINC4zMYHn
-	clJdZ9beIr/FpCjxWhqo+VLkQZAYxpW7KLKbFsjfVwwz9nIetagp5Ik4pK3rUN0iaOThp8x5ALk9T
-	JVB6fTeOyGxYo3e8Qm6DwShTzB11dtk7ke4YsrmSwQW88yeqZ8rnT6R8DeI+rRRybFzD0Mug+6amw
-	FnvctcZA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=v2Gj3ax5tZjG3Y2Iv5jpCrD+ekGKJY6xT3693U0XXcs=; b=mohcJmNtEiQXPw
+	1jDW3mrBsX8ZAMq8zprUWUmCOWFF7ix4zmNYPemqZ8obDn4NsczS/K1XlHF5MFsO893RidZAmFKf4
+	JoxMy1SXtHLOQIy2R366PyeSI1bzxUWMZMds7fWQn4z+ELrywLOTmJ5sHV36QSmemPQh+aH5+onuY
+	N79FpE2v1CkiHeyBkX1+/zz2DEDVeMwOeWSFwAiatmvbkXJvhPa+EuAeqttd4nbpTfRYceIz9QWd9
+	woxpx8x3JDE+f63VFMP/inUyjFzX1HUsbqp55UNl722nUwdtV5vdOYJ0uSrA/D3Ge6eji/YiDJwap
+	M/QkRZ9N6AnrlxdVqd5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFK3J-004Qaq-2z;
-	Fri, 30 Jun 2023 19:45:09 +0000
+	id 1qFKVF-004TBr-0M;
+	Fri, 30 Jun 2023 20:14:01 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFK3H-004QaT-1N
+	id 1qFKVC-004TBU-02
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 19:45:08 +0000
+	Fri, 30 Jun 2023 20:13:59 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 798996179C;
-	Fri, 30 Jun 2023 19:45:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3291C433C8;
-	Fri, 30 Jun 2023 19:45:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id F1F2C61751;
+	Fri, 30 Jun 2023 20:13:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCB05C433C8;
+	Fri, 30 Jun 2023 20:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688154305;
-	bh=Gz3EGjK0wDfPFqqPSFx9EN34bJyDZae+TOOU/oFUqkc=;
+	s=k20201202; t=1688156036;
+	bh=9GNb15ETaSBgvT30j9MS7caLifXtMu0PGBzMP0Nntfs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l5/CBbIcmZzqWROpNGgc/CmzTwFgP9rZyUp8A1QdPu09GeFAvlgHUKihV/9/2Aw6u
-	 R+PXolwZe2WHbRCTHJoUfCMuGRw0mDVGN66Yq88BTSVGEbUmY5EQv2I2QAFL9NJuDD
-	 TH2dhHu7yOItVSw/NKDvESkPX/CnEiJC5zQ0SsvYhRXAZ5SDR4QeYW8w/FDFnf/pJw
-	 zX0/cp+PhPwofjT0SfaQc9vFU3+4trABpM5XZGlQ8+exl/2CZO1QXVJtPmwhzp8tYm
-	 sl0n+0EPVyol/zkeqcPIFHdVCTR4bOSZvgoU6Qkl+S/aFrSC4qVYiS7jyyCubZD0CF
-	 SjJI/7ADIBSYQ==
-Date: Fri, 30 Jun 2023 20:45:01 +0100
-From: Conor Dooley <conor@kernel.org>
+	b=uqgkhHWQ+gP9YU/xZQo4rkL5KPghbqETljWSD5N7+MtUYMmgQyQW/d6nAJguRXcl0
+	 L+JRsQyrS106ED+rTW9qcBYQ+qTobp4bj56bRcFxrFyTYZJuFmGk2JVcdl8hft6Bfn
+	 z++jTrLxfKxtNS3k20nu1tf4jLuRd++R0rNsfeni8VJ4hOLqjhxedpEDVriBRha43W
+	 eGann6ZvZHN2aY4LTwfL96cmUvJi+7FVdCE4GjgfQDi5L1VqqEpjYGUAlr+Ggg6N1R
+	 V+Dswtxz0cQk0wEe057SU4yCG/MM3iNBpkLHZyLsJJ1Be+n/+ZPOGeVT00GPJaY6Gp
+	 6CSjJoiPiFWqA==
+Date: Fri, 30 Jun 2023 13:13:54 -0700
+From: Nathan Chancellor <nathan@kernel.org>
 To: Sami Tolvanen <samitolvanen@google.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH 0/6] riscv: KCFI support
-Message-ID: <20230630-imprecise-ibuprofen-98f70a8665da@spud>
+Message-ID: <20230630201354.GA3346845@dev-arch.thelio-3990X>
 References: <20230629234244.1752366-8-samitolvanen@google.com>
- <20230630-phrasing-strung-12e53988ad81@spud>
 MIME-Version: 1.0
-In-Reply-To: <20230630-phrasing-strung-12e53988ad81@spud>
+Content-Disposition: inline
+In-Reply-To: <20230629234244.1752366-8-samitolvanen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_124507_527827_4F954A30 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20230630_131358_139399_1444FF42 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,67 +75,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7453561180882009543=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Sami,
 
---===============7453561180882009543==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5RH3lh36f2f8cAFF"
-Content-Disposition: inline
+On Thu, Jun 29, 2023 at 11:42:45PM +0000, Sami Tolvanen wrote:
+> This series adds KCFI support for RISC-V. KCFI is a fine-grained
+> forward-edge control-flow integrity scheme supported in Clang >=16,
+> which ensures indirect calls in instrumented code can only branch to
+> functions whose type matches the function pointer type, thus making
+> code reuse attacks more difficult.
+> 
+> Patch 1 implements a pt_regs based syscall wrapper to address
+> function pointer type mismatches in syscall handling. Patches 2 and 3
+> annotate indirectly called assembly functions with CFI types. Patch 4
+> implements error handling for indirect call checks. Patch 5 disables
+> CFI for arch/riscv/purgatory. Patch 6 finally allows CONFIG_CFI_CLANG
+> to be enabled for RISC-V.
+> 
+> Note that Clang 16 has a generic architecture-agnostic KCFI
+> implementation, which does work with the kernel, but doesn't produce
+> a stable code sequence for indirect call checks, which means
+> potential failures just trap and won't result in informative error
+> messages. Clang 17 includes a RISC-V specific back-end implementation
+> for KCFI, which emits a predictable code sequence for the checks and a
+> .kcfi_traps section with locations of the traps, which patch 5 uses to
+> produce more useful errors.
+> 
+> The type mismatch fixes and annotations in the first three patches
+> also become necessary in future if the kernel decides to support
+> fine-grained CFI implemented using the hardware landing pad
+> feature proposed in the in-progress Zicfisslp extension. Once the
+> specification is ratified and hardware support emerges, implementing
+> runtime patching support that replaces KCFI instrumentation with
+> Zicfisslp landing pads might also be feasible (similarly to KCFI to
+> FineIBT patching on x86_64), allowing distributions to ship a unified
+> kernel binary for all devices.
 
+I boot tested ARCH=riscv defconfig + CONFIG_CFI_CLANG=y with both clang
+16.0.6 and a recent LLVM 17.0.0 from tip of tree and saw no issues while
+booting. I can confirm that both kernels panic when running the
+CFI_FORWARD_PROTO LKDTM test.
 
---5RH3lh36f2f8cAFF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+LLVM 17.0.0:
 
-On Fri, Jun 30, 2023 at 07:48:23PM +0100, Conor Dooley wrote:
-> Hey Sami,
->=20
-> On Thu, Jun 29, 2023 at 11:42:45PM +0000, Sami Tolvanen wrote:
-> > This series adds KCFI support for RISC-V. KCFI is a fine-grained
-> > forward-edge control-flow integrity scheme supported in Clang >=3D16,
-> > which ensures indirect calls in instrumented code can only branch to
-> > functions whose type matches the function pointer type, thus making
-> > code reuse attacks more difficult.
->=20
-> > base-commit: c6b0271053e7a5ae57511363213777f706b60489
->=20
-> Could you please rebase this on top of v6.5-rc1 when that comes out?
-> This base-commit is some random commit from Linus' tree, that because we
-> are currently in the merge window has is not in the RISC-V trees yet,
-> and means the series wasn't applied by our CI stuff.
+[  100.722815] lkdtm: Performing direct entry CFI_FORWARD_PROTO
+[  100.723061] lkdtm: Calling matched prototype ...
+[  100.723217] lkdtm: Calling mismatched prototype ...
+[  100.723861] CFI failure at lkdtm_indirect_call+0x22/0x32 (target: lkdtm_increment_int+0x0/0x18; expected type: 0x3ad55aca)
+[  100.724191] Kernel BUG [#1]
+[  100.724226] Modules linked in:
+[  100.724343] CPU: 0 PID: 42 Comm: sh Not tainted 6.4.0-08887-ga68cded684a2 #1
+[  100.724450] Hardware name: riscv-virtio,qemu (DT)
+[  100.724552] epc : lkdtm_indirect_call+0x22/0x32
+[  100.724586]  ra : lkdtm_CFI_FORWARD_PROTO+0x40/0x74
+[  100.724603] epc : ffffffff805ee84c ra : ffffffff805ee6de sp : ff200000001a3cb0
+[  100.724617]  gp : ffffffff8130ab70 tp : ff60000001b9d240 t0 : ff200000001a3b38
+[  100.724631]  t1 : 000000003ad55aca t2 : 000000007e0c52a5 s0 : ff200000001a3cc0
+[  100.724644]  s1 : 0000000000000001 a0 : ffffffff8130edc8 a1 : ffffffff805ee876
+[  100.724658]  a2 : b5352d9a12ee0700 a3 : ffffffff8122e5c8 a4 : 0000000000000fff
+[  100.724671]  a5 : 0000000000000004 a6 : 00000000000000b4 a7 : 0000000000000000
+[  100.724683]  s2 : ff200000001a3e38 s3 : ffffffffffffffea s4 : 0000000000000012
+[  100.724696]  s5 : ff6000000804c000 s6 : 0000000000000006 s7 : ffffffff80e8ca88
+[  100.724709]  s8 : 0000000000000008 s9 : 0000000000000002 s10: ffffffff812bfd10
+[  100.724722]  s11: ffffffff812bfd10 t3 : 0000000000000003 t4 : 0000000000000000
+[  100.724735]  t5 : ff60000001858000 t6 : ff60000001858f00
+[  100.724746] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
+[  100.724825] [<ffffffff805ee84c>] lkdtm_indirect_call+0x22/0x32
+[  100.724886] [<ffffffff805ee6de>] lkdtm_CFI_FORWARD_PROTO+0x40/0x74
+[  100.724898] [<ffffffff805eabbe>] lkdtm_do_action+0x22/0x32
+[  100.724908] [<ffffffff805eab78>] direct_entry+0x124/0x136
+[  100.724918] [<ffffffff8034af5a>] full_proxy_write+0x58/0xb2
+[  100.724930] [<ffffffff801e139e>] vfs_write+0x14c/0x350
+[  100.724941] [<ffffffff801e16fc>] ksys_write+0x64/0xd4
+[  100.724951] [<ffffffff801e1782>] __riscv_sys_write+0x16/0x22
+[  100.724961] [<ffffffff80005cec>] syscall_handler+0x4c/0x58
+[  100.724973] [<ffffffff809355ac>] do_trap_ecall_u+0x3e/0x88
+[  100.724996] [<ffffffff80003678>] ret_from_exception+0x0/0x64
+[  100.725150] Code: 0513 5945 a303 ffc5 53b7 7e0c 839b 2a53 0363 0073 (9002) 9582
+[  100.731204] ---[ end trace 0000000000000000 ]---
+[  100.731327] Kernel panic - not syncing: Fatal exception in interrupt
+[  100.731910] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---
 
-In other news, I gave it a go with 03b118c7e456 ("[SLP] Fix crash on
-attempt to access on invalid iterator state.") & have been running it
-for a bit. All seems in order so far, nice :)
+LLVM 16.0.6:
 
---5RH3lh36f2f8cAFF
-Content-Type: application/pgp-signature; name="signature.asc"
+[   10.227530] lkdtm: Performing direct entry CFI_FORWARD_PROTO
+[   10.227755] lkdtm: Calling matched prototype ...
+[   10.227900] lkdtm: Calling mismatched prototype ...
+[   10.228721] Oops - illegal instruction [#1]
+[   10.228856] Modules linked in:
+[   10.228978] CPU: 0 PID: 1 Comm: sh Not tainted 6.4.0-08887-ga68cded684a2 #1
+[   10.229077] Hardware name: riscv-virtio,qemu (DT)
+[   10.229160] epc : lkdtm_indirect_call+0x2c/0x32
+[   10.229242]  ra : lkdtm_CFI_FORWARD_PROTO+0x40/0x74
+[   10.229259] epc : ffffffff805ef190 ra : ffffffff805ef018 sp : ff2000000000bcb0
+[   10.229272]  gp : ffffffff8130a958 tp : ff600000018c8000 t0 : ff2000000000bb38
+[   10.229285]  t1 : ff2000000000baa8 t2 : 0000000000000018 s0 : ff2000000000bcc0
+[   10.229298]  s1 : 0000000000000001 a0 : 000000003ad55aca a1 : ffffffff805ef1b0
+[   10.229310]  a2 : 000000007e0c52a5 a3 : ffffffff8122e548 a4 : 0000000000000fff
+[   10.229322]  a5 : 0000000000000004 a6 : 00000000000000b4 a7 : 0000000000000000
+[   10.229335]  s2 : ff2000000000be38 s3 : ffffffffffffffea s4 : 0000000000000012
+[   10.229347]  s5 : ff6000000802f000 s6 : 0000000000000006 s7 : ffffffff80e8ca88
+[   10.229360]  s8 : 0000000000000008 s9 : 0000000000000002 s10: ffffffff812bfc90
+[   10.229372]  s11: ffffffff812bfc90 t3 : 0000000000000003 t4 : 0000000000000000
+[   10.229385]  t5 : ff60000001858000 t6 : ff60000001858f00
+[   10.229396] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000002
+[   10.229478] [<ffffffff805ef190>] lkdtm_indirect_call+0x2c/0x32
+[   10.229538] [<ffffffff805ef018>] lkdtm_CFI_FORWARD_PROTO+0x40/0x74
+[   10.229550] [<ffffffff805eb4d4>] lkdtm_do_action+0x20/0x34
+[   10.229560] [<ffffffff805eb490>] direct_entry+0x124/0x136
+[   10.229570] [<ffffffff80349cf0>] full_proxy_write+0x56/0xb2
+[   10.229582] [<ffffffff801e0620>] vfs_write+0x14a/0x34e
+[   10.229593] [<ffffffff801e097e>] ksys_write+0x64/0xd4
+[   10.229602] [<ffffffff801e0a04>] __riscv_sys_write+0x16/0x22
+[   10.229611] [<ffffffff800056fe>] syscall_handler+0x4a/0x58
+[   10.229622] [<ffffffff80936428>] do_trap_ecall_u+0x3e/0x88
+[   10.229649] [<ffffffff80003678>] ret_from_exception+0x0/0x64
+[   10.229860] Code: 00c5 1517 00d2 0513 c4a5 9582 60a2 6402 0141 8082 (0000) 52a5
+[   10.235769] ---[ end trace 0000000000000000 ]---
+[   10.235892] Kernel panic - not syncing: Fatal exception in interrupt
+[   10.236488] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---
 
------BEGIN PGP SIGNATURE-----
+Tested-by: Nathan Chancellor <nathan@kernel.org>
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJ8wvQAKCRB4tDGHoIJi
-0n7sAPoCIPcrVQj6zFZMwpWtS5syPkfKJvsn7z+aOpGtLJuswgEA0cHVGWrRG5F/
-7pkuFFiHmNuHKoATNB+0d+B3WOzhAAA=
-=a0Pn
------END PGP SIGNATURE-----
-
---5RH3lh36f2f8cAFF--
-
-
---===============7453561180882009543==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7453561180882009543==--
-
