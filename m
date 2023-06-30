@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CAECEB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 15:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D67CEB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 15:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LC3wmzB5ZcSk0KJhPUnIVO23lBv4odZzUFZK8pIGgh8=; b=Z3JKUJXopJeB32
-	BrJMUhAO3Wlp1LKzYMS0PfUzWcAkfY6BM8mR5QZW8DIl2G3+CSCLhRO6B5LltF/G7cVrQ74I/BdeZ
-	ulpl90NvNymnLLIxGrX2i/LEpIT6/FvzXT81C4qbysACCtvUgc6VB8nbof+RYfmduAA3TYHLhud00
-	EXAmYUV9RxR/bMvvKfI2Qx/GiDGAGTDtr2mqvB6sTCjhVe4MJn7cIDZFry5UHBdXkN18K2sl4GnRv
-	k51LT59y1uoTzM03ULJLXshPHBSxj5LccL0vx0aovOhmt86W7wiYgDa4vPbjVQhPIlnRAqH2cynlY
-	cxgG3pADUb7JR6auHXuA==;
+	List-Owner; bh=aweofDYkqO3EJMstw3R5vdfsoPBzlUGGiK3ItJE6Bqc=; b=39GAVlZuS5kV2r
+	xYJK1+mVLpssHieufGbYU+ArADEt9+UtCNGUY+9kRhAmhUiKJQISD7dLf/ghPalpoL4c/PaQfH829
+	Be7WZoHH59DSeNhlePGWCK90dMRmH1KQdLQWvj1YDd1XtctMDiDClDRXEyayUeY3AKk9w3aUkQLGQ
+	cZ7+LFYXdQJ7Dkwr9rkh0a5pcrH7qPzeiWXed24WTzw9YB633dK/Zr5nsN6lb5rQyKBzsJQUmGKoN
+	iNh8FjgaZ9HamvE6FaDZ9BZc93dY7qaojvT6VXWD0i03B/Gi4/0GhR+ew6GSB5Lqr2DKm8LVo0J2b
+	w/eVZs8N6f/IHia+TRqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFGNI-003yrB-39;
-	Fri, 30 Jun 2023 15:49:32 +0000
+	id 1qFGNM-003ysX-2M;
+	Fri, 30 Jun 2023 15:49:36 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFGNF-003ypE-2S
+	id 1qFGNH-003ypE-0O
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 15:49:31 +0000
+	Fri, 30 Jun 2023 15:49:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688140169; x=1719676169;
+  t=1688140170; x=1719676170;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=1oCatm2lA3eWUDmZs5GjcKbFyyVaBn4C2DspCHTW8Sc=;
-  b=BP+x6nom68b9AJB1TsEImSSZDvZ+vEnylI0/q1mIBljgV9lFjdy8XvPn
-   3FIvSthKOhGJ9TRkUsHh/SPwcBhMhc/XJFGvYyaGCrdJ73aEsmkkjmK5b
-   YP+6ETeo8vrglyYhbKhQXDTvQRICVBxmqTAJKABCoz79CH0a+4Vq/Yh7g
-   Ak+FG83lPxzMYuMra5pSUX1D0XhAn7qP6VdQFJLumMbD0nAmD5VeXaQsq
-   9iQIYmApPRKW6UtoRGVMxQFemvrBLPELm4DtQ0JyNjlzv5bvCa5df46W1
-   5Hju4VKBCeCCrBAAAhLkGuyXG6n2ay/rXe9bJa4aPu6T8OjQohtnMmcUK
-   w==;
+  bh=Z3xYhVEx72Z+f9tvRKEXppzoishp+v+MhHnaBZz+XpI=;
+  b=pFCnYiM1paaJmNFQBD2wk+VFTx+mcSyf2avD/sTsLB7rtsPrmu2PJx6h
+   efZB5ysxUqpi623IozreTvuBAXpB364lL+MtndJvbs83LloCk5mU0de87
+   4DPLgRfzjvAD24thvckKm4FpNbs7eed24a98dqGqUMaU3l/ba4Z/dY07R
+   VMFIJxs64R0JE25hM3TqdxalI8xBsPlID5d2y/MmS5DFv65PWTgFmn9Jt
+   V+adr3kJux8C2XfPvNvtkjFzKTdNRRkCwM6lWr/OEiS/fL0GYnIbnenh7
+   0zxI+mBCEMxHvxI74JGyBgN2okhw9KAel+dOE3szXaCwRXmq3vag6boja
+   A==;
 X-IronPort-AV: E=Sophos;i="6.01,171,1684825200"; 
-   d="scan'208";a="233133675"
+   d="scan'208";a="233133677"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Jun 2023 08:49:28 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 30 Jun 2023 08:49:19 -0700
+ 15.1.2507.21; Fri, 30 Jun 2023 08:49:21 -0700
 Received: from daire-X570.amer.actel.com (10.10.115.15) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.21 via Frontend Transport; Fri, 30 Jun 2023 08:49:17 -0700
+ 15.1.2507.21 via Frontend Transport; Fri, 30 Jun 2023 08:49:19 -0700
 From: <daire.mcnamara@microchip.com>
 To: <conor@kernel.org>
 CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
@@ -59,16 +59,16 @@ CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring
 	<robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
 	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>
-Subject: [PATCH v2 7/8] PCI: microchip: Rename and refactor mc_pcie_enable_msi()
-Date: Fri, 30 Jun 2023 16:48:58 +0100
-Message-ID: <20230630154859.2049521-8-daire.mcnamara@microchip.com>
+Subject: [PATCH v2 8/8] PCI: microchip: Re-partition code between probe() and init()
+Date: Fri, 30 Jun 2023 16:48:59 +0100
+Message-ID: <20230630154859.2049521-9-daire.mcnamara@microchip.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230630154859.2049521-1-daire.mcnamara@microchip.com>
 References: <20230630154859.2049521-1-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_084929_848899_ECDB3354 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20230630_084931_176293_7E4D166E 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,73 +87,121 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Daire McNamara <daire.mcnamara@microchip.com>
 
-After improving driver to get MSI-related information from
-configuration registers (set at power on from the Libero FPGA
-design), its now clear that mc_pcie_enable_msi() is not a good
-name for this function.  The function is better named as
-mc_pcie_fixup_ecam() as its purpose is to correct the queue
-size of the MSI CAP CTRL.
+Continuing to use pci_host_common_probe() for the PCIe Root Complex on
+PolarFire SoC was leading to an extremely large _init() function and
+some unnatural code flow. Re-partition so some tasks are done in
+a _probe() routine, which calls pci_host_common_probe() and then use a
+much smaller _init() function, mainly to enable interrupts after address
+translation tables are set up.
 
 Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/pci/controller/pcie-microchip-host.c | 28 +++++++++++---------
- 1 file changed, 16 insertions(+), 12 deletions(-)
+ drivers/pci/controller/pcie-microchip-host.c | 58 +++++++++++++-------
+ 1 file changed, 38 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-index 20ce21438a7e..5bb467de9cc5 100644
+index 5bb467de9cc5..2ba96d7f9095 100644
 --- a/drivers/pci/controller/pcie-microchip-host.c
 +++ b/drivers/pci/controller/pcie-microchip-host.c
-@@ -383,25 +383,29 @@ static struct {
+@@ -383,6 +383,8 @@ static struct {
  
  static char poss_clks[][5] = { "fic0", "fic1", "fic2", "fic3" };
  
--static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *base)
-+static void mc_pcie_fixup_ecam(struct mc_pcie *port, void __iomem *ecam)
++static struct mc_pcie *port;
++
+ static void mc_pcie_fixup_ecam(struct mc_pcie *port, void __iomem *ecam)
  {
  	struct mc_msi *msi = &port->msi;
--	u32 cap_offset = MC_MSI_CAP_CTRL_OFFSET;
--	u16 msg_ctrl = readw_relaxed(base + cap_offset + PCI_MSI_FLAGS);
-+	u16 reg;
- 	u8 queue_size;
- 
--	msg_ctrl |= PCI_MSI_FLAGS_ENABLE;
-+	/* Fixup MSI enable flag */
-+	reg = readw_relaxed(ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_FLAGS);
-+	reg |= PCI_MSI_FLAGS_ENABLE;
-+	writew_relaxed(reg, ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_FLAGS);
+@@ -1105,7 +1107,34 @@ static int mc_platform_init(struct pci_config_window *cfg)
+ {
+ 	struct device *dev = cfg->parent;
+ 	struct platform_device *pdev = to_platform_device(dev);
+-	struct mc_pcie *port;
++	void __iomem *bridge_base_addr =
++		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
++	int ret;
 +
- 	/* Fixup PCI MSI queue flags */
--	queue_size = msg_ctrl & PCI_MSI_FLAGS_QMASK;
-+	queue_size = reg & PCI_MSI_FLAGS_QMASK;
- 	queue_size >>= 1;
--	msg_ctrl &= ~PCI_MSI_FLAGS_QSIZE;
--	msg_ctrl |= queue_size << 4;
--	writew_relaxed(msg_ctrl, base + cap_offset + PCI_MSI_FLAGS);
-+	reg &= ~PCI_MSI_FLAGS_QSIZE;
-+	reg |= queue_size << 4;
-+	writew_relaxed(reg, ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_FLAGS);
++	/* Configure address translation table 0 for PCIe config space */
++	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
++			     cfg->res.start,
++			     resource_size(&cfg->res));
++
++	/* Need some fixups in config space */
++	mc_pcie_fixup_ecam(port, cfg->win);
++
++	/* Configure non-config space outbound ranges */
++	ret = mc_pcie_setup_windows(pdev, port);
++	if (ret)
++		return ret;
++
++	/* Address translation is up; safe to enable interrupts */
++	ret = mc_init_interrupts(pdev, port);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static int mc_host_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
+ 	void __iomem *bridge_base_addr;
+ 	int ret;
+ 	u32 val;
+@@ -1113,13 +1142,8 @@ static int mc_platform_init(struct pci_config_window *cfg)
+ 	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+ 	if (!port)
+ 		return -ENOMEM;
+-	port->dev = dev;
  
-+	/* Fixup MSI addr fields */
- 	writel_relaxed(lower_32_bits(msi->vector_phy),
--		       base + cap_offset + PCI_MSI_ADDRESS_LO);
-+		       ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_ADDRESS_LO);
- 	writel_relaxed(upper_32_bits(msi->vector_phy),
--		       base + cap_offset + PCI_MSI_ADDRESS_HI);
-+		       ecam + MC_MSI_CAP_CTRL_OFFSET + PCI_MSI_ADDRESS_HI);
- }
+-	ret = mc_pcie_init_clks(dev);
+-	if (ret) {
+-		dev_err(dev, "failed to get clock resources, error %d\n", ret);
+-		return -ENODEV;
+-	}
++	port->dev = dev;
  
- static void mc_handle_msi(struct irq_desc *desc)
-@@ -1137,8 +1141,8 @@ static int mc_platform_init(struct pci_config_window *cfg)
+ 	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
+ 	if (IS_ERR(port->axi_base_addr))
+@@ -1141,22 +1165,16 @@ static int mc_platform_init(struct pci_config_window *cfg)
  
  	port->msi.num_vectors = 1 << val;
  
--	/* Hardware doesn't setup MSI by default */
--	mc_pcie_enable_msi(port, cfg->win);
-+	/* Need some fixups for MSI in config space */
-+	mc_pcie_fixup_ecam(port, cfg->win);
- 
+-	/* Need some fixups for MSI in config space */
+-	mc_pcie_fixup_ecam(port, cfg->win);
+-
  	/* Pick vector address from design */
  	port->msi.vector_phy = readl_relaxed(bridge_base_addr + IMSI_ADDR);
+ 
+-	/* Configure Address Translation Table 0 for PCIe config space */
+-	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & 0xffffffff,
+-			     cfg->res.start, resource_size(&cfg->res));
+-
+-	ret = mc_pcie_setup_windows(pdev, port);
+-	if (ret)
+-		return ret;
++	ret = mc_pcie_init_clks(dev);
++	if (ret) {
++		dev_err(dev, "failed to get clock resources, error %d\n", ret);
++		return -ENODEV;
++	}
+ 
+-	/* Address translation is up; safe to enable interrupts */
+-	return mc_init_interrupts(pdev, port);
++	return pci_host_common_probe(pdev);
+ }
+ 
+ static const struct pci_ecam_ops mc_ecam_ops = {
+@@ -1179,7 +1197,7 @@ static const struct of_device_id mc_pcie_of_match[] = {
+ MODULE_DEVICE_TABLE(of, mc_pcie_of_match);
+ 
+ static struct platform_driver mc_pcie_driver = {
+-	.probe = pci_host_common_probe,
++	.probe = mc_host_probe,
+ 	.driver = {
+ 		.name = "microchip-pcie",
+ 		.of_match_table = mc_pcie_of_match,
 -- 
 2.25.1
 
