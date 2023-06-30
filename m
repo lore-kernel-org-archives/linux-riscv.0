@@ -4,123 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF92EB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 13:09:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 102DBEB64D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 13:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jQNImKSbZRFIKR9dw3oUYr7/VJpjrnovOW6Wai/ueqw=; b=nk7vSmRjpiz2mQ
-	YjAKBW4thmxmX0KR0yEVNXvtkL71zUWpAkBzRw6tdpZxblmHnsdDk7OARRGdWA0hPSm4Hb64SenLj
-	A2FI1J6FtTF2+BYZbblLOql5XX5JBM+NoN/e9Fpc6e4oCpOqIV0zPkItSiafNkIo/2pAjAFaU9I+a
-	Fc/5Tel7+i5Sx8OIsn77iJvzU9D68wpx+x6LQQZleMHl++sGhD7hAz2jgV/gEi30Z/XpxFaovM3qB
-	hEyjpk1xLvQInC6AYuhoV5uT87xV3V8Gw+jD/s1jHNBQqrfiIK/bMt0MdOomSfhyJ8Nh3b/7kBcyj
-	/ShazdCrlN5EiIPH6DtA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+6ZxquaprlHYsSwlglZz03TccPg10CmEPCThYyV3cLE=; b=TPgkpyW5576WdLqTo9/C7GmpCG
+	nodU/50xIe8abZmyNBAVarGURvSQlCqr9jDj4ynKfSAhk3Jfv3CpQDobZelyP6YwZkA3PP9R/yMX1
+	1uGOPqq18nKFK6uzBD9bbfElXpdEe0BQxc2GhXBKWAvv6lQvuznKLpxuJuP7IHvRBDJKYhiXg5iE5
+	zg4dUD1wJo/bNiRaiSzp2EDk6Wmwky1CsF5NJ2L3EcRl4mlusVzPdKjHhgcnLEeW7jGPWXgmnusUd
+	6B5XKRO6nNNERf2kl3ogWICaYhPHKq3lbumvK4DQx041aXbM4HSoAtNGVHzfEwSgBTMQYSUg/W1wj
+	CZ+80sDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFDru-003k2a-0Q;
-	Fri, 30 Jun 2023 13:08:58 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1qFE2z-003kye-0T;
+	Fri, 30 Jun 2023 13:20:25 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFDrp-003k1w-12;
-	Fri, 30 Jun 2023 13:08:54 +0000
-Received: from pps.filterd (m0353722.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 35UCvYeb016458;
-	Fri, 30 Jun 2023 13:08:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : message-id : references : content-type : in-reply-to :
- mime-version; s=pp1; bh=FN5rqn/S21W/5bITOEzjFOkTwNe8qQWXAAfpvfDkQwg=;
- b=UJNJ5HvOCH3ioidpoyHaAYNX6R7hWNSBpLoG0wUffy5RnAhXHl86PbBvjDO6nKQ8USPi
- 7sEXar1TkaNkmcJFphUybz6q6Tb4yxl6SQ/ZqNRH66WVQInysN81SF7fQAQUxOBDszhV
- 3b8fRe2gCQIaza7qcDM7mCKwuC6Ilk9aNPGUJxMUw2n8gCQMYiSIO+tnObSPGBU121h5
- ObdAJVNEwAu8GE+11sjrvnwTnAQvi/lRj6vqNWPq1mVeKVoGfrKDv0hlj8okmsgyo6sj
- CZCipRtOJftBTKfcr2t7oYyiWPzb0tjUBJtcpOmD7Kcx/2Zrl+GVqvSu1uoCgmOa264S bw== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3rhygwgdcx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 30 Jun 2023 13:08:13 +0000
-Received: from m0353722.ppops.net (m0353722.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 35UCwN5D019695;
-	Fri, 30 Jun 2023 13:08:03 GMT
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3rhygwgcwe-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 30 Jun 2023 13:08:02 +0000
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
-	by ppma03ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 35U3RosU004120;
-	Fri, 30 Jun 2023 13:07:52 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma03ams.nl.ibm.com (PPS) with ESMTPS id 3rdr4545n4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 30 Jun 2023 13:07:51 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 35UD7mYr35848862
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 30 Jun 2023 13:07:48 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2D1C420040;
-	Fri, 30 Jun 2023 13:07:48 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 20F4620049;
-	Fri, 30 Jun 2023 13:07:46 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 30 Jun 2023 13:07:46 +0000 (GMT)
-Date: Fri, 30 Jun 2023 15:07:44 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Eric DeVolder <eric.devolder@oracle.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-        chenhuacai@kernel.org, geert@linux-m68k.org, tsbogend@alpha.franken.de,
-        James.Bottomley@hansenpartnership.com, deller@gmx.de,
-        ysato@users.sourceforge.jp, dalias@libc.org,
-        glaubitz@physik.fu-berlin.de, tglx@linutronix.de, mingo@redhat.com,
-        bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-sh@vger.kernel.org, kernel@xen0n.name, mpe@ellerman.id.au,
-        npiggin@gmail.com, christophe.leroy@csgroup.eu,
-        paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-        hca@linux.ibm.com, gor@linux.ibm.com, borntraeger@linux.ibm.com,
-        svens@linux.ibm.com, hpa@zytor.com, keescook@chromium.org,
-        paulmck@kernel.org, peterz@infradead.org, frederic@kernel.org,
-        akpm@linux-foundation.org, ardb@kernel.org, samitolvanen@google.com,
-        juerg.haefliger@canonical.com, arnd@arndb.de,
-        rmk+kernel@armlinux.org.uk, linus.walleij@linaro.org,
-        sebastian.reichel@collabora.com, rppt@kernel.org,
-        kirill.shutemov@linux.intel.com, anshuman.khandual@arm.com,
-        ziy@nvidia.com, masahiroy@kernel.org, ndesaulniers@google.com,
-        mhiramat@kernel.org, ojeda@kernel.org, thunder.leizhen@huawei.com,
-        xin3.li@intel.com, tj@kernel.org, gregkh@linuxfoundation.org,
-        tsi@tuyoix.net, bhe@redhat.com, hbathini@linux.ibm.com,
-        sourabhjain@linux.ibm.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com
-Subject: Re: [PATCH v3 12/13] s390/kexec: refactor for kernel/Kconfig.kexec
-Message-ID: <ZJ7ToGgYAq33bwYI@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20230626161332.183214-1-eric.devolder@oracle.com>
- <20230626161332.183214-13-eric.devolder@oracle.com>
-Content-Disposition: inline
-In-Reply-To: <20230626161332.183214-13-eric.devolder@oracle.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: SRv3tQadK_BLStPKVFehsvtKgdD5bfpY
-X-Proofpoint-ORIG-GUID: SMYiBxc5troNBtSiC2kzVXEEuROkenwR
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+	id 1qFE2x-003kx6-0K
+	for linux-riscv@lists.infradead.org;
+	Fri, 30 Jun 2023 13:20:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1688131223; x=1719667223;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=EaJ77L8/k3Hf0KmA9VK9enDoW0KMpkjzS7BilECDl2A=;
+  b=o0LzK4k6ddgz4qTxH02Aw7VCv1QN6rRi5pImS9B4nRNoE2G5sr4huuK+
+   TwoDdWaX05/edx9u1SVCsWJIvtjmlb90C17UOrsKACHeGG0Z/7cKRGaHR
+   QHjka/CdzG3uRnDCzQQ1rRVHfOj0lPYYI3R0baAEljxzBLp1crHT5+ghN
+   NxDCYG1e9hyoxXXFblkAk5b9kaRHz5/125W9VSfRG5NAOAmbUxMtRNDC0
+   M7DhSFK9rw2ItHRimUXo02bhaVT1VfJKW1IsYhQrI/VQPvqOvGhBoeUqu
+   eeRH4rlbE6MBbnO5PZ9z+oCFMxwYwQwdsumCcuMLlfsnE6fpCw2CNn8hF
+   A==;
+X-IronPort-AV: E=Sophos;i="6.01,170,1684825200"; 
+   d="asc'?scan'208";a="221422464"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Jun 2023 06:20:18 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Fri, 30 Jun 2023 06:20:17 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Fri, 30 Jun 2023 06:20:15 -0700
+Date: Fri, 30 Jun 2023 14:19:46 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Subject: Re: [PATCH v2 10/10] RISC-V: provide a Kconfig option to disable
+ parsing "riscv,isa"
+Message-ID: <20230630-urgency-emission-882cd52a7a27@wendy>
+References: <20230629-landed-popsicle-ab46ab3b46d9@spud>
+ <mhng-f060b5c8-aa99-4952-b1e1-ee85a92e6b07@palmer-ri-x1c9a>
+ <20230629-angled-gallantly-8fe7451a25fa@spud>
+ <20230630-7d0f6fe66c9415315d491f15@orel>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.591,FMLib:17.11.176.26
- definitions=2023-06-30_05,2023-06-30_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 malwarescore=0
- mlxlogscore=999 priorityscore=1501 phishscore=0 impostorscore=0
- spamscore=0 bulkscore=0 lowpriorityscore=0 mlxscore=0 clxscore=1015
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2305260000 definitions=main-2306300111
+In-Reply-To: <20230630-7d0f6fe66c9415315d491f15@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_060853_498976_D1B084A7 
-X-CRM114-Status: GOOD (  32.37  )
+X-CRM114-CacheID: sfid-20230630_062023_150948_7C2C39EA 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,134 +80,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, robh+dt@kernel.org, Conor Dooley <conor@kernel.org>, krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, heiko.stuebner@vrull.eu, Evan Green <evan@rivosinc.com>
+Content-Type: multipart/mixed; boundary="===============7839964902572103792=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 26, 2023 at 12:13:31PM -0400, Eric DeVolder wrote:
-> The kexec and crash kernel options are provided in the common
-> kernel/Kconfig.kexec. Utilize the common options and provide
-> the ARCH_SUPPORTS_ and ARCH_SELECTS_ entries to recreate the
-> equivalent set of KEXEC and CRASH options.
-> 
-> NOTE: The original Kconfig has a KEXEC_SIG which depends on
-> MODULE_SIG_FORMAT. However, attempts to keep the MODULE_SIG_FORMAT
-> dependency (using the strategy outlined in this series, and other
-> techniques) results in 'error: recursive dependency detected'
-> on CRYPTO.
-> 
-> Per Alexander Gordeev <agordeev@linux.ibm.com>: "the MODULE_SIG_FORMAT
-> dependency was introduced with [git commit below] and in fact was not
-> necessary, since s390 did/does not use mod_check_sig() anyway.
-> 
->  commit c8424e776b09 ("MODSIGN: Export module signature definitions")
-> 
-> MODULE_SIG_FORMAT is needed to select SYSTEM_DATA_VERIFICATION. But
-> SYSTEM_DATA_VERIFICATION is also selected by FS_VERITY*, so dropping
-> MODULE_SIG_FORMAT does not hurt."
-> 
-> Therefore, the solution is to drop the MODULE_SIG_FORMAT dependency
-> from KEXEC_SIG. Still results in equivalent .config files for s390.
-> 
-> Signed-off-by: Eric DeVolder <eric.devolder@oracle.com>
-> ---
->  arch/s390/Kconfig | 65 ++++++++++++++---------------------------------
->  1 file changed, 19 insertions(+), 46 deletions(-)
-> 
-> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-> index 6dab9c1be508..58dc124433ca 100644
-> --- a/arch/s390/Kconfig
-> +++ b/arch/s390/Kconfig
-> @@ -243,6 +243,25 @@ config PGTABLE_LEVELS
->  
->  source "kernel/livepatch/Kconfig"
->  
-> +config ARCH_DEFAULT_KEXEC
-> +	def_bool y
-> +
-> +config ARCH_SUPPORTS_KEXEC
-> +	def_bool y
-> +
-> +config ARCH_SUPPORTS_KEXEC_FILE
-> +	def_bool CRYPTO && CRYPTO_SHA256 && CRYPTO_SHA256_S390
-> +
-> +config ARCH_HAS_KEXEC_PURGATORY
-> +	def_bool KEXEC_FILE
-> +
-> +config ARCH_SUPPORTS_CRASH_DUMP
-> +	def_bool y
-> +	help
-> +	  Refer to <file:Documentation/s390/zfcpdump.rst> for more details on this.
-> +	  This option also enables s390 zfcpdump.
-> +	  See also <file:Documentation/s390/zfcpdump.rst>
-> +
->  menu "Processor type and features"
->  
->  config HAVE_MARCH_Z10_FEATURES
-> @@ -481,36 +500,6 @@ config SCHED_TOPOLOGY
->  
->  source "kernel/Kconfig.hz"
->  
-> -config KEXEC
-> -	def_bool y
-> -	select KEXEC_CORE
-> -
-> -config KEXEC_FILE
-> -	bool "kexec file based system call"
-> -	select KEXEC_CORE
-> -	depends on CRYPTO
-> -	depends on CRYPTO_SHA256
-> -	depends on CRYPTO_SHA256_S390
-> -	help
-> -	  Enable the kexec file based system call. In contrast to the normal
-> -	  kexec system call this system call takes file descriptors for the
-> -	  kernel and initramfs as arguments.
-> -
-> -config ARCH_HAS_KEXEC_PURGATORY
-> -	def_bool y
-> -	depends on KEXEC_FILE
-> -
-> -config KEXEC_SIG
-> -	bool "Verify kernel signature during kexec_file_load() syscall"
-> -	depends on KEXEC_FILE && MODULE_SIG_FORMAT
-> -	help
-> -	  This option makes kernel signature verification mandatory for
-> -	  the kexec_file_load() syscall.
-> -
-> -	  In addition to that option, you need to enable signature
-> -	  verification for the corresponding kernel image type being
-> -	  loaded in order for this to work.
-> -
->  config KERNEL_NOBP
->  	def_bool n
->  	prompt "Enable modified branch prediction for the kernel by default"
-> @@ -732,22 +721,6 @@ config VFIO_AP
->  
->  endmenu
->  
-> -menu "Dump support"
-> -
-> -config CRASH_DUMP
-> -	bool "kernel crash dumps"
-> -	select KEXEC
-> -	help
-> -	  Generate crash dump after being started by kexec.
-> -	  Crash dump kernels are loaded in the main kernel with kexec-tools
-> -	  into a specially reserved region and then later executed after
-> -	  a crash by kdump/kexec.
-> -	  Refer to <file:Documentation/s390/zfcpdump.rst> for more details on this.
-> -	  This option also enables s390 zfcpdump.
-> -	  See also <file:Documentation/s390/zfcpdump.rst>
-> -
-> -endmenu
-> -
->  config CCW
->  	def_bool y
+--===============7839964902572103792==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="o4a1LRPZt0ieGy5D"
+Content-Disposition: inline
 
-Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>
+--o4a1LRPZt0ieGy5D
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Jun 30, 2023 at 09:46:48AM +0200, Andrew Jones wrote:
+> On Thu, Jun 29, 2023 at 10:44:18PM +0100, Conor Dooley wrote:
+> > On Thu, Jun 29, 2023 at 02:16:49PM -0700, Palmer Dabbelt wrote:
+> > > On Thu, 29 Jun 2023 13:20:55 PDT (-0700), Conor Dooley wrote:
+> ...
+> > > > +bool __initdata riscv_isa_fallback_cmdline =3D false;
+> > > > +static int __init riscv_isa_fallback_setup(char *__unused)
+> > >=20
+> > > Maybe it's better to support =3Dtrue and =3Dfalse here?  Not sure it =
+matters,
+> > > we're already down a rabbit hole ;)
+> >=20
+> > Dunno, not implemented a cmdline param before. Seemed "cleaner" to check
+> > for presence, don't really care so I'll adapt to w/e.
+> >
+>=20
+> I don't have a strong preference here, but to throw in more food for
+> thought, I see this DT-v1 vs. DT-v2 choice to be a bit analogous to the
+> DT vs. ACPI choice. The 'acpi' command line parameter, for RISC-V, can
+> be 'off', 'on', and 'force', where
+>=20
+>   off -- disable ACPI if default was on
+>   on -- enable ACPI but allow fallback to DT
+>   force -- enable ACPI if default was off
+>=20
+> So, if the default of the isa fallback command line option will depend on
+> Kconfig, then we may also want a 'force'.
+
+I'm not sure that I understand what "force" would give us.
+There's 4 cases:
+- CONFIG_RISCV_ISA_FALLBACK is enabled, cmdline option is present:
+  cmdline option is ignored, fallback is taken if needed.
+  crash if neither are present.
+
+- CONFIG_RISCV_ISA_FALLBACK is enabled, cmdline option is not present:
+  cmdline option is ignored, fallback is taken if needed.
+  crash if neither are present.
+
+- CONFIG_RISCV_ISA_FALLBACK is disabled, cmdline option is present:
+  cmdline option takes priority, fallback is taken if needed.
+  crash if neither are present.
+
+- CONFIG_RISCV_ISA_FALLBACK is disabled, cmdline option is not present:
+  fallback is never taken
+  crash if new properties aren't present.
+
+I don't really see the value in having an equivalent to acpi=3Doff,
+because the order of precedence is, to use your naming, "DT-v2" falling
+back to "DT-v1" & the default value concerns the use of the fallback.
+For ACPI, it is the other way around & the option controls the use of
+"DT-v2"'s analogue. Trying to slot in that logic:
+
+- CONFIG_RISCV_ISA_FALLBACK is enabled, cmdline option "=3Don":
+  cmdline option is ignored, fallback is taken if needed.
+  crash if neither are present.
+
+- CONFIG_RISCV_ISA_FALLBACK is enabled, cmdline option "=3Doff":
+  cmdline option is prioritised, fallback is taken if needed.
+  crash if new properties aren't present.
+
+- CONFIG_RISCV_ISA_FALLBACK is disabled, cmdline option "=3Don":
+  cmdline option is prioritised, fallback is taken if needed.
+  crash if neither are present.
+
+- CONFIG_RISCV_ISA_FALLBACK is disabled, cmdline option "=3Doff":
+  fallback is never taken
+  crash if new properties aren't present.
+
+I think I prefer the behaviour of what I currently have & I don't really
+get where the "force" option is supposed to fit in either?
+
+Cheers,
+Conor.
+
+--o4a1LRPZt0ieGy5D
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZJ7WZwAKCRB4tDGHoIJi
+0gMcAQChwEuzvhSORcS7/4Mm0GXlyvRmOlOfWOHtGmwWRFmLMgD+JzMMaxJwKmej
+f/W/6SoUrX44MMben0skWQdfEYtTNQo=
+=N0ZM
+-----END PGP SIGNATURE-----
+
+--o4a1LRPZt0ieGy5D--
+
+
+--===============7839964902572103792==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7839964902572103792==--
+
