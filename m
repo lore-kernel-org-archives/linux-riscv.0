@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CC5EB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 12:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3958EB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Jun 2023 12:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O3gF9fcwfaWUNzhlPM5OSAQyn11F9oLakD5HOeMGypo=; b=Ag8qYXA5j8W/kW
-	iV2Edum0pF1qnP8qsjY9tiZLK6qd0GuE/P7eDusVSrk1BRu5oz/hhNpxtlxTAS6lXEw/H/Ed1RQnJ
-	Mt4kTJkNIkwt0VFq2nnkbWrRMI/3KU+fg+XaCcfDr8+mlCs3UTyI5+ihciK9z5TybPAgHbvI5RU8S
-	PcWga+xwpv9jC1Dc8MdRgoRoCriLJwK8H99kFJEboFI+0CHy87XGE9Ko2ptGxkUTmBvkq7ywn8hIs
-	XnrFx9B/Yb9gZUIlY4pD/tH0qpI4lfXa/e3AdZpfVQGX4tZzBVxQ1x74pK3l1olTaZhJ0YviBIR4v
-	2fHGEdvzA0N4eT4enqYw==;
+	List-Owner; bh=bhYtsI3Rd1zkzVThS1Aa5X/XWzYM0fev4GnZE8fuQok=; b=xXVx1OaBuGMNvf
+	JvIPXqErcnIT8WCheVXCUT39HUY3enw173K7pUVZl2pBsJmFGbH3WtWfQWdVc+tpKPxTaHpMg/h8/
+	lhkJdtA0o3euID97X6rBge99p4gkJSWR67nPLRgPRwIsQpj6HjdSfJcc3xP/AaE8u5ppJV4+p1ojb
+	WhpVISzesA2RN9H9rm9psXVpGdUKk5xui8d43Oa8+frWZ3+PRCR/3aYTbjhv/tKyAnB7unG7t9kwM
+	E++NfiIIkYPj0XJm+XKIntIJm95srlY+kWdtZFzov1JuIOuaWfE7qwZIzGINIYgLiDhmRTGvTJPwm
+	C0bknPBv8R2T1d7LdAgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFCsT-003enD-0f;
-	Fri, 30 Jun 2023 12:05:29 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1qFCsU-003eng-05;
+	Fri, 30 Jun 2023 12:05:30 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFCsM-003eh3-1O
+	id 1qFCsM-003ehy-3A
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 Jun 2023 12:05:24 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-4fba74870abso432842e87.0
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 05:05:19 -0700 (PDT)
+	Fri, 30 Jun 2023 12:05:25 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-3fbc77e76abso5726885e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Jun 2023 05:05:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1688126717; x=1690718717;
+        d=gmail.com; s=20221208; t=1688126719; x=1690718719;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=samC88JToQJggQkwPP9LLv4m1XMmLyVNduLSuH7L0a8=;
-        b=XyNzagDVD/naZSkDvfGdbA70OJsmTZFqdPh6Nr9bijz7op3b4yt7JA0T3D/rRXD502
-         wAU1ZaPGpySUwosUCRSsBnpOZgiYN4rhWT1+w86IJxdIp4gIB8M04P5PMMtKPSJvpaqc
-         rwRcM5SJ9bxpGGT8i0p2CU5LD+Fo/8dtlJBvUg0GJkYCMKV2Xx7YlUS9UePYChEl0Osm
-         jGEn8JhZOCyDvfrK/6gxaDBUsD4ZhpSTxfUxc/htYHT5XZxHrmwOeNGQOjt1v/LQzc5N
-         Cyx879x3kG2mDMLfVhu5TCh27NOXot+r5P7eHogD9ukPSwwLLRoVIZYeX/XD2an+1f0Y
-         rHYQ==
+        bh=PAapxjBD/rwbhfxji86yGKwLK1ac+lCSTHoejUz0sCA=;
+        b=G2hm/3wbHT0wdTRF7Ea5NM+45CGLivRnJb/bhiN7YvbTVDF6UKc1ItVDMFUINx75gj
+         /4/FFdJ8sMckmZ3wphiO+3xKSY8GI6DQ0OBoJPGssSpp6uyKdES9t8GxQOfK3slypcic
+         FaHedPYgaQhhq6u2gqDBTdOhs0ttIBxACyB/ycGLjM9V2P7AlUPzUo/iCHiOD8JcP478
+         7TDRQ3UBbkZ5BR3m764DM09VzhG84IPlactzdrqz2HlhmLNR+szB3mLasJLZLnyPKFqj
+         TwDwSNSvLW1XQrxiOGIc9iUppvbsphFiShxlKpvtH08Rw0nf3uitJnn2/7bWGv71QAd/
+         XxTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688126717; x=1690718717;
+        d=1e100.net; s=20221208; t=1688126719; x=1690718719;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=samC88JToQJggQkwPP9LLv4m1XMmLyVNduLSuH7L0a8=;
-        b=IbXvS8Zw++kw7YqWxOePGqX8bddJeyyWGODu12uyaA5lC9vu5zcQ2M7gOJpFfhvaAx
-         peTUL7JaouxAfkAwnkUwi0+j/2g02Yk/DKkVL7e9g3oKvjszDmHVdhKdBgCJvvPGB4Zm
-         ATdm1bqW7TyFfCliaCm/IWDV2rP/UMxDXXHwPjdDEcSJ+sxcJbHlXwGo3ccQqmF/fCEA
-         CB+aRgmm8B7lnwrcgLDbcDICtHxjUbbUr1Mbm5wAOOibCnd5VhGrQ4EUspRCMMj8ejFs
-         YomvaxX46+h/jv9TOdjrw8e7xw/Rhvp11GAt3p5xHZ3wXoHS4bNQyALd/8RJA9X/iX8N
-         pCEA==
-X-Gm-Message-State: ABy/qLa3mRgdGlDLYMwVWv2HKI644QylLgNcHd3uotEh9xx50TlVutCw
-	qEBuEVuw46cN2nkWOETbVBw=
-X-Google-Smtp-Source: APBJJlE3MQJuYMRXaNzEM2zttqvBq8/eyH6Ou3PiGuPN8WwweXXoi1zOQp6h43G3b9iibjKumF5ClQ==
-X-Received: by 2002:a19:675a:0:b0:4f8:6d99:f4f3 with SMTP id e26-20020a19675a000000b004f86d99f4f3mr1919162lfj.52.1688126717020;
-        Fri, 30 Jun 2023 05:05:17 -0700 (PDT)
+        bh=PAapxjBD/rwbhfxji86yGKwLK1ac+lCSTHoejUz0sCA=;
+        b=Oql8WeG0aSb00mC85Kaj14f1x28uWUiARAJg8j9gFUWgSFfqCBes1yw0rwNTXRNz4B
+         8fCMOgWvKQgpqGSSSfknnFWsGHxLS824sG32CqqwcE8webSSW6QS81tN0q52zeYER9El
+         Kj4KY802xTtTfVEiJNmDcUi9GVLoorG6pUvke7UL1qZpnYLyh47M2qxFIhqWe7k0r4Gn
+         OkY6+jCKMtWj2P+S0W++ThUjOKFyvVhdABXjM+EhBcSoCBkqHACOgXFEVvv1qdFmZtGL
+         TOLwjgMFZ4FXMKhdgRp8oPSWLL5dZ8YITK7Lhx02WV1Mqzkl99y/YgsBUWTzVbBcbzX9
+         EijQ==
+X-Gm-Message-State: AC+VfDxczgIfQ/QqRTU1E19haizGPC8xbqtw/t4oycemoFXgz3jG0x6x
+	wLlH8y47rQ0dxUaoraR5Q/E=
+X-Google-Smtp-Source: ACHHUZ4FBzWCO79mHqc3NNlVCRxRufqe6utoDxt/Tyry73lyfuOkoJAyW7uH5d2LVhuuPH9K2VERcQ==
+X-Received: by 2002:a05:600c:2902:b0:3fb:739d:27b2 with SMTP id i2-20020a05600c290200b003fb739d27b2mr1807622wmd.8.1688126719204;
+        Fri, 30 Jun 2023 05:05:19 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:dbbb:7082:18ec:f407])
-        by smtp.gmail.com with ESMTPSA id k22-20020a05600c0b5600b003fb40f5f553sm11766912wmr.31.2023.06.30.05.05.15
+        by smtp.gmail.com with ESMTPSA id k22-20020a05600c0b5600b003fb40f5f553sm11766912wmr.31.2023.06.30.05.05.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Jun 2023 05:05:16 -0700 (PDT)
+        Fri, 30 Jun 2023 05:05:18 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -77,16 +77,16 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [RFC PATCH 1/4] pinctrl: renesas: rzg2l: Include pinmap in RZG2L_GPIO_PORT_PACK() macro
-Date: Fri, 30 Jun 2023 13:04:30 +0100
-Message-Id: <20230630120433.49529-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [RFC PATCH 3/4] pinctrl: renesas: pinctrl-rzg2l: Add the missing port pins P19 to P28
+Date: Fri, 30 Jun 2023 13:04:32 +0100
+Message-Id: <20230630120433.49529-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230630120433.49529-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20230630120433.49529-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230630_050522_469274_B57EF25D 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20230630_050523_026440_A46C581B 
+X-CRM114-Status: GOOD (  22.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,219 +105,172 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Currently we assume all the port pins are sequential ie always PX_0 to
-PX_n (n=1..7) exist, but on RZ/Five SoC we have additional pins P19_1 to
-P28_5 which have holes in them, for example only one pin on port19 is
-available and that is P19_1 and not P19_0.
-
-So to handle such cases include pinmap for each port which would indicate
-the pin availability on each port. With this we also get additional pin
-validation, for example on the RZ/G2L SOC P0 has two pins P0_1 and P0_0
-but with DT/SYSFS could use the P0_2-P0_7.
-
-While at it, update rzg2l_validate_gpio_pin() to use the port pinmap to
-validate the gpio pin.
+Add the missing port pins P19 to P28 for RZ/Five SoC. These additional pins
+provide expanded capabilities and are exclusive to the RZ/Five SoC.
+Furthermore, a new variant called r9a07g043_data has been introduced
+specifically for the RZ/Five SoC. When CONFIG_RISCV is enabled, this
+variant replaces the previous data configuration. Additionally, a new macro
+named PIN_CFG_NOGPIO has been implemented. This macro serves as an
+indicator to determine whether the port pins can be utilized as GPIO pins.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- drivers/pinctrl/renesas/pinctrl-rzg2l.c | 167 ++++++++++++------------
- 1 file changed, 86 insertions(+), 81 deletions(-)
+Please note that I have only included the necessary changes for PFC
+settings in this paragraph. However, further work is required to set
+the attributes of the pin. While we already have generic properties in
+place for most of the attributes, setting the ISEL attribute for those
+pins may require a specific property unique to Renesas. Alternatively,
+is there a possibility of addressing this requirement in a different manner?
+---
+ drivers/pinctrl/renesas/pinctrl-rzg2l.c | 94 +++++++++++++++++++++----
+ 1 file changed, 82 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/pinctrl/renesas/pinctrl-rzg2l.c b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
-index 9511d920565e..a0c2e585e765 100644
+index 2fc1b880db0c..61004733c2eb 100644
 --- a/drivers/pinctrl/renesas/pinctrl-rzg2l.c
 +++ b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
-@@ -67,10 +67,12 @@
- 					 PIN_CFG_FILCLKSEL)
+@@ -15,6 +15,7 @@
+ #include <linux/of_irq.h>
+ #include <linux/seq_file.h>
+ #include <linux/spinlock.h>
++#include <linux/sys_soc.h>
  
- /*
-- * n indicates number of pins in the port, a is the register index
-- * and f is pin configuration capabilities supported.
-+ * m indicates the bitmap of supported pins, n indicates number
-+ * of pins in the port, a is the register index and f is pin
-+ * configuration capabilities supported.
-  */
--#define RZG2L_GPIO_PORT_PACK(n, a, f)	(((n) << 28) | ((a) << 20) | (f))
-+#define RZG2L_GPIO_PORT_PACK(m, n, a, f)	((UL(m) << 32) | (UL(n) << 28) | ((a) << 20) | (f))
-+#define RZG2L_GPIO_PORT_GET_PINMAP(x)	(((x) & GENMASK(39, 32)) >> 32)
- #define RZG2L_GPIO_PORT_GET_PINCNT(x)	(((x) & GENMASK(30, 28)) >> 28)
- #define RZG2L_GPIO_PORT_GET_INDEX(x)	(((x) & GENMASK(26, 20)) >> 20)
- #define RZG2L_GPIO_PORT_GET_CFGS(x)	((x) & GENMASK(19, 0))
-@@ -129,7 +131,7 @@ struct rzg2l_dedicated_configs {
+ #include <linux/pinctrl/consumer.h>
+ #include <linux/pinctrl/pinconf-generic.h>
+@@ -53,6 +54,7 @@
+ #define PIN_CFG_FILONOFF		BIT(10)
+ #define PIN_CFG_FILNUM			BIT(11)
+ #define PIN_CFG_FILCLKSEL		BIT(12)
++#define PIN_CFG_NOGPIO			BIT(13)
  
- struct rzg2l_pinctrl_data {
- 	const char * const *port_pins;
--	const u32 *port_pin_configs;
-+	const u64 *port_pin_configs;
- 	unsigned int n_ports;
- 	struct rzg2l_dedicated_configs *dedicated_pins;
- 	unsigned int n_port_pins;
-@@ -445,13 +447,16 @@ static int rzg2l_dt_node_to_map(struct pinctrl_dev *pctldev,
+ #define RZG2L_MPXED_PIN_FUNCS		(PIN_CFG_IOLH_A | \
+ 					 PIN_CFG_SR | \
+@@ -101,6 +103,12 @@
+ #define SD_CH(n)		(0x3000 + (n) * 4)
+ #define QSPI			(0x3008)
+ 
++#define RZFIVE_P_EX(n)		(0x0000 + 0x06 + ((n) - 19))
++#define RZFIVE_PM_EX(n)		(0x0100 + 0x0c + ((n) - 19) * 2)
++#define RZFIVE_PMC_EX(n)	(0x0200 + 0x06 + ((n) - 19))
++#define RZFIVE_PFC_EX(n)	(0x0400 + 0x18 + ((n) - 19) * 4)
++#define RZFIVE_PIN_EX(n)	(0x0800 + 0x06 + ((n) - 19))
++
+ #define PVDD_1800		1	/* I/O domain voltage <= 1.8V */
+ #define PVDD_3300		0	/* I/O domain voltage >= 3.3V */
+ 
+@@ -160,39 +168,53 @@ struct rzg2l_pinctrl {
+ static const unsigned int iolh_groupa_mA[] = { 2, 4, 8, 12 };
+ static const unsigned int iolh_groupb_oi[] = { 100, 66, 50, 33 };
+ 
++static const struct soc_device_attribute rzfive_match[] = {
++	{ .family = "RZ/Five" },
++	{ /* sentinel */}
++};
++
+ static void rzg2l_pinctrl_set_pfc_mode(struct rzg2l_pinctrl *pctrl,
+ 				       u8 port, u8 pin, u8 func)
+ {
++	u32 pm_offset = PM(port);
++	u32 pmc_offset = PMC(port);
++	u32 pfc_offset = PFC(port);
+ 	unsigned long flags;
+ 	u32 reg;
+ 
++	if (soc_device_match(rzfive_match) && port > 18) {
++		pm_offset = RZFIVE_PM_EX(port);
++		pmc_offset = RZFIVE_PMC_EX(port);
++		pfc_offset = RZFIVE_PFC_EX(port);
++	}
++
+ 	spin_lock_irqsave(&pctrl->lock, flags);
+ 
+ 	/* Set pin to 'Non-use (Hi-Z input protection)'  */
+-	reg = readw(pctrl->base + PM(port));
++	reg = readw(pctrl->base + pm_offset);
+ 	reg &= ~(PM_MASK << (pin * 2));
+-	writew(reg, pctrl->base + PM(port));
++	writew(reg, pctrl->base + pm_offset);
+ 
+ 	/* Temporarily switch to GPIO mode with PMC register */
+-	reg = readb(pctrl->base + PMC(port));
+-	writeb(reg & ~BIT(pin), pctrl->base + PMC(port));
++	reg = readb(pctrl->base + pmc_offset);
++	writeb(reg & ~BIT(pin), pctrl->base + pmc_offset);
+ 
+ 	/* Set the PWPR register to allow PFC register to write */
+ 	writel(0x0, pctrl->base + PWPR);        /* B0WI=0, PFCWE=0 */
+ 	writel(PWPR_PFCWE, pctrl->base + PWPR);  /* B0WI=0, PFCWE=1 */
+ 
+ 	/* Select Pin function mode with PFC register */
+-	reg = readl(pctrl->base + PFC(port));
++	reg = readl(pctrl->base + pfc_offset);
+ 	reg &= ~(PFC_MASK << (pin * 4));
+-	writel(reg | (func << (pin * 4)), pctrl->base + PFC(port));
++	writel(reg | (func << (pin * 4)), pctrl->base + pfc_offset);
+ 
+ 	/* Set the PWPR register to be write-protected */
+ 	writel(0x0, pctrl->base + PWPR);        /* B0WI=0, PFCWE=0 */
+ 	writel(PWPR_B0WI, pctrl->base + PWPR);  /* B0WI=1, PFCWE=0 */
+ 
+ 	/* Switch to Peripheral pin function with PMC register */
+-	reg = readb(pctrl->base + PMC(port));
+-	writeb(reg | BIT(pin), pctrl->base + PMC(port));
++	reg = readb(pctrl->base + pmc_offset);
++	writeb(reg | BIT(pin), pctrl->base + pmc_offset);
+ 
+ 	spin_unlock_irqrestore(&pctrl->lock, flags);
+ };
+@@ -447,12 +469,15 @@ static int rzg2l_dt_node_to_map(struct pinctrl_dev *pctldev,
  }
  
  static int rzg2l_validate_gpio_pin(struct rzg2l_pinctrl *pctrl,
--				   u32 cfg, u32 port, u8 bit)
-+				   u64 cfg, u32 port, u8 bit)
+-				   u64 cfg, u32 port, u8 bit)
++				   u64 cfg, u32 port, u8 bit, bool pfc)
  {
--	u8 pincount = RZG2L_GPIO_PORT_GET_PINCNT(cfg);
  	u32 port_index = RZG2L_GPIO_PORT_GET_INDEX(cfg);
--	u32 data;
-+	u8 pinmap = RZG2L_GPIO_PORT_GET_PINMAP(cfg);
-+	u64 data;
+ 	u8 pinmap = RZG2L_GPIO_PORT_GET_PINMAP(cfg);
+ 	u64 data;
  
--	if (bit >= pincount || port >= pctrl->data->n_port_pins)
-+	if (port >= pctrl->data->n_port_pins)
++	if (!pfc && (cfg & PIN_CFG_NOGPIO))
 +		return -EINVAL;
 +
-+	if (!(pinmap & BIT(bit)))
+ 	if (port >= pctrl->data->n_port_pins)
  		return -EINVAL;
  
- 	data = pctrl->data->port_pin_configs[port];
-@@ -501,7 +506,7 @@ static int rzg2l_pinctrl_pinconf_get(struct pinctrl_dev *pctldev,
- 	struct rzg2l_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
- 	enum pin_config_param param = pinconf_to_config_param(*config);
- 	const struct pinctrl_pin_desc *pin = &pctrl->desc.pins[_pin];
--	unsigned int *pin_data = pin->drv_data;
-+	u64 *pin_data = pin->drv_data;
- 	unsigned int arg = 0;
- 	unsigned long flags;
- 	void __iomem *addr;
-@@ -591,7 +596,7 @@ static int rzg2l_pinctrl_pinconf_set(struct pinctrl_dev *pctldev,
- {
- 	struct rzg2l_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
- 	const struct pinctrl_pin_desc *pin = &pctrl->desc.pins[_pin];
--	unsigned int *pin_data = pin->drv_data;
-+	u64 *pin_data = pin->drv_data;
- 	enum pin_config_param param;
- 	unsigned long flags;
- 	void __iomem *addr;
-@@ -965,78 +970,78 @@ static const char * const rzg2l_gpio_names[] = {
- 	"P48_0", "P48_1", "P48_2", "P48_3", "P48_4", "P48_5", "P48_6", "P48_7",
+@@ -526,7 +551,8 @@ static int rzg2l_pinctrl_pinconf_get(struct pinctrl_dev *pctldev,
+ 		port_offset = RZG2L_PIN_ID_TO_PORT_OFFSET(_pin);
+ 		bit = RZG2L_PIN_ID_TO_PIN(_pin);
+ 
+-		if (rzg2l_validate_gpio_pin(pctrl, *pin_data, RZG2L_PIN_ID_TO_PORT(_pin), bit))
++		if (rzg2l_validate_gpio_pin(pctrl, *pin_data,
++					    RZG2L_PIN_ID_TO_PORT(_pin), bit, true))
+ 			return -EINVAL;
+ 	}
+ 
+@@ -617,7 +643,8 @@ static int rzg2l_pinctrl_pinconf_set(struct pinctrl_dev *pctldev,
+ 		port_offset = RZG2L_PIN_ID_TO_PORT_OFFSET(_pin);
+ 		bit = RZG2L_PIN_ID_TO_PIN(_pin);
+ 
+-		if (rzg2l_validate_gpio_pin(pctrl, *pin_data, RZG2L_PIN_ID_TO_PORT(_pin), bit))
++		if (rzg2l_validate_gpio_pin(pctrl, *pin_data,
++					    RZG2L_PIN_ID_TO_PORT(_pin), bit, true))
+ 			return -EINVAL;
+ 	}
+ 
+@@ -788,7 +815,7 @@ static int rzg2l_gpio_request(struct gpio_chip *chip, unsigned int offset)
+ 	u8 reg8;
+ 	int ret;
+ 
+-	ret = rzg2l_validate_gpio_pin(pctrl, *pin_data, port, bit);
++	ret = rzg2l_validate_gpio_pin(pctrl, *pin_data, port, bit, false);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -1050,6 +1077,38 @@ static const u64 r9a07g043_gpio_configs[] = {
+ 	RZG2L_GPIO_PORT_PACK(0x3f, 6, 0x22, RZG2L_MPXED_PIN_FUNCS),
  };
  
--static const u32 rzg2l_gpio_configs[] = {
--	RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(3, 0x24, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(2, 0x25, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(2, 0x26, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(2, 0x27, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(2, 0x28, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(2, 0x29, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(2, 0x2a, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(2, 0x2b, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(2, 0x2c, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(2, 0x2d, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(2, 0x2e, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(2, 0x2f, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(2, 0x30, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(2, 0x31, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(2, 0x32, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(2, 0x33, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(2, 0x34, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(3, 0x35, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(2, 0x36, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(3, 0x37, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(3, 0x38, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x39, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(5, 0x3a, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(4, 0x3b, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(4, 0x3c, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(4, 0x3d, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(4, 0x3e, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(4, 0x3f, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(5, 0x40, RZG2L_MPXED_PIN_FUNCS),
-+static const u64 rzg2l_gpio_configs[] = {
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x10, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x11, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x12, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x13, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x14, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x15, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x16, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x17, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x18, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x19, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x20, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x21, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x22, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x23, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x24, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x25, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x26, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x27, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x28, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x29, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2a, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2b, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2c, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2d, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2e, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2f, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x30, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x31, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x32, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x33, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x34, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-+	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x35, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x36, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x37, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x38, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x39, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x3a, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3b, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3c, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3d, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3e, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3f, RZG2L_MPXED_PIN_FUNCS),
-+	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x40, RZG2L_MPXED_PIN_FUNCS),
- };
- 
--static const u32 r9a07g043_gpio_configs[] = {
--	RZG2L_GPIO_PORT_PACK(4, 0x10, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(5, 0x11, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(4, 0x12, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(4, 0x13, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(6, 0x14, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
--	RZG2L_GPIO_PORT_PACK(5, 0x15, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(5, 0x16, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(5, 0x17, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(5, 0x18, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(4, 0x19, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(5, 0x1a, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
--	RZG2L_GPIO_PORT_PACK(4, 0x1b, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(5, 0x1d, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(3, 0x1e, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(4, 0x1f, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(4, 0x21, RZG2L_MPXED_PIN_FUNCS),
--	RZG2L_GPIO_PORT_PACK(6, 0x22, RZG2L_MPXED_PIN_FUNCS),
-+static const u64 r9a07g043_gpio_configs[] = {
++static const u64 r9a07g043f_gpio_configs[] = {
 +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x10, RZG2L_MPXED_PIN_FUNCS),
 +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x11, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
 +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x12, RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
@@ -337,18 +290,46 @@ index 9511d920565e..a0c2e585e765 100644
 +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x20, RZG2L_MPXED_PIN_FUNCS),
 +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x21, RZG2L_MPXED_PIN_FUNCS),
 +	RZG2L_GPIO_PORT_PACK(0x3f, 6, 0x22, RZG2L_MPXED_PIN_FUNCS),
- };
- 
++	RZG2L_GPIO_PORT_PACK(0x02, 1, 0x06, RZG2L_MPXED_PIN_FUNCS | PIN_CFG_NOGPIO),
++	RZG2L_GPIO_PORT_PACK(0xff, 8, 0x07, RZG2L_MPXED_PIN_FUNCS | PIN_CFG_NOGPIO),
++	RZG2L_GPIO_PORT_PACK(0x02, 1, 0x08, (PIN_CFG_IOLH_A | PIN_CFG_SR | PIN_CFG_PUPD | PIN_CFG_NOGPIO)),
++	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x09, (PIN_CFG_IOLH_A | PIN_CFG_SR | PIN_CFG_PUPD | PIN_CFG_NOGPIO)),
++	RZG2L_GPIO_PORT_PACK(0x3e, 5, 0x0a, (PIN_CFG_IOLH_A | PIN_CFG_SR | PIN_CFG_PUPD | PIN_CFG_NOGPIO)),
++	RZG2L_GPIO_PORT_PACK(0x3f, 6, 0x0b, RZG2L_MPXED_PIN_FUNCS | PIN_CFG_NOGPIO),
++	RZG2L_GPIO_PORT_PACK(0x02, 1, 0x0c, RZG2L_MPXED_PIN_FUNCS | PIN_CFG_NOGPIO),
++	RZG2L_GPIO_PORT_PACK(0x00, 0, 0x0d, 0x0),
++	RZG2L_GPIO_PORT_PACK(0x00, 0, 0x0e, 0x0),
++	RZG2L_GPIO_PORT_PACK(0x3f, 6, 0x0f, RZG2L_MPXED_PIN_FUNCS | PIN_CFG_NOGPIO),
++};
++
  static struct {
-@@ -1396,7 +1401,7 @@ static int rzg2l_pinctrl_register(struct rzg2l_pinctrl *pctrl)
- {
- 	struct pinctrl_pin_desc *pins;
- 	unsigned int i, j;
--	u32 *pin_data;
-+	u64 *pin_data;
- 	int ret;
+ 	struct rzg2l_dedicated_configs common[35];
+ 	struct rzg2l_dedicated_configs rzg2l_pins[7];
+@@ -1534,6 +1593,16 @@ static int rzg2l_pinctrl_probe(struct platform_device *pdev)
+ 	return 0;
+ }
  
- 	pctrl->desc.name = DRV_NAME;
++#ifdef CONFIG_RISCV
++static struct rzg2l_pinctrl_data r9a07g043_data = {
++	.port_pins = rzg2l_gpio_names,
++	.port_pin_configs = r9a07g043f_gpio_configs,
++	.n_ports = ARRAY_SIZE(r9a07g043f_gpio_configs),
++	.dedicated_pins = rzg2l_dedicated_pins.common,
++	.n_port_pins = ARRAY_SIZE(r9a07g043f_gpio_configs) * RZG2L_PINS_PER_PORT,
++	.n_dedicated_pins = ARRAY_SIZE(rzg2l_dedicated_pins.common),
++};
++#else
+ static struct rzg2l_pinctrl_data r9a07g043_data = {
+ 	.port_pins = rzg2l_gpio_names,
+ 	.port_pin_configs = r9a07g043_gpio_configs,
+@@ -1542,6 +1611,7 @@ static struct rzg2l_pinctrl_data r9a07g043_data = {
+ 	.n_port_pins = ARRAY_SIZE(r9a07g043_gpio_configs) * RZG2L_PINS_PER_PORT,
+ 	.n_dedicated_pins = ARRAY_SIZE(rzg2l_dedicated_pins.common),
+ };
++#endif
+ 
+ static struct rzg2l_pinctrl_data r9a07g044_data = {
+ 	.port_pins = rzg2l_gpio_names,
 -- 
 2.34.1
 
