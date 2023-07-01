@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E258EB64DC
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 13:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CA8EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 13:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PbZ3eDAsBMNwBaB8ocExhG/da9sLW2yQbsH+JDi8yhs=; b=BreHVYz985BvlL
-	Yzr11N8qE/BEwlmhpXUXlAYlGl6ASpgGwV1LKiho1GyqcITg3d+iHYbvX+qsm70BJpcK1W90mUEO3
-	syqNIabFJ3VSZSvK4ZSvmsQr7ZcpXLkFEi8FMS+1MTaBi3VxQsukgXHrTadPnPLnR9HJGC5jthidY
-	9pIk9W24wF0/eRZlaDRYcX0GfKLjWgalePkwdthtRK8xwIsklYqGUYe9Kev6nB+BD7Wg9IDs7uZei
-	OgKuSGlfa5CY8R43/bkUJhCi+JNfcuUdTb702od+j/vv2hlJMbHsUufOnpOhhKHC3OYkW+kL8mm8R
-	E4Hhji8rogRXCagW+eJg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VkXZbhdTZtamoPrJbj90u3qTpgf8uEJQt7bMK+3aLDw=; b=fRg9+A725sVwfz
+	hKnr6I5WaOY/8CJ8ljnSbKsFK0JgHNjjPY+nXX7DRezLaynF4qTZqGeeVfmvBPedxG8nxbov6cq+T
+	V2WQeD6Bob0CSuGUSnH20f0ARB769FXW+azW1R465WMixfZMJ+u6URIx8EjfP3Sc06e+P98D/p6xX
+	nubNpPBHPVNBfHkPSceFtuLSlMbu7dbktvcA9C3mKvjs98VxUXq98DhmoawwuYx+pdxHXkYZQFzNg
+	9rPDpGSCSQEfTIuYOwWYntBFrKpPhUdsV0htlc5o3OZt+7C+sor5mROMNIKz7Vy5z3DNUzEspc3Lz
+	yM4XQo+LOGt1rIHTx/IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFamp-0063ry-1K;
-	Sat, 01 Jul 2023 13:37:15 +0000
+	id 1qFan9-0063yW-2r;
+	Sat, 01 Jul 2023 13:37:35 +0000
 Received: from mga17.intel.com ([192.55.52.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFaml-0063px-12;
-	Sat, 01 Jul 2023 13:37:12 +0000
+	id 1qFan6-0063wl-1A;
+	Sat, 01 Jul 2023 13:37:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1688218631; x=1719754631;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Dxr6Zdkg56bFHVuAkIb3PHTmV/Q7cAZw8O3SoMXKMZc=;
-  b=Q9Oi0I+Ee9rPWWpe4dDfgst4qaIEmqjOS/r72UiE3DFQovgZfIbxrn0M
-   Xm0ynLu5ahoZaQldAuxdMHfJcZzx5UyM/In+gTUpVIhIsaiWC6HXx4LIF
-   mXOn5zFgkKsLd+tIqeSCoP+gqEBqZniuMo7I+EWhU7pn6vUyqW4AvJw1Y
-   onpdhI7kW2ATh53axJw9odxrsHQGO5va0/uOP2K8uNoYzo77k8SxAQ/Is
-   4sZaFsfTlhGimdB/74wUupShzKF+wFwtXrcqaN/0lvr5APR89UpZUd0oj
-   u+FzpWkfaAhUyC96yBRDlcJRvtFuZQywqTgJ5hQB9YWK8JIfnHU1Mmmvm
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10758"; a="342926031"
+  t=1688218652; x=1719754652;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=SG9GcgXHxEAjLOgy9zCFtnTjBIS7anAQ+78nBSk9tVQ=;
+  b=bdVs+75hDIRFJ6pYGN3xQZf0rR+6fVDIizneyXiP4On0jiOVI9kDDEBb
+   ZZu0lmClw6q5l4x7AliD6jNzP6tDGe/vAIQw0QLYVweJpCyixljiwBEK3
+   kyqEoRJ38ys3FMQ/e2QC1N8cB0e7TSptEcjJ5h0idRSQKdiDMS126NwCi
+   pnTTXkv12aI1aeormoKjrjIf1WXnN2zdNWE0O8QDqW9CvQ6dGigemfUzv
+   GeQz0nfnJu+BrUxKI4S4s8Ppfc5+x1zjao9NPFzfNTcgpvBR4ID1s4JKA
+   vcAQkdE/+M0di44F6lKDNulecZ4H2JgYiP3v9pttcG+ez8ojNxGerZxmc
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10758"; a="342926091"
 X-IronPort-AV: E=Sophos;i="6.01,173,1684825200"; 
-   d="scan'208";a="342926031"
+   d="scan'208";a="342926091"
 Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2023 06:37:01 -0700
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2023 06:37:31 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10758"; a="747693831"
+X-IronPort-AV: E=McAfee;i="6600,9927,10758"; a="747693864"
 X-IronPort-AV: E=Sophos;i="6.01,173,1684825200"; 
-   d="scan'208";a="747693831"
+   d="scan'208";a="747693864"
 Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
-  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2023 06:36:54 -0700
+  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2023 06:37:24 -0700
 From: Haibo Xu <haibo1.xu@intel.com>
 To: 
 Cc: xiaobo55x@gmail.com,
@@ -82,14 +82,17 @@ Cc: xiaobo55x@gmail.com,
 	linux-kselftest@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v5 00/13] RISCV: Add KVM_GET_REG_LIST API
-Date: Sat,  1 Jul 2023 21:42:48 +0800
-Message-Id: <cover.1688010022.git.haibo1.xu@intel.com>
+Subject: [PATCH v5 02/13] KVM: arm64: selftests: Drop SVE cap check in print_reg
+Date: Sat,  1 Jul 2023 21:42:50 +0800
+Message-Id: <66676d5e56b6e23e380e6182ab89b33d7c4bb18f.1688010022.git.haibo1.xu@intel.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1688010022.git.haibo1.xu@intel.com>
+References: <cover.1688010022.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230701_063711_390300_8E17A0EE 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20230701_063732_452861_EF4C8127 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +109,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM_GET_REG_LIST will dump all register IDs that are available to
-KVM_GET/SET_ONE_REG and It's very useful to identify some platform
-regression issue during VM migration.
+From: Andrew Jones <ajones@ventanamicro.com>
 
-Patch 1-7 re-structured the get-reg-list test in aarch64 to make some
-of the code as common test framework that can be shared by riscv.
+The check doesn't prove much anyway, as the reg lists could be
+messed up too. Just drop the check to simplify making print_reg
+more independent.
 
-Patch 8 move reject_set check logic to a function so as to check for
-different errno for different registers.
-Patch 9 move finalize_vcpu back to run_test so that riscv can implement
-its specific operation.
-Patch 10 change to do the get/set operation only on present-blessed list.
-Patch 11 add the skip_set facilities so that riscv can skip set operation
-on some registers.
-Patch 12 enabled the KVM_GET_REG_LIST API in riscv.
-patch 13 added the corresponding kselftest for checking possible
-register regressions.
-
-The get-reg-list kvm selftest was ported from aarch64 and tested with
-Linux v6.4 on a Qemu riscv64 virt machine.
-
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 ---
-Changed since v4:
-  * Rebase to v6.4
-  * Address Andrew's suggestions and comments:
-      Added skip_set concept
-      Updated errno check logic
-      Modified finalize_vcpu as weak function
+ .../testing/selftests/kvm/aarch64/get-reg-list.c  | 15 +--------------
+ 1 file changed, 1 insertion(+), 14 deletions(-)
 
-Andrew Jones (7):
-  KVM: arm64: selftests: Replace str_with_index with strdup_printf
-  KVM: arm64: selftests: Drop SVE cap check in print_reg
-  KVM: arm64: selftests: Remove print_reg's dependency on vcpu_config
-  KVM: arm64: selftests: Rename vcpu_config and add to kvm_util.h
-  KVM: arm64: selftests: Delete core_reg_fixup
-  KVM: arm64: selftests: Split get-reg-list test code
-  KVM: arm64: selftests: Finish generalizing get-reg-list
-
-Haibo Xu (6):
-  KVM: arm64: selftests: Move reject_set check logic to a function
-  KVM: arm64: selftests: Move finalize_vcpu back to run_test
-  KVM: selftests: Only do get/set tests on present blessed list
-  KVM: selftests: Add skip_set facility to get_reg_list test
-  KVM: riscv: Add KVM_GET_REG_LIST API support
-  KVM: riscv: selftests: Add get-reg-list test
-
- Documentation/virt/kvm/api.rst                |   2 +-
- arch/riscv/kvm/vcpu.c                         | 375 +++++++++
- tools/testing/selftests/kvm/Makefile          |  11 +-
- .../selftests/kvm/aarch64/get-reg-list.c      | 544 ++----------
- tools/testing/selftests/kvm/get-reg-list.c    | 395 +++++++++
- .../selftests/kvm/include/kvm_util_base.h     |  21 +
- .../selftests/kvm/include/riscv/processor.h   |   3 +
- .../testing/selftests/kvm/include/test_util.h |   2 +
- tools/testing/selftests/kvm/lib/test_util.c   |  15 +
- .../selftests/kvm/riscv/get-reg-list.c        | 780 ++++++++++++++++++
- 10 files changed, 1655 insertions(+), 493 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/get-reg-list.c
- create mode 100644 tools/testing/selftests/kvm/riscv/get-reg-list.c
-
+diff --git a/tools/testing/selftests/kvm/aarch64/get-reg-list.c b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
+index c152523a5ed4..915272c342f9 100644
+--- a/tools/testing/selftests/kvm/aarch64/get-reg-list.c
++++ b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
+@@ -100,16 +100,6 @@ static const char *config_name(struct vcpu_config *c)
+ 	return c->name;
+ }
+ 
+-static bool has_cap(struct vcpu_config *c, long capability)
+-{
+-	struct reg_sublist *s;
+-
+-	for_each_sublist(c, s)
+-		if (s->capability == capability)
+-			return true;
+-	return false;
+-}
+-
+ static bool filter_reg(__u64 reg)
+ {
+ 	/*
+@@ -287,10 +277,7 @@ static void print_reg(struct vcpu_config *c, __u64 id)
+ 		printf("\tKVM_REG_ARM_FW_FEAT_BMAP_REG(%lld),\n", id & 0xffff);
+ 		break;
+ 	case KVM_REG_ARM64_SVE:
+-		if (has_cap(c, KVM_CAP_ARM_SVE))
+-			printf("\t%s,\n", sve_id_to_str(c, id));
+-		else
+-			TEST_FAIL("%s: KVM_REG_ARM64_SVE is an unexpected coproc type in reg id: 0x%llx", config_name(c), id);
++		printf("\t%s,\n", sve_id_to_str(c, id));
+ 		break;
+ 	default:
+ 		TEST_FAIL("%s: Unexpected coproc type: 0x%llx in reg id: 0x%llx",
 -- 
 2.34.1
 
