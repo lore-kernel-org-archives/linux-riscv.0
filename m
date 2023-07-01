@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A765EB64DC
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 14:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343AAEB64DC
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 14:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VJ8xiuedKGH8vn/aDMFYcQ8eAcYgAXVmffbJUMP2eNo=; b=dtPHwNfsGpHrxV
-	Q9Erub+VF1Wqz4ZYQazqDciPFHNqepHWxKZwKk+4fZO48sn1uNBn5XU3chF6mLpOBAQBbihQAVCVT
-	XKSIjiOM5P7mpqPx67gmUlgcih3EDqehv/+XG9Cz5OrfK80A55gs56o6knrW6H0jbwIrvZaoVdOPF
-	z1TGKncGHXkgMBowU//NxKjtdT8qy5albwz7ugJ8HGyowx33FtQtqk89h7YZLuWeWoq0gRlH9xTyT
-	F2ez8uruJmnMJgxv4A/xliSXIcJjy74T5vPqsu0YQtIDz5JDTx5FCTP0RkW1sjBqumBXn4oaNyqm0
-	mM0B+/z/RvtgFTD96dDA==;
+	List-Owner; bh=VExgHrLYDK9HD30rDDMExgo3opqZQNSbgc8eyrtCo6k=; b=ZFRq1puHfMfBoq
+	q6HFejA1fM4wDqtcmCZuo/EegmLBrW2t83Bz0g4XciJl6eO2WNyq/9zNGzhbACsTnc/7KHHc3I2Rj
+	q1FoytV2RWQQbKbuUpg1LsE/0dOeWa7TnOhAUJMb/EZuC/YnxQqWFcGDyQ2nnolgUicsl9P01la3N
+	XSXINbloXbxp7qBFd1uXtbiAFJ22cLW4ZXXQlY6PtmLIlPVAd6DMFWF9Nl52Fav5ZxxbM9YaOGNXE
+	o4HDmfrke5gIA2qqQRSzO6vsPUs/5/W1/7oYF50DKkChGKSs97P2eSEjw/chHEn7FHLxjmoVpZ21D
+	4vnaB1o+6jl3OO2mzG0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFban-0069ZP-09;
-	Sat, 01 Jul 2023 14:28:53 +0000
+	id 1qFbhI-006ALR-0N;
+	Sat, 01 Jul 2023 14:35:36 +0000
 Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFbaj-0069Wr-2A
-	for linux-riscv@lists.infradead.org;
-	Sat, 01 Jul 2023 14:28:51 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2b699284ff4so47368581fa.2
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Jul 2023 07:28:47 -0700 (PDT)
+	id 1qFbhD-006AJs-2c;
+	Sat, 01 Jul 2023 14:35:33 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2b6c5ede714so35337531fa.1;
+        Sat, 01 Jul 2023 07:35:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1688221726; x=1690813726;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nw6L3iecsaCHUkBPU5RXg0XPBqr03epBdZqP9RT9erM=;
-        b=SEjhRB1Z/veXvWxjUBHdLcwTje8hQss7D2GARjcPTW6LyYt9be7tMUY0+aJv5FX8d6
-         WN/IafFrpna99BKEss4ZEakuEqvPrr6jxvYicXyxhd9gki78+V6ZtrpXO7KDyY0LdunP
-         wF+BIzAGDimhr5pUbfOSVBCdwpO2gAJq+H9oMydEoOX4/yBqliuqlSGq7I6UPlTkDlqc
-         Ie8Ghz4fDCBz8V386sK5acwN5hWNX867hbR7NDNaZzi79fiWs1LvQaSE3LA2SeplH7AO
-         msFZOPYU8Lpc/KeJfHlTxl1wDJ5tIMB/r0Hr/41wnEKrCOw+bWh9f8QNwaIhh3zufJYc
-         Z3Rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688221726; x=1690813726;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20221208; t=1688222129; x=1690814129;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Nw6L3iecsaCHUkBPU5RXg0XPBqr03epBdZqP9RT9erM=;
-        b=NElnwGyNVYkG4V/ljOOGZy6C86rdtlu0pPBxXkxImHOGlcTbvb8R6rcU4IGa6kN6By
-         AlSqjG1F3qFyvD0D7tHKW9Fa2opwqMjDRq5LrwbF0FOyn6BwpzwKk6GQIwzn81WnK94C
-         wJov+sEHaae1tjTA047d32zHEbE5CBXnBwqcakOm5pZwIH0hrmK0V9UCC5+oP23LccZs
-         z8Ri6JLlmXPh2lW8VZm4F8RTiNdS6lrOIZ1N8tnsT5/+wIAofW1P3sCDMDz3TdbNpSe+
-         TqA5Pz1ApT3bXkBnb5vlY7963sQBHmXGjXQXnvLJV/FtsvJbdxV7s58oHdcazKzZ7gcf
-         vtPQ==
-X-Gm-Message-State: ABy/qLbmtNWDTzcDsTOIz9aSjQXLVZkMY5/KsKmIzwyGC5SmJAn01v/R
-	rTD88abWiyYzI+1aB+3Q1rl7yg==
-X-Google-Smtp-Source: APBJJlFs2bVJyhr2R8sltfd2/9wcvYSRVXsl+ohedKMBwI0k0S5K4jvnxW5ud0AbpO+XIPriRJi6lg==
-X-Received: by 2002:ac2:4db5:0:b0:4f8:6a29:b59b with SMTP id h21-20020ac24db5000000b004f86a29b59bmr3767983lfe.64.1688221725981;
-        Sat, 01 Jul 2023 07:28:45 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id z15-20020aa7c64f000000b0051de52f8adesm2357555edr.32.2023.07.01.07.28.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Jul 2023 07:28:45 -0700 (PDT)
-Date: Sat, 1 Jul 2023 16:28:43 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Haibo Xu <haibo1.xu@intel.com>
-Cc: xiaobo55x@gmail.com, maz@kernel.org, oliver.upton@linux.dev, 
-	seanjc@google.com, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
+        bh=aaPOwVOZ+bU3bEOtc3/yyhO3B/rb/2pd2qqDwVfkQLw=;
+        b=bhB2OGE3RRzpSj2bI4oYunKjg/pWMxy2hDqeZcwVXDNS4JNlGKZPPR6dsIg2RiBPaA
+         XddtT0C/oUJWh/8EsaXkI/6pfYvsrCxu082OUeX+terV56QkZKpqPGpW16Pwpdel1a4B
+         QLgeTPgxvU5mpR9X5lQZBuXzd/9ZwtRO9eInZ8Pu2b/C/kRiX9/LM63bOsMdYXt8yeTj
+         wrl5s14QrUCKPGIfVbFCHpn9d5LMtSMTCighhe2NY7+r7tE63wj1Rv7Lzp0TBEGhq2wH
+         5Smnaj5wB8izhBCVnFjIwmCDjnlMbrwYFlev5c1JICwV1yapgQH01YvLa1jBGhCE+mXp
+         VNpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688222129; x=1690814129;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aaPOwVOZ+bU3bEOtc3/yyhO3B/rb/2pd2qqDwVfkQLw=;
+        b=hAxq91YEVmroUJs1Wf2UIy3jAPMoK+4GeqUZ2JqXj7/zWAhtYiE9TTU0xqaJfOGZXZ
+         QLSwqJeV+VgutXyWrRmgTNVOYHMvFNgOq2k9WVDIn/S7R4tzCHISduPkDb2c4qICWljS
+         kzbHJbYnIqNBVkFDduggpneMWWaVHYg6KUAqM7/fwi19xqvHNELOApaLiGCv7cTIOmQL
+         Z25aV1ilVtVakjMG6SkLvS1P2XkwUtd8bZ2Qs0niGuHNiNB5KTSdaibOA4K48qk7Dkkq
+         SKmLtdk4gHJDfSlRsXScKx0YIoMiaX6HQ3NH7FXTwqMGYJL9S0Rgyd5T+px/9xtqomd8
+         38HA==
+X-Gm-Message-State: ABy/qLYKmnQefbQ21MrgVPBbvxEi+2xd5HJHbYclwxSt2IlW+ypuvuj7
+	eZ1aA0QZojrHZOG+5ltRCOUCp/PxAAblYQSD8cA=
+X-Google-Smtp-Source: APBJJlFNU/x2ikcVqhPAS0JO3x9ydTrnk8SegR8Iy91lyWQNTL7iKMsejrXFyvnMu8IDP8g6AskN8ncwltMBvpm7vv4=
+X-Received: by 2002:a2e:a4c4:0:b0:2b6:da7a:3859 with SMTP id
+ p4-20020a2ea4c4000000b002b6da7a3859mr675759ljm.15.1688222129294; Sat, 01 Jul
+ 2023 07:35:29 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1688010022.git.haibo1.xu@intel.com> <f5ef26e862260efdf1c809d0eee46ee1c8b457f2.1688010022.git.haibo1.xu@intel.com>
+ <20230701-0255de0b29b22f180bb3bbbf@orel>
+In-Reply-To: <20230701-0255de0b29b22f180bb3bbbf@orel>
+From: Haibo Xu <xiaobo55x@gmail.com>
+Date: Sat, 1 Jul 2023 22:35:18 +0800
+Message-ID: <CAJve8okE3Sa0j4+u+L9UHO9aSbzXU8pXvDNqKe9omoX=fx6XXw@mail.gmail.com>
+Subject: Re: [PATCH v5 08/13] KVM: arm64: selftests: Move reject_set check
+ logic to a function
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Haibo Xu <haibo1.xu@intel.com>, maz@kernel.org, oliver.upton@linux.dev, 
+	seanjc@google.com, Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
 	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
 	Zenghui Yu <yuzenghui@huawei.com>, Ricardo Koller <ricarkol@google.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Vipin Sharma <vipinsh@google.com>, 
-	David Matlack <dmatlack@google.com>, Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v5 11/13] KVM: selftests: Add skip_set facility to
- get_reg_list test
-Message-ID: <20230701-2da2a0ffa7c1ccd3a549acea@orel>
-References: <cover.1688010022.git.haibo1.xu@intel.com>
- <0a418f26388e744b6ae2f17639bea08a05643549.1688010022.git.haibo1.xu@intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0a418f26388e744b6ae2f17639bea08a05643549.1688010022.git.haibo1.xu@intel.com>
+	Vishal Annapurve <vannapurve@google.com>, David Matlack <dmatlack@google.com>, 
+	Vipin Sharma <vipinsh@google.com>, Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230701_072849_715837_BC4AAC28 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20230701_073531_851112_8DC92360 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,104 +95,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 01, 2023 at 09:42:59PM +0800, Haibo Xu wrote:
-> Add new skips_set members to vcpu_reg_sublist so as to skip
-> set operation on some registers.
-> 
-> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
-> ---
->  tools/testing/selftests/kvm/get-reg-list.c    | 20 +++++++++++++------
->  .../selftests/kvm/include/kvm_util_base.h     |  2 ++
->  2 files changed, 16 insertions(+), 6 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/get-reg-list.c b/tools/testing/selftests/kvm/get-reg-list.c
-> index 74fb6f6fdd09..1a32a900aeea 100644
-> --- a/tools/testing/selftests/kvm/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/get-reg-list.c
-> @@ -157,6 +157,7 @@ static void run_test(struct vcpu_reg_list *c)
->  {
->  	int new_regs = 0, missing_regs = 0, i, n;
->  	int failed_get = 0, failed_set = 0, failed_reject = 0;
-> +	int skipped_set = 0;
->  	struct kvm_vcpu *vcpu;
->  	struct kvm_vm *vm;
->  	struct vcpu_reg_sublist *s;
-> @@ -210,7 +211,7 @@ static void run_test(struct vcpu_reg_list *c)
->  			.id = reg_list->reg[i],
->  			.addr = (__u64)&addr,
->  		};
-> -		bool reject_reg = false;
-> +		bool reject_reg = false, skip_reg = false;
->  		int ret;
->  
->  		ret = __vcpu_get_reg(vcpu, reg_list->reg[i], &addr);
-> @@ -221,8 +222,8 @@ static void run_test(struct vcpu_reg_list *c)
->  			++failed_get;
->  		}
->  
-> -		/* rejects_set registers are rejected after KVM_ARM_VCPU_FINALIZE */
->  		for_each_sublist(c, s) {
-> +			/* rejects_set registers are rejected for set operation */
->  			if (s->rejects_set && find_reg(s->rejects_set, s->rejects_set_n, reg.id)) {
->  				reject_reg = true;
->  				ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
-> @@ -234,9 +235,16 @@ static void run_test(struct vcpu_reg_list *c)
->  				}
->  				break;
->  			}
-> +
-> +			/* skips_set registers are skipped for set operation */
-> +			if (s->skips_set && find_reg(s->skips_set, s->skips_set_n, reg.id)) {
-> +				skip_reg = true;
-> +				++skipped_set;
-> +				break;
-> +			}
->  		}
->  
-> -		if (!reject_reg) {
-> +		if (!reject_reg && !skip_reg) {
->  			ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
->  			if (ret) {
->  				printf("%s: Failed to set ", config_name(c));
-> @@ -281,9 +289,9 @@ static void run_test(struct vcpu_reg_list *c)
->  	}
->  
->  	TEST_ASSERT(!missing_regs && !failed_get && !failed_set && !failed_reject,
-> -		    "%s: There are %d missing registers; "
-> -		    "%d registers failed get; %d registers failed set; %d registers failed reject",
-> -		    config_name(c), missing_regs, failed_get, failed_set, failed_reject);
-> +		    "%s: There are %d missing registers; %d registers failed get; "
-> +		    "%d registers failed set; %d registers failed reject; %d registers skipped set",
-> +		    config_name(c), missing_regs, failed_get, failed_set, failed_reject, skipped_set);
->  
->  	pr_info("%s: PASS\n", config_name(c));
->  	blessed_n = 0;
-> diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-> index e4480049000d..67c031fe89a1 100644
-> --- a/tools/testing/selftests/kvm/include/kvm_util_base.h
-> +++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-> @@ -134,6 +134,8 @@ struct vcpu_reg_sublist {
->  	__u64 regs_n;
->  	__u64 *rejects_set;
->  	__u64 rejects_set_n;
-> +	__u64 *skips_set;
-> +	__u64 skips_set_n;
->  };
->  
->  struct vcpu_reg_list {
-> -- 
-> 2.34.1
->
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBKdWwgMSwgMjAyMyBhdCAxMDoyMeKAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
+bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gT24gU2F0LCBKdWwgMDEsIDIwMjMgYXQgMDk6NDI6
+NTZQTSArMDgwMCwgSGFpYm8gWHUgd3JvdGU6Cj4gPiBObyBmdW5jdGlvbmFsIGNoYW5nZXMuIEp1
+c3QgbW92ZSB0aGUgcmVqZWN0X3NldCBjaGVjayBsb2dpYyB0byBhCj4gPiBmdW5jdGlvbiBzbyB3
+ZSBjYW4gY2hlY2sgZm9yIHNwZWNpZmljIGVycm5vIGZvciBzcGVjaWZpYyByZWdpc3Rlci4KPgo+
+ICdmb3Igc3BlY2lmaWMgcmVnaXN0ZXInIHBhcnQgaXNuJ3QgdHJ1ZSBhbnltb3JlLgo+Cj4gPiBU
+aGlzIGlzIGEgcHJlcGFyYXRpb24gZm9yIHN1cHBvcnQgcmVqZWN0X3NldCBpbiByaXNjdi4KPiA+
+Cj4gPiBTdWdnZXN0ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+
+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBIYWlibyBYdSA8aGFpYm8xLnh1QGludGVsLmNvbT4KPiA+IC0t
+LQo+ID4gIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9hYXJjaDY0L2dldC1yZWctbGlzdC5j
+IHwgNSArKysrKwo+ID4gIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2bS9nZXQtcmVnLWxpc3Qu
+YyAgICAgICAgIHwgNyArKysrKystCj4gPiAgMiBmaWxlcyBjaGFuZ2VkLCAxMSBpbnNlcnRpb25z
+KCspLCAxIGRlbGV0aW9uKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2Vs
+ZnRlc3RzL2t2bS9hYXJjaDY0L2dldC1yZWctbGlzdC5jIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVz
+dHMva3ZtL2FhcmNoNjQvZ2V0LXJlZy1saXN0LmMKPiA+IGluZGV4IGFhZjAzNWM5NjllYy4uNGFh
+NThmMWFlYmUzIDEwMDY0NAo+ID4gLS0tIGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMva3ZtL2Fh
+cmNoNjQvZ2V0LXJlZy1saXN0LmMKPiA+ICsrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2t2
+bS9hYXJjaDY0L2dldC1yZWctbGlzdC5jCj4gPiBAQCAtMjcsNiArMjcsMTEgQEAgYm9vbCBmaWx0
+ZXJfcmVnKF9fdTY0IHJlZykKPiA+ICAgICAgIHJldHVybiBmYWxzZTsKPiA+ICB9Cj4gPgo+ID4g
+K2Jvb2wgY2hlY2tfcmVqZWN0X3NldChpbnQgZXJyKQo+ID4gK3sKPiA+ICsgICAgIHJldHVybiBl
+cnIgPT0gRVBFUk07Cj4gPiArfQo+ID4gKwo+ID4gICNkZWZpbmUgUkVHX01BU0sgKEtWTV9SRUdf
+QVJDSF9NQVNLIHwgS1ZNX1JFR19TSVpFX01BU0sgfCBLVk1fUkVHX0FSTV9DT1BST0NfTUFTSykK
+PiA+Cj4gPiAgI2RlZmluZSBDT1JFX1JFR1NfWFhfTlJfV09SRFMgICAgICAgIDIKPiA+IGRpZmYg
+LS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vZ2V0LXJlZy1saXN0LmMgYi90b29s
+cy90ZXN0aW5nL3NlbGZ0ZXN0cy9rdm0vZ2V0LXJlZy1saXN0LmMKPiA+IGluZGV4IGY2YWQ3OTkx
+YTgxMi4uNzllMTk4OTY4ODYwIDEwMDY0NAo+ID4gLS0tIGEvdG9vbHMvdGVzdGluZy9zZWxmdGVz
+dHMva3ZtL2dldC1yZWctbGlzdC5jCj4gPiArKysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9r
+dm0vZ2V0LXJlZy1saXN0LmMKPiA+IEBAIC05OCw2ICs5OCwxMSBAQCB2b2lkIF9fd2VhayBwcmlu
+dF9yZWcoY29uc3QgY2hhciAqcHJlZml4LCBfX3U2NCBpZCkKPiA+ICAgICAgIHByaW50ZigiXHQw
+eCVsbHgsXG4iLCBpZCk7Cj4gPiAgfQo+ID4KPiA+ICtib29sIF9fd2VhayBjaGVja19yZWplY3Rf
+c2V0KGludCBlcnIpCj4gPiArewo+ID4gKyAgICAgcmV0dXJuIHRydWU7Cj4gPiArfQo+ID4gKwo+
+ID4gICNpZmRlZiBfX2FhcmNoNjRfXwo+ID4gIHN0YXRpYyB2b2lkIHByZXBhcmVfdmNwdV9pbml0
+KHN0cnVjdCB2Y3B1X3JlZ19saXN0ICpjLCBzdHJ1Y3Qga3ZtX3ZjcHVfaW5pdCAqaW5pdCkKPiA+
+ICB7Cj4gPiBAQCAtMjE2LDcgKzIyMSw3IEBAIHN0YXRpYyB2b2lkIHJ1bl90ZXN0KHN0cnVjdCB2
+Y3B1X3JlZ19saXN0ICpjKQo+ID4gICAgICAgICAgICAgICAgICAgICAgIGlmIChzLT5yZWplY3Rz
+X3NldCAmJiBmaW5kX3JlZyhzLT5yZWplY3RzX3NldCwgcy0+cmVqZWN0c19zZXRfbiwgcmVnLmlk
+KSkgewo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVqZWN0X3JlZyA9IHRydWU7
+Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXQgPSBfX3ZjcHVfaW9jdGwodmNw
+dSwgS1ZNX1NFVF9PTkVfUkVHLCAmcmVnKTsKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIGlmIChyZXQgIT0gLTEgfHwgZXJybm8gIT0gRVBFUk0pIHsKPiA+ICsgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIGlmIChyZXQgIT0gLTEgfHwgIWNoZWNrX3JlamVjdF9zZXQoZXJybm8p
+KSB7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByaW50ZigiJXM6
+IEZhaWxlZCB0byByZWplY3QgKHJldD0lZCwgZXJybm89JWQpICIsIGNvbmZpZ19uYW1lKGMpLCBy
+ZXQsIGVycm5vKTsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHJp
+bnRfcmVnKGNvbmZpZ19uYW1lKGMpLCByZWcuaWQpOwo+ID4gICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBwdXRjaGFyKCdcbicpOwo+ID4gLS0KPiA+IDIuMzQuMQo+ID4KPgo+
+IE90aGVyd2lzZSwKPgo+IFJldmlld2VkLWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5h
+bWljcm8uY29tPgoKVGhhbmtzIGZvciB0aGUgcmV2aWV3ISBXaWxsIGZpeCBpdCBpbiB0aGUgbmV4
+dCB2ZXJzaW9uLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
