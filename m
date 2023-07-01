@@ -4,78 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D97FEB64DC
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 11:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA876EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 13:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gPwEC2sAN8X1XlBA5F4RWjhS9eu9N/AOhFEkHFDSPLg=; b=bEiObZe1o7/2oQ
-	2A46Anh+ssiiUKFDoWlY9SNsg72UoT2NRg2yyeW3CsNKhZ8bSaTgb4ZQUq3se98VYxzEWcWI3ELj/
-	3btQ9nLY3itdvYNDaB6miDatvAjO3OC/GBxX6ydrflG/IJ9gqtwzkgtgDqJe7VubkLYeXLQ6c0GMl
-	jx+aidPA9CVbGBGzdsX2uUFdvT2j3XrqLIHnZQAurz9vJBD3dYBnvnjymq7X5iZzPLW0XamU+Vxrr
-	wDp3ASOI7zN/IE0yg4Dy23OLGCRb03VyD0mZoBcfRd63IuSRB9PYiHAasRVZRa2ZLpvBEqzFafulr
-	QrlQCCndJa0kvy/dCaVw==;
+	List-Owner; bh=jUfkBkllqM0o9SVXWAd9EDxGsjLny/eS7a/4ZyXnCSw=; b=s8zkBVKFltwJhq
+	051UqSKFOEBWwQ5QgblOsNhw/+esoh9kQz+ssNvphhwo17/1F5e6rb1ZgvHkftWxT0Yan9Y7LdVmB
+	ETD7ie92WAIEwfCGw0oNuPCdzeIzH/agAxVnEs6J9GvOIKwhGgTzIJlVTTaoFuk8fICamsZVsTYvN
+	wsTDQIbVmxT0Q/44302O0ZW3HU4dyQyGRjr9gDWIvXexKJ86KUba5xfKysbPwN0qY7o65NK6awsi8
+	oYM6v3a2NqIdXwvCk8A2D4WBUXR/dCq/xKpICZPfwJhIqtvzJLB8Wax5dgc1i+LxawYWCabD++LvB
+	GbRilfwE0eePEhDScmwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFYve-005lfU-1A;
-	Sat, 01 Jul 2023 11:38:14 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1qFamu-0063tW-2p;
+	Sat, 01 Jul 2023 13:37:20 +0000
+Received: from mga17.intel.com ([192.55.52.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFYva-005ldo-2A
-	for linux-riscv@lists.infradead.org;
-	Sat, 01 Jul 2023 11:38:12 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-4f76a0a19d4so4513501e87.2
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Jul 2023 04:38:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1688211487; x=1690803487;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZAuIfqT5Gll/OkRGnZNYzkmmC2G5kvlC5phjaj1JvNo=;
-        b=FvLbCvH7C5oKNFAor8rQlEixGwXADb1QO32R+faYApfpeKdx7p12r6p6VzT+2O83UD
-         moAO+kXJbdjGSuQs1EwijJOMNOeifqbxxWx7HRS/oJ3MX6KEEnPCHKNcWpTq5KwgoXZC
-         SjF+23XCoQ22NJdaIhrXeAzrifaf/sHObVo12iFO7YD+NuuNnUqhx+C46jtGwzsjkNM4
-         kzCJyJqzjeVqsNaBJ8Ne++BpXHncaNPoG4CxXvIq0JbdnF74YCDd+Vpat0+lJ+gkQSZP
-         UjSs7Pj33OfHC5xQGTDESBSyaRb81/TevLPtjAAuST0uwl505aYAks4kZU5EQyvvOi33
-         HTIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688211487; x=1690803487;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZAuIfqT5Gll/OkRGnZNYzkmmC2G5kvlC5phjaj1JvNo=;
-        b=IV4W6v/NOtKbi3sTnEdfrvQ3x5lq0oDZ+KxU1VX1inkxTY2HudeNT1mGfG3vYbfxsc
-         Fz6FIobk1iW1eb4HADkafnlfA/OW/cqu81UKnba8k1fvP40Y73tyUgNu2TLMu+97oAmG
-         p9D+8n5poFyL4wVQqWFQSDjvruQEk1SkHgY+34ikbiPFMgDDtFHTTAow6rJ1wa9arZCy
-         5et0Nhh7O/ODoKjli5r6PV9rsRADGJ2E9TBOw6asFHghI/zOOOhbH6rrB3PW79/BK3e8
-         AXbf1HhBQCkp10b/huRQo0rL5jM1e7fjNBHgeNIs1lh0VOWlgsXE+iHGtzRAsnsWNV5h
-         6AKg==
-X-Gm-Message-State: ABy/qLYMTDEx1uB9uYY/xAHdRFd1mupSN1M797JhFkSfQtcnn01q/Vcy
-	Toftki+SMa50u2c21EWttGt0T3poXY5zqiC5GYgy3w==
-X-Google-Smtp-Source: APBJJlFPF7EYCx4bAivjCDW+lZ5Fb7Qn3wBMLcBCl1tZ64ObT+EZbhZGWQGeLCVhLl/0nq7a5RUQ2xOAkBaiLlciJDk=
-X-Received: by 2002:a05:6512:10d4:b0:4fb:b11:c99e with SMTP id
- k20-20020a05651210d400b004fb0b11c99emr4727305lfg.56.1688211486473; Sat, 01
- Jul 2023 04:38:06 -0700 (PDT)
+	id 1qFamr-0063px-0Y;
+	Sat, 01 Jul 2023 13:37:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1688218637; x=1719754637;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=iQC6kb1rTOKXEDlru5Ov1HPB6vcRfk5Mp5vR5TxV2Iw=;
+  b=egDrajwaeCTeLo/TXvLkiN+HQesfHJ4G7zYfNCZxfHYgAlqoWFAHgTpf
+   JYhrXWhOzjsMiqm0uVT4BO8AsoJduj45+a+fR51n64auM3hD2rBvxTGXo
+   r2zH49yraNI3S4uVu7BEkV2sArFoht+5aiuAF6GK+5jYfRVqkq2xS5vgc
+   +PQykvVCGsExe4NB8Qy3Ky8usocv5S/4iZsu7//GTBH5MwCBZ5cFugvBh
+   Dt/6RX1+ti78UyaqyjIYor/JIbYVUH+QtYl/bWV1cwGiKHy/aK6i80Q9n
+   7jTJjjX82K+AfwA9AXS1KK7jZJaUaNdhL1tKVbXK4oN3dtsIEKn6IB4jU
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10758"; a="342926056"
+X-IronPort-AV: E=Sophos;i="6.01,173,1684825200"; 
+   d="scan'208";a="342926056"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2023 06:37:16 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10758"; a="747693840"
+X-IronPort-AV: E=Sophos;i="6.01,173,1684825200"; 
+   d="scan'208";a="747693840"
+Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
+  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2023 06:37:09 -0700
+From: Haibo Xu <haibo1.xu@intel.com>
+To: 
+Cc: xiaobo55x@gmail.com,
+	haibo1.xu@intel.com,
+	ajones@ventanamicro.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	seanjc@google.com,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Shuah Khan <shuah@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Ricardo Koller <ricarkol@google.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Like Xu <likexu@tencent.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	David Matlack <dmatlack@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: [PATCH v5 01/13] KVM: arm64: selftests: Replace str_with_index with strdup_printf
+Date: Sat,  1 Jul 2023 21:42:49 +0800
+Message-Id: <6bf03faa291e39fc220cb503cb3ce2556a9c54ca.1688010022.git.haibo1.xu@intel.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1688010022.git.haibo1.xu@intel.com>
+References: <cover.1688010022.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
-References: <CAAhSdy1iT=SbjSvv_7SDygSo0HhmgLjD-y+DU1_Q+6tnki7w+A@mail.gmail.com>
- <CABgObfZ5E58OpEzmRgVQ8axSZdoW-mfsq1wbPp=cfOX304O6uw@mail.gmail.com>
-In-Reply-To: <CABgObfZ5E58OpEzmRgVQ8axSZdoW-mfsq1wbPp=cfOX304O6uw@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sat, 1 Jul 2023 17:07:54 +0530
-Message-ID: <CAAhSdy04b6TxLC78yXSUipX5dkYbWnOuuLMm56HDAy1MS2MzfQ@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv changes for 6.5
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230701_043810_933948_EDBD2294 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20230701_063717_232095_C68AFDAE 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,90 +104,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBKdWwgMSwgMjAyMyBhdCA0OjM04oCvUE0gUGFvbG8gQm9uemluaSA8cGJvbnppbmlA
-cmVkaGF0LmNvbT4gd3JvdGU6Cj4KPiBPbiBUaHUsIEp1biAyMiwgMjAyMyBhdCA0OjEz4oCvUE0g
-QW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4gd3JvdGU6Cj4gPgo+ID4gSGkgUGFvbG8s
-Cj4gPgo+ID4gV2UgaGF2ZSB0aGUgZm9sbG93aW5nIEtWTSBSSVNDLVYgY2hhbmdlcyBmb3IgNi41
-Ogo+ID4gMSkgUmVkaXJlY3QgQU1PIGxvYWQvc3RvcmUgbWlzYWxpZ25lZCB0cmFwcyB0byBLVk0g
-Z3Vlc3QKPiA+IDIpIFRyYXAtbi1lbXVsYXRlIEFJQSBpbi1rZXJuZWwgaXJxY2hpcCBmb3IgS1ZN
-IGd1ZXN0Cj4gPiAzKSBTdm5hcG90IHN1cHBvcnQgZm9yIEtWTSBHdWVzdAo+ID4KPiA+IFBsZWFz
-ZSBwdWxsLgo+ID4KPiA+IFBsZWFzZSBub3RlIHRoYXQgdGhlcmUgaXMgYSBtaW5vciBjb25mbGlj
-dCB3aXRoIHRoZSBSSVNDLVYKPiA+IHRyZWUgaW4gdGhlIGFyY2gvcmlzY3YvaW5jbHVkZS91YXBp
-L2FzbS9rdm0uaCBoZWFkZXIgZHVlIHRvCj4gPiBLVk0gdmVjdG9yIHZpcnR1YWxpemF0aW9uIGdv
-aW5nIHRocm91Z2ggdGhlIFJJU0MtViB0cmVlLgo+Cj4gVGhhbmtzIGZvciB0aGUgaGVhZHMgdXAu
-IEkgYWxzbyBhcHByZWNpYXRlIHRoYXQgeW91IGhhdmUgZml4ZWQgdGhlCj4gd29ya2Zsb3cgYW5k
-IHRoZSBhdXRob3IvY29tbWl0dGVyIGRhdGUgYXJlIG5vdyBva2F5IQoKWWVzLCB0aGUgbmV4dCBi
-cmFuY2ggb2YgS1ZNIFJJU0MtViB0cmVlIGlzIG5vdyBwYXJ0IG9mIHJlZ3VsYXIKaW50ZWdyYXRp
-b24gdGVzdGluZyBpbiBsaW51eC1uZXh0IGFuZCBJIGFtIGFjdGl2ZWx5IHB1c2hpbmcgYWNjZXB0
-ZWQKcGF0Y2hlcyB0byB0aGUgbmV4dCBicmFuY2ggbXVjaCBiZWZvcmUgdGhlIGFjdHVhbCBQUi4K
-ClRoYW5rcyB0byB5b3VyIHN1Z2dlc3Rpb25zIGFuZCBndWlkYW5jZS4KClJlZ2FyZHMsCkFudXAK
-Cj4KPiBQYW9sbwo+Cj4gPiBSZWdhcmRzLAo+ID4gQW51cAo+ID4KPiA+IFRoZSBmb2xsb3dpbmcg
-Y2hhbmdlcyBzaW5jZSBjb21taXQgOTU2MWRlM2E1NWJlZDZiZGQ0NGExMjgyMGJhODFlYzQxNmU3
-MDVhNzoKPiA+Cj4gPiAgIExpbnV4IDYuNC1yYzUgKDIwMjMtMDYtMDQgMTQ6MDQ6MjcgLTA0MDAp
-Cj4gPgo+ID4gYXJlIGF2YWlsYWJsZSBpbiB0aGUgR2l0IHJlcG9zaXRvcnkgYXQ6Cj4gPgo+ID4g
-ICBodHRwczovL2dpdGh1Yi5jb20va3ZtLXJpc2N2L2xpbnV4LmdpdCB0YWdzL2t2bS1yaXNjdi02
-LjUtMQo+ID4KPiA+IGZvciB5b3UgdG8gZmV0Y2ggY2hhbmdlcyB1cCB0byAwN2YyMjViNTg0MjQy
-MGFlOWMxOGNiYTE3ODczZmM3MWVkNjljMjhlOgo+ID4KPiA+ICAgUklTQy1WOiBLVk06IFJlbW92
-ZSB1bm5lZWRlZCBzZW1pY29sb24gKDIwMjMtMDYtMjAgMTA6NDg6MzggKzA1MzApCj4gPgo+ID4g
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLQo+ID4gS1ZNL3Jpc2N2IGNoYW5nZXMgZm9yIDYuNQo+ID4KPiA+IC0gUmVkaXJlY3Qg
-QU1PIGxvYWQvc3RvcmUgbWlzYWxpZ25lZCB0cmFwcyB0byBLVk0gZ3Vlc3QKPiA+IC0gVHJhcC1u
-LWVtdWxhdGUgQUlBIGluLWtlcm5lbCBpcnFjaGlwIGZvciBLVk0gZ3Vlc3QKPiA+IC0gU3ZuYXBv
-dCBzdXBwb3J0IGZvciBLVk0gR3Vlc3QKPiA+Cj4gPiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4gPiBBbmRyZXcgSm9uZXMg
-KDMpOgo+ID4gICAgICAgUklTQy1WOiBLVk06IFJlbmFtZSBkaXNfaWR4IHRvIGV4dF9pZHgKPiA+
-ICAgICAgIFJJU0MtVjogS1ZNOiBDb252ZXJ0IGV4dGVuc2lvbl9kaXNhYmxlZFtdIHRvIGV4dF9z
-dGF0dXNbXQo+ID4gICAgICAgUklTQy1WOiBLVk06IFByb2JlIGZvciBTQkkgZXh0ZW5zaW9uIHN0
-YXR1cwo+ID4KPiA+IEFudXAgUGF0ZWwgKDExKToKPiA+ICAgICAgIFJJU0MtVjogS1ZNOiBJbXBs
-ZW1lbnQgZ3Vlc3QgZXh0ZXJuYWwgaW50ZXJydXB0IGxpbmUgbWFuYWdlbWVudAo+ID4gICAgICAg
-UklTQy1WOiBLVk06IEFkZCBJTVNJQyByZWxhdGVkIGRlZmluZXMKPiA+ICAgICAgIFJJU0MtVjog
-S1ZNOiBBZGQgQVBMSUMgcmVsYXRlZCBkZWZpbmVzCj4gPiAgICAgICBSSVNDLVY6IEtWTTogU2V0
-IGt2bV9yaXNjdl9haWFfbnJfaGdlaSB0byB6ZXJvCj4gPiAgICAgICBSSVNDLVY6IEtWTTogU2tl
-bGV0YWwgaW4ta2VybmVsIEFJQSBpcnFjaGlwIHN1cHBvcnQKPiA+ICAgICAgIFJJU0MtVjogS1ZN
-OiBJbXBsZW1lbnQgZGV2aWNlIGludGVyZmFjZSBmb3IgQUlBIGlycWNoaXAKPiA+ICAgICAgIFJJ
-U0MtVjogS1ZNOiBBZGQgaW4ta2VybmVsIGVtdWxhdGlvbiBvZiBBSUEgQVBMSUMKPiA+ICAgICAg
-IFJJU0MtVjogS1ZNOiBFeHBvc2UgQVBMSUMgcmVnaXN0ZXJzIGFzIGF0dHJpYnV0ZXMgb2YgQUlB
-IGlycWNoaXAKPiA+ICAgICAgIFJJU0MtVjogS1ZNOiBBZGQgaW4ta2VybmVsIHZpcnR1YWxpemF0
-aW9uIG9mIEFJQSBJTVNJQwo+ID4gICAgICAgUklTQy1WOiBLVk06IEV4cG9zZSBJTVNJQyByZWdp
-c3RlcnMgYXMgYXR0cmlidXRlcyBvZiBBSUEgaXJxY2hpcAo+ID4gICAgICAgUklTQy1WOiBLVk06
-IEFsbG93IFN2bmFwb3QgZXh0ZW5zaW9uIGZvciBHdWVzdC9WTQo+ID4KPiA+IEJlbiBEb29rcyAo
-MSk6Cj4gPiAgICAgICByaXNjdjoga3ZtOiBkZWZpbmUgdmNwdV9zYmlfZXh0X3BtdSBpbiBoZWFk
-ZXIKPiA+Cj4gPiBZYW5nIExpICgxKToKPiA+ICAgICAgIFJJU0MtVjogS1ZNOiBSZW1vdmUgdW5u
-ZWVkZWQgc2VtaWNvbG9uCj4gPgo+ID4gWWUgWGluZ2NoZW4gKDEpOgo+ID4gICAgICAgUklTQy1W
-OiBLVk06IHVzZSBiaXRtYXBfemVybygpIEFQSQo+ID4KPiA+IHdjaGVuICgxKToKPiA+ICAgICAg
-IFJJU0MtVjogS1ZNOiBSZWRpcmVjdCBBTU8gbG9hZC9zdG9yZSBtaXNhbGlnbmVkIHRyYXBzIHRv
-IGd1ZXN0Cj4gPgo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmggICAgICAgICAgIHwg
-ICAgMiArCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fYWlhLmggICAgICAgfCAgMTA3
-ICsrKy0KPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9haWFfYXBsaWMuaCB8ICAgNTgg
-KysKPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9haWFfaW1zaWMuaCB8ICAgMzggKysK
-PiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmggICAgICB8ICAgIDQgKwo+ID4g
-IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmggIHwgICAxMSArLQo+ID4gIGFy
-Y2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9rdm0uaCAgICAgIHwgICA3MyArKysKPiA+ICBhcmNo
-L3Jpc2N2L2t2bS9LY29uZmlnICAgICAgICAgICAgICAgICB8ICAgIDQgKwo+ID4gIGFyY2gvcmlz
-Y3Yva3ZtL01ha2VmaWxlICAgICAgICAgICAgICAgIHwgICAgMyArCj4gPiAgYXJjaC9yaXNjdi9r
-dm0vYWlhLmMgICAgICAgICAgICAgICAgICAgfCAgMjc0ICsrKysrKystCj4gPiAgYXJjaC9yaXNj
-di9rdm0vYWlhX2FwbGljLmMgICAgICAgICAgICAgfCAgNjE5ICsrKysrKysrKysrKysrKysrKwo+
-ID4gIGFyY2gvcmlzY3Yva3ZtL2FpYV9kZXZpY2UuYyAgICAgICAgICAgIHwgIDY3MyArKysrKysr
-KysrKysrKysrKysrKwo+ID4gIGFyY2gvcmlzY3Yva3ZtL2FpYV9pbXNpYy5jICAgICAgICAgICAg
-IHwgMTA4NCArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+ID4gIGFyY2gvcmlzY3Yv
-a3ZtL21haW4uYyAgICAgICAgICAgICAgICAgIHwgICAgMyArLQo+ID4gIGFyY2gvcmlzY3Yva3Zt
-L3RsYi5jICAgICAgICAgICAgICAgICAgIHwgICAgMiArLQo+ID4gIGFyY2gvcmlzY3Yva3ZtL3Zj
-cHUuYyAgICAgICAgICAgICAgICAgIHwgICAgNCArCj4gPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV9l
-eGl0LmMgICAgICAgICAgICAgfCAgICAyICsKPiA+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaS5j
-ICAgICAgICAgICAgICB8ICAgODAgKystCj4gPiAgYXJjaC9yaXNjdi9rdm0vdm0uYyAgICAgICAg
-ICAgICAgICAgICAgfCAgMTE4ICsrKysKPiA+ICBpbmNsdWRlL3VhcGkvbGludXgva3ZtLmggICAg
-ICAgICAgICAgICB8ICAgIDIgKwo+ID4gIDIwIGZpbGVzIGNoYW5nZWQsIDMxMDAgaW5zZXJ0aW9u
-cygrKSwgNjEgZGVsZXRpb25zKC0pCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20va3ZtX2FpYV9hcGxpYy5oCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gv
-cmlzY3YvaW5jbHVkZS9hc20va3ZtX2FpYV9pbXNpYy5oCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0
-IGFyY2gvcmlzY3Yva3ZtL2FpYV9hcGxpYy5jCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gv
-cmlzY3Yva3ZtL2FpYV9kZXZpY2UuYwo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2
-L2t2bS9haWFfaW1zaWMuYwo+ID4KPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+From: Andrew Jones <ajones@ventanamicro.com>
+
+The original author of aarch64/get-reg-list.c (me) was wearing
+tunnel vision goggles when implementing str_with_index(). There's
+no reason to have such a special case string function. Instead,
+take inspiration from glib and implement strdup_printf. The
+implementation builds on vasprintf() which requires _GNU_SOURCE,
+but we require _GNU_SOURCE in most files already.
+
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+---
+ .../selftests/kvm/aarch64/get-reg-list.c      | 23 ++++---------------
+ .../testing/selftests/kvm/include/test_util.h |  2 ++
+ tools/testing/selftests/kvm/lib/test_util.c   | 15 ++++++++++++
+ 3 files changed, 22 insertions(+), 18 deletions(-)
+
+diff --git a/tools/testing/selftests/kvm/aarch64/get-reg-list.c b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
+index d4e1f4af29d6..c152523a5ed4 100644
+--- a/tools/testing/selftests/kvm/aarch64/get-reg-list.c
++++ b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
+@@ -132,19 +132,6 @@ static bool find_reg(__u64 regs[], __u64 nr_regs, __u64 reg)
+ 	return false;
+ }
+ 
+-static const char *str_with_index(const char *template, __u64 index)
+-{
+-	char *str, *p;
+-	int n;
+-
+-	str = strdup(template);
+-	p = strstr(str, "##");
+-	n = sprintf(p, "%lld", index);
+-	strcat(p + n, strstr(template, "##") + 2);
+-
+-	return (const char *)str;
+-}
+-
+ #define REG_MASK (KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK | KVM_REG_ARM_COPROC_MASK)
+ 
+ #define CORE_REGS_XX_NR_WORDS	2
+@@ -163,7 +150,7 @@ static const char *core_id_to_str(struct vcpu_config *c, __u64 id)
+ 	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
+ 		idx = (core_off - KVM_REG_ARM_CORE_REG(regs.regs[0])) / CORE_REGS_XX_NR_WORDS;
+ 		TEST_ASSERT(idx < 31, "%s: Unexpected regs.regs index: %lld", config_name(c), idx);
+-		return str_with_index("KVM_REG_ARM_CORE_REG(regs.regs[##])", idx);
++		return strdup_printf("KVM_REG_ARM_CORE_REG(regs.regs[%lld])", idx);
+ 	case KVM_REG_ARM_CORE_REG(regs.sp):
+ 		return "KVM_REG_ARM_CORE_REG(regs.sp)";
+ 	case KVM_REG_ARM_CORE_REG(regs.pc):
+@@ -178,12 +165,12 @@ static const char *core_id_to_str(struct vcpu_config *c, __u64 id)
+ 	     KVM_REG_ARM_CORE_REG(spsr[KVM_NR_SPSR - 1]):
+ 		idx = (core_off - KVM_REG_ARM_CORE_REG(spsr[0])) / CORE_SPSR_XX_NR_WORDS;
+ 		TEST_ASSERT(idx < KVM_NR_SPSR, "%s: Unexpected spsr index: %lld", config_name(c), idx);
+-		return str_with_index("KVM_REG_ARM_CORE_REG(spsr[##])", idx);
++		return strdup_printf("KVM_REG_ARM_CORE_REG(spsr[%lld])", idx);
+ 	case KVM_REG_ARM_CORE_REG(fp_regs.vregs[0]) ...
+ 	     KVM_REG_ARM_CORE_REG(fp_regs.vregs[31]):
+ 		idx = (core_off - KVM_REG_ARM_CORE_REG(fp_regs.vregs[0])) / CORE_FPREGS_XX_NR_WORDS;
+ 		TEST_ASSERT(idx < 32, "%s: Unexpected fp_regs.vregs index: %lld", config_name(c), idx);
+-		return str_with_index("KVM_REG_ARM_CORE_REG(fp_regs.vregs[##])", idx);
++		return strdup_printf("KVM_REG_ARM_CORE_REG(fp_regs.vregs[%lld])", idx);
+ 	case KVM_REG_ARM_CORE_REG(fp_regs.fpsr):
+ 		return "KVM_REG_ARM_CORE_REG(fp_regs.fpsr)";
+ 	case KVM_REG_ARM_CORE_REG(fp_regs.fpcr):
+@@ -212,13 +199,13 @@ static const char *sve_id_to_str(struct vcpu_config *c, __u64 id)
+ 		n = (id >> 5) & (KVM_ARM64_SVE_NUM_ZREGS - 1);
+ 		TEST_ASSERT(id == KVM_REG_ARM64_SVE_ZREG(n, 0),
+ 			    "%s: Unexpected bits set in SVE ZREG id: 0x%llx", config_name(c), id);
+-		return str_with_index("KVM_REG_ARM64_SVE_ZREG(##, 0)", n);
++		return strdup_printf("KVM_REG_ARM64_SVE_ZREG(%lld, 0)", n);
+ 	case KVM_REG_ARM64_SVE_PREG_BASE ...
+ 	     KVM_REG_ARM64_SVE_PREG_BASE + (1ULL << 5) * KVM_ARM64_SVE_NUM_PREGS - 1:
+ 		n = (id >> 5) & (KVM_ARM64_SVE_NUM_PREGS - 1);
+ 		TEST_ASSERT(id == KVM_REG_ARM64_SVE_PREG(n, 0),
+ 			    "%s: Unexpected bits set in SVE PREG id: 0x%llx", config_name(c), id);
+-		return str_with_index("KVM_REG_ARM64_SVE_PREG(##, 0)", n);
++		return strdup_printf("KVM_REG_ARM64_SVE_PREG(%lld, 0)", n);
+ 	case KVM_REG_ARM64_SVE_FFR_BASE:
+ 		TEST_ASSERT(id == KVM_REG_ARM64_SVE_FFR(0),
+ 			    "%s: Unexpected bits set in SVE FFR id: 0x%llx", config_name(c), id);
+diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
+index a6e9f215ce70..7e0182f837b5 100644
+--- a/tools/testing/selftests/kvm/include/test_util.h
++++ b/tools/testing/selftests/kvm/include/test_util.h
+@@ -186,4 +186,6 @@ static inline uint32_t atoi_non_negative(const char *name, const char *num_str)
+ 	return num;
+ }
+ 
++char *strdup_printf(const char *fmt, ...) __attribute__((format(printf, 1, 2), nonnull(1)));
++
+ #endif /* SELFTEST_KVM_TEST_UTIL_H */
+diff --git a/tools/testing/selftests/kvm/lib/test_util.c b/tools/testing/selftests/kvm/lib/test_util.c
+index b772193f6c18..3e36019eeb4a 100644
+--- a/tools/testing/selftests/kvm/lib/test_util.c
++++ b/tools/testing/selftests/kvm/lib/test_util.c
+@@ -5,6 +5,9 @@
+  * Copyright (C) 2020, Google LLC.
+  */
+ 
++#define _GNU_SOURCE
++#include <stdio.h>
++#include <stdarg.h>
+ #include <assert.h>
+ #include <ctype.h>
+ #include <limits.h>
+@@ -377,3 +380,15 @@ int atoi_paranoid(const char *num_str)
+ 
+ 	return num;
+ }
++
++char *strdup_printf(const char *fmt, ...)
++{
++	va_list ap;
++	char *str;
++
++	va_start(ap, fmt);
++	vasprintf(&str, fmt, ap);
++	va_end(ap);
++
++	return str;
++}
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
