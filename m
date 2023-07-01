@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA35C001B0
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 08:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2C0EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 08:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lYTpSMDSAjBibHXOunzgIvBdn8mMRSYoN9fd63R/nGc=; b=a/zTE9zHYLjl+1
-	lKlIboTj8cXJ0yp2iVXcO3le3/FwNjOVEkIYnilUu+UfPtTJezwdhDistCPoLCkoZiObBIm52usc/
-	DMnGNEmHulW39XtXUBHoaaPgvbRFzgSndz10bJXONxnu9Et5sY1EySJO7GZxZ7lPhSgvax1nT5z2U
-	KkyW4gIr6cMnTQc8rjz11FeEhUKp1m8G9pJ/H3fBNmHJzW1bIMXguS+AwzXO7toVhO9dPlgPQuil4
-	llJQgvGQMld2Fr24s8ih6NgvbFHI9s2+Vo6OUknWknu1LMMkmlVGBLNZR9FSTFGjrn1LGfnhu2pM9
-	iVLBjGS4lKq9VSxabWow==;
+	List-Owner; bh=fedB6iPpHa7fe8lWrjfbXALhkylVmpXyZz8au7kV2iI=; b=oHf2GeOv6Ekjwf
+	uBPh1BYoQ4p6MqVjpTFJ/ZWHiZSqGZRscUxZEG6DV/t929CSk12PwTkaMcahX3sgwE5UBXW8wq7ys
+	aCHSXT1vUN+uWWdIgPwTRudZvQUyF0P0YF9/G7RaXZK3eoK9UNvikRjYZl/If5bc32lms3vFVgYZE
+	ENz4mViQ2zA11C+KXOV53Z4aKEFwBkoP7t+h/AmRPQTrs8aft2hGWgdQuPGWAeVAjjDnuE5p/+yZu
+	U+C2VAz4Wz01OEm/wqkzXB8Cclex8nysjw1jkGaiBteCns7eH+kkC08RyQ/hh6DU6oOfWyXZNu1ge
+	l34mA2lfeYg9bvnvkhYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFVnp-005Rit-2s;
-	Sat, 01 Jul 2023 08:17:57 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1qFVsF-005SCt-1U;
+	Sat, 01 Jul 2023 08:22:31 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFVnn-005RiR-10
+	id 1qFVsD-005SCQ-1A
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Jul 2023 08:17:56 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-992ace062f3so300722566b.2
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Jul 2023 01:17:54 -0700 (PDT)
+	Sat, 01 Jul 2023 08:22:30 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-98e109525d6so478834066b.0
+        for <linux-riscv@lists.infradead.org>; Sat, 01 Jul 2023 01:22:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1688199473; x=1690791473;
+        d=linaro.org; s=google; t=1688199747; x=1690791747;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=nFUtqRuFYxZPNfD4i3kr3X3ptU2+o2FOiAEweLLRh0Y=;
-        b=hZ/FFeqa4g54JerJ53qoyxU4QTmUnUf0v73u41e+vOdiGZyUnWeNIEbTY9zWw4XMQw
-         zX2EuskfWe+XkRlT71jQ/Imrl935VrguDYwH/WJAC6FgSzab8UDCYWrLrjfpaV5+mcEx
-         4vjRkfjXAzH8mjoZyJvU6x0Ms+Qxl+jZqu9S7m3AQtatRtdY4C3jxzFPj1iNK9j7tvsj
-         fiS79qaZO6xV8jW4vvzP6xdrGYKSsjN4qM4hv01/6t6X6bNKti8xozXaZAEsDIvpgXT5
-         CEP1COSjeAsWkkylM7qBrO5SfimMr8i59FAO7XMV/o8vqa2s1MfsNPE+6Xqc69fDc5C1
-         C7Qg==
+        bh=gMzN5ldrDLudsFTYrIWTDNOwJnSoomZPJebktTnoU4I=;
+        b=z0vr7th4jrnuqwOOGzCSY6B5JNYPSI9Q1lAB5/LAiCsFLpgAeHlZ9AP0z3cjr2grLr
+         10l6wNeJX6XhSKFFjLl9yqKhmuQMZ5///4QLfTrb9Ctwa7DjXs75TxJFGTpwuGR9fggH
+         egDYhRbJuK7VooVdV+BHbDNF8uRt8h+WIp4+2eI9R4NNO9EvdJQLu5FFk7agf80rdsvw
+         6PFEGk8iC/GhsdXH93Z+EKtepKkCgj26eQevb3URGojIfPgReTD1tcZ0zpa0Gh2TPopR
+         pZDCSaMSd2VhCWVQV4USmsOmFUib+gIvSyi7cZf07sxN37OQdqQwARTdFK+1JBPSBcXL
+         F3Kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688199473; x=1690791473;
+        d=1e100.net; s=20221208; t=1688199747; x=1690791747;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nFUtqRuFYxZPNfD4i3kr3X3ptU2+o2FOiAEweLLRh0Y=;
-        b=hhZnZrVJAoJEF7AIFcc7g0dFyai6ZSSJKSrsSz0qgkpfeN98em8KUhiXrkj0AzpV78
-         xlanUwbhb3t5xFJqqC9Fqk9TVYDSr7Yqp3Qu2iQg4MtEeALyD+It/Gw+Osn4uP87teFV
-         cKFQfx2qa/3rUuB3JRTpYQwM/6wQquQSWjoOxLbdsLrOPqCFPr1muAjmx6GKOt/SMIVa
-         2FwgTaM6j+sNDMRyYKX872XRrww8oyIkSGuJmgv05YOYpTLuwQOlcw2nVlCQHs/MSx1X
-         6CLYGGZV/dOhYPUbioagghKpaTlF/EwinWloagQgq0YFgB41tLJtYaC6wicwLw/USCEz
-         V+XQ==
-X-Gm-Message-State: ABy/qLb6m2onxQOJQLAbDFpgvEcYyToR8Digz6assMjSGqYYcIRFntAn
-	kJZkJmX3UHHfyaXi7zljzpmdpw==
-X-Google-Smtp-Source: APBJJlHl6fEgoqPBsy1ZFFH2uK0Gpmfi0RiZj0Uiu8sQs4UkbbfdT3pVNRrhM6i2vh5cofEh0GFVtQ==
-X-Received: by 2002:a17:906:3650:b0:974:1d8b:ca5f with SMTP id r16-20020a170906365000b009741d8bca5fmr3422697ejb.9.1688199473199;
-        Sat, 01 Jul 2023 01:17:53 -0700 (PDT)
+        bh=gMzN5ldrDLudsFTYrIWTDNOwJnSoomZPJebktTnoU4I=;
+        b=dRCk/NLYzdqbtBhtxyFFOtwNdEw9xaGcIvYsEgK6EkNIsMTVZd7r/Q9+6Atr614qsP
+         2ppASjmrq0+Tyc2ZPIAV06JlVPrslcC5jUpPj91K02lv7+vC/1f0VuuImW4dUuI4Iz0j
+         LlQFbzEWn2dUSv0+UJD277CYZhD0n+xoBDhaVuYEm0KF577NKE+uMy27wsJpsuDM5TIs
+         rRSu3emB1l9+JnMKzPkdHStQ6P9XjI1+747TNc1vIn5xjNBZezfX0nvXgvWxIL3VbyhQ
+         LtexPRwvhkTVbMJzOzgTWi2pFkV5IkgQixgGnmcUuUWUmqsFaovWaJdNrNkAqNJfXLo/
+         4Eeg==
+X-Gm-Message-State: ABy/qLalbBCLuT95cEb/lRUsa9U8gP9y37B05ugWyPWiROHoyJ1Svf94
+	8lNdiMNguUg3a88pT38JUPEhuA==
+X-Google-Smtp-Source: APBJJlHQQAoTBEsW/Bor8efMuJEWqdkdKXwXOik6r7upNjbyBabBfFtmqbgej0SUq+B2EXp04+tBXg==
+X-Received: by 2002:a17:907:212a:b0:992:6d73:5696 with SMTP id qo10-20020a170907212a00b009926d735696mr4386219ejb.5.1688199747015;
+        Sat, 01 Jul 2023 01:22:27 -0700 (PDT)
 Received: from [192.168.10.214] ([217.169.179.6])
-        by smtp.gmail.com with ESMTPSA id jj25-20020a170907985900b00992b1c93279sm2693469ejc.110.2023.07.01.01.17.51
+        by smtp.gmail.com with ESMTPSA id b27-20020a170906195b00b00991e2b5a27dsm6356217eje.37.2023.07.01.01.22.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 01 Jul 2023 01:17:52 -0700 (PDT)
-Message-ID: <c0244a98-4c91-93d8-a3e4-5210d0b3f205@linaro.org>
-Date: Sat, 1 Jul 2023 10:17:51 +0200
+        Sat, 01 Jul 2023 01:22:26 -0700 (PDT)
+Message-ID: <f5275617-d68c-c76b-d799-106f67cc2071@linaro.org>
+Date: Sat, 1 Jul 2023 10:22:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.12.0
-Subject: Re: [PATCH v1 1/5] ASoC: dt-bindings: Add StarFive JH7110 dummy
- PWM-DAC transmitter
+Subject: Re: [PATCH 3/3] dt-bindings: riscv: sifive: Add SiFive Private L2
+ cache controller
 Content-Language: en-US
-To: Hal Feng <hal.feng@starfivetech.com>, Mark Brown <broonie@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor@kernel.org>, Walker Chen <walker.chen@starfivetech.com>,
- Xingyu Wu <xingyu.wu@starfivetech.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20230626110909.38718-1-hal.feng@starfivetech.com>
- <20230626110909.38718-2-hal.feng@starfivetech.com>
- <006ddacd-0496-70d1-3310-99b16706de84@linaro.org>
- <0312262c-28c0-9445-c6f7-2079a57db8c7@starfivetech.com>
+To: Eric Lin <eric.lin@sifive.com>
+Cc: conor@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dslin1010@gmail.com,
+ Zong Li <zong.li@sifive.com>, Nick Hu <nick.hu@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+References: <20230616063210.19063-1-eric.lin@sifive.com>
+ <20230616063210.19063-4-eric.lin@sifive.com>
+ <2437bda9-bbdb-ad80-7201-1e16e1388890@linaro.org>
+ <CAPqJEFoTsmVZ4kvsSB0RkQZaQGyXC96KV6RvdpeC5XxURCOZ0w@mail.gmail.com>
+ <8c9ed2d4-83ab-ecc0-a300-e6bc8e2047b6@linaro.org>
+ <CAPqJEFqhmxksvEgvC61cJcRGR0DrSWDZxJC3J7tdgcG8UY+sFw@mail.gmail.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <0312262c-28c0-9445-c6f7-2079a57db8c7@starfivetech.com>
+In-Reply-To: <CAPqJEFqhmxksvEgvC61cJcRGR0DrSWDZxJC3J7tdgcG8UY+sFw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230701_011755_384488_1C16AA50 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20230701_012229_426628_75093EAE 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,35 +104,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/06/2023 03:57, Hal Feng wrote:
-> On Mon, 26 Jun 2023 17:34:56 +0200, Krzysztof Kozlowski wrote:
->> On 26/06/2023 13:09, Hal Feng wrote:
->>> Add bindings for StarFive JH7110 dummy PWM-DAC transmitter.
->>
->> ...
->>
->>> +required:
->>> +  - compatible
->>> +  - "#sound-dai-cells"
->>> +
->>> +additionalProperties: false
->>> +
->>> +examples:
->>> +  - |
->>> +    pwmdac-dit {
->>> +        compatible = "starfive,jh7110-pwmdac-dit";
->>> +        #sound-dai-cells = <0>;
->>
->> BTW, I don't see any resources here. Neither in the driver. I think you
->> just added this for driver, not for a real hardware.
-> 
-> Yes, this is a dummy PWM-DAC transmitter as described in the title. The
-> StarFive JH7110 PWM-DAC module doesn't need a hardware codec, but a
-> dummy codec is needed for the driver.
+On 28/06/2023 18:31, Eric Lin wrote:
 
-Bindings are no for drivers, therefore with such reasoning the answer
-is: drop entire binding. If you think otherwise, please give me some
-more details about the hardware.
+>>>>
+>>>>> +      - enum:
+>>>>> +          - sifive,pL2Cache0
+>>>>> +          - sifive,pL2Cache1
+>>>>
+>>>> What is "0" and "1" here? What do these compatibles represent? Why they
+>>>> do not have any SoC related part?
+>>>
+>>> The pL2Cache1 has minor changes in hardware, but it can use the same
+>>> pl2 cache driver.
+>>
+>> Then why aren't they compatible?
+>>
+> 
+> The pL2Cache1 has removed some unused bits in the register compared to
+> pl2Cache0.
+> From the hardware perspective, they are not compatible but they can
+> share the same pl2 cache driver in software.
+
+So they are compatible... If they were not compatible, you wouldn't be
+able to use the same match in the driver.
+
+> Thus, we would like to keep both. It would be great if you can provide
+> some suggestions. Thanks.
+
+I propose to make them compatible, like every other piece of SoC. I
+don't see any benefit of having them separate.
 
 Best regards,
 Krzysztof
