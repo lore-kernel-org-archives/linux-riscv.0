@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBFEC0015E
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 14:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47005EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 15:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5FQrJPw532vMIFBfbn715SXpK4+E7NWE17vhkb0HZ+E=; b=w7uEMb3y8a80Fg
-	imzuGWrg6fI/jnBPqLiGEgDpWFnbhWnyKTX3Cdew1ZIzBwFjqC0tasPOVjskF3gWdIz37AcsfkhhE
-	bbb7WfvJVX9Qkk7fOwjwhWJ5YvAxO7q1Gg7yOk8CyVtwkV4VEyaZ6/RN1V6Dnk4Hyex4IGp2jMv2s
-	fMfySc+Pfth+5tB3l68B+Aq3AmvK8I5NYFnMOUZcO+MYy5Jk6VmnF6qEUYmc1uLCnqarZ6z9RQCsJ
-	XtCRE+KwMZjp7f/VAMbhh1k+soxZt+reHV4DWhUn2S42+ia8+dGKrW9nbS8EE5W4eOXjQbpIFV/oq
-	pH2UafFyqAeleEpQo5EQ==;
+	List-Owner; bh=bpCiVpjcPTaF5Gm4+spKYPzCc6/j4PrWR7Gazon5q/E=; b=XTShll/SATExoX
+	8/keHUC+cl+PVj3nDdgO3nrWpJrzgykTB2pAvgRdy0BnZdhUjt3kahqacHQRU5PDpH1La3DZwCnBN
+	slzFJ6PfhC0yrGCbncuITCi7gDGaqwhPbwg6BBdRwadsWYhMbgvTCmBSgwy3FoaejH7+lw7MUKHBq
+	BqRwzEDYyefODX8SRBO58B7hfqR7a9ySgOHnefHZn/TORKaVL9+ifBV5k+e/H4l9I7ou/oP2sRduZ
+	y2T43PBwMHAMNl2dB/jTs9qB9D4P/0qWfPLVJC3RaF+xC9biTzVSDh9zFMjMGnqytdIu2EtHmHwdX
+	y3T1/f/rKpKTjNHx5Bdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFbyz-006BmG-34;
-	Sat, 01 Jul 2023 14:53:53 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1qFcme-006FIf-0T;
+	Sat, 01 Jul 2023 15:45:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFbyx-006Bkk-1N
+	id 1qFcmb-006FGn-08
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Jul 2023 14:53:52 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-51d804c7d14so3053171a12.3
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Jul 2023 07:53:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1688223229; x=1690815229;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4z5avgOZM94E55xJX5yHh1jEBdl/Nv8eTHj3o1PmFnI=;
-        b=IqkaY/63sYcOG0vwtmF02wpU+mNr/gP2fHYz9of1UNY2Q45RQUGKnr0nycE74z3Vq+
-         vRH+iq/bEWHzZQJFNk5D1eABcSm/7HMxFYJiaIg+wuXbW55cwpQiwwq7ZbxPO2QlnkIj
-         9iVfVrEWAevgKZSOtWpo/0swSzpiq3/5R0+5tvpX1ycDHSi/sX9HFmLv96haLzn08jMc
-         DY4baiQluiuE8NdVxL1tqe/WSUZ5z1uxB9P1GEc7MeQjDLyJWrhwO9i9VTqG5iE4w+Nj
-         cKCOO9fcg9SfxcuWGrOsZkI7RcxYFElB3npOI1snh4RreMoNrKyv6N+PeDCQ9R1qg56C
-         GLsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688223229; x=1690815229;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4z5avgOZM94E55xJX5yHh1jEBdl/Nv8eTHj3o1PmFnI=;
-        b=bQaFKde0f9ftIjNlzgjeK4pP5AO2QCyVjsN/gp7kMJTWK0plQ4LKKzxX/TYMV0hpkm
-         IvHKNIvWK+EI08LlgQ8OYQd7ojEMMoT/P/YkvZfs7onPQH8O8Mv13+FsSp3ik6TZSbKp
-         sPn1KI7YNLUKrb6/8Rcse0uSFCOpdFe0/gHlcs/3zqxFH1eyz50CO1nLXfx6wRK/ewRA
-         KLCFvqaABFEMpdVUl8D5D0VoLO2MaNO/LzI4hE6z6RtKk03hccUCNgMrEnR00TtpaCWN
-         4RGtiDjvbQa7zxjW79i+mRZ3Vw9hbFSsQYUjgFza75Em7LDQdXNPwNAanrsOSX/7BT85
-         RPwQ==
-X-Gm-Message-State: AC+VfDyuKXTIKYliaHnRpIxK8YPjsNCuh2r/2K5Cy6MgoJ+d8EZZBU+1
-	52tAUNoXYVnk45AE1F72PqHLQA==
-X-Google-Smtp-Source: APBJJlFbTncNQknWuK6Y34dd/Vq9wobBPzkzq5+JVS2JfwhQSw4EsBA/mzFykhnRWmdndPeE2HFOZQ==
-X-Received: by 2002:a17:906:4093:b0:992:a85d:278b with SMTP id u19-20020a170906409300b00992a85d278bmr3179852ejj.59.1688223228877;
-        Sat, 01 Jul 2023 07:53:48 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id lf1-20020a170907174100b0098d2261d189sm1025110ejc.19.2023.07.01.07.53.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Jul 2023 07:53:48 -0700 (PDT)
-Date: Sat, 1 Jul 2023 16:53:47 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Haibo Xu <haibo1.xu@intel.com>
-Cc: xiaobo55x@gmail.com, maz@kernel.org, oliver.upton@linux.dev, 
-	seanjc@google.com, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Ricardo Koller <ricarkol@google.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Vipin Sharma <vipinsh@google.com>, 
-	David Matlack <dmatlack@google.com>, Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v5 00/13] RISCV: Add KVM_GET_REG_LIST API
-Message-ID: <20230701-e1bff47a0ed38ec3ab6ca252@orel>
-References: <cover.1688010022.git.haibo1.xu@intel.com>
+	Sat, 01 Jul 2023 15:45:10 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0DDD260ACE;
+	Sat,  1 Jul 2023 15:45:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5DCC5C433C9;
+	Sat,  1 Jul 2023 15:45:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688226304;
+	bh=ra42rcphL7tKW7I45Ex8nV8bC3r82UuPkw0dfoyiW7w=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=mmGzBb8jTH4fWOy+MNZiXnhPYutdgMzfYBZLCgmZ/ahpceab/0Cqy3s+SSNxK5QVE
+	 U4tAJr2SSY0YOAocXGfYFWzSKL8xOCHEyEv+8sIIWM8j5zNAm9bQd8Q9JjvzXUKWFW
+	 vFQF6ixBc15d41oYC12IADIsWOFfZVKUp+MFdCSiYP0fkZ3UNedNctHuEjVsjO5cp7
+	 oygFROQHAp1ArGWdQYnV/5rQ/CVmBE/tuW8Eny1KTa/b5C1/+SDBPghstrwU2hYk/j
+	 RrHrXE6tg7B504hYC5s4HPy5hb7cUcdWkr4tJAoVPmcxXdEDpYmbNGnkCWF5gyXkxI
+	 C2t0aIRX2B43g==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 3EEDEC6445B;
+	Sat,  1 Jul 2023 15:45:04 +0000 (UTC)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1688010022.git.haibo1.xu@intel.com>
+Subject: Re: [PATCH v6 00/11] Add STG/ISP/VOUT clock and reset drivers for
+ StarFive JH7110
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <168822630425.22742.10407688185048619244.git-patchwork-notify@kernel.org>
+Date: Sat, 01 Jul 2023 15:45:04 +0000
+References: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230518101234.143748-1-xingyu.wu@starfivetech.com>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ mturquette@baylibre.com, sboyd@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ p.zabel@pengutronix.de, conor@kernel.org, kernel@esmil.dk,
+ robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, hal.feng@starfivetech.com,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230701_075351_464168_F48049E3 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20230701_084509_161477_E019F46C 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,40 +82,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 01, 2023 at 09:42:48PM +0800, Haibo Xu wrote:
-> KVM_GET_REG_LIST will dump all register IDs that are available to
-> KVM_GET/SET_ONE_REG and It's very useful to identify some platform
-> regression issue during VM migration.
+Hello:
+
+This series was applied to riscv/linux.git (fixes)
+by Conor Dooley <conor.dooley@microchip.com>:
+
+On Thu, 18 May 2023 18:12:23 +0800 you wrote:
+> This patch serises are base on the basic JH7110 SYSCRG/AONCRG
+> drivers and add new partial clock drivers and reset supports
+> about System-Top-Group(STG), Image-Signal-Process(ISP)
+> and Video-Output(VOUT) for the StarFive JH7110 RISC-V SoC. These
+> clocks and resets could be used by DMA, VIN and Display modules.
 > 
-> Patch 1-7 re-structured the get-reg-list test in aarch64 to make some
-> of the code as common test framework that can be shared by riscv.
+> Patches 1 and 2 are about the System-Top-Group clock and reset
+> generator(STGCRG) part. The first patch adds docunmentation to
+> describe STG bindings, and the second patch adds clock driver to
+> support STG clocks and resets as auxiliary device for JH7110.
 > 
-> Patch 8 move reject_set check logic to a function so as to check for
-> different errno for different registers.
-> Patch 9 move finalize_vcpu back to run_test so that riscv can implement
-> its specific operation.
-> Patch 10 change to do the get/set operation only on present-blessed list.
-> Patch 11 add the skip_set facilities so that riscv can skip set operation
-> on some registers.
-> Patch 12 enabled the KVM_GET_REG_LIST API in riscv.
-> patch 13 added the corresponding kselftest for checking possible
-> register regressions.
-> 
-> The get-reg-list kvm selftest was ported from aarch64 and tested with
-> Linux v6.4 on a Qemu riscv64 virt machine.
+> [...]
 
-Hi Haibo,
+Here is the summary with links:
+  - [v6,01/11] dt-bindings: clock: Add StarFive JH7110 System-Top-Group clock and reset generator
+    (no matching commit)
+  - [v6,02/11] clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
+    (no matching commit)
+  - [v6,03/11] dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and reset generator
+    (no matching commit)
+  - [v6,04/11] clk: starfive: Add StarFive JH7110 Image-Signal-Process clock driver
+    (no matching commit)
+  - [v6,05/11] dt-bindings: clock: Add StarFive JH7110 Video-Output clock and reset generator
+    (no matching commit)
+  - [v6,06/11] clk: starfive: Add StarFive JH7110 Video-Output clock driver
+    (no matching commit)
+  - [v6,07/11] MAINTAINERS: Update maintainer of JH71x0 clock drivers
+    (no matching commit)
+  - [v6,08/11] reset: starfive: jh7110: Add StarFive STG/ISP/VOUT resets support
+    (no matching commit)
+  - [v6,09/11] riscv: dts: starfive: jh7110: add pmu controller node
+    https://git.kernel.org/riscv/c/6a887bcc4138
+  - [v6,10/11] riscv: dts: starfive: jh7110: Add DVP and HDMI TX pixel external clocks
+    (no matching commit)
+  - [v6,11/11] riscv: dts: starfive: jh7110: Add STGCRG/ISPCRG/VOUTCRG nodes
+    (no matching commit)
 
-This series needs a rebase on top of these recent patches
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
- commit ee053e03b08e ("KVM: selftests: get-reg-list: support ID register features")
- commit 5f0419a0083b ("KVM: selftests: get-reg-list: add Permission Indirection registers")
 
-The conflicts will be in my patches, which do the splitting of the test.
-I'll do the rebase and push it to a branch for you to pick up.
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
