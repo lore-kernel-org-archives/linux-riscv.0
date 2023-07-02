@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E45CEB64DA
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Jul 2023 18:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA6EEB64D9
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Jul 2023 18:51:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VGD09fRJ30FYNJ00zgBnGBRxRW+pXpt/Na5PHVj8qNE=; b=X3N7jOAZf27SfA
-	Qugv5RAyAgUXraiGY1yu1iGmrXG9zIyHaN5EvPCYoQeegH77XjqJQg4Kq3iYpGRkSDMr0n72cExCp
-	1N+0m0ZyA8l4CVamQLEr+NgkI574Ls5NUtC9f/RMuejohUDkkb2lxhyE+8LNEecegNbFMQSch4brx
-	xHlKNPY5UIQiDWUF5z9pd96DIWFXWBwhBiGKQxSjeCanl/qRePykMlzPqTGJxVSUO8KQjvPMGN6aS
-	e54OOdGEEOXh04CcBRDDZgVExUF7yqTQIRDNMXVPvQn/co0xw0lqh9YcfstzSA4rSUHoxAmQrsUyw
-	B7SxO3cA+WteosmoPg2g==;
+	List-Owner; bh=r5iwuMfHbN9r7eFHYvAa9sclGxeSWtdO/jdF6vOGOsk=; b=L0tHm2eFEGYBmT
+	I07nIY9qVi6lm7sJk8SYc7B9CCMnhou/PD+ApyHRET6L9OqcRl9bltU7fIt5Vpdd+giGKHG9badIS
+	3WpLMD+zQma5CvFY1z2Zhw7tVbOgZoA7yLLVLON8E/siX+agOcc2tBLdyK3T3lXJrIUfLSwKlJ6SV
+	vpV7qs70/g3ClGMt/+u//DXxU2C9rgK1Np5BUW5ynB8X5r/jbAtDI9wmWfXDPqmmRCrvj1otiCOHA
+	Q3Z9tBxN5KNsoMWZfsW5SKc0pfILsq5KZkO9TJqpuhEtao2J9r4x0uwx30uv9suPe/Koa/BTV7KhN
+	6DKrp9J56SttoCI4rQYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qG24G-008Mk8-1d;
-	Sun, 02 Jul 2023 18:45:04 +0000
+	id 1qG2A7-008Nia-1w;
+	Sun, 02 Jul 2023 18:51:07 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qG24C-008Mii-0b
+	id 1qG2A4-008Ngu-07
 	for linux-riscv@lists.infradead.org;
-	Sun, 02 Jul 2023 18:45:02 +0000
+	Sun, 02 Jul 2023 18:51:06 +0000
 Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 362IirQm017346;
-	Sun, 2 Jul 2023 20:44:53 +0200
-Date: Sun, 2 Jul 2023 20:44:53 +0200
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 362Ioxts017366;
+	Sun, 2 Jul 2023 20:50:59 +0200
+Date: Sun, 2 Jul 2023 20:50:59 +0200
 From: Willy Tarreau <w@1wt.eu>
 To: Zhangjin Wu <falcon@tinylab.org>
 Cc: thomas@t-8ch.de, arnd@arndb.de, david.laight@aculab.com,
         linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
         linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 06/14] tools/nolibc: arch-*.h: clean up multiple
- whitespaces
-Message-ID: <20230702184453.GF16233@1wt.eu>
+Subject: Re: [PATCH v5 07/14] tools/nolibc: arch-loongarch.h: shrink with
+ SYSCALL_CLOBBERLIST
+Message-ID: <20230702185059.GG16233@1wt.eu>
 References: <cover.1687957589.git.falcon@tinylab.org>
- <eb4c7a381cf856c9d8e7d679b28507a258cab26a.1687957589.git.falcon@tinylab.org>
+ <a906a8e5bb39d88fee89be8f2bca8bf62307d468.1687957589.git.falcon@tinylab.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <eb4c7a381cf856c9d8e7d679b28507a258cab26a.1687957589.git.falcon@tinylab.org>
+In-Reply-To: <a906a8e5bb39d88fee89be8f2bca8bf62307d468.1687957589.git.falcon@tinylab.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230702_114500_691005_9E93C4AD 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20230702_115104_916789_43C67DA6 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,46 +64,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Zhangjin,
-
-On Wed, Jun 28, 2023 at 09:19:33PM +0800, Zhangjin Wu wrote:
-> To align with Linux code style and let scripts/checkpatch.pl happy, the
-> multiple whitespaces in arch-<ARCH>.h files are cleaned up.
+On Wed, Jun 28, 2023 at 09:22:21PM +0800, Zhangjin Wu wrote:
+> my_syscall<N> share a same long clobber list, define a macro for them.
 > 
-> Most of them are modified by these commands automatically:
+> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
+> ---
+>  tools/include/nolibc/arch-loongarch.h | 25 +++++++++++--------------
+>  1 file changed, 11 insertions(+), 14 deletions(-)
 > 
->     $ sed -i -e '/#define my_syscall/,/})/{s/        /\t/g}' tools/include/nolibc/arch-*.h
->     $ sed -i -e '/#define my_syscall/,/})/{s/ *\\$/\t\\/g}' tools/include/nolibc/arch-*.h
-> 
-> And checked with:
-> 
->     $ grep '  *\\$' tools/include/nolibc/arch-*.h
+> diff --git a/tools/include/nolibc/arch-loongarch.h b/tools/include/nolibc/arch-loongarch.h
+> index 292d6a58dc87..fbb4844f7993 100644
+> --- a/tools/include/nolibc/arch-loongarch.h
+> +++ b/tools/include/nolibc/arch-loongarch.h
+> @@ -23,6 +23,10 @@
+>   */
+>  #define __ARCH_WANT_SYS_PSELECT6
+>  
+> +#define SYSCALL_CLOBBERLIST			\
+> +	"memory", "$t0", "$t1", "$t2", "$t3",	\
+> +	"$t4", "$t5", "$t6", "$t7", "$t8"
+> +
 
-I'm surprised by this one, I never saw checkpatch complain here. For me,
-putting a tab after a non-tab is an error. It makes the code harder to
-edit and re-align, and diffs are harder to read on lines whose lengths
-varies by +/-1 around a multiple of 8 as it makes the post-tab stuff
-zigzag. You made me recheck the coding style file, and there's nothing
-about alignment there, only about indent (and indent uses tabs here).
-There are also other parts which use spaces for alignment (albeit not
-that many), so unless there is a solid reason for changing that, I'd
-rather not do it, as for me it's the exact opposite of a cleanup as it
-will cause me quite some discomfort.
+That's a good idea, but please be careful when adding macro definitions,
+we're in code that is used by user space we have no control on, and we're
+polluting the end user's macro namespace with plenty of names. While one
+could argue that it's unlikely that some program already defines and uses
+SYSCALL_CLOBBERLIST, actually with low-level code it's fairly possible.
 
-> Besides, more multiple whitespaces are cleaned up:
-> 
-> - convert "__asm__  volatile" to "__asm__ volatile"
-
-I totally agree on this one, it's very likely the result of a mechanical
-change.
-
-> - "foo _num  bar" should be "foo _num bar"
-
-In theory yes, except that for those where it appears it was only to
-keep all declarations aligned given that this _num was shorter by one
-char than all other local names. Especially when it comes to enumerating
-register names, you definitely want to keep them aligned. It's sufficiently
-difficult to avoid mistakes there, any help for visual check counts.
+Till now most of the definitions were for stuff that user-space really
+needs (e.g. STDIN_FILENO, various integer limits). If we start to declare
+random macros for internal use, at least we should probably prefix them
+with _NOLIBC_ or something like this to avoid the risk of collision.
 
 Willy
 
