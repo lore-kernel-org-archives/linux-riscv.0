@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA6EEB64D9
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Jul 2023 18:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC46EB64D9
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Jul 2023 18:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r5iwuMfHbN9r7eFHYvAa9sclGxeSWtdO/jdF6vOGOsk=; b=L0tHm2eFEGYBmT
-	I07nIY9qVi6lm7sJk8SYc7B9CCMnhou/PD+ApyHRET6L9OqcRl9bltU7fIt5Vpdd+giGKHG9badIS
-	3WpLMD+zQma5CvFY1z2Zhw7tVbOgZoA7yLLVLON8E/siX+agOcc2tBLdyK3T3lXJrIUfLSwKlJ6SV
-	vpV7qs70/g3ClGMt/+u//DXxU2C9rgK1Np5BUW5ynB8X5r/jbAtDI9wmWfXDPqmmRCrvj1otiCOHA
-	Q3Z9tBxN5KNsoMWZfsW5SKc0pfILsq5KZkO9TJqpuhEtao2J9r4x0uwx30uv9suPe/Koa/BTV7KhN
-	6DKrp9J56SttoCI4rQYg==;
+	List-Owner; bh=rUiVz919OVnGpAQUSK6tUHZJrT0cAva8cgvgPXx7Pxo=; b=33isd5Vgjm601B
+	PXkD4Gh/Y4cwgWyPwxIF2hGT6fLBuQcznrs0I8nmwVIRQyWtNAll1tmjMGxGamBPXekktVJkLN/LL
+	4ODS9HIhGltOmXQ/pTE0MylGl/2Hf0S8efz+grCLoPNn1OVc3qnjMot0LdJXx7c2Az3T16zYJZV/n
+	GHjy9SAZTJluEyT6Qfgo4Ufkb0bpR/E2hlC4w8q7x4Q3kKkrIo4CL2z/M7PCLPcuXpbA9JMIFuH76
+	8A2/lLDTxu5lGPEU3iafdLpWEuBLRvsrHq6o26SKkRfAubRM5RXu0Kmj5POXoUkvdaIZ4YGiD6R3H
+	Jsiv/Wd5McqUKrVOFSzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qG2A7-008Nia-1w;
-	Sun, 02 Jul 2023 18:51:07 +0000
+	id 1qG2Em-008PRg-1D;
+	Sun, 02 Jul 2023 18:55:56 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qG2A4-008Ngu-07
+	id 1qG2Ej-008PR1-24
 	for linux-riscv@lists.infradead.org;
-	Sun, 02 Jul 2023 18:51:06 +0000
+	Sun, 02 Jul 2023 18:55:55 +0000
 Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 362Ioxts017366;
-	Sun, 2 Jul 2023 20:50:59 +0200
-Date: Sun, 2 Jul 2023 20:50:59 +0200
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 362Itnlj017400;
+	Sun, 2 Jul 2023 20:55:49 +0200
+Date: Sun, 2 Jul 2023 20:55:49 +0200
 From: Willy Tarreau <w@1wt.eu>
 To: Zhangjin Wu <falcon@tinylab.org>
 Cc: thomas@t-8ch.de, arnd@arndb.de, david.laight@aculab.com,
         linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
         linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 07/14] tools/nolibc: arch-loongarch.h: shrink with
- SYSCALL_CLOBBERLIST
-Message-ID: <20230702185059.GG16233@1wt.eu>
+Subject: Re: [PATCH v5 09/14] tools/nolibc: add missing my_syscall6() for mips
+Message-ID: <20230702185549.GH16233@1wt.eu>
 References: <cover.1687957589.git.falcon@tinylab.org>
- <a906a8e5bb39d88fee89be8f2bca8bf62307d468.1687957589.git.falcon@tinylab.org>
+ <5089ddd75a7cb01486f664c025876c803fe26d5b.1687957589.git.falcon@tinylab.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <a906a8e5bb39d88fee89be8f2bca8bf62307d468.1687957589.git.falcon@tinylab.org>
+In-Reply-To: <5089ddd75a7cb01486f664c025876c803fe26d5b.1687957589.git.falcon@tinylab.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230702_115104_916789_43C67DA6 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20230702_115553_968945_B9E5DA9B 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,38 +64,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 28, 2023 at 09:22:21PM +0800, Zhangjin Wu wrote:
-> my_syscall<N> share a same long clobber list, define a macro for them.
+Hi Zhangjin,
+
+On Wed, Jun 28, 2023 at 09:37:29PM +0800, Zhangjin Wu wrote:
+> It is able to pass the 6th argument like the 5th argument via the stack
+> for mips, let's add a new my_syscall6() now, see [1] for details:
 > 
-> Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
-> ---
->  tools/include/nolibc/arch-loongarch.h | 25 +++++++++++--------------
->  1 file changed, 11 insertions(+), 14 deletions(-)
+>   The mips/o32 system call convention passes arguments 5 through 8 on
+>   the user stack.
 > 
-> diff --git a/tools/include/nolibc/arch-loongarch.h b/tools/include/nolibc/arch-loongarch.h
-> index 292d6a58dc87..fbb4844f7993 100644
-> --- a/tools/include/nolibc/arch-loongarch.h
-> +++ b/tools/include/nolibc/arch-loongarch.h
-> @@ -23,6 +23,10 @@
->   */
->  #define __ARCH_WANT_SYS_PSELECT6
->  
-> +#define SYSCALL_CLOBBERLIST			\
-> +	"memory", "$t0", "$t1", "$t2", "$t3",	\
-> +	"$t4", "$t5", "$t6", "$t7", "$t8"
-> +
+> Both mmap() and pselect6() require my_syscall6().
 
-That's a good idea, but please be careful when adding macro definitions,
-we're in code that is used by user space we have no control on, and we're
-polluting the end user's macro namespace with plenty of names. While one
-could argue that it's unlikely that some program already defines and uses
-SYSCALL_CLOBBERLIST, actually with low-level code it's fairly possible.
+Very interesting, I didn't manage to make it work previously. Did you
+test it to confirm that it works ? I guess so but since you didn't
+mention, I preferred to ask.
 
-Till now most of the definitions were for stuff that user-space really
-needs (e.g. STDIN_FILENO, various integer limits). If we start to declare
-random macros for internal use, at least we should probably prefix them
-with _NOLIBC_ or something like this to avoid the risk of collision.
-
+Thanks!
 Willy
 
 _______________________________________________
