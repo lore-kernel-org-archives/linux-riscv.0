@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2717EB64D9
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Jul 2023 16:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A91EB64D9
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Jul 2023 16:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wdu+71i4qMSOwcovAwcRHxlekdhOrEqi+eOYOy5JAec=; b=bTuuZuRH6/e3h8
-	Kh0nIwiKYZ7jRMZsysdnaNCZtZTfcn8o2Ds9jmXES5QMDAaVjBHIvtmqyqmg/gBDbx1y1k0tWGdxD
-	EHehc83nlJyiKY+EeluhDww172VJkWAljeICtAAV8NXbsGYPdcXJQXXSr/dBKJ6Pg0dJhNtfeGS/2
-	7b/yVuAPwHJGXljaBiR5UiodSOtnSjNVAFgiKB4hxBximnlEKheEA0l2gNQ4HRq+Ai74jlGxXm51N
-	KkIlHa01lsrzXoDUw4Y1C37le+pbsXmF8b20iSXS012JIiHJnpTZaW/WbUzn4Ia5AE+r/5/4U364E
-	xE/NB/eDQofxiU35J9tg==;
+	List-Owner; bh=uy/D1fRi7x1GFBZj/2IJP1rxV+EzbrG1zq+XnikF8/g=; b=NnwEUv05RknaJO
+	uUhcIhjh+tuMWawcndRa3Fi0mzzI+B0e3cGYRNezTMaKtc7vMVuHJeorYXpFd51r6VISNZ9AqxAye
+	y02SKMyaF8cxZvkBYXS6s+qjAfL5f/qq1ZjBDj+6JscTeEnRjhr4bNUYQfcKVwCfCE8eSXcCM+Fvm
+	4KOVQ8zhNdjozjeS6somZsrj7yDBVW/bdL+NNQUQVqh8hjMlSHR3187No0d8Rkdr/dRwxfwW0mK2A
+	PFryrO6dyKyuzRXl/Uq1zVx8ZwAy3vV3e4GcoApy/OnJwKAkBJccZZDrIB3fMd68G6VEvswYeBn0Z
+	YOo2Eb6pgmDrYo6BVEbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFzwA-0087bW-1u;
-	Sun, 02 Jul 2023 16:28:34 +0000
+	id 1qG0IQ-0089WD-33;
+	Sun, 02 Jul 2023 16:51:34 +0000
 Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFzw7-0087Yf-07
+	id 1qG0IM-0089VV-2m
 	for linux-riscv@lists.infradead.org;
-	Sun, 02 Jul 2023 16:28:33 +0000
+	Sun, 02 Jul 2023 16:51:32 +0000
 Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 362GS2oc016328;
-	Sun, 2 Jul 2023 18:28:02 +0200
-Date: Sun, 2 Jul 2023 18:28:02 +0200
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 362GpRrH016840;
+	Sun, 2 Jul 2023 18:51:27 +0200
+Date: Sun, 2 Jul 2023 18:51:27 +0200
 From: Willy Tarreau <w@1wt.eu>
 To: Zhangjin Wu <falcon@tinylab.org>
 Cc: arnd@arndb.de, linux-kernel@vger.kernel.org,
         linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org,
         thomas@t-8ch.de
-Subject: Re: [PATCH v2 07/13] tools/nolibc: sys_lseek: add pure 64bit lseek
-Message-ID: <20230702162802.GA16233@1wt.eu>
-References: <5e7d2adf-e96f-41ca-a4c6-5c87a25d4c9c@app.fastmail.com>
- <20230530135433.405051-1-falcon@tinylab.org>
+Subject: Re: [PATCH v5 1/5] tools/nolibc: fix up #error compile failures with
+ -ENOSYS
+Message-ID: <20230702165127.GC16233@1wt.eu>
+References: <cover.1687176996.git.falcon@tinylab.org>
+ <1a823ba7b250ba5190f802dfc4428d4e248f71b3.1687176996.git.falcon@tinylab.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230530135433.405051-1-falcon@tinylab.org>
+In-Reply-To: <1a823ba7b250ba5190f802dfc4428d4e248f71b3.1687176996.git.falcon@tinylab.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230702_092831_539364_71A0833D 
-X-CRM114-Status: GOOD (  21.06  )
+X-CRM114-CacheID: sfid-20230702_095131_739628_29148FA0 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,62 +64,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Zhangjin, Arnd,
+Hi Zhangjin,
 
-On Tue, May 30, 2023 at 09:54:33PM +0800, Zhangjin Wu wrote:
-> > And then do the selection inside of the actual lseek,
-> > something like
-> > 
-> > static __attribute__((unused))
-> > off_t lseek(int fd, off_t offset, int whence)
-> > {
-> >         off_t ret = -ENOSYS;
-> > 
-> >         if (BITS_PER_LONG == 32)
-> >                ret = sys_llseek(fd, offset, whence);
-> > 
-> >         if (ret == -ENOSYS)
-> >                ret = sys_lseek(fd, offset, whence);
-> > 
-> >         if (ret < 0) {
-> >                 SET_ERRNO(-ret);
-> >                 ret = -1;
-> >         }
-> >         return ret;
-> >        
-> > }
+On Mon, Jun 19, 2023 at 08:24:15PM +0800, Zhangjin Wu wrote:
+> Compiling nolibc for rv32 got such errors:
 > 
-> Yes, It is clearer, thanks. will learn carefully about the kernel types.
-
-I, too, like Arnd's proposal here. I tend to use a similar approach in
-other projects when possible. Often the limit is the types definition,
-which is necessary to define even empty static inline functions. The
-only thing is that due to the reliance on -ENOSYS above, the compiler
-cannot fully optimize the code away, particularly when both syscalls
-are defined, which may result in the compiler emitting the code for
-both calls on 32-bit platforms. But the idea is there anyway, and it
-may possibly just need a few adjustments based on BITS_PER_LONG after
-checking the emitted code.
-
-> > For the loff_t selection, there is no real need to handle the
-> > fallback, so this could just be an if()/else to select 32-bit
-> > or 64-bit, but for the time_t ones the fallback is required
-> > for pre-5.6 kernels.
-> >
+>     In file included from nolibc/sysroot/riscv/include/nolibc.h:99,
+>                      from nolibc/sysroot/riscv/include/errno.h:26,
+>                      from nolibc/sysroot/riscv/include/stdio.h:14,
+>                      from tools/testing/selftests/nolibc/nolibc-test.c:12:
+>     nolibc/sysroot/riscv/include/sys.h:946:2: error: #error Neither __NR_ppoll nor __NR_poll defined, cannot implement sys_poll()
+>       946 | #error Neither __NR_ppoll nor __NR_poll defined, cannot implement sys_poll()
+>           |  ^~~~~
+>     nolibc/sysroot/riscv/include/sys.h:1062:2: error: #error None of __NR_select, __NR_pselect6, nor __NR__newselect defined, cannot implement sys_select()
+>      1062 | #error None of __NR_select, __NR_pselect6, nor __NR__newselect defined, cannot implement sys_select()
 > 
-> Ok, will test it on the pre-5.6 versions too.
+> If a syscall is not supported by a target platform, 'return -ENOSYS' is
+> better than '#error', which lets the other syscalls work as-is and
+> allows developers to fix up the test failures reported by nolibc-test
+> one by one later.
 > 
-> Hi, Willy, what's your suggestion about the oldest kernel versions we plan to
-> support? ;-)
+> This converts all of the '#error' to 'return -ENOSYS', so, all of the
+> '#error' failures are fixed.
 
-Like I said last time, since the code is included in the kernel, we
-expect userland developers to use this one to build their code, even
-if it's meant to work on older kernels. At the very least I want that
-supported kernels continue to work, and then as long as it does not
-require particular efforts, it's nice to continue to work on older
-ones (think LTS distros, late upgraders of legacy systems etc).
+Yeah, I like this! Initially we wanted the ifdef to spot include file
+issues (which were the major concern at the beginning), and the selftest
+was very limited. But now the coverage has significantly improved, the
+major concern is cross-platform support and we know we won't get all of
+it at once, so -ENOSYS is far better.
 
-Thanks,
+Thanks for this!
 Willy
 
 _______________________________________________
