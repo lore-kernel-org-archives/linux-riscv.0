@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B839EEB64DD
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Jul 2023 23:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE30EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Jul 2023 02:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nlh4FP79HHtWMpj0XfZIUBYnWceJWhdD+qX5Fwq6bgc=; b=KYleg1Qfjk7Oa+10LllvDJ3vRK
-	UTIAc8vCHyqL8Ib2e2hMgAsSHRn1qRqCAo1793DAEIcJY9+fPS936BG+aB9aBdiV+/d3n3T1gHaH1
-	2sxZ4L20tm4hBFNcHSQma8TQsFuCVq4L6485U/thkM/L4cDrpn4TTqmhZHYZi8rHLVaXZzhV6fAkq
-	TWQAlUk2Pn9NkKGLSJYFBs/eKguDEzg9o+FDPWi0YTQYmI3hp/5O4paJ5bFo86wYi0havRkdkso8h
-	XvKcnkujXn1yQdgqx1yGEZ6yfX+snGtEMhWdYTS0gqJq+wpJOazQi7rp8bMmVefhg7xLP7pWNZt77
-	G3RMqH+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=McSKNVkypHd7uXE2tabgqnExFa+lgWuaUv0n1oP6q6U=; b=Zr7xNP8IE+m+tb
+	Nf6vv2KqrsZl+ce8D0GR5pLi3K5VTlijUdLY/hlHcWT3AXGaJdkSoMRXOm5Or+fzbS05v7Cxa+Wjr
+	pv2aI4LrIVAjStih6HK3tDz7jZU7rkE+iWbwXcenKdLn5ahS6wMisQ69x0j2jJgNAlV68FWVvUt9e
+	3Zz3ZRqJ8lZbbhJpb+X3go24kEsP6Xd65Ckq7i6dMfjTIq5jEkE9l50iR9zHC813vj0WWx40jgbP0
+	vbKVaun7Yt8E4K/nBDN5QY3nz9ppqkTFAo/V0dOz3Gg7t57b1iDJsjAD5TFfwcM2x/Y5knmK83Cyp
+	VjZoGeMl9Le0mVlCJhqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFjmP-006mfP-1U;
-	Sat, 01 Jul 2023 23:13:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qFnHG-0072iC-17;
+	Sun, 02 Jul 2023 02:57:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFjmN-006meo-0X
+	id 1qFnHC-0072hL-1U
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Jul 2023 23:13:24 +0000
+	Sun, 02 Jul 2023 02:57:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6DB3D60A72;
-	Sat,  1 Jul 2023 23:13:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19154C433C7;
-	Sat,  1 Jul 2023 23:13:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A2AA360B42;
+	Sun,  2 Jul 2023 02:57:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D74C433C7;
+	Sun,  2 Jul 2023 02:57:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688253201;
-	bh=yKgMddQapKf3JCyJBuC01M7yETVYS19zD9KU+DqtD4Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LvdPoGGWJ6pcmV0sx7sh71ClnpIipklO1ZZBtDaBCMXjdIpcSjBhxDVMguluosZxQ
-	 8QH5Kt5DxMf+y+1cqOLjJdAIYVXIQB+p4quUUdfmpnwLWNuZ3K5gWzkLVtns8UDr9D
-	 ORp+hl7Rjcd+Ijh3Zupax24T5tPh4uDwsp4KUQOPMz96HDiZUNlOHVxhT4nmFnM1+V
-	 o2a9lBKzqqlTvjFC+bCO6IT8COWwGceL9UEbKGqOZk3Ly/wXqi3jjGG3262f6LRoC2
-	 Yq6AZlapivbt/UnuBwbim2Yoklp/d43qzMGHUVDroayPo4lV+jt1/Lokioi7xjxgPz
-	 OE27EhBkyUISg==
-Date: Sun, 2 Jul 2023 00:13:17 +0100
-From: Conor Dooley <conor@kernel.org>
-To: daire.mcnamara@microchip.com
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v2 7/8] PCI: microchip: Rename and refactor
- mc_pcie_enable_msi()
-Message-ID: <20230702-audacity-gradient-a7871e31a97a@spud>
-References: <20230630154859.2049521-1-daire.mcnamara@microchip.com>
- <20230630154859.2049521-8-daire.mcnamara@microchip.com>
+	s=k20201202; t=1688266644;
+	bh=KVAMyfKWjVwwLKGxATgxHTcW5xvo69PZktIxihAIbBw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=jsdwgGk96dt3I47o1PYBrvECOCVIDHA3vugLsQJRAfRPn5ULpsltjeB5JVuBECQgk
+	 z39LttKtf0epErz0P5dJqlC3thXTyxja+sCTpZepc92xXFBimh58gthiJuo9X1O7qi
+	 HeKA2OsetQLQgOfR3lE/6NSHPEFsvJdCD4MuQDh5fuS7iKzm7ejhwfpp+HllnP7/mF
+	 IzP6S68/4wG4yHeCp3/iYfoRBivLjtd8OrUiez+cdeA6lA3KLShqGfygRnXm98n36S
+	 Z0Z8/heQEPuovLOYSuDKgb70Exc+jdumgvab2cPF8tZxYPl0b6ehlcvo/kXeUcTQ/N
+	 xbccNOBE0o75g==
+From: guoren@kernel.org
+To: arnd@arndb.de,
+	palmer@rivosinc.com,
+	tglx@linutronix.de,
+	peterz@infradead.org,
+	luto@kernel.org,
+	conor.dooley@microchip.com,
+	heiko@sntech.de,
+	jszhang@kernel.org,
+	lazyparser@gmail.com,
+	falcon@tinylab.org,
+	chenhuacai@kernel.org,
+	apatel@ventanamicro.com,
+	atishp@atishpatra.org,
+	mark.rutland@arm.com,
+	bjorn@kernel.org,
+	palmer@dabbelt.com,
+	guoren@kernel.org,
+	bjorn@rivosinc.com,
+	daniel.thompson@linaro.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	stable@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH] riscv: entry: Fixup do_trap_break from kernel side
+Date: Sat,  1 Jul 2023 22:57:07 -0400
+Message-Id: <20230702025708.784106-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-In-Reply-To: <20230630154859.2049521-8-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230701_161323_269357_DFF192E8 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20230701_195726_602848_0E8D9907 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,64 +89,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1929072658656059238=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Guo Ren <guoren@linux.alibaba.com>
 
---===============1929072658656059238==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Kd4aL8O75rLHZ9c+"
-Content-Disposition: inline
+The irqentry_nmi_enter/exit would force the current context into in_interrupt.
+That would trigger the kernel to dead panic, but the kdb still needs "ebreak" to
+debug the kernel.
 
+Move irqentry_nmi_enter/exit to exception_enter/exit could correct handle_break
+of the kernel side.
 
---Kd4aL8O75rLHZ9c+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Before the fixup:
+$echo BUG > /sys/kernel/debug/provoke-crash/DIRECT
+  lkdtm: Performing direct entry BUG
+  ------------[ cut here ]------------
+  kernel BUG at drivers/misc/lkdtm/bugs.c:78!
+  handle_break, 256.
+  Kernel BUG [#1]
+  Modules linked in:
+  CPU: 0 PID: 104 Comm: echo Not tainted 6.4.0-rc1-00055-g0ca05a4b079f-dirty #30
+  Hardware name: riscv-virtio,qemu (DT)
+  epc : lkdtm_BUG+0x6/0x8
+   ra : lkdtm_do_action+0x14/0x1c
+  epc : ffffffff8055c730 ra : ffffffff8087e188 sp : ff200000007dbd40
+   gp : ffffffff81500878 tp : ff600000028ebac0 t0 : 6500000000000000
+   t1 : 000000000000006c t2 : 6550203a6d74646b s0 : ff200000007dbd50
+   s1 : ffffffff814bfc80 a0 : ffffffff814bfc80 a1 : ff6000001ffd8608
+   a2 : ff6000001ffdb870 a3 : 0000000000000000 a4 : 0000000000000000
+   a5 : ffffffff8055c72a a6 : 0000000000000032 a7 : 0000000000000038
+   s2 : 0000000000000004 s3 : 00000000556371a0 s4 : ff200000007dbe70
+   s5 : ff60000002090000 s6 : 00000000556371a0 s7 : 0000000000000030
+   s8 : 000000007fffec78 s9 : 0000000000000007 s10: 0000000055637530
+   s11: 0000000000000001 t3 : ffffffff81513ed7 t4 : ffffffff81513ed7
+   t5 : ffffffff81513ed8 t6 : ff200000007dbb88
+  status: 0000000100000120 badaddr: 0000000000000000 cause: 0000000000000003
+  [<ffffffff8055c730>] lkdtm_BUG+0x6/0x8
+  Code: 0513 6b05 b097 0031 80e7 e960 b705 1141 e422 0800 (9002) 1141
+  ---[ end trace 0000000000000000 ]---
+  Kernel panic - not syncing: Aiee, killing interrupt handler!
+  ---[ end Kernel panic - not syncing: Aiee, killing interrupt handler! ]---
 
-On Fri, Jun 30, 2023 at 04:48:58PM +0100, daire.mcnamara@microchip.com wrot=
-e:
-> From: Daire McNamara <daire.mcnamara@microchip.com>
->=20
-> After improving driver to get MSI-related information from
-> configuration registers (set at power on from the Libero FPGA
-> design), its now clear that mc_pcie_enable_msi() is not a good
-> name for this function.  The function is better named as
-> mc_pcie_fixup_ecam() as its purpose is to correct the queue
-> size of the MSI CAP CTRL.
->=20
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+(Dead in the kernel side.)
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+After the fixup:
+$echo BUG > /sys/kernel/debug/provoke-crash/DIRECT
+  lkdtm: Performing direct entry BUG
+  ------------[ cut here ]------------
+  kernel BUG at drivers/misc/lkdtm/bugs.c:78!
+  Kernel BUG [#13]
+  Modules linked in:
+  CPU: 0 PID: 129 Comm: echo Tainted: G D 6.4.0-rc1-00055-g0ca05a4b079f-dirty #34
+  Hardware name: riscv-virtio,qemu (DT)
+  epc : lkdtm_BUG+0x6/0x8
+   ra : lkdtm_do_action+0x14/0x1c
+  epc : ffffffff8055c71c ra : ffffffff8087e170 sp : ff200000007e3d40
+   gp : ffffffff81500878 tp : ff600000028ebac0 t0 : 6500000000000000
+   t1 : 000000000000006c t2 : 6550203a6d74646b s0 : ff200000007e3d50
+   s1 : ffffffff814bfc80 a0 : ffffffff814bfc80 a1 : ff6000001ffd8608
+   a2 : ff6000001ffdb870 a3 : 0000000000000000 a4 : 0000000000000000
+   a5 : ffffffff8055c716 a6 : 0000000000000032 a7 : 0000000000000038
+   s2 : 0000000000000004 s3 : 00000000556371a0 s4 : ff200000007e3e70
+   s5 : ff60000002090000 s6 : 00000000556371a0 s7 : 0000000000000030
+   s8 : 000000007fffec78 s9 : 0000000000000007 s10: 0000000055637530
+   s11: 0000000000000001 t3 : ffffffff81513ed7 t4 : ffffffff81513ed7
+   t5 : ffffffff81513ed8 t6 : ff200000007e3b88
+  status: 0000000100000120 badaddr: 0000000000000000 cause: 0000000000000003
+  [<ffffffff8055c71c>] lkdtm_BUG+0x6/0x8
+  Code: 0513 6945 b097 0031 80e7 e920 b705 1141 e422 0800 (9002) 1141
+  ---[ end trace 0000000000000000 ]---
+  note: echo[129] exited with irqs disabled
+  Segmentation fault
 
-Cheers,
-Conor.
+(Resume to the shell normally.)
 
---Kd4aL8O75rLHZ9c+
-Content-Type: application/pgp-signature; name="signature.asc"
+Fixes: f0bddf50586d ("riscv: entry: Convert to generic entry")
+Reported-by: Daniel Thompson <daniel.thompson@linaro.org>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ arch/riscv/kernel/traps.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index efc6b649985a..ed0eb9452f9e 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -18,6 +18,7 @@
+ #include <linux/irq.h>
+ #include <linux/kexec.h>
+ #include <linux/entry-common.h>
++#include <linux/context_tracking.h>
+ 
+ #include <asm/asm-prototypes.h>
+ #include <asm/bug.h>
+@@ -257,11 +258,11 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
+ 
+ 		irqentry_exit_to_user_mode(regs);
+ 	} else {
+-		irqentry_state_t state = irqentry_nmi_enter(regs);
++		enum ctx_state prev_state = exception_enter();
+ 
+ 		handle_break(regs);
+ 
+-		irqentry_nmi_exit(regs, state);
++		exception_exit(prev_state);
+ 	}
+ }
+ 
+-- 
+2.36.1
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKCzDQAKCRB4tDGHoIJi
-0j67AQDk5OEcJCa5lf1hVQ/cU8VwhepULzIUArDgqfqy3RVOSAD/WCrLcO+TP3g5
-WIKDODvJxGPI0CPXgT8CWAA04v/+zQc=
-=BAuH
------END PGP SIGNATURE-----
-
---Kd4aL8O75rLHZ9c+--
-
-
---===============1929072658656059238==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1929072658656059238==--
-
