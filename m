@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87CF4EB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Jul 2023 04:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E89EB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Jul 2023 09:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YEkzylfKkuE9aintQdncwhWuVXCeC9ATMOvKFlS0fR0=; b=o/5ODrhkN+Jlsh
-	gAleWySw1jxX3Du1gEZECZbGyBJcyewsZmAMz3RDpbxzuzF9C1nWI/cRdQVi4XPI2HCW2nOPc9L0k
-	dSy1m/lk/g5+oeAjGBsI+pShhCBZX5ym8XF5vBHgyHTsHnrc8aU3Nb6xegS9Wp4j5qjqIXwCvQd2S
-	h6a/54WudsuCSYrU76GnVy7rwbqTCGdZMzpJuqym3QjmG+rWTxKsLnJTWekPw6xIrAp2EoPPRzRFB
-	kSXLpJLdk6St5YvFuTj4T58oD8bmedVBkyEGJAntN0y+O6oMV5H+fZefHxqD8bNYXxDGNnIbLjG3F
-	b+ROzcRNdSwBwaFnzTyg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rQelPd+74zYn/UN51gf7BwdJVDJTxICUL8qTMof8/ZU=; b=1kZVinWYPqPa6e
+	Jwt1VLGobEWrF5wtTEdOGzBCapk2r0myE2LmgOuM78BlF9nPMu+TAT8Fy+2/S0ofpz3CgsuFTFNou
+	JnudigCourg6tyqAiliy00flRgMbsJIqsZtgMehIVlRUzBM1EKv1TcZN7t6BxBnA0NX3RtRRUvNN6
+	++xCUhTV3h1pZ8CPsX7Zb670X6EG20FO53uL8KW6f6FsObVILzZtffdMj72LWRvojs0cGtB+HLkK/
+	e2Vm4EJGUnAkf9BwSqmC7GFB+cBlpOjdWh0bKFIXCq/bueNdK/rMnFq5VTag0YKSh9Y6EUOCX36yI
+	ba1rchNxLcsyg0v+C0Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFoSP-00799u-1d;
-	Sun, 02 Jul 2023 04:13:05 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qFtqM-007Wbv-1P;
+	Sun, 02 Jul 2023 09:58:10 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qFoSL-007994-2R
+	id 1qFtqI-007Wah-1Z
 	for linux-riscv@lists.infradead.org;
-	Sun, 02 Jul 2023 04:13:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1688271180;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ahO+YEnyhkOWELCvQbsrbCq0Xj+4gWpNdPIEeGW8VGE=;
-	b=BFx06PnDib05rkE0l4fyOAtAXYAcOpsizX5KwsPoBPilTdKvbaC7zh7CqIUoa6sxsE/qUC
-	Vcvrt/5UKlP6q3muWFpxfiyp2jMK9zzVwaXAsMTrZlK5e+r+gXL5cdceUnQ1ilGd27TlYG
-	325PDVvRwvdKGrxRp7zDB/H/7uJvlDw=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-325-DaIt35ICMWaZbjpUVf3ZtA-1; Sun, 02 Jul 2023 00:12:53 -0400
-X-MC-Unique: DaIt35ICMWaZbjpUVf3ZtA-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2679081DA29;
-	Sun,  2 Jul 2023 04:12:53 +0000 (UTC)
-Received: from localhost (ovpn-12-126.pek2.redhat.com [10.72.12.126])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5EC9614682FA;
-	Sun,  2 Jul 2023 04:12:43 +0000 (UTC)
-Date: Sun, 2 Jul 2023 12:12:39 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Chen Jiahao <chenjiahao16@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com,
-	conor.dooley@microchip.com, guoren@kernel.org, heiko@sntech.de,
-	bjorn@rivosinc.com, alex@ghiti.fr, akpm@linux-foundation.org,
-	atishp@rivosinc.com, thunder.leizhen@huawei.com, horms@kernel.org
-Subject: Re: [PATCH -next v6 1/2] riscv: kdump: Implement
- crashkernel=X,[high,low]
-Message-ID: <ZKD5N+e5DjgyJ5rw@MiWiFi-R3L-srv>
-References: <20230701171138.1491206-1-chenjiahao16@huawei.com>
- <20230701171138.1491206-2-chenjiahao16@huawei.com>
+	Sun, 02 Jul 2023 09:58:08 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-55ac628e3cfso1781257a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 02 Jul 2023 02:57:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1688291875; x=1690883875;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XF2+x8StAqIQZEEXXA77vQxRC4bKZrb2UmGw9jTVMxg=;
+        b=C8mJIVmo9Gt8KrJx133l1TXUl96CjQQdawYTJqjV0B/dmrVnXbEotILm4dSXCEO+LE
+         9Ej+UK5HJQrDCB7aDdtABsSPT1gpEHjUABBtbOKkrTOnXS+OtygyvUJnmMUti2fldsuk
+         LYuM+dNsVpvyn4VRdWlnqWoLRubroBSgNcRzK3Loq3wizKTdyajAHSbzjtTG5BPh00Ys
+         njN7jgXWvlJfMrw1ZFIIR4kvKAqQ5TCf94B/vkUVxpiDCWmI5J515CPvcj5cOBDrNX7x
+         20EwZMgumErRPjsjQPjjzOdyrCNEI6qDtDdu0oda8rhwk1EFVuDeKFlL8tHtqbgJrxlX
+         tV2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688291875; x=1690883875;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XF2+x8StAqIQZEEXXA77vQxRC4bKZrb2UmGw9jTVMxg=;
+        b=bcdNDWGPDlWfUKSP8IvXkYge6l9a1XNnpqPol5HTI2NRnxCqVqDg548e9sm6jPZZiD
+         udZ60ceMePCZfZw7AiULw5amXJFcRLmwP6dsiHPo/N8TMoo9XBnpeIUj8ahIm5DUSckK
+         tMfubLmcgfKUFkHwfVzCJP+aJK5PBytJ6G1xEUieKJr/DfVztaW3EME35OPGiq3jXD1t
+         KWGfPRQnBcT9f2p7y51KpyDNtpApXRGy7jWUazbAJZRNeBQ+aGQWltN1dfzEq4CCjCJ1
+         NqZNj1bFlKPBeLNot75z0+sOlXGsK6sFAeXq0BWOL+1qVbIIyLrWnTGPXo1uAxKsWSyc
+         po5w==
+X-Gm-Message-State: ABy/qLaz/G0bvxE5a76Dtd2FHO4Jiwpl3Fht2RLQIEo7GlGPjlFDDrDU
+	gnFv98WcunicSx7jpnLJAWCYmQ==
+X-Google-Smtp-Source: APBJJlF4yLaj8jr7OTR8FcXH/r/O+yqMJrHgHcjvBx+h67R5YAj78AaIxs+XMdOOaBezarVJelvXvA==
+X-Received: by 2002:a05:6a20:3257:b0:12c:1193:a563 with SMTP id hm23-20020a056a20325700b0012c1193a563mr5325675pzc.58.1688291875230;
+        Sun, 02 Jul 2023 02:57:55 -0700 (PDT)
+Received: from PF2E59YH-BKX.inc.bytedance.com ([139.177.225.251])
+        by smtp.gmail.com with ESMTPSA id u26-20020a62ed1a000000b006827d86ca0csm1605095pfh.55.2023.07.02.02.57.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 02 Jul 2023 02:57:54 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: ardb@kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org,
+	rminnich@gmail.com,
+	mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	rafael@kernel.org,
+	lenb@kernel.org,
+	jdelvare@suse.com,
+	yc.hung@mediatek.com,
+	angelogioacchino.delregno@collabora.com,
+	allen-kh.cheng@mediatek.com,
+	pierre-louis.bossart@linux.intel.com,
+	tinghan.shen@mediatek.com,
+	linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	geshijian@bytedance.com,
+	weidong.wd@bytedance.com,
+	cuiyunhui@bytedance.com
+Subject: [PATCH v2 1/3] riscv: obtain ACPI RSDP from FFI.
+Date: Sun,  2 Jul 2023 17:57:32 +0800
+Message-Id: <20230702095735.860-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.37.3.windows.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230701171138.1491206-2-chenjiahao16@huawei.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230701_211302_107420_5105840B 
-X-CRM114-Status: GOOD (  32.02  )
+X-CRM114-CacheID: sfid-20230702_025806_677216_7127E56B 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,182 +106,187 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/01/23 at 05:11pm, Chen Jiahao wrote:
-> On riscv, the current crash kernel allocation logic is trying to
-> allocate within 32bit addressible memory region by default, if
-> failed, try to allocate without 4G restriction.
-> 
-> In need of saving DMA zone memory while allocating a relatively large
-> crash kernel region, allocating the reserved memory top down in
-> high memory, without overlapping the DMA zone, is a mature solution.
-> Here introduce the parameter option crashkernel=X,[high,low].
-> 
-> One can reserve the crash kernel from high memory above DMA zone range
-> by explicitly passing "crashkernel=X,high"; or reserve a memory range
-> below 4G with "crashkernel=X,low".
-> 
-> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
-> Acked-by: Guo Ren <guoren@kernel.org>
-> ---
->  arch/riscv/kernel/setup.c |  5 +++
->  arch/riscv/mm/init.c      | 84 +++++++++++++++++++++++++++++++++++----
->  2 files changed, 82 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 971fe776e2f8..376f5d49ce85 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -178,6 +178,11 @@ static void __init init_resources(void)
->  		if (ret < 0)
->  			goto error;
->  	}
-> +	if (crashk_low_res.start != crashk_low_res.end) {
-> +		ret = add_resource(&iomem_resource, &crashk_low_res);
-> +		if (ret < 0)
-> +			goto error;
-> +	}
->  #endif
->  
->  #ifdef CONFIG_CRASH_DUMP
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 4b95d8999120..eeb31c2cc843 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -1298,6 +1298,28 @@ static inline void setup_vm_final(void)
->  }
->  #endif /* CONFIG_MMU */
->  
-> +/* Reserve 128M low memory by default for swiotlb buffer */
-> +#define DEFAULT_CRASH_KERNEL_LOW_SIZE	(128UL << 20)
-> +
-> +static int __init reserve_crashkernel_low(unsigned long long low_size)
-> +{
-> +	unsigned long long low_base;
-> +
-> +	low_base = memblock_phys_alloc_range(low_size, PMD_SIZE, 0, dma32_phys_limit);
-> +	if (!low_base) {
-> +		pr_err("cannot allocate crashkernel low memory (size:0x%llx).\n", low_size);
-> +		return -ENOMEM;
-> +	}
-> +
-> +	pr_info("crashkernel low memory reserved: 0x%016llx - 0x%016llx (%lld MB)\n",
-> +		low_base, low_base + low_size, low_size >> 20);
-> +
-> +	crashk_low_res.start = low_base;
-> +	crashk_low_res.end = low_base + low_size - 1;
-> +
-> +	return 0;
-> +}
-> +
->  /*
->   * reserve_crashkernel() - reserves memory for crash kernel
->   *
-> @@ -1309,8 +1331,12 @@ static void __init reserve_crashkernel(void)
->  {
->  	unsigned long long crash_base = 0;
->  	unsigned long long crash_size = 0;
-> +	unsigned long long crash_low_size = 0;
->  	unsigned long search_start = memblock_start_of_DRAM();
-> -	unsigned long search_end = memblock_end_of_DRAM();
-> +	unsigned long search_end = (unsigned long)dma32_phys_limit;
-> +	char *cmdline = boot_command_line;
-> +	bool fixed_base = false;
-> +	bool high = false;
->  
->  	int ret = 0;
->  
-> @@ -1326,14 +1352,36 @@ static void __init reserve_crashkernel(void)
->  		return;
->  	}
->  
-> -	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
-> +	ret = parse_crashkernel(cmdline, memblock_phys_mem_size(),
->  				&crash_size, &crash_base);
-> -	if (ret || !crash_size)
-> +	if (ret == -ENOENT) {
-> +		/* Fallback to crashkernel=X,[high,low] */
-> +		ret = parse_crashkernel_high(cmdline, 0, &crash_size, &crash_base);
-> +		if (ret || !crash_size)
-> +			return;
-> +
-> +		/*
-> +		 * crashkernel=Y,low is valid only when crashkernel=X,high
-> +		 * is passed.
-> +		 */
-> +		ret = parse_crashkernel_low(cmdline, 0, &crash_low_size, &crash_base);
-> +		if (ret == -ENOENT)
-> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
-> +		else if (ret)
-> +			return;
-> +
-> +		search_start = (unsigned long)dma32_phys_limit;
-> +		search_end = memblock_end_of_DRAM();
-> +		high = true;
-> +	} else if (ret || !crash_size) {
-> +		/* Invalid argument value specified */
->  		return;
-> +	}
->  
->  	crash_size = PAGE_ALIGN(crash_size);
->  
->  	if (crash_base) {
-> +		fixed_base = true;
->  		search_start = crash_base;
->  		search_end = crash_base + crash_size;
->  	}
-> @@ -1346,17 +1394,39 @@ static void __init reserve_crashkernel(void)
->  	 * swiotlb can work on the crash kernel.
->  	 */
->  	crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
-> -					       search_start,
-> -					       min(search_end, (unsigned long) SZ_4G));
-> +					       search_start, search_end);
->  	if (crash_base == 0) {
-> -		/* Try again without restricting region to 32bit addressible memory */
-> +		if (fixed_base) {
-> +			pr_warn("crashkernel: allocating failed with given size@offset\n");
-> +			return;
-> +		}
-> +
-> +		if (high) {
-> +			/* Fall back to lower 32G reservation */
-> +			search_start = memblock_start_of_DRAM();
-> +			search_end = (unsigned long)dma32_phys_limit;
-> +		} else {
-> +			/* Try again above the region of 32bit addressible memory */
-> +			search_start = (unsigned long)dma32_phys_limit;
-> +			search_end = memblock_end_of_DRAM();
-> +		}
-> +
->  		crash_base = memblock_phys_alloc_range(crash_size, PMD_SIZE,
-> -						search_start, search_end);
-> +						       search_start, search_end);
->  		if (crash_base == 0) {
->  			pr_warn("crashkernel: couldn't allocate %lldKB\n",
->  				crash_size >> 10);
->  			return;
->  		}
-> +
-> +		if (!crash_low_size)
-> +			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+1. We need to enable the ACPI function on RISC-V. When booting with
+Coreboot, we encounter two problems:
+a. Coreboot does not support EFI
+b. On RISC-V, only the DTS channel can be used.
 
-How do you differentiate the case user specifies crashkernel=0M,low
-explicitly with the case that user doesn't specify crashkernel=,low, but
-only specify crsahkernel=xM,high? I saw you don't have the test case
-crashkernel=xM,high crashkernel=0M,low listed in your cover letter.
+2. Based on this, we have added an interface for obtaining firmware
+information transfer through FDT, named FFI.
 
-> +	}
-> +
-> +	if ((crash_base >= dma32_phys_limit) && crash_low_size &&
-> +	     reserve_crashkernel_low(crash_low_size)) {
-> +		memblock_phys_free(crash_base, crash_size);
-> +		return;
->  	}
->  
->  	pr_info("crashkernel: reserved 0x%016llx - 0x%016llx (%lld MB)\n",
-> -- 
-> 2.34.1
-> 
+3. We not only use FFI to pass ACPI RSDP, but also pass other
+firmware information as an extension.
+
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+---
+ MAINTAINERS                   |  6 ++++++
+ arch/riscv/Kconfig            | 10 ++++++++++
+ arch/riscv/include/asm/acpi.h |  9 +++++++++
+ arch/riscv/include/asm/ffi.h  |  9 +++++++++
+ arch/riscv/kernel/Makefile    |  1 +
+ arch/riscv/kernel/ffi.c       | 37 +++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/setup.c     |  2 ++
+ 7 files changed, 74 insertions(+)
+ create mode 100644 arch/riscv/include/asm/ffi.h
+ create mode 100644 arch/riscv/kernel/ffi.c
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index cd5388a33410..e592f489e757 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -18363,6 +18363,12 @@ F:	arch/riscv/boot/dts/
+ X:	arch/riscv/boot/dts/allwinner/
+ X:	arch/riscv/boot/dts/renesas/
+ 
++RISC-V FDT FIRMWARE INTERFACE (FFI) SUPPORT
++M:	Yunhui Cui cuiyunhui@bytedance.com
++S:	Maintained
++F:	arch/riscv/include/asm/ffi.h
++F:	arch/riscv/kernel/ffi.c
++
+ RISC-V PMU DRIVERS
+ M:	Atish Patra <atishp@atishpatra.org>
+ R:	Anup Patel <anup@brainfault.org>
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index b49793cf34eb..2e1c40fb2300 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -785,6 +785,16 @@ config EFI
+ 	  allow the kernel to be booted as an EFI application. This
+ 	  is only useful on systems that have UEFI firmware.
+ 
++config FFI
++	bool "Fdt firmware interface"
++	depends on OF
++	default y
++	help
++	  Added an interface to obtain firmware information transfer
++	  through FDT, named FFI. Some bootloaders do not support EFI,
++	  such as coreboot.
++	  We can pass firmware information through FFI, such as ACPI.
++
+ config CC_HAVE_STACKPROTECTOR_TLS
+ 	def_bool $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=tp -mstack-protector-guard-offset=0)
+ 
+diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+index f71ce21ff684..f9d1625dd159 100644
+--- a/arch/riscv/include/asm/acpi.h
++++ b/arch/riscv/include/asm/acpi.h
+@@ -15,6 +15,8 @@
+ /* Basic configuration for ACPI */
+ #ifdef CONFIG_ACPI
+ 
++#include <asm/ffi.h>
++
+ typedef u64 phys_cpuid_t;
+ #define PHYS_CPUID_INVALID INVALID_HARTID
+ 
+@@ -66,6 +68,13 @@ int acpi_get_riscv_isa(struct acpi_table_header *table,
+ 		       unsigned int cpu, const char **isa);
+ 
+ static inline int acpi_numa_get_nid(unsigned int cpu) { return NUMA_NO_NODE; }
++
++#define ACPI_HAVE_ARCH_GET_ROOT_POINTER
++static inline u64 acpi_arch_get_root_pointer(void)
++{
++	return acpi_rsdp;
++}
++
+ #else
+ static inline void acpi_init_rintc_map(void) { }
+ static inline struct acpi_madt_rintc *acpi_cpu_get_madt_rintc(int cpu)
+diff --git a/arch/riscv/include/asm/ffi.h b/arch/riscv/include/asm/ffi.h
+new file mode 100644
+index 000000000000..847af02abd87
+--- /dev/null
++++ b/arch/riscv/include/asm/ffi.h
+@@ -0,0 +1,9 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef _ASM_FFI_H
++#define _ASM_FFI_H
++
++extern u64 acpi_rsdp;
++extern void ffi_init(void);
++
++#endif /* _ASM_FFI_H */
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 506cc4a9a45a..274e06f4da33 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -92,6 +92,7 @@ obj-$(CONFIG_CRASH_CORE)	+= crash_core.o
+ obj-$(CONFIG_JUMP_LABEL)	+= jump_label.o
+ 
+ obj-$(CONFIG_EFI)		+= efi.o
++obj-$(CONFIG_FFI)              += ffi.o
+ obj-$(CONFIG_COMPAT)		+= compat_syscall_table.o
+ obj-$(CONFIG_COMPAT)		+= compat_signal.o
+ obj-$(CONFIG_COMPAT)		+= compat_vdso/
+diff --git a/arch/riscv/kernel/ffi.c b/arch/riscv/kernel/ffi.c
+new file mode 100644
+index 000000000000..c5ac2b5d9148
+--- /dev/null
++++ b/arch/riscv/kernel/ffi.c
+@@ -0,0 +1,37 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * ffi.c - FDT FIRMWARE INTERFACE
++ */
++
++#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
++
++#include <linux/of.h>
++#include <linux/of_fdt.h>
++#include <linux/libfdt.h>
++
++u64 acpi_rsdp;
++
++void __init ffi_acpi_root_pointer(void)
++{
++	int cfgtbl, len;
++	fdt64_t *prop;
++
++	cfgtbl = fdt_path_offset(initial_boot_params, "/cfgtables");
++	if (cfgtbl < 0) {
++		pr_info("firmware table not found.\n");
++		return;
++	}
++
++	prop = fdt_getprop_w(initial_boot_params, cfgtbl, "acpi_phy_ptr", &len);
++	if (!prop || len != sizeof(u64))
++		pr_info("acpi_rsdp not found.\n");
++	else
++		acpi_rsdp = fdt64_to_cpu(*prop);
++
++	pr_debug("acpi rsdp: %llx\n", acpi_rsdp);
++}
++
++void __init ffi_init(void)
++{
++	ffi_acpi_root_pointer();
++}
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 971fe776e2f8..5a933d6b6acb 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -36,6 +36,7 @@
+ #include <asm/thread_info.h>
+ #include <asm/kasan.h>
+ #include <asm/efi.h>
++#include <asm/ffi.h>
+ 
+ #include "head.h"
+ 
+@@ -279,6 +280,7 @@ void __init setup_arch(char **cmdline_p)
+ 	parse_early_param();
+ 
+ 	efi_init();
++	ffi_init();
+ 	paging_init();
+ 
+ 	/* Parse the ACPI tables for possible boot-time configuration */
+-- 
+2.20.1
 
 
 _______________________________________________
