@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F82EEB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 12:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3707EB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 12:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IjvpE9rNqa7jVd1Roshz83sr8oUjUwe/gngzSPhkhTE=; b=OACdF985F9Pxp+
-	KM6KtXIAeD27RsHJ3cTmvj8n5FVGzhowOl/UgbKLkgrzNBzRu068jWxS0fdW6SHxZmcqfnJxG+vGk
-	cjXpk+8784A5Dv4G5Oc9ciCAB8UdgZcDSGWcekv1SMcnRykTh/PVX15Mtk/pipzFZIYOdRR/xyBJ6
-	68Fx1f93mGODkN2iRqaTr4UQLlY2r+i9/HMrqgfw2BPAEHg4WESDSw8LXFkrV18H4fkS6xisfUcwC
-	7zxGDZrwPjc4ZVF5IIRxH4tk3IThXS4JMBxtT6uLXsYyzaKAas5C03crznYnDd1QJ/I9hvlImJNDz
-	7OanZBBxKiq9DsxaU/Eg==;
+	List-Owner; bh=ekf2qRZ0aQTrLAPulJl16rA9hLquRu3HvkH6zbfZC2E=; b=wREweyGoc0Pc5U
+	1pNfWNNXt53u4WluZ0TCVvVy3+DDZm91ZKqeAklht3SkGz+evA6E6ZEfD5yLM0eKTpP368dz4Ikzu
+	Ls5WOOyo5LFgCMrwbDS7mSZQ/46UK//fgMWQZdF5TRs6h104KtIH6kIwl3+/fg4y3gRwwyHEnKPMU
+	Oiylz8MtzJ/TaVNWH6c7m+WHR/pqNEsuMD3c5kpK37kASFOxAPPaLLh3RgwSKJ3X9zpiSJg2GmzqW
+	xu79gMcIhKi8/+7conQ8xcMdrbPGn0QLa9HjzS2dWauBX3uEIDuvbHM5OtKg3mbOHTtoK5OD08tBO
+	CFmUUAL1ARNrizB1UNZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGIyA-00AWgk-2J;
-	Mon, 03 Jul 2023 12:47:54 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1qGIzF-00AWw9-0o;
+	Mon, 03 Jul 2023 12:49:01 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGIy7-00AWfG-32
+	id 1qGIzC-00AWtV-05
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 12:47:53 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3142a9ff6d8so2596079f8f.3
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 05:47:51 -0700 (PDT)
+	Mon, 03 Jul 2023 12:48:59 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-3fba5a8af2cso44755295e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 05:48:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688388470; x=1690980470;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688388531; x=1690980531;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YVY/yta8MPWmg9iGDhd2QZ8qAlvFNnDO2cXvkrgJQ+E=;
-        b=QlE2Iqus6AP6Te3dv3Y5Sx4aMQ+r5SKgwVSpZ0lVhlvFOkGw0WYXtGXIyYV13AdXyg
-         BF50w/diT8Np6DqNMws/6d/47CDoirkmcKusK6cN3dPFI2VGnUd9hAmyNYSlA4poktO+
-         eBlIbLnt08K37EodkyVat6+liUHZWpeoQatiE5O/3ceBUMebG7p6wzso8g68vqx48QeP
-         Q50WOmsmdac9sn01EhF2WYiEkGFTwOTVO9QCJi6lJY9lnNqqXeQk/4wQoS1+c5EPLsLm
-         ycCf9vXUK/7Q3fhEEM4/FDM3oJBppGTNdLj8CelDbYB3NzmZu/AEwfXT3hZ6/haUCtRa
-         EgeA==
+        bh=nFKT0CCXN0CmmHE2x8MUQw5sccSB1SdakxOhkM1UsG4=;
+        b=i16J4ni9PRmgjYqxfrE1XbOUgfjftUIExJgrCxjMKUpNa0UHu4g4yT+G0k47/9OXnB
+         1QZB5ciPxLMxQpV9Unfp9f38KrhcDrdpy19aiupbprTf6ktj0XEUYYpWnKBXfnS7wGnK
+         1jnDUxYGgsa6sX3GiT/5N6zso6Tc56ROXb4EybFyia6SKn0G4VbXTyoksin6FNg45DCn
+         F/LPCUrj8h4B5eRcFhh1e5sEkDM8anr5dq+g86J0nGpmQUjeO0YiV3ZN8NGYAaRQfSV3
+         PvNJk0trAcDdP1lOMdY1spR+0ZPZsTIr6rZhwBUjfQWCajqHVMWOW8LuUebj+kMlwQBo
+         UCuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688388470; x=1690980470;
+        d=1e100.net; s=20221208; t=1688388531; x=1690980531;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YVY/yta8MPWmg9iGDhd2QZ8qAlvFNnDO2cXvkrgJQ+E=;
-        b=OqWc+kzuxVNGxRguPQ08JwAHrkPP2JISA1GsZYsLOB8hHtdXFE/Uts9qsFAF5JUCgn
-         L1uvavwDcHOxOjDKpRiK06pN39kI8LDynvu8+rzIzrbQpMDzFPl1d0xYBb6cV2uFMH52
-         wAOs1KvAcJsCQ/EoAUILM3QQpaipE8i9YAJc+cENycx5pfuLIonvuHFEGeL/m/BM6jbp
-         0jbV1wY7H6k6/MxzSLDejd6xNlJMoU5i/ESFbfkLX6yijFlYOt8JDFEZZAUuFL66ey+g
-         tEfBNlXbFZUXh1zmsjBzgUIfWVatGdQe/QwdoZu8SPkrKjLxm1BXmqsbHWpk2t1YrjbP
-         ETLQ==
-X-Gm-Message-State: ABy/qLZ5qWwkKxlqtfBb9U91EDs8x20PJWcri9d/Q6dlhbtzCX/YZ/q4
-	sMAfR+c8jGeOHZVzWicrRgpg3g==
-X-Google-Smtp-Source: APBJJlGkvS0VBTA5uxFkpZhC1EeXtotxBOQUfL8gsoFO3JwjxcRP9zPFqdv6CO7IZsrTAyG8/+JKUQ==
-X-Received: by 2002:a05:6000:124f:b0:314:3746:d44b with SMTP id j15-20020a056000124f00b003143746d44bmr2701847wrx.41.1688388470517;
-        Mon, 03 Jul 2023 05:47:50 -0700 (PDT)
+        bh=nFKT0CCXN0CmmHE2x8MUQw5sccSB1SdakxOhkM1UsG4=;
+        b=WMJONqMCuzuMZu8wX/ANKTqfnc3ZSdxps3qzdGbhXDOBJw2suiXzTN7J8cd6mSW2A9
+         MwNwLDUkBq/TMbUgx5qBEmy/1uHbmTAsyxBw4kOt6zE75ZnT8lM1tPYPC30xlpQWfWfE
+         jTKpm43bOB6JXpaae1WQv0ouhawLzQ8vXVokB+4uQnneGBknRqlherfUG98HAhuGi1sX
+         MgDFbmafeVbjUI0PHhWxmC4b0k1Ngpx6iR6e0LFHNV0//ImLbQpAm2PkKWB3asanaH3J
+         slrywN0fWWZVYBlKbh1clJtqLDrXV1cMERWXvA8QOLwuXBY+gLRZGb5/U91PSU+fWGMY
+         iksw==
+X-Gm-Message-State: AC+VfDyn4q2dbo6UXn7nbMdXaeukiIr0AMobyeT6IkTdHrkdAdk9kBVb
+	TTQfqj6+vlqapV/RExaIsqNJBg==
+X-Google-Smtp-Source: ACHHUZ5hXaX0d50B/MxYY7zmUATcMLkAUWf08O2mNTD1GDuz0rdbpLxwVWR6/kUM2N1nPey6Tok//g==
+X-Received: by 2002:a7b:ce0a:0:b0:3fb:b1fd:4172 with SMTP id m10-20020a7bce0a000000b003fbb1fd4172mr7691263wmc.22.1688388531708;
+        Mon, 03 Jul 2023 05:48:51 -0700 (PDT)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id v2-20020a5d6782000000b00313f5babb18sm19568022wru.9.2023.07.03.05.47.49
+        by smtp.gmail.com with ESMTPSA id u20-20020a05600c211400b003fbb618f7adsm12744165wml.15.2023.07.03.05.48.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Jul 2023 05:47:50 -0700 (PDT)
+        Mon, 03 Jul 2023 05:48:51 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -86,17 +86,18 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v4 01/10] perf: Fix wrong comment about default event_idx
-Date: Mon,  3 Jul 2023 14:46:38 +0200
-Message-Id: <20230703124647.215952-2-alexghiti@rivosinc.com>
+Subject: [PATCH v4 02/10] include: riscv: Fix wrong include guard in riscv_pmu.h
+Date: Mon,  3 Jul 2023 14:46:39 +0200
+Message-Id: <20230703124647.215952-3-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230703124647.215952-1-alexghiti@rivosinc.com>
 References: <20230703124647.215952-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_054751_978312_6808AAC0 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20230703_054858_063857_E7BB4B57 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,31 +114,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since commit c719f56092ad ("perf: Fix and clean up initialization of
-pmu::event_idx"), event_idx default implementation has returned 0, not
-idx + 1, so fix the comment that can be misleading.
+The current include guard prevents the inclusion of asm/perf_event.h
+which uses the same include guard: fix the one in riscv_pmu.h so that it
+matches the file name.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Reviewed-by: Atish Patra <atishp@rivosinc.com>
 ---
- include/linux/perf_event.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ include/linux/perf/riscv_pmu.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index d5628a7b5eaa..56fe43b20966 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -442,7 +442,8 @@ struct pmu {
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index 43fc892aa7d9..9f70d94942e0 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -6,8 +6,8 @@
+  *
+  */
  
- 	/*
- 	 * Will return the value for perf_event_mmap_page::index for this event,
--	 * if no implementation is provided it will default to: event->hw.idx + 1.
-+	 * if no implementation is provided it will default to 0 (see
-+	 * perf_event_idx_default).
- 	 */
- 	int (*event_idx)		(struct perf_event *event); /*optional */
+-#ifndef _ASM_RISCV_PERF_EVENT_H
+-#define _ASM_RISCV_PERF_EVENT_H
++#ifndef _RISCV_PMU_H
++#define _RISCV_PMU_H
  
+ #include <linux/perf_event.h>
+ #include <linux/ptrace.h>
+@@ -81,4 +81,4 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr);
+ 
+ #endif /* CONFIG_RISCV_PMU */
+ 
+-#endif /* _ASM_RISCV_PERF_EVENT_H */
++#endif /* _RISCV_PMU_H */
 -- 
 2.39.2
 
