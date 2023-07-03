@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F084C04FDF
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 10:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64A3C001E0
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 10:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c4DvPO2t2oEBlhCRvizLEaAOwIIUuaMFT9hHX7B0HWg=; b=lIvMfZtgmaX2f8
-	6E0V0iDhkSdmJXZa5kv8Iy3j+a67sphEKfYNgv7nyEgH86qSG8pWwoeAW6aRMBSuwgCR3bBijqqMU
-	ZNtXXp+phTV0tl6cPIb/7ZDzk0K2RxGPmu26E6B8YbZ/wme5V0CTJmKIwlPnbjSC5nlZFC1eBnqm8
-	QViqd9BvfgwasGzNGbHBVFPckkSc4EnkvRYvPFXqXH9kzfntdDfd1skBFdM3R8WmBWVmvYV9fKEJb
-	jaRKuaqp1jav6hBsvZnyHuwln47T1Ir1mMUEK23QvfB5mtH067VPrlskz/td5r82nJ35WZvwE16lG
-	o/atVJ5dkGTyzzLSSKwA==;
+	List-Owner; bh=/mkpjxmwE7ID/LQvRQtbH3RynR3HKzQZw/pBZ+GvSm4=; b=2nEuXcIGJNecdG
+	CCGFG7O130eBXGy4kfDZtALQ01df1i79CA7zEc5Y+EwUQ6R0DnI8BcfV+KJiRBm6ckZC4myP/koob
+	CCxlckum3RMA1ygqEyEgsg1B2nPRZzK/AzeJcb2ROxQzKiCF/EItNJoWLniyhgtOgJjDf2XQr9Uxz
+	VhDSZBfbZSGokiqWBADbrDJQ0iveoyiyoySNx6fIiVRejhFqE2aMmQ3mnEV97Fc5PYTQjuQMPq43W
+	A0yCQw2hSFlxf8WR6J3fuGx60SQuz3755FzZzRlnP493SrQXnJYLk3MI7xsPBzwAgnP29ob8mTvTS
+	KqrM/vbYQS322x8yb0lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGGo0-00AEMX-23;
-	Mon, 03 Jul 2023 10:29:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qGGo4-00AEQX-1E;
+	Mon, 03 Jul 2023 10:29:20 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGGnx-00AEJ1-1X
+	id 1qGGo1-00AEKA-0g
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 10:29:15 +0000
+	Mon, 03 Jul 2023 10:29:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688380153; x=1719916153;
+  t=1688380157; x=1719916157;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=nFZWFc6aPVJ+htn5+aiEpwZPvD0IFr2qwbQIZVrw0Og=;
-  b=GOgVcZhxoqruJ9Msq8sflCDmt+SAEoY6a+dDcGwDdIt9P6PbXhsnsNIT
-   QqkPe8otmyP86bs9/B3ZPZGxEbae7yE47fY/2U5VZBtAOiHhPE0BO1f99
-   3XCgdIz/ugwUg9KwGrTwlWoyyba9RDYbgn+DIyV4278y6CyZgTs921y0q
-   JkX6Mxj2IeJ/ko9FXFSlgDx1+jjHVD8qZgTLE1xmCl9ZzL/hdhyIjf1wK
-   mtOYyMpa+IWfBRx7SAk8Tj89bdFTybU+502wJ2bs+IE3fpizVN4hjqu12
-   TARTJhBIXnuwj6zUjIYgEYT4/Y2leKlvOJ4mcO3LUimWMMc0hkuJw7/+8
-   w==;
+  bh=5gfCaYU0chLq5c3B/D2KhUCxcGWsZsApGGytqjShGTw=;
+  b=1asWDMeEHb3ConekwoMpECOG/Ffqh6xe1E5yBXMBfuZzFaK2Ee1ZsQeW
+   1BkbR0Be4ZDi74bRr7FU1z3iDk4Hu+U/c5D1W/wijLTV7ht4aYfL2xHNd
+   D7yt+swXGw3/zUgrb8Yef7EGeTsHU2VxdvX6IJ7c89udO6JjhOXbE273y
+   GUQO5f6Tls90J7shYOWC2LzzIYtqHk6akRwEDfhLLhzwQWRxSHEbcfx5Y
+   LczQYjQ+ia89WkzChRxLIQQInNduiVeq9EZtEVg15knsfoLcmaNQRfivs
+   TqR9zOzBmBdjwyHGtJFvV7MVQQFK3RxSOy2sdQVwNKyZb89MM9hcFtb+Z
+   A==;
 X-IronPort-AV: E=Sophos;i="6.01,177,1684825200"; 
-   d="scan'208";a="233446753"
+   d="scan'208";a="222963006"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Jul 2023 03:29:11 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Jul 2023 03:29:12 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 3 Jul 2023 03:29:09 -0700
+ 15.1.2507.21; Mon, 3 Jul 2023 03:29:12 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Mon, 3 Jul 2023 03:29:06 -0700
+ Transport; Mon, 3 Jul 2023 03:29:09 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <palmer@dabbelt.com>
-Subject: [PATCH v3 04/11] RISC-V: shunt isa_ext_arr to cpufeature.c
-Date: Mon, 3 Jul 2023 11:27:56 +0100
-Message-ID: <20230703-steadying-skintight-d5b7c108551c@wendy>
+Subject: [PATCH v3 05/11] RISC-V: repurpose riscv_isa_ext array in riscv_fill_hwcap()
+Date: Mon, 3 Jul 2023 11:27:57 +0100
+Message-ID: <20230703-esteemed-broadside-6309c1fbc65a@wendy>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20230703-repayment-vocalist-e4f3eeac2b2a@wendy>
 References: <20230703-repayment-vocalist-e4f3eeac2b2a@wendy>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8733; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=nFZWFc6aPVJ+htn5+aiEpwZPvD0IFr2qwbQIZVrw0Og=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmLFq1KX3yS+3vI10Lmf+IlmxmmdH/8cCfQ9eWh9hxfuUWC 0i3+HaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZhI/gRGhs2s848G8+S4WD7Y0rVoD/ OvSOfyCXMZnNy6m9ua2Y1XnGX4p3xZPDr91cyPT/Tj13m129ox+q/YwRyeuu7ZXX39LZMl+AE=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3700; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=5gfCaYU0chLq5c3B/D2KhUCxcGWsZsApGGytqjShGTw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmLFq1+Ma3+8teMa5O+aT5IlRDX9H8ZkRa1dN3+/8FvlX4z vF72vaOUhUGMg0FWTJEl8XZfi9T6Py47nHvewsxhZQIZwsDFKQATkVFg+CvT3f9tpmuSoUy0ZmTwI+ NbCnv/XWv7Muf6Fwk3p1+2H/IYGbZIcnlzKlnrsk67d9C5MKHhvH3Mp6nLTh1fyXLyHVvRaXYA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_032913_542042_6041132B 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20230703_032917_338020_8AC11ACF 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,209 +85,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To facilitate using one struct to define extensions, rather than having
-several, shunt isa_ext_arr to cpufeature.c, where it will be used for
-probing extension presence also.
-As that scope of the array as widened, prefix it with riscv & drop the
-type from the variable name.
-
-Since the new array is const, print_isa() needs a wee bit of cleanup to
-avoid complaints about losing the const qualifier.
+In riscv_fill_hwcap() riscv_isa_ext array can be looped over, rather
+than duplicating the list of extensions with individual
+SET_ISA_EXT_MAP() usage. While at it, drop the statement-of-the-obvious
+comments from the struct, rename uprop to something more suitable for
+its new use & constify the members.
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 Changes in v2:
-- Drop the empty element from the end of the array, it was adding a bug
-  anyway as I was not decrementing the result of ARRAY_SIZE() by one.
-  Likely I meant to drop it originally and forgot, as dropping the
-  decrement was intentional.
+- Delete the now unused definition
 ---
- arch/riscv/include/asm/hwcap.h |  3 ++
- arch/riscv/kernel/cpu.c        | 75 +---------------------------------
- arch/riscv/kernel/cpufeature.c | 67 ++++++++++++++++++++++++++++++
- 3 files changed, 72 insertions(+), 73 deletions(-)
+ arch/riscv/include/asm/hwcap.h |  7 ++-----
+ arch/riscv/kernel/cpu.c        |  5 +++--
+ arch/riscv/kernel/cpufeature.c | 26 +++++++-------------------
+ 3 files changed, 12 insertions(+), 26 deletions(-)
 
 diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index f041bfa7f6a0..7a57e6109aef 100644
+index 7a57e6109aef..2460ac2fc7ed 100644
 --- a/arch/riscv/include/asm/hwcap.h
 +++ b/arch/riscv/include/asm/hwcap.h
-@@ -76,6 +76,9 @@ struct riscv_isa_ext_data {
- 	unsigned int isa_ext_id;
+@@ -55,7 +55,6 @@
+ #define RISCV_ISA_EXT_ZIHPM		42
+ 
+ #define RISCV_ISA_EXT_MAX		64
+-#define RISCV_ISA_EXT_NAME_LEN_MAX	32
+ 
+ #ifdef CONFIG_RISCV_M_MODE
+ #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
+@@ -70,10 +69,8 @@
+ unsigned long riscv_get_elf_hwcap(void);
+ 
+ struct riscv_isa_ext_data {
+-	/* Name of the extension displayed to userspace via /proc/cpuinfo */
+-	char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
+-	/* The logical ISA extension ID */
+-	unsigned int isa_ext_id;
++	const unsigned int id;
++	const char *name;
  };
  
-+extern const struct riscv_isa_ext_data riscv_isa_ext[];
-+extern const size_t riscv_isa_ext_count;
-+
- unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
- 
- #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
+ extern const struct riscv_isa_ext_data riscv_isa_ext[];
 diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index e721f15fdf17..bf93293d51f3 100644
+index bf93293d51f3..aa17eeb0ec9a 100644
 --- a/arch/riscv/kernel/cpu.c
 +++ b/arch/riscv/kernel/cpu.c
-@@ -164,81 +164,10 @@ arch_initcall(riscv_cpuinfo_init);
+@@ -168,9 +168,10 @@ static void print_isa_ext(struct seq_file *f)
+ {
+ 	for (int i = 0; i < riscv_isa_ext_count; i++) {
+ 		const struct riscv_isa_ext_data *edata = &riscv_isa_ext[i];
+-		if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
++		if (!__riscv_isa_extension_available(NULL, edata->id))
+ 			continue;
+-		seq_printf(f, "_%s", edata->uprop);
++
++		seq_printf(f, "_%s", edata->name);
+ 	}
+ }
  
- #ifdef CONFIG_PROC_FS
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index fb476153fffc..6d8cd45af723 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -99,11 +99,10 @@ static bool riscv_isa_extension_check(int id)
+ 	return true;
+ }
  
 -#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
 -	{							\
 -		.uprop = #UPROP,				\
 -		.isa_ext_id = EXTID,				\
 -	}
--
--/*
-- * The canonical order of ISA extension names in the ISA string is defined in
-- * chapter 27 of the unprivileged specification.
-- *
-- * Ordinarily, for in-kernel data structures, this order is unimportant but
-- * isa_ext_arr defines the order of the ISA string in /proc/cpuinfo.
-- *
-- * The specification uses vague wording, such as should, when it comes to
-- * ordering, so for our purposes the following rules apply:
-- *
-- * 1. All multi-letter extensions must be separated from other extensions by an
-- *    underscore.
-- *
-- * 2. Additional standard extensions (starting with 'Z') must be sorted after
-- *    single-letter extensions and before any higher-privileged extensions.
--
-- * 3. The first letter following the 'Z' conventionally indicates the most
-- *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
-- *    If multiple 'Z' extensions are named, they must be ordered first by
-- *    category, then alphabetically within a category.
-- *
-- * 3. Standard supervisor-level extensions (starting with 'S') must be listed
-- *    after standard unprivileged extensions.  If multiple supervisor-level
-- *    extensions are listed, they must be ordered alphabetically.
-- *
-- * 4. Standard machine-level extensions (starting with 'Zxm') must be listed
-- *    after any lower-privileged, standard extensions.  If multiple
-- *    machine-level extensions are listed, they must be ordered
-- *    alphabetically.
-- *
-- * 5. Non-standard extensions (starting with 'X') must be listed after all
-- *    standard extensions. If multiple non-standard extensions are listed, they
-- *    must be ordered alphabetically.
-- *
-- * An example string following the order is:
-- *    rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
-- *
-- * New entries to this struct should follow the ordering rules described above.
-- */
--static struct riscv_isa_ext_data isa_ext_arr[] = {
--	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
--	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
--	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
--	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
--	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
--	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
--	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
--	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
--	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
--	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
--	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
--	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
--	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
--	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
--	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
--	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
--	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
--	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
--};
--
- static void print_isa_ext(struct seq_file *f)
- {
--	struct riscv_isa_ext_data *edata;
--	int i = 0, arr_sz;
--
--	arr_sz = ARRAY_SIZE(isa_ext_arr) - 1;
--
--	for (i = 0; i <= arr_sz; i++) {
--		edata = &isa_ext_arr[i];
-+	for (int i = 0; i < riscv_isa_ext_count; i++) {
-+		const struct riscv_isa_ext_data *edata = &riscv_isa_ext[i];
- 		if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
- 			continue;
- 		seq_printf(f, "_%s", edata->uprop);
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index bdcf460ea53d..fb476153fffc 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -99,6 +99,73 @@ static bool riscv_isa_extension_check(int id)
- 	return true;
- }
++#define __RISCV_ISA_EXT_DATA(_name, _id) {	\
++	.name = #_name,				\
++	.id = _id,				\
++}
  
-+#define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
-+	{							\
-+		.uprop = #UPROP,				\
-+		.isa_ext_id = EXTID,				\
-+	}
-+
-+/*
-+ * The canonical order of ISA extension names in the ISA string is defined in
-+ * chapter 27 of the unprivileged specification.
-+ *
-+ * Ordinarily, for in-kernel data structures, this order is unimportant but
-+ * isa_ext_arr defines the order of the ISA string in /proc/cpuinfo.
-+ *
-+ * The specification uses vague wording, such as should, when it comes to
-+ * ordering, so for our purposes the following rules apply:
-+ *
-+ * 1. All multi-letter extensions must be separated from other extensions by an
-+ *    underscore.
-+ *
-+ * 2. Additional standard extensions (starting with 'Z') must be sorted after
-+ *    single-letter extensions and before any higher-privileged extensions.
-+ *
-+ * 3. The first letter following the 'Z' conventionally indicates the most
-+ *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
-+ *    If multiple 'Z' extensions are named, they must be ordered first by
-+ *    category, then alphabetically within a category.
-+ *
-+ * 3. Standard supervisor-level extensions (starting with 'S') must be listed
-+ *    after standard unprivileged extensions.  If multiple supervisor-level
-+ *    extensions are listed, they must be ordered alphabetically.
-+ *
-+ * 4. Standard machine-level extensions (starting with 'Zxm') must be listed
-+ *    after any lower-privileged, standard extensions.  If multiple
-+ *    machine-level extensions are listed, they must be ordered
-+ *    alphabetically.
-+ *
-+ * 5. Non-standard extensions (starting with 'X') must be listed after all
-+ *    standard extensions. If multiple non-standard extensions are listed, they
-+ *    must be ordered alphabetically.
-+ *
-+ * An example string following the order is:
-+ *    rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
-+ *
-+ * New entries to this struct should follow the ordering rules described above.
-+ */
-+const struct riscv_isa_ext_data riscv_isa_ext[] = {
-+	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-+	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
-+	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
-+	__RISCV_ISA_EXT_DATA(zicsr, RISCV_ISA_EXT_ZICSR),
-+	__RISCV_ISA_EXT_DATA(zifencei, RISCV_ISA_EXT_ZIFENCEI),
-+	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
-+	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
-+	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-+	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-+	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-+	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-+	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-+	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-+	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-+	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-+	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
-+	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-+};
-+
-+const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
-+
- void __init riscv_fill_hwcap(void)
- {
- 	struct device_node *node;
+ /*
+  * The canonical order of ISA extension names in the ISA string is defined in
+@@ -366,20 +365,9 @@ void __init riscv_fill_hwcap(void)
+ 					set_bit(nr, isainfo->isa);
+ 				}
+ 			} else {
+-				/* sorted alphabetically */
+-				SET_ISA_EXT_MAP("smaia", RISCV_ISA_EXT_SMAIA);
+-				SET_ISA_EXT_MAP("ssaia", RISCV_ISA_EXT_SSAIA);
+-				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+-				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+-				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
+-				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
+-				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+-				SET_ISA_EXT_MAP("zba", RISCV_ISA_EXT_ZBA);
+-				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
+-				SET_ISA_EXT_MAP("zbs", RISCV_ISA_EXT_ZBS);
+-				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+-				SET_ISA_EXT_MAP("zicboz", RISCV_ISA_EXT_ZICBOZ);
+-				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
++				for (int i = 0; i < riscv_isa_ext_count; i++)
++					SET_ISA_EXT_MAP(riscv_isa_ext[i].name,
++							riscv_isa_ext[i].id);
+ 			}
+ #undef SET_ISA_EXT_MAP
+ 		}
 -- 
 2.40.1
 
