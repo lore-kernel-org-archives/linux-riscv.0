@@ -4,77 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80EEC3063F
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 17:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E56A3C001B3
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 18:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dW/bwGLDRl0FwMz0q5PmOnM2NUsaIxX1pygn5s8pL38=; b=gKy+fzm9ny3K6+KqJ4iXlkM4yg
-	5WB5L/UNm7Y9PxDzTFX3HQGnhZ0n6m6IJaCLACq7i3oNpJoBBhairwqo2NtMHBjj/dUIvQ08I/rTh
-	sr7Ba7hFCgrfeMOf0dHLu4PAtRAVQgU/qVf+PQa0jCk3Xa/HIN0YoGToVHAyYDLhH5YQJNdshdj4F
-	qTyZbnRnjEBueM4QUBgHMr/pau8lvh2oUvnlSxiumGxhVaCsAWMaVPDQxqE4tLLxbyijh/WSr4243
-	YJpHTWlmOyR82zmDY4IHXzp3Olu3M4Q3ovIna1f5ELbkQqU01OaVBZ5tLsjNxUdF5IGf46espTPn8
-	Tj4TW6WA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:Subject:From:References:To:
+	Cc:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UXt1f2J9IKLTcpx7SyYW3T6bBSgYQMTQ1z7OFYJCBzU=; b=GWDJ+UxlVotdAj9Cvpw/YiqsaY
+	1WRPXouuPIyHgTdUKoGF++nqe0zeh6XpWwiE1dloqunninCGMeA0D2mQBE78a0ySRm/biL1gDBROc
+	l1VoNMwiklwqpg9OVdXTR/1nBKgpxQjOpz1EcaFNrMg/JRDpdF8kqsIy7e0dFbwWoVfxXQSxsth5Q
+	f2WpOkFyowsHjjSt2t9zWcsNo9XdYDF1WOyQYiyehB86QjDFIkNgw391FAAQjZInUk5QZ5rvxPmaz
+	8A6Q9ZPxZDr9Do7KGBTZN1gTLbao6t53Ez9Wfb67UP4DziphL51CI+uEG6CGNrDzXq/jbSxjZ4Yhy
+	HfdmmW4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGNWj-00B7c6-1t;
-	Mon, 03 Jul 2023 17:39:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qGOW0-00BEAt-2o;
+	Mon, 03 Jul 2023 18:43:12 +0000
+Received: from mail-os0jpn01olkn20825.outbound.protection.outlook.com ([2a01:111:f403:700c::825] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGNWg-00B7be-2M
+	id 1qGOVx-00BE9e-1u
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 17:39:52 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0E74260FF4;
-	Mon,  3 Jul 2023 17:39:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3945DC433C7;
-	Mon,  3 Jul 2023 17:39:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688405989;
-	bh=OntLpPnFpu6a5AZn6p9k4IDUTa9DeesaKC3dsarBEQU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CmrFmh5lmxYbn4ure2V67iG4eEuApA+cAlmqBLLlcm22Zr08WKxQHX28dD2UKLsjd
-	 DP+rbcQDXn3UG4NI77qkloLUuYM7fnmFG7citty9W43xTWEfujhRokN0XnVCTrEGSl
-	 +s+hFLWXSRReOk0GYeB4H1sfXuFS5SYtVcdj2dFDXj+FWNkYQAkaih8GJVBwHN+U/e
-	 BRv5FkW5UqRxzuussLA9sDCiLF7Q29Q5GHLyox7pAPttgayI8CuAD6RLZWMTswWaSy
-	 yLFcxHVZT0QRlQpWQL/hSfB4BGXEx15i67N+6yqO0ZNIdEbFUTISuT79ubCc2ybOzL
-	 R8pY7TlcX5mkA==
-Date: Mon, 3 Jul 2023 18:39:43 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Evan Green <evan@rivosinc.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	"Hongren (Zenithal) Zheng" <i@zenithal.me>, linux@rivosinc.com,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Jiatai He <jiatai2021@iscas.ac.cn>
-Subject: Re: [PATCH 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
-Message-ID: <20230703-mangle-panning-75909ebbe30c@spud>
-References: <20230627143747.1599218-1-sameo@rivosinc.com>
- <20230627143747.1599218-2-sameo@rivosinc.com>
- <CALs-HssMkVikspnEi-Ek2t=ABvFvgptAhsBjk1+aLuVjiP7P7w@mail.gmail.com>
- <20230627-debating-twelve-da2c1ed60948@spud>
- <ZJwE5wRVkoND3Z6P@vermeer>
- <20230628-unfeeling-tavern-edd4f58396fa@wendy>
- <CALs-HstZe+bw_fY--4FQXfFoA67tvMSaEjKhZ2pRstNT07xBxA@mail.gmail.com>
- <20230628-dragonish-lullaby-b44d2df09d66@spud>
+	Mon, 03 Jul 2023 18:43:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=RJrptUx+I20i+TlDSgVZpRkSxhH67KlE/epSjxkHV7Lyc60brjClTLF2++vhXP9UARXMlEL7d07qKiXgx7Ofp/ILuOJoY7SrKq3tVh2YNbJSgHUvgW+kB6zCbBXq8rEiWUwPSi46BGjys4oxJknqNFa/CtSl5zvL5PnnCI8pK1iunNQek3RhO9XccAAvhUqFxOI/Au2ck2sW3xLsqYhUWOFFRCyErZfnBMKMnG0syVXdFmpcBDvsExWkxfsuo63w+LE4pm5VhvNA5aDxCDh5O5jiUCU+27nk1OsmjH3ANKm2rIvhkYEJc1i6tqATf/FMgJ7R9HN/51ivfrdI7Isbag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H4QNl/4WBAhGEr3QZsJyNdTP66uQmdeiM5my31f8JGI=;
+ b=jjkJN5zzCSUf2gUzawVBaq5f8q/MIlODlT1wFafr0M6cv3OfDh9JoEwT0dTD7UDqoOAP1XRU/JnEEtttCAj7Q7GMx5ATHtEwdoGWCR/ZyeknvvXQjlsGyuswKTcNrUkWKLb6bRK+9N5mxqneDq+QfeKvWUIv7hyZx4yOz58xtBaFL4dDXvsZqjDSxubz1V2/chc1v7TaIc880GCBeirlVwPPBkuvYapjv+pMVwH3aJxKDC9unH7Jr+C9okotBUoLYeCOFQWoL0+v7i+5nVgCzL2aw7mIZfxiQqwZYmQ3XGFCYzXZW6HyBY6EIJ3R97iq+sFl7g1YcI5ptqVMaxJPdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H4QNl/4WBAhGEr3QZsJyNdTP66uQmdeiM5my31f8JGI=;
+ b=M+VF4mPa7rBu+w53/vGTVCGdsLr2b7BAQ1yrrckXVfdeoxcfntNjb0cgQZwNKDnICA5zMeoyWyGOS4TnmD04g+4S8ctx1UNtUXOGywOMGmG0aBPGl1bKtk/kjvKy7BiIZb3Ih+I2in/OUExLFne5egrksc2nxt+74kZTlpuckxWBZrISm3QTvQ6e7pwjY/BCYJo+e3Wo86JH++H6dbR0mZ4mZc69Im4LNNx8W7ngBi6dKa1slhbvsL6LiinAzD9h0qHnFobfLMGpNFmHgUKX08YlkYRKwZkfWL3FuuinVDUp5tJBh8HcF+WuDCSel3PachGbeSC5fGi/NMuVwqdKxg==
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:23e::10)
+ by TYCP286MB1658.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:183::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6544.24; Mon, 3 Jul
+ 2023 18:42:53 +0000
+Received: from TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::3794:d6cb:1aa2:342e]) by TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::3794:d6cb:1aa2:342e%7]) with mapi id 15.20.6544.024; Mon, 3 Jul 2023
+ 18:42:53 +0000
+Message-ID: <TY3P286MB2611AF9B43017A0AE3C938249829A@TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM>
+Date: Tue, 4 Jul 2023 02:42:43 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Cc: wiagn233@outlook.com, David Airlie <airlied@gmail.com>,
+ Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com,
+ Bjorn Andersson <andersson@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Shawn Guo <shawnguo@kernel.org>, Jagan Teki <jagan@edgeble.ai>,
+ Chris Morgan <macromorgan@hotmail.com>, Jack Zhu
+ <jack.zhu@starfivetech.com>, Shengyang Chen
+ <shengyang.chen@starfivetech.com>,
+ Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Keith Zhao <keith.zhao@starfivetech.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
+References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
+ <20230602074043.33872-4-keith.zhao@starfivetech.com>
+From: Shengyu Qu <wiagn233@outlook.com>
+Subject: Re: [PATCH 3/9] drm/verisilicon: Add basic drm driver
+In-Reply-To: <20230602074043.33872-4-keith.zhao@starfivetech.com>
+X-TMN: [q8eRu4Dy9Z5z6mkXn2/ZpWEKAyQXX1esgPGeERBNNAfCStz7UAT7Xd4A8uJwCTlC]
+X-ClientProxiedBy: SI2PR01CA0005.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::23) To TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:23e::10)
+X-Microsoft-Original-Message-ID: <668f4051-2922-ff16-d1ea-c18b5e733588@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20230628-dragonish-lullaby-b44d2df09d66@spud>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY3P286MB2611:EE_|TYCP286MB1658:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7c90bf83-1ac5-4091-abb1-08db7bf54f96
+X-MS-Exchange-SLBlob-MailProps: Cq7lScuPrnrElUEZnFnVRdo5Pxi6wtKSuSdeKCL4PGYuIi4b7D8GhI+m7s9ptLDS33Nmh3lirtYB9OqdpntMbpGsnQchuqWMfNs40XY4G0D2rdeOFquDzjxWnc25neQPyVi39xSlfaBrzab3i8H5LqZtZuN3gG4nomiLIMDwFO6jdffULv56so71x5aV4THSBt0SO0PlNytccOVZoyts7ObYvIzN6/jPeeHBfJ8lumzTPmKVG3iOpCJGnO8LGAQDNaV8n6PjRPFWmKnUU713EUS76MJ5BpIPdQ0W+TwFt00m66ozJ2sy+VIDc0g1RfqJVGKinh0Pqk7US/6vHlwrLgstmIj1n2EfjiPjRKAKqmpVZ9Xo3NF0eVI8SJ0WpwiSVCk510FtP8yNR0MQYnztaPTMc9L26Pzl67OA3PPp4uu8pgBmkdDxGaGhqcBNJDenxX8Or7iXz5lES2wEYt3o1MDzGARNtypxG8CT9W+idDmyBIKkRYLXcpyQmoa1GDRd6aGQ/Kfr6J+QaBkpBmnNaIq9Ti6eaVYU173NBUTSuWzSjKEY63f8IRFfmLGHVJZp/NiY9DqCPZNJui0NgKWoBfM+Gp3UPqtEUhlnkfaiNAEC6lYpUhUn3UKVF6GKyHDAjO6QnlAwBevmj44Tx/lH91ia5xhRxptpYbYQcUayb0Nq2CAOoQQbf+i7cGD500LX/+RDZydEsOC1QpyPtjxErtke3yF/aAnMgq/EuArTVA0j12U8NOokJVKWpiVB6TV4SdY8jIUx4q0=
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: xzst3SETXDcv6Cd3Q6BdHdoQRyXwljhu2qnXRiz6ySccxPHToTQ+bxmrjXYKUVmjhPhTVo+4/6pDTJ2tZnOWRViTICPT8ALqqHTXNdMxOmbu0B13Z5qY3WgQBNCFjWtqjjfCEHOSBV6uZxvpJJMbYRj0/DfBOeFUrsJwKHhCtX9B3bm6IH9lEqAR6V7Cwd52suS44yXuj7NFhNcG/F/d0uQQ1O/O7fBeNefKZzDqMC0zNC+ECuvMwhFDBlaqm+DXbgiSReUFc50FUyNya15neh5Hh/zCE4k90b9bVI33xeLRSl9qjoNhNgQSyBI5hqAJzkGhMW037g5u1XiBhRqUGFgaCiiYC6ezzZxahR/nXzy5tLwrILEheZXn3ee5bclo9IclFKaq9yvTnIgiYWe2zn3LPG9crYqFUE6HWOYB9LsZ16RPkKS3yokAZaGqOXzKxnxSCcoIuzTSwybLKPw5i9o7Si9+8ai0XXTqnluGu8rXn6DtFJGF1Db1uwxqNI/AzEeCGqetxiSiiHoPK16LBFq9SeZkUNofMv46z08CIUaMusloViQqv3K5BTw9Hmp+4F+jkRAvKAwvgiBo3MH+xoCpUCgCUNLggjm3JQV5pmBnnImG4bxsmP189bS6/HHO
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RDRLSms5bENheXVYMkdkdmJHbFMzV0l5Yzg0akRxVVZQemlJeTIwZkM5K2Mx?=
+ =?utf-8?B?WDNFNEc2ZEQ3bXdjNlppdWxIaHRZTm5CQXRrMnlSbjVEUlUrNTVYMXRLTHJn?=
+ =?utf-8?B?TnBtYmtuVXBybkJSanJUZXlhZEZQM0ZmbXpFMFpXSkd6TEVsTzhFN0FLVjlG?=
+ =?utf-8?B?S0RGSjJoSitIOXByR0xMYkNXenBqTzVzQlpxN3JaTTlzaDRJbFkyWS93ODNS?=
+ =?utf-8?B?WjNnMHE4K1NpL29KWFJiZS9sTFp2UEZTaFFlUHZONTYzNzhIUHkxSXNhZWxY?=
+ =?utf-8?B?UFZXYkpLbi92aDE2ekNVRENSZnhVN3p1ZXYyenc2QzZVdEF3YUZtbE91Z05n?=
+ =?utf-8?B?d0NFVGhlL25EckxlSEdYcy9sQXdKbjFxM2Z4VHlEYVZucEF2MGprbHN5ZHRZ?=
+ =?utf-8?B?dnQ3UTB2Q25kL3FGZFRLTkJpTXRDc2U5NHFkSUJRSmMrQlk2TzBzQVBsdi9W?=
+ =?utf-8?B?QWgyL00zVDRhTUJFMUpUTWZETW8vNDdWclBXR1o4bG5UaDBieUR2RFVERURM?=
+ =?utf-8?B?b0dYKzN4YU14SzQrZDU2VXpsaXdkd1lSa3R3VVdmZzkxOG5NbVhRVFROOVZT?=
+ =?utf-8?B?K05LM0VPTXJhQ2kxQm9yS1FLSFVuV3ZIQ2l3VDNIYU9raElGbStsVE9UZWpW?=
+ =?utf-8?B?ZjZmdUVjUmZvNGZGS2w4c1VHUUFpcHhoZG05TFFpc0hUajNSelZjbXZtbXN0?=
+ =?utf-8?B?OVhldEkwcTFpREVaeFA5Sy8vY3NrOVhiNlZqZmMyUnRWVXNLeGx2MnZkeEpK?=
+ =?utf-8?B?M3ZOZGZqZVVwWU1PQXB0eWk3QUF3Wm5ENkIzTTJUUEhRVkhtYitIZUhuaCth?=
+ =?utf-8?B?YUMvTEltMHlCS2FoT1VYazRxampvdmtDMTdKcndmL0NvdkM2TjhOWXRnaDhU?=
+ =?utf-8?B?QmhFVnFzbnpuMUxJTlFEK0hIOTNvNUlzekhzQlRGUitScnN3YjNMc1ZJZHAw?=
+ =?utf-8?B?VFJib3grb1cvS2x3cXBxd2kzTU0wMGhaQ3hDT0U2MFdLYzB5c0RRTEkvUlM3?=
+ =?utf-8?B?Mm1UTlI4VlgweHhwd2NQT3hYVnlhMmo0WjBCMWJsNFY3T092ZXNkYXFJeUVK?=
+ =?utf-8?B?YlhZNnNwRkJQQU1NbWN6OCs2ODgvejJqckloQ1ZxOG1SSXo3KzBnTWNQMlBD?=
+ =?utf-8?B?SXY5RUdxY2k5SlZlLzliejhnL1lWdEVQVnkxbmVaelpiM1Y1aElkQ1hzYW5t?=
+ =?utf-8?B?bkR5cmNZMXZYUE1KNTg0ZlVIZUszL0pmSld6UUVDWTZYUll6bktDVUIrWGwx?=
+ =?utf-8?B?NjRBaUdPb3pid0hYYmZYaVlBYTV3QzcxQ1FmK2EzOC9sTlcyNHBJTTVEeWVF?=
+ =?utf-8?B?am5zRWE2a2FaM3JpSkF6TnpSSXAyNE1OdVdnWTl1TVVUU0tGam5UVmJLQmFL?=
+ =?utf-8?B?OWVtUCtuV2gwbDFOdmFKZmFkQW5qemJiTnB6d3lHT0FzOXBUR080aHVJKzBl?=
+ =?utf-8?B?OHk2anlvNTlXQWtKS1AwaWZqcDc5OC9lYTA5NE1NbHcxUkpJc1NMMkxGMVFE?=
+ =?utf-8?B?WkZpeXd3VDdpeFdXbnVvZTBETUxpMWtJV1U4WGNiT0F1clZaR3hTMTdNbUQy?=
+ =?utf-8?B?Tmlya2FlUVVZeVIycUd5aUVKWGxaQUdjMVdRUnQ3aldZeEdUQ2Fjd0xkVGhO?=
+ =?utf-8?B?V0YzbWhXNUN3REh5RWhoWS9UakhKQURkdDZ3SHp6dEdvd295WWhnWkNsWGFR?=
+ =?utf-8?B?VFpyb3BTZktHR0pQMmkybms5L09NMW9EdmZ3aHlNOEhoejlqN29RelF3PT0=?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7c90bf83-1ac5-4091-abb1-08db7bf54f96
+X-MS-Exchange-CrossTenant-AuthSource: TY3P286MB2611.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2023 18:42:53.8707
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCP286MB1658
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_103950_858033_99E230A3 
-X-CRM114-Status: GOOD (  37.47  )
+X-CRM114-CacheID: sfid-20230703_114309_650500_9F983DEF 
+X-CRM114-Status: UNSURE (   6.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,139 +147,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2666038995022215580=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============2666038995022215580==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="JgFm48JGbULM0hnk"
-Content-Disposition: inline
-
-
---JgFm48JGbULM0hnk
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Jun 28, 2023 at 06:24:40PM +0100, Conor Dooley wrote:
-> On Wed, Jun 28, 2023 at 10:18:34AM -0700, Evan Green wrote:
-> > On Wed, Jun 28, 2023 at 4:10=E2=80=AFAM Conor Dooley <conor.dooley@micr=
-ochip.com> wrote:
-> > >
-> > > On Wed, Jun 28, 2023 at 12:01:11PM +0200, Samuel Ortiz wrote:
-> > > > On Tue, Jun 27, 2023 at 07:48:15PM +0100, Conor Dooley wrote:
-> > > > > On Tue, Jun 27, 2023 at 11:14:30AM -0700, Evan Green wrote:
-> > > > > > On Tue, Jun 27, 2023 at 7:38=E2=80=AFAM Samuel Ortiz <sameo@riv=
-osinc.com> wrote:
-> > >
-> > > > > > It would be nice to consolidate the ones together that search f=
-or a
-> > > > > > single string and set multiple bits, though I don't have any su=
-per
-> > > > > > elegant ideas for how off the top of my head.
-> > > > >
-> > > > > I've got a refactor of this code in progress, dropping all of the=
-se
-> > > > > copy-paste in place of a loop. It certainly looks more elegant th=
-an
-> > > > > this, but it will fall over a bit for these "one string matches m=
-any
-> > > > > extensions" cases. See here:
-> > > > > https://patchwork.kernel.org/project/linux-riscv/patch/20230626-t=
-hieving-jockstrap-d35d20b535c5@wendy/
-> > > > > My immediate thought is to add another element to riscv_isa_ext_d=
-ata,
-> > > > > that contains "parent" extensions to check for. Should be fairly =
-doable,
-> > > > > I'll whip something up on top of that...
-> > > >
-> > > > Nice, and thanks for the review.
-> > >
-> > > > Should I wait for your refactor to be merged before pushing this on=
-e?
-> > >
-> > > I don't know. I think that you should continue on with your series he=
-re,
-> > > and whichever goes in second gets rebased on top of the other.
-> > > I don't think it makes material difference to review of this patchset=
- as
-> > > to whether you rebase on top of what I'm working on, so I wouldn't
-> > > bother until it gets merged.
-> > >
-> > > Rather hacky, had less time than expected this morning:
-> > > https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commi=
-t/?h=3Driscv-extensions-strings-supersets
-> > > Clearly there's issues with looping to RISCV_ISA_MAX_SUPERSETS & I ju=
-st
-> > > repurposed Zicsr for the sake of testing something in the time I had.
-> > >
-> > > Evan, at a high level, does that look more elegant to you, or have I =
-made
-> > > things worse?
-> > >
-> >=20
-> > I see what you're going for at least. It's unfortunate that when
-> > someone bumps up RISCV_ISA_MAX_SUPERSETS it squares the whole array.
-> > Another way to go might be to define the elements in a separate array,
-> > like:
-> >=20
-> > unsigned int riscv_zks_exts[] =3D {
-> >        RISCV_ISA_EXT_ZBKB,
-> >        RISCV_ISA_EXT_ZBKC,
-> >        ....
-> > };
-> >=20
-> > then the macro entry looks like:
-> >=20
-> > SET_ISA_EXT_MAP_MULTI("zks", riscv_zks_exts),
-> >=20
-> > where the SET_ISA_EXT_MAP_MULTI() could use ARRAY_SIZE() to stash both
-> > the pointer to the array and the number of elements.
->=20
-> Yup, I like the sound of that. I like the variadic stuff as it'd not
-> require defining a bunch of sub-arrays of supersets. I guess if it grows
-> too badly, we can just dump it off into another file or w/e.
-
-Also, I realised the other day that I had a bug in my series - I was using
-"name" to read the property, not "property", which is what required the
-extra "supersets" property.
-The simplest thing to do actually seems to be to expand the "property"
-member to an array of strings named "properties", rather than
-introducing a "supersets" or similar.
-
-Perhaps I am forgetting a good reason for why I had it split, but I'll
-give it a whirl and see what I think...
-
-Cheers,
-Conor.
-
-
---JgFm48JGbULM0hnk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKMH3wAKCRB4tDGHoIJi
-0t+YAQCaAdQcKzF/7Wkkp8B3/aBhZXO+q4AFQeKrzR3oAw54bwD9G6x/Upc4snIB
-z7KVmZAXIYejb0tOCXe33BZlBfBWUAg=
-=UEKI
------END PGP SIGNATURE-----
-
---JgFm48JGbULM0hnk--
-
-
---===============2666038995022215580==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2666038995022215580==--
-
+SGVsbG8gS2VpdGgsCgpXaGlsZSBjb21waWxpbmcgdGhpcyBkcml2ZXIgYXMgYSBtb2R1bGUsIGEg
+ZXJyb3IgaGFwcGVuczoKCmRyaXZlcnMvZ3B1L2RybS92ZXJpc2lsaWNvbi92c19kcm06IHN0cnVj
+dCBvZl9kZXZpY2VfaWQgaXMgMjAwIGJ5dGVzLsKgIApUaGUgbGFzdCBvZiAxIGlzOgoweDAwIDB4
+MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAw
+IDB4MDAgCjB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAg
+MHgwMCAweDAwIDB4MDAgMHgwMCAKMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAw
+eDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIAoweDAwIDB4MDAgMHgwMCAweDAwIDB4
+MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgCjB4MDAgMHgw
+MCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDc2IDB4NjUgMHg3MiAweDY5IDB4NzMg
+MHg2OSAKMHg2YyAweDY5IDB4NjMgMHg2ZiAweDZlIDB4MmMgMHg2NCAweDY5IDB4NzMgMHg3MCAw
+eDZjIDB4NjEgMHg3OSAweDJkIAoweDczIDB4NzUgMHg2MiAweDczIDB4NzkgMHg3MyAweDc0IDB4
+NjUgMHg2ZCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgCjB4MDAgMHgwMCAweDAwIDB4MDAgMHgw
+MCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAKMHgwMCAweDAw
+IDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAw
+eDAwIAoweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4
+MDAgMHgwMCAweDAwIDB4MDAgCjB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgw
+MCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAKMHgwMCAweDAwIDB4MDAgMHgwMCAweDAw
+IDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIAoweDAwIDB4MDAg
+MHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4
+MDAgCjB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgwMCAweDAwIDB4MDAgMHgw
+MCAweDAwIDB4MDAgMHgwMCAKMHgwMCAweDAwIDB4MDAgMHgwMApGQVRBTDogbW9kcG9zdDogZHJp
+dmVycy9ncHUvZHJtL3ZlcmlzaWxpY29uL3ZzX2RybTogc3RydWN0IG9mX2RldmljZV9pZCAKaXMg
+bm90IHRlcm1pbmF0ZWQgd2l0aCBhIE5VTEwgZW50cnkhCgo+ICsKPiArc3RhdGljIGNvbnN0IHN0
+cnVjdCBvZl9kZXZpY2VfaWQgdnNfZHJtX2R0X2lkc1tdID0gewo+ICsJeyAuY29tcGF0aWJsZSA9
+ICJ2ZXJpc2lsaWNvbixkaXNwbGF5LXN1YnN5c3RlbSIsIH0sCj4gK307Cj4gKwoKU28sIHRoaXMg
+c2hvdWxkIGJlOgoKc3RhdGljIGNvbnN0IHN0cnVjdCBvZl9kZXZpY2VfaWQgdnNfZHJtX2R0X2lk
+c1tdID0gewoJeyAuY29tcGF0aWJsZSA9ICJ2ZXJpc2lsaWNvbixkaXNwbGF5LXN1YnN5c3RlbSIs
+IH0sCgl7IH0sCn07CgpBZnRlciBmaXhpbmcgdGhpcyBwcm9ibGVtLCBhbm90aGVyIGVycm9yIGhh
+cHBlbnM6CgpFUlJPUjogbW9kcG9zdDogbW9kdWxlIHZzX2RybSB1c2VzIHN5bWJvbCBkbWFfYnVm
+X21tYXAgZnJvbSBuYW1lc3BhY2UgCkRNQV9CVUYsIGJ1dCBkb2VzIG5vdCBpbXBvcnQgaXQuCgpQ
+bGVhc2UgZml4LgoKQmVzdCByZWdhcmRzLApTaGVuZ3l1CgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
