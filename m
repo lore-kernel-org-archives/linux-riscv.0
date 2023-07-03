@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B011EB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 12:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5E2C001B1
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 12:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KlbNc+mBOsqCXTxRxJ784Gu710zYvZ8TcD8QL1UAuEw=; b=dGlMMrx82Yh9er
-	G0IuDky4tkXPANZCCNzpB7pVTF1Cn43lCFo1PNgWCm1ldLnP7u9zN0Dy2nCqCELZcVGii7qlRieIp
-	XA3vbOVlcxb6JHUSEI2RJ9zrr8ErkJGN/yuyoYzwFfVF1grWvicvahdJtFzVudrvlqWYP7+pMQaBt
-	fdd/ujhC3lFVOSHI4oEYB18YeubcOqIgUd2ZvcJbQgBRPQY7IR398dqajAZVD/1oMoLpUQ4HEAgCH
-	uFAJOHgngfp/MruXuEgfyqKjBDWHiLkl22qnp5KIbP65SqKIOEzmFORdF9aFYQJU57AaiTmct+DYf
-	UJV8MpPRWf1bPYD7VJig==;
+	List-Owner; bh=LWs9IuRx6ebTTTMUYNnN0uVsgqPmq5/TeclAQV4llvc=; b=q4krLcTOuPKpO+
+	IcQdX0juCoIp61If4Widxp+vZuzc/eDXChOWqJbyH7Unl8O3PX5X0wFOycu9/cci7O+QZd16P1A/i
+	SZ492wndb6xuMzAVPwPPNspLNux8k+dUYoJ9uM/LYeWPYNMKnEtS/BFU7c6CA63vzXE0c5ovPfGqD
+	L2Ide2AnN2nhU4uNrBnMG2eauW7EiJFCpo4Jv3/uQOrxHTn0uDXpCzB3uiJmwuvebw3/goWPb3E1D
+	sBK71ae0Ruq8BqGOjyf3058BYFIMs2f77vR1W8em9foLvw5Na97aYZZxkZwfOMOlIO5EuDjZEirHB
+	nzp7uE+CkRsxuUCdfRwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGJ48-00AYDg-0o;
-	Mon, 03 Jul 2023 12:54:04 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1qGJ55-00AYUB-20;
+	Mon, 03 Jul 2023 12:55:03 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGJ45-00AYBY-2M
+	id 1qGJ52-00AYRy-0V
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 12:54:03 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-3fb4146e8fcso37893605e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 05:53:58 -0700 (PDT)
+	Mon, 03 Jul 2023 12:55:01 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-3fbc244d384so40656665e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 05:54:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688388837; x=1690980837;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688388899; x=1690980899;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=EFx4ptfWql1VCkY+QAKSy8enzH3xoMQdKeo5FdCgpdA=;
-        b=WL2SlqdJy2nf7qhtXjDFpSfFI3W6EJ9d7QlBrrUszJrt8kjAGu7mTPhwdcM0MrKvNG
-         cTV114dR4bi/HNUnYvuEeyFcBHizLfOagaaW9OWwU/wNHnT1JOXtJudZleOC6aprfoP2
-         xDsK5DSiwJu8OOBxr+Pof+IziLN9QmZ51aYT+ZkIDCGRMH68dfG8CxBT0PGHZvN4pjZ8
-         mQddNQJPJd6ZZtrxm8yiynv5uM+AOw0+UW+rIpfwTF/1JYE5Z1RkfAJrxfZJVrAn1BKo
-         2+OBiZpC4BdLbBlFREP/wdgpmge64Dd+aOZVJZ0c7OH1gGhm9g477EzFYr7kF4TbgPa1
-         lhDg==
+        bh=9uE3ed+qOC+4qK7E+eZU16MY7i1Q8gwASW1BIqAmC4Q=;
+        b=KXfBA4dwyaWINqWobrlqgGljAokB7lB0w4uxKHe+MjjhJ6MU6drG+dBCfGaLaKLMUT
+         Wuytx+JAlaoQoMvARJFQzofU8Q5GBknJKHveI809sfOuLtsVEKpdVJE2YzY/h8fMbDeF
+         X6Tl/vA21Rd6JLXgTd6vaeIrbZDpg680h+Bw5+mbbRRTw2bNWu7Fp6cNVTvL38Eus2oW
+         SyDqueEo4VrEMYAsl2wC+zdSntnd0NLsRddgn8kGRGloRI+BAT89n4APNVJhd19yL7ow
+         EbPJTQGKjjx4izcl8A4E/hsI7NjpQnr0KXB5ztqN1MWItg44Tr5R4FDFGEBBDCY7re2w
+         jWMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688388837; x=1690980837;
+        d=1e100.net; s=20221208; t=1688388899; x=1690980899;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EFx4ptfWql1VCkY+QAKSy8enzH3xoMQdKeo5FdCgpdA=;
-        b=D+8O2+SzLfEXC7gkRZpbhLfNORpL0XsOgS8vL5zOqmLyFhVG2V5Mvl4v0snznFZhTj
-         cAx9xypdA88bK+asJ11+SeXaHpBTjArD4tuVt2mw84q05nCOv9VgmBetnJAo7p78d+Xa
-         0VZDiVe4TvpVuwS+ec02JlqjuiOrJ8C95etsQoX5NSXUut0tE7KE1l3xeafkF26ojHSe
-         z6jTUAvxbbk9VEieJugiXkzTi1lfjDQrrre9b0m2wRax9EsLbhA5KSdwWNbFR1KN3cX/
-         T5W72rQ61ZA+283wh7kzLhLKlW+RCOs+rZ4zOCWKn0m8izl6Nlv3wk49sRqrth+1//a7
-         cXDQ==
-X-Gm-Message-State: AC+VfDyaIaFD4zFwcpiDnJd5X+wq+LDMikpsJVYPxsEqG9qpfP/33s3P
-	hlvaAtGMUWDE2QmckQjELzSsgw==
-X-Google-Smtp-Source: ACHHUZ4N2tuGb+Vcz31VHfkql4J0f3Ibfvl2eWl4wUdJuir2vrWSCKs+ZAQjToM65s53t7xVGhOxMA==
-X-Received: by 2002:a05:600c:3d9b:b0:3fb:c257:9f48 with SMTP id bi27-20020a05600c3d9b00b003fbc2579f48mr9245072wmb.16.1688388837525;
-        Mon, 03 Jul 2023 05:53:57 -0700 (PDT)
+        bh=9uE3ed+qOC+4qK7E+eZU16MY7i1Q8gwASW1BIqAmC4Q=;
+        b=bGfCrJcK1OQhpHEBFT90zR7nAxtoFBhUBBt9Wajx3RhmcYox8VGqcENxrsw0uMmWkM
+         hPy4RaIjNludhixsApb7W42DtHxbYXrc1hAQqVJe1emURkUjKgcP3khXB+PvGcSn51zp
+         6h2gJGUF18i6flY5NIABez3tsXXs3PCrzY0sUE+N/uEVNMzRiOGttW7ytiEBxAqnDa4m
+         7jBXwfWg31epIhRV05bmDHWixybpWv1AXjizWWgcQaYjHWqHL+kGkv45XoPeytS5/HtY
+         NXKuG1EGtgA3xyHQpMucCaYlsDxUVMo5LD+4LQT49KDYsRtNs9uBw5nMlFZtQtDqSzkq
+         XyoA==
+X-Gm-Message-State: AC+VfDxuSEhxNdqQ/ke2nup0s1B5baIRc4MAsuAYptRPf688XxJtNYBk
+	MFxF8BeAfBZ+zh0DJF0G7qtNMQ==
+X-Google-Smtp-Source: ACHHUZ5VUOGaM9JlKwN3HlVqTZGme530byxX95CP51zvYyoKEqerS7qsgoXHhQmTbUYoVAnfzKsSQg==
+X-Received: by 2002:a1c:6a0c:0:b0:3fb:bc4a:46ad with SMTP id f12-20020a1c6a0c000000b003fbbc4a46admr7766337wmc.9.1688388898687;
+        Mon, 03 Jul 2023 05:54:58 -0700 (PDT)
 Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id a10-20020a05600c224a00b003faef96ee78sm20711360wmm.33.2023.07.03.05.53.56
+        by smtp.gmail.com with ESMTPSA id y5-20020a05600c364500b003fbc9d178a8sm8488190wmq.4.2023.07.03.05.54.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Jul 2023 05:53:57 -0700 (PDT)
+        Mon, 03 Jul 2023 05:54:58 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -86,16 +86,16 @@ To: Jonathan Corbet <corbet@lwn.net>,
 	linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v4 07/10] drivers: perf: Implement perf event mmap support in the SBI backend
-Date: Mon,  3 Jul 2023 14:46:44 +0200
-Message-Id: <20230703124647.215952-8-alexghiti@rivosinc.com>
+Subject: [PATCH v4 08/10] Documentation: admin-guide: Add riscv sysctl_perf_user_access
+Date: Mon,  3 Jul 2023 14:46:45 +0200
+Message-Id: <20230703124647.215952-9-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230703124647.215952-1-alexghiti@rivosinc.com>
 References: <20230703124647.215952-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_055401_769837_9380046E 
-X-CRM114-Status: GOOD (  33.87  )
+X-CRM114-CacheID: sfid-20230703_055500_196976_0FFA921B 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,325 +112,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We used to unconditionnally expose the cycle and instret csrs to
-userspace, which gives rise to security concerns.
-
-So now we only allow access to hw counters from userspace through the perf
-framework which will handle context switches, per-task events...etc. But
-as we cannot break userspace, we give the user the choice to go back to
-the previous behaviour by setting the sysctl perf_user_access.
+riscv now uses this sysctl so document its usage for this architecture.
 
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- drivers/perf/riscv_pmu.c     |  10 +-
- drivers/perf/riscv_pmu_sbi.c | 192 +++++++++++++++++++++++++++++++++--
- 2 files changed, 195 insertions(+), 7 deletions(-)
+ Documentation/admin-guide/sysctl/kernel.rst | 27 ++++++++++++++++++---
+ 1 file changed, 23 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-index 432ad2e80ce3..80c052e93f9e 100644
---- a/drivers/perf/riscv_pmu.c
-+++ b/drivers/perf/riscv_pmu.c
-@@ -38,7 +38,15 @@ void arch_perf_update_userpage(struct perf_event *event,
- 	userpg->cap_user_time_short = 0;
- 	userpg->cap_user_rdpmc = riscv_perf_user_access(event);
+diff --git a/Documentation/admin-guide/sysctl/kernel.rst b/Documentation/admin-guide/sysctl/kernel.rst
+index d85d90f5d000..19b627883313 100644
+--- a/Documentation/admin-guide/sysctl/kernel.rst
++++ b/Documentation/admin-guide/sysctl/kernel.rst
+@@ -941,16 +941,35 @@ enabled, otherwise writing to this file will return ``-EBUSY``.
+ The default value is 8.
  
--	userpg->pmc_width = 64;
-+#ifdef CONFIG_RISCV_PMU
-+	/*
-+	 * The counters are 64-bit but the priv spec doesn't mandate all the
-+	 * bits to be implemented: that's why, counter width can vary based on
-+	 * the cpu vendor.
-+	 */
-+	if (userpg->cap_user_rdpmc)
-+		userpg->pmc_width = to_riscv_pmu(event->pmu)->ctr_get_width(event->hw.idx) + 1;
-+#endif
  
- 	do {
- 		rd = sched_clock_read_begin(&seq);
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 83c3f1c4d2f1..2236cc9aa4b8 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -24,6 +24,14 @@
- #include <asm/sbi.h>
- #include <asm/hwcap.h>
+-perf_user_access (arm64 only)
+-=================================
++perf_user_access (arm64 and riscv only)
++=======================================
++
++Controls user space access for reading perf event counters.
  
-+#define SYSCTL_NO_USER_ACCESS	0
-+#define SYSCTL_USER_ACCESS	1
-+#define SYSCTL_LEGACY		2
-+
-+#define PERF_EVENT_FLAG_NO_USER_ACCESS	BIT(SYSCTL_NO_USER_ACCESS)
-+#define PERF_EVENT_FLAG_USER_ACCESS	BIT(SYSCTL_USER_ACCESS)
-+#define PERF_EVENT_FLAG_LEGACY		BIT(SYSCTL_LEGACY)
-+
- PMU_FORMAT_ATTR(event, "config:0-47");
- PMU_FORMAT_ATTR(firmware, "config:63");
+-Controls user space access for reading perf event counters. When set to 1,
+-user space can read performance monitor counter registers directly.
++arm64
++=====
  
-@@ -43,6 +51,9 @@ static const struct attribute_group *riscv_pmu_attr_groups[] = {
- 	NULL,
- };
+ The default value is 0 (access disabled).
  
-+/* Allow user mode access by default */
-+static int sysctl_perf_user_access __read_mostly = SYSCTL_USER_ACCESS;
++When set to 1, user space can read performance monitor counter registers
++directly.
 +
- /*
-  * RISC-V doesn't have heterogeneous harts yet. This need to be part of
-  * per_cpu in case of harts with different pmu counters
-@@ -301,6 +312,11 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
- }
- EXPORT_SYMBOL_GPL(riscv_pmu_get_hpm_info);
+ See Documentation/arm64/perf.rst for more information.
  
-+static uint8_t pmu_sbi_csr_index(struct perf_event *event)
-+{
-+	return pmu_ctr_list[event->hw.idx].csr - CSR_CYCLE;
-+}
++riscv
++=====
 +
- static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
- {
- 	unsigned long cflags = 0;
-@@ -329,18 +345,34 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
- 	struct sbiret ret;
- 	int idx;
--	uint64_t cbase = 0;
-+	uint64_t cbase = 0, cmask = rvpmu->cmask;
- 	unsigned long cflags = 0;
++When set to 0, user space access is disabled.
++
++The default value is 1, user space can read performance monitor counter
++registers through perf, any direct access without perf intervention will trigger
++an illegal instruction.
++
++When set to 2, which enables legacy mode (user space has direct access to cycle
++and insret CSRs only). Note that this legacy value is deprecated and will be
++removed once all user space applications are fixed.
++
++Note that the time CSR is always directly accessible to all modes.
  
- 	cflags = pmu_sbi_get_filter_flags(event);
-+
-+	/*
-+	 * In legacy mode, we have to force the fixed counters for those events
-+	 * but not in the user access mode as we want to use the other counters
-+	 * that support sampling/filtering.
-+	 */
-+	if (hwc->flags & PERF_EVENT_FLAG_LEGACY) {
-+		if (event->attr.config == PERF_COUNT_HW_CPU_CYCLES) {
-+			cflags |= SBI_PMU_CFG_FLAG_SKIP_MATCH;
-+			cmask = 1;
-+		} else if (event->attr.config == PERF_COUNT_HW_INSTRUCTIONS) {
-+			cflags |= SBI_PMU_CFG_FLAG_SKIP_MATCH;
-+			cmask = 1UL << (CSR_INSTRET - CSR_CYCLE);
-+		}
-+	}
-+
- 	/* retrieve the available counter index */
- #if defined(CONFIG_32BIT)
- 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
--			rvpmu->cmask, cflags, hwc->event_base, hwc->config,
-+			cmask, cflags, hwc->event_base, hwc->config,
- 			hwc->config >> 32);
- #else
- 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
--			rvpmu->cmask, cflags, hwc->event_base, hwc->config, 0);
-+			cmask, cflags, hwc->event_base, hwc->config, 0);
- #endif
- 	if (ret.error) {
- 		pr_debug("Not able to find a counter for event %lx config %llx\n",
-@@ -474,6 +506,22 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
- 	return val;
- }
- 
-+static void pmu_sbi_set_scounteren(void *arg)
-+{
-+	struct perf_event *event = (struct perf_event *)arg;
-+
-+	csr_write(CSR_SCOUNTEREN,
-+		  csr_read(CSR_SCOUNTEREN) | (1 << pmu_sbi_csr_index(event)));
-+}
-+
-+static void pmu_sbi_reset_scounteren(void *arg)
-+{
-+	struct perf_event *event = (struct perf_event *)arg;
-+
-+	csr_write(CSR_SCOUNTEREN,
-+		  csr_read(CSR_SCOUNTEREN) & ~(1 << pmu_sbi_csr_index(event)));
-+}
-+
- static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
- {
- 	struct sbiret ret;
-@@ -490,6 +538,10 @@ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
- 	if (ret.error && (ret.error != SBI_ERR_ALREADY_STARTED))
- 		pr_err("Starting counter idx %d failed with error %d\n",
- 			hwc->idx, sbi_err_map_linux_errno(ret.error));
-+
-+	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
-+	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
-+		pmu_sbi_set_scounteren((void *)event);
- }
- 
- static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
-@@ -497,6 +549,10 @@ static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
- 	struct sbiret ret;
- 	struct hw_perf_event *hwc = &event->hw;
- 
-+	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
-+	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
-+		pmu_sbi_reset_scounteren((void *)event);
-+
- 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, hwc->idx, 1, flag, 0, 0, 0);
- 	if (ret.error && (ret.error != SBI_ERR_ALREADY_STOPPED) &&
- 		flag != SBI_PMU_STOP_FLAG_RESET)
-@@ -704,10 +760,13 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
- 	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
- 
- 	/*
--	 * Enable the access for CYCLE, TIME, and INSTRET CSRs from userspace,
--	 * as is necessary to maintain uABI compatibility.
-+	 * We keep enabling userspace access to CYCLE, TIME and INSRET via the
-+	 * legacy option but that will be removed in the future.
- 	 */
--	csr_write(CSR_SCOUNTEREN, 0x7);
-+	if (sysctl_perf_user_access == SYSCTL_LEGACY)
-+		csr_write(CSR_SCOUNTEREN, 0x7);
-+	else
-+		csr_write(CSR_SCOUNTEREN, 0x2);
- 
- 	/* Stop all the counters so that they can be enabled from perf */
- 	pmu_sbi_stop_all(pmu);
-@@ -851,6 +910,121 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
- 	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
- }
- 
-+static void pmu_sbi_event_init(struct perf_event *event)
-+{
-+	/*
-+	 * The permissions are set at event_init so that we do not depend
-+	 * on the sysctl value that can change.
-+	 */
-+	if (sysctl_perf_user_access == SYSCTL_NO_USER_ACCESS)
-+		event->hw.flags |= PERF_EVENT_FLAG_NO_USER_ACCESS;
-+	else if (sysctl_perf_user_access == SYSCTL_USER_ACCESS)
-+		event->hw.flags |= PERF_EVENT_FLAG_USER_ACCESS;
-+	else
-+		event->hw.flags |= PERF_EVENT_FLAG_LEGACY;
-+}
-+
-+static void pmu_sbi_event_mapped(struct perf_event *event, struct mm_struct *mm)
-+{
-+	if (event->hw.flags & PERF_EVENT_FLAG_NO_USER_ACCESS)
-+		return;
-+
-+	if (event->hw.flags & PERF_EVENT_FLAG_LEGACY) {
-+		if (event->attr.config != PERF_COUNT_HW_CPU_CYCLES &&
-+		    event->attr.config != PERF_COUNT_HW_INSTRUCTIONS) {
-+			return;
-+		}
-+	}
-+
-+	/*
-+	 * The user mmapped the event to directly access it: this is where
-+	 * we determine based on sysctl_perf_user_access if we grant userspace
-+	 * the direct access to this event. That means that within the same
-+	 * task, some events may be directly accessible and some other may not,
-+	 * if the user changes the value of sysctl_perf_user_accesss in the
-+	 * meantime.
-+	 */
-+
-+	event->hw.flags |= PERF_EVENT_FLAG_USER_READ_CNT;
-+
-+	/*
-+	 * We must enable userspace access *before* advertising in the user page
-+	 * that it is possible to do so to avoid any race.
-+	 * And we must notify all cpus here because threads that currently run
-+	 * on other cpus will try to directly access the counter too without
-+	 * calling pmu_sbi_ctr_start.
-+	 */
-+	if (event->hw.flags & PERF_EVENT_FLAG_USER_ACCESS)
-+		on_each_cpu_mask(mm_cpumask(mm),
-+				 pmu_sbi_set_scounteren, (void *)event, 1);
-+}
-+
-+static void pmu_sbi_event_unmapped(struct perf_event *event, struct mm_struct *mm)
-+{
-+	if (event->hw.flags & PERF_EVENT_FLAG_NO_USER_ACCESS)
-+		return;
-+
-+	if (event->hw.flags & PERF_EVENT_FLAG_LEGACY) {
-+		if (event->attr.config != PERF_COUNT_HW_CPU_CYCLES &&
-+		    event->attr.config != PERF_COUNT_HW_INSTRUCTIONS) {
-+			return;
-+		}
-+	}
-+
-+	/*
-+	 * Here we can directly remove user access since the user does not have
-+	 * access to the user page anymore so we avoid the racy window where the
-+	 * user could have read cap_user_rdpmc to true right before we disable
-+	 * it.
-+	 */
-+	event->hw.flags &= ~PERF_EVENT_FLAG_USER_READ_CNT;
-+
-+	if (event->hw.flags & PERF_EVENT_FLAG_USER_ACCESS)
-+		on_each_cpu_mask(mm_cpumask(mm),
-+				 pmu_sbi_reset_scounteren, (void *)event, 1);
-+}
-+
-+static void riscv_pmu_update_counter_access(void *info)
-+{
-+	if (sysctl_perf_user_access == SYSCTL_LEGACY)
-+		csr_write(CSR_SCOUNTEREN, 0x7);
-+	else
-+		csr_write(CSR_SCOUNTEREN, 0x2);
-+}
-+
-+static int riscv_pmu_proc_user_access_handler(struct ctl_table *table,
-+					      int write, void *buffer,
-+					      size_t *lenp, loff_t *ppos)
-+{
-+	int prev = sysctl_perf_user_access;
-+	int ret = proc_dointvec_minmax(table, write, buffer, lenp, ppos);
-+
-+	/*
-+	 * Test against the previous value since we clear SCOUNTEREN when
-+	 * sysctl_perf_user_access is set to SYSCTL_USER_ACCESS, but we should
-+	 * not do that if that was already the case.
-+	 */
-+	if (ret || !write || prev == sysctl_perf_user_access)
-+		return ret;
-+
-+	on_each_cpu(riscv_pmu_update_counter_access, NULL, 1);
-+
-+	return 0;
-+}
-+
-+static struct ctl_table sbi_pmu_sysctl_table[] = {
-+	{
-+		.procname       = "perf_user_access",
-+		.data		= &sysctl_perf_user_access,
-+		.maxlen		= sizeof(unsigned int),
-+		.mode           = 0644,
-+		.proc_handler	= riscv_pmu_proc_user_access_handler,
-+		.extra1		= SYSCTL_ZERO,
-+		.extra2		= SYSCTL_TWO,
-+	},
-+	{ }
-+};
-+
- static int pmu_sbi_device_probe(struct platform_device *pdev)
- {
- 	struct riscv_pmu *pmu = NULL;
-@@ -888,6 +1062,10 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	pmu->ctr_get_width = pmu_sbi_ctr_get_width;
- 	pmu->ctr_clear_idx = pmu_sbi_ctr_clear_idx;
- 	pmu->ctr_read = pmu_sbi_ctr_read;
-+	pmu->event_init = pmu_sbi_event_init;
-+	pmu->event_mapped = pmu_sbi_event_mapped;
-+	pmu->event_unmapped = pmu_sbi_event_unmapped;
-+	pmu->csr_index = pmu_sbi_csr_index;
- 
- 	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
- 	if (ret)
-@@ -901,6 +1079,8 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto out_unregister;
- 
-+	register_sysctl("kernel", sbi_pmu_sysctl_table);
-+
- 	return 0;
- 
- out_unregister:
+ pid_max
+ =======
 -- 
 2.39.2
 
