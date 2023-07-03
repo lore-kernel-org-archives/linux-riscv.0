@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C0CEB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 08:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC3BEB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 08:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rYyfcYCjCXdH6zuhGJEXuo1EFe7XZo8ADJxSsL7b83k=; b=jhUcWquJbh6OdT2/XCFWAnCXuq
-	37RpiX7E/t1G9c6yHNFvPKXl5pPju6i4hMrT6ZYcVoO9PX/NA7+XbyTvN8p3N809QQTa6jo0zDRKH
-	qLAWSjFs1Q+mgk8zwsJ0shVRTkBMB5xMpnhlZ4TGPN+SxrHG7hreG8uMwsZ+EmeR26Z1495k0DAqL
-	ln9HCg5PovcHfxVsoTqCMQyUMLzJx4wHXmXFQOirVFBvVHiCrMrBRBTyBdmvHMf9uQU+hdiLdsvaf
-	5cZjepZVehKZ8mTVEE0sOkCh10SYIBLbkC9rtI/sxqmqTzS0PmBH/CI063dfAQk9f14KS/3EA2Y8n
-	jyX2ivyQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=z+v4YDtCjFMNibntlkFPTUnCNjWZRSds9l2kAC/rZS4=; b=2ncgOcj8m/3qy1
+	gCV1gyDICe6ZFHoWRrcoiwCtxn0CHq8OurcuI1zFgX0tk6mtD2Mcj9JMRlgoNbnwFevSBYv6OskJ7
+	WlK3nn0j7DU838wFRlWJ7PsEG2EQgOJBPoOam85igeR5JHRtsYSZGdM0KMoU6vNK0BmixacE8OPtf
+	v6qh5Hs+PgoWnIL3Kl4WqViUTovFwI+ZOCCX4Qla4BBGJoYTwo+HT4gfKbevFt//hfp41UC3aRSar
+	JniaDLEjIIIm2orzWZCR8LHbsRQ8SKL5m7ryAlyIidRSj0cJwYGeON1Qewe6PVCUA/HhB2+eoom8j
+	ogdMcIfGyfM+jiQ35+Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGEkB-009ixF-1r;
-	Mon, 03 Jul 2023 08:17:11 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qGElg-009j8g-1c;
+	Mon, 03 Jul 2023 08:18:44 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGEk9-009iwm-1y
+	id 1qGElc-009j5p-2l
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 08:17:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688372230; x=1719908230;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hxLRx7MJ808MUU2NcCaCNzOa2IUOEx/fbiFCPUlHJNY=;
-  b=iicbL266l8AT2U6HbIaJngaUw3TPfa+jKfJm3+MQY8RBrk3VIU7EnQ7l
-   TRDD+sUKOBiI/FuHVOoFXcpSm+eEH7lzXop6F4p/xeLEpfi6Mo7UhcM+J
-   +T9V/YiBgvV6mdtpSeCRTdpPbcC5BQzd13RRb4ZH8GMl2q6bYtlLg87GO
-   zLQyzt7zmR/NrCviZd0eQd79zNnti690lUv6XD/M9L6697Ea+o4lm4biA
-   x1JSLIBw7bpW98RhCu3QP7pn2c22ImvRJj4HqRZxXQnMeFV/xYPKRkNUJ
-   s+0Tu2OLTwcV+ImMTsb3CiMIDWIbGw7FTaMIGVDF0w1vpulBTNfZR3bQI
-   w==;
-X-IronPort-AV: E=Sophos;i="6.01,177,1684825200"; 
-   d="asc'?scan'208";a="221734702"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Jul 2023 01:17:09 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 3 Jul 2023 01:17:06 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 3 Jul 2023 01:17:02 -0700
-Date: Mon, 3 Jul 2023 09:16:33 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: =?utf-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
-CC: Conor Dooley <conor@kernel.org>, <ardb@kernel.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, <rminnich@gmail.com>,
-	<mark.rutland@arm.com>, <lpieralisi@kernel.org>, <rafael@kernel.org>,
-	<lenb@kernel.org>, <jdelvare@suse.com>, <yc.hung@mediatek.com>,
-	<angelogioacchino.delregno@collabora.com>, <allen-kh.cheng@mediatek.com>,
-	<pierre-louis.bossart@linux.intel.com>, <tinghan.shen@mediatek.com>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<geshijian@bytedance.com>, <weidong.wd@bytedance.com>
-Subject: Re: [External] Re: [PATCH v2 3/3] riscv: obtain SMBIOS entry from
- FFI.
-Message-ID: <20230703-escapist-granny-14faea3ab0ef@wendy>
-References: <20230702095735.860-1-cuiyunhui@bytedance.com>
- <20230702095735.860-3-cuiyunhui@bytedance.com>
- <20230702-confiding-aqueduct-25c3c2852de3@spud>
- <CAEEQ3wkaazkV9MrfvWQMSXixtqahgdYVe=GT9ZZJnW-r1AQ1aA@mail.gmail.com>
+	Mon, 03 Jul 2023 08:18:42 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-51d7f4c1cfeso4803469a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 01:18:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1688372317; x=1690964317;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=f0AIPmQjwEPFU9S6QPuv3kXAJyYa7R0ahvO9uqbNsw0=;
+        b=CTXm0Evd7f9xNERgFGe8Kgf2dIrXOUMZPOBGhEgXQdvIjRhhrv5Qh3s5ENWJ09z7ev
+         5wm7FiXz+iF/TvW0dDpczV2RwoT7ClRWoiG7fSddWKzNyBagcc/r7pNw84OiXN04lL4z
+         wC0LmC5S4SY3KJKOoKwf0war+sU1MsM9XTZc+Scp7fmMYsS9QJtvuv34rKr0yMZAysn8
+         D2fh7In8mMCQM9+yNYsq6aVEQIOZzk4aw7h/eGK/mN535gJJ9Vny0AUFRXYlZM0dEbQr
+         O8A0Ma5CFWhzbHzM3joBe8qmF4w64d0CQLFSC5gbL99qho7IZPwuRlOOued1WUV58MLW
+         eK2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688372317; x=1690964317;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f0AIPmQjwEPFU9S6QPuv3kXAJyYa7R0ahvO9uqbNsw0=;
+        b=e9gY+aVRZxSrNqYfjviBGmGrovlRKFKqUgmKX3yZaaYhFVJouNo0VMg3DWR0BiqU0l
+         oqFlRO6BpCtlvf2vTgr2XMzTde/j+Xmqvl3VdWCsttMRjyx+exXQYhzmhV28Kq/+r3jZ
+         UOdUnhi7C1e8SLo5A4ymPNmlUK2MWUbY/+/Kjfe6HfbR3eW02BSDeoCyaXG3y526fohC
+         1nJuBe8EpB5KqawQ5WV2smN2nIfJYEy35RosAGjxY8pI03mYlhHXkVbJ12T/VBaPEB/x
+         m2ZxiLA4epL07QUaGdMgrXWEXrlPD+YjUqVbx6ZrEZuFBJfZUU9gEXAm5KMtbUtcg+Gn
+         rfSQ==
+X-Gm-Message-State: ABy/qLapqgoqSy+M3ygnMDd+HCrIr5F+3Nl9Jb5R2Q92jTx150SlEJIe
+	R65yvPYAbFq8ldlSGWGbH8zhWg==
+X-Google-Smtp-Source: APBJJlFjFKFq1EVk2plu+5SIDoHMMxjYDFXuQ8UHkU0hLQGKGPcjw2PacRkzpqFIW8QfcigNzutaAw==
+X-Received: by 2002:a05:6402:4497:b0:51a:200b:d8ff with SMTP id er23-20020a056402449700b0051a200bd8ffmr6795812edb.13.1688372316835;
+        Mon, 03 Jul 2023 01:18:36 -0700 (PDT)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id n22-20020a056402515600b0051e0f100c48sm1171605edd.22.2023.07.03.01.18.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Jul 2023 01:18:36 -0700 (PDT)
+Date: Mon, 3 Jul 2023 10:18:35 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com, maz@kernel.org, oliver.upton@linux.dev, 
+	seanjc@google.com, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Shuah Khan <shuah@kernel.org>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Ricardo Koller <ricarkol@google.com>, 
+	Vishal Annapurve <vannapurve@google.com>, Vipin Sharma <vipinsh@google.com>, 
+	David Matlack <dmatlack@google.com>, Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v5 10/13] KVM: selftests: Only do get/set tests on
+ present blessed list
+Message-ID: <20230702-49c5545eb1ae2d0cf11c7b95@orel>
+References: <cover.1688010022.git.haibo1.xu@intel.com>
+ <f44c3aa46971d524319c6340f9ce1b00c0182fd2.1688010022.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
-In-Reply-To: <CAEEQ3wkaazkV9MrfvWQMSXixtqahgdYVe=GT9ZZJnW-r1AQ1aA@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <f44c3aa46971d524319c6340f9ce1b00c0182fd2.1688010022.git.haibo1.xu@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_011709_654604_7D45072C 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20230703_011840_888901_78D00526 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,68 +98,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5939904662782226673=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5939904662782226673==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="BPBW6SBBuQNafGn+"
-Content-Disposition: inline
+On Sat, Jul 01, 2023 at 09:42:58PM +0800, Haibo Xu wrote:
+> Only do the get/set tests on present and blessed registers
+> since we don't know the capabilities of any new ones.
+> 
+> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  tools/testing/selftests/kvm/get-reg-list.c | 29 ++++++++++++++--------
+>  1 file changed, 18 insertions(+), 11 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/get-reg-list.c b/tools/testing/selftests/kvm/get-reg-list.c
+> index c61090806007..74fb6f6fdd09 100644
+> --- a/tools/testing/selftests/kvm/get-reg-list.c
+> +++ b/tools/testing/selftests/kvm/get-reg-list.c
+> @@ -49,6 +49,10 @@ extern int vcpu_configs_n;
+>  	for_each_reg_filtered(i)						\
+>  		if (!find_reg(blessed_reg, blessed_n, reg_list->reg[i]))
+>  
+> +#define for_each_present_blessed_reg(i)			\
+> +	for ((i) = 0; (i) < blessed_n; ++(i))		\
+> +		if (find_reg(reg_list->reg, reg_list->n, blessed_reg[i]))
 
---BPBW6SBBuQNafGn+
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I just realized this is backwards. We need 'i' to index reg_list->reg in
+the body of the loop. That means we need to write this as
 
-On Mon, Jul 03, 2023 at 03:50:57PM +0800, =E8=BF=90=E8=BE=89=E5=B4=94 wrote:
-> On Sun, Jul 2, 2023 at 8:42=E2=80=AFPM Conor Dooley <conor@kernel.org> wr=
-ote:
-> >
-> > Hey,
-> >
-> > On Sun, Jul 02, 2023 at 05:57:34PM +0800, Yunhui Cui wrote:
-> > > When we bringup with coreboot on riscv, we need to obtain
-> > > the entry address of SMBIOS through the FFI scheme.
-> >
-> > What do you need it for?
-> RISC-V will be server-oriented, and the system needs to be managed
-> based on SMBIOS.
+#define for_each_present_blessed_reg(i)                                         \
+        for_each_reg(i)                                                         \
+                if (find_reg(blessed_reg, blessed_n, reg_list->reg[i]))
 
-Really what this commit message is missing is something that explains
-why you need the FFI scheme. Say along the lines of:
+(Which, in hindsight, makes sense since we're replacing a for_each_reg()
+loop.)
 
-	Coreboot on RISC-V does not support EFI, and needs to use the
-	FDT Firmware Interface (FFI) to pass the entry address of SMBIOS
-	to the kernel.
-
-Cheers,
-Conor.
-
---BPBW6SBBuQNafGn+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKKD4QAKCRB4tDGHoIJi
-0k2HAP9pmxxbrgHQrz6OmhH0sGOVhQtFoasv1XCYd14s7Vbq5wEAyAL2LCy+I4Bg
-n7AZ/WcCZ+tcNDDs4NqNvkDFVNURsQA=
-=dPYG
------END PGP SIGNATURE-----
-
---BPBW6SBBuQNafGn+--
-
-
---===============5939904662782226673==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5939904662782226673==--
-
