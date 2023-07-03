@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BBC3EB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 08:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F92DC001B3
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 08:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tmrQBsFNBUBzTqiobEmEj+gC8pY9BOaN157DkDA57r4=; b=UBYKy/b4Rz4Vl0
-	FoEb5DOYk/HXsAFH/vxmgWcEeLDnbZ6Fnn6CXBaIWWl15rBryMCwEBXfLzfzcZQ90UzWV4MJrbuSX
-	PqSKp2wS0tsE8BjOLxnzJKFuvKtY4RYNy2qWlawnU06bTCVcG7az2rx1WhoULimu6J0FDwSzFbUze
-	9zyN57z3gk2eiJ9+sqBmvURiidb+AAWptEu0HwadrNEMjcBvInuqKcIRIniZS2Kw6KVcb47XXvRVN
-	kcat39h2pdbGIpccL4CS8wvrVcFuei/x9guHMpoSrdbctalBnWI2dYgCA6rjdEMDN1m5aItxWibU9
-	NzKd4Y5OlBxAQvJb323A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AAMdf0S8X3CuOoz2/sA4Wa7Fc7unpat4SHa89rozRbY=; b=yhLpypeUhSDG5BAydt3UcOUq4V
+	qJRzSTaBeeGNL4o+LE8DTDqdYUAN5UqOvnlLv4sTS+R5LwfZfIHacoII93RsgFTTyHKA9hgL2s4xZ
+	bjzVP2lAjtNyxT32VaHTVgM/hOKQUtea5SXjd5pSNSDfMaku1A1cfdiTEXdweXJUidCwqgmtvripJ
+	umwQXUwuQAUB93rVr9tYTCs9AoEzmeE6/OAbh3m+KgNetLV3Oy0vqeu3sN6KkcQH0j9MCUkygNwGz
+	KNahtqhUgSQ4zpDVRjRfFqWbv8r0s9hyuKm/3dYHbAiBTd609ws6o5NdmOg+XbfA6LrhIxoSAY+4H
+	NJ0xz5bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGEqz-009kNY-39;
-	Mon, 03 Jul 2023 08:24:13 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1qGF2A-009lzw-1k;
+	Mon, 03 Jul 2023 08:35:46 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGEqw-009kM6-0v
+	id 1qGF24-009lyV-2v
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 08:24:12 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-3fa93d61d48so49719805e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 01:24:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1688372645; x=1690964645;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VK9YJK54N6X6KANLQAKaW0JERmC99/mkew38T4D7Txw=;
-        b=lCArJJna5LLyOPkgI58sEAU27L0ZiP4Ne872I/FQMplFNqtbW0R8UUGlyOt+Hb+pUn
-         zI3WBAPsFMf318AzUzG17RX5zgxwKu/Pp3NgS3zikmLMia/whGzAKLIlOLkbW79G2LEa
-         WXcdQxuV+biiJ0O7FVwNbQFPQJgRo9iioM5KrWvOy25xzLW4h3NclGEi5hYtRnEJp+GI
-         8O0cspqvGI6GW59oD8b3Siu65v9ACpJ/NncLq88kl1G82AUPgVn3onR0JJc+miY4rhmC
-         eQPLC+pXuTzx8bmSJrJrVC9lj2AWVlKwPmuaDp6iFtSZoeF4E4ByzDYvHV9eE9fKW8E6
-         trfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688372645; x=1690964645;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VK9YJK54N6X6KANLQAKaW0JERmC99/mkew38T4D7Txw=;
-        b=Mx/SRtFAmUtIpFXHr+U8nQBaJyozI8s+pYORIBLYcoBXXPEkLRuWQmdGep7/Gc378+
-         N1t6fsBhBZ5PMppWD5A0mq+zlkG2hBkpffAcQmKr9GSAPYqO/kOqMWQRbzTP01PvoEUw
-         rV0RHxmIqp8SiBGodOXdeucXkGeOALkus/6MzbZqLIHd8Aa/ujiUBjot6mgsQnpI48gd
-         jWRr9KqkC41P674hANlb8Gl6Wsmr1h/VE6eWVrmiZpnJdNnKoZBtPrzsGTQR15qHMH2p
-         vjJlJfFJt++6BaOaRZd8s0A21mgX6T1A82uCZpSNnV46F8E9v2ocL12GL6qsITztVWED
-         wyFg==
-X-Gm-Message-State: ABy/qLaBi1yWJnIh0Qa3nmHOoNtmY55rqhHEa8osEQnUIzGNv/SAoYTc
-	dem97GWyDwI1xosQEybhRog7eMduVYREJZQS8kAfkw==
-X-Google-Smtp-Source: APBJJlF9ZTAYs0T0KFZt84N7iRTPRiRVEXyVf9NJt5DrHvQiO/09D955cqr5PIWdRYhIKMVO7VldzYBOhpO7/9ZSUdA=
-X-Received: by 2002:adf:e747:0:b0:314:2f5b:2ce with SMTP id
- c7-20020adfe747000000b003142f5b02cemr4203439wrn.12.1688372645184; Mon, 03 Jul
- 2023 01:24:05 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230702095735.860-1-cuiyunhui@bytedance.com> <20230702095735.860-2-cuiyunhui@bytedance.com>
+	Mon, 03 Jul 2023 08:35:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1688373342; x=1719909342;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0/VuNN8vAbwtoIAOscoPME46U2tJgXgmlj69V2xtFA4=;
+  b=kDBG0FjPFmzbS69HbRseMsNgS47oY5C1RldlE6xA2YijNxkyU1x8ArqB
+   8ViqIOGibyy9vgXFvT7gbhppzGwsKwKMNf2uztujHiYnnSIG7jC31BSCc
+   xfH+i5sinimzGBrPOYiAZjtlgrERNQZI4Ucd+Wevl7+iW2c1sIDVvFCc3
+   TU+REezlKyPlca1OveQ6KFHdnGAVMYfncSIHWYcoTvMnd4ONBbar/etVC
+   ANRoYPeHthJKc/DiD7zDiGmjVfpw/E6Qxtkf4Mj5NAuX5D/lQonFT/1Cp
+   /89yr6iIcDBlBUxcpJC9qtUTnT2JdBFl6SyCa6TzxjOeMg4XZc+XidkDu
+   A==;
+X-IronPort-AV: E=Sophos;i="6.01,177,1684825200"; 
+   d="asc'?scan'208";a="218667141"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Jul 2023 01:35:36 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 3 Jul 2023 01:35:27 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 3 Jul 2023 01:35:24 -0700
+Date: Mon, 3 Jul 2023 09:34:54 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: =?utf-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
+CC: Conor Dooley <conor@kernel.org>, <ardb@kernel.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <rminnich@gmail.com>,
+	<mark.rutland@arm.com>, <lpieralisi@kernel.org>, <rafael@kernel.org>,
+	<lenb@kernel.org>, <jdelvare@suse.com>, <yc.hung@mediatek.com>,
+	<angelogioacchino.delregno@collabora.com>, <allen-kh.cheng@mediatek.com>,
+	<pierre-louis.bossart@linux.intel.com>, <tinghan.shen@mediatek.com>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<geshijian@bytedance.com>, <weidong.wd@bytedance.com>
+Subject: Re: [External] Re: [PATCH v2 2/3] firmware: introduce FFI for SMBIOS
+ entry.
+Message-ID: <20230703-rebuff-smashing-6b2c6f80ba05@wendy>
+References: <20230702095735.860-1-cuiyunhui@bytedance.com>
+ <20230702095735.860-2-cuiyunhui@bytedance.com>
  <20230702-collide-rumor-f0d915a4f1b2@spud>
-In-Reply-To: <20230702-collide-rumor-f0d915a4f1b2@spud>
-From: =?UTF-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
-Date: Mon, 3 Jul 2023 16:23:53 +0800
-Message-ID: <CAEEQ3w=CMSMnYmfprYS4ydsA=EBJtLhQQHWky754EC-iifcYtg@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v2 2/3] firmware: introduce FFI for SMBIOS entry.
-To: Conor Dooley <conor@kernel.org>
-Cc: ardb@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, rminnich@gmail.com, 
-	mark.rutland@arm.com, lpieralisi@kernel.org, rafael@kernel.org, 
-	lenb@kernel.org, jdelvare@suse.com, yc.hung@mediatek.com, 
-	angelogioacchino.delregno@collabora.com, allen-kh.cheng@mediatek.com, 
-	pierre-louis.bossart@linux.intel.com, tinghan.shen@mediatek.com, 
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	geshijian@bytedance.com, weidong.wd@bytedance.com
+ <CAEEQ3w=CMSMnYmfprYS4ydsA=EBJtLhQQHWky754EC-iifcYtg@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CAEEQ3w=CMSMnYmfprYS4ydsA=EBJtLhQQHWky754EC-iifcYtg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_012410_435598_4F2949A2 
-X-CRM114-Status: GOOD (  45.24  )
+X-CRM114-CacheID: sfid-20230703_013541_003801_CDB10046 
+X-CRM114-Status: GOOD (  52.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,147 +89,267 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1301923751556652441=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ29ub3IsCgoKPiBuaXQ6IHBsZWFzZSBkb24ndCB3cml0ZSB5b3VyIGNvbW1pdCBtZXNzYWdl
-cyBhcyBidWxsZXQgbGlzdHMKT2theSwgdGhhbmtzIGZvciB5b3VyIHN1Z2dlc3Rpb24uCgo+ID4g
-K0ZEVCBGSVJNV0FSRSBJTlRFUkZBQ0UgKEZGSSkKPiA+ICtNOiAgIFl1bmh1aSBDdWkgY3VpeXVu
-aHVpQGJ5dGVkYW5jZS5jb20KPiA+ICtTOiAgIE1haW50YWluZWQKPiA+ICtGOiAgIGRyaXZlcnMv
-ZmlybXdhcmUvZmZpLmMKPiA+ICtGOiAgIGluY2x1ZGUvbGludXgvZmZpLmgKPgo+IEFyZSB5b3Ug
-Z29pbmcgdG8gYXBwbHkgcGF0Y2hlcyBmb3IgdGhpcywgb3IgaXMgc29tZW9uZSBlbHNlPwpZZXMs
-ICBpdCB3aWxsIGJlIHVzZWQgYnkgcGF0Y2ggMy8zLgoKPgo+ID4gIEVYVEVSTkFMIENPTk5FQ1RP
-UiBTVUJTWVNURU0gKEVYVENPTikKPiA+ICBNOiAgIE15dW5nSm9vIEhhbSA8bXl1bmdqb28uaGFt
-QHNhbXN1bmcuY29tPgo+ID4gIE06ICAgQ2hhbndvbyBDaG9pIDxjdzAwLmNob2lAc2Ftc3VuZy5j
-b20+Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9maXJtd2FyZS9LY29uZmlnIGIvZHJpdmVycy9m
-aXJtd2FyZS9LY29uZmlnCj4gPiBpbmRleCBiNTllMzA0MWZkNjIuLmVhMDE0OWZiNDY4MyAxMDA2
-NDQKPiA+IC0tLSBhL2RyaXZlcnMvZmlybXdhcmUvS2NvbmZpZwo+ID4gKysrIGIvZHJpdmVycy9m
-aXJtd2FyZS9LY29uZmlnCj4gPiBAQCAtMzAzLDYgKzMwMywxNyBAQCBjb25maWcgVFVSUklTX01P
-WF9SV1RNCj4gPiAgICAgICAgIG90aGVyIG1hbnVmYWN0dXJpbmcgZGF0YSBhbmQgYWxzbyB1dGls
-aXplIHRoZSBFbnRyb3B5IEJpdCBHZW5lcmF0b3IKPiA+ICAgICAgICAgZm9yIGhhcmR3YXJlIHJh
-bmRvbSBudW1iZXIgZ2VuZXJhdGlvbi4KPiA+Cj4gPiArY29uZmlnIEZEVF9GV19JTlRFUkZBQ0UK
-PiA+ICsgICAgICAgYm9vbCAiQW4gaW50ZXJmYWNlIGZvciBwYXNzaW5nIGZpcm13YXJlIGluZm8g
-dGhyb3VnaCBGRFQiCj4gPiArICAgICAgIGRlcGVuZHMgb24gT0YgJiYgT0ZfRkxBVFRSRUUKPiA+
-ICsgICAgICAgZGVmYXVsdCBuCj4gPiArICAgICAgIGhlbHAKPiA+ICsgICAgICAgICBXaGVuIHNv
-bWUgYm9vdGxvYWRlcnMgZG8gbm90IHN1cHBvcnQgRUZJLCBhbmQgdGhlIGFyY2ggZG9lcyBub3QK
-PiA+ICsgICAgICAgICBzdXBwb3J0IFNNQklPU19FTlRSWV9QT0lOVF9TQ0FOX1NUQVJULCB0aGVu
-IHlvdSBjYW4gZW5hYmxlIHRoaXMgb3B0aW9uCj4gPiArICAgICAgICAgdG8gc3VwcG9ydCB0aGUg
-dHJhbnNmZXIgb2YgZmlybXdhcmUgaW5mb3JtYXRpb24sIHN1Y2ggYXMgc21iaW9zIHRhYmxlcy4K
-Pgo+IENvdWxkIHlvdSBleHByZXNzIHRoaXMgZGVwZW5kZW5jeSBvbiAhU01CSU9TX0VOVFJZX1BP
-SU5UX1NDQU5fU1RBUlQgaW4KPiBLY29uZmlnICYgdGhlbiBzaW1wbHkgdGhlIHRleHQgdG86Cj4g
-IkVuYWJsZSB0aGlzIG9wdGlvbiB0byBzdXBwb3J0IHRoZSB0cmFuc2ZlciBvZiBmaXJtd2FyZSBp
-bmZvcm1hdGlvbiwKPiBzdWNoIGFzIHNtYmlvcyB0YWJsZXMsIGZvciBib290bG9hZGVycyB0aGF0
-IGRvIG5vdCBzdXBwb3J0IEVGSS4iCj4gc2luY2UgaXQgd291bGQgbm90IGV2ZW4gYXBwZWFyIGlm
-IHRoZSBhcmNoIHN1cHBvcnRzIHNjYW5uaW5nIGZvciB0aGUKPiBlbnRyeSBwb2ludD8KPiBJZiBJ
-IHdhcyB3YXMgYSBwdW50ZXIgdHJ5aW5nIHRvIGNvbmZpZ3VyZSBteSBrZXJuZWwgaW4gbWVudWNv
-bmZpZyBvcgo+IHdoYXRldmVyLCBJIHNob3VsZCBiZSBhYmxlIHRvIGRlY2lkZSBiYXNlZCBvbiB0
-aGUgaGVscCB0ZXh0IGlmIEkgbmVlZAo+IHRoaXMsIG5vdCBnb2luZyBncmVwcGluZyBmb3IgI2Rl
-ZmluZXMgaW4gaGVhZGVycy4KT2thee+8jCBJJ2xsIHVwZGF0ZSBvbiB2My4KCgo+Cj4gPiAgc3Rh
-dGljIHZvaWQgX19pbml0IGRtaV9zY2FuX21hY2hpbmUodm9pZCkKPiA+IEBAIC02NjAsNTggKzY4
-NiwyMiBAQCBzdGF0aWMgdm9pZCBfX2luaXQgZG1pX3NjYW5fbWFjaGluZSh2b2lkKQo+ID4gICAg
-ICAgY2hhciBfX2lvbWVtICpwLCAqcTsKPiA+ICAgICAgIGNoYXIgYnVmWzMyXTsKPiA+Cj4gPiAr
-I2lmZGVmIENPTkZJR19GRFRfRldfSU5URVJGQUNFCj4gPiArICAgICBpZiAoZG1pX3NhY25fc21i
-aW9zKGZmaS5zbWJpb3MzLCBmZmkuc21iaW9zKSkKPgo+ICJkbWlfc2Fjbl9zbWJpb3MiCj4KPiA+
-ICsgICAgICAgICAgICAgZ290byBlcnJvcjsKPiA+ICsjZW5kaWYKPgo+IERvZXMgdGhpcyBub3Qg
-bWVhbiB0aGF0IGlmIEZEVF9GV19JTlRFUkZBQ0UgaXMgZW5hYmxlZCwgYnV0IHRoZSBwbGF0Zm9y
-bQo+IHdhbnRzIHRvIHVzZSBFRkksIGl0IHdvbid0IGJlIGFibGUgdG8/IFRoZSBgZ290byBlcnJv
-cjtgIG1ha2VzIHRoaXMgbG9vawo+IG11dHVhbGx5IGV4Y2x1c2l2ZSB0byBteSBlZmktdW5hd2Fy
-ZSBleWVzLgoKSWYgeW91IGhhdmUgZW5hYmxlZCBGRkksIHRoZW4gaWYgc29tZXRoaW5nIGdvZXMg
-d3JvbmcsIHlvdSBzaG91bGQgZ290byBlcnJvci4KSnVzdCBsaWtlIHRoZSBvcmlnaW4gY29kZToK
-ICAgICAgICBpZiAoZWZpX2VuYWJsZWQoRUZJX0NPTkZJR19UQUJMRVMpKSB7CiAgICAgICAgICAg
-ICAgICBpZiAoZG1pX3NhY25fc21iaW9zKGVmaS5zbWJpb3MzLCBlZmkuc21iaW9zKSkKICAgICAg
-ICAgICAgICAgICAgICAgICAgZ290byBlcnJvcjsKICAgICAgICB9IGVsc2UgaWYgKElTX0VOQUJM
-RUQoQ09ORklHX0RNSV9TQ0FOX01BQ0hJTkVfTk9OX0VGSV9GQUxMQkFDSykpIHsKICAgICAgICAg
-ICAgICAgIHAgPSBkbWlfZWFybHlfcmVtYXAoU01CSU9TX0VOVFJZX1BPSU5UX1NDQU5fU1RBUlQs
-IDB4MTAwMDApOwogICAgICAgICAgICAgICAgaWYgKHAgPT0gTlVMTCkKICAgICAgICAgICAgICAg
-ICAgICAgICAgZ290byBlcnJvcjsKLi4uLgp9Cgo+Cj4gPiAgICAgICBpZiAoZWZpX2VuYWJsZWQo
-RUZJX0NPTkZJR19UQUJMRVMpKSB7Cj4gPiAtICAgICAgICAgICAgIC8qCj4gPiAtICAgICAgICAg
-ICAgICAqIEFjY29yZGluZyB0byB0aGUgRE1URiBTTUJJT1MgcmVmZXJlbmNlIHNwZWMgdjMuMC4w
-LCBpdCBpcwo+ID4gLSAgICAgICAgICAgICAgKiBhbGxvd2VkIHRvIGRlZmluZSBib3RoIHRoZSA2
-NC1iaXQgZW50cnkgcG9pbnQgKHNtYmlvczMpIGFuZAo+ID4gLSAgICAgICAgICAgICAgKiB0aGUg
-MzItYml0IGVudHJ5IHBvaW50IChzbWJpb3MpLCBpbiB3aGljaCBjYXNlIHRoZXkgc2hvdWxkCj4g
-PiAtICAgICAgICAgICAgICAqIGVpdGhlciBib3RoIHBvaW50IHRvIHRoZSBzYW1lIFNNQklPUyBz
-dHJ1Y3R1cmUgdGFibGUsIG9yIHRoZQo+ID4gLSAgICAgICAgICAgICAgKiB0YWJsZSBwb2ludGVk
-IHRvIGJ5IHRoZSA2NC1iaXQgZW50cnkgcG9pbnQgc2hvdWxkIGNvbnRhaW4gYQo+ID4gLSAgICAg
-ICAgICAgICAgKiBzdXBlcnNldCBvZiB0aGUgdGFibGUgY29udGVudHMgcG9pbnRlZCB0byBieSB0
-aGUgMzItYml0IGVudHJ5Cj4gPiAtICAgICAgICAgICAgICAqIHBvaW50IChzZWN0aW9uIDUuMikK
-PiA+IC0gICAgICAgICAgICAgICogVGhpcyBpbXBsaWVzIHRoYXQgdGhlIDY0LWJpdCBlbnRyeSBw
-b2ludCBzaG91bGQgaGF2ZQo+ID4gLSAgICAgICAgICAgICAgKiBwcmVjZWRlbmNlIGlmIGl0IGlz
-IGRlZmluZWQgYW5kIHN1cHBvcnRlZCBieSB0aGUgT1MuIElmIHdlCj4gPiAtICAgICAgICAgICAg
-ICAqIGhhdmUgdGhlIDY0LWJpdCBlbnRyeSBwb2ludCwgYnV0IGZhaWwgdG8gZGVjb2RlIGl0LCBm
-YWxsCj4gPiAtICAgICAgICAgICAgICAqIGJhY2sgdG8gdGhlIGxlZ2FjeSBvbmUgKGlmIGF2YWls
-YWJsZSkKPiA+IC0gICAgICAgICAgICAgICovCj4gPiAtICAgICAgICAgICAgIGlmIChlZmkuc21i
-aW9zMyAhPSBFRklfSU5WQUxJRF9UQUJMRV9BRERSKSB7Cj4gPiAtICAgICAgICAgICAgICAgICAg
-ICAgcCA9IGRtaV9lYXJseV9yZW1hcChlZmkuc21iaW9zMywgMzIpOwo+ID4gLSAgICAgICAgICAg
-ICAgICAgICAgIGlmIChwID09IE5VTEwpCj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICBnb3RvIGVycm9yOwo+ID4gLSAgICAgICAgICAgICAgICAgICAgIG1lbWNweV9mcm9taW8oYnVm
-LCBwLCAzMik7Cj4gPiAtICAgICAgICAgICAgICAgICAgICAgZG1pX2Vhcmx5X3VubWFwKHAsIDMy
-KTsKPiA+IC0KPiA+IC0gICAgICAgICAgICAgICAgICAgICBpZiAoIWRtaV9zbWJpb3MzX3ByZXNl
-bnQoYnVmKSkgewo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZG1pX2F2YWlsYWJs
-ZSA9IDE7Cj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm47Cj4gPiAtICAg
-ICAgICAgICAgICAgICAgICAgfQo+ID4gLSAgICAgICAgICAgICB9Cj4gPiAtICAgICAgICAgICAg
-IGlmIChlZmkuc21iaW9zID09IEVGSV9JTlZBTElEX1RBQkxFX0FERFIpCj4gPiArICAgICAgICAg
-ICAgIGlmIChkbWlfc2Fjbl9zbWJpb3MoZWZpLnNtYmlvczMsIGVmaS5zbWJpb3MpKQo+ID4gICAg
-ICAgICAgICAgICAgICAgICAgIGdvdG8gZXJyb3I7Cj4gPiAtCj4gPiAtICAgICAgICAgICAgIC8q
-IFRoaXMgaXMgY2FsbGVkIGFzIGEgY29yZV9pbml0Y2FsbCgpIGJlY2F1c2UgaXQgaXNuJ3QKPiA+
-IC0gICAgICAgICAgICAgICogbmVlZGVkIGR1cmluZyBlYXJseSBib290LiAgVGhpcyBhbHNvIG1l
-YW5zIHdlIGNhbgo+ID4gLSAgICAgICAgICAgICAgKiBpb3VubWFwIHRoZSBzcGFjZSB3aGVuIHdl
-J3JlIGRvbmUgd2l0aCBpdC4KPiA+IC0gICAgICAgICAgICAgICovCj4gPiAtICAgICAgICAgICAg
-IHAgPSBkbWlfZWFybHlfcmVtYXAoZWZpLnNtYmlvcywgMzIpOwo+ID4gLSAgICAgICAgICAgICBp
-ZiAocCA9PSBOVUxMKQo+ID4gLSAgICAgICAgICAgICAgICAgICAgIGdvdG8gZXJyb3I7Cj4gPiAt
-ICAgICAgICAgICAgIG1lbWNweV9mcm9taW8oYnVmLCBwLCAzMik7Cj4gPiAtICAgICAgICAgICAg
-IGRtaV9lYXJseV91bm1hcChwLCAzMik7Cj4gPiAtCj4gPiAtICAgICAgICAgICAgIGlmICghZG1p
-X3ByZXNlbnQoYnVmKSkgewo+ID4gLSAgICAgICAgICAgICAgICAgICAgIGRtaV9hdmFpbGFibGUg
-PSAxOwo+ID4gLSAgICAgICAgICAgICAgICAgICAgIHJldHVybjsKPiA+IC0gICAgICAgICAgICAg
-fQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZmlybXdhcmUvZmZpLmMgYi9kcml2ZXJzL2Zpcm13
-YXJlL2ZmaS5jCj4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+ID4gaW5kZXggMDAwMDAwMDAwMDAw
-Li4xNjk4MDJiNGE3YTgKPiA+IC0tLSAvZGV2L251bGwKPiA+ICsrKyBiL2RyaXZlcnMvZmlybXdh
-cmUvZmZpLmMKPiA+IEBAIC0wLDAgKzEsMzYgQEAKPiA+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRp
-ZmllcjogR1BMLTIuMC1vbmx5Cj4gPiArCj4gPiArI2RlZmluZSBwcl9mbXQoZm10KSBLQlVJTERf
-TU9ETkFNRSAiOiAiIGZtdAo+ID4gKwo+ID4gKyNpbmNsdWRlIDxsaW51eC9vZi5oPgo+ID4gKyNp
-bmNsdWRlIDxsaW51eC9vZl9mZHQuaD4KPiA+ICsjaW5jbHVkZSA8bGludXgvbGliZmR0Lmg+Cj4g
-PiArI2luY2x1ZGUgPGxpbnV4L2ZmaS5oPgo+ID4gKwo+ID4gKyNkZWZpbmUgRkZJX0lOVkFMSURf
-VEFCTEVfQUREUiAgICAgICAofjBVTCkKPiA+ICsKPiA+ICtzdHJ1Y3QgZmZpIF9fcmVhZF9tb3N0
-bHkgZmZpID0gewo+ID4gKyAgICAgLnNtYmlvcyA9IEZGSV9JTlZBTElEX1RBQkxFX0FERFIsCj4g
-PiArICAgICAuc21iaW9zMyA9IEZGSV9JTlZBTElEX1RBQkxFX0FERFIsCj4gPiArfTsKPgo+ID4g
-K0VYUE9SVF9TWU1CT0woZmZpKTsKPgo+ID4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBH
-UEwtMi4wLW9ubHkKPgo+IFdoeSBub3QgRVhQT1JUX1NZTUJPTF9HUEw/IEJ1dCBhbHNvLCB3aG8g
-aXMgdGhlIHVzZXIgb2YgdGhpcyBleHBvcnQ/Ckp1c3QgbGlrZSBlZmkuCgo+Cj4gPiArCj4gPiAr
-dm9pZCBfX2luaXQgZmZpX3NtYmlvc19yb290X3BvaW50ZXIodm9pZCkKPiA+ICt7Cj4gPiArICAg
-ICBpbnQgY2ZndGJsLCBsZW47Cj4gPiArICAgICBmZHQ2NF90ICpwcm9wOwo+ID4gKwo+ID4gKyAg
-ICAgY2ZndGJsID0gZmR0X3BhdGhfb2Zmc2V0KGluaXRpYWxfYm9vdF9wYXJhbXMsICIvY2ZndGFi
-bGVzIik7Cj4KPiBUaGVzZSBEVCBwcm9wZXJ0aWVzIG5lZWQgdG8gYmUgZG9jdW1lbnRlZCBpbiBh
-IGJpbmRpbmcuCj4KPiA+ICsgICAgIGlmIChjZmd0YmwgPCAwKSB7Cj4gPiArICAgICAgICAgICAg
-IHByX2luZm8oImZpcm13YXJlIHRhYmxlIG5vdCBmb3VuZC5cbiIpOwo+Cj4gSXNuJ3QgaXQgcGVy
-ZmVjdGx5IHZhbGlkIGZvciBhIERUIG5vdCB0byBjb250YWluIHRoaXMgdGFibGU/IFRoaXMgcHJp
-bnQKPiBzaG91bGQgYmUsIGF0IHRoZSB2ZXJ5IGxlYXN0LCBhIHByX2RlYnVnKCkuCj4KPiA+ICsg
-ICAgICAgICAgICAgcmV0dXJuOwo+ID4gKyAgICAgfQo+ID4gKyAgICAgcHJvcCA9IGZkdF9nZXRw
-cm9wX3coaW5pdGlhbF9ib290X3BhcmFtcywgY2ZndGJsLCAic21iaW9zX3BoeV9wdHIiLCAmbGVu
-KTsKPgo+IEFnYWluLCB1bmRvY3VtZW50ZWQgRFQgcHJvcGVydHkuIFBsZWFzZSBkb2N1bWVudCB0
-aGVtIGluIGEgYmluZGluZy4KT2theSwgSSdsbCBhZGQgdGhlbSBpbnRvIGJpbmRpbmcuCgoKPgo+
-ID4gKyAgICAgaWYgKCFwcm9wIHx8IGxlbiAhPSBzaXplb2YodTY0KSkKPiA+ICsgICAgICAgICAg
-ICAgcHJfaW5mbygic21iaW9zIGVudHJ5IHBvaW50IG5vdCBmb3VuZC5cbiIpOwo+ID4gKyAgICAg
-ZWxzZQo+ID4gKyAgICAgICAgICAgICBmZmkuc21iaW9zID0gZmR0NjRfdG9fY3B1KCpwcm9wKTsK
-PiA+ICsKPiA+ICsgICAgIHByX2luZm8oInNtYmlvcyByb290IHBvaW50ZXI6ICVseFxuIiwgZmZp
-LnNtYmlvcyk7Cj4KPiBmZmkuc21iaW9zIGlzIG5vdCBzZXQgaWYgKCFwcm9wIHx8IGxlbiAhPSBz
-aXplb2YodTY0KSksIGxvb2tzIGxpa2UgeW91cgo+ICJpZiIgc2hvdWxkIHJldHVybiBhbmQgdGhl
-IGNvbnRlbnRzIG9mIHRoZSBlbHNlIGJlY29tZSB1bmNvbmRpdGlvbmFsPwo+IE90aGVyd2lzZSwg
-dGhpcyBwcmludCBzZWVtcyB3cm9uZy4KT0ssIEkgd2lsbCBvcHRpbWl6ZSB0aGlzIGxvZ2ljIGFu
-ZCBwcmludC4KCj4KPiA+ICt9Cj4gPiArCj4gPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9m
-ZmkuaCBiL2luY2x1ZGUvbGludXgvZmZpLmgKPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiBp
-bmRleCAwMDAwMDAwMDAwMDAuLjk1Mjk4YTgwNTIyMgo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysr
-IGIvaW5jbHVkZS9saW51eC9mZmkuaAo+ID4gQEAgLTAsMCArMSwxNSBAQAo+ID4gKy8qIFNQRFgt
-TGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wICovCj4gPiArCj4gPiArI2lmbmRlZiBfTElOVVhf
-RkZJX0gKPiA+ICsjZGVmaW5lIF9MSU5VWF9GRklfSAo+ID4gKwo+ID4gK2V4dGVybiBzdHJ1Y3Qg
-ZmZpIHsKPiA+ICsgICAgIHVuc2lnbmVkIGxvbmcgc21iaW9zOyAgLyogU01CSU9TIHRhYmxlICgz
-MiBiaXQgZW50cnkgcG9pbnQpICovCj4gPiArICAgICB1bnNpZ25lZCBsb25nIHNtYmlvczM7ICAv
-KiBTTUJJT1MgdGFibGUgKDY0IGJpdCBlbnRyeSBwb2ludCkgKi8KPiA+ICsgICAgIHVuc2lnbmVk
-IGxvbmcgZmxhZ3M7Cj4gPiArCj4gPiArfSBmZmk7Cj4gPiArCj4gPiArdm9pZCBmZmlfc21iaW9z
-X3Jvb3RfcG9pbnRlcih2b2lkKTsKPgo+IFBsZWFzZSBwcm92aWRlIGEgc3R1YiBmb3IgIUZEVF9G
-V19JTlRFUkZBQ0Ugc28gdGhhdCB3ZSBkb24ndCBuZWVkCj4gaWZkZWZmZXJ5IGF0IGNhbGxzaXRl
-cy4KT0ssIHVwZGF0ZSBpdCBvbiB2My4KCgoKVGhhbmtzLApZdW5odWkKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+--===============1301923751556652441==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="mgEY+RpkWKJjg9BW"
+Content-Disposition: inline
+
+--mgEY+RpkWKJjg9BW
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey,
+
+On Mon, Jul 03, 2023 at 04:23:53PM +0800, =E8=BF=90=E8=BE=89=E5=B4=94 wrote:
+>=20
+> > nit: please don't write your commit messages as bullet lists
+> Okay, thanks for your suggestion.
+>=20
+> > > +FDT FIRMWARE INTERFACE (FFI)
+> > > +M:   Yunhui Cui cuiyunhui@bytedance.com
+> > > +S:   Maintained
+> > > +F:   drivers/firmware/ffi.c
+> > > +F:   include/linux/ffi.h
+> >
+> > Are you going to apply patches for this, or is someone else?
+> Yes,  it will be used by patch 3/3.
+
+That's not what I asked :(
+
+> > >  EXTERNAL CONNECTOR SUBSYSTEM (EXTCON)
+> > >  M:   MyungJoo Ham <myungjoo.ham@samsung.com>
+> > >  M:   Chanwoo Choi <cw00.choi@samsung.com>
+> > > diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+> > > index b59e3041fd62..ea0149fb4683 100644
+> > > --- a/drivers/firmware/Kconfig
+> > > +++ b/drivers/firmware/Kconfig
+> > > @@ -303,6 +303,17 @@ config TURRIS_MOX_RWTM
+> > >         other manufacturing data and also utilize the Entropy Bit Gen=
+erator
+> > >         for hardware random number generation.
+> > >
+> > > +config FDT_FW_INTERFACE
+> > > +       bool "An interface for passing firmware info through FDT"
+> > > +       depends on OF && OF_FLATTREE
+> > > +       default n
+> > > +       help
+> > > +         When some bootloaders do not support EFI, and the arch does=
+ not
+> > > +         support SMBIOS_ENTRY_POINT_SCAN_START, then you can enable =
+this option
+> > > +         to support the transfer of firmware information, such as sm=
+bios tables.
+> >
+> > Could you express this dependency on !SMBIOS_ENTRY_POINT_SCAN_START in
+> > Kconfig & then simply the text to:
+> > "Enable this option to support the transfer of firmware information,
+> > such as smbios tables, for bootloaders that do not support EFI."
+> > since it would not even appear if the arch supports scanning for the
+> > entry point?
+> > If I was was a punter trying to configure my kernel in menuconfig or
+> > whatever, I should be able to decide based on the help text if I need
+> > this, not going grepping for #defines in headers.
+> Okay=EF=BC=8C I'll update on v3.
+>=20
+>=20
+> >
+> > >  static void __init dmi_scan_machine(void)
+> > > @@ -660,58 +686,22 @@ static void __init dmi_scan_machine(void)
+> > >       char __iomem *p, *q;
+> > >       char buf[32];
+> > >
+> > > +#ifdef CONFIG_FDT_FW_INTERFACE
+> > > +     if (dmi_sacn_smbios(ffi.smbios3, ffi.smbios))
+> >
+> > "dmi_sacn_smbios"
+> >
+> > > +             goto error;
+> > > +#endif
+> >
+> > Does this not mean that if FDT_FW_INTERFACE is enabled, but the platform
+> > wants to use EFI, it won't be able to? The `goto error;` makes this look
+> > mutually exclusive to my efi-unaware eyes.
+>=20
+> If you have enabled FFI, then if something goes wrong, you should goto er=
+ror.
+> Just like the origin code:
+>         if (efi_enabled(EFI_CONFIG_TABLES)) {
+>                 if (dmi_sacn_smbios(efi.smbios3, efi.smbios))
+>                         goto error;
+>         } else if (IS_ENABLED(CONFIG_DMI_SCAN_MACHINE_NON_EFI_FALLBACK)) {
+>                 p =3D dmi_early_remap(SMBIOS_ENTRY_POINT_SCAN_START, 0x10=
+000);
+>                 if (p =3D=3D NULL)
+>                         goto error;
+
+Does this not make FFI and EFI mutually exclusive Kconfig options?
+Suppose you are on a system that does not implement FFI, but does
+implement EFI - what's going to happen then?
+AFAICT, dmi_sacn_smbios(ffi.smbios3, ffi.smbios) will fail & you'll do a
+`goto error` & skip the EFI code. What am I missing?
+
+> > >       if (efi_enabled(EFI_CONFIG_TABLES)) {
+> > > -             /*
+> > > -              * According to the DMTF SMBIOS reference spec v3.0.0, =
+it is
+> > > -              * allowed to define both the 64-bit entry point (smbio=
+s3) and
+> > > -              * the 32-bit entry point (smbios), in which case they =
+should
+> > > -              * either both point to the same SMBIOS structure table=
+, or the
+> > > -              * table pointed to by the 64-bit entry point should co=
+ntain a
+> > > -              * superset of the table contents pointed to by the 32-=
+bit entry
+> > > -              * point (section 5.2)
+> > > -              * This implies that the 64-bit entry point should have
+> > > -              * precedence if it is defined and supported by the OS.=
+ If we
+> > > -              * have the 64-bit entry point, but fail to decode it, =
+fall
+> > > -              * back to the legacy one (if available)
+> > > -              */
+> > > -             if (efi.smbios3 !=3D EFI_INVALID_TABLE_ADDR) {
+> > > -                     p =3D dmi_early_remap(efi.smbios3, 32);
+> > > -                     if (p =3D=3D NULL)
+> > > -                             goto error;
+> > > -                     memcpy_fromio(buf, p, 32);
+> > > -                     dmi_early_unmap(p, 32);
+> > > -
+> > > -                     if (!dmi_smbios3_present(buf)) {
+> > > -                             dmi_available =3D 1;
+> > > -                             return;
+> > > -                     }
+> > > -             }
+> > > -             if (efi.smbios =3D=3D EFI_INVALID_TABLE_ADDR)
+> > > +             if (dmi_sacn_smbios(efi.smbios3, efi.smbios))
+> > >                       goto error;
+> > > -
+> > > -             /* This is called as a core_initcall() because it isn't
+> > > -              * needed during early boot.  This also means we can
+> > > -              * iounmap the space when we're done with it.
+> > > -              */
+> > > -             p =3D dmi_early_remap(efi.smbios, 32);
+> > > -             if (p =3D=3D NULL)
+> > > -                     goto error;
+> > > -             memcpy_fromio(buf, p, 32);
+> > > -             dmi_early_unmap(p, 32);
+> > > -
+> > > -             if (!dmi_present(buf)) {
+> > > -                     dmi_available =3D 1;
+> > > -                     return;
+> > > -             }
+> > > diff --git a/drivers/firmware/ffi.c b/drivers/firmware/ffi.c
+> > > new file mode 100644
+> > > index 000000000000..169802b4a7a8
+> > > --- /dev/null
+> > > +++ b/drivers/firmware/ffi.c
+> > > @@ -0,0 +1,36 @@
+> > > +// SPDX-License-Identifier: GPL-2.0-only
+> > > +
+> > > +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+> > > +
+> > > +#include <linux/of.h>
+> > > +#include <linux/of_fdt.h>
+> > > +#include <linux/libfdt.h>
+> > > +#include <linux/ffi.h>
+> > > +
+> > > +#define FFI_INVALID_TABLE_ADDR       (~0UL)
+> > > +
+> > > +struct ffi __read_mostly ffi =3D {
+> > > +     .smbios =3D FFI_INVALID_TABLE_ADDR,
+> > > +     .smbios3 =3D FFI_INVALID_TABLE_ADDR,
+> > > +};
+> >
+> > > +EXPORT_SYMBOL(ffi);
+> >
+> > > +// SPDX-License-Identifier: GPL-2.0-only
+> >
+> > Why not EXPORT_SYMBOL_GPL? But also, who is the user of this export?
+> Just like efi.
+
+I don't really understand how that is an answer to the questions.
+
+> > > +
+> > > +void __init ffi_smbios_root_pointer(void)
+> > > +{
+> > > +     int cfgtbl, len;
+> > > +     fdt64_t *prop;
+> > > +
+> > > +     cfgtbl =3D fdt_path_offset(initial_boot_params, "/cfgtables");
+> >
+> > These DT properties need to be documented in a binding.
+> >
+> > > +     if (cfgtbl < 0) {
+> > > +             pr_info("firmware table not found.\n");
+> >
+> > Isn't it perfectly valid for a DT not to contain this table? This print
+> > should be, at the very least, a pr_debug().
+> >
+> > > +             return;
+> > > +     }
+> > > +     prop =3D fdt_getprop_w(initial_boot_params, cfgtbl, "smbios_phy=
+_ptr", &len);
+> >
+> > Again, undocumented DT property. Please document them in a binding.
+> Okay, I'll add them into binding.
+>=20
+>=20
+> >
+> > > +     if (!prop || len !=3D sizeof(u64))
+> > > +             pr_info("smbios entry point not found.\n");
+> > > +     else
+> > > +             ffi.smbios =3D fdt64_to_cpu(*prop);
+> > > +
+> > > +     pr_info("smbios root pointer: %lx\n", ffi.smbios);
+> >
+> > ffi.smbios is not set if (!prop || len !=3D sizeof(u64)), looks like yo=
+ur
+> > "if" should return and the contents of the else become unconditional?
+> > Otherwise, this print seems wrong.
+
+> OK, I will optimize this logic and print.
+
+It's not an optimisation. If the if branch of your code is taken, it
+currently will do
+	pr_info("smbios entry point not found.\n");
+	pr_info("smbios root pointer: %lx\n", ffi.smbios);
+which makes no sense...
+
+Thanks,
+Conor.
+
+
+--mgEY+RpkWKJjg9BW
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKKILgAKCRB4tDGHoIJi
+0sHCAP9oR6Zc2RsczALqIEh4yefVd02+y2p1qwmzjU1PUXkz+AD+OWkhwMcOhFzn
+0UxULbuvEFFad2H/cRSU/EQJI0LbcAo=
+=2KIj
+-----END PGP SIGNATURE-----
+
+--mgEY+RpkWKJjg9BW--
+
+
+--===============1301923751556652441==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1301923751556652441==--
+
