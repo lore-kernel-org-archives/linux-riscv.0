@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA934EB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 15:03:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21776C001B0
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 15:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XIDfZy9FjPY5cDrzi2r1pSEoFFV6gLWp+Fyl4570w8o=; b=dt9Xvr9p8gZOKL
-	ik00oeczR0//zAEK0732UKk1EgtHSbo3cCBIH1lqG2/qQVJQLGQEHAHDIOKYhWhY2wmPrG84xjWvB
-	aUnFnYTk7bZeGfD04mYYwvnl85S0f2ks8pTKReSsU6gPNvLvj2fQSGc7FWZBfhEudBQimep1DKd42
-	tuWWP9JbHHP9QkSWJTkr0B2+EUBV9AZuft0LBFK1TZC6gEXtM76epWVVl0AWF1nDOOmKrbQFdwssO
-	JITzs3FCfb+dDsOx1Pha4bo6xNmOsZJFkkl22l/YBWYOEyroBy89S/TzzL8NYzESzN7gm6Q2qWKoE
-	1gne/9luuPeoQDvPjy2g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:From
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qJyxXWfx21RnZo8bJrW9skqps/71jnd3g1SW+RzZHgM=; b=buXjWx9si6SzD1
+	C3sAGdECiaYbt58Uc8LEIS1PeVm+bIRZcJKX9dZTD2Dx775hd2bUO5Su+i6zkgwvgMIXm+8mBm+Wp
+	udFK+1dFkaHI3vBOy1DD3RXfXDTrJy8TO0tAQpa1ftLit5MuNKeRIVhm8mkTI2OuOS0GiRjVhAMYB
+	yBsHoqOjggg3op/4tElIt45nTIsUtJAPjBg7A3HZOb/+JYDfXwBndiLdTFXww3Pnwr7Yx8tiV3jV5
+	bpWW04ARW0gF+EuJ0VOVtW+Gbq6vQwGYYobOOLxHWFDjmW7I0GiQTlptLBrrhiveY/GmOD+15buhk
+	vbvDiWXjv3hXCsjiwerA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGL5K-00AowH-0M;
-	Mon, 03 Jul 2023 15:03:26 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1qGLE3-00Aq3E-2R;
+	Mon, 03 Jul 2023 15:12:27 +0000
+Received: from mga17.intel.com ([192.55.52.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGL5F-00Aouw-01
-	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 15:03:24 +0000
-Received: from [167.98.27.226] (helo=[10.35.6.111])
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1qGL4p-002HRs-65; Mon, 03 Jul 2023 16:02:55 +0100
-Message-ID: <cb3ae317-e9c7-41ca-7b1d-be8800ae563e@codethink.co.uk>
-Date: Mon, 3 Jul 2023 16:02:52 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v2] dt-bindings: riscv: deprecate riscv,isa
-Content-Language: en-GB
-To: Conor Dooley <conor@kernel.org>, palmer@dabbelt.com
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Alistair Francis <alistair.francis@wdc.com>,
- Andrew Jones <ajones@ventanamicro.com>, Anup Patel
- <apatel@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>,
- Jessica Clarke <jrtc27@jrtc27.com>, Rick Chen <rick@andestech.com>,
- Leo <ycliang@andestech.com>, Oleksii <oleksii.kurochko@gmail.com>,
- linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org,
- u-boot@lists.denx.de, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20230608-sitting-bath-31eddc03c5a5@spud>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <20230608-sitting-bath-31eddc03c5a5@spud>
+	id 1qGLE0-00Aq1r-1O;
+	Mon, 03 Jul 2023 15:12:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1688397144; x=1719933144;
+  h=date:from:to:cc:subject:message-id;
+  bh=W0xbU9nEE3TH0xg7aDTg6qtQ4+f5eySxUTOggB2dw2Q=;
+  b=EN2JO1VVXd4cpPUR4wOLC2fDEks4yKGGxKymbk/4DAzNpkmWZapHVbBk
+   wLKxOPXbiww5EtZgxvMkYDjQLb4n3fNfWEj713OxkZE9nBWcn6aBBkNTp
+   WUcjqoqVg7lgb48r2gkgEdkPb5fZuOFpRaHMwFnX9Ryd3TI4BqwIuXh1G
+   tW7CAvzwDgy8k0nNptdHVQlLF5Zt0XffHzSafbm64Ry64NVmPgx+yjwoy
+   kkQz8IztebLrxaKo7L6N3cvKW8E4ST/ZjwQb5KTQzGYk9DWmdv4h5Y3Ec
+   KrznsNNBs7tFImYK42YDWY/d9wBJeQ6w6+IHYIle1y6Y0nokVEDk7AoD1
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10760"; a="343239956"
+X-IronPort-AV: E=Sophos;i="6.01,178,1684825200"; 
+   d="scan'208";a="343239956"
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2023 08:12:17 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10760"; a="788557478"
+X-IronPort-AV: E=Sophos;i="6.01,178,1684825200"; 
+   d="scan'208";a="788557478"
+Received: from lkp-server01.sh.intel.com (HELO 783282924a45) ([10.239.97.150])
+  by fmsmga004.fm.intel.com with ESMTP; 03 Jul 2023 08:12:13 -0700
+Received: from kbuild by 783282924a45 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qGLDo-000HR9-2I;
+	Mon, 03 Jul 2023 15:12:12 +0000
+Date: Mon, 03 Jul 2023 23:11:26 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Linux Memory Management List <linux-mm@kvack.org>,
+ kunit-dev@googlegroups.com, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-bluetooth@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org
+Subject: [linux-next:master] BUILD REGRESSION
+ 296d53d8f84ce50ffaee7d575487058c8d437335
+Message-ID: <202307032309.v4K1IBoR-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_080321_335946_4C1F60AB 
-X-CRM114-Status: GOOD (  63.76  )
+X-CRM114-CacheID: sfid-20230703_081224_506410_FF6E15E9 
+X-CRM114-Status: UNSURE (   6.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,580 +82,245 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/06/2023 17:54, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> intro
-> =====
-> 
-> When the RISC-V dt-bindings were accepted upstream in Linux, the base
-> ISA etc had yet to be ratified. By the ratification of the base ISA,
-> incompatible changes had snuck into the specifications - for example the
-> Zicsr and Zifencei extensions were spun out of the base ISA.
-> 
-> Fast forward to today, and the reason for this patch.
-> Currently the riscv,isa dt property permits only a specific subset of
-> the ISA string - in particular it excludes version numbering.
-> With the current constraints, it is not possible to discern whether
-> "rv64i" means that the hart supports the fence.i instruction, for
-> example.
-> Future systems may choose to implement their own instruction fencing,
-> perhaps using a vendor extension, or they may not implement the optional
-> counter extensions. Software needs a way to determine this.
-> 
-> versioning schemes
-> ==================
-> 
-> "Use the extension versions that are described in the ISA manual" you
-> may say, and it's not like this has not been considered.
-> Firstly, software that parses the riscv,isa property at runtime will
-> need to contain a lookup table of some sort that maps arbitrary versions
-> to versions it understands. There is not a consistent application of
-> version number applied to extensions, with a higgledy-piggledy
-> collection of tags, "bare" and version documents awaiting the reader on
-> the "recently ratified extensions" page:
-> https://wiki.riscv.org/display/HOME/Recently+Ratified+Extensions
-> 
-> 	As an aside, this is reflected in the patch too, since many
-> 	extensions have yet to appear in a release of the ISA specs,
-> 	and are defined by commits in their respective "working draft"
-> 	repositories.
-> 
-> Secondly, there is an issue of backwards compatibility, whereby allowing
-> numbers in the ISA string, some parsers may be broken. This would
-> require an additional property to be created to even use the versions in
-> this manner.
-> 
-> boolean properties
-> ==================
-> 
-> If a new property is needed, the whole approach may as well be looked at
-> from the bottom up. A string with limited character choices etc is
-> hardly the best approach for communicating extension information to
-> software.
-> 
-> Switching to using boolean properties, one per extension, allows us to
-> define explicit meanings for the DT representation of each extension -
-> rather than the current situation where different operating systems or
-> other bits of software may impart different meanings to characters in
-> the string. Clearly the best source of meanings is the specifications
-> themselves, this just provides us the ability to choose at what point
-> in time the meaning is set. If an extension changes incompatibility in
-> the future, a new property will be required.
-> 
-> Off-list, some of the RVI folks have committed to shoring up the wording
-> in either the ISA specifications, the riscv-isa-manual or
-> so that in the future, modifications to and additions or removals of
-> features will require a new extension. Codifying that assertion
-> somewhere would make it quite unlikely that compatibility would be
-> broken, but we have the tools required to deal with it, if & when it
-> crops up.
-> It is in our collective interest, as consumers of extension meanings, to
-> define a scheme that enforces compatibility.
-> 
-> The use of boolean properties, rather than elements in a string, will
-> also permit validation that the strings have a meaning, as well as
-> potentially reject mutually exclusive combinations, or enforce
-> dependencies between instructions. That would not be possible with the
-> current dt-schema infrastructure for arbitrary strings, as we would need
-> to add a riscv,isa parser to dt-validate! That's not implemented in this
-> patch, but rather left as future work (for the brave, or the foolish).
-> 
-> acpi
-> ====
-> 
-> The current ACPI ECR is based on having a string unfortunately, but
-> ideally ACPI will move to another method, perhaps GUIDs, that give
-> explicit meaning to extensions.
-> 
-> parser simplicity
-> =================
-> 
-> Many systems that parse DT at runtime already implement an function that
-> can check for the presence of boolean properties, rather than having to
-> implement - although unfortunately for backwards compatibility with old
-> dtbs, existing parsers may not be removable - which may greatly simplify
-> dt parsing code. For example, in Linux, checking for an extension
-> becomes as simple as:
-> 	of_property_present(extension_node, "zicbom")
-> 
-> vendor extensions
-> =================
-> 
-> Compared to riscv,isa, this proposed scheme promotes vendor extensions,
-> oft touted as the strength of RISC-V, to first-class citizens.
-> At present, extensions are defined as meaning what the RISC-V ISA
-> specifications say they do. There is no realistic way of using that
-> interface to provide cross-platform definitions for what vendor
-> extensions mean. Vendor extensions may also have even less consistency
-> than RVI do in terms of versioning, or no care about backwards
-> compatibility.
-> A boolean property allows us to assign explicit meanings on a per vendor
-> extension basis, backed up by a description of their meanings.
-> 
-> fin
-> ===
-> 
-> Create a new file to store the extension meanings, each of which are
-> boolean children of a riscv,isa-extensions node and a new
-> riscv,isa-base property to replace the aspect of riscv,isa that is
-> not represented by booleans - the base ISA implemented by a hart.
-> Originally I proposed properties in the cpu node, rather than as a child
-> of the cpu node, but some concerns were raised about the size of the dtb
-> for systems with dozens of cpus & dozens of extensions. Using a child
-> node, and dropping the "riscv,isa-extension-" prefix saves the guts of
-> 20 bytes per extension, per hart, and hopefully placates the size
-> conscious.
-> 
-> As a starting point, add properties for extensions currently used in
-> Linux.
-> 
-> Finally, mark riscv,isa as deprecated, as removing it is an ABI break.
-> 
-> CC: Palmer Dabbelt <palmer@dabbelt.com>
-> CC: Paul Walmsley <paul.walmsley@sifive.com>
-> CC: Rob Herring <robh+dt@kernel.org>
-> CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-> CC: Alistair Francis <alistair.francis@wdc.com>
-> CC: Andrew Jones <ajones@ventanamicro.com>
-> CC: Anup Patel <apatel@ventanamicro.com>
-> CC: Atish Patra <atishp@atishpatra.org>
-> CC: Jessica Clarke <jrtc27@jrtc27.com>
-> CC: Rick Chen <rick@andestech.com>
-> CC: Leo <ycliang@andestech.com>
-> CC: Oleksii <oleksii.kurochko@gmail.com>
-> CC: linux-riscv@lists.infradead.org
-> CC: qemu-riscv@nongnu.org
-> CC: u-boot@lists.denx.de
-> CC: devicetree@vger.kernel.org
-> CC: linux-kernel@vger.kernel.org
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Changes in v2:
-> - Use Sean's suggestion of a child node to calm fears of bloat
-> - Fixup a rake of wording etc issues that Drew pointed out
-> 
-> As a result of implementing Sean's suggestion, I believe I need to add
-> riscv,isa-extensions as an exception to the rules preventing vendor
-> properties being of object type, otherwise dt_binding_check is less than
-> happy with me.
-> 
-> I've tried to CC a few folks here that would care about this, but I am
-> sure there are more. I'll go cross-post it to sw-dev, if it allows me to
-> post there...
-> ---
->   .../devicetree/bindings/riscv/cpus.yaml       |  57 ++--
->   .../devicetree/bindings/riscv/extensions.yaml | 278 ++++++++++++++++++
->   2 files changed, 313 insertions(+), 22 deletions(-)
->   create mode 100644 Documentation/devicetree/bindings/riscv/extensions.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> index 3d2934b15e80..1e4f67129f97 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> @@ -23,6 +23,9 @@ description: |
->     two cores, each of which has two hyperthreads, could be described as
->     having four harts.
->   
-> +allOf:
-> +  - $ref: extensions.yaml
-> +
->   properties:
->     compatible:
->       oneOf:
-> @@ -79,25 +82,6 @@ properties:
->       description:
->         The blocksize in bytes for the Zicboz cache operations.
->   
-> -  riscv,isa:
-> -    description:
-> -      Identifies the specific RISC-V instruction set architecture
-> -      supported by the hart.  These are documented in the RISC-V
-> -      User-Level ISA document, available from
-> -      https://riscv.org/specifications/
-> -
-> -      Due to revisions of the ISA specification, some deviations
-> -      have arisen over time.
-> -      Notably, riscv,isa was defined prior to the creation of the
-> -      Zicsr and Zifencei extensions and thus "i" implies
-> -      "zicsr_zifencei".
-> -
-> -      While the isa strings in ISA specification are case
-> -      insensitive, letters in the riscv,isa string must be all
-> -      lowercase to simplify parsing.
-> -    $ref: "/schemas/types.yaml#/definitions/string"
-> -    pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
-> -
->     # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
->     timebase-frequency: false
->   
-> @@ -133,8 +117,17 @@ properties:
->         DMIPS/MHz, relative to highest capacity-dmips-mhz
->         in the system.
->   
-> +oneOf:
-> +  - required:
-> +      - riscv,isa
-> +  - required:
-> +      - riscv,isa-base
-> +
-> +dependencies:
-> +  riscv,isa-base: [ "riscv,isa-extensions" ]
-> +  riscv,isa-extensions: [ "riscv,isa-base" ]
-> +
->   required:
-> -  - riscv,isa
->     - interrupt-controller
->   
->   additionalProperties: true
-> @@ -177,8 +170,18 @@ examples:
->                   i-tlb-size = <32>;
->                   mmu-type = "riscv,sv39";
->                   reg = <1>;
-> -                riscv,isa = "rv64imafdc";
->                   tlb-split;
-> +                riscv,isa-base = "rv64i";
-> +
-> +                riscv,isa-extensions {
-> +                  i;
-> +                  m;
-> +                  a;
-> +                  f;
-> +                  d;
-> +                  c;
-> +                };
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+branch HEAD: 296d53d8f84ce50ffaee7d575487058c8d437335  Add linux-next specific files for 20230703
 
-My only concern here is that if you have a few harts all
-with the same extensions it is going to a pain to keep repeating
-these for each hart. It was bad enough doing 4x cache properties
-for the hrc...
+Error/Warning reports:
 
-Can we have some sort of grouping or reference to say this is
-the risc
+https://lore.kernel.org/oe-kbuild-all/202306122223.HHER4zOo-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306151954.Rsz6HP7h-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306301709.lvrxzyCj-lkp@intel.com
+https://lore.kernel.org/oe-kbuild-all/202306301756.x8dgyYnL-lkp@intel.com
 
+Error/Warning: (recently discovered and may have been fixed)
 
+arch/parisc/kernel/pdt.c:66:6: warning: no previous prototype for 'arch_report_meminfo' [-Wmissing-prototypes]
+drivers/bluetooth/btmtk.c:386:32: error: no member named 'dump' in 'struct hci_dev'
+drivers/bluetooth/btmtk.c:386:44: error: 'struct hci_dev' has no member named 'dump'
+drivers/char/mem.c:164:25: error: implicit declaration of function 'unxlate_dev_mem_ptr'; did you mean 'xlate_dev_mem_ptr'? [-Werror=implicit-function-declaration]
+lib/kunit/executor_test.c:138:4: warning: cast from 'void (*)(const void *)' to 'kunit_action_t *' (aka 'void (*)(void *)') converts to incompatible function type [-Wcast-function-type-strict]
+lib/kunit/test.c:775:38: warning: cast from 'void (*)(const void *)' to 'kunit_action_t *' (aka 'void (*)(void *)') converts to incompatible function type [-Wcast-function-type-strict]
 
+Unverified Error/Warning (likely false positive, please contact us if interested):
 
-> +
->                   cpu_intc1: interrupt-controller {
->                           #interrupt-cells = <1>;
->                           compatible = "riscv,cpu-intc";
-> @@ -196,8 +199,18 @@ examples:
->                   device_type = "cpu";
->                   reg = <0>;
->                   compatible = "riscv";
-> -                riscv,isa = "rv64imafdc";
->                   mmu-type = "riscv,sv48";
-> +                riscv,isa-base = "rv64i";
-> +
-> +                riscv,isa-extensions {
-> +                  i;
-> +                  m;
-> +                  a;
-> +                  f;
-> +                  d;
-> +                  c;
-> +                };
-> +
->                   interrupt-controller {
->                           #interrupt-cells = <1>;
->                           interrupt-controller;
-> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> new file mode 100644
-> index 000000000000..7257f186832e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-> @@ -0,0 +1,278 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/extensions.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V ISA extensions
-> +
-> +maintainers:
-> +  - Paul Walmsley <paul.walmsley@sifive.com>
-> +  - Palmer Dabbelt <palmer@sifive.com>
-> +  - Conor Dooley <conor@kernel.org>
-> +
-> +description: |
-> +  RISC-V has a large number of extensions, some of which are "standard"
-> +  extensions,   meaning they are ratified by RISC-V International, and others
-> +  are "vendor" extensions.
-> +  This document defines properties that indicate whether a hart supports a
-> +  given extension.
-> +
-> +  Once a standard extension has been ratified, no changes in behaviour can be
-> +  made without the creation of a new extension.
-> +  The properties for standard extensions therefore map to their originally
-> +  ratified states, with the exception of the I, Zicntr & Zihpm extensions.
-> +  See the "i" property for more information.
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: riscv
-> +
-> +properties:
-> +  riscv,isa:
-> +    description:
-> +      Identifies the specific RISC-V instruction set architecture
-> +      supported by the hart.  These are documented in the RISC-V
-> +      User-Level ISA document, available from
-> +      https://riscv.org/specifications/
-> +
-> +      Due to revisions of the ISA specification, some deviations
-> +      have arisen over time.
-> +      Notably, riscv,isa was defined prior to the creation of the
-> +      Zicsr and Zifencei extensions and thus "i" implies
-> +      "zicsr_zifencei".
-> +
-> +      While the isa strings in the ISA specification are case
-> +      insensitive, letters in the riscv,isa string must be all
-> +      lowercase to simplify parsing.
-> +
-> +      This property has been deprecated due to disparity between the
-> +      extension at the time of its creation and ratification of the
-> +      base ISA.
-> +
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    pattern: ^rv(?:64|32)imaf?d?q?c?b?k?j?p?v?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
-> +    deprecated: true
-> +
-> +  riscv,isa-base:
-> +    description:
-> +      The base ISA implemented by this hart, as described by the 20191213
-> +      version of the unprivileged ISA specification.
-> +    enum:
-> +      - rv32i
-> +      - rv64i
-> +
-> +  riscv,isa-extensions:
-> +    type: object
-> +    description:
-> +      This child of the cpu node contains boolean properties, indicating which
-> +      ISA extensions are supported by the cpu.
-> +    additionalProperties: false
-> +    properties:
-> +      # single letter extensions, in canonical order
-> +
-> +      i:
-> +        type: boolean
-> +        description:
-> +          The base integer instruction set, as ratified in the 20191213 version
-> +          of the unprivileged ISA specification, with the exception of counter
-> +          access. Counter access was removed after the ratification of the
-> +          20191213 version of the unprivileged specification and shunted into
-> +          the Zicntr and Zihpm extensions.
-> +
-> +      m:
-> +        type: boolean
-> +        description:
-> +          The standard M extension for integer multiplication and division, as
-> +          ratified in the 20191213 version of the unprivileged ISA
-> +          specification.
-> +
-> +      a:
-> +        type: boolean
-> +        description:
-> +          The standard A extension for atomic instructions, as ratified in the
-> +          20191213 version of the unprivileged ISA specification.
-> +
-> +      f:
-> +        type: boolean
-> +        description:
-> +          The standard F extension for single-precision floating point, as
-> +          ratified in the 20191213 version of the unprivileged ISA
-> +          specification.
-> +
-> +      d:
-> +        type: boolean
-> +        description:
-> +          The standard D extension for double-precision floating-point, as
-> +          ratified in the 20191213 version of the unprivileged ISA
-> +          specification.
-> +
-> +      q:
-> +        type: boolean
-> +        description:
-> +          The standard Q extension for quad-precision floating-point, as
-> +          ratified in the 20191213 version of the unprivileged ISA
-> +          specification.
-> +
-> +      c:
-> +        type: boolean
-> +        description:
-> +          The standard C extension for compressed instructions, as ratified in
-> +          the 20191213 version of the unprivileged ISA specification.
-> +
-> +      v:
-> +        type: boolean
-> +        description:
-> +          The standard V extension for vector operations, as ratified
-> +          in-and-around commit 7a6c8ae ("Fix text that describes vfmv.v.f
-> +          encoding") of the riscv-v-spec.
-> +
-> +      h:
-> +        type: boolean
-> +        description:
-> +          The standard H extension for hypervisors as ratified in the 20191213
-> +          version of the privileged ISA specification.
-> +
-> +      # multi-letter extensions, sorted alphanumerically
-> +      smaia:
-> +        type: boolean
-> +        description: |
-> +          The standard Smaia supervisor-level extension for the advanced
-> +          interrupt architecture for machine-mode-visible csr and behavioural
-> +          changes to interrupts as frozen at commit ccbddab ("Merge pull
-> +          request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
-> +
-> +      ssaia:
-> +        type: boolean
-> +        description: |
-> +          The standard Ssaia supervisor-level extension for the advanced
-> +          interrupt architecture for supervisor-mode-visible csr and behavioural
-> +          changes to interrupts as frozen at commit ccbddab ("Merge pull request
-> +          #42 from riscv/jhauser-2023-RC4") of riscv-aia.
-> +
-> +      sscofpmf:
-> +        type: boolean
-> +        description: |
-> +          The standard Sscofpmf supervisor-level extension for count overflow
-> +          and mode-based filtering as ratified at commit 01d1df0 ("Add ability
-> +          to manually trigger workflow. (#2)") of riscv-count-overflow.
-> +
-> +      sstc:
-> +        type: boolean
-> +        description:
-> +          The standard Sstc supervisor-level extension for time compare as
-> +          ratified at commit 3f9ed34 ("Add ability to manually trigger workflow.
-> +          (#2)") of riscv-time-compare.
-> +
-> +      svinval:
-> +        type: boolean
-> +        description:
-> +          The standard Svinval supervisor-level extension for fine-grained
-> +          address-translation cache invalidation as ratified in the 20191213
-> +          version of the privileged ISA specification.
-> +
-> +      svnapot:
-> +        type: boolean
-> +        description:
-> +          The standard Svnapot supervisor-level extensions for napot translation
-> +          contiguity as ratified in the 20191213 version of the privileged ISA
-> +          specification.
-> +
-> +      svpbmt:
-> +        type: boolean
-> +        description:
-> +          The standard Svpbmt supervisor-level extensions for page-based memory
-> +          types as ratified in the 20191213 version of the privileged ISA
-> +          specification.
-> +
-> +      zba:
-> +        type: boolean
-> +        description: |
-> +          The standard Zba bit-manipulation extension for address generation
-> +          acceleration instructions as ratified at commit 6d33919 ("Merge pull
-> +          request #158 from hirooih/clmul-fix-loop-end-condition") of
-> +          riscv-bitmanip.
-> +
-> +      zbb:
-> +        type: boolean
-> +        description: |
-> +          The standard Zbb bit-manipulation extension for basic bit-manipulation
-> +          as ratified at commit 6d33919 ("Merge pull request #158 from
-> +          hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
-> +
-> +      zbc:
-> +        type: boolean
-> +        description: |
-> +          The standard Zbc bit-manipulation extension for carry-less
-> +          multiplication as ratified at commit 6d33919 ("Merge pull request #158
-> +          from hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
-> +
-> +      zbs:
-> +        type: boolean
-> +        description: |
-> +          The standard Zbs bit-manipulation extension for single-bit
-> +          instructions as ratified at commit 6d33919 ("Merge pull request #158
-> +          from hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
-> +
-> +      zicbom:
-> +        type: boolean
-> +        description:
-> +          The standard Zicbom extension for base cache management operations as
-> +          ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
-> +
-> +      zicbop:
-> +        type: boolean
-> +        description:
-> +          The standard Zicbop extension for cache-block prefetch instructions as
-> +          ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
-> +
-> +      zicboz:
-> +        type: boolean
-> +        description:
-> +          The standard  Zicbomz extension for cache-block zeroing as ratified in
-> +          commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
-> +
-> +      zicntr:
-> +        type: boolean
-> +        description:
-> +          The standard Zicntr extension for base counters and timers, as
-> +          ratified in the 20191213 version of the unprivileged ISA
-> +          specification.
-> +
-> +      zicsr:
-> +        type: boolean
-> +        description:
-> +          The standard Zicsr extension for control and status register
-> +          instructions, as ratified in the 20191213 version of the unprivileged
-> +          ISA specification.
-> +
-> +      zifencei:
-> +        type: boolean
-> +        description:
-> +          The standard Zifencei extension for instruction-fetch fence, as
-> +          ratified in the 20191213 version of the unprivileged ISA
-> +          specification.
-> +
-> +      zihintpause:
-> +        type: boolean
-> +        description: |
-> +          The standard Zihintpause extension for pause hints, as ratified in
-> +          commit d8ab5c7 ("Zihintpause is ratified") of the riscv-isa-manual.
-> +
-> +      zihpm:
-> +        type: boolean
-> +        description:
-> +          The standard Zihpm extension for hardware performance counters, as
-> +          ratified in the 20191213 version of the unprivileged ISA
-> +          specification.
-> +
-> +      ztso:
-> +        type: boolean
-> +        description:
-> +          The standard Ztso extension for total store ordering, as ratified in
-> +          commit 2e5236 ("Ztso is now ratified.") of the riscv-isa-manual.
-> +
-> +additionalProperties: true
-> +...
+arch/arm64/kvm/mmu.c:147:3-9: preceding lock on line 140
+drivers/clk/qcom/gpucc-sm8550.c:37:22: sparse: sparse: decimal constant 2300000000 is between LONG_MAX and ULONG_MAX. For C99 that means long long, C90 compilers are very likely to produce unsigned long (and a warning) here
+drivers/net/ethernet/mellanox/mlx5/core/lib/devcom.c:98 mlx5_devcom_register_device() error: uninitialized symbol 'tmp_dev'.
+drivers/usb/cdns3/cdns3-starfive.c:23: warning: expecting prototype for cdns3(). Prototype was for USB_STRAP_HOST() instead
+{standard input}: Error: local label `"2" (instance number 9 of a fb label)' is not defined
+
+Error/Warning ids grouped by kconfigs:
+
+gcc_recent_errors
+|-- alpha-randconfig-r025-20230703
+|   `-- drivers-bluetooth-btmtk.c:error:struct-hci_dev-has-no-member-named-dump
+|-- arm-randconfig-r073-20230703
+|   `-- drivers-clk-qcom-gpucc-sm8550.c:sparse:sparse:decimal-constant-is-between-LONG_MAX-and-ULONG_MAX.-For-C99-that-means-long-long-C90-compilers-are-very-likely-to-produce-unsigned-long-(and-a-warning)-he
+|-- arm64-randconfig-r054-20230703
+|   `-- arch-arm64-kvm-mmu.c:preceding-lock-on-line
+|-- i386-randconfig-m031-20230703
+|   `-- drivers-net-ethernet-mellanox-mlx5-core-lib-devcom.c-mlx5_devcom_register_device()-error:uninitialized-symbol-tmp_dev-.
+|-- parisc-allnoconfig
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-allyesconfig
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-defconfig
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-randconfig-r011-20230703
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc-randconfig-r035-20230703
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- parisc64-defconfig
+|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
+|-- riscv-allmodconfig
+|   `-- drivers-usb-cdns3-cdns3-starfive.c:warning:expecting-prototype-for-cdns3().-Prototype-was-for-USB_STRAP_HOST()-instead
+|-- riscv-allyesconfig
+|   `-- drivers-usb-cdns3-cdns3-starfive.c:warning:expecting-prototype-for-cdns3().-Prototype-was-for-USB_STRAP_HOST()-instead
+|-- riscv-randconfig-r091-20230703
+|   |-- arch-riscv-kernel-signal.c:sparse:sparse:incorrect-type-in-initializer-(different-address-spaces)-expected-void-__val-got-void-noderef-__user-assigned-datap
+|   `-- drivers-bluetooth-btmtk.c:error:struct-hci_dev-has-no-member-named-dump
+|-- sh-allmodconfig
+|   |-- drivers-char-mem.c:error:implicit-declaration-of-function-unxlate_dev_mem_ptr
+|   `-- standard-input:Error:local-label-(instance-number-of-a-fb-label)-is-not-defined
+|-- sh-randconfig-r015-20230703
+|   `-- drivers-char-mem.c:error:implicit-declaration-of-function-unxlate_dev_mem_ptr
+|-- sh-randconfig-r024-20230703
+|   `-- drivers-char-mem.c:error:implicit-declaration-of-function-unxlate_dev_mem_ptr
+|-- sh-se7619_defconfig
+|   `-- drivers-char-mem.c:error:implicit-declaration-of-function-unxlate_dev_mem_ptr
+`-- x86_64-buildonly-randconfig-r003-20230703
+    `-- drivers-bluetooth-btmtk.c:error:struct-hci_dev-has-no-member-named-dump
+clang_recent_errors
+|-- arm-randconfig-r005-20230703
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|-- arm-randconfig-r035-20230703
+|   |-- lib-kunit-executor_test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|-- arm64-randconfig-r026-20230703
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|-- hexagon-randconfig-r041-20230703
+|   |-- drivers-bluetooth-btmtk.c:error:no-member-named-dump-in-struct-hci_dev
+|   |-- lib-kunit-executor_test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|-- hexagon-randconfig-r045-20230703
+|   |-- lib-kunit-executor_test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
+`-- i386-randconfig-i011-20230703
+    `-- drivers-bluetooth-btmtk.c:error:no-member-named-dump-in-struct-hci_dev
+
+elapsed time: 747m
+
+configs tested: 136
+configs skipped: 5
+
+tested configs:
+alpha                            alldefconfig   gcc  
+alpha                            allyesconfig   gcc  
+alpha                               defconfig   gcc  
+alpha                randconfig-r002-20230703   gcc  
+alpha                randconfig-r025-20230703   gcc  
+arc                              allyesconfig   gcc  
+arc                                 defconfig   gcc  
+arc                     nsimosci_hs_defconfig   gcc  
+arc                  randconfig-r014-20230703   gcc  
+arc                  randconfig-r043-20230703   gcc  
+arm                              allmodconfig   gcc  
+arm                              allyesconfig   gcc  
+arm                                 defconfig   clang
+arm                                 defconfig   gcc  
+arm                         lpc32xx_defconfig   clang
+arm                           omap1_defconfig   clang
+arm                          pxa168_defconfig   clang
+arm                  randconfig-r005-20230703   clang
+arm                  randconfig-r035-20230703   clang
+arm                  randconfig-r046-20230703   gcc  
+arm                         socfpga_defconfig   clang
+arm                         wpcm450_defconfig   gcc  
+arm64                            alldefconfig   gcc  
+arm64                            allyesconfig   gcc  
+arm64                               defconfig   gcc  
+arm64                randconfig-r026-20230703   clang
+csky                                defconfig   gcc  
+csky                 randconfig-r006-20230703   gcc  
+csky                 randconfig-r021-20230703   gcc  
+hexagon              randconfig-r041-20230703   clang
+hexagon              randconfig-r045-20230703   clang
+i386                             allyesconfig   gcc  
+i386         buildonly-randconfig-r004-20230703   gcc  
+i386         buildonly-randconfig-r005-20230703   gcc  
+i386         buildonly-randconfig-r006-20230703   gcc  
+i386                              debian-10.3   gcc  
+i386                                defconfig   gcc  
+i386                 randconfig-i001-20230703   gcc  
+i386                 randconfig-i002-20230703   gcc  
+i386                 randconfig-i003-20230703   gcc  
+i386                 randconfig-i004-20230703   gcc  
+i386                 randconfig-i005-20230703   gcc  
+i386                 randconfig-i006-20230703   gcc  
+i386                 randconfig-i011-20230703   clang
+i386                 randconfig-i012-20230703   clang
+i386                 randconfig-i013-20230703   clang
+i386                 randconfig-i014-20230703   clang
+i386                 randconfig-i016-20230703   clang
+i386                 randconfig-r036-20230703   gcc  
+loongarch                        allmodconfig   gcc  
+loongarch                         allnoconfig   gcc  
+loongarch                           defconfig   gcc  
+m68k                             allmodconfig   gcc  
+m68k                             allyesconfig   gcc  
+m68k                         apollo_defconfig   gcc  
+m68k                                defconfig   gcc  
+m68k                 randconfig-r013-20230703   gcc  
+microblaze                          defconfig   gcc  
+mips                             allmodconfig   gcc  
+mips                             allyesconfig   gcc  
+mips                            ar7_defconfig   gcc  
+mips                           gcw0_defconfig   gcc  
+mips                           ip32_defconfig   gcc  
+mips                           jazz_defconfig   gcc  
+mips                       lemote2f_defconfig   clang
+mips                 randconfig-r023-20230703   gcc  
+mips                 randconfig-r031-20230703   clang
+nios2                               defconfig   gcc  
+openrisc             randconfig-r034-20230703   gcc  
+parisc                           allyesconfig   gcc  
+parisc                              defconfig   gcc  
+parisc               randconfig-r011-20230703   gcc  
+parisc               randconfig-r035-20230703   gcc  
+parisc64                            defconfig   gcc  
+powerpc                          allmodconfig   gcc  
+powerpc                           allnoconfig   gcc  
+powerpc                 canyonlands_defconfig   gcc  
+powerpc                     ep8248e_defconfig   gcc  
+powerpc                        icon_defconfig   clang
+powerpc                    klondike_defconfig   gcc  
+powerpc                     ksi8560_defconfig   clang
+powerpc                     mpc5200_defconfig   clang
+powerpc                     mpc83xx_defconfig   gcc  
+powerpc                  storcenter_defconfig   gcc  
+powerpc                         wii_defconfig   gcc  
+riscv                            alldefconfig   clang
+riscv                            allmodconfig   gcc  
+riscv                             allnoconfig   gcc  
+riscv                            allyesconfig   gcc  
+riscv                               defconfig   gcc  
+riscv                randconfig-r042-20230703   clang
+riscv                          rv32_defconfig   gcc  
+s390                             allmodconfig   gcc  
+s390                             allyesconfig   gcc  
+s390                                defconfig   gcc  
+s390                 randconfig-r004-20230703   gcc  
+s390                 randconfig-r033-20230703   gcc  
+s390                 randconfig-r044-20230703   clang
+sh                               allmodconfig   gcc  
+sh                         apsh4a3a_defconfig   gcc  
+sh                   randconfig-r015-20230703   gcc  
+sh                   randconfig-r024-20230703   gcc  
+sh                   randconfig-r031-20230703   gcc  
+sh                   rts7751r2dplus_defconfig   gcc  
+sh                           se7619_defconfig   gcc  
+sh                           se7751_defconfig   gcc  
+sh                  sh7785lcr_32bit_defconfig   gcc  
+sparc                            allyesconfig   gcc  
+sparc                               defconfig   gcc  
+sparc                randconfig-r022-20230703   gcc  
+sparc64              randconfig-r001-20230703   gcc  
+sparc64              randconfig-r033-20230703   gcc  
+um                               allmodconfig   clang
+um                                allnoconfig   clang
+um                               allyesconfig   clang
+um                                  defconfig   gcc  
+um                             i386_defconfig   gcc  
+um                   randconfig-r034-20230703   clang
+um                   randconfig-r036-20230703   clang
+um                           x86_64_defconfig   gcc  
+x86_64                           allyesconfig   gcc  
+x86_64       buildonly-randconfig-r001-20230703   gcc  
+x86_64       buildonly-randconfig-r002-20230703   gcc  
+x86_64       buildonly-randconfig-r003-20230703   gcc  
+x86_64                              defconfig   gcc  
+x86_64                                  kexec   gcc  
+x86_64               randconfig-x001-20230703   clang
+x86_64               randconfig-x002-20230703   clang
+x86_64               randconfig-x003-20230703   clang
+x86_64               randconfig-x004-20230703   clang
+x86_64               randconfig-x005-20230703   clang
+x86_64               randconfig-x006-20230703   clang
+x86_64                          rhel-8.3-rust   clang
+x86_64                               rhel-8.3   gcc  
+xtensa               randconfig-r003-20230703   gcc  
+xtensa               randconfig-r012-20230703   gcc  
+xtensa               randconfig-r032-20230703   gcc  
 
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
