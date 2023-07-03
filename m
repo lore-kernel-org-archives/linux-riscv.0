@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185BEEB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 15:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F6AEB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 16:17:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZDTL9z3yKTsGbbpw0oxCaSr0Ler0+Hne0cyzTxwQpe8=; b=fk7FWMTb2HsOz3
-	tB6cRZpSixR1YLZVWgt/phhm4m72j5yZIgrlB2zcTxwJ4Qy+1Yq/zDUv+JK9L7IoHA/W32ZNNtqSk
-	QvRzZ2ssH/E8I4YBzJmkPS+UAcPCkLjJcynkANccMjLJ75+0pHlU4CMRHs/iWTR4G3kJBxBqNzKs6
-	nc+axPjuL894Y5+lzme/g5e2OMLS68WZYcThAr+UYrwJFmd/FSSjKT2WyhkjPVlZIdBOmfH6cjhFN
-	9B3wKb2IyY6yyHQBnidDtuDV6GuA/pftZo29u2cyJggUgBhgPMLMxMY6HmEUH75s4HabkXao5ITfu
-	v1xGwzdWMM7uszJ/6iwQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HxTjDw2pP7+lydaw/KO4wZZO1UFQXjVHUFdOIM/YxhI=; b=omCluYbMttku7fPSJTw9pO5KGJ
+	xw4RKh/buu3GIfWB4f7xpr/E41G1Hvfkj3Rd6XN4DV4cB3hSCQR2cpuAKgewUhjZcDSkMGvRczuBS
+	9cPDXi1e1WtZqLKTSEcAPSvqAGQFjAz1sb/mpyS7ZNcI9rpYZPMaEb4gkjZrbxUk0vVN1dP5tZ5z4
+	RO5fL0SJp85HyCeX9JFEJHKMq8+akfoKvKiDwi7HTWLw/Zj+FXrZxA6KNWgq4BsOPwxtyWdCTf4DZ
+	Ee/Z1Ld4uE5MYc8sPdwJVXHePJR5Nb+Eq9sCMr57fSrMkbddgyEGpG6VUCMrRERyNb9ql8cSAbCAP
+	4c5LPY4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGLqN-00Au5q-29;
-	Mon, 03 Jul 2023 15:52:03 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qGMEg-00Ay1w-0M;
+	Mon, 03 Jul 2023 16:17:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGLqK-00Au3x-05
+	id 1qGMEe-00Ay19-0D
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 15:52:02 +0000
-X-QQ-mid: bizesmtp74t1688399495t3coozev
-Received: from linux-lab-host.localdomain ( [119.123.131.49])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 03 Jul 2023 23:51:34 +0800 (CST)
-X-QQ-SSF: 01200000002000D0W000B00A0000000
-X-QQ-FEAT: LI9frMOdTzi74vtepOhraDFrC/riy2tqrBIrymCS+9r3A8+1vMTGnCnd1U2Ta
-	yqJBEK0KgPjGVtcHUt/FjnIWkGQU6dhonDp5QZRs5D/X3FYF7cxjfx3wRP4tBkh1xrIAjfG
-	MFRslggMfIXrZmIl59HtxWKP1acrlZ/BQiBNXKFT1L/ZH0csq2DmVDItEugTFnneHKGeYAr
-	Q13/EKEPj/o4o+Dc+58tk85vssr3Uazv1sdr0VAUv66Srk+1JnX7OLHq+vQ/KVqpm+UjVGo
-	V2OCE+Bt9Ap4bx+k+V/wo13qbQMffeHdoAfE+rwdwAwrmbwkDSuEMVPqybdDFKcL+SHvZTk
-	4iHZiAKsiWETEjDqRenjVD+pDseuD3suhDQGrkp3MrKD1glbXlf1c1Ze3d3DZ5ywGT9EkSu
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6305770625938334413
-From: Zhangjin Wu <falcon@tinylab.org>
-To: w@1wt.eu
-Cc: arnd@arndb.de,
-	falcon@tinylab.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux@weissschuh.net,
-	thomas@t-8ch.de
-Subject: Re: [PATCH v5 5/5] selftests/nolibc: riscv: customize makefile for rv32
-Date: Mon,  3 Jul 2023 23:51:30 +0800
-Message-Id: <20230703155130.501214-1-falcon@tinylab.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230702171715.GD16233@1wt.eu>
-References: <20230702171715.GD16233@1wt.eu>
+	Mon, 03 Jul 2023 16:17:09 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 607DB60FA1;
+	Mon,  3 Jul 2023 16:17:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF160C433C8;
+	Mon,  3 Jul 2023 16:17:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688401026;
+	bh=JTevVLvj3EYl1fWMMxi04EGyH5Dsiv3lYD+IRooLid4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CiCpscVmtLwtlr03C+J+S7pOm5HBjzckjCfZojZuaIiGVt8r77DyLUSGk8NY/Rsbh
+	 NWzznjLAAzD0GOk0U/pWNhIRGbzeW65vHHQ3e2eooHEbX///fV4ui76SNSIVaK0noN
+	 ZPQt92CgOTxtsxrmcS2bB62OdVIXhbLh6efBXBbKjuXh6CnA+IF8b+d3aw3pjQjmWt
+	 4HG1UOlxh000Pjiz9eYovhb1CDPEiVxlF7nshYTi5iPCPAKI7rNBFb518iM18c5N0r
+	 c6Jkv60zDjasmQAAj8mO8UuBntpS4VHm7DpAa/0VyIytTbr5neZN8ZsGo/ujywc9hj
+	 gs+Pq4VAeMi7Q==
+Date: Mon, 3 Jul 2023 17:17:01 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v3 02/11] RISC-V: don't parse dt/acpi isa string to get
+ rv32/rv64
+Message-ID: <20230703-baboon-panning-b8a7268899c7@spud>
+References: <20230703-repayment-vocalist-e4f3eeac2b2a@wendy>
+ <20230703-foothill-enforced-86baba776d5e@wendy>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
+In-Reply-To: <20230703-foothill-enforced-86baba776d5e@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_085200_382118_59541EA9 
-X-CRM114-Status: GOOD (  38.29  )
+X-CRM114-CacheID: sfid-20230703_091708_147457_64FEF4C0 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,124 +69,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, palmer@dabbelt.com, Evan Green <evan@rivosinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: multipart/mixed; boundary="===============3923895456806905077=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On Mon, Jun 19, 2023 at 08:29:38PM +0800, Zhangjin Wu wrote:
-> > Both riscv64 and riscv32 have:
-> > 
-> > * the same arch/riscv source code tree
-> > * the same tools/include/nolibc/arch-riscv.h
-> > * the same ARCH=riscv value passed to top-level kernel Makefile
-> > 
-> > The only differences are:
-> > 
-> > * riscv64 uses defconfig, riscv32 uses rv32_defconfig
-> > * riscv64 uses qemu-system-riscv64, riscv32 uses qemu-system-riscv32
-> > * riscv32 has different compiler options (-march= and -mabi=)
-> > 
-> > So, riscv32 can share most of the settings with riscv64, add riscv32
-> > support like the original ARCH=riscv support.
-> > 
-> > To align with x86, the default riscv is reserved for riscv64 and a new
-> > riscv64 is also added to allow users pass ARCH=riscv64 directly.
-> > 
-> > Since top-level kernel Makefile only accept ARCH=riscv, to make kernel
-> > happy, let's set kernel specific KARCH as riscv for both riscv32 and
-> > riscv64.
-> > 
-> > And since they share the same arch-riscv.h, let's set nolibc specific
-> > NARCH as riscv too.
-> > 
-> > Usage:
-> > 
-> >     $ make defconfig ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu- ...
-> >     $ make run ARCH=riscv32 CROSS_COMPILE=riscv64-linux-gnu- ...
-> 
-> I'm hesitating on this one. Till now the ARCH variable taken on input
-> was *exactly* the one used by the kernel. We include some scripts very
-> early and we don't control the possible usage of ARCH. There's also
-> this at the top of the makefile:
-> 
->   # when run as make -C tools/ nolibc_<foo> the arch is not set
->   ifeq ($(ARCH),)
->   include $(srctree)/scripts/subarch.include
->   ARCH = $(SUBARCH)
->   endif
-> 
-> So as you can see $(ARCH) is still very intimate with the kernel's.
-> For x86 it's no big deal because the i386 and x86_64 names are real
-> valid archs. The difficulty we're having with riscv is that 32 and 64
-> are two distinct archs for all tools but not for the kernel, and it
-> looks like the only difference is in the config itself.
-> 
-> Given that we call all tools explicitly and that the kernel does a lot
-> of implicit things with $(ARCH), I'm wondering if it wouldn't be more
-> robust for the long term to instead add a "VARIANT" variable for the
-> test only that would enforce "riscv32" or "riscv64" where needed (note
-> that I'm not sold on this variable's name, it's to illustrate). Because
-> if you look closely, you'll note that the nolibc source does not use
-> this difference since its arch is always equal to the kernel's, and
-> only the test requires it. I wouldn't be shocked by having more test
-> options than we have architectures, and I noticed in another series
-> that you were also proposing to extend config options, so I think it
-> goes in the same direction. Then we could have in the test's Makefile
-> a check for this VARIANT being set, which would preset ARCH when
-> defined, and being used to configure Qemu. Maybe it could more or
-> less look like this (for the selftest Makefile I mean) :
-> 
->   # maps variants to nominal archs
->   ARCH_VARIANT_riscv32 = riscv
->   ARCH_VARIANT_riscv64 = riscv
-> 
->   # default variants for some archs
->   DEF_VARIANT_riscv    = riscv64
-> 
->   VARIANT :=
->   ARCH    ?= $(or $(ARCH_VARIANT_$(VARIANT)),$(VARIANT))
->   VARIANT ?= $(or $(DEF_VARIANT_$(ARCH)),$(ARCH))
-> 
-> Modulo the possible typos above, you probably get the idea. If ARCH is
-> set, it will be used and automatically set the variant to the default
-> one for the arch. And if VARIANT is set, it will set the correct
-> default ARCH. It's possible to force the two in conflicting ways that
-> will not work but we don't care, it's like for the rest of the variables.
-> But at least we're never passing invalid values into ARCH anymore and I
-> find this much safer.
->
-> What do you think ?
->
 
-agree, to distinguish the user input one and the kernel accepted one. If want
-to reserve ARCH as the default Kernel ARCH, what about use something like UARCH
-(User input ARCH) or XARCH (eXtended ARCH), it is shorter than VARIANT.
+--===============3923895456806905077==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="S8rcp5QksxDE+03r"
+Content-Disposition: inline
 
-    # UARCH and ARCH mapping, ARCH is supported by kernel, UARCH is input from user
-    UARCH_riscv      = riscv64
-    UARCH           ?= $(or $(UARCH_$(ARCH)),$(ARCH))
-    
-    ARCH_riscv32     = riscv
-    ARCH_riscv64     = riscv
-    ARCH            ?= $(or $(ARCH_$(UARCH)),$(UARCH)
 
-With this, we can simply customize the variables with UARCH or XARCH and left
-the others as before.
+--S8rcp5QksxDE+03r
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-We can delay this after the minimal config patchset, I'm still preparing the v2
-of the tinyconfig patchset, it is almost ready. these two have some conflicts.
+On Mon, Jul 03, 2023 at 11:27:54AM +0100, Conor Dooley wrote:
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+>=20
+> When filling hwcap the kernel already expects the isa string to start with
+> rv32 if CONFIG_32BIT and rv64 if CONFIG_64BIT.
+>=20
+> So when recreating the runtime isa-string we can also just go the other w=
+ay
+> to get the correct starting point for it.
+>=20
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-With the v2 tinyconfig patchset, we are able to run nolibc-test for different
-architectures independently.
+=46rom v(n-1) that I forgot:
+Reviewed-by: Evan Green <evan@rivosinc.com>
+https://lore.kernel.org/all/CALs-HstMTxJFHEoSCaAUtYzT+a-2RSYAhWMQmkVw2+WE=
+=3Dy0agQ@mail.gmail.com/
 
-Best regards,
-Zhangjin
- 
-> Thanks,
-> Willy
+--S8rcp5QksxDE+03r
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKL0fQAKCRB4tDGHoIJi
+0p+RAP0SaOTCcjlKb7lby+pG6VFLS58+FyrQcXkCBeY7K51RPAEAux82L+HUS/zt
+evbKbKhrJ9v/b2UtdBwW0tyrIdyLCQA=
+=9aI/
+-----END PGP SIGNATURE-----
+
+--S8rcp5QksxDE+03r--
+
+
+--===============3923895456806905077==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3923895456806905077==--
+
