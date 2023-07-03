@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC84C001B0
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 13:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD04EB64DD
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 13:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5WQ087PwMz1Y0oVrlXwrjSet0brpefLX7/v8IUDKNpk=; b=hHGM29BvWNkJ7B
-	JsTYUyLboh4WzBDhp0BN2jhQY2orK4lKFJ/QsaYokHP+9peHQkZnEQzSMeUEXZZvKsS2jcVlQ/Zb5
-	Y4SaTsP17QvrbhFhC7+Hmd+EW/AzXVleX5JbRz6HFZqBaDdjno1kTxxc9s340L0PZqkiUT68AuhPQ
-	zZjHCl4UqMup7SfvOyoDN8VW9im27gVW+1oAzzBmQaq5Ic/lNU947sDKfCzjjrU9Xd8R2CeQ/omOU
-	sw4l2ZT3aPP0PAbw+2n19huazMdcAiegj72V9oNt8BHnIpMZ93+8yBTdH96EPWE0Yp6pwzV349nzK
-	sHgfyJfYN/zu9zXDAxJg==;
+	List-Owner; bh=2eEYdgXmZ+uwNl3lt+F8aDVQnvuIR16JDxqwRamv5oo=; b=yd5I0TFfGTco6o
+	1fusDmn0H8vzQqWqNfENlZsz7tgOgKQ0Po5a7jpqjZALojuewfe/WolOYGUAh5uKNVF7s89H/RRTK
+	IBy2LthrhTsZFEJOPuJTYZwH8CfQ5RIGlMmMFsZa8euXnpwlHnLofuh3PbvsyBDf07dBFsOuv1s4k
+	Zr/7fqm2iort4j0aOePhvK+xrz/Nspp8Eh/sVkxtUpamrCsf/6EwC9JwKReoZtLU3d+Q5x6rs13iN
+	5cT1y3Xe5QPrdIjNZqyAFNZiITRp3vpW3Dc3lIZMNo4vf4NMyjZnvkOAz2eM4dZPzj8N2Sd1lsuYF
+	Hd6Rcg5aBk2w6IeF+yjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGJDd-00AZq6-2A;
-	Mon, 03 Jul 2023 13:03:53 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1qGJEd-00Aa4r-2n;
+	Mon, 03 Jul 2023 13:04:55 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGJDa-00AZot-1s
+	id 1qGJEb-00Aa43-1t
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 13:03:51 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-3fbc59de0e2so41888505e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 06:03:50 -0700 (PDT)
+	Mon, 03 Jul 2023 13:04:54 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-3fbc244d386so46638065e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 06:04:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1688389429; x=1690981429;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cPBpk9U/09/3mwSB5bUrvUTAuq++fuN/NRKxbA7bKNo=;
-        b=hAy+BEYKnzd4+DmBw0GRbDQ1l88L7pEEpB2kO9554H/4kn61UlVe/JewCteAPvuSVE
-         tmHSfhdRmq/m2BO8bQ1qgGndwlyxlrIsSXXAYBEnR430VaszhPz+2tggA1hjNRjby+KP
-         EwZvL8n3NZO0qqnUXPAMkMhCXoP512GXkLhHr5OTUny1/ERP8Ex26t5hv3LYOMc2yO1B
-         S7C4C5WAY9ZROLBQBX+q17uc27P0Wl1l9w5z8s4vvVYM6INBw8kEhCI1dCJSaftfbi/J
-         r2JAepRR1Kn0tXpI/2p2zc657H8zKm4N8YnyIvL0PSLZ2vEx0WPq2hRN/TFVmAtKQheW
-         atnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688389429; x=1690981429;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1688389492; x=1690981492;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cPBpk9U/09/3mwSB5bUrvUTAuq++fuN/NRKxbA7bKNo=;
-        b=M1hiicfTQ4j1Bjz2yK8CpR29YYILRqN0pe7Nzaqg+3Umu3wTblQrOeOIeG7ghsvFtM
-         et7fkp1e6s+XTAVqpr/6DXUzxEhSEo1bMsY7aaod5X/FSA/xZO6QU6zoCSCc6XpA/ZMY
-         EU6+l2UcQAjdc//uFElOLjtq57Cu2okIMQKxpNtQ32S4nosZoQcvuo48At4eP2qB67/c
-         u0Uyb4wnuU9TP3P0HeGB1uyvRqW1gvUbNlRKz2qqOm+Csq4CsSDqVym93+VO6h0ph7jd
-         GDlKfKhE6nmQsGlohUKa4SOQI7Hr6EmIApVVeG4hpSryUL3cpAoi+2S0N8+3aFeaIKkC
-         zAOA==
-X-Gm-Message-State: ABy/qLZGCDXuRp8wmbwttJB72OzPGN9kUyWwSgtiTRMvTsTkrSMwzC9G
-	eVl4wChF/pOirMja7dKSZqPW2w==
-X-Google-Smtp-Source: APBJJlFzwWsag5H3B4fJAbl6Ppsd6Y16qbcXnimVTA19W+2BGHYWOjsyQihmyCv5gjCQoJYwvqbZ2w==
-X-Received: by 2002:a5d:5542:0:b0:314:3aa5:d285 with SMTP id g2-20020a5d5542000000b003143aa5d285mr1272124wrw.11.1688389428832;
-        Mon, 03 Jul 2023 06:03:48 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id d5-20020adff845000000b003141b9ddab3sm10587287wrq.114.2023.07.03.06.03.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Jul 2023 06:03:48 -0700 (PDT)
-Date: Mon, 3 Jul 2023 15:03:47 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
-	Rob Herring <robh@kernel.org>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 08/10] Documentation: admin-guide: Add riscv
- sysctl_perf_user_access
-Message-ID: <20230703-c7f3e773f50ed6c934662f3f@orel>
-References: <20230703124647.215952-1-alexghiti@rivosinc.com>
- <20230703124647.215952-9-alexghiti@rivosinc.com>
+        bh=3d6ih/kmwpjX+tH1Xu9YvN1lziwh3aCHo89EB9XkjqU=;
+        b=RN6y0gy31NmpuKelrbC/HzNL00R0snetDTfDwY1NkrB1uDrkwdBiyYeFBGnwwNtRZp
+         dtucuAkLDSvD/PdAfaeDTuT42i3tPpXFwJe0u+mD8f3E5mBbasbh3FFi3J1DkgmrzYzY
+         UwV5lbmTyFELEuoYeVjuZzxJajX2wCwmjr76jeody1tPpDT/pfUvL0o2tlAflzBqniSA
+         +gLa0Tx9s4FBhu0c/UrbUtEP5/G7KqW8oCdCgTkF1s7MrxhJYlzf+nVqu1lPBEqoLm/e
+         AlIDv85bhTaTOyEs608kDyFGxGcqL/h5/X07iOm4XT2Tc1zWr0x5FqkUJFe/T03WQfj+
+         M+FA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688389492; x=1690981492;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3d6ih/kmwpjX+tH1Xu9YvN1lziwh3aCHo89EB9XkjqU=;
+        b=R1Zv4TnJr9O2E6cCzb7V9ZLLKq/zF6XiurIiTAhKEwghwZWeDNGutRcFHaXxYI8m5V
+         aPETsrGGOry1F+yiNb0LAAJrFWbTdlpdCbxP3Pajp6XZIu/Y5vqsHy1euA77MiSWpXyi
+         cWe6Yot016cBH93lyog9yNT49yBn0RWSAg8M6FRed8CNuz7/F+A6e+X98LOGo7S1Uc+8
+         QtIgQZkzQtAcLzFe3CHsuDODMd/FaHQDgRP4slVwJvdA2pwoYQXGGWTeogcV7YbWWyLH
+         Xk37E65PQJvwUZhx+wZARKcT1XD+V+XaUqLb8U+pqWbMASX+70+BtPerv6sSWd5k+jkj
+         IRmA==
+X-Gm-Message-State: AC+VfDyk6WaCbz9ZR/PMuXBQY69l/hMG9ol0iIoCySu0lnxwyJ1rNWic
+	qZo/AD3ufdbLRXZOAnkuknmyYy1wpfNWuaRQYGdUlQ==
+X-Google-Smtp-Source: ACHHUZ6t2qo8tIjShnZO9/FXBBpcQJeQTs/al+vYFLGivJfJj8gprGTPoGGfvUDO7fZ5igBLzHW1X8xoFUJPhsmtHAk=
+X-Received: by 2002:a05:600c:3792:b0:3fb:c417:5e6 with SMTP id
+ o18-20020a05600c379200b003fbc41705e6mr7953949wmr.23.1688389491911; Mon, 03
+ Jul 2023 06:04:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230703124647.215952-9-alexghiti@rivosinc.com>
+References: <20230702095735.860-1-cuiyunhui@bytedance.com> <20230702-headway-dreamlike-d7ba39ac4910@spud>
+ <CAEEQ3wnzf=iDDHJATo2vdVz-SDNYRGBEEb7sXUyGojgP4ZAgaA@mail.gmail.com>
+ <20230703-glorified-headless-16e998608eaa@wendy> <CAEEQ3wnjYK+Jj9Ce_yEHPL_z3eYn4OKP85YLXnVeaPd+SA3DJw@mail.gmail.com>
+ <20230703-handstand-prototype-733d702c946c@wendy>
+In-Reply-To: <20230703-handstand-prototype-733d702c946c@wendy>
+From: =?UTF-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
+Date: Mon, 3 Jul 2023 21:04:40 +0800
+Message-ID: <CAEEQ3wkmX6N2b8fftixJ2Ev-DOc_VfbxQM9g66OpVLuL8mVZbA@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v2 1/3] riscv: obtain ACPI RSDP from FFI.
+To: Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_060350_619254_0CB238A5 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20230703_060453_637297_F74CF209 
+X-CRM114-Status: GOOD (  25.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +84,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, allen-kh.cheng@mediatek.com, rafael@kernel.org, lpieralisi@kernel.org, jdelvare@suse.com, linux-riscv@lists.infradead.org, ardb@kernel.org, geshijian@bytedance.com, tinghan.shen@mediatek.com, pierre-louis.bossart@linux.intel.com, linux-acpi@vger.kernel.org, lenb@kernel.org, aou@eecs.berkeley.edu, alexghiti@rivosinc.com, paul.walmsley@sifive.com, angelogioacchino.delregno@collabora.com, weidong.wd@bytedance.com, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, rminnich@gmail.com, palmer@dabbelt.com, yc.hung@mediatek.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 03, 2023 at 02:46:45PM +0200, Alexandre Ghiti wrote:
-> riscv now uses this sysctl so document its usage for this architecture.
-> 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  Documentation/admin-guide/sysctl/kernel.rst | 27 ++++++++++++++++++---
->  1 file changed, 23 insertions(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/sysctl/kernel.rst b/Documentation/admin-guide/sysctl/kernel.rst
-> index d85d90f5d000..19b627883313 100644
-> --- a/Documentation/admin-guide/sysctl/kernel.rst
-> +++ b/Documentation/admin-guide/sysctl/kernel.rst
-> @@ -941,16 +941,35 @@ enabled, otherwise writing to this file will return ``-EBUSY``.
->  The default value is 8.
->  
->  
-> -perf_user_access (arm64 only)
-> -=================================
-> +perf_user_access (arm64 and riscv only)
-> +=======================================
-> +
-> +Controls user space access for reading perf event counters.
->  
-> -Controls user space access for reading perf event counters. When set to 1,
-> -user space can read performance monitor counter registers directly.
-> +arm64
-> +=====
->  
->  The default value is 0 (access disabled).
->  
-> +When set to 1, user space can read performance monitor counter registers
-> +directly.
-> +
->  See Documentation/arm64/perf.rst for more information.
->  
-> +riscv
-> +=====
-> +
-> +When set to 0, user space access is disabled.
-> +
-> +The default value is 1, user space can read performance monitor counter
-> +registers through perf, any direct access without perf intervention will trigger
-> +an illegal instruction.
-> +
-> +When set to 2, which enables legacy mode (user space has direct access to cycle
-> +and insret CSRs only). Note that this legacy value is deprecated and will be
-> +removed once all user space applications are fixed.
-> +
-> +Note that the time CSR is always directly accessible to all modes.
->  
->  pid_max
->  =======
-> -- 
-> 2.39.2
->
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsCgpPbiBNb24sIEp1bCAzLCAyMDIzIGF0IDg6MjDigK9QTSBDb25vciBEb29sZXkg
+PGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPiB3cm90ZToKPgo+IE9uIE1vbiwgSnVsIDAzLCAy
+MDIzIGF0IDA2OjE2OjA3UE0gKzA4MDAsIOi/kOi+ieW0lCB3cm90ZToKPiA+IEhpIENvbm9yLAo+
+Cj4gPiBUaGlzIG5lZWRzIHRvIGJlIGNvbmZpcm1lZCB3aXRoIHlvdToKPgo+ID4gQ29udGludWUg
+dG8gZm9sbG93IHRoZSBjdXJyZW50IGNvZGUgc3RydWN0dXJlLCBwYXRjaCAxLzMgaXMgcGxhY2Vk
+IGluCj4gPiBhcmNoL3Jpc2N2LywgYW5kIDIvMyBpcyBwbGFjZWQgdW5kZXIgZHJpdmVyL2Zpcm13
+YXJlPwo+Cj4gWW91IGRvIHdhbnQgdGhlIFNNQklPUyBzdHVmZiB0byBiZSBjcm9zcyBhcmNoaXRl
+Y3R1cmUsIHJpZ2h0Pwo+IElmIHNvLCBrZWVwaW5nIHRoZSBjb2RlIGFzLWlzIHNlZW1zIHRvIG1h
+a2UgdGhlIG1vc3Qgc2Vuc2UgdG8gbWUuCgpPa2F5LCBvdGhlciBhcmNoZXMgbWF5IHVzZSBGRkkg
+aW4gdGhlIGZ1dHVyZS4gS2VlcCB0aGUgY29kZSBhcy1pcyBzZWVtcy4KCj4gPiBIb3cgYWJvdXQg
+Y2hhbmdpbmcgdGhlIGNvbW1pdCBsb2cgdG8gdGhlIGZvbGxvd2luZz8KPiA+Cj4gPiByaXNjdjog
+b2J0YWluIEFDUEkgUlNEUCBmcm9tIGRldmljZXRyZWUuCj4gPgo+ID4gT24gUklTQy1WLCB3aGVu
+IHVzaW5nIENvcmVib290IHRvIHN0YXJ0LCBzaW5jZSBDb3JlYm9vdCBvbmx5IHN1cHBvcnRzCj4g
+PiBEVFMgYnV0IG5vdCBFRkksIGFuZAo+ID4gUklTQy1WIGRvZXMgbm90IGhhdmUgYSByZXNlcnZl
+ZCBhZGRyZXNzIHNlZ21lbnQuCj4gPiBXaGVuIHRoZSBzeXN0ZW0gZW5hYmxlcyBBQ1BJLCBBQ1BJ
+IFJTRFAgbmVlZHMgdG8gYmUgcGFzc2VkIHRocm91Z2ggRFRTCj4KPiBJIHdvdWxkIHByb2JhYmx5
+IHdyaXRlIHNvbWV0aGluZyBsaWtlOgo+ICAgICAgICAgT24gUklTQy1WLCBDb3JlYm9vdCBkb2Vz
+IG5vdCBzdXBwb3J0IGJvb3RpbmcgdXNpbmcgRUZJLCBvbmx5IGRldmljZXRyZWUKPiAgICAgICAg
+IG5vciBkb2VzIFJJU0MtViBoYXZlIGEgcmVzZXJ2ZWQgYWRkcmVzcyBzZWdtZW50Lgo+ICAgICAg
+ICAgVG8gYWxsb3cgdXNpbmcgQ29yZWJvb3Qgb24gcGxhdGZvcm1zIHRoYXQgcmVxdWlyZSBBQ1BJ
+LCB0aGUgQUNQSSBSU0RQCj4gICAgICAgICBuZWVkcyB0byBiZSBwYXNzZWQgdG8gc3VwZXJ2aXNv
+ciBtb2RlIHNvZnR3YXJlIHVzaW5nIGRldmljZXRyZWUuCj4gICAgICAgICBBZGQgc3VwcG9ydCBm
+b3IgcGFyc2luZyB0aGUgImNvbmZpZ3RibHMiIGRldmljZXRyZWUgbm9kZSB0byBmaW5kIHRoZQo+
+ICAgICAgICAgQUNQSSBlbnRyeSBwb2ludCBhbmQgdXNlIHdpcmUgdXAgYWNwaV9hcmNoX2dldF9y
+b290X3BvaW50ZXIoKS4KPiAgICAgICAgIFRoaXMgZmVhdHVyZSBpcyBrbm93biBhcyBGRFQgRmly
+bXdhcmUgSW50ZXJmYWNlIChGRkkpLgoKR3JlYXQsICBJIGhhdmUgdG8gbGVhcm4gZnJvbSBpdC4K
+Cj4gPiA+ID4gPiA+ICtleHRlcm4gdTY0IGFjcGlfcnNkcDsKPiA+ID4gPiA+Cj4gPiA+ID4gPiAv
+c3R1ZmYvbGludXgvZHJpdmVycy9hY3BpL29zbC5jOjE3ODoyMjogZXJyb3I6IHJlZGVmaW5pdGlv
+biBvZiAnYWNwaV9yc2RwJyB3aXRoIGEgZGlmZmVyZW50IHR5cGU6ICd1bnNpZ25lZCBsb25nJyB2
+cyAndTY0JyAoYWthICd1bnNpZ25lZCBsb25nIGxvbmcnKQo+ID4gPiA+ID4KPiA+ID4gPiA+IEZh
+aWxzIHRvIGJ1aWxkIHdoZW4gS2V4ZWMgaXMgZW5hYmxlZC4KPiA+ID4gPgo+ID4gPiA+IFJlbmFt
+ZSBteSBhY3BpX3JzZHAgdG8gYXJjaF9hY3BpX3JzZHA/IFdEWVQ/Cj4gPiA+Cj4gPiA+IFlvdSBj
+b3VsZCBkbyBzL2FyY2gvcmlzY3YvIGVpdGhlciwgdGhhdCdkIG1hdGNoIHdoYXQgd2UgcHJlZml4
+IGEgbG90IG9mCj4gPiA+IHN0dWZmIHdpdGguCj4gPgo+ID4gIFNvcnJ5LCBJIGRvbid0IHF1aXRl
+IHVuZGVyc3RhbmQgd2hhdCB5b3UgbWVhbi4gQ291bGQgeW91IHRlbGwgbWUgaW4gZGV0YWlsPwo+
+Cj4gV2hhdCBJIG1lYW50IGlzIHRoYXQgdmFyaWFibGVzICYgZnVuY3Rpb25zIGluIC9hcmNoL3Jp
+c2N2IGFyZSBvZnRlbgo+IHByZWZpeGVkIHdpdGggcmlzY3ZfLiBJIHdhcyBzYXlpbmcgdGhhdCB5
+b3UgY291bGQgY2hhbmdlICJhcmNoX2FjcGlfcnNkcCIKPiB0byAicmlzY3ZfYWNwaV9yc2RwIi4K
+Ck9oLCB0aGF0J3Mgd2hhdCBpdCBtZWFucywgb2theSwgSSdsbCB1cGRhdGUgaXQgb24gdjMuCgo+
+Cj4gVGhhbmtzLAo+IENvbm9yLgoKVGhhbmtzLApZdW5odWkKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
