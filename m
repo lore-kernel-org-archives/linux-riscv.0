@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD08EB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 10:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E191C001DD
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 10:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cOg80eaPyYktcoMfxdzrzo/ELrRRAyubXAAqFN3SS1M=; b=hckgZxfuaWKMwx
-	kHThMQFE7+VwS84c9K8sDS9/SYWzIgBMCpqKvv5/co/hY0brsbo8ydcuKvZTU+bFMfKcTeqcQMWpe
-	QPzMdxzB8Kef4vQF4YKef5hvkYmFwxP+ViRPGEkuibxEMp23IFIGiI8ONtPuk3JCvmQLTdUeR2vRW
-	ClJJEdkJbx7W4vOnZ3kUa7IMn38CCz3IgVJRMhbfFL6jX1Gxe29/pfjFP60+j6K7yd0yw9JlYayo/
-	tkFhGjKeCiPAS7kw4uDIdgDLDvsjqzpOwnHafAJbhczcSaYd/r8+OGcNQeIXdxsHjX6RJJX7uhyzP
-	XNSFJWwTz7k2r797kTjg==;
+	List-Owner; bh=wd8w49JadeEVECiqjkDODTA+47xgQNZOL5eMnkAU8cE=; b=iDOv2S1YEZhJPE
+	0OywSte5+p/XaHfhgjBnh99/0mVrB5TwlFnwvKUjjtzLhAuv293NAAPl4VCUZtU8Y6HaVL2uZ8Kb6
+	IMVIfr9xNLX+Q44rYTMOI99BaNSa/wShsXWGbLjTXsdJ99pzFVdLzt5/vYXDSdQg/wTauioOczaD9
+	v5CRgO9tV6Gkq45oe9QgP4uEz3ZGwOSIz5VVmcKDo7pT8e+qsIjdmDJXE8eAaiOqL44Z6A+aPrKg6
+	/tZE5m1ZGQBzflcpjubOsV+/LroS60XS2kMEvAzlUA8vN/7E75NYHuPfWsQxhtHUJptLqL+Evc5+o
+	zD46ylBjGe7fSeISz3ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGGcU-00A6lB-1r;
-	Mon, 03 Jul 2023 10:17:22 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1qGGnv-00AEHW-2h;
+	Mon, 03 Jul 2023 10:29:11 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGGcQ-00A6dF-0v
+	id 1qGGns-00AECN-2t
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 10:17:21 +0000
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-X-GND-Sasl: alex@ghiti.fr
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1363C60003;
-	Mon,  3 Jul 2023 10:17:09 +0000 (UTC)
-Message-ID: <2ab8ca7c-a648-f73c-1815-086274af6013@ghiti.fr>
-Date: Mon, 3 Jul 2023 12:17:09 +0200
+	Mon, 03 Jul 2023 10:29:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1688380148; x=1719916148;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=6BMEapaupYPDog3H9hxGadJjmqF1edoTeSi+tHSHbZc=;
+  b=UeMhok613/QddLY3kDM+FDoaKgMUjCoFuA8i9R0Z+wDS3Ex8dwyW4J1O
+   SCQ12IYOv/MtIZldfVNlS2+iun4+PzQ57+VfNIZ1MURRbDHMWSuTIVLrE
+   Sxyz1WBNmMaLjQ7W7fSLp/cVUrdmMoYCvcVKhS6e6BBQ/zJDDbdf1T27w
+   FZqoIj3PeBAj+LlQJ5YxrHbKtFMOnCHbQ/2aDCp6YfzlLayp9yvoL07zq
+   OLePz7rnWocsgnRYdrtlJ0zjbTOjDWr99dlJTNLq5MNh5GTwJzPjAGxhq
+   ya2GQ9bVNBgCOp3sQskmeFKUCZaBr+R9UFglagxmTZNFbWqNmF7oFPxSn
+   g==;
+X-IronPort-AV: E=Sophos;i="6.01,177,1684825200"; 
+   d="scan'208";a="233446716"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Jul 2023 03:29:03 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 3 Jul 2023 03:29:03 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
+ Transport; Mon, 3 Jul 2023 03:29:00 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <palmer@dabbelt.com>
+Subject: [PATCH v3 02/11] RISC-V: don't parse dt/acpi isa string to get rv32/rv64
+Date: Mon, 3 Jul 2023 11:27:54 +0100
+Message-ID: <20230703-foothill-enforced-86baba776d5e@wendy>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20230703-repayment-vocalist-e4f3eeac2b2a@wendy>
+References: <20230703-repayment-vocalist-e4f3eeac2b2a@wendy>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH] riscv: pageattr: Fixup synchronization problem between
- init_mm and active_mm
-To: guoren@kernel.org, palmer@rivosinc.com, paul.walmsley@sifive.co,
- zong.li@sifive.com, atishp@atishpatra.org, jszhang@kernel.org,
- bjorn@kernel.org
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
-References: <20230629082032.3481237-1-guoren@kernel.org>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230629082032.3481237-1-guoren@kernel.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2481; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=zLq9ckWPh/r7wLqw5B/OBIb2sy1H21ZwhSODFcUjaIw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmLFq06pvu56bqRuRLTfObcijKOvPZFpV/EfEtve0w6lMDi OaO+o5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABNhZmJkuLFw17LJ55q22814/XL94/ 870uferp5eaXds8q62I81cvhMZGbYuYtz94YTlg/zKZxU61ky3knp+lXw5dOv9ojuNm7ccWMsOAA==
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_031718_616469_B84592B4 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20230703_032908_938873_AF0D3AA8 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,87 +77,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Jonathan
+ Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, conor@kernel.org, conor.dooley@microchip.com, Rob Herring <robh+dt@kernel.org>, Evan Green <evan@rivosinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko
+ Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guo,
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-On 29/06/2023 10:20, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> The machine_kexec() uses set_memory_x to add the executable attribute to the
-> page table entry of control_code_buffer. It only modifies the init_mm but not
-> the current->active_mm. The current kexec process won't use init_mm directly,
-> and it depends on minor_pagefault, which is removed by commit 7d3332be011e4
+When filling hwcap the kernel already expects the isa string to start with
+rv32 if CONFIG_32BIT and rv64 if CONFIG_64BIT.
 
+So when recreating the runtime isa-string we can also just go the other way
+to get the correct starting point for it.
 
-Is the removal of minor_pagefault an issue? I'm not sure I understand 
-this part of the changelog.
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Co-developed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes in v3:
+- Fix tabbing of print_mmu()
 
+Changes in v2:
+- Delete the whole else & pull print_mmu() above it, since that's common
+  code now
+---
+ arch/riscv/kernel/cpu.c | 21 +++++++++------------
+ 1 file changed, 9 insertions(+), 12 deletions(-)
 
-> ("riscv: mm: Pre-allocate PGD entries for vmalloc/modules area") of 64BIT. So,
-> when it met pud mapping on an MMU_SV39 machine, it caused the following:
->
->   kexec_core: Starting new kernel
->   Will call new kernel at 00300000 from hart id 0
->   FDT image at 747c7000
->   Bye...
->   Unable to handle kernel paging request at virtual address ffffffda23b0d000
->   Oops [#1]
->   Modules linked in:
->   CPU: 0 PID: 53 Comm: uinit Not tainted 6.4.0-rc6 #15
->   Hardware name: Sophgo Mango (DT)
->   epc : 0xffffffda23b0d000
->    ra : machine_kexec+0xa6/0xb0
->   epc : ffffffda23b0d000 ra : ffffffff80008272 sp : ffffffc80c173d10
->    gp : ffffffff8150e1e0 tp : ffffffd9073d2c40 t0 : 0000000000000000
->    t1 : 0000000000000042 t2 : 6567616d69205444 s0 : ffffffc80c173d50
->    s1 : ffffffd9076c4800 a0 : ffffffd9076c4800 a1 : 0000000000300000
->    a2 : 00000000747c7000 a3 : 0000000000000000 a4 : ffffffd800000000
->    a5 : 0000000000000000 a6 : ffffffd903619c40 a7 : ffffffffffffffff
->    s2 : ffffffda23b0d000 s3 : 0000000000300000 s4 : 00000000747c7000
->    s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
->    s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
->    s11: 0000003f940001a0 t3 : ffffffff815351af t4 : ffffffff815351af
->    t5 : ffffffff815351b0 t6 : ffffffc80c173b50
->   status: 0000000200000100 badaddr: ffffffda23b0d000 cause: 000000000000000c
->
-> Yes, Using set_memory_x API after boot has the limitation, and at least we
-> should synchronize the current->active_mm to fix the problem.
->
-> Fixes: d3ab332a5021 ("riscv: add ARCH_HAS_SET_MEMORY support")
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> ---
->   arch/riscv/mm/pageattr.c | 7 +++++++
->   1 file changed, 7 insertions(+)
->
-> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> index ea3d61de065b..23d169c4ee81 100644
-> --- a/arch/riscv/mm/pageattr.c
-> +++ b/arch/riscv/mm/pageattr.c
-> @@ -123,6 +123,13 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
->   				     &masks);
->   	mmap_write_unlock(&init_mm);
->   
-> +	if (current->active_mm != &init_mm) {
-> +		mmap_write_lock(current->active_mm);
-> +		ret =  walk_page_range_novma(current->active_mm, start, end,
-> +					     &pageattr_ops, NULL, &masks);
-> +		mmap_write_unlock(current->active_mm);
-> +	}
-> +
->   	flush_tlb_kernel_range(start, end);
->   
->   	return ret;
-
-
-I don't understand: any page table inherits the entries of 
-swapper_pg_dir (see pgd_alloc()), so any kernel page table entry is 
-"automatically" synchronized, so why should we synchronize one 4K entry 
-explicitly? A PGD entry would need to be synced, but not a PTE entry.
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 3af2d214ce21..f808b67f5a27 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -257,13 +257,16 @@ static void print_isa_ext(struct seq_file *f)
+  */
+ static const char base_riscv_exts[13] = "imafdqcbkjpvh";
+ 
+-static void print_isa(struct seq_file *f, const char *isa)
++static void print_isa(struct seq_file *f)
+ {
+ 	int i;
+ 
+ 	seq_puts(f, "isa\t\t: ");
+-	/* Print the rv[64/32] part */
+-	seq_write(f, isa, 4);
++	if (IS_ENABLED(CONFIG_32BIT))
++		seq_write(f, "rv32", 4);
++	else
++		seq_write(f, "rv64", 4);
++
+ 	for (i = 0; i < sizeof(base_riscv_exts); i++) {
+ 		if (__riscv_isa_extension_available(NULL, base_riscv_exts[i] - 'a'))
+ 			/* Print only enabled the base ISA extensions */
+@@ -320,27 +323,21 @@ static int c_show(struct seq_file *m, void *v)
+ 	unsigned long cpu_id = (unsigned long)v - 1;
+ 	struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo, cpu_id);
+ 	struct device_node *node;
+-	const char *compat, *isa;
++	const char *compat;
+ 
+ 	seq_printf(m, "processor\t: %lu\n", cpu_id);
+ 	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
++	print_isa(m);
++	print_mmu(m);
+ 
+ 	if (acpi_disabled) {
+ 		node = of_get_cpu_node(cpu_id, NULL);
+-		if (!of_property_read_string(node, "riscv,isa", &isa))
+-			print_isa(m, isa);
+ 
+-		print_mmu(m);
+ 		if (!of_property_read_string(node, "compatible", &compat) &&
+ 		    strcmp(compat, "riscv"))
+ 			seq_printf(m, "uarch\t\t: %s\n", compat);
+ 
+ 		of_node_put(node);
+-	} else {
+-		if (!acpi_get_riscv_isa(NULL, cpu_id, &isa))
+-			print_isa(m, isa);
+-
+-		print_mmu(m);
+ 	}
+ 
+ 	seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
+-- 
+2.40.1
 
 
 _______________________________________________
