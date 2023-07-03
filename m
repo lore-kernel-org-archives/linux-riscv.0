@@ -4,80 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F92DC001B3
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 08:35:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2738EB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 08:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAMdf0S8X3CuOoz2/sA4Wa7Fc7unpat4SHa89rozRbY=; b=yhLpypeUhSDG5BAydt3UcOUq4V
-	qJRzSTaBeeGNL4o+LE8DTDqdYUAN5UqOvnlLv4sTS+R5LwfZfIHacoII93RsgFTTyHKA9hgL2s4xZ
-	bjzVP2lAjtNyxT32VaHTVgM/hOKQUtea5SXjd5pSNSDfMaku1A1cfdiTEXdweXJUidCwqgmtvripJ
-	umwQXUwuQAUB93rVr9tYTCs9AoEzmeE6/OAbh3m+KgNetLV3Oy0vqeu3sN6KkcQH0j9MCUkygNwGz
-	KNahtqhUgSQ4zpDVRjRfFqWbv8r0s9hyuKm/3dYHbAiBTd609ws6o5NdmOg+XbfA6LrhIxoSAY+4H
-	NJ0xz5bw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Du9RpwGBLDCSCKoDnZ5mvfvoMu/hPVBHEA9Iw1Rf3Sc=; b=AqZZFrSiVXQWf1
+	MWHYDEuZII5oVTPjQDSy5bcnqFYxaB9sppgGJqU8sGnY/KIrXekWw4zU4QKoxd6qECAsPXt0HFS/3
+	x2r3Rr1FS3w9Vh2PMojiw+0MqKkIOPXEMBmcVqwR/u8cU5JBOsfETtIdGkAtus/2oL63Ii9kMEiwP
+	ajyIdKh6zpg7adhhnSy0hzOkszaJbRZhS/CYg8WX+xJeztLNKe8ojjOtxr+nT0n+Y3wY26aOZMhOG
+	6HDio97xEGrsG8LL1MuiY4QuV1YQGfjZu+6RvoA3kaqKY/VPXQqfIp8LnDZfjrbKf09Z3JsIKvvSR
+	Y/RdUl2La5yT6tq/s8rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGF2A-009lzw-1k;
-	Mon, 03 Jul 2023 08:35:46 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qGF3q-009mO1-1q;
+	Mon, 03 Jul 2023 08:37:30 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGF24-009lyV-2v
+	id 1qGF3k-009mLK-0T
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 08:35:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688373342; x=1719909342;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0/VuNN8vAbwtoIAOscoPME46U2tJgXgmlj69V2xtFA4=;
-  b=kDBG0FjPFmzbS69HbRseMsNgS47oY5C1RldlE6xA2YijNxkyU1x8ArqB
-   8ViqIOGibyy9vgXFvT7gbhppzGwsKwKMNf2uztujHiYnnSIG7jC31BSCc
-   xfH+i5sinimzGBrPOYiAZjtlgrERNQZI4Ucd+Wevl7+iW2c1sIDVvFCc3
-   TU+REezlKyPlca1OveQ6KFHdnGAVMYfncSIHWYcoTvMnd4ONBbar/etVC
-   ANRoYPeHthJKc/DiD7zDiGmjVfpw/E6Qxtkf4Mj5NAuX5D/lQonFT/1Cp
-   /89yr6iIcDBlBUxcpJC9qtUTnT2JdBFl6SyCa6TzxjOeMg4XZc+XidkDu
-   A==;
-X-IronPort-AV: E=Sophos;i="6.01,177,1684825200"; 
-   d="asc'?scan'208";a="218667141"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Jul 2023 01:35:36 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 3 Jul 2023 01:35:27 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 3 Jul 2023 01:35:24 -0700
-Date: Mon, 3 Jul 2023 09:34:54 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: =?utf-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
-CC: Conor Dooley <conor@kernel.org>, <ardb@kernel.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, <rminnich@gmail.com>,
-	<mark.rutland@arm.com>, <lpieralisi@kernel.org>, <rafael@kernel.org>,
-	<lenb@kernel.org>, <jdelvare@suse.com>, <yc.hung@mediatek.com>,
-	<angelogioacchino.delregno@collabora.com>, <allen-kh.cheng@mediatek.com>,
-	<pierre-louis.bossart@linux.intel.com>, <tinghan.shen@mediatek.com>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<geshijian@bytedance.com>, <weidong.wd@bytedance.com>
-Subject: Re: [External] Re: [PATCH v2 2/3] firmware: introduce FFI for SMBIOS
- entry.
-Message-ID: <20230703-rebuff-smashing-6b2c6f80ba05@wendy>
-References: <20230702095735.860-1-cuiyunhui@bytedance.com>
- <20230702095735.860-2-cuiyunhui@bytedance.com>
- <20230702-collide-rumor-f0d915a4f1b2@spud>
- <CAEEQ3w=CMSMnYmfprYS4ydsA=EBJtLhQQHWky754EC-iifcYtg@mail.gmail.com>
+	Mon, 03 Jul 2023 08:37:29 +0000
+X-QQ-mid: bizesmtp77t1688373413t8yeuy3h
+Received: from linux-lab-host.localdomain ( [119.123.131.49])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 03 Jul 2023 16:36:52 +0800 (CST)
+X-QQ-SSF: 01200000000000D0W000000A0000000
+X-QQ-FEAT: cbck7jzG4waxmtAyZOM8J8Vsk/O4lRHB8gEo7BxRdBy9c92QqQQ4tlBc7MY9E
+	KAm4AlasFZ94a+Plz1Tc4zhbDw9VdqGMVSwXdRq/LGR8CslVesPAIiuK4/+Dx7yUlHm1/Ww
+	EcxZWW+2L23J96t2HzAb9wggbf5SowHJS7L+9UAB/GgxFr0Rcs19VRsre7fQnONONJAR+iP
+	TAYvAdoIO+/6bF4ESE0/4wL3WDYOcsQK/pDbeAbjCeN3sVKVJHxWbuyQvfwuWZZuVi/xfyw
+	aMIS3mh6uT1bt5WWWu/pOljmrTjkKPCEaP5oeYr55WwvX71brL+RO3OPGlUTuQpgFqIuhKk
+	XOZE3hrfN9A5LZ0kBFZl1WW06EImp3GJDu0x8RMUdkMnoWMRpddF4O1WxdDSN9bD35RpZP2
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12812962611774565405
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu,
+	arnd@arndb.de,
+	david.laight@aculab.com,
+	thomas@t-8ch.de
+Cc: falcon@tinylab.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 10/14] tools/nolibc: __sysret: support syscalls who return a pointer
+Date: Mon,  3 Jul 2023 16:36:51 +0800
+Message-Id: <20230703083651.491785-1-falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230702191733.GI16233@1wt.eu>
+References: <20230702191733.GI16233@1wt.eu>
 MIME-Version: 1.0
-In-Reply-To: <CAEEQ3w=CMSMnYmfprYS4ydsA=EBJtLhQQHWky754EC-iifcYtg@mail.gmail.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_013541_003801_CDB10046 
-X-CRM114-Status: GOOD (  52.38  )
+X-CRM114-CacheID: sfid-20230703_013724_505032_2BFB9D62 
+X-CRM114-Status: GOOD (  32.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,267 +72,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1301923751556652441=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============1301923751556652441==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="mgEY+RpkWKJjg9BW"
-Content-Disposition: inline
+Hi, Willy
 
---mgEY+RpkWKJjg9BW
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> On Wed, Jun 28, 2023 at 09:39:56PM +0800, Zhangjin Wu wrote:
+> > To support syscalls (e.g. mmap()) who return a pointer and to allow the
+> > pointer as big as possible, we should convert the negated errno value to
+> > unsigned long (uintptr_t), otherwise, in signed long, a potential big
+> > pointer (whose highest bit is 1) will be treated as a failure.
+> > 
+> > tools/include/nolibc/errno.h defines the MAX_ERRNO, let's use it
+> > directly.
+> 
+> It might or might not work, it's an ABI change that, if validated, at
+> least needs a much more detailed explanation. What matters is not what
+> errno values we're willing to consider as an error, but what the
+> *syscalls* themselves return as an error. If a syscall says "< 0 is an
+> error equal to -errno", it means that we must treat it as an error,
+> and extract its value to get errno. If that errno is larger than
+> MAX_ERRNO it just means we don't know what the error is.
+>
 
-Hey,
+Yes, we do need to find a 'spec' or 'standard' to follow.
 
-On Mon, Jul 03, 2023 at 04:23:53PM +0800, =E8=BF=90=E8=BE=89=E5=B4=94 wrote:
->=20
-> > nit: please don't write your commit messages as bullet lists
-> Okay, thanks for your suggestion.
->=20
-> > > +FDT FIRMWARE INTERFACE (FFI)
-> > > +M:   Yunhui Cui cuiyunhui@bytedance.com
-> > > +S:   Maintained
-> > > +F:   drivers/firmware/ffi.c
-> > > +F:   include/linux/ffi.h
-> >
-> > Are you going to apply patches for this, or is someone else?
-> Yes,  it will be used by patch 3/3.
+welcome suggestions from Arnd, Thomas and also David.
 
-That's not what I asked :(
+> Syscalls that return pointer use that -MAX_ERRNO range to encode errors
+> (such as mmap()). I just do not know if there is a convention saying that
+> other ones also restrict themselves to that range or not. If you find
+> some info which guarantees that it's the case for all of them, then by
+> all means let's proceed like this, but in this case it should be mentioned
+> in the comment why we think it's valid to do this. For now it's presented
+> as an opportunity only.
 
-> > >  EXTERNAL CONNECTOR SUBSYSTEM (EXTCON)
-> > >  M:   MyungJoo Ham <myungjoo.ham@samsung.com>
-> > >  M:   Chanwoo Choi <cw00.choi@samsung.com>
-> > > diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-> > > index b59e3041fd62..ea0149fb4683 100644
-> > > --- a/drivers/firmware/Kconfig
-> > > +++ b/drivers/firmware/Kconfig
-> > > @@ -303,6 +303,17 @@ config TURRIS_MOX_RWTM
-> > >         other manufacturing data and also utilize the Entropy Bit Gen=
-erator
-> > >         for hardware random number generation.
-> > >
-> > > +config FDT_FW_INTERFACE
-> > > +       bool "An interface for passing firmware info through FDT"
-> > > +       depends on OF && OF_FLATTREE
-> > > +       default n
-> > > +       help
-> > > +         When some bootloaders do not support EFI, and the arch does=
- not
-> > > +         support SMBIOS_ENTRY_POINT_SCAN_START, then you can enable =
-this option
-> > > +         to support the transfer of firmware information, such as sm=
-bios tables.
-> >
-> > Could you express this dependency on !SMBIOS_ENTRY_POINT_SCAN_START in
-> > Kconfig & then simply the text to:
-> > "Enable this option to support the transfer of firmware information,
-> > such as smbios tables, for bootloaders that do not support EFI."
-> > since it would not even appear if the arch supports scanning for the
-> > entry point?
-> > If I was was a punter trying to configure my kernel in menuconfig or
-> > whatever, I should be able to decide based on the help text if I need
-> > this, not going grepping for #defines in headers.
-> Okay=EF=BC=8C I'll update on v3.
->=20
->=20
-> >
-> > >  static void __init dmi_scan_machine(void)
-> > > @@ -660,58 +686,22 @@ static void __init dmi_scan_machine(void)
-> > >       char __iomem *p, *q;
-> > >       char buf[32];
-> > >
-> > > +#ifdef CONFIG_FDT_FW_INTERFACE
-> > > +     if (dmi_sacn_smbios(ffi.smbios3, ffi.smbios))
-> >
-> > "dmi_sacn_smbios"
-> >
-> > > +             goto error;
-> > > +#endif
-> >
-> > Does this not mean that if FDT_FW_INTERFACE is enabled, but the platform
-> > wants to use EFI, it won't be able to? The `goto error;` makes this look
-> > mutually exclusive to my efi-unaware eyes.
->=20
-> If you have enabled FFI, then if something goes wrong, you should goto er=
-ror.
-> Just like the origin code:
->         if (efi_enabled(EFI_CONFIG_TABLES)) {
->                 if (dmi_sacn_smbios(efi.smbios3, efi.smbios))
->                         goto error;
->         } else if (IS_ENABLED(CONFIG_DMI_SCAN_MACHINE_NON_EFI_FALLBACK)) {
->                 p =3D dmi_early_remap(SMBIOS_ENTRY_POINT_SCAN_START, 0x10=
-000);
->                 if (p =3D=3D NULL)
->                         goto error;
+Currently, I only found a prove-in-use case in musl:
 
-Does this not make FFI and EFI mutually exclusive Kconfig options?
-Suppose you are on a system that does not implement FFI, but does
-implement EFI - what's going to happen then?
-AFAICT, dmi_sacn_smbios(ffi.smbios3, ffi.smbios) will fail & you'll do a
-`goto error` & skip the EFI code. What am I missing?
+    https://elixir.bootlin.com/musl/latest/source/src/internal/syscall_ret.c:
 
-> > >       if (efi_enabled(EFI_CONFIG_TABLES)) {
-> > > -             /*
-> > > -              * According to the DMTF SMBIOS reference spec v3.0.0, =
-it is
-> > > -              * allowed to define both the 64-bit entry point (smbio=
-s3) and
-> > > -              * the 32-bit entry point (smbios), in which case they =
-should
-> > > -              * either both point to the same SMBIOS structure table=
-, or the
-> > > -              * table pointed to by the 64-bit entry point should co=
-ntain a
-> > > -              * superset of the table contents pointed to by the 32-=
-bit entry
-> > > -              * point (section 5.2)
-> > > -              * This implies that the 64-bit entry point should have
-> > > -              * precedence if it is defined and supported by the OS.=
- If we
-> > > -              * have the 64-bit entry point, but fail to decode it, =
-fall
-> > > -              * back to the legacy one (if available)
-> > > -              */
-> > > -             if (efi.smbios3 !=3D EFI_INVALID_TABLE_ADDR) {
-> > > -                     p =3D dmi_early_remap(efi.smbios3, 32);
-> > > -                     if (p =3D=3D NULL)
-> > > -                             goto error;
-> > > -                     memcpy_fromio(buf, p, 32);
-> > > -                     dmi_early_unmap(p, 32);
-> > > -
-> > > -                     if (!dmi_smbios3_present(buf)) {
-> > > -                             dmi_available =3D 1;
-> > > -                             return;
-> > > -                     }
-> > > -             }
-> > > -             if (efi.smbios =3D=3D EFI_INVALID_TABLE_ADDR)
-> > > +             if (dmi_sacn_smbios(efi.smbios3, efi.smbios))
-> > >                       goto error;
-> > > -
-> > > -             /* This is called as a core_initcall() because it isn't
-> > > -              * needed during early boot.  This also means we can
-> > > -              * iounmap the space when we're done with it.
-> > > -              */
-> > > -             p =3D dmi_early_remap(efi.smbios, 32);
-> > > -             if (p =3D=3D NULL)
-> > > -                     goto error;
-> > > -             memcpy_fromio(buf, p, 32);
-> > > -             dmi_early_unmap(p, 32);
-> > > -
-> > > -             if (!dmi_present(buf)) {
-> > > -                     dmi_available =3D 1;
-> > > -                     return;
-> > > -             }
-> > > diff --git a/drivers/firmware/ffi.c b/drivers/firmware/ffi.c
-> > > new file mode 100644
-> > > index 000000000000..169802b4a7a8
-> > > --- /dev/null
-> > > +++ b/drivers/firmware/ffi.c
-> > > @@ -0,0 +1,36 @@
-> > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > +
-> > > +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-> > > +
-> > > +#include <linux/of.h>
-> > > +#include <linux/of_fdt.h>
-> > > +#include <linux/libfdt.h>
-> > > +#include <linux/ffi.h>
-> > > +
-> > > +#define FFI_INVALID_TABLE_ADDR       (~0UL)
-> > > +
-> > > +struct ffi __read_mostly ffi =3D {
-> > > +     .smbios =3D FFI_INVALID_TABLE_ADDR,
-> > > +     .smbios3 =3D FFI_INVALID_TABLE_ADDR,
-> > > +};
-> >
-> > > +EXPORT_SYMBOL(ffi);
-> >
-> > > +// SPDX-License-Identifier: GPL-2.0-only
-> >
-> > Why not EXPORT_SYMBOL_GPL? But also, who is the user of this export?
-> Just like efi.
+    #include <errno.h>
+    #include "syscall.h"
 
-I don't really understand how that is an answer to the questions.
+    long __syscall_ret(unsigned long r)
+    {
+    	if (r > -4096UL) {
+    		errno = -r;
+    		return -1;
+    	}
+    	return r;
+    }
 
-> > > +
-> > > +void __init ffi_smbios_root_pointer(void)
-> > > +{
-> > > +     int cfgtbl, len;
-> > > +     fdt64_t *prop;
-> > > +
-> > > +     cfgtbl =3D fdt_path_offset(initial_boot_params, "/cfgtables");
-> >
-> > These DT properties need to be documented in a binding.
-> >
-> > > +     if (cfgtbl < 0) {
-> > > +             pr_info("firmware table not found.\n");
-> >
-> > Isn't it perfectly valid for a DT not to contain this table? This print
-> > should be, at the very least, a pr_debug().
-> >
-> > > +             return;
-> > > +     }
-> > > +     prop =3D fdt_getprop_w(initial_boot_params, cfgtbl, "smbios_phy=
-_ptr", &len);
-> >
-> > Again, undocumented DT property. Please document them in a binding.
-> Okay, I'll add them into binding.
->=20
->=20
-> >
-> > > +     if (!prop || len !=3D sizeof(u64))
-> > > +             pr_info("smbios entry point not found.\n");
-> > > +     else
-> > > +             ffi.smbios =3D fdt64_to_cpu(*prop);
-> > > +
-> > > +     pr_info("smbios root pointer: %lx\n", ffi.smbios);
-> >
-> > ffi.smbios is not set if (!prop || len !=3D sizeof(u64)), looks like yo=
-ur
-> > "if" should return and the contents of the else become unconditional?
-> > Otherwise, this print seems wrong.
+Our new implementation (based on the one used by mmap()) is almostly the same
+as musl. Not sure if this is enough. I have tried to 'git blame' on
+__syscall_ret() of musl to find some clue, but failed, because the function has
+been added before importing into its git repo.
 
-> OK, I will optimize this logic and print.
+> 
+> Also, the rest of the commit message regarding uintptr_t (which we don't
+> use), bit values and modular arithmetics is extremely confusing and not
+> needed at all. What matters is only to know if we need to consider only
+> values -MAX_ERRNO..-1 as error or all negative ones. If so, then it's
+> obvious that ret >= (unsigned long)-MAX_ERRNO catches them all, as the
+> current mmap() function already does with -4095UL.
+>
 
-It's not an optimisation. If the if branch of your code is taken, it
-currently will do
-	pr_info("smbios entry point not found.\n");
-	pr_info("smbios root pointer: %lx\n", ffi.smbios);
-which makes no sense...
+Yes, will clean up the commit message, but at first, let's continue get
+more information about which one is ok:
 
-Thanks,
-Conor.
+- -MAX_ERRNO..-1 as error, for sys_mmap (we know in nolibc) currently
 
+- all negative ones, for others currently
 
---mgEY+RpkWKJjg9BW
-Content-Type: application/pgp-signature; name="signature.asc"
+> I just don't know where to check if we can generalize that test. In the
+> worst case we could have two __sys_ret(), the current one and a second
+> one for pointers. But I would suspect we could generalize due to ptrace,
+> as there it makes sense to be able to detect failures, even unknown ones.
+> I just need something more convincing than an intuition for a commit
+> message and to take such a change :-/
+>
 
------BEGIN PGP SIGNATURE-----
+Of course, must be clear enough.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKKILgAKCRB4tDGHoIJi
-0sHCAP9oR6Zc2RsczALqIEh4yefVd02+y2p1qwmzjU1PUXkz+AD+OWkhwMcOhFzn
-0UxULbuvEFFad2H/cRSU/EQJI0LbcAo=
-=2KIj
------END PGP SIGNATURE-----
+Best regards,
+Zhangjin
 
---mgEY+RpkWKJjg9BW--
-
-
---===============1301923751556652441==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> Thanks!
+> Willy
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1301923751556652441==--
-
