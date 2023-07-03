@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA707EB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 10:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C785EB64DD
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 10:29:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9fAKEzYy3+XI1KPp4pyiypRMYzWiAgdqtserpVcJq8M=; b=4k2lGpg7W4vtaX
-	zEKEzP1pXAHM4un8C+8cc0GzulG/xh8Gc+796RMi5aHL0eNcVCkLMQcHu72ihtG6sD+9dbNHjvdZB
-	zFmtQfEdNvUDlQFDPqJAgxssddilD5AjbxXtJ6Nee/f8nsWc5HwBmW0E1orSnBRmd0H33J1JO9gv4
-	waHDWROl8JSUj406mIxPTnqK/CTtcL4JYMrrbHasT9WUQSTRD/0WGZnKrmlNoZC2WNrrjxUOTa43T
-	x2syfG4lxDbtjzpz1iBxsiH5+WDmu7FTBWAyh4aIilFsRSPtccgMIaRjJu5e36demLRiBhGA+8GLj
-	2Q0Gf+bPLULgpqF6DY5g==;
+	List-Owner; bh=tRhCZZ1ZdiNOLvoTMHYL2l0UfutWOy/u6l8aTIfVZ6E=; b=Vas35z2GGGAfyq
+	znNW32bGmTyas5yw+Z6KAPbwsT95FgV3vLMQnFmx7JAzInNXjYFPFHQm7vFNHWFs3/RkLKG5w7bgQ
+	WWuEjowP01C6kKPZHBORHRG6u8poZdHQAdvDvB4kCc52iRoPiDpNTMx9ioKdFeL/SJ4zJYOf2DyNB
+	isNFdT5nRP9ov7uQE7BckZ3ywDSME09XKALzEqBVDUEvVXwrEZka1o9zV32vl0jeIolPlhZMDW5qg
+	1N5kwJVSwzGABu9zbnZsRGmj2pF/C1c0UB+Jl9RLbfuVcpBGNwcOury5NT+RSUX4c1hE0yoshEslT
+	xQAL1PnmIkkSiQsr9I5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGGo6-00AES3-0M;
-	Mon, 03 Jul 2023 10:29:22 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qGGoG-00AEd4-07;
+	Mon, 03 Jul 2023 10:29:32 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGGo2-00AEOf-2i
+	id 1qGGoD-00AEZW-1s
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Jul 2023 10:29:20 +0000
+	Mon, 03 Jul 2023 10:29:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688380158; x=1719916158;
+  t=1688380170; x=1719916170;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=8lUHJmzH/vHDNBLDWAqvHPCfdAu/VfpIg8reKfVbpUI=;
-  b=Q0ju0od5TAk9A6TzYwvXma6Pu0fgs/dde9n0E7fSZE2yjbKMaDEQ2UYk
-   dowArzlQIw9FM1jRM9BtHfmL87VwnCCaEWv8id+Im0A7MQr9QK4cYvUCX
-   Y/Nd7aec1WRu0yXS/XPPPaqchotlSxSsOzRzdDlPdBPNg9y6s/zPg6OlX
-   yEqeAqRLQqRZxFffp8CjD8CxbaBX6FlRmHNB2brGY92tB5/2YF/yeisu8
-   nmGbf4r80XclewrcR7ULaVaghliRwbp3+F0+x/1NZyJMDPt3JOdAg7XHy
-   GdeRh1PvQBPtl6YTys36mGGqRpESj3IFrdqRmJC/2zpB3P7iGBCCAGas2
-   g==;
+  bh=GCIGwsCwU5RS5bMsoRtWcou0pn3VgTFaZMXbVrYz4DA=;
+  b=2OUXeVYip8DxTmGOvGO4vhWnLtHYc9MaDRpirjZG2t/a3XjyO3Jptlji
+   YuhhxQ6DCUWSJAkARETFesJS2HUAtfUGslfwTpdwce2BMkC8f26+mKWSs
+   5f+o2pS+Mn/4jCoOlHIIp9JKrTk0ufSWnQm3LsdZLbbYLadROII2bwFMd
+   ytmuaazDkw4Dtx6Xgk5p4QiPpFW5odzJUzan8/qh+9OPjv5XDIVoYAgZw
+   QwI8ywyTkFHxhcbmvoqSW6T2yvf7JRv5aw43QW1pVVcrvKQbCKEW2iVzu
+   /NNZTRALoUVWqMzRay7pJQEzPiPnHR7uvVNK9yTFa/VTA4mWoOn4oTIDc
+   A==;
 X-IronPort-AV: E=Sophos;i="6.01,177,1684825200"; 
-   d="scan'208";a="221036659"
+   d="scan'208";a="218683999"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Jul 2023 03:29:18 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 03 Jul 2023 03:29:29 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 3 Jul 2023 03:29:17 -0700
+ 15.1.2507.21; Mon, 3 Jul 2023 03:29:23 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Mon, 3 Jul 2023 03:29:15 -0700
+ Transport; Mon, 3 Jul 2023 03:29:21 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <palmer@dabbelt.com>
-Subject: [PATCH v3 07/11] RISC-V: add single letter extensions to riscv_isa_ext
-Date: Mon, 3 Jul 2023 11:27:59 +0100
-Message-ID: <20230703-dazzler-tuition-b6851d343d4e@wendy>
+Subject: [PATCH v3 09/11] RISC-V: enable extension detection from new properties
+Date: Mon, 3 Jul 2023 11:28:01 +0100
+Message-ID: <20230703-throwback-polio-d5fa832ad368@wendy>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20230703-repayment-vocalist-e4f3eeac2b2a@wendy>
 References: <20230703-repayment-vocalist-e4f3eeac2b2a@wendy>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3714; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=8lUHJmzH/vHDNBLDWAqvHPCfdAu/VfpIg8reKfVbpUI=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmLFq323v7y0sUDjnmrpjhyaMVtvPB5msw0i4wJmtw/Du4M Xcpm11HKwiDGwSArpsiSeLuvRWr9H5cdzj1vYeawMoEMYeDiFICJ6M5j+B/o7SGUWPAy6UxUwvHwms 31XS0ijmludmsDeafrra0Wf8TI0PqxVl/hRO5ii4Db0e83Tjf3qAqybVoR0lV26pWd0TV7TgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4499; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=GCIGwsCwU5RS5bMsoRtWcou0pn3VgTFaZMXbVrYz4DA=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCmLFq25vtB/8xcjV76neuf5K392Bwi92qm1eLIi4+7Y2QJ/ SpiYOkpZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRiRMZ/lcdr/RzkTwiYl/8tjdZbW OUpW3IZVnxvY9SdqXy5s9YJcvI8OLS+4IrzbUuwd0cj4vu7q3wL9PQ6xFVLbo4f6kKH8cXRgA=
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_032918_893324_7DAFAD19 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20230703_032929_728103_ADC2EDAF 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,106 +85,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-So that riscv_fill_hwcap() can use riscv_isa_ext to probe for single
-letter extensions, add them to it.
-As a result, what gets spat out in /proc/cpuinfo will become borked, as
-single letter extensions will be printed as part of the base extensions
-and while printing from riscv_isa_arr. Take the opportunity to unify the
-printing of the isa string, using the new member of riscv_isa_ext_data
-in the process.
+Add support for parsing the new riscv,isa-extensions property in
+riscv_fill_hwcap(), by means of a new "property" member of the
+riscv_isa_ext_data struct. For now, this shadows the name of the
+extension for all users, however this may not be the case for all
+extensions, based on how the dt-binding is written.
+For the sake of backwards compatibility, fall back to the old scheme
+if the new properties are not detected. For now, just inform, rather
+than warn, when that happens.
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 Changes in v2:
-- Drop the multi_letter member, in exchange for calling strnlen() in two
-  places.
+- Pick a more suitable function name than fill_hwcap_new()
+- Actually use the property member to read from the DT
 ---
- arch/riscv/kernel/cpu.c        | 37 ++++++++++------------------------
- arch/riscv/kernel/cpufeature.c | 13 ++++++++++++
- 2 files changed, 24 insertions(+), 26 deletions(-)
+ arch/riscv/include/asm/hwcap.h |  1 +
+ arch/riscv/kernel/cpufeature.c | 76 ++++++++++++++++++++++++++++++++--
+ 2 files changed, 73 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index aa17eeb0ec9a..4f1f12f34b63 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -164,41 +164,26 @@ arch_initcall(riscv_cpuinfo_init);
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index a20e4ade1b53..e3cda14a486b 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -76,6 +76,7 @@ unsigned long riscv_get_elf_hwcap(void);
+ struct riscv_isa_ext_data {
+ 	const unsigned int id;
+ 	const char *name;
++	const char *property;
+ };
  
- #ifdef CONFIG_PROC_FS
- 
--static void print_isa_ext(struct seq_file *f)
--{
--	for (int i = 0; i < riscv_isa_ext_count; i++) {
--		const struct riscv_isa_ext_data *edata = &riscv_isa_ext[i];
--		if (!__riscv_isa_extension_available(NULL, edata->id))
--			continue;
--
--		seq_printf(f, "_%s", edata->name);
--	}
--}
--
--/*
-- * These are the only valid base (single letter) ISA extensions as per the spec.
-- * It also specifies the canonical order in which it appears in the spec.
-- * Some of the extension may just be a place holder for now (B, K, P, J).
-- * This should be updated once corresponding extensions are ratified.
-- */
--static const char base_riscv_exts[13] = "imafdqcbkjpvh";
--
- static void print_isa(struct seq_file *f)
- {
--	int i;
--
- 	seq_puts(f, "isa\t\t: ");
-+
- 	if (IS_ENABLED(CONFIG_32BIT))
- 		seq_write(f, "rv32", 4);
- 	else
- 		seq_write(f, "rv64", 4);
- 
--	for (i = 0; i < sizeof(base_riscv_exts); i++) {
--		if (__riscv_isa_extension_available(NULL, base_riscv_exts[i] - 'a'))
--			/* Print only enabled the base ISA extensions */
--			seq_write(f, &base_riscv_exts[i], 1);
-+	for (int i = 0; i < riscv_isa_ext_count; i++) {
-+		if (!__riscv_isa_extension_available(NULL, riscv_isa_ext[i].id))
-+			continue;
-+
-+		/* Only multi-letter extensions are split by underscores */
-+		if (strnlen(riscv_isa_ext[i].name, 2) != 1)
-+			seq_puts(f, "_");
-+
-+		seq_printf(f, "%s", riscv_isa_ext[i].name);
- 	}
--	print_isa_ext(f);
-+
- 	seq_puts(f, "\n");
- }
- 
+ extern const struct riscv_isa_ext_data riscv_isa_ext[];
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 6d8cd45af723..bf7e8e8852f0 100644
+index 41aedeaecb61..2c4503fa984f 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -144,6 +144,19 @@ static bool riscv_isa_extension_check(int id)
-  * New entries to this struct should follow the ordering rules described above.
-  */
- const struct riscv_isa_ext_data riscv_isa_ext[] = {
-+	__RISCV_ISA_EXT_DATA(i, RISCV_ISA_EXT_i),
-+	__RISCV_ISA_EXT_DATA(m, RISCV_ISA_EXT_m),
-+	__RISCV_ISA_EXT_DATA(a, RISCV_ISA_EXT_a),
-+	__RISCV_ISA_EXT_DATA(f, RISCV_ISA_EXT_f),
-+	__RISCV_ISA_EXT_DATA(d, RISCV_ISA_EXT_d),
-+	__RISCV_ISA_EXT_DATA(q, RISCV_ISA_EXT_q),
-+	__RISCV_ISA_EXT_DATA(c, RISCV_ISA_EXT_c),
-+	__RISCV_ISA_EXT_DATA(b, RISCV_ISA_EXT_b),
-+	__RISCV_ISA_EXT_DATA(k, RISCV_ISA_EXT_k),
-+	__RISCV_ISA_EXT_DATA(j, RISCV_ISA_EXT_j),
-+	__RISCV_ISA_EXT_DATA(p, RISCV_ISA_EXT_p),
-+	__RISCV_ISA_EXT_DATA(v, RISCV_ISA_EXT_v),
-+	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
- 	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
- 	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
- 	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
+@@ -101,6 +101,7 @@ static bool riscv_isa_extension_check(int id)
+ 
+ #define __RISCV_ISA_EXT_DATA(_name, _id) {	\
+ 	.name = #_name,				\
++	.property = #_name,			\
+ 	.id = _id,				\
+ }
+ 
+@@ -414,11 +415,67 @@ static void __init riscv_fill_hwcap_from_isa_string(unsigned long *isa2hwcap)
+ 		acpi_put_table((struct acpi_table_header *)rhct);
+ }
+ 
++static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
++{
++	unsigned int cpu;
++
++	for_each_possible_cpu(cpu) {
++		unsigned long this_hwcap = 0;
++		struct device_node *cpu_node;
++		DECLARE_BITMAP(this_isa, RISCV_ISA_EXT_MAX);
++
++		cpu_node = of_cpu_device_node_get(cpu);
++		if (!cpu_node) {
++			pr_warn("Unable to find cpu node\n");
++			continue;
++		}
++
++		if (!of_property_present(cpu_node, "riscv,isa-extensions"))
++			continue;
++
++		for (int i = 0; i < riscv_isa_ext_count; i++) {
++			if (of_property_match_string(cpu_node, "riscv,isa-extensions",
++						     riscv_isa_ext[i].property) < 0)
++				continue;
++
++			if (!riscv_isa_extension_check(riscv_isa_ext[i].id))
++				continue;
++
++			/* Only single letter extensions get set in hwcap */
++			if (strnlen(riscv_isa_ext[i].name, 2) == 1)
++				this_hwcap |= isa2hwcap[riscv_isa_ext[i].id];
++
++			set_bit(riscv_isa_ext[i].id, this_isa);
++		}
++
++		of_node_put(cpu_node);
++
++		/*
++		 * All "okay" harts should have same isa. Set HWCAP based on
++		 * common capabilities of every "okay" hart, in case they don't.
++		 */
++		if (elf_hwcap)
++			elf_hwcap &= this_hwcap;
++		else
++			elf_hwcap = this_hwcap;
++
++		if (bitmap_empty(riscv_isa, RISCV_ISA_EXT_MAX))
++			bitmap_copy(riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
++		else
++			bitmap_and(riscv_isa, riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
++	}
++
++	if (bitmap_empty(riscv_isa, RISCV_ISA_EXT_MAX))
++		return -ENOENT;
++
++	return 0;
++}
++
+ void __init riscv_fill_hwcap(void)
+ {
+ 	char print_str[NUM_ALPHA_EXTS + 1];
+-	int i, j;
+ 	unsigned long isa2hwcap[26] = {0};
++	int i, j;
+ 
+ 	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
+ 	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
+@@ -428,10 +485,21 @@ void __init riscv_fill_hwcap(void)
+ 	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
+ 	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
+ 
+-	riscv_fill_hwcap_from_isa_string(isa2hwcap);
++	if (!acpi_disabled) {
++		riscv_fill_hwcap_from_isa_string(isa2hwcap);
++	} else {
++		int ret = riscv_fill_hwcap_from_ext_list(isa2hwcap);
+ 
+-	/* We don't support systems with F but without D, so mask those out
+-	 * here. */
++		if (ret) {
++			pr_info("Falling back to deprecated \"riscv,isa\"\n");
++			riscv_fill_hwcap_from_isa_string(isa2hwcap);
++		}
++	}
++
++	/*
++	 * We don't support systems with F but without D, so mask those out
++	 * here.
++	 */
+ 	if ((elf_hwcap & COMPAT_HWCAP_ISA_F) && !(elf_hwcap & COMPAT_HWCAP_ISA_D)) {
+ 		pr_info("This kernel does not support systems with F but not D\n");
+ 		elf_hwcap &= ~COMPAT_HWCAP_ISA_F;
 -- 
 2.40.1
 
