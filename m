@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 822DDEB64D7
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Jun 2023 21:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80EEC3063F
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Jul 2023 17:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:To:From:References:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BdSIOkux95+sVkD9BrVxTI3XICE9yiUi5UdvnmJ3zIc=; b=Q0nxzq/FMvGYhP
-	K05cSRH1uVzRyTcbWdIp4AVQj3uxfl2fAZyYHxH5BqqlBLMzJ7ZKQECwqqK29lUf3ik52vdg99SOe
-	eUfNwxjyalgHDNmlXLUmsYTaRMVTKQrCyPe4Th6KBFKppXoACwL4HkTETIqGSIRenOXCwZb7CXvFF
-	p+PPJjUWOnSG+5yvc9B/6AZFJQmj1AMBh9r1zpMrjFGUSizHRXkQ/3TgywY8WIJ/YS1Jt6GABE99q
-	+TnsFJ8lX8dmR5QfAaI02oyXY/AcoRo2mCllxSGe4130u3JP2hJQDofZcals7OwxBOoY67oRwwf+V
-	Smhk+hgzS6CyCdr9aXDw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dW/bwGLDRl0FwMz0q5PmOnM2NUsaIxX1pygn5s8pL38=; b=gKy+fzm9ny3K6+KqJ4iXlkM4yg
+	5WB5L/UNm7Y9PxDzTFX3HQGnhZ0n6m6IJaCLACq7i3oNpJoBBhairwqo2NtMHBjj/dUIvQ08I/rTh
+	sr7Ba7hFCgrfeMOf0dHLu4PAtRAVQgU/qVf+PQa0jCk3Xa/HIN0YoGToVHAyYDLhH5YQJNdshdj4F
+	qTyZbnRnjEBueM4QUBgHMr/pau8lvh2oUvnlSxiumGxhVaCsAWMaVPDQxqE4tLLxbyijh/WSr4243
+	YJpHTWlmOyR82zmDY4IHXzp3Olu3M4Q3ovIna1f5ELbkQqU01OaVBZ5tLsjNxUdF5IGf46espTPn8
+	Tj4TW6WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDtf9-00B4Ce-1G;
-	Mon, 26 Jun 2023 21:22:19 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qDetE-009QXk-1h
+	id 1qGNWj-00B7c6-1t;
+	Mon, 03 Jul 2023 17:39:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qGNWg-00B7be-2M
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 Jun 2023 05:35:58 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id CBF318139;
-	Mon, 26 Jun 2023 13:34:56 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
- 2023 13:34:56 +0800
-Received: from [192.168.1.115] (180.164.60.184) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 26 Jun
- 2023 13:34:56 +0800
-Message-ID: <32d1db3e-be6a-5219-b886-14c5f5102a5f@starfivetech.com>
-Date: Mon, 26 Jun 2023 13:34:55 +0800
+	Mon, 03 Jul 2023 17:39:52 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0E74260FF4;
+	Mon,  3 Jul 2023 17:39:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3945DC433C7;
+	Mon,  3 Jul 2023 17:39:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688405989;
+	bh=OntLpPnFpu6a5AZn6p9k4IDUTa9DeesaKC3dsarBEQU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CmrFmh5lmxYbn4ure2V67iG4eEuApA+cAlmqBLLlcm22Zr08WKxQHX28dD2UKLsjd
+	 DP+rbcQDXn3UG4NI77qkloLUuYM7fnmFG7citty9W43xTWEfujhRokN0XnVCTrEGSl
+	 +s+hFLWXSRReOk0GYeB4H1sfXuFS5SYtVcdj2dFDXj+FWNkYQAkaih8GJVBwHN+U/e
+	 BRv5FkW5UqRxzuussLA9sDCiLF7Q29Q5GHLyox7pAPttgayI8CuAD6RLZWMTswWaSy
+	 yLFcxHVZT0QRlQpWQL/hSfB4BGXEx15i67N+6yqO0ZNIdEbFUTISuT79ubCc2ybOzL
+	 R8pY7TlcX5mkA==
+Date: Mon, 3 Jul 2023 18:39:43 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Evan Green <evan@rivosinc.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	"Hongren (Zenithal) Zheng" <i@zenithal.me>, linux@rivosinc.com,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Jiatai He <jiatai2021@iscas.ac.cn>
+Subject: Re: [PATCH 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
+Message-ID: <20230703-mangle-panning-75909ebbe30c@spud>
+References: <20230627143747.1599218-1-sameo@rivosinc.com>
+ <20230627143747.1599218-2-sameo@rivosinc.com>
+ <CALs-HssMkVikspnEi-Ek2t=ABvFvgptAhsBjk1+aLuVjiP7P7w@mail.gmail.com>
+ <20230627-debating-twelve-da2c1ed60948@spud>
+ <ZJwE5wRVkoND3Z6P@vermeer>
+ <20230628-unfeeling-tavern-edd4f58396fa@wendy>
+ <CALs-HstZe+bw_fY--4FQXfFoA67tvMSaEjKhZ2pRstNT07xBxA@mail.gmail.com>
+ <20230628-dragonish-lullaby-b44d2df09d66@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH 9/9] drm/verisilicon: Add starfive hdmi driver
-Content-Language: en-US
-References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
- <CGME20230602081437epcas1p36b7961b1d3f01dbed3fe2672a92e9d92@epcas1p3.samsung.com>
- <20230602074043.33872-10-keith.zhao@starfivetech.com>
- <003a01d9a57b$c140f340$43c2d9c0$@samsung.com>
-From: Keith Zhao <keith.zhao@starfivetech.com>
-To: undisclosed-recipients:;
-In-Reply-To: <003a01d9a57b$c140f340$43c2d9c0$@samsung.com>
-X-Originating-IP: [180.164.60.184]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <20230628-dragonish-lullaby-b44d2df09d66@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230625_223552_902044_CEB9B7A2 
-X-CRM114-Status: GOOD (  20.93  )
-X-Mailman-Approved-At: Mon, 26 Jun 2023 14:22:18 -0700
+X-CRM114-CacheID: sfid-20230703_103950_858033_99E230A3 
+X-CRM114-Status: GOOD (  37.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,153 +86,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2666038995022215580=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-yes I tested 
-modetest -M starfive -D 0 -s 116@31:1280x720-59.94 -v
-modetest -M starfive -D 0 -s 116@31:1920x1080 -v
 
-and the second command will repeat the problem
-as you advise at the beginning
-I call the "starfive_hdmi_setup"  function in the "starfive_hdmi_encoder_enable"
-instead of "starfive_hdmi_encoder_mode_set"
-resolve the problem
-i will add this modify in my next patch
+--===============2666038995022215580==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="JgFm48JGbULM0hnk"
+Content-Disposition: inline
 
-Thank you Hoegeun
 
-On 2023/6/23 10:38, Hoegeun Kwon wrote:
-> Hi Keith,
-> 
-> There is a problem with stopping when changing modes.
-> 
-> Below test log
-> 
-> root:~> modetest -Mstarfive -c
-> Connectors:
-> id      encoder status          name            size (mm)       modes
-> encoders
-> 116     115     connected       HDMI-A-1        320x180         51      115
->   modes:
->         index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
->   #0 1280x800 59.91 1280 1328 1360 1440 800 803 809 823 71000 flags: phsync,
-> pvsync; type: preferred, driver
->   #1 1920x1080 60.00 1920 2008 2052 2200 1080 1084 1089 1125 148500 flags:
-> phsync, pvsync; type: driver
-> [...]
-> 
-> root:~> modetest -Mstarfive -s 116:#0 -v
-> setting mode 1280x800-59.91Hz on connectors 116, crtc 31
-> freq: 60.65Hz
-> freq: 59.91Hz
-> freq: 59.91Hz
-> 
-> root:~> modetest -Mstarfive -s 116:#1 -v
-> setting mode 1920x1080-60.00Hz on connectors 116, crtc 31
-> [   94.535626] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
-> [   94.560985] rcu:     1-...0: (20 ticks this GP)
-> idle=c9bc/1/0x4000000000000000 softirq=3869/3871 fqs=1120
-> [   94.589532] rcu:     (detected by 3, t=5264 jiffies, g=4645, q=63
-> ncpus=4)
-> [   94.615335] Task dump for CPU 1:
-> [   94.637723] task:modetest        state:R  running task     stack:0
-> pid:407   ppid:397    flags:0x00000008
-> [   94.667299] Call Trace:
-> [   94.689297] [<ffffffff80d1e8fc>] __schedule+0x2a8/0xa52
-> [   94.714221] [<ffffffff80d1f100>] schedule+0x5a/0xdc
-> [   94.738626] [<ffffffff80d25a14>] schedule_timeout+0x220/0x2a6
-> [   94.763762] [<ffffffff80d2037a>] wait_for_completion+0xfe/0x126
-> [   94.789073] [<ffffffff8002ffe4>] kthread_flush_worker+0x82/0xa0
-> 
-> 
->> -----Original Message-----
->> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of
->> Keith Zhao
->> Sent: Friday, June 2, 2023 4:41 PM
->> To: dri-devel@lists.freedesktop.org; devicetree@vger.kernel.org; linux-
->> kernel@vger.kernel.org; linux-riscv@lists.infradead.org; linux-
->> media@vger.kernel.org; linaro-mm-sig@lists.linaro.org
->> Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>; Sumit Semwal
->> <sumit.semwal@linaro.org>; Emil Renner Berthing <kernel@esmil.dk>;
->> Shengyang Chen <shengyang.chen@starfivetech.com>; Conor Dooley
->> <conor+dt@kernel.org>; Albert Ou <aou@eecs.berkeley.edu>; Thomas
->> Zimmermann <tzimmermann@suse.de>; Jagan Teki <jagan@edgeble.ai>; Rob
->> Herring <robh+dt@kernel.org>; Chris Morgan <macromorgan@hotmail.com>; Paul
->> Walmsley <paul.walmsley@sifive.com>; Keith Zhao
->> <keith.zhao@starfivetech.com>; Bjorn Andersson <andersson@kernel.org>;
->> Changhuang Liang <changhuang.liang@starfivetech.com>; Jack Zhu
->> <jack.zhu@starfivetech.com>; Palmer Dabbelt <palmer@dabbelt.com>; Shawn
->> Guo <shawnguo@kernel.org>; christian.koenig@amd.com
->> Subject: [PATCH 9/9] drm/verisilicon: Add starfive hdmi driver
->> 
->> Add HDMI dirver for StarFive SoC JH7110.
->> 
->> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
->> ---
->>  drivers/gpu/drm/verisilicon/Kconfig         |  11 +
->>  drivers/gpu/drm/verisilicon/Makefile        |   1 +
->>  drivers/gpu/drm/verisilicon/starfive_hdmi.c | 928 ++++++++++++++++++++
->> drivers/gpu/drm/verisilicon/starfive_hdmi.h | 296 +++++++
->>  drivers/gpu/drm/verisilicon/vs_drv.c        |   6 +
->>  drivers/gpu/drm/verisilicon/vs_drv.h        |   4 +
->>  6 files changed, 1246 insertions(+)
->>  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.c
->>  create mode 100644 drivers/gpu/drm/verisilicon/starfive_hdmi.h
-> 
-> [...]
-> 
->> diff --git a/drivers/gpu/drm/verisilicon/starfive_hdmi.c
->> b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
->> new file mode 100644
->> index 000000000000..128ecca03309
->> --- /dev/null
->> +++ b/drivers/gpu/drm/verisilicon/starfive_hdmi.c
->> @@ -0,0 +1,928 @@
-> 
-> [...]
-> 
->> +static int starfive_hdmi_setup(struct starfive_hdmi *hdmi,
->> +			       struct drm_display_mode *mode) {
-> 
-> [...]
-> 
->> +	return 0;
->> +}
->> +
->> +static void starfive_hdmi_encoder_mode_set(struct drm_encoder *encoder,
->> +					   struct drm_display_mode *mode,
->> +					   struct drm_display_mode
-> *adj_mode) {
->> +	struct starfive_hdmi *hdmi = encoder_to_hdmi(encoder);
->> +
->> +	starfive_hdmi_setup(hdmi, adj_mode);
-> 
-> When starfive_hdmi_setup runs here,
-> when changing the mode, a problem occurs because try to write a value to reg
-> in a state that is not resumed after suspend.
-> 
->> +
->> +	memcpy(&hdmi->previous_mode, adj_mode, sizeof(hdmi-
->> >previous_mode)); }
->> +
->> +static void starfive_hdmi_encoder_enable(struct drm_encoder *encoder) {
->> +	struct starfive_hdmi *hdmi = encoder_to_hdmi(encoder);
->> +
->> +	pm_runtime_get_sync(hdmi->dev);
-> 
-> So if move the call point of starfive_hdmi_setup here, it works normally.
-> 
->> +}
-> 
-> Best regards,
-> Hoegeun
-> 
-> 
+--JgFm48JGbULM0hnk
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jun 28, 2023 at 06:24:40PM +0100, Conor Dooley wrote:
+> On Wed, Jun 28, 2023 at 10:18:34AM -0700, Evan Green wrote:
+> > On Wed, Jun 28, 2023 at 4:10=E2=80=AFAM Conor Dooley <conor.dooley@micr=
+ochip.com> wrote:
+> > >
+> > > On Wed, Jun 28, 2023 at 12:01:11PM +0200, Samuel Ortiz wrote:
+> > > > On Tue, Jun 27, 2023 at 07:48:15PM +0100, Conor Dooley wrote:
+> > > > > On Tue, Jun 27, 2023 at 11:14:30AM -0700, Evan Green wrote:
+> > > > > > On Tue, Jun 27, 2023 at 7:38=E2=80=AFAM Samuel Ortiz <sameo@riv=
+osinc.com> wrote:
+> > >
+> > > > > > It would be nice to consolidate the ones together that search f=
+or a
+> > > > > > single string and set multiple bits, though I don't have any su=
+per
+> > > > > > elegant ideas for how off the top of my head.
+> > > > >
+> > > > > I've got a refactor of this code in progress, dropping all of the=
+se
+> > > > > copy-paste in place of a loop. It certainly looks more elegant th=
+an
+> > > > > this, but it will fall over a bit for these "one string matches m=
+any
+> > > > > extensions" cases. See here:
+> > > > > https://patchwork.kernel.org/project/linux-riscv/patch/20230626-t=
+hieving-jockstrap-d35d20b535c5@wendy/
+> > > > > My immediate thought is to add another element to riscv_isa_ext_d=
+ata,
+> > > > > that contains "parent" extensions to check for. Should be fairly =
+doable,
+> > > > > I'll whip something up on top of that...
+> > > >
+> > > > Nice, and thanks for the review.
+> > >
+> > > > Should I wait for your refactor to be merged before pushing this on=
+e?
+> > >
+> > > I don't know. I think that you should continue on with your series he=
+re,
+> > > and whichever goes in second gets rebased on top of the other.
+> > > I don't think it makes material difference to review of this patchset=
+ as
+> > > to whether you rebase on top of what I'm working on, so I wouldn't
+> > > bother until it gets merged.
+> > >
+> > > Rather hacky, had less time than expected this morning:
+> > > https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commi=
+t/?h=3Driscv-extensions-strings-supersets
+> > > Clearly there's issues with looping to RISCV_ISA_MAX_SUPERSETS & I ju=
+st
+> > > repurposed Zicsr for the sake of testing something in the time I had.
+> > >
+> > > Evan, at a high level, does that look more elegant to you, or have I =
+made
+> > > things worse?
+> > >
+> >=20
+> > I see what you're going for at least. It's unfortunate that when
+> > someone bumps up RISCV_ISA_MAX_SUPERSETS it squares the whole array.
+> > Another way to go might be to define the elements in a separate array,
+> > like:
+> >=20
+> > unsigned int riscv_zks_exts[] =3D {
+> >        RISCV_ISA_EXT_ZBKB,
+> >        RISCV_ISA_EXT_ZBKC,
+> >        ....
+> > };
+> >=20
+> > then the macro entry looks like:
+> >=20
+> > SET_ISA_EXT_MAP_MULTI("zks", riscv_zks_exts),
+> >=20
+> > where the SET_ISA_EXT_MAP_MULTI() could use ARRAY_SIZE() to stash both
+> > the pointer to the array and the number of elements.
+>=20
+> Yup, I like the sound of that. I like the variadic stuff as it'd not
+> require defining a bunch of sub-arrays of supersets. I guess if it grows
+> too badly, we can just dump it off into another file or w/e.
+
+Also, I realised the other day that I had a bug in my series - I was using
+"name" to read the property, not "property", which is what required the
+extra "supersets" property.
+The simplest thing to do actually seems to be to expand the "property"
+member to an array of strings named "properties", rather than
+introducing a "supersets" or similar.
+
+Perhaps I am forgetting a good reason for why I had it split, but I'll
+give it a whirl and see what I think...
+
+Cheers,
+Conor.
+
+
+--JgFm48JGbULM0hnk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKMH3wAKCRB4tDGHoIJi
+0t+YAQCaAdQcKzF/7Wkkp8B3/aBhZXO+q4AFQeKrzR3oAw54bwD9G6x/Upc4snIB
+z7KVmZAXIYejb0tOCXe33BZlBfBWUAg=
+=UEKI
+-----END PGP SIGNATURE-----
+
+--JgFm48JGbULM0hnk--
+
+
+--===============2666038995022215580==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2666038995022215580==--
+
