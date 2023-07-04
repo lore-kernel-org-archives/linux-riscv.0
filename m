@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3719EB64DA
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 15:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59D49EB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 15:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x99gaI6lnD8b9pOytWd/wbxtpFl+2oFJShZVjAbsptg=; b=jU4WlbIjgO8A16
-	vMdYQOx1yFmaWcSJwv/RBvpOQoWqQlrMFwZbIEWXo4lZtg6GQSVVlPss3IuVzkTrEISX9w6aMXRTj
-	eTOjxD4W0TFUzMcQYG6DLlcZnWc6E/EVnYa0CkaQRVd6e1mxUzYwYIPjSc7amjf8gBD0b596Yb7ec
-	l3N/Mb5ktYT5+0boDzQlqWZFs+8484QWeCrDApub1jVdBqvBEl361gGSdkpZjlbfjyChZ/nk1/m4T
-	8WtmJOJTTGqFQmtjIOvG0ijUvSkCly5fCp2rKaPBiie3BLMKB2GM1kvdpz/LbQ6k1eIqbnAOMSr46
-	P8aF6NZCG76FR7ykL98A==;
+	List-Owner; bh=0ynEuu/kp6ilglTeQRvR2RXrs2l4AnDPGfb6UOn+yjI=; b=5GpFWYx3gPFv/A
+	tdDTSRWnxX1HXVGzgyD3ci8tUYuI7LfoYTXrYW1oou/XUQdQpFin49K74C7kDZenXp874KiWRMKt5
+	s3bf3tfeGuBWgG/PhmD+KUWM81I06aiBtHaa9UF/Z2HL9Su0sr/zX7QSfnAIS7Mh1d7DUZi1jPmG6
+	r2iI0IMM1FC55ygnW9rGgowUcbP26NUVebrt0VK9nCasq9xsIho5GosoqOd34xK3GiCYP1N0l4Y+q
+	uXUz/Sk5VGVnrLuQRplJ90dH/zzfeEWdTWVV32IjlD58toCaXK6sVo7wSdO/luEW0CLMxcxTO5yIS
+	FP6MIUSg6+9x4H13PFZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGhr9-00DeEB-1e;
-	Tue, 04 Jul 2023 15:22:19 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1qGhyz-00Dfbz-21;
+	Tue, 04 Jul 2023 15:30:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGhr6-00DeDO-0g
+	id 1qGhyx-00Dfaw-0F
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Jul 2023 15:22:18 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-262ea2ff59dso2634857a91.0
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Jul 2023 08:22:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688484134; x=1691076134;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=u2YfH84aYhOUVzBJ91PYNwuoKxVCBB5MOVaCTdQMEy0=;
-        b=wBMMe94gIZsJ6DpQk6yi8d0pg/B40kzuLGm1+/AkC92eNaPANxBBg02XfhM4fCdL7d
-         esnha/Weday37ZU93W/kCiytV4BCWPy/YWVczXH/Rb1du0mxml7VqxBRnZKdCqe3lGqY
-         LoreV/EAtJdvptUSEsHVJ0rsOZ8DK87EJSA6OIB3zwPepbQ/ob4fLV408tUKmchxdWEm
-         1gQnnCljX3COXqmk3rw6CAiQkCRF8kea4sDkgxI5GNPtHb+iRYkm5bRD3dNfXhUt6ZWb
-         jW5dtCNgdJ0hEhp6vmb1yHUUL1LBYTCuA6sQQK/5xwpi1L/nWkYkwk71PP1dq+YYlgmA
-         LFIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688484134; x=1691076134;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=u2YfH84aYhOUVzBJ91PYNwuoKxVCBB5MOVaCTdQMEy0=;
-        b=g+2RxsgUejvwPACms38qUm3gI/RaQNWrvler+7RPLl88c1KLne75Wt/Cyb0QUcwnV1
-         ixGETXejN+S+tUrc5esWhG0N9LtlV4jvXdB4C53acM6f72LbLINFJnCe82GbArv6Zgvk
-         u7+CXzNCMuXX9oDuyW9aOJJ2p4RO0XZn3EOKvl1/huhj9sNmEvHBICbYap73KRUDc3zc
-         1OxmEVT0FH+m0HE1p82iiUW6mUtndGb/mdFLpTC6LxlVezsE5OyNYik0+jqOMctvZHUh
-         u/Wgbq65mt6TOrjAhxaiXR7byeW+DDhwqVJQWNn+voowI1qLoSljf3xJspq9i5y1iert
-         5pqA==
-X-Gm-Message-State: ABy/qLbz3uuoRHF8UoOYpmhh7B/Q6k8/MYjK0sZbt8N8kFy/4sXzTXE7
-	+2rXQfyzQqch1+qbHwMoNlbe4w==
-X-Google-Smtp-Source: APBJJlGSNBzHh0j7jKsh/zTZH7bW4kPewXrJeGRjJm8yNqJaVvvGK8HprTj97ZEJRG58iKb0ywEH9A==
-X-Received: by 2002:a17:90a:d481:b0:263:5d25:150c with SMTP id s1-20020a17090ad48100b002635d25150cmr10407031pju.29.1688484134375;
-        Tue, 04 Jul 2023 08:22:14 -0700 (PDT)
-Received: from localhost ([135.180.227.0])
-        by smtp.gmail.com with ESMTPSA id r19-20020a634413000000b005579f12a238sm15446098pga.86.2023.07.04.08.22.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Jul 2023 08:22:13 -0700 (PDT)
-In-Reply-To: <20230616114357.159601-1-ben.dooks@codethink.co.uk>
-References: <20230616114357.159601-1-ben.dooks@codethink.co.uk>
-Subject: Re: [PATCH] riscv: vdso: include vdso/vsyscall.h for vdso_data
-Message-Id: <168848412160.5368.3153467967300556806.b4-ty@rivosinc.com>
-Date: Tue, 04 Jul 2023 08:22:01 -0700
+	Tue, 04 Jul 2023 15:30:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 65DB661290;
+	Tue,  4 Jul 2023 15:30:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CBC24C433C7;
+	Tue,  4 Jul 2023 15:30:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688484621;
+	bh=mRq7xH15VXJDxmtW3iuqpiG4oT/4J+rHNWrZw1Vgtik=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=e1qvcozjIFtPVctgcHr+XcCgiqn4sGp4qer8gFrPN75V6NDv6MAEgFA3R5Z/LDFTh
+	 YctrodbviObiVmgGEy8sB2S6epS+lFo252d+UViHhywJY1s2WYsBfYZVl6F5U9uBUm
+	 oh0gdQK0DKylLyRIG0Lb+ybfEu+3B8KllJQlWAC47bc1Ynb5spXxfl3LBgTjEUzVdg
+	 s8iofwf1UDNwQQOQg5VYH61JJ69Ul6APkK+OZhAzSpO+VmLHCTBDvXsVua/zxWAI38
+	 r8Ty1zrnJOXug3psklpq6kFO7dCtkS7N/fPVEgHNriLE6xvE3h5maopNAFjFsmhkw7
+	 QOert9zw/S5uQ==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id B6289C40C5E;
+	Tue,  4 Jul 2023 15:30:21 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-Cc: linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org, Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: Re: [PATCH] riscv: vdso: include vdso/vsyscall.h for vdso_data
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <168848462174.9093.2909110610886712536.git-patchwork-notify@kernel.org>
+Date: Tue, 04 Jul 2023 15:30:21 +0000
+References: <20230616114357.159601-1-ben.dooks@codethink.co.uk>
+In-Reply-To: <20230616114357.159601-1-ben.dooks@codethink.co.uk>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230704_082216_466708_9B892821 
-X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-CacheID: sfid-20230704_083023_153028_1D54D747 
+X-CRM114-Status: UNSURE (   9.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,23 +77,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-On Fri, 16 Jun 2023 12:43:57 +0100, Ben Dooks wrote:
+This patch was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Fri, 16 Jun 2023 12:43:57 +0100 you wrote:
 > Add include of <vdso/vsyscall.h> to pull in the defition of vdso_data
 > to remove the following sparse warning:
 > 
 > arch/riscv/kernel/vdso.c:39:18: warning: symbol 'vdso_data' was not declared. Should it be static?
 > 
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 > 
+> [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - riscv: vdso: include vdso/vsyscall.h for vdso_data
+    https://git.kernel.org/riscv/c/54cdede08f2f
 
-[1/1] riscv: vdso: include vdso/vsyscall.h for vdso_data
-      https://git.kernel.org/palmer/c/54cdede08f2f
-
-Best regards,
+You are awesome, thank you!
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
