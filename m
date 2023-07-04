@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77613EB64D9
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 22:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C3DEB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 22:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbq4htlfeO5xSdXAa5A4pTF80GQC49dc/onPkDks0x8=; b=iEddQjx4G0AdD5LsodofiytQo4
-	oH4c27K1GpoPHxwODAKAbI3/hpIBepl8EYM1wU9K09N6dllR3wJ8ELoOVL5EZxizsv6/qe+tc2sMg
-	9UJZmEYeqK2B0ug0pVz/Um5J4pW/scEmXdMs2g2PX6GyQxgoGym0Hid3UMlxx1PxbWkpoua22reY0
-	btZLyyySHq0eNMoTTWqdQa4Dk7hh03XGemKEZGZfeAIPqYPIAa2zQwni5Fy+abvAhqNPfNGHRDRGq
-	7ip4715Bq+XZq012TE+llqcv7ob+FXgHjI5DMZC3Y2dfFNwnTBPND7LW/kNcqfZCwuU7j2iSnyLnp
-	9cPx7CPw==;
+	bh=WmUy5ahV2xodm2gAi9Xr32LYjfT9yPSmzD5BiHpLP3c=; b=gHkhaO33GQtZcljq4LH/AMdaUk
+	NWyULCpp9wKTUYp7F1zOBuBWCkSSFpjUAOYz8z6mjxvztZpfahakhYSzzyB5yShaTjghkpKwxdtTx
+	YwHWQCRPYHx2ZQ87+xvM7h/uPKwHGZh9GazR+5NGvFkwZLiMvP3W8OFIRRdZNVizJcPeHYo9+R+u/
+	5ytlg9lrSCR6sfNZb0uMqeR5ofQqoAkYAOhYU4NnUNolc1/pc32jzIFhMqv0E6PSe+pl0cpmB88Yi
+	sO9h/1fCROMRCWm+jRwu1ky2dEAtGHhjd5XjltEkUu6cKjb83t8fiOVY+8IReR+2wLIFiSWi4wH7Y
+	Dp9IsKdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGoT4-00EIOi-21;
-	Tue, 04 Jul 2023 22:25:54 +0000
+	id 1qGoWS-00EIda-2W;
+	Tue, 04 Jul 2023 22:29:24 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGoT2-00EIOF-0R
+	id 1qGoWQ-00EId3-06
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Jul 2023 22:25:53 +0000
+	Tue, 04 Jul 2023 22:29:23 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9427761386;
-	Tue,  4 Jul 2023 22:25:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF750C433C7;
-	Tue,  4 Jul 2023 22:25:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 237D261262;
+	Tue,  4 Jul 2023 22:29:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D3F8C433C7;
+	Tue,  4 Jul 2023 22:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688509551;
-	bh=l+UWSNWnPBn9YwHrYZ0j4Lv7hwDX/3gV8Kn6aaki1HE=;
+	s=k20201202; t=1688509760;
+	bh=57MH61s73VNxciqBMQn+M7UhO6ugmNcBRA165CCsfzE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WMHxaLp1Csrv16oO4rGOZ+vPwaP2Zr9ieNInLhYuaMs6zfv+FnF2gL2AMG2a8mdSD
-	 Bv0zi8vQl52i5JCuuLsSpfalG5lgyixtcUCVgNyfFqXZ/eq2BFPCgwjfk9VYciSpcb
-	 Uq18eBCZpSOVftI1qnf2kjg/z7czmLGJfeQnN2GeZL3hxvFxHBmRwfJAZJZTo8RryO
-	 J+XIpwMTA6uAhDxOMWgemhgEV0A+OndbJ871VpwP9ZF5V5wYPyk5Jkg0NC1SzJQC77
-	 A4zg/PcJa/s6R1xNSSqLZLq8JD5V2Bh1Z7kGsQWwdP6S6dWAk8D3BntnTBp7Y6NAO+
-	 Ais196WrPJiWg==
-Date: Tue, 4 Jul 2023 23:25:45 +0100
+	b=TaIiPRGkudpAzaPzGTlHWdc8tgQu4vsgNOvM2PlTufQe/mQQsiwP19Okf5++zEVp/
+	 DHzBA/kZz2TDw5fbGo+kpFiroO9DCMdWLg1TlPD4G/v5RmC9D8Z/ONccUd1WmPRDjh
+	 i8iuK1MHg171DSTCxJeeUNus/I3WvGGaBZgrE1/mNGUy/fbXA2CaZLuTWcUL+qUwLs
+	 Oge47qag2/dtqlbOhYPOGs+mNbNyI5E2V8v5T+2VnVv7810N8lf+PWbqVzKSgveryg
+	 IPVzqmZvISD4NEwa/dCAD+05GWUhyfMEXISsW2oEC/y/QAD6k72hVO8OejIeQSxKjR
+	 lYeNcfHHbBYtA==
+Date: Tue, 4 Jul 2023 23:29:15 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Xingyu Wu <xingyu.wu@starfivetech.com>
 Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
@@ -60,17 +60,15 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	Hal Feng <hal.feng@starfivetech.com>,
 	William Qiu <william.qiu@starfivetech.com>,
 	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [RESEND PATCH v6 5/7] clk: starfive: jh7110-sys: Add PLL clocks
- source from DTS
-Message-ID: <20230704-tribesman-grumbly-86db5a8c1905@spud>
+Subject: Re: [RESEND PATCH v6 0/7] Add PLL clocks driver and syscon for
+ StarFive JH7110 SoC
+Message-ID: <20230704-driven-desecrate-75075ebc11a3@spud>
 References: <20230704064610.292603-1-xingyu.wu@starfivetech.com>
- <20230704064610.292603-6-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230704064610.292603-6-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230704064610.292603-1-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230704_152552_216692_99A700C5 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230704_152922_176608_BFBCE186 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,47 +80,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3254749473999779725=="
+Content-Type: multipart/mixed; boundary="===============2426466417398809008=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3254749473999779725==
+--===============2426466417398809008==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="dF3s5FbwRnrv/rJT"
+	protocol="application/pgp-signature"; boundary="hVeR+Tbp7CCet06V"
 Content-Disposition: inline
 
 
---dF3s5FbwRnrv/rJT
+--hVeR+Tbp7CCet06V
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hey Xingyu,
+Emil,
 
-On Tue, Jul 04, 2023 at 02:46:08PM +0800, Xingyu Wu wrote:
-> Modify PLL clocks source to be got from DTS or
-> the fixed factor clocks.
+On Tue, Jul 04, 2023 at 02:46:03PM +0800, Xingyu Wu wrote:
+> [Resending because it has a error about examples in syscon bingdings
+> and has to be fixed.]
+>=20
+> This patch serises are to add PLL clocks driver and providers by writing
+> and reading syscon registers for the StarFive JH7110 RISC-V SoC. And add=
+=20
+> documentation and nodes to describe StarFive System Controller(syscon)
+> Registers. This patch serises are based on Linux 6.4.
 
-Again, would be good to mention here that the reason we are keeping the
-fixed-factor clocks is for backwards compatibility with the existing DT.
+Could you take a look at this series when you get a chance, please?
+Would be good to finally get it merged since the syscon bits are a dep
+for a few other things :)
 
-Otherwise, this seems good to me, thanks.
+Thanks!
 
---dF3s5FbwRnrv/rJT
+Conor.
+
+> William Qiu (2):
+>   dt-bindings: soc: starfive: Add StarFive syscon module
+>   riscv: dts: starfive: jh7110: Add syscon nodes
+>=20
+> Xingyu Wu (5):
+>   dt-bindings: clock: Add StarFive JH7110 PLL clock generator
+>   dt-bindings: clock: jh7110-syscrg: Add PLL clock inputs
+>   clk: starfive: Add StarFive JH7110 PLL clock driver
+>   clk: starfive: jh7110-sys: Add PLL clocks source from DTS
+>   riscv: dts: starfive: jh7110: Add PLL clocks source in SYSCRG node
+>=20
+>  .../bindings/clock/starfive,jh7110-pll.yaml   |  46 ++
+>  .../clock/starfive,jh7110-syscrg.yaml         |  18 +-
+>  .../soc/starfive/starfive,jh7110-syscon.yaml  |  93 ++++
+>  MAINTAINERS                                   |  13 +
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  30 +-
+>  drivers/clk/starfive/Kconfig                  |   9 +
+>  drivers/clk/starfive/Makefile                 |   1 +
+>  .../clk/starfive/clk-starfive-jh7110-pll.c    | 507 ++++++++++++++++++
+>  .../clk/starfive/clk-starfive-jh7110-sys.c    |  45 +-
+>  .../dt-bindings/clock/starfive,jh7110-crg.h   |   6 +
+>  10 files changed, 746 insertions(+), 22 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh71=
+10-pll.yaml
+>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfi=
+ve,jh7110-syscon.yaml
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-pll.c
+>=20
+> --=20
+> 2.25.1
+>=20
+
+--hVeR+Tbp7CCet06V
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKScaQAKCRB4tDGHoIJi
-0hJkAPoCQb991q3ts0PJelvRVhrMb36/OMkra5qkdsjLVOB9IQD+JLRYIxcJoCqE
-9oBLSnO1ugEnIbqZGcJ/S6UTfT48eAI=
-=Dpi7
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKSdOwAKCRB4tDGHoIJi
+0hnvAQCLkhD5vFq12iIYCmHzR7wCU9c4M1WnBflj69YY4Nt1wQEAhZrKHy+edzwF
+uV8cREqaiwoc8aI9tSrOSrGWgreEbwM=
+=wTVc
 -----END PGP SIGNATURE-----
 
---dF3s5FbwRnrv/rJT--
+--hVeR+Tbp7CCet06V--
 
 
---===============3254749473999779725==
+--===============2426466417398809008==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -133,5 +173,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3254749473999779725==--
+--===============2426466417398809008==--
 
