@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB22EB64D9
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 12:27:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88133EB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 12:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i7oeLwNP3iHQru5HUHxYg8frZ4UROQfqvecBOWzoX6Y=; b=0I/FnF94/9yoQ+Jnbd9z5NxuH5
-	sQ0PmtLNWUfSILjRbWoIJzzr3Gqn/t6YY9e7wrgynqS3TOJV5KyXwK7SdiUeRR8A59qbcmT3acF2u
-	ifNxKNX5pJe4VD2YCR+0IWprZRiduTSY398S+HuchD0pgzWXWIAVGlGwWfjLKjEFoiMHLBAmCojXT
-	HP74OZ29v9XYQYv2AVlTyMIxNJyJtZuNg7ZRiQ82T3tUwTCVd7TTyXcdmNDiMTEUBBpoC5xf/py6D
-	3va5gKblv/sdTjeCcAV6bSOEsoo3qCHlYdmxWSTh0+AJ78Br0cgi7Ee7FA7lSgNNcPcs63QsnYrV3
-	qDA2yArQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HWD+UFnJKVWoGoo/4Bl/SNzbjtwxTjwUsgSsOjM7TXM=; b=zoa9i/oUeS8h3q
+	HQRzEIyjSd7i/8hVEYAWZmG1lqp9wBo1eYnmcW/t7ANiC0iCXYI6YvGIe70QgLSfNp6Zr8sB/NgDf
+	RoRmmUSwrRAAgMUpmCbygk01PMgD+li3/WAE90q6no53iCOIF8N455+w3RA/VnyWGcVkHfKbk4ami
+	vxGPsqVSh+qFA62FO4DycVY1ND8btMZgyjGFixqJnmG4v5sBI1yq8izNXka+3X6VtqT0EdboOaDTy
+	YxEYXTNuyr+pBRo/uDoIO2sgaXdH5Hysyv/ufPaNo1H1AswkfVXqbxsP/AhMJQLPET1uvGp2Z92VB
+	XmVlHM3Okav/0fdkCe9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGf7Z-00DGSE-1H;
-	Tue, 04 Jul 2023 12:27:05 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qGf8Z-00DGao-2A;
+	Tue, 04 Jul 2023 12:28:07 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGf7W-00DGRJ-0j
+	id 1qGf8W-00DGZw-0I
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Jul 2023 12:27:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688473622; x=1720009622;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UjTTupn9qJkicPlewg6pVkjIzGItxTvL5gYYji1MF7U=;
-  b=q+ObrEEpm02veop/zRIsPJH9eGPVWkC7zXfYUswUS46+bY0vWM9oGm2s
-   3MMyV16DDUqBv/smJElsvtoIXDqBtYfH1k3nX5m35mZk202/yEq1ct4/p
-   ejQwiqv4JYF55yFR9DLjBpalSG23ey3+r8VRuO/WAk1KpKNCDDY1cnvB/
-   Z9leLk2zdjv7WuPdwcb7apRfO4651ZVXuijGkxAsk6DAlnEHe6gZfFq6T
-   sIb0LuPhoweGKs3d+GQhA7qR0lGwGdPUOySsQQ9TcgDx5AsPxkSPXCcB2
-   BpZVmnHjnIhD//+HO3cf7oEvLFu5Fc+8zV3D1YB+NHxnAkq9R3SxEDgyx
-   g==;
-X-IronPort-AV: E=Sophos;i="6.01,180,1684825200"; 
-   d="asc'?scan'208";a="221231359"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Jul 2023 05:26:52 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 4 Jul 2023 05:26:43 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 4 Jul 2023 05:26:41 -0700
-Date: Tue, 4 Jul 2023 13:26:12 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Song Shuai
-	<suagrfillet@gmail.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: Start of DRAM should at least be aligned on PMD
- size for the direct mapping
-Message-ID: <20230704-emblem-rubble-e4a3a87cb98e@wendy>
-References: <20230704121837.248976-1-alexghiti@rivosinc.com>
+	Tue, 04 Jul 2023 12:28:05 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-992ca792065so580806966b.2
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Jul 2023 05:28:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1688473679; x=1691065679;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SevSQ95ow3GtjYpqXgCPnMrECe2jzasM0xVgVLW819c=;
+        b=fgwp2G4rHlpBpyYwQHFN+c8PamgAxQJjZb4Ph8qKhZ4M9mCE+NXFd3tZR1OJpdYl6y
+         j879K72BdCsDrvRi0s9o6ClSTHUarfwo5MGBAA/UrKyS4/GxzvJCPMg8rcNHy2eeBSC0
+         /wLonHBc8XRHaXnVfPbU2B6GUcv+kT+If8UJd952WhXDhZB38pnXvjUiPj2Dhumqx5+f
+         zBcPDWbHSCNfuv47yjqbmmKcDsGE2SX8zqHdlKYwhSXtHrClDiTUqJ0XvPsJQ6x8f/r7
+         l1v6HYZPX2jgk7UoO+Gdde6BRMSN3o4AtQtufyp7fxcJAXZh041ggRIYBIPC/wgKFroc
+         Okag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688473679; x=1691065679;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SevSQ95ow3GtjYpqXgCPnMrECe2jzasM0xVgVLW819c=;
+        b=iiZ0g3mIUPe8JwjWxpuJfqm16uHy9AeL9r0SCjKHkj40rE9JNYyEBn4WCVSnROtbkg
+         30LuoBCzP1qr3idZOfx6ErQzAZOKlXKyVCenVnBdVhqtcyfPo4APpkEvuDLFwmsPGtly
+         3R98W0AJ6u7BcKDQ4xqsY8VMMYihg9L0V0lf0gl3JEpl2RZgoLacQ1YdRrxI8ANpj4si
+         PiVjj60v9THOLATyV+yD0/M7HYUqFWgRn71IkDvnv6AeFJwHwG7wKVkfjLv02x3MhpxQ
+         JgeMIxbWN/5ZjzWb6LmeMWSwQp1Mb57ToGTTq8cV3YjCLul3Eyyg8hGAihXReWgQa14f
+         dFAQ==
+X-Gm-Message-State: ABy/qLZi6YnxyfVjcyY/hAug+5AAI9kMWvwWukfCGSeXJ7dboqQbGxx2
+	coNGgi2HHZ4E0a5b4Vu93avheA==
+X-Google-Smtp-Source: APBJJlH19su5vA9EyL6D7MtXA5VlLwKOm8UcW/oRKW1bw+rDa/li+5szobRKvBCIOYgZGAJ6K98IAA==
+X-Received: by 2002:a17:906:5296:b0:977:e310:1ce7 with SMTP id c22-20020a170906529600b00977e3101ce7mr10322466ejm.38.1688473679643;
+        Tue, 04 Jul 2023 05:27:59 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.219.26])
+        by smtp.gmail.com with ESMTPSA id n5-20020a1709061d0500b00992b2c55c67sm6979176ejh.156.2023.07.04.05.27.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Jul 2023 05:27:59 -0700 (PDT)
+Message-ID: <4afd90d9-f1bd-f40d-1c79-50fef1406ab7@linaro.org>
+Date: Tue, 4 Jul 2023 14:27:57 +0200
 MIME-Version: 1.0
-In-Reply-To: <20230704121837.248976-1-alexghiti@rivosinc.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [RESEND v1 2/2] riscv: dts: starfive: Add spi node for JH7110 SoC
+Content-Language: en-US
+To: Mark Brown <broonie@kernel.org>
+Cc: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Linus Walleij <linus.walleij@linaro.org>
+References: <20230704092200.85401-1-william.qiu@starfivetech.com>
+ <20230704092200.85401-3-william.qiu@starfivetech.com>
+ <7f3b600d-d315-22d6-b987-eabfe1b04fdf@linaro.org>
+ <eba1e868-6371-42fe-91be-bcbee54d1aff@sirena.org.uk>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <eba1e868-6371-42fe-91be-bcbee54d1aff@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230704_052702_428752_7016749C 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20230704_052804_171145_45A1512C 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,88 +96,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5084242837453968153=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5084242837453968153==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9jeWf4lkKbux8HSU"
-Content-Disposition: inline
+On 04/07/2023 14:26, Mark Brown wrote:
+> On Tue, Jul 04, 2023 at 11:39:29AM +0200, Krzysztof Kozlowski wrote:
+>> On 04/07/2023 11:22, William Qiu wrote:
+>>> Add spi node for JH7110 SoC.
+>>>
+>>> Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+>>
+>> Missing SoB.
+> 
+> It's fine not to have a signoff for the codeveloper of codeveloped
+> patches, see case (a) for the DCO.
 
---9jeWf4lkKbux8HSU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Also see:
+"every Co-developed-by: must be immediately
+followed by a Signed-off-by: of the associated co-author."
 
-Hey Alex,
+https://elixir.bootlin.com/linux/v6.4/source/Documentation/process/submitting-patches.rst#L467
 
-On Tue, Jul 04, 2023 at 02:18:37PM +0200, Alexandre Ghiti wrote:
-> So that we do not end up mapping the whole linear mapping using 4K
-> pages, which is slow at boot time, and also very likely at runtime.
->=20
-> So make sure we align the start of DRAM on a PMD boundary.
->=20
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Best regards,
+Krzysztof
 
-Obviously correct me if I am wrong here, but was this not reported by
-Song Shuai as a regression?
-Accordingly, should this not have Reported-by, Closes/Link & Fixes tags?
-
-Cheers,
-Conor.
-
-> ---
->  arch/riscv/mm/init.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 4fa420faa780..4a43ec275c6d 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -214,8 +214,13 @@ static void __init setup_bootmem(void)
->  	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
-> =20
->  	phys_ram_end =3D memblock_end_of_DRAM();
-> +
-> +	/*
-> +	 * Make sure we align the start of the memory on a PMD boundary so that
-> +	 * at worst, we map the linear mapping with PMD mappings.
-> +	 */
->  	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
-> -		phys_ram_base =3D memblock_start_of_DRAM();
-> +		phys_ram_base =3D memblock_start_of_DRAM() & PMD_MASK;
-> =20
->  	/*
->  	 * In 64-bit, any use of __va/__pa before this point is wrong as we
-> --=20
-> 2.39.2
->=20
-
---9jeWf4lkKbux8HSU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKQP1gAKCRB4tDGHoIJi
-0itCAPwKOEqJ0dNzrojBEleJ+wILpeeIhBt4b6b8vTdYfsnGlAEAkIk4KBiL+H/E
-ZM9Cl8dBOGiaC3Ewi3Po+ryBoyKNNQA=
-=fhdf
------END PGP SIGNATURE-----
-
---9jeWf4lkKbux8HSU--
-
-
---===============5084242837453968153==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5084242837453968153==--
-
