@@ -4,132 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD4CEB64D9
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 08:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 630D8EB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 08:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uwofbho/wkx4G/5WkC0d0mR7GmIcCWuvF415NBTnNPI=; b=jKztwCAxUrBhdM
-	JomstgbCCl3URlD3WuKTSpxCdJZDKvuG70V+B0/iVlSCMNHQarDzBj+30xASRbyS1bJx9Yt9aS7jD
-	iQgKxHHV8f700CcNfcz1D8tGNRrXKWTjuXq7UuuWp+qZnaZaiolscPRo3Hq75nSPUnEOr0JiumYzD
-	vOKxxF+rfPOkSqj1YxhJNqwrHpJ4D8AGeHdsxkVrJkNXDk0lZbpVG6mKbDyPEg/pmfFe6jS7s99D+
-	788T6eEqtNv1ptPnGAY/ZI6xYQ2Mtsw6+8pN5GokBwAxmg8LDDoCRTC4VbTXJ/ngmlvseGhseYhsb
-	UnE0wz/lACbGclqK9z2Q==;
+	List-Owner; bh=SCSQTzpw45HsOTZPAj/hdNpv/GnSzD0zBtNNB/5iA20=; b=xZ0tWA8KnKBJyo
+	DtwIVdMmrp9lZmrW5KGksyfxF+sob0fXlCBtK1EQJLuW8l0LknZutDhYVDEF46tHEc/laPp9tcavC
+	LKsvRSvEPzZ3C46pUBoJ0qQ1IfTELnHsC1cMdRpe2yv7hla3tOjqaXk00f7Q4vrkFo6GgrG5fnwv+
+	ZeOMvemzkRiT3UA/OdIiFB9WAw7em0545TwuGVqMAvd3ku1ZbJTei26IorrlDE8UPMTQkWf43tl5s
+	EfJdJXasGg0LfZIcOz5aNYXbtMklPm92RkEXeHL8yYRhxVQefyg+bCl7nzLDc9pZb5DSk8dcztyt4
+	YEdwUIvTM4KDjkodwavg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGbgH-00CbtM-0U;
-	Tue, 04 Jul 2023 08:46:41 +0000
-Received: from mail-os0jpn01on20731.outbound.protection.outlook.com ([2a01:111:f403:700c::731] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1qGbhl-00CcDL-1U;
+	Tue, 04 Jul 2023 08:48:13 +0000
+Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGbgD-00CbrV-0t
+	id 1qGbhj-00CcCk-0X
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Jul 2023 08:46:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=PnljMZ+DhDrSd0RJSqTj86bXUiui0BjJ3zy2sm9NWqOZZh/p+RII5j8Z7kEm5VopBzYDT0+43vwrQZSgYI+q8vTPjuAZ3tVOMFdUzfF5oIqGla3jVQRcp/q9AO9E1316DhSzl8JeDG3TEpAFE3bRoR8szBn2RgNJVhitTgAUaKm0JI3BXTMO56pKhWktLSVaLXlNBZGSCIzwYbRKIioIVxhXISF7m24b8+8KYlsVRK1dCfTwbPigDogdU1L1+7aomSd2rL8wSM87AZD75scr6/4ICGrI4oVZyLBUcXPF0sK2MOo6WY4RuLbspvHsOxZPvZbfHQjO1agPzVH5m+J3Sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OKMxXq3YrWblayMZ/o+hXtKwFgBoOTxRt874RS5wLUc=;
- b=faosEJm0iWluZ94u3k26ZXIfp+lW8Wp4gUWNlfnmxIPSJGPxYFnXaBR+m7RG07FC82F6TgrYC3tqKTjlTNL8Mi1/ZzzhQQiqY0CcA3yziO49gbTRfYhpWG+0sfuCz4BqvAmz2kpRvBs6RFmSp6i+8ZxPc0hKHuL5JgoOMcEX07PVTancsgvTmd+HhIWyK11d+dI4jheZEuhBmnWZBg64S7cXnak6ehqKNRNjgl1BPZRABAMQvt0L4YJ7Tg02S4g9UJHT8PaXI9a39Buu2VJk6mi8+G26fwi2XTdIheCW+KrdALQd+iWKem6Zi39iAMhIGcHq1kftuIt5u0QX59tRiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OKMxXq3YrWblayMZ/o+hXtKwFgBoOTxRt874RS5wLUc=;
- b=MUQCHvbpo/2Ntj2sr5MLGjuwqvKfJ2TzHkjMKBiZF4CcijEcevn5M+iOBZzGkATSJEKC5xOs1Og0Fv/obr0BQdUNfY6w256PoR30z7M9SB2526to0elBT2RBCsgAUS21sU/A6OyAsDit9iwPbvaQ62ZJq4fvvtEJTDaSP0PCZK0=
-Received: from OS0PR01MB5922.jpnprd01.prod.outlook.com (2603:1096:604:bb::5)
- by TYCPR01MB10087.jpnprd01.prod.outlook.com (2603:1096:400:1ec::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6544.24; Tue, 4 Jul
- 2023 08:30:49 +0000
-Received: from OS0PR01MB5922.jpnprd01.prod.outlook.com
- ([fe80::fc77:6148:d6a:c72b]) by OS0PR01MB5922.jpnprd01.prod.outlook.com
- ([fe80::fc77:6148:d6a:c72b%4]) with mapi id 15.20.6544.024; Tue, 4 Jul 2023
- 08:30:48 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Prabhakar <prabhakar.csengg@gmail.com>, Geert Uytterhoeven
-	<geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Linus Walleij
-	<linus.walleij@linaro.org>, "linux-renesas-soc@vger.kernel.org"
-	<linux-renesas-soc@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, Prabhakar Mahadev Lad
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: RE: [RFC PATCH 1/4] pinctrl: renesas: rzg2l: Include pinmap in
- RZG2L_GPIO_PORT_PACK() macro
-Thread-Topic: [RFC PATCH 1/4] pinctrl: renesas: rzg2l: Include pinmap in
- RZG2L_GPIO_PORT_PACK() macro
-Thread-Index: AQHZq0sktriyRHMRaU2I/KvG3PLB4a+pTAEQ
-Date: Tue, 4 Jul 2023 08:30:48 +0000
-Message-ID: <OS0PR01MB59223E030DAE587A49C9D0FE862EA@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+	Tue, 04 Jul 2023 08:48:12 +0000
+Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-77a62a84855so214199039f.1
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Jul 2023 01:48:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1688460489; x=1691052489;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FthdFNqIrNBSp4Ff+7I5wf7NZtageiCvQNjA6zok5uo=;
+        b=FWmDAOGksUr/QGz4CDArxktNgIPvc38M0/lTa2VYxzTVeVXDKhc0qoUYZD0sOXLih9
+         j6RAkMSJEozSwhuSUUcBY81gGKJ8sobh71Guq2n/+i7QmSzIAf1Z83n747otQ4Rjj/kz
+         2abUbgxbKbr3lra+9jHftNgHXBX7YBPK3dbY7bkTrj4QwJt1EpllB8rHiDAsrrVKsSNn
+         uOGMFcoxSYxPV6fzWJ457wh3zqEXEYfCXheAyQCCWLIH/ShD4N/SdmUVJjxL+359KNfF
+         VhkR0XPPey0Gp5aUvWqes8X9AwQy++ZJsuctYxSjkmNZLErWsCdv0Co/HAyqvW0sXoTi
+         6YZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688460489; x=1691052489;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FthdFNqIrNBSp4Ff+7I5wf7NZtageiCvQNjA6zok5uo=;
+        b=OuiX5AemnGiUUgA9oNeP59rM9S9NfloiTsshV9WD4kZSycbd5EU5C5eriGrK3fOK9f
+         xGCGs1TclOaTx/PvF5U8YXB7uZHUadGJsbww/TVGPzm4rUT3gH0EiGMSNy9ncERjPixe
+         FDz6YWTyPX3chbkI9NolXeJ+dSVvGx8SDU5C37IdLPpQ3ebp+IH2H50vrNGXv1KQtFBk
+         sCwf4mo5srAFRIHFExMZRhj1ml8VItXViXZi3br/76ESXaEjg2t562IxxMmOntUJbpiV
+         q9N6QMtqslMr0lXmhAM3oKBIKQscaXpMlSFzjqaQdhHSBN4izUBmOsys4m5jaRfD7nrk
+         Eelg==
+X-Gm-Message-State: AC+VfDx/ByFcldsoMz9zDYu7o5oIuwjcOUP7VPoDVZdn7Rv0HxCBae5G
+	MY0Pe/6BNTHIf+5goRrrREBFRuhLvil/VuSwTYU=
+X-Google-Smtp-Source: ACHHUZ6jPnIKynBJ0oBa8Pc4sTNHuq++xhfssqh0qa7MHJnSLGSiG5AVhvinJsEW9ITj1tJfYUv+P6Ll5u31M9KK3a8=
+X-Received: by 2002:a5e:8b03:0:b0:76c:56fb:3c59 with SMTP id
+ g3-20020a5e8b03000000b0076c56fb3c59mr13828031iok.10.1688460489189; Tue, 04
+ Jul 2023 01:48:09 -0700 (PDT)
+MIME-Version: 1.0
 References: <20230630120433.49529-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
  <20230630120433.49529-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20230630120433.49529-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS0PR01MB5922:EE_|TYCPR01MB10087:EE_
-x-ms-office365-filtering-correlation-id: 10958868-43f6-4331-fd5e-08db7c68f80f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: qxSeqmmqvk+5hAtiJ4JgfrhJkVa417VcSYZZWCN6hNNg1FYjZnZ/XDvlSzkwFIsRJUF4bvYfFukIec3SW6A3GGxAx13i1mcX/YHtgsReov9JklKWfoIV0bQh9IPj1/c32sZ9Dt2AyO6OKY8WBZEozLmWEsQCnrT5fE8VqdoZFE0uc3FQKHiCTTGm+Dd+D6hDrnI0EFjyD6uNS3TTljD51m60+kXlWmn/chp81IbkHc7RE96VH8IIU109hKo+br+cJwaav7XPmZ2tqA+cFDSBPN/aUWMWuQHQhl5vGOYx4jHfvKhiIREtDtYvDI2VmOS41gQnZuJPXrei8oZw47ufsOgO++JYVbbhV2V+JWK+OAkUEtS9UfLnJ730OMUs6CtwR89Xyq9EtBu9VOYM5Y2mV3TxkWDm6BqrsXbKjbms1iqtWAA8G+E71Uokf81+UzXqqI6v8ho//D+lOpmXAL4qOsLduPD7ReMahPboWI+/dfAGPRPFnFgiLIhS0B/JNoCqVU3DLJ22kh++QI45a3NGjgj5v7ZRwf1ysvY5vCOP+WHobK64kaJX4yjDN3rUfd2lEccuxrfyJpwKdrFUeFM+uOW3YSztDrVksFf3pxdmyka2hnhSt/t50L4oki4T6wdy
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS0PR01MB5922.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(376002)(396003)(39860400002)(366004)(136003)(346002)(451199021)(110136005)(54906003)(30864003)(2906002)(9686003)(478600001)(26005)(41300700001)(86362001)(33656002)(7696005)(52536014)(8936002)(8676002)(5660300002)(7416002)(71200400001)(64756008)(316002)(66476007)(66946007)(66556008)(66446008)(38100700002)(122000001)(55016003)(4326008)(38070700005)(53546011)(6506007)(76116006)(186003)(83380400001)(107886003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?lG+S/GSjtkYtH77B4WKtkgWDVAkez3K8zD3FZATVMSxHCEhpn2qzJwg0JW+a?=
- =?us-ascii?Q?YqM1LmWOhz31Esz9syKOEhJWgNGr47GOgFCQ+1zWaDukZcNVkdnHVR2iLzVU?=
- =?us-ascii?Q?6K003r0IUUm/5v1zCidLBauSa5FYGrJzUpYP/7CfbqyWNShGLCWXE+TzoRV5?=
- =?us-ascii?Q?DPlpZx9z+6pDn7NZc16hazde9jsxdR94QGBE2mb6EWzJVU4aA+0b7aSoCIWf?=
- =?us-ascii?Q?y9Ux+A3cj8e3hYpK6nBophCaLy7GcdLKzn6GCY6gNHn8Sj7tY5iy9QbTFKab?=
- =?us-ascii?Q?0BcSNKaJbRF/19xENTenyU1Qw/8dKjI3X4um8lv2vDUNv1bPjaTWWCnA6cDY?=
- =?us-ascii?Q?fAQQXteG/BbZ+CQgIsEQzCRo5d9g6KoABYPhyOB9n3PeFYACW3d4NPF0ggku?=
- =?us-ascii?Q?N6Zhbjp90jysukNgGC6k2L7xizeeJ84sygG569CM8rAAq+K2SJ96W952zjRr?=
- =?us-ascii?Q?XNT6e/lnsI448Dofezkh2e1LgRlMI0wjDaS/u6GNajzPW/MwyMzeOjP9gHWz?=
- =?us-ascii?Q?SMxIFkStSI/NArB2xbtkT7mwsDmciMkqknvg99HYRh4Y0SSUIL+13AIjBpqM?=
- =?us-ascii?Q?qteltykNEGQ+wL42LhNYbJ6fL5rZy19gEgsor4Dozs/0Hxw58KjpYPfKN1Vk?=
- =?us-ascii?Q?j6x/8O16Jwc1VRZf4NRvL/pJm25mvNR7Fd53PjTOENR2ZqCoGeMpOJVBmraR?=
- =?us-ascii?Q?GTh/+KviTVBJf9ntW/TdNP29sQymXp00nv02pRDbTwp/mzIdZDzqSBdcin7n?=
- =?us-ascii?Q?vk+7d++XBD2wKFrn0zKsjyR1cniDVS5xDlJZdN97CwUFrQV1Oqwm6iRjQP9P?=
- =?us-ascii?Q?hyPwNBhMgT5MP0/EbI8IHi7+8fB2jwIeynuu68BIQveSb35SNcTkHuTUAJ4Z?=
- =?us-ascii?Q?brrB6ky8OXdELMMGVb/Mfjhuan/q7CnIr75esiXX1fHbiK7ZF6m82U8tRe+4?=
- =?us-ascii?Q?m09sxmh5LIZgyUDpb6jc4cg3UPdliZ+jjDu5hwNuxWo8d3vDfl2gCFQgKEzA?=
- =?us-ascii?Q?qGLVDxNSZMZ81otG1Dbz7hMCoUNPxfOIqDaznAw4yRW7UxUsS3kHRb78/tDH?=
- =?us-ascii?Q?vVZ33DU7eLF6lOlrcNBl2XSXrffOZnmnhhsobKEEINocBRwXSNB+Ot59aWn0?=
- =?us-ascii?Q?AYq80Vhp+Qj4qFRoWzUP6IpgYOU20Hj0o3CgPoc1A8uCAP3Q3VqalfRKJEDn?=
- =?us-ascii?Q?OgfZR9NIp5QOeZPFi1lzC1KepZlLx0TC/tqlu2kdSZeoxNnJo42C5k0Dy/wf?=
- =?us-ascii?Q?CQg9GuPG2WWm3S1C5DQNyeAhl9JXkSekFUX8BxkwIHHlTb8UXR+6xyznY8vL?=
- =?us-ascii?Q?TA/s1kpXczbdJpPl4yOSfQu/d00MusFXyifb+mzVVgZPaDXOL1F8yNxe7HR8?=
- =?us-ascii?Q?6kLHGl1SAkGZAPyiPYkeYd0FadCy6zmKxIOqbbssGc/h8XnjZomdDg1WReVM?=
- =?us-ascii?Q?jQGGF12iuxy5YjBoGONU7aGy/DB1r4fRe6YbUMmKEu6jWylYNTIlXjAv/v8G?=
- =?us-ascii?Q?jVQWmWKU09rmRWJoVfUWPYWdIHrZy74d9yrP71ClB7xBV8nt8zSUTk/xdims?=
- =?us-ascii?Q?CAxjFW702kJuomJBD+wref8wYWCK6km/04+dn8lg?=
-MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS0PR01MB5922.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10958868-43f6-4331-fd5e-08db7c68f80f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jul 2023 08:30:48.2988
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: /2EjlfLNO03HcGb1klx+ezIPM8M/JUiSvIzVtoLX8Lu5l4jtg96TsE50v1vtD1FByFmBahxkJTBRWeOU41exdS7CuyULN/N0Ndavhyu9TjA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB10087
+ <OS0PR01MB59223E030DAE587A49C9D0FE862EA@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+ <CA+V-a8um0xQ2FJyrHs=5Pc2PNvgW6B6z31zyFQ6zAYhi6=zgvQ@mail.gmail.com> <OS0PR01MB5922BFC7C34062876E53BBB7862EA@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+In-Reply-To: <OS0PR01MB5922BFC7C34062876E53BBB7862EA@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 4 Jul 2023 09:47:43 +0100
+Message-ID: <CA+V-a8t3PveWo==GQNPWV3cTAQebtsgKwrFvc5qJVc_RsBKcGA@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/4] pinctrl: renesas: rzg2l: Include pinmap in
+ RZG2L_GPIO_PORT_PACK() macro
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, 
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230704_014637_428305_56DC26A0 
-X-CRM114-Status: GOOD (  25.74  )
+X-CRM114-CacheID: sfid-20230704_014811_207496_E0352276 
+X-CRM114-Status: GOOD (  37.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,344 +95,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Prabhakar,
-
-> -----Original Message-----
-> From: Prabhakar <prabhakar.csengg@gmail.com>
-> Sent: Friday, June 30, 2023 1:05 PM
-> To: Geert Uytterhoeven <geert+renesas@glider.be>; Magnus Damm
-> <magnus.damm@gmail.com>
-> Cc: Rob Herring <robh+dt@kernel.org>; Krzysztof Kozlowski
-> <krzysztof.kozlowski+dt@linaro.org>; Linus Walleij
-> <linus.walleij@linaro.org>; linux-renesas-soc@vger.kernel.org;
-> devicetree@vger.kernel.org; linux-riscv@lists.infradead.org; linux-
-> kernel@vger.kernel.org; linux-gpio@vger.kernel.org; Biju Das
-> <biju.das.jz@bp.renesas.com>; Prabhakar <prabhakar.csengg@gmail.com>;
-> Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Subject: [RFC PATCH 1/4] pinctrl: renesas: rzg2l: Include pinmap in
-> RZG2L_GPIO_PORT_PACK() macro
-> 
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> Currently we assume all the port pins are sequential ie always PX_0 to
-> PX_n (n=1..7) exist, but on RZ/Five SoC we have additional pins P19_1 to
-> P28_5 which have holes in them, for example only one pin on port19 is
-> available and that is P19_1 and not P19_0.
-> 
-> So to handle such cases include pinmap for each port which would
-> indicate the pin availability on each port. With this we also get
-> additional pin validation, for example on the RZ/G2L SOC P0 has two pins
-> P0_1 and P0_0 but with DT/SYSFS could use the P0_2-P0_7.
-> 
-> While at it, update rzg2l_validate_gpio_pin() to use the port pinmap to
-> validate the gpio pin.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
->  drivers/pinctrl/renesas/pinctrl-rzg2l.c | 167 ++++++++++++------------
->  1 file changed, 86 insertions(+), 81 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/renesas/pinctrl-rzg2l.c
-> b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
-> index 9511d920565e..a0c2e585e765 100644
-> --- a/drivers/pinctrl/renesas/pinctrl-rzg2l.c
-> +++ b/drivers/pinctrl/renesas/pinctrl-rzg2l.c
-> @@ -67,10 +67,12 @@
->  					 PIN_CFG_FILCLKSEL)
-> 
->  /*
-> - * n indicates number of pins in the port, a is the register index
-> - * and f is pin configuration capabilities supported.
-> + * m indicates the bitmap of supported pins, n indicates number
-> + * of pins in the port, a is the register index and f is pin
-> + * configuration capabilities supported.
->   */
-> -#define RZG2L_GPIO_PORT_PACK(n, a, f)	(((n) << 28) | ((a) << 20) |
-> (f))
-> +#define RZG2L_GPIO_PORT_PACK(m, n, a, f)	((UL(m) << 32) | (UL(n) << 28)
-> | ((a) << 20) | (f))
-> +#define RZG2L_GPIO_PORT_GET_PINMAP(x)	(((x) & GENMASK(39, 32)) >> 32)
->  #define RZG2L_GPIO_PORT_GET_PINCNT(x)	(((x) & GENMASK(30, 28)) >> 28)
->  #define RZG2L_GPIO_PORT_GET_INDEX(x)	(((x) & GENMASK(26, 20)) >> 20)
->  #define RZG2L_GPIO_PORT_GET_CFGS(x)	((x) & GENMASK(19, 0))
-> @@ -129,7 +131,7 @@ struct rzg2l_dedicated_configs {
-> 
->  struct rzg2l_pinctrl_data {
->  	const char * const *port_pins;
-> -	const u32 *port_pin_configs;
-> +	const u64 *port_pin_configs;
-
-Can this be SoC specific? Only for RZ/Five you need this changes.
-Others SoCs like RZ/{G2L,G2LC,V2L and G2UL) still work with u32* as there
-is no holes. With this change memory usage is doubled as we change from
-u32->u64.
-
-Cheers,
-Biju
-
->  	unsigned int n_ports;
->  	struct rzg2l_dedicated_configs *dedicated_pins;
->  	unsigned int n_port_pins;
-> @@ -445,13 +447,16 @@ static int rzg2l_dt_node_to_map(struct pinctrl_dev
-> *pctldev,  }
-> 
->  static int rzg2l_validate_gpio_pin(struct rzg2l_pinctrl *pctrl,
-> -				   u32 cfg, u32 port, u8 bit)
-> +				   u64 cfg, u32 port, u8 bit)
->  {
-> -	u8 pincount = RZG2L_GPIO_PORT_GET_PINCNT(cfg);
->  	u32 port_index = RZG2L_GPIO_PORT_GET_INDEX(cfg);
-> -	u32 data;
-> +	u8 pinmap = RZG2L_GPIO_PORT_GET_PINMAP(cfg);
-> +	u64 data;
-> 
-> -	if (bit >= pincount || port >= pctrl->data->n_port_pins)
-> +	if (port >= pctrl->data->n_port_pins)
-> +		return -EINVAL;
-> +
-> +	if (!(pinmap & BIT(bit)))
->  		return -EINVAL;
-> 
->  	data = pctrl->data->port_pin_configs[port];
-> @@ -501,7 +506,7 @@ static int rzg2l_pinctrl_pinconf_get(struct
-> pinctrl_dev *pctldev,
->  	struct rzg2l_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
->  	enum pin_config_param param = pinconf_to_config_param(*config);
->  	const struct pinctrl_pin_desc *pin = &pctrl->desc.pins[_pin];
-> -	unsigned int *pin_data = pin->drv_data;
-> +	u64 *pin_data = pin->drv_data;
->  	unsigned int arg = 0;
->  	unsigned long flags;
->  	void __iomem *addr;
-> @@ -591,7 +596,7 @@ static int rzg2l_pinctrl_pinconf_set(struct
-> pinctrl_dev *pctldev,  {
->  	struct rzg2l_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
->  	const struct pinctrl_pin_desc *pin = &pctrl->desc.pins[_pin];
-> -	unsigned int *pin_data = pin->drv_data;
-> +	u64 *pin_data = pin->drv_data;
->  	enum pin_config_param param;
->  	unsigned long flags;
->  	void __iomem *addr;
-> @@ -965,78 +970,78 @@ static const char * const rzg2l_gpio_names[] = {
->  	"P48_0", "P48_1", "P48_2", "P48_3", "P48_4", "P48_5", "P48_6",
-> "P48_7",  };
-> 
-> -static const u32 rzg2l_gpio_configs[] = {
-> -	RZG2L_GPIO_PORT_PACK(2, 0x10, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x11, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x12, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x13, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x14, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x15, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x16, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x17, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x18, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x19, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x21, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x22, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x23, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x24,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x25,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x26,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x27,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x28,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x29,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x2a,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x2b,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x2c,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x2d,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x2e,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x2f,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x30,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x31,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x32,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x33,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x34,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x35,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x36, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x37, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x38, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x39, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(5, 0x3a, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x3b, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x3c, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x3d, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x3e, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x3f, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(5, 0x40, RZG2L_MPXED_PIN_FUNCS),
-> +static const u64 rzg2l_gpio_configs[] = {
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x10, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x11, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x12, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x13, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x14, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x15, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x16, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x17, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x18, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x19, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1a, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1b, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x1d, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1e, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1f, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x20, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x21, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x22, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x23, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x24,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x25,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x26,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x27,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x28,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x29,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2a,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2b,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2c,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2d,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2e,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x2f,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x30,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x31,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x32,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x33,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x34,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x35,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x36, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x37, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x38, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x39, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x3a, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3b, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3c, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3d, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3e, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x3f, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x40, RZG2L_MPXED_PIN_FUNCS),
->  };
-> 
-> -static const u32 r9a07g043_gpio_configs[] = {
-> -	RZG2L_GPIO_PORT_PACK(4, 0x10, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(5, 0x11,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x12,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x13,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(6, 0x14,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> -	RZG2L_GPIO_PORT_PACK(5, 0x15, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(5, 0x16, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(5, 0x17,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(5, 0x18,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x19,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(5, 0x1a,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x1b, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(5, 0x1d, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(3, 0x1e, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x1f, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(2, 0x20, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(4, 0x21, RZG2L_MPXED_PIN_FUNCS),
-> -	RZG2L_GPIO_PORT_PACK(6, 0x22, RZG2L_MPXED_PIN_FUNCS),
-> +static const u64 r9a07g043_gpio_configs[] = {
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x10, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x11,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x12,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x13,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x3f, 6, 0x14,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH0)),
-> +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x15, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x16, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x17,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x18,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x19,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x1a,
-> RZG2L_MPXED_ETH_PIN_FUNCS(PIN_CFG_IO_VMC_ETH1)),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x1b, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x1c, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x1f, 5, 0x1d, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x07, 3, 0x1e, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x1f, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x03, 2, 0x20, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x0f, 4, 0x21, RZG2L_MPXED_PIN_FUNCS),
-> +	RZG2L_GPIO_PORT_PACK(0x3f, 6, 0x22, RZG2L_MPXED_PIN_FUNCS),
->  };
-> 
->  static struct {
-> @@ -1396,7 +1401,7 @@ static int rzg2l_pinctrl_register(struct
-> rzg2l_pinctrl *pctrl)  {
->  	struct pinctrl_pin_desc *pins;
->  	unsigned int i, j;
-> -	u32 *pin_data;
-> +	u64 *pin_data;
->  	int ret;
-> 
->  	pctrl->desc.name = DRV_NAME;
-> --
-> 2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdWwgNCwgMjAyMyBhdCA5OjQy4oCvQU0gQmlqdSBEYXMgPGJpanUuZGFzLmp6QGJw
+LnJlbmVzYXMuY29tPiB3cm90ZToKPgo+IEhpIFByYWJoYWthciwKPgo+ID4gLS0tLS1PcmlnaW5h
+bCBNZXNzYWdlLS0tLS0KPiA+IEZyb206IExhZCwgUHJhYmhha2FyIDxwcmFiaGFrYXIuY3Nlbmdn
+QGdtYWlsLmNvbT4KPiA+IFNlbnQ6IFR1ZXNkYXksIEp1bHkgNCwgMjAyMyA5OjM2IEFNCj4gPiBU
+bzogQmlqdSBEYXMgPGJpanUuZGFzLmp6QGJwLnJlbmVzYXMuY29tPgo+ID4gQ2M6IEdlZXJ0IFV5
+dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+OyBNYWdudXMgRGFtbQo+ID4gPG1h
+Z251cy5kYW1tQGdtYWlsLmNvbT47IFJvYiBIZXJyaW5nIDxyb2JoK2R0QGtlcm5lbC5vcmc+OyBL
+cnp5c3p0b2YKPiA+IEtvemxvd3NraSA8a3J6eXN6dG9mLmtvemxvd3NraStkdEBsaW5hcm8ub3Jn
+PjsgTGludXMgV2FsbGVpago+ID4gPGxpbnVzLndhbGxlaWpAbGluYXJvLm9yZz47IGxpbnV4LXJl
+bmVzYXMtc29jQHZnZXIua2VybmVsLm9yZzsKPiA+IGRldmljZXRyZWVAdmdlci5rZXJuZWwub3Jn
+OyBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnOyBsaW51eC0KPiA+IGtlcm5lbEB2Z2Vy
+Lmtlcm5lbC5vcmc7IGxpbnV4LWdwaW9Admdlci5rZXJuZWwub3JnOyBQcmFiaGFrYXIgTWFoYWRl
+dgo+ID4gTGFkIDxwcmFiaGFrYXIubWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20+Cj4gPiBT
+dWJqZWN0OiBSZTogW1JGQyBQQVRDSCAxLzRdIHBpbmN0cmw6IHJlbmVzYXM6IHJ6ZzJsOiBJbmNs
+dWRlIHBpbm1hcCBpbgo+ID4gUlpHMkxfR1BJT19QT1JUX1BBQ0soKSBtYWNybwo+ID4KPiA+IEhp
+IEJpanUsCj4gPgo+ID4gT24gVHVlLCBKdWwgNCwgMjAyMyBhdCA5OjMw4oCvQU0gQmlqdSBEYXMg
+PGJpanUuZGFzLmp6QGJwLnJlbmVzYXMuY29tPgo+ID4gd3JvdGU6Cj4gPiA+Cj4gPiA+IEhpIFBy
+YWJoYWthciwKPiA+ID4KPiA+ID4gPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQo+ID4gPiA+
+IEZyb206IFByYWJoYWthciA8cHJhYmhha2FyLmNzZW5nZ0BnbWFpbC5jb20+Cj4gPiA+ID4gU2Vu
+dDogRnJpZGF5LCBKdW5lIDMwLCAyMDIzIDE6MDUgUE0KPiA+ID4gPiBUbzogR2VlcnQgVXl0dGVy
+aG9ldmVuIDxnZWVydCtyZW5lc2FzQGdsaWRlci5iZT47IE1hZ251cyBEYW1tCj4gPiA+ID4gPG1h
+Z251cy5kYW1tQGdtYWlsLmNvbT4KPiA+ID4gPiBDYzogUm9iIEhlcnJpbmcgPHJvYmgrZHRAa2Vy
+bmVsLm9yZz47IEtyenlzenRvZiBLb3psb3dza2kKPiA+ID4gPiA8a3J6eXN6dG9mLmtvemxvd3Nr
+aStkdEBsaW5hcm8ub3JnPjsgTGludXMgV2FsbGVpago+ID4gPiA+IDxsaW51cy53YWxsZWlqQGxp
+bmFyby5vcmc+OyBsaW51eC1yZW5lc2FzLXNvY0B2Z2VyLmtlcm5lbC5vcmc7Cj4gPiA+ID4gZGV2
+aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmc7
+IGxpbnV4LQo+ID4gPiA+IGtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWdwaW9Admdlci5r
+ZXJuZWwub3JnOyBCaWp1IERhcwo+ID4gPiA+IDxiaWp1LmRhcy5qekBicC5yZW5lc2FzLmNvbT47
+IFByYWJoYWthcgo+ID4gPiA+IDxwcmFiaGFrYXIuY3NlbmdnQGdtYWlsLmNvbT47IFByYWJoYWth
+ciBNYWhhZGV2IExhZAo+ID4gPiA+IDxwcmFiaGFrYXIubWFoYWRldi1sYWQucmpAYnAucmVuZXNh
+cy5jb20+Cj4gPiA+ID4gU3ViamVjdDogW1JGQyBQQVRDSCAxLzRdIHBpbmN0cmw6IHJlbmVzYXM6
+IHJ6ZzJsOiBJbmNsdWRlIHBpbm1hcCBpbgo+ID4gPiA+IFJaRzJMX0dQSU9fUE9SVF9QQUNLKCkg
+bWFjcm8KPiA+ID4gPgo+ID4gPiA+IEZyb206IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhh
+ZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4KPiA+ID4gPgo+ID4gPiA+IEN1cnJlbnRseSB3ZSBh
+c3N1bWUgYWxsIHRoZSBwb3J0IHBpbnMgYXJlIHNlcXVlbnRpYWwgaWUgYWx3YXlzIFBYXzAKPiA+
+ID4gPiB0byBQWF9uIChuPTEuLjcpIGV4aXN0LCBidXQgb24gUlovRml2ZSBTb0Mgd2UgaGF2ZSBh
+ZGRpdGlvbmFsIHBpbnMKPiA+ID4gPiBQMTlfMSB0bwo+ID4gPiA+IFAyOF81IHdoaWNoIGhhdmUg
+aG9sZXMgaW4gdGhlbSwgZm9yIGV4YW1wbGUgb25seSBvbmUgcGluIG9uIHBvcnQxOQo+ID4gPiA+
+IGlzIGF2YWlsYWJsZSBhbmQgdGhhdCBpcyBQMTlfMSBhbmQgbm90IFAxOV8wLgo+ID4gPiA+Cj4g
+PiA+ID4gU28gdG8gaGFuZGxlIHN1Y2ggY2FzZXMgaW5jbHVkZSBwaW5tYXAgZm9yIGVhY2ggcG9y
+dCB3aGljaCB3b3VsZAo+ID4gPiA+IGluZGljYXRlIHRoZSBwaW4gYXZhaWxhYmlsaXR5IG9uIGVh
+Y2ggcG9ydC4gV2l0aCB0aGlzIHdlIGFsc28gZ2V0Cj4gPiA+ID4gYWRkaXRpb25hbCBwaW4gdmFs
+aWRhdGlvbiwgZm9yIGV4YW1wbGUgb24gdGhlIFJaL0cyTCBTT0MgUDAgaGFzIHR3bwo+ID4gPiA+
+IHBpbnMKPiA+ID4gPiBQMF8xIGFuZCBQMF8wIGJ1dCB3aXRoIERUL1NZU0ZTIGNvdWxkIHVzZSB0
+aGUgUDBfMi1QMF83Lgo+ID4gPiA+Cj4gPiA+ID4gV2hpbGUgYXQgaXQsIHVwZGF0ZSByemcybF92
+YWxpZGF0ZV9ncGlvX3BpbigpIHRvIHVzZSB0aGUgcG9ydCBwaW5tYXAKPiA+ID4gPiB0byB2YWxp
+ZGF0ZSB0aGUgZ3BpbyBwaW4uCj4gPiA+ID4KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBMYWQgUHJh
+Ymhha2FyCj4gPiA+ID4gPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4K
+PiA+ID4gPiAtLS0KPiA+ID4gPiAgZHJpdmVycy9waW5jdHJsL3JlbmVzYXMvcGluY3RybC1yemcy
+bC5jIHwgMTY3Cj4gPiA+ID4gKysrKysrKysrKysrLS0tLS0tLS0tLS0tCj4gPiA+ID4gIDEgZmls
+ZSBjaGFuZ2VkLCA4NiBpbnNlcnRpb25zKCspLCA4MSBkZWxldGlvbnMoLSkKPiA+ID4gPgo+ID4g
+PiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BpbmN0cmwvcmVuZXNhcy9waW5jdHJsLXJ6ZzJsLmMK
+PiA+ID4gPiBiL2RyaXZlcnMvcGluY3RybC9yZW5lc2FzL3BpbmN0cmwtcnpnMmwuYwo+ID4gPiA+
+IGluZGV4IDk1MTFkOTIwNTY1ZS4uYTBjMmU1ODVlNzY1IDEwMDY0NAo+ID4gPiA+IC0tLSBhL2Ry
+aXZlcnMvcGluY3RybC9yZW5lc2FzL3BpbmN0cmwtcnpnMmwuYwo+ID4gPiA+ICsrKyBiL2RyaXZl
+cnMvcGluY3RybC9yZW5lc2FzL3BpbmN0cmwtcnpnMmwuYwo+ID4gPiA+IEBAIC02NywxMCArNjcs
+MTIgQEAKPiA+ID4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBQSU5f
+Q0ZHX0ZJTENMS1NFTCkKPiA+ID4gPgo+ID4gPiA+ICAvKgo+ID4gPiA+IC0gKiBuIGluZGljYXRl
+cyBudW1iZXIgb2YgcGlucyBpbiB0aGUgcG9ydCwgYSBpcyB0aGUgcmVnaXN0ZXIgaW5kZXgKPiA+
+ID4gPiAtICogYW5kIGYgaXMgcGluIGNvbmZpZ3VyYXRpb24gY2FwYWJpbGl0aWVzIHN1cHBvcnRl
+ZC4KPiA+ID4gPiArICogbSBpbmRpY2F0ZXMgdGhlIGJpdG1hcCBvZiBzdXBwb3J0ZWQgcGlucywg
+biBpbmRpY2F0ZXMgbnVtYmVyCj4gPiA+ID4gKyAqIG9mIHBpbnMgaW4gdGhlIHBvcnQsIGEgaXMg
+dGhlIHJlZ2lzdGVyIGluZGV4IGFuZCBmIGlzIHBpbgo+ID4gPiA+ICsgKiBjb25maWd1cmF0aW9u
+IGNhcGFiaWxpdGllcyBzdXBwb3J0ZWQuCj4gPiA+ID4gICAqLwo+ID4gPiA+IC0jZGVmaW5lIFJa
+RzJMX0dQSU9fUE9SVF9QQUNLKAo+Cj4gLCBhLCBmKSAgICAgICAgKCgobikgPDwgMjgpIHwgKChh
+KSA8PAo+ID4gMjApIHwKPiA+ID4gPiAoZikpCj4gPiA+ID4gKyNkZWZpbmUgUlpHMkxfR1BJT19Q
+T1JUX1BBQ0sobSwgbiwgYSwgZikgICAgICgoVUwobSkgPDwgMzIpIHwKPiA+IChVTChuKSA8PCAy
+OCkKPiA+ID4gPiB8ICgoYSkgPDwgMjApIHwgKGYpKQo+ID4gPiA+ICsjZGVmaW5lIFJaRzJMX0dQ
+SU9fUE9SVF9HRVRfUElOTUFQKHgpICAgICAgICAoKCh4KSAmIEdFTk1BU0soMzksCj4gPiAzMikp
+ID4+IDMyKQo+ID4gPiA+ICAjZGVmaW5lIFJaRzJMX0dQSU9fUE9SVF9HRVRfUElOQ05UKHgpICAg
+ICAgICAoKCh4KSAmIEdFTk1BU0soMzAsCj4gPiAyOCkpID4+IDI4KQo+ID4gPiA+ICAjZGVmaW5l
+IFJaRzJMX0dQSU9fUE9SVF9HRVRfSU5ERVgoeCkgKCgoeCkgJiBHRU5NQVNLKDI2LCAyMCkpID4+
+Cj4gPiA+ID4gMjApICAjZGVmaW5lIFJaRzJMX0dQSU9fUE9SVF9HRVRfQ0ZHUyh4KSAgKCh4KSAm
+IEdFTk1BU0soMTksIDApKSBAQAo+ID4gPiA+IC0xMjksNyArMTMxLDcgQEAgc3RydWN0IHJ6ZzJs
+X2RlZGljYXRlZF9jb25maWdzIHsKPiA+ID4gPgo+ID4gPiA+ICBzdHJ1Y3QgcnpnMmxfcGluY3Ry
+bF9kYXRhIHsKPiA+ID4gPiAgICAgICBjb25zdCBjaGFyICogY29uc3QgKnBvcnRfcGluczsKPiA+
+ID4gPiAtICAgICBjb25zdCB1MzIgKnBvcnRfcGluX2NvbmZpZ3M7Cj4gPiA+ID4gKyAgICAgY29u
+c3QgdTY0ICpwb3J0X3Bpbl9jb25maWdzOwo+ID4gPgo+ID4gPiBDYW4gdGhpcyBiZSBTb0Mgc3Bl
+Y2lmaWM/IE9ubHkgZm9yIFJaL0ZpdmUgeW91IG5lZWQgdGhpcyBjaGFuZ2VzLgo+ID4gPiBPdGhl
+cnMgU29DcyBsaWtlIFJaL3tHMkwsRzJMQyxWMkwgYW5kIEcyVUwpIHN0aWxsIHdvcmsgd2l0aCB1
+MzIqIGFzCj4gPiA+IHRoZXJlIGlzIG5vIGhvbGVzLiBXaXRoIHRoaXMgY2hhbmdlIG1lbW9yeSB1
+c2FnZSBpcyBkb3VibGVkIGFzIHdlCj4gPiA+IGNoYW5nZSBmcm9tCj4gPiA+IHUzMi0+dTY0Lgo+
+ID4gPgo+ID4gVGhpcyBpcyB0byBhdm9pZCB3cml0aW5nIHRvIHVuZG9jdW1lbnRlZCByZWdpc3Rl
+cnMgc28gSSBoYXZlIGFkZGVkIGZvcgo+ID4gYWxsIHRoZSBTb0NzLiBGb3IgZXhhbXBsZSBvbiB0
+aGUgUlovRzJMIFNPQyBQMCBoYXMgdHdvIHBpbnMgUDBfMSBhbmQKPiA+IFAwXzAgYnV0IERUL1NZ
+U0ZTIGNvdWxkIHVzZSB0aGUgUDBfMi1QMF83LiBUaGlzIHBhdGNoIHJlc3RyaWN0cyB1c2VycyB0
+bwo+ID4gdXNlIG9ubHkgYXZhaWxhYmxlIEdQSU8gcGlucy4KPgo+IEkgZ3Vlc3MgdGhhdCBzdGls
+bCBjYW4gYmUgYWNoaWV2ZWQsIGFzIHRoZSBiZWxvdyBtYWNybyBoYXMgdmFsaWQKPiBwaW5zIGlu
+Zm8/Pwo+Cj4gI2RlZmluZSBSWkcyTF9HUElPX1BPUlRfR0VUX1BJTkNOVCh4KSAgICgoKHgpICYg
+R0VOTUFTSygzMCwgMjgpKSA+PiAyOCkKPgo+IGlmICghKEJJVChiaXQpICYgR0VOTUFTSyhSWkcy
+TF9HUElPX1BPUlRfR0VUX1BJTkNOVCh4KSwgMCkpCj4gcmV0dXJuIC1FSU5WQUw7Cj4KQWdyZWVk
+LCBJZiBHZWVydCBpcyBPSyB0byBoYXZlIFNvQyBzcGVjaWZpYyBjaGVja3MgYXJvdW5kIEknbGwg
+ZG8gdGhlIGFib3ZlLgoKQ2hlZXJzLApQcmFiaGFrYXIKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
