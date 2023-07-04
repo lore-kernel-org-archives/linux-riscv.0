@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA1AC0015E
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 02:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2770EB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 02:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uIQKmuiFSGAFykiD09mD2IFIj6bxwPdP55mPaaR3NH0=; b=h8o71EdcNmdWMI
-	jLayGbKi2P+hLktOfRxtBbKLySWqRDJzdBf67RsDN6pdNnx8jdcUheTVZCF1p0RqWZVfRrfnlHlZH
-	oDC2fdpsz376jw13Wtq8ObAa3U0CC5JYdUemSrauySpZGrvCPVv18ALrcHJ50DeigsLBM0fpcndW9
-	+jf4I6S7fuuRhOks0GXBODdMp8CmaG3kx+G7Qf4LCH5+kSwTEhmdmS5csV7sDT9bMBx9g8PIhCv9i
-	ciKrwEwqX+ja5l3hlHzlsshEdytK73CkTMV4Lss1M9KXhPdBmtTqwVz8hh3VdtGLPnHXgJqlsOmpw
-	s5DUvlPoa7s7PRUtSiqg==;
+	List-Owner; bh=XAKCtTgK6trMLJxH7T1Si77ihM/nMMu8kbXY4LpoQ2g=; b=dZnqM7kjH0Hl3z
+	wxiaUf76LKCycRIU4YBIrhQgkFInNcFlagWM9DptLxh7OVI4RajuZMHAKiWyasj8m0Zgv8zXl6n4+
+	bGOqCwENi2o4yS5phl1fqD0JQkPx7/SMyDUmf3CnG5nH8OhcBAd3oX36ceIrGyrbLTxW0Vb8oz8VP
+	wN+9xSkHic2FmFnI8Tto1/z/OSOu8NgvmNXddk/ZLnwNxiozbu5el1Jh2yxDy9jO3zt3c8KklxP2v
+	goEb5oAgGY82wtbSPjQhQ9cMWLTn5PAtfChTqz+x3Fv+FtF9Zs24EwjFsppaaqOOX7XV9kktsFM3u
+	pxidS+ssxbg7yhapBSWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGVNo-00BsNq-2S;
-	Tue, 04 Jul 2023 02:03:12 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGVNj-00BsFv-1x
+	id 1qGVT6-00BtMM-2R;
+	Tue, 04 Jul 2023 02:08:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qGVT3-00BtLr-0i
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Jul 2023 02:03:10 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1ADA880C1;
-	Tue,  4 Jul 2023 10:02:48 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 4 Jul
- 2023 10:02:44 +0800
-Received: from localhost.localdomain (113.72.144.31) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 4 Jul
- 2023 10:02:43 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Conor Dooley <conor@kernel.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng
-	<hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>, "William
- Qiu" <william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: [PATCH v6 4/7] clk: starfive: Add StarFive JH7110 PLL clock driver
-Date: Tue, 4 Jul 2023 10:02:36 +0800
-Message-ID: <20230704020239.288500-5-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230704020239.288500-1-xingyu.wu@starfivetech.com>
-References: <20230704020239.288500-1-xingyu.wu@starfivetech.com>
+	Tue, 04 Jul 2023 02:08:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1688436514;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=46XvS/ZkZ0FJYtl/GBx+Zabgt+PEnyCPVYQ/cTleKgo=;
+	b=HY5SOzX7nHsax1cX4YzHtxXK8vU6j1l5BKlMmlAkmTJdSBHScgA7JqpGMvBmB6mxE/waoE
+	yhZE8MqkI8cy0vnKlms2Xxl+Tr2c0g09heEOQygMITqIs28s/SlcKv/i8NvcrCxinJY0rm
+	BAMZorjP3oXR6HhpfBFb9tvP370scns=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-196-fOwS-KRoPVONUCkxMwxRwA-1; Mon, 03 Jul 2023 22:08:33 -0400
+X-MC-Unique: fOwS-KRoPVONUCkxMwxRwA-1
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6355b301c9dso36816026d6.3
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 19:08:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688436512; x=1691028512;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=46XvS/ZkZ0FJYtl/GBx+Zabgt+PEnyCPVYQ/cTleKgo=;
+        b=ZxR4/3O96BudVzTGTfozxDE3Y0mVADTkXCGfuofX7QYuJS0ZGa7wc50kA+pkFm2+e+
+         faef8Gq1oQq/fQITuJgGaBDKHRgb9OQMn7pMJnmiiGBT4QDroDgk+TcSObSANFT0PsrO
+         54N/MIAt3xJl0w4eHlcEM/rn/5nzzDeu8qyQgyyg9u9vjyCfQ/DtZEJF9Cc+o2xnILha
+         hYpr+JtcYnrAdkmlDTYAvmDR9i7Ad7B5xDJX6l65hoizFq1VUDk/PDH7FFaijRUIsJ98
+         91qu2z/do4CEJzvcxBsj8Ju2+UNj+km9YgEhjVnZsWBAquDTWhGCmxMe52eCDGm8Kemy
+         N+cQ==
+X-Gm-Message-State: ABy/qLbIaJq9x2O8uzXrFu/kJ5z1pV8gqjOJDBuTZHdfLIuzKsF06UZ3
+	XIXPAbMLYA1ZVtWvV5ALrlmTDgKOgvL8URUY7VeJxgzGWKxgFTOlNE1FODci5IQGMXi7j7MvIaK
+	+dhbhnA3y8XiZRLSrnMfM5fnE3E+5
+X-Received: by 2002:a0c:ebc1:0:b0:635:ea31:5219 with SMTP id k1-20020a0cebc1000000b00635ea315219mr10481000qvq.51.1688436512538;
+        Mon, 03 Jul 2023 19:08:32 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlG42r0lnR4TShQx8Zb9i18v4YtybIifW85OFfwItXTBQeetBlU5ni0l6x/iS4lq1ryi269zRA==
+X-Received: by 2002:a0c:ebc1:0:b0:635:ea31:5219 with SMTP id k1-20020a0cebc1000000b00635ea315219mr10480985qvq.51.1688436512203;
+        Mon, 03 Jul 2023 19:08:32 -0700 (PDT)
+Received: from ?IPv6:2804:1b3:a800:faf8:1d15:affc:4ee8:6427? ([2804:1b3:a800:faf8:1d15:affc:4ee8:6427])
+        by smtp.gmail.com with ESMTPSA id ec17-20020ad44e71000000b00632191a70a2sm11803036qvb.103.2023.07.03.19.08.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Jul 2023 19:08:31 -0700 (PDT)
+Message-ID: <4f204c80c0a5ccb1ba88661d6f3ffea2737a2b0b.camel@redhat.com>
+Subject: Re: [RFC PATCH 1/1] riscv/atomic.h: Deduplicate arch_atomic.*
+From: Leonardo =?ISO-8859-1?Q?Br=E1s?= <leobras@redhat.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Mon, 03 Jul 2023 23:08:29 -0300
+In-Reply-To: <CAJF2gTRZO2hogUbZvj0f41JJvmqLNz-MKTHJshgdhNMpp9Bc8w@mail.gmail.com>
+References: <20230419062505.257231-1-leobras@redhat.com>
+	 <CAJ6HWG6nPdUQ_2_fSj6J7ZE7FB-T+VWT-kq9oW8BLTUtuQEWxA@mail.gmail.com>
+	 <CAJF2gTRZO2hogUbZvj0f41JJvmqLNz-MKTHJshgdhNMpp9Bc8w@mail.gmail.com>
+User-Agent: Evolution 3.48.3
 MIME-Version: 1.0
-X-Originating-IP: [113.72.144.31]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_190308_174172_765E7D9A 
-X-CRM114-Status: GOOD (  25.91  )
+X-CRM114-CacheID: sfid-20230703_190837_417306_D8903DA9 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,590 +96,230 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add driver for the StarFive JH7110 PLL clock controller
-and they work by reading and setting syscon registers.
-
-Co-developed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- MAINTAINERS                                   |   6 +
- drivers/clk/starfive/Kconfig                  |   8 +
- drivers/clk/starfive/Makefile                 |   1 +
- .../clk/starfive/clk-starfive-jh7110-pll.c    | 507 ++++++++++++++++++
- 4 files changed, 522 insertions(+)
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-pll.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 58ba04bd0bc8..b59b4d217991 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20127,6 +20127,12 @@ S:	Supported
- F:	Documentation/devicetree/bindings/mmc/starfive*
- F:	drivers/mmc/host/dw_mmc-starfive.c
- 
-+STARFIVE JH7110 PLL CLOCK DRIVER
-+M:	Xingyu Wu <xingyu.wu@starfivetech.com>
-+S:	Supported
-+F:	Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
-+F:	drivers/clk/starfive/clk-starfive-jh7110-pll.*
-+
- STARFIVE JH7110 SYSCON
- M:	William Qiu <william.qiu@starfivetech.com>
- M:	Xingyu Wu <xingyu.wu@starfivetech.com>
-diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-index 5d2333106f13..5195f7be5213 100644
---- a/drivers/clk/starfive/Kconfig
-+++ b/drivers/clk/starfive/Kconfig
-@@ -21,6 +21,14 @@ config CLK_STARFIVE_JH7100_AUDIO
- 	  Say Y or M here to support the audio clocks on the StarFive JH7100
- 	  SoC.
- 
-+config CLK_STARFIVE_JH7110_PLL
-+	bool "StarFive JH7110 PLL clock support"
-+	depends on ARCH_STARFIVE || COMPILE_TEST
-+	default ARCH_STARFIVE
-+	help
-+	  Say yes here to support the PLL clock controller on the
-+	  StarFive JH7110 SoC.
-+
- config CLK_STARFIVE_JH7110_SYS
- 	bool "StarFive JH7110 system clock support"
- 	depends on ARCH_STARFIVE || COMPILE_TEST
-diff --git a/drivers/clk/starfive/Makefile b/drivers/clk/starfive/Makefile
-index f3df7d957b1e..b48e539e52b0 100644
---- a/drivers/clk/starfive/Makefile
-+++ b/drivers/clk/starfive/Makefile
-@@ -4,5 +4,6 @@ obj-$(CONFIG_CLK_STARFIVE_JH71X0)	+= clk-starfive-jh71x0.o
- obj-$(CONFIG_CLK_STARFIVE_JH7100)	+= clk-starfive-jh7100.o
- obj-$(CONFIG_CLK_STARFIVE_JH7100_AUDIO)	+= clk-starfive-jh7100-audio.o
- 
-+obj-$(CONFIG_CLK_STARFIVE_JH7110_PLL)	+= clk-starfive-jh7110-pll.o
- obj-$(CONFIG_CLK_STARFIVE_JH7110_SYS)	+= clk-starfive-jh7110-sys.o
- obj-$(CONFIG_CLK_STARFIVE_JH7110_AON)	+= clk-starfive-jh7110-aon.o
-diff --git a/drivers/clk/starfive/clk-starfive-jh7110-pll.c b/drivers/clk/starfive/clk-starfive-jh7110-pll.c
-new file mode 100644
-index 000000000000..b10c142d456d
---- /dev/null
-+++ b/drivers/clk/starfive/clk-starfive-jh7110-pll.c
-@@ -0,0 +1,507 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * StarFive JH7110 PLL Clock Generator Driver
-+ *
-+ * Copyright (C) 2023 StarFive Technology Co., Ltd.
-+ * Copyright (C) 2023 Emil Renner Berthing <emil.renner.berthing@canonical.com>
-+ *
-+ * This driver is about to register JH7110 PLL clock generator and support ops.
-+ * The JH7110 have three PLL clock, PLL0, PLL1 and PLL2.
-+ * Each PLL clocks work in integer mode or fraction mode by some dividers,
-+ * and the configuration registers and dividers are set in several syscon registers.
-+ * The formula for calculating frequency is:
-+ * Fvco = Fref * (NI + NF) / M / Q1
-+ * Fref: OSC source clock rate
-+ * NI: integer frequency dividing ratio of feedback divider, set by fbdiv[11:0].
-+ * NF: fractional frequency dividing ratio, set by frac[23:0]. NF = frac[23:0] / 2^24 = 0 ~ 0.999.
-+ * M: frequency dividing ratio of pre-divider, set by prediv[5:0].
-+ * Q1: frequency dividing ratio of post divider, set by 2^postdiv1[1:0], eg. 1, 2, 4 or 8.
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/clk-provider.h>
-+#include <linux/debugfs.h>
-+#include <linux/device.h>
-+#include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include <dt-bindings/clock/starfive,jh7110-crg.h>
-+
-+/* this driver expects a 24MHz input frequency from the oscillator */
-+#define JH7110_PLL_OSC_RATE		24000000UL
-+
-+#define JH7110_PLL0_PD_OFFSET		0x18
-+#define JH7110_PLL0_DACPD_SHIFT		24
-+#define JH7110_PLL0_DACPD_MASK		BIT(24)
-+#define JH7110_PLL0_DSMPD_SHIFT		25
-+#define JH7110_PLL0_DSMPD_MASK		BIT(25)
-+#define JH7110_PLL0_FBDIV_OFFSET	0x1c
-+#define JH7110_PLL0_FBDIV_SHIFT		0
-+#define JH7110_PLL0_FBDIV_MASK		GENMASK(11, 0)
-+#define JH7110_PLL0_FRAC_OFFSET		0x20
-+#define JH7110_PLL0_PREDIV_OFFSET	0x24
-+
-+#define JH7110_PLL1_PD_OFFSET		0x24
-+#define JH7110_PLL1_DACPD_SHIFT		15
-+#define JH7110_PLL1_DACPD_MASK		BIT(15)
-+#define JH7110_PLL1_DSMPD_SHIFT		16
-+#define JH7110_PLL1_DSMPD_MASK		BIT(16)
-+#define JH7110_PLL1_FBDIV_OFFSET	0x24
-+#define JH7110_PLL1_FBDIV_SHIFT		17
-+#define JH7110_PLL1_FBDIV_MASK		GENMASK(28, 17)
-+#define JH7110_PLL1_FRAC_OFFSET		0x28
-+#define JH7110_PLL1_PREDIV_OFFSET	0x2c
-+
-+#define JH7110_PLL2_PD_OFFSET		0x2c
-+#define JH7110_PLL2_DACPD_SHIFT		15
-+#define JH7110_PLL2_DACPD_MASK		BIT(15)
-+#define JH7110_PLL2_DSMPD_SHIFT		16
-+#define JH7110_PLL2_DSMPD_MASK		BIT(16)
-+#define JH7110_PLL2_FBDIV_OFFSET	0x2c
-+#define JH7110_PLL2_FBDIV_SHIFT		17
-+#define JH7110_PLL2_FBDIV_MASK		GENMASK(28, 17)
-+#define JH7110_PLL2_FRAC_OFFSET		0x30
-+#define JH7110_PLL2_PREDIV_OFFSET	0x34
-+
-+#define JH7110_PLL_FRAC_SHIFT		0
-+#define JH7110_PLL_FRAC_MASK		GENMASK(23, 0)
-+#define JH7110_PLL_POSTDIV1_SHIFT	28
-+#define JH7110_PLL_POSTDIV1_MASK	GENMASK(29, 28)
-+#define JH7110_PLL_PREDIV_SHIFT		0
-+#define JH7110_PLL_PREDIV_MASK		GENMASK(5, 0)
-+
-+enum jh7110_pll_mode {
-+	JH7110_PLL_MODE_FRACTION,
-+	JH7110_PLL_MODE_INTEGER,
-+};
-+
-+struct jh7110_pll_preset {
-+	unsigned long freq;
-+	u32 frac;		/* frac value should be decimals multiplied by 2^24 */
-+	unsigned fbdiv    : 12;	/* fbdiv value should be 8 to 4095 */
-+	unsigned prediv   :  6;
-+	unsigned postdiv1 :  2;
-+	unsigned mode     :  1;
-+};
-+
-+struct jh7110_pll_info {
-+	char *name;
-+	const struct jh7110_pll_preset *presets;
-+	unsigned int npresets;
-+	struct {
-+		unsigned int pd;
-+		unsigned int fbdiv;
-+		unsigned int frac;
-+		unsigned int prediv;
-+	} offsets;
-+	struct {
-+		u32 dacpd;
-+		u32 dsmpd;
-+		u32 fbdiv;
-+	} masks;
-+	struct {
-+		char dacpd;
-+		char dsmpd;
-+		char fbdiv;
-+	} shifts;
-+};
-+
-+#define _JH7110_PLL(_idx, _name, _presets)				\
-+	[_idx] = {							\
-+		.name = _name,						\
-+		.presets = _presets,					\
-+		.npresets = ARRAY_SIZE(_presets),			\
-+		.offsets = {						\
-+			.pd = JH7110_PLL##_idx##_PD_OFFSET,		\
-+			.fbdiv = JH7110_PLL##_idx##_FBDIV_OFFSET,	\
-+			.frac = JH7110_PLL##_idx##_FRAC_OFFSET,		\
-+			.prediv = JH7110_PLL##_idx##_PREDIV_OFFSET,	\
-+		},							\
-+		.masks = {						\
-+			.dacpd = JH7110_PLL##_idx##_DACPD_MASK,		\
-+			.dsmpd = JH7110_PLL##_idx##_DSMPD_MASK,		\
-+			.fbdiv = JH7110_PLL##_idx##_FBDIV_MASK,		\
-+		},							\
-+		.shifts = {						\
-+			.dacpd = JH7110_PLL##_idx##_DACPD_SHIFT,	\
-+			.dsmpd = JH7110_PLL##_idx##_DSMPD_SHIFT,	\
-+			.fbdiv = JH7110_PLL##_idx##_FBDIV_SHIFT,	\
-+		},							\
-+	}
-+#define JH7110_PLL(idx, name, presets) _JH7110_PLL(idx, name, presets)
-+
-+struct jh7110_pll_data {
-+	struct clk_hw hw;
-+	unsigned int idx;
-+};
-+
-+struct jh7110_pll_priv {
-+	struct device *dev;
-+	struct regmap *regmap;
-+	struct jh7110_pll_data pll[JH7110_PLLCLK_END];
-+};
-+
-+struct jh7110_pll_regvals {
-+	u32 dacpd;
-+	u32 dsmpd;
-+	u32 fbdiv;
-+	u32 frac;
-+	u32 postdiv1;
-+	u32 prediv;
-+};
-+
-+/*
-+ * Because the pll frequency is relatively fixed,
-+ * it cannot be set arbitrarily, so it needs a specific configuration.
-+ * PLL0 frequency should be multiple of 125MHz (USB frequency).
-+ */
-+static const struct jh7110_pll_preset jh7110_pll0_presets[] = {
-+	{
-+		.freq = 375000000,
-+		.fbdiv = 125,
-+		.prediv = 8,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 500000000,
-+		.fbdiv = 125,
-+		.prediv = 6,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 625000000,
-+		.fbdiv = 625,
-+		.prediv = 24,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 750000000,
-+		.fbdiv = 125,
-+		.prediv = 4,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 875000000,
-+		.fbdiv = 875,
-+		.prediv = 24,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 1000000000,
-+		.fbdiv = 125,
-+		.prediv = 3,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 1250000000,
-+		.fbdiv = 625,
-+		.prediv = 12,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 1375000000,
-+		.fbdiv = 1375,
-+		.prediv = 24,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 1500000000,
-+		.fbdiv = 125,
-+		.prediv = 2,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	},
-+};
-+
-+static const struct jh7110_pll_preset jh7110_pll1_presets[] = {
-+	{
-+		.freq = 1066000000,
-+		.fbdiv = 533,
-+		.prediv = 12,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 1200000000,
-+		.fbdiv = 50,
-+		.prediv = 1,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 1400000000,
-+		.fbdiv = 350,
-+		.prediv = 6,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 1600000000,
-+		.fbdiv = 200,
-+		.prediv = 3,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	},
-+};
-+
-+static const struct jh7110_pll_preset jh7110_pll2_presets[] = {
-+	{
-+		.freq = 1188000000,
-+		.fbdiv = 99,
-+		.prediv = 2,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	}, {
-+		.freq = 1228800000,
-+		.fbdiv = 256,
-+		.prediv = 5,
-+		.postdiv1 = 0,
-+		.mode = JH7110_PLL_MODE_INTEGER,
-+	},
-+};
-+
-+static const struct jh7110_pll_info jh7110_plls[JH7110_PLLCLK_END] = {
-+	JH7110_PLL(JH7110_CLK_PLL0_OUT, "pll0_out", jh7110_pll0_presets),
-+	JH7110_PLL(JH7110_CLK_PLL1_OUT, "pll1_out", jh7110_pll1_presets),
-+	JH7110_PLL(JH7110_CLK_PLL2_OUT, "pll2_out", jh7110_pll2_presets),
-+};
-+
-+static struct jh7110_pll_data *jh7110_pll_data_from(struct clk_hw *hw)
-+{
-+	return container_of(hw, struct jh7110_pll_data, hw);
-+}
-+
-+static struct jh7110_pll_priv *jh7110_pll_priv_from(struct jh7110_pll_data *pll)
-+{
-+	return container_of(pll, struct jh7110_pll_priv, pll[pll->idx]);
-+}
-+
-+static void jh7110_pll_regvals_get(struct regmap *regmap,
-+				   const struct jh7110_pll_info *info,
-+				   struct jh7110_pll_regvals *ret)
-+{
-+	u32 val;
-+
-+	regmap_read(regmap, info->offsets.pd, &val);
-+	ret->dacpd = (val & info->masks.dacpd) >> info->shifts.dacpd;
-+	ret->dsmpd = (val & info->masks.dsmpd) >> info->shifts.dsmpd;
-+
-+	regmap_read(regmap, info->offsets.fbdiv, &val);
-+	ret->fbdiv = (val & info->masks.fbdiv) >> info->shifts.fbdiv;
-+
-+	regmap_read(regmap, info->offsets.frac, &val);
-+	ret->frac = (val & JH7110_PLL_FRAC_MASK) >> JH7110_PLL_FRAC_SHIFT;
-+	ret->postdiv1 = (val & JH7110_PLL_POSTDIV1_MASK) >> JH7110_PLL_POSTDIV1_SHIFT;
-+
-+	regmap_read(regmap, info->offsets.prediv, &val);
-+	ret->prediv = (val & JH7110_PLL_PREDIV_MASK) >> JH7110_PLL_PREDIV_SHIFT;
-+}
-+
-+static unsigned long jh7110_pll_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
-+{
-+	struct jh7110_pll_data *pll = jh7110_pll_data_from(hw);
-+	struct jh7110_pll_priv *priv = jh7110_pll_priv_from(pll);
-+	struct jh7110_pll_regvals val;
-+	unsigned long rate;
-+
-+	jh7110_pll_regvals_get(priv->regmap, &jh7110_plls[pll->idx], &val);
-+
-+	/*
-+	 * dacpd = dsmpd = 0: fraction mode
-+	 * dacpd = dsmpd = 1: integer mode, frac value ignored
-+	 *
-+	 * rate = parent * (fbdiv + frac/2^24) / prediv / 2^postdiv1
-+	 *      = (parent * fbdiv + parent * frac / 2^24) / (prediv * 2^postdiv1)
-+	 */
-+	if (val.dacpd == 0 && val.dsmpd == 0)
-+		rate = parent_rate * val.frac / (1UL << 24);
-+	else if (val.dacpd == 1 && val.dsmpd == 1)
-+		rate = 0;
-+	else
-+		return 0;
-+
-+	rate += parent_rate * val.fbdiv;
-+	rate /= val.prediv << val.postdiv1;
-+
-+	return rate;
-+}
-+
-+static int jh7110_pll_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
-+{
-+	struct jh7110_pll_data *pll = jh7110_pll_data_from(hw);
-+	const struct jh7110_pll_info *info = &jh7110_plls[pll->idx];
-+	const struct jh7110_pll_preset *selected = &info->presets[0];
-+	unsigned int idx;
-+
-+	/* if the parent rate doesn't match our expectations the presets won't work */
-+	if (req->best_parent_rate != JH7110_PLL_OSC_RATE) {
-+		req->rate = jh7110_pll_recalc_rate(hw, req->best_parent_rate);
-+		return 0;
-+	}
-+
-+	/* find highest rate lower or equal to the requested rate */
-+	for (idx = 1; idx < info->npresets; idx++) {
-+		const struct jh7110_pll_preset *val = &info->presets[idx];
-+
-+		if (req->rate < val->freq)
-+			break;
-+
-+		selected = val;
-+	}
-+
-+	req->rate = selected->freq;
-+	return 0;
-+}
-+
-+static int jh7110_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-+			       unsigned long parent_rate)
-+{
-+	struct jh7110_pll_data *pll = jh7110_pll_data_from(hw);
-+	struct jh7110_pll_priv *priv = jh7110_pll_priv_from(pll);
-+	const struct jh7110_pll_info *info = &jh7110_plls[pll->idx];
-+	const struct jh7110_pll_preset *val;
-+	unsigned int idx;
-+
-+	/* if the parent rate doesn't match our expectations the presets won't work */
-+	if (parent_rate != JH7110_PLL_OSC_RATE)
-+		return -EINVAL;
-+
-+	for (idx = 0, val = &info->presets[0]; idx < info->npresets; idx++, val++) {
-+		if (val->freq == rate)
-+			goto found;
-+	}
-+	return -EINVAL;
-+
-+found:
-+	if (val->mode == JH7110_PLL_MODE_FRACTION)
-+		regmap_update_bits(priv->regmap, info->offsets.frac, JH7110_PLL_FRAC_MASK,
-+				   val->frac << JH7110_PLL_FRAC_SHIFT);
-+
-+	regmap_update_bits(priv->regmap, info->offsets.pd, info->masks.dacpd,
-+			   (u32)val->mode << info->shifts.dacpd);
-+	regmap_update_bits(priv->regmap, info->offsets.pd, info->masks.dsmpd,
-+			   (u32)val->mode << info->shifts.dsmpd);
-+	regmap_update_bits(priv->regmap, info->offsets.prediv, JH7110_PLL_PREDIV_MASK,
-+			   (u32)val->prediv << JH7110_PLL_PREDIV_SHIFT);
-+	regmap_update_bits(priv->regmap, info->offsets.fbdiv, info->masks.fbdiv,
-+			   val->fbdiv << info->shifts.fbdiv);
-+	regmap_update_bits(priv->regmap, info->offsets.frac, JH7110_PLL_POSTDIV1_MASK,
-+			   (u32)val->postdiv1 << JH7110_PLL_POSTDIV1_SHIFT);
-+
-+	return 0;
-+}
-+
-+#ifdef CONFIG_DEBUG_FS
-+static int jh7110_pll_registers_read(struct seq_file *s, void *unused)
-+{
-+	struct jh7110_pll_data *pll = s->private;
-+	struct jh7110_pll_priv *priv = jh7110_pll_priv_from(pll);
-+	struct jh7110_pll_regvals val;
-+
-+	jh7110_pll_regvals_get(priv->regmap, &jh7110_plls[pll->idx], &val);
-+
-+	seq_printf(s, "fbdiv=%u\n"
-+		      "frac=%u\n"
-+		      "prediv=%u\n"
-+		      "postdiv1=%u\n"
-+		      "dacpd=%u\n"
-+		      "dsmpd=%u\n",
-+		      val.fbdiv, val.frac, val.prediv, val.postdiv1,
-+		      val.dacpd, val.dsmpd);
-+
-+	return 0;
-+}
-+
-+static int jh7110_pll_registers_open(struct inode *inode, struct file *f)
-+{
-+	return single_open(f, jh7110_pll_registers_read, inode->i_private);
-+}
-+
-+static const struct file_operations jh7110_pll_registers_ops = {
-+	.owner = THIS_MODULE,
-+	.open = jh7110_pll_registers_open,
-+	.release = single_release,
-+	.read = seq_read,
-+	.llseek = seq_lseek
-+};
-+
-+static void jh7110_pll_debug_init(struct clk_hw *hw, struct dentry *dentry)
-+{
-+	struct jh7110_pll_data *pll = jh7110_pll_data_from(hw);
-+
-+	debugfs_create_file("registers", 0400, dentry, pll,
-+			    &jh7110_pll_registers_ops);
-+}
-+#else
-+#define jh7110_pll_debug_init NULL
-+#endif
-+
-+static const struct clk_ops jh7110_pll_ops = {
-+	.recalc_rate = jh7110_pll_recalc_rate,
-+	.determine_rate = jh7110_pll_determine_rate,
-+	.set_rate = jh7110_pll_set_rate,
-+	.debug_init = jh7110_pll_debug_init,
-+};
-+
-+static struct clk_hw *jh7110_pll_get(struct of_phandle_args *clkspec, void *data)
-+{
-+	struct jh7110_pll_priv *priv = data;
-+	unsigned int idx = clkspec->args[0];
-+
-+	if (idx < JH7110_PLLCLK_END)
-+		return &priv->pll[idx].hw;
-+
-+	return ERR_PTR(-EINVAL);
-+}
-+
-+static int jh7110_pll_probe(struct platform_device *pdev)
-+{
-+	struct jh7110_pll_priv *priv;
-+	unsigned int idx;
-+	int ret;
-+
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->dev = &pdev->dev;
-+	priv->regmap = syscon_node_to_regmap(priv->dev->of_node->parent);
-+	if (IS_ERR(priv->regmap))
-+		return PTR_ERR(priv->regmap);
-+
-+	for (idx = 0; idx < JH7110_PLLCLK_END; idx++) {
-+		struct clk_parent_data parents = {
-+			.index = 0,
-+		};
-+		struct clk_init_data init = {
-+			.name = jh7110_plls[idx].name,
-+			.ops = &jh7110_pll_ops,
-+			.parent_data = &parents,
-+			.num_parents = 1,
-+			.flags = 0,
-+		};
-+		struct jh7110_pll_data *pll = &priv->pll[idx];
-+
-+		pll->hw.init = &init;
-+		pll->idx = idx;
-+
-+		ret = devm_clk_hw_register(&pdev->dev, &pll->hw);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return devm_of_clk_add_hw_provider(&pdev->dev, jh7110_pll_get, priv);
-+}
-+
-+static const struct of_device_id jh7110_pll_match[] = {
-+	{ .compatible = "starfive,jh7110-pll" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, jh7110_pll_match);
-+
-+static struct platform_driver jh7110_pll_driver = {
-+	.driver = {
-+		.name = "clk-starfive-jh7110-pll",
-+		.of_match_table = jh7110_pll_match,
-+	},
-+};
-+builtin_platform_driver_probe(jh7110_pll_driver, jh7110_pll_probe);
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAyMDIzLTA1LTI1IGF0IDE4OjA2ICswODAwLCBHdW8gUmVuIHdyb3RlOgo+IE9uIFRo
+dSwgTWF5IDI1LCAyMDIzIGF0IDU6MzHigK9QTSBMZW9uYXJkbyBCcmFzIFNvYXJlcyBQYXNzb3MK
+PiA8bGVvYnJhc0ByZWRoYXQuY29tPiB3cm90ZToKPiA+IAo+ID4gRnJpZW5kbHkgcGluZz8KPiA+
+IAo+ID4gT24gV2VkLCBBcHIgMTksIDIwMjMgYXQgMzoyNeKAr0FNIExlb25hcmRvIEJyYXMgPGxl
+b2JyYXNAcmVkaGF0LmNvbT4gd3JvdGU6Cj4gPiA+IAo+ID4gPiBTb21lIGZ1bmN0aW9ucyB1c2Ug
+bW9zdGx5IHRoZSBzYW1lIGFzbSBmb3IgMzItYml0IGFuZCA2NC1iaXQgdmVyc2lvbnMuCj4gPiA+
+IAo+ID4gPiBNYWtlIGEgbWFjcm8gdGhhdCBpcyBnZW5lcmljIGVub3VnaCBhbmQgYXZvaWQgY29k
+ZSBkdXBsaWNhdGlvbi4KPiA+ID4gCj4gPiA+IFNpZ25lZC1vZmYtYnk6IExlb25hcmRvIEJyYXMg
+PGxlb2JyYXNAcmVkaGF0LmNvbT4KPiA+ID4gLS0tCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2F0b21pYy5oIHwgMTY0ICsrKysrKysrKysrKysrKy0tLS0tLS0tLS0tLS0tLS0tCj4gPiA+
+ICAxIGZpbGUgY2hhbmdlZCwgNzYgaW5zZXJ0aW9ucygrKSwgODggZGVsZXRpb25zKC0pCj4gPiA+
+IAo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hdG9taWMuaCBiL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vYXRvbWljLmgKPiA+ID4gaW5kZXggMGRmZTlkODU3YTc2Mi4u
+ODVlYjJlZGJjODIxOSAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9h
+dG9taWMuaAo+ID4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2F0b21pYy5oCj4gPiA+
+IEBAIC0xOTYsMjIgKzE5NiwyOCBAQCBBVE9NSUNfT1BTKHhvciwgeG9yLCBpKQo+ID4gPiAgI3Vu
+ZGVmIEFUT01JQ19GRVRDSF9PUAo+ID4gPiAgI3VuZGVmIEFUT01JQ19PUF9SRVRVUk4KPiA+ID4g
+Cj4gPiA+ICsjZGVmaW5lIF9hcmNoX2F0b21pY19mZXRjaF9hZGRfdW5sZXNzKF9wcmV2LCBfcmMs
+IGNvdW50ZXIsIF9hLCBfdSwgc2Z4KSAgICAgICAgXAo+ID4gPiArKHsgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4g
+PiA+ICsgICAgICAgX19hc21fXyBfX3ZvbGF0aWxlX18gKCAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICIwOiAgICAgbHIuIiBz
+ZnggIiAgICAgJVtwXSwgICVbY11cbiIgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAg
+ICAgICAgICAgIiAgICAgICBiZXEgICAgICAgICAgICAlW3BdLCAgJVt1XSwgMWZcbiIgICAgICAg
+ICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAiICAgICAgIGFkZCAgICAgICAgICAgICVb
+cmNdLCAlW3BdLCAlW2FdXG4iICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICIg
+ICAgICAgc2MuIiBzZnggIi5ybCAgJVtyY10sICVbcmNdLCAlW2NdXG4iICAgICAgICAgICAgXAo+
+ID4gPiArICAgICAgICAgICAgICAgIiAgICAgICBibmV6ICAgICAgICAgICAlW3JjXSwgMGJcbiIg
+ICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAiICAgICAgIGZlbmNl
+ICAgICAgICAgIHJ3LCByd1xuIiAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAg
+ICAgICAgICAgICIxOlxuIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgXAo+ID4gPiArICAgICAgICAgICAgICAgOiBbcF0iPSZyIiAoX3ByZXYpLCBbcmNd
+Ij0mciIgKF9yYyksIFtjXSIrQSIgKGNvdW50ZXIpICBcCj4gPiA+ICsgICAgICAgICAgICAgICA6
+IFthXSJyIiAoX2EpLCBbdV0iciIgKF91KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwK
+PiA+ID4gKyAgICAgICAgICAgICAgIDogIm1lbW9yeSIpOyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArfSkKPiA+ID4gKwo+ID4gPiAgLyogVGhpcyBp
+cyByZXF1aXJlZCB0byBwcm92aWRlIGEgZnVsbCBiYXJyaWVyIG9uIHN1Y2Nlc3MuICovCj4gPiA+
+ICBzdGF0aWMgX19hbHdheXNfaW5saW5lIGludCBhcmNoX2F0b21pY19mZXRjaF9hZGRfdW5sZXNz
+KGF0b21pY190ICp2LCBpbnQgYSwgaW50IHUpCj4gPiA+ICB7Cj4gPiA+ICAgICAgICAgaW50IHBy
+ZXYsIHJjOwo+ID4gPiAKPiA+ID4gLSAgICAgICBfX2FzbV9fIF9fdm9sYXRpbGVfXyAoCj4gPiA+
+IC0gICAgICAgICAgICAgICAiMDogICAgIGxyLncgICAgICVbcF0sICAlW2NdXG4iCj4gPiA+IC0g
+ICAgICAgICAgICAgICAiICAgICAgIGJlcSAgICAgICVbcF0sICAlW3VdLCAxZlxuIgo+ID4gPiAt
+ICAgICAgICAgICAgICAgIiAgICAgICBhZGQgICAgICAlW3JjXSwgJVtwXSwgJVthXVxuIgo+ID4g
+PiAtICAgICAgICAgICAgICAgIiAgICAgICBzYy53LnJsICAlW3JjXSwgJVtyY10sICVbY11cbiIK
+PiA+ID4gLSAgICAgICAgICAgICAgICIgICAgICAgYm5leiAgICAgJVtyY10sIDBiXG4iCj4gPiA+
+IC0gICAgICAgICAgICAgICAiICAgICAgIGZlbmNlICAgIHJ3LCByd1xuIgo+ID4gPiAtICAgICAg
+ICAgICAgICAgIjE6XG4iCj4gPiA+IC0gICAgICAgICAgICAgICA6IFtwXSI9JnIiIChwcmV2KSwg
+W3JjXSI9JnIiIChyYyksIFtjXSIrQSIgKHYtPmNvdW50ZXIpCj4gPiA+IC0gICAgICAgICAgICAg
+ICA6IFthXSJyIiAoYSksIFt1XSJyIiAodSkKPiA+ID4gLSAgICAgICAgICAgICAgIDogIm1lbW9y
+eSIpOwo+ID4gPiArICAgICAgIF9hcmNoX2F0b21pY19mZXRjaF9hZGRfdW5sZXNzKHByZXYsIHJj
+LCB2LT5jb3VudGVyLCBhLCB1LCAidyIpOwo+ID4gPiArCj4gPiA+ICAgICAgICAgcmV0dXJuIHBy
+ZXY7Cj4gPiA+ICB9Cj4gPiA+ICAjZGVmaW5lIGFyY2hfYXRvbWljX2ZldGNoX2FkZF91bmxlc3Mg
+YXJjaF9hdG9taWNfZmV0Y2hfYWRkX3VubGVzcwo+ID4gPiBAQCAtMjIyLDE3ICsyMjgsOCBAQCBz
+dGF0aWMgX19hbHdheXNfaW5saW5lIHM2NCBhcmNoX2F0b21pYzY0X2ZldGNoX2FkZF91bmxlc3Mo
+YXRvbWljNjRfdCAqdiwgczY0IGEsCj4gPiA+ICAgICAgICAgczY0IHByZXY7Cj4gPiA+ICAgICAg
+ICAgbG9uZyByYzsKPiA+ID4gCj4gPiA+IC0gICAgICAgX19hc21fXyBfX3ZvbGF0aWxlX18gKAo+
+ID4gPiAtICAgICAgICAgICAgICAgIjA6ICAgICBsci5kICAgICAlW3BdLCAgJVtjXVxuIgo+ID4g
+PiAtICAgICAgICAgICAgICAgIiAgICAgICBiZXEgICAgICAlW3BdLCAgJVt1XSwgMWZcbiIKPiA+
+ID4gLSAgICAgICAgICAgICAgICIgICAgICAgYWRkICAgICAgJVtyY10sICVbcF0sICVbYV1cbiIK
+PiA+ID4gLSAgICAgICAgICAgICAgICIgICAgICAgc2MuZC5ybCAgJVtyY10sICVbcmNdLCAlW2Nd
+XG4iCj4gPiA+IC0gICAgICAgICAgICAgICAiICAgICAgIGJuZXogICAgICVbcmNdLCAwYlxuIgo+
+ID4gPiAtICAgICAgICAgICAgICAgIiAgICAgICBmZW5jZSAgICBydywgcndcbiIKPiA+ID4gLSAg
+ICAgICAgICAgICAgICIxOlxuIgo+ID4gPiAtICAgICAgICAgICAgICAgOiBbcF0iPSZyIiAocHJl
+diksIFtyY10iPSZyIiAocmMpLCBbY10iK0EiICh2LT5jb3VudGVyKQo+ID4gPiAtICAgICAgICAg
+ICAgICAgOiBbYV0iciIgKGEpLCBbdV0iciIgKHUpCj4gPiA+IC0gICAgICAgICAgICAgICA6ICJt
+ZW1vcnkiKTsKPiA+ID4gKyAgICAgICBfYXJjaF9hdG9taWNfZmV0Y2hfYWRkX3VubGVzcyhwcmV2
+LCByYywgdi0+Y291bnRlciwgYSwgdSwgImQiKTsKPiA+ID4gKwo+ID4gPiAgICAgICAgIHJldHVy
+biBwcmV2Owo+ID4gPiAgfQo+ID4gPiAgI2RlZmluZSBhcmNoX2F0b21pYzY0X2ZldGNoX2FkZF91
+bmxlc3MgYXJjaF9hdG9taWM2NF9mZXRjaF9hZGRfdW5sZXNzCj4gPiA+IEBAIC0zMTAsNjEgKzMw
+Nyw3OSBAQCBBVE9NSUNfT1BTKCkKPiA+ID4gICN1bmRlZiBBVE9NSUNfT1BTCj4gPiA+ICAjdW5k
+ZWYgQVRPTUlDX09QCj4gPiA+IAo+ID4gPiArI2RlZmluZSBfYXJjaF9hdG9taWNfaW5jX3VubGVz
+c19uZWdhdGl2ZShfcHJldiwgX3JjLCBjb3VudGVyLCBzZngpICAgICBcCj4gPiA+ICsoeyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIFwKPiA+ID4gKyAgICAgICBfX2FzbV9fIF9fdm9sYXRpbGVfXyAoICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAgICAgICAgICAgIjA6
+ICAgICBsci4iIHNmeCAiICAgICAgJVtwXSwgICVbY11cbiIgICAgICAgICAgICAgICAgICBcCj4g
+PiA+ICsgICAgICAgICAgICAgICAiICAgICAgIGJsdHogICAgICAgICAgICAlW3BdLCAgMWZcbiIg
+ICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICIgICAgICAgYWRkaSAg
+ICAgICAgICAgICVbcmNdLCAlW3BdLCAxXG4iICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAg
+ICAgICAgICAgIiAgICAgICBzYy4iIHNmeCAiLnJsICAgJVtyY10sICVbcmNdLCAlW2NdXG4iICAg
+ICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAiICAgICAgIGJuZXogICAgICAgICAgICAl
+W3JjXSwgMGJcbiIgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICIg
+ICAgICAgZmVuY2UgICAgICAgICAgIHJ3LCByd1xuIiAgICAgICAgICAgICAgICAgICAgICAgXAo+
+ID4gPiArICAgICAgICAgICAgICAgIjE6XG4iICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICA6IFtwXSI9JnIiIChf
+cHJldiksIFtyY10iPSZyIiAoX3JjKSwgW2NdIitBIiAoY291bnRlcikgIFwKPiA+ID4gKyAgICAg
+ICAgICAgICAgIDogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgXAo+ID4gPiArICAgICAgICAgICAgICAgOiAibWVtb3J5Iik7ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICt9KQo+ID4gPiArCj4gPiA+
+ICBzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgYXJjaF9hdG9taWNfaW5jX3VubGVzc19uZWdh
+dGl2ZShhdG9taWNfdCAqdikKPiA+ID4gIHsKPiA+ID4gICAgICAgICBpbnQgcHJldiwgcmM7Cj4g
+PiA+IAo+ID4gPiAtICAgICAgIF9fYXNtX18gX192b2xhdGlsZV9fICgKPiA+ID4gLSAgICAgICAg
+ICAgICAgICIwOiAgICAgbHIudyAgICAgICVbcF0sICAlW2NdXG4iCj4gPiA+IC0gICAgICAgICAg
+ICAgICAiICAgICAgIGJsdHogICAgICAlW3BdLCAgMWZcbiIKPiA+ID4gLSAgICAgICAgICAgICAg
+ICIgICAgICAgYWRkaSAgICAgICVbcmNdLCAlW3BdLCAxXG4iCj4gPiA+IC0gICAgICAgICAgICAg
+ICAiICAgICAgIHNjLncucmwgICAlW3JjXSwgJVtyY10sICVbY11cbiIKPiA+ID4gLSAgICAgICAg
+ICAgICAgICIgICAgICAgYm5leiAgICAgICVbcmNdLCAwYlxuIgo+ID4gPiAtICAgICAgICAgICAg
+ICAgIiAgICAgICBmZW5jZSAgICAgcncsIHJ3XG4iCj4gPiA+IC0gICAgICAgICAgICAgICAiMTpc
+biIKPiA+ID4gLSAgICAgICAgICAgICAgIDogW3BdIj0mciIgKHByZXYpLCBbcmNdIj0mciIgKHJj
+KSwgW2NdIitBIiAodi0+Y291bnRlcikKPiA+ID4gLSAgICAgICAgICAgICAgIDoKPiA+ID4gLSAg
+ICAgICAgICAgICAgIDogIm1lbW9yeSIpOwo+ID4gPiArICAgICAgIF9hcmNoX2F0b21pY19pbmNf
+dW5sZXNzX25lZ2F0aXZlKHByZXYsIHJjLCB2LT5jb3VudGVyLCAidyIpOwo+ID4gPiArCj4gPiA+
+ICAgICAgICAgcmV0dXJuICEocHJldiA8IDApOwo+ID4gPiAgfQo+ID4gPiAKPiA+ID4gICNkZWZp
+bmUgYXJjaF9hdG9taWNfaW5jX3VubGVzc19uZWdhdGl2ZSBhcmNoX2F0b21pY19pbmNfdW5sZXNz
+X25lZ2F0aXZlCj4gPiA+IAo+ID4gPiArI2RlZmluZSBfYXJjaF9hdG9taWNfZGVjX3VubGVzc19w
+b3NpdGl2ZShfcHJldiwgX3JjLCBjb3VudGVyLCBzZngpICAgICBcCj4gPiA+ICsoeyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIFwKPiA+ID4gKyAgICAgICBfX2FzbV9fIF9fdm9sYXRpbGVfXyAoICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAgICAgICAgICAgIjA6ICAg
+ICBsci4iIHNmeCAiICAgICAgJVtwXSwgICVbY11cbiIgICAgICAgICAgICAgICAgICBcCj4gPiA+
+ICsgICAgICAgICAgICAgICAiICAgICAgIGJndHogICAgICAgICAgICAlW3BdLCAgMWZcbiIgICAg
+ICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICIgICAgICAgYWRkaSAgICAg
+ICAgICAgICVbcmNdLCAlW3BdLCAtMVxuIiAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAgICAg
+ICAgICAgIiAgICAgICBzYy4iIHNmeCAiLnJsICAgJVtyY10sICVbcmNdLCAlW2NdXG4iICAgICAg
+ICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAiICAgICAgIGJuZXogICAgICAgICAgICAlW3Jj
+XSwgMGJcbiIgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICIgICAg
+ICAgZmVuY2UgICAgICAgICAgIHJ3LCByd1xuIiAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4g
+PiArICAgICAgICAgICAgICAgIjE6XG4iICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICA6IFtwXSI9JnIiIChfcHJl
+diksIFtyY10iPSZyIiAoX3JjKSwgW2NdIitBIiAoY291bnRlcikgIFwKPiA+ID4gKyAgICAgICAg
+ICAgICAgIDogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgXAo+ID4gPiArICAgICAgICAgICAgICAgOiAibWVtb3J5Iik7ICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICt9KQo+ID4gPiArCj4gPiA+ICBz
+dGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgYXJjaF9hdG9taWNfZGVjX3VubGVzc19wb3NpdGl2
+ZShhdG9taWNfdCAqdikKPiA+ID4gIHsKPiA+ID4gICAgICAgICBpbnQgcHJldiwgcmM7Cj4gPiA+
+IAo+ID4gPiAtICAgICAgIF9fYXNtX18gX192b2xhdGlsZV9fICgKPiA+ID4gLSAgICAgICAgICAg
+ICAgICIwOiAgICAgbHIudyAgICAgICVbcF0sICAlW2NdXG4iCj4gPiA+IC0gICAgICAgICAgICAg
+ICAiICAgICAgIGJndHogICAgICAlW3BdLCAgMWZcbiIKPiA+ID4gLSAgICAgICAgICAgICAgICIg
+ICAgICAgYWRkaSAgICAgICVbcmNdLCAlW3BdLCAtMVxuIgo+ID4gPiAtICAgICAgICAgICAgICAg
+IiAgICAgICBzYy53LnJsICAgJVtyY10sICVbcmNdLCAlW2NdXG4iCj4gPiA+IC0gICAgICAgICAg
+ICAgICAiICAgICAgIGJuZXogICAgICAlW3JjXSwgMGJcbiIKPiA+ID4gLSAgICAgICAgICAgICAg
+ICIgICAgICAgZmVuY2UgICAgIHJ3LCByd1xuIgo+ID4gPiAtICAgICAgICAgICAgICAgIjE6XG4i
+Cj4gPiA+IC0gICAgICAgICAgICAgICA6IFtwXSI9JnIiIChwcmV2KSwgW3JjXSI9JnIiIChyYyks
+IFtjXSIrQSIgKHYtPmNvdW50ZXIpCj4gPiA+IC0gICAgICAgICAgICAgICA6Cj4gPiA+IC0gICAg
+ICAgICAgICAgICA6ICJtZW1vcnkiKTsKPiA+ID4gKyAgICAgICBfYXJjaF9hdG9taWNfZGVjX3Vu
+bGVzc19wb3NpdGl2ZShwcmV2LCByYywgdi0+Y291bnRlciwgInciKTsKPiA+ID4gKwo+ID4gPiAg
+ICAgICAgIHJldHVybiAhKHByZXYgPiAwKTsKPiA+ID4gIH0KPiA+ID4gCj4gPiA+ICAjZGVmaW5l
+IGFyY2hfYXRvbWljX2RlY191bmxlc3NfcG9zaXRpdmUgYXJjaF9hdG9taWNfZGVjX3VubGVzc19w
+b3NpdGl2ZQo+ID4gPiAKPiA+ID4gKyNkZWZpbmUgX2FyY2hfYXRvbWljX2RlY19pZl9wb3NpdGl2
+ZShfcHJldiwgX3JjLCBjb3VudGVyLCBzZngpICAgICAgICAgXAo+ID4gPiArKHsgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBcCj4gPiA+ICsgICAgICAgX19hc21fXyBfX3ZvbGF0aWxlX18gKCAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgICIwOiAgICAg
+bHIuIiBzZnggIiAgICAgJVtwXSwgICVbY11cbiIgICAgICAgICAgICAgICAgICAgXAo+ID4gPiAr
+ICAgICAgICAgICAgICAgIiAgICAgICBhZGRpICAgICAgICAgICAlW3JjXSwgJVtwXSwgLTFcbiIg
+ICAgICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAiICAgICAgIGJsdHogICAgICAg
+ICAgICVbcmNdLCAxZlxuIiAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gKyAgICAgICAgICAg
+ICAgICIgICAgICAgc2MuIiBzZnggIi5ybCAgJVtyY10sICVbcmNdLCAlW2NdXG4iICAgICAgICAg
+ICAgXAo+ID4gPiArICAgICAgICAgICAgICAgIiAgICAgICBibmV6ICAgICAgICAgICAlW3JjXSwg
+MGJcbiIgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICsgICAgICAgICAgICAgICAiICAgICAg
+IGZlbmNlICAgICAgICAgIHJ3LCByd1xuIiAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4g
+KyAgICAgICAgICAgICAgICIxOlxuIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgXAo+ID4gPiArICAgICAgICAgICAgICAgOiBbcF0iPSZyIiAoX3ByZXYp
+LCBbcmNdIj0mciIgKF9yYyksIFtjXSIrQSIgKGNvdW50ZXIpICBcCj4gPiA+ICsgICAgICAgICAg
+ICAgICA6ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIFwKPiA+ID4gKyAgICAgICAgICAgICAgIDogIm1lbW9yeSIpOyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiArfSkKPiA+ID4gKwo+ID4gPiAgc3Rh
+dGljIF9fYWx3YXlzX2lubGluZSBpbnQgYXJjaF9hdG9taWNfZGVjX2lmX3Bvc2l0aXZlKGF0b21p
+Y190ICp2KQo+ID4gPiAgewo+ID4gPiAgICAgICAgIGludCBwcmV2LCByYzsKPiA+ID4gCj4gPiA+
+IC0gICAgICAgX19hc21fXyBfX3ZvbGF0aWxlX18gKAo+ID4gPiAtICAgICAgICAgICAgICAgIjA6
+ICAgICBsci53ICAgICAlW3BdLCAgJVtjXVxuIgo+ID4gPiAtICAgICAgICAgICAgICAgIiAgICAg
+ICBhZGRpICAgICAlW3JjXSwgJVtwXSwgLTFcbiIKPiA+ID4gLSAgICAgICAgICAgICAgICIgICAg
+ICAgYmx0eiAgICAgJVtyY10sIDFmXG4iCj4gPiA+IC0gICAgICAgICAgICAgICAiICAgICAgIHNj
+LncucmwgICVbcmNdLCAlW3JjXSwgJVtjXVxuIgo+ID4gPiAtICAgICAgICAgICAgICAgIiAgICAg
+ICBibmV6ICAgICAlW3JjXSwgMGJcbiIKPiA+ID4gLSAgICAgICAgICAgICAgICIgICAgICAgZmVu
+Y2UgICAgcncsIHJ3XG4iCj4gPiA+IC0gICAgICAgICAgICAgICAiMTpcbiIKPiA+ID4gLSAgICAg
+ICAgICAgICAgIDogW3BdIj0mciIgKHByZXYpLCBbcmNdIj0mciIgKHJjKSwgW2NdIitBIiAodi0+
+Y291bnRlcikKPiA+ID4gLSAgICAgICAgICAgICAgIDoKPiA+ID4gLSAgICAgICAgICAgICAgIDog
+Im1lbW9yeSIpOwo+ID4gPiArICAgICAgIF9hcmNoX2F0b21pY19kZWNfaWZfcG9zaXRpdmUocHJl
+diwgcmMsIHYtPmNvdW50ZXIsICJ3Iik7Cj4gPiA+ICsKPiA+ID4gICAgICAgICByZXR1cm4gcHJl
+diAtIDE7Cj4gPiA+ICB9Cj4gPiA+IAo+ID4gPiBAQCAtMzc2LDE3ICszOTEsOCBAQCBzdGF0aWMg
+X19hbHdheXNfaW5saW5lIGJvb2wgYXJjaF9hdG9taWM2NF9pbmNfdW5sZXNzX25lZ2F0aXZlKGF0
+b21pYzY0X3QgKnYpCj4gPiA+ICAgICAgICAgczY0IHByZXY7Cj4gPiA+ICAgICAgICAgbG9uZyBy
+YzsKPiA+ID4gCj4gPiA+IC0gICAgICAgX19hc21fXyBfX3ZvbGF0aWxlX18gKAo+ID4gPiAtICAg
+ICAgICAgICAgICAgIjA6ICAgICBsci5kICAgICAgJVtwXSwgICVbY11cbiIKPiA+ID4gLSAgICAg
+ICAgICAgICAgICIgICAgICAgYmx0eiAgICAgICVbcF0sICAxZlxuIgo+ID4gPiAtICAgICAgICAg
+ICAgICAgIiAgICAgICBhZGRpICAgICAgJVtyY10sICVbcF0sIDFcbiIKPiA+ID4gLSAgICAgICAg
+ICAgICAgICIgICAgICAgc2MuZC5ybCAgICVbcmNdLCAlW3JjXSwgJVtjXVxuIgo+ID4gPiAtICAg
+ICAgICAgICAgICAgIiAgICAgICBibmV6ICAgICAgJVtyY10sIDBiXG4iCj4gPiA+IC0gICAgICAg
+ICAgICAgICAiICAgICAgIGZlbmNlICAgICBydywgcndcbiIKPiA+ID4gLSAgICAgICAgICAgICAg
+ICIxOlxuIgo+ID4gPiAtICAgICAgICAgICAgICAgOiBbcF0iPSZyIiAocHJldiksIFtyY10iPSZy
+IiAocmMpLCBbY10iK0EiICh2LT5jb3VudGVyKQo+ID4gPiAtICAgICAgICAgICAgICAgOgo+ID4g
+PiAtICAgICAgICAgICAgICAgOiAibWVtb3J5Iik7Cj4gPiA+ICsgICAgICAgX2FyY2hfYXRvbWlj
+X2luY191bmxlc3NfbmVnYXRpdmUocHJldiwgcmMsIHYtPmNvdW50ZXIsICJkIik7Cj4gPiA+ICsK
+PiA+ID4gICAgICAgICByZXR1cm4gIShwcmV2IDwgMCk7Cj4gPiA+ICB9Cj4gPiA+IAo+ID4gPiBA
+QCAtMzk3LDE3ICs0MDMsOCBAQCBzdGF0aWMgX19hbHdheXNfaW5saW5lIGJvb2wgYXJjaF9hdG9t
+aWM2NF9kZWNfdW5sZXNzX3Bvc2l0aXZlKGF0b21pYzY0X3QgKnYpCj4gPiA+ICAgICAgICAgczY0
+IHByZXY7Cj4gPiA+ICAgICAgICAgbG9uZyByYzsKPiA+ID4gCj4gPiA+IC0gICAgICAgX19hc21f
+XyBfX3ZvbGF0aWxlX18gKAo+ID4gPiAtICAgICAgICAgICAgICAgIjA6ICAgICBsci5kICAgICAg
+JVtwXSwgICVbY11cbiIKPiA+ID4gLSAgICAgICAgICAgICAgICIgICAgICAgYmd0eiAgICAgICVb
+cF0sICAxZlxuIgo+ID4gPiAtICAgICAgICAgICAgICAgIiAgICAgICBhZGRpICAgICAgJVtyY10s
+ICVbcF0sIC0xXG4iCj4gPiA+IC0gICAgICAgICAgICAgICAiICAgICAgIHNjLmQucmwgICAlW3Jj
+XSwgJVtyY10sICVbY11cbiIKPiA+ID4gLSAgICAgICAgICAgICAgICIgICAgICAgYm5leiAgICAg
+ICVbcmNdLCAwYlxuIgo+ID4gPiAtICAgICAgICAgICAgICAgIiAgICAgICBmZW5jZSAgICAgcncs
+IHJ3XG4iCj4gPiA+IC0gICAgICAgICAgICAgICAiMTpcbiIKPiA+ID4gLSAgICAgICAgICAgICAg
+IDogW3BdIj0mciIgKHByZXYpLCBbcmNdIj0mciIgKHJjKSwgW2NdIitBIiAodi0+Y291bnRlcikK
+PiA+ID4gLSAgICAgICAgICAgICAgIDoKPiA+ID4gLSAgICAgICAgICAgICAgIDogIm1lbW9yeSIp
+Owo+ID4gPiArICAgICAgIF9hcmNoX2F0b21pY19kZWNfdW5sZXNzX3Bvc2l0aXZlKHByZXYsIHJj
+LCB2LT5jb3VudGVyLCAiZCIpOwo+ID4gPiArCj4gPiA+ICAgICAgICAgcmV0dXJuICEocHJldiA+
+IDApOwo+ID4gPiAgfQo+ID4gPiAKPiA+ID4gQEAgLTQxOCwxNyArNDE1LDggQEAgc3RhdGljIF9f
+YWx3YXlzX2lubGluZSBzNjQgYXJjaF9hdG9taWM2NF9kZWNfaWZfcG9zaXRpdmUoYXRvbWljNjRf
+dCAqdikKPiA+ID4gICAgICAgICBzNjQgcHJldjsKPiA+ID4gICAgICAgICBsb25nIHJjOwo+ID4g
+PiAKPiA+ID4gLSAgICAgICBfX2FzbV9fIF9fdm9sYXRpbGVfXyAoCj4gPiA+IC0gICAgICAgICAg
+ICAgICAiMDogICAgIGxyLmQgICAgICVbcF0sICAlW2NdXG4iCj4gPiA+IC0gICAgICAgICAgICAg
+ICAiICAgICAgIGFkZGkgICAgICAlW3JjXSwgJVtwXSwgLTFcbiIKPiA+ID4gLSAgICAgICAgICAg
+ICAgICIgICAgICAgYmx0eiAgICAgJVtyY10sIDFmXG4iCj4gPiA+IC0gICAgICAgICAgICAgICAi
+ICAgICAgIHNjLmQucmwgICVbcmNdLCAlW3JjXSwgJVtjXVxuIgo+ID4gPiAtICAgICAgICAgICAg
+ICAgIiAgICAgICBibmV6ICAgICAlW3JjXSwgMGJcbiIKPiA+ID4gLSAgICAgICAgICAgICAgICIg
+ICAgICAgZmVuY2UgICAgcncsIHJ3XG4iCj4gPiA+IC0gICAgICAgICAgICAgICAiMTpcbiIKPiA+
+ID4gLSAgICAgICAgICAgICAgIDogW3BdIj0mciIgKHByZXYpLCBbcmNdIj0mciIgKHJjKSwgW2Nd
+IitBIiAodi0+Y291bnRlcikKPiA+ID4gLSAgICAgICAgICAgICAgIDoKPiA+ID4gLSAgICAgICAg
+ICAgICAgIDogIm1lbW9yeSIpOwo+ID4gPiArICAgICAgIF9hcmNoX2F0b21pY19kZWNfaWZfcG9z
+aXRpdmUocHJldiwgcmMsIHYtPmNvdW50ZXIsICJkIik7Cj4gPiA+ICsKPiA+ID4gICAgICAgICBy
+ZXR1cm4gcHJldiAtIDE7Cj4gPiA+ICB9Cj4gPiA+IAo+ID4gPiAtLQo+ID4gPiAyLjQwLjAKPiA+
+ID4gCj4gPiAKPiBBIHNhZmUgY2xlYW51cCwgbm8gcHJvYmxlbSBmb3VuZC4KPiAKPiBSZXZpZXdl
+ZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gCj4gCgpIZWxsbyBQYWxtZXIsCgpB
+bnkgY2hhbmNlIHRoaXMgY2FuIGdldCBpbiA2LjU/CgpBbHNvLCBzYW1lIHF1ZXN0aW9uIGZvciB0
+aGlzIHNlcmllczoKaHR0cHM6Ly9wYXRjaHdvcmsua2VybmVsLm9yZy9wcm9qZWN0L2xpbnV4LXJp
+c2N2L2xpc3QvP3Nlcmllcz03Mzc0OTEKClRoYW5rcyEKTGVvCgoKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
