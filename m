@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88127EB64DA
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 14:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDA1EB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 14:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gDTQyr5x4frqd7Nek47npFLlzHR12nvpQJ47JV0JJbs=; b=hhCGMhdH9mzoMS
-	n1XezYGHlc+wLIn7dZKWJ8V31XmhzlAFehotZvppboO0s3CIJJ0ovAFRW8fj1SoACwKEwHPUa0WJA
-	lIx64KKVJlnTFKvaD91YLD8pkeXlAQdBjlkuHP4/efhkKTtRwXJk6z2kxfl0osFOurzr4wKQNootk
-	Ks2XwQO6HOcVm/B4iGcXWWRi0erJVfSwhckiVjnXBhtNJ6Cv6FXdY3LnXd0tHQDMcFVWPdV9dJgEi
-	wyOlnUd02agrlh0de8d5NKmeCswhFliMyU0at+vHgkTDLAHpI/k3mKvAyN68ZP0zJOlvBiM0HHi5O
-	P5bvhlZSKZvtgl6TfPQw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zopJjUOL7SgXgmEBGTISHycNi2dQ2IYGoQWa28Wf8PI=; b=kRjwdc4983evMBZGE7r9MfeoeB
+	2sm8BtX5kQKjOPQvllJ+n9tIUi/vCtBC66yTuKUyy4fw8yEdWs4v1yie4O6NbnAZNTkfvA36HEp5m
+	FGn6mKg7OYhEI5dSkwcaC9D24AyjzHfSpxF6tTcQODYJURZXaDvz0QTDF3ILw55m2Jo1+j+JZqswq
+	9WAWyPV7uR7HlUxpmGgCdA4+lH9Q1nwuW/7Vpt58mKAaOuDKB9VXQ4YXwKtfv8DtmANweYxo/FQjw
+	im+fXhPdkGzWmbdw86FSi7bkbSE80Wvv1anWawLAB6d2LsEC1f1R7hAVHRjx4Nu8DTYDNH2PkEqXi
+	YmXCkLsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGgkr-00DUHy-0u;
-	Tue, 04 Jul 2023 14:11:45 +0000
-Received: from mail-pg1-f181.google.com ([209.85.215.181])
+	id 1qGgmX-00DUj9-0N;
+	Tue, 04 Jul 2023 14:13:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGgkn-00DUGr-1v;
-	Tue, 04 Jul 2023 14:11:43 +0000
-Received: by mail-pg1-f181.google.com with SMTP id 41be03b00d2f7-55779047021so3199540a12.3;
-        Tue, 04 Jul 2023 07:11:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688479899; x=1691071899;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gVWqdQakMSUsv5oj8nSg9QczQrmrUO38b67MhpmWVYY=;
-        b=H7Gr16nbbuc3fpGbwflW+X9j0/zUPh0OthR+n+xlrphJQPcS1w5Bj542Kx2Cob5lrA
-         Ujh3K/c49w0MtI5cxdBm6vNsRujDWJ4c7TDUX0iD2bavOOcutQT6qu4XcQWOCnLNmq83
-         pW4I7ihHMhNFoXdTSGNa7kXwL3p2b9OGKstWi3vKZo6T/Jj9yZ6ddVbigeqGSYIWmjsk
-         o3z7KAx3YLxVjUfD3D/mgozoXuu5zxkP4WjFDxcm4DtC5Tc5iPiq5Dg4rVVKxSeghtbM
-         4LMXFKsvnjZ7Qi0m4P23oozN0zrcJ/RtFZYsY4HU9G0xQpjG+Lm6GUavrd+jdSfTr2a6
-         DGMw==
-X-Gm-Message-State: AC+VfDznTpOvy0aKquMpYqvvT+ZqfbHuQoB3DIR6hMbQmMWLeqUtHCMR
-	8NbMM5EjFWRRdST4XTo+YS4=
-X-Google-Smtp-Source: ACHHUZ4mKI72SACTkxfTB3tQ6Ji13XYniCvY2MHAxg/n5JeT4DfHtHYI7qLyK+rPyEqNoEPYk2/cWg==
-X-Received: by 2002:a05:6a20:1456:b0:12c:d9cc:340e with SMTP id a22-20020a056a20145600b0012cd9cc340emr10681222pzi.5.1688479899229;
-        Tue, 04 Jul 2023 07:11:39 -0700 (PDT)
-Received: from [192.168.50.14] ([98.51.102.78])
-        by smtp.gmail.com with ESMTPSA id e26-20020a62aa1a000000b00682a9325ffcsm1178509pff.5.2023.07.04.07.11.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Jul 2023 07:11:38 -0700 (PDT)
-Message-ID: <739807cf-4551-4760-83e0-a94026b5c1b8@acm.org>
-Date: Tue, 4 Jul 2023 07:11:37 -0700
+	id 1qGgmU-00DUim-1r
+	for linux-riscv@lists.infradead.org;
+	Tue, 04 Jul 2023 14:13:28 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1DE2061272;
+	Tue,  4 Jul 2023 14:13:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30E98C433C8;
+	Tue,  4 Jul 2023 14:13:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688480003;
+	bh=Nk5zRQ565eWa3r6Bd86j1AJU+hDJ5pUdhSqyH4FS99E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HctInVLn9PWcYJ5WhvvFXsWezBRvc5bRarfoujy6BErf4LVVxPqkU/4CBRX+T8njc
+	 H8d3k6lSBsCCrZhOLMZvSAMlkL+RnMxbyLWt3Ng5GyfWd32lq9N+rvwcu4TRQnG+Eb
+	 7Sg7jRLlI4m/qJ445cqtASjKBSV6SLgLfcGD/8W2c8QdvYaCshqZAJVEp6x263tlzU
+	 1L9yE3PmU/eaVlCXIP9ptrS6SgyQ3KewLWvd2hc3JIMjIRMi0BMAevu89+CEk3CfIB
+	 nQimzoztuJuII00XmJuYTptsyzPIlRR+kMmFxKs9QgWpVYEMbrxlOJ91YJisnKpKPe
+	 20fHdfTJlDZZg==
+Date: Tue, 4 Jul 2023 15:13:17 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [RESEND v1 2/2] riscv: dts: starfive: Add spi node for JH7110 SoC
+Message-ID: <41c905da-ae3e-4acb-bbfa-d33d3306824d@sirena.org.uk>
+References: <20230704092200.85401-1-william.qiu@starfivetech.com>
+ <20230704092200.85401-3-william.qiu@starfivetech.com>
+ <7f3b600d-d315-22d6-b987-eabfe1b04fdf@linaro.org>
+ <eba1e868-6371-42fe-91be-bcbee54d1aff@sirena.org.uk>
+ <4afd90d9-f1bd-f40d-1c79-50fef1406ab7@linaro.org>
+ <6307c5b2-64d2-405f-b1a5-696d4184f6a0@sirena.org.uk>
+ <a8c1a5e7-9938-bf6c-6bb7-6c1e4d8ce08b@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [linux-next:master] BUILD REGRESSION
- 296d53d8f84ce50ffaee7d575487058c8d437335
-Content-Language: en-US
-To: Marc Zyngier <maz@kernel.org>, kernel test robot <lkp@intel.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Linux Memory Management List <linux-mm@kvack.org>,
- kunit-dev@googlegroups.com, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-bluetooth@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org
-References: <202307032309.v4K1IBoR-lkp@intel.com>
- <7d3d61c694c0e57b096ff7af6277ed6b@kernel.org>
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <7d3d61c694c0e57b096ff7af6277ed6b@kernel.org>
+In-Reply-To: <a8c1a5e7-9938-bf6c-6bb7-6c1e4d8ce08b@linaro.org>
+X-Cookie: Memory fault - where am I?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230704_071142_504983_7A60B74E 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20230704_071326_672622_75CFABFC 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,25 +81,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============7342778584991049482=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNy80LzIzIDAwOjE1LCBNYXJjIFp5bmdpZXIgd3JvdGU6Cj4gT24gMjAyMy0wNy0wMyAxNjox
-MSwga2VybmVsIHRlc3Qgcm9ib3Qgd3JvdGU6Cj4+IHRyZWUvYnJhbmNoOgo+PiBodHRwczovL2dp
-dC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9uZXh0L2xpbnV4LW5leHQuZ2l0
-Cj4+IG1hc3Rlcgo+PiBicmFuY2ggSEVBRDogMjk2ZDUzZDhmODRjZTUwZmZhZWU3ZDU3NTQ4NzA1
-OGM4ZDQzNzMzNcKgIEFkZCBsaW51eC1uZXh0Cj4+IHNwZWNpZmljIGZpbGVzIGZvciAyMDIzMDcw
-Mwo+Pgo+IAo+IFsuLi5dCj4gCj4+IFVudmVyaWZpZWQgRXJyb3IvV2FybmluZyAobGlrZWx5IGZh
-bHNlIHBvc2l0aXZlLCBwbGVhc2UgY29udGFjdCB1cyBpZgo+PiBpbnRlcmVzdGVkKToKPj4KPj4g
-YXJjaC9hcm02NC9rdm0vbW11LmM6MTQ3OjMtOTogcHJlY2VkaW5nIGxvY2sgb24gbGluZSAxNDAK
-PiAKPiBUaGlzICppcyogYSBmYWxzZSBwb3NpdGl2ZS4gVGhlIGZ1bmN0aW9uIGlzIGVudGVyZWQg
-d2l0aCBhIGxvY2sKPiBoZWxkLCBpdCB3aWxsIGV4aXQgd2l0aCB0aGUgbG9jayBoZWxkIGFzIHdl
-bGwuIEluc2lkZSB0aGUgYm9keQo+IG9mIHRoZSBmdW5jdGlvbiwgd2UgcmVsZWFzZSBhbmQgcmVh
-Y3F1aXJlIHRoZSBsb2NrLgoKV2hpY2ggdG9vbCByZXBvcnRlZCB0aGlzIG1lc3NhZ2U/IElmIHRo
-aXMgbWVzc2FnZSB3YXMgcmVwb3J0ZWQgYnkgCnNwYXJzZSwgaGFzIGl0IGJlZW4gY29uc2lkZXJl
-ZCB0byBhZGQgYSBfX211c3RfaG9sZCgpIGFubm90YXRpb24/CgpUaGFua3MsCgpCYXJ0LgoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============7342778584991049482==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8SqqqwgXKD0N3HXB"
+Content-Disposition: inline
+
+
+--8SqqqwgXKD0N3HXB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Jul 04, 2023 at 03:21:30PM +0200, Krzysztof Kozlowski wrote:
+> On 04/07/2023 15:16, Mark Brown wrote:
+> > On Tue, Jul 04, 2023 at 02:27:57PM +0200, Krzysztof Kozlowski wrote:
+
+> >> Also see:
+> >> "every Co-developed-by: must be immediately
+> >> followed by a Signed-off-by: of the associated co-author."
+
+> >> https://elixir.bootlin.com/linux/v6.4/source/Documentation/process/submitting-patches.rst#L467
+
+> > Oh, that seems unhelpful especially with it not lining up with the DCO.
+
+> I assume the intention was here that if I attribute some co-author with
+> Co-developed-by, then I know that author, therefore I expect author to
+> explicitly participate in DCO chain.
+
+Why?  They're not the one sending the patch out, nor are they relying on
+someone else having certified anything.
+
+> Otherwise, just drop the Co-developed-by.
+
+It seems separately useful.
+
+--8SqqqwgXKD0N3HXB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmSkKP0ACgkQJNaLcl1U
+h9BUCQf+MakDSushGvfaRHCWXKX9k0RiV5f+NZvtmqvrVE86MgvfZXWos/vS+mTd
+KY3WC115btHDG+rP5TdrtREdf/CKBvuZ7f/xb7CuzNrkn9cO4luF7qZKb48jqqQY
++66UT0zca96GKUpT2RQ1HR9sMg6umR7qj2RezJOXLBgHMBwAq6aofIIGVcj1tkzi
+wKcOeluQX1g96OJjcxo/Kj42y/5kQdhMj6GmbVRoRiiMX2MiXcLbIMh15gtYgfmU
+KaP24Oeb9skgN6X8/1hja6swCSqQD2VRbX+aPSYyVncd9uDMx0Ya+7cP14Ex+W8u
+37T11N/kr/NhVOEyHpdjM628LNblHQ==
+=+ena
+-----END PGP SIGNATURE-----
+
+--8SqqqwgXKD0N3HXB--
+
+
+--===============7342778584991049482==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7342778584991049482==--
+
