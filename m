@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979C9EB64DA
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 03:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA88DEB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 03:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y0CHg6Pc5qAAy8krHE4PyfeBDNWy8qky2Xj1K3HeAU0=; b=LDPE/ajKCkoPAH
-	fdiX6pEvXLgcv1U6V8b77cxz6WG5Z8wQvpxvt3+PgEZf74/uxdkb4fAK15PkUDZ8uwkyRLLHaRf//
-	oloduzxhlreSOeEplNSIpQElkFiiw0s+Puj2raIzZ5LOhOvsQnBf5GXjWGVeavqJTsUmTSdXE5ToQ
-	fIXuKufSJ5m9al55vNR1ZjObn4i2KylswUNib6+QuyXloaEB72fEbShiLRdzBss8eMCcoA/TabKF2
-	r0wzV9KDVCaW16+M2FuyqOzFPJDWcgn49HnOaNb4nzCD1NvmKGGFe5zskwPbwSii5Y+7qR4Qir7C5
-	PCH2QgiUPSblOdh02oLA==;
+	List-Owner; bh=asputSpz+UoCh2zDl2uUasYTZc/jepx060Swg05KJo4=; b=LEGC8BhS4Q8zov
+	0NjpcKQby6rcekcB1smv192xx3bsFgqXrM5M56PwAPSawBe5nxLvScyu0ecds2IMNc3G4+jZuFgu6
+	4GEwo+OGNQd0KU1CHfGLyYSRF27hY0I3gTeyvo5aZEUC+xRqXWlUzYrKq5qILhbmUPX4kEioaqspg
+	g4b3seHQ7KUHt59M+ILmWaINjgFXf8rC2kegzdtiXEt4P5uyd93uSwWjqiS+V/XMV4v0z+2/kgEXs
+	lY+sJBkBKaz4e2A+pK9bNdqZiDk32JkZCnYyIryDp5YHJsjMuJz+jPJY862OZaqrhZs6pdiu3wKlN
+	kCAEoFymGIHZUhvr1e1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGX4W-00C4Zt-14;
-	Tue, 04 Jul 2023 03:51:24 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1qGX5W-00C4jP-2a;
+	Tue, 04 Jul 2023 03:52:26 +0000
+Received: from mail-il1-f171.google.com ([209.85.166.171])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGX4S-00C4XS-12;
-	Tue, 04 Jul 2023 03:51:22 +0000
-Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.54])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Qw82s464lz1HCqB;
-	Tue,  4 Jul 2023 11:50:45 +0800 (CST)
-Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
- (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.27; Tue, 4 Jul
- 2023 11:51:09 +0800
-Message-ID: <f6764156-ec85-ad0a-f0b7-030f24f4dee4@huawei.com>
-Date: Tue, 4 Jul 2023 11:51:08 +0800
+	id 1qGX5T-00C4iT-1N
+	for linux-riscv@lists.infradead.org;
+	Tue, 04 Jul 2023 03:52:24 +0000
+Received: by mail-il1-f171.google.com with SMTP id e9e14a558f8ab-34568286979so27358885ab.2
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Jul 2023 20:52:21 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688442740; x=1691034740;
+        h=date:subject:message-id:references:in-reply-to:cc:to:from
+         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=IXXXDTVnhiGaQdLwuFieMKLCVwc40SyI0FbqGubyrKA=;
+        b=O5qk+bTxZVMFF8C+cYsL5GAAH3FlYhl9J1/LQk5hyU/u6VmBbFOTuf817ie/drXQQi
+         zz1/8HCNqWmUDrlpA5Cu2gmA53FOmwlUpuiRrFDd9eYTewrt/D68qNrZArV9Fgigh2ev
+         nYuiMYVCGI5P+xtv6lc7ZdhyLg4MxVN/PR9A+7VcOOlmCs6rhN/5JjErQzlhFhW2wv3F
+         77DqATbF1Ntbj5rjUbieUQi+zFNYwippc4MhLqQop9soc2C46OSJa+7SSbXXEHDZSxHR
+         yeBcnOASuOlIBOZBRCXpJKtOuK97A9ugJPAnIFk2apY6VDMoBVAohDXoDjy/RBdiUIK1
+         Kb2A==
+X-Gm-Message-State: ABy/qLZ9NLBwlnnIDhR39bwgbI4Mv5zCXKqTiSRQLV5JUSghrGECtPUQ
+	CddheoL06kEe9PjizfZa5A==
+X-Google-Smtp-Source: APBJJlFisZIe/mCHVFeOU6gtwM361wCFX79fK+RHHjG0iFC8fAd+9ogQkO+uKBCPLpsfr4mdrftZCQ==
+X-Received: by 2002:a92:d4c7:0:b0:345:a201:82c0 with SMTP id o7-20020a92d4c7000000b00345a20182c0mr10514925ilm.32.1688442740419;
+        Mon, 03 Jul 2023 20:52:20 -0700 (PDT)
+Received: from robh_at_kernel.org ([64.188.179.250])
+        by smtp.gmail.com with ESMTPSA id t14-20020a92c0ce000000b00345950d7e94sm6626965ilf.20.2023.07.03.20.52.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Jul 2023 20:52:19 -0700 (PDT)
+Received: (nullmailer pid 800694 invoked by uid 1000);
+	Tue, 04 Jul 2023 03:52:16 -0000
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [PATCH -next v5 1/2] riscv: kdump: Implement
- crashkernel=X,[high,low]
-Content-Language: en-US
-To: Baoquan He <bhe@redhat.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
-	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
-	<atishp@rivosinc.com>, <thunder.leizhen@huawei.com>, <horms@kernel.org>
-References: <20230511085139.1039088-1-chenjiahao16@huawei.com>
- <20230511085139.1039088-2-chenjiahao16@huawei.com>
- <ZHwKFADVXyNYJBCp@MiWiFi-R3L-srv>
- <852b8777-3c6e-f76b-0413-1c66629f33cd@huawei.com>
- <5c80666c-e6e2-8fa6-50b6-89536315925e@huawei.com>
- <ZKD3tEBknEiF4PZK@MiWiFi-R3L-srv>
-From: "chenjiahao (C)" <chenjiahao16@huawei.com>
-In-Reply-To: <ZKD3tEBknEiF4PZK@MiWiFi-R3L-srv>
-X-Originating-IP: [10.67.108.26]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- dggpemm500016.china.huawei.com (7.185.36.25)
-X-CFilter-Loop: Reflected
+From: Rob Herring <robh@kernel.org>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, William Qiu <william.qiu@starfivetech.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Hal Feng <hal.feng@starfivetech.com>, Stephen Boyd <sboyd@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, Philipp Zabel <p.zabel@pengutronix.de>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+In-Reply-To: <20230704020239.288500-3-xingyu.wu@starfivetech.com>
+References: <20230704020239.288500-1-xingyu.wu@starfivetech.com>
+ <20230704020239.288500-3-xingyu.wu@starfivetech.com>
+Message-Id: <168844273679.800666.7152631195397313900.robh@kernel.org>
+Subject: Re: [PATCH v6 2/7] dt-bindings: soc: starfive: Add StarFive syscon
+ module
+Date: Mon, 03 Jul 2023 21:52:16 -0600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230703_205120_556898_6C0211E8 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20230703_205223_468027_53584C64 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,60 +77,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 2023/7/2 12:06, Baoquan He wrote:
-> On 07/01/23 at 05:51pm, chenjiahao (C) wrote:
-> ......
->> I have sent v6 patches, implementing the logic above. That fixes the
->> retrying
->>
->> logic and should be aligned with Arm64 code.
-> Hmm, it has improved much, while there's still issue which need be
-> fixed. You missed the case that crsahkernel low is specified as zero
-> explicitly. Obviously your v6 is not able to handle that well. Means
-> your v6 is not aligned with the current arm64 code completely.
->
-> crashkernel=xM,high crashkernel=0M,low
->
->>
->> Please let me know if there is any problem remains.
-> Earlier, I posted below RFC patchset to try to unify the
-> crashkernel=,high support on x86, arm64 and risc-v, the generic arch.
-> Wondering what you think about it. risc-v can be added in with very few
-> change to get the crahskernel=,high support.
->
-> [RFC PATCH 0/4] kdump: add generic functions to simplify crashkernel crashkernel in architecture
->
-> Surely, the crashkernel=,high support can be added independently in
-> advance. Later my patchset can unify them and remove the duplicated code
-> in risc-v. It's up to you and risc-v maintainers/reivewers to take one.
-> Anyway, I will add comment to your v6 to point out the issue.
+On Tue, 04 Jul 2023 10:02:34 +0800, Xingyu Wu wrote:
+> From: William Qiu <william.qiu@starfivetech.com>
+> 
+> Add documentation to describe StarFive System Controller Registers.
+> 
+> Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> ---
+>  .../soc/starfive/starfive,jh7110-syscon.yaml  | 93 +++++++++++++++++++
+>  MAINTAINERS                                   |  7 ++
+>  2 files changed, 100 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+> 
 
-It would be great if crashkernel parsing and reserving logic could be
-unified on multiple architectures, the code would be more straightforward
-and easy to use. I will have a more in-depth review of your RFC patchset
-later.
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-Meanwhile, I will continue to update my patchset on risc-v, just wishing
-to complement this feature earlier. When your unify solution get applied,
-simply remove the duplicate part is OK. Before that, I will update my
-risc-v code and further align with the Arm64 logic.
+yamllint warnings/errors:
 
-Thanks for your carefully review, I will fix the issue above and send
-v7 patchset soon.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.example.dtb: syscon@13030000: reg: [[0, 318963712], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/mfd/syscon.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.example.dtb: syscon@13030000: reg: [[0, 318963712], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.example.dtb: syscon@17010000: reg: [[0, 385941504], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/mfd/syscon.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.example.dtb: syscon@17010000: reg: [[0, 385941504], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/soc/starfive/starfive,jh7110-syscon.yaml#
 
-Thanks,
-Jiahao
+doc reference errors (make refcheckdocs):
 
->
-> Thanks
-> Baoquan
->
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230704020239.288500-3-xingyu.wu@starfivetech.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
 _______________________________________________
 linux-riscv mailing list
