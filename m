@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDA1EB64D9
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 14:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A17D7EB64D9
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Jul 2023 14:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zopJjUOL7SgXgmEBGTISHycNi2dQ2IYGoQWa28Wf8PI=; b=kRjwdc4983evMBZGE7r9MfeoeB
-	2sm8BtX5kQKjOPQvllJ+n9tIUi/vCtBC66yTuKUyy4fw8yEdWs4v1yie4O6NbnAZNTkfvA36HEp5m
-	FGn6mKg7OYhEI5dSkwcaC9D24AyjzHfSpxF6tTcQODYJURZXaDvz0QTDF3ILw55m2Jo1+j+JZqswq
-	9WAWyPV7uR7HlUxpmGgCdA4+lH9Q1nwuW/7Vpt58mKAaOuDKB9VXQ4YXwKtfv8DtmANweYxo/FQjw
-	im+fXhPdkGzWmbdw86FSi7bkbSE80Wvv1anWawLAB6d2LsEC1f1R7hAVHRjx4Nu8DTYDNH2PkEqXi
-	YmXCkLsA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:CC:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=yFyhC2AIim7rT9HKhcQ0f97+RHmuomtKUo0OdN2Wp9I=; b=LrhBJsJu+sKX2M4MKofQSaUfZ2
+	iNvpRbGsyLA0o4UvAo7ylL8FhzurKltKyGGRqdKIapGqLOxDp7yjDdc2Ff3nwT4ogTjfW8Gd1iACV
+	7KnsqvvJu8Zo67+ra7cEizreUvAJNeqQoPKtaEMb86+rAuvI0MbHL2KnwEWfQh17JRDa4Ceptvrc+
+	FlNL91qi/we121+8JzObgo+LL5eNzrEJygv1glvejw/V42ZQaDrvJ+pN0zpRS5QTSyLT001i5Rrph
+	MwDvC4uEqX4Rz07gcwtxT+KnJgvMmVoqW+zlaNJ/ut4m4Z0EEpVpGyjxmR7IJXSO4o2zNVny8Lfgl
+	f4BV4DEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGgmX-00DUj9-0N;
-	Tue, 04 Jul 2023 14:13:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qGh9F-00DX1h-1D;
+	Tue, 04 Jul 2023 14:36:57 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGgmU-00DUim-1r
-	for linux-riscv@lists.infradead.org;
-	Tue, 04 Jul 2023 14:13:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1DE2061272;
-	Tue,  4 Jul 2023 14:13:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30E98C433C8;
-	Tue,  4 Jul 2023 14:13:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688480003;
-	bh=Nk5zRQ565eWa3r6Bd86j1AJU+hDJ5pUdhSqyH4FS99E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HctInVLn9PWcYJ5WhvvFXsWezBRvc5bRarfoujy6BErf4LVVxPqkU/4CBRX+T8njc
-	 H8d3k6lSBsCCrZhOLMZvSAMlkL+RnMxbyLWt3Ng5GyfWd32lq9N+rvwcu4TRQnG+Eb
-	 7Sg7jRLlI4m/qJ445cqtASjKBSV6SLgLfcGD/8W2c8QdvYaCshqZAJVEp6x263tlzU
-	 1L9yE3PmU/eaVlCXIP9ptrS6SgyQ3KewLWvd2hc3JIMjIRMi0BMAevu89+CEk3CfIB
-	 nQimzoztuJuII00XmJuYTptsyzPIlRR+kMmFxKs9QgWpVYEMbrxlOJ91YJisnKpKPe
-	 20fHdfTJlDZZg==
-Date: Tue, 4 Jul 2023 15:13:17 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [RESEND v1 2/2] riscv: dts: starfive: Add spi node for JH7110 SoC
-Message-ID: <41c905da-ae3e-4acb-bbfa-d33d3306824d@sirena.org.uk>
-References: <20230704092200.85401-1-william.qiu@starfivetech.com>
- <20230704092200.85401-3-william.qiu@starfivetech.com>
- <7f3b600d-d315-22d6-b987-eabfe1b04fdf@linaro.org>
- <eba1e868-6371-42fe-91be-bcbee54d1aff@sirena.org.uk>
- <4afd90d9-f1bd-f40d-1c79-50fef1406ab7@linaro.org>
- <6307c5b2-64d2-405f-b1a5-696d4184f6a0@sirena.org.uk>
- <a8c1a5e7-9938-bf6c-6bb7-6c1e4d8ce08b@linaro.org>
+	id 1qGh9B-00DWyW-1Q;
+	Tue, 04 Jul 2023 14:36:55 +0000
+Received: from canpemm500009.china.huawei.com (unknown [172.30.72.56])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4QwQMS40rSzqVXh;
+	Tue,  4 Jul 2023 22:36:04 +0800 (CST)
+Received: from [10.67.102.169] (10.67.102.169) by
+ canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Tue, 4 Jul 2023 22:36:29 +0800
+CC: <yangyicong@hisilicon.com>, <akpm@linux-foundation.org>,
+	<linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+	<x86@kernel.org>, <mark.rutland@arm.com>, <ryan.roberts@arm.com>,
+	<will@kernel.org>, <anshuman.khandual@arm.com>, <linux-doc@vger.kernel.org>,
+	<corbet@lwn.net>, <peterz@infradead.org>, <arnd@arndb.de>,
+	<punit.agrawal@bytedance.com>, <linux-kernel@vger.kernel.org>,
+	<darren@os.amperecomputing.com>, <huzhanyuan@oppo.com>, <lipeifeng@oppo.com>,
+	<zhangshiming@oppo.com>, <guojian@oppo.com>, <realmz6@gmail.com>,
+	<linux-mips@vger.kernel.org>, <openrisc@lists.librecores.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, Barry Song <21cnbao@gmail.com>,
+	<wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
+	<prime.zeng@hisilicon.com>, <Jonathan.Cameron@huawei.com>, Barry Song
+	<v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman
+	<mgorman@suse.de>
+Subject: Re: [RESEND PATCH v9 2/2] arm64: support batched/deferred tlb
+ shootdown during page reclamation/migration
+To: Catalin Marinas <catalin.marinas@arm.com>
+References: <20230518065934.12877-1-yangyicong@huawei.com>
+ <20230518065934.12877-3-yangyicong@huawei.com> <ZJ2x6DlmyA3kVh1n@arm.com>
+ <ZJ2+37Q7v4odMmEd@arm.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <2f593850-797c-5422-2c80-ce214fac02bb@huawei.com>
+Date: Tue, 4 Jul 2023 22:36:28 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-In-Reply-To: <a8c1a5e7-9938-bf6c-6bb7-6c1e4d8ce08b@linaro.org>
-X-Cookie: Memory fault - where am I?
+In-Reply-To: <ZJ2+37Q7v4odMmEd@arm.com>
+X-Originating-IP: [10.67.102.169]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ canpemm500009.china.huawei.com (7.192.105.203)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230704_071326_672622_75CFABFC 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20230704_073654_114714_17B8D13C 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,72 +80,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7342778584991049482=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 2023/6/30 1:26, Catalin Marinas wrote:
+> On Thu, Jun 29, 2023 at 05:31:36PM +0100, Catalin Marinas wrote:
+>> On Thu, May 18, 2023 at 02:59:34PM +0800, Yicong Yang wrote:
+>>> From: Barry Song <v-songbaohua@oppo.com>
+>>>
+>>> on x86, batched and deferred tlb shootdown has lead to 90%
+>>> performance increase on tlb shootdown. on arm64, HW can do
+>>> tlb shootdown without software IPI. But sync tlbi is still
+>>> quite expensive.
+>> [...]
+>>>  .../features/vm/TLB/arch-support.txt          |  2 +-
+>>>  arch/arm64/Kconfig                            |  1 +
+>>>  arch/arm64/include/asm/tlbbatch.h             | 12 ++++
+>>>  arch/arm64/include/asm/tlbflush.h             | 33 ++++++++-
+>>>  arch/arm64/mm/flush.c                         | 69 +++++++++++++++++++
+>>>  arch/x86/include/asm/tlbflush.h               |  5 +-
+>>>  include/linux/mm_types_task.h                 |  4 +-
+>>>  mm/rmap.c                                     | 12 ++--
+>>
+>> First of all, this patch needs to be split in some preparatory patches
+>> introducing/renaming functions with no functional change for x86. Once
+>> done, you can add the arm64-only changes.
+>>
 
---===============7342778584991049482==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8SqqqwgXKD0N3HXB"
-Content-Disposition: inline
+got it. will try to split this patch as suggested.
 
+>> Now, on the implementation, I had some comments on v7 but we didn't get
+>> to a conclusion and the thread eventually died:
+>>
+>> https://lore.kernel.org/linux-mm/Y7cToj5mWd1ZbMyQ@arm.com/
+>>
+>> I know I said a command line argument is better than Kconfig or some
+>> random number of CPUs heuristics but it would be even better if we don't
+>> bother with any, just make this always on.
 
---8SqqqwgXKD0N3HXB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+ok, will make this always on.
 
-On Tue, Jul 04, 2023 at 03:21:30PM +0200, Krzysztof Kozlowski wrote:
-> On 04/07/2023 15:16, Mark Brown wrote:
-> > On Tue, Jul 04, 2023 at 02:27:57PM +0200, Krzysztof Kozlowski wrote:
+>> Barry had some comments
+>> around mprotect() being racy and that's why we have
+>> flush_tlb_batched_pending() but I don't think it's needed (or, for
+>> arm64, it can be a DSB since this patch issues the TLBIs but without the
+>> DVM Sync). So we need to clarify this (see Barry's last email on the
+>> above thread) and before attempting new versions of this patchset. With
+>> flush_tlb_batched_pending() removed (or DSB), I have a suspicion such
+>> implementation would be faster on any SoC irrespective of the number of
+>> CPUs.
+> 
+> I think I got the need for flush_tlb_batched_pending(). If
+> try_to_unmap() marks the pte !present and we have a pending TLBI,
+> change_pte_range() will skip the TLB maintenance altogether since it did
+> not change the pte. So we could be left with stale TLB entries after
+> mprotect() before TTU does the batch flushing.
+> 
+> We can have an arch-specific flush_tlb_batched_pending() that can be a
+> DSB only on arm64 and a full mm flush on x86.
+> 
 
-> >> Also see:
-> >> "every Co-developed-by: must be immediately
-> >> followed by a Signed-off-by: of the associated co-author."
+We need to do a flush/dsb in flush_tlb_batched_pending() only in a race
+condition so we first check whether there's a pended batched flush and
+if so do the tlb flush. The pending checking is common and the differences
+among the archs is how to flush the TLB here within the flush_tlb_batched_pending(),
+on arm64 it should only be a dsb.
 
-> >> https://elixir.bootlin.com/linux/v6.4/source/Documentation/process/submitting-patches.rst#L467
+As we only needs to maintain the TLBs already pended in batched flush,
+does it make sense to only handle those TLBs in flush_tlb_batched_pending()?
+Then we can use the arch_tlbbatch_flush() rather than flush_tlb_mm() in
+flush_tlb_batched_pending() and no arch specific function needed.
 
-> > Oh, that seems unhelpful especially with it not lining up with the DCO.
+Thanks.
 
-> I assume the intention was here that if I attribute some co-author with
-> Co-developed-by, then I know that author, therefore I expect author to
-> explicitly participate in DCO chain.
-
-Why?  They're not the one sending the patch out, nor are they relying on
-someone else having certified anything.
-
-> Otherwise, just drop the Co-developed-by.
-
-It seems separately useful.
-
---8SqqqwgXKD0N3HXB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmSkKP0ACgkQJNaLcl1U
-h9BUCQf+MakDSushGvfaRHCWXKX9k0RiV5f+NZvtmqvrVE86MgvfZXWos/vS+mTd
-KY3WC115btHDG+rP5TdrtREdf/CKBvuZ7f/xb7CuzNrkn9cO4luF7qZKb48jqqQY
-+66UT0zca96GKUpT2RQ1HR9sMg6umR7qj2RezJOXLBgHMBwAq6aofIIGVcj1tkzi
-wKcOeluQX1g96OJjcxo/Kj42y/5kQdhMj6GmbVRoRiiMX2MiXcLbIMh15gtYgfmU
-KaP24Oeb9skgN6X8/1hja6swCSqQD2VRbX+aPSYyVncd9uDMx0Ya+7cP14Ex+W8u
-37T11N/kr/NhVOEyHpdjM628LNblHQ==
-=+ena
------END PGP SIGNATURE-----
-
---8SqqqwgXKD0N3HXB--
-
-
---===============7342778584991049482==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7342778584991049482==--
-
