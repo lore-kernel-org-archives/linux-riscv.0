@@ -4,230 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BF1EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 16:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5167EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 16:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vGJrlMblNXRp7I/zl7edeFkqvZNBJuF9QN7VEGAElHU=; b=4VYC6V5okUH2mCc3P4S5hdnbeh
-	rNQRtm18apP8zvUqDaq86qm7EWEm+bWyUnWi2r/eQipkVdFFL3205ecIgY8XU5V4TzfElF6cDh4xc
-	4PUqgnyiSB5a0/1zHeO7PXyPwVUA018CGNi37zdjjKT+pYexnFdWT13JhGeSrF+KKF+rITM8ZeLOX
-	CGAXm4V/7yqIPdKDXCI0tNipqwzXfyhiLORRdRl8Sr6HVYL5H0aLIJ8K47mHpkfmkxK0tC+RZniZT
-	BwzjO1Lkqz+8nUsAnEjV+KXXqQiQpOaycsffzUyCUdKWVLd+gO0bSK17Fe7tPqQT96elAnyEv3Ukg
-	IsbdjKcg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=e5MlrVXtsWzguJ/qQd/OBDQFmAXqhSWo9JID4pgKrfo=; b=OoUFVLT3cuk/lH
+	4pEtkbKSA8ocEEGD/Zhn9p/u8+X7WPMFvmCVnITFB0zh0qDNVyrdwozuYjvM4dXP+DznNuAnUNGzE
+	1+krdR7JSvDvlUROGVIZxJu3Hbx3XlXTCJ94k7Je0kCPKpdUd430Y7MdJP5a6+q9EaRo25eWKLWID
+	5Pdc+VKwLGXPtT3CvsPUacHNp4uWoTF4nqqlQl5PJZNHNyed0oYgBnmVNzrry5nrLbwMlFO+TsH8e
+	MLu9eLTbnIg8+xg8wvsLEG/xG5/+cJXfpDQwo+Mz1RyNvADvd3hWDMRRbqyQOQK+hgEwL4/fKSKNO
+	XZREfyCQ9M6bXTnynVbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH5JB-00GUVp-2X;
-	Wed, 05 Jul 2023 16:24:49 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1qH5gR-00GXEu-0g;
+	Wed, 05 Jul 2023 16:48:51 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH5J8-00GUUH-1w;
-	Wed, 05 Jul 2023 16:24:48 +0000
-Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id 365FbGoV011945;
-	Wed, 5 Jul 2023 16:24:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=message-id : date :
- subject : to : cc : references : from : in-reply-to : content-type :
- content-transfer-encoding : mime-version; s=corp-2023-03-30;
- bh=WZzWKcmaiYEe4DdQfMW/zmodB8acCUgb4mK8duqza08=;
- b=fYmeSP+F8NRjCA4O3bmmhyekljhJ6Z4u95eGxSuNqMogemf/N/310uRrpuO2f7iDDfLZ
- b7G9qL6QGM8SWYZtxXFqAVegHdteq34lG4tRDXevYou8Vj9zxzkvi3hZsRbOzvKU8w4M
- JrXyEihuCNG4HaBE+ePgdQZ3cClq5NtvFX/LkvbeCukNuQUVlrA/fnJx2YwWPQEyvdyi
- yWTT+/yi5exPYhWXNK/ZtbF0SDShZcV2yT161OS4WmL0jhUNxIfbjeNC5HU5AdMwPDsd
- 0WnJnQbZqW5MUpHuFTzCaecCHfyrM5CKetjDTWat/DKwxWPPYhRDTxKRWqzcf4kGrcN+ wg== 
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3rjcpuetae-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 05 Jul 2023 16:24:22 +0000
-Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.17.1.19/8.17.1.19) with ESMTP id 365F49cc013442;
-	Wed, 5 Jul 2023 16:24:09 GMT
-Received: from nam11-co1-obe.outbound.protection.outlook.com (mail-co1nam11lp2170.outbound.protection.outlook.com [104.47.56.170])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 3rjak5um42-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 05 Jul 2023 16:24:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Ya+bQt+4ygG4/PC/siyjRjEqpzDFvPWDsmpjQ2JmnYefNE63YQzQey5SK3uf1ZGhSikjFGPbQrZ2567omGpD5Am3FCq3P/ti4Z87a1yP/1mZzlytT5vrKAqMokg68a+NwQ22NRfidUE1Fu6mKpAcIybtXHsLHD+gDNCle3Nwjt/BcAcAO9CYajuSYpd0z4T2oEQs7DP1h9OsmRrSof5nvCNv67jIpacRhLz7AWiSKr6P5+8cBrtQCKn8rpBqTJotP5jHrsqvn7UVAlSE10myeqeBrf/KyYyuhaA0b9yEkibMkiciKMyuU1W9EkmZkDjtH5WNNkebA3LnoWZ8l+39Mg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WZzWKcmaiYEe4DdQfMW/zmodB8acCUgb4mK8duqza08=;
- b=I64wEcv8eNjlOvt3QmpYQq6GA0uYIe3x4YUjluiJB7O70GdT01XFtPb+nEPij+4IaV2XwunU0zIGYZAMpkMWHWdMdJ4DE2qiYRmBwTBuZXogmL1W0EZDX4aRrg3Y0FM/bsPYDIuXOty/euKjcB8pKfFQWPc+1oTb26PN9d5GPLFv9dBa8KWhArBWZDHLvPqyWyInra6xFEORoGbEqvSR9yIVomsXy0msmiH/wS8N3qrqNmq/BQUuB+Jgunu6DIxEhvUAsoc5bkTEdMD5Ezur4NfBCvGxzZAgPbLPzY/snzJiVWjpJlLvBj1GII/P3ZlHyUIPtoErJjb5py2HLtahaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	id 1qH5gM-00GXD9-3A
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Jul 2023 16:48:49 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-262b213eddfso689549a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 09:48:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WZzWKcmaiYEe4DdQfMW/zmodB8acCUgb4mK8duqza08=;
- b=tDEdd5/y1ChEAfsRo6Pn46u8S0+5QOFyxC2DHnqLVkUeHM9FXMyiPcsFl8uY988+f/CscN9zy7VjVO/1NOB5a2ZULw/zPtUSEjLaMLMRBYWO4eaQqMVA6B7n2k6OXSH01IPWzQ6+CnnrW9AvOCG4oQ0pRJhDsx4IKaGRpqBMnNA=
-Received: from CO1PR10MB4531.namprd10.prod.outlook.com (2603:10b6:303:6c::22)
- by DS7PR10MB5928.namprd10.prod.outlook.com (2603:10b6:8:84::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6544.24; Wed, 5 Jul
- 2023 16:24:04 +0000
-Received: from CO1PR10MB4531.namprd10.prod.outlook.com
- ([fe80::8b8f:b4b1:bb78:b048]) by CO1PR10MB4531.namprd10.prod.outlook.com
- ([fe80::8b8f:b4b1:bb78:b048%5]) with mapi id 15.20.6565.016; Wed, 5 Jul 2023
- 16:24:04 +0000
-Message-ID: <891d6836-b331-13e0-20da-6a0a4d98293c@oracle.com>
-Date: Wed, 5 Jul 2023 11:23:54 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v4 12/13] s390/kexec: refactor for kernel/Kconfig.kexec
-Content-Language: en-US
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-        chenhuacai@kernel.org, geert@linux-m68k.org, tsbogend@alpha.franken.de,
-        James.Bottomley@hansenpartnership.com, deller@gmx.de,
-        ysato@users.sourceforge.jp, dalias@libc.org,
-        glaubitz@physik.fu-berlin.de, tglx@linutronix.de, mingo@redhat.com,
-        bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-sh@vger.kernel.org, kernel@xen0n.name, mpe@ellerman.id.au,
-        npiggin@gmail.com, christophe.leroy@csgroup.eu,
-        paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-        hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
-        borntraeger@linux.ibm.com, svens@linux.ibm.com, hpa@zytor.com,
-        keescook@chromium.org, paulmck@kernel.org, peterz@infradead.org,
-        frederic@kernel.org, akpm@linux-foundation.org, ardb@kernel.org,
-        samitolvanen@google.com, juerg.haefliger@canonical.com, arnd@arndb.de,
-        rmk+kernel@armlinux.org.uk, linus.walleij@linaro.org,
-        sebastian.reichel@collabora.com, rppt@kernel.org,
-        kirill.shutemov@linux.intel.com, anshuman.khandual@arm.com,
-        ziy@nvidia.com, masahiroy@kernel.org, ndesaulniers@google.com,
-        mhiramat@kernel.org, ojeda@kernel.org, thunder.leizhen@huawei.com,
-        xin3.li@intel.com, tj@kernel.org, gregkh@linuxfoundation.org,
-        tsi@tuyoix.net, bhe@redhat.com, hbathini@linux.ibm.com,
-        sourabhjain@linux.ibm.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com
-References: <20230705142004.3605799-1-eric.devolder@oracle.com>
- <20230705142004.3605799-13-eric.devolder@oracle.com>
- <20230705154958.GA3643511@dev-arch.thelio-3990X>
-From: Eric DeVolder <eric.devolder@oracle.com>
-In-Reply-To: <20230705154958.GA3643511@dev-arch.thelio-3990X>
-X-ClientProxiedBy: SA0PR13CA0018.namprd13.prod.outlook.com
- (2603:10b6:806:130::23) To CO1PR10MB4531.namprd10.prod.outlook.com
- (2603:10b6:303:6c::22)
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688575725; x=1691167725;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dnPCjVFvpyo3taQ22pXtwgP45WLDnjqDWVgjMVrGqW8=;
+        b=MmpdiToMDw+7OAYGF6obDtC1jkYPCeA1C52b7MTyjNRR5lPDU3nNMa+3UNpQ0paWfo
+         v+f2yL+08+pqLu+itLI/kCHW0LLc6eQeLMbFUorhvgngetyBA8zcbcPD2HBc6cGpz6ql
+         F/tr1PQeJID6rw4Gpf5AMiZWE1n52iRlwuZQVFvd1xIw44ynVBOpQb7JzRHljxTpeOHj
+         tnT4qKuUtPEIqHf3ErlWZtlJR4Oz/qFFlMUrc7Mr0o+FRSDl6wEVZqmIjqfCTCjCRwN8
+         0CZwpdeMLsNPmsANDRYKYwlxCYny7vwgmkbUXh6sb+SBgD5m+Aj/f05D4YNAdaemBhMQ
+         uaeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688575725; x=1691167725;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dnPCjVFvpyo3taQ22pXtwgP45WLDnjqDWVgjMVrGqW8=;
+        b=QOEoKROthkGIUbjYTgHm0257X0bztZE1AmdP+VEAIqLFxUgo8cNbDQwnxVutXsUrT4
+         O0BKgWUSxGL9+qiBQfYh/oTFCw4YeCNLjIEY4Q8X296IaNPFHTXUByvXCUMOUfgZ+f2/
+         nsqZMr3WcOE1IEA8DtbzBo8IVeY9ariRjdf9NVb1pE1q2/4rmKl2KoOh6ExTgOPTFszX
+         81yIE/yRTqIzmFtYPvY6MQJIlndfRLvhF4g+Tu3irHD+m5c5DS05gYoQxSn+Vn/Oz+Iz
+         clkjGCF2WiEDc6QLl4rcxoWEjhHDWu7qRseaR0VNg/oQkTuuiTDZQTuYODp7bt71cStG
+         XwyA==
+X-Gm-Message-State: ABy/qLYuv3gpcnHBWKSRBRY81JMyUjzCOBiwJLqNOr0/bk4nbGg7eo/q
+	hSM9GzkJ+EtFiT8s+ANwZeVzqQ==
+X-Google-Smtp-Source: APBJJlEWiP0/e+cTtqiZI/F/fmGsRWDRMRqvNDmteCuoYTaeMYDVl+G1yIwNoBmwlfYyzWnDTXGkLw==
+X-Received: by 2002:a17:90b:607:b0:262:fa59:2908 with SMTP id gb7-20020a17090b060700b00262fa592908mr4069138pjb.1.1688575725423;
+        Wed, 05 Jul 2023 09:48:45 -0700 (PDT)
+Received: from evan.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id f21-20020a17090ace1500b00263f85b6a35sm1311431pju.29.2023.07.05.09.48.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Jul 2023 09:48:45 -0700 (PDT)
+From: Evan Green <evan@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v2 1/2] RISC-V: Probe for unaligned access speed
+Date: Wed,  5 Jul 2023 09:48:32 -0700
+Message-Id: <20230705164833.995516-2-evan@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230705164833.995516-1-evan@rivosinc.com>
+References: <20230705164833.995516-1-evan@rivosinc.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR10MB4531:EE_|DS7PR10MB5928:EE_
-X-MS-Office365-Filtering-Correlation-Id: fe585618-3889-4c7c-1058-08db7d743fac
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: UFaIndtnG5ovR3jyYjZAsYEXi/ag6OdRnk0M5go+vFaUbJOcQiSytXRezgW8Wt5/DYAzSfwUBbnFwAnrLBGd7/3PZT24sHtWfcsoySg4v8hjgV1kEWcNqIGpU72YLrFN3wokDA1oqXIXIQlV1RCXF6RgH1vWZm9iS5I6OB8gMKQHOes58xacH0DvlcMJDiRAAwEnu12+vjaLA56husAyZ6CzfA012+kuswbfk4F5H00mUi3e/TFS/kuOEmEm2nPqP3Jl1l5aXn0KLytrVFZ74vN9RqFmgXfClXz7xPDVmhBZutb2VIIfmAvnwlmHa9+FM0XSAWTjaPJyzw/r48IUZXQfh9qQnqfVdJ7DjkO+nez4zuNyimUALEZ/KNCgKJQQA+o1kJaAceidiIdo2du/XWS9honS+zOOv0PdnDiRYMs+Pq/YzPI4seGudEePjYZFffUb1KBFrWI0uDYaK+gJcGCMnRd6ZP4R19g81p9U9mUQMSCbQ2nNft8leGRog2ltTT2Cgfqcvfo17z5obHxTyn4cvG5fiJzxG1Fvkd340cFj69PncXgWRTNc7IyVyfnzjgzp3pQvDpdd3dyX/Zxwumg+uT1hr8hxCmdiZwVvpIEs9zuH7afskMgoKPBVDTfBIiYiw2DE+hLxmnNNNrxClw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR10MB4531.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(39860400002)(346002)(376002)(366004)(136003)(396003)(451199021)(107886003)(26005)(6506007)(31686004)(478600001)(6666004)(6512007)(86362001)(2616005)(31696002)(186003)(6486002)(66556008)(38100700002)(66476007)(53546011)(4326008)(6916009)(66946007)(83380400001)(316002)(8676002)(8936002)(7416002)(7366002)(7406005)(30864003)(41300700001)(2906002)(5660300002)(36756003)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UkVsdUY5ck5iVXEzTUs4MjlKSTVXU0ladW1Uc3FNL2w1ejQ5NC95VVJIcC9r?=
- =?utf-8?B?MjFpcUZFZ1dLS0pBNG4wMW5md0p2TkloazRGbEhocHgwMTVVbzY4a09DNndZ?=
- =?utf-8?B?U0ZOMXpuL1R1NUhITDFUS0RDNHpjbFZGRUFld0NGZTUyQUliNTZxMWE4bUF5?=
- =?utf-8?B?a0Vqem9KRFgvYjdoYlBpSEc3UmtCYWhIQ1FYdDV6MmhLcTV4TUc1UkF0Z0RE?=
- =?utf-8?B?eEpLN1p0bE1YbjRTUDJNcWFMUyt4aVZJaDdXUjNOalJxdmFZM3JlemdHYTh1?=
- =?utf-8?B?ZnlTUzRmeFkxNGlrUTAzbjVmR3NZTzl0bkRIa0VaY3FZRHF5ZTZjQmxvdkho?=
- =?utf-8?B?RjJNTncxZ09Jb0g4QStNOWxhU0d1K0QxTlNsRUN5WlZDbkxpRGZFSDVXNkVt?=
- =?utf-8?B?N1ovUVUrQjloRjNESGd3ODE2QXo1SlRWTmxiMGY1TXdWTFVrRk9wdXZrUWMy?=
- =?utf-8?B?ZS9pYlBzd0hvOEhtWFg5TWdwazZCMFp0a1B3UVdpdXFPV0tsek5CMUVONUVH?=
- =?utf-8?B?N2t1dm5HL3FQN0NzVXdHRzE5cVEwb2YrWGJJM0Zpa2h0V2tFUXNnWStNbms4?=
- =?utf-8?B?WDRqamZKRE9RcWlWcUNrT3BJQm9jck1WazJrTlVZUnQreU5DVytGSER6SFFV?=
- =?utf-8?B?b3l4cmR4cFozRmsreWF2d3JZRzJyRjFzbjU0VW5QQVM2cDh1bmNOWXVPTldH?=
- =?utf-8?B?SHpNQTNPWjdBUnBJay9nRHBWTGxiOXZqOTZsNHVpT1phTDNwSUdaNiswOHZZ?=
- =?utf-8?B?Ny9kUEVXdG9lYVgxNU91MnN5dzlTcjZOOXp3eDdGNFVXK1JVcG1JUkM5eUgy?=
- =?utf-8?B?YjR0b3dxSC9OUTU3TTgvS2J5UWwwNnY4MEtHNjdTbnRQTEJ6NEwrN2xMTHp4?=
- =?utf-8?B?ZVRQbWdEOXlvT0ZDeVE4UnlYOWdHU1hLalJDS2lCMmVpb1JWM0EzcnhMOXho?=
- =?utf-8?B?MEliMytDREJJb2tXSmRMRzBLRVEyd3hlVGlpNDVTcHVSQm1nTndBR1VkNms0?=
- =?utf-8?B?TXVYaXhuOHNQK0VRYk4rVm14dDk0NzNTb3JnUnpqNEduM1RFREU0VTNrQkJ2?=
- =?utf-8?B?dHJyRlY4VERyeXhyVmZKZitjelZsRFR4WTA5UWRCV1JsTHJPalhzazlhVTZT?=
- =?utf-8?B?ZlJFSlpWVTRwejNrYldieWhNV1lPMWlvMHhvOUlPa0l3MDhwMDZXOC9GZEk2?=
- =?utf-8?B?YWFIc01GRUNGM0pNR2EzK1ZxdE5aZXBCTDVNbitlVGViZUY1cTdDdDBiZklQ?=
- =?utf-8?B?d0tMZDNIUlp3KzZhUm5GbnFuYWQ2K2tibTBobTNUbzR4SDd6UzNDUW8zNHd5?=
- =?utf-8?B?NGZUSHB0aGg1eEZZdS9taW1HSGFvOVRjRWVNdXpFMWdoQmYvb2FnTEdOR1kx?=
- =?utf-8?B?Z1hOT0dab052WEJ2ZHdMREYydGZKUWl5eGNSdFB2bjkxcm96SXp2YlV4OTZh?=
- =?utf-8?B?WkNqNmFqYnFiQU5WTG16VXFnZDNIUUZEZUFjT1RidzRYREtmdDhBY1VTVGJq?=
- =?utf-8?B?aE9iaXFpMGJiTEo1VlR0Vm45WThoQUFSbzAvYlk5ZFkzM2dMa3JDUEpXT3Fw?=
- =?utf-8?B?bjUydzRRQ0htUEVPdysrZ0VNOFAzd1FhZ3JyRy9oR2RpOCsycUlELzFoNlY5?=
- =?utf-8?B?R3lodEJYRlE1c200aXVQSWNQTGN6NEtNbzFsY1l2dHNvSWo3ZWl2S3FOV3E0?=
- =?utf-8?B?YjBFZDRYRkViWjNsMXBaVFJLUHlnWitrOWFqUDl5M3QyWkhHWURNcjBvT0o1?=
- =?utf-8?B?dnZXYUNJa0hsR2l2OFFmRjN6VE1ld1pUdFpMdE8wbXVORzhTMWpScDhsSWdE?=
- =?utf-8?B?MUxwVmlpeXdMME5GNGJhaXFzU2pkZmZtR1V1ZjdMYmEvNCttSTIzSmM2M0pj?=
- =?utf-8?B?YkFlMGxZQ0htZ3FhTUpRb25uRlEvUzdyb1RHSldoWENrVE5Qa2VZN21GNG9Z?=
- =?utf-8?B?bjNrYjNtdlhtZWlMbnVMM1RUWDlSbDA3RjVyNmJmRVJqMW9RMkFqek1oM2E3?=
- =?utf-8?B?WG42a1puMDZrSjhqTVRhYzd5cEVkSHVsTitYQy9wZFJDZ2RzeTZlY3B2ZFUv?=
- =?utf-8?B?V3Zubm4wMDN1UlFYU2dma0JuQU9MZmpPQ1ZIME9ia0FqY1JoNWY4MFFzRTRz?=
- =?utf-8?B?RW1sY3lCN2pGWERITi9RZ3RkNy91Vi9pUTQwM2VxOS94MGMxVjYwWElYZnp3?=
- =?utf-8?B?V0E9PQ==?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: =?utf-8?B?cjNtMkIyY3hFRDhRNlRnUXhIWmZHc3VPSHlKb0IwcWFIbjJ6MUY1aWh1ODE5?=
- =?utf-8?B?YVozREdzT0w3ekFFU3pZclMzN0NlR0xlVjBheDZFWUl6OG85SzZhb2d4OVVo?=
- =?utf-8?B?dE1sZEtZa3oyQVdkYklDRy9PUEgxdlE2T0FYQkh2ZXJsTDBRRGVmQ2NkelFt?=
- =?utf-8?B?QWZzbkJxNjlDemtrajMzQTJmUHk5R2pFY1h6QWhaN24wSzZEdnRHNDdwVFBN?=
- =?utf-8?B?NktYK09rNUFhTVpNdHY1ZW9YNi9HOTN1UFdkWDRXTWUvTlltdW9aS0praGk0?=
- =?utf-8?B?dTA2VDMydXBJbmZaUURHcjU4VVNnT3VtdEE0V010ZUwwdGVaa2NHbzJLMWxM?=
- =?utf-8?B?bUlCNWo4ckxhdkpLYVo2OFlReFFBQWsxdVk2QUl0Smh3SnkxTFZjNWFsMnMy?=
- =?utf-8?B?Wlhkcks5ekg1UWdXNVgvWWh3cFlVSndPVSt5OXVwc2t3WEZic1NqVkZEZGRH?=
- =?utf-8?B?d3N4WXF0YTdRd2lLQnV2eElaZWpDemNlUlVHc1dKN1IyVjBERStEMWNPUy85?=
- =?utf-8?B?cU9qN2d1c1hITnF5aS9TV2tOT2E1bzNMY0NYSjZJT2poVDZSOUZRZVQzWE1X?=
- =?utf-8?B?UDJ0KzQ0YnhyOGw0TVlLb2Z3M0gvME1YbTBQRUp0NXoySmZxczUzNXBSL0s1?=
- =?utf-8?B?MHBLZTdkQjEvR3F4QWx1Y0o2Yi9Vb0ZyK0F5aFpYZzJoa05TVUVERjRmWnF2?=
- =?utf-8?B?M0M2dzNMMTdTaTNFQUpmOGx6Z2dubjhQMTZpZ0pBL2c4TnZtWUYrRFlianI1?=
- =?utf-8?B?VnpsbFhnQ2RWd2t5WjZZSkloMXpEUEZUZTRQQlgrQmFaQlh2TW9laHQwYjBz?=
- =?utf-8?B?Vmcrc3E2TWxIMXk5L2c2TTdiQlFhOXhOY21YbGlZQ21adjExbGs3RDVvUDNq?=
- =?utf-8?B?V3pDUEUzb3h1UCtpQ1NmeFdyNnFsemIwTXBpY2VrN000OFF0Rk1Ma1JvWFNm?=
- =?utf-8?B?Q0lQUzY1VVpZUHVEWUNidEF1SGRISWU3SDVBQzd4TTg0WFlWL1JkaDlhQnFk?=
- =?utf-8?B?RWVxRVhpNlV2REdvVjhxZUJHcy8vbHowVFNzWTJXZktPeGdiMW52T2lLdUs2?=
- =?utf-8?B?ZjRPakF3L2VHYW9NOWxEQjNlT1JWcWZlNGhHVHlXMUx6OXNKUTBVWnFCMU5r?=
- =?utf-8?B?Qk9SZlVuZVQ0L1VZb2xidlgzWGVqTmFjdlllSjZkdHFOQ0FHVEo1SnlJSGxT?=
- =?utf-8?B?bUJYVUZvam1La0sxWXdCWXVsdkNRRnRFT3lhNVp5S1pzTE10UzY1ZkcrNW5K?=
- =?utf-8?B?a1dzV1dvMEJLNWtLQnF6SGxDSnBFTXBieDVHK21GZml6NXlvNU9QakE2YXFX?=
- =?utf-8?B?SXVPUUFOS2NiL2VLbWxwMjVZenBOVDV6VElsTzVsZVpmM1F2eGt3VnRLLzFU?=
- =?utf-8?B?NEFxeURVZkk1cC9peU53UDNIZHlHdDg3UVd1NCtDVFV6WWZKZXh2UG9ueGxL?=
- =?utf-8?B?QlVSNUV4eU0vTEFZM1ZsdWx0RGp5RnZNSTNCTDNoNXpwbmR4VG1iNFU5dUNv?=
- =?utf-8?B?cWdGUEJxVy9qN2V0L0xrN3RRL0JrN2VGZ0pQdFRKa2ZUOFZwa0VHTVd3Nm5Y?=
- =?utf-8?B?Y1RabkJXbjE5WE1PcTFFNldkdWxveHExSForYWZuWVJmdFBVamFQSEg3ZTBx?=
- =?utf-8?B?NGkvTGREelQrczAvSlRDbjJSMytwdk1lTWpRTnVHbFhQV2xtbTlqM2xQZjF5?=
- =?utf-8?B?YTdOWjdnZzVKSXFTOTB2YU9TVXNHczFUSjlBMU5lTm5hN2pzMW1tQ3RHakFo?=
- =?utf-8?B?TllJZVZreEpYYjlBUTNWcWFIbkNCWkpHVlhsK0F5RUk4WGxqZitlUVlQYTY0?=
- =?utf-8?B?clhjbTNMRFRQYlVnSmducXRKdDRIeTdHNFhGWUtTMDh6WjB1eHhWZkNuM2t6?=
- =?utf-8?B?blVrUUxkV2FaM2hvVmhwdnRnS3pOek9HVmNMc2dpWHM0KzI3K3dNOVZZdnJx?=
- =?utf-8?B?Q0ZpRzRna2FwU2tMU0t4cHB2bHowRlR4S1JmdkxhZGtwV2JnWGI0RzNiVjBq?=
- =?utf-8?B?a3VMYXN0bnFBdW90ZDh5a0ZFUEFwbi9VRDZwVmRBeHlMYWRhYnhkaWRTM3pU?=
- =?utf-8?B?MDJtSXRGMUR3MXpCL0xDVm9EWWJteUQ5LzhzbjgrRWdNVmV5QU1WNkFJeXNq?=
- =?utf-8?B?bEs3N0Zma2RkYXJYd2RqcUVJL0l0T0xvVmdidFV4anh6SkVCTU9od3BIK29i?=
- =?utf-8?B?QWgyMjNYREM5QW1NVjBEbTVXSzl1ZmtSUVQvLytPVFNUL2s0ckM4TDF1UlhY?=
- =?utf-8?B?WVk5UGxMTVJxY3ZDek9uUStES2pWKzNoUE10SExRUFAwQjV2VjJCN2ZadFFP?=
- =?utf-8?B?NlBQRkdpTVR4ZGJzdnBkVCtWT1NNTi9RLzZFemQvRndaRlNUWkF4YlVZSzg1?=
- =?utf-8?Q?vHAqUKht+Xysf3fwOSkfuj6FjzBVH1cAZzFau4b0VKRfB?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-1: dPsdyMJIbRFL+xWtb1VMfBk+B2OkvmmLOBmJj0m0TDDvJjgVLMnW/CCFKMYjr0N/2kJBB8s8YHy/COkE+1e+6dTdwAdIWuuvyR+I8+sb1FJ9OYch4btzJOV2lH1G0l4ThTo0+btKcLrZly7Cozxb+jrVU63WOKT39zCu1JcnVpXVbx2VF4IiNKEb1Gox2IJAvUKUjc7emAXOgBR95SspXnN4CwyUuSL/H75SNFYWItH8Qj8rMqCEhgK+r+SLVvrfJ+qdtxeDaGqY7OfVP/Xi1rLpeDsLg0R/6WmPYRofxE0YogivSS7QFMFzbmQRRXZSKaTrBr4dEyRKvtS+QwW/CFGuhxpVOHEYJWYVb63baWpm1Et5QQgq4FpcnaxOnZWWpnsCjcpAviOQM/lt/5jzL3ziWGg3yNpo67YAhyMfwAk1/zZNri1p98y9NjMSsOjqhQSulpvWVyVZ0w==
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fe585618-3889-4c7c-1058-08db7d743fac
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR10MB4531.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jul 2023 16:24:04.3123
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: szwktP1HDqfwe6jKy7sWXCNvO5Bj+WIR5pY6I4HdIH/zHh02Ts6S2MA6+moQwvqK5ikHSlJWwcA4nryZLaemDnZTdmj4rP9m/ftuWtOqkbE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR10MB5928
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.591,FMLib:17.11.176.26
- definitions=2023-07-05_07,2023-07-05_01,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 phishscore=0 bulkscore=0
- malwarescore=0 mlxlogscore=999 adultscore=0 spamscore=0 mlxscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2305260000
- definitions=main-2307050149
-X-Proofpoint-ORIG-GUID: lF4ACudWf1FflmW_0gNYEXP4K2oi_dNX
-X-Proofpoint-GUID: lF4ACudWf1FflmW_0gNYEXP4K2oi_dNX
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_092446_653107_EBFA556D 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20230705_094847_022541_5091C4BD 
+X-CRM114-Status: GOOD (  35.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -239,368 +85,364 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: linux-doc@vger.kernel.org, Yangyu Chen <cyy@cyyself.name>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>, Xianting Tian <xianting.tian@linux.alibaba.com>, Marc Zyngier <maz@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, Greentime Hu <greentime.hu@sifive.com>, Simon Hosie <shosie@rivosinc.com>, Li Zhengyu <lizhengyu3@huawei.com>, Evan Green <evan@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org, David Laight <David.Laight@aculab.com>, Palmer Dabbelt <palmer@dabbelt.com>, Andy Chiu <andy.chiu@sifive.com>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Rather than deferring unaligned access speed determinations to a vendor
+function, let's probe them and find out how fast they are. If we
+determine that an unaligned word access is faster than N byte accesses,
+mark the hardware's unaligned access as "fast". Otherwise, we mark
+accesses as slow.
 
+The algorithm itself runs for a fixed amount of jiffies. Within each
+iteration it attempts to time a single loop, and then keeps only the best
+(fastest) loop it saw. This algorithm was found to have lower variance from
+run to run than my first attempt, which counted the total number of
+iterations that could be done in that fixed amount of jiffies. By taking
+only the best iteration in the loop, assuming at least one loop wasn't
+perturbed by an interrupt, we eliminate the effects of interrupts and
+other "warm up" factors like branch prediction. The only downside is it
+depends on having an rdtime granular and accurate enough to measure a
+single copy. If we ever manage to complete a loop in 0 rdtime ticks, we
+leave the unaligned setting at UNKNOWN.
 
-On 7/5/23 10:49, Nathan Chancellor wrote:
-> Hi Eric,
-> 
-> On Wed, Jul 05, 2023 at 10:20:03AM -0400, Eric DeVolder wrote:
->> The kexec and crash kernel options are provided in the common
->> kernel/Kconfig.kexec. Utilize the common options and provide
->> the ARCH_SUPPORTS_ and ARCH_SELECTS_ entries to recreate the
->> equivalent set of KEXEC and CRASH options.
->>
->> NOTE: The original Kconfig has a KEXEC_SIG which depends on
->> MODULE_SIG_FORMAT. However, attempts to keep the MODULE_SIG_FORMAT
->> dependency (using the strategy outlined in this series, and other
->> techniques) results in 'error: recursive dependency detected'
->> on CRYPTO.
->>
->> Per Alexander Gordeev <agordeev@linux.ibm.com>: "the MODULE_SIG_FORMAT
->> dependency was introduced with [git commit below] and in fact was not
->> necessary, since s390 did/does not use mod_check_sig() anyway.
->>
->>   commit c8424e776b09 ("MODSIGN: Export module signature definitions")
->>
->> MODULE_SIG_FORMAT is needed to select SYSTEM_DATA_VERIFICATION. But
->> SYSTEM_DATA_VERIFICATION is also selected by FS_VERITY*, so dropping
->> MODULE_SIG_FORMAT does not hurt."
->>
->> Therefore, the solution is to drop the MODULE_SIG_FORMAT dependency
->> from KEXEC_SIG. Still results in equivalent .config files for s390.
->>
->> Signed-off-by: Eric DeVolder <eric.devolder@oracle.com>
->> Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>
->> ---
->>   arch/s390/Kconfig | 65 ++++++++++++++---------------------------------
->>   1 file changed, 19 insertions(+), 46 deletions(-)
->>
->> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
->> index 5b39918b7042..5d4fbbfdd1cd 100644
->> --- a/arch/s390/Kconfig
->> +++ b/arch/s390/Kconfig
->> @@ -244,6 +244,25 @@ config PGTABLE_LEVELS
->>   
->>   source "kernel/livepatch/Kconfig"
->>   
->> +config ARCH_DEFAULT_KEXEC
->> +	def_bool y
->> +
->> +config ARCH_SUPPORTS_KEXEC
->> +	def_bool y
->> +
->> +config ARCH_SUPPORTS_KEXEC_FILE
->> +	def_bool CRYPTO && CRYPTO_SHA256 && CRYPTO_SHA256_S390
->> +
->> +config ARCH_HAS_KEXEC_PURGATORY
->> +	def_bool KEXEC_FILE
->> +
->> +config ARCH_SUPPORTS_CRASH_DUMP
->> +	def_bool y
->> +	help
->> +	  Refer to <file:Documentation/s390/zfcpdump.rst> for more details on this.
->> +	  This option also enables s390 zfcpdump.
->> +	  See also <file:Documentation/s390/zfcpdump.rst>
->> +
->>   menu "Processor type and features"
->>   
->>   config HAVE_MARCH_Z10_FEATURES
->> @@ -482,36 +501,6 @@ config SCHED_TOPOLOGY
->>   
->>   source "kernel/Kconfig.hz"
->>   
->> -config KEXEC
->> -	def_bool y
->> -	select KEXEC_CORE
->> -
->> -config KEXEC_FILE
->> -	bool "kexec file based system call"
->> -	select KEXEC_CORE
->> -	depends on CRYPTO
->> -	depends on CRYPTO_SHA256
->> -	depends on CRYPTO_SHA256_S390
->> -	help
->> -	  Enable the kexec file based system call. In contrast to the normal
->> -	  kexec system call this system call takes file descriptors for the
->> -	  kernel and initramfs as arguments.
->> -
->> -config ARCH_HAS_KEXEC_PURGATORY
->> -	def_bool y
->> -	depends on KEXEC_FILE
->> -
->> -config KEXEC_SIG
->> -	bool "Verify kernel signature during kexec_file_load() syscall"
->> -	depends on KEXEC_FILE && MODULE_SIG_FORMAT
->> -	help
->> -	  This option makes kernel signature verification mandatory for
->> -	  the kexec_file_load() syscall.
->> -
->> -	  In addition to that option, you need to enable signature
->> -	  verification for the corresponding kernel image type being
->> -	  loaded in order for this to work.
->> -
->>   config KERNEL_NOBP
->>   	def_bool n
->>   	prompt "Enable modified branch prediction for the kernel by default"
->> @@ -733,22 +722,6 @@ config VFIO_AP
->>   
->>   endmenu
->>   
->> -menu "Dump support"
->> -
->> -config CRASH_DUMP
->> -	bool "kernel crash dumps"
->> -	select KEXEC
->> -	help
->> -	  Generate crash dump after being started by kexec.
->> -	  Crash dump kernels are loaded in the main kernel with kexec-tools
->> -	  into a specially reserved region and then later executed after
->> -	  a crash by kdump/kexec.
->> -	  Refer to <file:Documentation/s390/zfcpdump.rst> for more details on this.
->> -	  This option also enables s390 zfcpdump.
->> -	  See also <file:Documentation/s390/zfcpdump.rst>
->> -
->> -endmenu
->> -
->>   config CCW
->>   	def_bool y
->>   
->> -- 
->> 2.31.1
->>
-> 
-> I just bisected the following build failure visible with 'ARCH=s390
-> allnoconfig' to this change as commit 842ce0e1dafa ("s390/kexec:
-> refactor for kernel/Kconfig.kexec") in -next.
-> 
->    arch/s390/kernel/machine_kexec.c:120:37: warning: 'struct kimage' declared inside parameter list will not be visible outside of this definition or declaration
->      120 | static bool kdump_csum_valid(struct kimage *image)
->          |                                     ^~~~~~
->    arch/s390/kernel/machine_kexec.c:188:34: warning: 'struct kimage' declared inside parameter list will not be visible outside of this definition or declaration
->      188 | int machine_kexec_prepare(struct kimage *image)
->          |                                  ^~~~~~
->    arch/s390/kernel/machine_kexec.c: In function 'machine_kexec_prepare':
->    arch/s390/kernel/machine_kexec.c:192:18: error: invalid use of undefined type 'struct kimage'
->      192 |         if (image->type == KEXEC_TYPE_CRASH)
->          |                  ^~
->    arch/s390/kernel/machine_kexec.c:192:28: error: 'KEXEC_TYPE_CRASH' undeclared (first use in this function); did you mean 'KEXEC_ON_CRASH'?
->      192 |         if (image->type == KEXEC_TYPE_CRASH)
->          |                            ^~~~~~~~~~~~~~~~
->          |                            KEXEC_ON_CRASH
->    arch/s390/kernel/machine_kexec.c:192:28: note: each undeclared identifier is reported only once for each function it appears in
->    arch/s390/kernel/machine_kexec.c:196:18: error: invalid use of undefined type 'struct kimage'
->      196 |         if (image->type != KEXEC_TYPE_DEFAULT)
->          |                  ^~
->    arch/s390/kernel/machine_kexec.c:196:28: error: 'KEXEC_TYPE_DEFAULT' undeclared (first use in this function); did you mean 'KEXEC_ARCH_DEFAULT'?
->      196 |         if (image->type != KEXEC_TYPE_DEFAULT)
->          |                            ^~~~~~~~~~~~~~~~~~
->          |                            KEXEC_ARCH_DEFAULT
->    In file included from arch/s390/include/asm/thread_info.h:31,
->                     from include/linux/thread_info.h:60,
->                     from arch/s390/include/asm/preempt.h:6,
->                     from include/linux/preempt.h:79,
->                     from arch/s390/include/asm/percpu.h:5,
->                     from include/linux/irqflags.h:18,
->                     from include/linux/rcupdate.h:26,
->                     from include/linux/rculist.h:11,
->                     from include/linux/pid.h:5,
->                     from include/linux/sched.h:14,
->                     from include/linux/ratelimit.h:6,
->                     from include/linux/dev_printk.h:16,
->                     from include/linux/device.h:15,
->                     from arch/s390/kernel/machine_kexec.c:9:
->    arch/s390/kernel/machine_kexec.c:200:48: error: invalid use of undefined type 'struct kimage'
->      200 |         reboot_code_buffer = page_to_virt(image->control_code_page);
->          |                                                ^~
->    arch/s390/include/asm/page.h:186:58: note: in definition of macro '__va'
->      186 | #define __va(x)                 ((void *)(unsigned long)(x))
->          |                                                          ^
->    arch/s390/include/asm/page.h:194:38: note: in expansion of macro 'pfn_to_phys'
->      194 | #define pfn_to_virt(pfn)        __va(pfn_to_phys(pfn))
->          |                                      ^~~~~~~~~~~
->    arch/s390/include/asm/page.h:199:33: note: in expansion of macro 'pfn_to_virt'
->      199 | #define page_to_virt(page)      pfn_to_virt(page_to_pfn(page))
->          |                                 ^~~~~~~~~~~
->    include/asm-generic/memory_model.h:64:21: note: in expansion of macro '__page_to_pfn'
->       64 | #define page_to_pfn __page_to_pfn
->          |                     ^~~~~~~~~~~~~
->    arch/s390/kernel/machine_kexec.c:200:30: note: in expansion of macro 'page_to_virt'
->      200 |         reboot_code_buffer = page_to_virt(image->control_code_page);
->          |                              ^~~~~~~~~~~~
->    arch/s390/kernel/machine_kexec.c: At top level:
->    arch/s390/kernel/machine_kexec.c:207:35: warning: 'struct kimage' declared inside parameter list will not be visible outside of this definition or declaration
->      207 | void machine_kexec_cleanup(struct kimage *image)
->          |                                   ^~~~~~
->    arch/s390/kernel/machine_kexec.c: In function '__do_machine_kexec':
->    arch/s390/kernel/machine_kexec.c:243:40: error: invalid use of undefined type 'struct kimage'
->      243 |         data_mover = page_to_phys(image->control_code_page);
->          |                                        ^~
->    arch/s390/include/asm/page.h:189:35: note: in definition of macro 'pfn_to_phys'
->      189 | #define pfn_to_phys(pfn)        ((pfn) << PAGE_SHIFT)
->          |                                   ^~~
->    include/asm-generic/memory_model.h:64:21: note: in expansion of macro '__page_to_pfn'
->       64 | #define page_to_pfn __page_to_pfn
->          |                     ^~~~~~~~~~~~~
->    arch/s390/kernel/machine_kexec.c:243:22: note: in expansion of macro 'page_to_phys'
->      243 |         data_mover = page_to_phys(image->control_code_page);
->          |                      ^~~~~~~~~~~~
->    arch/s390/kernel/machine_kexec.c:244:36: error: invalid use of undefined type 'struct kimage'
->      244 |         entry = virt_to_phys(&image->head);
->          |                                    ^~
->    In file included from arch/s390/kernel/machine_kexec.c:27:
->    arch/s390/kernel/machine_kexec.c:252:40: error: invalid use of undefined type 'struct kimage'
->      252 |                    unsigned long, image->start,
->          |                                        ^~
->    arch/s390/include/asm/stacktrace.h:101:32: note: in definition of macro 'CALL_LARGS_2'
->      101 |         long arg2 = (long)(t2)(a2)
->          |                                ^~
->    arch/s390/include/asm/stacktrace.h:216:9: note: in expansion of macro 'CALL_LARGS_3'
->      216 |         CALL_LARGS_##nr(__VA_ARGS__);                                   \
->          |         ^~~~~~~~~~~
->    arch/s390/kernel/machine_kexec.c:250:9: note: in expansion of macro 'call_nodat'
->      250 |         call_nodat(3, void, (relocate_kernel_t)data_mover,
->          |         ^~~~~~~~~~
->    In file included from include/linux/irqflags.h:15:
->    arch/s390/kernel/machine_kexec.c:252:40: error: invalid use of undefined type 'struct kimage'
->      252 |                    unsigned long, image->start,
->          |                                        ^~
->    include/linux/typecheck.h:11:16: note: in definition of macro 'typecheck'
->       11 |         typeof(x) __dummy2; \
->          |                ^
->    arch/s390/include/asm/stacktrace.h:136:9: note: in expansion of macro 'CALL_TYPECHECK_2'
->      136 |         CALL_TYPECHECK_2(__VA_ARGS__);                                  \
->          |         ^~~~~~~~~~~~~~~~
->    arch/s390/include/asm/stacktrace.h:219:9: note: in expansion of macro 'CALL_TYPECHECK_3'
->      219 |         CALL_TYPECHECK_##nr(__VA_ARGS__);                               \
->          |         ^~~~~~~~~~~~~~~
->    arch/s390/kernel/machine_kexec.c:250:9: note: in expansion of macro 'call_nodat'
->      250 |         call_nodat(3, void, (relocate_kernel_t)data_mover,
->          |         ^~~~~~~~~~
->    include/linux/typecheck.h:12:25: warning: comparison of distinct pointer types lacks a cast
->       12 |         (void)(&__dummy == &__dummy2); \
->          |                         ^~
->    arch/s390/include/asm/stacktrace.h:134:9: note: in expansion of macro 'typecheck'
->      134 |         typecheck(t, a)
->          |         ^~~~~~~~~
->    arch/s390/include/asm/stacktrace.h:136:9: note: in expansion of macro 'CALL_TYPECHECK_2'
->      136 |         CALL_TYPECHECK_2(__VA_ARGS__);                                  \
->          |         ^~~~~~~~~~~~~~~~
->    arch/s390/include/asm/stacktrace.h:219:9: note: in expansion of macro 'CALL_TYPECHECK_3'
->      219 |         CALL_TYPECHECK_##nr(__VA_ARGS__);                               \
->          |         ^~~~~~~~~~~~~~~
->    arch/s390/kernel/machine_kexec.c:250:9: note: in expansion of macro 'call_nodat'
->      250 |         call_nodat(3, void, (relocate_kernel_t)data_mover,
->          |         ^~~~~~~~~~
->    arch/s390/kernel/machine_kexec.c: At top level:
->    arch/s390/kernel/machine_kexec.c:278:27: warning: 'struct kimage' declared inside parameter list will not be visible outside of this definition or declaration
->      278 | void machine_kexec(struct kimage *image)
->          |                           ^~~~~~
->    arch/s390/kernel/machine_kexec.c: In function 'machine_kexec':
->    arch/s390/kernel/machine_kexec.c:280:18: error: invalid use of undefined type 'struct kimage'
->      280 |         if (image->type == KEXEC_TYPE_CRASH && !kdump_csum_valid(image))
->          |                  ^~
->    arch/s390/kernel/machine_kexec.c:280:28: error: 'KEXEC_TYPE_CRASH' undeclared (first use in this function); did you mean 'KEXEC_ON_CRASH'?
->      280 |         if (image->type == KEXEC_TYPE_CRASH && !kdump_csum_valid(image))
->          |                            ^~~~~~~~~~~~~~~~
->          |                            KEXEC_ON_CRASH
->    arch/s390/kernel/machine_kexec.c:280:66: error: passing argument 1 of 'kdump_csum_valid' from incompatible pointer type [-Werror=incompatible-pointer-types]
->      280 |         if (image->type == KEXEC_TYPE_CRASH && !kdump_csum_valid(image))
->          |                                                                  ^~~~~
->          |                                                                  |
->          |                                                                  struct kimage *
->    arch/s390/kernel/machine_kexec.c:120:45: note: expected 'struct kimage *' but argument is of type 'struct kimage *'
->      120 | static bool kdump_csum_valid(struct kimage *image)
->          |                              ~~~~~~~~~~~~~~~^~~~~
->    cc1: some warnings being treated as errors
-> 
-> I don't think this change is equivalent for s390, which had
-> 
->    config KEXEC
->        def_bool y
->        select KEXEC_CORE
-> 
-> but it is now the equivalent of
-> 
->    config KEXEC
->        bool "Enable kexec system call"
->        default y
-> 
-> which enables KEXEC by default but it also allows KEXEC to be disabled
-> for s390 now, because it is a user-visible symbol, not one that is
-> unconditionally enabled no matter what. If s390 can tolerate KEXEC being
-> user selectable, then I assume the fix is just adjusting
-> arch/s390/kernel/Makefile to only build the machine_kexec files when
-> CONFIG_KEXEC_CORE is set:
-> 
-> diff --git a/arch/s390/kernel/Makefile b/arch/s390/kernel/Makefile
-> index 6b2a051e1f8a..a06b39da95f0 100644
-> --- a/arch/s390/kernel/Makefile
-> +++ b/arch/s390/kernel/Makefile
-> @@ -37,10 +37,10 @@ CFLAGS_unwind_bc.o	+= -fno-optimize-sibling-calls
->   obj-y	:= head64.o traps.o time.o process.o earlypgm.o early.o setup.o idle.o vtime.o
->   obj-y	+= processor.o syscall.o ptrace.o signal.o cpcmd.o ebcdic.o nmi.o
->   obj-y	+= debug.o irq.o ipl.o dis.o diag.o vdso.o cpufeature.o
-> -obj-y	+= sysinfo.o lgr.o os_info.o machine_kexec.o
-> +obj-y	+= sysinfo.o lgr.o os_info.o
->   obj-y	+= runtime_instr.o cache.o fpu.o dumpstack.o guarded_storage.o sthyi.o
->   obj-y	+= entry.o reipl.o relocate_kernel.o kdebugfs.o alternative.o
-> -obj-y	+= nospec-branch.o ipl_vmparm.o machine_kexec_reloc.o unwind_bc.o
-> +obj-y	+= nospec-branch.o ipl_vmparm.o unwind_bc.o
->   obj-y	+= smp.o text_amode31.o stacktrace.o abs_lowcore.o
->   
->   extra-y				+= vmlinux.lds
-> @@ -66,6 +66,7 @@ obj-$(CONFIG_CRASH_DUMP)	+= crash_dump.o
->   obj-$(CONFIG_UPROBES)		+= uprobes.o
->   obj-$(CONFIG_JUMP_LABEL)	+= jump_label.o
->   
-> +obj-$(CONFIG_KEXEC_CORE)	+= machine_kexec.o machine_kexec_reloc.o
->   obj-$(CONFIG_KEXEC_FILE)	+= machine_kexec_file.o kexec_image.o
->   obj-$(CONFIG_KEXEC_FILE)	+= kexec_elf.o
->   
-> 
-> Otherwise, the prompt for KEXEC could be made conditional on some ARCH
-> symbol so that architectures can opt out of it.
+There is a slight change in user-visible behavior here. Previously, all
+boards except the THead C906 reported misaligned access speed of
+UNKNOWN. C906 reported FAST. With this change, since we're now measuring
+misaligned access speed on each hart, all RISC-V systems will have this
+key set as either FAST or SLOW.
 
-Nathan,
-Thanks for looking at this! I've been receiving broken build info from Andrew's
-machinery. I've investigated and learned that CRASH_DUMP can be specified without
-KEXEC. I also realized that s390 originally had this right, but in the conversion
-I did, I got it wrong.
+Currently, we don't have a way to confidently measure the difference between
+SLOW and EMULATED, so we label anything not fast as SLOW. This will
+mislabel some systems that are actually EMULATED as SLOW. When we get
+support for delegating misaligned access traps to the kernel (as opposed
+to the firmware quietly handling it), we can explicitly test in Linux to
+see if unaligned accesses trap. Those systems will start to report
+EMULATED, though older (today's) systems without that new SBI mechanism
+will continue to report SLOW.
 
-This v4 series corrects that by having CRASH_DUMP select KEXEC.
+I've updated the documentation for those hwprobe values to reflect
+this, specifically: SLOW may or may not be emulated by software, and FAST
+represents means being faster than equivalent byte accesses.
 
-The new KEXEC looks like:
+Signed-off-by: Evan Green <evan@rivosinc.com>
 
-config KEXEC
-     bool "Enable kexec system call"
-     default ARCH_DEFAULT_KEXEC
-     depends on ARCH_SUPPORTS_KEXEC
-     select KEXEC_CORE
+---
 
-which appears to be equivalent, I think the CRASH_DUMP issue is the root problem.
+Changes in v2:
+ - Explain more in the commit message (Conor)
+ - Use a new algorithm that looks for the fastest run (David)
+ - Clarify documentatin further (David and Conor)
+ - Unify around a single word, "unaligned" (Conor)
+ - Align asm operands, and other misc whitespace changes (Conor)
 
-In a separate thread with Arnd Bergmann wrt/ arm build issues, he identifies
-similar problems&solutions as you did, but points out that CRASH_DUMP might still
-need some refinement; I'm looking into that.
+ Documentation/riscv/hwprobe.rst     |  11 ++-
+ arch/riscv/include/asm/cpufeature.h |   2 +
+ arch/riscv/kernel/Makefile          |   1 +
+ arch/riscv/kernel/copy-unaligned.S  |  71 +++++++++++++++++++
+ arch/riscv/kernel/copy-unaligned.h  |  13 ++++
+ arch/riscv/kernel/cpufeature.c      | 104 ++++++++++++++++++++++++++++
+ arch/riscv/kernel/smpboot.c         |   2 +
+ 7 files changed, 198 insertions(+), 6 deletions(-)
+ create mode 100644 arch/riscv/kernel/copy-unaligned.S
+ create mode 100644 arch/riscv/kernel/copy-unaligned.h
 
-The goal really is to make this series to result in equivalent configs as before,
-but there are small problems in the conversion that are showing up that I'm working.
+diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+index 19165ebd82ba..88d7d64ec0bd 100644
+--- a/Documentation/riscv/hwprobe.rst
++++ b/Documentation/riscv/hwprobe.rst
+@@ -87,13 +87,12 @@ The following keys are defined:
+     emulated via software, either in or below the kernel.  These accesses are
+     always extremely slow.
+ 
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned accesses are supported
+-    in hardware, but are slower than the cooresponding aligned accesses
+-    sequences.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_SLOW`: Misaligned accesses are slower
++    than equivalent byte accesses.  Misaligned accesses may be supported
++    directly in hardware, or trapped and emulated by software.
+ 
+-  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned accesses are supported
+-    in hardware and are faster than the cooresponding aligned accesses
+-    sequences.
++  * :c:macro:`RISCV_HWPROBE_MISALIGNED_FAST`: Misaligned accesses are faster
++       than equivalent byte accesses.
+ 
+   * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
+     not supported at all and will generate a misaligned address fault.
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index 23fed53b8815..d0345bd659c9 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -30,4 +30,6 @@ DECLARE_PER_CPU(long, misaligned_access_speed);
+ /* Per-cpu ISA extensions. */
+ extern struct riscv_isainfo hart_isa[NR_CPUS];
+ 
++void check_unaligned_access(int cpu);
++
+ #endif
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 506cc4a9a45a..7e6c464cdfe9 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -38,6 +38,7 @@ extra-y += vmlinux.lds
+ obj-y	+= head.o
+ obj-y	+= soc.o
+ obj-$(CONFIG_RISCV_ALTERNATIVE) += alternative.o
++obj-y	+= copy-unaligned.o
+ obj-y	+= cpu.o
+ obj-y	+= cpufeature.o
+ obj-y	+= entry.o
+diff --git a/arch/riscv/kernel/copy-unaligned.S b/arch/riscv/kernel/copy-unaligned.S
+new file mode 100644
+index 000000000000..2b57fab18efb
+--- /dev/null
++++ b/arch/riscv/kernel/copy-unaligned.S
+@@ -0,0 +1,71 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/* Copyright (C) 2023 Rivos Inc. */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++
++	.text
++
++/* void __copy_words_unaligned(void *, const void *, size_t) */
++/* Performs a memcpy without aligning buffers, using word loads and stores. */
++/* Note: The size is truncated to a multiple of 8 * SZREG */
++ENTRY(__copy_words_unaligned)
++	andi  a4, a2, ~((8*SZREG)-1)
++	beqz  a4, 2f
++	add   a3, a1, a4
++1:
++	REG_L a4,       0(a1)
++	REG_L a5,   SZREG(a1)
++	REG_L a6, 2*SZREG(a1)
++	REG_L a7, 3*SZREG(a1)
++	REG_L t0, 4*SZREG(a1)
++	REG_L t1, 5*SZREG(a1)
++	REG_L t2, 6*SZREG(a1)
++	REG_L t3, 7*SZREG(a1)
++	REG_S a4,       0(a0)
++	REG_S a5,   SZREG(a0)
++	REG_S a6, 2*SZREG(a0)
++	REG_S a7, 3*SZREG(a0)
++	REG_S t0, 4*SZREG(a0)
++	REG_S t1, 5*SZREG(a0)
++	REG_S t2, 6*SZREG(a0)
++	REG_S t3, 7*SZREG(a0)
++	addi  a0, a0, 8*SZREG
++	addi  a1, a1, 8*SZREG
++	bltu  a1, a3, 1b
++
++2:
++	ret
++END(__copy_words_unaligned)
++
++/* void __copy_bytes_unaligned(void *, const void *, size_t) */
++/* Performs a memcpy without aligning buffers, using only byte accesses. */
++/* Note: The size is truncated to a multiple of 8 */
++ENTRY(__copy_bytes_unaligned)
++	andi a4, a2, ~(8-1)
++	beqz a4, 2f
++	add  a3, a1, a4
++1:
++	lb   a4, 0(a1)
++	lb   a5, 1(a1)
++	lb   a6, 2(a1)
++	lb   a7, 3(a1)
++	lb   t0, 4(a1)
++	lb   t1, 5(a1)
++	lb   t2, 6(a1)
++	lb   t3, 7(a1)
++	sb   a4, 0(a0)
++	sb   a5, 1(a0)
++	sb   a6, 2(a0)
++	sb   a7, 3(a0)
++	sb   t0, 4(a0)
++	sb   t1, 5(a0)
++	sb   t2, 6(a0)
++	sb   t3, 7(a0)
++	addi a0, a0, 8
++	addi a1, a1, 8
++	bltu a1, a3, 1b
++
++2:
++	ret
++END(__copy_bytes_unaligned)
+diff --git a/arch/riscv/kernel/copy-unaligned.h b/arch/riscv/kernel/copy-unaligned.h
+new file mode 100644
+index 000000000000..a4e8b6ad5b6a
+--- /dev/null
++++ b/arch/riscv/kernel/copy-unaligned.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 Rivos, Inc.
++ */
++#ifndef __RISCV_KERNEL_COPY_UNALIGNED_H
++#define __RISCV_KERNEL_COPY_UNALIGNED_H
++
++#include <linux/types.h>
++
++void __copy_words_unaligned(void *dst, const void *src, size_t size);
++void __copy_bytes_unaligned(void *dst, const void *src, size_t size);
++
++#endif /* __RISCV_KERNEL_COPY_UNALIGNED_H */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index bdcf460ea53d..5387b1dc913b 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -19,12 +19,19 @@
+ #include <asm/cacheflush.h>
+ #include <asm/cpufeature.h>
+ #include <asm/hwcap.h>
++#include <asm/hwprobe.h>
+ #include <asm/patch.h>
+ #include <asm/processor.h>
+ #include <asm/vector.h>
+ 
++#include "copy-unaligned.h"
++
+ #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
+ 
++#define MISALIGNED_ACCESS_JIFFIES_LG2 1
++#define MISALIGNED_BUFFER_SIZE 0x4000
++#define MISALIGNED_COPY_SIZE ((MISALIGNED_BUFFER_SIZE / 2) - 0x80)
++
+ unsigned long elf_hwcap __read_mostly;
+ 
+ /* Host ISA bitmap */
+@@ -396,6 +403,103 @@ unsigned long riscv_get_elf_hwcap(void)
+ 	return hwcap;
+ }
+ 
++void check_unaligned_access(int cpu)
++{
++	u64 c0, c1;
++	u64 word_cycles;
++	u64 byte_cycles;
++	int ratio;
++	unsigned long j0, j1;
++	struct page *page;
++	void *dst;
++	void *src;
++	long speed = RISCV_HWPROBE_MISALIGNED_SLOW;
++
++	page = alloc_pages(GFP_NOWAIT, get_order(MISALIGNED_BUFFER_SIZE));
++	if (!page) {
++		pr_warn("Can't alloc pages to measure memcpy performance");
++		return;
++	}
++
++	/* Make an unaligned destination buffer. */
++	dst = (void *)((unsigned long)page_address(page) | 0x1);
++	/* Unalign src as well, but differently (off by 1 + 2 = 3). */
++	src = dst + (MISALIGNED_BUFFER_SIZE / 2);
++	src += 2;
++	word_cycles = -1ULL;
++	/* Do a warmup. */
++	__copy_words_unaligned(dst, src, MISALIGNED_COPY_SIZE);
++	preempt_disable();
++	j0 = jiffies;
++	while ((j1 = jiffies) == j0)
++		cpu_relax();
++
++	/*
++	 * For a fixed amount of time, repeatedly try the function, and take
++	 * the best time in cycles as the measurement.
++	 */
++	while (time_before(jiffies, j1 + (1 << MISALIGNED_ACCESS_JIFFIES_LG2))) {
++		c0 = get_cycles64();
++		/* Ensure the CSR read can't reorder WRT to the copy. */
++		mb();
++		__copy_words_unaligned(dst, src, MISALIGNED_COPY_SIZE);
++		/* Ensure the copy ends before the end time is snapped. */
++		mb();
++		c1 = get_cycles64();
++		if ((c1 - c0) < word_cycles)
++			word_cycles = c1 - c0;
++	}
++
++	byte_cycles = -1ULL;
++	__copy_bytes_unaligned(dst, src, MISALIGNED_COPY_SIZE);
++	j0 = jiffies;
++	while ((j1 = jiffies) == j0)
++		cpu_relax();
++
++	while (time_before(jiffies, j1 + (1 << MISALIGNED_ACCESS_JIFFIES_LG2))) {
++		c0 = get_cycles64();
++		mb();
++		__copy_bytes_unaligned(dst, src, MISALIGNED_COPY_SIZE);
++		mb();
++		c1 = get_cycles64();
++		if ((c1 - c0) < byte_cycles)
++			byte_cycles = c1 - c0;
++	}
++
++	preempt_enable();
++
++	/* Don't divide by zero. */
++	if (!word_cycles || !byte_cycles) {
++		pr_warn("cpu%d: rdtime lacks granularity needed to measure unaligned access speed\n",
++			cpu);
++
++		goto out;
++	}
++
++	if (word_cycles < byte_cycles)
++		speed = RISCV_HWPROBE_MISALIGNED_FAST;
++
++	ratio = (byte_cycles * 100) / word_cycles;
++	pr_info("cpu%d: Ratio of byte access time to unaligned word access is %d.%02d, unaligned accesses are %s\n",
++		cpu,
++		ratio / 100,
++		ratio % 100,
++		(speed == RISCV_HWPROBE_MISALIGNED_FAST) ? "fast" : "slow");
++
++	per_cpu(misaligned_access_speed, cpu) = speed;
++
++out:
++	__free_pages(page, get_order(MISALIGNED_BUFFER_SIZE));
++}
++
++static int check_unaligned_access0(void)
++{
++	check_unaligned_access(0);
++	return 0;
++}
++
++arch_initcall(check_unaligned_access0);
++
+ #ifdef CONFIG_RISCV_ALTERNATIVE
+ /*
+  * Alternative patch sites consider 48 bits when determining when to patch
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index f4d6acb38dd0..00ddbd2364dc 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -26,6 +26,7 @@
+ #include <linux/sched/task_stack.h>
+ #include <linux/sched/mm.h>
+ #include <asm/cpu_ops.h>
++#include <asm/cpufeature.h>
+ #include <asm/irq.h>
+ #include <asm/mmu_context.h>
+ #include <asm/numa.h>
+@@ -245,6 +246,7 @@ asmlinkage __visible void smp_callin(void)
+ 
+ 	numa_add_cpu(curr_cpuid);
+ 	set_cpu_online(curr_cpuid, 1);
++	check_unaligned_access(curr_cpuid);
+ 	probe_vendor_features(curr_cpuid);
+ 
+ 	if (has_vector()) {
+-- 
+2.34.1
 
-
-> 
-> As an aside, is this intended for the 6.5 merge window? If not, it
-> shouldn't be in -next at this point, I was surprised to see new broken
-> builds.
-> 
-> Cheers,
-> Nathan
-I'm not going to pretend I know when this will make it...
-eric
 
 _______________________________________________
 linux-riscv mailing list
