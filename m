@@ -4,78 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B69EEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 20:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E0FEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 20:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=osK/oXLDeu4pZDYAjREeN55qPUFEhbYlRGAFJTOFtuM=; b=M3fowSNEbKatr4
-	9glrIcBUJuxfOeq/l6qkPu1eKZMxTGVsLEkGvjCJO85POhpAKdv3fnr4uuginBgGJ740inU61KkZe
-	mrXCL1nizcZq0FZ69ReR0Kse+ea6E66wxXpV2+7NpOEg7Xn1+bDWfo0r7ix0vhLYugidN99186NoY
-	qZuoV/13fscT1ecS6xVjb+R6x8B/32J753x0b4CTFLeOxTaRAoWQ8qLfo/SMzAT2hx9BqsLlR48dL
-	X/8tlLMk2OkS6SPKZ3hwGhVPrd5IdaPCP6E0MA58jVNM1j5Nf6dA4vqFbSJmOUAcvoPySPdehLE8Q
-	Uuqvfbs/oV5XvOXWoaCw==;
+	List-Owner; bh=+9XNtwo52CaRohROpBzMUkv33wgaEAoV7DUc6VKqzcg=; b=0OKBmsGoPqwxWj
+	b7JOz/IAXYOCb5DYsUk47bOOM2yYj8M26SSXiUTj37gfdq4CBz90Bx24Ym8xHpLmzMMi+Zowsru+6
+	rO/a5m2XBPWeBwsKgjLE1jyKm9SgHijuF4PSeyj8Z78VgTdXabIhTbB5HirqTX4loyhcaHADSlvak
+	7A2c46R4gj0BUDnHEZAOfaJxB6n3Jyp0p2p+3X2/QJ0uqfeIZ47jXaVbESty7+0vPqa2Zm63pL7kL
+	7bG9pYjLnWauMuHBFtw0/wKk4E1lS6TVc1PuHuDsSfaElT5r7UqLDMyDkSlq9MbcITxc3ByKJ5FWQ
+	UqHWqCjm1B7DWKHN8uOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH9Lj-00H2uF-1K;
-	Wed, 05 Jul 2023 20:43:43 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1qH9Sk-00H4FH-1r;
+	Wed, 05 Jul 2023 20:50:58 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH9Lg-00H2sw-0D
+	id 1qH9Sg-00H4EP-1x
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jul 2023 20:43:41 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-76758b855edso57733985a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 13:43:38 -0700 (PDT)
+	Wed, 05 Jul 2023 20:50:56 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-666eb03457cso75385b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 13:50:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1688589818; x=1691181818;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BLtlZez9GAkHzasHFvmV0dDR+vDOeVbGvtxiizQEwv4=;
-        b=qoJ/WcInnMvxpe/7GYFg2GXpLKxlltJ2gqvaiqY44B6DdIWAU+YP7JMLutJNgP2G0p
-         PS8eidSRJn3Fl9ZhTpgMUdMGP9jXV/2myeCTFXsR1jOrQlsxSti0P/bFqLgGGAnLNjnm
-         Y851GXtefxphylLWbgQlxgBzgZhgWRyCqfiSDetpCtO/Xi0C543Cw6dwegH6QRbcXoUK
-         RcSYsRYqN8niT0QAh6V7Uc6lLPp1u39bDKH1+LKlV2xKlfXmkeXr8NFZY+UGFtYvuWAR
-         xHsfrwwatncC14sspoLrcoiGsd+1VNKlXU7OakZirS5BPjzbW4TH/OzYlR1bQONPJgx1
-         IimA==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688590253; x=1691182253;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ATlsphHrvoXPAVcgiiWqGZL+5stGcmqJb7QaGx/TZTY=;
+        b=1gi2QGerArOZcqyu8Kq4cOvg8zuziVGn35t26P9TQDCgI7LVvQLzLR3SrXe22/KhrP
+         EWezBRP2oL8ktfFwpeG6WuO8igLI6lzBPblZInvrfFpCSRobEpSTk/d4Xq9GBPodT+na
+         OlomtymSR32nWGj6shvUrMDfzZYE0meRpSdSqnIuO0y1stYLvYXMTie9SmmuSDf9D3mv
+         9wRXi4e8TLS/O6UsyvZxO2WXY0zMb1PNSWyDCYNITe4fmiUf+JNTkBouSyHbVz2fsJ8u
+         uPMCZVC8CkWRJ1YMiYIWuiUS7snbABrDkY3drTcOV27FokdQQ2hn6KQObjTeAROmHgAB
+         SEVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688589818; x=1691181818;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BLtlZez9GAkHzasHFvmV0dDR+vDOeVbGvtxiizQEwv4=;
-        b=Qzdf+3tSA6i+/xtCJGxUTIi/He+gaIPL817RI+F2aVSefwlDnhKI7zohrbKesxq86B
-         ypHzTvL/0x7LEUB6BuEwx4e5WSh5AXyei556/nKArh21GrIkeqwiVL9MmYU2Zug1cZ5y
-         F7WKQHpmx6AfQ5gu2TT6s7dXmkJki3DkPPjWcPdbzr8TbCEhAKEH0cCBatge4OrygYrm
-         moLCdJUs8lyL/eLv7Z+rlkLGTLJmM0od7a+SR7tAcM7OJr0ZHevtKUK6M48hDevvUYYw
-         GjY/XcCali+AX0efjtJU7ArZhvFDRu1Eq2tv1p+swMvMwm2/L21O/AeLeix9gLMVzaCt
-         Riog==
-X-Gm-Message-State: ABy/qLYW9FC3P7mK5jiKHAfNvpOqIom91y1mNDOhsTbnB0smMJCfuHKK
-	kx0PSwKD3TLcLNOfYEBlbgv7+4uDezvjTlBmoVIXrQ==
-X-Google-Smtp-Source: APBJJlHbB9as3fe+0u2+Ip6pMscKC0JFWdREHMoggTYXzbM688weDbz0++Qq4UE/yyF05PLEILCR1aFPSluIC8MNkps=
-X-Received: by 2002:a05:620a:29d2:b0:763:bac8:39c4 with SMTP id
- s18-20020a05620a29d200b00763bac839c4mr4044453qkp.18.1688589817815; Wed, 05
- Jul 2023 13:43:37 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230629234244.1752366-8-samitolvanen@google.com>
- <20230629234244.1752366-14-samitolvanen@google.com> <20230630-rake-clubbed-bba8a9c27219@spud>
-In-Reply-To: <20230630-rake-clubbed-bba8a9c27219@spud>
-From: Sami Tolvanen <samitolvanen@google.com>
-Date: Wed, 5 Jul 2023 13:43:01 -0700
-Message-ID: <CABCJKufa=TpydWsCY5QotC9a+hUHUwkpfMsC07BMwv6-VuzdCA@mail.gmail.com>
-Subject: Re: [PATCH 6/6] riscv: Allow CONFIG_CFI_CLANG to be selected
+        d=1e100.net; s=20221208; t=1688590253; x=1691182253;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ATlsphHrvoXPAVcgiiWqGZL+5stGcmqJb7QaGx/TZTY=;
+        b=AfyC1HhXej+XybvpPvmrYEyr/SGsdPK6+Cql599SzwOea+Y20Eam+uTE0Uy5oL+9EP
+         64QL0KRMS4LzbF5dE+0LqL1zTWpvHikTrX4iBHXx2of3hpUiFFElX3Gxx9NSi4wawkhx
+         7FpgTZUhd8vg3M54ARxn3CNmJoTTWvjNWx5BIlJVnZumUUYyf9erJ1/ES9HdwshvmKyR
+         3EtYw+gLYiq3H6+UzgsjQDRQA7Y9yrwkAMD0H4Y62lFkaJVwlGSLSwyCyfd+Wyg/Y97+
+         3XExR/ClzIjHY/TsvvaPJyVGLzUJce0SGlilkSpcfouommHFdxAzlkCpoan/veOnguCW
+         zl3A==
+X-Gm-Message-State: ABy/qLYlGPKr9U+QPAjWE0S7QNDFBcRGUtPzObzkwbl1GXy8JbffqJ2b
+	CefI1hwVyoDjgo//HzAQIHKuXA==
+X-Google-Smtp-Source: APBJJlF93hFsbARecEfbdb3KDh0+O1N9izJjSFDbX+WwN+rT8t09OpkxZrl422GOlOmeM8zpscifTw==
+X-Received: by 2002:a05:6a00:15c6:b0:679:bc89:e45 with SMTP id o6-20020a056a0015c600b00679bc890e45mr18660pfu.6.1688590253188;
+        Wed, 05 Jul 2023 13:50:53 -0700 (PDT)
+Received: from ghost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id n20-20020a62e514000000b00682b3d14005sm1752015pff.87.2023.07.05.13.50.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Jul 2023 13:50:52 -0700 (PDT)
+Date: Wed, 5 Jul 2023 13:50:50 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
 To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com, palmer@rivosinc.com,
+	aou@eecs.berkeley.edu, anup@brainfault.org,
+	konstantin@linuxfoundation.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	mick@ics.forth.gr, jrtc27@jrtc27.com
+Subject: Re: [RESEND PATCH v3 0/2] RISC-V: mm: Make SV48 the default address
+ space
+Message-ID: <ZKXXquCXkSdFD837@ghost>
+References: <20230705190002.384799-1-charlie@rivosinc.com>
+ <20230705-gloater-relation-29a6080ec87d@spud>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230705-gloater-relation-29a6080ec87d@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_134340_100298_19A59DA4 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20230705_135054_867791_B6AE0971 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,27 +92,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdW4gMzAsIDIwMjMgYXQgMTI6MDjigK9QTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gVGh1LCBKdW4gMjksIDIwMjMgYXQgMTE6NDI6NTFQTSAr
-MDAwMCwgU2FtaSBUb2x2YW5lbiB3cm90ZToKPiA+IFNlbGVjdCBBUkNIX1NVUFBPUlRTX0NGSV9D
-TEFORyB0byBhbGxvdyBDRklfQ0xBTkcgdG8gYmUgc2VsZWN0ZWQKPiA+IG9uIHJpc2N2Lgo+ID4K
-PiA+IFNpZ25lZC1vZmYtYnk6IFNhbWkgVG9sdmFuZW4gPHNhbWl0b2x2YW5lbkBnb29nbGUuY29t
-Pgo+ID4gLS0tCj4gPiAgYXJjaC9yaXNjdi9LY29uZmlnIHwgMSArCj4gPiAgMSBmaWxlIGNoYW5n
-ZWQsIDEgaW5zZXJ0aW9uKCspCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZp
-ZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gaW5kZXggMjBhNDA5MjcxNzVlLi4yNjk5ZTFmOGZl
-MzMgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiA+ICsrKyBiL2FyY2gvcmlz
-Y3YvS2NvbmZpZwo+ID4gQEAgLTQ0LDYgKzQ0LDcgQEAgY29uZmlnIFJJU0NWCj4gPiAgICAgICBz
-ZWxlY3QgQVJDSF9TVVBQT1JUU19ERUJVR19QQUdFQUxMT0MgaWYgTU1VCj4gPiAgICAgICBzZWxl
-Y3QgQVJDSF9TVVBQT1JUU19IVUdFVExCRlMgaWYgTU1VCj4gPiAgICAgICBzZWxlY3QgQVJDSF9T
-VVBQT1JUU19QQUdFX1RBQkxFX0NIRUNLIGlmIE1NVQo+ID4gKyAgICAgc2VsZWN0IEFSQ0hfU1VQ
-UE9SVFNfQ0ZJX0NMQU5HCj4KPiBQbGVhc2UgYWRkIG5ldyBlbnRyaWVzIGluIGFscGhhbnVtZXJp
-Y2FsIG9yZGVyLCB0aGFua3MuCgpTdXJlLCBJJ2xsIGZpeCB0aGUgb3JkZXIgaW4gdjIuIFRoYW5r
-cyBmb3IgdGFraW5nIGEgbG9vayEKClNhbWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On Wed, Jul 05, 2023 at 09:00:18PM +0100, Conor Dooley wrote:
+> Hey Charlie,
+> 
+> On Wed, Jul 05, 2023 at 11:59:40AM -0700, Charlie Jenkins wrote:
+> > Make sv48 the default address space for mmap as some applications
+> > currently depend on this assumption. Also enable users to select
+> > desired address space using a non-zero hint address to mmap. Previous
+> > kernel changes caused Java and other applications to be broken on sv57
+> > which this patch fixes.
+> > 
+> > Documentation is also added to the RISC-V virtual memory section to explain
+> > these changes.
+> 
+> I can't find a changelog in any of these patches, nor an explanation for
+> why this is v3 (or a RESEND). All I can find on the list is a v1. Could
+> you explain and provide a changelog please?
+> 
+> Cheers,
+> Conor.
+
+I made a series of mistakes due to an incorrect email configuration. I
+knew something was wrong but I didn't know what after I sent out v2. v2
+bumped the default address space from sv39 to sv48. The purpose of v3
+was to remove an erroneous .gitignore I had included in v2 and also
+modify a testcase that was supposed to check the default was sv48 but it
+was still checking for sv39. After sending out v3 I realized what was
+wrong with my configuration, so I decided to mark it as a resend because
+I believe some people did recieve the previous emails.
+
+This is the only patch that made it through to everybody, and includes a
+default address space of sv48 instead of sv39. I have tested that
+OpenJDK 19 works on sv39, sv48, and sv57 in QEMU on this patch.
+OpenJDK 19 failed to work on kernel v6.4 on sv57 but worked on sv39 and
+sv48. Applications like Java and Go failing on sv57 were the motivation
+of this patch. Setting a default of sv48 will allow applications that
+don't explicitly support sv57 to work on sv57 hardware but still allow
+applications to take advantage of sv57 by specifying a hint address to
+mmap that is greater than or equal to 1<<56.
+
+- Charlie
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
