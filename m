@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA40EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 12:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C899EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 13:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DcDvL+MljEg95sXa0hYRK8r0wdTTeST2wgEe3VkZVGI=; b=fA7F75sTE8d62N
-	cyrDUPHwMqx5kF43eYXqEZOJkug2MumgLubOarT614iz9+I/hKtadNzRGvmKDGdQhLSu5y27O5W2R
-	SkRlCUzYHzSUrCq9o9wBNGGaTxljHnycxZOTP962jmhWS1n7ntQF7Rl2C1+E9qam3ahCGopnFZQKE
-	pZVcPEKZ7xjjPNsbxxsn36j+Kz0Ipq73+o1pEcbaumMo943JaSjNo8zP2SB1II+1EQbI5QV6Om4n+
-	asBDtKKx/3oMDdqYQsV4yvGbufZaOO1aXfOWLf1/GCoPGySL2vd8HEIC0sQZKgvD+nSNmLWsQHsDt
-	UIoGHMia6qYMGqjoqYGA==;
+	List-Owner; bh=W5/MHT3FmbGLwu/tjA3MQZ6JoxAJoToUKHV40XXbJxw=; b=JfzR8bIGepzvH8
+	m2ZUi1oNiKM0k95Qrn5P9XXVP68q0Gs6JJawgSrj6cAOS4xtwpt8YGlZx0Pj+eoprQ5bI0XwsTHm6
+	76+juPeGy/UvxhWjo+4EDNVDv6uRsgML2Z1fmwRJZ7uYxJJMp19fCtEEi7x+/jsPqKxtRqruIAG2I
+	rgWyEI/DfgQ0B/IHobQB2lZWU3VGkf44nXvTqZ7jb1v+9V5WJUvXN94WXABh0xF+xOUSrcNCZKDCX
+	kApNmjsosvcZp1tpou3m+6vsgi61bcv7KtKouWJ3OzTpJS5AxpFy+JnhD4pq4NbsyWDxEWoPzgVVZ
+	2mrmwdf5MlpgdriRUdhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH25Z-00FwEG-22;
-	Wed, 05 Jul 2023 12:58:33 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1qH2p7-00G22W-0S;
+	Wed, 05 Jul 2023 13:45:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH25W-00FwCs-1R
+	id 1qH2p4-00G22A-1j
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jul 2023 12:58:31 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-51d9c71fb4bso6497329a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 05:58:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1688561906; x=1691153906;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jQrDgXonDxL9axtRl5lwZsakY/CjkoP6IKvWcgWl998=;
-        b=Vge9U9xIPTzswsZaPbqYxfhI6z8Z/UuxnLvU2uyCUZE3k5aAhdD7iJVTVc1UI0mEHd
-         BhGcuR5WPggmOqTff8QC7f1LX50jW1RrYyNiBkU+GfpkHIaA+5ogqBO4UzA/ehcRYwSt
-         92rcaer+1OM3e9Or1FJcTL9sWLRV5Me1sMhVCgU5S8VapRxf4Fb8vvyRss/TF74u3GJe
-         J5k3CjvPrBAHouwI3hn0z3wbdtsSLssVxiH0/UJq2MBxD6KxJHHOmgfRHWzrMmddr5zX
-         qoaP1R8WXwKNYb1sEsDJptZcCB9YuZzgzHO8e3kU1755r/KZzZ1ACukIdcJSFApMSdvG
-         lUCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688561906; x=1691153906;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jQrDgXonDxL9axtRl5lwZsakY/CjkoP6IKvWcgWl998=;
-        b=XUEoCsk0ugcR9MFPCZdnpo6UzXaXMFCySBpG0NgekoUY4xa+01AP5R+MVAYHtVHLgm
-         UfGXh4WZGpbMsc1nd4c4CTbk7bBkyDyBwV2S0JmgSYpUhp0vIsXwruy8h6LSy/90F+0v
-         0tBU37xI8JQwtEORBD6usz1I8j5g9P6Yb5QD3AnesRJmyOMocM6BgdDwWZOiNa4Bn0ki
-         cQQP8TbV5Aolk3pEL6feO5RKiZ/89C3CQRU+qgo83y5kf/oGePRW+qjH68Vw5EzPkZ6x
-         P5gZKuPOPgRuxznshX6gaZeFqSlKn9jcJMHN6+Sdgibs2EgqoQlYMlMXCniT03qOY9sQ
-         DcqA==
-X-Gm-Message-State: ABy/qLYrOcZ5nnxiQAZNN7dR6LM0c9Dd8c2yNrJIx86/f1nidXJoL8fs
-	n9V1/53NoqI5QqG9MxCIuIwVKw==
-X-Google-Smtp-Source: APBJJlHiqjKjBQiht3ujNI3mPjt2v0U8ymFWVRPidfULSVfKhueCcRmrXgy7sd1cyBj91qvzThz7ug==
-X-Received: by 2002:aa7:c98c:0:b0:51d:9db4:8201 with SMTP id c12-20020aa7c98c000000b0051d9db48201mr11179630edt.7.1688561906257;
-        Wed, 05 Jul 2023 05:58:26 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id h8-20020aa7c948000000b0051d87e72159sm12571933edt.13.2023.07.05.05.58.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Jul 2023 05:58:25 -0700 (PDT)
-Date: Wed, 5 Jul 2023 14:58:24 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
-	anup@brainfault.org, atishp@atishpatra.org
-Subject: Re: [PATCH] RISC-V: KVM: provide UAPI for host SATP mode
-Message-ID: <20230705-602410a4b627f419f8f9936c@orel>
-References: <20230705091535.237765-1-dbarboza@ventanamicro.com>
- <994ae720-b3a1-1e67-ca9c-ca00e6525488@ghiti.fr>
- <029b87e1-d4bc-9deb-316b-b93c5bd2a37f@ventanamicro.com>
+	Wed, 05 Jul 2023 13:45:35 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0C68F61578;
+	Wed,  5 Jul 2023 13:45:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F30B0C433C7;
+	Wed,  5 Jul 2023 13:45:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688564733;
+	bh=2nZc8QuDXQtU0mJQdbBKKU3T4vyKo8XqmVijsQeBb+w=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=HHCNlWJdsDyCfJAqxVw88yhrOEwjE4+AzjYxJ5QdiR8zt2Bq3oevCi7o2fOX30Vs9
+	 vR4PqMoHxn+Lu2H8Z56jIubA19YmDBfJKFWE6sO4kkMYH0qdo6rsCG7LGu3w3/RN4t
+	 XIgbDrYMp/K5PeAmItfPHIpVfVuLJy2b65tmxMT0o3IqOBb4eVUNsNj/EjOrEB7Lms
+	 Ki+JeSy0W8UmVOzyslNJUj5BvAD4YWTGpWbPcxD71SfAeh4OxhX8/nv0wdNMxK1fTd
+	 b4Gj68qHZOwIh2u5ghqhV5kuA1UFfeWvCE/zKBicWXuF9rz5rWJUVEzb4ZcddFTEAc
+	 QJIN5x6a71C0A==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko
+ <andrii@kernel.org>, Mykola Lysenko <mykolal@fb.com>, bpf@vger.kernel.org,
+ netdev@vger.kernel.org
+Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, Alexei
+ Starovoitov <ast@kernel.org>,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH bpf-next 0/2] BPF kselftest cross-build/RISC-V fixes
+In-Reply-To: <9ee053a4-500c-2722-d822-d137648e55e5@iogearbox.net>
+References: <20230705113926.751791-1-bjorn@kernel.org>
+ <9ee053a4-500c-2722-d822-d137648e55e5@iogearbox.net>
+Date: Wed, 05 Jul 2023 15:45:30 +0200
+Message-ID: <87bkgqtqth.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <029b87e1-d4bc-9deb-316b-b93c5bd2a37f@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_055830_485559_5EFE4CE8 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20230705_064534_615798_51ED267C 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,51 +74,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 05, 2023 at 09:33:26AM -0300, Daniel Henrique Barboza wrote:
-> 
-> 
-> On 7/5/23 09:18, Alexandre Ghiti wrote:
-> > 
-> > On 05/07/2023 11:15, Daniel Henrique Barboza wrote:
-> > > KVM userspaces need to be aware of the host SATP to allow them to
-> > > advertise it back to the guest OS.
-> > > 
-> > > Since this information is used to build the guest FDT we can't wait for
-> > 
-> > 
-> > The thing is the "mmu-type" property in the FDT is never used: the kernel will probe the hardware and choose the largest available mode, or use "no4lvl"/"no5lvl" from the command line to restrict this mode. And FYI the current mode is exposed through cpuinfo. @Conor Can we deprecate this node or something similar?
-> > 
-> > Just a remark, not sure that helps :)
-> 
-> It does, thanks. I am aware that the current mode is exposed through cpuinfo.
-> mvendorid/marchid/mimpid is also exposed there. As far as I understand we should
-> rely on KVM to provide all CPU related info to configure a vcpu though.
-> 
-> A little background of where I'm coming from. One of the QEMU KVM cpu types (host)
-> doesn't have an assigned satp_mode. The FDT creation of the 'virt' board relies on
-> that info being present, and the result is that the board will segfault. I sent a
-> fix for it that I hope will be queued shortly:
-> 
-> https://lore.kernel.org/qemu-devel/20230630100811.287315-3-dbarboza@ventanamicro.com/
-> 
-> Thus, if it's decided that the satp_mode FDT is deprecated, we can ignore this
-> patch altogether. Thanks,
-
-We'll eventually want the ability to get and set vsatp.mode from the VMM,
-so we'll want KVM_REG_RISCV_CONFIG_REG(satp_mode) anyway. For now, since
-we only support CPU passthrough with KVM, it's a convenient way to read
-the host's mode (while PPC qemu-kvm does read cpuinfo, I'm not aware of
-any other qemu-kvm doing that).
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RGFuaWVsIEJvcmttYW5uIDxkYW5pZWxAaW9nZWFyYm94Lm5ldD4gd3JpdGVzOgoKPiBPbiA3LzUv
+MjMgMTozOSBQTSwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPj4gRnJvbTogQmrDtnJuIFTDtnBlbCA8
+Ympvcm5Acml2b3NpbmMuY29tPgo+PiAKPj4gVGhpcyBzZXJpZXMgaGFzIHR3byBtaW5vciBmaXhl
+cywgZm91bmQgd2hlbiBjcm9zcy1jb21waWxpbmcgZm9yIHRoZQo+PiBSSVNDLVYgYXJjaGl0ZWN0
+dXJlLgo+PiAKPj4gU29tZSBSSVNDLVYgc3lzdGVtcyBkbyBub3QgZGVmaW5lIEhBVkVfRUZGSUNJ
+RU5UX1VOQUxJR05FRF9BQ0NFU1MsCj4+IHdoaWNoIG1hZGUgc29tZSBvZiB0ZXN0cyBiYWlsIG91
+dC4gRml4IHRoZSBmYWlsaW5nIHRlc3RzIGJ5IGFkZGluZwo+PiBGX05FRURTX0VGRklDSUVOVF9V
+TkFMSUdORURfQUNDRVNTLgo+PiAKPj4gLi4uYW5kIHNvbWUgUklTQy1WIHN5c3RlbXMgKmRvKiBk
+ZWZpbmUKPj4gSEFWRV9FRkZJQ0lFTlRfVU5BTElHTkVEX0FDQ0VTUy4gSW4gdGhpcyBjYXNlIHRo
+ZSBhdXRvY29uZi5oIHdhcyBub3QKPj4gY29ycmVjdGx5IHBpY2tlZCB1cCBieSB0aGUgYnVpbGQg
+c3lzdGVtLgo+Cj4gTG9va3MgZ29vZCwgYXBwbGllZCB0aGFua3MhIAoKVGhhbmsgeW91IQoKPiBB
+bnkgcGxhbnMgb24gd29ya2luZyB0b3dhcmRzIGludGVncmF0aW5nIHJpc2N2IGludG8gdXBzdHJl
+YW0gQlBGIENJPwo+IFdvdWxkIGxvdmUgdG8gc2VlIHRoYXQgaGFwcGVuaW5nLiA6KQoKWWVzISBJ
+IHN0YXJ0ZWQgaGFja2luZyBhIGJpdCBvbiB0aGF0IHNvbWUgdGltZSBiYWNrOgoKICBodHRwczov
+L2dpdGh1Yi5jb20vbGliYnBmL2NpL3B1bGwvODcKICBodHRwczovL2dpdGh1Yi5jb20va2VybmVs
+LXBhdGNoZXMvdm10ZXN0L3B1bGwvMTk0CgooVEw7RFI6IEknbGwgY29udGludWluZyB0aGF0IHdv
+cmsgYXQgc29tZSBwb2ludC4pCgpSSVNDLVYgc3RpbGwgbmVlZHMgY3Jvc3MtY29tcGlsYXRpb24s
+IGFuZCB0ZXN0aW5nIG9uIHFlbXUvVENHIChvbgp0eXBpY2FsbHkgeDg2LWhvc3RzKSwgd2hpY2gg
+cHV0cyBzb21lIGNvbnN0cmFpbnRzIG9uIHRoZQpyb290ZnMvY3Jvc3MtY29tcGlsYXRpb24gaG9z
+dDsgRm9yIFJJU0MtViBEZWJpYW4gQnVsbHNleWUgaXMgd2F5IHRvbyBvbGQKKGEgbG90IHBhY2th
+Z2VzIGFyZSBtaXNzaW5nL2Jyb2tlbikuIFR5cGljYWxseSBmb3IgQlBGIGl0IHdvdWxkIGJlClVi
+dW50dSBLaW5ldGljIChvciBsYXRlciksIG9yIHNvbWUgRGViaWFuIFNpZCBzbmFwc2hvdC4KClRo
+ZSByb290ZnMsIHRoZSBob3N0LCBhbmQgdGhlIGhvc3QgZm9yZWlnbiBhcmNoIHdvdWxkIG5lZWQg
+dG8gYmUgdGhlCnNhbWUgZm9yICJuby1oYXNzbGUgY3Jvc3MtY29tcGlsYXRpb24gb24gRGViaWFu
+IGRlcml2YXRpdmVzIiAtLSBhbmQgYXQKbGVhc3QgeW91bmdlciB0aGFuICJVYnVudHUgS2luZXRp
+YyItYWdlLgoKQUZBSVUsIHRoZXJlIGFyZSBzb21lIGlzc3VlcyB3aXRoIHJvb3RmcyB2ZXJzaW9u
+IGFuZCBidWlsZCBob3N0CnZlcnNpb25pbmcgZm9yIG90aGVyIGFyY2hzIGFzIHdlbGw6IGh0dHBz
+Oi8vZ2l0aHViLmNvbS9saWJicGYvY2kvcHVsbC84MwoKCkJqw7ZybgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
