@@ -4,100 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39EEEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 08:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B262EB64DD
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 08:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gg6Nu+w+e0mD9sUe+YV/T7XH2ikc+PC6duHA/FHG+ds=; b=kJUFhpM9RU6mJEoSY6LnAaAesO
-	oVX61OlONc10xtdZxngxNgdO+gE35b/5qx9ZNrW+ITt68BmsibKcE7JFNCaIejzKsqAYUCVAmb/JY
-	0YaDp7uIP3ByKKQSwojORUDbF4EH8oNsa/a5a2nTK8rh7yvItXaXonNwa43InF++mIoKZtd9Rkv+Q
-	q5LLamKLVPZCca45sXLDr9c9c7YTFeHJzpdPmNzxowkEzZcovO6yIcYNurTU66la1vvjliTZHonj9
-	1voJ0aXp0YenkF72FAh6f5vLISOsvtBuN1d5rdOPwbv1xCpa/C78oZ21gNLBy4R7gBwurrV/JmJnC
-	wycEsZ7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=v24yddhrpO2pviMarBz5iW2KQCDc5PAnjMhtRJPPnKU=; b=d2/IoclLjJA/Hj
+	WPs1Q+BDm+P+RZbWDat9R47UtfJU9XqOsn6nIDK/nBPP2Ve1sQ3m6dVEZ2bHMA9qs0OBJTXJwDnwq
+	0CIEwGB3qDJl/yMe3Z1D+QbkMN/l1SHe1EYAzSsV21xfNwIayOZ2Fk+FAU25nlpd458nUozsqYwRF
+	BGu/Ke9sWqJ13yLtoMCjHjwYPAVDkAaTXTY1bcxjjhoZqk+qbz8kug6Vix9R1r32AL5RKT/glrUO5
+	U+rnXh8vSyjwrWAlZFQeDka//HVbNylgS+4pIqimeWXf7yue4YwWz14pUMbuz/BaLCuD5nYCgXIAN
+	NykJvx7map1BH02/r4Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGxiS-00FBLb-2z;
-	Wed, 05 Jul 2023 08:18:24 +0000
-Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGxiP-00FBKF-1K;
-	Wed, 05 Jul 2023 08:18:23 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 210151F889;
-	Wed,  5 Jul 2023 08:18:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1688545100; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=W4UNbanusOFxqm7hkNbMAuWfI8njzbZ+1xH+95ErApk=;
-	b=f1m05wOooggnusYApEllJA4DHXKKKu62i1rkKSNolG6RSiDRMKyS6d2VnsKHmZ8xzEctgP
-	2uFR9SUawf/L7AX58ys1K0ADYPqUxnoHpg1XHgDcVjhPphPABiv3BNAKFSe9wj6pbNGgEY
-	29iqc7Q/KqHfbr7HBz8cCkvPeICaCO8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1688545100;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=W4UNbanusOFxqm7hkNbMAuWfI8njzbZ+1xH+95ErApk=;
-	b=gtb/O4Zal0aHIFkUGIjHzs3Xs2V7RNCILA5sbQaaw7ZE4XgZbEe5tDa00OtkRXs35FPUwp
-	QCeM4ulI7ec97LAw==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 7965C13460;
-	Wed,  5 Jul 2023 08:18:19 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
-	by imap2.suse-dmz.suse.de with ESMTPSA
-	id +47LHEsnpWRgSAAAMHmgww
-	(envelope-from <tzimmermann@suse.de>); Wed, 05 Jul 2023 08:18:19 +0000
-Message-ID: <150c0fa2-bff2-0644-d6e5-c4dab7f79048@suse.de>
-Date: Wed, 5 Jul 2023 10:18:18 +0200
+	id 1qGxvI-00FDsJ-39;
+	Wed, 05 Jul 2023 08:31:40 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qGxvE-00FDpj-1E
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Jul 2023 08:31:39 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 11D7424E1F2;
+	Wed,  5 Jul 2023 16:31:07 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 5 Jul
+ 2023 16:31:07 +0800
+Received: from [192.168.120.57] (171.223.208.138) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 5 Jul
+ 2023 16:31:06 +0800
+Message-ID: <5e9ef080-085e-9135-a53c-9f9490f08ebe@starfivetech.com>
+Date: Wed, 5 Jul 2023 16:31:05 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.12.0
-Subject: Re: [PATCH 07/12] arch/x86: Declare edid_info in <asm/screen_info.h>
+Subject: Re: [PATCH v4 2/3] spi: cadence-quadspi: Add clock configuration for
+ StarFive JH7110 QSPI
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<devicetree@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Ziv Xu
+	<ziv.xu@starfivetech.com>
+References: <20230704090453.83980-1-william.qiu@starfivetech.com>
+ <20230704090453.83980-3-william.qiu@starfivetech.com>
+ <808dac44-a72c-4675-1e4a-0ed96190efb4@linaro.org>
+ <90b55926-1d0c-b9c0-3020-5837e2028809@starfivetech.com>
+ <175d03f6-122f-bbd2-5d38-61fe4022c5cd@linaro.org>
 Content-Language: en-US
-To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
-Cc: linux-hyperv@vger.kernel.org, linux-efi@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-fbdev@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-mips@vger.kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
- Linux-Arch <linux-arch@vger.kernel.org>, linux-hexagon@vger.kernel.org,
- linux-staging@lists.linux.dev,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Sami Tolvanen <samitolvanen@google.com>,
- Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
- Frederic Weisbecker <frederic@kernel.org>,
- Nicholas Piggin <npiggin@gmail.com>, Borislav Petkov <bp@alien8.de>,
- loongarch@lists.linux.dev, Thomas Gleixner <tglx@linutronix.de>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- linux-kernel@vger.kernel.org, Juerg Haefliger
- <juerg.haefliger@canonical.com>, linux-alpha@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
-References: <20230629121952.10559-1-tzimmermann@suse.de>
- <20230629121952.10559-8-tzimmermann@suse.de>
- <80e3a583-805e-4e8f-a67b-ebe2e4b9a7e5@app.fastmail.com>
- <d3de124c-6aa8-e930-e238-7bd6dd7929a6@suse.de>
- <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
- <ef7b3899-7d18-8018-47fa-aac0efaa61f4@suse.de>
- <dd5aa01e-afad-48d2-bf4c-4a58b74f1644@app.fastmail.com>
-From: Thomas Zimmermann <tzimmermann@suse.de>
-In-Reply-To: <dd5aa01e-afad-48d2-bf4c-4a58b74f1644@app.fastmail.com>
+From: William Qiu <william.qiu@starfivetech.com>
+In-Reply-To: <175d03f6-122f-bbd2-5d38-61fe4022c5cd@linaro.org>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_011821_607679_DBDF8484 
-X-CRM114-Status: GOOD (  33.24  )
+X-CRM114-CacheID: sfid-20230705_013136_573305_B780246B 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,174 +78,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4293263117161621374=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---===============4293263117161621374==
-Content-Language: en-US
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------2k3MbKSxf2z9hgV165j2f9MP"
-
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------2k3MbKSxf2z9hgV165j2f9MP
-Content-Type: multipart/mixed; boundary="------------9nOsvmrIChEQyu9JM4jWfbbm";
- protected-headers="v1"
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: Arnd Bergmann <arnd@arndb.de>, Helge Deller <deller@gmx.de>,
- Daniel Vetter <daniel@ffwll.ch>, Dave Airlie <airlied@gmail.com>
-Cc: linux-hyperv@vger.kernel.org, linux-efi@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-fbdev@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-mips@vger.kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
- Linux-Arch <linux-arch@vger.kernel.org>, linux-hexagon@vger.kernel.org,
- linux-staging@lists.linux.dev,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Sami Tolvanen <samitolvanen@google.com>,
- Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
- Frederic Weisbecker <frederic@kernel.org>,
- Nicholas Piggin <npiggin@gmail.com>, Borislav Petkov <bp@alien8.de>,
- loongarch@lists.linux.dev, Thomas Gleixner <tglx@linutronix.de>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- linux-kernel@vger.kernel.org, Juerg Haefliger
- <juerg.haefliger@canonical.com>, linux-alpha@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
-Message-ID: <150c0fa2-bff2-0644-d6e5-c4dab7f79048@suse.de>
-Subject: Re: [PATCH 07/12] arch/x86: Declare edid_info in <asm/screen_info.h>
-References: <20230629121952.10559-1-tzimmermann@suse.de>
- <20230629121952.10559-8-tzimmermann@suse.de>
- <80e3a583-805e-4e8f-a67b-ebe2e4b9a7e5@app.fastmail.com>
- <d3de124c-6aa8-e930-e238-7bd6dd7929a6@suse.de>
- <0dbbdfc4-0e91-4be4-9ca0-d8ba6f18453d@app.fastmail.com>
- <ef7b3899-7d18-8018-47fa-aac0efaa61f4@suse.de>
- <dd5aa01e-afad-48d2-bf4c-4a58b74f1644@app.fastmail.com>
-In-Reply-To: <dd5aa01e-afad-48d2-bf4c-4a58b74f1644@app.fastmail.com>
-
---------------9nOsvmrIChEQyu9JM4jWfbbm
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
-
-SGkgQXJuZA0KDQpBbSAzMC4wNi4yMyB1bSAxMzo1MyBzY2hyaWViIEFybmQgQmVyZ21hbm46
-DQo+IE9uIEZyaSwgSnVuIDMwLCAyMDIzLCBhdCAwOTo0NiwgVGhvbWFzIFppbW1lcm1hbm4g
-d3JvdGU6DQo+PiBBbSAyOS4wNi4yMyB1bSAxNToyMSBzY2hyaWViIEFybmQgQmVyZ21hbm46
-DQo+Pj4gT24gVGh1LCBKdW4gMjksIDIwMjMsIGF0IDE1OjAxLCBUaG9tYXMgWmltbWVybWFu
-biB3cm90ZToNCj4+Pj4gQW0gMjkuMDYuMjMgdW0gMTQ6MzUgc2NocmllYiBBcm5kIEJlcmdt
-YW5uOg0KPj4+Pj4gT24gVGh1LCBKdW4gMjksIDIwMjMsIGF0IDEzOjQ1LCBUaG9tYXMgWmlt
-bWVybWFubiB3cm90ZToNCj4+DQo+Pj4+DQo+Pj4+IEZJUk1XQVJFX0VESUQgaXMgYSB1c2Vy
-LXNlbGVjdGFibGUgZmVhdHVyZSwgd2hpbGUgQVJDSF9IQVNfRURJRF9JTkZPDQo+Pj4+IGFu
-bm91bmNlcyBhbiBhcmNoaXRlY3R1cmUgZmVhdHVyZS4gVGhleSBkbyBkaWZmZXJlbnQgdGhp
-bmdzLg0KPj4+DQo+Pj4gSSBzdGlsbCBoYXZlIHRyb3VibGUgc2VlaW5nIHRoZSBkaWZmZXJl
-bmNlLg0KPj4NCj4+IFRoZSBpZGVhIGhlcmUgaXMgdGhhdCBBUkNIX0hBU18gc2lnbmFscyB0
-aGUgYXJjaGl0ZWN0dXJlJ3Mgc3VwcG9ydCBmb3INCj4+IHRoZSBmZWF0dXJlLiAgRHJpdmVy
-cyBzZXQgJ2RlcGVuZHMgb24nIGluIHRoZWlyIEtjb25maWcuDQo+Pg0KPj4gQW5vdGhlciBL
-Y29uZmlnIHRva2VuLCBWSURFT19TQ1JFRU5fSU5GTyBvciBGSVJNV0FSRV9FRElELCB3b3Vs
-ZCB0aGVuDQo+PiBhY3R1YWxseSBlbmFibGUgdGhlIGZlYXR1cmUuICBEcml2ZXJzIHNlbGVj
-dCBWSURFT19TQ1JFRU5fSU5GTyBvcg0KPj4gRklSTVdBUkVfRURJRCBhbmQgdGhlIGFyY2hp
-dGVjdHVyZXMgY29udGFpbnMgY29kZSBsaWtlDQo+IA0KPiBGYWlyIGVub3VnaC4gSW4gdGhh
-dCBjYXNlLCBJIGd1ZXNzIEZJUk1XQVJFX0VESUQgd2lsbCBqdXN0IGRlcGVuZCBvbg0KPiBB
-UkNIX0hBU19FRElEX0lORk8sIG9yIHBvc3NpYmx5ICJkZXBlbmRzIG9uIEZJUk1XQVJFX0VE
-SUQgfHwgRUZJIg0KPiBhZnRlciBpdCBzdGFydHMgY2FsbGluZyBpbnRvIGFuIEVGSSBzcGVj
-aWZpYyBmdW5jdGlvbiwgcmlnaHQ/DQo+IA0KPj4gI2lmZGVmIFZJREVPX1NDUkVFTl9JTkZP
-DQo+PiBzdHJ1Y3Qgc2NyZWVuX2luZm8gc2NyZWVuX2luZm8gPSB7DQo+PiAJLyogc2V0IHZh
-bHVlcyBoZXJlICovDQo+PiB9DQo+PiAjZW5kaWYNCj4+DQo+PiBUaGlzIGFsbG93cyB1cyB0
-byBkaXNhYmxlIGNvZGUgdGhhdCByZXF1aXJlcyBzY3JlZW5faW5mby9lZGlkX2luZm8sIGJ1
-dA0KPj4gYWxzbyBkaXNhYmxlIHNjcmVlbl9pbmZvL2VkaWRfaW5mbyB1bmxlc3Mgc3VjaCBj
-b2RlIGhhcyBiZWVuIGVuYWJsZWQgaW4NCj4+IHRoZSBrZXJuZWwgY29uZmlnLg0KPj4NCj4+
-IFNvbWUgYXJjaGl0ZWN0dXJlcyBjdXJyZW50bHkgbWltaWMgdGhpcyBieSBndWFyZGluZyBz
-Y3JlZW5faW5mbyB3aXRoDQo+PiBpZmRlZiBDT05GSUdfVlQgb3Igc2ltaWxhci4gSSdkIGxp
-a2UgdG8gbWFrZSB0aGlzIG1vcmUgZmxleGlibGUuIFRoZQ0KPj4gY29zdCBvZiBhIGZldyBt
-b3JlIGludGVybmFsIEtjb25maWcgdG9rZW5zIHNlZW1zIG5lZ2xpZ2libGUuDQo+IA0KPiBJ
-IGRlZmluaXRlbHkgZ2V0IGl0IGZvciB0aGUgc2NyZWVuX2luZm8sIHdoaWNoIG5lZWRzIHRo
-ZSBjb21wbGV4aXR5Lg0KPiBGb3IgQVJDSEFSQ0hfSEFTX0VESURfSU5GTyBJIHdvdWxkIGhv
-cGUgdGhhdCBpdCdzIG5ldmVyIHNlbGVjdGVkIGJ5DQo+IGFueXRoaW5nIG90aGVyIHRoYW4g
-eDg2LCBzbyBJIHdvdWxkIHN0aWxsIGdvIHdpdGgganVzdCBhIGRlcGVuZGVuY3kNCj4gb24g
-eDg2IGZvciBzaW1wbGljaXR5LCBidXQgSSBkb24ndCBtaW5kIGhhdmluZyB0aGUgZXh0cmEg
-c3ltYm9sIGlmIHRoYXQNCj4ga2VlcHMgaXQgbW9yZSBjb25zaXN0ZW50IHdpdGggaG93IHRo
-ZSBzY3JlZW5faW5mbyBpcyBoYW5kbGVkLg0KDQpXZWxsLCBJJ2QgbGlrZSB0byBhZGQgZWRp
-ZF9pbmZvIHRvIHBsYXRmb3JtcyB3aXRoIEVGSS4gV2hhdCB3b3VsZCBiZSANCmFybS9hcm02
-NCBhbmQgbG9vbmdhcmNoLCBJIGd1ZXNzLiBTZWUgYmVsb3cgZm9yIHRoZSBmdXR1cmUgcGxh
-bnMuDQoNCj4gDQo+Pj4gSSBzdXBwb3NlIHlvdSBjb3VsZCB1c2UgRklSTVdBUkVfRURJRCBv
-biBFRkkgb3IgT0Ygc3lzdGVtcyB3aXRob3V0DQo+Pj4gdGhlIG5lZWQgZm9yIGEgZ2xvYmFs
-IGVkaWRfaW5mbyBzdHJ1Y3R1cmUsIGJ1dCB0aGF0IHdvdWxkIG5vdA0KPj4+IHNoYXJlIGFu
-eSBjb2RlIHdpdGggdGhlIGN1cnJlbnQgZmJfZmlybXdhcmVfZWRpZCgpIGZ1bmN0aW9uLg0K
-Pj4NCj4+IFRoZSBjdXJyZW50IGNvZGUgaXMgYnVpbGQgb24gdG9wIG9mIHNjcmVlbl9pbmZv
-IGFuZCBlZGlkX2luZm8uIEknZA0KPj4gcHJlZmVyYWJseSBub3QgcmVwbGFjZSB0aGF0LCBp
-ZiBwb3NzaWJsZS4NCj4gDQo+IE9uZSB3YXkgSSBjb3VsZCBpbWFnaW5lIHRoaXMgbG9va2lu
-ZyBpbiB0aGUgZW5kIHdvdWxkIGJlDQo+IHNvbWV0aGluZyBsaWtlDQo+IA0KPiBzdHJ1Y3Qg
-c2NyZWVuX2luZm8gKmZiX3NjcmVlbl9pbmZvKHN0cnVjdCBkZXZpY2UgKmRldikNCj4gew0K
-PiAgICAgICAgc3RydWN0IHNjcmVlbl9pbmZvICpzaSA9IE5VTEw7DQo+IA0KPiAgICAgICAg
-aWYgKElTX0VOQUJMRUQoQ09ORklHX0VGSSkpDQo+ICAgICAgICAgICAgICBzaSA9IGVmaV9n
-ZXRfc2NyZWVuX2luZm8oZGV2KTsNCj4gDQo+ICAgICAgICBpZiAoSVNfRU5BQkxFRChDT05G
-SUdfQVJDSF9IQVNfU0NSRUVOX0lORk8pICYmICFzaSkNCj4gICAgICAgICAgICAgIHNpID0g
-c2NyZWVuX2luZm87DQo+IA0KPiAgICAgICAgcmV0dXJuIHNpOw0KPiB9DQo+IA0KPiBjb3Jy
-ZXNwb25kaW5nIHRvIGZiX2Zpcm13YXJlX2VkaWQoKS4gV2l0aCB0aGlzLCBhbnkgZHJpdmVy
-DQo+IHRoYXQgd2FudHMgdG8gYWNjZXNzIHNjcmVlbl9pbmZvIHdvdWxkIGNhbGwgdGhpcyBm
-dW5jdGlvbg0KPiBpbnN0ZWFkIG9mIHVzaW5nIHRoZSBnbG9iYWwgcG9pbnRlciwgcGx1cyBl
-aXRoZXIgTlVMTCBwb2ludGVyDQo+IGNoZWNrIG9yIGEgQ09ORklHX0FSQ0hfSEFTX1NDUkVF
-Tl9JTkZPIGRlcGVuZGVuY3kuDQo+IA0KPiBUaGlzIHdheSB3ZSBjb3VsZCBjb21wbGV0ZWx5
-IGVsaW1pbmF0ZSB0aGUgZ2xvYmFsIHNjcmVlbl9pbmZvDQo+IG9uIGFybTY0LCByaXNjdiwg
-YW5kIGxvb25nYXJjaCBidXQgc3RpbGwgdXNlIHRoZSBlZmkgYW5kDQo+IGh5cGVydiBmcmFt
-ZWJ1ZmZlci9kcm0gZHJpdmVycy4NCg0KSWYgcG9zc2libGUsIEknZCBsaWtlIHRvIHJlbW92
-ZSBnbG9iYWwgc2NyZWVuX2luZm8gYW5kIGVkaWRfaW5mbyANCmVudGlyZWx5IGZyb20gZmJk
-ZXYgYW5kIHRoZSB2YXJpb3VzIGNvbnNvbGVzLg0KDQpXZSBjdXJyZW50bHkgdXNlIHNjcmVl
-bl9pbmZvIHRvIHNldCB1cCB0aGUgZ2VuZXJpYyBmcmFtZWJ1ZmZlciBkZXZpY2UgaW4gDQpk
-cml2ZXJzL2Zpcm13YXJlL3N5c2ZiLmMuIEknZCBsaWtlIHRvIHVzZSBlZGlkX2luZm8gaGVy
-ZSBhcyB3ZWxsLCBzbyANCnRoYXQgdGhlIGdlbmVyaWMgZ3JhcGhpY3MgZHJpdmVycyBjYW4g
-Z2V0IEVESUQgaW5mb3JtYXRpb24uDQoNCkZvciB0aGUgZmV3IGZiZGV2IGRyaXZlcnMgYW5k
-IGNvbnNvbGVzIHRoYXQgcmVxdWlyZSB0aGUgZ2xvYmFsIA0Kc2NyZWVuX2luZm8vZWRpZF9p
-bmZvLCBJJ2QgcmF0aGVyIHByb3ZpZGUgbG9va3VwIGZ1bmN0aW9ucyBpbiBzeXNmYiANCihl
-LmcuLCBzeXNmYl9nZXRfc2NyZWVuX2luZm8oKSwgc3lzZmJfZ2V0X2VkaWRfaW5mbygpKS4g
-VGhlIGdsb2JhbCANCnNjcmVlbl9pbmZvL2VkaWRfaW5mbyBzdGF0ZSB3b3VsZCB0aGVuIGJl
-Y29tZSBhbiBpbnRlcm5hbCBhcnRpZmFjdCBvZiANCnRoZSBzeXNmYiBjb2RlLg0KDQpIb3Bl
-ZnVsbHkgdGhhdCBleHBsYWlucyBzb21lIG9mIHRoZSBkZWNpc2lvbnMgbWFkZSBpbiB0aGlz
-IHBhdGNoc2V0Lg0KDQpCZXN0IHJlZ2FyZHMNClRob21hcw0KDQo+IA0KPiAgICAgIEFybmQN
-Cg0KLS0gDQpUaG9tYXMgWmltbWVybWFubg0KR3JhcGhpY3MgRHJpdmVyIERldmVsb3Blcg0K
-U1VTRSBTb2Z0d2FyZSBTb2x1dGlvbnMgR2VybWFueSBHbWJIDQpGcmFua2Vuc3RyYXNzZSAx
-NDYsIDkwNDYxIE51ZXJuYmVyZywgR2VybWFueQ0KR0Y6IEl2byBUb3RldiwgQW5kcmV3IE15
-ZXJzLCBBbmRyZXcgTWNEb25hbGQsIEJvdWRpZW4gTW9lcm1hbg0KSFJCIDM2ODA5IChBRyBO
-dWVybmJlcmcpDQo=
-
---------------9nOsvmrIChEQyu9JM4jWfbbm--
-
---------------2k3MbKSxf2z9hgV165j2f9MP
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature"
-
------BEGIN PGP SIGNATURE-----
-
-wsF5BAABCAAjFiEExndm/fpuMUdwYFFolh/E3EQov+AFAmSlJ0oFAwAAAAAACgkQlh/E3EQov+Ar
-GBAAo4esabhlv1pv1eUJEjgRW+ns5YBTZSxnTNM1zBWU8t6X1q991ybNmrQv/epD+zuQeRoa97MN
-l1HgNdpESzfLQk9/SjPewRDC6ITHHLR2uBCxbrmdLnsMYYJ43lUFSFsusi1FLyQJV9RvIl7BlRYj
-S679/kx2vxzLto8BoxEU+AB1/zdCvICRrITF/2cflnGB0LPhKVU1QmpMEsvOCO2nnlkGZxWl1pIr
-NP0h5xgG+8DFgyWonyPJ93PMYja7LMpoPjTd9K2ErHriOEmFk++HFJTjIswsQz73XpaJBUqaJjjj
-i1WduG2dQFEWI0fOtDA/O0fV4AcZgGOpv6bk2G7/E1rRZtqPdq5DpNU/ep2+GesFjOy3f0voheUI
-I42NvvEBLh4PcIn2ScZTH8+O0KnIgRTgDgHH8J2rMcYqCIWJ1vi/gIK/DWc91nOyurlQ82ChZtcg
-Ps4ryHUs4XcXxARdFg+dbGtAEJX9w4WK+EpdwxXqCttR5AXouPgCC4ndmaJP9xOpOTBEz/llBrrd
-dR43H4TayV0zDNaWhCANKXA5yl14eFj0D7eursCdXweahKOEuAAfYKMxDLjXIV9aOy435JsF/3OG
-FeYNx3StYvNqRpP9PV0q3WENW7amHTXQ9yElDbo6j22jThA7DlmTln/RUQnSkN4zcrwG/w4mP1Yl
-ZK4=
-=mbrs
------END PGP SIGNATURE-----
-
---------------2k3MbKSxf2z9hgV165j2f9MP--
 
 
---===============4293263117161621374==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+On 2023/7/5 15:23, Krzysztof Kozlowski wrote:
+> On 05/07/2023 09:04, William Qiu wrote:
+>> 
+>> 
+>> On 2023/7/5 14:21, Krzysztof Kozlowski wrote:
+>>> On 04/07/2023 11:04, William Qiu wrote:
+>>>> Add QSPI clock operation in device probe.
+>>>>
+>>>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+>>>> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+>>>> Reported-by: kernel test robot <lkp@intel.com>
+>>>> Closes: https://lore.kernel.org/oe-kbuild-all/202306022017.UbwjjWRN-lkp@intel.com/
+>>>> Reported-by: Julia Lawall <julia.lawall@inria.fr>
+>>>> Closes: https://lore.kernel.org/r/202306040644.6ZHs55x4-lkp@intel.com/
+>>>
+>>>
+>>>>  
+>>>> @@ -1840,6 +1858,8 @@ static int cqspi_resume(struct device *dev)
+>>>>  	struct spi_master *master = dev_get_drvdata(dev);
+>>>>  
+>>>>  	clk_prepare_enable(cqspi->clk);
+>>>> +	if (of_device_is_compatible(dev->of_node, "starfive,jh7110-qspi"))
+>>>
+>>> Don't add compatible checks inside the code. It does not scale. We
+>>> expect compatibles to be listed only in one place - of_device_id - and
+>>> customize driver with match data / quirks / flags.
+>>>
+>>> Comment applies to all your diff hunks.
+>>>
+>> I'll use "of_device_get_match_data" to replace it. But the way I added
+>> reset before is also by compatible checks. Should I change this place to 
+>> "of_device_get_match_data" as well?
+> 
+> I don't know what's there, but in general driver should be written in a
+> consistent style.
+>It's in line 1719, inside the "cqspi_probe", but this part of the code is
+already merged in the main line. Should I keep it in a consistent style?
+
+Best regards,
+William
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4293263117161621374==--
-
