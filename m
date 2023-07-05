@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6DDC001B0
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 03:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92EB1EB64DD
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 06:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=srz63OYVBnhnVxJ3NoeFwIHChOuFSRgNKGNTFqd/pW4=; b=mOEomUg8A1ynbD
-	0pyDCI1m6Ey/EH6Fd7tcpbRBYsxHnXsqPuoA8hSEfLASk8+kvUkaYLG8JBrFcfle0NkiZQjDeVFYQ
-	lREWNtaCf4A3a5M6pI7xrZk/UXfzioKndRW7JbUtpBkSoauH1vV/vrLpgUl6o8Td4Wn+L571tJPHt
-	gWQvhgEriwmhfyC2rUoBj6ijX4zCm6bIalvuiMO9yop7xo4h6aKFqpEtPaA6IokRbp6ixFN94HGXn
-	MQhF53avD6XY5XqiAJwsZnsbWKt3b/Bk0QxHJ85/OYo8X3mC/VhS/eYPgoYSFi13FHnIZ9wO3pZF+
-	ppbnKueNWeWcTfnV9UxQ==;
+	List-Owner; bh=9gU9GIRogv6coR99u9IOV0wUKy/ZP2g9WLD+Lum3HHo=; b=hwzpKeWz3HZsfa
+	AoqEt8wVSIKscKpTgLKOBqzUGE+Eff7laPgxFtreIqoouwrCf9yxSR6iEkIsZBtVuAKPGfl4Oe1gq
+	TxHIlz2oTPkiuR37rlekR96BeDnKTxdW07CGMMTvDzUUGKMyAcRnsk2N2Xprd8wy5udVYqMsGo0ff
+	Vht47lpqTN+3rX2KJWfU4uP29FPtnFDQTRChGA3l++bbDC4VQyYDJe+UOxoZ1ZkPxF/iw8GD8OTJ8
+	5lO4kAv9DbNIc6WxGQNv/dW2sjQ1dbheEz55F1YhJLgonox7udNmJooTUoJwWGrhmht8oY4ACe1a7
+	YMr704V90zaJVc9EMD7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGtXq-00EiHk-1O;
-	Wed, 05 Jul 2023 03:51:10 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1qGvYj-00Er9t-1t;
+	Wed, 05 Jul 2023 06:00:13 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGtXm-00EiH6-24
+	id 1qGvYg-00Er8q-2q
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jul 2023 03:51:08 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-4fb9fd28025so8796122e87.2
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Jul 2023 20:51:03 -0700 (PDT)
+	Wed, 05 Jul 2023 06:00:12 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-51d804c7d14so7111925a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Jul 2023 23:00:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1688529061; x=1691121061;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A7koUXTGnXZ2BN6z2esFRUBwMxdqNEeh2TLixxqJrG4=;
-        b=OSqKEasXz+D9ihlXJxO0mUy6ubDPxeEKZuYFwWcv1krSfchWaAhS7DeDkLUx0QA1Nf
-         Wcu+k24HmcXRRG4dk9tQLpIwPIu3uEjdR4nJ2/Bj76VhFoiO915GQtOijA6CpWMCQua2
-         MGgf0fW4Y4QtDrv5sGIQnQBhQOaU8yWqO6kaG6X45nVOR753xmJYRC+Dkn0FO76gECQs
-         qPFITbMHuDEsdbTfMcFUcHa2dRKWgfCIVllgI+0TGN7lZDNHOQVyYsH4+/5XqyeDBimG
-         SUj6MOo6AiAD/D0foDLc5eKOc66iLEEIWux9Jcs5ACm39DbQ1IYsvBpH4CjGGGzcDBOY
-         S0QQ==
+        d=linaro.org; s=google; t=1688536805; x=1691128805;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lg4p70yBEKgSpD1cT2YGaKlK1TI1DMTxkPYru7t7pjo=;
+        b=JuxdT/xEit4IrqGeHlnyYjKmGmvgAzwPA8szxaSJH3EZcEWwW63T44Zc6/atD6SZSi
+         OHBv//7Ewd32S3ndKkXVvv1U81h/6FDKWuKhz9E+VHS0Yx0Ubstgg3xT7IuJxr5DLfQ/
+         +Y9WBvvo46+zTP4dmeFiih5GUAD+tGqaTA9cwBhlS5YhmHgci/emfftL3DCoHUhRaHFo
+         nbvT1yD4uC9SPhEGcPcsR99OcyBwYSVxCz+PlpodlKeuhew8rvdUVl5L4Kbvb2TZopri
+         4DcwPfXRWwC4l35FCWKhfZg70GjOlvVeaFYDjB8AQhR2Oh+rajLl5L6dXXbcFzPVSNqf
+         lBjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688529061; x=1691121061;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A7koUXTGnXZ2BN6z2esFRUBwMxdqNEeh2TLixxqJrG4=;
-        b=V59TchX2QxfB0bchhuUZLOIKvmaoF+DVRMqP+wC/rkRTuFIhyUE2GVwgMZmIJWYQ4c
-         lm2uMbebHM/qx2MVo1zA/LTR4Ng23imaLqrH/m12FNuz3tbCzCsBQG2zdws5Sq0eXJ6h
-         AuBr+GCjGTKb+vzoFs+aEtAYBQ0FGV+J3mziu7pXjf6EjoeXyj+5Fd+QfjYsegxsoZmq
-         buOLoFcEbN/b2nOq42MZ3XSbtCoFXE/Um6Z43ilLPpSICSPL3l6e8bFAA/6uiTm5zPw7
-         Z0bmysr2lqe/xfRfaWbeooZMFlS8InQEifwdVxptZbVejp4/8AU0MEyFyZhLiwnBjsjy
-         TSow==
-X-Gm-Message-State: ABy/qLa05a/fOMXIxEjG5dO1Y25mfVtwoSPbqiTlU4uWFxgGec7589S+
-	UvSbKrg3EQcUhxWEV2D/POL7+UGIreDFqmfMN7/FtML0dRl5SO+fer8=
-X-Google-Smtp-Source: APBJJlHOM2IZLucodj6HWgJHAsB+Q18K78EMjq0nn1drMe8tDHTaxF7UR7y9aWMrYrf3Z94KyBGdBYidCGb6JPA1epY=
-X-Received: by 2002:a05:6512:3e10:b0:4fb:7bbf:daae with SMTP id
- i16-20020a0565123e1000b004fb7bbfdaaemr12214586lfv.64.1688529061686; Tue, 04
- Jul 2023 20:51:01 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1688536805; x=1691128805;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lg4p70yBEKgSpD1cT2YGaKlK1TI1DMTxkPYru7t7pjo=;
+        b=CylLfDmhRf6+YclGxmqKYCR4dK+hZtE2D7XIJGgsD78W/9kOurmIWtQyVAhkG0um1k
+         mG14y2vtUl3MCpORbX06w4NJFM5RXT3sSYOpEwTPqNVb416ibLA7RKiI+t1A/+tJLoZC
+         WgORRrgrfwh+eorGVSLDHcVyiXhYtZBw0GFede/9qIZGghHf8q8WGxrUzr0KfB8aPkDf
+         iOkH1CqiYT5Djc/fGhrRhjhbqkvP50QaQS6r9E6MigY9bEHZifHEGdotRydNWOqpWAmx
+         7r0uQIP3T6An1xLWlpdvN9KzDzEj71L6EoaselNZuDGcERv4rVo7JYkuKjyxEukfEjvT
+         3G9w==
+X-Gm-Message-State: ABy/qLYCdCUHnPAVyrjBov0XfaRbKzDzQX/2fe/l+UzjPXLaOfWQ684T
+	yTqh2SCJzlF3+v5PIsvYJS9lkw==
+X-Google-Smtp-Source: APBJJlHovpZJ6c+S3ijS7SQT3N5tbS5WFllsIv8PWnLvlpcF+jgm5rZjp5jo94AHu/4D3FFDZ5JmTA==
+X-Received: by 2002:a17:906:a38b:b0:991:f207:411e with SMTP id k11-20020a170906a38b00b00991f207411emr10107006ejz.69.1688536804831;
+        Tue, 04 Jul 2023 23:00:04 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.219.26])
+        by smtp.gmail.com with ESMTPSA id k25-20020a17090666d900b00982842ea98bsm14071542ejp.195.2023.07.04.23.00.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Jul 2023 23:00:04 -0700 (PDT)
+Message-ID: <afcf67e3-a017-b747-a0cf-284a87a8d24a@linaro.org>
+Date: Wed, 5 Jul 2023 08:00:02 +0200
 MIME-Version: 1.0
-References: <20230629142228.1125715-1-bjorn@kernel.org>
-In-Reply-To: <20230629142228.1125715-1-bjorn@kernel.org>
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Wed, 5 Jul 2023 11:50:50 +0800
-Message-ID: <CABgGipVO35+CZUioxn2jFD8mFjVup84GRJXGQQ8wx4urjc0Y+Q@mail.gmail.com>
-Subject: Re: [PATCH v4] riscv: Discard vector state on syscalls
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	linux-kernel@vger.kernel.org, linux@rivosinc.com, 
-	Palmer Dabbelt <palmer@rivosinc.com>, =?UTF-8?Q?R=C3=A9mi_Denis=2DCourmont?= <remi@remlab.net>, 
-	Darius Rad <darius@bluespec.com>, Conor Dooley <conor.dooley@microchip.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [RESEND v1 1/2] dt-binding: spi: constrain minItems of clocks and
+ clock-names
+To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Linus Walleij <linus.walleij@linaro.org>
+References: <20230704092200.85401-1-william.qiu@starfivetech.com>
+ <20230704092200.85401-2-william.qiu@starfivetech.com>
+ <1b65e8d1-d5e1-0d6b-1248-d9683be44db8@linaro.org>
+ <c5027d42-b9be-090d-bd43-86c9b1448c99@starfivetech.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <c5027d42-b9be-090d-bd43-86c9b1448c99@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230704_205106_723936_525AA2D8 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230704_230010_960358_24A2A26D 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,28 +97,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdW4gMjksIDIwMjMgYXQgMTA6MjLigK9QTSBCasO2cm4gVMO2cGVsIDxiam9ybkBr
-ZXJuZWwub3JnPiB3cm90ZToKPgo+IEZyb206IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5j
-LmNvbT4KPgo+IFRoZSBSSVNDLVYgdmVjdG9yIHNwZWNpZmljYXRpb24gc3RhdGVzOgo+ICAgRXhl
-Y3V0aW5nIGEgc3lzdGVtIGNhbGwgY2F1c2VzIGFsbCBjYWxsZXItc2F2ZWQgdmVjdG9yIHJlZ2lz
-dGVycwo+ICAgKHYwLXYzMSwgdmwsIHZ0eXBlKSBhbmQgdnN0YXJ0IHRvIGJlY29tZSB1bnNwZWNp
-ZmllZC4KPgo+IFRoZSB2ZWN0b3IgcmVnaXN0ZXJzIGFyZSBzZXQgdG8gYWxsIDFzLCB2aWxsIGlz
-IHNldCAoaW52YWxpZCksIGFuZCB0aGUKPiB2ZWN0b3Igc3RhdHVzIGlzIHNldCB0byBEaXJ0eS4K
-Pgo+IFRoYXQgd2F5IHdlIGNhbiBwcmV2ZW50IHVzZXJzcGFjZSBmcm9tIGFjY2lkZW50YWxseSBy
-ZWx5aW5nIG9uIHRoZQo+IHN0YXRlZCBzYXZlLgo+Cj4gUsOpbWkgcG9pbnRlZCBvdXQgWzFdIHRo
-YXQgd3JpdGluZyB0byB0aGUgcmVnaXN0ZXJzIG1pZ2h0IGJlCj4gc3VwZXJmbHVvdXMsIGFuZCBz
-ZXR0aW5nIHZpbGwgaXMgc3VmZmljaWVudC4KPgo+IExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL2xpbnV4LXJpc2N2LzEyNzg0MzI2LjlVUFBLM01BZUJAYmFzaWxlLnJlbWxhYi5uZXQvICMg
-WzFdCj4gU3VnZ2VzdGVkLWJ5OiBEYXJpdXMgUmFkIDxkYXJpdXNAYmx1ZXNwZWMuY29tPgo+IFN1
-Z2dlc3RlZC1ieTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+Cj4gU3VnZ2Vz
-dGVkLWJ5OiBSw6ltaSBEZW5pcy1Db3VybW9udCA8cmVtaUByZW1sYWIubmV0Pgo+IFNpZ25lZC1v
-ZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KClRoYW5rcywKUmV2aWV3
-ZWQtYnk6IEFuZHkgQ2hpdSA8YW5keS5jaGl1QHNpZml2ZS5jb20+CgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 05/07/2023 05:37, William Qiu wrote:
+>>> ---
+>>>  Documentation/devicetree/bindings/spi/spi-pl022.yaml | 11 ++++++++---
+>>>  1 file changed, 8 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/spi/spi-pl022.yaml b/Documentation/devicetree/bindings/spi/spi-pl022.yaml
+>>> index 91e540a92faf..42bb34c39971 100644
+>>> --- a/Documentation/devicetree/bindings/spi/spi-pl022.yaml
+>>> +++ b/Documentation/devicetree/bindings/spi/spi-pl022.yaml
+>>> @@ -11,6 +11,7 @@ maintainers:
+>>>
+>>>  allOf:
+>>>    - $ref: spi-controller.yaml#
+>>> +  - $ref: /schemas/arm/primecell.yaml#
+>>
+>> This looks unrelated, so keep it as separate commit with its own rationale.
+>>
+> Because "arm,primecell-periphid"  is need in JH7110 SoC, so I added them in
+> one commit, so do I need to put them in two commit?
+
+You need to provide rationale why this is needed. I would assume this is
+needed for every primecell, not only JH7110, right?
+
+
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
