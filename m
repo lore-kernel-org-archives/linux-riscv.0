@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4064EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 11:39:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCD9C001DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 11:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mBeMmM7oDnNvOJe+8U1tdekBD/g7OBEXUiOM+wMgAIw=; b=ju4V3VO7guauHb
-	cvvd5LNtkRQ3nNeFLBQZTqIC8GO6GCQHDOjpiej2BONofB4pWV8K/DK0Zg9b1PClIwxNl2yuOsw5R
-	Qs0sG/wIzrIT0KPAKZfpFdyo5LW9LwTuLbRxPfxZEwIdPVysKJ5bITCBZoZfefip2NAOaBDqdqy5f
-	iI1vRP9hCtmvSeAvRImeNPoYMm7kp6+n2fbNXYAvRANoOj4R4ywV1X/Rl6rSr09o1w4urKGJxJZI/
-	Q1MSFa0TxPVltpJBRMUHGy7v7yev/qCA9Yze5pTNa3PkFWinViel8LwLWid7ee3XaimZJp6tMFUx+
-	YghUiiNB+1JFbIdIG7sA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=r5Mo/flGWore1XgIsyuojr32HZl2uldk9cwuUrir78o=; b=drg0d8HWsyn1Mf
+	d9zWXO2gnYngoA1/IObpneWTq9qRL1qYpjB7WBZkKCZHkgjpWcKQxg3QR7e5a64fjBrOhw9ARlYsz
+	z8xbBQHZVdmjJ1dYS+v1z8HpIim837gz7hKw1U65lefhF86IubmTK2nK4nuYsfxBugK+SXxGS2BLh
+	oQOLNYttwwpUR3ti/8ISqNwG7Hcwnwt/F/fV66iTQ/xW87mBYoIhgUSBj3h883jnC35NcCXoopW8F
+	dP/0F+FhQHmJR/Vzozlvluysn47GQqejpX+pzLbjOzEyg8t3XiCcQs16+PekfO3C/5lQTONvjNO62
+	Ej9uce3YqZPmJJxa1p3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH0rH-00FjqF-2J;
-	Wed, 05 Jul 2023 11:39:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qH0wA-00Fkyb-0b;
+	Wed, 05 Jul 2023 11:44:46 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH0rE-00FjoQ-16
+	id 1qH0w7-00Fkxg-1w
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jul 2023 11:39:41 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D261D61518;
-	Wed,  5 Jul 2023 11:39:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4C3EC43391;
-	Wed,  5 Jul 2023 11:39:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688557179;
-	bh=urR3yZnDusvfwXBBOCw/IKT8fxfFq0fp8eLiyLD/Gk8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mjrzNsnkwMA7QUoyv8VZHYooJ9qpesUo3fpr7hiB/TVnxsZHH9BhWMCKLK8at5QwS
-	 V9hMGMNDTEq3nNEQ6c3DCl83x7CH/qRoAk5UNVLg8DQffuNqmHl4AlteM2DLsljmQs
-	 5VuXlXM9uZxiblRRVomfvkyWZuEcaquye35Zfui17JLeLC9AHJlbSvfgq+DCac65GS
-	 WvKfzA2uUlTbXQQcpTnKOsXLKWF3MNPpFWtQjerp92230pbjBn3bPavNHUlXYCM8w8
-	 NK92ORPQi9wQqzp90yshBg7i4NS7GpOFowqCsYqGQZxY08HdzQbNHiWnCGo50L1MAJ
-	 o/vqbVggKlsVA==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-To: Andrii Nakryiko <andrii@kernel.org>,
-	Mykola Lysenko <mykolal@fb.com>,
-	bpf@vger.kernel.org,
-	netdev@vger.kernel.org
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	linux-kselftest@vger.kernel.org,
+	Wed, 05 Jul 2023 11:44:45 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2633fe9b6c0so439622a91.1
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 04:44:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1688557478; x=1691149478;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=heYxA+Mau07N/7p/yYCay8/E0q4AKYFHNWyC4Hmd8zw=;
+        b=LCVJo1iC398QqSGBbSt3HMGRz4/6jQ17VocWqxatr+VH8bVDf8rSkxpkL7m2b/QlEt
+         eQ8pti3q69C8zwvPmUiTV8DW+nE3IcQyXVe0YeoX9x2vqVwDmjtDjPqfIl2pyeMnhzik
+         KToCLoPAtvpLYvDLkAWK6X90EERvIcNKunS7pZGI7D/EmJVvpBJah4xbs9FlTLtz/RcN
+         FetDHam8n3J+ilgWlmeRK9W0uLNSN3E0XIP6RA1NH/5q6I1ObXbnt+OYNr+4/rQLiHyP
+         MAZNa7QoBTTaUCTpG6MXQK+S04oTo3bGbjE1ZRU8IWiMvwTTc4AMuD9mhBnrtC5ZkJ3B
+         Unqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688557478; x=1691149478;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=heYxA+Mau07N/7p/yYCay8/E0q4AKYFHNWyC4Hmd8zw=;
+        b=BeD8sgb7fbDR5Dk0CCTvJFK/Bp+aP5vmC2K9rFecya3n1A0YjQhP6haU9XVsvUGy7K
+         wRU9ebpBzaqvcPWHOBAysbP4wooe7niDqidsP4UKTNj7sTMg4rw6tdSHIUihmF9ZBw2R
+         LZbqE12igikEqioM8cuH+edihm/zANmC1WMqQ410Wz1bTHrbHiRQR0psyjzHx5zpuA1A
+         ptL9zHjiKiWOXSkceBRCuVzu4inGAKKqITG1mdJB/bLlginPvz7igEIpscd6XZkTGOj1
+         5PnYEYlbvRlVfCRBUqu5NEFJL1nLAnRr3Op79U4GeRy7qIbhRtWAkTaTWWwIsA8EKsj+
+         8u9g==
+X-Gm-Message-State: ABy/qLbZ26VV9lw/3v22fuVQdOz4Fo5+ZYzr2vIDxJJbUSy5UhdZIMof
+	B6DgKzFwzJFI6qX6AhAMgAxHrg==
+X-Google-Smtp-Source: APBJJlF8iWM4sc1lZLKemHqMLhwUFgL4HgU3QAOE3GBa+o5h14Fsgs8Q290OJZcMEJ30fWvXqRIU8g==
+X-Received: by 2002:a17:90b:3ec5:b0:263:70d1:ba84 with SMTP id rm5-20020a17090b3ec500b0026370d1ba84mr2812548pjb.18.1688557478638;
+        Wed, 05 Jul 2023 04:44:38 -0700 (PDT)
+Received: from PF2E59YH-BKX.inc.bytedance.com ([61.213.176.5])
+        by smtp.gmail.com with ESMTPSA id 3-20020a17090a194300b00263f6687690sm1177900pjh.18.2023.07.05.04.44.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Jul 2023 04:44:38 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: conor@kernel.org,
+	sunilvl@ventanamicro.com,
+	ardb@kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org,
+	rminnich@gmail.com,
+	mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	rafael@kernel.org,
+	lenb@kernel.org,
+	jdelvare@suse.com,
+	yc.hung@mediatek.com,
+	angelogioacchino.delregno@collabora.com,
+	allen-kh.cheng@mediatek.com,
+	pierre-louis.bossart@linux.intel.com,
+	tinghan.shen@mediatek.com,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH bpf-next 2/2] selftests/bpf: Honor $(O) when figuring out paths
-Date: Wed,  5 Jul 2023 13:39:26 +0200
-Message-Id: <20230705113926.751791-3-bjorn@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230705113926.751791-1-bjorn@kernel.org>
-References: <20230705113926.751791-1-bjorn@kernel.org>
+	linux-acpi@vger.kernel.org,
+	geshijian@bytedance.com,
+	weidong.wd@bytedance.com,
+	cuiyunhui@bytedance.com
+Subject: [PATCH v3 0/4] Obtain SMBIOS and ACPI entry from FFI
+Date: Wed,  5 Jul 2023 19:42:47 +0800
+Message-Id: <20230705114251.661-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.37.3.windows.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_043940_417545_3ABDCF64 
-X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-CacheID: sfid-20230705_044443_645343_01714068 
+X-CRM114-Status: UNSURE (   8.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,33 +104,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKV2hlbiBidWlsZGluZyB0
-aGUga3NlbGZ0ZXN0cyBvdXQtb2YtdHJlZSwgZS5nLgogIHwgbWFrZSBBUkNIPXJpc2N2IENST1NT
-X0NPTVBJTEU9cmlzY3Y2NC1saW51eC1nbnUtIFwKICB8ICAgTz0vdG1wL2tzZWxmdGVzdCBoZWFk
-ZXJzCiAgfCBtYWtlIEFSQ0g9cmlzY3YgQ1JPU1NfQ09NUElMRT1yaXNjdjY0LWxpbnV4LWdudS0g
-XAogIHwgIE89L3RtcC9rc2VsZnRlc3QgSE9TVENDPWdjYyBGT1JNQVQ9IFwKICB8ICBTS0lQX1RB
-UkdFVFM9ImFybTY0IGlhNjQgcG93ZXJwYyBzcGFyYzY0IHg4NiBzZ3giIFwKICB8ICAtQyB0b29s
-cy90ZXN0aW5nL3NlbGZ0ZXN0cyBnZW5fdGFyCgp0aGUga3NlbGZ0ZXN0IGJ1aWxkIHdvdWxkIG5v
-dCBwaWNrIHVwIHRoZSBjb3JyZWN0IEdFTkRJUiBwYXRoLCBhbmQKdGhlcmVmb3JlIG5vdCBpbmNs
-dWRpbmcgYXV0b2NvbmYuaC4KCkNvcnJlY3QgdGhhdCBieSB0YWtpbmcgJChPKSBpbnRvIGNvbnNp
-ZGVyYXRpb24gd2hlbiBmaWd1cmluZyBvdXQgdGhlCkdFTkRJUiBwYXRoLgoKU2lnbmVkLW9mZi1i
-eTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgotLS0KIHRvb2xzL3Rlc3Rpbmcv
-c2VsZnRlc3RzL2JwZi9NYWtlZmlsZSB8IDQgKysrKwogMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0
-aW9ucygrKQoKZGlmZiAtLWdpdCBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9NYWtlZmls
-ZSBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9NYWtlZmlsZQppbmRleCBhZDZiNTg1ZTBk
-N2MuLmRhY2NjMWI4NTczYSAxMDA2NDQKLS0tIGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvYnBm
-L01ha2VmaWxlCisrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9NYWtlZmlsZQpAQCAt
-MTIsNyArMTIsMTEgQEAgQlBGRElSIDo9ICQoTElCRElSKS9icGYKIFRPT0xTSU5DRElSIDo9ICQo
-VE9PTFNESVIpL2luY2x1ZGUKIEJQRlRPT0xESVIgOj0gJChUT09MU0RJUikvYnBmL2JwZnRvb2wK
-IEFQSURJUiA6PSAkKFRPT0xTSU5DRElSKS91YXBpCitpZm5lcSAoJChPKSwpCitHRU5ESVIgOj0g
-JChPKS9pbmNsdWRlL2dlbmVyYXRlZAorZWxzZQogR0VORElSIDo9ICQoYWJzcGF0aCAuLi8uLi8u
-Li8uLi9pbmNsdWRlL2dlbmVyYXRlZCkKK2VuZGlmCiBHRU5IRFIgOj0gJChHRU5ESVIpL2F1dG9j
-b25mLmgKIEhPU1RQS0dfQ09ORklHIDo9IHBrZy1jb25maWcKIAotLSAKMi4zOS4yCgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Here's version 3 of patch series.
+
+V1: The FFI (FDT FIRMWARE INTERFACE) scheme has reached a
+consensus with the Maintainers.
+Please refer to:
+https://patches.linaro.org/project/linux-acpi/patch/20230426034001.16-1-cuiyunhui@bytedance.com/
+
+Changes v1->v2:
+Adjusted the code structure, put the ACPI part under the RISC-V architecture,
+and put the general part of obtaining SMBIOS entry through FFI
+under driver/firmware/.
+Please refer to:
+https://lore.kernel.org/lkml/20230703-71f67eb66a037f5c0fb825c6@orel/T/
+
+Changes v2->v3: 
+According to the suggestions of maintainers, the code has been modified as follows:
+1. Modified the commit log.
+2. Added description of "ffitbl" subnod in dt-bindings.
+3. Add stub function to the function
+4. arch/riscv/ and driver/firmware/ use CONFIG_FDT_FW_INTERFACE to control
+5. Modified the ffi_smbios_root_pointer() function logic and printing
+etc.
+
+Yunhui Cui (4):
+  riscv: obtain ACPI RSDP from devicetree
+  firmware: introduce FFI for SMBIOS entry
+  riscv: obtain SMBIOS entry from FFI
+  dt-bindings: firmware: Document ffitbl binding
+
+ .../devicetree/bindings/firmware/ffitbl.txt   | 27 ++++++
+ MAINTAINERS                                   | 13 +++
+ arch/riscv/include/asm/acpi.h                 |  9 ++
+ arch/riscv/include/asm/ffi.h                  | 14 +++
+ arch/riscv/kernel/Makefile                    |  1 +
+ arch/riscv/kernel/ffi.c                       | 40 ++++++++
+ arch/riscv/kernel/setup.c                     |  2 +
+ drivers/firmware/Kconfig                      | 11 +++
+ drivers/firmware/Makefile                     |  1 +
+ drivers/firmware/dmi_scan.c                   | 97 +++++++++++--------
+ drivers/firmware/ffi.c                        | 42 ++++++++
+ include/linux/ffi.h                           | 29 ++++++
+ 12 files changed, 246 insertions(+), 40 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/firmware/ffitbl.txt
+ create mode 100644 arch/riscv/include/asm/ffi.h
+ create mode 100644 arch/riscv/kernel/ffi.c
+ create mode 100644 drivers/firmware/ffi.c
+ create mode 100644 include/linux/ffi.h
+
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
