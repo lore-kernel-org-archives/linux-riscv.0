@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F146EB64DD
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 15:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08980EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 15:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=54mj+YOcbSqVsLWrXW7yoNnIrmvTorSBupcN/ITbroY=; b=HUXwW40R56bx/U
-	xQr9lnKnVNkjJxzePyCJNWaPs4KzGCbhh8a7XsueZjzVAAIYQ+hvxqNKvusVwxH86u4ig85pKRrZb
-	m/979rkUWn1VKR4LSvXjnBbTz3e68Jshd6B7LyHAvPiaEB9P26wzTtTY0QCMH4DtClf/EIXgGCeSo
-	/cjjjsaUXxpfhtfExExb/BsttsND/X7kIIZFDN5dh0Pk6qZUGKeGNiBXwgVyInZyo4STOqyoLJyj3
-	N5f+YiQHLc2flFx7BC8bACcqhT1ZaE0YkpLbbmet4JdDItRBuiIRgL9Zycvg7QRizsi8q/b4VV4De
-	mwAhyCcxVL7zf3T7I5Rw==;
+	List-Owner; bh=LpNh4MxJWiaXlLVTIxNunw+R+x2Lu9R0Gb5JMXdqsVU=; b=1qXxn61EGvKFOn
+	LLFIFB+ivcsUlaGuIS0dhmVjfeUwxxkJCmM5j3KF9FQamFV53PPBShocn5JKns/R03bG0lMTxnK2B
+	c1ZrEKJ4+WJkafW6Ucjv4Ap3e3VWeK3/8VuiO6WTq8YUiqmGMxLz0/yz2WJt2/X70hPFp1JCDerCw
+	c1ggIW4pRtYPM2hQP+SkubdT/FADopl+eGRLAp0lNat6TDuvijoTgDX0ApnsWtXeUbx4DeaXGkSAT
+	C0T/vMgwYJtxkmUFL9OdDF5Y4W1aCwrl/YtSZ14WnX3hh1APslX4sZKot7+ddtP1wSwmW3zSEmBz1
+	Eoy/Uaa2cRbHeuczUvdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH4lf-00GNxY-0J;
-	Wed, 05 Jul 2023 15:50:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qH4na-00GOK8-07;
+	Wed, 05 Jul 2023 15:52:10 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH4la-00GNvc-0f;
-	Wed, 05 Jul 2023 15:50:08 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F17D16160B;
-	Wed,  5 Jul 2023 15:50:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EE82C433CA;
-	Wed,  5 Jul 2023 15:50:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688572204;
-	bh=f4hoBSMGFxdGLbWt3eS2V76JRuxcN25xMJ62zDXlGHI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S+84wU3GIJNdN101uoFpZCQWc7lH7yIF0Roj2K9DuQtG1jR1K1SsRoNTOw7iMLyN2
-	 sDVQOwidG5J5JrJ/AmVk2G7rZN2QJQZwuwuzEbxtWb3vd7C5wLe7C+v5rtr9jspnV7
-	 qVVSiWucnhnxK70LNDpXoH2G4SWje5ZIxj8H74foaWH+OD4RpDdmYKLquSv6dUcS0D
-	 fO5UEyIJX3537W4e43/0ZpyL11KqzD5xSHPVq8CIF798Lf+kiFH2pmMNMLgy6CDWKV
-	 1cYEmnNHJAII9AL9C82ja2PKP6QOJI3myjUfvylJuyvLKIb56SXo8V96Z2YPtGm3JA
-	 Dy2lapsaUgpRQ==
-Date: Wed, 5 Jul 2023 08:49:58 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Eric DeVolder <eric.devolder@oracle.com>
-Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-	chenhuacai@kernel.org, geert@linux-m68k.org,
-	tsbogend@alpha.franken.de, James.Bottomley@hansenpartnership.com,
-	deller@gmx.de, ysato@users.sourceforge.jp, dalias@libc.org,
-	glaubitz@physik.fu-berlin.de, tglx@linutronix.de, mingo@redhat.com,
-	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, kernel@xen0n.name, mpe@ellerman.id.au,
-	npiggin@gmail.com, christophe.leroy@csgroup.eu,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com, hpa@zytor.com,
-	keescook@chromium.org, paulmck@kernel.org, peterz@infradead.org,
-	frederic@kernel.org, akpm@linux-foundation.org, ardb@kernel.org,
-	samitolvanen@google.com, juerg.haefliger@canonical.com,
-	arnd@arndb.de, rmk+kernel@armlinux.org.uk, linus.walleij@linaro.org,
-	sebastian.reichel@collabora.com, rppt@kernel.org,
-	kirill.shutemov@linux.intel.com, anshuman.khandual@arm.com,
-	ziy@nvidia.com, masahiroy@kernel.org, ndesaulniers@google.com,
-	mhiramat@kernel.org, ojeda@kernel.org, thunder.leizhen@huawei.com,
-	xin3.li@intel.com, tj@kernel.org, gregkh@linuxfoundation.org,
-	tsi@tuyoix.net, bhe@redhat.com, hbathini@linux.ibm.com,
-	sourabhjain@linux.ibm.com, boris.ostrovsky@oracle.com,
-	konrad.wilk@oracle.com
-Subject: Re: [PATCH v4 12/13] s390/kexec: refactor for kernel/Kconfig.kexec
-Message-ID: <20230705154958.GA3643511@dev-arch.thelio-3990X>
-References: <20230705142004.3605799-1-eric.devolder@oracle.com>
- <20230705142004.3605799-13-eric.devolder@oracle.com>
+	id 1qH4nW-00GOI4-28
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Jul 2023 15:52:08 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2b69923a715so106677151fa.0
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 08:52:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688572321; x=1691164321;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bkUoG+L6Gc/FljCZD/tXYCRllz67Rh2nIbBivClEET0=;
+        b=CbnZ3gwfvWWXIIghXULsz6NIP5rnHhM0x78jL+4sIHTjvJeU3DzIlDuIl2Mh31YhRX
+         jWmZHVwr/K5jAhyLoKLUWJw1HTq+f1d6YifnbeLqsQj1TN9pHZ2UvXjceftWXXqZ2H8C
+         R/Ebm9bWLFlbb/GpueRSSCueHI5XyOjn8x+HjPBU9E6Gh7lN6NvcEqCfsHFZPEo6hR0Z
+         np9VLqPcHy/P7eSvTV4qu45BVbxs+pyB3zUyReQK4UmWVF1v6Hw1Q7+RJEuF0Rc6hA6+
+         MGEl8ChtNFAgO8RLF1Ln3YEfPhoQpsFjgWDkfAxkCAtYY+qrIZAa8soBmUDkkNVdTge8
+         fHsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688572321; x=1691164321;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bkUoG+L6Gc/FljCZD/tXYCRllz67Rh2nIbBivClEET0=;
+        b=MpJXj/3a7zL1592eAmqdGRn+HeDDSAdB+y9YPYFFHu3YltlahO4Ey5BMb4HBHLkqDn
+         /+AEsAuO2WoA/vYUPpSqDwGN+JEkff533S0Oo/WAXQzN2af6td0KGsxxGdvwxAsDv+a4
+         SxtWsulKpG5Rm29U8g0991nOuwMfwnmjRv2E6jV/uy/uHUL1FWQKU1MxaydtzFJMY6mY
+         ApiFStyVaxVTND0sSDjgq0JbpeL4uh891uxc4qxOrV4KosOmOahyfqdK0CFmyniRGfZT
+         6HfdMfaecNyxH9UQ9boclRA/5DlR/P5nbFwfYXMIrs6lt30UXfgliQ5hEsDpp7eIJvXl
+         WyvA==
+X-Gm-Message-State: ABy/qLaCRE81Qdf2rRmAHKlw2Sthpu1D+DAK23Nv0nHaVWAYWM0ac7gl
+	hOEVEFYLPXtWvxnR3yJHHuRFle8aO0tLoiFMYvM+rA==
+X-Google-Smtp-Source: APBJJlGKbai8gXpDr4vYUvG8VdKZTo2aCyZEqSPqFeRVC2rVuqdMSLQvBrXDRqYUxwFk4YRBiOa9ouocg7839t3sPDk=
+X-Received: by 2002:a05:6512:3da5:b0:4f8:6e6e:3f42 with SMTP id
+ k37-20020a0565123da500b004f86e6e3f42mr18675814lfv.14.1688572320599; Wed, 05
+ Jul 2023 08:52:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230705142004.3605799-13-eric.devolder@oracle.com>
+References: <20230703-repayment-vocalist-e4f3eeac2b2a@wendy> <20230703-girdle-underling-880f633c4c73@wendy>
+In-Reply-To: <20230703-girdle-underling-880f633c4c73@wendy>
+From: Evan Green <evan@rivosinc.com>
+Date: Wed, 5 Jul 2023 08:51:24 -0700
+Message-ID: <CALs-Hsua+Y9EvZAz0vX=2-2MmuOcnZQ8zYyiZP+2Y873mEgQeQ@mail.gmail.com>
+Subject: Re: [PATCH v3 01/11] RISC-V: Provide a more helpful error message on
+ invalid ISA strings
+To: Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_085006_332325_BB06E889 
-X-CRM114-Status: GOOD (  34.14  )
+X-CRM114-CacheID: sfid-20230705_085206_703390_9614FFE4 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,338 +82,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, conor@kernel.org, Rob Herring <robh+dt@kernel.org>, palmer@dabbelt.com, Palmer Dabbelt <palmer@rivosinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Eric,
-
-On Wed, Jul 05, 2023 at 10:20:03AM -0400, Eric DeVolder wrote:
-> The kexec and crash kernel options are provided in the common
-> kernel/Kconfig.kexec. Utilize the common options and provide
-> the ARCH_SUPPORTS_ and ARCH_SELECTS_ entries to recreate the
-> equivalent set of KEXEC and CRASH options.
-> 
-> NOTE: The original Kconfig has a KEXEC_SIG which depends on
-> MODULE_SIG_FORMAT. However, attempts to keep the MODULE_SIG_FORMAT
-> dependency (using the strategy outlined in this series, and other
-> techniques) results in 'error: recursive dependency detected'
-> on CRYPTO.
-> 
-> Per Alexander Gordeev <agordeev@linux.ibm.com>: "the MODULE_SIG_FORMAT
-> dependency was introduced with [git commit below] and in fact was not
-> necessary, since s390 did/does not use mod_check_sig() anyway.
-> 
->  commit c8424e776b09 ("MODSIGN: Export module signature definitions")
-> 
-> MODULE_SIG_FORMAT is needed to select SYSTEM_DATA_VERIFICATION. But
-> SYSTEM_DATA_VERIFICATION is also selected by FS_VERITY*, so dropping
-> MODULE_SIG_FORMAT does not hurt."
-> 
-> Therefore, the solution is to drop the MODULE_SIG_FORMAT dependency
-> from KEXEC_SIG. Still results in equivalent .config files for s390.
-> 
-> Signed-off-by: Eric DeVolder <eric.devolder@oracle.com>
-> Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>
-> ---
->  arch/s390/Kconfig | 65 ++++++++++++++---------------------------------
->  1 file changed, 19 insertions(+), 46 deletions(-)
-> 
-> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-> index 5b39918b7042..5d4fbbfdd1cd 100644
-> --- a/arch/s390/Kconfig
-> +++ b/arch/s390/Kconfig
-> @@ -244,6 +244,25 @@ config PGTABLE_LEVELS
->  
->  source "kernel/livepatch/Kconfig"
->  
-> +config ARCH_DEFAULT_KEXEC
-> +	def_bool y
-> +
-> +config ARCH_SUPPORTS_KEXEC
-> +	def_bool y
-> +
-> +config ARCH_SUPPORTS_KEXEC_FILE
-> +	def_bool CRYPTO && CRYPTO_SHA256 && CRYPTO_SHA256_S390
-> +
-> +config ARCH_HAS_KEXEC_PURGATORY
-> +	def_bool KEXEC_FILE
-> +
-> +config ARCH_SUPPORTS_CRASH_DUMP
-> +	def_bool y
-> +	help
-> +	  Refer to <file:Documentation/s390/zfcpdump.rst> for more details on this.
-> +	  This option also enables s390 zfcpdump.
-> +	  See also <file:Documentation/s390/zfcpdump.rst>
-> +
->  menu "Processor type and features"
->  
->  config HAVE_MARCH_Z10_FEATURES
-> @@ -482,36 +501,6 @@ config SCHED_TOPOLOGY
->  
->  source "kernel/Kconfig.hz"
->  
-> -config KEXEC
-> -	def_bool y
-> -	select KEXEC_CORE
-> -
-> -config KEXEC_FILE
-> -	bool "kexec file based system call"
-> -	select KEXEC_CORE
-> -	depends on CRYPTO
-> -	depends on CRYPTO_SHA256
-> -	depends on CRYPTO_SHA256_S390
-> -	help
-> -	  Enable the kexec file based system call. In contrast to the normal
-> -	  kexec system call this system call takes file descriptors for the
-> -	  kernel and initramfs as arguments.
-> -
-> -config ARCH_HAS_KEXEC_PURGATORY
-> -	def_bool y
-> -	depends on KEXEC_FILE
-> -
-> -config KEXEC_SIG
-> -	bool "Verify kernel signature during kexec_file_load() syscall"
-> -	depends on KEXEC_FILE && MODULE_SIG_FORMAT
-> -	help
-> -	  This option makes kernel signature verification mandatory for
-> -	  the kexec_file_load() syscall.
-> -
-> -	  In addition to that option, you need to enable signature
-> -	  verification for the corresponding kernel image type being
-> -	  loaded in order for this to work.
-> -
->  config KERNEL_NOBP
->  	def_bool n
->  	prompt "Enable modified branch prediction for the kernel by default"
-> @@ -733,22 +722,6 @@ config VFIO_AP
->  
->  endmenu
->  
-> -menu "Dump support"
-> -
-> -config CRASH_DUMP
-> -	bool "kernel crash dumps"
-> -	select KEXEC
-> -	help
-> -	  Generate crash dump after being started by kexec.
-> -	  Crash dump kernels are loaded in the main kernel with kexec-tools
-> -	  into a specially reserved region and then later executed after
-> -	  a crash by kdump/kexec.
-> -	  Refer to <file:Documentation/s390/zfcpdump.rst> for more details on this.
-> -	  This option also enables s390 zfcpdump.
-> -	  See also <file:Documentation/s390/zfcpdump.rst>
-> -
-> -endmenu
-> -
->  config CCW
->  	def_bool y
->  
-> -- 
-> 2.31.1
-> 
-
-I just bisected the following build failure visible with 'ARCH=s390
-allnoconfig' to this change as commit 842ce0e1dafa ("s390/kexec:
-refactor for kernel/Kconfig.kexec") in -next.
-
-  arch/s390/kernel/machine_kexec.c:120:37: warning: 'struct kimage' declared inside parameter list will not be visible outside of this definition or declaration
-    120 | static bool kdump_csum_valid(struct kimage *image)
-        |                                     ^~~~~~
-  arch/s390/kernel/machine_kexec.c:188:34: warning: 'struct kimage' declared inside parameter list will not be visible outside of this definition or declaration
-    188 | int machine_kexec_prepare(struct kimage *image)
-        |                                  ^~~~~~
-  arch/s390/kernel/machine_kexec.c: In function 'machine_kexec_prepare':
-  arch/s390/kernel/machine_kexec.c:192:18: error: invalid use of undefined type 'struct kimage'
-    192 |         if (image->type == KEXEC_TYPE_CRASH)
-        |                  ^~
-  arch/s390/kernel/machine_kexec.c:192:28: error: 'KEXEC_TYPE_CRASH' undeclared (first use in this function); did you mean 'KEXEC_ON_CRASH'?
-    192 |         if (image->type == KEXEC_TYPE_CRASH)
-        |                            ^~~~~~~~~~~~~~~~
-        |                            KEXEC_ON_CRASH
-  arch/s390/kernel/machine_kexec.c:192:28: note: each undeclared identifier is reported only once for each function it appears in
-  arch/s390/kernel/machine_kexec.c:196:18: error: invalid use of undefined type 'struct kimage'
-    196 |         if (image->type != KEXEC_TYPE_DEFAULT)
-        |                  ^~
-  arch/s390/kernel/machine_kexec.c:196:28: error: 'KEXEC_TYPE_DEFAULT' undeclared (first use in this function); did you mean 'KEXEC_ARCH_DEFAULT'?
-    196 |         if (image->type != KEXEC_TYPE_DEFAULT)
-        |                            ^~~~~~~~~~~~~~~~~~
-        |                            KEXEC_ARCH_DEFAULT
-  In file included from arch/s390/include/asm/thread_info.h:31,
-                   from include/linux/thread_info.h:60,
-                   from arch/s390/include/asm/preempt.h:6,
-                   from include/linux/preempt.h:79,
-                   from arch/s390/include/asm/percpu.h:5,
-                   from include/linux/irqflags.h:18,
-                   from include/linux/rcupdate.h:26,
-                   from include/linux/rculist.h:11,
-                   from include/linux/pid.h:5,
-                   from include/linux/sched.h:14,
-                   from include/linux/ratelimit.h:6,
-                   from include/linux/dev_printk.h:16,
-                   from include/linux/device.h:15,
-                   from arch/s390/kernel/machine_kexec.c:9:
-  arch/s390/kernel/machine_kexec.c:200:48: error: invalid use of undefined type 'struct kimage'
-    200 |         reboot_code_buffer = page_to_virt(image->control_code_page);
-        |                                                ^~
-  arch/s390/include/asm/page.h:186:58: note: in definition of macro '__va'
-    186 | #define __va(x)                 ((void *)(unsigned long)(x))
-        |                                                          ^
-  arch/s390/include/asm/page.h:194:38: note: in expansion of macro 'pfn_to_phys'
-    194 | #define pfn_to_virt(pfn)        __va(pfn_to_phys(pfn))
-        |                                      ^~~~~~~~~~~
-  arch/s390/include/asm/page.h:199:33: note: in expansion of macro 'pfn_to_virt'
-    199 | #define page_to_virt(page)      pfn_to_virt(page_to_pfn(page))
-        |                                 ^~~~~~~~~~~
-  include/asm-generic/memory_model.h:64:21: note: in expansion of macro '__page_to_pfn'
-     64 | #define page_to_pfn __page_to_pfn
-        |                     ^~~~~~~~~~~~~
-  arch/s390/kernel/machine_kexec.c:200:30: note: in expansion of macro 'page_to_virt'
-    200 |         reboot_code_buffer = page_to_virt(image->control_code_page);
-        |                              ^~~~~~~~~~~~
-  arch/s390/kernel/machine_kexec.c: At top level:
-  arch/s390/kernel/machine_kexec.c:207:35: warning: 'struct kimage' declared inside parameter list will not be visible outside of this definition or declaration
-    207 | void machine_kexec_cleanup(struct kimage *image)
-        |                                   ^~~~~~
-  arch/s390/kernel/machine_kexec.c: In function '__do_machine_kexec':
-  arch/s390/kernel/machine_kexec.c:243:40: error: invalid use of undefined type 'struct kimage'
-    243 |         data_mover = page_to_phys(image->control_code_page);
-        |                                        ^~
-  arch/s390/include/asm/page.h:189:35: note: in definition of macro 'pfn_to_phys'
-    189 | #define pfn_to_phys(pfn)        ((pfn) << PAGE_SHIFT)
-        |                                   ^~~
-  include/asm-generic/memory_model.h:64:21: note: in expansion of macro '__page_to_pfn'
-     64 | #define page_to_pfn __page_to_pfn
-        |                     ^~~~~~~~~~~~~
-  arch/s390/kernel/machine_kexec.c:243:22: note: in expansion of macro 'page_to_phys'
-    243 |         data_mover = page_to_phys(image->control_code_page);
-        |                      ^~~~~~~~~~~~
-  arch/s390/kernel/machine_kexec.c:244:36: error: invalid use of undefined type 'struct kimage'
-    244 |         entry = virt_to_phys(&image->head);
-        |                                    ^~
-  In file included from arch/s390/kernel/machine_kexec.c:27:
-  arch/s390/kernel/machine_kexec.c:252:40: error: invalid use of undefined type 'struct kimage'
-    252 |                    unsigned long, image->start,
-        |                                        ^~
-  arch/s390/include/asm/stacktrace.h:101:32: note: in definition of macro 'CALL_LARGS_2'
-    101 |         long arg2 = (long)(t2)(a2)
-        |                                ^~
-  arch/s390/include/asm/stacktrace.h:216:9: note: in expansion of macro 'CALL_LARGS_3'
-    216 |         CALL_LARGS_##nr(__VA_ARGS__);                                   \
-        |         ^~~~~~~~~~~
-  arch/s390/kernel/machine_kexec.c:250:9: note: in expansion of macro 'call_nodat'
-    250 |         call_nodat(3, void, (relocate_kernel_t)data_mover,
-        |         ^~~~~~~~~~
-  In file included from include/linux/irqflags.h:15:
-  arch/s390/kernel/machine_kexec.c:252:40: error: invalid use of undefined type 'struct kimage'
-    252 |                    unsigned long, image->start,
-        |                                        ^~
-  include/linux/typecheck.h:11:16: note: in definition of macro 'typecheck'
-     11 |         typeof(x) __dummy2; \
-        |                ^
-  arch/s390/include/asm/stacktrace.h:136:9: note: in expansion of macro 'CALL_TYPECHECK_2'
-    136 |         CALL_TYPECHECK_2(__VA_ARGS__);                                  \
-        |         ^~~~~~~~~~~~~~~~
-  arch/s390/include/asm/stacktrace.h:219:9: note: in expansion of macro 'CALL_TYPECHECK_3'
-    219 |         CALL_TYPECHECK_##nr(__VA_ARGS__);                               \
-        |         ^~~~~~~~~~~~~~~
-  arch/s390/kernel/machine_kexec.c:250:9: note: in expansion of macro 'call_nodat'
-    250 |         call_nodat(3, void, (relocate_kernel_t)data_mover,
-        |         ^~~~~~~~~~
-  include/linux/typecheck.h:12:25: warning: comparison of distinct pointer types lacks a cast
-     12 |         (void)(&__dummy == &__dummy2); \
-        |                         ^~
-  arch/s390/include/asm/stacktrace.h:134:9: note: in expansion of macro 'typecheck'
-    134 |         typecheck(t, a)
-        |         ^~~~~~~~~
-  arch/s390/include/asm/stacktrace.h:136:9: note: in expansion of macro 'CALL_TYPECHECK_2'
-    136 |         CALL_TYPECHECK_2(__VA_ARGS__);                                  \
-        |         ^~~~~~~~~~~~~~~~
-  arch/s390/include/asm/stacktrace.h:219:9: note: in expansion of macro 'CALL_TYPECHECK_3'
-    219 |         CALL_TYPECHECK_##nr(__VA_ARGS__);                               \
-        |         ^~~~~~~~~~~~~~~
-  arch/s390/kernel/machine_kexec.c:250:9: note: in expansion of macro 'call_nodat'
-    250 |         call_nodat(3, void, (relocate_kernel_t)data_mover,
-        |         ^~~~~~~~~~
-  arch/s390/kernel/machine_kexec.c: At top level:
-  arch/s390/kernel/machine_kexec.c:278:27: warning: 'struct kimage' declared inside parameter list will not be visible outside of this definition or declaration
-    278 | void machine_kexec(struct kimage *image)
-        |                           ^~~~~~
-  arch/s390/kernel/machine_kexec.c: In function 'machine_kexec':
-  arch/s390/kernel/machine_kexec.c:280:18: error: invalid use of undefined type 'struct kimage'
-    280 |         if (image->type == KEXEC_TYPE_CRASH && !kdump_csum_valid(image))
-        |                  ^~
-  arch/s390/kernel/machine_kexec.c:280:28: error: 'KEXEC_TYPE_CRASH' undeclared (first use in this function); did you mean 'KEXEC_ON_CRASH'?
-    280 |         if (image->type == KEXEC_TYPE_CRASH && !kdump_csum_valid(image))
-        |                            ^~~~~~~~~~~~~~~~
-        |                            KEXEC_ON_CRASH
-  arch/s390/kernel/machine_kexec.c:280:66: error: passing argument 1 of 'kdump_csum_valid' from incompatible pointer type [-Werror=incompatible-pointer-types]
-    280 |         if (image->type == KEXEC_TYPE_CRASH && !kdump_csum_valid(image))
-        |                                                                  ^~~~~
-        |                                                                  |
-        |                                                                  struct kimage *
-  arch/s390/kernel/machine_kexec.c:120:45: note: expected 'struct kimage *' but argument is of type 'struct kimage *'
-    120 | static bool kdump_csum_valid(struct kimage *image)
-        |                              ~~~~~~~~~~~~~~~^~~~~
-  cc1: some warnings being treated as errors
-
-I don't think this change is equivalent for s390, which had
-
-  config KEXEC
-      def_bool y
-      select KEXEC_CORE
-
-but it is now the equivalent of
-
-  config KEXEC
-      bool "Enable kexec system call"
-      default y
-
-which enables KEXEC by default but it also allows KEXEC to be disabled
-for s390 now, because it is a user-visible symbol, not one that is
-unconditionally enabled no matter what. If s390 can tolerate KEXEC being
-user selectable, then I assume the fix is just adjusting
-arch/s390/kernel/Makefile to only build the machine_kexec files when
-CONFIG_KEXEC_CORE is set:
-
-diff --git a/arch/s390/kernel/Makefile b/arch/s390/kernel/Makefile
-index 6b2a051e1f8a..a06b39da95f0 100644
---- a/arch/s390/kernel/Makefile
-+++ b/arch/s390/kernel/Makefile
-@@ -37,10 +37,10 @@ CFLAGS_unwind_bc.o	+= -fno-optimize-sibling-calls
- obj-y	:= head64.o traps.o time.o process.o earlypgm.o early.o setup.o idle.o vtime.o
- obj-y	+= processor.o syscall.o ptrace.o signal.o cpcmd.o ebcdic.o nmi.o
- obj-y	+= debug.o irq.o ipl.o dis.o diag.o vdso.o cpufeature.o
--obj-y	+= sysinfo.o lgr.o os_info.o machine_kexec.o
-+obj-y	+= sysinfo.o lgr.o os_info.o
- obj-y	+= runtime_instr.o cache.o fpu.o dumpstack.o guarded_storage.o sthyi.o
- obj-y	+= entry.o reipl.o relocate_kernel.o kdebugfs.o alternative.o
--obj-y	+= nospec-branch.o ipl_vmparm.o machine_kexec_reloc.o unwind_bc.o
-+obj-y	+= nospec-branch.o ipl_vmparm.o unwind_bc.o
- obj-y	+= smp.o text_amode31.o stacktrace.o abs_lowcore.o
- 
- extra-y				+= vmlinux.lds
-@@ -66,6 +66,7 @@ obj-$(CONFIG_CRASH_DUMP)	+= crash_dump.o
- obj-$(CONFIG_UPROBES)		+= uprobes.o
- obj-$(CONFIG_JUMP_LABEL)	+= jump_label.o
- 
-+obj-$(CONFIG_KEXEC_CORE)	+= machine_kexec.o machine_kexec_reloc.o
- obj-$(CONFIG_KEXEC_FILE)	+= machine_kexec_file.o kexec_image.o
- obj-$(CONFIG_KEXEC_FILE)	+= kexec_elf.o
- 
-
-Otherwise, the prompt for KEXEC could be made conditional on some ARCH
-symbol so that architectures can opt out of it.
-
-As an aside, is this intended for the 6.5 merge window? If not, it
-shouldn't be in -next at this point, I was surprised to see new broken
-builds.
-
-Cheers,
-Nathan
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdWwgMywgMjAyMyBhdCAzOjI54oCvQU0gQ29ub3IgRG9vbGV5IDxjb25vci5kb29s
+ZXlAbWljcm9jaGlwLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVy
+QHJpdm9zaW5jLmNvbT4KPgo+IFJpZ2h0IG5vdyB3ZSBwcm92aWRlIGEgc29tZXdoYXQgdW5oZWxw
+ZnVsIGVycm9yIG1lc3NhZ2Ugb24gc3lzdGVtcyB3aXRoCj4gaW52YWxpZCBlcnJvciBtZXNzYWdl
+cywgc29tZXRoaW5nIGFsb25nIHRoZSBsaW5lcyBvZgo+Cj4gICAgICAgICBDUFUgd2l0aCBoYXJ0
+aWQ9MCBpcyBub3QgYXZhaWxhYmxlCj4gICAgICAgICAtLS0tLS0tLS0tLS1bIGN1dCBoZXJlIF0t
+LS0tLS0tLS0tLS0KPiAgICAgICAgIGtlcm5lbCBCVUcgYXQgYXJjaC9yaXNjdi9rZXJuZWwvc21w
+Ym9vdC5jOjE3NCEKPiAgICAgICAgIEtlcm5lbCBCVUcgWyMxXQo+ICAgICAgICAgTW9kdWxlcyBs
+aW5rZWQgaW46Cj4gICAgICAgICBDUFU6IDAgUElEOiAwIENvbW06IHN3YXBwZXIgTm90IHRhaW50
+ZWQgNi40LjAtcmMxLTAwMDk2LWdlMDA5N2QyYzYyZDUtZGlydHkgIzEKPiAgICAgICAgIEhhcmR3
+YXJlIG5hbWU6IE1pY3JvY2hpcCBQb2xhckZpcmUtU29DIEljaWNsZSBLaXQgKERUKQo+ICAgICAg
+ICAgZXBjIDogb2ZfcGFyc2VfYW5kX2luaXRfY3B1cysweDE2Yy8weDE2ZQo+ICAgICAgICAgIHJh
+IDogb2ZfcGFyc2VfYW5kX2luaXRfY3B1cysweDlhLzB4MTZlCj4gICAgICAgICBlcGMgOiBmZmZm
+ZmZmZjgwYzA0ZTBhIHJhIDogZmZmZmZmZmY4MGMwNGQzOCBzcCA6IGZmZmZmZmZmODE2MDNlMjAK
+PiAgICAgICAgICBncCA6IGZmZmZmZmZmODE4MmQ2NTggdHAgOiBmZmZmZmZmZjgxNjEzZjgwIHQw
+IDogMDAwMDAwMDAwMDAwMDA2ZQo+ICAgICAgICAgIHQxIDogMDAwMDAwMDAwMDAwMDA2NCB0MiA6
+IDAwMDAwMDAwMDAwMDAwMDAgczAgOiBmZmZmZmZmZjgxNjAzZTgwCj4gICAgICAgICAgczEgOiAw
+MDAwMDAwMDAwMDAwMDAwIGEwIDogMDAwMDAwMDAwMDAwMDAwMCBhMSA6IDAwMDAwMDAwMDAwMDAw
+MDAKPiAgICAgICAgICBhMiA6IDAwMDAwMDAwMDAwMDAwMDAgYTMgOiAwMDAwMDAwMDAwMDAwMDAw
+IGE0IDogMDAwMDAwMDAwMDAwMDAwMAo+ICAgICAgICAgIGE1IDogMDAwMDAwMDAwMDAwMWZmZiBh
+NiA6IDAwMDAwMDAwMDAwMDFmZmYgYTcgOiBmZmZmZmZmZjgxNjE0OGIwCj4gICAgICAgICAgczIg
+OiAwMDAwMDAwMDAwMDAwMDAxIHMzIDogZmZmZmZmZmY4MTQ5MmE0YyBzNCA6IGZmZmZmZmZmODFh
+NGIwOTAKPiAgICAgICAgICBzNSA6IGZmZmZmZmZmODE1MDYwMzAgczYgOiAwMDAwMDAwMDAwMDAw
+MDQwIHM3IDogMDAwMDAwMDAwMDAwMDAwMAo+ICAgICAgICAgIHM4IDogMDAwMDAwMDBiZmI2ZjA0
+NiBzOSA6IDAwMDAwMDAwMDAwMDAwMDEgczEwOiAwMDAwMDAwMDAwMDAwMDAwCj4gICAgICAgICAg
+czExOiAwMDAwMDAwMGJmMzg5NzAwIHQzIDogMDAwMDAwMDAwMDAwMDAwMCB0NCA6IDAwMDAwMDAw
+MDAwMDAwMDAKPiAgICAgICAgICB0NSA6IGZmZmZmZmZmODI0ZGQxODggdDYgOiBmZmZmZmZmZjgy
+NGRkMTg3Cj4gICAgICAgICBzdGF0dXM6IDAwMDAwMDAyMDAwMDAxMDAgYmFkYWRkcjogMDAwMDAw
+MDAwMDAwMDAwMCBjYXVzZTogMDAwMDAwMDAwMDAwMDAwMwo+ICAgICAgICAgWzxmZmZmZmZmZjgw
+YzA0ZTBhPl0gb2ZfcGFyc2VfYW5kX2luaXRfY3B1cysweDE2Yy8weDE2ZQo+ICAgICAgICAgWzxm
+ZmZmZmZmZjgwYzA0Yzk2Pl0gc2V0dXBfc21wKzB4MWUvMHgyNgo+ICAgICAgICAgWzxmZmZmZmZm
+ZjgwYzAzZmZlPl0gc2V0dXBfYXJjaCsweDZlLzB4YjIKPiAgICAgICAgIFs8ZmZmZmZmZmY4MGMw
+MDM4ND5dIHN0YXJ0X2tlcm5lbCsweDcyLzB4NDAwCj4gICAgICAgICBDb2RlOiA4MGU3IDRhMDAg
+YTYwMyAwMDA5IGI3OTUgMTA5NyBmZmU1IDgwZTcgOTJjMCA5MDAyICg5MDAyKSA3MTVkCj4gICAg
+ICAgICAtLS1bIGVuZCB0cmFjZSAwMDAwMDAwMDAwMDAwMDAwIF0tLS0KPiAgICAgICAgIEtlcm5l
+bCBwYW5pYyAtIG5vdCBzeW5jaW5nOiBGYXRhbCBleGNlcHRpb24gaW4gaW50ZXJydXB0Cj4KPiBB
+ZGQgYSB3YXJuaW5nIGZvciB0aGUgY2FzZXMgd2hlcmUgdGhlIElTQSBzdHJpbmcgaXNuJ3QgdmFs
+aWQuICBJdCdzIHN0aWxsCj4gYWJvdmUgdGhlIEJVR19PTiBjdXQsIGJ1dCBob3BlZnVsbHkgaXQn
+cyBhdCBsZWFzdCBhIGJpdCBlYXNpZXIgZm9yIHVzZXJzLgo+Cj4gU2lnbmVkLW9mZi1ieTogUGFs
+bWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+Cj4gU2lnbmVkLW9mZi1ieTogQ29ub3Ig
+RG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KClJldmlld2VkLWJ5OiBFdmFuIEdy
+ZWVuIDxldmFuQHJpdm9zaW5jLmNvbT4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
