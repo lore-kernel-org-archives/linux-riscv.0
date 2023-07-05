@@ -4,142 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB53EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 15:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C10EB64DD
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 15:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mwhuNvmpThdZZGvDOWnWoR5rx00LYnfE1l3xdUvV1WE=; b=uf4Mndt/+LPGf7
-	51XAi7wU3DCrHLxlIJJKOVkx+qVpCfjE2rLAUhLCsmKAQWoO6f2AzrTOqtfb6RhW24WySs9DNMfMf
-	xedmmN9b+AnPH9975KMRZ1YpIuQSruwRAq1t1AVIPDhM3H2DgfjUphOoLstzfuj/eZa97QVNjFwn6
-	gfNkny//8HWkMZ2uIK/X9884sazAWQhf0RGE+FYsxORIKsTRLXcz/MqN/APXEPrnctDROZgRpsnvs
-	WpSQxLgLAvBRNBD3nkoThuuOcs48EcSz8MPXvf44nOKqy2ZTrHLLERnZGomAOY7/6Wa8zCkCmZvB1
-	BaO3+R8n08oyjGSul5Aw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=edgL+VKnR4manyIxG3K/NQ+b5s4YPWDpXqaHWdKY/IY=; b=2ySky2WDnvO7Rdoi7hbLYlJvPG
+	ZNhvH8D6iT7ihF9Q3FUJ4GZRWFhsdgRXsykoYZOhYvqeOg1z49nqd5tmWXYbwIvqOUcssw5nCfjuS
+	LHW2lMjBNIudh0d6VPzqh7UeH7Hw6YFFq4xU/3m/z91Q7NSzm91hyC3J9N1kSXg6yAWj86LW0w9fy
+	qPuqK3Dk71u9c+nBSxEF4CXGxbBxFrqAr8cW9GjMnOXTLCrxg/+H7bcS70M1fXGZoZIqfjtmiNZmu
+	iYaqB2UQvXT3To6m5JtnNmJ8GFtiiNUuw0Yv+csuJJSzDgbiG9/tHsCfU/Lp6uRlYszT/4YtNtZwk
+	zawAtTYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH45P-00GGgo-1I;
-	Wed, 05 Jul 2023 15:06:31 +0000
-Received: from new1-smtp.messagingengine.com ([66.111.4.221])
+	id 1qH45n-00GGsB-25;
+	Wed, 05 Jul 2023 15:06:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH45K-00GGdi-0X;
-	Wed, 05 Jul 2023 15:06:28 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.nyi.internal (Postfix) with ESMTP id 9321458028A;
-	Wed,  5 Jul 2023 11:06:19 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Wed, 05 Jul 2023 11:06:19 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1688569579; x=1688576779; bh=xA
-	WlrtmWIGFsGqKku/ln8wTfTlYDAGy8buXk/3wv9RE=; b=IS6y2R6p2qQA1WUjwO
-	76Im3Z3R7eN8bOoWiz/JN2f/7X/R0jhpbe2hZiFnh5b/sp+rpu4ypAHN1gCaKoGa
-	II8Fx5hIjquuBBy+3QOebB7Ye4d5+aySypDyqsyYxjJAe13jUErXEGuvlvy2EYQs
-	HbmtERFcH9FiAKVygoYK5jUNUy2W5LD6YtpLur3bxG9mQ22m/uNgDN414Y05jY3c
-	CKR3Sv0MA1HFvecxQ1oGDFZNlYsK36NJlrCZzWyP40CWcNp9JCsndy045JiZN0Lr
-	CXJjZd6+FGwB14KY48Jjs+AsPm9zHaMuCu2Io7YNEmEKeFXFGLvrOV+ANX1fPe73
-	GSgg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1688569579; x=1688576779; bh=xAWlrtmWIGFsG
-	qKku/ln8wTfTlYDAGy8buXk/3wv9RE=; b=MXXXdsFZr7yUqg9HA0rn4o3POXutz
-	iu/4zVQFtb9DKqOGWcEzK0OzXo8/PwrFq27ooOkZhNH8ZqWE+E2iXSVFOJ4K8TfH
-	VHxdnHzhCBdOEt/wwI7l4kXNBLps5fbRCHxD5QmOgPaILriK+3b5gGXB+sz1489d
-	FRF2l727lJH9oW6HWfJwB3AgvPgpTCg/K+0Gklwz+PKqXWqktyVGhn8X5ailyYNQ
-	BaAo6h59BOpzzjI8xM4iWWN0akQwKEp2olELoT0+d6SQ4cfWTkiZw+xQr5skOJr8
-	xskjf2zCDnxkyoADB2lPQGCunyGC//JiUL6AYaYZunYCW7HXx7zBHfaew==
-X-ME-Sender: <xms:5YalZIBjYSN5aZAKN2whQAVC3vetLZ4esGlaodY88k6-OelYaor1nA>
-    <xme:5YalZKh50pG53xm0dGdUzI22_u0RvUZGLyAqBfBQwk_yPVvbhNPMysmO5GA04ohEq
-    8p3m-yltSvs8tuqBNo>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrudejgdeflecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
-    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
-    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
-    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    hnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:5YalZLkUK_5CUSCZwRdCH73mKaS4VoMcysQ3vPIetJMJqRrG9bEDJg>
-    <xmx:5YalZOx0ZbrcI6SQ_YUq4ntuesRRWfatwLAgdzkjWEsRosak7--h-Q>
-    <xmx:5YalZNSUEjKee0mdsN0j1WrSDlbIevCDvtsPe96Pmr9OFDBCmOPReA>
-    <xmx:64alZO55Jc9ZZIDu4H1Rhc1Sx3IqD-nxqQTYmHbTogwzLLj6kpvLdQ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id BFA19B6008D; Wed,  5 Jul 2023 11:06:13 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-531-gfdfa13a06d-fm-20230703.001-gfdfa13a0
-Mime-Version: 1.0
-Message-Id: <09f70de6-9409-4fa4-b9ea-831078d914e7@app.fastmail.com>
-In-Reply-To: <20230705142004.3605799-4-eric.devolder@oracle.com>
-References: <20230705142004.3605799-1-eric.devolder@oracle.com>
- <20230705142004.3605799-4-eric.devolder@oracle.com>
-Date: Wed, 05 Jul 2023 17:05:53 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Eric DeVolder" <eric.devolder@oracle.com>,
- "Russell King" <linux@armlinux.org.uk>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Helge Deller" <deller@gmx.de>,
- "Yoshinori Sato" <ysato@users.sourceforge.jp>,
- "Rich Felker" <dalias@libc.org>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org
-Cc: "WANG Xuerui" <kernel@xen0n.name>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Heiko Carstens" <hca@linux.ibm.com>, gor@linux.ibm.com,
- "Alexander Gordeev" <agordeev@linux.ibm.com>, borntraeger@linux.ibm.com,
- "Sven Schnelle" <svens@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- "Kees Cook" <keescook@chromium.org>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Frederic Weisbecker" <frederic@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "Juerg Haefliger" <juerg.haefliger@canonical.com>,
- "Russell King" <rmk+kernel@armlinux.org.uk>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Sebastian Reichel" <sebastian.reichel@collabora.com>,
- "Mike Rapoport" <rppt@kernel.org>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- "Anshuman Khandual" <anshuman.khandual@arm.com>,
- "Zi Yan" <ziy@nvidia.com>, "Masahiro Yamada" <masahiroy@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>,
- "Masami Hiramatsu" <mhiramat@kernel.org>,
- "Miguel Ojeda" <ojeda@kernel.org>,
- "Zhen Lei" <thunder.leizhen@huawei.com>, "Xin Li" <xin3.li@intel.com>,
- "Tejun Heo" <tj@kernel.org>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, tsi@tuyoix.net,
- "Baoquan He" <bhe@redhat.com>, hbathini@linux.ibm.com,
- sourabhjain@linux.ibm.com,
- "Boris Ostrovsky" <boris.ostrovsky@oracle.com>,
- "Konrad Rzeszutek Wilk" <konrad.wilk@oracle.com>
-Subject: Re: [PATCH v4 03/13] arm/kexec: refactor for kernel/Kconfig.kexec
+	id 1qH45k-00GGql-2M
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Jul 2023 15:06:54 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 071F7615D9;
+	Wed,  5 Jul 2023 15:06:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AAC1C433C8;
+	Wed,  5 Jul 2023 15:06:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688569611;
+	bh=9lnuLnPUp+a1W5bMi5dat9Uy2/HBvlSTBdYbVbval/8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NEuKWqef0mCE5VU9AYbWFNz2ctcq97QILdHxoXbSPPB5PK43juTCFaYlTHdpQxc4k
+	 2TL9xEW8B0G3TKO9qdCBKgPOyar4v4pPoLlE+TOI0NVkV68hAZckdJZ/vQ2Q/jJ9mb
+	 TPQ1xAyjuQEgW2aiIRHYKOGA8s6C+OFEtxJ+ehZIubx0z619nW3B8yV5TB5qACf5Qq
+	 SrNG6L+UpLUiHKsRdy/J+WUB+LdGBzZ4SLrh1VcZ2Gwiixx6NWQXeYSxhx5fGoVvwK
+	 OtdUhHIPeuOSVpDTaT0HcrWcmt0gb/jMzchnEOdb6ZXL8rZTUzXEfi7uSkc6sZiuMj
+	 BOscOmuwxX24A==
+Date: Wed, 5 Jul 2023 16:06:45 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: Re: [PATCH v3 4/4] dt-bindings: firmware: Document ffitbl binding
+Message-ID: <20230705-oblivious-unstuffed-8e028a5b243c@spud>
+References: <20230705114251.661-1-cuiyunhui@bytedance.com>
+ <20230705114251.661-5-cuiyunhui@bytedance.com>
+MIME-Version: 1.0
+In-Reply-To: <20230705114251.661-5-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_080626_709941_56EF93CE 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20230705_080652_862982_565A4CED 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,78 +68,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, jdelvare@suse.com, aou@eecs.berkeley.edu, weidong.wd@bytedance.com, allen-kh.cheng@mediatek.com, rafael@kernel.org, geshijian@bytedance.com, lpieralisi@kernel.org, yc.hung@mediatek.com, pierre-louis.bossart@linux.intel.com, linux-kernel@vger.kernel.org, rminnich@gmail.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tinghan.shen@mediatek.com, linux-riscv@lists.infradead.org, angelogioacchino.delregno@collabora.com, linux-acpi@vger.kernel.org, ardb@kernel.org, lenb@kernel.org
+Content-Type: multipart/mixed; boundary="===============5541370520061989765=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 5, 2023, at 16:19, Eric DeVolder wrote:
-> The kexec and crash kernel options are provided in the common
-> kernel/Kconfig.kexec. Utilize the common options and provide
-> the ARCH_SUPPORTS_ and ARCH_SELECTS_ entries to recreate the
-> equivalent set of KEXEC and CRASH options.
->
-> Signed-off-by: Eric DeVolder <eric.devolder@oracle.com>
 
-> +config ARCH_SUPPORTS_KEXEC
-> +	def_bool (!SMP || PM_SLEEP_SMP) && MMU
-> 
->  config ATAGS_PROC
->  	bool "Export atags in procfs"
-> @@ -1668,17 +1656,8 @@ config ATAGS_PROC
->  	  Should the atags used to boot the kernel be exported in an "atags"
->  	  file in procfs. Useful with kexec.
-> 
-> -config CRASH_DUMP
-> -	bool "Build kdump crash kernel (EXPERIMENTAL)"
-> -	help
-> -	  Generate crash dump after being started by kexec. This should
-> -	  be normally only set in special crash dump kernels which are
-> -	  loaded in the main kernel with kexec-tools into a specially
-> -	  reserved region and then later executed after a crash by
-> -	  kdump/kexec. The crash dump kernel must be compiled to a
-> -	  memory address not used by the main kernel
-> -
-> -	  For more details see Documentation/admin-guide/kdump/kdump.rst
-> +config ARCH_SUPPORTS_CRASH_DUMP
-> +	def_bool y
-> 
-
-I see this is now in linux-next, and it caused a few randconfig
-build issues, these never happened in the past:
-
-* The #ifdef CONFIG_KEXEC check in arch/arm/include/asm/kexec.h
-  needs to be changed to CONFIG_KEXEC_CORE:
-
-include/linux/kexec.h:41:2: error: #error KEXEC_SOURCE_MEMORY_LIMIT not defined
-
-  same thing on m68k
-
-* ARCH_SUPPORTS_CRASH_DUMP needs the same dependency as ARCH_SUPPORTS_KEXEC,
-  otherwise we seem to run into an obscure assembler error building the kdump
-  core on architectures that do not support kdump:
-
-  /tmp/ccpYl6w9.s:1546: Error: selected processor does not support requested special purpose register -- `mrs r2,cpsr'
-
-* Most architectures build machine_kexec.o only when KEXEC is enabled,
-  this also needs to be changed to KEXEC_CORE:
-
---- a/arch/arm/kernel/Makefile
-+++ b/arch/arm/kernel/Makefile
-@@ -59,7 +59,7 @@ obj-$(CONFIG_FUNCTION_TRACER) += entry-ftrace.o
- obj-$(CONFIG_DYNAMIC_FTRACE)   += ftrace.o insn.o patch.o
- obj-$(CONFIG_FUNCTION_GRAPH_TRACER)    += ftrace.o insn.o patch.o
- obj-$(CONFIG_JUMP_LABEL)       += jump_label.o insn.o patch.o
--obj-$(CONFIG_KEXEC)            += machine_kexec.o relocate_kernel.o
-+obj-$(CONFIG_KEXEC_CORE)       += machine_kexec.o relocate_kernel.o
- # Main staffs in KPROBES are in arch/arm/probes/ .
- obj-$(CONFIG_KPROBES)          += patch.o insn.o
- obj-$(CONFIG_OABI_COMPAT)      += sys_oabi-compat.o
+--===============5541370520061989765==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="P4Xlq9WyafqDDvSq"
+Content-Disposition: inline
 
 
-   Arnd
+--P4Xlq9WyafqDDvSq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey,
+
+On Wed, Jul 05, 2023 at 07:42:51PM +0800, Yunhui Cui wrote:
+> Add the description for ffitbl subnode.
+>=20
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> ---
+>  .../devicetree/bindings/firmware/ffitbl.txt   | 27 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 28 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/ffitbl.txt
+>=20
+> diff --git a/Documentation/devicetree/bindings/firmware/ffitbl.txt b/Docu=
+mentation/devicetree/bindings/firmware/ffitbl.txt
+> new file mode 100644
+> index 000000000000..c42368626199
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/firmware/ffitbl.txt
+
+Firstly, new dt-bindings need to be done in yaml, not in text form.
+Secondly, you didn't re-run get_maintainer.pl after adding this binding,
+so you have not CCed any of the other dt-binding maintainers nor the
+devicetree mailing list.
+
+> @@ -0,0 +1,27 @@
+
+> +FFI(FDT FIRMWARE INTERFACE) driver
+> +
+> +Required properties:
+> + - entry		: acpi or smbios root pointer, u64
+> + - reg			: acpi or smbios version, u32
+
+Please go look at any other dt-binding (or the example schema) as to how
+these properties should be used. A "reg" certainly should not be being
+used to store the revision...
+
+Cheers,
+Conor.
+
+> +
+> +Some bootloaders, such as Coreboot do not support EFI,
+> +only devicetree and some arches do not have a reserved
+> +address segment. Add "ffitbl" subnode to obtain ACPI RSDP
+> +and SMBIOS entry.
+> +This feature is known as FDT Firmware Interface (FFI).
+> +
+> +Example:
+> +	ffitbl {
+> +
+> +		smbios {
+> +				entry =3D "";
+> +				reg =3D < 0x03 >;
+> +
+> +		}
+> +		acpi {
+> +				entry =3D "";
+> +				reg =3D < 0x06 >;
+> +
+> +		}
+> +	}
+> +
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 9b886ef36587..008257e55062 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -7874,6 +7874,7 @@ F:	include/linux/efi*.h
+>  FDT FIRMWARE INTERFACE (FFI)
+>  M:	Yunhui Cui cuiyunhui@bytedance.com
+>  S:	Maintained
+> +F:	Documentation/devicetree/bindings/firmware/ffitbl.txt
+>  F:	drivers/firmware/ffi.c
+>  F:	include/linux/ffi.h
+> =20
+> --=20
+> 2.20.1
+>=20
+
+--P4Xlq9WyafqDDvSq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKWHBAAKCRB4tDGHoIJi
+0uB+AP0RwrTXNhCYkGKgzXI8nTOE4BWsGObrWS3ZfGAVVwXpbQEA5sW73BLXMhxe
+NvzIKstw2Fg1XPTYnUwWjsFH3hHbIg4=
+=IUHS
+-----END PGP SIGNATURE-----
+
+--P4Xlq9WyafqDDvSq--
+
+
+--===============5541370520061989765==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5541370520061989765==--
+
