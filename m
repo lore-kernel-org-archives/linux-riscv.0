@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E817EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 01:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B54BEB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 01:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VmwerMITSm6MYvXxMh1GNzf9p8l0lezo/xunrv5lQVw=; b=teMxxIv/eXKxtD
-	UzHUyUN9UyoAZ9HXYuZmbZzsBQrIPDyrUQ/o6SDWQBIGQJdW3iNHnaNxB0UqSMlx0CDo4OKsEyLgw
-	/FQw3OYsjBahzo4WHQbo8N1rJSVhp9pFbS3dGEFFM3c53WMQBl0tYJykH8UTWvJgCb7CK30r7PIBL
-	krETP5M3tULbLw2KHg9dmPA3YXWvC2GoeWy07Fk7I7SuQ4GYddx1cNjcTvaWHLemzFmL6QXsSEb+3
-	JGjaEM69yTI3Dj8PGEu1LeZqzuN3PkB9KCO/3Svo19uRwtpfUHWN21aGvI3osz+RWiX9iKpEnuIco
-	SzQk0yjTSPm1PPhXF3Xw==;
+	List-Owner; bh=aJvrGfOTeNLAOxeCX9bAKc7sfqNDNawg+EATtpPf8R4=; b=1GeOehbh1E2IAN
+	Bu7tEgMr5hHx/PUT9wv3NLBLlhW0oNh2Q+vyi3cuTPAvSu7ycmONoZCMVmcpdfKHpERWOARI4SRkI
+	3858wJVOQ1+ozQE4TKHdvYH3+ZtdCzdrx6XD/Ci2wgSG3rUg6naAbGRYSjeRRSLV6EfQNh1xd783I
+	3S/6ROFazxLDCxoaWwufrPxsQPGyeqRoQQcNDFzSV9Q86gcVuWri4rRk8k+HJ0kdN4Q1L1ktA0gum
+	Vtp+HHNaW1Kdeoy9ynxuBJIqPCe1+Xs0mpurXtNi4WcxI2ALwd5ETygIPk1JTpiDfuSwUs5vYjjHd
+	qhfJxYAoOyNf/q+oE5ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGrGn-00EX5d-2f;
-	Wed, 05 Jul 2023 01:25:25 +0000
+	id 1qGrIC-00EXFV-0s;
+	Wed, 05 Jul 2023 01:26:52 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGrGl-00EX5F-2u;
-	Wed, 05 Jul 2023 01:25:23 +0000
+	id 1qGrIA-00EXEn-0D;
+	Wed, 05 Jul 2023 01:26:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
 	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
 	:Reply-To:Content-ID:Content-Description;
-	bh=vSma8IQq31fU+wERjB/1DEs56WPeOxb4JmpgeCP9te0=; b=NqOllcmfQCJsXDWSgRe6XBVnWj
-	N4QeXHnoBA0l4ngHnQGT/VGcEliJUrmqaycBN+2GIRdVjDxV+tnik/9rAy9+8uLu2uVYgw3M9Ijit
-	b7KAluyhoziSKHSt8qRF6Z+ZvVHuXwfSGXXjIxN23iq9PatYGgC57zhbhFsr4Al3rpsm21UgpMS8H
-	eYxAeDJ5HgJ9B8K4XjzpMPeXctK9EnDryWGL7hR0C08ZS4GDdyExSwjBxXsqxtE6VqOSB7hFcaedu
-	bHTszkDDNxL3Ca94zOBqQrtIxzhRKMYfM7HS31q4nmEYYs2zifZKYsDF3CIFP3ImMbq0KH0nVevr3
-	SxHqVhdQ==;
+	bh=/e0oYztfJjsZe+B46gYunSjXwRWeDN8vG/a9r4TIlvw=; b=tWc5y8oZX36xML7CXVU+Amq4JN
+	rOf9bK7QE+TM/aa0Xa2v2UqvDm9IutiuuN8yeUfpDQNrSLjoRNud/mOasrNP9piAiUkLVp15KXSVd
+	iN85N+jvjIRy7mSdaeBCNy+jk4T1OTaiDKZK7djZ3kQNIVLhRqtRsPPaCog4l/p4QJVQarbZJjQ2g
+	3+HLClHcWKrtmq3PhrZJPDlIVWSKN/HL1K8FYdnEC1gVxLKaG+fLUQOLRbhnTnIqvAHzsCaN/Ys0w
+	bqiW2elkVi6KCnzjLuTGFw/UDe1jzi7or5JioVe0+O+34O3o0ZxqGnqjvseHmo8tqbHtEVzGgP8gt
+	NsC7N46g==;
 Received: from mail.loongson.cn ([114.242.206.163])
 	by casper.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qGrGg-009dZe-Ku; Wed, 05 Jul 2023 01:25:21 +0000
+	id 1qGrI6-009dd8-6y; Wed, 05 Jul 2023 01:26:48 +0000
 Received: from loongson.cn (unknown [10.20.42.43])
-	by gateway (Coremail) with SMTP id _____8Cxc_B0xqRklS0AAA--.884S3;
-	Wed, 05 Jul 2023 09:25:08 +0800 (CST)
+	by gateway (Coremail) with SMTP id _____8Dxg_DSxqRk0C0AAA--.921S3;
+	Wed, 05 Jul 2023 09:26:42 +0800 (CST)
 Received: from [10.20.42.43] (unknown [10.20.42.43])
-	by localhost.localdomain (Coremail) with SMTP id AQAAf8BxniNtxqRki8kbAA--.44387S3;
-	Wed, 05 Jul 2023 09:25:01 +0800 (CST)
-Message-ID: <d1c0702f-e16d-1edd-19a4-1bdc2def14ab@loongson.cn>
-Date: Wed, 5 Jul 2023 09:25:01 +0800
+	by localhost.localdomain (Coremail) with SMTP id AQAAf8DxDc_PxqRkDcobAA--.19495S3;
+	Wed, 05 Jul 2023 09:26:40 +0800 (CST)
+Message-ID: <483e9f1b-2ae5-7d0a-14a1-6de38acb13dc@loongson.cn>
+Date: Wed, 5 Jul 2023 09:26:39 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
-Subject: Re: [05/12] arch: Remove trailing whitespaces
+Subject: Re: [08/12] drivers/firmware: Remove trailing whitespaces
 Content-Language: en-US
 To: Thomas Zimmermann <tzimmermann@suse.de>, arnd@arndb.de, deller@gmx.de,
  daniel@ffwll.ch, airlied@gmail.com
-Cc: linux-hyperv@vger.kernel.org, linux-efi@vger.kernel.org,
- linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>, linux-fbdev@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-mips@vger.kernel.org,
- Rich Felker <dalias@libc.org>, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- Yoshinori Sato <ysato@users.sourceforge.jp>, linux-hexagon@vger.kernel.org,
- linux-staging@lists.linux.dev, linux-csky@vger.kernel.org,
- Geert Uytterhoeven <geert@linux-m68k.org>, Zi Yan <ziy@nvidia.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Niklas Schnelle <schnelle@linux.ibm.com>, loongarch@lists.linux.dev,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@kernel.org>,
- linux-kernel@vger.kernel.org, "Mike Rapoport (IBM)" <rppt@kernel.org>,
- linux-alpha@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- linuxppc-dev@lists.ozlabs.org,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230629121952.10559-6-tzimmermann@suse.de>
+Cc: linux-arch@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-efi@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ loongarch@lists.linux.dev, linux-alpha@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+References: <20230629121952.10559-9-tzimmermann@suse.de>
 From: Sui Jingfeng <suijingfeng@loongson.cn>
-In-Reply-To: <20230629121952.10559-6-tzimmermann@suse.de>
-X-CM-TRANSID: AQAAf8BxniNtxqRki8kbAA--.44387S3
+In-Reply-To: <20230629121952.10559-9-tzimmermann@suse.de>
+X-CM-TRANSID: AQAAf8DxDc_PxqRkDcobAA--.19495S3
 X-CM-SenderInfo: xvxlyxpqjiv03j6o00pqjv00gofq/
-X-Coremail-Antispam: 1Uk129KBj93XoWxWryxAr17Ww18uw15tw15WrX_yoW5Wr1UpF
-	WDCw1kGryDWFsYyF1xJ348uFWSgws7tFW3uryDK34UAr90vryjvrykt3Z3A34DGrnrCFW0
-	g3yrWF4jg3WrAFXCm3ZEXasCq-sJn29KB7ZKAUJUUUUJ529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUPmb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AK
-	xVW8Jr0_Cr1UM2kKe7AKxVWUtVW8ZwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07
-	AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWr
-	XVW3AwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwI
-	xGrwCYjI0SjxkI62AI1cAE67vIY487MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAK
-	I48JMxC20s026xCaFVCjc4AY6r1j6r4UMxCIbckI1I0E14v26r1q6r43MI8I3I0E5I8CrV
-	AFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8Jr1l
-	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVW7JVWDJwCI42IY6xIIjxv20xvEc7CjxV
-	AFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWx
-	JVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IUn
-	bAw7UUUUU==
+X-Coremail-Antispam: 1Uk129KBj9xXoWrZry8Wr43trW3trW5Gry8WFX_yoW3KrX_Cr
+	y8KrZ7uF4jkrW7WF12qrWfZryF9ayDZrs5Xr12y3yaq343Z3s7J3yq9rn7ZwnrGw1UXF15
+	uFWkAryvyan7WosvyTuYvTs0mTUanT9S1TB71UUUUjUqnTZGkaVYY2UrUUUUj1kv1TuYvT
+	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
+	cSsGvfJTRUUUbhAYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
+	vaj40_Wr0E3s1l1IIY67AEw4v_JrI_Jryl8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AK
+	xVW8Jr0_Cr1UM2kKe7AKxVWUXVWUAwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07
+	AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVW3
+	AVW8Xw1lYx0Ex4A2jsIE14v26F4j6r4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64
+	vIr41lc7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
+	bVWUJVW8JwCFI7km07C267AKxVWUXVWUAwC20s026c02F40E14v26r1j6r18MI8I3I0E74
+	80Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0
+	I7IYx2IY67AKxVW7JVWDJwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6x
+	AIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIE
+	c7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjxUxGNtUUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_022519_366055_AE883938 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20230705_022646_987691_459AE788 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,85 +105,34 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
 On 2023/6/29 19:45, Thomas Zimmermann wrote:
 > Fix coding style. No functional changes.
 >
 > Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Rich Felker <dalias@libc.org>
-> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-> Cc: Arnd Bergmann <arnd@kernel.org>
-> Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Niklas Schnelle <schnelle@linux.ibm.com>
-> Cc: Zi Yan <ziy@nvidia.com>
-> Cc: "Mike Rapoport (IBM)" <rppt@kernel.org>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+
 
 Reviewed-by: Sui Jingfeng <suijingfeng@loongson.cn>
 
+
 > ---
->   arch/ia64/Kconfig | 4 ++--
->   arch/sh/Kconfig   | 6 +++---
->   2 files changed, 5 insertions(+), 5 deletions(-)
+>   drivers/firmware/Kconfig | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
-> index 21fa63ce5ffc0..e79f15e32a451 100644
-> --- a/arch/ia64/Kconfig
-> +++ b/arch/ia64/Kconfig
-> @@ -260,7 +260,7 @@ config PERMIT_BSP_REMOVE
->   	default n
->   	help
->   	Say Y here if your platform SAL will support removal of BSP with HOTPLUG_CPU
-> -	support.
-> +	support.
+> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+> index b59e3041fd627..0432737bbb8b4 100644
+> --- a/drivers/firmware/Kconfig
+> +++ b/drivers/firmware/Kconfig
+> @@ -99,7 +99,7 @@ config EFI_PCDP
+>   	  You must also enable the appropriate drivers (serial, VGA, etc.)
 >   
->   config FORCE_CPEI_RETARGET
->   	bool "Force assumption that CPEI can be re-targeted"
-> @@ -335,7 +335,7 @@ config IA64_PALINFO
->   config IA64_MC_ERR_INJECT
->   	tristate "MC error injection support"
->   	help
-> -	  Adds support for MC error injection. If enabled, the kernel
-> +	  Adds support for MC error injection. If enabled, the kernel
->   	  will provide a sysfs interface for user applications to
->   	  call MC error injection PAL procedures to inject various errors.
->   	  This is a useful tool for MCA testing.
-> diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
-> index 9652d367fc377..04b9550cf0070 100644
-> --- a/arch/sh/Kconfig
-> +++ b/arch/sh/Kconfig
-> @@ -234,7 +234,7 @@ config CPU_SUBTYPE_SH7201
->   	select CPU_SH2A
->   	select CPU_HAS_FPU
->   	select SYS_SUPPORTS_SH_MTU2
-> -
-> +
->   config CPU_SUBTYPE_SH7203
->   	bool "Support SH7203 processor"
->   	select CPU_SH2A
-> @@ -496,7 +496,7 @@ config CPU_SUBTYPE_SH7366
->   endchoice
+>   	  See DIG64_HCDPv20_042804.pdf available from
+> -	  <http://www.dig64.org/specifications/>
+> +	  <http://www.dig64.org/specifications/>
 >   
->   source "arch/sh/mm/Kconfig"
-> -
-> +
->   source "arch/sh/Kconfig.cpu"
->   
->   source "arch/sh/boards/Kconfig"
-> @@ -647,7 +647,7 @@ config GUSA
->   	  This is the default implementation for both UP and non-ll/sc
->   	  CPUs, and is used by the libc, amongst others.
->   
-> -	  For additional information, design information can be found
-> +	  For additional information, design information can be found
->   	  in <http://lc.linux.or.jp/lc2002/papers/niibe0919p.pdf>.
->   
->   	  This should only be disabled for special cases where alternate
+>   config DMIID
+>       bool "Export DMI identification via sysfs to userspace"
 
 
 _______________________________________________
