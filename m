@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B262EB64DD
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 08:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C1CEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 08:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v24yddhrpO2pviMarBz5iW2KQCDc5PAnjMhtRJPPnKU=; b=d2/IoclLjJA/Hj
-	WPs1Q+BDm+P+RZbWDat9R47UtfJU9XqOsn6nIDK/nBPP2Ve1sQ3m6dVEZ2bHMA9qs0OBJTXJwDnwq
-	0CIEwGB3qDJl/yMe3Z1D+QbkMN/l1SHe1EYAzSsV21xfNwIayOZ2Fk+FAU25nlpd458nUozsqYwRF
-	BGu/Ke9sWqJ13yLtoMCjHjwYPAVDkAaTXTY1bcxjjhoZqk+qbz8kug6Vix9R1r32AL5RKT/glrUO5
-	U+rnXh8vSyjwrWAlZFQeDka//HVbNylgS+4pIqimeWXf7yue4YwWz14pUMbuz/BaLCuD5nYCgXIAN
-	NykJvx7map1BH02/r4Vg==;
+	List-Owner; bh=QwBxvzPFgAAWHAilMA09pJRukkbRcY9pxFeoqTLZnRY=; b=B1WD2gsaAlBhNC
+	gBLfjODK64zLU+yNAaYz3ligaDm33q2tJ1SAs9dBfYWASCamDNQkOwh6FvlSxMmQaVYqRU+8v6Edj
+	lbNLextVrH9iv5iduRycTTaZPPwYlV4mlTURf27YSG4X4esteAkCXJ4K1DJP/y+9zoQBNJxWmSJLn
+	lIQ/iVwX1dGJy5KNgxpbXbDvjbRZVxh4SM8x70N1gaHJOrazKs3hV8yUxtH7Brp0utMGnfEAiR6yK
+	v/HsrYcYNo9Zo2r7PmPhcGgPPG4aofPAiNZdNdfpGKrDvJvDYxvbFcFh7UOiRIEwTdKMgzDdxp+t2
+	oAwyfp/iFdL8f7bZZcYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGxvI-00FDsJ-39;
-	Wed, 05 Jul 2023 08:31:40 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qGxvE-00FDpj-1E
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jul 2023 08:31:39 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 11D7424E1F2;
-	Wed,  5 Jul 2023 16:31:07 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 5 Jul
- 2023 16:31:07 +0800
-Received: from [192.168.120.57] (171.223.208.138) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 5 Jul
- 2023 16:31:06 +0800
-Message-ID: <5e9ef080-085e-9135-a53c-9f9490f08ebe@starfivetech.com>
-Date: Wed, 5 Jul 2023 16:31:05 +0800
+	id 1qGy76-00FFXn-1N;
+	Wed, 05 Jul 2023 08:43:52 +0000
+Received: from mail-vs1-xe2d.google.com ([2607:f8b0:4864:20::e2d])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qGy71-00FFWA-0s;
+	Wed, 05 Jul 2023 08:43:50 +0000
+Received: by mail-vs1-xe2d.google.com with SMTP id ada2fe7eead31-4435508cff9so1923001137.0;
+        Wed, 05 Jul 2023 01:43:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1688546625; x=1691138625;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OfLzlu2hCuH/qNgHtEqj71Fn9ZBy4uE0Z7kkhh4XPaU=;
+        b=EcSDcbMFLlaEKCnAfTNq6ncklG6G9aICkpdmAnIqeybUq25h0n04X5AdQKHA7ie10B
+         lNc/Wu9uxR7DSqJdKi4ZR4CO7aC60Was+59WEFygIao4OxzvM3ExJtlmMRSRSITZ3jbP
+         qfJ5gWKACUFlABiAC3a9IKngo5vX/7G8Ge9CL2IQIMPWHD7oMIQLr33gNaWWRbzVsiSx
+         na0BZny08KFWuPAM5Sfwwc2WMDxLARuH9UdUm0JKzhKrs5ZsuSsMdxQBN9TLHg/jfoN/
+         bPmaYtawgUtRk99LL/nUxuk0QbU5QFV0LuLfeZTEUU9O9xTjggAvb3iW/nKfE0wnT34F
+         eFYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688546625; x=1691138625;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OfLzlu2hCuH/qNgHtEqj71Fn9ZBy4uE0Z7kkhh4XPaU=;
+        b=ZxlO+NZucAv6CdI4LqFoNJRWJ/hVx7n53jnpxi4hs9RKtI452qgN8DuocuysRroABJ
+         h05t0DO/nFedJamQrA40VQXv15/bKJ5wm1Gxwq/8ZsaSBAYURCyfIlk8H16PW3tpjx04
+         42L/D7OJ47Mb6Uv4IGxm/Esc82QrrDUU3s51vVOMN5s8js5+hLDWWa07JwUgLCw4thzq
+         nfMtN+DE8YlWaSycMdkMTOB4S8GrjjXRLxBZVYnOAYnHLy+bi+Plc2cP2/Q/pOkg8lQ0
+         Uv3EhF3jHasu8cKKPjEADVbsw8nuoM6kHKDsOytdI1mzAQoYlsKWu75sOnfPP/0PKOgP
+         QssQ==
+X-Gm-Message-State: ABy/qLZlIBSUHZvsMKXcYJxUrVfiSWPNNgAus/dgDvFnjPvUJAD3Zwbc
+	/aGDcKof9t6ELc162LI4HQHRBUN9JDiT6QoGVt4=
+X-Google-Smtp-Source: APBJJlFLUnJaRW83dmmmrNBi+Pcq3+yZ/Or6M1SrtK+X+fK4Yl/i1JA0jGSQfbLmKOpA+aNZfqIRanR69NKYC7JoALc=
+X-Received: by 2002:a67:fd82:0:b0:443:7516:450b with SMTP id
+ k2-20020a67fd82000000b004437516450bmr4352254vsq.35.1688546625075; Wed, 05 Jul
+ 2023 01:43:45 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH v4 2/3] spi: cadence-quadspi: Add clock configuration for
- StarFive JH7110 QSPI
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<devicetree@vger.kernel.org>, <linux-spi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Ziv Xu
-	<ziv.xu@starfivetech.com>
-References: <20230704090453.83980-1-william.qiu@starfivetech.com>
- <20230704090453.83980-3-william.qiu@starfivetech.com>
- <808dac44-a72c-4675-1e4a-0ed96190efb4@linaro.org>
- <90b55926-1d0c-b9c0-3020-5837e2028809@starfivetech.com>
- <175d03f6-122f-bbd2-5d38-61fe4022c5cd@linaro.org>
-Content-Language: en-US
-From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <175d03f6-122f-bbd2-5d38-61fe4022c5cd@linaro.org>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+References: <20230518065934.12877-1-yangyicong@huawei.com> <20230518065934.12877-3-yangyicong@huawei.com>
+ <ZJ2x6DlmyA3kVh1n@arm.com> <ZJ2+37Q7v4odMmEd@arm.com> <2f593850-797c-5422-2c80-ce214fac02bb@huawei.com>
+In-Reply-To: <2f593850-797c-5422-2c80-ce214fac02bb@huawei.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Wed, 5 Jul 2023 16:43:29 +0800
+Message-ID: <CAGsJ_4zG=DT0gwC+5uN51rQKT=UudNDZ4t1BgRNoFb_3NNLOtQ@mail.gmail.com>
+Subject: Re: [RESEND PATCH v9 2/2] arm64: support batched/deferred tlb
+ shootdown during page reclamation/migration
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, yangyicong@hisilicon.com, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org, mark.rutland@arm.com, 
+	ryan.roberts@arm.com, will@kernel.org, anshuman.khandual@arm.com, 
+	linux-doc@vger.kernel.org, corbet@lwn.net, peterz@infradead.org, 
+	arnd@arndb.de, punit.agrawal@bytedance.com, linux-kernel@vger.kernel.org, 
+	darren@os.amperecomputing.com, huzhanyuan@oppo.com, lipeifeng@oppo.com, 
+	zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com, 
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, wangkefeng.wang@huawei.com, 
+	xhao@linux.alibaba.com, prime.zeng@hisilicon.com, Jonathan.Cameron@huawei.com, 
+	Barry Song <v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman <mgorman@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_013136_573305_B780246B 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20230705_014347_330780_C12E7EA1 
+X-CRM114-Status: GOOD (  36.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +95,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/7/5 15:23, Krzysztof Kozlowski wrote:
-> On 05/07/2023 09:04, William Qiu wrote:
->> 
->> 
->> On 2023/7/5 14:21, Krzysztof Kozlowski wrote:
->>> On 04/07/2023 11:04, William Qiu wrote:
->>>> Add QSPI clock operation in device probe.
->>>>
->>>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
->>>> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
->>>> Reported-by: kernel test robot <lkp@intel.com>
->>>> Closes: https://lore.kernel.org/oe-kbuild-all/202306022017.UbwjjWRN-lkp@intel.com/
->>>> Reported-by: Julia Lawall <julia.lawall@inria.fr>
->>>> Closes: https://lore.kernel.org/r/202306040644.6ZHs55x4-lkp@intel.com/
->>>
->>>
->>>>  
->>>> @@ -1840,6 +1858,8 @@ static int cqspi_resume(struct device *dev)
->>>>  	struct spi_master *master = dev_get_drvdata(dev);
->>>>  
->>>>  	clk_prepare_enable(cqspi->clk);
->>>> +	if (of_device_is_compatible(dev->of_node, "starfive,jh7110-qspi"))
->>>
->>> Don't add compatible checks inside the code. It does not scale. We
->>> expect compatibles to be listed only in one place - of_device_id - and
->>> customize driver with match data / quirks / flags.
->>>
->>> Comment applies to all your diff hunks.
->>>
->> I'll use "of_device_get_match_data" to replace it. But the way I added
->> reset before is also by compatible checks. Should I change this place to 
->> "of_device_get_match_data" as well?
-> 
-> I don't know what's there, but in general driver should be written in a
-> consistent style.
->It's in line 1719, inside the "cqspi_probe", but this part of the code is
-already merged in the main line. Should I keep it in a consistent style?
-
-Best regards,
-William
-> Best regards,
-> Krzysztof
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdWwgNCwgMjAyMyBhdCAxMDozNuKAr1BNIFlpY29uZyBZYW5nIDx5YW5neWljb25n
+QGh1YXdlaS5jb20+IHdyb3RlOgo+Cj4gT24gMjAyMy82LzMwIDE6MjYsIENhdGFsaW4gTWFyaW5h
+cyB3cm90ZToKPiA+IE9uIFRodSwgSnVuIDI5LCAyMDIzIGF0IDA1OjMxOjM2UE0gKzAxMDAsIENh
+dGFsaW4gTWFyaW5hcyB3cm90ZToKPiA+PiBPbiBUaHUsIE1heSAxOCwgMjAyMyBhdCAwMjo1OToz
+NFBNICswODAwLCBZaWNvbmcgWWFuZyB3cm90ZToKPiA+Pj4gRnJvbTogQmFycnkgU29uZyA8di1z
+b25nYmFvaHVhQG9wcG8uY29tPgo+ID4+Pgo+ID4+PiBvbiB4ODYsIGJhdGNoZWQgYW5kIGRlZmVy
+cmVkIHRsYiBzaG9vdGRvd24gaGFzIGxlYWQgdG8gOTAlCj4gPj4+IHBlcmZvcm1hbmNlIGluY3Jl
+YXNlIG9uIHRsYiBzaG9vdGRvd24uIG9uIGFybTY0LCBIVyBjYW4gZG8KPiA+Pj4gdGxiIHNob290
+ZG93biB3aXRob3V0IHNvZnR3YXJlIElQSS4gQnV0IHN5bmMgdGxiaSBpcyBzdGlsbAo+ID4+PiBx
+dWl0ZSBleHBlbnNpdmUuCj4gPj4gWy4uLl0KPiA+Pj4gIC4uLi9mZWF0dXJlcy92bS9UTEIvYXJj
+aC1zdXBwb3J0LnR4dCAgICAgICAgICB8ICAyICstCj4gPj4+ICBhcmNoL2FybTY0L0tjb25maWcg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMSArCj4gPj4+ICBhcmNoL2FybTY0L2luY2x1
+ZGUvYXNtL3RsYmJhdGNoLmggICAgICAgICAgICAgfCAxMiArKysrCj4gPj4+ICBhcmNoL2FybTY0
+L2luY2x1ZGUvYXNtL3RsYmZsdXNoLmggICAgICAgICAgICAgfCAzMyArKysrKysrKy0KPiA+Pj4g
+IGFyY2gvYXJtNjQvbW0vZmx1c2guYyAgICAgICAgICAgICAgICAgICAgICAgICB8IDY5ICsrKysr
+KysrKysrKysrKysrKysKPiA+Pj4gIGFyY2gveDg2L2luY2x1ZGUvYXNtL3RsYmZsdXNoLmggICAg
+ICAgICAgICAgICB8ICA1ICstCj4gPj4+ICBpbmNsdWRlL2xpbnV4L21tX3R5cGVzX3Rhc2suaCAg
+ICAgICAgICAgICAgICAgfCAgNCArLQo+ID4+PiAgbW0vcm1hcC5jICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHwgMTIgKystLQo+ID4+Cj4gPj4gRmlyc3Qgb2YgYWxsLCB0aGlz
+IHBhdGNoIG5lZWRzIHRvIGJlIHNwbGl0IGluIHNvbWUgcHJlcGFyYXRvcnkgcGF0Y2hlcwo+ID4+
+IGludHJvZHVjaW5nL3JlbmFtaW5nIGZ1bmN0aW9ucyB3aXRoIG5vIGZ1bmN0aW9uYWwgY2hhbmdl
+IGZvciB4ODYuIE9uY2UKPiA+PiBkb25lLCB5b3UgY2FuIGFkZCB0aGUgYXJtNjQtb25seSBjaGFu
+Z2VzLgo+ID4+Cj4KPiBnb3QgaXQuIHdpbGwgdHJ5IHRvIHNwbGl0IHRoaXMgcGF0Y2ggYXMgc3Vn
+Z2VzdGVkLgo+Cj4gPj4gTm93LCBvbiB0aGUgaW1wbGVtZW50YXRpb24sIEkgaGFkIHNvbWUgY29t
+bWVudHMgb24gdjcgYnV0IHdlIGRpZG4ndCBnZXQKPiA+PiB0byBhIGNvbmNsdXNpb24gYW5kIHRo
+ZSB0aHJlYWQgZXZlbnR1YWxseSBkaWVkOgo+ID4+Cj4gPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
+cmcvbGludXgtbW0vWTdjVG9qNW1XZDFaYk15UUBhcm0uY29tLwo+ID4+Cj4gPj4gSSBrbm93IEkg
+c2FpZCBhIGNvbW1hbmQgbGluZSBhcmd1bWVudCBpcyBiZXR0ZXIgdGhhbiBLY29uZmlnIG9yIHNv
+bWUKPiA+PiByYW5kb20gbnVtYmVyIG9mIENQVXMgaGV1cmlzdGljcyBidXQgaXQgd291bGQgYmUg
+ZXZlbiBiZXR0ZXIgaWYgd2UgZG9uJ3QKPiA+PiBib3RoZXIgd2l0aCBhbnksIGp1c3QgbWFrZSB0
+aGlzIGFsd2F5cyBvbi4KPgo+IG9rLCB3aWxsIG1ha2UgdGhpcyBhbHdheXMgb24uCj4KPiA+PiBC
+YXJyeSBoYWQgc29tZSBjb21tZW50cwo+ID4+IGFyb3VuZCBtcHJvdGVjdCgpIGJlaW5nIHJhY3kg
+YW5kIHRoYXQncyB3aHkgd2UgaGF2ZQo+ID4+IGZsdXNoX3RsYl9iYXRjaGVkX3BlbmRpbmcoKSBi
+dXQgSSBkb24ndCB0aGluayBpdCdzIG5lZWRlZCAob3IsIGZvcgo+ID4+IGFybTY0LCBpdCBjYW4g
+YmUgYSBEU0Igc2luY2UgdGhpcyBwYXRjaCBpc3N1ZXMgdGhlIFRMQklzIGJ1dCB3aXRob3V0IHRo
+ZQo+ID4+IERWTSBTeW5jKS4gU28gd2UgbmVlZCB0byBjbGFyaWZ5IHRoaXMgKHNlZSBCYXJyeSdz
+IGxhc3QgZW1haWwgb24gdGhlCj4gPj4gYWJvdmUgdGhyZWFkKSBhbmQgYmVmb3JlIGF0dGVtcHRp
+bmcgbmV3IHZlcnNpb25zIG9mIHRoaXMgcGF0Y2hzZXQuIFdpdGgKPiA+PiBmbHVzaF90bGJfYmF0
+Y2hlZF9wZW5kaW5nKCkgcmVtb3ZlZCAob3IgRFNCKSwgSSBoYXZlIGEgc3VzcGljaW9uIHN1Y2gK
+PiA+PiBpbXBsZW1lbnRhdGlvbiB3b3VsZCBiZSBmYXN0ZXIgb24gYW55IFNvQyBpcnJlc3BlY3Rp
+dmUgb2YgdGhlIG51bWJlciBvZgo+ID4+IENQVXMuCj4gPgo+ID4gSSB0aGluayBJIGdvdCB0aGUg
+bmVlZCBmb3IgZmx1c2hfdGxiX2JhdGNoZWRfcGVuZGluZygpLiBJZgo+ID4gdHJ5X3RvX3VubWFw
+KCkgbWFya3MgdGhlIHB0ZSAhcHJlc2VudCBhbmQgd2UgaGF2ZSBhIHBlbmRpbmcgVExCSSwKPiA+
+IGNoYW5nZV9wdGVfcmFuZ2UoKSB3aWxsIHNraXAgdGhlIFRMQiBtYWludGVuYW5jZSBhbHRvZ2V0
+aGVyIHNpbmNlIGl0IGRpZAo+ID4gbm90IGNoYW5nZSB0aGUgcHRlLiBTbyB3ZSBjb3VsZCBiZSBs
+ZWZ0IHdpdGggc3RhbGUgVExCIGVudHJpZXMgYWZ0ZXIKPiA+IG1wcm90ZWN0KCkgYmVmb3JlIFRU
+VSBkb2VzIHRoZSBiYXRjaCBmbHVzaGluZy4KPiA+CgpHb29kIGNhdGNoLgpUaGlzIGNvdWxkIGJl
+IGFsc28gdHJ1ZSBmb3IgTUFEVl9ET05UTkVFRC4gYWZ0ZXIgdHJ5X3RvX3VubWFwLCB3ZSBydW4K
+TUFEVl9ET05UTkVFRCBvbiB0aGlzIGFyZWEsIGFzIHB0ZSBpcyBub3QgcHJlc2VudCwgd2UgZG9u
+J3QgZG8gYW55dGhpbmcKb24gdGhpcyBQVEUgaW4gemFwX3B0ZV9yYW5nZSBhZnRlcndhcmRzLgoK
+PiA+IFdlIGNhbiBoYXZlIGFuIGFyY2gtc3BlY2lmaWMgZmx1c2hfdGxiX2JhdGNoZWRfcGVuZGlu
+ZygpIHRoYXQgY2FuIGJlIGEKPiA+IERTQiBvbmx5IG9uIGFybTY0IGFuZCBhIGZ1bGwgbW0gZmx1
+c2ggb24geDg2Lgo+ID4KPgo+IFdlIG5lZWQgdG8gZG8gYSBmbHVzaC9kc2IgaW4gZmx1c2hfdGxi
+X2JhdGNoZWRfcGVuZGluZygpIG9ubHkgaW4gYSByYWNlCj4gY29uZGl0aW9uIHNvIHdlIGZpcnN0
+IGNoZWNrIHdoZXRoZXIgdGhlcmUncyBhIHBlbmRlZCBiYXRjaGVkIGZsdXNoIGFuZAo+IGlmIHNv
+IGRvIHRoZSB0bGIgZmx1c2guIFRoZSBwZW5kaW5nIGNoZWNraW5nIGlzIGNvbW1vbiBhbmQgdGhl
+IGRpZmZlcmVuY2VzCj4gYW1vbmcgdGhlIGFyY2hzIGlzIGhvdyB0byBmbHVzaCB0aGUgVExCIGhl
+cmUgd2l0aGluIHRoZSBmbHVzaF90bGJfYmF0Y2hlZF9wZW5kaW5nKCksCj4gb24gYXJtNjQgaXQg
+c2hvdWxkIG9ubHkgYmUgYSBkc2IuCj4KPiBBcyB3ZSBvbmx5IG5lZWRzIHRvIG1haW50YWluIHRo
+ZSBUTEJzIGFscmVhZHkgcGVuZGVkIGluIGJhdGNoZWQgZmx1c2gsCj4gZG9lcyBpdCBtYWtlIHNl
+bnNlIHRvIG9ubHkgaGFuZGxlIHRob3NlIFRMQnMgaW4gZmx1c2hfdGxiX2JhdGNoZWRfcGVuZGlu
+ZygpPwo+IFRoZW4gd2UgY2FuIHVzZSB0aGUgYXJjaF90bGJiYXRjaF9mbHVzaCgpIHJhdGhlciB0
+aGFuIGZsdXNoX3RsYl9tbSgpIGluCj4gZmx1c2hfdGxiX2JhdGNoZWRfcGVuZGluZygpIGFuZCBu
+byBhcmNoIHNwZWNpZmljIGZ1bmN0aW9uIG5lZWRlZC4KCmFzIHdlIGhhdmUgaXNzdWVkIG5vLXN5
+bmMgdGxiaSBvbiB0aG9zZSBwZW5kaW5nIGFkZHJlc3NlcyAsIHRoYXQgbWVhbnMKb3VyIGhhcmR3
+YXJlCmhhcyBhbHJlYWR5ICJyZWNvcmRlZCIgd2hhdCBzaG91bGQgYmUgZmx1c2hlZCBpbiB0aGUg
+c3BlY2lmaWMgbW0uIHNvCkRTQiBvbmx5IHdpbGwgZmx1c2gKdGhlbSBjb3JyZWN0bHkuIHJpZ2h0
+PwoKPgo+IFRoYW5rcy4KPgoKQmFycnkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
