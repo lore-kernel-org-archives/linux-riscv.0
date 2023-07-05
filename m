@@ -4,144 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F15EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 15:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED622EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 16:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nk65Xznt75YvRQRnoQLo2lNpqZWiCPLqqiJ/nLUdztU=; b=bnIdkL9k86AoXj
-	3T8DZBjaB/wa8tEpglKhLu3nSVuEr6SIKOJr1oq29xOaIcxztsu931rAokSArbLf8CMk+XDllBWTq
-	PZPh9Y8HVQ86ksPAhJghcYXpSePK7ojN54ZG5N+myw0q3T74hmHJLM7+Zap/9sc7WaxZ5mN2dDAbY
-	wsDEQmLE4kdtcNPXD9nubbkeFhb3daECSSDq8sT6M0fTWYbsDrHe7zgGhjUisoz4Ax1euxhEooK5t
-	7qzHxyEw0igIqhUN3IpK855HkdLBgwdEpcM2QF67gVOwm+MHSZdtYGknNtyViK7cxtxqk9GytHtCA
-	I3AZnjFhNFtJUxbacxgw==;
+	List-Owner; bh=BRvq/3Pe7fKMBwgjroIx/IItxzA/1W1+aSlbc7zLq0Y=; b=0SHagMYseyp51M
+	DXHLRboNqmBiZ8yyKD9s9j40B9hlHaUMuRC1WavX23ACy0AnPx7jxtbslwXaA9TQ1itsrfmY5DamJ
+	KJleeVRQO5d4gbAF1XnCf9ZEnFH0ivwuZnCdZ0PQEOGLzvaUlG18EE4McgWCNN53Yis4Tbmaa1jfm
+	N0AYVqg3ka9EDzJOTXD7JHIjdECkRFcvL/SIf1MuhyT6t9d0HsjgHOPXfGJ7Xq2hRLplE4dOqs1CE
+	kuw3srl8rKcVto8tdVdEkrPxQtPakOs9gYPQJ5HGE2rB3BCJT8vFFF1vdxasT7KNyeWyjLQC5Pffn
+	wCR2VaVk8GtV81+tbsEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH4os-00GOlP-1t;
-	Wed, 05 Jul 2023 15:53:30 +0000
-Received: from new1-smtp.messagingengine.com ([66.111.4.221])
+	id 1qH5HT-00GU3i-2T;
+	Wed, 05 Jul 2023 16:23:03 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH4op-00GOjq-0h;
-	Wed, 05 Jul 2023 15:53:28 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailnew.nyi.internal (Postfix) with ESMTP id EFB8358022E;
-	Wed,  5 Jul 2023 11:53:25 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Wed, 05 Jul 2023 11:53:26 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1688572405; x=1688579605; bh=Tg
-	Vor6ohcB+NOGucTa0+/H0UrCZfx0RkXCTaJQ6Ou3Y=; b=bZd3BHbfRznRfm5I2x
-	mOjXLSCOyluuEvD0h/NgjmrXeIOkST15ZuZB3Uk2liHpSwKWfGzE88ukLl2Szy3r
-	6laQDD/AcIMEfnO601OUAjAQCQ4xrPAs+b4wC1BlnX+kYX7GY7xqpoz+eud+zLWt
-	xLeQuV+XtFaSCKVtpdZMeaZRJEcJtOob4mwo70ITevP/Ud+2yp7r9LfubwfPiAsp
-	KsBmpc/M/y58d78Rb97IM207PLtG6FnUGiFPu5JRRmzsN4VMK1ftsq4Ihw/ODixf
-	1DcC0Qs5AC0ZfDcEk0Y5pVvpWsNZDjq8ULqaWjNrPDmhmIwZs275NN6HV1ik/8d3
-	7v5A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1688572405; x=1688579605; bh=TgVor6ohcB+NO
-	GucTa0+/H0UrCZfx0RkXCTaJQ6Ou3Y=; b=PaviZasCrwTP6JnQlT8cbbYitmE/z
-	KSyXeK+7gA0AWvZg/GXt+p5yGju0ZPWdE3X7zjjtQEWh1pQFgGnp8tJV/fsm/NZ9
-	ERe8vIuHEnx/Njp2AkJn2DLfP/k2CATGXKjCMNN5bn6e6nZdzUELWmlHieTWBEi1
-	VmE438VRxgejxE7KKLGaenNVD2B8mVXLr1KxL93cVbTyzkJx1FjE6UddaNd/i4TE
-	e2CCTRAulX5cQ1Wdw9o0f5/ZoMFfUiAe9Nm9eUqbxD3AA6Qf7qeBlcxPV3WJZUu1
-	01wfTftcg/TKqMVDoPxa6SLbusImvejgEv62Vh5IZ7GSkX3l3YBNdfaEw==
-X-ME-Sender: <xms:8pGlZAJRmCnTPjljtH59dgdF5GXJwkPka7gh6gxT_wE84ftXjEMgkw>
-    <xme:8pGlZAJmcECETTIpoCzA528LJnREBeZQTVNQl44V-4Oz2Nl4-RmNY5WJhPiBdJ8Lv
-    8FDStj3Q4EQHy4-Bq8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrudejgdegkecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
-    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
-    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
-    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    hnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:8pGlZAuTuSggrX2aXLurqAhgko0_02luDACI57iAyU7GieoSWGuR3g>
-    <xmx:8pGlZNbpJm4LXfGBobBVWy8n2piB8tEIj2RYWPvllewaYW_uHK6TgQ>
-    <xmx:8pGlZHaYMz7g_VMVAjBO5xjfp76QDNweykU8JNZtwZ3Fo5LF-MnNkQ>
-    <xmx:9ZGlZAiHmUJ2O6-pATUKxUXQFp-jCXUHa2VTFGlr4tZikw6EsWazEA>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 97530B60086; Wed,  5 Jul 2023 11:53:22 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-531-gfdfa13a06d-fm-20230703.001-gfdfa13a0
-Mime-Version: 1.0
-Message-Id: <622eee1a-4bf3-4a17-9c2e-e32f0f405fd5@app.fastmail.com>
-In-Reply-To: <6ac04399-9c17-b036-5b14-92eadb65522b@oracle.com>
-References: <20230705142004.3605799-1-eric.devolder@oracle.com>
- <20230705142004.3605799-4-eric.devolder@oracle.com>
- <09f70de6-9409-4fa4-b9ea-831078d914e7@app.fastmail.com>
- <6ac04399-9c17-b036-5b14-92eadb65522b@oracle.com>
-Date: Wed, 05 Jul 2023 17:53:02 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Eric DeVolder" <eric.devolder@oracle.com>,
- "Russell King" <linux@armlinux.org.uk>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Helge Deller" <deller@gmx.de>,
- "Yoshinori Sato" <ysato@users.sourceforge.jp>,
- "Rich Felker" <dalias@libc.org>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org
-Cc: "WANG Xuerui" <kernel@xen0n.name>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Heiko Carstens" <hca@linux.ibm.com>, gor@linux.ibm.com,
- "Alexander Gordeev" <agordeev@linux.ibm.com>, borntraeger@linux.ibm.com,
- "Sven Schnelle" <svens@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- "Kees Cook" <keescook@chromium.org>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Frederic Weisbecker" <frederic@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "Juerg Haefliger" <juerg.haefliger@canonical.com>,
- "Russell King" <rmk+kernel@armlinux.org.uk>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Sebastian Reichel" <sebastian.reichel@collabora.com>,
- "Mike Rapoport" <rppt@kernel.org>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- "Anshuman Khandual" <anshuman.khandual@arm.com>,
- "Zi Yan" <ziy@nvidia.com>, "Masahiro Yamada" <masahiroy@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>,
- "Masami Hiramatsu" <mhiramat@kernel.org>,
- "Miguel Ojeda" <ojeda@kernel.org>,
- "Zhen Lei" <thunder.leizhen@huawei.com>, "Xin Li" <xin3.li@intel.com>,
- "Tejun Heo" <tj@kernel.org>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, tsi@tuyoix.net,
- "Baoquan He" <bhe@redhat.com>, hbathini@linux.ibm.com,
- sourabhjain@linux.ibm.com,
- "Boris Ostrovsky" <boris.ostrovsky@oracle.com>,
- "Konrad Rzeszutek Wilk" <konrad.wilk@oracle.com>
-Subject: Re: [PATCH v4 03/13] arm/kexec: refactor for kernel/Kconfig.kexec
+	id 1qH5HR-00GU2S-06
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Jul 2023 16:23:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.de;
+ s=s31663417; t=1688574164; x=1689178964; i=deller@gmx.de;
+ bh=Hlber4Z7Cd3qr0L2Uhoc2fvca7T/yNNA9ie9vqfcvcg=;
+ h=X-UI-Sender-Class:Date:Subject:To:Cc:References:From:In-Reply-To;
+ b=HHpiJod8lIUM1nYnFzSr85XxN/f+IBdaxNXE7JfrN1JmwyQ6bV7eRAGjwk7Hn0jwrXbv69f
+ /91fGDVcBJPk3s6A7fvG1ByfgCaSF0t8DoWbosXUtDs5X0U8e/45rqFiAyKj/o1ntTPVYMDIb
+ j2Ri0CT0wHlesq5KtOAMgaoz++ki35qI6WLe8/32L6QLFBUapiBj+HOt1/aQTULW67kd/7Gir
+ zwpRLRPoco7Ll6YyNMfYA9Hewaz2efHwpXslPkU8HWWvlb7wv2mSAhmG4kaq5zMpmaRdSwkfa
+ SijXWpiuLiCfXMJWQ0sHt6dWzzZlqmTj9cjk8gsQmidsGBe21f0A==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.20.60] ([94.134.149.108]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MK3Rm-1qaOoU0OWk-00LSx0; Wed, 05
+ Jul 2023 18:22:44 +0200
+Message-ID: <17b4e65f-a140-8e4d-505b-f2f6f7d1a8c5@gmx.de>
+Date: Wed, 5 Jul 2023 18:22:42 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [linux-next:master] BUILD REGRESSION
+ e1f6a8eaf1c271a0158114a03e3605f4fba059ad
+To: kernel test robot <lkp@intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Linux Memory Management List <linux-mm@kvack.org>,
+ intel-gfx@lists.freedesktop.org, kunit-dev@googlegroups.com,
+ linux-bluetooth@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-serial@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+References: <202307060015.uSSLonkv-lkp@intel.com>
+Content-Language: en-US
+From: Helge Deller <deller@gmx.de>
+In-Reply-To: <202307060015.uSSLonkv-lkp@intel.com>
+X-Provags-ID: V03:K1:JWzwb8Bva/UEgbtilJvt13AQt9pzz5xRYErsh3WY62+4pR/JSr7
+ E/ZCgIGCfWrdxsdAhFANBDjvFgoalIGY6w7xXDDvVbo6bukUPeo3H0kPOGuGfEuEPW+hpci
+ 5yURWZq12WjOMTG4sxOTFyDeY6nqEQEW+JLLHm6PvKGEeuQtUcX+IqGGbdSuMFfQaX3tZ/X
+ GoEZ2H3cKEEDXrgvGuj3g==
+UI-OutboundReport: notjunk:1;M01:P0:S8CTIvuZ93Q=;Yy5kGFHKOIF64l/dJf6L9tVy8J1
+ F9W0Dixe2+IK8eY7U+fy5r+gr5Z7DsLdmqZD9wUVe80JXUrFIjGe8+cpSdO5uqMn1jdSKQqT1
+ duQOsmIvSS9J1BF5x7eK7c7f7YzTXH7R9Ca9x0l5U3h0/cl9qz3iIJM6u5IqSb68CUweB8D5t
+ xQspgNRbIzAH3pm7gSyTMTVlw75mE358cIp+jQ5FFt4Og4NiejEzNxSww8Q3ONC3mAAvycbZU
+ YVpyFtVW2bkh0FFPgKbVS64+ARCtNJ5ro3XzK4YnevLWgNcvpHQe8219vzx5nlWq0XyogFDEo
+ 9vPQF5UaGWPfv7Wsj226k2bTtCKlKtpSboIoyjizpulceSkWD9JCipY4RgPs+e+wJozuFqypQ
+ Wz5uFxNK4TQ5l5zDSbpG6oEQlJtFwVPRjSyM3Z+/mTedJGd2820lI7IfMaRCMpcP6ubx2Uv2Y
+ qtiYcTr6tQKiJz5NkE1AqJ03oTm5LcjvOt2IdiFrN1rEnrq++kG0t+ysXUfZHrHRMTFVZm1Sa
+ qCJ0dRaRO9JccFTBTK1Gd3PFFyMSRRW4RS1hdu1QKieuqkRKqTlY/FOAQ2d4jROlTl0GlbbKi
+ o2ps10rlSfUJJOtUVxCEfmJIE+SnsBgMxr0YbFGJKYds9ABZHri17Mr8eSAyAH61a2cb1D+HV
+ YcZwSIeQVsnycKrL3o7nA+Lte5BshDpdg91Q5SiA3geQQA4rL5DVKiJ8zjbk1+6QWHr6YNNiS
+ PQDFUy9enCi0YnwOVWO0kwztKDESTsmi9yLXT5PsgvmNykmAj0DKuRRxJ54XAk9XLzIeLEjq4
+ cXKbOveLChOhfQsyMw2xVG1SW4221+M4AwacU90YTahWCAz+NPQKTf8JjLDnuadxFmaVXL2ga
+ xM7TtHxhRd+SNNqUGhS1sEPgxbLC1iGmAPn79H9YZmKUBx+a65O2nsAs19qrUoCNRy9wViDu0
+ FilYK2I9u34XYp7IBPL+4eEQKPU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_085327_323827_0A3D4B95 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20230705_092301_375004_E1DD8E0C 
+X-CRM114-Status: UNSURE (   6.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,49 +92,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 5, 2023, at 17:22, Eric DeVolder wrote:
-> On 7/5/23 10:05, Arnd Bergmann wrote:
->> On Wed, Jul 5, 2023, at 16:19, Eric DeVolder wrote:
->> 
->> I see this is now in linux-next, and it caused a few randconfig
->> build issues, these never happened in the past:
+On 7/5/23 18:07, kernel test robot wrote:
+> tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> branch HEAD: e1f6a8eaf1c271a0158114a03e3605f4fba059ad  Add linux-next specific files for 20230705
 >
-> Arnd,
-> Thanks for looking at this!
+> Error/Warning reports:
 >
-> I received randconfig errors from Andrew Morton's machinery. When 
-> investigating I
-> found that randconfig was able to specify CRASH_DUMP without KEXEC, and 
-> that lead
-> to problems. I believe this situation existed prior to this series as 
-> well.
-
-On Arm, there was definitely a bug because one could enable CRASH_DUMP
-without enabling KEXEC, but that had no effect at all. I only noticed
-the problem testing linux-next because it turned from silently broken
-into a build failure
-
-> Specifically CRASH_DUMP does not have a dependency on KEXEC, or select 
-> (only s390
-> has this hole closed).
+> https://lore.kernel.org/oe-kbuild-all/202306122223.HHER4zOo-lkp@intel.com
+> https://lore.kernel.org/oe-kbuild-all/202306260401.qZlYQpV2-lkp@intel.com
+> https://lore.kernel.org/oe-kbuild-all/202306291857.nyJjYwqk-lkp@intel.com
+> https://lore.kernel.org/oe-kbuild-all/202306301756.x8dgyYnL-lkp@intel.com
 >
-> For CRASH_DUMP, this series now selects KEXEC to close this gap, which is what a
-> sane config would have (ie both CRASH_DUMP and KEXEC).
+> Error/Warning: (recently discovered and may have been fixed)
+>
+> arch/parisc/kernel/pdt.c:67:6: warning: no previous prototype for 'arch_report_meminfo' [-Wmissing-prototypes]
 
-Right, that is the easier way out here.
+The arch/parisc/* warnings have been fixed a few days ago in for-next, and
+the patches will most likely be merged upstream today...
 
-> Do you think the changes outlined below are still needed?
-
-I think only the first one still applies on arm, you need to ensure
-that ARCH_SUPPORTS_CRASH_DUMP has the same dependency as
-ARCH_SUPPORTS_KEXEC, or it just depends on ARCH_SUPPORTS_KEXEC.
-
-    Arnd
+Helge
 
 _______________________________________________
 linux-riscv mailing list
