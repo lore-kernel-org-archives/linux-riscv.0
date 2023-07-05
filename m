@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E64EB64DD
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 11:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79D9EB64DD
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Jul 2023 11:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xfovYzLDqPEgZpurhpxpYlIy15lkKA7Km2GLWdtUU0Y=; b=1zW4Oh+Z6e+IVH
-	ho+83pV45fDCR9w9Dl1teVHW0n9hKydTxn5/ynrp6gsyw8ICPqLwufRzhmOENRZDT0YVnVc7TkoOk
-	byk4of3HjmshflzcPd9lVsp+q6deGKQ//eWoN67aD8GKt41uCyb5jungwAWJnMLVBG1H00NOLuLGk
-	7pqK9S4JDMPHOUipxLxdS2Pinfk/6jWJvNG9h73aOeipSeUYyadunyN2ZGK2cifI/Iy9z4/2RWb0F
-	84+U5qadNeihIpn6FK7XN6RNheChIvtF2ZFejFG8S6N97dJIVu7rugv566LOVluSdN522teTIQfjE
-	N1fd+rH1sJIAi0uOYbVA==;
+	List-Owner; bh=Lg6phwSUUE0dGXzfl0XgerMca+I32r81cfN9XohbKC0=; b=XHNmnSUhs5GHlE
+	qWtRKDcYYsoCnBYoImfMgjUOQiD+tdoq5hCC2JGrt7+masyJ392BIJyFWXUa5lxSCm+kiMVnn/i0v
+	aC5YoWRekfagk+8Th0meSgd9dNg4W//7qEFkXJutVeGzUuVrfMmn0QxquoXDxzcqng68xRIBn3waU
+	38a560B/VWhMrALA991OqAsP/K1ZvX6kNsdTGP5dpGKZdOuT65IEV9fMGzMQqi57mxkeNehwa6U2k
+	ePp3PnWUyQkS8OURXn4yrUKKAR9BsWRCNtjHrW5mHc2Zyz1yJ0j+dCIbnKVzmRymIXv9Xcbq5U9Km
+	uQBOx8IX4GCcU9HTO/Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH0wK-00Fl1l-1g;
-	Wed, 05 Jul 2023 11:44:56 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1qH0wS-00Fl4B-0s;
+	Wed, 05 Jul 2023 11:45:04 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qH0wI-00Fl0i-0k
+	id 1qH0wP-00Fl2k-0s
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Jul 2023 11:44:55 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-262e3c597b9so4752194a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 04:44:53 -0700 (PDT)
+	Wed, 05 Jul 2023 11:45:02 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1b89b75dc1cso4279135ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 04:45:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1688557493; x=1691149493;
+        d=bytedance.com; s=google; t=1688557500; x=1691149500;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vxuPbxVgF3zfcM/BRF/LLNBZgbT5czHHRuVcSzACvZ4=;
-        b=USieFHEI7eCXkkZlxw91812OEPriTznOhYAAyi2cXQlf49JdMjM71QTNZhPXsv+nhz
-         qj4BRAuXZjJzjZvy0kzeIKh5Hlmy5UmwfmwNgsyAbOWDZkARdCb/7bjGCHW+BaBbgZGt
-         vr9aZZfYLHoDEDPC4mmRW8/GdKX7beelO5Vz4Ex2zA1yD90Qmut/5ZtmWcOo8PTfUPV/
-         9wMTOaufrebObZG2kdeeHjoZ4dVZGvqSHK/p3ChlcMXQNJEjW3SUkAXyGAlYSNlUTWhd
-         c9vbIApSePRVpayGJIb4QKHu377JeUxTSSiobs63TsC7Vbfo079dl4/ZzfesOMe4QhJe
-         4o6A==
+        bh=2/7mU7LG0/LoivTbyL8zN+ZBZKcFo4rglaRaqylxhfQ=;
+        b=Ltfa/6PMTzVFKvupHYoIu25JvZQEj8+TG279VMGSVCFID+E3BGc5M/0cOuZAjs8bL2
+         z9Cgl0L5iCAGnnQ/SuOGo7Tlk2zQTK9bQPleevr+vBadbtzutwf63D4nRPP3IF+qUaFx
+         EvP//jSB2BrpV79rZnIxTxbFyGU2bFXfQ00+rYLUlKKiHn2sM+6/jwg1lRkSLa9Axgpj
+         Txv/dFC2aNPc+fLwMIpNaBCDQ/ZOdivCtVpmurWLgY2ltsQ8x9kA03yypVf4nBnyOGiw
+         Zc7G9su5n0GMnMCvvb8mRkoltS9mmH76Z7KN16SNl20HeoY+KKNBQTu61nHeHB/My8I5
+         vr4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688557493; x=1691149493;
+        d=1e100.net; s=20221208; t=1688557500; x=1691149500;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vxuPbxVgF3zfcM/BRF/LLNBZgbT5czHHRuVcSzACvZ4=;
-        b=NM238UkkqfARF/+VgNfZWgUlrYgge8TtWXCvx1zN8xS82v3SQzDNsblveGfTQsctZO
-         q7AZipFdjdsPJNL09avNFwe8fWW85owkRXROFclLz/UWDkzIL5PpJGbbqOMuQNSrs1lZ
-         wCaZ72wPhDA/sDp9GKmJpiRr7LSFgZct7G92NEKSC6ZW9pMjgwwInVbnkD6zM6QzjEjO
-         5NeWgQcxkd2vLLPtUSQj0H+IcMin4CXdeNPFaF0yAyb49gUY559CuUITAsciKOX3+jOf
-         SmnKEUMptqaCJHALNDjLbYBHn1qaB3CtUb0Fd99bR7X2tQYxCYSylmNj1BSXwvlx2Wnj
-         PVxQ==
-X-Gm-Message-State: ABy/qLZuM0bq/Aynj+bBnZNVK7U4jfAbCEsh2u6BKbUC+PEvoBSEW511
-	UDBgEcbopluDHIpTaatZOFdPrQ==
-X-Google-Smtp-Source: APBJJlGR3P54rhDcdlAlLclU9MYRdR5Ld0I3S9zquD63eupWzYEBKVWsWxUQA1BhQ1YV526dFMH7KQ==
-X-Received: by 2002:a17:90a:54:b0:261:113e:50d2 with SMTP id 20-20020a17090a005400b00261113e50d2mr16503592pjb.31.1688557493100;
-        Wed, 05 Jul 2023 04:44:53 -0700 (PDT)
+        bh=2/7mU7LG0/LoivTbyL8zN+ZBZKcFo4rglaRaqylxhfQ=;
+        b=NrKXqtCAWBE2vw5yXENkorarSMUxBUNHtMP1pPLTvPflWAl00GLdtJlnSmcQfuAh1/
+         L7bDF9WQCUu3Ld00TWjYDLk84JHRmCGrryurlROn2Ry/gvZqazgfsCoKfAo5pQNmeR73
+         MX3htrRk5ov3CCwF91jfN0HxPAybFWAJu0Gw8wgV7uaOc97GdZPKK01I+Y+sA+xpJctE
+         tSzg+SUp6ZXuOoM8r3L1Rb7mHotcvGj2zq/LQgTSQWuVE23DxSxG5bCnnuVgnPxL7zTR
+         4g5Za+mKVLjfpiSpd/ma/RXIl6pQiKMx9UDHRYNO2nFTbdcXPSdzussA4MWiPhRinivV
+         zbfg==
+X-Gm-Message-State: ABy/qLaPWJozRf5b2WK19PrKuBxaYRS7VTj/RpqKK/km7HlueBfpZJgy
+	CbQ9RnVu7EnEpYc52cuIqkvUQA==
+X-Google-Smtp-Source: APBJJlE+p5F5PIvo05kj7fIPA1p9K+VjhFZ7LXhkzaKK45+ZK+JAauB4t1oRak5U+mKJZRNdHuxLkA==
+X-Received: by 2002:a17:90a:f40a:b0:263:f674:490e with SMTP id ch10-20020a17090af40a00b00263f674490emr1749692pjb.3.1688557499886;
+        Wed, 05 Jul 2023 04:44:59 -0700 (PDT)
 Received: from PF2E59YH-BKX.inc.bytedance.com ([61.213.176.5])
-        by smtp.gmail.com with ESMTPSA id 3-20020a17090a194300b00263f6687690sm1177900pjh.18.2023.07.05.04.44.47
+        by smtp.gmail.com with ESMTPSA id 3-20020a17090a194300b00263f6687690sm1177900pjh.18.2023.07.05.04.44.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Jul 2023 04:44:52 -0700 (PDT)
+        Wed, 05 Jul 2023 04:44:59 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: conor@kernel.org,
 	sunilvl@ventanamicro.com,
@@ -86,16 +86,17 @@ To: conor@kernel.org,
 	geshijian@bytedance.com,
 	weidong.wd@bytedance.com,
 	cuiyunhui@bytedance.com
-Subject: [PATCH v3 2/4] firmware: introduce FFI for SMBIOS entry
-Date: Wed,  5 Jul 2023 19:42:49 +0800
-Message-Id: <20230705114251.661-3-cuiyunhui@bytedance.com>
+Subject: [PATCH v3 3/4] riscv: obtain SMBIOS entry from FFI
+Date: Wed,  5 Jul 2023 19:42:50 +0800
+Message-Id: <20230705114251.661-4-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.37.3.windows.1
 In-Reply-To: <20230705114251.661-1-cuiyunhui@bytedance.com>
 References: <20230705114251.661-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_044454_271785_61AA3F9B 
-X-CRM114-Status: GOOD (  30.08  )
+X-CRM114-CacheID: sfid-20230705_044501_314097_2DBF72F0 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,283 +113,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To enable DMI functionality on platforms where the bootloader
-does not support EFI and the architecture does not support
-reserved addresses.
-
-Add a "ffitbl" device tree node to find the SMBIOS entry
-point and use wire up dmi_scan_machine().This feature is
-known as the FDT Firmware Interface (FFI).
+On RISC-V, Coreboot does not support EFI booting, only supports
+devicetree, and RISC-V does not have reserved address segments.
+To support Coreboot on RISC-V platforms that require DMI
+functionality, SMBIOS entry need to be passed through FFI.
 
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- MAINTAINERS                 |  6 +++
- drivers/firmware/Kconfig    | 11 +++++
- drivers/firmware/Makefile   |  1 +
- drivers/firmware/dmi_scan.c | 97 ++++++++++++++++++++++---------------
- drivers/firmware/ffi.c      | 42 ++++++++++++++++
- include/linux/ffi.h         | 29 +++++++++++
- 6 files changed, 146 insertions(+), 40 deletions(-)
- create mode 100644 drivers/firmware/ffi.c
- create mode 100644 include/linux/ffi.h
+ arch/riscv/kernel/ffi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e592f489e757..9b886ef36587 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -7871,6 +7871,12 @@ F:	arch/x86/platform/efi/
- F:	drivers/firmware/efi/
- F:	include/linux/efi*.h
- 
-+FDT FIRMWARE INTERFACE (FFI)
-+M:	Yunhui Cui cuiyunhui@bytedance.com
-+S:	Maintained
-+F:	drivers/firmware/ffi.c
-+F:	include/linux/ffi.h
-+
- EXTERNAL CONNECTOR SUBSYSTEM (EXTCON)
- M:	MyungJoo Ham <myungjoo.ham@samsung.com>
- M:	Chanwoo Choi <cw00.choi@samsung.com>
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index b59e3041fd62..3579d9bc22ff 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -303,6 +303,17 @@ config TURRIS_MOX_RWTM
- 	  other manufacturing data and also utilize the Entropy Bit Generator
- 	  for hardware random number generation.
- 
-+config FDT_FW_INTERFACE
-+	bool "An interface for passing firmware info through FDT"
-+	depends on OF && OF_FLATTREE
-+	default n
-+	help
-+	 Enable this option to support the transfer of firmware information,
-+	 such as smbios tables, for bootloaders that do not support EFI, such
-+	 as coreboot.
-+
-+	 Say Y here if you want to transfer firmware information by FDT.
-+
- source "drivers/firmware/arm_ffa/Kconfig"
- source "drivers/firmware/broadcom/Kconfig"
- source "drivers/firmware/cirrus/Kconfig"
-diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
-index 28fcddcd688f..3b8b5d0868a6 100644
---- a/drivers/firmware/Makefile
-+++ b/drivers/firmware/Makefile
-@@ -33,6 +33,7 @@ obj-y				+= cirrus/
- obj-y				+= meson/
- obj-$(CONFIG_GOOGLE_FIRMWARE)	+= google/
- obj-y				+= efi/
-+obj-$(CONFIG_FDT_FW_INTERFACE)	+= ffi.o
- obj-y				+= imx/
- obj-y				+= psci/
- obj-y				+= smccc/
-diff --git a/drivers/firmware/dmi_scan.c b/drivers/firmware/dmi_scan.c
-index 015c95a825d3..c29ea050b5b9 100644
---- a/drivers/firmware/dmi_scan.c
-+++ b/drivers/firmware/dmi_scan.c
-@@ -6,6 +6,7 @@
- #include <linux/ctype.h>
- #include <linux/dmi.h>
- #include <linux/efi.h>
+diff --git a/arch/riscv/kernel/ffi.c b/arch/riscv/kernel/ffi.c
+index 147d06a5acff..b959d16fe0b3 100644
+--- a/arch/riscv/kernel/ffi.c
++++ b/arch/riscv/kernel/ffi.c
+@@ -8,6 +8,7 @@
+ #include <linux/of.h>
+ #include <linux/of_fdt.h>
+ #include <linux/libfdt.h>
 +#include <linux/ffi.h>
- #include <linux/memblock.h>
- #include <linux/random.h>
- #include <asm/dmi.h>
-@@ -655,54 +656,70 @@ static int __init dmi_smbios3_present(const u8 *buf)
- 	return 1;
- }
  
--static void __init dmi_scan_machine(void)
-+/*
-+ * According to the DMTF SMBIOS reference spec v3.0.0, it is
-+ * allowed to define both the 64-bit entry point (smbios3) and
-+ * the 32-bit entry point (smbios), in which case they should
-+ * either both point to the same SMBIOS structure table, or the
-+ * table pointed to by the 64-bit entry point should contain a
-+ * superset of the table contents pointed to by the 32-bit entry
-+ * point (section 5.2)
-+ * This implies that the 64-bit entry point should have
-+ * precedence if it is defined and supported by the OS. If we
-+ * have the 64-bit entry point, but fail to decode it, fall
-+ * back to the legacy one (if available)
-+ */
-+static int __init dmi_sacn_smbios(unsigned long smbios3, unsigned long smbios)
+ static u64 acpi_rsdp;
+ 
+@@ -35,4 +36,5 @@ u64 __init riscv_acpi_rsdp(void)
+ void __init ffi_init(void)
  {
--	char __iomem *p, *q;
-+	char __iomem *p;
- 	char buf[32];
--
--	if (efi_enabled(EFI_CONFIG_TABLES)) {
--		/*
--		 * According to the DMTF SMBIOS reference spec v3.0.0, it is
--		 * allowed to define both the 64-bit entry point (smbios3) and
--		 * the 32-bit entry point (smbios), in which case they should
--		 * either both point to the same SMBIOS structure table, or the
--		 * table pointed to by the 64-bit entry point should contain a
--		 * superset of the table contents pointed to by the 32-bit entry
--		 * point (section 5.2)
--		 * This implies that the 64-bit entry point should have
--		 * precedence if it is defined and supported by the OS. If we
--		 * have the 64-bit entry point, but fail to decode it, fall
--		 * back to the legacy one (if available)
--		 */
--		if (efi.smbios3 != EFI_INVALID_TABLE_ADDR) {
--			p = dmi_early_remap(efi.smbios3, 32);
--			if (p == NULL)
--				goto error;
--			memcpy_fromio(buf, p, 32);
--			dmi_early_unmap(p, 32);
--
--			if (!dmi_smbios3_present(buf)) {
--				dmi_available = 1;
--				return;
--			}
--		}
--		if (efi.smbios == EFI_INVALID_TABLE_ADDR)
--			goto error;
--
--		/* This is called as a core_initcall() because it isn't
--		 * needed during early boot.  This also means we can
--		 * iounmap the space when we're done with it.
--		 */
--		p = dmi_early_remap(efi.smbios, 32);
-+	#define INVALID_TABLE_ADDR (~0UL)
-+	if (smbios3 != INVALID_TABLE_ADDR) {
-+		p = dmi_early_remap(smbios3, 32);
- 		if (p == NULL)
--			goto error;
-+			return -1;
- 		memcpy_fromio(buf, p, 32);
- 		dmi_early_unmap(p, 32);
- 
--		if (!dmi_present(buf)) {
-+		if (!dmi_smbios3_present(buf)) {
- 			dmi_available = 1;
--			return;
-+			return 0;
- 		}
-+	}
-+	if (smbios == INVALID_TABLE_ADDR)
-+		return -1;
-+	/*
-+	 * This is called as a core_initcall() because it isn't
-+	 * needed during early boot.  This also means we can
-+	 * iounmap the space when we're done with it.
-+	 */
-+	p = dmi_early_remap(smbios, 32);
-+	if (p == NULL)
-+		return -1;
-+	memcpy_fromio(buf, p, 32);
-+	dmi_early_unmap(p, 32);
-+
-+	if (!dmi_present(buf)) {
-+		dmi_available = 1;
-+		return 0;
-+	}
-+
-+	return -1;
-+}
-+
-+static void __init dmi_scan_machine(void)
-+{
-+	char __iomem *p, *q;
-+	char buf[32];
-+
-+	if (ffi_enabled(FFI_CONFIG_TABLES)) {
-+		if (!dmi_sacn_smbios(ffi.smbios3, ffi.smbios))
-+			return;
-+	}
-+
-+	if (efi_enabled(EFI_CONFIG_TABLES)) {
-+		if (dmi_sacn_smbios(efi.smbios3, efi.smbios))
-+			goto error;
- 	} else if (IS_ENABLED(CONFIG_DMI_SCAN_MACHINE_NON_EFI_FALLBACK)) {
- 		p = dmi_early_remap(SMBIOS_ENTRY_POINT_SCAN_START, 0x10000);
- 		if (p == NULL)
-diff --git a/drivers/firmware/ffi.c b/drivers/firmware/ffi.c
-new file mode 100644
-index 000000000000..d4994a22438b
---- /dev/null
-+++ b/drivers/firmware/ffi.c
-@@ -0,0 +1,42 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-+
-+#include <linux/of.h>
-+#include <linux/of_fdt.h>
-+#include <linux/libfdt.h>
-+#include <linux/ffi.h>
-+
-+#define FFI_INVALID_TABLE_ADDR	(~0UL)
-+
-+struct ffi __read_mostly ffi = {
-+	.smbios	= FFI_INVALID_TABLE_ADDR,
-+	.smbios3 = FFI_INVALID_TABLE_ADDR,
-+};
-+
-+void __init ffi_smbios_root_pointer(void)
-+{
-+	u32 ffitbl, smbios, len, ver;
-+	u64 entry;
-+	fdt64_t *prop;
-+
-+	ffitbl = fdt_subnode_offset(initial_boot_params, 0, "ffitbl");
-+	smbios = fdt_subnode_offset(initial_boot_params, ffitbl, "smbios");
-+	prop = fdt_getprop_w(initial_boot_params, smbios, "entry", &len);
-+	if (!prop || len != sizeof(u64)) {
-+		pr_debug("smbios entry not found.\n");
-+		return;
-+	}
-+	entry = fdt64_to_cpu(*prop);
-+
-+	prop = fdt_getprop_w(initial_boot_params, smbios, "reg", &len);
-+	if (!prop || len != sizeof(u32)) {
-+		pr_debug("smbios reg not found.\n");
-+		return;
-+	}
-+	ver = fdt32_to_cpu(*prop);
-+	(ver == 3) ? (ffi.smbios3 = entry) : (ffi.smbios = entry);
-+	set_bit(FFI_CONFIG_TABLES, &ffi.flags);
-+	pr_debug("smbios%d entry: %llx\n", ver, entry);
-+}
-+
-diff --git a/include/linux/ffi.h b/include/linux/ffi.h
-new file mode 100644
-index 000000000000..a99c2a290556
---- /dev/null
-+++ b/include/linux/ffi.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _LINUX_FFI_H
-+#define _LINUX_FFI_H
-+
-+extern struct ffi {
-+	unsigned long smbios;  /* SMBIOS table (32 bit entry point) */
-+	unsigned long smbios3;  /* SMBIOS table (64 bit entry point) */
-+	unsigned long flags;
-+
-+} ffi;
-+
-+#define FFI_CONFIG_TABLES	2	/* Can we use FFI config tables? */
-+
-+#ifdef CONFIG_FDT_FW_INTERFACE
-+extern void ffi_smbios_root_pointer(void);
-+static inline bool ffi_enabled(int feature)
-+{
-+	return test_bit(feature, &ffi.flags) != 0;
-+}
-+#else
-+static inline bool ffi_enabled(int feature)
-+{
-+	return false;
-+}
-+void ffi_smbios_root_pointer(void) { return; };
-+#endif
-+
-+#endif /* _LINUX_FFI_H */
+ 	ffi_acpi_root_pointer();
++	ffi_smbios_root_pointer();
+ }
 -- 
 2.20.1
 
