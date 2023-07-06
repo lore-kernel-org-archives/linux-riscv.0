@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB303EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 20:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E34EB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 20:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kAjTc8MHvKNtL3aSssuio14q2HBojQGEhGR0nKobJW4=; b=qBkjdn2rPbrbGD7mRddQWu66Lo
-	I0dGoWbqwEVSnGa5I6/ixabK+9VbewnlTU9yJWWRY6HuH06alnu+c3c57DeQPBlAVJRPYDPCcMTk/
-	vfPIKiiv0FfJgX81Haug2bS/AFnHokLswJl/UyQgAaw02aj6d7ZCp8gpGSVBiWzHS5izNylONcNJn
-	0aKvnYg6fiXeIcZ/HYYlB6toiD3rcQ+8dNAGjbOSsuxe2IvWsW7IS+ee5YXsAGD22CdxowRZser3G
-	tGl6pEz/svDyjmInocfqkc5MFE+GSIgAlgBCcp/uA/2bLcZTDDV7p1/GIH0DW447taj7le3OaUgWX
-	b6LCiCcg==;
+	bh=q4oZRyPGDBwpISh7pdTrIqiGA55CCJfhYuuoiQ+ESlw=; b=wQBch/qAcKHaNSY/1Xz+8lhaI9
+	LNYh79OMeQ1bc2CYbHU/GOkyBxEhavKgo09XpQAwVnjvI5GevmVwTgs3wBG4LDIDAipBbAb8lOouX
+	r5DofeW4hVDXnLBsURc1BM72S6DFaP6ljne31rUqSB1OPP8T7HWNYm/wNGP0T+8mlHUiU6OASxopY
+	tvewhu/YD9ff0e4KKoLvQ8l3IGX6G3m/dVeOSXLBBUi6mwQbSgyDfVbM43GdVAvGHSJwa9o+PLwGD
+	fVQx0vu9rXYESUxPt0/fDMhv3DlHXwNVpLffkDGZ1RV6EMFl57OUaS99kztRkwPLhkJwS+rAeKWcA
+	pdrF2+Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHVTq-002b08-0K;
-	Thu, 06 Jul 2023 20:21:34 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1qHVoq-002d3U-3D;
+	Thu, 06 Jul 2023 20:43:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHVTm-002aye-2g
+	id 1qHVon-002d2D-10
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 20:21:32 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qHVTK-00079V-RD; Thu, 06 Jul 2023 22:21:02 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qHVTG-00Ca44-Ox; Thu, 06 Jul 2023 22:20:58 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qHVTG-002pmZ-02; Thu, 06 Jul 2023 22:20:58 +0200
-Date: Thu, 6 Jul 2023 22:20:57 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: privatesub2@gmail.com, linux-kernel@vger.kernel.org,
-	thierry.reding@gmail.com, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	p.zabel@pengutronix.de, cristian.ciocaltea@collabora.com,
-	Greg KH <gregkh@linuxfoundation.org>, linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 0/3] Add support for Allwinner PWM on D1/T113s/R329
- SoCs
-Message-ID: <20230706202057.k6rfwfhe3msfkrc4@pengutronix.de>
-References: <20230627082334.1253020-1-privatesub2@gmail.com>
- <mhng-0cca3d46-6031-4e8a-8e8f-2c479a20b95d@palmer-ri-x1c9a>
+	Thu, 06 Jul 2023 20:43:14 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2BF09612AE;
+	Thu,  6 Jul 2023 20:43:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D73AC433C7;
+	Thu,  6 Jul 2023 20:43:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688676189;
+	bh=3PI2BGyiYdsp+NcKWjPsSpXQxXQ/ceNISunVsaOciJs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nle0wMHXa9utYvBhOLPBBhlVo+LcZLEHJIcl7Tqo26gEp98Xah+TYoWCC4b0Wole9
+	 WjQBXap0Y7eiY55GZvtqNo/LYDjgMeoyNsVpFqy3ykmIyg9wwTzPheZvI9crTZCi25
+	 S4o5SR8ea5ejjBNcEwiVz+5vpXZzf5ph1SJ1/2WfJe0lnpu9mFoG/NlaMo+ACUUGhE
+	 I7ehmyXjpLL04rNQ3aMKP+EXcZVBaZzBk30LHH2Xppetz2PZqz1GJYZeBNbC54qmsZ
+	 qq9+IbfXn/qw6dQ279RiFkBG59lyfD0pU0pGvrLFjyjqCsCNdkQgrwY/nx2WVHCPA7
+	 dEj0OjWLH1ImA==
+Date: Thu, 6 Jul 2023 21:43:04 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+	evan@rivosinc.com, heiko@sntech.de, linux-doc@vger.kernel.org
+Subject: Re: [PATCH 1/3] RISC-V: Framework for vendor extensions
+Message-ID: <20230706-decode-snub-3ccf842d0861@spud>
+References: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
+ <20230705-thead_vendor_extensions-v1-1-ad6915349c4d@rivosinc.com>
+ <20230706-curly-swinging-afbf79a4cdb7@spud>
+ <ZKcbJ9MEP/pBx39J@ghost>
 MIME-Version: 1.0
-In-Reply-To: <mhng-0cca3d46-6031-4e8a-8e8f-2c479a20b95d@palmer-ri-x1c9a>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+In-Reply-To: <ZKcbJ9MEP/pBx39J@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230706_132130_892672_2D562E2F 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20230706_134313_455471_969EA5D8 
+X-CRM114-Status: GOOD (  47.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,91 +75,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0865614365084504932=="
+Content-Type: multipart/mixed; boundary="===============6590374525103132140=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============0865614365084504932==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bwmf3jgjaq2y6ndf"
+--===============6590374525103132140==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="OYvwyku6mIIYmpsy"
 Content-Disposition: inline
 
 
---bwmf3jgjaq2y6ndf
-Content-Type: text/plain; charset=iso-8859-1
+--OYvwyku6mIIYmpsy
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hello,
-
-On Thu, Jul 06, 2023 at 10:08:47AM -0700, Palmer Dabbelt wrote:
-> On Tue, 27 Jun 2023 01:23:23 PDT (-0700), privatesub2@gmail.com wrote:
-> > Hi,
+On Thu, Jul 06, 2023 at 12:51:03PM -0700, Charlie Jenkins wrote:
+> On Thu, Jul 06, 2023 at 06:15:57PM +0100, Conor Dooley wrote:
+> > On Wed, Jul 05, 2023 at 08:30:17PM -0700, Charlie Jenkins wrote:
+> > > diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
+> > > index afa83e307a2e..bea38010d9db 100644
+> > > --- a/arch/riscv/Kbuild
+> > > +++ b/arch/riscv/Kbuild
+> > > @@ -3,6 +3,7 @@
+> > >  obj-y +=3D kernel/ mm/ net/
+> > >  obj-$(CONFIG_BUILTIN_DTB) +=3D boot/dts/
+> > >  obj-y +=3D errata/
+> > > +obj-y +=3D vendor_extensions/
+> > >  obj-$(CONFIG_KVM) +=3D kvm/
+> > > =20
+> > >  obj-$(CONFIG_ARCH_HAS_KEXEC_PURGATORY) +=3D purgatory/
+> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > index c1505c7729ec..19404ede0ee3 100644
+> > > --- a/arch/riscv/Kconfig
+> > > +++ b/arch/riscv/Kconfig
+> > > @@ -276,6 +276,7 @@ config AS_HAS_OPTION_ARCH
+> > > =20
+> > >  source "arch/riscv/Kconfig.socs"
+> > >  source "arch/riscv/Kconfig.errata"
+> > > +source "arch/riscv/Kconfig.vendor"
+> > > =20
+> > >  menu "Platform type"
+> > > =20
+> > > diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
+> > > new file mode 100644
+> > > index 000000000000..213ac3e6fed5
+> > > --- /dev/null
+> > > +++ b/arch/riscv/Kconfig.vendor
+> > > @@ -0,0 +1,3 @@
+> > > +menu "Vendor extensions selection"
+> > > +
+> > > +endmenu # "Vendor extensions selection"
 > >=20
-> > This series adds support for PWM controller on new
-> > Allwinner's SoCs, such as D1, T113s and R329. The implemented driver
-> > provides basic functionality for control PWM channels.
-> >=20
-> > v2:
-> >  - fix dt-bindings
-> >  - fix a remark in the driver
-> >=20
-> > v3:
-> >  - fix dt-bindings
-> >  - fix sunxi-d1s-t113.dtsi
-> >=20
-> > Aleksandr Shubin (3):
-> >   dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
-> >     controller
-> >   pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
-> >   riscv: dts: allwinner: d1: Add pwm node
-> >=20
-> >  .../bindings/pwm/allwinner,sun20i-pwm.yaml    |  86 +++++
-> >  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  11 +
-> >  drivers/pwm/Kconfig                           |  10 +
-> >  drivers/pwm/Makefile                          |   1 +
-> >  drivers/pwm/pwm-sun20i.c                      | 322 ++++++++++++++++++
-> >  5 files changed, 430 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun=
-20i-pwm.yaml
-> >  create mode 100644 drivers/pwm/pwm-sun20i.c
+> > These files don't do anything, don't add them until you need to.
 >=20
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
->=20
-> I'm not sure if this ended up somewhere, but I'm assuming it's not aimed =
-at
-> my tree.  LMK if you guys want me to pick it up, I'm dropping it from
-> patchwork.
+> I wasn't sure if it was more clear to split up the vendor extension
+> framework from the T-Head specific calls since the main goal of this
+> series is to propose a vendor extension framework. I can merge this with
+> the following patch.
 
-At least patch #2 should go via the pwm tree. It's on my list to review.
+Yeah, don't add files that you are not using, until the patch in which
+you need them. Say we had to revert your 2/3 patch - we'd be left with
+dead files in the tree.
 
-Best regards
-Uwe
+> > >  static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+> > >  			     const struct cpumask *cpus)
+> > >  {
+> > > +	int err;
+> > > +
+> > > +	if (((unsigned long) pair->key) >=3D RISCV_HWPROBE_VENDOR_EXTENSION=
+_SPACE) {
+> >=20
+> > Hopefully Bjorn or someone that actually knows a thing or two about uapi
+> > stuff can chime in here, but I think what you are doing here (where the
+> > vendor space sets the MSB) really muddies the api. These keys are defin=
+ed
+> > as signed 64 bit numbers & -1 is the value set when a key is not valid.
+> > I'd much rather we kept the negative space off-limits, and used the 62nd
+> > bit instead, avoiding using negative numbers for valid keys.
+> >=20
+> Yeah that makes sense, I can change this up.
+> > > +		struct riscv_hwprobe mvendorid =3D {
+> > > +			.key =3D RISCV_HWPROBE_KEY_MVENDORID,
+> > > +			.value =3D 0
+> > > +		};
+> > > +
+> > > +		hwprobe_arch_id(&mvendorid, cpus);
+> >=20
+> > I think this needs a comment explaining why you do this hwprobe call,=
+=20
+> > > +		if (mvendorid.value !=3D -1ULL)
+> > > +			err =3D hwprobe_vendor(mvendorid.value, pair, cpus);
+> > > +		else
+> > > +			err =3D -1;
+> > > +	}
+> >=20
+> > I don't really understand the control flow here. Why are you continuing
+> > on to the switch statement, if you have either a) already ran
+> > hwprobe_vendor() or b) noticed that mvendorid.value is not valid?
+> >=20
+> The purpose of this was to consolidate the error handling to a single
+> spot at the bottom of the file. It would fall through the switch
+> statement and set the values appropriately. I guess it does seem a bit
+> awkward.
 
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+Use a goto? It seems to do exactly what you want here.
+You could also define err as -1 to begin with, and drop the else branch.
 
---bwmf3jgjaq2y6ndf
+The other limitation of this stuff, while I think of it, is that you
+preclude more than one vendor implementing an extension.
+
+> > >  	switch (pair->key) {
+> > >  	case RISCV_HWPROBE_KEY_MVENDORID:
+> > >  	case RISCV_HWPROBE_KEY_MARCHID:
+> > > @@ -217,13 +243,21 @@ static void hwprobe_one_pair(struct riscv_hwpro=
+be *pair,
+> > > =20
+> > >  	/*
+> > >  	 * For forward compatibility, unknown keys don't fail the whole
+> > > -	 * call, but get their element key set to -1 and value set to 0
+> > > -	 * indicating they're unrecognized.
+> > > +	 * call, instead an error is raised to indicate the element key
+> > > +	 * is unrecognized.
+> > >  	 */
+> > >  	default:
+> > > +		err =3D -1;
+> > > +		break;
+> > > +	}
+> > > +
+> > > +	/*
+> > > +	 * Setting the element key to -1 and value to 0 indicates that
+> > > +	 * hwprobe was unable to find the requested key.
+> > > +	 */
+> > > +	if (err !=3D 0) {
+> > >  		pair->key =3D -1;
+> > >  		pair->value =3D 0;
+> > > -		break;
+> > >  	}
+> > >  }
+> > > =20
+> > > diff --git a/arch/riscv/vendor_extensions/Makefile b/arch/riscv/vendo=
+r_extensions/Makefile
+> > > new file mode 100644
+> > > index 000000000000..e815895e9372
+> > > --- /dev/null
+> > > +++ b/arch/riscv/vendor_extensions/Makefile
+> > > @@ -0,0 +1,3 @@
+> > > +ifdef CONFIG_RELOCATABLE
+> > > +KBUILD_CFLAGS +=3D -fno-pie
+> > > +endif
+> >=20
+> > There are no files in this directory, why do you need to do a dance
+> > about relocatable kernels?
+> >=20
+> This is framework for the following patch in the series. I saw these
+> lines in the errata Makefile so I created this Makefile to set up the
+> following patch in the series. I can merge this patch with the following
+> patch to make this series more clear.
+
+The errata code gets called super early on, so it needs it. What you
+have here does not. We want to remove it from the errata Makefile
+anyway.
+
+Cheers,
+Conor.
+
+--OYvwyku6mIIYmpsy
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmSnIigACgkQj4D7WH0S
-/k6gIwgArBV+EKUdCW1iBFu0o7FWEVZpy0poxb9iDyJN0csWczfWqJw3UbnGdVrq
-l8Nt25eIW8lbOaL7Xl1hK49QCeuWFkt7IRk+ZYzD4coLOcK87MrJNJe43SDBOAXX
-LiHvL22jR6y5aNpiAgTiXW6mYnX9qrz6cAUzTKqeOqm/s4bwuWR13jHpTQ6lOt1F
-w3LuV9R5h38LqFjfPCbQxgstp5816SdoBIiwitKZfyBfCPt7yYDpAq2zn0OQmp2k
-cKkqQEOGqE+IzH046/h0PdsmBc7wPqrG+5/GSvdPt6sa2aUkF2TO5nbjaaK/w+GJ
-F+8Bd8vtafCPp+QmG+fV9IcYTEqZ6Q==
-=VC6G
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKcnWAAKCRB4tDGHoIJi
+0mupAQC6ECf2yHm1pNuFe6s0GK2zdRQTq6kkAOceDcR9OAvPsAD/WURPSMWbBRYN
+MO9cTHjqrmlEa2csS3I6ONsoGzqU4gA=
+=F2R7
 -----END PGP SIGNATURE-----
 
---bwmf3jgjaq2y6ndf--
+--OYvwyku6mIIYmpsy--
 
 
---===============0865614365084504932==
+--===============6590374525103132140==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -171,5 +266,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0865614365084504932==--
+--===============6590374525103132140==--
 
