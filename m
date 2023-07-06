@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E9CCEB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 17:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8A2EB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 17:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=WlQQ/GEnSdtB7uW0+Vkveh5ueQ27l9PyspE8CljnVHI=; b=CAbwJw6hi4hO8O6TlidtLluJ4J
-	iAlmLTtBG3et8uvqqH4wABYdCAHyr9PFdpFky8uhcNlY9LYN2vGsvbSZMZkqq06OjCaBBbofUQbOP
-	PUvS0SuFovA8c8KKgs7dQe8Kz91XIPvEo2V5cREVgdcKwKyiPvqIwGD7yJxpNIZrN3ioLjS40PjrG
-	ASG4gG4U7BeyIkZ+v3dWlkxYHN/KAwm282LxMvRVNX7XB/CGNQeFL3q9PZONZHxsN66hg78PjPcsO
-	1THE0BIYf9uafUSHhwwMZIwFIMDUOKBYciN1oxhACEmDxsnSzWMrZje7RJklVGIIEtmPH3UKh6+du
-	mqkZw3KA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dZnuDNZP1fyS/+sxs3O9st5rDyE1C4JIywAZusYPySA=; b=iklpl5eDRelx3iq5vO/5HhjUl5
+	Upz90TPwPXnKgxYoYuvzOoSu2CiERuPDgJQ6EI+Hq9tm6xu5ePqmYkpR7W9jydZw/sDUZQBOorNur
+	Mn0oGIo/6BpqjHGqCena5w/XmGpoCs4a9UDXY052CT/VEA8IL3+MjHhWC9ZfMNbLAwNDXVZU0LNOH
+	Rg4ylSXQSl75TgRRq5Um6gtO9rY/LU80znIeX4wpHM+d25tNSvX/tjQYpOnPRk8OgKZ2IksbMsX7H
+	YJFNiL9q2qv8cIVCd9/xrQ8AbtsPxHO3p1Riy0lMacEYjvc2TK1fXXORDJ/JvAlxeq/lNbwlbiE2V
+	Os4KLL4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHSTQ-002FXN-2D;
-	Thu, 06 Jul 2023 17:08:56 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1qHSaN-002GRL-2y;
+	Thu, 06 Jul 2023 17:16:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHSTN-002FWJ-10
+	id 1qHSaK-002GQU-0E
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 17:08:54 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1b7e6512973so6319165ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Jul 2023 10:08:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1688663328; x=1691255328;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uDFcTWubp+txWejOhlaxkosc/sM3fyBrGXhY50V6+cc=;
-        b=Q3tIlLGo1iMeILb+g6CH4AIl3stIczQL9hbypUuloisr7dgdnhmwB6ISQOKN6BvnsJ
-         K3O1JcQ5v3+cL1l+D2w4fY7JLprWSNENfngJS/iyg2okZpdYyQj0nlKgzNGHgR8WVuCG
-         rUuF78Z/asu/0QEztqH4ky05n9ZBKsI5h7Y55PmYGCUO9CHIjY8e7UQ1Btp63JMcRwzq
-         jhGDhbhg1BhKE7eMImJDzMF2Do6AD2gKr/BI86yx2Gr2orCka1+ixbby0Tv5EKv7699d
-         AWaojvSBoh3rC2chnKJ4rpkDNiNOHz5Y1/OwlK6eYZQox6JAojJLfoF6o08bcjzr6IJ3
-         tr8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688663328; x=1691255328;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uDFcTWubp+txWejOhlaxkosc/sM3fyBrGXhY50V6+cc=;
-        b=iqVao0hgOwee5KRo8/asQbx5L2kLF1heHog8j5jKwyJuN1AZB3Xh21lMDgz3+a093h
-         t6jZrTaAuV/o4t2Fy2U6eYdhsO+UscGih9s+8Ign4/5b5LS7MpAxHdeqoPmwyxC/j0pY
-         Uurq9HeT52qSQ4cM/Rl/kvClsdqDJLkFErrVhKPnDM98TFX9B7ULyg/kXSs/pNAPp4ee
-         r7NQpk0gI/AMUIl1RlCESzG1j+XLBjsg8RFvxJlG4lv0u1afxA0ITrQm4hfpLfIAoEmc
-         Z3M6Etx2LQkBdrXolLkijLZtbaGA3N3/0AuBsMuaTgUPnVK7/Ay11qb0LkB5DTd+7tI4
-         Lvxw==
-X-Gm-Message-State: ABy/qLbPp9Np3Sh6zm1a19spdQMWti8D0ZOM4v5HJLlbZeDc9lcFRmeK
-	PtA0pdVDgNCMeU42LXCcUIO/tpQqIPxmFY5phVs=
-X-Google-Smtp-Source: APBJJlG74eEINUstmC9zOo36wEsjfZVnckhU+vtEAepiS2jkRuh+o/vzJ/8elzyQtASPJfPTGwaDJA==
-X-Received: by 2002:a17:902:efd1:b0:1a6:4b60:3195 with SMTP id ja17-20020a170902efd100b001a64b603195mr1567784plb.66.1688663328525;
-        Thu, 06 Jul 2023 10:08:48 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id p6-20020a170902b08600b001b8a7e1b116sm1668898plr.191.2023.07.06.10.08.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Jul 2023 10:08:47 -0700 (PDT)
-Date: Thu, 06 Jul 2023 10:08:47 -0700 (PDT)
-X-Google-Original-Date: Thu, 06 Jul 2023 10:07:29 PDT (-0700)
-Subject: Re: [PATCH v3 0/3] Add support for Allwinner PWM on D1/T113s/R329 SoCs
-In-Reply-To: <20230627082334.1253020-1-privatesub2@gmail.com>
-CC: linux-kernel@vger.kernel.org, privatesub2@gmail.com, thierry.reding@gmail.com,
-  u.kleine-koenig@pengutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-  wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, p.zabel@pengutronix.de,
-  cristian.ciocaltea@collabora.com, Greg KH <gregkh@linuxfoundation.org>, linux-pwm@vger.kernel.org,
-  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-  linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: privatesub2@gmail.com
-Message-ID: <mhng-0cca3d46-6031-4e8a-8e8f-2c479a20b95d@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Thu, 06 Jul 2023 17:16:05 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DD09E60C74;
+	Thu,  6 Jul 2023 17:16:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ED65C433C7;
+	Thu,  6 Jul 2023 17:16:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1688663762;
+	bh=K525Re3smqCn8xHm4THDIij+h4crszZpgCUGoxZhhUk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lFuWcgNAb/ds/zSAxxFst4Of6NVK+cdwSo+uyehJ0y59mKZNWHitYZQgI1BcoZijb
+	 6FtCerlX2kfXkz7OJiDDFq+Ykoalf4x4nIE/KHzquTVTRXehCWAxXvJatGmEiQ4jVa
+	 GxCwRTJW4JhuP9pjoVT3AmuaV7/6WQ6X9t0vs3AFzRpI7fqIZmtb9tjYf5Z856g/+H
+	 FZqA5h3WcLge2ZsbMl8F49WwYaT/SozDrUeeuQE4k1Fs+T3BNZ1YlO+fjHVUw8sHED
+	 YFw05t1TrPUt9KJAlNGtToCTonwBcJ+kJpAimi4L90ni6sgFMh2HL/N7WVYhwgNUNy
+	 XpHhxzrImIlFQ==
+Date: Thu, 6 Jul 2023 18:15:57 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+	evan@rivosinc.com, heiko@sntech.de, linux-doc@vger.kernel.org
+Subject: Re: [PATCH 1/3] RISC-V: Framework for vendor extensions
+Message-ID: <20230706-curly-swinging-afbf79a4cdb7@spud>
+References: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
+ <20230705-thead_vendor_extensions-v1-1-ad6915349c4d@rivosinc.com>
+MIME-Version: 1.0
+In-Reply-To: <20230705-thead_vendor_extensions-v1-1-ad6915349c4d@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230706_100853_371094_1D46583F 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20230706_101604_221868_557A2A73 
+X-CRM114-Status: GOOD (  33.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,48 +73,221 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============6401878986376564886=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 27 Jun 2023 01:23:23 PDT (-0700), privatesub2@gmail.com wrote:
-> Hi,
->
-> This series adds support for PWM controller on new
-> Allwinner's SoCs, such as D1, T113s and R329. The implemented driver
-> provides basic functionality for control PWM channels.
->
-> v2:
->  - fix dt-bindings
->  - fix a remark in the driver
->
-> v3:
->  - fix dt-bindings
->  - fix sunxi-d1s-t113.dtsi
->
-> Aleksandr Shubin (3):
->   dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
->     controller
->   pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
->   riscv: dts: allwinner: d1: Add pwm node
->
->  .../bindings/pwm/allwinner,sun20i-pwm.yaml    |  86 +++++
->  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  11 +
->  drivers/pwm/Kconfig                           |  10 +
->  drivers/pwm/Makefile                          |   1 +
->  drivers/pwm/pwm-sun20i.c                      | 322 ++++++++++++++++++
->  5 files changed, 430 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
->  create mode 100644 drivers/pwm/pwm-sun20i.c
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+--===============6401878986376564886==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="UI60rudIHsqNxMLP"
+Content-Disposition: inline
 
-I'm not sure if this ended up somewhere, but I'm assuming it's not aimed 
-at my tree.  LMK if you guys want me to pick it up, I'm dropping it from 
-patchwork.
+
+--UI60rudIHsqNxMLP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Charlie,
+
+On Wed, Jul 05, 2023 at 08:30:17PM -0700, Charlie Jenkins wrote:
+> Create Kconfig files, Makefiles, and functions to enable vendors to
+> provide information via the riscv_hwprobe syscall about which vendor
+> extensions are available.
+
+This is all apparently from reading the diff, you don't need to tell us
+what files you have created etc. Please just stick with explaining the
+rationale for your changes (especially anything that might make someone
+reading it go "huh").
+
+>=20
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>  arch/riscv/Kbuild                     |  1 +
+>  arch/riscv/Kconfig                    |  1 +
+>  arch/riscv/Kconfig.vendor             |  3 +++
+>  arch/riscv/include/asm/hwprobe.h      |  1 +
+>  arch/riscv/kernel/sys_riscv.c         | 40 +++++++++++++++++++++++++++++=
++++---
+>  arch/riscv/vendor_extensions/Makefile |  3 +++
+>  6 files changed, 46 insertions(+), 3 deletions(-)
+
+> diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
+> index afa83e307a2e..bea38010d9db 100644
+> --- a/arch/riscv/Kbuild
+> +++ b/arch/riscv/Kbuild
+> @@ -3,6 +3,7 @@
+>  obj-y +=3D kernel/ mm/ net/
+>  obj-$(CONFIG_BUILTIN_DTB) +=3D boot/dts/
+>  obj-y +=3D errata/
+> +obj-y +=3D vendor_extensions/
+>  obj-$(CONFIG_KVM) +=3D kvm/
+> =20
+>  obj-$(CONFIG_ARCH_HAS_KEXEC_PURGATORY) +=3D purgatory/
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index c1505c7729ec..19404ede0ee3 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -276,6 +276,7 @@ config AS_HAS_OPTION_ARCH
+> =20
+>  source "arch/riscv/Kconfig.socs"
+>  source "arch/riscv/Kconfig.errata"
+> +source "arch/riscv/Kconfig.vendor"
+> =20
+>  menu "Platform type"
+> =20
+> diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
+> new file mode 100644
+> index 000000000000..213ac3e6fed5
+> --- /dev/null
+> +++ b/arch/riscv/Kconfig.vendor
+> @@ -0,0 +1,3 @@
+> +menu "Vendor extensions selection"
+> +
+> +endmenu # "Vendor extensions selection"
+
+These files don't do anything, don't add them until you need to.
+
+> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hw=
+probe.h
+> index 78936f4ff513..fadb38b83243 100644
+> --- a/arch/riscv/include/asm/hwprobe.h
+> +++ b/arch/riscv/include/asm/hwprobe.h
+> @@ -9,5 +9,6 @@
+>  #include <uapi/asm/hwprobe.h>
+> =20
+>  #define RISCV_HWPROBE_MAX_KEY 5
+> +#define RISCV_HWPROBE_VENDOR_EXTENSION_SPACE (UL(1)<<63)
+
+Should this not be BIT_ULL(63)? Although I am not sure that we can
+actually do this, more on that front later.
+
+> =20
+>  #endif
+> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+> index 26ef5526bfb4..2351a5f7b8b1 100644
+> --- a/arch/riscv/kernel/sys_riscv.c
+> +++ b/arch/riscv/kernel/sys_riscv.c
+> @@ -188,9 +188,35 @@ static u64 hwprobe_misaligned(const struct cpumask *=
+cpus)
+>  	return perf;
+>  }
+> =20
+> +static int hwprobe_vendor(__u64 mvendorid, struct riscv_hwprobe *pair,
+> +			 const struct cpumask *cpus)
+> +{
+> +	switch (mvendorid) {
+> +	default:
+> +		return -1;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+>  			     const struct cpumask *cpus)
+>  {
+> +	int err;
+> +
+> +	if (((unsigned long) pair->key) >=3D RISCV_HWPROBE_VENDOR_EXTENSION_SPA=
+CE) {
+
+Hopefully Bjorn or someone that actually knows a thing or two about uapi
+stuff can chime in here, but I think what you are doing here (where the
+vendor space sets the MSB) really muddies the api. These keys are defined
+as signed 64 bit numbers & -1 is the value set when a key is not valid.
+I'd much rather we kept the negative space off-limits, and used the 62nd
+bit instead, avoiding using negative numbers for valid keys.
+
+> +		struct riscv_hwprobe mvendorid =3D {
+> +			.key =3D RISCV_HWPROBE_KEY_MVENDORID,
+> +			.value =3D 0
+> +		};
+> +
+> +		hwprobe_arch_id(&mvendorid, cpus);
+
+I think this needs a comment explaining why you do this hwprobe call,=20
+> +		if (mvendorid.value !=3D -1ULL)
+> +			err =3D hwprobe_vendor(mvendorid.value, pair, cpus);
+> +		else
+> +			err =3D -1;
+> +	}
+
+I don't really understand the control flow here. Why are you continuing
+on to the switch statement, if you have either a) already ran
+hwprobe_vendor() or b) noticed that mvendorid.value is not valid?
+
+>  	switch (pair->key) {
+>  	case RISCV_HWPROBE_KEY_MVENDORID:
+>  	case RISCV_HWPROBE_KEY_MARCHID:
+> @@ -217,13 +243,21 @@ static void hwprobe_one_pair(struct riscv_hwprobe *=
+pair,
+> =20
+>  	/*
+>  	 * For forward compatibility, unknown keys don't fail the whole
+> -	 * call, but get their element key set to -1 and value set to 0
+> -	 * indicating they're unrecognized.
+> +	 * call, instead an error is raised to indicate the element key
+> +	 * is unrecognized.
+>  	 */
+>  	default:
+> +		err =3D -1;
+> +		break;
+> +	}
+> +
+> +	/*
+> +	 * Setting the element key to -1 and value to 0 indicates that
+> +	 * hwprobe was unable to find the requested key.
+> +	 */
+> +	if (err !=3D 0) {
+>  		pair->key =3D -1;
+>  		pair->value =3D 0;
+> -		break;
+>  	}
+>  }
+> =20
+> diff --git a/arch/riscv/vendor_extensions/Makefile b/arch/riscv/vendor_ex=
+tensions/Makefile
+> new file mode 100644
+> index 000000000000..e815895e9372
+> --- /dev/null
+> +++ b/arch/riscv/vendor_extensions/Makefile
+> @@ -0,0 +1,3 @@
+> +ifdef CONFIG_RELOCATABLE
+> +KBUILD_CFLAGS +=3D -fno-pie
+> +endif
+
+There are no files in this directory, why do you need to do a dance
+about relocatable kernels?
+
+Cheers,
+Conor.
+
+--UI60rudIHsqNxMLP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKb2zQAKCRB4tDGHoIJi
+0hTDAP0c/L2QKrlqwK8Vy+oQbp9A2yhfsGsSd2Vo7S6Cc6UFvAD/VxwxL+ezSwJP
+YptVnUsgEYOqE3Z7eZ2B14kRhmnkOQ8=
+=knz0
+-----END PGP SIGNATURE-----
+
+--UI60rudIHsqNxMLP--
+
+
+--===============6401878986376564886==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6401878986376564886==--
+
