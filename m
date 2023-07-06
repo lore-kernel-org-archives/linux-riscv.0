@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEC1EB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 01:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 352F6EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 02:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:From
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aWjETZHcQ7dBpvlax8A7AtqYZFgVTFFsnKrtlSwRgLs=; b=h32gwHq3VR3Fgq
-	loOtQyD6+vVcNiwG1nXbE3+uLbYDDeZAhedEex6VV2llu49076ln8/juoCIPjlmhpL5j6nJy0wB97
-	PwUdk9JO95fBwFZakclpzh8Y+JHv9wQ9o3XC4QM4wRAu8Dq7o4a4o2zvgGF6RLbzcmxncZVoO3SKy
-	EsxwqG23EYTUBjDbE54LF5ly11BHeI2D9r6x9TnxkgbYgmQ+hbqTC87e1mQQSAhs3FgXY5v2AA6QG
-	xXGI1BSizkj97pt4Y2IbucTytIaiOCUE7MjyuxpcR64xJUFn6Bpgn8+Xdmv9TXmiaU/MYHooFu/a5
-	8lZW3tBZihk/oEGcWWUw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=upSOzjyv+tIMFLttW71uz67GQ0shE2AO7Y5nwO+RUCs=; b=VxfA+AIAJt6uZZ
+	/5+rW+zC88PRUIWYBFrVWIp7sHbjIyaAgnr9fO6GoktRQZqdcOS878kxm5pDEzMjQ23kyEe24jBm5
+	lL7EdD/fy/KDf/B4NJ0NPlDCnJ0X/soIM27vJcFCoERSibw2EMOnAwgdyy+k9ZIXYezCfWzMYD57M
+	/5DSNiB0dPm+x8vFOgd3XlOmYoquye8v8mjydY4Tr8quhaLM3KophTMNclL+24f5/zwvMy61Ri5dm
+	NMSwbHRnmXvG3w8Uv4Y+jdCAdXL2TMnd5sLQe72EXW36JtfKTRJSMb/QBIhjgZEsT7x3ALWh50c+h
+	l1J72zLfeLoXrHfpMoiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHEG1-00037I-08;
-	Thu, 06 Jul 2023 01:58:09 +0000
-Received: from mga05.intel.com ([192.55.52.43])
+	id 1qHEMe-0004M2-02;
+	Thu, 06 Jul 2023 02:05:00 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHEFy-00033I-0U
+	id 1qHEMb-0004Jj-23
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 01:58:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1688608686; x=1720144686;
-  h=date:from:to:cc:subject:message-id;
-  bh=xKhVmKHnF1tZ/nQOsvw0DFwNyW4SSJnj5G7sLZBwAY8=;
-  b=PmNonOzvwg2fRapxLgSXHT4zzZjlQdCDxy5cLxvSg8GSktVGTft5r2q3
-   MOjiukiG17kcwJx+bMTGJBmMrMB3uRo1KAE8MxZ9LB0cpalqRWmL/Q7R1
-   VqUR0w69ZmVnPRj2PCuNfqfd2hDmCV74u0od3uu+OA5rmhvSZNiHT/bSZ
-   gymG4wYPsnbiKTOB4pqNKDYGu7sX5rziNOPc4wz5fEXggtU5Z1/VQVtD2
-   ogry2f4trEeOvT4KCJtqbBrX+BRHSmuz3Iqbb9/OZaqxX5M83JWhBq0VE
-   ABWybm61URu4Zr2kzi+EWng6U9CCm4V3TIDDT+IvaA7rbgkLu1SKZYhBN
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10762"; a="449747161"
-X-IronPort-AV: E=Sophos;i="6.01,183,1684825200"; 
-   d="scan'208";a="449747161"
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jul 2023 09:08:04 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10762"; a="832600455"
-X-IronPort-AV: E=Sophos;i="6.01,183,1684825200"; 
-   d="scan'208";a="832600455"
-Received: from lkp-server01.sh.intel.com (HELO c544d7fc5005) ([10.239.97.150])
-  by fmsmga002.fm.intel.com with ESMTP; 05 Jul 2023 09:08:01 -0700
-Received: from kbuild by c544d7fc5005 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1qH52u-0000iI-1h;
-	Wed, 05 Jul 2023 16:08:00 +0000
-Date: Thu, 06 Jul 2023 00:07:24 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Linux Memory Management List <linux-mm@kvack.org>,
- intel-gfx@lists.freedesktop.org, kunit-dev@googlegroups.com,
- linux-bluetooth@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-serial@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Subject: [linux-next:master] BUILD REGRESSION
- e1f6a8eaf1c271a0158114a03e3605f4fba059ad
-Message-ID: <202307060015.uSSLonkv-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Thu, 06 Jul 2023 02:04:59 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3fbc59de009so1650455e9.3
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 19:04:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1688609094; x=1691201094;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=34TMPqSfA3ijY4f7A0JqszQChtIKUD8qol2PfiviNwU=;
+        b=bGZqZCL+3J4+L6h0jDV/c/XvS76akDDG0dWPaFBu6Iy9pMRr9L+P9G4avL1KjaiU0W
+         5d2xQyg/ETXI5BaPrkg5hG+A1dEcsSLmN5vNEPxUhV6nh/1VDkC+bGCVavozwWhHbCPe
+         BaVYvVLApuxCQgzzlEIGYa1IA2kVs726O4w37oIkoxB+pTpZWZ09keajJEbGkek9IxIj
+         hrtY3WwVi0FE0pCIbscS2XxxE9nCon7p8kQsrZyXE73T7+hmRVcUUevymj2wA7Ggc29h
+         +GUlSzaGhanvbPvSTMZnk+eAL0IsCxQgcMi4HGrsc7WGdM2Fz9A4TcXuxWVQV3jm1QpZ
+         IZSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688609094; x=1691201094;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=34TMPqSfA3ijY4f7A0JqszQChtIKUD8qol2PfiviNwU=;
+        b=UVaMpoeLtyOAe/7JZzXsCoJSy2UZtub6okvjRWtuAp8/UxBodXW2wxB7O5xMp0oyGB
+         LV1/FsPJB7nf2xJ3nfc4PpvqGGtbRA0HSuvBKZ7+SnRKtwzSab1ojY2e/gyX1Pg/3T+y
+         PaMb/gBxuD+WcWl/Fnu4oocN03wMhasPS4qNWR/b2iuyNR+VLlPAmDv7B7rK/Zag27hb
+         kybne7hd+2iRRGDI6V9LghnHevZCSmYjwgaaxBCcgJCzkgfA6m2H/w+DVYbyJ6hW8vTm
+         MMdfoaqpw2CB8koMwvn2Cz21gkCebEZRuuyld3JVEz2iI8/P3F51iioTzchvU6aXNtV3
+         92nA==
+X-Gm-Message-State: ABy/qLYmeYAxG3KNB7PIVtWv6lQ7SziuQklj+EkUDTcdYDxassrOC2/X
+	a2N/9LNvziqu3fWPN0WOTohJifdZIof5sNB1or2Lcg==
+X-Google-Smtp-Source: APBJJlGVWzsd0V/3ij0Kz1pL53DsIqaMBF+Y/tKLbg5iO0mVv5HLtAihtyPm3joxaTQl/6r7rNhAZetiICw9F07vfaU=
+X-Received: by 2002:a05:600c:2058:b0:3fb:c417:5e6 with SMTP id
+ p24-20020a05600c205800b003fbc41705e6mr200410wmg.23.1688609093887; Wed, 05 Jul
+ 2023 19:04:53 -0700 (PDT)
+MIME-Version: 1.0
+References: <20230705114251.661-1-cuiyunhui@bytedance.com> <mhng-48837062-b9f6-4968-be9e-9d3b352be117@palmer-ri-x1c9>
+In-Reply-To: <mhng-48837062-b9f6-4968-be9e-9d3b352be117@palmer-ri-x1c9>
+From: =?UTF-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
+Date: Thu, 6 Jul 2023 10:04:42 +0800
+Message-ID: <CAEEQ3wmRZGHNMB+CyfmAAGmapvFeQMVsgtQJh5nE01KG_3UBiw@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v3 0/4] Obtain SMBIOS and ACPI entry from FFI
+To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_185806_198713_4F0E318E 
-X-CRM114-Status: UNSURE (   6.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230705_190457_677886_C2A8520D 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,251 +81,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mark Rutland <mark.rutland@arm.com>, jdelvare@suse.com, aou@eecs.berkeley.edu, weidong.wd@bytedance.com, allen-kh.cheng@mediatek.com, rafael@kernel.org, geshijian@bytedance.com, lpieralisi@kernel.org, yc.hung@mediatek.com, pierre-louis.bossart@linux.intel.com, Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org, rminnich@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>, tinghan.shen@mediatek.com, linux-riscv@lists.infradead.org, angelogioacchino.delregno@collabora.com, linux-acpi@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, lenb@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-branch HEAD: e1f6a8eaf1c271a0158114a03e3605f4fba059ad  Add linux-next specific files for 20230705
-
-Error/Warning reports:
-
-https://lore.kernel.org/oe-kbuild-all/202306122223.HHER4zOo-lkp@intel.com
-https://lore.kernel.org/oe-kbuild-all/202306260401.qZlYQpV2-lkp@intel.com
-https://lore.kernel.org/oe-kbuild-all/202306291857.nyJjYwqk-lkp@intel.com
-https://lore.kernel.org/oe-kbuild-all/202306301756.x8dgyYnL-lkp@intel.com
-
-Error/Warning: (recently discovered and may have been fixed)
-
-arch/parisc/kernel/pdt.c:67:6: warning: no previous prototype for 'arch_report_meminfo' [-Wmissing-prototypes]
-arch/riscv/kernel/crash_core.c:12:57: warning: format specifies type 'unsigned long' but the argument has type 'int' [-Wformat]
-arch/riscv/kernel/crash_core.c:14:57: error: use of undeclared identifier 'VMEMMAP_START'
-arch/riscv/kernel/crash_core.c:15:55: error: use of undeclared identifier 'VMEMMAP_END'; did you mean 'MEMREMAP_ENC'?
-arch/riscv/kernel/crash_core.c:8:20: error: use of undeclared identifier 'VA_BITS'
-drivers/bluetooth/btmtk.c:386:44: error: 'struct hci_dev' has no member named 'dump'
-drivers/char/mem.c:164:25: error: implicit declaration of function 'unxlate_dev_mem_ptr'; did you mean 'xlate_dev_mem_ptr'? [-Werror=implicit-function-declaration]
-drivers/gpu/drm/i915/soc/intel_gmch.c:41:13: error: variable 'mchbar_addr' set but not used [-Werror=unused-but-set-variable]
-drivers/mfd/max77541.c:176:18: warning: cast to smaller integer type 'enum max7754x_ids' from 'const void *' [-Wvoid-pointer-to-enum-cast]
-lib/kunit/executor_test.c:138:4: warning: cast from 'void (*)(const void *)' to 'kunit_action_t *' (aka 'void (*)(void *)') converts to incompatible function type [-Wcast-function-type-strict]
-lib/kunit/test.c:775:38: warning: cast from 'void (*)(const void *)' to 'kunit_action_t *' (aka 'void (*)(void *)') converts to incompatible function type [-Wcast-function-type-strict]
-
-Unverified Error/Warning (likely false positive, please contact us if interested):
-
-drivers/tty/serial/fsl_lpuart.c:1314 lpuart_timer_func() error: uninitialized symbol 'flags'.
-kernel/trace/trace_functions_graph.c:1012 print_graph_return() warn: bitwise AND condition is false here
-kernel/trace/trace_functions_graph.c:726 print_graph_entry_leaf() warn: bitwise AND condition is false here
-{standard input}: Error: local label `"2" (instance number 9 of a fb label)' is not defined
-
-Error/Warning ids grouped by kconfigs:
-
-gcc_recent_errors
-|-- arc-randconfig-r026-20230705
-|   `-- drivers-bluetooth-btmtk.c:error:struct-hci_dev-has-no-member-named-dump
-|-- csky-randconfig-m041-20230705
-|   `-- drivers-tty-serial-fsl_lpuart.c-lpuart_timer_func()-error:uninitialized-symbol-flags-.
-|-- i386-buildonly-randconfig-r004-20230705
-|   `-- drivers-gpu-drm-i915-soc-intel_gmch.c:error:variable-mchbar_addr-set-but-not-used
-|-- i386-randconfig-m021-20230705
-|   |-- kernel-trace-trace_functions_graph.c-print_graph_entry_leaf()-warn:bitwise-AND-condition-is-false-here
-|   `-- kernel-trace-trace_functions_graph.c-print_graph_return()-warn:bitwise-AND-condition-is-false-here
-|-- loongarch-randconfig-r091-20230703
-|   `-- drivers-bluetooth-btmtk.c:error:struct-hci_dev-has-no-member-named-dump
-|-- microblaze-randconfig-r001-20230705
-|   `-- drivers-bluetooth-btmtk.c:error:struct-hci_dev-has-no-member-named-dump
-|-- parisc-randconfig-r081-20230703
-|   `-- arch-parisc-kernel-pdt.c:warning:no-previous-prototype-for-arch_report_meminfo
-|-- sh-allmodconfig
-|   |-- drivers-char-mem.c:error:implicit-declaration-of-function-unxlate_dev_mem_ptr
-|   `-- standard-input:Error:local-label-(instance-number-of-a-fb-label)-is-not-defined
-`-- sh-randconfig-r004-20230705
-    |-- drivers-bluetooth-btmtk.c:error:struct-hci_dev-has-no-member-named-dump
-    `-- drivers-char-mem.c:error:implicit-declaration-of-function-unxlate_dev_mem_ptr
-clang_recent_errors
-|-- arm64-randconfig-r023-20230705
-|   |-- drivers-mfd-max77541.c:warning:cast-to-smaller-integer-type-enum-max7754x_ids-from-const-void
-|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
-|-- arm64-randconfig-r024-20230705
-|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
-|-- powerpc-randconfig-r011-20230705
-|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
-|-- powerpc-randconfig-r025-20230705
-|   `-- clang:error:unsupported-option-fsanitize-thread-for-target-powerpc-unknown-linux-gnu
-|-- riscv-randconfig-r042-20230705
-|   |-- arch-riscv-kernel-crash_core.c:error:use-of-undeclared-identifier-VA_BITS
-|   |-- arch-riscv-kernel-crash_core.c:error:use-of-undeclared-identifier-VMEMMAP_END
-|   |-- arch-riscv-kernel-crash_core.c:error:use-of-undeclared-identifier-VMEMMAP_START
-|   |-- arch-riscv-kernel-crash_core.c:warning:format-specifies-type-unsigned-long-but-the-argument-has-type-int
-|   |-- lib-kunit-executor_test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
-|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
-|-- s390-randconfig-r014-20230705
-|   `-- lib-kunit-test.c:warning:cast-from-void-(-)(const-void-)-to-kunit_action_t-(aka-void-(-)(void-)-)-converts-to-incompatible-function-type
-|-- s390-randconfig-r021-20230705
-|   `-- drivers-mfd-max77541.c:warning:cast-to-smaller-integer-type-enum-max7754x_ids-from-const-void
-|-- x86_64-randconfig-r024-20230705
-|   `-- drivers-mfd-max77541.c:warning:cast-to-smaller-integer-type-enum-max7754x_ids-from-const-void
-|-- x86_64-randconfig-x002-20230705
-|   `-- drivers-mfd-max77541.c:warning:cast-to-smaller-integer-type-enum-max7754x_ids-from-const-void
-|-- x86_64-randconfig-x003-20230705
-|   `-- drivers-mfd-max77541.c:warning:cast-to-smaller-integer-type-enum-max7754x_ids-from-const-void
-`-- x86_64-randconfig-x005-20230705
-    `-- drivers-mfd-max77541.c:warning:cast-to-smaller-integer-type-enum-max7754x_ids-from-const-void
-
-elapsed time: 734m
-
-configs tested: 142
-configs skipped: 7
-
-tested configs:
-alpha                            allyesconfig   gcc  
-alpha                               defconfig   gcc  
-alpha                randconfig-r003-20230705   gcc  
-alpha                randconfig-r036-20230705   gcc  
-arc                              allyesconfig   gcc  
-arc                                 defconfig   gcc  
-arc                     nsimosci_hs_defconfig   gcc  
-arc                  randconfig-r011-20230705   gcc  
-arc                  randconfig-r026-20230705   gcc  
-arc                  randconfig-r043-20230705   gcc  
-arm                              allmodconfig   gcc  
-arm                              allyesconfig   gcc  
-arm                         assabet_defconfig   gcc  
-arm                                 defconfig   gcc  
-arm                            dove_defconfig   clang
-arm                          gemini_defconfig   gcc  
-arm                          pxa910_defconfig   gcc  
-arm                  randconfig-r046-20230705   gcc  
-arm                          sp7021_defconfig   clang
-arm                         wpcm450_defconfig   gcc  
-arm64                            alldefconfig   gcc  
-arm64                            allyesconfig   gcc  
-arm64                               defconfig   gcc  
-arm64                randconfig-r023-20230705   clang
-arm64                randconfig-r024-20230705   clang
-arm64                randconfig-r035-20230705   gcc  
-csky                                defconfig   gcc  
-hexagon              randconfig-r041-20230705   clang
-hexagon              randconfig-r045-20230705   clang
-i386                             allyesconfig   gcc  
-i386         buildonly-randconfig-r004-20230705   gcc  
-i386         buildonly-randconfig-r005-20230705   gcc  
-i386         buildonly-randconfig-r006-20230705   gcc  
-i386                              debian-10.3   gcc  
-i386                                defconfig   gcc  
-i386                 randconfig-i001-20230705   gcc  
-i386                 randconfig-i002-20230705   gcc  
-i386                 randconfig-i003-20230705   gcc  
-i386                 randconfig-i004-20230705   gcc  
-i386                 randconfig-i005-20230705   gcc  
-i386                 randconfig-i006-20230705   gcc  
-i386                 randconfig-i011-20230705   clang
-i386                 randconfig-i012-20230705   clang
-i386                 randconfig-i013-20230705   clang
-i386                 randconfig-i014-20230705   clang
-i386                 randconfig-i015-20230705   clang
-i386                 randconfig-i016-20230705   clang
-i386                 randconfig-r015-20230705   clang
-i386                 randconfig-r031-20230705   gcc  
-i386                 randconfig-r032-20230705   gcc  
-loongarch                        allmodconfig   gcc  
-loongarch                         allnoconfig   gcc  
-loongarch                           defconfig   gcc  
-loongarch            randconfig-r006-20230705   gcc  
-loongarch            randconfig-r012-20230705   gcc  
-loongarch            randconfig-r014-20230705   gcc  
-m68k                             allmodconfig   gcc  
-m68k                             allyesconfig   gcc  
-m68k                                defconfig   gcc  
-m68k                            q40_defconfig   gcc  
-m68k                 randconfig-r033-20230705   gcc  
-m68k                          sun3x_defconfig   gcc  
-microblaze           randconfig-r001-20230705   gcc  
-mips                             allmodconfig   gcc  
-mips                             allyesconfig   gcc  
-mips                  cavium_octeon_defconfig   clang
-mips                           jazz_defconfig   gcc  
-mips                 randconfig-r005-20230705   clang
-nios2                               defconfig   gcc  
-nios2                randconfig-r021-20230705   gcc  
-openrisc             randconfig-r022-20230705   gcc  
-parisc                           allyesconfig   gcc  
-parisc                              defconfig   gcc  
-parisc64                            defconfig   gcc  
-powerpc                          allmodconfig   gcc  
-powerpc                           allnoconfig   gcc  
-powerpc                      mgcoge_defconfig   gcc  
-powerpc                 mpc832x_rdb_defconfig   clang
-powerpc                  mpc866_ads_defconfig   clang
-powerpc                    mvme5100_defconfig   clang
-powerpc                      pasemi_defconfig   gcc  
-powerpc              randconfig-r011-20230705   clang
-powerpc              randconfig-r025-20230705   clang
-powerpc                     taishan_defconfig   gcc  
-powerpc                        warp_defconfig   gcc  
-riscv                            allmodconfig   gcc  
-riscv                             allnoconfig   gcc  
-riscv                            allyesconfig   gcc  
-riscv                               defconfig   gcc  
-riscv             nommu_k210_sdcard_defconfig   gcc  
-riscv                randconfig-r042-20230705   clang
-riscv                          rv32_defconfig   gcc  
-s390                             allmodconfig   gcc  
-s390                             allyesconfig   gcc  
-s390                                defconfig   gcc  
-s390                 randconfig-r014-20230705   clang
-s390                 randconfig-r021-20230705   clang
-s390                 randconfig-r044-20230705   clang
-sh                               allmodconfig   gcc  
-sh                         microdev_defconfig   gcc  
-sh                   randconfig-r004-20230705   gcc  
-sh                           se7343_defconfig   gcc  
-sh                           se7750_defconfig   gcc  
-sh                           sh2007_defconfig   gcc  
-sh                  sh7785lcr_32bit_defconfig   gcc  
-sh                          urquell_defconfig   gcc  
-sparc                            allyesconfig   gcc  
-sparc                               defconfig   gcc  
-sparc                randconfig-r016-20230705   gcc  
-sparc64              randconfig-r012-20230705   gcc  
-sparc64              randconfig-r015-20230705   gcc  
-sparc64              randconfig-r026-20230705   gcc  
-sparc64              randconfig-r034-20230705   gcc  
-um                               allmodconfig   clang
-um                                allnoconfig   clang
-um                               allyesconfig   clang
-um                                  defconfig   gcc  
-um                             i386_defconfig   gcc  
-um                   randconfig-r016-20230705   gcc  
-um                           x86_64_defconfig   gcc  
-x86_64                           allyesconfig   gcc  
-x86_64       buildonly-randconfig-r001-20230705   gcc  
-x86_64       buildonly-randconfig-r002-20230705   gcc  
-x86_64       buildonly-randconfig-r003-20230705   gcc  
-x86_64                              defconfig   gcc  
-x86_64                                  kexec   gcc  
-x86_64               randconfig-r024-20230705   clang
-x86_64               randconfig-x001-20230705   clang
-x86_64               randconfig-x002-20230705   clang
-x86_64               randconfig-x003-20230705   clang
-x86_64               randconfig-x004-20230705   clang
-x86_64               randconfig-x005-20230705   clang
-x86_64               randconfig-x006-20230705   clang
-x86_64               randconfig-x011-20230705   gcc  
-x86_64               randconfig-x012-20230705   gcc  
-x86_64               randconfig-x013-20230705   gcc  
-x86_64               randconfig-x014-20230705   gcc  
-x86_64               randconfig-x015-20230705   gcc  
-x86_64               randconfig-x016-20230705   gcc  
-x86_64                          rhel-8.3-rust   clang
-x86_64                               rhel-8.3   gcc  
-xtensa               randconfig-r013-20230705   gcc  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUGFsbWVyLAoKT24gV2VkLCBKdWwgNSwgMjAyMyBhdCAxMDoxN+KAr1BNIFBhbG1lciBEYWJi
+ZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+IHdyb3RlOgo+Cj4gT24gV2VkLCAwNSBKdWwgMjAyMyAw
+NDo0Mjo0NyBQRFQgKC0wNzAwKSwgY3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20gd3JvdGU6Cj4gPiBI
+ZXJlJ3MgdmVyc2lvbiAzIG9mIHBhdGNoIHNlcmllcy4KPiA+Cj4gPiBWMTogVGhlIEZGSSAoRkRU
+IEZJUk1XQVJFIElOVEVSRkFDRSkgc2NoZW1lIGhhcyByZWFjaGVkIGEKPiA+IGNvbnNlbnN1cyB3
+aXRoIHRoZSBNYWludGFpbmVycy4KPiA+IFBsZWFzZSByZWZlciB0bzoKPiA+IGh0dHBzOi8vcGF0
+Y2hlcy5saW5hcm8ub3JnL3Byb2plY3QvbGludXgtYWNwaS9wYXRjaC8yMDIzMDQyNjAzNDAwMS4x
+Ni0xLWN1aXl1bmh1aUBieXRlZGFuY2UuY29tLwo+Cj4gRnJvbSBsb29raW5nIGF0IHRoYXQgdGhy
+ZWFkIGl0IHNlZW1zIHRoYXQgdGhlIGNvbnNlbnN1cyBpcyB0aGlzIGlzIGEgYmFkCj4gaWRlYT8g
+IFNvcnJ5IGlmIEknbSBqdXN0IG1pc3Npbmcgc29tZXRoaW5nLi4uCj4KCkZpcnN0IG9mIGFsbCwg
+Q29yZWJvb3QgZG9lcyBub3Qgc3VwcG9ydCBFRkksIFJvbiBoYXMgZXhwcmVzc2VkLCBhcyBmb2xs
+b3dzOgoiSSBhbSB3b25kZXJpbmcgaWYgd2UgY2FuIGZvY3VzIG9uIHJpc2MtdiBoZXJlLCBhbmQg
+bm90IGRyYWcgaW4gQVJNLApiL2MgdGhlIEFSTSBBQ1BJK1VFRkkgc2hpcCBoYXMgc2FpbGVkLiBJ
+IGhhZCB0aGF0IGRpc2N1c3Npb24gaW4gMjAxMwo7LSkgYW5kIGl0J3MgY2xlYXIgd2UgZG9uJ3Qg
+d2FudCB0byByZWRvIGl0LgpJbiBnZW5lcmFsLCBpbiBteSB3b3JsZCwgYmVjYXVzZSBvZiB0aGUg
+bWFueSBwcm9ibGVtcyB0aGF0IGNvbWUgd2l0aApVRUZJIChzZWN1cml0eSwgY29kZSBxdWFsaXR5
+LCBwZXJmb3JtYW5jZSksIHdlJ2QgbGlrZSB0byBhdm9pZApyZXF1aXJpbmcgYSBkZXBlbmRlbmN5
+IG9uIFVFRkkganVzdCB0byBnZXQgQUNQSSBvbiBSSVNDLVYuIEl0IGFsc28Kc2VlbXMsIGZyb20g
+b3RoZXIgZGlzY3Vzc2lvbnMgSSdtIGhhdmluZywgdGhhdCB0aGVyZSBpcyBzb21lIGJlbGllZgp0
+aGF0IEFDUEkgd2lsbCBiZSB3YW50ZWQgb24gUklTQy1WLiBJdCB3b3VsZCBiZSBuaWNlIHRvIHNl
+cGFyYXRlIHRob3NlCnBpZWNlcyBvbiBSSVNDLVY7IGNlcnRhaW5seSB0aGV5IHdlcmUgc2VwYXJh
+dGUgZm9yIGEgdmVyeSBsb25nIHRpbWUgaW4KdGhlIHg4NiB3b3JsZCAod2UgaGFkIEFDUEkrU01N
+IG9uIGNvcmVib290IGxhcHRvcHMgd2l0aG91dCBVRUZJIGZvcgpleGFtcGxlKS4iCgpUaGVuLCBh
+IGNvbnNlbnN1cyB3YXMgcmVhY2hlZCB3aXRoIEFyZCwgdGhhdCBGRkkgY2FuIGJlIGFwcGxpZWQg
+dG8gUklTQy1WLgoKUGxlYXNlIGxvb2sgYXQgdGhpcyBwYXRjaCBhZ2FpbjogW1BBVENIIHYzIDEv
+NF0gcmlzY3Y6IG9idGFpbiBBQ1BJClJTRFAgZnJvbSBkZXZpY2V0cmVlCldoeSBkbyB5b3UgdGhp
+bmsgaXQgaXMgYSBiYWQgaWRlYT8KCgo+ID4gQ2hhbmdlcyB2MS0+djI6Cj4gPiBBZGp1c3RlZCB0
+aGUgY29kZSBzdHJ1Y3R1cmUsIHB1dCB0aGUgQUNQSSBwYXJ0IHVuZGVyIHRoZSBSSVNDLVYgYXJj
+aGl0ZWN0dXJlLAo+ID4gYW5kIHB1dCB0aGUgZ2VuZXJhbCBwYXJ0IG9mIG9idGFpbmluZyBTTUJJ
+T1MgZW50cnkgdGhyb3VnaCBGRkkKPiA+IHVuZGVyIGRyaXZlci9maXJtd2FyZS8uCj4gPiBQbGVh
+c2UgcmVmZXIgdG86Cj4gPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjMwNzAzLTcx
+ZjY3ZWI2NmEwMzdmNWMwZmI4MjVjNkBvcmVsL1QvCj4gPgo+ID4gQ2hhbmdlcyB2Mi0+djM6Cj4g
+PiBBY2NvcmRpbmcgdG8gdGhlIHN1Z2dlc3Rpb25zIG9mIG1haW50YWluZXJzLCB0aGUgY29kZSBo
+YXMgYmVlbiBtb2RpZmllZCBhcyBmb2xsb3dzOgo+ID4gMS4gTW9kaWZpZWQgdGhlIGNvbW1pdCBs
+b2cuCj4gPiAyLiBBZGRlZCBkZXNjcmlwdGlvbiBvZiAiZmZpdGJsIiBzdWJub2QgaW4gZHQtYmlu
+ZGluZ3MuCj4gPiAzLiBBZGQgc3R1YiBmdW5jdGlvbiB0byB0aGUgZnVuY3Rpb24KPiA+IDQuIGFy
+Y2gvcmlzY3YvIGFuZCBkcml2ZXIvZmlybXdhcmUvIHVzZSBDT05GSUdfRkRUX0ZXX0lOVEVSRkFD
+RSB0byBjb250cm9sCj4gPiA1LiBNb2RpZmllZCB0aGUgZmZpX3NtYmlvc19yb290X3BvaW50ZXIo
+KSBmdW5jdGlvbiBsb2dpYyBhbmQgcHJpbnRpbmcKPiA+IGV0Yy4KPiA+Cj4gPiBZdW5odWkgQ3Vp
+ICg0KToKPiA+ICAgcmlzY3Y6IG9idGFpbiBBQ1BJIFJTRFAgZnJvbSBkZXZpY2V0cmVlCj4gPiAg
+IGZpcm13YXJlOiBpbnRyb2R1Y2UgRkZJIGZvciBTTUJJT1MgZW50cnkKPiA+ICAgcmlzY3Y6IG9i
+dGFpbiBTTUJJT1MgZW50cnkgZnJvbSBGRkkKPiA+ICAgZHQtYmluZGluZ3M6IGZpcm13YXJlOiBE
+b2N1bWVudCBmZml0YmwgYmluZGluZwo+ID4KPiA+ICAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9m
+aXJtd2FyZS9mZml0YmwudHh0ICAgfCAyNyArKysrKysKPiA+ICBNQUlOVEFJTkVSUyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAxMyArKysKPiA+ICBhcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2FjcGkuaCAgICAgICAgICAgICAgICAgfCAgOSArKwo+ID4gIGFyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vZmZpLmggICAgICAgICAgICAgICAgICB8IDE0ICsrKwo+ID4gIGFyY2gvcmlzY3Yv
+a2VybmVsL01ha2VmaWxlICAgICAgICAgICAgICAgICAgICB8ICAxICsKPiA+ICBhcmNoL3Jpc2N2
+L2tlcm5lbC9mZmkuYyAgICAgICAgICAgICAgICAgICAgICAgfCA0MCArKysrKysrKwo+ID4gIGFy
+Y2gvcmlzY3Yva2VybmVsL3NldHVwLmMgICAgICAgICAgICAgICAgICAgICB8ICAyICsKPiA+ICBk
+cml2ZXJzL2Zpcm13YXJlL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgfCAxMSArKysKPiA+
+ICBkcml2ZXJzL2Zpcm13YXJlL01ha2VmaWxlICAgICAgICAgICAgICAgICAgICAgfCAgMSArCj4g
+PiAgZHJpdmVycy9maXJtd2FyZS9kbWlfc2Nhbi5jICAgICAgICAgICAgICAgICAgIHwgOTcgKysr
+KysrKysrKystLS0tLS0tLQo+ID4gIGRyaXZlcnMvZmlybXdhcmUvZmZpLmMgICAgICAgICAgICAg
+ICAgICAgICAgICB8IDQyICsrKysrKysrCj4gPiAgaW5jbHVkZS9saW51eC9mZmkuaCAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHwgMjkgKysrKysrCj4gPiAgMTIgZmlsZXMgY2hhbmdlZCwgMjQ2
+IGluc2VydGlvbnMoKyksIDQwIGRlbGV0aW9ucygtKQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBE
+b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZmlybXdhcmUvZmZpdGJsLnR4dAo+ID4g
+IGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ZmaS5oCj4gPiAgY3Jl
+YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL2ZmaS5jCj4gPiAgY3JlYXRlIG1vZGUg
+MTAwNjQ0IGRyaXZlcnMvZmlybXdhcmUvZmZpLmMKPiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQgaW5j
+bHVkZS9saW51eC9mZmkuaAoKVGhhbmtzLApZdW5odWkKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
