@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E375DEB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 03:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A30A6EB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 03:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9m0fcsinYvDAh+35QfEO1l9gbovAetpvuZshnvKnuNc=; b=gZ+VAL/2Z+/SKs
-	aE9Gt3Qd0wKwrnJWVlvboN0cWpnBxztYpmqGevamYLCvoxyOESfd8mS0XxkIDvDrO7e39wCE6E7km
-	Lc6ifVzLGBJeFWIaasIHKYFhht62eE11CMiF2YGJG4eTdlwAfDof/OuoNuxv173j7Ko9BERWxvUzl
-	t33R6L46FvzJccsHO2y4JRdFwr9VuOov1ZsJWkCavI7crjv+YB8HVBrwOcXBx90LQUPrzrNJsQjkD
-	g9uemVJelBhTzfhCR5inu6rC4pCrZSOyD/BcIq29QR1S+xZr6gtpPpL2TmJRWiPPMl0vxNKfIyOfT
-	b0F1GAFVilGZy6S0TQDA==;
+	List-Owner; bh=w22V+k4ywwMm0r/e5SNLuUqTnPunIxU3ewxTTxz1pfA=; b=G8IPnQ95b48hp3
+	y4pceryuFHDAk5YZ6lZRx0z3Fe09uvyQrZzfalF7lKBGS3d8ca39Z53F1eQNzJeESAABxIiJeq4m8
+	4i5lEbY1fK7EUI5QUB15ARQ7U+8hCEhaxW07O56dMZUNsLoI/+Zf9XE4FhbxipvwiDXRkweBnYX5q
+	Px2TTBMLbAm5fweJ2DuBNB2XNlOm0l86rkfgBZVw6Q9wMgd70LgTMIGgGRua5S9+221RmawETuxt9
+	9JKKSFBtpfg7OsrXeOCKDkaVE6WNxacn8bMttksSHV/0mJQE29YZFIQ/kT6Vmr1ktlyLWsHkggWlg
+	zTRK8g8lacPKJDin96uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHFjc-000FdQ-2b;
-	Thu, 06 Jul 2023 03:32:48 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1qHFug-000HOG-36;
+	Thu, 06 Jul 2023 03:44:14 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHFjZ-000Fbk-0W
+	id 1qHFue-000HMD-0Q
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 03:32:46 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6686708c986so305185b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 20:32:44 -0700 (PDT)
+	Thu, 06 Jul 2023 03:44:13 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-313f1085ac2so128952f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 20:44:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688614364; x=1691206364;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=X54Cbu5zOMSO9e4vO2L+KNC0L67rHLP6N1OU6Cg3wA8=;
-        b=zKJJNZDxACZFWxRB/zHvfSWKhUbPKItCK9lk7EtkWevhCtdWzJp57LMr7M5SO4p889
-         0CEiHoOsfhUxrxRMxAOHQLCywtikLQX2OGGV+bpxtN+jTpHfVSeyyPdIIIC5Wq0/MDpt
-         6TV8xKx/89fEhdUG01aTS1EBWXNSz833xGU9iSxfFYTnU6hcpPzki+i8Gka177fS/dfN
-         Xf5Ikzkgi7UOGvY+SkskucsCEtYH0OZlRBSr30r3SKHrN83Ru3p3d+JduZjia9Vy2lpw
-         WXaYeBvWbvGBmnzlNn3c4ko+ygBEiZNgGcJjq84w5pgjn3GjSCuCTuPEi0DPa1GsQDD9
-         M6jw==
+        d=bytedance.com; s=google; t=1688615047; x=1691207047;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jpdCKCp+dEsXjUfnxgC7qSAJV2eBz4qj2jsssqk1txs=;
+        b=iXDH/ghPLGc9raD3qKetKj/KUpmZePX4PNAORCoaQYBdMqKXKCtW+TZPJcAOk1rTdP
+         IMbnwpoopc+i6RQjurWxU6VrAHS5NHNETEIVvcpDgwgx6haEvQm3f0TippJsoFEqHGDJ
+         U0IZLzlFg0hsymvDvlzb7UPmM4EnnN/bBfCOVyWncse42TgvyXSe75LL0DKn2bB+0WXa
+         Bt1mRQJ4UVbaCZpyIQx+FNpuSXh9xFFQmjEPoUzQIjzZR50g+r1hTHedz/ejAr4Znn4U
+         8z9HU/kunrrK0MZ+synCMg9CKp0+SMKz5l29beFS2JK6ifjnmeVpDw24dWb7pP++BTdG
+         nwzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688614364; x=1691206364;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20221208; t=1688615047; x=1691207047;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=X54Cbu5zOMSO9e4vO2L+KNC0L67rHLP6N1OU6Cg3wA8=;
-        b=dVk6AbDfhhx4q9rV3eJ1yat0SKx0X8y0YBhguWZVcAoohdpW62Y+xA2SbeWGzBDfwx
-         q/J0biXYEI1ekJ2dvbtBOgF23D+F/w5ZqeY7TD/AIsrJ+2R1CBOBa1ZcFaA1sa489wbO
-         MuD+eSS2/acJesFYT8T8g6CvNtsgavtwQZ8KaUWBMA/GXaIO3DHHZL9cPJGXDexBvO2N
-         Q4AK6JcTklH50+407aw9ClCsCgu4HXVuXT1L4p89MnflLk1S53KOF5tpGDTwUO30p7Gj
-         6UXzl+LphCS2W3xOIqHy/CxbD1c9DBxuoCY7Xvp6IzGpI9/1fqlJRIZ8ajCr8OB2wj3J
-         J0Aw==
-X-Gm-Message-State: ABy/qLai2u/7Pz2gjW2NveOOiViOEG5Cd7hZ43kdgnGt1ZrKKjhDimyK
-	gHfa7rMjbxJ9+k4RGkSa57Dbaw==
-X-Google-Smtp-Source: APBJJlEibChBqnf08BaWR2lS6f718PlTQs2OsmFSQ3SEhFbZq18oY01nl+i2/jd3tsACHZQGlvlb+Q==
-X-Received: by 2002:a05:6a00:841:b0:668:9fb6:b311 with SMTP id q1-20020a056a00084100b006689fb6b311mr777400pfk.32.1688614363983;
-        Wed, 05 Jul 2023 20:32:43 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id fk13-20020a056a003a8d00b006589cf6d88bsm239785pfb.145.2023.07.05.20.32.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Jul 2023 20:32:43 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 05 Jul 2023 20:30:18 -0700
-Subject: [PATCH 2/3] RISC-V: Add T-Head 0.7.1 vector extension to hwprobe
+        bh=jpdCKCp+dEsXjUfnxgC7qSAJV2eBz4qj2jsssqk1txs=;
+        b=KW9KnAkEcuHyZctlslZmGLmlIucD7axQPxacy2cdDjAV4jra/Ht2DlofFlm2eG79yn
+         OX/OpO96htximBRH89Hq+I/Vq+4BgC69F0WmK1LjjnB6HRpsiU2UuoPgweoE/JiHu0b7
+         sEQQqddoGqLUCM5C6M5TgmQq/iJokQKk3uYa2883I4Ld5oJE/6F2/iBYlZI1v9CyF6YA
+         zhHW6Ks/TbUw2d2DfsqHRgCLr/aCtwe4D5+WwY9PBFOq09THhnUEup1mj5GLFuwN8J9t
+         gtx0Hp7an/jnhhNBqfkPEl4+cienTBVnoq7HGhK33PMUd+PsJsHoXCFWzTRu39kkr+wS
+         JKHw==
+X-Gm-Message-State: ABy/qLZT6NuveHn8V89akotmwSMpglfDH7Hv5gVpi8YvO7tX6T/ue077
+	6c6nl/kG3o1/Juqh9PI7iQpcmDYlBCd4uKpojwIZiw==
+X-Google-Smtp-Source: APBJJlG8oJJ/0Lw6qO1wtxj2L3BYTTBuF2LIPDKZd3AA7ZMseFgpU0K2z+5nLIryFaJlkLROHdg8KF/EMX8q/u/r47c=
+X-Received: by 2002:adf:e34c:0:b0:314:3b17:d7c5 with SMTP id
+ n12-20020adfe34c000000b003143b17d7c5mr382795wrj.43.1688615046885; Wed, 05 Jul
+ 2023 20:44:06 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20230705-thead_vendor_extensions-v1-2-ad6915349c4d@rivosinc.com>
-References: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
-In-Reply-To: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
-To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Jonathan Corbet <corbet@lwn.net>, charlie@rivosinc.com, evan@rivosinc.com, 
- heiko@sntech.de, linux-doc@vger.kernel.org
-X-Mailer: b4 0.12.3
+References: <20230705114251.661-1-cuiyunhui@bytedance.com> <20230705114251.661-5-cuiyunhui@bytedance.com>
+ <20230705-oblivious-unstuffed-8e028a5b243c@spud>
+In-Reply-To: <20230705-oblivious-unstuffed-8e028a5b243c@spud>
+From: =?UTF-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
+Date: Thu, 6 Jul 2023 11:43:55 +0800
+Message-ID: <CAEEQ3wmG1OiE3GFqQp9SP+oKUbTfuTPx=rNGd-sjKsW7vv3bew@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v3 4/4] dt-bindings: firmware: Document
+ ffitbl binding
+To: Conor Dooley <conor@kernel.org>, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	conor+dt@kernel.org, devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_203245_207022_26B65FF5 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20230705_204412_200955_3E6BDA60 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,165 +84,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, jdelvare@suse.com, aou@eecs.berkeley.edu, weidong.wd@bytedance.com, allen-kh.cheng@mediatek.com, rafael@kernel.org, geshijian@bytedance.com, lpieralisi@kernel.org, yc.hung@mediatek.com, pierre-louis.bossart@linux.intel.com, linux-kernel@vger.kernel.org, rminnich@gmail.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tinghan.shen@mediatek.com, linux-riscv@lists.infradead.org, angelogioacchino.delregno@collabora.com, linux-acpi@vger.kernel.org, ardb@kernel.org, lenb@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Using vendor extensions in hwprobe, add the ability to query if the
-0.7.1 vector extension is available. It is determined to be available
-only if the kernel is compiled with vector support, and the user is
-using the c906.
-
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/Kconfig.vendor                       | 11 +++++++++++
- arch/riscv/include/asm/extensions.h             | 16 ++++++++++++++++
- arch/riscv/kernel/sys_riscv.c                   | 20 ++++++++++++++++++++
- arch/riscv/vendor_extensions/Makefile           |  2 ++
- arch/riscv/vendor_extensions/thead/Makefile     |  8 ++++++++
- arch/riscv/vendor_extensions/thead/extensions.c | 24 ++++++++++++++++++++++++
- 6 files changed, 81 insertions(+)
-
-diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
-index 213ac3e6fed5..b8b9d15153eb 100644
---- a/arch/riscv/Kconfig.vendor
-+++ b/arch/riscv/Kconfig.vendor
-@@ -1,3 +1,14 @@
- menu "Vendor extensions selection"
- 
-+config VENDOR_EXTENSIONS_THEAD
-+	bool "T-HEAD vendor extensions"
-+	depends on RISCV_ALTERNATIVE
-+	default n
-+	help
-+	  All T-HEAD vendor extensions Kconfig depend on this Kconfig. Disabling
-+	  this Kconfig will disable all T-HEAD vendor extensions. Please say "Y"
-+	  here if your platform uses T-HEAD vendor extensions.
-+
-+	  Otherwise, please say "N" here to avoid unnecessary overhead.
-+
- endmenu # "Vendor extensions selection"
-diff --git a/arch/riscv/include/asm/extensions.h b/arch/riscv/include/asm/extensions.h
-new file mode 100644
-index 000000000000..27ce294a3d65
---- /dev/null
-+++ b/arch/riscv/include/asm/extensions.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2023 by Rivos Inc.
-+ */
-+#ifndef __ASM_EXTENSIONS_H
-+#define __ASM_EXTENSIONS_H
-+
-+#include <asm/hwprobe.h>
-+#include <linux/cpumask.h>
-+
-+#define THEAD_ISA_EXT0 (RISCV_HWPROBE_VENDOR_EXTENSION_SPACE)
-+#define THEAD_ISA_EXT0_V0_7_1 (1 << 0)
-+
-+int hwprobe_thead(__u64 marchid, __u64 mimpid, struct riscv_hwprobe *pair,
-+		  const struct cpumask *cpus);
-+#endif
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 2351a5f7b8b1..58b12eaeaf46 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -13,6 +13,7 @@
- #include <asm/vector.h>
- #include <asm/switch_to.h>
- #include <asm/uaccess.h>
-+#include <asm/extensions.h>
- #include <asm/unistd.h>
- #include <asm-generic/mman-common.h>
- #include <vdso/vsyscall.h>
-@@ -192,6 +193,25 @@ static int hwprobe_vendor(__u64 mvendorid, struct riscv_hwprobe *pair,
- 			 const struct cpumask *cpus)
- {
- 	switch (mvendorid) {
-+#ifdef CONFIG_VENDOR_EXTENSIONS_THEAD
-+	case THEAD_VENDOR_ID:
-+		struct riscv_hwprobe marchid = {
-+			.key = RISCV_HWPROBE_KEY_MARCHID,
-+			.value = 0
-+		};
-+		struct riscv_hwprobe mimpid = {
-+			.key = RISCV_HWPROBE_KEY_MIMPID,
-+			.value = 0
-+		};
-+
-+		hwprobe_arch_id(&marchid, cpus);
-+		hwprobe_arch_id(&mimpid, cpus);
-+		if (marchid.value != -1ULL && mimpid.value != -1ULL)
-+			hwprobe_thead(marchid.value, mimpid.value, pair, cpus);
-+		else
-+			return -1;
-+		break;
-+#endif
- 	default:
- 		return -1;
- 	}
-diff --git a/arch/riscv/vendor_extensions/Makefile b/arch/riscv/vendor_extensions/Makefile
-index e815895e9372..38c3e80469fd 100644
---- a/arch/riscv/vendor_extensions/Makefile
-+++ b/arch/riscv/vendor_extensions/Makefile
-@@ -1,3 +1,5 @@
- ifdef CONFIG_RELOCATABLE
- KBUILD_CFLAGS += -fno-pie
- endif
-+
-+obj-$(CONFIG_VENDOR_EXTENSIONS_THEAD) += thead/
-diff --git a/arch/riscv/vendor_extensions/thead/Makefile b/arch/riscv/vendor_extensions/thead/Makefile
-new file mode 100644
-index 000000000000..7cf43c629b66
---- /dev/null
-+++ b/arch/riscv/vendor_extensions/thead/Makefile
-@@ -0,0 +1,8 @@
-+ifdef CONFIG_FTRACE
-+CFLAGS_REMOVE_extensions.o = $(CC_FLAGS_FTRACE)
-+endif
-+ifdef CONFIG_KASAN
-+KASAN_SANITIZE_extensions.o := n
-+endif
-+
-+obj-y += extensions.o
-diff --git a/arch/riscv/vendor_extensions/thead/extensions.c b/arch/riscv/vendor_extensions/thead/extensions.c
-new file mode 100644
-index 000000000000..a177501bc99c
---- /dev/null
-+++ b/arch/riscv/vendor_extensions/thead/extensions.c
-@@ -0,0 +1,24 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2023 by Rivos Inc.
-+ */
-+
-+#include <asm/extensions.h>
-+
-+int hwprobe_thead(__u64 marchid, __u64 mimpid, struct riscv_hwprobe *pair,
-+		  const struct cpumask *cpus)
-+{
-+	pair->value = 0;
-+	switch (pair->key) {
-+	case THEAD_ISA_EXT0:
-+#ifdef CONFIG_RISCV_ISA_V
-+		if (marchid == 0 && mimpid == 0)
-+			pair->value |= THEAD_ISA_EXT0_V0_7_1;
-+#endif
-+		break;
-+	default:
-+		return -1;
-+	}
-+
-+	return 0;
-+}
-
--- 
-2.41.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ29ub3IsCgpBZGRlZCBkdHMgTWFpbnRhaW5lcnMsCgpPbiBXZWQsIEp1bCA1LCAyMDIzIGF0
+IDExOjA34oCvUE0gQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKPgo+IEhl
+eSwKPgo+IE9uIFdlZCwgSnVsIDA1LCAyMDIzIGF0IDA3OjQyOjUxUE0gKzA4MDAsIFl1bmh1aSBD
+dWkgd3JvdGU6Cj4gPiBBZGQgdGhlIGRlc2NyaXB0aW9uIGZvciBmZml0Ymwgc3Vibm9kZS4KPiA+
+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBZdW5odWkgQ3VpIDxjdWl5dW5odWlAYnl0ZWRhbmNlLmNvbT4K
+PiA+IC0tLQo+ID4gIC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Zpcm13YXJlL2ZmaXRibC50eHQg
+ICB8IDI3ICsrKysrKysrKysrKysrKysrKysKPiA+ICBNQUlOVEFJTkVSUyAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgfCAgMSArCj4gPiAgMiBmaWxlcyBjaGFuZ2VkLCAyOCBpbnNl
+cnRpb25zKCspCj4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vZGV2aWNldHJl
+ZS9iaW5kaW5ncy9maXJtd2FyZS9mZml0YmwudHh0Cj4gPgo+ID4gZGlmZiAtLWdpdCBhL0RvY3Vt
+ZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9maXJtd2FyZS9mZml0YmwudHh0IGIvRG9jdW1l
+bnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Zpcm13YXJlL2ZmaXRibC50eHQKPiA+IG5ldyBm
+aWxlIG1vZGUgMTAwNjQ0Cj4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLmM0MjM2ODYyNjE5OQo+ID4g
+LS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdz
+L2Zpcm13YXJlL2ZmaXRibC50eHQKPgo+IEZpcnN0bHksIG5ldyBkdC1iaW5kaW5ncyBuZWVkIHRv
+IGJlIGRvbmUgaW4geWFtbCwgbm90IGluIHRleHQgZm9ybS4KPiBTZWNvbmRseSwgeW91IGRpZG4n
+dCByZS1ydW4gZ2V0X21haW50YWluZXIucGwgYWZ0ZXIgYWRkaW5nIHRoaXMgYmluZGluZywKPiBz
+byB5b3UgaGF2ZSBub3QgQ0NlZCBhbnkgb2YgdGhlIG90aGVyIGR0LWJpbmRpbmcgbWFpbnRhaW5l
+cnMgbm9yIHRoZQo+IGRldmljZXRyZWUgbWFpbGluZyBsaXN0LgoKUmUtcnVuIGdldF9tYWludGFp
+bmVyLnBsIGFuZCBhZGRlZCBtYWludGFpbmVycyBpbnRvIHRoZSBtYWlsbGlzdC4KZW1tLi4gVGhl
+cmUgaXMgc29tZSAqdHh0IGluCkRvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9maXJt
+d2FyZS8sIGlzbid0IGl0PwoKPgo+ID4gQEAgLTAsMCArMSwyNyBAQAo+Cj4gPiArRkZJKEZEVCBG
+SVJNV0FSRSBJTlRFUkZBQ0UpIGRyaXZlcgo+ID4gKwo+ID4gK1JlcXVpcmVkIHByb3BlcnRpZXM6
+Cj4gPiArIC0gZW50cnkgICAgICAgICAgICAgOiBhY3BpIG9yIHNtYmlvcyByb290IHBvaW50ZXIs
+IHU2NAo+ID4gKyAtIHJlZyAgICAgICAgICAgICAgICAgICAgICAgOiBhY3BpIG9yIHNtYmlvcyB2
+ZXJzaW9uLCB1MzIKPgo+IFBsZWFzZSBnbyBsb29rIGF0IGFueSBvdGhlciBkdC1iaW5kaW5nIChv
+ciB0aGUgZXhhbXBsZSBzY2hlbWEpIGFzIHRvIGhvdwo+IHRoZXNlIHByb3BlcnRpZXMgc2hvdWxk
+IGJlIHVzZWQuIEEgInJlZyIgY2VydGFpbmx5IHNob3VsZCBub3QgYmUgYmVpbmcKPiB1c2VkIHRv
+IHN0b3JlIHRoZSByZXZpc2lvbi4uLgoKT2theSwgSWYgc2/vvIxJJ2xsIGFkZCBhIHByb3BlcnR5
+ICJ2ZXJzaW9uIiBpbnRvIHRoZSBkdHMgaW5zdGVhZCBvZgoicmVnIiwganVzdCBsaWtlLCBXRFlU
+PwpmZml0YmwgewogICAgc21iaW9zIHsKICAgICAgICBlbnRyeSA9ICIiOwogICAgICAgIHZlcnNp
+b24gPSA8IDB4MDIgPjsKICAgIH0KICAgYWNwaSB7CiAgICAgICAgIGVudHJ5ID0gIiI7CiAgICAg
+ICAgIHZlcnNpb24gPSA8IDB4MDYgPjsKICB9Cn0KCj4KPiBDaGVlcnMsCj4gQ29ub3IuCj4KPiA+
+ICsKPiA+ICtTb21lIGJvb3Rsb2FkZXJzLCBzdWNoIGFzIENvcmVib290IGRvIG5vdCBzdXBwb3J0
+IEVGSSwKPiA+ICtvbmx5IGRldmljZXRyZWUgYW5kIHNvbWUgYXJjaGVzIGRvIG5vdCBoYXZlIGEg
+cmVzZXJ2ZWQKPiA+ICthZGRyZXNzIHNlZ21lbnQuIEFkZCAiZmZpdGJsIiBzdWJub2RlIHRvIG9i
+dGFpbiBBQ1BJIFJTRFAKPiA+ICthbmQgU01CSU9TIGVudHJ5Lgo+ID4gK1RoaXMgZmVhdHVyZSBp
+cyBrbm93biBhcyBGRFQgRmlybXdhcmUgSW50ZXJmYWNlIChGRkkpLgo+ID4gKwo+ID4gK0V4YW1w
+bGU6Cj4gPiArICAgICBmZml0Ymwgewo+ID4gKwo+ID4gKyAgICAgICAgICAgICBzbWJpb3Mgewo+
+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZW50cnkgPSAiIjsKPiA+ICsgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHJlZyA9IDwgMHgwMyA+Owo+ID4gKwo+ID4gKyAgICAgICAg
+ICAgICB9Cj4gPiArICAgICAgICAgICAgIGFjcGkgewo+ID4gKyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgZW50cnkgPSAiIjsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJl
+ZyA9IDwgMHgwNiA+Owo+ID4gKwo+ID4gKyAgICAgICAgICAgICB9Cj4gPiArICAgICB9Cj4gPiAr
+Cj4gPiBkaWZmIC0tZ2l0IGEvTUFJTlRBSU5FUlMgYi9NQUlOVEFJTkVSUwo+ID4gaW5kZXggOWI4
+ODZlZjM2NTg3Li4wMDgyNTdlNTUwNjIgMTAwNjQ0Cj4gPiAtLS0gYS9NQUlOVEFJTkVSUwo+ID4g
+KysrIGIvTUFJTlRBSU5FUlMKPiA+IEBAIC03ODc0LDYgKzc4NzQsNyBAQCBGOiAgICAgIGluY2x1
+ZGUvbGludXgvZWZpKi5oCj4gPiAgRkRUIEZJUk1XQVJFIElOVEVSRkFDRSAoRkZJKQo+ID4gIE06
+ICAgWXVuaHVpIEN1aSBjdWl5dW5odWlAYnl0ZWRhbmNlLmNvbQo+ID4gIFM6ICAgTWFpbnRhaW5l
+ZAo+ID4gK0Y6ICAgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Zpcm13YXJlL2Zm
+aXRibC50eHQKPiA+ICBGOiAgIGRyaXZlcnMvZmlybXdhcmUvZmZpLmMKPiA+ICBGOiAgIGluY2x1
+ZGUvbGludXgvZmZpLmgKPiA+Cj4gPiAtLQo+ID4gMi4yMC4xCj4gPgoKVGhhbmtzLApZdW5odWkK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
