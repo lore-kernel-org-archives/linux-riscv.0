@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E34EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 20:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0198DEB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 21:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q4oZRyPGDBwpISh7pdTrIqiGA55CCJfhYuuoiQ+ESlw=; b=wQBch/qAcKHaNSY/1Xz+8lhaI9
-	LNYh79OMeQ1bc2CYbHU/GOkyBxEhavKgo09XpQAwVnjvI5GevmVwTgs3wBG4LDIDAipBbAb8lOouX
-	r5DofeW4hVDXnLBsURc1BM72S6DFaP6ljne31rUqSB1OPP8T7HWNYm/wNGP0T+8mlHUiU6OASxopY
-	tvewhu/YD9ff0e4KKoLvQ8l3IGX6G3m/dVeOSXLBBUi6mwQbSgyDfVbM43GdVAvGHSJwa9o+PLwGD
-	fVQx0vu9rXYESUxPt0/fDMhv3DlHXwNVpLffkDGZ1RV6EMFl57OUaS99kztRkwPLhkJwS+rAeKWcA
-	pdrF2+Ag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mIn8cJn9qKXO5J/2+bSNUzqZ1Zsmk4zf9uoljaImA9c=; b=dh5o7UGPJVUFNt
+	l+ziDiJsotsqAdN4p9lgqza328VGPUj5imEc6prot5UPVDxvV6LmopHIRDI0f2c9qmT8QN2NgWnVq
+	ZpDB+e61ChdJcwZJc7br70mXm5LT9FMiiHyBWWK0U8EhlwwIvF5BvhD0Ecm3Qv9YJYy2G/pbhL3LO
+	DqX7su3Ra9QprRJLiSUupj0c0Ss0swGHW8SW52DilDzmtLu0p/fIkhtQ3MUtmoC0tQVw9jV4Sb1bf
+	f9RrPnaU6neQohEWLy63SAf8o2sgHzPzD2p5M3NW1iuwbo/enciD+zCxISl7FgZ7d9MY8pY8Fw9ka
+	1fj3t3b/GZ/vxUuSNH8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHVoq-002d3U-3D;
-	Thu, 06 Jul 2023 20:43:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qHWAx-002g0R-1Y;
+	Thu, 06 Jul 2023 21:06:07 +0000
+Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHVon-002d2D-10
+	id 1qHWAq-002fzJ-2w
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 20:43:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2BF09612AE;
-	Thu,  6 Jul 2023 20:43:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D73AC433C7;
-	Thu,  6 Jul 2023 20:43:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688676189;
-	bh=3PI2BGyiYdsp+NcKWjPsSpXQxXQ/ceNISunVsaOciJs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nle0wMHXa9utYvBhOLPBBhlVo+LcZLEHJIcl7Tqo26gEp98Xah+TYoWCC4b0Wole9
-	 WjQBXap0Y7eiY55GZvtqNo/LYDjgMeoyNsVpFqy3ykmIyg9wwTzPheZvI9crTZCi25
-	 S4o5SR8ea5ejjBNcEwiVz+5vpXZzf5ph1SJ1/2WfJe0lnpu9mFoG/NlaMo+ACUUGhE
-	 I7ehmyXjpLL04rNQ3aMKP+EXcZVBaZzBk30LHH2Xppetz2PZqz1GJYZeBNbC54qmsZ
-	 qq9+IbfXn/qw6dQ279RiFkBG59lyfD0pU0pGvrLFjyjqCsCNdkQgrwY/nx2WVHCPA7
-	 dEj0OjWLH1ImA==
-Date: Thu, 6 Jul 2023 21:43:04 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	evan@rivosinc.com, heiko@sntech.de, linux-doc@vger.kernel.org
-Subject: Re: [PATCH 1/3] RISC-V: Framework for vendor extensions
-Message-ID: <20230706-decode-snub-3ccf842d0861@spud>
-References: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
- <20230705-thead_vendor_extensions-v1-1-ad6915349c4d@rivosinc.com>
- <20230706-curly-swinging-afbf79a4cdb7@spud>
- <ZKcbJ9MEP/pBx39J@ghost>
+	Thu, 06 Jul 2023 21:06:05 +0000
+Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-6b8decf09e1so1079745a34.0
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Jul 2023 14:06:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688677560; x=1691269560;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZFW/hpxSjw80S4/40VMtY9pVO+BHS0huPcSoKXyN6Sg=;
+        b=bJ9IAljWSDUmVerBHC4K6sBauN/zDrHTC4ndE35taO5K0TdEBgRd4ELNGGgbp0D2iT
+         S3oHzPVCEkuMx5Yc7QIFPgBEAhf4ilkY9FJLBf0PEf0M3L3Wo3gH1P3jnBlomRnx6oIX
+         +hpVX2yfs3ahtMxc+H81BtoUj2+pjkE12ospBrGSucOwRaNaiRmT2Jf/4dZ/f4hOenhO
+         zhZDw13iBNdBCE8YgtKI9ayAw+mOgBSGadolPlriEV1tWljWNHWqTZqGd9Qqj5CYpLIB
+         CEtc+bMz3YdzDU1RidBzLxDe5RU6zEMMClWguDs5y7WIjmmyMlE5gl1EcOqtFHV0jry7
+         sdMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688677560; x=1691269560;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZFW/hpxSjw80S4/40VMtY9pVO+BHS0huPcSoKXyN6Sg=;
+        b=ZaxIAmKOf/tKJWF80BL2nXFUJHHic9TobwHm2AJXdRVffwtWki90npRtIiUhNjsYjQ
+         AL1qN+gLAS7CPwb1HNDDqRUkkyoIF2pOeRpWklROH58cD7Bl7vkjyY9KRKK1a1COic4e
+         wU9j66dewJaDSuHVPPjy1tqwF/KauFKknXAlxxxfD9z9iJesaRGT+WlWVb8I3xnqyGQj
+         M9nmkRsZz6idFHSNgIcbNm4hJrvxWSRJg4T84lf96iUwRY7ws1Q+frH85aAq/EhqwMdL
+         l5O+nwueNO5TIvCKyeyD03POCzWZqth/CtUFcJQeEw5OqErjSRDLKhWzcAZHpdZSvWq1
+         S+Ig==
+X-Gm-Message-State: ABy/qLZbmICtgf4fxbFlSRNpQvTpodh91V2hmYqiLhrtEznGz4rA3atw
+	xJ2gIUctpCsa22+NlDVL8Hwk8WuOO78AS4h53Nk=
+X-Google-Smtp-Source: APBJJlE6h71AT2opmL7lNN7grV9TBSkjmTyWA+tiRzjx5CWr0wRpyfoG4FhEde6/jgC65ZjyG1N/eg==
+X-Received: by 2002:a05:6808:1a29:b0:3a0:663d:fd18 with SMTP id bk41-20020a0568081a2900b003a0663dfd18mr2971060oib.57.1688677559783;
+        Thu, 06 Jul 2023 14:05:59 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id f5-20020aa782c5000000b00666d7ef2310sm1715817pfn.94.2023.07.06.14.05.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Jul 2023 14:05:59 -0700 (PDT)
+Subject: [PATCH] RISC-V: Re-alphabetize Kconfig
+Date: Thu,  6 Jul 2023 14:04:57 -0700
+Message-Id: <20230706210457.12618-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-In-Reply-To: <ZKcbJ9MEP/pBx39J@ghost>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230706_134313_455471_969EA5D8 
-X-CRM114-Status: GOOD (  47.47  )
+X-CRM114-CacheID: sfid-20230706_140601_191503_4FC7FB15 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,196 +84,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6590374525103132140=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Looks like I missed a few of these, I just stumbled on these again due
+to a merge conflict.
 
---===============6590374525103132140==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="OYvwyku6mIIYmpsy"
-Content-Disposition: inline
+Fixes: f32b4b467ebd ("RISC-V: enable dynamic ftrace for RV32I")
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+ arch/riscv/Kconfig | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index b49793cf34eb..6553cc6c0858 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -105,9 +105,15 @@ config RISCV
+ 	select HAVE_CONTEXT_TRACKING_USER
+ 	select HAVE_DEBUG_KMEMLEAK
+ 	select HAVE_DMA_CONTIGUOUS if MMU
++	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
++	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+ 	select HAVE_EBPF_JIT if MMU
++	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+ 	select HAVE_FUNCTION_ARG_ACCESS_API
+ 	select HAVE_FUNCTION_ERROR_INJECTION
++	select HAVE_FUNCTION_GRAPH_TRACER
++	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
++	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+ 	select HAVE_GCC_PLUGINS
+ 	select HAVE_GENERIC_VDSO if MMU && 64BIT
+ 	select HAVE_IRQ_TIME_ACCOUNTING
+@@ -148,12 +154,6 @@ config RISCV
+ 	select TRACE_IRQFLAGS_SUPPORT
+ 	select UACCESS_MEMCPY if !MMU
+ 	select ZONE_DMA32 if 64BIT
+-	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
+-	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+-	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+-	select HAVE_FUNCTION_GRAPH_TRACER
+-	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+-	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+ 
+ config CLANG_SUPPORTS_DYNAMIC_FTRACE
+ 	def_bool CC_IS_CLANG
+-- 
+2.40.1
 
---OYvwyku6mIIYmpsy
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Jul 06, 2023 at 12:51:03PM -0700, Charlie Jenkins wrote:
-> On Thu, Jul 06, 2023 at 06:15:57PM +0100, Conor Dooley wrote:
-> > On Wed, Jul 05, 2023 at 08:30:17PM -0700, Charlie Jenkins wrote:
-> > > diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-> > > index afa83e307a2e..bea38010d9db 100644
-> > > --- a/arch/riscv/Kbuild
-> > > +++ b/arch/riscv/Kbuild
-> > > @@ -3,6 +3,7 @@
-> > >  obj-y +=3D kernel/ mm/ net/
-> > >  obj-$(CONFIG_BUILTIN_DTB) +=3D boot/dts/
-> > >  obj-y +=3D errata/
-> > > +obj-y +=3D vendor_extensions/
-> > >  obj-$(CONFIG_KVM) +=3D kvm/
-> > > =20
-> > >  obj-$(CONFIG_ARCH_HAS_KEXEC_PURGATORY) +=3D purgatory/
-> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > index c1505c7729ec..19404ede0ee3 100644
-> > > --- a/arch/riscv/Kconfig
-> > > +++ b/arch/riscv/Kconfig
-> > > @@ -276,6 +276,7 @@ config AS_HAS_OPTION_ARCH
-> > > =20
-> > >  source "arch/riscv/Kconfig.socs"
-> > >  source "arch/riscv/Kconfig.errata"
-> > > +source "arch/riscv/Kconfig.vendor"
-> > > =20
-> > >  menu "Platform type"
-> > > =20
-> > > diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
-> > > new file mode 100644
-> > > index 000000000000..213ac3e6fed5
-> > > --- /dev/null
-> > > +++ b/arch/riscv/Kconfig.vendor
-> > > @@ -0,0 +1,3 @@
-> > > +menu "Vendor extensions selection"
-> > > +
-> > > +endmenu # "Vendor extensions selection"
-> >=20
-> > These files don't do anything, don't add them until you need to.
->=20
-> I wasn't sure if it was more clear to split up the vendor extension
-> framework from the T-Head specific calls since the main goal of this
-> series is to propose a vendor extension framework. I can merge this with
-> the following patch.
-
-Yeah, don't add files that you are not using, until the patch in which
-you need them. Say we had to revert your 2/3 patch - we'd be left with
-dead files in the tree.
-
-> > >  static void hwprobe_one_pair(struct riscv_hwprobe *pair,
-> > >  			     const struct cpumask *cpus)
-> > >  {
-> > > +	int err;
-> > > +
-> > > +	if (((unsigned long) pair->key) >=3D RISCV_HWPROBE_VENDOR_EXTENSION=
-_SPACE) {
-> >=20
-> > Hopefully Bjorn or someone that actually knows a thing or two about uapi
-> > stuff can chime in here, but I think what you are doing here (where the
-> > vendor space sets the MSB) really muddies the api. These keys are defin=
-ed
-> > as signed 64 bit numbers & -1 is the value set when a key is not valid.
-> > I'd much rather we kept the negative space off-limits, and used the 62nd
-> > bit instead, avoiding using negative numbers for valid keys.
-> >=20
-> Yeah that makes sense, I can change this up.
-> > > +		struct riscv_hwprobe mvendorid =3D {
-> > > +			.key =3D RISCV_HWPROBE_KEY_MVENDORID,
-> > > +			.value =3D 0
-> > > +		};
-> > > +
-> > > +		hwprobe_arch_id(&mvendorid, cpus);
-> >=20
-> > I think this needs a comment explaining why you do this hwprobe call,=
-=20
-> > > +		if (mvendorid.value !=3D -1ULL)
-> > > +			err =3D hwprobe_vendor(mvendorid.value, pair, cpus);
-> > > +		else
-> > > +			err =3D -1;
-> > > +	}
-> >=20
-> > I don't really understand the control flow here. Why are you continuing
-> > on to the switch statement, if you have either a) already ran
-> > hwprobe_vendor() or b) noticed that mvendorid.value is not valid?
-> >=20
-> The purpose of this was to consolidate the error handling to a single
-> spot at the bottom of the file. It would fall through the switch
-> statement and set the values appropriately. I guess it does seem a bit
-> awkward.
-
-Use a goto? It seems to do exactly what you want here.
-You could also define err as -1 to begin with, and drop the else branch.
-
-The other limitation of this stuff, while I think of it, is that you
-preclude more than one vendor implementing an extension.
-
-> > >  	switch (pair->key) {
-> > >  	case RISCV_HWPROBE_KEY_MVENDORID:
-> > >  	case RISCV_HWPROBE_KEY_MARCHID:
-> > > @@ -217,13 +243,21 @@ static void hwprobe_one_pair(struct riscv_hwpro=
-be *pair,
-> > > =20
-> > >  	/*
-> > >  	 * For forward compatibility, unknown keys don't fail the whole
-> > > -	 * call, but get their element key set to -1 and value set to 0
-> > > -	 * indicating they're unrecognized.
-> > > +	 * call, instead an error is raised to indicate the element key
-> > > +	 * is unrecognized.
-> > >  	 */
-> > >  	default:
-> > > +		err =3D -1;
-> > > +		break;
-> > > +	}
-> > > +
-> > > +	/*
-> > > +	 * Setting the element key to -1 and value to 0 indicates that
-> > > +	 * hwprobe was unable to find the requested key.
-> > > +	 */
-> > > +	if (err !=3D 0) {
-> > >  		pair->key =3D -1;
-> > >  		pair->value =3D 0;
-> > > -		break;
-> > >  	}
-> > >  }
-> > > =20
-> > > diff --git a/arch/riscv/vendor_extensions/Makefile b/arch/riscv/vendo=
-r_extensions/Makefile
-> > > new file mode 100644
-> > > index 000000000000..e815895e9372
-> > > --- /dev/null
-> > > +++ b/arch/riscv/vendor_extensions/Makefile
-> > > @@ -0,0 +1,3 @@
-> > > +ifdef CONFIG_RELOCATABLE
-> > > +KBUILD_CFLAGS +=3D -fno-pie
-> > > +endif
-> >=20
-> > There are no files in this directory, why do you need to do a dance
-> > about relocatable kernels?
-> >=20
-> This is framework for the following patch in the series. I saw these
-> lines in the errata Makefile so I created this Makefile to set up the
-> following patch in the series. I can merge this patch with the following
-> patch to make this series more clear.
-
-The errata code gets called super early on, so it needs it. What you
-have here does not. We want to remove it from the errata Makefile
-anyway.
-
-Cheers,
-Conor.
-
---OYvwyku6mIIYmpsy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKcnWAAKCRB4tDGHoIJi
-0mupAQC6ECf2yHm1pNuFe6s0GK2zdRQTq6kkAOceDcR9OAvPsAD/WURPSMWbBRYN
-MO9cTHjqrmlEa2csS3I6ONsoGzqU4gA=
-=F2R7
------END PGP SIGNATURE-----
-
---OYvwyku6mIIYmpsy--
-
-
---===============6590374525103132140==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6590374525103132140==--
-
