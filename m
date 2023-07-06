@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8A2EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 17:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AB77EB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 17:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dZnuDNZP1fyS/+sxs3O9st5rDyE1C4JIywAZusYPySA=; b=iklpl5eDRelx3iq5vO/5HhjUl5
-	Upz90TPwPXnKgxYoYuvzOoSu2CiERuPDgJQ6EI+Hq9tm6xu5ePqmYkpR7W9jydZw/sDUZQBOorNur
-	Mn0oGIo/6BpqjHGqCena5w/XmGpoCs4a9UDXY052CT/VEA8IL3+MjHhWC9ZfMNbLAwNDXVZU0LNOH
-	Rg4ylSXQSl75TgRRq5Um6gtO9rY/LU80znIeX4wpHM+d25tNSvX/tjQYpOnPRk8OgKZ2IksbMsX7H
-	YJFNiL9q2qv8cIVCd9/xrQ8AbtsPxHO3p1Riy0lMacEYjvc2TK1fXXORDJ/JvAlxeq/lNbwlbiE2V
-	Os4KLL4A==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=8anJ9i4B6yxZuKi/CTWmhvX6fC0rYg/2+PAZm1TA0Io=; b=2UlCxdtYwFJy89VPeVjuoW+9Ov
+	qG/tIf4acQFop9Crbp31rtyAX6/m+WtjUjAtvxxAngvw2MuS5chZYZOxZdTtcMJ/dGas18kpsltUu
+	zffl2jOLmtIi42lA7DZiV+2mRdkAyvngoOO1ViwT13TKdcej3Saz11XgUKAg939yp4uhsF7dE4oGE
+	Wh902G+RmuJZ1jOkz0fIgGRwkMrrVQG2IbuNoQiVujehG7FOOeM8xvqfAcYpiMHUieRliID8M5mb1
+	FqTNZZqvwkgzx4W9RtavP89LIJuGBppwBd98BsnQFbQ0WifhWnVaSzS1GMB99GOxi5RTO9U5xXvR5
+	jV84GAbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHSaN-002GRL-2y;
-	Thu, 06 Jul 2023 17:16:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qHSlH-002HXD-15;
+	Thu, 06 Jul 2023 17:27:23 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHSaK-002GQU-0E
+	id 1qHSlE-002HWW-37
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 17:16:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DD09E60C74;
-	Thu,  6 Jul 2023 17:16:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ED65C433C7;
-	Thu,  6 Jul 2023 17:16:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688663762;
-	bh=K525Re3smqCn8xHm4THDIij+h4crszZpgCUGoxZhhUk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lFuWcgNAb/ds/zSAxxFst4Of6NVK+cdwSo+uyehJ0y59mKZNWHitYZQgI1BcoZijb
-	 6FtCerlX2kfXkz7OJiDDFq+Ykoalf4x4nIE/KHzquTVTRXehCWAxXvJatGmEiQ4jVa
-	 GxCwRTJW4JhuP9pjoVT3AmuaV7/6WQ6X9t0vs3AFzRpI7fqIZmtb9tjYf5Z856g/+H
-	 FZqA5h3WcLge2ZsbMl8F49WwYaT/SozDrUeeuQE4k1Fs+T3BNZ1YlO+fjHVUw8sHED
-	 YFw05t1TrPUt9KJAlNGtToCTonwBcJ+kJpAimi4L90ni6sgFMh2HL/N7WVYhwgNUNy
-	 XpHhxzrImIlFQ==
-Date: Thu, 6 Jul 2023 18:15:57 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	evan@rivosinc.com, heiko@sntech.de, linux-doc@vger.kernel.org
-Subject: Re: [PATCH 1/3] RISC-V: Framework for vendor extensions
-Message-ID: <20230706-curly-swinging-afbf79a4cdb7@spud>
-References: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
- <20230705-thead_vendor_extensions-v1-1-ad6915349c4d@rivosinc.com>
-MIME-Version: 1.0
-In-Reply-To: <20230705-thead_vendor_extensions-v1-1-ad6915349c4d@rivosinc.com>
+	Thu, 06 Jul 2023 17:27:22 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1b89b75dc1cso15090985ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Jul 2023 10:27:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1688664439; x=1691256439;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Jn7a2xeSOCay/dfZF7fwDabuNtAa1pZY11og1PISP7o=;
+        b=iiQ+SMcyzSGrF/OXkZ0ynReYpKtMKZ0y0KTGoqTMo6wj7LWaQxw0z5jrVOvbH58TTg
+         +N0U8PwreurjB5vVwFH9fXYJNWvRbmTRctfibbcyIYqbrUA4jTbc/Z3dAQ/5MprxDTGt
+         7u084BXwAky1m625fwmIHNhkWTTHM8bi5k6mcNrCG+se3g8/+bm9vBberW5VtkXqIdxT
+         aodLfXEGxeET0tBuCnP1803Az+pVNyKlcAyoQzVfFuzvTEGIYaJbYz1Km6QS4zFK5xD7
+         9O0IZrbUp9uaCA7B3O6svuVhAsKLm33sopcJcweXt+u98ytGaP3ArwiqIPbHHzp4PvW4
+         7ilA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688664439; x=1691256439;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Jn7a2xeSOCay/dfZF7fwDabuNtAa1pZY11og1PISP7o=;
+        b=W1m0/tSqR29fcipa09Hm1CnjS8bNT7x1ra5koLwExcCp4Sodj8HgHNyb4lzYVx+0s0
+         rL2oUTN6TiRnpbRdR9r9nRqd0OjVQ+v2HzAUaE1rmwPF1YuqTjCcLWkav0Cw6hlXOGVN
+         574+oqg1hHSgdBV5UD8g/bHhb4Ra+HEEOe20ANnBL+MMnKKOWZU5suslShodoKmgXph8
+         A5mgmEMACH0OpaZ2uQlSTJsBipKWqtNmX4QFe0S0+NrmBZvpdjPuM3jvcaQg+pQ5IQF6
+         DP0D+XmL+ohs6XWvOALx3ZolNIwhX9NxAzZckI68frV9TOY8p72OreQy46vOpZUPy6Z/
+         lS4g==
+X-Gm-Message-State: ABy/qLbggKXRTb78dKNH026ogTu5yq/4AJdm0HLGNYCoaq6mdnhirQmU
+	uU/RT/6+neevNA+we7Pru0m/5g==
+X-Google-Smtp-Source: APBJJlE3KGdR0bMX6GYwQVcPoEOOedKCRiHGchyo57OKOouToD0llxWDSI4fWwVmCNS6bQ2O3EB6tw==
+X-Received: by 2002:a17:902:dac9:b0:1b8:76cb:c6a4 with SMTP id q9-20020a170902dac900b001b876cbc6a4mr8323507plx.21.1688664438768;
+        Thu, 06 Jul 2023 10:27:18 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id y10-20020a17090322ca00b001b7fabe8b0asm1694210plg.2.2023.07.06.10.27.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Jul 2023 10:27:18 -0700 (PDT)
+Date: Thu, 06 Jul 2023 10:27:18 -0700 (PDT)
+X-Google-Original-Date: Thu, 06 Jul 2023 10:26:32 PDT (-0700)
+Subject: Re: [PATCH 1/1] riscv: dts: Enable device-tree overlay support for starfive devices
+In-Reply-To: <20230627080620.329873-1-felix.moessbauer@siemens.com>
+CC: kernel@esmil.dk, robh+dt@kernel.org, daniel.bovensiepen@siemens.com,
+  jan.kiszka@siemens.com, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+  felix.moessbauer@siemens.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: felix.moessbauer@siemens.com, Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-6b374b17-9e75-4ae5-b614-f89fcf8b64c4@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230706_101604_221868_557A2A73 
-X-CRM114-Status: GOOD (  33.77  )
+X-CRM114-CacheID: sfid-20230706_102721_028771_333BBAAC 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,221 +87,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6401878986376564886=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6401878986376564886==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="UI60rudIHsqNxMLP"
-Content-Disposition: inline
-
-
---UI60rudIHsqNxMLP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Charlie,
-
-On Wed, Jul 05, 2023 at 08:30:17PM -0700, Charlie Jenkins wrote:
-> Create Kconfig files, Makefiles, and functions to enable vendors to
-> provide information via the riscv_hwprobe syscall about which vendor
-> extensions are available.
-
-This is all apparently from reading the diff, you don't need to tell us
-what files you have created etc. Please just stick with explaining the
-rationale for your changes (especially anything that might make someone
-reading it go "huh").
-
->=20
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+On Tue, 27 Jun 2023 01:06:20 PDT (-0700), felix.moessbauer@siemens.com wrote:
+> Add the '-@' DTC option for the starfive devices. This option
+> populates the '__symbols__' node that contains all the necessary symbols
+> for supporting device-tree overlays (for instance from the firmware or
+> the bootloader) on these devices.
+>
+> The starfive devices allow various modules to be connected and this
+> enables users to create out-of-tree device-tree overlays for these modules.
+>
+> Please note that this change does increase the size of the resulting DTB
+> by ~20%. For example, with v6.4 increase in size is as follows:
+>
+> jh7100-beaglev-starlight.dtb 6192 -> 7339
+> jh7100-starfive-visionfive-v1.dtb 6281 -> 7428
+> jh7110-starfive-visionfive-2-v1.2a.dtb 11101 -> 13447
+> jh7110-starfive-visionfive-2-v1.3b.dtb 11101 -> 13447
+>
+> Signed-off-by: Felix Moessbauer <felix.moessbauer@siemens.com>
 > ---
->  arch/riscv/Kbuild                     |  1 +
->  arch/riscv/Kconfig                    |  1 +
->  arch/riscv/Kconfig.vendor             |  3 +++
->  arch/riscv/include/asm/hwprobe.h      |  1 +
->  arch/riscv/kernel/sys_riscv.c         | 40 +++++++++++++++++++++++++++++=
-+++---
->  arch/riscv/vendor_extensions/Makefile |  3 +++
->  6 files changed, 46 insertions(+), 3 deletions(-)
-
-> diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-> index afa83e307a2e..bea38010d9db 100644
-> --- a/arch/riscv/Kbuild
-> +++ b/arch/riscv/Kbuild
-> @@ -3,6 +3,7 @@
->  obj-y +=3D kernel/ mm/ net/
->  obj-$(CONFIG_BUILTIN_DTB) +=3D boot/dts/
->  obj-y +=3D errata/
-> +obj-y +=3D vendor_extensions/
->  obj-$(CONFIG_KVM) +=3D kvm/
-> =20
->  obj-$(CONFIG_ARCH_HAS_KEXEC_PURGATORY) +=3D purgatory/
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index c1505c7729ec..19404ede0ee3 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -276,6 +276,7 @@ config AS_HAS_OPTION_ARCH
-> =20
->  source "arch/riscv/Kconfig.socs"
->  source "arch/riscv/Kconfig.errata"
-> +source "arch/riscv/Kconfig.vendor"
-> =20
->  menu "Platform type"
-> =20
-> diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
-> new file mode 100644
-> index 000000000000..213ac3e6fed5
-> --- /dev/null
-> +++ b/arch/riscv/Kconfig.vendor
-> @@ -0,0 +1,3 @@
-> +menu "Vendor extensions selection"
+>  arch/riscv/boot/dts/starfive/Makefile | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> index 170956846d49..0141504c0f5c 100644
+> --- a/arch/riscv/boot/dts/starfive/Makefile
+> +++ b/arch/riscv/boot/dts/starfive/Makefile
+> @@ -1,4 +1,10 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> +# Enables support for device-tree overlays
+> +DTC_FLAGS_jh7100-beaglev-starlight := -@
+> +DTC_FLAGS_jh7100-starfive-visionfive-v1 := -@
+> +DTC_FLAGS_jh7110-starfive-visionfive-2-v1.2a := -@
+> +DTC_FLAGS_jh7110-starfive-visionfive-2-v1.3b := -@
 > +
-> +endmenu # "Vendor extensions selection"
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-beaglev-starlight.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
 
-These files don't do anything, don't add them until you need to.
-
-> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hw=
-probe.h
-> index 78936f4ff513..fadb38b83243 100644
-> --- a/arch/riscv/include/asm/hwprobe.h
-> +++ b/arch/riscv/include/asm/hwprobe.h
-> @@ -9,5 +9,6 @@
->  #include <uapi/asm/hwprobe.h>
-> =20
->  #define RISCV_HWPROBE_MAX_KEY 5
-> +#define RISCV_HWPROBE_VENDOR_EXTENSION_SPACE (UL(1)<<63)
-
-Should this not be BIT_ULL(63)? Although I am not sure that we can
-actually do this, more on that front later.
-
-> =20
->  #endif
-> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> index 26ef5526bfb4..2351a5f7b8b1 100644
-> --- a/arch/riscv/kernel/sys_riscv.c
-> +++ b/arch/riscv/kernel/sys_riscv.c
-> @@ -188,9 +188,35 @@ static u64 hwprobe_misaligned(const struct cpumask *=
-cpus)
->  	return perf;
->  }
-> =20
-> +static int hwprobe_vendor(__u64 mvendorid, struct riscv_hwprobe *pair,
-> +			 const struct cpumask *cpus)
-> +{
-> +	switch (mvendorid) {
-> +	default:
-> +		return -1;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static void hwprobe_one_pair(struct riscv_hwprobe *pair,
->  			     const struct cpumask *cpus)
->  {
-> +	int err;
-> +
-> +	if (((unsigned long) pair->key) >=3D RISCV_HWPROBE_VENDOR_EXTENSION_SPA=
-CE) {
-
-Hopefully Bjorn or someone that actually knows a thing or two about uapi
-stuff can chime in here, but I think what you are doing here (where the
-vendor space sets the MSB) really muddies the api. These keys are defined
-as signed 64 bit numbers & -1 is the value set when a key is not valid.
-I'd much rather we kept the negative space off-limits, and used the 62nd
-bit instead, avoiding using negative numbers for valid keys.
-
-> +		struct riscv_hwprobe mvendorid =3D {
-> +			.key =3D RISCV_HWPROBE_KEY_MVENDORID,
-> +			.value =3D 0
-> +		};
-> +
-> +		hwprobe_arch_id(&mvendorid, cpus);
-
-I think this needs a comment explaining why you do this hwprobe call,=20
-> +		if (mvendorid.value !=3D -1ULL)
-> +			err =3D hwprobe_vendor(mvendorid.value, pair, cpus);
-> +		else
-> +			err =3D -1;
-> +	}
-
-I don't really understand the control flow here. Why are you continuing
-on to the switch statement, if you have either a) already ran
-hwprobe_vendor() or b) noticed that mvendorid.value is not valid?
-
->  	switch (pair->key) {
->  	case RISCV_HWPROBE_KEY_MVENDORID:
->  	case RISCV_HWPROBE_KEY_MARCHID:
-> @@ -217,13 +243,21 @@ static void hwprobe_one_pair(struct riscv_hwprobe *=
-pair,
-> =20
->  	/*
->  	 * For forward compatibility, unknown keys don't fail the whole
-> -	 * call, but get their element key set to -1 and value set to 0
-> -	 * indicating they're unrecognized.
-> +	 * call, instead an error is raised to indicate the element key
-> +	 * is unrecognized.
->  	 */
->  	default:
-> +		err =3D -1;
-> +		break;
-> +	}
-> +
-> +	/*
-> +	 * Setting the element key to -1 and value to 0 indicates that
-> +	 * hwprobe was unable to find the requested key.
-> +	 */
-> +	if (err !=3D 0) {
->  		pair->key =3D -1;
->  		pair->value =3D 0;
-> -		break;
->  	}
->  }
-> =20
-> diff --git a/arch/riscv/vendor_extensions/Makefile b/arch/riscv/vendor_ex=
-tensions/Makefile
-> new file mode 100644
-> index 000000000000..e815895e9372
-> --- /dev/null
-> +++ b/arch/riscv/vendor_extensions/Makefile
-> @@ -0,0 +1,3 @@
-> +ifdef CONFIG_RELOCATABLE
-> +KBUILD_CFLAGS +=3D -fno-pie
-> +endif
-
-There are no files in this directory, why do you need to do a dance
-about relocatable kernels?
-
-Cheers,
-Conor.
-
---UI60rudIHsqNxMLP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKb2zQAKCRB4tDGHoIJi
-0hTDAP0c/L2QKrlqwK8Vy+oQbp9A2yhfsGsSd2Vo7S6Cc6UFvAD/VxwxL+ezSwJP
-YptVnUsgEYOqE3Z7eZ2B14kRhmnkOQ8=
-=knz0
------END PGP SIGNATURE-----
-
---UI60rudIHsqNxMLP--
-
-
---===============6401878986376564886==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6401878986376564886==--
-
