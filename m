@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84655EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 17:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 983D7EB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 17:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cp3gzBCbTxamtgKq4zwby9MF5uQvZ/EuhPPwj8vHkz0=; b=1UItMT3zFF5LMPs+s1inyaANJU
-	XAPKpEoDSflGhv2NKdwXSLhl7mXJ7gH7+nrsb5SVbChgXl/ji49O6BJCPWA/NAUUVfQse3sbzH14V
-	J1Phhwbd6k/HC2m2iTMejrA2xwOqb14wiamWDtXjnikBDJJI+BKjI9W6g2vLA8Irq1BGVQtJ1usNY
-	CjYtWsHTsHFYzm11pFJFz/M6owu/hEIz6BaAbakUsiAEfGVbiJrFMXB16secgwo//vXdcwWyXxDNM
-	YSgEeSN94oAlOWIvCjXgERrOAv9zmz6pOtRDfMHdmVEhKrarfTH19AgtdVLuSGQnj5f/jazk9mJ71
-	9xix6ATw==;
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=EHgsFX0pCDxBcHNXfE33eK5Qp0k6Frc5IG3ZqObZn+s=; b=HreaOsO/MLLYjz4KUORGF0uKZy
+	v8HVxXITDRekC5/F4ug9hdH9TKY/8IO9L/B4hBvXiQoIhSZWefrqkFEGGtZZYBFiScYLjEMWDz9sa
+	9q/QyCo6aeYCsa9N3x629OqplaVZFRxGzxXaaXM9v9Oln0slVidVzpJKnt06SwwyfpKgeddtYqs0U
+	IlGSXQfu66LaOk24sHIgouOmsSBz+d45I/p+231wbcLT00FIWXZoM67o2YvBNgMHFdxruxMvJq87a
+	6VxXxDG06fPkp08eX6nX5giPh/yqCdLow6x8G/HZVN4zByVldfoU4nGM3GZfs5AjYoPWRCEfuUpUm
+	SBvQPRZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHSvy-002IlB-0V;
-	Thu, 06 Jul 2023 17:38:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qHT23-002JiU-20;
+	Thu, 06 Jul 2023 17:44:43 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHSvu-002Ijv-26
+	id 1qHT20-002Jgx-29
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 17:38:24 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EAA8261085;
-	Thu,  6 Jul 2023 17:38:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54B1DC433C7;
-	Thu,  6 Jul 2023 17:38:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688665101;
-	bh=Q9uAKJpEAuOc+uNAeFdgPlPrKXJ8f+DWHbbFUYtYJ4c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s66akyFbUfrjq/wGF+sJ/4HLjHe3p6ERLHafSiVYe4DeBGpE18QJZQEWJrDbIHI0d
-	 9zdh1KBVSIktTaBGoUhXMDc5OZZ9+wlWpoYAmB6BiTwCw04IfIsYZp0uXduEvHQrcx
-	 6gQrnh+TDf9FSNVwBf53cowmUg5Qw950UGRHQ9Jxiz5py1EJUTY7Hrkgr5KkTZDNRg
-	 tN7zih2PP8sufd549gak71JkK0/zPoc9WqzgA6xOdHbTZhnFezGRlMNtsn4xQoJcdd
-	 Nav89VibgJc1Ysh+kNNbk9jxdlMJwVcBe4GswSiivhfkXCF0fM7pw35wETXxmEoOo+
-	 1goRgua907fIg==
-Date: Thu, 6 Jul 2023 18:38:17 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	evan@rivosinc.com, heiko@sntech.de, linux-doc@vger.kernel.org
-Subject: Re: [PATCH 2/3] RISC-V: Add T-Head 0.7.1 vector extension to hwprobe
-Message-ID: <20230706-unwed-aeration-d8c7b71eac5e@spud>
-References: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
- <20230705-thead_vendor_extensions-v1-2-ad6915349c4d@rivosinc.com>
-MIME-Version: 1.0
-In-Reply-To: <20230705-thead_vendor_extensions-v1-2-ad6915349c4d@rivosinc.com>
+	Thu, 06 Jul 2023 17:44:42 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-55bc29a909dso576921a12.3
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Jul 2023 10:44:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1688665479; x=1691257479;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FfF1jRH7aHQy9FSffMrQi5NkhhBXF9P96GbSB0389a8=;
+        b=U+JZ8OVOhUHhhceqKYWTVBrIHn6UtLeIEG6Q7nf4dC1UN8/pUjqmTW0y+BR+jwZbgx
+         rtWGW9GC1DCMnq+KMhakuvIIZqotZE4sokbBgFKaDKJrAh4RRUAzCGtVRsVBJhNsxCId
+         vfjVIGJT/VZOZSJ4dJ9V8F9r1+w87YjT41xnrbHdJwlLDbUBooHJzEP2nG8pNyLC+Fh7
+         bowbcEMAGXzF5RXsm+1jFHA0q7W0y9O1fy4gqpZafyFzplTAgAe1xfqiGGkKLQM9yKcu
+         X/n2C//6Zl7nOghlc7fhkHBfda++BManKZyDWhTiYIdptXLTS+Jux8nPcK3LJzLziWtD
+         64Og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688665479; x=1691257479;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FfF1jRH7aHQy9FSffMrQi5NkhhBXF9P96GbSB0389a8=;
+        b=FS6eCRtZItcBfr/XFo0DFdTvqSF3c3o1JisnrygX5dPmU7VUJbZuvJzJblshCE2fKL
+         bxzqjb5zC33lCaKuh1ImCsenVOXxO/iQLB8qNioivl/pv41kUYsxkyy60ZHqRRyidxwn
+         2qbIsBJsyqpkyqA/vUn3OIsYU4Mb4E6gELWnDqxv/Puo8aHfvB39FLj6/4sHr2J2mLKj
+         bOs5oYcUus3sCFZ8DapL3++tZJq6BCQ1m1LRj3mPqzq3YQyGdPiIjRRUP8NvYyjorfEg
+         xvwdEnDrIu+l7QeDFU9n5wneeq6Czs9sD6kF1PkIVThIfLNvBslgg9BzGtPjQe6+9MEf
+         gAhQ==
+X-Gm-Message-State: ABy/qLa2u79DgQVDOISt3z3r9oCQBCB7Dvduem7ww/FwNJmOoafa7I37
+	RIeJhG3pK148LrjfIdi6ufAFOg==
+X-Google-Smtp-Source: APBJJlGpz76Tp+WAN3pXir1S2kWCrsdFR7fMg40AiERweMiTin1jjRYi/Gqve0X/5P7NartrS2YMSg==
+X-Received: by 2002:a05:6a20:497:b0:125:5bf3:f62f with SMTP id 23-20020a056a20049700b001255bf3f62fmr2257182pzc.8.1688665479149;
+        Thu, 06 Jul 2023 10:44:39 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id y20-20020aa78054000000b0064d45eea573sm1545943pfm.41.2023.07.06.10.44.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Jul 2023 10:44:38 -0700 (PDT)
+Date: Thu, 06 Jul 2023 10:44:38 -0700 (PDT)
+X-Google-Original-Date: Thu, 06 Jul 2023 10:43:38 PDT (-0700)
+Subject: Re: [PATCH v4 1/3] Documentation: arm: Add bootargs to the table of added DT parameters
+In-Reply-To: <20230626143626.106584-1-alexghiti@rivosinc.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: alexghiti@rivosinc.com, corbet@lwn.net, Ard Biesheuvel <ardb@kernel.org>
+Message-ID: <mhng-d434d878-03d5-4962-88fa-7fb0a72cb983@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230706_103822_771377_CFA9B61C 
-X-CRM114-Status: GOOD (  39.62  )
+X-CRM114-CacheID: sfid-20230706_104440_700268_ED63188B 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,282 +84,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0687160231710029877=="
+Cc: aou@eecs.berkeley.edu, alexghiti@rivosinc.com, linux-doc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, Bjorn Topel <bjorn@rivosinc.com>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, songshuaishuai@tinylab.org, ajones@ventanamicro.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0687160231710029877==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="/1/P1zz9w9UpMZlo"
-Content-Disposition: inline
-
-
---/1/P1zz9w9UpMZlo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey,
-
-On Wed, Jul 05, 2023 at 08:30:18PM -0700, Charlie Jenkins wrote:
-> Using vendor extensions in hwprobe, add the ability to query if the
-> 0.7.1 vector extension is available. It is determined to be available
-> only if the kernel is compiled with vector support,
-
-> and the user is
-> using the c906.
-
-Heh, unfortunately your patch doesn't apply this limitation.
-
-I'm not really sure where this series is intended to sit in relation to
-Heiko's series that adds support for the actual T-Head vector stuff:
-https://lore.kernel.org/linux-riscv/20230622231305.631331-1-heiko@sntech.de/
-
-Is this intended to complement that? If so, these patches don't really
-seem to integrate with it (and have some of the same flaws unfortunately
-as that series does).
-
-Firstly, to my knowledge, all T-Head cpu cores report 0 for impid &
-archid. Stefan pointed out:
-	C906 supports t-head/0.7.1 vectors as a configuration option.  The C906 in
-	the D1 and BL808 has vectors, the recently announced CV1800B has one C906
-	with vectors and one without, and I vaguely remember seeing a chip with on=
-ly
-	a non-vector C906.
-=09
-	C908 (announced, no manual yet) claims V 1.0 support.  Presumably it will
-	not support 0.7.1.
-=09
-	C910 (exists on evaluation boards) lacks vector support.
-=09
-	C920 (TH1520, SG2042, etc) has 0.7.1 support, at least superficially
-	compatible with C906-with-vectors.  Hopefully we can share errata.
-=09
-	This probably needs to be handled as an orthogonal "xtheadv" or "v0p7p1"
-	extension in whatever replaces riscv,isa.
-
-This makes an approach that does anything w/ their vector implementation
-not discernible based on the m*id CSRs. IMO, the only way to make this
-stuff work properly is to detect based on a DT or ACPI property whether
-this stuff is supported on a given core.
-
-Since the approach just cannot work, I don't have any detailed comments
-to make, just a few small ones below.
-
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+On Mon, 26 Jun 2023 07:36:24 PDT (-0700), alexghiti@rivosinc.com wrote:
+> The bootargs node is also added by the EFI stub in the function
+> update_fdt(), so add it to the table.
+>
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Reviewed-by: Atish Patra <atishp@rivosinc.com>
+> Reviewed-by: Song Shuai <songshuaishuai@tinylab.org>
 > ---
->  arch/riscv/Kconfig.vendor                       | 11 +++++++++++
->  arch/riscv/include/asm/extensions.h             | 16 ++++++++++++++++
->  arch/riscv/kernel/sys_riscv.c                   | 20 ++++++++++++++++++++
->  arch/riscv/vendor_extensions/Makefile           |  2 ++
->  arch/riscv/vendor_extensions/thead/Makefile     |  8 ++++++++
->  arch/riscv/vendor_extensions/thead/extensions.c | 24 +++++++++++++++++++=
-+++++
->  6 files changed, 81 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
-> index 213ac3e6fed5..b8b9d15153eb 100644
-> --- a/arch/riscv/Kconfig.vendor
-> +++ b/arch/riscv/Kconfig.vendor
-> @@ -1,3 +1,14 @@
->  menu "Vendor extensions selection"
-> =20
-> +config VENDOR_EXTENSIONS_THEAD
-> +	bool "T-HEAD vendor extensions"
-
-> +	depends on RISCV_ALTERNATIVE
-
-Why do you need this?
-
-> +	default n
-> +	help
-> +	  All T-HEAD vendor extensions Kconfig depend on this Kconfig. Disabling
-> +	  this Kconfig will disable all T-HEAD vendor extensions. Please say "Y"
-> +	  here if your platform uses T-HEAD vendor extensions.
-
-I don't really like this Kconfig entry. We should just use the one in
-Kconfig.errata that enables the actual vector stuff.
-
+>  Documentation/arm/uefi.rst | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/Documentation/arm/uefi.rst b/Documentation/arm/uefi.rst
+> index baebe688a006..2b7ad9bd7cd2 100644
+> --- a/Documentation/arm/uefi.rst
+> +++ b/Documentation/arm/uefi.rst
+> @@ -50,7 +50,7 @@ The stub populates the FDT /chosen node with (and the kernel scans for) the
+>  following parameters:
+>
+>  ==========================  ======   ===========================================
+> -Name                        Size     Description
+> +Name                        Type     Description
+>  ==========================  ======   ===========================================
+>  linux,uefi-system-table     64-bit   Physical address of the UEFI System Table.
+>
+> @@ -67,4 +67,6 @@ linux,uefi-mmap-desc-ver    32-bit   Version of the mmap descriptor format.
+>
+>  kaslr-seed                  64-bit   Entropy used to randomize the kernel image
+>                                       base address location.
 > +
-> +	  Otherwise, please say "N" here to avoid unnecessary overhead.
-> +
->  endmenu # "Vendor extensions selection"
-> diff --git a/arch/riscv/include/asm/extensions.h b/arch/riscv/include/asm=
-/extensions.h
-> new file mode 100644
-> index 000000000000..27ce294a3d65
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/extensions.h
-> @@ -0,0 +1,16 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2023 by Rivos Inc.
-> + */
-> +#ifndef __ASM_EXTENSIONS_H
-> +#define __ASM_EXTENSIONS_H
-> +
-> +#include <asm/hwprobe.h>
-> +#include <linux/cpumask.h>
-> +
-> +#define THEAD_ISA_EXT0 (RISCV_HWPROBE_VENDOR_EXTENSION_SPACE)
-> +#define THEAD_ISA_EXT0_V0_7_1 (1 << 0)
-> +
-> +int hwprobe_thead(__u64 marchid, __u64 mimpid, struct riscv_hwprobe *pai=
-r,
-> +		  const struct cpumask *cpus);
-> +#endif
-> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> index 2351a5f7b8b1..58b12eaeaf46 100644
-> --- a/arch/riscv/kernel/sys_riscv.c
-> +++ b/arch/riscv/kernel/sys_riscv.c
-> @@ -13,6 +13,7 @@
->  #include <asm/vector.h>
->  #include <asm/switch_to.h>
->  #include <asm/uaccess.h>
-> +#include <asm/extensions.h>
->  #include <asm/unistd.h>
->  #include <asm-generic/mman-common.h>
->  #include <vdso/vsyscall.h>
-> @@ -192,6 +193,25 @@ static int hwprobe_vendor(__u64 mvendorid, struct ri=
-scv_hwprobe *pair,
->  			 const struct cpumask *cpus)
->  {
->  	switch (mvendorid) {
-> +#ifdef CONFIG_VENDOR_EXTENSIONS_THEAD
+> +bootargs                    String   Kernel command line
+>  ==========================  ======   ===========================================
 
-Please use IS_ENABLED() in code where possible, so that we get compile
-time coverage of the code it disables. IMO, this kinda overcomplicates
-the switch anyway, and it should be as simple as:
-case THEAD_VENDOR_ID:
-	return hwprobe_thead(pair, cpus);
+I remember having said this somewhere, but it's not on lore for this 
+version.  This touches Arm stuff, so I'd prefer an Ack from someone 
+before touching it.
 
-and deal with the specific stuff (like impid etc) inside that function.
-
-> +	case THEAD_VENDOR_ID:
-> +		struct riscv_hwprobe marchid =3D {
-> +			.key =3D RISCV_HWPROBE_KEY_MARCHID,
-> +			.value =3D 0
-> +		};
-> +		struct riscv_hwprobe mimpid =3D {
-> +			.key =3D RISCV_HWPROBE_KEY_MIMPID,
-> +			.value =3D 0
-> +		};
-> +
-> +		hwprobe_arch_id(&marchid, cpus);
-> +		hwprobe_arch_id(&mimpid, cpus);
-> +		if (marchid.value !=3D -1ULL && mimpid.value !=3D -1ULL)
-> +			hwprobe_thead(marchid.value, mimpid.value, pair, cpus);
-> +		else
-> +			return -1;
-> +		break;
-> +#endif
->  	default:
->  		return -1;
->  	}
-> diff --git a/arch/riscv/vendor_extensions/Makefile b/arch/riscv/vendor_ex=
-tensions/Makefile
-> index e815895e9372..38c3e80469fd 100644
-> --- a/arch/riscv/vendor_extensions/Makefile
-> +++ b/arch/riscv/vendor_extensions/Makefile
-> @@ -1,3 +1,5 @@
->  ifdef CONFIG_RELOCATABLE
->  KBUILD_CFLAGS +=3D -fno-pie
->  endif
-
-Again, why do you need this, or...
-
-> +
-> +obj-$(CONFIG_VENDOR_EXTENSIONS_THEAD) +=3D thead/
-> diff --git a/arch/riscv/vendor_extensions/thead/Makefile b/arch/riscv/ven=
-dor_extensions/thead/Makefile
-> new file mode 100644
-> index 000000000000..7cf43c629b66
-> --- /dev/null
-> +++ b/arch/riscv/vendor_extensions/thead/Makefile
-> @@ -0,0 +1,8 @@
-> +ifdef CONFIG_FTRACE
-> +CFLAGS_REMOVE_extensions.o =3D $(CC_FLAGS_FTRACE)
-> +endif
-> +ifdef CONFIG_KASAN
-> +KASAN_SANITIZE_extensions.o :=3D n
-> +endif
-
-=2E..any of this? Not saying you don't, but I think it should be explained.
-
-> +
-> +obj-y +=3D extensions.o
-> diff --git a/arch/riscv/vendor_extensions/thead/extensions.c b/arch/riscv=
-/vendor_extensions/thead/extensions.c
-> new file mode 100644
-> index 000000000000..a177501bc99c
-> --- /dev/null
-> +++ b/arch/riscv/vendor_extensions/thead/extensions.c
-> @@ -0,0 +1,24 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2023 by Rivos Inc.
-> + */
-> +
-> +#include <asm/extensions.h>
-> +
-> +int hwprobe_thead(__u64 marchid, __u64 mimpid, struct riscv_hwprobe *pai=
-r,
-> +		  const struct cpumask *cpus)
-> +{
-> +	pair->value =3D 0;
-> +	switch (pair->key) {
-> +	case THEAD_ISA_EXT0:
-> +#ifdef CONFIG_RISCV_ISA_V
-
-As pointed out by Remi, this doesn't work either.
-You should not claim this is supported, just because V is, you also need
-the support for their vector "flavour" from Heiko's series.
-
-Plus, it should be IS_ENABLED() too.
-
-Cheers,
-Conor.
-
-> +		if (marchid =3D=3D 0 && mimpid =3D=3D 0)
-> +			pair->value |=3D THEAD_ISA_EXT0_V0_7_1;
-> +#endif
-> +		break;
-> +	default:
-> +		return -1;
-> +	}
-> +
-> +	return 0;
-> +}
->=20
-> --=20
-> 2.41.0
->=20
-
---/1/P1zz9w9UpMZlo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKb8CAAKCRB4tDGHoIJi
-0o1TAP4opDQGSf+1vplQTfo89CtVO17cBP755V6EMPFrQbWQdAEAjaYJPW5ns/M9
-6DgOIqGECBG+ipMRikyB8E3HsdHL5g8=
-=YAT+
------END PGP SIGNATURE-----
-
---/1/P1zz9w9UpMZlo--
-
-
---===============0687160231710029877==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Also: it looks like this missed e790a4ce5290 ("arm: docs: Move Arm 
+documentation to Documentation/arch/").
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0687160231710029877==--
-
