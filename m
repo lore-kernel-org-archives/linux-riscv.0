@@ -4,82 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0199EB64D9
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 20:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 933B0EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 20:04:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F6O6hgpdHe8h+5cneeWyJDrGTnVSnMw0fefjjuIue6M=; b=g67I/ttDpwi2BT
-	Qu6cFmOkphK9yZ1v12XYzO0NslKG6GV/nFURIKTR4J/P1b3eV7zDQw3CIZjsBrb+70fooGbEPjsiN
-	8ahj8Muz4L9zjDFnqp3WTRr+8/PTlQYZVle4RRf3FVL07aJ89lCR7/Y2965teoN0bK0GMTDL9N+2z
-	7P1g7QdkZamRlRgl4t2/GxCKbfgjpSk3TKieC7SUbnBW+JXXCH8X0PaxZWdBFcGL2JFBUtGNqJM21
-	k8oTnXkWbFQklkd9yfn0HMTskes/JLRn2Or0itmXmDhjY6TCuMtGlAzlR+dURWptpAkV5+RJIfKUu
-	tJnlkb6Kffy3hLNX579Q==;
+	List-Owner; bh=JZwZ62G4aafhRZ9eYW+IesFXUZLQRZ7jroe0y2qMTrM=; b=unyzqD4IWeMhxa
+	kZFwpANAXG2osGGXs1PHQGZv2coCiBi12oaPYhlLF9TcyESjPI6eAi1uWX9kFnCycMnZdWUzcIMlM
+	IXXGJ35A1WfJaBsVKuoNtVlWC9spbKhpmKCrmtN3CZRsUEslqYbtj6QkLdM56DflhwWXWUEiQNYmh
+	ivDTI85g6Sq/XaC1GQsHREI918scwOBNRgkZoJOay7XX5qr1uOQ6GM6nE1nVczd76mzmS1jh+TCM9
+	A65NV/kszhTFmzkn5qYgich9i6p7wpbXVN9SBGBsckP/XCk5csFyxUP3diiBeQAlQR6izVEFlyGFF
+	PnkWNHMk1uhvgccrmJGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHV9w-002Z0Q-2w;
-	Thu, 06 Jul 2023 20:01:00 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1qHVDQ-002ZN5-06;
+	Thu, 06 Jul 2023 20:04:36 +0000
+Received: from 11.mo584.mail-out.ovh.net ([46.105.34.195])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHV9t-002YzA-0i
+	id 1qHVDM-002ZLu-0b
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 20:00:59 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1b89114266dso7222595ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Jul 2023 13:00:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688673655; x=1691265655;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=h1WU2V04iVZxWiGrBNfGBOzGfOXPgmYyppOpGBIsnMQ=;
-        b=dFyhEMLkcRRKiKGrmVpevNYL5dlYe9YRhDfDkuthC4m5TyQ0XEDeymG2969D+y3roL
-         MIVibHl5zKvPxc3cQ678knVvqNlFg/Edm/WBczLrvl7YgWQgcbG3n7ORhxLj+PId16Rh
-         OlpC2r9Fql6CzqCSSz/qfCGaiATuI20SfcyR+SMXN/xKvlkZJ3NvTpx1iRrgU/KuTzW/
-         oGz6uD8aGXK1ilcqpCZm6bGedVBGk95iMiadi5FU9C3fzk3YfE+f2V2dQKPUQZ8Kn5eR
-         3WFsX68WjsA2KIgAewiju2ksHaDMC1SabFRmfkj11YcSitbIwwx2QhhzYnnaWJkCvynT
-         3MGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688673655; x=1691265655;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=h1WU2V04iVZxWiGrBNfGBOzGfOXPgmYyppOpGBIsnMQ=;
-        b=c+yFhvI6BvmYkGeMrOk1k2b/bm3JfVDTe4B6tFjt4yDjUfweAIPD9HFH/rr/ab75A4
-         GhVOgybSLm48m6hR0N9oZwlC8813NLerWXJZnbFfGz3HfeFkZDrmwPJUpTXgseDuBevY
-         WXZtaJlp0G15T+OCP4Tks6zq6Pz+nI8XLZgk7RVolslvzunvVcvkdahpwW0GKmhnKVyA
-         IS/USLCntwInPYY/aD2xRfQnBP36qd5JZpmWd0/ge816FNi5VBbPXvWi6SXEM3u0pXRc
-         7/klgTzSBTiPQrYkqC/CAR4yxYsdEWAg6v5b+UXfncEs0LkM/o7L3/8gDh98pD8X2cO0
-         XYBw==
-X-Gm-Message-State: ABy/qLZYl28Jy9Q6j8EqYqJ1lGaEoYlYTQM2SJYW45qIJ8S7TIJBRjRd
-	alp2MfQCuN1ZpIi30yZDnuAXkw==
-X-Google-Smtp-Source: APBJJlGCTJOroNz4RXrgThXrgYzG6Oh5sXI8M7dMJKnHdVqVCbocuXvVz+ICxCCiBbnj5ixDClNE1Q==
-X-Received: by 2002:a17:903:32c9:b0:1b8:9598:6508 with SMTP id i9-20020a17090332c900b001b895986508mr3353078plr.18.1688673655421;
-        Thu, 06 Jul 2023 13:00:55 -0700 (PDT)
-Received: from ghost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id x1-20020a170902b40100b001b8013ed362sm1790618plr.96.2023.07.06.13.00.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Jul 2023 13:00:55 -0700 (PDT)
-Date: Thu, 6 Jul 2023 13:00:52 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
-	evan@rivosinc.com, heiko@sntech.de, linux-doc@vger.kernel.org
-Subject: Re: [PATCH 2/3] RISC-V: Add T-Head 0.7.1 vector extension to hwprobe
-Message-ID: <ZKcddDAbpdCtRevP@ghost>
+	Thu, 06 Jul 2023 20:04:34 +0000
+Received: from director7.ghost.mail-out.ovh.net (unknown [10.109.143.79])
+	by mo584.mail-out.ovh.net (Postfix) with ESMTP id 4CDDF260ED
+	for <linux-riscv@lists.infradead.org>; Thu,  6 Jul 2023 20:04:27 +0000 (UTC)
+Received: from ghost-submission-6684bf9d7b-l97cm (unknown [10.110.115.90])
+	by director7.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 8A2BD1FE3B;
+	Thu,  6 Jul 2023 20:04:27 +0000 (UTC)
+Received: from courmont.net ([37.59.142.99])
+	by ghost-submission-6684bf9d7b-l97cm with ESMTPSA
+	id 1ESKGksep2Qf+hYAF5dwpg
+	(envelope-from <remi@remlab.net>); Thu, 06 Jul 2023 20:04:27 +0000
+Authentication-Results: garm.ovh; auth=pass (GARM-99G0032ad47103-f634-44c3-a9b0-9ab391bf6689,
+                    8891399453053EE55EDFED6858B7B4D362CEA829) smtp.auth=postmaster@courmont.net
+X-OVh-ClientIp: 87.92.194.88
+From: =?ISO-8859-1?Q?R=E9mi?= Denis-Courmont <remi@remlab.net>
+To: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] RISC-V: Framework for vendor extensions
+Date: Thu, 06 Jul 2023 23:04:24 +0300
+Message-ID: <2887841.e9J7NaK4W3@basile.remlab.net>
+Organization: Remlab
+In-Reply-To: <ZKcZhz7rPd41Z2DK@ghost>
 References: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
- <20230705-thead_vendor_extensions-v1-2-ad6915349c4d@rivosinc.com>
- <20230706-unwed-aeration-d8c7b71eac5e@spud>
+ <5947209.lOV4Wx5bFT@basile.remlab.net> <ZKcZhz7rPd41Z2DK@ghost>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230706-unwed-aeration-d8c7b71eac5e@spud>
+X-Ovh-Tracer-Id: 2182838448518666715
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: 0
+X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedviedrudelgddugeefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuqfggjfdpvefjgfevmfevgfenuceurghilhhouhhtmecuhedttdenucenucfjughrpefhvfevufffkfhojghfggfgtgesthhqredttddtjeenucfhrhhomheptformhhiucffvghnihhsqdevohhurhhmohhnthcuoehrvghmihesrhgvmhhlrggsrdhnvghtqeenucggtffrrghtthgvrhhnpeeuhfegfeefvdefueetleefffduuedvjeefheduueekieeltdetueetueeugfevffenucffohhmrghinheprhgvmhhlrggsrdhnvghtnecukfhppeduvdejrddtrddtrddupdekjedrledvrdduleegrdekkedpfeejrdehledrudegvddrleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepuddvjedrtddrtddruddpmhgrihhlfhhrohhmpeeorhgvmhhisehrvghmlhgrsgdrnhgvtheqpdhnsggprhgtphhtthhopedupdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdpoffvtefjohhsthepmhhoheekgedpmhhouggvpehsmhhtphhouhht
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230706_130057_265517_77F039D0 
-X-CRM114-Status: GOOD (  64.45  )
+X-CRM114-CacheID: sfid-20230706_130432_525198_ACEB99EF 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,261 +69,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 06, 2023 at 06:38:17PM +0100, Conor Dooley wrote:
-> Hey,
-> 
-> On Wed, Jul 05, 2023 at 08:30:18PM -0700, Charlie Jenkins wrote:
-> > Using vendor extensions in hwprobe, add the ability to query if the
-> > 0.7.1 vector extension is available. It is determined to be available
-> > only if the kernel is compiled with vector support,
-> 
-> > and the user is
-> > using the c906.
-> 
-> Heh, unfortunately your patch doesn't apply this limitation.
-> 
-> I'm not really sure where this series is intended to sit in relation to
-> Heiko's series that adds support for the actual T-Head vector stuff:
-> https://lore.kernel.org/linux-riscv/20230622231305.631331-1-heiko@sntech.de/
-> 
-> Is this intended to complement that? If so, these patches don't really
-> seem to integrate with it (and have some of the same flaws unfortunately
-> as that series does).
-> 
-> Firstly, to my knowledge, all T-Head cpu cores report 0 for impid &
-> archid. Stefan pointed out:
-> 	C906 supports t-head/0.7.1 vectors as a configuration option.  The C906 in
-> 	the D1 and BL808 has vectors, the recently announced CV1800B has one C906
-> 	with vectors and one without, and I vaguely remember seeing a chip with only
-> 	a non-vector C906.
-> 	
-> 	C908 (announced, no manual yet) claims V 1.0 support.  Presumably it will
-> 	not support 0.7.1.
-> 	
-> 	C910 (exists on evaluation boards) lacks vector support.
-> 	
-> 	C920 (TH1520, SG2042, etc) has 0.7.1 support, at least superficially
-> 	compatible with C906-with-vectors.  Hopefully we can share errata.
-> 	
-> 	This probably needs to be handled as an orthogonal "xtheadv" or "v0p7p1"
-> 	extension in whatever replaces riscv,isa.
-> 
-> This makes an approach that does anything w/ their vector implementation
-> not discernible based on the m*id CSRs. IMO, the only way to make this
-> stuff work properly is to detect based on a DT or ACPI property whether
-> this stuff is supported on a given core.
-> 
-> Since the approach just cannot work, I don't have any detailed comments
-> to make, just a few small ones below.
->
-
-It would be beneficial to use Heiko's vector support patch. I can look
-into using that. The main purpose of this patch is to propose a method
-of vendor extension support and since T-Head has hardware I have used 
-their hardware as an example of how to implement vendor extensions. 
-That is the reason for the kind of awkward patch segmentation.
-
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > ---
-> >  arch/riscv/Kconfig.vendor                       | 11 +++++++++++
-> >  arch/riscv/include/asm/extensions.h             | 16 ++++++++++++++++
-> >  arch/riscv/kernel/sys_riscv.c                   | 20 ++++++++++++++++++++
-> >  arch/riscv/vendor_extensions/Makefile           |  2 ++
-> >  arch/riscv/vendor_extensions/thead/Makefile     |  8 ++++++++
-> >  arch/riscv/vendor_extensions/thead/extensions.c | 24 ++++++++++++++++++++++++
-> >  6 files changed, 81 insertions(+)
-> > 
-> > diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
-> > index 213ac3e6fed5..b8b9d15153eb 100644
-> > --- a/arch/riscv/Kconfig.vendor
-> > +++ b/arch/riscv/Kconfig.vendor
-> > @@ -1,3 +1,14 @@
-> >  menu "Vendor extensions selection"
-> >  
-> > +config VENDOR_EXTENSIONS_THEAD
-> > +	bool "T-HEAD vendor extensions"
-> 
-> > +	depends on RISCV_ALTERNATIVE
-> 
-> Why do you need this?
-> 
-Thanks for pointing that out, I meant to remove that.
-> > +	default n
-> > +	help
-> > +	  All T-HEAD vendor extensions Kconfig depend on this Kconfig. Disabling
-> > +	  this Kconfig will disable all T-HEAD vendor extensions. Please say "Y"
-> > +	  here if your platform uses T-HEAD vendor extensions.
-> 
-> I don't really like this Kconfig entry. We should just use the one in
-> Kconfig.errata that enables the actual vector stuff.
-> 
-The purpose of this is to support more than just the T-Head vector
-extension. The vector extension is just the vendor extension I selected
-to support first. The purpose of this file is for all vendors to have
-their own Kconfig entries to enable the vector extension which I didn't
-feel that it properly fit into the errata.
-> > +
-> > +	  Otherwise, please say "N" here to avoid unnecessary overhead.
-> > +
-> >  endmenu # "Vendor extensions selection"
-> > diff --git a/arch/riscv/include/asm/extensions.h b/arch/riscv/include/asm/extensions.h
-> > new file mode 100644
-> > index 000000000000..27ce294a3d65
-> > --- /dev/null
-> > +++ b/arch/riscv/include/asm/extensions.h
-> > @@ -0,0 +1,16 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +/*
-> > + * Copyright (C) 2023 by Rivos Inc.
-> > + */
-> > +#ifndef __ASM_EXTENSIONS_H
-> > +#define __ASM_EXTENSIONS_H
-> > +
-> > +#include <asm/hwprobe.h>
-> > +#include <linux/cpumask.h>
-> > +
-> > +#define THEAD_ISA_EXT0 (RISCV_HWPROBE_VENDOR_EXTENSION_SPACE)
-> > +#define THEAD_ISA_EXT0_V0_7_1 (1 << 0)
-> > +
-> > +int hwprobe_thead(__u64 marchid, __u64 mimpid, struct riscv_hwprobe *pair,
-> > +		  const struct cpumask *cpus);
-> > +#endif
-> > diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> > index 2351a5f7b8b1..58b12eaeaf46 100644
-> > --- a/arch/riscv/kernel/sys_riscv.c
-> > +++ b/arch/riscv/kernel/sys_riscv.c
-> > @@ -13,6 +13,7 @@
-> >  #include <asm/vector.h>
-> >  #include <asm/switch_to.h>
-> >  #include <asm/uaccess.h>
-> > +#include <asm/extensions.h>
-> >  #include <asm/unistd.h>
-> >  #include <asm-generic/mman-common.h>
-> >  #include <vdso/vsyscall.h>
-> > @@ -192,6 +193,25 @@ static int hwprobe_vendor(__u64 mvendorid, struct riscv_hwprobe *pair,
-> >  			 const struct cpumask *cpus)
-> >  {
-> >  	switch (mvendorid) {
-> > +#ifdef CONFIG_VENDOR_EXTENSIONS_THEAD
-> 
-> Please use IS_ENABLED() in code where possible, so that we get compile
-> time coverage of the code it disables. IMO, this kinda overcomplicates
-> the switch anyway, and it should be as simple as:
-> case THEAD_VENDOR_ID:
-> 	return hwprobe_thead(pair, cpus);
-> 
-> and deal with the specific stuff (like impid etc) inside that function.
-> 
-> > +	case THEAD_VENDOR_ID:
-> > +		struct riscv_hwprobe marchid = {
-> > +			.key = RISCV_HWPROBE_KEY_MARCHID,
-> > +			.value = 0
-> > +		};
-> > +		struct riscv_hwprobe mimpid = {
-> > +			.key = RISCV_HWPROBE_KEY_MIMPID,
-> > +			.value = 0
-> > +		};
-> > +
-> > +		hwprobe_arch_id(&marchid, cpus);
-> > +		hwprobe_arch_id(&mimpid, cpus);
-> > +		if (marchid.value != -1ULL && mimpid.value != -1ULL)
-> > +			hwprobe_thead(marchid.value, mimpid.value, pair, cpus);
-> > +		else
-> > +			return -1;
-> > +		break;
-> > +#endif
-> >  	default:
-> >  		return -1;
-> >  	}
-> > diff --git a/arch/riscv/vendor_extensions/Makefile b/arch/riscv/vendor_extensions/Makefile
-> > index e815895e9372..38c3e80469fd 100644
-> > --- a/arch/riscv/vendor_extensions/Makefile
-> > +++ b/arch/riscv/vendor_extensions/Makefile
-> > @@ -1,3 +1,5 @@
-> >  ifdef CONFIG_RELOCATABLE
-> >  KBUILD_CFLAGS += -fno-pie
-> >  endif
-> 
-> Again, why do you need this, or...
-This file is properly filled out in the next patch in the series but I
-wanted to break it up. I saw this in the errata Makefiles so I assumed
-it would be needed here.
-> > +
-> > +obj-$(CONFIG_VENDOR_EXTENSIONS_THEAD) += thead/
-> > diff --git a/arch/riscv/vendor_extensions/thead/Makefile b/arch/riscv/vendor_extensions/thead/Makefile
-> > new file mode 100644
-> > index 000000000000..7cf43c629b66
-> > --- /dev/null
-> > +++ b/arch/riscv/vendor_extensions/thead/Makefile
-> > @@ -0,0 +1,8 @@
-> > +ifdef CONFIG_FTRACE
-> > +CFLAGS_REMOVE_extensions.o = $(CC_FLAGS_FTRACE)
-> > +endif
-> > +ifdef CONFIG_KASAN
-> > +KASAN_SANITIZE_extensions.o := n
-> > +endif
-> 
-> ...any of this? Not saying you don't, but I think it should be explained.
-> 
-Same reasoning as above, I can remove it if it's not needed.
-> > +
-> > +obj-y += extensions.o
-> > diff --git a/arch/riscv/vendor_extensions/thead/extensions.c b/arch/riscv/vendor_extensions/thead/extensions.c
-> > new file mode 100644
-> > index 000000000000..a177501bc99c
-> > --- /dev/null
-> > +++ b/arch/riscv/vendor_extensions/thead/extensions.c
-> > @@ -0,0 +1,24 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (C) 2023 by Rivos Inc.
-> > + */
-> > +
-> > +#include <asm/extensions.h>
-> > +
-> > +int hwprobe_thead(__u64 marchid, __u64 mimpid, struct riscv_hwprobe *pair,
-> > +		  const struct cpumask *cpus)
-> > +{
-> > +	pair->value = 0;
-> > +	switch (pair->key) {
-> > +	case THEAD_ISA_EXT0:
-> > +#ifdef CONFIG_RISCV_ISA_V
-> 
-> As pointed out by Remi, this doesn't work either.
-> You should not claim this is supported, just because V is, you also need
-> the support for their vector "flavour" from Heiko's series.
-> 
-> Plus, it should be IS_ENABLED() too.
-> 
-> Cheers,
-> Conor.
-> 
-The thought process was that it should only matter if they care about
-V. However since they are different versions of V I could see it being
-better to not depend on the same config. 
-> > +		if (marchid == 0 && mimpid == 0)
-> > +			pair->value |= THEAD_ISA_EXT0_V0_7_1;
-> > +#endif
-> > +		break;
-> > +	default:
-> > +		return -1;
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > 
-> > -- 
-> > 2.41.0
-> > 
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TGUgdG9yc3RhaW5hIDYuIGhlaW7DpGt1dXRhIDIwMjMsIDIyLjQ0LjA3IEVFU1QgQ2hhcmxpZSBK
+ZW5raW5zIGEgw6ljcml0IDoKPiBPbiBUaHUsIEp1bCAwNiwgMjAyMyBhdCAwNzoyOTozN1BNICsw
+MzAwLCBSw6ltaSBEZW5pcy1Db3VybW9udCB3cm90ZToKPiA+IExlIHRvcnN0YWluYSA2LiBoZWlu
+w6RrdXV0YSAyMDIzLCA2LjMwLjE3IEVFU1QgQ2hhcmxpZSBKZW5raW5zIGEgw6ljcml0IDoKPiA+
+ID4gQ3JlYXRlIEtjb25maWcgZmlsZXMsIE1ha2VmaWxlcywgYW5kIGZ1bmN0aW9ucyB0byBlbmFi
+bGUgdmVuZG9ycyB0bwo+ID4gPiBwcm92aWRlIGluZm9ybWF0aW9uIHZpYSB0aGUgcmlzY3ZfaHdw
+cm9iZSBzeXNjYWxsIGFib3V0IHdoaWNoIHZlbmRvcgo+ID4gPiBleHRlbnNpb25zIGFyZSBhdmFp
+bGFibGUuCj4gPiA+IAo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJs
+aWVAcml2b3NpbmMuY29tPgo+ID4gPiAtLS0KPiA+ID4gCj4gPiA+ICBhcmNoL3Jpc2N2L0tidWls
+ZCAgICAgICAgICAgICAgICAgICAgIHwgIDEgKwo+ID4gPiAgYXJjaC9yaXNjdi9LY29uZmlnICAg
+ICAgICAgICAgICAgICAgICB8ICAxICsKPiA+ID4gIGFyY2gvcmlzY3YvS2NvbmZpZy52ZW5kb3Ig
+ICAgICAgICAgICAgfCAgMyArKysKPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdwcm9i
+ZS5oICAgICAgfCAgMSArCj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zeXNfcmlzY3YuYyAgICAg
+ICAgIHwgNDAKPiA+ID4gCj4gPiA+ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrLS0t
+Cj4gPiA+IGFyY2gvcmlzY3YvdmVuZG9yX2V4dGVuc2lvbnMvTWFrZWZpbGUgfAo+ID4gPiAKPiA+
+ID4gIDMgKysrCj4gPiA+ICA2IGZpbGVzIGNoYW5nZWQsIDQ2IGluc2VydGlvbnMoKyksIDMgZGVs
+ZXRpb25zKC0pCj4gPiA+IAo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LYnVpbGQgYi9h
+cmNoL3Jpc2N2L0tidWlsZAo+ID4gPiBpbmRleCBhZmE4M2UzMDdhMmUuLmJlYTM4MDEwZDlkYiAx
+MDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9LYnVpbGQKPiA+ID4gKysrIGIvYXJjaC9yaXNj
+di9LYnVpbGQKPiA+ID4gQEAgLTMsNiArMyw3IEBACj4gPiA+IAo+ID4gPiAgb2JqLXkgKz0ga2Vy
+bmVsLyBtbS8gbmV0Lwo+ID4gPiAgb2JqLSQoQ09ORklHX0JVSUxUSU5fRFRCKSArPSBib290L2R0
+cy8KPiA+ID4gIG9iai15ICs9IGVycmF0YS8KPiA+ID4gCj4gPiA+ICtvYmoteSArPSB2ZW5kb3Jf
+ZXh0ZW5zaW9ucy8KPiA+ID4gCj4gPiA+ICBvYmotJChDT05GSUdfS1ZNKSArPSBrdm0vCj4gPiA+
+ICAKPiA+ID4gIG9iai0kKENPTkZJR19BUkNIX0hBU19LRVhFQ19QVVJHQVRPUlkpICs9IHB1cmdh
+dG9yeS8KPiA+ID4gCj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNo
+L3Jpc2N2L0tjb25maWcKPiA+ID4gaW5kZXggYzE1MDVjNzcyOWVjLi4xOTQwNGVkZTBlZTMgMTAw
+NjQ0Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiArKysgYi9hcmNoL3Jpc2N2
+L0tjb25maWcKPiA+ID4gQEAgLTI3Niw2ICsyNzYsNyBAQCBjb25maWcgQVNfSEFTX09QVElPTl9B
+UkNICj4gPiA+IAo+ID4gPiAgc291cmNlICJhcmNoL3Jpc2N2L0tjb25maWcuc29jcyIKPiA+ID4g
+IHNvdXJjZSAiYXJjaC9yaXNjdi9LY29uZmlnLmVycmF0YSIKPiA+ID4gCj4gPiA+ICtzb3VyY2Ug
+ImFyY2gvcmlzY3YvS2NvbmZpZy52ZW5kb3IiCj4gPiA+IAo+ID4gPiAgbWVudSAiUGxhdGZvcm0g
+dHlwZSIKPiA+ID4gCj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcudmVuZG9y
+IGIvYXJjaC9yaXNjdi9LY29uZmlnLnZlbmRvcgo+ID4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+
+ID4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLjIxM2FjM2U2ZmVkNQo+ID4gPiAtLS0gL2Rldi9udWxs
+Cj4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZy52ZW5kb3IKPiA+ID4gQEAgLTAsMCArMSwz
+IEBACj4gPiA+ICttZW51ICJWZW5kb3IgZXh0ZW5zaW9ucyBzZWxlY3Rpb24iCj4gPiA+ICsKPiA+
+ID4gK2VuZG1lbnUgIyAiVmVuZG9yIGV4dGVuc2lvbnMgc2VsZWN0aW9uIgo+ID4gPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od3Byb2JlLmgKPiA+ID4gYi9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2h3cHJvYmUuaCBpbmRleCA3ODkzNmY0ZmY1MTMuLmZhZGIzOGI4MzI0Mwo+
+ID4gPiAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od3Byb2JlLmgK
+PiA+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od3Byb2JlLmgKPiA+ID4gQEAgLTks
+NSArOSw2IEBACj4gPiA+IAo+ID4gPiAgI2luY2x1ZGUgPHVhcGkvYXNtL2h3cHJvYmUuaD4KPiA+
+ID4gIAo+ID4gPiAgI2RlZmluZSBSSVNDVl9IV1BST0JFX01BWF9LRVkgNQo+ID4gPiAKPiA+ID4g
+KyNkZWZpbmUgUklTQ1ZfSFdQUk9CRV9WRU5ET1JfRVhURU5TSU9OX1NQQUNFIChVTCgxKTw8NjMp
+Cj4gPiAKPiA+IElzbid0IHRoaXMgVUIgb24gMzItYml0IFJJU0MtViA/Cj4gCj4gSG1tLCB5ZWFo
+IGl0IHdvdWxkIGJlLCBidXQgdGhlIGh3cHJvYmUgc3lzY2FsbCBpcyBiYXNlZCBvbiBhIDY0IGJp
+dCBrZXkKPiB1c2luZyB0aGUgX19zNjQgdHlwZS4gVGhlcmUgY291bGQgYmUgYW4gYWx0ZXJuYXRp
+dmUgdmVuZG9yIHNwYWNlIGF0IHRoZQo+IHRvcCBvZiAzMi1iaXRzIGZvciB0aG9zZSBtYWNoaW5l
+cy4KCktleSB2YWx1ZXMgaW5zaWRlIHRoZSBzdHJ1Y3QgYXJlIDY0LWJpdCBldmVuIG9uIFJWMzIs
+IGJ1dCB5b3VyIGtleSBkZWZpbml0aW9uIApoZXJlIGlzIDMyLWJpdC4gVGhhdCBjYW4ndCB3b3Jr
+LgoKUGx1cyB0aGlzIG5lZWRzIHRvIGJlIGRlZmluZWQgdW5kZXIgdWFwaS8gYXMgdGhlIHJlc3Qg
+b2YgdGhlIGh3cHJvYmUgY29uc3RhbnRzLgoKQW5kIHRoZW4sIGV2ZW4gb24gUlY2NCwgMVVMIDw8
+IDYzIGlzIG5vdCBhIHZhbGlkIHNpZ25lZCBjb25zdGFudC4gS2VybmVsIGNvZGUgCm1pZ2h0IHRv
+bGVyYXRlIGl0LCBidXQgdGhhdCB3aWxsIG1vc3QgbGlrZWx5IGNhdXNlIHdhcm5pbmdzIG9yIGVy
+cm9ycyBpbiB0aGUgCnBvdGVudGlhbGx5IHN0cmljdGVyIGNvbXBpbGF0aW9uIGVudmlyb25tZW50
+cyBvZiB1c2VyLXNwYWNlIGNvZGUuCgo+ID4gPiAgI2VuZGlmCj4gPiA+IAo+ID4gPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX3Jpc2N2LmMKPiA+ID4gYi9hcmNoL3Jpc2N2L2tl
+cm5lbC9zeXNfcmlzY3YuYwo+ID4gPiBpbmRleCAyNmVmNTUyNmJmYjQuLjIzNTFhNWY3YjhiMSAx
+MDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX3Jpc2N2LmMKPiA+ID4gKysr
+IGIvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX3Jpc2N2LmMKPiA+ID4gQEAgLTE4OCw5ICsxODgsMzUg
+QEAgc3RhdGljIHU2NCBod3Byb2JlX21pc2FsaWduZWQoY29uc3Qgc3RydWN0IGNwdW1hc2sKPiA+
+ID4gKmNwdXMpIHJldHVybiBwZXJmOwo+ID4gPiAKPiA+ID4gIH0KPiA+ID4gCj4gPiA+ICtzdGF0
+aWMgaW50IGh3cHJvYmVfdmVuZG9yKF9fdTY0IG12ZW5kb3JpZCwgc3RydWN0IHJpc2N2X2h3cHJv
+YmUgKnBhaXIsCj4gPiA+ICsJCQkgY29uc3Qgc3RydWN0IGNwdW1hc2sgKmNwdXMpCj4gPiA+ICt7
+Cj4gPiA+ICsJc3dpdGNoIChtdmVuZG9yaWQpIHsKPiA+ID4gKwlkZWZhdWx0Ogo+ID4gPiArCQly
+ZXR1cm4gLTE7Cj4gPiA+ICsJfQo+ID4gPiArCj4gPiA+ICsJcmV0dXJuIDA7Cj4gPiA+ICt9Cj4g
+PiA+ICsKPiA+ID4gCj4gPiA+ICBzdGF0aWMgdm9pZCBod3Byb2JlX29uZV9wYWlyKHN0cnVjdCBy
+aXNjdl9od3Byb2JlICpwYWlyLAo+ID4gPiAgCj4gPiA+ICAJCQkgICAgIGNvbnN0IHN0cnVjdCBj
+cHVtYXNrICpjcHVzKQo+ID4gPiAgCj4gPiA+ICB7Cj4gPiA+IAo+ID4gPiArCWludCBlcnI7Cj4g
+PiA+ICsKPiA+ID4gKwlpZiAoKCh1bnNpZ25lZCBsb25nKSBwYWlyLT5rZXkpID49Cj4gPiAKPiA+
+IFJJU0NWX0hXUFJPQkVfVkVORE9SX0VYVEVOU0lPTl9TUEFDRSkgewo+ID4gCj4gPiA+ICsJCXN0
+cnVjdCByaXNjdl9od3Byb2JlIG12ZW5kb3JpZCA9IHsKPiA+ID4gKwkJCS5rZXkgPSBSSVNDVl9I
+V1BST0JFX0tFWV9NVkVORE9SSUQsCj4gPiA+ICsJCQkudmFsdWUgPSAwCj4gPiA+ICsJCX07Cj4g
+PiA+ICsKPiA+ID4gKwkJaHdwcm9iZV9hcmNoX2lkKCZtdmVuZG9yaWQsIGNwdXMpOwo+ID4gPiAr
+CQlpZiAobXZlbmRvcmlkLnZhbHVlICE9IC0xVUxMKQo+ID4gPiArCQkJZXJyID0gaHdwcm9iZV92
+ZW5kb3IobXZlbmRvcmlkLnZhbHVlLCBwYWlyLAo+ID4gCj4gPiBjcHVzKTsKPiA+IAo+ID4gPiAr
+CQllbHNlCj4gPiA+ICsJCQllcnIgPSAtMTsKPiA+ID4gKwl9Cj4gPiA+ICsKPiA+ID4gCj4gPiA+
+ICAJc3dpdGNoIChwYWlyLT5rZXkpIHsKPiA+ID4gIAljYXNlIFJJU0NWX0hXUFJPQkVfS0VZX01W
+RU5ET1JJRDoKPiA+ID4gCj4gPiA+ICAJY2FzZSBSSVNDVl9IV1BST0JFX0tFWV9NQVJDSElEOgo+
+ID4gPiBAQCAtMjE3LDEzICsyNDMsMjEgQEAgc3RhdGljIHZvaWQgaHdwcm9iZV9vbmVfcGFpcihz
+dHJ1Y3QgcmlzY3ZfaHdwcm9iZQo+ID4gPiAqcGFpciwKPiA+ID4gCj4gPiA+ICAJLyoKPiA+ID4g
+IAkKPiA+ID4gIAkgKiBGb3IgZm9yd2FyZCBjb21wYXRpYmlsaXR5LCB1bmtub3duIGtleXMgZG9u
+J3QgZmFpbCB0aGUgd2hvbGUKPiA+ID4gCj4gPiA+IC0JICogY2FsbCwgYnV0IGdldCB0aGVpciBl
+bGVtZW50IGtleSBzZXQgdG8gLTEgYW5kIHZhbHVlIHNldCB0byAwCj4gPiA+IC0JICogaW5kaWNh
+dGluZyB0aGV5J3JlIHVucmVjb2duaXplZC4KPiA+ID4gKwkgKiBjYWxsLCBpbnN0ZWFkIGFuIGVy
+cm9yIGlzIHJhaXNlZCB0byBpbmRpY2F0ZSB0aGUgZWxlbWVudCBrZXkKPiA+ID4gKwkgKiBpcyB1
+bnJlY29nbml6ZWQuCj4gPiA+IAo+ID4gPiAgCSAqLwo+ID4gPiAgCQo+ID4gPiAgCWRlZmF1bHQ6
+Cj4gPiA+ICsJCWVyciA9IC0xOwo+ID4gPiArCQlicmVhazsKPiA+ID4gKwl9Cj4gPiA+ICsKPiA+
+ID4gKwkvKgo+ID4gPiArCSAqIFNldHRpbmcgdGhlIGVsZW1lbnQga2V5IHRvIC0xIGFuZCB2YWx1
+ZSB0byAwIGluZGljYXRlcyB0aGF0Cj4gPiA+ICsJICogaHdwcm9iZSB3YXMgdW5hYmxlIHRvIGZp
+bmQgdGhlIHJlcXVlc3RlZCBrZXkuCj4gPiA+ICsJICovCj4gPiA+ICsJaWYgKGVyciAhPSAwKSB7
+Cj4gPiA+IAo+ID4gPiAgCQlwYWlyLT5rZXkgPSAtMTsKPiA+ID4gIAkJcGFpci0+dmFsdWUgPSAw
+Owo+ID4gPiAKPiA+ID4gLQkJYnJlYWs7Cj4gPiA+IAo+ID4gPiAgCX0KPiA+ID4gIAo+ID4gPiAg
+fQo+ID4gPiAKPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvdmVuZG9yX2V4dGVuc2lvbnMv
+TWFrZWZpbGUKPiA+ID4gYi9hcmNoL3Jpc2N2L3ZlbmRvcl9leHRlbnNpb25zL01ha2VmaWxlIG5l
+dyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uZTgxNTg5NWU5Mzcy
+Cj4gPiA+IC0tLSAvZGV2L251bGwKPiA+ID4gKysrIGIvYXJjaC9yaXNjdi92ZW5kb3JfZXh0ZW5z
+aW9ucy9NYWtlZmlsZQo+ID4gPiBAQCAtMCwwICsxLDMgQEAKPiA+ID4gK2lmZGVmIENPTkZJR19S
+RUxPQ0FUQUJMRQo+ID4gPiArS0JVSUxEX0NGTEFHUyArPSAtZm5vLXBpZQo+ID4gPiArZW5kaWYK
+CgotLSAK6Zu357Gz4oCn5b635bC8LeW6k+WwlOiSmQpodHRwOi8vd3d3LnJlbWxhYi5uZXQvCgoK
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
