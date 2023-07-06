@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D39FEB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 13:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91340EB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 14:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y+3HpxmJKUhJY1JnWztFuO64mMVM7v2vFIcDTyhVeSQ=; b=gVXgPXSOpYWjNEubDQ+Bw7B1tU
-	SXGnT02a2PD3BU1wexgKhUCx5t/Oqmr57zZrlPzpYyV04czt4G3KLnItMJEh2lJF/e48dJx9m1ARp
-	DrIoKheEaC5OtuayEFwteT7i2OjrPTMyNJpIHCG+HEp13ahrEGkxEu+9GqAmdm469Sm8+CunfBCVV
-	NSBmfQvD8OTM6Brh2/RotitFHRe4cg71vmD3lOdI73fJFYiqeNneLvq8bhgPccufM/pbfdlqq6JY0
-	DsSw0jr7PeAQlS0Utiv7yGcdNtEcVjGj0Vja3n/sDSpx0zWP0/28aOu4iY+foJUvt2qHxMn5B4pZC
-	bXu68XGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IkHkkydprej6ibDkPDkaZzukCCmJM+C+OTXxN3kL7Fo=; b=Dg3zIFdCmljDZf
+	pun5uhnPAQlwE78kcFz4VNiM3pP8jaAlgBVkeDjxeUDzcBRJeaV7TcpdC07JNF3cCF6jH1rOwXWE6
+	Y3xaBQd1AlMss+/VzbcjWF99U4Keu6ZS04X25V+FooC0QLup7ku/RFzeLLOjpWEE5R4ZKCY/moIcB
+	/6ts7sa63BlC05nAwncd+T8++CfaqgvEpIyhSsCjvGpeFk8fhBMcD7oLTo3GBSB6I2iv/hsoxk0yw
+	IdkxwnfFvKrBhJKIbk/jdZTxkkKwf7EcRoMdwabqQhtll+DG7BnTAcFyeItyEvwErK/RqKNT44IdZ
+	VysCzYOkL1V0N9z1tKQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHPE7-001nBY-29;
-	Thu, 06 Jul 2023 13:40:55 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qHPhc-001qTh-33;
+	Thu, 06 Jul 2023 14:11:24 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHPE5-001nAy-1c
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 13:40:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1688650853; x=1720186853;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=G/81oDQkmGKtnd4/wqBTupaOz43I6AitvqZt9E5SYXc=;
-  b=KfrlN8QAkFBRbCBSKxrZM46wxNsqKS1fg4Hqm77S2xzBhjyukpemeAjz
-   b21u2FcP5qFkeQ4UUQD7eftAwurIWE30QRI8rtv6DRrnDI17Bb4w/iG7K
-   oW7acNnbWwddf5EnMIZ1IwHg97wddu/OtVQKCQ/D9fliIOEDd09j/lT9N
-   l7iRQtQ2bS4H3yUrx5E3mFgAenY5jJg4MiOTVq8jhMyxtnKJrJJ1QEpZO
-   bAu9aJPjg0Zgq6sE/dJrgGEd8xE368TYTLoyg0T6CKz/tlggnDr07TK6f
-   1KWFgno1Nyvd7g0YhQXQXEGFmyBYt9TYv/p4OxgoZon6JYc6nbUOA7OVq
-   A==;
-X-IronPort-AV: E=Sophos;i="6.01,185,1684825200"; 
-   d="asc'?scan'208";a="221644701"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Jul 2023 06:40:52 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 6 Jul 2023 06:40:51 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 6 Jul 2023 06:40:49 -0700
-Date: Thu, 6 Jul 2023 14:40:19 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Samuel Ortiz <sameo@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, "Hongren (Zenithal) Zheng"
-	<i@zenithal.me>, <linux@rivosinc.com>, Andrew Jones
-	<ajones@ventanamicro.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, Anup
- Patel <apatel@ventanamicro.com>, <linux-kernel@vger.kernel.org>, Guo Ren
-	<guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, Evan Green
-	<evan@rivosinc.com>, Jiatai He <jiatai2021@iscas.ac.cn>
-Subject: Re: [PATCH v2 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
-Message-ID: <20230706-amused-entrench-3ce9cb6769ef@wendy>
-References: <20230628131442.3022772-1-sameo@rivosinc.com>
- <20230628131442.3022772-2-sameo@rivosinc.com>
+	id 1qHPhZ-001qSZ-2O;
+	Thu, 06 Jul 2023 14:11:22 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id C70C168AFE; Thu,  6 Jul 2023 16:11:14 +0200 (CEST)
+Date: Thu, 6 Jul 2023 16:11:14 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Arnd Bergmann <arnd@kernel.org>, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>, Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Christoph Hellwig <hch@lst.de>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-oxnas@groups.io,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-xtensa@linux-xtensa.org,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Subject: Re: [PATCH 20/21] ARM: dma-mapping: split out
+ arch_dma_mark_clean() helper
+Message-ID: <20230706141114.GA14485@lst.de>
+References: <20230327121317.4081816-1-arnd@kernel.org> <20230327121317.4081816-21-arnd@kernel.org> <CAMuHMdW5bXeE=nr7+hHxL+xhm2q05udkJpMBM-BG7g9S7Nt7Zg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230628131442.3022772-2-sameo@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdW5bXeE=nr7+hHxL+xhm2q05udkJpMBM-BG7g9S7Nt7Zg@mail.gmail.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230706_064053_545914_797E069E 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20230706_071121_925117_94836D5F 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,112 +83,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4498260705255098819=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4498260705255098819==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="dzDOUZFT65799+Vx"
-Content-Disposition: inline
+> Thanks for your patch, which is now commit 322dbe898f82fd8a
+> ("ARM: dma-mapping: split out arch_dma_mark_clean() helper") in
+> esmil/jh7100-dmapool.
 
---dzDOUZFT65799+Vx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey,
-
-On Wed, Jun 28, 2023 at 03:14:33PM +0200, Samuel Ortiz wrote:
-> From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
->=20
-> Parse Zb/Zk related string from DT and output them to cpuinfo.
->=20
-> It is worth noting that the Scalar Crypto extension defines "zk" as a
-> shorthand for the Zkn, Zkr and Zkt extensions. Since the Zkn one also
-> implies the Zbkb, Zbkc and Zbkx extensions, simply passing the valid
-> "zk" extension name through a DT will enable all of the  Zbkb, Zbkc,
-> Zbkx, Zkn, Zkr and Zkt extensions.
->=20
-> Also, since there currently is no mechanism to merge all enabled
-> extensions, the generated cpuinfo output could be relatively large.
-> For example, setting the "riscv,isa" DT property to "rv64imafdc_zk_zks"
-> will generate the following cpuinfo output:
-> "rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed_zksh_zkt".
->=20
-> Tested-by: Jiatai He <jiatai2021@iscas.ac.cn>
-> Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
-> Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
-> ---
->  arch/riscv/include/asm/hwcap.h | 11 +++++++++++
->  arch/riscv/kernel/cpu.c        | 11 +++++++++++
->  arch/riscv/kernel/cpufeature.c | 30 ++++++++++++++++++++++++++++++
->  3 files changed, 52 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index f041bfa7f6a0..b80ca6e77088 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -53,6 +53,17 @@
->  #define RISCV_ISA_EXT_ZICSR		40
->  #define RISCV_ISA_EXT_ZIFENCEI		41
->  #define RISCV_ISA_EXT_ZIHPM		42
-> +#define RISCV_ISA_EXT_ZBC		43
-> +#define RISCV_ISA_EXT_ZBKB		44
-> +#define RISCV_ISA_EXT_ZBKC		45
-> +#define RISCV_ISA_EXT_ZBKX		46
-> +#define RISCV_ISA_EXT_ZKND		47
-> +#define RISCV_ISA_EXT_ZKNE		48
-> +#define RISCV_ISA_EXT_ZKNH		49
-> +#define RISCV_ISA_EXT_ZKR		50
-> +#define RISCV_ISA_EXT_ZKSED		51
-> +#define RISCV_ISA_EXT_ZKSH		52
-> +#define RISCV_ISA_EXT_ZKT		53
-
-Getting mighty close to running out of space in a u64 :)
-
-I'd personally rather get my changes to this extensions stuff merged
-before adding more extensions, but I am clearly biased in terms of
-saving my own work there, and it'd not really be "fair" to hold it up
-on that basis alone.
-However, since Palmer has now merged the "riscv,isa" deprecation [1],
-adding parsing of new ISA extensions, now requires documenting them in
-the extensions dt-binding. Can you please do that in v3?
-
-Otherwise, this looks good to me:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
-1 - https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/=
-?h=3Dfor-next&id=3Daeb71e42caae2031ec849a858080d81462cacca9
-
---dzDOUZFT65799+Vx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKbEQwAKCRB4tDGHoIJi
-0lvyAQDOlhMFzc/aebCsGlYplaJMkiIMvB67bUS85TfWRP0MggEAshANcfwpb0uM
-HROGzze0T29pn3uFAX8/Z+CqjBhj5A0=
-=nxpS
------END PGP SIGNATURE-----
-
---dzDOUZFT65799+Vx--
-
-
---===============4498260705255098819==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Well, something is wrong with that branch then, and this series still
+needs more work, and should eventually be merged through the dma-mapping
+tree.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4498260705255098819==--
-
