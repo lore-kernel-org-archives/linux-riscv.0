@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A3F9EB64DC
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 17:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E9CCEB64D9
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 17:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=uQqkAiCB6YFRJYjtTf9kqSuzRfvOtQEgaQuSHeGp84g=; b=np8d4Go++HqIOSCZiw/bNN41aG
-	vrbwF8SkXOeGphGkgHWgvJQILmeRXlLcSQMNy/Run6bLOJmyubNWtlXmAJFXepKDYhiei0L7o33xW
-	MAu7p5W8wKFSrr9EvTfZ/cP4dz7jrCj5TrsM4jTxLoK6G9jpue4RdhfTKkUABm+vHuyRNqhuJ/XLK
-	WnV8vxNXKVlX1u6OLRzpJHF5kIMczBo8BlOa4gNIwZhFD0K/BSoUHWMF40wYSrdXhFTf+10ssWU+o
-	bgXqXwvbbaGJk7PvmjiSrdKTP3pEGb+pV7DbGsf8KQBz+gBKSIn8TmsIzzhO27RMG8DM75j1rYlxV
-	tH2hd/tA==;
+	bh=WlQQ/GEnSdtB7uW0+Vkveh5ueQ27l9PyspE8CljnVHI=; b=CAbwJw6hi4hO8O6TlidtLluJ4J
+	iAlmLTtBG3et8uvqqH4wABYdCAHyr9PFdpFky8uhcNlY9LYN2vGsvbSZMZkqq06OjCaBBbofUQbOP
+	PUvS0SuFovA8c8KKgs7dQe8Kz91XIPvEo2V5cREVgdcKwKyiPvqIwGD7yJxpNIZrN3ioLjS40PjrG
+	ASG4gG4U7BeyIkZ+v3dWlkxYHN/KAwm282LxMvRVNX7XB/CGNQeFL3q9PZONZHxsN66hg78PjPcsO
+	1THE0BIYf9uafUSHhwwMZIwFIMDUOKBYciN1oxhACEmDxsnSzWMrZje7RJklVGIIEtmPH3UKh6+du
+	mqkZw3KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHSQZ-002FAB-2d;
-	Thu, 06 Jul 2023 17:05:59 +0000
-Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	id 1qHSTQ-002FXN-2D;
+	Thu, 06 Jul 2023 17:08:56 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHSQX-002F9e-00
+	id 1qHSTN-002FWJ-10
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 17:05:58 +0000
-Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3a04cb10465so833958b6e.3
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Jul 2023 10:05:55 -0700 (PDT)
+	Thu, 06 Jul 2023 17:08:54 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1b7e6512973so6319165ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Jul 2023 10:08:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1688663155; x=1691255155;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1688663328; x=1691255328;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DbYorBSGNgBnNiqoshTpZfEFQccGjhuwwnRL/44SoP0=;
-        b=i4T0nNOBYy25Tum7t/4GwKsh3/lK7Uikcmkb4kOyw4gG9SEUDys1g5J3pJUji2g/jJ
-         LPaszbqCG0hhdxw9/hcWYxo+RYH1ml6lnNIyZhbERDGwRvHc2ctOj7XJ44sxi7yENjUw
-         ISHeOYxF9bfqqQgSJQFLfwKIWcXdzga6nV9hUibEpf/kvOAbkrIbqaSJYSVMFCC5fXPg
-         NqTooUkkAax89B8soY2d4ySMk4P3KloKJZNOjV7UtnbJUPzBK/u/RQMv8olff4elOxxD
-         8bPApwuR0J8ZY0C0moK+z9bNXqPu0MEPf38pn/4p0aoolZvo2R1Y15goKKKXtRMx59w7
-         uAOQ==
+        bh=uDFcTWubp+txWejOhlaxkosc/sM3fyBrGXhY50V6+cc=;
+        b=Q3tIlLGo1iMeILb+g6CH4AIl3stIczQL9hbypUuloisr7dgdnhmwB6ISQOKN6BvnsJ
+         K3O1JcQ5v3+cL1l+D2w4fY7JLprWSNENfngJS/iyg2okZpdYyQj0nlKgzNGHgR8WVuCG
+         rUuF78Z/asu/0QEztqH4ky05n9ZBKsI5h7Y55PmYGCUO9CHIjY8e7UQ1Btp63JMcRwzq
+         jhGDhbhg1BhKE7eMImJDzMF2Do6AD2gKr/BI86yx2Gr2orCka1+ixbby0Tv5EKv7699d
+         AWaojvSBoh3rC2chnKJ4rpkDNiNOHz5Y1/OwlK6eYZQox6JAojJLfoF6o08bcjzr6IJ3
+         tr8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688663155; x=1691255155;
+        d=1e100.net; s=20221208; t=1688663328; x=1691255328;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DbYorBSGNgBnNiqoshTpZfEFQccGjhuwwnRL/44SoP0=;
-        b=DXhhc1BaU5IfYa2Xa05vMPNpiNrZpvkY/5qXQ/ZvOWnpiXt7xP8816E4H0IAEbIcAx
-         fDVg76ucfd7cPLsxP1U6w2/GDfnZKdac6QP0akLgea9I6OwUJhdIBN70Nx20UXnyIcd0
-         ECRUclOK9qS4+pqyrtKy3BFICR8O2UnYgODr3I0sHTjfQwJs3/ipbSKbA8clmC5Pzngi
-         5BPR18oti44Uhl8t//Q4uiPPXSipV7RTM9RYKb814LlvhZykLXTzySkeWxpX1eNo9Exs
-         OEwmFbubGnUGCLg1DSAekM5Xk3QXGQ8HxjcgT/5ST434YgknFbt//sIlgEltFfTv9dfG
-         lSyg==
-X-Gm-Message-State: ABy/qLaKaDIzjm5CEot0jNfxaLvNNUMbwJ0zSkKA3UZ/wOKbBs30g+vq
-	REhl9QpTxoimmiSWgZ6j43M5CA==
-X-Google-Smtp-Source: APBJJlHVjAgGUeOK5ZObTBmnmtOv0vpCjPIptZy244A4rKJYcvX5zFmOq+/846tjHtfgDBgeTsJodw==
-X-Received: by 2002:a05:6808:2784:b0:3a2:1b3b:494b with SMTP id es4-20020a056808278400b003a21b3b494bmr2067218oib.45.1688663154961;
-        Thu, 06 Jul 2023 10:05:54 -0700 (PDT)
+        bh=uDFcTWubp+txWejOhlaxkosc/sM3fyBrGXhY50V6+cc=;
+        b=iqVao0hgOwee5KRo8/asQbx5L2kLF1heHog8j5jKwyJuN1AZB3Xh21lMDgz3+a093h
+         t6jZrTaAuV/o4t2Fy2U6eYdhsO+UscGih9s+8Ign4/5b5LS7MpAxHdeqoPmwyxC/j0pY
+         Uurq9HeT52qSQ4cM/Rl/kvClsdqDJLkFErrVhKPnDM98TFX9B7ULyg/kXSs/pNAPp4ee
+         r7NQpk0gI/AMUIl1RlCESzG1j+XLBjsg8RFvxJlG4lv0u1afxA0ITrQm4hfpLfIAoEmc
+         Z3M6Etx2LQkBdrXolLkijLZtbaGA3N3/0AuBsMuaTgUPnVK7/Ay11qb0LkB5DTd+7tI4
+         Lvxw==
+X-Gm-Message-State: ABy/qLbPp9Np3Sh6zm1a19spdQMWti8D0ZOM4v5HJLlbZeDc9lcFRmeK
+	PtA0pdVDgNCMeU42LXCcUIO/tpQqIPxmFY5phVs=
+X-Google-Smtp-Source: APBJJlG74eEINUstmC9zOo36wEsjfZVnckhU+vtEAepiS2jkRuh+o/vzJ/8elzyQtASPJfPTGwaDJA==
+X-Received: by 2002:a17:902:efd1:b0:1a6:4b60:3195 with SMTP id ja17-20020a170902efd100b001a64b603195mr1567784plb.66.1688663328525;
+        Thu, 06 Jul 2023 10:08:48 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id 3-20020a17090a030300b0026390b2d136sm46808pje.18.2023.07.06.10.05.54
+        by smtp.gmail.com with ESMTPSA id p6-20020a170902b08600b001b8a7e1b116sm1668898plr.191.2023.07.06.10.08.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Jul 2023 10:05:54 -0700 (PDT)
-Date: Thu, 06 Jul 2023 10:05:54 -0700 (PDT)
-X-Google-Original-Date: Thu, 06 Jul 2023 10:05:06 PDT (-0700)
-Subject: Re: [PATCH] riscv: Start of DRAM should at least be aligned on PMD size for the direct mapping
-In-Reply-To: <20230704121837.248976-1-alexghiti@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  suagrfillet@gmail.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  alexghiti@rivosinc.com
+        Thu, 06 Jul 2023 10:08:47 -0700 (PDT)
+Date: Thu, 06 Jul 2023 10:08:47 -0700 (PDT)
+X-Google-Original-Date: Thu, 06 Jul 2023 10:07:29 PDT (-0700)
+Subject: Re: [PATCH v3 0/3] Add support for Allwinner PWM on D1/T113s/R329 SoCs
+In-Reply-To: <20230627082334.1253020-1-privatesub2@gmail.com>
+CC: linux-kernel@vger.kernel.org, privatesub2@gmail.com, thierry.reding@gmail.com,
+  u.kleine-koenig@pengutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+  wens@csie.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, p.zabel@pengutronix.de,
+  cristian.ciocaltea@collabora.com, Greg KH <gregkh@linuxfoundation.org>, linux-pwm@vger.kernel.org,
+  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+  linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alexghiti@rivosinc.com
-Message-ID: <mhng-c5a71036-061e-4704-bcdf-2b23cab36908@palmer-ri-x1c9a>
+To: privatesub2@gmail.com
+Message-ID: <mhng-0cca3d46-6031-4e8a-8e8f-2c479a20b95d@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230706_100557_254288_DA4E698A 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20230706_100853_371094_1D46583F 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,43 +96,41 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Jul 2023 05:18:37 PDT (-0700), alexghiti@rivosinc.com wrote:
-> So that we do not end up mapping the whole linear mapping using 4K
-> pages, which is slow at boot time, and also very likely at runtime.
+On Tue, 27 Jun 2023 01:23:23 PDT (-0700), privatesub2@gmail.com wrote:
+> Hi,
 >
-> So make sure we align the start of DRAM on a PMD boundary.
+> This series adds support for PWM controller on new
+> Allwinner's SoCs, such as D1, T113s and R329. The implemented driver
+> provides basic functionality for control PWM channels.
 >
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  arch/riscv/mm/init.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
+> v2:
+>  - fix dt-bindings
+>  - fix a remark in the driver
 >
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 4fa420faa780..4a43ec275c6d 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -214,8 +214,13 @@ static void __init setup_bootmem(void)
->  	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
+> v3:
+>  - fix dt-bindings
+>  - fix sunxi-d1s-t113.dtsi
 >
->  	phys_ram_end = memblock_end_of_DRAM();
-> +
-> +	/*
-> +	 * Make sure we align the start of the memory on a PMD boundary so that
-> +	 * at worst, we map the linear mapping with PMD mappings.
-> +	 */
->  	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
-> -		phys_ram_base = memblock_start_of_DRAM();
-> +		phys_ram_base = memblock_start_of_DRAM() & PMD_MASK;
+> Aleksandr Shubin (3):
+>   dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
+>     controller
+>   pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
+>   riscv: dts: allwinner: d1: Add pwm node
+>
+>  .../bindings/pwm/allwinner,sun20i-pwm.yaml    |  86 +++++
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  11 +
+>  drivers/pwm/Kconfig                           |  10 +
+>  drivers/pwm/Makefile                          |   1 +
+>  drivers/pwm/pwm-sun20i.c                      | 322 ++++++++++++++++++
+>  5 files changed, 430 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+>  create mode 100644 drivers/pwm/pwm-sun20i.c
 
-This rounds down, which IIUC will result in mappings outside what 
-memblock detected as the start af DRAM.  I'd expect that to cause bad 
-behavior somewhere.
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-Shouldn't we be rounding up?
-
->
->  	/*
->  	 * In 64-bit, any use of __va/__pa before this point is wrong as we
+I'm not sure if this ended up somewhere, but I'm assuming it's not aimed 
+at my tree.  LMK if you guys want me to pick it up, I'm dropping it from 
+patchwork.
 
 _______________________________________________
 linux-riscv mailing list
