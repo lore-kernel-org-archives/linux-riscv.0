@@ -4,86 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE26EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 02:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5B6EB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Jul 2023 03:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d7rIe9URRDeDwt7TpMy/KRqAtNPdxaXBllmygBAGK3w=; b=oqdg0oElvWTGxe
-	XocIid1oZvKB7yKXkJKkimv7b42PxkREagdnQbRz6xwynIvglT2oNf8HZsyFeI8RMszUxEVZ4+LVq
-	jKHqNyf5g0Ntz6Mp8badWwtebpurNEX5dYrprAHTDpKwfjlc+Q2sjHWK6qAmLPxstQk24Y8xIdAf/
-	yTQ5U1LmMsTTCBbUcNEnVZ6IY25Gx/VLOWZV3ArlG1yqEAYKzQ89jCqr923sHW2iu6cNJ/K2tVo0q
-	Ckc11KtTBfVFmqf1kWSnW8w2LFtLQdT6cDLLVfOHBzqRBNbL8ngKTbjk+6cGjPZGSPSpLqLvtM8qC
-	EoNshzaI0mGoFCLtF1zA==;
+	List-Owner; bh=FknkTNfXyqFy7hh6mivy6YtSw5eGso+dfeGQeHcb5SM=; b=ASOtg6MZQCN/AQ
+	RjKRts/nfginIYV3+LHbsDAQ+NdofOl/pVtMPS0iyJCEO7MwZN411+FVsoXeFxrpN5gFrTS9Jwt/g
+	8C7JFQXUQ8iSou2X9uSQWJjhqRkBGNm4zHMaL5s+LC+luPCQLSpT6UtQKMKkOCRRZFt9cB/JIlwRN
+	edll4wbfKqB3OThlYaOdmSpmfCUzB4EisI/kSHmWajDyuU02mg7lMtlWj/Vo6sIBsIuXaG5wm1qQg
+	JY75IsKaVGGSzvAew93h2ez0gPsClNXvqSnqTg2aEkCE022mb9TQtl02EnVRq5NJCQKuw+/p5f77n
+	NsAEamX3mpEfindRGcbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHEg2-0007JW-23;
-	Thu, 06 Jul 2023 02:25:02 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1qHFjd-000Fda-16;
+	Thu, 06 Jul 2023 03:32:49 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHEfy-0007IM-1U
+	id 1qHFja-000FcK-2B
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Jul 2023 02:25:00 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3144098df56so106181f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 19:24:57 -0700 (PDT)
+	Thu, 06 Jul 2023 03:32:47 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-38e04d1b2b4so313733b6e.3
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Jul 2023 20:32:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1688610296; x=1691202296;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1048vqlXkYGyF+XcnTYa3P+GBqsNCgfDORbZIMSrGAk=;
-        b=DhyUYoEM+lzL9QbERr02EhFFYHChXal8YDSzaYHUSk2Ze4dGQn7daxWPR8mVzEhTPw
-         bqUAHq0nr9lozZZud75z0XJFitgtT8VeNRHP2MrFWyCIJnLlR4MgYuRxLk23gRD2QHl+
-         6SMVGkEa1Q0/7DKUnQkPV27I0CnY13vJI/H3GdzDTUR4S244CJQ4Yo/skMG6F+wCEkvE
-         kHugkL4HqAfhJ/R/bOQIrUki9lzCmpCfHQa4dsdLYGADc03tbh3r/JKR6SlMGMT8O8Cc
-         LvVXIJGkKJJHXZIquYwvLD4uK4+EMyocJbcaNZMTMVwuQ8fRdi2CtVtryOMUDsGcXdgR
-         3abg==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688614365; x=1691206365;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XxTwOa0EQc8HVnTEnAPW/0MSWwIJGSBSzfzkOm95n/4=;
+        b=pTo/jZz2asIn2mN4BMuhUQhZx+/Nzya/YDfH9W10BGp968x0CAKUF2McN3MzJQaaK2
+         WQSgkciJvDPeQgSBn6eBr4j2c7s6HbHNk3Jt/5jpL1fP3Z9JkpvAhQkL/o+71nJBXyTm
+         8p68DcuMsOQECRnEWQtBsn+WvtS8vAl4QnHdsTGCXhNx5gxSquRv3ir46aXdi+wvEG61
+         YKZhUN/zhJc6+mRDN5ywdGVwxQ/y2+Kmj6hyt4BJ/Qid4NNR+IbgFL8KrOfXo8T8opAk
+         dlS5UkMeN4qkegIs7q2ENd/BFmKYBjBE8jQRKjAa8wmF4LHmzz2fA2Q9II37Itb3bOJu
+         DPAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688610296; x=1691202296;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20221208; t=1688614365; x=1691206365;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1048vqlXkYGyF+XcnTYa3P+GBqsNCgfDORbZIMSrGAk=;
-        b=lL+P2PQ4rTzykGpYUh6B6wmN4zgL1KLDdNz/Tn+xc6GiUopcyPPaOJM0cMEwALFI5B
-         C6GVWskThy56slqJpgN/2SCI5912i6CX2TH5J1ZgcNi2JJUOPEEmT+aueD62DR3a3wj2
-         gWC2IIDjhIOQNbNCUAcHwDhncq35LZOBgg3FqGAnw5uxFYMjIQ06OrKJi3SSYzW+uwVo
-         oafJr3AYu8yZ1xjuR+K8WehB+3crJXmKLMHDKjqrKJyXZzQTNt5f5tN0cpqa+rDb+FY0
-         eHj0uehtC9IT1oCPWyrgzp6C64BpFBz/J8BJ/kOebWXc5ItYX1968huyDKWiI3r9hVvH
-         yJug==
-X-Gm-Message-State: ABy/qLbdhOaKKaS1zkTB7XF/xAeK7WDn0jTx2bo2M3cEepRL0F5wx29T
-	JnrdGqg3eDUC95flbd16K1YIn0SYlI0kTkQPp6xOpg==
-X-Google-Smtp-Source: APBJJlEbQjDa7zV4kzY1QMr+RRPhlGD3O00R3/Q/5tLRT9VcuuHuuAQy1kfD+qZkasgWlox4owNuD+y+UUZXFlhGpwY=
-X-Received: by 2002:adf:e310:0:b0:313:f371:aede with SMTP id
- b16-20020adfe310000000b00313f371aedemr450746wrj.1.1688610296508; Wed, 05 Jul
- 2023 19:24:56 -0700 (PDT)
+        bh=XxTwOa0EQc8HVnTEnAPW/0MSWwIJGSBSzfzkOm95n/4=;
+        b=lwwDwXSt2pp7AwZ4QoZEF5bwPRF7ACr3seW97mcJRVkBVWYwgCOtJ/9F/pKX7kI5Ff
+         RCEZIhuGVENafatjizUz2SSK07OPGoZQKeVeviFQpMH14zMXk47GY229+bxrCKJ1+SHg
+         rx0YyucYwppWk6Zm8o28Hik4B4Ve13Sqz2CQO6tEBMBdOYcMEYWXiAj3mWht7qpGJ+D+
+         SSq33ZS0TnH6iLlF5vfQpWpljoTxPb0qtgMmpfc4RcMXVxXSbwC2CdbEuv53EfbWFetc
+         2HEizdRB7YfUPo2NzOeqOgiYzP0JMRluHR4bW6CG6wj1Bz+0RZrbxLAejSBDDMkhDSnd
+         5M5Q==
+X-Gm-Message-State: ABy/qLYFoR1Qrl+zL4z1vvdk2Pm13u7IAmUSIpimrzPNQvFKzHZvv2G3
+	QHHh4NozILR3eo2i5J9eKnV/1A==
+X-Google-Smtp-Source: APBJJlHP9M1ZsGfe2ZMFJKx1Re86VXljfxshm/0iSUnfVW+jY4f6zbrqlQcsob+xxdVkFNGI9KOTpA==
+X-Received: by 2002:a54:488e:0:b0:39e:d59a:8275 with SMTP id r14-20020a54488e000000b0039ed59a8275mr502807oic.25.1688614365284;
+        Wed, 05 Jul 2023 20:32:45 -0700 (PDT)
+Received: from charlie.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id fk13-20020a056a003a8d00b006589cf6d88bsm239785pfb.145.2023.07.05.20.32.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Jul 2023 20:32:44 -0700 (PDT)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Wed, 05 Jul 2023 20:30:19 -0700
+Subject: [PATCH 3/3] RISC-V: Include documentation for hwprobe vendor
+ extensions
 MIME-Version: 1.0
-References: <20230702095735.860-1-cuiyunhui@bytedance.com> <20230703-71f67eb66a037f5c0fb825c6@orel>
- <CAEEQ3w=7tBHyG=CvuktPN5cvfpY6ayamnbry6eOYxMDrPN+oZg@mail.gmail.com>
- <CANBLGcwcvK55dZ1__wvWCtcw=XoKt=qki8g6C_QYo+TBqqJ=TA@mail.gmail.com>
- <50F3BD62-78F1-456E-A44A-0C7D9A2D4113@jrtc27.com> <87bkgql8rq.fsf@all.your.base.are.belong.to.us>
-In-Reply-To: <87bkgql8rq.fsf@all.your.base.are.belong.to.us>
-From: =?UTF-8?B?6L+Q6L6J5bSU?= <cuiyunhui@bytedance.com>
-Date: Thu, 6 Jul 2023 10:24:45 +0800
-Message-ID: <CAEEQ3wnaaMvJ3=7udvAjiP3q36nvqAwb8sh34f+nO8Ua_83yFw@mail.gmail.com>
-Subject: Re: [External] [PATCH v2 1/3] riscv: obtain ACPI RSDP from FFI.
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Jessica Clarke <jrtc27@jrtc27.com>, 
-	Emil Renner Berthing <emil.renner.berthing@gmail.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, rminnich@gmail.com, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, jdelvare@suse.com, 
-	yc.hung@mediatek.com, angelogioacchino.delregno@collabora.com, 
-	allen-kh.cheng@mediatek.com, pierre-louis.bossart@linux.intel.com, 
-	tinghan.shen@mediatek.com, linux-kernel <linux-kernel@vger.kernel.org>, 
-	linux-acpi@vger.kernel.org, geshijian@bytedance.com, weidong.wd@bytedance.com
+Message-Id: <20230705-thead_vendor_extensions-v1-3-ad6915349c4d@rivosinc.com>
+References: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
+In-Reply-To: <20230705-thead_vendor_extensions-v1-0-ad6915349c4d@rivosinc.com>
+To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Jonathan Corbet <corbet@lwn.net>, charlie@rivosinc.com, evan@rivosinc.com, 
+ heiko@sntech.de, linux-doc@vger.kernel.org
+X-Mailer: b4 0.12.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230705_192458_523380_437521A1 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20230705_203246_726973_D13842ED 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +91,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQmrDtnJuLAoKT24gV2VkLCBKdWwgNSwgMjAyMyBhdCAxMDo0M+KAr1BNIEJqw7ZybiBUw7Zw
-ZWwgPGJqb3JuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gSmVzc2ljYSBDbGFya2UgPGpydGMyN0Bq
-cnRjMjcuY29tPiB3cml0ZXM6Cj4KPiA+IE9uIDMgSnVsIDIwMjMsIGF0IDE5OjU4LCBFbWlsIFJl
-bm5lciBCZXJ0aGluZyA8ZW1pbC5yZW5uZXIuYmVydGhpbmdAZ21haWwuY29tPiB3cm90ZToKPiA+
-Pgo+ID4+IE9uIE1vbiwgMyBKdWwgMjAyMyBhdCAxNTozMywg6L+Q6L6J5bSUIDxjdWl5dW5odWlA
-Ynl0ZWRhbmNlLmNvbT4gd3JvdGU6Cj4gPj4+Cj4gPj4+IEhpIGRyZXcsCj4gPj4+Cj4gPj4+IE9u
-IE1vbiwgSnVsIDMsIDIwMjMgYXQgOTowMeKAr1BNIEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRh
-bmFtaWNyby5jb20+IHdyb3RlOgo+ID4+Pj4KPiA+Pj4+Cj4gPj4+PiAoVGhpcyBpcyBhIHJlcGx5
-IHRvIGEgbm9uLWV4aXN0ZW50IGNvdmVyIGxldHRlci4pCj4gPj4+Cj4gPj4+IFRoaXMgaGFzIGJl
-ZW4gZGlzY3Vzc2VkIG1hbnkgdGltZXMgd2l0aCBBcmQsIFBsZWFzZSByZWZlciB0byA6Cj4gPj4+
-IGh0dHBzOi8vcGF0Y2hlcy5saW5hcm8ub3JnL3Byb2plY3QvbGludXgtYWNwaS9wYXRjaC8yMDIz
-MDQyNjAzNDAwMS4xNi0xLWN1aXl1bmh1aUBieXRlZGFuY2UuY29tLwo+ID4+Cj4gPj4gSGkgWXVu
-aHVpLAo+ID4+Cj4gPj4gRnJvbSB0aGF0IGRpc2N1c3Npb24gaXQgd2FzIG1lbnRpb25lZCB0aGF0
-IHRoYXQgYXJtIHN1cHBvcnRzIDMgbWV0aG9kcwo+ID4+IG9mIGJvb3Rpbmc6Cj4gPj4gIGRpcmVj
-dCArIGRldmljZXRyZWUKPiA+PiAgRUZJICsgZGV2aWNldHJlZQo+ID4+ICBFRkkgKyBBQ1BJCj4g
-Pj4gLi5idXQgbm90Cj4gPj4gIGRpcmVjdCArIEFDUEkKPiA+Pgo+ID4+IFRvIG1lIGl0IGlzbid0
-IG9idmlvdXMgZnJvbSB0aGF0IG9yIHRoaXMgdGhyZWFkLCBhbmQgc2luY2UgYXJtIHNlZW1zCj4g
-Pj4gdG8gYmUgZG9pbmcgZmluZSB3aXRob3V0IHRoZSA0dGggb3B0aW9uIEknbSBjdXJpb3VzIHdo
-eSB0aGF0J3MKPiA+PiBuZWNlc3Nhcnkgb24gcmlzY3Y/Cj4gPgo+ID4gSWYgYW55dGhpbmcgd2Ug
-c2hvdWxkIGJlIHJlbW92aW5nIG9wdGlvbiAxLCBiZWNhdXNlIHRoYXTigJlzIG5vdCBhCj4gPiBj
-cm9zcy1PUyBzdGFuZGFyZCAodGhvdWdoIFJJU0MtVuKAmXMgU0JJIGRpcmVjdCBib290aW5nIGlz
-IGF0IGxlYXN0IG5vdAo+ID4gdGllZCB0byB0aGUgT1MpLiBBbnkgYXBwbGljYXRpb24tY2xhc3Mg
-cGxhdGZvcm0gc3BlYyBpcyBnb2luZyB0bwo+ID4gbWFuZGF0ZSBFRkksIGJlY2F1c2UsIHdoYXRl
-dmVyIHlvdXIgdGhvdWdodHMgb2YgRUZJIGFyZSwgdGhhdCBpcyAqdGhlKgo+ID4gc3RhbmRhcmQu
-IEFuZCBpZiB5b3XigJlyZSB3aWxsaW5nIHRvIHBpY2sgdXAgYWxsIHRoZSBjb21wbGV4aXR5IG9m
-IEFDUEksCj4gPiB3aGF04oCZcyBhIGJpdCBvZiBFRkkgKGVzcGVjaWFsbHkgaWYgeW91IG9ubHkg
-Z28gZm9yIGEgbWluaW1hbCBvbmUgYSBsYQo+ID4gVS1Cb290KT8KPgo+IFdlbGwgc2FpZCEKPgo+
-IFl1bmh1aSwgd2h5IG5vdCBzaW1wbHkgYWRkIGEgbWluaW1hbCBVRUZJIHN0dWIgdG8gQ29yZWJv
-b3QgKGxpa2UgSmVzcwo+IHBvaW50cyBvdXQgYWJvdmUpPwoKSW4gZmFjdCwgaW4gdGhlIHYxIGVt
-YWlsLCBDb3JlYm9vdCdzIG1haW50YWluZXIgUm9uIGhhcyBtYWRlIGl0IGNsZWFyCnRoYXQgQ29y
-ZWJvb3QgZG9lcyBub3Qgc3VwcG9ydCBFRkksIGFuZCBpdCBpcyBuZWNlc3NhcnkgdG8gdHJhbnNt
-aXQKZmlybXdhcmUgaW5mb3JtYXRpb24gdGhyb3VnaCBEVFMgb24gUklTQy1WLgpAUm9uLCBjYW4g
-eW91IGhlbHAgZXhwbGFpbiBpdCB0byB0aGVtPwoKPiBJTU8gd2hhdCBVLWJvb3QgKG9yCj4gaHR0
-cHM6Ly9naXRodWIuY29tL2Nsb3VkLWh5cGVydmlzb3IvcnVzdC1oeXBlcnZpc29yLWZpcm13YXJl
-IGlmIHlvdSdyZQo+IGludG8gUnVzdCA7LSkpIGlzIGRvaW5nLCBhbmQganVzdCBoYXZpbmcgYSBz
-bWFsbCBVRUZJIHNoaW0gaXMgdGhlIHdheSB0bwo+IGdvLgoKVGhhbmtzLApZdW5odWkKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Document available vendor extensions.
+
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+ Documentation/riscv/hwprobe.rst | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+index 19165ebd82ba..167fd3e25632 100644
+--- a/Documentation/riscv/hwprobe.rst
++++ b/Documentation/riscv/hwprobe.rst
+@@ -97,3 +97,20 @@ The following keys are defined:
+ 
+   * :c:macro:`RISCV_HWPROBE_MISALIGNED_UNSUPPORTED`: Misaligned accesses are
+     not supported at all and will generate a misaligned address fault.
++
++RISC-V Hardware Probing Interface Vendor Extensions
++---------------------------------------------------
++
++All vendor extensions live at and beyond
++:c:macro:`RISCV_HWPROBE_VENDOR_EXTENSION_SPACE`. Each vendor can specify vendor
++extensions at any value above or equal to
++:c:macro:`RISCV_HWPROBE_VENDOR_EXTENSION_SPACE` without worrying about
++conflicting with values from other vendors. Only extensions from the vendor of
++the cpus passed into riscv_hwprobe will be matched.
++
++T-HEAD
++~~~~~~
++
++* :c:macro:`THEAD_ISA_EXT0`: Contains all of the EXT0 extensions
++
++  * :c:macro:`THEAD_ISA_EXT0_V0_7_1`: Vector extension V0.7.1 is supported
+
+-- 
+2.41.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
