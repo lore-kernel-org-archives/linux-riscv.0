@@ -4,40 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63004EB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 15:08:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8107EB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 15:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wv5Js4e8Cx0CEMm+QTsDoJaSknDg0wbrVfKxPsr8kEw=; b=e7XYj+0sOQ7okN
-	uQjg1WP+MdXiWEk4eqgh0RldSRLE9aA8YCq/KyoejlDkGZI8xQs9iyEMEhvuRDIvcTw4kTTsv849u
-	pZLOM6AxlW3fA9KwNR5zfxElqWxDcAAo46ydjyouI7SkbW0xcpPvbZJm6IHFJTCAN296JuEqN8GgQ
-	w1epECgtJE2oKMtAP67sXzB8k80x8aokLpckKlll2qrYTr7YyXkAB8GnyGbpaVYjFbYsa+PhvpJ5o
-	pRwEfZgG14g6CVqcbCxHcFl9JNlA+n7zcU0lIAgauxczl4DbSDxm00lLvQSJ1RJAlfbEObDQ1VZV8
-	XNJS2ds6YcDUrfU5/2xQ==;
+	List-Owner; bh=9w7Q4SRbwJn6/29B6pn9ol3YXsP2dPDtBZr3PjMxbRc=; b=vfa+1qSAz+iIgS
+	8gGhhQ3O1IYQ7Fs8Bs8FVsoHd6iS0PzgXDRaiCoEdVHG3f5yIMPS08izRysc9ElagdKsoAhA7Iiq7
+	43PViYmQasMpUCUemE4/TMVDeVqI4h5OFaizWpzlkv0shde//U5buI+ReViNegeKhpVLeWx80cfP9
+	rsF2i1Xw2h156taMUvdrHXHVfqYIfbFNoXm9fwfLY98x3C/6wSyoh6ycp6vT+UGS7VerKMBkIGZEK
+	/ej1Kd4yGSkFZ4BBW3MW19hn2OT0X2GukcjAre+kf6UfdTCK4BgVTeZGTWDBSQWPyAPI2b2XYazYs
+	vdI/0lg5mLfHHuCuuGPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHn4B-004yoF-0T;
-	Fri, 07 Jul 2023 15:08:15 +0000
-Received: from [2601:1c2:980:9ec0::2764]
-	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHn48-004ynX-38;
-	Fri, 07 Jul 2023 15:08:13 +0000
-Message-ID: <437ac153-620c-2012-7ce3-66442b505972@infradead.org>
-Date: Fri, 7 Jul 2023 08:08:12 -0700
+	id 1qHn4u-004yyr-32;
+	Fri, 07 Jul 2023 15:09:00 +0000
+Received: from bg4.exmail.qq.com ([43.155.67.158])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qHn4r-004yxx-2T
+	for linux-riscv@lists.infradead.org;
+	Fri, 07 Jul 2023 15:08:59 +0000
+X-QQ-mid: bizesmtp91t1688742515ti7jswgp
+Received: from linux-lab-host.localdomain ( [116.30.131.119])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 07 Jul 2023 23:08:34 +0800 (CST)
+X-QQ-SSF: 01200000000000D0W000000A0000000
+X-QQ-FEAT: D6RqbDSxuq6OBW3CsVdKIjFvpbHMW/wgNqC9K9ilhUQlZg0IgX7nDFBEM0M1Q
+	Xro0AOa3zXB43uoPd20W0Y477EJFex9MLuooi5XD4l6HZh5jKuXPydugZugaq81/kFkWdzi
+	3NKHk+AalEIw0dPBy4h4W6KiwiEYiJPPyFG6rYQmY/1kCx+saPO3DCVGv3MJVWfYJsPD6KV
+	IuJTjUO3zKXqGBxMOdDSSIuwIhoddepxd1W7qukyLJhlVo6ysR4binyQztDX5Ilg0LLohMa
+	XYhps7gmzdcUzBnqBo8YRSzHFNKM1F6c/RShkpHyQHJCnFVnbO0EY/nmeOLelwc4WTsFgqO
+	KwzB6ccg8NLuclWZ81+ujKcAIST6H1z9RVvh+O8xaKEeySAb/fX7v939M8dFY1sJi6Xp/fp
+	/tU5uvp4U9o=
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12299959330165944862
+From: Zhangjin Wu <falcon@tinylab.org>
+To: w@1wt.eu
+Cc: falcon@tinylab.org,
+	arnd@arndb.de,
+	david.laight@aculab.com,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	thomas@t-8ch.de,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Subject: [PATCH v6 15/15] selftests/nolibc: add mmap_munmap_good test case
+Date: Fri,  7 Jul 2023 23:08:20 +0800
+Message-Id: <838f401801aea4476f54d7f5117dc90d8839a515.1688739493.git.falcon@tinylab.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1688739492.git.falcon@tinylab.org>
+References: <cover.1688739492.git.falcon@tinylab.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH] module: Ignore RISC-V mapping symbols too
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@rivosinc.com>, mcgrof@kernel.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20230707054007.32591-1-palmer@rivosinc.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20230707054007.32591-1-palmer@rivosinc.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230707_080858_124867_317CA321 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -49,115 +74,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/6/23 22:40, Palmer Dabbelt wrote:
-> RISC-V has an extended form of mapping symbols that we use to encode
-> the ISA when it changes in the middle of an ELF.  This trips up modpost
-> as a build failure, I haven't yet verified it yet but I believe the
-> kallsyms difference should result in stacks looking sane again.
-> 
-> Reported-by: Randy Dunlap <rdunlap@infradead.org>
-> Link: https://lore.kernel.org/all/9d9e2902-5489-4bf0-d9cb-556c8e5d71c2@infradead.org/
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-
-
-Reviewed-by: Randy Dunlap <rdunlap@infradead.org>
-Tested-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
-
-Thanks.
-
-> ---
-> I'm not sure about a fixes here, the breakage comes from a binutils change
-> that's pretty much independent from the kernel.
-> 
-> Plumbing in through the RISC-V-specific switch is also a bit ugly, but I'm not
-> sure just dropping everyone's "$"-prefixed symbols is a good idea -- the rest
-> of this is sort of half-way arch-specific, though, so maybe that's the way to
-> go?  I figure it's easier to delete stuff than add it, though.
-> ---
->  include/linux/module_symbol.h | 12 +++++++++++-
->  kernel/module/kallsyms.c      |  8 +++++++-
->  scripts/mod/modpost.c         |  2 +-
->  3 files changed, 19 insertions(+), 3 deletions(-)
-> 
-> diff --git a/include/linux/module_symbol.h b/include/linux/module_symbol.h
-> index 7ace7ba30203..5b799942b243 100644
-> --- a/include/linux/module_symbol.h
-> +++ b/include/linux/module_symbol.h
-> @@ -3,12 +3,22 @@
->  #define _LINUX_MODULE_SYMBOL_H
->  
->  /* This ignores the intensely annoying "mapping symbols" found in ELF files. */
-> -static inline int is_mapping_symbol(const char *str)
-> +static inline int is_mapping_symbol(const char *str, int is_riscv)
->  {
->  	if (str[0] == '.' && str[1] == 'L')
->  		return true;
->  	if (str[0] == 'L' && str[1] == '0')
->  		return true;
-> +	/*
-> +	 * RISC-V defines various special symbols that start with "$".  The
-> +	 * mapping symbols, which exist to differentiate between incompatible
-> +	 * instruction encodings when disassembling, show up all over the place
-> +	 * and are generally not meant to be treated like other symbols.  So
-> +	 * just ignore any of the special symbols.
-> +	 */
-> +	if (is_riscv)
-> +		return str[0] == '$';
-> +
->  	return str[0] == '$' &&
->  	       (str[1] == 'a' || str[1] == 'd' || str[1] == 't' || str[1] == 'x')
->  	       && (str[2] == '\0' || str[2] == '.');
-> diff --git a/kernel/module/kallsyms.c b/kernel/module/kallsyms.c
-> index ef73ae7c8909..1e988e542c5d 100644
-> --- a/kernel/module/kallsyms.c
-> +++ b/kernel/module/kallsyms.c
-> @@ -12,6 +12,12 @@
->  #include <linux/bsearch.h>
->  #include "internal.h"
->  
-> +#ifdef CONFIG_RISCV
-> +#define IS_RISCV 1
-> +#else
-> +#define IS_RISCV 0
-> +#endif
-> +
->  /* Lookup exported symbol in given range of kernel_symbols */
->  static const struct kernel_symbol *lookup_exported_symbol(const char *name,
->  							  const struct kernel_symbol *start,
-> @@ -289,7 +295,7 @@ static const char *find_kallsyms_symbol(struct module *mod,
->  		 * and inserted at a whim.
->  		 */
->  		if (*kallsyms_symbol_name(kallsyms, i) == '\0' ||
-> -		    is_mapping_symbol(kallsyms_symbol_name(kallsyms, i)))
-> +		    is_mapping_symbol(kallsyms_symbol_name(kallsyms, i), IS_RISCV))
->  			continue;
->  
->  		if (thisval <= addr && thisval > bestval) {
-> diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-> index b29b29707f10..7c71429d6502 100644
-> --- a/scripts/mod/modpost.c
-> +++ b/scripts/mod/modpost.c
-> @@ -1052,7 +1052,7 @@ static inline int is_valid_name(struct elf_info *elf, Elf_Sym *sym)
->  
->  	if (!name || !strlen(name))
->  		return 0;
-> -	return !is_mapping_symbol(name);
-> +	return !is_mapping_symbol(name, elf->hdr->e_machine == EM_RISCV);
->  }
->  
->  /* Look up the nearest symbol based on the section and the address */
-
--- 
-~Randy
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+bW1hcCgpIGEgZmlsZSB3aXRoIGEgZ29vZCBvZmZzZXQgYW5kIHRoZW4gbXVubWFwKCkgaXQuIGEg
+bm9uLXplcm8gb2Zmc2V0CmlzIHBhc3NlZCB0byB0ZXN0IHRoZSA2dGggYXJndW1lbnQgb2YgbXlf
+c3lzY2FsbDYoKS4KCk5vdGUsIGl0IGlzIG5vdCBlYXN5IHRvIGZpbmQgYSB1bmlxdWUgZmlsZSBm
+b3IgbW1hcCgpIGluIGRpZmZlcmVudApzY2VuZXMsIHNvLCBhIGZpbGUgbGlzdCBpcyB1c2VkIHRv
+IHNlYXJjaCB0aGUgcmlnaHQgb25lOgoKLSAvZGV2L3plcm86IGlzIGNvbW1vbmx5IHVzZWQgdG8g
+YWxsb2NhdGUgYW5vbnltb3VzIG1lbW9yeSBhbmQgaXMgbGlrZWx5CiAgcHJlc2VudCBhbmQgcmVh
+ZGFibGUKCi0gL3Byb2MvMS9leGU6IGZvciAncnVuJyBhbmQgJ3J1bi11c2VyJyB0YXJnZXQsICdy
+dW4tdXNlcicgY2FuIG5vdCBmaW5kCiAgJy9wcm9jL3NlbGYvZXhlJwoKLSAvcHJvYy9zZWxmL2V4
+ZTogZm9yICdsaWJjLXRlc3QnIHRhcmdldCwgbm9ybWFsIHByb2dyYW0gJ2xpYmMtdGVzdCcgaGFz
+CiAgbm8gcGVybWlzc2lvbiB0byBhY2Nlc3MgJy9wcm9jLzEvZXhlJwoKLSBhcmd2MDogdGhlIHBh
+dGggb2YgdGhlIHByb2dyYW0gaXRzZWxmLCBsZXQgaXQgcGFzcyBldmVuIHdpdGggd29yc3QKICBj
+YXNlIHNjZW5lOiBubyBwcm9jZnMgYW5kIG5vIC9kZXYvemVybwoKU3VnZ2VzdGVkLWJ5OiBXaWxs
+eSBUYXJyZWF1IDx3QDF3dC5ldT4KTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8y
+MDIzMDcwMjE5MzMwNi5HSzE2MjMzQDF3dC5ldS8KU3VnZ2VzdGVkLWJ5OiBUaG9tYXMgV2Vpw59z
+Y2h1aCA8bGludXhAd2Vpc3NzY2h1aC5uZXQ+Ckxpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
+L2xrbWwvYmZmODJlYTYtNjEwYi00NDcxLWEyOGItNmM3NmMyODYwNGE2QHQtOGNoLmRlLwpTaWdu
+ZWQtb2ZmLWJ5OiBaaGFuZ2ppbiBXdSA8ZmFsY29uQHRpbnlsYWIub3JnPgotLS0KIHRvb2xzL3Rl
+c3Rpbmcvc2VsZnRlc3RzL25vbGliYy9ub2xpYmMtdGVzdC5jIHwgNjAgKysrKysrKysrKysrKysr
+KysrKysKIDEgZmlsZSBjaGFuZ2VkLCA2MCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvdG9v
+bHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0LmMgYi90b29scy90ZXN0aW5n
+L3NlbGZ0ZXN0cy9ub2xpYmMvbm9saWJjLXRlc3QuYwppbmRleCA4NjQ0ZTQxNWNiNjYuLmE3MTkx
+YjYzN2I4NSAxMDA2NDQKLS0tIGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGli
+Yy10ZXN0LmMKKysrIGIvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvbm9saWJjL25vbGliYy10ZXN0
+LmMKQEAgLTU5NSw2ICs1OTUsNjUgQEAgc3RhdGljIGludCB0ZXN0X3N0YXRfdGltZXN0YW1wcyh2
+b2lkKQogCXJldHVybiAwOwogfQogCitpbnQgdGVzdF9tbWFwX211bm1hcCh2b2lkKQoreworCWlu
+dCByZXQsIGZkLCBpOworCXZvaWQgKm1lbTsKKwlzaXplX3QgcGFnZV9zaXplLCBmaWxlX3NpemUs
+IGxlbmd0aDsKKwlvZmZfdCBvZmZzZXQsIHBhX29mZnNldDsKKwlzdHJ1Y3Qgc3RhdCBzdGF0X2J1
+ZjsKKwljb25zdCBjaGFyICogY29uc3QgZmlsZXNbXSA9IHsKKwkJIi9kZXYvemVybyIsCisJCSIv
+cHJvYy8xL2V4ZSIsICIvcHJvYy9zZWxmL2V4ZSIsCisJCWFyZ3YwLAorCQlOVUxMCisJfTsKKwor
+CXBhZ2Vfc2l6ZSA9IGdldHBhZ2VzaXplKCk7CisJaWYgKHBhZ2Vfc2l6ZSA8IDApCisJCXJldHVy
+biAtMTsKKworCS8qIGZpbmQgYSByaWdodCBmaWxlIHRvIG1tYXAsIGV4aXN0ZWQgYW5kIGFjY2Vz
+c2libGUgKi8KKwlmb3IgKGkgPSAwOyBmaWxlc1tpXSAhPSBOVUxMOyBpKyspIHsKKwkJcmV0ID0g
+ZmQgPSBvcGVuKGZpbGVzW2ldLCBPX1JET05MWSk7CisJCWlmIChyZXQgPT0gLTEpCisJCQljb250
+aW51ZTsKKwkJZWxzZQorCQkJYnJlYWs7CisJfQorCWlmIChyZXQgPT0gLTEpCisJCXJldHVybiBy
+ZXQ7CisKKwlyZXQgPSBzdGF0KGZpbGVzW2ldLCAmc3RhdF9idWYpOworCWlmIChyZXQgPT0gLTEp
+CisJCWdvdG8gZW5kOworCisJLyogZmlsZSBzaXplIG9mIHRoZSBzcGVjaWFsIC9kZXYvemVybyBp
+cyAwLCBsZXQncyBhc3NpZ24gb25lIG1hbnVhbGx5ICovCisJaWYgKGkgPT0gMCkKKwkJZmlsZV9z
+aXplID0gMypwYWdlX3NpemU7CisJZWxzZQorCQlmaWxlX3NpemUgPSBzdGF0X2J1Zi5zdF9zaXpl
+OworCisJb2Zmc2V0ID0gZmlsZV9zaXplIC0gMTsKKwlpZiAob2Zmc2V0IDwgMCkKKwkJb2Zmc2V0
+ID0gMDsKKwlsZW5ndGggPSBmaWxlX3NpemUgLSBvZmZzZXQ7CisJcGFfb2Zmc2V0ID0gb2Zmc2V0
+ICYgfihwYWdlX3NpemUgLSAxKTsKKworCW1lbSA9IG1tYXAoTlVMTCwgbGVuZ3RoICsgb2Zmc2V0
+IC0gcGFfb2Zmc2V0LCBQUk9UX1JFQUQsIE1BUF9TSEFSRUQsIGZkLCBwYV9vZmZzZXQpOworCWlm
+IChtZW0gPT0gTUFQX0ZBSUxFRCkgeworCQlyZXQgPSAtMTsKKwkJZ290byBlbmQ7CisJfQorCisJ
+cmV0ID0gbXVubWFwKG1lbSwgbGVuZ3RoICsgb2Zmc2V0IC0gcGFfb2Zmc2V0KTsKKworZW5kOgor
+CWNsb3NlKGZkKTsKKwlyZXR1cm4gcmV0OworfQorCisKIC8qIFJ1biBzeXNjYWxsIHRlc3RzIGJl
+dHdlZW4gSURzIDxtaW4+IGFuZCA8bWF4Pi4KICAqIFJldHVybiAwIG9uIHN1Y2Nlc3MsIG5vbi16
+ZXJvIG9uIGZhaWx1cmUuCiAgKi8KQEAgLTY3MSw2ICs3MzAsNyBAQCBpbnQgcnVuX3N5c2NhbGwo
+aW50IG1pbiwgaW50IG1heCkKIAkJQ0FTRV9URVNUKG1rZGlyX3Jvb3QpOyAgICAgICAgRVhQRUNU
+X1NZU0VSKDEsIG1rZGlyKCIvIiwgMDc1NSksIC0xLCBFRVhJU1QpOyBicmVhazsKIAkJQ0FTRV9U
+RVNUKG1tYXBfYmFkKTsgICAgICAgICAgRVhQRUNUX1BUUkVSKDEsIG1tYXAoTlVMTCwgMCwgUFJP
+VF9SRUFELCBNQVBfUFJJVkFURSwgMCwgMCksIE1BUF9GQUlMRUQsIEVJTlZBTCk7IGJyZWFrOwog
+CQlDQVNFX1RFU1QobXVubWFwX2JhZCk7ICAgICAgICBFWFBFQ1RfU1lTRVIoMSwgbXVubWFwKCh2
+b2lkICopMSwgMCksIC0xLCBFSU5WQUwpOyBicmVhazsKKwkJQ0FTRV9URVNUKG1tYXBfbXVubWFw
+X2dvb2QpOyAgRVhQRUNUX1NZU1pSKDEsIHRlc3RfbW1hcF9tdW5tYXAoKSk7IGJyZWFrOwogCQlD
+QVNFX1RFU1Qob3Blbl90dHkpOyAgICAgICAgICBFWFBFQ1RfU1lTTkUoMSwgdG1wID0gb3Blbigi
+L2Rldi9udWxsIiwgMCksIC0xKTsgaWYgKHRtcCAhPSAtMSkgY2xvc2UodG1wKTsgYnJlYWs7CiAJ
+CUNBU0VfVEVTVChvcGVuX2JsYWgpOyAgICAgICAgIEVYUEVDVF9TWVNFUigxLCB0bXAgPSBvcGVu
+KCIvcHJvYy9zZWxmL2JsYWgiLCAwKSwgLTEsIEVOT0VOVCk7IGlmICh0bXAgIT0gLTEpIGNsb3Nl
+KHRtcCk7IGJyZWFrOwogCQlDQVNFX1RFU1QocG9sbF9udWxsKTsgICAgICAgICBFWFBFQ1RfU1lT
+WlIoMSwgcG9sbChOVUxMLCAwLCAwKSk7IGJyZWFrOwotLSAKMi4yNS4xCgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
