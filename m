@@ -4,72 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDB3C001DD
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 09:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44ABDEB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 09:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jrnvTVcSWMR1IYT/iz2+Rag/H78576Z0eHf0RVzmjuk=; b=q85rzbu4ziTchG
-	AalJX7dWWO+0KGneFp3Q4cmXlB/6g4CyAclv+1Z6SAb4GC2DSOIC+gmy8QZBASW9/Zs/3aEfKHKJO
-	d60fhkltGnXU8WWoveGuOCUBVpr9yAYRxCAHm23O59PQo6t4HNMKQoUOivOxJ4v/ogkJsVtMfopRE
-	X/PAO5R3ZjzTpHXOE2iGVFuVlpWZZka5EpSU8h9eVC6erZNdW63s3X7UzEivVV42hU90PLshx5kGm
-	arsOrY4IFQy++jTQ0ZICaqRSo4xfQgnkD6JDrx+tz7pav1a266ja4pGYOj0A8WGY3pzgeirvP038+
-	Q9/2VGX+dIa16Z1MUHXQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EktxglTA4FefEkJiX7g7AkGWB2D+D4leKzS3dAESg4Y=; b=VoSqSfXV848Oam
+	qHs5+qSo9NrTuz96DA9TwhiFU2qdt3MJW/tGxHPzc8t8Vkul4f1ufYTcE3F8iQtTl9dEkJbn/LYtE
+	nUAz2p5ESNVfG2BOqqzw4D/eRAOXXSH65IteOXswsFQhmZenTt19lRZLrcXFlz/5U7BebPkOjENYP
+	yez3S3RT2FKPnpQKIAJ2Mvg8xKAdm6ZO0/wcQa55VZHMNBSRQvPaEnDY0fQAKr9CrWE69brwQcaSX
+	cRXqXjK+X2+ZbWya50e/lLsFStDJqZdgOno0JJm14pPJexnd9dqjt+0S6bG/91GWFFGG+m+76qVBA
+	L+JWuWkDQCeGN5Yipipw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHiAe-004Bit-11;
-	Fri, 07 Jul 2023 09:54:36 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qHiAi-004Bl6-37;
+	Fri, 07 Jul 2023 09:54:40 +0000
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHiAc-004Bi2-0N
+	id 1qHiAf-004BhT-19
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jul 2023 09:54:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9516761803;
-	Fri,  7 Jul 2023 09:54:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 981EDC433C7;
-	Fri,  7 Jul 2023 09:54:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688723673;
-	bh=1hp9hq9V97MqQl6Xw7YC6xzz3b8dnvVS9EeMnxTUvnE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=TUQoYVULMKXh34CP4GMBwL2aMTC68aEwFjb4ToiO/+Qzq2SxrW6gzRmUmVk2fcpFH
-	 Bioql9dPE6AooB8yzmlwm1/5GOklb1WnaixYCjsUszLm9k78NDsyPe21goIrea9oAQ
-	 IRmLCrCAXgy2PbfcBhFPNsyL4HA2H1gcSQPtL8A+FL6o0ufqkIYWkr2VxE1kAYKGED
-	 9PQvCgVcvsSIeiKyxfGRGJx2GXPbPbnuZwSob2rNxkr+7erC5ONplrWMYZ2glqWZOW
-	 cNCDXz+ygEKZTdDDuhxYXbKgysoCSxYNoKk2t6egKT0K+70Ypy4PLpYxZQOGT+aiP7
-	 tsQxY8Pa0rMwQ==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: javierm@redhat.com,
-	linux-fbdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	dri-devel@lists.freedesktop.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-csky@vger.kernel.org
-Subject: [PATCH 1/4] vgacon: rework Kconfig dependencies
-Date: Fri,  7 Jul 2023 11:52:23 +0200
-Message-Id: <20230707095415.1449376-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.2
-MIME-Version: 1.0
+	Fri, 07 Jul 2023 09:54:38 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id 15BFF5C00FE;
+	Fri,  7 Jul 2023 05:54:31 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Fri, 07 Jul 2023 05:54:31 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1688723671; x=1688810071; bh=6X
+	C0Wg3ewP983KQo8iZVYJNXYqhyj/JCtouCPSrRJR8=; b=SiHISIGeprZW8TfAXm
+	scuKV2FcQSvigS+oHDr1qrsHA+cZ8xsBUy9NibPZKzcFtbUaQKsHl8D4ACfN4ZK2
+	RR5Pf/Q8ixQInXaGU299P/H1ZtITQQzaRJX1pWGvn3y/Uue0sbq7Mmo5bkN7L0aR
+	MJQbmVlFPI3Ic02b3ZC+WYpaO1oWSU9Be2mc3JUqIKJCRWf3AtIPufI+G4oe/z1p
+	ZAr3ft3JMUK6xobZSTIBfYOohdVJJnyYJu4DkBpPqqLZHvXarQRoYin1HXkbqQ8O
+	R+isPyFEQM5np2U+BQBLk5jHLnW7qNZPJyB9kjzyLJHa1Y5h8skufzr7BBoK8D+w
+	u4mA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1688723671; x=1688810071; bh=6XC0Wg3ewP983
+	KQo8iZVYJNXYqhyj/JCtouCPSrRJR8=; b=otU0ea29ZNcdReu7aQRT+XjJV/YoC
+	PQ6SElyG6RSHMrhoITEVG8rrm0ECTIzGl7Ww1VYB4rQGhglPRC5e8hfj5gAbpx2f
+	wRsw+DWe437MdwxbA2JmYUXYnve0g4NNgaQx4WSCzOs1vkYPRTVKW7cAYlMEpDqg
+	BSUvzrP97YZRwueEltKqEVA9nPQ/uxzovIJmGRR8tp8hGBDWr0ToeyXIY8zDrK59
+	VkTYscq6juW+22/pqDYCYSYUznXN2k5U066fFlVKi/f701+Frtdie1fxYMkzw6R4
+	Pk7LPjM2yBbxW77AeiVqG7NLjETEe2NvJk/oGKZqu+HOLea9LUXay85vQ==
+X-ME-Sender: <xms:1OCnZD70dqB9vQoz6ajAH3tFzzeJWHRbtXSW2yCdwTIvKLdjRUbYPg>
+    <xme:1OCnZI7OM2d6eWnYmSJZUiRk_pd_2XPKp0ZLCGIvgygk3PxmKiwXOXQD08beRdRW1
+    6grwCMvIu2eKXULZLY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrvddugddvudcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:1OCnZKfe6gKQbUt5HJGuarbSCpVB0h47GqtggPjidRh81zzxxLdyIQ>
+    <xmx:1OCnZEJD4prfrTYRJMjNAb5XU05ONXaiv7icxC-BNfPZcsYm0_xJAw>
+    <xmx:1OCnZHKz37MVzq28papqDe0ATgbaiAMjrgT_Yodb6JI5KAg_5mhzhA>
+    <xmx:1-CnZE4gQQBjWOms_HdHq7Ni3Zu17sB5gQd8fxfIgNtRgM8QDVtk5g>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 5ED25B60089; Fri,  7 Jul 2023 05:54:28 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-531-gfdfa13a06d-fm-20230703.001-gfdfa13a0
+Mime-Version: 1.0
+Message-Id: <981234cb-5b23-4751-a539-918a686d526b@app.fastmail.com>
+In-Reply-To: <20230707095144.1378789-1-arnd@kernel.org>
+References: <20230707095144.1378789-1-arnd@kernel.org>
+Date: Fri, 07 Jul 2023 11:54:07 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Arnd Bergmann" <arnd@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>
+Cc: "Javier Martinez Canillas" <javierm@redhat.com>,
+ linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ "Russell King" <linux@armlinux.org.uk>, dri-devel@lists.freedesktop.org,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Helge Deller" <deller@gmx.de>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Richard Henderson" <richard.henderson@linaro.org>,
+ "Ivan Kokshaysky" <ink@jurassic.park.msu.ru>,
+ "Matt Turner" <mattst88@gmail.com>, "WANG Xuerui" <kernel@xen0n.name>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ linux-alpha@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/3] vgacon: rework screen_info #ifdef checks
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230707_025434_215974_3CCE7356 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20230707_025437_831156_88406DDF 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,56 +121,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Fri, Jul 7, 2023, at 11:50, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> On non-x86 architectures, the screen_info variable is generally only
+> used for the VGA console where supported, and in some cases the EFI
+> framebuffer or vga16fb.
+>
 
-The list of dependencies here is phrased as an opt-out, but this is missing
-a lot of architectures that don't actually support VGA consoles, and some
-of the entries are stale:
+This should have been patch 2/4, not 1/3, please ignore this one and
+look at the new version.
 
- - powerpc used to support VGA consoles in the old arch/ppc codebase, but
-   the merged arch/powerpc never did
-
- - arm lists footbridge, integrator and netwinder, but netwinder is actually
-   part of footbridge, and integrator does not appear to have an actual
-   VGA hardware, or list it in its ATAG or DT.
-
- - mips has a few platforms (jazz, sibyte, and sni) that initialize
-   screen_info, on everything else the console is selected but cannot
-   actually work.
-
- - csky, hexgagon, loongarch, nios2, riscv and xtensa are not listed
-   in the opt-out table and declare a screen_info to allow building
-   vga_con, but this cannot work because the console is never selected.
-
-Replace this with an opt-in table that lists only the platforms that
-remain. This is effectively x86, plus a couple of historic workstation
-and server machines that reused parts of the x86 system architecture.
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/video/console/Kconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/video/console/Kconfig b/drivers/video/console/Kconfig
-index a2a88d42edf0c..47c498defc211 100644
---- a/drivers/video/console/Kconfig
-+++ b/drivers/video/console/Kconfig
-@@ -7,9 +7,9 @@ menu "Console display driver support"
- 
- config VGA_CONSOLE
- 	bool "VGA text console" if EXPERT || !X86
--	depends on !4xx && !PPC_8xx && !SPARC && !M68K && !PARISC &&  !SUPERH && \
--		(!ARM || ARCH_FOOTBRIDGE || ARCH_INTEGRATOR || ARCH_NETWINDER) && \
--		!ARM64 && !ARC && !MICROBLAZE && !OPENRISC && !S390 && !UML
-+	depends on ALPHA || IA64 || X86 || \
-+		(ARM && ARCH_FOOTBRIDGE) || \
-+		(MIPS && (MIPS_MALTA || SIBYTE_BCM112X || SIBYTE_SB1250 || SIBYTE_BCM1x80 || SNI_RM))
- 	select APERTURE_HELPERS if (DRM || FB || VFIO_PCI_CORE)
- 	default y
- 	help
--- 
-2.39.2
-
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
