@@ -4,97 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF44EB64D9
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 13:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A725EB64D9
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 14:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2yrQ0oJXRrMnAPlmqEKK6/IJ7DEg0ptXII4b5Iicj/Q=; b=LrB88Ykx7XAudL
-	kUyN790yiIck9UhwZhmCvMxL09lhFdVdojz00mbZ4+yTiIJabRPdiGtv+vR7RB9ZTu2cBsZ0uePwl
-	3RtxHY5A01IsP0c2Cy9WUVgRyDHMIbcFDkXZqtOB1AuvszLiZeJ11p7eutmu0ecBa68dxkcF5Pg2O
-	DUzDLDOxfwj0Ff6LeOLsuJO2a/1seTNclv9XxG/lW69H13aL7618uEAKm6YytfZ8C69MvuEcfBF6z
-	ABOywljLf5PYZa10z9agl0WPpfSB3eLNRZNfBP1LWwvJkr3ZQ+jKNsV3aRimsVuVyxaRWsJpyCVy4
-	T3d/SEtPZgUDE1oWQ6Mw==;
+	List-Owner; bh=NA16tVaa8eyT595M5GsiZabKugPcn/nQJmznmYvyL9A=; b=TEdI7M6swdVRLl
+	72/Z07SySLFyhITedTzFtdl36/kdGshVX2J0exW1mU/whXSDZyZzLKAVDF3RRvtFlYvlqMkrckT+V
+	vZ8ey+pH3vbif0LryWfVQLtAFS4Bed8iun/oXvSCyGPLRXEVjXjL5Elr8V5PMklHTRVwB+8rTRz/o
+	mBhtNQDQfHC5+MzTwgpieiuB4gQSk+0RN+0aQS5PHu1S+F7X67Hiv3bmrWqqPTL1JNOfhdIN/DYlh
+	gOjuEXxr9DkADwGeWCeQqgPmKJIsOC+5fHPOM5uGrM9k8NBIxkzPXA1rk3lbv7Z0AlHnXKtEf7IXf
+	EbCxzfQQIcM19QlGOJoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHlhH-004kdp-1X;
-	Fri, 07 Jul 2023 13:40:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qHmW1-004sfa-0J;
+	Fri, 07 Jul 2023 14:32:57 +0000
+Received: from out3-smtp.messagingengine.com ([66.111.4.27])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHlhE-004kcU-2w
+	id 1qHmVy-004sf5-24
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jul 2023 13:40:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1688737225;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eSLQOQX2Flx1G07KYazrMVvBAcWU6hFPEM6DlSyIig8=;
-	b=eI7HLyTquJeltXAjZjlZzjfX1r7qoLqUZYvGh2P/pdIC8xRT8HT6aHAG6nCDCTCDAKQOob
-	deV/8z/8SxIHI5hfBWFQUbqzySdDDzn2lg6ngxmuOLEjH/5cdNgnoEqFfwLUO8+MeAxqmC
-	KvajGha9WdFbG/Wy6k8lEd72MypWH0g=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-216-yaanWbL1M_Kx7buPzlT5MQ-1; Fri, 07 Jul 2023 09:40:24 -0400
-X-MC-Unique: yaanWbL1M_Kx7buPzlT5MQ-1
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-31421c900b7so959744f8f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Jul 2023 06:40:24 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688737223; x=1691329223;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eSLQOQX2Flx1G07KYazrMVvBAcWU6hFPEM6DlSyIig8=;
-        b=brcJzxLudIihi0Qdt65etHT0Fu1kntZGINm+pE2sEsm2RZZ0LmK4vgouUxnDHGp87n
-         Cezim3g5Ub0dGQvQHIJmtdoDyq0dOWgsyVdKzY1qPd38qIyaWDrIY+J92uUDgUolf32i
-         NrYDelzV9uTlSCRGO0JxypaidBPOzJ7eZjekmTNg3PW20UCld8eG5Fs7Fzwn2Z0LN40q
-         mbO20WHSmc78TNOB7/+l2q7+WDkCAnuI3dEm0wxPZOO7TyxxGXeNL4d1ijzw21VAC7rm
-         2chnDAfr2jqJ+62UB2kkaWI7B2SZYGafh37tomh6VvoXC1NBUNO3Dnt+tnJuzS6tjn87
-         /vsg==
-X-Gm-Message-State: ABy/qLb/p8nH6TewcnoufRNyNDcvmKCq5ywTZH2XVgJPUEFUeZRuuZna
-	4Gq5tj7RAs4jGUVRLMOl6gg7JNmvyQ4DorNmCavKdqYxdMEyFq1rP0vSZ3IsWDOQoAKY9IJK4Ef
-	jQuAq9gyDlHMy6NHoRG1nw7c2NXGr
-X-Received: by 2002:adf:fd84:0:b0:314:2c7a:d100 with SMTP id d4-20020adffd84000000b003142c7ad100mr3491313wrr.42.1688737223527;
-        Fri, 07 Jul 2023 06:40:23 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlGembFVs9w4+Nx6kwExMzgs9gyKSxG86BN2Jn1gUhGo+dJC0cQ0C5x3R9/Olki3X8v+sW6RJQ==
-X-Received: by 2002:adf:fd84:0:b0:314:2c7a:d100 with SMTP id d4-20020adffd84000000b003142c7ad100mr3491295wrr.42.1688737223237;
-        Fri, 07 Jul 2023 06:40:23 -0700 (PDT)
-Received: from localhost (205.pool92-176-231.dynamic.orange.es. [92.176.231.205])
-        by smtp.gmail.com with ESMTPSA id x4-20020a5d60c4000000b003112ab916cdsm4482161wrt.73.2023.07.07.06.40.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Jul 2023 06:40:23 -0700 (PDT)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: Arnd Bergmann <arnd@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, Russell King
- <linux@armlinux.org.uk>, dri-devel@lists.freedesktop.org, Ard Biesheuvel
- <ardb@kernel.org>, Helge Deller <deller@gmx.de>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, Richard
- Henderson <richard.henderson@linaro.org>, Ivan Kokshaysky
- <ink@jurassic.park.msu.ru>, Matt Turner <mattst88@gmail.com>, Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman
- <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, linux-alpha@vger.kernel.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/4] vgacon: rework screen_info #ifdef checks
-In-Reply-To: <20230707095415.1449376-2-arnd@kernel.org>
+	Fri, 07 Jul 2023 14:32:55 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id DF4AA5C0110;
+	Fri,  7 Jul 2023 10:32:53 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Fri, 07 Jul 2023 10:32:53 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1688740373; x=1688826773; bh=a8
+	gC4VrFLmC/qpOerDNkuWSQ8w0qNylgReMLmB5sIDo=; b=d1BcLo8CSCj2vEu4sq
+	FKWaxyR2AN5b8VcvmmiC20KmbyIuYFF8AhTGijC4V0ua412/w5d/qLrDdg933k/f
+	usKCtYCCDApg+v87ENqGQ61nnkWgTQpV1Wb1AGsQvwW/fYJVjzQjLFMkKyeU0YOZ
+	s1hwmXO+RTft+W3JhiO6/m0TZDXug31wMUYR+VQEFI1sdjvIpxgueiDQt3xSFTG/
+	ttmShmncqLpqp6iGI3twYl2GhLT+c1ex4gsnYzuVSSIvDqPOAgHL6kYFr5CsYUOZ
+	NXbbLWdB7dAVRzLsfKXGFy7iz+vtg7g31z0DEWCa2cKD1agnmQIsieF+WVg0hT8I
+	p6/g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1688740373; x=1688826773; bh=a8gC4VrFLmC/q
+	pOerDNkuWSQ8w0qNylgReMLmB5sIDo=; b=d/QtLAESgocsLBB4JMrqAXbDtF2bk
+	cDqM0ZS1FhJCAGj2VlmVZJjUbZgnxsZJpQcUu2tSdPq/99Dy3HaXJWYhGCOfNkx9
+	iuc2++SBlHplnSQHSdZvWdxQ6V2prPQdPcVg1kl6IN5npnoTIiadc3URbqXZh1fQ
+	zFPqbXVCnZz2CxKl82+xr0U79oV3dTYSRtJJFMYOrLFAFlayBYSKB+udQHm/OkHE
+	kBdRJACO/thHsOdY/rloq4gIMHf135R15M9Kt7/wo6CYV7qHAXRsxEnOBuuXWV63
+	OviduagelG0BPSEovsf162AQOJHo++PWkG7R6JjrnMWuQy8zxDzhlmTbw==
+X-ME-Sender: <xms:EiKoZGtXxcv48dTRTIIeJ8zLC1WMuKcLp_Cti7jnB55vTV9mea93bw>
+    <xme:EiKoZLd2KrjvC-pS6i8CyevFdZf0zZZhxjSpUGOSjopB-lpJavBT_b4l6OcXPBIQM
+    5dK8yBhXlP5mRVmiqM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrvddugdejjecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:EiKoZBxO0aqWZ1EBdhkXXAoMHNpD0B1aYPO3vFtXpcqpB62RKYfzZw>
+    <xmx:EiKoZBPW_lXo_1nEnV_hmVIRAIcJg1hE_4dqDtbwOXBOHMw9puaQWQ>
+    <xmx:EiKoZG_8naHDpdvCKhjiB5IJ0nagswHWxs2OOcBlXT9OjmqZ9swtxg>
+    <xmx:FSKoZIHhGZqhs0ZSwGNE4lwq2tbt5vI87UoN8uZSekAHk-MBzJlbjQ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 55D6AB60089; Fri,  7 Jul 2023 10:32:50 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-531-gfdfa13a06d-fm-20230703.001-gfdfa13a0
+Mime-Version: 1.0
+Message-Id: <ff9bfcfa-fa3b-42d2-b429-059b5103bce2@app.fastmail.com>
+In-Reply-To: <87jzvbyh4p.fsf@minerva.mail-host-address-is-not-set>
 References: <20230707095415.1449376-1-arnd@kernel.org>
  <20230707095415.1449376-2-arnd@kernel.org>
-Date: Fri, 07 Jul 2023 15:40:22 +0200
-Message-ID: <87jzvbyh4p.fsf@minerva.mail-host-address-is-not-set>
-MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+ <87jzvbyh4p.fsf@minerva.mail-host-address-is-not-set>
+Date: Fri, 07 Jul 2023 16:32:29 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Javier Martinez Canillas" <javierm@redhat.com>,
+ "Arnd Bergmann" <arnd@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Cc: linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ "Russell King" <linux@armlinux.org.uk>, dri-devel@lists.freedesktop.org,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Helge Deller" <deller@gmx.de>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Richard Henderson" <richard.henderson@linaro.org>,
+ "Ivan Kokshaysky" <ink@jurassic.park.msu.ru>,
+ "Matt Turner" <mattst88@gmail.com>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "WANG Xuerui" <kernel@xen0n.name>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ linux-alpha@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/4] vgacon: rework screen_info #ifdef checks
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230707_064029_026183_E09DE2A7 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20230707_073254_753344_9158BA19 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,65 +122,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Arnd Bergmann <arnd@kernel.org> writes:
-
-> From: Arnd Bergmann <arnd@arndb.de>
+On Fri, Jul 7, 2023, at 15:40, Javier Martinez Canillas wrote:
+>> diff --git a/arch/ia64/kernel/setup.c b/arch/ia64/kernel/setup.c
+>> index 5a55ac82c13a4..0c09ff7fde46b 100644
+>> --- a/arch/ia64/kernel/setup.c
+>> +++ b/arch/ia64/kernel/setup.c
+>> @@ -86,9 +86,11 @@ EXPORT_SYMBOL(local_per_cpu_offset);
+>>  #endif
+>>  unsigned long ia64_cycles_per_usec;
+>>  struct ia64_boot_param *ia64_boot_param;
+>> +#if defined(CONFIG_VGA_CONSOLE) || defined(CONFIG_EFI)
+>>  struct screen_info screen_info;
 >
-> On non-x86 architectures, the screen_info variable is generally only
-> used for the VGA console where supported, and in some cases the EFI
-> framebuffer or vga16fb.
+> I think that only screen_info should be guarded by both symbols ?
 >
-> Now that we have a definite list of which architectures actually use it
-> for what, use consistent #ifdef checks so the global variable is only
-> defined when it is actually used on those architectures.
+>>  unsigned long vga_console_iobase;
 >
-> On powerpc, there is no support for vgacon, but there is support for
-> vga16fb. Loongarch and riscv have no support for vgacon or vga16fb, but
-> they support EFI firmware, so only that needs to be checked, and the
-> initialization can be removed because that is handled by EFI.
-> IA64 has both vgacon and EFI.
+> It seems this variable was never used since it was introduced by commit
+> 66b7f8a30437 ("[IA64-SGI] pcdp: add PCDP pci interface support") ?
 >
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
+>>  unsigned long vga_console_membase;
+>
+> And this is only used by mdacon (not supported by ia64), vgacon and
+> vga16fb (not supported by ia64 either).
+>
+> So this could just be guarded just by CONFIG_VGA_CONSOLE for ia64 ?
 
-[...]
+Right, I though about doing this more accurately, but in the end
+went for the simplest change rather than spending much more time
+trying to clean up the unused variables etc.
 
-> diff --git a/arch/ia64/kernel/setup.c b/arch/ia64/kernel/setup.c
-> index 5a55ac82c13a4..0c09ff7fde46b 100644
-> --- a/arch/ia64/kernel/setup.c
-> +++ b/arch/ia64/kernel/setup.c
-> @@ -86,9 +86,11 @@ EXPORT_SYMBOL(local_per_cpu_offset);
->  #endif
->  unsigned long ia64_cycles_per_usec;
->  struct ia64_boot_param *ia64_boot_param;
-> +#if defined(CONFIG_VGA_CONSOLE) || defined(CONFIG_EFI)
->  struct screen_info screen_info;
+Let me know if you'd prefer me to respin this part, otherwise
+I'd call the ia64 bit good enough for the purpose of the series.
 
-I think that only screen_info should be guarded by both symbols ?
-
->  unsigned long vga_console_iobase;
-
-It seems this variable was never used since it was introduced by commit
-66b7f8a30437 ("[IA64-SGI] pcdp: add PCDP pci interface support") ?
-
->  unsigned long vga_console_membase;
-
-And this is only used by mdacon (not supported by ia64), vgacon and
-vga16fb (not supported by ia64 either).
-
-So this could just be guarded just by CONFIG_VGA_CONSOLE for ia64 ?
-
-The rest of the patch looks good to me.
-
-Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
-
--- 
-Best regards,
-
-Javier Martinez Canillas
-Core Platforms
-Red Hat
-
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
