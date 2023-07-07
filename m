@@ -4,86 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F96DC0015E
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 09:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04ED8EB64D9
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 09:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BhlZmw0sJE4OyIFWQPO60VfOXXQE3xst/kzJus5G2d0=; b=H0zsJKaFWeMZb1
-	SS80Ob8Q4FFdAwF/xutpXxPlXvI0oamk8BcYQjA6CQPic0W7YqTR3eEMLPiQrnUKIfWHGsV2MINjA
-	rcHvFRdPU9htolFQ52IvJhkxdl+JBpuogS+v6TzD0a+ZMttnupS7M4whLa1pBteV5eR+lgvDIo1ty
-	rcFY6B7ik+rVM4zP5ZIpXypNJX4FeQdCtKKeexQF/LhzklfgBkRf4Cfn7ttLOo499lw7VbYXInLzI
-	ng29HJJhobf4GTtqsoYy0ho+9Bx1JpY4adJKsi1sa6xkFfJePCmu6Sh/HRWpkPfQwDr1dypo/btUW
-	lKmRGmy6jFGCnxQz8zhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l2qVoS22BtfjGIYhZcSxuo6K8DCTJe8nE8kf5mfcBkU=; b=q09631lzNxPU+TiLdliYLk6h1z
+	LoW51I5aJfPbhjEemaZAU5RUfT2byNWheDQQvPqtX1pAZ/pdHtnjSJe06CGVjTQ9MJsI6EmPHZRhp
+	NcI+ZbbRaXvDBVIpYDJrXr9oPd1ox61E8thUisULFfgPWWx1u4SXCqAOBcjyiaEfQSdwFYeKbq4Lx
+	lkTjzO9L98WV6tu6PKXB23gri8MdbZrWz3Pr30Abhn3AY7s3Wi4vEIz2lVsrpux5NfWXktCeB+nWK
+	vPUml0qZqyErMgqsMm3tp7RveIZ7NCQfZq3VYXsJ8uiA/ER2BeRLg5lZjzZoy+0FRaEGDF2tYpBCc
+	Z1mmbMmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHiBS-004C4L-2Z;
-	Fri, 07 Jul 2023 09:55:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qHiC4-004CKe-2z;
+	Fri, 07 Jul 2023 09:56:04 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHiBP-004C33-14
+	id 1qHiC1-004CGN-0h
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jul 2023 09:55:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id AB765612AE;
-	Fri,  7 Jul 2023 09:55:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8166EC433C8;
-	Fri,  7 Jul 2023 09:55:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688723722;
-	bh=yMWBZi7OWijpDNbPPVU11zT7Ofk6CC1w0krvsGmTO/Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Bx40Rryc7emWROVA1OI+Fp/RxUN6o7E4nHT9VT58WXacXf2ozSjk5VBIyhlsgZAkr
-	 u2TwwPGKbwSH1Jn686GPOGDYyzRhNSXdfDbh0GX7fiSd/Q8SoLRWm81bbNGpy2LvUJ
-	 PhRsNMOwag/zbLeNtjsqSzeLonM1K0hAqZM1i3o1LWrschS5ccK6ArPWK+mDI+V+Cg
-	 r66yYBAJk5so9iN518mwMOg4/lTZpFgPvXcJ4Lf5e5MhMX/jyTnwECbxcWs7hobvgk
-	 c3viAIB8beT+3liXAVktBBRA7/rqn7zOv0uUvmp3KfvN6KOM6o747qiFkc1T1A7sWK
-	 NKZl3mjfiXXJw==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: javierm@redhat.com,
-	linux-fbdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	dri-devel@lists.freedesktop.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Matt Turner <mattst88@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-alpha@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 2/4] vgacon: rework screen_info #ifdef checks
-Date: Fri,  7 Jul 2023 11:52:24 +0200
-Message-Id: <20230707095415.1449376-2-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230707095415.1449376-1-arnd@kernel.org>
-References: <20230707095415.1449376-1-arnd@kernel.org>
+	Fri, 07 Jul 2023 09:56:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1688723761; x=1720259761;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jeT9ji2Ec6uvJ68iEc6vLZKOvv5MkXwC+a9T9+NYyWU=;
+  b=BC9aGp2Ct5t9ScFp0hGCrdEJ81UUvdGPoopvjzyyugmJ0r/WVcLDBg5Q
+   dqbt1PidedJUV7UUjDVdcLc5PtySKCa3h5FINONER9LVkow6cn33osbKL
+   nNhVoP4wIWWnWYMl+qXbgk/0Yi+L84FlhhHkR4+XUyw6Q0s1h+wh6g13V
+   KaP/TedpG0k33JFCyXoxrnsvva+XU8U43VJOeheZBdYoU4Kxfdh6onPk1
+   WkVcbZTDACfXvwWAlC8yFI+StYWFm0pXgABiqk/Y8fBLlFmMjdPkUjh0+
+   ZIeftJ3Z7Igr5pK6lhCPtUZnSkYL/roDte/LeDgDADCmi+gJbNOPLLJZa
+   Q==;
+X-IronPort-AV: E=Sophos;i="6.01,187,1684825200"; 
+   d="asc'?scan'208";a="222547790"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Jul 2023 02:55:57 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Fri, 7 Jul 2023 02:55:51 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Fri, 7 Jul 2023 02:55:51 -0700
+Date: Fri, 7 Jul 2023 10:55:21 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+CC: <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH] RISC-V: Re-alphabetize Kconfig
+Message-ID: <20230707-contrite-old-0efdb8702633@wendy>
+References: <20230706210457.12618-1-palmer@rivosinc.com>
 MIME-Version: 1.0
+In-Reply-To: <20230706210457.12618-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230707_025523_449783_66645557 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20230707_025601_416290_C9C0A940 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,224 +77,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6564966916999061712=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+--===============6564966916999061712==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Km6KyxkL0RqlVJxx"
+Content-Disposition: inline
 
-On non-x86 architectures, the screen_info variable is generally only
-used for the VGA console where supported, and in some cases the EFI
-framebuffer or vga16fb.
+--Km6KyxkL0RqlVJxx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Now that we have a definite list of which architectures actually use it
-for what, use consistent #ifdef checks so the global variable is only
-defined when it is actually used on those architectures.
+On Thu, Jul 06, 2023 at 02:04:57PM -0700, Palmer Dabbelt wrote:
+> Looks like I missed a few of these, I just stumbled on these again due
+> to a merge conflict.
+>=20
+> Fixes: f32b4b467ebd ("RISC-V: enable dynamic ftrace for RV32I")
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+>  arch/riscv/Kconfig | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index b49793cf34eb..6553cc6c0858 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -105,9 +105,15 @@ config RISCV
+>  	select HAVE_CONTEXT_TRACKING_USER
+>  	select HAVE_DEBUG_KMEMLEAK
+>  	select HAVE_DMA_CONTIGUOUS if MMU
+> +	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYN=
+AMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
+> +	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+>  	select HAVE_EBPF_JIT if MMU
+> +	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>  	select HAVE_FUNCTION_ARG_ACCESS_API
+>  	select HAVE_FUNCTION_ERROR_INJECTION
+> +	select HAVE_FUNCTION_GRAPH_TRACER
+> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+> +	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+>  	select HAVE_GCC_PLUGINS
+>  	select HAVE_GENERIC_VDSO if MMU && 64BIT
+>  	select HAVE_IRQ_TIME_ACCOUNTING
+> @@ -148,12 +154,6 @@ config RISCV
+>  	select TRACE_IRQFLAGS_SUPPORT
+>  	select UACCESS_MEMCPY if !MMU
+>  	select ZONE_DMA32 if 64BIT
+> -	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYN=
+AMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
+> -	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+> -	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+> -	select HAVE_FUNCTION_GRAPH_TRACER
+> -	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+> -	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+> =20
+>  config CLANG_SUPPORTS_DYNAMIC_FTRACE
+>  	def_bool CC_IS_CLANG
 
-On powerpc, there is no support for vgacon, but there is support for
-vga16fb. Loongarch and riscv have no support for vgacon or vga16fb, but
-they support EFI firmware, so only that needs to be checked, and the
-initialization can be removed because that is handled by EFI.
-IA64 has both vgacon and EFI.
+There's a bunch more elsewhere in our Kconfig stuff, but no point
+hanging around on re-sorting this stuff..
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/alpha/kernel/setup.c          |  2 ++
- arch/alpha/kernel/sys_sio.c        |  2 ++
- arch/ia64/kernel/setup.c           |  4 ++++
- arch/loongarch/kernel/setup.c      |  2 ++
- arch/mips/jazz/setup.c             |  2 +-
- arch/mips/kernel/setup.c           |  2 +-
- arch/mips/sibyte/swarm/setup.c     |  2 +-
- arch/mips/sni/setup.c              |  2 +-
- arch/powerpc/kernel/setup-common.c |  2 +-
- arch/riscv/kernel/setup.c          | 11 ++---------
- 10 files changed, 17 insertions(+), 14 deletions(-)
+Cheers,
+Conor.
 
-diff --git a/arch/alpha/kernel/setup.c b/arch/alpha/kernel/setup.c
-index b650ff1cb022e..b4d2297765c02 100644
---- a/arch/alpha/kernel/setup.c
-+++ b/arch/alpha/kernel/setup.c
-@@ -131,6 +131,7 @@ static void determine_cpu_caches (unsigned int);
- 
- static char __initdata command_line[COMMAND_LINE_SIZE];
- 
-+#ifdef CONFIG_VGA_CONSOLE
- /*
-  * The format of "screen_info" is strange, and due to early
-  * i386-setup code. This is just enough to make the console
-@@ -147,6 +148,7 @@ struct screen_info screen_info = {
- };
- 
- EXPORT_SYMBOL(screen_info);
-+#endif
- 
- /*
-  * The direct map I/O window, if any.  This should be the same
-diff --git a/arch/alpha/kernel/sys_sio.c b/arch/alpha/kernel/sys_sio.c
-index 7c420d8dac53d..7de8a5d2d2066 100644
---- a/arch/alpha/kernel/sys_sio.c
-+++ b/arch/alpha/kernel/sys_sio.c
-@@ -57,11 +57,13 @@ sio_init_irq(void)
- static inline void __init
- alphabook1_init_arch(void)
- {
-+#ifdef CONFIG_VGA_CONSOLE
- 	/* The AlphaBook1 has LCD video fixed at 800x600,
- 	   37 rows and 100 cols. */
- 	screen_info.orig_y = 37;
- 	screen_info.orig_video_cols = 100;
- 	screen_info.orig_video_lines = 37;
-+#endif
- 
- 	lca_init_arch();
- }
-diff --git a/arch/ia64/kernel/setup.c b/arch/ia64/kernel/setup.c
-index 5a55ac82c13a4..0c09ff7fde46b 100644
---- a/arch/ia64/kernel/setup.c
-+++ b/arch/ia64/kernel/setup.c
-@@ -86,9 +86,11 @@ EXPORT_SYMBOL(local_per_cpu_offset);
- #endif
- unsigned long ia64_cycles_per_usec;
- struct ia64_boot_param *ia64_boot_param;
-+#if defined(CONFIG_VGA_CONSOLE) || defined(CONFIG_EFI)
- struct screen_info screen_info;
- unsigned long vga_console_iobase;
- unsigned long vga_console_membase;
-+#endif
- 
- static struct resource data_resource = {
- 	.name	= "Kernel data",
-@@ -497,6 +499,7 @@ early_console_setup (char *cmdline)
- static void __init
- screen_info_setup(void)
- {
-+#ifdef CONFIG_VGA_CONSOLE
- 	unsigned int orig_x, orig_y, num_cols, num_rows, font_height;
- 
- 	memset(&screen_info, 0, sizeof(screen_info));
-@@ -525,6 +528,7 @@ screen_info_setup(void)
- 	screen_info.orig_video_mode = 3;	/* XXX fake */
- 	screen_info.orig_video_isVGA = 1;	/* XXX fake */
- 	screen_info.orig_video_ega_bx = 3;	/* XXX fake */
-+#endif
- }
- 
- static inline void
-diff --git a/arch/loongarch/kernel/setup.c b/arch/loongarch/kernel/setup.c
-index 78a00359bde3c..6b3932677f5de 100644
---- a/arch/loongarch/kernel/setup.c
-+++ b/arch/loongarch/kernel/setup.c
-@@ -57,7 +57,9 @@
- #define SMBIOS_CORE_PACKAGE_OFFSET	0x23
- #define LOONGSON_EFI_ENABLE		(1 << 3)
- 
-+#ifdef CONFIG_EFI
- struct screen_info screen_info __section(".data");
-+#endif
- 
- unsigned long fw_arg0, fw_arg1, fw_arg2;
- DEFINE_PER_CPU(unsigned long, kernelsp);
-diff --git a/arch/mips/jazz/setup.c b/arch/mips/jazz/setup.c
-index ee044261eb223..3c14548353e47 100644
---- a/arch/mips/jazz/setup.c
-+++ b/arch/mips/jazz/setup.c
-@@ -76,7 +76,7 @@ void __init plat_mem_setup(void)
- 
- 	_machine_restart = jazz_machine_restart;
- 
--#ifdef CONFIG_VT
-+#ifdef CONFIG_VGA_CONSOLE
- 	screen_info = (struct screen_info) {
- 		.orig_video_cols	= 160,
- 		.orig_video_lines	= 64,
-diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
-index cb871eb784a7c..1aba7dc95132c 100644
---- a/arch/mips/kernel/setup.c
-+++ b/arch/mips/kernel/setup.c
-@@ -54,7 +54,7 @@ struct cpuinfo_mips cpu_data[NR_CPUS] __read_mostly;
- 
- EXPORT_SYMBOL(cpu_data);
- 
--#ifdef CONFIG_VT
-+#ifdef CONFIG_VGA_CONSOLE
- struct screen_info screen_info;
- #endif
- 
-diff --git a/arch/mips/sibyte/swarm/setup.c b/arch/mips/sibyte/swarm/setup.c
-index 76683993cdd3a..37df504d3ecbb 100644
---- a/arch/mips/sibyte/swarm/setup.c
-+++ b/arch/mips/sibyte/swarm/setup.c
-@@ -129,7 +129,7 @@ void __init plat_mem_setup(void)
- 	if (m41t81_probe())
- 		swarm_rtc_type = RTC_M41T81;
- 
--#ifdef CONFIG_VT
-+#ifdef CONFIG_VGA_CONSOLE
- 	screen_info = (struct screen_info) {
- 		.orig_video_page	= 52,
- 		.orig_video_mode	= 3,
-diff --git a/arch/mips/sni/setup.c b/arch/mips/sni/setup.c
-index efad85c8c823b..9984cf91be7d0 100644
---- a/arch/mips/sni/setup.c
-+++ b/arch/mips/sni/setup.c
-@@ -38,7 +38,7 @@ extern void sni_machine_power_off(void);
- 
- static void __init sni_display_setup(void)
- {
--#if defined(CONFIG_VT) && defined(CONFIG_VGA_CONSOLE) && defined(CONFIG_FW_ARC)
-+#if defined(CONFIG_VGA_CONSOLE) && defined(CONFIG_FW_ARC)
- 	struct screen_info *si = &screen_info;
- 	DISPLAY_STATUS *di;
- 
-diff --git a/arch/powerpc/kernel/setup-common.c b/arch/powerpc/kernel/setup-common.c
-index d2a446216444f..b717875a12a9a 100644
---- a/arch/powerpc/kernel/setup-common.c
-+++ b/arch/powerpc/kernel/setup-common.c
-@@ -98,6 +98,7 @@ int boot_cpu_hwid = -1;
- int dcache_bsize;
- int icache_bsize;
- 
-+#if IS_ENABLED(CONFIG_FB_VGA16)
- /*
-  * This still seems to be needed... -- paulus
-  */ 
-@@ -109,7 +110,6 @@ struct screen_info screen_info = {
- 	.orig_video_isVGA = 1,
- 	.orig_video_points = 16
- };
--#if defined(CONFIG_FB_VGA16_MODULE)
- EXPORT_SYMBOL(screen_info);
- #endif
- 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 971fe776e2f8b..a3dbe13f45fb3 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -39,15 +39,8 @@
- 
- #include "head.h"
- 
--#if defined(CONFIG_DUMMY_CONSOLE) || defined(CONFIG_EFI)
--struct screen_info screen_info __section(".data") = {
--	.orig_video_lines	= 30,
--	.orig_video_cols	= 80,
--	.orig_video_mode	= 0,
--	.orig_video_ega_bx	= 0,
--	.orig_video_isVGA	= 1,
--	.orig_video_points	= 8
--};
-+#if defined(CONFIG_EFI)
-+struct screen_info screen_info __section(".data");
- #endif
- 
- /*
--- 
-2.39.2
 
+--Km6KyxkL0RqlVJxx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKfhCAAKCRB4tDGHoIJi
+0kpQAP94Z6ir4A9cFjmZHdosUw08t0EVWVKYSNtM788HO1vMmgD/eElZMNm58yTF
+mEVhVMCtmW1wdwSluAfBO2S8Zn0u4wo=
+=y9kI
+-----END PGP SIGNATURE-----
+
+--Km6KyxkL0RqlVJxx--
+
+
+--===============6564966916999061712==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6564966916999061712==--
+
