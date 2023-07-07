@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDEAEB64D9
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 00:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2738CEB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 00:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kAyK4IL2wjE379oE+9NceZvO/0i+e2DjluDxV0rd1wI=; b=fpZ+Bp1f23njNs
-	ZpL3i0ZuwvSnc0HFEUY7UkTCWcoF7aLhKNfzYm5x18abTbBGGnolBWq/nX5xOx1Hs0JyzwDp+Jy96
-	meaz4TkNAsEATB5/50ldLeZsxogQWsBiuRvG1af7c8yHO/i41maRROssyOvXeepynSeTcRI8APh6Y
-	4NmoCmE8ruomADQWlZpPLQ360ycPHkAguxxU91pRSO5LLEWYk/0uz1N0qVdHdaoK63lP8vzKSb1ZY
-	lhnvkRbx0iStqcQjjYFPPjepgZ+r8utJo3eQqvQdnNyhBXmV9LUFFneHHtNORHM6n74iFW2i3P2+x
-	3bPz56ybfG//D+zRF7Rg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0Qiw6zQ9SHYpS8BHhQGX+3m6O8q5fkwqVSZtfZotwr4=; b=4BqceT0yXxxh1T
+	CdH74EBeLu+BzCPJ2CYgVJ1FywgKFwfWt7c/oNRce+GcewejIkENVkSNOzij52gPqT1tYBX8JTTjU
+	AAZRB79JB9Wysi5i/nTok3lK+otBf+Nw2rm5fQNqBv/Nm8pow3DEYD5ncuuAKRMMCJWYtdeVDA8KS
+	kUZsKvV35viCRc6YXJhNCVvSwtxPRJLLC1wkmCmHJg8YyCujpC57CYHARE3005JbDz4fcWWuwPOry
+	CLOYXgm/kFkEBzVe19mCdWwnecaxSuPUIGz79pUYH9qmLae6+5A+RfyfZI6Yg/FzRdza7gUCGOuMR
+	/GQTIOZWLJgFWlDemW8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHZib-0036Wf-0G;
-	Fri, 07 Jul 2023 00:53:05 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1qHZjh-0036gX-05;
+	Fri, 07 Jul 2023 00:54:13 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHZiY-0036VX-1p
+	id 1qHZjb-0036f2-2b
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jul 2023 00:53:03 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-313f1085ac2so1277118f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Jul 2023 17:53:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user; t=1688691179; x=1691283179;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r67n9FyRXMn2NIxHWlUhbk55uKQk9X6Dzb3qD8qYPqE=;
-        b=esjLyRw9yG+IBiqgDC3zXqfCcnN/DbqAvEF78hFJzU3GMueXP0gDEe8GTEqkIWVxa3
-         v5zA190KEwcagvtZcljHSX5zruOtY+4A2hJCW3xQ3kYhJ90qFeRfxiol/gEciWHjfH+V
-         mSyV5wfea0jWsz4PHhQxxB5Beo4CjL8wQp1MdL2w0G7UKtRX2oxrtnD39TtmFgkTupMk
-         WrOKCQbvpbAoBBwRglsxfn/NNxtlufKtOCK89XiZrAuUWobpoJwWEkM6LzWixFkAJGVS
-         MnU63/tx7DAHW6EBB/ZRB4iDp07GMPxP25YJdWEYTFFIVGB2D/It7bRcDQ1rxLN1efdG
-         V0eA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688691179; x=1691283179;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r67n9FyRXMn2NIxHWlUhbk55uKQk9X6Dzb3qD8qYPqE=;
-        b=cZ/Hv1r4ezP25rE2l8VGaA/coBlIEr1Btu0Dl2Wqu1owvKRBiLFdJeCzd2+f/yTUsu
-         VkBMTOeyBfRu/DvNVfj9CUE6yYy6Q+RUzDsedfL9XTrR36srl5KWRrdPlAdv4Az2n9wQ
-         c0VSzr2lSYfcDBfYOqnLni6DehNjnxcY33qbuXPaYhMviPuWMHIkZdVRpBhiqpjNN7Or
-         HQq3bTAQ3p3WKpOY1FVI0Ilw52bGOcXCvmFt5E2Rc6AflyUrcsT+99wHkbz0+94IlsZX
-         QTZTOXnLPuv7uIAyDoxiC2ou/0yn/VeZCtL7X0Q8gL3GKa9cbviiBWVRzfVJfDmOCj4S
-         lQmA==
-X-Gm-Message-State: ABy/qLZuN0pof7jWLx5Dwr310JxgWwhiZ9AkUa3OUfqO4EHRjoPp1kCD
-	g2+NI8chnsJdBSHc/n+3LuFzflH0nZsEj3hax54PdLVr
-X-Google-Smtp-Source: APBJJlG7B59PVAJXs+YJAtg1NQZvtbN9/7wzF9BiD0+Kq6eoLvFO+eLgMC5CjxyPq9DIG3O6/bYyWQ==
-X-Received: by 2002:a5d:54d2:0:b0:313:f5f8:a331 with SMTP id x18-20020a5d54d2000000b00313f5f8a331mr2449781wrv.34.1688691178654;
-        Thu, 06 Jul 2023 17:52:58 -0700 (PDT)
-Received: from smtpclient.apple ([131.111.5.246])
-        by smtp.gmail.com with ESMTPSA id u15-20020a5d6acf000000b003143b7449ffsm3086566wrw.25.2023.07.06.17.52.57
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 06 Jul 2023 17:52:57 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.600.7\))
-Subject: Re: [RESEND PATCH v3 1/2] RISC-V: mm: Restrict address space for
- sv39,sv48,sv57
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <ZKdUpzvyfy9f48MI@ghost>
-Date: Fri, 7 Jul 2023 01:52:47 +0100
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- Conor Dooley <conor@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@rivosinc.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>,
- konstantin@linuxfoundation.org,
- linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org,
- Linux-MM <linux-mm@kvack.org>,
- mick@ics.forth.gr
-Message-Id: <34483C0C-FA31-41E6-9263-1F9A08CEBE2C@jrtc27.com>
-References: <20230705190002.384799-1-charlie@rivosinc.com>
- <20230705190002.384799-2-charlie@rivosinc.com>
- <2084462d-b11d-7a48-3049-6bafbe81e7b4@ghiti.fr> <ZKdUpzvyfy9f48MI@ghost>
-To: Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: Apple Mail (2.3731.600.7)
+	Fri, 07 Jul 2023 00:54:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1688691243;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ERH9y8ye6CIkPXHBNLurA/7NLrmFEv4udLe/+CQPv00=;
+	b=fuS3s7SBJFbxd2hgoTWQCl3YiU52dm5tm0uXFiY5rW2Gg8rKSLKAvVuT2fnm5MnF6wdf0O
+	11HasldOTxWsZipvhAfNnr50Ftt8fGtXVeZVODTOr1t+ZrRI58oNbK4NigibLfXXbvwvt5
+	Urvn4l5iisTw2Jiy2n6++XT4Th60BNQ=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-372-khqsK6SxNumoaCOB1zv-6g-1; Thu, 06 Jul 2023 20:53:59 -0400
+X-MC-Unique: khqsK6SxNumoaCOB1zv-6g-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A6F23101A528;
+	Fri,  7 Jul 2023 00:53:58 +0000 (UTC)
+Received: from localhost (ovpn-12-39.pek2.redhat.com [10.72.12.39])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6DA9A492C13;
+	Fri,  7 Jul 2023 00:53:56 +0000 (UTC)
+Date: Fri, 7 Jul 2023 08:53:52 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Chen Jiahao <chenjiahao16@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, guoren@kernel.org, heiko@sntech.de,
+	bjorn@rivosinc.com, alex@ghiti.fr, akpm@linux-foundation.org,
+	atishp@rivosinc.com, thunder.leizhen@huawei.com, horms@kernel.org
+Subject: Re: [PATCH -next v7 0/2] support allocating crashkernel above 4G
+ explicitly on riscv
+Message-ID: <ZKdiIGRAQYx9zILj@MiWiFi-R3L-srv>
+References: <20230704212327.1687310-1-chenjiahao16@huawei.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230704212327.1687310-1-chenjiahao16@huawei.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230706_175302_655336_B3FFE071 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20230706_175407_940898_9A47AC19 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,44 +80,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNyBKdWwgMjAyMywgYXQgMDA6NTYsIENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2lu
-Yy5jb20+IHdyb3RlOgo+IAo+IE9uIFRodSwgSnVsIDA2LCAyMDIzIGF0IDExOjExOjM3QU0gKzAy
-MDAsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPj4gSGkgQ2hhcmxpZSwKPj4gCj4+IAo+PiBPbiAw
-NS8wNy8yMDIzIDIwOjU5LCBDaGFybGllIEplbmtpbnMgd3JvdGU6Cj4+PiBNYWtlIHN2NDggdGhl
-IGRlZmF1bHQgYWRkcmVzcyBzcGFjZSBmb3IgbW1hcCBhcyBzb21lIGFwcGxpY2F0aW9ucwo+Pj4g
-Y3VycmVudGx5IGRlcGVuZCBvbiB0aGlzIGFzc3VtcHRpb24uIFRoZSBSSVNDLVYgc3BlY2lmaWNh
-dGlvbiBlbmZvcmNlcwo+Pj4gdGhhdCBiaXRzIG91dHNpZGUgb2YgdGhlIHZpcnR1YWwgYWRkcmVz
-cyByYW5nZSBhcmUgbm90IHVzZWQsIHNvCj4+PiByZXN0cmljdGluZyB0aGUgc2l6ZSBvZiB0aGUg
-ZGVmYXVsdCBhZGRyZXNzIHNwYWNlIGFzIHN1Y2ggc2hvdWxkIGJlCj4+PiB0ZW1wb3JhcnkuCj4+
-IAo+PiAKPj4gV2hhdCBkbyB5b3UgbWVhbiBpbiB0aGUgbGFzdCBzZW50ZW5jZSBhYm92ZT8KPj4g
-Cj4gQXBwbGljYXRpb25zIGxpa2UgSmF2YSBhbmQgR28gYnJva2Ugd2hlbiBzdjU3IHdhcyBpbXBs
-ZW1lbnRlZCBiZWNhdXNlCj4gdGhleSBzaG92ZSBiaXRzIGludG8gdGhlIHVwcGVyIHNwYWNlIG9m
-IHBvaW50ZXJzLiBIb3dldmVyIHJpc2N2IGVuZm9yY2VzCj4gdGhhdCBhbGwgb2YgdGhlIHVwcGVy
-IGJpdHMgaW4gdGhlIHZpcnR1YWwgYWRkcmVzcyBhcmUgZXF1YWwgdG8gdGhlIG1vc3QgCj4gc2ln
-bmlmaWNhbnQgYml0LiAiVGVtcG9yYXJ5IiBtYXkgbm90IGhhdmUgYmVlbiB0aGUgYmVzdCB3b3Jk
-LCBidXQgdGhpcyBjaGFuZ2UgCj4gd291bGQgYmUgaXJyZWxldmFudCBpZiBhcHBsaWNhdGlvbiBk
-ZXZlbG9wZXJzIHdlcmUgZm9sbG93aW5nIHRoaXMgcnVsZSwgaWYgSQo+IGFtIHVuZGVyc3RhbmRp
-bmcgdGhpcyByZXF1aXJlbWVudCBjb3JyZWN0bHkuIFdoYXQgdGhpcyBtZWFucyB0byBtZSBpcwo+
-IHRoYXQgcmlzY3YgaGFyZHdhcmUgaXMgbm90IGd1YXJhbnRlZWQgdG8gbm90IGRpc2NhcmQgdGhl
-IGJpdHMgaW4gdGhlIHZpcnR1YWwgCj4gYWRkcmVzcyB0aGF0IGFyZSBub3QgdXNlZCBpbiBwYWdp
-bmcuCgpSSVNDLVYgZ3VhcmFudGVlcyB0aGF0IGl0IHdpbGwgbm90IGRpc2NhcmQgdGhlIGJpdHMq
-LiBKYXZhIGFuZCBHbyBhcmVu4oCZdAphY3R1YWxseSBkZXJlZmVyZW5jaW5nIHRoZSBwb2ludGVy
-cyB3aXRoIHRoZWlyIG93biBtZXRhZGF0YSBpbiB0aGUgdG9wCmJpdHMgKGRvaW5nIHNvIHdvdWxk
-IHJlcXVpcmUgYSBwb2ludGVyIG1hc2tpbmcgZXh0ZW5zaW9uLCBsaWtlIGhvdyBBcm0KaGFzIFRC
-SSksIHRoZXnigJlyZSBqdXN0IHRlbXBvcmFyaWx5IHN0b3JpbmcgaXQgdGhlcmUsIGFzc3VtaW5n
-IHRoZXnigJlyZQpub3Qgc2lnbmlmaWNhbnQgYml0cywgdGhlbiBtYXNraW5nIG91dCBhbmQgcmUt
-Y2Fub25pY2FsaXNpbmcgdGhlCmFkZHJlc3MgcHJpb3IgdG8gZGVyZWZlcmVuY2luZy4gV2hpY2gg
-YnJlYWtzLCBub3QgYmVjYXVzZSB0aGUgaGFyZHdhcmUKaXMgbG9va2luZyBhdCB0aGUgaGlnaGVy
-IGJpdHMgKG90aGVyd2lzZSB5b3UgY291bGQgbmV2ZXIgdXNlIFN2NTcgZm9yCnN1Y2ggYXBwbGlj
-YXRpb25zIGV2ZW4gaWYgeW91IGtlcHQgeW91ciBhZGRyZXNzZXMgPCAyXjQ3KSwgYnV0IGJlY2F1
-c2UKdGhlIGNob3NlbiBhZGRyZXNzZXMgaGF2ZSB0aG9zZSBoaWdoIGJpdHMgYXMgc2lnbmlmaWNh
-bnQuCgoqIEEgcGFnZSBmYXVsdCBpcyBndWFyYW50ZWVkIGlmIHRoZSBhZGRyZXNzIGlzbuKAmXQg
-c2lnbi1leHRlbmRlZAoKSmVzcwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On 07/04/23 at 09:23pm, Chen Jiahao wrote:
+> On riscv, the current crash kernel allocation logic is trying to
+> allocate within 32bit addressible memory region by default, if
+> failed, try to allocate without 4G restriction.
+> 
+> In need of saving DMA zone memory while allocating a relatively large
+> crash kernel region, allocating the reserved memory top down in
+> high memory, without overlapping the DMA zone, is a mature solution.
+> Hence this patchset introduces the parameter option crashkernel=X,[high,low].
+> 
+> One can reserve the crash kernel from high memory above DMA zone range
+> by explicitly passing "crashkernel=X,high"; or reserve a memory range
+> below 4G with "crashkernel=X,low". Besides, there are few rules need
+> to take notice:
+> 1. "crashkernel=X,[high,low]" will be ignored if "crashkernel=size"
+>    is specified.
+> 2. "crashkernel=X,low" is valid only when "crashkernel=X,high" is passed
+>    and there is enough memory to be allocated under 4G.
+> 3. When allocating crashkernel above 4G and no "crashkernel=X,low" is
+>    specified, a 128M low memory will be allocated automatically for
+>    swiotlb bounce buffer.
+> See Documentation/admin-guide/kernel-parameters.txt for more information.
+> 
+> To verify loading the crashkernel, adapted kexec-tools is attached below:
+> https://github.com/chenjh005/kexec-tools/tree/build-test-riscv-v2
+> 
+> Following test cases have been performed as expected:
+> 1) crashkernel=256M                          //low=256M
+> 2) crashkernel=1G                            //low=1G
+> 3) crashkernel=4G                            //high=4G, low=128M(default)
+> 4) crashkernel=4G crashkernel=256M,high      //high=4G, low=128M(default), high is ignored
+> 5) crashkernel=4G crashkernel=256M,low       //high=4G, low=128M(default), low is ignored
+> 6) crashkernel=4G,high                       //high=4G, low=128M(default)
+> 7) crashkernel=256M,low                      //low=0M, invalid
+> 8) crashkernel=4G,high crashkernel=256M,low  //high=4G, low=256M
+> 9) crashkernel=4G,high crashkernel=4G,low    //high=0M, low=0M, invalid
+> 10) crashkernel=512M@0xd0000000              //low=512M
+> 11) crashkernel=1G,high crashkernel=0M,low   //high=1G, low=0M
+
+The series looks good to me, thanks.
+
+Acked-by: Baoquan He <bhe@redhat.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
