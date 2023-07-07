@@ -4,64 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C578EB64D9
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 15:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 283E0C0015E
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 15:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2HYrQqdH4kC86T/coEaJAg1CV7fhiFr0GlJhqYIw7M8=; b=SCdtKWKVChC45g
-	0MEL4eZ0rZWXWpfVC+dPF2CgqjqjGgsTw9SMauhT+Nj0rWUW/BMvv4MN+X5xLgvJMWe1jYsgh3uxF
-	3OuCjrT1EMkXWONETWh367jmShHyF31nHLblK+4ELExZJovdR7nWtLRo+TnqGS2gPYPuLye/SE2b1
-	0AWVLIgmq7196s+DFFVf6tYyJJAR2IqSFLKocg9i7+Uy9eRzHMhDKE2XzXdYZ7Zb2/H44K3s7GYHo
-	zvXCsH2uwXPnQ0WjbRI7GrehSFSTk36w7MGaVCOcK60hfApWQaoO1RR0SlKwzLfZNS7rjm7fNfUFM
-	FRP3U2e+M40OfT2v+iQg==;
+	List-Owner; bh=pQ6n+J8tcWSHdPToJoU3DWlr38YHKCPVH0zq3G1yqmM=; b=clZ+DCwFUuSA6y
+	scWJtBA44LGoD8G3wFIlGjZXVOnbJ0O2d39cOTW0uYz9SEY5qWCnSfYhFE/STyX5LRD9nQzs8bnMJ
+	d2zCSayLG4F+Myw6/sjypWhPHyX0lE/vaQ0hCEzSxUp4XkSOX+s07JImM4TUTC/Uq4XPVZ2f8R5TH
+	I33cYMmKFkt/QnEEsEY+IKTTMhD5c/JQMuX0db9lKRu+lNWh4464QV05HgT+hFXjVlx9jmOLjjlo9
+	kYCGZ4g2dvAQ2iI61FS/p3eJfGY/CDVq67TM5fTI9DMMm6J7TxGfhIxXahxdXYn41r/VoM99ABNmv
+	YaDov3BI7GIOH3khAAJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHn6J-004zEB-2c;
-	Fri, 07 Jul 2023 15:10:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qHnMY-0052Kj-2j;
+	Fri, 07 Jul 2023 15:27:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHn6H-004zDE-17
+	id 1qHnMR-0052Hn-2W
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jul 2023 15:10:26 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1BA7A619F2;
-	Fri,  7 Jul 2023 15:10:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7BF51C433C9;
-	Fri,  7 Jul 2023 15:10:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688742623;
-	bh=0zVXLprUpQU+oJMwLsb3lwhShv/mpv3ilpjhA5PWGGg=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ubXCBmIX/zxWd+xAxTItNg8C/lpNTMnHDkxZ8jv85smVGtsy6TXYKwKYoCIJog2xb
-	 wMg1czLeDcNHofMPP+0sKukLLTiWH51ZjpNfeGCih6jvp5bqe40a/UEvXubTggyz7c
-	 Vhvri0hkV0FG2wfd2Jq9O29hKVl8loXlbdIp2yEk+mgP7VYW7yAl8Fzl7UFbEfH+xB
-	 b+rOcUPr8oXn9H6F/P2LraUeNG2y8HQh+JeBz2cGvdVWzemUCqOiKRpCqbdJUqakrS
-	 OH7mNhY3H8Q3gBDmbwNcDqUO6GO4TGHgXoGh8SfnUnI7n2DzyRuVK4ag4OpNwzSNBM
-	 qgWJcTEGAg+YQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 5CF07C0C40E;
-	Fri,  7 Jul 2023 15:10:23 +0000 (UTC)
+	Fri, 07 Jul 2023 15:27:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1688743627;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+8qlgKJYI7kB6D1e5SNd04VHZ2yM21oq3nfTt/gANL8=;
+	b=Xp3V7QpxR0t4kn3riQcIygCunUkXwI6NZ3Tna1R1/eSSKIttUgnUBIEMa0bUEAsweRM2gc
+	U6nnWomAy9UZxVmI7MDDjcPICPUqvUyj2cWWhWFPcUxqtL/gbiqKCzm2QxuPCdKnlNpwQG
+	VW5QSR7ucZvmaJXYRS7+9Gx7xwPi09M=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-622-Vqyu_JiqMa612JTZ5N-hlA-1; Fri, 07 Jul 2023 11:27:05 -0400
+X-MC-Unique: Vqyu_JiqMa612JTZ5N-hlA-1
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3142665f122so1022681f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Jul 2023 08:27:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1688743624; x=1691335624;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+8qlgKJYI7kB6D1e5SNd04VHZ2yM21oq3nfTt/gANL8=;
+        b=Xg7UV7zlnmPBMl67NftA/JU6o3+mT5EMDJp76/Y1ZX3N6Nvb0nICjJGp4OLKmxTuvy
+         tp73Pqu7Q7AwGRvWDzrZJtSWfhiYWgFmLFwd/u4jrqNMT1RVJEj3n1h8ZEsbEJTXzHef
+         Av/dGCC0fsPRiUbAvWLg23w9IW6Jpymf8NLB5jnLnpuuOpzH4Y1hUySxDEFMdzyG4FGK
+         DkYyRH+jC6bngllQLnv4583u+h/Mo4tZIOBsIHbKvcM7PdE2Hy0eZpwXVwbIBOTx9FZ1
+         zdsKQd25zP2djAxPE1W0DGQ8vOBZFRsAu4OTaO3d1D/aD8MNBsR7Tu/8GwE2z2d4+MoS
+         kBIw==
+X-Gm-Message-State: ABy/qLaPpKFyOS89rr9Ma9Z4XH0tPtY9GbvBlPXs7D6pxRNhpZsiHI80
+	Io+pK20BVCrm0hiXAka4sHlTYnC8aTWly5WZxiXI2WmnJgiI5G725Wu/s3j9IJeDT2iFBxIdqka
+	eWWRdXqJ7U3fpQS7oq6BwuK4shbpN
+X-Received: by 2002:adf:f052:0:b0:30a:a15d:eb2f with SMTP id t18-20020adff052000000b0030aa15deb2fmr4668101wro.3.1688743624749;
+        Fri, 07 Jul 2023 08:27:04 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlGmxd1jbrrvV1R0iu/TeFKW/e1nuXfI0DnXijMIXAlyALphvzgzqltgfOe8J565vUOEzxyvoA==
+X-Received: by 2002:adf:f052:0:b0:30a:a15d:eb2f with SMTP id t18-20020adff052000000b0030aa15deb2fmr4668074wro.3.1688743624480;
+        Fri, 07 Jul 2023 08:27:04 -0700 (PDT)
+Received: from localhost (205.pool92-176-231.dynamic.orange.es. [92.176.231.205])
+        by smtp.gmail.com with ESMTPSA id bl1-20020adfe241000000b003143c9beeaesm4711005wrb.44.2023.07.07.08.27.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Jul 2023 08:27:04 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Arnd Bergmann <arnd@arndb.de>, Arnd Bergmann <arnd@kernel.org>, Thomas
+ Zimmermann <tzimmermann@suse.de>
+Cc: linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, Russell King
+ <linux@armlinux.org.uk>, dri-devel@lists.freedesktop.org, Ard Biesheuvel
+ <ardb@kernel.org>, Helge Deller <deller@gmx.de>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Richard Henderson
+ <richard.henderson@linaro.org>, Ivan Kokshaysky
+ <ink@jurassic.park.msu.ru>, Matt Turner <mattst88@gmail.com>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, linux-alpha@vger.kernel.org,
+ linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/4] vgacon: rework screen_info #ifdef checks
+In-Reply-To: <ff9bfcfa-fa3b-42d2-b429-059b5103bce2@app.fastmail.com>
+References: <20230707095415.1449376-1-arnd@kernel.org>
+ <20230707095415.1449376-2-arnd@kernel.org>
+ <87jzvbyh4p.fsf@minerva.mail-host-address-is-not-set>
+ <ff9bfcfa-fa3b-42d2-b429-059b5103bce2@app.fastmail.com>
+Date: Fri, 07 Jul 2023 17:27:03 +0200
+Message-ID: <87bkgnyc6w.fsf@minerva.mail-host-address-is-not-set>
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Select HAVE_ARCH_USERFAULTFD_MINOR
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <168874262337.15275.12046013710547039140.git-patchwork-notify@kernel.org>
-Date: Fri, 07 Jul 2023 15:10:23 +0000
-References: <20230624060321.3401504-1-samuel.holland@sifive.com>
-In-Reply-To: <20230624060321.3401504-1-samuel.holland@sifive.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230707_081025_432352_688A2D50 
-X-CRM114-Status: UNSURE (   8.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230707_082707_891344_E4C511D1 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +114,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+"Arnd Bergmann" <arnd@arndb.de> writes:
 
-This patch was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+> On Fri, Jul 7, 2023, at 15:40, Javier Martinez Canillas wrote:
 
-On Fri, 23 Jun 2023 23:03:20 -0700 you wrote:
-> This allocates the VM flag needed to support the userfaultfd minor fault
-> functionality. Because the flag bit is >= bit 32, it can only be enabled
-> for 64-bit kernels. See commit 7677f7fd8be7 ("userfaultfd: add minor
-> fault registration mode") for more information.
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> 
-> [...]
+[...]
 
-Here is the summary with links:
-  - riscv: Select HAVE_ARCH_USERFAULTFD_MINOR
-    https://git.kernel.org/riscv/c/a2492ca86c98
+>> And this is only used by mdacon (not supported by ia64), vgacon and
+>> vga16fb (not supported by ia64 either).
+>>
+>> So this could just be guarded just by CONFIG_VGA_CONSOLE for ia64 ?
+>
+> Right, I though about doing this more accurately, but in the end
+> went for the simplest change rather than spending much more time
+> trying to clean up the unused variables etc.
+>
+> Let me know if you'd prefer me to respin this part, otherwise
+> I'd call the ia64 bit good enough for the purpose of the series.
+>
 
-You are awesome, thank you!
+No need to re-spin, agreed that makes sense to keep it simpler.
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Best regards,
 
+Javier Martinez Canillas
+Core Platforms
+Red Hat
 
 
 _______________________________________________
