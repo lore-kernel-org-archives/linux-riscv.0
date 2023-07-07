@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B832EB64D9
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 14:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFB3C001B0
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Jul 2023 14:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tp+/hYJEDMEF87TtUAvJap6KxpQkLoCOqVAv7fUB9gY=; b=GiZen1vZr00oiW
-	VmQlbLqqO7GV3pkoNzQ+7wcj/BrEgHfv13j4tim2EDnIdHJI2j4C6/jDi/kx453Pzoxa7K3k8H65t
-	DYQc/u1Ol4p4hV68zvnWLlQH6KbXZO17X/cqAXnfhhbIV+CZpqO+hXLQBxpOTGNdH/sf+SI/wYqqu
-	2IMNAnRNmdr1xtiOKuIbO9LGc+iN2IaMglW0rk/+46QEXMYgnVbdgA25UGY6rEh9KMdp2+YEyXbHm
-	sNA/P54QSkxBThFitRM2d/01krfqROG9Mzoi9zBgym3RfAc/2+2MTcAFZb5PEPM4h08BPiUPX2vGU
-	dUU1bZf8Bo+MvVxLsZ/w==;
+	List-Owner; bh=rBogQ1zIPUVKLldmLx7eHaaOwAqQQykBwsthU2E6em8=; b=E0HlCVkvnbgGs5
+	HFgpaqFBcA0Exd4pjGcF5tWPhGFsuPjpkizZ77Rl726li0nTUkGCcAIgdX+Ww/WzqgDWz1yQoiwSt
+	+O+Ta1dWDK3Bz1iv+1bpnq/y5ZLZexeDKKj8jg7KkpT4hEu1c9kE+rVLx0SHEvQRWzW7BF5Ka1Lth
+	xpUSnM0pBh3ORoNHNAL3aG2ENRc6ZBJhC6Z6VPaQzSrzPEDW+poePyBFaJzVqDPFltTTWaOnXnpcO
+	RdijQn6REV+U/7Y28xe2dSizQy5B5QkWUeBcbsyhanxfBjNTHRCJnPc5+XBajHk/U5o+XdxJ2bNBu
+	XT7xvECPh2TlsP1bYkJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHmsi-004wVf-1p;
-	Fri, 07 Jul 2023 14:56:24 +0000
-Received: from bg4.exmail.qq.com ([43.155.67.158])
+	id 1qHmtv-004wiz-0f;
+	Fri, 07 Jul 2023 14:57:39 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHmsf-004wUF-11
+	id 1qHmtr-004whS-1p
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Jul 2023 14:56:23 +0000
-X-QQ-mid: bizesmtp90t1688741756t4957kso
+	Fri, 07 Jul 2023 14:57:37 +0000
+X-QQ-mid: bizesmtp65t1688741838t0f6f5rq
 Received: from linux-lab-host.localdomain ( [116.30.131.119])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 07 Jul 2023 22:55:54 +0800 (CST)
+	id ; Fri, 07 Jul 2023 22:57:17 +0800 (CST)
 X-QQ-SSF: 01200000000000D0W000000A0000000
-X-QQ-FEAT: ILHsT53NKPgT3vYb7mSqef6qq6ijJFi5yZN+5IyXvKcCNY/FIjIcEWS0O5O+d
-	2NGhVscVoSruYGQXUG1TyM4Xedj+I/qg+7nL+jSkOz5tn0vd+07XiMUqFJslNu8QBkHhpUT
-	0MtEI2n1qoAZP64wEYuleIEOyFT9uh9c1HTh0aSVkydPB8MzgzUkyVLD2FoKPyNMJTecK1R
-	y8/UG3/PQNvw4I5GSsIMvazUH7UcFyNyWD0VmHh9aKiUcZ9t5PFVjbGpo/bLKCzqHxq2NMY
-	u8rgA6n/NSDFQIjFKpQAFBV4nNGLkxZd3pehjtNaIJ27EX2lHZEqBpdXgouPeQOc2OYwhVe
-	2zZjcdcsqh/BgXe/5Va1Z/B03oHnY72gBId+uoUZIAuyabDfddtVo0xRQgnKg==
+X-QQ-FEAT: 6/K5pWSRdGp5l3PoSnsEr+W6n/O4GVkW2LsupZpOaCCnabhC9drJ+DsHTHGGa
+	rpPAydJpCLVE4Yu5xjNNf886fcd75eYPy4f1CJVneC7/0vFizOlY/8RavL9cQLH+5qlBKdY
+	T26RBSYkIWrac+plKyZyFDAQHOazNAOnx1T7kOiVneWS5f/wr8Ez5VRxQvzZvQxdei7uftr
+	G8bYJAdCFUoNytCFtmfyt9XZohqeJxoGQaPP3fHRTj28Ly8xD8BkFYsPULycHa/6IDvJuAN
+	MqUK5SPN9/+jB5l4g/5XTC9L51uz2CBdxApWKXmcHXt6PfAwJmgYn/9kDGGQLO0EvowDYOC
+	tj5RprGXjtRiusZgLAzassh26B9m6zPartP8HLPVFF77FEdqu/QC8BNCz0T6GLu2e8ZMYia
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8772950966564420236
+X-BIZMAIL-ID: 6279798532617974938
 From: Zhangjin Wu <falcon@tinylab.org>
 To: w@1wt.eu
 Cc: falcon@tinylab.org,
@@ -48,10 +48,11 @@ Cc: falcon@tinylab.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	thomas@t-8ch.de
-Subject: [PATCH v6 05/15] tools/nolibc: add missing my_syscall6() for mips
-Date: Fri,  7 Jul 2023 22:55:35 +0800
-Message-Id: <c847dd087b65c1eb3edaca31ed47d31d43759518.1688739492.git.falcon@tinylab.org>
+	thomas@t-8ch.de,
+	David Laight <David.Laight@ACULAB.COM>
+Subject: [PATCH v6 06/15] tools/nolibc: __sysret: support syscalls who return a pointer
+Date: Fri,  7 Jul 2023 22:56:59 +0800
+Message-Id: <11fd815773f7d202d329ac2c64cd6980b32e4fcf.1688739492.git.falcon@tinylab.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1688739492.git.falcon@tinylab.org>
 References: <cover.1688739492.git.falcon@tinylab.org>
@@ -59,8 +60,8 @@ MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvrgz:qybglogicsvrgz5a-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230707_075621_678206_5A065972 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20230707_075735_925482_B2459B9E 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,87 +78,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It is able to pass the 6th argument like the 5th argument via the stack
-for mips, let's add a new my_syscall6() now, see [1] for details:
+No official reference states the errno range, here aligns with musl and
+glibc and uses [-MAX_ERRNO, -1] instead of all negative ones.
 
-  The mips/o32 system call convention passes arguments 5 through 8 on
-  the user stack.
+- musl: src/internal/syscall_ret.c
+- glibc: sysdeps/unix/sysv/linux/sysdep.h
 
-Both mmap() and pselect6() require my_syscall6().
+The MAX_ERRNO used by musl and glibc is 4095, just like the one nolibc
+defined in tools/include/nolibc/errno.h.
 
-[1]: https://man7.org/linux/man-pages/man2/syscall.2.html
-
+Suggested-by: Willy Tarreau <w@1wt.eu>
+Link: https://lore.kernel.org/lkml/ZKKdD%2Fp4UkEavru6@1wt.eu/
+Suggested-by: David Laight <David.Laight@ACULAB.COM>
+Link: https://lore.kernel.org/linux-riscv/94dd5170929f454fbc0a10a2eb3b108d@AcuMS.aculab.com/
 Signed-off-by: Zhangjin Wu <falcon@tinylab.org>
 ---
- tools/include/nolibc/arch-mips.h | 27 ++++++++++++++++++++++++++-
- tools/include/nolibc/nolibc.h    |  9 ++++-----
- 2 files changed, 30 insertions(+), 6 deletions(-)
+ tools/include/nolibc/sys.h | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
 
-diff --git a/tools/include/nolibc/arch-mips.h b/tools/include/nolibc/arch-mips.h
-index 1848f57777c4..a2bfdf57b957 100644
---- a/tools/include/nolibc/arch-mips.h
-+++ b/tools/include/nolibc/arch-mips.h
-@@ -166,7 +166,7 @@ struct sys_stat_struct {
- 	__asm__ volatile (                                                    \
- 		"addiu $sp, $sp, -32\n"                                       \
- 		"sw %7, 16($sp)\n"                                            \
--		"syscall\n  "                                                 \
-+		"syscall\n"                                                   \
- 		"addiu $sp, $sp, 32\n"                                        \
- 		: "=r" (_num), "=r"(_arg4)                                    \
- 		: "0"(_num),                                                  \
-@@ -176,6 +176,31 @@ struct sys_stat_struct {
- 	_arg4 ? -_num : _num;                                                 \
- })
+diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+index 53bc3ad6593e..3479f54d7957 100644
+--- a/tools/include/nolibc/sys.h
++++ b/tools/include/nolibc/sys.h
+@@ -28,13 +28,20 @@
+ #include "errno.h"
+ #include "types.h"
  
-+#define my_syscall6(num, arg1, arg2, arg3, arg4, arg5, arg6)                  \
-+({                                                                            \
-+	register long _num __asm__ ("v0")  = (num);                           \
-+	register long _arg1 __asm__ ("a0") = (long)(arg1);                    \
-+	register long _arg2 __asm__ ("a1") = (long)(arg2);                    \
-+	register long _arg3 __asm__ ("a2") = (long)(arg3);                    \
-+	register long _arg4 __asm__ ("a3") = (long)(arg4);                    \
-+	register long _arg5 = (long)(arg5);                                   \
-+	register long _arg6 = (long)(arg6);                                   \
-+									      \
-+	__asm__ volatile (                                                    \
-+		"addiu $sp, $sp, -32\n"                                       \
-+		"sw %7, 16($sp)\n"                                            \
-+		"sw %8, 20($sp)\n"                                            \
-+		"syscall\n"                                                   \
-+		"addiu $sp, $sp, 32\n"                                        \
-+		: "=r" (_num), "=r"(_arg4)                                    \
-+		: "0"(_num),                                                  \
-+		  "r"(_arg1), "r"(_arg2), "r"(_arg3), "r"(_arg4), "r"(_arg5), \
-+		  "r"(_arg6)                                                  \
-+		: _NOLIBC_SYSCALL_CLOBBERLIST                                 \
-+	);                                                                    \
-+	_arg4 ? -_num : _num;                                                 \
-+})
+-/* Syscall return helper, set errno as -ret when ret < 0 */
 +
- char **environ __attribute__((weak));
- const unsigned long *_auxv __attribute__((weak));
- 
-diff --git a/tools/include/nolibc/nolibc.h b/tools/include/nolibc/nolibc.h
-index 05a228a6ee78..1f8d821000ac 100644
---- a/tools/include/nolibc/nolibc.h
-+++ b/tools/include/nolibc/nolibc.h
-@@ -13,11 +13,10 @@
-  * Syscalls are split into 3 levels:
-  *   - The lower level is the arch-specific syscall() definition, consisting in
-  *     assembly code in compound expressions. These are called my_syscall0() to
-- *     my_syscall6() depending on the number of arguments. The MIPS
-- *     implementation is limited to 5 arguments. All input arguments are cast
-- *     to a long stored in a register. These expressions always return the
-- *     syscall's return value as a signed long value which is often either a
-- *     pointer or the negated errno value.
-+ *     my_syscall6() depending on the number of arguments. All input arguments
-+ *     are castto a long stored in a register. These expressions always return
-+ *     the syscall's return value as a signed long value which is often either
-+ *     a pointer or the negated errno value.
-  *
-  *   - The second level is mostly architecture-independent. It is made of
-  *     static functions called sys_<name>() which rely on my_syscallN()
++/* Syscall return helper for library routines, set errno as -ret when ret is in
++ * range of [-MAX_ERRNO, -1]
++ *
++ * Note, No official reference states the errno range here aligns with musl
++ * (src/internal/syscall_ret.c) and glibc (sysdeps/unix/sysv/linux/sysdep.h)
++ */
++
+ static __inline__ __attribute__((unused, always_inline))
+-long __sysret(long ret)
++long __sysret(unsigned long ret)
+ {
+-	if (ret < 0) {
+-		SET_ERRNO(-ret);
+-		ret = -1;
++	if (ret >= (unsigned long)-MAX_ERRNO) {
++		SET_ERRNO(-(long)ret);
++		return -1;
+ 	}
+ 	return ret;
+ }
 -- 
 2.25.1
 
