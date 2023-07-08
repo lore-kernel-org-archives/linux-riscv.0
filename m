@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A349EB64DA
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Jul 2023 01:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99E6FEB64D9
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Jul 2023 02:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tmTbcKrRRk4o6VZTp4xtXUtJQh+vJjcrnan/2JPpiTw=; b=HyqDpV/uROqqRL
-	WWYUIUEh0J9Tifs0R/2HsZ4Yf+7vNqW9hIPeWN1QDABxeYL/dEYWu7aF2uJUxs7iyPBu/EYK+s8Zy
-	ES/+otfrVa30ZLn3fE744kBsXf6UvewLocSklKUckawhOx5m29fMeqAUaGHNIL4vfOi98mRDFomeG
-	QQBzlD3Jvu1bto67TabLz7a4wMrV1bG5Vw6l17/mzyme1gwGMMdO7JNbDqJEzu9Q6SUwuDz1S2AgH
-	7TnDElaV/EEbvpNhM6A+nC44CNpn1LbQhCQ6MZU+0Hnm+9YxQu7xS9vPuACs2kFR+69jzEispsTgB
-	yBJ3o9hzgFsSDIHKpizg==;
+	List-Owner; bh=4/afbuWYo/TGqhZHuPGI5QF/M5eNExkTIVE7lTwG1kY=; b=KVQnpUNBaUpkee
+	lo15JioaHwanti7z6f4Ro+9m6QfgQFTP/OZyKrZl7F1WNT3Vc78j9Kawiwvmk0hZr7226SV+SII8V
+	foj4XgfA72Ul/WrH1PpCMcOd7Cevh9dPRBZqbEfIxwSNTZUFrvWYsD7TsRGzjrxT7/X/J8hVHNT0t
+	Lc1R0T4R5/gw5b3FhLMzr7x1m8cTLu3IKdRMJ2aziisL29d1Pf7ObmX/6JoRUKuNnlyOV4chNGoqF
+	vVBmU8i9sKR0jrRRJt0haQQk7YykitZaSh/0PHo+oRaIpEPchCsZAcu5p/eygrl1XWGvN7pIp0+FI
+	n/zZnw7J6X7rEbsAmL6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHwUs-006Dna-19;
-	Sat, 08 Jul 2023 01:12:26 +0000
-Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	id 1qHxT0-006K1r-0z;
+	Sat, 08 Jul 2023 02:14:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHwUm-006Der-1C
+	id 1qHxSv-006K12-3C
 	for linux-riscv@lists.infradead.org;
-	Sat, 08 Jul 2023 01:12:23 +0000
-Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-563531a3ad2so1828696eaf.3
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Jul 2023 18:12:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688778735; x=1691370735;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1lKe6yHyZy9K3PFiy7uwsh090/tMqL+ZOHLxwbJUQNU=;
-        b=3xtx3kLk27Pt5nQRjo2gIABwLUOicjlR50GeIy3PIPo3T7ivLSyd0Mn3gjEwJzZM0r
-         0dM6f2JeTRuxED/dJNaqCELwLP/w1FTo+GLHgNP34xh7mKbJ64eikyBDPxbg/DJfJvhx
-         Y+cVCTchX1Y+56HFaSRczQptsqV3qq+Kgpfme7g5v27i80wMH/Qmbw0AYfYv2t1nCjW6
-         uX/hFmbnWEGjyG+JKsxI/H0ErMxzzsryWUexcdUBjZwftfcYW2BCK7xlKqyuh3609j9J
-         t8ostOouYIat8RZ6iWw8hSRqtnElpqSCQeRwT1TOVrpbUFlUkDBnyRauYk/bLjMvJq4c
-         jJjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688778735; x=1691370735;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1lKe6yHyZy9K3PFiy7uwsh090/tMqL+ZOHLxwbJUQNU=;
-        b=RFd0RTgFAPdLf284+DySb0FwE2t6ts/O/5eqtBKzBuuvZqLGrpTTqJSAbg2dU2mIix
-         xJkJelZEtoCWbPcDIV2TPAS6pDFNu//D1XxXXuflrU2wCWySgdGMzibHPMrBDnkfhjlR
-         Te6i3zOVLeS7KIesTgy1lVV/wyVeH91DzLKA6XJZC4/jXhCZMwuzbZgZWK83DSJWjhHl
-         M4blvyGLwrgYv2pX4Y/ywZ2Q0fi3KLe2g6W4liMH8FYmP4afN5zOmzHrkWXn8HgTsXIh
-         bQfl+wxu6NwQ1eqmzQCC3j4V/md+wRX7CbHMqNgIWrDF87ZP543bBrhgQQOu4b0inAtP
-         muzg==
-X-Gm-Message-State: ABy/qLZ4DixJPnzjdPoT4mqMxP68c6cDIGVNAjvQECzQMexVM0eXwAsv
-	WWAe21sdG8/MnGhYHNlX2YAai8NnMv2EdF1Am14=
-X-Google-Smtp-Source: APBJJlGg5nRKgYW+XdI1rMP/hwn173NFRuMlzbFPemjPeQPEYTIF5WuXBIKOFywdw6/fbn7CMjMf9Q==
-X-Received: by 2002:a05:6358:e48b:b0:135:24ed:5108 with SMTP id by11-20020a056358e48b00b0013524ed5108mr8839615rwb.10.1688778734803;
-        Fri, 07 Jul 2023 18:12:14 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id x24-20020a170902b41800b001b87d3e845bsm3830654plr.149.2023.07.07.18.12.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Jul 2023 18:12:14 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: charlie@rivosinc.com,
-	conor@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@rivosinc.com,
-	aou@eecs.berkeley.edu,
-	anup@brainfault.org,
-	konstantin@linuxfoundation.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mm@kvack.org,
-	mick@ics.forth.gr,
-	jrtc27@jrtc27.com,
-	rdunlap@infradead.org
-Subject: [PATCH v4 1/4] RISC-V: mm: Restrict address space for sv39,sv48,sv57
-Date: Fri,  7 Jul 2023 18:11:32 -0700
-Message-ID: <20230708011156.2697409-2-charlie@rivosinc.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230708011156.2697409-1-charlie@rivosinc.com>
-References: <20230708011156.2697409-1-charlie@rivosinc.com>
+	Sat, 08 Jul 2023 02:14:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1688782468;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Kpy+PGb5drQmeWGSE0l67Lj4CAUJY3SUrpQEp6bMyqo=;
+	b=DI61Hj6e/GZZCfNMm4u7pux2PDvOzSTO2+ukOdqvcS9M4IWgMZfZrhWnn8lUQKtMvnKx1D
+	LphysNULZFW4ta1G+RvuH9zHZbiqM5X+g3M+wkMoPfsY9F2RgIlqutNIOrBWkLD4mkwtwf
+	BuH7aPJx/inuJ25LcT8ieinWkI0Nz5g=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-307-iTbWNiJGMhGyjVPRPERf0Q-1; Fri, 07 Jul 2023 22:14:27 -0400
+X-MC-Unique: iTbWNiJGMhGyjVPRPERf0Q-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 799CB800962;
+	Sat,  8 Jul 2023 02:14:26 +0000 (UTC)
+Received: from darkstar.users.ipa.redhat.com (ovpn-12-59.pek2.redhat.com [10.72.12.59])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8B20B1454142;
+	Sat,  8 Jul 2023 02:14:20 +0000 (UTC)
+Date: Sat, 8 Jul 2023 10:15:53 +0800
+From: Dave Young <dyoung@redhat.com>
+To: Baoquan He <bhe@redhat.com>
+Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+	thunder.leizhen@huawei.com, John.p.donnelly@oracle.com,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	horms@kernel.org, chenjiahao16@huawei.com,
+	linux-riscv@lists.infradead.org, x86@kernel.org, bp@alien8.de
+Subject: Re: [RFC PATCH 0/4] kdump: add generic functions to simplify
+ crashkernel crashkernel in architecture
+Message-ID: <ZKjG2R8RhWmJex53@darkstar.users.ipa.redhat.com>
+References: <20230619055951.45620-1-bhe@redhat.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230619055951.45620-1-bhe@redhat.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230707_181220_430793_E472EB3B 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20230707_191430_126152_E9C057A6 
+X-CRM114-Status: GOOD (  29.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,132 +84,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make sv48 the default address space for mmap as some applications
-currently depend on this assumption. A hint address passed to mmap will
-cause the largest address space that fits entirely into the hint to be
-used. If the hint is less than or equal to 1<<38, an sv39 address will
-be used. An exception is that if the hint address is 0, then a sv48
-address will be used. After an address space is completely full, the next
-smallest address space will be used.
+On 06/19/23 at 01:59pm, Baoquan He wrote:
+> In the current arm64, crashkernel=,high support has been finished after
+> several rounds of posting and careful reviewing. The code in arm64 which
+> parses crashkernel kernel parameters firstly, then reserve memory can be
+> a good example for other ARCH to refer to.
+> 
+> Whereas in x86_64, the code mixing crashkernel parameter parsing and
+> memory reserving is twisted, and looks messy. Refactoring the code to
+> make it more readable maintainable is necessary.
+> 
+> Here, try to abstract the crashkernel parameter parsing code into a
+> generic function parse_crashkernel_generic(), and the crashkernel memory
+> reserving code into a generic function reserve_crashkernel_generic().
+> Then, in ARCH which crashkernel=,high support is needed, a simple
+> arch_reserve_crashkernel() can be added to call above two generic
+> functions. This can remove the duplicated implmentation code in each
+> ARCH, like arm64, x86_64.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/include/asm/elf.h       |  2 +-
- arch/riscv/include/asm/pgtable.h   | 13 ++++++++-
- arch/riscv/include/asm/processor.h | 43 +++++++++++++++++++++++++-----
- 3 files changed, 49 insertions(+), 9 deletions(-)
+Hi Baoquan, the parse_crashkernel_common and parse_crashkernel_generic
+are confusion to me.  Thanks for the effort though.
 
-diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-index c24280774caf..5d3368d5585c 100644
---- a/arch/riscv/include/asm/elf.h
-+++ b/arch/riscv/include/asm/elf.h
-@@ -49,7 +49,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
-  * the loader.  We need to make sure that it is out of the way of the program
-  * that it will "exec", and that there is sufficient room for the brk.
-  */
--#define ELF_ET_DYN_BASE		((TASK_SIZE / 3) * 2)
-+#define ELF_ET_DYN_BASE		((DEFAULT_MAP_WINDOW / 3) * 2)
- 
- #ifdef CONFIG_64BIT
- #ifdef CONFIG_COMPAT
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 75970ee2bda2..a8090ebea705 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -57,18 +57,29 @@
- #define MODULES_END		(PFN_ALIGN((unsigned long)&_start))
- #endif
- 
-+
- /*
-  * Roughly size the vmemmap space to be large enough to fit enough
-  * struct pages to map half the virtual address space. Then
-  * position vmemmap directly below the VMALLOC region.
-  */
- #ifdef CONFIG_64BIT
-+#define VA_BITS_SV39 39
-+#define VA_BITS_SV48 48
-+#define VA_BITS_SV57 57
-+
-+#define VA_USER_SV39 (UL(1) << (VA_BITS_SV39 - 1))
-+#define VA_USER_SV48 (UL(1) << (VA_BITS_SV48 - 1))
-+#define VA_USER_SV57 (UL(1) << (VA_BITS_SV57 - 1))
-+
- #define VA_BITS		(pgtable_l5_enabled ? \
--				57 : (pgtable_l4_enabled ? 48 : 39))
-+				VA_BITS_SV57 : (pgtable_l4_enabled ? VA_BITS_SV48 : VA_BITS_SV39))
- #else
- #define VA_BITS		32
- #endif
- 
-+#define MMAP_VA_BITS ((VA_BITS >= VA_BITS_SV48) ? VA_BITS_SV48 : VA_BITS)
-+
- #define VMEMMAP_SHIFT \
- 	(VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
- #define VMEMMAP_SIZE	BIT(VMEMMAP_SHIFT)
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index c950a8d9edef..63715c071e1b 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -13,20 +13,49 @@
- 
- #include <asm/ptrace.h>
- 
--/*
-- * This decides where the kernel will search for a free chunk of vm
-- * space during mmap's.
-- */
--#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE / 3)
--
--#define STACK_TOP		TASK_SIZE
- #ifdef CONFIG_64BIT
-+#define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
- #define STACK_TOP_MAX		TASK_SIZE_64
-+
-+#define arch_get_mmap_end(addr, len, flags)	\
-+({	\
-+	unsigned long mmap_end;	\
-+	if ((addr) >= VA_USER_SV57)	\
-+		mmap_end = STACK_TOP_MAX;	\
-+	else if ((((addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48))	\
-+		mmap_end = VA_USER_SV48;	\
-+	else	\
-+		mmap_end = VA_USER_SV39;	\
-+	mmap_end;	\
-+})
-+
-+#define arch_get_mmap_base(addr, base)	\
-+({	\
-+	unsigned long mmap_base;	\
-+	if ((addr >= VA_USER_SV57) && (VA_BITS >= VA_BITS_SV57))	\
-+		mmap_base = base + (VA_USER_SV57 - DEFAULT_MAP_WINDOW);	\
-+	else if ((((addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48))	\
-+		mmap_base = base + (VA_USER_SV48 - DEFAULT_MAP_WINDOW);	\
-+	else	\
-+		mmap_base = base + (VA_USER_SV39 - DEFAULT_MAP_WINDOW);	\
-+	mmap_base;	\
-+})
-+
- #else
-+#define DEFAULT_MAP_WINDOW	TASK_SIZE
- #define STACK_TOP_MAX		TASK_SIZE
- #endif
- #define STACK_ALIGN		16
- 
-+
-+#define STACK_TOP		DEFAULT_MAP_WINDOW
-+
-+/*
-+ * This decides where the kernel will search for a free chunk of vm
-+ * space during mmap's.
-+ */
-+#define TASK_UNMAPPED_BASE	PAGE_ALIGN(DEFAULT_MAP_WINDOW / 3)
-+
- #ifndef __ASSEMBLY__
- 
- struct task_struct;
--- 
-2.41.0
+I'm not sure if it will be easy or not, but ideally I think the parse
+function can be arch independent, something like a general funtion
+parse_crashkernel() which can return the whole necessary infomation of
+crashkenrel for arch code to use, for example return like
+below pseudo stucture(just a concept, may need to think more):
+
+structure crashkernel_range {
+	size,
+	range,
+	struct list_head list;
+}
+
+structure crashkernel{
+  structure crashkernel_range *range_list;
+  union {
+  	offset,
+  	low_high
+  }
+}
+
+So the arch code can just get the data of crashkernel and then check
+about the details, if it does not support low and high reservation then
+it can just ignore the option.
+
+Thoughts?
+
+> 
+> I only change the arm64 and x86_64 implementation to make use of the
+> generic functions to simplify code. Risc-v can be done very easily refer
+> to the steps in arm64 and x86_64. I leave this to Jiahao or other risc-v
+> developer since Jiahao have posted a patchset to add crashkernel=,high
+> support to risc-v.
+> 
+> This patchset is based on the latest linus's tree, and on top of below
+> patch:
+> 
+> arm64: kdump: simplify the reservation behaviour of crashkernel=,high
+>       https://git.kernel.org/arm64/c/6c4dcaddbd36
+> 
+> 
+> Baoquan He (4):
+>   kdump: rename parse_crashkernel() to parse_crashkernel_common()
+>   kdump: add generic functions to parse crashkernel and do reservation
+>   arm64: kdump: use generic interfaces to simplify crashkernel
+>     reservation code
+>   x86: kdump: use generic interfaces to simplify crashkernel reservation
+>     code
+> 
+>  arch/arm/kernel/setup.c              |   4 +-
+>  arch/arm64/Kconfig                   |   3 +
+>  arch/arm64/include/asm/kexec.h       |   8 ++
+>  arch/arm64/mm/init.c                 | 141 ++----------------------
+>  arch/ia64/kernel/setup.c             |   4 +-
+>  arch/loongarch/kernel/setup.c        |   3 +-
+>  arch/mips/cavium-octeon/setup.c      |   2 +-
+>  arch/mips/kernel/setup.c             |   4 +-
+>  arch/powerpc/kernel/fadump.c         |   5 +-
+>  arch/powerpc/kexec/core.c            |   4 +-
+>  arch/powerpc/mm/nohash/kaslr_booke.c |   4 +-
+>  arch/riscv/mm/init.c                 |   5 +-
+>  arch/s390/kernel/setup.c             |   4 +-
+>  arch/sh/kernel/machine_kexec.c       |   5 +-
+>  arch/x86/Kconfig                     |   3 +
+>  arch/x86/include/asm/kexec.h         |  32 ++++++
+>  arch/x86/kernel/setup.c              | 141 +++---------------------
+>  include/linux/crash_core.h           |  33 +++++-
+>  kernel/crash_core.c                  | 158 +++++++++++++++++++++++++--
+>  19 files changed, 274 insertions(+), 289 deletions(-)
+> 
+> -- 
+> 2.34.1
+> 
+> 
+
+Thanks
+Dave
 
 
 _______________________________________________
