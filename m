@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49C1EB64DC
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Jul 2023 14:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2589EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Jul 2023 14:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p8eZ7DihvPAXvK33mJQZfgyVIjcsMRbEzDX/Z4/HVW0=; b=zPkSk3XxTNZvPq
-	p0H3e+x6SxQj19rRyk7TQUMJdY7HX3Z1cm6qBFsI95Hi1IpgNOo3yYOGOY1DRVixUHBpwAoMtvjPX
-	MCKNsfEix70gp7PhqN+D92v9V79+gQgwUGf5SFZslfaIyQuYO0Nosg2aUvOnC4Yg1n4sgETRwHOMp
-	2/Xj8D2OzBd93jGwR3sIf2mxJCmKkX0JUmmiT+fCMkdWB4b3OrTksGik/S9Y5DlVR0DIhZHPWjlH5
-	llCT/X5SJhUO20Dn2mlLSFyCXO5SS/EEQtADRNkK56WH/1doku+kHlulSTA4fei46knkDoPc7R7r3
-	IOnsp5C3oTWdKxwxUJRw==;
+	List-Owner; bh=Z3Ha7LHbOrpIoNDO6YuQtwqRzS7+JD4FFCFsD8vbQjc=; b=1J5pbfX5mKs2bq
+	EpVPN85LuW/rKsubQiZ5rHe+7RB1hjoNDRrzIreqoB4/Bdxu7+EyJNZMNjt/FYJQYTjCSKGt4jztS
+	OPA5XVMzyKApil8j9Kn7fekBRwXUpC94J/rYB6iBfD/6Nu0AOGP5SvkrGRc+UUyis9v6N3zkibxb1
+	TaB1uzmiSPdqgo0Y4ycanzBfQspKrREP4MngXqBy/lfPii8AjsW1sGYXqCD0UNN1szDKhd/zSTq2b
+	p0gJwV7yEPOyY5bIB0SoVSvOpJmG1A7pdoCrmTNAPcNB14QCxt8SoTheXH4pqRktKJ8N1y20WEX6E
+	RY/iWxWEeq4M6Udt8xFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qI8Zj-007NND-1p;
-	Sat, 08 Jul 2023 14:06:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qI8Zg-007NMW-1o;
-	Sat, 08 Jul 2023 14:06:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1F35E6006F;
-	Sat,  8 Jul 2023 14:06:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51684C433C8;
-	Sat,  8 Jul 2023 14:05:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1688825169;
-	bh=lQQG5C/x03QfBnIDAUBC6OthDK2/PtT0kHEqFxkEQpA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sasX7Bz9d693N8HkNqBHBzRGJ4UQeUsSOXKfp5MLJd10jXmaiAh1WF1hyO/GppGQU
-	 72LFLdPkcUy+0YQtt6z8d70yuOSiwZ+HBz46iZ+UeMGgm+026bkMPxrqubOwH7gr1a
-	 j3gTGv1T3JcRcO5XVtx4eAQH8/3i7yHkUKxctG3O2Tjxpaz2gQbyX2VHkDMIGdE3tt
-	 GDLBWH5OibvZjxWb5D99nl5VHmTkculcQJGMpZwxrV83CyigCBbcgNdj9K8ZVPU2SE
-	 cxPgRaodwVry1ZPgEVl3CIppvHkpzDMsPUt87C1kuGRDN8kGB6IuQv6hbYhocHA9CE
-	 6iGWQr4i1yDsg==
-Date: Sat, 8 Jul 2023 15:05:55 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Maksim Kiselev <bigunclemax@gmail.com>
-Cc: linux-iio@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Rob
- Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Cristian
- Ciocaltea <cristian.ciocaltea@collabora.com>, Andre Przywara
- <andre.przywara@arm.com>, Andy Shevchenko <andy.shevchenko@gmail.com>,
- Cosmin Tanislav <demonsingur@gmail.com>, Alexander Sverdlin
- <alexander.sverdlin@gmail.com>, ChiYuan Huang <cy_huang@richtek.com>,
- Leonard =?UTF-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>, Haibo Chen
- <haibo.chen@nxp.com>, Ramona Bolboaca <ramona.bolboaca@analog.com>, Ibrahim
- Tilki <Ibrahim.Tilki@analog.com>, ChiaEn Wu <chiaen_wu@richtek.com>,
- William Breathitt Gray <william.gray@linaro.org>, Arnd Bergmann
- <arnd@arndb.de>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Mike Looijmans
- <mike.looijmans@topic.nl>, Quentin Schulz
- <quentin.schulz@free-electrons.com>, Maxime Ripard <mripard@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v8 0/4] Add support for Allwinner GPADC on
- D1/T113s/R329/T507 SoCs
-Message-ID: <20230708150555.45152996@jic23-huawei>
-In-Reply-To: <20230619154252.3951913-1-bigunclemax@gmail.com>
-References: <20230619154252.3951913-1-bigunclemax@gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
+	id 1qI8fj-007NzS-2e;
+	Sat, 08 Jul 2023 14:12:27 +0000
+Received: from elvis.franken.de ([193.175.24.41])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qI8fg-007NyN-06
+	for linux-riscv@lists.infradead.org;
+	Sat, 08 Jul 2023 14:12:26 +0000
+Received: from uucp by elvis.franken.de with local-rmail (Exim 3.36 #1)
+	id 1qI8fN-00023x-00; Sat, 08 Jul 2023 16:12:05 +0200
+Received: by alpha.franken.de (Postfix, from userid 1000)
+	id 11AC8C01C1; Sat,  8 Jul 2023 16:11:52 +0200 (CEST)
+Date: Sat, 8 Jul 2023 16:11:52 +0200
+From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>, javierm@redhat.com,
+	linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	dri-devel@lists.freedesktop.org, Ard Biesheuvel <ardb@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+	Matt Turner <mattst88@gmail.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-alpha@vger.kernel.org,
+	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/4] vgacon: rework screen_info #ifdef checks
+Message-ID: <ZKluqG2ZqKtAmnEG@alpha.franken.de>
+References: <20230707095415.1449376-1-arnd@kernel.org>
+ <20230707095415.1449376-2-arnd@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230707095415.1449376-2-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230708_070612_710381_6D66DDD1 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20230708_071224_239940_E8815FF7 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +81,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Jun 2023 18:42:23 +0300
-Maksim Kiselev <bigunclemax@gmail.com> wrote:
+On Fri, Jul 07, 2023 at 11:52:24AM +0200, Arnd Bergmann wrote:
+> diff --git a/arch/mips/jazz/setup.c b/arch/mips/jazz/setup.c
+> index ee044261eb223..3c14548353e47 100644
+> --- a/arch/mips/jazz/setup.c
+> +++ b/arch/mips/jazz/setup.c
+> @@ -76,7 +76,7 @@ void __init plat_mem_setup(void)
+>  
+>  	_machine_restart = jazz_machine_restart;
+>  
+> -#ifdef CONFIG_VT
+> +#ifdef CONFIG_VGA_CONSOLE
+>  	screen_info = (struct screen_info) {
+>  		.orig_video_cols	= 160,
+>  		.orig_video_lines	= 64,
 
-> This series adds support for general purpose ADC (GPADC) on new
-> Allwinner's SoCs, such as D1, T113s, T507 and R329. The implemented driver
-> provides basic functionality for getting ADC channels data.
-Applied 1-3 to the togreg branch of iio.git which will initially be pushed out as
-testing so that 0-day can see if we missed anything. I'll also be rebasing it
-on rc1 once available before pushing out as togreg.
+that wssn't intended for VGA but for fbdev/g364fb, which doesn't use
+it. So removing it is probably the best thing.
 
-Thanks,
+Thomas.
 
-Jonathan
-
-> 
-> Change History:
-> v8:
-> - Added patch that changes Kconfig description for previous Allwinner GPADC
-> - Changed Kconfig description for this GPADC driver
-> - Fixed 'reg' range for gpadc node in 'sunxi-d1s-t113.dtsi'
-> 
-> v7:
-> - Fixed typo in DT bindings property
-> 
-> v6:
-> - Fixed DT bindings regexp for channel properties
-> - Dropped checking the max number of channels from the drivers code
->   (This is redundant as we raly on DT bindings check)
-> 
-> v5:
-> - Fixed DT bindings properties for child nodes
-> 
-> v4:
-> - Fixed DT bindings warnings
-> - Used GENMASK to clear the irq register
-> - Minor formatting fixes
-> 
-> v3:
-> - Added DT bindings dual license, fixed property order and example formatting
-> - Added explanations comments for timeout and mutex
-> - Dropped unnecessary regmap and used readl/writel instead
-> - Added error message about getting channel number
-> - Renamed labels and variables to make them self-explanatory
-> 
-> v2:
-> - Added lastch flag to avoid addition work for already selected channel
-> - Added reset assertion on module remove
-> - Added dynamic channel allocation and dropped iio_chan_spec arrays
-> - Changed IIO_CHAN_INFO_SCALE type to FRACTIONAL_LOG2
-> - Dropped separate compatible strings and configs for T113s and R329
-> - Fixed includes
-> - Fixed Kconfig description
-> - Removed duplicate probe error messages
-> - Used FIELD_PREP for bit setup
-> 
-> v1:
-> - Initial version
-> 
-> Maksim Kiselev (4):
->   iio: adc: Kconfig change description for Allwinner GPADC
->   iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
->   dt-bindings: iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
->   riscv: dts: allwinner: d1: Add GPADC node
-> 
->  .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    |  91 ++++++
->  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  10 +
->  drivers/iio/adc/Kconfig                       |  12 +-
->  drivers/iio/adc/Makefile                      |   1 +
->  drivers/iio/adc/sun20i-gpadc-iio.c            | 276 ++++++++++++++++++
->  5 files changed, 389 insertions(+), 1 deletion(-)
->  create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
->  create mode 100644 drivers/iio/adc/sun20i-gpadc-iio.c
-> 
-
+-- 
+Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
+good idea.                                                [ RFC1925, 2.3 ]
 
 _______________________________________________
 linux-riscv mailing list
