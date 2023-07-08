@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8F7EB64D9
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Jul 2023 01:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A349EB64DA
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Jul 2023 01:13:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VjDIDAn+5VKAL3pY8Vbe8Mtoqhfne/19lpW9+eSlVb4=; b=b65Ot/BSelF5hs
-	gtPQH73Ly9LKrVKTHhX+r+QWcqN+zw5zdxf9hGWWHkZH7Nbvrc+NJewXzn40g77l5JgF75SbpPCmD
-	pQqAfMDKCvHgz7vvYkSKuoaWwg0RUnsPVcxWAzCjy4QDmWFieTwD2uCq2hM817G0SONGv1K4C0F9m
-	HciWvGYj2tl/kUvVJo9dHpe0bx0BDcYlHt/3j3ue6t9T8FPJ3jAl2VpPemc93GWtQ6BFcAJ8DowAw
-	WemmSQKi2UBofW0P8yXVyyDIpJtY3Y2jq59K1qrxq/L/iSKrQj36Wafw8T2Nvn1LTaISXRUOGIRGm
-	EGVf5OYGs30CWYY+VuXQ==;
+	List-Owner; bh=tmTbcKrRRk4o6VZTp4xtXUtJQh+vJjcrnan/2JPpiTw=; b=HyqDpV/uROqqRL
+	WWYUIUEh0J9Tifs0R/2HsZ4Yf+7vNqW9hIPeWN1QDABxeYL/dEYWu7aF2uJUxs7iyPBu/EYK+s8Zy
+	ES/+otfrVa30ZLn3fE744kBsXf6UvewLocSklKUckawhOx5m29fMeqAUaGHNIL4vfOi98mRDFomeG
+	QQBzlD3Jvu1bto67TabLz7a4wMrV1bG5Vw6l17/mzyme1gwGMMdO7JNbDqJEzu9Q6SUwuDz1S2AgH
+	7TnDElaV/EEbvpNhM6A+nC44CNpn1LbQhCQ6MZU+0Hnm+9YxQu7xS9vPuACs2kFR+69jzEispsTgB
+	yBJ3o9hzgFsSDIHKpizg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHwUu-006DoO-08;
-	Sat, 08 Jul 2023 01:12:28 +0000
-Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qHwUr-006DkJ-0q
-	for linux-riscv@lists.infradead.org;
+	id 1qHwUs-006Dna-19;
 	Sat, 08 Jul 2023 01:12:26 +0000
-Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-563439ea4a2so1834048eaf.0
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Jul 2023 18:12:23 -0700 (PDT)
+Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qHwUm-006Der-1C
+	for linux-riscv@lists.infradead.org;
+	Sat, 08 Jul 2023 01:12:23 +0000
+Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-563531a3ad2so1828696eaf.3
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Jul 2023 18:12:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688778742; x=1691370742;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1688778735; x=1691370735;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HbN8vPNRnpC2rsql2yMQGj4/q3r+GbD6Fgm8kHqgv+g=;
-        b=YFsN5teo2Xz7zOmpo4/u8q+vpC9gfozaUxki8nVKZv9U3t07rRrfE2F4D/Mpc5IR6Y
-         g2mhkupBGRVRoam4tBIlKDHh9QI3CglQEfd+e5rWKmh2SSW1KWTgyeQZWx33sFhEiL/R
-         zgEzQmy2w6g0b6bkpsyL0pXxNONEUqIbqM5EyF7yTZ4nd+QmM5x5KgzeZtipCgrkcwup
-         nNVAWTBHg56PkxtsUwaVwvwNubSbZIkurOLzlb3ihhEr/nv+HyjB0A54Sr6SdIfOKJ3r
-         u1doM0X8jjfji3no8jcXuswWv7vTaFA/xQIWTftyN61BawJxTM4bORzaV5IG40o6TLK3
-         Hpeg==
+        bh=1lKe6yHyZy9K3PFiy7uwsh090/tMqL+ZOHLxwbJUQNU=;
+        b=3xtx3kLk27Pt5nQRjo2gIABwLUOicjlR50GeIy3PIPo3T7ivLSyd0Mn3gjEwJzZM0r
+         0dM6f2JeTRuxED/dJNaqCELwLP/w1FTo+GLHgNP34xh7mKbJ64eikyBDPxbg/DJfJvhx
+         Y+cVCTchX1Y+56HFaSRczQptsqV3qq+Kgpfme7g5v27i80wMH/Qmbw0AYfYv2t1nCjW6
+         uX/hFmbnWEGjyG+JKsxI/H0ErMxzzsryWUexcdUBjZwftfcYW2BCK7xlKqyuh3609j9J
+         t8ostOouYIat8RZ6iWw8hSRqtnElpqSCQeRwT1TOVrpbUFlUkDBnyRauYk/bLjMvJq4c
+         jJjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688778742; x=1691370742;
+        d=1e100.net; s=20221208; t=1688778735; x=1691370735;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=HbN8vPNRnpC2rsql2yMQGj4/q3r+GbD6Fgm8kHqgv+g=;
-        b=Fb91FaYCohI4fvz3pY3oz3VDNlke1cHmPI/PItVM12LNsScyZlNF+jERbtSo/L2nwz
-         qGae51aDsBZqyaPcK4x+OAQkEf4Wz2fQE0vKkEodCjOXxploMyyDpy9nHH5Fjl5yjE2V
-         PnbJmD0i5fL64sM91R7tHxn2N/wPiUquP4s5C1zRsi/W/pETWYR41wXRHGyFGjCmYbtW
-         K7JuYSV65zG5RhEOvsnO+3yW3FoSd0d9mg+L76JIRZvrsxVfZAYgAU6pgF6gWEsggGot
-         U9JJjGC5ACvH3Wc0yZgSD+2VfCqK/xrnvx8OZnleGCnGx0F/aQZdi4J0YuK4Vpb2kF/z
-         06gA==
-X-Gm-Message-State: ABy/qLZigd4SrWujQIM68d0OU8Dx7srgHBwx1FeSw3Fe52iEdxArtSPu
-	4oOjxsURoA4ycb6l7UdBF5HLsRzgMmU9x3XlV2k=
-X-Google-Smtp-Source: APBJJlGdindojK5i23bHPXGUqY/0vPqfcqx7SQxTQvxyGmC/pEljPyl1GkowwHsZX51mLjvN1LEySQ==
-X-Received: by 2002:a05:6358:2925:b0:125:a552:4389 with SMTP id y37-20020a056358292500b00125a5524389mr7496248rwb.22.1688778742292;
-        Fri, 07 Jul 2023 18:12:22 -0700 (PDT)
+        bh=1lKe6yHyZy9K3PFiy7uwsh090/tMqL+ZOHLxwbJUQNU=;
+        b=RFd0RTgFAPdLf284+DySb0FwE2t6ts/O/5eqtBKzBuuvZqLGrpTTqJSAbg2dU2mIix
+         xJkJelZEtoCWbPcDIV2TPAS6pDFNu//D1XxXXuflrU2wCWySgdGMzibHPMrBDnkfhjlR
+         Te6i3zOVLeS7KIesTgy1lVV/wyVeH91DzLKA6XJZC4/jXhCZMwuzbZgZWK83DSJWjhHl
+         M4blvyGLwrgYv2pX4Y/ywZ2Q0fi3KLe2g6W4liMH8FYmP4afN5zOmzHrkWXn8HgTsXIh
+         bQfl+wxu6NwQ1eqmzQCC3j4V/md+wRX7CbHMqNgIWrDF87ZP543bBrhgQQOu4b0inAtP
+         muzg==
+X-Gm-Message-State: ABy/qLZ4DixJPnzjdPoT4mqMxP68c6cDIGVNAjvQECzQMexVM0eXwAsv
+	WWAe21sdG8/MnGhYHNlX2YAai8NnMv2EdF1Am14=
+X-Google-Smtp-Source: APBJJlGg5nRKgYW+XdI1rMP/hwn173NFRuMlzbFPemjPeQPEYTIF5WuXBIKOFywdw6/fbn7CMjMf9Q==
+X-Received: by 2002:a05:6358:e48b:b0:135:24ed:5108 with SMTP id by11-20020a056358e48b00b0013524ed5108mr8839615rwb.10.1688778734803;
+        Fri, 07 Jul 2023 18:12:14 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id x24-20020a170902b41800b001b87d3e845bsm3830654plr.149.2023.07.07.18.12.21
+        by smtp.gmail.com with ESMTPSA id x24-20020a170902b41800b001b87d3e845bsm3830654plr.149.2023.07.07.18.12.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Jul 2023 18:12:21 -0700 (PDT)
+        Fri, 07 Jul 2023 18:12:14 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -78,16 +78,16 @@ Cc: charlie@rivosinc.com,
 	mick@ics.forth.gr,
 	jrtc27@jrtc27.com,
 	rdunlap@infradead.org
-Subject: [PATCH v4 4/4] RISC-V: mm: Document mmap changes
-Date: Fri,  7 Jul 2023 18:11:35 -0700
-Message-ID: <20230708011156.2697409-5-charlie@rivosinc.com>
+Subject: [PATCH v4 1/4] RISC-V: mm: Restrict address space for sv39,sv48,sv57
+Date: Fri,  7 Jul 2023 18:11:32 -0700
+Message-ID: <20230708011156.2697409-2-charlie@rivosinc.com>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230708011156.2697409-1-charlie@rivosinc.com>
 References: <20230708011156.2697409-1-charlie@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230707_181225_300983_3F104849 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20230707_181220_430793_E472EB3B 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +104,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The behavior of mmap is modified with this patch series, so explain the
-changes to the mmap hint address behavior.
+Make sv48 the default address space for mmap as some applications
+currently depend on this assumption. A hint address passed to mmap will
+cause the largest address space that fits entirely into the hint to be
+used. If the hint is less than or equal to 1<<38, an sv39 address will
+be used. An exception is that if the hint address is 0, then a sv48
+address will be used. After an address space is completely full, the next
+smallest address space will be used.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- Documentation/riscv/vm-layout.rst | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ arch/riscv/include/asm/elf.h       |  2 +-
+ arch/riscv/include/asm/pgtable.h   | 13 ++++++++-
+ arch/riscv/include/asm/processor.h | 43 +++++++++++++++++++++++++-----
+ 3 files changed, 49 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/riscv/vm-layout.rst b/Documentation/riscv/vm-layout.rst
-index 5462c84f4723..8141addbf888 100644
---- a/Documentation/riscv/vm-layout.rst
-+++ b/Documentation/riscv/vm-layout.rst
-@@ -133,3 +133,25 @@ RISC-V Linux Kernel SV57
-    ffffffff00000000 |  -4     GB | ffffffff7fffffff |    2 GB | modules, BPF
-    ffffffff80000000 |  -2     GB | ffffffffffffffff |    2 GB | kernel
-   __________________|____________|__________________|_________|____________________________________________________________
+diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+index c24280774caf..5d3368d5585c 100644
+--- a/arch/riscv/include/asm/elf.h
++++ b/arch/riscv/include/asm/elf.h
+@@ -49,7 +49,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
+  * the loader.  We need to make sure that it is out of the way of the program
+  * that it will "exec", and that there is sufficient room for the brk.
+  */
+-#define ELF_ET_DYN_BASE		((TASK_SIZE / 3) * 2)
++#define ELF_ET_DYN_BASE		((DEFAULT_MAP_WINDOW / 3) * 2)
+ 
+ #ifdef CONFIG_64BIT
+ #ifdef CONFIG_COMPAT
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 75970ee2bda2..a8090ebea705 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -57,18 +57,29 @@
+ #define MODULES_END		(PFN_ALIGN((unsigned long)&_start))
+ #endif
+ 
 +
+ /*
+  * Roughly size the vmemmap space to be large enough to fit enough
+  * struct pages to map half the virtual address space. Then
+  * position vmemmap directly below the VMALLOC region.
+  */
+ #ifdef CONFIG_64BIT
++#define VA_BITS_SV39 39
++#define VA_BITS_SV48 48
++#define VA_BITS_SV57 57
 +
-+Userspace VAs
-+--------------------
-+To maintain compatibility with software that relies on the VA space with a
-+maximum of 48 bits the kernel will, by default, return virtual addresses to
-+userspace from a 48-bit range (sv48). This default behavior is achieved by
-+passing 0 into the hint address parameter of mmap. On CPUs with an address space
-+smaller than sv48, the CPU maximum supported address space will be the default.
++#define VA_USER_SV39 (UL(1) << (VA_BITS_SV39 - 1))
++#define VA_USER_SV48 (UL(1) << (VA_BITS_SV48 - 1))
++#define VA_USER_SV57 (UL(1) << (VA_BITS_SV57 - 1))
 +
-+Software can "opt-in" to receiving VAs from other VA space by providing
-+a hint address to mmap. A call to mmap is guaranteed to return an address
-+that will not override the unset left-aligned bits in the hint address,
-+unless there is no space left in the address space. If there is no space
-+available in the requested address space, an address in the next smallest
-+available address space will be returned.
+ #define VA_BITS		(pgtable_l5_enabled ? \
+-				57 : (pgtable_l4_enabled ? 48 : 39))
++				VA_BITS_SV57 : (pgtable_l4_enabled ? VA_BITS_SV48 : VA_BITS_SV39))
+ #else
+ #define VA_BITS		32
+ #endif
+ 
++#define MMAP_VA_BITS ((VA_BITS >= VA_BITS_SV48) ? VA_BITS_SV48 : VA_BITS)
 +
-+For example, in order to obtain 48-bit VA space, a hint address greater than
-+:code:`1 << 38` must be provided. Note that this is 38 due to sv39 userspace
-+ending at :code:`1 << 38` and the addresses beyond this are reserved for the
-+kernel. Similarly, to obtain 57-bit VA space addresses, a hint address greater
-+than or equal to :code:`1 << 47` must be provided.
+ #define VMEMMAP_SHIFT \
+ 	(VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
+ #define VMEMMAP_SIZE	BIT(VMEMMAP_SHIFT)
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index c950a8d9edef..63715c071e1b 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -13,20 +13,49 @@
+ 
+ #include <asm/ptrace.h>
+ 
+-/*
+- * This decides where the kernel will search for a free chunk of vm
+- * space during mmap's.
+- */
+-#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE / 3)
+-
+-#define STACK_TOP		TASK_SIZE
+ #ifdef CONFIG_64BIT
++#define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
+ #define STACK_TOP_MAX		TASK_SIZE_64
++
++#define arch_get_mmap_end(addr, len, flags)	\
++({	\
++	unsigned long mmap_end;	\
++	if ((addr) >= VA_USER_SV57)	\
++		mmap_end = STACK_TOP_MAX;	\
++	else if ((((addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48))	\
++		mmap_end = VA_USER_SV48;	\
++	else	\
++		mmap_end = VA_USER_SV39;	\
++	mmap_end;	\
++})
++
++#define arch_get_mmap_base(addr, base)	\
++({	\
++	unsigned long mmap_base;	\
++	if ((addr >= VA_USER_SV57) && (VA_BITS >= VA_BITS_SV57))	\
++		mmap_base = base + (VA_USER_SV57 - DEFAULT_MAP_WINDOW);	\
++	else if ((((addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48))	\
++		mmap_base = base + (VA_USER_SV48 - DEFAULT_MAP_WINDOW);	\
++	else	\
++		mmap_base = base + (VA_USER_SV39 - DEFAULT_MAP_WINDOW);	\
++	mmap_base;	\
++})
++
+ #else
++#define DEFAULT_MAP_WINDOW	TASK_SIZE
+ #define STACK_TOP_MAX		TASK_SIZE
+ #endif
+ #define STACK_ALIGN		16
+ 
++
++#define STACK_TOP		DEFAULT_MAP_WINDOW
++
++/*
++ * This decides where the kernel will search for a free chunk of vm
++ * space during mmap's.
++ */
++#define TASK_UNMAPPED_BASE	PAGE_ALIGN(DEFAULT_MAP_WINDOW / 3)
++
+ #ifndef __ASSEMBLY__
+ 
+ struct task_struct;
 -- 
 2.41.0
 
