@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C582DEB64DA
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 17:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E1CEB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 17:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t0UP7CEV/gXh3TFtPvw+bWMKv+/NxbED+tQkGm77WZc=; b=ql5rbeLlu9ZQdzvHHIyosO1tQi
-	8ZWRMM9/WaHluowNoy40OCtZxVs8NNglW6C6WBc3fi6cUhFogyiHhpkf9IMOYU24Hsc9hPQrIHjsO
-	hZZ+sawq/hFQzkysLqNM50Rt3suZ8NCfvYN3hVMj+DTASq+lRi52yKpu/kvAqXGApyDUBo8Mzbfg/
-	GaOkS+lvQYDPQBoErtVjGIJudmeR9RA9/Dc5N/7rg4kb8omGs6sbBjz95ZS25WhEpJGs2gQe9rABt
-	UP7VsyKKoHTNLrSmGw+YxtT9D4vfVXBSpBg9aBov0ApRC+u7WPJm0NH8UfKamzofnrEzeN2nifdGD
-	O9B+SY3g==;
+	bh=p09Eaeam2xPUEa8+c4Xoo5LW0V6GdLBzUL7vnVCWzyM=; b=1IfgLv/sZyHCm6Zeh5d6tkGgoe
+	1YI40fkwxn+H+xsGaohcbHi7HLLevvN+hMBwjIwsiAy5olfWcl+KD3HvVFLv7MWKUzrlbgRQOFkKb
+	v66YtsZ0o74nkoX1YzQRfwiVsXuKQGSX+nwXRzjcTz8/2J1rCevBTKrCdJZTBtdnwA5kxsIKUbcMr
+	sHDWkUnEVZyWJAUYyK/ir6a349TS/ihbCK4qY1ojbw1UN55noNtquVgoEzVp0xiyw4w3CpVbfU9YO
+	NXr6Ov9unmXfaC+iTaOhrQHjPZbr6Jwu2Qzrice5BWsJZQivUIzrQjZgZWJw3yWYhSVJO5Plfxp+E
+	GbpG6R7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIuin-00CMXU-2y;
-	Mon, 10 Jul 2023 17:30:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qIujS-00CMmU-1j;
+	Mon, 10 Jul 2023 17:31:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIuik-00CMWM-1b;
-	Mon, 10 Jul 2023 17:30:47 +0000
+	id 1qIujO-00CMkQ-0n;
+	Mon, 10 Jul 2023 17:31:27 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id CD59A61166;
-	Mon, 10 Jul 2023 17:30:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B727C433C9;
-	Mon, 10 Jul 2023 17:30:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 88CE460FBB;
+	Mon, 10 Jul 2023 17:31:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62DD5C433C7;
+	Mon, 10 Jul 2023 17:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689010245;
-	bh=8daJmCsRggn9xziEjmtzfB/+TEmSHGqfTrQOxt4tg1U=;
+	s=k20201202; t=1689010285;
+	bh=yBEMuGoWHM9zUe+iAIatKlGNoEB//1WfSxUw+0SuQ6A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t2qoXUnSHuV+TbWU69K3xBxeG6UAs5r8JvEuI+8qIwEdTjDJX9HPZn++uZHMNIQaD
-	 86g42vDDjo+xgTS9/scrmuWADvN0R48PLgUPQA8lzB5uIE7gczU7YsGie2UjWiD40Y
-	 soETF0P1p+D4lt8Jw6O9FNAf5+tzNnhQ6U1GTpxDacTetMTQd4tHQO7p92dxIvPKDo
-	 vCacGl+XShxk3g8tnOVtoXP+PJNeX8VjY17MSNUMQyZxhOaFwy902auPvHxrZTYMla
-	 iILw2xA2Gbqp0/Iihh6sd5pNaL6Cxsx8tHLlJ00pYbON+m3jOCfuniILkrN7AJJX38
-	 Zx5bmFaJNvHKA==
-Date: Mon, 10 Jul 2023 18:30:32 +0100
+	b=VttBOl+eNlj1/cgq3G8qxJc+Ah7b5ZQ04PTV+EG6CFR2pRgYe6JyXMHkH1/K5bemV
+	 K7OqUHz9qrkCqPetZgj1nNcc9MMYdr/B9tGDE8jYkIXmiDAP6OS06Xl3q0kgh5hEpC
+	 MvMnLChy3z1cQdkugx0ULecDib0F8BZscQJjcD6lCQGmAOZWkJumwmB1iP89ewG1mK
+	 rAm6IHAnieSj0S2DZ5vLDOR0ISwF5BNq2Bv8GkENsnzbMGMTAKoGpz+DIGvt6qDstD
+	 H+akvWxjFGPRQ19Fycx48iyLC1xdJ/ddnyN9qoFnjn+84u3R5jM1KfNYx9ZqQrj7XX
+	 kUC1BkFYkCtCQ==
+Date: Mon, 10 Jul 2023 18:31:12 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
@@ -94,17 +94,15 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Masami Hiramatsu <mhiramat@kernel.org>,
 	Richard Cochran <richardcochran@gmail.com>
-Subject: Re: [PATCH v2 04/15] spi: Replace open coded
- spi_controller_xfer_timeout()
-Message-ID: <cfaffa00-4b61-4d81-8675-70295844513b@sirena.org.uk>
+Subject: Re: [PATCH v2 00/15] spi: Header and core clean up and refactoring
+Message-ID: <58c6f76a-8028-4ce8-a101-d5feb3b40897@sirena.org.uk>
 References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
- <20230710154932.68377-5-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-In-Reply-To: <20230710154932.68377-5-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
 X-Cookie: Do you have lysdexia?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_103046_618093_90C238F9 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20230710_103126_362172_E4FC4DE9 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,58 +114,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1523133100601196369=="
+Content-Type: multipart/mixed; boundary="===============9090081032531198189=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============1523133100601196369==
+--===============9090081032531198189==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="IbZ/DrTRficzGRpW"
+	protocol="application/pgp-signature"; boundary="Mtt0ZQ3K6jQ9xKnG"
 Content-Disposition: inline
 
 
---IbZ/DrTRficzGRpW
+--Mtt0ZQ3K6jQ9xKnG
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-On Mon, Jul 10, 2023 at 06:49:21PM +0300, Andy Shevchenko wrote:
+On Mon, Jul 10, 2023 at 06:49:17PM +0300, Andy Shevchenko wrote:
+> Various cleanups and refactorings of the SPI header and core parts
+> united in a single series. It also touches drivers under SPI subsystem
+> folder on the pure renaming purposes of some constants.
 
-> Since the new spi_controller_xfer_timeout() helper appeared,
-> we may replace open coded variant in spi_transfer_wait().
+I've queued 1-3, 6-8 and 11- for CI thanks.
 
-> + * Assume speed to be 100 kHz if it's not defined at the time of invocation.
-> + *
-
-You didn't mention this bit in the changelog, and I'm not 100% convinced
-it was the best idea in the first place.  It's going to result in some
-very big timeouts if it goes off, and we really should be doing
-validation much earlier in the process.
-
-> +	u32 speed_hz = xfer->speed_hz ?: 100000;
-
-Not only the ternery operator, but the version without the second
-argument for extra clarity!
-
---IbZ/DrTRficzGRpW
+--Mtt0ZQ3K6jQ9xKnG
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmSsQDcACgkQJNaLcl1U
-h9DEzgf/dy9EpgGVS5JKG+2sOnEEWzJ1/z92vL5sQoHWJT0M7rzfGdRlGddYvj2k
-yOJg6fvzzY2vbGoYuqkSlYi95WyUFmwqjd+BwayzJ5gH0xKRXo4MwCHKIET3z44z
-8pD55r1ow40GOeztLTsLwgiADUQSMRLm/Y33rrf2I1J+/AgrEV6V+oZnbWsmoI+I
-0QS2ZIQk8m1oDghyOmEOzW+jqJQbDR6HAP0L9dUbd/zcJK9LDXHE5hepkLjQbC6v
-oGrJJVbs+IYFbaNJrDNtxtF3JwlAtVWWSten66FG3fmreSDQwcKATVKiHWtLlhJb
-a/T8TlFW3ianwYVf2yMOEojOIbZvQw==
-=d1Us
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmSsQF8ACgkQJNaLcl1U
+h9CQ2gf+NebuHlkBa9zrhzmcGhSrtVx5yFCLP0dHaZVPMEHj6t0rIpQGodx2xOq0
+MawEB/JvvnMHpCvUoGGUXGsTcLiBB3uxADywJKyPkitWM3W/9LMAGRwpdnyV/zbN
+i4RuTGjLyFnoHuDdf82cL/5f3EFsLn1J3rl3cUDAv1c3U+WpZReA4OO9s9QhlqJU
+GfQoV1As2DUX49504bC2EfuPpa4wYIWrR1fT8ApGCZXs3KUQpgTWQ7iH4X48fdbY
+5gE1rQID66FMT2d78FRZkVmqej6wFqYr34G0zD2Lf/qC+ZsTSvvy4YExJhNnts1Q
+Md56GS1p2fjwWtBGCvs3Gmlg6zcmtQ==
+=CQab
 -----END PGP SIGNATURE-----
 
---IbZ/DrTRficzGRpW--
+--Mtt0ZQ3K6jQ9xKnG--
 
 
---===============1523133100601196369==
+--===============9090081032531198189==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -178,5 +165,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============1523133100601196369==--
+--===============9090081032531198189==--
 
