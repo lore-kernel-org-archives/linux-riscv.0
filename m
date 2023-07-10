@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9CDEB64D9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F19EB64DA
 	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 08:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,27 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8jVDDGu4Mr0/+YPHrcQt3mZDpOEOJb4hUrwb+nksBdo=; b=4ESHnakcaOfyxA
-	JnOAgi599H7dA63PRrxVS6zn/G0tzZ6SuribMBZh6iHex0JuMwa4jntiW9Dz4YEc7cDfp4rOeyJFk
-	f1xqNGlqT4vip6WmVNouOKAEl7pIzlmWLika6JXggv0rfT9OCAscREQ4lSX3Zfl6w+jVbpGLkeo9I
-	8JT6KWjwLqJEdgtcJsbMtphITfX4hVnwU9ZPPL61Zv7z1Uhiz6jzgJHIZIrWl1UqVuuykTYJvEIAP
-	lT3epuU+uRIfHsRnxfcy+QlNualC0omJOrhsfImyUWF5h87K30iCzkk2RSvZ1/u0f/KLCgbfVz8b/
-	way9JFXtULYWp7QKfQkQ==;
+	List-Owner; bh=WUE1iGcki5DiEi3PZFPa6iiVquR5Zu1y2k4aveS1FXY=; b=zOywkPsbXIaycJ
+	S/+v64hK9CoslLPbkzuaqo+Mi7rG3yd6Drru0qj5aBTDkAL//40NkK7DriaAR5bBH5WDef9YkzNSW
+	c1dwPmz7Rmj4wvFtY5G//Afjr1I3DWl40hYFHNAwoHbieG/Z53TEnKIx31D582fxmtPvJZoUokhM1
+	RmzqAtMYGokI8sMheea0+jlXz4midmOGJAsWdIdRboFytLtadDtbAHLiongE+jeKz1GCBpYTlqy7j
+	gbbrPxF8azBJSkz1QsPOy+Y2MHlpyFk+oXIAgrvyGxmcHwim+BGvwHj4iGN+8sPFI/G3agJxMEc5u
+	YVYFhYX56qZFweI0svOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qImSb-00Asg3-1x;
-	Mon, 10 Jul 2023 08:41:33 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1qImSU-00Asb9-1L;
+	Mon, 10 Jul 2023 08:41:26 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qImSQ-00AsSV-36;
-	Mon, 10 Jul 2023 08:41:27 +0000
+	id 1qImSP-00AsSW-0n;
+	Mon, 10 Jul 2023 08:41:23 +0000
 Received: from canpemm500009.china.huawei.com (unknown [172.30.72.56])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Qzy7m5v4bztR5P;
-	Mon, 10 Jul 2023 16:38:12 +0800 (CST)
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Qzy8Y0ThMzPk21;
+	Mon, 10 Jul 2023 16:38:53 +0800 (CST)
 Received: from localhost.localdomain (10.50.163.32) by
  canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Mon, 10 Jul 2023 16:41:09 +0800
+ 15.1.2507.27; Mon, 10 Jul 2023 16:41:10 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <akpm@linux-foundation.org>, <catalin.marinas@arm.com>,
 	<linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -46,11 +46,12 @@ CC: <corbet@lwn.net>, <peterz@infradead.org>, <arnd@arndb.de>,
 	<openrisc@lists.librecores.org>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Barry Song
 	<21cnbao@gmail.com>, <wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
-	<prime.zeng@hisilicon.com>, <Jonathan.Cameron@Huawei.com>, Anshuman Khandual
-	<khandual@linux.vnet.ibm.com>, Barry Song <baohua@kernel.org>
-Subject: [PATCH v10 1/4] mm/tlbbatch: Introduce arch_tlbbatch_should_defer()
-Date: Mon, 10 Jul 2023 16:39:11 +0800
-Message-ID: <20230710083914.18336-2-yangyicong@huawei.com>
+	<prime.zeng@hisilicon.com>, <Jonathan.Cameron@Huawei.com>, Barry Song
+	<v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman
+	<mgorman@suse.de>
+Subject: [PATCH v10 2/4] mm/tlbbatch: Rename and extend some functions
+Date: Mon, 10 Jul 2023 16:39:12 +0800
+Message-ID: <20230710083914.18336-3-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20230710083914.18336-1-yangyicong@huawei.com>
 References: <20230710083914.18336-1-yangyicong@huawei.com>
@@ -60,8 +61,8 @@ X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  canpemm500009.china.huawei.com (7.192.105.203)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_014123_448470_23B2D122 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20230710_014121_763092_3F43C9CD 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,75 +79,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anshuman Khandual <khandual@linux.vnet.ibm.com>
+From: Barry Song <v-songbaohua@oppo.com>
 
-The entire scheme of deferred TLB flush in reclaim path rests on the
-fact that the cost to refill TLB entries is less than flushing out
-individual entries by sending IPI to remote CPUs. But architecture
-can have different ways to evaluate that. Hence apart from checking
-TTU_BATCH_FLUSH in the TTU flags, rest of the decision should be
-architecture specific.
+This patch does some preparation works to extend batched TLB flush to
+arm64. Including:
+- Extend set_tlb_ubc_flush_pending() and arch_tlbbatch_add_mm()
+  to accept an additional argument for address, architectures
+  like arm64 may need this for tlbi.
+- Rename arch_tlbbatch_add_mm() to arch_tlbbatch_add_pending()
+  to match its current function since we don't need to handle
+  mm on architectures like arm64 and add_mm is not proper,
+  add_pending will make sense to both as on x86 we're pending the
+  TLB flush operations while on arm64 we're pending the synchronize
+  operations.
 
-Signed-off-by: Anshuman Khandual <khandual@linux.vnet.ibm.com>
-[https://lore.kernel.org/linuxppc-dev/20171101101735.2318-2-khandual@linux.vnet.ibm.com/]
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-[Rebase and fix incorrect return value type]
-Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Reviewed-by: Barry Song <baohua@kernel.org>
-Reviewed-by: Xin Hao <xhao@linux.alibaba.com>
+This intends no functional changes on x86.
+
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Nadav Amit <namit@vmware.com>
+Cc: Mel Gorman <mgorman@suse.de>
+Tested-by: Yicong Yang <yangyicong@hisilicon.com>
+Tested-by: Xin Hao <xhao@linux.alibaba.com>
 Tested-by: Punit Agrawal <punit.agrawal@bytedance.com>
+Signed-off-by: Barry Song <v-songbaohua@oppo.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+Reviewed-by: Xin Hao <xhao@linux.alibaba.com>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/x86/include/asm/tlbflush.h | 12 ++++++++++++
- mm/rmap.c                       |  9 +--------
- 2 files changed, 13 insertions(+), 8 deletions(-)
+ arch/x86/include/asm/tlbflush.h |  5 +++--
+ include/linux/mm_types_task.h   |  4 ++--
+ mm/rmap.c                       | 12 +++++++-----
+ 3 files changed, 12 insertions(+), 9 deletions(-)
 
 diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-index 80450e1d5385..cf2a1de5d388 100644
+index cf2a1de5d388..1c7d3a36e16c 100644
 --- a/arch/x86/include/asm/tlbflush.h
 +++ b/arch/x86/include/asm/tlbflush.h
-@@ -253,6 +253,18 @@ static inline void flush_tlb_page(struct vm_area_struct *vma, unsigned long a)
- 	flush_tlb_mm_range(vma->vm_mm, a, a + PAGE_SIZE, PAGE_SHIFT, false);
+@@ -276,8 +276,9 @@ static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
+ 	return atomic64_inc_return(&mm->context.tlb_gen);
  }
  
-+static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-+{
-+	bool should_defer = false;
-+
-+	/* If remote CPUs need to be flushed then defer batch the flush */
-+	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
-+		should_defer = true;
-+	put_cpu();
-+
-+	return should_defer;
-+}
-+
- static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
+-static inline void arch_tlbbatch_add_mm(struct arch_tlbflush_unmap_batch *batch,
+-					struct mm_struct *mm)
++static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
++					     struct mm_struct *mm,
++					     unsigned long uaddr)
  {
+ 	inc_mm_tlb_gen(mm);
+ 	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
+diff --git a/include/linux/mm_types_task.h b/include/linux/mm_types_task.h
+index 5414b5c6a103..aa44fff8bb9d 100644
+--- a/include/linux/mm_types_task.h
++++ b/include/linux/mm_types_task.h
+@@ -52,8 +52,8 @@ struct tlbflush_unmap_batch {
+ #ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
  	/*
+ 	 * The arch code makes the following promise: generic code can modify a
+-	 * PTE, then call arch_tlbbatch_add_mm() (which internally provides all
+-	 * needed barriers), then call arch_tlbbatch_flush(), and the entries
++	 * PTE, then call arch_tlbbatch_add_pending() (which internally provides
++	 * all needed barriers), then call arch_tlbbatch_flush(), and the entries
+ 	 * will be flushed on all CPUs by the time that arch_tlbbatch_flush()
+ 	 * returns.
+ 	 */
 diff --git a/mm/rmap.c b/mm/rmap.c
-index 0c0d8857dfce..6480e526c154 100644
+index 6480e526c154..9699c6011b0e 100644
 --- a/mm/rmap.c
 +++ b/mm/rmap.c
-@@ -688,17 +688,10 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval)
-  */
- static bool should_defer_flush(struct mm_struct *mm, enum ttu_flags flags)
- {
--	bool should_defer = false;
--
- 	if (!(flags & TTU_BATCH_FLUSH))
- 		return false;
+@@ -642,7 +642,8 @@ void try_to_unmap_flush_dirty(void)
+ #define TLB_FLUSH_BATCH_PENDING_LARGE			\
+ 	(TLB_FLUSH_BATCH_PENDING_MASK / 2)
  
--	/* If remote CPUs need to be flushed then defer batch the flush */
--	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
--		should_defer = true;
--	put_cpu();
--
--	return should_defer;
-+	return arch_tlbbatch_should_defer(mm);
+-static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval)
++static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
++				      unsigned long uaddr)
+ {
+ 	struct tlbflush_unmap_batch *tlb_ubc = &current->tlb_ubc;
+ 	int batch;
+@@ -651,7 +652,7 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval)
+ 	if (!pte_accessible(mm, pteval))
+ 		return;
+ 
+-	arch_tlbbatch_add_mm(&tlb_ubc->arch, mm);
++	arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, uaddr);
+ 	tlb_ubc->flush_required = true;
+ 
+ 	/*
+@@ -726,7 +727,8 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
+ 	}
+ }
+ #else
+-static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval)
++static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
++				      unsigned long uaddr)
+ {
  }
  
- /*
+@@ -1579,7 +1581,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 				 */
+ 				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
+ 
+-				set_tlb_ubc_flush_pending(mm, pteval);
++				set_tlb_ubc_flush_pending(mm, pteval, address);
+ 			} else {
+ 				pteval = ptep_clear_flush(vma, address, pvmw.pte);
+ 			}
+@@ -1962,7 +1964,7 @@ static bool try_to_migrate_one(struct folio *folio, struct vm_area_struct *vma,
+ 				 */
+ 				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
+ 
+-				set_tlb_ubc_flush_pending(mm, pteval);
++				set_tlb_ubc_flush_pending(mm, pteval, address);
+ 			} else {
+ 				pteval = ptep_clear_flush(vma, address, pvmw.pte);
+ 			}
 -- 
 2.24.0
 
