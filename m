@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4F2EB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 18:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A672AEB64DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 18:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TbOrNcAlnoeEBWfvnwpZC+L/Xmvjfr5cgiz+1WbFZ88=; b=juzd5BgA7dulYfhpyARYcXySkW
-	y9mTGHG4cRkHjTy0CRWZvBrnw7O38T3AYwbgU+Jx7aj3VU5g6hOmVGlewQrB47Az2GqgIYiqK/8RF
-	HOf/rNTofvKhaLP2NUhf36no1BF3Fvkc+v/eoDNLNLwXWIwWdKXM2i2L+K7ggDTpCD0mmEBISQBaV
-	M7+3dzexutfLalMRoAqLJKAxVVhzFbynwei1fGtmbzWU/sn5HOwcmOOvStDCiHAgFwqBMEzLfJVfG
-	3ffph6Xm8i70qHAKFAfUL3cznIXS61xLJQvpLXoM5Zxsml4+B71+aSbiy+Y7eRXc03Y/6YKznKLzx
-	cZw2pqqw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=AWwkU6RICYp3HASL1rCB/X9/B2DTcYDHiueeCP6pDyg=; b=w59
+	Jfm1xSD2lMstyYXhmFlBShPUgAd08MHpyDJCs+yLNxaWgxGC8DTAoJu42U2/CFq2XVpZ4zHG4uH+c
+	YgMar988MY6oSub7wAGKHrVZKda29KvAl4pVDLPidxHx5akmn/zee20r3ZxYBgcJNkTVe2eD6H9A/
+	M5g1d/YmD/cDcGhOmX0VUEKx5XBTMGct3RhghKs1kmMU5Rc8jGIPE4/s50+bYCblHF9vr8WD1N1gl
+	WzetYts//tl+sNtKGGx3kjd1IC3EinLyVjqJ5z/E6ikBB+TWwVmBdZ57sENnzWgmC1OZNh93XlvJp
+	E1flL+B4zj0K3eG/zYAygDQ0rwIxj8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIvcL-00CSZV-1K;
-	Mon, 10 Jul 2023 18:28:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qIvjl-00CTDi-2v;
+	Mon, 10 Jul 2023 18:35:53 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIvcJ-00CSZ8-1C
+	id 1qIvjj-00CTCo-0D
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jul 2023 18:28:12 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D8B2261157;
-	Mon, 10 Jul 2023 18:28:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E5C7C433C7;
-	Mon, 10 Jul 2023 18:28:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689013690;
-	bh=3cEI8jFkOTOGNVblYnm1wjEjkydkAdSYYTHa2XVe8Wo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JTIuZKQ0i0CbTrehTO/hSAjxqwZ3XRhJ8CA6d0KpZYOHPHXRx3FY8YN7CSleZoGp9
-	 EkbA7WDC7RFPfvJ4jdunfb/iG7H4x3UOWoWQneljSv5d9UxKJgndk7ROTXhv7EHn/4
-	 LqOyGC2u/M2q687yk0vgYpfeY3yc2maJ2mWYeQrWYVeeh/SnjfNON9ebPDjUtK2wSm
-	 mjSYptWK9yxolE0/hGM94B7AaBwn+m9dAygDoMB5zKT4mI+Cvv/Z8m2XwLUy3oB7QX
-	 98Wb/4Y4bzzdFh2Md1BYu8fSGib9rZuQSLKE+KOpA0M+rTQ8F6b6xZojpnMyXixF5Y
-	 H2dvKg1IbG5/Q==
-Date: Mon, 10 Jul 2023 19:28:06 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Felix Moessbauer <felix.moessbauer@siemens.com>,
-	Walker Chen <walker.chen@starfivetech.com>
-Cc: Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh+dt@kernel.org>,
-	Daniel Bovensiepen <daniel.bovensiepen@siemens.com>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/1] riscv: dts: Enable device-tree overlay support for
- starfive devices
-Message-ID: <20230710-villain-dainty-d1a90ce57a27@spud>
-References: <20230627080620.329873-1-felix.moessbauer@siemens.com>
-MIME-Version: 1.0
-In-Reply-To: <20230627080620.329873-1-felix.moessbauer@siemens.com>
+	Mon, 10 Jul 2023 18:35:52 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-55bb5191cd1so5509476a12.2
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 11:35:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1689014148; x=1691606148;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ii//NdDJV9WujsqukD3lwiIq5e/LyG2Fswag+05zH+E=;
+        b=cRgD+oRUns5YzG9+1bpiaTGIpy4DKL/Xz7bJ7gRd9oD3Xn4lyqRtw/KGJjiH510MA6
+         XYA0ZB6HRLE5cy7jDThnf/lxpm2EXODNGbqaAbL6N2igI2KXl0cOiRj7U/evNbfGna2K
+         HfzwAQizTxP1bXa+6SRrdzB8mvpoeP9CEQhZ21NmL3Ag+Slaua582VWcKupdcO7zVBf0
+         3ekYXBaPC6LyH8OID/IYa3j0DKmstgsoJ5ggVCFOEqoG3LW1b2AZF0q9ItrxjeqGDa7k
+         W2tg6ArEqP2N38xhU5sfVF6WGzPabfsrUm/dNMJIzHuUVJkB9Nk1fhln4NbzAJ43fllB
+         mmWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689014148; x=1691606148;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ii//NdDJV9WujsqukD3lwiIq5e/LyG2Fswag+05zH+E=;
+        b=BUy9mh2NuZTPTkQGNj7NdpX3+wVpthTjuH3X7F19L6st+3NSL8n8YRXi4kQxb2KeQI
+         Tlhoc0AZzbZ6yzWRp3WIMcDZcuSVRadNgkTaXHlE4x1kvPlVs91hX8KRmteyEVYN9HoA
+         GrjJYZ1CuDuRGG+qjfr/RdLbkyLkCME3aOsi+ANIFvk0hXsW11G9msXg+uJrVaVVwT5F
+         7sB1P3r/oo9t8T8VP8Vw58+BCKsMc3pLwPkWdEIFiqhmlK950SIrhEisYdRp9AXR/uXt
+         5lolRgUwX10ZcBPM8Lvz76KAwv66lutwz9DP37F4TA0W/Cq3KSNO/1O4tR4mZwake4qH
+         Cf/A==
+X-Gm-Message-State: ABy/qLbeYVXTaU+OxBIp85LVTq5QjKUL51yWx6Fbjk0MEJVkzqtnz1L9
+	swcQZTATzpq2zkjPoTXsMOJf6pF7+iVDmsSNfRQ=
+X-Google-Smtp-Source: APBJJlGr9RJyCy/NTtd4U3G8YBzsr03Efxb2b0r6mb2spZfsYM39frOrlzfVt4txYLqSsSFhpgcb57zUbCLWzB6Duj0=
+X-Received: from samitolvanen.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:4f92])
+ (user=samitolvanen job=sendgmr) by 2002:a63:7747:0:b0:55c:5c30:33aa with SMTP
+ id s68-20020a637747000000b0055c5c3033aamr174205pgc.9.1689014148087; Mon, 10
+ Jul 2023 11:35:48 -0700 (PDT)
+Date: Mon, 10 Jul 2023 18:35:45 +0000
+Mime-Version: 1.0
+X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3192; i=samitolvanen@google.com;
+ h=from:subject; bh=7OU2bpD9UM9q2xXwG7ynEd3jeDD83obc/zqrCIV8X8k=;
+ b=owEB7QES/pANAwAKAUy19oSLvFbuAcsmYgBkrE+AhS2yuHhEWb37FLulyBDG6hxPDOCPp4ma4
+ 1wBuy7vRHaJAbMEAAEKAB0WIQQ1zPtjsoPW0663g5RMtfaEi7xW7gUCZKxPgAAKCRBMtfaEi7xW
+ 7roEC/4igkmPPv4O8DtGnr3voPUmeALLQLdA+F8M9Bn3HTFaVz4ioIvWtKmMezopiYJbIDUHGbt
+ SDhgD1cRQvrBs4Uusc/ekdt5I3RNrXi0z6DJy+BoH4v1bwxQAurRzapGETRjEeAZGXacIEm8iRj
+ 54IfAkdnmWdi11rza4Efd2TxMPQquQLui+dmgNiuK9E/7Vo2/j5KWn8MyGP8axxbZgVM2KpGWHd
+ EoHqu2niCWANM+elksiJly2S1XiaMQN5TpxUusyMQ01Bm9GtsZpSbF+RLl+P15RO7BuV+ToDSe9
+ +C052grMu1y/NaRQqJlPq3RnHTsjhT6yCR7PvqfV2Nz8gbFi/JwVWQG6+bkISVbVah15Fpr5s9f
+ 6tL8b0o4dsMBjjN1mqqpKOSNfrFbOvrYSt/TtzIZnAxO/nYTEPNrAxdLxLnmW0ormlBt2YFgOjV H7GkBVLFi8Hs3P0GfQIei8SHfcJ+DZAIc5Q+SAJuUMabYv7kWkgKAb0PyzLv00PgaoHUk=
+X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
+Message-ID: <20230710183544.999540-8-samitolvanen@google.com>
+Subject: [PATCH v2 0/6] riscv: KCFI support
+From: Sami Tolvanen <samitolvanen@google.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org, 
+	llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Sami Tolvanen <samitolvanen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_112811_518247_90DD13A7 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20230710_113551_164560_A81B93B4 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,94 +95,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3831915044420180378=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series adds KCFI support for RISC-V. KCFI is a fine-grained
+forward-edge control-flow integrity scheme supported in Clang >=16,
+which ensures indirect calls in instrumented code can only branch to
+functions whose type matches the function pointer type, thus making
+code reuse attacks more difficult.
 
---===============3831915044420180378==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="MTGoKLMunEpeFoDx"
-Content-Disposition: inline
+Patch 1 implements a pt_regs based syscall wrapper to address
+function pointer type mismatches in syscall handling. Patches 2 and 3
+annotate indirectly called assembly functions with CFI types. Patch 4
+implements error handling for indirect call checks. Patch 5 disables
+CFI for arch/riscv/purgatory. Patch 6 finally allows CONFIG_CFI_CLANG
+to be enabled for RISC-V.
 
+Note that Clang 16 has a generic architecture-agnostic KCFI
+implementation, which does work with the kernel, but doesn't produce
+a stable code sequence for indirect call checks, which means
+potential failures just trap and won't result in informative error
+messages. Clang 17 includes a RISC-V specific back-end implementation
+for KCFI, which emits a predictable code sequence for the checks and a
+.kcfi_traps section with locations of the traps, which patch 5 uses to
+produce more useful errors.
 
---MTGoKLMunEpeFoDx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The type mismatch fixes and annotations in the first three patches
+also become necessary in future if the kernel decides to support
+fine-grained CFI implemented using the hardware landing pad
+feature proposed in the in-progress Zicfisslp extension. Once the
+specification is ratified and hardware support emerges, implementing
+runtime patching support that replaces KCFI instrumentation with
+Zicfisslp landing pads might also be feasible (similarly to KCFI to
+FineIBT patching on x86_64), allowing distributions to ship a unified
+kernel binary for all devices.
 
+---
 
-Emil, Walker,
-
-On Tue, Jun 27, 2023 at 04:06:20PM +0800, Felix Moessbauer wrote:
-> Add the '-@' DTC option for the starfive devices. This option
-> populates the '__symbols__' node that contains all the necessary symbols
-> for supporting device-tree overlays (for instance from the firmware or
-> the bootloader) on these devices.
->=20
-> The starfive devices allow various modules to be connected and this
-> enables users to create out-of-tree device-tree overlays for these module=
-s.
->=20
-> Please note that this change does increase the size of the resulting DTB
-> by ~20%. For example, with v6.4 increase in size is as follows:
-
-Whatcha think?
-
-> jh7100-beaglev-starlight.dtb 6192 -> 7339
-> jh7100-starfive-visionfive-v1.dtb 6281 -> 7428
-> jh7110-starfive-visionfive-2-v1.2a.dtb 11101 -> 13447
-> jh7110-starfive-visionfive-2-v1.3b.dtb 11101 -> 13447
->=20
-> Signed-off-by: Felix Moessbauer <felix.moessbauer@siemens.com>
-> ---
->  arch/riscv/boot/dts/starfive/Makefile | 6 ++++++
->  1 file changed, 6 insertions(+)
->=20
-> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/=
-starfive/Makefile
-> index 170956846d49..0141504c0f5c 100644
-> --- a/arch/riscv/boot/dts/starfive/Makefile
-> +++ b/arch/riscv/boot/dts/starfive/Makefile
-> @@ -1,4 +1,10 @@
->  # SPDX-License-Identifier: GPL-2.0
-> +# Enables support for device-tree overlays
-> +DTC_FLAGS_jh7100-beaglev-starlight :=3D -@
-> +DTC_FLAGS_jh7100-starfive-visionfive-v1 :=3D -@
-> +DTC_FLAGS_jh7110-starfive-visionfive-2-v1.2a :=3D -@
-> +DTC_FLAGS_jh7110-starfive-visionfive-2-v1.3b :=3D -@
-> +
->  dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7100-beaglev-starlight.dtb
->  dtb-$(CONFIG_ARCH_STARFIVE) +=3D jh7100-starfive-visionfive-v1.dtb
-> =20
-> --=20
-> 2.39.2
->=20
-
---MTGoKLMunEpeFoDx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKxNtgAKCRB4tDGHoIJi
-0l9xAQCftFaO6Lwn6sxOnIF0Vd1kVEIz5wi5s9sxgRd8EYtkoQEAxJt7CLfD3oNi
-SRAhiqUnDeuBQpFLNILY+tXRQVKE4A0=
-=GH7D
------END PGP SIGNATURE-----
-
---MTGoKLMunEpeFoDx--
+Changes in v2:
+  - Rebased on 6.5-rc1.
+  - Sorted Kconfig entries alphabetically.
 
 
---===============3831915044420180378==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Sami Tolvanen (6):
+  riscv: Implement syscall wrappers
+  riscv: Add types to indirectly called assembly functions
+  riscv: Add ftrace_stub_graph
+  riscv: Add CFI error handling
+  riscv/purgatory: Disable CFI
+  riscv: Allow CONFIG_CFI_CLANG to be selected
+
+ arch/riscv/Kconfig                       |  3 +
+ arch/riscv/include/asm/cfi.h             | 22 ++++++
+ arch/riscv/include/asm/insn.h            | 10 +++
+ arch/riscv/include/asm/syscall.h         |  5 +-
+ arch/riscv/include/asm/syscall_wrapper.h | 87 ++++++++++++++++++++++++
+ arch/riscv/kernel/Makefile               |  2 +
+ arch/riscv/kernel/cfi.c                  | 77 +++++++++++++++++++++
+ arch/riscv/kernel/compat_syscall_table.c |  8 ++-
+ arch/riscv/kernel/mcount.S               |  9 ++-
+ arch/riscv/kernel/suspend_entry.S        |  5 +-
+ arch/riscv/kernel/sys_riscv.c            |  6 ++
+ arch/riscv/kernel/syscall_table.c        |  8 ++-
+ arch/riscv/kernel/traps.c                |  4 +-
+ arch/riscv/purgatory/Makefile            |  4 ++
+ 14 files changed, 238 insertions(+), 12 deletions(-)
+ create mode 100644 arch/riscv/include/asm/cfi.h
+ create mode 100644 arch/riscv/include/asm/syscall_wrapper.h
+ create mode 100644 arch/riscv/kernel/cfi.c
+
+
+base-commit: 06c2afb862f9da8dc5efa4b6076a0e48c3fbaaa5
+-- 
+2.41.0.255.g8b1d071c50-goog
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3831915044420180378==--
-
