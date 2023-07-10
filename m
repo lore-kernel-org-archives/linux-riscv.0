@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F69EB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 17:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D85C6EB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 17:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=869bwGy/i3a837OpMbrZh6YU5ZhTGFfjfQrYN1GISNg=; b=Mu+81jJfyM5zjPJ0jSHAGINBDy
-	s2F0pH6Vw7qdja2wBiW2Ogfonf0Vgp9k7F91T0SPNYTEXsVnILoQ26oXUqOqMJhryZOE1EUO1qk/1
-	8oMJflpov/pLywfzcOCno5HTO5lJG+uOiNbVocql6TIYShe5ZuqMKPhRrGw6g14yOg7MvaJMzGHZG
-	CMqW8hsZa7n7QAQrvsCDCpYjRkdSC1/fZecjRPT48psVH8eweUSepks5sjmEXuK4H6JxIgFxtAugN
-	/wmYBZBSxp8xR2kTeInUqBgQHHkzJjt3uZyTf8CsKGcS5Runph2iFbNd0JMs8HbIooj9bLaRHK24L
-	giPgPGkQ==;
+	bh=dg5DKxlseImMeKLgJBL371v2xHlg6eBB7LTTv00gVwk=; b=M0Wdgxoli2rRGuWLSqX9IyYF2s
+	POwSkjM7yo71M5IzDoyUk1C95dArDRyrB0w7o9B2OOBaHAbIQBORa8rWcKiC8j1appEbKGhLqrTyJ
+	6LWk4vM74zFfpe9Rocer8dlPQSUnzcKdCWa/m4uHxh5oYxwqQZFNCmSVQR3faPlZ+mgOfuehAaEiH
+	g+MFcOJRY/F3HrH9zBFVasN9CoOOWhzebswaAzDYscjGvm3hbpgZr2OioQczY8eZ0X4zyhI0WDyXg
+	yvy/lwLfOGS1owIR2hKx94xsYWtAcQ8r8kRi3/ec6m2t8a5TwoA91jCpVEekCV1y7Njju11iRVHP0
+	d8vTFhyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIuO1-00CIXT-2X;
-	Mon, 10 Jul 2023 17:09:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qIuV6-00CJNk-10;
+	Mon, 10 Jul 2023 17:16:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIuNx-00CIWG-0w;
-	Mon, 10 Jul 2023 17:09:18 +0000
+	id 1qIuV2-00CJMb-1A;
+	Mon, 10 Jul 2023 17:16:37 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BC4FC61133;
-	Mon, 10 Jul 2023 17:09:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 822D8C433C9;
-	Mon, 10 Jul 2023 17:09:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C4A4F61136;
+	Mon, 10 Jul 2023 17:16:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 607EFC433C8;
+	Mon, 10 Jul 2023 17:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689008956;
-	bh=nKZycr1bbDIhX+7r/umilV/wuLHcsLLg8WWLjNqfVGw=;
+	s=k20201202; t=1689009395;
+	bh=CgnlYd6F8QNT9n++b/k47msx5swkm6/AbNv02cH7FqM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ks7RL3h40J9Gsg6+T5tGMhXUPebOkMtv2HYbINZYkE0HBcDFe3InO0uHvSLO6Ywfd
-	 z9dbScYbXDyBfN0KKzvhwsevIOZI2Wa4nTPSPcqSdIk9dVy3t4CwrMIhESNVB8EcTq
-	 DHcqHiLwexT4fjkOSD7WRFfWxwr4oLox+CN38zoYAqwcwq7DLt0YYhvaSCGjOeZdC6
-	 /OMp7mPT/0W9iS9bRuPwjhjEgn3ZN4a3GPUVex+MO83a5hpzqpvTmLwha1tCaAJG7B
-	 IOQDzu3lMvKgzC08AKXIF8wSz30WvJ3WDseHtgBrUd0ZFYjZe2rdpVVbiRnkMjF1jV
-	 sbYhTW/HyF8mg==
-Date: Mon, 10 Jul 2023 18:09:00 +0100
+	b=nCNLRwD0ouHI8pJTPN00LKshCADBsrezjsyCWSHlUtPA86QMcTtmuANY2THapc+ya
+	 rkH5tcQmXa5WkKmxP1SPoeLDBnKChb3smPLszGKE/fOJpIoKZHw2XHyVjIgwHTZ/1z
+	 MufgsvMGmS7UeltSFfqOX5aakYX6Oi9D+fdx6r4xTwDjZDukvdOJHqT+HXAuPx0WPm
+	 TWMpwYu5OvJq0RnyxMb5KHCGmQeKSlmlgHlItZHKy5JjIjq74cV332HHX8EX4US9YN
+	 7LvxZOQBp61R6AEZ7cokvT4lucM8T0YliBj7nuBwioqSX1VDucIF209VQysfZBVMCk
+	 jUIpbFJ9ng45w==
+Date: Mon, 10 Jul 2023 18:16:22 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
@@ -94,17 +94,17 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Masami Hiramatsu <mhiramat@kernel.org>,
 	Richard Cochran <richardcochran@gmail.com>
-Subject: Re: [PATCH v2 02/15] spi: Drop duplicate IDR allocation code in
- spi_register_controller()
-Message-ID: <97f3436a-78ca-4a94-a409-ef04bd3b593f@sirena.org.uk>
+Subject: Re: [PATCH v2 05/15] spi: Remove code duplication in
+ spi_add_device_locked()
+Message-ID: <7557bada-3076-4d6e-a5c5-d368433706e2@sirena.org.uk>
 References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
- <20230710154932.68377-3-andriy.shevchenko@linux.intel.com>
+ <20230710154932.68377-6-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-In-Reply-To: <20230710154932.68377-3-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20230710154932.68377-6-andriy.shevchenko@linux.intel.com>
 X-Cookie: Do you have lysdexia?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_100917_411680_23807A92 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20230710_101636_484121_F8CE507D 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,64 +116,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3276023268069939775=="
+Content-Type: multipart/mixed; boundary="===============3596647411210487787=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3276023268069939775==
+--===============3596647411210487787==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ugTz/0iIbXaMesMQ"
+	protocol="application/pgp-signature"; boundary="smwEq19A8LfCcchg"
 Content-Disposition: inline
 
 
---ugTz/0iIbXaMesMQ
+--smwEq19A8LfCcchg
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jul 10, 2023 at 06:49:19PM +0300, Andy Shevchenko wrote:
+On Mon, Jul 10, 2023 at 06:49:22PM +0300, Andy Shevchenko wrote:
+> Seems by unknown reason, probably some kind of mis-rebase,
+> the commit 0c79378c0199 ("spi: add ancillary device support")
+> adds a dozen of duplicating lines of code. Drop them.
+>=20
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> ---
+>  drivers/spi/spi.c | 11 -----------
+>  1 file changed, 11 deletions(-)
+>=20
+> diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+> index c99ee4164f11..46cbda383228 100644
+> --- a/drivers/spi/spi.c
+> +++ b/drivers/spi/spi.c
+> @@ -712,17 +712,6 @@ EXPORT_SYMBOL_GPL(spi_add_device);
+>  static int spi_add_device_locked(struct spi_device *spi)
+>  {
+>  	struct spi_controller *ctlr =3D spi->controller;
+> -	struct device *dev =3D ctlr->dev.parent;
+> -
+> -	/* Chipselects are numbered 0..max; validate. */
+> -	if (spi_get_chipselect(spi, 0) >=3D ctlr->num_chipselect) {
+> -		dev_err(dev, "cs%d >=3D max %d\n", spi_get_chipselect(spi, 0),
+> -			ctlr->num_chipselect);
+> -		return -EINVAL;
+> -	}
+> -
+> -	/* Set the bus ID string */
+> -	spi_dev_set_name(spi);
 
-> Refactor spi_register_controller() to drop duplicate IDR allocation.
-> Instead of if-else-if branching use two sequential if:s, which allows
-> to re-use the logic of IDR allocation in all cases.
+I see that this is duplicating spi_add_device() (and we really could do
+better with code sharing there I think) but I can't immediately see
+where the duplication that's intended to be elimiated is here - where
+else in the one call path that spi_add_device_locked() has would we do
+the above?  Based on the changelog I was expecting to see some
+duplicated code in the function itself.
 
-For legibility this should have been split into a separate factoring out
-of the shared code and rewriting of the logic, that'd make it trivial to
-review.
-
-> -		mutex_lock(&board_lock);
-> -		id = idr_alloc(&spi_master_idr, ctlr, first_dynamic,
-> -			       0, GFP_KERNEL);
-> -		mutex_unlock(&board_lock);
-> -		if (WARN(id < 0, "couldn't get idr"))
-> -			return id;
-> -		ctlr->bus_num = id;
-> +		status = spi_controller_id_alloc(ctlr, first_dynamic, 0);
-> +		if (status)
-> +			return status;
-
-The original does not do the remapping of return codes that the previous
-two copies do...
-
---ugTz/0iIbXaMesMQ
+--smwEq19A8LfCcchg
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmSsOysACgkQJNaLcl1U
-h9Bj2wf/eujSGQes7B4PBTQ3n1oBhkcL7Y24XQnkT5q6FXhb+PNy2gOUL7X4u8/s
-jewRdgc+ViUGaokkDON2TN26dLdi/+KEGq7rPGhgLMeyGSqKJx5uRaCQSSdKa2Y2
-w1zSdEXhWd9SZsgsLa18k9bVMBbmyuylLjQYrLlHktiuD4/baW1HQ5SqKICkb1Bg
-/ZdcRGqcKDfgJWnVfK4loF7rFNMRBY0rXsSdOVE3yOKeZE2uS46s2BPPN+xc7UaA
-KTSUu8JjCacwP+V70yrm4VGRb5/c0NJ++iO44yiykKNRvcJWCDemwAYhj9zV1ja/
-5l/fUqxd3+5Kv3hbc1rSnyAywM7/4g==
-=1GBL
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmSsPOUACgkQJNaLcl1U
+h9DBUwf9Euy3I6rYQCugpUDlBhWVoSMMz7t1ATFjPAfJAReJsl7tNz8zO3ZIBKvo
+DT0wuXofoowlS3XkS80I3NNL7wRjCktrPJnRHSBr/n15W3VCvz7cA+vkKlJdt60d
+vqLIOGnEqqPBftrOwUjsobHicO0YhL47AxOStev3fjlhFEbS0RrIpvCsVsRI1HDs
+5MalNotHe8wd+ujY4p9wUX9c2EZvSWQAE4XUBml+faspwunMGqKbjE+srfTbz+eB
+bkym8H1s/H5a/SQn5ya4y6dkDZ0jR9hz4H3HxMm4C/KgUJRnZXiIgNRtghmsQNys
+LGdv8LQz0S452H4iaGYZlWdB4IEu1w==
+=KWBr
 -----END PGP SIGNATURE-----
 
---ugTz/0iIbXaMesMQ--
+--smwEq19A8LfCcchg--
 
 
---===============3276023268069939775==
+--===============3596647411210487787==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -184,5 +198,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3276023268069939775==--
+--===============3596647411210487787==--
 
