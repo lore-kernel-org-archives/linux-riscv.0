@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEF0EB64DA
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 19:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44907EB64DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 19:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cxcbgy6eONWwJeVqC/mJxHr0WBX8b3aWXhBUL0FPr6o=; b=qhuV3YAuo9H+eO
-	z7irxQdXtkhvXoGxExVLpLnu8wH0Y+nOri/istRAdMyQTRaDs6wdjpN5gWysDydoe7ekw8Su21uQX
-	+bxM7Offvj5vS1pNLuRO6HHcSSMT9QpNg5UXGE33jPz8IgwbEBTiLhmhPPKXua+lGroxb0+h0cKmC
-	urAUtj3D7GExdyEbYxnw4HN1XkmHT3cnSeouCYiodKsv5RxYqmrTnX5unbAoABOL1MvGDqqXnWRsS
-	v9rgNwozs7Ou2LSVHlbIYz0BQwu11fVZxyOldv7GpVcumhWyIonGzMGRftn0g5mDMqg0JQ4ft2zLi
-	yMb/wZfyU6Okqv2XXTyg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7AvrZ2jEOc9KXW//o/wq9lLDWSVU2obIXdBvXefCwbI=; b=iMIHTFpb/irv/s
+	PcCSu5S5tHENxa+r4Ztb/vS3Bl2xUVRgQNlIfx6NXOHSrhdLhVcpxZRtkhoCqhe+S949F4ovxswlI
+	anYjEnEZuioPWrcjY086ayp1nepybIVKJPwig/mI8vS5vN/o7brkeG2LRcUQHeSqzLLBhCwW5GUN7
+	ZVoBLXBvLTQQd0NHljtcF2c0cURdcTwLiPME8RPeWn2Gtfn8nOFRqNHFD+5RpuUA1nUVtDoT7s5H/
+	b6vNyKLiraPQNw/rfqu4QZCAzkRUWXUItmCO4nWO3m6hg2Ff0YQbUt40/F/Y64VA+/rEsU5xc1A9N
+	iBSj0N4XDwjiuJPtmKUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIweS-00CZXy-2O;
-	Mon, 10 Jul 2023 19:34:28 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1qIwl7-00Ca7p-2W;
+	Mon, 10 Jul 2023 19:41:22 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIweP-00CZXL-2l
+	id 1qIwl4-00Ca6y-2r
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jul 2023 19:34:27 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1b9e9765f2cso5922265ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 12:34:24 -0700 (PDT)
+	Mon, 10 Jul 2023 19:41:20 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-4f4b2bc1565so7608068e87.2
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 12:41:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689017664; x=1691609664;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:to:cc:subject:date:message-id:reply-to;
-        bh=X4CI5+SmtveArFRq79zdeBAZUIe4gvMt0iRwnhpBO+M=;
-        b=O6OqaAAANi7fc6p016B8JcM8A4oTjbmBOcLJ18LWH7Ur+1YH4r3uQOvtPDwBv5c5Ve
-         bhRMQo1LxCQTDbf3WXDKXxgdDn+hvmPpDvzcVIzxSbePdddl0sjfwbRfkLHyC6278ySz
-         uWZVNrkq/0pjZEOTp4rGGfR/OO5dbH3NheQmO4G6aIf9KdYQFPisYzLgXIIEL1d98w9M
-         xu/r68NDudVA5qEIPpmM0AHG6utlBJKdpxgVX5SeT7CxN/JpEhphL0uxQuu1Ecjtza9p
-         VpWs06f8OHxl1eWuqueYzrJUGRXHMDHJLDuym0WBDPdiu3gPo4bE7Yc0kcjlDWDQ4L8u
-         ppQw==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689018075; x=1691610075;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zWqKm6QUIv0JSsGcZmR9jzvjSANP5a8f+sD83U2ywVQ=;
+        b=VjwjN9xw0dHi1l+nsKHAm5isIeAJruQ+bySNLf7yg4TPoxSwFc5jy+SDXdJByzxQW1
+         M6laBcQxkzlkjF52nlRWZ3xXEtpIwwf1XSMtN7qoTtKwvCL9QTUqFoMyeq++/UpNjzTL
+         4gj5ImmuD997g2ALgR1Rb4TvQdYDNzzOoAiwjt5aWtBlPIm4q+KpYl2cPelcDbYdw2gW
+         nBgnBJBQBDrzqmrveRqz84Msxy3ZG9PogFbjxGVxdWd9JzUcE/MnHL+Yzy/dN5FJbFV+
+         9VYLUC8cPA+XQ9hLmoDkttzTi7ftToBvALBbHD6A77fQetcJ5tG6wsLvW6YjlxcU/NAM
+         vLsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689017664; x=1691609664;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=X4CI5+SmtveArFRq79zdeBAZUIe4gvMt0iRwnhpBO+M=;
-        b=BOy+8NaSwr3Ozhu0WRcpe659aOiF6/2wOWmEktW96O+0uAVzNmJuVa1yThFi3rTq0l
-         XBcXq8VY5/tUnFn4ot6gGIELe79cQUJpMKgAxyy57eKfZfIqglBz9I6o4w56ABQ3QO66
-         Oyt0h8hPTb4ODneZm+Ar7pPvyeTx2VA2SmA+eYffudiptSbbBLb0g4G+jHGlJexa7BhS
-         eeKieQDqyQPYsyyDWRQojLPuHH7zk2hXhSj5VvB2b0qZDh76lbip/eLXK+HtCSHm6LbF
-         NsYPAbFp08rkq8AOurFZ5PW3pmCkHCSWkVPfwAcvDck4u5n+g2xODpGdDQ3EINPf+t4T
-         GGJg==
-X-Gm-Message-State: ABy/qLZd4QAUcsT2p7sD6TJF+OcU6SyWmfxwdJsycpKuYy/tuhy+vCQE
-	YY4qHIXSqAua7f6G5Ww7cDD/mWjRFEXpa38AdEs=
-X-Google-Smtp-Source: APBJJlGZJoofWbuCDQO4c7uLwyw5Yl/UFAKfGuF0ww5KD7pI79rJwkvqu+sjqOGXfBR/I4jWcXqlzw==
-X-Received: by 2002:a17:902:eac4:b0:1b8:9002:c9ee with SMTP id p4-20020a170902eac400b001b89002c9eemr10551533pld.1.1689017664209;
-        Mon, 10 Jul 2023 12:34:24 -0700 (PDT)
-Received: from localhost ([50.38.6.230])
-        by smtp.gmail.com with ESMTPSA id p15-20020a170902e74f00b001b39ffff838sm276606plf.25.2023.07.10.12.34.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Jul 2023 12:34:23 -0700 (PDT)
-Subject: [PATCH] Documentation: RISC-V: hwprobe: Fix a formatting error
-Date: Mon, 10 Jul 2023 12:33:30 -0700
-Message-Id: <20230710193329.2742-1-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.40.1
+        d=1e100.net; s=20221208; t=1689018075; x=1691610075;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zWqKm6QUIv0JSsGcZmR9jzvjSANP5a8f+sD83U2ywVQ=;
+        b=V+vAsnNwMKvCzQFviKzULhyThjeEcykXqqSI2byqXgrEvGjXXMdCYdxkFFP0/gEW3t
+         fvO/IqlSmJFQPoQMJtSwuTv8cHfia2z5SlUtzGVxJ8+SLZri3SzyYMqeP6FT6u4Ttcsa
+         h9NnxFRuYFIREEonl4qprj1za4L3EwiZZmH5L/uCqmC5E3FPxY8eG82FC3TW+Mc3bilV
+         PiP9DI+Eh4BUnYh3SztSd68LZiti3vWlytm5VQgc6EtOxg0eLP859Pm0Ior7T0xXe637
+         nOMe1FIj64242ahCnm5NnQpDpkI9jsKSux6JvOyEWxXXn1f+8JdpnhFC7V2EI92wwX8C
+         A4AA==
+X-Gm-Message-State: ABy/qLbFwJxITrL0vMJyidW2su+xZZ7edItEJaH1xVcgt2M5wD+Zq4XN
+	CaGNCUBfFbbtMpFXLurZZyCSQoiZEpqxrzVxEmq9Jg==
+X-Google-Smtp-Source: APBJJlFfPk6eGhRrtspJMFf8PNSfoVkKlSIQ/2OgWKw3VcG2CMd9n2TGvzY2gLP0RpFgSB++tX++jrG1oiLhplPpNt4=
+X-Received: by 2002:a19:3814:0:b0:4fb:8fde:f60d with SMTP id
+ f20-20020a193814000000b004fb8fdef60dmr9788957lfa.22.1689018075688; Mon, 10
+ Jul 2023 12:41:15 -0700 (PDT)
 MIME-Version: 1.0
-Cc: corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
-  Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, Conor Dooley <conor.dooley@microchip.com>,
-  Evan Green <evan@rivosinc.com>, heiko@sntech.de, andy.chiu@sifive.com, linux-doc@vger.kernel.org,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux@rivosinc.com,
-  Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
+References: <20230710193329.2742-1-palmer@rivosinc.com>
+In-Reply-To: <20230710193329.2742-1-palmer@rivosinc.com>
+From: Evan Green <evan@rivosinc.com>
+Date: Mon, 10 Jul 2023 12:40:39 -0700
+Message-ID: <CALs-Hssm=hyjSwVyUu7QrWmG8FTDz+ubrGF0Lo7EhzJZhu2tbQ@mail.gmail.com>
+Subject: Re: [PATCH] Documentation: RISC-V: hwprobe: Fix a formatting error
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, corbet@lwn.net, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, 
+	Conor Dooley <conor.dooley@microchip.com>, heiko@sntech.de, andy.chiu@sifive.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_123425_897646_B6FF6CB7 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20230710_124118_951744_71EBB124 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +86,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
-
-I'm not sure what I was trying to do with the ':'s, but they're just
-rendered to HTML which looks odd.   This makes "fence.i" look like
-"mvendorid" and such, which is seems reasonable to me.
-
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- Documentation/riscv/hwprobe.rst | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
-index 19165ebd82ba..933c715065d6 100644
---- a/Documentation/riscv/hwprobe.rst
-+++ b/Documentation/riscv/hwprobe.rst
-@@ -49,7 +49,7 @@ The following keys are defined:
-     privileged ISA, with the following known exceptions (more exceptions may be
-     added, but only if it can be demonstrated that the user ABI is not broken):
- 
--    * The :fence.i: instruction cannot be directly executed by userspace
-+    * The ``fence.i`` instruction cannot be directly executed by userspace
-       programs (it may still be executed in userspace via a
-       kernel-controlled mechanism such as the vDSO).
- 
--- 
-2.40.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdWwgMTAsIDIwMjMgYXQgMTI6MzTigK9QTSBQYWxtZXIgRGFiYmVsdCA8cGFsbWVy
+QHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJp
+dm9zaW5jLmNvbT4KPgo+IEknbSBub3Qgc3VyZSB3aGF0IEkgd2FzIHRyeWluZyB0byBkbyB3aXRo
+IHRoZSAnOidzLCBidXQgdGhleSdyZSBqdXN0Cj4gcmVuZGVyZWQgdG8gSFRNTCB3aGljaCBsb29r
+cyBvZGQuICAgVGhpcyBtYWtlcyAiZmVuY2UuaSIgbG9vayBsaWtlCj4gIm12ZW5kb3JpZCIgYW5k
+IHN1Y2gsIHdoaWNoIGlzIHNlZW1zIHJlYXNvbmFibGUgdG8gbWUuCj4KPiBTaWduZWQtb2ZmLWJ5
+OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KCkFoIHdob29wcywgSSBtdXN0
+IGhhdmUgbWlzc2VkIHRoYXQgb25lIGR1cmluZyB0aGUgZG9jdW1lbnRhdGlvbiBjbGVhbnVwLiBU
+aGFua3MuCgpSZXZpZXdlZC1ieTogRXZhbiBHcmVlbiA8ZXZhbkByaXZvc2luYy5jb20+CgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
