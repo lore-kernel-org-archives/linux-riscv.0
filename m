@@ -4,82 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BDAEB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 09:44:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A94C7EB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 09:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gIbahr7cz1s2opCflnQfnoYm33SCQgaIl9TnYd0IEyE=; b=kM++whUbLJZyPb
-	Rt4RYMu8SMzqbpeLytMhwNdhzJaFPEbiDoo6UfkhuMt2FZN67ML4OVWyast//O5qeUWp59AIqQX8P
-	V9P4VYanK1V1EsxJ34hMaFqkoaGPsa4DvwiSTHEAYXWl34t66x8jteGdbM3/tAnbRarbuO/wEeGzd
-	YjczlILQ++8mFJX1rE9enRS2jv1O4l7CT7YLyLZ99buBxqYSP1Vrd1umYFzV3btBrs1NRdSlmqrZ+
-	czxseOrNfgirsPBL6LYxB/rcdJKmJK4iLNpaV2QM4b+ZjKdhlrrk9hREDk65PFW5ZK41NsKA9vtMu
-	Oaqod3zR2+yfbi9QkNkw==;
+	List-Owner; bh=nK6ptzdDLiuTpeTTLB7E+S/+8/G4p4BSNLg3bRFkqLk=; b=JkmRZO4wHoY5/A
+	87dwY/1WPoHwsU3R/aLhqC22Wwm1Y6HnqTodS3qKWYElJSq8bxHuyep9KpNTy3SA4cmVqlmPX4s9U
+	dXr/xIpV56OmFvWkrgQU6THy9JJsoHp40Ft7riLKpxdnaS592ALF1LlroEncLRUw9Ng3azY0tPuhy
+	3kvG+quFSVahJs3lMeZr4pWCsvQtbIu46+rf65uKldOvbZuhOcgzbz3OR2SNBanCeO48eIKy/zyPl
+	cwuFBIDVKV+4mdOsQQHktGZXJ2JZ7/d0zaoOGVjVLeSpvyo0290JD/4qouWOndomSog5HmcYIF9lh
+	9qZVYEtvKHK1THvXUR0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qInRl-00B5aM-0L;
-	Mon, 10 Jul 2023 09:44:45 +0000
-Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
+	id 1qInSC-00B5oa-1T;
+	Mon, 10 Jul 2023 09:45:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qInRi-00B5YJ-25
+	id 1qInS9-00B5lw-2H
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jul 2023 09:44:43 +0000
-Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-77a62a84855so131857639f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 02:44:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1688982280; x=1691574280;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ofm6ZZqXNuqTlD7ApqCkKz5DMt6TsGfpSNKkfwssKPg=;
-        b=HcWz9mfkvs5FdQY6JwaYRUd1x8Cydw6tK0ZbXGUcKgU982e37q4E7DEL8SMpbHVCek
-         M18eeY26JQfb8yLWtVGnb/mbiBhz7bDi6Jt7gUOzTDJk1z0MaOriGxYSWXQG4bzGYKev
-         v4bOEb0eVuyxFcLta/fAS25xXCPi0L59bz+N3v4Xk5kGQEv+evkmjnbtfi7htPVyWmTO
-         0zojqgco6pcgUMwp8ayE+uk7yZs4xUExX2EKBkM9YIAHTQrSGx+FPvH+ExJXkvVYV+be
-         +5z4fAaaipT4bwaa+qmU6zBhN2PB7VC8HwD0qBM5R1QC4D/yN7BgfG3DalcrQEWjquqp
-         sKIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688982280; x=1691574280;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ofm6ZZqXNuqTlD7ApqCkKz5DMt6TsGfpSNKkfwssKPg=;
-        b=RFirztyF22RVNSh1PgIOKDXPtDBecfXBTaGXIS8Yb3d3F03xAQ59h2NFl59agDL7M2
-         PAzIRYoFn5XZaRcDmOqUwpcQt+eOa/3pv/ofMM4bg9YcFltvNJxztL2LLsQmdYJYW7eP
-         s7OaqeryuG2Sg3ePNeVzlzz1ErlbD7u60XqhP/Swul0Y4d3BVJFdJZpVphYzej3zyLsH
-         HT7iONBHr1MDIp2y7mwj1zQMQu+aIno4ZYtf546O14FPoO722C3HCcq7WyfiUS++li9V
-         vJWSEnU3APkt61pxmFajjqFTnrZ4N9KqOtZQq5UDlWe57A0LjmaL5z5feSd36G2pV73a
-         kYZg==
-X-Gm-Message-State: ABy/qLb4EhyKE75rTXLVnhQQU9RSAQBtclPue5HkSl1tPQ4sGcb+FRYj
-	L0RBGH124+cVLh7qTc4gPtgfhA==
-X-Google-Smtp-Source: APBJJlEvN/kXRYuvvzZyagkj3gVCiXxnv/KMPVlBOAwwPNxqHe9Zm6PU9NkVs/vOaNFxbKR3Q+kpMg==
-X-Received: by 2002:a5e:c910:0:b0:77e:3d2f:d1f4 with SMTP id z16-20020a5ec910000000b0077e3d2fd1f4mr11945598iol.15.1688982280420;
-        Mon, 10 Jul 2023 02:44:40 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id k1-20020a6b7a41000000b007870c56387dsm936938iop.49.2023.07.10.02.44.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Jul 2023 02:44:40 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Subject: [PATCH v5 9/9] MAINTAINERS: Add entry for RISC-V AIA drivers
-Date: Mon, 10 Jul 2023 15:13:21 +0530
-Message-Id: <20230710094321.1378351-10-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230710094321.1378351-1-apatel@ventanamicro.com>
-References: <20230710094321.1378351-1-apatel@ventanamicro.com>
+	Mon, 10 Jul 2023 09:45:11 +0000
+Received: from i53875a50.versanet.de ([83.135.90.80] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1qInRy-0007zw-0Y; Mon, 10 Jul 2023 11:44:58 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ herbert@gondor.apana.org.au, davem@davemloft.net, conor.dooley@microchip.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org, christoph.muellner@vrull.eu,
+ Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH v5 0/4] Implement GCM ghash using Zbc and Zbkb extensions
+Date: Mon, 10 Jul 2023 11:44:56 +0200
+Message-ID: <5381895.Sb9uPGUboI@phil>
+In-Reply-To: <20230613030216.GC883@sol.localdomain>
+References: <20230612210442.1805962-1-heiko.stuebner@vrull.eu>
+ <20230613030216.GC883@sol.localdomain>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_024442_683594_C826D2E5 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230710_024509_745363_BDEF65EF 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +60,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer for RISC-V AIA drivers including the
-RISC-V INTC driver which supports both AIA and non-AIA platforms.
+Hi Eric,
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- MAINTAINERS | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Am Dienstag, 13. Juni 2023, 05:02:16 CEST schrieb Eric Biggers:
+> Hi Heiko,
+> 
+> On Mon, Jun 12, 2023 at 11:04:38PM +0200, Heiko Stuebner wrote:
+> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> > 
+> > This was originally part of my vector crypto series, but was part
+> > of a separate openssl merge request implementing GCM ghash as using
+> > non-vector extensions.
+> > 
+> > As that pull-request
+> >     https://github.com/openssl/openssl/pull/20078
+> > got merged recently into openssl, we could also check if this could
+> > go into the kernel as well and provide a base for further accelerated
+> > cryptographic support.
+> 
+> I'm still a bit skeptical of the usefulness of a standalone "ghash"
+> implementation, when in practice it will only be used as part of "gcm(aes)".
+> Directly implementing "gcm(aes)" (instead of relying on crypto/gcm.c to compose
+> "ghash" and "ctr(aes)") also allows some performance optimizations.
+> 
+> I asked about this on v4
+> (https://lore.kernel.org/linux-crypto/ZCSG71bRuTzVutdm@gmail.com/),
+> but I didn't receive a response.
+> 
+> Any thoughts on this?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3be1bdfe8ecc..a85fc0102179 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18245,6 +18245,18 @@ S:	Maintained
- F:	drivers/mtd/nand/raw/r852.c
- F:	drivers/mtd/nand/raw/r852.h
- 
-+RISC-V AIA DRIVERS
-+M:	Anup Patel <anup@brainfault.org>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,imsics.yaml
-+F:	drivers/irqchip/irq-riscv-aplic.c
-+F:	drivers/irqchip/irq-riscv-imsic.c
-+F:	drivers/irqchip/irq-riscv-intc.c
-+F:	include/linux/irqchip/riscv-aplic.h
-+F:	include/linux/irqchip/riscv-imsic.h
-+
- RISC-V ARCHITECTURE
- M:	Paul Walmsley <paul.walmsley@sifive.com>
- M:	Palmer Dabbelt <palmer@dabbelt.com>
--- 
-2.34.1
+somehow I always seem to overlook this when adapting the series :-(
+
+I guess for me the main gcm was always a stepping stone to get
+started and extend later. This is my first rodeo with crypto stuff
+in the kernel, so this looks like a manageable chunk and as can be
+seen by the discussion we had about licensing brings enough topics
+on its own :-) .
+
+
+Heiko
+
 
 
 _______________________________________________
