@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D2BC001DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 20:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F197EB64DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 22:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PkppaStEZatS46tTG4jJrqFhT5EGZE8W0JoftqZurq4=; b=33AJLngPFnhGcp
-	J9OUwmKkKvCEJ7pgaxLOz4HJDzL843sWgoL8RzwoBAuzujpQtYMUrrlpN5a7zLV/uDbRAS52k7lhR
-	kwygHghMAIZP2YCRYCdWzXqst38Os4wFGdXMxccfjeNl0dWz8nsCIGU/CZ7YqoiOxJgsaIQamjEIU
-	fWQ5q0AP0QkcOCBjfOz35ICWGQr9hJWXvE9z0VmfhRfdqCZMDEY49HxDGLAm39Hrjg4FylnVEIIZZ
-	hCHcIEzH/tlUoGsCLa/1RB62+8hdQd87oTrtBpgDKZRHJ3ZWTyFpsrvMJv7LNznRTKSK3pGUZeZN9
-	znMztk5u+QGeyt8bF03g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C1ZTuil/DgXeaC3NEyrlxmcYjOM8+UKW8hkuZkzOhvM=; b=Rhsy9SMCur8puEoEfb2LkKS+mu
+	rz4r1S4nM6Sm0GEqgcH1RPWJKeyi6DrdoT/ORnylweG48HbNLMzCteXRy8x804TtP46G+WuhkR7BX
+	mpDRUWV5QMrYQJEcTLMac3lRj7GVGctqf3M8pT3ymGMqvivQ541XGT1Vzfn3TP9WijJnQ+WhQlo4U
+	OzzgrOar2tGWR/V+Sfh1CbfmDZhuy9BBDjp03qQpkO1TIFremGSKoLrMChBK91Z8RJkWoaImEnuB2
+	J4u8wbt2qLoQ5k+rTI90LOcKv106kEMNRdMn2XtDxuSQj5ad2yf4nZgtlpFMONkP7TAUMu9W9h+xP
+	TxmHXPuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIxjX-00Cgz0-0b;
-	Mon, 10 Jul 2023 20:43:47 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1qIzXZ-00CsYI-22;
+	Mon, 10 Jul 2023 22:39:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIxjV-00Cgy6-13
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 10 Jul 2023 20:43:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=n5JuGTxMehujF2hW5yjYC2rYcF2MyOBRN8Ek1lm+OQ8=; b=v6vtdEYGO07DAE5iFQ66CUz422
-	4gRsIdrkhM465InPQ8/JnqOq0IG7KzUhaCoe3gRmSP4XJCbA1zUml/Y4VS6dAKxZZ4N/5RZjHuN87
-	qFAsrNfw7teoWxYTYbZCiF8pFZnjmUgiRCzzjcwDtmgtr8VAUvFeuhmF6ab90f3xCGgsog6KA9feL
-	W5DhRN/ugE2aKKCau9+a+puGlTUVZRO+aEhD4bYP+PsCwD2qvvkUWtuFTy9VYMt8pfiQ9Y3V/60BF
-	/hxmrNg806AS1AMQX5X5zpKy/CC56VqSPSMoXWpMaWWUUVHCgBTLtfpRRCK/7rtJ4XjW3BA93ABwT
-	inAW3qHA==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qIxjT-00Eupy-NG; Mon, 10 Jul 2023 20:43:43 +0000
-From: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 22/38] riscv: Implement the new page table range API
-Date: Mon, 10 Jul 2023 21:43:23 +0100
-Message-Id: <20230710204339.3554919-23-willy@infradead.org>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20230710204339.3554919-1-willy@infradead.org>
-References: <20230710204339.3554919-1-willy@infradead.org>
+	id 1qIzXX-00CsXv-0o
+	for linux-riscv@lists.infradead.org;
+	Mon, 10 Jul 2023 22:39:32 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DF9646122E;
+	Mon, 10 Jul 2023 22:39:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C9BEC433C8;
+	Mon, 10 Jul 2023 22:39:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689028769;
+	bh=O/CW9tIuzx26NQX0JvkfDKa65lUbxxeZWmHKJIv1YGA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MsHmKbEA1cwBwXVQm/AJFbzBTfcCW4W9w+qzNOubZKBlyJvvwIAnjWt1Du7gUXOpz
+	 5DlNeiSw3lmEGcN+VmbWN7SGkRpkT1MgKkqKFvEx5fImdLieCpjibUeYV044c8/aJJ
+	 Woi3xsyXyiDyYIlrwES5oMhrGuX7Agtvy2xjCPcTHnJD+sbbJbn9YAjvvJMzPPfTNc
+	 QE6GHDUY5n16HqI4vP/1hf7fSvsGK4MngIfn41UxZA0xJnHtgHKdc0fhBc5eFu9gC2
+	 uxSi8dP0h8csRKux8QeYA/hp8H2Gmn1pv4E3GsKOP51xxWzYbeZzszODxTSA2peq+I
+	 YXCWbXmu4LFlw==
+Date: Mon, 10 Jul 2023 23:39:24 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Evan Green <evan@rivosinc.com>
+Subject: Re: [PATCH v3] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
+Message-ID: <20230710-frown-boogieman-b36445c1b5a7@spud>
+References: <20230710192413.2089085-1-evan@rivosinc.com>
 MIME-Version: 1.0
+In-Reply-To: <20230710192413.2089085-1-evan@rivosinc.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230710_153931_351222_BF6B6BAA 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,189 +68,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Bagas Sanjaya <bagasdotme@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: multipart/mixed; boundary="===============4901988188787593719=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add set_ptes(), update_mmu_cache_range() and flush_dcache_folio().
-Change the PG_dcache_clean flag from being per-page to per-folio.
 
-Signed-off-by: Matthew Wilcox (Oracle) <willy@infradead.org>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Acked-by: Mike Rapoport (IBM) <rppt@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
----
- arch/riscv/include/asm/cacheflush.h | 19 +++++++--------
- arch/riscv/include/asm/pgtable.h    | 38 +++++++++++++++++++----------
- arch/riscv/mm/cacheflush.c          | 13 +++-------
- 3 files changed, 37 insertions(+), 33 deletions(-)
+--===============4901988188787593719==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="D7ZcV3Z0Ccixd94M"
+Content-Disposition: inline
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 8091b8bf4883..0d8c92c5dfb7 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -15,20 +15,19 @@ static inline void local_flush_icache_all(void)
- 
- #define PG_dcache_clean PG_arch_1
- 
--static inline void flush_dcache_page(struct page *page)
-+static inline void flush_dcache_folio(struct folio *folio)
- {
--	/*
--	 * HugeTLB pages are always fully mapped and only head page will be
--	 * set PG_dcache_clean (see comments in flush_icache_pte()).
--	 */
--	if (PageHuge(page))
--		page = compound_head(page);
--
--	if (test_bit(PG_dcache_clean, &page->flags))
--		clear_bit(PG_dcache_clean, &page->flags);
-+	if (test_bit(PG_dcache_clean, &folio->flags))
-+		clear_bit(PG_dcache_clean, &folio->flags);
- }
-+#define flush_dcache_folio flush_dcache_folio
- #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
- 
-+static inline void flush_dcache_page(struct page *page)
-+{
-+	flush_dcache_folio(page_folio(page));
-+}
-+
- /*
-  * RISC-V doesn't have an instruction to flush parts of the instruction cache,
-  * so instead we just flush the whole thing.
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 2137e36595b3..c8f897ed5fd0 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -445,8 +445,9 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
- 
- 
- /* Commit new configuration to MMU hardware */
--static inline void update_mmu_cache(struct vm_area_struct *vma,
--	unsigned long address, pte_t *ptep)
-+static inline void update_mmu_cache_range(struct vm_fault *vmf,
-+		struct vm_area_struct *vma, unsigned long address,
-+		pte_t *ptep, unsigned int nr)
- {
- 	/*
- 	 * The kernel assumes that TLBs don't cache invalid entries, but
-@@ -455,8 +456,11 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
- 	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
- 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
- 	 */
--	local_flush_tlb_page(address);
-+	while (nr--)
-+		local_flush_tlb_page(address + nr * PAGE_SIZE);
- }
-+#define update_mmu_cache(vma, addr, ptep) \
-+	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
- 
- #define __HAVE_ARCH_UPDATE_MMU_TLB
- #define update_mmu_tlb update_mmu_cache
-@@ -487,8 +491,7 @@ static inline void set_pte(pte_t *ptep, pte_t pteval)
- 
- void flush_icache_pte(pte_t pte);
- 
--static inline void __set_pte_at(struct mm_struct *mm,
--	unsigned long addr, pte_t *ptep, pte_t pteval)
-+static inline void __set_pte_at(pte_t *ptep, pte_t pteval)
- {
- 	if (pte_present(pteval) && pte_exec(pteval))
- 		flush_icache_pte(pteval);
-@@ -496,17 +499,26 @@ static inline void __set_pte_at(struct mm_struct *mm,
- 	set_pte(ptep, pteval);
- }
- 
--static inline void set_pte_at(struct mm_struct *mm,
--	unsigned long addr, pte_t *ptep, pte_t pteval)
-+static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
-+		pte_t *ptep, pte_t pteval, unsigned int nr)
- {
--	page_table_check_ptes_set(mm, addr, ptep, pteval, 1);
--	__set_pte_at(mm, addr, ptep, pteval);
-+	page_table_check_ptes_set(mm, addr, ptep, pteval, nr);
-+
-+	for (;;) {
-+		__set_pte_at(ptep, pteval);
-+		if (--nr == 0)
-+			break;
-+		ptep++;
-+		addr += PAGE_SIZE;
-+		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
-+	}
- }
-+#define set_ptes set_ptes
- 
- static inline void pte_clear(struct mm_struct *mm,
- 	unsigned long addr, pte_t *ptep)
- {
--	__set_pte_at(mm, addr, ptep, __pte(0));
-+	__set_pte_at(ptep, __pte(0));
- }
- 
- #define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
-@@ -515,7 +527,7 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
- 					pte_t entry, int dirty)
- {
- 	if (!pte_same(*ptep, entry))
--		set_pte_at(vma->vm_mm, address, ptep, entry);
-+		__set_pte_at(ptep, entry);
- 	/*
- 	 * update_mmu_cache will unconditionally execute, handling both
- 	 * the case that the PTE changed and the spurious fault case.
-@@ -688,14 +700,14 @@ static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 				pmd_t *pmdp, pmd_t pmd)
- {
- 	page_table_check_pmd_set(mm, addr, pmdp, pmd);
--	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
-+	return __set_pte_at((pte_t *)pmdp, pmd_pte(pmd));
- }
- 
- static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
- 				pud_t *pudp, pud_t pud)
- {
- 	page_table_check_pud_set(mm, addr, pudp, pud);
--	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
-+	return __set_pte_at((pte_t *)pudp, pud_pte(pud));
- }
- 
- #ifdef CONFIG_PAGE_TABLE_CHECK
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index fbc59b3f69f2..f1387272a551 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -82,18 +82,11 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- #ifdef CONFIG_MMU
- void flush_icache_pte(pte_t pte)
- {
--	struct page *page = pte_page(pte);
-+	struct folio *folio = page_folio(pte_page(pte));
- 
--	/*
--	 * HugeTLB pages are always fully mapped, so only setting head page's
--	 * PG_dcache_clean flag is enough.
--	 */
--	if (PageHuge(page))
--		page = compound_head(page);
--
--	if (!test_bit(PG_dcache_clean, &page->flags)) {
-+	if (!test_bit(PG_dcache_clean, &folio->flags)) {
- 		flush_icache_all();
--		set_bit(PG_dcache_clean, &page->flags);
-+		set_bit(PG_dcache_clean, &folio->flags);
- 	}
- }
- #endif /* CONFIG_MMU */
--- 
-2.39.2
 
+--D7ZcV3Z0Ccixd94M
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Jul 10, 2023 at 12:24:13PM -0700, Evan Green wrote:
+> +"isa" vs "hart isa" lines in /proc/cpuinfo
+> +-----------------------------------------
+
+This underline is too short :/
+
+--D7ZcV3Z0Ccixd94M
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZKyInAAKCRB4tDGHoIJi
+0rEwAQCYddZNxdTtB8VIuBY8H5RzTdEtz8EP5J62N/KTxodlPQD/UOlv4155wrff
+VqMQUpTDU8K8uut/ONPsUSWLS7LDvgE=
+=w2Wn
+-----END PGP SIGNATURE-----
+
+--D7ZcV3Z0Ccixd94M--
+
+
+--===============4901988188787593719==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4901988188787593719==--
+
