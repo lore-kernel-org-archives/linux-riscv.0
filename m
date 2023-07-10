@@ -4,106 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3ABFEB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 17:22:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379C3C0015E
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 17:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nE+nlK7f5DHmGRXUUisN0E/i3/uRy2PSkf/m4oKL12s=; b=Ab4YjOucZRn7pLHTE3baow5HQE
-	o3/as3aj5ECFYAacYMwoGZJ2wqichcDTFb6r0sSm+9lWNjJ0/ABi3HADLogeXRRC3QOGECcn8uCF2
-	aoAkYcsavTgG+MKTT+AQzNpQqPwGo+1melTo9OJfdnv0Sn8n584VX409onwANfukCpG10diFGJSMd
-	dU2Kcfx08qe4BVGusyKTZLKbpnBtI+4wecOoV2htw0lyY0MFCHxjKZRCjWnxGpJR5HuPbDBSXzVgl
-	ya9SHyacopxM7ECqb6hV+WHUdXx92CYd19MfQr3jTAUUMWPo3mJM0E4Sft0MnLY5H3vxrbMHzNrht
-	ggKnpscw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NhwgBzgzjqdsZYidZuUVcQY6chKP5bAivKWCMXzT2v4=; b=JlAPiODHYfH3kE
+	5ClCs5tEAjcWvkiKvmz+n/pVBS9KBIIKSRQ29PGmiiFAP0hdofSmroV+BYhEpnBUPQqHOKvwqyAIk
+	RHKdvBi6IZo7Mc8nMU+Jquhdus1jbGzdvfxB1yxjtMx2mdgrYK51Wm4qFwvytHqxO6vQ+aZaX3CEK
+	0sd5VzWR4+K7scgfREhXmHtw395FkHu8YWicQvDLHGzNTl2p7fM/FJPfwzFMc9WPuYLZXf2lWZcYQ
+	fh6RZcQYEhcSvtrANMHCX4paJVcg4NG0yh0GHvExOwKkTiBOQaL6CVbZ4Rkv5jo7IS5zh87feNsmG
+	38ayQOetnQpHP7cLK75w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIuaI-00CKT6-2B;
-	Mon, 10 Jul 2023 17:22:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qIuaP-00CKXe-1h;
+	Mon, 10 Jul 2023 17:22:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIuaE-00CKRp-0f;
-	Mon, 10 Jul 2023 17:21:59 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	id 1qIuaJ-00CKSm-06
+	for linux-riscv@lists.infradead.org;
+	Mon, 10 Jul 2023 17:22:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689009721;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xqUaTeBr0KBRtm/gUMUzB93wI8Oz+mvASuf08xEeHyg=;
+	b=JDGBEoMuDY61IVO8dOjqx2plYny7yNhdjPFBBCUt7ACf/8q9kCgcWr7ATDOtdqb/gCxM8W
+	2Kk3vo+CKxIjSkCpf4v81pnfQKfAJ1nr2YtT1O8/0lZlhKEYvrsABgRqWxksSjLVB3Eb3v
+	ggVqLDplQUonKrS6pF9pKDHAs+Doc18=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-489-ScA4enwlPqey8toYsVcNog-1; Mon, 10 Jul 2023 13:20:25 -0400
+X-MC-Unique: ScA4enwlPqey8toYsVcNog-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id AE93460FE6;
-	Mon, 10 Jul 2023 17:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D7CBC433C7;
-	Mon, 10 Jul 2023 17:21:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689009717;
-	bh=CpTuLljbdaBkyoyitx9Zt2kT2mpNPwthrmEzA4FZh0k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jH9O9AHymoIzZncRhS0boDcQENihuPJ9tiOMacCBW9S1HyXoS4fmk05l3yiGNAo2K
-	 KI1hyt+ZX+7NEHBvWCqXjT4yNe/LtAsjRDwPWtbPDyinDXBlqwNxiz4igGDEvFujjT
-	 HvuvVf7zfJpIqBT2DHBv4rYYp+mzBEGWoHelZgtBRzC5a9ODbB3jbYPRYOu+MpK8DF
-	 3DKPCT3xy2bGoPblEhEFYavUFRlVpmVElN1x+riHF3GGBKfZ16h5m4CDQWCrPt/Kv/
-	 vK54neWN9FR7qTjWY6hgaJiuvxPLSkqkKUC983rTnSx7XHJONotnyRARakAtXoacgn
-	 BzkLNw5lEztpw==
-Date: Mon, 10 Jul 2023 18:21:44 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Yang Yingliang <yangyingliang@huawei.com>,
-	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
-	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	Sanjay R Mehta <sanju.mehta@amd.com>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>
-Subject: Re: [PATCH v2 08/15] spi: Clean up headers
-Message-ID: <54bb9fe7-fb62-4c2e-ae36-d2c10648ee27@sirena.org.uk>
-References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
- <20230710154932.68377-9-andriy.shevchenko@linux.intel.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7537E8022EF;
+	Mon, 10 Jul 2023 17:20:24 +0000 (UTC)
+Received: from rotkaeppchen (unknown [10.39.194.181])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 04329492B01;
+	Mon, 10 Jul 2023 17:20:20 +0000 (UTC)
+Date: Mon, 10 Jul 2023 19:20:18 +0200
+From: Philipp Rudo <prudo@redhat.com>
+To: Dave Young <dyoung@redhat.com>
+Cc: Baoquan He <bhe@redhat.com>, linux-kernel@vger.kernel.org,
+ catalin.marinas@arm.com, thunder.leizhen@huawei.com,
+ John.p.donnelly@oracle.com, kexec@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, horms@kernel.org,
+ chenjiahao16@huawei.com, linux-riscv@lists.infradead.org, x86@kernel.org,
+ bp@alien8.de
+Subject: Re: [RFC PATCH 0/4] kdump: add generic functions to simplify
+ crashkernel crashkernel in architecture
+Message-ID: <20230710192018.031c9912@rotkaeppchen>
+In-Reply-To: <ZKjG2R8RhWmJex53@darkstar.users.ipa.redhat.com>
+References: <20230619055951.45620-1-bhe@redhat.com>
+	<ZKjG2R8RhWmJex53@darkstar.users.ipa.redhat.com>
+Organization: Red Hat inc.
 MIME-Version: 1.0
-In-Reply-To: <20230710154932.68377-9-andriy.shevchenko@linux.intel.com>
-X-Cookie: Do you have lysdexia?
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_102158_331098_4A12FB2F 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20230710_102203_305694_853BBFBC 
+X-CRM114-Status: GOOD (  50.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,65 +82,542 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3878086852992793396=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Baoquan,
+Hi Dave,
 
---===============3878086852992793396==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="w5h1T0k99Bnkn5Gc"
-Content-Disposition: inline
+On Sat, 8 Jul 2023 10:15:53 +0800
+Dave Young <dyoung@redhat.com> wrote:
 
+> On 06/19/23 at 01:59pm, Baoquan He wrote:
+> > In the current arm64, crashkernel=,high support has been finished after
+> > several rounds of posting and careful reviewing. The code in arm64 which
+> > parses crashkernel kernel parameters firstly, then reserve memory can be
+> > a good example for other ARCH to refer to.
+> > 
+> > Whereas in x86_64, the code mixing crashkernel parameter parsing and
+> > memory reserving is twisted, and looks messy. Refactoring the code to
+> > make it more readable maintainable is necessary.
+> > 
+> > Here, try to abstract the crashkernel parameter parsing code into a
+> > generic function parse_crashkernel_generic(), and the crashkernel memory
+> > reserving code into a generic function reserve_crashkernel_generic().
+> > Then, in ARCH which crashkernel=,high support is needed, a simple
+> > arch_reserve_crashkernel() can be added to call above two generic
+> > functions. This can remove the duplicated implmentation code in each
+> > ARCH, like arm64, x86_64.  
+> 
+> Hi Baoquan, the parse_crashkernel_common and parse_crashkernel_generic
+> are confusion to me.  Thanks for the effort though.
 
---w5h1T0k99Bnkn5Gc
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I agree, having both parse_crashkernel_common and
+parse_crashkernel_generic is pretty confusing.
 
-On Mon, Jul 10, 2023 at 06:49:25PM +0300, Andy Shevchenko wrote:
-> There is a few things done:
-> - include only the headers we are direct user of
-> - when pointer is in use, provide a forward declaration
-> - add missing headers
-> - group generic headers and subsystem headers
-> - sort each group alphabetically
+> I'm not sure if it will be easy or not, but ideally I think the parse
+> function can be arch independent, something like a general funtion
+> parse_crashkernel() which can return the whole necessary infomation of
+> crashkenrel for arch code to use, for example return like
+> below pseudo stucture(just a concept, may need to think more):
+> 
+> structure crashkernel_range {
+> 	size,
+> 	range,
+> 	struct list_head list;
+> }
+> 
+> structure crashkernel{
+>   structure crashkernel_range *range_list;
+>   union {
+>   	offset,
+>   	low_high
+>   }
+> }
+> 
+> So the arch code can just get the data of crashkernel and then check
+> about the details, if it does not support low and high reservation then
+> it can just ignore the option.
+> 
+> Thoughts?
 
-The previous commit was supposed to be sorting things and AFAICT did
-so...
+Sounds reasonable. The only thing I would make different is for the
+parser to take the systems ram into account and simply return the size
+that needs to be allocated in case multiple ranges are given.
 
-> +struct spi_device_id;
+I've played around a little on how this might look like (probably
+wasting way too much time on it) and came up with the patch below. With
+that patch parse_crashkernel_{common,high,low} and friends could be
+removed once all architectures are ported to the new parse_crashkernel
+function.
 
-Why are we adding this given that there's also an inclusion of
-mod_devicetable that you didn't remove?
+Please note that I never tested the patch. So it probably doesn't even
+compile. Nevertheless I hope it helps to get an idea on what I think
+should work :-)
 
---w5h1T0k99Bnkn5Gc
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks
+Philipp
 
------BEGIN PGP SIGNATURE-----
+----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmSsPicACgkQJNaLcl1U
-h9CPUAf/RRQIrb0PfZnRSA7kc94fTv5rQbNfPboY9/94tcd2SIZjbZezvGfMuSZp
-6KHTd2Kkiwzya3J0dExwrNiIzmVrIGl+uWJWbvppEpglEeE0BNrEl1a9mRgzaQUk
-Ys7HqCSSbbtJqGSlgQAODJPS7eaPIw1ChR5Wv5B+4AlUGavA+iCrwDK+TD0dFZpQ
-ovdLIOvU+8RA2XrWSPmDSi4ywOFt9I70VxOWbR9rbfQcvXLRaJA1FOJa2ZArMhHy
-CULubdIfA4BO7mOmyLX63DXgjZqu703oW4W5RFmjc+sa9xmoSdlCYflpgXX/xSqG
-VmDSPECCeUQc9NZwlOM4i7+iPwCymQ==
-=E/m2
------END PGP SIGNATURE-----
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index fb904cc57ab1..fd5d01872c53 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -66,22 +66,12 @@ phys_addr_t __ro_after_init arm64_dma_phys_limit;
+ 
+ static void __init arch_reserve_crashkernel(void)
+ {
+-	unsigned long long low_size = 0;
+-	unsigned long long crash_base, crash_size;
+ 	char *cmdline = boot_command_line;
+-	bool high = false;
+-	int ret;
+ 
+ 	if (!IS_ENABLED(CONFIG_KEXEC_CORE))
+ 		return;
+ 
+-	ret = parse_crashkernel_generic(cmdline, &crash_size, &crash_base,
+-					&low_size, &high);
+-	if (ret)
+-		return;
+-
+-	reserve_crashkernel_generic(cmdline, crash_size, crash_base,
+-				    low_size, high);
++	reserve_crashkernel_generic(cmdline);
+ }
+ 
+ /*
+diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+index b26221022283..4a78bf8ad494 100644
+--- a/arch/x86/kernel/setup.c
++++ b/arch/x86/kernel/setup.c
+@@ -486,28 +486,17 @@ unsigned long crash_low_size_default(void)
+ 
+ static void __init arch_reserve_crashkernel(void)
+ {
+-	unsigned long long crash_base, crash_size, low_size = 0;
+ 	char *cmdline = boot_command_line;
+-	bool high = false;
+-	int ret;
+ 
+ 	if (!IS_ENABLED(CONFIG_KEXEC_CORE))
+ 		return;
+ 
+-	ret = parse_crashkernel_generic(cmdline, &crash_size, &crash_base,
+-					&low_size, &high);
+-	if (ret)
+-		return;
+-
+ 	if (xen_pv_domain()) {
+ 		pr_info("Ignoring crashkernel for a Xen PV domain\n");
+ 		return;
+ 	}
+ 
+-	reserve_crashkernel_generic(cmdline, crash_size, crash_base,
+-				    low_size, high);
+-
+-	return;
++	reserve_crashkernel_generic(cmdline);
+ }
+ 
+ static struct resource standard_io_resources[] = {
+diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+index 1b12868cad1b..a1ebd6c47467 100644
+--- a/include/linux/crash_core.h
++++ b/include/linux/crash_core.h
+@@ -84,35 +84,25 @@ int parse_crashkernel_high(char *cmdline, unsigned long long system_ram,
+ int parse_crashkernel_low(char *cmdline, unsigned long long system_ram,
+ 		unsigned long long *crash_size, unsigned long long *crash_base);
+ 
+-#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+-int __init parse_crashkernel_generic(char *cmdline,
+-				 unsigned long long *crash_size,
+-				 unsigned long long *crash_base,
+-				 unsigned long long *low_size,
+-				 bool *high);
+-
+-void __init reserve_crashkernel_generic(char *cmdline,
+-		unsigned long long crash_size,
+-		unsigned long long crash_base,
+-		unsigned long long crash_low_size,
+-		bool high);
+-#else
+-
+-static inline int __init parse_crashkernel_generic(char *cmdline,
+-		unsigned long long *crash_size,
+-		unsigned long long *crash_base,
+-		unsigned long long *low_size,
+-		bool *high)
+-{
+-	return 0;
++enum crashkernel_type {
++	CRASHKERNEL_NORMAL,
++	CRASHKERNEL_FIXED_OFFSET,
++	CRASHKERNEL_HIGH,
++	CRASHKERNEL_LOW
+ }
+ 
+-static inline void __init reserve_crashkernel_generic(char *cmdline,
+-		unsigned long long crash_size,
+-		unsigned long long crash_base,
+-		unsigned long long crash_low_size,
+-		bool high)
+-{}
++struct crashkernl {
++	enum crashkernel_type type;
++	unsigned long long size;
++	unsigned long long offet;
++};
++
++int __init parse_crashkernel(char *cmdline, struct crashkernel *ck);
++
++#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
++void __init reserve_crashkernel_generic(char *cmdline);
++#else
++void __init reserve_crashkernel_generic(char *cmdline) {}
+ #endif
+ 
+ #endif /* LINUX_CRASH_CORE_H */
+diff --git a/kernel/crash_core.c b/kernel/crash_core.c
+index b82dc8c970de..c04a8675446b 100644
+--- a/kernel/crash_core.c
++++ b/kernel/crash_core.c
+@@ -203,8 +203,7 @@ static int __init parse_crashkernel_suffix(char *cmdline,
+ }
+ 
+ static __init char *get_last_crashkernel(char *cmdline,
+-			     const char *name,
+-			     const char *suffix)
++					 const char *name)
+ {
+ 	char *p = cmdline, *ck_cmdline = NULL;
+ 
+@@ -217,23 +216,6 @@ static __init char *get_last_crashkernel(char *cmdline,
+ 		if (!end_p)
+ 			end_p = p + strlen(p);
+ 
+-		if (!suffix) {
+-			int i;
+-
+-			/* skip the one with any known suffix */
+-			for (i = 0; suffix_tbl[i]; i++) {
+-				q = end_p - strlen(suffix_tbl[i]);
+-				if (!strncmp(q, suffix_tbl[i],
+-					     strlen(suffix_tbl[i])))
+-					goto next;
+-			}
+-			ck_cmdline = p;
+-		} else {
+-			q = end_p - strlen(suffix);
+-			if (!strncmp(q, suffix, strlen(suffix)))
+-				ck_cmdline = p;
+-		}
+-next:
+ 		p = strstr(p+1, name);
+ 	}
+ 
+@@ -314,42 +296,144 @@ static int __init parse_crashkernel_dummy(char *arg)
+ early_param("crashkernel", parse_crashkernel_dummy);
+ 
+ 
+-#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+-int __init parse_crashkernel_generic(char *cmdline,
+-			     unsigned long long *crash_size,
+-			     unsigned long long *crash_base,
+-			     unsigned long long *low_size,
+-			     bool *high)
++/*
++ * This function parses command lines in the format
++ *
++ *   crashkernel=[start1-end1:]size1[,...][@offset|,high|,low]
++ *
++ * The function returns 0 on success and -EINVAL on failure.
++ */
++static int __init _parse_crashkernel(char *cmdline, struct crashkernel *ck)
+ {
+-	int ret;
++	unsigned long long start, end, size, offset;
++	unsigned long long system_ram;
++	char *next, *cur = cmdline;
+ 
+-	/* crashkernel=X[@offset] */
+-	ret = parse_crashkernel_common(cmdline, memblock_phys_mem_size(),
+-				crash_size, crash_base);
+-	if (ret == -ENOENT) {
+-		ret = parse_crashkernel_high(cmdline, 0, crash_size, crash_base);
+-		if (ret || !*crash_size)
+-			return -1;
+-
+-		/*
+-		 * crashkernel=Y,low can be specified or not, but invalid value
+-		 * is not allowed.
+-		 */
+-		ret = parse_crashkernel_low(cmdline, 0, low_size, crash_base);
+-		if (ret == -ENOENT)
+-			*low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+-		else if (ret)
+-			return -1;
+-
+-		*high = true;
+-	} else if (ret || !*crash_size) {
+-		/* The specified value is invalid */
+-		return -1;
++	/*
++	 * Firmware sometimes reserves some memory regions for its own use,
++	 * so the system memory size is less than the actual physical memory
++	 * size. Work around this by rounding up the total size to 128M,
++	 * which is enough for most test cases.
++	 */
++	system_ram = memblock_phys_mem_size()
++	system_ram = roundup(system_mem, SZ_128M);
++
++	start = 0;
++	end = ULLONG_MAX;
++	size = memparse(cur, &next);
++	if (cur == next) {
++		pr_warn("crashkernel: Memory value expected\n");
++		return -EINVAL;
++	}
++	cur = next;
++	ck->type=CRASHKERNEL_NORMAL;
++
++	/* case crashkerne=size[@offset|,high|,low] */
++	if (!strchr(cmdline, '-')) {
++		ck->size = size;
++	}
++
++	while (*cur != ' ' && *cur != '\0') {
++		switch (*cur) {
++		case '@':
++			offset = memparse(++cur, &next);
++			if (*next != ' ' && *next != '\0') {
++				pr_warn("crashkernel: Offset must be at the end\n");
++				return -EINVAL;
++			}
++			/* allow corner cases with @0 */
++			ck->type=CRASHKERNEL_FIXED_OFFSET;
++			ck->offset = offset;
++			break;
++
++		case '-':
++			start = size;
++			end = memparse(++cur, &next);
++			/* allow <start>-:<size> */
++			if (cur == next) {
++				end = system_ram;
++				next++;
++			}
++
++			if (*next != ':') {
++				pr_warn("crashkernel: ':' expected\n");
++				return -EINVAL;
++			}
++
++			cur = next + 1;
++			size = memparse(cur, &next);
++			if (cur == next) {
++				pr_warn("crashkernel: No size provided\n");
++				return -EINVAL;
++			}
++
++			if (end <= start) {
++				pr_warn("crashkernel: end <= start\n");
++				return -EINVAL;
++			}
++
++			if (start <= system_ram && end > system_ram)
++				ck->size = size;
++
++
++			cur = next + 1;
++			break;
++
++		case ',':
++			cur++;
++
++			/* check for ,high, ,low */
++			if (strncmp(cur, "high", strlen("high"))) {
++				ck->type=CRASHKERNEL_HIGH;
++				cur+=strlen("high");
++				if (*cur != ' ' || *cur != '\0') {
++					pr_warn("crashkernel: ,high must be at the end\n");
++					return -EINVAL;
++				}
++				break;
++			} else if (strncmp(cur, "low". strlen("low"))) {
++				ck->type=CRASHKERNEL_LOW;
++				cur+=strlen("low");
++				if (*cur != ' ' || *cur != '\0') {
++					pr_warn("crashkernel: ,high must be at the end\n");
++					return -EINVAL;
++				}
++				break;
++			}
++
++			/* start with next entry */
++			size = memparse(cur, &next);
++			if (cur == next) {
++				pr_warn("crashkernel: Memory value expected\n");
++				return -EINVAL;
++			}
++			cur = next;
++			break;
++
++		default:
++			pr_warn("crashkernel: Invalid character '%c' provided\n", *cur);
++			return -EINVAL;
++		}
+ 	}
+ 
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
++int __init parse_crashkernel(char *cmdline, struct crashkernel *ck)
++{
++	const char *name="crashkernel=";
++	char *ck_cmdline;
++
++	BUG_ON(!ck);
++
++	ck_cmdline = get_last_crashkernel(cmdline, name);
++	if (!ck_cmdline)
++		return -ENOENT;
++	ck_cmdline += strlen(name);
++	return _parse_crashkernel(ck_cmdline, ck);
++}
++
+ static int __init reserve_crashkernel_low(unsigned long long low_size)
+ {
+ #ifdef CONFIG_64BIT
+@@ -371,70 +455,57 @@ static int __init reserve_crashkernel_low(unsigned long long low_size)
+ 	return 0;
+ }
+ 
+-void __init reserve_crashkernel_generic(char *cmdline,
+-			     unsigned long long crash_size,
+-			     unsigned long long crash_base,
+-			     unsigned long long crash_low_size,
+-			     bool high)
++void __init reserve_crashkernel_generic(char *cmdline)
+ {
+-	unsigned long long search_end = CRASH_ADDR_LOW_MAX, search_base = 0;
+-	bool fixed_base = false;
+-
+-	/* User specifies base address explicitly. */
+-	if (crash_base) {
+-		fixed_base = true;
+-		search_base = crash_base;
+-		search_end = crash_base + crash_size;
+-	}
++	struct ck = { 0 };
+ 
+-	if (high) {
+-		search_base = CRASH_ADDR_LOW_MAX;
+-		search_end = CRASH_ADDR_HIGH_MAX;
+-	}
++	parse_crashkernel(cmdline, &ck);
+ 
+-retry:
+-	crash_base = memblock_phys_alloc_range(crash_size, CRASH_ALIGN,
+-					       search_base, search_end);
+-	if (!crash_base) {
+-		/*
+-		 * For crashkernel=size[KMG]@offset[KMG], print out failure
+-		 * message if can't reserve the specified region.
+-		 */
+-		if (fixed_base) {
+-			pr_warn("crashkernel reservation failed - memory is in use.\n");
+-			return;
+-		}
++	if (!ck.size)
++		return;
+ 
+-		/*
+-		 * For crashkernel=size[KMG], if the first attempt was for
+-		 * low memory, fall back to high memory, the minimum required
+-		 * low memory will be reserved later.
+-		 */
+-		if (!high && search_end == CRASH_ADDR_LOW_MAX) {
+-			search_end = CRASH_ADDR_HIGH_MAX;
+-			search_base = CRASH_ADDR_LOW_MAX;
+-			crash_low_size = DEFAULT_CRASH_KERNEL_LOW_SIZE;
+-			goto retry;
++	switch (ck.type) {
++	CRASHKERNEL_FIXED_OFFSET:
++		crash_base = memblock_phys_alloc_range(ck.size, CRASH_ALIGN,
++						       ck.offset,
++						       ck.offset + ck.size);
++		break;
++
++	CRASHKERNEL_NORMAL:
++		if (DEFAULT_CRASH_KERNEL_LOW_SIZE) {
++			/* Simply continue in case we fail to allocate the low
++			 * memory */
++			if (!reserve_crashkernel_low(DEFAULT_CRASH_KERNEL_LOW_SIZE))
++				ck.size -= DEFAULT_CRASH_KERNEL_LOW_SIZE;
+ 		}
+ 
+-		/*
+-		 * For crashkernel=size[KMG],high, if the first attempt was
+-		 * for high memory, fall back to low memory.
+-		 */
+-		if (high && search_end == CRASH_ADDR_HIGH_MAX) {
+-			search_end = CRASH_ADDR_LOW_MAX;
+-			search_base = 0;
+-			goto retry;
+-		}
+-		pr_warn("cannot allocate crashkernel (size:0x%llx)\n",
+-			crash_size);
++		fallthrough;
++	CRASHKERNEL_HIGH:
++		crash_base = memblock_phys_alloc_range(ck.size, CRASH_ALIGN,
++						       CRASH_ADDR_LOW_MAX,
++						       CRASH_ADDR_HIGH_MAX);
++		if (crash_base)
++			break;
++
++		fallthrough;
++	CRASHKERNEL_LOW:
++		crash_base = memblock_phys_alloc_range(ck.size, CRASH_ALIGN, 0,
++						       CRASH_ADDR_LOW_MAX);
++		break;
++
++	default:
++		pr_warn("Invalid crashkernel type %i\n", ck.type);
+ 		return;
+ 	}
+ 
+-	if ((crash_base > CRASH_ADDR_LOW_MAX) &&
+-	     crash_low_size && reserve_crashkernel_low(crash_low_size)) {
+-		memblock_phys_free(crash_base, crash_size);
+-		return;
++	if (!crash_base) {
++		pr_warn("could not allocate crashkernel (size:0x%llx)\n",
++			ck.size);
++		if (crashk_low_res.end) {
++			memblock_phys_free(crashk_low_res.start,
++					   crashk_low_res.end - crashk_low_res.start + 1);
++		}
++		return
+ 	}
+ 
+ 	pr_info("crashkernel reserved: 0x%016llx - 0x%016llx (%lld MB)\n",
+@@ -449,7 +520,7 @@ void __init reserve_crashkernel_generic(char *cmdline,
+ 		kmemleak_ignore_phys(crashk_low_res.start);
+ 
+ 	crashk_res.start = crash_base;
+-	crashk_res.end = crash_base + crash_size - 1;
++	crashk_res.end = crash_base + ck.size - 1;
+ 	insert_resource(&iomem_resource, &crashk_res);
+ }
+ #endif
 
---w5h1T0k99Bnkn5Gc--
-
-
---===============3878086852992793396==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3878086852992793396==--
-
