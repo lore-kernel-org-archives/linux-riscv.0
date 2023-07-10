@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F19EB64DA
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 08:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E80C0015E
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 08:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WUE1iGcki5DiEi3PZFPa6iiVquR5Zu1y2k4aveS1FXY=; b=zOywkPsbXIaycJ
-	S/+v64hK9CoslLPbkzuaqo+Mi7rG3yd6Drru0qj5aBTDkAL//40NkK7DriaAR5bBH5WDef9YkzNSW
-	c1dwPmz7Rmj4wvFtY5G//Afjr1I3DWl40hYFHNAwoHbieG/Z53TEnKIx31D582fxmtPvJZoUokhM1
-	RmzqAtMYGokI8sMheea0+jlXz4midmOGJAsWdIdRboFytLtadDtbAHLiongE+jeKz1GCBpYTlqy7j
-	gbbrPxF8azBJSkz1QsPOy+Y2MHlpyFk+oXIAgrvyGxmcHwim+BGvwHj4iGN+8sPFI/G3agJxMEc5u
-	YVYFhYX56qZFweI0svOw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f5V54sr5k0F+BOq3VmearG8GkjBqzsJ79y9GjuRx/Gk=; b=t7Mik4hxnRE/uT
+	nFPaDZBS53JOy+SwrzEIBGv5m8w4soQIzrbKnOjPwJzfS/QMgJVoyHI2AOw/KEUT6dyMprW15FyCy
+	iCg+dJCDK6NhDZeH6N1EY2oRtqff0FwhJUp1keW/eR+pf5/Rx+CPavxz6erkSdATqvB0GOiK85B0q
+	WyEo22SO4Ja4znROO9ZVdAKX2v1b30kuoqoz7YxWlgPdqG49ChqGcuQQ9439naq55DeLSE/9yH6U2
+	26uuEPNX7OBd/u5edWBOEp0xN7T+AXYKn+whA9kfJHxYTktilESu4YRFThwCzv31aGff/cyg7Pc6N
+	E/3z/7TR+a/ZllOb2Dhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qImSU-00Asb9-1L;
-	Mon, 10 Jul 2023 08:41:26 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1qImSc-00Asgx-2U;
+	Mon, 10 Jul 2023 08:41:34 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qImSP-00AsSW-0n;
-	Mon, 10 Jul 2023 08:41:23 +0000
+	id 1qImSR-00AsST-0b;
+	Mon, 10 Jul 2023 08:41:28 +0000
 Received: from canpemm500009.china.huawei.com (unknown [172.30.72.56])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Qzy8Y0ThMzPk21;
-	Mon, 10 Jul 2023 16:38:53 +0800 (CST)
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4QzyBX1LZqzqVdF;
+	Mon, 10 Jul 2023 16:40:36 +0800 (CST)
 Received: from localhost.localdomain (10.50.163.32) by
  canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Mon, 10 Jul 2023 16:41:10 +0800
+ 15.1.2507.27; Mon, 10 Jul 2023 16:41:08 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <akpm@linux-foundation.org>, <catalin.marinas@arm.com>,
 	<linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -46,23 +46,19 @@ CC: <corbet@lwn.net>, <peterz@infradead.org>, <arnd@arndb.de>,
 	<openrisc@lists.librecores.org>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Barry Song
 	<21cnbao@gmail.com>, <wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
-	<prime.zeng@hisilicon.com>, <Jonathan.Cameron@Huawei.com>, Barry Song
-	<v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman
-	<mgorman@suse.de>
-Subject: [PATCH v10 2/4] mm/tlbbatch: Rename and extend some functions
-Date: Mon, 10 Jul 2023 16:39:12 +0800
-Message-ID: <20230710083914.18336-3-yangyicong@huawei.com>
+	<prime.zeng@hisilicon.com>, <Jonathan.Cameron@Huawei.com>
+Subject: [PATCH v10 0/4]  arm64: support batched/deferred tlb shootdown during page reclamation/migration
+Date: Mon, 10 Jul 2023 16:39:10 +0800
+Message-ID: <20230710083914.18336-1-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20230710083914.18336-1-yangyicong@huawei.com>
-References: <20230710083914.18336-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  canpemm500009.china.huawei.com (7.192.105.203)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_014121_763092_3F43C9CD 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20230710_014123_661935_CBC48A66 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,122 +75,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Barry Song <v-songbaohua@oppo.com>
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-This patch does some preparation works to extend batched TLB flush to
-arm64. Including:
-- Extend set_tlb_ubc_flush_pending() and arch_tlbbatch_add_mm()
-  to accept an additional argument for address, architectures
-  like arm64 may need this for tlbi.
-- Rename arch_tlbbatch_add_mm() to arch_tlbbatch_add_pending()
-  to match its current function since we don't need to handle
-  mm on architectures like arm64 and add_mm is not proper,
-  add_pending will make sense to both as on x86 we're pending the
-  TLB flush operations while on arm64 we're pending the synchronize
-  operations.
+Though ARM64 has the hardware to do tlb shootdown, the hardware broadcasting is
+not free. A simplest micro benchmark shows even on snapdragon 888 with only
+8 cores, the overhead for ptep_clear_flush is huge even for paging out one page
+mapped by only one process:
+5.36%  a.out    [kernel.kallsyms]  [k] ptep_clear_flush
 
-This intends no functional changes on x86.
+While pages are mapped by multiple processes or HW has more CPUs, the cost should
+become even higher due to the bad scalability of tlb shootdown. The same benchmark
+can result in 16.99% CPU consumption on ARM64 server with around 100 cores
+according to the test on patch 4/4.
 
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Nadav Amit <namit@vmware.com>
-Cc: Mel Gorman <mgorman@suse.de>
-Tested-by: Yicong Yang <yangyicong@hisilicon.com>
-Tested-by: Xin Hao <xhao@linux.alibaba.com>
-Tested-by: Punit Agrawal <punit.agrawal@bytedance.com>
-Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-Reviewed-by: Xin Hao <xhao@linux.alibaba.com>
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/x86/include/asm/tlbflush.h |  5 +++--
- include/linux/mm_types_task.h   |  4 ++--
- mm/rmap.c                       | 12 +++++++-----
- 3 files changed, 12 insertions(+), 9 deletions(-)
+This patchset leverages the existing BATCHED_UNMAP_TLB_FLUSH by
+1. only send tlbi instructions in the first stage -
+	arch_tlbbatch_add_mm()
+2. wait for the completion of tlbi by dsb while doing tlbbatch
+	sync in arch_tlbbatch_flush()
 
-diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-index cf2a1de5d388..1c7d3a36e16c 100644
---- a/arch/x86/include/asm/tlbflush.h
-+++ b/arch/x86/include/asm/tlbflush.h
-@@ -276,8 +276,9 @@ static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
- 	return atomic64_inc_return(&mm->context.tlb_gen);
- }
- 
--static inline void arch_tlbbatch_add_mm(struct arch_tlbflush_unmap_batch *batch,
--					struct mm_struct *mm)
-+static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
-+					     struct mm_struct *mm,
-+					     unsigned long uaddr)
- {
- 	inc_mm_tlb_gen(mm);
- 	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
-diff --git a/include/linux/mm_types_task.h b/include/linux/mm_types_task.h
-index 5414b5c6a103..aa44fff8bb9d 100644
---- a/include/linux/mm_types_task.h
-+++ b/include/linux/mm_types_task.h
-@@ -52,8 +52,8 @@ struct tlbflush_unmap_batch {
- #ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
- 	/*
- 	 * The arch code makes the following promise: generic code can modify a
--	 * PTE, then call arch_tlbbatch_add_mm() (which internally provides all
--	 * needed barriers), then call arch_tlbbatch_flush(), and the entries
-+	 * PTE, then call arch_tlbbatch_add_pending() (which internally provides
-+	 * all needed barriers), then call arch_tlbbatch_flush(), and the entries
- 	 * will be flushed on all CPUs by the time that arch_tlbbatch_flush()
- 	 * returns.
- 	 */
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 6480e526c154..9699c6011b0e 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -642,7 +642,8 @@ void try_to_unmap_flush_dirty(void)
- #define TLB_FLUSH_BATCH_PENDING_LARGE			\
- 	(TLB_FLUSH_BATCH_PENDING_MASK / 2)
- 
--static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval)
-+static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
-+				      unsigned long uaddr)
- {
- 	struct tlbflush_unmap_batch *tlb_ubc = &current->tlb_ubc;
- 	int batch;
-@@ -651,7 +652,7 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval)
- 	if (!pte_accessible(mm, pteval))
- 		return;
- 
--	arch_tlbbatch_add_mm(&tlb_ubc->arch, mm);
-+	arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, uaddr);
- 	tlb_ubc->flush_required = true;
- 
- 	/*
-@@ -726,7 +727,8 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
- 	}
- }
- #else
--static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval)
-+static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
-+				      unsigned long uaddr)
- {
- }
- 
-@@ -1579,7 +1581,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 				 */
- 				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
- 
--				set_tlb_ubc_flush_pending(mm, pteval);
-+				set_tlb_ubc_flush_pending(mm, pteval, address);
- 			} else {
- 				pteval = ptep_clear_flush(vma, address, pvmw.pte);
- 			}
-@@ -1962,7 +1964,7 @@ static bool try_to_migrate_one(struct folio *folio, struct vm_area_struct *vma,
- 				 */
- 				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
- 
--				set_tlb_ubc_flush_pending(mm, pteval);
-+				set_tlb_ubc_flush_pending(mm, pteval, address);
- 			} else {
- 				pteval = ptep_clear_flush(vma, address, pvmw.pte);
- 			}
+Testing on snapdragon shows the overhead of ptep_clear_flush is removed by the
+patchset. The micro benchmark becomes 5% faster even for one page mapped by
+single process on snapdragon 888.
+
+Since BATCHED_UNMAP_TLB_FLUSH is implemented only on x86, the patchset does some
+renaming/extension for the current implementation first (Patch 1-3), then add the
+support on arm64 (Patch 4).
+
+-v10:
+1. Enable BATCHED_UNMAP_TLB_FLUSH regardless of CPU numbers, per Catalin.
+2. Split the renaming/extension works in a separate PATCH 2, per Catalin. Since
+   it's split from PATCH 2/2 in v9, so inherit the tags.
+3. Add arch_flush_tlb_batched_pending() to allow arch-specific implementation,
+   per Catalin. Since it's some kind of an optimization on arm64 so a separate
+   Patch 3/4.
+Link: https://lore.kernel.org/linux-mm/20230518065934.12877-1-yangyicong@huawei.com/
+
+-v9:
+1. Using a runtime tunable to control batched TLB flush, per Catalin in v7.
+   Sorry for missing this on v8.
+Link: https://lore.kernel.org/all/20230329035512.57392-1-yangyicong@huawei.com/
+
+-v8:
+1. Rebase on 6.3-rc4
+2. Tested the optimization on page migration and mentioned it in the commit
+3. Thanks the review from Anshuman.
+Link: https://lore.kernel.org/linux-mm/20221117082648.47526-1-yangyicong@huawei.com/
+
+-v7:
+1. rename arch_tlbbatch_add_mm() to arch_tlbbatch_add_pending() as suggested, since it
+   takes an extra address for arm64, per Nadav and Anshuman. Also mentioned in the commit.
+2. add tags from Xin Hao, thanks.
+Link: https://lore.kernel.org/lkml/20221115031425.44640-1-yangyicong@huawei.com/
+
+-v6:
+1. comment we don't defer TLB flush on platforms affected by ARM64_WORKAROUND_REPEAT_TLBI
+2. use cpus_have_const_cap() instead of this_cpu_has_cap()
+3. add tags from Punit, Thanks.
+4. default enable the feature when cpus >= 8 rather than > 8, since the original
+   improvement is observed on snapdragon 888 with 8 cores.
+Link: https://lore.kernel.org/lkml/20221028081255.19157-1-yangyicong@huawei.com/
+
+-v5:
+1. Make ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH depends on EXPERT for this stage on arm64.
+2. Make a threshold of CPU numbers for enabling batched TLP flush on arm64
+Link: https://lore.kernel.org/linux-arm-kernel/20220921084302.43631-1-yangyicong@huawei.com/T/
+
+-v4:
+1. Add tags from Kefeng and Anshuman, Thanks.
+2. Limit the TLB batch/defer on systems with >4 CPUs, per Anshuman
+3. Merge previous Patch 1,2-3 into one, per Anshuman
+Link: https://lore.kernel.org/linux-mm/20220822082120.8347-1-yangyicong@huawei.com/
+
+-v3:
+1. Declare arch's tlbbatch defer support by arch_tlbbatch_should_defer() instead
+   of ARCH_HAS_MM_CPUMASK, per Barry and Kefeng
+2. Add Tested-by from Xin Hao
+Link: https://lore.kernel.org/linux-mm/20220711034615.482895-1-21cnbao@gmail.com/
+
+-v2:
+1. Collected Yicong's test result on kunpeng920 ARM64 server;
+2. Removed the redundant vma parameter in arch_tlbbatch_add_mm()
+   according to the comments of Peter Zijlstra and Dave Hansen
+3. Added ARCH_HAS_MM_CPUMASK rather than checking if mm_cpumask
+   is empty according to the comments of Nadav Amit
+
+Thanks, Peter, Dave and Nadav for your testing or reviewing
+, and comments.
+
+-v1:
+https://lore.kernel.org/lkml/20220707125242.425242-1-21cnbao@gmail.com/
+
+Anshuman Khandual (1):
+  mm/tlbbatch: Introduce arch_tlbbatch_should_defer()
+
+Barry Song (2):
+  mm/tlbbatch: Rename and extend some functions
+  arm64: support batched/deferred tlb shootdown during page
+    reclamation/migration
+
+Yicong Yang (1):
+  mm/tlbbatch: Introduce arch_flush_tlb_batched_pending()
+
+ .../features/vm/TLB/arch-support.txt          |  2 +-
+ arch/arm64/Kconfig                            |  1 +
+ arch/arm64/include/asm/tlbbatch.h             | 12 +++++
+ arch/arm64/include/asm/tlbflush.h             | 48 +++++++++++++++++--
+ arch/x86/include/asm/tlbflush.h               | 22 ++++++++-
+ include/linux/mm_types_task.h                 |  4 +-
+ mm/rmap.c                                     | 23 ++++-----
+ 7 files changed, 90 insertions(+), 22 deletions(-)
+ create mode 100644 arch/arm64/include/asm/tlbbatch.h
+
 -- 
 2.24.0
 
