@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A216EB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 13:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F4DEB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 14:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GnBmkDw3oinLO5PrDeKX3lCo6CmMLpmUUhRNu8YRwpI=; b=eBYasdmb1xdic0
-	BNJm1VYrK9tbdyqgUpIiDrL3cjqki6wLMuRc+QrjWH0tnbOvbQNqqVyfSc58jXhPVwc9OcsSL+CtK
-	oPOBSCsIHzO0CJn2ukKQc+SZncPvO2hpi1+Zy5kU3AGh9anhLdJxLS4HHxedNqyqNyZks179lvv+m
-	dbpPMURORkOJAFaS9KErXTutf04Dj+Lbhlf9N9xAq/400EQJZcHACKfQaLE1d58zkjD51VRonk1fV
-	EVmogpCsGPFhNNvO52PU2FKOckh/DFwZBcUaomv8A9QfdXjOGmVg0TtX7rFtCAWknBE2Hpx+gIUjW
-	TCbdCosynrw4JbXsregA==;
+	List-Owner; bh=Lsg1LnOvwqQ87fZWWPtNLYlAWBfVIQ9WdhrZUNbc6gY=; b=ySaLjNc52JqoqE
+	GsmHLIbo0WWevdsxKBZHBvf2fSCuz2Q7LZdtiM5a5fxqncckm390XDRXRTrl2DWdeG5zYdr6KW/UJ
+	89sDUVSCZruOSgxfR7wPPo9l7t2XPHUJFJRV0M6N6tYNx/M1uvCX96uaJbS2TCy/90b/rYUyBjxhf
+	NXU6zKXIdjFhiK27zV0GLeNJlhxsyyAJtNbppS99DIACIAQ/9/TQH20q5NodJYAcDO1yOsyU3+6X+
+	3td9whnsjhIS7LecOEiVfrBMwyUkpcLZ4xxgNTnOEEAg3xA7LORA5cKpVb4DDfxmxUw8V6svL7Dzo
+	08iwLksVPMK5IhUzYSFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIqna-00BjWR-1G;
-	Mon, 10 Jul 2023 13:19:30 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1qIrWX-00BpT1-22;
+	Mon, 10 Jul 2023 14:05:57 +0000
+Received: from mail-yb1-f180.google.com ([209.85.219.180])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIqnX-00BjVJ-2q
+	id 1qIrWV-00BpSI-1z
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jul 2023 13:19:29 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-78625caa702so142891539f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 06:19:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1688995166; x=1691587166;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r1gRBue3D63AcisS8ZRrKq/nAe8+ybrtdsVfAzlr1PY=;
-        b=pA+OZj+6VRBv5gS74DBiOVUTgwvqM6wfhrRwlQNZG7tF+0mRI9MD1owZvdSX7ukimh
-         k8suDBs0QgKceGAu3WuWnG43cRnQhiCgUbXPnkIEICLi1FX3T2OtPFwSpBDYcJqYySgt
-         8mew5dOHk8HZ5c1QM7tS98XYN0MyH0n0xs+ZuFNgCNoZPS0u8LbWovuZ4i9/NUmQyg4n
-         fbtlVo8iSDEAMIIdt218mawBd6L7r00CCJnYonLgqo8KA3BEgoQ3XASlfTOPoyfp3UdI
-         pJThRWHkf8gbMgSucIu3KeJySWz3zR+8VUhz1cFP0/2GWDgOPQyx09LmmXuGwk7LWPuD
-         qXTA==
+	Mon, 10 Jul 2023 14:05:57 +0000
+Received: by mail-yb1-f180.google.com with SMTP id 3f1490d57ef6-c5e67d75e0cso5898005276.2
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 07:05:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688995166; x=1691587166;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20221208; t=1688997953; x=1691589953;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=r1gRBue3D63AcisS8ZRrKq/nAe8+ybrtdsVfAzlr1PY=;
-        b=E7gCZmqprVfgMzsUBRxi5SE+Pef92qeAvDM9yeIjSly43w/uOWuBTxGkO45bTH7xiu
-         jp/Z27dDBOyPXbR1ScFCv50yNgVBOw8zuI7rRoPFXWFubZjJ83vVBvZwFlUF1BspbpDW
-         2nwisYDz649D7tt7wkbLbCkdoEoejYLO/hUGq6tnrP5hm8t2/wjn5Pf52z16rpi+S9N3
-         09c3ZHEc+eWGykL+4Ls5n5Pu9fP5BhW1M3mo9PbqOt7BHL0lodf5gkxtThrq95UIBV9t
-         n4xv9m/g84UfGUt45RmLiiMUM806WlF8FeQKHpn4cXZb3DxAmP4CYkUhlIXTyIcEJYhp
-         xS2Q==
-X-Gm-Message-State: ABy/qLZry3OW0Uj1fkdtjAjRrz1yQcC9F0CxsWwj6tsloB7uU+u/HoQQ
-	dlKp6c7tZnuS27RLpwuBn/PUuKsjLhhfwXtTOnn5QQ==
-X-Google-Smtp-Source: APBJJlHvGG/zjHslHAxhLRw47sOr0nUaUNS7C7K4tdHJPkUEe+8zgZyMURiUepQv7N2eA4R4IfmuUg==
-X-Received: by 2002:a5d:9451:0:b0:783:72b9:ed67 with SMTP id x17-20020a5d9451000000b0078372b9ed67mr12562805ior.10.1688995165630;
-        Mon, 10 Jul 2023 06:19:25 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id q14-20020a5d9f0e000000b0077a1b6f73b9sm3643242iot.41.2023.07.10.06.19.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Jul 2023 06:19:25 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH 2/2] clocksource: timer-riscv: Increase rating of clock_event_device for Sstc
-Date: Mon, 10 Jul 2023 18:49:02 +0530
-Message-Id: <20230710131902.1459180-3-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230710131902.1459180-1-apatel@ventanamicro.com>
-References: <20230710131902.1459180-1-apatel@ventanamicro.com>
+        bh=synEb8i0PbvXljWfEAZgODayCcLrTZV/b7Ul2k51+yA=;
+        b=QZxj5lg/bTvX9nzQCZd2mo+cN+lrZW/tR/BLUWUeQC/h2RYmGvF64LY5KbDcN4pQk1
+         Pi5rsj7lJtznibOrBfUGQu3+nChD4SyBJKFnK5LWBO/j5Sa3bJJlgNbzqnkaB4o48k/j
+         asHyCF1el3/o88kh/QFeFQx8sce48ubjj3qhLa7JiBeq5vo1Aojxap3v14nLBFZCFQTZ
+         3ygTEBL1jIrNOnGsfodr3IS6zXtDJpdVNjGcvc8Y8pbHItr0QF63R+y7Pv9Rl4TCUfJ+
+         RSDLGdAuOXkdh+zoiZ8T1q3xjvhR6of4uKWvou9m18skG7w9K5PrG7bPz+B1KLJuzrIX
+         ob0g==
+X-Gm-Message-State: ABy/qLZAbQ6wTLrM+NzOqcASADi9pPIQNb0V25SN9CxDADLtpISWcMLT
+	xu9eORl3sgh7H2hy1bveh/EoPKJUt+tlFQ==
+X-Google-Smtp-Source: APBJJlHk1mrHAFGvAZovdHciITD2CLV01cvFyZ8FmzvJalufgPdnktSDLgPRDxUmMc7NpNiLnAsCCQ==
+X-Received: by 2002:a25:1456:0:b0:c39:9e09:2c71 with SMTP id 83-20020a251456000000b00c399e092c71mr8854740ybu.41.1688997953048;
+        Mon, 10 Jul 2023 07:05:53 -0700 (PDT)
+Received: from mail-yb1-f179.google.com (mail-yb1-f179.google.com. [209.85.219.179])
+        by smtp.gmail.com with ESMTPSA id v43-20020a25abae000000b00c5f4d06fb1asm2645401ybi.59.2023.07.10.07.05.52
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Jul 2023 07:05:52 -0700 (PDT)
+Received: by mail-yb1-f179.google.com with SMTP id 3f1490d57ef6-c5e67d75e0cso5897988276.2
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 07:05:52 -0700 (PDT)
+X-Received: by 2002:a25:d8c3:0:b0:c67:ebf3:b1fa with SMTP id
+ p186-20020a25d8c3000000b00c67ebf3b1famr11128212ybg.31.1688997952651; Mon, 10
+ Jul 2023 07:05:52 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230630120433.49529-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20230630120433.49529-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 10 Jul 2023 16:05:39 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdV6_Q+GDG=MRTkaH4O=un-owzkN_B-aCbKdo_F1=B1sTw@mail.gmail.com>
+Message-ID: <CAMuHMdV6_Q+GDG=MRTkaH4O=un-owzkN_B-aCbKdo_F1=B1sTw@mail.gmail.com>
+Subject: Re: [RFC PATCH 0/4] Add missing pins for RZ/Five SoC
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, linux-renesas-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_061927_918187_C649D9E2 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230710_070555_655171_4083E68B 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,39 +86,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When Sstc is available the RISC-V timer clock_event_device should be
-the preferred clock_event_device hence we increase clock_event_device
-rating for Sstc.
-
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- drivers/clocksource/timer-riscv.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index f2ea2b3d2d43..9c8f3e2decc2 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -105,6 +105,8 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
- 	ce->irq = riscv_clock_event_irq;
- 	if (riscv_timer_cannot_wake_cpu)
- 		ce->features |= CLOCK_EVT_FEAT_C3STOP;
-+	if (static_branch_likely(&riscv_sstc_available))
-+		ce->rating = 450;
- 	clockevents_config_and_register(ce, riscv_timebase, 100, 0x7fffffff);
- 
- 	enable_percpu_irq(riscv_clock_event_irq,
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUHJhYmhha2FyLAoKT24gRnJpLCBKdW4gMzAsIDIwMjMgYXQgMjowNOKAr1BNIFByYWJoYWth
+ciA8cHJhYmhha2FyLmNzZW5nZ0BnbWFpbC5jb20+IHdyb3RlOgo+IEZyb206IExhZCBQcmFiaGFr
+YXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4KPgo+IFRoaXMgcGF0
+Y2ggc2VyaWVzIGludGVuZHMgdG8gaW5jb3Jwb3JhdGUgdGhlIGFic2VudCBwb3J0IHBpbnMgUDE5
+IHRvIFAyOCwKPiB3aGljaCBhcmUgZXhjbHVzaXZlbHkgYXZhaWxhYmxlIG9uIHRoZSBSWi9GaXZl
+IFNvQy4KCkFyZSB5b3Ugc3VyZSB0aGVzZSBhcmUgbm90IGF2YWlsYWJsZSBvbiBSWi9HMlVMPwpJ
+IHRob3VnaHQgUlovRml2ZSBhbmQgUlovRzJVTCB3ZXJlIGlkZW50aWNhbCwgZXhjZXB0IGZvciB0
+aGUgQVJNCnZzLiBSSVNDLVYgQ1BVIGNvcmUgKCsgc3VwcG9ydCk/CgpHcntvZXRqZSxlZXRpbmd9
+cywKCiAgICAgICAgICAgICAgICAgICAgICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVu
+IC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhr
+Lm9yZwoKSW4gcGVyc29uYWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkg
+Y2FsbCBteXNlbGYgYSBoYWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3Rz
+IEkganVzdCBzYXkgInByb2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
