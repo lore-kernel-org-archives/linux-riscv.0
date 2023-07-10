@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B35EB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 15:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D41D1EB64DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 15:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZbZ1yH7zamDS/OlrnxbNi+EXkDbmzTUD3MhDVfvw+RQ=; b=Oza6NbcRkT1u7p
-	kUCFONFe87orVNtUG4yZYp2X7VQcZgOyxXOe4IWzFBt2jHqn+jRVqsCSYJqofrsHOrh6h5Rz5T1tZ
-	/KOlhp2sYJRIlT0hj23mWEOIIOR1KiDHI5yrxRLFvfgUqDE7sTl9TTblUxMWjYmYhnDYMNWmVGVzy
-	UA8yzuqZ7406Th18q4qBDP4trZ7lI0t/mw/U7wYv0ZnLFIK2NupIPmJg8oPgODnd45M5oZ4J0KMNY
-	w5yrSEnhz7ZwWjhZb3wPaeDfS6LWPbxQ08pD/fvskMOJPVHZYvvJcgzuGSPWEjc8Dz9BosMA4iQVz
-	yS8xOzHMSmOeviXffeAA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X/mQb6nS7xvbgN1sfdiTDGrtrZ9OW28dpfnZPRMQugM=; b=InIhoHxoBgRv/0
+	NpjQam/gE3TCKIq9Uxlb0ecWuXJGi+Df8PIEMxWGjNgkHHdVaZiKsNubBJMpcCFKYc5y0ewUqfoca
+	0eViElvZjr/uZzorjiwnsGGsdYeU++urxgg3zRQfHPyHULZwMreYgWcNQ9lefQ9+hEsVNO3CqcmJx
+	hxYZ5ax+vffTT6v8HtR10A2zSRO7PxAnCbBzX3XjkM/tkisvs3XcAYWOVMhORRf2ZWAM0HVDzZbxd
+	GuJqc9y9icaqab9BSx9IdRAWjRXUx4IKV8X5rVAn27gMTjYOGrnm4rdekHdZwKxzpm+zOoOG0taLf
+	rF8JWX71w0RRAWQ77l3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIt9b-00C4Hk-31;
-	Mon, 10 Jul 2023 15:50:23 +0000
-Received: from mga11.intel.com ([192.55.52.93])
+	id 1qIt9k-00C4Q8-0H;
+	Mon, 10 Jul 2023 15:50:32 +0000
+Received: from mga18.intel.com ([134.134.136.126])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIt90-00C3cH-0E;
-	Mon, 10 Jul 2023 15:49:48 +0000
+	id 1qIt91-00C3g7-2y;
+	Mon, 10 Jul 2023 15:49:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1689004186; x=1720540186;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=qyXZ9l/eDXJvwNtej9Cq3pKS54WfQZS0AfJJYPgySOQ=;
-  b=GbdgI1Z9GZoY5mEls7A78yDMB1UOgwe9EuDSzYNsHjG/wu5p6JU4fsBI
-   huv2d4EfgqvpZPQ3v8WUYrPRly5cV0v3dQ6vwSRQVR0cXUSdznlywxHIf
-   FbBUfz5xm/sRENtjdQvgQoI7yMWZRS2HwSvytkl+1uUIpnSmmfUFFlLh5
-   lwUSnqo53j/s5Py0dxoyoH591/r3i5nnVGkMD/zoWWOLfPoKI5ZESAyP+
-   RkNja3Gti55XQAjaEc/Km8zTaNP2fC/XQafru2T+5LO9aKPppU8ujfY+u
-   Xj9oCa7J9z3wXVrTRiggO+HpJ8DrRLpFUcp2yobcfEQlIXr6siuM/92c6
-   A==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="361842457"
+  t=1689004187; x=1720540187;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=NaAUtfuKUjWfIyo2AvU+b2/TN3c63zF3Fr8TWiuiUkI=;
+  b=OQ5qqTEX505x8Tgg17KG2VYoY4Eoklsdx9vI3+fiRHFXRmQw8ife7Gy1
+   3OjRoss7RokLb4a8I70/DORBCaZSr1cXwjnUsKVwtfB1iGAnvJq3WMwR/
+   NYkyT/8JLOse+WlzoEbMmj4FrgkxPepIu6iWUVaqVrF+x3qWPqV8841OB
+   i/cYdmWST0L3a5qMgJo8t1Lp+xO2QkNklpqhz+70ER3xKjms3K9QZJfqF
+   lAWdZ+MRlaXTrftIM0FXrb1kcYJY4KjK/e27x2zpCrdVZE7jPnphgAJkt
+   UMItyVe64xZQm3q5Q/lWrS2KN7OWDcvMUKkvhzsWJZdo+CACJFCkAEoq9
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="349185451"
 X-IronPort-AV: E=Sophos;i="6.01,194,1684825200"; 
-   d="scan'208";a="361842457"
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2023 08:49:41 -0700
+   d="scan'208";a="349185451"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2023 08:49:46 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="720743951"
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="844921872"
 X-IronPort-AV: E=Sophos;i="6.01,194,1684825200"; 
-   d="scan'208";a="720743951"
+   d="scan'208";a="844921872"
 Received: from black.fi.intel.com ([10.237.72.28])
-  by orsmga002.jf.intel.com with ESMTP; 10 Jul 2023 08:49:29 -0700
+  by orsmga004.jf.intel.com with ESMTP; 10 Jul 2023 08:49:35 -0700
 Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id 115861FC; Mon, 10 Jul 2023 18:49:33 +0300 (EEST)
+	id 8BD3669A; Mon, 10 Jul 2023 18:49:34 +0300 (EEST)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Mark Brown <broonie@kernel.org>,
 	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
@@ -106,14 +106,16 @@ Cc: Sanjay R Mehta <sanju.mehta@amd.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Masami Hiramatsu <mhiramat@kernel.org>,
 	Richard Cochran <richardcochran@gmail.com>
-Subject: [PATCH v2 00/15] spi: Header and core clean up and refactoring
-Date: Mon, 10 Jul 2023 18:49:17 +0300
-Message-Id: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v2 07/15] spi: Sort headers alphabetically
+Date: Mon, 10 Jul 2023 18:49:24 +0300
+Message-Id: <20230710154932.68377-8-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.40.0.1.gaa8946217a0b
+In-Reply-To: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
+References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_084946_131905_9CFACAB5 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20230710_084948_063410_BAF376B1 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,75 +132,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Various cleanups and refactorings of the SPI header and core parts
-united in a single series. It also touches drivers under SPI subsystem
-folder on the pure renaming purposes of some constants.
+Sorting headers alphabetically helps locating duplicates, and
+make it easier to figure out where to insert new headers.
 
-No functional change intended.
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/spi/spi.c       | 42 ++++++++++++++++++++---------------------
+ include/linux/spi/spi.h | 14 +++++++-------
+ 2 files changed, 28 insertions(+), 28 deletions(-)
 
-Changelog v2:
-- added new patches 3,4,5,10,13,14
-- massaged comment and kernel doc in patch 9
-- split used to be patch 4 to patches 11,12
-- covered a few things in SPI core in patch 15
-- amended commit message for above (Mark)
-- reshuffled patches in the series for better logical grouping
-
-Andy Shevchenko (15):
-  spi: Remove unneeded OF node NULL checks
-  spi: Drop duplicate IDR allocation code in spi_register_controller()
-  spi: Replace if-else-if by bitops and multiplications
-  spi: Replace open coded spi_controller_xfer_timeout()
-  spi: Remove code duplication in spi_add_device_locked()
-  spi: Use sysfs_emit() to instead of s*printf()
-  spi: Sort headers alphabetically
-  spi: Clean up headers
-  spi: Use struct_size() helper
-  spi: Use predefined constants from bits.h and units.h
-  spi: Get rid of old SPI_MASTER_NO_TX & SPI_MASTER_NO_RX
-  spi: Get rid of old SPI_MASTER_MUST_TX & SPI_MASTER_MUST_RX
-  spi: Rename SPI_MASTER_GPIO_SS to SPI_CONTROLLER_GPIO_SS
-  spi: Convert to SPI_CONTROLLER_HALF_DUPLEX
-  spi: Fix spelling typos and acronyms capitalization
-
- drivers/spi/spi-amd.c             |   2 +-
- drivers/spi/spi-at91-usart.c      |   2 +-
- drivers/spi/spi-ath79.c           |   2 +-
- drivers/spi/spi-atmel.c           |   4 +-
- drivers/spi/spi-bitbang-txrx.h    |  16 +--
- drivers/spi/spi-bitbang.c         |   8 +-
- drivers/spi/spi-cavium-thunderx.c |   2 +-
- drivers/spi/spi-davinci.c         |   2 +-
- drivers/spi/spi-dw-core.c         |   2 +-
- drivers/spi/spi-falcon.c          |   2 +-
- drivers/spi/spi-fsl-lpspi.c       |   2 +-
- drivers/spi/spi-gpio.c            |  10 +-
- drivers/spi/spi-imx.c             |   2 +-
- drivers/spi/spi-lp8841-rtc.c      |  10 +-
- drivers/spi/spi-meson-spicc.c     |   2 +-
- drivers/spi/spi-mt65xx.c          |   2 +-
- drivers/spi/spi-mxs.c             |   2 +-
- drivers/spi/spi-omap-uwire.c      |   2 +-
- drivers/spi/spi-orion.c           |   2 +-
- drivers/spi/spi-pci1xxxx.c        |   2 +-
- drivers/spi/spi-pic32-sqi.c       |   2 +-
- drivers/spi/spi-pic32.c           |   2 +-
- drivers/spi/spi-qcom-qspi.c       |   2 +-
- drivers/spi/spi-rb4xx.c           |   2 +-
- drivers/spi/spi-rockchip-sfc.c    |   2 +-
- drivers/spi/spi-rockchip.c        |   2 +-
- drivers/spi/spi-sifive.c          |   2 +-
- drivers/spi/spi-slave-mt27xx.c    |   2 +-
- drivers/spi/spi-sprd-adi.c        |   2 +-
- drivers/spi/spi-stm32.c           |   2 +-
- drivers/spi/spi-ti-qspi.c         |   2 +-
- drivers/spi/spi-xcomm.c           |   2 +-
- drivers/spi/spi-xtensa-xtfpga.c   |   2 +-
- drivers/spi/spi.c                 | 204 ++++++++++++------------------
- include/linux/spi/spi.h           | 198 +++++++++++++++++------------
- include/trace/events/spi.h        |   2 +-
- 36 files changed, 247 insertions(+), 261 deletions(-)
-
+diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+index cfb1c985d940..06a92a3a5746 100644
+--- a/drivers/spi/spi.c
++++ b/drivers/spi/spi.c
+@@ -4,36 +4,36 @@
+ // Copyright (C) 2005 David Brownell
+ // Copyright (C) 2008 Secret Lab Technologies Ltd.
+ 
+-#include <linux/kernel.h>
+-#include <linux/device.h>
+-#include <linux/init.h>
++#include <linux/acpi.h>
+ #include <linux/cache.h>
+-#include <linux/dma-mapping.h>
++#include <linux/clk/clk-conf.h>
++#include <linux/delay.h>
++#include <linux/device.h>
+ #include <linux/dmaengine.h>
++#include <linux/dma-mapping.h>
++#include <linux/export.h>
++#include <linux/gpio/consumer.h>
++#include <linux/highmem.h>
++#include <linux/idr.h>
++#include <linux/init.h>
++#include <linux/ioport.h>
++#include <linux/kernel.h>
++#include <linux/kthread.h>
++#include <linux/mod_devicetable.h>
+ #include <linux/mutex.h>
+ #include <linux/of_device.h>
+ #include <linux/of_irq.h>
+-#include <linux/clk/clk-conf.h>
+-#include <linux/slab.h>
+-#include <linux/mod_devicetable.h>
+-#include <linux/spi/spi.h>
+-#include <linux/spi/spi-mem.h>
+-#include <linux/gpio/consumer.h>
+-#include <linux/pm_runtime.h>
++#include <linux/percpu.h>
++#include <linux/platform_data/x86/apple.h>
+ #include <linux/pm_domain.h>
++#include <linux/pm_runtime.h>
+ #include <linux/property.h>
+-#include <linux/export.h>
++#include <linux/ptp_clock_kernel.h>
+ #include <linux/sched/rt.h>
++#include <linux/slab.h>
++#include <linux/spi/spi.h>
++#include <linux/spi/spi-mem.h>
+ #include <uapi/linux/sched/types.h>
+-#include <linux/delay.h>
+-#include <linux/kthread.h>
+-#include <linux/ioport.h>
+-#include <linux/acpi.h>
+-#include <linux/highmem.h>
+-#include <linux/idr.h>
+-#include <linux/platform_data/x86/apple.h>
+-#include <linux/ptp_clock_kernel.h>
+-#include <linux/percpu.h>
+ 
+ #define CREATE_TRACE_POINTS
+ #include <trace/events/spi.h>
+diff --git a/include/linux/spi/spi.h b/include/linux/spi/spi.h
+index 0ce1cb18a076..2026eae97329 100644
+--- a/include/linux/spi/spi.h
++++ b/include/linux/spi/spi.h
+@@ -6,19 +6,19 @@
+ #ifndef __LINUX_SPI_H
+ #define __LINUX_SPI_H
+ 
++#include <linux/acpi.h>
+ #include <linux/bits.h>
++#include <linux/completion.h>
+ #include <linux/device.h>
+-#include <linux/mod_devicetable.h>
+-#include <linux/slab.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/kthread.h>
+-#include <linux/completion.h>
++#include <linux/mod_devicetable.h>
+ #include <linux/scatterlist.h>
+-#include <linux/gpio/consumer.h>
+-
+-#include <uapi/linux/spi/spi.h>
+-#include <linux/acpi.h>
++#include <linux/slab.h>
+ #include <linux/u64_stats_sync.h>
+ 
++#include <uapi/linux/spi/spi.h>
++
+ struct dma_chan;
+ struct software_node;
+ struct ptp_system_timestamp;
 -- 
 2.40.0.1.gaa8946217a0b
 
