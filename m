@@ -4,81 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BEBEEB64D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 15:44:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCC1EB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 15:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MQQXP40FnKsOpCkc7JGcI6qAM/gAQskMqRS/jm/0SKQ=; b=UFNVDhv0e4V1CO
-	FVOSsQCZMFApt0pg8jhpiMp3GmgB8ywcrapmbCXWFF21i3VH/fzNF/lJNE9heJ52BU+NWK/XvKCQV
-	V2OpDn4cjBojKl0rv1mkoA1Ps9lwIPyuAAoSP4J6Ix8GQ7/2Vm3K96CiiwsodU50QxPSYC1tMaSHU
-	PTwi1hXbQnK7Dv2d6aCIONd9PTjSBhMrbBdMja+nZgj20Ko6czzdlHegN1llbjCY3yE7BuB1s3T6a
-	GmtX0Y4aWzZOKe5Zpz2FoZhEF+mVOPOJ1xeJ0o40J8e6ZwzrvFsa4t6eYlqWpAbXCT48YQ8EZm+of
-	ytPmmf58NxenZdTWK9eQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uz0GwFJWVpcWLBKtAvwFUi7uoIEHWjw9+cCslrGELBY=; b=TONzHSIFtB9Rm1
+	NGSGlAOWPQIM/cnoonfpB0348bK1fnRGw/S7//hp33Nyj6boge43G5flRbE2pnlt5DDXrIs3aj+hp
+	07mbv2KiTe74TdssE+0OWF9vMGA+zLAHAeSZLVqMx3B5LU7AjraQUdGEAFu7OHocswwH0a7QIK2uF
+	hBpXHqfFZ6AUygOuOlbxt8/fgC2k0SgLdY2r1hU6WxsU1+tQcsB9pT+0IlDFVtekj/VzkrOTvuP5k
+	Z3hYZYzrXb9xeD7KxIWvc5t9IzHEpMzAt4bYV+KIMU50bsv6Ydu5lMcCBkvLJmQkiLsaB0YXzuLSR
+	ghRO2qEtFywfdo03dMtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIt3a-00C2l3-2j;
-	Mon, 10 Jul 2023 15:44:10 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1qIt93-00C3hw-1y;
+	Mon, 10 Jul 2023 15:49:49 +0000
+Received: from mga18.intel.com ([134.134.136.126])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIt3Y-00C2k6-2T
-	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jul 2023 15:44:10 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1b9c5e07c1bso25103145ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 08:44:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1689003846; x=1691595846;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iZcN5ySR/eMy3kuS7RhYT5swW3n3ayceXHRnIkc5HWU=;
-        b=Gd2w51tljEjQOuB6d5PrJgUz/69dNvKX0DPeoL03WnuOg/KMtWJEdA/+4M6ietY9bJ
-         6QPwlL2lWN0DHj8uyBlTLEbkouZ6SZTqJdIb7wS7GTsopTS7yA9kWOFsdwSVpX+tZLy5
-         fabk7ZR1D4B70HRoTCjJOFR3Ije8EqSHcWRLnbDNiZ1uZfgA/xSFl3jMbWiQhP8Kjmhk
-         p+kJC+8+7bxdPLW4I9Mv55oYCeRXxUM+CeVRW4eseFyV2QLQLNDgGZS1lkQsARNF6ihL
-         oHrrdg4uJCmJEvJwN/1ZZNCREYJ4bd/XQr1LEzyfvPJMrE+pDBaag3SvMbvp8jYLUblC
-         FLKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689003846; x=1691595846;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iZcN5ySR/eMy3kuS7RhYT5swW3n3ayceXHRnIkc5HWU=;
-        b=bgvh3UI6k7eUivljcnS6AbDCG4ygXZvoKnnBk+ED9Z1ZtaTVU3tLxdsChNdbSXs1Tx
-         2z1bpEaU1/2WXwKED88ev7L+HwOpTY6/wIs8xLO2FP789qG7bhx6OXcZSAHUmeyYBRri
-         pSNhYPbnrGvbZeNWp2B5QHm8ZdmuJJvLzn0B6SYH7QTMvgpA57MPz60Svd/UGmLSUB1t
-         hNGzGFEBPD3CkPvOWx0TbdAg5JzuoM/+NlkTP0Kafh3NBwENUdCNfSdV5eTSuWtF1HnS
-         NXowm05zqePGJBEpAiAacxvySlWloaEf8CjIbt0Ip0rgrIyuveJ9JGeXY+ylRHDHaFMW
-         UvIA==
-X-Gm-Message-State: ABy/qLZy9FhA0NTrTxYQYfqbfFtz11gyZxZAglk3Gv634yKeBy2UcmVP
-	L+jdhN57WxJbMBw8w40ftWp1iA==
-X-Google-Smtp-Source: APBJJlFZwJnO/biLfmq6YgkXCbMIGHF8Z8cEiLAbNa+NKpEuOSq9PvXApF1d9oUbGKHWLRdyUlnsWw==
-X-Received: by 2002:a17:902:a415:b0:1b7:ecbb:aa06 with SMTP id p21-20020a170902a41500b001b7ecbbaa06mr12924248plq.55.1689003846234;
-        Mon, 10 Jul 2023 08:44:06 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id c3-20020a170902724300b001b1c3542f57sm52701pll.103.2023.07.10.08.44.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Jul 2023 08:44:05 -0700 (PDT)
-From: Eric Lin <eric.lin@sifive.com>
-To: atishp@atishpatra.org,
-	anup@brainfault.org,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org,
+	id 1qIt8x-00C3ck-28;
+	Mon, 10 Jul 2023 15:49:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1689004183; x=1720540183;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=wJa3Jmu6iVXPZMGevJvu2fkKY/Gm2mVbHm4RgDFco0c=;
+  b=XFKCbzYpDZvlVcWG6i9Zr6Ielx1NCQREwLbasplwQtv/7XXfwEGVYBFi
+   m/A7VKhP1mhEgfksm3K8wDFOWVNSYPpS87ZDfT2rLxVQhZPYBBJ9Fiu9c
+   gXRIsBPlNYOF1hfdVlyHtca8U/fJvL8n7MPYjWZhVDZa0IRLueSNzuvki
+   X8GBP9eIQWW8ts+9OA428eb2TJa7P/fCw3y4AVMal1x03D14UZokamsii
+   Ojnjd1Q/LuBrAn8jboBTJRK5Z9KWF77a6rE/UrXi2Dc4WT2W5DdWu9kYO
+   VnE1MO8PEuWr/XofT/dz/7gdrw19fq3bCk99HGcHTsrI71ISJUlYFT18n
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="349185343"
+X-IronPort-AV: E=Sophos;i="6.01,194,1684825200"; 
+   d="scan'208";a="349185343"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2023 08:49:42 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="844921834"
+X-IronPort-AV: E=Sophos;i="6.01,194,1684825200"; 
+   d="scan'208";a="844921834"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by orsmga004.jf.intel.com with ESMTP; 10 Jul 2023 08:49:31 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id 5A18C4BD; Mon, 10 Jul 2023 18:49:34 +0300 (EEST)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Mark Brown <broonie@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Yang Yingliang <yangyingliang@huawei.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
+	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: greentime.hu@sifive.com,
-	vincent.chen@sifive.com,
-	Eric Lin <eric.lin@sifive.com>
-Subject: [PATCH] perf: RISC-V: Remove PERF_HES_STOPPED flag checking in riscv_pmu_start()
-Date: Mon, 10 Jul 2023 15:43:28 +0000
-Message-Id: <20230710154328.19574-1-eric.lin@sifive.com>
-X-Mailer: git-send-email 2.17.1
+	linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-trace-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Cc: Sanjay R Mehta <sanju.mehta@amd.com>,
+	Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andy Gross <agross@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>
+Subject: [PATCH v2 04/15] spi: Replace open coded spi_controller_xfer_timeout()
+Date: Mon, 10 Jul 2023 18:49:21 +0300
+Message-Id: <20230710154932.68377-5-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.40.0.1.gaa8946217a0b
+In-Reply-To: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
+References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_084408_799235_7C9DA067 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20230710_084943_801003_3609C880 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,87 +127,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since commit 096b52fd2bb4 ("perf: RISC-V: throttle perf events") the
-perf_sample_event_took() function was added to report time spent in
-overflow interrupts. If the interrupt takes too long, the perf framework
-will lower the sysctl_perf_event_sample_rate and max_samples_per_tick.
-When hwc->interrupts is larger than max_samples_per_tick, the
-hwc->interrupts will be set to MAX_INTERRUPTS, and events will be
-throttled within the __perf_event_account_interrupt() function.
+Since the new spi_controller_xfer_timeout() helper appeared,
+we may replace open coded variant in spi_transfer_wait().
 
-However, the RISC-V PMU driver doesn't call riscv_pmu_stop() to update the
-PERF_HES_STOPPED flag after perf_event_overflow() in pmu_sbi_ovf_handler()
-function to avoid throttling. When the perf framework unthrottled the event
-in the timer interrupt handler, it triggers riscv_pmu_start() function
-and causes a WARN_ON_ONCE() warning, as shown below:
-
- ------------[ cut here ]------------
- WARNING: CPU: 0 PID: 240 at drivers/perf/riscv_pmu.c:184 riscv_pmu_start+0x7c/0x8e
- Modules linked in:
- CPU: 0 PID: 240 Comm: ls Not tainted 6.4-rc4-g19d0788e9ef2 #1
- Hardware name: SiFive (DT)
- epc : riscv_pmu_start+0x7c/0x8e
-  ra : riscv_pmu_start+0x28/0x8e
- epc : ffffffff80aef864 ra : ffffffff80aef810 sp : ffff8f80004db6f0
-  gp : ffffffff81c83750 tp : ffffaf80069f9bc0 t0 : ffff8f80004db6c0
-  t1 : 0000000000000000 t2 : 000000000000001f s0 : ffff8f80004db720
-  s1 : ffffaf8008ca1068 a0 : 0000ffffffffffff a1 : 0000000000000000
-  a2 : 0000000000000001 a3 : 0000000000000870 a4 : 0000000000000000
-  a5 : 0000000000000000 a6 : 0000000000000840 a7 : 0000000000000030
-  s2 : 0000000000000000 s3 : ffffaf8005165800 s4 : ffffaf800424da00
-  s5 : ffffffffffffffff s6 : ffffffff81cc7590 s7 : 0000000000000000
-  s8 : 0000000000000006 s9 : 0000000000000001 s10: ffffaf807efbc340
-  s11: ffffaf807efbbf00 t3 : ffffaf8006a16028 t4 : 00000000dbfbb796
-  t5 : 0000000700000000 t6 : ffffaf8005269870
- status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
- [<ffffffff80aef864>] riscv_pmu_start+0x7c/0x8e
- [<ffffffff80185b56>] perf_adjust_freq_unthr_context+0x15e/0x174
- [<ffffffff80188642>] perf_event_task_tick+0x88/0x9c
- [<ffffffff800626a8>] scheduler_tick+0xfe/0x27c
- [<ffffffff800b5640>] update_process_times+0x9a/0xba
- [<ffffffff800c5bd4>] tick_sched_handle+0x32/0x66
- [<ffffffff800c5e0c>] tick_sched_timer+0x64/0xb0
- [<ffffffff800b5e50>] __hrtimer_run_queues+0x156/0x2f4
- [<ffffffff800b6bdc>] hrtimer_interrupt+0xe2/0x1fe
- [<ffffffff80acc9e8>] riscv_timer_interrupt+0x38/0x42
- [<ffffffff80090a16>] handle_percpu_devid_irq+0x90/0x1d2
- [<ffffffff8008a9f4>] generic_handle_domain_irq+0x28/0x36
-
-After referring other PMU drivers like Arm, Loongarch, Csky, and Mips,
-they don't call *_pmu_stop() to update with PERF_HES_STOPPED flag
-after perf_event_overflow() function nor do they add PERF_HES_STOPPED
-flag checking in *_pmu_start() which don't cause this warning.
-
-Thus, it's recommended to remove this unnecessary check in
-riscv_pmu_start() function to prevent this warning.
-
-Signed-off-by: Eric Lin <eric.lin@sifive.com>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/perf/riscv_pmu.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/spi/spi.c       | 25 ++-----------------------
+ include/linux/spi/spi.h |  6 +++++-
+ 2 files changed, 7 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-index ebca5eab9c9b..56897d4d4fd3 100644
---- a/drivers/perf/riscv_pmu.c
-+++ b/drivers/perf/riscv_pmu.c
-@@ -181,9 +181,6 @@ void riscv_pmu_start(struct perf_event *event, int flags)
- 	uint64_t max_period = riscv_pmu_ctr_get_width_mask(event);
- 	u64 init_val;
+diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+index 125dea8fae00..c99ee4164f11 100644
+--- a/drivers/spi/spi.c
++++ b/drivers/spi/spi.c
+@@ -1342,8 +1342,7 @@ static int spi_transfer_wait(struct spi_controller *ctlr,
+ {
+ 	struct spi_statistics __percpu *statm = ctlr->pcpu_statistics;
+ 	struct spi_statistics __percpu *stats = msg->spi->pcpu_statistics;
+-	u32 speed_hz = xfer->speed_hz;
+-	unsigned long long ms;
++	unsigned long ms;
  
--	if (WARN_ON_ONCE(!(event->hw.state & PERF_HES_STOPPED)))
--		return;
+ 	if (spi_controller_is_slave(ctlr)) {
+ 		if (wait_for_completion_interruptible(&ctlr->xfer_completion)) {
+@@ -1351,29 +1350,9 @@ static int spi_transfer_wait(struct spi_controller *ctlr,
+ 			return -EINTR;
+ 		}
+ 	} else {
+-		if (!speed_hz)
+-			speed_hz = 100000;
 -
- 	if (flags & PERF_EF_RELOAD)
- 		WARN_ON_ONCE(!(event->hw.state & PERF_HES_UPTODATE));
+-		/*
+-		 * For each byte we wait for 8 cycles of the SPI clock.
+-		 * Since speed is defined in Hz and we want milliseconds,
+-		 * use respective multiplier, but before the division,
+-		 * otherwise we may get 0 for short transfers.
+-		 */
+-		ms = 8LL * MSEC_PER_SEC * xfer->len;
+-		do_div(ms, speed_hz);
+-
+-		/*
+-		 * Increase it twice and add 200 ms tolerance, use
+-		 * predefined maximum in case of overflow.
+-		 */
+-		ms += ms + 200;
+-		if (ms > UINT_MAX)
+-			ms = UINT_MAX;
+-
++		ms = spi_controller_xfer_timeout(ctlr, xfer);
+ 		ms = wait_for_completion_timeout(&ctlr->xfer_completion,
+ 						 msecs_to_jiffies(ms));
+-
+ 		if (ms == 0) {
+ 			SPI_STATISTICS_INCREMENT_FIELD(statm, timedout);
+ 			SPI_STATISTICS_INCREMENT_FIELD(stats, timedout);
+diff --git a/include/linux/spi/spi.h b/include/linux/spi/spi.h
+index 32c94eae8926..0ce1cb18a076 100644
+--- a/include/linux/spi/spi.h
++++ b/include/linux/spi/spi.h
+@@ -1270,12 +1270,16 @@ static inline bool spi_is_bpw_supported(struct spi_device *spi, u32 bpw)
+  * that it would take on a single data line and take twice this amount of time
+  * with a minimum of 500ms to avoid false positives on loaded systems.
+  *
++ * Assume speed to be 100 kHz if it's not defined at the time of invocation.
++ *
+  * Returns: Transfer timeout value in milliseconds.
+  */
+ static inline unsigned int spi_controller_xfer_timeout(struct spi_controller *ctlr,
+ 						       struct spi_transfer *xfer)
+ {
+-	return max(xfer->len * 8 * 2 / (xfer->speed_hz / 1000), 500U);
++	u32 speed_hz = xfer->speed_hz ?: 100000;
++
++	return max(xfer->len * 8 * 2 / (speed_hz / 1000), 500U);
+ }
  
+ /*---------------------------------------------------------------------------*/
 -- 
-2.17.1
+2.40.0.1.gaa8946217a0b
 
 
 _______________________________________________
