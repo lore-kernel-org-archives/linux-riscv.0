@@ -4,44 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 922C3EB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 16:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A1FEB64D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 16:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DGxe341/2rc0Qqk6jcz3Az9oLnyQ86YYogmm9Zypx5w=; b=okv5KWuHZ0CqP/rJsrLODy3hcm
-	+/JoJ+B4K/0yyjsOYVvi2ubCL6IRSvlMl7541Qm10UZhcQrg3oqEbGMMAlqgqgfVbuN+2ikOJC1KH
-	rCpiP4F8r3v+E2mjtUDdol4aQIYHWNPnPebmwUnJz23dWtMimNZw9zob2zw2QXS/QYPk/yykZp++y
-	TLyVryXudZPjUFDYBaOG+f/W1lgwDBxcrUE8jmYq3p9J7GGh9zVJSIboxwoTd6SYNbVs8XJYDxsVV
-	bJiBalhSHMxDTlKO0zfItTS19opKatNhzBbGZKaDZ8enaVMzKB/jDbp+ZJPFe2WnwPY20+SWgHo/J
-	B4y/QSLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Gt7kPVvDGa12chgENfyJKrs+RsYUYdA6joDedx+IoiA=; b=V+Zk3wiSX/WNDO
+	LTASt2sAakLNL8qzhpEAsmfpxKdzz3xf/DKQ8k156RrdjW0YSXuprOmBsWYYhPrTHIsW77A1JKrsT
+	+9oM8CL90HQWdmkZID4eLvqHV+LiTWCYe+LssbSL5D7on+qd/KYtoKj4N6VwVDkLLb9zhMN+NidXF
+	oNKQNaKTw86W0tKHjMFZqiC3e6ukVRQL+GbXRykFklus1Qk54ZjmmTuXMOrR85a8/CZLOTJsJWYq3
+	E+4SKPHk2MU+F+lktjEuS+PZ6jwjayGP5cvVefe7FVvw/DbG7FK3FnE0aeVabAEs+zkZByw50eiNB
+	RlEhiIR12ugg6Rx99fMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qItJy-00C8MV-2s;
-	Mon, 10 Jul 2023 16:01:06 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1qItVA-00C9r8-2s;
+	Mon, 10 Jul 2023 16:12:40 +0000
+Received: from mga07.intel.com ([134.134.136.100])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qItJs-00C8K2-1a
-	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jul 2023 16:01:01 +0000
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1qItIz-0006h7-IH; Mon, 10 Jul 2023 18:00:05 +0200
-Received: from pengutronix.de (unknown [172.20.34.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 0B1351ED16C;
-	Mon, 10 Jul 2023 15:59:56 +0000 (UTC)
-Date: Mon, 10 Jul 2023 17:59:55 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+	id 1qItV6-00C9q1-09;
+	Mon, 10 Jul 2023 16:12:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1689005555; x=1720541555;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0SlN/itezSp5S5zjCF2SMzf5gnBS89SJ4xDj94AkcQw=;
+  b=M4UatrbStEW7CaUeyxxe6bKSd0ckHW65e3BegOoxu9Qv8HH7hB0YCb/l
+   6MJENllTnu10HSVZmPeKhVCBiWCYhVL+dpanY55xfcRz8DtfJGJl4SC55
+   Uwvz2UGZdWaZQu0pUYdthstOXorm57Q4h5fiWZfMlbCTuWHibs7MeRVtA
+   eX1Qk6OoO2dfgbHKxvN8MrXSPHWApZz5xozC2MVnwHPlLQr854YUPi3tt
+   PrUYit3gFkuUStJ1c5xqxJzNs3BsDn4W4oUGcWei8MQYFaQDRaIDpBZp2
+   h5HCfz5dYrF3HWDZAabHeuQw1B24PuOYALKzoMsocsvOAZZcjXruNepcB
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="430464648"
+X-IronPort-AV: E=Sophos;i="6.01,195,1684825200"; 
+   d="scan'208";a="430464648"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2023 09:10:59 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="750388713"
+X-IronPort-AV: E=Sophos;i="6.01,195,1684825200"; 
+   d="scan'208";a="750388713"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by orsmga008.jf.intel.com with ESMTP; 10 Jul 2023 09:10:47 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1qItTH-001bF6-2N;
+	Mon, 10 Jul 2023 19:10:43 +0300
+Date: Mon, 10 Jul 2023 19:10:43 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
 Cc: Mark Brown <broonie@kernel.org>,
 	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
 	Yang Yingliang <yangyingliang@huawei.com>,
@@ -49,7 +64,7 @@ Cc: Mark Brown <broonie@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
 	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
 	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
 	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
@@ -90,18 +105,17 @@ Cc: Mark Brown <broonie@kernel.org>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Claudiu Beznea <claudiu.beznea@microchip.com>
 Subject: Re: [PATCH v2 09/15] spi: Use struct_size() helper
-Message-ID: <20230710-doze-scared-9f0a2e1a9125-mkl@pengutronix.de>
+Message-ID: <ZKwtgwZtUUHGC+S3@smile.fi.intel.com>
 References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
  <20230710154932.68377-10-andriy.shevchenko@linux.intel.com>
+ <20230710-doze-scared-9f0a2e1a9125-mkl@pengutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <20230710154932.68377-10-andriy.shevchenko@linux.intel.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:b01:1d::7b
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20230710-doze-scared-9f0a2e1a9125-mkl@pengutronix.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_090100_526480_36A59D10 
-X-CRM114-Status: GOOD (  24.67  )
+X-CRM114-CacheID: sfid-20230710_091236_179110_C08F5BAA 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,98 +127,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5292985444667387352=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 10, 2023 at 05:59:55PM +0200, Marc Kleine-Budde wrote:
+> On 10.07.2023 18:49:26, Andy Shevchenko wrote:
 
---===============5292985444667387352==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fkfcsps3yw5kjzrk"
-Content-Disposition: inline
+...
 
+> > +	struct spi_transfer	t[];
+> 
+> You might want to use the DECLARE_FLEX_ARRAY helper here.
 
---fkfcsps3yw5kjzrk
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Technically, yes, semantically documentation [1] disagrees with
+you, so I leave it as is.
 
-On 10.07.2023 18:49:26, Andy Shevchenko wrote:
-> Prefer struct_size() over open-coded versions.
->=20
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
->  include/linux/spi/spi.h | 15 +++++++++------
->  1 file changed, 9 insertions(+), 6 deletions(-)
->=20
-> diff --git a/include/linux/spi/spi.h b/include/linux/spi/spi.h
-> index c9479badf38c..9fb8efb068c6 100644
-> --- a/include/linux/spi/spi.h
-> +++ b/include/linux/spi/spi.h
-> @@ -17,6 +17,7 @@
->  #include <linux/minmax.h>
->  #include <linux/mod_devicetable.h>
->  #include <linux/mutex.h>
-> +#include <linux/overflow.h>
->  #include <linux/scatterlist.h>
->  #include <linux/slab.h>
->  #include <linux/smp.h>
-> @@ -1095,6 +1096,8 @@ struct spi_transfer {
->   * @state: for use by whichever driver currently owns the message
->   * @resources: for resource management when the spi message is processed
->   * @prepared: spi_prepare_message was called for the this message
-> + * @t: for use with spi_message_alloc() when message and transfers have
-> + *	been allocated together
->   *
->   * A @spi_message is used to execute an atomic sequence of data transfer=
-s,
->   * each represented by a struct spi_transfer.  The sequence is "atomic"
-> @@ -1147,6 +1150,9 @@ struct spi_message {
-> =20
->  	/* List of spi_res reources when the spi message is processed */
->  	struct list_head        resources;
-> +
-> +	/* For embedding transfers into the memory of the message */
-> +	struct spi_transfer	t[];
+[1]: Documentation/process/deprecated.rst:269
 
-You might want to use the DECLARE_FLEX_ARRAY helper here.
-
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---fkfcsps3yw5kjzrk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmSsKvgACgkQvlAcSiqK
-BOgtxwf/Yz15ymm8GOJJtFmUerpE4jpOZcNfOw1mDTpDDgDH+8CXkQfj2uE13kRU
-xmZmpKSAMlsxxmOIGsv8VL18I9YKzWY9wk4vu5oovzx44NHON+6ivyODkaJdH2w9
-kOVb4XiHGF0bhFsC3TJ4HZSUlG3EbFNnc0nuj/IvF6VEoldwbjSR6R5ZR6+EX47u
-h77RsJnmXXbOKbOseq0nlPxZYkFSR03Hzey7BMzmHYQ93COdGDhQqI0kNbwrkD5F
-qpdpYHa26+CLsV+iBftiTk/C49nxRM0cvs4xqUDaZU1rzd2tlbhN28dsuGJ8zQL1
-T+7Bl7/j5IRqJUJiKB8YUQNVj2KrOg==
-=a9WN
------END PGP SIGNATURE-----
-
---fkfcsps3yw5kjzrk--
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
---===============5292985444667387352==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5292985444667387352==--
-
