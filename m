@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB38EB64DA
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 19:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEF0EB64DA
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Jul 2023 19:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RtMQu34tnTQdgYsorQgt4tDXwFsCXb//EUS8BvyBmGI=; b=sDVuHmdgtTqBhN
-	JVPORPEsO31kvW5hSB6jY+YVUEnMhpttV3dKNYIQEnWb4Qt8vkFUEvvtXWmszeWxoVCEgPVAn1GQ9
-	8qpa5VfyNB0zLmf6NmAhJVQElLyAyY8V5swSup7bqbwurRyYoVC9rngVMR15sEKCwzFA3T6By7c3m
-	kXQgXiRxOJXz9VeOXBs1/BlbR67NTALtcA2TFSHWtCPUv555iv4yIT4iuSzdLC1avg0tXplPBoo5m
-	FpY4JiGRBqLIjdt1FRHtf5FNvCu+U4sZbr1J7sKFb2NynzHB/YBmUYFzp4UEE/krAtPk8J9N27DzF
-	W5pk42eAcj6+H4IO5pKw==;
+	List-Owner; bh=cxcbgy6eONWwJeVqC/mJxHr0WBX8b3aWXhBUL0FPr6o=; b=qhuV3YAuo9H+eO
+	z7irxQdXtkhvXoGxExVLpLnu8wH0Y+nOri/istRAdMyQTRaDs6wdjpN5gWysDydoe7ekw8Su21uQX
+	+bxM7Offvj5vS1pNLuRO6HHcSSMT9QpNg5UXGE33jPz8IgwbEBTiLhmhPPKXua+lGroxb0+h0cKmC
+	urAUtj3D7GExdyEbYxnw4HN1XkmHT3cnSeouCYiodKsv5RxYqmrTnX5unbAoABOL1MvGDqqXnWRsS
+	v9rgNwozs7Ou2LSVHlbIYz0BQwu11fVZxyOldv7GpVcumhWyIonGzMGRftn0g5mDMqg0JQ4ft2zLi
+	yMb/wZfyU6Okqv2XXTyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIwUo-00CYGi-0H;
-	Mon, 10 Jul 2023 19:24:30 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1qIweS-00CZXy-2O;
+	Mon, 10 Jul 2023 19:34:28 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qIwUl-00CYFl-22
+	id 1qIweP-00CZXL-2l
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Jul 2023 19:24:29 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-55bac17b442so3734625a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 12:24:25 -0700 (PDT)
+	Mon, 10 Jul 2023 19:34:27 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-1b9e9765f2cso5922265ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Jul 2023 12:34:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689017065; x=1691609065;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aVU5xkkFrBHK9KN4xCmrxkM+F8/EoTyfyWL/2CP+3j0=;
-        b=HASFVZl23FPMCm79tXoegRb1RNFILB9pF0aVoVMK8x4Sxj+bbrS70w4s+kI778hKvo
-         rgVeXgf8djTPdQwty4wprwlEFrb3lhdGd/5Z7XWefuGrcp4oEeSRwKxzc9ZpwZ1lBEsY
-         41h1Q/oXnJCJAbhIepxk74dE+5mMkkSoVoHFg5jAw8QI079ME/C5vdykHYakRi4fPbX7
-         3z65PNk21m2ZjuB+sgjrjVcWtlZVtvMv5FD9QfkKTGY+nNIP7c5PDj1xs+OsZf+CVB6i
-         ZnJ7q30xy/5dw0omQTP7ZNjTUSEvmHUElLvT2Ns8khZyXU7Z3rqTKEwNO39X4vCDI3Ir
-         hDVQ==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689017664; x=1691609664;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=X4CI5+SmtveArFRq79zdeBAZUIe4gvMt0iRwnhpBO+M=;
+        b=O6OqaAAANi7fc6p016B8JcM8A4oTjbmBOcLJ18LWH7Ur+1YH4r3uQOvtPDwBv5c5Ve
+         bhRMQo1LxCQTDbf3WXDKXxgdDn+hvmPpDvzcVIzxSbePdddl0sjfwbRfkLHyC6278ySz
+         uWZVNrkq/0pjZEOTp4rGGfR/OO5dbH3NheQmO4G6aIf9KdYQFPisYzLgXIIEL1d98w9M
+         xu/r68NDudVA5qEIPpmM0AHG6utlBJKdpxgVX5SeT7CxN/JpEhphL0uxQuu1Ecjtza9p
+         VpWs06f8OHxl1eWuqueYzrJUGRXHMDHJLDuym0WBDPdiu3gPo4bE7Yc0kcjlDWDQ4L8u
+         ppQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689017065; x=1691609065;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20221208; t=1689017664; x=1691609664;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=aVU5xkkFrBHK9KN4xCmrxkM+F8/EoTyfyWL/2CP+3j0=;
-        b=KrU6CIvylokEMRHxCyiesNdRqpIInvPb5d5vt4wvk8kccx6B/IlASTMOV/2+NeWVzP
-         KhhkQNNzNtOkCzOwIc7/1XzTGj2JjxjBWkjgYLdju1J0h2RutPRbK5hAUedYyV9ZP5JL
-         uvNAI+wLTNJie3/EY8MDyXE6Y+Wt750gOB/mhpbV5DFXh1ZXOEoJEnjySSJLbo/pGNs9
-         SDdOcmm0NZS5yOIzOmYhH961Py9qrSeIVzPTGeZv0mWDtgymDUhzYAkyYRHOgPVLNbgo
-         CSTGNiT1mWEMiApRLSHp9cVdWdw90zaMj2gZTKRI/Qsgbzcy8wNeg2Tj5arc5tqku6Pu
-         kDCA==
-X-Gm-Message-State: ABy/qLa6HXu8dZi1kMsVj3qBdpmZCCpvdkllMZn9zvd/Yj5jAUhk7o35
-	Cuyw2Nk2rLQNUm6Z0YrD3heQVg==
-X-Google-Smtp-Source: APBJJlElX3ouS/7FElxVVpI095f8HqlJxpa1dRsjo4z1LRMa0ZScCGPnPQjxkZlRuLEsux42YF/jSw==
-X-Received: by 2002:a17:90a:3e08:b0:25b:e85a:e9fe with SMTP id j8-20020a17090a3e0800b0025be85ae9femr12935954pjc.27.1689017064856;
-        Mon, 10 Jul 2023 12:24:24 -0700 (PDT)
-Received: from evan.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id p9-20020a17090a74c900b00263ba6a248bsm6646981pjl.1.2023.07.10.12.24.23
+        bh=X4CI5+SmtveArFRq79zdeBAZUIe4gvMt0iRwnhpBO+M=;
+        b=BOy+8NaSwr3Ozhu0WRcpe659aOiF6/2wOWmEktW96O+0uAVzNmJuVa1yThFi3rTq0l
+         XBcXq8VY5/tUnFn4ot6gGIELe79cQUJpMKgAxyy57eKfZfIqglBz9I6o4w56ABQ3QO66
+         Oyt0h8hPTb4ODneZm+Ar7pPvyeTx2VA2SmA+eYffudiptSbbBLb0g4G+jHGlJexa7BhS
+         eeKieQDqyQPYsyyDWRQojLPuHH7zk2hXhSj5VvB2b0qZDh76lbip/eLXK+HtCSHm6LbF
+         NsYPAbFp08rkq8AOurFZ5PW3pmCkHCSWkVPfwAcvDck4u5n+g2xODpGdDQ3EINPf+t4T
+         GGJg==
+X-Gm-Message-State: ABy/qLZd4QAUcsT2p7sD6TJF+OcU6SyWmfxwdJsycpKuYy/tuhy+vCQE
+	YY4qHIXSqAua7f6G5Ww7cDD/mWjRFEXpa38AdEs=
+X-Google-Smtp-Source: APBJJlGZJoofWbuCDQO4c7uLwyw5Yl/UFAKfGuF0ww5KD7pI79rJwkvqu+sjqOGXfBR/I4jWcXqlzw==
+X-Received: by 2002:a17:902:eac4:b0:1b8:9002:c9ee with SMTP id p4-20020a170902eac400b001b89002c9eemr10551533pld.1.1689017664209;
+        Mon, 10 Jul 2023 12:34:24 -0700 (PDT)
+Received: from localhost ([50.38.6.230])
+        by smtp.gmail.com with ESMTPSA id p15-20020a170902e74f00b001b39ffff838sm276606plf.25.2023.07.10.12.34.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Jul 2023 12:24:24 -0700 (PDT)
-From: Evan Green <evan@rivosinc.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v3] RISC-V: Show accurate per-hart isa in /proc/cpuinfo
-Date: Mon, 10 Jul 2023 12:24:13 -0700
-Message-Id: <20230710192413.2089085-1-evan@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
+        Mon, 10 Jul 2023 12:34:23 -0700 (PDT)
+Subject: [PATCH] Documentation: RISC-V: hwprobe: Fix a formatting error
+Date: Mon, 10 Jul 2023 12:33:30 -0700
+Message-Id: <20230710193329.2742-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
+Cc: corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
+  Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, Conor Dooley <conor.dooley@microchip.com>,
+  Evan Green <evan@rivosinc.com>, heiko@sntech.de, andy.chiu@sifive.com, linux-doc@vger.kernel.org,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux@rivosinc.com,
+  Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230710_122427_865219_77FCD62D 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20230710_123425_897646_B6FF6CB7 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,127 +87,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Evan Green <evan@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, Bagas Sanjaya <bagasdotme@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In /proc/cpuinfo, most of the information we show for each processor is
-specific to that hart: marchid, mvendorid, mimpid, processor, hart,
-compatible, and the mmu size. But the ISA string gets filtered through a
-lowest common denominator mask, so that if one CPU is missing an ISA
-extension, no CPUs will show it.
+From: Palmer Dabbelt <palmer@rivosinc.com>
 
-Now that we track the ISA extensions for each hart, let's report ISA
-extension info accurately per-hart in /proc/cpuinfo. We cannot change
-the "isa:" line, as usermode may be relying on that line to show only
-the common set of extensions supported across all harts. Add a new "hart
-isa" line instead, which reports the true set of extensions for that
-hart. This matches what is returned in riscv_hwprobe() when querying a
-given hart.
+I'm not sure what I was trying to do with the ':'s, but they're just
+rendered to HTML which looks odd.   This makes "fence.i" look like
+"mvendorid" and such, which is seems reasonable to me.
 
-Signed-off-by: Evan Green <evan@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
+ Documentation/riscv/hwprobe.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v3:
- - Add some documentation (Conor)
-
-Changes in v2:
- - Added new "hart isa" line rather than altering behavior of existing
-   "isa" line (Conor, Palmer)
-
-
-I based this series on top of Conor's riscv-extensions-strings branch
-from July 3rd, since otherwise this change gets hopelessly entangled
-with that series.
-
----
- Documentation/riscv/uabi.rst | 10 ++++++++++
- arch/riscv/kernel/cpu.c      | 22 ++++++++++++++++++----
- 2 files changed, 28 insertions(+), 4 deletions(-)
-
-diff --git a/Documentation/riscv/uabi.rst b/Documentation/riscv/uabi.rst
-index 8960fac42c40..4f462f5b168c 100644
---- a/Documentation/riscv/uabi.rst
-+++ b/Documentation/riscv/uabi.rst
-@@ -42,6 +42,16 @@ An example string following the order is::
+diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+index 19165ebd82ba..933c715065d6 100644
+--- a/Documentation/riscv/hwprobe.rst
++++ b/Documentation/riscv/hwprobe.rst
+@@ -49,7 +49,7 @@ The following keys are defined:
+     privileged ISA, with the following known exceptions (more exceptions may be
+     added, but only if it can be demonstrated that the user ABI is not broken):
  
-    rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
+-    * The :fence.i: instruction cannot be directly executed by userspace
++    * The ``fence.i`` instruction cannot be directly executed by userspace
+       programs (it may still be executed in userspace via a
+       kernel-controlled mechanism such as the vDSO).
  
-+"isa" vs "hart isa" lines in /proc/cpuinfo
-+-----------------------------------------
-+
-+The "isa" line in /proc/cpuinfo describes the lowest common denominator of
-+RISC-V ISA extensions understood by the kernel and implemented on all harts. The
-+"hart isa" line, in contrast, describes the set of extensions understood by the
-+kernel on the particular hart in question, even if those extensions may not be
-+present on all harts in the system. The "hart isa" line is consistent with
-+what's returned by __riscv_hwprobe() when querying for that specific CPU.
-+
- Misaligned accesses
- -------------------
- 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 1acf3679600d..6264b7b94945 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -197,9 +197,8 @@ arch_initcall(riscv_cpuinfo_init);
- 
- #ifdef CONFIG_PROC_FS
- 
--static void print_isa(struct seq_file *f)
-+static void print_isa(struct seq_file *f, const unsigned long *isa_bitmap)
- {
--	seq_puts(f, "isa\t\t: ");
- 
- 	if (IS_ENABLED(CONFIG_32BIT))
- 		seq_write(f, "rv32", 4);
-@@ -207,7 +206,7 @@ static void print_isa(struct seq_file *f)
- 		seq_write(f, "rv64", 4);
- 
- 	for (int i = 0; i < riscv_isa_ext_count; i++) {
--		if (!__riscv_isa_extension_available(NULL, riscv_isa_ext[i].id))
-+		if (!__riscv_isa_extension_available(isa_bitmap, riscv_isa_ext[i].id))
- 			continue;
- 
- 		/* Only multi-letter extensions are split by underscores */
-@@ -271,7 +270,15 @@ static int c_show(struct seq_file *m, void *v)
- 
- 	seq_printf(m, "processor\t: %lu\n", cpu_id);
- 	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
--	print_isa(m);
-+
-+	/*
-+	 * For historical raisins, the isa: line is limited to the lowest common
-+	 * denominator of extensions supported across all harts. A true list of
-+	 * extensions supported on this hart is printed later in the hart_isa:
-+	 * line.
-+	 */
-+	seq_puts(m, "isa\t\t: ");
-+	print_isa(m, NULL);
- 	print_mmu(m);
- 
- 	if (acpi_disabled) {
-@@ -287,6 +294,13 @@ static int c_show(struct seq_file *m, void *v)
- 	seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
- 	seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
- 	seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
-+
-+	/*
-+	 * Print the ISA extensions specific to this hart, which may show
-+	 * additional extensions not present across all harts.
-+	 */
-+	seq_puts(m, "hart isa\t: ");
-+	print_isa(m, hart_isa[cpu_id].isa);
- 	seq_puts(m, "\n");
- 
- 	return 0;
 -- 
-2.34.1
+2.40.1
 
 
 _______________________________________________
