@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B49EB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 07:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D89EB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 07:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KA9x6m8HZAEcGBP4kt+oOSXuYAo6unrVd7H++BxHReY=; b=sZIUovdbMYOG+F
-	y8gIq+4mzgJVZzab1+0hBYPso668mRqr2noh7VqzaP/JkbfpMrflSjWvJMOmXYg2L5NzHyShgGmz5
-	6d1GhxxfxLNg2XUMNG0YBS/SjvODsoF7eCMge37P5x7ut4HmtxvAo2Dduw1zmq9B2hjJbelMtAc8e
-	7TN+K8cALiucc6+46vE03diYQp6R9Xbm1wC+/88aSHg2zJ+nyQsJZv7bBvC7D9O8RzTkVIKD0gkvA
-	tSqWM7PWw2ygl5adkp4IW9ZqyEl3YX9QuywppT/OL2w1hfaDAvff0twiWTnnf4hLFimA00sKnutqX
-	VVQONcUCRype2fjocPEQ==;
+	List-Owner; bh=qC+SmUFs25CwO2fMjoYd/1nOWW1Ah/vdixAd1GLQhtk=; b=J1+FpgfXynEpar
+	iTttRx8zB1VcsZL422vu6bIITrR9ZWiCAlwcne9E7zBK+RPyRTFwgpUlf+1roe7YbB91N6Kh4iohe
+	sZr5b3NB5vjQ8rDX/QXvCJb/quK+jJM47XTKbJ6aWdol6DiiPnumUDtjyLwDL8vcuo1o1k+2G7iny
+	2Y4LVQbKSY2wKNMTQi+JYdlmFkueBkO7bg9nMvAVGoS6xckHUmtXypcb2TmGbeyX93B13DtnaSYWb
+	uUihzxkVRmeUh6jzRrnMuWqHphZJwJP3RuYUNuyiDX1Fr+y4boxYPXc7v9Xt+KziRbMJZjDcVfsyO
+	lZ1YhLz7XQxESbpef0XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJ8Fk-00E32W-1N;
-	Tue, 11 Jul 2023 07:57:44 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1qJ8Gj-00E3DL-1w;
+	Tue, 11 Jul 2023 07:58:45 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJ8Fi-00E31I-0F
+	id 1qJ8Gg-00E3CC-1u
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 07:57:43 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3143b72c5ffso6259270f8f.3
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 00:57:41 -0700 (PDT)
+	Tue, 11 Jul 2023 07:58:43 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3fc0aecf15bso28428785e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 00:58:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689062260; x=1691654260;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689062321; x=1691654321;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+GXjLhe5TXUta+EXxk7AgfyYmiNiXB9g5OSSIlBPGEA=;
-        b=jpjsGIvHWDXwtmenwjPw+yleh84wYF4Gde1Y36TPhdybnF0jpwSLd/aOo7CFMtSuDK
-         ScyvlYS80l2vcQ9apidNHokPdNcKdGvUFOz16EWh6HyNXWzuR/QaMrKyDRVuWrs51yKx
-         skZgZTUZjD6cFKSOYgb53UN64gLFvysjjqU8dLz9nE2+HJHAHGf48tinF7oqdJtBI4pc
-         Et4wuuECz5m6cPYyXZRudVvVIj9AKfqmjpYZWVzHlfwOhzfYW2aebgP/Fu+HS+8C0bcV
-         XDhilVqCMXb407/A4iXWplI1yIn5lQwUah0v2s5df1KU/cDtaR7kCadJjP9Y4QwOQKtB
-         s4Xw==
+        bh=YDYIXf8sIKLPYejGQ8O6uVDYRyye9psJA+Q5PmU0G6c=;
+        b=w92bWwP4/B9Yg8nTudHNREZgu5pw/Y+pQ/5HeoGML42uuWQbv8zilzfmgXbkrCeUXJ
+         BigOw37ZeE+XRBcUme8MnQpOGaTDa7wH4BCEBKoFhYCZ+hVEXq0Q3Mv/yS9fBPm22IAZ
+         5H2e5BzVRS345P78IGjkr7Sg6L606PPnBu/yLKT3L5E04/awzbxsIVShbm8PjQD8fNKG
+         cq982sPP3LSK8cemVb1+wFEr0xgVkryUn7u3N0cBuFOQEhKyoy/uauDpQuDZhIntYloR
+         KCSkuNsDO2zpLsRgyBdBNuZUfDREeDfyFDyDnHp6qvfQoWIgJOr3FntAg4EIsSB3wIGx
+         QgAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689062260; x=1691654260;
+        d=1e100.net; s=20221208; t=1689062321; x=1691654321;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+GXjLhe5TXUta+EXxk7AgfyYmiNiXB9g5OSSIlBPGEA=;
-        b=bBZ6gl8cIGNfU2TkhNcONOi2374y85DhPv6qvACjHdV56KQpM1UaIu3hUlK9Dhr8NG
-         tKPLYSpEs0XRcxI4ST0dvSn8FEvRCt/TtRzcINF6fgWNjCRGXxh4chQ2K9v9b57XuEhD
-         WEXcGD1KmJFPcejs6/O/eXD+ECi1BQohwALyZWHru4Pbt00/a2Di3tDJsqmrnajw8mEZ
-         vI8euSifaLls5FT6whruZyojJtcIyqCZCZOCzXoGe4Jw/NiDqFiZFKkLaf+8xA4OSVGM
-         mHez8TuqpUEy7vb4Z3rTwasQwec9m/ai3w2AGiNJ8kIO+AMvP61PN382CeyCjnFm6y9X
-         YeeA==
-X-Gm-Message-State: ABy/qLYq1TR38oJfPSCCY4EiJySFfNJY/S2Tq8oKHmQEeIWdkCKrB4d4
-	t/iwFs7CsOiOXacHkOGvzKKH+A==
-X-Google-Smtp-Source: APBJJlFF+JXKqksjRHwPA1L44xQAHuT0wraSNDH0ZMzzf07N8OaPZzuThlMge3mXhbU6gGV1bjdvMg==
-X-Received: by 2002:a5d:4404:0:b0:314:46cb:880a with SMTP id z4-20020a5d4404000000b0031446cb880amr18276011wrq.28.1689062260118;
-        Tue, 11 Jul 2023 00:57:40 -0700 (PDT)
+        bh=YDYIXf8sIKLPYejGQ8O6uVDYRyye9psJA+Q5PmU0G6c=;
+        b=eZZ8meYq3RjbNJMDFwlkdzGy0Lo6L+aLQ1Em/isMsWTFVYqsBK8N7X3U1ZrxN0Gwtl
+         pfz8cKXZ775rE6AVN6nSVggtELUfUv4yK7yVFJAC5pbtg8IiNxP8yRp0dRHjKBcD1g2a
+         6a/ycKxudmwk7zF7nnk1Ru3FCxYhTzGe4hENx9wgxNIE4hPStNGf0XH2beAgBe93/wUc
+         n5kLGUP7IB23dcR+y6mqv2SwILYus15l70kmo4KtfxBdDPJomXTkEFzVt5/vHrs4Nt1I
+         YCTL8P49H5yaGFKqOpyPXIajRuAaHtEoE33fQ2oUHhru53uc2R8EOWryv0dNza8k3e/P
+         9Kzw==
+X-Gm-Message-State: ABy/qLa4DLibftMCXYbZwlJiMwK+0WJhfMX6Uujen2EzNnFXTbjzvr0r
+	KJK+kWwtgzPQXb7HMkjrnRqjYg==
+X-Google-Smtp-Source: APBJJlFsBtStWYZgknujylpz0AhL0BNK0IKMFzV1Mxb+JDn6KB3EiMXLptQkKqpS3M+govHnZDRwFw==
+X-Received: by 2002:a7b:c38b:0:b0:3fc:524:e80a with SMTP id s11-20020a7bc38b000000b003fc0524e80amr10779950wmj.18.1689062321091;
+        Tue, 11 Jul 2023 00:58:41 -0700 (PDT)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id t16-20020a5d49d0000000b003143bb5ecd5sm1499978wrs.69.2023.07.11.00.57.39
+        by smtp.gmail.com with ESMTPSA id 12-20020a05600c020c00b003fbfa6066acsm1750168wmi.40.2023.07.11.00.58.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Jul 2023 00:57:39 -0700 (PDT)
+        Tue, 11 Jul 2023 00:58:40 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Will Deacon <will@kernel.org>,
 	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
@@ -78,16 +78,16 @@ To: Will Deacon <will@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 3/4] riscv: Make __flush_tlb_range() loop over pte instead of flushing the whole tlb
-Date: Tue, 11 Jul 2023 09:54:33 +0200
-Message-Id: <20230711075434.10936-4-alexghiti@rivosinc.com>
+Subject: [PATCH 4/4] riscv: Improve flush_tlb_kernel_range()
+Date: Tue, 11 Jul 2023 09:54:34 +0200
+Message-Id: <20230711075434.10936-5-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230711075434.10936-1-alexghiti@rivosinc.com>
 References: <20230711075434.10936-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_005742_115669_027BA9E9 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20230711_005842_630158_629A9D8D 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,89 +104,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, when the range to flush covers more than one page (a 4K page or
-a hugepage), __flush_tlb_range() flushes the whole tlb. Flushing the whole
-tlb comes with a greater cost than flushing a single entry so we should
-flush single entries up to a certain threshold so that:
-threshold * cost of flushing a single entry < cost of flushing the whole
-tlb.
+This function used to simply flush the whole tlb of all harts, be more
+subtile and try to only flush the range.
 
-This threshold is microarchitecture dependent and can/should be
-overwritten by vendors.
+The problem is that we can only use PAGE_SIZE as stride since we don't know
+the size of the underlying mapping and then this function will be improved
+only if the size of the region to flush is < threshold * PAGE_SIZE.
 
-Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/mm/tlbflush.c | 41 ++++++++++++++++++++++++++++++++++++++--
- 1 file changed, 39 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/tlbflush.h | 11 +++++-----
+ arch/riscv/mm/tlbflush.c          | 35 +++++++++++++++++++++++--------
+ 2 files changed, 32 insertions(+), 14 deletions(-)
 
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index f5c4fb0ae642..7426fdcd8ec5 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -37,6 +37,7 @@ void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
+ void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
+ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 		     unsigned long end);
++void flush_tlb_kernel_range(unsigned long start, unsigned long end);
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+@@ -53,15 +54,15 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
+ 	local_flush_tlb_all();
+ }
+ 
+-#define flush_tlb_mm(mm) flush_tlb_all()
+-#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
+-#endif /* !CONFIG_SMP || !CONFIG_MMU */
+-
+ /* Flush a range of kernel pages */
+ static inline void flush_tlb_kernel_range(unsigned long start,
+ 	unsigned long end)
+ {
+-	flush_tlb_all();
++	local_flush_tlb_all();
+ }
+ 
++#define flush_tlb_mm(mm) flush_tlb_all()
++#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
++#endif /* !CONFIG_SMP || !CONFIG_MMU */
++
+ #endif /* _ASM_RISCV_TLBFLUSH_H */
 diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 3e4acef1f6bc..de61ecaa218a 100644
+index de61ecaa218a..07cfed83bec8 100644
 --- a/arch/riscv/mm/tlbflush.c
 +++ b/arch/riscv/mm/tlbflush.c
-@@ -24,13 +24,48 @@ static inline void local_flush_tlb_page_asid(unsigned long addr,
- 			: "memory");
+@@ -117,18 +117,27 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
+ 			      unsigned long size, unsigned long stride)
+ {
+ 	struct flush_tlb_range_data ftd;
+-	struct cpumask *cmask = mm_cpumask(mm);
+-	unsigned int cpuid;
++	struct cpumask *cmask, full_cmask;
+ 	bool broadcast;
+ 
+-	if (cpumask_empty(cmask))
+-		return;
++	if (mm) {
++		unsigned int cpuid;
++
++		cmask = mm_cpumask(mm);
++		if (cpumask_empty(cmask))
++			return;
++
++		cpuid = get_cpu();
++		/* check if the tlbflush needs to be sent to other CPUs */
++		broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
++	} else {
++		cpumask_setall(&full_cmask);
++		cmask = &full_cmask;
++		broadcast = true;
++	}
+ 
+-	cpuid = get_cpu();
+-	/* check if the tlbflush needs to be sent to other CPUs */
+-	broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
+ 	if (static_branch_unlikely(&use_asid_allocator)) {
+-		unsigned long asid = atomic_long_read(&mm->context.id) & asid_mask;
++		unsigned long asid = mm ? atomic_long_read(&mm->context.id) & asid_mask : 0;
+ 
+ 		if (broadcast) {
+ 			if (riscv_use_ipi_for_rfence()) {
+@@ -162,7 +171,8 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
+ 		}
+ 	}
+ 
+-	put_cpu();
++	if (mm)
++		put_cpu();
  }
  
-+/*
-+ * Flush entire TLB if number of entries to be flushed is greater
-+ * than the threshold below. Platforms may override the threshold
-+ * value based on marchid, mvendorid, and mimpid.
-+ */
-+unsigned long tlb_flush_all_threshold __read_mostly = 64;
+ void flush_tlb_mm(struct mm_struct *mm)
+@@ -194,6 +204,13 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 	__flush_tlb_range(vma->vm_mm,
+ 			  start, end - start, 1 << stride_shift);
+ }
 +
-+static void local_flush_tlb_range_threshold_asid(unsigned long start,
-+						 unsigned long size,
-+						 unsigned long stride,
-+						 unsigned long asid)
++void flush_tlb_kernel_range(unsigned long start,
++			    unsigned long end)
 +{
-+	u16 nr_ptes_in_range = DIV_ROUND_UP(size, stride);
-+	int i;
-+
-+	if (nr_ptes_in_range > tlb_flush_all_threshold) {
-+		if (asid != -1)
-+			local_flush_tlb_all_asid(asid);
-+		else
-+			local_flush_tlb_all();
-+		return;
-+	}
-+
-+	for (i = 0; i < nr_ptes_in_range; ++i) {
-+		if (asid != -1)
-+			local_flush_tlb_page_asid(start, asid);
-+		else
-+			local_flush_tlb_page(start);
-+		start += stride;
-+	}
++	__flush_tlb_range(NULL, start, end, PAGE_SIZE);
 +}
 +
- static inline void local_flush_tlb_range(unsigned long start,
- 		unsigned long size, unsigned long stride)
- {
- 	if (size <= stride)
- 		local_flush_tlb_page(start);
--	else
-+	else if (size == (unsigned long)-1)
- 		local_flush_tlb_all();
-+	else
-+		local_flush_tlb_range_threshold_asid(start, size, stride, -1);
-+
- }
- 
- static inline void local_flush_tlb_range_asid(unsigned long start,
-@@ -38,8 +73,10 @@ static inline void local_flush_tlb_range_asid(unsigned long start,
- {
- 	if (size <= stride)
- 		local_flush_tlb_page_asid(start, asid);
--	else
-+	else if (size == (unsigned long)-1)
- 		local_flush_tlb_all_asid(asid);
-+	else
-+		local_flush_tlb_range_threshold_asid(start, size, stride, asid);
- }
- 
- static void __ipi_flush_tlb_all(void *info)
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 			unsigned long end)
 -- 
 2.39.2
 
