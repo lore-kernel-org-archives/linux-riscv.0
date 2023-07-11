@@ -4,90 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D89EB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 07:58:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2521EC0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 08:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qC+SmUFs25CwO2fMjoYd/1nOWW1Ah/vdixAd1GLQhtk=; b=J1+FpgfXynEpar
-	iTttRx8zB1VcsZL422vu6bIITrR9ZWiCAlwcne9E7zBK+RPyRTFwgpUlf+1roe7YbB91N6Kh4iohe
-	sZr5b3NB5vjQ8rDX/QXvCJb/quK+jJM47XTKbJ6aWdol6DiiPnumUDtjyLwDL8vcuo1o1k+2G7iny
-	2Y4LVQbKSY2wKNMTQi+JYdlmFkueBkO7bg9nMvAVGoS6xckHUmtXypcb2TmGbeyX93B13DtnaSYWb
-	uUihzxkVRmeUh6jzRrnMuWqHphZJwJP3RuYUNuyiDX1Fr+y4boxYPXc7v9Xt+KziRbMJZjDcVfsyO
-	lZ1YhLz7XQxESbpef0XA==;
+	List-Owner; bh=MIaqZvsCgYKdEp7ouhijU3FBhFZSvvKjA3hxMVpSU14=; b=kArW7V/w8M7est
+	G4txtPxgZrID9ps21DwFdVHMpHtWN7f78uQ9mbdBP7untQNPtO1dCTXTwxF94BmgWovN8fzp0FQQS
+	jflFkK3hxZAOWPMDu1+oh1NTxqbuHySrQIvrNCryOwEPpqyhwEtgrq+Gbe6Gq1SK+C6elNYJ/eOsR
+	73903noUq416liODDAOxGVqWBfTmMXpf7NJidVV1FvFegUglKpe41QGIj3hFqqRR1W6hghTzHWIBx
+	ACQIWSUa24cowLk58cD0rEdeSpe8Dsp8XevUQMaUdVNwZUJN8kOkpoieLZKxlUhp+LCbpUJ6Tblj+
+	FGYtjU4LlUISbUWUSoKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJ8Gj-00E3DL-1w;
-	Tue, 11 Jul 2023 07:58:45 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1qJ8Ue-00E4hn-1T;
+	Tue, 11 Jul 2023 08:13:08 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJ8Gg-00E3CC-1u
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 07:58:43 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-3fc0aecf15bso28428785e9.1
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 00:58:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689062321; x=1691654321;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YDYIXf8sIKLPYejGQ8O6uVDYRyye9psJA+Q5PmU0G6c=;
-        b=w92bWwP4/B9Yg8nTudHNREZgu5pw/Y+pQ/5HeoGML42uuWQbv8zilzfmgXbkrCeUXJ
-         BigOw37ZeE+XRBcUme8MnQpOGaTDa7wH4BCEBKoFhYCZ+hVEXq0Q3Mv/yS9fBPm22IAZ
-         5H2e5BzVRS345P78IGjkr7Sg6L606PPnBu/yLKT3L5E04/awzbxsIVShbm8PjQD8fNKG
-         cq982sPP3LSK8cemVb1+wFEr0xgVkryUn7u3N0cBuFOQEhKyoy/uauDpQuDZhIntYloR
-         KCSkuNsDO2zpLsRgyBdBNuZUfDREeDfyFDyDnHp6qvfQoWIgJOr3FntAg4EIsSB3wIGx
-         QgAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689062321; x=1691654321;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YDYIXf8sIKLPYejGQ8O6uVDYRyye9psJA+Q5PmU0G6c=;
-        b=eZZ8meYq3RjbNJMDFwlkdzGy0Lo6L+aLQ1Em/isMsWTFVYqsBK8N7X3U1ZrxN0Gwtl
-         pfz8cKXZ775rE6AVN6nSVggtELUfUv4yK7yVFJAC5pbtg8IiNxP8yRp0dRHjKBcD1g2a
-         6a/ycKxudmwk7zF7nnk1Ru3FCxYhTzGe4hENx9wgxNIE4hPStNGf0XH2beAgBe93/wUc
-         n5kLGUP7IB23dcR+y6mqv2SwILYus15l70kmo4KtfxBdDPJomXTkEFzVt5/vHrs4Nt1I
-         YCTL8P49H5yaGFKqOpyPXIajRuAaHtEoE33fQ2oUHhru53uc2R8EOWryv0dNza8k3e/P
-         9Kzw==
-X-Gm-Message-State: ABy/qLa4DLibftMCXYbZwlJiMwK+0WJhfMX6Uujen2EzNnFXTbjzvr0r
-	KJK+kWwtgzPQXb7HMkjrnRqjYg==
-X-Google-Smtp-Source: APBJJlFsBtStWYZgknujylpz0AhL0BNK0IKMFzV1Mxb+JDn6KB3EiMXLptQkKqpS3M+govHnZDRwFw==
-X-Received: by 2002:a7b:c38b:0:b0:3fc:524:e80a with SMTP id s11-20020a7bc38b000000b003fc0524e80amr10779950wmj.18.1689062321091;
-        Tue, 11 Jul 2023 00:58:41 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id 12-20020a05600c020c00b003fbfa6066acsm1750168wmi.40.2023.07.11.00.58.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Jul 2023 00:58:40 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arch@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 4/4] riscv: Improve flush_tlb_kernel_range()
-Date: Tue, 11 Jul 2023 09:54:34 +0200
-Message-Id: <20230711075434.10936-5-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230711075434.10936-1-alexghiti@rivosinc.com>
-References: <20230711075434.10936-1-alexghiti@rivosinc.com>
+	id 1qJ8Ua-00E4g8-0o;
+	Tue, 11 Jul 2023 08:13:05 +0000
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 6971C660700A;
+	Tue, 11 Jul 2023 09:12:58 +0100 (BST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1689063180;
+	bh=2+yn6FDwMd8voKMx1WPt05JiOyMTQxbLsZaEtvbtNN4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Fx8WIExUEuJPaY5MFu8knfLP/k0C26AMfNb/AvH/Fmm0WSmwyzjbdouviC0vRIt5c
+	 MKvJLE8w0cLrlZEwxmbFWfOjjLGUQZgFi0o1pLWqgdMYxBGlFBGIjiNaupLZ6FnB33
+	 j1HPiXlommzYaYv6ce4cvKcTdjN1ewdnVTlkRjRRehst4X7XEwQxnR9ySh21JtPk6b
+	 7KLhT/OtiV9F5v6WVi5j7pxhtZflk0tkK/vKZu9Q314nRK+CtbZPcevQ7M0A64UCcq
+	 2GUJjcluoW7Hk+VgSk0dx0uk8kgwhRiKCYyXOMoe3dlhEE5DcTiXTswvygvLYV31mr
+	 rt/T478FT4VDw==
+Message-ID: <f0b9e2e4-b2c0-4336-0ec4-5afd9f1b6c72@collabora.com>
+Date: Tue, 11 Jul 2023 10:12:55 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH v2 01/15] spi: Remove unneeded OF node NULL checks
+Content-Language: en-US
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Mark Brown <broonie@kernel.org>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Yang Yingliang <yangyingliang@huawei.com>,
+ Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
+ Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org
+Cc: Sanjay R Mehta <sanju.mehta@amd.com>,
+ Radu Pirea <radu_nicolae.pirea@upb.ro>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@microchip.com>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Serge Semin <fancer.lancer@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Andy Gross <agross@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@linaro.org>, Heiko Stuebner <heiko@sntech.de>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Orson Zhai <orsonzhai@gmail.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Chunyan Zhang <zhang.lyra@gmail.com>, Alain Volmat
+ <alain.volmat@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Max Filippov <jcmvbkbc@gmail.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Richard Cochran <richardcochran@gmail.com>
+References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
+ <20230710154932.68377-2-andriy.shevchenko@linux.intel.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20230710154932.68377-2-andriy.shevchenko@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_005842_630158_629A9D8D 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20230711_011304_424574_2B9C68D4 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,123 +107,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This function used to simply flush the whole tlb of all harts, be more
-subtile and try to only flush the range.
+Il 10/07/23 17:49, Andy Shevchenko ha scritto:
+> In the couple of places the NULL check of OF node is implied by the call
+> that takes it as a parameter. Drop the respective duplicate checks.
+> 
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-The problem is that we can only use PAGE_SIZE as stride since we don't know
-the size of the underlying mapping and then this function will be improved
-only if the size of the region to flush is < threshold * PAGE_SIZE.
+Validated against spi-mt65xx, spi-mt7621, spi-mtk-nor, spi-mtk-snfi;
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/include/asm/tlbflush.h | 11 +++++-----
- arch/riscv/mm/tlbflush.c          | 35 +++++++++++++++++++++++--------
- 2 files changed, 32 insertions(+), 14 deletions(-)
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> # 
+MediaTek
 
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index f5c4fb0ae642..7426fdcd8ec5 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -37,6 +37,7 @@ void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end);
-+void flush_tlb_kernel_range(unsigned long start, unsigned long end);
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
- void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
-@@ -53,15 +54,15 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
- 	local_flush_tlb_all();
- }
- 
--#define flush_tlb_mm(mm) flush_tlb_all()
--#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
--#endif /* !CONFIG_SMP || !CONFIG_MMU */
--
- /* Flush a range of kernel pages */
- static inline void flush_tlb_kernel_range(unsigned long start,
- 	unsigned long end)
- {
--	flush_tlb_all();
-+	local_flush_tlb_all();
- }
- 
-+#define flush_tlb_mm(mm) flush_tlb_all()
-+#define flush_tlb_mm_range(mm, start, end, page_size) flush_tlb_all()
-+#endif /* !CONFIG_SMP || !CONFIG_MMU */
-+
- #endif /* _ASM_RISCV_TLBFLUSH_H */
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index de61ecaa218a..07cfed83bec8 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -117,18 +117,27 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
- 			      unsigned long size, unsigned long stride)
- {
- 	struct flush_tlb_range_data ftd;
--	struct cpumask *cmask = mm_cpumask(mm);
--	unsigned int cpuid;
-+	struct cpumask *cmask, full_cmask;
- 	bool broadcast;
- 
--	if (cpumask_empty(cmask))
--		return;
-+	if (mm) {
-+		unsigned int cpuid;
-+
-+		cmask = mm_cpumask(mm);
-+		if (cpumask_empty(cmask))
-+			return;
-+
-+		cpuid = get_cpu();
-+		/* check if the tlbflush needs to be sent to other CPUs */
-+		broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
-+	} else {
-+		cpumask_setall(&full_cmask);
-+		cmask = &full_cmask;
-+		broadcast = true;
-+	}
- 
--	cpuid = get_cpu();
--	/* check if the tlbflush needs to be sent to other CPUs */
--	broadcast = cpumask_any_but(cmask, cpuid) < nr_cpu_ids;
- 	if (static_branch_unlikely(&use_asid_allocator)) {
--		unsigned long asid = atomic_long_read(&mm->context.id) & asid_mask;
-+		unsigned long asid = mm ? atomic_long_read(&mm->context.id) & asid_mask : 0;
- 
- 		if (broadcast) {
- 			if (riscv_use_ipi_for_rfence()) {
-@@ -162,7 +171,8 @@ static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
- 		}
- 	}
- 
--	put_cpu();
-+	if (mm)
-+		put_cpu();
- }
- 
- void flush_tlb_mm(struct mm_struct *mm)
-@@ -194,6 +204,13 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 	__flush_tlb_range(vma->vm_mm,
- 			  start, end - start, 1 << stride_shift);
- }
-+
-+void flush_tlb_kernel_range(unsigned long start,
-+			    unsigned long end)
-+{
-+	__flush_tlb_range(NULL, start, end, PAGE_SIZE);
-+}
-+
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 			unsigned long end)
--- 
-2.39.2
+> ---
+>   drivers/spi/spi.c | 5 +----
+>   1 file changed, 1 insertion(+), 4 deletions(-)
+> 
+> diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+> index 9291b2a0e887..8f3282a71c63 100644
+> --- a/drivers/spi/spi.c
+> +++ b/drivers/spi/spi.c
+> @@ -2399,9 +2399,6 @@ static void of_register_spi_devices(struct spi_controller *ctlr)
+>   	struct spi_device *spi;
+>   	struct device_node *nc;
+>   
+> -	if (!ctlr->dev.of_node)
+> -		return;
+> -
+>   	for_each_available_child_of_node(ctlr->dev.of_node, nc) {
+>   		if (of_node_test_and_set_flag(nc, OF_POPULATED))
+>   			continue;
+> @@ -3134,7 +3131,7 @@ int spi_register_controller(struct spi_controller *ctlr)
+>   		if (WARN(id < 0, "couldn't get idr"))
+>   			return id == -ENOSPC ? -EBUSY : id;
+>   		ctlr->bus_num = id;
+> -	} else if (ctlr->dev.of_node) {
+> +	} else {
+>   		/* Allocate dynamic bus number using Linux idr */
+>   		id = of_alias_get_id(ctlr->dev.of_node, "spi");
+>   		if (id >= 0) {
+
+
 
 
 _______________________________________________
