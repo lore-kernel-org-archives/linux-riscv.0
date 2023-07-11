@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C1F3EB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 21:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D7DEB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 22:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gd9tcj9yU3ryZfL9w/gvefV+ZVWnDPiGamklaeR2Mfk=; b=RCJkha1n4TAgE5
-	E1g1R2IO480ex/qY5JSZVlSd6gix0Lwpc2mJluP4Um9kb7eXI2O2P2OKFxPsoaPfD8hhKsjaV9suF
-	wmT1Y2hfvTjBjXYGZ62bIo+k4hjU/cwcaijgIWwn+o+vwUz4bYNhnhCDcoyPZY4QRiTVJjMcUSrp1
-	5i/Gak4X9lhfiytI3yGYmRlKS8SjLVwcFEMwtdJ80SjhByOpA9E0NGSEuC8Tts0lh5exLAGGoMe8C
-	21eVLRRXJ4HfYqTAkJSXOLC4RoZ6sFkGoJUgXeW6jFOdzORKHF3jbZAMtqjVDd7DEJVkwSRYrSw8B
-	lb8p5dtQhg6PG6OmoXXg==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VHyS9++cm8NeuE0HdaVS2/zDXB5QICgYYxUahbJwHKg=; b=pu030iWMDuxGXY
+	86VUg4yCRuQbY/QFqd0QK4cxeJ13QreyvNrJEuSZ/aUSTG1ZASZYl43kvDHT8GZScQMeVu30rJMZT
+	hfOkRwtkB4btWPAhsPFebATH4wJFE3OUbKZ6CQ6NdfxJNOvS9SWbvWy86acGil5bNvHcjQcZRy3KE
+	Jc3NVKgVjHiL5nPrN8/+1cfeCao1nfadoWSc2ieYp2nSDyP2Uz3q41K7rYFigf715nt0XeZmbzuNt
+	xtn1I7konvmEVAZh1z+nQaBi72T+zgRQRBknNmJp1LaCGGgfLb2iQU8Y5KiujGf5f85e/Spy+vhKU
+	uY4oahqIVPGEotFdnCAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJL4v-00Fvai-2B;
-	Tue, 11 Jul 2023 21:39:25 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1qJM2N-00G0IZ-2L;
+	Tue, 11 Jul 2023 22:40:51 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJL4t-00FvZh-0A
+	id 1qJM2J-00G0Hq-2a
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 21:39:24 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1b890e2b9b7so32088625ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 14:39:20 -0700 (PDT)
+	Tue, 11 Jul 2023 22:40:49 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1b89cfb4571so46935305ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 15:40:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1689111560; x=1691703560;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KtT4gFz6TTEFRseSk+gcMtJFveuGAwBprTn2TmvM3QM=;
-        b=qVGDef4XTDiy2pQQAH3Cwnbtqh8ZKWeDR0YpW5oBVmIf8Ft1FfiQFB9j/nigTkpw8I
-         82vXU59i3SdogLeNz/ABKCqINgA4PTDr9/ZdUPp6ZUB83Z6MdD4YHZx6qWrTB/+YO5SG
-         xt3gCozG7WIu1lWUXRr3EpK+TzZRAcw2ll3vth9VDJ1GAaRvrA2V8kIgGX9kdM2Wgg3l
-         stzdpWOedBvZ0uhTUpLtvsrBCTVN9HRCFZfzCFKFQAEkzZQTdhvlZETvKEQOgCpBxb1y
-         lgv7BtP9O20Qjyp/f7+CQeQ3LbV13czXSXJgwRbcUJP+TfmtuZqC2GkNl1o/MlSqRGEW
-         v5GA==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689115243; x=1691707243;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=ME4y8+N+bVmZOY1nBigOYA7PVdXBow3YybuXWA186u4=;
+        b=dVdE1Ira7OcISottEQc5ztEVYlzd6g8HN/ZNB7mWRtGwMT3gufKDAvSCSoaF33hLYD
+         vgUMnOc49E57sCPZUZq+lj/9O1kv3uE3le2YmvU+uyIgMpKlmPJIX2WC0ir7xyDqzvdL
+         Q8/JPo3M6y5OutjYmEnww0pogOkCQVHzt44bcunVtMY0lrTI3b+Kgl8cJw19X64UTD2O
+         FaYxztlQHmhJ51GeFhdZ1Aub4w7wlbJKcE8GBCOFkkthYJzLtHxDc8lEWBickBr/Dymi
+         WTsoIxuggmoy0nAcuksqiyTOM2qGJGSs9STKFb4GrT8jXDuo4Vvg6qTmchEdgbkGqv1n
+         fOFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689111560; x=1691703560;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KtT4gFz6TTEFRseSk+gcMtJFveuGAwBprTn2TmvM3QM=;
-        b=eLcHtcna1yifhbjebAz/BlswQDGx8ynnleAY2bYRqqNp+sQofCCM0RRiALmP2ol4Op
-         Ri3ZmZrB043vb330ocltYFPykI3lmb9gbh7Cb4sw7NdIkmnvh+nCGh4e9B67MXBx09x0
-         YVrqXm3knUJ1eLYUK/UO7zwOW4jq3mKXnKmnXW0iZQ61bjgeCSKQ9zMY/Mfae98XWcTq
-         fGrxos3Kb0d8MeKWMPjzv3th9xyJ2adVXFrI8AbDro+F5ZNzyJP1tErm43B9lI3Ih80l
-         H2glJPF79YM6QG5YBcppl6e7iK/hv6xS/nJrDSUhIN9MaI4lSUjw4FaHWwv1Mt+IXVMs
-         dLLw==
-X-Gm-Message-State: ABy/qLZVwRunX+OgFH63fDRM1T0ElPlOjjYAokTRZY+y9TPwJn3NTxnp
-	XrzX9kGtj/p7PaJ/OjATc54=
-X-Google-Smtp-Source: APBJJlHvfrCF++DlafNT3B6O6EffAGKpXCrh8newwF9nz4kDCviiDR8GuVNpvkxYKklGu+rZ5VQk5Q==
-X-Received: by 2002:a17:903:24e:b0:1b6:80f0:d969 with SMTP id j14-20020a170903024e00b001b680f0d969mr15429164plh.11.1689111559501;
-        Tue, 11 Jul 2023 14:39:19 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:400::5:9374])
-        by smtp.gmail.com with ESMTPSA id bd5-20020a170902830500b001b8761c739csm2362090plb.271.2023.07.11.14.39.18
+        d=1e100.net; s=20221208; t=1689115243; x=1691707243;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ME4y8+N+bVmZOY1nBigOYA7PVdXBow3YybuXWA186u4=;
+        b=dYUP6HPx0b0TPf229p9bcIN65HIj5gzxdPJtfem5gF0pkraJdBWmopNbGeXz6FLaIx
+         Op0yJJ19XljxB6DeM8vWQ/UDvN6PbnMoEPRhesKLaBEBxgHzrOopSLADQu/XViG3VDhT
+         L6xBgIaE4SL59/WjTucvZ9B5ii6igAvs9nGqRG0Api/lsuLLclPWWJDxjPTqz5+KsTRZ
+         ByvJ8zIzwI7YSGqDPYtvCHWMb4U0aN3YxeLGRlTZ0eYD6vZhVlzu6D+sTqbcT7rLVidj
+         cf2N8sBEuYDEhtSU0C9xLbAwk04wWthh72Y4qiayVy8P77XyDF6SjQdMiuFD3z/sOrkJ
+         tH0A==
+X-Gm-Message-State: ABy/qLZk16kMVhYjREvl0K3RqPaRQlTm2UEXKZBrcY+gdNYtT0LemeU4
+	asXIyBmuFYE/HwIUZhGRwg2Bcwx9X/SUym41BTg=
+X-Google-Smtp-Source: APBJJlGDf2GQVN2utK3W3YEN2JCiUn8jhKxSk2hZKHeI2KQmufhOqF32/NEwdRDwBe9RWe7xkZQ9wg==
+X-Received: by 2002:a17:902:e80d:b0:1b8:b459:f47a with SMTP id u13-20020a170902e80d00b001b8b459f47amr21022194plg.34.1689115243557;
+        Tue, 11 Jul 2023 15:40:43 -0700 (PDT)
+Received: from localhost ([50.38.6.230])
+        by smtp.gmail.com with ESMTPSA id ji19-20020a170903325300b001b7cbc5871csm2477369plb.53.2023.07.11.15.40.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Jul 2023 14:39:19 -0700 (PDT)
-Date: Tue, 11 Jul 2023 11:39:17 -1000
-From: Tejun Heo <tj@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Lai Jiangshan <jiangshanlai@gmail.com>,
-	"torvalds@linux-foundation.org" <torvalds@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	kernel-team@meta.com, Linux PM list <linux-pm@vger.kernel.org>,
-	DRI Development <dri-devel@lists.freedesktop.org>,
-	linux-rtc@vger.kernel.org,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	netdev <netdev@vger.kernel.org>,
-	Linux Fbdev development list <linux-fbdev@vger.kernel.org>,
-	Linux MMC List <linux-mmc@vger.kernel.org>,
-	"open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)" <linux-ide@vger.kernel.org>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Subject: Re: Consider switching to WQ_UNBOUND messages (was: Re: [PATCH v2
- 6/7] workqueue: Report work funcs that trigger automatic CPU_INTENSIVE
- mechanism)
-Message-ID: <ZK3MBfPS-3-tJgjO@slm.duckdns.org>
-References: <20230511181931.869812-1-tj@kernel.org>
- <20230511181931.869812-7-tj@kernel.org>
- <ZF6WsSVGX3O1d0pL@slm.duckdns.org>
- <CAMuHMdVCQmh6V182q4g---jvsWiTOP2hBPZKvma6oUN6535LEg@mail.gmail.com>
- <CAMuHMdW1kxZ1RHKTRVRqDNAbj1Df2=v0fPn5KYK3kfX_kiXR6A@mail.gmail.com>
+        Tue, 11 Jul 2023 15:40:43 -0700 (PDT)
+Subject: [PATCH] RISC-V: Don't trust V from the riscv,isa DT property
+Date: Tue, 11 Jul 2023 15:33:17 -0700
+Message-Id: <20230711223316.7961-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdW1kxZ1RHKTRVRqDNAbj1Df2=v0fPn5KYK3kfX_kiXR6A@mail.gmail.com>
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>, Charlie Jenkins <charlie@rivosinc.com>,
+  Sunil V L <sunilvl@ventanamicro.com>, Heiko Stuebner <heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_143923_095112_83A7FB87 
-X-CRM114-Status: GOOD (  27.06  )
+X-CRM114-CacheID: sfid-20230711_154048_029184_0B15F983 
+X-CRM114-Status: GOOD (  21.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,58 +84,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8sCgpPbiBUdWUsIEp1bCAxMSwgMjAyMyBhdCAwNDowNjoyMlBNICswMjAwLCBHZWVydCBV
-eXR0ZXJob2V2ZW4gd3JvdGU6Cj4gT24gVHVlLCBKdWwgMTEsIDIwMjMgYXQgMzo1NeKAr1BNIEdl
-ZXJ0IFV5dHRlcmhvZXZlbiA8Z2VlcnRAbGludXgtbTY4ay5vcmc+IHdyb3RlOgo+ID4KPiA+IEhp
-IFRlanVuLAo+ID4KPiA+IE9uIEZyaSwgTWF5IDEyLCAyMDIzIGF0IDk6NTTigK9QTSBUZWp1biBI
-ZW8gPHRqQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPiBXb3JrcXVldWUgbm93IGF1dG9tYXRpY2Fs
-bHkgbWFya3MgcGVyLWNwdSB3b3JrIGl0ZW1zIHRoYXQgaG9nIENQVSBmb3IgdG9vCj4gPiA+IGxv
-bmcgYXMgQ1BVX0lOVEVOU0lWRSwgd2hpY2ggZXhjbHVkZXMgdGhlbSBmcm9tIGNvbmN1cnJlbmN5
-IG1hbmFnZW1lbnQgYW5kCj4gPiA+IHByZXZlbnRzIHN0YWxsaW5nIG90aGVyIGNvbmN1cnJlbmN5
-LW1hbmFnZWQgd29yayBpdGVtcy4gSWYgYSB3b3JrIGZ1bmN0aW9uCj4gPiA+IGtlZXBzIHJ1bm5p
-bmcgb3ZlciB0aGUgdGhlcnNob2xkLCBpdCBsaWtlbHkgbmVlZHMgdG8gYmUgc3dpdGNoZWQgdG8g
-dXNlIGFuCj4gPiA+IHVuYm91bmQgd29ya3F1ZXVlLgo+ID4gPgo+ID4gPiBUaGlzIHBhdGNoIGFk
-ZHMgYSBkZWJ1ZyBtZWNoYW5pc20gd2hpY2ggdHJhY2tzIHRoZSB3b3JrIGZ1bmN0aW9ucyB3aGlj
-aAo+ID4gPiB0cmlnZ2VyIHRoZSBhdXRvbWF0aWMgQ1BVX0lOVEVOU0lWRSBtZWNoYW5pc20gYW5k
-IHJlcG9ydCB0aGVtIHVzaW5nCj4gPiA+IHByX3dhcm4oKSB3aXRoIGV4cG9uZW50aWFsIGJhY2tv
-ZmYuCj4gPiA+Cj4gPiA+IHYyOiBEcm9wIGJvdW5jaW5nIHRocm91Z2gga3RocmVhZF93b3JrZXIg
-Zm9yIHByaW50aW5nIG1lc3NhZ2VzLiBJdCB3YXMgdG8KPiA+ID4gICAgIGF2b2lkIGludHJvZHVj
-aW5nIGNpcmN1bGFyIGxvY2tpbmcgZGVwZW5kZW5jeSBidXQgd2Fzbid0IGVmZmVjdGl2ZSBhcyBp
-dAo+ID4gPiAgICAgc3RpbGwgaGFkIHBvb2wgbG9jayAtPiB3Y2lfbG9jayAtPiBwcmludGsgLT4g
-cG9vbCBsb2NrIGxvb3AuIExldCdzIGp1c3QKPiA+ID4gICAgIHByaW50IGRpcmVjdGx5IHVzaW5n
-IHByaW50a19kZWZlcnJlZCgpLgo+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBUZWp1biBIZW8g
-PHRqQGtlcm5lbC5vcmc+Cj4gPiA+IFN1Z2dlc3RlZC1ieTogUGV0ZXIgWmlqbHN0cmEgPHBldGVy
-ekBpbmZyYWRlYWQub3JnPgo+ID4KPiA+IFRoYW5rcyBmb3IgeW91ciBwYXRjaCwgd2hpY2ggaXMg
-bm93IGNvbW1pdCA2MzYzODQ1MDA1MjAyMTQ4Cj4gPiAoIndvcmtxdWV1ZTogUmVwb3J0IHdvcmsg
-ZnVuY3MgdGhhdCB0cmlnZ2VyIGF1dG9tYXRpYyBDUFVfSU5URU5TSVZFCj4gPiBtZWNoYW5pc20i
-KSBpbiB2Ni41LXJjMS4KPiA+Cj4gPiBJIGd1ZXNzIHlvdSBhcmUgaW50ZXJlc3RlZCB0byBrbm93
-IHdoZXJlIHRoaXMgdHJpZ2dlcnMuCj4gPiBJIGVuYWJsZWQgQ09ORklHX1dRX0NQVV9JTlRFTlNJ
-VkVfUkVQT1JUPXksIGFuZCB0ZXN0ZWQKPiA+IHRoZSByZXN1bHQgb24gdmFyaW91cyBtYWNoaW5l
-cy4uLgo+IAo+ID4gT3JhbmdlQ3JhYi9MaW51eC1vbi1MaXRlWC1WZXhSaXNjViB3aXRoIGh0MTZr
-MzMgMTQtc2VnIGRpc3BsYXkgYW5kIHNzZDEzMHhkcm1mYjoKPiA+Cj4gPiAgIHdvcmtxdWV1ZTog
-Y2hlY2tfbGlmZXRpbWUgaG9nZ2VkIENQVSBmb3IgPjEwMDAwdXMgNCB0aW1lcywgY29uc2lkZXIK
-PiA+IHN3aXRjaGluZyB0byBXUV9VTkJPVU5ECj4gPiAgIHdvcmtxdWV1ZTogZHJtX2ZiX2hlbHBl
-cl9kYW1hZ2Vfd29yayBob2dnZWQgQ1BVIGZvciA+MTAwMDB1cyAxMDI0Cj4gPiB0aW1lcywgY29u
-c2lkZXIgc3dpdGNoaW5nIHRvIFdRX1VOQk9VTkQKPiA+ICAgd29ya3F1ZXVlOiBmYl9mbGFzaGN1
-cnNvciBob2dnZWQgQ1BVIGZvciA+MTAwMDB1cyAxMjggdGltZXMsCj4gPiBjb25zaWRlciBzd2l0
-Y2hpbmcgdG8gV1FfVU5CT1VORAo+ID4gICB3b3JrcXVldWU6IGh0MTZrMzNfc2VnMTRfdXBkYXRl
-IGhvZ2dlZCBDUFUgZm9yID4xMDAwMHVzIDEyOCB0aW1lcywKPiA+IGNvbnNpZGVyIHN3aXRjaGlu
-ZyB0byBXUV9VTkJPVU5ECj4gPiAgIHdvcmtxdWV1ZTogbW1jX3Jlc2NhbiBob2dnZWQgQ1BVIGZv
-ciA+MTAwMDB1cyAxMjggdGltZXMsIGNvbnNpZGVyCj4gPiBzd2l0Y2hpbmcgdG8gV1FfVU5CT1VO
-RAo+IAo+IEdvdCBvbmUgbW9yZSBhZnRlciBhIHdoaWxlOgo+IAo+IHdvcmtxdWV1ZTogbmVpZ2hf
-bWFuYWdlZF93b3JrIGhvZ2dlZCBDUFUgZm9yID4xMDAwMHVzIDQgdGltZXMsCj4gY29uc2lkZXIg
-c3dpdGNoaW5nIHRvIFdRX1VOQk9VTkQKCkkgd29uZGVyIHdoZXRoZXIgdGhlIHJpZ2h0IHRoaW5n
-IHRvIGRvIGhlcmUgaXMgc29tZWhvdyBzY2FsaW5nIHRoZSB0aHJlc2hvbGQKYWNjb3JkaW5nIHRv
-IHRoZSByZWxhdGl2ZSBwcm9jZXNzaW5nIHBvd2VyLiBJdCdzIGRpZmZpY3VsdCB0byBjb21lIHVw
-IHdpdGggYQp0aHJlc2hvbGQgd2hpY2ggd29ya3Mgd2VsbCBhY3Jvc3MgdGhlIGxhdGVzdCAmIGZh
-c3Rlc3QgYW5kIHJlYWxseSB0aW55IENQVXMuCkknbGwgdGhpbmsgYWJvdXQgaXQgc29tZSBtb3Jl
-IGJ1dCBpZiB5b3UgaGF2ZSBzb21lIGlkZWFzLCBwbGVhc2UgZmVlbCBmcmVlCnRvIHN1Z2dlc3Qu
-CgpUaGFua3MuCgotLSAKdGVqdW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+The last merge window contained both V support and the deprecation of
+the riscv,isa DT property, with the V implementation reading riscv,isa
+to determine the presence of the V extension.  At the time that was the
+only way to do it, but there's a lot of ambiguity around V in ISA
+strings.
+
+Rather than trying to sort that out, let's just not introduce the
+ambiguity in the first place and retroactively make the deprecation
+apply to V.  This all happened in the same merge window anyway, so this
+way we don't end up introducing a new ambiguous interface we need to
+maintain compatibility with forever (despite it having been deprecated
+in the same release).
+
+ACPI still trusts ISA strings, so we'll leave that alone.
+
+Fixes: dc6667a4e7e3 ("riscv: Extending cpufeature.c to detect V-extension")
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+This came up as part of some discussions about the T-Head vector
+support.  I haven't actually tested this, but Conor and I were talking
+about options and it was easier to just implement it than describe it.
+It's kind of clunky to only parse that one property, but we're already
+in a grey area WRT having the DT bindings that we don't parse so maybe
+that's not so bad?
+
+The other option would be to turn off V when we detect we're on a T-Head
+system as part of the errata handling.  That's similar to what we do for
+misaligned accesses, but that's a hack that we're getting rid of.  It'd
+be less of a hack for V, but given that we've found T-Head systems
+aliasing the arch/impl IDs already we might be digging ourselves a
+bigger hole here.
+---
+ arch/riscv/kernel/cpufeature.c | 25 ++++++++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index bdcf460ea53d..8e970f55285e 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -116,7 +116,19 @@ void __init riscv_fill_hwcap(void)
+ 	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
+ 	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
+ 	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
+-	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
++
++	/*
++	 * "V" in ISA strings is a ambiguous in practice: it should
++	 * mean just the standard V-1.0 but vendors aren't well
++	 * behaved.  So only allow V in ISA strings that come from ACPI, as
++	 * we've yet to build up enough histroy in ACPI land to stop trusting
++	 * ISA strings.
++	 *
++	 * DT-based systems must provide the explicit V property, which is well
++	 * defined.  That is parsed below.
++	 */
++	if (!acpi_disabled)
++		isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
+ 
+ 	elf_hwcap = 0;
+ 
+@@ -131,6 +143,8 @@ void __init riscv_fill_hwcap(void)
+ 	for_each_possible_cpu(cpu) {
+ 		struct riscv_isainfo *isainfo = &hart_isa[cpu];
+ 		unsigned long this_hwcap = 0;
++		struct property *p;
++		const char *ext;
+ 
+ 		if (acpi_disabled) {
+ 			node = of_cpu_device_node_get(cpu);
+@@ -334,6 +348,15 @@ void __init riscv_fill_hwcap(void)
+ 			set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
+ 		}
+ 
++		/*
++		 * Check just the V property on DT-based systems, as we don't
++		 * trust the ISA string in DT land.
++		 */
++		if (acpi_disabled)
++			of_property_for_each_string(node, "riscv,isa-extensions", p, ext)
++				if (strcmp(ext, "v") == 0)
++					this_hwcap |= COMPAT_HWCAP_ISA_V;
++
+ 		/*
+ 		 * All "okay" hart should have same isa. Set HWCAP based on
+ 		 * common capabilities of every "okay" hart, in case they don't
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
