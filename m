@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DEEEB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 13:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99C0C001DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 13:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TmZIrsXSQbRrTTWxmfb2KTbzNHbQwW5efjlb26wir9Y=; b=OTRIiPRMcZLyYS
-	IVPirPPRVwPj0+ZY/BItGWVTcpWdFhbxpSaT7k/rSvW/0QCxkNN11sEcoprMKPp2UChsRx6eIBp+x
-	HdlD/Kdli1EzlFgMS+gELvxObHelO49AkG1hykGa9G11J5+maBivhDyoHzzkngV/QD6rwcw6VAqsE
-	uIYP7D2o8tsRRuhA4it++lSL4bj7XN3vfROpl/TBTl3q10/GAYVuz6hBn7qayYD2X6D7zBm2x+6m1
-	vRu0ComS9KEMI4NgufIv8vuqKPwuE2N+okShppGdsrq9TvpiFqneuVmVTbz9xdglhxqjxtJBV8oRp
-	SGa9Pv6scXAspUz4QwPg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fyP60XQj6M+6mB4XlSXJ/vxV+ixhyskMnOo4iOOE+vo=; b=DevTyAzn952nJD
+	yiw2Razw1P5+PtR37l1O5WGmLD3D4US0rRtdgBDHyFTkzKq1T2S/m5D9UUJnCG8RAm3/cNYutYYyi
+	H6RBVdlcXzsL4gQD3Jn6ngziGm0vuDoDqzgtJUz4O43qFaXrWIf2E1Sb2BCD7Jtzb303i5eVPYTp3
+	dMXjJZkaFqmk1E4UcJqe5p+ADtIlEqbc2s2gIuc7KGyNbXsmZv5OONrz2HOOphW1EQvNN5HwhdbZa
+	IoIgT600Kiaw3XaU0JxGbDyJOOtBLtaa83bp6fvHpNEHcQ7efRNfd/MIl50/Y0AV2dNjjbR3xlloS
+	Lvj31P2IFL86875N4Xyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJD6X-00ExJQ-1u;
-	Tue, 11 Jul 2023 13:08:33 +0000
+	id 1qJD6m-00ExMK-1f;
+	Tue, 11 Jul 2023 13:08:48 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJD6U-00ExJ0-2E
+	id 1qJD6j-00ExLj-1e
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 13:08:32 +0000
+	Tue, 11 Jul 2023 13:08:47 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B969C614AC;
-	Tue, 11 Jul 2023 13:08:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF0ECC433C8;
-	Tue, 11 Jul 2023 13:08:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E4B72614BF;
+	Tue, 11 Jul 2023 13:08:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F8BAC433C8;
+	Tue, 11 Jul 2023 13:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689080909;
-	bh=LUcJB0cq3kg6328TLZnO/4L83pKi9KtIC1j5JsNOlE8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gI8w4Ex9LIcrKsCI1HWYPC+akmsCgpovuc87W7bVuf9+xEyO7s29XnpujGm9IHQ/F
-	 iXg0ykha7MCPbDzVdvvbV3nWbggu5BQN/3V4lfJShrQ3bdP/vCEXsEdP60ZkBAz2yA
-	 wQO6Eic4WPZgm/ZcZH4rQNehffXS8kEMPfEciRznJpcz2UM/Fxo2moBLNF7gRBAjkK
-	 NNQ7dRYhscaMbYNU/KC+//Ef2M0GPHj/xRMBHClMCFMrxLnjN7W4bTWu9bIO8Flg64
-	 AZIqh6xIlgxowZWGKrnkyTNcXGXHyC65zCrrS0X+1PoSoGUDRaQmDXItO0JHdRqCyp
-	 +ML9YhD7XnYpw==
+	s=k20201202; t=1689080924;
+	bh=QNUVKJXnoZSUVP2Eq6Ceyt+qtwl6KbgMvYZ6bIQgM18=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=C04HhYVc8+putRViF/blzDQorcqlJp+TzjaE8DP3/7WfNIsss1zpO4ZzPcaxzK/ES
+	 +pMNCbzp8A1+JLlJJEGzXyYo5tnBmtQsDEAjSYWwU14ELLL15eS8NQw+/SgzFz0aKP
+	 5R2M01ThIBXh2jnUQaBGHmFS8tnsS9kfM94fK0iAy2F6H/IPTr6pGJxgOoxSzpQosd
+	 MJnDcqvxKNo1Dj5ZzkUJkubVYqkN6Bil381ee+L9D4HqQnYC/mV8G+UNIGWQZmJWrx
+	 iGbrc89PzwQY2Dq0uI5lSg77b1+B6aHnM9z1tANEQF/MjHrhbC85d3Q7F1k1G0NZV3
+	 c7MaXU1umlJyA==
 From: Greg Ungerer <gerg@kernel.org>
 To: linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org,
@@ -55,14 +55,16 @@ Cc: palmer@dabbelt.com,
 	keescook@chromium.org,
 	brauner@kernel.org,
 	Greg Ungerer <gerg@kernel.org>
-Subject: [PATCH v2 0/2] riscv: support ELF format binaries in nommu mode
-Date: Tue, 11 Jul 2023 23:07:52 +1000
-Message-Id: <20230711130754.481209-1-gerg@kernel.org>
+Subject: [PATCH v2 1/2] binfmt_elf_fdpic: support 64-bit systems
+Date: Tue, 11 Jul 2023 23:07:53 +1000
+Message-Id: <20230711130754.481209-2-gerg@kernel.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20230711130754.481209-1-gerg@kernel.org>
+References: <20230711130754.481209-1-gerg@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_060830_767194_41D25F86 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20230711_060845_633162_DA303281 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +81,199 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The binfmt_flat_fdpic code has a number of 32-bit specific data
+structures associated with it. Extend it to be able to support and
+be used on 64-bit systems as well.
 
-The following changes add the ability to run ELF format binaries when
-running RISC-V in nommu mode. That support is actually part of the
-ELF-FDPIC loader, so these changes are all about making that work on
-RISC-V.
+The new code defines a number of key 64-bit variants of the core
+elf-fdpic data structures - along side the existing 32-bit sized ones.
+A common set of generic named structures are defined to be either
+the 32-bit or 64-bit ones as required at compile time. This is a
+similar technique to that used in the ELF binfmt loader.
 
-The first issue to deal with is making the ELF-FDPIC loader capable of
-handling 64-bit ELF files. As coded right now it only supports 32-bit
-ELF files. 
+For example:
 
-Secondly some changes are required to enable and compile the ELF-FDPIC
-loader on RISC-V and to pass the ELF-FDPIC mapping addresses through to
-user space when execing the new program.
+  elf_fdpic_loadseg is either elf32_fdpic_loadseg or elf64_fdpic_loadseg
+  elf_fdpic_loadmap is either elf32_fdpic_loadmap or elf64_fdpic_loadmap
 
-These changes have not been used to run actual ELF-FDPIC binaries.
-It is used to load and run normal ELF - compiled -pie format. Though the
-underlying changes are expected to work with full ELF-FDPIC binaries if
-or when that is supported on RISC-V in gcc.
-
-To avoid needing changes to the C-library (tested with uClibc-ng
-currently) there is a simple runtime dynamic loader (interpreter)
-available to do the final relocations, https://github.com/gregungerer/uldso.
-The nice thing about doing it this way is that the same program
-binary can also be loaded with the usual ELF loader in MMU linux.
-
-The motivation here is to provide an easy to use alternative to the
-flat format binaries normally used for RISC-V nommu based systems.
+the choice based on ELFCLASS32 or ELFCLASS64.
 
 Signed-off-by: Greg Ungerer <gerg@kernel.org>
 ---
-v1->v2: rebase onto 6.5-rc1
+v1->v2: rebase onto linux-6.5-rc1
 
- arch/riscv/include/asm/elf.h         |   11 +++++++++-
- arch/riscv/include/asm/mmu.h         |    4 +++
- arch/riscv/include/uapi/asm/ptrace.h |    5 ++++
- fs/Kconfig.binfmt                    |    2 -
- fs/binfmt_elf_fdpic.c                |   38 +++++++++++++++++------------------
- include/linux/elf-fdpic.h            |   14 +++++++++++-
- include/uapi/linux/elf-fdpic.h       |   15 +++++++++++++
- 7 files changed, 67 insertions(+), 22 deletions(-)
+ fs/binfmt_elf_fdpic.c          | 38 +++++++++++++++++-----------------
+ include/linux/elf-fdpic.h      | 14 ++++++++++++-
+ include/uapi/linux/elf-fdpic.h | 15 ++++++++++++++
+ 3 files changed, 47 insertions(+), 20 deletions(-)
 
+diff --git a/fs/binfmt_elf_fdpic.c b/fs/binfmt_elf_fdpic.c
+index 1c6c5832af86..43b2a2851ba3 100644
+--- a/fs/binfmt_elf_fdpic.c
++++ b/fs/binfmt_elf_fdpic.c
+@@ -138,7 +138,7 @@ static int is_constdisp(struct elfhdr *hdr)
+ static int elf_fdpic_fetch_phdrs(struct elf_fdpic_params *params,
+ 				 struct file *file)
+ {
+-	struct elf32_phdr *phdr;
++	struct elf_phdr *phdr;
+ 	unsigned long size;
+ 	int retval, loop;
+ 	loff_t pos = params->hdr.e_phoff;
+@@ -560,8 +560,8 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
+ 	sp &= ~7UL;
+ 
+ 	/* stack the load map(s) */
+-	len = sizeof(struct elf32_fdpic_loadmap);
+-	len += sizeof(struct elf32_fdpic_loadseg) * exec_params->loadmap->nsegs;
++	len = sizeof(struct elf_fdpic_loadmap);
++	len += sizeof(struct elf_fdpic_loadseg) * exec_params->loadmap->nsegs;
+ 	sp = (sp - len) & ~7UL;
+ 	exec_params->map_addr = sp;
+ 
+@@ -571,8 +571,8 @@ static int create_elf_fdpic_tables(struct linux_binprm *bprm,
+ 	current->mm->context.exec_fdpic_loadmap = (unsigned long) sp;
+ 
+ 	if (interp_params->loadmap) {
+-		len = sizeof(struct elf32_fdpic_loadmap);
+-		len += sizeof(struct elf32_fdpic_loadseg) *
++		len = sizeof(struct elf_fdpic_loadmap);
++		len += sizeof(struct elf_fdpic_loadseg) *
+ 			interp_params->loadmap->nsegs;
+ 		sp = (sp - len) & ~7UL;
+ 		interp_params->map_addr = sp;
+@@ -740,13 +740,13 @@ static int elf_fdpic_map_file(struct elf_fdpic_params *params,
+ 			      struct mm_struct *mm,
+ 			      const char *what)
+ {
+-	struct elf32_fdpic_loadmap *loadmap;
++	struct elf_fdpic_loadmap *loadmap;
+ #ifdef CONFIG_MMU
+-	struct elf32_fdpic_loadseg *mseg;
++	struct elf_fdpic_loadseg *mseg;
+ 	unsigned long load_addr;
+ #endif
+-	struct elf32_fdpic_loadseg *seg;
+-	struct elf32_phdr *phdr;
++	struct elf_fdpic_loadseg *seg;
++	struct elf_phdr *phdr;
+ 	unsigned nloads, tmp;
+ 	unsigned long stop;
+ 	int loop, ret;
+@@ -766,7 +766,7 @@ static int elf_fdpic_map_file(struct elf_fdpic_params *params,
+ 
+ 	params->loadmap = loadmap;
+ 
+-	loadmap->version = ELF32_FDPIC_LOADMAP_VERSION;
++	loadmap->version = ELF_FDPIC_LOADMAP_VERSION;
+ 	loadmap->nsegs = nloads;
+ 
+ 	/* map the requested LOADs into the memory space */
+@@ -839,8 +839,8 @@ static int elf_fdpic_map_file(struct elf_fdpic_params *params,
+ 			if (phdr->p_vaddr >= seg->p_vaddr &&
+ 			    phdr->p_vaddr + phdr->p_memsz <=
+ 			    seg->p_vaddr + seg->p_memsz) {
+-				Elf32_Dyn __user *dyn;
+-				Elf32_Sword d_tag;
++				Elf_Dyn __user *dyn;
++				Elf_Sword d_tag;
+ 
+ 				params->dynamic_addr =
+ 					(phdr->p_vaddr - seg->p_vaddr) +
+@@ -850,11 +850,11 @@ static int elf_fdpic_map_file(struct elf_fdpic_params *params,
+ 				 * one item, and that the last item is a NULL
+ 				 * entry */
+ 				if (phdr->p_memsz == 0 ||
+-				    phdr->p_memsz % sizeof(Elf32_Dyn) != 0)
++				    phdr->p_memsz % sizeof(Elf_Dyn) != 0)
+ 					goto dynamic_error;
+ 
+-				tmp = phdr->p_memsz / sizeof(Elf32_Dyn);
+-				dyn = (Elf32_Dyn __user *)params->dynamic_addr;
++				tmp = phdr->p_memsz / sizeof(Elf_Dyn);
++				dyn = (Elf_Dyn __user *)params->dynamic_addr;
+ 				if (get_user(d_tag, &dyn[tmp - 1].d_tag) ||
+ 				    d_tag != 0)
+ 					goto dynamic_error;
+@@ -923,8 +923,8 @@ static int elf_fdpic_map_file_constdisp_on_uclinux(
+ 	struct file *file,
+ 	struct mm_struct *mm)
+ {
+-	struct elf32_fdpic_loadseg *seg;
+-	struct elf32_phdr *phdr;
++	struct elf_fdpic_loadseg *seg;
++	struct elf_phdr *phdr;
+ 	unsigned long load_addr, base = ULONG_MAX, top = 0, maddr = 0;
+ 	int loop, ret;
+ 
+@@ -1007,8 +1007,8 @@ static int elf_fdpic_map_file_by_direct_mmap(struct elf_fdpic_params *params,
+ 					     struct file *file,
+ 					     struct mm_struct *mm)
+ {
+-	struct elf32_fdpic_loadseg *seg;
+-	struct elf32_phdr *phdr;
++	struct elf_fdpic_loadseg *seg;
++	struct elf_phdr *phdr;
+ 	unsigned long load_addr, delta_vaddr;
+ 	int loop, dvset;
+ 
+diff --git a/include/linux/elf-fdpic.h b/include/linux/elf-fdpic.h
+index 3bea95a1af53..e533f4513194 100644
+--- a/include/linux/elf-fdpic.h
++++ b/include/linux/elf-fdpic.h
+@@ -10,13 +10,25 @@
+ 
+ #include <uapi/linux/elf-fdpic.h>
+ 
++#if ELF_CLASS == ELFCLASS32
++#define Elf_Sword			Elf32_Sword
++#define elf_fdpic_loadseg		elf32_fdpic_loadseg
++#define elf_fdpic_loadmap		elf32_fdpic_loadmap
++#define ELF_FDPIC_LOADMAP_VERSION	ELF32_FDPIC_LOADMAP_VERSION
++#else
++#define Elf_Sword			Elf64_Sxword
++#define elf_fdpic_loadmap		elf64_fdpic_loadmap
++#define elf_fdpic_loadseg		elf64_fdpic_loadseg
++#define ELF_FDPIC_LOADMAP_VERSION	ELF64_FDPIC_LOADMAP_VERSION
++#endif
++
+ /*
+  * binfmt binary parameters structure
+  */
+ struct elf_fdpic_params {
+ 	struct elfhdr			hdr;		/* ref copy of ELF header */
+ 	struct elf_phdr			*phdrs;		/* ref copy of PT_PHDR table */
+-	struct elf32_fdpic_loadmap	*loadmap;	/* loadmap to be passed to userspace */
++	struct elf_fdpic_loadmap	*loadmap;	/* loadmap to be passed to userspace */
+ 	unsigned long			elfhdr_addr;	/* mapped ELF header user address */
+ 	unsigned long			ph_addr;	/* mapped PT_PHDR user address */
+ 	unsigned long			map_addr;	/* mapped loadmap user address */
+diff --git a/include/uapi/linux/elf-fdpic.h b/include/uapi/linux/elf-fdpic.h
+index 4fcc6cfebe18..ec23f0871129 100644
+--- a/include/uapi/linux/elf-fdpic.h
++++ b/include/uapi/linux/elf-fdpic.h
+@@ -32,4 +32,19 @@ struct elf32_fdpic_loadmap {
+ 
+ #define ELF32_FDPIC_LOADMAP_VERSION	0x0000
+ 
++/* segment mappings for ELF FDPIC libraries/executables/interpreters */
++struct elf64_fdpic_loadseg {
++	Elf64_Addr	addr;		/* core address to which mapped */
++	Elf64_Addr	p_vaddr;	/* VMA recorded in file */
++	Elf64_Word	p_memsz;	/* allocation size recorded in file */
++};
++
++struct elf64_fdpic_loadmap {
++	Elf64_Half	version;	/* version of these structures, just in case... */
++	Elf64_Half	nsegs;		/* number of segments */
++	struct elf64_fdpic_loadseg segs[];
++};
++
++#define ELF64_FDPIC_LOADMAP_VERSION	0x0000
++
+ #endif /* _UAPI_LINUX_ELF_FDPIC_H */
+-- 
+2.25.1
 
 
 _______________________________________________
