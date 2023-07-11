@@ -4,119 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E1AEB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 17:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC52EB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 17:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y7hlInrdvigx5q8MGjeKSTLRalAZ7aUBGkTI+vPO4IM=; b=U3PMF9bVd5btP8
-	eJTvMBmgno+qJIFEYxaR+TNqQOtjcHNLJqfk6kS4pRm+AkFmcyUkslx2xVrW94ISWrw5p5fOZ1+Qv
-	TaOJrxEOl4IWWNkl6WuEEQpDJZw+Ucy89kNN2kpZO26eH5mQGGM/W2ZNY6Ue3N3X9IOX5pYNRFLPP
-	zytakG1J6PJIv+sOUd085ttYTMCWwYKgey4bLrNwembVRl0rb4yeOzr5uxe+A3YAWsCw5b5vmiZin
-	QlJT7QjWS1dcXDmvNcfujdngqsQtYHmSqlQdZqYvGsLwtUBo5eEISgmswu22MpNf5V5I0++V83Bjv
-	TdxHkhZUaHQX19fz0G5g==;
+	List-Owner; bh=eXu/P1/Md1GC7viOf+MtBT83zm4NZfnjXdE0TvERIqU=; b=QnydMkWq95kHNC
+	ZWDO1uYllqXuJ/VmkA5WxwHn3dFVmq1zNZjJcBdwIb7RlT+I86YvCg+0OnUH1D/Flg3iJllKlqh6a
+	euE9HkbrfWiYVhb21Xd9p5aK55KXPq67J89wgzRe3ndqeR4Dmvy/EEufk3+EBDQgA8uVmXz4hK07/
+	CJszYYUuawioZzbRVbNncnrAlBmG2WE+NYiKTX6DpmpVRneJdZc54z5Ttn6EIdjK9LssN/x0gZxMc
+	XKbHF+1IpqdBH5FV17KcvdEDeIMzrOMeu9QrjkL12IT7PtMwO18KJEXd9zGZ49cgNVwKhTH+fB71N
+	rMNgmmhAg/TxtCARHesw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJH28-00FWHI-2W;
-	Tue, 11 Jul 2023 17:20:16 +0000
-Received: from mga11.intel.com ([192.55.52.93])
+	id 1qJHA8-00FYMF-1K;
+	Tue, 11 Jul 2023 17:28:32 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJH1N-00FVLC-2M;
-	Tue, 11 Jul 2023 17:19:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1689095969; x=1720631969;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=8Fi7Z+SejqB8FmLnWihYsJBZfmhjua3hB69p3/WVjRY=;
-  b=HSXQOYx6V/N/LR+mkyui7Rr80ZXmGq3qS8pkg+7LjmJ1xSWEPex0sUG7
-   faPutf8jNETBPUBPCaapgler2eRd98fqCFc0WaZE7D2XK7n1vAtkdc+7S
-   sco9kuS9nk37rs1k0MsV+HPRV1E/FRrY8NlNv+SbvQgNxdKfTXWogiuqO
-   y6DpxazzuLqrPy2L1fsx5iuJWswZ7MFDTaNObkhm/rqzY1hawvXzaad7p
-   BQoUfy2CwnnovfjLNLrhS/PC8lBJZHbt+OPQxy+sJXpKyYg58n7Qr1uNi
-   GtZ3cxauZxc6Y7O4/B8KjlYHVXwANcRhyd9dMDsZua5JJP/DnWekuleSe
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10768"; a="362148997"
-X-IronPort-AV: E=Sophos;i="6.01,197,1684825200"; 
-   d="scan'208";a="362148997"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2023 10:19:25 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10768"; a="715240987"
-X-IronPort-AV: E=Sophos;i="6.01,197,1684825200"; 
-   d="scan'208";a="715240987"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by orsmga007.jf.intel.com with ESMTP; 11 Jul 2023 10:18:06 -0700
-Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id DE1AC7AB; Tue, 11 Jul 2023 20:17:59 +0300 (EEST)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Mark Brown <broonie@kernel.org>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Yang Yingliang <yangyingliang@huawei.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
-	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-trace-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Cc: Sanjay R Mehta <sanju.mehta@amd.com>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
+	id 1qJHA6-00FYLk-0S
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Jul 2023 17:28:31 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-3fbd33a57b6so73807315e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 10:28:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689096506; x=1691688506;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=tAbWd4eVejrEzVS+228fp0WdS6VB4PRr8i82+ghCjls=;
+        b=tRiK8qbG1SzAXug+sVyY836Om/o50+MrsYCxB9zSIK1ZlhRVpBkrfSmdkSzitrivDZ
+         31NZ/cnzFneyiSKGgTVNUqx1DLvVS4SX9U1XwBI5VC/yWLuij+X4qcUgULL0OCwwKkAi
+         A+MT8hBxHsFbrgqWaVsFsQhZpkLvKMlpDROq1wM74+pWcKe9xIJUgTB3ePaXNwXKcyes
+         phzWGb9OzvKacBvz2K3hDzW2Wp/10JRCQRJijjdWc7Gz/WarMMn8rR04TXQyCnr1DUhy
+         zXnKW9aQL5AI+2IWTERgUDHnnKKxjj29/J5xS8M87svKya+Xz5vzdDYHUib1PlYWswr2
+         HAnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689096506; x=1691688506;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tAbWd4eVejrEzVS+228fp0WdS6VB4PRr8i82+ghCjls=;
+        b=D4uBL8PTue6T2ohBhPVfuIP+IwUxXPcol14Dxmpl2Bv5mfECFKDFC+HEPJsu+xbqW6
+         Xv9sBW/CJGRmr2OKATM0BUPzaJTQ1HBAhppmXikTFPDPXK/AlS3zHORNumY5MoB6wKtj
+         HSnyCv146jr3YJMdEoOEpINkXn62S7J5CD5caDCbOM5vNYzEoxxt/7I7uacgXpuqB+Bw
+         cOdMcPB9bIOLAqWV8Kcd8iEyg5tpWUwToSyx5GqeVQ4Tg8EEOrc+pcBkLbBPTzyUEBld
+         m7ShsJ/DBTOu9xJdfwL0Ncknvji2oHU4QPc/NnPNLLQjAp/ImSSBH7s7UG0WIpS8eaX4
+         2Qkg==
+X-Gm-Message-State: ABy/qLYOV3JoeOIe6m+M2PMkVkOJs/X3h73+Haiq2ddu9BFQFe7uVUAt
+	mVW4fdwiL1O7vbLLR1uPV1HsOANt0H7TeoCP8fPn1w==
+X-Google-Smtp-Source: APBJJlG/12CTlRB68oSs36vSi4vauByL6WVCnuQ6QECH7YERJbx8As3CNX5CubZMqGqZTZyXdP4bLg==
+X-Received: by 2002:a05:600c:2299:b0:3fb:b005:99d6 with SMTP id 25-20020a05600c229900b003fbb00599d6mr19528603wmf.2.1689096506356;
+        Tue, 11 Jul 2023 10:28:26 -0700 (PDT)
+Received: from vermeer ([2a01:cb1d:81a9:dd00:b570:b34c:ffd4:c805])
+        by smtp.gmail.com with ESMTPSA id f10-20020adff98a000000b003159d2dabbasm2762802wrr.94.2023.07.11.10.28.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Jul 2023 10:28:25 -0700 (PDT)
+Date: Tue, 11 Jul 2023 19:28:23 +0200
+From: Samuel Ortiz <sameo@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: [PATCH v3 13/14] spi: Convert to SPI_CONTROLLER_HALF_DUPLEX
-Date: Tue, 11 Jul 2023 20:17:55 +0300
-Message-Id: <20230711171756.86736-14-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.40.0.1.gaa8946217a0b
-In-Reply-To: <20230711171756.86736-1-andriy.shevchenko@linux.intel.com>
-References: <20230711171756.86736-1-andriy.shevchenko@linux.intel.com>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux@rivosinc.com, Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
+	"Hongren (Zenithal) Zheng" <i@zenithal.me>,
+	Guo Ren <guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 2/4] dt-bindings: riscv: Document the 1.0 scalar
+ cryptography extensions
+Message-ID: <ZK2RN7EKqmW87tyQ@vermeer>
+References: <20230709115549.2666557-1-sameo@rivosinc.com>
+ <20230709115549.2666557-3-sameo@rivosinc.com>
+ <20230710151624.GA1987602-robh@kernel.org>
+ <20230710-education-evolution-f12520405842@spud>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230710-education-evolution-f12520405842@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_101929_820405_F6D057BC 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20230711_102830_182992_9BCEDAA2 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,182 +104,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert the users under SPI subsystem to SPI_CONTROLLER_HALF_DUPLEX.
+On Mon, Jul 10, 2023 at 04:42:42PM +0100, Conor Dooley wrote:
+> On Mon, Jul 10, 2023 at 09:16:24AM -0600, Rob Herring wrote:
+> > On Sun, Jul 09, 2023 at 01:55:44PM +0200, Samuel Ortiz wrote:
+> > > The RISC-V cryptography extensions define a set of instructions, CSR
+> > > definitions, architectural interfaces and also extension shorthands for
+> > > running scalar and vector based cryptography operations on RISC-V
+> > > systems.
+> > > 
+> > > This documents all the dt-bindings for the scalar cryptography
+> > > extensions, including the Zk, Zkn and Zks shorthands.
+> > > 
+> > > Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
+> > > ---
+> > >  .../devicetree/bindings/riscv/extensions.yaml | 82 +++++++++++++++++++
+> > >  1 file changed, 82 insertions(+)
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > index cc1f546fdbdc..361756978da1 100644
+> > > --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> > > @@ -190,6 +190,24 @@ properties:
+> > >              instructions as ratified at commit 6d33919 ("Merge pull request #158
+> > >              from hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
+> > >  
+> > > +        - const: zbkb
+> > > +          description: |
+> > 
+> > Don't need '|' if no formatting to preserve.
+> 
+> The existing binding only adds the `|` where the commit message contains
+> a #, please drop the `|`s if you end up re-submitting. Otherwise,
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- drivers/spi/spi-amd.c             | 2 +-
- drivers/spi/spi-cavium-thunderx.c | 2 +-
- drivers/spi/spi-falcon.c          | 2 +-
- drivers/spi/spi-lp8841-rtc.c      | 2 +-
- drivers/spi/spi-mxs.c             | 2 +-
- drivers/spi/spi-omap-uwire.c      | 2 +-
- drivers/spi/spi-pic32-sqi.c       | 2 +-
- drivers/spi/spi-qcom-qspi.c       | 2 +-
- drivers/spi/spi-rockchip-sfc.c    | 2 +-
- drivers/spi/spi-sprd-adi.c        | 2 +-
- drivers/spi/spi-ti-qspi.c         | 2 +-
- drivers/spi/spi-xcomm.c           | 2 +-
- 12 files changed, 12 insertions(+), 12 deletions(-)
+I think the `|` is needed because the messages contains a `:`? This is
+the case as the messages in this patch have a "Zvk:..." string.
+Removing the `|` makes dt_binding_check fail because of that.
 
-diff --git a/drivers/spi/spi-amd.c b/drivers/spi/spi-amd.c
-index fecead757a3c..b19766571f28 100644
---- a/drivers/spi/spi-amd.c
-+++ b/drivers/spi/spi-amd.c
-@@ -404,7 +404,7 @@ static int amd_spi_probe(struct platform_device *pdev)
- 	master->bus_num = 0;
- 	master->num_chipselect = 4;
- 	master->mode_bits = 0;
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	master->max_speed_hz = AMD_SPI_MAX_HZ;
- 	master->min_speed_hz = AMD_SPI_MIN_HZ;
- 	master->setup = amd_spi_master_setup;
-diff --git a/drivers/spi/spi-cavium-thunderx.c b/drivers/spi/spi-cavium-thunderx.c
-index 60c0d6934654..535f7eb9fa69 100644
---- a/drivers/spi/spi-cavium-thunderx.c
-+++ b/drivers/spi/spi-cavium-thunderx.c
-@@ -64,7 +64,7 @@ static int thunderx_spi_probe(struct pci_dev *pdev,
- 		p->sys_freq = SYS_FREQ_DEFAULT;
- 	dev_info(dev, "Set system clock to %u\n", p->sys_freq);
- 
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	master->num_chipselect = 4;
- 	master->mode_bits = SPI_CPHA | SPI_CPOL | SPI_CS_HIGH |
- 			    SPI_LSB_FIRST | SPI_3WIRE;
-diff --git a/drivers/spi/spi-falcon.c b/drivers/spi/spi-falcon.c
-index 4c103dff0d44..8a8414cbb400 100644
---- a/drivers/spi/spi-falcon.c
-+++ b/drivers/spi/spi-falcon.c
-@@ -401,7 +401,7 @@ static int falcon_sflash_probe(struct platform_device *pdev)
- 	priv->master = master;
- 
- 	master->mode_bits = SPI_MODE_3;
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	master->setup = falcon_sflash_setup;
- 	master->transfer_one_message = falcon_sflash_xfer_one;
- 	master->dev.of_node = pdev->dev.of_node;
-diff --git a/drivers/spi/spi-lp8841-rtc.c b/drivers/spi/spi-lp8841-rtc.c
-index ccaa7a946359..c6810720b3b5 100644
---- a/drivers/spi/spi-lp8841-rtc.c
-+++ b/drivers/spi/spi-lp8841-rtc.c
-@@ -191,7 +191,7 @@ spi_lp8841_rtc_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 	platform_set_drvdata(pdev, master);
- 
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	master->mode_bits = SPI_CS_HIGH | SPI_3WIRE | SPI_LSB_FIRST;
- 
- 	master->bus_num = pdev->id;
-diff --git a/drivers/spi/spi-mxs.c b/drivers/spi/spi-mxs.c
-index 963a53dd680b..cd0e7ae07162 100644
---- a/drivers/spi/spi-mxs.c
-+++ b/drivers/spi/spi-mxs.c
-@@ -572,7 +572,7 @@ static int mxs_spi_probe(struct platform_device *pdev)
- 	master->mode_bits = SPI_CPOL | SPI_CPHA;
- 	master->num_chipselect = 3;
- 	master->dev.of_node = np;
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	master->auto_runtime_pm = true;
- 
- 	spi = spi_master_get_devdata(master);
-diff --git a/drivers/spi/spi-omap-uwire.c b/drivers/spi/spi-omap-uwire.c
-index 902d2e0c1f2f..f89aa9e52c23 100644
---- a/drivers/spi/spi-omap-uwire.c
-+++ b/drivers/spi/spi-omap-uwire.c
-@@ -486,7 +486,7 @@ static int uwire_probe(struct platform_device *pdev)
- 	/* the spi->mode bits understood by this driver: */
- 	master->mode_bits = SPI_CPOL | SPI_CPHA | SPI_CS_HIGH;
- 	master->bits_per_word_mask = SPI_BPW_RANGE_MASK(1, 16);
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 
- 	master->bus_num = 2;	/* "official" */
- 	master->num_chipselect = 4;
-diff --git a/drivers/spi/spi-pic32-sqi.c b/drivers/spi/spi-pic32-sqi.c
-index 51dfb49523f3..5cbebcf26a2a 100644
---- a/drivers/spi/spi-pic32-sqi.c
-+++ b/drivers/spi/spi-pic32-sqi.c
-@@ -648,7 +648,7 @@ static int pic32_sqi_probe(struct platform_device *pdev)
- 	master->dev.of_node	= pdev->dev.of_node;
- 	master->mode_bits	= SPI_MODE_3 | SPI_MODE_0 | SPI_TX_DUAL |
- 				  SPI_RX_DUAL | SPI_TX_QUAD | SPI_RX_QUAD;
--	master->flags		= SPI_MASTER_HALF_DUPLEX;
-+	master->flags		= SPI_CONTROLLER_HALF_DUPLEX;
- 	master->can_dma		= pic32_sqi_can_dma;
- 	master->bits_per_word_mask	= SPI_BPW_RANGE_MASK(8, 32);
- 	master->transfer_one_message	= pic32_sqi_one_message;
-diff --git a/drivers/spi/spi-qcom-qspi.c b/drivers/spi/spi-qcom-qspi.c
-index a8a683d6145c..5a98c52bad32 100644
---- a/drivers/spi/spi-qcom-qspi.c
-+++ b/drivers/spi/spi-qcom-qspi.c
-@@ -724,7 +724,7 @@ static int qcom_qspi_probe(struct platform_device *pdev)
- 	master->mode_bits = SPI_MODE_0 |
- 			    SPI_TX_DUAL | SPI_RX_DUAL |
- 			    SPI_TX_QUAD | SPI_RX_QUAD;
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	master->prepare_message = qcom_qspi_prepare_message;
- 	master->transfer_one = qcom_qspi_transfer_one;
- 	master->handle_err = qcom_qspi_handle_err;
-diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
-index 583f4187f030..bd550e76ab3d 100644
---- a/drivers/spi/spi-rockchip-sfc.c
-+++ b/drivers/spi/spi-rockchip-sfc.c
-@@ -565,7 +565,7 @@ static int rockchip_sfc_probe(struct platform_device *pdev)
- 	if (!master)
- 		return -ENOMEM;
- 
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	master->mem_ops = &rockchip_sfc_mem_ops;
- 	master->dev.of_node = pdev->dev.of_node;
- 	master->mode_bits = SPI_TX_QUAD | SPI_TX_DUAL | SPI_RX_QUAD | SPI_RX_DUAL;
-diff --git a/drivers/spi/spi-sprd-adi.c b/drivers/spi/spi-sprd-adi.c
-index 22e39c4c12c4..94d16aadfa44 100644
---- a/drivers/spi/spi-sprd-adi.c
-+++ b/drivers/spi/spi-sprd-adi.c
-@@ -580,7 +580,7 @@ static int sprd_adi_probe(struct platform_device *pdev)
- 	ctlr->dev.of_node = pdev->dev.of_node;
- 	ctlr->bus_num = pdev->id;
- 	ctlr->num_chipselect = num_chipselect;
--	ctlr->flags = SPI_MASTER_HALF_DUPLEX;
-+	ctlr->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	ctlr->bits_per_word_mask = 0;
- 	ctlr->transfer_one = sprd_adi_transfer_one;
- 
-diff --git a/drivers/spi/spi-ti-qspi.c b/drivers/spi/spi-ti-qspi.c
-index 5914335ff63d..bf4b40289bee 100644
---- a/drivers/spi/spi-ti-qspi.c
-+++ b/drivers/spi/spi-ti-qspi.c
-@@ -770,7 +770,7 @@ static int ti_qspi_probe(struct platform_device *pdev)
- 
- 	master->mode_bits = SPI_CPOL | SPI_CPHA | SPI_RX_DUAL | SPI_RX_QUAD;
- 
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	master->setup = ti_qspi_setup;
- 	master->auto_runtime_pm = true;
- 	master->transfer_one_message = ti_qspi_start_transfer_one;
-diff --git a/drivers/spi/spi-xcomm.c b/drivers/spi/spi-xcomm.c
-index ae6218bcd02a..a3d57554f5ba 100644
---- a/drivers/spi/spi-xcomm.c
-+++ b/drivers/spi/spi-xcomm.c
-@@ -218,7 +218,7 @@ static int spi_xcomm_probe(struct i2c_client *i2c)
- 	master->num_chipselect = 16;
- 	master->mode_bits = SPI_CPHA | SPI_CPOL | SPI_3WIRE;
- 	master->bits_per_word_mask = SPI_BPW_MASK(8);
--	master->flags = SPI_MASTER_HALF_DUPLEX;
-+	master->flags = SPI_CONTROLLER_HALF_DUPLEX;
- 	master->transfer_one_message = spi_xcomm_transfer_one;
- 	master->dev.of_node = i2c->dev.of_node;
- 	i2c_set_clientdata(i2c, master);
--- 
-2.40.0.1.gaa8946217a0b
+Cheers,
+Samuel.
+
 
 
 _______________________________________________
