@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B943EB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 15:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D026CEB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 16:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=asWqYZR86BwkL/qY4iu0UDRhtxL8AENLxDv38iZjtI8=; b=cnAdwwJn7MZZ1D
-	cytqch9/yvljuP7axJvt3LJzz7gMdpLwONjDhAn/0xdsJJe5ieJIlOo5d6tV9c3KVp7ruQFtxG7RV
-	2ciLlqRCMy9QOPF95XkLvBDvVl4OHL+WECCyS60R/knxKdz3jgjpNlRVIb3MYjdlt9FXzThypIPQg
-	cexOl3hXNPm5H3Cwtgj+UoDqgAFUJJK+4/6qiGdwoXr3LN74uBKus7GjQhHIfPlo0EjfoL63iEawB
-	eRuECJ+Np3p4UCzWF8UqbMAV3wG/A11jTYbQXYWT3h79IUs1bTC4pW+XXFT8w40rT0wRS7ix37nvY
-	17nbwSgT6iccHLCZfATQ==;
+	List-Owner; bh=S9mR2mkRTxyQJIlAr7anifRvEn000JtdfWgUowzNMlY=; b=sZ85eiu6vvYVlJ
+	XF/ilB3cR+ku5yCNsdiamluCa8EwtjQQcM681jlrueo4OyyaKQgSBSWavD920L59Q+aRDug+wDj0n
+	yfwcHFS+3k7TPe24XX6721JdK4b6dSdrv7m4/v8tuQUT3XGgcGVWBtnJeFv1TJBRW+KyKYJbiUWLd
+	SuJdviO3exNZ9mcVj01V6fSQ6aphRvw12rLWkFR5iuPwsdoKxXXgXq3K7meBwfdBeub/0Rzebf/Vx
+	EYPr+qQ8bE1Mlw2+Ec/lkif5qlF0rMxsyMkl7ekQ++p2ZI3R2TUrEHlfpcDOk1e8q7sXH9xQu1Z5l
+	xIMZ8VRM6ijbcbg7GXTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJFgg-00FJel-1D;
-	Tue, 11 Jul 2023 15:54:02 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1qJGTT-00FQpP-26;
+	Tue, 11 Jul 2023 16:44:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJFgd-00FJdH-1g
+	id 1qJGTQ-00FQoH-22
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 15:54:00 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1b895a06484so29722465ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 08:53:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1689090836; x=1691682836;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/cNKZT0w/ttrTTuQnq2pupPxaZ8+d56ppimt6LWSmTY=;
-        b=I7NZ7oudXfX7DjTOHGibnmEqu5Y6r8jhwGNq5nuByp5Cm8CzCU+gBB6L8H3wfxEBLH
-         PCkIik1Ed0RTDeFUuIdLGcrQrp8GWBfKtwRkSFpJawxZhaTPedElAPQxXBeihxdL+vKe
-         wuwPQtwSgiId3KLkKrEBCOCzZMeONSlUH1xrY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689090836; x=1691682836;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/cNKZT0w/ttrTTuQnq2pupPxaZ8+d56ppimt6LWSmTY=;
-        b=YG/FUNuyRRn9O2hIN2prW3czaX20lCVFYqcR3t6eL1iJlnsqqJDFS9P0qH5GVrb/Hm
-         DQNhFPHoHDaSJs3H3TpqrJ7OgQ70EhdrCSBWdDNFFyBjo9+0izRZ8494MeQf+s14Vss3
-         VNZLoFUiJUuKOIOBSAH+aALx4GgChGqy42EV2X9jSEzxWxvgeVnfpCEDMwEUQgMTalS6
-         9vEL4m7CfK1WvHi0R2PaRwBANnObE0f6wPpyH2G/WR8R2wGGcK3agnAn8PPwOohcjw9o
-         J5587ca9cqTJgl3ccZYpdV8ULdX8eyq26tmPj0w9UacvBCS3Vr+olVEo1aMN3FhiGNU2
-         F36Q==
-X-Gm-Message-State: ABy/qLaBHI9p0YHJeUkSHab7WOGB51KohA3HXx8DZV/xExD252y9Pl0c
-	MvUFEWSw7Y8ZysZ+N8ekfs8lDg==
-X-Google-Smtp-Source: APBJJlEHiRUlipZEYAc51ylR+oPacMfWIOIrJlTW8swND/ECBm1TJ7EYHrvDwuWGBCO4tdrgDY7W6w==
-X-Received: by 2002:a17:902:c212:b0:1b8:5bb4:8230 with SMTP id 18-20020a170902c21200b001b85bb48230mr12101183pll.50.1689090836550;
-        Tue, 11 Jul 2023 08:53:56 -0700 (PDT)
-Received: from www.outflux.net (198-0-35-241-static.hfc.comcastbusiness.net. [198.0.35.241])
-        by smtp.gmail.com with ESMTPSA id i5-20020a1709026ac500b001b8918da8d1sm2100722plt.80.2023.07.11.08.53.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Jul 2023 08:53:56 -0700 (PDT)
-Date: Tue, 11 Jul 2023 08:53:55 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Greg Ungerer <gerg@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, palmer@dabbelt.com,
-	viro@zeniv.linux.org.uk, ebiederm@xmission.com, brauner@kernel.org
-Subject: Re: [PATCH v2 2/2] riscv: support the elf-fdpic binfmt loader
-Message-ID: <202307110852.E093C93F@keescook>
-References: <20230711130754.481209-1-gerg@kernel.org>
- <20230711130754.481209-3-gerg@kernel.org>
+	Tue, 11 Jul 2023 16:44:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 28BAD61561;
+	Tue, 11 Jul 2023 16:44:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE5EC433C9;
+	Tue, 11 Jul 2023 16:44:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689093863;
+	bh=adoK2M7+Iw3xoZDKLtXMLqYtn1O0kZbvZVoFdeAYFf4=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=tdSh7uqWFLHuZmtD8XxRzyFtsSP3JQ94pY6e4dpKC2uQopQZc8X2O/iCGToLP7/Nd
+	 y7kTcShrjtZ1466kFofnsefZd+Z5jM1T6CkdaJTVVuc4PcTnkrWLFIKyjaUeJ2ncqP
+	 sPtuwwgrMFy6Nf09HwNPdGu1Uv4wbLMw0RLCgRuweIr0eul67pwkW8dhz9U23usFro
+	 zS/ph8JpPpoIOQVsKeFEZjQhsNtEcSEYYSu9uA7w+hA13voWNt2aDDCX4WS6A/RoCB
+	 vQHmqYR3i78M4NQEHBlsLur7CVCCVBleKZU9/G0wq9W7zkVwamdhs8DrIMdAfLbpOK
+	 x1FfP8XtMbpig==
+From: Vinod Koul <vkoul@kernel.org>
+To: palmer@dabbelt.com, paul.walmsley@sifive.com, 
+ radhey.shyam.pandey@amd.com, dmaengine@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Zong Li <zong.li@sifive.com>
+In-Reply-To: <20230531090141.23546-1-zong.li@sifive.com>
+References: <20230531090141.23546-1-zong.li@sifive.com>
+Subject: Re: [PATCH v3] dmaengine: xilinx: dma: remove arch dependency
+Message-Id: <168909386029.208679.18311531305885032641.b4-ty@kernel.org>
+Date: Tue, 11 Jul 2023 22:14:20 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230711130754.481209-3-gerg@kernel.org>
+X-Mailer: b4 0.12.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_085359_574946_2C54D70B 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20230711_094424_713950_13640A0E 
+X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,29 +77,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 11, 2023 at 11:07:54PM +1000, Greg Ungerer wrote:
-> Add support for enabling and using the binfmt_elf_fdpic program loader
-> on RISC-V platforms. The most important change is to setup registers
-> during program load to pass the mapping addresses to the new process.
+
+On Wed, 31 May 2023 09:01:41 +0000, Zong Li wrote:
+> As following patches, xilinx dma is also now architecture agnostic,
+> and it can be compiled for several architectures. We have verified the
+> CDMA on RISC-V platform, let's remove the ARCH dependency list instead
+> of adding new ARCH.
 > 
-> One of the interesting features of the elf-fdpic loader is that it
-> also allows appropriately compiled ELF format binaries to be loaded on
-> nommu systems. Appropriate being those compiled with -pie.
+> To avoid breaking the s390 build, add a dependency on HAS_IOMEM.
 > 
-> Signed-off-by: Greg Ungerer <gerg@kernel.org>
+> [...]
 
-ELF stuff looks fine to me. If the RISC-V folks are happy with the rest,
-this looks good.
+Applied, thanks!
 
-Acked-by: Kees Cook <keescook@chromium.org>
+[1/1] dmaengine: xilinx: dma: remove arch dependency
+      commit: 9945a80fe40886f2d0655c0c3cdee95aaecafb87
 
-Please feel free to carry this in the RISC-V tree. If you'd rather it go
-via execve tree, please let me know. :)
-
--Kees
-
+Best regards,
 -- 
-Kees Cook
+~Vinod
+
+
 
 _______________________________________________
 linux-riscv mailing list
