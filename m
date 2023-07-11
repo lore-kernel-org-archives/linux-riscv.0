@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F07DEB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 13:05:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DEEEB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 13:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqLoLbJnmBcdPhG1c1rWFLSZkFjoK9R6J2pBbntu+fM=; b=RpgzWBtL3VnKt8L5t7RQ+OpN6l
-	ukcM+5M/w7Ll/A67MEv9m+77TEbBvTCt+tL9Cm9NU+GtD45ipWdJsx2OFrkZP6vPHV4qqkd1wj4w0
-	06/i1Tjvh8tu9wcwWH3t1Z45VBH9ynTHMdi6zW+j2GtknGaHSkG62VdwJfxc32Vq+CaM27/uBTjfA
-	Ao8QL1+17al8ELSfyErByc14/Cz5KxmJ8jOPEBjp0la2qe5uyVaOcDgsze3AozNBsghznaSTh+RFU
-	Y8381i+Js+vKHhrfk2EFlZDvadrhzIBdlmI8whWyRHv2bzEgXXFkg5NL40PdiLEvGB6JtJow03oy6
-	FZQXtyVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TmZIrsXSQbRrTTWxmfb2KTbzNHbQwW5efjlb26wir9Y=; b=OTRIiPRMcZLyYS
+	IVPirPPRVwPj0+ZY/BItGWVTcpWdFhbxpSaT7k/rSvW/0QCxkNN11sEcoprMKPp2UChsRx6eIBp+x
+	HdlD/Kdli1EzlFgMS+gELvxObHelO49AkG1hykGa9G11J5+maBivhDyoHzzkngV/QD6rwcw6VAqsE
+	uIYP7D2o8tsRRuhA4it++lSL4bj7XN3vfROpl/TBTl3q10/GAYVuz6hBn7qayYD2X6D7zBm2x+6m1
+	vRu0ComS9KEMI4NgufIv8vuqKPwuE2N+okShppGdsrq9TvpiFqneuVmVTbz9xdglhxqjxtJBV8oRp
+	SGa9Pv6scXAspUz4QwPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJD3h-00Ewuj-2m;
-	Tue, 11 Jul 2023 13:05:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qJD6X-00ExJQ-1u;
+	Tue, 11 Jul 2023 13:08:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJD3d-00Ewtd-35;
-	Tue, 11 Jul 2023 13:05:35 +0000
+	id 1qJD6U-00ExJ0-2E
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Jul 2023 13:08:32 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D5788614A9;
-	Tue, 11 Jul 2023 13:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE23AC433C8;
-	Tue, 11 Jul 2023 13:05:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B969C614AC;
+	Tue, 11 Jul 2023 13:08:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF0ECC433C8;
+	Tue, 11 Jul 2023 13:08:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689080732;
-	bh=HnVEva2jdOLXu3EN/cKYarAoyETVmcXrgG0CY9KCvZQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BO5Sf+xL4FaASSNsNdM5EGXByrv4WeTUxRBoPW2QNejIwlELvXTu5gKKqv4hkKhGg
-	 oi3ZfR9Shzo5QwnSHTFndf8ZIVkqpTClpssosTOBH6/4HIjVrlXO3KdynsW5+Pg7kp
-	 pbkKvKQx6ir3yg7CLJDoLHQzo0ewO66SzIeDifz9SCJzdBAZAn9RpEQzQEGNZHOmt+
-	 6tOI/PPlmxZBFom+gGGjOjy+qrSc5cI26iueLs1Gv6DR2sYD26rubxcFZS48+8Dw/G
-	 5SSyFU8wEM4MuZLWsQU4tXLcKI+0ehoZc3/OitBA10N/7/7vB38b2KMdMwG1AhcrlN
-	 +CUurb7ZrrwoQ==
-Date: Tue, 11 Jul 2023 14:05:18 +0100
-From: Mark Brown <broonie@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Yang Yingliang <yangyingliang@huawei.com>,
-	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
-	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	Sanjay R Mehta <sanju.mehta@amd.com>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>
-Subject: Re: [PATCH v2 04/15] spi: Replace open coded
- spi_controller_xfer_timeout()
-Message-ID: <e3688ce5-616a-4399-a4e3-c410a09f6a45@sirena.org.uk>
-References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
- <20230710154932.68377-5-andriy.shevchenko@linux.intel.com>
- <83c4b75a-06d7-9fca-ffa0-f2e6a6ae7aed@collabora.com>
+	s=k20201202; t=1689080909;
+	bh=LUcJB0cq3kg6328TLZnO/4L83pKi9KtIC1j5JsNOlE8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=gI8w4Ex9LIcrKsCI1HWYPC+akmsCgpovuc87W7bVuf9+xEyO7s29XnpujGm9IHQ/F
+	 iXg0ykha7MCPbDzVdvvbV3nWbggu5BQN/3V4lfJShrQ3bdP/vCEXsEdP60ZkBAz2yA
+	 wQO6Eic4WPZgm/ZcZH4rQNehffXS8kEMPfEciRznJpcz2UM/Fxo2moBLNF7gRBAjkK
+	 NNQ7dRYhscaMbYNU/KC+//Ef2M0GPHj/xRMBHClMCFMrxLnjN7W4bTWu9bIO8Flg64
+	 AZIqh6xIlgxowZWGKrnkyTNcXGXHyC65zCrrS0X+1PoSoGUDRaQmDXItO0JHdRqCyp
+	 +ML9YhD7XnYpw==
+From: Greg Ungerer <gerg@kernel.org>
+To: linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Cc: palmer@dabbelt.com,
+	viro@zeniv.linux.org.uk,
+	ebiederm@xmission.com,
+	keescook@chromium.org,
+	brauner@kernel.org,
+	Greg Ungerer <gerg@kernel.org>
+Subject: [PATCH v2 0/2] riscv: support ELF format binaries in nommu mode
+Date: Tue, 11 Jul 2023 23:07:52 +1000
+Message-Id: <20230711130754.481209-1-gerg@kernel.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-In-Reply-To: <83c4b75a-06d7-9fca-ffa0-f2e6a6ae7aed@collabora.com>
-X-Cookie: marriage, n.:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_060534_078845_E656CB8C 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20230711_060830_767194_41D25F86 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,64 +74,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6286193426485166231=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6286193426485166231==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="925w7TTgRoHZtFsT"
-Content-Disposition: inline
+The following changes add the ability to run ELF format binaries when
+running RISC-V in nommu mode. That support is actually part of the
+ELF-FDPIC loader, so these changes are all about making that work on
+RISC-V.
+
+The first issue to deal with is making the ELF-FDPIC loader capable of
+handling 64-bit ELF files. As coded right now it only supports 32-bit
+ELF files. 
+
+Secondly some changes are required to enable and compile the ELF-FDPIC
+loader on RISC-V and to pass the ELF-FDPIC mapping addresses through to
+user space when execing the new program.
+
+These changes have not been used to run actual ELF-FDPIC binaries.
+It is used to load and run normal ELF - compiled -pie format. Though the
+underlying changes are expected to work with full ELF-FDPIC binaries if
+or when that is supported on RISC-V in gcc.
+
+To avoid needing changes to the C-library (tested with uClibc-ng
+currently) there is a simple runtime dynamic loader (interpreter)
+available to do the final relocations, https://github.com/gregungerer/uldso.
+The nice thing about doing it this way is that the same program
+binary can also be loaded with the usual ELF loader in MMU linux.
+
+The motivation here is to provide an easy to use alternative to the
+flat format binaries normally used for RISC-V nommu based systems.
+
+Signed-off-by: Greg Ungerer <gerg@kernel.org>
+---
+v1->v2: rebase onto 6.5-rc1
+
+ arch/riscv/include/asm/elf.h         |   11 +++++++++-
+ arch/riscv/include/asm/mmu.h         |    4 +++
+ arch/riscv/include/uapi/asm/ptrace.h |    5 ++++
+ fs/Kconfig.binfmt                    |    2 -
+ fs/binfmt_elf_fdpic.c                |   38 +++++++++++++++++------------------
+ include/linux/elf-fdpic.h            |   14 +++++++++++-
+ include/uapi/linux/elf-fdpic.h       |   15 +++++++++++++
+ 7 files changed, 67 insertions(+), 22 deletions(-)
 
 
---925w7TTgRoHZtFsT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Tue, Jul 11, 2023 at 10:28:13AM +0200, AngeloGioacchino Del Regno wrote:
-> Il 10/07/23 17:49, Andy Shevchenko ha scritto:
-
-> > +		ms = spi_controller_xfer_timeout(ctlr, xfer);
-
-> I agree on using helpers, but the logic is slightly changing here: yes it is
-> unlikely (and also probably useless) to get ms == UINT_MAX, but the helper is
-> limiting the maximum timeout value to 500mS, which may not work for some slow
-> controllers/devices.
-
-The helper is limiting the *minimum* timeout value to 500ms - it's using
-max() not min().  The idea is the other way around, that for a very fast
-transfer we don't want to end up with such a short timeout that it false
-triggers due to scheduling issues.
-
---925w7TTgRoHZtFsT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmStU40ACgkQJNaLcl1U
-h9B+yQf+KBYXJ7506wC0Am0zY2LnPrpwi7/uhVWQsN9GzhBVU0RGwam2xuqmpCeo
-A3o92lqKSQPkQGllTlnuM3r4jp2qDy1/U/QJJxak+i/i8NjuVxIQQIKtnM/nRQxh
-yRpIp6WbVt+HJsdFgPS6j6r/3m1qS4eTbso7/ciwLzdRc2Yxk9SLXFteOErlAEoq
-hhR7VxhID4BE72a+1NbyuALEVGjSMYBdpddD//Qa1UsJVw1yK5HuM51CaQd9bTlo
-EtrmXMgaG9FB+lQeu2zedT6HTQQH/hOB77luYq4zGm849tw2sfBPIhqVgQtkkutv
-4hpXSMiuD+iL32PThXfathhu4xvFiQ==
-=l6sR
------END PGP SIGNATURE-----
-
---925w7TTgRoHZtFsT--
-
-
---===============6286193426485166231==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6286193426485166231==--
-
