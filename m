@@ -4,59 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C55EB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 17:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD704EB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 17:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dVzHJVFVV34P5na9CkEKqPSEUYDQf9ds2grXnWcv+yY=; b=qpA1vFFtx2teQ0
-	Ovc8Qq2Ua0Z+3tix8Qvi49uhGcGlrj4pAjhhBA3X8ie0nSPyzprJmBGiXbN6OUJGTnu/CD76CKsOu
-	05pcpMkiQFh+cYF5wWmjWPfsn4EXLJRNi4s0B6RyefkW1XC2mu78YYeSPnzVMhU/QBch2Ab7CIFgP
-	NPZIuHYrtHZPUS3coit/8uR6Kzu8cmabNsb3pgsXgBlLwpB2F6joKAecvY1KthIu0eZf9s7idwKZm
-	JoUNokjKmUNPVy8W4QTLFMYGrAiYLk+IsTeFRftT8rAcovXHRleCg1qLI9p+7xK/gVrHnoxI3s1j3
-	wFHeJS5f/dVgURNnRzPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wfagmb4OlF5p18UvI4l6L47AASsB8zdTmm95/dNy+O8=; b=VsA8Qg6NBYYBL3xLUqSHIaTVCO
+	TtGxkReH7WpMYdqwsUW5fbjLzKm8R3bjnlFlUOnGR2Wtp6uwHav9mSlJCm2HV/c65qP3U6CKyNQQD
+	58tIpOj1aErV+yALS6OQ4Jn5AqNfG8DqKpi8ZcJwXOThya7+/gppPJqsIskU7SdfJ6Gn3gm1Gx1YE
+	qHnsZjUZyoTRdgUwIP5D1GRLOARDbuanSwdnLggckFQWXimBBoh6t/wYbY48WuIPf5ShjMUGYmqqv
+	U/lyUTEUOGg7yk3V77SjsRXe+m58oxget8JMDSSQSmXbryMbmA5bDaFT5TxDZt93tbpq5Fdpc5xDc
+	il+zSDRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJHFP-00FYjy-1l;
-	Tue, 11 Jul 2023 17:33:59 +0000
-Received: from 17.mo584.mail-out.ovh.net ([46.105.41.16])
+	id 1qJHFb-00FYn9-2J;
+	Tue, 11 Jul 2023 17:34:11 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJHFM-00FYjS-0a
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 17:33:58 +0000
-Received: from director3.ghost.mail-out.ovh.net (unknown [10.108.4.132])
-	by mo584.mail-out.ovh.net (Postfix) with ESMTP id D5724270F0
-	for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 17:33:51 +0000 (UTC)
-Received: from ghost-submission-6684bf9d7b-l5klt (unknown [10.110.171.34])
-	by director3.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 602A01FD37;
-	Tue, 11 Jul 2023 17:33:51 +0000 (UTC)
-Received: from courmont.net ([37.59.142.107])
-	by ghost-submission-6684bf9d7b-l5klt with ESMTPSA
-	id WdOxEn+SrWTPKC4Auh2lqg
-	(envelope-from <remi@remlab.net>); Tue, 11 Jul 2023 17:33:51 +0000
-Authentication-Results: garm.ovh; auth=pass (GARM-107S001ecf9f6e3-4f29-4dc6-a688-e1e232be3982,
-                    BD5993DD31A8D185A8BDB9FDB50A3FED214DC06B) smtp.auth=postmaster@courmont.net
-X-OVh-ClientIp: 87.92.194.88
-From: =?ISO-8859-1?Q?R=E9mi?= Denis-Courmont <remi@remlab.net>
-To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 02/12] riscv: Add vector extension XOR implementation
-Date: Tue, 11 Jul 2023 20:33:50 +0300
-Message-ID: <2289969.yH7iMFiWxO@basile.remlab.net>
-Organization: Remlab
-In-Reply-To: <20230711153743.1970625-3-heiko@sntech.de>
-References: <20230711153743.1970625-1-heiko@sntech.de>
- <20230711153743.1970625-3-heiko@sntech.de>
+	id 1qJHFV-00FYlK-2j;
+	Tue, 11 Jul 2023 17:34:07 +0000
+Received: from mercury (dyndsl-091-248-213-212.ewe-ip-backbone.de [91.248.213.212])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 033A86606FD5;
+	Tue, 11 Jul 2023 18:34:04 +0100 (BST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1689096844;
+	bh=xTQ0mmZSKT6xaRW2cSSnwsyXZRn21W+fLOIKOFiv5HU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H4apaSnHRDvSkpSCkk+wyU65Ngqr9P5JyDBeie6RLPAeIF/a84cxGH59ddGSbX5qw
+	 63kfAbpaiUnhKnAjL7v46VWmzE4FkX9fEEyauEpMkG3DYbKmfvZvGjPGtA+xeI6swf
+	 kjXbLmO76/FOA8FnaeGqaVHoSCSKZ347Op8QNSbAV1AHFtd/woPULZ7cp0Xe7t6lvK
+	 j+oEiKCypr4OaNiLGZi4zRujwMiEhT9wkldDGMRFDyKdZJ0dEmjL8X+4AzL1KA1Sn6
+	 6BSpra8CwZ37kLECStDWmCD4Br675HzuR2KsJ6ZFQzDp7r6efy1uSO15+pqJdv0f+r
+	 Or4DZYoJuC/iQ==
+Received: by mercury (Postfix, from userid 1000)
+	id B8CBE106765E; Tue, 11 Jul 2023 19:34:01 +0200 (CEST)
+Date: Tue, 11 Jul 2023 19:34:01 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Mark Brown <broonie@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Yang Yingliang <yangyingliang@huawei.com>,
+	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
+	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	Sanjay R Mehta <sanju.mehta@amd.com>,
+	Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andy Gross <agross@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>
+Subject: Re: [PATCH v3 04/14] spi: Remove code duplication in
+ spi_add_device*()
+Message-ID: <20230711173401.kz7or6ucurhoe4er@mercury.elektranox.org>
+References: <20230711171756.86736-1-andriy.shevchenko@linux.intel.com>
+ <20230711171756.86736-5-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-X-Ovh-Tracer-Id: 10556156052126767579
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: 0
-X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedviedrfedtgdduudehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuqfggjfdpvefjgfevmfevgfenuceurghilhhouhhtmecuhedttdenucenucfjughrpefhvffufffkohgjfhgggfgtsehtqhertddttdejnecuhfhrohhmpeftrohmihcuffgvnhhishdqvehouhhrmhhonhhtuceorhgvmhhisehrvghmlhgrsgdrnhgvtheqnecuggftrfgrthhtvghrnheptdetleevudfgtdevleeuhfffgeehvdevieetvdektdegtdekvedvhfegkeehhfdunecuffhomhgrihhnpeigohhrrdhssgdprhgvmhhlrggsrdhnvghtnecukfhppeduvdejrddtrddtrddupdekjedrledvrdduleegrdekkedpfeejrdehledrudegvddruddtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduvdejrddtrddtrddupdhmrghilhhfrhhomhepoehrvghmihesrhgvmhhlrggsrdhnvghtqedpnhgspghrtghpthhtohepuddprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdfovfetjfhoshhtpehmohehkeegpdhmohguvgepshhmthhpohhuth
+In-Reply-To: <20230711171756.86736-5-andriy.shevchenko@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_103356_515658_14FE7311 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20230711_103406_166247_578D01A3 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,57 +117,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2214791537837579409=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGUgdGlpc3RhaW5hIDExLiBoZWluw6RrdXV0YSAyMDIzLCAxOC4zNy4zMyBFRVNUIEhlaWtvIFN0
-dWVibmVyIGEgw6ljcml0IDoKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9saWIveG9yLlMgYi9h
-cmNoL3Jpc2N2L2xpYi94b3IuUwo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAw
-MDAwMDAwLi4zYmMwNTllMTgxNzEKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvYXJjaC9yaXNjdi9s
-aWIveG9yLlMKPiBAQCAtMCwwICsxLDgxIEBACj4gKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVy
-OiBHUEwtMi4wLW9yLWxhdGVyICovCj4gKy8qCj4gKyAqIENvcHlyaWdodCAoQykgMjAyMSBTaUZp
-dmUKPiArICovCj4gKyNpbmNsdWRlIDxsaW51eC9saW5rYWdlLmg+Cj4gKyNpbmNsdWRlIDxhc20t
-Z2VuZXJpYy9leHBvcnQuaD4KPiArI2luY2x1ZGUgPGFzbS9hc20uaD4KPiArCj4gK0VOVFJZKHhv
-cl9yZWdzXzJfKQo+ICsJdnNldHZsaSBhMywgYTAsIGU4LCBtOCwgdGEsIG1hCgpBRkFJQ1QsIHNv
-IGZhciwgTGludXggb25seSB1c2VzIGB2c2V0dmxpYCB0byBzYXZlL3Jlc3RvcmUvZmx1c2ggdmVj
-dG9ycywgYW5kIAp0aGF0J3MsIG9mIGNvdXJzZSwgd2l0aCBMTVVMPTgsIHNvIHRoYXQncyBub3Qg
-cmVhbGx5IHRlbGxpbmcgbXVjaCBhbnl0aGluZy4gClRoaXMgZnVuY3Rpb24gY291bGQgYmUgdGhl
-IGZpcnN0IGFjdHVhbCB2ZWN0b3Igb3B0aW1pc2F0aW9uIGluIGtlcm5lbCBpZi93aGVuIAppdCBn
-ZXRzIG1lcmdlZC4KClNob3VsZCB0aGUgc2FtZSBncm91cCBtdWx0aXBsaWVyIGJlIHVzZWQgZm9y
-ICJhY3R1YWwiIHZlY3RvciBsb29wcyB0aHJvdWdob3V0IAp0aGUga2VybmVsPyBJJ3ZlIHNlZW4g
-Y29uZmxpY3RpbmcgYWR2aXNlcyBvciBvcGluaW9ucyBoZXJlLiBTaG91bGQga2VybmVsIGNvZGUg
-CmFsd2F5cyB1c2UgdGhlIG1heGltdW0gcG9zc2libGUgTE1VTCwgZGVwZW5kaW5nIG9uIHJlZ2lz
-dGVyIHByZXNzdXJlIG9mIHRoZSAKbG9vcD8gT3Igd2lsbCB0aGF0IGp1c3QgaW5jcmVhc2UgbGF0
-ZW5jeSB3aXRoIG5vIGJhbmR3aWR0aCBnYWlucyBjb21wYXJlZCB0bywgCnNheSwgTE1VTD0xIG9y
-IExNVUw9Mj8KCj4gKwl2bGU4LnYgdjAsIChhMSkKPiArCXZsZTgudiB2OCwgKGEyKQo+ICsJc3Vi
-IGEwLCBhMCwgYTMKPiArCXZ4b3IudnYgdjE2LCB2MCwgdjgKPiArCWFkZCBhMiwgYTIsIGEzCj4g
-Kwl2c2U4LnYgdjE2LCAoYTEpCj4gKwlhZGQgYTEsIGExLCBhMwo+ICsJYm5leiBhMCwgeG9yX3Jl
-Z3NfMl8KPiArCXJldAo+ICtFTkQoeG9yX3JlZ3NfMl8pCj4gK0VYUE9SVF9TWU1CT0woeG9yX3Jl
-Z3NfMl8pCj4gKwo+ICtFTlRSWSh4b3JfcmVnc18zXykKPiArCXZzZXR2bGkgYTQsIGEwLCBlOCwg
-bTgsIHRhLCBtYQo+ICsJdmxlOC52IHYwLCAoYTEpCj4gKwl2bGU4LnYgdjgsIChhMikKPiArCXN1
-YiBhMCwgYTAsIGE0Cj4gKwl2eG9yLnZ2IHYwLCB2MCwgdjgKPiArCXZsZTgudiB2MTYsIChhMykK
-PiArCWFkZCBhMiwgYTIsIGE0Cj4gKwl2eG9yLnZ2IHYxNiwgdjAsIHYxNgo+ICsJYWRkIGEzLCBh
-MywgYTQKPiArCXZzZTgudiB2MTYsIChhMSkKPiArCWFkZCBhMSwgYTEsIGE0Cj4gKwlibmV6IGEw
-LCB4b3JfcmVnc18zXwo+ICsJcmV0Cj4gK0VORCh4b3JfcmVnc18zXykKPiArRVhQT1JUX1NZTUJP
-TCh4b3JfcmVnc18zXykKPiArCj4gK0VOVFJZKHhvcl9yZWdzXzRfKQo+ICsJdnNldHZsaSBhNSwg
-YTAsIGU4LCBtOCwgdGEsIG1hCj4gKwl2bGU4LnYgdjAsIChhMSkKPiArCXZsZTgudiB2OCwgKGEy
-KQo+ICsJc3ViIGEwLCBhMCwgYTUKPiArCXZ4b3IudnYgdjAsIHYwLCB2OAo+ICsJdmxlOC52IHYx
-NiwgKGEzKQo+ICsJYWRkIGEyLCBhMiwgYTUKPiArCXZ4b3IudnYgdjAsIHYwLCB2MTYKPiArCXZs
-ZTgudiB2MjQsIChhNCkKPiArCWFkZCBhMywgYTMsIGE1Cj4gKwl2eG9yLnZ2IHYxNiwgdjAsIHYy
-NAo+ICsJYWRkIGE0LCBhNCwgYTUKPiArCXZzZTgudiB2MTYsIChhMSkKPiArCWFkZCBhMSwgYTEs
-IGE1Cj4gKwlibmV6IGEwLCB4b3JfcmVnc180Xwo+ICsJcmV0Cj4gK0VORCh4b3JfcmVnc180XykK
-PiArRVhQT1JUX1NZTUJPTCh4b3JfcmVnc180XykKPiArCj4gK0VOVFJZKHhvcl9yZWdzXzVfKQo+
-ICsJdnNldHZsaSBhNiwgYTAsIGU4LCBtOCwgdGEsIG1hCj4gKwl2bGU4LnYgdjAsIChhMSkKPiAr
-CXZsZTgudiB2OCwgKGEyKQo+ICsJc3ViIGEwLCBhMCwgYTYKPiArCXZ4b3IudnYgdjAsIHYwLCB2
-OAo+ICsJdmxlOC52IHYxNiwgKGEzKQo+ICsJYWRkIGEyLCBhMiwgYTYKPiArCXZ4b3IudnYgdjAs
-IHYwLCB2MTYKPiArCXZsZTgudiB2MjQsIChhNCkKPiArCWFkZCBhMywgYTMsIGE2Cj4gKwl2eG9y
-LnZ2IHYwLCB2MCwgdjI0Cj4gKwl2bGU4LnYgdjgsIChhNSkKPiArCWFkZCBhNCwgYTQsIGE2Cj4g
-Kwl2eG9yLnZ2IHYxNiwgdjAsIHY4Cj4gKwlhZGQgYTUsIGE1LCBhNgo+ICsJdnNlOC52IHYxNiwg
-KGExKQo+ICsJYWRkIGExLCBhMSwgYTYKPiArCWJuZXogYTAsIHhvcl9yZWdzXzVfCj4gKwlyZXQK
-PiArRU5EKHhvcl9yZWdzXzVfKQo+ICtFWFBPUlRfU1lNQk9MKHhvcl9yZWdzXzVfKQoKCi0tIArj
-g6zjg5/jg7vjg4fjg4st44Kv44O844Or44Oi44OzCmh0dHA6Ly93d3cucmVtbGFiLm5ldC8KCgoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============2214791537837579409==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="nr4764lrwkknwz4l"
+Content-Disposition: inline
+
+
+--nr4764lrwkknwz4l
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+On Tue, Jul 11, 2023 at 08:17:46PM +0300, Andy Shevchenko wrote:
+> The commit 0c79378c0199 ("spi: add ancillary device support")
+> added a dozen of duplicating lines of code. We may move them
+> to the __spi_add_device(). Note, that the code may be called
+> under the mutex.
+>=20
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+
+-- Sebastian
+
+> ---
+>  drivers/spi/spi.c | 32 ++++++++++----------------------
+>  1 file changed, 10 insertions(+), 22 deletions(-)
+>=20
+> diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+> index 6d74218cf38e..876d40d2c708 100644
+> --- a/drivers/spi/spi.c
+> +++ b/drivers/spi/spi.c
+> @@ -631,6 +631,16 @@ static int __spi_add_device(struct spi_device *spi)
+>  	struct device *dev =3D ctlr->dev.parent;
+>  	int status;
+> =20
+> +	/* Chipselects are numbered 0..max; validate. */
+> +	if (spi_get_chipselect(spi, 0) >=3D ctlr->num_chipselect) {
+> +		dev_err(dev, "cs%d >=3D max %d\n", spi_get_chipselect(spi, 0),
+> +			ctlr->num_chipselect);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Set the bus ID string */
+> +	spi_dev_set_name(spi);
+> +
+>  	/*
+>  	 * We need to make sure there's no other device with this
+>  	 * chipselect **BEFORE** we call setup(), else we'll trash
+> @@ -689,19 +699,8 @@ static int __spi_add_device(struct spi_device *spi)
+>  int spi_add_device(struct spi_device *spi)
+>  {
+>  	struct spi_controller *ctlr =3D spi->controller;
+> -	struct device *dev =3D ctlr->dev.parent;
+>  	int status;
+> =20
+> -	/* Chipselects are numbered 0..max; validate. */
+> -	if (spi_get_chipselect(spi, 0) >=3D ctlr->num_chipselect) {
+> -		dev_err(dev, "cs%d >=3D max %d\n", spi_get_chipselect(spi, 0),
+> -			ctlr->num_chipselect);
+> -		return -EINVAL;
+> -	}
+> -
+> -	/* Set the bus ID string */
+> -	spi_dev_set_name(spi);
+> -
+>  	mutex_lock(&ctlr->add_lock);
+>  	status =3D __spi_add_device(spi);
+>  	mutex_unlock(&ctlr->add_lock);
+> @@ -712,17 +711,6 @@ EXPORT_SYMBOL_GPL(spi_add_device);
+>  static int spi_add_device_locked(struct spi_device *spi)
+>  {
+>  	struct spi_controller *ctlr =3D spi->controller;
+> -	struct device *dev =3D ctlr->dev.parent;
+> -
+> -	/* Chipselects are numbered 0..max; validate. */
+> -	if (spi_get_chipselect(spi, 0) >=3D ctlr->num_chipselect) {
+> -		dev_err(dev, "cs%d >=3D max %d\n", spi_get_chipselect(spi, 0),
+> -			ctlr->num_chipselect);
+> -		return -EINVAL;
+> -	}
+> -
+> -	/* Set the bus ID string */
+> -	spi_dev_set_name(spi);
+> =20
+>  	WARN_ON(!mutex_is_locked(&ctlr->add_lock));
+>  	return __spi_add_device(spi);
+> --=20
+> 2.40.0.1.gaa8946217a0b
+>=20
+
+--nr4764lrwkknwz4l
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmStkn4ACgkQ2O7X88g7
++pormhAAnK4ipkeSKHu0xl8agX+r1Ks97iOFEMGG8+gzX4xY/hXNKVPfgpoWdNZa
+rN+CMPEFa2M5kKdm7v6s7wv2A/R0bRMIwUrHhMxAVBKQSNlp47s2N/PBkCgghK7x
+dOCmH/DDN17c1ODn8FJUD/WO5p1/grLRg1mUoNQvVqLVz7jQBx+oOZxG1Fm2e5pb
+suAySbAqDtYVper0iqZhu1BwDjFxj7l/+kXhJWt+mtgFq1shfCwdfK+gm9Z1hJ4B
+kDa1PZSzlIbs8znfYFu8n7gPJIN/nplWGmWgFAbwex3GxdZbSrO58X4m2B0fooFg
+xQ3w3b710ONolovhZktxkx7nibXjJiVFQwgS7BPRquCjCEok5jNmuyVJmu9Pud0s
+nRDWYic0TKErHny9NYCTwdJQX5ZkDIV9QpjVyp5FR7e/ylT8chmX1LwnsKZSd91j
+TN9+lh3yU6BjbjopIAFAhP5BvYeYMI2tvbXpCC3iiqGno53AZUyP5dXBupB/zri7
+bwN6fXNXsuVX0JJH3CHCm13ZK9IFY8GHGqLJBUulYVyaXSLOimXhi/l6bkkhvzxN
+IKpuSWUPTxAVu9q5LxsOWS45GXR0oWiiKL7tOcaX1yJypn+5lKy+4yStvF0cER9d
+NdLreesrYaGS2zSH4qIA7m8dd2oaqPtYCa1VHzxRfLcNsnyCoXY=
+=zPs/
+-----END PGP SIGNATURE-----
+
+--nr4764lrwkknwz4l--
+
+
+--===============2214791537837579409==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2214791537837579409==--
+
