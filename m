@@ -4,121 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FFBEB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 15:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FE5EB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 15:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y3ee6/qrbfIREeLbTeksbQiADGRhuZk5FVKBGdiqMMs=; b=DFEpdmqjKP8tcP
-	AZiWLlVc5KS7kt+zOqaC3hmBTadF4S8fOQ/B9VOjUG58mu/YRZW45WCIvrOeZ7Y9mLkuPmKG+iylf
-	i8kfWhnWzv8DPPOj62OAIrAwq4yXDcKh2VSqYzCK78IvGTDMA0P4ooFP34QsPmFi2KcBm3+G4MBo8
-	6fSUHVQuC4ME22WcLbf0DvcZJHg/UDHfyUQ8MnhwNoEIsBUFMgQSHarfTbpkPgfZj4/rz7q61eRcE
-	xBP+8IG35zDddO//FvKrxMNNGsFgG8vi3DP5Mh36YPiLnX9I/8TOCyRFj4Re9s8kMTxQgQbposa9M
-	Prgduf4E8PR74i+roxhA==;
+	List-Owner; bh=WPhoi6jMPsbUuC6me+nD0kJNvcyPeOKu68YUrmnSowE=; b=yLHpaD0y3nXm6G
+	o1XrY6yqdU+2MuSOfby7t4bzQeGFN518M2rBvdIgAptcfhvVWPjVcp6NXaFMMEooEIHhpvqYVfuMQ
+	b4a483CxgZO1vXjKA6mA1Uio7N4aHnSNE/WZ9w3NLa0/RrDsfNjLzzxtDeQIwB3+7vMLsOqIeQ4bQ
+	0Ojb7NKnpvPtmSa8LEk5FY1OmbWoSmxhTI9pUJwvNvVCFi6fx+/llgRlBcVK691dMyezVoNaWd4LC
+	4DyobUZJcNfYvTUDQIPe4OUaRE55M5EQ9UBsmS3+TygYJnLG913M9uOiMrpq9iQ0KYlABs43dAvxW
+	7GslYuOiWGRie/IFeTvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJFJu-00FFAl-0d;
-	Tue, 11 Jul 2023 15:30:30 +0000
-Received: from mga06b.intel.com ([134.134.136.31] helo=mga06.intel.com)
+	id 1qJFR7-00FGUU-2i;
+	Tue, 11 Jul 2023 15:37:57 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJFJp-00FF9l-1Z;
-	Tue, 11 Jul 2023 15:30:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1689089425; x=1720625425;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WtKHEzd9TLb1fy9g0AvI3P/4wH5wHUCXn6+ARbR9U1s=;
-  b=aHxo5lO7I6QXKDu21IKBmaPDi2NgG7KY6pKiYlC1+OWTU78g09sLyIIJ
-   l5EBtZXT0YeOo299LtdFjOBIe877c68fj4/DuYtWr3XzSdab7GNp1adrL
-   exFiVp8c07t5VJDEooQRglnSmL5M2BF60OwjKwxLkRsXYHPZCMjAc1HBh
-   3cdnLR+vTNLcTQ5befzZO5lHnehqUxs+ESazcfJQdDjhDXAutjP+gB56w
-   t6WtsP9xwvlCqed3Mt92ziGsFhYK2mRpezGaAMRjzwvDljjaQ1iAuu1vL
-   E6Q7buJNTgmY9tH+bDS5yRI94Sh8JjKUPtMHz1N3c8CKoGIfOaaSzc/9x
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10768"; a="428346801"
-X-IronPort-AV: E=Sophos;i="6.01,196,1684825200"; 
-   d="scan'208";a="428346801"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2023 08:30:23 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10768"; a="698462660"
-X-IronPort-AV: E=Sophos;i="6.01,196,1684825200"; 
-   d="scan'208";a="698462660"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by orsmga006.jf.intel.com with ESMTP; 11 Jul 2023 08:30:10 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1qJFJX-001swf-0G;
-	Tue, 11 Jul 2023 18:30:07 +0300
-Date: Tue, 11 Jul 2023 18:30:06 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Yang Yingliang <yangyingliang@huawei.com>,
-	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
-	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	Sanjay R Mehta <sanju.mehta@amd.com>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>
-Subject: Re: [PATCH v2 04/15] spi: Replace open coded
- spi_controller_xfer_timeout()
-Message-ID: <ZK11flZf/1grJ1Bd@smile.fi.intel.com>
-References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
- <20230710154932.68377-5-andriy.shevchenko@linux.intel.com>
- <cfaffa00-4b61-4d81-8675-70295844513b@sirena.org.uk>
- <ZK02efTYxV3czigr@smile.fi.intel.com>
- <5959b123-09e3-474b-9ab0-68d71cfdd9a2@sirena.org.uk>
+	id 1qJFR3-00FGR6-38
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Jul 2023 15:37:55 +0000
+Received: from i53875a50.versanet.de ([83.135.90.80] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1qJFQy-0000g0-G2; Tue, 11 Jul 2023 17:37:48 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Cc: aou@eecs.berkeley.edu,
+	heiko@sntech.de,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	conor.dooley@microchip.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	christoph.muellner@vrull.eu,
+	ebiggers@kernel.org,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: [PATCH v4 03/12] RISC-V: add helper function to read the vector VLEN
+Date: Tue, 11 Jul 2023 17:37:34 +0200
+Message-Id: <20230711153743.1970625-4-heiko@sntech.de>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20230711153743.1970625-1-heiko@sntech.de>
+References: <20230711153743.1970625-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5959b123-09e3-474b-9ab0-68d71cfdd9a2@sirena.org.uk>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_083025_580459_BBCCD057 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20230711_083754_016067_9F94A64C 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,35 +72,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 11, 2023 at 03:14:54PM +0100, Mark Brown wrote:
-> On Tue, Jul 11, 2023 at 02:01:13PM +0300, Andy Shevchenko wrote:
-> > On Mon, Jul 10, 2023 at 06:30:32PM +0100, Mark Brown wrote:
-> > > On Mon, Jul 10, 2023 at 06:49:21PM +0300, Andy Shevchenko wrote:
-> 
-> > > > + * Assume speed to be 100 kHz if it's not defined at the time of invocation.
-> 
-> > > You didn't mention this bit in the changelog, and I'm not 100% convinced
-> > > it was the best idea in the first place.  It's going to result in some
-> > > very big timeouts if it goes off, and we really should be doing
-> > > validation much earlier in the process.
-> 
-> > Okay, let's drop this change.
-> 
-> Like I say we *should* be fine with the refactoring without this, or at
-> least if it's an issue we should improve the validation.
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-For the speeds < 1000 Hz, this change will lead to the div by 0 crash.
-It seems that the current code which this one removes is better than
-the spi_controller_xfer_timeout() provides.
+VLEN describes the length of each vector register and some instructions
+need specific minimal VLENs to work correctly.
 
-If anything, the spi_controller_xfer_timeout() should be improved first.
-So, for now I drop this for sure. Maybe in the future we can come back
-to it.
+The vector code already includes a variable riscv_vsize that contains the
+value of "32 vector registers with vlenb length" that gets filled during
+boot. vlenb is the value contained in the CSR_VLENB register and
+the value represents "VLEN / 8".
 
+So add riscv_vector_vlen() to return the actual VLEN value for in-kernel
+users when they need to check the available VLEN.
+
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/include/asm/vector.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index ac2c23045eec..88cf76a2316d 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -232,4 +232,15 @@ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
+ 
+ #endif /* CONFIG_RISCV_ISA_V */
+ 
++/*
++ * Return the implementation's vlen value.
++ *
++ * riscv_vsize contains the value of "32 vector registers with vlenb length"
++ * so rebuild the vlen value in bits from it.
++ */
++static inline int riscv_vector_vlen(void)
++{
++	return riscv_v_vsize / 32 * 8;
++}
++
+ #endif /* ! __ASM_RISCV_VECTOR_H */
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.39.2
 
 
 _______________________________________________
