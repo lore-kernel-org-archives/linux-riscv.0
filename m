@@ -4,58 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96BF1EB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 22:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F50EB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 22:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BmfY2Gdhuesw37+mFb4dAi6Dnn7EjB/vmSgA3S3ROQ0=; b=W2eXops1BjD5SGGb5DcX4o74Yo
-	5fyLHbRp5oGVjJSbqB9BP0nkVmK/Q7Kw+mRuSLKCljwMZC2nut8QwAVtUR0kTR8dYnQqq41qmWsNq
-	2QkNWbOfVTXwdcN6uf0yNMN0EsukrEbRcw1qQH7Rtr41ifD4eFyLhJV/b44rnzYXVqZ9xBGrVcR8y
-	OVrbVtvqT++h0j9OJUG+l71OqhEC56DKJxhZ26+4mv3WpdUgyrpiE7IHy70iOKoCkOa+IT0XokcvZ
-	AwHBAizCCcg6OE6aDbXwQBbekXf9IT+Kq+NadjUnSBcPrVMI/Do/xbCwk4LC9lkFHkQR01YcBqfVL
-	Dsdio6hA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zKyoVdxtgT7SfQO3DAF89lVhYoGEc0xJDJgn1QV36FU=; b=Mk4zgVCawNsD3T
+	1wVBRVihQPeYA1apNx285uau9qNPsM7+6oXA9HSS6Nl3aHsDr7Z9kkkn7Delva8qycUIMEmnGAtrY
+	E7Wy2mme0yBwxjItFCDsknD06p8GVtp3UKyWf8lTF/QXTh0y4vKkAZQ4QPDXi3SgsDyiJQVLgFRob
+	yVGOjE5DvqIww1k0MZJFlc9TArDprpd9AWHgHd20AA+WAoUfhz79I1yU9JRxyPMLkUfR96Oz4iYeP
+	4oVngELY6wkJdKKNK8xRFCuYef9N9oGsdmfUbw0ZEpHRjAIPYEazxYDim2JiWyRFCIt1ER0vQVJmX
+	gYzdfAC4nqLcOLGtgtoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJMED-00G1SV-20;
-	Tue, 11 Jul 2023 22:53:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qJMEX-00G1UQ-25;
+	Tue, 11 Jul 2023 22:53:25 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJMEA-00G1S4-2t
+	id 1qJMEU-00G1To-1l
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 22:53:04 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B0CC2615F4;
-	Tue, 11 Jul 2023 22:53:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24A61C433C8;
-	Tue, 11 Jul 2023 22:52:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689115980;
-	bh=VHdFIq+SW8gZEm6SJctrHJ5/TSSkyzbus8jPIeeXyzc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m5I6Kv8Jnvqgio8y+HMLYe2qz1nNcgUZvbwoXBCnfaWDHhboAGDlMnsEHZPCpeS05
-	 pMw6gPywC4cc16ep01GzvxgbwhUQgucg6O39SXzRIXXbVUfcX/cAr2mce7MWayBaTM
-	 kFFphtCqkJMYh0u99iO8iPwEqI/FtflOablrGtK6Xzju2Q/DDPfgUrDZdYM5qHhaUY
-	 NTaqfFKGRsosWq0i3v545ft5Yf8KoWX2926iB8MGO36q2fKfl9CDxufb6hlRMi7vqc
-	 vFcEH6soptrweqiXHpNRiTYxLcFSnGDdTxPvCrdwtbqbXXocvTg4zpKrRcXdA/s41L
-	 4ckVJVmTh6KBA==
-Date: Tue, 11 Jul 2023 23:52:56 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH] RISC-V: Don't include Zicsr or Zifencei in I from ACPI
-Message-ID: <20230711-slideshow-plaza-4ceaa37f6c00@spud>
-References: <20230711224600.10879-1-palmer@rivosinc.com>
+	Tue, 11 Jul 2023 22:53:23 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-666e6541c98so5668773b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 15:53:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689116001; x=1691708001;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=QwQpJzgOUtDm0Mu+AsWoTryCpdZUtLIqv4DVHt8QxO4=;
+        b=z8OmnTr0seCS26jvOPONBDjhlxJTZYePUhOFpMD0l5VMa3ErlifqcJ4QaapybuHXkt
+         JnK0MktPO569YHoUhsD8H7qud2qebEfQpVsUqQnLcj/OZoiw/JXajoEiy9rmOXcW3CZk
+         lZ/zoNt4HwMip8aZUm87KsjPhegzRscHZQ17VSNh/vHt1GbaGPYdelRmugrcWFLCxje1
+         2q8bNRvWn2vHQaj0bXeRfk44RLjyabxkjzoHy+H1zHcRtUewurb2SDNZfuMGibbb1++2
+         MVmP9QiJkf7sbTPh54r+wsU1yTT7jCbMKVOCxT4U1xvyqGS/4PDpAB9m9xc9/wgQt4Pr
+         eSzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689116001; x=1691708001;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QwQpJzgOUtDm0Mu+AsWoTryCpdZUtLIqv4DVHt8QxO4=;
+        b=iCsbg+V1Gus7kCzQFqOUwHxWFWrkQuzZLe7dZIYUnhdq6kmAhALtsVs4rOSxSK+65V
+         oc+qyzngpcNdgotZxRB2Cgm5eATP4fVGxKaVYnNt2k57n7aEHtdD8uPbTdxDw74pMYbg
+         aI96Mq8IVKag6bHgl9JxXRGfdvcDl0yn0iV/ljWlvxyTCDc13PF2VsaxvZIW1kHnTEr+
+         iYysXguasFOmcotWyUSlkCL78IJJPFqS6bHn0M7bdUdyzM69Qp3GxAgk+cdzA3da55/q
+         joLcVoN2j7IV359jpm/rXLQENrsYfLJqhtFSVCmIRJz9ZTgn5eRb/jsNlYGG33exq5L+
+         8u7A==
+X-Gm-Message-State: ABy/qLYaK6vOIhsaWSfEVraeeer6bRdixyoFsPCicdjCpcXUPSGScLmh
+	YjCu5gfWpQnPzmL2kvDkPveyCoD2zM2E4fj8HUw=
+X-Google-Smtp-Source: APBJJlHpt3AxdwD8vqEhRMiXiTRwfVDLLIQ4wgIZMwTDewDv/hdFpdAz//llB0udmZbexy4ztwb1fQ==
+X-Received: by 2002:a05:6a00:39a9:b0:667:e17e:85b7 with SMTP id fi41-20020a056a0039a900b00667e17e85b7mr20232495pfb.1.1689116000734;
+        Tue, 11 Jul 2023 15:53:20 -0700 (PDT)
+Received: from localhost ([50.38.6.230])
+        by smtp.gmail.com with ESMTPSA id x13-20020aa784cd000000b00682a61fa525sm2280872pfn.91.2023.07.11.15.53.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Jul 2023 15:53:20 -0700 (PDT)
+Subject: [PATCH] dt-bindings: RISC-V: Re-word the I extension binding
+Date: Tue, 11 Jul 2023 15:52:12 -0700
+Message-Id: <20230711225212.11542-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-In-Reply-To: <20230711224600.10879-1-palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org,            devicetree@vger.kernel.org,
+  Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_155303_047592_56E54900 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20230711_155322_587093_A83B5BC3 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,109 +84,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============6460639820355581464=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+I'd argue this changes the definition of the I binding, as there was
+more than just the counters that got split out (CSRs and fence.i at
+least).  We haven't released these bindings yet, so IIUC it's OK to
+change the definition still.
 
---===============6460639820355581464==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="EpgXFXdc1xhpMk5M"
-Content-Disposition: inline
+I think this matches the original intent, or at least what the
+implementation does.
 
+Fixes: aeb71e42caae ("dt-bindings: riscv: deprecate riscv,isa")
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+ .../devicetree/bindings/riscv/extensions.yaml        | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
 
---EpgXFXdc1xhpMk5M
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index cc1f546fdbdc..31ec244bd32f 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -67,13 +67,11 @@ properties:
+       anyOf:
+         # single letter extensions, in canonical order
+         - const: i
+-          description: |
+-            The base integer instruction set, as ratified in the 20191213
+-            version of the unprivileged ISA specification.
+-
+-            This does not include Chapter 10, "Counters", which was moved into
+-            the Zicntr and Zihpm extensions after the ratification of the
+-            20191213 version of the unprivileged specification.
++          description:
++            The base integer instruction set, as specified by the 2.2
++            version of the unprivileged ISA specification, formally known as
++            the user-level ISA.  This definition of I includes various
++            extensions that were later split out.
+ 
+         - const: m
+           description:
+-- 
+2.40.1
 
-On Tue, Jul 11, 2023 at 03:46:00PM -0700, Palmer Dabbelt wrote:
-> ACPI ISA strings are based on a specification after Zicsr and Zifencei
-> were split out of I, so we shouldn't be treating them as part of I.  We
-> haven't release an ACPI-based kernel yet, so we don't need to worry
-> about compatibility with the old ISA strings.
->=20
-> Fixes: 396c018332a1 ("RISC-V: cpufeature: Add ACPI support in riscv_fill_=
-hwcap()")
-
-I think, if anything, this is actually:
-Fixes: 07edc32779e3 ("RISC-V: always report presence of extensions formerly=
- part of the base ISA")
-
-Although my rationale was that if we get as far as here, then Zicsr and
-Zifencei are going to be enabled anyway so there is no harm in setting
-it for both. I probably should have been less of a cute hoor though.
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Cheers,
-Conor.
-
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  arch/riscv/kernel/cpufeature.c | 9 ++-------
->  1 file changed, 2 insertions(+), 7 deletions(-)
->=20
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index bdcf460ea53d..a8f66c015229 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -317,19 +317,14 @@ void __init riscv_fill_hwcap(void)
->  #undef SET_ISA_EXT_MAP
->  		}
-> =20
-> -		/*
-> -		 * Linux requires the following extensions, so we may as well
-> -		 * always set them.
-> -		 */
-> -		set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
-> -		set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
-> -
->  		/*
->  		 * These ones were as they were part of the base ISA when the
->  		 * port & dt-bindings were upstreamed, and so can be set
->  		 * unconditionally where `i` is in riscv,isa on DT systems.
->  		 */
->  		if (acpi_disabled) {
-> +			set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
-> +			set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
->  			set_bit(RISCV_ISA_EXT_ZICNTR, isainfo->isa);
->  			set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
->  		}
-> --=20
-> 2.40.1
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---EpgXFXdc1xhpMk5M
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK3dSAAKCRB4tDGHoIJi
-0jeuAQCxEeVNdDOolHW0/YyR+5G6rR0cwe2qNyDyibjz8lzlrQD/SSPEDx+KiDVJ
-VxbhhUUdS77awYlyg7yc3V68mTvxWgM=
-=7eNX
------END PGP SIGNATURE-----
-
---EpgXFXdc1xhpMk5M--
-
-
---===============6460639820355581464==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6460639820355581464==--
-
