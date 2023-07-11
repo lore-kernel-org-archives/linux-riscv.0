@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FE5EB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 15:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10A9C0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 15:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WPhoi6jMPsbUuC6me+nD0kJNvcyPeOKu68YUrmnSowE=; b=yLHpaD0y3nXm6G
-	o1XrY6yqdU+2MuSOfby7t4bzQeGFN518M2rBvdIgAptcfhvVWPjVcp6NXaFMMEooEIHhpvqYVfuMQ
-	b4a483CxgZO1vXjKA6mA1Uio7N4aHnSNE/WZ9w3NLa0/RrDsfNjLzzxtDeQIwB3+7vMLsOqIeQ4bQ
-	0Ojb7NKnpvPtmSa8LEk5FY1OmbWoSmxhTI9pUJwvNvVCFi6fx+/llgRlBcVK691dMyezVoNaWd4LC
-	4DyobUZJcNfYvTUDQIPe4OUaRE55M5EQ9UBsmS3+TygYJnLG913M9uOiMrpq9iQ0KYlABs43dAvxW
-	7GslYuOiWGRie/IFeTvw==;
+	List-Owner; bh=iiC5rj+3H7uTwr8uFQIkEudRDLml5JzmiqrVSbxklrE=; b=pzuxSeT8pURjyA
+	sQtl+6m5/NIOUPDgrexl+5pbVyPbRPANUcLSC7c4tcLHRE4s3kOcNgrC6GogxdaZ/Z2xIMYhIrj17
+	XE+aMXf1TfjCwBHPBuYC7ACH89ceIqMMR9A0Q9OR0BZwyEpjn3+MrVFBS8w9gaIdraYysGHC8P529
+	F3EVOzOA8QGjjf22UsKiD1lMNWE9wHFtIfPe8GwT4veaTcZxx5qaaiBGrTUweHHxhWhSgs0mZ23hK
+	vM2H61SSC34bqmHjI4pXXzM9j49/KzynVkhAS5waLz7CseOPLLTmq2DYbq5GFUZdFlVueXlMZ1Tw8
+	EFqZw6RhlN07i+IHID1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJFR7-00FGUU-2i;
-	Tue, 11 Jul 2023 15:37:57 +0000
+	id 1qJFR9-00FGVA-1x;
+	Tue, 11 Jul 2023 15:37:59 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJFR3-00FGR6-38
+	id 1qJFR3-00FGR8-38
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 15:37:55 +0000
+	Tue, 11 Jul 2023 15:37:56 +0000
 Received: from i53875a50.versanet.de ([83.135.90.80] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1qJFQy-0000g0-G2; Tue, 11 Jul 2023 17:37:48 +0200
+	id 1qJFQx-0000g0-T5; Tue, 11 Jul 2023 17:37:47 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	paul.walmsley@sifive.com
@@ -45,17 +45,19 @@ Cc: aou@eecs.berkeley.edu,
 	linux-crypto@vger.kernel.org,
 	christoph.muellner@vrull.eu,
 	ebiggers@kernel.org,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Han-Kuan Chen <hankuan.chen@sifive.com>,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH v4 03/12] RISC-V: add helper function to read the vector VLEN
-Date: Tue, 11 Jul 2023 17:37:34 +0200
-Message-Id: <20230711153743.1970625-4-heiko@sntech.de>
+Subject: [PATCH v4 02/12] riscv: Add vector extension XOR implementation
+Date: Tue, 11 Jul 2023 17:37:33 +0200
+Message-Id: <20230711153743.1970625-3-heiko@sntech.de>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230711153743.1970625-1-heiko@sntech.de>
 References: <20230711153743.1970625-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_083754_016067_9F94A64C 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20230711_083754_012694_EA836B9D 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,44 +74,207 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+From: Greentime Hu <greentime.hu@sifive.com>
 
-VLEN describes the length of each vector register and some instructions
-need specific minimal VLENs to work correctly.
+This patch adds support for vector optimized XOR and it is tested in
+qemu.
 
-The vector code already includes a variable riscv_vsize that contains the
-value of "32 vector registers with vlenb length" that gets filled during
-boot. vlenb is the value contained in the CSR_VLENB register and
-the value represents "VLEN / 8".
-
-So add riscv_vector_vlen() to return the actual VLEN value for in-kernel
-users when they need to check the available VLEN.
-
+Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/include/asm/vector.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/riscv/include/asm/xor.h | 82 ++++++++++++++++++++++++++++++++++++
+ arch/riscv/lib/Makefile      |  1 +
+ arch/riscv/lib/xor.S         | 81 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 164 insertions(+)
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/lib/xor.S
 
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index ac2c23045eec..88cf76a2316d 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -232,4 +232,15 @@ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
- 
- #endif /* CONFIG_RISCV_ISA_V */
- 
+diff --git a/arch/riscv/include/asm/xor.h b/arch/riscv/include/asm/xor.h
+new file mode 100644
+index 000000000000..74867c7fd955
+--- /dev/null
++++ b/arch/riscv/include/asm/xor.h
+@@ -0,0 +1,82 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
-+ * Return the implementation's vlen value.
-+ *
-+ * riscv_vsize contains the value of "32 vector registers with vlenb length"
-+ * so rebuild the vlen value in bits from it.
++ * Copyright (C) 2021 SiFive
 + */
-+static inline int riscv_vector_vlen(void)
++
++#include <linux/hardirq.h>
++#include <asm-generic/xor.h>
++#ifdef CONFIG_VECTOR
++#include <asm/vector.h>
++#include <asm/switch_to.h>
++
++void xor_regs_2_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2);
++void xor_regs_3_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3);
++void xor_regs_4_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3,
++		 const unsigned long *__restrict p4);
++void xor_regs_5_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3,
++		 const unsigned long *__restrict p4,
++		 const unsigned long *__restrict p5);
++
++static void xor_rvv_2(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2)
 +{
-+	return riscv_v_vsize / 32 * 8;
++	kernel_rvv_begin();
++	xor_regs_2_(bytes, p1, p2);
++	kernel_rvv_end();
 +}
 +
- #endif /* ! __ASM_RISCV_VECTOR_H */
++static void xor_rvv_3(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2,
++		      const unsigned long *__restrict p3)
++{
++	kernel_rvv_begin();
++	xor_regs_3_(bytes, p1, p2, p3);
++	kernel_rvv_end();
++}
++
++static void xor_rvv_4(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2,
++		      const unsigned long *__restrict p3,
++		      const unsigned long *__restrict p4)
++{
++	kernel_rvv_begin();
++	xor_regs_4_(bytes, p1, p2, p3, p4);
++	kernel_rvv_end();
++}
++
++static void xor_rvv_5(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2,
++		      const unsigned long *__restrict p3,
++		      const unsigned long *__restrict p4,
++		      const unsigned long *__restrict p5)
++{
++	kernel_rvv_begin();
++	xor_regs_5_(bytes, p1, p2, p3, p4, p5);
++	kernel_rvv_end();
++}
++
++static struct xor_block_template xor_block_rvv = {
++	.name = "rvv",
++	.do_2 = xor_rvv_2,
++	.do_3 = xor_rvv_3,
++	.do_4 = xor_rvv_4,
++	.do_5 = xor_rvv_5
++};
++
++#undef XOR_TRY_TEMPLATES
++#define XOR_TRY_TEMPLATES           \
++	do {        \
++		xor_speed(&xor_block_8regs);    \
++		xor_speed(&xor_block_32regs);    \
++		if (has_vector()) { \
++			xor_speed(&xor_block_rvv);\
++		} \
++	} while (0)
++#endif
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 26cb2502ecf8..3164112680f1 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -11,3 +11,4 @@ lib-$(CONFIG_64BIT)	+= tishift.o
+ lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
+ 
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
++lib-$(CONFIG_VECTOR)	+= xor.o
+diff --git a/arch/riscv/lib/xor.S b/arch/riscv/lib/xor.S
+new file mode 100644
+index 000000000000..3bc059e18171
+--- /dev/null
++++ b/arch/riscv/lib/xor.S
+@@ -0,0 +1,81 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2021 SiFive
++ */
++#include <linux/linkage.h>
++#include <asm-generic/export.h>
++#include <asm/asm.h>
++
++ENTRY(xor_regs_2_)
++	vsetvli a3, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a3
++	vxor.vv v16, v0, v8
++	add a2, a2, a3
++	vse8.v v16, (a1)
++	add a1, a1, a3
++	bnez a0, xor_regs_2_
++	ret
++END(xor_regs_2_)
++EXPORT_SYMBOL(xor_regs_2_)
++
++ENTRY(xor_regs_3_)
++	vsetvli a4, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a4
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a4
++	vxor.vv v16, v0, v16
++	add a3, a3, a4
++	vse8.v v16, (a1)
++	add a1, a1, a4
++	bnez a0, xor_regs_3_
++	ret
++END(xor_regs_3_)
++EXPORT_SYMBOL(xor_regs_3_)
++
++ENTRY(xor_regs_4_)
++	vsetvli a5, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a5
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a5
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a5
++	vxor.vv v16, v0, v24
++	add a4, a4, a5
++	vse8.v v16, (a1)
++	add a1, a1, a5
++	bnez a0, xor_regs_4_
++	ret
++END(xor_regs_4_)
++EXPORT_SYMBOL(xor_regs_4_)
++
++ENTRY(xor_regs_5_)
++	vsetvli a6, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a6
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a6
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a6
++	vxor.vv v0, v0, v24
++	vle8.v v8, (a5)
++	add a4, a4, a6
++	vxor.vv v16, v0, v8
++	add a5, a5, a6
++	vse8.v v16, (a1)
++	add a1, a1, a6
++	bnez a0, xor_regs_5_
++	ret
++END(xor_regs_5_)
++EXPORT_SYMBOL(xor_regs_5_)
 -- 
 2.39.2
 
