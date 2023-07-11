@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA9DEEB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 15:38:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06BBBEB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 15:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dv0/Uxr3z/4lBXh/gSsXv3k/pVCKlNr8vGLEgc7z7jM=; b=uJyS6A0E+YghbG
-	UlS6U/LBu88FAo0WR/XxGO2X5WnyZB4k+xqOg+k2PwUn3KH5yMu04erXeW0ztpcZ10XY3n4qpRifn
-	aq4za0f31EFlaK9GhB2G3QoYxljEAIQggJzMEtzSSOlXoAFn8aFLF07hU2foLLrVldzwAUn6bqxym
-	epnXHI/HKj1RrIMkfoTABjXF2pQDWS1jlxjLwZFe96dP0AXgJdUaZOszaIPwFNrMtLvQdlpr3dxDt
-	I/JY+vMkFnxF773VPAK0t1J0Ivqq95o/yfEn2xubopSTDf/wfNJA7i5EJICBQrczCW6uuHXpxfGNy
-	5sqtbt3CllRDn/bOXkYg==;
+	List-Owner; bh=bXPnzkeAYJJfQcFtQUs7PTkPCnjYdttgrpPeAymMifg=; b=CyylZfSo63+PLn
+	Nrj3xlVrGA5SBCqn9QqZaY/S3iw4GQL2wEhZveocK8nshbJ0wReGHlCfPrd99mMVHWVRpA3QEgkaY
+	eOkmuWMP2RHbZ54aOAetYMwN3U7Ds3Lx5IleTUNYNcZuT102i5tgwotx+OJ9xlZ3PMY0azYWn4yn6
+	CBC04wgsqyQK5sOVZaihWtSmg9eYBc+OZJbhPas/hXQCOVOcxvCho7UlLkdaibxDW9/mpAWmTuEEL
+	EQ8qg6RY8AVqFbQeljGlRkUkD1HfTZ0sO6YG8ZZoCDgQwip628oQDI3Vz50IjEESdnmdHRy0FT4kL
+	Eimo37VUAzn2o6YWeGzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJFRA-00FGVZ-0p;
-	Tue, 11 Jul 2023 15:38:00 +0000
+	id 1qJFRB-00FGWh-2H;
+	Tue, 11 Jul 2023 15:38:01 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJFR3-00FGR9-38
+	id 1qJFR3-00FGR5-38
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 15:37:56 +0000
+	Tue, 11 Jul 2023 15:37:57 +0000
 Received: from i53875a50.versanet.de ([83.135.90.80] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1qJFQz-0000g0-33; Tue, 11 Jul 2023 17:37:49 +0200
+	id 1qJFQx-0000g0-8A; Tue, 11 Jul 2023 17:37:47 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	paul.walmsley@sifive.com
@@ -45,17 +45,19 @@ Cc: aou@eecs.berkeley.edu,
 	linux-crypto@vger.kernel.org,
 	christoph.muellner@vrull.eu,
 	ebiggers@kernel.org,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Vincent Chen <vincent.chen@sifive.com>,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH v4 04/12] RISC-V: add vector crypto extension detection
-Date: Tue, 11 Jul 2023 17:37:35 +0200
-Message-Id: <20230711153743.1970625-5-heiko@sntech.de>
+Subject: [PATCH v4 01/12] riscv: Add support for kernel mode vector
+Date: Tue, 11 Jul 2023 17:37:32 +0200
+Message-Id: <20230711153743.1970625-2-heiko@sntech.de>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230711153743.1970625-1-heiko@sntech.de>
 References: <20230711153743.1970625-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_083754_048779_4F385008 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20230711_083754_026960_4263BD91 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,127 +74,202 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+From: Greentime Hu <greentime.hu@sifive.com>
 
-Add detection for some extensions of the vector-crypto specification:
-- Zvkb: Vector Bit-manipulation used in Cryptography
-- Zvkg: Vector GCM/GMAC
-- Zvknha and Zvknhb: NIST Algorithm Suite
-- Zvkns: AES-128, AES-256 Single Round Suite
-- Zvksed: ShangMi Algorithm Suite
-- Zvksh: ShangMi Algorithm Suite
+Add kernel_rvv_begin() and kernel_rvv_end() function declarations
+and corresponding definitions in kernel_mode_vector.c
 
-As their use is very specific and will likely be limited to special places
-we expect current code to just pre-encode those instructions, so right now
-we don't introduce toolchain requirements.
+These are needed to wrap uses of vector in kernel mode.
 
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/include/asm/hwcap.h |  9 ++++++
- arch/riscv/kernel/cpu.c        |  8 ++++++
- arch/riscv/kernel/cpufeature.c | 50 ++++++++++++++++++++++++++++++++++
- 3 files changed, 67 insertions(+)
+ arch/riscv/include/asm/vector.h        |  17 ++++
+ arch/riscv/kernel/Makefile             |   1 +
+ arch/riscv/kernel/kernel_mode_vector.c | 132 +++++++++++++++++++++++++
+ 3 files changed, 150 insertions(+)
+ create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index b80ca6e77088..0f5172fa87b0 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -64,6 +64,15 @@
- #define RISCV_ISA_EXT_ZKSED		51
- #define RISCV_ISA_EXT_ZKSH		52
- #define RISCV_ISA_EXT_ZKT		53
-+#define RISCV_ISA_EXT_ZVBB		54
-+#define RISCV_ISA_EXT_ZVBC		55
-+#define RISCV_ISA_EXT_ZVKG		56
-+#define RISCV_ISA_EXT_ZVKNED		57
-+#define RISCV_ISA_EXT_ZVKNHA		58
-+#define RISCV_ISA_EXT_ZVKNHB		59
-+#define RISCV_ISA_EXT_ZVKSED		60
-+#define RISCV_ISA_EXT_ZVKSH		61
-+#define RISCV_ISA_EXT_ZVKT		62
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index 3d78930cab51..ac2c23045eec 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -196,6 +196,23 @@ static inline void __switch_to_vector(struct task_struct *prev,
+ void riscv_v_vstate_ctrl_init(struct task_struct *tsk);
+ bool riscv_v_vstate_ctrl_user_allowed(void);
  
- #define RISCV_ISA_EXT_MAX		64
- #define RISCV_ISA_EXT_NAME_LEN_MAX	32
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 10524322a4c0..925241e25db2 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -227,6 +227,14 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
- 	__RISCV_ISA_EXT_DATA(zksed, RISCV_ISA_EXT_ZKSED),
- 	__RISCV_ISA_EXT_DATA(zksh, RISCV_ISA_EXT_ZKSH),
- 	__RISCV_ISA_EXT_DATA(zkt, RISCV_ISA_EXT_ZKT),
-+	__RISCV_ISA_EXT_DATA(zvbb, RISCV_ISA_EXT_ZVBB),
-+	__RISCV_ISA_EXT_DATA(zvbc, RISCV_ISA_EXT_ZVBC),
-+	__RISCV_ISA_EXT_DATA(zvkg, RISCV_ISA_EXT_ZVKG),
-+	__RISCV_ISA_EXT_DATA(zvkned, RISCV_ISA_EXT_ZVKNED),
-+	__RISCV_ISA_EXT_DATA(zvknha, RISCV_ISA_EXT_ZVKNHA),
-+	__RISCV_ISA_EXT_DATA(zvknhb, RISCV_ISA_EXT_ZVKNHB),
-+	__RISCV_ISA_EXT_DATA(zvksed, RISCV_ISA_EXT_ZVKSED),
-+	__RISCV_ISA_EXT_DATA(zvksh, RISCV_ISA_EXT_ZVKSH),
- 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
- 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 9a872a2007a5..13556fd16bf6 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -343,6 +343,56 @@ void __init riscv_fill_hwcap(void)
- 				SET_ISA_EXT_MAP("zksh", RISCV_ISA_EXT_ZKSH);
- 				SET_ISA_EXT_MAP("zkr", RISCV_ISA_EXT_ZKR);
- 				SET_ISA_EXT_MAP("zkt", RISCV_ISA_EXT_ZKT);
-+				SET_ISA_EXT_MAP("zvbb", RISCV_ISA_EXT_ZVBB);
-+				SET_ISA_EXT_MAP("zvbc", RISCV_ISA_EXT_ZVBC);
-+				SET_ISA_EXT_MAP("zvkg", RISCV_ISA_EXT_ZVKG);
-+				SET_ISA_EXT_MAP("zvkned", RISCV_ISA_EXT_ZVKNED);
-+				SET_ISA_EXT_MAP("zvknha", RISCV_ISA_EXT_ZVKNHA);
-+				SET_ISA_EXT_MAP("zvknhb", RISCV_ISA_EXT_ZVKNHB);
-+				SET_ISA_EXT_MAP("zvksed", RISCV_ISA_EXT_ZVKSED);
-+				SET_ISA_EXT_MAP("zvksh", RISCV_ISA_EXT_ZVKSH);
-+				SET_ISA_EXT_MAP("zvkt", RISCV_ISA_EXT_ZVKT);
++static inline void riscv_v_flush_cpu_state(void)
++{
++	asm volatile (
++		".option push\n\t"
++		".option arch, +v\n\t"
++		"vsetvli	t0, x0, e8, m8, ta, ma\n\t"
++		"vmv.v.i	v0, 0\n\t"
++		"vmv.v.i	v8, 0\n\t"
++		"vmv.v.i	v16, 0\n\t"
++		"vmv.v.i	v24, 0\n\t"
++		".option pop\n\t"
++		: : : "t0");
++}
 +
-+				/* NIST Algorithm Suite */
-+				SET_ISA_EXT_MAP("zvkn", RISCV_ISA_EXT_ZVKNED);
-+				SET_ISA_EXT_MAP("zvkn", RISCV_ISA_EXT_ZVKNHB);
-+				SET_ISA_EXT_MAP("zvkn", RISCV_ISA_EXT_ZVBB);
-+				SET_ISA_EXT_MAP("zvkn", RISCV_ISA_EXT_ZVKT);
++void kernel_rvv_begin(void);
++void kernel_rvv_end(void);
 +
-+				/* NIST Algorithm Suite with carryless multiply */
-+				SET_ISA_EXT_MAP("zvknc", RISCV_ISA_EXT_ZVKNED);
-+				SET_ISA_EXT_MAP("zvknc", RISCV_ISA_EXT_ZVKNHB);
-+				SET_ISA_EXT_MAP("zvknc", RISCV_ISA_EXT_ZVBB);
-+				SET_ISA_EXT_MAP("zvknc", RISCV_ISA_EXT_ZVKT);
-+				SET_ISA_EXT_MAP("zvknc", RISCV_ISA_EXT_ZVBC);
+ #else /* ! CONFIG_RISCV_ISA_V  */
+ 
+ struct pt_regs;
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 506cc4a9a45a..3f4435746af7 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -61,6 +61,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
+ obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
+ obj-$(CONFIG_FPU)		+= fpu.o
+ obj-$(CONFIG_RISCV_ISA_V)	+= vector.o
++obj-$(CONFIG_RISCV_ISA_V)	+= kernel_mode_vector.o
+ obj-$(CONFIG_SMP)		+= smpboot.o
+ obj-$(CONFIG_SMP)		+= smp.o
+ obj-$(CONFIG_SMP)		+= cpu_ops.o
+diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
+new file mode 100644
+index 000000000000..2d704190c054
+--- /dev/null
++++ b/arch/riscv/kernel/kernel_mode_vector.c
+@@ -0,0 +1,132 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2012 ARM Ltd.
++ * Author: Catalin Marinas <catalin.marinas@arm.com>
++ * Copyright (C) 2017 Linaro Ltd. <ard.biesheuvel@linaro.org>
++ * Copyright (C) 2021 SiFive
++ */
++#include <linux/compiler.h>
++#include <linux/irqflags.h>
++#include <linux/percpu.h>
++#include <linux/preempt.h>
++#include <linux/types.h>
 +
-+				/* NIST Algorithm Suite with GCM */
-+				SET_ISA_EXT_MAP("zvkng", RISCV_ISA_EXT_ZVKNED);
-+				SET_ISA_EXT_MAP("zvkng", RISCV_ISA_EXT_ZVKNHB);
-+				SET_ISA_EXT_MAP("zvkng", RISCV_ISA_EXT_ZVBB);
-+				SET_ISA_EXT_MAP("zvkng", RISCV_ISA_EXT_ZVKT);
-+				SET_ISA_EXT_MAP("zvkng", RISCV_ISA_EXT_ZVKG);
++#include <asm/vector.h>
++#include <asm/switch_to.h>
 +
-+				/*  ShangMi Algorithm Suite */
-+				SET_ISA_EXT_MAP("zvks", RISCV_ISA_EXT_ZVKSED);
-+				SET_ISA_EXT_MAP("zvks", RISCV_ISA_EXT_ZVKSH);
-+				SET_ISA_EXT_MAP("zvks", RISCV_ISA_EXT_ZVBB);
-+				SET_ISA_EXT_MAP("zvks", RISCV_ISA_EXT_ZVKT);
++DECLARE_PER_CPU(bool, vector_context_busy);
++DEFINE_PER_CPU(bool, vector_context_busy);
 +
-+				/* ShangMi Algorithm Suite with carryless multiply */
-+				SET_ISA_EXT_MAP("zvksc", RISCV_ISA_EXT_ZVKSED);
-+				SET_ISA_EXT_MAP("zvksc", RISCV_ISA_EXT_ZVKSH);
-+				SET_ISA_EXT_MAP("zvksc", RISCV_ISA_EXT_ZVBB);
-+				SET_ISA_EXT_MAP("zvksc", RISCV_ISA_EXT_ZVKT);
-+				SET_ISA_EXT_MAP("zvksc", RISCV_ISA_EXT_ZVBC);
++/*
++ * may_use_vector - whether it is allowable at this time to issue vector
++ *                instructions or access the vector register file
++ *
++ * Callers must not assume that the result remains true beyond the next
++ * preempt_enable() or return from softirq context.
++ */
++static __must_check inline bool may_use_vector(void)
++{
++	/*
++	 * vector_context_busy is only set while preemption is disabled,
++	 * and is clear whenever preemption is enabled. Since
++	 * this_cpu_read() is atomic w.r.t. preemption, vector_context_busy
++	 * cannot change under our feet -- if it's set we cannot be
++	 * migrated, and if it's clear we cannot be migrated to a CPU
++	 * where it is set.
++	 */
++	return !in_irq() && !irqs_disabled() && !in_nmi() &&
++	       !this_cpu_read(vector_context_busy);
++}
 +
-+				/* ShangMi Algorithm Suite with GCM */
-+				SET_ISA_EXT_MAP("zvksg", RISCV_ISA_EXT_ZVKSED);
-+				SET_ISA_EXT_MAP("zvksg", RISCV_ISA_EXT_ZVKSH);
-+				SET_ISA_EXT_MAP("zvksg", RISCV_ISA_EXT_ZVBB);
-+				SET_ISA_EXT_MAP("zvksg", RISCV_ISA_EXT_ZVKT);
-+				SET_ISA_EXT_MAP("zvksg", RISCV_ISA_EXT_ZVKG);
++/*
++ * Claim ownership of the CPU vector context for use by the calling context.
++ *
++ * The caller may freely manipulate the vector context metadata until
++ * put_cpu_vector_context() is called.
++ */
++static void get_cpu_vector_context(void)
++{
++	bool busy;
 +
- 			}
- #undef SET_ISA_EXT_MAP
- 		}
++	preempt_disable();
++	busy = __this_cpu_xchg(vector_context_busy, true);
++
++	WARN_ON(busy);
++}
++
++/*
++ * Release the CPU vector context.
++ *
++ * Must be called from a context in which get_cpu_vector_context() was
++ * previously called, with no call to put_cpu_vector_context() in the
++ * meantime.
++ */
++static void put_cpu_vector_context(void)
++{
++	bool busy = __this_cpu_xchg(vector_context_busy, false);
++
++	WARN_ON(!busy);
++	preempt_enable();
++}
++
++/*
++ * kernel_rvv_begin(): obtain the CPU vector registers for use by the calling
++ * context
++ *
++ * Must not be called unless may_use_vector() returns true.
++ * Task context in the vector registers is saved back to memory as necessary.
++ *
++ * A matching call to kernel_rvv_end() must be made before returning from the
++ * calling context.
++ *
++ * The caller may freely use the vector registers until kernel_rvv_end() is
++ * called.
++ */
++void kernel_rvv_begin(void)
++{
++	if (WARN_ON(!has_vector()))
++		return;
++
++	WARN_ON(!may_use_vector());
++
++	/* Acquire kernel mode vector */
++	get_cpu_vector_context();
++
++	/* Save vector state, if any */
++	riscv_v_vstate_save(current, task_pt_regs(current));
++
++	/* Enable vector */
++	riscv_v_enable();
++
++	/* Invalidate vector regs */
++	riscv_v_flush_cpu_state();
++}
++EXPORT_SYMBOL_GPL(kernel_rvv_begin);
++
++/*
++ * kernel_rvv_end(): give the CPU vector registers back to the current task
++ *
++ * Must be called from a context in which kernel_rvv_begin() was previously
++ * called, with no call to kernel_rvv_end() in the meantime.
++ *
++ * The caller must not use the vector registers after this function is called,
++ * unless kernel_rvv_begin() is called again in the meantime.
++ */
++void kernel_rvv_end(void)
++{
++	if (WARN_ON(!has_vector()))
++		return;
++
++	/* Invalidate vector regs */
++	riscv_v_flush_cpu_state();
++
++	/* Restore vector state, if any */
++	riscv_v_vstate_restore(current, task_pt_regs(current));
++
++	/* disable vector */
++	riscv_v_disable();
++
++	/* release kernel mode vector */
++	put_cpu_vector_context();
++}
++EXPORT_SYMBOL_GPL(kernel_rvv_end);
 -- 
 2.39.2
 
