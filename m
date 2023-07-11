@@ -4,76 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CC89EB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 14:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30ED9C001DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 14:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r4KO/PX3reSt31LF8nT5Wmz59IPhe4AykbWSB15iSVQ=; b=spcPLE/298elE3
-	nhs8wafGK/KIw/3aT91X01/T+6wlHP7rhRqDhC2OGLC/aiWs7ThLJ0LVZxxXyeN8YMh8APBxE0Smw
-	6StL46EUAeHnjzsaBAb8HoRDki2pv+WtA02cbQozu0v2F4TavzhlzQNausSB7MBrrbXgWb6ICQ93T
-	RFWR6e/+Ah+4kj3cugD0qZZfSqO9o7e5sQEcMxpJhGS56RSwHDFNLv5ON1/i1flD3EGFO09HWBqA/
-	qImGId4aVEECouCYxRWDup9t1E2aWmyA5B69pzSlDw6McPyEVJGUnSESCYqzbqNyzB90dhP35b8pf
-	ABsVy420Fx5ds+X576Jg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QWbTTRIrvXGXSuzRrPRLz6OZ2S7v7G73qSZJfr3um0k=; b=N6+jQ3XkP/aBS1yKwV6f2wLejA
+	TCyLCQKd0nZ75a7rBRfqGWCbulvSBtN+UrmMZ+Dv92z0aj1DVPh0mvD3YToBK30o3qWY6lTuiGcaA
+	bvBh0h6TU52VHqJ/o8SEVbRaumlKnFEw0QMOIZfHztjKp8jLJp0iuQhybNRCtgMiUfa6zCRGfW59N
+	i775Wu2McyKCP4/ARLmSTeCH3Z2mD0SaNzgKCDCO2BON0F+7eAkRKMaHrscKClWrSpgKQXvJ+fI1h
+	gNO0o59TbzNlj6qnh1e2DT3ENTHf8bT+EJmAYSKQmp/a5rG130VYQlqizAa1sSCJ/tiQR2ncGbrsW
+	+Ap0pRkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJE6T-00F55C-1T;
-	Tue, 11 Jul 2023 14:12:33 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1qJE93-00F5al-2Y;
+	Tue, 11 Jul 2023 14:15:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJE6Q-00F53x-1s
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 14:12:31 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-31441dfbf97so6515736f8f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 07:12:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1689084748; x=1691676748;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kfD1QKdUUlCP07+roOoFywxk5muRqmFooE0qd5aLBns=;
-        b=Kt9VufYvB/j33LbCFZgmXbkZGy73eeJnSwJU6p4I6FPhIWqWc/XSW9TCpHoNIlP8rV
-         OTYAZr32mXwnI6z3yyXxO3bpKIrZwF4CJPrTbU2HTgCOTL8WMBFfMHVQkP+g87VqCPXM
-         qfcuNn4l4ev0h26GQGWG3Mj1Xjeoo7InCIXUFEca6NR+P2cDr5X8/3eeI8WqJoWAg2TN
-         iFQSJqpzrhAGrQ2tebTqq7MlT5APaAGqd1W+pXzuOdgmFeQ6Ka8F9I90N6QOuceU/gy6
-         pk6Xn9jWWHFGkTJ+GvzoQk6r/PRePEf4t7JPhZchGETRjvERS3nflezo9XljrQUBYOa2
-         thgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689084748; x=1691676748;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kfD1QKdUUlCP07+roOoFywxk5muRqmFooE0qd5aLBns=;
-        b=G4G4teDdq17Ll3Fr05HgKm2prsoa0U9Qg2WZnQi/3uU+s0Vf760fhuFYAvmxjU2tf/
-         DLTmftwJe6HxgEMAWJonp/cESPfBlPaDwHXxJqh7hVeOn8Zvenm5AVH4frUFw2ATe2Yc
-         XgSLlVvkPcuDmAjnFlzZ7LpM33HBI4IMWF5uiVKveu4yhTs0jXSb5Ce1sFaUc6joSN8E
-         MT4GrgMK5qjYzwdL52tMeHRbsIaJs0lgX6IrXbQNfiWODLJJTDuxPNoN6IM2gQl5HEGc
-         xSUJPnnDFha2xgthAhxls2HY3FFFb7h8Gfkfe3byDD2s+wko6aPhBrx3K/FIuvjjaMyj
-         QK6w==
-X-Gm-Message-State: ABy/qLY4b48ZFt7pGRwQGQPSQwWH6ozDj+gWewC7+Q5oFeiHvGmwQcpK
-	4jxTXlt/BPtHhFKQmM1IMauYKA==
-X-Google-Smtp-Source: APBJJlHdpMDer9jq8C+08J0C6lUJOUhXFT5I8NKyZycrI5aqDIXOSH3usMO5vCEWntD4j587cS4rRw==
-X-Received: by 2002:adf:db04:0:b0:313:ee73:cc9a with SMTP id s4-20020adfdb04000000b00313ee73cc9amr13524583wri.70.1689084747658;
-        Tue, 11 Jul 2023 07:12:27 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id o18-20020adfe812000000b00314417f5272sm2354907wrm.64.2023.07.11.07.12.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Jul 2023 07:12:27 -0700 (PDT)
-Date: Tue, 11 Jul 2023 16:12:26 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v5 2/9] irqchip/riscv-intc: Add support for RISC-V AIA
-Message-ID: <20230711-df9211fcae3b67948896b77f@orel>
-References: <20230710094321.1378351-1-apatel@ventanamicro.com>
- <20230710094321.1378351-3-apatel@ventanamicro.com>
+	id 1qJE8z-00F5ZO-0c;
+	Tue, 11 Jul 2023 14:15:10 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 77C8D61360;
+	Tue, 11 Jul 2023 14:15:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 209CBC433C9;
+	Tue, 11 Jul 2023 14:14:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689084907;
+	bh=A+lgFSqWg8vRgir1XqFzY9nIE1Cw0dwqFBu8P2BdZBc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KwXQpO0JwJwS2tync5AfGpO9HXb9u4mgZfpWRxyxjmWV7o23oHa66oSgLBUqWen2D
+	 ZlOHsSEyXpzrsEeWWEmLhLLitAzI15911I18ub63ARZldiwGDK6EeLi3B34Qy+IEG4
+	 waxyA6VmnpE80hBohYtayTpWfyRhiz5yBCu2xfPCie7wDB1OJGO5pfFeIe7TmhLaf6
+	 2F7TtEpspxDmIAOKWfQt4n5/QaTo60Dymh5zBKNq1hnkXPOMFNsHXFu721qfrAekf9
+	 KAql0ORVXuf2YxOmwhPq6tE1iNaCTZM61qgKsPoZvWs0hppRNFtMcBrTT4RcCr66z6
+	 VpMXSzxRgleHw==
+Date: Tue, 11 Jul 2023 15:14:54 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Yang Yingliang <yangyingliang@huawei.com>,
+	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
+	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	Sanjay R Mehta <sanju.mehta@amd.com>,
+	Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andy Gross <agross@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>
+Subject: Re: [PATCH v2 04/15] spi: Replace open coded
+ spi_controller_xfer_timeout()
+Message-ID: <5959b123-09e3-474b-9ab0-68d71cfdd9a2@sirena.org.uk>
+References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
+ <20230710154932.68377-5-andriy.shevchenko@linux.intel.com>
+ <cfaffa00-4b61-4d81-8675-70295844513b@sirena.org.uk>
+ <ZK02efTYxV3czigr@smile.fi.intel.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230710094321.1378351-3-apatel@ventanamicro.com>
+In-Reply-To: <ZK02efTYxV3czigr@smile.fi.intel.com>
+X-Cookie: marriage, n.:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_071230_621844_64C7668F 
-X-CRM114-Status: GOOD (  26.98  )
+X-CRM114-CacheID: sfid-20230711_071509_312756_2EC12027 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,152 +118,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9085570207822533395=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 10, 2023 at 03:13:14PM +0530, Anup Patel wrote:
-> The RISC-V advanced interrupt architecture (AIA) extends the per-HART
-> local interrupts in following ways:
-> 1. Minimum 64 local interrupts for both RV32 and RV64
-> 2. Ability to process multiple pending local interrupts in same
->    interrupt handler
-> 3. Priority configuration for each local interrupts
-> 4. Special CSRs to configure/access the per-HART MSI controller
 
-afaict, we're only doing (1) and (2) from this list in this patch.
-
-> 
-> This patch adds support for RISC-V AIA in the RISC-V intc driver.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  drivers/irqchip/irq-riscv-intc.c | 36 ++++++++++++++++++++++++++------
->  1 file changed, 30 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-> index 4adeee1bc391..e235bf1708a4 100644
-> --- a/drivers/irqchip/irq-riscv-intc.c
-> +++ b/drivers/irqchip/irq-riscv-intc.c
-> @@ -17,6 +17,7 @@
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/smp.h>
-> +#include <asm/hwcap.h>
->  
->  static struct irq_domain *intc_domain;
->  
-> @@ -30,6 +31,15 @@ static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
->  	generic_handle_domain_irq(intc_domain, cause);
->  }
->  
-> +static asmlinkage void riscv_intc_aia_irq(struct pt_regs *regs)
-> +{
-> +	unsigned long topi;
-> +
-> +	while ((topi = csr_read(CSR_TOPI)))
-> +		generic_handle_domain_irq(intc_domain,
-> +					  topi >> TOPI_IID_SHIFT);
-> +}
-> +
->  /*
->   * On RISC-V systems local interrupts are masked or unmasked by writing
->   * the SIE (Supervisor Interrupt Enable) CSR.  As CSRs can only be written
-> @@ -39,12 +49,18 @@ static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
->  
->  static void riscv_intc_irq_mask(struct irq_data *d)
->  {
-> -	csr_clear(CSR_IE, BIT(d->hwirq));
-> +	if (d->hwirq < BITS_PER_LONG)
-> +		csr_clear(CSR_IE, BIT(d->hwirq));
-> +	else
-> +		csr_clear(CSR_IEH, BIT(d->hwirq - BITS_PER_LONG));
-
-We can optimize rv64 by allowing the compiler to remove the branch
-
- if (IS_ENABLED(CONFIG_32BIT) && d->hwirq >= 32)
-    csr_clear(CSR_IEH, BIT(d->hwirq - 32));
- else
-    csr_clear(CSR_IE, BIT(d->hwirq));
+--===============9085570207822533395==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="MZrPSMfLUzZVYlnE"
+Content-Disposition: inline
 
 
->  }
->  
->  static void riscv_intc_irq_unmask(struct irq_data *d)
->  {
-> -	csr_set(CSR_IE, BIT(d->hwirq));
-> +	if (d->hwirq < BITS_PER_LONG)
-> +		csr_set(CSR_IE, BIT(d->hwirq));
-> +	else
-> +		csr_set(CSR_IEH, BIT(d->hwirq - BITS_PER_LONG));
+--MZrPSMfLUzZVYlnE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Same comment as above.
+On Tue, Jul 11, 2023 at 02:01:13PM +0300, Andy Shevchenko wrote:
+> On Mon, Jul 10, 2023 at 06:30:32PM +0100, Mark Brown wrote:
+> > On Mon, Jul 10, 2023 at 06:49:21PM +0300, Andy Shevchenko wrote:
 
->  }
->  
->  static void riscv_intc_irq_eoi(struct irq_data *d)
-> @@ -115,16 +131,22 @@ static struct fwnode_handle *riscv_intc_hwnode(void)
->  
->  static int __init riscv_intc_init_common(struct fwnode_handle *fn)
->  {
-> -	int rc;
-> +	int rc, nr_irqs = BITS_PER_LONG;
-> +
-> +	if (riscv_isa_extension_available(NULL, SxAIA) && BITS_PER_LONG == 32)
-> +		nr_irqs = nr_irqs * 2;
+> > > + * Assume speed to be 100 kHz if it's not defined at the time of invocation.
 
-The AIA spec states sie and sip are explicitly 64, so how about writing
-this as
+> > You didn't mention this bit in the changelog, and I'm not 100% convinced
+> > it was the best idea in the first place.  It's going to result in some
+> > very big timeouts if it goes off, and we really should be doing
+> > validation much earlier in the process.
 
- int rc, nr_irqs = BITS_PER_LONG;
+> Okay, let's drop this change.
 
- if (riscv_isa_extension_available(NULL, SxAIA))
-     nr_irqs = 64;
+Like I say we *should* be fine with the refactoring without this, or at
+least if it's an issue we should improve the validation.
 
->  
-> -	intc_domain = irq_domain_create_linear(fn, BITS_PER_LONG,
-> +	intc_domain = irq_domain_create_linear(fn, nr_irqs,
->  					       &riscv_intc_domain_ops, NULL);
->  	if (!intc_domain) {
->  		pr_err("unable to add IRQ domain\n");
->  		return -ENXIO;
->  	}
->  
-> -	rc = set_handle_irq(&riscv_intc_irq);
-> +	if (riscv_isa_extension_available(NULL, SxAIA))
-> +		rc = set_handle_irq(&riscv_intc_aia_irq);
-> +	else
-> +		rc = set_handle_irq(&riscv_intc_irq);
+> > > +	u32 speed_hz = xfer->speed_hz ?: 100000;
 
-nit: blank line here
+> > Not only the ternery operator, but the version without the second
+> > argument for extra clarity!
 
->  	if (rc) {
->  		pr_err("failed to set irq handler\n");
->  		return rc;
-> @@ -132,7 +154,9 @@ static int __init riscv_intc_init_common(struct fwnode_handle *fn)
->  
->  	riscv_set_intc_hwnode_fn(riscv_intc_hwnode);
->  
-> -	pr_info("%d local interrupts mapped\n", BITS_PER_LONG);
-> +	pr_info("%d local interrupts mapped%s\n",
-> +		nr_irqs, (riscv_isa_extension_available(NULL, SxAIA)) ?
+> Elvis can be interpreted as "A _or_ B (if A is false/0)".
+> Some pieces related to SPI use Elvis already IIRC.
 
-nit: unnecessary ()
+I understand what it means, I just don't find it's adding clarity most
+of the times it's used (there's a few places where it is useful like
+pasting in strings in formats).  There are some examples that I'd
+complain about in the code, most of them predating me working on SPI too
+much, but I'm not a fan.
 
-> +			 " using AIA" : "");
->  
->  	return 0;
->  }
-> -- 
-> 2.34.1
->
+--MZrPSMfLUzZVYlnE
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks,
-drew
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmStY90ACgkQJNaLcl1U
+h9DeQQf+MxpgOv6egcsQtreuAtaq7Ev7HPCaH6MbusHDNH2hElvH+GmEYjovkV6m
+h3LadU5OvktJBaXfjDQRjU71Cbf70/Nlo8I3WN5V4iRKzqWtfMV16ZStvy2+1Rx/
+jHek+Aib8L8SiwlzvD6WB163yHCsSn5KBv2Pqp95DjGWamTl918onxXzSS6g2j5A
+ib1Mz8aOXWBsiIdaFTQ3NoK7Uvnykzp1X2uGcfrRZuPWQNVvpJs/wt5iOuTpuEws
+6O2PEgJext+6CeKBCv8pCvpex2QsVtDKLnDVvmDX4Oa2impxsxSIjLyVbZfbJ480
+4XviYIQ2LNlTFidlbAAqqEafOQrvRg==
+=WM20
+-----END PGP SIGNATURE-----
+
+--MZrPSMfLUzZVYlnE--
+
+
+--===============9085570207822533395==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9085570207822533395==--
+
