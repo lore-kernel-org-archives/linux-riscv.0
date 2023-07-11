@@ -4,87 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC1FCEB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 17:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953EAEB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 17:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xtbBhN9DiBtNObILq/GHZer3q9Ae5ovmvW/n2dVWxPM=; b=V2TayWZ/x6YCDk
-	DslwCgtcuJybVoTU8BeSd6X+9HdMph/6mOtI0vUcsSJqX/h1CeeUpxZTFybHHRA8+J50hJoqOFY2+
-	CnSjKRD9N8qLen0/1JN51x4ePWkZ/6aF7ZQrM9zeClFNtkPgaONU4a48KqqElOWvVhuILxthnhcci
-	J+MLmOQJCTjZjW+ci0dRf9a+mPBnv8GnAFyzkQuTbUFuqABdc0laqgdxwDZk5N6MGdEzp06iT3yoU
-	BVWomLjEwH0vWVZ089B5e8/4WkhGLaI98+bOARyuD9823zcGwy7o7apolifwI+UGtpF9fiiGaimlA
-	rC0eJwXaOccSEpENRMeQ==;
+	List-Owner; bh=sHnoBppsCRoMKF96RS8LVf3IXATYs0I7hDmNavKoPg8=; b=mifBaNB3xvyDQM
+	2Rm7i3cbO2QJwgpWZFGpxLxyBhqifQLXbiA8P9Q704FP56BZYoda3X11awY3khMFBUsvUlNu9qNA1
+	Q+jkwYpa0S51jCFW3LWFUWem4WQNKK24TJgs7TWVRf0c3q4MIM7EN+oFb+9vEGkMTr1H6vukemSLm
+	yWbQr6Yf0lbuDv1fODaN5L84gyxNPrRESzSRd191ZXAuSg648582Xqb9KRzA8ijLrmELcMpR8pCQ/
+	gxq27hjX8JwAKUK8nPt8wj4gK6zcp5z3YZ3gPFg4SvX+dgwgYzJL7/IkH5Lugj51X3bdWx5bhzLEa
+	sUyOQ5EMVpeVmrBunkTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJGzB-00FUbt-0h;
-	Tue, 11 Jul 2023 17:17:13 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1qJH0O-00FUnz-28;
+	Tue, 11 Jul 2023 17:18:28 +0000
+Received: from mga04.intel.com ([192.55.52.120])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJGz7-00FUbI-2K
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 17:17:11 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-307d20548adso6038192f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 10:17:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689095826; x=1691687826;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GKFZ1fsOWMTwkYmCF5xZHlaiZPqOrQjG51XkXG8xsuk=;
-        b=D5y3LWruBfCLfjEqzVCNKUET3kISp5tN0QhzQ0iP6goxPbl+uI/RYpL2N0LVcglj2X
-         0lEe3icLlxNx4dmUGdWBogGMZxmkMerhMKo2z8Taa3yXYB3F57C+Q2sZZ9VXeCqZ1vq3
-         IfL9lqdd5K5jEEB9K4m63l4Kg4qdSuit0mNh1SO1qcpywK/UyGuuA0teNwWRy6oTR7Gs
-         wLcYjMziDvFC8xmLXoA0agYIot8X/qnhT+7xau9EO5vMz5j9yHLUmsY6lbF5hdrTb5mJ
-         DUY5ssopkfJz2b5PCInx3UMPHhbXj3vW8qRufrU2DYx+0RSqiK1S21dNcjePJd3seafz
-         PqDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689095826; x=1691687826;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GKFZ1fsOWMTwkYmCF5xZHlaiZPqOrQjG51XkXG8xsuk=;
-        b=R2Bha6Z7qxAlpt4UQdmTLUfCLXT8zA+aiWl8EzwqIGkVIC14ZDj0RWtJ5P2iM0DubT
-         uyZBzQz/aYGe9BfEsGLUXzk5RvhDh+/yP2ySb8jndrscjqJt63a6WDnXgYtKxkljMyni
-         lmUanLg+r6nx3BCHKGVow9nYRCKRxkQhu8nqgaSfbZ9AuzfOe6KUtiGdDvtlr2EKflyo
-         vBrth7Dw7HLdA3iG5g2I6I0Sqds3J8+VU4t0BYMYdNbLNQwbPsZGk5c/0QkeyslUOWTx
-         XvnD1MXnTDveNqs0rMLVEeW+/wffGp6fJBPZV9Aab330pe9wwuQSJ8vAarXxqfUiBt2W
-         MMCA==
-X-Gm-Message-State: ABy/qLZfsfsNa01FNTsM7g0B60TCTR7YKgeVwRJbal9e0+9eHAAaDDgx
-	EpdLgUm75DkNAhicMLncVn1qkA==
-X-Google-Smtp-Source: APBJJlHP0y7SeY1nrbv57HJV7f8WoCTfGdEzwRBf4kmtBVsQ6FUsVRpK3RM24Y5TlmLXsB9e6E8P0w==
-X-Received: by 2002:a05:6000:150:b0:306:46c4:d313 with SMTP id r16-20020a056000015000b0030646c4d313mr13962528wrx.28.1689095825620;
-        Tue, 11 Jul 2023 10:17:05 -0700 (PDT)
-Received: from vermeer ([2a01:cb1d:81a9:dd00:b570:b34c:ffd4:c805])
-        by smtp.gmail.com with ESMTPSA id d3-20020a5d6443000000b0031433443265sm2783203wrw.53.2023.07.11.10.17.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Jul 2023 10:17:05 -0700 (PDT)
-Date: Tue, 11 Jul 2023 19:17:02 +0200
-From: Samuel Ortiz <sameo@rivosinc.com>
-To: Heiko Stuebner <heiko.stuebner@vrull.eu>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1qJH0J-00FUlw-2o;
+	Tue, 11 Jul 2023 17:18:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1689095903; x=1720631903;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=RLWyOf9cyhaU0D1jsbC/OzTSXA7cpjUrGSZFXoDODls=;
+  b=YdCPukQclSdZpVbFprtKi2oDSPWqCR1oVPYrKEk13RVUb4aFZ5kwTVuR
+   T2b8Q/W8kISChE3im9XgJSZNEn1d3tUvBmcjbZa2sqoPQhueDPTqKexx5
+   jKBRQ4lyVAP+UQaWxnp+phRoTVvwqqnf+9IOsfxQvggaPtG3tJ6eCrsxo
+   cl0+LemmPf8jv02VNGX/NxOyJnBQ8wSCHG80B+LsKiHeVF1/IUHyRGfmc
+   fBN07IWzhJXXYWbfoYYtT+yXJornVAE1ku4g/IrTcgNkPS800jUIPmmRy
+   gRLAvzUlOMLVnPTjeE5E0vjpKC+6tOJvcOHq6jpH2QxeA8ZrAxLkXWDjR
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10768"; a="363545679"
+X-IronPort-AV: E=Sophos;i="6.01,197,1684825200"; 
+   d="scan'208";a="363545679"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2023 10:18:19 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10768"; a="756427035"
+X-IronPort-AV: E=Sophos;i="6.01,197,1684825200"; 
+   d="scan'208";a="756427035"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by orsmga001.jf.intel.com with ESMTP; 11 Jul 2023 10:18:07 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id CE41177B; Tue, 11 Jul 2023 20:17:59 +0300 (EEST)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Mark Brown <broonie@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Yang Yingliang <yangyingliang@huawei.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
+	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-trace-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Cc: Sanjay R Mehta <sanju.mehta@amd.com>,
+	Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andy Gross <agross@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux@rivosinc.com, Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
-	"Hongren (Zenithal) Zheng" <i@zenithal.me>,
-	Guo Ren <guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Evan Green <evan@rivosinc.com>, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 4/4] RISC-V: Implement archrandom when Zkr is available
-Message-ID: <ZK2OjvchhqzEKZWR@vermeer>
-References: <20230709115549.2666557-1-sameo@rivosinc.com>
- <20230709115549.2666557-5-sameo@rivosinc.com>
- <3566075.R56niFO833@phil>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: [PATCH v3 12/14] spi: Rename SPI_MASTER_GPIO_SS to SPI_CONTROLLER_GPIO_SS
+Date: Tue, 11 Jul 2023 20:17:54 +0300
+Message-Id: <20230711171756.86736-13-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.40.0.1.gaa8946217a0b
+In-Reply-To: <20230711171756.86736-1-andriy.shevchenko@linux.intel.com>
+References: <20230711171756.86736-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3566075.R56niFO833@phil>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_101709_974500_9D167F64 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20230711_101823_921116_1B16F951 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +133,210 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Rename SPI_MASTER_GPIO_SS to SPI_CONTROLLER_GPIO_SS and
+convert the code to using SPI_CONTROLLER_GPIO_SS to follow
+the new naming schema.
 
-On Sun, Jul 09, 2023 at 04:06:16PM +0200, Heiko Stuebner wrote:
-> Am Sonntag, 9. Juli 2023, 13:55:46 CEST schrieb Samuel Ortiz:
-> > The Zkr extension is ratified and provides 16 bits of entropy seed when
-> > reading the SEED CSR.
-> > 
-> > We can implement arch_get_random_seed_longs() by doing multiple csrrw to
-> > that CSR and filling an unsigned long with valid entropy bits.
-> > 
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
-> > ---
-> 
-> > +static inline size_t __must_check arch_get_random_seed_longs(unsigned long *v, size_t max_longs)
-> > +{
-> > +	if (!max_longs)
-> > +		return 0;
-> > +
-> > +	/*
-> > +	 * If Zkr is supported and csr_seed_long succeeds, we return one long
-> > +	 * worth of entropy.
-> > +	 */
-> > +	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZKR) && csr_seed_long(v))
-> 
-> While this whole thing looks really nice, I don't think you can only
-> check the ZKR existence though.
-> 
-> To access the seed csr from supervisor-mode, it looks like the SSEED
-> bit in the mseccfg register also needs to be set by firmware.
-> And in the kernel we will likely need to check this setting somehow
-> before enabling access.
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Serge Semin <fancer.lancer@gmail.com> # DW APB/AHB SSI
+---
+ drivers/spi/spi-ath79.c    | 2 +-
+ drivers/spi/spi-atmel.c    | 2 +-
+ drivers/spi/spi-bitbang.c  | 6 +++---
+ drivers/spi/spi-davinci.c  | 2 +-
+ drivers/spi/spi-dw-core.c  | 2 +-
+ drivers/spi/spi-gpio.c     | 2 +-
+ drivers/spi/spi-imx.c      | 2 +-
+ drivers/spi/spi-orion.c    | 2 +-
+ drivers/spi/spi-rockchip.c | 2 +-
+ drivers/spi/spi-sifive.c   | 2 +-
+ drivers/spi/spi.c          | 4 ++--
+ include/linux/spi/spi.h    | 3 +--
+ 12 files changed, 15 insertions(+), 16 deletions(-)
 
-We can't check it as msseccfg is an M-mode only CSR. While reviewing v2
-of this patchset, Stephen suggested to either document the SSEED
-requirement with the dt-bindings documentation, use the SBI FWFEATURE
-extension to ask firmware to set mseecfg properly, or trap seed access
-and feed the caller with a virtual entropy source.
-I'd like to go with the second proposed approach (FWFEATURE) but that
-requires the corresponding pending patch to be merged first. So for now,
-I will only document the SSEED requirement when passing the Zkr
-extension, so that we at least have a contract definition for firmwares
-that enable Zkr through DT. When they do, they're required to at least
-set SSEED in MSSECFG.
+diff --git a/drivers/spi/spi-ath79.c b/drivers/spi/spi-ath79.c
+index d3dd21386f12..1b6d977d111c 100644
+--- a/drivers/spi/spi-ath79.c
++++ b/drivers/spi/spi-ath79.c
+@@ -185,7 +185,7 @@ static int ath79_spi_probe(struct platform_device *pdev)
+ 
+ 	host->use_gpio_descriptors = true;
+ 	host->bits_per_word_mask = SPI_BPW_RANGE_MASK(1, 32);
+-	host->flags = SPI_MASTER_GPIO_SS;
++	host->flags = SPI_CONTROLLER_GPIO_SS;
+ 	host->num_chipselect = 3;
+ 	host->mem_ops = &ath79_mem_ops;
+ 
+diff --git a/drivers/spi/spi-atmel.c b/drivers/spi/spi-atmel.c
+index 0865993005b2..9674499ed0a6 100644
+--- a/drivers/spi/spi-atmel.c
++++ b/drivers/spi/spi-atmel.c
+@@ -1476,7 +1476,7 @@ static int atmel_spi_probe(struct platform_device *pdev)
+ 	host->num_chipselect = 4;
+ 	host->setup = atmel_spi_setup;
+ 	host->flags = (SPI_CONTROLLER_MUST_RX | SPI_CONTROLLER_MUST_TX |
+-			SPI_MASTER_GPIO_SS);
++			SPI_CONTROLLER_GPIO_SS);
+ 	host->transfer_one = atmel_spi_one_transfer;
+ 	host->set_cs = atmel_spi_set_cs;
+ 	host->cleanup = atmel_spi_cleanup;
+diff --git a/drivers/spi/spi-bitbang.c b/drivers/spi/spi-bitbang.c
+index 862f209cada1..ecd44016c197 100644
+--- a/drivers/spi/spi-bitbang.c
++++ b/drivers/spi/spi-bitbang.c
+@@ -349,11 +349,11 @@ int spi_bitbang_init(struct spi_bitbang *bitbang)
+ 	/*
+ 	 * We only need the chipselect callback if we are actually using it.
+ 	 * If we just use GPIO descriptors, it is surplus. If the
+-	 * SPI_MASTER_GPIO_SS flag is set, we always need to call the
++	 * SPI_CONTROLLER_GPIO_SS flag is set, we always need to call the
+ 	 * driver-specific chipselect routine.
+ 	 */
+ 	custom_cs = (!master->use_gpio_descriptors ||
+-		     (master->flags & SPI_MASTER_GPIO_SS));
++		     (master->flags & SPI_CONTROLLER_GPIO_SS));
+ 
+ 	if (custom_cs && !bitbang->chipselect)
+ 		return -EINVAL;
+@@ -371,7 +371,7 @@ int spi_bitbang_init(struct spi_bitbang *bitbang)
+ 	master->transfer_one = spi_bitbang_transfer_one;
+ 	/*
+ 	 * When using GPIO descriptors, the ->set_cs() callback doesn't even
+-	 * get called unless SPI_MASTER_GPIO_SS is set.
++	 * get called unless SPI_CONTROLLER_GPIO_SS is set.
+ 	 */
+ 	if (custom_cs)
+ 		master->set_cs = spi_bitbang_set_cs;
+diff --git a/drivers/spi/spi-davinci.c b/drivers/spi/spi-davinci.c
+index 014392459d5e..7ea2ac053052 100644
+--- a/drivers/spi/spi-davinci.c
++++ b/drivers/spi/spi-davinci.c
+@@ -939,7 +939,7 @@ static int davinci_spi_probe(struct platform_device *pdev)
+ 	master->bus_num = pdev->id;
+ 	master->num_chipselect = pdata->num_chipselect;
+ 	master->bits_per_word_mask = SPI_BPW_RANGE_MASK(2, 16);
+-	master->flags = SPI_CONTROLLER_MUST_RX | SPI_MASTER_GPIO_SS;
++	master->flags = SPI_CONTROLLER_MUST_RX | SPI_CONTROLLER_GPIO_SS;
+ 	master->setup = davinci_spi_setup;
+ 	master->cleanup = davinci_spi_cleanup;
+ 	master->can_dma = davinci_spi_can_dma;
+diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
+index a8ba41ad4541..45f5acc26b1d 100644
+--- a/drivers/spi/spi-dw-core.c
++++ b/drivers/spi/spi-dw-core.c
+@@ -932,7 +932,7 @@ int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
+ 	if (dws->mem_ops.exec_op)
+ 		master->mem_ops = &dws->mem_ops;
+ 	master->max_speed_hz = dws->max_freq;
+-	master->flags = SPI_MASTER_GPIO_SS;
++	master->flags = SPI_CONTROLLER_GPIO_SS;
+ 	master->auto_runtime_pm = true;
+ 
+ 	/* Get default rx sample delay */
+diff --git a/drivers/spi/spi-gpio.c b/drivers/spi/spi-gpio.c
+index 85e149ec2910..612db477ad12 100644
+--- a/drivers/spi/spi-gpio.c
++++ b/drivers/spi/spi-gpio.c
+@@ -434,7 +434,7 @@ static int spi_gpio_probe(struct platform_device *pdev)
+ 	 * line, that we need to do on selection. This makes the local
+ 	 * callback for chipselect always get called.
+ 	 */
+-	master->flags |= SPI_MASTER_GPIO_SS;
++	master->flags |= SPI_CONTROLLER_GPIO_SS;
+ 	bb->chipselect = spi_gpio_chipselect;
+ 	bb->set_line_direction = spi_gpio_set_direction;
+ 
+diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+index 528ae46c087f..8d97f2b32c2b 100644
+--- a/drivers/spi/spi-imx.c
++++ b/drivers/spi/spi-imx.c
+@@ -1779,7 +1779,7 @@ static int spi_imx_probe(struct platform_device *pdev)
+ 
+ 	if (is_imx51_ecspi(spi_imx) || is_imx53_ecspi(spi_imx)) {
+ 		controller->max_native_cs = 4;
+-		controller->flags |= SPI_MASTER_GPIO_SS;
++		controller->flags |= SPI_CONTROLLER_GPIO_SS;
+ 	}
+ 
+ 	spi_imx->spi_drctl = spi_drctl;
+diff --git a/drivers/spi/spi-orion.c b/drivers/spi/spi-orion.c
+index ad9e83e34297..4882aafd0505 100644
+--- a/drivers/spi/spi-orion.c
++++ b/drivers/spi/spi-orion.c
+@@ -677,7 +677,7 @@ static int orion_spi_probe(struct platform_device *pdev)
+ 	master->bits_per_word_mask = SPI_BPW_MASK(8) | SPI_BPW_MASK(16);
+ 	master->auto_runtime_pm = true;
+ 	master->use_gpio_descriptors = true;
+-	master->flags = SPI_MASTER_GPIO_SS;
++	master->flags = SPI_CONTROLLER_GPIO_SS;
+ 
+ 	platform_set_drvdata(pdev, master);
+ 
+diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
+index 143ede958ac1..a37943847e81 100644
+--- a/drivers/spi/spi-rockchip.c
++++ b/drivers/spi/spi-rockchip.c
+@@ -858,7 +858,7 @@ static int rockchip_spi_probe(struct platform_device *pdev)
+ 		ctlr->mode_bits |= SPI_NO_CS;
+ 		ctlr->slave_abort = rockchip_spi_slave_abort;
+ 	} else {
+-		ctlr->flags = SPI_MASTER_GPIO_SS;
++		ctlr->flags = SPI_CONTROLLER_GPIO_SS;
+ 		ctlr->max_native_cs = ROCKCHIP_SPI_MAX_CS_NUM;
+ 		/*
+ 		 * rk spi0 has two native cs, spi1..5 one cs only
+diff --git a/drivers/spi/spi-sifive.c b/drivers/spi/spi-sifive.c
+index dae9e097c333..2f77dae85386 100644
+--- a/drivers/spi/spi-sifive.c
++++ b/drivers/spi/spi-sifive.c
+@@ -379,7 +379,7 @@ static int sifive_spi_probe(struct platform_device *pdev)
+ 	 * we need to "left-align" the bits (unless SPI_LSB_FIRST)
+ 	 */
+ 	master->bits_per_word_mask = SPI_BPW_MASK(8);
+-	master->flags = SPI_CONTROLLER_MUST_TX | SPI_MASTER_GPIO_SS;
++	master->flags = SPI_CONTROLLER_MUST_TX | SPI_CONTROLLER_GPIO_SS;
+ 	master->prepare_message = sifive_spi_prepare_message;
+ 	master->set_cs = sifive_spi_set_cs;
+ 	master->transfer_one = sifive_spi_transfer_one;
+diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+index 9b096cbc9926..0612610a091a 100644
+--- a/drivers/spi/spi.c
++++ b/drivers/spi/spi.c
+@@ -986,7 +986,7 @@ static void spi_set_cs(struct spi_device *spi, bool enable, bool force)
+ 				gpiod_set_value_cansleep(spi_get_csgpiod(spi, 0), activate);
+ 		}
+ 		/* Some SPI masters need both GPIO CS & slave_select */
+-		if ((spi->controller->flags & SPI_MASTER_GPIO_SS) &&
++		if ((spi->controller->flags & SPI_CONTROLLER_GPIO_SS) &&
+ 		    spi->controller->set_cs)
+ 			spi->controller->set_cs(spi, !enable);
+ 	} else if (spi->controller->set_cs) {
+@@ -3035,7 +3035,7 @@ static int spi_get_gpio_descs(struct spi_controller *ctlr)
+ 
+ 	ctlr->unused_native_cs = ffs(~native_cs_mask) - 1;
+ 
+-	if ((ctlr->flags & SPI_MASTER_GPIO_SS) && num_cs_gpios &&
++	if ((ctlr->flags & SPI_CONTROLLER_GPIO_SS) && num_cs_gpios &&
+ 	    ctlr->max_native_cs && ctlr->unused_native_cs >= ctlr->max_native_cs) {
+ 		dev_err(dev, "No unused native chip select available\n");
+ 		return -EINVAL;
+diff --git a/include/linux/spi/spi.h b/include/linux/spi/spi.h
+index b90c53332909..458369939fa5 100644
+--- a/include/linux/spi/spi.h
++++ b/include/linux/spi/spi.h
+@@ -563,8 +563,7 @@ struct spi_controller {
+ #define SPI_CONTROLLER_NO_TX		BIT(2)	/* Can't do buffer write */
+ #define SPI_CONTROLLER_MUST_RX		BIT(3)	/* Requires rx */
+ #define SPI_CONTROLLER_MUST_TX		BIT(4)	/* Requires tx */
+-
+-#define SPI_MASTER_GPIO_SS		BIT(5)	/* GPIO CS must select slave */
++#define SPI_CONTROLLER_GPIO_SS		BIT(5)	/* GPIO CS must select slave */
+ 
+ 	/* Flag indicating if the allocation of this struct is devres-managed */
+ 	bool			devm_allocated;
+-- 
+2.40.0.1.gaa8946217a0b
 
-I have a couple of pending patches ([1],[2]) related to that, so that an
-OpenSBI+qemu+linux combination works as expected when enabling Zkr. I am
-going to submit them upstream as well.
-
-Cheers,
-Samuel.
-
-[1] https://github.com/qemu/qemu/commit/2a146057099ada946bf4a9c2e355a5a290c23c80
-[2] https://github.com/riscv-software-src/opensbi/pull/315
 
 _______________________________________________
 linux-riscv mailing list
