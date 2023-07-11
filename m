@@ -4,117 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531B8C0015E
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 11:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8C39EB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 11:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=miPUYX5tGG1F5i1/ZDDmwvHF1ibK7/tiYbstV87ecD8=; b=pP1ppSIifyVZHA
-	TNDkatizthxcPH8v+2I1hgNldv8i2C6nMPPmchImR6o2ZewlQO1D+fmCKBy87JObLrju1bDI0fjiN
-	1hnACwpsQaY1eW6UJw02Ykx4QAtDAU/PF1GhX+5c4gtZhc6HYA7YMgqcLXHf4mwLv5iQELWE5UELC
-	Sm1PRpExRt18vfyIzBDhhNOEHznjq+Dds5fWHv6LSWozOKfp0Q95q1HKOADuWqqjQxZRrGeHYzldB
-	khCBOSYTwAJxwEN51G10e5dQpKTo4HlARmOx6am4Zn0YlgNA9e77IYQaTz6V7E1QPcD89ooWZRfe5
-	Pb7X0M50cdUzezNb+o2g==;
+	List-Owner; bh=AXE+hiuWSXbEPdpQvhOEI0OKyFuYH01QsGMslIAAtr8=; b=XfSCmJMDccdA+z
+	oZSFRes7Xxl+ybRZmtgJjrXmDfsQtLqdIK0b/d1luQlnjYCK+PmWKBwPkpJzxNNBi/9zqf0ncduzD
+	h+sAj6prhHUnbfWqGX4UA6Ef2440L60o+hmL89URzDkAh9lE5hZ+uEIus/e0VMFlD0XdXA0Jrj1fv
+	R43WA/+e3GdyyqGyQqfbx779A+8XUwt/xZ4zSEx9Lh2BQ99aide2SI7VbklVJ4j7+wrvWJHU0h8sd
+	XGcwIQBH52zAR97aptWWkYPAkZygxkGbIfhCBrFOCn5jpZ38KEqMHdFTvf6ttc1/VKmH1W3uI5Brm
+	R/Fq7rVLc0P8IV1KaUNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJBI5-00EjmS-0D;
-	Tue, 11 Jul 2023 11:12:21 +0000
-Received: from mga11.intel.com ([192.55.52.93])
+	id 1qJBK1-00EkCG-03;
+	Tue, 11 Jul 2023 11:14:21 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJBI0-00Ejl3-2I;
-	Tue, 11 Jul 2023 11:12:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1689073936; x=1720609936;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=twR4kdv8R+UGB+uDynfbksgxMKi2k7OVYCc9yUjloq8=;
-  b=KKBynze5CMpuIyfqkRGwCHesvRyiRgF8oxskHf5vbA2zYDjNImWkHPR5
-   IlyAsxeGSCKSAULjWy0gMewmiMU1sETCJnhUjgPVkPyjGow95lid5WqpF
-   LMqa4eg+LLvs9+bOx3MnwY6i69kDE/sdB1boBfjAruwfV55k0i+4qa8W5
-   OwmKNwSfbaIiUmHD2RSquE03zm3qrqQGVPyLltHCg1DjeCh6+0XtQcKxR
-   XTWD7JrU6xbO5skYm3trWSelXonfy4fkd7nye3VafhIdcLfjjcP/CRJmM
-   NcqaHyErGUx+WYtCVqZxM9GCl79RCOM8RvRKY5LkZJ6orfD40Huedk4hb
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="362053721"
-X-IronPort-AV: E=Sophos;i="6.01,196,1684825200"; 
-   d="scan'208";a="362053721"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2023 04:12:15 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="845225511"
-X-IronPort-AV: E=Sophos;i="6.01,196,1684825200"; 
-   d="scan'208";a="845225511"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by orsmga004.jf.intel.com with ESMTP; 11 Jul 2023 04:12:02 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1qJBHj-001pIO-15;
-	Tue, 11 Jul 2023 14:11:59 +0300
-Date: Tue, 11 Jul 2023 14:11:59 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Yang Yingliang <yangyingliang@huawei.com>,
-	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
-	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	Sanjay R Mehta <sanju.mehta@amd.com>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>
-Subject: Re: [PATCH v2 00/15] spi: Header and core clean up and refactoring
-Message-ID: <ZK04/8UQEaNinLoK@smile.fi.intel.com>
-References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
- <58c6f76a-8028-4ce8-a101-d5feb3b40897@sirena.org.uk>
+	id 1qJBJy-00EkBb-26
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Jul 2023 11:14:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B4EF6240005;
+	Tue, 11 Jul 2023 11:14:10 +0000 (UTC)
+Message-ID: <a7bb09c9-870a-d8f2-23c3-7f6fd2c68e2b@ghiti.fr>
+Date: Tue, 11 Jul 2023 13:14:10 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <58c6f76a-8028-4ce8-a101-d5feb3b40897@sirena.org.uk>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH] riscv: correct pt_level name via pgtable_l5/4_enabled
+Content-Language: en-US
+To: Song Shuai <suagrfillet@gmail.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alexghiti@rivosinc.com,
+ bjorn@rivosinc.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20230711105202.842408-1-suagrfillet@gmail.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230711105202.842408-1-suagrfillet@gmail.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_041216_763839_88144C54 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20230711_041418_838680_2ECCE39D 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,26 +58,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 10, 2023 at 06:31:12PM +0100, Mark Brown wrote:
-> On Mon, Jul 10, 2023 at 06:49:17PM +0300, Andy Shevchenko wrote:
-> > Various cleanups and refactorings of the SPI header and core parts
-> > united in a single series. It also touches drivers under SPI subsystem
-> > folder on the pure renaming purposes of some constants.
-> 
-> I've queued 1-3, 6-8 and 11- for CI thanks.
+Hi Song,
 
-Thank you!
-Do you think patch 9 deserves to be proceeded?
 
--- 
-With Best Regards,
-Andy Shevchenko
+On 11/07/2023 12:52, Song Shuai wrote:
+> The pt_level uses CONFIG_PGTABLE_LEVELS to display page table names.
+> But if downgrading page mode from kernel cmdline in 64BIT, it will
+> give a wrong name.
+>
+> Like, using no4lvl for sv39, ptdump named the 1G-mapping as "PUD"
+> that should be "PGD":
+>
+> 0xffffffd840000000-0xffffffd900000000    0x00000000c0000000         3G PUD     D A G . . W R V
+>
+> So select "P4D/PUD" or "PGD" via pgtable_l5/4_enabled to correct it.
+>
+> Fixes: 26e7aacb83df ("riscv: Allow to downgrade paging mode from the command line")
+> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+> ---
+>   arch/riscv/mm/ptdump.c | 5 +++++
+>   1 file changed, 5 insertions(+)
+>
+> diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+> index 20a9f991a6d7..cfdd327981ee 100644
+> --- a/arch/riscv/mm/ptdump.c
+> +++ b/arch/riscv/mm/ptdump.c
+> @@ -384,6 +384,11 @@ static int __init ptdump_init(void)
+>   
+>   	kernel_ptd_info.base_addr = KERN_VIRT_START;
+>   
+> +#ifdef CONFIG_64BIT
+> +	pg_level[1].name = pgtable_l5_enabled ? "P4D" : "PGD";
+> +	pg_level[2].name = pgtable_l4_enabled ? "PUD" : "PGD";
+> +#endif
 
+
+You don't need the #ifdef here as pgtable_lX_enabled are always declared.
+
+
+> +
+>   	for (i = 0; i < ARRAY_SIZE(pg_level); i++)
+>   		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
+>   			pg_level[i].mask |= pte_bits[j].mask;
+
+
+The Fixes tag is wrong to me, if satp mode is restricted by the hardware 
+itself (not from the command line), the same problem happens. Maybe that 
+should be the sv48 introduction patch? Or the sv57? It will be more 
+cumbersome to backport with the sv48 introduction though as this patch 
+won't apply as-is.
+
+Otherwise, you can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
 
 
 _______________________________________________
