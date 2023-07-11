@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D7DEB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 22:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC65EB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 22:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
 	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VHyS9++cm8NeuE0HdaVS2/zDXB5QICgYYxUahbJwHKg=; b=pu030iWMDuxGXY
-	86VUg4yCRuQbY/QFqd0QK4cxeJ13QreyvNrJEuSZ/aUSTG1ZASZYl43kvDHT8GZScQMeVu30rJMZT
-	hfOkRwtkB4btWPAhsPFebATH4wJFE3OUbKZ6CQ6NdfxJNOvS9SWbvWy86acGil5bNvHcjQcZRy3KE
-	Jc3NVKgVjHiL5nPrN8/+1cfeCao1nfadoWSc2ieYp2nSDyP2Uz3q41K7rYFigf715nt0XeZmbzuNt
-	xtn1I7konvmEVAZh1z+nQaBi72T+zgRQRBknNmJp1LaCGGgfLb2iQU8Y5KiujGf5f85e/Spy+vhKU
-	uY4oahqIVPGEotFdnCAw==;
+	List-Owner; bh=mFe0HiyirxuAXSkp/GotstQAV+9X9j4uMhj/jIKd3Tk=; b=1DhW8rsZDHfuZ7
+	+9IGeLpnGiN5IzEwgTh46IdJu4RSm41c0Qeh+W0YXnY9rCrLtGxoen3EaRjW+0yfLXq9GjAyAUqrW
+	GFFDsTMitQj9ytV3N4AGTiCWspeOoPLRaCY0ORH7Fzeoxr/ftpCSSsUs1tlhG3i/TZQ2HT/TfmlAb
+	Pu/8DDRdY3n6anCx6MZ9qS9Yo5uqtLcgJUcTSe8wKF0yXxVY4w5fybymZjg0JoColOSL7LYd4QtQC
+	38x5fvBxlEphd1IBsJwvkEOcNTWU5Kd1RUMuAF0836tgki/mwEal4EgtKFScUQKrcewZQ+3zL7xNY
+	RzFgQ6OY3KvvlEl9h84g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJM2N-00G0IZ-2L;
-	Tue, 11 Jul 2023 22:40:51 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1qJM8X-00G0gK-0X;
+	Tue, 11 Jul 2023 22:47:13 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJM2J-00G0Hq-2a
+	id 1qJM8T-00G0fY-2p
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 22:40:49 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-1b89cfb4571so46935305ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 15:40:44 -0700 (PDT)
+	Tue, 11 Jul 2023 22:47:11 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1b9e9765f2cso16652175ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 15:47:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689115243; x=1691707243;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689115624; x=1691707624;
         h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
          :subject:from:to:cc:subject:date:message-id:reply-to;
-        bh=ME4y8+N+bVmZOY1nBigOYA7PVdXBow3YybuXWA186u4=;
-        b=dVdE1Ira7OcISottEQc5ztEVYlzd6g8HN/ZNB7mWRtGwMT3gufKDAvSCSoaF33hLYD
-         vgUMnOc49E57sCPZUZq+lj/9O1kv3uE3le2YmvU+uyIgMpKlmPJIX2WC0ir7xyDqzvdL
-         Q8/JPo3M6y5OutjYmEnww0pogOkCQVHzt44bcunVtMY0lrTI3b+Kgl8cJw19X64UTD2O
-         FaYxztlQHmhJ51GeFhdZ1Aub4w7wlbJKcE8GBCOFkkthYJzLtHxDc8lEWBickBr/Dymi
-         WTsoIxuggmoy0nAcuksqiyTOM2qGJGSs9STKFb4GrT8jXDuo4Vvg6qTmchEdgbkGqv1n
-         fOFg==
+        bh=RtH9FmNVb+GZQwIzxQc1bZ4di4brpl9MkUqFJmWCtvc=;
+        b=a2eIKlTz8dhU4v0VoMbIdtxZYTNG1qd2Q61S2J+ik+8IsH0xI+hTEwF05curWxz7p4
+         Tvq67dW2xZE6lwmgh7UCrnKOGqv0YjRmkMuhP7LsizU5bfIG3GjbZO+yZjQCW63SSk4W
+         SCUR24lAYmeIHD2pLWiIkwBRFwEXtz/vdCHMvmWJ2eahUhHPk/3EsiDla25aVrtFkOD3
+         en0WAIQ/oQgU6vOj2CNfVvQxqYJrjkMrAJ8YioLttR4kftfaJirT1WqE2nxuiV5+35gi
+         d71TMwEMvAx18ydEqkdULZozZJY5idbMp6XX+aTZazpjY9Cszw4V2VuWCQEzh0CCsW8J
+         0Pew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689115243; x=1691707243;
+        d=1e100.net; s=20221208; t=1689115624; x=1691707624;
         h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
          :subject:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ME4y8+N+bVmZOY1nBigOYA7PVdXBow3YybuXWA186u4=;
-        b=dYUP6HPx0b0TPf229p9bcIN65HIj5gzxdPJtfem5gF0pkraJdBWmopNbGeXz6FLaIx
-         Op0yJJ19XljxB6DeM8vWQ/UDvN6PbnMoEPRhesKLaBEBxgHzrOopSLADQu/XViG3VDhT
-         L6xBgIaE4SL59/WjTucvZ9B5ii6igAvs9nGqRG0Api/lsuLLclPWWJDxjPTqz5+KsTRZ
-         ByvJ8zIzwI7YSGqDPYtvCHWMb4U0aN3YxeLGRlTZ0eYD6vZhVlzu6D+sTqbcT7rLVidj
-         cf2N8sBEuYDEhtSU0C9xLbAwk04wWthh72Y4qiayVy8P77XyDF6SjQdMiuFD3z/sOrkJ
-         tH0A==
-X-Gm-Message-State: ABy/qLZk16kMVhYjREvl0K3RqPaRQlTm2UEXKZBrcY+gdNYtT0LemeU4
-	asXIyBmuFYE/HwIUZhGRwg2Bcwx9X/SUym41BTg=
-X-Google-Smtp-Source: APBJJlGDf2GQVN2utK3W3YEN2JCiUn8jhKxSk2hZKHeI2KQmufhOqF32/NEwdRDwBe9RWe7xkZQ9wg==
-X-Received: by 2002:a17:902:e80d:b0:1b8:b459:f47a with SMTP id u13-20020a170902e80d00b001b8b459f47amr21022194plg.34.1689115243557;
-        Tue, 11 Jul 2023 15:40:43 -0700 (PDT)
+        bh=RtH9FmNVb+GZQwIzxQc1bZ4di4brpl9MkUqFJmWCtvc=;
+        b=i3hzidlrGnA5rnqeuuxL8kg0NYC7sXAOuH6Or8Dgtz4gKJ740vQhHlPoCLa8nKFQa/
+         UNWWVD4BSshHCOus38U0mUJsh7iopDih4uPHCkG5i7W05Bo914p5y/uPaUvvbrl0WRDp
+         Pvqy7V0qgEy0jATH0JoJ5JcFG8umShbjWtrM8/yYX8Bt7hbAwcv61EgQnuhzkN4//r1S
+         tjxlMW+EAI8xLisuOPglWXXlJRrgCx0LeWCq0GpMckQE8Kvbjmfijku5ogc4S7TIhm8k
+         XI799fARNBGUjv5uo8GOum0nlocuqqoq5TQ1x5Gce75WxqoMR/+LCjbIy/577LqtJPhK
+         mkmQ==
+X-Gm-Message-State: ABy/qLYNSkApYYHu+iAMwKPWtcKX7IFWGzjLTAHIKyABr3yroNqfMttw
+	GpeAoeWnxdgeWp+TCYB3j3ZU57Khptj+zuNi8zg=
+X-Google-Smtp-Source: APBJJlGOTkndJ/ubNgA9o5A7E+MoK1VYx5vSzty7LtJIZ4yKJq6UfY4CgPD3o++V2ZI94wmOSnGF0w==
+X-Received: by 2002:a17:902:e746:b0:1b9:ce7a:8603 with SMTP id p6-20020a170902e74600b001b9ce7a8603mr11204102plf.66.1689115623919;
+        Tue, 11 Jul 2023 15:47:03 -0700 (PDT)
 Received: from localhost ([50.38.6.230])
-        by smtp.gmail.com with ESMTPSA id ji19-20020a170903325300b001b7cbc5871csm2477369plb.53.2023.07.11.15.40.43
+        by smtp.gmail.com with ESMTPSA id d2-20020a170902aa8200b001ac40488620sm2454762plr.92.2023.07.11.15.47.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Jul 2023 15:40:43 -0700 (PDT)
-Subject: [PATCH] RISC-V: Don't trust V from the riscv,isa DT property
-Date: Tue, 11 Jul 2023 15:33:17 -0700
-Message-Id: <20230711223316.7961-1-palmer@rivosinc.com>
+        Tue, 11 Jul 2023 15:47:03 -0700 (PDT)
+Subject: [PATCH] RISC-V: Don't include Zicsr or Zifencei in I from ACPI
+Date: Tue, 11 Jul 2023 15:46:00 -0700
+Message-Id: <20230711224600.10879-1-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org,          linux-acpi@vger.kernel.org,
+  Palmer Dabbelt <palmer@rivosinc.com>
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>, Charlie Jenkins <charlie@rivosinc.com>,
-  Sunil V L <sunilvl@ventanamicro.com>, Heiko Stuebner <heiko@sntech.de>
+To: Sunil V L <sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_154048_029184_0B15F983 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20230711_154709_917950_56709001 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,91 +89,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The last merge window contained both V support and the deprecation of
-the riscv,isa DT property, with the V implementation reading riscv,isa
-to determine the presence of the V extension.  At the time that was the
-only way to do it, but there's a lot of ambiguity around V in ISA
-strings.
+ACPI ISA strings are based on a specification after Zicsr and Zifencei
+were split out of I, so we shouldn't be treating them as part of I.  We
+haven't release an ACPI-based kernel yet, so we don't need to worry
+about compatibility with the old ISA strings.
 
-Rather than trying to sort that out, let's just not introduce the
-ambiguity in the first place and retroactively make the deprecation
-apply to V.  This all happened in the same merge window anyway, so this
-way we don't end up introducing a new ambiguous interface we need to
-maintain compatibility with forever (despite it having been deprecated
-in the same release).
-
-ACPI still trusts ISA strings, so we'll leave that alone.
-
-Fixes: dc6667a4e7e3 ("riscv: Extending cpufeature.c to detect V-extension")
+Fixes: 396c018332a1 ("RISC-V: cpufeature: Add ACPI support in riscv_fill_hwcap()")
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
-This came up as part of some discussions about the T-Head vector
-support.  I haven't actually tested this, but Conor and I were talking
-about options and it was easier to just implement it than describe it.
-It's kind of clunky to only parse that one property, but we're already
-in a grey area WRT having the DT bindings that we don't parse so maybe
-that's not so bad?
-
-The other option would be to turn off V when we detect we're on a T-Head
-system as part of the errata handling.  That's similar to what we do for
-misaligned accesses, but that's a hack that we're getting rid of.  It'd
-be less of a hack for V, but given that we've found T-Head systems
-aliasing the arch/impl IDs already we might be digging ourselves a
-bigger hole here.
----
- arch/riscv/kernel/cpufeature.c | 25 ++++++++++++++++++++++++-
- 1 file changed, 24 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/cpufeature.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index bdcf460ea53d..8e970f55285e 100644
+index bdcf460ea53d..a8f66c015229 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -116,7 +116,19 @@ void __init riscv_fill_hwcap(void)
- 	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
- 	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
- 	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
--	isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
-+
-+	/*
-+	 * "V" in ISA strings is a ambiguous in practice: it should
-+	 * mean just the standard V-1.0 but vendors aren't well
-+	 * behaved.  So only allow V in ISA strings that come from ACPI, as
-+	 * we've yet to build up enough histroy in ACPI land to stop trusting
-+	 * ISA strings.
-+	 *
-+	 * DT-based systems must provide the explicit V property, which is well
-+	 * defined.  That is parsed below.
-+	 */
-+	if (!acpi_disabled)
-+		isa2hwcap['v' - 'a'] = COMPAT_HWCAP_ISA_V;
- 
- 	elf_hwcap = 0;
- 
-@@ -131,6 +143,8 @@ void __init riscv_fill_hwcap(void)
- 	for_each_possible_cpu(cpu) {
- 		struct riscv_isainfo *isainfo = &hart_isa[cpu];
- 		unsigned long this_hwcap = 0;
-+		struct property *p;
-+		const char *ext;
- 
- 		if (acpi_disabled) {
- 			node = of_cpu_device_node_get(cpu);
-@@ -334,6 +348,15 @@ void __init riscv_fill_hwcap(void)
- 			set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
+@@ -317,19 +317,14 @@ void __init riscv_fill_hwcap(void)
+ #undef SET_ISA_EXT_MAP
  		}
  
-+		/*
-+		 * Check just the V property on DT-based systems, as we don't
-+		 * trust the ISA string in DT land.
-+		 */
-+		if (acpi_disabled)
-+			of_property_for_each_string(node, "riscv,isa-extensions", p, ext)
-+				if (strcmp(ext, "v") == 0)
-+					this_hwcap |= COMPAT_HWCAP_ISA_V;
-+
+-		/*
+-		 * Linux requires the following extensions, so we may as well
+-		 * always set them.
+-		 */
+-		set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
+-		set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
+-
  		/*
- 		 * All "okay" hart should have same isa. Set HWCAP based on
- 		 * common capabilities of every "okay" hart, in case they don't
+ 		 * These ones were as they were part of the base ISA when the
+ 		 * port & dt-bindings were upstreamed, and so can be set
+ 		 * unconditionally where `i` is in riscv,isa on DT systems.
+ 		 */
+ 		if (acpi_disabled) {
++			set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
++			set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
+ 			set_bit(RISCV_ISA_EXT_ZICNTR, isainfo->isa);
+ 			set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
+ 		}
 -- 
 2.40.1
 
