@@ -4,51 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624BDEB64DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 11:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF80CC0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 11:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JzQGp7NzOS5vRLA26B6uHOdZMqZNrPBBPLwDGYBiKFY=; b=BiE3vmmJ5bzZEh
-	6ByNzL7RbEYgjPCrFF4viFJWwP6ahiWebrDiHR2zwU3n8bSdWKZ+Br4RNzNk6XIJDIjqtbBbsOZAq
-	kdbbe4OQqxD0jnGT8muDPE+oz8riQiRbjFb9kKiN8GaR3xeULRvX60JR6uBeuziiLA/M4ZaYoVdI6
-	8G3/mAOot5yQRqYtLnTU+hxFUAicpzMJXtyHuPZeF9cXm1D+JcUH6nuUSSxQBxs/bNNDlIdU06D3Z
-	zwuHCTtj+dmlFggVNiWCQ4NgKYGhLeQPB/+vCV1Fl/p1keokQ/D6XfXjfyW42EvCQe20UjS+j91g/
-	EMr4pqvmKWpL6Cx1gKjg==;
+	List-Owner; bh=4EjqCMoKhY9Vor0rc3wEYYJ1+Lq/kFWaYZ6tHoQyC9s=; b=28kmB3JGJBZSHD
+	ITcAdrgJkpoU8STuqIzYIRegWDSsYUE0wi5Jv5g5YBlaawZ0hSQ10XvNqwF9TLLkqyXCI7Bz/iI85
+	0RO2W32x0ZDJ+T0AnWnXsrNUaCcNEoUHB+q/yBmFIB5ToaXYYBxL18zs+w1RjdHb2BfDT0/By2zog
+	NQL0lENLWR4TOR0YIm51afCYtgRhDQhiM22huRJOD0TR9JOolpJ60Of43z2GMf7l8ZqUmtTCf8sa+
+	2OeURSsXYCS0e4d27gw5tMPgK2mYsu7G0LrU/ShHa8M6W+RybbjRLi1/RsgV6L0sOBU5G/v5BDZs6
+	o5PLv+eCDURPsaZbK/iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJBDS-00Ej2x-24;
-	Tue, 11 Jul 2023 11:07:34 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1qJBGE-00EjP5-1f;
+	Tue, 11 Jul 2023 11:10:26 +0000
+Received: from mga17.intel.com ([192.55.52.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJBDP-00Ej1h-12
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 11:07:33 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D008120008;
-	Tue, 11 Jul 2023 11:07:22 +0000 (UTC)
-Message-ID: <95c4e875-02f1-6239-bb62-41b709d21541@ghiti.fr>
-Date: Tue, 11 Jul 2023 13:07:22 +0200
+	id 1qJBGA-00EjN2-0G;
+	Tue, 11 Jul 2023 11:10:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1689073822; x=1720609822;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=pnPOejrtBmciSuneX2GIuca/d8m7aJiJ68yCzAIAa8Y=;
+  b=gMtULlYDQ/8JQdF/ugvQ+/BlFvp5z0LodXzZjLBXT2kBcRB4gbjB4uiM
+   S063P0C86ji3NsVU7hwRvyijMC/0xK6FPc9JQkmPGmdANxPwI++/OQJwV
+   UCsxDaw3du5LD1SPYTdpu8mZzLZRZA8B4juJfcpyEV7/gTdozboSsjk2r
+   JKwq31l2NSkfGVs5PlpxK1Enk/6Bpx8wQqacY0EpiReDrAJK3wXanoNvJ
+   a0VpjU12uy0PhohPqCkxbBFvLFYMWT9s7YsTZnzAJKAq6f/WSTIfXX/10
+   jEkbBzvYCU3bkLdOP1OlJp/vVbKPj/RlOSthSvoddqRSCxdCusIwBNDaM
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="344909469"
+X-IronPort-AV: E=Sophos;i="6.01,196,1684825200"; 
+   d="scan'208";a="344909469"
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2023 04:10:19 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="834644461"
+X-IronPort-AV: E=Sophos;i="6.01,196,1684825200"; 
+   d="scan'208";a="834644461"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by fmsmga002.fm.intel.com with ESMTP; 11 Jul 2023 04:10:08 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1qJBFs-001pGf-16;
+	Tue, 11 Jul 2023 14:10:04 +0300
+Date: Tue, 11 Jul 2023 14:10:04 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Yang Yingliang <yangyingliang@huawei.com>,
+	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
+	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	Sanjay R Mehta <sanju.mehta@amd.com>,
+	Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andy Gross <agross@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>
+Subject: Re: [PATCH v2 08/15] spi: Clean up headers
+Message-ID: <ZK04jEIo9ovLzF0e@smile.fi.intel.com>
+References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
+ <20230710154932.68377-9-andriy.shevchenko@linux.intel.com>
+ <da48f031-d93b-4a30-bad6-f80f58b35853@sirena.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH V2] riscv: kexec: Fixup synchronization problem between
- init_mm and active_mm
-To: guoren@kernel.org, palmer@rivosinc.com, paul.walmsley@sifive.com,
- zong.li@sifive.com, atishp@atishpatra.org, jszhang@kernel.org,
- bjorn@kernel.org
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
-References: <20230710054029.2026124-1-guoren@kernel.org>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230710054029.2026124-1-guoren@kernel.org>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <da48f031-d93b-4a30-bad6-f80f58b35853@sirena.org.uk>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_040731_649945_FE916E2A 
-X-CRM114-Status: GOOD (  26.33  )
+X-CRM114-CacheID: sfid-20230711_041022_131444_7589EABC 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,149 +127,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guo,
+On Tue, Jul 11, 2023 at 09:26:46AM +0100, Mark Brown wrote:
+> On Mon, Jul 10, 2023 at 06:49:25PM +0300, Andy Shevchenko wrote:
+> > There is a few things done:
+> > - include only the headers we are direct user of
+> > - when pointer is in use, provide a forward declaration
+> > - add missing headers
+> > - group generic headers and subsystem headers
+> > - sort each group alphabetically
+> 
+> This breaks an x86 allmodconfig build:
 
+Yeah, it was too brave to go. That's actually the answer why I left
+mod_devicetable.h included. (However the mod_devicetable.h probably should
+stay to be similar to i2c.h.
 
-On 10/07/2023 07:40, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> The machine_kexec() uses set_memory_x to modify the direct mapping
-> attributes from RW to RWX. But set_memory_x only changes the init_mm's
-> attributes, not current->active_mm, so when kexec jumps into
-> control_buffer, the instruction page fault happens, and there is no
-> minor_pagefault for it, then panic.
+Let's postpone this one, but it's good to have the build report so we know
+which drivers are missing GPIO header to be included.
 
+-- 
+With Best Regards,
+Andy Shevchenko
 
-I think it needs more details like this:
-
-"The current implementation of set_memory_x does not split hugepages in 
-the linear mapping and then when a PGD mapping is used, the whole PGD is 
-marked as executable. But changing the permissions at the PGD level must 
-be propagated to all the page tables."
-
-
->
-> The bug is found on an MMU_sv39 machine, and the direct mapping used a
-> 1GB PUD, the pgd entries. Here is the bug output:
->
->   kexec_core: Starting new kernel
->   Will call new kernel at 00300000 from hart id 0
->   FDT image at 747c7000
->   Bye...
->   Unable to handle kernel paging request at virtual address ffffffda23b0d000
->   Oops [#1]
->   Modules linked in:
->   CPU: 0 PID: 53 Comm: uinit Not tainted 6.4.0-rc6 #15
->   Hardware name: Sophgo Mango (DT)
->   epc : 0xffffffda23b0d000
->    ra : machine_kexec+0xa6/0xb0
->   epc : ffffffda23b0d000 ra : ffffffff80008272 sp : ffffffc80c173d10
->    gp : ffffffff8150e1e0 tp : ffffffd9073d2c40 t0 : 0000000000000000
->    t1 : 0000000000000042 t2 : 6567616d69205444 s0 : ffffffc80c173d50
->    s1 : ffffffd9076c4800 a0 : ffffffd9076c4800 a1 : 0000000000300000
->    a2 : 00000000747c7000 a3 : 0000000000000000 a4 : ffffffd800000000
->    a5 : 0000000000000000 a6 : ffffffd903619c40 a7 : ffffffffffffffff
->    s2 : ffffffda23b0d000 s3 : 0000000000300000 s4 : 00000000747c7000
->    s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
->    s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
->    s11: 0000003f940001a0 t3 : ffffffff815351af t4 : ffffffff815351af
->    t5 : ffffffff815351b0 t6 : ffffffc80c173b50
->   status: 0000000200000100 badaddr: ffffffda23b0d000 cause: 000000000000000c
->
-> The solution is to fix machine_kexec() to remap control code page outside
-> the linear mapping.
-
-
-"Given the current flaw in the set_memory_x implementation, the simplest 
-solution is to ..."
-
-
->
-> Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Alexandre Ghiti <alex@ghiti.fr>
-> ---
-> Changelog:
-> V2:
->   - Use vm_map_ram instead of modifying set_memory_x
->   - Correct Fixes tag
-> ---
->   arch/riscv/include/asm/kexec.h    |  1 +
->   arch/riscv/kernel/machine_kexec.c | 14 ++++++++++----
->   2 files changed, 11 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
-> index 2b56769cb530..17456e91476e 100644
-> --- a/arch/riscv/include/asm/kexec.h
-> +++ b/arch/riscv/include/asm/kexec.h
-> @@ -41,6 +41,7 @@ crash_setup_regs(struct pt_regs *newregs,
->   struct kimage_arch {
->   	void *fdt; /* For CONFIG_KEXEC_FILE */
->   	unsigned long fdt_addr;
-> +	void *control_code_buffer;
->   };
->   
->   extern const unsigned char riscv_kexec_relocate[];
-> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-> index 2d139b724bc8..eeb209775107 100644
-> --- a/arch/riscv/kernel/machine_kexec.c
-> +++ b/arch/riscv/kernel/machine_kexec.c
-> @@ -86,7 +86,14 @@ machine_kexec_prepare(struct kimage *image)
->   
->   	/* Copy the assembler code for relocation to the control page */
->   	if (image->type != KEXEC_TYPE_CRASH) {
-> -		control_code_buffer = page_address(image->control_code_page);
-> +		control_code_buffer = vm_map_ram(&image->control_code_page,
-> +						 KEXEC_CONTROL_PAGE_SIZE/PAGE_SIZE,
-> +						 NUMA_NO_NODE);
-> +		if (control_code_buffer == NULL) {
-> +			pr_err("Failed to vm_map control page\n");
-> +			return -ENOMEM;
-> +		}
-> +
->   		control_code_buffer_sz = page_size(image->control_code_page);
->   
->   		if (unlikely(riscv_kexec_relocate_size > control_code_buffer_sz)) {
-> @@ -97,8 +104,7 @@ machine_kexec_prepare(struct kimage *image)
->   		memcpy(control_code_buffer, riscv_kexec_relocate,
->   			riscv_kexec_relocate_size);
->   
-> -		/* Mark the control page executable */
-> -		set_memory_x((unsigned long) control_code_buffer, 1);
-> +		internal->control_code_buffer = control_code_buffer;
-
-
-Where is this mapping marked as executable? I see that vm_map_ram() maps 
-the pages as PAGE_KERNEL, which does not set PAGE_EXEC.
-
-
->   	}
->   
->   	return 0;
-> @@ -211,7 +217,7 @@ machine_kexec(struct kimage *image)
->   	unsigned long this_cpu_id = __smp_processor_id();
->   	unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
->   	unsigned long fdt_addr = internal->fdt_addr;
-> -	void *control_code_buffer = page_address(image->control_code_page);
-> +	void *control_code_buffer = internal->control_code_buffer;
->   	riscv_kexec_method kexec_method = NULL;
->   
->   #ifdef CONFIG_SMP
-
-
-Otherwise, you can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
 
 
 _______________________________________________
