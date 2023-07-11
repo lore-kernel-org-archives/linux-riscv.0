@@ -4,75 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A994DEB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 10:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519D1EB64DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 10:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U9oSnnmsgaGAPq5Cup3UNs3sOnOQXpg83Isgo9IVwlY=; b=xIOKNvGSMaznz8
-	yDdZDfk24l2OH4+9bfjPBhYbW9zL2fguXn9o9NYlMZ5f9CQtuykI6LBo6TqBVZOjIqDSgz//z9b+Q
-	dAIiKJWnTfZrkjRJhi78iXZe4zdB8Fs/5rOWbSukaXXvYWNjqbM8/QxMdif0920xX7cF6VnHzAMm3
-	iwkjew7inZQPypAisN3jI+NeYr/VQctrtEOV+1HrKdrWjTwWCT5BomMSTaU/VmtRENyS8Eywyad0L
-	i/qZYP73pm8T9ztU9Z1wmewPLSy3LkoOo6q/DZ71/F5O7aSfGKK2exlot8Zcw4YkzNerNMIlrQ6Ef
-	AxY+WLIMGAIoBR7LxPug==;
+	List-Owner; bh=J38wIzERqYedctkfrh1+SlS5dvGfzmwPgTPmRxth+sM=; b=aR/AMoG2pvwpo9
+	Vfq7lBrnPQ0wAeD94ZXzN9aNb2jdhp0NVug8gVngQ83L5yikY6qw0mdCI5kU3YkWRuVAuf+nogvGl
+	/vGfrVpXXRs7vTZBfE4ny5FTNKbELFW2Ror6tfgUftELpbfJJuh7tsay49j6ZlVg8RgwVwImHVCN2
+	H2rG0HwQwqqTLFQKLPSUXJMT+blaVIr0d1eIEjYNzNDDkdoJAnMg8roGSeSK95Uyjv0Bll1STVMJU
+	y9TlLuBRhPMufQjm7dvZgCNIoRYqHrcz1XXMlxEIqS8m8FIOerM6OXyr4ghDeAPuhkF3P++FqLhEa
+	guLF3Zp7UFIkpOoL/oMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJAyb-00EgVl-0c;
-	Tue, 11 Jul 2023 10:52:13 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1qJB4l-00Ehf5-2Q;
+	Tue, 11 Jul 2023 10:58:35 +0000
+Received: from mga03.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJAyX-00EgUJ-1V
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Jul 2023 10:52:11 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-3fc02a92dcfso37795565e9.0
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 03:52:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689072727; x=1691664727;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V1PdMizM80C3ZI8rblEgvVMyPGq6EddPu4QPQ4ja35g=;
-        b=u9OCUAqgxqoO71TrPr/ab1c4ktAGG42chSTWX2bXgly1ZqQ/DoLJJOb0dbXh5LNU8J
-         xKcUNyD/dtZSeBcrGlbbqwzhuLkF2c5KyuzsHNO4+8G360nMrm1GQxKkDTV9ue3i/Jzn
-         mahw/QKd1GGTyhH7ODvCCeAY33VViShF+8OSosFGxgXfFwM/JJzSQAgxXDgIm8Br0jHK
-         imvUDI7c5Z/oXy/vt5ElX8pB3R0vi/r9NIcPJPJJCgupZI+BkPU67nFWHNUjUXW6r+PF
-         5p4GSNOjp26G+4MHblcj+eVAdN8OuA06uNf9DfAIhxss3ZoF3i1EgDWktFrqaMI2vTCN
-         +rpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689072727; x=1691664727;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=V1PdMizM80C3ZI8rblEgvVMyPGq6EddPu4QPQ4ja35g=;
-        b=UZX5xxh4kNb1/9wGCHYamvGj78r7gcGlCaaRZvqs3dP62X0E/mehKd3uq29REDni5u
-         aS4UUpI+OpMMO3ykACijj1bVMykAqI4+4YbPlrzkkPvuPraXJjbJZpIQ+RSE40mE7B62
-         Jm1o8ForYR8eFufo7S3vCsX5/h+zr/svm/iMvVrNBxr7NVPCTWvgeTe6zOGoYa0xtC/9
-         NMljumRoq33mBHemFfFfo7Ll9FLRkD9ie2CRWBxcGBwRFjE2QcWg2p0AxeG4UiQbCkyO
-         ga9/ITvilu47SPd1q52GE4K1TpijhK4ku3y+bSLc1RICcWtpZz/Iu4IQGI/up0LtZfU1
-         tSCw==
-X-Gm-Message-State: ABy/qLbCwtSQt2rZESnOFS4Ci2mUYKcT3PEwiOIh1M87eTaN4gkrjLOP
-	+qQamKDWt3KaenaM7E/MFAJ0FAw55NOy0A4Qy2EgXQ==
-X-Google-Smtp-Source: APBJJlGpdVefawHmCXphduQKsmic0iBz7dS012j6apOKODRTQOukmx93N03K5S1INpevsq04JQqhq9PJyPHkvzwBelg=
-X-Received: by 2002:a5d:684c:0:b0:314:4915:689 with SMTP id
- o12-20020a5d684c000000b0031449150689mr15212682wrw.34.1689072726749; Tue, 11
- Jul 2023 03:52:06 -0700 (PDT)
+	id 1qJB4h-00EhdM-1C;
+	Tue, 11 Jul 2023 10:58:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1689073111; x=1720609111;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=lIHyBeHEaNenp9Q/l2JAcaQuyI3ymSNUAckdiFell2M=;
+  b=FPvz+0fP8EpdjIn+3jtuJUg2KgBPPtwzw1ZPlL6XkXlh3HKZnhFldMNW
+   bWS+0srjAYGBbghWzOoFIoCA5Aaw72ydRUcYk+3naqwa15Iyk4R+HLPDg
+   3RjDb98/B0p2ZOHCFz1sFG5E6sD2d3e9Fw4XMYcpz07L+VRswfi4ACb6t
+   Q09C6LrcYVhpkOmQnDSBrp8riPVmBLAo3+bBIGzPFoRQHg3SH5wdzEr4A
+   nCI+/iiPho/ycLTzDLMTw62nrwroqhLfiWRgXMPcFvhHHJZ35axnTqjz4
+   386OOWks83exPsLXJ/IdbRVVEsEq/8XfEklMCleRANvLo5ZqZMjUH5Usa
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="368087266"
+X-IronPort-AV: E=Sophos;i="6.01,196,1684825200"; 
+   d="scan'208";a="368087266"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jul 2023 03:58:28 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10767"; a="724404293"
+X-IronPort-AV: E=Sophos;i="6.01,196,1684825200"; 
+   d="scan'208";a="724404293"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by fmsmga007.fm.intel.com with ESMTP; 11 Jul 2023 03:58:16 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1qJB4O-001p51-1q;
+	Tue, 11 Jul 2023 13:58:12 +0300
+Date: Tue, 11 Jul 2023 13:58:12 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Yang Yingliang <yangyingliang@huawei.com>,
+	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
+	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	Sanjay R Mehta <sanju.mehta@amd.com>,
+	Radu Pirea <radu_nicolae.pirea@upb.ro>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andy Gross <agross@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>
+Subject: Re: [PATCH v2 02/15] spi: Drop duplicate IDR allocation code in
+ spi_register_controller()
+Message-ID: <ZK01xAqLc8AGFDo/@smile.fi.intel.com>
+References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
+ <20230710154932.68377-3-andriy.shevchenko@linux.intel.com>
+ <97f3436a-78ca-4a94-a409-ef04bd3b593f@sirena.org.uk>
 MIME-Version: 1.0
-References: <20230704121837.248976-1-alexghiti@rivosinc.com> <mhng-c5a71036-061e-4704-bcdf-2b23cab36908@palmer-ri-x1c9a>
-In-Reply-To: <mhng-c5a71036-061e-4704-bcdf-2b23cab36908@palmer-ri-x1c9a>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Tue, 11 Jul 2023 12:51:56 +0200
-Message-ID: <CAHVXubiU7XUSDmJ1YuUX85kLtMO=Y00fYYHuepc2=d3oG8Aq4g@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Start of DRAM should at least be aligned on PMD
- size for the direct mapping
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, suagrfillet@gmail.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <97f3436a-78ca-4a94-a409-ef04bd3b593f@sirena.org.uk>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_035209_513998_743ECC19 
-X-CRM114-Status: GOOD (  27.65  )
+X-CRM114-CacheID: sfid-20230711_035831_503801_390C41E4 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +128,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KHNvcnJ5IGZvciB0aGUgZGVsYXkhKQoKT24gVGh1LCBKdWwgNiwgMjAyMyBhdCA3OjA14oCvUE0g
-UGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4gd3JvdGU6Cj4KPiBPbiBUdWUsIDA0
-IEp1bCAyMDIzIDA1OjE4OjM3IFBEVCAoLTA3MDApLCBhbGV4Z2hpdGlAcml2b3NpbmMuY29tIHdy
-b3RlOgo+ID4gU28gdGhhdCB3ZSBkbyBub3QgZW5kIHVwIG1hcHBpbmcgdGhlIHdob2xlIGxpbmVh
-ciBtYXBwaW5nIHVzaW5nIDRLCj4gPiBwYWdlcywgd2hpY2ggaXMgc2xvdyBhdCBib290IHRpbWUs
-IGFuZCBhbHNvIHZlcnkgbGlrZWx5IGF0IHJ1bnRpbWUuCj4gPgo+ID4gU28gbWFrZSBzdXJlIHdl
-IGFsaWduIHRoZSBzdGFydCBvZiBEUkFNIG9uIGEgUE1EIGJvdW5kYXJ5Lgo+ID4KPiA+IFNpZ25l
-ZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KPiA+IC0t
-LQo+ID4gIGFyY2gvcmlzY3YvbW0vaW5pdC5jIHwgNyArKysrKystCj4gPiAgMSBmaWxlIGNoYW5n
-ZWQsIDYgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9h
-cmNoL3Jpc2N2L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gPiBpbmRleCA0ZmE0
-MjBmYWE3ODAuLjRhNDNlYzI3NWM2ZCAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvbW0vaW5p
-dC5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+ID4gQEAgLTIxNCw4ICsyMTQsMTMg
-QEAgc3RhdGljIHZvaWQgX19pbml0IHNldHVwX2Jvb3RtZW0odm9pZCkKPiA+ICAgICAgIG1lbWJs
-b2NrX3Jlc2VydmUodm1saW51eF9zdGFydCwgdm1saW51eF9lbmQgLSB2bWxpbnV4X3N0YXJ0KTsK
-PiA+Cj4gPiAgICAgICBwaHlzX3JhbV9lbmQgPSBtZW1ibG9ja19lbmRfb2ZfRFJBTSgpOwo+ID4g
-Kwo+ID4gKyAgICAgLyoKPiA+ICsgICAgICAqIE1ha2Ugc3VyZSB3ZSBhbGlnbiB0aGUgc3RhcnQg
-b2YgdGhlIG1lbW9yeSBvbiBhIFBNRCBib3VuZGFyeSBzbyB0aGF0Cj4gPiArICAgICAgKiBhdCB3
-b3JzdCwgd2UgbWFwIHRoZSBsaW5lYXIgbWFwcGluZyB3aXRoIFBNRCBtYXBwaW5ncy4KPiA+ICsg
-ICAgICAqLwo+ID4gICAgICAgaWYgKCFJU19FTkFCTEVEKENPTkZJR19YSVBfS0VSTkVMKSkKPiA+
-IC0gICAgICAgICAgICAgcGh5c19yYW1fYmFzZSA9IG1lbWJsb2NrX3N0YXJ0X29mX0RSQU0oKTsK
-PiA+ICsgICAgICAgICAgICAgcGh5c19yYW1fYmFzZSA9IG1lbWJsb2NrX3N0YXJ0X29mX0RSQU0o
-KSAmIFBNRF9NQVNLOwo+Cj4gVGhpcyByb3VuZHMgZG93biwgd2hpY2ggSUlVQyB3aWxsIHJlc3Vs
-dCBpbiBtYXBwaW5ncyBvdXRzaWRlIHdoYXQKPiBtZW1ibG9jayBkZXRlY3RlZCBhcyB0aGUgc3Rh
-cnQgYWYgRFJBTS4gIEknZCBleHBlY3QgdGhhdCB0byBjYXVzZSBiYWQKPiBiZWhhdmlvciBzb21l
-d2hlcmUuCgpBY3R1YWxseSB3ZSBhcmUgbm90IG1hcHBpbmcgdGhpcyBuZXcgcmVnaW9uIGFzIGl0
-IGlzIG5vdCBwcmVzZW50IGluCnRoZSBtZW1ibG9jayByZWdpb25zLCB3ZSBhcmUganVzdCByZS1h
-bGlnbmluZyB0aGUgdmlydHVhbCBhbmQgcGh5c2ljYWwKYWRkcmVzczogcGh5c19yYW1fYmFzZSBp
-cyBvbmx5IHVzZWQgZm9yIHRoZSB2aXJ0dWFsIHRvIHBoeXNpY2FsCnRyYW5zbGF0aW9ucy4KCj4K
-PiBTaG91bGRuJ3Qgd2UgYmUgcm91bmRpbmcgdXA/CgpEb2luZyBzbyB3b3VsZCByZW1vdmUgbWVt
-b3J5IGZyb20gdGhlIG1lbW9yeSBtYXAsIGJ1dCBJJ20gbm90IHN1cmUKdGhpcyBpcyBjb3JyZWN0
-LCB3ZSBjb3VsZCByZW1vdmUgbWVtb3J5IHRoYXQgY29udGFpbnMgInNvbWV0aGluZyIgdGhhdApu
-ZWVkcyB0byBiZSBhY2Nlc3NlZCB1c2luZyB0aGUgbGluZWFyIG1hcHBpbmcgKEFDUEkgdGFibGVz
-PyBEVD8pLgoKTW9yZSB0ZXN0aW5nIGlzIHdlbGNvbWUgYXMgSSBjYW4gYmUgd3Jvbmcgb2YgY291
-cnNlLgoKVGhhbmtzLAoKQWxleAoKCj4KPiA+Cj4gPiAgICAgICAvKgo+ID4gICAgICAgICogSW4g
-NjQtYml0LCBhbnkgdXNlIG9mIF9fdmEvX19wYSBiZWZvcmUgdGhpcyBwb2ludCBpcyB3cm9uZyBh
-cyB3ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Jul 10, 2023 at 06:09:00PM +0100, Mark Brown wrote:
+> On Mon, Jul 10, 2023 at 06:49:19PM +0300, Andy Shevchenko wrote:
+> 
+> > Refactor spi_register_controller() to drop duplicate IDR allocation.
+> > Instead of if-else-if branching use two sequential if:s, which allows
+> > to re-use the logic of IDR allocation in all cases.
+> 
+> For legibility this should have been split into a separate factoring out
+> of the shared code and rewriting of the logic, that'd make it trivial to
+> review.
+
+Should I do that for v3?
+
+> > -		mutex_lock(&board_lock);
+> > -		id = idr_alloc(&spi_master_idr, ctlr, first_dynamic,
+> > -			       0, GFP_KERNEL);
+> > -		mutex_unlock(&board_lock);
+> > -		if (WARN(id < 0, "couldn't get idr"))
+> > -			return id;
+> > -		ctlr->bus_num = id;
+> > +		status = spi_controller_id_alloc(ctlr, first_dynamic, 0);
+> > +		if (status)
+> > +			return status;
+> 
+> The original does not do the remapping of return codes that the previous
+> two copies do...
+
+Yes, I had to mention this in the commit message that in my opinion this makes
+no difference. With the dynamically allocated aliases the absence of the slot
+has the same effect as in the other cases.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
