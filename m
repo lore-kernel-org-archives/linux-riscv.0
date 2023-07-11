@@ -4,110 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBEEEB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 12:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DFBAEB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Jul 2023 12:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RYKy3AyVFEgNO3FKuakuHO6FGbsV49otRN2qNv+r1fQ=; b=QDrP/nPMwxMzxSWiBWYjJijD0T
-	z3fv2pDvFdvyACE1bjyeNSjHVf24Vmd+kMmtUq8p9NUQ6/aYqDrt0xJV5shhvNGmhcyTwp4u3ywPT
-	DJ5E1rUA7G3AapcwNDrvdDl0iH9nZSBBr+z2s7yqjEbTBG5A22V3wJ9cauM0tAdeF3fwgaaXNoRjm
-	NuRZZ7lwFtCg89L8cIxYqCNdUegUTSjoFRCA2qRHjyA+8QRmDy96IDenEBw4stJ4WalafOhwVwMm2
-	YGogWDal2748nnwZZDgD/NPB0Wsq/+VLyNzttbfNPXGQdZbLuADi1UW5NOwz/hEXJS54FO/+N5vOo
-	ZRtFiXiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AhK4b5GqNb+t9qa5lxbpQeJ233K1ADpklkEElJzgUTM=; b=OpusTVuDeePEq0
+	361ffRQijZUkm9a8gUI73vnrsQoojXABUs+e4JyZsOXcjWj74dMWn4j1w7UnUA5zvJIGRdZfmcEDR
+	g2tOr2K7wGBeQdaJWlGfyKs6XpPN+syLdr1QE7H74SzGvronFyEjQczB04Rc2b8Pbr6qt4rUuLs0I
+	zIZqzn4yLlXiQJ6Mz1gOW5hhePweStj480YafAiFK/3J8m/lUWsqMVeKEhR+R8V/N8IKqEpsWLosw
+	UiF/T1lnqI9ZF6W3TzYnJWh1uNuMqUk5YMUphf9keCdV2+5t/9BeqDYiYiMLfCxSMlNYUl6Rxb7E3
+	z4dAJL2eCbx88pPIxHnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJC3s-00EoiK-1J;
-	Tue, 11 Jul 2023 12:01:44 +0000
-Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
+	id 1qJCVr-00Esa2-23;
+	Tue, 11 Jul 2023 12:30:39 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJC3n-00EohC-1f;
-	Tue, 11 Jul 2023 12:01:41 +0000
-Received: from mercury (dyndsl-091-248-213-212.ewe-ip-backbone.de [91.248.213.212])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 3BE4E6607007;
-	Tue, 11 Jul 2023 13:01:35 +0100 (BST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1689076895;
-	bh=VpEG3ri1MmPk1vvBqKyVzFd1wmdbrZrML5Y0FqY4wUg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HQDJgxlTR8vo1RaEsB3D+nH2+IRG9QN4tbrCrAaA85UTPwMmgGSzMeLBmp8bq8Ej6
-	 pgwZP23sqCYBHYEmhmfwkK6ZwddZDGY5nvAyjCHRxCLhh+PU1kHLVi4qEYii04KpmG
-	 cZIBzK40pXQjgo62B5RaZ5YhAs3eAX9lyz/b27cO1rLw+fmbUEzB/bIkdWz6tNdnsD
-	 l37m5GS8joB/wsoJ81rU7USdQhqBwTSytws8Gf8fo6kkpx4AITWu33A+o3yUYXuRI2
-	 WpJS6erpP2P9LRQMv/o3BmpdZLgyRs0csbkK1sM9hkgaBX9fGW0SBkbzX/Ag+Cs0tn
-	 nvbJMMzvoOh0A==
-Received: by mercury (Postfix, from userid 1000)
-	id 34BCD106765E; Tue, 11 Jul 2023 14:01:33 +0200 (CEST)
-Date: Tue, 11 Jul 2023 14:01:33 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
+	id 1qJCVi-00EsXN-0X;
+	Tue, 11 Jul 2023 12:30:31 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2b703cbfaf5so89531181fa.1;
+        Tue, 11 Jul 2023 05:30:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1689078626; x=1691670626;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PF44NEqyxP0uEPvVdBdUhZoOyhnmXaRRtdBTolupizs=;
+        b=SBnTfmlUAjKWCRn3fyds5WJnq/rFhCyNY0inIr58sbmQdnr0ekqm/rRHOpDPaGy/KO
+         B5+bnED3EocI70B/1Liqfviz84UQamIYXCfhBLJdAwpngn8GsImdPLHw3RB6cx2k3qLl
+         nSGU6gtvVw3/VsXZCkMPykBjpKDuKmimIVto3O71KEXoVSR8sXs9wWBC1yWjR9VJRV7y
+         Wiz8QKW407Y9wEjIJVzHwlxfi2RJhdAg86N/DwGw/jxMsF0gA+NEhyREeEq19FirWzm/
+         TqVILtBOKMHlbGVQP5ypx9ZxmExDySMPGPYIR/gAUwwQJjSdRAbKTqb1KbxEGl8qDyoh
+         Eb8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689078626; x=1691670626;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PF44NEqyxP0uEPvVdBdUhZoOyhnmXaRRtdBTolupizs=;
+        b=gfigeq7VBTv6yPt5Vorw543CrkFV0HNrsfI/2OJRlZFJA6ooWcVB5gcFMPwVmHm5Us
+         hF8oEwcBZLwEarXQdqVm9y5MMcm4BzTa8uOsPJgSXneAWXneka1gxdghl+Uxm1Ff2MdZ
+         gLxzUxIxNmQxg6b4Dom6D0iiZN4gUQt/JTWm76AO3zYCPABo2mVS5hyU2Ji9yrZcBWb+
+         J8n18p2wKGLzE2by87AboJVsZrrmJ5UDhtiwPsBIawaKu0Gjb/5NmecFCnrlp78gLzmI
+         AqexflZnXsHXNeO9Sxh81y8Ocp1NpoAsc1D42TUMinXF4lXaj+B06lRBuz0F4KVP928U
+         bcdg==
+X-Gm-Message-State: ABy/qLa0GYcxx8B34Q2/ld7YR+dISjiN1eFHOdkHGo4RWILLUD7jon28
+	ph0oywd12S6MB82Svjm36Lo=
+X-Google-Smtp-Source: APBJJlEGAsotaRV20l259BaTNO1He84gEShKxa1gOSyhZTOSrSYKw2njibp5AmXp10CkNfmdPINRWg==
+X-Received: by 2002:a2e:8eca:0:b0:2b6:dc50:19ac with SMTP id e10-20020a2e8eca000000b002b6dc5019acmr13901724ljl.31.1689078625694;
+        Tue, 11 Jul 2023 05:30:25 -0700 (PDT)
+Received: from mobilestation ([85.249.18.12])
+        by smtp.gmail.com with ESMTPSA id j17-20020a2e6e11000000b002b6ee75648fsm441355ljc.12.2023.07.11.05.30.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Jul 2023 05:30:24 -0700 (PDT)
+Date: Tue, 11 Jul 2023 15:30:19 +0300
+From: Serge Semin <fancer.lancer@gmail.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Mark Brown <broonie@kernel.org>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Yang Yingliang <yangyingliang@huawei.com>,
-	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>,
-	Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	Sanjay R Mehta <sanju.mehta@amd.com>,
-	Radu Pirea <radu_nicolae.pirea@upb.ro>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
+Cc: Mark Brown <broonie@kernel.org>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Yang Yingliang <yangyingliang@huawei.com>, 
+	Amit Kumar Mahapatra via Alsa-devel <alsa-devel@alsa-project.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Tharun Kumar P <tharunkumar.pasumarthi@microchip.com>, Vijaya Krishna Nivarthi <quic_vnivarth@quicinc.com>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	Sanjay R Mehta <sanju.mehta@amd.com>, Radu Pirea <radu_nicolae.pirea@upb.ro>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	NXP Linux Team <linux-imx@nxp.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Andy Gross <agross@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Max Filippov <jcmvbkbc@gmail.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
 	Richard Cochran <richardcochran@gmail.com>
-Subject: Re: [PATCH v2 05/15] spi: Remove code duplication in
- spi_add_device_locked()
-Message-ID: <20230711120133.45drgk46y4cz7aut@mercury.elektranox.org>
+Subject: Re: [PATCH v2 13/15] spi: Rename SPI_MASTER_GPIO_SS to
+ SPI_CONTROLLER_GPIO_SS
+Message-ID: <tvm772o6uqndgyjvycv27qouqq76crpre5tyqcnanaautqjjwn@pydiwhjzhbgd>
 References: <20230710154932.68377-1-andriy.shevchenko@linux.intel.com>
- <20230710154932.68377-6-andriy.shevchenko@linux.intel.com>
- <7557bada-3076-4d6e-a5c5-d368433706e2@sirena.org.uk>
- <ZK03rBqoQ0IZz617@smile.fi.intel.com>
+ <20230710154932.68377-14-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-In-Reply-To: <ZK03rBqoQ0IZz617@smile.fi.intel.com>
+Content-Disposition: inline
+In-Reply-To: <20230710154932.68377-14-andriy.shevchenko@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_050139_827047_8E83ED8C 
-X-CRM114-Status: GOOD (  33.35  )
+X-CRM114-CacheID: sfid-20230711_053030_204343_F222A691 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,119 +111,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3599879629623640287=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 10, 2023 at 06:49:30PM +0300, Andy Shevchenko wrote:
+> Rename SPI_MASTER_GPIO_SS to SPI_CONTROLLER_GPIO_SS and
+> convert the users to SPI_CONTROLLER_GPIO_SS to follow
 
---===============3599879629623640287==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fcthwhge3iyvg2gl"
-Content-Disposition: inline
+* I'm not an expert in English, but imo the next would look a
+* bit more readable:
+* convert s/the users to SPI_CONTROLLER_GPIO_SS/the code to using SPI_CONTROLLER_GPIO_SS
 
+> the new naming shema.
 
---fcthwhge3iyvg2gl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+s/shema/schema
 
-Hi,
+> 
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> ---
+[...]
 
-On Tue, Jul 11, 2023 at 02:06:20PM +0300, Andy Shevchenko wrote:
-> On Mon, Jul 10, 2023 at 06:16:22PM +0100, Mark Brown wrote:
-> > On Mon, Jul 10, 2023 at 06:49:22PM +0300, Andy Shevchenko wrote:
-> > > Seems by unknown reason, probably some kind of mis-rebase,
-> > > the commit 0c79378c0199 ("spi: add ancillary device support")
-> > > adds a dozen of duplicating lines of code. Drop them.
-> > >=20
-> > > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> > > ---
-> > >  drivers/spi/spi.c | 11 -----------
-> > >  1 file changed, 11 deletions(-)
-> > >=20
-> > > diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
-> > > index c99ee4164f11..46cbda383228 100644
-> > > --- a/drivers/spi/spi.c
-> > > +++ b/drivers/spi/spi.c
-> > > @@ -712,17 +712,6 @@ EXPORT_SYMBOL_GPL(spi_add_device);
-> > >  static int spi_add_device_locked(struct spi_device *spi)
-> > >  {
-> > >  	struct spi_controller *ctlr =3D spi->controller;
-> > > -	struct device *dev =3D ctlr->dev.parent;
-> > > -
-> > > -	/* Chipselects are numbered 0..max; validate. */
-> > > -	if (spi_get_chipselect(spi, 0) >=3D ctlr->num_chipselect) {
-> > > -		dev_err(dev, "cs%d >=3D max %d\n", spi_get_chipselect(spi, 0),
-> > > -			ctlr->num_chipselect);
-> > > -		return -EINVAL;
-> > > -	}
-> > > -
-> > > -	/* Set the bus ID string */
-> > > -	spi_dev_set_name(spi);
-> >=20
-> > I see that this is duplicating spi_add_device() (and we really could do
-> > better with code sharing there I think) but I can't immediately see
-> > where the duplication that's intended to be elimiated is here - where
-> > else in the one call path that spi_add_device_locked() has would we do
-> > the above?  Based on the changelog I was expecting to see some
-> > duplicated code in the function itself.
->=20
-> Oh, by some reason Sebastian wasn't in this rather long Cc list.
-> Added him.
->=20
-> Reading again I don't see any useful explanation why that piece of code h=
-as to
-> be duplicated among these two functions. It's 100% a copy.
->=20
-> Sebastian, can you shed some light here?
+>  drivers/spi/spi-dw-core.c  | 2 +-
 
-The patch in this thread is obviously wrong. It results in the
-checks never beeing called for spi_add_device_locked(). The copy is
-in spi_add_device() and those two are not calling into each other.
+[...]
 
-But it should be fine to move the code to the start of
-__spi_add_device(), which allows removing the duplication. In that
-case the code will be run with the add_lock held, which is probably
-what I was worried about two years ago. Looking at it again, the
-lock is held anyways in case of spi_add_device_locked().
+> diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
+> index a8ba41ad4541..45f5acc26b1d 100644
+> --- a/drivers/spi/spi-dw-core.c
+> +++ b/drivers/spi/spi-dw-core.c
+> @@ -932,7 +932,7 @@ int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
+>  	if (dws->mem_ops.exec_op)
+>  		master->mem_ops = &dws->mem_ops;
+>  	master->max_speed_hz = dws->max_freq;
+> -	master->flags = SPI_MASTER_GPIO_SS;
+> +	master->flags = SPI_CONTROLLER_GPIO_SS;
+>  	master->auto_runtime_pm = true;
+>  
+>  	/* Get default rx sample delay */
 
-Greetings,
+For the DW APB/AHB SSI driver:
+Reviewed-by: Serge Semin <fancer.lancer@gmail.com>
 
--- Sebastian
+-Serge(y)
 
---fcthwhge3iyvg2gl
-Content-Type: application/pgp-signature; name="signature.asc"
+[...]
 
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmStRJIACgkQ2O7X88g7
-+pp6dQ//QWqSMddfA8JIA4/cd4pYKRoojbIso2JQaAhIWBB48KjH/GX7xoNCH4Ig
-MRloAncuXxqH1quGGpphBRJL2bAKVRcinKKtYdwCyM6P422hjD5GqVDKOr2H1u2f
-4+wWcKeKNk5ect4iYj/kRZYYpdlJzxK1hsd7bCwBCz3I0k7rlxqIg5td7e/7Q7CC
-4bvNEtL0Ub1iB+vzDNoqNKN48Bp87xr+kM1wSDsDhPqf1TrTmxgOFIYNmy2x+XuV
-20ZRE4olEfUMFlPNNCaAurOPVZmclVstzBUwRhU7uVBH4/ZnbY02wsklP0D8SbV8
-inFOurRiLtWaRSQfkwMEF2DAp4l5a6eWVyuy5Rf0mdVmgq9bgeXFycbiYkOM6Gsz
-aQ0g5SV64PYZSwPljucB28GrWfLdDNlp693elljAeDElhbF1bqhbVozqhkyfH5Ih
-J4wpwr/DgZaW31B0V/sQVlJTIRtjAmIRgydid81aaSOzXmW0B+Pu74EU/cMNcy0f
-iSGRdSPX+eA5OPNHQWPz1RQvJOHMVrMBXTdSCeVzZdV4VSTZSv9/LL922e9qK2DB
-yGQTeUox+5d2hdcQlSmo+LQGhiZiiJ9qoVWPsWjhNwbb3fh3HCSP9X/BJHNNGzqr
-WU6SN8gRjCaL3/i5pT08DOL6WdKhn/qo8EzCnOBxloSjD2uF1Ic=
-=v6T3
------END PGP SIGNATURE-----
-
---fcthwhge3iyvg2gl--
-
-
---===============3599879629623640287==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+> index 06a92a3a5746..bcabae98cb7c 100644
+> --- a/drivers/spi/spi.c
+> +++ b/drivers/spi/spi.c
+> @@ -995,7 +995,7 @@ static void spi_set_cs(struct spi_device *spi, bool enable, bool force)
+>  				gpiod_set_value_cansleep(spi_get_csgpiod(spi, 0), activate);
+>  		}
+>  		/* Some SPI masters need both GPIO CS & slave_select */
+> -		if ((spi->controller->flags & SPI_MASTER_GPIO_SS) &&
+> +		if ((spi->controller->flags & SPI_CONTROLLER_GPIO_SS) &&
+>  		    spi->controller->set_cs)
+>  			spi->controller->set_cs(spi, !enable);
+>  	} else if (spi->controller->set_cs) {
+> @@ -3020,7 +3020,7 @@ static int spi_get_gpio_descs(struct spi_controller *ctlr)
+>  
+>  	ctlr->unused_native_cs = ffs(~native_cs_mask) - 1;
+>  
+> -	if ((ctlr->flags & SPI_MASTER_GPIO_SS) && num_cs_gpios &&
+> +	if ((ctlr->flags & SPI_CONTROLLER_GPIO_SS) && num_cs_gpios &&
+>  	    ctlr->max_native_cs && ctlr->unused_native_cs >= ctlr->max_native_cs) {
+>  		dev_err(dev, "No unused native chip select available\n");
+>  		return -EINVAL;
+> diff --git a/include/linux/spi/spi.h b/include/linux/spi/spi.h
+> index cdc3addfe117..43f6c3f71a76 100644
+> --- a/include/linux/spi/spi.h
+> +++ b/include/linux/spi/spi.h
+> @@ -578,8 +578,7 @@ struct spi_controller {
+>  #define SPI_CONTROLLER_NO_TX		BIT(2)	/* Can't do buffer write */
+>  #define SPI_CONTROLLER_MUST_RX		BIT(3)	/* Requires rx */
+>  #define SPI_CONTROLLER_MUST_TX		BIT(4)	/* Requires tx */
+> -
+> -#define SPI_MASTER_GPIO_SS		BIT(5)	/* GPIO CS must select slave */
+> +#define SPI_CONTROLLER_GPIO_SS		BIT(5)	/* GPIO CS must select slave */
+>  
+>  	/* Flag indicating if the allocation of this struct is devres-managed */
+>  	bool			devm_allocated;
+> -- 
+> 2.40.0.1.gaa8946217a0b
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3599879629623640287==--
-
