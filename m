@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A745CEB64DD
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 09:21:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CB5EB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 09:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EitYPN3FnHIugu/aYTS2799jGHhiqyt9CKbLePoD/+g=; b=bTvEXB/k7NncCK
-	5dJ7Vffr7oiFouf7eWPk5EZP1NI9N+Re85L++KjjxCk2UcE3dFZqDnu5FCtovqTok1CkncV6DSs0c
-	ub2TJmMTO6ymeSeMPn1vq0f9aimPoB1anPJudpBvGwoBKTRpa3h6/tB7zB1lB9QxjfrN70f7Ib2oP
-	bC3SpIdDLHG8y9hTszPFne7hMgsdysKlwgRH/84UurITf4j0ARsJEtMKYruCmLfdvj2oJiDRl0aWW
-	r06zSye2K0kbiay5VYIqp789+RmIrq9YQYAIcfmLLar6mSQki7FjgrzA+06xxFbKn9UOd6i7FabVx
-	7QZD62dXMPD4YT0IR/iA==;
+	List-Owner; bh=/uq+1+nqN9kUZcp2p2UJoYOgcpjpXolxRXLz6kv2Ykc=; b=anxqAj96K2i+O2
+	MZSdI7FlDThrdcoNNnG3n6M9qhyC4y8BCjd+OF2qYP+wcWzV09R8iJTM9BhL0hF57LKa+k+iRtXc5
+	pxjOiYz2LpYl0cLSGUkp9xrWhKe//KYkWWHg7PSEmW12QuI3ehDGVGCOoi8Un86Sudle5+RpwQPKl
+	RysxdIpvo3z5A2o7x0RbPks5o2JAmPFRL0plJaftieLDHg8HH1zgEQnInw18wQkFyC76eVVwJGb4U
+	qjGjBMGumoChC7D/k4ZKxmh1SVXkyL/5cwOGkqYnnMfA2KrfPdKOEUHOJLmHsKTW0g5sDapT8oX3Y
+	MqTITuTYE/HiaFNLg7AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJW28-00H1bx-0F;
-	Wed, 12 Jul 2023 09:21:16 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJW24-00H1P0-0p
+	id 1qJWbr-00H7Vv-02;
+	Wed, 12 Jul 2023 09:58:11 +0000
+Received: from mail-yw1-f172.google.com ([209.85.128.172])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qJWbm-00H7T4-08
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 09:21:13 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A8BE58339;
-	Wed, 12 Jul 2023 17:20:15 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Jul
- 2023 17:20:15 +0800
-Received: from localhost.localdomain (183.27.98.46) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 12 Jul
- 2023 17:20:14 +0800
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	"Philipp Zabel" <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>,
-	"Emil Renner Berthing" <kernel@esmil.dk>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, Xingyu Wu
-	<xingyu.wu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: [PATCH v7 9/9] riscv: dts: starfive: jh7110: Add STGCRG/ISPCRG/VOUTCRG nodes
-Date: Wed, 12 Jul 2023 17:20:07 +0800
-Message-ID: <20230712092007.31013-10-xingyu.wu@starfivetech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20230712092007.31013-1-xingyu.wu@starfivetech.com>
-References: <20230712092007.31013-1-xingyu.wu@starfivetech.com>
+	Wed, 12 Jul 2023 09:58:08 +0000
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-577ddda6ab1so8633377b3.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 02:58:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689155884; x=1691747884;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Y6MzudJP2Fu/sGdEnelPPluUqTi475Db7xeaDmuW9Sk=;
+        b=abDNINn3iKQxjnzoCmK0jRwbVx0nWG4c6tJnNJ7H8jNAQEMtuZLBViaK4gikCiV7EV
+         LQyHEfvQb0jt0Jm4Kd8kyQtJUch57ZlWDslhqipe3V5hE7M6VMnf7cGD+7jctifMNOyt
+         CMCvP8s38QvsDZd/SvmE+Il3IQoU+uq1p1Wvu3Qu6z31To5/kF5dk98T4et/51YR715x
+         Pj3HPHLKthkO27x8tt4hpXGq+BpDVY8zzcuAt1XljGHSm9vnA7IQ3qMw/L7kt3jf86Ys
+         3TXW3RaEDwq1Szq8MJRm1sqcuTSkifbp6qh3TUTmdJJ6a88OxZDGwjQrM9IhuAyIe3x0
+         ILQA==
+X-Gm-Message-State: ABy/qLbm6knytBraRVT1/jqQWMssaLDxSHU3g2G57unDfoHtuREuqceN
+	lXYcOxH5cXxO2xK7jPJ/O+Jkw44FU+jOFQ==
+X-Google-Smtp-Source: APBJJlHuj5ApyP9Xub4gwpYsOGdnbQ3EQ1byPQmV/8CahKXOx6I0Qg+2xLqZPm0oiH4ldQZHaS3hOQ==
+X-Received: by 2002:a0d:d409:0:b0:56c:e260:e2d5 with SMTP id w9-20020a0dd409000000b0056ce260e2d5mr1684934ywd.7.1689155884438;
+        Wed, 12 Jul 2023 02:58:04 -0700 (PDT)
+Received: from mail-yb1-f179.google.com (mail-yb1-f179.google.com. [209.85.219.179])
+        by smtp.gmail.com with ESMTPSA id q187-20020a8175c4000000b00577374e8abasm1067349ywc.87.2023.07.12.02.58.03
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Jul 2023 02:58:03 -0700 (PDT)
+Received: by mail-yb1-f179.google.com with SMTP id 3f1490d57ef6-ca9804dc6e4so198577276.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 02:58:03 -0700 (PDT)
+X-Received: by 2002:a25:ae5d:0:b0:bd6:a97e:3597 with SMTP id
+ g29-20020a25ae5d000000b00bd6a97e3597mr1632945ybe.30.1689155883328; Wed, 12
+ Jul 2023 02:58:03 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [183.27.98.46]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
+References: <20230511181931.869812-1-tj@kernel.org> <20230511181931.869812-7-tj@kernel.org>
+ <ZF6WsSVGX3O1d0pL@slm.duckdns.org> <CAMuHMdVCQmh6V182q4g---jvsWiTOP2hBPZKvma6oUN6535LEg@mail.gmail.com>
+ <CAMuHMdW1kxZ1RHKTRVRqDNAbj1Df2=v0fPn5KYK3kfX_kiXR6A@mail.gmail.com>
+ <ZK3MBfPS-3-tJgjO@slm.duckdns.org> <ZK30CR196rs-OWLq@slm.duckdns.org>
+In-Reply-To: <ZK30CR196rs-OWLq@slm.duckdns.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 12 Jul 2023 11:57:49 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUCXPi+aS-7bR3qRetKF9T3W9jk_HKjvaXmfHv5SEeuFg@mail.gmail.com>
+Message-ID: <CAMuHMdUCXPi+aS-7bR3qRetKF9T3W9jk_HKjvaXmfHv5SEeuFg@mail.gmail.com>
+Subject: Re: Consider switching to WQ_UNBOUND messages (was: Re: [PATCH v2
+ 6/7] workqueue: Report work funcs that trigger automatic CPU_INTENSIVE mechanism)
+To: Tejun Heo <tj@kernel.org>
+Cc: Lai Jiangshan <jiangshanlai@gmail.com>, 
+	"torvalds@linux-foundation.org" <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, kernel-team@meta.com, 
+	Linux PM list <linux-pm@vger.kernel.org>, 
+	DRI Development <dri-devel@lists.freedesktop.org>, linux-rtc@vger.kernel.org, 
+	linux-riscv <linux-riscv@lists.infradead.org>, netdev <netdev@vger.kernel.org>, 
+	Linux Fbdev development list <linux-fbdev@vger.kernel.org>, Linux MMC List <linux-mmc@vger.kernel.org>, 
+	"open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)" <linux-ide@vger.kernel.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_022112_636618_D8B4555D 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20230712_025806_076717_1D8FD848 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,105 +92,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add STGCRG/ISPCRG/VOUTCRG new node to support JH7110
-System-Top-Group, Image-Signal-Process and Video-Output
-clock and reset drivers for the JH7110 RISC-V SoC.
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
----
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 55 ++++++++++++++++++++++++
- 1 file changed, 55 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-index e9c1e4ad71a2..0005fa163a78 100644
---- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-@@ -6,6 +6,7 @@
- 
- /dts-v1/;
- #include <dt-bindings/clock/starfive,jh7110-crg.h>
-+#include <dt-bindings/power/starfive,jh7110-pmu.h>
- #include <dt-bindings/reset/starfive,jh7110-crg.h>
- 
- / {
-@@ -398,6 +399,25 @@ i2c2: i2c@10050000 {
- 			status = "disabled";
- 		};
- 
-+		stgcrg: clock-controller@10230000 {
-+			compatible = "starfive,jh7110-stgcrg";
-+			reg = <0x0 0x10230000 0x0 0x10000>;
-+			clocks = <&osc>,
-+				 <&syscrg JH7110_SYSCLK_HIFI4_CORE>,
-+				 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
-+				 <&syscrg JH7110_SYSCLK_USB_125M>,
-+				 <&syscrg JH7110_SYSCLK_CPU_BUS>,
-+				 <&syscrg JH7110_SYSCLK_HIFI4_AXI>,
-+				 <&syscrg JH7110_SYSCLK_NOCSTG_BUS>,
-+				 <&syscrg JH7110_SYSCLK_APB_BUS>;
-+			clock-names = "osc", "hifi4_core",
-+				      "stg_axiahb", "usb_125m",
-+				      "cpu_bus", "hifi4_axi",
-+				      "nocstg_bus", "apb_bus";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
- 		uart3: serial@12000000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x12000000 0x0 0x10000>;
-@@ -558,5 +578,40 @@ pwrc: power-controller@17030000 {
- 			interrupts = <111>;
- 			#power-domain-cells = <1>;
- 		};
-+
-+		ispcrg: clock-controller@19810000 {
-+			compatible = "starfive,jh7110-ispcrg";
-+			reg = <0x0 0x19810000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_ISP_TOP_CORE>,
-+				 <&syscrg JH7110_SYSCLK_ISP_TOP_AXI>,
-+				 <&syscrg JH7110_SYSCLK_NOC_BUS_ISP_AXI>,
-+				 <&dvp_clk>;
-+			clock-names = "isp_top_core", "isp_top_axi",
-+				      "noc_bus_isp_axi", "dvp_clk";
-+			resets = <&syscrg JH7110_SYSRST_ISP_TOP>,
-+				 <&syscrg JH7110_SYSRST_ISP_TOP_AXI>,
-+				 <&syscrg JH7110_SYSRST_NOC_BUS_ISP_AXI>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			power-domains = <&pwrc JH7110_PD_ISP>;
-+		};
-+
-+		voutcrg: clock-controller@295c0000 {
-+			compatible = "starfive,jh7110-voutcrg";
-+			reg = <0x0 0x295c0000 0x0 0x10000>;
-+			clocks = <&syscrg JH7110_SYSCLK_VOUT_SRC>,
-+				 <&syscrg JH7110_SYSCLK_VOUT_TOP_AHB>,
-+				 <&syscrg JH7110_SYSCLK_VOUT_TOP_AXI>,
-+				 <&syscrg JH7110_SYSCLK_VOUT_TOP_HDMITX0_MCLK>,
-+				 <&syscrg JH7110_SYSCLK_I2STX0_BCLK>,
-+				 <&hdmitx0_pixelclk>;
-+			clock-names = "vout_src", "vout_top_ahb",
-+				      "vout_top_axi", "vout_top_hdmitx0_mclk",
-+				      "i2stx0_bclk", "hdmitx0_pixelclk";
-+			resets = <&syscrg JH7110_SYSRST_VOUT_TOP_SRC>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			power-domains = <&pwrc JH7110_PD_VOUT>;
-+		};
- 	};
- };
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgVGVqdW4sCgpPbiBXZWQsIEp1bCAxMiwgMjAyMyBhdCAyOjMw4oCvQU0gVGVqdW4gSGVvIDx0
+akBrZXJuZWwub3JnPiB3cm90ZToKPiBPbiBUdWUsIEp1bCAxMSwgMjAyMyBhdCAxMTozOToxN0FN
+IC0xMDAwLCBUZWp1biBIZW8gd3JvdGU6Cj4gPiBPbiBUdWUsIEp1bCAxMSwgMjAyMyBhdCAwNDow
+NjoyMlBNICswMjAwLCBHZWVydCBVeXR0ZXJob2V2ZW4gd3JvdGU6Cj4gPiA+IE9uIFR1ZSwgSnVs
+IDExLCAyMDIzIGF0IDM6NTXigK9QTSBHZWVydCBVeXR0ZXJob2V2ZW4gPGdlZXJ0QGxpbnV4LW02
+OGsub3JnPiB3cm90ZToKPiAuLi4KPiA+ID4gd29ya3F1ZXVlOiBuZWlnaF9tYW5hZ2VkX3dvcmsg
+aG9nZ2VkIENQVSBmb3IgPjEwMDAwdXMgNCB0aW1lcywKPiA+ID4gY29uc2lkZXIgc3dpdGNoaW5n
+IHRvIFdRX1VOQk9VTkQKPiA+Cj4gPiBJIHdvbmRlciB3aGV0aGVyIHRoZSByaWdodCB0aGluZyB0
+byBkbyBoZXJlIGlzIHNvbWVob3cgc2NhbGluZyB0aGUgdGhyZXNob2xkCj4gPiBhY2NvcmRpbmcg
+dG8gdGhlIHJlbGF0aXZlIHByb2Nlc3NpbmcgcG93ZXIuIEl0J3MgZGlmZmljdWx0IHRvIGNvbWUg
+dXAgd2l0aCBhCj4gPiB0aHJlc2hvbGQgd2hpY2ggd29ya3Mgd2VsbCBhY3Jvc3MgdGhlIGxhdGVz
+dCAmIGZhc3Rlc3QgYW5kIHJlYWxseSB0aW55IENQVXMuCj4gPiBJJ2xsIHRoaW5rIGFib3V0IGl0
+IHNvbWUgbW9yZSBidXQgaWYgeW91IGhhdmUgc29tZSBpZGVhcywgcGxlYXNlIGZlZWwgZnJlZQo+
+ID4gdG8gc3VnZ2VzdC4KPgo+IEdlZXJ0LCBkbyB5b3UgbWluZCBwb3N0aW5nIHRoZSBmdWxsIGtl
+cm5lbCBsb2dzIGZvciB0aGUgYWZmZWN0ZWQgbWFjaGluZXM/CgpodHRwczovL2RyaXZlLmdvb2ds
+ZS5jb20vZmlsZS9kLzF0b0RzN3VnWkoyZVhhdHBkdnlTWTR5eFNzTmFtOXhBQwppcyBhbiBhcmNo
+aXZlIHdpdGggYm9vdCBhbmQgczJyYW0gbG9ncy4gIE5vdGUgdGhhdCBteSBrZXJuZWxzIGRvIGNv
+bnRhaW4KbG9jYWwgZGVidWcgY29kZSwgYW5kIG1heSBiZSBub2lzeS4KCkdye29ldGplLGVldGlu
+Z31zLAoKICAgICAgICAgICAgICAgICAgICAgICAgR2VlcnQKCi0tIApHZWVydCBVeXR0ZXJob2V2
+ZW4gLS0gVGhlcmUncyBsb3RzIG9mIExpbnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4LW02
+OGsub3JnCgpJbiBwZXJzb25hbCBjb252ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwg
+SSBjYWxsIG15c2VsZiBhIGhhY2tlci4gQnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5hbGlz
+dHMgSSBqdXN0IHNheSAicHJvZ3JhbW1lciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAtLSBMaW51cyBUb3J2YWxkcwoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
