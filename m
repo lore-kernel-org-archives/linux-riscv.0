@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E63FC001DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 16:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22654EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 16:09:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LPIFsH7PSFwl/Ih1YzvcrTPcP3CMXClg9TEDjrxXFq0=; b=fLdK38u3qCXXS6
-	OaNnomiKqlx0TAABO14yNd6ddzSHBOFYQiXreSDHXHqVWlBM1hJMnWfl0/CHOEl7pJNgTTyNJZiA3
-	Pdv9h4i8U+C7v6SUj1c8pJS13O/FylxVBvPuEW0N7YyRMt+5NjufBp6DcEqI9IYhem9nKhU58uD4o
-	5NbaNOpbMW+HdtOWT0MJ0S/n0DwMYiCUGLF+nShqs2rB2vPQd76thkAALQQ8rmYBkckqVjrluoltX
-	YkCk3zWJ8AKHUJrHav/sLL6wOOhVaCilaPSv9HpgGh51y2Yf9eZqz+SwSzAEnZOYD4CMSrLYclfJb
-	3pz9HKx8FJhZpAGqY8zA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5YIvm67i/A/edEopnGyDJiPiK1TmUAJ2W+1I5zm6h/E=; b=Tr2sBp9gQDYSWbNmhB4ZRJWQWm
+	5QN8cw6cc5JFRhxl1fB/xwdKAB1Tw48oecNySXOYPsgtAVAPum2E9WWnSrvmIdLJy63IAo1YEP8CS
+	QVjt9ZdRhkhTALWWC24YyIDWPqfzOUw825z5q98ayEpAhBkX3T7m3XBXGOuObdk8gVtv6W0MiIDl2
+	LjQdTSkEnDqlAi4xU+VryOK+KX7jlUsH3NIGffPyCXD/5fgMfC2HvvpyNBQYnqxub0SPY/+9Gdj8j
+	PGlvlTRkTu6ZZsoTZLmFYVMBGCjwYL8ouj53nuPZrf6tqW2E7TcclrzwLALT85wQJUmVkvwC0C7iO
+	0JpA9n6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJcGR-000Rqq-0D;
-	Wed, 12 Jul 2023 16:00:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qJcPA-000TEE-2G;
+	Wed, 12 Jul 2023 16:09:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJcGM-000Rnv-2u;
-	Wed, 12 Jul 2023 16:00:25 +0000
+	id 1qJcP7-000TCF-17
+	for linux-riscv@lists.infradead.org;
+	Wed, 12 Jul 2023 16:09:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 64E996184D;
-	Wed, 12 Jul 2023 16:00:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C09E5C433C8;
-	Wed, 12 Jul 2023 16:00:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A2F546181E;
+	Wed, 12 Jul 2023 16:09:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFC31C433C7;
+	Wed, 12 Jul 2023 16:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689177621;
-	bh=zNkYR0JyjRXUJ7vFyx0u819ePXXPtTPmLqFb58IyYgU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=u5pbmmRny/PgfzGaePeSfwG/Wkz1NNm0fuvAIPvRY54ujqc2YoYxFh69nika2ZSD0
-	 zo/mi7wOv7tN6YXq/s/DBm0k+gEOYRsptfSTe3JTW32cKZKdjLefA+3UE4JV3UJEdm
-	 kvNoyh/it49Jx5roU0VLRZxGnePIshWFYFtbWWoJMRV44pwD38vXMmHM/rr085XsK4
-	 FbrxPleSDBbEUyv9o1mC2mjMrc+YV1HWFEhLBEyuaaNaMryrKXEIKE7p9AR++HZQJp
-	 K/CkVAIwYnOtqsB8lYA0JGGuFu74ajRl0lkIjyGn6AC95KRkenlxDIKl4fHpIiWX++
-	 aktu/dNXgE1oA==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 9ADCFE4D006;
-	Wed, 12 Jul 2023 16:00:21 +0000 (UTC)
+	s=k20201202; t=1689178164;
+	bh=pqoyJFSea9dYoiGMmVTXAZYeslRJ01DFgztLa+1r6uQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BYwvzwmVoK4zO33qkodjGeDcHExTd2f2cckvHPQJp4lZkntvj76fCveDvwcbUKc1/
+	 w5l9o0Vz27YQ/fo8W7jySKoLDXOMFFgFZ5h8cMNx0Vubyup3QMCoL3KTle9xXnVGdg
+	 Hq0N8AyeUi/lB0o5BLNTgFujbN3ZCsmba3VAQUWlzAqC4PpLktPyR7SvWDJVwo+XLq
+	 ygW9fIAXdNLsKdzqTBd/YLifVKTMYbD/J4ybDxrZIYXlbF9f8xDs4Cg3CI7eurf8vQ
+	 ZgpG59EGzbn80ZvFRnJCNqYZad4L5OcCyk6ok0f36pRV9niwLO93K6m96J5elWdVQq
+	 UlVXVWohAbuaw==
+Date: Wed, 12 Jul 2023 17:09:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Xingyu Wu <xingyu.wu@starfivetech.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	William Qiu <william.qiu@starfivetech.com>,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [RESEND PATCH v6 0/7] Add PLL clocks driver and syscon for
+ StarFive JH7110 SoC
+Message-ID: <20230712-footage-smokiness-8f3d224073ce@spud>
+References: <20230704064610.292603-1-xingyu.wu@starfivetech.com>
+ <20230704-driven-desecrate-75075ebc11a3@spud>
 MIME-Version: 1.0
-Subject: Re: [PATCH] perf: RISC-V: Remove PERF_HES_STOPPED flag checking in
- riscv_pmu_start()
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <168917762163.26837.1392502139104305103.git-patchwork-notify@kernel.org>
-Date: Wed, 12 Jul 2023 16:00:21 +0000
-References: <20230710154328.19574-1-eric.lin@sifive.com>
-In-Reply-To: <20230710154328.19574-1-eric.lin@sifive.com>
-To: Eric Lin <eric.lin@sifive.com>
-Cc: linux-riscv@lists.infradead.org, atishp@atishpatra.org,
- anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
- palmer@dabbelt.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, greentime.hu@sifive.com,
- vincent.chen@sifive.com
+In-Reply-To: <20230704-driven-desecrate-75075ebc11a3@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_090022_982099_9E173E90 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230712_090925_473401_B6D69938 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +81,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5307101811323203947=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Mon, 10 Jul 2023 15:43:28 +0000 you wrote:
-> Since commit 096b52fd2bb4 ("perf: RISC-V: throttle perf events") the
-> perf_sample_event_took() function was added to report time spent in
-> overflow interrupts. If the interrupt takes too long, the perf framework
-> will lower the sysctl_perf_event_sample_rate and max_samples_per_tick.
-> When hwc->interrupts is larger than max_samples_per_tick, the
-> hwc->interrupts will be set to MAX_INTERRUPTS, and events will be
-> throttled within the __perf_event_account_interrupt() function.
-> 
-> [...]
-
-Here is the summary with links:
-  - perf: RISC-V: Remove PERF_HES_STOPPED flag checking in riscv_pmu_start()
-    https://git.kernel.org/riscv/c/66843b14fb71
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+--===============5307101811323203947==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ONIhm+iBQBpVs2F5"
+Content-Disposition: inline
 
 
+--ONIhm+iBQBpVs2F5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Stephen,
+
+On Tue, Jul 04, 2023 at 11:29:15PM +0100, Conor Dooley wrote:
+> On Tue, Jul 04, 2023 at 02:46:03PM +0800, Xingyu Wu wrote:
+> > [Resending because it has a error about examples in syscon bingdings
+> > and has to be fixed.]
+> >=20
+> > This patch serises are to add PLL clocks driver and providers by writing
+> > and reading syscon registers for the StarFive JH7110 RISC-V SoC. And ad=
+d=20
+> > documentation and nodes to describe StarFive System Controller(syscon)
+> > Registers. This patch serises are based on Linux 6.4.
+>=20
+> Could you take a look at this series when you get a chance, please?
+> Would be good to finally get it merged since the syscon bits are a dep
+> for a few other things :)
+
+When Emil has had a chance to look at this, my plan was to send you a PR
+for the bindings & clock bits, like I did for the last round of StarFive
+changes. Would that be okay with you?
+
+Thanks,
+Conor.
+
+> > William Qiu (2):
+> >   dt-bindings: soc: starfive: Add StarFive syscon module
+> >   riscv: dts: starfive: jh7110: Add syscon nodes
+> >=20
+> > Xingyu Wu (5):
+> >   dt-bindings: clock: Add StarFive JH7110 PLL clock generator
+> >   dt-bindings: clock: jh7110-syscrg: Add PLL clock inputs
+> >   clk: starfive: Add StarFive JH7110 PLL clock driver
+> >   clk: starfive: jh7110-sys: Add PLL clocks source from DTS
+> >   riscv: dts: starfive: jh7110: Add PLL clocks source in SYSCRG node
+> >=20
+> >  .../bindings/clock/starfive,jh7110-pll.yaml   |  46 ++
+> >  .../clock/starfive,jh7110-syscrg.yaml         |  18 +-
+> >  .../soc/starfive/starfive,jh7110-syscon.yaml  |  93 ++++
+> >  MAINTAINERS                                   |  13 +
+> >  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  30 +-
+> >  drivers/clk/starfive/Kconfig                  |   9 +
+> >  drivers/clk/starfive/Makefile                 |   1 +
+> >  .../clk/starfive/clk-starfive-jh7110-pll.c    | 507 ++++++++++++++++++
+> >  .../clk/starfive/clk-starfive-jh7110-sys.c    |  45 +-
+> >  .../dt-bindings/clock/starfive,jh7110-crg.h   |   6 +
+> >  10 files changed, 746 insertions(+), 22 deletions(-)
+> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh=
+7110-pll.yaml
+> >  create mode 100644 Documentation/devicetree/bindings/soc/starfive/star=
+five,jh7110-syscon.yaml
+> >  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-pll.c
+> >=20
+> > --=20
+> > 2.25.1
+> >=20
+
+
+
+--ONIhm+iBQBpVs2F5
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK7QLgAKCRB4tDGHoIJi
+0gmyAP9FrTz4QgVF0rHn9VPS4zyrnwkwh/i4NsTcANNBws7PgwD+OjKReHA9p0VA
+SHvBgCynEq9+47lPl+pclaCFSv+nLgY=
+=53hT
+-----END PGP SIGNATURE-----
+
+--ONIhm+iBQBpVs2F5--
+
+
+--===============5307101811323203947==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5307101811323203947==--
+
