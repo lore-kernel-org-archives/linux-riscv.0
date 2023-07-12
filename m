@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A27CEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 13:41:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE91EB64DD
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 13:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JYDtveHGibHHjoBKrnPeTPtLR1HSRvNYKoXP3Hd+Jks=; b=vXd55TaAUM9nEb
-	OpxnvnYXp39qBoPmVU1ec/JUiwSg9123WleIsMMlpyAuG9TPK092EOCJmLKx87BtsY075gs0VcSaZ
-	iJHTQPh5Eupro5NZ9i4zm+jO+9UU2tZ2bKZ0wTYfA8AvDqNBBGx5kxlMbMbS1kNRrW2o7O707Qxk2
-	eWBf14XZ9/cO1YMDF3SLaSl6LIlnQUNVZ+f/c2rtGeMgz+CDdR2qr8Dz08OEF/AgprsUwFyc5NM6w
-	+8YD89xW7UWfXzsT5dK1wyxTKWJgT8C+1hIkPUH8KFhZ6M2E5g36OFTuEfFUwQUlqEY1cR/XtE+BN
-	g6+9SvyJYLEjS7diIO/g==;
+	List-Owner; bh=E3LugemDN/VgQm+4BASr6NinoDDKConZaAYfXVnJ1oY=; b=gWo+k2/etw9mVC
+	Kvn4OjiIPRp+ECMg/aZilh+CS2/T9ox1p4A9W1wYF6EjDCcIvWU6Es9gi0DeB+9cEysaIqfLljlsI
+	lpOYp3JFUfGd/rlLc4W7NuCPWi056FRcmgI7uC8YyYj8DmwcWB4KovBeYHtUV/bvuZc+RhdVbXBPe
+	bFb045rNlKk2Shg2oLuiwUvpYSuLIkBJGhJLpU2e0AP4WyEI607j8K+ouTuzXtMUNUEz3h1VPmXB9
+	ps1pnfKettLJJItujdikabKU9bF2+wcwgjNreEMiuGF5AQjWxuXSmQhIbjlxLU5s1v2Yuw8FED5aX
+	69NfyKU10EU4LbLSvvmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJa5V-0005cw-0T;
-	Wed, 12 Jul 2023 13:41:01 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1qJaEc-0006ae-37;
+	Wed, 12 Jul 2023 13:50:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJa5R-0005bC-1j
+	id 1qJaEZ-0006Zi-1b
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 13:40:58 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-66869feb7d1so3901351b3a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 06:40:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689169254; x=1691761254;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3Kqh6fNIY9AJljwrK0e2rNLKBwfhh3ijZgx+ok+fnrI=;
-        b=5EEoH9hI3BRpj2k/wZBtzWVgxdQWeCG9MGqEeequWdxBEGrdLj7Fvi2FV7Ph5MuL1s
-         x0rQUYf/MUXN4WMG2g9ORlwQpo8h4oK3qBQdyBdGbLd+rL77EqH6G27LcOaHq6E2+g+z
-         17McHVpC5lE5vi7aWaxmfSYNman4xCnTDNf22eM1cbCpTik9xPLD54dLEgJs7IyO0t2z
-         F/WPkuK8g7m0eAHx6yMATB46qdro5jRbxjAfonFDv9uRNgHq2ln+nxze86OMLdIgAghl
-         nZUv6OPqsbrt6t9CPga55Jes0G+j8o9vxSJVOvisc9CGq4FfmI9tDOQXq0/zRyiXQtLt
-         61Sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689169254; x=1691761254;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3Kqh6fNIY9AJljwrK0e2rNLKBwfhh3ijZgx+ok+fnrI=;
-        b=glBv/egCPbPhYprPv6kNNt9Bh6jDzerPVqjLfbgSF1oTqdq9DnzdRBy5+sN2RweiHg
-         j4VhtH/mYG1WYfs7HPOLiV98s0YbHMWiEwn3oqVazoXJhUezoziyWG/gbqBlMunpahai
-         6RW/VznOXm3dNgSDwtEqLcqvuU39VEKaELMlQ4yezr1NIB30pd3nG8dFnOFw4PSD/OGy
-         p9zPSvrkkHYxo/5xFekShrtaGjZUUq+6xWel/6owf7H9np+c76anV3zkWj2VGBl6FLZ7
-         y1etWNHU7VhJfT2fE48CE9SXVYJuPSKJWrehtHAAZ5OhwVXRUTYa9z4wRsgQcKSmYb4t
-         Km3Q==
-X-Gm-Message-State: ABy/qLZs/39E5hG/TjSqmcVtW8OmUj9+HjWtnKtte/e+fVaNCtEAGeec
-	3HQCsDi9N2dOmDW/ykv1IN/hfw==
-X-Google-Smtp-Source: APBJJlHhCR4FyKSMod5bL33rCVPPYzjI//x+UGhJ4p+/Acc0Ye58uNfbCQ5C1waGuZMXeHcsBSwFVw==
-X-Received: by 2002:aa7:88c1:0:b0:682:f529:6d69 with SMTP id k1-20020aa788c1000000b00682f5296d69mr10775524pff.7.1689169254368;
-        Wed, 12 Jul 2023 06:40:54 -0700 (PDT)
-Received: from localhost ([50.38.6.230])
-        by smtp.gmail.com with ESMTPSA id c24-20020a62e818000000b0067aea93af40sm3648425pfi.2.2023.07.12.06.40.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Jul 2023 06:40:53 -0700 (PDT)
-In-Reply-To: <20230628091213.2908149-1-guoren@kernel.org>
-References: <20230628091213.2908149-1-guoren@kernel.org>
-Subject: Re: [PATCH] riscv: sigcontext: Correct the comment of sigreturn
-Message-Id: <168916917326.11308.11157139765378457247.b4-ty@rivosinc.com>
-Date: Wed, 12 Jul 2023 06:39:33 -0700
+	Wed, 12 Jul 2023 13:50:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7ED3E617CE;
+	Wed, 12 Jul 2023 13:50:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E2C1BC433C9;
+	Wed, 12 Jul 2023 13:50:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689169821;
+	bh=0wFk1A/aNUUTpjvhGUBpRWPsahwPmj+gEshvobF0bE8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=IMl2jc9KaRv0leEA0CFOdFBQ9YH99BxBnfhVcNFs23Fu66Cp2ebzp2XnMnufb29yX
+	 3hzEPYEbhZxoox/hFBTmSFYAo5ERYWdB8FNiZkZB9UBKb8nXr2LIUe1FYqfGvN/pW2
+	 RJ9JhghgaHWcbB6YO03g/kstgbfp3za9Q863r1nEO5PCuHByLKKie7VHbwiHrWgbCU
+	 KY/8fDMqkw1+o3sjdOJjhJ76bB6tb7xojpdZgEqe9gcWTFfhSY1OHc18VzF8UQV36H
+	 p6jEBp5BsB3mYtcypgz9mfMgr5VZVAoV+Puqybqe0gadPB4CbEd4kFgls4+sc5n3xA
+	 ghuXJzuEGPOhg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id C66C1C04E32;
+	Wed, 12 Jul 2023 13:50:21 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.13-dev-901c5
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-  linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Arnd Bergmann <arnd@arndb.de>, guoren@kernel.org
+Subject: Re: [PATCH] Documentation: RISC-V: hwprobe: Fix a formatting error
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <168916982180.8919.16048088678378231987.git-patchwork-notify@kernel.org>
+Date: Wed, 12 Jul 2023 13:50:21 +0000
+References: <20230710193329.2742-1-palmer@rivosinc.com>
+In-Reply-To: <20230710193329.2742-1-palmer@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, corbet@lwn.net, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, conor.dooley@microchip.com,
+ evan@rivosinc.com, heiko@sntech.de, andy.chiu@sifive.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_064057_570959_D36F93FE 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230712_065023_592166_739CB458 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,23 +79,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-On Wed, 28 Jun 2023 05:12:13 -0400, guoren@kernel.org wrote:
-> The real-time signals enlarged the sigset_t type, and most architectures
-> have changed to using rt_sigreturn as the only way. The riscv is one of
-> them, and there is no sys_sigreturn in it. Only some old architecture
-> preserved sys_sigreturn as part of the historical burden.
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Mon, 10 Jul 2023 12:33:30 -0700 you wrote:
+> From: Palmer Dabbelt <palmer@rivosinc.com>
 > 
+> I'm not sure what I was trying to do with the ':'s, but they're just
+> rendered to HTML which looks odd.   This makes "fence.i" look like
+> "mvendorid" and such, which is seems reasonable to me.
 > 
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> 
+> [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - Documentation: RISC-V: hwprobe: Fix a formatting error
+    https://git.kernel.org/riscv/c/d6e724d3ef0b
 
-[1/1] riscv: sigcontext: Correct the comment of sigreturn
-      https://git.kernel.org/palmer/c/471aba2e4760
-
-Best regards,
+You are awesome, thank you!
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
