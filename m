@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC59EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 11:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F11EB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 12:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9+RIkFVxdLtSARFmmADt3IKt9ZwKqBsxeGDnUhJP2G8=; b=lF79qd59oiJmQw
-	H79/8hPK2DkAYmrEM/LpOMtM8tIaAJ1FtkNx+tsMAVPXYqQ6LLlEUXsw9FY4eC4vfmuputY43d1YR
-	YydBo73XMcDDs5VTuRFuUnf0vI97xXzKXWBg8xjo7kIsZQ2rZUDdMD/JwEGDr+maMGHrQM0QaW1Tk
-	J0lK2c2ds9AMhrc6EHIfIWkiCwbY4bJZ9/g1TkLZ3EjbT3RYMigAp08yj1KHmPU17g9ciQA1/3zWg
-	7VlLJChTaNLO//hM6Jl6H/YyoNLualFYiwQGehW1pqv5aEEQIl5e3432UM/7a5zEowf4RoPa440Ai
-	bgCdN1z1Fc1Tb7qQK0rQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2HO02kIbiskZ5Sqg0Gm6MILkQVi3evWaKEzs2DP3qxo=; b=N5G8us5oNvLiez
+	m8DqZN1uU/44zmF1jbiGImPwPDoFulcUFneO3Uj3eiOYajOcG2ZHj3pK6fxdXd8mwEw/oxb7UUABu
+	wXFkzQ6mw5bEVFKsG7CVwagsi5872d/c6q9CpuZnXP9q7oWQBmqDrYt+HqG8GPDuETLM3TMh98/0X
+	NV7m+Pm4+d4JpKCwMUgIHbGvMPc/+ITRGPURI5Pe7vKRZnJ5FKkx6D0XIkg8fprGBWfb/vG7FmQm3
+	aQhKNJyVSC/iz0ahnxZ9nrWluG+nsye2TX4ZLHOMqBqYjpk0jMXtvtkUJw8p/p9ONs6xbJWBZ9f72
+	5mbq/xBBEwdegHv2HMvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJYTg-00HT4y-2p;
-	Wed, 12 Jul 2023 11:57:52 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1qJYwj-00HWuS-06;
+	Wed, 12 Jul 2023 12:27:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJYTf-00HT4R-0N
-	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 11:57:52 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-666e916b880so3404052b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 04:57:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1689163067; x=1691755067;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oRloNku7QBs7+rRFTQTcTft39Fk9qqWwqKwoNHtqY6Y=;
-        b=GXfTHOiFHimVzVMyq6dwDFjDSd2l+xRXuVvggA2r16bp1OoUTuadnvDEOCq2pxn9gK
-         A+XzxKfJ6raDbyBFXGK1TCC0P2cNgoJtIrV1MEnflPjaYN9WqeOhv1lCQ6rrQ3dlFDaR
-         lc67+wPX8acphX6x2hy+BYSXIl5JVoyG+EV8U4g//iNjoJS5GjhK/+Ev2i9z2nW9/5p6
-         LJ/SNJ/1pbaar1wsUk7/YqU+YIbcEEaOkJu9xm/UNNrlwMj419ytSIIezE9OjcEswJI2
-         Mqsff2yj9v9RSp/nhuz62nZ4dsV8owMiRnFgjR+fEHamOlFKyvv1mlFZMyCXyvk55dkq
-         K5hA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689163067; x=1691755067;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oRloNku7QBs7+rRFTQTcTft39Fk9qqWwqKwoNHtqY6Y=;
-        b=VGHlmed123yVcrX2gaS7jHNFVkqANahZGAz2XHIzRtnQhu1iV/F1kDahAsjjwxEiHb
-         i24ftxhLgbkMjo8u+yAXvKtSQ5/IIo5MBuevWrl5b94L0QDKMQ6oMOdTmXfkoImGIf0t
-         AiUYupi7YI/XGACAR9EfAVNxWlLT4Jqos74ngv7+OJSyD35K/avAWOKPe1gwPYCpV4qk
-         peT0miWEN3NU65JIp2SbgWtP7dqq+gSZrJzn5x8EFm21c+9+wVMqZgjR9jrso89kdaOV
-         rM0HpS/xIt9+ZtC8i8sk6y+QD39J+xdZZkPq+JRV2vVDFbYBDeL9+GI8/9PDQJWOeSu+
-         M0rw==
-X-Gm-Message-State: ABy/qLYDTyrcZAArG0MC9pLxtG4yPXrIw4o/+qsRuKY27ImBf1s54Fb/
-	zKoE6JzdFg7kc66SMKWJ8hs=
-X-Google-Smtp-Source: APBJJlEn1w7vlNNZvNj/9mgFOogZbrzCs+YZCTWMxvopFTpsoveDWfKTbwjCosOSn9r5qFc8VSdgyg==
-X-Received: by 2002:a05:6a20:138c:b0:126:a5e3:3927 with SMTP id hn12-20020a056a20138c00b00126a5e33927mr12662680pzc.8.1689163067326;
-        Wed, 12 Jul 2023 04:57:47 -0700 (PDT)
-Received: from localhost.localdomain ([58.240.82.166])
-        by smtp.gmail.com with ESMTPSA id ji19-20020a170903325300b001b7cbc5871csm3830336plb.53.2023.07.12.04.57.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Jul 2023 04:57:46 -0700 (PDT)
-From: Song Shuai <suagrfillet@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com,
-	bjorn@rivosinc.com,
-	suagrfillet@gmail.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V2] riscv: correct pt_level name via pgtable_l5/4_enabled
-Date: Wed, 12 Jul 2023 19:57:40 +0800
-Message-Id: <20230712115740.943324-1-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
+	id 1qJYwh-00HWu1-1D
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 12 Jul 2023 12:27:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ZXR+7zHmkWbyYVaIYilEixXpel3+ET8rhBNIy+I7sKc=; b=burEIjw7Ax9oR6XyYXgzDOhcuF
+	Xhtc5KYLObU41T0IENhk9G9qohZmC0Yvpb0wRw7l1oWGurx+n06gfe89pV9j1He1PowmLd8jJyW8G
+	6zVp1GF2gkOuSfQqmnXwyuzEsSHJpzBzRoDcraZR5u1o/H5XlxRZYWJLxZ3Q2LE0UHn9fNAfiTk55
+	AwKLj1j/r+rbJ4LHiTTJZlao2GGhqWJsjFEZodtwqDNEFYvFkQ0yagZeMU8KXrBVYKFvCwlCCX60H
+	AgkXU1Hco0bnyVOotp2bryNT8o+jpABaFGlsKFzTpw66wm7t7tRLyXKz9AmKG+OeMgsd4mE9EXCCa
+	pxRUvSiw==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1qJYwd-003e8q-0G;
+	Wed, 12 Jul 2023 12:27:47 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id AB77B30036B;
+	Wed, 12 Jul 2023 14:27:45 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 8E54B243429D2; Wed, 12 Jul 2023 14:27:45 +0200 (CEST)
+Date: Wed, 12 Jul 2023 14:27:45 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>,
+	"torvalds@linux-foundation.org" <torvalds@linux-foundation.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	kernel-team@meta.com, Linux PM list <linux-pm@vger.kernel.org>,
+	DRI Development <dri-devel@lists.freedesktop.org>,
+	linux-rtc@vger.kernel.org,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	netdev <netdev@vger.kernel.org>,
+	Linux Fbdev development list <linux-fbdev@vger.kernel.org>,
+	Linux MMC List <linux-mmc@vger.kernel.org>,
+	"open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)" <linux-ide@vger.kernel.org>,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Subject: Re: Consider switching to WQ_UNBOUND messages (was: Re: [PATCH v2
+ 6/7] workqueue: Report work funcs that trigger automatic CPU_INTENSIVE
+ mechanism)
+Message-ID: <20230712122745.GH3100107@hirez.programming.kicks-ass.net>
+References: <20230511181931.869812-1-tj@kernel.org>
+ <20230511181931.869812-7-tj@kernel.org>
+ <ZF6WsSVGX3O1d0pL@slm.duckdns.org>
+ <CAMuHMdVCQmh6V182q4g---jvsWiTOP2hBPZKvma6oUN6535LEg@mail.gmail.com>
+ <CAMuHMdW1kxZ1RHKTRVRqDNAbj1Df2=v0fPn5KYK3kfX_kiXR6A@mail.gmail.com>
+ <ZK3MBfPS-3-tJgjO@slm.duckdns.org>
+ <20230712080504.GA3100107@hirez.programming.kicks-ass.net>
+ <CAMuHMdUMRS9_nJXp3rrWQrODRQcBQggze0k=0GjSScCknFmmgQ@mail.gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_045751_156508_6B7E574E 
-X-CRM114-Status: GOOD (  10.87  )
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdUMRS9_nJXp3rrWQrODRQcBQggze0k=0GjSScCknFmmgQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,53 +90,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pt_level uses CONFIG_PGTABLE_LEVELS to display page table names.
-But if page mode is downgraded from kernel cmdline or restricted by
-the hardware in 64BIT, it will give a wrong name.
-
-Like, using no4lvl for sv39, ptdump named the 1G-mapping as "PUD"
-that should be "PGD":
-
-0xffffffd840000000-0xffffffd900000000    0x00000000c0000000         3G PUD     D A G . . W R V
-
-So select "P4D/PUD" or "PGD" via pgtable_l5/4_enabled to correct it.
-
-Fixes: e8a62cc26ddf ("riscv: Implement sv48 support")
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
----
-Changes since V1:
-https://lore.kernel.org/linux-riscv/20230711105202.842408-1-suagrfillet@gmail.com/
-- remove the reduntant #ifdef
-- correct the Fixes tag and add Reviewed-by from Alex
----
- arch/riscv/mm/ptdump.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index 20a9f991a6d7..e9090b38f811 100644
---- a/arch/riscv/mm/ptdump.c
-+++ b/arch/riscv/mm/ptdump.c
-@@ -384,6 +384,9 @@ static int __init ptdump_init(void)
- 
- 	kernel_ptd_info.base_addr = KERN_VIRT_START;
- 
-+	pg_level[1].name = pgtable_l5_enabled ? "P4D" : "PGD";
-+	pg_level[2].name = pgtable_l4_enabled ? "PUD" : "PGD";
-+
- 	for (i = 0; i < ARRAY_SIZE(pg_level); i++)
- 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
- 			pg_level[i].mask |= pte_bits[j].mask;
--- 
-2.20.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdWwgMTIsIDIwMjMgYXQgMTE6MDQ6MTZBTSArMDIwMCwgR2VlcnQgVXl0dGVyaG9l
+dmVuIHdyb3RlOgo+IEhvaSBQZXRlciwKPiAKPiBPbiBXZWQsIEp1bCAxMiwgMjAyMyBhdCAxMDow
+NeKAr0FNIFBldGVyIFppamxzdHJhIDxwZXRlcnpAaW5mcmFkZWFkLm9yZz4gd3JvdGU6Cj4gPiBP
+biBUdWUsIEp1bCAxMSwgMjAyMyBhdCAxMTozOToxN0FNIC0xMDAwLCBUZWp1biBIZW8gd3JvdGU6
+Cj4gPiA+IEkgd29uZGVyIHdoZXRoZXIgdGhlIHJpZ2h0IHRoaW5nIHRvIGRvIGhlcmUgaXMgc29t
+ZWhvdyBzY2FsaW5nIHRoZSB0aHJlc2hvbGQKPiA+ID4gYWNjb3JkaW5nIHRvIHRoZSByZWxhdGl2
+ZSBwcm9jZXNzaW5nIHBvd2VyLiBJdCdzIGRpZmZpY3VsdCB0byBjb21lIHVwIHdpdGggYQo+ID4g
+PiB0aHJlc2hvbGQgd2hpY2ggd29ya3Mgd2VsbCBhY3Jvc3MgdGhlIGxhdGVzdCAmIGZhc3Rlc3Qg
+YW5kIHJlYWxseSB0aW55IENQVXMuCj4gPiA+IEknbGwgdGhpbmsgYWJvdXQgaXQgc29tZSBtb3Jl
+IGJ1dCBpZiB5b3UgaGF2ZSBzb21lIGlkZWFzLCBwbGVhc2UgZmVlbCBmcmVlCj4gPiA+IHRvIHN1
+Z2dlc3QuCj4gPgo+ID4gV2UgY291bGQgc2NhbGUgYnkgQm9nb01JUFMgSSBzdXBwb3NlLCBpdCdz
+IGEgYm9ndXMgbWVhc3VyZW1lbnQsIGFzIHBlcgo+ID4gdGhlIG5hbWUsIGJ1dCBpdCBkb2VzIGhh
+dmUgc29tZSByZWxhdGlvbiB0byBob3cgZmFzdCB0aGUgbWFjaGluZSBpcy4KPiAKPiBUaGF0J3Mg
+Z29ubmEgZmFpbCBtaXNlcmFibHkgb24gZS5nLiBBUk0gYW5kIFJJU0MtViwgd2hlcmUgQm9nb01J
+UFMKPiBkZXBlbmRzIG9uIHNvbWUgdGltZXIgZnJlcXVlbmN5Lgo+IAo+IFItQ2FyIE0yLVcgd2l0
+aCAxLjUgR0h6IENvcnRleC1BMTU6IDQwLjAwIEJvZ29NSVBTCj4gUi1DYXIgVjRIIHdpdGggMS44
+IEdIeiBDb3J0ZXgtQTc2OiAzMy4zMyBCb2dvTUlQUwo+IAo+IHdoaWxlIHRoZSByZWFsIHNsb3cg
+NDggTUh6IFZleFJpc2NWIGdldHMgMTI4IEJvZ29NSVBTLgoKSGVoZSwgT0ssIHJlYWxseSBib2d1
+cyB0aGVuLiBMZXRzIGZpbGUgdGhpcyBpZGVhIGluIHRoZSBiaXQtYnVja2V0IHRoZW4uCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
