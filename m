@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F02EB64D9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB220EB64DD
 	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 08:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,85 +12,86 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UdL1XXBXO+0/Gx+qSCO2hALZOS55qXS9wmvsAIFMfMc=; b=tSHozYjDiQc9JS
-	phRzLzmqz8zXl+4xhmm3dJyl3xSgHvPcKS3HC0Q0XRtRJa33j6r+mFglVUspVXEPwAp27V/b3tOyA
-	qIiZ5cGwzkHAtzwyHFhIzzD3EQwTA0fQi6UV/7RmsvXlBX+26rlzTefs1C5QIHz90rdNSMUw8WV6n
-	k8xvX1/fPRp6w0RX20t0mHCQTvsFNS5WWvSDi0lab13s+BWi/4Y1XCeffYHLpovs0dWLyYqwVxvo+
-	U75y/diWJnR+Nng6qfkqoi+2UowzF1Z12LCmSh94UKLuLrYe7u/bpaV/Od5/QSr8A0VjgOYN9lj6o
-	vFfeTKIdsaAHXnQUzkwA==;
+	List-Owner; bh=6ic4pU/KSpLGRjpPsETBZV7YZvtW0oUIQ88sDav+VRI=; b=A7UpdNKPnNactk
+	6ejdUfEFliAhVdWFGYwl6IRRTzxhQZxgx19XZDNLBClU44UymcBf/gf0L0Z69z9C1k6BknyKrVENK
+	1yPvyF39QdMEOYOnyZ6+zIXLnVjIZ9T0hT4CnpzX4H08yCfpXebqLKNEP+nmzRbG7ny7iLSUQTmWV
+	4huKsi88zdTK4UfMYI5xodEVssscmSmgH0HVWMea++tSJsx07mNWUdvMXGmKg4hQIWPuKRyTvTUGD
+	WsIxYJQQWyL2hGZqdRfTRPGttyomBEjOa8NUB4rdYQFlk/+z9lwudb+aqpvpDghlSQC37nspNyYDT
+	2ea3Q6mPSvNz3KfJhqKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJVPx-00GwQp-1f;
-	Wed, 12 Jul 2023 08:41:49 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJVPu-00GwMn-0e
-	for linux-riscv@lists.infradead.org;
+	id 1qJVPv-00GwPX-37;
 	Wed, 12 Jul 2023 08:41:47 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3094910b150so7270652f8f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 01:41:43 -0700 (PDT)
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qJVPr-00GwMT-1S
+	for linux-riscv@lists.infradead.org;
+	Wed, 12 Jul 2023 08:41:44 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-3fbc6ab5ff5so68671865e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 01:41:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689151302; x=1691743302;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689151300; x=1691743300;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RT/Vt3RRfMq4FWYr6OtGjxwm1ECt6aNXHT5BGeUxff0=;
-        b=gYPnPU3NZw9utPGclL+789aHb3o31Fbn2cEUJggsFY2ACdfcnuBKWAjFigGD/0gpDO
-         eHwKw0QqyK/YPRuyAOaFskMLIjkJhWDXb1jndmGbaM8cOK+RbjkgAYFEXALOoTKzUgcG
-         qPgnErIFUSnExWOiZ+H3qDiANwpt1Ci0AYavvs8PtIWDR7ZE/beHvm1/MLJ83PyK7AnY
-         rXIfuD8G2m+9o5uogS8UZDn+2kGx/XtM2NvqNVcfPnIlm8s1h4f8PgOlZVQJCaQRCZB0
-         /5F/AMo1W/vzP5kQZX4jvCjTRrJgI4fLsP7XIbMnoo0cUjBLdps3vjVS8cgjlnSvAQMN
-         l6Ng==
+        bh=MwVmOO+8zu0+umd4x+8Tiq0imXaPOfW0Ttf7ThfdmAQ=;
+        b=Lk+iEr5exl+WAIOetqNerHgEnWpVsnw0s/Md0KlTTXqxPaWWvnQzstvYlOZhhXvE96
+         8dr/r6DterFNCaquw/O5q83reNwFEg5JZDzmv2ubocDSARnRuVm3YPC6KhivZAApgavH
+         nCE8+S0WkyVK4q99VBRu/d0yRibTRzpWWESiXwDxUn/mXR9WhLMLgR+DiP2titQk468N
+         jl+hbLwHIsTs2+THMeXDez38EMmvl/Pc9KzBiwt0Tg2l0Jgmvxe4WdWZeNznJVCAR5za
+         LDV0rP2BBBDiGBT3tFVOpz/ds8cxQAGaSpghqhpBmOD3Je98JNOnEmHeGhvfm3UitHrw
+         ULtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689151302; x=1691743302;
+        d=1e100.net; s=20221208; t=1689151300; x=1691743300;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=RT/Vt3RRfMq4FWYr6OtGjxwm1ECt6aNXHT5BGeUxff0=;
-        b=HR0o2LZ1qeoNvPw8sjWbeUCwaOsjnWrD6QFttl/RurFSdrQ1bTCSE2PlKw99TU2ouo
-         tCBx6006saQrx/g0dpBThErzBSE/8XlgHQPnDg5ZabJG7KXUwi3xm2grxAl2/1f4ccnp
-         Hu0y97vUh15I1GVtMvocxQjRiwCTn+9U9MsUbMP6CHS1ANPkVC0iSocf6trtdIm6zlt+
-         X7tvhZydB20UXGbYbCia5jD1kXYJCAekBkL8EKWt56nN433S+tRbJrerKTMGcvRwI4ZG
-         LSwsAWvCFs+LD7ifS48Kb+DDrkSJxnAjCQyyeq5oXnXdWdgDaVpffvRJY3hotQGvHxlf
-         JmNA==
-X-Gm-Message-State: ABy/qLZTRX/8qv4RPzQhbcwi2WNLRd/FVW2OuYk363l0JsCt6zLp3Ri2
-	VuRpfdAsJHXSrAr5Jo+sPTi17w==
-X-Google-Smtp-Source: APBJJlG5aEliuCg0Tzq/nowgmurWqSwaYDI+IB0QIjxf7737XRRWEo6xEPUUb76lZKABoel7Q4lrxQ==
-X-Received: by 2002:adf:ec8e:0:b0:314:1ebc:6e19 with SMTP id z14-20020adfec8e000000b003141ebc6e19mr16442275wrn.64.1689151302320;
-        Wed, 12 Jul 2023 01:41:42 -0700 (PDT)
+        bh=MwVmOO+8zu0+umd4x+8Tiq0imXaPOfW0Ttf7ThfdmAQ=;
+        b=EjVU/xXNitI//bFmqBRZAvRvorhfiEna78OlByuzxFPDy0QiXZ9x5XiOW3R20ZfWlr
+         OOj1mXlpvbaZdMXWnFC05UqTLVJSYjns4GvaW5xSWk79eI8w/F+b72lUa/wBDCRoQfV7
+         hQjfD0RSm6PTWciDZATmtk2zSOMYRZhnb3Siw9FxG/5GLEBrHgJdlMHlAzStZZujlr7Q
+         nT1FY2zdM9Ho/j3sCWkEJ5re5Xy3IAM05SWGqlJymARYUVQPMo79esqPxdG9timC/DJR
+         KrUv3Bwq0WX/I3GRvkXLAY4oZsiVEEk976biCdaIhxUxvONhNbxjS2+ppBKfr+2iGeSR
+         +Xfg==
+X-Gm-Message-State: ABy/qLZY2PWlnoakdcnyMNBX76MJzoXnvuXJS/DnXxHEalkx9Ikm2lCC
+	aNQM7C+oSUZCZ4KKOt8PoYzDiA==
+X-Google-Smtp-Source: APBJJlHeXQQGzIzDvfFmNDNGDs4DJEMJhJOFbTFM+a1ROVJJGd8YW3Q5SHb8WGx5KjdxkXHBWA2eOA==
+X-Received: by 2002:a5d:674b:0:b0:312:8e63:71c with SMTP id l11-20020a5d674b000000b003128e63071cmr18335292wrw.32.1689151300275;
+        Wed, 12 Jul 2023 01:41:40 -0700 (PDT)
 Received: from vermeer.tail79c99.ts.net ([2a01:cb1d:81a9:dd00:b570:b34c:ffd4:c805])
-        by smtp.gmail.com with ESMTPSA id z13-20020adfe54d000000b003143ac73fd0sm4496122wrm.1.2023.07.12.01.41.41
+        by smtp.gmail.com with ESMTPSA id z13-20020adfe54d000000b003143ac73fd0sm4496122wrm.1.2023.07.12.01.41.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Jul 2023 01:41:42 -0700 (PDT)
+        Wed, 12 Jul 2023 01:41:39 -0700 (PDT)
 From: Samuel Ortiz <sameo@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org
-Cc: Samuel Ortiz <sameo@rivosinc.com>,
+Cc: "Hongren (Zenithal) Zheng" <i@zenithal.me>,
 	linux@rivosinc.com,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>,
 	Anup Patel <apatel@ventanamicro.com>,
 	linux-kernel@vger.kernel.org,
-	"Hongren (Zenithal) Zheng" <i@zenithal.me>,
 	Guo Ren <guoren@kernel.org>,
 	Atish Patra <atishp@rivosinc.com>,
+	Samuel Ortiz <sameo@rivosinc.com>,
 	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
 	Evan Green <evan@rivosinc.com>,
 	devicetree@vger.kernel.org,
-	sorear@fastmail.com
-Subject: [PATCH v4 2/4] dt-bindings: riscv: Document the 1.0 scalar cryptography extensions
-Date: Wed, 12 Jul 2023 10:41:18 +0200
-Message-ID: <20230712084134.1648008-3-sameo@rivosinc.com>
+	sorear@fastmail.com,
+	Jiatai He <jiatai2021@iscas.ac.cn>
+Subject: [PATCH v4 1/4] RISC-V: Add Bitmanip/Scalar Crypto parsing from DT
+Date: Wed, 12 Jul 2023 10:41:17 +0200
+Message-ID: <20230712084134.1648008-2-sameo@rivosinc.com>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230712084134.1648008-1-sameo@rivosinc.com>
 References: <20230712084134.1648008-1-sameo@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_014146_253674_777F48D7 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20230712_014143_492024_986CCABD 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,126 +108,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V cryptography extensions define a set of instructions, CSR
-definitions, architectural interfaces and also extension shorthands for
-running scalar and vector based cryptography operations on RISC-V
-systems.
+From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
 
-This documents all the dt-bindings for the scalar cryptography
-extensions, including the Zk, Zkn and Zks shorthands.
+Parse Zb/Zk related string from DT and output them to cpuinfo.
 
+It is worth noting that the Scalar Crypto extension defines "zk" as a
+shorthand for the Zkn, Zkr and Zkt extensions. Since the Zkn one also
+implies the Zbkb, Zbkc and Zbkx extensions, simply passing the valid
+"zk" extension name through a DT will enable all of the  Zbkb, Zbkc,
+Zbkx, Zkn, Zkr and Zkt extensions.
+
+Also, since there currently is no mechanism to merge all enabled
+extensions, the generated cpuinfo output could be relatively large.
+For example, setting the "riscv,isa" DT property to "rv64imafdc_zk_zks"
+will generate the following cpuinfo output:
+"rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed_zksh_zkt".
+
+Tested-by: Jiatai He <jiatai2021@iscas.ac.cn>
+Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Reviewed-by: Evan Green <evan@rivosinc.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
 Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
 ---
- .../devicetree/bindings/riscv/extensions.yaml | 87 +++++++++++++++++++
- 1 file changed, 87 insertions(+)
+ arch/riscv/include/asm/hwcap.h | 11 +++++++++++
+ arch/riscv/kernel/cpu.c        | 11 +++++++++++
+ arch/riscv/kernel/cpufeature.c | 30 ++++++++++++++++++++++++++++++
+ 3 files changed, 52 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index cc1f546fdbdc..3d3d0d2f71e7 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -190,6 +190,24 @@ properties:
-             instructions as ratified at commit 6d33919 ("Merge pull request #158
-             from hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index f041bfa7f6a0..b80ca6e77088 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -53,6 +53,17 @@
+ #define RISCV_ISA_EXT_ZICSR		40
+ #define RISCV_ISA_EXT_ZIFENCEI		41
+ #define RISCV_ISA_EXT_ZIHPM		42
++#define RISCV_ISA_EXT_ZBC		43
++#define RISCV_ISA_EXT_ZBKB		44
++#define RISCV_ISA_EXT_ZBKC		45
++#define RISCV_ISA_EXT_ZBKX		46
++#define RISCV_ISA_EXT_ZKND		47
++#define RISCV_ISA_EXT_ZKNE		48
++#define RISCV_ISA_EXT_ZKNH		49
++#define RISCV_ISA_EXT_ZKR		50
++#define RISCV_ISA_EXT_ZKSED		51
++#define RISCV_ISA_EXT_ZKSH		52
++#define RISCV_ISA_EXT_ZKT		53
  
-+        - const: zbkb
-+          description: |
-+            The standard Zbkb cryptography extension for bit-manipulation
-+            instructions, as ratified at commit 73de909
-+            ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-+        - const: zbkc
-+          description: |
-+            The standard Zbkc cryptography extension for carry-less multiply
-+            instructions, as ratified at commit 73de909
-+            ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-+        - const: zbkx
-+          description: |
-+            The standard Zbkx cryptography extension for crossbar permutation
-+            instructions, as ratified at commit 73de909
-+            ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-         - const: zicbom
-           description:
-             The standard Zicbom extension for base cache management operations as
-@@ -240,6 +258,75 @@ properties:
-             ratified in the 20191213 version of the unprivileged ISA
-             specification.
- 
-+        - const: zk
-+          description: |
-+            The standard Zk cryptography extension is a shorthand for the
-+            union of the Zkn, Zkr and Zkt cryptography extensions, as ratified
-+            at commit 73de909 ("Zvk: Update AES instruction specs") of
-+            riscv-crypto.
-+
-+        - const: zkn
-+          description: |
-+            The standard Zkn cryptography extension covers the NIST algorithm
-+            suite that other cryptography extensions support. It is the union of
-+            the Zbkb, Zbkc, Zbkx, Zknd, Zkne and Zknh extensions, as ratified at
-+            commit 73de909 ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-+        - const: zknd
-+          description: |
-+            The standard Zknd cryptography extension for AES block cipher
-+            decryption acceleration instructions, as ratified at commit 73de909
-+            ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-+        - const: zkne
-+          description: |
-+            The standard Zkne cryptography extension for AES block cipher
-+            encryption acceleration instructions, as ratified at commit 73de909
-+            ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-+        - const: zknh
-+          description: |
-+            The standard Zknh cryptography extension for SHA2 hash algorithm
-+            functions acceleration instructions as ratified at commit 73de909
-+            ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-+        - const: zkr
-+          description: |
-+            The standard Zkr cryptography extension for the entropy source CSR
-+            definitions, as ratified at commit 73de909
-+            ("Zvk: Update AES instruction specs") of riscv-crypto.
-+            Systems with the Zkr extension enabled must set the MSECCFG SSEED
-+            bit to 1 in order for the Linux kernel to access the SEED CSR.
-+            As userspace access to the entropy source is usually carefully
-+            controlled and exclusively managed by the Linux kernel, M-mode
-+            should set USEED to 0.
-+
-+        - const: zks
-+          description: |
-+            The standard Zks cryptography extension covers the ShangMi algorithm
-+            suite that other cryptography extensions support. It is the union of
-+            the Zbkb, Zbkc, Zbkx, Zksed and Zksh extensions, as ratified at
-+            commit 73de909 ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-+        - const: zksed
-+          description: |
-+            The standard Zksed cryptography extension for SM4 block cipher
-+            acceleration instructions, as ratified at commit 73de909
-+            ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-+        - const: zksh
-+          description: |
-+            The standard Zksh cryptography extension for SM3 hash algorithm
-+            funstions acceleration instructions, as ratified at commit 73de909
-+            ("Zvk: Update AES instruction specs") of riscv-crypto.
-+
-+        - const: zkt
-+          description: |
-+            The standard Zkt cryptography extension for data independent
-+            execution latency attestation, for a safe subset of instructions,
-+            as ratified at commit 73de909 ("Zvk: Update AES instruction specs")
-+            of riscv-crypto.
-+
-         - const: ztso
-           description:
-             The standard Ztso extension for total store ordering, as ratified
+ #define RISCV_ISA_EXT_MAX		64
+ #define RISCV_ISA_EXT_NAME_LEN_MAX	32
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index a2fc952318e9..10524322a4c0 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -215,7 +215,18 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+ 	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
+ 	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
+ 	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
++	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
++	__RISCV_ISA_EXT_DATA(zbkb, RISCV_ISA_EXT_ZBKB),
++	__RISCV_ISA_EXT_DATA(zbkc, RISCV_ISA_EXT_ZBKC),
++	__RISCV_ISA_EXT_DATA(zbkx, RISCV_ISA_EXT_ZBKX),
+ 	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
++	__RISCV_ISA_EXT_DATA(zknd, RISCV_ISA_EXT_ZKND),
++	__RISCV_ISA_EXT_DATA(zkne, RISCV_ISA_EXT_ZKNE),
++	__RISCV_ISA_EXT_DATA(zknh, RISCV_ISA_EXT_ZKNH),
++	__RISCV_ISA_EXT_DATA(zkr, RISCV_ISA_EXT_ZKR),
++	__RISCV_ISA_EXT_DATA(zksed, RISCV_ISA_EXT_ZKSED),
++	__RISCV_ISA_EXT_DATA(zksh, RISCV_ISA_EXT_ZKSH),
++	__RISCV_ISA_EXT_DATA(zkt, RISCV_ISA_EXT_ZKT),
+ 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+ 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index bdcf460ea53d..9a872a2007a5 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -309,10 +309,40 @@ void __init riscv_fill_hwcap(void)
+ 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+ 				SET_ISA_EXT_MAP("zba", RISCV_ISA_EXT_ZBA);
+ 				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
++				SET_ISA_EXT_MAP("zbc", RISCV_ISA_EXT_ZBC);
++				SET_ISA_EXT_MAP("zbkb", RISCV_ISA_EXT_ZBKB);
++				SET_ISA_EXT_MAP("zbkc", RISCV_ISA_EXT_ZBKC);
++				SET_ISA_EXT_MAP("zbkx", RISCV_ISA_EXT_ZBKX);
+ 				SET_ISA_EXT_MAP("zbs", RISCV_ISA_EXT_ZBS);
+ 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+ 				SET_ISA_EXT_MAP("zicboz", RISCV_ISA_EXT_ZICBOZ);
+ 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKB);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKC);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKX);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKND);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKNE);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKNH);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKR);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKT);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKB);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKC);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKX);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKND);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKNE);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKNH);
++				SET_ISA_EXT_MAP("zknd", RISCV_ISA_EXT_ZKND);
++				SET_ISA_EXT_MAP("zkne", RISCV_ISA_EXT_ZKNE);
++				SET_ISA_EXT_MAP("zknh", RISCV_ISA_EXT_ZKNH);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKB);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKC);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKX);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZKSED);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZKSH);
++				SET_ISA_EXT_MAP("zksed", RISCV_ISA_EXT_ZKSED);
++				SET_ISA_EXT_MAP("zksh", RISCV_ISA_EXT_ZKSH);
++				SET_ISA_EXT_MAP("zkr", RISCV_ISA_EXT_ZKR);
++				SET_ISA_EXT_MAP("zkt", RISCV_ISA_EXT_ZKT);
+ 			}
+ #undef SET_ISA_EXT_MAP
+ 		}
 -- 
 2.41.0
 
