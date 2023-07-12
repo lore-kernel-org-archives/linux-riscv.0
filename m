@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199EEC001DE
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 16:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BC7EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 16:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q+SCDcIUHFAbBGSuVOvBnVx4YIOXkWGdH7XxUtdqIjk=; b=oBy8K/mpisQeMe
-	IoDYOW6Rlc4/zhpL7HmN5Z62obhBBeuZbEnCgCpqAsHho+ySv2MVCjg1s4iRQDvfOjHQJprdHyyOF
-	u0qaXGYy8E6WmWTMydXt6qWJHD8AuHF99f3qDQqDh+qD1cYUDvO65JDeUXiAiROIFHNfiPjeAj4mX
-	4goOIlfBFIdP71kVpOKcIGk6lXO6jEikBwVigzl7U5RYKdcPPxGP1WFxcXuHOgZFtm4dJGKtnSTgH
-	1C5tbzAtWjsWHQd5fQ0WKUB7JWKAvsTero/k+VyBqxLyH+K0tnO5XaVG2UHazJXHb/H/G9zCXeoM3
-	CvnAJV04sENyu4Dpmr8A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=TbKgBrQbbTsm9CZ7DIN/hQ7sTwv3rGLEtKVJutRiyO8=; b=gbNzCLiv0wx/7s69LhNB0f4ShB
+	uNWxLDOxmtZ2C32KhsVzKfbUINok+c554rMF04z7quOlFD00PAYeqzbnj61qzdqOmkXPcZgQxLuOS
+	iCT/iVBohXjh53/+hDQ7L3EhmbRHi65asoBz7+MMACnuU2oX2NoL3cNiezOakL9guSy5LQN/LvYWt
+	j7HtKjiPuP7MBPSu7TBXzFaTuVF7wzs1mjPDuxgX93SBAdZeNAW93bqj+H/ApiEh67YQlbTg7mfJQ
+	sTHjcxzZjhaGgiXcdhYCnL5wPVhdm7Nen9i9apWkXbnP+ZA06/JILoyBELuqsf7H3YqeP5EqndXRO
+	XnSqzW4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJctS-000cx1-2N;
-	Wed, 12 Jul 2023 16:40:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qJd34-000eNM-3D;
+	Wed, 12 Jul 2023 16:50:43 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJctP-000cwE-2z
+	id 1qJd31-000eMn-07
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 16:40:45 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6505461820;
-	Wed, 12 Jul 2023 16:40:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDBC7C433C8;
-	Wed, 12 Jul 2023 16:40:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689180042;
-	bh=NaEjASo8miCEM8dHYi4Pq2EhZ+qM+1epK9npg8XNShk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ExW4awx5okU1EW9jtlQ3leXf82VONqpLmSsvBk+iZSR1F1BTppK7GkUSvRw6/W0Ai
-	 nqh8a8Dy1FHrj7MZRMDWrxy/c1dnDnyTBbkueTx79VxJEa1GNCjGdLWfW0sjxzoFW/
-	 /p7fvQ+BicoQ8kCYbrwW1fIGCv+QwYx68EstAVgaObPTc44g5znCjyuUQ9EJU52ivt
-	 NIQoghGtxx9FXZxzNaLf7MlrXecRHHvWqsChP8NaVk6Ry/pwS3ZW0Wd5lL9XBCLYO9
-	 0G0pqyk282k+jOQpFTc81bNlRp9pATloBQGknqazOq0pf1uSP/mt+4oCp/rQq1eYF6
-	 bYUw/s2+603yA==
-From: Conor Dooley <conor@kernel.org>
-To: Emil Renner Berthing <kernel@esmil.dk>,
-	Felix Moessbauer <felix.moessbauer@siemens.com>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Daniel Bovensiepen <daniel.bovensiepen@siemens.com>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/1] riscv: dts: Enable device-tree overlay support for starfive devices
-Date: Wed, 12 Jul 2023 17:40:27 +0100
-Message-Id: <20230712-legume-establish-d389b8e40984@spud>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230627080620.329873-1-felix.moessbauer@siemens.com>
-References: <20230627080620.329873-1-felix.moessbauer@siemens.com>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=668; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=gzdlf/v0s7NPqIfXdlJejLX56LsDjYc1MrowUq7PFns=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCnrrlfYHZfen/Cv43/Yg3eTG75v4o6Z6TxZTzNasezOh FqtbfsyO0pZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjCRM9oMf+UtZ773qVj9frq5 TNHb5T/P5kxexm1140pN8Y7IbROKlSoZ/id3dmpsN/DrWaP2hJVx7ZcNvlZRaZVrqmTnWpy8n3h Lih8A
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+	Wed, 12 Jul 2023 16:50:41 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1b8ad907ba4so37910305ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 09:50:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20221208.gappssmtp.com; s=20221208; t=1689180638; x=1691772638;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0CLMJN6SQopTIwnwmNS9impJEqYpU9dNFLx7FPHnABU=;
+        b=bOcj+LHGhLyyUjEQGsegCMcc4y7a3vOuavoOpSsV1ipFW54sopcCNkNbeOqzsUqaCB
+         NvStfWPha3Bk4NdmVpTk/uRYKDGndKWXIt5c/lsfM6B/CAn1s1W1r8kQRMV79pJtW5kt
+         fosTbocS/O+ZNYBWfTo5QRU8dsbVTGRDC+ddu2jgSt82HPCHGv+8jJJY/mxjwlmhJDmb
+         VBwq7QMAdGCnHYqm3JQP4xxez8vCGhcvD0TCWuHZEmsPqUU5+IBCA6mh09WoNrBPYpdF
+         O16DF0Iceyj1U1LiwM8N2IO8dKGlk31MUJdvDkjvC8kq+hiiPaGcRIh3i/KJE2N5GoLq
+         L49w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689180638; x=1691772638;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0CLMJN6SQopTIwnwmNS9impJEqYpU9dNFLx7FPHnABU=;
+        b=GMeK2oAU0cRzedp3R6QnXgFoC7olvCq0m4u92wino112Z8wZC1hOl9rh0Y8Ld9EZyN
+         OIdSXjYR+x8O+8jZ+huW8Y4gWCnGRMenprmIP6W6xEef2kwRrNYWfAu5xQVgInaoWQfF
+         +wcSkunBgPeQbY8n8g7w4R/9TL2+/zzmA0RE1xMQX8e3ApMScDH819Zo0J4Vsf/UF/zK
+         lK51rzHjqsBMGVhAk3YmnGfu/kllOcupW95RNCroLmi9kjxh2VXdMCRib88/q1asO2UK
+         rQzsx3r9hvXmwExMcRU1UcyGjDdtZ8aKVAwafE2FtFmwj+SoIGicKv03037LyB88lW4t
+         tYQA==
+X-Gm-Message-State: ABy/qLYKi5H8p4bKJVPth25htXz9E2u/T3+TKABjJ6UsFr+gPSYa8k1v
+	vKlqkVhr9hGZOPQO3olPwwO2XQmLobvSaAf/LhzpPA==
+X-Google-Smtp-Source: APBJJlHzshkB9/uo3WnGkgqVS9hVIpmiLA+SHbio5fXcwwotBH3KMQX2SI5UvVzgmJo4v+1Mv7LVWQ==
+X-Received: by 2002:a17:902:ce8b:b0:1b9:e591:db38 with SMTP id f11-20020a170902ce8b00b001b9e591db38mr7319689plg.8.1689180637681;
+        Wed, 12 Jul 2023 09:50:37 -0700 (PDT)
+Received: from localhost ([50.38.6.230])
+        by smtp.gmail.com with ESMTPSA id d2-20020a170902728200b001b7e63cfa19sm1795849pll.234.2023.07.12.09.50.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Jul 2023 09:50:37 -0700 (PDT)
+Date: Wed, 12 Jul 2023 09:50:37 -0700 (PDT)
+X-Google-Original-Date: Wed, 12 Jul 2023 09:49:48 PDT (-0700)
+Subject: Re: [PATCH v7 0/9] Add STG/ISP/VOUT clock and reset drivers for StarFive JH7110
+In-Reply-To: <20230712092007.31013-1-xingyu.wu@starfivetech.com>
+CC: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+  mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, Conor Dooley <conor@kernel.org>,
+  kernel@esmil.dk, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, hal.feng@starfivetech.com, xingyu.wu@starfivetech.com,
+  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: xingyu.wu@starfivetech.com
+Message-ID: <mhng-d3795910-5414-4555-bf3d-75ebe769ed2b@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_094044_005606_A9C0710E 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230712_095039_447835_64B1EF29 
+X-CRM114-Status: GOOD (  31.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +89,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Wed, 12 Jul 2023 02:19:58 PDT (-0700), xingyu.wu@starfivetech.com wrote:
+> This patch serises are base on the basic JH7110 SYSCRG/AONCRG
+> drivers and add new partial clock drivers and reset supports
+> about System-Top-Group(STG), Image-Signal-Process(ISP)
+> and Video-Output(VOUT) for the StarFive JH7110 RISC-V SoC. These
+> clocks and resets could be used by DMA, VIN and Display modules.
+>
+> Patches 1 and 2 are about the System-Top-Group clock and reset
+> generator(STGCRG) part. The first patch adds docunmentation to
+> describe STG bindings, and the second patch adds clock driver to
+> support STG clocks and resets as auxiliary device for JH7110.
+>
+> Patches 3 and 4 are about the Image-Signal-Process clock and reset
+> gennerator(ISPCRG) part. The first patch adds docunmentation to
+> describe ISP bindings, and the second patch adds clock driver to
+> support ISP clocks and resets as auxiliary device for JH7110.
+> And ISP clocks should power on and enable the SYSCRG clocks first
+> before registering.
+>
+> Patches 5 and 6 are about the Video-Output clock and reset
+> generator(VOUTCRG) part. The first patch adds docunmentation to
+> describe VOUT bindings, and the second patch adds clock driver to
+> support VOUT clocks and resets as auxiliary device for JH7110.
+> And VOUT clocks also should power on and enable the SYSCRG clocks
+> first before registering.
+>
+> Patch 7 adds struct members to support STG/ISP/VOUT resets.
+> Patch 8 adds external clocks which ISP and VOUT clock driver need.
+> Patch 9 adds device node about STGCRG, ISPCRG and VOUTCRG to JH7110 dts.
+>
+> Changes since v6:
+> - Rebased on the Linux 6.5-rc1.
+> - Dropped the unnecessary selections in the Kconfig.
+> - Dropped the patches about the PMU node and MAINTIANERS.
+> - Add the reviews.
+>
+> v6: https://lore.kernel.org/all/20230518101234.143748-1-xingyu.wu@starfivetech.com/
+>
+> Changes since v5:
+> - Rebased on the Linux 6.4-rc2.
+> - Modified the reset name about VOUTCRG to fix the error with
+>   CONFIG_FORTIFY_SOURCE=y
+> - Added the patch about pmu node.
+>
+> v5: https://lore.kernel.org/all/20230424135409.6648-1-xingyu.wu@starfivetech.com/
+>
+> Changes since v4:
+> - Rebased on the lastest patches about fixing the basic clock and reset drivers.
+> - Dropped the 'dev_set_drvdata()' in STG clock driver.
+> - Modified the data with 'dev_set_drvdata()' in ISP/VOUT clock driver
+>   and move the struct about the data to JH7110 header file, which both
+>   ISP and VOUT clock drivers will use.
+>
+> v4: https://lore.kernel.org/all/20230411135558.44282-1-xingyu.wu@starfivetech.com/
+>
+> Changes since v3:
+> - Rebased on the lastest JH71X0 clock and reset driver of patchset[1]
+>   and modified the parameters of the register reset functions.
+> - The patch 1 combined three commits on STG/ISP/VOUT resets into one.
+>   And Changed the auxiliary_device_id name from
+>   "clk_starfive_jh71x0.reset-*" to "clk_starfive_jh7110_sys.rst-*".
+> - Added a maintainer in STARFIVE JH71X0 CLOCK DRIVERS.
+>
+> v3: https://lore.kernel.org/all/20230314124404.117592-1-xingyu.wu@starfivetech.com/
+>
+> Changes since v2:
+> Patch 1:
+> - Dropped the modification of maintainers.
+> - Modified clock and reset names in the dt-bindings header files.
+> Patch 3:
+> - Added 'Emil Renner Berthing' as the author.
+> - Used 'default m' in Kconfig file.
+> - Changed the flags of 'CLK_IGNORE_UNUSED' to 0 or 'CLK_IS_CRITICAL'.
+> Patch 4:
+> - Dropped the 'reset-names' property.
+> - Shortened the clock and reset names in the dt-bindings header files.
+> Pacth 6:
+> - Used 'default m' in Kconfig file.
+> - Changed the flags of 'CLK_IGNORE_UNUSED' to 0.
+> - Set reset_control struct to a local variable because it just is used
+>   one time in probe.
+> Pacth 7:
+> - Dropped the 'reset-names' property.
+> Patch 9:
+> - Used 'default m' in Kconfig file.
+> - Set reset_control struct to a local variable because it just is used
+>   one time in probe.
+> Patch 10:
+> - Changed the order of externel clock in alphanumerical order.
+> Patch 11:
+> - Dropped the 'reset-names' property in ispcrg and voutcrg node.
+>
+> v2: https://lore.kernel.org/all/20230221083323.302471-1-xingyu.wu@starfivetech.com/
+>
+> Changes since v1:
+> - Modified the binding and dropped the indentation.
+> - Removed the useless header files in the drivers.
+> - Used an array lookup instead of a pile of conditions about parent
+>   clocks' name.
+> - Added clocks operation on driver remove.
+>
+> v1: https://lore.kernel.org/all/20230120024445.244345-1-xingyu.wu@starfivetech.com/
+>
+> Emil Renner Berthing (1):
+>   clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
+>
+> Xingyu Wu (8):
+>   dt-bindings: clock: Add StarFive JH7110 System-Top-Group clock and
+>     reset generator
+>   dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and
+>     reset generator
+>   clk: starfive: Add StarFive JH7110 Image-Signal-Process clock driver
+>   dt-bindings: clock: Add StarFive JH7110 Video-Output clock and reset
+>     generator
+>   clk: starfive: Add StarFive JH7110 Video-Output clock driver
+>   reset: starfive: jh7110: Add StarFive STG/ISP/VOUT resets support
+>   riscv: dts: starfive: jh7110: Add DVP and HDMI TX pixel external
+>     clocks
+>   riscv: dts: starfive: jh7110: Add STGCRG/ISPCRG/VOUTCRG nodes
+>
+>  .../clock/starfive,jh7110-ispcrg.yaml         |  87 +++++++
+>  .../clock/starfive,jh7110-stgcrg.yaml         |  82 ++++++
+>  .../clock/starfive,jh7110-voutcrg.yaml        |  90 +++++++
+>  .../jh7110-starfive-visionfive-2.dtsi         |   8 +
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  67 +++++
+>  drivers/clk/starfive/Kconfig                  |  24 ++
+>  drivers/clk/starfive/Makefile                 |   3 +
+>  .../clk/starfive/clk-starfive-jh7110-isp.c    | 232 +++++++++++++++++
+>  .../clk/starfive/clk-starfive-jh7110-stg.c    | 173 +++++++++++++
+>  .../clk/starfive/clk-starfive-jh7110-vout.c   | 239 ++++++++++++++++++
+>  drivers/clk/starfive/clk-starfive-jh7110.h    |   6 +
+>  .../reset/starfive/reset-starfive-jh7110.c    |  30 +++
+>  .../dt-bindings/clock/starfive,jh7110-crg.h   |  74 ++++++
+>  .../dt-bindings/reset/starfive,jh7110-crg.h   |  60 +++++
+>  14 files changed, 1175 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-isp.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-stg.c
+>  create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-vout.c
 
-On Tue, 27 Jun 2023 16:06:20 +0800, Felix Moessbauer wrote:
-> Add the '-@' DTC option for the starfive devices. This option
-> populates the '__symbols__' node that contains all the necessary symbols
-> for supporting device-tree overlays (for instance from the firmware or
-> the bootloader) on these devices.
-> 
-> The starfive devices allow various modules to be connected and this
-> enables users to create out-of-tree device-tree overlays for these modules.
-> 
-> [...]
+Happy to take it through the RISC-V tree if folks want, but IMO it's 
+probably better aimed at the clock/reset folks.  Either way I'd want to 
+give them a chance to ack/review it, so I'm going to drop it from my 
+list.
 
-Applied to riscv-dt-for-next, thanks!
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-[1/1] riscv: dts: Enable device-tree overlay support for starfive devices
-      https://git.kernel.org/conor/c/ef6012f301f7
+in case anyone's looking for it, though.
 
-Thanks,
-Conor.
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
