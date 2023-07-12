@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518B4EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 17:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A36CEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 17:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gp7pE4cH/P7BV4s0ckVBNSm0ZrAkcOc21z/4pWB6qEY=; b=XmSlmpCnulQwUYKxJoMDI6EkAu
-	Md5cLkgr2HlePgRuUMWh1jYL3FNNU6go5AL45pgU52qUsf+1noxKOjMVpRwlrNpQYtHzYgNqZ94tC
-	XRnBvhVcikoEur8Q8N9zB8nxSuIpRrlLOE8Vn8QRf7A/OXgqVWQ7uuXANLTj5Hy8SQoYDMnAIt7a+
-	pUx31cWEk3ulrqOHfnjHV1W+RyI19kn3WMwxuNwl+2HU+4WqRK02oGBrjDPYFz86KC+wPwQ8wESSK
-	otHR1SnsZs9XlPL1fAi0kSTOGNAW8AP/pAqtInMYw5YuqABEOj+CVayVSA8eM+7JU9DqtJ8qXO0qx
-	QW0o4TqA==;
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=KkvVA86w7vu18OgouF2rj4SWv1dSb74J9dtySjGy0cw=; b=K3neKSd8xm2Z9pEiLq+TWdLPbF
+	dmC0yv8RoUbnbfEnlhxeDplg7Qt8Idqry+4Lq4YXgPl4/jHnhwo9eYjRnqZa05u/zgGs/UFumywkU
+	IbBNHlr0tQkDzi1+S/r6sJrrCsoJlDvbpHDNIm53jVUKklYDSRbR3gfYO8Ox5DK7yHU9t+b/4JNna
+	PpVSTSb9XYaGY3xZcXtD6ptiMmABw4WWjuDaf25xIGq75wa4pQ+KABwRxP4cHZFRh90HInIgMwXDQ
+	6lD0seljfNcFHbIZhjz4HJ4rcELvaafZdVFD9iMeMXlUHSjvvS6bwCKDF0EJ46kFLaerag3fbwOn7
+	GFs0gHdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJdDm-000gpR-1k;
-	Wed, 12 Jul 2023 17:01:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qJdHc-000hQY-11;
+	Wed, 12 Jul 2023 17:05:44 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJdDj-000goy-0O
+	id 1qJdHZ-000hPk-17
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 17:01:44 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9CC9261877;
-	Wed, 12 Jul 2023 17:01:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB08CC433C7;
-	Wed, 12 Jul 2023 17:01:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689181302;
-	bh=W61o7LlkQs9LBIYjzHUJMBy72qDnWFS0/a8qJkXf2Fc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M4J4H42OR/vtD+rw+wG1NQ6vEDrz8rXSySfrrPLrIUeoN4Ct2aPEuAjOwvaWRv3cW
-	 aJpJmYYaiUoBOBEWGod9Vj5UcUS9Jpnhrh1jnK7lJ1dZIBIZLevH1E0muun1AfMPp0
-	 NZvnUEEWhWG5FZNi/qjgIZUziApMhuQYsmtor+dQ1OXuNc68zMZng55dohedv2dWQJ
-	 tRqa+mluwl9C5ERDwSrejHNbTQ+QBu+WlSJW+4t+5NuP9ZZSumjXCBfMYndqKB+FDm
-	 NMEnBHPbyEg7iqHtKbHvCZ+yEYper6sgCEWs3nQthxV46vv2CSNymBgVVrX/r3IiWh
-	 7tzLiibgRBjjg==
-Date: Wed, 12 Jul 2023 18:01:36 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: xingyu.wu@starfivetech.com, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, mturquette@baylibre.com,
-	sboyd@kernel.org, p.zabel@pengutronix.de, kernel@esmil.dk,
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	hal.feng@starfivetech.com, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v7 0/9] Add STG/ISP/VOUT clock and reset drivers for
- StarFive JH7110
-Message-ID: <20230712-unsold-impound-02608d701dfb@spud>
-References: <20230712092007.31013-1-xingyu.wu@starfivetech.com>
- <mhng-d3795910-5414-4555-bf3d-75ebe769ed2b@palmer-ri-x1c9a>
-MIME-Version: 1.0
-In-Reply-To: <mhng-d3795910-5414-4555-bf3d-75ebe769ed2b@palmer-ri-x1c9a>
+	Wed, 12 Jul 2023 17:05:43 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-668704a5b5bso6447794b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 10:05:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689181540; x=1691773540;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=21TFtO47lX1gePbfGONsWzXilAI2kPVFSsUHWiu16KY=;
+        b=s4bOORzC8HM4m19JGZSCJhSSPeRSR7TDt//M5UaL5GAPJQG/PqQ7OjG7zBPuM21pl6
+         mHv1OcECZhWBz0dZq2SLi/hF3HLi6X9cpkpdTjg07LcCvtUnOkU+w0Tub7UQ0ht9bDb8
+         TyqzPSwNYOcP+B0O0B5BKjuCfcBe/ZxQXsgtT+vPwccgTbGVYJ/zhODCvVLwweYjJ1z0
+         1/MC7XNFCjDSTiW+bihgNyVX+jOZd+FyXdx9j/d8pP0v2FfWC4Q+OddrHtitjjgIIGXj
+         WLwrEJ8cfWBT0p0NyrXD2bJ8P+SHezP06DukuDwyRohenvEIBQa5NnAS+zKjH2KXmlWT
+         Lk9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689181540; x=1691773540;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=21TFtO47lX1gePbfGONsWzXilAI2kPVFSsUHWiu16KY=;
+        b=WZvDCNOPZAyXtyMKcCtvoEmlc0U1SEQZJ9zR9Jwxnlmidn6/HXsxk35fB6hrKY2mAb
+         wq6fbDz61xJ7AUzBVY+LslcD6tGVr0dVYaWbUGyYlSsO1UqtKOXBEU9yM1z9f05RPgAu
+         AFbdoKmS38XArjoUkwwx0/ILWdqMRrMLaZFBdsO4cFm2eRU1bxM16st5513EU61ikvmG
+         v8tpjT/P8E5fYLo29//8DKZEJfsVR8UroF3LVplgP9gde45frOBHqrz5gBntfknnKfU6
+         TzdEaPcSMMcDo+CEDg9gR+Xy9QFk7V/SWejMLw05rMPr9fm7OV9iYEN5XbKGun4F2tAa
+         IObg==
+X-Gm-Message-State: ABy/qLaHD3vxhgvCQtmjKTsko3JLL0PKCv5ByUJd112FedI/CRZrAMy9
+	J7TsJLM13sF2rboY1pI8g2t3agLHbEBh67HPMk8=
+X-Google-Smtp-Source: APBJJlF/hYh+SvwXGm3heNKVtObAeBTQ3BflHoRR5j7nTnXOsc0C3K7htOdn7DIq4aIheE43bQNblg==
+X-Received: by 2002:a05:6a20:938a:b0:132:bdba:5518 with SMTP id x10-20020a056a20938a00b00132bdba5518mr3757873pzh.54.1689181540368;
+        Wed, 12 Jul 2023 10:05:40 -0700 (PDT)
+Received: from localhost ([50.38.6.230])
+        by smtp.gmail.com with ESMTPSA id o17-20020a637e51000000b0055b30275adasm3832634pgn.37.2023.07.12.10.05.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Jul 2023 10:05:39 -0700 (PDT)
+Date: Wed, 12 Jul 2023 10:05:39 -0700 (PDT)
+X-Google-Original-Date: Wed, 12 Jul 2023 10:04:35 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Don't include Zicsr or Zifencei in I from ACPI
+In-Reply-To: <20230711-slideshow-plaza-4ceaa37f6c00@spud>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-c30cb4e2-0574-4051-b220-01601d9579de@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_100143_221065_A10F9244 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20230712_100541_622102_E13B3AD8 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,71 +84,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5257237976780653213=="
+Cc: linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 11 Jul 2023 15:52:56 PDT (-0700), Conor Dooley wrote:
+> On Tue, Jul 11, 2023 at 03:46:00PM -0700, Palmer Dabbelt wrote:
+>> ACPI ISA strings are based on a specification after Zicsr and Zifencei
+>> were split out of I, so we shouldn't be treating them as part of I.  We
+>> haven't release an ACPI-based kernel yet, so we don't need to worry
+>> about compatibility with the old ISA strings.
+>> 
+>> Fixes: 396c018332a1 ("RISC-V: cpufeature: Add ACPI support in riscv_fill_hwcap()")
+>
+> I think, if anything, this is actually:
+> Fixes: 07edc32779e3 ("RISC-V: always report presence of extensions formerly part of the base ISA")
+>
+> Although my rationale was that if we get as far as here, then Zicsr and
+> Zifencei are going to be enabled anyway so there is no harm in setting
+> it for both. I probably should have been less of a cute hoor though.
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
---===============5257237976780653213==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="YXK2FfLMDg7K1UTe"
-Content-Disposition: inline
+I think there's no way to get here without the extensions, not 100% sure 
+though.  I'm mainly trying to avoid going down the same rabbit hole of 
+ISA string compatibility hacks in ACPI that we have for DT, though -- 
+I'm sure we'll end up with a mess as soon as we release, but might as 
+well catch as much as we can.
 
-
---YXK2FfLMDg7K1UTe
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Jul 12, 2023 at 09:50:37AM -0700, Palmer Dabbelt wrote:
-> On Wed, 12 Jul 2023 02:19:58 PDT (-0700), xingyu.wu@starfivetech.com wrot=
-e:
-> > This patch serises are base on the basic JH7110 SYSCRG/AONCRG
-> > drivers and add new partial clock drivers and reset supports
-> > about System-Top-Group(STG), Image-Signal-Process(ISP)
-> > and Video-Output(VOUT) for the StarFive JH7110 RISC-V SoC. These
-> > clocks and resets could be used by DMA, VIN and Display modules.
-
-> Happy to take it through the RISC-V tree if folks want, but IMO it's
-> probably better aimed at the clock/reset folks.  Either way I'd want to g=
-ive
-> them a chance to ack/review it, so I'm going to drop it from my list.
->=20
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-
-I had a look through it & I am generally happy with it - everything has
-either an R-b from DT folk or Hal on the drivers.
-I was going to propose the same thing as the PLL patchset - if Emil is
-happy with it, then I intend sending Stephen a PR for the drivers &
-bindings.
-
-Thanks,
-Conor.
-
---YXK2FfLMDg7K1UTe
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK7ccAAKCRB4tDGHoIJi
-0j6sAP42I2NRHZdpOyf2izUoUuaLCqoRMvx4DDBgBCweGvshWAEA7O4i3W5C2V/L
-ndm2wUnu6OPIY1snKnd2INzwEwr2XwA=
-=kp3i
------END PGP SIGNATURE-----
-
---YXK2FfLMDg7K1UTe--
-
-
---===============5257237976780653213==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+> Cheers,
+> Conor.
+>
+>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> ---
+>>  arch/riscv/kernel/cpufeature.c | 9 ++-------
+>>  1 file changed, 2 insertions(+), 7 deletions(-)
+>> 
+>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+>> index bdcf460ea53d..a8f66c015229 100644
+>> --- a/arch/riscv/kernel/cpufeature.c
+>> +++ b/arch/riscv/kernel/cpufeature.c
+>> @@ -317,19 +317,14 @@ void __init riscv_fill_hwcap(void)
+>>  #undef SET_ISA_EXT_MAP
+>>  		}
+>>  
+>> -		/*
+>> -		 * Linux requires the following extensions, so we may as well
+>> -		 * always set them.
+>> -		 */
+>> -		set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
+>> -		set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
+>> -
+>>  		/*
+>>  		 * These ones were as they were part of the base ISA when the
+>>  		 * port & dt-bindings were upstreamed, and so can be set
+>>  		 * unconditionally where `i` is in riscv,isa on DT systems.
+>>  		 */
+>>  		if (acpi_disabled) {
+>> +			set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
+>> +			set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
+>>  			set_bit(RISCV_ISA_EXT_ZICNTR, isainfo->isa);
+>>  			set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
+>>  		}
+>> -- 
+>> 2.40.1
+>> 
+>> 
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5257237976780653213==--
-
