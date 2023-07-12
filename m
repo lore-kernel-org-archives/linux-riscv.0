@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39100EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 08:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8713DEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 09:04:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=zDGraefeKH947ji4zA0421jrLz+gtcPfo/1DStr8sA4=; b=j7OIgYqad8awJ4DZI6OfiwoMhX
-	tCmgIATTmMTBO54I/UabNmyJj8ewHdHbZkJMpyHplBHE5bBFUYT/JyazNLmVhEHEKLEdFA10XkKXh
-	l3O2KvugA1NkjfOStTAqp4R9Akj8NOZ2frZDPKL7Nl9oPlIgp/6h5BdzdJmK9IqZBcJGrxGjrPxYs
-	iHWVLon4w9hHjkpBYWKliDQNWzsCihe8qpa+uriMnXM2DCl15rvl4yOlWR0SiBUuDOOLRVbq9byZO
-	3rpq5aMmyJKo5ylhxpGqHAZACSNeC5yb15iLQTG1XBPeOFo0PDkG+wGOvBpiwmH5KRjDOT//BBPHv
-	Hb0oJgWw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=b4BuFxBPkCRvCzJORx0aadUJgpeAYWWb0oA2BEBG9lY=; b=BBz1outxQ5dv1a
+	+g5crtMRJU52hRS2ErRRaFB2Lyx8l9Thpz9dK6TDmmCrw0EY2PCXB3T0DZ1nPELU9WqVnlKcvtAFs
+	tycADbdbxvPnXqNcU+dQjp7TMVgmXkuuMQC3vET2Aqk1GrIwkeGFmzrugDyV3aoJ3HomFSM0StapO
+	/4DH2f9XBI3Rdhiaw05VhVVtm0aC0U1WGkOKYIpJ+DPMsLajUwyJw61JetOMShEjC+1kiZcS71Bdx
+	7o04aW8To15UkUDaxmChnl2rykXxa5I43Wai76B9iVsX2mERD709Gz1jpfN2tvF7DMQyYtiGcEPQz
+	xtBgDqr3CivcHZb21uig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJVRx-00GwuP-1R;
-	Wed, 12 Jul 2023 08:43:53 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1qJVlz-00GzPV-2G;
+	Wed, 12 Jul 2023 09:04:35 +0000
+Received: from mail-yw1-f176.google.com ([209.85.128.176])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJVRt-00Gwsq-2V
+	id 1qJVlx-00GzOW-01
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 08:43:51 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-2b69e6d324aso107496461fa.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 01:43:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1689151425; x=1691743425;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qVexWb2xIiXfUmTRUoCRaVuTZQZYZCzaepAYfAfny6A=;
-        b=S8H1DZo6S6oQzSMdoqsaJsn2wsCdkpAS6Wr+I3Kjxr3lDPbQ85eUpKWcgRsiITqLdQ
-         wJzAQW7baTZr9RBhSDA+HatQjx591NVZ0LVv2rZ3d+oVGHVGJU1ESDjlbDeLUZbMG9PC
-         5cIppAmouxuH+LNS/TDrZDNHY7QtcYT3i098pf+E9c6S6108x7oGjCdNgbdCqYOkPpcI
-         sq1NLvXLSvzbFoDXtp50/1gCHTZ2qksUvh2apFoqTCB+NzJEJLUvXTPgI541YmkVjDgl
-         Kl1X26JqNjAJ276rAWr/sPACtx47sZ0k9EKq8H3qM805xZjIrCbqWDmzJaTgq+X6ct8P
-         NlAA==
+	Wed, 12 Jul 2023 09:04:34 +0000
+Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-57712d00cc1so79498767b3.3
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 02:04:32 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689151425; x=1691743425;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qVexWb2xIiXfUmTRUoCRaVuTZQZYZCzaepAYfAfny6A=;
-        b=ayAESb1HiqIAAPIiyL2UBiNweksdsA5b/tZzsj0Pz9ELoR4JBZpW4F/Q3TlEZTndZG
-         GJHG4Rb8OlYTfSyZsknsMdIR7O+UCsfiLIGLz71ARsUZyQK7IaeEhEP5i0Thw2uUHbh+
-         LdFhvgw556hZBZGNjdzvq9aChMlMsv8dHMZ+X+qH9x2qh0wX50n394oV8dvYpwWcLTFj
-         ySBN1CQs4gXpcBmMsg5FiohTvG1yxoYP2PUNXfgnpdlTkDDDvujndLAthHi9w5ekhncN
-         Wbl9nAA7RqazcBQRPNDo4lYbC5YdVBK7cnHQbvjv3A4LPMxrqRSk6YU6z18r9SBZNNBB
-         h1Wg==
-X-Gm-Message-State: ABy/qLa9vjcO9G4KbEaNeO77A2EwAnd8d2plmSukNXQjxB0kk4FvzH9l
-	4KCT8MKrELjgUiOMz6OOLTw=
-X-Google-Smtp-Source: APBJJlHYyuAaAq9x1E+AS9xHlZdQSOvaU3bH2T8KCkjCt4c+/0MdGf1zMrqalHo9Eu8nEvUrqhQTIA==
-X-Received: by 2002:a2e:a16e:0:b0:2b6:cf6f:159e with SMTP id u14-20020a2ea16e000000b002b6cf6f159emr15173716ljl.44.1689151425348;
-        Wed, 12 Jul 2023 01:43:45 -0700 (PDT)
-Received: from [192.168.1.103] ([31.173.82.245])
-        by smtp.gmail.com with ESMTPSA id l24-20020a2e8698000000b00295a96a0f6csm826389lji.102.2023.07.12.01.43.44
+        d=1e100.net; s=20221208; t=1689152671; x=1691744671;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uIF186mRaGX5BFXMSlH2BgP4u+RcqYufJt4GrXqOpCU=;
+        b=PkYoYuhsqIqfPSvmVHGTx0RoYXlFJvZGKtaiu1RLv1j3DaAMyRvMYw6QCNC0yzlXM3
+         0w7sLTwCpKdvNoeP9zyNtCURIlXP7ZfZINvtxqH76V4804AQzxylTtfM/AAbwr11/ydO
+         IaD/9nUWibnF7JoOEtKRyfvCkX7dXJ7bd1T78TU3IF6g965KXpik84MT9pjRo6LEtUAw
+         dTr/ztT/76fLN+Rv24GM1iA26o4sw/rjztXJuBWreMIeGVpeKFu2cjpb7dQL+zb1H6Zv
+         hZRR73oKhdqWh7WU1obSkqlk75TToXBt+wfUMT/v70MD/jbEuOmjIgUZ/jjrzuUJRGVg
+         rt3Q==
+X-Gm-Message-State: ABy/qLbLMQNLJhwDumOWhJ8PpKHPJv+MJMfa5W+kqXhizdQPPK4CXWPk
+	0rqKwT/kS0uc8wYEuNSREoLels2LEiAVkQ==
+X-Google-Smtp-Source: APBJJlE1UHTcFGtVeRARF4WOd3DxXmITB8No0uGeChdFJZmQAKS49N1DYHTcQf1JSHLg2I85JpyhGg==
+X-Received: by 2002:a0d:eb8c:0:b0:579:e8de:3580 with SMTP id u134-20020a0deb8c000000b00579e8de3580mr22651146ywe.9.1689152671494;
+        Wed, 12 Jul 2023 02:04:31 -0700 (PDT)
+Received: from mail-yb1-f180.google.com (mail-yb1-f180.google.com. [209.85.219.180])
+        by smtp.gmail.com with ESMTPSA id w18-20020a814912000000b0057a92cd7f95sm1044953ywa.100.2023.07.12.02.04.31
+        for <linux-riscv@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Jul 2023 01:43:44 -0700 (PDT)
-Subject: Re: [PATCH v1] riscv: dts: renesas: clean up dtbs_check W=1 warning
- due to empty phy node
-To: Conor Dooley <conor.dooley@microchip.com>, geert+renesas@glider.be
-Cc: conor@kernel.org, Magnus Damm <magnus.damm@gmail.com>,
- Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-renesas-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20230712-squealer-walmart-9587342ddec1@wendy>
-From: Sergei Shtylyov <sergei.shtylyov@gmail.com>
-Message-ID: <18871eff-f2be-9eed-ee4c-99eba87686d8@gmail.com>
-Date: Wed, 12 Jul 2023 11:43:43 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.1
+        Wed, 12 Jul 2023 02:04:31 -0700 (PDT)
+Received: by mail-yb1-f180.google.com with SMTP id 3f1490d57ef6-c2cf4e61bc6so7765775276.3
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 02:04:31 -0700 (PDT)
+X-Received: by 2002:a05:6902:28b:b0:c4b:41ce:f68b with SMTP id
+ v11-20020a056902028b00b00c4b41cef68bmr16459258ybh.41.1689152670844; Wed, 12
+ Jul 2023 02:04:30 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230712-squealer-walmart-9587342ddec1@wendy>
-Content-Language: en-US
+References: <20230511181931.869812-1-tj@kernel.org> <20230511181931.869812-7-tj@kernel.org>
+ <ZF6WsSVGX3O1d0pL@slm.duckdns.org> <CAMuHMdVCQmh6V182q4g---jvsWiTOP2hBPZKvma6oUN6535LEg@mail.gmail.com>
+ <CAMuHMdW1kxZ1RHKTRVRqDNAbj1Df2=v0fPn5KYK3kfX_kiXR6A@mail.gmail.com>
+ <ZK3MBfPS-3-tJgjO@slm.duckdns.org> <20230712080504.GA3100107@hirez.programming.kicks-ass.net>
+In-Reply-To: <20230712080504.GA3100107@hirez.programming.kicks-ass.net>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 12 Jul 2023 11:04:16 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUMRS9_nJXp3rrWQrODRQcBQggze0k=0GjSScCknFmmgQ@mail.gmail.com>
+Message-ID: <CAMuHMdUMRS9_nJXp3rrWQrODRQcBQggze0k=0GjSScCknFmmgQ@mail.gmail.com>
+Subject: Re: Consider switching to WQ_UNBOUND messages (was: Re: [PATCH v2
+ 6/7] workqueue: Report work funcs that trigger automatic CPU_INTENSIVE mechanism)
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
+	"torvalds@linux-foundation.org" <torvalds@linux-foundation.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, kernel-team@meta.com, 
+	Linux PM list <linux-pm@vger.kernel.org>, 
+	DRI Development <dri-devel@lists.freedesktop.org>, linux-rtc@vger.kernel.org, 
+	linux-riscv <linux-riscv@lists.infradead.org>, netdev <netdev@vger.kernel.org>, 
+	Linux Fbdev development list <linux-fbdev@vger.kernel.org>, Linux MMC List <linux-mmc@vger.kernel.org>, 
+	"open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)" <linux-ide@vger.kernel.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_014349_808786_9F8BF8B8 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20230712_020433_043442_20C0F94F 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,69 +92,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello!
-
-On 7/12/23 11:14 AM, Conor Dooley wrote:
-
-> dtbs_check w/ W=1 complains:
-> Warning (unit_address_vs_reg): /soc/ethernet@11c20000/ethernet-phy@7: node has a unit name, but no reg or ranges property
-> Warning (avoid_unnecessary_addr_size): /soc/ethernet@11c20000: unnecessary #address-cells/#size-cells without "ranges" or child "reg" property
-> 
-> The ethernet@11c20000 node is guarded by an `#if (!SW_ET0_EN_N)` in
-> rzg2ul-smarc-som.dtsi, where the phy child node is added. In
-> rzfive-smarc-som.dtsi, the ethernet node is marked disabled & the
-> interrupt properties are deleted from the phy child node. As a result,
-> the produced dts looks like:
-> 	ethernet@11c20000 {
-> 		compatible = "renesas,r9a07g043-gbeth\0renesas,rzg2l-gbeth";
-> 		/* snip */
-> 		#address-cells = <0x01>;
-> 		#size-cells = <0x00>;
-> 		status = "disabled";
-> 
-> 		ethernet-phy@7 {
-> 		};
-> 	};
-> 
-> Adding a corresponding `#if (!SW_ET0_EN_N)` around the node in
-> rzfive-smarc-som.dtsi avoids the complaint, as the empty child node is
-> not added:
-> 	ethernet@11c20000 {
-> 		compatible = "renesas,r9a07g043-gbeth\0renesas,rzg2l-gbeth";
-> 		/* snip */
-> 		#address-cells = <0x01>;
-> 		#size-cells = <0x00>;
-> 		status = "disabled";
-> 	};
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-[...]
-
-> diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-> index d6f18754eb5d..c62debc7ca7e 100644
-> --- a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-> +++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-> @@ -22,6 +22,7 @@ &dmac {
->  	status = "disabled";
->  };
->  
-> +#if (!SW_ET0_EN_N)
-
-   Are the parens really needed here?
-
->  &eth0 {
->  	status = "disabled";
->  
-[...]
-
-MBR, Sergey
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SG9pIFBldGVyLAoKT24gV2VkLCBKdWwgMTIsIDIwMjMgYXQgMTA6MDXigK9BTSBQZXRlciBaaWps
+c3RyYSA8cGV0ZXJ6QGluZnJhZGVhZC5vcmc+IHdyb3RlOgo+IE9uIFR1ZSwgSnVsIDExLCAyMDIz
+IGF0IDExOjM5OjE3QU0gLTEwMDAsIFRlanVuIEhlbyB3cm90ZToKPiA+IEkgd29uZGVyIHdoZXRo
+ZXIgdGhlIHJpZ2h0IHRoaW5nIHRvIGRvIGhlcmUgaXMgc29tZWhvdyBzY2FsaW5nIHRoZSB0aHJl
+c2hvbGQKPiA+IGFjY29yZGluZyB0byB0aGUgcmVsYXRpdmUgcHJvY2Vzc2luZyBwb3dlci4gSXQn
+cyBkaWZmaWN1bHQgdG8gY29tZSB1cCB3aXRoIGEKPiA+IHRocmVzaG9sZCB3aGljaCB3b3JrcyB3
+ZWxsIGFjcm9zcyB0aGUgbGF0ZXN0ICYgZmFzdGVzdCBhbmQgcmVhbGx5IHRpbnkgQ1BVcy4KPiA+
+IEknbGwgdGhpbmsgYWJvdXQgaXQgc29tZSBtb3JlIGJ1dCBpZiB5b3UgaGF2ZSBzb21lIGlkZWFz
+LCBwbGVhc2UgZmVlbCBmcmVlCj4gPiB0byBzdWdnZXN0Lgo+Cj4gV2UgY291bGQgc2NhbGUgYnkg
+Qm9nb01JUFMgSSBzdXBwb3NlLCBpdCdzIGEgYm9ndXMgbWVhc3VyZW1lbnQsIGFzIHBlcgo+IHRo
+ZSBuYW1lLCBidXQgaXQgZG9lcyBoYXZlIHNvbWUgcmVsYXRpb24gdG8gaG93IGZhc3QgdGhlIG1h
+Y2hpbmUgaXMuCgpUaGF0J3MgZ29ubmEgZmFpbCBtaXNlcmFibHkgb24gZS5nLiBBUk0gYW5kIFJJ
+U0MtViwgd2hlcmUgQm9nb01JUFMKZGVwZW5kcyBvbiBzb21lIHRpbWVyIGZyZXF1ZW5jeS4KClIt
+Q2FyIE0yLVcgd2l0aCAxLjUgR0h6IENvcnRleC1BMTU6IDQwLjAwIEJvZ29NSVBTClItQ2FyIFY0
+SCB3aXRoIDEuOCBHSHogQ29ydGV4LUE3NjogMzMuMzMgQm9nb01JUFMKCndoaWxlIHRoZSByZWFs
+IHNsb3cgNDggTUh6IFZleFJpc2NWIGdldHMgMTI4IEJvZ29NSVBTLgoKR3J7b2V0amUsZWV0aW5n
+fXMsCgogICAgICAgICAgICAgICAgICAgICAgICBHZWVydAoKLS0gCkdlZXJ0IFV5dHRlcmhvZXZl
+biAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXggYmV5b25kIGlhMzIgLS0gZ2VlcnRAbGludXgtbTY4
+ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMgd2l0aCB0ZWNobmljYWwgcGVvcGxlLCBJ
+IGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQKd2hlbiBJJ20gdGFsa2luZyB0byBqb3VybmFsaXN0
+cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVyIiBvciBzb21ldGhpbmcgbGlrZSB0aGF0LgogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIC0tIExpbnVzIFRvcnZhbGRzCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
