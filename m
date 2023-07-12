@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEF2C0015E
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 17:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D66EB64DD
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 17:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sy51qnFfi/TNqhaevx1uNMh8hn5Q8s51ecTTRMb+HsE=; b=bypa8Opa8vQ5hj
-	M1MXxKhmMRdJZ7g165nzopfcBEoVtS589BQCO3z7ITEOFiDsZtya/j39HLsW42RhDN7yuM+yv4yjh
-	H2pKzpUOV6b3JCNQiXY6pEkdI4pvoLz9tygkSzNw8O6naRf8YFTnH6GGw2g8W7VFLO/X1jNqgKSSi
-	43WNRVX1N3FskTTq2tvKKAoUWRbaB5hpAtLnPvGaST2FJ9maiALz8WDzEEB+VyxEsjLVYFjR30CU7
-	/e86PHC7ZjH7TrIgVhq+VjPUiRuav5yiFT0E6vnDVv7h1QIJcR7Xz9LrkGgKE21jSDzgabZbsbuT6
-	Yp6xzIOpgQRqC5kHINCA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wM9BoPPTlXdjhkonkTZ3TY6Rb8edP5BoP8szo1g3hOU=; b=XfCGkU19o7jcgU43sXUPVBxOb2
+	1POCSVKkdVm+oH6nrV/OAi48Jsjc3O3juJ+Y+eTqskEiqmwuDAjbd/++pnG6X5ySCD+wJcDq9TWJe
+	ICOW0Qbchimkkhohr9ms9rGsAchxT6anDMT57kwyE/U87Sg5B0SdVAWiyaR8DQT2RPmprHCDbFZeT
+	S5i9HFzojWbzJHAb3jeJhR0p+KaPZKJ8B5N5pxaqofEvi8ygiGdYnDD4KPGwsbAB4AoPxtQC+GcBR
+	05FWTpV8Hl+jm2zYyDz7E74+tdWTGoJQYj5OhfM0G/PowPxxlKUB24kfqm8E9hT+nygATdaIbcn5d
+	kDyVg13g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJdyS-000oJ1-1t;
-	Wed, 12 Jul 2023 17:50:00 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qJdzb-000oU2-3D;
+	Wed, 12 Jul 2023 17:51:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJdyO-000oHv-37
+	id 1qJdzZ-000oTE-1F
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 17:49:59 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	Wed, 12 Jul 2023 17:51:10 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 70BB73F438
-	for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 17:49:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1689184193;
-	bh=lJHKooZsiD+SMQIcQZfdysILSiGmx9U3IirX3kWX3PY=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=mqgPwiceQuOi6c90xJh2lXXsCwoukixa6cPbmBhlLRRexguMN88tnrGSSxxCBVTPf
-	 RVN+clDAftml4uM06S5BBiKxhjCXH57rUYl9ClXYACkbxnvBpICMzcRe5DNPqnqQCl
-	 8kw4Ik2Pq7Rd2cHtDnM/RMpTw7AwyLy6bw+IH+o4nbAMvJR+0VPl0XXwgo8H9SriXr
-	 X/Lg4hqB0PxXd/gEqP0CGHcG7opltjA76Iw+qmU9ckUsvfYy9MRGc87Crp8yudK/Nz
-	 y4AxSwf3QFa/cPZB4WKiR9/URUWoJxe4INVdnukpCm+02jYwJKozbMJgpNDjYfgJsK
-	 BD+s6PTHUrt2w==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-403be92a8eeso22378001cf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 10:49:53 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689184192; x=1691776192;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lJHKooZsiD+SMQIcQZfdysILSiGmx9U3IirX3kWX3PY=;
-        b=VANGKo9HSbva8WR/YcELTdpxOy2wkxBbOxUBFqIF5EVgp7vmrDAq3sInQZbZMHhYdB
-         M6JN4qVV3izDi8/FAsylPh9OGLqQaeoqZtWC8eUNW/LUIgK0tXB6saHGiH4T7WnCz7MN
-         WY9uOKRprdW+3W3V6oxpQNkvDMSL2bGMP3/DeCiPu0GpiY/O1bp0y1eyECEOLHmFND/5
-         hc098q5di0o6IelEJzYVgsckR3Qyn94j1wtfq2mDI7H/zctjFU6M8sE84qKSS81CpeV5
-         CLKlZgakbuu/0xe/Z2J9DxLCtbqXS2GsftDC03f+iQQOz26dXxzO7JYSWm+lGs8olD7+
-         77Fw==
-X-Gm-Message-State: ABy/qLbvjL/1YaioYGwOSFCbVOGrU5Ltss5JMWVHl7wOXxXBGTqJ4wEh
-	BNChWw+bLmp91dRSKe2ayLQIMmmpBGK+1sVlOzERYWLSci7wBEveYAOiQ3gNUQU9BSXYmw1X8OE
-	oSCFT8qKLnYxApURDDVpeEiR9i18251xJ0HaEjxOBfC8u2EJjqAdPuPULQhBaRQ==
-X-Received: by 2002:ac8:7f94:0:b0:3f6:b7a3:8450 with SMTP id z20-20020ac87f94000000b003f6b7a38450mr24352602qtj.64.1689184192578;
-        Wed, 12 Jul 2023 10:49:52 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlFAVCNYn5fqzJf9r5xxZE6bfMm8mE7TPex0S4/HDEov/pqP3bmVNdXmJY0vjJGRnJoVt7f1kM3NlU3hxBHvEzU=
-X-Received: by 2002:ac8:7f94:0:b0:3f6:b7a3:8450 with SMTP id
- z20-20020ac87f94000000b003f6b7a38450mr24352582qtj.64.1689184192327; Wed, 12
- Jul 2023 10:49:52 -0700 (PDT)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 89ED56189F;
+	Wed, 12 Jul 2023 17:51:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E858DC433C8;
+	Wed, 12 Jul 2023 17:51:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689184268;
+	bh=Cp1aI+fc+P9DejxRV+rOKeNNAXqjZv56Y8hzH777L+Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X2ZIYBSWoLBLTyUcJDkxwbMOen1+zJrTeoZFDGz4p/opeqFB17sKE5MZRuDpf9AkS
+	 l/HMuBjf9DPow9iS3qAtbDy2HlVCQ1QQ8bYsVsJM1hq7Vxb/0i4Efl4A2rcMXWpD2W
+	 IhzG9rmmb+VrHBB2rx90A2jpp2nxKDxAt1xhn2tdndBswHT6Kh8dMlnMm9oRIb0SWI
+	 uf+Lei/zvwb1JL5yD+NI99EnUcv9QnqHTh5xp0SKqJQNPtsn+GizlZ0NsLAuJbNB7o
+	 NDzTdxJ080QD9lZ+IAiO5vHVieZlD9ZQkTZk34T277rL09EQ0GeABLw3DgJPLMOrpz
+	 Jo8uMizkxWHRA==
+Date: Wed, 12 Jul 2023 18:51:01 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Evan Green <evan@rivosinc.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	"Hongren (Zenithal) Zheng" <i@zenithal.me>, linux@rivosinc.com,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	devicetree@vger.kernel.org, sorear@fastmail.com,
+	Jiatai He <jiatai2021@iscas.ac.cn>
+Subject: Re: [PATCH v4 1/4] RISC-V: Add Bitmanip/Scalar Crypto parsing from DT
+Message-ID: <20230712-emote-onscreen-c11aa71b00a3@spud>
+References: <20230712084134.1648008-1-sameo@rivosinc.com>
+ <20230712084134.1648008-2-sameo@rivosinc.com>
+ <20230712-bulldozer-affected-199042dc3afd@wendy>
+ <CALs-HsuxxVcwX=mSwktPiEiAFkfK+5qJ6zg1Bzf2t37L=pZWjw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20230712092007.31013-1-xingyu.wu@starfivetech.com> <20230712092007.31013-2-xingyu.wu@starfivetech.com>
-In-Reply-To: <20230712092007.31013-2-xingyu.wu@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Wed, 12 Jul 2023 19:49:36 +0200
-Message-ID: <CAJM55Z9LF8wzvVR71giLYwDqgbQfJzytmifyFo50GcQ8Gt3DNg@mail.gmail.com>
-Subject: Re: [PATCH v7 1/9] dt-bindings: clock: Add StarFive JH7110
- System-Top-Group clock and reset generator
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+In-Reply-To: <CALs-HsuxxVcwX=mSwktPiEiAFkfK+5qJ6zg1Bzf2t37L=pZWjw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_104957_183705_6CE65086 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20230712_105109_467429_952D4CC1 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,220 +83,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2422187330143251139=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Jul 2023 at 11:22, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->
-> Add bindings for the System-Top-Group clock and reset generator (STGCRG)
-> on the JH7110 RISC-V SoC by StarFive Ltd.
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+--===============2422187330143251139==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="v3mGsgwTVrXCWkzs"
+Content-Disposition: inline
 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  .../clock/starfive,jh7110-stgcrg.yaml         | 82 +++++++++++++++++++
->  .../dt-bindings/clock/starfive,jh7110-crg.h   | 34 ++++++++
->  .../dt-bindings/reset/starfive,jh7110-crg.h   | 28 +++++++
->  3 files changed, 144 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
->
-> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
-> new file mode 100644
-> index 000000000000..b64ccd84200a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
-> @@ -0,0 +1,82 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-stgcrg.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 System-Top-Group Clock and Reset Generator
-> +
-> +maintainers:
-> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: starfive,jh7110-stgcrg
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: Main Oscillator (24 MHz)
-> +      - description: HIFI4 core
-> +      - description: STG AXI/AHB
-> +      - description: USB (125 MHz)
-> +      - description: CPU Bus
-> +      - description: HIFI4 Axi
-> +      - description: NOC STG Bus
-> +      - description: APB Bus
-> +
-> +  clock-names:
-> +    items:
-> +      - const: osc
-> +      - const: hifi4_core
-> +      - const: stg_axiahb
-> +      - const: usb_125m
-> +      - const: cpu_bus
-> +      - const: hifi4_axi
-> +      - const: nocstg_bus
-> +      - const: apb_bus
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +    description:
-> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
-> +
-> +  '#reset-cells':
-> +    const: 1
-> +    description:
-> +      See <dt-bindings/reset/starfive,jh7110-crg.h> for valid indices.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - '#clock-cells'
-> +  - '#reset-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
-> +
-> +    stgcrg: clock-controller@10230000 {
-> +        compatible = "starfive,jh7110-stgcrg";
-> +        reg = <0x10230000 0x10000>;
-> +        clocks = <&osc>,
-> +                 <&syscrg JH7110_SYSCLK_HIFI4_CORE>,
-> +                 <&syscrg JH7110_SYSCLK_STG_AXIAHB>,
-> +                 <&syscrg JH7110_SYSCLK_USB_125M>,
-> +                 <&syscrg JH7110_SYSCLK_CPU_BUS>,
-> +                 <&syscrg JH7110_SYSCLK_HIFI4_AXI>,
-> +                 <&syscrg JH7110_SYSCLK_NOCSTG_BUS>,
-> +                 <&syscrg JH7110_SYSCLK_APB_BUS>;
-> +        clock-names = "osc", "hifi4_core",
-> +                      "stg_axiahb", "usb_125m",
-> +                      "cpu_bus", "hifi4_axi",
-> +                      "nocstg_bus", "apb_bus";
-> +        #clock-cells = <1>;
-> +        #reset-cells = <1>;
-> +    };
-> diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
-> index 06257bfd9ac1..6c8e8b4cf1f6 100644
-> --- a/include/dt-bindings/clock/starfive,jh7110-crg.h
-> +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
-> @@ -1,6 +1,7 @@
->  /* SPDX-License-Identifier: GPL-2.0 OR MIT */
->  /*
->   * Copyright 2022 Emil Renner Berthing <kernel@esmil.dk>
-> + * Copyright 2022 StarFive Technology Co., Ltd.
->   */
->
->  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
-> @@ -218,4 +219,37 @@
->
->  #define JH7110_AONCLK_END                      14
->
-> +/* STGCRG clocks */
-> +#define JH7110_STGCLK_HIFI4_CLK_CORE           0
-> +#define JH7110_STGCLK_USB0_APB                 1
-> +#define JH7110_STGCLK_USB0_UTMI_APB            2
-> +#define JH7110_STGCLK_USB0_AXI                 3
-> +#define JH7110_STGCLK_USB0_LPM                 4
-> +#define JH7110_STGCLK_USB0_STB                 5
-> +#define JH7110_STGCLK_USB0_APP_125             6
-> +#define JH7110_STGCLK_USB0_REFCLK              7
-> +#define JH7110_STGCLK_PCIE0_AXI_MST0           8
-> +#define JH7110_STGCLK_PCIE0_APB                        9
-> +#define JH7110_STGCLK_PCIE0_TL                 10
-> +#define JH7110_STGCLK_PCIE1_AXI_MST0           11
-> +#define JH7110_STGCLK_PCIE1_APB                        12
-> +#define JH7110_STGCLK_PCIE1_TL                 13
-> +#define JH7110_STGCLK_PCIE_SLV_MAIN            14
-> +#define JH7110_STGCLK_SEC_AHB                  15
-> +#define JH7110_STGCLK_SEC_MISC_AHB             16
-> +#define JH7110_STGCLK_GRP0_MAIN                        17
-> +#define JH7110_STGCLK_GRP0_BUS                 18
-> +#define JH7110_STGCLK_GRP0_STG                 19
-> +#define JH7110_STGCLK_GRP1_MAIN                        20
-> +#define JH7110_STGCLK_GRP1_BUS                 21
-> +#define JH7110_STGCLK_GRP1_STG                 22
-> +#define JH7110_STGCLK_GRP1_HIFI                        23
-> +#define JH7110_STGCLK_E2_RTC                   24
-> +#define JH7110_STGCLK_E2_CORE                  25
-> +#define JH7110_STGCLK_E2_DBG                   26
-> +#define JH7110_STGCLK_DMA1P_AXI                        27
-> +#define JH7110_STGCLK_DMA1P_AHB                        28
-> +
-> +#define JH7110_STGCLK_END                      29
-> +
->  #endif /* __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__ */
-> diff --git a/include/dt-bindings/reset/starfive,jh7110-crg.h b/include/dt-bindings/reset/starfive,jh7110-crg.h
-> index d78e38690ceb..4e96ab81dd8e 100644
-> --- a/include/dt-bindings/reset/starfive,jh7110-crg.h
-> +++ b/include/dt-bindings/reset/starfive,jh7110-crg.h
-> @@ -1,6 +1,7 @@
->  /* SPDX-License-Identifier: GPL-2.0 OR MIT */
->  /*
->   * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
->   */
->
->  #ifndef __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__
-> @@ -151,4 +152,31 @@
->
->  #define JH7110_AONRST_END                      8
->
-> +/* STGCRG resets */
-> +#define JH7110_STGRST_SYSCON                   0
-> +#define JH7110_STGRST_HIFI4_CORE               1
-> +#define JH7110_STGRST_HIFI4_AXI                        2
-> +#define JH7110_STGRST_SEC_AHB                  3
-> +#define JH7110_STGRST_E24_CORE                 4
-> +#define JH7110_STGRST_DMA1P_AXI                        5
-> +#define JH7110_STGRST_DMA1P_AHB                        6
-> +#define JH7110_STGRST_USB0_AXI                 7
-> +#define JH7110_STGRST_USB0_APB                 8
-> +#define JH7110_STGRST_USB0_UTMI_APB            9
-> +#define JH7110_STGRST_USB0_PWRUP               10
-> +#define JH7110_STGRST_PCIE0_AXI_MST0           11
-> +#define JH7110_STGRST_PCIE0_AXI_SLV0           12
-> +#define JH7110_STGRST_PCIE0_AXI_SLV            13
-> +#define JH7110_STGRST_PCIE0_BRG                        14
-> +#define JH7110_STGRST_PCIE0_CORE               15
-> +#define JH7110_STGRST_PCIE0_APB                        16
-> +#define JH7110_STGRST_PCIE1_AXI_MST0           17
-> +#define JH7110_STGRST_PCIE1_AXI_SLV0           18
-> +#define JH7110_STGRST_PCIE1_AXI_SLV            19
-> +#define JH7110_STGRST_PCIE1_BRG                        20
-> +#define JH7110_STGRST_PCIE1_CORE               21
-> +#define JH7110_STGRST_PCIE1_APB                        22
-> +
-> +#define JH7110_STGRST_END                      23
-> +
->  #endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_CRG_H__ */
-> --
-> 2.25.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--v3mGsgwTVrXCWkzs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Wed, Jul 12, 2023 at 10:43:33AM -0700, Evan Green wrote:
+
+> This looks alright to me. At the risk of getting into bikeshedding
+
+I very much do not think that that is bikeshedding FWIW.
+
+> territory, the only awkward bit of it is it composes the extensions in
+> sort of the opposite way you'd expect. I tend to think of Zks as being
+> comprised of {zbkb, zbkc, zksed, zksh}, rather than zbkb being a part
+> of {zks, zkn, zk}, though both are of course correct. Here's an
+> untested version of the other way. You can decide if you like it
+> better or worse than what you've got, and I'm fine either way.
+
+I'm happy to do it this way too, just wanna see how it interacts with
+the new property stuff. I actually found it confusing to implement the
+arrays, it just seemed easier to integrate with the new property stuff
+this way.
+
+> Sorry
+> gmail mangles it, if you want the patch for real I can get it to you:
+
+Please, reading the line-wrapped mangling hurts my head unfortunately.
+Tree or attachment WFM :)
+
+Thanks,
+Conor.
+
+--v3mGsgwTVrXCWkzs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK7oBQAKCRB4tDGHoIJi
+0mIFAP92dJfa+U4vPOtK6HIzhgoVC2mg0JyOI8zgfJzRRSzV0gEAieics5MVx9MA
+WEUAz/SetjYFkBa4tO96h0am7lSlSAc=
+=jwFk
+-----END PGP SIGNATURE-----
+
+--v3mGsgwTVrXCWkzs--
+
+
+--===============2422187330143251139==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2422187330143251139==--
+
