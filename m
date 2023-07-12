@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B04EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 11:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE9FEB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 11:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wEkJZBGXe3fnh7cwiY1qLMNtHU7FfZ633WjFRydoLPY=; b=QJbA0fdlwRosJaGzmoYu9Fhgty
-	p8k6ah64NiqoM9wc3ftuIG1F82G7bbcbJ8N5QaKwqxNmybA02/fzt19lSHVc/+HLUdKiBHnUG6YQV
-	XqK3juc3jAluklD5b5rKZFR7xP2uWLKQWKPx2ipAWFux+h/iFifyrtEYtw7zV3ukoqGqNvfc8/mBK
-	2+TBWY7Dp+sky3ke6HK3o1uxEkCGbCCZWymeJTbWO5xZkroBMukWZyG037mcNOk9nxLdtOEuju+rR
-	IB/xl14FDy1cGaMkkltcwJNtuS89DuIAUMCKoYxYkhNzb20YOu6OAN8eTXulRMZ9TL7c+izgdrUHq
-	j6tA5adA==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e2fBTbVvTZ07byq11WnGljNMj2uc8c/1R7LQUT3zXlM=; b=00QJD7PKhVMHhqWJz23c/r7CXr
+	+8hoBPGXO1ZKXQbKaTUJURyDK3caFHj1XviPoLZfkXGQqkl5T/BY+FuLbD19UDKIVL1477Ysg3gOk
+	QjgWxN9evDj6LzBLNXBtsccn0Sy6aoTNGGYcVv8OZj0+Hcg+1/OdxZxkucAnCft+GjREZYbkUjLFI
+	nhhjR6TFO1GZtl+sN90qiMlEatLVEha1qBC132KczROxMb6vcqchqvsOB+6Cyjre7BSUxt+Inq5we
+	bPkHzI/CGeiX9MYb3+7HkiOnNQA+TUR5trnALvUvKjnowxDovKq//GonJgs41eB3C+hL8Yf7N3dBi
+	hvWEV5rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJXrB-00HNkM-14;
-	Wed, 12 Jul 2023 11:18:05 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qJYC8-00HPn9-21;
+	Wed, 12 Jul 2023 11:39:44 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJXr7-00HNiJ-1n
+	id 1qJYC5-00HPlN-1W
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 11:18:03 +0000
+	Wed, 12 Jul 2023 11:39:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1689160681; x=1720696681;
+  t=1689161981; x=1720697981;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=lhRxDcYtJmzjvEKOk63PC9RGZFT+CaERpZn0eKpHh6Q=;
-  b=vpuuTAG3X3kQorqWCyImrE5WS7Jr5BMt6+2diLfhM5SE8BKTRkwkhZC9
-   F4cQ5abQESIZMj8T/NkLwTjGLLPo+OjJTqenyotgg/tJSeb30I7Djkq2H
-   eVo/240VVOPzf3Qr2GmJDf8gCD0eoNaZNL8u+5ZbMgFeGG7ORSGZezQZl
-   RSvfShcn0my6GSk+pBqZbavVLg7n1RIKKAHrQRdEbvt53M2PF+ym4Xp8A
-   GBE44mU7ITXzsxC1h49CGT/WvUE4fsJLlDw1pq45KbSdudewIzUxS4Rvn
-   +2+3J3da4kVUVUrNr95UryQ7T5tcAfTGffIE8royv7NaDoz5AORrn5UnU
+  bh=LzbXCdVYpf0mHxDKio5HWYPvlyzH8LX712oCQFbugF0=;
+  b=NWpIDs/2gEMNat1wZROGCf2o9lW80YTKSGtSqFf4WA+7KvEPlTxs95L5
+   7VvhRNNAH+F/V/1jOVQrx1ONw25d0VyFcdnvZPv+sq6C/tiyemxKlAkVD
+   ++eeCFvgitL3+54yXlzgoc1SowKBrgHV1q1IlAHLR4K5BZN/Zs1mWrD9V
+   DF6RP5zs1fEiCTBrCvX8JC2E4aMSQh0s8SfKHpdwss5yJq6Os8Qyvf6oe
+   5GPcSFiQsvv4HahlTTDDgHf6Ko8qQGl/cD0iZkBOqzh3ssyFEOaOZ6o/h
+   uFvnY84nG9oxILQehKhdaqnjCboXVo5zEspxTlaGUIREWMpuRqrLz+1hU
    A==;
 X-IronPort-AV: E=Sophos;i="6.01,199,1684825200"; 
-   d="asc'?scan'208";a="235058594"
+   d="asc'?scan'208";a="219993814"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Jul 2023 04:17:50 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Jul 2023 04:39:24 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 12 Jul 2023 04:17:49 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.21; Wed, 12 Jul 2023 04:39:24 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 12 Jul 2023 04:17:46 -0700
-Date: Wed, 12 Jul 2023 12:17:15 +0100
+ Transport; Wed, 12 Jul 2023 04:39:23 -0700
+Date: Wed, 12 Jul 2023 12:38:51 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Samuel Ortiz <sameo@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, "Hongren (Zenithal) Zheng"
-	<i@zenithal.me>, <linux@rivosinc.com>, Andrew Jones
-	<ajones@ventanamicro.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, Anup
- Patel <apatel@ventanamicro.com>, <linux-kernel@vger.kernel.org>, Guo Ren
-	<guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, Evan Green
-	<evan@rivosinc.com>, <devicetree@vger.kernel.org>, <sorear@fastmail.com>,
-	Jiatai He <jiatai2021@iscas.ac.cn>
-Subject: Re: [PATCH v4 1/4] RISC-V: Add Bitmanip/Scalar Crypto parsing from DT
-Message-ID: <20230712-backrest-negative-ee459a175151@wendy>
-References: <20230712084134.1648008-1-sameo@rivosinc.com>
- <20230712084134.1648008-2-sameo@rivosinc.com>
- <20230712-bulldozer-affected-199042dc3afd@wendy>
- <20230712-antibody-cried-1a6a68332c78@wendy>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Subject: Re: [PATCH] RISC-V: Don't trust V from the riscv,isa DT property
+Message-ID: <20230712-legislate-dental-8488c6b9c0cf@wendy>
+References: <20230711223316.7961-1-palmer@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20230712-antibody-cried-1a6a68332c78@wendy>
+In-Reply-To: <20230711223316.7961-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_041801_738435_88BBC27F 
-X-CRM114-Status: GOOD (  50.33  )
+X-CRM114-CacheID: sfid-20230712_043941_595761_280D6E8B 
+X-CRM114-Status: GOOD (  38.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,329 +76,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6046238009139398586=="
+Cc: linux-riscv@lists.infradead.org, Charlie Jenkins <charlie@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>
+Content-Type: multipart/mixed; boundary="===============3857033465514276631=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6046238009139398586==
+--===============3857033465514276631==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jmjKz8Svm3lzfLi6"
+	protocol="application/pgp-signature"; boundary="erszgNZFsBF+XLJg"
 Content-Disposition: inline
 
---jmjKz8Svm3lzfLi6
+--erszgNZFsBF+XLJg
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Me again, spotted an issue after sending.
+Hey Palmer,
 
-On Wed, Jul 12, 2023 at 11:46:52AM +0100, Conor Dooley wrote:
-> On Wed, Jul 12, 2023 at 11:39:16AM +0100, Conor Dooley wrote:
-> > On Wed, Jul 12, 2023 at 10:41:17AM +0200, Samuel Ortiz wrote:
-> > > From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
-> > >=20
-> > > Parse Zb/Zk related string from DT and output them to cpuinfo.
-> >=20
-> > One thing that has sprung to mind is that this is not limited to DT
-> > anymore, since the information could in theory come from ACPI too.
-> > Ditto the title I guess.
-> >=20
-> > > It is worth noting that the Scalar Crypto extension defines "zk" as a
-> > > shorthand for the Zkn, Zkr and Zkt extensions. Since the Zkn one also
-> > > implies the Zbkb, Zbkc and Zbkx extensions, simply passing the valid
-> > > "zk" extension name through a DT will enable all of the  Zbkb, Zbkc,
-> > > Zbkx, Zkn, Zkr and Zkt extensions.
-> > >=20
-> > > Also, since there currently is no mechanism to merge all enabled
-> > > extensions, the generated cpuinfo output could be relatively large.
-> > > For example, setting the "riscv,isa" DT property to "rv64imafdc_zk_zk=
-s"
-> > > will generate the following cpuinfo output:
-> > > "rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed_zksh_zkt".
-> >=20
-> > On that note, I've created another version of what checking for
-> > supersets could look like, since it'll be needed either by my series or
-> > this one, depending on what gets merged first. I've yet to test the
-> > dedicated extensions part of it, but I wanted to get this out before I
-> > went looking at other fixes in the area.
-> >=20
-> > Evan, since it was you that commented on this stuff last time around,
-> > could you take another look? I'm still not keen on the "subset_of"
-> > arrays, but they're an improvement on what I had last time around for
-> > sure.
+On Tue, Jul 11, 2023 at 03:33:17PM -0700, Palmer Dabbelt wroteh:
+> The last merge window contained both V support and the deprecation of
+> the riscv,isa DT property, with the V implementation reading riscv,isa
+> to determine the presence of the V extension.  At the time that was the
+> only way to do it, but there's a lot of ambiguity around V in ISA
+> strings.
 >=20
-> I would rather use the "property" member, renaming it to "properties",
-> but I didn't get the macro right in the bit of time I had this morning.
-> I'll try to think of a cleaner way...
+> Rather than trying to sort that out, let's just not introduce the
+> ambiguity in the first place and retroactively make the deprecation
+> apply to V.  This all happened in the same merge window anyway, so this
+> way we don't end up introducing a new ambiguous interface we need to
+> maintain compatibility with forever (despite it having been deprecated
+> in the same release).
 >=20
-> > (I took authorship since only the #defines & part of the commit
-> > message came from the original commit)
-> >=20
-> > -- >8 --
-> > From 2351c46fd1c9f6de312463875a4887f03d365b76 Mon Sep 17 00:00:00 2001
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> > Date: Wed, 12 Jul 2023 11:25:36 +0100
-> > Subject: [PATCH] RISC-V: add detection of scalar crypto extensions
-> >=20
-> > It is worth noting that the Scalar Crypto extension defines "zk" as a
-> > shorthand for the Zkn, Zkr and Zkt extensions. Since the Zkn one also
-> > implies the Zbkb, Zbkc and Zbkx extensions, simply passing the valid
-> > "zk" extension name through a DT shold enable all of the Zbkb, Zbkc,
-> > Zbkx, Zkn, Zkr and Zkt extensions.
-> > For example, setting the "riscv,isa" DT property to "rv64imafdc_zk"
-> > should generate the following cpuinfo output:
-> > "rv64imafdc_zicntr_zicsr_zifencei_zihpm_zbkb_zbkc_zbkx_zknd_zkne_zknh_z=
-kr_zkt"
-> >=20
-> > riscv_isa_ext_data grows a pair of new members, to permit searching for
-> > supersets of the extension in question, both while parsing the ISA
-> > string and the new dedicated extension properties.
-> >=20
-> > Co-developed-by: Hongren (Zenithal) Zheng <i@zenithal.me>
-> > Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
-> > Co-developed-by: Samuel Ortiz <sameo@rivosinc.com>
-> > Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  arch/riscv/include/asm/hwcap.h | 13 +++++
-> >  arch/riscv/kernel/cpufeature.c | 95 +++++++++++++++++++++++++++++-----
-> >  2 files changed, 94 insertions(+), 14 deletions(-)
-> >=20
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hw=
-cap.h
-> > index b7b58258f6c7..46d54f31e162 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -58,6 +58,17 @@
-> >  #define RISCV_ISA_EXT_ZICSR		40
-> >  #define RISCV_ISA_EXT_ZIFENCEI		41
-> >  #define RISCV_ISA_EXT_ZIHPM		42
-> > +#define RISCV_ISA_EXT_ZBC		43
-> > +#define RISCV_ISA_EXT_ZBKB		44
-> > +#define RISCV_ISA_EXT_ZBKC		45
-> > +#define RISCV_ISA_EXT_ZBKX		46
-> > +#define RISCV_ISA_EXT_ZKND		47
-> > +#define RISCV_ISA_EXT_ZKNE		48
-> > +#define RISCV_ISA_EXT_ZKNH		49
-> > +#define RISCV_ISA_EXT_ZKR		50
-> > +#define RISCV_ISA_EXT_ZKSED		51
-> > +#define RISCV_ISA_EXT_ZKSH		52
-> > +#define RISCV_ISA_EXT_ZKT		53
-> > =20
-> >  #define RISCV_ISA_EXT_MAX		64
-> > =20
-> > @@ -77,6 +88,8 @@ struct riscv_isa_ext_data {
-> >  	const unsigned int id;
-> >  	const char *name;
-> >  	const char *property;
-> > +	const unsigned int superset_count;
-> > +	const char **subset_of;
+> ACPI still trusts ISA strings, so we'll leave that alone.
+>=20
+> Fixes: dc6667a4e7e3 ("riscv: Extending cpufeature.c to detect V-extension=
+")
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-I forgot to stage the addition of a const qualifier here,
-it should be `const char * const *subset_of`, otherwise it fails to
-build.
+Thinking a little harder than I did last night, I think the diff should
+actually look something like the below, if this is the approach that is
+going to be taken:
 
-Cheers,
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index bdcf460ea53d..4b759cd2e3be 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -334,6 +334,26 @@ void __init riscv_fill_hwcap(void)
+ 			set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
+ 		}
+=20
++		/*
++		 * "V" in ISA strings is a ambiguous in practice: it should
++		 * mean just the standard V-1.0 but vendors aren't well
++		 * behaved.  Only allow V in ISA strings that come from ACPI,
++		 * as we've yet to build up enough history in ACPI land to stop
++		 * trusting ISA strings.
++		 *
++		 * DT-based systems must provide the explicit V property, which
++		 * is well defined.
++		 */
++		if (acpi_disabled) {
++			if (of_property_match_string(node, "riscv,isa-extensions", "v") >=3D 0)=
+ {
++				this_hwcap |=3D isa2hwcap[RISCV_ISA_EXT_v];
++				set_bit(RISCV_ISA_EXT_v, isainfo->isa);
++			} else {
++				this_hwcap &=3D ~isa2hwcap[RISCV_ISA_EXT_v];
++				clear_bit(RISCV_ISA_EXT_v, isainfo->isa);
++			}
++		}
++
+ 		/*
+ 		 * All "okay" hart should have same isa. Set HWCAP based on
+ 		 * common capabilities of every "okay" hart, in case they don't
+
+> This came up as part of some discussions about the T-Head vector
+> support.
+
+I guess what I brought up was the various T-Head devicetrees in the wild
+that contain things like "rv64imafdcv". The Sophgo sg204-whatever has
+that, and it has one of the "cleaner" downstream trees containing
+support for the T-Head vector stuff. Usually I would not care all that
+much about downstream trees, but it does mean that downstream U-Boots
+and OpenSBIs will likely use devicetrees that contain similar stuff & we
+do have to deal with being passed those.
+
+> I haven't actually tested this, but Conor and I were talking
+> about options and it was easier to just implement it than describe it.
+> It's kind of clunky to only parse that one property, but we're already
+> in a grey area WRT having the DT bindings that we don't parse so maybe
+> that's not so bad?
+
+It looks super clunky to be honest, but the alternatives are not all
+that pretty either. Either we could disable detection from DT entirely
+until v6.6 when you hopefully take my series handling the new
+properties, but that puts the vector stuff into an odd spot, where no
+system could actually use it. Or, we could send my series as fixes for
+v6.5, but I think that is very much on the edge of what could be
+considered a fix...
+
+> The other option would be to turn off V when we detect we're on a T-Head
+> system as part of the errata handling.  That's similar to what we do for
+> misaligned accesses, but that's a hack that we're getting rid of.  It'd
+> be less of a hack for V, but given that we've found T-Head systems
+> aliasing the arch/impl IDs already we might be digging ourselves a
+> bigger hole here.
+
+Right. Doing anything with the T-Head arch/impl IDs is really fragile,
+since we don't know if they'll continue to be zero in the future.
+I'd argue that it is less "dangerous" to disable mapping "v" -> vector
+when using riscv,isa on any T-Head systems w/ a zero archid/impid, than
+it is to turn on their v0.7.1 flavour under the same conditions, but
+that just amounts to a more niche version of what we have here.
+I still don't think that it is a good idea to do it in the errata
+handling code (at least how we have it structured now) since it could
+affect a cpu, like the c908, that does actually support the standard
+version of vector, if it still has impid/archid tied to zero.
+
+Disabling mapping "v" -> vector is a bit of a big hammer, since it hits
+behaving implementations too. I'd be inclined to limit the impact to
+just the known misbehaver & make the condition
+    if (acpi_disabled && riscv_cached_mvendorid(cpu) =3D=3D THEAD_VENDOR_ID)
+or something along those lines.
+That way, it's only being disabled for T-Head systems that attempt to
+use "riscv,isa" to communicate support for vector, and T-Head systems
+that may pop up in the future that support the standard extension can
+use the new properties?
+
+Hope that makes sense,
 Conor.
 
-> >  };
-> > =20
-> >  extern const struct riscv_isa_ext_data riscv_isa_ext[];
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
-ure.c
-> > index 5945dfc5f806..e862958d5495 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -103,8 +103,22 @@ static bool riscv_isa_extension_check(int id)
-> >  	.name =3D #_name,				\
-> >  	.property =3D #_name,			\
-> >  	.id =3D _id,				\
-> > +	.superset_count =3D 0,			\
-> > +	.subset_of =3D NULL,			\
-> >  }
-> > =20
-> > +#define __RISCV_ISA_EXT_DATA_SUBSET(_name, _id, _subset_of) {	\
-> > +	.name =3D #_name,						\
-> > +	.property =3D #_name,					\
-> > +	.id =3D _id,						\
-> > +	.superset_count =3D ARRAY_SIZE(_subset_of),		\
-> > +	.subset_of =3D _subset_of,				\
-> > +}
-> > +
-> > +static const char * const riscv_subset_of_zbk[] =3D { "zk", "zkn", "zk=
-s" };
-> > +static const char * const riscv_subset_of_zkn[] =3D { "zk", "zkn" };
-> > +static const char * const riscv_subset_of_zk[]  =3D { "zk" };
-> > +static const char * const riscv_subset_of_zks[] =3D { "zks" };
-> >  /*
-> >   * The canonical order of ISA extension names in the ISA string is def=
-ined in
-> >   * chapter 27 of the unprivileged specification.
-> > @@ -167,7 +181,18 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =
-=3D {
-> >  	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
-> >  	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-> >  	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> > +	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zbkb, RISCV_ISA_EXT_ZBKB, riscv_subset_of=
-_zbk),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zbkc, RISCV_ISA_EXT_ZBKC, riscv_subset_of=
-_zbk),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zbkx, RISCV_ISA_EXT_ZBKX, riscv_subset_of=
-_zbk),
-> >  	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zknd, RISCV_ISA_EXT_ZKND, riscv_subset_of=
-_zkn),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zkne, RISCV_ISA_EXT_ZKNE, riscv_subset_of=
-_zkn),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zknh, RISCV_ISA_EXT_ZKNH, riscv_subset_of=
-_zkn),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zkr, RISCV_ISA_EXT_ZKR, riscv_subset_of_z=
-k),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zksed, RISCV_ISA_EXT_ZKSED, riscv_subset_=
-of_zks),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zksh, RISCV_ISA_EXT_ZKSH, riscv_subset_of=
-_zks),
-> > +	__RISCV_ISA_EXT_DATA_SUBSET(zkt, RISCV_ISA_EXT_ZKT, riscv_subset_of_z=
-k),
-> >  	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-> >  	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
-> >  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> > @@ -179,6 +204,31 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =
-=3D {
-> > =20
-> >  const size_t riscv_isa_ext_count =3D ARRAY_SIZE(riscv_isa_ext);
-> > =20
-> > +static inline int __init riscv_try_match_extension(const char *name, c=
-onst unsigned int bit,
-> > +						   const char *ext, const char *ext_end,
-> > +						   struct riscv_isainfo *isainfo)
-> > +{
-> > +	if ((ext_end - ext =3D=3D strlen(name)) && !strncasecmp(ext, name, st=
-rlen(name)) &&
-> > +	    riscv_isa_extension_check(bit)) {
-> > +		set_bit(bit, isainfo->isa);
-> > +		return 0;
-> > +	}
-> > +
-> > +	return -ENOENT;
-> > +}
-> > +
-> > +static inline void __init riscv_try_match_supersets(struct riscv_isa_e=
-xt_data ext_data,
-> > +						    const char *ext, const char *ext_end,
-> > +						    struct riscv_isainfo *isainfo)
-> > +{
-> > +	for (int i =3D 0; i < ext_data.superset_count; i++) {
-> > +		const char *superset =3D ext_data.subset_of[i];
-> > +		const int bit =3D ext_data.id;
-> > +
-> > +		riscv_try_match_extension(superset, bit, ext, ext_end, isainfo);
-> > +	}
-> > +}
-> > +
-> >  static void __init riscv_parse_isa_string(unsigned long *this_hwcap, s=
-truct riscv_isainfo *isainfo,
-> >  					  unsigned long *isa2hwcap, const char *isa)
-> >  {
-> > @@ -310,16 +360,9 @@ static void __init riscv_parse_isa_string(unsigned=
- long *this_hwcap, struct risc
-> >  		if (*isa =3D=3D '_')
-> >  			++isa;
-> > =20
-> > -#define SET_ISA_EXT_MAP(name, bit)						\
-> > -		do {								\
-> > -			if ((ext_end - ext =3D=3D sizeof(name) - 1) &&		\
-> > -			     !strncasecmp(ext, name, sizeof(name) - 1) &&	\
-> > -			     riscv_isa_extension_check(bit))			\
-> > -				set_bit(bit, isainfo->isa);			\
-> > -		} while (false)							\
-> > -
-> >  		if (unlikely(ext_err))
-> >  			continue;
-> > +
-> >  		if (!ext_long) {
-> >  			int nr =3D tolower(*ext) - 'a';
-> > =20
-> > @@ -327,12 +370,21 @@ static void __init riscv_parse_isa_string(unsigne=
-d long *this_hwcap, struct risc
-> >  				*this_hwcap |=3D isa2hwcap[nr];
-> >  				set_bit(nr, isainfo->isa);
-> >  			}
-> > -		} else {
-> > +
-> >  			for (int i =3D 0; i < riscv_isa_ext_count; i++)
-> > -				SET_ISA_EXT_MAP(riscv_isa_ext[i].name,
-> > -						riscv_isa_ext[i].id);
-> > +				riscv_try_match_supersets(riscv_isa_ext[i], ext, ext_end, isainfo);
-> > +		} else {
-> > +			for (int i =3D 0; i < riscv_isa_ext_count; i++) {
-> > +				const char *name =3D riscv_isa_ext[i].name;
-> > +				const int bit =3D riscv_isa_ext[i].id;
-> > +				int ret;
-> > +
-> > +				ret =3D riscv_try_match_extension(name, bit, ext, ext_end, isainfo=
-);
-> > +				if (ret && riscv_isa_ext[i].superset_count)
-> > +					riscv_try_match_supersets(riscv_isa_ext[i], ext,
-> > +								  ext_end, isainfo);
-> > +			}
-> >  		}
-> > -#undef SET_ISA_EXT_MAP
-> >  	}
-> >  }
-> > =20
-> > @@ -434,8 +486,23 @@ static int __init riscv_fill_hwcap_from_ext_list(u=
-nsigned long *isa2hwcap)
-> >  			continue;
-> > =20
-> >  		for (int i =3D 0; i < riscv_isa_ext_count; i++) {
-> > -			if (of_property_match_string(cpu_node, "riscv,isa-extensions",
-> > -						     riscv_isa_ext[i].property) < 0)
-> > +			struct riscv_isa_ext_data ext =3D riscv_isa_ext[i];
-> > +			int ret;
-> > +
-> > +			ret =3D of_property_match_string(cpu_node, "riscv,isa-extensions",
-> > +						       ext.property);
-> > +
-> > +			if (ret < 0 && ext.superset_count) {
-> > +				for (int j =3D 0; j < ext.superset_count; j++) {
-> > +					ret =3D of_property_match_string(cpu_node,
-> > +								       "riscv,isa-extensions",
-> > +								       ext.subset_of[j]);
-> > +					if (ret >=3D 0)
-> > +						break;
-> > +				}
-> > +			}
-> > +
-> > +			if (ret < 0)
-> >  				continue;
-> > =20
-> >  			if (!riscv_isa_extension_check(riscv_isa_ext[i].id))
-> > --=20
-> > 2.40.1
-> >=20
-> >=20
->=20
->=20
-
-
-
---jmjKz8Svm3lzfLi6
+--erszgNZFsBF+XLJg
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK6LuwAKCRB4tDGHoIJi
-0kMjAQDJ9XcvvG+VskEb01lbCg3q38npnqhUpklt2gBTS81RngEA9fmzDdL0Zz/a
-AGa7YfXo9nyOln5r4qDkJhDD7YRyDQQ=
-=IVPy
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK6QywAKCRB4tDGHoIJi
+0icuAP9Sr8pwIVyuItiCtpb0IZLLdkp5rrzVM2ewV5F6wynXhgD/XoRA5P6weg62
+OP4MZEiPYifp8d9lTQCUtP7fiva/OQw=
+=NJ5A
 -----END PGP SIGNATURE-----
 
---jmjKz8Svm3lzfLi6--
+--erszgNZFsBF+XLJg--
 
 
---===============6046238009139398586==
+--===============3857033465514276631==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -422,5 +231,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6046238009139398586==--
+--===============3857033465514276631==--
 
