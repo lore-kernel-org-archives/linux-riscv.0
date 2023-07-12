@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C48EEB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 14:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33C7EB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 14:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=VKUayWe/FulKL+hFa6z6OPILkhquUjGue8jw/prvzT4=; b=QVBsGi9pQMDpYmT4kXbBMNLfbe
-	QqhtI6xW7ySTYukYPbyZlXtd8gAmtG+PwC9ySdAEwZyOX1GMkDDQNvvJ/N8DyFj7pUmPHxu/Jxrxo
-	0n3J6WBavClvjcf/Aq/wbs2mykN7PdbMVzjYwV3GqCwhY9sxJFuXEL8b0kiJduKz42bmRVSPBZD3Z
-	aCqP2+LVHcxJ2k0UMXUSY51g0JF0vwbrGo5g0S9AupJtaYTjRidV53cGmL5Gfwcqcoqe8ZgYU14ra
-	3Z1AhLLkaHCA3wlJdhkGfrVSSNCFYahCfrSS56oFHEtbNlaO08jU14GJvuXM62keNkPKllYgIklRL
-	BIQHRpHA==;
+	bh=i3klxKDXbVsosybHdJG8o3zIPe4zEgf7+FAFN57oNlo=; b=pd0UM6tIlRogHe3rhtNY4ANaNO
+	kPGFJBb4q6cUciZMRSZ4CCiI+zIRTqArOFSZP+VzVj4864LjxqqxLOYYofbRXJYffbnqd4C6CHcHl
+	mSY19+1tyR9Guj7wzCrrc2xOo0xwEuAhogYr3qyNBf0IR0A0C1eKV6pgRfDrRTvn0tYZqPu7ZX+df
+	E3UPo4XEH4kwDwwsXsZCsNwwP8tcKVIl0nMzj9bcb06TzCmqVckQT2h+0ixkCyGgReTWajqrKRmJC
+	eVeYRZcA/fQGUaOK4ib3tcmB3gEtMKg/jySGChbYKz3M5F9wK2/tPs42pzbbZ6myshb/ATJLfCAm9
+	oo6IwAJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJb4P-000ELc-0K;
-	Wed, 12 Jul 2023 14:43:57 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1qJb8K-000Ek5-1e;
+	Wed, 12 Jul 2023 14:48:00 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJb4J-000EKu-2q
+	id 1qJb8H-000Eip-2k
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 14:43:53 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-666eb03457cso4219540b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 07:43:50 -0700 (PDT)
+	Wed, 12 Jul 2023 14:47:59 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6686708c986so6414692b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 07:47:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689173030; x=1691765030;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689173274; x=1691765274;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ceMjwisW+ab8NqZ500BBUyHWe9aEsqGZ9FsaMuVtg+Y=;
-        b=jkPcgt5Dy+IC0k/EsLIi7/BcYygeQIjWSbV3+3FmrgcKalXgnhmVXLStYiDmAmpySG
-         CFqzwdTGJs5rP6AR/MAGZMNaDmi0Sxa19w22SHUDVEKNyHGRkpjPh904WKNDQDG0/HSY
-         65KTXNDO4fqdbccpflanCIA2p1sBQzjLgtOf2Zee39crPyJHZzPcklKJmcd2CLu4vJXo
-         mwKg+TFXzpLYNXO/nRbzaxokRzNw0Iz4KzC6uvGhYrfnR2y/9NCfumiFK3A1xvxMvL65
-         dtKG+1Uqo87VGHpMvK7MZSPCZbxkP/mO+MTrVnZNO4cYwKJugMAETlRYG08uU8L4SYY/
-         qasA==
+        bh=F7ZzdgCSce0eXgObZSf/O2dLzVDaP+oy72QGw+Tibn8=;
+        b=CJwggF8FMrwIjJ9tXt6iTCr6SiGkrSs1Ymg8zi2c7djR8FfYv6ZPKycuearRYI08s5
+         XCIeE8mZxPx3nwtU0OSEPEzMdtU/shDnk0ZIjJdcmCrDHx0/OVxKMuya59vUetOsyDBL
+         My1TD+XJgeZcoSJOYFIvv3DBFpdtYjfDv8wB/omrIJqgZAwuXvwTdHM9DFqz+5k4+fa7
+         zWhZGs9PDK3oKzyyFdK8x35EiWJT2E4TA0rb41wC56gKJr/jCrH/s7rPQv/kBWHAMpx8
+         UOd2mqEaLojLTE5g1utqN3hTUa+0rT2IkVkNRHq5gGioYmY0ZJ6CaAc2LQJiDghwyV75
+         9CKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689173030; x=1691765030;
+        d=1e100.net; s=20221208; t=1689173274; x=1691765274;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ceMjwisW+ab8NqZ500BBUyHWe9aEsqGZ9FsaMuVtg+Y=;
-        b=YV9miDYfpiyjyOIIjtofnUuts8HTDh3uA8sIpU1q4c14a7brrEus/ner4IS3aArxoW
-         VbuzTLu6PtAOpOxVinKP/p708dmb35OvKjtE7N36duCsFakY8RcIJ5Hxbf36cXNWX4kD
-         N4zwWMogBLL53akSf86j2xVbLWtFSOUf7KZbeHRIJsN4QX+QalyY3RRkEain0ssYbzRc
-         KXGpX+aDDKWgyrfjMtcU1/0vgG5hLXhklypAA2A0lg00J7HOr1k9wnv6z7DSrZGYCrFj
-         QBbZu2N5Nr5iTVuebvjuNtIwReB27xn2rM2ZIt65kN+ZRvxcJeXKHaAyXy8KHgM40qfi
-         NhXw==
-X-Gm-Message-State: ABy/qLbEcM1WHO2rSkp7bAdYjM+mTra9oLIV1UbqDPiyV/AOUbrxNTM8
-	jnQb72wsfC97sct6TQrhnzUvkQ==
-X-Google-Smtp-Source: APBJJlGBwe2qfhUnKQIlzRfXecJ9MpSW3/DQVLGNsTikl9RzTTpPOfZ4GrFHGm0hpMEFF17vPLlNog==
-X-Received: by 2002:a05:6a20:729f:b0:132:7fb3:3325 with SMTP id o31-20020a056a20729f00b001327fb33325mr4105171pzk.59.1689173030066;
-        Wed, 12 Jul 2023 07:43:50 -0700 (PDT)
+        bh=F7ZzdgCSce0eXgObZSf/O2dLzVDaP+oy72QGw+Tibn8=;
+        b=CPCoNjOx7oq4+3tqr5IalyDbsPjHgHZhBsgJRpX/U5n7TC1G1yZIJKR05I8CS5v63w
+         wTMjSX2q47avycG8fvwh8tpV14CPtCsKheLN2UV4ReqYYz41xQfcfPfJjUcvGnYXsVdg
+         pE/CJ+V2QhSuiyyybWpPlUsqmaGmGZ++pzad0hEq2d4rUxoD3dykk2TYVATtiZU2JjL4
+         8CJw6cMRZSlvJeat7iANOz/mPiBx5xdDoIpy06JPNFsOUciCFRqwuTshJjHyfeUb3WM3
+         n1/EJ7Z0EsyjaeZCDkD8VP3IRD+1dSK4hkWZWm4WcuTOnnwxejJ+J2d9b55/sncIwHLY
+         VexQ==
+X-Gm-Message-State: ABy/qLaGxMBih0lXg94dgVu0QyX99Ql05N1f5VwxDB2hlVsibYynZJbi
+	fUIc9c+cf3ekZaFXb3Z3OGXJoMYmWvMHTgnCeeU=
+X-Google-Smtp-Source: APBJJlGkn2tgs/TqDBK0+vdIimjq1Xq/P8alAABP9Glj3OYDvpYiDYUH6IYWQVt1qmgfBH8+N5Zadg==
+X-Received: by 2002:a05:6a20:9707:b0:126:39ce:476b with SMTP id hr7-20020a056a20970700b0012639ce476bmr18799590pzc.12.1689173274290;
+        Wed, 12 Jul 2023 07:47:54 -0700 (PDT)
 Received: from localhost ([50.38.6.230])
-        by smtp.gmail.com with ESMTPSA id d9-20020a639909000000b0054f9936accesm3652942pge.55.2023.07.12.07.43.49
+        by smtp.gmail.com with ESMTPSA id z186-20020a6333c3000000b0055c656ef91asm2922080pgz.77.2023.07.12.07.47.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Jul 2023 07:43:49 -0700 (PDT)
-Date: Wed, 12 Jul 2023 07:43:49 -0700 (PDT)
-X-Google-Original-Date: Wed, 12 Jul 2023 07:43:02 PDT (-0700)
-Subject: Re: [PATCH V2] riscv: kexec: Fixup synchronization problem between init_mm and active_mm
-In-Reply-To: <95c4e875-02f1-6239-bb62-41b709d21541@ghiti.fr>
-CC: guoren@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, zong.li@sifive.com,
-  atishp@atishpatra.org, jszhang@kernel.org, bjorn@kernel.org, linux-arch@vger.kernel.org,
-  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, guoren@linux.alibaba.com
+        Wed, 12 Jul 2023 07:47:53 -0700 (PDT)
+Date: Wed, 12 Jul 2023 07:47:53 -0700 (PDT)
+X-Google-Original-Date: Wed, 12 Jul 2023 07:47:04 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Re-alphabetize Kconfig
+In-Reply-To: <20230707-contrite-old-0efdb8702633@wendy>
+CC: linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-5d9d9723-1dc1-4429-a477-eb4ece20bb87@palmer-ri-x1c9a>
+To: Conor Dooley <conor.dooley@microchip.com>
+Message-ID: <mhng-2052d618-06e1-4c84-b6d9-e841e966b4a9@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_074352_154736_50B67D90 
-X-CRM114-Status: GOOD (  31.75  )
+X-CRM114-CacheID: sfid-20230712_074757_892718_E86149B9 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,148 +90,68 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Jul 2023 04:07:22 PDT (-0700), alex@ghiti.fr wrote:
-> Hi Guo,
->
->
-> On 10/07/2023 07:40, guoren@kernel.org wrote:
->> From: Guo Ren <guoren@linux.alibaba.com>
+On Fri, 07 Jul 2023 02:55:21 PDT (-0700), Conor Dooley wrote:
+> On Thu, Jul 06, 2023 at 02:04:57PM -0700, Palmer Dabbelt wrote:
+>> Looks like I missed a few of these, I just stumbled on these again due
+>> to a merge conflict.
 >>
->> The machine_kexec() uses set_memory_x to modify the direct mapping
->> attributes from RW to RWX. But set_memory_x only changes the init_mm's
->> attributes, not current->active_mm, so when kexec jumps into
->> control_buffer, the instruction page fault happens, and there is no
->> minor_pagefault for it, then panic.
->
->
-> I think it needs more details like this:
->
-> "The current implementation of set_memory_x does not split hugepages in
-> the linear mapping and then when a PGD mapping is used, the whole PGD is
-> marked as executable. But changing the permissions at the PGD level must
-> be propagated to all the page tables."
->
->
->>
->> The bug is found on an MMU_sv39 machine, and the direct mapping used a
->> 1GB PUD, the pgd entries. Here is the bug output:
->>
->>   kexec_core: Starting new kernel
->>   Will call new kernel at 00300000 from hart id 0
->>   FDT image at 747c7000
->>   Bye...
->>   Unable to handle kernel paging request at virtual address ffffffda23b0d000
->>   Oops [#1]
->>   Modules linked in:
->>   CPU: 0 PID: 53 Comm: uinit Not tainted 6.4.0-rc6 #15
->>   Hardware name: Sophgo Mango (DT)
->>   epc : 0xffffffda23b0d000
->>    ra : machine_kexec+0xa6/0xb0
->>   epc : ffffffda23b0d000 ra : ffffffff80008272 sp : ffffffc80c173d10
->>    gp : ffffffff8150e1e0 tp : ffffffd9073d2c40 t0 : 0000000000000000
->>    t1 : 0000000000000042 t2 : 6567616d69205444 s0 : ffffffc80c173d50
->>    s1 : ffffffd9076c4800 a0 : ffffffd9076c4800 a1 : 0000000000300000
->>    a2 : 00000000747c7000 a3 : 0000000000000000 a4 : ffffffd800000000
->>    a5 : 0000000000000000 a6 : ffffffd903619c40 a7 : ffffffffffffffff
->>    s2 : ffffffda23b0d000 s3 : 0000000000300000 s4 : 00000000747c7000
->>    s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
->>    s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
->>    s11: 0000003f940001a0 t3 : ffffffff815351af t4 : ffffffff815351af
->>    t5 : ffffffff815351b0 t6 : ffffffc80c173b50
->>   status: 0000000200000100 badaddr: ffffffda23b0d000 cause: 000000000000000c
->>
->> The solution is to fix machine_kexec() to remap control code page outside
->> the linear mapping.
->
->
-> "Given the current flaw in the set_memory_x implementation, the simplest
-> solution is to ..."
->
->
->>
->> Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
->> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
->> Signed-off-by: Guo Ren <guoren@kernel.org>
->> Cc: Alexandre Ghiti <alex@ghiti.fr>
+>> Fixes: f32b4b467ebd ("RISC-V: enable dynamic ftrace for RV32I")
+>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 >> ---
->> Changelog:
->> V2:
->>   - Use vm_map_ram instead of modifying set_memory_x
->>   - Correct Fixes tag
->> ---
->>   arch/riscv/include/asm/kexec.h    |  1 +
->>   arch/riscv/kernel/machine_kexec.c | 14 ++++++++++----
->>   2 files changed, 11 insertions(+), 4 deletions(-)
+>>  arch/riscv/Kconfig | 12 ++++++------
+>>  1 file changed, 6 insertions(+), 6 deletions(-)
 >>
->> diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
->> index 2b56769cb530..17456e91476e 100644
->> --- a/arch/riscv/include/asm/kexec.h
->> +++ b/arch/riscv/include/asm/kexec.h
->> @@ -41,6 +41,7 @@ crash_setup_regs(struct pt_regs *newregs,
->>   struct kimage_arch {
->>   	void *fdt; /* For CONFIG_KEXEC_FILE */
->>   	unsigned long fdt_addr;
->> +	void *control_code_buffer;
->>   };
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index b49793cf34eb..6553cc6c0858 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -105,9 +105,15 @@ config RISCV
+>>  	select HAVE_CONTEXT_TRACKING_USER
+>>  	select HAVE_DEBUG_KMEMLEAK
+>>  	select HAVE_DMA_CONTIGUOUS if MMU
+>> +	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
+>> +	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+>>  	select HAVE_EBPF_JIT if MMU
+>> +	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>>  	select HAVE_FUNCTION_ARG_ACCESS_API
+>>  	select HAVE_FUNCTION_ERROR_INJECTION
+>> +	select HAVE_FUNCTION_GRAPH_TRACER
+>> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+>> +	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+>>  	select HAVE_GCC_PLUGINS
+>>  	select HAVE_GENERIC_VDSO if MMU && 64BIT
+>>  	select HAVE_IRQ_TIME_ACCOUNTING
+>> @@ -148,12 +154,6 @@ config RISCV
+>>  	select TRACE_IRQFLAGS_SUPPORT
+>>  	select UACCESS_MEMCPY if !MMU
+>>  	select ZONE_DMA32 if 64BIT
+>> -	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
+>> -	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+>> -	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+>> -	select HAVE_FUNCTION_GRAPH_TRACER
+>> -	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
+>> -	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
 >>
->>   extern const unsigned char riscv_kexec_relocate[];
->> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
->> index 2d139b724bc8..eeb209775107 100644
->> --- a/arch/riscv/kernel/machine_kexec.c
->> +++ b/arch/riscv/kernel/machine_kexec.c
->> @@ -86,7 +86,14 @@ machine_kexec_prepare(struct kimage *image)
->>
->>   	/* Copy the assembler code for relocation to the control page */
->>   	if (image->type != KEXEC_TYPE_CRASH) {
->> -		control_code_buffer = page_address(image->control_code_page);
->> +		control_code_buffer = vm_map_ram(&image->control_code_page,
->> +						 KEXEC_CONTROL_PAGE_SIZE/PAGE_SIZE,
->> +						 NUMA_NO_NODE);
->> +		if (control_code_buffer == NULL) {
->> +			pr_err("Failed to vm_map control page\n");
->> +			return -ENOMEM;
->> +		}
->> +
->>   		control_code_buffer_sz = page_size(image->control_code_page);
->>
->>   		if (unlikely(riscv_kexec_relocate_size > control_code_buffer_sz)) {
->> @@ -97,8 +104,7 @@ machine_kexec_prepare(struct kimage *image)
->>   		memcpy(control_code_buffer, riscv_kexec_relocate,
->>   			riscv_kexec_relocate_size);
->>
->> -		/* Mark the control page executable */
->> -		set_memory_x((unsigned long) control_code_buffer, 1);
->> +		internal->control_code_buffer = control_code_buffer;
+>>  config CLANG_SUPPORTS_DYNAMIC_FTRACE
+>>  	def_bool CC_IS_CLANG
 >
->
-> Where is this mapping marked as executable? I see that vm_map_ram() maps
-> the pages as PAGE_KERNEL, which does not set PAGE_EXEC.
->
->
->>   	}
->>
->>   	return 0;
->> @@ -211,7 +217,7 @@ machine_kexec(struct kimage *image)
->>   	unsigned long this_cpu_id = __smp_processor_id();
->>   	unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
->>   	unsigned long fdt_addr = internal->fdt_addr;
->> -	void *control_code_buffer = page_address(image->control_code_page);
->> +	void *control_code_buffer = internal->control_code_buffer;
->>   	riscv_kexec_method kexec_method = NULL;
->>
->>   #ifdef CONFIG_SMP
->
->
-> Otherwise, you can add:
->
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
->
-> Thanks,
->
-> Alex
+> There's a bunch more elsewhere in our Kconfig stuff, but no point
+> hanging around on re-sorting this stuff..
 
-Thanks for looking at this.  Guo: do you have a re-spit that fixes the 
-issues Alex pointed out?  Sorry if I just missed it.
+Ya, it's become a mess again.  At some point I had a script to poke 
+these when merging patches, but I lost most of that stuff when I moved 
+to b4.
+
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>
+> Cheers,
+> Conor.
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
