@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33C7EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 14:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25DB5EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 15:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=i3klxKDXbVsosybHdJG8o3zIPe4zEgf7+FAFN57oNlo=; b=pd0UM6tIlRogHe3rhtNY4ANaNO
-	kPGFJBb4q6cUciZMRSZ4CCiI+zIRTqArOFSZP+VzVj4864LjxqqxLOYYofbRXJYffbnqd4C6CHcHl
-	mSY19+1tyR9Guj7wzCrrc2xOo0xwEuAhogYr3qyNBf0IR0A0C1eKV6pgRfDrRTvn0tYZqPu7ZX+df
-	E3UPo4XEH4kwDwwsXsZCsNwwP8tcKVIl0nMzj9bcb06TzCmqVckQT2h+0ixkCyGgReTWajqrKRmJC
-	eVeYRZcA/fQGUaOK4ib3tcmB3gEtMKg/jySGChbYKz3M5F9wK2/tPs42pzbbZ6myshb/ATJLfCAm9
-	oo6IwAJA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NvkKKAA9HOXQHGCn+1l2/F4yrbMK5UK5CM+8r5VVpsg=; b=lDPXR9heShpE/PpaudSfY4SBt+
+	y0t+StlDdy30mAoSrQWiSK6z25U1ACxCUdJsKiaUnfYnsSb6Iynkf0cUJJxsVuPgj7qHN8v/BKQA1
+	AD+zrEX12yAFMUJ+4dGVZk/uHq9HrM5HAs7S3J4gEA/Uy2tnvaUSZIfBjJQowJM13610HV0lo2WDt
+	nFQcX8xV5nHArKMLVqvv2LrGB536dQUSbKtoDF4UVbSFWIQJkVBbgo6fBxrkF7yROE3wudP3kzyjK
+	3BXytfArwQDH8z5jLiOivwCOd5Vcwy1bxfRD+Bmkwz7HkkxQnm6uXkvigrfJ5NmcVgT7Dy+75ivBx
+	0CJtfgMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJb8K-000Ek5-1e;
-	Wed, 12 Jul 2023 14:48:00 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1qJbOK-000Hdp-1F;
+	Wed, 12 Jul 2023 15:04:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJb8H-000Eip-2k
+	id 1qJbOH-000HdJ-1D
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 14:47:59 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-6686708c986so6414692b3a.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 07:47:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689173274; x=1691765274;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=F7ZzdgCSce0eXgObZSf/O2dLzVDaP+oy72QGw+Tibn8=;
-        b=CJwggF8FMrwIjJ9tXt6iTCr6SiGkrSs1Ymg8zi2c7djR8FfYv6ZPKycuearRYI08s5
-         XCIeE8mZxPx3nwtU0OSEPEzMdtU/shDnk0ZIjJdcmCrDHx0/OVxKMuya59vUetOsyDBL
-         My1TD+XJgeZcoSJOYFIvv3DBFpdtYjfDv8wB/omrIJqgZAwuXvwTdHM9DFqz+5k4+fa7
-         zWhZGs9PDK3oKzyyFdK8x35EiWJT2E4TA0rb41wC56gKJr/jCrH/s7rPQv/kBWHAMpx8
-         UOd2mqEaLojLTE5g1utqN3hTUa+0rT2IkVkNRHq5gGioYmY0ZJ6CaAc2LQJiDghwyV75
-         9CKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689173274; x=1691765274;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F7ZzdgCSce0eXgObZSf/O2dLzVDaP+oy72QGw+Tibn8=;
-        b=CPCoNjOx7oq4+3tqr5IalyDbsPjHgHZhBsgJRpX/U5n7TC1G1yZIJKR05I8CS5v63w
-         wTMjSX2q47avycG8fvwh8tpV14CPtCsKheLN2UV4ReqYYz41xQfcfPfJjUcvGnYXsVdg
-         pE/CJ+V2QhSuiyyybWpPlUsqmaGmGZ++pzad0hEq2d4rUxoD3dykk2TYVATtiZU2JjL4
-         8CJw6cMRZSlvJeat7iANOz/mPiBx5xdDoIpy06JPNFsOUciCFRqwuTshJjHyfeUb3WM3
-         n1/EJ7Z0EsyjaeZCDkD8VP3IRD+1dSK4hkWZWm4WcuTOnnwxejJ+J2d9b55/sncIwHLY
-         VexQ==
-X-Gm-Message-State: ABy/qLaGxMBih0lXg94dgVu0QyX99Ql05N1f5VwxDB2hlVsibYynZJbi
-	fUIc9c+cf3ekZaFXb3Z3OGXJoMYmWvMHTgnCeeU=
-X-Google-Smtp-Source: APBJJlGkn2tgs/TqDBK0+vdIimjq1Xq/P8alAABP9Glj3OYDvpYiDYUH6IYWQVt1qmgfBH8+N5Zadg==
-X-Received: by 2002:a05:6a20:9707:b0:126:39ce:476b with SMTP id hr7-20020a056a20970700b0012639ce476bmr18799590pzc.12.1689173274290;
-        Wed, 12 Jul 2023 07:47:54 -0700 (PDT)
-Received: from localhost ([50.38.6.230])
-        by smtp.gmail.com with ESMTPSA id z186-20020a6333c3000000b0055c656ef91asm2922080pgz.77.2023.07.12.07.47.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Jul 2023 07:47:53 -0700 (PDT)
-Date: Wed, 12 Jul 2023 07:47:53 -0700 (PDT)
-X-Google-Original-Date: Wed, 12 Jul 2023 07:47:04 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: Re-alphabetize Kconfig
-In-Reply-To: <20230707-contrite-old-0efdb8702633@wendy>
-CC: linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Message-ID: <mhng-2052d618-06e1-4c84-b6d9-e841e966b4a9@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Wed, 12 Jul 2023 15:04:30 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9D53161834;
+	Wed, 12 Jul 2023 15:04:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D7FC433C8;
+	Wed, 12 Jul 2023 15:04:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689174268;
+	bh=cPZS4lpGF39/+6fc8hJLnEFDpn06rPvyjR7zxfkgJgo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bqNdVlqiX4VkCYKNJtfvJFQcFUSkHFnUNB4s3ev/IXmgBbnS6GjL/+EXk7R6J/NXG
+	 eYr2EWMhxxW6r4/i1DotW6DhwuKQu0MohXiZYbxm9r+zsJFIqun66k0NMLXpUyqbtl
+	 8T3Bq1Rgq8rzChC337pLPnahCNoxZiuAkA75Raz/BPBrWpmBueLOBtTJoj6EJW13/s
+	 czdQKBQo/JrJi1Sy57f+cuBdxQ4L3HRdMUa0fwoKxPkLGXr2l+xWIjhf5k8amweNa7
+	 JhYmg289Qjl5VhIYyjMCbjs+D+CIXvhWsBHhbGuc7rA1TRJvCvVhQCqxelnLIwYMUg
+	 d9lfVv0mgrPiA==
+Date: Wed, 12 Jul 2023 16:04:24 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: RISC-V: Re-word the I extension binding
+Message-ID: <20230712-dumpling-submerge-af53ed9ce484@spud>
+References: <20230711225212.11542-1-palmer@rivosinc.com>
+MIME-Version: 1.0
+In-Reply-To: <20230711225212.11542-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_074757_892718_E86149B9 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20230712_080429_494249_1F6AEC3B 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,75 +68,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============1660553863491549788=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Jul 2023 02:55:21 PDT (-0700), Conor Dooley wrote:
-> On Thu, Jul 06, 2023 at 02:04:57PM -0700, Palmer Dabbelt wrote:
->> Looks like I missed a few of these, I just stumbled on these again due
->> to a merge conflict.
->>
->> Fixes: f32b4b467ebd ("RISC-V: enable dynamic ftrace for RV32I")
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> ---
->>  arch/riscv/Kconfig | 12 ++++++------
->>  1 file changed, 6 insertions(+), 6 deletions(-)
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index b49793cf34eb..6553cc6c0858 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -105,9 +105,15 @@ config RISCV
->>  	select HAVE_CONTEXT_TRACKING_USER
->>  	select HAVE_DEBUG_KMEMLEAK
->>  	select HAVE_DMA_CONTIGUOUS if MMU
->> +	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
->> +	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
->>  	select HAVE_EBPF_JIT if MMU
->> +	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
->>  	select HAVE_FUNCTION_ARG_ACCESS_API
->>  	select HAVE_FUNCTION_ERROR_INJECTION
->> +	select HAVE_FUNCTION_GRAPH_TRACER
->> +	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
->> +	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
->>  	select HAVE_GCC_PLUGINS
->>  	select HAVE_GENERIC_VDSO if MMU && 64BIT
->>  	select HAVE_IRQ_TIME_ACCOUNTING
->> @@ -148,12 +154,6 @@ config RISCV
->>  	select TRACE_IRQFLAGS_SUPPORT
->>  	select UACCESS_MEMCPY if !MMU
->>  	select ZONE_DMA32 if 64BIT
->> -	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && (CLANG_SUPPORTS_DYNAMIC_FTRACE || GCC_SUPPORTS_DYNAMIC_FTRACE)
->> -	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
->> -	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
->> -	select HAVE_FUNCTION_GRAPH_TRACER
->> -	select HAVE_FUNCTION_GRAPH_RETVAL if HAVE_FUNCTION_GRAPH_TRACER
->> -	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
->>
->>  config CLANG_SUPPORTS_DYNAMIC_FTRACE
->>  	def_bool CC_IS_CLANG
->
-> There's a bunch more elsewhere in our Kconfig stuff, but no point
-> hanging around on re-sorting this stuff..
 
-Ya, it's become a mess again.  At some point I had a script to poke 
-these when merging patches, but I lost most of that stuff when I moved 
-to b4.
+--===============1660553863491549788==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="pIztD/2xnckBt6EN"
+Content-Disposition: inline
 
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->
-> Cheers,
-> Conor.
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--pIztD/2xnckBt6EN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jul 11, 2023 at 03:52:12PM -0700, Palmer Dabbelt wrote:
+> I'd argue this changes the definition of the I binding, as there was
+> more than just the counters that got split out (CSRs and fence.i at
+> least).  We haven't released these bindings yet, so IIUC it's OK to
+> change the definition still.
+>=20
+> I think this matches the original intent, or at least what the
+> implementation does.
+
+Depends on what you consider "original". My intent with these new
+bindings was to deliberately exclude from `i` things that are already in
+extensions at the time of writing, so that when an platform shows up
+that decided not to implement them, it does not need a special case
+added.
+I'm fine with doing it this way though, if that is what you want, but
+what do you mean by "the implementation does"? To align the
+implementation with the meaning in the current binding, would we need
+to refuse harts in riscv_early_of_processor_hartid() in Linux?
+
+>=20
+> Fixes: aeb71e42caae ("dt-bindings: riscv: deprecate riscv,isa")
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+>  .../devicetree/bindings/riscv/extensions.yaml        | 12 +++++-------
+>  1 file changed, 5 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index cc1f546fdbdc..31ec244bd32f 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -67,13 +67,11 @@ properties:
+>        anyOf:
+>          # single letter extensions, in canonical order
+>          - const: i
+> -          description: |
+> -            The base integer instruction set, as ratified in the 20191213
+> -            version of the unprivileged ISA specification.
+> -
+> -            This does not include Chapter 10, "Counters", which was move=
+d into
+> -            the Zicntr and Zihpm extensions after the ratification of the
+> -            20191213 version of the unprivileged specification.
+> +          description:
+> +            The base integer instruction set, as specified by the 2.2
+> +            version of the unprivileged ISA specification, formally know=
+n as
+> +            the user-level ISA.  This definition of I includes various
+> +            extensions that were later split out.
+> =20
+>          - const: m
+>            description:
+> --=20
+> 2.40.1
+>=20
+
+--pIztD/2xnckBt6EN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK7A+AAKCRB4tDGHoIJi
+0pJUAP42p8ReR3ES/r6GTNH0AONZ7RhnwfW5UMgq3e5t3Dh4OgD/XDuPrVldeEPm
+f74q9aqqIrMMeMIuX+jSlmf8LOsr5g8=
+=2tHU
+-----END PGP SIGNATURE-----
+
+--pIztD/2xnckBt6EN--
+
+
+--===============1660553863491549788==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1660553863491549788==--
+
