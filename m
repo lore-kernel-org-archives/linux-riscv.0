@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8458EEB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 10:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B11EB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 10:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P2Ge8F2qRgF5Ord3idMd5TE4JA34zQgxTkwFssOTKyM=; b=wKiGYYmEUPAIMrwtNal15eszzM
-	loh64GSf0NkmEjVMXYQuHu7lWTA27FjmPisdideAVoBPMkcBPKxuzKkz4R/S+lsJZMGqfsfs+y4bT
-	kWXSa84ZS5qPPVxQv5AI1/xVtVfOswhN3B4fU52NfRmxUY4SSpnmDEcN0HpZz6UGlUhFt2xGOPsTN
-	rO571Eddh7TagZL8w6NDLoX41gCx8IqLTcWVYjZL6CFQT6RORsWye/LmE/24b/M2mio4GwftXI7rE
-	PExJE3XaUSv8D8qwYQdZSGZuELZYArN0p+Rdzkr58yWoOM/Y4ae5IEP0XIqiuAUD1f2Z5Y2rN5XvN
-	oTj1vVHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4kzdg3dIBChUYHHJcFMzwHHV+LJwXIhHKJE4df81YXU=; b=Z0g/foOjQ4l20h
+	k8BarfhSYukerwP8Um8Vsv//oclJEToBypAMKvZDKRjn0v74jB90t44Tcv7EoPjDwaOFlbqWlUgZU
+	Sgf5GNvx8L5XetXkSqHT3hTKL/ryMDo99Mw+Nq7yKpKKac3hCJSIUOtJ9roRI+CvD14/l/8AKd3ek
+	WgQfRpHyBKmkQtemM6BysVEQlaQ+vIyOiLw6nEHAxKrvIvcVRLQOh+oeUvL6loZdWWMGQS4yY/sLl
+	L4deMp/xtfqjis0tMtc3j2PEs1czqR/WNpId0E78iqq9lxEDhbuY2SHIYAkbRkK4gCwbkX6x+ngIe
+	aMKgh210NHhhh1P4D1xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJXGI-00HJIU-0P;
-	Wed, 12 Jul 2023 10:39:58 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qJXGl-00HJP9-1v;
+	Wed, 12 Jul 2023 10:40:27 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJXGD-00HJH7-3A
+	id 1qJXGi-00HJO2-2t
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 10:39:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1689158393; x=1720694393;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZbHtoayEoeve83kiK7UlBDBcFh+4f4unYakqBC0xVDU=;
-  b=kbaIHvxRHvaiAPNL54ALMJP+5izk7l2mG2CS2RaoI/GYxoLBjIACbS4I
-   m+Oigo+EHcJTKzIh3qBwdpfTs/SfVM7yCsRd0nw7OG25F3+euaw9wRF82
-   KllcQ8OUzr78bkUXfEHFdOmNsSBum5NoW1djt+aG0RsqctlPMV2a3rmlm
-   vBnJGIU1UCkf1341xaad8waIneeMqWpAFdVys326onj+4mTbSCLCdtDQK
-   0AHcB0x1fep7K10jSiLGvUt8u58S9mq10GEbU0XMLSa4/+Yv5uaHUVclx
-   d3sOO22YWPadWl0f97FxMhkjlHN/VFp8KoU31Gjcfm/jIP3hHmdAxGmqR
-   A==;
-X-IronPort-AV: E=Sophos;i="6.01,199,1684825200"; 
-   d="asc'?scan'208";a="235053683"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Jul 2023 03:39:52 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 12 Jul 2023 03:39:52 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 12 Jul 2023 03:39:48 -0700
-Date: Wed, 12 Jul 2023 11:39:16 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Samuel Ortiz <sameo@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, "Hongren (Zenithal) Zheng"
-	<i@zenithal.me>, <linux@rivosinc.com>, Andrew Jones
-	<ajones@ventanamicro.com>, Heiko Stuebner <heiko.stuebner@vrull.eu>, Anup
- Patel <apatel@ventanamicro.com>, <linux-kernel@vger.kernel.org>, Guo Ren
-	<guoren@kernel.org>, Atish Patra <atishp@rivosinc.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, Evan Green
-	<evan@rivosinc.com>, <devicetree@vger.kernel.org>, <sorear@fastmail.com>,
-	Jiatai He <jiatai2021@iscas.ac.cn>
-Subject: Re: [PATCH v4 1/4] RISC-V: Add Bitmanip/Scalar Crypto parsing from DT
-Message-ID: <20230712-bulldozer-affected-199042dc3afd@wendy>
-References: <20230712084134.1648008-1-sameo@rivosinc.com>
- <20230712084134.1648008-2-sameo@rivosinc.com>
+	Wed, 12 Jul 2023 10:40:26 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-2b6ff1a637bso109349981fa.3
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 03:40:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20221208.gappssmtp.com; s=20221208; t=1689158421; x=1691750421;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dUhc7Y52Rrbuq+8j2ufP7C0LAU2+c26StOhK+4Px2gM=;
+        b=cGVVlogIwchiOyuXJCLRkvZffLKV9InfvvE/qXLdniK5/hjsHoD9lQLjoMRq7dWehu
+         APltVzSuxN4I4GKe6uTW/SVjvMSLMndPCkuFvQjRrdz4ASsnkOaI6OPt+WrOoc82gPn8
+         DMbZq44GGZffjiNtN0QDZJobXCTI6CIkfqJ9eJCJ+ua+jhV02qKfIGJ9+l5kkqe5Fn5f
+         Vo0ZGSZ9ecDUIuBVSKqLZpHfJrPt1mrD0Npq8U4oTkkUZ0WPrqnAdLjt3UxUeT+6QNH7
+         q7DUrs14V8SXWtuZNq1y6/b5842zlow36Qmu6RQxlQOToBFiPBLSzYnfUXcwh5oYht1b
+         bugg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689158421; x=1691750421;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dUhc7Y52Rrbuq+8j2ufP7C0LAU2+c26StOhK+4Px2gM=;
+        b=jrzVYn3mEJCtK4iz+Z0CQrfVixUxUQGEwV7PSQWf4eI+ANJtyWmXwoK9lsxFjlW1/5
+         YIcx5vlsb3Bs21zMpkx4yFIjl4oE+UkAyARcXOb7SUwz5epf+QBnK+wjXVF30XA6capI
+         6EjLxyD9UgrjXbTh5OdfSG/C2sX3ekW2iL6342ow7ymsuefskgHzEXQ83s+0DFRz1stU
+         9jG3egmAM0P4SNWflJqcbjVwQFYICSdsk55aOsi/YHxEOWrs8myCzzXEjQvv1By9v2va
+         FG20SXP7ypmYcT4mMF7wxRD5DboW8qAHaDRwcB1NZtp0aQljAef9CruTnRUNZodFW4zW
+         OenQ==
+X-Gm-Message-State: ABy/qLbqrXp4jbZJF6z73vthrNU/2YrvxPiXUxDtqUJvOanNFixomBUe
+	Lk4pVuOSkZlUxKMBSstq8IdhYy9KrYw6tyj0OsJCmA==
+X-Google-Smtp-Source: APBJJlE9IeZBjKh7SLh9ui2xsrj36Wg37nLeB0ze+giRurG22Ft5tbcz+tRMYOZn7SG6qPSpvdqNcsBqwHWsrXy/gyo=
+X-Received: by 2002:a05:6512:b99:b0:4f8:68a3:38d5 with SMTP id
+ b25-20020a0565120b9900b004f868a338d5mr19757463lfv.66.1689158420689; Wed, 12
+ Jul 2023 03:40:20 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230712084134.1648008-2-sameo@rivosinc.com>
+References: <20230711153743.1970625-1-heiko@sntech.de> <20230711153743.1970625-5-heiko@sntech.de>
+In-Reply-To: <20230711153743.1970625-5-heiko@sntech.de>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 12 Jul 2023 16:10:09 +0530
+Message-ID: <CAAhSdy2vnrEZxxcmWRr+aZ4aT4kULqED48B3rvAhGsXkq8hJXQ@mail.gmail.com>
+Subject: Re: [PATCH v4 04/12] RISC-V: add vector crypto extension detection
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
+	herbert@gondor.apana.org.au, davem@davemloft.net, conor.dooley@microchip.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, christoph.muellner@vrull.eu, 
+	ebiggers@kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_033954_198657_E30C2F42 
-X-CRM114-Status: GOOD (  29.64  )
+X-CRM114-CacheID: sfid-20230712_034025_148824_E6D7D765 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,311 +86,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8100637440978370655=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8100637440978370655==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="c48Ux8GZXj1FBAWH"
-Content-Disposition: inline
-
---c48Ux8GZXj1FBAWH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Samuel, Evan,
-
-On Wed, Jul 12, 2023 at 10:41:17AM +0200, Samuel Ortiz wrote:
-> From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
->=20
-> Parse Zb/Zk related string from DT and output them to cpuinfo.
-
-One thing that has sprung to mind is that this is not limited to DT
-anymore, since the information could in theory come from ACPI too.
-Ditto the title I guess.
-
-> It is worth noting that the Scalar Crypto extension defines "zk" as a
-> shorthand for the Zkn, Zkr and Zkt extensions. Since the Zkn one also
-> implies the Zbkb, Zbkc and Zbkx extensions, simply passing the valid
-> "zk" extension name through a DT will enable all of the  Zbkb, Zbkc,
-> Zbkx, Zkn, Zkr and Zkt extensions.
->=20
-> Also, since there currently is no mechanism to merge all enabled
-> extensions, the generated cpuinfo output could be relatively large.
-> For example, setting the "riscv,isa" DT property to "rv64imafdc_zk_zks"
-> will generate the following cpuinfo output:
-> "rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed_zksh_zkt".
-
-On that note, I've created another version of what checking for
-supersets could look like, since it'll be needed either by my series or
-this one, depending on what gets merged first. I've yet to test the
-dedicated extensions part of it, but I wanted to get this out before I
-went looking at other fixes in the area.
-
-Evan, since it was you that commented on this stuff last time around,
-could you take another look? I'm still not keen on the "subset_of"
-arrays, but they're an improvement on what I had last time around for
-sure.
-
-(I took authorship since only the #defines & part of the commit
-message came from the original commit)
-
--- >8 --
-=46rom 2351c46fd1c9f6de312463875a4887f03d365b76 Mon Sep 17 00:00:00 2001
-=46rom: Conor Dooley <conor.dooley@microchip.com>
-Date: Wed, 12 Jul 2023 11:25:36 +0100
-Subject: [PATCH] RISC-V: add detection of scalar crypto extensions
-
-It is worth noting that the Scalar Crypto extension defines "zk" as a
-shorthand for the Zkn, Zkr and Zkt extensions. Since the Zkn one also
-implies the Zbkb, Zbkc and Zbkx extensions, simply passing the valid
-"zk" extension name through a DT shold enable all of the Zbkb, Zbkc,
-Zbkx, Zkn, Zkr and Zkt extensions.
-For example, setting the "riscv,isa" DT property to "rv64imafdc_zk"
-should generate the following cpuinfo output:
-"rv64imafdc_zicntr_zicsr_zifencei_zihpm_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_z=
-kt"
-
-riscv_isa_ext_data grows a pair of new members, to permit searching for
-supersets of the extension in question, both while parsing the ISA
-string and the new dedicated extension properties.
-
-Co-developed-by: Hongren (Zenithal) Zheng <i@zenithal.me>
-Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
-Co-developed-by: Samuel Ortiz <sameo@rivosinc.com>
-Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/include/asm/hwcap.h | 13 +++++
- arch/riscv/kernel/cpufeature.c | 95 +++++++++++++++++++++++++++++-----
- 2 files changed, 94 insertions(+), 14 deletions(-)
-
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index b7b58258f6c7..46d54f31e162 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -58,6 +58,17 @@
- #define RISCV_ISA_EXT_ZICSR		40
- #define RISCV_ISA_EXT_ZIFENCEI		41
- #define RISCV_ISA_EXT_ZIHPM		42
-+#define RISCV_ISA_EXT_ZBC		43
-+#define RISCV_ISA_EXT_ZBKB		44
-+#define RISCV_ISA_EXT_ZBKC		45
-+#define RISCV_ISA_EXT_ZBKX		46
-+#define RISCV_ISA_EXT_ZKND		47
-+#define RISCV_ISA_EXT_ZKNE		48
-+#define RISCV_ISA_EXT_ZKNH		49
-+#define RISCV_ISA_EXT_ZKR		50
-+#define RISCV_ISA_EXT_ZKSED		51
-+#define RISCV_ISA_EXT_ZKSH		52
-+#define RISCV_ISA_EXT_ZKT		53
-=20
- #define RISCV_ISA_EXT_MAX		64
-=20
-@@ -77,6 +88,8 @@ struct riscv_isa_ext_data {
- 	const unsigned int id;
- 	const char *name;
- 	const char *property;
-+	const unsigned int superset_count;
-+	const char **subset_of;
- };
-=20
- extern const struct riscv_isa_ext_data riscv_isa_ext[];
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 5945dfc5f806..e862958d5495 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -103,8 +103,22 @@ static bool riscv_isa_extension_check(int id)
- 	.name =3D #_name,				\
- 	.property =3D #_name,			\
- 	.id =3D _id,				\
-+	.superset_count =3D 0,			\
-+	.subset_of =3D NULL,			\
- }
-=20
-+#define __RISCV_ISA_EXT_DATA_SUBSET(_name, _id, _subset_of) {	\
-+	.name =3D #_name,						\
-+	.property =3D #_name,					\
-+	.id =3D _id,						\
-+	.superset_count =3D ARRAY_SIZE(_subset_of),		\
-+	.subset_of =3D _subset_of,				\
-+}
-+
-+static const char * const riscv_subset_of_zbk[] =3D { "zk", "zkn", "zks" };
-+static const char * const riscv_subset_of_zkn[] =3D { "zk", "zkn" };
-+static const char * const riscv_subset_of_zk[]  =3D { "zk" };
-+static const char * const riscv_subset_of_zks[] =3D { "zks" };
- /*
-  * The canonical order of ISA extension names in the ISA string is defined=
- in
-  * chapter 27 of the unprivileged specification.
-@@ -167,7 +181,18 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
- 	__RISCV_ISA_EXT_DATA(zihpm, RISCV_ISA_EXT_ZIHPM),
- 	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
- 	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-+	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zbkb, RISCV_ISA_EXT_ZBKB, riscv_subset_of_zbk=
-),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zbkc, RISCV_ISA_EXT_ZBKC, riscv_subset_of_zbk=
-),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zbkx, RISCV_ISA_EXT_ZBKX, riscv_subset_of_zbk=
-),
- 	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zknd, RISCV_ISA_EXT_ZKND, riscv_subset_of_zkn=
-),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zkne, RISCV_ISA_EXT_ZKNE, riscv_subset_of_zkn=
-),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zknh, RISCV_ISA_EXT_ZKNH, riscv_subset_of_zkn=
-),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zkr, RISCV_ISA_EXT_ZKR, riscv_subset_of_zk),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zksed, RISCV_ISA_EXT_ZKSED, riscv_subset_of_z=
-ks),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zksh, RISCV_ISA_EXT_ZKSH, riscv_subset_of_zks=
-),
-+	__RISCV_ISA_EXT_DATA_SUBSET(zkt, RISCV_ISA_EXT_ZKT, riscv_subset_of_zk),
- 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
- 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-@@ -179,6 +204,31 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
-=20
- const size_t riscv_isa_ext_count =3D ARRAY_SIZE(riscv_isa_ext);
-=20
-+static inline int __init riscv_try_match_extension(const char *name, const=
- unsigned int bit,
-+						   const char *ext, const char *ext_end,
-+						   struct riscv_isainfo *isainfo)
-+{
-+	if ((ext_end - ext =3D=3D strlen(name)) && !strncasecmp(ext, name, strlen=
-(name)) &&
-+	    riscv_isa_extension_check(bit)) {
-+		set_bit(bit, isainfo->isa);
-+		return 0;
-+	}
-+
-+	return -ENOENT;
-+}
-+
-+static inline void __init riscv_try_match_supersets(struct riscv_isa_ext_d=
-ata ext_data,
-+						    const char *ext, const char *ext_end,
-+						    struct riscv_isainfo *isainfo)
-+{
-+	for (int i =3D 0; i < ext_data.superset_count; i++) {
-+		const char *superset =3D ext_data.subset_of[i];
-+		const int bit =3D ext_data.id;
-+
-+		riscv_try_match_extension(superset, bit, ext, ext_end, isainfo);
-+	}
-+}
-+
- static void __init riscv_parse_isa_string(unsigned long *this_hwcap, struc=
-t riscv_isainfo *isainfo,
- 					  unsigned long *isa2hwcap, const char *isa)
- {
-@@ -310,16 +360,9 @@ static void __init riscv_parse_isa_string(unsigned lon=
-g *this_hwcap, struct risc
- 		if (*isa =3D=3D '_')
- 			++isa;
-=20
--#define SET_ISA_EXT_MAP(name, bit)						\
--		do {								\
--			if ((ext_end - ext =3D=3D sizeof(name) - 1) &&		\
--			     !strncasecmp(ext, name, sizeof(name) - 1) &&	\
--			     riscv_isa_extension_check(bit))			\
--				set_bit(bit, isainfo->isa);			\
--		} while (false)							\
--
- 		if (unlikely(ext_err))
- 			continue;
-+
- 		if (!ext_long) {
- 			int nr =3D tolower(*ext) - 'a';
-=20
-@@ -327,12 +370,21 @@ static void __init riscv_parse_isa_string(unsigned lo=
-ng *this_hwcap, struct risc
- 				*this_hwcap |=3D isa2hwcap[nr];
- 				set_bit(nr, isainfo->isa);
- 			}
--		} else {
-+
- 			for (int i =3D 0; i < riscv_isa_ext_count; i++)
--				SET_ISA_EXT_MAP(riscv_isa_ext[i].name,
--						riscv_isa_ext[i].id);
-+				riscv_try_match_supersets(riscv_isa_ext[i], ext, ext_end, isainfo);
-+		} else {
-+			for (int i =3D 0; i < riscv_isa_ext_count; i++) {
-+				const char *name =3D riscv_isa_ext[i].name;
-+				const int bit =3D riscv_isa_ext[i].id;
-+				int ret;
-+
-+				ret =3D riscv_try_match_extension(name, bit, ext, ext_end, isainfo);
-+				if (ret && riscv_isa_ext[i].superset_count)
-+					riscv_try_match_supersets(riscv_isa_ext[i], ext,
-+								  ext_end, isainfo);
-+			}
- 		}
--#undef SET_ISA_EXT_MAP
- 	}
- }
-=20
-@@ -434,8 +486,23 @@ static int __init riscv_fill_hwcap_from_ext_list(unsig=
-ned long *isa2hwcap)
- 			continue;
-=20
- 		for (int i =3D 0; i < riscv_isa_ext_count; i++) {
--			if (of_property_match_string(cpu_node, "riscv,isa-extensions",
--						     riscv_isa_ext[i].property) < 0)
-+			struct riscv_isa_ext_data ext =3D riscv_isa_ext[i];
-+			int ret;
-+
-+			ret =3D of_property_match_string(cpu_node, "riscv,isa-extensions",
-+						       ext.property);
-+
-+			if (ret < 0 && ext.superset_count) {
-+				for (int j =3D 0; j < ext.superset_count; j++) {
-+					ret =3D of_property_match_string(cpu_node,
-+								       "riscv,isa-extensions",
-+								       ext.subset_of[j]);
-+					if (ret >=3D 0)
-+						break;
-+				}
-+			}
-+
-+			if (ret < 0)
- 				continue;
-=20
- 			if (!riscv_isa_extension_check(riscv_isa_ext[i].id))
---=20
-2.40.1
-
-
-
---c48Ux8GZXj1FBAWH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK6C1AAKCRB4tDGHoIJi
-0tD/AQDlvIraPbF1evwYo66BA1BzWBy4uEvE8kaRCmRrQAVpdQEAujpS9SldE/5W
-tg5nKVk2N0LAgJyJ/rIIZioKQhPooAQ=
-=3f/A
------END PGP SIGNATURE-----
-
---c48Ux8GZXj1FBAWH--
-
-
---===============8100637440978370655==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8100637440978370655==--
-
+T24gVHVlLCBKdWwgMTEsIDIwMjMgYXQgOTowOeKAr1BNIEhlaWtvIFN0dWVibmVyIDxoZWlrb0Bz
+bnRlY2guZGU+IHdyb3RlOgo+Cj4gRnJvbTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvLnN0dWVibmVy
+QHZydWxsLmV1Pgo+Cj4gQWRkIGRldGVjdGlvbiBmb3Igc29tZSBleHRlbnNpb25zIG9mIHRoZSB2
+ZWN0b3ItY3J5cHRvIHNwZWNpZmljYXRpb246Cj4gLSBadmtiOiBWZWN0b3IgQml0LW1hbmlwdWxh
+dGlvbiB1c2VkIGluIENyeXB0b2dyYXBoeQo+IC0gWnZrZzogVmVjdG9yIEdDTS9HTUFDCj4gLSBa
+dmtuaGEgYW5kIFp2a25oYjogTklTVCBBbGdvcml0aG0gU3VpdGUKPiAtIFp2a25zOiBBRVMtMTI4
+LCBBRVMtMjU2IFNpbmdsZSBSb3VuZCBTdWl0ZQo+IC0gWnZrc2VkOiBTaGFuZ01pIEFsZ29yaXRo
+bSBTdWl0ZQo+IC0gWnZrc2g6IFNoYW5nTWkgQWxnb3JpdGhtIFN1aXRlCgpBbnkgcGxhbiB0byBh
+bGxvdyB1c2VyLXNwYWNlIHRvIGRldGVjdCB0aGVzZSBleHRlbnNpb25zIHZpYSBIV1BST0JFID8K
+ClJlZ2FyZHMsCkFudXAKCj4KPiBBcyB0aGVpciB1c2UgaXMgdmVyeSBzcGVjaWZpYyBhbmQgd2ls
+bCBsaWtlbHkgYmUgbGltaXRlZCB0byBzcGVjaWFsIHBsYWNlcwo+IHdlIGV4cGVjdCBjdXJyZW50
+IGNvZGUgdG8ganVzdCBwcmUtZW5jb2RlIHRob3NlIGluc3RydWN0aW9ucywgc28gcmlnaHQgbm93
+Cj4gd2UgZG9uJ3QgaW50cm9kdWNlIHRvb2xjaGFpbiByZXF1aXJlbWVudHMuCj4KPiBTaWduZWQt
+b2ZmLWJ5OiBIZWlrbyBTdHVlYm5lciA8aGVpa28uc3R1ZWJuZXJAdnJ1bGwuZXU+Cj4gLS0tCj4g
+IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCB8ICA5ICsrKysrKwo+ICBhcmNoL3Jpc2N2
+L2tlcm5lbC9jcHUuYyAgICAgICAgfCAgOCArKysrKysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvY3B1
+ZmVhdHVyZS5jIHwgNTAgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+ICAzIGZp
+bGVzIGNoYW5nZWQsIDY3IGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2h3Y2FwLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPiBp
+bmRleCBiODBjYTZlNzcwODguLjBmNTE3MmZhODdiMCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2Fw
+LmgKPiBAQCAtNjQsNiArNjQsMTUgQEAKPiAgI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pLU0VEICAg
+ICAgICAgICAgNTEKPiAgI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pLU0ggICAgICAgICAgICAgNTIK
+PiAgI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pLVCAgICAgICAgICAgICAgNTMKPiArI2RlZmluZSBS
+SVNDVl9JU0FfRVhUX1pWQkIgICAgICAgICAgICAgNTQKPiArI2RlZmluZSBSSVNDVl9JU0FfRVhU
+X1pWQkMgICAgICAgICAgICAgNTUKPiArI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pWS0cgICAgICAg
+ICAgICAgNTYKPiArI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pWS05FRCAgICAgICAgICAgNTcKPiAr
+I2RlZmluZSBSSVNDVl9JU0FfRVhUX1pWS05IQSAgICAgICAgICAgNTgKPiArI2RlZmluZSBSSVND
+Vl9JU0FfRVhUX1pWS05IQiAgICAgICAgICAgNTkKPiArI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pW
+S1NFRCAgICAgICAgICAgNjAKPiArI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pWS1NIICAgICAgICAg
+ICAgNjEKPiArI2RlZmluZSBSSVNDVl9JU0FfRVhUX1pWS1QgICAgICAgICAgICAgNjIKPgo+ICAj
+ZGVmaW5lIFJJU0NWX0lTQV9FWFRfTUFYICAgICAgICAgICAgICA2NAo+ICAjZGVmaW5lIFJJU0NW
+X0lTQV9FWFRfTkFNRV9MRU5fTUFYICAgICAzMgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tl
+cm5lbC9jcHUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdS5jCj4gaW5kZXggMTA1MjQzMjJhNGMw
+Li45MjUyNDFlMjVkYjIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMKPiAr
+KysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHUuYwo+IEBAIC0yMjcsNiArMjI3LDE0IEBAIHN0YXRp
+YyBzdHJ1Y3QgcmlzY3ZfaXNhX2V4dF9kYXRhIGlzYV9leHRfYXJyW10gPSB7Cj4gICAgICAgICBf
+X1JJU0NWX0lTQV9FWFRfREFUQSh6a3NlZCwgUklTQ1ZfSVNBX0VYVF9aS1NFRCksCj4gICAgICAg
+ICBfX1JJU0NWX0lTQV9FWFRfREFUQSh6a3NoLCBSSVNDVl9JU0FfRVhUX1pLU0gpLAo+ICAgICAg
+ICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoemt0LCBSSVNDVl9JU0FfRVhUX1pLVCksCj4gKyAgICAg
+ICBfX1JJU0NWX0lTQV9FWFRfREFUQSh6dmJiLCBSSVNDVl9JU0FfRVhUX1pWQkIpLAo+ICsgICAg
+ICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoenZiYywgUklTQ1ZfSVNBX0VYVF9aVkJDKSwKPiArICAg
+ICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHp2a2csIFJJU0NWX0lTQV9FWFRfWlZLRyksCj4gKyAg
+ICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQSh6dmtuZWQsIFJJU0NWX0lTQV9FWFRfWlZLTkVEKSwK
+PiArICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHp2a25oYSwgUklTQ1ZfSVNBX0VYVF9aVktO
+SEEpLAo+ICsgICAgICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoenZrbmhiLCBSSVNDVl9JU0FfRVhU
+X1pWS05IQiksCj4gKyAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQSh6dmtzZWQsIFJJU0NWX0lT
+QV9FWFRfWlZLU0VEKSwKPiArICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHp2a3NoLCBSSVND
+Vl9JU0FfRVhUX1pWS1NIKSwKPiAgICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNtYWlhLCBS
+SVNDVl9JU0FfRVhUX1NNQUlBKSwKPiAgICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzYWlh
+LCBSSVNDVl9JU0FfRVhUX1NTQUlBKSwKPiAgICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNz
+Y29mcG1mLCBSSVNDVl9JU0FfRVhUX1NTQ09GUE1GKSwKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9rZXJuZWwvY3B1ZmVhdHVyZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4g
+aW5kZXggOWE4NzJhMjAwN2E1Li4xMzU1NmZkMTZiZjYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNj
+di9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVy
+ZS5jCj4gQEAgLTM0Myw2ICszNDMsNTYgQEAgdm9pZCBfX2luaXQgcmlzY3ZfZmlsbF9od2NhcCh2
+b2lkKQo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJ6
+a3NoIiwgUklTQ1ZfSVNBX0VYVF9aS1NIKTsKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIFNFVF9JU0FfRVhUX01BUCgiemtyIiwgUklTQ1ZfSVNBX0VYVF9aS1IpOwo+ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJ6a3QiLCBSSVNDVl9JU0Ff
+RVhUX1pLVCk7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9N
+QVAoInp2YmIiLCBSSVNDVl9JU0FfRVhUX1pWQkIpOwo+ICsgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJ6dmJjIiwgUklTQ1ZfSVNBX0VYVF9aVkJDKTsKPiAr
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgienZrZyIsIFJJ
+U0NWX0lTQV9FWFRfWlZLRyk7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRf
+SVNBX0VYVF9NQVAoInp2a25lZCIsIFJJU0NWX0lTQV9FWFRfWlZLTkVEKTsKPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgienZrbmhhIiwgUklTQ1ZfSVNB
+X0VYVF9aVktOSEEpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU0VUX0lTQV9F
+WFRfTUFQKCJ6dmtuaGIiLCBSSVNDVl9JU0FfRVhUX1pWS05IQik7Cj4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9NQVAoInp2a3NlZCIsIFJJU0NWX0lTQV9FWFRf
+WlZLU0VEKTsKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01B
+UCgienZrc2giLCBSSVNDVl9JU0FfRVhUX1pWS1NIKTsKPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgienZrdCIsIFJJU0NWX0lTQV9FWFRfWlZLVCk7Cj4g
+Kwo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLyogTklTVCBBbGdvcml0aG0gU3Vp
+dGUgKi8KPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgi
+enZrbiIsIFJJU0NWX0lTQV9FWFRfWlZLTkVEKTsKPiArICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIFNFVF9JU0FfRVhUX01BUCgienZrbiIsIFJJU0NWX0lTQV9FWFRfWlZLTkhCKTsKPiAr
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgienZrbiIsIFJJ
+U0NWX0lTQV9FWFRfWlZCQik7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRf
+SVNBX0VYVF9NQVAoInp2a24iLCBSSVNDVl9JU0FfRVhUX1pWS1QpOwo+ICsKPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIC8qIE5JU1QgQWxnb3JpdGhtIFN1aXRlIHdpdGggY2Fycnls
+ZXNzIG11bHRpcGx5ICovCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRfSVNB
+X0VYVF9NQVAoInp2a25jIiwgUklTQ1ZfSVNBX0VYVF9aVktORUQpOwo+ICsgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJ6dmtuYyIsIFJJU0NWX0lTQV9FWFRf
+WlZLTkhCKTsKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01B
+UCgienZrbmMiLCBSSVNDVl9JU0FfRVhUX1pWQkIpOwo+ICsgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJ6dmtuYyIsIFJJU0NWX0lTQV9FWFRfWlZLVCk7Cj4g
+KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9NQVAoInp2a25jIiwg
+UklTQ1ZfSVNBX0VYVF9aVkJDKTsKPiArCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAvKiBOSVNUIEFsZ29yaXRobSBTdWl0ZSB3aXRoIEdDTSAqLwo+ICsgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJ6dmtuZyIsIFJJU0NWX0lTQV9FWFRfWlZL
+TkVEKTsKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgi
+enZrbmciLCBSSVNDVl9JU0FfRVhUX1pWS05IQik7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBTRVRfSVNBX0VYVF9NQVAoInp2a25nIiwgUklTQ1ZfSVNBX0VYVF9aVkJCKTsKPiAr
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgienZrbmciLCBS
+SVNDVl9JU0FfRVhUX1pWS1QpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU0VU
+X0lTQV9FWFRfTUFQKCJ6dmtuZyIsIFJJU0NWX0lTQV9FWFRfWlZLRyk7Cj4gKwo+ICsgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgLyogIFNoYW5nTWkgQWxnb3JpdGhtIFN1aXRlICovCj4g
+KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9NQVAoInp2a3MiLCBS
+SVNDVl9JU0FfRVhUX1pWS1NFRCk7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBT
+RVRfSVNBX0VYVF9NQVAoInp2a3MiLCBSSVNDVl9JU0FfRVhUX1pWS1NIKTsKPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgienZrcyIsIFJJU0NWX0lTQV9F
+WFRfWlZCQik7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9N
+QVAoInp2a3MiLCBSSVNDVl9JU0FfRVhUX1pWS1QpOwo+ICsKPiArICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIC8qIFNoYW5nTWkgQWxnb3JpdGhtIFN1aXRlIHdpdGggY2FycnlsZXNzIG11
+bHRpcGx5ICovCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9N
+QVAoInp2a3NjIiwgUklTQ1ZfSVNBX0VYVF9aVktTRUQpOwo+ICsgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJ6dmtzYyIsIFJJU0NWX0lTQV9FWFRfWlZLU0gp
+Owo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJ6dmtz
+YyIsIFJJU0NWX0lTQV9FWFRfWlZCQik7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBTRVRfSVNBX0VYVF9NQVAoInp2a3NjIiwgUklTQ1ZfSVNBX0VYVF9aVktUKTsKPiArICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0FfRVhUX01BUCgienZrc2MiLCBSSVNDVl9J
+U0FfRVhUX1pWQkMpOwo+ICsKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8qIFNo
+YW5nTWkgQWxnb3JpdGhtIFN1aXRlIHdpdGggR0NNICovCj4gKyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBTRVRfSVNBX0VYVF9NQVAoInp2a3NnIiwgUklTQ1ZfSVNBX0VYVF9aVktTRUQp
+Owo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU0VUX0lTQV9FWFRfTUFQKCJ6dmtz
+ZyIsIFJJU0NWX0lTQV9FWFRfWlZLU0gpOwo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgU0VUX0lTQV9FWFRfTUFQKCJ6dmtzZyIsIFJJU0NWX0lTQV9FWFRfWlZCQik7Cj4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9NQVAoInp2a3NnIiwgUklTQ1Zf
+SVNBX0VYVF9aVktUKTsKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNFVF9JU0Ff
+RVhUX01BUCgienZrc2ciLCBSSVNDVl9JU0FfRVhUX1pWS0cpOwo+ICsKPiAgICAgICAgICAgICAg
+ICAgICAgICAgICB9Cj4gICN1bmRlZiBTRVRfSVNBX0VYVF9NQVAKPiAgICAgICAgICAgICAgICAg
+fQo+IC0tCj4gMi4zOS4yCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
