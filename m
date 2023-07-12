@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A33EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 07:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB19C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 07:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BmkNkyn823+ye60WOCFAPQFAsdmUf0EV8hDceo+6ISg=; b=dSbwc7xdlwLYsAahgjTZym9SBf
-	/l3uB9oWMuHHYgIDnCO5PsXQMPfKw3a4NSFv2l7/CqPHTd0kSbwjOo1kqmfWAQ1OpwtQVOToImnsy
-	mSzhb2BdzlSmYahkXpTILYJKIFOxRsCYMV/QE68mhPTeEvtXQoPXSf3gGtnvW4Ph95GYYu3XSE9fa
-	q8KYfdoShcSjM5772WoQNT0IfYz9BjwmT5FhR79LJZGGoErsYFdl9tPqJZdfzP3eempFeFscHMPr9
-	nXVA3YPk7wSNQaFTHZJtLQRIxgbwnI8I6gXylJ+xw/mlSGDcD+LpLfGlgJcHEdwAYxhg5nGvajcYs
-	qK9HHyEA==;
+	bh=dQPs5xjmpDvcO+Lyp3uZdaTsBHwFdMe3+zBpRoggyX4=; b=s8RGZ509LsIoMsoYjv7A0gdZ+A
+	KARVP9rA0yr30oID2I0mDP9Y/j5ZKuYK+q1aNl8B64LdY5v4dPzCyzI/HuchKPTtZodBxPU0sWQag
+	g+HbB9eAJIYMxbvjh7RAB2JzXxeYyuceSCbDbtEUnkZZW9jF+xZN1kL+c4cE9i2WRouusKEgd3yci
+	dJ7FdzumdbEofWU/AbkKwCqLYXAOgGqYip0h6A3UKRaTIkaUw2TK1T6smib/QdhavoFoPyi1qfvrJ
+	M4A1OuvMtOaV2xTf7KDd23T2gagUN6aBKAYXsu28XjO+2PtdWm9Qzh7QCsqsrqR6YsNTJ3uKxLv8J
+	EvNYqKYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJTvD-00GkGe-36;
-	Wed, 12 Jul 2023 07:05:59 +0000
+	id 1qJTyT-00Gkgq-2d;
+	Wed, 12 Jul 2023 07:09:21 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJTvB-00GkFC-1U
+	id 1qJTyQ-00GkfI-2R
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 07:05:59 +0000
+	Wed, 12 Jul 2023 07:09:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1689145557; x=1720681557;
+  t=1689145758; x=1720681758;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=0h/r3Ic5J67vhkzH+wtbnxSNtw8GW9VDflyBgQaHVzk=;
-  b=swzodY5fpuZ7B87wKTktIibCg3Ns5jPF8RvIPouMmO7xc66JZiu7Ew07
-   e39kWPrAPrVgcvpMnwfyjuO6uKRysw9cH6rYjwiqFtwZQ9XQQywW+ea2I
-   /d0iyT9lnjnizQ4ktCfrMnzihu/AyA+E1tn6+qj1DmmBx9F76F8C0f/nf
-   tPz6bs/wisXy+HDOlyp9c3ivX6iqxzNeJ2Va6dplnRfncbpUtd1ZXImBW
-   9/94uWDZVy1InsR3NMJA/rQcuC68G+waiM8FOWWv80X712407cGnoPxEj
-   n5kGtG08kDmPahaFkiT7HcUiCZ1O4dEEcM+tEBnG9nt/be99n2gmWk/gd
+  bh=duZW+sLs6ycl8qwh4wlYhASDZojoec/KJOE3c/Wl/kA=;
+  b=eatUUJmedl/sF5FMB9n8lo6zPh6KcPVS7BB9UzrBSGYdShWZfxjLIbOO
+   q6L3AA0tYYm75dDiRPjVcR43CzwKOHdSfPDTJXCGMZq9oaQXXV5V3HdWc
+   Xc47sLQEW18TNUc0428j5aohqhTtiZh4KUxJJkewz+bSJ0WCdGxUvNuDO
+   26BYmXbUoxzMi0ZKahI6mMmq0BxqzbdorFaQWsgRbZA1HCYTkxH0gyTLc
+   DMn3eZfJ3nOXB6B3+3HNgArUIhX7zxdvvwKllZEt3g9NMjk+XRkL4qh0V
+   0yI7MjEDY9Zf9DFXQqKnHEAwDRr3Lgm51cXgBjWvvf6vr0T+HqD9vZYZ+
    w==;
 X-IronPort-AV: E=Sophos;i="6.01,199,1684825200"; 
-   d="asc'?scan'208";a="222552791"
+   d="asc'?scan'208";a="222553164"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Jul 2023 00:05:49 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Jul 2023 00:09:17 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 12 Jul 2023 00:05:49 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.21; Wed, 12 Jul 2023 00:09:16 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 12 Jul 2023 00:05:48 -0700
-Date: Wed, 12 Jul 2023 08:05:16 +0100
+ Transport; Wed, 12 Jul 2023 00:09:14 -0700
+Date: Wed, 12 Jul 2023 08:08:42 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrea Parri <parri.andrea@gmail.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+CC: Will Deacon <will@kernel.org>, "Aneesh Kumar K . V"
+	<aneesh.kumar@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>, Nick
+ Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, Mayuresh
+ Chitale <mchitale@ventanamicro.com>, Vincent Chen <vincent.chen@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
 	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<linux-arch@vger.kernel.org>, <linux-mm@kvack.org>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/2] riscv,mmio: Use the generic implementation for the
- I/O accesses
-Message-ID: <20230712-lesser-deflector-d18f7991477b@wendy>
-References: <20230711133348.151383-1-parri.andrea@gmail.com>
- <20230711133348.151383-3-parri.andrea@gmail.com>
+Subject: Re: [PATCH 0/4] riscv: tlb flush improvements
+Message-ID: <20230712-void-sniff-ca1abcbc7783@wendy>
+References: <20230711075434.10936-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20230711133348.151383-3-parri.andrea@gmail.com>
+In-Reply-To: <20230711075434.10936-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_000557_504611_97287599 
-X-CRM114-Status: GOOD (  21.97  )
+X-CRM114-CacheID: sfid-20230712_000918_812379_B3AEB4DF 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,177 +84,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8900434922484503633=="
+Content-Type: multipart/mixed; boundary="===============0755991244791620269=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8900434922484503633==
+--===============0755991244791620269==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="lbqRmB5GpIRDGyZA"
+	protocol="application/pgp-signature"; boundary="dahEnerN+wZuERnx"
 Content-Disposition: inline
 
---lbqRmB5GpIRDGyZA
+--dahEnerN+wZuERnx
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jul 11, 2023 at 03:33:48PM +0200, Andrea Parri wrote:
-> The current implementation of readX(), writeX() and their "relaxed"
-> variants, readX_relaxed() and writeX_relaxed(), matches the generic
-> implementation; remove the redundant code.
->=20
-> No functional change intended.
->=20
-> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+Hey Alex,
 
-This fails to build for (64-bit, I didn't check 32-bit) nommu:
-arch/riscv/include/asm/timex.h:20:16: error: implicit declaration of functi=
-on 'readq_relaxed' [-Werror=3Dimplicit-function-declaration]
-include/asm-generic/io.h:342:23: error: conflicting types for 'readq_relaxe=
-d'; have 'u64(const volatile void *)' {aka 'long long unsigned int(const vo=
-latile void *)'}
+On Tue, Jul 11, 2023 at 09:54:30AM +0200, Alexandre Ghiti wrote:
+> This series optimizes the tlb flushes on riscv which used to simply
+> flush the whole tlb whatever the size of the range to flush or the size
+> of the stride.
+>=20
+> Patch 3 introduces a threshold that is microarchitecture specific and
+> will very likely be modified by vendors, not sure though which mechanism
+> we'll use to do that (dt? alternatives? vendor initialization code?).
+>=20
+> Next steps would be to implement:
+> - svinval extension as Mayuresh did here [1]
+> - BATCHED_UNMAP_TLB_FLUSH (I'll wait for arm64 patchset to land)
+> - MMU_GATHER_RCU_TABLE_FREE
+> - MMU_GATHER_MERGE_VMAS
+>=20
+> Any other idea welcome.
+>=20
+> [1] https://lore.kernel.org/linux-riscv/20230623123849.1425805-1-mchitale=
+@ventanamicro.com/
+>=20
+> Alexandre Ghiti (4):
+>   riscv: Improve flush_tlb()
+>   riscv: Improve flush_tlb_range() for hugetlb pages
+
+>   riscv: Make __flush_tlb_range() loop over pte instead of flushing the
+>     whole tlb
+
+The whole series does not build on nommu & this one adds a build warning
+for regular builds:
++      1 ../arch/riscv/mm/tlbflush.c:32:15: warning: symbol 'tlb_flush_all_=
+threshold' was not declared. Should it be static?
 
 Cheers,
 Conor.
 
-> ---
->  arch/riscv/include/asm/mmio.h | 68 ++++-------------------------------
->  1 file changed, 6 insertions(+), 62 deletions(-)
->=20
-> diff --git a/arch/riscv/include/asm/mmio.h b/arch/riscv/include/asm/mmio.h
-> index 4c58ee7f95ecf..116b898fe969d 100644
-> --- a/arch/riscv/include/asm/mmio.h
-> +++ b/arch/riscv/include/asm/mmio.h
-> @@ -80,72 +80,16 @@ static inline u64 __raw_readq(const volatile void __i=
-omem *addr)
->  #endif
-> =20
->  /*
-> - * Unordered I/O memory access primitives.  These are even more relaxed =
-than
-> - * the relaxed versions, as they don't even order accesses between succe=
-ssive
-> - * operations to the I/O regions.
-> - */
-> -#define readb_cpu(c)		({ u8  __r =3D __raw_readb(c); __r; })
-> -#define readw_cpu(c)		({ u16 __r =3D le16_to_cpu((__force __le16)__raw_r=
-eadw(c)); __r; })
-> -#define readl_cpu(c)		({ u32 __r =3D le32_to_cpu((__force __le32)__raw_r=
-eadl(c)); __r; })
-> -
-> -#define writeb_cpu(v, c)	((void)__raw_writeb((v), (c)))
-> -#define writew_cpu(v, c)	((void)__raw_writew((__force u16)cpu_to_le16(v)=
-, (c)))
-> -#define writel_cpu(v, c)	((void)__raw_writel((__force u32)cpu_to_le32(v)=
-, (c)))
-> -
-> -#ifdef CONFIG_64BIT
-> -#define readq_cpu(c)		({ u64 __r =3D le64_to_cpu((__force __le64)__raw_r=
-eadq(c)); __r; })
-> -#define writeq_cpu(v, c)	((void)__raw_writeq((__force u64)cpu_to_le64(v)=
-, (c)))
-> -#endif
-> -
-> -/*
-> - * Relaxed I/O memory access primitives. These follow the Device memory
-> - * ordering rules but do not guarantee any ordering relative to Normal m=
-emory
-> - * accesses.  These are defined to order the indicated access (either a =
-read or
-> - * write) with all other I/O memory accesses to the same peripheral. Sin=
-ce the
-> - * platform specification defines that all I/O regions are strongly orde=
-red on
-> - * channel 0, no explicit fences are required to enforce this ordering.
-> - */
-> -/* FIXME: These are now the same as asm-generic */
-> -#define __io_rbr()		do {} while (0)
-> -#define __io_rar()		do {} while (0)
-> -#define __io_rbw()		do {} while (0)
-> -#define __io_raw()		do {} while (0)
-> -
-> -#define readb_relaxed(c)	({ u8  __v; __io_rbr(); __v =3D readb_cpu(c); _=
-_io_rar(); __v; })
-> -#define readw_relaxed(c)	({ u16 __v; __io_rbr(); __v =3D readw_cpu(c); _=
-_io_rar(); __v; })
-> -#define readl_relaxed(c)	({ u32 __v; __io_rbr(); __v =3D readl_cpu(c); _=
-_io_rar(); __v; })
-> -
-> -#define writeb_relaxed(v, c)	({ __io_rbw(); writeb_cpu((v), (c)); __io_r=
-aw(); })
-> -#define writew_relaxed(v, c)	({ __io_rbw(); writew_cpu((v), (c)); __io_r=
-aw(); })
-> -#define writel_relaxed(v, c)	({ __io_rbw(); writel_cpu((v), (c)); __io_r=
-aw(); })
-> -
-> -#ifdef CONFIG_64BIT
-> -#define readq_relaxed(c)	({ u64 __v; __io_rbr(); __v =3D readq_cpu(c); _=
-_io_rar(); __v; })
-> -#define writeq_relaxed(v, c)	({ __io_rbw(); writeq_cpu((v), (c)); __io_r=
-aw(); })
-> -#endif
-> -
-> -/*
-> - * I/O memory access primitives.  Reads are ordered relative to any foll=
-owing
-> - * Normal memory read and delay() loop.  Writes are ordered relative to =
-any
-> - * prior Normal memory write.  The memory barriers here are necessary as=
- RISC-V
-> - * doesn't define any ordering between the memory space and the I/O spac=
-e.
-> + * I/O barriers
-> + *
-> + * See Documentation/memory-barriers.txt, "Kernel I/O barrier effects".
-> + *
-> + * Assume that each I/O region is strongly ordered on channel 0, followi=
-ng the
-> + * RISC-V Platform Specification, "OS-A Common Requirements".
->   */
->  #define __io_br()	do {} while (0)
->  #define __io_ar(v)	({ __asm__ __volatile__ ("fence i,ir" : : : "memory")=
-; })
->  #define __io_bw()	({ __asm__ __volatile__ ("fence w,o" : : : "memory"); =
-})
->  #define __io_aw()	mmiowb_set_pending()
-> =20
-> -#define readb(c)	({ u8  __v; __io_br(); __v =3D readb_cpu(c); __io_ar(__=
-v); __v; })
-> -#define readw(c)	({ u16 __v; __io_br(); __v =3D readw_cpu(c); __io_ar(__=
-v); __v; })
-> -#define readl(c)	({ u32 __v; __io_br(); __v =3D readl_cpu(c); __io_ar(__=
-v); __v; })
-> -
-> -#define writeb(v, c)	({ __io_bw(); writeb_cpu((v), (c)); __io_aw(); })
-> -#define writew(v, c)	({ __io_bw(); writew_cpu((v), (c)); __io_aw(); })
-> -#define writel(v, c)	({ __io_bw(); writel_cpu((v), (c)); __io_aw(); })
-> -
-> -#ifdef CONFIG_64BIT
-> -#define readq(c)	({ u64 __v; __io_br(); __v =3D readq_cpu(c); __io_ar(__=
-v); __v; })
-> -#define writeq(v, c)	({ __io_bw(); writeq_cpu((v), (c)); __io_aw(); })
-> -#endif
-> -
->  #endif /* _ASM_RISCV_MMIO_H */
-> --=20
-> 2.34.1
->=20
-
---lbqRmB5GpIRDGyZA
+--dahEnerN+wZuERnx
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK5QogAKCRB4tDGHoIJi
-0r/aAQCBngLbkHKiPgKX9pi71CmamNtvQXwssaoUQwdHvDHuqAEAuIPvzEXR5fPr
-s3L9SxTdqOUKUhwbttoQjZ/4Q0qmBAc=
-=5/2+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK5RegAKCRB4tDGHoIJi
+0m6sAQCD5bKPD2l+jsEwxjIzFU/98p6cICiV9t7nlfZ8sb8mXAD/UPM/OYJdjWyb
+I2qZkkSuaIMYtFOVwZy/StTB2tnmngQ=
+=UB9i
 -----END PGP SIGNATURE-----
 
---lbqRmB5GpIRDGyZA--
+--dahEnerN+wZuERnx--
 
 
---===============8900434922484503633==
+--===============0755991244791620269==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -262,5 +160,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8900434922484503633==--
+--===============0755991244791620269==--
 
