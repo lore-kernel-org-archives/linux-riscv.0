@@ -4,93 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C81EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 15:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE1FEB64DD
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 15:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZwXzSj4U1r/SgH3oaajQvgkOe2e+zHtaU5zlauCNj0k=; b=UF5rBO7kbPS965
-	sKPYgRBB7GT6KBx+faGvWvhzT2LnqFB1SEhXFE36nYMeV7+eR5L3GLLw0/FC9YEO0I1biFifvp2Xs
-	ubkMYTemReH6JF8NBwZIUuOSlzRnh9ckusRMB8Q3Ol/3qjxb1kiqCLK+hve4RjyNdNsVRdmb1C57X
-	JqXyqkOCbAijut+961M/cJ2p2OvOLILAwsaMjQi6UfK/q7sSflP6xBZxn1rDBwRv55ajvHNez5PXS
-	20eXhjID5Xh7ZGeu5sGZKN7EmZIwxiszWoJEDIJO+gntFHsotVZfiS0qUCmmvaw4bOk8BlhqmCSdQ
-	JKaqSJaCTJja33iuEhWQ==;
+	List-Owner; bh=2Fzq4oCi8NHOq4r43oChAsgzH2LnFfuq0U2oK7cXKmg=; b=TYvjSjqB7/BQEH
+	KxBVS1goPk/nvQl7+Uk3t4LzmTdwtK9ky8e76zgfmwELpnyh+JF++naz00JXwAFB9inEmZtvuFhiG
+	1Rgt6bxKo80FlGpgWiI9WYczDYBo1XwS9AFZU29UmLbPRXtT6Itxi+ycFRFWK9DxNItBx3erP5Dql
+	yY0JHlzKh9sYI7FKJFY547pTGhPtt8YW/3tGaUG8RPVVIoe45qqTLx7vcQmm7bcQrDLcVAH8IUBDD
+	fc+nXF1+dFqmecCZKwYT5lm1N474fq0pmlGKtq28qLNzysaJkQNm2Ui6CxkYp3i05gFYpbUIBzpeN
+	VPF3+Lhd8XOyWAJgUHWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJbWr-000IzQ-02;
-	Wed, 12 Jul 2023 15:13:21 +0000
-Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	id 1qJbbf-000KQb-0W;
+	Wed, 12 Jul 2023 15:18:19 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJbWn-000Iya-2D
+	id 1qJbbW-000KF6-0a
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 15:13:19 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id 0147A5C00E8;
-	Wed, 12 Jul 2023 11:13:14 -0400 (EDT)
-Received: from imap50 ([10.202.2.100])
-  by compute1.internal (MEProxy); Wed, 12 Jul 2023 11:13:14 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1689174793; x=1689261193; bh=dS
-	gpbN2qqN6BLnaVZrXrgZ301dLlfYvJq2QGVf6hj70=; b=VRcANVnEB2elnO8va5
-	7qDzlklh+Nx+prfh8PRfHEKkTXshU67ofceeigTZ9rT5UDSk8eEOJEa5v5vGynWY
-	SKxEIc2xWdNcG5Fp7nxQiBenVluT7+pbKVS/PtmVaCYe2THBu+Y3i5LsoC/SsQus
-	5HDA5bbAM9575RbxSE8TMt7kkjvMXkacW4pPbkC7anwh/1oYeHvbqJYPYHQcD5ZX
-	YfPHfhBsFeOLQO453EUuy/sX6DDHEuYHgE0mMc5qEUHEY4HopZjtdriX+JpjH32P
-	AqQ0wzchbFzP7XzVi9Cjr8qs90QOfpWciNwobxhXsCPlzDOz7WY+a2K/NMerUaAG
-	ygrw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1689174793; x=1689261193; bh=dSgpbN2qqN6BL
-	naVZrXrgZ301dLlfYvJq2QGVf6hj70=; b=bVjH8KDBs5z5dsZkuFwFImLh8Slui
-	QqmG02Oy49twz7BISKEgnY/ZjFeZ+llsc1+VE2JrZ1L2jhxCL9WrSWeW1xa3/jex
-	VrTNsK8otzYHHsCVMwWsxl0tx8NAiJHOerGZMcXSWS4V/wfvURG18KbYEgLVHKap
-	JQ5NmZbnDRjHyJZ7cIwBK21dC7VzH2JPwMZn+0Scp4C53kYawRAtY7kg9GGUHUET
-	5PEUOurEHtKWOpZmN2cGfUu2rSnFMOGl2C6DecMTnXyu2Tnkkua2tYem8McGi7zS
-	hwkVyyREt8oWnHwPwJHtQ3ieIOF0X6R77vGVOMB9q5aNaNwhZUZztYimg==
-X-ME-Sender: <xms:CcOuZD-Fkg0ZqLQjR2zxdcaFBKB-jUMrzK5GpBf9OiHxyJqRqF4xWQ>
-    <xme:CcOuZPtxIyt8qtTKO1vQ_FGEQa-Z-J2yQTdsD5imCd3KNTR-WkrCcJIly7tLhpT_X
-    t8Bj9MZonzZQQsTpQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrfedvgdekiecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdfuthgv
-    fhgrnhcuqfdktfgvrghrfdcuoehsohhrvggrrhesfhgrshhtmhgrihhlrdgtohhmqeenuc
-    ggtffrrghtthgvrhhnpeejueehgedtueetgefhheejjeeigffhieefjeehuddvueegtdfh
-    heevgfeggfektdenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucevlhhush
-    htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsohhrvggrrhesfhgr
-    shhtmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:CcOuZBBiQ-u8LQDVG2wTHBQnbC3NrSY-0LVLKcE5GM9T6MyzF7w_jw>
-    <xmx:CcOuZPeMbkHMafJyQYhhPCnBw-dTI7bNOUtwBt4TNClc4LwKsd5DvA>
-    <xmx:CcOuZIOzr5DH2IkQel3fUL-35NiT7ydsci_pxLH3EeQdUL5kibP_Yw>
-    <xmx:CcOuZEC4N0Oxa4qLd4rkrTSV_8Bo-2PyEOAGG2g9U92Jd0IhGEb3Zg>
-Feedback-ID: i84414492:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 0BDAD1700096; Wed, 12 Jul 2023 11:13:12 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-531-gfdfa13a06d-fm-20230703.001-gfdfa13a0
-Mime-Version: 1.0
-Message-Id: <31c4024b-3553-4117-a22a-b39259c8fea4@app.fastmail.com>
-In-Reply-To: <20230711130754.481209-3-gerg@kernel.org>
-References: <20230711130754.481209-1-gerg@kernel.org>
- <20230711130754.481209-3-gerg@kernel.org>
-Date: Wed, 12 Jul 2023 11:12:45 -0400
-From: "Stefan O'Rear" <sorear@fastmail.com>
-To: "Greg Ungerer" <gerg@kernel.org>, linux-riscv@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, viro@zeniv.linux.org.uk,
- ebiederm@xmission.com, keescook@chromium.org, brauner@kernel.org
-Subject: Re: [PATCH v2 2/2] riscv: support the elf-fdpic binfmt loader
+	Wed, 12 Jul 2023 15:18:15 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id ABE1CC000B;
+	Wed, 12 Jul 2023 15:18:00 +0000 (UTC)
+Message-ID: <bbda29db-644d-ed9b-2894-43f4c2addb52@ghiti.fr>
+Date: Wed, 12 Jul 2023 17:18:00 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH 0/4] riscv: tlb flush improvements
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Will Deacon <will@kernel.org>,
+ "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>,
+ Vincent Chen <vincent.chen@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-arch@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20230711075434.10936-1-alexghiti@rivosinc.com>
+ <20230712-void-sniff-ca1abcbc7783@wendy>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230712-void-sniff-ca1abcbc7783@wendy>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_081318_170017_B7934F4A 
-X-CRM114-Status: GOOD (  26.32  )
+X-CRM114-CacheID: sfid-20230712_081810_394440_3BCC83D9 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,137 +67,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 11, 2023, at 9:07 AM, Greg Ungerer wrote:
-> Add support for enabling and using the binfmt_elf_fdpic program loader
-> on RISC-V platforms. The most important change is to setup registers
-> during program load to pass the mapping addresses to the new process.
->
-> One of the interesting features of the elf-fdpic loader is that it
-> also allows appropriately compiled ELF format binaries to be loaded on
-> nommu systems. Appropriate being those compiled with -pie.
->
-> Signed-off-by: Greg Ungerer <gerg@kernel.org>
-> ---
-> v1->v2: rebase onto linux-6.5-rc1
->         increment PTRACE_GETFDPIC value to keep it unique
->
->  arch/riscv/include/asm/elf.h         | 11 ++++++++++-
->  arch/riscv/include/asm/mmu.h         |  4 ++++
->  arch/riscv/include/uapi/asm/ptrace.h |  5 +++++
->  fs/Kconfig.binfmt                    |  2 +-
->  4 files changed, 20 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-> index c24280774caf..c33fe923ef6d 100644
-> --- a/arch/riscv/include/asm/elf.h
-> +++ b/arch/riscv/include/asm/elf.h
-> @@ -41,6 +41,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
->  #define compat_elf_check_arch	compat_elf_check_arch
-> 
->  #define CORE_DUMP_USE_REGSET
-> +#define ELF_FDPIC_CORE_EFLAGS	0
->  #define ELF_EXEC_PAGESIZE	(PAGE_SIZE)
-> 
->  /*
-> @@ -69,6 +70,13 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
->  #define ELF_HWCAP	riscv_get_elf_hwcap()
->  extern unsigned long elf_hwcap;
-> 
-> +#define ELF_FDPIC_PLAT_INIT(_r, _exec_map_addr, _interp_map_addr, 
-> dynamic_addr) \
-> +	do { \
-> +		(_r)->a1 = _exec_map_addr; \
-> +		(_r)->a2 = _interp_map_addr; \
-> +		(_r)->a3 = dynamic_addr; \
-> +	} while (0)
-> +
+Hi Conor,
 
-This should probably be left empty for now; it will be defined by the
-ELF FDPIC ABI when that is done, and shouldn't be used by normal ELF
-binaries.  I'd ask if there's a reason it starts at a1 instead of a0,
-but it seems idiosyncratic on all arches that have full FDPIC support.
 
--s
+On 12/07/2023 09:08, Conor Dooley wrote:
+> Hey Alex,
+>
+> On Tue, Jul 11, 2023 at 09:54:30AM +0200, Alexandre Ghiti wrote:
+>> This series optimizes the tlb flushes on riscv which used to simply
+>> flush the whole tlb whatever the size of the range to flush or the size
+>> of the stride.
+>>
+>> Patch 3 introduces a threshold that is microarchitecture specific and
+>> will very likely be modified by vendors, not sure though which mechanism
+>> we'll use to do that (dt? alternatives? vendor initialization code?).
 
->  /*
->   * This yields a string that ld.so will use to load implementation
->   * specific libraries for optimization.  This is more specific in
-> @@ -78,7 +86,6 @@ extern unsigned long elf_hwcap;
-> 
->  #define COMPAT_ELF_PLATFORM	(NULL)
-> 
-> -#ifdef CONFIG_MMU
->  #define ARCH_DLINFO						\
->  do {								\
->  	/*							\
-> @@ -115,6 +122,8 @@ do {								\
->  	else							 \
->  		NEW_AUX_ENT(AT_IGNORE, 0);			 \
->  } while (0)
-> +
-> +#ifdef CONFIG_MMU
->  #define ARCH_HAS_SETUP_ADDITIONAL_PAGES
->  struct linux_binprm;
->  extern int arch_setup_additional_pages(struct linux_binprm *bprm,
-> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> index 0099dc116168..355504b37f8e 100644
-> --- a/arch/riscv/include/asm/mmu.h
-> +++ b/arch/riscv/include/asm/mmu.h
-> @@ -20,6 +20,10 @@ typedef struct {
->  	/* A local icache flush is needed before user execution can resume. */
->  	cpumask_t icache_stale_mask;
->  #endif
-> +#ifdef CONFIG_BINFMT_ELF_FDPIC
-> +	unsigned long exec_fdpic_loadmap;
-> +	unsigned long interp_fdpic_loadmap;
-> +#endif
->  } mm_context_t;
-> 
->  void __init create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t 
-> pa,
-> diff --git a/arch/riscv/include/uapi/asm/ptrace.h 
-> b/arch/riscv/include/uapi/asm/ptrace.h
-> index e17c550986a6..30f6d6537adc 100644
-> --- a/arch/riscv/include/uapi/asm/ptrace.h
-> +++ b/arch/riscv/include/uapi/asm/ptrace.h
-> @@ -10,6 +10,11 @@
-> 
->  #include <linux/types.h>
-> 
-> +#define PTRACE_GETFDPIC		33
-> +
-> +#define PTRACE_GETFDPIC_EXEC	0
-> +#define PTRACE_GETFDPIC_INTERP	1
-> +
->  /*
->   * User-mode register state for core dumps, ptrace, sigcontext
->   *
-> diff --git a/fs/Kconfig.binfmt b/fs/Kconfig.binfmt
-> index 93539aac0e5b..f5693164ca9a 100644
-> --- a/fs/Kconfig.binfmt
-> +++ b/fs/Kconfig.binfmt
-> @@ -58,7 +58,7 @@ config ARCH_USE_GNU_PROPERTY
->  config BINFMT_ELF_FDPIC
->  	bool "Kernel support for FDPIC ELF binaries"
->  	default y if !BINFMT_ELF
-> -	depends on ARM || ((M68K || SUPERH || XTENSA) && !MMU)
-> +	depends on ARM || ((M68K || RISCV || SUPERH || XTENSA) && !MMU)
->  	select ELFCORE
->  	help
->  	  ELF FDPIC binaries are based on ELF, but allow the individual load
-> -- 
-> 2.25.1
+
+@Conor any idea how to achieve this?
+
+
+>>
+>> Next steps would be to implement:
+>> - svinval extension as Mayuresh did here [1]
+>> - BATCHED_UNMAP_TLB_FLUSH (I'll wait for arm64 patchset to land)
+>> - MMU_GATHER_RCU_TABLE_FREE
+>> - MMU_GATHER_MERGE_VMAS
+>>
+>> Any other idea welcome.
+>>
+>> [1] https://lore.kernel.org/linux-riscv/20230623123849.1425805-1-mchitale@ventanamicro.com/
+>>
+>> Alexandre Ghiti (4):
+>>    riscv: Improve flush_tlb()
+>>    riscv: Improve flush_tlb_range() for hugetlb pages
+>>    riscv: Make __flush_tlb_range() loop over pte instead of flushing the
+>>      whole tlb
+> The whole series does not build on nommu & this one adds a build warning
+> for regular builds:
+> +      1 ../arch/riscv/mm/tlbflush.c:32:15: warning: symbol 'tlb_flush_all_threshold' was not declared. Should it be static?
 >
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Cheers,
+> Conor.
+
+
+I'll fix the nommu build, sorry about that. Weird I missed this warning, 
+that's an LLVM build right? That variable will need to overwritten by 
+the vendors, so that should not be static (but it will depend on what 
+solution we implement).
+
+
+Thanks,
+
+
+Alex
+
+
 
 _______________________________________________
 linux-riscv mailing list
