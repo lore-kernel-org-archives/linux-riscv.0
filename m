@@ -4,77 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AABEB64DD
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 17:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4DDC001E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 17:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ScOnBWzcLpLig9vvJT4NF8wtKBmZHA+0cTHohl2Yq1U=; b=eweVHSHdBcpek7NqmQHSryZ6Qy
-	qwPQWW5CMINRHc6DxL6CVnVmckEi+5uY7BolBoHll+50bsgHb25lo9iuPhXzES7sFqgJ+XorKWKf9
-	YJcIbWBIt6XPKS18VQj4OTen++jyBZ2xFc1LQCAVAgHWqlQ2JyTblvlneHbIPbiE4e7wQIBDkpgYv
-	oW0cgu7eitlpg/9f3l+UhOWEpAF7cNC0wRek77eso7o3MVj1A+kVHq5feXrVncrQPLFF3mSvZtxdh
-	CRCYVn3eYLXmXLZ1ICis8CxBqjMD0wwtsmMvwO8q7RYF7ZsUpQ+ZLGrgBonCf5Yah5kHHQAaa061E
-	1CFfvkxA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Tsu0AZ6aOXrSOOzTxIUtr/DsuMSF6J+RSi39rI1lH28=; b=rnIpY14J6nt8Vb
+	GtbgRC2r6Mw7Ay7UIXIidystIx3Ds7QGRvivpJfFsjjfw9UCe4SETs2hEsfIomsQ5Cle+idOB6nGD
+	9+yLfWbYRGgzqU450h0m6JcTCUI6i3rliFK3T60r/T0EcXEYohnWwuCiN6JRlYrlhY41Kb0YiFnIL
+	r7WkackgFwvXwhHsAcxqsqmCDNIAxF596cD8ankSqUZyUfs8EuB++rFmyHQuynAYzEDHekBF0ZVDz
+	V5C+66sUOfX4VdDXjMFLCfAM8yf2p7HnIyzUde058+wH89k/pFWYb64mjWpaZZ0BPVsNuWysfDwBr
+	6zku3PNo2fe9APJqO10g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJdZf-000kYa-2Q;
-	Wed, 12 Jul 2023 17:24:23 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1qJdfi-000lIT-2Z;
+	Wed, 12 Jul 2023 17:30:38 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJdZd-000kXC-1W
+	id 1qJcX8-000WIE-1N
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 17:24:22 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-666e6ecb52dso4366280b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 10:24:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689182658; x=1691774658;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Zj9r+zcbDtwWZpScqUWWZY37UBAV3EvkHsIWxXTh2EU=;
-        b=05afwzcK01Ldqg48Wwl99KxL0uggHZTlAxOuDmXIXpXDPm5ZD5cnP2BAIHu0X4TY6K
-         oUreX0ChkmOpRfIzzsSI8F8YtY7lwXmRIkLEcEpEgx71L9ZXiXQwPD/f5ucxjfs/avdy
-         1SdPg78Lci8bpctcxwvfufhUbqIP0M+a58e+WxhdsE6yfBoLgh5YDK+jRxLkXCBJcL/C
-         w2gq/fA5BzAt9BuX8PaT6zmupftBsl/RUnejt1hLNwd0LipYLTgd6Q5QXBaj+CcZcYm+
-         q+2tZVH8oNpNdNaH87k8GEwS2BfZpRYm+H89cC2paekP0Ogp0u8FhvyqY/AVNuqeFscD
-         I3Kg==
+	Wed, 12 Jul 2023 16:17:55 +0000
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 2B8943F0C3
+	for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 16:17:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1689178657;
+	bh=n4utYa35TfD5wsVmOiQcm6vCoFn5Vk1dm6HnZfMUVHA=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=BelSOFoEXJZuPw9qSbtmGvAZwt+XdHsvcFLf43IxGxMSwkee5Hc6ER27QMrq7wup4
+	 3ZcHFnwoihNQSL42Cb7UDdN+nFf6baBp0oRAIXK1UqDZ3OwHuNQPlpPjl8hOpL4wIE
+	 NElidWowb3vWMqj4RVCIXSN/ldbrDk3Hsno3fynM36GSbLs6piP8PZigfOtkUpMl31
+	 xP+9jZkJ0+FowcGZ2NPXVyuKJsfiPG33tDG0lnqIlZITV2sy7/7I6ruLVJUmjE0rNe
+	 /y7XLGBxoe81R+0wgDDKqC9LU3+6xWncIYVOmzP5KJ58etSsfkQXj7dTr81q2d2SLI
+	 exmDTSLJzqoNQ==
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-400fea3d458so81249021cf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 09:17:37 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689182658; x=1691774658;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Zj9r+zcbDtwWZpScqUWWZY37UBAV3EvkHsIWxXTh2EU=;
-        b=UgOz1szjzWhgyEU7WH7GpsB0G1C2GD4E8dodLX7HpoIG60q4XnhQy1h5ELug88ISDe
-         O/vWnPZ/dMmMlrN7zGUusQ+nMlRTalUcbRhDMXg6/k2hzOxcAwIkvjkM84ylkMjMMALe
-         E36+zZD0BRPBmOngQkiF4oI0xikIBJuwpgtbTgi2c4KHX5DUYCLROS4v/QTFqP9Pz/L5
-         Q2r1N1Gx97LG5tkQ/0YeJvonfTZ4SkRL/p78s0Y8wcvIVtOJuipVM1zJQg91zkpZs8Od
-         4CQdme0qyf3idyoKv4ffg3Q2FzECyC96XLFVBlf/VBTpsDFNAqOkj15FMuDuVy6gZlui
-         BtcQ==
-X-Gm-Message-State: ABy/qLZTa8zfLs53nU0kSQtIR/pAF+oqOn+y82MB3Jcbg28z0OHO8V5e
-	ahnJ5RYfFIGanVRGJpHa1V+ovg==
-X-Google-Smtp-Source: APBJJlGfntxMXTtDkx7Bn4N4jOt5DvKbonVj2bFELzDfkpVOdHpzwuoFw9cGAmCbAueVcO2TJG653A==
-X-Received: by 2002:a05:6a00:22cd:b0:674:1dde:4c59 with SMTP id f13-20020a056a0022cd00b006741dde4c59mr17988747pfj.28.1689182658485;
-        Wed, 12 Jul 2023 10:24:18 -0700 (PDT)
-Received: from localhost ([50.38.6.230])
-        by smtp.gmail.com with ESMTPSA id i8-20020aa79088000000b0065da94fe917sm3847989pfa.36.2023.07.12.10.24.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Jul 2023 10:24:18 -0700 (PDT)
-Date: Wed, 12 Jul 2023 10:24:18 -0700 (PDT)
-X-Google-Original-Date: Wed, 12 Jul 2023 10:23:32 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: Don't trust V from the riscv,isa DT property
-In-Reply-To: <20230712-tilt-dinginess-c4fc0dee5d63@spud>
-CC: Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
-  Charlie Jenkins <charlie@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>
-From: Palmer Dabbelt <palmer@rivosinc.com>
+        d=1e100.net; s=20221208; t=1689178656; x=1691770656;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n4utYa35TfD5wsVmOiQcm6vCoFn5Vk1dm6HnZfMUVHA=;
+        b=BiD7OShO/RDZdYIGFJm0t8Y233wO4tGuzNIOy3l4OUoBA+pb8keN8nUtldaP1QRPOH
+         qHZd3Nz2ZLnxoecs/OxgcGC091QwP6r5HYTNZUUnK+/0di15U3ftMClBSu9KQ2clMPDq
+         CaiMnGIYMVha8FdJk0+NUEpNUjbjsBxyr6ooZ7Dn3elhQHGKW4Z2w3/At8JQpp3COEC8
+         GAKmgO4ATyr/DkMJIL9pmgHuyXgG5vGcaOpM/QsnMLLaPmbEabe/dq2Job9QIBnynoyI
+         hXlyCIF6SJf3EQoKszDCywrnqTjZXw3yeoxNc8bAPlRoge9MwS7jKmnb8Kb+1SPZD4lV
+         dq0g==
+X-Gm-Message-State: ABy/qLZxGM7+yG4+3tU4988wd095V0g/yVoP7aO+dKZUGgVVuDmZ9+eD
+	H2l6cbizSj0uHDgQAlBwL54vbCWAJrzv6N0+d5xk/lJbD/giOTnAHUefaRXeB+EpPqOy4ykoezn
+	tItQJWv4LbfuMzjlA7i6bqoZ3z/JREeVSbC95NwLMvfCv7i1o2ZS+NAc9RPy1HA==
+X-Received: by 2002:ac8:5f85:0:b0:3f8:4905:9533 with SMTP id j5-20020ac85f85000000b003f849059533mr23586487qta.50.1689178656006;
+        Wed, 12 Jul 2023 09:17:36 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlGIBX2v4lrFqkh9MfymlkmrtaXYfI6hDGPQE1rbvkzdatafBb02lOAezmx4BfX0Q5/dFkKHZd/2bxyPDMKAUcQ=
+X-Received: by 2002:ac8:5f85:0:b0:3f8:4905:9533 with SMTP id
+ j5-20020ac85f85000000b003f849059533mr23586470qta.50.1689178655789; Wed, 12
+ Jul 2023 09:17:35 -0700 (PDT)
+MIME-Version: 1.0
+References: <20230627080620.329873-1-felix.moessbauer@siemens.com> <20230710-villain-dainty-d1a90ce57a27@spud>
+In-Reply-To: <20230710-villain-dainty-d1a90ce57a27@spud>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Wed, 12 Jul 2023 18:17:19 +0200
+Message-ID: <CAJM55Z_0X+UT1s9s4kqKuyg4hF2JooTMXe4RYTAzoEgY=+8A1Q@mail.gmail.com>
+Subject: Re: [PATCH 1/1] riscv: dts: Enable device-tree overlay support for
+ starfive devices
 To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-53264d24-793d-4526-8574-49017c2c3bc1@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+Cc: Felix Moessbauer <felix.moessbauer@siemens.com>, 
+	Walker Chen <walker.chen@starfivetech.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Rob Herring <robh+dt@kernel.org>, Daniel Bovensiepen <daniel.bovensiepen@siemens.com>, 
+	Jan Kiszka <jan.kiszka@siemens.com>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_102421_509415_F6B71C78 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20230712_091742_812476_389A1F4B 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,23 +95,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Jul 2023 10:22:09 PDT (-0700), Conor Dooley wrote:
-> On Wed, Jul 12, 2023 at 10:17:49AM -0700, Palmer Dabbelt wrote:
+On Mon, 10 Jul 2023 at 20:29, Conor Dooley <conor@kernel.org> wrote:
 >
->> Do you want to re-spin the patch?  I can dig it out of the email if you
->> want, but looks like you've got the diff already...
->> 
->> No rush on my end, just LMK -- it'll be too late for this week either way.
 >
-> I wrote it at work, I'll be digging it out of my email too ;)
-> I'll send it now before I get lost in my DT review queue.
+> Emil, Walker,
+>
+> On Tue, Jun 27, 2023 at 04:06:20PM +0800, Felix Moessbauer wrote:
+> > Add the '-@' DTC option for the starfive devices. This option
+> > populates the '__symbols__' node that contains all the necessary symbols
+> > for supporting device-tree overlays (for instance from the firmware or
+> > the bootloader) on these devices.
+> >
+> > The starfive devices allow various modules to be connected and this
+> > enables users to create out-of-tree device-tree overlays for these modules.
+> >
+> > Please note that this change does increase the size of the resulting DTB
+> > by ~20%. For example, with v6.4 increase in size is as follows:
+>
+> Whatcha think?
 
-Thanks, I'll forget about it for now ;)
+I'm fine with it. I just wonder why it's only the Nvidia Tegra boards
+and the VisionFive's that need this. Surely other boards have pins for
+expansion cards.
+
+Acked-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+/Emil
+
+> > jh7100-beaglev-starlight.dtb 6192 -> 7339
+> > jh7100-starfive-visionfive-v1.dtb 6281 -> 7428
+> > jh7110-starfive-visionfive-2-v1.2a.dtb 11101 -> 13447
+> > jh7110-starfive-visionfive-2-v1.3b.dtb 11101 -> 13447
+> >
+> > Signed-off-by: Felix Moessbauer <felix.moessbauer@siemens.com>
+> > ---
+> >  arch/riscv/boot/dts/starfive/Makefile | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> >
+> > diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> > index 170956846d49..0141504c0f5c 100644
+> > --- a/arch/riscv/boot/dts/starfive/Makefile
+> > +++ b/arch/riscv/boot/dts/starfive/Makefile
+> > @@ -1,4 +1,10 @@
+> >  # SPDX-License-Identifier: GPL-2.0
+> > +# Enables support for device-tree overlays
+> > +DTC_FLAGS_jh7100-beaglev-starlight := -@
+> > +DTC_FLAGS_jh7100-starfive-visionfive-v1 := -@
+> > +DTC_FLAGS_jh7110-starfive-visionfive-2-v1.2a := -@
+> > +DTC_FLAGS_jh7110-starfive-visionfive-2-v1.3b := -@
+> > +
+> >  dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-beaglev-starlight.dtb
+> >  dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+> >
+> > --
+> > 2.39.2
+> >
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
