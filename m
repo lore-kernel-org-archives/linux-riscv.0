@@ -4,105 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC6DEB64DD
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 05:55:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C917EB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 06:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O+1i7zddkdGP3QlwRjmMTC0IigGdE55X3atDvOns/4o=; b=bp5NWShxqN0jqi
-	/QaEAWytCsmyJZZOyJMz7IWGIxgMTIgVwOCyAO1nzsLxCNttjW+VujeFb6InxzwLhysgr9VUhgGzP
-	0aonTgdRTyqCmW1tLIpmEAFWn7RUfKvOUbgySMUfpXXxTB1xW3fghXK3Q4g/r1g/FdgVXfX+OGjMr
-	+Na7TTB5JOgFcZNUEuvuFg9FWxNijVNk7aZQvH1SjWIcfV206ctZ+ieJrGaTkQC6Bcz0VdiiXTTI9
-	9iaLuMkjM5tEytz7AHrbED8F51b8QBcva6UF719Zq8cYr7MjvkITcRQTp4lrKBbrSx/0Jc7JIaMfg
-	Iy4gcWC1uw9jzMOAtKOA==;
+	List-Owner; bh=zHqtd/tGh2Fu7Y51B6p40Hc/BXQ+mGKhPIJcelB0R1I=; b=iPWRfHS834NU+M
+	aeZq2ONllgtEs+LmFhiTTAZ81+EtQKn9WYG03kCxyAMQXHK1Eg+woMJYhlD5oMCBX7dJDIcja7OeO
+	Xb95RzgnWSpAt8NwSQnhf0D2GsfoiPONymjW2lsBxF8RJ1rSeEk9wwCDZ2V/giFwffI2UcWFGq4vz
+	OhZrLuv2rQLfU/TRG3a1BnX/FaNGpUE4feIIoyYLsvvkMYZdSzsSlawShI25IeEi5qZf8Prs83k5u
+	5La7b/jTa5imgVC33RPYpb4BMwQBngn5gHxWnnkeW5ypVmdjKjNAOMNIApsnvyZ00xHDgQOfexVbJ
+	xnD2XYisgAhJYQCslbMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJSop-00Gcjq-2t;
-	Wed, 12 Jul 2023 05:55:19 +0000
-Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
+	id 1qJTM3-00Gftp-1H;
+	Wed, 12 Jul 2023 06:29:39 +0000
+Received: from mail-tyzapc01on2072b.outbound.protection.outlook.com ([2a01:111:f403:704b::72b] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJSom-00GciV-0F
+	id 1qJTLz-00GfpI-0g
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 05:55:18 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.west.internal (Postfix) with ESMTP id BE1653200941;
-	Wed, 12 Jul 2023 01:55:10 -0400 (EDT)
-Received: from imap50 ([10.202.2.100])
-  by compute1.internal (MEProxy); Wed, 12 Jul 2023 01:55:12 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1689141310; x=1689227710; bh=g2
-	CrOB7itySQdfb2/Ubwle1D99PlUqeUd79aKf+Qx8A=; b=R33SEyyHcV+cPwZPpM
-	6Axf3tTUGzpH5YcdGsD//GG020fsIaNLuqNINxsJC7B9OEw6hY6dmjIc/BMzuekB
-	V2Y5OeZZ0TFNiwi+ENjLRF6KEZEEdUv9ya+MQqHYXU5pBf03NylHlALGlqBl2txk
-	0fGpmDyKLYH7fJm/qZvgT+yvIOXt1tUdjksTwf3+IhRRIqVNChLS5f0b9Z2DeA2r
-	XU6Eyh+El6LxvW2qSMU32XlZ0I2ZuiBb+L52rqpW2zbZWmtfT8USQ/D4n5Ck2cuS
-	IpfH0lUPX9jyjsJeea6dx/rQqCDHs6G4Ucc30meN0UQ++GiDRyfzcIoL1DrSfOtq
-	KLxA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1689141310; x=1689227710; bh=g2CrOB7itySQd
-	fb2/Ubwle1D99PlUqeUd79aKf+Qx8A=; b=qGS+woU3vo/RKvuYmA4RN8uOwR/bU
-	fsQIHCD/PYSLeytHrzioUvJvsiv6yxfbItrP0UZs/aw89VdGjZu85ZFwZF9I3yXn
-	3zgZozPTWHTPchN1Lu3nPc/Qbwi4mEjAoNfw5D1g5oz+B+WZcU/vnx2fHm+vDC4i
-	ubuixi+sxuZmR/BOemII83lBwR6ovczMYuyiwsIN9Jl9xcpbHjO/LL6tYtiPFJDc
-	jwB/WmtL549D0iWNsBbLY6P2CfBEom8pg/FFJDNX5S+E7m8fBWuU4FyKVd0K16ls
-	hcx5zqv2XclpCwLEa8O0wwoRWmJ2dkiqOuGM0zO5PJHDkE9jE+XdpuvLw==
-X-ME-Sender: <xms:PUCuZPgpOqHcK5rMwp_rDcvpZUrfCQ4x3KaDXfyjuT6KxHtwmrqJTw>
-    <xme:PUCuZMDKDvAz_-DWAV8VPViEXv1ZvQmfltzC2Tu5dDfNqCageccDv9lrRkrqTDgps
-    RegowBmJJezXGVTGw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrfedugddutddtucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedfufht
-    vghfrghnucfqkdftvggrrhdfuceoshhorhgvrghrsehfrghsthhmrghilhdrtghomheqne
-    cuggftrfgrthhtvghrnheptefhjeejteejfeehteeugeelveevieefudegveehleelueev
-    teeludfhjeehleeinecuffhomhgrihhnpehrihhstghvrdhorhhgpdhinhhfrhgruggvrg
-    gurdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhho
-    mhepshhorhgvrghrsehfrghsthhmrghilhdrtghomh
-X-ME-Proxy: <xmx:PUCuZPEr1eAUWiJq7_egbUpfgaB3vxBwx3F0sm14T77r0ps8A0FJSA>
-    <xmx:PUCuZMSnTQVRykJxw7uTZ0bbkASODtXK1LSEefYc1E6dm5Z3GLj7zw>
-    <xmx:PUCuZMxKvuPPXKiiwBgtcyqXr5SY3EFC6DKw_bkUuWTYj0ttvY2y6g>
-    <xmx:PkCuZIgoC4TFwCiT-sfwBITbHCIKC_ah6ElFraDQZs5y2h7neNwKjw>
-Feedback-ID: i84414492:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id B59351700089; Wed, 12 Jul 2023 01:55:09 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-531-gfdfa13a06d-fm-20230703.001-gfdfa13a0
-Mime-Version: 1.0
-Message-Id: <7a8ea477-8f42-43dd-9748-556cfe645f5e@app.fastmail.com>
-In-Reply-To: <ZKu6bCMPX0WKetVp@vermeer>
-References: <20230627143747.1599218-1-sameo@rivosinc.com>
- <20230627143747.1599218-3-sameo@rivosinc.com>
- <348f624f-3be0-4df7-ab5d-4a912197d82b@app.fastmail.com>
- <ZJwFs2O85pvjCLXa@vermeer>
- <b208a2cb-bf68-4f4f-9c99-6a2e5853d26e@app.fastmail.com>
- <ZKu6bCMPX0WKetVp@vermeer>
-Date: Wed, 12 Jul 2023 01:54:39 -0400
-From: "Stefan O'Rear" <sorear@fastmail.com>
-To: "Samuel Ortiz" <sameo@rivosinc.com>
-Cc: "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux@rivosinc.com,
- "Conor Dooley" <conor.dooley@microchip.com>,
- "Andrew Jones" <ajones@ventanamicro.com>,
- "Heiko Stuebner" <heiko.stuebner@vrull.eu>,
- "Anup Patel" <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
- "Hongren (Zenithal) Zheng" <i@zenithal.me>, guoren <guoren@kernel.org>,
- "Atish Patra" <atishp@rivosinc.com>,
- =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>,
- "Evan Green" <evan@rivosinc.com>
-Subject: Re: [PATCH 2/3] RISC-V: hwprobe: Expose Zbc and the scalar crypto extensions
+	Wed, 12 Jul 2023 06:29:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Xse7XN3ZPhLfQHz+NKnE1la8u6IYBo2TtaaPEKPTx8Ndl1r8jP49lLStXEiM9jYSyGxEOAHBLjBAvmPtoEM/jbip1oaC6/6xXH6Gm+RXhfJ8Gi0mjKUdB+LPSlKUtp055pwv6hwL66dfvnoLMGvxk9Qz9iuUV3kRQh5FIUmHeULB9S9sTTPhJi33dDRcNs/MrkZp86jD1aLmC1es1udHl5NK9b5HEUj7VypoWnOTwRejEO6VbLj4bXyNVsIHpGMZy4Ha2qzkHLfGMkX/a030R+PF87k8kIS5ePcH1Q/+UIOvE7FycLkOd2ogN0GdmalwYJbmy2CJmp5LHUSmJ/qGKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QcARCYjsWAzt22qEJ8ZBSVNr6oXB59g7J8n4S498Feg=;
+ b=E0ehb0L9EEsEkdrCGGBRr2yffFa6rrYFte6PHork0AqbXZ4c0dnm0xh9AMhNWGN3P7zk+WbpA1vd6dSzkgREDg1m17skbpK/wZ0Sy2KNKPffVwVylOBiqja3QnyEh03Ks71zCuR2LQpb46kkpCPJ7gwmAstdhk3PccRSgSVugocNvF2b8Xi0VlpwtTCD5aim3mviRCn1ub/62YRSIdyc+Smf+fS2mgVq6xVSBGKFNz/uf0gDnN14rd3o28Y4L7wHpA8rBIaMxRsXe5hjeurrodCoRT3/egi/xrZpbggl1nfC5Sua6Fc4Qe6OzXgOAOOoYR4awFHlhTVDByKPxAFeyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QcARCYjsWAzt22qEJ8ZBSVNr6oXB59g7J8n4S498Feg=;
+ b=cBCbmZOFNyfbl7Qy9fovoKMEaa220oeyDyhdcwpcWH/ZryCKO5Gd6RlBLAvu1XjsjmeDbrDUSPjrHLEjEy+QQaBlB1rWFE8JUL+4THMvNyjzdYe5dpnRI2fIcK9MGpcFzSGgbOSnS39drQyKmcOSO0vxCQPDd9va5C7ZAnX5tY24+fh9lZXw15fpAdoKXuuTldfzHrLCkok7mULgXDnJmJJK6Bv5wbQ0IRRC5etpko50OZdHGnoZ0tJAHh9tRbEqoWmWfzC5yvAIysAjpEQjAV5wAUhQfRcfhL5ARIjQ7dI2jasdtRgb7uhhLzw3ahlfcST6j5LFqPqqzU2fHuhN7g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5269.apcprd06.prod.outlook.com (2603:1096:101:78::6)
+ by SI2PR06MB3963.apcprd06.prod.outlook.com (2603:1096:4:f2::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6565.32; Wed, 12 Jul
+ 2023 06:29:33 +0000
+Received: from SEZPR06MB5269.apcprd06.prod.outlook.com
+ ([fe80::fa0e:6c06:7474:285c]) by SEZPR06MB5269.apcprd06.prod.outlook.com
+ ([fe80::fa0e:6c06:7474:285c%5]) with mapi id 15.20.6565.028; Wed, 12 Jul 2023
+ 06:29:33 +0000
+From: Yangtao Li <frank.li@vivo.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Yangtao Li <frank.li@vivo.com>,
+	linux-serial@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 13/15] serial: sifive: Use devm_platform_get_and_ioremap_resource()
+Date: Wed, 12 Jul 2023 14:28:51 +0800
+Message-Id: <20230712062853.11007-13-frank.li@vivo.com>
+X-Mailer: git-send-email 2.39.0
+In-Reply-To: <20230712062853.11007-1-frank.li@vivo.com>
+References: <20230712062853.11007-1-frank.li@vivo.com>
+X-ClientProxiedBy: SI2PR01CA0024.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::20) To SEZPR06MB5269.apcprd06.prod.outlook.com
+ (2603:1096:101:78::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5269:EE_|SI2PR06MB3963:EE_
+X-MS-Office365-Filtering-Correlation-Id: ceaf386c-4f9c-470b-77c5-08db82a15b1e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: oYldZnDEIVqEoW2mVMwHSrkRx4Us+YgDQZxZ5u3xkUkaCrNk+KB815CZ2a7HdjTn6iIHWfsdNRDKvjDsCFnboGWrUtrhx3SSPk019Yx8J3Q5fhTyCjSLbl10SToSsbFn7fUwXnnoPrwxMpMvB+BIirk//ZAPh+s66kLrq/76zCjEWS3WtpndPvxLSg2w6jXFrWK7f1liQ8kbL30IESyBPpX7AcI0/ZwEHghx2lCQy6asqobbQPsovGtPa8myjtJeawiE9v3+0tnry5vw9hqE39gdAgiS9EMW58lGWjB0gl4gPGTYR84dhCrOBKW998SB1y3qjkLVWY9UH1RvraqNPVkQgeyoyeXvY9UUdUkFM0Xgx/QhMdtIQzo74xvLVDzmvIoEGB8D6hwdjEr5GqJbjreS+kw0G4nUo3VghKBmblsMSuqDQZR11hlQTYPEfdYLADqM3Klsf2s+WET7VR2PHMIQ3h/1Zrjl4zBUrcFFstVrxKZw9euWd7+XpxfYZsuCl3cxnnmfg6u6kWgL30dePI5Gs5I7GsHvaZu0qSK/acahlgAgI9ELYP8P9hBY+xrEPL/KRAjLGt9B7pZ9VUjliEjDNMwV0XTLv3wa+xcVSwfdaGN/eIVSRug0JruiyxDC
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5269.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(39860400002)(346002)(376002)(136003)(366004)(396003)(451199021)(41300700001)(316002)(8676002)(8936002)(6512007)(478600001)(110136005)(52116002)(66476007)(66556008)(6486002)(4326008)(66946007)(83380400001)(1076003)(6506007)(6666004)(38100700002)(38350700002)(86362001)(36756003)(2906002)(26005)(5660300002)(2616005)(186003)(4744005);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k2/D+aimpvP96QLCaOwOz6nNbAiT78ZOtBK22pBI7u+ONblJtdUnlZD2lYJZ?=
+ =?us-ascii?Q?yG7rX9B59NNQTV3VUsnlgeO+cPrUJZuOupR6qYxSOonG9X+Kv4LcMG0x3u19?=
+ =?us-ascii?Q?tC/bDsX6PFd0AoqmnLkx5UPFm6bO7t9t7g56dbxmLWMTg8zYZx7HkuN0qiEy?=
+ =?us-ascii?Q?OTj0Y2gm1z2hgyMQDEYqWjFhHjofgECFQBXlfWnhZ/ywRC1kPkH5o3DtExn7?=
+ =?us-ascii?Q?Qs8a40AjPfrcbtdVzw3S4JT6LhjPCyTAR+qGBJdqnJjVo9x9EB5r/1s9CZ3K?=
+ =?us-ascii?Q?Xx//ZGufkkwBlfvjn7u4rlNjfP+SbhpKH6y6Keiyelqw6uS1KLXULKUIoGmm?=
+ =?us-ascii?Q?StHty8LZpgDpM4ldKOw98iIKZ+Ux7niIl7J0qSDskYJ8Nt0ZNsCxxefAV3iC?=
+ =?us-ascii?Q?tg5g7Nk0mx/Fs3SyzGgtScNOeV9AwJUCtm9qFRcXseUIcHI1m2bhoA+7Qklu?=
+ =?us-ascii?Q?5vP4LLNgrgptffPwBmW/VwgT8dkBjxZomI7MqfKtQKs000DBT/uwTRmF3Pcj?=
+ =?us-ascii?Q?XfFvHfn9JUDJHMtG70jbGXq9C8kg9bIPL2WwbpjnG+8dYMVWWLXqii+YmKW9?=
+ =?us-ascii?Q?0k4Ea3AMFUNfe+EcMMs0OeGo10DeGnaPabYAoOvOoBnMU/RwvcT8YqjSpud0?=
+ =?us-ascii?Q?xPWwGkkfFfge8u4LYMDgfK5BKl1eUMgdsnV7LuF2a7T/YP+GQMK3j4fsFcCF?=
+ =?us-ascii?Q?BwuFbyhcm4ov0FW3WfzQ42uJtOKKfwQ3kCbC+da5ARymcDn3BG3TsH4CFF8J?=
+ =?us-ascii?Q?E0VSoBOrQ6ozBtCCtxK2l5s7xn4HoGZgSXq53HaHGLLEjyyAVmAprz+zhErw?=
+ =?us-ascii?Q?hwbNM6c/zxGfDfbnedVkA+L+qiXbE5LRZ4IdgYulWRtT7f1J9ODB+I9yDjvI?=
+ =?us-ascii?Q?VY/aAwkFNK/cFxJaidAz7dCyaasaWcAYz7anL+KvJoZo40SUHPH3N/xE2jBm?=
+ =?us-ascii?Q?ENQo5zSdnVgH7hwiVUZwEjNb7mAr10+ZR0snGwSoEzrkdEBhHq6TUYbrtxyk?=
+ =?us-ascii?Q?5PXGwQpGNPxeaHFRDejcrfw+bVjNcxHak6wCUb4x64NboOBP4HXAI7WDi4JP?=
+ =?us-ascii?Q?WOKsx7Jyi/Cbk1w/JT+Dl8msTa5736tLPuOjSGd7/oPFmXyqcDddMlMUSIk2?=
+ =?us-ascii?Q?0liulz8jn0SGBjoyrGdB5XAb/47Xraku7Q5UrSrLl5IN9PbhjitGTQX3kbsK?=
+ =?us-ascii?Q?EEdm7XefUlf4and7XDhc5LLKHZiGW6FNmH6q/tD1zGeRZd534zF5+RolG3xh?=
+ =?us-ascii?Q?j7LPvMT2qJmvb2RPTd0bFxhTPQKwrT4BVCGGOdV3qhvd19aejblyO7PU++/L?=
+ =?us-ascii?Q?GMmoFh+jq8FvgyveYm9+kyCoVAL+L5Dh6GLseS7leve4FATg6Rj+36NZZfDD?=
+ =?us-ascii?Q?ERmRl5VNrVbiET9fg5rSKnwGOkP5+EmwRDdP2jY3tZoNyeUwu9PIGQdi4ASq?=
+ =?us-ascii?Q?JdS9aIStPJIZypr0kjgmN2D7aq5N0FHL4D6mDKSenquzTFmruC2M/1RuQDxw?=
+ =?us-ascii?Q?egTK8yiaSwjHVuu9Z6BA062kAi1OgvUGXyCE6mG7t3X5LETYa4iy4S7LHMPN?=
+ =?us-ascii?Q?HAUK/Y2s3b0jJ1+97fSMG6jX4AvRlmACK4+wLvO2?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ceaf386c-4f9c-470b-77c5-08db82a15b1e
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5269.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jul 2023 06:29:33.5349
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y5NcnwOAROXxsGgfWP7c8ZMdEfBO9GZLdSde2mFESBB4FfmqOuHO1nB3ZMqvu+fX+B8pmhobdL3Ly6RRzcRPAg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR06MB3963
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_225516_581540_C9875417 
-X-CRM114-Status: GOOD (  33.54  )
+X-CRM114-CacheID: sfid-20230711_232935_253954_202AD71C 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,213 +137,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 10, 2023, at 3:59 AM, Samuel Ortiz wrote:
-> On Wed, Jun 28, 2023 at 09:25:02AM -0400, Stefan O'Rear wrote:
->> On Wed, Jun 28, 2023, at 6:04 AM, Samuel Ortiz wrote:
->> > On Tue, Jun 27, 2023 at 08:34:20PM -0400, Stefan O'Rear wrote:
->> >> On Tue, Jun 27, 2023, at 10:37 AM, Samuel Ortiz wrote:
->> >> > Zbc was missing from a previous Bit-Manipulation extension hwprobe
->> >> > patch.
->> >> >
->> >> > Add all scalar crypto extensions bits, and define a macro for setting
->> >> > the hwprobe key/pair in a more readable way.
->> >> >
->> >> > Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
->> >> > ---
->> >> >  Documentation/riscv/hwprobe.rst       | 33 ++++++++++++++++++++++++
->> >> >  arch/riscv/include/uapi/asm/hwprobe.h | 11 ++++++++
->> >> >  arch/riscv/kernel/sys_riscv.c         | 36 ++++++++++++++++-----------
->> >> >  3 files changed, 66 insertions(+), 14 deletions(-)
->> >> >
->> >> > diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
->> >> > index 19165ebd82ba..3177550106e0 100644
->> >> > --- a/Documentation/riscv/hwprobe.rst
->> >> > +++ b/Documentation/riscv/hwprobe.rst
->> >> > @@ -72,11 +72,44 @@ The following keys are defined:
->> >> >         extensions.
->> >> > 
->> >> >    * :c:macro:`RISCV_HWPROBE_EXT_ZBB`: The Zbb extension is supported, 
->> >> > as defined
->> >> > +      in version 1.0 of the Bit-Manipulation ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZBC`: The Zbc extension is supported, 
->> >> > as defined
->> >> >         in version 1.0 of the Bit-Manipulation ISA extensions.
->> >> > 
->> >> >    * :c:macro:`RISCV_HWPROBE_EXT_ZBS`: The Zbs extension is supported, 
->> >> > as defined
->> >> >         in version 1.0 of the Bit-Manipulation ISA extensions.
->> >> > 
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZBKB`: The Zbkb extension is 
->> >> > supported, as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZBKC`: The Zbkc extension is 
->> >> > supported, as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZBKX`: The Zbkx extension is 
->> >> > supported, as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZKND`: The Zknd extension is 
->> >> > supported, as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZKNE`: The Zkne extension is 
->> >> > supported, as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZKNH`: The Zknh extension is 
->> >> > supported, as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZKR`: The Zkr extension is supported, 
->> >> > as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZKSED`: The Zksed extension is 
->> >> > supported, as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZKSH`: The Zksh extension is 
->> >> > supported, as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> > +  * :c:macro:`RISCV_HWPROBE_EXT_ZKT`: The Zkt extension is supported, 
->> >> > as defined
->> >> > +    in version 1.0 of the Scalar Cryptography ISA extensions.
->> >> > +
->> >> >  * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: A bitmask that contains 
->> >> > performance
->> >> >    information about the selected set of processors.
->> >> > 
->> >> > diff --git a/arch/riscv/include/uapi/asm/hwprobe.h 
->> >> > b/arch/riscv/include/uapi/asm/hwprobe.h
->> >> > index 006bfb48343d..8357052061b3 100644
->> >> > --- a/arch/riscv/include/uapi/asm/hwprobe.h
->> >> > +++ b/arch/riscv/include/uapi/asm/hwprobe.h
->> >> > @@ -29,6 +29,17 @@ struct riscv_hwprobe {
->> >> >  #define		RISCV_HWPROBE_EXT_ZBA		(1 << 3)
->> >> >  #define		RISCV_HWPROBE_EXT_ZBB		(1 << 4)
->> >> >  #define		RISCV_HWPROBE_EXT_ZBS		(1 << 5)
->> >> > +#define		RISCV_HWPROBE_EXT_ZBC		(1 << 6)
->> >> > +#define		RISCV_HWPROBE_EXT_ZBKB		(1 << 7)
->> >> > +#define		RISCV_HWPROBE_EXT_ZBKC		(1 << 8)
->> >> > +#define		RISCV_HWPROBE_EXT_ZBKX		(1 << 9)
->> >> > +#define		RISCV_HWPROBE_EXT_ZKND		(1 << 10)
->> >> > +#define		RISCV_HWPROBE_EXT_ZKNE		(1 << 11)
->> >> > +#define		RISCV_HWPROBE_EXT_ZKNH		(1 << 12)
->> >> > +#define		RISCV_HWPROBE_EXT_ZKR		(1 << 13)
->> >> > +#define		RISCV_HWPROBE_EXT_ZKSED		(1 << 14)
->> >> > +#define		RISCV_HWPROBE_EXT_ZKSH		(1 << 15)
->> >> > +#define		RISCV_HWPROBE_EXT_ZKT		(1 << 16)
->> >> >  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
->> >> >  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
->> >> >  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
->> >> > diff --git a/arch/riscv/kernel/sys_riscv.c 
->> >> > b/arch/riscv/kernel/sys_riscv.c
->> >> > index 26ef5526bfb4..df15926196b6 100644
->> >> > --- a/arch/riscv/kernel/sys_riscv.c
->> >> > +++ b/arch/riscv/kernel/sys_riscv.c
->> >> > @@ -145,20 +145,28 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe 
->> >> > *pair,
->> >> >  	for_each_cpu(cpu, cpus) {
->> >> >  		struct riscv_isainfo *isainfo = &hart_isa[cpu];
->> >> > 
->> >> > -		if (riscv_isa_extension_available(isainfo->isa, ZBA))
->> >> > -			pair->value |= RISCV_HWPROBE_EXT_ZBA;
->> >> > -		else
->> >> > -			missing |= RISCV_HWPROBE_EXT_ZBA;
->> >> > -
->> >> > -		if (riscv_isa_extension_available(isainfo->isa, ZBB))
->> >> > -			pair->value |= RISCV_HWPROBE_EXT_ZBB;
->> >> > -		else
->> >> > -			missing |= RISCV_HWPROBE_EXT_ZBB;
->> >> > -
->> >> > -		if (riscv_isa_extension_available(isainfo->isa, ZBS))
->> >> > -			pair->value |= RISCV_HWPROBE_EXT_ZBS;
->> >> > -		else
->> >> > -			missing |= RISCV_HWPROBE_EXT_ZBS;
->> >> > +#define SET_HWPROBE_EXT_PAIR(ext)					\
->> >> > +		do {							\
->> >> > +			if (riscv_isa_extension_available(isainfo->isa, ext)) \
->> >> > +				pair->value |= RISCV_HWPROBE_EXT_## ext; \
->> >> > +			else						\
->> >> > +				missing |= RISCV_HWPROBE_EXT_## ext;	\
->> >> > +		} while (false)						\
->> >> > +
->> >> > +		SET_HWPROBE_EXT_PAIR(ZBA);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZBB);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZBC);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZBS);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZBKB);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZBKC);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZBKX);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZKND);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZKNE);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZKNH);
->> >> > +		SET_HWPROBE_EXT_PAIR(ZKR);
->> >> 
->> >> Does the presence of a HWPROBE_EXT bit imply that userspace software can
->> >> actually directly use the described feature?  If so, we should probably
->> >> not set ZKR unless mseccfg.USEED=1.
->> >
->> > mseccfg is MRW, so only accessible from M-mode only afaiu. So I don't
->> > think we would be able to check that from Linux in S-mode.
->> 
->> Check directly, no, but your patch already makes the assumption that
->> mseccfg.SSEED=1 if zkr is present in the device tree.  Which is fine as long
->> as that contract is documented somewhere (presumably, the device tree
->> binding; some of the language in the RVA22U64 profile spec implies USEED=0,
->> but linux does not require profiles and they don't exist for rv32).
->> 
->> If we want U-mode behavior to be discoverable and/or predictable, we have
->> three good options:
->
-> Thanks for the suggestions.
->
->> Simplest: Document that we expect USEED=0 or USEED=1.  Set zkr appropriately
->> in hwprobe.
->> 
->> Most flexible: Work with the SBI people to add a SBI_EXT_FWFEATURE for USEED,
->> as well as defining the value on kernel entry.  Expose this via hwprobe and
->> a new prctl.
->
-> I'd like to go down that route, but this depends on [1] to get
-> accepted/merged first.
->
-> Would it make sense to go with only documenting the USEED expectation
-> for now and then move to the more flexible FWFEATURE SBI approach?
+Convert platform_get_resource(), devm_ioremap_resource() to a single
+call to devm_platform_get_and_ioremap_resource(), as this is exactly
+what this function does.
 
-Yes.
+Signed-off-by: Yangtao Li <frank.li@vivo.com>
+---
+ drivers/tty/serial/sifive.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-I would start with an assumption that SSEED=1 (so that we can use it at all),
-USEED=0 (because many systems will want to prevent unprivileged access to raw
-hardware randomness, so we don't want the uABI to guarantee accessibility of
-seed until a mechanism has been defined to communicate USEED to userspace),
-and there is no nonstandard extension on the FWFT extension ID or nonstandard
-use of reserved feature space (so we can probe for the USEED feature to
-become available; this can be tightened once a specific feature ID is
-allocated for USEED).
+diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+index 1f565a216e74..684933f5504c 100644
+--- a/drivers/tty/serial/sifive.c
++++ b/drivers/tty/serial/sifive.c
+@@ -917,12 +917,9 @@ static int sifive_serial_probe(struct platform_device *pdev)
+ 	if (irq < 0)
+ 		return -EPROBE_DEFER;
+ 
+-	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	base = devm_ioremap_resource(&pdev->dev, mem);
+-	if (IS_ERR(base)) {
+-		dev_err(&pdev->dev, "could not acquire device memory\n");
++	base = devm_platform_get_and_ioremap_resource(pdev, 0, &mem);
++	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+-	}
+ 
+ 	clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 	if (IS_ERR(clk)) {
+-- 
+2.39.0
 
-I assumed earlier in the thread that we would communicate USEED to userspace
-by conditionally setting the RISCV_HWPROBE_EXT_ZKR flag.  This was an error
-on my part as I assumed hwprobe could return different values per process,
-but it uses data from the vvar area which only exists once per time
-namespace.  A new mechanism will need to be developed.
-
--s
-
-> Cheers,
-> Samuel.
->
-> [1] https://lists.riscv.org/g/tech-prs/message/540
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
