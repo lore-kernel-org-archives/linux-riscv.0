@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAA7EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 06:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A33EB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 07:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eBx0iEUllS4BaiqZusInSejyPKGtlrjuYkrIMsSluJ8=; b=HcVax1KOFWHUKZ
-	vG6PtQpmaRuFcqFpqyZ0Dvbag7KtlF5XpjnUdGfF+qvlbftLyGU3elK2pe/m3tVm1wZola+uTBrW4
-	ebXkP0fy+1IsPA09CzdGqpBdgQ+AeMEDBC/upfofB3gAXwSvHutLrq+mJOikvOE7DdsTTdb3XzKIR
-	+mWYu6QqMEDf57ozwAwpiux3SBf/9mYHYldIvIQXxbSOkwiz2vNq2evAlvMHk2CZ1OlYC/BcVHcrL
-	O8RLbEXI4Dg4t2woXx52XDvE2cRTDxGYMthW2OdlNZ8ohXMdEImxK/qG7Fw/4ZXofl2SGkZ7MfosX
-	vyDWERjOOmyWBM6w7Hag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BmkNkyn823+ye60WOCFAPQFAsdmUf0EV8hDceo+6ISg=; b=dSbwc7xdlwLYsAahgjTZym9SBf
+	/l3uB9oWMuHHYgIDnCO5PsXQMPfKw3a4NSFv2l7/CqPHTd0kSbwjOo1kqmfWAQ1OpwtQVOToImnsy
+	mSzhb2BdzlSmYahkXpTILYJKIFOxRsCYMV/QE68mhPTeEvtXQoPXSf3gGtnvW4Ph95GYYu3XSE9fa
+	q8KYfdoShcSjM5772WoQNT0IfYz9BjwmT5FhR79LJZGGoErsYFdl9tPqJZdfzP3eempFeFscHMPr9
+	nXVA3YPk7wSNQaFTHZJtLQRIxgbwnI8I6gXylJ+xw/mlSGDcD+LpLfGlgJcHEdwAYxhg5nGvajcYs
+	qK9HHyEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJTYy-00Ghlm-2Z;
-	Wed, 12 Jul 2023 06:43:00 +0000
-Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
+	id 1qJTvD-00GkGe-36;
+	Wed, 12 Jul 2023 07:05:59 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJTYv-00Ghl1-19
+	id 1qJTvB-00GkFC-1U
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 06:42:58 +0000
-Received: by mail-io1-xd33.google.com with SMTP id ca18e2360f4ac-78363cc070aso299049939f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Jul 2023 23:42:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1689144167; x=1691736167;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dWfOSMrv6do4PAbxZtLX2gDNrKPpyct3TAi/IYd4WYM=;
-        b=Hw3Ob/+Yca4KTN3qdRPzFpwgrFDjP8sfy07Z33AABHGClFhVX6UYE1MammcWVscMir
-         8n4Nliv5JgZZHfjaxFTBijG/ZAVgEWmafu1isleFjWACqIeDDFhT7w5w8mHN87RzVUCZ
-         yVoTRkyXLTHCc7Yc8bFXeWlv5XnnrERq42SrN7DpU6CUOzOCH2SYtuKAhAKJBMsVSRiw
-         5RgriE8ZfTyHNr2wnm0e2s47CS0l38xItxBOdR7FGpuvKq2jN+mpaTnOg+zBP6FMLL/c
-         AeoWkmE1YQZM0RdZGy0M/d9uCLyLJNNLeiPslnXfDcaBUeenAnevW54WtoYOxiU1UfEr
-         hoHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689144167; x=1691736167;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dWfOSMrv6do4PAbxZtLX2gDNrKPpyct3TAi/IYd4WYM=;
-        b=UWHZh4J1f7KZBS6HARhc1ORQGmIvhGF4T/XpA8MdDdW9G3CABJ0/Ev9mZBs8exq8Fp
-         vEparDxwsTtdxvtXBPNLIiBp3R6esXhqQLhEoGz9Nkmkw7y1FOq2oZXwLvewIAGkmQtQ
-         B6JnxoUNPVgH0T1IFcPsuP7uOrL9eepFV8eWRxW3fhp/8NwfGm/a9nCfsiJjcA+/DxL+
-         VFBhs+Xee+HCh8M4DDszEOmbTKTN3YxIR403up9uOH17TQP96xaPaNQDMAoSxrJBj5ho
-         vCnNT0oYtQyF+JFvkgoX9IEcHAdGfkJzPS91N94nmmrLkSRfyTkzZVZ3LB55gu/h1jD2
-         uXJQ==
-X-Gm-Message-State: ABy/qLZWN0YLnT4VIDDkv+4CowAUUynOOXIDgAVJ4kLVtAOVwGa5zHFk
-	5OR0Bc3L4Tr/K/BSp0odk6AQmQ==
-X-Google-Smtp-Source: APBJJlGEvuxhL5L8C2Zwfrw9CRqcNzRA6M8IHu9gQ0y7YWiEP67ewnRtBRT1y1ssYvl/ZpHqbrdUKQ==
-X-Received: by 2002:a5d:950e:0:b0:783:72d4:8c38 with SMTP id d14-20020a5d950e000000b0078372d48c38mr18434142iom.13.1689144167545;
-        Tue, 11 Jul 2023 23:42:47 -0700 (PDT)
-Received: from sunil-laptop ([106.51.83.242])
-        by smtp.gmail.com with ESMTPSA id h22-20020a02c736000000b0042b48d372aasm1038592jao.100.2023.07.11.23.42.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Jul 2023 23:42:47 -0700 (PDT)
-Date: Wed, 12 Jul 2023 12:12:41 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
-Subject: Re: [PATCH] RISC-V: Don't include Zicsr or Zifencei in I from ACPI
-Message-ID: <ZK5LYcQ0ZTmkiP4y@sunil-laptop>
-References: <20230711224600.10879-1-palmer@rivosinc.com>
+	Wed, 12 Jul 2023 07:05:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1689145557; x=1720681557;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0h/r3Ic5J67vhkzH+wtbnxSNtw8GW9VDflyBgQaHVzk=;
+  b=swzodY5fpuZ7B87wKTktIibCg3Ns5jPF8RvIPouMmO7xc66JZiu7Ew07
+   e39kWPrAPrVgcvpMnwfyjuO6uKRysw9cH6rYjwiqFtwZQ9XQQywW+ea2I
+   /d0iyT9lnjnizQ4ktCfrMnzihu/AyA+E1tn6+qj1DmmBx9F76F8C0f/nf
+   tPz6bs/wisXy+HDOlyp9c3ivX6iqxzNeJ2Va6dplnRfncbpUtd1ZXImBW
+   9/94uWDZVy1InsR3NMJA/rQcuC68G+waiM8FOWWv80X712407cGnoPxEj
+   n5kGtG08kDmPahaFkiT7HcUiCZ1O4dEEcM+tEBnG9nt/be99n2gmWk/gd
+   w==;
+X-IronPort-AV: E=Sophos;i="6.01,199,1684825200"; 
+   d="asc'?scan'208";a="222552791"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Jul 2023 00:05:49 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 12 Jul 2023 00:05:49 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 12 Jul 2023 00:05:48 -0700
+Date: Wed, 12 Jul 2023 08:05:16 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andrea Parri <parri.andrea@gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] riscv,mmio: Use the generic implementation for the
+ I/O accesses
+Message-ID: <20230712-lesser-deflector-d18f7991477b@wendy>
+References: <20230711133348.151383-1-parri.andrea@gmail.com>
+ <20230711133348.151383-3-parri.andrea@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230711224600.10879-1-palmer@rivosinc.com>
+In-Reply-To: <20230711133348.151383-3-parri.andrea@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230711_234257_424311_86FBB1A6 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20230712_000557_504611_97287599 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +81,186 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8900434922484503633=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 11, 2023 at 03:46:00PM -0700, Palmer Dabbelt wrote:
-> ACPI ISA strings are based on a specification after Zicsr and Zifencei
-> were split out of I, so we shouldn't be treating them as part of I.  We
-> haven't release an ACPI-based kernel yet, so we don't need to worry
-> about compatibility with the old ISA strings.
-> 
-> Fixes: 396c018332a1 ("RISC-V: cpufeature: Add ACPI support in riscv_fill_hwcap()")
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+--===============8900434922484503633==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="lbqRmB5GpIRDGyZA"
+Content-Disposition: inline
+
+--lbqRmB5GpIRDGyZA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jul 11, 2023 at 03:33:48PM +0200, Andrea Parri wrote:
+> The current implementation of readX(), writeX() and their "relaxed"
+> variants, readX_relaxed() and writeX_relaxed(), matches the generic
+> implementation; remove the redundant code.
+>=20
+> No functional change intended.
+>=20
+> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+
+This fails to build for (64-bit, I didn't check 32-bit) nommu:
+arch/riscv/include/asm/timex.h:20:16: error: implicit declaration of functi=
+on 'readq_relaxed' [-Werror=3Dimplicit-function-declaration]
+include/asm-generic/io.h:342:23: error: conflicting types for 'readq_relaxe=
+d'; have 'u64(const volatile void *)' {aka 'long long unsigned int(const vo=
+latile void *)'}
+
+Cheers,
+Conor.
+
 > ---
-LGTM. I agree with Conor that Fixes tag should point to 07edc32779e3.
-
-Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
-
-Thanks,
-Sunil
->  arch/riscv/kernel/cpufeature.c | 9 ++-------
->  1 file changed, 2 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index bdcf460ea53d..a8f66c015229 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -317,19 +317,14 @@ void __init riscv_fill_hwcap(void)
->  #undef SET_ISA_EXT_MAP
->  		}
->  
-> -		/*
-> -		 * Linux requires the following extensions, so we may as well
-> -		 * always set them.
-> -		 */
-> -		set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
-> -		set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
+>  arch/riscv/include/asm/mmio.h | 68 ++++-------------------------------
+>  1 file changed, 6 insertions(+), 62 deletions(-)
+>=20
+> diff --git a/arch/riscv/include/asm/mmio.h b/arch/riscv/include/asm/mmio.h
+> index 4c58ee7f95ecf..116b898fe969d 100644
+> --- a/arch/riscv/include/asm/mmio.h
+> +++ b/arch/riscv/include/asm/mmio.h
+> @@ -80,72 +80,16 @@ static inline u64 __raw_readq(const volatile void __i=
+omem *addr)
+>  #endif
+> =20
+>  /*
+> - * Unordered I/O memory access primitives.  These are even more relaxed =
+than
+> - * the relaxed versions, as they don't even order accesses between succe=
+ssive
+> - * operations to the I/O regions.
+> - */
+> -#define readb_cpu(c)		({ u8  __r =3D __raw_readb(c); __r; })
+> -#define readw_cpu(c)		({ u16 __r =3D le16_to_cpu((__force __le16)__raw_r=
+eadw(c)); __r; })
+> -#define readl_cpu(c)		({ u32 __r =3D le32_to_cpu((__force __le32)__raw_r=
+eadl(c)); __r; })
 > -
->  		/*
->  		 * These ones were as they were part of the base ISA when the
->  		 * port & dt-bindings were upstreamed, and so can be set
->  		 * unconditionally where `i` is in riscv,isa on DT systems.
->  		 */
->  		if (acpi_disabled) {
-> +			set_bit(RISCV_ISA_EXT_ZICSR, isainfo->isa);
-> +			set_bit(RISCV_ISA_EXT_ZIFENCEI, isainfo->isa);
->  			set_bit(RISCV_ISA_EXT_ZICNTR, isainfo->isa);
->  			set_bit(RISCV_ISA_EXT_ZIHPM, isainfo->isa);
->  		}
-> -- 
-> 2.40.1
-> 
+> -#define writeb_cpu(v, c)	((void)__raw_writeb((v), (c)))
+> -#define writew_cpu(v, c)	((void)__raw_writew((__force u16)cpu_to_le16(v)=
+, (c)))
+> -#define writel_cpu(v, c)	((void)__raw_writel((__force u32)cpu_to_le32(v)=
+, (c)))
+> -
+> -#ifdef CONFIG_64BIT
+> -#define readq_cpu(c)		({ u64 __r =3D le64_to_cpu((__force __le64)__raw_r=
+eadq(c)); __r; })
+> -#define writeq_cpu(v, c)	((void)__raw_writeq((__force u64)cpu_to_le64(v)=
+, (c)))
+> -#endif
+> -
+> -/*
+> - * Relaxed I/O memory access primitives. These follow the Device memory
+> - * ordering rules but do not guarantee any ordering relative to Normal m=
+emory
+> - * accesses.  These are defined to order the indicated access (either a =
+read or
+> - * write) with all other I/O memory accesses to the same peripheral. Sin=
+ce the
+> - * platform specification defines that all I/O regions are strongly orde=
+red on
+> - * channel 0, no explicit fences are required to enforce this ordering.
+> - */
+> -/* FIXME: These are now the same as asm-generic */
+> -#define __io_rbr()		do {} while (0)
+> -#define __io_rar()		do {} while (0)
+> -#define __io_rbw()		do {} while (0)
+> -#define __io_raw()		do {} while (0)
+> -
+> -#define readb_relaxed(c)	({ u8  __v; __io_rbr(); __v =3D readb_cpu(c); _=
+_io_rar(); __v; })
+> -#define readw_relaxed(c)	({ u16 __v; __io_rbr(); __v =3D readw_cpu(c); _=
+_io_rar(); __v; })
+> -#define readl_relaxed(c)	({ u32 __v; __io_rbr(); __v =3D readl_cpu(c); _=
+_io_rar(); __v; })
+> -
+> -#define writeb_relaxed(v, c)	({ __io_rbw(); writeb_cpu((v), (c)); __io_r=
+aw(); })
+> -#define writew_relaxed(v, c)	({ __io_rbw(); writew_cpu((v), (c)); __io_r=
+aw(); })
+> -#define writel_relaxed(v, c)	({ __io_rbw(); writel_cpu((v), (c)); __io_r=
+aw(); })
+> -
+> -#ifdef CONFIG_64BIT
+> -#define readq_relaxed(c)	({ u64 __v; __io_rbr(); __v =3D readq_cpu(c); _=
+_io_rar(); __v; })
+> -#define writeq_relaxed(v, c)	({ __io_rbw(); writeq_cpu((v), (c)); __io_r=
+aw(); })
+> -#endif
+> -
+> -/*
+> - * I/O memory access primitives.  Reads are ordered relative to any foll=
+owing
+> - * Normal memory read and delay() loop.  Writes are ordered relative to =
+any
+> - * prior Normal memory write.  The memory barriers here are necessary as=
+ RISC-V
+> - * doesn't define any ordering between the memory space and the I/O spac=
+e.
+> + * I/O barriers
+> + *
+> + * See Documentation/memory-barriers.txt, "Kernel I/O barrier effects".
+> + *
+> + * Assume that each I/O region is strongly ordered on channel 0, followi=
+ng the
+> + * RISC-V Platform Specification, "OS-A Common Requirements".
+>   */
+>  #define __io_br()	do {} while (0)
+>  #define __io_ar(v)	({ __asm__ __volatile__ ("fence i,ir" : : : "memory")=
+; })
+>  #define __io_bw()	({ __asm__ __volatile__ ("fence w,o" : : : "memory"); =
+})
+>  #define __io_aw()	mmiowb_set_pending()
+> =20
+> -#define readb(c)	({ u8  __v; __io_br(); __v =3D readb_cpu(c); __io_ar(__=
+v); __v; })
+> -#define readw(c)	({ u16 __v; __io_br(); __v =3D readw_cpu(c); __io_ar(__=
+v); __v; })
+> -#define readl(c)	({ u32 __v; __io_br(); __v =3D readl_cpu(c); __io_ar(__=
+v); __v; })
+> -
+> -#define writeb(v, c)	({ __io_bw(); writeb_cpu((v), (c)); __io_aw(); })
+> -#define writew(v, c)	({ __io_bw(); writew_cpu((v), (c)); __io_aw(); })
+> -#define writel(v, c)	({ __io_bw(); writel_cpu((v), (c)); __io_aw(); })
+> -
+> -#ifdef CONFIG_64BIT
+> -#define readq(c)	({ u64 __v; __io_br(); __v =3D readq_cpu(c); __io_ar(__=
+v); __v; })
+> -#define writeq(v, c)	({ __io_bw(); writeq_cpu((v), (c)); __io_aw(); })
+> -#endif
+> -
+>  #endif /* _ASM_RISCV_MMIO_H */
+> --=20
+> 2.34.1
+>=20
+
+--lbqRmB5GpIRDGyZA
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK5QogAKCRB4tDGHoIJi
+0r/aAQCBngLbkHKiPgKX9pi71CmamNtvQXwssaoUQwdHvDHuqAEAuIPvzEXR5fPr
+s3L9SxTdqOUKUhwbttoQjZ/4Q0qmBAc=
+=5/2+
+-----END PGP SIGNATURE-----
+
+--lbqRmB5GpIRDGyZA--
+
+
+--===============8900434922484503633==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8900434922484503633==--
+
