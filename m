@@ -4,58 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE1FEB64DD
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 15:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB283EB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 15:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Fzq4oCi8NHOq4r43oChAsgzH2LnFfuq0U2oK7cXKmg=; b=TYvjSjqB7/BQEH
-	KxBVS1goPk/nvQl7+Uk3t4LzmTdwtK9ky8e76zgfmwELpnyh+JF++naz00JXwAFB9inEmZtvuFhiG
-	1Rgt6bxKo80FlGpgWiI9WYczDYBo1XwS9AFZU29UmLbPRXtT6Itxi+ycFRFWK9DxNItBx3erP5Dql
-	yY0JHlzKh9sYI7FKJFY547pTGhPtt8YW/3tGaUG8RPVVIoe45qqTLx7vcQmm7bcQrDLcVAH8IUBDD
-	fc+nXF1+dFqmecCZKwYT5lm1N474fq0pmlGKtq28qLNzysaJkQNm2Ui6CxkYp3i05gFYpbUIBzpeN
-	VPF3+Lhd8XOyWAJgUHWw==;
+	List-Owner; bh=wzC6HwaVswtxmAH1bXk3leVYtt5nOSusn0irTYiHj48=; b=3qWY33q8Jd8cf3
+	Ze6g33ykZbGb8o9hT26+xyyUgiliQ5hIL8+nvKtfoVIXNw8SYW67v6SQBFcgq2oZQBVFLgYXAMkNT
+	lCfXgy7elfUFgTLQIse1WAX7Fg6DjQF36uOf8M2h8HyQj42yudMVmCK542eSm3VoV8bL/uqUvI8tr
+	tUmgZ64UjsKj4inhnuj1U0PDF6jxfC1qR71R9BGIHescTClskX9ahyPhebRtqWNySkoOufPcccVS/
+	Gq6xyhGaxsa2oVeenTTXrzrcj8sfRL7JkqP1bK0BXpLAe3+ZV4ue76Onf0PEkJgCGt7iYDCx5/nfv
+	7yLMb4m4yYkwQvT+FS9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJbbf-000KQb-0W;
-	Wed, 12 Jul 2023 15:18:19 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1qJbbc-000KO1-1T;
+	Wed, 12 Jul 2023 15:18:16 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJbbW-000KF6-0a
+	id 1qJbbV-000KFk-2a
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 15:18:15 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id ABE1CC000B;
-	Wed, 12 Jul 2023 15:18:00 +0000 (UTC)
-Message-ID: <bbda29db-644d-ed9b-2894-43f4c2addb52@ghiti.fr>
-Date: Wed, 12 Jul 2023 17:18:00 +0200
+	Wed, 12 Jul 2023 15:18:13 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-51e5e4c6026so3891299a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 08:18:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1689175085; x=1691767085;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jSRYzXQJjSzscDofbSmSLHS50IQUvlXSSpTRB4ma0qw=;
+        b=WKN/SIA/XO1lPrDOTg9H5Y9QVBzMys/4dO7qOvkxg1kVrOMCUj8pB5Pbg0DIjZmGwn
+         CcKtivJweKIAjfuiRB7mY43/5IAjGbHWjAcqZoMs8+byLSpnbrQ3kv1Yuwn9wZoEE9m/
+         0Z80z2qmtMyoFi/x0ZyYXQLbsZf9Bq0kTrXxgw8TAKwcquQxZ6+Ke8koEbAq2EfRkI0A
+         GBOZT3f6nCGYjJn2lJbR2+2zPKGR64oif3/jQo1o6KbuTWpbXBGK/eAr/OQwVkC1tgU8
+         Q/WyF3BgPozt9JQJtCL87WEWgue09s/r52S83yRkEz6dQd3Xju3J/LKflptrGuq8oxg1
+         JNfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689175085; x=1691767085;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jSRYzXQJjSzscDofbSmSLHS50IQUvlXSSpTRB4ma0qw=;
+        b=IW7vuCjT4s0yor5k95Nxmg/APKNnteYmDmz5aGkX+Q5MLnWRMV0C0ZxHPVRdS9KL88
+         xiD1qzW4dhdjcDXMMvpWUqXTzXD6PAk5USQr1wSQ503Ua5Ga1ojf12VdTrUVhTDlXhO7
+         V+pvY1XXn/hYaKUfYq3rB+jwBsE+mr5RUoyfFY3oK8tBj2UqFnJQuE59R6HAU3AzRTT5
+         4laG5Grk/eId8vl3PNmsjC8uosVbEerWaQWJZMxbv2BDAnvsKQPzSoQQakNIBjkfOUs2
+         uH4+MLjSKMXyWLydUIbGGyRqK/0mm5Kk0bo16B96CE7gYB14XG0VH8k5o5FdW/nZ4/6M
+         MinA==
+X-Gm-Message-State: ABy/qLZv9JpQANAVyu7QTNS0bTYUbpLE+tPkiho+FGKuITnJmBuf4BSK
+	SWMPb2HPB0/EGbfSIpOEkNg=
+X-Google-Smtp-Source: APBJJlEk9gtg7L60OsOJ5R6HcLlpMod3vSrX0zpJyJcfqUvOGZpC33tgecmEO/qzBuuVg/63uT30ow==
+X-Received: by 2002:a17:906:6485:b0:98e:419b:4cbc with SMTP id e5-20020a170906648500b0098e419b4cbcmr19173591ejm.12.1689175085246;
+        Wed, 12 Jul 2023 08:18:05 -0700 (PDT)
+Received: from andrea (host-95-238-70-145.retail.telecomitalia.it. [95.238.70.145])
+        by smtp.gmail.com with ESMTPSA id qw5-20020a170906fca500b00992ed412c74sm2668251ejb.88.2023.07.12.08.18.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Jul 2023 08:18:04 -0700 (PDT)
+Date: Wed, 12 Jul 2023 17:18:01 +0200
+From: Andrea Parri <parri.andrea@gmail.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] riscv,mmio: Use the generic implementation for the
+ I/O accesses
+Message-ID: <ZK7EKQjCQV7fNPSx@andrea>
+References: <20230711133348.151383-1-parri.andrea@gmail.com>
+ <20230711133348.151383-3-parri.andrea@gmail.com>
+ <20230712-lesser-deflector-d18f7991477b@wendy>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH 0/4] riscv: tlb flush improvements
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Will Deacon <will@kernel.org>,
- "Aneesh Kumar K . V" <aneesh.kumar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- Vincent Chen <vincent.chen@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-arch@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20230711075434.10936-1-alexghiti@rivosinc.com>
- <20230712-void-sniff-ca1abcbc7783@wendy>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230712-void-sniff-ca1abcbc7783@wendy>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20230712-lesser-deflector-d18f7991477b@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_081810_394440_3BCC83D9 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20230712_081809_875573_5806CE90 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,66 +91,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+On Wed, Jul 12, 2023 at 08:05:16AM +0100, Conor Dooley wrote:
+> On Tue, Jul 11, 2023 at 03:33:48PM +0200, Andrea Parri wrote:
+> > The current implementation of readX(), writeX() and their "relaxed"
+> > variants, readX_relaxed() and writeX_relaxed(), matches the generic
+> > implementation; remove the redundant code.
+> > 
+> > No functional change intended.
+> > 
+> > Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+> 
+> This fails to build for (64-bit, I didn't check 32-bit) nommu:
+> arch/riscv/include/asm/timex.h:20:16: error: implicit declaration of function 'readq_relaxed' [-Werror=implicit-function-declaration]
+> include/asm-generic/io.h:342:23: error: conflicting types for 'readq_relaxed'; have 'u64(const volatile void *)' {aka 'long long unsigned int(const volatile void *)'}
 
+Thank you for the report, Conor.  Looking at it.
 
-On 12/07/2023 09:08, Conor Dooley wrote:
-> Hey Alex,
->
-> On Tue, Jul 11, 2023 at 09:54:30AM +0200, Alexandre Ghiti wrote:
->> This series optimizes the tlb flushes on riscv which used to simply
->> flush the whole tlb whatever the size of the range to flush or the size
->> of the stride.
->>
->> Patch 3 introduces a threshold that is microarchitecture specific and
->> will very likely be modified by vendors, not sure though which mechanism
->> we'll use to do that (dt? alternatives? vendor initialization code?).
-
-
-@Conor any idea how to achieve this?
-
-
->>
->> Next steps would be to implement:
->> - svinval extension as Mayuresh did here [1]
->> - BATCHED_UNMAP_TLB_FLUSH (I'll wait for arm64 patchset to land)
->> - MMU_GATHER_RCU_TABLE_FREE
->> - MMU_GATHER_MERGE_VMAS
->>
->> Any other idea welcome.
->>
->> [1] https://lore.kernel.org/linux-riscv/20230623123849.1425805-1-mchitale@ventanamicro.com/
->>
->> Alexandre Ghiti (4):
->>    riscv: Improve flush_tlb()
->>    riscv: Improve flush_tlb_range() for hugetlb pages
->>    riscv: Make __flush_tlb_range() loop over pte instead of flushing the
->>      whole tlb
-> The whole series does not build on nommu & this one adds a build warning
-> for regular builds:
-> +      1 ../arch/riscv/mm/tlbflush.c:32:15: warning: symbol 'tlb_flush_all_threshold' was not declared. Should it be static?
->
-> Cheers,
-> Conor.
-
-
-I'll fix the nommu build, sorry about that. Weird I missed this warning, 
-that's an LLVM build right? That variable will need to overwritten by 
-the vendors, so that should not be static (but it will depend on what 
-solution we implement).
-
-
-Thanks,
-
-
-Alex
-
-
+  Andrea
 
 _______________________________________________
 linux-riscv mailing list
