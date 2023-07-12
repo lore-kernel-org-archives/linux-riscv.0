@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D57EB64DA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E63FC001DC
 	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 16:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sWxRxXDYqZkUGXK6xnWC/rcNTnv4axTYiX8j13FoqyY=; b=c40njJHBvRq0MR
-	0id/RPpV55VhcimPEWRJZxCLVjq0tavWOKvY1E3dvYV8A4qJfww2itTiGxAtz3xvaNq1NUD9o6DnP
-	fitebpBgHAz/ukJB4aNkCElDnwSUeCq0cxB12dpsM1fZo8jAV9yWBVGiHitV5JrRy0VrmzEl5jcoW
-	LNYcGj5Pr9zUZ0pR91ItStRDJIw9RLSHW8aD0VwEGSvNMX2bGVoGCH4H4RZS355tu4UA0/xoBiZyr
-	RIu/tZAj9IiqMjBTxh9FiVYkrUtkwMv0ojSBZwLnP2c80Qh3a8WsGzUc3LIBoTlksAnqOOyluu5YM
-	TigTwKQvp8vFWDPZ69Qg==;
+	List-Owner; bh=LPIFsH7PSFwl/Ih1YzvcrTPcP3CMXClg9TEDjrxXFq0=; b=fLdK38u3qCXXS6
+	OaNnomiKqlx0TAABO14yNd6ddzSHBOFYQiXreSDHXHqVWlBM1hJMnWfl0/CHOEl7pJNgTTyNJZiA3
+	Pdv9h4i8U+C7v6SUj1c8pJS13O/FylxVBvPuEW0N7YyRMt+5NjufBp6DcEqI9IYhem9nKhU58uD4o
+	5NbaNOpbMW+HdtOWT0MJ0S/n0DwMYiCUGLF+nShqs2rB2vPQd76thkAALQQ8rmYBkckqVjrluoltX
+	YkCk3zWJ8AKHUJrHav/sLL6wOOhVaCilaPSv9HpgGh51y2Yf9eZqz+SwSzAEnZOYD4CMSrLYclfJb
+	3pz9HKx8FJhZpAGqY8zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJcGP-000RqM-34;
-	Wed, 12 Jul 2023 16:00:25 +0000
+	id 1qJcGR-000Rqq-0D;
+	Wed, 12 Jul 2023 16:00:27 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJcGM-000Rnu-2p
-	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 16:00:24 +0000
+	id 1qJcGM-000Rnv-2u;
+	Wed, 12 Jul 2023 16:00:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6495A61820;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 64E996184D;
 	Wed, 12 Jul 2023 16:00:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C2903C433CA;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C09E5C433C8;
 	Wed, 12 Jul 2023 16:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1689177621;
-	bh=NdMXVOOo+vMWBtkROJHL2faZFyhzZddyI2xLmLOz4YQ=;
+	bh=zNkYR0JyjRXUJ7vFyx0u819ePXXPtTPmLqFb58IyYgU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=aoOsOqQnnaAye7ZDa+X7xi6olX9cqLD/258LDjXjpxi2RzZPBhvRU5uIS6AAy4jRn
-	 hdGHYzpIQxACfn2/GBbJXq9z/Kj9mp9QbapiNoswquNYEL1uErennKQJFrYpobYLyi
-	 BH2LsAQCxNxO2SX5zF38uzxLLpogWl0xD4bD5OZvW3r/z92vQ0Vbo8kj257B1LSmpx
-	 iSP29OAGGsEjw5MDk5vHayccrrZVg5pRmg5wOhl0ewKrH66f0gBB6TmPbOV7mkQzGG
-	 knTaUI+r8INBdSXnxS1BU4lyO+AIm73rcxPZ9CwhUD2BnOEKJ9E4uhVsN3RL3+uFEe
-	 sXBbzaMo5/P9Q==
+	b=u5pbmmRny/PgfzGaePeSfwG/Wkz1NNm0fuvAIPvRY54ujqc2YoYxFh69nika2ZSD0
+	 zo/mi7wOv7tN6YXq/s/DBm0k+gEOYRsptfSTe3JTW32cKZKdjLefA+3UE4JV3UJEdm
+	 kvNoyh/it49Jx5roU0VLRZxGnePIshWFYFtbWWoJMRV44pwD38vXMmHM/rr085XsK4
+	 FbrxPleSDBbEUyv9o1mC2mjMrc+YV1HWFEhLBEyuaaNaMryrKXEIKE7p9AR++HZQJp
+	 K/CkVAIwYnOtqsB8lYA0JGGuFu74ajRl0lkIjyGn6AC95KRkenlxDIKl4fHpIiWX++
+	 aktu/dNXgE1oA==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id A2B1CC04E32;
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 9ADCFE4D006;
 	Wed, 12 Jul 2023 16:00:21 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: mm: fix truncates issue on RV32
+Subject: Re: [PATCH] perf: RISC-V: Remove PERF_HES_STOPPED flag checking in
+ riscv_pmu_start()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <168917762166.26837.18011111020285782236.git-patchwork-notify@kernel.org>
+Message-Id: <168917762163.26837.1392502139104305103.git-patchwork-notify@kernel.org>
 Date: Wed, 12 Jul 2023 16:00:21 +0000
-References: <20230709171036.1906-1-jszhang@kernel.org>
-In-Reply-To: <20230709171036.1906-1-jszhang@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
- rdunlap@infradead.org, lkp@intel.com
+References: <20230710154328.19574-1-eric.lin@sifive.com>
+In-Reply-To: <20230710154328.19574-1-eric.lin@sifive.com>
+To: Eric Lin <eric.lin@sifive.com>
+Cc: linux-riscv@lists.infradead.org, atishp@atishpatra.org,
+ anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
+ palmer@dabbelt.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, greentime.hu@sifive.com,
+ vincent.chen@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_090022_968118_54DB12BB 
-X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-CacheID: sfid-20230712_090022_982099_9E173E90 
+X-CRM114-Status: UNSURE (   9.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,20 +86,20 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon, 10 Jul 2023 01:10:36 +0800 you wrote:
-> lkp reports below sparse warning when building for RV32:
-> arch/riscv/mm/init.c:1204:48: sparse: warning: cast truncates bits from
-> constant value (100000000 becomes 0)
-> 
-> IMO, the reason we didn't see this truncates bug in real world is "0"
-> means MEMBLOCK_ALLOC_ACCESSIBLE in memblock and there's no RV32 HW
-> with more than 4GB memory.
+On Mon, 10 Jul 2023 15:43:28 +0000 you wrote:
+> Since commit 096b52fd2bb4 ("perf: RISC-V: throttle perf events") the
+> perf_sample_event_took() function was added to report time spent in
+> overflow interrupts. If the interrupt takes too long, the perf framework
+> will lower the sysctl_perf_event_sample_rate and max_samples_per_tick.
+> When hwc->interrupts is larger than max_samples_per_tick, the
+> hwc->interrupts will be set to MAX_INTERRUPTS, and events will be
+> throttled within the __perf_event_account_interrupt() function.
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: mm: fix truncates issue on RV32
-    https://git.kernel.org/riscv/c/b690e266dae2
+  - perf: RISC-V: Remove PERF_HES_STOPPED flag checking in riscv_pmu_start()
+    https://git.kernel.org/riscv/c/66843b14fb71
 
 You are awesome, thank you!
 -- 
