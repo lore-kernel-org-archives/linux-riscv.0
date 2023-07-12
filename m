@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D665EB64D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 08:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F02EB64D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Jul 2023 08:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NuRcurOKza+kAl/aC0fsuqyYIzxaCAzboc+qZxl8NbU=; b=VNH3WlVX5ebuII
-	gTYdkjjAeXlNoVEKSQfhFtiIJkiqqIidVTBQZwoEkxPQ2mMwU239FUpmK1VJpSutS/kIzRzl11twV
-	1ef1QPnKz7QaenG72XvPeZ7SP2rUaWRpTkdh7TO522/HLfYzx4zDVWOjmISyF9h3avaxiXKv7XUaj
-	2qS05HTosPYtbrSY3sSSSsBXqxxYN/3vnTLw0Bmqx27mNx/GXGSv6EgbBhRz1rBbVhf+TcPCDr1Ii
-	WYkzHes9KM3saL1kiDIqsVRW6MQr+TjJOvDgxsZOWoIyxImr7B0+IiSH9IWVy/C/mxqrdAacmZaL2
-	88IJtUvALiVcwp7kygUg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UdL1XXBXO+0/Gx+qSCO2hALZOS55qXS9wmvsAIFMfMc=; b=tSHozYjDiQc9JS
+	phRzLzmqz8zXl+4xhmm3dJyl3xSgHvPcKS3HC0Q0XRtRJa33j6r+mFglVUspVXEPwAp27V/b3tOyA
+	qIiZ5cGwzkHAtzwyHFhIzzD3EQwTA0fQi6UV/7RmsvXlBX+26rlzTefs1C5QIHz90rdNSMUw8WV6n
+	k8xvX1/fPRp6w0RX20t0mHCQTvsFNS5WWvSDi0lab13s+BWi/4Y1XCeffYHLpovs0dWLyYqwVxvo+
+	U75y/diWJnR+Nng6qfkqoi+2UowzF1Z12LCmSh94UKLuLrYe7u/bpaV/Od5/QSr8A0VjgOYN9lj6o
+	vFfeTKIdsaAHXnQUzkwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJV0v-00Gt3K-1T;
-	Wed, 12 Jul 2023 08:15:57 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qJVPx-00GwQp-1f;
+	Wed, 12 Jul 2023 08:41:49 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJV0s-00Gt1e-2N
+	id 1qJVPu-00GwMn-0e
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Jul 2023 08:15:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1689149754; x=1720685754;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=eeJoNzKNu6qUVnwz+5GZhUrJMC3KM11Xsjrz/i3wt6I=;
-  b=12ysNlmEeY8BY1dI/V+tLonmfhBU2T2rJJAujN2bHy7lE/GKstqqAxv8
-   Ehi54StDlcbO/WoQVPccum8qR/GhgcV5N+O8LsQFvqDJ0wOUATWW34T40
-   LV88N/oMNJicrNU28Yw66y8gX/mJehaSzIAVAoRXPiBFrlxT+BUla6sIy
-   OKx1L4f/rNCZY3gFGB8fz1oj+nN42bdvlZlb1QMgo9nJkXS3UAeJxm5Nn
-   YbrOc1r7mWfAxfoATQyp9W4A3nQQ5MxilO0hLLRTxEZgCoVNBEyG/b49G
-   fU87zGFkkswKgdR+Rqo9IyzJEUSHBKJtr8ggyJw2aKzqvZdzKe1fePkRU
-   Q==;
-X-IronPort-AV: E=Sophos;i="6.01,199,1684825200"; 
-   d="scan'208";a="235030971"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Jul 2023 01:15:47 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 12 Jul 2023 01:15:40 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Wed, 12 Jul 2023 01:15:38 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <geert+renesas@glider.be>
-CC: <conor@kernel.org>, <conor.dooley@microchip.com>, Magnus Damm
-	<magnus.damm@gmail.com>, Prabhakar Mahadev Lad
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor+dt@kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v1] riscv: dts: renesas: clean up dtbs_check W=1 warning due to empty phy node
-Date: Wed, 12 Jul 2023 09:14:44 +0100
-Message-ID: <20230712-squealer-walmart-9587342ddec1@wendy>
-X-Mailer: git-send-email 2.40.1
+	Wed, 12 Jul 2023 08:41:47 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3094910b150so7270652f8f.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Jul 2023 01:41:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689151302; x=1691743302;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RT/Vt3RRfMq4FWYr6OtGjxwm1ECt6aNXHT5BGeUxff0=;
+        b=gYPnPU3NZw9utPGclL+789aHb3o31Fbn2cEUJggsFY2ACdfcnuBKWAjFigGD/0gpDO
+         eHwKw0QqyK/YPRuyAOaFskMLIjkJhWDXb1jndmGbaM8cOK+RbjkgAYFEXALOoTKzUgcG
+         qPgnErIFUSnExWOiZ+H3qDiANwpt1Ci0AYavvs8PtIWDR7ZE/beHvm1/MLJ83PyK7AnY
+         rXIfuD8G2m+9o5uogS8UZDn+2kGx/XtM2NvqNVcfPnIlm8s1h4f8PgOlZVQJCaQRCZB0
+         /5F/AMo1W/vzP5kQZX4jvCjTRrJgI4fLsP7XIbMnoo0cUjBLdps3vjVS8cgjlnSvAQMN
+         l6Ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689151302; x=1691743302;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RT/Vt3RRfMq4FWYr6OtGjxwm1ECt6aNXHT5BGeUxff0=;
+        b=HR0o2LZ1qeoNvPw8sjWbeUCwaOsjnWrD6QFttl/RurFSdrQ1bTCSE2PlKw99TU2ouo
+         tCBx6006saQrx/g0dpBThErzBSE/8XlgHQPnDg5ZabJG7KXUwi3xm2grxAl2/1f4ccnp
+         Hu0y97vUh15I1GVtMvocxQjRiwCTn+9U9MsUbMP6CHS1ANPkVC0iSocf6trtdIm6zlt+
+         X7tvhZydB20UXGbYbCia5jD1kXYJCAekBkL8EKWt56nN433S+tRbJrerKTMGcvRwI4ZG
+         LSwsAWvCFs+LD7ifS48Kb+DDrkSJxnAjCQyyeq5oXnXdWdgDaVpffvRJY3hotQGvHxlf
+         JmNA==
+X-Gm-Message-State: ABy/qLZTRX/8qv4RPzQhbcwi2WNLRd/FVW2OuYk363l0JsCt6zLp3Ri2
+	VuRpfdAsJHXSrAr5Jo+sPTi17w==
+X-Google-Smtp-Source: APBJJlG5aEliuCg0Tzq/nowgmurWqSwaYDI+IB0QIjxf7737XRRWEo6xEPUUb76lZKABoel7Q4lrxQ==
+X-Received: by 2002:adf:ec8e:0:b0:314:1ebc:6e19 with SMTP id z14-20020adfec8e000000b003141ebc6e19mr16442275wrn.64.1689151302320;
+        Wed, 12 Jul 2023 01:41:42 -0700 (PDT)
+Received: from vermeer.tail79c99.ts.net ([2a01:cb1d:81a9:dd00:b570:b34c:ffd4:c805])
+        by smtp.gmail.com with ESMTPSA id z13-20020adfe54d000000b003143ac73fd0sm4496122wrm.1.2023.07.12.01.41.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Jul 2023 01:41:42 -0700 (PDT)
+From: Samuel Ortiz <sameo@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org
+Cc: Samuel Ortiz <sameo@rivosinc.com>,
+	linux@rivosinc.com,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Anup Patel <apatel@ventanamicro.com>,
+	linux-kernel@vger.kernel.org,
+	"Hongren (Zenithal) Zheng" <i@zenithal.me>,
+	Guo Ren <guoren@kernel.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Evan Green <evan@rivosinc.com>,
+	devicetree@vger.kernel.org,
+	sorear@fastmail.com
+Subject: [PATCH v4 2/4] dt-bindings: riscv: Document the 1.0 scalar cryptography extensions
+Date: Wed, 12 Jul 2023 10:41:18 +0200
+Message-ID: <20230712084134.1648008-3-sameo@rivosinc.com>
+X-Mailer: git-send-email 2.41.0
+In-Reply-To: <20230712084134.1648008-1-sameo@rivosinc.com>
+References: <20230712084134.1648008-1-sameo@rivosinc.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2281; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=eeJoNzKNu6qUVnwz+5GZhUrJMC3KM11Xsjrz/i3wt6I=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCnrEj6ZJprzlM1qf2eXt+dhTsY7CwupUy7/hFckhnO8Voic /GpzRykLgxgHg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACYi48/wP69ijZVUyPadHeuPb8oVc5 Ccwev1cfWPpzxix3MT5EIlhRgZ7t1t/yL6i43ZpMW0utjItHHiNqeb8rKb7ZIvuF/UdnzBCgA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230712_011554_892838_D4A4343C 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20230712_014146_253674_777F48D7 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,75 +107,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-dtbs_check w/ W=1 complains:
-Warning (unit_address_vs_reg): /soc/ethernet@11c20000/ethernet-phy@7: node has a unit name, but no reg or ranges property
-Warning (avoid_unnecessary_addr_size): /soc/ethernet@11c20000: unnecessary #address-cells/#size-cells without "ranges" or child "reg" property
+The RISC-V cryptography extensions define a set of instructions, CSR
+definitions, architectural interfaces and also extension shorthands for
+running scalar and vector based cryptography operations on RISC-V
+systems.
 
-The ethernet@11c20000 node is guarded by an `#if (!SW_ET0_EN_N)` in
-rzg2ul-smarc-som.dtsi, where the phy child node is added. In
-rzfive-smarc-som.dtsi, the ethernet node is marked disabled & the
-interrupt properties are deleted from the phy child node. As a result,
-the produced dts looks like:
-	ethernet@11c20000 {
-		compatible = "renesas,r9a07g043-gbeth\0renesas,rzg2l-gbeth";
-		/* snip */
-		#address-cells = <0x01>;
-		#size-cells = <0x00>;
-		status = "disabled";
+This documents all the dt-bindings for the scalar cryptography
+extensions, including the Zk, Zkn and Zks shorthands.
 
-		ethernet-phy@7 {
-		};
-	};
-
-Adding a corresponding `#if (!SW_ET0_EN_N)` around the node in
-rzfive-smarc-som.dtsi avoids the complaint, as the empty child node is
-not added:
-	ethernet@11c20000 {
-		compatible = "renesas,r9a07g043-gbeth\0renesas,rzg2l-gbeth";
-		/* snip */
-		#address-cells = <0x01>;
-		#size-cells = <0x00>;
-		status = "disabled";
-	};
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Signed-off-by: Samuel Ortiz <sameo@rivosinc.com>
 ---
-CC: Geert Uytterhoeven <geert+renesas@glider.be>
-CC: Magnus Damm <magnus.damm@gmail.com>
-CC: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>
-CC: Rob Herring <robh+dt@kernel.org>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-CC: Conor Dooley <conor+dt@kernel.org>
-CC: linux-renesas-soc@vger.kernel.org
-CC: devicetree@vger.kernel.org
-CC: linux-riscv@lists.infradead.org
-CC: linux-kernel@vger.kernel.org
----
- arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ .../devicetree/bindings/riscv/extensions.yaml | 87 +++++++++++++++++++
+ 1 file changed, 87 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-index d6f18754eb5d..c62debc7ca7e 100644
---- a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-+++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-@@ -22,6 +22,7 @@ &dmac {
- 	status = "disabled";
- };
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index cc1f546fdbdc..3d3d0d2f71e7 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -190,6 +190,24 @@ properties:
+             instructions as ratified at commit 6d33919 ("Merge pull request #158
+             from hirooih/clmul-fix-loop-end-condition") of riscv-bitmanip.
  
-+#if (!SW_ET0_EN_N)
- &eth0 {
- 	status = "disabled";
++        - const: zbkb
++          description: |
++            The standard Zbkb cryptography extension for bit-manipulation
++            instructions, as ratified at commit 73de909
++            ("Zvk: Update AES instruction specs") of riscv-crypto.
++
++        - const: zbkc
++          description: |
++            The standard Zbkc cryptography extension for carry-less multiply
++            instructions, as ratified at commit 73de909
++            ("Zvk: Update AES instruction specs") of riscv-crypto.
++
++        - const: zbkx
++          description: |
++            The standard Zbkx cryptography extension for crossbar permutation
++            instructions, as ratified at commit 73de909
++            ("Zvk: Update AES instruction specs") of riscv-crypto.
++
+         - const: zicbom
+           description:
+             The standard Zicbom extension for base cache management operations as
+@@ -240,6 +258,75 @@ properties:
+             ratified in the 20191213 version of the unprivileged ISA
+             specification.
  
-@@ -30,6 +31,7 @@ phy0: ethernet-phy@7 {
- 		/delete-property/ interrupts;
- 	};
- };
-+#endif
- 
- &eth1 {
- 	status = "disabled";
++        - const: zk
++          description: |
++            The standard Zk cryptography extension is a shorthand for the
++            union of the Zkn, Zkr and Zkt cryptography extensions, as ratified
++            at commit 73de909 ("Zvk: Update AES instruction specs") of
++            riscv-crypto.
++
++        - const: zkn
++          description: |
++            The standard Zkn cryptography extension covers the NIST algorithm
++            suite that other cryptography extensions support. It is the union of
++            the Zbkb, Zbkc, Zbkx, Zknd, Zkne and Zknh extensions, as ratified at
++            commit 73de909 ("Zvk: Update AES instruction specs") of riscv-crypto.
++
++        - const: zknd
++          description: |
++            The standard Zknd cryptography extension for AES block cipher
++            decryption acceleration instructions, as ratified at commit 73de909
++            ("Zvk: Update AES instruction specs") of riscv-crypto.
++
++        - const: zkne
++          description: |
++            The standard Zkne cryptography extension for AES block cipher
++            encryption acceleration instructions, as ratified at commit 73de909
++            ("Zvk: Update AES instruction specs") of riscv-crypto.
++
++        - const: zknh
++          description: |
++            The standard Zknh cryptography extension for SHA2 hash algorithm
++            functions acceleration instructions as ratified at commit 73de909
++            ("Zvk: Update AES instruction specs") of riscv-crypto.
++
++        - const: zkr
++          description: |
++            The standard Zkr cryptography extension for the entropy source CSR
++            definitions, as ratified at commit 73de909
++            ("Zvk: Update AES instruction specs") of riscv-crypto.
++            Systems with the Zkr extension enabled must set the MSECCFG SSEED
++            bit to 1 in order for the Linux kernel to access the SEED CSR.
++            As userspace access to the entropy source is usually carefully
++            controlled and exclusively managed by the Linux kernel, M-mode
++            should set USEED to 0.
++
++        - const: zks
++          description: |
++            The standard Zks cryptography extension covers the ShangMi algorithm
++            suite that other cryptography extensions support. It is the union of
++            the Zbkb, Zbkc, Zbkx, Zksed and Zksh extensions, as ratified at
++            commit 73de909 ("Zvk: Update AES instruction specs") of riscv-crypto.
++
++        - const: zksed
++          description: |
++            The standard Zksed cryptography extension for SM4 block cipher
++            acceleration instructions, as ratified at commit 73de909
++            ("Zvk: Update AES instruction specs") of riscv-crypto.
++
++        - const: zksh
++          description: |
++            The standard Zksh cryptography extension for SM3 hash algorithm
++            funstions acceleration instructions, as ratified at commit 73de909
++            ("Zvk: Update AES instruction specs") of riscv-crypto.
++
++        - const: zkt
++          description: |
++            The standard Zkt cryptography extension for data independent
++            execution latency attestation, for a safe subset of instructions,
++            as ratified at commit 73de909 ("Zvk: Update AES instruction specs")
++            of riscv-crypto.
++
+         - const: ztso
+           description:
+             The standard Ztso extension for total store ordering, as ratified
 -- 
-2.40.1
+2.41.0
 
 
 _______________________________________________
