@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CEF0EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 09:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41579C001B0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 09:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9RatWPXWP3wptA4jsWALoEUnqIMpg+9u4YpkwFGRxso=; b=k/QkUaMwSd9RUG
-	19XcQPoXas1Mv72iSinO4+tWPA0RfGPTQxMb2qfYPCJzFVHKDKr1lMRuQV/aEK7PAlAopw0NhR+ao
-	GZOfLndQltsLP6UrJnB1FECvuThcmddIAIpybsQMhfWtFMCqKLuEC6D0q723SBlXsh7kMGXW0Exwh
-	ttJcX6VLdY0FgYdhfOVOhrbJBKSj1vHmYIkZP3hk9ALEM4GpDxct6WD2y3gAwuEyYaFpM0PoXGwvm
-	utrMMgobnvJUhErKNxE+PmWjWE04X9N9XJLUEkyU/KjKJuDynX+NH05FnVDUhHk+SoDJVcOqv6Yhp
-	NGcdaitRBH4x0YvxvbUA==;
+	List-Owner; bh=df4ENRqvWvIHneel1tbYdWHSjT+VCVmBG8MsoBm5Gi4=; b=R1+TLdmVpzKJFR
+	0+08u4W0ZnSlXl8It9y6IpNp0Ts75CKmxhcb5R/qT64oBTSZ86opn/rQsa4t3V7B2eXZrSF1pOoj3
+	SoF67IPtDQr+7BZDLwbeCdYoh5tdOzvx5ygQt3RCuxw1qeiKbe8Mls4NrkbR93W1ZN5hcT8F9Xflw
+	i1swSKh2unvfmedKkVLMP1eVQismQUFOUIrcO4rpG/ZC8zQ4frc8ZrlugVPT9FjZaGeaLafREpgNG
+	EKpvn/pjNvarDDaW2P79WFaa0cYXt7xlfkERP2/G6V2aLi2FfUbOSVFq/Vg+ty+4xnUzvyuceqYly
+	0EhksiJ/hqnrYO4/b6ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJsok-002eXq-34;
-	Thu, 13 Jul 2023 09:40:58 +0000
+	id 1qJsoq-002ed6-0j;
+	Thu, 13 Jul 2023 09:41:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJsof-002eS3-0R;
-	Thu, 13 Jul 2023 09:40:53 +0000
+	id 1qJsog-002eTN-1v;
+	Thu, 13 Jul 2023 09:40:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=smGocFmrYZVxcmC4HyPQleNsFVdy0YNcqxX8ihatQWA=; b=g97nuBMGdd7MA+TNyzxCyh/tZi
-	6+p3sDR9rlTC/Q3CpNwAetNz9kczJpyWyziRGZTb/EYFI1ezliFnpNdlHbyMvDTtRkYUrQ2gkvB33
-	jaFjNfhYrFILZz6/Txj3FPqf367vtIhZR6WfwxQBXCTT1lDS8dXkmyy8rVS0n2zLh8IyeGZwVdYVQ
-	m7pakVaIKdLRMZVTuxJ+jF5mAaHWhTTDJ6sEC4KGW35irTKpll46+JmXMghujpC8fd/mqVSU879hx
-	5Z5t6leFuXZ1wOIvAfZVTir1i62YXna+nEkSdMirztBunEcVINubEqPu34dD9XXrswPTRjJ9wbXC7
-	s29aiu3w==;
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	bh=IV4DNkdW4Hd8ZP157oL1HKEHrRYXoRV6592fFT5pGzE=; b=bYDz+GFwns4m99l5+kRLyA2+BA
+	mfSz5eSAfrDWV4wFoAXZKB8G+MW3sKavXjQDyWI80ncIq3+JEo4YHzgitTPf+YDu1MXAvA0uKK1WL
+	terxkDKjySrbpWfk96ElqI3E++m0aLGTnNaP2XPAg0rmCbBkkQPS02u5pa7D3wlrmB+qtqDOqpOgp
+	WNMXgIpk1jCQU/kXf6x4s5DSGCDpIvIOyCEJROBaM0TQzMIm9/JxrvxUKP22k7qSSlc4/gUanpQbp
+	KPK/Y2URxMjRxpvLtwPZRzV3innywuekj1YIx1TZm52PHCeaaKnMNB1UmfS0T56Xjl94OUonKorjQ
+	pImzJ7kw==;
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJsob-004bMv-0I;
-	Thu, 13 Jul 2023 09:40:51 +0000
-Received: from dggpemm500001.china.huawei.com (unknown [172.30.72.53])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4R1qLv1v51zVjYP;
-	Thu, 13 Jul 2023 17:39:19 +0800 (CST)
+	id 1qJsoc-004bMr-2P;
+	Thu, 13 Jul 2023 09:40:53 +0000
+Received: from dggpemm500001.china.huawei.com (unknown [172.30.72.54])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4R1qMZ56yBzrRn7;
+	Thu, 13 Jul 2023 17:39:54 +0800 (CST)
 Received: from localhost.localdomain.localdomain (10.175.113.25) by
  dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Thu, 13 Jul 2023 17:40:32 +0800
+ 15.1.2507.27; Thu, 13 Jul 2023 17:40:30 +0800
 From: Kefeng Wang <wangkefeng.wang@huawei.com>
 To: <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>,
 	<surenb@google.com>
@@ -67,9 +67,9 @@ CC: Russell King <linux@armlinux.org.uk>, Catalin Marinas
 	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Kefeng Wang
 	<wangkefeng.wang@huawei.com>
-Subject: [PATCH rfc -next 09/10] loongarch: mm: add access_error() helper
-Date: Thu, 13 Jul 2023 17:53:37 +0800
-Message-ID: <20230713095339.189715-10-wangkefeng.wang@huawei.com>
+Subject: [PATCH rfc -next 07/10] ARM: mm: try VMA lock-based page fault handling first
+Date: Thu, 13 Jul 2023 17:53:35 +0800
+Message-ID: <20230713095339.189715-8-wangkefeng.wang@huawei.com>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
 References: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
@@ -79,8 +79,8 @@ X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  dggpemm500001.china.huawei.com (7.185.36.107)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_104049_966355_E0B0B5CC 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20230713_104051_498216_2DC8EC93 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,70 +97,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add access_error() to check whether vma could be accessible or not,
-which will be used __do_page_fault() and later vma locked based page
-fault.
+Attempt VMA lock-based page fault handling first, and fall back
+to the existing mmap_lock-based handling if that fails.
 
 Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 ---
- arch/loongarch/mm/fault.c | 30 ++++++++++++++++++++----------
- 1 file changed, 20 insertions(+), 10 deletions(-)
+ arch/arm/Kconfig    |  1 +
+ arch/arm/mm/fault.c | 15 ++++++++++++++-
+ 2 files changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/arch/loongarch/mm/fault.c b/arch/loongarch/mm/fault.c
-index 03d06ee184da..cde2ea0119fa 100644
---- a/arch/loongarch/mm/fault.c
-+++ b/arch/loongarch/mm/fault.c
-@@ -120,6 +120,22 @@ static void __kprobes do_sigsegv(struct pt_regs *regs,
- 	force_sig_fault(SIGSEGV, si_code, (void __user *)address);
- }
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 1a6a6eb48a15..8b6d4507ccee 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -34,6 +34,7 @@ config ARM
+ 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT if CPU_V7
+ 	select ARCH_SUPPORTS_ATOMIC_RMW
+ 	select ARCH_SUPPORTS_HUGETLBFS if ARM_LPAE
++	select ARCH_SUPPORTS_PER_VMA_LOCK
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_CMPXCHG_LOCKREF
+ 	select ARCH_USE_MEMTEST
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index fef62e4a9edd..c44b83841e36 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -244,6 +244,7 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+ 	vm_fault_t fault;
+ 	unsigned int flags = FAULT_FLAG_DEFAULT;
+ 	unsigned long vm_flags = VM_ACCESS_FLAGS;
++	struct vm_locked_fault vmlf;
  
-+static inline bool access_error(unsigned int flags, struct pt_regs *regs,
-+				unsigned long addr, struct vm_area_struct *vma)
-+{
-+	if (flags & FAULT_FLAG_WRITE) {
-+		if (!(vma->vm_flags & VM_WRITE))
-+			return true;
-+	} else {
-+		if (!(vma->vm_flags & VM_READ) && addr != exception_era(regs))
-+			return true;
-+		if (!(vma->vm_flags & VM_EXEC) && addr == exception_era(regs))
-+			return true;
+ 	if (kprobe_page_fault(regs, fsr))
+ 		return 0;
+@@ -278,6 +279,18 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+ 
+ 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
+ 
++	VM_LOCKED_FAULT_INIT(vmlf, mm, addr, flags, vm_flags, regs, fsr);
++	if (try_vma_locked_page_fault(&vmlf, &fault))
++		goto retry;
++	else if (!(fault | VM_FAULT_RETRY))
++		goto done;
++
++	if (fault_signal_pending(fault, regs)) {
++		if (!user_mode(regs))
++			goto no_context;
++		return 0;
 +	}
 +
-+	return false;
-+}
-+
- /*
-  * This routine handles page faults.  It determines the address,
-  * and the problem, and then passes it off to one of the appropriate
-@@ -163,6 +179,8 @@ static void __kprobes __do_page_fault(struct pt_regs *regs,
- 
- 	if (user_mode(regs))
- 		flags |= FAULT_FLAG_USER;
-+	if (write)
-+		flags |= FAULT_FLAG_WRITE;
- 
- 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, address);
  retry:
-@@ -172,16 +190,8 @@ static void __kprobes __do_page_fault(struct pt_regs *regs,
+ 	vma = lock_mm_and_find_vma(mm, addr, regs);
+ 	if (unlikely(!vma)) {
+@@ -316,7 +329,7 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+ 	}
  
- 	si_code = SEGV_ACCERR;
- 
--	if (write) {
--		flags |= FAULT_FLAG_WRITE;
--		if (!(vma->vm_flags & VM_WRITE))
--			goto bad_area;
--	} else {
--		if (!(vma->vm_flags & VM_READ) && address != exception_era(regs))
--			goto bad_area;
--		if (!(vma->vm_flags & VM_EXEC) && address == exception_era(regs))
--			goto bad_area;
--	}
-+	if (access_error(flags, regs, vma))
-+		goto bad_area;
- 
+ 	mmap_read_unlock(mm);
+-
++done:
  	/*
- 	 * If for any reason at all we couldn't handle the fault,
+ 	 * Handle the "normal" case first - VM_FAULT_MAJOR
+ 	 */
 -- 
 2.27.0
 
