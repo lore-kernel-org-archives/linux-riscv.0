@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA64AC001E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 12:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 564E6C001B0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 12:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=09KULVG6mk+30v2ST4E11iTNfjvO+d/fShpo+HL3log=; b=ua9RL+hbZ1z+Qy
-	nOLZ5JciZKOIV/pJ/1UeuMiErrPO9g9M0FSn11iWXRbr/VqqjFqnT6XxRWOsbiaP4ayRY2lFYJgUT
-	wD9b2S/3MQQ+NjbMWjLFYZf2KSaVfddOXhUNpd34a8TNcw8GkUnkpBRfHeoeQYk87CJPJx8T9B2Kf
-	nhBRTFZOOFozEpcRwft5EQY6F/cELn6PlV5oB+y4MuWRoGh88N04AIFqcOrboHkqruiFcvdbxiAiM
-	wJqeyB1+N8BIAHZUk6TZqNpasWXfkVnRwiiGKcht4+0WPQWw4oEriC15/9qjoOpRH08eS2KQbkXQ0
-	3LxKyCX2MT6qwyoLCFjQ==;
+	List-Owner; bh=N3Ctm886CeNQ46Di14uLeqL+Zjbt9G55R3RSD6S3oqY=; b=oHbzQ9Y4U9mM7N
+	JBoMtvjAiLHwH5YzWIbyyD0W2EPaL02ZAk2X5nqFwd5f6us8aoqvoZEiCnCwQVGxQy0ReqccT6dY7
+	Slx1TKzo1zrUiDe07K5r5JOxNKIYsPtmTfY6cFLrH+dEc9Hp8PNk6mJssjPJsdcCapGFIZ5hV0Bkb
+	iVwbjW2OGjyaw8k5nNIwqirgy7jXyr2HY7niXyVCo4C+MpPPBEnf+XLK+3WWWSbrtRWPkgbGO9Lx7
+	v64n2wQqyVhvpYo1vTgE1jifdi2X7mt+eME4tgtqh1twD14oeSE1GOGxnnEIf+gH47lWoS6ZkvjXj
+	If+ZnxVQ2t6QLWJ6pUwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJvC2-003ByI-1H;
-	Thu, 13 Jul 2023 12:13:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qJvPb-003EwE-2r;
+	Thu, 13 Jul 2023 12:27:11 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJvBy-003Bua-1n
+	id 1qJvPX-003Ev7-2p
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 12:13:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1689250387; x=1720786387;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Ao2V3XKzPyOMhVIBq5e6EqE2FH88Dgn3v9ob0DWGpxw=;
-  b=Y0R0owfK+U9SZM+LO8jjgIyGqm1QHTCEQNMXAP+XZaEl/udHdTxKTe6S
-   8iFBN+1HES98TyP0ceCixrraPr6QJxUmZ5SA15s6wwfyJa5x0ouMQTnXX
-   yQrSwSOat0YD0JPbciWmLP06I3my9WjtCCmjoUZ6LNX4CTLudx0llzscF
-   FpPzRVI2VGu3RKqoV8PabE9LUEZWOow/mpvB70b2Ic0Ydhhqdhg7c07Z4
-   ynzrJvEmrizAB1n2EfVP8W5kJDd8KdlmBimDi3ooC+UTBMAzHM120KJCp
-   4tp4CobKgoNo8aMk/uTfXyeTVyFyHSwGCZPSg5QotLpDo5K/aHU7utoyy
-   Q==;
-X-IronPort-AV: E=Sophos;i="6.01,202,1684825200"; 
-   d="scan'208";a="220194646"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Jul 2023 05:13:06 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 13 Jul 2023 05:13:02 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.21 via Frontend
- Transport; Thu, 13 Jul 2023 05:12:59 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <palmer@dabbelt.com>
-Subject: [PATCH v5 11/11] RISC-V: provide Kconfig & commandline options to control parsing "riscv,isa"
-Date: Thu, 13 Jul 2023 13:11:09 +0100
-Message-ID: <20230713-aviator-plausibly-a35662485c2c@wendy>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230713-target-much-8ac624e90df8@wendy>
-References: <20230713-target-much-8ac624e90df8@wendy>
+	Thu, 13 Jul 2023 12:27:10 +0000
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id E35763F71D
+	for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 12:27:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1689251221;
+	bh=MsO02jH+ViDHvNLshcafKBuW3XX0NRCU1Az8N0nWX44=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=MI8819JTf4cvauEwJYdoMRYHhkUDTtMBjj2hzDPO4mTxdM+inLKp71PK4yN8D8S2S
+	 DgIxTDpxp5eJq4WZ7Fz7xu9CdJe/lsunYNc9dqIhs/JB07sQ3Ko9l9ywUauYRlSPDd
+	 aYdVgUcDE2vcu+GW8E83qiyL6AWT/jK5pR4mtmY+DQQxNtIzKh33wj4ZwtgfYx+8yu
+	 tFvdCNOJvjqt3AC4mwIzJK/x72Ppri9nYsyC89Sxzohp52ZS+PFBMp5MSCujKU+NCZ
+	 gUcKOaIVQZNoiYs3x+/Y5N5IXOqrBUorkwKwoT9bTlGTxHk960vcYVf7rzAR82DGkz
+	 UbCdRX5rc9D4A==
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-40327302341so6185531cf.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 05:27:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689251219; x=1691843219;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MsO02jH+ViDHvNLshcafKBuW3XX0NRCU1Az8N0nWX44=;
+        b=b3msKEfYEWrj8PaILyAuEQ9JFJKkgIjSebei/YGnfcdsIziNoIMfoRbHXGpPPPksz6
+         m5tyWPwoqL9kuZePrMTP34LwVQP06IkQHI57YpDsfaTERH8D5lkCdP+4YAoiyRp04WPC
+         Khqdtr+mgMMvrFUIaGEzjlESnqwjXGwXABHsq4MdF+/4b3iwu9PBs/zvb4td7EcaAfPa
+         XkZxPkWzPCo5R3LO/B2+2lESTZW4Qrou5r/BjlvBDFvwJ/UdNmbrGvb//PLkjrFyxzaF
+         cRaL0oorELR1ov1UEKomqDc/KlP9BkwPv+19Vn/UfIkrzjLDK5ckZefW1wTpVvbtAEPV
+         He/A==
+X-Gm-Message-State: ABy/qLaNl9Bw87i9q7jBigwGOlNQNVs/8RVUUzaR/fjqYa86z5UuNn6e
+	aiZTvFnm31A1qys5vhsi5tFUpBO0/RRHXfDH1YQIAhV8g1fLqOZbJVEBnTDyGElYU1iXJf+hFW5
+	riwfUySWKHYarr2SmrF7SXcsJ8fiKq0FSSz9SuA4Zd/JGULW5jfS1AFwgpILoRg==
+X-Received: by 2002:a05:622a:1003:b0:403:a927:1947 with SMTP id d3-20020a05622a100300b00403a9271947mr1557734qte.23.1689251218753;
+        Thu, 13 Jul 2023 05:26:58 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlHiJAYN6Pa6kcyaVBR/pEfPZkiEZPz1qi+73jGLWtlr2nXCVmtaDK8lr5QdSWsD1G3HyAJnAeHte89dSxxB+Rw=
+X-Received: by 2002:a05:622a:1003:b0:403:a927:1947 with SMTP id
+ d3-20020a05622a100300b00403a9271947mr1557722qte.23.1689251218536; Thu, 13 Jul
+ 2023 05:26:58 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5841; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Ao2V3XKzPyOMhVIBq5e6EqE2FH88Dgn3v9ob0DWGpxw=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDCnrX95I9v60+YCl/c5LJ3cqRWZvnjRp565oX06n/HV3lx+c ofDKq6OUhUGMg0FWTJEl8XZfi9T6Py47nHvewsxhZQIZwsDFKQATMexgZNgqPTXXwvqLudMPSY2f8V /b76280eY6dS/jD7am1S1P7WQZGZof1Ub+Pbw85ulcA+vHq+btfvHtIMc3/sxHlo/ZvUzrZ/ICAA==
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20230704064610.292603-1-xingyu.wu@starfivetech.com> <20230704064610.292603-2-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230704064610.292603-2-xingyu.wu@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Thu, 13 Jul 2023 14:26:42 +0200
+Message-ID: <CAJM55Z8vj6KvpKZxRVh0+G_LCXrpnXzOR+oBad-igkHVTD_J=Q@mail.gmail.com>
+Subject: Re: [RESEND PATCH v6 1/7] dt-bindings: clock: Add StarFive JH7110 PLL
+ clock generator
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Hal Feng <hal.feng@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_051306_671331_5E833484 
-X-CRM114-Status: GOOD (  23.37  )
+X-CRM114-CacheID: sfid-20230713_052708_330680_C659FA77 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,167 +98,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>, Jonathan
- Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, conor@kernel.org, conor.dooley@microchip.com, Rob Herring <robh+dt@kernel.org>, Evan Green <evan@rivosinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Heiko
- Stuebner <heiko.stuebner@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As it says on the tin, provide Kconfig option to control parsing the
-"riscv,isa" devicetree property. If either option is used, the kernel
-will fall back to parsing "riscv,isa", where "riscv,isa-base" and
-"riscv,isa-extensions" are not present.
-The Kconfig options are set up so that the default kernel configuration
-will enable the fallback path, without needing the commandline option.
+On Tue, 4 Jul 2023 at 08:49, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
+>
+> Add bindings for the PLL clock generator on the JH7110 RISC-V SoC.
+>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> ---
+>  .../bindings/clock/starfive,jh7110-pll.yaml   | 46 +++++++++++++++++++
+>  .../dt-bindings/clock/starfive,jh7110-crg.h   |  6 +++
+>  2 files changed, 52 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
+> new file mode 100644
+> index 000000000000..beb78add5a8d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
+> @@ -0,0 +1,46 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-pll.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive JH7110 PLL Clock Generator
+> +
+> +description:
+> +  These PLLs are high speed, low jitter frequency synthesizers in JH7110.
 
-Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-Suggested-by: Palmer Dabbelt <palmer@rivosinc.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Changes in v4:
-- add __init to fixup k210 build issue
-- use Drew's revised wording
+..synthesizers in the JH7110.
 
-Changes in v3:
-- Invert the Kconfig entry. It's now default y & not hidden by
-  NONPORTABLE, but its entablement will now activate the fallback
-- Add a commandline option to enable the fallback on kernels that do not
-  enable it in Kconfig, as Drew suggested
-- Default the global var to the Kconfig option & override it with the
-  commandline one, rather than have checks for IS_ENABLED() and for the
-  commandline option in riscv_fill_hwcap() &
-  riscv_early_of_processor_hartid()
----
- .../admin-guide/kernel-parameters.txt          |  7 +++++++
- arch/riscv/Kconfig                             | 18 ++++++++++++++++++
- arch/riscv/include/asm/hwcap.h                 |  1 +
- arch/riscv/kernel/cpu.c                        |  8 +++++++-
- arch/riscv/kernel/cpufeature.c                 | 14 +++++++++++++-
- 5 files changed, 46 insertions(+), 2 deletions(-)
+> +  Each PLL works in integer mode or fraction mode, with configuration
+> +  registers in the sys syscon. So the PLLs node should be a child of
+> +  SYS-SYSCON node.
+> +  The formula for calculating frequency is
+> +  Fvco = Fref * (NI + NF) / M / Q1
+> +
+> +maintainers:
+> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jh7110-pll
+> +
+> +  clocks:
+> +    maxItems: 1
+> +    description: Main Oscillator (24 MHz)
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +    description:
+> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
+> +
+> +required:
+> +  - compatible
+> +  - clocks
+> +  - '#clock-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    clock-controller {
+> +      compatible = "starfive,jh7110-pll";
+> +      clocks = <&osc>;
+> +      #clock-cells = <1>;
+> +    };
+> diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
+> index 06257bfd9ac1..086a6ddcf380 100644
+> --- a/include/dt-bindings/clock/starfive,jh7110-crg.h
+> +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
+> @@ -6,6 +6,12 @@
+>  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+>  #define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
+>
+> +/* PLL clocks */
+> +#define JH7110_CLK_PLL0_OUT                    0
+> +#define JH7110_CLK_PLL1_OUT                    1
+> +#define JH7110_CLK_PLL2_OUT                    2
+> +#define JH7110_PLLCLK_END                      3
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index a1457995fd41..bdc3fa712e92 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -5468,6 +5468,13 @@
- 			[KNL] Disable ring 3 MONITOR/MWAIT feature on supported
- 			CPUs.
- 
-+	riscv_isa_fallback [RISCV]
-+			When CONFIG_RISCV_ISA_FALLBACK is not enabled, permit
-+			falling back to detecting extension support by parsing
-+			"riscv,isa" property on devicetree systems when the
-+			replacement properties are not found. See the Kconfig
-+			entry for RISCV_ISA_FALLBACK.
-+
- 	ro		[KNL] Mount root device read-only on boot
- 
- 	rodata=		[KNL]
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 4c07b9189c86..f52dd125ac5e 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -848,6 +848,24 @@ config XIP_PHYS_ADDR
- 	  be linked for and stored to.  This address is dependent on your
- 	  own flash usage.
- 
-+config RISCV_ISA_FALLBACK
-+	bool "Permit falling back to parsing riscv,isa for extension support by default"
-+	default y
-+	help
-+	  Parsing the "riscv,isa" devicetree property has been deprecated and
-+	  replaced by a list of explicitly defined strings. For compatibility
-+	  with existing platforms, the kernel will fall back to parsing the
-+	  "riscv,isa" property if the replacements are not found.
-+
-+	  Selecting N here will result in a kernel that does not use the
-+	  fallback, unless the commandline "riscv_isa_fallback" parameter is
-+	  present.
-+
-+	  Please see the dt-binding, located at
-+	  Documentation/devicetree/bindings/riscv/extensions.yaml for details
-+	  on the replacement properties, "riscv,isa-base" and
-+	  "riscv,isa-extensions".
-+
- endmenu # "Boot options"
- 
- config BUILTIN_DTB
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index e3cda14a486b..b7b58258f6c7 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -81,6 +81,7 @@ struct riscv_isa_ext_data {
- 
- extern const struct riscv_isa_ext_data riscv_isa_ext[];
- extern const size_t riscv_isa_ext_count;
-+extern bool riscv_isa_fallback;
- 
- unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
- 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 28d5af21f544..208f1a700121 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -41,7 +41,7 @@ int riscv_of_processor_hartid(struct device_node *node, unsigned long *hart)
- 	return 0;
- }
- 
--int riscv_early_of_processor_hartid(struct device_node *node, unsigned long *hart)
-+int __init riscv_early_of_processor_hartid(struct device_node *node, unsigned long *hart)
- {
- 	const char *isa;
- 
-@@ -87,6 +87,12 @@ int riscv_early_of_processor_hartid(struct device_node *node, unsigned long *har
- 	return 0;
- 
- old_interface:
-+	if (!riscv_isa_fallback) {
-+		pr_warn("CPU with hartid=%lu is invalid: this kernel does not parse \"riscv,isa\"",
-+			*hart);
-+		return -ENODEV;
-+	}
-+
- 	if (of_property_read_string(node, "riscv,isa", &isa)) {
- 		pr_warn("CPU with hartid=%lu has no \"riscv,isa-base\" or \"riscv,isa\" property\n",
- 			*hart);
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index fdc71e52dc2b..71fb840ee246 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -473,6 +473,18 @@ static int __init riscv_fill_hwcap_from_ext_list(unsigned long *isa2hwcap)
- 	return 0;
- }
- 
-+#ifdef CONFIG_RISCV_ISA_FALLBACK
-+bool __initdata riscv_isa_fallback = true;
-+#else
-+bool __initdata riscv_isa_fallback;
-+static int __init riscv_isa_fallback_setup(char *__unused)
-+{
-+	riscv_isa_fallback = true;
-+	return 1;
-+}
-+early_param("riscv_isa_fallback", riscv_isa_fallback_setup);
-+#endif
-+
- void __init riscv_fill_hwcap(void)
- {
- 	char print_str[NUM_ALPHA_EXTS + 1];
-@@ -492,7 +504,7 @@ void __init riscv_fill_hwcap(void)
- 	} else {
- 		int ret = riscv_fill_hwcap_from_ext_list(isa2hwcap);
- 
--		if (ret) {
-+		if (ret && riscv_isa_fallback) {
- 			pr_info("Falling back to deprecated \"riscv,isa\"\n");
- 			riscv_fill_hwcap_from_isa_string(isa2hwcap);
- 		}
--- 
-2.40.1
+It would be nice if these names followed the same pattern as the
+clocks below. Eg. something like JH7110_PLLCLK_PLL?_OUT and
+JH7110_PLLCLK_END.
 
+But maybe these defines are not even needed, since you just do <&pll
+0>, <&pll 1> and it's obvious what that means.
+
+>  /* SYSCRG clocks */
+>  #define JH7110_SYSCLK_CPU_ROOT                 0
+>  #define JH7110_SYSCLK_CPU_CORE                 1
+> --
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
