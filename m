@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53177C001DC
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 10:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F39DBEB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 10:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nKCz4SqqFhJWySsRKeVT3PwY1cgx8g9wR6ci0YHUXm0=; b=nPerCj7/5HXqKl
-	0JlSUtUQa3e/6vS/O96KRIkPgRccooIOlGWCklXIV7PP5J/HiwAw9kMCNlnJRuLvtbqPhfIy7djNW
-	SzbnTSOInexYWmTHLrN8kGfciDjAt6T4OTZw0RCqhZTqGiS3ZWoOEpbulAaT1IxntXN1NVhTWnezO
-	ZeQNhpy/03JgSfeCnHx+v/72qpBNy7g+Nls0oWf4j5FhIfXJ2q9/QX1Tyotj6jGRFGZ3sCXyFi6Zt
-	vEtFiKr6eeL2TuU4ZXhbekD/M5Vj2FXeG7rL2Xecm8RN7i03Px9mgtzNqthwqXk3IWlo8p5Ghla3h
-	QAOBO1v8IIKHjQatExJw==;
+	List-Owner; bh=JDwH6Da01EmVdHipxEVQBcWfr0BTxkPEG/MhS3v1l5A=; b=VK+zgbNXvGl+Us
+	Gj/x9AJM683huj5xFZOHUV4pMTS1zICzDFZ8a+WlOYb+6ZV8ncB3OnPvVzZoLoTa3CVeUVTjtc+wU
+	KRL69qJmiUdXgSYpDo9n8QKpN98DeYnLyeI+TlL0VNk27+OYmGHgrHAVWcC5xFEHAm2vXYXY6sQlV
+	gpKOzUlZFhRKNLMA3mihzuN5xgV0pzyEXJrHPW9N2+lNAPcYGAuWPudKKqWq6WmyR+MIdUQX+KhtP
+	7BAC2pUqgIMq67LQK0v2D91tRuTW6ll+MAtY++Z5/nEsDbW0YguC1G97+DFqd9wKP0kpQFA/SkkO1
+	e6JZuxcjcJOMJ/f6nM8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJtpO-002y1t-2b;
-	Thu, 13 Jul 2023 10:45:42 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1qJu0Z-0030Yy-00;
+	Thu, 13 Jul 2023 10:57:15 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJsoE-002e17-2Z;
-	Thu, 13 Jul 2023 09:40:28 +0000
-Received: from dggpemm500001.china.huawei.com (unknown [172.30.72.53])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4R1qMT1xcPz18MB1;
-	Thu, 13 Jul 2023 17:39:49 +0800 (CST)
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Thu, 13 Jul 2023 17:40:23 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>,
-	<surenb@google.com>
-CC: Russell King <linux@armlinux.org.uk>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
-	<chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Michael Ellerman
-	<mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy
-	<christophe.leroy@csgroup.eu>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer
-	<gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily
- Gorbik <gor@linux.ibm.com>, Christian Borntraeger
-	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Dave Hansen
-	<dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, <x86@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Kefeng Wang
-	<wangkefeng.wang@huawei.com>
-Subject: [PATCH rfc -next 02/10] x86: mm: use try_vma_locked_page_fault()
-Date: Thu, 13 Jul 2023 17:53:30 +0800
-Message-ID: <20230713095339.189715-3-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
-References: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
+	id 1qJu0W-0030Xl-1w
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Jul 2023 10:57:13 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-99384a80af7so82086866b.2
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 03:57:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1689245829; x=1691837829;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=c9NtgBLjv1J96zLCU/pO/Q7azYyogqr/cagIRcD64aI=;
+        b=gj7kW8GV0O+RnxEUvB7Rzg92T+cWgaDBZOj/LehCMJmClgK/jAbkEyOOD74xx2BxB0
+         aU2wUxt3DFCdM9tzd5JjcJUPXSoZDtRPlYrKTsP3IcYQLSMBinBJV8suJ+v37y+DASZE
+         VReqO0d0RaoyVVG+/RKukaeB4OzssFWjZKq1q5ZgSBTuwlof83ML2aYwvWOWYazMbx0R
+         HotbzEFISAwilTgLj8Ap8pLnJta6CiLKzIKo9BRtfOM6Lk/dgcJa8rc/G0ojulEbvmyA
+         52usDTRQRfBRN9kkhvEVcjDK5u34uly8pnzMqz9C1JPnVLCvaFBdbzyVy2odpJySNsrP
+         ii2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689245829; x=1691837829;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c9NtgBLjv1J96zLCU/pO/Q7azYyogqr/cagIRcD64aI=;
+        b=RUcSVJNs+b7kjTV1lkzuC1Ot+Acqnki/gpYQ6J3lyaAJipgpB6Y8JOVtgBDhsVr/ks
+         uFYy9dEDf+mU0oRJTJNMq+l2IXEHm2OAmjUCwn0L1K7kEwoS9S8hvqKql/cc+2R/b7Jz
+         5clfm6pGC7PES9AaMcINDdN9EF/ORqULfBTgP0p4ofqbA/oPYrMReuekrEDXPjRODehL
+         5tPG2Esl58ZsyrqUFD7JY3Y7swPlVR2kuiSAVBrATin3UNzAS/fsaclKCgxMo+eINhvj
+         HADftc9cRmDV2w/zbl28UOFE76DtZstvfYb9/uypnI5Cv4a1ZBzBCCmCHcUOKqEeZl+N
+         FhOw==
+X-Gm-Message-State: ABy/qLasXvJfIqAcB1BHLRVVH34yQ3QScv0HmF9CAdpw+PoeEYxrf93v
+	awedN9/oDZ9Aa9xHFNMbMtIdyw==
+X-Google-Smtp-Source: APBJJlFU4O4KO6QzME5VoehHAND0oIP1yprw6Nl8SlJa+4axe1vxNp8uN0pFbJlOPz1ClqZEcY+osQ==
+X-Received: by 2002:a17:906:30d3:b0:982:82aa:86b1 with SMTP id b19-20020a17090630d300b0098282aa86b1mr920230ejb.43.1689245829265;
+        Thu, 13 Jul 2023 03:57:09 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id ay9-20020a170906d28900b00992bea2e9d2sm3835016ejb.62.2023.07.13.03.57.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Jul 2023 03:57:08 -0700 (PDT)
+Date: Thu, 13 Jul 2023 12:57:07 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, 
+	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Samuel Ortiz <sameo@rivosinc.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/7] RISC-V: KVM: Factor-out ONE_REG related code to its
+ own source file
+Message-ID: <20230713-40f6804b248987add29f83aa@orel>
+References: <20230712161047.1764756-1-apatel@ventanamicro.com>
+ <20230712161047.1764756-2-apatel@ventanamicro.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20230712161047.1764756-2-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_024027_169182_09041EDC 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20230713_035712_658605_BF645CDB 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,97 +96,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use new try_vma_locked_page_fault() helper to simplify code.
-No functional change intended.
+On Wed, Jul 12, 2023 at 09:40:41PM +0530, Anup Patel wrote:
+> The VCPU ONE_REG interface has grown over time and it will continue
+> to grow with new ISA extensions and other features. Let us move all
+> ONE_REG related code to its own source file so that vcpu.c only
+> focuses only on high-level VCPU functions.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/kvm_host.h |   6 +
+>  arch/riscv/kvm/Makefile           |   1 +
+>  arch/riscv/kvm/vcpu.c             | 529 +----------------------------
+>  arch/riscv/kvm/vcpu_onereg.c      | 547 ++++++++++++++++++++++++++++++
+>  4 files changed, 555 insertions(+), 528 deletions(-)
+>  create mode 100644 arch/riscv/kvm/vcpu_onereg.c
+>
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
- arch/x86/mm/fault.c | 39 +++++++++++++++------------------------
- 1 file changed, 15 insertions(+), 24 deletions(-)
-
-diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
-index 56b4f9faf8c4..3f3b8b0a87de 100644
---- a/arch/x86/mm/fault.c
-+++ b/arch/x86/mm/fault.c
-@@ -1213,6 +1213,16 @@ do_kern_addr_fault(struct pt_regs *regs, unsigned long hw_error_code,
- }
- NOKPROBE_SYMBOL(do_kern_addr_fault);
- 
-+#ifdef CONFIG_PER_VMA_LOCK
-+int arch_vma_check_access(struct vm_area_struct *vma,
-+			  struct vm_locked_fault *vmlf)
-+{
-+	if (unlikely(access_error(vmlf->fault_code, vma)))
-+		return -EINVAL;
-+	return 0;
-+}
-+#endif
-+
- /*
-  * Handle faults in the user portion of the address space.  Nothing in here
-  * should check X86_PF_USER without a specific justification: for almost
-@@ -1231,6 +1241,7 @@ void do_user_addr_fault(struct pt_regs *regs,
- 	struct mm_struct *mm;
- 	vm_fault_t fault;
- 	unsigned int flags = FAULT_FLAG_DEFAULT;
-+	struct vm_locked_fault vmlf;
- 
- 	tsk = current;
- 	mm = tsk->mm;
-@@ -1328,27 +1339,11 @@ void do_user_addr_fault(struct pt_regs *regs,
- 	}
- #endif
- 
--#ifdef CONFIG_PER_VMA_LOCK
--	if (!(flags & FAULT_FLAG_USER))
--		goto lock_mmap;
--
--	vma = lock_vma_under_rcu(mm, address);
--	if (!vma)
--		goto lock_mmap;
--
--	if (unlikely(access_error(error_code, vma))) {
--		vma_end_read(vma);
--		goto lock_mmap;
--	}
--	fault = handle_mm_fault(vma, address, flags | FAULT_FLAG_VMA_LOCK, regs);
--	if (!(fault & (VM_FAULT_RETRY | VM_FAULT_COMPLETED)))
--		vma_end_read(vma);
--
--	if (!(fault & VM_FAULT_RETRY)) {
--		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
-+	VM_LOCKED_FAULT_INIT(vmlf, mm, address, flags, 0, regs, error_code);
-+	if (try_vma_locked_page_fault(&vmlf, &fault))
-+		goto retry;
-+	else if (!(fault | VM_FAULT_RETRY))
- 		goto done;
--	}
--	count_vm_vma_lock_event(VMA_LOCK_RETRY);
- 
- 	/* Quick path to respond to signals */
- 	if (fault_signal_pending(fault, regs)) {
-@@ -1358,8 +1353,6 @@ void do_user_addr_fault(struct pt_regs *regs,
- 						 ARCH_DEFAULT_PKEY);
- 		return;
- 	}
--lock_mmap:
--#endif /* CONFIG_PER_VMA_LOCK */
- 
- retry:
- 	vma = lock_mm_and_find_vma(mm, address, regs);
-@@ -1419,9 +1412,7 @@ void do_user_addr_fault(struct pt_regs *regs,
- 	}
- 
- 	mmap_read_unlock(mm);
--#ifdef CONFIG_PER_VMA_LOCK
- done:
--#endif
- 	if (likely(!(fault & VM_FAULT_ERROR)))
- 		return;
- 
--- 
-2.27.0
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
