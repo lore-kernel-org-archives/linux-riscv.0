@@ -4,83 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0138DEB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 11:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7297EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 11:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=idYWCPo6z2sC39X9uhxT6/DT+9fk3J0NVnlGKti66JE=; b=0Mb1xNdP1j9w8r
-	5t+m0/ll3ZHcZhcUX4I1z0MgWiSQ6JNFDoaQsUnY/FFxTiO6Qvk786YTEIH+X3ZTTvD9xlcWP1a54
-	KKWq5HDUyPWb0eYTZ9CmHz4Bs6cxu4LWf/1JYIufYYNjBYUdqRSE3qfM1ANE8NRuz5Nr7sXvN7bhy
-	zjqtqshZ8RHDlf/cX+7Xy0yMsn5vDyjA7kfE2eeglbwI2EA1k2IVFP6h5PaLV29hTKZ1cMKamdWsb
-	MAKXj4H/fk3kb7pLYnwsDMi0m3opfulnvIDBS1GUUUHlCHi5IMMPRzkN8R7egxTq5srjV8UYcvnfg
-	VSDo1UEQllJkji/SsgSQ==;
+	List-Owner; bh=2v1LYBaBqyxCmJ7DiQD6+NgRzKfMt2IBKbS5oPBApG8=; b=QsgTkJodY9BQAY
+	IlBWB2dK55KEyVyC0hzDY+5MBzMuEYkXhs8enpxJnxzb4rqQosVDUFkEXKO+yTKZn1tQCEB9BexQB
+	yB2xCyRWahu9SI5iKDxXegiIcrkcJf2BVdCznkdpjcGofgD5KNZ/sFGr3jbQlgk+xtPsj3bOeWVvX
+	xav/OW+HYDY7xwMJlvUe7bEnYMbXgriBenfrdReG2Zk52m39w3QJ7abadxIhAEauZDL6SiG2Z+cBF
+	Z2P78nURgPI2/LwldULbG3jGm9clXsrpWsxdN9poxTUq+J+qYo4cM8kuGOzEE9wawwBNgA8+AtCo+
+	rHYur4IF+27OsqtlvqmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJums-0038RT-2X;
-	Thu, 13 Jul 2023 11:47:10 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1qJuqq-00394U-22;
+	Thu, 13 Jul 2023 11:51:16 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJump-0038Op-29
+	id 1qJuqn-00392g-0K
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 11:47:09 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-4fb7b2e3dacso1092343e87.0
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 04:47:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1689248823; x=1691840823;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QkC/3t6yahhwYAX2k86ggdtjKfFNk+a6lEAlP8/kgtI=;
-        b=XAKsv4MoO/pKibEQ1G2CxsRmfD4VxbDZYvIirjY6OXu8ih4sjnTABAP2qIo5bTi/QD
-         SHFBqh/cuCdWLLorn87tm9mdBEO3tFDBINMZBhaRv/sSKTWvZQ00GwJG0l0DVPQ5etLW
-         pUrf64TZuPnwMe1Xadtq7tOKmmCJeuzF94VxWwrJ6lPrTBNevvDfLzBfGsl3vm5yud/9
-         xGls/5rypS0CrWc0LgHmAZy8sKQPiD5bVYStR5VB9s9ab6xeWbUqrqLfBGGLsnWb0UzF
-         ekNn1bl8z9lJGkYkNLyHscniyNBZij/Xj9bKz/r0y+lJRLguC1gcAx33nnZW8phrdHtU
-         CUSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689248823; x=1691840823;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QkC/3t6yahhwYAX2k86ggdtjKfFNk+a6lEAlP8/kgtI=;
-        b=TrCkotrPFcu+35uHEbFuQkgQejWvDOy+0p2Eln+M135YPD8/8hV8RN++bN3bGvuPS8
-         R1j+DwMZ8FMTHyg4NMHtUXERkAFG3AaAaV8GyHQxTjFTf87mNHrVk8LYbly28AGC8hgh
-         aWhzhDQT2uSASqGHL09YF3N9M4fmpKKjMhETKd+/s251wv0w8SjO1zudZkJtRyomu/JO
-         OaPp67/I324aKx6ctRe9PPpMqX7ftGXR36Q/BTto4RxBmlnIj8p9sHQ7AvnPih2LtUBL
-         sAGKCqbPR+WyrWnV7RLixRo5OI9IgpCFZiARW6Gp6hPy/rpnT3itKUW280yzkhkhQGue
-         DzgA==
-X-Gm-Message-State: ABy/qLZB+QW9g++e0X1kLP6qdbsj5AwpVn8i+DuTYbhSDO+oKG8pk8rX
-	wUOPCH4ZaKQYaT3W5znKx6QfNQ==
-X-Google-Smtp-Source: APBJJlF6RRZg1uMcOi0ji+OK2OsaBE+8f5isAdIDj2SLfzUC25uBdhHZhXHCZHvkywy8/uPhboxaTA==
-X-Received: by 2002:a05:6512:4002:b0:4f9:69e9:4fa6 with SMTP id br2-20020a056512400200b004f969e94fa6mr1149012lfb.23.1689248823117;
-        Thu, 13 Jul 2023 04:47:03 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id y26-20020a056402135a00b0051e0c0d0a8bsm4166887edw.7.2023.07.13.04.47.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Jul 2023 04:47:02 -0700 (PDT)
-Date: Thu, 13 Jul 2023 13:47:01 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Samuel Ortiz <sameo@rivosinc.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/7] RISC-V: KVM: Sort ISA extensions alphabetically in
- ONE_REG interface
-Message-ID: <20230713-8e31c6213e0d7359898b7c17@orel>
-References: <20230712161047.1764756-1-apatel@ventanamicro.com>
- <20230712161047.1764756-6-apatel@ventanamicro.com>
+	Thu, 13 Jul 2023 11:51:15 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A5DC2FF80D;
+	Thu, 13 Jul 2023 11:51:02 +0000 (UTC)
+Message-ID: <f903634d-851f-af64-8d9a-6b13d813587c@ghiti.fr>
+Date: Thu, 13 Jul 2023 13:51:01 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230712161047.1764756-6-apatel@ventanamicro.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH] selftests/riscv: fix potential build failure during the
+ "emit_tests" step
+Content-Language: en-US
+To: John Hubbard <jhubbard@nvidia.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Anders Roxell <anders.roxell@linaro.org>,
+ Andrew Jones <ajones@ventanamicro.com>, Andy Chiu <andy.chiu@sifive.com>,
+ Evan Green <evan@rivosinc.com>, Hugh Dickins <hughd@google.com>,
+ Muhammad Usama Anjum <usama.anjum@collabora.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Qinglin Pan <panqinglin2020@iscas.ac.cn>,
+ Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-mm@kvack.org,
+ LKML <linux-kernel@vger.kernel.org>
+References: <20230712193514.740033-1-jhubbard@nvidia.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230712193514.740033-1-jhubbard@nvidia.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_044707_701119_09EA6BF4 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230713_045113_293839_BA63C1FE 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,23 +68,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 12, 2023 at 09:40:45PM +0530, Anup Patel wrote:
-> Let us sort isa extensions alphabetically in kvm_isa_ext_arr[] and
-> kvm_riscv_vcpu_isa_disable_allowed() so that future insertions are
-> more predictable.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/kvm/vcpu_onereg.c | 13 +++++++------
->  1 file changed, 7 insertions(+), 6 deletions(-)
->
+Hi John,
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+On 12/07/2023 21:35, John Hubbard wrote:
+> The riscv selftests (which were modeled after the arm64 selftests) are
+> improperly declaring the "emit_tests" target to depend upon the "all"
+> target. This approach, when combined with commit 9fc96c7c19df
+> ("selftests: error out if kernel header files are not yet built"), has
+> caused build failures [1] on arm64, and is likely to cause similar
+> failures for riscv.
+>
+> To fix this, simply remove the unnecessary "all" dependency from the
+> emit_tests target. The dependency is still effectively honored, because
+> again, invocation is via "install", which also depends upon "all".
+>
+> An alternative approach would be to harden the emit_tests target so that
+> it can depend upon "all", but that's a lot more complicated and hard to
+> get right, and doesn't seem worth it, especially given that emit_tests
+> should probably not be overridden at all.
+>
+> [1] https://lore.kernel.org/20230710-kselftest-fix-arm64-v1-1-48e872844f25@kernel.org
+>
+> Fixes: 9fc96c7c19df ("selftests: error out if kernel header files are not yet built")
+> Signed-off-by: John Hubbard <jhubbard@nvidia.com>
+> ---
+>
+> Andrew,
+>
+> With this, and with my arm64 fix [2] that you've already put into
+> mm-unstable, you should be able to safely drop commit 819187ab8741
+> ("selftests: fix arm64 test installation").
+>
+> [2] https://lore.kernel.org/20230711005629.2547838-1-jhubbard@nvidia.com
+>
+> thanks,
+> John Hubbard
+>
+>
+>   tools/testing/selftests/riscv/Makefile | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
+> index 9dd629cc86aa..f4b3d5c9af5b 100644
+> --- a/tools/testing/selftests/riscv/Makefile
+> +++ b/tools/testing/selftests/riscv/Makefile
+> @@ -43,7 +43,7 @@ run_tests: all
+>   	done
+>   
+>   # Avoid any output on non riscv on emit_tests
+> -emit_tests: all
+> +emit_tests:
+>   	@for DIR in $(RISCV_SUBTARGETS); do				\
+>   		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
+>   		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
+>
+> base-commit: 3f01e9fed8454dcd89727016c3e5b2fbb8f8e50c
+> prerequisite-patch-id: 37c92f7425689ff069fb83996a25cd98e78d7242
+
+
+Perfect timing, I have just encountered this failure this morning:
+
+make[5]: *** [../../lib.mk:81: kernel_header_files] Error 1
+
+that your patch fixed :) So you can add:
+
+Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thank you!
+
+Alex
+
 
 _______________________________________________
 linux-riscv mailing list
