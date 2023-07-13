@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61A1C0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 13:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F602C0015E
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 13:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4LVrHrt4unS9NDy7RGQax+0/lwNd9imcyrdCm4CKdII=; b=aohIz7AfxxHuC2
-	KfGccR5ONaN2nSfzFTpCa1ORoSq55z67zhHiA/+91mcZJy1jwzhOhM8yU7jOH1UpT3drN8MunbYdq
-	F/fMHyTl+XlS7q8ce7eS3Baq8wuYEPTU8YAw3/HT8WnZocDOeZatjeQProUDrFGKmHyEM8YScE5Da
-	V63VQJ2A3z9XTFyMbGff+JyFmj7KXqzQCP2wJ70KGdSuODIjO9ggFQj46Hm2154QQwxBj5403Oq4i
-	wumnoDynzPLOpAq2SXuhNBr/+wjBs+Uh5lV4OF4NloU4WMQVuKM0JMIuVp52tEpdgnc3IEmGhjb3r
-	h16fox+FOr8YPtl0TRNQ==;
+	List-Owner; bh=tRUBVNyL8PYtRpXF+ax9mDrbeJEeddT/xfeL02rwTHc=; b=jUHjdFv863pf68
+	mLND1P72x4H1JQxwKV5SVOuruXhK1jCo5md1NbgSx2On/vDwXiONl2buP/I45s2XTbAN939IvPAFy
+	46re7Bd9JXjsrN6YAQUXCYdkc65VccywAqV4mWg5WaKgheaDGF7lyaIAeNEPBgi35Qx+WrcWWfLk+
+	vLiVBSIEE8CgaZ8uAM7aXCjDSbIRnmhXtQ7FeQbbhcFgdGmRwgpEl5wcgid2Ki8R9XchNoWC/P0hP
+	vGAnDqC13T4VYe96RFYGSj+QTXrLruNHJFBYs+cH2xqe+5eN4d3QWFTUnrcqIKwuzqPmTspAzQpym
+	y6cWlpo634/ExLaSkovg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJwCh-003O4y-0V;
-	Thu, 13 Jul 2023 13:17:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qJwGc-003Org-2i;
+	Thu, 13 Jul 2023 13:21:58 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJwCd-003O1t-0C
+	id 1qJwGY-003OoK-2C
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 13:17:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	Thu, 13 Jul 2023 13:21:57 +0000
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1D83D6154E;
-	Thu, 13 Jul 2023 13:17:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4463C433C7;
-	Thu, 13 Jul 2023 13:17:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689254269;
-	bh=XkuqR9+OmJB+cQyg5eR/C6W11JZP+75jrSQ8yU4aF/c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hgvZgsHr+Nxo1yQxxS4Q92P6ny42qWbiuhEfimWBRzRooVNvDpCAyvCyfa+Ko0HAH
-	 M2JVIp8UuG6AFvr9LGUhX3a1oEhQkHHsEHn/KKg/P7H+BrV1GOgwt12bIXFqU33Fs2
-	 HELT8ZU+wG+v0LnvVrevjz7Fgpa5vsYkfemhckJDrINGHu9K+1ADXv1JUEohjLGUiv
-	 gTwljY270JEMYVRNtFBqJdhKSFR0l5Q755IQrobN4EkcMOY8Mhd9Bp5O6dy+b9O1gG
-	 5Crm4cTJd6xs6CJCmxUO9wX4hyqIY7J3uzGYqA2X4P6Wpcuibx8JPWO4esySDHqFFX
-	 ppwt7eKZevq0w==
-Message-ID: <08905362-248c-e6af-d750-9d385ad543e3@kernel.org>
-Date: Thu, 13 Jul 2023 23:17:45 +1000
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 28B443F18F
+	for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 13:21:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1689254513;
+	bh=enRX6hWC2iaemXY8CE1QlIdDJtfFUqCURuPciqCUAP8=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=OEdLtaipPM/O8RTKSA6hczGsYGn2uGcOlBbTh3YnTMz1K6ST9o8osbhp2RK34DWVh
+	 B2dO8ugmnymelt35VxGqhF1oDAH6I8B6CBxMQ+gJocSpWzjlZ3yqD0H1K9qHHFa9JN
+	 EcLURzQqnTuCrUGQkGKc+eZngOfOtKOEu2vRv0con1J0uwQyetwVkua/RbfDJgmhvs
+	 GnIRfIJN9h2STUK6PxKtCGCi5NwJP5NQb1SxbAa1GJPNupBODlj/ZUFxnOYaMguK+J
+	 yik698ySad+GwL0+UiOsYXoJHS4j980Wf+iz86/im5VizLFCDFH84ceBa9RGXMhh2p
+	 3Tq8rsnQSKsrA==
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-403ba1eebedso9587101cf.1
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 06:21:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689254512; x=1691846512;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=enRX6hWC2iaemXY8CE1QlIdDJtfFUqCURuPciqCUAP8=;
+        b=H5QF6AXfU5Yvzn7bZ8rCuf6oJKz8ekn5BsbG4C+5a0wpbJVIpIRYn8SYS8SIuedKj6
+         eiGuB6DPjw9YKBFuHfB02RR5Yr/AV8uCuk1e22cadVzAu/geAsRYqsIjMY4yBVIs/CcY
+         PL8u7OrJk3cvLOk5UDF7NT/llsVwmG8heRBaBYuMb2V0QUJtHLTkeCWGkhQFNzUVVbH/
+         wVoRkQNYc0mfgmzhE22sihZ2sIQueWXE9n1U6poMJ2bGSD0IctpTBXemq33mQHlqZpV1
+         VSiIF1hyUMxo7rJ24+KnTzcODtvrmBOYfmFKHn/9OUMmug3u9Jb+qE6V85YxymvZDPmQ
+         2Whg==
+X-Gm-Message-State: ABy/qLa7QGW+BASbJa9dnf0zxGJvb0i1ns+s+bPu9VOt+77IOfkOouK4
+	kKB3os1FzUQAEBG2i0V/PNDNJyOk65QidnnaVEBNUeKi+kUBoD4qtC4HvTIe8fC1PfoacZ2ma4t
+	32hoxkFozkTJuxfffWrpQLStJv7q2Q2wuGnen1RCL2SpGLN+D6yx8T0N3ZUOe2w==
+X-Received: by 2002:a05:622a:104a:b0:3ec:490b:ce6e with SMTP id f10-20020a05622a104a00b003ec490bce6emr2001179qte.48.1689254512000;
+        Thu, 13 Jul 2023 06:21:52 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlFJMIRJnzg3ozLNbx0GZublHY6dW4PSuFNYeS/2iDDTUQp4OX+srNMRFZPrJS2XCDeDowhX2Cfv7yQDvY2KNO0=
+X-Received: by 2002:a05:622a:104a:b0:3ec:490b:ce6e with SMTP id
+ f10-20020a05622a104a00b003ec490bce6emr2001156qte.48.1689254511797; Thu, 13
+ Jul 2023 06:21:51 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v2 2/2] riscv: support the elf-fdpic binfmt loader
-Content-Language: en-US
-To: Stefan O'Rear <sorear@fastmail.com>, linux-riscv@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, viro@zeniv.linux.org.uk,
- ebiederm@xmission.com, keescook@chromium.org, brauner@kernel.org
-References: <20230711130754.481209-1-gerg@kernel.org>
- <20230711130754.481209-3-gerg@kernel.org>
- <31c4024b-3553-4117-a22a-b39259c8fea4@app.fastmail.com>
-From: Greg Ungerer <gerg@kernel.org>
-In-Reply-To: <31c4024b-3553-4117-a22a-b39259c8fea4@app.fastmail.com>
+References: <20230704064610.292603-1-xingyu.wu@starfivetech.com> <20230704064610.292603-7-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230704064610.292603-7-xingyu.wu@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Thu, 13 Jul 2023 15:21:35 +0200
+Message-ID: <CAJM55Z8VequKy59P5zKrVOr7WPRbUqq4CUHrk8aDO+3qpkzm2Q@mail.gmail.com>
+Subject: Re: [RESEND PATCH v6 6/7] riscv: dts: starfive: jh7110: Add syscon nodes
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Hal Feng <hal.feng@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_061751_180855_C4054654 
-X-CRM114-Status: GOOD (  26.94  )
+X-CRM114-CacheID: sfid-20230713_062154_880933_9D7ABE7B 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,157 +97,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 4 Jul 2023 at 08:49, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
+>
+> From: William Qiu <william.qiu@starfivetech.com>
+>
+> Add stg_syscon/sys_syscon/aon_syscon/PLL nodes for JH7110 SoC.
+>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Co-developed-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 4c5fdb905da8..11dd4c9d64b0 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -353,6 +353,11 @@ i2c2: i2c@10050000 {
+>                         status = "disabled";
+>                 };
+>
+> +               stg_syscon: syscon@10240000 {
+> +                       compatible = "starfive,jh7110-stg-syscon", "syscon";
+> +                       reg = <0x0 0x10240000 0x0 0x1000>;
+> +               };
+> +
+>                 uart3: serial@12000000 {
+>                         compatible = "snps,dw-apb-uart";
+>                         reg = <0x0 0x12000000 0x0 0x10000>;
+> @@ -457,6 +462,17 @@ syscrg: clock-controller@13020000 {
+>                         #reset-cells = <1>;
+>                 };
+>
+> +               sys_syscon: syscon@13030000 {
+> +                       compatible = "starfive,jh7110-sys-syscon", "syscon", "simple-mfd";
+> +                       reg = <0x0 0x13030000 0x0 0x1000>;
+> +
+> +                       pllclk: clock-controller {
 
-On 13/7/23 01:12, Stefan O'Rear wrote:
-> On Tue, Jul 11, 2023, at 9:07 AM, Greg Ungerer wrote:
->> Add support for enabling and using the binfmt_elf_fdpic program loader
->> on RISC-V platforms. The most important change is to setup registers
->> during program load to pass the mapping addresses to the new process.
->>
->> One of the interesting features of the elf-fdpic loader is that it
->> also allows appropriately compiled ELF format binaries to be loaded on
->> nommu systems. Appropriate being those compiled with -pie.
->>
->> Signed-off-by: Greg Ungerer <gerg@kernel.org>
->> ---
->> v1->v2: rebase onto linux-6.5-rc1
->>          increment PTRACE_GETFDPIC value to keep it unique
->>
->>   arch/riscv/include/asm/elf.h         | 11 ++++++++++-
->>   arch/riscv/include/asm/mmu.h         |  4 ++++
->>   arch/riscv/include/uapi/asm/ptrace.h |  5 +++++
->>   fs/Kconfig.binfmt                    |  2 +-
->>   4 files changed, 20 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
->> index c24280774caf..c33fe923ef6d 100644
->> --- a/arch/riscv/include/asm/elf.h
->> +++ b/arch/riscv/include/asm/elf.h
->> @@ -41,6 +41,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
->>   #define compat_elf_check_arch	compat_elf_check_arch
->>
->>   #define CORE_DUMP_USE_REGSET
->> +#define ELF_FDPIC_CORE_EFLAGS	0
->>   #define ELF_EXEC_PAGESIZE	(PAGE_SIZE)
->>
->>   /*
->> @@ -69,6 +70,13 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
->>   #define ELF_HWCAP	riscv_get_elf_hwcap()
->>   extern unsigned long elf_hwcap;
->>
->> +#define ELF_FDPIC_PLAT_INIT(_r, _exec_map_addr, _interp_map_addr,
->> dynamic_addr) \
->> +	do { \
->> +		(_r)->a1 = _exec_map_addr; \
->> +		(_r)->a2 = _interp_map_addr; \
->> +		(_r)->a3 = dynamic_addr; \
->> +	} while (0)
->> +
-> 
-> This should probably be left empty for now; it will be defined by the
-> ELF FDPIC ABI when that is done, and shouldn't be used by normal ELF
-> binaries. 
+Maybe call the handle "pll", so the references can be just <&pll 0>,
+<&pll 1> and <&pll 2> if you choose to drop the JH7110_PLLCLK_PLL?_OUT
+defines.
 
-True, not used by the ELF binaries themselves. But used by an ELF
-interpreter to do the runtime relocations.
+In any case:
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-
-> I'd ask if there's a reason it starts at a1 instead of a0,
-> but it seems idiosyncratic on all arches that have full FDPIC support.
-
-This comment in the crt1.S code of uClibc made me think that a0 already had
-a pre-defined use in the ABI:
-
-     /* The entry point's job is to call __uClibc_main.  Per the ABI,
-        a0 contains the address of a function to be passed to atexit.
-
-But I didn't dig any further than that.
-
-Regards
-Greg
-
-
-> -s
-> 
->>   /*
->>    * This yields a string that ld.so will use to load implementation
->>    * specific libraries for optimization.  This is more specific in
->> @@ -78,7 +86,6 @@ extern unsigned long elf_hwcap;
->>
->>   #define COMPAT_ELF_PLATFORM	(NULL)
->>
->> -#ifdef CONFIG_MMU
->>   #define ARCH_DLINFO						\
->>   do {								\
->>   	/*							\
->> @@ -115,6 +122,8 @@ do {								\
->>   	else							 \
->>   		NEW_AUX_ENT(AT_IGNORE, 0);			 \
->>   } while (0)
->> +
->> +#ifdef CONFIG_MMU
->>   #define ARCH_HAS_SETUP_ADDITIONAL_PAGES
->>   struct linux_binprm;
->>   extern int arch_setup_additional_pages(struct linux_binprm *bprm,
->> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
->> index 0099dc116168..355504b37f8e 100644
->> --- a/arch/riscv/include/asm/mmu.h
->> +++ b/arch/riscv/include/asm/mmu.h
->> @@ -20,6 +20,10 @@ typedef struct {
->>   	/* A local icache flush is needed before user execution can resume. */
->>   	cpumask_t icache_stale_mask;
->>   #endif
->> +#ifdef CONFIG_BINFMT_ELF_FDPIC
->> +	unsigned long exec_fdpic_loadmap;
->> +	unsigned long interp_fdpic_loadmap;
->> +#endif
->>   } mm_context_t;
->>
->>   void __init create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t
->> pa,
->> diff --git a/arch/riscv/include/uapi/asm/ptrace.h
->> b/arch/riscv/include/uapi/asm/ptrace.h
->> index e17c550986a6..30f6d6537adc 100644
->> --- a/arch/riscv/include/uapi/asm/ptrace.h
->> +++ b/arch/riscv/include/uapi/asm/ptrace.h
->> @@ -10,6 +10,11 @@
->>
->>   #include <linux/types.h>
->>
->> +#define PTRACE_GETFDPIC		33
->> +
->> +#define PTRACE_GETFDPIC_EXEC	0
->> +#define PTRACE_GETFDPIC_INTERP	1
->> +
->>   /*
->>    * User-mode register state for core dumps, ptrace, sigcontext
->>    *
->> diff --git a/fs/Kconfig.binfmt b/fs/Kconfig.binfmt
->> index 93539aac0e5b..f5693164ca9a 100644
->> --- a/fs/Kconfig.binfmt
->> +++ b/fs/Kconfig.binfmt
->> @@ -58,7 +58,7 @@ config ARCH_USE_GNU_PROPERTY
->>   config BINFMT_ELF_FDPIC
->>   	bool "Kernel support for FDPIC ELF binaries"
->>   	default y if !BINFMT_ELF
->> -	depends on ARM || ((M68K || SUPERH || XTENSA) && !MMU)
->> +	depends on ARM || ((M68K || RISCV || SUPERH || XTENSA) && !MMU)
->>   	select ELFCORE
->>   	help
->>   	  ELF FDPIC binaries are based on ELF, but allow the individual load
->> -- 
->> 2.25.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> +                               compatible = "starfive,jh7110-pll";
+> +                               clocks = <&osc>;
+> +                               #clock-cells = <1>;
+> +                       };
+> +               };
+> +
+>                 sysgpio: pinctrl@13040000 {
+>                         compatible = "starfive,jh7110-sys-pinctrl";
+>                         reg = <0x0 0x13040000 0x0 0x10000>;
+> @@ -486,6 +502,12 @@ aoncrg: clock-controller@17000000 {
+>                         #reset-cells = <1>;
+>                 };
+>
+> +               aon_syscon: syscon@17010000 {
+> +                       compatible = "starfive,jh7110-aon-syscon", "syscon";
+> +                       reg = <0x0 0x17010000 0x0 0x1000>;
+> +                       #power-domain-cells = <1>;
+> +               };
+> +
+>                 aongpio: pinctrl@17020000 {
+>                         compatible = "starfive,jh7110-aon-pinctrl";
+>                         reg = <0x0 0x17020000 0x0 0x10000>;
+> --
+> 2.25.1
+>
 
 _______________________________________________
 linux-riscv mailing list
