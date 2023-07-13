@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B4FEB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 09:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B74EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 09:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9yPXxZSLqZFJOOL90OzD9iEmSla26iwzSOEkHYpnAII=; b=RYFJX5PZgjQeni
-	czhpTs6UjgU104juZkrmTIp1PG1+WAjh0dmqyDo914qC6zSx5S01QbfKX1GSaazPf6MxuN+FOwGST
-	X1ZF6g6klDdj3bi1Fv8CPMGaSRcPLn2PqquL86/ehAqS8w63l65x1qqw28F7pcXiXTW2a1fxh0a2L
-	eiey6Ktg33Y0uCm9mVnf9+Hv5Sasow+4q8kRH+i+h1EP71+7VKKJmvUgIYzYTZVq9OkGg36bOh/Un
-	dfhBpcl58yO4vq9O85BUOc2PLA8gyEQSdKhG4xrfdR0DNiaX6SOJsz/2NpmZbsIDlM74pyEUKvV6I
-	L9k9G9kAPeWBKRuiy+6w==;
+	List-Owner; bh=jbzUED3Kc95lgUXvoJgXQ6mq06LkjyUFFbqtRgn4B/c=; b=zuifDMEsWKYjZh
+	EyJG9rcjj5r3AZ4tpiarFQAO3s1ZsYfJCdkSSrCxngHO9OtZd419+T1s19YunUXqrg/Vla/Zu+2Xr
+	vISdM/S7xDGRvvhLOgGSJiZgkaAEua+W6Ps6IPzReEb7FCjZqZJceMM79TxYoL7THloDHjoHnek5c
+	GVgkQBqZpJqgRRyk1V+va1JkaOviYzn+lVQ0ZgBsOcVctxLT4nIwQzu090IelkqQtXyNJk/SLLaNw
+	0mM6mAPTGMRXpkAan7FIqO7+ptZKGxw+axX7tidYbygzfgfCV8V/GSOj9PjZIzhvwB2xqfsVZAVKB
+	EbhrNjGg1JPw33Cttv/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJsoX-002eJT-04;
-	Thu, 13 Jul 2023 09:40:45 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1qJsoc-002eQK-2v;
+	Thu, 13 Jul 2023 09:40:50 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJsoM-002e2V-2k;
-	Thu, 13 Jul 2023 09:40:37 +0000
-Received: from dggpemm500001.china.huawei.com (unknown [172.30.72.57])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4R1qLp2H4wzVjg5;
-	Thu, 13 Jul 2023 17:39:14 +0800 (CST)
+	id 1qJsoO-002e9a-2q;
+	Thu, 13 Jul 2023 09:40:39 +0000
+Received: from dggpemm500001.china.huawei.com (unknown [172.30.72.53])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4R1qMg1LkQz18Lnh;
+	Thu, 13 Jul 2023 17:39:59 +0800 (CST)
 Received: from localhost.localdomain.localdomain (10.175.113.25) by
  dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Thu, 13 Jul 2023 17:40:27 +0800
+ 15.1.2507.27; Thu, 13 Jul 2023 17:40:33 +0800
 From: Kefeng Wang <wangkefeng.wang@huawei.com>
 To: <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>,
 	<surenb@google.com>
@@ -53,9 +53,9 @@ CC: Russell King <linux@armlinux.org.uk>, Catalin Marinas
 	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Kefeng Wang
 	<wangkefeng.wang@huawei.com>
-Subject: [PATCH rfc -next 05/10] powerpc: mm: use try_vma_locked_page_fault()
-Date: Thu, 13 Jul 2023 17:53:33 +0800
-Message-ID: <20230713095339.189715-6-wangkefeng.wang@huawei.com>
+Subject: [PATCH rfc -next 10/10] loongarch: mm: try VMA lock-based page fault handling first
+Date: Thu, 13 Jul 2023 17:53:38 +0800
+Message-ID: <20230713095339.189715-11-wangkefeng.wang@huawei.com>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
 References: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
@@ -65,8 +65,8 @@ X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  dggpemm500001.china.huawei.com (7.185.36.107)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_024035_258748_4DCAC5F0 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20230713_024037_281289_263DC388 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,106 +83,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use new try_vma_locked_page_fault() helper to simplify code.
-No functional change intended.
+Attempt VMA lock-based page fault handling first, and fall back
+to the existing mmap_lock-based handling if that fails.
 
 Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 ---
- arch/powerpc/mm/fault.c | 54 +++++++++++++++++------------------------
- 1 file changed, 22 insertions(+), 32 deletions(-)
+ arch/loongarch/Kconfig    |  1 +
+ arch/loongarch/mm/fault.c | 26 ++++++++++++++++++++++++++
+ 2 files changed, 27 insertions(+)
 
-diff --git a/arch/powerpc/mm/fault.c b/arch/powerpc/mm/fault.c
-index 82954d0e6906..dd4832a3cf10 100644
---- a/arch/powerpc/mm/fault.c
-+++ b/arch/powerpc/mm/fault.c
-@@ -391,6 +391,23 @@ static int page_fault_is_bad(unsigned long err)
- #define page_fault_is_bad(__err)	((__err) & DSISR_BAD_FAULT_32S)
- #endif
+diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+index 397203e18800..afb0ccabab97 100644
+--- a/arch/loongarch/Kconfig
++++ b/arch/loongarch/Kconfig
+@@ -53,6 +53,7 @@ config LOONGARCH
+ 	select ARCH_SUPPORTS_LTO_CLANG
+ 	select ARCH_SUPPORTS_LTO_CLANG_THIN
+ 	select ARCH_SUPPORTS_NUMA_BALANCING
++	select ARCH_SUPPORTS_PER_VMA_LOCK
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_CMPXCHG_LOCKREF
+ 	select ARCH_USE_QUEUED_RWLOCKS
+diff --git a/arch/loongarch/mm/fault.c b/arch/loongarch/mm/fault.c
+index cde2ea0119fa..7e54bc48813e 100644
+--- a/arch/loongarch/mm/fault.c
++++ b/arch/loongarch/mm/fault.c
+@@ -136,6 +136,17 @@ static inline bool access_error(unsigned int flags, struct pt_regs *regs,
+ 	return false;
+ }
  
 +#ifdef CONFIG_PER_VMA_LOCK
 +int arch_vma_check_access(struct vm_area_struct *vma,
 +			  struct vm_locked_fault *vmlf)
 +{
-+	int is_exec = TRAP(vmlf->regs) == INTERRUPT_INST_STORAGE;
-+	int is_write = page_fault_is_write(vmlf->fault_code);
-+
-+	if (unlikely(access_pkey_error(is_write, is_exec,
-+				(vmlf->fault_code & DSISR_KEYFAULT), vma)))
-+		return -EINVAL;
-+
-+	if (unlikely(access_error(is_write, is_exec, vma)))
++	if (unlikely(access_error(vmlf->fault_flags, vmlf->regs, vmlf->address,
++		     vma)))
 +		return -EINVAL;
 +	return 0;
 +}
 +#endif
 +
  /*
-  * For 600- and 800-family processors, the error_code parameter is DSISR
-  * for a data fault, SRR1 for an instruction fault.
-@@ -413,6 +430,7 @@ static int ___do_page_fault(struct pt_regs *regs, unsigned long address,
- 	int is_write = page_fault_is_write(error_code);
- 	vm_fault_t fault, major = 0;
- 	bool kprobe_fault = kprobe_page_fault(regs, 11);
+  * This routine handles page faults.  It determines the address,
+  * and the problem, and then passes it off to one of the appropriate
+@@ -149,6 +160,7 @@ static void __kprobes __do_page_fault(struct pt_regs *regs,
+ 	struct task_struct *tsk = current;
+ 	struct mm_struct *mm = tsk->mm;
+ 	struct vm_area_struct *vma = NULL;
 +	struct vm_locked_fault vmlf;
+ 	vm_fault_t fault;
  
- 	if (unlikely(debugger_fault_handler(regs) || kprobe_fault))
- 		return 0;
-@@ -469,41 +487,15 @@ static int ___do_page_fault(struct pt_regs *regs, unsigned long address,
- 	if (is_exec)
- 		flags |= FAULT_FLAG_INSTRUCTION;
+ 	if (kprobe_page_fault(regs, current->thread.trap_nr))
+@@ -183,6 +195,19 @@ static void __kprobes __do_page_fault(struct pt_regs *regs,
+ 		flags |= FAULT_FLAG_WRITE;
  
--#ifdef CONFIG_PER_VMA_LOCK
--	if (!(flags & FAULT_FLAG_USER))
--		goto lock_mmap;
--
--	vma = lock_vma_under_rcu(mm, address);
--	if (!vma)
--		goto lock_mmap;
--
--	if (unlikely(access_pkey_error(is_write, is_exec,
--				       (error_code & DSISR_KEYFAULT), vma))) {
--		vma_end_read(vma);
--		goto lock_mmap;
--	}
--
--	if (unlikely(access_error(is_write, is_exec, vma))) {
--		vma_end_read(vma);
--		goto lock_mmap;
--	}
--
--	fault = handle_mm_fault(vma, address, flags | FAULT_FLAG_VMA_LOCK, regs);
--	if (!(fault & (VM_FAULT_RETRY | VM_FAULT_COMPLETED)))
--		vma_end_read(vma);
--
--	if (!(fault & VM_FAULT_RETRY)) {
--		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
-+	VM_LOCKED_FAULT_INIT(vmlf, mm, address, flags, 0, regs, error_code);
+ 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, address);
++
++	VM_LOCKED_FAULT_INIT(vmlf, mm, address, flags, 0, regs, 0);
 +	if (try_vma_locked_page_fault(&vmlf, &fault))
 +		goto retry;
 +	else if (!(fault | VM_FAULT_RETRY))
- 		goto done;
--	}
--	count_vm_vma_lock_event(VMA_LOCK_RETRY);
++		goto done;
++
++	if (fault_signal_pending(fault, regs)) {
++		if (!user_mode(regs))
++			no_context(regs, address);
++		return;
++	}
++
+ retry:
+ 	vma = lock_mm_and_find_vma(mm, address, regs);
+ 	if (unlikely(!vma))
+@@ -223,6 +248,7 @@ static void __kprobes __do_page_fault(struct pt_regs *regs,
  
- 	if (fault_signal_pending(fault, regs))
- 		return user_mode(regs) ? 0 : SIGBUS;
+ 	mmap_read_unlock(mm);
  
--lock_mmap:
--#endif /* CONFIG_PER_VMA_LOCK */
--
- 	/* When running in the kernel we expect faults to occur only to
- 	 * addresses in user space.  All other faults represent errors in the
- 	 * kernel and should generate an OOPS.  Unfortunately, in the case of an
-@@ -552,9 +544,7 @@ static int ___do_page_fault(struct pt_regs *regs, unsigned long address,
- 
- 	mmap_read_unlock(current->mm);
- 
--#ifdef CONFIG_PER_VMA_LOCK
- done:
--#endif
- 	if (unlikely(fault & VM_FAULT_ERROR))
- 		return mm_fault_error(regs, address, fault);
- 
++done:
+ 	if (unlikely(fault & VM_FAULT_ERROR)) {
+ 		if (fault & VM_FAULT_OOM) {
+ 			do_out_of_memory(regs, address);
 -- 
 2.27.0
 
