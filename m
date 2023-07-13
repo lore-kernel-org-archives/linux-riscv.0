@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C00EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 10:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 371D9EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 10:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0S91BbI1TY0XUIOxloDgU733wyGxVjVPbWCabR6NGqo=; b=mPDN6l3ZUkVl33
-	fPu2BHLkfmCOaIO9z594qzMxDbC3EoA884ws0UQBvPO5nbH7iX0GmIATpT/bLYzli/2BZpUi1z76P
-	d+3yxua4YrqdQ8R4zNS3QP/au+UWLE7bhWYQfnORgf9XCnEVWn5CJhJUCnupsQwqInuf/Cc/4mZxu
-	dP5QXj/CkpkVjJp0CLvQimPFBMpRTmj51HaDsEJmXYHM6UBK0Q1QwJXxdTyL0s+mwk8RJBMDQduSH
-	JJETI3X+si42rw+Z6VQoufGCMExZhaEXP/ZyyauwfqRs8Q2kk7Gpk1f6zWizS2oW4OXjWasRElgQW
-	j0m/N37Z+KcFKjSZlfHQ==;
+	List-Owner; bh=nPBPclsdiUv3M0dV86AMRP6+n+t49yrLaJirEMqoO2U=; b=iQvdZfYZsOUvvV
+	gxa4AuMYXr5kEIx7DwRimGf1cE/IpBrO6GwQDe9mOewGR+Lj0ldgv8f8W/j+pVrmjYETUMJ7g9tTQ
+	hPu0blOtxEhHYrloclDw9T4MeDAEmE5dGBjr/CT1hynXvAyixdydoFjrQ48wJn+MdLxsJ6CnEbmVN
+	3cseA1ss72hj+TWSW+54zC7iLF+1hwuXf5hchFe34mEwrzb3tJOwJeJYijouYbzrVIonoH3g7iH5K
+	xwrmAgDrUTuRuuVZdoX3LrFWzcFC6MRq7ZAfgCyptqgqBtIvfafXMoWcGzW7tBdDUtLbHaVq4K9JM
+	Bg3Mq+XhN1WIrMcXqFPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJtJy-002m4B-2a;
-	Thu, 13 Jul 2023 10:13:14 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1qJtK3-002m5b-1V;
+	Thu, 13 Jul 2023 10:13:19 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJtJw-002lzQ-2O
+	id 1qJtK1-002m3e-0S
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 10:13:14 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-3fbc5d5742eso4688925e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 03:12:52 -0700 (PDT)
+	Thu, 13 Jul 2023 10:13:18 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-3fb4146e8ceso4420675e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 03:13:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1689243171; x=1691835171;
+        d=linaro.org; s=google; t=1689243192; x=1691835192;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=kYyViDr4RsL7lZ2DDpCJ0dguzrcDcD4Ap3cfrYQ3a+U=;
-        b=bxRBTkLJ7bAYtN2DWh9OzVLqa2g5xAh9ruzxNK7oUFtau/kOaCJ6scbme1yqNAAO2q
-         u0zVEYfP/R0jCC3rrnp+/0wqnPsMBdiZDWgr734jXrXhMkc4fAj4rh6hE5hpmLLEM+qc
-         oTIWKlfheXCmP01A1DIHW8wZV7/eLxxDi1D6yigCPm6c+6wsEQUNgVZEwwlE/kmTIt5L
-         YtBNuzeNKX7FiK21w6/3ZMyRjv3jPrSDzdj3VLOPEO0ItIdF4v3omXDjRvy26v04Dprs
-         zO6FCGu4fjLD2nEE24tNUXV4rxhtKDe7ZEHq/nBbzuwOq+865/1QP+Vf4kPo+rRsXq04
-         Px0w==
+        bh=iqpKvKjFPgrm1n67w2HkQAIAqrytD1SlOgdR7vfHDQ8=;
+        b=luQTcZZe6aiRlfbeHU74EPHO1RuPrO2PLZ970jQJPWvapTOL62IS1iOxSd4rSMpCKG
+         J78Y6wuPPK3OfB2vEizBbxHbK/dcqaVHYk/E97oJ4wQC+Ew1B2lV2xKldbhrierpLWVd
+         CeI+JXfmy3jNhg0kfusp5zBh+IfwvWLpgZ8y9/qz27lNXGSbRlXYmcZzDCPUh6BjFCIz
+         VK5liVRyZAvWcZEyO28lvCNnCmui8LUmtkPhlCa5YrHNa3bAb+StcFtU7EEODg3X7GvO
+         To5Hq/TIAUwknPK1cdxQ8xgWHqLkk6cBdUBrEVKI0lXh9PiSGgFlBjW09Y4YwkVFtrri
+         ZXXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689243171; x=1691835171;
+        d=1e100.net; s=20221208; t=1689243192; x=1691835192;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kYyViDr4RsL7lZ2DDpCJ0dguzrcDcD4Ap3cfrYQ3a+U=;
-        b=gP9fw+LZiS8YKLBJQZq7M7tMkafgp2hf38YXUOQLHsagjIjju+la0spZqtBFMoLgOp
-         KU9JLLAnhu51bX29MAywL/6Gsip4qK9iibviN7HWysRFHsUpOKuYfmZy7HNbftGPO9No
-         ohz9E74xemxh7EfFIU99vIwbjGX/uUwXrrzFbW9bqQkwi46326CTUqdNF+pu9iHKH0sF
-         6hhC3W79jc2PF6ufyB4swKXfP/5BX6hFvempSgsvWlKBB19ZAdAIk5lgINcrUoGbpjaV
-         jYlTR+GnN6IwTzLpZUun/uTsWg5VUmwNPJcvdLcvQkg7bddxboI4fSTEHSC1Nm5cgM53
-         cWAw==
-X-Gm-Message-State: ABy/qLZV3X0v/wlQrFwqirmIy9L5uYXxvrTQ8DccMIXO5CrK5lL9fqn2
-	a0z7kExOtdn9bk0sVmrh81NA4g==
-X-Google-Smtp-Source: APBJJlFbF3QHoEHYbwb9SpS88zZAyk8pQkFHYbal4mk2kHc7TVb7vTq9ytYXL3ZVFD3psiaETfag6w==
-X-Received: by 2002:a5d:60c6:0:b0:315:9de4:92f0 with SMTP id x6-20020a5d60c6000000b003159de492f0mr1158373wrt.5.1689243171063;
-        Thu, 13 Jul 2023 03:12:51 -0700 (PDT)
+        bh=iqpKvKjFPgrm1n67w2HkQAIAqrytD1SlOgdR7vfHDQ8=;
+        b=K2zhmx/owMt3vXBVPVpOFouAo3fAI4H+fwQfMR//ybEc10JWn57OLFpLiagiUFxXAS
+         F6IJMbvJIsmPHxkpKGp3XmrDgkRVtS2uMnhqsPG2Qy6xeJRVwGEQaK9mZ4glCuHK27jQ
+         FFzISPD1FPIGtLxDsFKI88d7dlWmp+86ut5tWIzQ52kMyY5OMfFDgQeAWlHOpWshvlSB
+         V9X0jtKhegVQ4eGhjJnuVB401TIkxAWstuoUGm+tL3YUD2Sux1jC85nR9wZpf25gB0uD
+         1fc+b19OSuw1O0nZjFZ7N9+wTltHjUNmC3hPyntIzUb+kzS4cwMBoKtVX2XXzn1q6Sy5
+         vViw==
+X-Gm-Message-State: ABy/qLYwIj52XFlkReGw2RiXp600r8HhvWJH8XSviv90FsCT8TAiukt6
+	6QjGQr+3J/XDWCEVbwUD/AbqlA==
+X-Google-Smtp-Source: APBJJlGoxNaV3VLPlfuinnivZHpasDjPzdV6g0i7WaJV8KKe9bghQK3WWPZrUI/A1anDv9oLHhCTdg==
+X-Received: by 2002:a7b:c8c9:0:b0:3fc:a8:dc3c with SMTP id f9-20020a7bc8c9000000b003fc00a8dc3cmr938821wml.37.1689243192221;
+        Thu, 13 Jul 2023 03:13:12 -0700 (PDT)
 Received: from [192.168.1.20] ([178.197.223.104])
-        by smtp.gmail.com with ESMTPSA id f10-20020adff98a000000b003159d2dabbasm7470929wrr.94.2023.07.13.03.12.49
+        by smtp.gmail.com with ESMTPSA id k12-20020a7bc30c000000b003fba92fad35sm17853977wmj.26.2023.07.13.03.13.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Jul 2023 03:12:50 -0700 (PDT)
-Message-ID: <3365c703-5e5c-de7e-3ce3-047c9ac560ee@linaro.org>
-Date: Thu, 13 Jul 2023 12:12:48 +0200
+        Thu, 13 Jul 2023 03:13:11 -0700 (PDT)
+Message-ID: <c1b6708d-3fa2-7b67-273b-f03aa59efc7c@linaro.org>
+Date: Thu, 13 Jul 2023 12:13:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.13.0
-Subject: Re: [PATCH v2 1/3] dt-bindings: spi: add reference file to YAML
+Subject: Re: [PATCH v2 2/3] dt-bindings: spi: constrain minItems of clocks and
+ clock-names
 Content-Language: en-US
 To: William Qiu <william.qiu@starfivetech.com>, devicetree@vger.kernel.org,
  linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -77,12 +78,13 @@ Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
  Linus Walleij <linus.walleij@linaro.org>
 References: <20230713090015.127541-1-william.qiu@starfivetech.com>
- <20230713090015.127541-2-william.qiu@starfivetech.com>
+ <20230713090015.127541-3-william.qiu@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20230713090015.127541-2-william.qiu@starfivetech.com>
+In-Reply-To: <20230713090015.127541-3-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_031312_786419_D6061525 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20230713_031317_180473_42E6DEE3 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +102,14 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 13/07/2023 11:00, William Qiu wrote:
-> Add primecell.yaml as a refereence file to YAML.
-
-This we see from the diff, but why you are doing it? Please provide
-rationale and answer to "why" in your commits.
-
-Also typo: reference.
-
+> The SPI controller only need apb_pclk clock to work properly on JH7110 SoC,
+> so there add minItems whose value is equal to 1. Other platforms do not
+> have this constraint.
 > 
 > Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 > ---
->  Documentation/devicetree/bindings/spi/spi-pl022.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/spi/spi-pl022.yaml b/Documentation/devicetree/bindings/spi/spi-pl022.yaml
-> index 91e540a92faf..5e5a704a766e 100644
-> --- a/Documentation/devicetree/bindings/spi/spi-pl022.yaml
-> +++ b/Documentation/devicetree/bindings/spi/spi-pl022.yaml
-> @@ -11,6 +11,7 @@ maintainers:
->  
->  allOf:
->    - $ref: spi-controller.yaml#
-> +  - $ref: /schemas/arm/primecell.yaml#
->  
->  # We need a select here so we don't match all nodes with 'arm,primecell'
->  select:
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
