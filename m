@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0895C0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 13:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF02C001DF
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 13:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SoNHQzr3TzK4zkinBzSGOrKMInyF7pLSUkBkV5gjf28=; b=GykEK/1tedO/4a
-	dUnUdGoWcb7HL6fnslPppCuUEK3ZbiGFA1IwcKhB/Yu3lu8nnV4MnrFD7dg0TbGxMzKb/W3CZ03GM
-	LFtqrqVOPwM6j2mAXgyM7tMjfsiYS0lqNBMbpqj+6u5SeBWQiu4tSxVs6lcUWFEDTPPJ4ZXlwDA2D
-	35dzl2FsRW3n5tX2Vrvlz+glh7MVUQ1bj/bd1OXqGH7NOTUDcWezcwF7HX+dG8RITNSU8AH+3ngv1
-	DNqqkg1wRpi1seovffrRTSj7k1Zm8ZfC+LfpLG9mSUIGA3IV/sbpDMCztG3LkY4U2Grmw90moT0rL
-	Vh6yLZhvavFn75Nclutg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B5n4MrrSerGyqKHQaYBHXdd+/aIAufezyYuXVt2TNgs=; b=LKtcHsB4G7ZHRIGjaDsgjCJS2C
+	Nmj05VfAdJ8Fm0Sx+2gSc8PX8V7jxQUVH4tNHH9oAjDRLGKjlZk0fR8w/wSkba19Tsar5tBzq2KsK
+	Vo18zrg8FAGzGxS9NH/0F/ZOyyOu3C8/NqH6REZQZh5ZiNGfAIxWr/NcLg1/Fysr4UuFcvbAIHpTd
+	U846kTha5k+twW4dgUh8/4p7I/6RI8B3Gi4fxSrr+vw8ub67GfxydhECWz5N7d/P7+L2ssfVRgiq9
+	AYz2GWhD2NLLuAVrv3C/0XOG3nC7JcYgYQkRVa4i+ZrhAeyaXFHyOYmb0OwmLthnBvYV1gvfHO3vj
+	bDsIkoSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJwAn-003Ngm-32;
-	Thu, 13 Jul 2023 13:15:57 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qJwCE-003Nro-2g;
+	Thu, 13 Jul 2023 13:17:26 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJwAk-003Nfg-1O
+	id 1qJwCB-003Nr4-37
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 13:15:56 +0000
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 4D0363F18D
-	for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 13:15:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1689254152;
-	bh=lzWjLkz9jgGntegWn0jvL4sjWw5FNz46EKQK53j0qbY=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=dlab18ZTlvOPTRt+i6sb53s16eMQi1SezGG9c06eew7yNfbBQb24LOw4dwdZimJgm
-	 5C7DXGMa1j3Q4TR+0BbthYgSIrUC14Xa3VnSibr6pYu9KVIb05rSfuoHCY+mBSxlP0
-	 PY2NFWAfF4vLZAbEVRBCFVChOPB0fGtXXdlPHNrXx9ruJhuYj7N1Mk5MbI4u44MpzG
-	 AfpxYFqxIo06ia4D69YF+K6gntsHWl4Bd7UXlIt7xn9ssGF2i7XIxB/IRX5XIIeDSQ
-	 6QehLhaq3Je+l18GUPfsVC+0AYSM4YLvgbvO0jlcBIEWYbsWfen4/dqT0K2k0qc22S
-	 zTkX8pEkMXUug==
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-403b066c6e7so9453451cf.2
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 06:15:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689254149; x=1691846149;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lzWjLkz9jgGntegWn0jvL4sjWw5FNz46EKQK53j0qbY=;
-        b=LKSmuSmEmjDY73hPt/GRlKu447HLU/yuAUfLWjxk+Bj5UC1/YQSWP4pAU4YKR2OeAh
-         kawcbuBsuNXvxHTxTllbakdy6qnsyCIfq/QC4+sgPnNyvgUUttZcYzI1M9BnavngmxPM
-         NILu31w3cvQd6QlY8xLjGYNgNr9qtI/+offhC3rgh2rqlJDgM7uhSkwlhwQzlhdm/4TQ
-         IBn2ZPneJt/41V6XjDIH4aCyaOZpUwRcSDvVMl/3TczUAi8f2UU/j4VebGGNYFGQm+GE
-         qXwuRB1DvGETp9evE4G8vUzb+g/CSA72fMFaSVc4K+esksN+4bDfZ0fPQYgeumR9NCds
-         yuEw==
-X-Gm-Message-State: ABy/qLY9328OFubcTmTmMcJP1OntlBS/t1Zy1nt0wdj+VLjk20chIam9
-	rjFiZvKTAhejDIdk6nFew52YyvxOV9ulKn1ovGJYhEtTVGWH04n/BLNI5gQ7TGEHE22hdfiz/ba
-	zNUbBFbzYTiQLigPoMEtnsTjL45XV5csPtDVBXmObkxO31FSWSsQRjJTcWLfsEA==
-X-Received: by 2002:ac8:5dcf:0:b0:400:9a75:d868 with SMTP id e15-20020ac85dcf000000b004009a75d868mr1784484qtx.53.1689254149354;
-        Thu, 13 Jul 2023 06:15:49 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlFREZAUVHrD2WAPAOepNdisRg4PmYWg2KJmdiHvZLy8utdjhf7asfxlbZZKZpSBDSxQLR979i/SsgKi5ZyG1lw=
-X-Received: by 2002:ac8:5dcf:0:b0:400:9a75:d868 with SMTP id
- e15-20020ac85dcf000000b004009a75d868mr1784462qtx.53.1689254149008; Thu, 13
- Jul 2023 06:15:49 -0700 (PDT)
+	Thu, 13 Jul 2023 13:17:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1689254244; x=1720790244;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=E7sEqqhbrFfmEZwgyxrnHJnRF+eAaOP0Nzd8hDng2VE=;
+  b=WzhBnUuo1HGZYV1tGa0h+b6sbWVote+zEHB3XAkgE394K73dj6wHUvJE
+   J7Z+2RZfc1RKcGhikIaaA7Fas4xoG31rgdZHG3Rm6/wWJVx/qxN8dK8iL
+   xtMJHDUtkK5JOvtBfj52a/D2u8GmpegmI30DEr3Kezsnq5QaLUd/QDraz
+   iPwGMtx1MwQlyaZSRXk2Mm5yuTFmhyWjhttD7mLC7OF2RLzMzB7//iDdP
+   vJvCoq4Hvu/Oo8U4sDDxl5c8/ZT+YiB27kyXZ5yieCqiQInLBR5zPAH/3
+   oFvMNUfNtr+2m8iHqNPHv4cPSlbGVeEApIaaVviaQGfewYJEOObCs1Uj2
+   Q==;
+X-IronPort-AV: E=Sophos;i="6.01,202,1684825200"; 
+   d="asc'?scan'208";a="220208830"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Jul 2023 06:17:18 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 13 Jul 2023 06:17:17 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 13 Jul 2023 06:17:14 -0700
+Date: Thu, 13 Jul 2023 14:16:43 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+CC: Evan Green <evan@rivosinc.com>, Samuel Ortiz <sameo@rivosinc.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+	"Hongren (Zenithal) Zheng" <i@zenithal.me>, <linux@rivosinc.com>, Heiko
+ Stuebner <heiko.stuebner@vrull.eu>, Anup Patel <apatel@ventanamicro.com>,
+	<linux-kernel@vger.kernel.org>, Guo Ren <guoren@kernel.org>, Atish Patra
+	<atishp@rivosinc.com>, =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	<devicetree@vger.kernel.org>, <sorear@fastmail.com>, Jiatai He
+	<jiatai2021@iscas.ac.cn>
+Subject: Re: [PATCH v4 1/4] RISC-V: Add Bitmanip/Scalar Crypto parsing from DT
+Message-ID: <20230713-bootleg-tray-c5bfe58b5673@wendy>
+References: <20230712084134.1648008-1-sameo@rivosinc.com>
+ <20230712084134.1648008-2-sameo@rivosinc.com>
+ <20230712-bulldozer-affected-199042dc3afd@wendy>
+ <CALs-HsuxxVcwX=mSwktPiEiAFkfK+5qJ6zg1Bzf2t37L=pZWjw@mail.gmail.com>
+ <20230713-3f574332a06678f908cee21e@orel>
+ <20230713-aggregate-uncut-e16ee9270b14@wendy>
+ <20230713-692c967c7a08c15dacbcab10@orel>
 MIME-Version: 1.0
-References: <20230704064610.292603-1-xingyu.wu@starfivetech.com> <20230704064610.292603-6-xingyu.wu@starfivetech.com>
-In-Reply-To: <20230704064610.292603-6-xingyu.wu@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Thu, 13 Jul 2023 15:15:32 +0200
-Message-ID: <CAJM55Z-OSmQCV6mO+SD4R2eU5gfx9TArSqDy+d-M2aer6bKL_A@mail.gmail.com>
-Subject: Re: [RESEND PATCH v6 5/7] clk: starfive: jh7110-sys: Add PLL clocks
- source from DTS
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Hal Feng <hal.feng@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+In-Reply-To: <20230713-692c967c7a08c15dacbcab10@orel>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_061554_812474_67236787 
-X-CRM114-Status: GOOD (  28.25  )
+X-CRM114-CacheID: sfid-20230713_061724_067325_BF478923 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,149 +91,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4675700190960984992=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Jul 2023 at 08:49, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->
-> Modify PLL clocks source to be got from DTS or
-> the fixed factor clocks.
->
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  drivers/clk/starfive/Kconfig                  |  1 +
->  .../clk/starfive/clk-starfive-jh7110-sys.c    | 45 +++++++++++--------
->  2 files changed, 28 insertions(+), 18 deletions(-)
->
-> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-> index 5195f7be5213..978b78ec08b1 100644
-> --- a/drivers/clk/starfive/Kconfig
-> +++ b/drivers/clk/starfive/Kconfig
-> @@ -35,6 +35,7 @@ config CLK_STARFIVE_JH7110_SYS
->         select AUXILIARY_BUS
->         select CLK_STARFIVE_JH71X0
->         select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
-> +       select CLK_STARFIVE_JH7110_PLL
->         default ARCH_STARFIVE
->         help
->           Say yes here to support the system clock controller on the
-> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-> index e6031345ef05..d56f48013388 100644
-> --- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-> +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-> @@ -7,6 +7,7 @@
->   */
->
->  #include <linux/auxiliary_bus.h>
-> +#include <linux/clk.h>
->  #include <linux/clk-provider.h>
->  #include <linux/init.h>
->  #include <linux/io.h>
-> @@ -386,6 +387,7 @@ EXPORT_SYMBOL_GPL(jh7110_reset_controller_register);
->
->  static int __init jh7110_syscrg_probe(struct platform_device *pdev)
->  {
-> +       bool use_fixed_pll = true;      /* PLL clocks use fixed factor clocks or PLL driver */
+--===============4675700190960984992==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="gTE48Nq7TkHCRHEc"
+Content-Disposition: inline
 
-nit: reverse christmas tree ordering, eg. move this below priv
+--gTE48Nq7TkHCRHEc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->         struct jh71x0_clk_priv *priv;
->         unsigned int idx;
->         int ret;
-> @@ -402,28 +404,29 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
->         if (IS_ERR(priv->base))
->                 return PTR_ERR(priv->base);
->
-> -       /*
-> -        * These PLL clocks are not actually fixed factor clocks and can be
-> -        * controlled by the syscon registers of JH7110. They will be dropped
-> -        * and registered in the PLL clock driver instead.
-> -        */
-> +       if (!IS_ERR(devm_clk_get(priv->dev, "pll0_out")))
-> +               use_fixed_pll = false;  /* can get pll clocks from PLL driver */
+On Thu, Jul 13, 2023 at 02:45:57PM +0200, Andrew Jones wrote:
+> On Thu, Jul 13, 2023 at 12:27:24PM +0100, Conor Dooley wrote:
 
-The devm_clk_get() variant will allocate memory for a callback to call
-clk_put() when the driver is unloaded, but proper references
-associated with the consumers of the pll0_out clock are already taken
-below. So unless we find a better way to detect if the pll references
-are specified in the device tree or not, maybe something like this
-instead:
+> > +#define __RISCV_ISA_EXT_BUNDLE(_name, _bundled_exts) {	\
+> > +	.name =3D #_name,					\
+> > +	.property =3D #_name,				\
+> > +	.bundle_ids =3D _bundled_exts,			\
+> > +	.bundle_size =3D ARRAY_SIZE(_bundled_exts)	\
+> > +}
+> > +
+> > +static const unsigned int riscv_zk_bundled_exts[] =3D {
+> > +	RISCV_ISA_EXT_ZBKB,
+> > +	RISCV_ISA_EXT_ZBKC,
+> > +	RISCV_ISA_EXT_ZBKX,
+> > +	RISCV_ISA_EXT_ZKND,
+> > +	RISCV_ISA_EXT_ZKNE,
+> > +	RISCV_ISA_EXT_ZKR,
+> > +	RISCV_ISA_EXT_ZKT,
+>=20
+> I think RISCV_ISA_EXT_ZKNH also belongs in this bundle,
+> since the spec says zk is the zkn bundle plus zkr and zkt.
+>=20
+> > +};
+> > +
+> > +static const unsigned int riscv_zkn_bundled_exts[] =3D {
+> > +	RISCV_ISA_EXT_ZBKB,
+> > +	RISCV_ISA_EXT_ZBKC,
+> > +	RISCV_ISA_EXT_ZBKX,
+> > +	RISCV_ISA_EXT_ZKND,
+> > +	RISCV_ISA_EXT_ZKNE,
+> > +	RISCV_ISA_EXT_ZKNH,
+> > +};
+> > +
+> > +static const unsigned int riscv_zks_bundled_exts[] =3D {
+> > +	RISCV_ISA_EXT_ZBKB,
+> > +	RISCV_ISA_EXT_ZBKC,
+> > +	RISCV_ISA_EXT_ZKSED,
+> > +	RISCV_ISA_EXT_ZKSH
+>=20
+> And, per the spec, this one appears to be missing RISCV_ISA_EXT_ZBKX.
 
-priv->pll[0] = clk_get(priv->dev, "pll0_out);
-if (IS_ERR(priv->pll[0])) {
-  /* 24MHZ -> 1000.0MHz */
-  priv->pll[0] = ...
-  ...
+Yeah, these do look wrong. I should've cross-checked it.
 
-} else {
-  clk_put(priv->pll[0]);
-  priv->pll[0] = NULL;
-}
+> I found [1] which calls these shorthands "group names", so maybe we should
+> use the term "group" instead of "bundle"?
 
-> +       /* Use fixed factor clocks if can not get the PLL clocks from DTS */
-> +       if (use_fixed_pll) {
->         /* 24MHz -> 1000.0MHz */
+WFM at least.
 
-These comments are not indented with the code, which just looks weird.
+> I'm tempted to try to directly
+> code that graphic in [1] with something like...
+>=20
+> #define Zks_group1 \
+> 	RISCV_ISA_EXT_ZKSED, \
+> 	RISCV_ISA_EXT_ZKSH
+>=20
+> #define Zks_group2 \
+> 	RISCV_ISA_EXT_ZBKB, \
+> 	RISCV_ISA_EXT_ZBKC, \
+> 	RISCV_ISA_EXT_ZBKX
+>=20
+> #define Zks_group \
+> 	Zks_group1, \
+> 	Zks_group2
+>=20
+> #define Zkn_group1 \
+> 	RISCV_ISA_EXT_ZKND, \
+> 	RISCV_ISA_EXT_ZKNE, \
+> 	RISCV_ISA_EXT_ZKNH
+>=20
+> #define Zkn_group2 \
+> 	Zks_group2
+>=20
+> #define Zkn_group \
+> 	Zkn_group1, \
+> 	Zkn_group2
+>=20
+> static const unsigned int riscv_zks_group[] =3D {
+> 	Zks_group,
+> };
+>=20
+> static const unsigned int riscv_zkn_group[] =3D {
+> 	Zkn_group,
+> };
+>=20
+> static const unsigned int riscv_zk_group[] =3D {
+> 	Zks_group,
+> 	Zkn_group,
+> 	RISCV_ISA_EXT_ZKR,
+> 	RISCV_ISA_EXT_ZKT,
+> };
+>=20
+> ...but now that I have, I'm not sure I like the looks of it...
 
-> -       priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
-> -                                                        "osc", 0, 125, 3);
-> -       if (IS_ERR(priv->pll[0]))
-> -               return PTR_ERR(priv->pll[0]);
-> +               priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
-> +                                                                "osc", 0, 125, 3);
-> +               if (IS_ERR(priv->pll[0]))
-> +                       return PTR_ERR(priv->pll[0]);
->
->         /* 24MHz -> 1066.0MHz */
-> -       priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
-> -                                                        "osc", 0, 533, 12);
-> -       if (IS_ERR(priv->pll[1]))
-> -               return PTR_ERR(priv->pll[1]);
-> +               priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
-> +                                                                "osc", 0, 533, 12);
-> +               if (IS_ERR(priv->pll[1]))
-> +                       return PTR_ERR(priv->pll[1]);
->
->         /* 24MHz -> 1188.0MHz */
-> -       priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
-> -                                                        "osc", 0, 99, 2);
-> -       if (IS_ERR(priv->pll[2]))
-> -               return PTR_ERR(priv->pll[2]);
-> +               priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
-> +                                                                "osc", 0, 99, 2);
-> +               if (IS_ERR(priv->pll[2]))
-> +                       return PTR_ERR(priv->pll[2]);
-> +       }
->
->         for (idx = 0; idx < JH7110_SYSCLK_END; idx++) {
->                 u32 max = jh7110_sysclk_data[idx].max;
-> @@ -462,8 +465,14 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
->                                 parents[i].fw_name = "tdm_ext";
->                         else if (pidx == JH7110_SYSCLK_MCLK_EXT)
->                                 parents[i].fw_name = "mclk_ext";
-> -                       else
-> +                       else if (use_fixed_pll)
+If you called them RISCV_ISA_EXT_GROUP_ZKN (or similar) it would look a
+lot less out of place IMO. I'd probably drop the "group2" dance & pick a
+better name for "Zks_group2", maybe just do something like
+RISCV_ISA_EXT_GROUP_SCALAR_CRYPTO_BITMANIP? Mouthful, but seemed better
+than trying to be clever with ZBK or something.
 
-else if (priv->pll[0])
+> [1] https://wiki.riscv.org/display/HOME/Scalar+Cryptography+Instruction+S=
+et+Extension+Group+Names+Diagram
 
->                                 parents[i].hw = priv->pll[pidx - JH7110_SYSCLK_PLL0_OUT];
-> +                       else if (pidx == JH7110_SYSCLK_PLL0_OUT)
-> +                               parents[i].fw_name = "pll0_out";
-> +                       else if (pidx == JH7110_SYSCLK_PLL1_OUT)
-> +                               parents[i].fw_name = "pll1_out";
-> +                       else if (pidx == JH7110_SYSCLK_PLL2_OUT)
-> +                               parents[i].fw_name = "pll2_out";
->                 }
->
->                 clk->hw.init = &init;
-> --
-> 2.25.1
->
+
+--gTE48Nq7TkHCRHEc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZK/5OwAKCRB4tDGHoIJi
+0ry5AP99PnMNEOYct0QDkIe2N2+G1CGzJmhUN6A1xqT/KkLs0QD/aE6I9W7tY9lW
+A0LBQi1Gw8uUta0WbR/Ph1YYceZVtAU=
+=6z5J
+-----END PGP SIGNATURE-----
+
+--gTE48Nq7TkHCRHEc--
+
+
+--===============4675700190960984992==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4675700190960984992==--
+
