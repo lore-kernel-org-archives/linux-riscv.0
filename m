@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB288C0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 17:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6180C0015E
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 17:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zF7utI+JfaG0moB3V3PNcETnW3yiDd4ov5Qiky4oqQ=; b=Rbvc44zd4cvCogaXxHWZa7A09O
-	m3hlfcQAthRTRBKdNpYYt03qV2B+w3AAo8GYdWLjzJAK+HGRI0dsen64X4BMJGbTVCpxvW7F6F2Vo
-	GfkoaZ49uegw2QVNzrYK09LTunWEh4qEWDfVJ6yZCLSA0RgfQwRmIV/aSOoduxFMo4y2uWt2IJ+ZL
-	YCn2M3gEwkA8leyXGXsEnDkQvi5XSI2zgtlEpcMJp62tFWqxT1atXtA8CZ5EYzG/EXoBK1Qt+gH8s
-	EiJzlHvkp97lmGpl7mYTbvuRq1PqN2zk9iKK5zTOS2zdGdLcuMvcII7HSAi0a9fP5fsAwbN/sL27E
-	WNsajLXw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=riNF05IFlsTJgG0t35F5Z20RzyZdSNggQSCIq9EGHIY=; b=q9mnlqZKOXCZyEXyjbgRCgfx2Z
+	HThtHhR8GN8EsuFW/uKUW2t0TiKDfIqcwpjDKnjlYodIY8eabaf7QuYrky2hgQHAwBadbOTYu67f7
+	su9RNNHh5h+ecvh8ALMZO7fJF+JOZOJjMH3kzYaHt4cCLo2deh0U5YCFNDaSHgIHcqWQuv6MFhabv
+	lvdWAPjcFR/o4AC3kmb4znGo5ufICrOApTui9RpSZdyMAeNxIa1i/CgJhMPTpb3vSG6NCYleCrERL
+	iw4WJczibd2muZsOFXEKr/W+hRd0KMrRXOHc9swrQMXZlUIUrlraTEp9NDaKAwgX6cEyM/LZef9iO
+	E+kYzS2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qK0FZ-00449W-1I;
-	Thu, 13 Jul 2023 17:37:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qK0Lw-0044qA-2R;
+	Thu, 13 Jul 2023 17:43:44 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qK0FX-00448f-0K
+	id 1qK0Lt-0044pR-1U
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 17:37:08 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2825261B0B;
-	Thu, 13 Jul 2023 17:37:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE56C433C7;
-	Thu, 13 Jul 2023 17:36:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689269820;
-	bh=+ZTSwjFDpcvtcfC0ww9R7B1QyZ3beSIH6AzyqiR/uUw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fq8BUSLDvCZdiysUzAhBZ55tjChLKFe7qi3G3DnHAlbod+TJ5ld/hQ/BqVBSOFngC
-	 hRqoMwx+XizfwlKmqTQm9VFiQyExaCxyOgPlWnvHsBAoHWr/2mjud7V6uCMcLL2JxQ
-	 DGAnDspQda0LDPcv/ufwqWIZXfqe3eLpu1KbbYXXQSYQ6ylCTCxt85MPBfp/Ton39i
-	 7mH3VMzdqeQwV2DVIh8xvO4VIokOiK2+wcth5DNLCbc3D2gTOvbZ2opnz95G/t7You
-	 UE0mBYa7yadKmvZd+iRBQoEsqrjIMNpo3uRLDGz/cyZ9lWfFG8yDJyh0zNZhnWptT1
-	 TOvmjSq/01wBw==
-Date: Thu, 13 Jul 2023 18:36:56 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, guoren@kernel.org,
-	Heiko Stuebner <heiko@sntech.de>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] RISC-V: Don't trust V from the riscv,isa DT property
- on T-Head CPUs
-Message-ID: <20230713-mushiness-runt-0797dbb761e8@spud>
-References: <ZLAoIWX+qqWvucWz@xhacker>
- <mhng-40ca9d23-1074-4f5b-8ccd-e7e919f68928@palmer-ri-x1c9a>
- <20230713-chive-undesired-269a54eb53db@spud>
- <ZLAwgLNyTiK7jbwM@xhacker>
-MIME-Version: 1.0
-In-Reply-To: <ZLAwgLNyTiK7jbwM@xhacker>
+	Thu, 13 Jul 2023 17:43:43 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3a3efee1d44so776409b6e.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 10:43:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689270219; x=1691862219;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vF6A7orMLJDIsCgkc66l+Ah2xgva1++Z+dlr59tdXNM=;
+        b=ljDvqQ1ptXjYbmFu29Q1OJUgTAhPK7OiHwIdwMasf7ig48+6Qs58DvPcEwsgRicU3z
+         mp7i6+JjWanGoRDSBl5yw26Z+XO/Yt6knijT/8MgczUx8m7ieqqmrVBFI8W/GfD1Q1Uk
+         Q/fkYlMsgGu2pegqCh8j5PU6TfnH9NpWGD9kdiQoQhV8ju4D+7Aj+Ynigeyl1zIszJgp
+         vd5gew/9OMqQVF6oA+qU6sAgjeJrD7N2m2vbtUrco/aGV991hHxQTGg+m5+qj+39XYyc
+         UIaJdMjVTXV3kp10n861mEqdh2CXQS7NqzW0jyGyQNC7LyInyvsahKubO2OGMGV1hvci
+         INeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689270219; x=1691862219;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vF6A7orMLJDIsCgkc66l+Ah2xgva1++Z+dlr59tdXNM=;
+        b=Vf/YA1LRvZQ9jzRUcnfVF3VvnM8M8+2b4RCKNiNf2UqDbtAC+J/UbCSFR2mXpbVtLD
+         wc4LBOF8wRfKnShQq24SYK5drGxFRuru2MibXe2vkGAPpp5ovCCQ1csESiLVMnll7gzw
+         vaAF9gke0rC4buqomlFWf6gOMWRdlGALBjX6fOGEBCcwHOQLAS06BD40oC8PdTzDkdrh
+         xCvArv99lk7QK+VKqq2UOUsBlE9sRZTUbc75LgBLO3CNhHqRRIBD093N44VHzuRZX8GC
+         myDvW5Ww/EWnS3ApXs+F9pjKUZ9L5kjdafNUJZqLcBZKsPF+s6OnEjLYljtXtt9KTVo2
+         wSMA==
+X-Gm-Message-State: ABy/qLawWXCKLKDbVS0u8/sGESamru4WxOeb01tpsSWOAkrbm7Kd8g63
+	eg1Ez1Zj956Vbjt5iLGQh1BUeg==
+X-Google-Smtp-Source: APBJJlH+YBGrmU3VngE+6LhnkIPF+ObXmOgaWvBGdj69NGtcpCxQqupYYxt0gTdnvK3wz2ZvscmR7Q==
+X-Received: by 2002:a05:6358:931a:b0:130:ebb9:4283 with SMTP id x26-20020a056358931a00b00130ebb94283mr2754486rwa.22.1689270219091;
+        Thu, 13 Jul 2023 10:43:39 -0700 (PDT)
+Received: from localhost ([50.38.6.230])
+        by smtp.gmail.com with ESMTPSA id k12-20020a637b4c000000b0054ff9032e4dsm5857190pgn.18.2023.07.13.10.43.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Jul 2023 10:43:38 -0700 (PDT)
+Date: Thu, 13 Jul 2023 10:43:38 -0700 (PDT)
+X-Google-Original-Date: Thu, 13 Jul 2023 10:42:52 PDT (-0700)
+Subject: Re: [PATCH v2] RISC-V: Don't trust V from the riscv,isa DT property on T-Head CPUs
+In-Reply-To: <CAJF2gTQ-RotMeRGCSh6P7uQvZDbfWdZZHtTdeZqCAHWK4DzmMQ@mail.gmail.com>
+CC: jszhang@kernel.org, Conor Dooley <conor@kernel.org>,
+  Heiko Stuebner <heiko@sntech.de>, Charlie Jenkins <charlie@rivosinc.com>,
+  Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: guoren@kernel.org
+Message-ID: <mhng-6fd2f512-ed1b-49a2-8189-82bd5e331121@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_103707_218807_CAC043C1 
-X-CRM114-Status: GOOD (  33.64  )
+X-CRM114-CacheID: sfid-20230713_104341_498098_789E0A4D 
+X-CRM114-Status: GOOD (  38.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,116 +87,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4406230147689824839=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4406230147689824839==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="O+6fOMe6GHvdwfXm"
-Content-Disposition: inline
-
-
---O+6fOMe6GHvdwfXm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jul 14, 2023 at 01:12:32AM +0800, Jisheng Zhang wrote:
-> On Thu, Jul 13, 2023 at 06:04:22PM +0100, Conor Dooley wrote:
-> > Jumping on top of Palmer's reply cos I had already started replying...
-> > On Thu, Jul 13, 2023 at 09:56:34AM -0700, Palmer Dabbelt wrote:
-> > > On Thu, 13 Jul 2023 09:36:49 PDT (-0700), jszhang@kernel.org wrote:
-> > > > On Wed, Jul 12, 2023 at 06:48:02PM +0100, Conor Dooley wrote:
-
-> > > > FWICT, new T-HEAD's riscv cores such as C908 support standard RVV-1=
-=2E0,
-> > > > this patch looks like a big hammer for T-HEAD. I do understand why
-> > >=20
-> > > Ya, it's a big hammer.  There's no extant systems with the C908, thou=
-gh, and
-> > > given that the C906 and C910 alias marchid/mimplid it's kind of hard =
-to
-> > > trust any of those values for T-Head systems.  We could check for the=
- 0s and
-> > > hope T-Head starts setting something else, but I'm not sure that's a =
-net win
-> > > (we've also got the C920 in the Sophgo chip, which IIUC is V-0.7.1 to=
-o).
-> >=20
-> > (In reply to Jisheng mostly)
-> > It is most definitely a big hammer. And yes, we did talk about the c908
-> > & its standard implementation of vector before submitting this. Unless
-> > Guo can confirm that the c908 (and later CPU cores) will start setting
-> > mimpid & mvendorid, I don't really see what the alternatives are? *
->=20
-> In mainline kernel, three SoCs which powered by T-HEAD cpu are
-> supported: D1, D1s and TH1520, they don't contain the "v" in riscv,isa
-> dt property.
-
-Yup, and they will stay that way ;)
-
-> > Whacking in a list of DT compatibles to blacklist? That doesn't seem
-> > like something that would scale.
-> > Open to ideas on that front for sure, smaller hammers are always better!
-> >=20
-> > @Palmer, from what I am told, the c920 does put zeros in those CSRs,
-> > so we are okay on that front.
-> >=20
-> > * If they do do something other than 0s, the errata handling will need
-> >   an update anyway, so the big hammer could be revised in tandem...
-> >=20
-> > > > this patch is provided, but can we mitigate the situation by carefu=
-lly
-> > > > review the DTs? Per my understanding, dts is also part of linux ker=
-nel.
-> > >=20
-> > > That would break compatibility with existing firmware.  It's certainly
-> > > something that has happened before, but we try to avoid it where poss=
-ible.
-> >=20
-> > (Mostly in reply to Jisheng again)
-> > Sure, some devicetrees are part of the kernel, but not all are - they m=
-ay
-> > be passed up from U-Boot or OpenSBI etc & contain "v" in riscv,isa.
->=20
-> If so this looks like a bug of u-boot and opensbi.
->=20
-> PS: does u-boot/opensbi modify "riscv,isa" property dynamically? Or
-> there's below usage case:
-> mainline linux kernel + dtb which is built from u-boot/opensbi source
-> code rather than linux kernel.
-
-Its the latter I am thinking of. If someone wants to go and double check
-that there are no vendors shipping T-Head cores with firmware that
-behaves that way, then the patch could I suppose be dropped.
-
-
---O+6fOMe6GHvdwfXm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLA2OAAKCRB4tDGHoIJi
-0nAyAQC4HJoJQEdfYsYOc6A5GfqICxWG49yvdnRqImpbdixXlwD8C3Ndh261zqDi
-oqoHd3BQFBV+m88dLulZ9PEaAjlsMgE=
-=D0Hq
------END PGP SIGNATURE-----
-
---O+6fOMe6GHvdwfXm--
-
-
---===============4406230147689824839==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4406230147689824839==--
-
+T24gVGh1LCAxMyBKdWwgMjAyMyAxMDozMzo1NiBQRFQgKC0wNzAwKSwgZ3VvcmVuQGtlcm5lbC5v
+cmcgd3JvdGU6Cj4gT24gVGh1LCBKdWwgMTMsIDIwMjMgYXQgMTI6NDjigK9QTSBKaXNoZW5nIFpo
+YW5nIDxqc3poYW5nQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pgo+PiBPbiBXZWQsIEp1bCAxMiwgMjAy
+MyBhdCAwNjo0ODowMlBNICswMTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+ID4gRnJvbTogUGFs
+bWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+Cj4+ID4KPj4gPiBUaGUgbGFzdCBtZXJn
+ZSB3aW5kb3cgY29udGFpbmVkIGJvdGggViBzdXBwb3J0IGFuZCB0aGUgZGVwcmVjYXRpb24gb2YK
+Pj4gPiB0aGUgcmlzY3YsaXNhIERUIHByb3BlcnR5LCB3aXRoIHRoZSBWIGltcGxlbWVudGF0aW9u
+IHJlYWRpbmcgcmlzY3YsaXNhCj4+ID4gdG8gZGV0ZXJtaW5lIHRoZSBwcmVzZW5jZSBvZiB0aGUg
+ViBleHRlbnNpb24uICBBdCB0aGUgdGltZSB0aGF0IHdhcyB0aGUKPj4gPiBvbmx5IHdheSB0byBk
+byBpdCwgYnV0IHRoZXJlJ3MgYSBsb3Qgb2YgYW1iaWd1aXR5IGFyb3VuZCBWIGluIElTQQo+PiA+
+IHN0cmluZ3MuICBJbiBwYXJ0aWN1bGFyLCB0aGVyZSBpcyBhIGxvdCBvZiBmaXJtd2FyZSBpbiB0
+aGUgd2lsZCB0aGF0Cj4+ID4gdXNlcyAidiIgaW4gdGhlIHJpc2N2LGlzYSBEVCBwcm9wZXJ0eSB0
+byBjb21tdW5pY2F0ZSBzdXBwb3J0IGZvciB0aGUKPj4gPiAwLjcuMSB2ZXJzaW9uIG9mIHRoZSBW
+ZWN0b3Igc3BlY2lmaWNhdGlvbiBpbXBsZW1lbnRlZCBieSBULUhlYWQgQ1BVCj4+ID4gY29yZXMu
+Cj4+Cj4+IEFkZCBHdW8KPj4KPj4gSGkgQ29ub3IsIFBhbG1lciwKPj4KPj4gRldJQ1QsIG5ldyBU
+LUhFQUQncyByaXNjdiBjb3JlcyBzdWNoIGFzIEM5MDggc3VwcG9ydCBzdGFuZGFyZCBSVlYtMS4w
+LAo+PiB0aGlzIHBhdGNoIGxvb2tzIGxpa2UgYSBiaWcgaGFtbWVyIGZvciBULUhFQUQuIEkgZG8g
+dW5kZXJzdGFuZCB3aHkKPj4gdGhpcyBwYXRjaCBpcyBwcm92aWRlZCwgYnV0IGNhbiB3ZSBtaXRp
+Z2F0ZSB0aGUgc2l0dWF0aW9uIGJ5IGNhcmVmdWxseQo+PiByZXZpZXcgdGhlIERUcz8gUGVyIG15
+IHVuZGVyc3RhbmRpbmcsIGR0cyBpcyBhbHNvIHBhcnQgb2YgbGludXgga2VybmVsLgo+Pgo+PiBU
+aGFua3MKPj4KPj4gPgo+PiA+IFJhdGhlciB0aGFuIGZvcmNpbmcgdXNlIG9mIHRoZSBuZXdseSBh
+ZGRlZCBpbnRlcmZhY2UgdGhhdCBoYXMgc3RyaWN0Cj4+ID4gbWVhbmluZ3MgZm9yIGV4dGVuc2lv
+bnMgdG8gZGV0ZWN0IHRoZSBwcmVzZW5jZSBvZiB2ZWN0b3Igc3VwcG9ydCwgYXMKPj4gPiB0aGF0
+IHdvdWxkIHBlbmFsaXNlIHRob3NlIHdobyBoYXZlIGJlaGF2ZWQsIG9ubHkgaWdub3JlIHYgaW4g
+cmlzY3YsaXNhCj4+ID4gb24gQ1BVcyB0aGF0IHJlcG9ydCBULUhlYWQncyB2ZW5kb3IgSUQuCj4+
+ID4KPj4gPiBGaXhlczogZGM2NjY3YTRlN2UzICgicmlzY3Y6IEV4dGVuZGluZyBjcHVmZWF0dXJl
+LmMgdG8gZGV0ZWN0IFYtZXh0ZW5zaW9uIikKPj4gPiBTaWduZWQtb2ZmLWJ5OiBQYWxtZXIgRGFi
+YmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KPj4gPiBDby1kZXZlbG9wZWQtYnk6IENvbm9yIERv
+b2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+ID4gU2lnbmVkLW9mZi1ieTogQ29u
+b3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KPj4gPiAtLS0KPj4gPiBDaGFu
+Z2VzIGluIHYyOgo+PiA+IC0gVXNlIG15IHZlcnNpb24gb2YgdGhlIHBhdGNoIHRoYXQgdG91Y2hl
+cyBod2NhcCBhbmQgaXNhaW5mbyB1bmlmb3JtbHkKPj4gPiAtIERvbid0IHBlbmFsaXNlIHRob3Nl
+IHdobyBiZWhhdmVkCj4+ID4gLS0tCj4+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUu
+YyB8IDIyICsrKysrKysrKysrKysrKysrKysrKysKPj4gPiAgMSBmaWxlIGNoYW5nZWQsIDIyIGlu
+c2VydGlvbnMoKykKPj4gPgo+PiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVm
+ZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPj4gPiBpbmRleCBiZGNm
+NDYwZWE1M2QuLjA1MzYyNzE1ZTFiNyAxMDA2NDQKPj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9jcHVmZWF0dXJlLmMKPj4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMK
+Pj4gPiBAQCAtMjEsNiArMjEsNyBAQAo+PiA+ICAjaW5jbHVkZSA8YXNtL2h3Y2FwLmg+Cj4+ID4g
+ICNpbmNsdWRlIDxhc20vcGF0Y2guaD4KPj4gPiAgI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3IuaD4K
+Pj4gPiArI2luY2x1ZGUgPGFzbS9zYmkuaD4KPj4gPiAgI2luY2x1ZGUgPGFzbS92ZWN0b3IuaD4K
+Pj4gPgo+PiA+ICAjZGVmaW5lIE5VTV9BTFBIQV9FWFRTICgneicgLSAnYScgKyAxKQo+PiA+IEBA
+IC0zMzQsNiArMzM1LDI3IEBAIHZvaWQgX19pbml0IHJpc2N2X2ZpbGxfaHdjYXAodm9pZCkKPj4g
+PiAgICAgICAgICAgICAgICAgICAgICAgc2V0X2JpdChSSVNDVl9JU0FfRVhUX1pJSFBNLCBpc2Fp
+bmZvLT5pc2EpOwo+PiA+ICAgICAgICAgICAgICAgfQo+PiA+Cj4+ID4gKyAgICAgICAgICAgICAv
+Kgo+PiA+ICsgICAgICAgICAgICAgICogIlYiIGluIElTQSBzdHJpbmdzIGlzIGFtYmlndW91cyBp
+biBwcmFjdGljZTogaXQgc2hvdWxkIG1lYW4KPj4gPiArICAgICAgICAgICAgICAqIGp1c3QgdGhl
+IHN0YW5kYXJkIFYtMS4wIGJ1dCB2ZW5kb3JzIGFyZW4ndCB3ZWxsIGJlaGF2ZWQuCj4+ID4gKyAg
+ICAgICAgICAgICAgKiBNYW55IHZlbmRvcnMgd2l0aCBULUhlYWQgQ1BVIGNvcmVzIHdoaWNoIGlt
+cGxlbWVudCB0aGUgMC43LjEKPj4gPiArICAgICAgICAgICAgICAqIHZlcnNpb24gb2YgdGhlIHZl
+Y3RvciBzcGVjaWZpY2F0aW9uIHB1dCAidiIgaW50byB0aGVpciBEVHMKPj4gPiArICAgICAgICAg
+ICAgICAqIGFuZCBubyBULUhlYWQgQ1BVIGNvcmVzIHdpdGggdGhlIHN0YW5kYXJkIHZlcnNpb24g
+b2YgdmVjdG9yCj4+ID4gKyAgICAgICAgICAgICAgKiBhcmUgaW4gY2lyY3VsYXRpb24geWV0Lgo+
+IFQtSEVBRCdzIHZlY3RvciAxLjAgU29DcyBpcyBpbiBjaXJjdWxhdGlvbi4gS2VuZHJ5dGUgSzIz
+MCBpcyB0aGUKPiBzaGlwcGVkIFNvQyBjaGlwLCB3aGljaCB2ZW5kb3IgaWQgPSBUSEVBRF9WRU5E
+T1JfSUQgYW5kIHdpdGggdmVjdG9yCj4gMS4wLgoKRG8geW91IGhhdmUgYSBwb2ludGVyIHRvIHdo
+ZXJlIHRoZXkncmUgYXZhaWxpYWJsZT8gIEtlbmRyeXRlJ3Mgd2Vic2l0ZSAKZG9lc24ndCBsaXN0
+IGEgSzIzMCB5ZXQ6IGh0dHBzOi8vd3d3LmNhbmFhbi5pby9wcm9kdWN0L2tlbmRyeXRlYWkjIyAu
+ICAKVGhleSdkIGJlIHRoZSBmaXJzdCBWLTEuMCBpbXBsZW1lbnRhdGlvbiBpbiB0aGUgd2lsZCwg
+SSBiZXQgYSBsb3Qgb2YgCnBlb3BsZSB3b3VsZCB3YW50IG9uZSB0byBwbGF5IHdpdGguLi4KCj4K
+Pj4gPiArICAgICAgICAgICAgICAqIFBsYXRmb3JtcyB3aXRoIFQtSGVhZCBDUFUgY29yZXMgdGhh
+dCBzdXBwb3J0IHRoZSBzdGFuZGFyZAo+PiA+ICsgICAgICAgICAgICAgICogdmVyc2lvbiBvZiB2
+ZWN0b3IgbXVzdCBwcm92aWRlIHRoZSBleHBsaWNpdCBWIHByb3BlcnR5LAo+PiA+ICsgICAgICAg
+ICAgICAgICogd2hpY2ggaXMgd2VsbCBkZWZpbmVkLgo+PiA+ICsgICAgICAgICAgICAgICovCj4+
+ID4gKyAgICAgICAgICAgICBpZiAoYWNwaV9kaXNhYmxlZCAmJiByaXNjdl9jYWNoZWRfbXZlbmRv
+cmlkKGNwdSkgPT0gVEhFQURfVkVORE9SX0lEKSB7Cj4gSWYgeW91IGluc2lzdCBvbiBkb2luZyB0
+aGlzLCBwbGVhc2U6Cj4KPiBpZiAoYWNwaV9kaXNhYmxlZCAmJiByaXNjdl9jYWNoZWRfbXZlbmRv
+cmlkKGNwdSkgPT0gVEhFQURfVkVORE9SX0lEICYmCj4gcmlzY3ZfY2FjaGVkX21hcmNoaWQoY3B1
+KSA9PSAwICYmIHJpc2N2X2NhY2hlZF9taW1waWQoY3B1KSA9PSAwKSB7CgpGcm9tIGFib3ZlIGl0
+IHNvdW5kcyBsaWtlIHRoYXQncyBPSyBmb3IgdGhlIEM5MjAuICBEb2VzIHRoZSBDOTA4IHNldCBh
+IApub24temVybyBte2FyY2gsaW1wbH1pZD8gIElmIG5vdCwgdGhlbiB0aGlzIHdvbid0IGhlbHAg
+YW55dGhpbmcuCgpBbHNvOiBkb2VzIHRoZSBLMjMwIHdvcmsgd2l0aCB1cHN0cmVhbSBrZXJuZWxz
+IHlldD8gIEkgZG9uJ3Qgc2VlIGFueSBEVCAKc3R1ZmYgZm9yIGl0LCBzbyBhc2lkZSBmcm9tIHRo
+ZSB1bmxpa2VseSBldmVudCBpdCdzIHF1aXJrLWZyZWUgdGhlbiBpdCdkIApuZWVkIERUcyBjaGFu
+Z2VkIGJ5IHVwc3RyZWFtIHJldmlldyBhbmQgdGh1cyB3b3VsZCBiZSBmb3JjZWQgdG8gdXNlIHRo
+ZSAKbmV3IHByb3BlcnRpZXMgYW55d2F5LgoKPj4gPiArICAgICAgICAgICAgICAgICAgICAgaWYg
+KG9mX3Byb3BlcnR5X21hdGNoX3N0cmluZyhub2RlLCAicmlzY3YsaXNhLWV4dGVuc2lvbnMiLCAi
+diIpID49IDApIHsKPj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aGlzX2h3Y2Fw
+IHw9IGlzYTJod2NhcFtSSVNDVl9JU0FfRVhUX3ZdOwo+PiA+ICsgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHNldF9iaXQoUklTQ1ZfSVNBX0VYVF92LCBpc2FpbmZvLT5pc2EpOwo+PiA+ICsg
+ICAgICAgICAgICAgICAgICAgICB9IGVsc2Ugewo+PiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIHRoaXNfaHdjYXAgJj0gfmlzYTJod2NhcFtSSVNDVl9JU0FfRVhUX3ZdOwo+PiA+ICsg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsZWFyX2JpdChSSVNDVl9JU0FfRVhUX3YsIGlz
+YWluZm8tPmlzYSk7Cj4+ID4gKyAgICAgICAgICAgICAgICAgICAgIH0KPj4gPiArICAgICAgICAg
+ICAgIH0KPj4gPiArCj4+ID4gICAgICAgICAgICAgICAvKgo+PiA+ICAgICAgICAgICAgICAgICog
+QWxsICJva2F5IiBoYXJ0IHNob3VsZCBoYXZlIHNhbWUgaXNhLiBTZXQgSFdDQVAgYmFzZWQgb24K
+Pj4gPiAgICAgICAgICAgICAgICAqIGNvbW1vbiBjYXBhYmlsaXRpZXMgb2YgZXZlcnkgIm9rYXki
+IGhhcnQsIGluIGNhc2UgdGhleSBkb24ndAo+PiA+IC0tCj4+ID4gMi4zOS4yCj4+ID4KPj4gPgo+
+PiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+ID4g
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4+ID4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwo+PiA+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YKPgo+Cj4KPiAtLSAKPiBCZXN0IFJlZ2FyZHMKPiAgR3VvIFJlbgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
