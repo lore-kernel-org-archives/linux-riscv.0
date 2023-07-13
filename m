@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F39DBEB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 10:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76082EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 11:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JDwH6Da01EmVdHipxEVQBcWfr0BTxkPEG/MhS3v1l5A=; b=VK+zgbNXvGl+Us
-	Gj/x9AJM683huj5xFZOHUV4pMTS1zICzDFZ8a+WlOYb+6ZV8ncB3OnPvVzZoLoTa3CVeUVTjtc+wU
-	KRL69qJmiUdXgSYpDo9n8QKpN98DeYnLyeI+TlL0VNk27+OYmGHgrHAVWcC5xFEHAm2vXYXY6sQlV
-	gpKOzUlZFhRKNLMA3mihzuN5xgV0pzyEXJrHPW9N2+lNAPcYGAuWPudKKqWq6WmyR+MIdUQX+KhtP
-	7BAC2pUqgIMq67LQK0v2D91tRuTW6ll+MAtY++Z5/nEsDbW0YguC1G97+DFqd9wKP0kpQFA/SkkO1
-	e6JZuxcjcJOMJ/f6nM8A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:CC:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=ROuV/5kbs4S+t6XqHxfXDnlPP+JSD8o3JBuyZkzIaxg=; b=hqvEIJdaoKjiTriI5ZLVWDQhsZ
+	zrX3/UrGKw255f8e6p4aGoD4ZX4bdpxe5URP5AE/YBwEi7SA/TR6/nUPrrJLleQ3s+VDW2QspQqEy
+	TenMNyiNll6U6YHQQaA/reSE9gznDn/uiTtdyuQQXkgxKxp+VaBCY8HIAwKT0ECSp9Jvsr1mlQ1N7
+	eV6+oUHpPhWqtRPCJgQaUGIKEei83u2JRkja7nfRXC7F2RDNAKi72hjXGlxs8JpFSrSSXihPawWyI
+	Zw9F17pvX5UntKkSMzhj3C4Vizi952w97K5WzOcv27OmAHKyjR+C2ZdhMEy0p0efwELZCZNOJVy8s
+	fpYEAI/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJu0Z-0030Yy-00;
-	Thu, 13 Jul 2023 10:57:15 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1qJuH1-00333C-1N;
+	Thu, 13 Jul 2023 11:14:15 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJu0W-0030Xl-1w
-	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 10:57:13 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-99384a80af7so82086866b.2
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 03:57:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1689245829; x=1691837829;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=c9NtgBLjv1J96zLCU/pO/Q7azYyogqr/cagIRcD64aI=;
-        b=gj7kW8GV0O+RnxEUvB7Rzg92T+cWgaDBZOj/LehCMJmClgK/jAbkEyOOD74xx2BxB0
-         aU2wUxt3DFCdM9tzd5JjcJUPXSoZDtRPlYrKTsP3IcYQLSMBinBJV8suJ+v37y+DASZE
-         VReqO0d0RaoyVVG+/RKukaeB4OzssFWjZKq1q5ZgSBTuwlof83ML2aYwvWOWYazMbx0R
-         HotbzEFISAwilTgLj8Ap8pLnJta6CiLKzIKo9BRtfOM6Lk/dgcJa8rc/G0ojulEbvmyA
-         52usDTRQRfBRN9kkhvEVcjDK5u34uly8pnzMqz9C1JPnVLCvaFBdbzyVy2odpJySNsrP
-         ii2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689245829; x=1691837829;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c9NtgBLjv1J96zLCU/pO/Q7azYyogqr/cagIRcD64aI=;
-        b=RUcSVJNs+b7kjTV1lkzuC1Ot+Acqnki/gpYQ6J3lyaAJipgpB6Y8JOVtgBDhsVr/ks
-         uFYy9dEDf+mU0oRJTJNMq+l2IXEHm2OAmjUCwn0L1K7kEwoS9S8hvqKql/cc+2R/b7Jz
-         5clfm6pGC7PES9AaMcINDdN9EF/ORqULfBTgP0p4ofqbA/oPYrMReuekrEDXPjRODehL
-         5tPG2Esl58ZsyrqUFD7JY3Y7swPlVR2kuiSAVBrATin3UNzAS/fsaclKCgxMo+eINhvj
-         HADftc9cRmDV2w/zbl28UOFE76DtZstvfYb9/uypnI5Cv4a1ZBzBCCmCHcUOKqEeZl+N
-         FhOw==
-X-Gm-Message-State: ABy/qLasXvJfIqAcB1BHLRVVH34yQ3QScv0HmF9CAdpw+PoeEYxrf93v
-	awedN9/oDZ9Aa9xHFNMbMtIdyw==
-X-Google-Smtp-Source: APBJJlFU4O4KO6QzME5VoehHAND0oIP1yprw6Nl8SlJa+4axe1vxNp8uN0pFbJlOPz1ClqZEcY+osQ==
-X-Received: by 2002:a17:906:30d3:b0:982:82aa:86b1 with SMTP id b19-20020a17090630d300b0098282aa86b1mr920230ejb.43.1689245829265;
-        Thu, 13 Jul 2023 03:57:09 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id ay9-20020a170906d28900b00992bea2e9d2sm3835016ejb.62.2023.07.13.03.57.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Jul 2023 03:57:08 -0700 (PDT)
-Date: Thu, 13 Jul 2023 12:57:07 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Samuel Ortiz <sameo@rivosinc.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/7] RISC-V: KVM: Factor-out ONE_REG related code to its
- own source file
-Message-ID: <20230713-40f6804b248987add29f83aa@orel>
-References: <20230712161047.1764756-1-apatel@ventanamicro.com>
- <20230712161047.1764756-2-apatel@ventanamicro.com>
+	id 1qJuGx-0032xl-0H;
+	Thu, 13 Jul 2023 11:14:13 +0000
+Received: from dggpemm500006.china.huawei.com (unknown [172.30.72.56])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4R1sNg70PRztR5C;
+	Thu, 13 Jul 2023 19:10:59 +0800 (CST)
+Received: from [10.174.178.55] (10.174.178.55) by
+ dggpemm500006.china.huawei.com (7.185.36.236) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Thu, 13 Jul 2023 19:13:58 +0800
+Subject: Re: [PATCH v6 02/14] x86/kexec: refactor for kernel/Kconfig.kexec
+To: Eric DeVolder <eric.devolder@oracle.com>, <linux@armlinux.org.uk>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <chenhuacai@kernel.org>,
+	<geert@linux-m68k.org>, <tsbogend@alpha.franken.de>,
+	<James.Bottomley@HansenPartnership.com>, <deller@gmx.de>,
+	<ysato@users.sourceforge.jp>, <dalias@libc.org>,
+	<glaubitz@physik.fu-berlin.de>, <tglx@linutronix.de>, <mingo@redhat.com>,
+	<bp@alien8.de>, <dave.hansen@linux.intel.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-ia64@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-m68k@lists.linux-m68k.org>, <linux-mips@vger.kernel.org>,
+	<linux-parisc@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+	<linux-sh@vger.kernel.org>
+CC: <kernel@xen0n.name>, <mpe@ellerman.id.au>, <npiggin@gmail.com>,
+	<christophe.leroy@csgroup.eu>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <hca@linux.ibm.com>,
+	<gor@linux.ibm.com>, <agordeev@linux.ibm.com>, <borntraeger@linux.ibm.com>,
+	<svens@linux.ibm.com>, <hpa@zytor.com>, <keescook@chromium.org>,
+	<paulmck@kernel.org>, <peterz@infradead.org>, <frederic@kernel.org>,
+	<akpm@linux-foundation.org>, <ardb@kernel.org>, <samitolvanen@google.com>,
+	<juerg.haefliger@canonical.com>, <arnd@arndb.de>,
+	<rmk+kernel@armlinux.org.uk>, <linus.walleij@linaro.org>,
+	<sebastian.reichel@collabora.com>, <rppt@kernel.org>,
+	<kirill.shutemov@linux.intel.com>, <anshuman.khandual@arm.com>,
+	<ziy@nvidia.com>, <masahiroy@kernel.org>, <ndesaulniers@google.com>,
+	<mhiramat@kernel.org>, <ojeda@kernel.org>, <xin3.li@intel.com>,
+	<tj@kernel.org>, <gregkh@linuxfoundation.org>, <tsi@tuyoix.net>,
+	<bhe@redhat.com>, <hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
+	<boris.ostrovsky@oracle.com>, <konrad.wilk@oracle.com>
+References: <20230712161545.87870-1-eric.devolder@oracle.com>
+ <20230712161545.87870-3-eric.devolder@oracle.com>
+From: "Leizhen (ThunderTown)" <thunder.leizhen@huawei.com>
+Message-ID: <d8ddd4bd-fbc9-dbe9-f5c3-daf8d89aa46d@huawei.com>
+Date: Thu, 13 Jul 2023 19:13:57 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230712161047.1764756-2-apatel@ventanamicro.com>
+In-Reply-To: <20230712161545.87870-3-eric.devolder@oracle.com>
+Content-Language: en-US
+X-Originating-IP: [10.174.178.55]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ dggpemm500006.china.huawei.com (7.185.36.236)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_035712_658605_BF645CDB 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20230713_041411_480215_27F70251 
+X-CRM114-Status: GOOD (  34.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,23 +97,156 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 12, 2023 at 09:40:41PM +0530, Anup Patel wrote:
-> The VCPU ONE_REG interface has grown over time and it will continue
-> to grow with new ISA extensions and other features. Let us move all
-> ONE_REG related code to its own source file so that vcpu.c only
-> focuses only on high-level VCPU functions.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/kvm_host.h |   6 +
->  arch/riscv/kvm/Makefile           |   1 +
->  arch/riscv/kvm/vcpu.c             | 529 +----------------------------
->  arch/riscv/kvm/vcpu_onereg.c      | 547 ++++++++++++++++++++++++++++++
->  4 files changed, 555 insertions(+), 528 deletions(-)
->  create mode 100644 arch/riscv/kvm/vcpu_onereg.c
->
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+On 2023/7/13 0:15, Eric DeVolder wrote:
+> The kexec and crash kernel options are provided in the common
+> kernel/Kconfig.kexec. Utilize the common options and provide
+> the ARCH_SUPPORTS_ and ARCH_SELECTS_ entries to recreate the
+> equivalent set of KEXEC and CRASH options.
+> 
+> Signed-off-by: Eric DeVolder <eric.devolder@oracle.com>
+> ---
+>  arch/x86/Kconfig | 92 ++++++++++--------------------------------------
+>  1 file changed, 19 insertions(+), 73 deletions(-)
+> 
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index 7422db409770..9767a343f7c2 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -2040,88 +2040,34 @@ config EFI_RUNTIME_MAP
+>  
+>  source "kernel/Kconfig.hz"
+>  
+> -config KEXEC
+> -	bool "kexec system call"
+> -	select KEXEC_CORE
+> -	help
+> -	  kexec is a system call that implements the ability to shutdown your
+> -	  current kernel, and to start another kernel.  It is like a reboot
+> -	  but it is independent of the system firmware.   And like a reboot
+> -	  you can start any kernel with it, not just Linux.
+> -
+> -	  The name comes from the similarity to the exec system call.
+> -
+> -	  It is an ongoing process to be certain the hardware in a machine
+> -	  is properly shutdown, so do not be surprised if this code does not
+> -	  initially work for you.  As of this writing the exact hardware
+> -	  interface is strongly in flux, so no good recommendation can be
+> -	  made.
+> -
+> -config KEXEC_FILE
+> -	bool "kexec file based system call"
+> -	select KEXEC_CORE
+> -	select HAVE_IMA_KEXEC if IMA
+> -	depends on X86_64
+> -	depends on CRYPTO=y
+> -	depends on CRYPTO_SHA256=y
+> -	help
+> -	  This is new version of kexec system call. This system call is
+> -	  file based and takes file descriptors as system call argument
+> -	  for kernel and initramfs as opposed to list of segments as
+> -	  accepted by previous system call.
+> +config ARCH_SUPPORTS_KEXEC
+> +	def_bool y
+
+In v5, Joel Fernandes seems to suggest you change it to the following form:
+In arch/Kconfig:
++config ARCH_SUPPORTS_KEXEC
++	bool
+
+In arch/x86/Kconfig:
+config X86
+	... ...
++	select ARCH_SUPPORTS_KEXEC
+
+In arch/arm64/Kconfig:
+config ARM64
+	... ...
++	select ARCH_SUPPORTS_KEXEC if PM_SLEEP_SMP
+
+etc..
+
+You can refer to ARCH_HAS_DEBUG_VIRTUAL.
+
+>  
+> -config ARCH_HAS_KEXEC_PURGATORY
+> -	def_bool KEXEC_FILE
+> +config ARCH_SUPPORTS_KEXEC_FILE
+> +	def_bool X86_64 && CRYPTO && CRYPTO_SHA256
+>  
+> -config KEXEC_SIG
+> -	bool "Verify kernel signature during kexec_file_load() syscall"
+> +config ARCH_SELECTS_KEXEC_FILE
+> +	def_bool y
+>  	depends on KEXEC_FILE
+> -	help
+> +	select HAVE_IMA_KEXEC if IMA
+>  
+> -	  This option makes the kexec_file_load() syscall check for a valid
+> -	  signature of the kernel image.  The image can still be loaded without
+> -	  a valid signature unless you also enable KEXEC_SIG_FORCE, though if
+> -	  there's a signature that we can check, then it must be valid.
+> +config ARCH_HAS_KEXEC_PURGATORY
+> +	def_bool KEXEC_FILE
+>  
+> -	  In addition to this option, you need to enable signature
+> -	  verification for the corresponding kernel image type being
+> -	  loaded in order for this to work.
+> +config ARCH_SUPPORTS_KEXEC_SIG
+> +	def_bool y
+>  
+> -config KEXEC_SIG_FORCE
+> -	bool "Require a valid signature in kexec_file_load() syscall"
+> -	depends on KEXEC_SIG
+> -	help
+> -	  This option makes kernel signature verification mandatory for
+> -	  the kexec_file_load() syscall.
+> +config ARCH_SUPPORTS_KEXEC_SIG_FORCE
+> +	def_bool y
+>  
+> -config KEXEC_BZIMAGE_VERIFY_SIG
+> -	bool "Enable bzImage signature verification support"
+> -	depends on KEXEC_SIG
+> -	depends on SIGNED_PE_FILE_VERIFICATION
+> -	select SYSTEM_TRUSTED_KEYRING
+> -	help
+> -	  Enable bzImage signature verification support.
+> +config ARCH_SUPPORTS_KEXEC_BZIMAGE_VERIFY_SIG
+> +	def_bool y
+>  
+> -config CRASH_DUMP
+> -	bool "kernel crash dumps"
+> -	depends on X86_64 || (X86_32 && HIGHMEM)
+> -	help
+> -	  Generate crash dump after being started by kexec.
+> -	  This should be normally only set in special crash dump kernels
+> -	  which are loaded in the main kernel with kexec-tools into
+> -	  a specially reserved region and then later executed after
+> -	  a crash by kdump/kexec. The crash dump kernel must be compiled
+> -	  to a memory address not used by the main kernel or BIOS using
+> -	  PHYSICAL_START, or it must be built as a relocatable image
+> -	  (CONFIG_RELOCATABLE=y).
+> -	  For more details see Documentation/admin-guide/kdump/kdump.rst
+> +config ARCH_SUPPORTS_KEXEC_JUMP
+> +	def_bool y
+>  
+> -config KEXEC_JUMP
+> -	bool "kexec jump"
+> -	depends on KEXEC && HIBERNATION
+> -	help
+> -	  Jump between original kernel and kexeced kernel and invoke
+> -	  code in physical address mode via KEXEC
+> +config ARCH_SUPPORTS_CRASH_DUMP
+> +	def_bool X86_64 || (X86_32 && HIGHMEM)
+>  
+>  config PHYSICAL_START
+>  	hex "Physical address where the kernel is loaded" if (EXPERT || CRASH_DUMP)
+> 
+
+-- 
+Regards,
+  Zhen Lei
 
 _______________________________________________
 linux-riscv mailing list
