@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300A2C0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 13:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBC7EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 13:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b31wRh1tHZz12j6bG+V6iZZKqzF+5WX22EOaeIFCvlA=; b=mvfhQgQTejddMk
-	3ZgnoL9v+6r3jJJNx4KqNR/SIoWx07r2RN72bLoiQcMeadz0Gyd20ddpssSoTgRhiVydFKc+/BRXO
-	PHUQ/A1DPfByau4w0TQzoWMSZQqlyLLK8WWG6zYpsGZuN76ZaB9RCbaa9YBTUaUGF6tAS4b2ZeC/k
-	FRz9sYTAiP56pypB92xzku3TaoKtsave9PiWqH9bIh/sy/73w21OIyvmkALfYrwmP0zzAonHpIm5h
-	cUyzGb/kiYuOJTgZC3oHqL3WOBEl9osGPhDGcGI5PV/KRYNuOVS8RJ9diA6YU5BVTR1uwoNOFDq5n
-	vOcg/1KJem83opqw1Cww==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4jO3BAgyKM82tsXRXdR2yhwzzvS9Osvasb08RmX9o8Y=; b=IF0KN/b3cAiqqa
+	8NRFIs/g4jYrlX96hTa9U+24v7dlqYQpZL0OJuK5W4lJC4s0R4NoM7WGa6VrM7keWoFbAs6cFg0zG
+	lxlHCBJcyq2om2DQp+xRMe3r39zWi/WdrWlrDPEWPCXc9LhEMfdcLvT4B+qP8idJSEZCUkzPQJdv5
+	BblXXchiejn/wzt7SymOOHdtFAF3D6oGRGxkOwzB9fwsnATE/QiYwpP8kFE37zq7Ej9OXpyT03D6G
+	SUkiYJKPJfw4Zswz/38JTTKMQ7O49hcwKhwIRfnEuR9XVvOFk4v/o+goISsel3nTfcJuGhTVsBjOI
+	zOKyNzFLsrXDAE+OxppQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJwJk-003PWm-2e;
-	Thu, 13 Jul 2023 13:25:12 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qJwSh-003Qgd-0u;
+	Thu, 13 Jul 2023 13:34:27 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJwJh-003PW1-07
+	id 1qJwSe-003QdA-17
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 13:25:10 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 5A7063F722
-	for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 13:25:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1689254705;
-	bh=njPCzRp+gLgGXnuaFscEFk6TNloreb9Z1F7nmpn2GCo=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=jicX3NZEdw7emPlyq8fXfhaqu8m2eJOc+oJFloGHuyYSPyUYhlVHM7LbNUOLxz6+q
-	 7e9P2HjQ1OLQKmgyRWWpSWIHbL2Ilt2pzfwCbPjlJ9iV5rKtTvH3Qg8LrYAwQrgCDS
-	 UfMHh9GhvTvQnN45N++lgoGwjpifqagwvdB3mtXN3ZQcR+sb6qkAIxkFUb9+c96TEi
-	 EWKXtv/SwsK7dcdx6RbPjaHy5AkP5jiw5A502TQkQdZXiJ/jLFKLlIUzFUrkFzlR8s
-	 4ks0tSm9Yvl7/NBKwmXJO4xHWhsHCT81klB3cntyNaMWJ7JpYJmsN2ESEfBZ8a9JMT
-	 diPMwqYHsbWEQ==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-40349e4eb27so6746681cf.1
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 06:25:05 -0700 (PDT)
+	Thu, 13 Jul 2023 13:34:26 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-993a37b79e2so119079266b.1
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 06:34:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689255244; x=1691847244;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Lni4UWIKw2Lp7DjCo96CHQnoSYyoodWrf2lKDIVVpbc=;
+        b=BcfyuInp5jBxZzTvOSoWtOTxgq4kzMeUaI/Vi3ghXwRdt6V7XMYOeMvXYPrMT9YvpI
+         wtpSuYNpSjbpK8KC8M+N8XpCKV1KC4XbB9FkTa4vZE6VbRQtGHzZjviZG43Lj9wCCpkZ
+         J1HyRhUQU9dd9GeN50S3jHRYETSB8CavwaQuYkvTL4j+TXu9fqX0n6eoLpRFlrMWGcka
+         3FkxTV6FIJDOzP8WqiFhgb6rguKq7veV5jLgnmAMOxaPMfeeTSbzQVlAy9jVNSBsfbiW
+         bG3uLd7oErowpMqS69XE+Hd5ZYS+WcCsjr3P6wFlfFkg7s25zKhLVTg1RG5lf9VnjH5C
+         S8Xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689254702; x=1691846702;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20221208; t=1689255244; x=1691847244;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=njPCzRp+gLgGXnuaFscEFk6TNloreb9Z1F7nmpn2GCo=;
-        b=OAk9hXWE7M6v/hUUWxHa2IvLw5rBR+/yKQujBKLg64QWrd1pt5B0TX4K5BqJzuYDIF
-         9uAvwnBabVnw5NMq7rgONrkyy8wkJTpGab5mkZRSttIO45iZk554DSVdsAU/zxpueeku
-         UYIyrqtztGeudf0sEYUxAocik7b/rHp0cZQ4VUyoGY3gIJFs5h6V4/bNl2IU8Syqvv2M
-         RBXEu0Ff4Rj4fi6NTvVbP7ovBlvHmyL5Jsnlh+TucJwH6PrRsUvK6FlOTPDMdizmWGkN
-         9sB+AaRZ2MvqjlSEIZgxCyhqghJFV68UVeBUi7mE7/qLvdAjN8JttTnPk1AnYqEzEfpM
-         kgqQ==
-X-Gm-Message-State: ABy/qLaInW3U288fFwJlqnzfSX3wfrYls6by3YLNv46tJOPxLZYnyhdu
-	bxYtx5DkuVdRVf4pqsE3sz6i7/fiP5jIECCc7ouRLWGwHlsnrpXZQHXNeVTtFgiH8hmDfLaE2xa
-	Ld4Gz8tKqqEyrc9torUQc9KSaILZdZu6HsK8VxmfPWC7dfNH+1Ad+AZGbr5KPI1F4AgIsUg==
-X-Received: by 2002:a05:622a:14d4:b0:3f6:aff0:6dec with SMTP id u20-20020a05622a14d400b003f6aff06decmr1750867qtx.32.1689254702766;
-        Thu, 13 Jul 2023 06:25:02 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlEWYwWyI37hBY/T3E7FV4GEsBkoCOExBvaA0XLzyYLy56YtYThzvj/ApC8dphahHLu8bbys9suJD14jU2FGI2M=
-X-Received: by 2002:a05:622a:14d4:b0:3f6:aff0:6dec with SMTP id
- u20-20020a05622a14d400b003f6aff06decmr1750857qtx.32.1689254702551; Thu, 13
- Jul 2023 06:25:02 -0700 (PDT)
+        bh=Lni4UWIKw2Lp7DjCo96CHQnoSYyoodWrf2lKDIVVpbc=;
+        b=KFPnbaUCGWbP2sWscVdfm8XaiRzQQtTcKAiw4rlmJ1epSLqpu7sSzqx37Mh38uqohZ
+         sRsVGYQm8iINrvTYmXjHkiaVmy/l3ntU3Lv1c5JmyCpxEB5BgpleQIWvGDKfI5Aoz1hj
+         Zl7jE73Yz6s2g4C9pTfbYLBu4MXMz5ScTIAhKC+UiuxmYcTTj1gxnmHkDPd80RnaVocX
+         wSAQxswKm00k27PBBMV0YBiLCfeYGRWHITtE9M8BZksUA4V59HXMbNUTJh9RUDsVeRhc
+         C5Z1P1L2S/bzYj/5k53jdBEzRyaebFdsfB/kXTzDBhSF7lir8k7Ag+jJNSKEg7y8zLFm
+         FPVA==
+X-Gm-Message-State: ABy/qLbZft7jkZrvbhSMdSfXwPegXj+7NyqWjGTrWyDcHEKck7s7Gxpy
+	OnikK7YoRqYebDKYGleRMG6yGw==
+X-Google-Smtp-Source: APBJJlGvrRWNt/FFlKe8uKPn1T37JqQamvuvd1xh9hAZXGrxTN6z2+pvgee7FNyh0NbM/6xJ+VJhvQ==
+X-Received: by 2002:a17:906:20a:b0:982:487c:7508 with SMTP id 10-20020a170906020a00b00982487c7508mr1634168ejd.38.1689255244554;
+        Thu, 13 Jul 2023 06:34:04 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com ([93.23.19.53])
+        by smtp.gmail.com with ESMTPSA id d15-20020a170906c20f00b00993017b64a8sm3982733ejz.224.2023.07.13.06.34.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Jul 2023 06:34:04 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v4 0/5] riscv: Introduce KASLR
+Date: Thu, 13 Jul 2023 15:33:56 +0200
+Message-Id: <20230713133401.116506-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-References: <20230704064610.292603-1-xingyu.wu@starfivetech.com> <20230704064610.292603-8-xingyu.wu@starfivetech.com>
-In-Reply-To: <20230704064610.292603-8-xingyu.wu@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Thu, 13 Jul 2023 15:24:46 +0200
-Message-ID: <CAJM55Z989XRDuzff14pFa+AFnL6xBsswONFfdFxKbwGy55TwoA@mail.gmail.com>
-Subject: Re: [RESEND PATCH v6 7/7] riscv: dts: starfive: jh7110: Add PLL
- clocks source in SYSCRG node
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Hal Feng <hal.feng@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_062509_772142_994EA65E 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20230713_063424_382311_02DC2353 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +95,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Jul 2023 at 08:49, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->
-> Add PLL clocks input from PLL clocks driver in SYSCRG node.
->
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 8 ++++++--
->  1 file changed, 6 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index 11dd4c9d64b0..cdfd036a0e6c 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -452,12 +452,16 @@ syscrg: clock-controller@13020000 {
->                                  <&gmac1_rgmii_rxin>,
->                                  <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
->                                  <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
-> -                                <&tdm_ext>, <&mclk_ext>;
-> +                                <&tdm_ext>, <&mclk_ext>,
-> +                                <&pllclk JH7110_CLK_PLL0_OUT>,
-> +                                <&pllclk JH7110_CLK_PLL1_OUT>,
-> +                                <&pllclk JH7110_CLK_PLL2_OUT>;
+The following KASLR implementation allows to randomize the kernel mapping:
 
-Once these are updated to <&pll ?> or <&pllclk JH7110_PLLCLK_PLL?_OUT>
-if you still want to keep the defines:
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+- virtually: we expect the bootloader to provide a seed in the device-tree
+- physically: only implemented in the EFI stub, it relies on the firmware to
+  provide a seed using EFI_RNG_PROTOCOL. arm64 has a similar implementation
+  hence the patch 3 factorizes KASLR related functions for riscv to take
+  advantage.
 
->                         clock-names = "osc", "gmac1_rmii_refin",
->                                       "gmac1_rgmii_rxin",
->                                       "i2stx_bclk_ext", "i2stx_lrck_ext",
->                                       "i2srx_bclk_ext", "i2srx_lrck_ext",
-> -                                     "tdm_ext", "mclk_ext";
-> +                                     "tdm_ext", "mclk_ext",
-> +                                     "pll0_out", "pll1_out", "pll2_out";
->                         #clock-cells = <1>;
->                         #reset-cells = <1>;
->                 };
-> --
-> 2.25.1
->
+The new virtual kernel location is limited by the early page table that only
+has one PUD and with the PMD alignment constraint, the kernel can only take
+< 512 positions.
+
+base-commit-tag: v6.5-rc1
+
+Changes in v4:
+  * Fix efi_get_kimg macro that returned nothing
+  * Moved new kaslr functions into their own files to avoid zboot link
+    failures, as suggested by Ard
+
+Changes in v3:
+  * Rebase on top of 6.4-rc2
+  * Make RANDOMIZE_BASE depend on 64bit
+  * Fix efi_icache_sync and efi_get_kimg_min_align which were undefined
+    in x86 (and certainly other archs)
+  * Add patch 4 to fix warning on rv32
+
+Changes in v2:
+  * Rebase on top of 6.3-rc1
+  * Add a riscv cache sync after memcpying the kernel
+  * Add kaslr_offset implementation for KCOV
+  * Add forward declaration to quiet LLVM
+
+Alexandre Ghiti (5):
+  riscv: Introduce virtual kernel mapping KASLR
+  riscv: Dump out kernel offset information on panic
+  arm64: libstub: Move KASLR handling functions to efi-stub-helper.c
+  libstub: Fix compilation warning for rv32
+  riscv: libstub: Implement KASLR by using generic functions
+
+ arch/arm64/include/asm/efi.h                  |   4 +
+ arch/riscv/Kconfig                            |  19 +++
+ arch/riscv/include/asm/efi.h                  |   4 +
+ arch/riscv/include/asm/page.h                 |   3 +
+ arch/riscv/kernel/image-vars.h                |   1 +
+ arch/riscv/kernel/pi/Makefile                 |   2 +-
+ arch/riscv/kernel/pi/cmdline_early.c          |  13 ++
+ arch/riscv/kernel/pi/fdt_early.c              |  30 ++++
+ arch/riscv/kernel/setup.c                     |  25 +++
+ arch/riscv/mm/init.c                          |  36 +++-
+ drivers/firmware/efi/libstub/Makefile         |   3 +-
+ drivers/firmware/efi/libstub/arm64-stub.c     | 117 ++-----------
+ drivers/firmware/efi/libstub/efi-stub-kaslr.c | 159 ++++++++++++++++++
+ drivers/firmware/efi/libstub/efistub.h        |  18 ++
+ drivers/firmware/efi/libstub/riscv-stub.c     |  33 ++--
+ 15 files changed, 342 insertions(+), 125 deletions(-)
+ create mode 100644 arch/riscv/kernel/pi/fdt_early.c
+ create mode 100644 drivers/firmware/efi/libstub/efi-stub-kaslr.c
+
+-- 
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
