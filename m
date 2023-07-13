@@ -4,59 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7297EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 11:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD1FEB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 11:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2v1LYBaBqyxCmJ7DiQD6+NgRzKfMt2IBKbS5oPBApG8=; b=QsgTkJodY9BQAY
-	IlBWB2dK55KEyVyC0hzDY+5MBzMuEYkXhs8enpxJnxzb4rqQosVDUFkEXKO+yTKZn1tQCEB9BexQB
-	yB2xCyRWahu9SI5iKDxXegiIcrkcJf2BVdCznkdpjcGofgD5KNZ/sFGr3jbQlgk+xtPsj3bOeWVvX
-	xav/OW+HYDY7xwMJlvUe7bEnYMbXgriBenfrdReG2Zk52m39w3QJ7abadxIhAEauZDL6SiG2Z+cBF
-	Z2P78nURgPI2/LwldULbG3jGm9clXsrpWsxdN9poxTUq+J+qYo4cM8kuGOzEE9wawwBNgA8+AtCo+
-	rHYur4IF+27OsqtlvqmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sd6NZ7REjMcBnBted/z1t0CsSy/8Etovi5nVQRQXBDc=; b=WYcqQw1Fsvfjf8
+	q7c+0R0gw7vUTZEjXzIi6L2feC7EkIJd/h4sXUDTp0gkucUPoWG5m9i5c9y+mPYzuyCO/cA8LO83M
+	xwXUvb48kzAXKAB9omsWDCfIvw/gp8y4LLRce/s5Jb9BQS55ldhHCVHqYNPaCVstgLzORAsrdf1wj
+	r0XcysZ5tJwEsjqPFg/00Erd6zdPFnzfCyR5lGPf/bwP577DWNCIT4PbvhizMRkC/nc+T0BJizf0L
+	cnJXJ/ncFyDBmHPWe+ZAL+i1SQBDuV+xkukS3ftNkBv9stOMhBucmO67xhKgLR+8IHdqu0edm83c1
+	XSW7tHSgzWmzsI6BN+lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJuqq-00394U-22;
-	Thu, 13 Jul 2023 11:51:16 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1qJuxy-003ADv-2I;
+	Thu, 13 Jul 2023 11:58:38 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJuqn-00392g-0K
+	id 1qJuxt-003ACs-2b
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 11:51:15 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A5DC2FF80D;
-	Thu, 13 Jul 2023 11:51:02 +0000 (UTC)
-Message-ID: <f903634d-851f-af64-8d9a-6b13d813587c@ghiti.fr>
-Date: Thu, 13 Jul 2023 13:51:01 +0200
+	Thu, 13 Jul 2023 11:58:37 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3159da54e95so725353f8f.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 04:58:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689249511; x=1691841511;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nBLkkw1G6WSJr1HvvBebHePyOgAnthAqxl0kKfFGkRY=;
+        b=YprnJVutMhoiweGKBDkkZSmbZayXXBuZ0/GI8RFNmiLty3opDI4z1QzMtCVecjtgw/
+         TVZ9QWZaDwUoB/JKREJ7H/HZ7fMsu9HxP96g/gXK8bcS6kUj/+hn0BBvtiq3HanIRfRP
+         g/1v98zt5DDuKQpr7Rsqsx7XrqWF6/9V5h4EQ/BNCN7CbBYYUuqwkq+Pjo6KkHGCpFly
+         5RCssvuBkdbwHDkq562tto5dnLMnnTpSFhMca9Xxtwjd3okewrzOUejXH2jjfTTdAYHQ
+         R7M4GP/m/IxWTsHAJ5tpSdZ0yYXTDMsYBIHA87/mLAWszrG3xVVzWbULrJhVjGgwca22
+         fmGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689249511; x=1691841511;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nBLkkw1G6WSJr1HvvBebHePyOgAnthAqxl0kKfFGkRY=;
+        b=WsmPefSEkPWJt0GsRhgzO0yDd6S8vBCvlX/IJkxPsmpmyz7nsYRbAKw5wDE0RDai/F
+         fDmHLSuv5yAaex89lPnm4oAbzeA9xCb6lrdVS40LukO9IbS+cXsjdqIcC+wkqGiaMcM6
+         Z0y34Jmo02qzjK8UlUPXUB/vawf68y4XuGaLtdEAntnuxD9+0PYgpoRyh93/CF74YjJN
+         GyZRCjjV2urI0eSbGDJEdd0pxSYM9qsXQgQUkojxMIKLwhn/7g/HeDl0DUIBDU167O/z
+         WyiZ0tm4UjHAi1Xixu3NWpDvGPDJmR9jSI5Bw9CPSAQf82U2LsfzfRLt3dl3xqwbthGO
+         wuAg==
+X-Gm-Message-State: ABy/qLZr/pi1Pg0xo8/wu1c72peghT2D38l/m/5MBW//FwR+KYJ9s9ap
+	TKlBn7Lb0xYli7yBQP8ny/d7cA==
+X-Google-Smtp-Source: APBJJlFfpzpAdIOQcPc6dpdK4fawVhchxwxSJ5mWwgcfyvbo9h+OdkX+A2HfhE1WN+ZtCs33kZQVtw==
+X-Received: by 2002:adf:e98f:0:b0:314:220d:7 with SMTP id h15-20020adfe98f000000b00314220d0007mr1219828wrm.45.1689249511576;
+        Thu, 13 Jul 2023 04:58:31 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id r8-20020a056000014800b0030fa3567541sm7767115wrx.48.2023.07.13.04.58.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Jul 2023 04:58:31 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Shuah Khan <shuah@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andy Chiu <andy.chiu@sifive.com>,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH] selftests: riscv: Fix compilation error with vstate_exec_nolibc.c
+Date: Thu, 13 Jul 2023 13:58:29 +0200
+Message-Id: <20230713115829.110421-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH] selftests/riscv: fix potential build failure during the
- "emit_tests" step
-Content-Language: en-US
-To: John Hubbard <jhubbard@nvidia.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Anders Roxell <anders.roxell@linaro.org>,
- Andrew Jones <ajones@ventanamicro.com>, Andy Chiu <andy.chiu@sifive.com>,
- Evan Green <evan@rivosinc.com>, Hugh Dickins <hughd@google.com>,
- Muhammad Usama Anjum <usama.anjum@collabora.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Qinglin Pan <panqinglin2020@iscas.ac.cn>,
- Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-mm@kvack.org,
- LKML <linux-kernel@vger.kernel.org>
-References: <20230712193514.740033-1-jhubbard@nvidia.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230712193514.740033-1-jhubbard@nvidia.com>
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_045113_293839_BA63C1FE 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20230713_045834_072984_D02A71FE 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,84 +91,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi John,
-
-
-On 12/07/2023 21:35, John Hubbard wrote:
-> The riscv selftests (which were modeled after the arm64 selftests) are
-> improperly declaring the "emit_tests" target to depend upon the "all"
-> target. This approach, when combined with commit 9fc96c7c19df
-> ("selftests: error out if kernel header files are not yet built"), has
-> caused build failures [1] on arm64, and is likely to cause similar
-> failures for riscv.
->
-> To fix this, simply remove the unnecessary "all" dependency from the
-> emit_tests target. The dependency is still effectively honored, because
-> again, invocation is via "install", which also depends upon "all".
->
-> An alternative approach would be to harden the emit_tests target so that
-> it can depend upon "all", but that's a lot more complicated and hard to
-> get right, and doesn't seem worth it, especially given that emit_tests
-> should probably not be overridden at all.
->
-> [1] https://lore.kernel.org/20230710-kselftest-fix-arm64-v1-1-48e872844f25@kernel.org
->
-> Fixes: 9fc96c7c19df ("selftests: error out if kernel header files are not yet built")
-> Signed-off-by: John Hubbard <jhubbard@nvidia.com>
-> ---
->
-> Andrew,
->
-> With this, and with my arm64 fix [2] that you've already put into
-> mm-unstable, you should be able to safely drop commit 819187ab8741
-> ("selftests: fix arm64 test installation").
->
-> [2] https://lore.kernel.org/20230711005629.2547838-1-jhubbard@nvidia.com
->
-> thanks,
-> John Hubbard
->
->
->   tools/testing/selftests/riscv/Makefile | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
-> index 9dd629cc86aa..f4b3d5c9af5b 100644
-> --- a/tools/testing/selftests/riscv/Makefile
-> +++ b/tools/testing/selftests/riscv/Makefile
-> @@ -43,7 +43,7 @@ run_tests: all
->   	done
->   
->   # Avoid any output on non riscv on emit_tests
-> -emit_tests: all
-> +emit_tests:
->   	@for DIR in $(RISCV_SUBTARGETS); do				\
->   		BUILD_TARGET=$(OUTPUT)/$$DIR;			\
->   		$(MAKE) OUTPUT=$$BUILD_TARGET -C $$DIR $@;		\
->
-> base-commit: 3f01e9fed8454dcd89727016c3e5b2fbb8f8e50c
-> prerequisite-patch-id: 37c92f7425689ff069fb83996a25cd98e78d7242
-
-
-Perfect timing, I have just encountered this failure this morning:
-
-make[5]: *** [../../lib.mk:81: kernel_header_files] Error 1
-
-that your patch fixed :) So you can add:
-
-Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thank you!
-
-Alex
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIGZvbGxvd2luZyBlcnJvciBoYXBwZW5zOgoKSW4gZmlsZSBpbmNsdWRlZCBmcm9tIHZzdGF0
+ZV9leGVjX25vbGliYy5jOjI6Ci91c3IvaW5jbHVkZS9yaXNjdjY0LWxpbnV4LWdudS9zeXMvcHJj
+dGwuaDo0MjoxMjogZXJyb3I6IGNvbmZsaWN0aW5nIHR5cGVzIGZvciDigJhwcmN0bOKAmTsgaAph
+dmUg4oCYaW50KGludCwgLi4uKeKAmQogICA0MiB8IGV4dGVybiBpbnQgcHJjdGwgKGludCBfX29w
+dGlvbiwgLi4uKSBfX1RIUk9XOwogICAgICB8ICAgICAgICAgICAgXn5+fn4KSW4gZmlsZSBpbmNs
+dWRlZCBmcm9tIC4vLi4vLi4vLi4vLi4vaW5jbHVkZS9ub2xpYmMvbm9saWJjLmg6OTksCiAgICAg
+ICAgICAgICAgICAgZnJvbSA8Y29tbWFuZC1saW5lPjoKLi8uLi8uLi8uLi8uLi9pbmNsdWRlL25v
+bGliYy9zeXMuaDo4OTI6NTogbm90ZTogcHJldmlvdXMgZGVmaW5pdGlvbiBvZiDigJhwcmN0bOKA
+mSB3aXRoIHR5cGUK4oCYaW50KGludCwgIGxvbmcgdW5zaWduZWQgaW50LCAgbG9uZyB1bnNpZ25l
+ZCBpbnQsICBsb25nIHVuc2lnbmVkIGludCwgIGxvbmcgdW5zaWduZWQgaW50KQrigJkKICA4OTIg
+fCBpbnQgcHJjdGwoaW50IG9wdGlvbiwgdW5zaWduZWQgbG9uZyBhcmcyLCB1bnNpZ25lZCBsb25n
+IGFyZzMsCiAgICAgIHwgICAgIF5+fn5+CgpGaXggdGhpcyBieSBub3QgaW5jbHVkaW5nIDxzeXMv
+cHJjdGwuaD4sIHdoaWNoIGlzIG5vdCBuZWVkZWQgaGVyZSBzaW5jZQpwcmN0bCBzeXNjYWxsIGlz
+IGRpcmVjdGx5IGNhbGxlZCB1c2luZyBpdHMgbnVtYmVyLgoKRml4ZXM6IDdjZjYxOThjZTIyZCAo
+InNlbGZ0ZXN0czogVGVzdCBSSVNDLVYgVmVjdG9yIHByY3RsIGludGVyZmFjZSIpClNpZ25lZC1v
+ZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KLS0tCiB0b29s
+cy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdnN0YXRlX2V4ZWNfbm9saWJjLmMgfCAy
+IC0tCiAxIGZpbGUgY2hhbmdlZCwgMiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS90b29scy90
+ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdnN0YXRlX2V4ZWNfbm9saWJjLmMgYi90b29s
+cy90ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdnN0YXRlX2V4ZWNfbm9saWJjLmMKaW5k
+ZXggNWNiYzM5Mjk0NGE2Li4yYzBkMmIxMTI2YzEgMTAwNjQ0Ci0tLSBhL3Rvb2xzL3Rlc3Rpbmcv
+c2VsZnRlc3RzL3Jpc2N2L3ZlY3Rvci92c3RhdGVfZXhlY19ub2xpYmMuYworKysgYi90b29scy90
+ZXN0aW5nL3NlbGZ0ZXN0cy9yaXNjdi92ZWN0b3IvdnN0YXRlX2V4ZWNfbm9saWJjLmMKQEAgLTEs
+NiArMSw0IEBACiAvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5Ci0jaW5j
+bHVkZSA8c3lzL3ByY3RsLmg+Ci0KICNkZWZpbmUgVEhJU19QUk9HUkFNICIuL3ZzdGF0ZV9leGVj
+X25vbGliYyIKIAogaW50IG1haW4oaW50IGFyZ2MsIGNoYXIgKiphcmd2KQotLSAKMi4zOS4yCgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
