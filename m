@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 550AEEB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 09:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17261C001DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 09:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+RGhKJv+rljivvSv4a0QLHmly642ngcukv8MNZyopek=; b=HETMQIrw32A0S3
-	pte+53UwHc3xiHIMUwdsAL5+JzFnMfQTNZHS/JoWwp+OQHTn+PpALRxYAVIDIt/0gTVM23SIqN4ie
-	o1LIZZ/PExNKWHit45MT29AB3A8f8cTjlJkMhZOVR62GSwVfkS3OTmF7dcJ55MzppyTcUhE6XDgVk
-	sIkys/zbYoYpY7PN1CPY3NdnRDQIGCYoZ+4Nuhe0eGgiI/RhOMfXZfE+fV8GuA4RA5MGNT7GFJk/E
-	/FBzSyIpHP53nu3UBXP+os3VBpM9ESWi8dSF7sUztL+9d4jW1sFerhgUmxvGKWWDcKXCRMvc0B1N/
-	nesg7NQQujKlCO3kPSGQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BjZfGnNBKmjCQDsjgyoGHQ49Lt8W1bkfghlllXcIXR0=; b=j4qsaCB6ccHzww
+	EfUBz6lUPTuMNXhgWal98Gb0ppCaSwL4kqUSpKq93NRJ600HVhMD/M0d+i8rAb/2isjX36HGa+kOq
+	z8uCADJpDxrNoNgOmASH4TLzx2ELwTQb8LSENx8JNU766VzGstC/Lk6dM9Mg2aR30JGeD/t0UPNQC
+	P7jfB55gt7HuoeRwiUnaVIYlax+52eCykgHaFhOfVXgvu5eC7loie+KxCDeQ9TTWqVr1yqolszWd9
+	MoiSNoT9rozbNNACMFQ/GE+mgjl7iCS7cEs/whWr9Fr7ueIgCVg16D58LF9KE2I44Hi02WgZUEnt6
+	W6I5pBUahPrkP2boTcbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJsoM-002e7r-1n;
-	Thu, 13 Jul 2023 09:40:34 +0000
+	id 1qJsoS-002eF4-2o;
+	Thu, 13 Jul 2023 09:40:40 +0000
 Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJsoJ-002e0y-0J;
-	Thu, 13 Jul 2023 09:40:32 +0000
-Received: from dggpemm500001.china.huawei.com (unknown [172.30.72.56])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4R1qMQ0F4fzrRnX;
-	Thu, 13 Jul 2023 17:39:46 +0800 (CST)
+	id 1qJsoJ-002e1O-0J;
+	Thu, 13 Jul 2023 09:40:33 +0000
+Received: from dggpemm500001.china.huawei.com (unknown [172.30.72.57])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4R1qJk00S7ztRVh;
+	Thu, 13 Jul 2023 17:37:25 +0800 (CST)
 Received: from localhost.localdomain.localdomain (10.175.113.25) by
  dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Thu, 13 Jul 2023 17:40:21 +0800
+ 15.1.2507.27; Thu, 13 Jul 2023 17:40:25 +0800
 From: Kefeng Wang <wangkefeng.wang@huawei.com>
 To: <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>,
 	<surenb@google.com>
@@ -53,19 +53,20 @@ CC: Russell King <linux@armlinux.org.uk>, Catalin Marinas
 	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
 	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Kefeng Wang
 	<wangkefeng.wang@huawei.com>
-Subject: [PATCH rfc -next 00/10] mm: convert to generic VMA lock-based page fault
-Date: Thu, 13 Jul 2023 17:53:28 +0800
-Message-ID: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
+Subject: [PATCH rfc -next 03/10] arm64: mm: use try_vma_locked_page_fault()
+Date: Thu, 13 Jul 2023 17:53:31 +0800
+Message-ID: <20230713095339.189715-4-wangkefeng.wang@huawei.com>
 X-Mailer: git-send-email 2.41.0
+In-Reply-To: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
+References: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.175.113.25]
 X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  dggpemm500001.china.huawei.com (7.185.36.107)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_024031_294131_0813A26C 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230713_024031_542760_62AE97E6 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +83,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a generic VMA lock-based page fault handler in mm core, and convert
-architectures to use it, which eliminate architectures's duplicated codes.
+Use new try_vma_locked_page_fault() helper to simplify code.
+No functional change intended.
 
-With it, we can avoid multiple changes in architectures's code if we 
-add new feature or bugfix.
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+---
+ arch/arm64/mm/fault.c | 28 +++++-----------------------
+ 1 file changed, 5 insertions(+), 23 deletions(-)
 
-This fixes riscv missing change about commit 38b3aec8e8d2 "mm: drop per-VMA
-lock when returning VM_FAULT_RETRY or VM_FAULT_COMPLETED", and in the end,
-we enable this feature on ARM32/Loongarch too.
-
-This is based on next-20230713, only built test(no loongarch compiler,
-so except loongarch).
-
-Kefeng Wang (10):
-  mm: add a generic VMA lock-based page fault handler
-  x86: mm: use try_vma_locked_page_fault()
-  arm64: mm: use try_vma_locked_page_fault()
-  s390: mm: use try_vma_locked_page_fault()
-  powerpc: mm: use try_vma_locked_page_fault()
-  riscv: mm: use try_vma_locked_page_fault()
-  ARM: mm: try VMA lock-based page fault handling first
-  loongarch: mm: cleanup __do_page_fault()
-  loongarch: mm: add access_error() helper
-  loongarch: mm: try VMA lock-based page fault handling first
-
- arch/arm/Kconfig          |  1 +
- arch/arm/mm/fault.c       | 15 ++++++-
- arch/arm64/mm/fault.c     | 28 +++---------
- arch/loongarch/Kconfig    |  1 +
- arch/loongarch/mm/fault.c | 92 ++++++++++++++++++++++++---------------
- arch/powerpc/mm/fault.c   | 54 ++++++++++-------------
- arch/riscv/mm/fault.c     | 38 +++++++---------
- arch/s390/mm/fault.c      | 23 +++-------
- arch/x86/mm/fault.c       | 39 +++++++----------
- include/linux/mm.h        | 28 ++++++++++++
- mm/memory.c               | 42 ++++++++++++++++++
- 11 files changed, 206 insertions(+), 155 deletions(-)
-
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index b8c80f7b8a5f..614bb53fc1bc 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -537,6 +537,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 	unsigned int mm_flags = FAULT_FLAG_DEFAULT;
+ 	unsigned long addr = untagged_addr(far);
+ 	struct vm_area_struct *vma;
++	struct vm_locked_fault vmlf;
+ 
+ 	if (kprobe_page_fault(regs, esr))
+ 		return 0;
+@@ -587,27 +588,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 
+ 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
+ 
+-#ifdef CONFIG_PER_VMA_LOCK
+-	if (!(mm_flags & FAULT_FLAG_USER))
+-		goto lock_mmap;
+-
+-	vma = lock_vma_under_rcu(mm, addr);
+-	if (!vma)
+-		goto lock_mmap;
+-
+-	if (!(vma->vm_flags & vm_flags)) {
+-		vma_end_read(vma);
+-		goto lock_mmap;
+-	}
+-	fault = handle_mm_fault(vma, addr, mm_flags | FAULT_FLAG_VMA_LOCK, regs);
+-	if (!(fault & (VM_FAULT_RETRY | VM_FAULT_COMPLETED)))
+-		vma_end_read(vma);
+-
+-	if (!(fault & VM_FAULT_RETRY)) {
+-		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
++	VM_LOCKED_FAULT_INIT(vmlf, mm, addr, mm_flags, vm_flags, regs, esr);
++	if (try_vma_locked_page_fault(&vmlf, &fault))
++		goto retry;
++	else if (!(fault | VM_FAULT_RETRY))
+ 		goto done;
+-	}
+-	count_vm_vma_lock_event(VMA_LOCK_RETRY);
+ 
+ 	/* Quick path to respond to signals */
+ 	if (fault_signal_pending(fault, regs)) {
+@@ -615,9 +600,6 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 			goto no_context;
+ 		return 0;
+ 	}
+-lock_mmap:
+-#endif /* CONFIG_PER_VMA_LOCK */
+-
+ retry:
+ 	vma = lock_mm_and_find_vma(mm, addr, regs);
+ 	if (unlikely(!vma)) {
 -- 
 2.27.0
 
