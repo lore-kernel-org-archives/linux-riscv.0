@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B1CC0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 15:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B800C0015E
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Jul 2023 15:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aJd3xXhxlaoFOPe+dDjIIoXoGeevL7PLFavLRgFXzNI=; b=JfvWlqzLE5612o
-	Re2m1RS39dpUeknpoSxKH5DyVjwwYbDzhciEC5hVGBaYrqnBuapW+tiztggWpukV80K19jFZopO/a
-	lDssmNWQzJHEWkSBmLY2mFo+piYm9SD+peCvA03mMRuuhp6LPk+yIP4bP3V1GYiGXU5BDkUlabFZ2
-	BFzTv3i7gxxVvypzqyPIj/a+M6cWFWqcJkeQ67HyU0jadr4FvSsIehVt01+3l8UIZTwBAhA1UM9HU
-	1DR4GZqI94xxuO++TsagD9vEHe/9HIG44emDryOOHCvsCuOZrzfpkl9AIcEu6cW8kTmxJuDHvDGfu
-	/s7QnjygbR6KAo91KZ4Q==;
+	List-Owner; bh=4jO3BAgyKM82tsXRXdR2yhwzzvS9Osvasb08RmX9o8Y=; b=GCuhnMBUmnhVlg
+	I9MBdM5LMnmGCLqGwAq0jJ8gournE4tDq6pOZiX/UeZVZuBOSLk4oOZpB7672sAjDZWtQ7hqgzi7w
+	Z8l2B6RSNKLI24Kw+2fzW+pXlpnVxDNNHyLOjLeYKgX8BWKfBBbmAY2/u1eQXo+tjiAqchdShTaJp
+	meLCNWzZdS3NLEi4SYLSBX32ZGi2RXnORIRHq1NmM3Avg2a68hosKXE30slm+cvyiIcTYAHf6uPiu
+	ByCUa8nfC9gR/ujXKCYB7wzkAtdRvCzGME5OmtZwlM9bKHkNLgyF/+DhuBnZ0YadWvPy6NFbhhgKt
+	ygYtptsF/h6NgiR7K6Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJxvW-003gG9-0l;
-	Thu, 13 Jul 2023 15:08:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qJxvZ-003gI4-2T;
+	Thu, 13 Jul 2023 15:08:21 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qJxvT-003gF9-25
+	id 1qJxvW-003gDW-0h
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Jul 2023 15:08:17 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 23D806198A;
-	Thu, 13 Jul 2023 15:08:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60042C433C8;
-	Thu, 13 Jul 2023 15:08:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689260895;
-	bh=/s9DM0WYSYkcaRxPKtiHE/0AYumFu9IKb/nX7sNm8VQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=lpvqajWyTmo8KpeKW5zwo3j8fvID2kloajzWQKzDtV07Kk5l3OUwU5/kOpLa5dOn4
-	 cSZH0q+gYxLSy2Op9rSPpYTs47/EeXU45gV3x7n89P8eR+t6sGS+s99ZE3GcLd7Jpj
-	 Q7/qduU1fLPSAIM0Ph+2g0LWfu7G/gll7ut19qYTgAg39xRI5KcqvbTLAx2ENjr4HH
-	 Y4oyyzJa2Wh0jpODTlpQVi1zeqk1cGhsWrxRNdP1mU4eqsrihxefh1RQyKry4WHjGT
-	 6SHI6cuE4Wev9ywD/DNcBjzQf+lpfzQ7FkFOei1M9RSjuuBbe4WbJQq3O7VLsrWhh+
-	 OunKGldQyVXuQ==
-From: guoren@kernel.org
-To: guoren@kernel.org,
-	palmer@rivosinc.com,
-	paul.walmsley@sifive.com,
-	zong.li@sifive.com,
-	atishp@atishpatra.org,
-	alex@ghiti.fr
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Thu, 13 Jul 2023 15:08:19 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-3fbfcc6daa9so7505625e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Jul 2023 08:08:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689260883; x=1691852883;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Lni4UWIKw2Lp7DjCo96CHQnoSYyoodWrf2lKDIVVpbc=;
+        b=sj9ClK4NUhpnKCFC64kQfjD96nMZznWfZOzxrC+tZLrM1q7eZdMEVU36AmLtzZWyqZ
+         H6+I7eSk0aJUB1k7vSzG482QGgPU/0XqZFaIN+pg8qIPfc0O1ATxLn59uro47OIXQRHu
+         smE7ZGMkgM7EbkVohrtbrq4EZ+Ifju7QRZHwhopYWfN+cWn043aolj9vwoY34rfHLYEF
+         lEwlBxTl3XMuywyv08PZ++OJmunWTMSCfslBQkUgEUQ/6xLypwGlUgtlrmVPpgBPxkhy
+         6gjUbcYX8FMl91FdywZ3e9ETsXxF4QmsXNK/VACDBO4j167+y0TEY6UnmS5zY7ljU8go
+         lDoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689260883; x=1691852883;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Lni4UWIKw2Lp7DjCo96CHQnoSYyoodWrf2lKDIVVpbc=;
+        b=DpJmQyPPt8Q3pY1zBcywbtLmR+elzOsqe1rh//4ERMJQkRsyEmDGtAuaOhcy4BH/Sa
+         vKkz6wRddEu2uVGHEyYoNfP626xe/jD82vUbleu38SWkLhP2wnkcsc+atcnkGDj+VPLh
+         m/53n8fg6yicavNiwrJOC5vvsZH/Vhq5m/X1fmzn4nQUkyHpjdq8URb2b6C5nynx7KYf
+         ukKVPYp9ajF7XqNa6+AgvSERRqMkhJyv5EvneZTDn8NyAtjNofUDOiELhcEgBvl2ePin
+         FA8Vpd347GD+quS1iu8f6ZMxFs7sO1AtBYMvRyo/kZRBx/fWS9LNJDF72GpIDcXLwFNM
+         qclw==
+X-Gm-Message-State: ABy/qLaqFpnpNJQR4vjHlHOA2vuGbdj9BSvwAoa7Wj0eaH0aZdPVqvIb
+	xypYC0LRCLJ2f+7cnaSN1tctbA==
+X-Google-Smtp-Source: APBJJlFBxezJWxszuwCwiBNF3orxllOlCtInhGKmw3C6zySX0L1qcmDavDq6eTidrxiBhLiTKAAyiw==
+X-Received: by 2002:a05:600c:11cf:b0:3fb:e4ce:cc65 with SMTP id b15-20020a05600c11cf00b003fbe4cecc65mr1638951wmi.25.1689260882792;
+        Thu, 13 Jul 2023 08:08:02 -0700 (PDT)
+Received: from alex-rivos.home (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
+        by smtp.gmail.com with ESMTPSA id c26-20020a05600c0ada00b003fbcdba1a52sm18645597wmr.3.2023.07.13.08.08.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Jul 2023 08:08:02 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>,
 	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH V3] riscv: kexec: Fixup synchronization problem between init_mm and active_mm
-Date: Thu, 13 Jul 2023 11:07:58 -0400
-Message-Id: <20230713150758.2956316-1-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
+	linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH RESEND v4 0/5] riscv: Introduce KASLR
+Date: Thu, 13 Jul 2023 17:07:55 +0200
+Message-Id: <20230713150800.120821-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_080815_764459_5B2023CF 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20230713_080818_275073_CA0E4D55 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,117 +95,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+The following KASLR implementation allows to randomize the kernel mapping:
 
-The machine_kexec() uses set_memory_x to modify the direct mapping
-attributes from RW to RWX. The current implementation of set_memory_x
-does not split hugepages in the linear mapping and then when a PGD
-mapping is used, the whole PGD is marked as executable. But changing
-the permissions at the PGD level must be propagated to all the page
-tables. When kexec jumps into control_buffer, the instruction page
-fault happens, and there is no minor_pagefault for it, then panic.
+- virtually: we expect the bootloader to provide a seed in the device-tree
+- physically: only implemented in the EFI stub, it relies on the firmware to
+  provide a seed using EFI_RNG_PROTOCOL. arm64 has a similar implementation
+  hence the patch 3 factorizes KASLR related functions for riscv to take
+  advantage.
 
-The bug is found on an MMU_sv39 machine, and the direct mapping used a
-1GB PUD, the pgd entries. Here is the bug output:
+The new virtual kernel location is limited by the early page table that only
+has one PUD and with the PMD alignment constraint, the kernel can only take
+< 512 positions.
 
- kexec_core: Starting new kernel
- Will call new kernel at 00300000 from hart id 0
- FDT image at 747c7000
- Bye...
- Unable to handle kernel paging request at virtual address ffffffda23b0d000
- Oops [#1]
- Modules linked in:
- CPU: 0 PID: 53 Comm: uinit Not tainted 6.4.0-rc6 #15
- Hardware name: Sophgo Mango (DT)
- epc : 0xffffffda23b0d000
-  ra : machine_kexec+0xa6/0xb0
- epc : ffffffda23b0d000 ra : ffffffff80008272 sp : ffffffc80c173d10
-  gp : ffffffff8150e1e0 tp : ffffffd9073d2c40 t0 : 0000000000000000
-  t1 : 0000000000000042 t2 : 6567616d69205444 s0 : ffffffc80c173d50
-  s1 : ffffffd9076c4800 a0 : ffffffd9076c4800 a1 : 0000000000300000
-  a2 : 00000000747c7000 a3 : 0000000000000000 a4 : ffffffd800000000
-  a5 : 0000000000000000 a6 : ffffffd903619c40 a7 : ffffffffffffffff
-  s2 : ffffffda23b0d000 s3 : 0000000000300000 s4 : 00000000747c7000
-  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
-  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
-  s11: 0000003f940001a0 t3 : ffffffff815351af t4 : ffffffff815351af
-  t5 : ffffffff815351b0 t6 : ffffffc80c173b50
- status: 0000000200000100 badaddr: ffffffda23b0d000 cause: 000000000000000c
+base-commit-tag: v6.5-rc1
 
-Given the current flaw in the set_memory_x implementation, the simplest
-solution is to fix machine_kexec() to remap control code page outside
-the linear mapping.
+Changes in v4:
+  * Fix efi_get_kimg macro that returned nothing
+  * Moved new kaslr functions into their own files to avoid zboot link
+    failures, as suggested by Ard
 
-Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
-Changelog:
-V3:
- - Resume set_memory_x to set the _PAGE_EXEC attribute
- - Optimize the commit log with Alexandre advice
+Changes in v3:
+  * Rebase on top of 6.4-rc2
+  * Make RANDOMIZE_BASE depend on 64bit
+  * Fix efi_icache_sync and efi_get_kimg_min_align which were undefined
+    in x86 (and certainly other archs)
+  * Add patch 4 to fix warning on rv32
 
-V2:
- - Use vm_map_ram instead of modifying set_memory_x
- - Correct Fixes tag
----
- arch/riscv/include/asm/kexec.h    |  1 +
- arch/riscv/kernel/machine_kexec.c | 13 +++++++++++--
- 2 files changed, 12 insertions(+), 2 deletions(-)
+Changes in v2:
+  * Rebase on top of 6.3-rc1
+  * Add a riscv cache sync after memcpying the kernel
+  * Add kaslr_offset implementation for KCOV
+  * Add forward declaration to quiet LLVM
 
-diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
-index 2b56769cb530..17456e91476e 100644
---- a/arch/riscv/include/asm/kexec.h
-+++ b/arch/riscv/include/asm/kexec.h
-@@ -41,6 +41,7 @@ crash_setup_regs(struct pt_regs *newregs,
- struct kimage_arch {
- 	void *fdt; /* For CONFIG_KEXEC_FILE */
- 	unsigned long fdt_addr;
-+	void *control_code_buffer;
- };
- 
- extern const unsigned char riscv_kexec_relocate[];
-diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index 2d139b724bc8..83b499178902 100644
---- a/arch/riscv/kernel/machine_kexec.c
-+++ b/arch/riscv/kernel/machine_kexec.c
-@@ -86,7 +86,14 @@ machine_kexec_prepare(struct kimage *image)
- 
- 	/* Copy the assembler code for relocation to the control page */
- 	if (image->type != KEXEC_TYPE_CRASH) {
--		control_code_buffer = page_address(image->control_code_page);
-+		control_code_buffer = vm_map_ram(&image->control_code_page,
-+						 KEXEC_CONTROL_PAGE_SIZE/PAGE_SIZE,
-+						 NUMA_NO_NODE);
-+		if (control_code_buffer == NULL) {
-+			pr_err("Failed to vm_map control page\n");
-+			return -ENOMEM;
-+		}
-+
- 		control_code_buffer_sz = page_size(image->control_code_page);
- 
- 		if (unlikely(riscv_kexec_relocate_size > control_code_buffer_sz)) {
-@@ -99,6 +106,8 @@ machine_kexec_prepare(struct kimage *image)
- 
- 		/* Mark the control page executable */
- 		set_memory_x((unsigned long) control_code_buffer, 1);
-+
-+		internal->control_code_buffer = control_code_buffer;
- 	}
- 
- 	return 0;
-@@ -211,7 +220,7 @@ machine_kexec(struct kimage *image)
- 	unsigned long this_cpu_id = __smp_processor_id();
- 	unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
- 	unsigned long fdt_addr = internal->fdt_addr;
--	void *control_code_buffer = page_address(image->control_code_page);
-+	void *control_code_buffer = internal->control_code_buffer;
- 	riscv_kexec_method kexec_method = NULL;
- 
- #ifdef CONFIG_SMP
+Alexandre Ghiti (5):
+  riscv: Introduce virtual kernel mapping KASLR
+  riscv: Dump out kernel offset information on panic
+  arm64: libstub: Move KASLR handling functions to efi-stub-helper.c
+  libstub: Fix compilation warning for rv32
+  riscv: libstub: Implement KASLR by using generic functions
+
+ arch/arm64/include/asm/efi.h                  |   4 +
+ arch/riscv/Kconfig                            |  19 +++
+ arch/riscv/include/asm/efi.h                  |   4 +
+ arch/riscv/include/asm/page.h                 |   3 +
+ arch/riscv/kernel/image-vars.h                |   1 +
+ arch/riscv/kernel/pi/Makefile                 |   2 +-
+ arch/riscv/kernel/pi/cmdline_early.c          |  13 ++
+ arch/riscv/kernel/pi/fdt_early.c              |  30 ++++
+ arch/riscv/kernel/setup.c                     |  25 +++
+ arch/riscv/mm/init.c                          |  36 +++-
+ drivers/firmware/efi/libstub/Makefile         |   3 +-
+ drivers/firmware/efi/libstub/arm64-stub.c     | 117 ++-----------
+ drivers/firmware/efi/libstub/efi-stub-kaslr.c | 159 ++++++++++++++++++
+ drivers/firmware/efi/libstub/efistub.h        |  18 ++
+ drivers/firmware/efi/libstub/riscv-stub.c     |  33 ++--
+ 15 files changed, 342 insertions(+), 125 deletions(-)
+ create mode 100644 arch/riscv/kernel/pi/fdt_early.c
+ create mode 100644 drivers/firmware/efi/libstub/efi-stub-kaslr.c
+
 -- 
-2.36.1
+2.39.2
 
 
 _______________________________________________
