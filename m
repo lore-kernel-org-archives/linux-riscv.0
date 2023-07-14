@@ -4,70 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E75EB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 06:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439A5EB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 07:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=if181sARjUikEqcM8Eo9XtyIyW4dhKWSSqKUo5HSvKs=; b=Q3mNUuhLywPr9X
-	sQu2U2cISZDSu9U6nsLM2KwEjaxqwxaWyBtpGMokm8KNkcaCG7Mj5g/F1wXbhEzHZX7cMlR15QWo7
-	uvLHwF6I0aCwAlwL5otwf0SBxI0OhMdNWOoEOZ+pgB0m/MKFV5KvZZqtBL6jbYVp2p92hfngqsutP
-	jjF7UpwqNYeRI8WjSfiiIyHMomRu/mU/9XUYOGD/haHswzN7UpRwRZS7+HnNAv0AE5l4JVZ0wrck9
-	fYLUkP3H5eJ1YmZNVue9RtgpfZo+jm+Q0aIAbqi08zxSMJREcoARdr7IJqKd7JoDT4QgS6pXWca30
-	yRFEPW39snddlF+NfrpQ==;
+	List-Owner; bh=IJsF07PYj8yeyGQOSDNCiI1Pw7ojEoMytSTbwVrVMj8=; b=znl5GLF3niKo8s
+	4ouDIwDW5L8uWHdjendOt0L2zbtJx6yzSmvntpZVm3ZOwPosJ0Ggwcewl+18Jts7JGfBcTc5phcgd
+	J+qWcenr9mw4/Hav+cBx8t6U/GgQYMqT9jRIe0XGuYfLWD1MTqRhZYWzrDG+ZvvIcv+mQxm9beDe9
+	FwHkPrNKGoy2xoV0MUG3LwJxS+LYkE4pyrig0UyB+9m58FgAk/ej1QVlcrbtoAj4IXYDCSIHmCGkc
+	aUhBajpu5R0BrsD8sI7SwGdbZFSWgTb5AZHzF/G05AlLNfNQt++9qulWvan/UbT369GEGze3Hx5wa
+	d2Xl3djOGM4caSIYfHMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKCI2-005AXa-2d;
-	Fri, 14 Jul 2023 06:28:30 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKCHy-005AWG-1G
+	id 1qKCpN-005EqQ-0u;
+	Fri, 14 Jul 2023 07:02:57 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qKCpL-005Ep0-0e
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jul 2023 06:28:29 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 1A84324E2E3;
-	Fri, 14 Jul 2023 14:27:42 +0800 (CST)
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Jul
- 2023 14:27:42 +0800
-Received: from [192.168.125.128] (183.27.98.46) by EXMBX061.cuchost.com
- (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Jul
- 2023 14:27:40 +0800
-Message-ID: <1b55f255-a9b2-1f0a-9b8b-11c787e76a75@starfivetech.com>
-Date: Fri, 14 Jul 2023 14:24:28 +0800
+	Fri, 14 Jul 2023 07:02:56 +0000
+Received: from i53875a50.versanet.de ([83.135.90.80] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1qKCp8-0001dj-Am; Fri, 14 Jul 2023 09:02:42 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ herbert@gondor.apana.org.au, davem@davemloft.net, conor.dooley@microchip.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org, christoph.muellner@vrull.eu,
+ Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH v4 00/12] RISC-V: support some cryptography accelerations
+Date: Fri, 14 Jul 2023 09:02:41 +0200
+Message-ID: <5036521.5fSG56mABF@phil>
+In-Reply-To: <20230714062708.GH913@sol.localdomain>
+References: <20230711153743.1970625-1-heiko@sntech.de>
+ <20230713074042.GF2199@sol.localdomain>
+ <20230714062708.GH913@sol.localdomain>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [RESEND PATCH v6 1/7] dt-bindings: clock: Add StarFive JH7110 PLL
- clock generator
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
- Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Hal
- Feng" <hal.feng@starfivetech.com>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-References: <20230704064610.292603-1-xingyu.wu@starfivetech.com>
- <20230704064610.292603-2-xingyu.wu@starfivetech.com>
- <CAJM55Z8vj6KvpKZxRVh0+G_LCXrpnXzOR+oBad-igkHVTD_J=Q@mail.gmail.com>
-From: Xingyu Wu <xingyu.wu@starfivetech.com>
-In-Reply-To: <CAJM55Z8vj6KvpKZxRVh0+G_LCXrpnXzOR+oBad-igkHVTD_J=Q@mail.gmail.com>
-X-Originating-IP: [183.27.98.46]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
- (172.16.6.61)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230713_232826_819644_9CF8EC25 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20230714_000255_237270_90C5B404 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,114 +66,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023/7/13 20:26, Emil Renner Berthing wrote:
-> On Tue, 4 Jul 2023 at 08:49, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->>
->> Add bindings for the PLL clock generator on the JH7110 RISC-V SoC.
->>
->> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
->> ---
->>  .../bindings/clock/starfive,jh7110-pll.yaml   | 46 +++++++++++++++++++
->>  .../dt-bindings/clock/starfive,jh7110-crg.h   |  6 +++
->>  2 files changed, 52 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
->> new file mode 100644
->> index 000000000000..beb78add5a8d
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
->> @@ -0,0 +1,46 @@
->> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/clock/starfive,jh7110-pll.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: StarFive JH7110 PLL Clock Generator
->> +
->> +description:
->> +  These PLLs are high speed, low jitter frequency synthesizers in JH7110.
-> 
-> ..synthesizers in the JH7110.
+Hi Eric,
 
-Will fix.
-
+Am Freitag, 14. Juli 2023, 08:27:08 CEST schrieb Eric Biggers:
+> On Thu, Jul 13, 2023 at 12:40:42AM -0700, Eric Biggers wrote:
+> > On Tue, Jul 11, 2023 at 05:37:31PM +0200, Heiko Stuebner wrote:
+> > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> > > 
+> > > This series provides cryptographic implementations using the vector
+> > > crypto extensions.
+> > > 
+> > > v13 of the vector patchset dropped the patches for in-kernel usage of
+> > > vector instructions, I picked the ones from v12 over into this series
+> > > for now.
+> > > 
+> > > My basic goal was to not re-invent cryptographic code, so the heavy
+> > > lifting is done by those perl-asm scripts used in openssl and the perl
+> > > code used here-in stems from code that is targetted at openssl [0] and is
+> > > unmodified from there to limit needed review effort.
+> > > 
+> > > With a matching qemu (there are patches for vector-crypto flying around)
+> > > the in-kernel crypto-selftests (also the extended ones) are very happy
+> > > so far.
+> > 
+> > Where does this patchset apply to?  I tried torvalds/master, linux-next/master,
+> > riscv/for-next, and cryptodev/master.  Nothing worked.  When sending a
+> > patch(set), please always use the '--base' option to 'git format-patch', or
+> > explicitly mention where it applies to, or provide a link to a git repo.
+> > 
 > 
->> +  Each PLL works in integer mode or fraction mode, with configuration
->> +  registers in the sys syscon. So the PLLs node should be a child of
->> +  SYS-SYSCON node.
->> +  The formula for calculating frequency is
->> +  Fvco = Fref * (NI + NF) / M / Q1
->> +
->> +maintainers:
->> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: starfive,jh7110-pll
->> +
->> +  clocks:
->> +    maxItems: 1
->> +    description: Main Oscillator (24 MHz)
->> +
->> +  '#clock-cells':
->> +    const: 1
->> +    description:
->> +      See <dt-bindings/clock/starfive,jh7110-crg.h> for valid indices.
->> +
->> +required:
->> +  - compatible
->> +  - clocks
->> +  - '#clock-cells'
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    clock-controller {
->> +      compatible = "starfive,jh7110-pll";
->> +      clocks = <&osc>;
->> +      #clock-cells = <1>;
->> +    };
->> diff --git a/include/dt-bindings/clock/starfive,jh7110-crg.h b/include/dt-bindings/clock/starfive,jh7110-crg.h
->> index 06257bfd9ac1..086a6ddcf380 100644
->> --- a/include/dt-bindings/clock/starfive,jh7110-crg.h
->> +++ b/include/dt-bindings/clock/starfive,jh7110-crg.h
->> @@ -6,6 +6,12 @@
->>  #ifndef __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
->>  #define __DT_BINDINGS_CLOCK_STARFIVE_JH7110_CRG_H__
->>
->> +/* PLL clocks */
->> +#define JH7110_CLK_PLL0_OUT                    0
->> +#define JH7110_CLK_PLL1_OUT                    1
->> +#define JH7110_CLK_PLL2_OUT                    2
->> +#define JH7110_PLLCLK_END                      3
-> 
-> It would be nice if these names followed the same pattern as the
-> clocks below. Eg. something like JH7110_PLLCLK_PLL?_OUT and
-> JH7110_PLLCLK_END.
-> 
-> But maybe these defines are not even needed, since you just do <&pll
-> 0>, <&pll 1> and it's obvious what that means.
+> Hi Heiko, any update on this?  I would like to review, and maybe test, this
+> patchset but there's no way for me to do so.
 
-I prefer to keep these names because they are used in the PLL driver
-and are more easy to understand than numbers.
-I will use the JH7110_PLLCLK_PLL?_OUT to follow the same pattern
-in next version.
+sorry about that. As you said, this should've been mentioned in the
+cover-letter.
 
-Best regards,
-Xingyu Wu
+This patchset goes on top of the v6 scalar one [0] which in turn
+goes on top of the arch-random patchset [1] and that in turn sits
+on top of 6.5-rc1 for me.
 
-> 
->>  /* SYSCRG clocks */
->>  #define JH7110_SYSCLK_CPU_ROOT                 0
->>  #define JH7110_SYSCLK_CPU_CORE                 1
->> --
->> 2.25.1
->>
+
+Heiko
+
+
+[0] https://lore.kernel.org/r/20230709154243.1582671-1-heiko@sntech.de
+[1] https://lore.kernel.org/r/20230709115549.2666557-1-sameo@rivosinc.com
+
 
 
 _______________________________________________
