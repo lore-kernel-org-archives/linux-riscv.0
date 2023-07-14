@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C701EB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 09:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD93C0015E
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 09:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FRTgO7Y63UKgzYv7BKsRszz3tIL8lAP+64leXQ0da3o=; b=L8ZmMdSrpQZOyt
-	yM7odsENhSbCSDbDiDxizW1UR76PY/z6/1tTKvHSJxzCXyNU0p6g3i6yrAxreo0Id/8UAoO18RgBq
-	tmZ2qDPi+yM+yOWKy3a7FEiERYFXDb/qp8HggOM/wH8E6El0Ev7bnuKfwIxhzvcANvCoKIOrs147g
-	UIiRj0XO9mqpFbp54DS/r0XnpXHK+ledDfYGQ0NNNbZG18RwN+GaASHz1/MSwGGxO95FowNhzI4nj
-	EtDSX++qQl0r6qfTsXiket/JOhQxGRDdVM8T0Y9Nnzwkj9NuzNExT8k8M+l2Duu6CbJLL4pEY+egt
-	tQ6d+vRyu8U9feb46OiQ==;
+	List-Owner; bh=cwf/UGySyQlznoEJEQyMgJZ+aL410uV6X4ievkZdgzU=; b=uhJPL5JqOsO06Z
+	Giyp3YQL5dUy+lkgtKAE57e6S4ETbuL5Ws0gIIqzcT28nU5GrFV5HN0iw6gDDuhDeDJIovon4Z+QM
+	Q8sDbuIN1qudxs7/EKhhtDqzv2CXamNUoq2FzNb6qv01OliU6+yMDoqrFtEBA9CKV8lkNkJ/EApis
+	b/sQ0ff7t1GGgE0o3WGMBfkdACPveX33mRXv/v+cJmArv9FlEu9OT0v75KMvfpVaQoxG4oIHXcFpQ
+	PWi6KcrI8p+obdnwG/sxVjOq9rujLJ6MzBXo4k0vKKaL/4IOqKAF8Qs53PAIA1ng9vt1eejk28R//
+	SMnC2dPccn+puahRBa/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKFDO-005h13-1p;
-	Fri, 14 Jul 2023 09:35:54 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1qKFE6-005h5v-0g;
+	Fri, 14 Jul 2023 09:36:38 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKFDK-005h07-38
+	id 1qKFE3-005h4a-0A
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jul 2023 09:35:52 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-c5cf26e9669so1459408276.0
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 02:35:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1689327345; x=1691919345;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pt39Bw/1ICieuy3xPQ3V/nq5k9xeT5GMxbYyADM5Ukk=;
-        b=eslUTpMWrNAx2aATLEtT8SRgCHC+OB6UqLIj2Eer+pOjVMfBLWucrB0s3DvfklSfBl
-         2V4VfHd7NkbeQgvGYsSfgx9I7wtAQSam18rcFpP0OqWknK0FJBh6B76rdcsFuiOkyZsO
-         Wjx1v23ukYT2WqgnpMJx+ho5D8D4W/EmOzn9c3LllJl4v1U4P+p8x/cxUTYf72KhlUqa
-         etOO4BTiMJ9g1ZN/96rrcCGWDJhVlTS0gc/Aco6tLHOFXqU9CJO5oSK7w5lTHFCCLF+V
-         ge5aFp3/gdoaoDLiH2UJ8kCXvmP1Qa53CQCvBwdRYCPwN0IFlYi6aHG/NvBQ/wzLQkc5
-         Makg==
+	Fri, 14 Jul 2023 09:36:37 +0000
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 304583F189
+	for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 09:36:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1689327387;
+	bh=+yiF1ij/z+iWY/wZthjD0aPjMSoVu9B46XxEpPJ5vvs=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=oXQu9EtGrgtxHRToV1t0zuR4XnCGJn6QbytYS5UbrgroI8WdqfcekZEF8/+GBy9KA
+	 CJtC11FYTCVMJmeVUCFck17lS8S6Vx5ETFOOlt1cy0ECiEZRfESkn1P25jGEZBeJrq
+	 MGU/teMhYCkKZvokTZO1tLgknlXnZjMb6eQF0xjk0E4/7Gm/fE8rvqQL346p0pnTfK
+	 oo/1rD+YYtNfK9jJPoq59p0S5LoUZroHCOzdycZogqMJ+eYEZyOfo12Fl0nnzCzryC
+	 bLiUuKVx+Vmui7QtUKdCkbB42BW1SnsPqLMt6fBLdkga1oFbwrSEETJePnH3UDq4wq
+	 xtY1l8WmfmCqQ==
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6238c3bf768so17713546d6.0
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 02:36:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689327345; x=1691919345;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pt39Bw/1ICieuy3xPQ3V/nq5k9xeT5GMxbYyADM5Ukk=;
-        b=C194fBRzHjjxJ6KKeIXqN+Klz9ZyX/pVtrNir9RCkZ/tZf1yryGGhIkcCtnSFvUXXV
-         IaIRehRL06SoRc5mvJpcMxntOkEVgZvWsR0/b6rHkbmDhMed9+JlkdPZP96LHIaOxKf7
-         U1bI8WDbeJwohgfceguL68+6jamIONHjcpsYeZuLJIHI0d0nDaraHKuPaw5xoiKE2KEt
-         iEbCLwwe39yoDbJyLfxxvQWOkfNLetlmaL4ZvaDxr80fDPWIhH6y84qU8whjEu/LsJHS
-         WXq5bD9xATd7HVqKvd+pU+xTO0hpJmDWxu1iBKNfnxIP0Wlhq2oetoFjub45LIKLZ4wL
-         UY9A==
-X-Gm-Message-State: ABy/qLbytsfeMN09M3S+hGaWAeyTi4H34Rsn8Z2qUhWTxX0Zj9aurxB/
-	YY+J94Iyic+qsFqpFaJFo1ZLDs7ssW6R4P2eGlpqHA==
-X-Google-Smtp-Source: APBJJlFnjaoGpAtQUN7x4jgU73upuuxFNXMx+nVUkht79U11I0K8h99tqhekeYm3ockpIX5yS0dq10/tiPAkFZJvpVE=
-X-Received: by 2002:a81:540a:0:b0:56d:2038:c254 with SMTP id
- i10-20020a81540a000000b0056d2038c254mr4796899ywb.44.1689327345450; Fri, 14
- Jul 2023 02:35:45 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1689327386; x=1691919386;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+yiF1ij/z+iWY/wZthjD0aPjMSoVu9B46XxEpPJ5vvs=;
+        b=iaCsYxLNAqnGl/wUX3I+SM/vX46H8dtemu8jVfUCZ3gd7am2sfmW4ydXtfCKdRrzIQ
+         09CjRfPys6aBUtU2JwnGfb1JKyJY/xNB7dDRxK+pIaRN9mR7RCCJxHbgIFnB7cC5bt7F
+         pizVdsC9ewn4C+ca3+pAN3y3G0nu/fHi9nHrsJPaziq/tQrmX5YMGfMCh/9AsB9c8/eF
+         YgVF1mwShhiZG7ShgB/p2YpEhNiapUG95WWyrmxDXAQPjoaSCdgsUUD7x1CrwG+W5VJc
+         z7Dy2jOSlUOfHCzWt+bGYrfiEe0kvevPuuOReBH7ViT44Jbtnt4S9f8ZCYoixKZiLnHM
+         ItRw==
+X-Gm-Message-State: ABy/qLY5tZgQ9y6DxniuSezxREfO0DuoMiqLFMMlMEiWLRFUw87p5Gjg
+	g7lyRj+t20+U0afzDWyiFHysGoy6H90UiR4vdpxBo3KsOwrwAwJd+kBBVQK9PaC2hS/vbOg4pqU
+	w3HZh8eVkP5eEuoweSinPJx07aZlaYqkayu9M7hnvBeK7dVGQN6vkIWrdmYyFmA==
+X-Received: by 2002:a05:622a:181:b0:403:ac95:c6a9 with SMTP id s1-20020a05622a018100b00403ac95c6a9mr5242747qtw.30.1689327386203;
+        Fri, 14 Jul 2023 02:36:26 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlGxE6bkszZ+7BBq2hyHda3ibW1kqoUiril9bmmHYh1J06irx78LOa5uu+I/iZMoL2sy2f6nXwFaMqHTE34JLQw=
+X-Received: by 2002:a05:622a:181:b0:403:ac95:c6a9 with SMTP id
+ s1-20020a05622a018100b00403ac95c6a9mr5242716qtw.30.1689327385565; Fri, 14 Jul
+ 2023 02:36:25 -0700 (PDT)
 MIME-Version: 1.0
-References: <20230710094321.1378351-1-apatel@ventanamicro.com>
- <20230710094321.1378351-8-apatel@ventanamicro.com> <CAGETcx8kH8cJVdhcv5K4qNUo58godFZEBnOfTGKUUQ6VuUguvQ@mail.gmail.com>
- <86jzv2vpdb.wl-maz@kernel.org>
-In-Reply-To: <86jzv2vpdb.wl-maz@kernel.org>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Fri, 14 Jul 2023 15:05:34 +0530
-Message-ID: <CAK9=C2ULxsXednwnoyzYKjQFpe_zBSZ4v0FqUYFnxK2TpbiMtg@mail.gmail.com>
-Subject: Re: [PATCH v5 7/9] irqchip: Add RISC-V advanced PLIC driver
-To: Marc Zyngier <maz@kernel.org>
+References: <20230704064610.292603-1-xingyu.wu@starfivetech.com>
+ <20230704064610.292603-6-xingyu.wu@starfivetech.com> <CAJM55Z-OSmQCV6mO+SD4R2eU5gfx9TArSqDy+d-M2aer6bKL_A@mail.gmail.com>
+ <9a2f0aa0-ad7e-c12d-245d-5f80928705d6@starfivetech.com>
+In-Reply-To: <9a2f0aa0-ad7e-c12d-245d-5f80928705d6@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Fri, 14 Jul 2023 11:36:09 +0200
+Message-ID: <CAJM55Z8rXOyT4Q-JbzZof5050qGqohDTRCj7RDavuzi1Zb6wMQ@mail.gmail.com>
+Subject: Re: [RESEND PATCH v6 5/7] clk: starfive: jh7110-sys: Add PLL clocks
+ source from DTS
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Hal Feng <hal.feng@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_023551_011044_3F59AB87 
-X-CRM114-Status: GOOD (  38.10  )
+X-CRM114-CacheID: sfid-20230714_023635_464796_1C06630D 
+X-CRM114-Status: GOOD (  38.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,80 +100,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdWwgMTQsIDIwMjMgYXQgMjozMeKAr1BNIE1hcmMgWnluZ2llciA8bWF6QGtlcm5l
-bC5vcmc+IHdyb3RlOgo+Cj4gQW51cCwKPgo+IE9uIEZyaSwgMTQgSnVsIDIwMjMgMDA6NTY6MjIg
-KzAxMDAsCj4gU2FyYXZhbmEgS2FubmFuIDxzYXJhdmFuYWtAZ29vZ2xlLmNvbT4gd3JvdGU6Cj4g
-Pgo+ID4gT24gTW9uLCBKdWwgMTAsIDIwMjMgYXQgMjo0NOKAr0FNIEFudXAgUGF0ZWwgPGFwYXRl
-bEB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPiA+ID4KPiA+ID4gVGhlIFJJU0MtViBhZHZhbmNl
-ZCBpbnRlcnJ1cHQgYXJjaGl0ZWN0dXJlIChBSUEpIHNwZWNpZmljYXRpb24gZGVmaW5lcwo+ID4g
-PiBhIG5ldyBpbnRlcnJ1cHQgY29udHJvbGxlciBmb3IgbWFuYWdpbmcgd2lyZWQgaW50ZXJydXB0
-cyBvbiBhIFJJU0MtVgo+ID4gPiBwbGF0Zm9ybS4gVGhpcyBuZXcgaW50ZXJydXB0IGNvbnRyb2xs
-ZXIgaXMgcmVmZXJyZWQgdG8gYXMgYWR2YW5jZWQKPiA+ID4gcGxhdGZvcm0tbGV2ZWwgaW50ZXJy
-dXB0IGNvbnRyb2xsZXIgKEFQTElDKSB3aGljaCBjYW4gZm9yd2FyZCB3aXJlZAo+ID4gPiBpbnRl
-cnJ1cHRzIHRvIENQVXMgKG9yIEhBUlRzKSBhcyBsb2NhbCBpbnRlcnJ1cHRzIE9SIGFzIG1lc3Nh
-Z2UKPiA+ID4gc2lnbmFsZWQgaW50ZXJydXB0cy4KPiA+ID4gKEZvciBtb3JlIGRldGFpbHMgcmVm
-ZXIgaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LWFpYSkKPiA+ID4KPiA+ID4gVGhpcyBw
-YXRjaCBhZGRzIGFuIGlycWNoaXAgZHJpdmVyIGZvciBSSVNDLVYgQVBMSUMgZm91bmQgb24gUklT
-Qy1WCj4gPiA+IHBsYXRmb3Jtcy4KPiA+ID4KPiA+ID4gU2lnbmVkLW9mZi1ieTogQW51cCBQYXRl
-bCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+Cj4KPiBbLi4uXQo+Cj4gPiA+ICtzdGF0aWMgaW50
-IF9faW5pdCBhcGxpY19kdF9pbml0KHN0cnVjdCBkZXZpY2Vfbm9kZSAqbm9kZSwKPiA+ID4gKyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgZGV2aWNlX25vZGUgKnBhcmVudCkK
-PiA+ID4gK3sKPiA+ID4gKyAgICAgICAvKgo+ID4gPiArICAgICAgICAqIFRoZSBBUExJQyBwbGF0
-Zm9ybSBkcml2ZXIgbmVlZHMgdG8gYmUgcHJvYmVkIGVhcmx5Cj4gPiA+ICsgICAgICAgICogc28g
-Zm9yIGRldmljZSB0cmVlOgo+ID4gPiArICAgICAgICAqCj4gPiA+ICsgICAgICAgICogMSkgU2V0
-IHRoZSBGV05PREVfRkxBR19CRVNUX0VGRk9SVCBmbGFnIGluIGZ3bm9kZSB3aGljaAo+ID4gPiAr
-ICAgICAgICAqICAgIHByb3ZpZGVzIGEgaGludCB0byB0aGUgZGV2aWNlIGRyaXZlciBjb3JlIHRv
-IHByb2JlIHRoZQo+ID4gPiArICAgICAgICAqICAgIHBsYXRmb3JtIGRyaXZlciBlYXJseS4KPiA+
-ID4gKyAgICAgICAgKiAyKSBDbGVhciB0aGUgT0ZfUE9QVUxBVEVEIGZsYWcgaW4gZGV2aWNlX25v
-ZGUgYmVjYXVzZQo+ID4gPiArICAgICAgICAqICAgIG9mX2lycV9pbml0KCkgc2V0cyBpdCB3aGlj
-aCBwcmV2ZW50cyBjcmVhdGlvbiBvZgo+ID4gPiArICAgICAgICAqICAgIHBsYXRmb3JtIGRldmlj
-ZS4KPiA+ID4gKyAgICAgICAgKi8KPiA+ID4gKyAgICAgICBub2RlLT5md25vZGUuZmxhZ3MgfD0g
-RldOT0RFX0ZMQUdfQkVTVF9FRkZPUlQ7Cj4gPgo+ID4gUGxlYXNlIHN0b3Agc3BhbW1pbmcgdXMg
-d2l0aCBicm9rZW4gcGF0Y2hlcy4gQWxyZWFkeSB0b2xkIHlvdSB0aGlzIGlzCj4gPiBub3QgYW4g
-b3B0aW9uLgo+ID4KPiA+IE5hY2suCj4KPiBXaGF0IHB1enpsZXMgbWUgaGVyZSBpcyB0aGF0ICpu
-byBvdGhlciBhcmNoKiByZXF1aXJlcyB0aGlzIHNvcnQgb2YKPiBoYWNrLiBXaGF0IGlzIHNvIHNw
-ZWNpYWwgYWJvdXQgdGhlIEFQTElDIHRoYXQgaXQgcmVxdWlyZXMgaXQ/IEkgc2VlCj4gbm90aGlu
-ZyBpbiB0aGlzIHBhdGNoIHRoYXQgZXZlbiBoaW50cyBhdCBpdCwgZGVzcGl0ZSB0aGUgImRpc2N1
-c3Npb24iCj4gaW4gdGhlIGxhc3Qgcm91bmQuCj4KPiBUaGUgcnVsZXMgYXJlIHNpbXBsZToKPgo+
-IC0gZWl0aGVyIHRoZSBBUExJQyBpcyBzbyBmdW5kYW1lbnRhbCB0byB0aGUgc3lzdGVtIHRoYXQg
-aXQgaGFzIHRvIGJlCj4gICBpbml0aWFsaXNlZCBzdXBlciBlYXJseSwgbXVjaCBsaWtlIHRoZSBH
-SUMgb24gYXJtNjQsIGF0IHdoaWNoIHBvaW50Cj4gICBpdCBjYW5ub3QgYmUgYSBwbGF0Zm9ybSBk
-ZXZpY2UsIGFuZCB0aGUgc3RvcnkgaXMgcHJldHR5IHNpbXBsZS4KPgo+IC0gb3IgaXQgaXNuJ3Qg
-dGhhdCBmdW5kYW1lbnRhbCwgYW5kIGl0IGNhbiBiZSBwcm9iZWQgYXMgYSBwbGF0Zm9ybQo+ICAg
-ZGV2aWNlIHVzaW5nIHRoZSBkZXBlbmRlbmN5IGluZnJhc3RydWN0dXJlIHRoYXQgaXMgYWxyZWFk
-eSB1c2VkIGJ5Cj4gICBtdWx0aXBsZSBvdGhlciBpbnRlcnJ1cHQgY29udHJvbGxlciBkcml2ZXJz
-LCB3aXRob3V0IGFueSBuZWVkIHRvCj4gICBtZXNzIHdpdGggaW50ZXJuYWwgZmxhZ3MuIEFnYWlu
-LCB0aGlzIHNob3VsZCBiZSBzaW1wbGUgZW5vdWdoLgoKQVBMSUMgbWFuYWdlcyBhbGwgd2lyZWQg
-aW50ZXJydXB0cyB3aGVyZWFzIElNU0lDIG1hbmFnZXMgYWxsCk1TSXMuIEJvdGggQVBMSUMgYW5k
-IElNU0lDIGFyZSBmdW5kYW1lbnRhbCBkZXZpY2VzIHdoaWNoIG5lZWQKdG8gYmUgcHJvYmVkIHN1
-cGVyIGVhcmx5LgoKTm93IEFQTElDIGhhcyB0d28gbW9kZXMgb2Ygb3BlcmF0aW9uczoKMSkgRGly
-ZWN0IG1vZGUgd2hlcmUgdGhlcmUgaXMgbm8gSU1TSUMgaW4gdGhlIHN5c3RlbSBhbmQgQVBMSUMK
-ICAgIGRpcmVjdGx5IGluamVjdHMgaW50ZXJydXB0IHRvIENQVXMKMikgTVNJIG1vZGUgd2hlcmUg
-SU1TSUMgaXMgcHJlc2VudCBpbiB0aGUgc3lzdGVtIGFuZCBBUExJQwogICAgY29udmVydHMgd2ly
-ZWQgaW50ZXJydXB0cyBpbnRvIE1TSXMKClRoZSBBUExJQyBkcml2ZXIgYWRkZWQgYnkgdGhpcyBw
-YXRjaCBpcyBhIGNvbW1vbiBkcml2ZXIgZm9yCmJvdGggYWJvdmUgbW9kZXMuCgpGb3IgIzIsIEFQ
-TElDIG5lZWRzIHRvIGJlIGEgcGxhdGZvcm0gZGV2aWNlIHRvIGNyZWF0ZSBhIGRldmljZQpNU0kg
-ZG9tYWluIHVzaW5nIHBsYXRmb3JtX21zaV9jcmVhdGVfZGV2aWNlX2RvbWFpbigpIHdoaWNoCmlz
-IHdoeSB0aGUgQVBMSUMgZHJpdmVyIGlzIGEgcGxhdGZvcm0gZHJpdmVyLgoKPgo+IElmIHRoZXNl
-IHJ1bGVzIGRvbid0IGFwcGx5IHRvIHlvdXIgc3R1ZmYsIHBsZWFzZSBleHBsYWluIHdoYXQgaXMg
-c28KPiBkaWZmZXJlbnQuIEFuZCBJIG1lYW4gYWN0dWFsbHkgZXhwbGFpbiB0aGUgaXNzdWUuIFdo
-aWNoIGlzbid0IHRlbGxpbmcKPiB1cyAiaXQgZG9lc24ndCB3b3JrIHdpdGhvdXQgaXQiLiBCZWNh
-dXNlIGFzIHRoaW5ncyBzdGFuZCwgdGhlcmUgaXMgbm8KPiB3YXkgSSB3aWxsIGV2ZW4gY29uc2lk
-ZXIgdGFraW5nIHRoaXMgdWdseSBtaXggb2YgcHJvYmluZyBtZXRob2RzLgoKWWVzLCBJIGRvbid0
-IHdhbnQgdGhpcyB1Z2x5IEZXTk9ERV9GTEFHX0JFU1RfRUZGT1JUIGhhY2sKaW4gdGhpcyBkcml2
-ZXIuCgpJIHRyaWVkIHNldmVyYWwgdGhpbmdzIGJ1dCBzZXR0aW5nIHRoZSBGV05PREVfRkxBR19C
-RVNUX0VGRk9SVApmbGFnIGlzIHRoZSBvbmx5IHRoaW5nIHdoaWNoIHdvcmtzIHJpZ2h0IG5vdy4K
-Cj4KPiBJbiBhbnkgY2FzZSwgcmVwb3N0aW5nIHRoZSBzYW1lIHN0dWZmIGFkIG5hdXNlYW0gaXMg
-b25seSBnb2luZyB0bwo+IHJlc3VsdCBpbiB0aGlzIHNlcmllcyBiZWluZyBpZ25vcmVkLCB3aGlj
-aCBJIGRvbid0IHRoaW5rIGlzIHdoYXQgeW91Cj4gd2FudC4KPgo+IFRoYW5rcywKPgo+ICAgICAg
-ICAgTS4KPgo+IC0tCj4gV2l0aG91dCBkZXZpYXRpb24gZnJvbSB0aGUgbm9ybSwgcHJvZ3Jlc3Mg
-aXMgbm90IHBvc3NpYmxlLgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Fri, 14 Jul 2023 at 10:05, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
+>
+> On 2023/7/13 21:15, Emil Renner Berthing wrote:
+> > On Tue, 4 Jul 2023 at 08:49, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
+> >>
+> >> Modify PLL clocks source to be got from DTS or
+> >> the fixed factor clocks.
+> >>
+> >> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> >> ---
+> >>  drivers/clk/starfive/Kconfig                  |  1 +
+> >>  .../clk/starfive/clk-starfive-jh7110-sys.c    | 45 +++++++++++--------
+> >>  2 files changed, 28 insertions(+), 18 deletions(-)
+> >>
+> >> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+> >> index 5195f7be5213..978b78ec08b1 100644
+> >> --- a/drivers/clk/starfive/Kconfig
+> >> +++ b/drivers/clk/starfive/Kconfig
+> >> @@ -35,6 +35,7 @@ config CLK_STARFIVE_JH7110_SYS
+> >>         select AUXILIARY_BUS
+> >>         select CLK_STARFIVE_JH71X0
+> >>         select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
+> >> +       select CLK_STARFIVE_JH7110_PLL
+> >>         default ARCH_STARFIVE
+> >>         help
+> >>           Say yes here to support the system clock controller on the
+> >> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> >> index e6031345ef05..d56f48013388 100644
+> >> --- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> >> +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> >> @@ -7,6 +7,7 @@
+> >>   */
+> >>
+> >>  #include <linux/auxiliary_bus.h>
+> >> +#include <linux/clk.h>
+> >>  #include <linux/clk-provider.h>
+> >>  #include <linux/init.h>
+> >>  #include <linux/io.h>
+> >> @@ -386,6 +387,7 @@ EXPORT_SYMBOL_GPL(jh7110_reset_controller_register);
+> >>
+> >>  static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+> >>  {
+> >> +       bool use_fixed_pll = true;      /* PLL clocks use fixed factor clocks or PLL driver */
+> >
+> > nit: reverse christmas tree ordering, eg. move this below priv
+> >
+> >>         struct jh71x0_clk_priv *priv;
+> >>         unsigned int idx;
+> >>         int ret;
+> >> @@ -402,28 +404,29 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+> >>         if (IS_ERR(priv->base))
+> >>                 return PTR_ERR(priv->base);
+> >>
+> >> -       /*
+> >> -        * These PLL clocks are not actually fixed factor clocks and can be
+> >> -        * controlled by the syscon registers of JH7110. They will be dropped
+> >> -        * and registered in the PLL clock driver instead.
+> >> -        */
+> >> +       if (!IS_ERR(devm_clk_get(priv->dev, "pll0_out")))
+> >> +               use_fixed_pll = false;  /* can get pll clocks from PLL driver */
+> >
+> > The devm_clk_get() variant will allocate memory for a callback to call
+> > clk_put() when the driver is unloaded, but proper references
+> > associated with the consumers of the pll0_out clock are already taken
+> > below. So unless we find a better way to detect if the pll references
+> > are specified in the device tree or not, maybe something like this
+> > instead:
+> >
+>
+> Thanks. It looks more reasonable. I will follow it in next version.
+>
+> > priv->pll[0] = clk_get(priv->dev, "pll0_out);
+>
+> The priv->pll[] are clk_hw* struct no clk* struct and this could be failed
+> when building. So maybe use a temporary clk* struct.
+
+Ah yes, you're right. You'll need a local struct clk *clk for that then.
+
+> > if (IS_ERR(priv->pll[0])) {
+> >   /* 24MHZ -> 1000.0MHz */
+> >   priv->pll[0] = ...
+> >   ...
+> >
+> > } else {
+> >   clk_put(priv->pll[0]);
+> >   priv->pll[0] = NULL;
+>
+> >
+> >> +       /* Use fixed factor clocks if can not get the PLL clocks from DTS */
+> >> +       if (use_fixed_pll) {
+> >>         /* 24MHz -> 1000.0MHz */
+> >
+> > These comments are not indented with the code, which just looks weird.
+>
+> Will fix.
+>
+> >
+> >> -       priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
+> >> -                                                        "osc", 0, 125, 3);
+> >> -       if (IS_ERR(priv->pll[0]))
+> >> -               return PTR_ERR(priv->pll[0]);
+> >> +               priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
+> >> +                                                                "osc", 0, 125, 3);
+> >> +               if (IS_ERR(priv->pll[0]))
+> >> +                       return PTR_ERR(priv->pll[0]);
+> >>
+> >>         /* 24MHz -> 1066.0MHz */
+> >> -       priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
+> >> -                                                        "osc", 0, 533, 12);
+> >> -       if (IS_ERR(priv->pll[1]))
+> >> -               return PTR_ERR(priv->pll[1]);
+> >> +               priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
+> >> +                                                                "osc", 0, 533, 12);
+> >> +               if (IS_ERR(priv->pll[1]))
+> >> +                       return PTR_ERR(priv->pll[1]);
+> >>
+> >>         /* 24MHz -> 1188.0MHz */
+> >> -       priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
+> >> -                                                        "osc", 0, 99, 2);
+> >> -       if (IS_ERR(priv->pll[2]))
+> >> -               return PTR_ERR(priv->pll[2]);
+> >> +               priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
+> >> +                                                                "osc", 0, 99, 2);
+> >> +               if (IS_ERR(priv->pll[2]))
+> >> +                       return PTR_ERR(priv->pll[2]);
+> >> +       }
+> >>
+> >>         for (idx = 0; idx < JH7110_SYSCLK_END; idx++) {
+> >>                 u32 max = jh7110_sysclk_data[idx].max;
+> >> @@ -462,8 +465,14 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+> >>                                 parents[i].fw_name = "tdm_ext";
+> >>                         else if (pidx == JH7110_SYSCLK_MCLK_EXT)
+> >>                                 parents[i].fw_name = "mclk_ext";
+> >> -                       else
+> >> +                       else if (use_fixed_pll)
+> >
+> > else if (priv->pll[0])
+>
+> Will change.
+>
+> >
+> >>                                 parents[i].hw = priv->pll[pidx - JH7110_SYSCLK_PLL0_OUT];
+> >> +                       else if (pidx == JH7110_SYSCLK_PLL0_OUT)
+> >> +                               parents[i].fw_name = "pll0_out";
+> >> +                       else if (pidx == JH7110_SYSCLK_PLL1_OUT)
+> >> +                               parents[i].fw_name = "pll1_out";
+> >> +                       else if (pidx == JH7110_SYSCLK_PLL2_OUT)
+> >> +                               parents[i].fw_name = "pll2_out";
+> >>                 }
+> >>
+> >>                 clk->hw.init = &init;
+> >> --
+> >> 2.25.1
+> >>
+>
+> Best regards,
+> Xingyu Wu
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
