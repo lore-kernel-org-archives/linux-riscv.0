@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49F1EB64DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 10:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17085EB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 11:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CU8xKeW2ApHm5h8JAjJOKbLqDG6/koSO8UU9YtMPC44=; b=Ohdxm76FgD7n9/
-	6WpEF4m6Hy1A5Q88yXvMaypANF84wZV79wU2PK1UiHjb/kdIHzp4i0UPDeamsYH+1DrgJZMkbPK6E
-	p6R0TifimBKrosRYG9AAhbjFJILQf/vMD5/6rsAEwD68ufuJG2BVK4R6FTUo9ufWEQfKDoGKkwIuX
-	mI8inklwvRJCVN7v4i1my0xBTclIx+eLHR+BWTnq7KHG+iIlLj7waiML3sMOSQSlRmnMBf01Zbcyw
-	x2Sd4WHXy7G+qqDfhbu/exvi5zeP964mOEpMAUp+NbUluvPFQECZJoSq7enEVdKWWRpUBv347K3ej
-	xiEI9fjiNb5eEOPkxncQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QCX6eoggaYzoX9OpKvtMtAzmTbbwD3ZUe+6QZGQeoFE=; b=2K3Fxv/57Uibr/z66jbIPsjGnT
+	tLkXhG6hDi2cy21QlNB33N7x4wztgKy/B8nz0MHTH5X+gNvh71yoBI7r436kJOwkZfstl47+VUKQP
+	ZfV7/RobJbhSEQWfznVlijRZ4Ogu8i0gE2i9vKoPejCgkGFGa2D7MncuONBBKmkZReKf+mhKzBIcV
+	+dCbgAfde+uKpimX1zYCXroAwMAVTRU0MmNC4ejG63xwrfZQFA5wxnNsD3QlxH0AetUmBjodD5PiU
+	b8Lf1z6Gzcss3OqewB8N4v87nKTPjoTBTDm2ae/A74KVlArkEEC5TcVaPvyRME4gMSrfkWyw8MjXS
+	c6Fx6PRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKGJb-005tJL-0Y;
-	Fri, 14 Jul 2023 10:46:23 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKGJY-005snM-0b
+	id 1qKGh0-0062Dn-1h;
+	Fri, 14 Jul 2023 11:10:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qKGgx-0062D1-0P
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jul 2023 10:46:21 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 14CEA24E21B;
-	Fri, 14 Jul 2023 18:45:23 +0800 (CST)
-Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Jul
- 2023 18:45:23 +0800
-Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
- EXMBX062.cuchost.com (172.16.6.62) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Fri, 14 Jul 2023 18:45:21 +0800
-From: Samin Guo <samin.guo@starfivetech.com>
-To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>
-CC: Emil Renner Berthing <kernel@esmil.dk>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Conor Dooley <conor@kernel.org>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Richard Cochran <richardcochran@gmail.com>, "David S
- . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jose Abreu
-	<joabreu@synopsys.com>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
-	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
-	<yanhong.wang@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>
-Subject: [PATCH v1 0/2] Add ethernet nodes for StarFive JH7110 SoC
-Date: Fri, 14 Jul 2023 18:45:19 +0800
-Message-ID: <20230714104521.18751-1-samin.guo@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
+	Fri, 14 Jul 2023 11:10:32 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EBFCD61CE1;
+	Fri, 14 Jul 2023 11:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A48FFC433C8;
+	Fri, 14 Jul 2023 11:10:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689333028;
+	bh=B89npdjr2EmjlPPICYGVRfS0ln+GlrGeoE5pc7pjRhY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FEqSmwS2tUcXJsoyxcL+IE8RazFZLjC23j07R+2v2NewfkETfeT85+C3G/l0ntc+p
+	 9B6e0lR/ZMa7HZpfgenVV5r/rU30ElLFpgKyA/R6jWfLcaFBHnIbymGO21Gxz13yPI
+	 u7odM+j+sECsSdB3Px3/tK2Al3DccR1nIf+dKpb04C7kex6XiOgbrln7fcepgleFmC
+	 pYER28+BDtJuQ50T1yF86SD7XhZUkqiVqkLTYvqigOOLLrGlufkjb7WEcOjh2lcw60
+	 4Tc4bZviZIkI5ouEADTHFD+ByDsye0QIahJvt59eY1qODR13tHEYxT9TwxEKTgoR+C
+	 CTd/qmF0mx9Tw==
+Date: Fri, 14 Jul 2023 12:10:24 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>, palmer@dabbelt.com, heiko@sntech.de,
+	charlie@rivosinc.com, Palmer Dabbelt <palmer@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2] RISC-V: Don't trust V from the riscv,isa DT property
+ on T-Head CPUs
+Message-ID: <20230714-saturate-verbalize-27571671249d@spud>
+References: <20230712-postal-affiliate-0d61a209897f@spud>
+ <ZLAoIWX+qqWvucWz@xhacker>
+ <CAJF2gTQ-RotMeRGCSh6P7uQvZDbfWdZZHtTdeZqCAHWK4DzmMQ@mail.gmail.com>
+ <20230713-statutory-balance-f2c9e862f2e3@spud>
+ <CAJF2gTRy5eK73=d6s7CVy9m9pB8p4rAoMHM3cZFwzg=AuF7TDA@mail.gmail.com>
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX062.cuchost.com
- (172.16.6.62)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <CAJF2gTRy5eK73=d6s7CVy9m9pB8p4rAoMHM3cZFwzg=AuF7TDA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_034620_395006_E14E77CE 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230714_041031_244963_465E4CC9 
+X-CRM114-Status: GOOD (  29.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,42 +76,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7876974767397986048=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds ethernet nodes for StarFive JH7110 RISC-V SoC,
-and has been tested on StarFive VisionFive-2 v1.2A and v1.3B SBC boards.
 
-The first patch adds ethernet nodes for jh7110 SoC, the second patch
-adds ethernet nodes for visionfive 2 SBCs.
-
-This series relies on xingyu's syscon patch[1].
-For more information and support, you can visit RVspace wiki[2].
-
-[1]: https://patchwork.kernel.org/project/linux-riscv/patch/20230704020239.288500-7-xingyu.wu@starfivetech.com
-[2]: https://wiki.rvspace.org
+--===============7876974767397986048==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="KnP3SRCzNNdf194q"
+Content-Disposition: inline
 
 
-Samin Guo (2):
-  riscv: dts: starfive: jh7110: Add ethernet device nodes
-  riscv: dts: starfive: visionfive 2: Add configuration of gmac and phy
+--KnP3SRCzNNdf194q
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- .../jh7110-starfive-visionfive-2-v1.2a.dts    | 13 ++++
- .../jh7110-starfive-visionfive-2-v1.3b.dts    | 31 +++++++++
- .../jh7110-starfive-visionfive-2.dtsi         | 34 +++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi      | 69 +++++++++++++++++++
- 4 files changed, 147 insertions(+)
+On Fri, Jul 14, 2023 at 02:14:45PM +0800, Guo Ren wrote:
+> On Fri, Jul 14, 2023 at 1:45=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
+rote:
+> >
+> > On Thu, Jul 13, 2023 at 01:33:56PM -0400, Guo Ren wrote:
+> > > On Thu, Jul 13, 2023 at 12:48=E2=80=AFPM Jisheng Zhang <jszhang@kerne=
+l.org> wrote:
+> > > > On Wed, Jul 12, 2023 at 06:48:02PM +0100, Conor Dooley wrote:
+> >
+> > > > > +             /*
+> > > > > +              * "V" in ISA strings is ambiguous in practice: it =
+should mean
+> > > > > +              * just the standard V-1.0 but vendors aren't well =
+behaved.
+> > > > > +              * Many vendors with T-Head CPU cores which impleme=
+nt the 0.7.1
+> > > > > +              * version of the vector specification put "v" into=
+ their DTs
+> > > > > +              * and no T-Head CPU cores with the standard versio=
+n of vector
+> > > > > +              * are in circulation yet.
+> >
+> > > T-HEAD's vector 1.0 SoCs is in circulation. Kendryte K230 is the
+> > > shipped SoC chip, which vendor id =3D THEAD_VENDOR_ID and with vector
+> > > 1.0.
+> >
+> > Where can I buy one, if it is in circulation?
+> > Googling in English might not be the best thing to do, but doing so I
+> > could find basically no information on the k230 - I did know it existed
+> > and tried to find some info on it before sending the patch.
+> > If it is not in circulation, then the comment is not inaccurate & when
+> > they do arrive they can use the new dedicated property to convey support
+> > for vector.
+
+I saw you sent to Palmer a link to the k230. When I clicked the link,
+it gave (per google translate) purchase options for k210 and k510 only.
+I figure that means there is nothing _publicly_ available?
+
+> > > > > +              * Platforms with T-Head CPU cores that support the=
+ standard
+> > > > > +              * version of vector must provide the explicit V pr=
+operty,
+> > > > > +              * which is well defined.
+> > > > > +              */
+> > > > > +             if (acpi_disabled && riscv_cached_mvendorid(cpu) =
+=3D=3D THEAD_VENDOR_ID) {
+> > > If you insist on doing this, please:
+> > >
+> > > if (acpi_disabled && riscv_cached_mvendorid(cpu) =3D=3D THEAD_VENDOR_=
+ID &&
+> > > riscv_cached_marchid(cpu) =3D=3D 0 && riscv_cached_mimpid(cpu) =3D=3D=
+ 0) {
+> >
+> > Why? Does the c908 report non-zero mimpid/marchid?
+
+> Yes
+
+> > If yes, does it need either the errata for CMOs or the page tables?
+
+> C908 is compatible to RVA22 Profile, here is the detail link:
+> https://xrvm.com/cpu-details?id=3D4107904466789928960
+
+That's fantastic news! I'll submit a v3 of this with the hammer reduced,
+as you have suggested above.
+
+Thanks,
+Conor.
+
+--KnP3SRCzNNdf194q
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLEtIAAKCRB4tDGHoIJi
+0l0VAP4mpVMB/zy6Pf8iKDG0UXcKeBkwWT7y103C9qdgocpCfAD/ZXQJtefq3IDK
+V4UXENGh0iWIyIy9pFp+43EFPCtnEw4=
+=uOIh
+-----END PGP SIGNATURE-----
+
+--KnP3SRCzNNdf194q--
 
 
-base-commit: 06c2afb862f9da8dc5efa4b6076a0e48c3fbaaa5
-prerequisite-patch-id: 06c3560d00fe0f65a09c09002b46cd7c1c59facc
--- 
-2.17.1
-
+--===============7876974767397986048==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7876974767397986048==--
+
