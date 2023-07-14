@@ -4,93 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 917F0C001DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 14:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A40EB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 15:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3FwFwxmf7/ytecUa5CtPwKcUjIjvQs+s8BipjcuJh7M=; b=qLTyY0LBUe9n5+
-	5EWBoM49gp1xEb/mCcBB/40upr4bDu/hPlEVuQABmm0nqIkvYr9CZVn6YJDA9TRxl/sUQuXwPxZSK
-	5mfZEBa3C/3jTDNxD/dF/t0geiFfLRcokNLD2IPrRd/XIi42zSJzmWDk8DdKCunTTWLmiVcSvfoPy
-	X8/ozLxx5yDTwuoYy3lrK7Lne2ZDejEfnewd3H/xixllAxHQXFsDcXww6QEaN0y0Y0UcQ9CgHQG7X
-	sLD0174IZwknphlSqmz3LnnPMQAiwxsDMJ/xGHhuBgzRQq42OfM0uqQOgZLoMEpRCxCn/xArWTUS+
-	F00RI5mJp0FdSmoCgybA==;
+	List-Owner; bh=GBrRa2+PU4+JPiMJCOTx7MkRweDa/vvQU60qVjqUxBc=; b=TP6aXLqlSyvMxu
+	03jE8n16A9Wg1/otnpW9nL4JaODXLnsWLK+xuTDm+xI7N4nFiCjYBaaEp81hUsvpGLa4PmJf4IoUG
+	xFwzV+IUy5YUK4dXSAdRhN4xJy88M7jE6kJuHAmMHIaeLepSLlddBm6VlculWp9ruPYVAjGuMgacJ
+	YrqMNm4jyV2P+RADZluzkLROexFSiC1Gv6AdlwZ2+K/qyss6rTd6jrIT0eNetvcCzta+zSld3djua
+	f1q+bp0qa5EisaN6sHT5VZ6XmulOj6f9N/4sDKYcLN/gk6jX+9fGg2BYglThTDJKBJL+rHmXZzQMi
+	mGeUvFb0SPK9JWA7Fcvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKJQl-006LoT-1X;
-	Fri, 14 Jul 2023 14:05:59 +0000
-Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKJQi-006Lle-2N;
-	Fri, 14 Jul 2023 14:05:58 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id D2D961F747;
-	Fri, 14 Jul 2023 14:05:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1689343551;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WfJYvmV12IuAluB3xxpilLWbnnbGqme6TLcXjOvVTys=;
-	b=qOb3n5CgUl/kxztnUq+EG3DQjjAw7kU0gPdV+91ITOdnPR5Ruh2eoXbnOwJ1jIVbrkvdTa
-	deCwzyBOT7WtSLgxmEYtUL2D6Abfza5mkN4mZ6MTQTxFr/7E/I83KlVs+Z2kIa58M5H9F7
-	P152JWT0JFnKDyAikCQCl1wns3Y6bxU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1689343551;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WfJYvmV12IuAluB3xxpilLWbnnbGqme6TLcXjOvVTys=;
-	b=8SacSFrMGznoswC3DLlSI9eAQn481Dq8gZ3qFdvYfFr/5pVQhmCFltTS3Vrh5kJCPOvliz
-	+xMjlRGwh91cZzCQ==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 62C1E138F8;
-	Fri, 14 Jul 2023 14:05:51 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
-	by imap2.suse-dmz.suse.de with ESMTPSA
-	id XKdBFz9WsWRNEwAAMHmgww
-	(envelope-from <dsterba@suse.cz>); Fri, 14 Jul 2023 14:05:51 +0000
-Date: Fri, 14 Jul 2023 15:59:14 +0200
-From: David Sterba <dsterba@suse.cz>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Nishanth Menon <nm@ti.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
-	Olof Johansson <olof@lixom.net>, soc@kernel.org,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH 2/3] Documentation/process: maintainer-soc: add clean
- platforms profile
-Message-ID: <20230714135914.GI20457@twin.jikos.cz>
-References: <20230714084725.27847-1-krzysztof.kozlowski@linaro.org>
- <20230714084725.27847-2-krzysztof.kozlowski@linaro.org>
+	id 1qKKL9-006TCt-2k;
+	Fri, 14 Jul 2023 15:04:15 +0000
+Received: from [2601:1c2:980:9ec0::2764]
+	by bombadil.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1qKKL7-006TC1-01;
+	Fri, 14 Jul 2023 15:04:13 +0000
+Message-ID: <ccf1e027-1f36-3dfb-af65-c7eea27c89cb@infradead.org>
+Date: Fri, 14 Jul 2023 08:04:11 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230714084725.27847-2-krzysztof.kozlowski@linaro.org>
-User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_070556_981556_1FDE3826 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH 1/3] MAINTAINERS: soc: reference maintainer profile
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Andy Gross <agross@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@linaro.org>, Nishanth Menon <nm@ti.com>,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
+ Olof Johansson <olof@lixom.net>, soc@kernel.org, workflows@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <20230714084725.27847-1-krzysztof.kozlowski@linaro.org>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20230714084725.27847-1-krzysztof.kozlowski@linaro.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,22 +61,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: dsterba@suse.cz
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 14, 2023 at 10:47:24AM +0200, Krzysztof Kozlowski wrote:
-> +Overview
-> +--------
-> +
-> +SoC platforms or subarchitectures follow all the rules from
-> +Documentation/process/maintainer-soc.rst.  However platforms referencing this
 
-Just a drive by comment, references to highly relevant documents should
-be clickable, so :doc:`Documentation/process/maintainer-soc` , with
-exceptions like if the document has been referenced already.
+
+On 7/14/23 01:47, Krzysztof Kozlowski wrote:
+> Mention the SoC maintainer profile in P: entry.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Yes, please.
+
+Reviewed-by: Randy Dunlap <rdunlap@infradead.org>
+
+> ---
+>  MAINTAINERS | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index f646ba70a01b..b61289fa7891 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -1558,6 +1558,7 @@ M:	Olof Johansson <olof@lixom.net>
+>  M:	soc@kernel.org
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Maintained
+> +P:	Documentation/process/maintainer-soc.rst
+>  C:	irc://irc.libera.chat/armlinux
+>  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git
+>  F:	Documentation/process/maintainer-soc.rst
+
+-- 
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
