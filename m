@@ -4,98 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9328C0015E
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 16:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1416EB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 16:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jxv/zB1bA7lKI5Qw+7QMNXdrHrbVZH3fALA9QVnL6SI=; b=3mbblpnXvTcOSM
-	ruEZX6EQUcIcu9qbhLEQeTG7SciTV5ZfuFanTvszRX0GP2zetxL8QK9glotfIf9gX9OHOyyPww/pa
-	Ws1S+9KH25/286r9Wuz9AfcPANzRhsgVU9zwRYWnYLJMY5S/RO0cW3vx9cm+/Sc7cgMP8gOY8MAva
-	+xhKjO6tYX02CtQmKIJr7qzZzuR7qOSLGGTFSoSPre0W3T2t2LWytMv/xy5w8iVzFTIANgD6jb/I8
-	zX3tDcua5xIxO7JTcMXScAOZddns2j6k4Wu1O5oxoWNpp70PFqHBVtJCnWmZmvtbkyq5pfXYI07aE
-	NEjat6NfkGd0O8X1ATPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YAxl/9urk4lxRwIngGNq4KeKpnamQQC1qbeJu++b1ZE=; b=hfACVF+73VcKeA2fK9NPXzrJhK
+	6bcX+HZdV2pxooW2ay/27lP8OYVKxWAUVqSTu3deV3QzwHv92qxAy9snr0wegkRKOUfB0LCJjMoNe
+	z+Jn3ayjE7O7LJuS74DoHYVtWtEA5XmORvZHQMVBv9C0FCllmnFQ5thetoi7CYzGZ+79rrCpZn0Jh
+	L0iCMPHE3/doJ+lbC0TWC+LdfS82Uuqvy3zX+cu/XNjdUsVT33vI1Qaw8Q626h3Ku+MMITn8U+ljr
+	j8Brj7fkjJ1Usy3Wi2ZzvcVE1D8+3msjxE4tMsL0IicuwntYy16aYd+ICpza5vKz+b5S3T0rp+xPB
+	xwpH5FGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKLqb-006fJs-2W;
-	Fri, 14 Jul 2023 16:40:49 +0000
-Received: from out3-smtp.messagingengine.com ([66.111.4.27])
+	id 1qKLyk-006gKJ-2M;
+	Fri, 14 Jul 2023 16:49:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKLqY-006fHx-13
+	id 1qKLyi-006gJ4-2W
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jul 2023 16:40:48 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id 2A2EB5C0145;
-	Fri, 14 Jul 2023 12:40:39 -0400 (EDT)
-Received: from imap50 ([10.202.2.100])
-  by compute1.internal (MEProxy); Fri, 14 Jul 2023 12:40:39 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1689352839; x=1689439239; bh=kQ
-	J6nanw/Gf+ondUL1RERZfhMr2XYORbkVHQVTFcHys=; b=b5nXdElx1BlFo5UxTD
-	DqeHWMQ5jm0nGq9ZxOMtgOd+iEIzORyNhMKs0+5FM17nWvo8pqk7Ox52WYEzXctl
-	lZShhoo1Zo4bKASy2TIh/WHnEIbgFLHfx6w9rUUx9Qv140wxRzSsLBbstWFAUTFw
-	W1BrI1gc455SZgMdFeNUoElAk5gfYL9McfUsiFEoU/tMhFg68uaX4h1aZ8nGFqXe
-	tobU0OKEcsxbcn/WlHuprPXOuzp2Aye2dYRDpBZAypn3f9joVqXIkeG5i9fS+jU7
-	Zr8KOiwWagfXvlmvfcfKggHUCxGbGPMbS6mwTJHG+rTt62f0vu8sqDUCaswzpU58
-	KpgQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm3; t=1689352839; x=1689439239; bh=kQJ6nanw/Gf+o
-	ndUL1RERZfhMr2XYORbkVHQVTFcHys=; b=Bv2E6/nxnpFJFHn8kwCa3vJr9LTB3
-	PErEf1quIZ64qg5tfBm4xwgAUAVY0MWE/346zH/RS9Vp2DtySzVKcMcL1DpaGv+w
-	FJFGtj8uahUfC1iQIQd6gjgI/ZAvXlLlXhGNjJvoZlchN/2kK4V1iKiqHb3mxrJS
-	7ML2lpVBOKjcpdjKSIiMv5HfiJir7VqXWxSdTECUBwNKiytR4Hm1L+ibb53cC4uw
-	rHgaMNMXHHDsUlDhWu38/fjxz3k0MscVu56ooMPMzMGa31D5SGSTRciHmFp7w1HW
-	CD2VF2vt5ZKiGjQ+XuIl2fyS8VDkMaNfSYe9jACqneRDKJ3sy9i5TKZKQ==
-X-ME-Sender: <xms:hnqxZEEaqA8RymLNwfIFE18ufw3qiJZx4JQFkR65q7zGIuV0D_IRZw>
-    <xme:hnqxZNWvC4xBGdzIHRV_-BF_wQ5yyTo_OxzSA86LRuNKwt9yazevVw3XCSU6UfxJ3
-    w2mJFO_6-9-J0jA7Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrfeeigddutdegucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedfufht
-    vghfrghnucfqkdftvggrrhdfuceoshhorhgvrghrsehfrghsthhmrghilhdrtghomheqne
-    cuggftrfgrthhtvghrnhepjeeuheegtdeuteeghfehjeejiefghfeifeejheduvdeugedt
-    hfehvefggefgkedtnecuffhomhgrihhnpehinhhfrhgruggvrggurdhorhhgnecuvehluh
-    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshhorhgvrghrsehf
-    rghsthhmrghilhdrtghomh
-X-ME-Proxy: <xmx:hnqxZOKTr-YzB4sY7p5vqAEP6PiyBzQubHjxq1I3jhE2ZEckrkLHwQ>
-    <xmx:hnqxZGFv2oyds4ocSivmJizKu-Ftiq_aK_WL1cVV2l361aheh6LFSQ>
-    <xmx:hnqxZKVWwkArqhdKpsYtRNxORCktc6PEN9o-eS5DKz9M8Ihpi3lMaA>
-    <xmx:h3qxZMKRxDrAVHS5F67S1emwAjZFt53y64LM2W3BrK3UeIOvUvPFeQ>
-Feedback-ID: i84414492:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 9F4EB1700089; Fri, 14 Jul 2023 12:40:38 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-531-gfdfa13a06d-fm-20230703.001-gfdfa13a0
-Mime-Version: 1.0
-Message-Id: <0149f48c-57f8-4749-9c88-81937e30f6ef@app.fastmail.com>
-In-Reply-To: <d25666da-8df2-dd6d-16cc-38b486c64f8f@kernel.org>
-References: <20230711130754.481209-1-gerg@kernel.org>
- <20230711130754.481209-3-gerg@kernel.org>
- <31c4024b-3553-4117-a22a-b39259c8fea4@app.fastmail.com>
- <08905362-248c-e6af-d750-9d385ad543e3@kernel.org>
- <c5053fea-6ca2-4c8a-bf5f-1a59423e438a@app.fastmail.com>
- <d25666da-8df2-dd6d-16cc-38b486c64f8f@kernel.org>
-Date: Fri, 14 Jul 2023 12:40:18 -0400
-From: "Stefan O'Rear" <sorear@fastmail.com>
-To: "Greg Ungerer" <gerg@kernel.org>, linux-riscv@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Cc: "Palmer Dabbelt" <palmer@dabbelt.com>, viro@zeniv.linux.org.uk,
- ebiederm@xmission.com, "Kees Cook" <keescook@chromium.org>,
- brauner@kernel.org
-Subject: Re: [PATCH v2 2/2] riscv: support the elf-fdpic binfmt loader
+	Fri, 14 Jul 2023 16:49:14 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4A6DE61D61;
+	Fri, 14 Jul 2023 16:49:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C60D6C433C8;
+	Fri, 14 Jul 2023 16:49:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689353351;
+	bh=wrvm85rpUKJvNzsGJuulgx0fZzfIPbGow1TQ3F7WIZw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JMP2dQXQX3KksnQ87Yf0g7ixHYTfgbww5O56hL6BURnGRgHcnVky9wlSXdx7ZcAXH
+	 N/qhftW6TcSy1FVC+SRqpr64zkUGGt5MsaRCGS/5WcGR00wp33TNfQblT41z4FWwFM
+	 nXx80vBxitiuugAHjDz+Fwx5NGlQgUmhKFrXItdizdQXIfLkF9kobmLWtwFfW+b3oA
+	 zYWdsZmNI6y19wLU3pATzhjJQRom/VDea5JEE1rFHNf5xiKUbarYNck51gTMuggTbV
+	 k6PBp9jkI8SK1L33RKiMa9SSEcjGIHiFJbcfbkYHOr1O+53imE4THl2kbn09WINwul
+	 cbvStONnN6JsA==
+Date: Fri, 14 Jul 2023 17:49:06 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	paul.walmsley@sifive.com, palmer@rivosinc.com,
+	aou@eecs.berkeley.edu, anup@brainfault.org,
+	konstantin@linuxfoundation.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	mick@ics.forth.gr, jrtc27@jrtc27.com, rdunlap@infradead.org,
+	alexghiti@rivosinc.com
+Subject: Re: [PATCH v5 0/4] RISC-V: mm: Make SV48 the default address space
+Message-ID: <20230714-tapering-driller-474e5581587b@spud>
+References: <20230714001430.75798-1-charlie@rivosinc.com>
+ <20230714-hangnail-stinking-60f9725ac0d5@spud>
+ <ZLF5nS12R37loA9I@ghost>
+MIME-Version: 1.0
+In-Reply-To: <ZLF5nS12R37loA9I@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_094046_452560_EB3AC765 
-X-CRM114-Status: GOOD (  42.20  )
+X-CRM114-CacheID: sfid-20230714_094912_883296_39993B3D 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,242 +76,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============0861076407517944907=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 14, 2023, at 9:51 AM, Greg Ungerer wrote:
-> On 14/7/23 00:26, Stefan O'Rear wrote:
->> On Thu, Jul 13, 2023, at 9:17 AM, Greg Ungerer wrote:
->>> On 13/7/23 01:12, Stefan O'Rear wrote:
->>>> On Tue, Jul 11, 2023, at 9:07 AM, Greg Ungerer wrote:
->>>>> Add support for enabling and using the binfmt_elf_fdpic program loader
->>>>> on RISC-V platforms. The most important change is to setup registers
->>>>> during program load to pass the mapping addresses to the new process.
->>>>>
->>>>> One of the interesting features of the elf-fdpic loader is that it
->>>>> also allows appropriately compiled ELF format binaries to be loaded on
->>>>> nommu systems. Appropriate being those compiled with -pie.
->>>>>
->>>>> Signed-off-by: Greg Ungerer <gerg@kernel.org>
->>>>> ---
->>>>> v1->v2: rebase onto linux-6.5-rc1
->>>>>           increment PTRACE_GETFDPIC value to keep it unique
->>>>>
->>>>>    arch/riscv/include/asm/elf.h         | 11 ++++++++++-
->>>>>    arch/riscv/include/asm/mmu.h         |  4 ++++
->>>>>    arch/riscv/include/uapi/asm/ptrace.h |  5 +++++
->>>>>    fs/Kconfig.binfmt                    |  2 +-
->>>>>    4 files changed, 20 insertions(+), 2 deletions(-)
->>>>>
->>>>> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
->>>>> index c24280774caf..c33fe923ef6d 100644
->>>>> --- a/arch/riscv/include/asm/elf.h
->>>>> +++ b/arch/riscv/include/asm/elf.h
->>>>> @@ -41,6 +41,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
->>>>>    #define compat_elf_check_arch	compat_elf_check_arch
->>>>>
->>>>>    #define CORE_DUMP_USE_REGSET
->>>>> +#define ELF_FDPIC_CORE_EFLAGS	0
->>>>>    #define ELF_EXEC_PAGESIZE	(PAGE_SIZE)
->>>>>
->>>>>    /*
->>>>> @@ -69,6 +70,13 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
->>>>>    #define ELF_HWCAP	riscv_get_elf_hwcap()
->>>>>    extern unsigned long elf_hwcap;
->>>>>
->>>>> +#define ELF_FDPIC_PLAT_INIT(_r, _exec_map_addr, _interp_map_addr,
->>>>> dynamic_addr) \
->>>>> +	do { \
->>>>> +		(_r)->a1 = _exec_map_addr; \
->>>>> +		(_r)->a2 = _interp_map_addr; \
->>>>> +		(_r)->a3 = dynamic_addr; \
->>>>> +	} while (0)
->>>>> +
->>>>
->>>> This should probably be left empty for now; it will be defined by the
->>>> ELF FDPIC ABI when that is done, and shouldn't be used by normal ELF
->>>> binaries.
->>>
->>> True, not used by the ELF binaries themselves. But used by an ELF
->>> interpreter to do the runtime relocations.
->> 
->> By "normal ELF binaries", I mean binaries (executables and shared libraries
->> with nonzero e_entry, including statically linked binaries and the dynamic
->> linker itself) that conform to the psABI as it currently exists in
->> riscv-elf-psabi-doc.
->> 
->> These binaries don't use load maps because they aren't defined in
->> riscv-elf-psabi-doc yet.  At some point in the future, riscv-elf-psabi-doc
->> may define a FDPIC EI_OSABI value and rules for its usage; "FDPIC ELF
->> binaries" will not be "normal" and you will not be able to load them with
->> binfmt_elf or binfmt_elf_compat.
->>
->> "FDPIC elf binaries" which contain their own self-relocation code, including
->> the dynamic linker and statically linked binaries, will use the map and
->> dynamic addresses.
->
-> Well, yes, none of that is specific to RISC-V though. Those same rules apply to
-> FDPIC binaries on any architecture that supports it. FDPIC binaries can only
-> be loaded by binfmt_elf_fdpic.
->
-> The point I was trying to make is that with a normal ELF binary (with obvious
-> limitations in the noMMU case - needs to be PIE, and not using shared libraries,
-> etc) if those mappings are present a specially crafted ELF interpreter can
-> use them to carry out the relocations and start that ELF binary. That ELF
-> binary is not special and can be loaded and run by the the standard binfmt_elf
-> ELF loader on an a fully MMU system (of course using the usual ELF interpreter
-> on that system not the different noMMU one).
 
-I agree with everything in these two paragraphs.
+--===============0861076407517944907==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="fWc2GpvHl7O6XfFi"
+Content-Disposition: inline
 
-The point I'm trying to make is that the "specially crafted ELF interpreter"
-doesn't need to use the load maps - all of the information in exec_loadmap and
-dynamic can be obtained by scanning AT_PHDR and adding the an offset to all of
-them such that the address of PT_PHDR is the value of AT_PHDR; all of the
-information in interp_loadmap can be obtained using AT_BASE.
 
-I believe that musl ldso is already designed to operate in this way and it
-already has fallback code for read instead of failing mmaps, if you add
-#define DL_NOMMU_SUPPORT 1 to arch/riscv64/reloc.h, although I haven't
-tested it.  I do not understand the glibc or uclibc interpreters well enough
-to make statements about them.
+--fWc2GpvHl7O6XfFi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->> elf_check_fdpic will return 1 for binaries that use the FDPIC EI_OSABI and
->> use the load maps as part of either their own or their interpreter's
->> startup code.  For binaries where elf_check_fdpic returns 0, the contents
->> of ELF_FDPIC_PLAT_INIT is (harmless) dead stores.
->
-> I don't follow. On other architectures that binfmt_elf-fdpic supoprts (so ARM,
-> SH, M68K currently; historically some other removed architectures too) the
-> contents of ELF_FDPIC_PLAT_INIT are always run if defined. Even in the case of
-> loading a standard ELF binary. Those mappings are loaded into some registers
-> and those appear in the running process on startup.
+On Fri, Jul 14, 2023 at 09:36:45AM -0700, Charlie Jenkins wrote:
+> On Fri, Jul 14, 2023 at 12:17:00PM +0100, Conor Dooley wrote:
+> > On Thu, Jul 13, 2023 at 05:13:59PM -0700, Charlie Jenkins wrote:
+> > > Make sv48 the default address space for mmap as some applications
+> > > currently depend on this assumption. Users can now select a
+> > > desired address space using a non-zero hint address to mmap. Previous=
+ly,
+> > > requesting the default address space from mmap by passing zero as the=
+ hint
+> > > address would result in using the largest address space possible. Some
+> > > applications depend on empty bits in the virtual address space, like =
+Go and
+> > > Java, so this patch provides more flexibility for application develop=
+ers.
+> >=20
+> > The patchwork automation failed to apply this, what is the base for the
+> > series?
+>=20
+> I forgot to pull in the changes to the riscv selftests so the conflict
+> is in that Makefile. I will send out a v6 with the correct base.
 
-Dead in the sense that there is no way for a constdisp ELF executable, which
-must run correctly with binfmt_elf, to make use of them - if I have understood
-ELF_PLAT_INIT and start_thread correctly, RISC-V executables and interpreters
-currently start with garbage from the pre-execve state in all integer registers
-other than sp, so there is no way to distinguish "valid load maps" from
-"nonzero values from previous image".
+If you don't actually _depend_ on the content of those changes to the
+self tests, then just submit on top of v6.5-rc1 & Palmer can sort out
+the conflicts.
 
--s
+--fWc2GpvHl7O6XfFi
+Content-Type: application/pgp-signature; name="signature.asc"
 
->> We don't have an implementation of elf_check_fdpic yet, which means that
->> we cannot load binaries that actually use the load maps and the
->> ELF_FDPIC_PLAT_INIT is dead code.  Dead code which is unlikely to conform
->> to the future ABI, since the RISC-V psABI Task Group has yet to choose
->> which registers to use to pass the load maps.  Since the code is dead and
->> likely wrong, it should be removed so that correct code can be added at
->> the correct time.
->
-> I understand your reluctance here.
->
-> Regards
-> Greg
->
->
->> -s
->> 
->>>> I'd ask if there's a reason it starts at a1 instead of a0,
->>>> but it seems idiosyncratic on all arches that have full FDPIC support.
->>>
->>> This comment in the crt1.S code of uClibc made me think that a0 already had
->>> a pre-defined use in the ABI:
->>>
->>>       /* The entry point's job is to call __uClibc_main.  Per the ABI,
->>>          a0 contains the address of a function to be passed to atexit.
->>>
->>> But I didn't dig any further than that.
->>>
->>> Regards
->>> Greg
->>>
->>>
->>>> -s
->>>>
->>>>>    /*
->>>>>     * This yields a string that ld.so will use to load implementation
->>>>>     * specific libraries for optimization.  This is more specific in
->>>>> @@ -78,7 +86,6 @@ extern unsigned long elf_hwcap;
->>>>>
->>>>>    #define COMPAT_ELF_PLATFORM	(NULL)
->>>>>
->>>>> -#ifdef CONFIG_MMU
->>>>>    #define ARCH_DLINFO						\
->>>>>    do {								\
->>>>>    	/*							\
->>>>> @@ -115,6 +122,8 @@ do {								\
->>>>>    	else							 \
->>>>>    		NEW_AUX_ENT(AT_IGNORE, 0);			 \
->>>>>    } while (0)
->>>>> +
->>>>> +#ifdef CONFIG_MMU
->>>>>    #define ARCH_HAS_SETUP_ADDITIONAL_PAGES
->>>>>    struct linux_binprm;
->>>>>    extern int arch_setup_additional_pages(struct linux_binprm *bprm,
->>>>> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
->>>>> index 0099dc116168..355504b37f8e 100644
->>>>> --- a/arch/riscv/include/asm/mmu.h
->>>>> +++ b/arch/riscv/include/asm/mmu.h
->>>>> @@ -20,6 +20,10 @@ typedef struct {
->>>>>    	/* A local icache flush is needed before user execution can resume. */
->>>>>    	cpumask_t icache_stale_mask;
->>>>>    #endif
->>>>> +#ifdef CONFIG_BINFMT_ELF_FDPIC
->>>>> +	unsigned long exec_fdpic_loadmap;
->>>>> +	unsigned long interp_fdpic_loadmap;
->>>>> +#endif
->>>>>    } mm_context_t;
->>>>>
->>>>>    void __init create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t
->>>>> pa,
->>>>> diff --git a/arch/riscv/include/uapi/asm/ptrace.h
->>>>> b/arch/riscv/include/uapi/asm/ptrace.h
->>>>> index e17c550986a6..30f6d6537adc 100644
->>>>> --- a/arch/riscv/include/uapi/asm/ptrace.h
->>>>> +++ b/arch/riscv/include/uapi/asm/ptrace.h
->>>>> @@ -10,6 +10,11 @@
->>>>>
->>>>>    #include <linux/types.h>
->>>>>
->>>>> +#define PTRACE_GETFDPIC		33
->>>>> +
->>>>> +#define PTRACE_GETFDPIC_EXEC	0
->>>>> +#define PTRACE_GETFDPIC_INTERP	1
->>>>> +
->>>>>    /*
->>>>>     * User-mode register state for core dumps, ptrace, sigcontext
->>>>>     *
->>>>> diff --git a/fs/Kconfig.binfmt b/fs/Kconfig.binfmt
->>>>> index 93539aac0e5b..f5693164ca9a 100644
->>>>> --- a/fs/Kconfig.binfmt
->>>>> +++ b/fs/Kconfig.binfmt
->>>>> @@ -58,7 +58,7 @@ config ARCH_USE_GNU_PROPERTY
->>>>>    config BINFMT_ELF_FDPIC
->>>>>    	bool "Kernel support for FDPIC ELF binaries"
->>>>>    	default y if !BINFMT_ELF
->>>>> -	depends on ARM || ((M68K || SUPERH || XTENSA) && !MMU)
->>>>> +	depends on ARM || ((M68K || RISCV || SUPERH || XTENSA) && !MMU)
->>>>>    	select ELFCORE
->>>>>    	help
->>>>>    	  ELF FDPIC binaries are based on ELF, but allow the individual load
->>>>> -- 
->>>>> 2.25.1
->>>>>
->>>>>
->>>>> _______________________________________________
->>>>> linux-riscv mailing list
->>>>> linux-riscv@lists.infradead.org
->>>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
->>>
->>> _______________________________________________
->>> linux-riscv mailing list
->>> linux-riscv@lists.infradead.org
->>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLF8ggAKCRB4tDGHoIJi
+0m07AQCj+lIfVeQE4qpYSA7caL2Mx/b/6avQrccHw0jj58/tHAEAySe+TvuXvxDU
+vH9Tt3i4AfDoonrbuk1+fvb154INugw=
+=GRef
+-----END PGP SIGNATURE-----
+
+--fWc2GpvHl7O6XfFi--
+
+
+--===============0861076407517944907==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0861076407517944907==--
+
