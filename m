@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C6BEB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 12:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A3EEB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 13:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QYPWyPNh6QCtpfqKmtL4w6Bw2xSlm0vRwk5HiNXLSyY=; b=aTg4a0+3RjUymPlsTd7WrrxbJw
-	1+jVmj19+CF2Rxuv/gHD6Vx+ntYNjNEMfNY1ilDIGPezEQmGyxaOC1QeG4f1IgRxJwCqDlGzCVAEl
-	lL/JsFa8g5rG4zyqnVaargo6yJdVB0M0+F8lKdtA9dQpSQnSkBrkCXxAKKFJ68vE5pvw/2ft6esGf
-	WYFEwIW7mV2fXT+zLkOFi3Qa2wT+utsDV1Qn/pqOLK1ASaoB9JQG37odT7cXoZqjawd+fY6rnGcKN
-	0UwXXWiZcrQrpYngDTECBTm/6TTVv7s94kObPBFtwWsDondCRGnGTsw9e1IoJhij9+JSlfIZTC/W+
-	58tiTnMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4174nUMHJ6PlNXKXLatKFczHLBLV3WTxMeIo0m9u3yM=; b=xcJ6o1GskwJ/Bw
+	4mcQln2dgce6yRym2h3kM+pNEqVOlTYLQu4L1DhhYGwP25qSm3+fdZvA7t97vWPvaWNZCTa92szM2
+	OsrvrtqLaW39MTPveY3IiPPvgxQ9Qgzi00vDPvY8ZAIguL96WkopS7SVdevRc6hswgHv4LLRx3bso
+	hSj5C31I2PZ7ehFUSWp1vqxKltb5CGfU7PPBQCU0++p5WuDc9LlKSBiFGdDJOT6xHgw5QlNdoCrnL
+	lqdCASLs85Vu7Y4VR4+3/bjdmItTjNxti9zOWKmOXtcDlfq9AeYzBCDs0YC3gcDvS6tAZOUycJUcE
+	dEVHy2xQUf6pEdtofLpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKIFw-006Dyb-2g;
-	Fri, 14 Jul 2023 12:50:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qKIx5-006I8b-2L;
+	Fri, 14 Jul 2023 13:35:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKIFt-006DyA-2o;
-	Fri, 14 Jul 2023 12:50:43 +0000
+	id 1qKIx2-006I83-2i
+	for linux-riscv@lists.infradead.org;
+	Fri, 14 Jul 2023 13:35:18 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3502061BD5;
-	Fri, 14 Jul 2023 12:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C23FC433C8;
-	Fri, 14 Jul 2023 12:50:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 525EA61D1E;
+	Fri, 14 Jul 2023 13:35:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A81D4C433C7;
+	Fri, 14 Jul 2023 13:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689339038;
-	bh=DoZpylxY7CpGy+jXG63llo8yl91RkUWNQaLRWeuGCCE=;
-	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
-	b=e7tm9XWxIja6kysawKaQufaiJn2ZDTPDaXByuDmRUZyFmZ6lMPkXr75Hd8h5/iYNX
-	 JKNDsRukUAolIFfThkw5xeJkmAmY9/Tnt/w6URBCzqGkD+2LnVR4CPlXF4FVQZmhBR
-	 XC7SAVFoAvo4+aBmnQHVwkvAM8GTCcwaAeyV02La2uivNBye8CbQhXfduZATP1R3kS
-	 fNhWWpf/vOoF5EVQ8ZLix6xHtKQtZHHcY/wr2jxu44SY6Pee+fMuYWsaAq2AVrWF/X
-	 XBmAbbVfluCAE0Wt/sRbuAhE3o0mKuTr6Q0JfjjqkOJDkO7CZiwJJI9h7KSOVBWwgR
-	 nvmaRj4YEsi1w==
-Date: Fri, 14 Jul 2023 13:50:31 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Andy Gross <agross@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@linaro.org>,
-	Nishanth Menon <nm@ti.com>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
-	Olof Johansson <olof@lixom.net>, soc@kernel.org,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH 2/3] Documentation/process: maintainer-soc: add clean
- platforms profile
-Message-ID: <20230714-verbose-unwound-fb8b1df29d25@spud>
-References: <20230714084725.27847-1-krzysztof.kozlowski@linaro.org>
- <20230714084725.27847-2-krzysztof.kozlowski@linaro.org>
-MIME-Version: 1.0
-In-Reply-To: <20230714084725.27847-2-krzysztof.kozlowski@linaro.org>
+	s=k20201202; t=1689341715;
+	bh=LmNuxSDhR2xVlR/o8NTwfyzlHy/wLO/mPMqtHawGjwQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Loi/16pfanheWa+qvyOzRQD2Ww3aZH0SazgDvpO4Xu+BEjwUixhWJ87f6gM5vozGQ
+	 npReio+qWUrWpngEa4Mb2oGpLVdx6SgmWPQtsobjXEJc7aLylypC6YBGIB+6Ea9RiV
+	 FkGD/Jae6rigsdElpq6PbOBaH2qv+qAk1IR5NaurpPYO/50uUGxM7/VE5vf/LuOiFX
+	 G21zStG3Bq3+UY/ZFNBbU/ZtMODMUVto1aZSPO+wfcc26YicqYJ1bal61RwrW7m/zL
+	 T7yT6KhGIMJffVit3lqc7MZzK9sXAEJUJk4aErNEeA1z5mAuCtCiTn6DTD1lA1LBap
+	 kEklyJ90rvVHQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1qKIwz-00D7Bz-7Y;
+	Fri, 14 Jul 2023 14:35:13 +0100
+Date: Fri, 14 Jul 2023 14:35:12 +0100
+Message-ID: <86cz0uvcof.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v5 7/9] irqchip: Add RISC-V advanced PLIC driver
+In-Reply-To: <CAK9=C2ULxsXednwnoyzYKjQFpe_zBSZ4v0FqUYFnxK2TpbiMtg@mail.gmail.com>
+References: <20230710094321.1378351-1-apatel@ventanamicro.com>
+	<20230710094321.1378351-8-apatel@ventanamicro.com>
+	<CAGETcx8kH8cJVdhcv5K4qNUo58godFZEBnOfTGKUUQ6VuUguvQ@mail.gmail.com>
+	<86jzv2vpdb.wl-maz@kernel.org>
+	<CAK9=C2ULxsXednwnoyzYKjQFpe_zBSZ4v0FqUYFnxK2TpbiMtg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, saravanak@google.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, atishp@atishpatra.org, ajones@ventanamicro.com, sunilvl@ventanamicro.com, conor@kernel.org, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_055042_009565_3AD9A3E8 
-X-CRM114-Status: GOOD (  28.13  )
+X-CRM114-CacheID: sfid-20230714_063516_970289_AE59203F 
+X-CRM114-Status: GOOD (  48.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,159 +84,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1268234173627592422=="
+Cc: devicetree@vger.kernel.org, Saravana Kannan <saravanak@google.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============1268234173627592422==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="NA94SPv0l+97UIr8"
-Content-Disposition: inline
-
-
---NA94SPv0l+97UIr8
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Krzysztof,
-
-On Fri, Jul 14, 2023 at 10:47:24AM +0200, Krzysztof Kozlowski wrote:
-> Some SoC platforms require that commits must not bring any new
-> dtbs_check warnings.  Maintainers of such platforms usually have some
-> automation set, so any new warning will be spotted sooner or later.
-> Worst case: they run the tests themselves.  Document requirements for
-> such platforms, so contributors can expect their patches being dropped
-> or ignored, if they bring new warnings for existing boards.
-
-Definitely a more scalable approach than your previous version!
-
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../process/maintainer-handbooks.rst          |  1 +
->  .../process/maintainer-soc-clean-dts.rst      | 22 +++++++++++++++++++
->  MAINTAINERS                                   |  2 +-
->  3 files changed, 24 insertions(+), 1 deletion(-)
->  create mode 100644 Documentation/process/maintainer-soc-clean-dts.rst
->=20
-> diff --git a/Documentation/process/maintainer-handbooks.rst b/Documentati=
-on/process/maintainer-handbooks.rst
-> index 9992bfd7eaa3..976391cec528 100644
-> --- a/Documentation/process/maintainer-handbooks.rst
-> +++ b/Documentation/process/maintainer-handbooks.rst
-> @@ -17,5 +17,6 @@ Contents:
-> =20
->     maintainer-netdev
->     maintainer-soc
-> +   maintainer-soc-clean-dts
->     maintainer-tip
->     maintainer-kvm-x86
-> diff --git a/Documentation/process/maintainer-soc-clean-dts.rst b/Documen=
-tation/process/maintainer-soc-clean-dts.rst
-> new file mode 100644
-> index 000000000000..87feeb5543ff
-> --- /dev/null
-> +++ b/Documentation/process/maintainer-soc-clean-dts.rst
-> @@ -0,0 +1,22 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-> +SoC Platforms with Strict DTS
-
-I don't think that this title makes much sense, it feels like it has
-been truncated. Perhaps add "Requirements" to the end?
-
-> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-> +
-> +Overview
-> +--------
-> +
-> +SoC platforms or subarchitectures follow all the rules from
-
-s/follow/should follow/?
-
-> +Documentation/process/maintainer-soc.rst.  However platforms referencing=
- this
-> +document impose additional requirements listed below.
-> +
-> +Strict DTS DT schema compliance
-> +-------------------------------
-Should there be a blank line here to match the other section headings?
-Also, to match the title case you used elsewhere, "Schema Compliance"?
-
-> +None of the changes to the SoC platform Devicetree sources (DTS files) c=
-an
-> +bring new ``make dtbs_check W=3D1`` warnings.  The platform maintainers =
-have
-
-Nitpickery again, but perhaps the first sentence here would read better as
-"No changes to the SoC platform Devicetree sources (DTS files) should
-introduce new ``make dtbs_check W=3D1`` warnings."?
-
-> +automation in place which should point out any new warnings.
-> +
-> +If a commit introducing new warning gets accepted somehow, the resulting=
- issues
-> +shall be fixed in reasonable time (e.g. within one release) or the commit
-> +reverted.
-
-It is loosely related, but I was wondering if we should also try to push
-people that change the platform's bindings to update the DTS also, so
-that binding changes do not introduce W=3D1 complaints?
-For many bindings the platform entry in MAINTAINERS does not cover them,
-but things like the arm64 Apple stuff mention them specifically & others
-will get coverage due to regexes.
-
-Anyway, nitpickery aside I like this approach.
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index b61289fa7891..7405fb6e38c3 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -1561,7 +1561,7 @@ S:	Maintained
->  P:	Documentation/process/maintainer-soc.rst
->  C:	irc://irc.libera.chat/armlinux
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git
-> -F:	Documentation/process/maintainer-soc.rst
-> +F:	Documentation/process/maintainer-soc*.rst
->  F:	arch/arm/boot/dts/Makefile
->  F:	arch/arm64/boot/dts/Makefile
-> =20
-> --=20
-> 2.34.1
->=20
-
---NA94SPv0l+97UIr8
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLFElwAKCRB4tDGHoIJi
-0kqwAQC44ASC2klMAo0/1jE5EXiNVwDS+ImG7dllbwYdtwFm8AD/bT80toX21q3w
-EnYoc8f17xuSoSCoaZcdDBdT9Fcq0wg=
-=w5dv
------END PGP SIGNATURE-----
-
---NA94SPv0l+97UIr8--
-
-
---===============1268234173627592422==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1268234173627592422==--
-
+T24gRnJpLCAxNCBKdWwgMjAyMyAxMDozNTozNCArMDEwMCwKQW51cCBQYXRlbCA8YXBhdGVsQHZl
+bnRhbmFtaWNyby5jb20+IHdyb3RlOgo+IAo+IE9uIEZyaSwgSnVsIDE0LCAyMDIzIGF0IDI6MzHi
+gK9QTSBNYXJjIFp5bmdpZXIgPG1hekBrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiBBbnVwLAo+
+ID4KPiA+IE9uIEZyaSwgMTQgSnVsIDIwMjMgMDA6NTY6MjIgKzAxMDAsCj4gPiBTYXJhdmFuYSBL
+YW5uYW4gPHNhcmF2YW5ha0Bnb29nbGUuY29tPiB3cm90ZToKPiA+ID4KPiA+ID4gT24gTW9uLCBK
+dWwgMTAsIDIwMjMgYXQgMjo0NOKAr0FNIEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8u
+Y29tPiB3cm90ZToKPiA+ID4gPgo+ID4gPiA+IFRoZSBSSVNDLVYgYWR2YW5jZWQgaW50ZXJydXB0
+IGFyY2hpdGVjdHVyZSAoQUlBKSBzcGVjaWZpY2F0aW9uIGRlZmluZXMKPiA+ID4gPiBhIG5ldyBp
+bnRlcnJ1cHQgY29udHJvbGxlciBmb3IgbWFuYWdpbmcgd2lyZWQgaW50ZXJydXB0cyBvbiBhIFJJ
+U0MtVgo+ID4gPiA+IHBsYXRmb3JtLiBUaGlzIG5ldyBpbnRlcnJ1cHQgY29udHJvbGxlciBpcyBy
+ZWZlcnJlZCB0byBhcyBhZHZhbmNlZAo+ID4gPiA+IHBsYXRmb3JtLWxldmVsIGludGVycnVwdCBj
+b250cm9sbGVyIChBUExJQykgd2hpY2ggY2FuIGZvcndhcmQgd2lyZWQKPiA+ID4gPiBpbnRlcnJ1
+cHRzIHRvIENQVXMgKG9yIEhBUlRzKSBhcyBsb2NhbCBpbnRlcnJ1cHRzIE9SIGFzIG1lc3NhZ2UK
+PiA+ID4gPiBzaWduYWxlZCBpbnRlcnJ1cHRzLgo+ID4gPiA+IChGb3IgbW9yZSBkZXRhaWxzIHJl
+ZmVyIGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9yaXNjdi1haWEpCj4gPiA+ID4KPiA+ID4gPiBU
+aGlzIHBhdGNoIGFkZHMgYW4gaXJxY2hpcCBkcml2ZXIgZm9yIFJJU0MtViBBUExJQyBmb3VuZCBv
+biBSSVNDLVYKPiA+ID4gPiBwbGF0Zm9ybXMuCj4gPiA+ID4KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5
+OiBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVudGFuYW1pY3JvLmNvbT4KPiA+Cj4gPiBbLi4uXQo+ID4K
+PiA+ID4gPiArc3RhdGljIGludCBfX2luaXQgYXBsaWNfZHRfaW5pdChzdHJ1Y3QgZGV2aWNlX25v
+ZGUgKm5vZGUsCj4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3Qg
+ZGV2aWNlX25vZGUgKnBhcmVudCkKPiA+ID4gPiArewo+ID4gPiA+ICsgICAgICAgLyoKPiA+ID4g
+PiArICAgICAgICAqIFRoZSBBUExJQyBwbGF0Zm9ybSBkcml2ZXIgbmVlZHMgdG8gYmUgcHJvYmVk
+IGVhcmx5Cj4gPiA+ID4gKyAgICAgICAgKiBzbyBmb3IgZGV2aWNlIHRyZWU6Cj4gPiA+ID4gKyAg
+ICAgICAgKgo+ID4gPiA+ICsgICAgICAgICogMSkgU2V0IHRoZSBGV05PREVfRkxBR19CRVNUX0VG
+Rk9SVCBmbGFnIGluIGZ3bm9kZSB3aGljaAo+ID4gPiA+ICsgICAgICAgICogICAgcHJvdmlkZXMg
+YSBoaW50IHRvIHRoZSBkZXZpY2UgZHJpdmVyIGNvcmUgdG8gcHJvYmUgdGhlCj4gPiA+ID4gKyAg
+ICAgICAgKiAgICBwbGF0Zm9ybSBkcml2ZXIgZWFybHkuCj4gPiA+ID4gKyAgICAgICAgKiAyKSBD
+bGVhciB0aGUgT0ZfUE9QVUxBVEVEIGZsYWcgaW4gZGV2aWNlX25vZGUgYmVjYXVzZQo+ID4gPiA+
+ICsgICAgICAgICogICAgb2ZfaXJxX2luaXQoKSBzZXRzIGl0IHdoaWNoIHByZXZlbnRzIGNyZWF0
+aW9uIG9mCj4gPiA+ID4gKyAgICAgICAgKiAgICBwbGF0Zm9ybSBkZXZpY2UuCj4gPiA+ID4gKyAg
+ICAgICAgKi8KPiA+ID4gPiArICAgICAgIG5vZGUtPmZ3bm9kZS5mbGFncyB8PSBGV05PREVfRkxB
+R19CRVNUX0VGRk9SVDsKPiA+ID4KPiA+ID4gUGxlYXNlIHN0b3Agc3BhbW1pbmcgdXMgd2l0aCBi
+cm9rZW4gcGF0Y2hlcy4gQWxyZWFkeSB0b2xkIHlvdSB0aGlzIGlzCj4gPiA+IG5vdCBhbiBvcHRp
+b24uCj4gPiA+Cj4gPiA+IE5hY2suCj4gPgo+ID4gV2hhdCBwdXp6bGVzIG1lIGhlcmUgaXMgdGhh
+dCAqbm8gb3RoZXIgYXJjaCogcmVxdWlyZXMgdGhpcyBzb3J0IG9mCj4gPiBoYWNrLiBXaGF0IGlz
+IHNvIHNwZWNpYWwgYWJvdXQgdGhlIEFQTElDIHRoYXQgaXQgcmVxdWlyZXMgaXQ/IEkgc2VlCj4g
+PiBub3RoaW5nIGluIHRoaXMgcGF0Y2ggdGhhdCBldmVuIGhpbnRzIGF0IGl0LCBkZXNwaXRlIHRo
+ZSAiZGlzY3Vzc2lvbiIKPiA+IGluIHRoZSBsYXN0IHJvdW5kLgo+ID4KPiA+IFRoZSBydWxlcyBh
+cmUgc2ltcGxlOgo+ID4KPiA+IC0gZWl0aGVyIHRoZSBBUExJQyBpcyBzbyBmdW5kYW1lbnRhbCB0
+byB0aGUgc3lzdGVtIHRoYXQgaXQgaGFzIHRvIGJlCj4gPiAgIGluaXRpYWxpc2VkIHN1cGVyIGVh
+cmx5LCBtdWNoIGxpa2UgdGhlIEdJQyBvbiBhcm02NCwgYXQgd2hpY2ggcG9pbnQKPiA+ICAgaXQg
+Y2Fubm90IGJlIGEgcGxhdGZvcm0gZGV2aWNlLCBhbmQgdGhlIHN0b3J5IGlzIHByZXR0eSBzaW1w
+bGUuCj4gPgo+ID4gLSBvciBpdCBpc24ndCB0aGF0IGZ1bmRhbWVudGFsLCBhbmQgaXQgY2FuIGJl
+IHByb2JlZCBhcyBhIHBsYXRmb3JtCj4gPiAgIGRldmljZSB1c2luZyB0aGUgZGVwZW5kZW5jeSBp
+bmZyYXN0cnVjdHVyZSB0aGF0IGlzIGFscmVhZHkgdXNlZCBieQo+ID4gICBtdWx0aXBsZSBvdGhl
+ciBpbnRlcnJ1cHQgY29udHJvbGxlciBkcml2ZXJzLCB3aXRob3V0IGFueSBuZWVkIHRvCj4gPiAg
+IG1lc3Mgd2l0aCBpbnRlcm5hbCBmbGFncy4gQWdhaW4sIHRoaXMgc2hvdWxkIGJlIHNpbXBsZSBl
+bm91Z2guCj4gCj4gQVBMSUMgbWFuYWdlcyBhbGwgd2lyZWQgaW50ZXJydXB0cyB3aGVyZWFzIElN
+U0lDIG1hbmFnZXMgYWxsCj4gTVNJcy4gQm90aCBBUExJQyBhbmQgSU1TSUMgYXJlIGZ1bmRhbWVu
+dGFsIGRldmljZXMgd2hpY2ggbmVlZAo+IHRvIGJlIHByb2JlZCBzdXBlciBlYXJseS4KPiAKPiBO
+b3cgQVBMSUMgaGFzIHR3byBtb2RlcyBvZiBvcGVyYXRpb25zOgo+IDEpIERpcmVjdCBtb2RlIHdo
+ZXJlIHRoZXJlIGlzIG5vIElNU0lDIGluIHRoZSBzeXN0ZW0gYW5kIEFQTElDCj4gICAgIGRpcmVj
+dGx5IGluamVjdHMgaW50ZXJydXB0IHRvIENQVXMKPiAyKSBNU0kgbW9kZSB3aGVyZSBJTVNJQyBp
+cyBwcmVzZW50IGluIHRoZSBzeXN0ZW0gYW5kIEFQTElDCj4gICAgIGNvbnZlcnRzIHdpcmVkIGlu
+dGVycnVwdHMgaW50byBNU0lzCj4gCj4gVGhlIEFQTElDIGRyaXZlciBhZGRlZCBieSB0aGlzIHBh
+dGNoIGlzIGEgY29tbW9uIGRyaXZlciBmb3IKPiBib3RoIGFib3ZlIG1vZGVzLgoKV2hpY2ggaXQg
+ZG9lc24ndCBuZWVkIHRvIGJlLiBZb3UgYXJlIHBvaW50bGVzc2x5IG1ha2luZyBsaWZlIGRpZmZp
+Y3VsdApmb3IgeW91cnNlbGYsIGFuZCBldmVyeW9uZSBlbHNlLiBUaGUgTVNJIGJyaWRnZSBiZWhh
+dmlvdXIgaGFzICp6ZXJvKgpyZWFzb24gdG8gYmUgdGhlIHNhbWUgZHJpdmVyIGFzIHRoZSBtYWlu
+ICJJIG5lZWQgaXQgc3VwZXIgZWFybHkiCmRyaXZlci4gVGhleSBtYXkgYmUgY2FsbGVkIHRoZSBz
+YW1lLCBidXQgdGhleSAqYXJlKiBkaWZmZXJlbnQgdGhpbmdzCmluIHRoZSBzeXN0ZW0uCgpUaGV5
+IGNhbiBzaGFyZSBjb2RlLCBidXQgdGhleSBhcmUgZnVuZGFtZW50YWxseSBhIGRpZmZlcmVudCB0
+aGluZyBpbgp0aGUgc3lzdGVtLiBBbmQgSSBndWVzcyB0aGlzIHNpbGx5IGFwcHJvYWNoIGhhcyBv
+dGhlciByYW1pZmljYXRpb25zOgp0aGUgSU1TSUMgaXMgYWxzbyBzb21lIGVhcmx5IGRyaXZlciB3
+aGVuIGl0IHJlYWxseSBkb2Vzbid0IG5lZWQgdG8gYmUuCldobyBuZWVkcyBNU0lzIHRoYXQgZWFy
+bHkgaW4gdGhlIGxpZmUgb2YgdGhlIHN5c3RlbT8gSSBkb24ndCBidXkgdGhpcwpmb3IgZXZlbiBh
+IHNlY29uZC4KCkZyYW5rbHksIHRoaXMgd2hvbGUgdGhpbmcgbmVlZHMgdG8gYmUgdGFrZW4gYXBh
+cnQgYW5kIHJlYnVpbHQgZnJvbSB0aGUKZ3JvdW5kIHVwLgoKPiBGb3IgIzIsIEFQTElDIG5lZWRz
+IHRvIGJlIGEgcGxhdGZvcm0gZGV2aWNlIHRvIGNyZWF0ZSBhIGRldmljZQo+IE1TSSBkb21haW4g
+dXNpbmcgcGxhdGZvcm1fbXNpX2NyZWF0ZV9kZXZpY2VfZG9tYWluKCkgd2hpY2gKPiBpcyB3aHkg
+dGhlIEFQTElDIGRyaXZlciBpcyBhIHBsYXRmb3JtIGRyaXZlci4KCllvdSBjYW4ndCBoYXZlIHlv
+dXIgY2FrZSBhbmQgZWF0IGl0LiBJZiBuZWVkZWQgc3VwZXIgZWFybHksIGFuZCBpdApjYW5ub3Qg
+YmUgYSBwbGF0Zm9ybSBkcml2ZXIuIEVuZCBvZiB0aGUgc3RvcnkuCgpBbmQgdG8gbXkgZWFybGll
+ciBwb2ludDogSU1TSUMgYW5kIEFQTElDLWFzLU1TSS1icmlkZ2UgaGF2ZSBubyBwdXJwb3NlCmJl
+aW5nIGVhcmx5IGRyaXZlcnMuIFRoZXkgbXVzdCBiZSBwbGF0Zm9ybSBkcml2ZXJzLCBhbmQgb25s
+eSB0aGF0LgoKPiA+IElmIHRoZXNlIHJ1bGVzIGRvbid0IGFwcGx5IHRvIHlvdXIgc3R1ZmYsIHBs
+ZWFzZSBleHBsYWluIHdoYXQgaXMgc28KPiA+IGRpZmZlcmVudC4gQW5kIEkgbWVhbiBhY3R1YWxs
+eSBleHBsYWluIHRoZSBpc3N1ZS4gV2hpY2ggaXNuJ3QgdGVsbGluZwo+ID4gdXMgIml0IGRvZXNu
+J3Qgd29yayB3aXRob3V0IGl0Ii4gQmVjYXVzZSBhcyB0aGluZ3Mgc3RhbmQsIHRoZXJlIGlzIG5v
+Cj4gPiB3YXkgSSB3aWxsIGV2ZW4gY29uc2lkZXIgdGFraW5nIHRoaXMgdWdseSBtaXggb2YgcHJv
+YmluZyBtZXRob2RzLgo+IAo+IFllcywgSSBkb24ndCB3YW50IHRoaXMgdWdseSBGV05PREVfRkxB
+R19CRVNUX0VGRk9SVCBoYWNrCj4gaW4gdGhpcyBkcml2ZXIuCgpBbmQgeWV0IHlvdSBhcmUgaGFt
+bWVyaW5nIGl0IGV2ZW4gd2hlbiB0b2xkIHRoaXMgaXMgd3JvbmcuCgo+IEkgdHJpZWQgc2V2ZXJh
+bCB0aGluZ3MgYnV0IHNldHRpbmcgdGhlIEZXTk9ERV9GTEFHX0JFU1RfRUZGT1JUCj4gZmxhZyBp
+cyB0aGUgb25seSB0aGluZyB3aGljaCB3b3JrcyByaWdodCBub3cuCgpIb3cgYWJvdXQgeW91IHRh
+a2UgYSBzdGVwIGJhY2sgYW5kIHJlYWxpc2UgdGhhdCB0aGUgd2F5IHlvdSd2ZQphcmNoaXRlY3Rl
+ZCB5b3VyIGRyaXZlcnMgbWFrZXMgbGl0dGxlIHNlbnNlPyBJIGRvbid0IHRoaW5rIHlvdSBoYXZl
+CnRyaWVkICp0aGF0Ki4KClRoYW5rcywKCglNLgoKLS0gCldpdGhvdXQgZGV2aWF0aW9uIGZyb20g
+dGhlIG5vcm0sIHByb2dyZXNzIGlzIG5vdCBwb3NzaWJsZS4KCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
