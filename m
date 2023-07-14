@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9358EB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 10:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9419C0015E
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 10:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZP0AwFFjou0i05xp7qnE/HMxMx20dbQY1yO1iJ2txvY=; b=ZbAT5xUEG/51Ut
-	MBhqlcZc2gEm67XOrFO17mhlxB5YbObvdy5v6V2VJXHqna8xI+Inm0EmbZ5+Stw0FG+tY5X5bXtSc
-	G9iSWCLjsjwn6HpcHqLZHzWWCUAsgfph6psZvXFjULPGqHukblmlXNatjIzbCETZgKrcTjf57XNlz
-	d4rTrU1CJEYbcf/gWhrxl9Esz9vH1MXMEtyBOfEQ2Cx4Ld+xRVd3Utjfrr5APT4CiXAAGgBzAl9O7
-	42Uz6HA0d5tRoukiLtbR23KOdewd/ghDdcliU3B7M99I8MTNF3FqJzcGlkZtB+iiq9/h57B7KMvXy
-	9pKF+bqO/dPt0cUvgXNw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Mc1PQ2Xm02TndR/zN7qy0hyJDDyMofIxy8oWbExyAtw=; b=AaRX1vvPTPjcvI
+	3cZXhzIJGzykf8//lMu5+g2UTzAqXWPxaqCt3MYr3t5CMjha4bRtT49nMZZVhWr/MG+8K8y9tqLyg
+	M+cGtNDp6FJ77Zd4vZ/zbsDBzxh7CPt6jWZN7pEwNSPe9WVcS7ViVbphRxOF9fDXeyGeSEdU1fnm6
+	eNNiaxRdC5/NfLVvGvx+06HmPGWKh525Mw4fQBxZW3dlcFENPx8KryohvGBnkjuveWLexrPn+JUxS
+	x2Inf0ljC/qrG790iK8FjDl0OtnC55em4PXWao+tiSnFb2N+28zFCkD9FnA2W7s4imujxKa/W8zLg
+	DWGedW+BW0ntbhjADAFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKGAs-005paZ-2L;
-	Fri, 14 Jul 2023 10:37:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKGAq-005paD-0P
+	id 1qKGJO-005t8U-0f;
+	Fri, 14 Jul 2023 10:46:10 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qKGJK-005snL-3D
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jul 2023 10:37:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3848161CD7;
-	Fri, 14 Jul 2023 10:37:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDD8DC433C8;
-	Fri, 14 Jul 2023 10:37:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689331038;
-	bh=yDdkJOgrvmSQrdXTqJZxaDqdiuAutO48CkzNaUjj3QQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=NOP4owO1hizD1r2742ms3u2QC8Mg4XtUg5+1ds5rwsd1U/MQKOVQ3PNOnsxqri5sb
-	 hZqiaILge0JCOoW1d9tTLtqYI2LpjJIv7Qwy7zXD9f7gTYY3W1nDaiWZ4g4Qxmsh1c
-	 8fv81moXKd6s47JHYqel0QnkTFqLaAc2YzBA4qC4zOcggCLsW+VzRZeNs8jxYmDGHa
-	 3uJFP+P7mxtdsP17Cfw6cKe9cUk1RJLzdnlLMK7gQiZbOb08O2mbGXHJ0IYcWUNXdr
-	 Whmf+1JxPtH/Ci0Jw6Y/ijfYFAh62ZZOgJRNlXpo4OPgepnCugdVOGqRd6w0Dy2mLu
-	 gwVx/siuoVC4A==
-From: guoren@kernel.org
-To: guoren@kernel.org,
-	palmer@rivosinc.com,
-	paul.walmsley@sifive.com,
-	zong.li@sifive.com,
-	atishp@atishpatra.org,
-	alex@ghiti.fr,
-	jszhang@kernel.org,
-	bjorn@kernel.org,
-	xingxg2008@163.com
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH V4] riscv: kexec: Fixup synchronization problem between init_mm and active_mm
-Date: Fri, 14 Jul 2023 06:36:59 -0400
-Message-Id: <20230714103659.3146949-1-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
+	Fri, 14 Jul 2023 10:46:08 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 4291A24E226;
+	Fri, 14 Jul 2023 18:45:24 +0800 (CST)
+Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 14 Jul
+ 2023 18:45:24 +0800
+Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
+ EXMBX062.cuchost.com (172.16.6.62) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Fri, 14 Jul 2023 18:45:22 +0800
+From: Samin Guo <samin.guo@starfivetech.com>
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>
+CC: Emil Renner Berthing <kernel@esmil.dk>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Conor Dooley <conor@kernel.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Richard Cochran <richardcochran@gmail.com>, "David S
+ . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jose Abreu
+	<joabreu@synopsys.com>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
+	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
+	<yanhong.wang@starfivetech.com>, Samin Guo <samin.guo@starfivetech.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>
+Subject: [PATCH v1 1/2] riscv: dts: starfive: jh7110: Add ethernet device nodes
+Date: Fri, 14 Jul 2023 18:45:20 +0800
+Message-ID: <20230714104521.18751-2-samin.guo@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230714104521.18751-1-samin.guo@starfivetech.com>
+References: <20230714104521.18751-1-samin.guo@starfivetech.com>
 MIME-Version: 1.0
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX062.cuchost.com
+ (172.16.6.62)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_033720_265834_C47BD632 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20230714_034607_354301_0CB703E9 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,135 +84,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+Add JH7110 ethernet device node to support gmac driver for the JH7110
+RISC-V SoC.
 
-The machine_kexec() uses set_memory_x to modify the direct mapping
-attributes from RW to RWX. The current implementation of set_memory_x
-does not split hugepages in the linear mapping and then when a PGD
-mapping is used, the whole PGD is marked as executable. But changing
-the permissions at the PGD level must be propagated to all the page
-tables. When kexec jumps into control_buffer, the instruction page
-fault happens, and there is no minor_pagefault for it, then panic.
-
-The bug is found on an MMU_sv39 machine, and the direct mapping used a
-1GB PUD, the pgd entries. Here is the bug output:
-
- kexec_core: Starting new kernel
- Will call new kernel at 00300000 from hart id 0
- FDT image at 747c7000
- Bye...
- Unable to handle kernel paging request at virtual address ffffffda23b0d000
- Oops [#1]
- Modules linked in:
- CPU: 0 PID: 53 Comm: uinit Not tainted 6.4.0-rc6 #15
- Hardware name: Sophgo Mango (DT)
- epc : 0xffffffda23b0d000
-  ra : machine_kexec+0xa6/0xb0
- epc : ffffffda23b0d000 ra : ffffffff80008272 sp : ffffffc80c173d10
-  gp : ffffffff8150e1e0 tp : ffffffd9073d2c40 t0 : 0000000000000000
-  t1 : 0000000000000042 t2 : 6567616d69205444 s0 : ffffffc80c173d50
-  s1 : ffffffd9076c4800 a0 : ffffffd9076c4800 a1 : 0000000000300000
-  a2 : 00000000747c7000 a3 : 0000000000000000 a4 : ffffffd800000000
-  a5 : 0000000000000000 a6 : ffffffd903619c40 a7 : ffffffffffffffff
-  s2 : ffffffda23b0d000 s3 : 0000000000300000 s4 : 00000000747c7000
-  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
-  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
-  s11: 0000003f940001a0 t3 : ffffffff815351af t4 : ffffffff815351af
-  t5 : ffffffff815351b0 t6 : ffffffc80c173b50
- status: 0000000200000100 badaddr: ffffffda23b0d000 cause: 000000000000000c
-
-Given the current flaw in the set_memory_x implementation, the simplest
-solution is to fix machine_kexec() to remap control code page outside
-the linear mapping. Because the control code buffer was moved from the
-direct mapping area to the vmalloc location, we need an additional
-va_va_offset to fix up va_pa_offset.
-
-Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reported-by: Xing XiaoGuang <xingxg2008@163.com>
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
+Tested-by: Tommaso Merciai <tomm.merciai@gmail.com>
+Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
 ---
-Changelog:
-V4:
- - Fixup va_pa_offset with additional va_va_offset.
- - Add Reported-by tag.
+ arch/riscv/boot/dts/starfive/jh7110.dtsi | 69 ++++++++++++++++++++++++
+ 1 file changed, 69 insertions(+)
 
-V3:
- - Resume set_memory_x to set the _PAGE_EXEC attribute
- - Optimize the commit log with Alexandre advice
-
-V2:
- - Use vm_map_ram instead of modifying set_memory_x
- - Correct Fixes tag
----
- arch/riscv/include/asm/kexec.h    |  1 +
- arch/riscv/kernel/machine_kexec.c | 18 +++++++++++++++---
- 2 files changed, 16 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
-index 2b56769cb530..17456e91476e 100644
---- a/arch/riscv/include/asm/kexec.h
-+++ b/arch/riscv/include/asm/kexec.h
-@@ -41,6 +41,7 @@ crash_setup_regs(struct pt_regs *newregs,
- struct kimage_arch {
- 	void *fdt; /* For CONFIG_KEXEC_FILE */
- 	unsigned long fdt_addr;
-+	void *control_code_buffer;
- };
+diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+index 06a08c39c671..857e61a216ac 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+@@ -263,6 +263,13 @@
+ 		#clock-cells = <0>;
+ 	};
  
- extern const unsigned char riscv_kexec_relocate[];
-diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index 2d139b724bc8..60c1ef3c2232 100644
---- a/arch/riscv/kernel/machine_kexec.c
-+++ b/arch/riscv/kernel/machine_kexec.c
-@@ -86,7 +86,14 @@ machine_kexec_prepare(struct kimage *image)
- 
- 	/* Copy the assembler code for relocation to the control page */
- 	if (image->type != KEXEC_TYPE_CRASH) {
--		control_code_buffer = page_address(image->control_code_page);
-+		control_code_buffer = vm_map_ram(&image->control_code_page,
-+						 KEXEC_CONTROL_PAGE_SIZE/PAGE_SIZE,
-+						 NUMA_NO_NODE);
-+		if (control_code_buffer == NULL) {
-+			pr_err("Failed to vm_map control page\n");
-+			return -ENOMEM;
-+		}
++	stmmac_axi_setup: stmmac-axi-config {
++		snps,lpi_en;
++		snps,wr_osr_lmt = <4>;
++		snps,rd_osr_lmt = <4>;
++		snps,blen = <256 128 64 32 0 0 0>;
++	};
 +
- 		control_code_buffer_sz = page_size(image->control_code_page);
+ 	tdm_ext: tdm-ext-clock {
+ 		compatible = "fixed-clock";
+ 		clock-output-names = "tdm_ext";
+@@ -522,6 +529,68 @@
+ 				 <&syscrg JH7110_SYSRST_WDT_CORE>;
+ 		};
  
- 		if (unlikely(riscv_kexec_relocate_size > control_code_buffer_sz)) {
-@@ -99,6 +106,8 @@ machine_kexec_prepare(struct kimage *image)
- 
- 		/* Mark the control page executable */
- 		set_memory_x((unsigned long) control_code_buffer, 1);
++		gmac0: ethernet@16030000 {
++			compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
++			reg = <0x0 0x16030000 0x0 0x10000>;
++			clocks = <&aoncrg JH7110_AONCLK_GMAC0_AXI>,
++				 <&aoncrg JH7110_AONCLK_GMAC0_AHB>,
++				 <&syscrg JH7110_SYSCLK_GMAC0_PTP>,
++				 <&aoncrg JH7110_AONCLK_GMAC0_TX_INV>,
++				 <&syscrg JH7110_SYSCLK_GMAC0_GTXC>;
++			clock-names = "stmmaceth", "pclk", "ptp_ref",
++				      "tx", "gtx";
++			resets = <&aoncrg JH7110_AONRST_GMAC0_AXI>,
++				 <&aoncrg JH7110_AONRST_GMAC0_AHB>;
++			reset-names = "stmmaceth", "ahb";
++			interrupts = <7>, <6>, <5>;
++			interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
++			rx-fifo-depth = <2048>;
++			tx-fifo-depth = <2048>;
++			snps,multicast-filter-bins = <64>;
++			snps,perfect-filter-entries = <8>;
++			snps,fixed-burst;
++			snps,no-pbl-x8;
++			snps,force_thresh_dma_mode;
++			snps,axi-config = <&stmmac_axi_setup>;
++			snps,tso;
++			snps,en-tx-lpi-clockgating;
++			snps,txpbl = <16>;
++			snps,rxpbl = <16>;
++			starfive,syscon = <&aon_syscon 0xc 0x12>;
++			status = "disabled";
++		};
 +
-+		internal->control_code_buffer = control_code_buffer;
- 	}
- 
- 	return 0;
-@@ -211,7 +220,10 @@ machine_kexec(struct kimage *image)
- 	unsigned long this_cpu_id = __smp_processor_id();
- 	unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
- 	unsigned long fdt_addr = internal->fdt_addr;
--	void *control_code_buffer = page_address(image->control_code_page);
-+	void *control_code_buffer = internal->control_code_buffer;
-+	unsigned long va_va_offset =
-+			(unsigned long) page_address(image->control_code_page)
-+		      - (unsigned long) control_code_buffer;
- 	riscv_kexec_method kexec_method = NULL;
- 
- #ifdef CONFIG_SMP
-@@ -234,6 +246,6 @@ machine_kexec(struct kimage *image)
- 	/* Jump to the relocation code */
- 	pr_notice("Bye...\n");
- 	kexec_method(first_ind_entry, jump_addr, fdt_addr,
--		     this_hart_id, kernel_map.va_pa_offset);
-+		     this_hart_id, kernel_map.va_pa_offset - va_va_offset);
- 	unreachable();
- }
++		gmac1: ethernet@16040000 {
++			compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
++			reg = <0x0 0x16040000 0x0 0x10000>;
++			clocks = <&syscrg JH7110_SYSCLK_GMAC1_AXI>,
++				 <&syscrg JH7110_SYSCLK_GMAC1_AHB>,
++				 <&syscrg JH7110_SYSCLK_GMAC1_PTP>,
++				 <&syscrg JH7110_SYSCLK_GMAC1_TX_INV>,
++				 <&syscrg JH7110_SYSCLK_GMAC1_GTXC>;
++			clock-names = "stmmaceth", "pclk", "ptp_ref",
++				      "tx", "gtx";
++			resets = <&syscrg JH7110_SYSRST_GMAC1_AXI>,
++				 <&syscrg JH7110_SYSRST_GMAC1_AHB>;
++			reset-names = "stmmaceth", "ahb";
++			interrupts = <78>, <77>, <76>;
++			interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
++			rx-fifo-depth = <2048>;
++			tx-fifo-depth = <2048>;
++			snps,multicast-filter-bins = <64>;
++			snps,perfect-filter-entries = <8>;
++			snps,fixed-burst;
++			snps,no-pbl-x8;
++			snps,force_thresh_dma_mode;
++			snps,axi-config = <&stmmac_axi_setup>;
++			snps,tso;
++			snps,en-tx-lpi-clockgating;
++			snps,txpbl = <16>;
++			snps,rxpbl = <16>;
++			starfive,syscon = <&sys_syscon 0x90 0x2>;
++			status = "disabled";
++		};
++
+ 		aoncrg: clock-controller@17000000 {
+ 			compatible = "starfive,jh7110-aoncrg";
+ 			reg = <0x0 0x17000000 0x0 0x10000>;
 -- 
-2.36.1
+2.17.1
 
 
 _______________________________________________
