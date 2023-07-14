@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56592EB64DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 11:17:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60168EB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 11:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3kkYl/H7AsaLQMWisJ2X5QsP3mE5r03WtyqdGjZKEo=; b=TU2q4uAlfhX4Y1KL+FjyztOv71
-	kSqItYtcLUVhPZCaOxi+nORUECk8f7MKwM2QA4Y3Pk1s1uHrAhIudGRVRM3NOY/NtvQTazcciYFYO
-	pD/CgSPx+XdiaKCWaJeXJhT/y60or1zENc5chujHgRgbGCUQi+qnU0WfCraMLG6cE8x2LSWHHhkDB
-	01QZkugiCJmQwRHx/nlIsfFX67rkpVPqsadv3OiDRYRRX7AVNXftNHCtXTpfPcUu1lSoX+l+DSPZu
-	2Q1AhCYFejLwx5PkkOr8Y3ACKKJJY4F3buL/aqZCiov316s9OEXRORYmLcD6CeldiLZYiufITHZ9r
-	WsZ0RwiA==;
+	bh=G2U4i0RWVQh2cVI7I0O/RM9xkPuxgT7sulfg8Q8cn8s=; b=bJOGLt2hSdLwPXioiFmy4+yCPF
+	rnAB8xGQ8RcpMspiKbaIjt5ruhgxDZhqSzfHPfBBJHCCVowMZQ1PAOKMAxiff4eEJnpm7yR5rMBQe
+	tG+kyI6dCInQo1zSUkVhw56WsOv0Io05TVIE0dvVHxzHK4gdSy2/LhvpKbF3VEfo3EnXhlDwqYVYa
+	sl3NCUYNO9tCdT6W4oFudDHB6AkYpSh6Gt75xS7puZQgeBSwuf8OPsfFDY3RXAxve80RtHzJdJyug
+	v3xkzwq2IMX9Ye3zjOgcgVb/XQYvyFK43WLClsXYstOdcRN/Z/MKiSx1evSm1UbAP6IwlZHwN106G
+	gu4tEhBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKGnO-0062oy-0N;
-	Fri, 14 Jul 2023 11:17:10 +0000
+	id 1qKHLK-006803-1w;
+	Fri, 14 Jul 2023 11:52:14 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKGnL-0062o8-0Z
+	id 1qKHLH-0067zG-2Q
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jul 2023 11:17:08 +0000
+	Fri, 14 Jul 2023 11:52:12 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 61C7A61BAA;
-	Fri, 14 Jul 2023 11:17:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6E61C433C7;
-	Fri, 14 Jul 2023 11:17:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A818E61D0F;
+	Fri, 14 Jul 2023 11:52:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A81EC433C8;
+	Fri, 14 Jul 2023 11:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689333425;
-	bh=Yf59rtKFicaadtmI6Nu2BYl9fHiZoEYJ3kP0RAok4to=;
+	s=k20201202; t=1689335530;
+	bh=DmeN79exEsvAJkYJDMMvtjBsg+ueHrWKD/Uu8Yhd95s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Lv5p4XEJQEMYWbfF3sNwRz+QmN/bOZIdS4qb75dRXPFKTzZr72kGVX0h5YjfVYWdF
-	 PhUgBU5l1GxxzHUCa0AYbY86VyEPh2lt5CQI/D1w2jl5eZFVlh9Zb0VIG95kKqkBON
-	 0LQSgEEjpRwOHP4U8NL+kMLyDXECXLt7xgZVosEniQOAmc/Ac5G6MBnvVwz+/4JIhM
-	 mHgYukXGY/eNVWv9vjAuxG4ig1/K/yzGnZpnoz05MCqOQZhfi5rkD6zU+9tP8uEp44
-	 1VtjmtpAbcdPRbBt1Krv2ccvfEtR39qs02rULLJoWltPcziP8WwTLIu3jduXY5imNh
-	 Z8jQYbEpf2UTw==
-Date: Fri, 14 Jul 2023 12:17:00 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	paul.walmsley@sifive.com, palmer@rivosinc.com,
-	aou@eecs.berkeley.edu, anup@brainfault.org,
-	konstantin@linuxfoundation.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	mick@ics.forth.gr, jrtc27@jrtc27.com, rdunlap@infradead.org,
-	alexghiti@rivosinc.com
-Subject: Re: [PATCH v5 0/4] RISC-V: mm: Make SV48 the default address space
-Message-ID: <20230714-hangnail-stinking-60f9725ac0d5@spud>
-References: <20230714001430.75798-1-charlie@rivosinc.com>
+	b=ZFgr2mIbpn5LNqHS9h3NzsCoyBKi3V2KXEm12VaSFzsIAt/Ou+NJQaiJDjs5qJGNj
+	 qD3XdXf3qAflXE6sVsXlVfbCVQoJf2N/fMyyM3oKy5EVlC9+bMcMnEVUcsJYelbk0R
+	 TcDR3gTCvxKdaC4oeXurBvlb3DCosJKfgSSW0M6vyJNO+9ZAVCPxStVKFHpnGLumJG
+	 JdaVa4AVGlF8AXCs1TjqoJOGbeDmfTjEKPw6/Vod1glWLKb13LWtxAlLP09uWoJ+Rn
+	 Dtj7SAvA0tJq9OFY6FX7xexEI+g0gKFLh4PirN/RNhi765CFK223rdSxLo8B1g1NOG
+	 PRVe4do9xGLHw==
+Date: Fri, 14 Jul 2023 12:52:04 +0100
+From: Mark Brown <broonie@kernel.org>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	devicetree@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v2 2/3] dt-bindings: spi: constrain minItems of clocks
+ and clock-names
+Message-ID: <9891a7e3-0fce-4d05-8ead-3c0ed155d725@sirena.org.uk>
+References: <20230713090015.127541-1-william.qiu@starfivetech.com>
+ <20230713090015.127541-3-william.qiu@starfivetech.com>
+ <c5ad1e1c-58f4-4833-b9c7-8876c1a0dc27@sirena.org.uk>
+ <e3fd0d3f-3fe4-2e23-2548-ecbd487e9c9f@linaro.org>
+ <20230713145724.GA3975811-robh@kernel.org>
+ <df9de3d8-09da-2b80-b2b4-626cd92fe971@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230714001430.75798-1-charlie@rivosinc.com>
+In-Reply-To: <df9de3d8-09da-2b80-b2b4-626cd92fe971@starfivetech.com>
+X-Cookie: Preserve the old, but know the new.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_041707_299832_775FC32A 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20230714_045211_832288_B54D997A 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,98 +82,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8389807057030227728=="
+Content-Type: multipart/mixed; boundary="===============8240727132850829286=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8389807057030227728==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jMLB4CN0CiHBLUdn"
+--===============8240727132850829286==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="klm57L7u8qYMNEjf"
 Content-Disposition: inline
 
 
---jMLB4CN0CiHBLUdn
+--klm57L7u8qYMNEjf
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jul 13, 2023 at 05:13:59PM -0700, Charlie Jenkins wrote:
-> Make sv48 the default address space for mmap as some applications
-> currently depend on this assumption. Users can now select a
-> desired address space using a non-zero hint address to mmap. Previously,
-> requesting the default address space from mmap by passing zero as the hint
-> address would result in using the largest address space possible. Some
-> applications depend on empty bits in the virtual address space, like Go a=
-nd
-> Java, so this patch provides more flexibility for application developers.
+On Fri, Jul 14, 2023 at 03:14:59PM +0800, William Qiu wrote:
+> On 2023/7/13 22:57, Rob Herring wrote:
 
-The patchwork automation failed to apply this, what is the base for the
-series?
+> > I suspect that PCLK and SSPCLK are tied to the same clock source. There=
+=20
+> > must be an SSPCLK because that is the one used to clock the SPI bus and=
+=20
+> > we need to know the frequency of it.
 
->=20
-> -Charlie
->=20
-> ---
-> v5:
-> - Minor wording change in documentation
-> - Change some parenthesis in arch_get_mmap_ macros
-> - Added case for addr=3D=3D0 in arch_get_mmap_ because without this, prog=
-rams would
->   crash if RLIMIT_STACK was modified before executing the program. This w=
-as
->   tested using the libhugetlbfs tests.=20
->=20
-> v4:
-> - Split testcases/document patch into test cases, in-code documentation, =
-and
->   formal documentation patches
-> - Modified the mmap_base macro to be more legible and better represent me=
-mory
->   layout
-> - Fixed documentation to better reflect the implmentation
-> - Renamed DEFAULT_VA_BITS to MMAP_VA_BITS
-> - Added additional test case for rlimit changes
-> ---
->=20
-> Charlie Jenkins (4):
->   RISC-V: mm: Restrict address space for sv39,sv48,sv57
->   RISC-V: mm: Add tests for RISC-V mm
->   RISC-V: mm: Update pgtable comment documentation
->   RISC-V: mm: Document mmap changes
->=20
->  Documentation/riscv/vm-layout.rst             |  22 +++
->  arch/riscv/include/asm/elf.h                  |   2 +-
->  arch/riscv/include/asm/pgtable.h              |  20 ++-
->  arch/riscv/include/asm/processor.h            |  46 +++++-
->  tools/testing/selftests/riscv/Makefile        |   2 +-
->  tools/testing/selftests/riscv/mm/.gitignore   |   1 +
->  tools/testing/selftests/riscv/mm/Makefile     |  21 +++
->  .../selftests/riscv/mm/testcases/mmap.c       | 133 ++++++++++++++++++
->  8 files changed, 234 insertions(+), 13 deletions(-)
->  create mode 100644 tools/testing/selftests/riscv/mm/.gitignore
->  create mode 100644 tools/testing/selftests/riscv/mm/Makefile
->  create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap.c
->=20
-> --=20
-> 2.41.0
->=20
+> After communicating with colleagues in SoC FE, I learned that PCLK and
+> SSPCLK were homologous on JH7110. He said that SSPCLK would divide the
+> frequency internally anyway, and there was no need for external part freq=
+uency,
+> so he directly gave them together.
 
---jMLB4CN0CiHBLUdn
+> So, should I call this clock ssp_apb or keep it SSPCLK?
+
+I'd expect this to be handled in the DTS for the SoC - connect both
+clocks the binding requires to whatever the upstream clock is, it's not
+clear to me that any binding change is required.
+
+--klm57L7u8qYMNEjf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLEurAAKCRB4tDGHoIJi
-0vWmAQC/EywXok82Hrth9kz9y/zRYvLkySW1jR8buVPiN1zfigEAnSaGF2UkAjYa
-6VCcjkwS7uQI4c/XFRtzztmmptbfaQo=
-=V+TD
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmSxNuQACgkQJNaLcl1U
+h9BFZgf9HdG+QzvFSo2OFGvw81HEFNCptH1B6hNOBEplLpmTioP2hTn7SE22nAoP
+M8yy78/dMrerUMSs8l8nTWX2MvtyEhMPWrYi3vUyQhzDz1vPAj2ao4V/5zBD2P/s
+xQ00phl+51kJqZ+YX5WXydz9G5EP+usoFq2i2R9ZNPgCm9Y9txRr3+CVOXQOBixW
+dOFZYO+/6jfEoEOZyL1Ine5ggi4tD5Q9Q8zLMhS47XKv3me71twVFVxatUate6Cu
+gg8tpmFVCiR63fSnrgbRunZjF7R2Ogfg3M7Pg5AUSiJjbMMPAnTKcZrIRM9q11sg
+hZ+IpYQkDLUbk5g9cJlhw+cy1Y2egw==
+=1P4J
 -----END PGP SIGNATURE-----
 
---jMLB4CN0CiHBLUdn--
+--klm57L7u8qYMNEjf--
 
 
---===============8389807057030227728==
+--===============8240727132850829286==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -176,5 +148,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8389807057030227728==--
+--===============8240727132850829286==--
 
