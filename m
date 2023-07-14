@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD93C0015E
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 09:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9358EB64DA
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 10:37:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cwf/UGySyQlznoEJEQyMgJZ+aL410uV6X4ievkZdgzU=; b=uhJPL5JqOsO06Z
-	Giyp3YQL5dUy+lkgtKAE57e6S4ETbuL5Ws0gIIqzcT28nU5GrFV5HN0iw6gDDuhDeDJIovon4Z+QM
-	Q8sDbuIN1qudxs7/EKhhtDqzv2CXamNUoq2FzNb6qv01OliU6+yMDoqrFtEBA9CKV8lkNkJ/EApis
-	b/sQ0ff7t1GGgE0o3WGMBfkdACPveX33mRXv/v+cJmArv9FlEu9OT0v75KMvfpVaQoxG4oIHXcFpQ
-	PWi6KcrI8p+obdnwG/sxVjOq9rujLJ6MzBXo4k0vKKaL/4IOqKAF8Qs53PAIA1ng9vt1eejk28R//
-	SMnC2dPccn+puahRBa/A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZP0AwFFjou0i05xp7qnE/HMxMx20dbQY1yO1iJ2txvY=; b=ZbAT5xUEG/51Ut
+	MBhqlcZc2gEm67XOrFO17mhlxB5YbObvdy5v6V2VJXHqna8xI+Inm0EmbZ5+Stw0FG+tY5X5bXtSc
+	G9iSWCLjsjwn6HpcHqLZHzWWCUAsgfph6psZvXFjULPGqHukblmlXNatjIzbCETZgKrcTjf57XNlz
+	d4rTrU1CJEYbcf/gWhrxl9Esz9vH1MXMEtyBOfEQ2Cx4Ld+xRVd3Utjfrr5APT4CiXAAGgBzAl9O7
+	42Uz6HA0d5tRoukiLtbR23KOdewd/ghDdcliU3B7M99I8MTNF3FqJzcGlkZtB+iiq9/h57B7KMvXy
+	9pKF+bqO/dPt0cUvgXNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKFE6-005h5v-0g;
-	Fri, 14 Jul 2023 09:36:38 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1qKGAs-005paZ-2L;
+	Fri, 14 Jul 2023 10:37:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKFE3-005h4a-0A
+	id 1qKGAq-005paD-0P
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jul 2023 09:36:37 +0000
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	Fri, 14 Jul 2023 10:37:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 304583F189
-	for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 09:36:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1689327387;
-	bh=+yiF1ij/z+iWY/wZthjD0aPjMSoVu9B46XxEpPJ5vvs=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=oXQu9EtGrgtxHRToV1t0zuR4XnCGJn6QbytYS5UbrgroI8WdqfcekZEF8/+GBy9KA
-	 CJtC11FYTCVMJmeVUCFck17lS8S6Vx5ETFOOlt1cy0ECiEZRfESkn1P25jGEZBeJrq
-	 MGU/teMhYCkKZvokTZO1tLgknlXnZjMb6eQF0xjk0E4/7Gm/fE8rvqQL346p0pnTfK
-	 oo/1rD+YYtNfK9jJPoq59p0S5LoUZroHCOzdycZogqMJ+eYEZyOfo12Fl0nnzCzryC
-	 bLiUuKVx+Vmui7QtUKdCkbB42BW1SnsPqLMt6fBLdkga1oFbwrSEETJePnH3UDq4wq
-	 xtY1l8WmfmCqQ==
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6238c3bf768so17713546d6.0
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 02:36:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689327386; x=1691919386;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+yiF1ij/z+iWY/wZthjD0aPjMSoVu9B46XxEpPJ5vvs=;
-        b=iaCsYxLNAqnGl/wUX3I+SM/vX46H8dtemu8jVfUCZ3gd7am2sfmW4ydXtfCKdRrzIQ
-         09CjRfPys6aBUtU2JwnGfb1JKyJY/xNB7dDRxK+pIaRN9mR7RCCJxHbgIFnB7cC5bt7F
-         pizVdsC9ewn4C+ca3+pAN3y3G0nu/fHi9nHrsJPaziq/tQrmX5YMGfMCh/9AsB9c8/eF
-         YgVF1mwShhiZG7ShgB/p2YpEhNiapUG95WWyrmxDXAQPjoaSCdgsUUD7x1CrwG+W5VJc
-         z7Dy2jOSlUOfHCzWt+bGYrfiEe0kvevPuuOReBH7ViT44Jbtnt4S9f8ZCYoixKZiLnHM
-         ItRw==
-X-Gm-Message-State: ABy/qLY5tZgQ9y6DxniuSezxREfO0DuoMiqLFMMlMEiWLRFUw87p5Gjg
-	g7lyRj+t20+U0afzDWyiFHysGoy6H90UiR4vdpxBo3KsOwrwAwJd+kBBVQK9PaC2hS/vbOg4pqU
-	w3HZh8eVkP5eEuoweSinPJx07aZlaYqkayu9M7hnvBeK7dVGQN6vkIWrdmYyFmA==
-X-Received: by 2002:a05:622a:181:b0:403:ac95:c6a9 with SMTP id s1-20020a05622a018100b00403ac95c6a9mr5242747qtw.30.1689327386203;
-        Fri, 14 Jul 2023 02:36:26 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlGxE6bkszZ+7BBq2hyHda3ibW1kqoUiril9bmmHYh1J06irx78LOa5uu+I/iZMoL2sy2f6nXwFaMqHTE34JLQw=
-X-Received: by 2002:a05:622a:181:b0:403:ac95:c6a9 with SMTP id
- s1-20020a05622a018100b00403ac95c6a9mr5242716qtw.30.1689327385565; Fri, 14 Jul
- 2023 02:36:25 -0700 (PDT)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3848161CD7;
+	Fri, 14 Jul 2023 10:37:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDD8DC433C8;
+	Fri, 14 Jul 2023 10:37:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689331038;
+	bh=yDdkJOgrvmSQrdXTqJZxaDqdiuAutO48CkzNaUjj3QQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=NOP4owO1hizD1r2742ms3u2QC8Mg4XtUg5+1ds5rwsd1U/MQKOVQ3PNOnsxqri5sb
+	 hZqiaILge0JCOoW1d9tTLtqYI2LpjJIv7Qwy7zXD9f7gTYY3W1nDaiWZ4g4Qxmsh1c
+	 8fv81moXKd6s47JHYqel0QnkTFqLaAc2YzBA4qC4zOcggCLsW+VzRZeNs8jxYmDGHa
+	 3uJFP+P7mxtdsP17Cfw6cKe9cUk1RJLzdnlLMK7gQiZbOb08O2mbGXHJ0IYcWUNXdr
+	 Whmf+1JxPtH/Ci0Jw6Y/ijfYFAh62ZZOgJRNlXpo4OPgepnCugdVOGqRd6w0Dy2mLu
+	 gwVx/siuoVC4A==
+From: guoren@kernel.org
+To: guoren@kernel.org,
+	palmer@rivosinc.com,
+	paul.walmsley@sifive.com,
+	zong.li@sifive.com,
+	atishp@atishpatra.org,
+	alex@ghiti.fr,
+	jszhang@kernel.org,
+	bjorn@kernel.org,
+	xingxg2008@163.com
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH V4] riscv: kexec: Fixup synchronization problem between init_mm and active_mm
+Date: Fri, 14 Jul 2023 06:36:59 -0400
+Message-Id: <20230714103659.3146949-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-References: <20230704064610.292603-1-xingyu.wu@starfivetech.com>
- <20230704064610.292603-6-xingyu.wu@starfivetech.com> <CAJM55Z-OSmQCV6mO+SD4R2eU5gfx9TArSqDy+d-M2aer6bKL_A@mail.gmail.com>
- <9a2f0aa0-ad7e-c12d-245d-5f80928705d6@starfivetech.com>
-In-Reply-To: <9a2f0aa0-ad7e-c12d-245d-5f80928705d6@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Fri, 14 Jul 2023 11:36:09 +0200
-Message-ID: <CAJM55Z8rXOyT4Q-JbzZof5050qGqohDTRCj7RDavuzi1Zb6wMQ@mail.gmail.com>
-Subject: Re: [RESEND PATCH v6 5/7] clk: starfive: jh7110-sys: Add PLL clocks
- source from DTS
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Hal Feng <hal.feng@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_023635_464796_1C06630D 
-X-CRM114-Status: GOOD (  38.43  )
+X-CRM114-CacheID: sfid-20230714_033720_265834_C47BD632 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,163 +84,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Jul 2023 at 10:05, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
->
-> On 2023/7/13 21:15, Emil Renner Berthing wrote:
-> > On Tue, 4 Jul 2023 at 08:49, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
-> >>
-> >> Modify PLL clocks source to be got from DTS or
-> >> the fixed factor clocks.
-> >>
-> >> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> >> ---
-> >>  drivers/clk/starfive/Kconfig                  |  1 +
-> >>  .../clk/starfive/clk-starfive-jh7110-sys.c    | 45 +++++++++++--------
-> >>  2 files changed, 28 insertions(+), 18 deletions(-)
-> >>
-> >> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
-> >> index 5195f7be5213..978b78ec08b1 100644
-> >> --- a/drivers/clk/starfive/Kconfig
-> >> +++ b/drivers/clk/starfive/Kconfig
-> >> @@ -35,6 +35,7 @@ config CLK_STARFIVE_JH7110_SYS
-> >>         select AUXILIARY_BUS
-> >>         select CLK_STARFIVE_JH71X0
-> >>         select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
-> >> +       select CLK_STARFIVE_JH7110_PLL
-> >>         default ARCH_STARFIVE
-> >>         help
-> >>           Say yes here to support the system clock controller on the
-> >> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-> >> index e6031345ef05..d56f48013388 100644
-> >> --- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-> >> +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
-> >> @@ -7,6 +7,7 @@
-> >>   */
-> >>
-> >>  #include <linux/auxiliary_bus.h>
-> >> +#include <linux/clk.h>
-> >>  #include <linux/clk-provider.h>
-> >>  #include <linux/init.h>
-> >>  #include <linux/io.h>
-> >> @@ -386,6 +387,7 @@ EXPORT_SYMBOL_GPL(jh7110_reset_controller_register);
-> >>
-> >>  static int __init jh7110_syscrg_probe(struct platform_device *pdev)
-> >>  {
-> >> +       bool use_fixed_pll = true;      /* PLL clocks use fixed factor clocks or PLL driver */
-> >
-> > nit: reverse christmas tree ordering, eg. move this below priv
-> >
-> >>         struct jh71x0_clk_priv *priv;
-> >>         unsigned int idx;
-> >>         int ret;
-> >> @@ -402,28 +404,29 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
-> >>         if (IS_ERR(priv->base))
-> >>                 return PTR_ERR(priv->base);
-> >>
-> >> -       /*
-> >> -        * These PLL clocks are not actually fixed factor clocks and can be
-> >> -        * controlled by the syscon registers of JH7110. They will be dropped
-> >> -        * and registered in the PLL clock driver instead.
-> >> -        */
-> >> +       if (!IS_ERR(devm_clk_get(priv->dev, "pll0_out")))
-> >> +               use_fixed_pll = false;  /* can get pll clocks from PLL driver */
-> >
-> > The devm_clk_get() variant will allocate memory for a callback to call
-> > clk_put() when the driver is unloaded, but proper references
-> > associated with the consumers of the pll0_out clock are already taken
-> > below. So unless we find a better way to detect if the pll references
-> > are specified in the device tree or not, maybe something like this
-> > instead:
-> >
->
-> Thanks. It looks more reasonable. I will follow it in next version.
->
-> > priv->pll[0] = clk_get(priv->dev, "pll0_out);
->
-> The priv->pll[] are clk_hw* struct no clk* struct and this could be failed
-> when building. So maybe use a temporary clk* struct.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Ah yes, you're right. You'll need a local struct clk *clk for that then.
+The machine_kexec() uses set_memory_x to modify the direct mapping
+attributes from RW to RWX. The current implementation of set_memory_x
+does not split hugepages in the linear mapping and then when a PGD
+mapping is used, the whole PGD is marked as executable. But changing
+the permissions at the PGD level must be propagated to all the page
+tables. When kexec jumps into control_buffer, the instruction page
+fault happens, and there is no minor_pagefault for it, then panic.
 
-> > if (IS_ERR(priv->pll[0])) {
-> >   /* 24MHZ -> 1000.0MHz */
-> >   priv->pll[0] = ...
-> >   ...
-> >
-> > } else {
-> >   clk_put(priv->pll[0]);
-> >   priv->pll[0] = NULL;
->
-> >
-> >> +       /* Use fixed factor clocks if can not get the PLL clocks from DTS */
-> >> +       if (use_fixed_pll) {
-> >>         /* 24MHz -> 1000.0MHz */
-> >
-> > These comments are not indented with the code, which just looks weird.
->
-> Will fix.
->
-> >
-> >> -       priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
-> >> -                                                        "osc", 0, 125, 3);
-> >> -       if (IS_ERR(priv->pll[0]))
-> >> -               return PTR_ERR(priv->pll[0]);
-> >> +               priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
-> >> +                                                                "osc", 0, 125, 3);
-> >> +               if (IS_ERR(priv->pll[0]))
-> >> +                       return PTR_ERR(priv->pll[0]);
-> >>
-> >>         /* 24MHz -> 1066.0MHz */
-> >> -       priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
-> >> -                                                        "osc", 0, 533, 12);
-> >> -       if (IS_ERR(priv->pll[1]))
-> >> -               return PTR_ERR(priv->pll[1]);
-> >> +               priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
-> >> +                                                                "osc", 0, 533, 12);
-> >> +               if (IS_ERR(priv->pll[1]))
-> >> +                       return PTR_ERR(priv->pll[1]);
-> >>
-> >>         /* 24MHz -> 1188.0MHz */
-> >> -       priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
-> >> -                                                        "osc", 0, 99, 2);
-> >> -       if (IS_ERR(priv->pll[2]))
-> >> -               return PTR_ERR(priv->pll[2]);
-> >> +               priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
-> >> +                                                                "osc", 0, 99, 2);
-> >> +               if (IS_ERR(priv->pll[2]))
-> >> +                       return PTR_ERR(priv->pll[2]);
-> >> +       }
-> >>
-> >>         for (idx = 0; idx < JH7110_SYSCLK_END; idx++) {
-> >>                 u32 max = jh7110_sysclk_data[idx].max;
-> >> @@ -462,8 +465,14 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
-> >>                                 parents[i].fw_name = "tdm_ext";
-> >>                         else if (pidx == JH7110_SYSCLK_MCLK_EXT)
-> >>                                 parents[i].fw_name = "mclk_ext";
-> >> -                       else
-> >> +                       else if (use_fixed_pll)
-> >
-> > else if (priv->pll[0])
->
-> Will change.
->
-> >
-> >>                                 parents[i].hw = priv->pll[pidx - JH7110_SYSCLK_PLL0_OUT];
-> >> +                       else if (pidx == JH7110_SYSCLK_PLL0_OUT)
-> >> +                               parents[i].fw_name = "pll0_out";
-> >> +                       else if (pidx == JH7110_SYSCLK_PLL1_OUT)
-> >> +                               parents[i].fw_name = "pll1_out";
-> >> +                       else if (pidx == JH7110_SYSCLK_PLL2_OUT)
-> >> +                               parents[i].fw_name = "pll2_out";
-> >>                 }
-> >>
-> >>                 clk->hw.init = &init;
-> >> --
-> >> 2.25.1
-> >>
->
-> Best regards,
-> Xingyu Wu
+The bug is found on an MMU_sv39 machine, and the direct mapping used a
+1GB PUD, the pgd entries. Here is the bug output:
+
+ kexec_core: Starting new kernel
+ Will call new kernel at 00300000 from hart id 0
+ FDT image at 747c7000
+ Bye...
+ Unable to handle kernel paging request at virtual address ffffffda23b0d000
+ Oops [#1]
+ Modules linked in:
+ CPU: 0 PID: 53 Comm: uinit Not tainted 6.4.0-rc6 #15
+ Hardware name: Sophgo Mango (DT)
+ epc : 0xffffffda23b0d000
+  ra : machine_kexec+0xa6/0xb0
+ epc : ffffffda23b0d000 ra : ffffffff80008272 sp : ffffffc80c173d10
+  gp : ffffffff8150e1e0 tp : ffffffd9073d2c40 t0 : 0000000000000000
+  t1 : 0000000000000042 t2 : 6567616d69205444 s0 : ffffffc80c173d50
+  s1 : ffffffd9076c4800 a0 : ffffffd9076c4800 a1 : 0000000000300000
+  a2 : 00000000747c7000 a3 : 0000000000000000 a4 : ffffffd800000000
+  a5 : 0000000000000000 a6 : ffffffd903619c40 a7 : ffffffffffffffff
+  s2 : ffffffda23b0d000 s3 : 0000000000300000 s4 : 00000000747c7000
+  s5 : 0000000000000000 s6 : 0000000000000000 s7 : 0000000000000000
+  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
+  s11: 0000003f940001a0 t3 : ffffffff815351af t4 : ffffffff815351af
+  t5 : ffffffff815351b0 t6 : ffffffc80c173b50
+ status: 0000000200000100 badaddr: ffffffda23b0d000 cause: 000000000000000c
+
+Given the current flaw in the set_memory_x implementation, the simplest
+solution is to fix machine_kexec() to remap control code page outside
+the linear mapping. Because the control code buffer was moved from the
+direct mapping area to the vmalloc location, we need an additional
+va_va_offset to fix up va_pa_offset.
+
+Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reported-by: Xing XiaoGuang <xingxg2008@163.com>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+Changelog:
+V4:
+ - Fixup va_pa_offset with additional va_va_offset.
+ - Add Reported-by tag.
+
+V3:
+ - Resume set_memory_x to set the _PAGE_EXEC attribute
+ - Optimize the commit log with Alexandre advice
+
+V2:
+ - Use vm_map_ram instead of modifying set_memory_x
+ - Correct Fixes tag
+---
+ arch/riscv/include/asm/kexec.h    |  1 +
+ arch/riscv/kernel/machine_kexec.c | 18 +++++++++++++++---
+ 2 files changed, 16 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
+index 2b56769cb530..17456e91476e 100644
+--- a/arch/riscv/include/asm/kexec.h
++++ b/arch/riscv/include/asm/kexec.h
+@@ -41,6 +41,7 @@ crash_setup_regs(struct pt_regs *newregs,
+ struct kimage_arch {
+ 	void *fdt; /* For CONFIG_KEXEC_FILE */
+ 	unsigned long fdt_addr;
++	void *control_code_buffer;
+ };
+ 
+ extern const unsigned char riscv_kexec_relocate[];
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 2d139b724bc8..60c1ef3c2232 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -86,7 +86,14 @@ machine_kexec_prepare(struct kimage *image)
+ 
+ 	/* Copy the assembler code for relocation to the control page */
+ 	if (image->type != KEXEC_TYPE_CRASH) {
+-		control_code_buffer = page_address(image->control_code_page);
++		control_code_buffer = vm_map_ram(&image->control_code_page,
++						 KEXEC_CONTROL_PAGE_SIZE/PAGE_SIZE,
++						 NUMA_NO_NODE);
++		if (control_code_buffer == NULL) {
++			pr_err("Failed to vm_map control page\n");
++			return -ENOMEM;
++		}
++
+ 		control_code_buffer_sz = page_size(image->control_code_page);
+ 
+ 		if (unlikely(riscv_kexec_relocate_size > control_code_buffer_sz)) {
+@@ -99,6 +106,8 @@ machine_kexec_prepare(struct kimage *image)
+ 
+ 		/* Mark the control page executable */
+ 		set_memory_x((unsigned long) control_code_buffer, 1);
++
++		internal->control_code_buffer = control_code_buffer;
+ 	}
+ 
+ 	return 0;
+@@ -211,7 +220,10 @@ machine_kexec(struct kimage *image)
+ 	unsigned long this_cpu_id = __smp_processor_id();
+ 	unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
+ 	unsigned long fdt_addr = internal->fdt_addr;
+-	void *control_code_buffer = page_address(image->control_code_page);
++	void *control_code_buffer = internal->control_code_buffer;
++	unsigned long va_va_offset =
++			(unsigned long) page_address(image->control_code_page)
++		      - (unsigned long) control_code_buffer;
+ 	riscv_kexec_method kexec_method = NULL;
+ 
+ #ifdef CONFIG_SMP
+@@ -234,6 +246,6 @@ machine_kexec(struct kimage *image)
+ 	/* Jump to the relocation code */
+ 	pr_notice("Bye...\n");
+ 	kexec_method(first_ind_entry, jump_addr, fdt_addr,
+-		     this_hart_id, kernel_map.va_pa_offset);
++		     this_hart_id, kernel_map.va_pa_offset - va_va_offset);
+ 	unreachable();
+ }
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
