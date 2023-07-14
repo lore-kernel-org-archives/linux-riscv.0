@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17085EB64DA
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 11:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56592EB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Jul 2023 11:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QCX6eoggaYzoX9OpKvtMtAzmTbbwD3ZUe+6QZGQeoFE=; b=2K3Fxv/57Uibr/z66jbIPsjGnT
-	tLkXhG6hDi2cy21QlNB33N7x4wztgKy/B8nz0MHTH5X+gNvh71yoBI7r436kJOwkZfstl47+VUKQP
-	ZfV7/RobJbhSEQWfznVlijRZ4Ogu8i0gE2i9vKoPejCgkGFGa2D7MncuONBBKmkZReKf+mhKzBIcV
-	+dCbgAfde+uKpimX1zYCXroAwMAVTRU0MmNC4ejG63xwrfZQFA5wxnNsD3QlxH0AetUmBjodD5PiU
-	b8Lf1z6Gzcss3OqewB8N4v87nKTPjoTBTDm2ae/A74KVlArkEEC5TcVaPvyRME4gMSrfkWyw8MjXS
-	c6Fx6PRQ==;
+	bh=S3kkYl/H7AsaLQMWisJ2X5QsP3mE5r03WtyqdGjZKEo=; b=TU2q4uAlfhX4Y1KL+FjyztOv71
+	kSqItYtcLUVhPZCaOxi+nORUECk8f7MKwM2QA4Y3Pk1s1uHrAhIudGRVRM3NOY/NtvQTazcciYFYO
+	pD/CgSPx+XdiaKCWaJeXJhT/y60or1zENc5chujHgRgbGCUQi+qnU0WfCraMLG6cE8x2LSWHHhkDB
+	01QZkugiCJmQwRHx/nlIsfFX67rkpVPqsadv3OiDRYRRX7AVNXftNHCtXTpfPcUu1lSoX+l+DSPZu
+	2Q1AhCYFejLwx5PkkOr8Y3ACKKJJY4F3buL/aqZCiov316s9OEXRORYmLcD6CeldiLZYiufITHZ9r
+	WsZ0RwiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKGh0-0062Dn-1h;
-	Fri, 14 Jul 2023 11:10:34 +0000
+	id 1qKGnO-0062oy-0N;
+	Fri, 14 Jul 2023 11:17:10 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKGgx-0062D1-0P
+	id 1qKGnL-0062o8-0Z
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Jul 2023 11:10:32 +0000
+	Fri, 14 Jul 2023 11:17:08 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EBFCD61CE1;
-	Fri, 14 Jul 2023 11:10:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A48FFC433C8;
-	Fri, 14 Jul 2023 11:10:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 61C7A61BAA;
+	Fri, 14 Jul 2023 11:17:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6E61C433C7;
+	Fri, 14 Jul 2023 11:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689333028;
-	bh=B89npdjr2EmjlPPICYGVRfS0ln+GlrGeoE5pc7pjRhY=;
+	s=k20201202; t=1689333425;
+	bh=Yf59rtKFicaadtmI6Nu2BYl9fHiZoEYJ3kP0RAok4to=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FEqSmwS2tUcXJsoyxcL+IE8RazFZLjC23j07R+2v2NewfkETfeT85+C3G/l0ntc+p
-	 9B6e0lR/ZMa7HZpfgenVV5r/rU30ElLFpgKyA/R6jWfLcaFBHnIbymGO21Gxz13yPI
-	 u7odM+j+sECsSdB3Px3/tK2Al3DccR1nIf+dKpb04C7kex6XiOgbrln7fcepgleFmC
-	 pYER28+BDtJuQ50T1yF86SD7XhZUkqiVqkLTYvqigOOLLrGlufkjb7WEcOjh2lcw60
-	 4Tc4bZviZIkI5ouEADTHFD+ByDsye0QIahJvt59eY1qODR13tHEYxT9TwxEKTgoR+C
-	 CTd/qmF0mx9Tw==
-Date: Fri, 14 Jul 2023 12:10:24 +0100
+	b=Lv5p4XEJQEMYWbfF3sNwRz+QmN/bOZIdS4qb75dRXPFKTzZr72kGVX0h5YjfVYWdF
+	 PhUgBU5l1GxxzHUCa0AYbY86VyEPh2lt5CQI/D1w2jl5eZFVlh9Zb0VIG95kKqkBON
+	 0LQSgEEjpRwOHP4U8NL+kMLyDXECXLt7xgZVosEniQOAmc/Ac5G6MBnvVwz+/4JIhM
+	 mHgYukXGY/eNVWv9vjAuxG4ig1/K/yzGnZpnoz05MCqOQZhfi5rkD6zU+9tP8uEp44
+	 1VtjmtpAbcdPRbBt1Krv2ccvfEtR39qs02rULLJoWltPcziP8WwTLIu3jduXY5imNh
+	 Z8jQYbEpf2UTw==
+Date: Fri, 14 Jul 2023 12:17:00 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>, palmer@dabbelt.com, heiko@sntech.de,
-	charlie@rivosinc.com, Palmer Dabbelt <palmer@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] RISC-V: Don't trust V from the riscv,isa DT property
- on T-Head CPUs
-Message-ID: <20230714-saturate-verbalize-27571671249d@spud>
-References: <20230712-postal-affiliate-0d61a209897f@spud>
- <ZLAoIWX+qqWvucWz@xhacker>
- <CAJF2gTQ-RotMeRGCSh6P7uQvZDbfWdZZHtTdeZqCAHWK4DzmMQ@mail.gmail.com>
- <20230713-statutory-balance-f2c9e862f2e3@spud>
- <CAJF2gTRy5eK73=d6s7CVy9m9pB8p4rAoMHM3cZFwzg=AuF7TDA@mail.gmail.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	paul.walmsley@sifive.com, palmer@rivosinc.com,
+	aou@eecs.berkeley.edu, anup@brainfault.org,
+	konstantin@linuxfoundation.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	mick@ics.forth.gr, jrtc27@jrtc27.com, rdunlap@infradead.org,
+	alexghiti@rivosinc.com
+Subject: Re: [PATCH v5 0/4] RISC-V: mm: Make SV48 the default address space
+Message-ID: <20230714-hangnail-stinking-60f9725ac0d5@spud>
+References: <20230714001430.75798-1-charlie@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <CAJF2gTRy5eK73=d6s7CVy9m9pB8p4rAoMHM3cZFwzg=AuF7TDA@mail.gmail.com>
+In-Reply-To: <20230714001430.75798-1-charlie@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_041031_244963_465E4CC9 
-X-CRM114-Status: GOOD (  29.65  )
+X-CRM114-CacheID: sfid-20230714_041707_299832_775FC32A 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,105 +74,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7876974767397986048=="
+Content-Type: multipart/mixed; boundary="===============8389807057030227728=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7876974767397986048==
+--===============8389807057030227728==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="KnP3SRCzNNdf194q"
+	protocol="application/pgp-signature"; boundary="jMLB4CN0CiHBLUdn"
 Content-Disposition: inline
 
 
---KnP3SRCzNNdf194q
-Content-Type: text/plain; charset=utf-8
+--jMLB4CN0CiHBLUdn
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Jul 14, 2023 at 02:14:45PM +0800, Guo Ren wrote:
-> On Fri, Jul 14, 2023 at 1:45=E2=80=AFAM Conor Dooley <conor@kernel.org> w=
-rote:
-> >
-> > On Thu, Jul 13, 2023 at 01:33:56PM -0400, Guo Ren wrote:
-> > > On Thu, Jul 13, 2023 at 12:48=E2=80=AFPM Jisheng Zhang <jszhang@kerne=
-l.org> wrote:
-> > > > On Wed, Jul 12, 2023 at 06:48:02PM +0100, Conor Dooley wrote:
-> >
-> > > > > +             /*
-> > > > > +              * "V" in ISA strings is ambiguous in practice: it =
-should mean
-> > > > > +              * just the standard V-1.0 but vendors aren't well =
-behaved.
-> > > > > +              * Many vendors with T-Head CPU cores which impleme=
-nt the 0.7.1
-> > > > > +              * version of the vector specification put "v" into=
- their DTs
-> > > > > +              * and no T-Head CPU cores with the standard versio=
-n of vector
-> > > > > +              * are in circulation yet.
-> >
-> > > T-HEAD's vector 1.0 SoCs is in circulation. Kendryte K230 is the
-> > > shipped SoC chip, which vendor id =3D THEAD_VENDOR_ID and with vector
-> > > 1.0.
-> >
-> > Where can I buy one, if it is in circulation?
-> > Googling in English might not be the best thing to do, but doing so I
-> > could find basically no information on the k230 - I did know it existed
-> > and tried to find some info on it before sending the patch.
-> > If it is not in circulation, then the comment is not inaccurate & when
-> > they do arrive they can use the new dedicated property to convey support
-> > for vector.
+On Thu, Jul 13, 2023 at 05:13:59PM -0700, Charlie Jenkins wrote:
+> Make sv48 the default address space for mmap as some applications
+> currently depend on this assumption. Users can now select a
+> desired address space using a non-zero hint address to mmap. Previously,
+> requesting the default address space from mmap by passing zero as the hint
+> address would result in using the largest address space possible. Some
+> applications depend on empty bits in the virtual address space, like Go a=
+nd
+> Java, so this patch provides more flexibility for application developers.
 
-I saw you sent to Palmer a link to the k230. When I clicked the link,
-it gave (per google translate) purchase options for k210 and k510 only.
-I figure that means there is nothing _publicly_ available?
+The patchwork automation failed to apply this, what is the base for the
+series?
 
-> > > > > +              * Platforms with T-Head CPU cores that support the=
- standard
-> > > > > +              * version of vector must provide the explicit V pr=
-operty,
-> > > > > +              * which is well defined.
-> > > > > +              */
-> > > > > +             if (acpi_disabled && riscv_cached_mvendorid(cpu) =
-=3D=3D THEAD_VENDOR_ID) {
-> > > If you insist on doing this, please:
-> > >
-> > > if (acpi_disabled && riscv_cached_mvendorid(cpu) =3D=3D THEAD_VENDOR_=
-ID &&
-> > > riscv_cached_marchid(cpu) =3D=3D 0 && riscv_cached_mimpid(cpu) =3D=3D=
- 0) {
-> >
-> > Why? Does the c908 report non-zero mimpid/marchid?
+>=20
+> -Charlie
+>=20
+> ---
+> v5:
+> - Minor wording change in documentation
+> - Change some parenthesis in arch_get_mmap_ macros
+> - Added case for addr=3D=3D0 in arch_get_mmap_ because without this, prog=
+rams would
+>   crash if RLIMIT_STACK was modified before executing the program. This w=
+as
+>   tested using the libhugetlbfs tests.=20
+>=20
+> v4:
+> - Split testcases/document patch into test cases, in-code documentation, =
+and
+>   formal documentation patches
+> - Modified the mmap_base macro to be more legible and better represent me=
+mory
+>   layout
+> - Fixed documentation to better reflect the implmentation
+> - Renamed DEFAULT_VA_BITS to MMAP_VA_BITS
+> - Added additional test case for rlimit changes
+> ---
+>=20
+> Charlie Jenkins (4):
+>   RISC-V: mm: Restrict address space for sv39,sv48,sv57
+>   RISC-V: mm: Add tests for RISC-V mm
+>   RISC-V: mm: Update pgtable comment documentation
+>   RISC-V: mm: Document mmap changes
+>=20
+>  Documentation/riscv/vm-layout.rst             |  22 +++
+>  arch/riscv/include/asm/elf.h                  |   2 +-
+>  arch/riscv/include/asm/pgtable.h              |  20 ++-
+>  arch/riscv/include/asm/processor.h            |  46 +++++-
+>  tools/testing/selftests/riscv/Makefile        |   2 +-
+>  tools/testing/selftests/riscv/mm/.gitignore   |   1 +
+>  tools/testing/selftests/riscv/mm/Makefile     |  21 +++
+>  .../selftests/riscv/mm/testcases/mmap.c       | 133 ++++++++++++++++++
+>  8 files changed, 234 insertions(+), 13 deletions(-)
+>  create mode 100644 tools/testing/selftests/riscv/mm/.gitignore
+>  create mode 100644 tools/testing/selftests/riscv/mm/Makefile
+>  create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap.c
+>=20
+> --=20
+> 2.41.0
+>=20
 
-> Yes
-
-> > If yes, does it need either the errata for CMOs or the page tables?
-
-> C908 is compatible to RVA22 Profile, here is the detail link:
-> https://xrvm.com/cpu-details?id=3D4107904466789928960
-
-That's fantastic news! I'll submit a v3 of this with the hammer reduced,
-as you have suggested above.
-
-Thanks,
-Conor.
-
---KnP3SRCzNNdf194q
+--jMLB4CN0CiHBLUdn
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLEtIAAKCRB4tDGHoIJi
-0l0VAP4mpVMB/zy6Pf8iKDG0UXcKeBkwWT7y103C9qdgocpCfAD/ZXQJtefq3IDK
-V4UXENGh0iWIyIy9pFp+43EFPCtnEw4=
-=uOIh
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLEurAAKCRB4tDGHoIJi
+0vWmAQC/EywXok82Hrth9kz9y/zRYvLkySW1jR8buVPiN1zfigEAnSaGF2UkAjYa
+6VCcjkwS7uQI4c/XFRtzztmmptbfaQo=
+=V+TD
 -----END PGP SIGNATURE-----
 
---KnP3SRCzNNdf194q--
+--jMLB4CN0CiHBLUdn--
 
 
---===============7876974767397986048==
+--===============8389807057030227728==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -185,5 +176,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7876974767397986048==--
+--===============8389807057030227728==--
 
