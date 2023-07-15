@@ -4,63 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9083EB64DC
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 14:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B66BC001B0
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 15:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=niv7t/ztvuG3fnjOguBG1XorGFWKGjvy9ndAdaVsQS8=; b=AGtbXPZN8J8au2
-	uaTxvuT1Yb8KIfRpr3IDJ4AQTciVQmRHXPXNE0Ym5U+CvZPem///NhTymIAhP5IV2ar43YtYmC5RM
-	UOc/U8QQsG+Ne2mDcYMh4W3mHOmzSl5d12UvO5ZjqzO0imknoZfRzMJieUaxetLKR1Gj/UZtxhH0u
-	e/mgBOUghCW2h+7UnMKmyUe4bEigzv2lgdXBpzguzAJLgPUyt2JCab6oIP5SANLH/FiwcQ5dvQU6I
-	kxHdMI7J0MyoZvAQjMELO/HFoPggWwoeliKuED4npOlNxYT6PebNXTK77rMp21z/j+z/3ZfmwiLwL
-	EJu8AVjzLRSPxD2sUOBA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3mrX2+Kwy6iiiHWuV33i1ujQNcvrh4mLPndtV46Iv5k=; b=nvutGQURNKZXyK
+	WvFu6j1ykto/Ab0eQeI+oYXKX+jRg1VLdFTKxh6LJaSIqYlluXMbsf8KtWNPi6m6t8ty5mP2EhgnQ
+	o/1Vw3aP9t35KpExDYIeOl25+WP66aGiduFBKxFRS92tuDXbHBfjySbiAaeNHEkhuMJwLB880pIs+
+	cODVLsJ8kqmjTENicQaVIqNdxAhY45O7pO0E4nkZEp6Ykz0p3wyJ8KLZZiukCc0js3OMZd1wJezfR
+	vHhVVc9Hig/3TNUO+db1YEAERB7nXVcRny9+52Syzjq598l2Cy9uiE7QEGJLJA8Kb6n5Nn6/GLREt
+	6xcAZ3B1BGqlaagoMXZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKg7Z-008wJd-35;
-	Sat, 15 Jul 2023 14:19:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qKglS-008zaJ-0C;
+	Sat, 15 Jul 2023 15:00:54 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKg7W-008wIf-39
+	id 1qKglH-008zWY-05
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Jul 2023 14:19:40 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7652D60915;
-	Sat, 15 Jul 2023 14:19:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5476CC433C8;
-	Sat, 15 Jul 2023 14:19:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1689430777;
-	bh=+Zc6MkX4Je1o4oRfyxtSq9WhWkGFgbpOiD6Q71QeBYI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zy3rfFDF9/RcEDqv/V++Mi0WYdWrN0WzDeIRaOAJtqNziHBGyxmQCrOpfIJF193ZZ
-	 SKIEF2VT9uOU3GbnWIiyD2NLSdjwASvzp6befCgGeHVVK+/oBns/kK6RspFIzyOxZ5
-	 BK1HNxTZ1+H1pH/VVp3C7+hLEHvSf9B2R5sKe7uM=
-Date: Sat, 15 Jul 2023 16:19:33 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: guoren@kernel.org
-Cc: palmer@rivosinc.com, paul.walmsley@sifive.com, falcon@tinylab.org,
-	bjorn@kernel.org, conor.dooley@microchip.com,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, stable@vger.kernel.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH 2/2] riscv: stack: Fixup independent softirq stack for
- CONFIG_FRAME_POINTER=n
-Message-ID: <2023071528-traverse-parting-14b2@gregkh>
-References: <20230715134552.3437933-1-guoren@kernel.org>
- <20230715134552.3437933-3-guoren@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230715134552.3437933-3-guoren@kernel.org>
+	Sat, 15 Jul 2023 15:00:44 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-6686a05bc66so2205466b3a.1
+        for <linux-riscv@lists.infradead.org>; Sat, 15 Jul 2023 08:00:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1689433240; x=1692025240;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=n/PmxR06SnQlXKTp9VF3mD07lpLuN72eWrt3Ps51eXY=;
+        b=RLBjcnt7gL+T1EoDd1yKdvy4gzjn5ckFcXNvmJXBB/JeRlIG1KXsiye4ce4R18t8B8
+         j5VWxs9NesSwQamZsHm3xcTafgjwlX966pJzJJsyOxmSm6sShdnvuL0EuKqEWc0jtLFm
+         7DfTnlBerKFpY5YK9IBha8otQjs0ivHyyCXR/IyW4rYc6VKDGCdg4cMKotPv4RJTq/Iu
+         lvdUU3LoV2kPiim413o9rUzAS2wI8X6bXV1cWBXHg4/OgtFny/G9ka8NJlq6GXUHq7fU
+         Udwx3AJsCk54AMgqIPRhvR5honCPIkd/uJF3V8QKk2tPxA/QB2EDmKGTByc1hrV7LVDW
+         D27g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689433240; x=1692025240;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=n/PmxR06SnQlXKTp9VF3mD07lpLuN72eWrt3Ps51eXY=;
+        b=YioFa5DRsAAkGBF8nhdnI2zzRiid/+ln1dwfd1hDW5QEdWFaVuXm6ianweZKIDjnf7
+         3GzWsrlHgpQ3BA7Qd/X4/lavLVSk03ZflooMdWUoh5TVZmIm/Zy8MS3iCHQ9kv/2+i/F
+         fqm6UwMv6+LyMcr8lD33XoED3L0/u9PePQsXZTsEKm7YH+lt0Gc4pp2cCVBxYyxRD0HS
+         9lG5QMsl6iSKA8zOaVC2ZTA1vJdfyD0+mUUTsGavHQNV+ZPYqnJrkOMYwB/e0/ng0MPi
+         bd/ulZuNGKGnyJ+KCUezUtnSU0I3GQ3bjOekgceuy+9VFHSQ4GyEcD9hTq31xXBCZ7P1
+         Q/vQ==
+X-Gm-Message-State: ABy/qLapGT4toM6Ys3g1G4bfpJx6TuBH7+UrOG5PDRoKyRXuzQnNiID9
+	g/obqc76wFm4eQ9LHdpE19qFytjN3UfA+YQ/y7AItKanAhn7s3BFG7TCc2/56R5jeJhj6DAvmgs
+	AzTYeOyfK3ALvm/uenKv2R/QAEikTLe43hxQTSoEwk43heOyaDFo7oV2+pu42OSAFAF+vd2VRQj
+	YcdXqBmG11tj74
+X-Google-Smtp-Source: APBJJlEVROzCBtT5riIiH446MQawjr6HVFx+/CQ5g06T/W9vpw2pulMIaXWTYmzArkXPFbb4HueC9w==
+X-Received: by 2002:a05:6a00:2e10:b0:66f:7076:a5b8 with SMTP id fc16-20020a056a002e1000b0066f7076a5b8mr9560337pfb.29.1689433239591;
+        Sat, 15 Jul 2023 08:00:39 -0700 (PDT)
+Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id a28-20020a63705c000000b00528513c6bbcsm9356535pgn.28.2023.07.15.08.00.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Jul 2023 08:00:38 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com
+Cc: vineetg@rivosinc.com,
+	bjorn@kernel.org,
+	greentime.hu@sifive.com,
+	paul.walmsley@sifive.com,
+	guoren@linux.alibaba.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	heiko.stuebner@vrull.eu,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [v1, 0/6] riscv: support kernel-mode Vector
+Date: Sat, 15 Jul 2023 15:00:26 +0000
+Message-Id: <20230715150032.6917-1-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230715_071939_062214_E7B7B9F4 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20230715_080043_132069_30D7D6CE 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,51 +93,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 15, 2023 at 09:45:52AM -0400, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> The independent softirq stack uses s0 to save & restore sp, but s0 would
-> be corrupted when CONFIG_FRAME_POINTER=n. So add s0 in the clobber list
-> to fix the problem.
-> 
-> Fixes: dd69d07a5a6c ("riscv: stack: Support HAVE_SOFTIRQ_ON_OWN_STACK")
-> Reported-by: Zhangjin Wu <falcon@tinylab.org>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> ---
->  arch/riscv/kernel/irq.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-> index d0577cc6a081..0b58720109db 100644
-> --- a/arch/riscv/kernel/irq.c
-> +++ b/arch/riscv/kernel/irq.c
-> @@ -83,7 +83,7 @@ void do_softirq_own_stack(void)
->  		:
->  		: [sp] "r" (sp)
->  		: "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7",
-> -		  "t0", "t1", "t2", "t3", "t4", "t5", "t6",
-> +		  "t0", "t1", "t2", "t3", "t4", "t5", "t6", "s0",
->  		  "memory");
->  	} else
->  #endif
-> -- 
-> 2.36.1
-> 
+This series provides support for running Vector code in kernel mode. The
+implementation is based on the v12 series of the Vector series, but with
+some additions. First, we introduce a mechanism to defer restoring
+Vector context for userspace programs (patch 1). This is similar to
+arm64 and x86's approaches when dealing with extra userspace register
+context. And it is benefitial to both Vector in user and kernel-mode.
+Then, patch 2, 3 add the kernel-mode Vector patch from v12 with minor
+modifications. At the end of the series, patch 4, 5, 6 add supports for
+making kernel-mode Vector code preemptible. We do this by adding
+kernel-mode Vector context, and keeping track of the frame where V
+context is last valid. We believe that enabling preemption of running V
+is a critical path for getting V more generally available in the
+kernel-mode. Besides, with status.VS, we can easily tell if
+saving/restoring V is required. This reduce the level of cost when
+running SIMD in kernel mode as compared to other arches. Other arches
+usually do not have a way to tell if extra context is dirty. Thus, if
+they also want to support running preemptible code with extra registers,
+then they must save/restore extra context at each context switch even if
+registers are not dirty.
 
-<formletter>
+The series is tested by loading a kernel module on a preemptive kernel.
+The module launches multiple kworkers which run Vector operations and
+verifies with scalar code. Also, the module provides userspace intefaces
+via fops to verify if we can run Vector code on syscall path.
 
-This is not the correct way to submit patches for inclusion in the
-stable kernel tree.  Please read:
-    https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
-for how to do this properly.
+Changes from the vector v12 series (for patch 2, 3):
+ - return a failure code when kernel_rvv_begin() fails.
+ - Do not immediately restore user's V context.
 
-</formletter>
+
+Andy Chiu (4):
+  riscv: sched: defer restoring Vector context for user
+  riscv: vector: do not pass task_struct into
+    riscv_v_vstate_{save,restore}()
+  riscv: vector: allow kernel-mode Vector with preemption
+  riscv: vector: enable preemptive kernel-mode Vector to be built
+
+Greentime Hu (2):
+  riscv: Add support for kernel mode vector
+  riscv: Add vector extension XOR implementation
+
+ arch/riscv/Kconfig                     |  10 ++
+ arch/riscv/include/asm/entry-common.h  |  13 ++
+ arch/riscv/include/asm/processor.h     |   2 +
+ arch/riscv/include/asm/thread_info.h   |   6 +
+ arch/riscv/include/asm/vector.h        |  50 +++++--
+ arch/riscv/include/asm/xor.h           |  82 +++++++++++
+ arch/riscv/kernel/Makefile             |   1 +
+ arch/riscv/kernel/asm-offsets.c        |   2 +
+ arch/riscv/kernel/entry.S              |  41 ++++++
+ arch/riscv/kernel/kernel_mode_vector.c | 180 +++++++++++++++++++++++++
+ arch/riscv/kernel/process.c            |  10 +-
+ arch/riscv/kernel/ptrace.c             |   2 +-
+ arch/riscv/kernel/signal.c             |   4 +-
+ arch/riscv/kernel/vector.c             |   5 +-
+ arch/riscv/lib/Makefile                |   1 +
+ arch/riscv/lib/xor.S                   |  81 +++++++++++
+ 16 files changed, 473 insertions(+), 17 deletions(-)
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
+ create mode 100644 arch/riscv/lib/xor.S
+
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
