@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D1EBC001DF
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 15:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B77CC0015E
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 16:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i4MuWmT+8D013mtYXNbdPw/e/Mhk3vyViCepRYzJqls=; b=0lQGx8UvdkdY4e
-	H/ptdWN0UbH7UXkzBDDEsMnLazxk/lBAkU8HDjfTE075bjJhhi7QF9tFu5iIJfyHeeYLc/deKYKDa
-	qRCOhJncSlebQWlhZmOqq3Tk6ORmURSA9J1KO8JEf38IeqMOpP4/rK1b/B7ggiNg9VFNpyfbgSIBD
-	Dl0saKKC/fYN7qZ+xWLG5K2mgBsV3xPyFYyovxCRB+o+6J8hAlCnp4Q3Lk7LqpnHb7cgzJD7+RQ03
-	bniV2miKHuiyNY2uK9pmvui6CyoTeQucmHnNPc+LpJKm+0BZNPxpc/JOoXMb3ZaZdYYmZ9LRa0X8+
-	46e+oUdkvsA5DH86zhKw==;
+	List-Owner; bh=hkUhdgpKFB57YbZZHfm1i/Kxl9+xU7Tw4rSmlfClVtQ=; b=ZtQAz9j7VW+HC9
+	gbqSCBMoxlmDhKhLbpA6pXKl3EIE7oiPz0JiFhS5lSGlQ2ksFtEdf/0nMbbotylTDMrHQy+FAL8RC
+	BoxtUTr+MtVwNKVFCvsU9UOtSWvQtFR7HaQfJY2FWX5HcGYZJiLZKP+Rr+KFE6xLARZXjkWV+k9MT
+	RrXS/1O47aa4z43X3EQrTIqcRp5RTlHAun2q1JTG+kgTBcds2fH+UWbX15e1mTndIvIIdWFCkVawv
+	ectY/s5lMbIXDhybCdEIkELf/QJa7MvQquagxu0FIBbVr6o+BsX16MLTcFmPCB8DCwXbvPIkIgt7B
+	wdlpJ/Td31hO21IRoAxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKgm8-008zlf-0b;
-	Sat, 15 Jul 2023 15:01:36 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1qKiWY-009Asn-1x;
+	Sat, 15 Jul 2023 16:53:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKgm4-008zk1-34
-	for linux-riscv@lists.infradead.org;
-	Sat, 15 Jul 2023 15:01:34 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2632336f75fso1991586a91.3
-        for <linux-riscv@lists.infradead.org>; Sat, 15 Jul 2023 08:01:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1689433291; x=1692025291;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=2UCzvviqLaht1enidoVBHlz8q/RmZyOnwjkKU4rZlbI=;
-        b=BsP/kZmUBC6ajblBI5TjQlGD5OKHfRM3e5RwrlxKX4qW4HY4F9+RDL7TJP+E/ZpoRw
-         MMb1kJm8le+kbvyTXGgdDH2/NT2lrBZ/RUNr7CgkxHSJTOMQKdmDMHFcuy8GON3nC4Ry
-         otYdeVbZLAvXm5/1z8qUSfhwnC38dJOWP8zFdOSVLnelRQYFJy+bgld1nU5NJ4dYkYwL
-         V1K6c6culGNDsCecIeuHvyW8IXewBY9Bj4bjeU9o+BnHJaSkWXmtWJbMt8+MuVpImios
-         zKjjGLdYsD3x/v4FV3UhWFhHTLaTIHFNTW50pPcJZwY/8rD6zvr5PjIer+X1ILBgBLE3
-         8NVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689433291; x=1692025291;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2UCzvviqLaht1enidoVBHlz8q/RmZyOnwjkKU4rZlbI=;
-        b=Z0fDj7F19aVCmZYB0YrZ7X96fL2C25RJew2lwysRC9r0CL6dnz10zmyQDf6BVq6U9M
-         /6S8MYEKJHrqgcpKs+rU31eu6Kb+l3VpDCNJn1he8ylvA+4N7aH1DtQ+ZQYjagvNYZAd
-         21RyY+q2/r7sLTsd6smkJHNKUkDN/jO1TzeuHafbATe6MGsfwtjLif9XMck7oW1qK7wB
-         84f4CeeglJnnSpn5YjU7/RGxxKU3QYNKzI3PgtO851k7yAKmmAFkT7OyA/3NWA6w76YZ
-         KVmf3+vHW/5xhvGPQ2BFlyGs8fLHnOySTlQ95hhmUcNoMl9ZSsEjAkNH4dPjAfUt2V2c
-         v6NA==
-X-Gm-Message-State: ABy/qLYg4WFtjgzMVRsmYvnxjAhuPMOVbFIqihhDHZYdimQW8MhFfAjk
-	8hGvqlo1SFA7vjPFlFcEY0B3vBcIIpgv1oNfLdCSw6y0ifpV+bu06P6Jct2HNMnnl0k7Jjdmfap
-	xGLvtMXZI8iXRewYdjUS5fEiF0BCSgqWpaG6BEkEI9CIUbl///OH43J0T5eIqHv4Vpc7ui1/XZQ
-	wBF4Cjy+YHRD4c
-X-Google-Smtp-Source: APBJJlFYPKocV2zT5SEHFTeQcJcJM0iyiUO6rDqMYENRz0C1B0Dd1bZNm+TpjYTSv7u413kjLaCHCA==
-X-Received: by 2002:a17:90a:13c6:b0:262:cef9:84f6 with SMTP id s6-20020a17090a13c600b00262cef984f6mr6575423pjf.22.1689433291445;
-        Sat, 15 Jul 2023 08:01:31 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id a28-20020a63705c000000b00528513c6bbcsm9356535pgn.28.2023.07.15.08.01.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Jul 2023 08:01:30 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com
-Cc: vineetg@rivosinc.com,
-	bjorn@kernel.org,
-	greentime.hu@sifive.com,
-	paul.walmsley@sifive.com,
-	guoren@linux.alibaba.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	heiko.stuebner@vrull.eu,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [v1, 6/6] riscv: vector: enable preemptive kernel-mode Vector to be built
-Date: Sat, 15 Jul 2023 15:00:32 +0000
-Message-Id: <20230715150032.6917-7-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20230715150032.6917-1-andy.chiu@sifive.com>
-References: <20230715150032.6917-1-andy.chiu@sifive.com>
+	id 1qKiWU-009Aro-1g;
+	Sat, 15 Jul 2023 16:53:35 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0086160BC3;
+	Sat, 15 Jul 2023 16:53:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E45F0C433C8;
+	Sat, 15 Jul 2023 16:53:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689440012;
+	bh=2Q4FCDoenbmD/VhiBVMa5udzbl7nfKdi1+C2wdvn1O0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KGFJejuQEStcUADchTg9oWaT+ZuWLuTpi4HLb3Op7RAslZMX2tJ3LWVkhFtyi0v8C
+	 UgVxYMhhAPoJCfCUaYcatC6Yfas9V4+xwGhklnavAdjnk/Rl4Ab+hgZM6TxRfeyUyV
+	 ThGax002RCYNwEpzElSo1VimTuqHfL8TTYQk/jSQap0Yn6++SdQ5ny9z0LHwYo3FdC
+	 vffxqAxdGlr1Xe5jo7AM2rv4qWFHvquiD3cAd5crQFy+EzbDyTLx+e6S4FFlAKE5pL
+	 0+o28xIlcXV6azxJp+qbLkW/17I3yEFetA7VD4arf/orfXfQh+GG5pQ0VUUM5c8awC
+	 IoWiUm7qcWqDg==
+Date: Sat, 15 Jul 2023 17:53:19 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>,
+ linux-iio@vger.kernel.org, Maksim Kiselev <bigunclemax@gmail.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
+ <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp
+ Zabel <p.zabel@pengutronix.de>, Cristian Ciocaltea
+ <cristian.ciocaltea@collabora.com>, Andre Przywara
+ <andre.przywara@arm.com>, Andy Shevchenko <andy.shevchenko@gmail.com>,
+ Cosmin Tanislav <demonsingur@gmail.com>, AngeloGioacchino Del Regno       
+  <angelogioacchino.delregno@collabora.com>, Hugo Villeneuve
+ <hvilleneuve@dimonoff.com>, Arnd Bergmann <arnd@arndb.de>, Leonard
+ =?UTF-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>, ChiYuan Huang
+ <cy_huang@richtek.com>, Ramona Bolboaca <ramona.bolboaca@analog.com>,
+ Ibrahim Tilki <Ibrahim.Tilki@analog.com>, ChiaEn Wu
+ <chiaen_wu@richtek.com>, William Breathitt Gray <william.gray@linaro.org>,
+ Haibo Chen <haibo.chen@nxp.com>, Mike Looijmans <mike.looijmans@topic.nl>,
+ Quentin Schulz <quentin.schulz@free-electrons.com>, Maxime Ripard
+ <mripard@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 1/4] iio: adc: Kconfig change description for
+ Allwinner GPADC
+Message-ID: <20230715175319.1ea7f2c1@jic23-huawei>
+In-Reply-To: <b3723443-2a27-0a51-babd-b36eef095913@linaro.org>
+References: <20230619154252.3951913-1-bigunclemax@gmail.com>
+	<20230619154252.3951913-2-bigunclemax@gmail.com>
+	<2148594.irdbgypaU6@jernej-laptop>
+	<b3723443-2a27-0a51-babd-b36eef095913@linaro.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230715_080132_988747_601889BF 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230715_095334_619517_9471C0B2 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,47 +93,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a Kconfig to let user decides whether kernel-mode Vector in a
-preemptive kernel should also run with preemption. If the config is 'N',
-then all kernel-mode Vector code are run with preemption disabled.
-
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
----
- arch/riscv/Kconfig | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a9e8b697fefb..da6a45ea42ec 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -500,6 +500,16 @@ config RISCV_ISA_V_DEFAULT_ENABLE
- 
- 	  If you don't know what to do here, say Y.
- 
-+config RISCV_ISA_V_PREEMPTIVE_KMV
-+	bool "Run kernel-mode Vector with kernel preemption"
-+	depends on PREEMPTION
-+	depends on RISCV_ISA_V
-+	default y
-+	help
-+	  Ordinarily the kernel disables preemption before running in-kernel
-+	  Vector code. This config frees the kernel from disabling preemption
-+	  by adding meory on demand for tracking kernel's V-context.
-+
- config TOOLCHAIN_HAS_ZBB
- 	bool
- 	default y
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAxMiBKdWwgMjAyMyAwNzozNzozOCArMDIwMApLcnp5c3p0b2YgS296bG93c2tpIDxr
+cnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+IHdyb3RlOgoKPiBPbiAxMS8wNy8yMDIzIDIw
+OjE0LCBKZXJuZWogxaBrcmFiZWMgd3JvdGU6Cj4gPiBEbmUgcG9uZWRlbGplaywgMTkuIGp1bmlq
+IDIwMjMgb2IgMTc6NDI6MjQgQ0VTVCBqZSBNYWtzaW0gS2lzZWxldiBuYXBpc2FsKGEpOiAgCj4g
+Pj4gVGhpcyBwYXRjaCBhZGRzIFNvQ3MgbmFtZXMgdG8gQWxsd2lubmVyIEdQQURDIGRlc2NyaXB0
+aW9uIHRvCj4gPj4gbWFrZSBpdCBtb3JlIGluZm9ybWF0aXZlLiAgCj4gPiAKPiA+IFBsZWFzZSBy
+ZXdvcmQgdG8gcmVtb3ZlICJUaGlzIHBhdGNoIi4KPiA+ICAgCj4gPj4KPiA+PiBGaXhlczogZDFj
+YWE5OTA1NTM4ICgiaWlvOiBhZGM6IGFkZCBzdXBwb3J0IGZvciBBbGx3aW5uZXIgU29DcyBBREMi
+KSAgCj4gPiAKPiA+IEknbSBmaW5lIHdpdGggdGhlIHBhdGNoIGluIGdlbmVyYWwsIGJ1dCBkb2Vz
+IHRoaXMgcmVhbGx5IHdhcnJhbnQgZml4ZXMgdGFnPwo+ID4gICAKPiAKPiBObywgaXQncyBzb21l
+IGZha2UgZml4LiBUaGVyZSBpcyBubyBidWcgaGVyZS4KPiAKPiBCZXN0IHJlZ2FyZHMsCj4gS3J6
+eXN6dG9mCj4gCgpEcm9wcGVkIHRoZSB0YWcuCgpUaGFua3MgZm9yIHBvaW50aW5nIHRoaXMgb3V0
+LgoKSm9uYXRoYW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
