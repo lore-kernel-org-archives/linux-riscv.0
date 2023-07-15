@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1002BC001DE
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 13:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856B5C0015E
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 13:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tCB2UAPdZ8HztyFz6hcbXsVI5l3AAyu8wsGA6hQcKNo=; b=DTAPeJmXwbz3GA
-	mUkxoVjEi2Rb5H29bx62WVoG/o/s/2Siv/mb0FnEAk6YKlIdEjef+/2/WW8knqAmzcVEWOU0ttBSW
-	szN1WlEF8ONa+Hw516FQsYZPOF5TzdmY8cWxqmnV0Wo+IW3BmmLh10/zDbY3UZvAkX154K2OJosIc
-	pVDnKWtQ4UGbxXS2U/dIu+h00vHFUgez+CrBYkAKUX8bD3Xy/5aPVxzR6TZbA+2mKh6qlpS02pNfl
-	kFNRwyI1Wws8XMfnjkcPb3f2GsW0aD9rNBjqe/PQzFJMwaF+T4Ii+PW4hkmLFCpc9KXc/b/W9jq7a
-	eLuMh4fAmmWmI60liSXw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SO7PZ+tTti9TlQ6gPtiwMoRlI8Drzztb898Uq60GhKc=; b=zoblwdNcIafHXn
+	tmLbhfuPhys30WY16GwaeMZj30s7TVBV/fd12dXh45o15vCVGJMCS/9DBb4bZ1TftwZB5/3QQi5Yu
+	fWkK5PWDb0oF1nWvVueNNkXAcRe61wMwp1FkK4Rhswxv1FbefylvgSF8C/LbhvnQ8t8TkErFq6qeY
+	Umd6/5UlnACMNiR7Epa/cab3Nq8UX9iF/7xjqW0fstkh/RFRZK+Gp/MoAjF7pCQHf4Ux3KYzFZ2VB
+	CV6w+gQuImCR1j6osACVPxfiofZYYHFlP25wUGI4JCNfqe9vO1Aw9Pwbj+TAf/Sv0S9dlWRIqMhl2
+	HktTu8Eep1O5HpffLn3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKfb4-008s5R-1l;
-	Sat, 15 Jul 2023 13:46:06 +0000
+	id 1qKfb7-008s6N-0Y;
+	Sat, 15 Jul 2023 13:46:09 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKfb1-008s4K-22
+	id 1qKfb2-008s4h-2G
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Jul 2023 13:46:04 +0000
+	Sat, 15 Jul 2023 13:46:05 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7A1F160A48;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 26A3360B86;
+	Sat, 15 Jul 2023 13:46:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60112C433CB;
 	Sat, 15 Jul 2023 13:46:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4836C433C7;
-	Sat, 15 Jul 2023 13:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689428760;
-	bh=q3/lU563XIc7l/7Z2Yw3lHNNvfkKn0JinKWbDxKVmso=;
-	h=From:To:Cc:Subject:Date:From;
-	b=b2xZq4nN1CppL9khriVnqpmsiHNeJRTXTF1PuBKU9mll18/A2WgoWV7gBGwF2E2pn
-	 Q8MotO6Vbs8zcKWsIq3taYPpH2csKD//dUChWHKpRw+lrNAw3cG5fH3OHzGDjMBOcr
-	 OM2NC+rG6GHVzwv8Mi+oX97ca9haFZheUED4cBAQdl/4F8BGunGMxyrG7E/Z4VOod4
-	 rvTeNh/5+9lJ9PA6I5aQdNJF6J1uZBuFCB8h4bzJW4pgMT04bWp+AEodm/YGJ2cTQ0
-	 pltG9vbma/1ywI9Io06hGHZ7fPbes3N4YuBGrKxFuDqzrD3za6icLusMWS3qr7/Wb3
-	 waUggRQIRIlZw==
+	s=k20201202; t=1689428763;
+	bh=Z6IXikB2xTgV8aYzF3GbO/0brO1/H9AkrMucoZoD3Ik=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=t8RkxRTlJ15k4v+MjMu0jzuGCrNDCMTt5XSbdm+0/caeiQpPODQh7DnFoficDzxEX
+	 X/BOiOQC+KFSDvSpqnhC6RnWmhRprvJVMsqWD2u4IRO2yhNOPxWBhzBukbQw70tM5+
+	 p11YHT1ZOLA+mrJu067BFoqLna4RAuUj2n02POOBVY8T6chyW9SkITux56S4UhD/wL
+	 Z9b5Hm2P/720IHBEe6Z6ODBtwSrM9nwiQ36InXVp445ngTUjx0SUF9y7Em+lJX5HDs
+	 WQANHaIl4RXLqfvhMFqUnAHWA//pEQXr2RI+62ADB4WPl/DKYzMMoe6H3wq6fJtxa7
+	 2QOqTbUNK9X4w==
 From: guoren@kernel.org
 To: guoren@kernel.org,
 	palmer@rivosinc.com,
@@ -57,15 +57,16 @@ Cc: linux-arch@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	stable@vger.kernel.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH 0/2] riscv: stack: Fixup independent softirq/irq stack for CONFIG_FRAME_POINTER=n
-Date: Sat, 15 Jul 2023 09:45:50 -0400
-Message-Id: <20230715134552.3437933-1-guoren@kernel.org>
+Subject: [PATCH 1/2] riscv: stack: Fixup independent irq stack for CONFIG_FRAME_POINTER=n
+Date: Sat, 15 Jul 2023 09:45:51 -0400
+Message-Id: <20230715134552.3437933-2-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20230715134552.3437933-1-guoren@kernel.org>
+References: <20230715134552.3437933-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230715_064603_714642_5D48FB76 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230715_064604_778544_8F463B20 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +85,31 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-The independent softirq/irq stack uses s0 to save & restore sp, but s0
-would be corrupted when CONFIG_FRAME_POINTER=n. So add s0 in the clobber
-list to fix the problem.
+The independent irq stack uses s0 to save & restore sp, but s0 would be
+corrupted when CONFIG_FRAME_POINTER=n. So add s0 in the clobber list to
+fix the problem.
 
-<+0>:     addi    sp,sp,-32
-<+2>:     sd      s0,16(sp)
-<+4>:     sd      s1,8(sp)
-<+6>:     sd      ra,24(sp)
-<+8>:     sd      s2,0(sp)
-<+10>:    mv      s0,a0		--> compiler allocate s0 for a0 when CONFIG_FRAME_POINTER=n
-<+12>:    jal     ra,0xffffffff800bc0ce <irqentry_enter>
-<+16>:    ld      a5,56(tp) # 0x38
-<+20>:    lui     a4,0x4
-<+22>:    mv      s1,a0
-<+24>:    xor     a5,a5,sp
-<+28>:    bgeu    a5,a4,0xffffffff800bc092 <do_irq+88>
-<+32>:    auipc   s2,0x5d
-<+36>:    ld      s2,1118(s2) # 0xffffffff801194b8 <irq_stack_ptr>
-<+40>:    add     s2,s2,a4
-<+42>:    addi    sp,sp,-8
-<+44>:    sd      ra,0(sp)
-<+46>:    addi    sp,sp,-8
-<+48>:    sd      s0,0(sp)
-<+50>:    addi    s0,sp,16	--> our code clobber the s0
-<+52>:    mv      sp,s2
-<+54>:    mv      a0,s0		--> a0 got wrong value for handle_riscv_irq 
-<+56>:    jal     ra,0xffffffff800bbb3a <handle_riscv_irq>
-
-Guo Ren (2):
-  riscv: stack: Fixup independent irq stack for CONFIG_FRAME_POINTER=n
-  riscv: stack: Fixup independent softirq stack for
-    CONFIG_FRAME_POINTER=n
-
- arch/riscv/kernel/irq.c   | 2 +-
+Fixes: 163e76cc6ef4 ("riscv: stack: Support HAVE_IRQ_EXIT_ON_IRQ_STACK")
+Reported-by: Zhangjin Wu <falcon@tinylab.org>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
  arch/riscv/kernel/traps.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index f910dfccbf5d..f75d97de518a 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -371,7 +371,7 @@ asmlinkage void noinstr do_irq(struct pt_regs *regs)
+ 		:
+ 		: [sp] "r" (sp), [regs] "r" (regs)
+ 		: "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7",
+-		  "t0", "t1", "t2", "t3", "t4", "t5", "t6",
++		  "t0", "t1", "t2", "t3", "t4", "t5", "t6", "s0",
+ 		  "memory");
+ 	} else
+ #endif
 -- 
 2.36.1
 
