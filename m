@@ -4,76 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E3E1EB64DC
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 01:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EEA3C001DF
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 02:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aiqxUDcQFFhj7PhYqA9zk6t6DxTer1g5ymDSPdfVV2g=; b=PWRd4OXggS9yE/
-	u73rjLu2QlS00ivbtfptTZJqzMTnnKNaszAldLEVkZrrjlrUkwHhyTlQrBWy0p5O/Sf5ay6NKHnl1
-	hfRHIRebYV/V71fjKCiOcMb1aE5fdjk0/OkQCEQfrIB9PHE/pt98RFz6KhvmKuAFEgKASqWI2BrVu
-	oXDWIwqRRO5bLBWBTJVal3Wr/FQS1mBsuE3CfgkiOnwh1FXM17zdl4IFuUutcGY9E5UTzsjfzTcq6
-	hJeu2IJSkSKdtRU22D/1IdouhvMDoBfwDKwZpNTS9blVQj3wRcmAj8zKTI2ayJOEmhpqyjCXl0Mb3
-	1JqDb2u3I6iFSb/B/8xQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=yHXJoCtexAPn59WSkWCGhBt6er6Q7SrRLEpj6CPSVb8=; b=BHGjMG8zKYXK9b8An2mB0S+C9j
+	AWpSjFrkJqrJeoGFEIUH+6rZTEjujWfpQzCaa/LLaObvaGtDpbh/3g+l/tK74HRClYAU5UxrPZoSP
+	QPZci6vySmhaXwGKleFPR2av3n5V2ioHzAHDt9SsB14MFhA9wZgHzt9CzK/5rRVwcoonMH6mZwBmU
+	RCcwT2XCOFAEik3qC3IGqoXeWloBzL3xrmrx0gbxYPPWN9aiYdoqdL3Qu9n5FDL/WUjovzDFi4WsT
+	U+SAj0Id3Or57fS7m7686wNNnEmJERywxomvL7UVaIUpk9xhqWkJrYHEUH53b+XvytW9H1FFppp/R
+	SY3G6QSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKUUq-007fjV-2G;
-	Sat, 15 Jul 2023 01:54:56 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1qKUad-007gHk-0v;
+	Sat, 15 Jul 2023 02:00:55 +0000
+Received: from mail-ot1-x349.google.com ([2607:f8b0:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKUUm-007fgR-2W;
-	Sat, 15 Jul 2023 01:54:54 +0000
-Received: from dggpemm500001.china.huawei.com (unknown [172.30.72.56])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4R2rx46ZcYzhYcy;
-	Sat, 15 Jul 2023 09:54:00 +0800 (CST)
-Received: from [10.174.177.243] (10.174.177.243) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Sat, 15 Jul 2023 09:54:38 +0800
-Message-ID: <153b94dc-d003-fe81-eef4-332ece878af0@huawei.com>
-Date: Sat, 15 Jul 2023 09:54:38 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.1
-Subject: Re: [PATCH rfc -next 01/10] mm: add a generic VMA lock-based page
- fault handler
-Content-Language: en-US
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: Suren Baghdasaryan <surenb@google.com>, Matthew Wilcox
-	<willy@infradead.org>
-CC: <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>, Russell
- King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
-	<kernel@xen0n.name>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
-	<npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
-	<svens@linux.ibm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Andy
- Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, <x86@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>
-References: <20230713095339.189715-1-wangkefeng.wang@huawei.com>
- <20230713095339.189715-2-wangkefeng.wang@huawei.com>
- <ZLAjFQGgcjt4ykS7@casper.infradead.org>
- <CAJuCfpGBaAJof=5-Xh1saoN9dhOauMiHBZzb0crVNn9OyOeZHw@mail.gmail.com>
- <6f06f7d5-7d84-815e-699b-eef684e014b0@huawei.com>
-In-Reply-To: <6f06f7d5-7d84-815e-699b-eef684e014b0@huawei.com>
-X-Originating-IP: [10.174.177.243]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
+	id 1qKTY5-007a8J-2d
+	for linux-riscv@lists.infradead.org;
+	Sat, 15 Jul 2023 00:54:18 +0000
+Received: by mail-ot1-x349.google.com with SMTP id 46e09a7af769-6b9bf7074d4so1364023a34.0
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 17:54:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1689382452; x=1689987252;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MXSjPU/svtXcQS5ot6a1McSJXmsJ4Jr5KFunceM6E60=;
+        b=CFqVOkdVMvikuunMkGCiooa5wnUp6HP3ayIn0UAnXoVWMiTCsEs9mGApZcd30nNAi8
+         hsPfynYBVpUDCXieQdVorq2is+M/lVbhsgM1T01beIEo4j9iE6skMHTbQ1k3VSnfRF/X
+         iSkmM51QJ5EYlxLneHya6UY83mesjlFueZT6ZwnUdtRzA0ivlTCt3uwgTdb4bQTaNE2t
+         av4IwO9GbjqZMJ3BXQMOnVJasQ8hOBAEV0SAaoscijB4pqBb8yIC8Rfm/4GbZQ2KZaNA
+         eGrpMHfv21G82nzmbVO4PcqtomvHYQDY9ymd1SQ7++gSEsSCEqHsdQTTLFoeqyKHc2nX
+         BMDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689382452; x=1689987252;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MXSjPU/svtXcQS5ot6a1McSJXmsJ4Jr5KFunceM6E60=;
+        b=AeE/JjsE6DeCmEDXtZT4dqINB3upkC2Sr4xVWoqMytNYUmin4ReWuZpRhS4HHD1Gfc
+         p3pUTgushK/41U/pDsdfPHcoOKal1wBYIBOyLu+MQyZV+fVMQ80P7uIUc0obh62ntWGA
+         TYwRC+z+Xt/ZkH6qTnXdfrM7B3muJtFNNNM3kznVBeK8nKYsYpnI0NnTQ5lxCanUg2dd
+         MlvMii3SC4OB4FnaWUvdFCvn8dISXkywB3SpiEcOqwSmV/467Vzo8/YBg5MrHN8pcW/S
+         s9vjHa2Rjh/4eYKsW4h5lHwwcZ/yx/fAq1ILfiwFV+w4LKUxN7DtxDkVhzJqU8x0wOzD
+         x6Mw==
+X-Gm-Message-State: ABy/qLaufGBO0178e61jQ+Ru8cTlNuckpu1wzB/WXw4g6L53lr04QJRa
+	1OWIOEdkb8h3pA/X2ZIYjGtP+kNXVqnl
+X-Google-Smtp-Source: APBJJlFLy2UEg25qDMciFPz6SaFOG1vg+dNM/dIqR0Aaao9Su4G3l6UDpJUonGz/hoa1CJGkfb2oCBXuZX7P
+X-Received: from rananta-linux.c.googlers.com ([fda3:e722:ac3:cc00:2b:ff92:c0a8:22b5])
+ (user=rananta job=sendgmr) by 2002:a05:6830:6a17:b0:6b7:5691:bdaa with SMTP
+ id cz23-20020a0568306a1700b006b75691bdaamr3526210otb.1.1689382452378; Fri, 14
+ Jul 2023 17:54:12 -0700 (PDT)
+Date: Sat, 15 Jul 2023 00:53:56 +0000
+In-Reply-To: <20230715005405.3689586-1-rananta@google.com>
+Mime-Version: 1.0
+References: <20230715005405.3689586-1-rananta@google.com>
+X-Mailer: git-send-email 2.41.0.455.g037347b96a-goog
+Message-ID: <20230715005405.3689586-3-rananta@google.com>
+Subject: [PATCH v6 02/11] KVM: arm64: Use kvm_arch_flush_remote_tlbs()
+From: Raghavendra Rao Ananta <rananta@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Jing Zhang <jingzhangos@google.com>, Colton Lewis <coltonlewis@google.com>, 
+	Raghavendra Rao Anata <rananta@google.com>, David Matlack <dmatlack@google.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, Zenghui Yu <zenghui.yu@linux.dev>, Gavin Shan <gshan@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_185453_219679_7F586980 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20230714_175413_858208_EC6206EC 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,62 +92,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDIzLzcvMTQgOTo1MiwgS2VmZW5nIFdhbmcgd3JvdGU6Cj4gCj4gCj4gT24gMjAyMy83
-LzE0IDQ6MTIsIFN1cmVuIEJhZ2hkYXNhcnlhbiB3cm90ZToKPj4gT24gVGh1LCBKdWwgMTMsIDIw
-MjMgYXQgOToxNeKAr0FNIE1hdHRoZXcgV2lsY294IDx3aWxseUBpbmZyYWRlYWQub3JnPiAKPj4g
-d3JvdGU6Cj4+Pgo+Pj4+ICtpbnQgdHJ5X3ZtYV9sb2NrZWRfcGFnZV9mYXVsdChzdHJ1Y3Qgdm1f
-bG9ja2VkX2ZhdWx0ICp2bWxmLCAKPj4+PiB2bV9mYXVsdF90ICpyZXQpCj4+Pj4gK3sKPj4+PiAr
-wqDCoMKgwqAgc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWE7Cj4+Pj4gK8KgwqDCoMKgIHZtX2Zh
-dWx0X3QgZmF1bHQ7Cj4+Pgo+Pj4KPj4+IE9uIFRodSwgSnVsIDEzLCAyMDIzIGF0IDA1OjUzOjI5
-UE0gKzA4MDAsIEtlZmVuZyBXYW5nIHdyb3RlOgo+Pj4+ICsjZGVmaW5lIFZNX0xPQ0tFRF9GQVVM
-VF9JTklUKF9uYW1lLCBfbW0sIF9hZGRyZXNzLCBfZmF1bHRfZmxhZ3MsIAo+Pj4+IF92bV9mbGFn
-cywgX3JlZ3MsIF9mYXVsdF9jb2RlKSBcCj4+Pj4gK8KgwqDCoMKgIF9uYW1lLm1twqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgID0gX21tO8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAgXAo+Pj4+ICvCoMKgwqDCoCBfbmFtZS5hZGRyZXNzwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-PSBfYWRkcmVzczvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgXAo+Pj4+ICvCoMKgwqDCoCBfbmFt
-ZS5mYXVsdF9mbGFnc8KgwqDCoMKgwqDCoCA9IF9mYXVsdF9mbGFnczvCoMKgwqDCoMKgwqDCoMKg
-IFwKPj4+PiArwqDCoMKgwqAgX25hbWUudm1fZmxhZ3PCoMKgwqDCoMKgwqDCoMKgwqAgPSBfdm1f
-ZmxhZ3M7wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+Pj4gK8KgwqDCoMKgIF9uYW1lLnJlZ3PC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA9IF9yZWdzO8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCBcCj4+Pj4gK8KgwqDCoMKgIF9uYW1lLmZhdWx0X2NvZGXCoMKgwqDCoMKgwqDCoCA9
-IF9mYXVsdF9jb2RlCj4+Pgo+Pj4gTW9yZSBjb25zb2xpZGF0ZWQgY29kZSBpcyBhIGdvb2QgaWRl
-YTsgbm8gcXVlc3Rpb24uwqAgQnV0IEkgZG9uJ3QgdGhpbmsKPj4+IHRoaXMgaXMgdGhlIHJpZ2h0
-IHdheSB0byBkbyBpdC4KPiAKPiBJIGFncmVlIGl0IGlzIG5vdCBnb29kIGVub3VnaCwgYnV0IHRo
-ZSBhcmNoJ3Mgdm1hIGNoZWNrIGFjZXNzIGhhcwo+IGRpZmZlcmVudCBpbXBsZW1lbnRhdGlvbiwg
-c29tZSB1c2Ugdm0gZmxhZ3MsIHNvbWUgbmVlZCBmYXVsdCBjb2RlIGFuZAo+IHJlZ3MsIGFuZCBz
-b21lIHVzZSBib3RoIDooCj4gCj4+Pgo+Pj4+ICtpbnQgX193ZWFrIGFyY2hfdm1hX2NoZWNrX2Fj
-Y2VzcyhzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBzdHJ1Y3Qgdm1fbG9ja2Vk
-X2ZhdWx0ICp2bWxmKTsKPj4+Cj4+PiBUaGlzIHNob3VsZCBiZToKPj4+Cj4+PiAjaWZuZGVmIHZt
-YV9jaGVja19hY2Nlc3MKPj4+IGJvb2wgdm1hX2NoZWNrX2FjY2VzcyhzdHJ1Y3Qgdm1fYXJlYV9z
-dHJ1Y3QgKnZtYSwgKQo+Pj4gewo+Pj4gwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gKHZtYS0+dm1f
-ZmxhZ3MgJiB2bV9mbGFncykgPT0gMDsKPj4+IH0KPj4+ICNlbmRpZgo+Pj4KPj4+IGFuZCB0aGVu
-IGFyY2hlcyB3aGljaCB3YW50IHRvIGRvIHNvbWV0aGluZyBkaWZmZXJlbnQgY2FuIGp1c3QgZGVm
-aW5lCj4+PiB2bWFfY2hlY2tfYWNjZXNzLgo+IAo+IE9rLCBJIGNvdWxkIGNvbnZlcnQgdG8gdXNl
-IHRoaXMgd2F5Lgo+IAo+Pj4KPj4+PiAraW50IHRyeV92bWFfbG9ja2VkX3BhZ2VfZmF1bHQoc3Ry
-dWN0IHZtX2xvY2tlZF9mYXVsdCAqdm1sZiwgCj4+Pj4gdm1fZmF1bHRfdCAqcmV0KQo+Pj4+ICt7
-Cj4+Pj4gK8KgwqDCoMKgIHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hOwo+Pj4+ICvCoMKgwqDC
-oCB2bV9mYXVsdF90IGZhdWx0Owo+Pj4KPj4+IERlY2xhcmluZyB0aGUgdm1mIGluIHRoaXMgZnVu
-Y3Rpb24gYW5kIHRoZW4gY29weWluZyBpdCBiYWNrIGlzIGp1c3QgCj4+PiB3cm9uZy4KPj4+IFdl
-IG5lZWQgdG8gZGVjbGFyZSB2bV9mYXVsdF90IGVhcmxpZXIgKGluIHRoZSBhcmNoIGZhdWx0IGhh
-bmRsZXIpIGFuZAo+Pj4gcGFzcyBpdCBpbi4KPiAKPiBBY3R1YWxseSBJIHBhc3NlZCB0aGUgdm1f
-ZmF1bHRfdCAqcmV0KGluIHRoZSBhcmNoIGZhdWx0IGhhbmRsZXIpLCB3ZQo+IGNvdWxkIGRpcmVj
-dGx5IHVzZSAqcmV0IGluc3RlYWQgb2YgYSBuZXcgbG9jYWwgdmFyaWFibGUsIGFuZCBubyBjb3B5
-Lgo+Pgo+PiBEaWQgeW91IG1lYW4gdG8gc2F5ICJ3ZSBuZWVkIHRvIGRlY2xhcmUgdm1mIChzdHJ1
-Y3Qgdm1fZmF1bHQpIGVhcmxpZXIKPj4gKGluIHRoZSBhcmNoIGZhdWx0IGhhbmRsZXIpIGFuZCBw
-YXNzIGl0IGluLiIgPwoKQWZ0ZXIgcmVjaGVjayB0aGUgY29kZSwgSSB0aGluayBNYXR0aGV3JyBp
-ZGVhIGlzICdkZWNsYXJlIHZtZiAoc3RydWN0IAp2bV9mYXVsdCkgZWFybGllcicgbGlrZSBTdXJl
-biBzYWlkLCBub3Qgdm1fZmF1bHRfdCwgcmlnaHQ/IHdpbGwgdHJ5IAp0aGlzLCB0aGFua3MuCgo+
-Pgo+Pj4gwqAgSSBkb24ndCB0aGluayB0aGF0IGNyZWF0aW5nIHN0cnVjdCB2bV9sb2NrZWRfZmF1
-bHQgaXMgdGhlCj4+PiByaWdodCBpZGVhIGVpdGhlci4KPiAKPiBBcyBtZW50aW9uZWQgYWJvdmUg
-Zm9yIHZtYSBjaGVjayBhY2Nlc3MsIHdlIG5lZWQgbWFueSBhcmd1bWVudHMgZm9yIGEgCj4gZnVu
-Y3Rpb24sIGEgbmV3IHN0cnVjdCBsb29rcyBwb3NzaWJsZSBiZXR0ZXIsIGlzIHRoZXJlIGJldHRl
-ciBzb2x1dGlvbgo+IG9yIGFueSBzdWdnZXN0aW9uPwo+IAo+IFRoYW5rcy4KPiAKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: David Matlack <dmatlack@google.com>
+
+Use kvm_arch_flush_remote_tlbs() instead of
+CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL. The two mechanisms solve the same
+problem, allowing architecture-specific code to provide a non-IPI
+implementation of remote TLB flushing.
+
+Dropping CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL allows KVM to standardize
+all architectures on kvm_arch_flush_remote_tlbs() instead of maintaining
+two mechanisms.
+
+Opt to standardize on kvm_arch_flush_remote_tlbs() since it avoids
+duplicating the generic TLB stats across architectures that implement
+their own remote TLB flush.
+
+This adds an extra function call to the ARM64 kvm_flush_remote_tlbs()
+path, but that is a small cost in comparison to flushing remote TLBs.
+
+In addition, instead of just incrementing remote_tlb_flush_requests
+stat, the generic interface would also increment the
+remote_tlb_flush stat.
+
+Signed-off-by: David Matlack <dmatlack@google.com>
+Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+Reviewed-by: Zenghui Yu <zenghui.yu@linux.dev>
+Acked-by: Oliver Upton <oliver.upton@linux.dev>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+---
+ arch/arm64/include/asm/kvm_host.h | 3 +++
+ arch/arm64/kvm/Kconfig            | 1 -
+ arch/arm64/kvm/mmu.c              | 6 +++---
+ virt/kvm/Kconfig                  | 3 ---
+ virt/kvm/kvm_main.c               | 2 --
+ 5 files changed, 6 insertions(+), 9 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 8b6096753740..7281222f24ef 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1111,6 +1111,9 @@ int __init kvm_set_ipa_limit(void);
+ #define __KVM_HAVE_ARCH_VM_ALLOC
+ struct kvm *kvm_arch_alloc_vm(void);
+ 
++#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS
++int kvm_arch_flush_remote_tlbs(struct kvm *kvm);
++
+ static inline bool kvm_vm_is_protected(struct kvm *kvm)
+ {
+ 	return false;
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index f531da6b362e..6b730fcfee37 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -25,7 +25,6 @@ menuconfig KVM
+ 	select MMU_NOTIFIER
+ 	select PREEMPT_NOTIFIERS
+ 	select HAVE_KVM_CPU_RELAX_INTERCEPT
+-	select HAVE_KVM_ARCH_TLB_FLUSH_ALL
+ 	select KVM_MMIO
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select KVM_XFER_TO_GUEST_WORK
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 6db9ef288ec3..0ac721fa27f1 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -161,15 +161,15 @@ static bool memslot_is_logging(struct kvm_memory_slot *memslot)
+ }
+ 
+ /**
+- * kvm_flush_remote_tlbs() - flush all VM TLB entries for v7/8
++ * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
+  * @kvm:	pointer to kvm structure.
+  *
+  * Interface to HYP function to flush all VM TLB entries
+  */
+-void kvm_flush_remote_tlbs(struct kvm *kvm)
++int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
+ {
+-	++kvm->stat.generic.remote_tlb_flush_requests;
+ 	kvm_call_hyp(__kvm_tlb_flush_vmid, &kvm->arch.mmu);
++	return 0;
+ }
+ 
+ static bool kvm_is_device_pfn(unsigned long pfn)
+diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
+index b74916de5183..484d0873061c 100644
+--- a/virt/kvm/Kconfig
++++ b/virt/kvm/Kconfig
+@@ -62,9 +62,6 @@ config HAVE_KVM_CPU_RELAX_INTERCEPT
+ config KVM_VFIO
+        bool
+ 
+-config HAVE_KVM_ARCH_TLB_FLUSH_ALL
+-       bool
+-
+ config HAVE_KVM_INVALID_WAKEUPS
+        bool
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 70e5479797ac..d6b050786155 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -345,7 +345,6 @@ bool kvm_make_all_cpus_request(struct kvm *kvm, unsigned int req)
+ }
+ EXPORT_SYMBOL_GPL(kvm_make_all_cpus_request);
+ 
+-#ifndef CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL
+ void kvm_flush_remote_tlbs(struct kvm *kvm)
+ {
+ 	++kvm->stat.generic.remote_tlb_flush_requests;
+@@ -366,7 +365,6 @@ void kvm_flush_remote_tlbs(struct kvm *kvm)
+ 		++kvm->stat.generic.remote_tlb_flush;
+ }
+ EXPORT_SYMBOL_GPL(kvm_flush_remote_tlbs);
+-#endif
+ 
+ static void kvm_flush_shadow_all(struct kvm *kvm)
+ {
+-- 
+2.41.0.455.g037347b96a-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
