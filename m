@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B0E5C001B0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D08C001E0
 	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 02:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=TbI7sXf8/Du32oIh03vxlQk7YAxPRKireNJ5lK+V5Jg=; b=OKN7+n7BXaYSqZwQON+EMwpEfg
-	Ofr7hkpAWM5raRmuQj1NYwFVFD1pIhGwzQphYEUt4uzMOhKJ+A7s6efzB2YWbDe9BrxLbYRhlgr+A
-	z2JsdLXyqkJ6OjSrYNOWqhC0IZhpq+mekOZYWjvSQU0ccmoAP/gKAb3cMt1c9+nsudQyhdMw2g55j
-	W6EAuxFcqtxM5rvmQJ4egzkz7rzUKKyseRtQQVsQRl2zdTr2abq0CnPNQA8kaIHb3Oqaxqkep4Cen
-	wOwIRieJk2/l8U1BVzFj7ehzp6aOG4xg/+CD1EoDN0zQQE1W7pn2vFbW+wmLSjeuNJma37G/eKd5e
-	2VhQa/mg==;
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=bpboByx6WxIMuRxj6YKt0DoAw/3PnOaJr8s0TV7q/oc=; b=ued
+	xv2zJzIwzfm+yqLoCs6NUG7puBwUxBx/GtJinpSXrpv96F7ZCd8Jy3N0eyG9VX8tF+zRYCnKpnYOK
+	kqnYGBJ7BHrZVLulG1HZWUTixy2xZEV4LAo7rRZq8o68a1ALpRUdh5eJ/S28lH/fpEainyTqaOuR1
+	S7sQMkVOtOFwPCj7kdx3ADvLQ5dAUtYsr0nWry7ihLzrEfLql4/EMkyEY9gz3GLGBV7y3NKdU/qpL
+	7DnGrAeZe8p3+MhKXemzlUEAF34+1m2m09gRUfdtEt6u62MGKGrJuAylh2QEkxJhdkxqKGEjuINcA
+	A0vdq3IZa33E397Q5KEt1lZT48isH/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKUad-007gI1-2k;
-	Sat, 15 Jul 2023 02:00:55 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1qKUac-007gHK-1X;
+	Sat, 15 Jul 2023 02:00:54 +0000
+Received: from mail-oi1-x24a.google.com ([2607:f8b0:4864:20::24a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKTY7-007a9f-1l
+	id 1qKTY3-007a7S-38
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Jul 2023 00:54:18 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-57320c10635so20189087b3.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 17:54:14 -0700 (PDT)
+	Sat, 15 Jul 2023 00:54:16 +0000
+Received: by mail-oi1-x24a.google.com with SMTP id 5614622812f47-3a3df1d46e5so4000144b6e.3
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 17:54:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689382453; x=1689987253;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WL/8letflrdUyrlyVQF85H/ANybjC/FZDEF4uZbqq6U=;
-        b=YVDFqRDQFjjSpZgD+yDd0+SvcfnYZvIm68d0fipWbsts27Blri9IZUegY1gTHk9JLn
-         jW4cOIkHI7T+9t0jnXLUxFTuZO17IqR8lJ6cZXaSpbBldzPtgjsDIh8gJKx+Q5X4q5WY
-         ZPeJbtlH0vB2beRgSMZIMEJ9rm99I7jkv+szOwydpHuY8BG/kmiU0z++M/vX2ikqkedk
-         oaLqutULiyyyTrPh+XolZ6Wg+wDDEoirUIkGO2UNG8Fwk+w94SJmA9G1jANboqPpmGQC
-         SLk94TOF3nNcENDMs73y7DqVrLGQulUm5QIb9no511Uazy0Gh8YgK2tpMEaTmnUm1hja
-         FFGA==
+        d=google.com; s=20221208; t=1689382450; x=1689987250;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fi+TwRqHTqTHaY4uhx8GFr/g2CT/sHva523JfrUN8no=;
+        b=Rl7X15zVroDB0ax0MJN2lZBc/WPRpLpDMUM7EuyisoyXekMEHnmY8kblO437Stldob
+         NRQ13DeHVXcnT/uGF5FjR2omWPA47JdtZJROchOq4bdpe9F3S/Qn0fUysQUwn2n/AlAn
+         q+ayvcztcaK8mcrKvxZVG9fL10ZkKq9O0wsui7dB86tceUFs56QcTIaN6M5TvmB6Zbj8
+         DHk5fsvk2D4C2nnIm/MnFznnti/l2Tj1GMZOUeUdbZ31oO1TMbkPZYxu2AwzNbJZ43CO
+         nzMBbPuwqvJm4bGVJcsgcKT2C7TENxp1oEBpywTZDw1EmdnuhhWZea6El3v6xC6fGLvq
+         NvzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689382453; x=1689987253;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WL/8letflrdUyrlyVQF85H/ANybjC/FZDEF4uZbqq6U=;
-        b=FCT9ENPaasqdjEUN0qXKsTZQgJhqPbtX9wVpzodbnqQ4LsIsCHfwDVv81PI6zskDH3
-         7fSxFDGr1DSzFC8jk5Xaa32rYBSC8wOBYE9nFCnB6LW64X8/F7lX55QtYvWmrEsWGyX0
-         QLMqt5MhKdVNL3+MQUr9EI1qsf0jlJn4n1gQvqDwDuE/YN6lxMLJXqZKtgDBcAuEBkGj
-         jU83Qne8y8Wh2l/wXguJ6Rq3vCuDx+UHgj3gcIQ4ZDE5YAbuQ6o0aVs8tE0QWEbxKEr2
-         U51Uhcj8qEe1qEYCDr3EjH5In9YzfccnU26UNkAPEO2Hhp6DTqY2X3NaIm1K5bsrP2yX
-         1efQ==
-X-Gm-Message-State: ABy/qLZgkVDtkw22YAY3fV8vakSQZHuvBwc6zRPc2/IS510xky6g9gPG
-	Bn+CKecejbzLSjXzTXJ2cErEihIigz5X
-X-Google-Smtp-Source: APBJJlG6pzqEAFBPPKZpzL5h20iHYi06y5msU9Sl0lkkt3fZ5kUVjrD2r7DxfNyZ6tDmAhZp0/UiGX/oO4d3
+        d=1e100.net; s=20221208; t=1689382450; x=1689987250;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fi+TwRqHTqTHaY4uhx8GFr/g2CT/sHva523JfrUN8no=;
+        b=gdMEmipp3t5rvIwaJBgH84LdgQx+rvmpdnWCzCLc3MtQ98S5WzfnZYZsTvO9mGWztY
+         Hw7bRzI7GJ0Ys/2FF0YGNfWFKsCmZ6Or5O5xHcFITGi3DUhIgl/74CV0ry8b5R6SSTbe
+         A7ibnPWLy/90/J0vCJybgbf99sXh5JUJOGEfzOLTZNT+Cv9W+0CHcWfvcB7P5+GLZYu6
+         mVuTXbx0Oe0UJhWWa8DBDXK2/YOawe+Uax/dw8RjKrazRWCedA2TEPy4f2WW4eXxNal8
+         36l8uDEmFc7SGgg87wPrTOrFFyql2LR45BmG/1ph5Hpn3QuYY/wCeChU7R6MRN329S4O
+         DGow==
+X-Gm-Message-State: ABy/qLYAFLGwMQ3pPxc9VI+yq9imp8Mbnf3A6GK1+HGEXg9iSpyNkjIT
+	3mXxwzwIFBvw+qYxJbaUHqJ8+TS45kOt
+X-Google-Smtp-Source: APBJJlEEzQLfcb+JylE9pMUOTTxKo1aYJJPd6a5wJe9I41rw2KLxcTWA8MtWjz+XA/7jf+mrmLrc0y779meX
 X-Received: from rananta-linux.c.googlers.com ([fda3:e722:ac3:cc00:2b:ff92:c0a8:22b5])
- (user=rananta job=sendgmr) by 2002:a81:b302:0:b0:565:a42c:79fe with SMTP id
- r2-20020a81b302000000b00565a42c79femr46926ywh.1.1689382453561; Fri, 14 Jul
- 2023 17:54:13 -0700 (PDT)
-Date: Sat, 15 Jul 2023 00:53:57 +0000
-In-Reply-To: <20230715005405.3689586-1-rananta@google.com>
+ (user=rananta job=sendgmr) by 2002:a05:6808:1520:b0:3a3:a8d1:1aa1 with SMTP
+ id u32-20020a056808152000b003a3a8d11aa1mr8165676oiw.2.1689382450142; Fri, 14
+ Jul 2023 17:54:10 -0700 (PDT)
+Date: Sat, 15 Jul 2023 00:53:54 +0000
 Mime-Version: 1.0
-References: <20230715005405.3689586-1-rananta@google.com>
 X-Mailer: git-send-email 2.41.0.455.g037347b96a-goog
-Message-ID: <20230715005405.3689586-4-rananta@google.com>
-Subject: [PATCH v6 03/11] KVM: Allow range-based TLB invalidation from common code
+Message-ID: <20230715005405.3689586-1-rananta@google.com>
+Subject: [PATCH v6 00/11] KVM: arm64: Add support for FEAT_TLBIRANGE
 From: Raghavendra Rao Ananta <rananta@google.com>
 To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
 	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
@@ -77,10 +74,10 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
 	linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, Gavin Shan <gshan@redhat.com>
+	kvm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_175415_607435_BA657EB0 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20230714_175412_011657_46BD2B63 
+X-CRM114-Status: GOOD (  29.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,134 +94,247 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: David Matlack <dmatlack@google.com>
+In certain code paths, KVM/ARM currently invalidates the entire VM's
+page-tables instead of just invalidating a necessary range. For example,
+when collapsing a table PTE to a block PTE, instead of iterating over
+each PTE and flushing them, KVM uses 'vmalls12e1is' TLBI operation to
+flush all the entries. This is inefficient since the guest would have
+to refill the TLBs again, even for the addresses that aren't covered
+by the table entry. The performance impact would scale poorly if many
+addresses in the VM is going through this remapping.
 
-Make kvm_flush_remote_tlbs_range() visible in common code and create a
-default implementation that just invalidates the whole TLB.
+For architectures that implement FEAT_TLBIRANGE, KVM can replace such
+inefficient paths by performing the invalidations only on the range of
+addresses that are in scope. This series tries to achieve the same in
+the areas of stage-2 map, unmap and write-protecting the pages.
 
-This paves the way for several future features/cleanups:
+As suggested by Oliver in the original v5 of the series [1], I'm
+reposting the series by including v2 of David Matlack's 'KVM: Add a
+common API for range-based TLB invalidation' series [2].
 
- - Introduction of range-based TLBI on ARM.
- - Eliminating kvm_arch_flush_remote_tlbs_memslot()
- - Moving the KVM/x86 TDP MMU to common code.
+Patches 1-4 includes David M.'s patches 1, 2, 6, and 7 from [2].
 
-No functional change intended.
+Patch-5 refactors the core arm64's __flush_tlb_range() to be used by
+other entities.
 
-Signed-off-by: David Matlack <dmatlack@google.com>
-Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
----
- arch/x86/include/asm/kvm_host.h |  3 +++
- arch/x86/kvm/mmu/mmu.c          |  9 ++++-----
- arch/x86/kvm/mmu/mmu_internal.h |  3 ---
- include/linux/kvm_host.h        |  9 +++++++++
- virt/kvm/kvm_main.c             | 13 +++++++++++++
- 5 files changed, 29 insertions(+), 8 deletions(-)
+Patch-6,7 adds a range-based TLBI mechanism for KVM (VHE and nVHE).
 
-diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index a2d3cfc2eb75..08900afbf2ad 100644
---- a/arch/x86/include/asm/kvm_host.h
-+++ b/arch/x86/include/asm/kvm_host.h
-@@ -1804,6 +1804,9 @@ static inline int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
- 		return -ENOTSUPP;
- }
- 
-+#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
-+int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages);
-+
- #define kvm_arch_pmi_in_guest(vcpu) \
- 	((vcpu) && (vcpu)->arch.handling_intr_from_guest)
- 
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index ec169f5c7dce..aaa5e336703a 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -278,16 +278,15 @@ static inline bool kvm_available_flush_remote_tlbs_range(void)
- 	return kvm_x86_ops.flush_remote_tlbs_range;
- }
- 
--void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn,
--				 gfn_t nr_pages)
-+int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages)
- {
- 	int ret = -EOPNOTSUPP;
- 
- 	if (kvm_x86_ops.flush_remote_tlbs_range)
- 		ret = static_call(kvm_x86_flush_remote_tlbs_range)(kvm, start_gfn,
--								   nr_pages);
--	if (ret)
--		kvm_flush_remote_tlbs(kvm);
-+									pages);
-+
-+	return ret;
- }
- 
- static gfn_t kvm_mmu_page_get_gfn(struct kvm_mmu_page *sp, int index);
-diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
-index d39af5639ce9..86cb83bb3480 100644
---- a/arch/x86/kvm/mmu/mmu_internal.h
-+++ b/arch/x86/kvm/mmu/mmu_internal.h
-@@ -170,9 +170,6 @@ bool kvm_mmu_slot_gfn_write_protect(struct kvm *kvm,
- 				    struct kvm_memory_slot *slot, u64 gfn,
- 				    int min_level);
- 
--void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn,
--				 gfn_t nr_pages);
--
- /* Flush the given page (huge or not) of guest memory. */
- static inline void kvm_flush_remote_tlbs_gfn(struct kvm *kvm, gfn_t gfn, int level)
- {
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index e3f968b38ae9..a731967b24ff 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1359,6 +1359,7 @@ int kvm_vcpu_yield_to(struct kvm_vcpu *target);
- void kvm_vcpu_on_spin(struct kvm_vcpu *vcpu, bool yield_to_kernel_mode);
- 
- void kvm_flush_remote_tlbs(struct kvm *kvm);
-+void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages);
- 
- #ifdef KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE
- int kvm_mmu_topup_memory_cache(struct kvm_mmu_memory_cache *mc, int min);
-@@ -1486,6 +1487,14 @@ static inline int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
- }
- #endif
- 
-+#ifndef __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
-+static inline int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm,
-+						   gfn_t gfn, u64 pages)
-+{
-+	return -EOPNOTSUPP;
-+}
-+#endif
-+
- #ifdef __KVM_HAVE_ARCH_NONCOHERENT_DMA
- void kvm_arch_register_noncoherent_dma(struct kvm *kvm);
- void kvm_arch_unregister_noncoherent_dma(struct kvm *kvm);
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index d6b050786155..804470fccac7 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -366,6 +366,19 @@ void kvm_flush_remote_tlbs(struct kvm *kvm)
- }
- EXPORT_SYMBOL_GPL(kvm_flush_remote_tlbs);
- 
-+void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages)
-+{
-+	if (!kvm_arch_flush_remote_tlbs_range(kvm, gfn, pages))
-+		return;
-+
-+	/*
-+	 * Fall back to a flushing entire TLBs if the architecture range-based
-+	 * TLB invalidation is unsupported or can't be performed for whatever
-+	 * reason.
-+	 */
-+	kvm_flush_remote_tlbs(kvm);
-+}
-+
- static void kvm_flush_shadow_all(struct kvm *kvm)
- {
- 	kvm_arch_flush_shadow_all(kvm);
+Patch-8 implements the kvm_arch_flush_remote_tlbs_range() for arm64.
+
+Patch-9 aims to flush only the memslot that undergoes a write-protect,
+instead of the entire VM.
+
+Patch-10 operates on stage2_try_break_pte() to use the range based
+TLBI instructions when collapsing a table entry. The map path is the
+immediate consumer of this when KVM remaps a table entry into a block.
+
+Patch-11 modifies the stage-2 unmap path in which, if the system
+supports
+FEAT_TLBIRANGE, the TLB invalidations are skipped during the page-table.
+walk. Instead it's done in one go after the entire walk is finished.
+
+The series is based off of upstream v6.5-rc1.
+
+The performance evaluation was done on a hardware that supports
+FEAT_TLBIRANGE, on a VHE configuration, using a modified
+kvm_page_table_test.
+The modified version updates the guest code in the ADJUST_MAPPINGS case
+to not only access this page but also to access up to 512 pages
+backwards
+for every new page it iterates through. This is done to test the effect
+of TLBI misses after KVM has handled a fault.
+
+The series captures the impact in the map and unmap paths as described
+above.
+
+$ kvm_page_table_test -m 2 -v 128 -s anonymous_hugetlb_2mb -b $i
+
++--------+------------------------------+------------------------------+
+| mem_sz |    ADJUST_MAPPINGS (s)       |      Unmap VM (s)            |
+|  (GB)  | Baseline | Baseline + series | Baseline | Baseline + series |
++--------+----------|-------------------+------------------------------+
+|   1    |   3.33   |   3.22            | 0.009     | 0.005            |
+|   2    |   7.39   |   7.32            | 0.012     | 0.006            |
+|   4    |  13.49   |  10.50            | 0.017     | 0.008            |
+|   8    |  21.60   |  21.50            | 0.027     | 0.011            |
+|  16    |  57.02   |  43.63            | 0.046     | 0.018            |
+|  32    |  95.92   |  83.26            | 0.087     | 0.030            |
+|  64    | 199.57   | 165.14            | 0.146     | 0.055            |
+| 128    | 423.65   | 349.37            | 0.280     | 0.100            |
++--------+----------+-------------------+----------+-------------------+
+
+$ kvm_page_table_test -m 2 -b 128G -s anonymous_hugetlb_2mb -v $i
+
++--------+------------------------------+
+| vCPUs  |    ADJUST_MAPPINGS (s)       |
+|        | Baseline | Baseline + series |
++--------+----------|-------------------+
+|   1    | 111.44   | 114.63            |
+|   2    | 102.88   |  74.64            |
+|   4    | 134.83   |  98.78            |
+|   8    |  98.81   |  95.01            |
+|  16    | 127.41   |  99.05            |
+|  32    | 105.35   |  91.75            |
+|  64    | 201.13   | 163.63            |
+| 128    | 423.65   | 349.37            |   
++--------+----------+-------------------+
+
+For the ADJUST_MAPPINGS cases, which maps back the 4K table entries to
+2M hugepages, the series sees an average improvement of ~15%. For
+unmapping 2M hugepages, we see a gain of 2x to 3x.
+
+$ kvm_page_table_test -m 2 -b $i
+
++--------+------------------------------+
+| mem_sz |      Unmap VM (s)            |
+|  (GB)  | Baseline | Baseline + series |
++--------+------------------------------+
+|   1    |  0.54    |  0.13             |
+|   2    |  1.07    |  0.25             |
+|   4    |  2.10    |  0.47             |
+|   8    |  4.19    |  0.92             |
+|  16    |  8.35    |  1.92             |
+|  32    | 16.66    |  3.61             |
+|  64    | 32.36    |  7.62             |
+| 128    | 64.65    | 14.39             |   
++--------+----------+-------------------+
+
+The series sees an average gain of 4x when the guest backed by
+PAGE_SIZE (4K) pages.
+
+Other testing:
+ - Booted on x86_64 and ran KVM selftests.
+ - Build tested for MIPS and RISCV architectures against defconfig.
+
+Cc: David Matlack <dmatlack@google.com>
+
+v6:
+Thanks, Gavin for the suggestions:
+- Adjusted the comment on patch-2 to align with the code.
+- Fixed checkpatch.pl warning on patch-5.
+
+v5:
+https://lore.kernel.org/all/20230606192858.3600174-1-rananta@google.com/
+Thank you, Marc and Oliver for the comments
+- Introduced a helper, kvm_tlb_flush_vmid_range(), to handle
+  the decision of using range-based TLBI instructions or
+  invalidating the entire VMID, rather than depending on
+  __kvm_tlb_flush_vmid_range() for it.
+- kvm_tlb_flush_vmid_range() splits the range-based invalidations
+  if the requested range exceeds MAX_TLBI_RANGE_PAGES.
+- All the users in need of invalidating the TLB upon a range
+  now depends on kvm_tlb_flush_vmid_range() rather than directly
+  on __kvm_tlb_flush_vmid_range().
+- stage2_unmap_defer_tlb_flush() introduces a WARN_ON() to
+  track if there's any change in TLBIRANGE or FWB support
+  during the unmap process as the features are based on
+  alternative patching and the TLBI operations solely depend
+  on this check.
+- Corrected an incorrect hunk being present on v4's patch-3.
+- Updated the patches changelog and code comments as per the
+  suggestions.
+
+v4:
+https://lore.kernel.org/all/20230519005231.3027912-1-rananta@google.com/
+Thanks again, Oliver for all the comments
+- Updated the __kvm_tlb_flush_vmid_range() implementation for
+  nVHE to adjust with the modfied __tlb_switch_to_guest() that
+  accepts a new 'bool nsh' arg.
+- Renamed stage2_put_pte() to stage2_unmap_put_pte() and removed
+  the 'skip_flush' argument.
+- Defined stage2_unmap_defer_tlb_flush() to check if the PTE
+  flushes can be deferred during the unmap table walk. It's
+  being called from stage2_unmap_put_pte() and
+  kvm_pgtable_stage2_unmap().
+- Got rid of the 'struct stage2_unmap_data'.
+
+v3:
+https://lore.kernel.org/all/20230414172922.812640-1-rananta@google.com/
+Thanks, Oliver for all the suggestions.
+- The core flush API (__kvm_tlb_flush_vmid_range()) now checks if
+  the system support FEAT_TLBIRANGE or not, thus elimiating the
+  redundancy in the upper layers.
+- If FEAT_TLBIRANGE is not supported, the implementation falls
+  back to invalidating all the TLB entries with the VMID, instead
+  of doing an iterative flush for the range.
+- The kvm_arch_flush_remote_tlbs_range() doesn't return -EOPNOTSUPP
+  if the system doesn't implement FEAT_TLBIRANGE. It depends on
+  __kvm_tlb_flush_vmid_range() to do take care of the decisions
+  and return 0 regardless of the underlying feature support.
+- __kvm_tlb_flush_vmid_range() doesn't take 'level' as input to
+  calculate the 'stride'. Instead, it always assumes PAGE_SIZE.
+- Fast unmap path is eliminated. Instead, the existing unmap walker
+  is modified to skip the TLBIs during the walk, and do it all at
+  once after the walk, using the range-based instructions.
+
+v2:
+https://lore.kernel.org/all/20230206172340.2639971-1-rananta@google.com/
+- Rebased the series on top of David Matlack's series for common
+  TLB invalidation API[1].
+- Implement kvm_arch_flush_remote_tlbs_range() for arm64, by extending
+  the support introduced by [1].
+- Use kvm_flush_remote_tlbs_memslot() introduced by [1] to flush
+  only the current memslot after write-protect.
+- Modified the __kvm_tlb_flush_range() macro to accepts 'level' as an
+  argument to calculate the 'stride' instead of just using PAGE_SIZE.
+- Split the patch that introduces the range-based TLBI to KVM and the
+  implementation of IPA-based invalidation into its own patches.
+- Dropped the patch that tries to optimize the mmu notifiers paths.
+- Rename the function kvm_table_pte_flush() to
+  kvm_pgtable_stage2_flush_range(), and accept the range of addresses to
+  flush. [Oliver]
+- Drop the 'tlb_level' argument for stage2_try_break_pte() and directly
+  pass '0' as 'tlb_level' to kvm_pgtable_stage2_flush_range(). [Oliver]
+
+v1:
+https://lore.kernel.org/all/20230109215347.3119271-1-rananta@google.com/
+
+Thank you.
+Raghavendra
+
+[1]: https://lore.kernel.org/all/ZIrONR6cSegiK1e2@linux.dev/
+[2]:
+https://lore.kernel.org/linux-arm-kernel/20230126184025.2294823-1-dmatlack@google.com/
+
+David Matlack (4):
+  KVM: Rename kvm_arch_flush_remote_tlb() to
+    kvm_arch_flush_remote_tlbs()
+  KVM: arm64: Use kvm_arch_flush_remote_tlbs()
+  KVM: Allow range-based TLB invalidation from common code
+  KVM: Move kvm_arch_flush_remote_tlbs_memslot() to common code
+
+Raghavendra Rao Ananta (7):
+  arm64: tlb: Refactor the core flush algorithm of __flush_tlb_range
+  KVM: arm64: Implement  __kvm_tlb_flush_vmid_range()
+  KVM: arm64: Define kvm_tlb_flush_vmid_range()
+  KVM: arm64: Implement kvm_arch_flush_remote_tlbs_range()
+  KVM: arm64: Flush only the memslot after write-protect
+  KVM: arm64: Invalidate the table entries upon a range
+  KVM: arm64: Use TLBI range-based intructions for unmap
+
+ arch/arm64/include/asm/kvm_asm.h     |   3 +
+ arch/arm64/include/asm/kvm_host.h    |   6 ++
+ arch/arm64/include/asm/kvm_pgtable.h |  10 +++
+ arch/arm64/include/asm/tlbflush.h    | 109 ++++++++++++++-------------
+ arch/arm64/kvm/Kconfig               |   1 -
+ arch/arm64/kvm/arm.c                 |   6 --
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c   |  11 +++
+ arch/arm64/kvm/hyp/nvhe/tlb.c        |  30 ++++++++
+ arch/arm64/kvm/hyp/pgtable.c         |  90 +++++++++++++++++++---
+ arch/arm64/kvm/hyp/vhe/tlb.c         |  23 ++++++
+ arch/arm64/kvm/mmu.c                 |  15 +++-
+ arch/mips/include/asm/kvm_host.h     |   4 +-
+ arch/mips/kvm/mips.c                 |  12 +--
+ arch/riscv/kvm/mmu.c                 |   6 --
+ arch/x86/include/asm/kvm_host.h      |   7 +-
+ arch/x86/kvm/mmu/mmu.c               |  25 ++----
+ arch/x86/kvm/mmu/mmu_internal.h      |   3 -
+ arch/x86/kvm/x86.c                   |   2 +-
+ include/linux/kvm_host.h             |  20 +++--
+ virt/kvm/Kconfig                     |   3 -
+ virt/kvm/kvm_main.c                  |  35 +++++++--
+ 21 files changed, 290 insertions(+), 131 deletions(-)
+
 -- 
 2.41.0.455.g037347b96a-goog
 
