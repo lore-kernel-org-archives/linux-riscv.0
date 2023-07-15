@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75497C001DE
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 00:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6F0EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 00:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,59 +13,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=8x9Cog4YaXBzLEyqGIhnIWdBciwg7e3AFfyUD0nQsIk=; b=wysaaep1uY5c+pVTltp64eTgGj
-	Ch0khzHheJucZdlaeUUuimh5hjIGat1tfHri0SpLNXJpBnyl93Ru9t3n2F2Dyzr4kiSNQDIMLKoRp
-	ILcablV9Mz6sXNBn1eQiZYussoM4g8WAdJfo0ld8IF4Zhu04BUrvY3usY1H6SvMvsqnipZ0usSq7k
-	tOKHhU1IJIrWAMCLd8tE8vXP+10eIsCo40EiDgWwNC6sCnT9rLzZGuWWh2YrxrT53h2Qu+lAqRPMU
-	U7umtl3CWNU6TtH1Nol8e4VKXz5n4YJ4rvIjeoUWCWU5iHwVkKNF0OBdtEWgtVnYQeYq24gy7k/34
-	Ll2WqbvQ==;
+	bh=7Ma8LJlvjM0EmmkDCcTJNIauNu4Mv3mAY7vArsBEWeY=; b=xkOrAwx66hxWhZ8FSx4c664M90
+	VvP5uTbj3L7eRarzgZDUR9KBXjBthER6ifljXkWFa9cZP19pYv0VJ9+KYUoakTXQlMrsVNSYeG6RG
+	KYIphfnJZVAF5/lbKIW/zyGnLWFABEz9Nyugls084vPDSh71y0Xs1TwU6kSCbKID/eA/3i2SHH7CL
+	cw+nWu9xje8wTGZy1gu+YSEpMKmj76ob1aqH5s+vFNq9M/JmbCDNKgCN9jesULQ0BdLohE4j5WRx3
+	cB4JI3SEeFC5nwjYnCwbB3a8agtEt1xFwClWGQSIrUKKTWgqveC/7oegPINas2W19v/eFLcNpt/QR
+	JYdUpQdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKTYb-007aYT-1J;
-	Sat, 15 Jul 2023 00:54:45 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qKTYp-007akR-2x;
+	Sat, 15 Jul 2023 00:54:59 +0000
+Received: from mail-oo1-xc4a.google.com ([2607:f8b0:4864:20::c4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKTYB-007aCO-0k
+	id 1qKTYC-007aEb-24
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Jul 2023 00:54:23 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-5706641dda9so19360307b3.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 17:54:17 -0700 (PDT)
+	Sat, 15 Jul 2023 00:54:25 +0000
+Received: by mail-oo1-xc4a.google.com with SMTP id 006d021491bc7-55e16833517so3327576eaf.1
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Jul 2023 17:54:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689382457; x=1689987257;
+        d=google.com; s=20221208; t=1689382459; x=1689987259;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jRNC6fA4vY9IIzTukCRjUclh2x+xk9hgJU6Rf1v4LlI=;
-        b=GW/dL6s1ehKPh/5954DkfJFtt3h3bcvOw4zkislkY8qK/1gk4+IB9PZ0pWKbs7As/w
-         WLd3uXnV+TeINcdWYtR2Ax9+3sunPIRl05fMKVwT6nxoKsWRIWuqU6T1AMR8PBIXGFMB
-         ThxrhSRkJhAOyfKke14JFi4gXqsuF7cGsE+8y69+pCVSOBD2/EOplkKl5jdn7f1ymKki
-         fux7ZH3kEaGgnTscwY7Wn3SmQKlRKcEJCnXC2VhKA8NnHtIjIbKmIdP3XUWRAdm2wVvS
-         jqjXT7vnYWM0iLubSMIpiEg87B345lhKUXH+eRlPDsS8pyTgaSBcs0SbejpIZsn0E72D
-         29PQ==
+        bh=E8/SKuTbF1S2hgzgftCz+xbv+GwRa24E0ShAGUklW+4=;
+        b=hrja88/7wxXiKsBqU4+BG+pM3MGM1S9DOyuubBS6zRCvIJ5eqNbAcqAnTdgYLBUU+G
+         Xw+Q5KoogRXe6+j6MLR2KwqS39EPOItOND2hac4t/iid35aWJyaibOjPEAQmdMwYmjfh
+         VzbdHI6TI0GOlWQpr7ND4xoMQoOV3vp6+LinZ0mxaFOfj8s73O11srFhZJK0pIAlsFoL
+         P4nRJGXix8N2JZo0MJURuNa3SeLrZLgRbyyEKe5e1sT6jjEyyH20skLSiG1kT2BH+lWW
+         M2jwktjB/uvksSymt5eF0yyQ/JrIKi5z5nYd8WpKGE+ItYKnNyJygjYrNRNPHTh4T2bz
+         A4rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689382457; x=1689987257;
+        d=1e100.net; s=20221208; t=1689382459; x=1689987259;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jRNC6fA4vY9IIzTukCRjUclh2x+xk9hgJU6Rf1v4LlI=;
-        b=CmeDzPhQwusTllf9fqFXSTfZITkiKSb+RVmkhX5Mev/js9RNiGNQnl8PJve7pBjxuf
-         c+jDd7AJmnNWKYYYaCxyIQ44VT06umKUK65AgyO0Gf7NcCkwY5+shiml65Sqai+xmAtJ
-         3JdnKlJZSPWwQIIciHQ+L7pD1xlOyIUu4TJhqHlHqWtNGuUDnUaYJvwJZgXjzqlbCPu3
-         ks6YB5F3+j0vQe7dowT8/wnfH+mnMhDZYCKqnulAWpjiqt9uJJzuwN2s3rudDfrN4e5s
-         0iE6jt762s1nEkvs4UUsEqgZzUurTo+Ndfp+a6v7waOx62Fq+OfaVWw7oglh7+SbH3dU
-         hibQ==
-X-Gm-Message-State: ABy/qLZPID2i4Z8cga+YKXIMxj1oFSbZmtwNzaaSm1eZ3desYfHUtUcj
-	VryfD7I6TbfxsJuMzsDwGplcHBHC79yg
-X-Google-Smtp-Source: APBJJlEA9KEZVMk/ou9H9hfwDv90RgOlHXktQfG21vm7Jdj4BjS7QOiWzDLO5fSMZvDv9BrKfFrVIlqO7Eih
+        bh=E8/SKuTbF1S2hgzgftCz+xbv+GwRa24E0ShAGUklW+4=;
+        b=lQtz9YqtSa6EMJN4rNNe4jW72cT/jMxPazysN7PIVWUH/t4rQrXNYZEkiekEINL0i4
+         SfSqT1xjgT9D7H/topdyxyPpemur8bMBo5aRw6z7NEgov0SSBPE975lsV1w5jmaeB9rx
+         Ek7byoZV2ottpKEO4645Ks6eC3dgSKCvGxViU8rXpBteEDJS2zs8a1X5ysV2EKiREATk
+         mN6rKrGtr8YBun2Yo3FPy8XMztJfcm6S32VxpxN3s3mos1+Nx+I7fpyBOWmwIofNoUok
+         0GVhYQRnyGcpyqaoJPWdULjTyttNB0xlj15BEX8A4dpxBIMsH2U2/aI+s49bKWcozDn9
+         VKRA==
+X-Gm-Message-State: ABy/qLZtWmRYGeH2aja+xrfQ4x8hcSLsuV0w1mrcjhkPfxEF5b6y3fqA
+	eY3iK4wrt9XwHJmgwhKdgdR4lfUosWPc
+X-Google-Smtp-Source: APBJJlGuVOPdQOdSPn66tc6hZHiX5voXQ8Bd1Pq3KdWw9uZBWmzdkmlscTzl3Cyfs81jovCUQVWibJUVXGKq
 X-Received: from rananta-linux.c.googlers.com ([fda3:e722:ac3:cc00:2b:ff92:c0a8:22b5])
- (user=rananta job=sendgmr) by 2002:a25:2551:0:b0:cb6:6c22:d0f8 with SMTP id
- l78-20020a252551000000b00cb66c22d0f8mr37682ybl.4.1689382457013; Fri, 14 Jul
- 2023 17:54:17 -0700 (PDT)
-Date: Sat, 15 Jul 2023 00:54:00 +0000
+ (user=rananta job=sendgmr) by 2002:a4a:5213:0:b0:55e:38ef:109b with SMTP id
+ d19-20020a4a5213000000b0055e38ef109bmr445620oob.1.1689382459192; Fri, 14 Jul
+ 2023 17:54:19 -0700 (PDT)
+Date: Sat, 15 Jul 2023 00:54:02 +0000
 In-Reply-To: <20230715005405.3689586-1-rananta@google.com>
 Mime-Version: 1.0
 References: <20230715005405.3689586-1-rananta@google.com>
 X-Mailer: git-send-email 2.41.0.455.g037347b96a-goog
-Message-ID: <20230715005405.3689586-7-rananta@google.com>
-Subject: [PATCH v6 06/11] KVM: arm64: Implement  __kvm_tlb_flush_vmid_range()
+Message-ID: <20230715005405.3689586-9-rananta@google.com>
+Subject: [PATCH v6 08/11] KVM: arm64: Implement kvm_arch_flush_remote_tlbs_range()
 From: Raghavendra Rao Ananta <rananta@google.com>
 To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
 	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
@@ -79,8 +79,9 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvm@vger.kernel.org, Gavin Shan <gshan@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230714_175419_304733_69C2F0F7 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20230714_175420_720228_6A49CA86 
+X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,147 +98,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define  __kvm_tlb_flush_vmid_range() (for VHE and nVHE)
-to flush a range of stage-2 page-tables using IPA in one go.
-If the system supports FEAT_TLBIRANGE, the following patches
-would conviniently replace global TLBI such as vmalls12e1is
-in the map, unmap, and dirty-logging paths with ripas2e1is
-instead.
+Implement kvm_arch_flush_remote_tlbs_range() for arm64
+to invalidate the given range in the TLB.
 
 Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 ---
- arch/arm64/include/asm/kvm_asm.h   |  3 +++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 11 +++++++++++
- arch/arm64/kvm/hyp/nvhe/tlb.c      | 30 ++++++++++++++++++++++++++++++
- arch/arm64/kvm/hyp/vhe/tlb.c       | 23 +++++++++++++++++++++++
- 4 files changed, 67 insertions(+)
+ arch/arm64/include/asm/kvm_host.h | 3 +++
+ arch/arm64/kvm/mmu.c              | 7 +++++++
+ 2 files changed, 10 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index 7d170aaa2db4..2c27cb8cf442 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -70,6 +70,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa,
- 	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa_nsh,
- 	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid,
-+	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_range,
- 	__KVM_HOST_SMCCC_FUNC___kvm_flush_cpu_context,
- 	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_read_vmcr,
-@@ -229,6 +230,8 @@ extern void __kvm_tlb_flush_vmid_ipa(struct kvm_s2_mmu *mmu, phys_addr_t ipa,
- extern void __kvm_tlb_flush_vmid_ipa_nsh(struct kvm_s2_mmu *mmu,
- 					 phys_addr_t ipa,
- 					 int level);
-+extern void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
-+					phys_addr_t start, unsigned long pages);
- extern void __kvm_tlb_flush_vmid(struct kvm_s2_mmu *mmu);
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 7281222f24ef..52d3ed918893 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1114,6 +1114,9 @@ struct kvm *kvm_arch_alloc_vm(void);
+ #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS
+ int kvm_arch_flush_remote_tlbs(struct kvm *kvm);
  
- extern void __kvm_timer_set_cntvoff(u64 cntvoff);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index a169c619db60..857d9bc04fd4 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -135,6 +135,16 @@ static void handle___kvm_tlb_flush_vmid_ipa_nsh(struct kvm_cpu_context *host_ctx
- 	__kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va(mmu), ipa, level);
++#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
++int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages);
++
+ static inline bool kvm_vm_is_protected(struct kvm *kvm)
+ {
+ 	return false;
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 0ac721fa27f1..387f2215fde7 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -172,6 +172,13 @@ int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
+ 	return 0;
  }
  
-+static void
-+handle___kvm_tlb_flush_vmid_range(struct kvm_cpu_context *host_ctxt)
++int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages)
 +{
-+	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
-+	DECLARE_REG(phys_addr_t, start, host_ctxt, 2);
-+	DECLARE_REG(unsigned long, pages, host_ctxt, 3);
-+
-+	__kvm_tlb_flush_vmid_range(kern_hyp_va(mmu), start, pages);
++	kvm_tlb_flush_vmid_range(&kvm->arch.mmu,
++				start_gfn << PAGE_SHIFT, pages << PAGE_SHIFT);
++	return 0;
 +}
 +
- static void handle___kvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
+ static bool kvm_is_device_pfn(unsigned long pfn)
  {
- 	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
-@@ -327,6 +337,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__kvm_tlb_flush_vmid_ipa),
- 	HANDLE_FUNC(__kvm_tlb_flush_vmid_ipa_nsh),
- 	HANDLE_FUNC(__kvm_tlb_flush_vmid),
-+	HANDLE_FUNC(__kvm_tlb_flush_vmid_range),
- 	HANDLE_FUNC(__kvm_flush_cpu_context),
- 	HANDLE_FUNC(__kvm_timer_set_cntvoff),
- 	HANDLE_FUNC(__vgic_v3_read_vmcr),
-diff --git a/arch/arm64/kvm/hyp/nvhe/tlb.c b/arch/arm64/kvm/hyp/nvhe/tlb.c
-index b9991bbd8e3f..09347111c2cd 100644
---- a/arch/arm64/kvm/hyp/nvhe/tlb.c
-+++ b/arch/arm64/kvm/hyp/nvhe/tlb.c
-@@ -182,6 +182,36 @@ void __kvm_tlb_flush_vmid_ipa_nsh(struct kvm_s2_mmu *mmu,
- 	__tlb_switch_to_host(&cxt);
- }
- 
-+void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
-+				phys_addr_t start, unsigned long pages)
-+{
-+	struct tlb_inv_context cxt;
-+	unsigned long stride;
-+
-+	/*
-+	 * Since the range of addresses may not be mapped at
-+	 * the same level, assume the worst case as PAGE_SIZE
-+	 */
-+	stride = PAGE_SIZE;
-+	start = round_down(start, stride);
-+
-+	/* Switch to requested VMID */
-+	__tlb_switch_to_guest(mmu, &cxt, false);
-+
-+	__flush_tlb_range_op(ipas2e1is, start, pages, stride, 0, 0, false);
-+
-+	dsb(ish);
-+	__tlbi(vmalle1is);
-+	dsb(ish);
-+	isb();
-+
-+	/* See the comment in __kvm_tlb_flush_vmid_ipa() */
-+	if (icache_is_vpipt())
-+		icache_inval_all_pou();
-+
-+	__tlb_switch_to_host(&cxt);
-+}
-+
- void __kvm_tlb_flush_vmid(struct kvm_s2_mmu *mmu)
- {
- 	struct tlb_inv_context cxt;
-diff --git a/arch/arm64/kvm/hyp/vhe/tlb.c b/arch/arm64/kvm/hyp/vhe/tlb.c
-index e69da550cdc5..4ed8a1786812 100644
---- a/arch/arm64/kvm/hyp/vhe/tlb.c
-+++ b/arch/arm64/kvm/hyp/vhe/tlb.c
-@@ -138,6 +138,29 @@ void __kvm_tlb_flush_vmid_ipa_nsh(struct kvm_s2_mmu *mmu,
- 	dsb(nsh);
- 	__tlbi(vmalle1);
- 	dsb(nsh);
-+
-+	__tlb_switch_to_host(&cxt);
-+}
-+
-+void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
-+				phys_addr_t start, unsigned long pages)
-+{
-+	struct tlb_inv_context cxt;
-+	unsigned long stride;
-+
-+	/*
-+	 * Since the range of addresses may not be mapped at
-+	 * the same level, assume the worst case as PAGE_SIZE
-+	 */
-+	stride = PAGE_SIZE;
-+	start = round_down(start, stride);
-+
-+	dsb(ishst);
-+	__flush_tlb_range_op(ipas2e1is, start, pages, stride, 0, 0, false);
-+
-+	dsb(ish);
-+	__tlbi(vmalle1is);
-+	dsb(ish);
- 	isb();
- 
- 	__tlb_switch_to_host(&cxt);
+ 	return !pfn_is_map_memory(pfn);
 -- 
 2.41.0.455.g037347b96a-goog
 
