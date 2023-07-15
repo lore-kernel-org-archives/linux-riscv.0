@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B77CC0015E
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 16:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D9FC001B0
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 17:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hkUhdgpKFB57YbZZHfm1i/Kxl9+xU7Tw4rSmlfClVtQ=; b=ZtQAz9j7VW+HC9
-	gbqSCBMoxlmDhKhLbpA6pXKl3EIE7oiPz0JiFhS5lSGlQ2ksFtEdf/0nMbbotylTDMrHQy+FAL8RC
-	BoxtUTr+MtVwNKVFCvsU9UOtSWvQtFR7HaQfJY2FWX5HcGYZJiLZKP+Rr+KFE6xLARZXjkWV+k9MT
-	RrXS/1O47aa4z43X3EQrTIqcRp5RTlHAun2q1JTG+kgTBcds2fH+UWbX15e1mTndIvIIdWFCkVawv
-	ectY/s5lMbIXDhybCdEIkELf/QJa7MvQquagxu0FIBbVr6o+BsX16MLTcFmPCB8DCwXbvPIkIgt7B
-	wdlpJ/Td31hO21IRoAxw==;
+	List-Owner; bh=s5/SoPrdu0/jIALLLZEVGTPaWxseYQkPhb1Sbj+sy6Q=; b=lcxvqRpXd+TRAa
+	BMPQ5ii0IF0niZKWcmbmnEPDaUSo7OgHL1ZFc5te805EqqZ1oKOPA4JG7wOF7gKYc5bMLf0kiye7P
+	W+5M8vNsw55KIYMxqvasFcjkDTKirNbQL+UgINn/xYgxOpKG2yG5cWdtIWriOpVHSIQDjAoH9qGik
+	iykDAfyIIinV0mBBVOktf/cu7PX+TVdcBNsRJ0ByQ7crq3X65gbS2sQk9inGN2QdPJB1VKgnRroU6
+	l1mu9N79Eh3GIvvhuK+PYr28Tll72bXruqUnSjV8m36s2UON3Flf/CA+7F3mPmOU8qmn6puIkmbs7
+	fA66thhbyaXu2lGAY0Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKiWY-009Asn-1x;
-	Sat, 15 Jul 2023 16:53:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qKiq8-009Cmx-30;
+	Sat, 15 Jul 2023 17:13:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKiWU-009Aro-1g;
-	Sat, 15 Jul 2023 16:53:35 +0000
+	id 1qKiq5-009CmF-2K;
+	Sat, 15 Jul 2023 17:13:51 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0086160BC3;
-	Sat, 15 Jul 2023 16:53:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E45F0C433C8;
-	Sat, 15 Jul 2023 16:53:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2F1E460AB3;
+	Sat, 15 Jul 2023 17:13:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81BA8C433C8;
+	Sat, 15 Jul 2023 17:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689440012;
-	bh=2Q4FCDoenbmD/VhiBVMa5udzbl7nfKdi1+C2wdvn1O0=;
+	s=k20201202; t=1689441228;
+	bh=1p/AukyvqBFfujmrDsB0r4g71V+ZKHoyhzwzCuFNHCA=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KGFJejuQEStcUADchTg9oWaT+ZuWLuTpi4HLb3Op7RAslZMX2tJ3LWVkhFtyi0v8C
-	 UgVxYMhhAPoJCfCUaYcatC6Yfas9V4+xwGhklnavAdjnk/Rl4Ab+hgZM6TxRfeyUyV
-	 ThGax002RCYNwEpzElSo1VimTuqHfL8TTYQk/jSQap0Yn6++SdQ5ny9z0LHwYo3FdC
-	 vffxqAxdGlr1Xe5jo7AM2rv4qWFHvquiD3cAd5crQFy+EzbDyTLx+e6S4FFlAKE5pL
-	 0+o28xIlcXV6azxJp+qbLkW/17I3yEFetA7VD4arf/orfXfQh+GG5pQ0VUUM5c8awC
-	 IoWiUm7qcWqDg==
-Date: Sat, 15 Jul 2023 17:53:19 +0100
+	b=BM2CGCDfP7E6HVkrvvHPGLDfcDjf9HKBnne9SoZKw8rJc+cGhvWSmYx4TTs3Pwh2q
+	 12CeMyAMapFp3//L1EDvlq9UyTo2q7oHpwkGuWda/vWrdYUUbsiO783mR1QvbEBdZ8
+	 NGCXe3FLdB/5l1nwbAzW9B8yKNw+SRiYqKjeHDw4JHznwMZyH6nn5SYFRZjno2pChL
+	 9YuAcWcpHhD33KJFuwVnVAtZawDgTqsfuN+vWahpL3nBIMDrR57i48i6P+X3KzAh4F
+	 fOo9DKSlItB44DRKLNemBOIWLvPnZCCtHr0ccvqBlD9eSDpMo2TJfw+fLKItCFcAn3
+	 zJm4Z40UfN5rw==
+Date: Sat, 15 Jul 2023 18:13:38 +0100
 From: Jonathan Cameron <jic23@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>,
- linux-iio@vger.kernel.org, Maksim Kiselev <bigunclemax@gmail.com>,
- Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
- <samuel@sholland.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp
- Zabel <p.zabel@pengutronix.de>, Cristian Ciocaltea
- <cristian.ciocaltea@collabora.com>, Andre Przywara
- <andre.przywara@arm.com>, Andy Shevchenko <andy.shevchenko@gmail.com>,
- Cosmin Tanislav <demonsingur@gmail.com>, AngeloGioacchino Del Regno       
-  <angelogioacchino.delregno@collabora.com>, Hugo Villeneuve
- <hvilleneuve@dimonoff.com>, Arnd Bergmann <arnd@arndb.de>, Leonard
- =?UTF-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>, ChiYuan Huang
- <cy_huang@richtek.com>, Ramona Bolboaca <ramona.bolboaca@analog.com>,
- Ibrahim Tilki <Ibrahim.Tilki@analog.com>, ChiaEn Wu
- <chiaen_wu@richtek.com>, William Breathitt Gray <william.gray@linaro.org>,
- Haibo Chen <haibo.chen@nxp.com>, Mike Looijmans <mike.looijmans@topic.nl>,
- Quentin Schulz <quentin.schulz@free-electrons.com>, Maxime Ripard
- <mripard@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v8 1/4] iio: adc: Kconfig change description for
- Allwinner GPADC
-Message-ID: <20230715175319.1ea7f2c1@jic23-huawei>
-In-Reply-To: <b3723443-2a27-0a51-babd-b36eef095913@linaro.org>
-References: <20230619154252.3951913-1-bigunclemax@gmail.com>
-	<20230619154252.3951913-2-bigunclemax@gmail.com>
-	<2148594.irdbgypaU6@jernej-laptop>
-	<b3723443-2a27-0a51-babd-b36eef095913@linaro.org>
+To: Maksim Kiselev <bigunclemax@gmail.com>
+Cc: linux-iio@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Rob
+ Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v9 0/4] Add support for Allwinner GPADC on
+ D1/T113s/R329/T507 SoCs
+Message-ID: <20230715181338.55c4a942@jic23-huawei>
+In-Reply-To: <20230715091816.3074375-1-bigunclemax@gmail.com>
+References: <20230715091816.3074375-1-bigunclemax@gmail.com>
 X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230715_095334_619517_9471C0B2 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20230715_101349_846042_DA026A59 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,24 +78,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAxMiBKdWwgMjAyMyAwNzozNzozOCArMDIwMApLcnp5c3p0b2YgS296bG93c2tpIDxr
-cnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+IHdyb3RlOgoKPiBPbiAxMS8wNy8yMDIzIDIw
-OjE0LCBKZXJuZWogxaBrcmFiZWMgd3JvdGU6Cj4gPiBEbmUgcG9uZWRlbGplaywgMTkuIGp1bmlq
-IDIwMjMgb2IgMTc6NDI6MjQgQ0VTVCBqZSBNYWtzaW0gS2lzZWxldiBuYXBpc2FsKGEpOiAgCj4g
-Pj4gVGhpcyBwYXRjaCBhZGRzIFNvQ3MgbmFtZXMgdG8gQWxsd2lubmVyIEdQQURDIGRlc2NyaXB0
-aW9uIHRvCj4gPj4gbWFrZSBpdCBtb3JlIGluZm9ybWF0aXZlLiAgCj4gPiAKPiA+IFBsZWFzZSBy
-ZXdvcmQgdG8gcmVtb3ZlICJUaGlzIHBhdGNoIi4KPiA+ICAgCj4gPj4KPiA+PiBGaXhlczogZDFj
-YWE5OTA1NTM4ICgiaWlvOiBhZGM6IGFkZCBzdXBwb3J0IGZvciBBbGx3aW5uZXIgU29DcyBBREMi
-KSAgCj4gPiAKPiA+IEknbSBmaW5lIHdpdGggdGhlIHBhdGNoIGluIGdlbmVyYWwsIGJ1dCBkb2Vz
-IHRoaXMgcmVhbGx5IHdhcnJhbnQgZml4ZXMgdGFnPwo+ID4gICAKPiAKPiBObywgaXQncyBzb21l
-IGZha2UgZml4LiBUaGVyZSBpcyBubyBidWcgaGVyZS4KPiAKPiBCZXN0IHJlZ2FyZHMsCj4gS3J6
-eXN6dG9mCj4gCgpEcm9wcGVkIHRoZSB0YWcuCgpUaGFua3MgZm9yIHBvaW50aW5nIHRoaXMgb3V0
-LgoKSm9uYXRoYW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Sat, 15 Jul 2023 12:18:12 +0300
+Maksim Kiselev <bigunclemax@gmail.com> wrote:
+
+> This series adds support for general purpose ADC (GPADC) on new
+> Allwinner's SoCs, such as D1, T113s, T507 and R329. The implemented driver
+> provides basic functionality for getting ADC channels data.
+> 
+> Change History:
+> v9:
+> - Dropped fixes tag
+
+I tweaked it on the tree to do this rather than dropping the series.
+
+> - Reworded commits to remove 'This patch'
+Treated this one as a nice to have and skipped it on the tree.
+
+So v8 is queued up with the fixes tag dropped.
+
+Thanks,
+
+Jonathan
+
+> 
+> v8:
+> - Added patch that changes Kconfig description for previous Allwinner GPADC
+> - Changed Kconfig description for this GPADC driver
+> - Fixed 'reg' range for gpadc node in 'sunxi-d1s-t113.dtsi'
+> 
+> v7:
+> - Fixed typo in DT bindings property
+> 
+> v6:
+> - Fixed DT bindings regexp for channel properties
+> - Dropped checking the max number of channels from the drivers code
+>   (This is redundant as we raly on DT bindings check)
+> 
+> v5:
+> - Fixed DT bindings properties for child nodes
+> 
+> v4:
+> - Fixed DT bindings warnings
+> - Used GENMASK to clear the irq register
+> - Minor formatting fixes
+> 
+> v3:
+> - Added DT bindings dual license, fixed property order and example formatting
+> - Added explanations comments for timeout and mutex
+> - Dropped unnecessary regmap and used readl/writel instead
+> - Added error message about getting channel number
+> - Renamed labels and variables to make them self-explanatory
+> 
+> v2:
+> - Added lastch flag to avoid addition work for already selected channel
+> - Added reset assertion on module remove
+> - Added dynamic channel allocation and dropped iio_chan_spec arrays
+> - Changed IIO_CHAN_INFO_SCALE type to FRACTIONAL_LOG2
+> - Dropped separate compatible strings and configs for T113s and R329
+> - Fixed includes
+> - Fixed Kconfig description
+> - Removed duplicate probe error messages
+> - Used FIELD_PREP for bit setup
+> 
+> v1:
+> - Initial version
+> 
+> Maksim Kiselev (4):
+>   iio: adc: Kconfig change description for Allwinner GPADC
+>   iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
+>   dt-bindings: iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
+>   riscv: dts: allwinner: d1: Add GPADC node
+> 
+>  .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    |  91 ++++++
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  10 +
+>  drivers/iio/adc/Kconfig                       |  12 +-
+>  drivers/iio/adc/Makefile                      |   1 +
+>  drivers/iio/adc/sun20i-gpadc-iio.c            | 276 ++++++++++++++++++
+>  5 files changed, 389 insertions(+), 1 deletion(-)
+>  create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
+>  create mode 100644 drivers/iio/adc/sun20i-gpadc-iio.c
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
