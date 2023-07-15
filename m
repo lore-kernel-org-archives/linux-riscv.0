@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE79C001B0
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 15:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288A7C001B0
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 15:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xe+a6xIh7RPkiyLSF22q0SK4iiAREU1WlMcQlEEz3JQ=; b=wZrwf4dcrm1Y19
-	+aX0Ly93JPQ4bbeOJx5zHP4YnTi7+ON2tx36V5yHnwaYrOkGul5q5EtMdUdVEcJWQgciVFIMWwOvA
-	hRyren7tCpdyeikUgm4Ycjx18AeXIfPByp1QKV5Sg2kyvxaLUOnv2T5u2nUAqA2p1gDFKNoVAvVzG
-	uy07+alHDMOCRb6vJaE+gGxw/54chefru0qpzKPmgp1aGB4N/dwSwMT+Bqv3vAPjVBgBHuZVHP+Zj
-	NGg96NqeTASvQMb9VLrvV2sQTFttzAKwWBN9y8VHTeU2vswWGPRL3aXV49Fcci7ep4PPPYMNDYSYK
-	wGW2DSfsi7oJLP+Mk/qQ==;
+	List-Owner; bh=yQmlCoNoNBMgiByf9QSeuKVkUbIFjUN/W9IQnWcNihc=; b=4HoX1oh+eMa0uk
+	Q8BgEho8ibJsJ/LNIpjbHOZnywVnHsoAqa+LSOJrJivA6JA0MAwc2uhWCIQQ5qX9l/G4f6J2tWGlv
+	7bOIB0Dm3Fpp2o9f+4JJAtmT5S7wHwDRLsDt7US86k2jJIhokrubJ+4zxiZ7Caw3vNBbUPrlwrB1p
+	J5+/M2M+B74GRtMphyiu5N1Sf3xGRFXRlgZVN9UNz8BBjPnwonovq1aSQ+mQg20EW4y5yC9E3f/GX
+	9dt2MS5VdkRenvKX3KyqNJPgxQtrrtM1P7SROs6JcQc/CEIPbFmyrBy5GcrsgP2GBYuoQnh89btRP
+	aOl+QtHLyVv+Rdh5fDOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKglS-008zaY-2h;
-	Sat, 15 Jul 2023 15:00:54 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1qKglj-008zdq-21;
+	Sat, 15 Jul 2023 15:01:11 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKglP-008zYu-1L
+	id 1qKglg-008zcq-0s
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Jul 2023 15:00:53 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-666ecb21f86so2987310b3a.3
-        for <linux-riscv@lists.infradead.org>; Sat, 15 Jul 2023 08:00:50 -0700 (PDT)
+	Sat, 15 Jul 2023 15:01:09 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-666edfc50deso1814474b3a.0
+        for <linux-riscv@lists.infradead.org>; Sat, 15 Jul 2023 08:01:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1689433249; x=1692025249;
+        d=sifive.com; s=google; t=1689433266; x=1692025266;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=F/225EHRyI/wX2MBgvShULrHjoLuMo1tn59JTCRbcX8=;
-        b=gGbPrH3KzePQ2Nmhu764l8Dhr1SLQ+z5D0bmfzFY7FiJXLlOqUSxJXuYckXBpvQncJ
-         0DatUnqS9QSRG7kC8xLqkVscPlr3KTVfYAK1vxh6Z2epFFRd71AkAtfTbD5uGoW8lkkQ
-         5YCv13Op9CW4c0GjLa5A9IsGCcRSiRwMc3gj1aXfKS5PxmOyUJmYpobSUajVt2Iomn0M
-         XfbyhsFcZF4Q7e+vpGQis3JNMeDUEQ/Jz9JtI8wMKy0ajFiSPm2g+r0NqvlwHlUrV0lz
-         1Kt4us7LZQDaKVw+FGWwPpT8ich6DwWN5L3UBWtjbS442Kf8brGPrTIVKD2CzWjr83gu
-         iH0g==
+        bh=+km7VpAaR7aHNOC6jttnFLPGVHZYCDtVJYd/spo1/P8=;
+        b=OBjNNQGEwB1iuhHQLflfF0ssRBwollQ0UOiHp2W50BNKJBBzwuteNEsR+hWc9+zxPl
+         +oM6NNX+1yTeibVPtgC9OJRW2OrA+fcCBfcXHCfJimJgj7iVCKzsJr2g2roxdPZjhrVj
+         3EKQe9X8s/PabL3gH+E0J5Ql4rak/scCkYpOH6bj4jLxFKgOkPaf9g7oQOEF+Dm0Rnib
+         WN/ZC4S/qbxGjoqgmCfPe7GDcGUHRkCNtw4OHA9nifNqmEL0NLYQ8QetWRaYrn89Q6ct
+         l0koygYWxbHRCiIMzfMM7OXl6FMPvFOaKEa6vAJnEX+upySJ/JHnqH8WKW5oclgJyfdI
+         cZLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689433249; x=1692025249;
+        d=1e100.net; s=20221208; t=1689433266; x=1692025266;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=F/225EHRyI/wX2MBgvShULrHjoLuMo1tn59JTCRbcX8=;
-        b=BjIRqyS06Lh7EMOJSZvHTmcVDHMT8cF+Q6PGgmZsDen+9jNkIcH/uClpY0LjeEim20
-         dKmSUkOdnBfkuas7O6c1eU05qGSKUD77KQ4higM/nnBzaHVZzwc90PlFtqGcUVmgtzao
-         wiBCr38H6H4pWS/GVyvxJb2SN6tdNU5n4kU1GKrKnQVbbOt6s1CqdKjVOTVkTh1+GhTA
-         K5sOIq83+wCWpohRTrAL5+9BHPtic2/m628pEGzWTqCSTxSQiBiByfVDNTXb/73md5cG
-         jUqtM3LfMZ6hx2fEgibFsUJBptvZNnpKFr9lkI157VoeiOrLzDu0WYrKQb7QB2jXoHuD
-         4XLQ==
-X-Gm-Message-State: ABy/qLavoJ0/0iQc6+9qzN2PKvzu51UP0WOZ2Sgf9k4pjOk0cHezHoNX
-	t9ECkI36ABvG3x/lZ8OPM48106SYX69LmgvaHMAfu0RJEyZ3HfmUNJ/iV0m11Sjds6I2g+OkrR2
-	1nBE3b9JmO3SFMexiQR8f4M/E+wNFosRyXjnja2E19C+6Sf64BOBWKpxcweKWC/KGaKS2zVT/ea
-	rwFlNdBwr8y5Lj
-X-Google-Smtp-Source: APBJJlGQgAjLg2F86dxXasGz2GONxfjtWW4ZSQeLxCJ5Z1Z0ajPI7fsg+Q59uzvjQctFmwOt57szew==
-X-Received: by 2002:a05:6a20:3d1d:b0:132:bdba:5500 with SMTP id y29-20020a056a203d1d00b00132bdba5500mr9983066pzi.39.1689433249286;
-        Sat, 15 Jul 2023 08:00:49 -0700 (PDT)
+        bh=+km7VpAaR7aHNOC6jttnFLPGVHZYCDtVJYd/spo1/P8=;
+        b=aYjx/gI1B4Sw4M7O7dhyPu6UL2KnM21LJfxOoQU0irb2L30xeL1+FemeIwJ2dsTIvl
+         ED9ODTzh61Pd77V3GekQRy3xFaxPngIE+FIGhdDD8Ssc/A4dl8yMtA03LBBeLkec1Zlz
+         0gpxyJYLgoJwAtyclltb29zD20qJiVcHZ78uYx0U7M1p5ZJNFgNBJ1ktxOynk8T8PIR/
+         b4tZsls6PX3WWFm+yC8XH5IpOansREFJlee+1zLmSq770lRpuQrhjtRtcRDKwBlwz7P9
+         47YXJ9UzQFbP8DtR7b3oWB9s/d0GK6unWh/X/Fo1Pdh9flVvLX05oWxfgT8L3vWm0Fcx
+         2cTQ==
+X-Gm-Message-State: ABy/qLadVOg1dUVLntS7wJ/NL5/FsZCkYINcADIJCaoymzdYUgZGJa10
+	+GSkgS/6jKzG0r5I2GFhCiVw7yN3bbKr/yA8TXCM4faS3C7eH8OAV2EQKlHmecS9WSTmWBmviX4
+	bOFN8XJQtXMpxPqSOYf/dSpBI9ECKZ4P+RxVP0hE0W3bAHOu2GzJ5X2LjM6JIfNv9p1Wzw0cFyT
+	v/yL9T42/J3WlY
+X-Google-Smtp-Source: APBJJlEo6tfhpeWSveX0qSiMjipd2GDcZDYTR3KmhsxO4GyI20r0Q0stNft2lFfCkPwal8gDo2YpBw==
+X-Received: by 2002:a05:6a20:6a23:b0:134:135c:5a23 with SMTP id p35-20020a056a206a2300b00134135c5a23mr2878051pzk.18.1689433266374;
+        Sat, 15 Jul 2023 08:01:06 -0700 (PDT)
 Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id a28-20020a63705c000000b00528513c6bbcsm9356535pgn.28.2023.07.15.08.00.45
+        by smtp.gmail.com with ESMTPSA id a28-20020a63705c000000b00528513c6bbcsm9356535pgn.28.2023.07.15.08.01.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Jul 2023 08:00:48 -0700 (PDT)
+        Sat, 15 Jul 2023 08:01:05 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -73,25 +73,20 @@ Cc: vineetg@rivosinc.com,
 	anup@brainfault.org,
 	atishp@atishpatra.org,
 	heiko.stuebner@vrull.eu,
+	Han-Kuan Chen <hankuan.chen@sifive.com>,
 	Andy Chiu <andy.chiu@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Andrew Bresticker <abrestic@rivosinc.com>
-Subject: [v1, 1/6] riscv: sched: defer restoring Vector context for user
-Date: Sat, 15 Jul 2023 15:00:27 +0000
-Message-Id: <20230715150032.6917-2-andy.chiu@sifive.com>
+	Andrew Jones <ajones@ventanamicro.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [v1, 3/6] riscv: Add vector extension XOR implementation
+Date: Sat, 15 Jul 2023 15:00:29 +0000
+Message-Id: <20230715150032.6917-4-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230715150032.6917-1-andy.chiu@sifive.com>
 References: <20230715150032.6917-1-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230715_080051_459367_B4949E23 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20230715_080108_318213_51D4E1DF 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,147 +104,207 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-User's will use its Vector registers only after the kernel really
-returns to the userspace. So we can delay restoring Vector registers as
-long as we are still running in kernel mode. So, add a thread flag to
-indicates the need of restoring Vector and do the restore at the last
-arch-specific exit-to-user hook. This save the context restoring cost
-when we switch over multiple processes that run V in kernel mode. For
-example, if the kernel performs context swicth from A->B->C, and returns
-to C's userspace, then there is no need for restoring B's V-register.
+From: Greentime Hu <greentime.hu@sifive.com>
 
-Besides, this also prevents us from repeatedly restoring V context when
-executing kernel-mode Vector multiple times for the upcoming kenel-mode
-Vector patches.
+This patch adds support for vector optimized XOR and it is tested in
+qemu.
 
+Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 ---
- arch/riscv/include/asm/entry-common.h | 13 +++++++++++++
- arch/riscv/include/asm/thread_info.h  |  2 ++
- arch/riscv/include/asm/vector.h       | 11 ++++++++++-
- arch/riscv/kernel/process.c           |  2 ++
- arch/riscv/kernel/signal.c            |  2 +-
- arch/riscv/kernel/vector.c            |  2 +-
- 6 files changed, 29 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/xor.h | 82 ++++++++++++++++++++++++++++++++++++
+ arch/riscv/lib/Makefile      |  1 +
+ arch/riscv/lib/xor.S         | 81 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 164 insertions(+)
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/lib/xor.S
 
-diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
-index 6e4dee49d84b..52926f4d8d7c 100644
---- a/arch/riscv/include/asm/entry-common.h
-+++ b/arch/riscv/include/asm/entry-common.h
-@@ -4,6 +4,19 @@
- #define _ASM_RISCV_ENTRY_COMMON_H
- 
- #include <asm/stacktrace.h>
-+#include <asm/thread_info.h>
+diff --git a/arch/riscv/include/asm/xor.h b/arch/riscv/include/asm/xor.h
+new file mode 100644
+index 000000000000..81b8837fa161
+--- /dev/null
++++ b/arch/riscv/include/asm/xor.h
+@@ -0,0 +1,82 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2021 SiFive
++ */
++
++#include <linux/hardirq.h>
++#include <asm-generic/xor.h>
++#ifdef CONFIG_RISCV_ISA_V
 +#include <asm/vector.h>
++#include <asm/switch_to.h>
 +
-+static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
-+						  unsigned long ti_work)
++void xor_regs_2_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2);
++void xor_regs_3_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3);
++void xor_regs_4_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3,
++		 const unsigned long *__restrict p4);
++void xor_regs_5_(unsigned long bytes, unsigned long *__restrict p1,
++		 const unsigned long *__restrict p2,
++		 const unsigned long *__restrict p3,
++		 const unsigned long *__restrict p4,
++		 const unsigned long *__restrict p5);
++
++static void xor_rvv_2(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2)
 +{
-+	if (ti_work & _TIF_RISCV_V_DEFER_RESTORE) {
-+		clear_thread_flag(TIF_RISCV_V_DEFER_RESTORE);
-+		riscv_v_vstate_restore(current, regs);
-+	}
++	kernel_rvv_begin();
++	xor_regs_2_(bytes, p1, p2);
++	kernel_rvv_end();
 +}
 +
-+#define arch_exit_to_user_mode_prepare arch_exit_to_user_mode_prepare
- 
- void handle_page_fault(struct pt_regs *regs);
- void handle_break(struct pt_regs *regs);
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 97e6f65ec176..d83975efe866 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -101,12 +101,14 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
- #define TIF_NOTIFY_SIGNAL	9	/* signal notifications exist */
- #define TIF_UPROBE		10	/* uprobe breakpoint or singlestep */
- #define TIF_32BIT		11	/* compat-mode 32bit process */
-+#define TIF_RISCV_V_DEFER_RESTORE	12
- 
- #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
- #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
- #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
- #define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
- #define _TIF_UPROBE		(1 << TIF_UPROBE)
-+#define _TIF_RISCV_V_DEFER_RESTORE	(1 << TIF_RISCV_V_DEFER_RESTORE)
- 
- #define _TIF_WORK_MASK \
- 	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED | \
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index 3d78930cab51..a4f3705fd144 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -183,6 +183,15 @@ static inline void riscv_v_vstate_restore(struct task_struct *task,
- 	}
- }
- 
-+static inline void riscv_v_vstate_set_restore(struct task_struct *task,
-+					      struct pt_regs *regs)
++static void xor_rvv_3(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2,
++		      const unsigned long *__restrict p3)
 +{
-+	if ((regs->status & SR_VS) != SR_VS_OFF) {
-+		set_tsk_thread_flag(task, TIF_RISCV_V_DEFER_RESTORE);
-+		riscv_v_vstate_on(regs);
-+	}
++	kernel_rvv_begin();
++	xor_regs_3_(bytes, p1, p2, p3);
++	kernel_rvv_end();
 +}
 +
- static inline void __switch_to_vector(struct task_struct *prev,
- 				      struct task_struct *next)
- {
-@@ -190,7 +199,7 @@ static inline void __switch_to_vector(struct task_struct *prev,
++static void xor_rvv_4(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2,
++		      const unsigned long *__restrict p3,
++		      const unsigned long *__restrict p4)
++{
++	kernel_rvv_begin();
++	xor_regs_4_(bytes, p1, p2, p3, p4);
++	kernel_rvv_end();
++}
++
++static void xor_rvv_5(unsigned long bytes, unsigned long *__restrict p1,
++		      const unsigned long *__restrict p2,
++		      const unsigned long *__restrict p3,
++		      const unsigned long *__restrict p4,
++		      const unsigned long *__restrict p5)
++{
++	kernel_rvv_begin();
++	xor_regs_5_(bytes, p1, p2, p3, p4, p5);
++	kernel_rvv_end();
++}
++
++static struct xor_block_template xor_block_rvv = {
++	.name = "rvv",
++	.do_2 = xor_rvv_2,
++	.do_3 = xor_rvv_3,
++	.do_4 = xor_rvv_4,
++	.do_5 = xor_rvv_5
++};
++
++#undef XOR_TRY_TEMPLATES
++#define XOR_TRY_TEMPLATES           \
++	do {        \
++		xor_speed(&xor_block_8regs);    \
++		xor_speed(&xor_block_32regs);    \
++		if (has_vector()) { \
++			xor_speed(&xor_block_rvv);\
++		} \
++	} while (0)
++#endif
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 26cb2502ecf8..494f9cd1a00c 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -11,3 +11,4 @@ lib-$(CONFIG_64BIT)	+= tishift.o
+ lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
  
- 	regs = task_pt_regs(prev);
- 	riscv_v_vstate_save(prev, regs);
--	riscv_v_vstate_restore(next, task_pt_regs(next));
-+	riscv_v_vstate_set_restore(next, task_pt_regs(next));
- }
- 
- void riscv_v_vstate_ctrl_init(struct task_struct *tsk);
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index e32d737e039f..ec89e7edb6fd 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -153,6 +153,7 @@ void flush_thread(void)
- 	riscv_v_vstate_off(task_pt_regs(current));
- 	kfree(current->thread.vstate.datap);
- 	memset(&current->thread.vstate, 0, sizeof(struct __riscv_v_ext_state));
-+	clear_tsk_thread_flag(current, TIF_RISCV_V_DEFER_RESTORE);
- #endif
- }
- 
-@@ -169,6 +170,7 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 	*dst = *src;
- 	/* clear entire V context, including datap for a new task */
- 	memset(&dst->thread.vstate, 0, sizeof(struct __riscv_v_ext_state));
-+	clear_tsk_thread_flag(dst, TIF_RISCV_V_DEFER_RESTORE);
- 
- 	return 0;
- }
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 180d951d3624..0fca2c128b5f 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -134,7 +134,7 @@ static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
- 	if (unlikely(err))
- 		return err;
- 
--	riscv_v_vstate_restore(current, regs);
-+	riscv_v_vstate_set_restore(current, regs);
- 
- 	return err;
- }
-diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-index 8d92fb6c522c..9d583b760db4 100644
---- a/arch/riscv/kernel/vector.c
-+++ b/arch/riscv/kernel/vector.c
-@@ -167,7 +167,7 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
- 		return true;
- 	}
- 	riscv_v_vstate_on(regs);
--	riscv_v_vstate_restore(current, regs);
-+	riscv_v_vstate_set_restore(current, regs);
- 	return true;
- }
- 
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
++lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
+diff --git a/arch/riscv/lib/xor.S b/arch/riscv/lib/xor.S
+new file mode 100644
+index 000000000000..3bc059e18171
+--- /dev/null
++++ b/arch/riscv/lib/xor.S
+@@ -0,0 +1,81 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2021 SiFive
++ */
++#include <linux/linkage.h>
++#include <asm-generic/export.h>
++#include <asm/asm.h>
++
++ENTRY(xor_regs_2_)
++	vsetvli a3, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a3
++	vxor.vv v16, v0, v8
++	add a2, a2, a3
++	vse8.v v16, (a1)
++	add a1, a1, a3
++	bnez a0, xor_regs_2_
++	ret
++END(xor_regs_2_)
++EXPORT_SYMBOL(xor_regs_2_)
++
++ENTRY(xor_regs_3_)
++	vsetvli a4, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a4
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a4
++	vxor.vv v16, v0, v16
++	add a3, a3, a4
++	vse8.v v16, (a1)
++	add a1, a1, a4
++	bnez a0, xor_regs_3_
++	ret
++END(xor_regs_3_)
++EXPORT_SYMBOL(xor_regs_3_)
++
++ENTRY(xor_regs_4_)
++	vsetvli a5, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a5
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a5
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a5
++	vxor.vv v16, v0, v24
++	add a4, a4, a5
++	vse8.v v16, (a1)
++	add a1, a1, a5
++	bnez a0, xor_regs_4_
++	ret
++END(xor_regs_4_)
++EXPORT_SYMBOL(xor_regs_4_)
++
++ENTRY(xor_regs_5_)
++	vsetvli a6, a0, e8, m8, ta, ma
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a6
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a6
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a6
++	vxor.vv v0, v0, v24
++	vle8.v v8, (a5)
++	add a4, a4, a6
++	vxor.vv v16, v0, v8
++	add a5, a5, a6
++	vse8.v v16, (a1)
++	add a1, a1, a6
++	bnez a0, xor_regs_5_
++	ret
++END(xor_regs_5_)
++EXPORT_SYMBOL(xor_regs_5_)
 -- 
 2.17.1
 
