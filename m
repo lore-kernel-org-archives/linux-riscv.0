@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E552EB64DC
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 09:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E471EB64DC
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 09:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YiXUX6Pxuw00nc31I6ocPJb8XGcWUmEAnoX3fNnEjrU=; b=HjVQUDVGT82r9r
-	G+UJ63ZHPCsEdLOJ7mBaeVQi3rywEz9bwcDdqHELMSz5/2sIADG+FTkwPlspsci55g3Kcx9e2nz9q
-	PSkCPwbNDQwJnAhI/sAVA6c5vMUU7RKY4MrqjjUk4hAgrwRq/TOetqfX8MGviUfrqeOLo2SzFNa1B
-	uHMoDmhMxxndgvyozEge+64zotxINL2I1d+ZFaegbNVvfg+NoPJ62bFjrnhxX0eeOf/XnvkoGapHq
-	h6y9wzk68LiQInqDjCqM3VzKvV94mlIuMXxdmfxisXdrzzBu02qDFNF5zOiyYaU5ea8sHWAzVaRQ/
-	hV/2zexgIbzS8tq/1lBw==;
+	List-Owner; bh=51KkBDAF9QBCdST2IGY0i2vLpfxuDHTQRBHGSI6q3Rs=; b=Ruh7SCg0ZJjbLq
+	ujXrFT0oD9elYFbAMZqEDPybcQpalR5xACVR6tZYaKExqOdQM0Inj3/xQ1gbjHbizvmd282BkfzoE
+	WQoT61I6irKXQM/8XXKirbVXaWo6hfND4m6SRczMGg5vs9X3wmT6vIF9piNqeGSInbURI7HogHC5u
+	I1SN9RphXYHuomqfQKO32WLtAHgZrluxSbDZ6/JmTw7cpql5ziVfmf8aC+I9kmJ9MHNsRad+XzDOU
+	VvTXbHkdk2Q4X9kNZOfnnUeQ1LPcyK/CijtuH1/4T2xgRMATw6TToVs20yVOWOeFcE5VIGz0LpmzR
+	6dj27EH1Neyw30s6ymPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKbQP-008God-2b;
-	Sat, 15 Jul 2023 09:18:49 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1qKbQW-008Gqr-0F;
+	Sat, 15 Jul 2023 09:18:56 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKbQF-008GkF-1U;
-	Sat, 15 Jul 2023 09:18:41 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-4fd32e611e0so1214296e87.0;
-        Sat, 15 Jul 2023 02:18:37 -0700 (PDT)
+	id 1qKbQI-008GlP-1D;
+	Sat, 15 Jul 2023 09:18:43 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-2b8392076c9so28498511fa.1;
+        Sat, 15 Jul 2023 02:18:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1689412716; x=1692004716;
+        d=gmail.com; s=20221208; t=1689412720; x=1692004720;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2jpNcy5dzVr82WuwEI1g6e6LWpPQ71PlmEmq2Gp7ysQ=;
-        b=FkrTMK4ZjasfdQgtBLBDHgGJNMKGHsRES5JqlR0IMfxoe92LVbbOjattnX863XUh9c
-         bjLWjl7HT9donsk+Eu9tqk+NLkemP9/A59eN+CIX0JYJgyje0kqxC0VMOT4W5M4DP1bj
-         E+ktIUlFw+IZ5wzo0lpulklsy/6RmpHi+FqMUBFMEQFwuqUhkAmLq7Rm4jh9DIrL+46F
-         2rr/UU/uszsuqS/91McgHXJsw4u8XwMy80CeCmV1ktU8Yyz/3smG7R6pkuYRq3epGrlh
-         ur7nJ4wHkobftHMP8Wak987jBvsYNZH2RRO62htKh8mUW9IWzEYCCHhNXtjtf5rYmbWz
-         OqYQ==
+        bh=aL5sq5Lugahi7hv9X9W+s9NTZzWQgnxxieVUqmZWN4k=;
+        b=hkC/l0PqNNlvf1QawpapipLhW0ec27tqSQNF+pbnWG2amkvKgTbUy2BZj1E60f0XPw
+         ICzQv+APS8QZRPsaVgLEcXOt+rIVfVGvX0pi8EzBH6QkCPZrKM+s2c+xMVxAaY9ArgrR
+         bpdD3YPHN23ka/++8CxR+4ai0xmURIv54D7PdOB+VKLwZg4iI8DRef/2AE8nuIi1HvIK
+         apn4JdSnn3J6DUqfaNhES2hrFi76pZFVgkTjRJfafjIflfRxe0wex1XWTVvNn36FO6oa
+         vpnyImsyV+M3EAcrPucso+1ehaU3IZuFbDMDnu0zNVBEnp2payDVLW+bnqTNV2hPW9nQ
+         esag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689412716; x=1692004716;
+        d=1e100.net; s=20221208; t=1689412720; x=1692004720;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2jpNcy5dzVr82WuwEI1g6e6LWpPQ71PlmEmq2Gp7ysQ=;
-        b=bl1MD3JcPrnzOgA6yZXiz4spP6hi4e9QNpELhYB8mHrq3vcgylnB8l4IFOAikAqqhz
-         mKZG5Jaw7vwRBn7g/G7Ll5mSPYcXuEFxwBiuQdbamFWtZ1svYb7CLPU0jJHiCjEafV5x
-         SokKwkqheatNDPnubRTsRvjENokquR7kM9DlwsvT7ztY5wguWlq4a2JizHVC+Z/Bhjt+
-         VCQV/UYub/i9j3JVoFDq45CV6Yvegzksi6t1mFt/bPRsTyyu4mjbqcTiNeOFKqRUunYB
-         XQHJ5HY6PQZLuQAtk0utN7r8RlPRVqokc4+bOefs8TLa/hPhiF01SmiDLwnzg98EoJmf
-         4f+A==
-X-Gm-Message-State: ABy/qLbziYOD+XkqQWqDJU4W4VUAMwfSIceM9oKm8ktqhQqc9xJLy5Ct
-	NwlCPCGa0bkgSGifmQcmUvI=
-X-Google-Smtp-Source: APBJJlFjlUwnRMcZk9RS4RINzx0js72EB9SAFazIwlHCMfh4PJY95mokGJzrnPxqR6PAglTw7wj1Dw==
-X-Received: by 2002:a05:6512:3a96:b0:4f8:6e50:d6d0 with SMTP id q22-20020a0565123a9600b004f86e50d6d0mr1787894lfu.31.1689412716242;
-        Sat, 15 Jul 2023 02:18:36 -0700 (PDT)
+        bh=aL5sq5Lugahi7hv9X9W+s9NTZzWQgnxxieVUqmZWN4k=;
+        b=lW7AcwUjJnNUFzZ5UJFYPl2jbu1AdVf8uGAQAvZChzzZmmImyHebS0rJWl1Eo7jg9T
+         8Q0YsUV7GHGCf1+mKIoVLIcohDgItuNYSdAjzm4nqQgPP5cLb31Pbdw+SIx9rlnwmyOG
+         fXddigYmYmgbPdyiUpNKIZEq9EEugCpGIaXoEObmC/buihIIVmdfjPonFAuk7flMpXw/
+         kzgii1T5H4QBm+ZkARiiP7aZ07p3aPksiAZZxr2MQg8qghrMTuBDPb9mSz1l20oigtpF
+         8SSj8L1+11ikUCIbLWRNGvQEGXUO6hSO6ScfRClseFAtmgvwzCj9bhZ0jDCDwjUB6AFJ
+         QLRw==
+X-Gm-Message-State: ABy/qLaYFORNbTfKNOF4Mr/nUOvKUCRB00hFwmE9raSOKCMx2oZGuofq
+	Tno2x1rpLLybOCAdYuqUQfQ=
+X-Google-Smtp-Source: APBJJlFw6pqwd8SozYu/e4m47fwD0y7FnzFvfCySpTqQUjXAlW6XQ/C3li71WujguTyDYtPhFY1uqA==
+X-Received: by 2002:a2e:94c7:0:b0:2b6:e2aa:8fc2 with SMTP id r7-20020a2e94c7000000b002b6e2aa8fc2mr4696400ljh.46.1689412719800;
+        Sat, 15 Jul 2023 02:18:39 -0700 (PDT)
 Received: from user-PC.. ([92.51.95.194])
-        by smtp.gmail.com with ESMTPSA id b17-20020a2e9891000000b002b840f283a7sm561784ljj.36.2023.07.15.02.18.33
+        by smtp.gmail.com with ESMTPSA id b17-20020a2e9891000000b002b840f283a7sm561784ljj.36.2023.07.15.02.18.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Jul 2023 02:18:35 -0700 (PDT)
+        Sat, 15 Jul 2023 02:18:39 -0700 (PDT)
 From: Maksim Kiselev <bigunclemax@gmail.com>
 To: linux-iio@vger.kernel.org
 Cc: Maksim Kiselev <bigunclemax@gmail.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Jonathan Cameron <jic23@kernel.org>,
 	Lars-Peter Clausen <lars@metafoo.de>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -82,16 +82,16 @@ Cc: Maksim Kiselev <bigunclemax@gmail.com>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v9 2/4] iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
-Date: Sat, 15 Jul 2023 12:18:14 +0300
-Message-Id: <20230715091816.3074375-3-bigunclemax@gmail.com>
+Subject: [PATCH v9 3/4] dt-bindings: iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
+Date: Sat, 15 Jul 2023 12:18:15 +0300
+Message-Id: <20230715091816.3074375-4-bigunclemax@gmail.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20230715091816.3074375-1-bigunclemax@gmail.com>
 References: <20230715091816.3074375-1-bigunclemax@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230715_021839_499264_3384B9AD 
-X-CRM114-Status: GOOD (  29.75  )
+X-CRM114-CacheID: sfid-20230715_021842_412619_7B333B07 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,343 +108,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The General Purpose ADC (GPADC) can convert the external signal into
-a certain proportion of digital value, to realize the measurement of
-analog signal, which can be applied to power detection and key detection.
+Allwinner's D1/T113s/R329/T507 SoCs have a new general purpose ADC.
+This ADC is the same for all of this SoCs. The only difference is
+the number of available channels.
 
-Theoretically, this ADC can support up to 16 channels. All SoCs below
-contain this GPADC IP. The only difference between them is the number
-of available channels:
-
- T113 - 1 channel
- D1   - 2 channels
- R329 - 4 channels
- T507 - 4 channels
-
-Reviewed-by: Andy Shevchenko <andy.shevchenko@gmail.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
 ---
- drivers/iio/adc/Kconfig            |  10 ++
- drivers/iio/adc/Makefile           |   1 +
- drivers/iio/adc/sun20i-gpadc-iio.c | 276 +++++++++++++++++++++++++++++
- 3 files changed, 287 insertions(+)
- create mode 100644 drivers/iio/adc/sun20i-gpadc-iio.c
+ .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    | 91 +++++++++++++++++++
+ 1 file changed, 91 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
 
-diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
-index 5f1e9bb59623..517b3db114b8 100644
---- a/drivers/iio/adc/Kconfig
-+++ b/drivers/iio/adc/Kconfig
-@@ -1134,6 +1134,16 @@ config SUN4I_GPADC
- 	  To compile this driver as a module, choose M here: the module will be
- 	  called sun4i-gpadc-iio.
- 
-+config SUN20I_GPADC
-+	tristate "Allwinner D1/T113s/T507/R329 and similar GPADCs driver"
-+	depends on ARCH_SUNXI || COMPILE_TEST
-+	help
-+	  Say yes here to build support for Allwinner (D1, T113, T507 and R329)
-+	  SoCs GPADC. This ADC provides up to 16 channels.
-+
-+	  To compile this driver as a module, choose M here: the module will be
-+	  called sun20i-gpadc-iio.
-+
- config TI_ADC081C
- 	tristate "Texas Instruments ADC081C/ADC101C/ADC121C family"
- 	depends on I2C
-diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
-index eb6e891790fb..2facf979327d 100644
---- a/drivers/iio/adc/Makefile
-+++ b/drivers/iio/adc/Makefile
-@@ -96,6 +96,7 @@ obj-$(CONFIG_RZG2L_ADC) += rzg2l_adc.o
- obj-$(CONFIG_SC27XX_ADC) += sc27xx_adc.o
- obj-$(CONFIG_SPEAR_ADC) += spear_adc.o
- obj-$(CONFIG_SUN4I_GPADC) += sun4i-gpadc-iio.o
-+obj-$(CONFIG_SUN20I_GPADC) += sun20i-gpadc-iio.o
- obj-$(CONFIG_STM32_ADC_CORE) += stm32-adc-core.o
- obj-$(CONFIG_STM32_ADC) += stm32-adc.o
- obj-$(CONFIG_STM32_DFSDM_CORE) += stm32-dfsdm-core.o
-diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gpadc-iio.c
+diff --git a/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
 new file mode 100644
-index 000000000000..6a893d484cf7
+index 000000000000..7ef46c90ebc8
 --- /dev/null
-+++ b/drivers/iio/adc/sun20i-gpadc-iio.c
-@@ -0,0 +1,276 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * GPADC driver for sunxi platforms (D1, T113-S3 and R329)
-+ * Copyright (c) 2023 Maksim Kiselev <bigunclemax@gmail.com>
-+ */
++++ b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
+@@ -0,0 +1,91 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iio/adc/allwinner,sun20i-d1-gpadc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/completion.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/reset.h>
++title: Allwinner D1 General Purpose ADC
 +
-+#include <linux/iio/iio.h>
++maintainers:
++  - Maksim Kiselev <bigunclemax@gmail.com>
 +
-+#define SUN20I_GPADC_DRIVER_NAME	"sun20i-gpadc"
++properties:
++  compatible:
++    enum:
++      - allwinner,sun20i-d1-gpadc
 +
-+/* Register map definition */
-+#define SUN20I_GPADC_SR			0x00
-+#define SUN20I_GPADC_CTRL		0x04
-+#define SUN20I_GPADC_CS_EN		0x08
-+#define SUN20I_GPADC_FIFO_INTC		0x0c
-+#define SUN20I_GPADC_FIFO_INTS		0x10
-+#define SUN20I_GPADC_FIFO_DATA		0X14
-+#define SUN20I_GPADC_CB_DATA		0X18
-+#define SUN20I_GPADC_DATAL_INTC		0x20
-+#define SUN20I_GPADC_DATAH_INTC		0x24
-+#define SUN20I_GPADC_DATA_INTC		0x28
-+#define SUN20I_GPADC_DATAL_INTS		0x30
-+#define SUN20I_GPADC_DATAH_INTS		0x34
-+#define SUN20I_GPADC_DATA_INTS		0x38
-+#define SUN20I_GPADC_CH_CMP_DATA(x)	(0x40 + (x) * 4)
-+#define SUN20I_GPADC_CH_DATA(x)		(0x80 + (x) * 4)
++  "#io-channel-cells":
++    const: 1
 +
-+#define SUN20I_GPADC_CTRL_ADC_AUTOCALI_EN_MASK		BIT(23)
-+#define SUN20I_GPADC_CTRL_WORK_MODE_MASK		GENMASK(19, 18)
-+#define SUN20I_GPADC_CTRL_ADC_EN_MASK			BIT(16)
-+#define SUN20I_GPADC_CS_EN_ADC_CH(x)			BIT(x)
-+#define SUN20I_GPADC_DATA_INTC_CH_DATA_IRQ_EN(x)	BIT(x)
++  "#address-cells":
++    const: 1
 +
-+#define SUN20I_GPADC_WORK_MODE_SINGLE			0
++  "#size-cells":
++    const: 0
 +
-+struct sun20i_gpadc_iio {
-+	void __iomem		*regs;
-+	struct completion	completion;
-+	int			last_channel;
-+	/*
-+	 * Lock to protect the device state during a potential concurrent
-+	 * read access from userspace. Reading a raw value requires a sequence
-+	 * of register writes, then a wait for a completion callback,
-+	 * and finally a register read, during which userspace could issue
-+	 * another read request. This lock protects a read access from
-+	 * ocurring before another one has finished.
-+	 */
-+	struct mutex		lock;
-+};
++  clocks:
++    maxItems: 1
 +
-+static int sun20i_gpadc_adc_read(struct sun20i_gpadc_iio *info,
-+				 struct iio_chan_spec const *chan, int *val)
-+{
-+	u32 ctrl;
-+	int ret = IIO_VAL_INT;
++  interrupts:
++    maxItems: 1
 +
-+	mutex_lock(&info->lock);
++  reg:
++    maxItems: 1
 +
-+	reinit_completion(&info->completion);
++  resets:
++    maxItems: 1
 +
-+	if (info->last_channel != chan->channel) {
-+		info->last_channel = chan->channel;
++patternProperties:
++  "^channel@[0-9a-f]+$":
++    $ref: adc.yaml
++    type: object
++    description:
++      Represents the internal channels of the ADC.
 +
-+		/* enable the analog input channel */
-+		writel(SUN20I_GPADC_CS_EN_ADC_CH(chan->channel),
-+		       info->regs + SUN20I_GPADC_CS_EN);
++    properties:
++      reg:
++        items:
++          minimum: 0
++          maximum: 15
 +
-+		/* enable the data irq for input channel */
-+		writel(SUN20I_GPADC_DATA_INTC_CH_DATA_IRQ_EN(chan->channel),
-+		       info->regs + SUN20I_GPADC_DATA_INTC);
-+	}
++    required:
++      - reg
 +
-+	/* enable the ADC function */
-+	ctrl = readl(info->regs + SUN20I_GPADC_CTRL);
-+	ctrl |= FIELD_PREP(SUN20I_GPADC_CTRL_ADC_EN_MASK, 1);
-+	writel(ctrl, info->regs + SUN20I_GPADC_CTRL);
++    unevaluatedProperties: false
 +
-+	/*
-+	 * According to the datasheet maximum acquire time(TACQ) can be
-+	 * (65535+1)/24Mhz and conversion time(CONV_TIME) is always constant
-+	 * and equal to 14/24Mhz, so (TACQ+CONV_TIME) <= 2.73125ms.
-+	 * A 10ms delay should be enough to make sure an interrupt occurs in
-+	 * normal conditions. If it doesn't occur, then there is a timeout.
-+	 */
-+	if (!wait_for_completion_timeout(&info->completion, msecs_to_jiffies(10))) {
-+		ret = -ETIMEDOUT;
-+		goto err_unlock;
-+	}
++required:
++  - "#io-channel-cells"
++  - clocks
++  - compatible
++  - interrupts
++  - reg
++  - resets
 +
-+	/* read the ADC data */
-+	*val = readl(info->regs + SUN20I_GPADC_CH_DATA(chan->channel));
++additionalProperties: false
 +
-+err_unlock:
-+	mutex_unlock(&info->lock);
++examples:
++  - |
++    #include <dt-bindings/clock/sun20i-d1-ccu.h>
++    #include <dt-bindings/reset/sun20i-d1-ccu.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
 +
-+	return ret;
-+}
++    gpadc: adc@2009000 {
++        compatible = "allwinner,sun20i-d1-gpadc";
++        reg = <0x2009000 0x400>;
++        clocks = <&ccu CLK_BUS_GPADC>;
++        resets = <&ccu RST_BUS_GPADC>;
++        interrupts = <73 IRQ_TYPE_LEVEL_HIGH>;
++        #io-channel-cells = <1>;
 +
-+static int sun20i_gpadc_read_raw(struct iio_dev *indio_dev,
-+				 struct iio_chan_spec const *chan, int *val,
-+				 int *val2, long mask)
-+{
-+	struct sun20i_gpadc_iio *info = iio_priv(indio_dev);
++        #address-cells = <1>;
++        #size-cells = <0>;
 +
-+	switch (mask) {
-+	case IIO_CHAN_INFO_RAW:
-+		return sun20i_gpadc_adc_read(info, chan, val);
-+	case IIO_CHAN_INFO_SCALE:
-+		/* value in mv = 1800mV / 4096 raw */
-+		*val = 1800;
-+		*val2 = 12;
-+		return IIO_VAL_FRACTIONAL_LOG2;
-+	default:
-+		return -EINVAL;
-+	}
-+}
++        channel@0 {
++            reg = <0>;
++        };
 +
-+static irqreturn_t sun20i_gpadc_irq_handler(int irq, void *data)
-+{
-+	struct sun20i_gpadc_iio *info = data;
-+
-+	/* clear data interrupt status register */
-+	writel(GENMASK(31, 0), info->regs + SUN20I_GPADC_DATA_INTS);
-+
-+	complete(&info->completion);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static const struct iio_info sun20i_gpadc_iio_info = {
-+	.read_raw = sun20i_gpadc_read_raw,
-+};
-+
-+static void sun20i_gpadc_reset_assert(void *data)
-+{
-+	struct reset_control *rst = data;
-+
-+	reset_control_assert(rst);
-+}
-+
-+static int sun20i_gpadc_alloc_channels(struct iio_dev *indio_dev,
-+				       struct device *dev)
-+{
-+	unsigned int channel;
-+	int num_channels, i, ret;
-+	struct iio_chan_spec *channels;
-+	struct fwnode_handle *node;
-+
-+	num_channels = device_get_child_node_count(dev);
-+	if (num_channels == 0)
-+		return dev_err_probe(dev, -ENODEV, "no channel children\n");
-+
-+	channels = devm_kcalloc(dev, num_channels, sizeof(*channels),
-+				GFP_KERNEL);
-+	if (!channels)
-+		return -ENOMEM;
-+
-+	i = 0;
-+	device_for_each_child_node(dev, node) {
-+		ret = fwnode_property_read_u32(node, "reg", &channel);
-+		if (ret) {
-+			fwnode_handle_put(node);
-+			return dev_err_probe(dev, ret, "invalid channel number\n");
-+		}
-+
-+		channels[i].type = IIO_VOLTAGE;
-+		channels[i].indexed = 1;
-+		channels[i].channel = channel;
-+		channels[i].info_mask_separate = BIT(IIO_CHAN_INFO_RAW);
-+		channels[i].info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE);
-+
-+		i++;
-+	}
-+
-+	indio_dev->channels = channels;
-+	indio_dev->num_channels = num_channels;
-+
-+	return 0;
-+}
-+
-+static int sun20i_gpadc_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct iio_dev *indio_dev;
-+	struct sun20i_gpadc_iio *info;
-+	struct reset_control *rst;
-+	struct clk *clk;
-+	int irq;
-+	int ret;
-+
-+	indio_dev = devm_iio_device_alloc(dev, sizeof(*info));
-+	if (!indio_dev)
-+		return -ENOMEM;
-+
-+	info = iio_priv(indio_dev);
-+	info->last_channel = -1;
-+
-+	mutex_init(&info->lock);
-+	init_completion(&info->completion);
-+
-+	ret = sun20i_gpadc_alloc_channels(indio_dev, dev);
-+	if (ret)
-+		return ret;
-+
-+	indio_dev->info = &sun20i_gpadc_iio_info;
-+	indio_dev->name = SUN20I_GPADC_DRIVER_NAME;
-+
-+	info->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(info->regs))
-+		return PTR_ERR(info->regs);
-+
-+	clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock\n");
-+
-+	rst = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(rst))
-+		return dev_err_probe(dev, PTR_ERR(rst), "failed to get reset control\n");
-+
-+	ret = reset_control_deassert(rst);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to deassert reset\n");
-+
-+	ret = devm_add_action_or_reset(dev, sun20i_gpadc_reset_assert, rst);
-+	if (ret)
-+		return ret;
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	ret = devm_request_irq(dev, irq, sun20i_gpadc_irq_handler, 0,
-+			       dev_name(dev), info);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed requesting irq %d\n", irq);
-+
-+	writel(FIELD_PREP(SUN20I_GPADC_CTRL_ADC_AUTOCALI_EN_MASK, 1) |
-+	       FIELD_PREP(SUN20I_GPADC_CTRL_WORK_MODE_MASK, SUN20I_GPADC_WORK_MODE_SINGLE),
-+	       info->regs + SUN20I_GPADC_CTRL);
-+
-+	ret = devm_iio_device_register(dev, indio_dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "could not register the device\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id sun20i_gpadc_of_id[] = {
-+	{ .compatible = "allwinner,sun20i-d1-gpadc" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, sun20i_gpadc_of_id);
-+
-+static struct platform_driver sun20i_gpadc_driver = {
-+	.driver = {
-+		.name = SUN20I_GPADC_DRIVER_NAME,
-+		.of_match_table = sun20i_gpadc_of_id,
-+	},
-+	.probe = sun20i_gpadc_probe,
-+};
-+module_platform_driver(sun20i_gpadc_driver);
-+
-+MODULE_DESCRIPTION("ADC driver for sunxi platforms");
-+MODULE_AUTHOR("Maksim Kiselev <bigunclemax@gmail.com>");
-+MODULE_LICENSE("GPL");
++        channel@1 {
++            reg = <1>;
++        };
++    };
++...
 -- 
 2.39.2
 
