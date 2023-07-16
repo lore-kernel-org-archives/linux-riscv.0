@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14BACEB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 21:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A52DEB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 21:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/kecY8CO9CdN9zhBYY1DyHPCH1wrvyOQSJYnALq4TH4=; b=V1Vz5vOi8Hx7MU
-	IaMfzRTYHCkjbGlsBMZJOsS5hUmI55ffUZKre82AUyFAR9bl7uazQj1k878HOsjJrIaGucWCFpkvR
-	vbffwQMdhcdr8e+evj7LUImmXHDci9GBSuN0Q5fVwT5J8hqFKyMA8ahL65TnKm4ITzbt74pJ8i5lA
-	B4WPTcKFo9p2MMkWmvaq3oXODkNd0MEkoMxuH4qal8D1Yyg2lJNVtqCCS+2pbcufJs50TE3OkX/r+
-	eYQO2nCIsjDN5SPRc58sKS1h7fBS7PwTYaucnKqUhwohpN93rK16v4NV5oFTYoZAXWekfvMpXxf5r
-	UNdEhBKDydtx3xDduXvg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MWGjAk33K9teVzGuS96aJBCI0dCTryvcS6NgQc+h1BU=; b=W6q2Z4OLg9jR3s
+	dWEX0shemHBi7DAmQ3mBOmMj3L8cQ08HYtlZg0qyumnsGBOYudoY7aMc+sW5Im8U1EanWT9E6b7wd
+	Q/SKLagoslgddQVg7tqWMGiaxgnuOpE6zX+7LCymj9kxZLUstlPcFFhNVFD8BEBgtH1jelhBPofHf
+	0i/77KITaFpxw6/1gBwDBrugn+4DdVBrDKIdlcJLovjpt2LNhLNILuXJpFvo+gEVJ72AetBlF2ikC
+	R+qVfNArCvI+1Gxnb2kNdSF/hwYYX/ILthP6qmsnTNU5qhzq3YG+VOm4Nz67PdfPPiiLASdhwlWRT
+	iypY2AQyoinBkljLqL/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9fp-00FrN3-2K;
-	Sun, 16 Jul 2023 21:53:01 +0000
+	id 1qL9gV-00Frnj-2K;
+	Sun, 16 Jul 2023 21:53:43 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9fj-00FrFv-1f;
-	Sun, 16 Jul 2023 21:52:57 +0000
+	id 1qL9fr-00FrOV-0u;
+	Sun, 16 Jul 2023 21:53:04 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 914C960D41;
-	Sun, 16 Jul 2023 21:52:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0354AC433C8;
-	Sun, 16 Jul 2023 21:52:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 73E2260ED2;
+	Sun, 16 Jul 2023 21:53:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 852F6C433C7;
+	Sun, 16 Jul 2023 21:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689544369;
-	bh=iLZeICxUt0l/H4aRyXNb6O+JnIBpoDT4vsePdBYm9ps=;
-	h=From:Subject:Date:To:Cc:From;
-	b=o8x/i3VAnSd5IMSLI+t4VlZaN3qdrjdey4yA2WO8emCjPou7ZEksQBM3klLYpLNcQ
-	 2/liLMxKb4pvSASUdBvvVFQffErmh80uUOnN/32qYd8SWCWm4WQgNnks00gGqHff0O
-	 tdgRbH5qGcCny+jfXcbTdaihLPGZP5Ugk9M2w4DblOJDWl6Vc8Yybi/RoVj9Ys8+/8
-	 PyUhAdQ2uhv/fWSZblljRBJPOE52KdU4mjvM3jP2Cwv3qxGATJsHBnHK0R+2s93ETX
-	 Npdovt0nULB6+9N6WZ7kj/9SwN7RmE8y6n448W6/DwsvtIxSxPpejYRX0Prz5pkoi3
-	 mwf4vSXeso20Q==
+	s=k20201202; t=1689544382;
+	bh=rwg+AaLrST64GPi/dleRneXGKtoIqRfwuUuxqMEvRY8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=UgtraBJIty53nrQbpln20X+ZgVVvVELrRtvAd3QMCrhZZLG55JU40/WRKPzyulIdC
+	 rdaTs7g0cGf13IEO6plkV5jWgs4u4tUGQRUFb5f/AeXP5SfGfRw0tYRLfzzgSw4dtG
+	 KtwongQnS58FCtWJ0962kRMsMbeN2Qn9fsmL5Kkkot6uH6w79KuboVGwU8n+84WVcY
+	 eRR3pYAnAajGivQocVIeEN0cuXoC0qluSb/xC6LqxKAIDzD6bRG2MLIR9U8J/EKH0D
+	 IJSZ/fzQSra/qECPc29Ob+7i1aufZgNDfzPrEFxMKKU8nRrIHTidvx8ycUaL8qHEWP
+	 IpAj+kjOE1FBQ==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH 00/35] arm64/gcs: Provide support for GCS at EL0
-Date: Sun, 16 Jul 2023 22:50:56 +0100
-Message-Id: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
+Date: Sun, 16 Jul 2023 22:50:58 +0100
+Subject: [PATCH 02/35] prctl: Add flag for shadow stack writeability and
+ push/pop
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAEFmtGQC/x2NwQqDQAxEf0VyNrC7Fm39Fekhu0bNwVWSUgriv
- 3eVOb3hDXOAsQob9NUByl8x2XIBX1eQFsozo4yFIbjQuBIkXdsHzsmQG+8puvHZhRcUP5IxRqW
- clmvxWfer3ZUn+d0Pw/s8/zFr139xAAAA
+Message-Id: <20230716-arm64-gcs-v1-2-bf567f93bba6@kernel.org>
+References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
+In-Reply-To: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
  Andrew Morton <akpm@linux-foundation.org>, Marc Zyngier <maz@kernel.org>, 
@@ -71,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-099c9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9675; i=broonie@kernel.org;
- h=from:subject:message-id; bh=iLZeICxUt0l/H4aRyXNb6O+JnIBpoDT4vsePdBYm9ps=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGaPOxNM17eFb4z37ZSAxRZ+c5F75q0zWrhNZMD1
- 4PvjC1eJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmjwAKCRAk1otyXVSH0MdVB/
- 448MmTjXIsxgXt1RwOLmDEC/4ZKydyt4nxlUMLmBfLSrXBR17M694vUugDqTUVy6DSbB3olJgft+tV
- tQtIGvnbQOkYeS257kBHKX/OYFEshyE5jrcL7pliQg9ZHSqd2hQ0jUrthPldDbga1Aj4xGsTm2Qqyi
- hKyPWauLZYKgcy8PGg6J4/YfZZzFPlUbMbQF4uzkD14Try1LNyBDLWD8DI/R8jdrQ5dY0R0ltueNdP
- /WQN/pJ9zaW05GbNVPR4Bqg6fLwDC94fm7Gm+/+LuSTSyVIrIead9+06sZRTHMPdvYmE8Pyd8aYHGQ
- kU6aFmPfP79KzQAQubDtlaPly2fCYu
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1295; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=rwg+AaLrST64GPi/dleRneXGKtoIqRfwuUuxqMEvRY8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGaQrba4c87fXI/DIs9b8uMvYL0mZkMhwI/2a8dl
+ /uECOa+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmkAAKCRAk1otyXVSH0Mz2B/
+ 0Qse7s2seNh0TDAnfYabaiAlsKHmw1NQH/pAIsYkJNq1lwhtVLDvni0GlFFI5Iy4xaXcvNqYLflNIN
+ JB8WxsYfarT9t79wGVEVsXLhN+//YY1W7vIKO7J4qV6OS2zy6xDzLqKUegxjSm1ZzWrLAUmxVvhRTn
+ rdAoifqTz2kttVaBZVk3b2vjudnWDDO1+MV/WXlfbytVw59XLti4le9LkQpNUou/8h3n87mJ3aderr
+ ghHhsnAWYpe/P3JeZi2bHfg9prLFsn0sN6umDfODDRdURGFtk7VPJR/4qEHIpbPDzgcun6Q0ENfn3D
+ fgvdczW1gaU0aCK0NKAnMefJZ1CwOA
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_145255_824059_972D4206 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20230716_145303_414458_8BC53EC3 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,179 +101,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The arm64 Guarded Control Stack (GCS) feature provides support for
-hardware protected stacks of return addresses, intended to provide
-hardening against return oriented programming (ROP) attacks and to make
-it easier to gather call stacks for applications such as profiling.
+On arm64 and x86 the kernel can control if there is write access to the
+shadow stack via specific instructions defined for the purpose, useful
+for things like userspace threading at the expense of some security.
+Add a flag to allow this to be selected when changing the shadow stack
+status.
 
-When GCS is active a secondary stack called the Guarded Control Stack is
-maintained, protected with a memory attribute which means that it can
-only be written with specific GCS operations.  When a BL is executed the
-value stored in LR is also pushed onto the GCS, and when a RET is
-executed the top of the GCS is popped and compared to LR with a fault
-being raised if the values do not match.  GCS operations may only be
-performed on GCS pages, a data abort is generated if they are not.
-
-This series implements support for use of GCS by EL0, along with support
-for use of GCS within KVM guests.  It does not enable use of GCS by
-either EL1 or EL2.  Executables are started without GCS and must use a
-prctl() to enable it, it is expected that this will be done very early
-in application execution by the dynamic linker or other startup code.
-
-x86 has an equivalent feature called shadow stacks, this series depends
-on the x86 patches for generic memory management support for the new
-guarded/shadow stack page type and shares APIs as much as possible.  As
-there has been extensive discussion with the wider community around the
-ABI for shadow stacks I have as far as practical kept implementation
-decisions close to those for x86, anticipating that review would lead to
-similar conclusions in the absence of strong reasoning for divergence.
-
-The main divergence I am concious of is that x86 allows shadow stack to
-be enabled and disabled repeatedly, freeing the shadow stack for the
-thread whenever disabled, while this implementation keeps the GCS
-allocated after disable but refuses to reenable it.  This is to avoid
-races with things actively walking the GCS during a disable, we do
-anticipate that some systems will wish to disable GCS at runtime but are
-not aware of any demand for subsequently reenabling it.
-
-x86 uses an arch_prctl() to manage enable and disable, since only x86
-and S/390 use arch_prctl() a generic prctl() was proposed[1] as part of a
-patch set for the equivalent RISC-V zisslpcfi feature which is adopted
-with some enhancements here.
-
-There's a few bits where I'm not convinced with where I've placed
-things, in particular the GCS write operation is in the GCS header not
-in uaccess.h, I wasn't sure what was clearest there and am probably too
-close to the code to have a clear opinion.
-
-The series depends on the x86 shadow stack support:
-
-   https://lore.kernel.org/lkml/20230227222957.24501-1-rick.p.edgecombe@intel.com/
-
-I've rebased this onto v6.5-rc1 but not included it in the series in
-order to avoid confusion with Rick's work and cut down the size of the
-series, you can see the branch at:
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/misc.git arm64-gcs
-
-[1] https://lore.kernel.org/lkml/20230213045351.3945824-1-debug@rivosinc.com/
+On arm64 the kernel can separately control if userspace is able to pop
+and push values directly onto the shadow stack via GCS push and pop
+instructions, supporting many scenarios where userspace needs to write
+to the stack with less security exposure than full write access.  Add a
+flag to allow this to be selected when changing the shadow stack status.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Deepak Gupta (1):
-      prctl: arch-agnostic prctl for shadow stack
+ include/uapi/linux/prctl.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Mark Brown (34):
-      prctl: Add flag for shadow stack writeability and push/pop
-      arm64: Document boot requirements for Guarded Control Stacks
-      arm64/gcs: Document the ABI for Guarded Control Stacks
-      arm64/sysreg: Add new system registers for GCS
-      arm64/sysreg: Add definitions for architected GCS caps
-      arm64/gcs: Add manual encodings of GCS instructions
-      arm64/gcs: Provide copy_to_user_gcs()
-      arm64/cpufeature: Runtime detection of Guarded Control Stack (GCS)
-      arm64/mm: Allocate PIE slots for EL0 guarded control stack
-      mm: Define VM_SHADOW_STACK for arm64 when we support GCS
-      arm64/mm: Map pages for guarded control stack
-      KVM: arm64: Manage GCS registers for guests
-      arm64: Disable traps for GCS usage at EL0 and EL1
-      arm64/idreg: Add overrride for GCS
-      arm64/hwcap: Add hwcap for GCS
-      arm64/traps: Handle GCS exceptions
-      arm64/mm: Handle GCS data aborts
-      arm64/gcs: Context switch GCS registers for EL0
-      arm64/gcs: Allocate a new GCS for threads with GCS enabled
-      arm64/gcs: Implement shadow stack prctl() interface
-      arm64/mm: Implement map_shadow_stack()
-      arm64/signal: Set up and restore the GCS context for signal handlers
-      arm64/signal: Expose GCS state in signal frames
-      arm64/ptrace: Expose GCS via ptrace and core files
-      arm64: Add Kconfig for Guarded Control Stack (GCS)
-      kselftest/arm64: Verify the GCS hwcap
-      kselftest/arm64: Add GCS as a detected feature in the signal tests
-      kselftest/arm64: Add framework support for GCS to signal handling tests
-      kselftest/arm64: Allow signals tests to specify an expected si_code
-      kselftest/arm64: Always run signals tests with GCS enabled
-      kselftest/arm64: Add very basic GCS test program
-      kselftest/arm64: Add a GCS test program built with the system libc
-      selftests/arm64: Add GCS signal tests
-      kselftest/arm64: Enable GCS for the FP stress tests
+diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+index 9fdc77fa2bfe..e88d2ddcdb2d 100644
+--- a/include/uapi/linux/prctl.h
++++ b/include/uapi/linux/prctl.h
+@@ -321,5 +321,7 @@ struct prctl_mm_map {
+ #define PR_SET_SHADOW_STACK_STATUS      72
+ # define PR_SHADOW_STACK_LOCK           (1UL << 0)
+ # define PR_SHADOW_STACK_ENABLE         (1UL << 1)
++# define PR_SHADOW_STACK_WRITE		(1UL << 2)
++# define PR_SHADOW_STACK_PUSH		(1UL << 3)
+ 
+ #endif /* _LINUX_PRCTL_H */
 
- Documentation/admin-guide/kernel-parameters.txt    |   3 +
- Documentation/arch/arm64/booting.rst               |  22 ++
- Documentation/arch/arm64/elf_hwcaps.rst            |   3 +
- Documentation/arch/arm64/gcs.rst                   | 216 +++++++++++++
- Documentation/arch/arm64/index.rst                 |   1 +
- Documentation/filesystems/proc.rst                 |   2 +-
- arch/arm64/Kconfig                                 |  19 ++
- arch/arm64/include/asm/cpufeature.h                |   6 +
- arch/arm64/include/asm/el2_setup.h                 |   9 +
- arch/arm64/include/asm/esr.h                       |  26 +-
- arch/arm64/include/asm/exception.h                 |   2 +
- arch/arm64/include/asm/gcs.h                       |  88 ++++++
- arch/arm64/include/asm/hwcap.h                     |   1 +
- arch/arm64/include/asm/kvm_host.h                  |  12 +
- arch/arm64/include/asm/pgtable-prot.h              |  14 +-
- arch/arm64/include/asm/processor.h                 |   6 +
- arch/arm64/include/asm/sysreg.h                    |  20 ++
- arch/arm64/include/asm/uaccess.h                   |  42 +++
- arch/arm64/include/uapi/asm/hwcap.h                |   1 +
- arch/arm64/include/uapi/asm/ptrace.h               |   7 +
- arch/arm64/include/uapi/asm/sigcontext.h           |   9 +
- arch/arm64/kernel/cpufeature.c                     |  23 ++
- arch/arm64/kernel/cpuinfo.c                        |   1 +
- arch/arm64/kernel/entry-common.c                   |  23 ++
- arch/arm64/kernel/idreg-override.c                 |   2 +
- arch/arm64/kernel/process.c                        |  77 +++++
- arch/arm64/kernel/ptrace.c                         |  50 +++
- arch/arm64/kernel/signal.c                         | 240 +++++++++++++-
- arch/arm64/kernel/traps.c                          |  11 +
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h         |  17 +
- arch/arm64/kvm/sys_regs.c                          |  22 ++
- arch/arm64/mm/Makefile                             |   1 +
- arch/arm64/mm/fault.c                              |  75 ++++-
- arch/arm64/mm/gcs.c                                | 202 ++++++++++++
- arch/arm64/mm/mmap.c                               |  17 +-
- arch/arm64/tools/cpucaps                           |   1 +
- arch/arm64/tools/sysreg                            |  55 ++++
- fs/proc/task_mmu.c                                 |   3 +
- include/linux/mm.h                                 |  15 +-
- include/linux/syscalls.h                           |   1 +
- include/uapi/asm-generic/unistd.h                  |   5 +-
- include/uapi/linux/elf.h                           |   1 +
- include/uapi/linux/prctl.h                         |  19 ++
- kernel/sys.c                                       |  20 ++
- kernel/sys_ni.c                                    |   1 +
- tools/testing/selftests/arm64/Makefile             |   2 +-
- tools/testing/selftests/arm64/abi/hwcap.c          |  19 ++
- tools/testing/selftests/arm64/fp/assembler.h       |  15 +
- tools/testing/selftests/arm64/fp/fpsimd-test.S     |   2 +
- tools/testing/selftests/arm64/fp/sve-test.S        |   2 +
- tools/testing/selftests/arm64/fp/za-test.S         |   2 +
- tools/testing/selftests/arm64/fp/zt-test.S         |   2 +
- tools/testing/selftests/arm64/gcs/.gitignore       |   2 +
- tools/testing/selftests/arm64/gcs/Makefile         |  19 ++
- tools/testing/selftests/arm64/gcs/basic-gcs.c      | 350 +++++++++++++++++++++
- tools/testing/selftests/arm64/gcs/gcs-util.h       |  65 ++++
- tools/testing/selftests/arm64/gcs/libc-gcs.c       | 217 +++++++++++++
- tools/testing/selftests/arm64/signal/.gitignore    |   1 +
- .../testing/selftests/arm64/signal/test_signals.c  |  17 +-
- .../testing/selftests/arm64/signal/test_signals.h  |   6 +
- .../selftests/arm64/signal/test_signals_utils.c    |  32 +-
- .../selftests/arm64/signal/test_signals_utils.h    |  39 +++
- .../arm64/signal/testcases/gcs_exception_fault.c   |  59 ++++
- .../selftests/arm64/signal/testcases/gcs_frame.c   |  78 +++++
- .../arm64/signal/testcases/gcs_write_fault.c       |  67 ++++
- .../selftests/arm64/signal/testcases/testcases.c   |   7 +
- .../selftests/arm64/signal/testcases/testcases.h   |   1 +
- 67 files changed, 2363 insertions(+), 32 deletions(-)
----
-base-commit: 023ee2d672f3d7c2d15acf62bcfc4bc49c3677e5
-change-id: 20230303-arm64-gcs-e311ab0d8729
-
-Best regards,
 -- 
-Mark Brown <broonie@kernel.org>
+2.30.2
 
 
 _______________________________________________
