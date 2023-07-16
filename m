@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC7BEB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 22:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715DBEB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 22:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5J2YNO4zgc2Spd4dgqNmXTdhrRbw+pz5V9wwn3UIIMM=; b=enVZ0yUXJQabq3
-	RAsXd9EjKmhnTB/C9jS38fMD08qkpy8e4pUcf7iN0O3msmnKXfses+c2UKo0COdyTy97ikiYbfL9W
-	klNAKRhe6+RHnjE/OcQemMqlN9ORb2v4Lv9GpgoiMimZO1hmEU6ejodtn/jz2pend7Y41yRfAR47w
-	ySjaLaMLlskK2umE0rupmMjQ5v3YgKiujDSVXS1/lYSxK8c54hyqIQ12F6PNDgQxwHTf2NpIuZmGm
-	JAsV1CnseJO2ZgClYqIykfoQZ5M1jdmjlyFojWDfo8wSg79H4WN6jcHrcnaFwuOn9iYOUxYb1mdky
-	PW3pZwVf6bTveXYn4fig==;
+	List-Owner; bh=pwqdkDWRCwiuErHvO3W6cxSjCUfpKpuZHAA4rXc1SSE=; b=fYGCIBmZxLWYSX
+	11ExZMpuv91OCkWncbV64C0p2fTRlj8EpsEmxd6aQEH5m95TYul+m0f88w+tea0A0WYTnKYLVmcFk
+	3XyfD95rhDVLklYlKM1DBUv/ruhwKYpGpyKPiv2Nl+e2LRNHMsEx5z/waw23vJKUzXsEklqUGUO0v
+	8NzkWu56K996eMNYPwDz1hRsy+VD3AaySGYWlgs9/90sbU70JzXRJ3ryRoI9YMpC3kX0iv+uyj5Z5
+	NOD2wtmG958Evhb9dsQ/j5MYUMYhDfQiaWNIFmBH9v2um92WNCEDiUvoVL5NGaKbJIynZ/v3XDhsp
+	gCHPGLAr4Gid+DR1sC2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9mT-00Fwbv-2A;
-	Sun, 16 Jul 2023 21:59:54 +0000
+	id 1qL9me-00FwkH-0e;
+	Sun, 16 Jul 2023 22:00:09 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9iO-00FtSb-1s;
-	Sun, 16 Jul 2023 21:55:47 +0000
+	id 1qL9iU-00FtXZ-2W;
+	Sun, 16 Jul 2023 21:55:55 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0D0B460EFB;
-	Sun, 16 Jul 2023 21:55:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB808C43391;
-	Sun, 16 Jul 2023 21:55:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3B19060D41;
+	Sun, 16 Jul 2023 21:55:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E35E3C433CA;
+	Sun, 16 Jul 2023 21:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689544539;
-	bh=6C9vpUKzxaC1YPufnnUpE8qHeuHqYjFB9iVUxK25t6w=;
+	s=k20201202; t=1689544545;
+	bh=Go+3eKanODPQVKnV1QnMIrC75/lXwO2PkPnkMfOn2oA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qRa+YtE7yvYvcODmiwXlBSh4F1vfSwmQsxOYCCQHdyb7+9c2QZaWomxYvuS8kAIhp
-	 714G1h1smywg2+5j2TZEfjSY4jKrv7pSFsPmWoRlS0zeS6ohrJTmnPvVIi14ff21D8
-	 JDffHX6QBQP9aOIkracyewUb01/PrSGXzH4WmI+M4og6H7vnCvlW8GNZs+SChNn2N3
-	 CFO4IYgetGBzac0xoAbaU0lbR8qvrMLJ3zH0bVfQcPnzspiFpfFuWqBx87Ho0dw9Vh
-	 P14G/ouU2IXhzfq4tdx9JGoiCtFadeEMcbJpJfckv7oSDxvR+DrHoPw2gwKEtpbUZO
-	 WD42Obeggb7Jg==
+	b=ECT5d5diCXHo8bURXVIe57IrwH3LVPYaT55I2eb0E/Np71GzQcUGWtEUntEplKCwC
+	 fSmOAVmBorLnsgdHECB59B6DWbXGccZoyiGERfCXmTdxh7yjb1uTsifR2DxSsYeO2g
+	 U59ZQuj5PrDb+/agN7Dl9Qr1uBqTthk1hxAJleZaJ4gtKJsKCutWsOB4+ssCclqi5/
+	 H9dWxEzsXwaori9qPClLzwpRbupwk9Ahieh4tVmZfRl24pHmhdyqWIGn9qVn3eme22
+	 Pf5Swp61Fy74Mc9DWDxTGwXq9nrTn7ONg7lOy18b9YDt4vbk8A7gQZNsWJcUnRxvOG
+	 XtfE91WRSD4iA==
 From: Mark Brown <broonie@kernel.org>
-Date: Sun, 16 Jul 2023 22:51:23 +0100
-Subject: [PATCH 27/35] kselftest/arm64: Verify the GCS hwcap
+Date: Sun, 16 Jul 2023 22:51:24 +0100
+Subject: [PATCH 28/35] kselftest/arm64: Add GCS as a detected feature in
+ the signal tests
 MIME-Version: 1.0
-Message-Id: <20230716-arm64-gcs-v1-27-bf567f93bba6@kernel.org>
+Message-Id: <20230716-arm64-gcs-v1-28-bf567f93bba6@kernel.org>
 References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 In-Reply-To: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-099c9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1205; i=broonie@kernel.org;
- h=from:subject:message-id; bh=6C9vpUKzxaC1YPufnnUpE8qHeuHqYjFB9iVUxK25t6w=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGakI2DafnLEN0xPOYtS8rBwoQOkhbNIa3aIl3+T
- kLXsS3CJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmpAAKCRAk1otyXVSH0C6mB/
- wOqidQ+86Oz6oompV7K5g7vr0TQDYT17lne0KPFqCuXH52UJc3v5g1bWEBZCf72AIeUyxqIlXL1eo+
- fCOPXyV5gx9kIxzNL5ZchfzMMppq9l2z8iGxIDidnZ6Rwu88A8zTi11YTTgcJawGzWSHPi5x0M4tYS
- kmZDonpfdL3p2LhjP7t0nhltgDjNqnE0LdDpgk1M6KoClhQX7tBC0Y++yuKtA8RVSwE87k+oaTYNUW
- ieQNE9JyTJnXTC1B5QfO3otl1F+D47QHyh9/+ktlmXTv5gfNRDIydVmDscZmRd4N7GYcn9T2SDLx4b
- kNoA3+dO/UVfdsAY+7oBJuc+B6wbTC
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1828; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Go+3eKanODPQVKnV1QnMIrC75/lXwO2PkPnkMfOn2oA=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGalnGeU3K7oX3kc7kc1vOCWlIGVrULEZrhSEdLZ
+ vws1w6CJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmpQAKCRAk1otyXVSH0AFnB/
+ 9US05dk0B/KCfZYMHoYXXScr7LLlbQV9vVecVF7KEFOCMc4EuaMKkGy1uQfpsJ0o9xGpwumm9m1qG8
+ p9K1kLmFInC+9t6XitfcPIRPnKUxan5FQ3yiLuUWWVu+tmyJX2kWaffOTAuKj7zO25Pwt2c9YW5oEa
+ f9VjL6uJP9BDwSSRNbN7mBs9zRr+yc9wX4u0gvytmfyGkk0jEWoHm8dF/xwK5qyFYXm4giL26Q8iFG
+ 354GpQCiMKtFPNDO8A4H9GdYiNecTC7cDsCOSsa7a/giwNB848wAuQmV6vpgDwXDhUhupaTLe9yjoB
+ yXFF55Ml7rxGBuJJFbC4EDNdyHgRPd
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_145542_409723_7842357F 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20230716_145553_247553_5FCC76AF 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,51 +101,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add coverage of the GCS hwcap to the hwcap selftest, using a read of
-GCSPR_EL0 to generate SIGILL without having to worry about enabling GCS.
+In preparation for testing GCS related signal handling add it as a feature
+we check for in the signal handling support code.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/abi/hwcap.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ tools/testing/selftests/arm64/signal/test_signals.h       | 2 ++
+ tools/testing/selftests/arm64/signal/test_signals_utils.c | 3 +++
+ 2 files changed, 5 insertions(+)
 
-diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
-index d4ad813fed10..38844e4c5aae 100644
---- a/tools/testing/selftests/arm64/abi/hwcap.c
-+++ b/tools/testing/selftests/arm64/abi/hwcap.c
-@@ -39,6 +39,17 @@ static void cssc_sigill(void)
- 	asm volatile(".inst 0xdac01c00" : : : "x0");
- }
+diff --git a/tools/testing/selftests/arm64/signal/test_signals.h b/tools/testing/selftests/arm64/signal/test_signals.h
+index 1e6273d81575..7ada43688c02 100644
+--- a/tools/testing/selftests/arm64/signal/test_signals.h
++++ b/tools/testing/selftests/arm64/signal/test_signals.h
+@@ -35,6 +35,7 @@ enum {
+ 	FSME_BIT,
+ 	FSME_FA64_BIT,
+ 	FSME2_BIT,
++	FGCS_BIT,
+ 	FMAX_END
+ };
  
-+static void gcs_sigill(void)
-+{
-+	unsigned long *gcspr;
-+
-+	asm volatile(
-+		"mrs	%0, S3_3_C2_C5_1"
-+	: "=r" (gcspr)
-+	:
-+	: "cc");
-+}
-+
- static void mops_sigill(void)
- {
- 	char dst[1], src[1];
-@@ -223,6 +234,14 @@ static const struct hwcap_data {
- 		.cpuinfo = "cssc",
- 		.sigill_fn = cssc_sigill,
- 	},
-+	{
-+		.name = "GCS",
-+		.at_hwcap = AT_HWCAP2,
-+		.hwcap_bit = HWCAP2_GCS,
-+		.cpuinfo = "gcs",
-+		.sigill_fn = gcs_sigill,
-+		.sigill_reliable = true,
-+	},
- 	{
- 		.name = "MOPS",
- 		.at_hwcap = AT_HWCAP2,
+@@ -43,6 +44,7 @@ enum {
+ #define FEAT_SME		(1UL << FSME_BIT)
+ #define FEAT_SME_FA64		(1UL << FSME_FA64_BIT)
+ #define FEAT_SME2		(1UL << FSME2_BIT)
++#define FEAT_GCS		(1UL << FGCS_BIT)
+ 
+ /*
+  * A descriptor used to describe and configure a test case.
+diff --git a/tools/testing/selftests/arm64/signal/test_signals_utils.c b/tools/testing/selftests/arm64/signal/test_signals_utils.c
+index 0dc948db3a4a..89ef95c1af0e 100644
+--- a/tools/testing/selftests/arm64/signal/test_signals_utils.c
++++ b/tools/testing/selftests/arm64/signal/test_signals_utils.c
+@@ -30,6 +30,7 @@ static char const *const feats_names[FMAX_END] = {
+ 	" SME ",
+ 	" FA64 ",
+ 	" SME2 ",
++	" GCS ",
+ };
+ 
+ #define MAX_FEATS_SZ	128
+@@ -329,6 +330,8 @@ int test_init(struct tdescr *td)
+ 			td->feats_supported |= FEAT_SME_FA64;
+ 		if (getauxval(AT_HWCAP2) & HWCAP2_SME2)
+ 			td->feats_supported |= FEAT_SME2;
++		if (getauxval(AT_HWCAP2) & HWCAP2_GCS)
++			td->feats_supported |= FEAT_GCS;
+ 		if (feats_ok(td)) {
+ 			if (td->feats_required & td->feats_supported)
+ 				fprintf(stderr,
 
 -- 
 2.30.2
