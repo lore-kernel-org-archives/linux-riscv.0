@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57BEEB64DA
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 15:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87410EB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 16:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=X7pAX++kBMChMawA6/0/p4atY2gXQCzcTOc0nJTE1cs=; b=swfrzPk0BdrFn7
-	S8rV380FbgaJ88LEiAj1AMQqlojGc7pwz9l486NHtcvNUUcCIzxqoE7Ma+veH4bM6mSD2Tph8hvE1
-	EZINlsMV2VPzKnHo2ZRZXMjzdAwwXPbpcbaqftok0jJOAApZ4NT5c4cKbdIboYrAPp+ZQBNNKpmpu
-	+um6U/B9d4fIpXfkjmFV7/03uTr81SDWzqSbi5wmO4k3hyjVmXwgN9teReSrflG2iC2Pcos9vXBoO
-	cmUB4zf+F2oon2rM0+lR1Q0Le8oTfUNtNa+T+Ds59SsMhTnVNt6zx/GG74VO9lcsCmcCo+jUtVUM/
-	tU0Wh3VOgvc1OFuD7fZg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BJFXGg9veZCKQnh2OwyBRpLKiF0ze8K1C8+tlj58ZwU=; b=NJc8IbmyJ6Q+wy
+	DSiXq9AiPHIXH3VV1LkmiiCka5IlEA3pvHi/IhRNubiN59utyhCLrVZb7evOhBPRkVYoIuwhuiYnA
+	zcMakKandupEEYdRfKi2DKIWonMmBv4wKegNaVgPGDe7yQDKiIhIIhsLVMu/9sW7nvCQFQMw8Oran
+	t0gg65kejMzDW3fLNMcEpKvgEWiVgwsrfZXphyT4hEGWJn4I39oiFKp2Pwi6zNavZzn1c5tgTaNQ/
+	Dt5pwnLW8Po7XGyJl0LFtWfaPOlY6OACr70G4Pf18ewqzzYS5ndLpq+o+GDSWavjAG4dckAARM4sv
+	JqDjd3kxncXPyajfjMDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL3YJ-00CHhT-0h;
-	Sun, 16 Jul 2023 15:20:51 +0000
+	id 1qL4iW-00CxgW-2u;
+	Sun, 16 Jul 2023 16:35:28 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL3YG-00CHf1-0M
+	id 1qL4iS-00Cxd6-21
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jul 2023 15:20:49 +0000
+	Sun, 16 Jul 2023 16:35:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0892560C64;
-	Sun, 16 Jul 2023 15:20:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B2D2C433C7;
-	Sun, 16 Jul 2023 15:20:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 34C7E60DB4;
+	Sun, 16 Jul 2023 16:35:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0593C433C8;
+	Sun, 16 Jul 2023 16:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689520846;
-	bh=KuRdyUnvdhMI0IlJX5eClH8cwmGftUxt0A36mvY9HIo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ri48yWAptbDvfqa8raYqK0Qc1xMA0ks3kWOM4NUuo0b8ozl/Pc8U/qglksWNKcIuP
-	 +vto7asvYvtXHZCUksExNLZDPgkHtp6nxvIKycIguLGReF1B+4k3mVAoRSIKScJJx1
-	 SO5VL7v4wpz4YJ95lWZ2yoq3fY5zNsDLQcev9IpOAl/adKTR4w+4ApshXUixydSXvU
-	 g98GVv+4C2M8m+pir8crYc9qrybXkNIVOHEatJuiGPfuhljXbckSn7Efxu6qWfD8mk
-	 SH08O9qI5I5Mp87oicN/rNG1LHZxaCDjMcVDtyOV5g1DZ7EurVQX/anGucr7XxhCTI
-	 Mypmwvjdhle0Q==
-From: guoren@kernel.org
-To: guoren@kernel.org,
-	palmer@rivosinc.com,
-	paul.walmsley@sifive.com,
-	falcon@tinylab.org,
-	bjorn@kernel.org,
-	conor.dooley@microchip.com,
-	alex@ghiti.fr
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH] riscv: Add HAVE_IOREMAP_PROT support
-Date: Sun, 16 Jul 2023 11:20:33 -0400
-Message-Id: <20230716152033.3713581-1-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
+	s=k20201202; t=1689525322;
+	bh=gY8zTOWN+oMFyatXIo8LTprkvrYU5gzVL1TL7vQ5pLs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bqS3FjIQgJXJNEIliilYLF0zUtQHjRKQMMipkE6FtAcYjKBLJBCtLCy6XHUb0jtbp
+	 YYntTBMk0nHLzxyOR05unM4oaFWq3n+Foww+cnuVcfm23DIpfNh3Hzm3Iftv2gUSJI
+	 mvywJ5s6ZJlnAiMmZhsHLFAsA4eY4RcRFfm1BEBX32ER8NVsTP5yNaf2EPvWiAJfD4
+	 cYvhszHs4rwBlI8UGgUju6wSn9s6VQtj0Z4BF9G/1A5S+lWHcQvmL3VDDGtyat5fow
+	 E68a2DbYzS4vb44eLzSmXAWLHcW9+QSeo+dgNNKikHwuzWrywn4Js/vNPst1hPI9eV
+	 baiIrcpXntNFg==
+Message-ID: <dd5d7fed-cda1-8ab2-d502-7466def675ac@kernel.org>
+Date: Sun, 16 Jul 2023 18:35:17 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH 2/4] riscv: dts: allwinner: d1: Add CAN controller nodes
+Content-Language: en-US
+To: Jookia <contact@jookia.org>, linux-sunxi@lists.linux.dev
+Cc: devicetree@vger.kernel.org, linux-can@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Fabien Poussin <fabien.poussin@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>
+References: <20230715112523.2533742-1-contact@jookia.org>
+ <20230715112523.2533742-3-contact@jookia.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <20230715112523.2533742-3-contact@jookia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_082048_250118_E5CD7611 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20230716_093524_729688_4FAE21E3 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,84 +80,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On 15/07/2023 13:25, Jookia wrote:
+> From: John Watts <contact@jookia.org>
+> 
+> The Allwinner D1, T113 provide two CAN controllers that are variants
+> of the R40 controller.
+> 
+> I have tested support for these controllers on two boards:
+> 
 
-Add pte_pgprot macro, then riscv could have HAVE_IOREMAP_PROT,
-which will enable generic_access_phys() code, it is useful for
-debug, eg, gdb.
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC (and consider --no-git-fallback argument). It might
+happen, that command when run on an older kernel, gives you outdated
+entries. Therefore please be sure you base your patches on recent Linux
+kernel.
 
-Because generic_access_phys() would call ioremap_prot()->
-pgprot_nx() to disable excutable attribute, add definition
-of pgprot_nx() for riscv.
+> - A Lichee Panel RV 86 Panel running a D1 chip
+> - A Mango Pi MQ Dual running a T113-s3 chip
+> 
+> Both of these fully support both CAN controllers.
+> 
+> Signed-off-by: John Watts <contact@jookia.org>
+> ---
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 30 +++++++++++++++++++
+>  1 file changed, 30 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> index 1bb1e5cae602..b185398334be 100644
+> --- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> @@ -131,6 +131,18 @@ uart3_pb_pins: uart3-pb-pins {
+>  				pins = "PB6", "PB7";
+>  				function = "uart3";
+>  			};
+> +
+> +			/omit-if-no-ref/
+> +			can0_pins: can0_pins {
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- .../features/vm/ioremap_prot/arch-support.txt     |  2 +-
- arch/riscv/Kconfig                                |  1 +
- arch/riscv/include/asm/pgtable.h                  | 15 +++++++++++++++
- 3 files changed, 17 insertions(+), 1 deletion(-)
+Wrong node naming. Underscores are not allowed.
 
-diff --git a/Documentation/features/vm/ioremap_prot/arch-support.txt b/Documentation/features/vm/ioremap_prot/arch-support.txt
-index a24149e59d73..ea8c8a361455 100644
---- a/Documentation/features/vm/ioremap_prot/arch-support.txt
-+++ b/Documentation/features/vm/ioremap_prot/arch-support.txt
-@@ -21,7 +21,7 @@
-     |    openrisc: | TODO |
-     |      parisc: | TODO |
-     |     powerpc: |  ok  |
--    |       riscv: | TODO |
-+    |       riscv: |  ok  |
-     |        s390: |  ok  |
-     |          sh: |  ok  |
-     |       sparc: | TODO |
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 4c07b9189c86..15900fa20797 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -117,6 +117,7 @@ config RISCV
- 	select HAVE_FUNCTION_ERROR_INJECTION
- 	select HAVE_GCC_PLUGINS
- 	select HAVE_GENERIC_VDSO if MMU && 64BIT
-+	select HAVE_IOREMAP_PROT
- 	select HAVE_IRQ_TIME_ACCOUNTING
- 	select HAVE_KPROBES if !XIP_KERNEL
- 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 75970ee2bda2..c9552a161f90 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -415,6 +415,11 @@ static inline pte_t pte_mkhuge(pte_t pte)
- 	return pte;
- }
- 
-+static inline pgprot_t pte_pgprot(pte_t pte)
-+{
-+	return __pgprot(pte_val(pte) & ~_PAGE_PFN_MASK);
-+}
-+
- #ifdef CONFIG_NUMA_BALANCING
- /*
-  * See the comment in include/asm-generic/pgtable.h
-@@ -573,6 +578,16 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
- 	return ptep_test_and_clear_young(vma, address, ptep);
- }
- 
-+#define pgprot_nx pgprot_nx
-+static inline pgprot_t pgprot_nx(pgprot_t _prot)
-+{
-+	unsigned long prot = pgprot_val(_prot);
-+
-+	prot &= ~_PAGE_EXEC;
-+
-+	return __pgprot(prot);
-+}
-+
- #define pgprot_noncached pgprot_noncached
- static inline pgprot_t pgprot_noncached(pgprot_t _prot)
- {
--- 
-2.36.1
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+
+
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
