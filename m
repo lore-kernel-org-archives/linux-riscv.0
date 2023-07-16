@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B521C04E69
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 21:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB37EB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 21:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZnVduKTUkNpWMsQNoccxHUQ0ulBoGcXI2ZtY7+bfy08=; b=gCLHGerAK3V/sw
-	FRR5mso2XucInX00EEhdppCOZSxBm/JrUxeV6eUkDqpeK0T9Wjr5AWM988fJAT9H2yf9Zbo7Q0hXt
-	gSqPI2bG46NM6uqSR0fIXB28dwAQBVbGZ7/UVs4ZNQvatGEWMezIWeQiXMKMklWd4HemN5cmfljvT
-	GxPLBWYr531JqjFGDqTFaqLNDVXR4GaP34UvayZZU7ga3675OaGP7KSk28zNF7cFLZzE+IlcYk+4g
-	XuEMU3eH7EsQWYGRvPNR+Ebd3apq93zAk3wgY8xFXbqGhzAUa89zepaK4M4flO/n68qLv+b3pUPp1
-	LK2NbGIusYL7iSlTo1Sw==;
+	List-Owner; bh=lVYEheXnZ+FQXkfB+aWld798WH/xcxleCNwhnirXTXo=; b=je5DDR+6yiA5dp
+	4+A4O7lda8/cyaGE4en605vxe1rgJfrvbP65EHuvDIlFmjjEpbVWKU2ArV/OmszX/CIgbajbgDXMv
+	0O0PZQMZ7KKrdg1erezwaK/ae8DEToc0D7Vqjo4iQbWfDY7zbZd0VL3p53uoXoWLM93UreOaI3QR6
+	TUsAWc/MRCFSLPUuSLKaCDzzrA4wWuQLBoyk+3cqnV5Kx8mKhv3hgH4/SN/yJqshCF8gaF68j6Gkn
+	OJHFSu6jbGJ6UD+pxb6v7HH0gKfb/lceiNY2UyFgqsDjx2rFvf8OB/vxGVR/TcmGRXIzkhKc2iOIw
+	rID8kyr2rolZ5mfsBLGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9lg-00Fvxb-0l;
-	Sun, 16 Jul 2023 21:59:05 +0000
+	id 1qL9lp-00Fw4v-1O;
+	Sun, 16 Jul 2023 21:59:13 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9hn-00FswA-1d;
-	Sun, 16 Jul 2023 21:55:15 +0000
+	id 1qL9hz-00Ft87-2t;
+	Sun, 16 Jul 2023 21:55:19 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0A8BF60ECB;
-	Sun, 16 Jul 2023 21:55:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1AC9C433CD;
-	Sun, 16 Jul 2023 21:54:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5CB9160ED1;
+	Sun, 16 Jul 2023 21:55:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F1A5C433CD;
+	Sun, 16 Jul 2023 21:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689544502;
-	bh=sCynytFiMn0HVRaCw9wATO/MQrUseepmFl+nT2jYk/s=;
+	s=k20201202; t=1689544514;
+	bh=IRPiROrkNB3kUOdwWZbwXaWKwQj52u2NCwJOGF2R4Sc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KjXrfm/wSRDdF+7YCpEGZEO+lSs+OqgoSQgrfDj9DVQZpExsCZkfUKQnOJVXYoE7P
-	 PfkNIr2tSuxKaaNcHBG9NeHHpfhOSd2atGj6izLAif7Q+YYeuwfnFSG7gum7gDbZm2
-	 QvxxHFaPdAYDUz3qiI2hZjYHGtBlt8SlAmXMu5nNgnYb2/cFvBWgDeYOyq9l/rOaRW
-	 N/g9cHAlpOjVSh6Bu0aNvQcLdlrK24PA5KHq9XuSuyaueqlrPX8b/yQw8c+JgGhSwo
-	 thBNYortK6za79ujqUOGOXut8DgdfS+5pXkJhCNIN8IqcACV9BWSmLG6W468TAJ/lf
-	 en3TjwAu0bUJQ==
+	b=X8fGlXBVOw7r4yAprIZ+kiw/ryd0Wh+6+SFQCEGf04EUbvmqymRi1oissq6NTtnoy
+	 QIxLK6tH4vVhbHFdeEh0suZnVNifPkxRXB6pJ8lQs/j4RE1cK14RE+awKQjUzrOT98
+	 qylgjPz+lmesBs9r3rxXffkTR+qC9Dum9D74IdD6knMbYUaHO787Bf0yEX74TDGlfw
+	 joVPK7K/qnwAnsNHMDUt91HxyULkAMbvByEr3eO6VNX4c9+boHflmcxPZwxdvtUqgy
+	 00hw51azDroLt6dk7f3fF9kFLPEGgGYcWmslH4+e6rzGH6YaexDDuGP9Gxpx9eq3mc
+	 C/4vJ67cJaiEg==
 From: Mark Brown <broonie@kernel.org>
-Date: Sun, 16 Jul 2023 22:51:17 +0100
-Subject: [PATCH 21/35] arm64/gcs: Implement shadow stack prctl() interface
+Date: Sun, 16 Jul 2023 22:51:19 +0100
+Subject: [PATCH 23/35] arm64/signal: Set up and restore the GCS context for
+ signal handlers
 MIME-Version: 1.0
-Message-Id: <20230716-arm64-gcs-v1-21-bf567f93bba6@kernel.org>
+Message-Id: <20230716-arm64-gcs-v1-23-bf567f93bba6@kernel.org>
 References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 In-Reply-To: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-099c9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4126; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sCynytFiMn0HVRaCw9wATO/MQrUseepmFl+nT2jYk/s=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGafpYt4RHzf+znR2MMO8WH/q7lZQApjc5kZAGv8
- bxNTw/6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmnwAKCRAk1otyXVSH0IvWB/
- 0eBO46ZWbi3FkEnPnLnNDUJL2rLooaAWsLABOPnXo+GV5miqbDIJqOX2yx7A4yvqRY1vX5rppQvQou
- UunGCboCgcdlOHMc1YkJgbMIZu+8uvqCzs78QLUdI5SVQLMX/Oek6Qfdnv/K+pg1GnJoxoDJuBg84L
- BGOrkPGtB2/EIXhAhWPzi/rWeJDPBNkE8bBb8BmcWPY1zBXQC+uV/VQKDsSRyukIHE1w5z8ED9+nnv
- ols7/RmacQ5LnVCzH6YJVy+STu1EWtNuoScWdMP5ZHVfYs2/kzZGmIOw9POUPAkiqDXia5RGkEjBaE
- nV1BQO10tqr9If6MxXuD60AdR2bAUx
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7379; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=IRPiROrkNB3kUOdwWZbwXaWKwQj52u2NCwJOGF2R4Sc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGahg7DotblkjcSfwUFC6Isjt/jiQVo6t4WibWEe
+ C8U2ix+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmoQAKCRAk1otyXVSH0OOWB/
+ wIeZomcMZ8MKKejsyZrDUdGTnJMN7Y0qlopScHT/rNeF51V1OYlw4155l7F8rqdIi1ioJXzxTgGX6G
+ BJmCIYRHjlOqmTaoPjYUCPkxJfDHM80qMVVt8P/F1f9kWc14QIjs2KpXuubfSuikckqQ5vlYJz9/bI
+ Xg9unXrwZZ7PgOwdm0xUZ/0Jfvc9umK2vqHPXmpAmhQDd+p9DcjVhgVrffU+YEDJc9EkQHyIjEhgpN
+ owoBmjwlMoiOV9zWSzWtte0E+Sn2tUKJpEQgFLO5UqJbSWYTeQUO7z7kpJjYc9DmotnL4NKr/7FlhH
+ mXmUpjWM+STovTTDaSv+WYg/sbTD1H
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_145511_767364_90458E6C 
-X-CRM114-Status: GOOD (  21.81  )
+X-CRM114-CacheID: sfid-20230716_145516_750572_5032ECA3 
+X-CRM114-Status: GOOD (  29.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,128 +101,254 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement the architecture neutral prtctl() interface for setting the
-shadow stack status, this supports setting and reading the current GCS
-configuration for the current thread.
+When invoking a signal handler we use the GCS configuration and stack
+for the current thread.
 
-Userspace can enable basic GCS functionality and additionally also
-support for GCS pushes and arbatrary GCS stores.  It is expected that
-this prctl() will be called very early in application startup, for
-example by the dynamic linker, and not subsequently adjusted during
-normal operation.  Users should carefully note that after enabling GCS
-for a thread GCS will become active with no call stack so it is not
-normally possible to return from the function that invoked the prctl().
+Since we implement signal return by calling the signal handler with a
+return address set up pointing to a trampoline in the vDSO we need to
+also configure any active GCS for this by pushing a frame for the
+trampoline onto the GCS.  If we do not do this then signal return will
+generate a GCS protection fault.
 
-State is stored per thread, enabling GCS for a thread causes a GCS to be
-allocated for that thread.
-
-Userspace may lock the current GCS configuration by specifying
-PR_SHADOW_STACK_ENABLE_LOCK, this prevents any further changes to the
-GCS configuration via any means.
-
-If GCS is not being enabled then all flags other than _LOCK are ignored,
-it is not possible to enable stores or pops without enabling GCS.
-
-When disabling the GCS we do not free the allocated stack, this allows
-for inspection of the GCS after disabling as part of fault reporting.
-Since it is not an expected use case and since it presents some
-complications in determining what to do with previously initialsed data
-on the GCS attempts to reenable GCS after this are rejected.  This can
-be revisted if a use case arises.
+In order to guard against attempts to bypass GCS protections via signal
+return we only allow returning with GCSPR_EL0 pointing to an address
+where it was previously preempted by a signal.  We do this by pushing a
+cap onto the GCS, this takes the form of an architectural GCS cap token
+with the top bit set which we add on signal entry and validate and pop
+off on signal return.  Since the top bit is set address validation for
+the token will fail if an attempt is made to use it with the stack
+switch instructions.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/gcs.h |  4 +++
- arch/arm64/mm/gcs.c          | 64 ++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 68 insertions(+)
+ arch/arm64/include/asm/gcs.h |   2 +
+ arch/arm64/kernel/signal.c   | 134 +++++++++++++++++++++++++++++++++++++++++--
+ arch/arm64/mm/gcs.c          |   1 +
+ 3 files changed, 132 insertions(+), 5 deletions(-)
 
 diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
-index 4371a2f99b4a..8655ba8054c7 100644
+index 8655ba8054c7..8ef2313522b4 100644
 --- a/arch/arm64/include/asm/gcs.h
 +++ b/arch/arm64/include/asm/gcs.h
-@@ -48,6 +48,10 @@ static inline u64 gcsss2(void)
- 	return Xt;
- }
+@@ -8,6 +8,8 @@
+ #include <asm/types.h>
+ #include <asm/uaccess.h>
  
-+#define PR_SHADOW_STACK_SUPPORTED_STATUS_MASK \
-+	(PR_SHADOW_STACK_LOCK | PR_SHADOW_STACK_ENABLE | \
-+	 PR_SHADOW_STACK_WRITE | PR_SHADOW_STACK_PUSH)
++struct ksignal;
 +
- #ifdef CONFIG_ARM64_GCS
+ static inline void gcsb_dsync(void)
+ {
+ 	asm volatile(".inst 0xd503227f" : : : "memory");
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 0df8cc295ea5..922b694fa0aa 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -25,6 +25,7 @@
+ #include <asm/elf.h>
+ #include <asm/exception.h>
+ #include <asm/cacheflush.h>
++#include <asm/gcs.h>
+ #include <asm/ucontext.h>
+ #include <asm/unistd.h>
+ #include <asm/fpsimd.h>
+@@ -34,6 +35,36 @@
+ #include <asm/traps.h>
+ #include <asm/vdso.h>
  
- static inline bool task_gcs_el0_enabled(struct task_struct *task)
-diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-index 1e059c37088d..b137493c594d 100644
---- a/arch/arm64/mm/gcs.c
-+++ b/arch/arm64/mm/gcs.c
-@@ -93,3 +93,67 @@ void gcs_free(struct task_struct *task)
- 	task->thread.gcs_base = 0;
- 	task->thread.gcs_size = 0;
- }
++#ifdef CONFIG_ARM64_GCS
++/* Extra bit set in the address distinguishing a signal cap token. */
++#define GCS_SIGNAL_CAP_FLAG BIT(63)
 +
-+int arch_set_shadow_stack_status(struct task_struct *task, unsigned long arg)
++#define GCS_SIGNAL_CAP(addr) (GCS_CAP(addr) | GCS_SIGNAL_CAP_FLAG)
++
++static bool gcs_signal_cap_valid(u64 addr, u64 val)
 +{
-+	unsigned long gcs, size;
++	/*
++	 * The top bit should be set, this is an invalid address for
++	 * EL0 and will only be set for caps created by signals.
++	 */
++	if (!(val & GCS_SIGNAL_CAP_FLAG))
++		return false;
++
++	/* The rest should be a standard architectural cap token. */
++	val &= ~GCS_SIGNAL_CAP_FLAG;
++
++	/* The cap must have the low bits set to a token value */
++	if (GCS_CAP_TOKEN(val) != GCS_CAP_VALID_TOKEN)
++		return false;
++
++	/* The cap must store the VA the cap was stored at */
++	if (GCS_CAP_ADDR(addr) != GCS_CAP_ADDR(val))
++		return false;
++
++	return true;
++}
++#endif
++
+ /*
+  * Do a signal return; undo the signal stack. These are aligned to 128-bit.
+  */
+@@ -815,6 +846,49 @@ static int restore_sigframe(struct pt_regs *regs,
+ 	return err;
+ }
+ 
++#ifdef CONFIG_ARM64_GCS
++static int gcs_restore_signal(void)
++{
++	u64 gcspr_el0, cap;
++	int ret;
 +
 +	if (!system_supports_gcs())
++		return 0;
++
++	if (!(current->thread.gcs_el0_mode & PR_SHADOW_STACK_ENABLE))
++		return 0;
++
++	/*
++	 * We are exiting from a signal, the in memory state will be the
++	 * most up to date value.
++	 */
++	gcspr_el0 = current->thread.gcspr_el0;
++
++	/*
++	 * GCSPR_EL0 should be pointing at a capped GCS, read the cap...
++	 */
++	gcsb_dsync();
++	ret = copy_from_user(&cap, (__user void*)gcspr_el0, sizeof(cap));
++	if (ret)
++		return -EFAULT;
++
++	/*
++	 * ...then check that the cap is the actual GCS before
++	 * restoring it.
++	 */
++	if (!gcs_signal_cap_valid(gcspr_el0, cap))
 +		return -EINVAL;
 +
-+	if (is_compat_thread(task_thread_info(task)))
-+		return -EINVAL;
-+
-+	/* Reject unknown flags */
-+	if (arg & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
-+		return -EINVAL;
-+
-+	/* If the task has been locked block any attempted changes */
-+	if (task->thread.gcs_el0_mode & PR_SHADOW_STACK_LOCK)
-+		return -EBUSY;
-+
-+	/* Drop flags other than lock if disabling */
-+	if (!(arg & PR_SHADOW_STACK_ENABLE))
-+		arg &= ~PR_SHADOW_STACK_LOCK;
-+
-+	/* If we are enabling GCS then make sure we have a stack */
-+	if (arg & PR_SHADOW_STACK_ENABLE) {
-+		if (!task_gcs_el0_enabled(task)) {
-+			/* Do not allow GCS to be reenabled */
-+			if (task->thread.gcs_base)
-+				return -EINVAL;
-+
-+			size = gcs_size(0);
-+			gcs = alloc_gcs(task->thread.gcspr_el0, size,
-+					0, 0);
-+			if (!gcs)
-+				return -ENOMEM;
-+
-+			task->thread.gcspr_el0 = gcs + size - sizeof(u64);
-+			task->thread.gcs_base = gcs;
-+			task->thread.gcs_size = size;
-+			if (task == current)
-+				write_sysreg_s(task->thread.gcspr_el0,
-+					       SYS_GCSPR_EL0);
-+
-+		}
-+	}
-+
-+	task->thread.gcs_el0_mode = arg;
-+	if (task == current)
-+		gcs_set_el0_mode(task);
++	current->thread.gcspr_el0 = gcspr_el0 + sizeof(cap);
++	write_sysreg_s(current->thread.gcspr_el0, SYS_GCSPR_EL0);
 +
 +	return 0;
 +}
 +
-+int arch_get_shadow_stack_status(struct task_struct *task,
-+				 unsigned long __user *arg)
++#else
++static int gcs_restore_signal(void) { return 0; }
++#endif
++
+ SYSCALL_DEFINE0(rt_sigreturn)
+ {
+ 	struct pt_regs *regs = current_pt_regs();
+@@ -841,6 +915,9 @@ SYSCALL_DEFINE0(rt_sigreturn)
+ 	if (restore_altstack(&frame->uc.uc_stack))
+ 		goto badframe;
+ 
++	if (gcs_restore_signal())
++		goto badframe;
++
+ 	return regs->regs[0];
+ 
+ badframe:
+@@ -1071,7 +1148,52 @@ static int get_sigframe(struct rt_sigframe_user_layout *user,
+ 	return 0;
+ }
+ 
+-static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
++#ifdef CONFIG_ARM64_GCS
++
++static int gcs_signal_entry(__sigrestore_t sigtramp, struct ksignal *ksig)
 +{
++	unsigned long __user *gcspr_el0;
++	unsigned long cap[2];
++	int ret;
++
 +	if (!system_supports_gcs())
-+		return -EINVAL;
++		return 0;
 +
-+	if (is_compat_thread(task_thread_info(task)))
-+		return -EINVAL;
++	if (!task_gcs_el0_enabled(current))
++		return 0;
 +
-+	return put_user(task->thread.gcs_el0_mode, arg);
++	/*
++	 * We are entering a signal handler, current register state is
++	 * active.
++	 */
++	gcspr_el0 = (unsigned long __user *)read_sysreg_s(SYS_GCSPR_EL0);
++
++	/*
++	 * Push a cap and the GCS entry for the trampoline onto the GCS.
++	 */
++	cap[1] = GCS_SIGNAL_CAP(gcspr_el0 - 1);
++	cap[0] = (unsigned long)sigtramp;
++	ret = copy_to_user_gcs(gcspr_el0 - 2, cap, ARRAY_SIZE(cap));
++	if (ret != 0)
++		return ret;
++
++	gcsb_dsync();
++
++	gcspr_el0 -= 2;
++	write_sysreg_s((unsigned long)gcspr_el0, SYS_GCSPR_EL0);
++
++	return 0;
 +}
++#else
++
++static int gcs_signal_entry(__sigrestore_t sigtramp, struct ksignal *ksig)
++{
++	return 0;
++}
++
++#endif
++
++static int setup_return(struct pt_regs *regs, struct ksignal *ksig,
+ 			 struct rt_sigframe_user_layout *user, int usig)
+ {
+ 	__sigrestore_t sigtramp;
+@@ -1079,7 +1201,7 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
+ 	regs->regs[0] = usig;
+ 	regs->sp = (unsigned long)user->sigframe;
+ 	regs->regs[29] = (unsigned long)&user->next_frame->fp;
+-	regs->pc = (unsigned long)ka->sa.sa_handler;
++	regs->pc = (unsigned long)ksig->ka.sa.sa_handler;
+ 
+ 	/*
+ 	 * Signal delivery is a (wacky) indirect function call in
+@@ -1119,12 +1241,14 @@ static void setup_return(struct pt_regs *regs, struct k_sigaction *ka,
+ 		sme_smstop();
+ 	}
+ 
+-	if (ka->sa.sa_flags & SA_RESTORER)
+-		sigtramp = ka->sa.sa_restorer;
++	if (ksig->ka.sa.sa_flags & SA_RESTORER)
++		sigtramp = ksig->ka.sa.sa_restorer;
+ 	else
+ 		sigtramp = VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
+ 
+ 	regs->regs[30] = (unsigned long)sigtramp;
++
++	return gcs_signal_entry(sigtramp, ksig);
+ }
+ 
+ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+@@ -1147,7 +1271,7 @@ static int setup_rt_frame(int usig, struct ksignal *ksig, sigset_t *set,
+ 	err |= __save_altstack(&frame->uc.uc_stack, regs->sp);
+ 	err |= setup_sigframe(&user, regs, set);
+ 	if (err == 0) {
+-		setup_return(regs, &ksig->ka, &user, usig);
++		err = setup_return(regs, ksig, &user, usig);
+ 		if (ksig->ka.sa.sa_flags & SA_SIGINFO) {
+ 			err |= copy_siginfo_to_user(&frame->info, &ksig->info);
+ 			regs->regs[1] = (unsigned long)&frame->info;
+diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
+index 4a0a736800c0..ac7013fb05f3 100644
+--- a/arch/arm64/mm/gcs.c
++++ b/arch/arm64/mm/gcs.c
+@@ -6,6 +6,7 @@
+ #include <linux/types.h>
+ 
+ #include <asm/cpufeature.h>
++#include <asm/gcs.h>
+ #include <asm/page.h>
+ 
+ static unsigned long alloc_gcs(unsigned long addr, unsigned long size,
 
 -- 
 2.30.2
