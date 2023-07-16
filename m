@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385E6EB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 17:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27493EB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 17:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OiWErIr6CRyD6NP9Gm9dH3Ogc/BLXmx4xmmgRT53cK8=; b=uM7FQSrHnF6wa3
-	Gg3rO7mJ3DxjWs0zQA7oUnGWotIPgne4O9rgXX32juIbuRrCAWmOKhZOO1ITJk5wgUHund2J1dVJo
-	gtbf3BeTJWiqGPIuJJUe775ltVKpv3kL67VvEg/dPSmRlO2vb9kpkI78EjkwsRYctx2/Oz6Cua3yi
-	1H//Ue8QhrQ/zFVWnpGkVBq0Ikso6eUDkBGSXOxhM2eQ0U1q6iWyR3Hw5dy/ckrmycA5G2epYlEbX
-	5LvISrRQWGn+ZaY0+zqCP6LVowlS2niSY8GOYinbVzSLOfsWYt8J8CaEpauYbGoI4QWEQ66I6u7jJ
-	7H0czd2BvJwEEldYJnCA==;
+	List-Owner; bh=wnldVTUSy/zzEremKdxIvnTTz5B9uM9aYHJZl3DcPaM=; b=t+EDMPwCcu3q2P
+	e2XgzUJX9BT+ASp+81CS5ol8Zu4m9df7SXx7WOvaydAmRkSQHCaBo/HcytPLJoxsjxJ4j/oSiHXO2
+	EWIwJBsvzJhAWZIUSWKLXHLYq6d5+Oegt65iFF7kaWJE+NaO+1xiBMCEGHjHHSCn8pwAC5NiJ3Gks
+	ZOIn3wZZiLTRZGKrcwnEOjkYQQaREHeaGEzR+PzC/v+Z/M5kcDxl9QoicOzdIF7y9tGGNEFudKjsv
+	x2UXlSGwnnk9Ct5c/BsMzAcL4QdFNtxvEiqYdORzZa7P7P1LPZDOdQLBnk4pz2Y2VvE30ZCFj/ZXp
+	aFc3fb+a/8t5uVG/JBvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL57N-00DCQP-0a;
-	Sun, 16 Jul 2023 17:01:09 +0000
+	id 1qL59x-00DDlA-2Z;
+	Sun, 16 Jul 2023 17:03:49 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL57E-00DCN1-28
+	id 1qL59W-00DDeI-0w
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jul 2023 17:01:06 +0000
+	Sun, 16 Jul 2023 17:03:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C602460DC0;
-	Sun, 16 Jul 2023 17:00:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E623C433C8;
-	Sun, 16 Jul 2023 17:00:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C5A5860DD0;
+	Sun, 16 Jul 2023 17:03:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8391C433C8;
+	Sun, 16 Jul 2023 17:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689526858;
-	bh=sO+ETVQWwYmOPn5mUIbEvZ8OhqTGaw4+3C16oa1rjoY=;
+	s=k20201202; t=1689527001;
+	bh=20Zikv72OY76YPWE++4/3jVTe/sLWDTAfsZqK7N92KQ=;
 	h=From:To:Cc:Subject:Date:From;
-	b=D9WTZ//zIycNG2Zu7PGosYaEot35CiRW0/6tu5BYDDX0BJiybw2teSY/UupPPP3O4
-	 F13Qqp0KRsPkUJ8YIGJsPnS9J967sf9o4YNeKD9fbDPMCNMqw27Uh+cMmIRvXSK0tY
-	 cCQ9R2a5H54xVQZWGvw7d5xl8Y+0DuXvB2RoyETmpCI6CJa5sWsfK3GebTvZyQYmtZ
-	 gglw5j6oZj1Q+3j7oCdAvKBZIPpmAn9obwu8mFK8KjDsKAoNl9wuDttRXJRSMKmUfh
-	 aW6tJI6+c3xqYi/EK3YdJErbBKinpfXloKd2jBlbsLXHp7TwBToQvoBjfhtWokgeCS
-	 PmW8po/y6zc4w==
+	b=Y7tUXlqTb2RTqjU/5X6XsYUAKr/1DDq7xMzby0BIFbpXmiQLOK8k8LS+kbQS/qrfJ
+	 1SZysyfCHvFm1K/x5nW1nCrAkICcHzkrG7y8zmrTLEm733ySdb33bfCO+63pDhHivv
+	 IpOeg2jLQhicVR/g7jrMR/bANwzH6CDbvmbRHErQeK589svbW0w4wqp0esok7DLphh
+	 NKWMVyOTZtmkEcOMbMavx2rnEH3553pfJBQaOXqBy9aeJhqK2NYxL9U/Zysl2ml7pz
+	 0s7csg7Xp0mVfYdatvdojnWSjKsoJJYIWbVVgTgTlQ6o5FnJeUml62SyglnrDg2fny
+	 c/xR76ujLxVpQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>
+	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: [PATCH v2] riscv: support PREEMPT_DYNAMIC with static keys
-Date: Mon, 17 Jul 2023 00:49:25 +0800
-Message-Id: <20230716164925.1858-1-jszhang@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] riscv: Reduce ARCH_KMALLOC_MINALIGN to 8
+Date: Mon, 17 Jul 2023 00:51:45 +0800
+Message-Id: <20230716165147.1897-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.40.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_100100_809422_08766AC0 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20230716_100325_315351_2803C713 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,85 +75,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, each architecture can support PREEMPT_DYNAMIC through
-either static calls or static keys. To support PREEMPT_DYNAMIC on
-riscv, we face three choices:
+Currently, riscv defines ARCH_DMA_MINALIGN as L1_CACHE_BYTES, I.E
+64Bytes, if CONFIG_RISCV_DMA_NONCOHERENT=y. To support unified kernel
+Image, usually we have to enable CONFIG_RISCV_DMA_NONCOHERENT, thus
+it brings some bad effects to coherent platforms:
 
-1. only add static calls support to riscv
-As Mark pointed out in commit 99cf983cc8bc ("sched/preempt: Add
-PREEMPT_DYNAMIC using static keys"), static keys "...should have
-slightly lower overhead than non-inline static calls, as this
-effectively inlines each trampoline into the start of its callee. This
-may avoid redundant work, and may integrate better with CFI schemes."
-So even we add static calls(without inline static calls) to riscv,
-static keys is still a better choice.
+Firstly, it wastes memory, kmalloc-96, kmalloc-32, kmalloc-16 and
+kmalloc-8 slab caches don't exist any more, they are replaced with
+either kmalloc-128 or kmalloc-64.
 
-2. add static calls and inline static calls to riscv
-Per my understanding, inline static calls requires objtool support
-which is not easy.
+Secondly, larger than necessary kmalloc aligned allocations results
+in unnecessary cache/TLB pressure.
 
-3. use static keys
+This issue also exists on arm64 platforms. From last year, Catalin
+tried to solve this issue by decoupling ARCH_KMALLOC_MINALIGN from
+ARCH_DMA_MINALIGN, limiting kmalloc() minimum alignment to
+dma_get_cache_alignment() and replacing ARCH_KMALLOC_MINALIGN usage
+in various drivers with ARCH_DMA_MINALIGN etc.[1]
 
-While riscv doesn't have static calls support, it supports static keys
-perfectly. So this patch selects HAVE_PREEMPT_DYNAMIC_KEY to enable
-support for PREEMPT_DYNAMIC on riscv, so that the preemption model can
-be chosen at boot time. It also patches asm-generic/preempt.h, mainly
-to add __preempt_schedule() and __preempt_schedule_notrace() macros
-for PREEMPT_DYNAMIC case. Other architectures which use generic
-preempt.h can also benefit from this patch by simply selecting
-HAVE_PREEMPT_DYNAMIC_KEY to enable PREEMPT_DYNAMIC if they supports
-static keys.
+One fact we can make use of for riscv: if the CPU doesn't support
+ZICBOM or T-HEAD CMO, we know the platform is coherent. Based on
+Catalin's work and above fact, we can easily solve the kmalloc align
+issue for riscv: we can override dma_get_cache_alignment(), then let
+it return ARCH_DMA_MINALIGN at the beginning and return 1 once we know
+the underlying HW neither supports ZICBOM nor supports T-HEAD CMO.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
-since v1:
- - keep Kconfig entries sorted
- - group asm-generic modifications under CONFIG_PREEMPT_DYNAMIC &&
-   CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
+So what about if the CPU supports ZICBOM and T-HEAD CMO, but all the
+devices are dma coherent? Well, we use ARCH_DMA_MINALIGN as the
+kmalloc minimum alignment, nothing changed in this case. This case
+can be improved in the future.
 
- arch/riscv/Kconfig            |  1 +
- include/asm-generic/preempt.h | 14 +++++++++++++-
- 2 files changed, 14 insertions(+), 1 deletion(-)
+After this patch, a simple test of booting to a small buildroot rootfs
+on qemu shows:
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 4c07b9189c86..686df6902947 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -130,6 +130,7 @@ config RISCV
- 	select HAVE_PERF_REGS
- 	select HAVE_PERF_USER_STACK_DUMP
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
-+	select HAVE_PREEMPT_DYNAMIC_KEY if !XIP_KERNEL
- 	select HAVE_REGS_AND_STACK_ACCESS_API
- 	select HAVE_RETHOOK if !XIP_KERNEL
- 	select HAVE_RSEQ
-diff --git a/include/asm-generic/preempt.h b/include/asm-generic/preempt.h
-index b4d43a4af5f7..51f8f3881523 100644
---- a/include/asm-generic/preempt.h
-+++ b/include/asm-generic/preempt.h
-@@ -80,9 +80,21 @@ static __always_inline bool should_resched(int preempt_offset)
- 
- #ifdef CONFIG_PREEMPTION
- extern asmlinkage void preempt_schedule(void);
--#define __preempt_schedule() preempt_schedule()
- extern asmlinkage void preempt_schedule_notrace(void);
-+
-+#if defined(CONFIG_PREEMPT_DYNAMIC) && defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
-+
-+void dynamic_preempt_schedule(void);
-+void dynamic_preempt_schedule_notrace(void);
-+#define __preempt_schedule()		dynamic_preempt_schedule()
-+#define __preempt_schedule_notrace()	dynamic_preempt_schedule_notrace()
-+
-+#else /* !CONFIG_PREEMPT_DYNAMIC || !CONFIG_HAVE_PREEMPT_DYNAMIC_KEY*/
-+
-+#define __preempt_schedule() preempt_schedule()
- #define __preempt_schedule_notrace() preempt_schedule_notrace()
-+
-+#endif /* CONFIG_PREEMPT_DYNAMIC && CONFIG_HAVE_PREEMPT_DYNAMIC_KEY*/
- #endif /* CONFIG_PREEMPTION */
- 
- #endif /* __ASM_PREEMPT_H */
+kmalloc-96           5041    5041     96  ...
+kmalloc-64           9606    9606     64  ...
+kmalloc-32           5128    5128     32  ...
+kmalloc-16           7682    7682     16  ...
+kmalloc-8           10246   10246      8  ...
+
+So we save about 1268KB memory. The saving will be much larger in normal
+OS env on real HW platforms.
+
+
+patch1 allows kmalloc() caches aligned to the smallest value.
+patch2 enables DMA_BOUNCE_UNALIGNED_KMALLOC.
+
+After this series:
+
+As for coherent platforms, kmalloc-{8,16,32,96} caches come back on
+coherent both RV32 and RV64 platforms, I.E !ZICBOM and !THEAD_CMO.
+
+As for noncoherent RV32 platforms, nothing changed.
+
+As for noncoherent RV64 platforms, I.E either ZICBOM or THEAD_CMO, the
+above kmalloc caches also come back if > 4GB memory or users pass
+"swiotlb=mmnn,force" to force swiotlb creation if <= 4GB memory. How
+much mmnn should be depends on the specific platform, it need to be
+tried and tested all possible usage case on the specific hardware. For
+example, I can use the minimal I/O TLB slabs on Sipeed M1S Dock.
+
+[1] Link: https://lore.kernel.org/linux-arm-kernel/20230524171904.3967031-1-catalin.marinas@arm.com/
+
+Since v1
+ - remove preparation patches since they have been merged
+ - adjust Kconfig entry to keep entries sorted
+ - add new function riscv_set_dma_cache_alignment() to set the
+   dma_cache_alignment var.
+
+Jisheng Zhang (2):
+  riscv: allow kmalloc() caches aligned to the smallest value
+  riscv: enable DMA_BOUNCE_UNALIGNED_KMALLOC for !dma_coherent
+
+ arch/riscv/Kconfig                  |  1 +
+ arch/riscv/include/asm/cache.h      | 14 ++++++++++++++
+ arch/riscv/include/asm/cacheflush.h |  2 ++
+ arch/riscv/kernel/setup.c           |  1 +
+ arch/riscv/mm/dma-noncoherent.c     |  8 ++++++++
+ 5 files changed, 26 insertions(+)
+
 -- 
 2.40.1
 
