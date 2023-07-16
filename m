@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66296EB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 16:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385E6EB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 17:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AjR5LfLVkc9zSFcDFE1O9woxxR+PczhYUeEbzjfRWi8=; b=ukGyXire5OmA7n
-	FaYxxvuW+OSaDMRMtjd9lTsIuAAqS5GjA0zTEl3tHnQ1ekWwcj4ScSvj8GdTz5wyC8f5ZhVzswAHY
-	cVPtZI0gH+GxsbAiK74jDeJ4VBzDC4irMOXhIqniGsjyPseKUaC+U7CbYDlERHMB1xV5gDhR62T2/
-	OSP2weDOMRD2PBDmSBtJ2zOb2ma2wRhsKN3Zps4aMJ07O5Ut2aTuxfCPxYm7465XaZoUz7LxGvX3x
-	sfyHae5Iv9/SF8GdtUmG/jFpkrRehKWJtrMcxqtN21rHHzHme9m8hjdWJPgPdLp2EI5xNw9efzjX0
-	v/ykFattNGRlbc2osX4w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OiWErIr6CRyD6NP9Gm9dH3Ogc/BLXmx4xmmgRT53cK8=; b=uM7FQSrHnF6wa3
+	Gg3rO7mJ3DxjWs0zQA7oUnGWotIPgne4O9rgXX32juIbuRrCAWmOKhZOO1ITJk5wgUHund2J1dVJo
+	gtbf3BeTJWiqGPIuJJUe775ltVKpv3kL67VvEg/dPSmRlO2vb9kpkI78EjkwsRYctx2/Oz6Cua3yi
+	1H//Ue8QhrQ/zFVWnpGkVBq0Ikso6eUDkBGSXOxhM2eQ0U1q6iWyR3Hw5dy/ckrmycA5G2epYlEbX
+	5LvISrRQWGn+ZaY0+zqCP6LVowlS2niSY8GOYinbVzSLOfsWYt8J8CaEpauYbGoI4QWEQ66I6u7jJ
+	7H0czd2BvJwEEldYJnCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL50C-00D82B-1H;
-	Sun, 16 Jul 2023 16:53:44 +0000
-Received: from out-36.mta1.migadu.com ([95.215.58.36])
+	id 1qL57N-00DCQP-0a;
+	Sun, 16 Jul 2023 17:01:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL509-00D7z7-1j
+	id 1qL57E-00DCN1-28
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jul 2023 16:53:43 +0000
-Date: Mon, 17 Jul 2023 02:52:54 +1000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
-	t=1689526417;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VdPWSeimVxVz91xQpsqP4Z46tm2ZX8etDGiqC5eAjnY=;
-	b=yiYIdBSpp3Qlc5Nvg8wlFK23YkICxlgjlCAvrd8CIgCqv6CfsXiwb3hjS5aITUSvSCP+t3
-	dYOjilmV/3oCefCfMuCmDtkgINtnZ2uzOKaeixeM5GHFDDf8X+j6OqmED1P6L2LTwp5rJo
-	Mp8cdvHwhcxzZDZ13AZtKaNLisy/CTeM45sR1j1XlzTN+bdbXllMC1ksVda53ykY/aDZGN
-	Www0zvg7+ihmzePP9aGKrqkJkQ/IHRDc6o5JfaihmKDQmNBuVF3SlQIrPF1HjiLGBzm0FE
-	gZpGnlDhX7rJRISWrshJSZgx/0R40tdB6bm0UZA1I4kyeZmjHHplBwSaF61xBw==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: John Watts <contact@jookia.org>
-To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Fabien Poussin <fabien.poussin@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>
-Subject: Re: [PATCH 4/4] can: sun4i_can: Correctly set acceptance registers
- on the D1
-Message-ID: <ZLQgZvipHOFTlnnO@titan>
-References: <20230715112523.2533742-1-contact@jookia.org>
- <20230715112523.2533742-5-contact@jookia.org>
- <4844353.31r3eYUQgx@jernej-laptop>
+	Sun, 16 Jul 2023 17:01:06 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C602460DC0;
+	Sun, 16 Jul 2023 17:00:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E623C433C8;
+	Sun, 16 Jul 2023 17:00:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689526858;
+	bh=sO+ETVQWwYmOPn5mUIbEvZ8OhqTGaw4+3C16oa1rjoY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=D9WTZ//zIycNG2Zu7PGosYaEot35CiRW0/6tu5BYDDX0BJiybw2teSY/UupPPP3O4
+	 F13Qqp0KRsPkUJ8YIGJsPnS9J967sf9o4YNeKD9fbDPMCNMqw27Uh+cMmIRvXSK0tY
+	 cCQ9R2a5H54xVQZWGvw7d5xl8Y+0DuXvB2RoyETmpCI6CJa5sWsfK3GebTvZyQYmtZ
+	 gglw5j6oZj1Q+3j7oCdAvKBZIPpmAn9obwu8mFK8KjDsKAoNl9wuDttRXJRSMKmUfh
+	 aW6tJI6+c3xqYi/EK3YdJErbBKinpfXloKd2jBlbsLXHp7TwBToQvoBjfhtWokgeCS
+	 PmW8po/y6zc4w==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: [PATCH v2] riscv: support PREEMPT_DYNAMIC with static keys
+Date: Mon, 17 Jul 2023 00:49:25 +0800
+Message-Id: <20230716164925.1858-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.40.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <4844353.31r3eYUQgx@jernej-laptop>
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_095341_770870_1F1275BD 
-X-CRM114-Status: UNSURE (   6.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230716_100100_809422_08766AC0 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,15 +72,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBKdWwgMTYsIDIwMjMgYXQgMDY6NDU6MjVQTSArMDIwMCwgSmVybmVqIMWga3JhYmVj
-IHdyb3RlOgo+IFRoaXMgcGF0Y2ggc2hvdWxkIHByZWNlZGUgcGF0Y2ggMywgc28gaW4gbmV4dCBw
-YXRjaCB5b3UgYWRkIGZ1bGwgRDEgc3VwcG9ydC4KPiAKPiBCZXN0IHJlZ2FyZHMsCj4gSmVybmVq
-CgpUaGF0IG1ha2VzIHNlbnNlLCB0aGFuayB5b3UuIFdpbGwgY2hhbmdlIGluIHYyLgoKSm9obi4K
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Currently, each architecture can support PREEMPT_DYNAMIC through
+either static calls or static keys. To support PREEMPT_DYNAMIC on
+riscv, we face three choices:
+
+1. only add static calls support to riscv
+As Mark pointed out in commit 99cf983cc8bc ("sched/preempt: Add
+PREEMPT_DYNAMIC using static keys"), static keys "...should have
+slightly lower overhead than non-inline static calls, as this
+effectively inlines each trampoline into the start of its callee. This
+may avoid redundant work, and may integrate better with CFI schemes."
+So even we add static calls(without inline static calls) to riscv,
+static keys is still a better choice.
+
+2. add static calls and inline static calls to riscv
+Per my understanding, inline static calls requires objtool support
+which is not easy.
+
+3. use static keys
+
+While riscv doesn't have static calls support, it supports static keys
+perfectly. So this patch selects HAVE_PREEMPT_DYNAMIC_KEY to enable
+support for PREEMPT_DYNAMIC on riscv, so that the preemption model can
+be chosen at boot time. It also patches asm-generic/preempt.h, mainly
+to add __preempt_schedule() and __preempt_schedule_notrace() macros
+for PREEMPT_DYNAMIC case. Other architectures which use generic
+preempt.h can also benefit from this patch by simply selecting
+HAVE_PREEMPT_DYNAMIC_KEY to enable PREEMPT_DYNAMIC if they supports
+static keys.
+
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+since v1:
+ - keep Kconfig entries sorted
+ - group asm-generic modifications under CONFIG_PREEMPT_DYNAMIC &&
+   CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
+
+ arch/riscv/Kconfig            |  1 +
+ include/asm-generic/preempt.h | 14 +++++++++++++-
+ 2 files changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 4c07b9189c86..686df6902947 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -130,6 +130,7 @@ config RISCV
+ 	select HAVE_PERF_REGS
+ 	select HAVE_PERF_USER_STACK_DUMP
+ 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
++	select HAVE_PREEMPT_DYNAMIC_KEY if !XIP_KERNEL
+ 	select HAVE_REGS_AND_STACK_ACCESS_API
+ 	select HAVE_RETHOOK if !XIP_KERNEL
+ 	select HAVE_RSEQ
+diff --git a/include/asm-generic/preempt.h b/include/asm-generic/preempt.h
+index b4d43a4af5f7..51f8f3881523 100644
+--- a/include/asm-generic/preempt.h
++++ b/include/asm-generic/preempt.h
+@@ -80,9 +80,21 @@ static __always_inline bool should_resched(int preempt_offset)
+ 
+ #ifdef CONFIG_PREEMPTION
+ extern asmlinkage void preempt_schedule(void);
+-#define __preempt_schedule() preempt_schedule()
+ extern asmlinkage void preempt_schedule_notrace(void);
++
++#if defined(CONFIG_PREEMPT_DYNAMIC) && defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
++
++void dynamic_preempt_schedule(void);
++void dynamic_preempt_schedule_notrace(void);
++#define __preempt_schedule()		dynamic_preempt_schedule()
++#define __preempt_schedule_notrace()	dynamic_preempt_schedule_notrace()
++
++#else /* !CONFIG_PREEMPT_DYNAMIC || !CONFIG_HAVE_PREEMPT_DYNAMIC_KEY*/
++
++#define __preempt_schedule() preempt_schedule()
+ #define __preempt_schedule_notrace() preempt_schedule_notrace()
++
++#endif /* CONFIG_PREEMPT_DYNAMIC && CONFIG_HAVE_PREEMPT_DYNAMIC_KEY*/
+ #endif /* CONFIG_PREEMPTION */
+ 
+ #endif /* __ASM_PREEMPT_H */
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
