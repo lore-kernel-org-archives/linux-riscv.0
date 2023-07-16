@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BD5EB64DA
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 15:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57BEEB64DA
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 15:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GvU3YJcY2Ub3QktD8Kx6ObMyi9KNSutkGABMnFIC6J0=; b=4sjWwaNDMS1VRP
-	wIBkFQ8k5vvOY4E1Tfuzu/Qb0IGXNBRiiInmAag8EjengpUylinJ0zMWGwrnbRwJrvRiEpi1n2SqR
-	o3ve26RwqRGOzzO92r/weA/9eRdL4tQh65OL0BwttTrsC0VIyIEjydHczm5KGzzxFDEIGFkILQ4AX
-	opsKhErExxN0UWoVv4FpkdwyyAXP9qJzn2MJ4pSEELef1GR/OczglfcvCE/mQuEqDRXQQIu9p610M
-	XIkTVnebYXoTnvBLNSj1wQzBNLgIBZa1QXaZvlcyveSSavBCxU5c2sInipWz2cQGRUsqOo1II4HzX
-	L1Fhks5cNrUIozZJUPHg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=X7pAX++kBMChMawA6/0/p4atY2gXQCzcTOc0nJTE1cs=; b=swfrzPk0BdrFn7
+	S8rV380FbgaJ88LEiAj1AMQqlojGc7pwz9l486NHtcvNUUcCIzxqoE7Ma+veH4bM6mSD2Tph8hvE1
+	EZINlsMV2VPzKnHo2ZRZXMjzdAwwXPbpcbaqftok0jJOAApZ4NT5c4cKbdIboYrAPp+ZQBNNKpmpu
+	+um6U/B9d4fIpXfkjmFV7/03uTr81SDWzqSbi5wmO4k3hyjVmXwgN9teReSrflG2iC2Pcos9vXBoO
+	cmUB4zf+F2oon2rM0+lR1Q0Le8oTfUNtNa+T+Ds59SsMhTnVNt6zx/GG74VO9lcsCmcCo+jUtVUM/
+	tU0Wh3VOgvc1OFuD7fZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL3QO-00CDHC-32;
-	Sun, 16 Jul 2023 15:12:41 +0000
+	id 1qL3YJ-00CHhT-0h;
+	Sun, 16 Jul 2023 15:20:51 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL3Pl-00CD8v-1I;
-	Sun, 16 Jul 2023 15:12:05 +0000
+	id 1qL3YG-00CHf1-0M
+	for linux-riscv@lists.infradead.org;
+	Sun, 16 Jul 2023 15:20:49 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E2D3260D2D;
-	Sun, 16 Jul 2023 15:12:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FFB8C433C9;
-	Sun, 16 Jul 2023 15:11:58 +0000 (UTC)
-Date: Sun, 16 Jul 2023 08:11:56 -0700
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
-	mark.rutland@arm.com, ryan.roberts@arm.com, will@kernel.org,
-	anshuman.khandual@arm.com, linux-doc@vger.kernel.org,
-	corbet@lwn.net, peterz@infradead.org, arnd@arndb.de,
-	punit.agrawal@bytedance.com, linux-kernel@vger.kernel.org,
-	darren@os.amperecomputing.com, yangyicong@hisilicon.com,
-	huzhanyuan@oppo.com, lipeifeng@oppo.com, zhangshiming@oppo.com,
-	guojian@oppo.com, realmz6@gmail.com, linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	Barry Song <21cnbao@gmail.com>, wangkefeng.wang@huawei.com,
-	xhao@linux.alibaba.com, prime.zeng@hisilicon.com,
-	Jonathan.Cameron@huawei.com, Barry Song <v-songbaohua@oppo.com>,
-	Nadav Amit <namit@vmware.com>, Mel Gorman <mgorman@suse.de>
-Subject: Re: [PATCH v10 4/4] arm64: support batched/deferred tlb shootdown
- during page reclamation/migration
-Message-ID: <ZLQIvPpKvjWppc59@arm.com>
-References: <20230710083914.18336-1-yangyicong@huawei.com>
- <20230710083914.18336-5-yangyicong@huawei.com>
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0892560C64;
+	Sun, 16 Jul 2023 15:20:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B2D2C433C7;
+	Sun, 16 Jul 2023 15:20:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689520846;
+	bh=KuRdyUnvdhMI0IlJX5eClH8cwmGftUxt0A36mvY9HIo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ri48yWAptbDvfqa8raYqK0Qc1xMA0ks3kWOM4NUuo0b8ozl/Pc8U/qglksWNKcIuP
+	 +vto7asvYvtXHZCUksExNLZDPgkHtp6nxvIKycIguLGReF1B+4k3mVAoRSIKScJJx1
+	 SO5VL7v4wpz4YJ95lWZ2yoq3fY5zNsDLQcev9IpOAl/adKTR4w+4ApshXUixydSXvU
+	 g98GVv+4C2M8m+pir8crYc9qrybXkNIVOHEatJuiGPfuhljXbckSn7Efxu6qWfD8mk
+	 SH08O9qI5I5Mp87oicN/rNG1LHZxaCDjMcVDtyOV5g1DZ7EurVQX/anGucr7XxhCTI
+	 Mypmwvjdhle0Q==
+From: guoren@kernel.org
+To: guoren@kernel.org,
+	palmer@rivosinc.com,
+	paul.walmsley@sifive.com,
+	falcon@tinylab.org,
+	bjorn@kernel.org,
+	conor.dooley@microchip.com,
+	alex@ghiti.fr
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH] riscv: Add HAVE_IOREMAP_PROT support
+Date: Sun, 16 Jul 2023 11:20:33 -0400
+Message-Id: <20230716152033.3713581-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230710083914.18336-5-yangyicong@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_081203_752069_E33482AA 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20230716_082048_250118_E5CD7611 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +81,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 10, 2023 at 04:39:14PM +0800, Yicong Yang wrote:
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 7856c3a3e35a..f0ce8208c57f 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -96,6 +96,7 @@ config ARM64
->  	select ARCH_SUPPORTS_NUMA_BALANCING
->  	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
->  	select ARCH_SUPPORTS_PER_VMA_LOCK
-> +	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH if EXPERT
+From: Guo Ren <guoren@linux.alibaba.com>
 
-I don't want EXPERT to turn on a feature that's not selectable by the
-user. This would lead to different performance behaviour based on
-EXPERT. Just select it unconditionally.
+Add pte_pgprot macro, then riscv could have HAVE_IOREMAP_PROT,
+which will enable generic_access_phys() code, it is useful for
+debug, eg, gdb.
 
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index 412a3b9a3c25..4bb9cec62e26 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -254,17 +254,23 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
->  	dsb(ish);
->  }
->  
-> -static inline void flush_tlb_page_nosync(struct vm_area_struct *vma,
-> -					 unsigned long uaddr)
-> +static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
-> +					   unsigned long uaddr)
->  {
->  	unsigned long addr;
->  
->  	dsb(ishst);
-> -	addr = __TLBI_VADDR(uaddr, ASID(vma->vm_mm));
-> +	addr = __TLBI_VADDR(uaddr, ASID(mm));
->  	__tlbi(vale1is, addr);
->  	__tlbi_user(vale1is, addr);
->  }
->  
-> +static inline void flush_tlb_page_nosync(struct vm_area_struct *vma,
-> +					 unsigned long uaddr)
-> +{
-> +	return __flush_tlb_page_nosync(vma->vm_mm, uaddr);
-> +}
-> +
->  static inline void flush_tlb_page(struct vm_area_struct *vma,
->  				  unsigned long uaddr)
->  {
-> @@ -272,6 +278,42 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
->  	dsb(ish);
->  }
->  
-> +#ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+Because generic_access_phys() would call ioremap_prot()->
+pgprot_nx() to disable excutable attribute, add definition
+of pgprot_nx() for riscv.
 
-If it's selected unconditionally, we won't need this #ifdef here.
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+ .../features/vm/ioremap_prot/arch-support.txt     |  2 +-
+ arch/riscv/Kconfig                                |  1 +
+ arch/riscv/include/asm/pgtable.h                  | 15 +++++++++++++++
+ 3 files changed, 17 insertions(+), 1 deletion(-)
 
-> +
-> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-> +{
-> +#ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
-> +	/*
-> +	 * TLB flush deferral is not required on systems, which are affected with
-
-"affected by" and drop the comma before "which".
-
+diff --git a/Documentation/features/vm/ioremap_prot/arch-support.txt b/Documentation/features/vm/ioremap_prot/arch-support.txt
+index a24149e59d73..ea8c8a361455 100644
+--- a/Documentation/features/vm/ioremap_prot/arch-support.txt
++++ b/Documentation/features/vm/ioremap_prot/arch-support.txt
+@@ -21,7 +21,7 @@
+     |    openrisc: | TODO |
+     |      parisc: | TODO |
+     |     powerpc: |  ok  |
+-    |       riscv: | TODO |
++    |       riscv: |  ok  |
+     |        s390: |  ok  |
+     |          sh: |  ok  |
+     |       sparc: | TODO |
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 4c07b9189c86..15900fa20797 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -117,6 +117,7 @@ config RISCV
+ 	select HAVE_FUNCTION_ERROR_INJECTION
+ 	select HAVE_GCC_PLUGINS
+ 	select HAVE_GENERIC_VDSO if MMU && 64BIT
++	select HAVE_IOREMAP_PROT
+ 	select HAVE_IRQ_TIME_ACCOUNTING
+ 	select HAVE_KPROBES if !XIP_KERNEL
+ 	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 75970ee2bda2..c9552a161f90 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -415,6 +415,11 @@ static inline pte_t pte_mkhuge(pte_t pte)
+ 	return pte;
+ }
+ 
++static inline pgprot_t pte_pgprot(pte_t pte)
++{
++	return __pgprot(pte_val(pte) & ~_PAGE_PFN_MASK);
++}
++
+ #ifdef CONFIG_NUMA_BALANCING
+ /*
+  * See the comment in include/asm-generic/pgtable.h
+@@ -573,6 +578,16 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+ 	return ptep_test_and_clear_young(vma, address, ptep);
+ }
+ 
++#define pgprot_nx pgprot_nx
++static inline pgprot_t pgprot_nx(pgprot_t _prot)
++{
++	unsigned long prot = pgprot_val(_prot);
++
++	prot &= ~_PAGE_EXEC;
++
++	return __pgprot(prot);
++}
++
+ #define pgprot_noncached pgprot_noncached
+ static inline pgprot_t pgprot_noncached(pgprot_t _prot)
+ {
 -- 
-Catalin
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
