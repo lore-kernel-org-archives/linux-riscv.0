@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715DBEB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 22:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89094C0015E
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 22:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pwqdkDWRCwiuErHvO3W6cxSjCUfpKpuZHAA4rXc1SSE=; b=fYGCIBmZxLWYSX
-	11ExZMpuv91OCkWncbV64C0p2fTRlj8EpsEmxd6aQEH5m95TYul+m0f88w+tea0A0WYTnKYLVmcFk
-	3XyfD95rhDVLklYlKM1DBUv/ruhwKYpGpyKPiv2Nl+e2LRNHMsEx5z/waw23vJKUzXsEklqUGUO0v
-	8NzkWu56K996eMNYPwDz1hRsy+VD3AaySGYWlgs9/90sbU70JzXRJ3ryRoI9YMpC3kX0iv+uyj5Z5
-	NOD2wtmG958Evhb9dsQ/j5MYUMYhDfQiaWNIFmBH9v2um92WNCEDiUvoVL5NGaKbJIynZ/v3XDhsp
-	gCHPGLAr4Gid+DR1sC2A==;
+	List-Owner; bh=Z1djbn8PwUmDrXJBGstRK/9Sf17iCvrT112q8h38lZg=; b=UR6TxGcVj9t4cw
+	NBUWKsSMc5nz1p0rF9UmvTJf4dItqbBqsjXhRlitvm+Nj003yFA0NPhnb1KOMAnqOC/OucuaOTTVD
+	4bYsf7o8JZrBVNyVRu9Af19NiU7pV0mozEFEcBtE6McG++qX3FsApA9JIQqlHnJ2FTABkQv9Iw1G9
+	2L9hPKMPnGIOIl3n3vbEF9GW+WwDKHf8UZ94xkgWoO4/mjrSMkon/xBWvaNihpiD4L1/4GRa+IEw7
+	pjvFDT2UAP509FcoxssdRtpcF+88loY8ce5M8Zf7nxscHUIRO1xg+/bjaDiZWrkgSEhrKdQItOkHp
+	2F5rarur+nT83LPD51NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9me-00FwkH-0e;
-	Sun, 16 Jul 2023 22:00:09 +0000
+	id 1qL9n5-00Fx5w-0f;
+	Sun, 16 Jul 2023 22:00:31 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9iU-00FtXZ-2W;
-	Sun, 16 Jul 2023 21:55:55 +0000
+	id 1qL9ia-00Ftb6-2t;
+	Sun, 16 Jul 2023 21:56:10 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3B19060D41;
-	Sun, 16 Jul 2023 21:55:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E35E3C433CA;
-	Sun, 16 Jul 2023 21:55:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 714B960EC3;
+	Sun, 16 Jul 2023 21:55:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D3FCC43391;
+	Sun, 16 Jul 2023 21:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689544545;
-	bh=Go+3eKanODPQVKnV1QnMIrC75/lXwO2PkPnkMfOn2oA=;
+	s=k20201202; t=1689544551;
+	bh=DtrqsekNxnVEUxJ8rAESK/JTguJ8OvysbbylOwjoIT0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ECT5d5diCXHo8bURXVIe57IrwH3LVPYaT55I2eb0E/Np71GzQcUGWtEUntEplKCwC
-	 fSmOAVmBorLnsgdHECB59B6DWbXGccZoyiGERfCXmTdxh7yjb1uTsifR2DxSsYeO2g
-	 U59ZQuj5PrDb+/agN7Dl9Qr1uBqTthk1hxAJleZaJ4gtKJsKCutWsOB4+ssCclqi5/
-	 H9dWxEzsXwaori9qPClLzwpRbupwk9Ahieh4tVmZfRl24pHmhdyqWIGn9qVn3eme22
-	 Pf5Swp61Fy74Mc9DWDxTGwXq9nrTn7ONg7lOy18b9YDt4vbk8A7gQZNsWJcUnRxvOG
-	 XtfE91WRSD4iA==
+	b=HLJp1PdswqCNq1wYjWtV7kdpQQdsIF6PbOAs1DdxVIDUr271ZtsXaw0pT7n6EHg/J
+	 PNQDKSMHKSTQ7l583T9geSPx7pEC/hj2TLSc1ki5Mb54YgxQBOl1d/8b/DC6NImHRk
+	 kkxTHOsVXqT15aIa3ZZQPpziQKm2CwXl5+TryO3DUfmOgKg3/OzvOCi+Oyi8DBNdtL
+	 BZ3y0Hir5JQnmrqWN8msRZL+OE/yTvlBl3LWhMOzrjbQ38GZZWTgflCc9nKBUifQnC
+	 mdyW05hvnN9rDr4Ly6ZqRAXa5EZcVUddACiZ9mNql6HiT1COKlFZt/JGxXzOnvNJqG
+	 oxTY+e9f1GO5Q==
 From: Mark Brown <broonie@kernel.org>
-Date: Sun, 16 Jul 2023 22:51:24 +0100
-Subject: [PATCH 28/35] kselftest/arm64: Add GCS as a detected feature in
- the signal tests
+Date: Sun, 16 Jul 2023 22:51:25 +0100
+Subject: [PATCH 29/35] kselftest/arm64: Add framework support for GCS to
+ signal handling tests
 MIME-Version: 1.0
-Message-Id: <20230716-arm64-gcs-v1-28-bf567f93bba6@kernel.org>
+Message-Id: <20230716-arm64-gcs-v1-29-bf567f93bba6@kernel.org>
 References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 In-Reply-To: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -71,20 +71,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-099c9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1828; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Go+3eKanODPQVKnV1QnMIrC75/lXwO2PkPnkMfOn2oA=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGalnGeU3K7oX3kc7kc1vOCWlIGVrULEZrhSEdLZ
- vws1w6CJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmpQAKCRAk1otyXVSH0AFnB/
- 9US05dk0B/KCfZYMHoYXXScr7LLlbQV9vVecVF7KEFOCMc4EuaMKkGy1uQfpsJ0o9xGpwumm9m1qG8
- p9K1kLmFInC+9t6XitfcPIRPnKUxan5FQ3yiLuUWWVu+tmyJX2kWaffOTAuKj7zO25Pwt2c9YW5oEa
- f9VjL6uJP9BDwSSRNbN7mBs9zRr+yc9wX4u0gvytmfyGkk0jEWoHm8dF/xwK5qyFYXm4giL26Q8iFG
- 354GpQCiMKtFPNDO8A4H9GdYiNecTC7cDsCOSsa7a/giwNB848wAuQmV6vpgDwXDhUhupaTLe9yjoB
- yXFF55Ml7rxGBuJJFbC4EDNdyHgRPd
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1590; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=DtrqsekNxnVEUxJ8rAESK/JTguJ8OvysbbylOwjoIT0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGams/1o2FBpw3AOTccDx7xYDuhWhJAAlqli+qBI
+ f+Cr23WJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmpgAKCRAk1otyXVSH0H9IB/
+ 9uVI86Wh0m+jKCdZsMXDL5z5tGDQtNodAMlpbSInG2EefWBm2jNMaiInXFEKrPSyMmZ0EutT+Di8GG
+ pmbMZvDpJvK/9haASKmdxQoyhAUfggLS2KLtHnHOb18PbwikLGlwpd3aXqj7Z6PkbOSpaDcFLYNhv4
+ 5sx8SB4VD0ueTKVRP/8R+IABokYM2HTK+wORDfwd7MTZPeyaSjagIL8LCuZQoIGQbfmLP36rA2eJXh
+ JOl2YmzMhTJF1dcOFUaJvLvKtEUtm+BNQskId0JiVQAA9up7GB38IsAYmJEnBx1hzGEVlZEzZICvBv
+ X7+qWQKaz0ozYAZC60ObOtkiQ9CT8l
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_145553_247553_5FCC76AF 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20230716_145604_923318_680621C1 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,56 +101,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In preparation for testing GCS related signal handling add it as a feature
-we check for in the signal handling support code.
+Teach the framework about the GCS signal context, avoiding warnings on
+the unknown context.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/signal/test_signals.h       | 2 ++
- tools/testing/selftests/arm64/signal/test_signals_utils.c | 3 +++
- 2 files changed, 5 insertions(+)
+ tools/testing/selftests/arm64/signal/testcases/testcases.c | 7 +++++++
+ tools/testing/selftests/arm64/signal/testcases/testcases.h | 1 +
+ 2 files changed, 8 insertions(+)
 
-diff --git a/tools/testing/selftests/arm64/signal/test_signals.h b/tools/testing/selftests/arm64/signal/test_signals.h
-index 1e6273d81575..7ada43688c02 100644
---- a/tools/testing/selftests/arm64/signal/test_signals.h
-+++ b/tools/testing/selftests/arm64/signal/test_signals.h
-@@ -35,6 +35,7 @@ enum {
- 	FSME_BIT,
- 	FSME_FA64_BIT,
- 	FSME2_BIT,
-+	FGCS_BIT,
- 	FMAX_END
- };
+diff --git a/tools/testing/selftests/arm64/signal/testcases/testcases.c b/tools/testing/selftests/arm64/signal/testcases/testcases.c
+index 9f580b55b388..1cd124732be4 100644
+--- a/tools/testing/selftests/arm64/signal/testcases/testcases.c
++++ b/tools/testing/selftests/arm64/signal/testcases/testcases.c
+@@ -209,6 +209,13 @@ bool validate_reserved(ucontext_t *uc, size_t resv_sz, char **err)
+ 			zt = (struct zt_context *)head;
+ 			new_flags |= ZT_CTX;
+ 			break;
++		case GCS_MAGIC:
++			if (flags & GCS_CTX)
++				*err = "Multiple GCS_MAGIC";
++			if (head->size != sizeof(struct gcs_context))
++				*err = "Bad size for gcs_context";
++			new_flags |= GCS_CTX;
++			break;
+ 		case EXTRA_MAGIC:
+ 			if (flags & EXTRA_CTX)
+ 				*err = "Multiple EXTRA_MAGIC";
+diff --git a/tools/testing/selftests/arm64/signal/testcases/testcases.h b/tools/testing/selftests/arm64/signal/testcases/testcases.h
+index a08ab0d6207a..9b2599745c29 100644
+--- a/tools/testing/selftests/arm64/signal/testcases/testcases.h
++++ b/tools/testing/selftests/arm64/signal/testcases/testcases.h
+@@ -19,6 +19,7 @@
+ #define ZA_CTX		(1 << 2)
+ #define EXTRA_CTX	(1 << 3)
+ #define ZT_CTX		(1 << 4)
++#define GCS_CTX		(1 << 5)
  
-@@ -43,6 +44,7 @@ enum {
- #define FEAT_SME		(1UL << FSME_BIT)
- #define FEAT_SME_FA64		(1UL << FSME_FA64_BIT)
- #define FEAT_SME2		(1UL << FSME2_BIT)
-+#define FEAT_GCS		(1UL << FGCS_BIT)
+ #define KSFT_BAD_MAGIC	0xdeadbeef
  
- /*
-  * A descriptor used to describe and configure a test case.
-diff --git a/tools/testing/selftests/arm64/signal/test_signals_utils.c b/tools/testing/selftests/arm64/signal/test_signals_utils.c
-index 0dc948db3a4a..89ef95c1af0e 100644
---- a/tools/testing/selftests/arm64/signal/test_signals_utils.c
-+++ b/tools/testing/selftests/arm64/signal/test_signals_utils.c
-@@ -30,6 +30,7 @@ static char const *const feats_names[FMAX_END] = {
- 	" SME ",
- 	" FA64 ",
- 	" SME2 ",
-+	" GCS ",
- };
- 
- #define MAX_FEATS_SZ	128
-@@ -329,6 +330,8 @@ int test_init(struct tdescr *td)
- 			td->feats_supported |= FEAT_SME_FA64;
- 		if (getauxval(AT_HWCAP2) & HWCAP2_SME2)
- 			td->feats_supported |= FEAT_SME2;
-+		if (getauxval(AT_HWCAP2) & HWCAP2_GCS)
-+			td->feats_supported |= FEAT_GCS;
- 		if (feats_ok(td)) {
- 			if (td->feats_required & td->feats_supported)
- 				fprintf(stderr,
 
 -- 
 2.30.2
