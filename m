@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C86A9EB64DA
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 12:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BD5EB64DA
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 15:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TlCveB6BC+xC4BuqObwemZFEgs5OWfASZyXf8NPXMrk=; b=2IdE8VeuUMqsv2
-	F11V1vGd3PAbvAueGF0/+cCz7M/Y+6QDo+fUeaDoR8oclRi0vxqOQqGxeDeb+Qa04jeoOa3QY039Z
-	m0VWcWcBSquqWopUHcSjNQZuRjHoqhax9Dq8WvzEy5AyXtqehV6Yq303GdeyoddrSUqYOFsVAYN5F
-	JQXbhHbI9IgNG/e0XgbgHlDWyS4XkXo1OyOgXM3TUXrUsQ3BWIMgFRx1Kq1N2hNMWmp/M/TH2OiBf
-	0KjScz603yJynrHymQLg07R8Tbci7f8WrR+v/K9bim7+0M3nlnbSI9teIAwnySbqkwNr3hWoyB4Np
-	JhwnXbh38C9F3W//124g==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GvU3YJcY2Ub3QktD8Kx6ObMyi9KNSutkGABMnFIC6J0=; b=4sjWwaNDMS1VRP
+	wIBkFQ8k5vvOY4E1Tfuzu/Qb0IGXNBRiiInmAag8EjengpUylinJ0zMWGwrnbRwJrvRiEpi1n2SqR
+	o3ve26RwqRGOzzO92r/weA/9eRdL4tQh65OL0BwttTrsC0VIyIEjydHczm5KGzzxFDEIGFkILQ4AX
+	opsKhErExxN0UWoVv4FpkdwyyAXP9qJzn2MJ4pSEELef1GR/OczglfcvCE/mQuEqDRXQQIu9p610M
+	XIkTVnebYXoTnvBLNSj1wQzBNLgIBZa1QXaZvlcyveSSavBCxU5c2sInipWz2cQGRUsqOo1II4HzX
+	L1Fhks5cNrUIozZJUPHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL1BY-00BFPW-2Y;
-	Sun, 16 Jul 2023 12:49:12 +0000
-Received: from m12.mail.163.com ([220.181.12.197])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL1BV-00BFLM-19
-	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jul 2023 12:49:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id; bh=KNC/Y+ZDzGkCMn7fTW
-	o+FvIC7E7VploXjGn02bnxHd4=; b=i/Moj+a2rzvK75DXR27vY+z91uXmi0YFoS
-	FESI8GmYbzUFTQM/cd4uQtPX/3/GC6HHMtJ8fbplQUAYG5GH3tBqcm9Ed+Z0wqyY
-	6ITnOFpOmxXueXEFxzTVq0/hmEgHuEYAf0SjXLDzFdv5rnOzsqsp3nRp89AHPasp
-	fEktZaClw=
-Received: from localhost.localdomain (unknown [202.112.113.212])
-	by zwqz-smtp-mta-g1-2 (Coremail) with SMTP id _____wAX3mIl57NksxfaAQ--.22750S4;
-	Sun, 16 Jul 2023 20:48:58 +0800 (CST)
-From: Yuanjun Gong <ruc_gongyuanjun@163.com>
-To: Yuanjun Gong <ruc_gongyuanjun@163.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 1/1] pci: add return value check to devm_add_action_or_reset
-Date: Sun, 16 Jul 2023 20:48:35 +0800
-Message-Id: <20230716124835.5909-1-ruc_gongyuanjun@163.com>
-X-Mailer: git-send-email 2.17.1
-X-CM-TRANSID: _____wAX3mIl57NksxfaAQ--.22750S4
-X-Coremail-Antispam: 1Uf129KBjvdXoWrtw47uF43ZrWUuF15Ww47twb_yoWfKFX_u3
-	srZFnru3y5CrnYk3W2kw48Zr9Iy3Z7uF1Sk3WFy3WavFyDXw4qvws7ZrW3A34UGr1IqF9F
-	kr1DAF4xur1xCjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sR_knY5UUUUU==
-X-Originating-IP: [202.112.113.212]
-X-CM-SenderInfo: 5uxfsw5rqj53pdqm30i6rwjhhfrp/xtbBSRyu5VaEH3a-9QAAsv
+	id 1qL3QO-00CDHC-32;
+	Sun, 16 Jul 2023 15:12:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qL3Pl-00CD8v-1I;
+	Sun, 16 Jul 2023 15:12:05 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E2D3260D2D;
+	Sun, 16 Jul 2023 15:12:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FFB8C433C9;
+	Sun, 16 Jul 2023 15:11:58 +0000 (UTC)
+Date: Sun, 16 Jul 2023 08:11:56 -0700
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	mark.rutland@arm.com, ryan.roberts@arm.com, will@kernel.org,
+	anshuman.khandual@arm.com, linux-doc@vger.kernel.org,
+	corbet@lwn.net, peterz@infradead.org, arnd@arndb.de,
+	punit.agrawal@bytedance.com, linux-kernel@vger.kernel.org,
+	darren@os.amperecomputing.com, yangyicong@hisilicon.com,
+	huzhanyuan@oppo.com, lipeifeng@oppo.com, zhangshiming@oppo.com,
+	guojian@oppo.com, realmz6@gmail.com, linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	Barry Song <21cnbao@gmail.com>, wangkefeng.wang@huawei.com,
+	xhao@linux.alibaba.com, prime.zeng@hisilicon.com,
+	Jonathan.Cameron@huawei.com, Barry Song <v-songbaohua@oppo.com>,
+	Nadav Amit <namit@vmware.com>, Mel Gorman <mgorman@suse.de>
+Subject: Re: [PATCH v10 4/4] arm64: support batched/deferred tlb shootdown
+ during page reclamation/migration
+Message-ID: <ZLQIvPpKvjWppc59@arm.com>
+References: <20230710083914.18336-1-yangyicong@huawei.com>
+ <20230710083914.18336-5-yangyicong@huawei.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230710083914.18336-5-yangyicong@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_054910_277019_7512E182 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230716_081203_752069_E33482AA 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,39 +74,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-devm_add_action_or_reset() may fail, therefore, a check to the
-return value of devm_add_action_or_reset() is added before return.
+On Mon, Jul 10, 2023 at 04:39:14PM +0800, Yicong Yang wrote:
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 7856c3a3e35a..f0ce8208c57f 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -96,6 +96,7 @@ config ARM64
+>  	select ARCH_SUPPORTS_NUMA_BALANCING
+>  	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
+>  	select ARCH_SUPPORTS_PER_VMA_LOCK
+> +	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH if EXPERT
 
-Signed-off-by: Yuanjun Gong <ruc_gongyuanjun@163.com>
----
- drivers/pci/controller/pcie-microchip-host.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+I don't want EXPERT to turn on a feature that's not selectable by the
+user. This would lead to different performance behaviour based on
+EXPERT. Just select it unconditionally.
 
-diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-index 5e710e485464..8c77284fdc84 100644
---- a/drivers/pci/controller/pcie-microchip-host.c
-+++ b/drivers/pci/controller/pcie-microchip-host.c
-@@ -863,8 +863,10 @@ static inline struct clk *mc_pcie_init_clk(struct device *dev, const char *id)
- 	if (ret)
- 		return ERR_PTR(ret);
- 
--	devm_add_action_or_reset(dev, (void (*) (void *))clk_disable_unprepare,
-+	ret = devm_add_action_or_reset(dev, (void (*) (void *))clk_disable_unprepare,
- 				 clk);
-+	if (ret)
-+		return ERR_PTR(ret);
- 
- 	return clk;
- }
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 412a3b9a3c25..4bb9cec62e26 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -254,17 +254,23 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+>  	dsb(ish);
+>  }
+>  
+> -static inline void flush_tlb_page_nosync(struct vm_area_struct *vma,
+> -					 unsigned long uaddr)
+> +static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+> +					   unsigned long uaddr)
+>  {
+>  	unsigned long addr;
+>  
+>  	dsb(ishst);
+> -	addr = __TLBI_VADDR(uaddr, ASID(vma->vm_mm));
+> +	addr = __TLBI_VADDR(uaddr, ASID(mm));
+>  	__tlbi(vale1is, addr);
+>  	__tlbi_user(vale1is, addr);
+>  }
+>  
+> +static inline void flush_tlb_page_nosync(struct vm_area_struct *vma,
+> +					 unsigned long uaddr)
+> +{
+> +	return __flush_tlb_page_nosync(vma->vm_mm, uaddr);
+> +}
+> +
+>  static inline void flush_tlb_page(struct vm_area_struct *vma,
+>  				  unsigned long uaddr)
+>  {
+> @@ -272,6 +278,42 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
+>  	dsb(ish);
+>  }
+>  
+> +#ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+
+If it's selected unconditionally, we won't need this #ifdef here.
+
+> +
+> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+> +{
+> +#ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
+> +	/*
+> +	 * TLB flush deferral is not required on systems, which are affected with
+
+"affected by" and drop the comma before "which".
+
 -- 
-2.17.1
-
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
