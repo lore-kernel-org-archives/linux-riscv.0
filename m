@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D9FC001B0
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Jul 2023 17:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542CEC001DF
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 00:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s5/SoPrdu0/jIALLLZEVGTPaWxseYQkPhb1Sbj+sy6Q=; b=lcxvqRpXd+TRAa
-	BMPQ5ii0IF0niZKWcmbmnEPDaUSo7OgHL1ZFc5te805EqqZ1oKOPA4JG7wOF7gKYc5bMLf0kiye7P
-	W+5M8vNsw55KIYMxqvasFcjkDTKirNbQL+UgINn/xYgxOpKG2yG5cWdtIWriOpVHSIQDjAoH9qGik
-	iykDAfyIIinV0mBBVOktf/cu7PX+TVdcBNsRJ0ByQ7crq3X65gbS2sQk9inGN2QdPJB1VKgnRroU6
-	l1mu9N79Eh3GIvvhuK+PYr28Tll72bXruqUnSjV8m36s2UON3Flf/CA+7F3mPmOU8qmn6puIkmbs7
-	fA66thhbyaXu2lGAY0Xg==;
+	List-Owner; bh=JzNW+scM5bi2472hGaPukpAYi4dwIYn0OmwG1JzJF6o=; b=bInBscfPDhHGSk
+	8A/aqfshY6K856qyPumMwF8pnyCrnPwXHyhkOF1Z3NEzQAE/XN0KEOropwc96FBrV35HFhLLrWKVO
+	zEqItDsB1XmR7CUSj78W2PYKTBEZ4/7BmQpo9YIyVwLfS+f8AZF9HVHrhJBNKVQwvG1cUvxrGSXKN
+	tpwM0Zpim2oaub3S3sc6AGYiovUMOclNiOBZPHYqekJXmEHkzi/SxPVVSHyZtixj2ONMVMWNLiTwX
+	E5QA8WZAm4ymYJ/5zfNEUuxPDJ8xHojDg7r0sC6IIFLpRlGjWdTzJmmGGxGLAu2O/yXW0naBNap1S
+	LlvzNj95xs8VI1IprlKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKiq8-009Cmx-30;
-	Sat, 15 Jul 2023 17:13:52 +0000
+	id 1qKpQ1-009j4N-0F;
+	Sun, 16 Jul 2023 00:15:21 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qKiq5-009CmF-2K;
-	Sat, 15 Jul 2023 17:13:51 +0000
+	id 1qKpPx-009j3T-26
+	for linux-riscv@lists.infradead.org;
+	Sun, 16 Jul 2023 00:15:18 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2F1E460AB3;
-	Sat, 15 Jul 2023 17:13:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81BA8C433C8;
-	Sat, 15 Jul 2023 17:13:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1B98260C52;
+	Sun, 16 Jul 2023 00:15:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 505A3C433C8;
+	Sun, 16 Jul 2023 00:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689441228;
-	bh=1p/AukyvqBFfujmrDsB0r4g71V+ZKHoyhzwzCuFNHCA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BM2CGCDfP7E6HVkrvvHPGLDfcDjf9HKBnne9SoZKw8rJc+cGhvWSmYx4TTs3Pwh2q
-	 12CeMyAMapFp3//L1EDvlq9UyTo2q7oHpwkGuWda/vWrdYUUbsiO783mR1QvbEBdZ8
-	 NGCXe3FLdB/5l1nwbAzW9B8yKNw+SRiYqKjeHDw4JHznwMZyH6nn5SYFRZjno2pChL
-	 9YuAcWcpHhD33KJFuwVnVAtZawDgTqsfuN+vWahpL3nBIMDrR57i48i6P+X3KzAh4F
-	 fOo9DKSlItB44DRKLNemBOIWLvPnZCCtHr0ccvqBlD9eSDpMo2TJfw+fLKItCFcAn3
-	 zJm4Z40UfN5rw==
-Date: Sat, 15 Jul 2023 18:13:38 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Maksim Kiselev <bigunclemax@gmail.com>
-Cc: linux-iio@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Rob
- Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v9 0/4] Add support for Allwinner GPADC on
- D1/T113s/R329/T507 SoCs
-Message-ID: <20230715181338.55c4a942@jic23-huawei>
-In-Reply-To: <20230715091816.3074375-1-bigunclemax@gmail.com>
-References: <20230715091816.3074375-1-bigunclemax@gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
+	s=k20201202; t=1689466516;
+	bh=0yILc+bANh026I06UBWabz1Zup8MksYUpsntgobli2o=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ADnjw515pP16FV2I8lpnFC4dPNwxJnjxawWW2RJhS0BtI5ZRTMZllmD7yXzN4VKzp
+	 qtKiRpQ2iS/p2Td7bOzS+gDfGXZp2tNIPbkBfQpQoVgqlmsBMmH7ivEymtyQxhjo3N
+	 h/au2xs9HvGh2XUujZUC1hpYljDrdAYDm+e+OBigu+JgYbifOXbY5ozwg33xq2miOH
+	 hB1d2XJATM6/TW/eVtDcOO4x9IqTpzs75bsGlf0dJrMY3/g2/m5PxTCCygre0wLexf
+	 1xMstyE4xarLBYldCA2GduHG22sby3niDx9Z4qWThaO3FrhbCnm4IbnXtY0mP2ghJQ
+	 w6A1WCUepkXEQ==
+From: guoren@kernel.org
+To: guoren@kernel.org,
+	palmer@rivosinc.com,
+	paul.walmsley@sifive.com,
+	falcon@tinylab.org,
+	bjorn@kernel.org,
+	conor.dooley@microchip.com
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	stable@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V2 1/2] riscv: stack: Fixup independent irq stack for CONFIG_FRAME_POINTER=n
+Date: Sat, 15 Jul 2023 20:15:05 -0400
+Message-Id: <20230716001506.3506041-2-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20230716001506.3506041-1-guoren@kernel.org>
+References: <20230716001506.3506041-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230715_101349_846042_DA026A59 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20230715_171517_746443_FD5AAA47 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,86 +84,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 15 Jul 2023 12:18:12 +0300
-Maksim Kiselev <bigunclemax@gmail.com> wrote:
+From: Guo Ren <guoren@linux.alibaba.com>
 
-> This series adds support for general purpose ADC (GPADC) on new
-> Allwinner's SoCs, such as D1, T113s, T507 and R329. The implemented driver
-> provides basic functionality for getting ADC channels data.
-> 
-> Change History:
-> v9:
-> - Dropped fixes tag
+The independent irq stack uses s0 to save & restore sp, but s0 would be
+corrupted when CONFIG_FRAME_POINTER=n. So add s0 in the clobber list to
+fix the problem.
 
-I tweaked it on the tree to do this rather than dropping the series.
+Fixes: 163e76cc6ef4 ("riscv: stack: Support HAVE_IRQ_EXIT_ON_IRQ_STACK")
+Cc: stable@vger.kernel.org
+Reported-by: Zhangjin Wu <falcon@tinylab.org>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/kernel/traps.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-> - Reworded commits to remove 'This patch'
-Treated this one as a nice to have and skipped it on the tree.
-
-So v8 is queued up with the fixes tag dropped.
-
-Thanks,
-
-Jonathan
-
-> 
-> v8:
-> - Added patch that changes Kconfig description for previous Allwinner GPADC
-> - Changed Kconfig description for this GPADC driver
-> - Fixed 'reg' range for gpadc node in 'sunxi-d1s-t113.dtsi'
-> 
-> v7:
-> - Fixed typo in DT bindings property
-> 
-> v6:
-> - Fixed DT bindings regexp for channel properties
-> - Dropped checking the max number of channels from the drivers code
->   (This is redundant as we raly on DT bindings check)
-> 
-> v5:
-> - Fixed DT bindings properties for child nodes
-> 
-> v4:
-> - Fixed DT bindings warnings
-> - Used GENMASK to clear the irq register
-> - Minor formatting fixes
-> 
-> v3:
-> - Added DT bindings dual license, fixed property order and example formatting
-> - Added explanations comments for timeout and mutex
-> - Dropped unnecessary regmap and used readl/writel instead
-> - Added error message about getting channel number
-> - Renamed labels and variables to make them self-explanatory
-> 
-> v2:
-> - Added lastch flag to avoid addition work for already selected channel
-> - Added reset assertion on module remove
-> - Added dynamic channel allocation and dropped iio_chan_spec arrays
-> - Changed IIO_CHAN_INFO_SCALE type to FRACTIONAL_LOG2
-> - Dropped separate compatible strings and configs for T113s and R329
-> - Fixed includes
-> - Fixed Kconfig description
-> - Removed duplicate probe error messages
-> - Used FIELD_PREP for bit setup
-> 
-> v1:
-> - Initial version
-> 
-> Maksim Kiselev (4):
->   iio: adc: Kconfig change description for Allwinner GPADC
->   iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
->   dt-bindings: iio: adc: Add Allwinner D1/T113s/R329/T507 SoCs GPADC
->   riscv: dts: allwinner: d1: Add GPADC node
-> 
->  .../iio/adc/allwinner,sun20i-d1-gpadc.yaml    |  91 ++++++
->  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  10 +
->  drivers/iio/adc/Kconfig                       |  12 +-
->  drivers/iio/adc/Makefile                      |   1 +
->  drivers/iio/adc/sun20i-gpadc-iio.c            | 276 ++++++++++++++++++
->  5 files changed, 389 insertions(+), 1 deletion(-)
->  create mode 100644 Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
->  create mode 100644 drivers/iio/adc/sun20i-gpadc-iio.c
-> 
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index f910dfccbf5d..927347a19847 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -372,6 +372,9 @@ asmlinkage void noinstr do_irq(struct pt_regs *regs)
+ 		: [sp] "r" (sp), [regs] "r" (regs)
+ 		: "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7",
+ 		  "t0", "t1", "t2", "t3", "t4", "t5", "t6",
++#ifndef CONFIG_FRAME_POINTER
++		  "s0",
++#endif
+ 		  "memory");
+ 	} else
+ #endif
+-- 
+2.36.1
 
 
 _______________________________________________
