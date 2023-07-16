@@ -4,63 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B611AEB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 17:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F34FAEB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 17:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gvfwZquRmUsrTOjmBGdtTWmVi0RkKcSpGWh2LzMo4dk=; b=SZ3SmGANJLMzds
-	JsZ3Qro//tQsNlD2OBzojeTcdE5xbOHbuvTQ6sWrteFZHVoBJhqLd07m9qZIsUkI1IoME2jt6/alv
-	OZ8oNQ2KR7RNA4HoYiq+d/LcyD51SmX6nCz/ErQwJOAla9X/Hg1HIGjMM93CwJNNiFUDESAdjzleE
-	WKrRzIrKVq7ZZ6jhEwa64sS7MBXYXHsst1dMt5WC7KaNvgjP3UwUpw2JvVJybf053uGb0KHRrUDNf
-	ESCSAq+KVwfjwVqx24At4Os480uyOs+qu/gC2sQtV76Y2XXztL1oES2aSGJEhc3VPWU0YXmERD8C+
-	YIfuu4iL/WcFtI887pJA==;
+	List-Owner; bh=LyVmM7pgjyXaXPk1pKOiwYvv9x0KRjdiTXqkjNJq4/M=; b=3uUpSkJmKrxlux
+	Ht3sb+obRdcvDgmT0gJK0M/g1l04vdCR7wuuN6TmAWJYaN5yjWAlvTRZ2yxNSItfBFvd1ngT2TImw
+	OUSmoC+i1qvZIfDP0DygSYXowPFFVR9Lazk9+eppD7QjdsG7Fq/agzjnZxv8OuruXq+Hg5kr40FKc
+	Cj+nytn+l/bpEkOa8hY3OYHrWA6ptKOqyBcIIyxMlx+RdPEvltcRWsZgl7MCY6YxdR3SDGZXn+tx2
+	UOmN1pEMhfksO/lVn80gqR/SVMBK/ScuGikXsylzgiLkvT+CUoODu6wE+2L+hI0j/P09KxTtWqB1z
+	UEMeRRN013MPli+EIlsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL5AB-00DDsZ-2I;
-	Sun, 16 Jul 2023 17:04:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qL5eA-00DV5c-0S;
+	Sun, 16 Jul 2023 17:35:02 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL59Z-00DDfH-2B
+	id 1qL5e0-00DUwZ-37
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Jul 2023 17:03:29 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 39AD660DDB;
-	Sun, 16 Jul 2023 17:03:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DD4AC433C9;
-	Sun, 16 Jul 2023 17:03:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689527004;
-	bh=61mHo/GoVFw4VYteCT18+1hTq6UHmH6Xpf8WnsgzgCo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vO6eZga+ienruHXDg35BGubyuIUJiAL1YyXmXrYs1J5+HGDaEcPgHQZd8pwxYrooU
-	 WokiyETebjl6dNFeWMDBANeTWTKKK6r0xK2LOim7QQeW4ErwbKkDrz3HE7rYqIsGQk
-	 i0+0+5tduLOS9s/+jgt7iU/eO+2VuQqCXZ2SpN52nQi2K/MzM/a61y1a+6wK3qO4Le
-	 4pexAyiwFbgLLRhsLBwnC9qkmh3m4onCefHfdZQk+I8w/86gLggnnFDVKOjBvY+Z0w
-	 VxLqk81TpI5mzF8M6jbMYXlurSAViV5kZBzTVsN+YwB7k8XDmTSVDYglr7b807mbpZ
-	 7cXMcynUHNwLg==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] riscv: enable DMA_BOUNCE_UNALIGNED_KMALLOC for !dma_coherent
-Date: Mon, 17 Jul 2023 00:51:47 +0800
-Message-Id: <20230716165147.1897-3-jszhang@kernel.org>
-X-Mailer: git-send-email 2.40.0
-In-Reply-To: <20230716165147.1897-1-jszhang@kernel.org>
-References: <20230716165147.1897-1-jszhang@kernel.org>
+	Sun, 16 Jul 2023 17:34:55 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-51e5da802afso5319379a12.3
+        for <linux-riscv@lists.infradead.org>; Sun, 16 Jul 2023 10:34:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1689528890; x=1692120890;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xVdQ1h98jD+pCjkWbpSagAlQ5FpMDDjZxvtMGyDKuQ4=;
+        b=RbnLycU+GM9MvipDlE8PVYpOGXFqUD1TENGGIHGORHvLxabAbSr4SauiPoD+CLVPMQ
+         TkjN3zfv0eIyeBZt8zRha6j88zEzLOj1Du4anZgav+2w20Ymv02/947G5VJo356VqzpO
+         FDfZS1aqt3Nm8qdOnS17NQs6mDJoRoDgviKcDg1kV7p+PbDXKnviXlBr7Q5+P0Whlpep
+         jOnfX84fe5zVwq5QjnUM9u2hxYokfaN43/ckoos47o7wfyaT3sx4l0svc8F6IBzsonf2
+         UGLsBYbv+yMXzKS4nTpUxb1ifvxjfcISVASj3dBKY3iN4A1pdPQ++42L1vO1E2n5iXfG
+         BoCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689528890; x=1692120890;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xVdQ1h98jD+pCjkWbpSagAlQ5FpMDDjZxvtMGyDKuQ4=;
+        b=H6YTVRFIxabRfsvkhNzqUXcVZD/gaqNceXwiXpgdApGTiATvc7mwIn6uOX4+gQpC3p
+         o4q6gbCzjF4RI1HFTfTZG+dB6QktSoYUZhJ3AkHzhM6YqfdnR9ivSUCU3A0j/QmpGjDG
+         bwD6+JOJUL9Oc+TcPRyP7A9lcq6k7jYnYThp7FnsO9LT1/Atz3S1h43DJj6G6F3s03Pa
+         cHRpo4VK/PrmWJba8ZMkTJFMkGhC4cJ/8CjMdnKV47ROUux+UwotQ2GBUAHfvQ7YaGkm
+         7NtARscou+8tzlfooTHRg86pQGbTJrggd/eRZLDd+jwrk161hJ22XLHilM7DMaxtfbKG
+         xUFQ==
+X-Gm-Message-State: ABy/qLZPfdsSsdZFPcGY0akRodBkgHnKJOLcF8ecJPQmPNYBSpUbAZdT
+	tlQSbq8crRkZ3CDgCMBkUz7c2A==
+X-Google-Smtp-Source: APBJJlEgpjm22DguPByGciLFZxBAv4qA3ycUjxHTB47bRiBgUDCW+gMnZGdBGQYd2CV00lRnqKx5Xg==
+X-Received: by 2002:a05:6402:b1a:b0:51b:fa0a:dc37 with SMTP id bm26-20020a0564020b1a00b0051bfa0adc37mr10620081edb.10.1689528889834;
+        Sun, 16 Jul 2023 10:34:49 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.223.104])
+        by smtp.gmail.com with ESMTPSA id n1-20020a056402514100b0051e2cde9e3esm8766083edd.75.2023.07.16.10.34.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 16 Jul 2023 10:34:49 -0700 (PDT)
+Message-ID: <6363b737-d849-83f2-8811-cb497f0222b0@linaro.org>
+Date: Sun, 16 Jul 2023 19:34:43 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH] clk: Explicitly include correct DT includes
+Content-Language: en-US
+To: Rob Herring <robh@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ =?UTF-8?Q?Andreas_F=c3=a4rber?= <afaerber@suse.de>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@aj.id.au>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Sudeep Holla <sudeep.holla@arm.com>,
+ Cristian Marussi <cristian.marussi@arm.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Alex Helms <alexander.helms.jy@renesas.com>, Abel Vesa
+ <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@linaro.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Heiko Stuebner <heiko@sntech.de>, Sylwester Nawrocki
+ <s.nawrocki@samsung.com>, Tomasz Figa <tomasz.figa@gmail.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Dinh Nguyen <dinguyen@kernel.org>,
+ Viresh Kumar <vireshk@kernel.org>,
+ Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org,
+ Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
+ <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
+ Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
+ <hal.feng@starfivetech.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, =?UTF-8?Q?Emilio_L=c3=b3pez?=
+ <emilio@elopez.com.ar>, Peter De Schrijver <pdeschrijver@nvidia.com>,
+ Prashant Gaikwad <pgaikwad@nvidia.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Michal Simek <michal.simek@amd.com>
+Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-oxnas@groups.io,
+ linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org
+References: <20230714174342.4052882-1-robh@kernel.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230714174342.4052882-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_100326_762895_2418DC9F 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20230716_103453_093344_88B50D63 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +148,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With the DMA bouncing of unaligned kmalloc() buffers now in place,
-enable it for riscv when RISCV_DMA_NONCOHERENT=y to allow the
-kmalloc-{8,16,32,96} caches. Since RV32 doesn't enable SWIOTLB
-yet, and I didn't see any dma noncoherent RV32 platforms in the
-mainline, so skip RV32 now by only enabling
-DMA_BOUNCE_UNALIGNED_KMALLOC if SWIOTLB is available. Once we see
-such requirement on RV32, we can enable it then.
+On 14/07/2023 19:43, Rob Herring wrote:
+> The DT of_device.h and of_platform.h date back to the separate
+> of_platform_bus_type before it as merged into the regular platform bus.
+> As part of that merge prepping Arm DT support 13 years ago, they
+> "temporarily" include each other. They also include platform_device.h
+> and of.h. As a result, there's a pretty much random mix of those include
+> files used throughout the tree. In order to detangle these headers and
+> replace the implicit includes with struct declarations, users need to
+> explicitly include the correct includes.
+> 
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
 
-NOTE: we didn't force to create the swiotlb buffer even when the
-end of RAM is within the 32-bit physical address range. That's to
-say:
-For RV64 with > 4GB memory, the feature is enabled.
-For RV64 with <= 4GB memory, the feature isn't enabled by default. We
-rely on users to pass "swiotlb=mmnn,force" where mmnn is the Number of
-I/O TLB slabs, see kernel-parameters.txt for details.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> # samsung
 
-Tested on Sipeed Lichee Pi 4A with 8GB DDR and Sipeed M1S BL808 Dock
-board.
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 4c07b9189c86..6681bd6ed2d7 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -267,6 +267,7 @@ config RISCV_DMA_NONCOHERENT
- 	select ARCH_HAS_SETUP_DMA_OPS
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
-+	select DMA_BOUNCE_UNALIGNED_KMALLOC if SWIOTLB
- 	select DMA_DIRECT_REMAP
- 
- config AS_HAS_INSN
--- 
-2.40.1
+Best regards,
+Krzysztof
 
 
 _______________________________________________
