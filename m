@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C750AC00528
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 21:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32755EB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 21:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=saQ6tnx5bCBdxu6C26BVw7VUOhwnGPIEWoYYmgPCwk0=; b=TNvjDA9bHhcUkl
-	begTrWCnPPYdvNpZTbpL+BCMiL6OOn2gQGOAGw+FVTVrZ10Ogbzl5c6Z9u0RH3mRUHA0J5HhhyMNt
-	fOo1wOCEo6z0qaHV2ROd7StbJOiZIcjpkyRXOQZnrgCFNX9F6+riJwU9xEj6zdRG/o5Hh1uQvnpnM
-	3leEeearIGUSbp0E8DJNmCpWN5nz4UPJ74suuvHh58aQyA3WlD2aSwUgfkZ8ca5VWzKuktnk/HHvf
-	/K5/gUMiPyxs/PUqMFLUYJv37gqnVbf7WvNbusM2z3zNvwS3RUZxVIzBh8Dob7DMaEHN9nBmc+mfi
-	4wkldydah+k8mvTkMeMA==;
+	List-Owner; bh=8HYNzGBSIBEiVspcCebMIACRxQyQEoQ8dZZ+0r0Aa2Q=; b=R+NPUygPSjimKz
+	vvh2suUy36VrXHXgdtdaGoxm1zuZZER9+5Pr4GDqSiCq8x1cIF1yTtN211z0ks3HncOwuj0qD5MBJ
+	Ca0hJnHD7w3ZhXSVXZ/r7ZuvVjFkmIMJrStIXAkm/AVFidsKCM6EHOeR9MtrGRd9mjrbGaI84q5cC
+	g11b7YVwIi3SwsYK6gPVXnFbWQFSLi7jvA2fyoGk90LexrOo34aSK1Af6haLMmTsZnkkkCp1rcSI0
+	TZkJc3/JC54YkK/X43fIMDvNKP9Kbe73Pf7fm+0a5M9m3yne+D7aU/01NGi5NDBbiSXF8Qt6dBqUs
+	epMNhhP0VxBHz2/lR1/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9gp-00Fs28-15;
-	Sun, 16 Jul 2023 21:54:03 +0000
+	id 1qL9gx-00Fs9I-1r;
+	Sun, 16 Jul 2023 21:54:11 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9g3-00FrSL-1C;
-	Sun, 16 Jul 2023 21:53:21 +0000
+	id 1qL9fl-00FrIk-2F;
+	Sun, 16 Jul 2023 21:52:59 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id CAF5A60ECB;
-	Sun, 16 Jul 2023 21:53:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E395DC433D9;
-	Sun, 16 Jul 2023 21:53:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A611C60D2C;
+	Sun, 16 Jul 2023 21:52:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0CAC433D9;
+	Sun, 16 Jul 2023 21:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689544394;
-	bh=NwoSrueebyEbURTt6m5toCTRYZrdX6jgyTyrkGE3+ZU=;
+	s=k20201202; t=1689544376;
+	bh=pjsLx6b1K0x937g9y/oHkxJKpquxYt6WMLA+SQZbCw0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Pw9nSbj1Ol7LPGjSLs98tJZ2ACUWuX7wQQYkilyMpsfCvAB45wovv6V2mzuuIz0uF
-	 Ta9n6jqp1qhuzblLgIlKp2vP7Ul52k71KP4cJzkYbD3i+k05japnbgt35ldTDVMe/g
-	 pCIKWHuF/Gs3+Sbq8i7OIJBcVxYDVUaW8bXhdtOwtIu/RvNPXfMVM2xQPeYUYBTctJ
-	 mQSCw3zgqneH2ozN128Ws1sFq7EvVGjkPDvzbbMaYjIsqv4ny60tqx6djj4hR3OnsS
-	 uzzLsoIKqCwVNx0MqfyIh/WawOG/vY90tZPVxETP5zt14KoGdgE90OitpvwvPVacHI
-	 Jy1pwbEsiEsOw==
+	b=D6u3/V1MrlLBNBjRRjCkDs71lTKKLdxk4UVJjERzJR5KtW04sDJdFN6DY4BPTv7r0
+	 aTfNC0/NB9GX79XAFYhU9VdVRzw7MQZB2TF5LJweHmcGzRshXudBtlTD2haZIuC5LP
+	 NaMVrAzn6EMq6cEbwRZ7uCadAgG/757FAaXVcG059B2O2THi3ybHajqxcaPXT14ni/
+	 6NChUcGdOlfnZpMRnwjiRdGcw3nrq4zpyK9Bx75LgEsUYLdTuKOLC/IWjPFQaqy28Z
+	 elrpk8hcyukSHOh6r8e7/i+jKu2gyDkRcAfCoKCGTMq/2lOlXbHU4FnmZICc8ziKLS
+	 FgyPVP92q+o+A==
 From: Mark Brown <broonie@kernel.org>
-Date: Sun, 16 Jul 2023 22:51:00 +0100
-Subject: [PATCH 04/35] arm64/gcs: Document the ABI for Guarded Control
- Stacks
+Date: Sun, 16 Jul 2023 22:50:57 +0100
+Subject: [PATCH 01/35] prctl: arch-agnostic prctl for shadow stack
 MIME-Version: 1.0
-Message-Id: <20230716-arm64-gcs-v1-4-bf567f93bba6@kernel.org>
+Message-Id: <20230716-arm64-gcs-v1-1-bf567f93bba6@kernel.org>
 References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 In-Reply-To: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -71,20 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-099c9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9701; i=broonie@kernel.org;
- h=from:subject:message-id; bh=NwoSrueebyEbURTt6m5toCTRYZrdX6jgyTyrkGE3+ZU=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGaSuKIlLy3iIp8ZfqhQgcwhUn68HYcvTih8Ur8s
- CrVsnHSJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmkgAKCRAk1otyXVSH0D6eB/
- 4uDk8zcAj9uslFWZsdWHaI/spnjukr91kjXqhcXwjOBoy5ks8ezHxFq85f88Hjo+ZzlfaOHQE2LM94
- EdjqhTEnKU3Zns91S6GxAnVkHmU5COOoKkLCMVdHPz8EOMVX8UUKEBlbUvUuHQ3prpAJ0w/p5HzYmO
- 7iau5RKuKAeBNB4XVnY4Fb3J4Zo7pnI/uo/Na4onG/qOcXWuVM495JlGub1WFWFG8+D8CrbvaJIWAt
- c7bDhBK4PsLm1x5xQy7q+7KiJfkT3BHkLt2C/EvsRtVHpASq+5RO1a2n/obgaPyUlIAdDgZSmjpS/D
- tzXAJHxZPdPsm4kzNDCPAKNY4nW5gv
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3582; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=98fSp9zoycOoO4JRBJGcJJdFtBdtqinfhtbljBoqJQI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGaPOeEvYK+HaBvmOtGw+GIVwaAEnOI6agwGJ0VT
+ 4ZZsfRKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmjwAKCRAk1otyXVSH0BEJB/
+ 9TsUZy5D4ijFFo1Dfdcl7QkdIYj1UVRzxptIb9l671dL338Gc6GZhPmT4VkT3f+hyJjVzVSMK0BwQx
+ 7fE6Izud5qO6BfUkfyU51nyNtrLB7yLggC9+jRTraTvq081sRTpALcQTMwAYjiw8BoH1aDx04+TDp5
+ m9GAxFLqSAzAvANMpV53ulubFEhZCOy172JSzFniKE4JCODuwQFC/Lc1Ze7H5Y8LHJoEx4NnI3FvY5
+ hCcDa2LqJ6vTvaleevbA95bGiuxuE3DnaUGiWqcw/ZREbyi7SKv2jlGrWefGv7OMxEAHprq0ZEDBHW
+ aTwFGtJ3i24vZYlTquUCFDGTC9O7Iw
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_145317_223137_684F7814 
-X-CRM114-Status: GOOD (  38.22  )
+X-CRM114-CacheID: sfid-20230716_145257_884786_558C2434 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,248 +100,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add some documentation of the userspace ABI for Guarded Control Stacks.
+From: Deepak Gupta <debug@rivosinc.com>
 
+Three architectures (x86, aarch64, riscv) have announced support for
+shadow stack.  This patch adds arch-agnostic prtcl support to enable
+/disable/get/set status of shadow stack and forward control (landing pad)
+flow cfi statuses.
+
+New prctls are
+      - PR_GET_SHADOW_STACK_STATUS, PR_SET_SHADOW_STACK_STATUS
+
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+[Rebased onto current kernels, renumbering to track other allocations
+ already upstream, dropping indirect LP, updating to pass arg to set
+  by value, fix missing prototypes for weak functions and update title.
+  -- broonie]
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- Documentation/arch/arm64/gcs.rst   | 216 +++++++++++++++++++++++++++++++++++++
- Documentation/arch/arm64/index.rst |   1 +
- 2 files changed, 217 insertions(+)
+ include/linux/mm.h         |  3 +++
+ include/uapi/linux/prctl.h | 17 +++++++++++++++++
+ kernel/sys.c               | 20 ++++++++++++++++++++
+ 3 files changed, 40 insertions(+)
 
-diff --git a/Documentation/arch/arm64/gcs.rst b/Documentation/arch/arm64/gcs.rst
-new file mode 100644
-index 000000000000..27ba72d27952
---- /dev/null
-+++ b/Documentation/arch/arm64/gcs.rst
-@@ -0,0 +1,216 @@
-+===============================================
-+Guarded Control Stack support for AArch64 Linux
-+===============================================
-+
-+This document outlines briefly the interface provided to userspace by Linux in
-+order to support use of the ARM Guarded Control Stack (GCS) feature.
-+
-+This is an outline of the most important features and issues only and not
-+intended to be exhaustive.
-+
-+
-+
-+1.  General
-+-----------
-+
-+* GCS is an architecture feature intended to provide greater protection
-+  against return oriented programming (ROP) attacks and to simplify the
-+  implementation of features that need to collect stack traces such as
-+  profiling.
-+
-+* When GCS is enabled a separate guarded control stack is maintained by the
-+  PE which is writeable only through specific GCS operations.  This
-+  stores the call stack only, when a procedure call instruction is
-+  performed the current PC is pushed onto the GCS and on RET the
-+  address in the LR is verified against that on the top of the GCS.
-+
-+* When active current GCS pointer is stored in the system register
-+  GCSPR_EL0.  This is readable by userspace but can only be updated
-+  via specific GCS instructions.
-+
-+* The architecture provides instructions for switching between guarded
-+  control stacks with checks to ensure that the new stack is a valid
-+  target for switching.
-+
-+* The functionality of GCS is similar to that provided by the x86 Shadow
-+  Stack feature, due to sharing of userspace interfaces the ABI refers to
-+  shadow stacks rather than GCS.
-+
-+* Support for GCS is reported to userspace via HWCAP2_GCS in the aux vector
-+  AT_HWCAP2 entry.
-+
-+* GCS is enabled per thread.  While there is support for disabling GCS
-+  at runtime this should be done with great care.
-+
-+* GCS memory access faults are reported as normal memory access faults.
-+
-+* GCS specific errors (those reported with EC 0x2d) will be reported as
-+  SIGSEGV with a si_code of SEGV_CPERR (control protection error).
-+
-+* GCS is supported only for AArch64.
-+
-+* On systems where GCS is supported GCSPR_EL0 is always readable by EL0
-+  regardless of the GCS configuration for the thread.
-+
-+* The architecture supports enabling GCS without verifying that return values
-+  in LR match those in the GCS, the LR will be ignored.  This is not supported
-+  by Linux.
-+
-+* EL0 GCS entries with bit 63 set are reserved for use, one such use is defined
-+  below for signals and should be ignored when parsing the stack if not
-+  understood.
-+
-+
-+2.  Enabling and disabling Guarded Control Stacks
-+-------------------------------------------------
-+
-+* GCS is enabled and disabled for a thread via the PR_SET_SHADOW_STACK_STATUS
-+  prctl(), this takes a single flags argument specifying which GCS features
-+  should be used.
-+
-+* When set PR_SHADOW_STACK_ENABLE flag allocates a Guarded Control Stack for
-+  and enables GCS for the thread, enabling the functionality controlled by
-+  GCSPRE0_EL1.{nTR, RVCHKEN, PCRSEL}.
-+
-+* When set the PR_SHADOW_STACK_PUSH flag enables the functionality controlled
-+  by GCSCRE0_EL1.PUSHMEn, allowing explicit GCS push and pops.
-+
-+* When set the PR_SHADOW_STACK_WRITE flag enables the functionality controlled
-+  by GCSCRE0_EL1.STREn, allowing explicit stores to the Guarded Control Stack.
-+
-+* When set the PR_SHADOW_STACK_LOCK flag prevents any further configuration of
-+  the GCS settings for the thread, further attempts to configure GCS will
-+  return -EBUSY.
-+
-+* Any unknown flags will cause PR_SET_SHADOW_STACK_STATUS to return -EINVAL.
-+
-+* PR_SET_SHADOW_STACK_STATUS affects only the thread the called it, any
-+  other running threads will be unaffected.
-+
-+* New threads inherit the GCS configuration of the thread that created them.
-+
-+* GCS is disabled on exec().
-+
-+* The current GCS configuration for a thread may be read with the
-+  PR_GET_SHADOW_STACK_STATUS prctl(), this returns the same flags that
-+  are passed to PR_SET_SHADOW_STACK_STATUS.
-+
-+* If GCS is disabled for a thread after having previously been enabled then
-+  the stack will remain allocated for the lifetime of the thread.  At present
-+  any attempt to reenable GCS for the thread will be rejected, this may be
-+  revisited in future.
-+
-+* It should be noted that since enabling GCS will result in GCS becoming
-+  active immediately it is not normally possible to return from the function
-+  that invoked the prctl() that enabled GCS.  It is expected that the normal
-+  usage will be that GCS is enabled very early in execution of a program.
-+
-+
-+
-+3.  Allocation of Guarded Control Stacks
-+----------------------------------------
-+
-+* When GCS is enabled for a thread a new Guarded Control Stack will be
-+  allocated for it of size RLIMIT_STACK / 2 or 2 gigabytes, whichever is
-+  smaller.
-+
-+* When a new thread is created by a thread which has GCS enabled then a
-+  new Guarded Control Stack will be allocated for the new thread with
-+  half the size of the standard stack.
-+
-+* When a stack is allocated by enabling GCS or during thread creation then
-+  the top 8 bytes of the stack will be initialised to 0 and GCSPR_EL0 will
-+  be set to point to the address of this 0 value, this can be used to
-+  detect the top of the stack.
-+
-+* Additional Guarded Control Stacks can be allocated using the
-+  map_shadow_stack() system call.
-+
-+* Stacks allocated using map_shadow_stack() will have the top 8 bytes
-+  set to 0 and the 8 bytes below that initialised with an architecturally
-+  valid GCS cap value, this allows switching to these stacks using the
-+  stack switch instructions provided by the architecture.
-+
-+* When GCS is disabled for a thread the Guarded Control Stack initially
-+  allocated for that thread will be freed.  Note carefully that if the
-+  stack has been switched this may not be the stack currently in use by
-+  the thread.
-+
-+
-+4.  Signal handling
-+--------------------
-+
-+* A new signal frame record gcs_context encodes the current GCS mode and
-+  pointer for the interrupted context on signal delivery.  This will always
-+  be present on systems that support GCS.
-+
-+* The record contains a flag field which reports the current GCS configuration
-+  for the interrupted context as PR_GET_SHADOW_STACK_STATUS would.
-+
-+* The signal handler is run with the same GCS configuration as the interrupted
-+  context.
-+
-+* When GCS is enabled for the interrupted thread a signal handling specific
-+  GCS cap token will be written to the GCS, this is an architectural GCS cap
-+  token with bit 63 set.  The GCSPR_EL0 reported in the signal frame will
-+  point to this cap token.
-+
-+* The signal handler will use the same GCS as the interrupted context.
-+
-+* When GCS is enabled on signal entry a frame with the address of the signal
-+  return handler will be pushed onto the GCS, allowing return from the signal
-+  handler via RET as normal.  This will not be reported in the gcs_context in
-+  the signal frame.
-+
-+
-+5.  Signal return
-+-----------------
-+
-+When returning from a signal handler:
-+
-+* If there is a gcs_context record in the signal frame then the GCS flags
-+  and GCSPR_EL0 will be restored from that context prior to further
-+  validation.
-+
-+* If there is no gcs_context record in the signal frame then the GCS
-+  configuration will be unchanged.
-+
-+* If GCS is enabled on return from a signal handler then GCSPR_EL0 must
-+  point to a valid GCS signal cap record, this will be popped from the
-+  GCS prior to signal return.
-+
-+* If the GCS configuration is locked when returning from a signal then any
-+  attempt to change the GCS configuration will be treated as an error.  This
-+  is true even if GCS was not enabled prior to signal entry.
-+
-+* GCS may be disabled via signal return but any attempt to enable GCS via
-+  signal return will be rejected.
-+
-+
-+7.  ptrace extensions
-+---------------------
-+
-+* A new regset NT_ARM_GCS is defined for use with PTRACE_GETREGSET and
-+  PTRACE_SETREGSET.
-+
-+* Due to the complexity surrounding allocation and deallocation of stakcs and
-+  lack of practical application changes to the GCS configuration via ptrace
-+  are not supported.
-+
-+
-+
-+8.  ELF coredump extensions
-+---------------------------
-+
-+* NT_ARM_GCS notes will be added to each coredump for each thread of the
-+  dumped process.  The contents will be equivalent to the data that would
-+  have been read if a PTRACE_GETREGSET of the corresponding type were
-+  executed for each thread when the coredump was generated.
-+
-+
-+
-+9.  /proc extensions
-+--------------------
-+
-+* Guarded Control Stack pages will include "ss" in their VmFlags in
-+  /proc/<pid>/smaps.
-diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
-index d08e924204bf..dcf3ee3eb8c0 100644
---- a/Documentation/arch/arm64/index.rst
-+++ b/Documentation/arch/arm64/index.rst
-@@ -14,6 +14,7 @@ ARM64 Architecture
-     booting
-     cpu-feature-registers
-     elf_hwcaps
-+    gcs
-     hugetlbpage
-     kdump
-     legacy_instructions
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 97eddc83d19c..bf16edf2fcd9 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -3947,4 +3947,7 @@ static inline void accept_memory(phys_addr_t start, phys_addr_t end)
+ 
+ #endif
+ 
++int arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status);
++int arch_set_shadow_stack_status(struct task_struct *t, unsigned long status);
++
+ #endif /* _LINUX_MM_H */
+diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+index 3c36aeade991..9fdc77fa2bfe 100644
+--- a/include/uapi/linux/prctl.h
++++ b/include/uapi/linux/prctl.h
+@@ -305,4 +305,21 @@ struct prctl_mm_map {
+ # define PR_RISCV_V_VSTATE_CTRL_NEXT_MASK	0xc
+ # define PR_RISCV_V_VSTATE_CTRL_MASK		0x1f
+ 
++/*
++ * get shadow stack status for current thread. Assumes shadow stack is min 4 byte aligned.
++ * Note shadow stack can be 8 byte aligned on 64bit.
++ * Lower 2 bits can give status of locked and enabled/disabled.
++ * size and address range can be obtained via /proc/maps. get_shadow_stack_status will
++ * return base of shadow stack.
++ */
++#define PR_GET_SHADOW_STACK_STATUS      71
++/*
++ * set shadow stack status for current thread (including enabling, disabling or locking)
++ * note that it will only set the status and setup of the shadow stack. Allocating shadow
++ * stack should be done separately using mmap.
++ */
++#define PR_SET_SHADOW_STACK_STATUS      72
++# define PR_SHADOW_STACK_LOCK           (1UL << 0)
++# define PR_SHADOW_STACK_ENABLE         (1UL << 1)
++
+ #endif /* _LINUX_PRCTL_H */
+diff --git a/kernel/sys.c b/kernel/sys.c
+index 05f838929e72..ebf9ea5f0fae 100644
+--- a/kernel/sys.c
++++ b/kernel/sys.c
+@@ -2302,6 +2302,16 @@ int __weak arch_prctl_spec_ctrl_set(struct task_struct *t, unsigned long which,
+ 	return -EINVAL;
+ }
+ 
++int __weak arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
++{
++	return -EINVAL;
++}
++
++int __weak arch_set_shadow_stack_status(struct task_struct *t, unsigned long status)
++{
++	return -EINVAL;
++}
++
+ #define PR_IO_FLUSHER (PF_MEMALLOC_NOIO | PF_LOCAL_THROTTLE)
+ 
+ #ifdef CONFIG_ANON_VMA_NAME
+@@ -2720,6 +2730,16 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
+ 	case PR_RISCV_V_GET_CONTROL:
+ 		error = RISCV_V_GET_CONTROL();
+ 		break;
++	case PR_GET_SHADOW_STACK_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_get_shadow_stack_status(me, (unsigned long __user *) arg2);
++		break;
++	case PR_SET_SHADOW_STACK_STATUS:
++		if (arg3 || arg4 || arg5)
++			return -EINVAL;
++		error = arch_set_shadow_stack_status(me, arg2);
++		break;
+ 	default:
+ 		error = -EINVAL;
+ 		break;
 
 -- 
 2.30.2
