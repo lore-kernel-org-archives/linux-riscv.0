@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32755EB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 21:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DB2C001DE
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 21:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8HYNzGBSIBEiVspcCebMIACRxQyQEoQ8dZZ+0r0Aa2Q=; b=R+NPUygPSjimKz
-	vvh2suUy36VrXHXgdtdaGoxm1zuZZER9+5Pr4GDqSiCq8x1cIF1yTtN211z0ks3HncOwuj0qD5MBJ
-	Ca0hJnHD7w3ZhXSVXZ/r7ZuvVjFkmIMJrStIXAkm/AVFidsKCM6EHOeR9MtrGRd9mjrbGaI84q5cC
-	g11b7YVwIi3SwsYK6gPVXnFbWQFSLi7jvA2fyoGk90LexrOo34aSK1Af6haLMmTsZnkkkCp1rcSI0
-	TZkJc3/JC54YkK/X43fIMDvNKP9Kbe73Pf7fm+0a5M9m3yne+D7aU/01NGi5NDBbiSXF8Qt6dBqUs
-	epMNhhP0VxBHz2/lR1/g==;
+	List-Owner; bh=JiW8zyP+0k209SUAwlv/UFJDbR+RAdvV5cwUsdhW71o=; b=hKXa67CPWdiAb9
+	8xOJpJAWG1F2/NCvmHiFEb0NMhAcdCgng0pr56ZFM6X3+sqg2pWS+xt93YB5tjGplnbl+AIbI5Nf0
+	uDIBjpovmJxfSs79k2YgockPzNjqWXlyjxo1lhiEnBkAVa5VAp/HmRusYUM7aaDs8z7UHGYNFZ9Fr
+	RLP1ZZUBiMGX3LYfN/VxMxmXtUJ+Y2SlU5kmWUVY7L7Ht1MXxjwJujU8FPbs/DRLJYqjTEVSfUL+B
+	bhL7jxvzbA17JtPhqt8F9Zn6HcSym2uftWulJVhb3c1bFxKdOu1lOFB+OuxiTS38dtUu4OVeW64l+
+	VVbQYfQtl02K4+NBUCVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9gx-00Fs9I-1r;
-	Sun, 16 Jul 2023 21:54:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qL9h5-00FsGS-0c;
+	Sun, 16 Jul 2023 21:54:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9fl-00FrIk-2F;
-	Sun, 16 Jul 2023 21:52:59 +0000
+	id 1qL9gA-00FrXK-0q;
+	Sun, 16 Jul 2023 21:53:27 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A611C60D2C;
-	Sun, 16 Jul 2023 21:52:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0CAC433D9;
-	Sun, 16 Jul 2023 21:52:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C0D7860EE1;
+	Sun, 16 Jul 2023 21:53:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17F03C433C7;
+	Sun, 16 Jul 2023 21:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689544376;
-	bh=pjsLx6b1K0x937g9y/oHkxJKpquxYt6WMLA+SQZbCw0=;
+	s=k20201202; t=1689544400;
+	bh=Tx3LjQSA+sDYz0sZ8GW+Sw5vLyOCUOW7mMsZCTn9lVc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=D6u3/V1MrlLBNBjRRjCkDs71lTKKLdxk4UVJjERzJR5KtW04sDJdFN6DY4BPTv7r0
-	 aTfNC0/NB9GX79XAFYhU9VdVRzw7MQZB2TF5LJweHmcGzRshXudBtlTD2haZIuC5LP
-	 NaMVrAzn6EMq6cEbwRZ7uCadAgG/757FAaXVcG059B2O2THi3ybHajqxcaPXT14ni/
-	 6NChUcGdOlfnZpMRnwjiRdGcw3nrq4zpyK9Bx75LgEsUYLdTuKOLC/IWjPFQaqy28Z
-	 elrpk8hcyukSHOh6r8e7/i+jKu2gyDkRcAfCoKCGTMq/2lOlXbHU4FnmZICc8ziKLS
-	 FgyPVP92q+o+A==
+	b=eEdHee+4OejXaqKGGTBAKgUtvYurZ2DN/zvj2JYBepULBj1SfN08D6cmUVdr1Lc7e
+	 efCd/bKR0M3HiJ9JhCTWYiiZn08EiKRsYILAf/QFW9EXwhZHv/AT2lQkwEI9MnV9cN
+	 aoH7ellD+w3tSU0lcPGRDmLVQxTZsNmw4cY4F9vyUk1DciDwfbU2+9VxQI/Q6gvUnH
+	 N/Jnpkny/gFRQp8aytANV64FRwTcQvhce72xPC7Lp7C/05DCoKABju3EujIU9YI6LV
+	 jinykBcxppCGhJQ+Eae7AdPqd66F0fNb1l6j0sO51KLMXe+Tvd8AdHX6xuRWlsSMKM
+	 B4JeWoaHNoxxQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Sun, 16 Jul 2023 22:50:57 +0100
-Subject: [PATCH 01/35] prctl: arch-agnostic prctl for shadow stack
+Date: Sun, 16 Jul 2023 22:51:01 +0100
+Subject: [PATCH 05/35] arm64/sysreg: Add new system registers for GCS
 MIME-Version: 1.0
-Message-Id: <20230716-arm64-gcs-v1-1-bf567f93bba6@kernel.org>
+Message-Id: <20230716-arm64-gcs-v1-5-bf567f93bba6@kernel.org>
 References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 In-Reply-To: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +70,21 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-099c9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3582; i=broonie@kernel.org;
- h=from:subject:message-id; bh=98fSp9zoycOoO4JRBJGcJJdFtBdtqinfhtbljBoqJQI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGaPOeEvYK+HaBvmOtGw+GIVwaAEnOI6agwGJ0VT
- 4ZZsfRKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmjwAKCRAk1otyXVSH0BEJB/
- 9TsUZy5D4ijFFo1Dfdcl7QkdIYj1UVRzxptIb9l671dL338Gc6GZhPmT4VkT3f+hyJjVzVSMK0BwQx
- 7fE6Izud5qO6BfUkfyU51nyNtrLB7yLggC9+jRTraTvq081sRTpALcQTMwAYjiw8BoH1aDx04+TDp5
- m9GAxFLqSAzAvANMpV53ulubFEhZCOy172JSzFniKE4JCODuwQFC/Lc1Ze7H5Y8LHJoEx4NnI3FvY5
- hCcDa2LqJ6vTvaleevbA95bGiuxuE3DnaUGiWqcw/ZREbyi7SKv2jlGrWefGv7OMxEAHprq0ZEDBHW
- aTwFGtJ3i24vZYlTquUCFDGTC9O7Iw
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1873; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Tx3LjQSA+sDYz0sZ8GW+Sw5vLyOCUOW7mMsZCTn9lVc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGaT++h/ycbaNVg9yGrZMMuOhkEji0FpV5RaCDct
+ uX2XjOuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmkwAKCRAk1otyXVSH0BWlB/
+ 4+xwQQ1I7UgntUZtWvTMZ/rpoEN/J0ABiuVDrTZbUPRqcOnoM3SWGp7IMIIl50wZLht9C2CCQPPyKz
+ GgLRtFvpro3bi7yMI7Cnn3dwwUW1ZpZX1O/J/d8tutsolIENYYSikuT6oDewTGOuTWDW8sqXXTB8l4
+ 6r8MvuadOX5MCLId+S3tu9lv+iBN3swU9ob1xD4IxTMu++h9tM/v8Log84Yr/6UVdAKAWJXHW2Xn37
+ sq02h41a5EcmkSnwE9S0ecX9kh11n4M/U6OnylU6Y5gNy1vs9cRU2EX3cNVfEYSltj69IdM7sDDe98
+ Eb9Yh2DsWANWOuGv+HxDJp0HFTGkJy
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_145257_884786_558C2434 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20230716_145324_230317_282BFEBC 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,104 +101,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Deepak Gupta <debug@rivosinc.com>
+FEAT_GCS introduces a number of new system registers. Add the registers
+available up to EL2 to sysreg as per DDI0601 2022-12.
 
-Three architectures (x86, aarch64, riscv) have announced support for
-shadow stack.  This patch adds arch-agnostic prtcl support to enable
-/disable/get/set status of shadow stack and forward control (landing pad)
-flow cfi statuses.
-
-New prctls are
-      - PR_GET_SHADOW_STACK_STATUS, PR_SET_SHADOW_STACK_STATUS
-
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-[Rebased onto current kernels, renumbering to track other allocations
- already upstream, dropping indirect LP, updating to pass arg to set
-  by value, fix missing prototypes for weak functions and update title.
-  -- broonie]
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- include/linux/mm.h         |  3 +++
- include/uapi/linux/prctl.h | 17 +++++++++++++++++
- kernel/sys.c               | 20 ++++++++++++++++++++
- 3 files changed, 40 insertions(+)
+ arch/arm64/tools/sysreg | 55 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 97eddc83d19c..bf16edf2fcd9 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3947,4 +3947,7 @@ static inline void accept_memory(phys_addr_t start, phys_addr_t end)
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 1ea4a3dc68f8..516aef38eab7 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -1780,6 +1780,41 @@ Sysreg	SMCR_EL1	3	0	1	2	6
+ Fields	SMCR_ELx
+ EndSysreg
  
- #endif
- 
-+int arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status);
-+int arch_set_shadow_stack_status(struct task_struct *t, unsigned long status);
++SysregFields	GCSCR_ELx
++Res0	63:10
++Field	9	STREn
++Field	8	PUSHMEn
++Res0	7
++Field	6	EXLOCKEN
++Field	5	RVCHKEN
++Res0	4:1
++Field	0	PCRSEL
++EndSysregFields
 +
- #endif /* _LINUX_MM_H */
-diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-index 3c36aeade991..9fdc77fa2bfe 100644
---- a/include/uapi/linux/prctl.h
-+++ b/include/uapi/linux/prctl.h
-@@ -305,4 +305,21 @@ struct prctl_mm_map {
- # define PR_RISCV_V_VSTATE_CTRL_NEXT_MASK	0xc
- # define PR_RISCV_V_VSTATE_CTRL_MASK		0x1f
- 
-+/*
-+ * get shadow stack status for current thread. Assumes shadow stack is min 4 byte aligned.
-+ * Note shadow stack can be 8 byte aligned on 64bit.
-+ * Lower 2 bits can give status of locked and enabled/disabled.
-+ * size and address range can be obtained via /proc/maps. get_shadow_stack_status will
-+ * return base of shadow stack.
-+ */
-+#define PR_GET_SHADOW_STACK_STATUS      71
-+/*
-+ * set shadow stack status for current thread (including enabling, disabling or locking)
-+ * note that it will only set the status and setup of the shadow stack. Allocating shadow
-+ * stack should be done separately using mmap.
-+ */
-+#define PR_SET_SHADOW_STACK_STATUS      72
-+# define PR_SHADOW_STACK_LOCK           (1UL << 0)
-+# define PR_SHADOW_STACK_ENABLE         (1UL << 1)
++Sysreg	GCSCR_EL1	3	0	2	5	0
++Fields	GCSCR_ELx
++EndSysreg
 +
- #endif /* _LINUX_PRCTL_H */
-diff --git a/kernel/sys.c b/kernel/sys.c
-index 05f838929e72..ebf9ea5f0fae 100644
---- a/kernel/sys.c
-+++ b/kernel/sys.c
-@@ -2302,6 +2302,16 @@ int __weak arch_prctl_spec_ctrl_set(struct task_struct *t, unsigned long which,
- 	return -EINVAL;
- }
- 
-+int __weak arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	return -EINVAL;
-+}
++SysregFields	GCSPR_ELx
++Field	63:3	PTR
++Res0	2:0
++EndSysregFields
 +
-+int __weak arch_set_shadow_stack_status(struct task_struct *t, unsigned long status)
-+{
-+	return -EINVAL;
-+}
++Sysreg	GCSPR_EL1	3	0	2	5	1
++Fields	GCSPR_ELx
++EndSysreg
 +
- #define PR_IO_FLUSHER (PF_MEMALLOC_NOIO | PF_LOCAL_THROTTLE)
++Sysreg	GCSCRE0_EL1	3	0	2	5	2
++Res0	63:11
++Field	10	nTR
++Field	9	STREn
++Field	8	PUSHMEn
++Res0	7:6
++Field	5	RVCHKEN
++Res0	4:1
++Field	0	PCRSEL
++EndSysreg
++
+ Sysreg	ALLINT	3	0	4	3	0
+ Res0	63:14
+ Field	13	ALLINT
+@@ -2010,6 +2045,10 @@ Field	4	DZP
+ Field	3:0	BS
+ EndSysreg
  
- #ifdef CONFIG_ANON_VMA_NAME
-@@ -2720,6 +2730,16 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
- 	case PR_RISCV_V_GET_CONTROL:
- 		error = RISCV_V_GET_CONTROL();
- 		break;
-+	case PR_GET_SHADOW_STACK_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_get_shadow_stack_status(me, (unsigned long __user *) arg2);
-+		break;
-+	case PR_SET_SHADOW_STACK_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_set_shadow_stack_status(me, arg2);
-+		break;
- 	default:
- 		error = -EINVAL;
- 		break;
++Sysreg	GCSPR_EL0	3	3	2	5	1
++Fields	GCSPR_ELx
++EndSysreg
++
+ Sysreg	SVCR	3	3	4	2	2
+ Res0	63:2
+ Field	1	ZA
+@@ -2209,6 +2248,14 @@ Sysreg	SMCR_EL2	3	4	1	2	6
+ Fields	SMCR_ELx
+ EndSysreg
+ 
++Sysreg	GCSCR_EL2	3	4	2	5	0
++Fields	GCSCR_ELx
++EndSysreg
++
++Sysreg	GCSPR_EL2	3	4	2	5	1
++Fields	GCSPR_ELx
++EndSysreg
++
+ Sysreg	DACR32_EL2	3	4	3	0	0
+ Res0	63:32
+ Field	31:30	D15
+@@ -2268,6 +2315,14 @@ Sysreg	SMCR_EL12	3	5	1	2	6
+ Fields	SMCR_ELx
+ EndSysreg
+ 
++Sysreg	GCSCR_EL12	3	5	2	5	0
++Fields	GCSCR_ELx
++EndSysreg
++
++Sysreg	GCSPR_EL12	3	5	2	5	1
++Fields	GCSPR_ELx
++EndSysreg
++
+ Sysreg	FAR_EL12	3	5	6	0	0
+ Field	63:0	ADDR
+ EndSysreg
 
 -- 
 2.30.2
