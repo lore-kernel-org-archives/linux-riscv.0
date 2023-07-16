@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17290C04A94
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 22:00:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC7BEB64DD
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Jul 2023 22:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PHTQdqSJlr4c2hgA53+p2BDhnQIAfK8Ac/l7REpKUWg=; b=F7awIMKz1aRfoJ
-	1D2VttKNSdvgNZumWEISV4lHI+t6SsqHygjIMG7Bi+h5MvIWnZV79qc4WqbGky/cSdm1W81zomtxp
-	IwzELSs4cLaUfiFsa9YVC+5CHnGFPnI+wdBBNaeuvBYDmoT/fiGl6wV611tIFhdW+pCHvAvIvtsOI
-	oxOuYIpOvIfrOedPWEq2FLCQl2TB7y/hzGO3l4vAV8MpXVnuoHb/19+WBDoNvCUc03fZPmaPJHzYb
-	is5Aw7g38u9aEYdWX70zsEPs3FLFhP/ClFUpgwznx+1X5Y6CEa4AG26GJux0r8ly2U7vkP+mwPYQk
-	9lS4JJufqHWn59LNKONg==;
+	List-Owner; bh=5J2YNO4zgc2Spd4dgqNmXTdhrRbw+pz5V9wwn3UIIMM=; b=enVZ0yUXJQabq3
+	RAsXd9EjKmhnTB/C9jS38fMD08qkpy8e4pUcf7iN0O3msmnKXfses+c2UKo0COdyTy97ikiYbfL9W
+	klNAKRhe6+RHnjE/OcQemMqlN9ORb2v4Lv9GpgoiMimZO1hmEU6ejodtn/jz2pend7Y41yRfAR47w
+	ySjaLaMLlskK2umE0rupmMjQ5v3YgKiujDSVXS1/lYSxK8c54hyqIQ12F6PNDgQxwHTf2NpIuZmGm
+	JAsV1CnseJO2ZgClYqIykfoQZ5M1jdmjlyFojWDfo8wSg79H4WN6jcHrcnaFwuOn9iYOUxYb1mdky
+	PW3pZwVf6bTveXYn4fig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9mQ-00FwZG-0V;
-	Sun, 16 Jul 2023 21:59:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qL9mT-00Fwbv-2A;
+	Sun, 16 Jul 2023 21:59:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qL9iI-00FtO9-1R;
+	id 1qL9iO-00FtSb-1s;
 	Sun, 16 Jul 2023 21:55:47 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DDAFA60EC9;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0D0B460EFB;
+	Sun, 16 Jul 2023 21:55:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB808C43391;
 	Sun, 16 Jul 2023 21:55:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94855C433CA;
-	Sun, 16 Jul 2023 21:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689544533;
-	bh=pU/Cpaxis09XYO6pS+Tm9irl4OV1fzcTdHAFs+JXaiE=;
+	s=k20201202; t=1689544539;
+	bh=6C9vpUKzxaC1YPufnnUpE8qHeuHqYjFB9iVUxK25t6w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=rWGbpHGpAPUGRkeHBlxB3u7YFF02VUBqBH3DDfi/zq+uR3bo5c9/02qDMlbROcq1a
-	 TOxZq+swTzl/Cn9rsFrq0fkp5SOMZ9rQdBdNmFqBC1WAmool8nFYx21GlscpJIPaX5
-	 Hj4VHZuaIdAexXk06rf4SIr9g7kTQlHiAqUekjYGnvRjB0F6hrvpboYOjI/7sNGzH6
-	 vO0/Sk0ndEyBZ5Xb7JXIentYaOHaqbRU2SiE/17mQ8tYAWW9MdndQvzgrHI+Gte1+R
-	 I25r1VajxxALbkW5eIIXj+twrpfKo9XBumj5mL0llLHJuRgO6RoUYB0fbwIFe2mCnI
-	 xdT5wxQd/9Vww==
+	b=qRa+YtE7yvYvcODmiwXlBSh4F1vfSwmQsxOYCCQHdyb7+9c2QZaWomxYvuS8kAIhp
+	 714G1h1smywg2+5j2TZEfjSY4jKrv7pSFsPmWoRlS0zeS6ohrJTmnPvVIi14ff21D8
+	 JDffHX6QBQP9aOIkracyewUb01/PrSGXzH4WmI+M4og6H7vnCvlW8GNZs+SChNn2N3
+	 CFO4IYgetGBzac0xoAbaU0lbR8qvrMLJ3zH0bVfQcPnzspiFpfFuWqBx87Ho0dw9Vh
+	 P14G/ouU2IXhzfq4tdx9JGoiCtFadeEMcbJpJfckv7oSDxvR+DrHoPw2gwKEtpbUZO
+	 WD42Obeggb7Jg==
 From: Mark Brown <broonie@kernel.org>
-Date: Sun, 16 Jul 2023 22:51:22 +0100
-Subject: [PATCH 26/35] arm64: Add Kconfig for Guarded Control Stack (GCS)
+Date: Sun, 16 Jul 2023 22:51:23 +0100
+Subject: [PATCH 27/35] kselftest/arm64: Verify the GCS hwcap
 MIME-Version: 1.0
-Message-Id: <20230716-arm64-gcs-v1-26-bf567f93bba6@kernel.org>
+Message-Id: <20230716-arm64-gcs-v1-27-bf567f93bba6@kernel.org>
 References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 In-Reply-To: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-099c9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1333; i=broonie@kernel.org;
- h=from:subject:message-id; bh=pU/Cpaxis09XYO6pS+Tm9irl4OV1fzcTdHAFs+JXaiE=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGajNEQmje9r0OAkZ6IXOyAN5ruAxFmeetfHxjAC
- LDyTfAyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmowAKCRAk1otyXVSH0JhGB/
- 4uEom4k4x+430HQzhyHP2BDhwiv0Xo2K1mTO20ue7Lk8Wti2gS+bFt3j5ucEpMEwtZzUpbv9aFHg8g
- yVDFSa62TJm4VnlCyDGJgQ8tJrySIzQDdUWaW4NsZkCYMvzaHn7Io9BSwTN7Zseo4HDAFXeuVN+KcI
- 6W/YOWtqN+FpSOZSkAOtNDCCtHC+Bnwr5v6a6FDSO91/wXPICZ9z5JG71wr/l8ddWrbzhdD+2lp/5O
- sqSoPHL3zXgrAcCHuCXDKtfj+XAC/YXjHy8TdZgS0bh4tp9AbE5iob7yXE/SpJfC8W3JOO8pyrZA3r
- LZHn0cmojWthyoDyKu+QYIQJkyHsLU
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1205; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=6C9vpUKzxaC1YPufnnUpE8qHeuHqYjFB9iVUxK25t6w=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBktGakI2DafnLEN0xPOYtS8rBwoQOkhbNIa3aIl3+T
+ kLXsS3CJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZLRmpAAKCRAk1otyXVSH0C6mB/
+ wOqidQ+86Oz6oompV7K5g7vr0TQDYT17lne0KPFqCuXH52UJc3v5g1bWEBZCf72AIeUyxqIlXL1eo+
+ fCOPXyV5gx9kIxzNL5ZchfzMMppq9l2z8iGxIDidnZ6Rwu88A8zTi11YTTgcJawGzWSHPi5x0M4tYS
+ kmZDonpfdL3p2LhjP7t0nhltgDjNqnE0LdDpgk1M6KoClhQX7tBC0Y++yuKtA8RVSwE87k+oaTYNUW
+ ieQNE9JyTJnXTC1B5QfO3otl1F+D47QHyh9/+ktlmXTv5gfNRDIydVmDscZmRd4N7GYcn9T2SDLx4b
+ kNoA3+dO/UVfdsAY+7oBJuc+B6wbTC
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_145542_417167_B38596FC 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20230716_145542_409723_7842357F 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,44 +100,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a Kconfig option allowing the user to select if GCS support is
-built into the kernel.
+Add coverage of the GCS hwcap to the hwcap selftest, using a read of
+GCSPR_EL0 to generate SIGILL without having to worry about enabling GCS.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/Kconfig | 19 +++++++++++++++++++
+ tools/testing/selftests/arm64/abi/hwcap.c | 19 +++++++++++++++++++
  1 file changed, 19 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 7856c3a3e35a..e1aeeda13c52 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2091,6 +2091,25 @@ config ARM64_EPAN
- 	  if the cpu does not implement the feature.
- endmenu # "ARMv8.7 architectural features"
+diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
+index d4ad813fed10..38844e4c5aae 100644
+--- a/tools/testing/selftests/arm64/abi/hwcap.c
++++ b/tools/testing/selftests/arm64/abi/hwcap.c
+@@ -39,6 +39,17 @@ static void cssc_sigill(void)
+ 	asm volatile(".inst 0xdac01c00" : : : "x0");
+ }
  
-+menu "v9.4 architectural features"
++static void gcs_sigill(void)
++{
++	unsigned long *gcspr;
 +
-+config ARM64_GCS
-+	bool "Enable support for Guarded Control Stack (GCS)"
-+	default y
-+	select ARCH_USES_HIGH_VMA_FLAGS
-+	help
-+	  Guarded Control Stack (GCS) provides support for a separate
-+	  stack with restricted access which contains only return
-+	  addresses.  This can be used to harden against some attacks
-+	  by comparing return address used by the program with what is
-+	  stored in the GCS, and may also be used to efficiently obtain
-+	  the call stack for applications such as profiling.
++	asm volatile(
++		"mrs	%0, S3_3_C2_C5_1"
++	: "=r" (gcspr)
++	:
++	: "cc");
++}
 +
-+	  The feature is detected at runtime, and will remain disabled
-+	  if the system does not implement the feature.
-+
-+endmenu # "2022 archiectural features"
-+
- config ARM64_SVE
- 	bool "ARM Scalable Vector Extension support"
- 	default y
+ static void mops_sigill(void)
+ {
+ 	char dst[1], src[1];
+@@ -223,6 +234,14 @@ static const struct hwcap_data {
+ 		.cpuinfo = "cssc",
+ 		.sigill_fn = cssc_sigill,
+ 	},
++	{
++		.name = "GCS",
++		.at_hwcap = AT_HWCAP2,
++		.hwcap_bit = HWCAP2_GCS,
++		.cpuinfo = "gcs",
++		.sigill_fn = gcs_sigill,
++		.sigill_reliable = true,
++	},
+ 	{
+ 		.name = "MOPS",
+ 		.at_hwcap = AT_HWCAP2,
 
 -- 
 2.30.2
