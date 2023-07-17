@@ -4,123 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F8AEB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 16:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE1F9EB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 17:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14y12WMahwhCxAaBtPJEZ4V1OzuALhIp1m3e61qf79M=; b=ppVYckCBHvm3qUVPgD/O35RUX2
-	Xq58urm84VQXnRgrzar5bHkS01dhTmRZbVlODmXr6zoWY0VzstNnajQPQ45n9OhwNpRFqAJRtsOfL
-	JqyWWa+MDTl9u1Ajvoo9/h3GABubt+nIoCb6Q+D3lEYqGLmbspBbf1HQIr9JdZ3S6zxKSZuBfmeve
-	NDnUtTJbwU1LTp6qP+YaaCRYIuMkvVLMhqOl5WXwSnaf8Lmx4vhd0EU/X9NnmT5S/BySaRhM6r9a/
-	sZpKwUo0kODxPtzfwyQxOR0JcGYnOqOW8U7HCenYHj/qNYvPpEFHTBuh87vga+1dLnHAoqeIoao6h
-	hfDnRO/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gXjXUL/dS34umX2CwekGX0ociPZ/zb/qw8hDwVeCSa0=; b=l3FzKzOuKrksfe
+	8qLeA1iuacIBy+wBxupEwL3goPlJqaXDPw2oam8NnUevlpry83iW581JLTdl6N52WtePGTrrRGioA
+	VEdX3wpF6KRlTK4uhOUovpSfcW0SwtqoSqu3oJ7wt4pKEySyrKjHNqC/nbFxWpr9N91xbBD725Uv5
+	qNAZumOJAHsZqO+LY9zGU0BIh/kAwOsgQboYQqAM6Wy1fzsK0swJ/paS3SP/zfxbbumx18GYe7w8r
+	V8I6G4sQFHEeVnQ1MZXR0BQT+/VVMbuINcIVCgXdTepYXusQ0+DcU3psIe4K5iFFTYi9fWl3FCPzX
+	cPPG6srI9peFhgmJ//Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLRS5-004ar8-35;
-	Mon, 17 Jul 2023 16:52:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qLRnD-004dsU-1h;
+	Mon, 17 Jul 2023 17:13:51 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLRRr-004alE-2W;
-	Mon, 17 Jul 2023 16:51:49 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F381E6117E;
-	Mon, 17 Jul 2023 16:51:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812EAC433C7;
-	Mon, 17 Jul 2023 16:51:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689612706;
-	bh=GDoZ+CsfFo9PibsTP4iZm+ttTgfHxn11DDJbAlCFH8E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZEoHMX2JdQeUVyNkgdWBKI6yr5pe/INc5DfODCru+00fN8J5XJg/01FraxC5Uf+FG
-	 XLGyykcZarElT+yfQ88/qw3rxbdtmQwlMm4MVMWcjVA8W1BzI++pek5YZKKBwI7XR6
-	 Vc/WH98m5BnS7DdeM2++eaKr94hk2O0k89Bc1b9ybe/FsHvQBWZ/9PaJFm5XUvbhPh
-	 78TOOOqQ+Nd6w2oOqOYhgVZm+Y7ykGxydEmczeSZwjlePi5nZMkHrFdDg9hL8zxSio
-	 SCc95tvYUaXDed+x2C7VwVXHcnKo0+0JBdhxm/Vl4xw/gxBOwJrvOMJAyCgSMZ+3MK
-	 +O+f2UpDtYbxQ==
-Date: Mon, 17 Jul 2023 17:51:31 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "Schimpe, Christina" <christina.schimpe@intel.com>,
-	"Yang, Weijiang" <weijiang.yang@intel.com>,
-	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"monstr@monstr.eu" <monstr@monstr.eu>,
-	"rppt@kernel.org" <rppt@kernel.org>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
-	"Torvalds, Linus" <torvalds@linux-foundation.org>,
-	"kirill.shutemov@linux.intel.com" <kirill.shutemov@linux.intel.com>,
-	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
-	"dinguyen@kernel.org" <dinguyen@kernel.org>,
-	"rdunlap@infradead.org" <rdunlap@infradead.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
-	"Lutomirski, Andy" <luto@kernel.org>,
-	"szabolcs.nagy@arm.com" <szabolcs.nagy@arm.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"pavel@ucw.cz" <pavel@ucw.cz>,
-	"keescook@chromium.org" <keescook@chromium.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"gorcunov@gmail.com" <gorcunov@gmail.com>,
-	"andrew.cooper3@citrix.com" <andrew.cooper3@citrix.com>,
-	"david@redhat.com" <david@redhat.com>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
-	"nadav.amit@gmail.com" <nadav.amit@gmail.com>,
-	"linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"openrisc@lists.librecores.org" <openrisc@lists.librecores.org>,
-	"jamorris@linux.microsoft.com" <jamorris@linux.microsoft.com>,
-	"mike.kravetz@oracle.com" <mike.kravetz@oracle.com>,
-	"debug@rivosinc.com" <debug@rivosinc.com>,
-	"fweimer@redhat.com" <fweimer@redhat.com>,
-	"kcc@google.com" <kcc@google.com>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"john.allen@amd.com" <john.allen@amd.com>,
-	"Eranian, Stephane" <eranian@google.com>,
-	"bsingharora@gmail.com" <bsingharora@gmail.com>,
-	"linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"torvalds@linuxfoundation.org" <torvalds@linuxfoundation.org>,
-	"bp@alien8.de" <bp@alien8.de>, "corbet@lwn.net" <corbet@lwn.net>,
-	"linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
-	"dethoma@microsoft.com" <dethoma@microsoft.com>,
-	"jannh@google.com" <jannh@google.com>,
-	"Syromiatnikov, Eugene" <esyr@redhat.com>,
-	"oleg@redhat.com" <oleg@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>
-Subject: Re: [PATCH v9 01/42] mm: Rename arch pte_mkwrite()'s to
- pte_mkwrite_novma()
-Message-ID: <285d346e-14e7-4f43-9b5b-faded6205142@sirena.org.uk>
-References: <20230613001108.3040476-1-rick.p.edgecombe@intel.com>
- <20230613001108.3040476-2-rick.p.edgecombe@intel.com>
- <b389274a-abed-40dc-8e33-7ce922ea9b61@sirena.org.uk>
- <87acbb49fa83b0e3f261315a531e105da9e5b9d6.camel@intel.com>
+	id 1qLRn8-004drW-1n
+	for linux-riscv@lists.infradead.org;
+	Mon, 17 Jul 2023 17:13:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=I1IBVkksfG+qQKrTGDGnSHsQlmlbsma3MfWiTgZTY6Q=; b=WgcaRL2JCPPRtYMOzHVIebs+X/
+	pSd/CNjzFIkV8z2rzh68t+tmKHzKfkwBTQpFpUfp7bhJHRpXzBqLbgWGYtYrxdIgN78mvXsq/NpwJ
+	jYfAzYIIXYwgwqKquOFGD51QOX3z4bn91kzibs5kdaMePpFqRe5JyCKadAV/I4XvVSqW9Y8A8U0AE
+	VPDhD4y7A3FAk7SPqFlpSAPtoUBiRm3ImRrPCdrkW2rKh7CKKuAD34dJURw7cJRugluO6Bz7RWcNB
+	lf8UrLppn8TFn9NOzLxYADjzVgRKBGeATTh9qVqUilhBWsDL5urmRIXGimUYSMWovSOXGvT0p3EfW
+	2B4UJDMQ==;
+Received: from [2a01:e34:ec5d:a741:8a4c:7c4e:dc4c:1787] (helo=ohm.rr44.fr)
+	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1qLRmy-00AkKP-0S; Mon, 17 Jul 2023 19:13:36 +0200
+Received: from aurel32 by ohm.rr44.fr with local (Exim 4.96)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1qLRmw-009E8k-21;
+	Mon, 17 Jul 2023 19:13:34 +0200
+Date: Mon, 17 Jul 2023 19:13:34 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: devicetree@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Ziv Xu <ziv.xu@starfivetech.com>
+Subject: Re: [PATCH v4 3/3] riscv: dts: starfive: Add QSPI controller node
+ for StarFive JH7110 SoC
+Message-ID: <ZLV2vqycWIA5TanD@aurel32.net>
+Mail-Followup-To: William Qiu <william.qiu@starfivetech.com>,
+	devicetree@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Ziv Xu <ziv.xu@starfivetech.com>
+References: <20230704090453.83980-1-william.qiu@starfivetech.com>
+ <20230704090453.83980-4-william.qiu@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <87acbb49fa83b0e3f261315a531e105da9e5b9d6.camel@intel.com>
-X-Cookie: Not a flying toy.
+Content-Disposition: inline
+In-Reply-To: <20230704090453.83980-4-william.qiu@starfivetech.com>
+User-Agent: Mutt/2.2.9 (2022-11-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230717_095147_905239_6C986A57 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20230717_101347_600322_84E5B3B5 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,66 +87,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4594353271082463033=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---===============4594353271082463033==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="klyEM8Lfv/18WVhb"
-Content-Disposition: inline
+On 2023-07-04 17:04, William Qiu wrote:
+> Add the quad spi controller node for the StarFive JH7110 SoC.
+> 
+> Co-developed-by: Ziv Xu <ziv.xu@starfivetech.com>
+> Signed-off-by: Ziv Xu <ziv.xu@starfivetech.com>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  .../jh7110-starfive-visionfive-2.dtsi         | 32 +++++++++++++++++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 18 +++++++++++
+>  2 files changed, 50 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> index 2a6d81609284..983b683e2f27 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2.dtsi
+> @@ -126,6 +126,38 @@ &i2c6 {
+>  	status = "okay";
+>  };
+>  
+> +&qspi {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	nor_flash: flash@0 {
+> +		compatible = "jedec,spi-nor";
+> +		reg = <0>;
+> +		cdns,read-delay = <5>;
+> +		spi-max-frequency = <12000000>;
+> +		cdns,tshsl-ns = <1>;
+> +		cdns,tsd2d-ns = <1>;
+> +		cdns,tchsh-ns = <1>;
+> +		cdns,tslch-ns = <1>;
+> +
+> +		partitions {
+> +			compatible = "fixed-partitions";
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +
+> +			spl@0 {
+> +				reg = <0x0 0x20000>;
+> +			};
+> +			uboot@100000 {
+> +				reg = <0x100000 0x300000>;
+> +			};
+> +			data@f00000 {
+> +				reg = <0xf00000 0x100000>;
+> +			};
 
+It appears that this uses the old layout for the SPI flash. The new
+layout is described there:
 
---klyEM8Lfv/18WVhb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+https://doc-en.rvspace.org/VisionFive2/Boot_UG/JH7110_SDK/boot_address_allocation.html
 
-On Mon, Jul 17, 2023 at 03:55:50PM +0000, Edgecombe, Rick P wrote:
-> On Fri, 2023-07-14 at 23:57 +0100, Mark Brown wrote:
+Regards
+Aurelien
 
-> > The same issue seems to apply with the version that was in -next
-> > based
-> > on v6.4-rc4 too.
-
-> The version in your branch is not the same as the version in tip (which
-> had a squashed build fix). I was able to reproduce the build error with
-> your branch. But not with the one in tip rebased on v6.5-rc1. So can
-> you try this version:
-> https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git/commit/?h=x86/shstk&id=899223d69ce9f338056f4c41ef870d70040fc860
-
-Ah, I'd not seen that patch or that tip had been rebased - I'd actually
-been using literally the branch from tip as my base at whatever point I
-last noticed it changing up until I rebased onto -rc1.
-
---klyEM8Lfv/18WVhb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmS1cZIACgkQJNaLcl1U
-h9DfWwf/Qv2sx8Qywn2HA+F1wJsVWOOqaPIZzIVBQ5Kg2bysQK3YMNLLZWKdXMsh
-sTgXGVlr5oANLjP/hYxvcaxk16N1y51q6PuBh4lJN1w37tEdph1ZIcSejQY/jKpf
-fKFWHZ++2w+lXvIOB/7rYQe+XutmQzCVmL0Cod8zxf2UhC4WJe9/3RCKxi6rfxuV
-NXldTW7h7dqnurbev4TX4npwjcetNGofPUer7VZD7o1vRKXvX9VLG42UbeV4cu+g
-ICKZmGwC9G23gWg0Ql2QkeOr43PLBo4AocKhyO6B22uYLOrA8BQHJUrbnD4ZUyD+
-4rWq0iWXOnrixnw11LOSSIVZ2HkwmQ==
-=SaIl
------END PGP SIGNATURE-----
-
---klyEM8Lfv/18WVhb--
-
-
---===============4594353271082463033==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4594353271082463033==--
-
