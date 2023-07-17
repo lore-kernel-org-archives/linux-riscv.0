@@ -4,107 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CE2EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:24:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA27C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lo2R6lYLuyqLQz9TU0A6AbE+g66ECgwNENrefJnp2Ak=; b=iQK3YTs61C/pbx
-	FDenU4yATcP7cYMNwUe5+TsSWPVvMVg935aYX1uB/DkIcQmaSYwtuNOk+x1hnjfOtYmhMNDremZPo
-	Fk2nZvOHGquaEK4crMNUy5FTmh/pJmBKq3ZG1bXuQVxK6j+kQZeaGuO6zcKDpcJ5MS6ppdQnqO2FI
-	WUj/dO5AZnG0ivgqh+2A5tkTTwVjmm/k88dk3Gj2oHrn00ggGCFYBnBz6JA5C73qa0vwdDfIDJgor
-	rbE68V2l16OkK75HekWvsL84PlVwqaRYJLtFamklRkIWkY1X9qvolmVd4N1bi6FSY/l4k2OYzSzu/
-	V8tIJwnHxNJ+V0je9+qg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kyP/rCvHQLgEZkiU22xdObEVVKjnc/f9A13tXDZDBH0=; b=mLiteX9eMWIHmS
+	BqzfAt1tfk7fqfJJunSF+iIiVSv7yrEcn/WuDfnMm5Xe0uTeIP6j/Qu+M/Po3nkCZ02EQ+L3vPQ57
+	WzaMKKsEqFWe9oTAVCV+66YkVEouznlik4hwrbKepbqmaOa1jBTQcnjgkvIh83b0TqTiQvdSmHmss
+	8aLghglrfO+5XxPrURXckxKVKkFi9blVmZig9ke7egqkCRc2+W0NeTET0OlYK0+hAHhRrEHl5g2Hv
+	aDRrHa+Xi9WDlVTsf+6k3r9KTh+d6kHCeW/7obfL65OqVPxJQRKu/s31ys0/74w6tbGpDaBghVXQa
+	dicmYRPjYo3MAq5lGQQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzfI-005Goc-2u;
-	Wed, 19 Jul 2023 05:23:56 +0000
-Received: from casper.infradead.org ([90.155.50.34])
+	id 1qLzgT-005Hjd-06;
+	Wed, 19 Jul 2023 05:25:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzcI-005Dg5-0q
+	id 1qLzgJ-005HbT-0N
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 05:20:50 +0000
+	Wed, 19 Jul 2023 05:24:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=13TvpQfWmhj98VTWRgGiYJYYPcBR6KCMHuSUQlwO+hU=; b=Jn39s8JUBmFQi3dfqDXLevQWp8
-	JKPUV7vJt/0BbqWP1lxbKjp62bBdYz04O94fc0ToSO8PRUVfvN/zWwK5vN1vFanLj2YaDJGTJ8v0y
-	AouxO/FEENQtqZAGdD+PZpoM5lxWOJFEt3qU/H5PkAlnJp1Jl4R6sfyIAqOqij2IHe2JHrZnVWoh1
-	QbSMuBA/k/OY07rQK/w3Wg4o3QJSFeKGRwpemAN0SRibaOgn4Txrdkw7TyMlIn35sdb1UQaaMJNk9
-	lCL8qkEarY81bEOypZh+5V/NFydOPeUwK50O6yfGJU5CRBtKeBHSiIn1QIIjq7aRKdVNBu4btymXA
-	wBma6lDQ==;
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
-	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qLuRn-005QRj-NA
-	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 23:49:43 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1b888bdacbcso33053105ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:49:39 -0700 (PDT)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=EfmtkIn1nFJzPpqeHKOOLhwST2S07YVZFJfXxqbhgY0=; b=rWJyV2r9kZw3HuScDBYgZOVMzN
+	jOHUFIwTf+Im147ZOkEm3IE7/NgYfpuDM5pxfoa9wwK4B+sxwEWwE3O3B6yvAAosH3EsEldbukUI0
+	uR7/pzXlJh0VRAUVpPBB3EmpDphLJLn22VR6lP/j12lsEAyLohQiS0QxAvq5yQM8RHgyJGFVhsDgC
+	8NjUP7i7/EyV0H/6vYNFgaEOu2DuWXnvYPQwuopri2iLeAoWX2XMJKZE+C447DYGoZ2bZxzARt+0f
+	x5jCzz8A7DEzW6FwWWTrxvau8if1oeGRiTsmHfS6Y4yKythLD3dWa++QbEqXJdEYmgBY4ozZfJOgd
+	+/M5139w==;
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qLTSk-009E10-0s
+	for linux-riscv@lists.infradead.org;
+	Mon, 17 Jul 2023 19:00:52 +0000
+Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-34611de0ee4so20559265ab.0
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Jul 2023 12:00:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689724117; x=1692316117;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=13TvpQfWmhj98VTWRgGiYJYYPcBR6KCMHuSUQlwO+hU=;
-        b=K73Vbg7kksC/z8D2Q5HaDQ7UWFNhH20EcZQeVd3Lf2J0boclBZkYp6kZLyJv4l7d/v
-         56zL/m0nSTB8tFW2XTPItzxIs14nSlrppiGSTorI7aichxttdeRbEqNHnqUSw3Aw+2kn
-         Fji8j9h2Uv0Ij0eYpo+vRulpevlfNeeaN++p4cr5gXiklm6fhe6e4jDIizxqxGBZJh16
-         032nb0dR2D1cAOXQ4dh7+UhQLasc5in709vPZ9EttwJPaHiHomwPODSWeSP1mdLy4wFs
-         ++94jsLDULOKu9MnMNrAsqU8w6PnH6mDknBjPD335n+eYk0/ErbJSraNW2wkmXKS+1vk
-         RBZA==
+        d=sifive.com; s=google; t=1689620328; x=1692212328;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EfmtkIn1nFJzPpqeHKOOLhwST2S07YVZFJfXxqbhgY0=;
+        b=D1yapx1Lv8/tzSF+WaDvCUTSWpi2YKsZqA+ywGtnpKvr5SOUGaZ5uWH6be6fTKEA5N
+         59CAL1PghSameGhFxIucjgZD0b7W0esrr6OondMCbrZ2yRxtKO8Z/LL+PT5JYix3MSHd
+         0zK6oIDMt/ABuWqp5gGvd/l83JmN2bEvKmaFh40ySnav/l85EVh1NWitSqR2U2Szv3aR
+         c01Sw6C/vzqlFwW844z5riQVSU9YzOo2Q7g18/hHgNcz42S/UIDp/oM8Uz5162pGGvWD
+         Rpb3+atspnSsayHiLs/EC35T/6pBmQTW2anFooHq9Sq650HNpky3RyPY5MTAqsaTuFdG
+         JQGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689724117; x=1692316117;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20221208; t=1689620328; x=1692212328;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=13TvpQfWmhj98VTWRgGiYJYYPcBR6KCMHuSUQlwO+hU=;
-        b=CGKkoDQGDrdrdBYbthOzc2erS93DerdcVb3JOlH9nc/7vkpVJ3Gw3vQ4y0ynhJ36QY
-         TeI7SQGGU6C+PMMubjaY4VpliJMeDSgcWxrkVlVRl6AC84feQ/eB1LBRGpjW0aM5OIj0
-         rHyg9goaeKJr+rEOJ7nxGKs0E+5yh5eOdtvFT0rafsjh6HTJgp2LBUhjm+pXTHTpL4/b
-         l9nnTM0olTPCjsydv4T6FN7dEQ0E6bD0Ufo8r0Rx7sLR8if2vLlbTz0eiAbQvfb/3dWL
-         /rSILh8NIbQwEFSyL67MNoAi5htmK1DhNFXublHq2+30z5MN1bqBp/hRysmtW9H1APCg
-         YW5A==
-X-Gm-Message-State: ABy/qLbPHP1ulcrmKyhJ7PVop5Y33aHwOjf0pHsDJn6OLmwrJiauXThz
-	ZPRvDiecAvANYn6snkHc60H7I/mmmyI=
-X-Google-Smtp-Source: APBJJlH5YQ6wPq8Bc7b4XW6UeBNdVc47j/U3+KIL9TvdJOwQstWiBaGw54NLH6nPQ2FwABHJaZp4HrtyKKk=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:903:2301:b0:1bb:1ffd:5cc8 with SMTP id
- d1-20020a170903230100b001bb1ffd5cc8mr7895plh.11.1689724116857; Tue, 18 Jul
- 2023 16:48:36 -0700 (PDT)
-Date: Tue, 18 Jul 2023 16:44:46 -0700
-In-Reply-To: <20230718234512.1690985-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20230718234512.1690985-1-seanjc@google.com>
-X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
-Message-ID: <20230718234512.1690985-4-seanjc@google.com>
-Subject: [RFC PATCH v11 03/29] KVM: Use gfn instead of hva for mmu_notifier_retry
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
-	"Serge E. Hallyn" <serge@hallyn.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>, 
-	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
-	Yu Zhang <yu.c.zhang@linux.intel.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
-	Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+        bh=EfmtkIn1nFJzPpqeHKOOLhwST2S07YVZFJfXxqbhgY0=;
+        b=bFp6epMnnZKJ0rMEdRzPagu5osXdqtd4V/RDSYxqs8KuVd6ymuAnTEn71Ml5noPciI
+         66yvxgEJy7uPl/HYAeJZxIh9rHo5+H5jXkY9fmioqD/oP4a/5dg1j9Ph1XJx1Jpd3Z7v
+         pvq3OY2EG2ZsXtWe6IhkCL4euAWqb8MFSsm88pjm5X1ZKHyIQtvNn7exyX2b15Nugoch
+         DIPSE2fwJnd73ix5Vl9Cj8CdoXzdSHh8BUP1YJBUiPfsv7u6Iz/wF4JtCA2CpEO+qkxz
+         6OgGCvjRuaaiQqKs75sv4kUjkNGAwmLh5AK6gX35ZNAOr/rBm9cBx4LhYKxY0Svz97BN
+         004A==
+X-Gm-Message-State: ABy/qLa3eolpvvh+rOkICN2oIqQlYMyY3jJAkHImxAq/C28DiBU6m4BS
+	PbezMlt5mSzGouIhmpGqp3zPyA==
+X-Google-Smtp-Source: APBJJlEhvu3bQym103eRoa3eTOAVL431uI1Zb2PLz4J74XzAwMvTWQ5uufumJffdGeald1ECQG94LA==
+X-Received: by 2002:a05:6e02:154b:b0:345:66f5:3404 with SMTP id j11-20020a056e02154b00b0034566f53404mr689436ilu.0.1689620328043;
+        Mon, 17 Jul 2023 11:58:48 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([64.62.193.194])
+        by smtp.gmail.com with ESMTPSA id r17-20020a63a011000000b0051b8172fa68sm152882pge.38.2023.07.17.11.58.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Jul 2023 11:58:47 -0700 (PDT)
+From: Samuel Holland <samuel.holland@sifive.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] irqchip/sifive-plic: Avoid clearing the per-hart enable bits
+Date: Mon, 17 Jul 2023 11:58:40 -0700
+Message-Id: <20230717185841.1294425-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.40.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_004939_756500_24C98D6F 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20230717_200050_527155_30BAFFA9 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,277 +104,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chao Peng <chao.p.peng@linux.intel.com>
+Writes to the PLIC completion register are ignored if the enable bit for
+that (interrupt, hart) combination is cleared. This leaves the interrupt
+in a claimed state, preventing it from being triggered again.
 
-Currently in mmu_notifier invalidate path, hva range is recorded and
-then checked against by mmu_notifier_retry_hva() in the page fault
-handling path. However, for the to be introduced private memory, a page
-fault may not have a hva associated, checking gfn(gpa) makes more sense.
+Originally, the enable bit was cleared in the .irq_mask operation, and
+commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when masked")
+added a workaround for this issue. Later, commit a1706a1c5062
+("irqchip/sifive-plic: Separate the enable and mask operations") moved
+toggling the enable bit to the .irq_enable/.irq_disable operations and
+removed the workaround.
 
-For existing hva based shared memory, gfn is expected to also work. The
-only downside is when aliasing multiple gfns to a single hva, the
-current algorithm of checking multiple ranges could result in a much
-larger range being rejected. Such aliasing should be uncommon, so the
-impact is expected small.
+However, there are still places where .irq_disable can be called from
+inside the hard IRQ handler, for example in irq_pm_check_wakeup(). As a
+result, this issue causes an interrupt to get stuck in a claimed state
+after being used to wake the system from s2idle.
 
-Suggested-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Tested-by: Fuad Tabba <tabba@google.com>
-[sean: convert vmx_set_apic_access_page_addr() to gfn-based API]
-Signed-off-by: Sean Christopherson <seanjc@google.com>
+There is no real benefit to implementing the .irq_enable/.irq_disable
+operations using the enable bits. In fact, the existing mask/unmask
+implementation using the threshold register is already more efficient,
+as it requires no read/modify/write cycles. So let's leave the enable
+bits set for the lifetime of the IRQ, using them only to control its
+affinity.
+
+Fixes: a1706a1c5062 ("irqchip/sifive-plic: Separate the enable and mask operations")
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 ---
- arch/x86/kvm/mmu/mmu.c   | 10 ++++++----
- arch/x86/kvm/vmx/vmx.c   | 11 +++++------
- include/linux/kvm_host.h | 33 +++++++++++++++++++++------------
- virt/kvm/kvm_main.c      | 40 +++++++++++++++++++++++++++++++---------
- 4 files changed, 63 insertions(+), 31 deletions(-)
 
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index d72f2b20f430..b034727c4cf9 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -3087,7 +3087,7 @@ static void direct_pte_prefetch(struct kvm_vcpu *vcpu, u64 *sptep)
-  *
-  * There are several ways to safely use this helper:
-  *
-- * - Check mmu_invalidate_retry_hva() after grabbing the mapping level, before
-+ * - Check mmu_invalidate_retry_gfn() after grabbing the mapping level, before
-  *   consuming it.  In this case, mmu_lock doesn't need to be held during the
-  *   lookup, but it does need to be held while checking the MMU notifier.
-  *
-@@ -4400,7 +4400,7 @@ static bool is_page_fault_stale(struct kvm_vcpu *vcpu,
- 		return true;
- 
- 	return fault->slot &&
--	       mmu_invalidate_retry_hva(vcpu->kvm, fault->mmu_seq, fault->hva);
-+	       mmu_invalidate_retry_gfn(vcpu->kvm, fault->mmu_seq, fault->gfn);
- }
- 
- static int direct_page_fault(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
-@@ -6301,7 +6301,9 @@ void kvm_zap_gfn_range(struct kvm *kvm, gfn_t gfn_start, gfn_t gfn_end)
- 
- 	write_lock(&kvm->mmu_lock);
- 
--	kvm_mmu_invalidate_begin(kvm, 0, -1ul);
-+	kvm_mmu_invalidate_begin(kvm);
-+
-+	kvm_mmu_invalidate_range_add(kvm, gfn_start, gfn_end);
- 
- 	flush = kvm_rmap_zap_gfn_range(kvm, gfn_start, gfn_end);
- 
-@@ -6314,7 +6316,7 @@ void kvm_zap_gfn_range(struct kvm *kvm, gfn_t gfn_start, gfn_t gfn_end)
- 	if (flush)
- 		kvm_flush_remote_tlbs_range(kvm, gfn_start, gfn_end - gfn_start);
- 
--	kvm_mmu_invalidate_end(kvm, 0, -1ul);
-+	kvm_mmu_invalidate_end(kvm);
- 
- 	write_unlock(&kvm->mmu_lock);
- }
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index 0ecf4be2c6af..946380b53cf5 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -6729,10 +6729,10 @@ static void vmx_set_apic_access_page_addr(struct kvm_vcpu *vcpu)
- 		return;
- 
- 	/*
--	 * Grab the memslot so that the hva lookup for the mmu_notifier retry
--	 * is guaranteed to use the same memslot as the pfn lookup, i.e. rely
--	 * on the pfn lookup's validation of the memslot to ensure a valid hva
--	 * is used for the retry check.
-+	 * Explicitly grab the memslot using KVM's internal slot ID to ensure
-+	 * KVM doesn't unintentionally grab a userspace memslot.  It _should_
-+	 * be impossible for userspace to create a memslot for the APIC when
-+	 * APICv is enabled, but paranoia won't hurt in this case.
- 	 */
- 	slot = id_to_memslot(slots, APIC_ACCESS_PAGE_PRIVATE_MEMSLOT);
- 	if (!slot || slot->flags & KVM_MEMSLOT_INVALID)
-@@ -6757,8 +6757,7 @@ static void vmx_set_apic_access_page_addr(struct kvm_vcpu *vcpu)
- 		return;
- 
- 	read_lock(&vcpu->kvm->mmu_lock);
--	if (mmu_invalidate_retry_hva(kvm, mmu_seq,
--				     gfn_to_hva_memslot(slot, gfn))) {
-+	if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn)) {
- 		kvm_make_request(KVM_REQ_APIC_PAGE_RELOAD, vcpu);
- 		read_unlock(&vcpu->kvm->mmu_lock);
- 		goto out;
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index b901571ab61e..90a0be261a5c 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -788,8 +788,8 @@ struct kvm {
- 	struct mmu_notifier mmu_notifier;
- 	unsigned long mmu_invalidate_seq;
- 	long mmu_invalidate_in_progress;
--	unsigned long mmu_invalidate_range_start;
--	unsigned long mmu_invalidate_range_end;
-+	gfn_t mmu_invalidate_range_start;
-+	gfn_t mmu_invalidate_range_end;
- #endif
- 	struct list_head devices;
- 	u64 manual_dirty_log_protect;
-@@ -1371,10 +1371,9 @@ void kvm_mmu_free_memory_cache(struct kvm_mmu_memory_cache *mc);
- void *kvm_mmu_memory_cache_alloc(struct kvm_mmu_memory_cache *mc);
- #endif
- 
--void kvm_mmu_invalidate_begin(struct kvm *kvm, unsigned long start,
--			      unsigned long end);
--void kvm_mmu_invalidate_end(struct kvm *kvm, unsigned long start,
--			    unsigned long end);
-+void kvm_mmu_invalidate_begin(struct kvm *kvm);
-+void kvm_mmu_invalidate_range_add(struct kvm *kvm, gfn_t start, gfn_t end);
-+void kvm_mmu_invalidate_end(struct kvm *kvm);
- 
- long kvm_arch_dev_ioctl(struct file *filp,
- 			unsigned int ioctl, unsigned long arg);
-@@ -1940,9 +1939,9 @@ static inline int mmu_invalidate_retry(struct kvm *kvm, unsigned long mmu_seq)
- 	return 0;
- }
- 
--static inline int mmu_invalidate_retry_hva(struct kvm *kvm,
-+static inline int mmu_invalidate_retry_gfn(struct kvm *kvm,
- 					   unsigned long mmu_seq,
--					   unsigned long hva)
-+					   gfn_t gfn)
- {
- 	lockdep_assert_held(&kvm->mmu_lock);
- 	/*
-@@ -1951,10 +1950,20 @@ static inline int mmu_invalidate_retry_hva(struct kvm *kvm,
- 	 * that might be being invalidated. Note that it may include some false
- 	 * positives, due to shortcuts when handing concurrent invalidations.
- 	 */
--	if (unlikely(kvm->mmu_invalidate_in_progress) &&
--	    hva >= kvm->mmu_invalidate_range_start &&
--	    hva < kvm->mmu_invalidate_range_end)
--		return 1;
-+	if (unlikely(kvm->mmu_invalidate_in_progress)) {
-+		/*
-+		 * Dropping mmu_lock after bumping mmu_invalidate_in_progress
-+		 * but before updating the range is a KVM bug.
-+		 */
-+		if (WARN_ON_ONCE(kvm->mmu_invalidate_range_start == INVALID_GPA ||
-+				 kvm->mmu_invalidate_range_end == INVALID_GPA))
-+			return 1;
-+
-+		if (gfn >= kvm->mmu_invalidate_range_start &&
-+		    gfn < kvm->mmu_invalidate_range_end)
-+			return 1;
-+	}
-+
- 	if (kvm->mmu_invalidate_seq != mmu_seq)
- 		return 1;
- 	return 0;
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 50aea855eeae..8101b11a13ba 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -518,9 +518,7 @@ static inline struct kvm *mmu_notifier_to_kvm(struct mmu_notifier *mn)
- 
- typedef bool (*gfn_handler_t)(struct kvm *kvm, struct kvm_gfn_range *range);
- 
--typedef void (*on_lock_fn_t)(struct kvm *kvm, unsigned long start,
--			     unsigned long end);
--
-+typedef void (*on_lock_fn_t)(struct kvm *kvm);
- typedef void (*on_unlock_fn_t)(struct kvm *kvm);
- 
- struct kvm_mmu_notifier_range {
-@@ -617,7 +615,8 @@ static __always_inline int __kvm_handle_hva_range(struct kvm *kvm,
- 				locked = true;
- 				KVM_MMU_LOCK(kvm);
- 				if (!IS_KVM_NULL_FN(range->on_lock))
--					range->on_lock(kvm, range->start, range->end);
-+					range->on_lock(kvm);
-+
- 				if (IS_KVM_NULL_FN(range->handler))
- 					break;
- 			}
-@@ -721,15 +720,26 @@ static void kvm_mmu_notifier_change_pte(struct mmu_notifier *mn,
- 	kvm_handle_hva_range(mn, address, address + 1, pte, kvm_change_spte_gfn);
- }
- 
--void kvm_mmu_invalidate_begin(struct kvm *kvm, unsigned long start,
--			      unsigned long end)
-+void kvm_mmu_invalidate_begin(struct kvm *kvm)
- {
-+	lockdep_assert_held_write(&kvm->mmu_lock);
- 	/*
- 	 * The count increase must become visible at unlock time as no
- 	 * spte can be established without taking the mmu_lock and
- 	 * count is also read inside the mmu_lock critical section.
- 	 */
- 	kvm->mmu_invalidate_in_progress++;
-+
-+	if (likely(kvm->mmu_invalidate_in_progress == 1))
-+		kvm->mmu_invalidate_range_start = INVALID_GPA;
-+}
-+
-+void kvm_mmu_invalidate_range_add(struct kvm *kvm, gfn_t start, gfn_t end)
-+{
-+	lockdep_assert_held_write(&kvm->mmu_lock);
-+
-+	WARN_ON_ONCE(!kvm->mmu_invalidate_in_progress);
-+
- 	if (likely(kvm->mmu_invalidate_in_progress == 1)) {
- 		kvm->mmu_invalidate_range_start = start;
- 		kvm->mmu_invalidate_range_end = end;
-@@ -750,6 +760,12 @@ void kvm_mmu_invalidate_begin(struct kvm *kvm, unsigned long start,
+ drivers/irqchip/irq-sifive-plic.c | 20 +++++++++++---------
+ 1 file changed, 11 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index e1484905b7bd..c2673fdad8e5 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -120,12 +120,14 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
  	}
  }
  
-+static bool kvm_mmu_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
-+{
-+	kvm_mmu_invalidate_range_add(kvm, range->start, range->end);
-+	return kvm_unmap_gfn_range(kvm, range);
-+}
-+
- static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
- 					const struct mmu_notifier_range *range)
+-static void plic_irq_enable(struct irq_data *d)
++static unsigned int plic_irq_startup(struct irq_data *d)
  {
-@@ -757,7 +773,7 @@ static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
- 	const struct kvm_mmu_notifier_range hva_range = {
- 		.start		= range->start,
- 		.end		= range->end,
--		.handler	= kvm_unmap_gfn_range,
-+		.handler	= kvm_mmu_unmap_gfn_range,
- 		.on_lock	= kvm_mmu_invalidate_begin,
- 		.on_unlock	= kvm_arch_guest_memory_reclaimed,
- 		.flush_on_ret	= true,
-@@ -796,8 +812,7 @@ static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
- 	return 0;
+ 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
++
++	return 0;
  }
  
--void kvm_mmu_invalidate_end(struct kvm *kvm, unsigned long start,
--			    unsigned long end)
-+void kvm_mmu_invalidate_end(struct kvm *kvm)
+-static void plic_irq_disable(struct irq_data *d)
++static void plic_irq_shutdown(struct irq_data *d)
  {
- 	/*
- 	 * This sequence increase will notify the kvm page fault that
-@@ -812,6 +827,13 @@ void kvm_mmu_invalidate_end(struct kvm *kvm, unsigned long start,
- 	 * in conjunction with the smp_rmb in mmu_invalidate_retry().
- 	 */
- 	kvm->mmu_invalidate_in_progress--;
-+
-+	/*
-+	 * Assert that at least one range must be added between start() and
-+	 * end().  Not adding a range isn't fatal, but it is a KVM bug.
-+	 */
-+	WARN_ON_ONCE(kvm->mmu_invalidate_in_progress &&
-+		     kvm->mmu_invalidate_range_start == INVALID_GPA);
+ 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
  }
+@@ -169,12 +171,12 @@ static int plic_set_affinity(struct irq_data *d,
+ 	if (cpu >= nr_cpu_ids)
+ 		return -EINVAL;
  
- static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
+-	plic_irq_disable(d);
++	plic_irq_shutdown(d);
+ 
+ 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
+ 
+-	if (!irqd_irq_disabled(d))
+-		plic_irq_enable(d);
++	if (irqd_is_started(d))
++		plic_irq_startup(d);
+ 
+ 	return IRQ_SET_MASK_OK_DONE;
+ }
+@@ -182,8 +184,8 @@ static int plic_set_affinity(struct irq_data *d,
+ 
+ static struct irq_chip plic_edge_chip = {
+ 	.name		= "SiFive PLIC",
+-	.irq_enable	= plic_irq_enable,
+-	.irq_disable	= plic_irq_disable,
++	.irq_startup	= plic_irq_startup,
++	.irq_shutdown	= plic_irq_shutdown,
+ 	.irq_ack	= plic_irq_eoi,
+ 	.irq_mask	= plic_irq_mask,
+ 	.irq_unmask	= plic_irq_unmask,
+@@ -197,8 +199,8 @@ static struct irq_chip plic_edge_chip = {
+ 
+ static struct irq_chip plic_chip = {
+ 	.name		= "SiFive PLIC",
+-	.irq_enable	= plic_irq_enable,
+-	.irq_disable	= plic_irq_disable,
++	.irq_startup	= plic_irq_startup,
++	.irq_shutdown	= plic_irq_shutdown,
+ 	.irq_mask	= plic_irq_mask,
+ 	.irq_unmask	= plic_irq_unmask,
+ 	.irq_eoi	= plic_irq_eoi,
 -- 
-2.41.0.255.g8b1d071c50-goog
+2.40.1
 
 
 _______________________________________________
