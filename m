@@ -4,74 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B710EB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 11:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99C6EB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 11:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ooPg3aJ2pogIPewEV9CZGE/EiEVF97MAu7QIn49vrpE=; b=rFdjMqmWzenJ/Ueba3QH7i6ioY
-	6cGsVo2hI0whunk+UwWI4zPR7d+egqQTHd5E1If9aGiZCIRHEFXPi3zEY0bS/7rdZLF+KhKZjkeAa
-	X8NtZAyMp31uZkMaJGzmouXk0G7vQVSzkttjfykuyv4undnbWwr2GBj/nPzuFkcFsDbnw4lEyZ7pz
-	T3hxHkHpWsPOPo6mwn9++nDS/JGPEVHR5+KY/SCWzhlp0l3lDXihvkhvxQlkHS96Xh2uN98Qgw8FA
-	zVVyvDmUkqGmtczDxxhL+IZ31hNA852rF54Lp/aycu4ppeCx02675J9z11TG8PbtmTtNhIk27Np4/
-	IQkGYPwg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U4g5cL8k9sXg4VZiqxeo5ZuQO2npLUPANPxOrOqgesE=; b=xSCWfaHvWiw03h
+	jBJYDGBbVqj/CQc6Xhc+ThnuwbTHtHFAzUoIrVkxg8rBPE8gvzxA/hq5I4CX1AIBeBb1OxKeRO3Vh
+	GtvzCPa2of0W6TEtaROpOvrOVbQOv9mmnF0duZeThotHFnZNvgjQ1E5agCuIGMhsO3Hmck2PxJEFa
+	rqF70qrCL907x8DnofNJ7GL4rtAhrka6a86rCiNE+MHmRM4uyrUQLm93DyoILLGXXBViBGgDwu98f
+	sWWXjhKR4nLr4McyksOMMYBa0BBmGoHleZ+SUOQJValkPCFCosRlV7fVbQf5qNibRhgwq+HjS0UhU
+	PZxkPXtBoPMUJOCi/lQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLM9I-003pkw-0M;
-	Mon, 17 Jul 2023 11:12:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qLMOe-003rEl-0z;
+	Mon, 17 Jul 2023 11:28:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLM94-003pjc-2U
+	id 1qLMOS-003rCT-2y
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jul 2023 11:12:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1689592322; x=1721128322;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=zmCcKDj0kqua2uCgk7585Mo9si14FpG6Lf/f6IUWvEc=;
-  b=q7Usl0NkPa9psqLqT2kbAei+8LyNIHLyXq3qltBcX3yXT/He+1nyrD6k
-   D89MdyoiQHhUeSnuxwaff1E5izHaRkn7bK2bdh+nWUe/9nf35STLPsKwc
-   RLeZ4Nk//FJtus6Vwrg3oqxNR610aTiXX4PP58DFt6xmrONUcmV9HusZJ
-   /27Zx60ZSEGXmdq8f+FDxugR1/j7H9tS3UZFVcd1/nz7TDonbnyWhYUcr
-   pnIntwXhNZGeLkCCrH/k2TvotX5Z/Al2jUJHbB2xb+GKnIu3Pq7MQiyDv
-   3/5IEZfB4NkPe5vTvzuXUO5Pd4rDd3VQV0JSstowV/5p1Ns2l5bhaJHA2
-   A==;
-X-IronPort-AV: E=Sophos;i="6.01,211,1684825200"; 
-   d="asc'?scan'208";a="223433275"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 17 Jul 2023 04:11:59 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 17 Jul 2023 04:11:58 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 17 Jul 2023 04:11:56 -0700
-Date: Mon, 17 Jul 2023 12:11:24 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andy Chiu <andy.chiu@sifive.com>
-CC: <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
-	<vineetg@rivosinc.com>, <bjorn@kernel.org>, <greentime.hu@sifive.com>,
-	<paul.walmsley@sifive.com>, <guoren@linux.alibaba.com>,
-	<anup@brainfault.org>, <atishp@atishpatra.org>, <heiko.stuebner@vrull.eu>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [v1, 6/6] riscv: vector: enable preemptive kernel-mode Vector to
- be built
-Message-ID: <20230717-selective-lucid-272c4e74f4ae@wendy>
-References: <20230715150032.6917-1-andy.chiu@sifive.com>
- <20230715150032.6917-7-andy.chiu@sifive.com>
+	Mon, 17 Jul 2023 11:28:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689593276;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cifHTSGxLePrnNdALZCim8wNk8dyI3fwSptrejN9W0Y=;
+	b=hH8aywB18HR0fUMtL7sAtCuiqIdayGaVMYt9aO/J3HCGREN6XDvMQZVw+2j6PoJEqo+rxD
+	cjVYbnYMdwTrjxVnEdeXUKtNxy/phKRDhwo6CdNX60+XiFxdqCtQOokmwA7r4mclM1V8zS
+	tKt0AjkMrB1S5VHP0TFwog4QkyinKBs=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-149-FfxFDYm5OKqJlK0iUTQ0ZQ-1; Mon, 17 Jul 2023 07:27:54 -0400
+X-MC-Unique: FfxFDYm5OKqJlK0iUTQ0ZQ-1
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-767a1ad2175so108481085a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Jul 2023 04:27:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689593273; x=1690198073;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cifHTSGxLePrnNdALZCim8wNk8dyI3fwSptrejN9W0Y=;
+        b=V0GXpl8bkrdU97+BCxPoLHXZyBG0JVq3+pal8qBC3tymPZ09PYLS34NWBUd8+sveoB
+         pfd/1htyELwa6cjDoxMDAQKnxOAcW+PmNvoBOJqfj43B65Sv4kRxN2cj7SLZ+HaH/jBv
+         Gnk2xj6BFRaqgbQUp0JPmLIMAAdnxaVSEDiVbl64XDpcyNlINRW4LUP8hhip2WtIZC8P
+         ges43evWz+FW24MJUV0rYElBoP8+yrxo1HUT1D3DF9YHNiHXZHrMrP1aVBtszQBLNCzG
+         p2bZcsOGiM42mIp92Onbc1/SrQOLMvOVnBNtvHhQaTXvMeNWfPYnCpHWV+7TA+50t6bI
+         Y5tw==
+X-Gm-Message-State: ABy/qLb00IEs5SQgwzyxNNF5eIRAnPAqCIV9IsiChnip6H2D0kg/NaSX
+	nXBJKmT5T0bbDngJKuuLgLiaHQiWGpu9QA8gombjysmaS4PinxJpFtqMN1DJxuahINy0+vK4L36
+	HMgeZr9o2T6+0d3PwuiexbBL5EVe3
+X-Received: by 2002:a05:620a:454a:b0:763:c764:577c with SMTP id u10-20020a05620a454a00b00763c764577cmr16480757qkp.5.1689593273678;
+        Mon, 17 Jul 2023 04:27:53 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlEfp5t2DQS/GjyIoS478X8u5KzsdIEDs8/rcKlb51fLewoRgNMtmXWnZggE+f74jG6LdYamWQ==
+X-Received: by 2002:a05:620a:454a:b0:763:c764:577c with SMTP id u10-20020a05620a454a00b00763c764577cmr16480723qkp.5.1689593273369;
+        Mon, 17 Jul 2023 04:27:53 -0700 (PDT)
+Received: from [10.66.61.39] ([43.228.180.230])
+        by smtp.gmail.com with ESMTPSA id z1-20020a05620a100100b0075b2af4a076sm6028544qkj.16.2023.07.17.04.27.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Jul 2023 04:27:53 -0700 (PDT)
+Message-ID: <0e5dd611-b047-5565-cf09-ad8844386b81@redhat.com>
+Date: Mon, 17 Jul 2023 19:27:29 +0800
 MIME-Version: 1.0
-In-Reply-To: <20230715150032.6917-7-andy.chiu@sifive.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Subject: Re: [PATCH v6 02/11] KVM: arm64: Use kvm_arch_flush_remote_tlbs()
+To: Raghavendra Rao Ananta <rananta@google.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+ Sean Christopherson <seanjc@google.com>, Huacai Chen
+ <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
+ Jing Zhang <jingzhangos@google.com>, Colton Lewis <coltonlewis@google.com>,
+ David Matlack <dmatlack@google.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ Zenghui Yu <zenghui.yu@linux.dev>, Gavin Shan <gshan@redhat.com>
+References: <20230715005405.3689586-1-rananta@google.com>
+ <20230715005405.3689586-3-rananta@google.com>
+From: Shaoqin Huang <shahuang@redhat.com>
+In-Reply-To: <20230715005405.3689586-3-rananta@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230717_041202_819052_56F44F29 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20230717_042800_070617_8AFB1F1D 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,84 +108,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5619272781729702288=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5619272781729702288==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0B+FtIjybqiTZ+Dz"
-Content-Disposition: inline
 
---0B+FtIjybqiTZ+Dz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-Hey Andy,
-
-On Sat, Jul 15, 2023 at 03:00:32PM +0000, Andy Chiu wrote:
-> Add a Kconfig to let user decides whether kernel-mode Vector in a
-> preemptive kernel should also run with preemption. If the config is 'N',
-> then all kernel-mode Vector code are run with preemption disabled.
-
-nit: "is run".
-
->=20
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+On 7/15/23 08:53, Raghavendra Rao Ananta wrote:
+> From: David Matlack <dmatlack@google.com>
+> 
+> Use kvm_arch_flush_remote_tlbs() instead of
+> CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL. The two mechanisms solve the same
+> problem, allowing architecture-specific code to provide a non-IPI
+> implementation of remote TLB flushing.
+> 
+> Dropping CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL allows KVM to standardize
+> all architectures on kvm_arch_flush_remote_tlbs() instead of maintaining
+> two mechanisms.
+> 
+> Opt to standardize on kvm_arch_flush_remote_tlbs() since it avoids
+> duplicating the generic TLB stats across architectures that implement
+> their own remote TLB flush.
+> 
+> This adds an extra function call to the ARM64 kvm_flush_remote_tlbs()
+> path, but that is a small cost in comparison to flushing remote TLBs.
+> 
+> In addition, instead of just incrementing remote_tlb_flush_requests
+> stat, the generic interface would also increment the
+> remote_tlb_flush stat.
+> 
+> Signed-off-by: David Matlack <dmatlack@google.com>
+> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> Reviewed-by: Zenghui Yu <zenghui.yu@linux.dev>
+> Acked-by: Oliver Upton <oliver.upton@linux.dev>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
 > ---
->  arch/riscv/Kconfig | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index a9e8b697fefb..da6a45ea42ec 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -500,6 +500,16 @@ config RISCV_ISA_V_DEFAULT_ENABLE
-> =20
->  	  If you don't know what to do here, say Y.
-> =20
-> +config RISCV_ISA_V_PREEMPTIVE_KMV
-> +	bool "Run kernel-mode Vector with kernel preemption"
-> +	depends on PREEMPTION
-> +	depends on RISCV_ISA_V
-> +	default y
-> +	help
-> +	  Ordinarily the kernel disables preemption before running in-kernel
-> +	  Vector code. This config frees the kernel from disabling preemption
-> +	  by adding meory on demand for tracking kernel's V-context.
+>   arch/arm64/include/asm/kvm_host.h | 3 +++
+>   arch/arm64/kvm/Kconfig            | 1 -
+>   arch/arm64/kvm/mmu.c              | 6 +++---
+>   virt/kvm/Kconfig                  | 3 ---
+>   virt/kvm/kvm_main.c               | 2 --
+>   5 files changed, 6 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 8b6096753740..7281222f24ef 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1111,6 +1111,9 @@ int __init kvm_set_ipa_limit(void);
+>   #define __KVM_HAVE_ARCH_VM_ALLOC
+>   struct kvm *kvm_arch_alloc_vm(void);
+>   
+> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS
+> +int kvm_arch_flush_remote_tlbs(struct kvm *kvm);
+> +
+>   static inline bool kvm_vm_is_protected(struct kvm *kvm)
+>   {
+>   	return false;
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index f531da6b362e..6b730fcfee37 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -25,7 +25,6 @@ menuconfig KVM
+>   	select MMU_NOTIFIER
+>   	select PREEMPT_NOTIFIERS
+>   	select HAVE_KVM_CPU_RELAX_INTERCEPT
+> -	select HAVE_KVM_ARCH_TLB_FLUSH_ALL
+>   	select KVM_MMIO
+>   	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+>   	select KVM_XFER_TO_GUEST_WORK
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 6db9ef288ec3..0ac721fa27f1 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -161,15 +161,15 @@ static bool memslot_is_logging(struct kvm_memory_slot *memslot)
+>   }
+>   
+>   /**
+> - * kvm_flush_remote_tlbs() - flush all VM TLB entries for v7/8
+> + * kvm_arch_flush_remote_tlbs() - flush all VM TLB entries for v7/8
+>    * @kvm:	pointer to kvm structure.
+>    *
+>    * Interface to HYP function to flush all VM TLB entries
+>    */
+> -void kvm_flush_remote_tlbs(struct kvm *kvm)
+> +int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
+>   {
+> -	++kvm->stat.generic.remote_tlb_flush_requests;
+>   	kvm_call_hyp(__kvm_tlb_flush_vmid, &kvm->arch.mmu);
+> +	return 0;
+>   }
+>   
+>   static bool kvm_is_device_pfn(unsigned long pfn)
+> diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
+> index b74916de5183..484d0873061c 100644
+> --- a/virt/kvm/Kconfig
+> +++ b/virt/kvm/Kconfig
+> @@ -62,9 +62,6 @@ config HAVE_KVM_CPU_RELAX_INTERCEPT
+>   config KVM_VFIO
+>          bool
+>   
+> -config HAVE_KVM_ARCH_TLB_FLUSH_ALL
+> -       bool
+> -
+>   config HAVE_KVM_INVALID_WAKEUPS
+>          bool
+>   
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 70e5479797ac..d6b050786155 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -345,7 +345,6 @@ bool kvm_make_all_cpus_request(struct kvm *kvm, unsigned int req)
+>   }
+>   EXPORT_SYMBOL_GPL(kvm_make_all_cpus_request);
+>   
+> -#ifndef CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL
+>   void kvm_flush_remote_tlbs(struct kvm *kvm)
+>   {
+>   	++kvm->stat.generic.remote_tlb_flush_requests;
+> @@ -366,7 +365,6 @@ void kvm_flush_remote_tlbs(struct kvm *kvm)
+>   		++kvm->stat.generic.remote_tlb_flush;
+>   }
+>   EXPORT_SYMBOL_GPL(kvm_flush_remote_tlbs);
+> -#endif
+>   
+>   static void kvm_flush_shadow_all(struct kvm *kvm)
+>   {
 
-s/meory/memory/
+-- 
+Shaoqin
 
-This should be part of the previous patch.
-
-Thanks,
-Conor.
-
---0B+FtIjybqiTZ+Dz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLUh3AAKCRB4tDGHoIJi
-0p3DAP9N65xUYMxd9m9CLdZ3Y9XyVbI1wQpIjm1em2fgEnb6OAD/Y+XN8NcSqCTD
-6A97Wqh8iC0e23c6/7mttGCVvg+zDQA=
-=bz2n
------END PGP SIGNATURE-----
-
---0B+FtIjybqiTZ+Dz--
-
-
---===============5619272781729702288==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5619272781729702288==--
-
