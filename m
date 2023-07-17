@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042CFEB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 11:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA91C001DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 12:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fbevqf95qVLjMSmKdzwYc9lDeF6gdjOnxe1dBHaxxlM=; b=F6qlWPc6w5c+wj
-	e81e6N2Kv643FcDe9QNjiRIXs2ofCMgrz9RSLYr9Ht44dumSGJpAH+Opesp8cPsiylaEOtOw7NTjN
-	k0KkD+hBqxAeqZv1UAIln85kK/bCf0wuyE8VkKa/8EChR9WmTGDbDRJIW5NyYo4KLm0sWft8LkAXe
-	W1YIAm7PmXQcEDmIjEnez28vuMKu8YcK4dLrmSvFtR6H3VklTCJeDCLV8KSN0NvJW+6aj0CiLOrPL
-	jqfZxW/wWMoJkf1hjDhHyNLy+IPoNc2w7gJ9PF2Z9m/HNKeD+qf6ls+Er8MySPmx/YEXfkp5lu/Aw
-	76yEvcBPlm+OCbVvQCBg==;
+	List-Owner; bh=i0kgSOC03NzdB1m4be+h+BCfg7Bhp5kOxscUjfd0/1E=; b=aR/OCnKWDQhRRx
+	z+AY13UVgEh6/xqcptheO6D+avy5hhJwCoTa9bYomP8JGbj69GsOMvTkqqqJR5akbQoDU0huxFyA2
+	YIDqgtHahOYpqpFU7pGmEhozDWMaSH2VIsFBnZ/npxJW+bRXYi2FkkpC27B1MgdqnrqD7imdHLCyi
+	drQvm4Z3o2x0eUvpPCl8/z9avbtLeOWoUvf35LV546rZtAJiK8/D9V2Ju1Egr9Js+DSLwB52Q3rC4
+	taAmw896UwNi2cF6g44OQ0aPpjpw9ZjoHmCHLWJfw/wDEg8ZiG67lbRC1b5YLLR5HqhiBTcYaXrxT
+	EzSQ3HqI5JI1sWjIhb5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLMdB-003tP2-2d;
-	Mon, 17 Jul 2023 11:43:10 +0000
+	id 1qLN5n-003xL8-2m;
+	Mon, 17 Jul 2023 12:12:43 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLMd0-003tL5-0U;
-	Mon, 17 Jul 2023 11:43:06 +0000
+	id 1qLN5h-003xJM-0B;
+	Mon, 17 Jul 2023 12:12:40 +0000
 Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.207])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4R4Kqp1Psbz67Lnh;
-	Mon, 17 Jul 2023 19:39:34 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4R4LV44VTRz6823d;
+	Mon, 17 Jul 2023 20:09:16 +0800 (CST)
 Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
  (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.27; Mon, 17 Jul
- 2023 12:42:48 +0100
-Date: Mon, 17 Jul 2023 12:42:47 +0100
+ 2023 13:12:30 +0100
+Date: Mon, 17 Jul 2023 13:12:30 +0100
 From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
 To: Mark Brown <broonie@kernel.org>
 CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
@@ -51,23 +51,21 @@ CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
 	<linux-fsdevel@vger.kernel.org>, <linux-arch@vger.kernel.org>,
 	<linux-mm@kvack.org>, <linux-kselftest@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 04/35] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <20230717124247.00001f1c@Huawei.com>
-In-Reply-To: <20230716-arm64-gcs-v1-4-bf567f93bba6@kernel.org>
+Subject: Re: [PATCH 17/35] arm64/traps: Handle GCS exceptions
+Message-ID: <20230717131230.00003569@Huawei.com>
+In-Reply-To: <20230716-arm64-gcs-v1-17-bf567f93bba6@kernel.org>
 References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
-	<20230716-arm64-gcs-v1-4-bf567f93bba6@kernel.org>
+	<20230716-arm64-gcs-v1-17-bf567f93bba6@kernel.org>
 Organization: Huawei Technologies Research and Development (UK) Ltd.
 X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
 X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
+X-ClientProxiedBy: lhrpeml500002.china.huawei.com (7.191.160.78) To
  lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230717_044300_964746_265D2F90 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230717_051237_406003_6528EE74 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +82,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 16 Jul 2023 22:51:00 +0100
+On Sun, 16 Jul 2023 22:51:13 +0100
 Mark Brown <broonie@kernel.org> wrote:
 
-> Add some documentation of the userspace ABI for Guarded Control Stacks.
+> A new exception code is defined for GCS specific faults other than
+> standard load/store faults, for example GCS token validation failures,
+> add handling for this. These faults are reported to userspace as
+> segfaults with code SEGV_CPERR (protection error), mirroring the
+> reporting for x86 shadow stack errors.
+> 
+> GCS faults due to memory load/store operations generate data aborts with
+> a flag set, these will be handled separately as part of the data abort
+> handling.
+> 
+> Since we do not currently enable GCS for EL1 we should not get any faults
+> there but while we're at it we wire things up there, treating any GCS
+> fault as fatal.
 > 
 > Signed-off-by: Mark Brown <broonie@kernel.org>
-Hi Mark,
 
-Nice document.  All I could find on a first read was one typo...
+See below.
 
+> ---
+>  arch/arm64/include/asm/esr.h       | 26 +++++++++++++++++++++++++-
+>  arch/arm64/include/asm/exception.h |  2 ++
+>  arch/arm64/kernel/entry-common.c   | 23 +++++++++++++++++++++++
+>  arch/arm64/kernel/traps.c          | 11 +++++++++++
+>  4 files changed, 61 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+> index ae35939f395b..c5a72172fcf1 100644
+> --- a/arch/arm64/include/asm/esr.h
+> +++ b/arch/arm64/include/asm/esr.h
 ...
 
-> +7.  ptrace extensions
-> +---------------------
-> +
-> +* A new regset NT_ARM_GCS is defined for use with PTRACE_GETREGSET and
-> +  PTRACE_SETREGSET.
-> +
-> +* Due to the complexity surrounding allocation and deallocation of stakcs and
+> @@ -382,6 +383,29 @@
+>  #define ESR_ELx_MOPS_ISS_SRCREG(esr)	(((esr) & (UL(0x1f) << 5)) >> 5)
+>  #define ESR_ELx_MOPS_ISS_SIZEREG(esr)	(((esr) & (UL(0x1f) << 0)) >> 0)
+>  
+> +/* ISS field definitions for GCS */
+> +#define ESR_ELx_ExType_SHIFT	(20)
+> +#define ESR_ELx_ExType_MASK	GENMASK(23, 20)
+> +#define ESR_ELx_Raddr_SHIFT	(14)
 
-stacks
+(10) ?
 
-> +  lack of practical application changes to the GCS configuration via ptrace
-> +  are not supported.
+> +#define ESR_ELx_Raddr_MASK	GENMASK(14, 10)
+> +#define ESR_ELx_Rn_SHIFT	(5)
+> +#define ESR_ELx_Rn_MASK		GENMASK(9, 5)
+
+I think this can also be ESR_ELx_RVALUE_MASK for some ExType
+Worth adding that as well?
+
+> +#define ESR_ELx_IT_SHIFT	(0)
+> +#define ESR_ELx_IT_MASK		GENMASK(4, 0)
 > +
-
+> +#define ESR_ELx_ExType_DATA_CHECK	0
+> +#define ESR_ELx_ExType_EXLOCK		1
+> +#define ESR_ELx_ExType_STR		2
+> +
+> +#define ESR_ELx_IT_RET			0
+> +#define ESR_ELx_IT_GCSPOPM		1
+> +#define ESR_ELx_IT_RET_KEYA		2
+> +#define ESR_ELx_IT_RET_KEYB		3
+> +#define ESR_ELx_IT_GCSSS1		4
+> +#define ESR_ELx_IT_GCSSS2		5
+> +#define ESR_ELx_IT_GCSPOPCX		6
+> +#define ESR_ELx_IT_GCSPOPX		7
 
 _______________________________________________
 linux-riscv mailing list
