@@ -4,105 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3CBEB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 12:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF1AC0015E
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 12:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yMLDN1S1s2AGDb9yX1Dyb3MrkTOZNNFM/EC90lhUmvc=; b=1xitJmKP7VO1XS
-	9BmV9QrO744elj4bHEHjsIExrDZ9kOW0m2M/DnvQ5m97lODE6FahZ+F6KrWAixkwEWldUc5XqwGb5
-	eD5d/rZxKOsKpMVj745QCz+WJ44bIPr9HN29G3Q3y/5dhvTgT281/g+MyMpUd1lMpOsuytLFKXqNi
-	BByr/g2ltpGlpmoIixfdUJX4tJdsaN0zdrEFprmp4d+ddcNZIVNAXn4aL1FqjTW3btM+mqqpdZ7io
-	POXBQh089PEJBlUIfQE28xmvqHJQJU1gEUVJUclu62cHXurqu/Hd4KAhXwA/sH5akFdJVndhaMWrw
-	cINELhIR5glnfjcLt+8Q==;
+	List-Owner; bh=hvCYlKf8UwJnZ9D2ZVtSddZwHQkffLVX4UmrzmmQfIY=; b=g/yFdKf8kmC4JS
+	4XD+o6Vrpm8ytrhAxYpaW3cJM/TVPtIGmGMChCXowPYLE7mv60B/iymYgTFIoT+P1LmtGefMqQo9/
+	YcttHMrlIDAoupacYihAMqKwbON4HNdn5/mg8Cjl+oRQOV253q2btxwolqIIvLY/nPAqmwPRiptTR
+	InzNMYDJixYPpWwB3K+LEI+jjhlgocMkSVbOR5czo5ZRL0dGklH5kW0NU30a8Ef1Q5w5qLv808heF
+	4LwbnFCQJmOfLZGfk9VrdzhX6ysea6f/S16ZkbBf5YyJvhonDIpBTyphFXrS65sru4aEu0cXfCQ/R
+	0tUP1U3NFFaqpWRENMLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLNKJ-003yv3-1W;
-	Mon, 17 Jul 2023 12:27:43 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1qLNPo-003zzG-2e;
+	Mon, 17 Jul 2023 12:33:24 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLNJE-003yh1-1L;
-	Mon, 17 Jul 2023 12:27:03 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id BE0D32000C;
-	Mon, 17 Jul 2023 12:26:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1689596788;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xfIQQUGuk2YngWOS8fdrYDdOu8Z6QhNBtgynXxqIkxI=;
-	b=pu6DLejjSYrxTONDk5/XdeXoNmahir1eSWyr0IAyC5+CzV+z7kVIv0SIU1WMmF5on1CgqD
-	KQMv7HISFwBD83UgHXeIYvA6rMs4zilESREno4fIl9tHoG5j8KuMGef30GXaJomEjoNSXB
-	b27ZnZ9I2DkJ16lt7XoMqFe9mN2ip4prfSVsj2SpNBgHGroLTT9anwzmDU7ZmjHgcKavfM
-	YT6a5qXXuO8iNNI928PNokmiYbnOK1bsbfPyiXo6MfvnS5M/07LrFJlHjhELObDmMRCvQo
-	UvLPoo3HQls1bUDPug12g+YVs2SccW7y5VCvmnwJJIZUaBWuD6j/7/vLgvzENw==
-Date: Mon, 17 Jul 2023 14:26:14 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Andreas =?UTF-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
- Manivannan Sadhasivam <mani@kernel.org>, Eugeniy Paltsev
- <Eugeniy.Paltsev@synopsys.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott
- Branden <sbranden@broadcom.com>, Joel Stanley <joel@jms.id.au>, Andrew
- Jeffery <andrew@aj.id.au>, Neil Armstrong <neil.armstrong@linaro.org>,
- Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi
- <cristian.marussi@arm.com>, Alex Helms <alexander.helms.jy@renesas.com>,
- Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- NXP Linux Team <linux-imx@nxp.com>, Nishanth Menon <nm@ti.com>, Tero Kristo
- <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Jerome Brunet
- <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>, Andrew Lunn
- <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, Sebastian
- Hesselbarth <sebastian.hesselbarth@gmail.com>, Andy Gross
- <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio
- <konrad.dybcio@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski
- <krzysztof.kozlowski@linaro.org>, Sylwester Nawrocki
- <s.nawrocki@samsung.com>, Tomasz Figa <tomasz.figa@gmail.com>, Chanwoo Choi
- <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Dinh Nguyen <dinguyen@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
- Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org, Orson Zhai
- <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan
- Zhang <zhang.lyra@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, Hal
- Feng <hal.feng@starfivetech.com>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Emilio =?UTF-8?Q?L=C3=B3pez?= <emilio@elopez.com.ar>, Peter De Schrijver
- <pdeschrijver@nvidia.com>, Prashant Gaikwad <pgaikwad@nvidia.com>, Thierry
- Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu
- <mhiramat@kernel.org>, Michal Simek <michal.simek@amd.com>,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-oxnas@groups.io,
- linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org
-Subject: Re: [PATCH] clk: Explicitly include correct DT includes
-Message-ID: <20230717142614.78db5c4e@booty>
-In-Reply-To: <20230714174342.4052882-1-robh@kernel.org>
-References: <20230714174342.4052882-1-robh@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	id 1qLNOy-003zoE-0x;
+	Mon, 17 Jul 2023 12:33:22 +0000
+Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.200])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4R4Lxz5Rfsz6J6nS;
+	Mon, 17 Jul 2023 20:29:59 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.27; Mon, 17 Jul
+ 2023 13:32:26 +0100
+Date: Mon, 17 Jul 2023 13:32:25 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Mark Brown <broonie@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, James
+ Morse <james.morse@arm.com>, "Suzuki K Poulose" <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, "Oleg Nesterov" <oleg@redhat.com>, Eric
+ Biederman <ebiederm@xmission.com>, "Kees Cook" <keescook@chromium.org>, Shuah
+ Khan <shuah@kernel.org>, "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs
+ Nagy <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <kvmarm@lists.linux.dev>,
+	<linux-fsdevel@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 26/35] arm64: Add Kconfig for Guarded Control Stack
+ (GCS)
+Message-ID: <20230717133225.00000ce7@Huawei.com>
+In-Reply-To: <20230716-arm64-gcs-v1-26-bf567f93bba6@kernel.org>
+References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
+	<20230716-arm64-gcs-v1-26-bf567f93bba6@kernel.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-GND-Sasl: luca.ceresoli@bootlin.com
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230717_052636_962527_39E9B39D 
-X-CRM114-Status: UNSURE (   7.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230717_053232_680626_DE3A1094 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,17 +83,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Jul 2023 11:43:29 -0600
-Rob Herring <robh@kernel.org> wrote:
+On Sun, 16 Jul 2023 22:51:22 +0100
+Mark Brown <broonie@kernel.org> wrote:
 
->  drivers/clk/clk-versaclock5.c                    | 1 -
+> Provide a Kconfig option allowing the user to select if GCS support is
+> built into the kernel.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/Kconfig | 19 +++++++++++++++++++
+>  1 file changed, 19 insertions(+)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 7856c3a3e35a..e1aeeda13c52 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2091,6 +2091,25 @@ config ARM64_EPAN
+>  	  if the cpu does not implement the feature.
+>  endmenu # "ARMv8.7 architectural features"
+>  
+> +menu "v9.4 architectural features"
+> +
+> +config ARM64_GCS
+> +	bool "Enable support for Guarded Control Stack (GCS)"
+> +	default y
+> +	select ARCH_USES_HIGH_VMA_FLAGS
+> +	help
+> +	  Guarded Control Stack (GCS) provides support for a separate
+> +	  stack with restricted access which contains only return
+> +	  addresses.  This can be used to harden against some attacks
+> +	  by comparing return address used by the program with what is
+> +	  stored in the GCS, and may also be used to efficiently obtain
+> +	  the call stack for applications such as profiling.
+> +
+> +	  The feature is detected at runtime, and will remain disabled
+> +	  if the system does not implement the feature.
+> +
+> +endmenu # "2022 archiectural features"
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com> # versaclock5
+Inconsistent naming and spelling mistake.
 
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> +
+>  config ARM64_SVE
+>  	bool "ARM Scalable Vector Extension support"
+>  	default y
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
