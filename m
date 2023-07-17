@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A57DEB64DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 10:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19F6C04A6A
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 10:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UfCS0sYQ2VmK1xdJtaJdQ/oHJlAseqN2kMi/wrU8yOg=; b=40++IAcc10SQ36vAlX/JjY8hvO
-	deEAbLVclOHS8osCghHG/KaYfTiX2tcRh64Nchh/xE6T+P/NjYFo4R4Yry3nmyAaSFA9FY1Akazmq
-	l4JNdPVcMs4GSTTcOkqnfifnYynfrQupF3Ay5mnTefwg/xiBjIKaijVHyoNfHwQ7fPPVFfJNGRbVQ
-	JDAWfU27j1YwiqHOn3voRJahFJZ5WGHpVwdCnsknl4PuQiBFG6h7TbyY5kiF6iWaCBJuRo/CV6Mev
-	77eWMjU9tSa9U9fS/1fZS3NpCOuebxCVCWrROsDYStG+E3Kc2WEGDAkYPzeuJl58rtELRiLUBjF98
-	sNhxbHPQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pC3kxP+R7zPpTJxBTIfneXVinL75lJBBLVL5xu+AAXo=; b=hp0z2AHBM7EzM9
+	85bdjq5Iaorj6M4ll9vIZgkeVkIHmcw62QqekhnJxzUXFlNlqThhw7Oan6GT94Itx1UglidxeWALK
+	xLMd3IZGOYxSrsAZjjqcayLNDcNGfyu5NFvxDpPCwxHGKXGcV0F8MUquxPYQSXAmciglTFyzfGoLp
+	+XvSyEZDDoy2wiAN1awgcP4c2JOYCeTIGho/z2f1ewjMfv4qVsLcZJITqwqG+BDmJLubrcEaoINcs
+	uRsTRItavuXNHwXg4eGuePzCPt86XZuZGd8/8oJJO5sZgoPru9L6piYoh8MzFPrY5r4SMrHULzp9m
+	BPfwCohuxMrptrMJvejQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLLXc-003lJU-2j;
-	Mon, 17 Jul 2023 10:33:20 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qLLlC-003mX2-20;
+	Mon, 17 Jul 2023 10:47:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLLXU-003lIa-2p
-	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jul 2023 10:33:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1689589993; x=1721125993;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=PUSmMlA6l2fmmMgtM8qupCoIXevCTRgenxJUm/kCesU=;
-  b=1u3vdJA4rdQ9yWng5qrnlq/S36VQjNZ+ICmN0UyKTQ3NFkp6vTzuxIO8
-   7dXaVUxH54mRiTg8nMm6qrIoe5qtn5f+isu+sGo/ZbC/nHsyMOfRtGGDI
-   F281t34YGJy1UdnsoLQI//AUAKxgUnFJKW0IGz8jk98lKXMPW32Aykkc1
-   qag4vYU+5hLrAW/WCfdmK0DS+iw1KVEEEibQ3KactkN5DMV7qCAeoUErR
-   5TXYoYzSNNmW1Sp5gqnpvhhExsnMWEnK1ooFh57RxqGFJD490HhKAT2xT
-   veUtYbtPUOUGTKLbsHJlxDhNlblaePlx0Pj4/5sPq3PgWxcs4evptpVJW
-   w==;
-X-IronPort-AV: E=Sophos;i="6.01,211,1684825200"; 
-   d="asc'?scan'208";a="220708874"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 17 Jul 2023 03:33:11 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 17 Jul 2023 03:33:05 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 17 Jul 2023 03:33:02 -0700
-Date: Mon, 17 Jul 2023 11:32:29 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andy Chiu <andy.chiu@sifive.com>
-CC: <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
-	<vineetg@rivosinc.com>, <bjorn@kernel.org>, <greentime.hu@sifive.com>,
-	<paul.walmsley@sifive.com>, <guoren@linux.alibaba.com>,
-	<anup@brainfault.org>, <atishp@atishpatra.org>, <heiko.stuebner@vrull.eu>,
-	Albert Ou <aou@eecs.berkeley.edu>, Oleg Nesterov <oleg@redhat.com>, Guo Ren
-	<guoren@kernel.org>, Yipeng Zou <zouyipeng@huawei.com>, Huacai Chen
-	<chenhuacai@kernel.org>, Vincent Chen <vincent.chen@sifive.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>, Mathis Salmen
-	<mathis.salmen@matsal.de>, Andrew Bresticker <abrestic@rivosinc.com>
-Subject: Re: [v1, 4/6] riscv: vector: do not pass task_struct into
- riscv_v_vstate_{save,restore}()
-Message-ID: <20230717-igloo-poncho-ede3baa98110@wendy>
-References: <20230715150032.6917-1-andy.chiu@sifive.com>
- <20230715150032.6917-5-andy.chiu@sifive.com>
+	id 1qLLjF-003mNK-19
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 17 Jul 2023 10:45:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=QwEVqapqGt5c5zaKWTZ1oqQBp+aqsZVTLEsdAj1XcXc=; b=KfCbhY1d2N38BQhLoS0cjcwf70
+	APYBflKw7faaRf0xF+22LOt7LWcTL6BiIZJbP9gsvGlUvD233G9fYmlEDCEQ05UmZ6bdE5eWhKDwY
+	wq8T1q++Ytsc/QON+PEtavQh4vGyYUNP5/MG+owXZijRVskGujtyBQP79W3sVA9/En1sJktXXP+U/
+	2kKcc/v+WP+dF9wwC7K49GtNC+JpS7LOoVXmXZwe8c71u/paZkipy6WfF91+0uk0KuHMFbdKXF3NF
+	Ma2l6FPIAAHR/FoQ9bjQA2odhvAdkxVis6y1BprdTbUeHLfcLkx+KDOGvJ59XhOQwce8VRdfC2lip
+	UMFlIyZw==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.96 #2 (Red Hat Linux))
+	id 1qLLj4-0095fw-0L;
+	Mon, 17 Jul 2023 10:45:10 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 8B49930020C;
+	Mon, 17 Jul 2023 12:45:08 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 667FE2463D7EF; Mon, 17 Jul 2023 12:45:08 +0200 (CEST)
+Date: Mon, 17 Jul 2023 12:45:08 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org,
+	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org,
+	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org,
+	apatel@ventanamicro.com, atishp@atishpatra.org,
+	mark.rutland@arm.com, bjorn@kernel.org, palmer@dabbelt.com,
+	bjorn@rivosinc.com, daniel.thompson@linaro.org,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, stable@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH] riscv: entry: Fixup do_trap_break from kernel side
+Message-ID: <20230717104508.GF4253@hirez.programming.kicks-ass.net>
+References: <20230702025708.784106-1-guoren@kernel.org>
+ <20230704164003.GB83892@hirez.programming.kicks-ass.net>
+ <CAJF2gTTc0Gyo=K-0dCW6wu7q=Wq34hgTB69qJ7VSF_KAgKhavA@mail.gmail.com>
+ <20230710080152.GA3028865@hirez.programming.kicks-ass.net>
+ <CAJF2gTTt23iSDG_m4ihPhXhYDrz3Xnih=KGLx_ayBLbzPqaTaQ@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230715150032.6917-5-andy.chiu@sifive.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230717_033312_978375_B106D2F0 
-X-CRM114-Status: GOOD (  21.34  )
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTTt23iSDG_m4ihPhXhYDrz3Xnih=KGLx_ayBLbzPqaTaQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,226 +82,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6381657652842339059=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6381657652842339059==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="HXFWgjJ7RW52Wp8V"
-Content-Disposition: inline
-
---HXFWgjJ7RW52Wp8V
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Jul 15, 2023 at 03:00:30PM +0000, Andy Chiu wrote:
-> riscv_v_vstate_{save,restore}() can operate only on the knowlege of
-> struct __riscv_v_ext_state, and struct pt_regs. Let the caller decides
-> which should be passed into the function. Meanwhile, the kernel-mode
-> Vector is going to introduce another vstate, so this also makes functions
-> potentially able to be reused.
->=20
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-
-Breaks the build chief:
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-=2E./arch/riscv/include/asm/vector.h:199:41: error: incompatible type for a=
-rgument 1 of 'riscv_v_vstate_save'
-
-rv64 allmodconfig w/ gcc.
-
-Thanks,
-Conor.
-
-> ---
->  arch/riscv/include/asm/entry-common.h  |  2 +-
->  arch/riscv/include/asm/vector.h        | 14 +++++---------
->  arch/riscv/kernel/kernel_mode_vector.c |  2 +-
->  arch/riscv/kernel/ptrace.c             |  2 +-
->  arch/riscv/kernel/signal.c             |  2 +-
->  5 files changed, 9 insertions(+), 13 deletions(-)
->=20
-> diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/a=
-sm/entry-common.h
-> index 52926f4d8d7c..aa1b9e50d6c8 100644
-> --- a/arch/riscv/include/asm/entry-common.h
-> +++ b/arch/riscv/include/asm/entry-common.h
-> @@ -12,7 +12,7 @@ static inline void arch_exit_to_user_mode_prepare(struc=
-t pt_regs *regs,
->  {
->  	if (ti_work & _TIF_RISCV_V_DEFER_RESTORE) {
->  		clear_thread_flag(TIF_RISCV_V_DEFER_RESTORE);
-> -		riscv_v_vstate_restore(current, regs);
-> +		riscv_v_vstate_restore(&current->thread.vstate, regs);
->  	}
->  }
-> =20
-> diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vec=
-tor.h
-> index 9831b19153ae..50c556afd95a 100644
-> --- a/arch/riscv/include/asm/vector.h
-> +++ b/arch/riscv/include/asm/vector.h
-> @@ -163,23 +163,19 @@ static inline void riscv_v_vstate_discard(struct pt=
-_regs *regs)
->  	__riscv_v_vstate_dirty(regs);
->  }
-> =20
-> -static inline void riscv_v_vstate_save(struct task_struct *task,
-> +static inline void riscv_v_vstate_save(struct __riscv_v_ext_state *vstat=
-e,
->  				       struct pt_regs *regs)
->  {
->  	if ((regs->status & SR_VS) =3D=3D SR_VS_DIRTY) {
-> -		struct __riscv_v_ext_state *vstate =3D &task->thread.vstate;
-> -
->  		__riscv_v_vstate_save(vstate, vstate->datap);
->  		__riscv_v_vstate_clean(regs);
->  	}
->  }
-> =20
-> -static inline void riscv_v_vstate_restore(struct task_struct *task,
-> +static inline void riscv_v_vstate_restore(struct __riscv_v_ext_state *vs=
-tate,
->  					  struct pt_regs *regs)
->  {
->  	if ((regs->status & SR_VS) !=3D SR_VS_OFF) {
-> -		struct __riscv_v_ext_state *vstate =3D &task->thread.vstate;
-> -
->  		__riscv_v_vstate_restore(vstate, vstate->datap);
->  		__riscv_v_vstate_clean(regs);
->  	}
-> @@ -200,7 +196,7 @@ static inline void __switch_to_vector(struct task_str=
-uct *prev,
->  	struct pt_regs *regs;
-> =20
->  	regs =3D task_pt_regs(prev);
-> -	riscv_v_vstate_save(prev, regs);
-> +	riscv_v_vstate_save(prev->thread.vstate, regs);
->  	riscv_v_vstate_set_restore(next, task_pt_regs(next));
->  }
-> =20
-> @@ -218,8 +214,8 @@ static inline bool riscv_v_vstate_query(struct pt_reg=
-s *regs) { return false; }
->  static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false=
-; }
->  #define riscv_v_vsize (0)
->  #define riscv_v_vstate_discard(regs)		do {} while (0)
-> -#define riscv_v_vstate_save(task, regs)		do {} while (0)
-> -#define riscv_v_vstate_restore(task, regs)	do {} while (0)
-> +#define riscv_v_vstate_save(vstate, regs)	do {} while (0)
-> +#define riscv_v_vstate_restore(vstate, regs)	do {} while (0)
->  #define __switch_to_vector(__prev, __next)	do {} while (0)
->  #define riscv_v_vstate_off(regs)		do {} while (0)
->  #define riscv_v_vstate_on(regs)			do {} while (0)
-> diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/k=
-ernel_mode_vector.c
-> index c0c152c501a5..30f1b861cac0 100644
-> --- a/arch/riscv/kernel/kernel_mode_vector.c
-> +++ b/arch/riscv/kernel/kernel_mode_vector.c
-> @@ -91,7 +91,7 @@ int kernel_rvv_begin(void)
->  		return -EPERM;
-> =20
->  	/* Save vector state, if any */
-> -	riscv_v_vstate_save(current, task_pt_regs(current));
-> +	riscv_v_vstate_save(&current->thread.vstate, task_pt_regs(current));
-> =20
->  	/* Acquire kernel mode vector */
->  	get_cpu_vector_context();
-> diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-> index 1d572cf3140f..85e7167245cc 100644
-> --- a/arch/riscv/kernel/ptrace.c
-> +++ b/arch/riscv/kernel/ptrace.c
-> @@ -99,7 +99,7 @@ static int riscv_vr_get(struct task_struct *target,
->  	 * copying them to membuf.
->  	 */
->  	if (target =3D=3D current)
-> -		riscv_v_vstate_save(current, task_pt_regs(current));
-> +		riscv_v_vstate_save(&current->thread.vstate, task_pt_regs(current));
-> =20
->  	/* Copy vector header from vstate. */
->  	membuf_write(&to, vstate, offsetof(struct __riscv_v_ext_state, datap));
-> diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-> index 0fca2c128b5f..75fd8cc05e10 100644
-> --- a/arch/riscv/kernel/signal.c
-> +++ b/arch/riscv/kernel/signal.c
-> @@ -86,7 +86,7 @@ static long save_v_state(struct pt_regs *regs, void __u=
-ser **sc_vec)
->  	/* datap is designed to be 16 byte aligned for better performance */
->  	WARN_ON(unlikely(!IS_ALIGNED((unsigned long)datap, 16)));
-> =20
-> -	riscv_v_vstate_save(current, regs);
-> +	riscv_v_vstate_save(&current->thread.vstate, regs);
->  	/* Copy everything of vstate but datap. */
->  	err =3D __copy_to_user(&state->v_state, &current->thread.vstate,
->  			     offsetof(struct __riscv_v_ext_state, datap));
-> --=20
-> 2.17.1
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---HXFWgjJ7RW52Wp8V
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLUYvQAKCRB4tDGHoIJi
-0nHvAP914arHbuDURcVqAk3tG2nKAMvfZx92yVeSf7RdPpzSOQD/QuXU8JcWGiHB
-eYLrAYT+rRGOKW3gjJIxmh7kqwmDYAQ=
-=+bJ5
------END PGP SIGNATURE-----
-
---HXFWgjJ7RW52Wp8V--
-
-
---===============6381657652842339059==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6381657652842339059==--
-
+T24gTW9uLCBKdWwgMTcsIDIwMjMgYXQgMDc6MzM6MjVBTSArMDgwMCwgR3VvIFJlbiB3cm90ZToK
+PiBPbiBNb24sIEp1bCAxMCwgMjAyMyBhdCA0OjAy4oCvUE0gUGV0ZXIgWmlqbHN0cmEgPHBldGVy
+ekBpbmZyYWRlYWQub3JnPiB3cm90ZToKPiA+Cj4gPiBPbiBTdW4sIEp1bCAwOSwgMjAyMyBhdCAx
+MDozMDoyMkFNICswODAwLCBHdW8gUmVuIHdyb3RlOgo+ID4gPiBPbiBXZWQsIEp1bCA1LCAyMDIz
+IGF0IDEyOjQw4oCvQU0gUGV0ZXIgWmlqbHN0cmEgPHBldGVyekBpbmZyYWRlYWQub3JnPiB3cm90
+ZToKPiA+ID4gPgo+ID4gPiA+IE9uIFNhdCwgSnVsIDAxLCAyMDIzIGF0IDEwOjU3OjA3UE0gLTA0
+MDAsIGd1b3JlbkBrZXJuZWwub3JnIHdyb3RlOgo+ID4gPiA+ID4gRnJvbTogR3VvIFJlbiA8Z3Vv
+cmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4gPiA+ID4KPiA+ID4gPiA+IFRoZSBpcnFlbnRyeV9u
+bWlfZW50ZXIvZXhpdCB3b3VsZCBmb3JjZSB0aGUgY3VycmVudCBjb250ZXh0IGludG8gaW5faW50
+ZXJydXB0Lgo+ID4gPiA+ID4gVGhhdCB3b3VsZCB0cmlnZ2VyIHRoZSBrZXJuZWwgdG8gZGVhZCBw
+YW5pYywgYnV0IHRoZSBrZGIgc3RpbGwgbmVlZHMgImVicmVhayIgdG8KPiA+ID4gPiA+IGRlYnVn
+IHRoZSBrZXJuZWwuCj4gPiA+ID4gPgo+ID4gPiA+ID4gTW92ZSBpcnFlbnRyeV9ubWlfZW50ZXIv
+ZXhpdCB0byBleGNlcHRpb25fZW50ZXIvZXhpdCBjb3VsZCBjb3JyZWN0IGhhbmRsZV9icmVhawo+
+ID4gPiA+ID4gb2YgdGhlIGtlcm5lbCBzaWRlLgo+ID4gPiA+Cj4gPiA+ID4gVGhpcyBkb2Vzbid0
+IGV4cGxhaW4gbXVjaCBpZiBhbnl0aGluZyA6Lwo+ID4gPiA+Cj4gPiA+ID4gSSdtIGNvbmZ1c2Vk
+IChwcm9iYWJseSBiZWNhdXNlIEkgZG9uJ3Qga25vdyBSSVNDLVYgdmVyeSB3ZWxsKSwgd2hhdCdz
+Cj4gPiA+ID4gRUJSRUFLIGFuZCBob3cgZG9lcyBpdCBoYXBwZW4/Cj4gPiA+IEVCUkVBSyBpcyBq
+dXN0IGFuIGluc3RydWN0aW9uIG9mIHJpc2N2IHdoaWNoIHdvdWxkIHJpc2UgYnJlYWtwb2ludCBl
+eGNlcHRpb24uCj4gPiA+Cj4gPiA+Cj4gPiA+ID4KPiA+ID4gPiBTcGVjaWZpY2FsbHksIGlmIEVC
+UkVBSyBjYW4gaGFwcGVuIGluc2lkZSBhbiBsb2NhbF9pcnFfZGlzYWJsZSgpIHJlZ2lvbiwKPiA+
+ID4gPiB0aGVuIHRoZSBiZWxvdyBjaGFuZ2UgaXMgYWN0aXZlbHkgd3JvbmcuIEFueSBleGNlcHRp
+b24vaW50ZXJydXB0IHRoYXQKPiA+ID4gPiBjYW4gaGFwcGVuIHdoaWxlIGxvY2FsX2lycV9kaXNh
+YmxlKCkgbXVzdCBiZSB0cmVhdGVkIGxpa2UgYW4gTk1JLgo+ID4gPiBXaGVuIHRoZSBlYnJlYWsg
+aGFwcGVuZCBvdXQgb2YgbG9jYWxfaXJxX2Rpc2FibGUgcmVnaW9uLCBidXQKPiA+ID4gX19ubWlf
+ZW50ZXIgZm9yY2VzIGhhbmRsZV9icmVhaygpIGludG8gaW5faW50ZXJ1cHQoKSBzdGF0ZS4gU28g
+aG93Cj4gPgo+ID4gQW5kIHdoeSBpcyB0aGF0IGEgcHJvYmxlbT8gSSB0aGluayBJJ20gbWlzc2lu
+ZyBzb21ldGhpbmcgZnVuZGFtZW50YWwKPiA+IGhlcmUuLi4KPiBUaGUgaXJxZW50cnlfbm1pX2Vu
+dGVyKCkgd291bGQgZm9yY2UgdGhlIGN1cnJlbnQgY29udGV4dCB0byBnZXQKPiBpbl9pbnRlcnJ1
+cHQ9dHJ1ZSwgYWx0aG91Z2ggZWJyZWFrIGhhcHBlbnMgaW4gdGhlIGNvbnRleHQgd2hpY2ggaXMK
+PiBpbl9pbnRlcnJ1cHQ9ZmFsc2UuCj4gQSBsb3Qgb2YgY2hlY2tpbmcgY29kZXMsIHN1Y2ggYXM6
+Cj4gICAgICAgICBpZiAoaW5faW50ZXJydXB0KCkpCj4gICAgICAgICAgICAgICAgIHBhbmljKCJG
+YXRhbCBleGNlcHRpb24gaW4gaW50ZXJydXB0Iik7CgpXaHkgd291bGQgeW91IGRvIHRoYXQ/IT8K
+CkFyZSB5b3UncmUgdHJ5aW5nIHRvIGRpZmZlcmVudGlhdGUgYmV0d2VlbiBhbiBleGNlcHRpb24g
+YW5kIGFuCmludGVycnVwdD8KCllvdSAqY291bGQqIGhhdmUgZWJyZWFrIGluIGFuIGludGVycnVw
+dCwgcmlnaHQ/IFNvIHdoeSBwYW5pYyB0aGUgbWFjaGluZQppZiB0aGF0IGhhcHBlbnM/Cgo+IEl0
+IHdvdWxkIG1ha2UgdGhlIGtlcm5lbCBwYW5pYywgYnV0IHdlIGRvbid0IHBhbmljOyB3ZSB3YW50
+IGJhY2sgdG8gdGhlIHNoZWxsLgo+IGVnOgo+IGVjaG8gQlVHID4gL3N5cy9rZXJuZWwvZGVidWcv
+cHJvdm9rZS1jcmFzaC9ESVJFQ1QKCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
