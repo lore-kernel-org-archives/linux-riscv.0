@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4099EEB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 02:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24667C001B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 02:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eXxNb2N80vwGFrzJdex0+qvhJL7GOO0HqctC5JlCqAU=; b=zkTmA9xZ1tcZGb
-	3J05zmjwE67AjpnFdX5IvVnWtbPJ1LRggdsuTgIiwj0PuSpRenuwqCHOUrB4IdrcpUVTHZbaBLclQ
-	8G0n9ulTiKQ3BCFcTSLgGbZ4G4uskJAU1CL9G0ny+0J0uBVXIinGzKhr8f/qMarrfOD6FOEUFqP5y
-	Z0d6o3L8A6L450eTlsdP54zlERxdpcl/uk2Cxe6pW68PfsS3ly7ILXlwD12SvXKqOZFrFP/fwqMOw
-	Zh/snLyKBzkoDmTYWMdAwLw9h1j8Ohqgs/zLONSvV3RP8gKDeO5YbFZL9n6PEUz8o5qGA+jKXPLdq
-	yNeV2xYzBYCiScYqRb+w==;
+	List-Owner; bh=n3O6IuUNTEIlNwZW0pYvgoFALpk3gY5dRC0cMtPMFBk=; b=YcOKDzAYK0O1mT
+	4rrA0gzF+VDYgh5znIRuXpFggx5Q37OH0L2+IqcDnasoe+zUNXpUAsZvBkV4iHSWHqTfOWvjBFbCN
+	4MP5Yu8dS+L3XPOCx4l6WwEvcR5YbBcVqXda0k640Wzsyo2LOMw/aMK/RCER8HCE6uKdCT/KGxwgy
+	e42GEKjAbeN0TTi3sFPFeUpsJmqSjkyXJKcVNfpmkNUUP/ylIf3ep+osnT3tQl2cI17f9SxN1wdSm
+	Lrq7OsfR8xCQPxLOX+NY4UZaB/AjTTh+k8IBrKd2pe/LFP5euVGnIVk71aqx5LlXnIcrocZm/ews4
+	Fsyy0ovpIyTMtYGSls6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLE1R-000s3Y-0E;
-	Mon, 17 Jul 2023 02:31:37 +0000
+	id 1qLE1S-000s4m-1m;
+	Mon, 17 Jul 2023 02:31:38 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLE11-000rhH-17
+	id 1qLE11-000rhG-18
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jul 2023 02:31:17 +0000
+	Mon, 17 Jul 2023 02:31:20 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id CE07881EA;
-	Mon, 17 Jul 2023 10:30:44 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7356582CA;
+	Mon, 17 Jul 2023 10:30:46 +0800 (CST)
 Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 17 Jul
- 2023 10:30:44 +0800
+ 2023 10:30:46 +0800
 Received: from localhost.localdomain (113.72.147.86) by EXMBX061.cuchost.com
  (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 17 Jul
- 2023 10:30:43 +0800
+ 2023 10:30:45 +0800
 From: Xingyu Wu <xingyu.wu@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
  Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, "Rob
@@ -50,9 +50,9 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
 	<hal.feng@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>, "William
  Qiu" <william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
-Subject: [PATCH v7 3/7] dt-bindings: clock: jh7110-syscrg: Add PLL clock inputs
-Date: Mon, 17 Jul 2023 10:30:36 +0800
-Message-ID: <20230717023040.78860-4-xingyu.wu@starfivetech.com>
+Subject: [PATCH v7 5/7] clk: starfive: jh7110-sys: Add PLL clocks source from DTS
+Date: Mon, 17 Jul 2023 10:30:38 +0800
+Message-ID: <20230717023040.78860-6-xingyu.wu@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20230717023040.78860-1-xingyu.wu@starfivetech.com>
 References: <20230717023040.78860-1-xingyu.wu@starfivetech.com>
@@ -62,9 +62,8 @@ X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
  (172.16.6.61)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230716_193112_614535_6725741F 
-X-CRM114-Status: UNSURE (   7.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230716_193112_616544_E6EC8898 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,76 +80,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PLL clock inputs from PLL clock generator.
+Modify PLL clocks source to be got from DTS or
+the fixed factor clocks.
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 ---
- .../bindings/clock/starfive,jh7110-syscrg.yaml | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
+ drivers/clk/starfive/Kconfig                  |  1 +
+ .../clk/starfive/clk-starfive-jh7110-sys.c    | 66 ++++++++++++-------
+ 2 files changed, 45 insertions(+), 22 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-index 84373ae31644..5ba0a885aa80 100644
---- a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-+++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-@@ -27,6 +27,9 @@ properties:
-           - description: External I2S RX left/right channel clock
-           - description: External TDM clock
-           - description: External audio master clock
-+          - description: PLL0
-+          - description: PLL1
-+          - description: PLL2
+diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+index 5195f7be5213..978b78ec08b1 100644
+--- a/drivers/clk/starfive/Kconfig
++++ b/drivers/clk/starfive/Kconfig
+@@ -35,6 +35,7 @@ config CLK_STARFIVE_JH7110_SYS
+ 	select AUXILIARY_BUS
+ 	select CLK_STARFIVE_JH71X0
+ 	select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
++	select CLK_STARFIVE_JH7110_PLL
+ 	default ARCH_STARFIVE
+ 	help
+ 	  Say yes here to support the system clock controller on the
+diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+index e6031345ef05..3884eff9fe93 100644
+--- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
++++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+@@ -7,6 +7,7 @@
+  */
  
-       - items:
-           - description: Main Oscillator (24 MHz)
-@@ -38,6 +41,9 @@ properties:
-           - description: External I2S RX left/right channel clock
-           - description: External TDM clock
-           - description: External audio master clock
-+          - description: PLL0
-+          - description: PLL1
-+          - description: PLL2
+ #include <linux/auxiliary_bus.h>
++#include <linux/clk.h>
+ #include <linux/clk-provider.h>
+ #include <linux/init.h>
+ #include <linux/io.h>
+@@ -389,6 +390,7 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+ 	struct jh71x0_clk_priv *priv;
+ 	unsigned int idx;
+ 	int ret;
++	struct clk *pllclk;
  
-   clock-names:
-     oneOf:
-@@ -52,6 +58,9 @@ properties:
-           - const: i2srx_lrck_ext
-           - const: tdm_ext
-           - const: mclk_ext
-+          - const: pll0_out
-+          - const: pll1_out
-+          - const: pll2_out
+ 	priv = devm_kzalloc(&pdev->dev,
+ 			    struct_size(priv, reg, JH7110_SYSCLK_END),
+@@ -402,28 +404,42 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+ 	if (IS_ERR(priv->base))
+ 		return PTR_ERR(priv->base);
  
-       - items:
-           - const: osc
-@@ -63,6 +72,9 @@ properties:
-           - const: i2srx_lrck_ext
-           - const: tdm_ext
-           - const: mclk_ext
-+          - const: pll0_out
-+          - const: pll1_out
-+          - const: pll2_out
+-	/*
+-	 * These PLL clocks are not actually fixed factor clocks and can be
+-	 * controlled by the syscon registers of JH7110. They will be dropped
+-	 * and registered in the PLL clock driver instead.
+-	 */
+-	/* 24MHz -> 1000.0MHz */
+-	priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
+-							 "osc", 0, 125, 3);
+-	if (IS_ERR(priv->pll[0]))
+-		return PTR_ERR(priv->pll[0]);
+-
+-	/* 24MHz -> 1066.0MHz */
+-	priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
+-							 "osc", 0, 533, 12);
+-	if (IS_ERR(priv->pll[1]))
+-		return PTR_ERR(priv->pll[1]);
+-
+-	/* 24MHz -> 1188.0MHz */
+-	priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
+-							 "osc", 0, 99, 2);
+-	if (IS_ERR(priv->pll[2]))
+-		return PTR_ERR(priv->pll[2]);
++	/* Use fixed factor clocks if can not get the PLL clocks from DTS */
++	pllclk = clk_get(priv->dev, "pll0_out");
++	if (IS_ERR(pllclk)) {
++		/* 24MHz -> 1000.0MHz */
++		priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
++								 "osc", 0, 125, 3);
++		if (IS_ERR(priv->pll[0]))
++			return PTR_ERR(priv->pll[0]);
++	} else {
++		clk_put(pllclk);
++		priv->pll[0] = NULL;
++	}
++
++	pllclk = clk_get(priv->dev, "pll1_out");
++	if (IS_ERR(pllclk)) {
++		/* 24MHz -> 1066.0MHz */
++		priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
++								 "osc", 0, 533, 12);
++		if (IS_ERR(priv->pll[1]))
++			return PTR_ERR(priv->pll[1]);
++	} else {
++		clk_put(pllclk);
++		priv->pll[1] = NULL;
++	}
++
++	pllclk = clk_get(priv->dev, "pll2_out");
++	if (IS_ERR(pllclk)) {
++		/* 24MHz -> 1188.0MHz */
++		priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
++								 "osc", 0, 99, 2);
++		if (IS_ERR(priv->pll[2]))
++			return PTR_ERR(priv->pll[2]);
++	} else {
++		clk_put(pllclk);
++		priv->pll[2] = NULL;
++	}
  
-   '#clock-cells':
-     const: 1
-@@ -93,12 +105,14 @@ examples:
-                  <&gmac1_rgmii_rxin>,
-                  <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
-                  <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
--                 <&tdm_ext>, <&mclk_ext>;
-+                 <&tdm_ext>, <&mclk_ext>,
-+                 <&pllclk 0>, <&pllclk 1>, <&pllclk 2>;
-         clock-names = "osc", "gmac1_rmii_refin",
-                       "gmac1_rgmii_rxin",
-                       "i2stx_bclk_ext", "i2stx_lrck_ext",
-                       "i2srx_bclk_ext", "i2srx_lrck_ext",
--                      "tdm_ext", "mclk_ext";
-+                      "tdm_ext", "mclk_ext",
-+                      "pll0_out", "pll1_out", "pll2_out";
-         #clock-cells = <1>;
-         #reset-cells = <1>;
-     };
+ 	for (idx = 0; idx < JH7110_SYSCLK_END; idx++) {
+ 		u32 max = jh7110_sysclk_data[idx].max;
+@@ -462,6 +478,12 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+ 				parents[i].fw_name = "tdm_ext";
+ 			else if (pidx == JH7110_SYSCLK_MCLK_EXT)
+ 				parents[i].fw_name = "mclk_ext";
++			else if (pidx == JH7110_SYSCLK_PLL0_OUT && !priv->pll[0])
++				parents[i].fw_name = "pll0_out";
++			else if (pidx == JH7110_SYSCLK_PLL1_OUT && !priv->pll[1])
++				parents[i].fw_name = "pll1_out";
++			else if (pidx == JH7110_SYSCLK_PLL2_OUT && !priv->pll[2])
++				parents[i].fw_name = "pll2_out";
+ 			else
+ 				parents[i].hw = priv->pll[pidx - JH7110_SYSCLK_PLL0_OUT];
+ 		}
 -- 
 2.25.1
 
