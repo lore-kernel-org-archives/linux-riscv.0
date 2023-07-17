@@ -4,100 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A219BC0015E
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 11:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042CFEB64DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Jul 2023 11:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/MZ9hJdvdJqZaZW3sjDxUpG991LYU0WTEZUVDlHm+2E=; b=3hqKf25JfCCi4W
-	VMgDWW9zivK9Tq4RdpITSSoBKBHjlsUKxzlHL5oqQ8jzvRf7STXFhp2uTQ68zMcXO00CGGSqmrUuz
-	nsbtO0a7OuVqkU5DqiUyxahCdF3VKPPjcRmgw3XHAFVdLJwHIjt96GOzcBpPgwsmViNe44q55Dx9P
-	Gz4Vg1bwIZwfkkoVoS0KY68nc+XR98rK+AXGYoHtmenciOPYx/KQm3iCZGQPmSobqgQKqbxyXVwbW
-	iM6TYZhDqwfAgqzFmEQpxowtjt4IN58hRFxu+7N0QqsvvmLLOt91VFF4BDExG0nM46DtcIE7iPSxE
-	zJp7miNdf+fjQcT3ne3Q==;
+	List-Owner; bh=Fbevqf95qVLjMSmKdzwYc9lDeF6gdjOnxe1dBHaxxlM=; b=F6qlWPc6w5c+wj
+	e81e6N2Kv643FcDe9QNjiRIXs2ofCMgrz9RSLYr9Ht44dumSGJpAH+Opesp8cPsiylaEOtOw7NTjN
+	k0KkD+hBqxAeqZv1UAIln85kK/bCf0wuyE8VkKa/8EChR9WmTGDbDRJIW5NyYo4KLm0sWft8LkAXe
+	W1YIAm7PmXQcEDmIjEnez28vuMKu8YcK4dLrmSvFtR6H3VklTCJeDCLV8KSN0NvJW+6aj0CiLOrPL
+	jqfZxW/wWMoJkf1hjDhHyNLy+IPoNc2w7gJ9PF2Z9m/HNKeD+qf6ls+Er8MySPmx/YEXfkp5lu/Aw
+	76yEvcBPlm+OCbVvQCBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLMbX-003t3u-0e;
-	Mon, 17 Jul 2023 11:41:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qLMdB-003tP2-2d;
+	Mon, 17 Jul 2023 11:43:10 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLMaw-003sz9-1u
-	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jul 2023 11:41:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1689594049;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yQqyG6oxXaLj0FF/OLRS2ExsXKIdb3iPjfzq0DwkqKY=;
-	b=aIQOe2PDLfRPV2osj4Avq8e0iJ9ytVn3Dm5WEs79aqgWM28VTNEpWsx2+Ng/rpnRcpa+XZ
-	JRz8ks0lsTpdPDWkY6dB8JlqOwxl3+DoTL0JM4CX37c5A8x7lGteDWMnWvd//Kz1iYM6yq
-	2gATf82ZoHC/UlX0/22JF5mkGIThmrM=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-133-51hS55GEMvejDnQoC24Jzg-1; Mon, 17 Jul 2023 07:40:46 -0400
-X-MC-Unique: 51hS55GEMvejDnQoC24Jzg-1
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-767edbf73cbso88077785a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Jul 2023 04:40:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689594046; x=1690198846;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yQqyG6oxXaLj0FF/OLRS2ExsXKIdb3iPjfzq0DwkqKY=;
-        b=hA6anHqKjiaslwh4rxFdIRHiuJZtGohTjD+xft2XzzsiFluW/+DQCfRM4ol2gSNvK9
-         mGsh5iyuW5Tf8ghlHqQFczMegntVbHQes02xcX1EKS+RxsiW5QOvH4hkN0QyqKng8RHD
-         SKnoi0KQjoartidnsXf9U/TH5KurvkS2mV6qvS/o0AbZOkZsSdR7m9/vKdzo+rbW1yhV
-         /OeA71IsLQY52q77aND5lETBNSjQ7D1XW0DdlieYR/QaFm0AuovUP55MqRLwY9XcB7RU
-         zTlnmB4v5bQMG7RloiQhlov7pnTHToCn/bRswMzQyhZ5FGnALE1jOrCufsK3ZMW8tgjE
-         8xPA==
-X-Gm-Message-State: ABy/qLZuUdegfYuzP3CMsWfMO9l5b3M+wfGubDa/Sk0IkjXO39BEMYlP
-	ieLA10zPHBbZvOdZN7JkQ1tqG0985ILQy+TgeSeFciKJq14t8R2Tipw9gMbL/0Gj/KkImINJ45q
-	vqEpkXsU75KMpTyMNmLBmephfN3TN
-X-Received: by 2002:a05:620a:24c8:b0:767:7a4c:1b9e with SMTP id m8-20020a05620a24c800b007677a4c1b9emr9266359qkn.7.1689594046115;
-        Mon, 17 Jul 2023 04:40:46 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlGDK1i5Bb5hW3SqNn/8w11DLVrfU0l98wShs1NeCy8lsDEALEXS1SLko5LtJ6r2IMuB1Q1XLw==
-X-Received: by 2002:a05:620a:24c8:b0:767:7a4c:1b9e with SMTP id m8-20020a05620a24c800b007677a4c1b9emr9266330qkn.7.1689594045810;
-        Mon, 17 Jul 2023 04:40:45 -0700 (PDT)
-Received: from [10.66.61.39] ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id g7-20020a05620a108700b00767d05117fesm6051154qkk.36.2023.07.17.04.40.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Jul 2023 04:40:45 -0700 (PDT)
-Message-ID: <199d18de-1214-7683-b87a-03cc7e49719a@redhat.com>
-Date: Mon, 17 Jul 2023 19:40:32 +0800
+	id 1qLMd0-003tL5-0U;
+	Mon, 17 Jul 2023 11:43:06 +0000
+Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.207])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4R4Kqp1Psbz67Lnh;
+	Mon, 17 Jul 2023 19:39:34 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.27; Mon, 17 Jul
+ 2023 12:42:48 +0100
+Date: Mon, 17 Jul 2023 12:42:47 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Mark Brown <broonie@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, James
+ Morse <james.morse@arm.com>, "Suzuki K Poulose" <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, "Oleg Nesterov" <oleg@redhat.com>, Eric
+ Biederman <ebiederm@xmission.com>, "Kees Cook" <keescook@chromium.org>, Shuah
+ Khan <shuah@kernel.org>, "Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, Szabolcs
+ Nagy <Szabolcs.Nagy@arm.com>, "H.J. Lu" <hjl.tools@gmail.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <kvmarm@lists.linux.dev>,
+	<linux-fsdevel@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 04/35] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <20230717124247.00001f1c@Huawei.com>
+In-Reply-To: <20230716-arm64-gcs-v1-4-bf567f93bba6@kernel.org>
+References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
+	<20230716-arm64-gcs-v1-4-bf567f93bba6@kernel.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v6 03/11] KVM: Allow range-based TLB invalidation from
- common code
-To: Raghavendra Rao Ananta <rananta@google.com>,
- Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
- James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
- Sean Christopherson <seanjc@google.com>, Huacai Chen
- <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- Jing Zhang <jingzhangos@google.com>, Colton Lewis <coltonlewis@google.com>,
- David Matlack <dmatlack@google.com>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
- Gavin Shan <gshan@redhat.com>
-References: <20230715005405.3689586-1-rananta@google.com>
- <20230715005405.3689586-4-rananta@google.com>
-From: Shaoqin Huang <shahuang@redhat.com>
-In-Reply-To: <20230715005405.3689586-4-rananta@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml500004.china.huawei.com (7.191.163.9) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230717_044050_965612_BE3BA8C5 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20230717_044300_964746_265D2F90 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,148 +79,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, 16 Jul 2023 22:51:00 +0100
+Mark Brown <broonie@kernel.org> wrote:
 
+> Add some documentation of the userspace ABI for Guarded Control Stacks.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+Hi Mark,
 
-On 7/15/23 08:53, Raghavendra Rao Ananta wrote:
-> From: David Matlack <dmatlack@google.com>
-> 
-> Make kvm_flush_remote_tlbs_range() visible in common code and create a
-> default implementation that just invalidates the whole TLB.
-> 
-> This paves the way for several future features/cleanups:
-> 
->   - Introduction of range-based TLBI on ARM.
->   - Eliminating kvm_arch_flush_remote_tlbs_memslot()
->   - Moving the KVM/x86 TDP MMU to common code.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: David Matlack <dmatlack@google.com>
-> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
->   arch/x86/include/asm/kvm_host.h |  3 +++
->   arch/x86/kvm/mmu/mmu.c          |  9 ++++-----
->   arch/x86/kvm/mmu/mmu_internal.h |  3 ---
->   include/linux/kvm_host.h        |  9 +++++++++
->   virt/kvm/kvm_main.c             | 13 +++++++++++++
->   5 files changed, 29 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-> index a2d3cfc2eb75..08900afbf2ad 100644
-> --- a/arch/x86/include/asm/kvm_host.h
-> +++ b/arch/x86/include/asm/kvm_host.h
-> @@ -1804,6 +1804,9 @@ static inline int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
->   		return -ENOTSUPP;
->   }
->   
-> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
-> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages);
-> +
->   #define kvm_arch_pmi_in_guest(vcpu) \
->   	((vcpu) && (vcpu)->arch.handling_intr_from_guest)
->   
-> diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-> index ec169f5c7dce..aaa5e336703a 100644
-> --- a/arch/x86/kvm/mmu/mmu.c
-> +++ b/arch/x86/kvm/mmu/mmu.c
-> @@ -278,16 +278,15 @@ static inline bool kvm_available_flush_remote_tlbs_range(void)
->   	return kvm_x86_ops.flush_remote_tlbs_range;
->   }
->   
-> -void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn,
-> -				 gfn_t nr_pages)
-> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages)
->   {
->   	int ret = -EOPNOTSUPP;
->   
->   	if (kvm_x86_ops.flush_remote_tlbs_range)
->   		ret = static_call(kvm_x86_flush_remote_tlbs_range)(kvm, start_gfn,
-> -								   nr_pages);
-> -	if (ret)
-> -		kvm_flush_remote_tlbs(kvm);
-> +									pages);
-This will be good if parameter pages aligned with parameter kvm.
+Nice document.  All I could find on a first read was one typo...
 
-Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
-> +
-> +	return ret;
->   }
->   
->   static gfn_t kvm_mmu_page_get_gfn(struct kvm_mmu_page *sp, int index);
-> diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
-> index d39af5639ce9..86cb83bb3480 100644
-> --- a/arch/x86/kvm/mmu/mmu_internal.h
-> +++ b/arch/x86/kvm/mmu/mmu_internal.h
-> @@ -170,9 +170,6 @@ bool kvm_mmu_slot_gfn_write_protect(struct kvm *kvm,
->   				    struct kvm_memory_slot *slot, u64 gfn,
->   				    int min_level);
->   
-> -void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn,
-> -				 gfn_t nr_pages);
-> -
->   /* Flush the given page (huge or not) of guest memory. */
->   static inline void kvm_flush_remote_tlbs_gfn(struct kvm *kvm, gfn_t gfn, int level)
->   {
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index e3f968b38ae9..a731967b24ff 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -1359,6 +1359,7 @@ int kvm_vcpu_yield_to(struct kvm_vcpu *target);
->   void kvm_vcpu_on_spin(struct kvm_vcpu *vcpu, bool yield_to_kernel_mode);
->   
->   void kvm_flush_remote_tlbs(struct kvm *kvm);
-> +void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages);
->   
->   #ifdef KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE
->   int kvm_mmu_topup_memory_cache(struct kvm_mmu_memory_cache *mc, int min);
-> @@ -1486,6 +1487,14 @@ static inline int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
->   }
->   #endif
->   
-> +#ifndef __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
-> +static inline int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm,
-> +						   gfn_t gfn, u64 pages)
-> +{
-> +	return -EOPNOTSUPP;
-> +}
-> +#endif
-> +
->   #ifdef __KVM_HAVE_ARCH_NONCOHERENT_DMA
->   void kvm_arch_register_noncoherent_dma(struct kvm *kvm);
->   void kvm_arch_unregister_noncoherent_dma(struct kvm *kvm);
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index d6b050786155..804470fccac7 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -366,6 +366,19 @@ void kvm_flush_remote_tlbs(struct kvm *kvm)
->   }
->   EXPORT_SYMBOL_GPL(kvm_flush_remote_tlbs);
->   
-> +void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages)
-> +{
-> +	if (!kvm_arch_flush_remote_tlbs_range(kvm, gfn, pages))
-> +		return;
-> +
-> +	/*
-> +	 * Fall back to a flushing entire TLBs if the architecture range-based
-> +	 * TLB invalidation is unsupported or can't be performed for whatever
-> +	 * reason.
-> +	 */
-> +	kvm_flush_remote_tlbs(kvm);
-> +}
-> +
->   static void kvm_flush_shadow_all(struct kvm *kvm)
->   {
->   	kvm_arch_flush_shadow_all(kvm);
+...
 
--- 
-Shaoqin
+> +7.  ptrace extensions
+> +---------------------
+> +
+> +* A new regset NT_ARM_GCS is defined for use with PTRACE_GETREGSET and
+> +  PTRACE_SETREGSET.
+> +
+> +* Due to the complexity surrounding allocation and deallocation of stakcs and
+
+stacks
+
+> +  lack of practical application changes to the GCS configuration via ptrace
+> +  are not supported.
+> +
 
 
 _______________________________________________
