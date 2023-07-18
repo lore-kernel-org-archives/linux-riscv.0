@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1294EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6662EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r9gpMyy/TX0KeqmiFGIuvNbOSfd9PKj1rpqPOjvxZJY=; b=xSzGnZ8WYSW9xu
-	ht158uNG0rziovUiQvtneeeay7jzSB6+piG+SF9G97CaIfPQAKGIgJxWQ83BB4IvNxc2lM9Lfexdt
-	9jcd2j2XwZi9CdFNPB3jhSalIgmgQLODGGx7BuPdNm5tqPgA4R+8CRwj0dPQN0Q02a8rZ9Ky1myYL
-	qLI5iVyTH50Uxst9JZ6VH5XOxIwNSEJpLwJknK/xU0zwLRuzBLwCDsk6yyyAXNNtGacjvj45elON9
-	13Q2I16e5SJQBoMN/jQCf1kwQ9YjhbN0LpoC3p4bI6wvFrVotMLWgS21adffCjWaU0/WuTYgQ6O4z
-	FzbpPlUqMU8sssgOsOlQ==;
+	List-Owner; bh=6MQ7v5BoWSDTsNds3PLUxVlXnsXQJM7kLSyR1SpVnJY=; b=RxcXkMfiCf8NEE
+	1adFm5E3ay/HYEm6dozySU4+jR0tZxhdkTXecLDaY3NvJrv9yatjfpJLSETmNZxtGhjD8gTz12/Yf
+	cc+BEL3bNaixLjSy0CTTvoBHWxKxR5tclsAkuA5Szci1aNgxmADO07IxhtvgaJYToiJDhsV/Z01TO
+	R+tk4Wu/KenppOXlHlyQ95TgtnbeT3vtr+YdGHu0c0TpHaXSY6koiKsxS+dyeNEzAeBNYqmkKMafX
+	ajQ8yAWXj1xhIEc/utGgGJT4G5tkH13lqSYCFeKLS49V/TV31mdh6C6xkGhGtf1nHzbWwNK5y6nd4
+	wUYEefiFv67nCULKuJLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzc0-005EGH-0T;
-	Wed, 19 Jul 2023 05:20:32 +0000
+	id 1qLzcF-005ESv-17;
+	Wed, 19 Jul 2023 05:20:47 +0000
 Received: from casper.infradead.org ([90.155.50.34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzbM-005Dg5-0l
+	id 1qLzbO-005Dg5-0v
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 05:19:52 +0000
+	Wed, 19 Jul 2023 05:19:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=v06h+ALMtOOYf7fX/Ew5y3Hfc7UGMHCjlt3bjyKHsv0=; b=OMqvvkyY25RBNZK4RhJYy5t0TL
-	CCAGkypFayW//ACRUPni0xJgtRV8fBbbDGXwVnhFmOwU5jEvqqBi6yxAE86N9Yd7TZMUtEzI7jzFq
-	9YMWBVgsxdWBXv6f14R3BNNSj0q4+Lw0Qv0YHuzvXgGKNvQ8Oe6sIZ74XesFLQuLVW+chjn36Q8qx
-	XuTxmsIr2snXJ1is3wjWjYneIFa7WLc3M85X8t/zUC0Qt/C5WVH507a8rS0q0KviC9WPumFAu8sz/
-	ClZF2w2RgABA7WI/KhfTL9f4Joz3txsbwRV5JyytsFmjtET5UJJX8STlRYwi9i9qKvXMxU9XUzfS1
-	g3NXtANg==;
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	bh=Q98IcrUH3D9bs3/KGOraZ2fk7jlneSyp5eOXwjGSzPo=; b=KaWU4JaIZG8Ylav63y3FDkw0Rd
+	zDfSl69fChLA4hl4c268Q9Mcuht3QVe1HND8yhXiH1AqDD6wiUN1h6STXXx0fOJRD1KMhgbb1aZxU
+	WkGTMw2Y10CmCPjGvZ3F7k1oNv6nAR8vZY3s9mj5TyoV3qaGuylRU9CCOFg4JpDmbhkpzTeEbzkFG
+	n0DcaMbYJv3GH6I4yb3OoE5OgtmCuoHaLnVpy88b/nXo0nepyRqV6dXmNzM8Yzi7/McYjR7fdqAiJ
+	ziu52+hfA85YhvLe/4Tbnwyd14tp+je1NI4Gm7QoqBl6r8VHInINUe/Kiio7MvMTMKKnEbjVV35e2
+	XhKRH/tA==;
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qLuSW-005Qx5-5X
-	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 23:50:27 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-573cacf4804so55413247b3.1
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:50:23 -0700 (PDT)
+	id 1qLuST-005Qv6-Hf
+	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 23:50:24 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1b8a7734734so32266535ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:50:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689724161; x=1692316161;
+        d=google.com; s=20221208; t=1689724156; x=1692316156;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=v06h+ALMtOOYf7fX/Ew5y3Hfc7UGMHCjlt3bjyKHsv0=;
-        b=YRRA1+3rdyppDplfs3XH3aJvhxtsAMd7YC9o1tjP/IyjupywaQyvKq+rps81DQn6n1
-         IfT/9T8MBfb/05cpg+uFjPqU9WMKZxQ9fzOPBnRI+m2vIHPLSV2s/3KQGxo5DIXUHwOZ
-         GdmSnQGPnvE14OEYqjCx4Fm+ABerxK8mDpsKlW+8NItJ+M4Kcnqzj3n4Y+k+3R/C1UBu
-         wvL5E8Pm7bjCuwRxFwoKwRUML3nMWrNZ+3vwOtoXEZiYJEJR64OEqgs5nwKpwCN2Ct+r
-         TXr64pWKwZcTWMIuNy53NUZP6UdwEiJkjqYQFxPcJ5UQJleLQ7qGIFzyDTx8Cn3NQNJC
-         aywg==
+        bh=Q98IcrUH3D9bs3/KGOraZ2fk7jlneSyp5eOXwjGSzPo=;
+        b=7kCME8pPCngu4gaFGpXg5a7UwFpOLrO0My4DJgf3Tu41/gplqgzLOGhIhYQhJyAw82
+         pOUm0o0ToYchYR+sqCJB8nr8JQwkY05K+mmvehoPNKX+xtAJe85ypqZrf7NdEBuc7dVO
+         Loia1s+Vi2KmoQuGxm/1vLkByuS5Llxi1PwzbhcxuMWRdPNpQbFdZ1M0EUvFj2O4HykG
+         lFhG2TpgpmRIG1QsBv9/L63IGFhxigQF4dGb407i8DsIDC4msrdSTzNotl+OShvkqjOU
+         uJoKfxiuAmED0YbOhUTgqzr2Njgz4J6LJbFZG7TW80PXAaqsgV0K7Lq43642a6sItsfg
+         Wm6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689724161; x=1692316161;
+        d=1e100.net; s=20221208; t=1689724156; x=1692316156;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=v06h+ALMtOOYf7fX/Ew5y3Hfc7UGMHCjlt3bjyKHsv0=;
-        b=PrY6y2larIA//ezvjeaIqv9qQRNSs1Acs7b8lYPMArb8Km3mAxQIIxP3xyo31VpnTM
-         31HBbXwygTWdQiw0Ou4TIph7ZMd/DgzZMK+AI/UfyzEhKwBy7jdaAp8sEfG8MYKm3BNd
-         siwL6upwnBcKCHNpsutEwoU4ctuwYd+V8sAvOSD1aEmz23FpK7zJNmwxySq5SHnSg2q1
-         sRPpsV9JtVAUSOUP0PupiymQIzAhXg4lpMjbD9CH9v7XQF5KTits9WtTJ7S5J60DAo+d
-         DGovV2pmP4KzZpt7qtIkurgT1QO1dQY4/EZWixdsLOXQPAzBpE3iz7MBXuWdReF0VUH8
-         6Uog==
-X-Gm-Message-State: ABy/qLbsIXmmBWvwZR48YgpyOwRztPd3hefomrVYtOBRLtj2Skas7Rh0
-	IODqVvkn59C7gLV/VG5R55NkCr/oP9s=
-X-Google-Smtp-Source: APBJJlHpdLxbHGSEDlhfQMIka8AkYqbvfykkp39Gd8+LzOAP/g6chkA545wiuNlxw+N3wiN86qnMnz3hgbE=
+        bh=Q98IcrUH3D9bs3/KGOraZ2fk7jlneSyp5eOXwjGSzPo=;
+        b=b+/WO31dh4c60jBzEkSuiQe12LKcUlkcpR63vifOHgMV6TBU4jC8tYc7BMTV1Hb7ML
+         L4gLXHRWjKABNpTj82h+/C1shRgZ2Vu2gONbmRoIoHWMNlCJ4/PsBBQqyoyTdfnHlyp3
+         mHFhrfJGTy/8AjwMwvP80wpy2N+s6CDySNhi9Q2vsdD2DcIDZSTPE2jjHAIFP8Efy42+
+         4MLM4d6ZCbus+S3sTxUF5bhTGrK5cpxOSuS9911eZfeS6v0am0eCulZEzpJmqxCx8g2K
+         MWbuQocyL9z7E3CJqrBHDBXemgx+IKpqyPlja+LPoXV4qu2V6sK5ZMYlgt/epqFZuR1o
+         lQgw==
+X-Gm-Message-State: ABy/qLa/D1jYX5kdAqgRZ3te0SkdZ4VxxweHxdOSig2QbHaj481QL2gi
+	SPX1gfa3CWE8B3y1RSqFVUT74c1EiIA=
+X-Google-Smtp-Source: APBJJlGNaFpMXi9SkErxKUtHkpkIjtXAaXLFttzvWMq3kzuSVkOJWJ0e7R+lluyhOtMVN8C9CK1Syvi8Yw4=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a81:b306:0:b0:56c:fce1:7d8d with SMTP id
- r6-20020a81b306000000b0056cfce17d8dmr185110ywh.6.1689724161668; Tue, 18 Jul
- 2023 16:49:21 -0700 (PDT)
-Date: Tue, 18 Jul 2023 16:45:09 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:903:22ce:b0:1b8:80c9:a98e with SMTP id
+ y14-20020a17090322ce00b001b880c9a98emr18845plg.13.1689724155930; Tue, 18 Jul
+ 2023 16:49:15 -0700 (PDT)
+Date: Tue, 18 Jul 2023 16:45:06 -0700
 In-Reply-To: <20230718234512.1690985-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230718234512.1690985-1-seanjc@google.com>
 X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
-Message-ID: <20230718234512.1690985-27-seanjc@google.com>
-Subject: [RFC PATCH v11 26/29] KVM: selftests: Add KVM_SET_USER_MEMORY_REGION2 helper
+Message-ID: <20230718234512.1690985-24-seanjc@google.com>
+Subject: [RFC PATCH v11 23/29] KVM: selftests: Introduce VM "shape" to allow
+ tests to specify the VM type
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -103,9 +104,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_005024_231826_2BE9F1F4 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230719_005021_608697_749EFA4F 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,76 +123,298 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chao Peng <chao.p.peng@linux.intel.com>
-
-Provide a raw version as well as an assert-success version to reduce
-the amount of boilerplate code need for basic usage.
-
-Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../selftests/kvm/include/kvm_util_base.h     |  7 +++++
- tools/testing/selftests/kvm/lib/kvm_util.c    | 29 +++++++++++++++++++
- 2 files changed, 36 insertions(+)
+ tools/testing/selftests/kvm/dirty_log_test.c  |  2 +-
+ .../selftests/kvm/include/kvm_util_base.h     | 54 +++++++++++++++----
+ .../selftests/kvm/kvm_page_table_test.c       |  2 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 43 +++++++--------
+ tools/testing/selftests/kvm/lib/memstress.c   |  3 +-
+ .../kvm/x86_64/ucna_injection_test.c          |  2 +-
+ 6 files changed, 72 insertions(+), 34 deletions(-)
 
+diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
+index 936f3a8d1b83..6cbecf499767 100644
+--- a/tools/testing/selftests/kvm/dirty_log_test.c
++++ b/tools/testing/selftests/kvm/dirty_log_test.c
+@@ -699,7 +699,7 @@ static struct kvm_vm *create_vm(enum vm_guest_mode mode, struct kvm_vcpu **vcpu,
+ 
+ 	pr_info("Testing guest mode: %s\n", vm_guest_mode_string(mode));
+ 
+-	vm = __vm_create(mode, 1, extra_mem_pages);
++	vm = __vm_create(VM_SHAPE(mode), 1, extra_mem_pages);
+ 
+ 	log_mode_create_vm_done(vm);
+ 	*vcpu = vm_vcpu_add(vm, 0, guest_code);
 diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
-index 856440294013..334df27a6f43 100644
+index 1819787b773b..856440294013 100644
 --- a/tools/testing/selftests/kvm/include/kvm_util_base.h
 +++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
-@@ -492,6 +492,13 @@ void vm_set_user_memory_region(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
- 			       uint64_t gpa, uint64_t size, void *hva);
- int __vm_set_user_memory_region(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
- 				uint64_t gpa, uint64_t size, void *hva);
-+void vm_set_user_memory_region2(struct kvm_vm *vm, uint32_t slot,
-+				uint32_t flags, uint64_t gpa, uint64_t size,
-+				void *hva, uint32_t gmem_fd, uint64_t gmem_offset);
-+int __vm_set_user_memory_region2(struct kvm_vm *vm, uint32_t slot,
-+				 uint32_t flags, uint64_t gpa, uint64_t size,
-+				 void *hva, uint32_t gmem_fd, uint64_t gmem_offset);
+@@ -167,6 +167,23 @@ enum vm_guest_mode {
+ 	NUM_VM_MODES,
+ };
+ 
++struct vm_shape {
++	enum vm_guest_mode mode;
++	unsigned int type;
++};
 +
- void vm_userspace_mem_region_add(struct kvm_vm *vm,
- 	enum vm_mem_backing_src_type src_type,
- 	uint64_t guest_paddr, uint32_t slot, uint64_t npages,
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 64221c320389..f7b8b5eb3e8f 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -868,6 +868,35 @@ void vm_set_user_memory_region(struct kvm_vm *vm, uint32_t slot, uint32_t flags,
- 		    errno, strerror(errno));
++#define VM_TYPE_DEFAULT			0
++
++#define VM_SHAPE(__mode)			\
++({						\
++	struct vm_shape shape = {		\
++		.mode = (__mode),		\
++		.type = VM_TYPE_DEFAULT		\
++	};					\
++						\
++	shape;					\
++})
++
+ #if defined(__aarch64__)
+ 
+ extern enum vm_guest_mode vm_mode_default;
+@@ -199,6 +216,8 @@ extern enum vm_guest_mode vm_mode_default;
+ 
+ #endif
+ 
++#define VM_SHAPE_DEFAULT	VM_SHAPE(VM_MODE_DEFAULT)
++
+ #define MIN_PAGE_SIZE		(1U << MIN_PAGE_SHIFT)
+ #define PTES_PER_MIN_PAGE	ptes_per_page(MIN_PAGE_SIZE)
+ 
+@@ -754,21 +773,21 @@ vm_paddr_t vm_alloc_page_table(struct kvm_vm *vm);
+  * __vm_create() does NOT create vCPUs, @nr_runnable_vcpus is used purely to
+  * calculate the amount of memory needed for per-vCPU data, e.g. stacks.
+  */
+-struct kvm_vm *____vm_create(enum vm_guest_mode mode);
+-struct kvm_vm *__vm_create(enum vm_guest_mode mode, uint32_t nr_runnable_vcpus,
++struct kvm_vm *____vm_create(struct vm_shape shape);
++struct kvm_vm *__vm_create(struct vm_shape shape, uint32_t nr_runnable_vcpus,
+ 			   uint64_t nr_extra_pages);
+ 
+ static inline struct kvm_vm *vm_create_barebones(void)
+ {
+-	return ____vm_create(VM_MODE_DEFAULT);
++	return ____vm_create(VM_SHAPE_DEFAULT);
  }
  
-+int __vm_set_user_memory_region2(struct kvm_vm *vm, uint32_t slot,
-+				 uint32_t flags, uint64_t gpa, uint64_t size,
-+				 void *hva, uint32_t gmem_fd, uint64_t gmem_offset)
-+{
-+	struct kvm_userspace_memory_region2 region = {
-+		.slot = slot,
-+		.flags = flags,
-+		.guest_phys_addr = gpa,
-+		.memory_size = size,
-+		.userspace_addr = (uintptr_t)hva,
-+		.gmem_fd = gmem_fd,
-+		.gmem_offset = gmem_offset,
-+	};
+ static inline struct kvm_vm *vm_create(uint32_t nr_runnable_vcpus)
+ {
+-	return __vm_create(VM_MODE_DEFAULT, nr_runnable_vcpus, 0);
++	return __vm_create(VM_SHAPE_DEFAULT, nr_runnable_vcpus, 0);
+ }
+ 
+-struct kvm_vm *__vm_create_with_vcpus(enum vm_guest_mode mode, uint32_t nr_vcpus,
++struct kvm_vm *__vm_create_with_vcpus(struct vm_shape shape, uint32_t nr_vcpus,
+ 				      uint64_t extra_mem_pages,
+ 				      void *guest_code, struct kvm_vcpu *vcpus[]);
+ 
+@@ -776,17 +795,27 @@ static inline struct kvm_vm *vm_create_with_vcpus(uint32_t nr_vcpus,
+ 						  void *guest_code,
+ 						  struct kvm_vcpu *vcpus[])
+ {
+-	return __vm_create_with_vcpus(VM_MODE_DEFAULT, nr_vcpus, 0,
++	return __vm_create_with_vcpus(VM_SHAPE_DEFAULT, nr_vcpus, 0,
+ 				      guest_code, vcpus);
+ }
+ 
 +
-+	return ioctl(vm->fd, KVM_SET_USER_MEMORY_REGION2, &region);
++struct kvm_vm *__vm_create_shape_with_one_vcpu(struct vm_shape shape,
++					       struct kvm_vcpu **vcpu,
++					       uint64_t extra_mem_pages,
++					       void *guest_code);
++
+ /*
+  * Create a VM with a single vCPU with reasonable defaults and @extra_mem_pages
+  * additional pages of guest memory.  Returns the VM and vCPU (via out param).
+  */
+-struct kvm_vm *__vm_create_with_one_vcpu(struct kvm_vcpu **vcpu,
+-					 uint64_t extra_mem_pages,
+-					 void *guest_code);
++static inline struct kvm_vm *__vm_create_with_one_vcpu(struct kvm_vcpu **vcpu,
++						       uint64_t extra_mem_pages,
++						       void *guest_code)
++{
++	return __vm_create_shape_with_one_vcpu(VM_SHAPE_DEFAULT, vcpu,
++					       extra_mem_pages, guest_code);
++}
+ 
+ static inline struct kvm_vm *vm_create_with_one_vcpu(struct kvm_vcpu **vcpu,
+ 						     void *guest_code)
+@@ -794,6 +823,13 @@ static inline struct kvm_vm *vm_create_with_one_vcpu(struct kvm_vcpu **vcpu,
+ 	return __vm_create_with_one_vcpu(vcpu, 0, guest_code);
+ }
+ 
++static inline struct kvm_vm *vm_create_shape_with_one_vcpu(struct vm_shape shape,
++							   struct kvm_vcpu **vcpu,
++							   void *guest_code)
++{
++	return __vm_create_shape_with_one_vcpu(shape, vcpu, 0, guest_code);
 +}
 +
-+void vm_set_user_memory_region2(struct kvm_vm *vm, uint32_t slot,
-+				uint32_t flags, uint64_t gpa, uint64_t size,
-+				void *hva, uint32_t gmem_fd, uint64_t gmem_offset)
-+{
-+	int ret = __vm_set_user_memory_region2(vm, slot, flags, gpa, size, hva,
-+					       gmem_fd, gmem_offset);
-+
-+	TEST_ASSERT(!ret, "KVM_SET_USER_MEMORY_REGION2 failed, errno = %d (%s)",
-+		    errno, strerror(errno));
-+}
-+
-+
- /* FIXME: This thing needs to be ripped apart and rewritten. */
- void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
- 		uint64_t guest_paddr, uint32_t slot, uint64_t npages,
+ struct kvm_vcpu *vm_recreate_with_one_vcpu(struct kvm_vm *vm);
+ 
+ void kvm_pin_this_task_to_pcpu(uint32_t pcpu);
+diff --git a/tools/testing/selftests/kvm/kvm_page_table_test.c b/tools/testing/selftests/kvm/kvm_page_table_test.c
+index b3b00be1ef82..e8c2aabbca2b 100644
+--- a/tools/testing/selftests/kvm/kvm_page_table_test.c
++++ b/tools/testing/selftests/kvm/kvm_page_table_test.c
+@@ -254,7 +254,7 @@ static struct kvm_vm *pre_init_before_test(enum vm_guest_mode mode, void *arg)
+ 
+ 	/* Create a VM with enough guest pages */
+ 	guest_num_pages = test_mem_size / guest_page_size;
+-	vm = __vm_create_with_vcpus(mode, nr_vcpus, guest_num_pages,
++	vm = __vm_create_with_vcpus(VM_SHAPE(mode), nr_vcpus, guest_num_pages,
+ 				    guest_code, test_args.vcpus);
+ 
+ 	/* Align down GPA of the testing memslot */
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 1283e24b76f1..64221c320389 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -209,7 +209,7 @@ __weak void vm_vaddr_populate_bitmap(struct kvm_vm *vm)
+ 		(1ULL << (vm->va_bits - 1)) >> vm->page_shift);
+ }
+ 
+-struct kvm_vm *____vm_create(enum vm_guest_mode mode)
++struct kvm_vm *____vm_create(struct vm_shape shape)
+ {
+ 	struct kvm_vm *vm;
+ 
+@@ -221,13 +221,13 @@ struct kvm_vm *____vm_create(enum vm_guest_mode mode)
+ 	vm->regions.hva_tree = RB_ROOT;
+ 	hash_init(vm->regions.slot_hash);
+ 
+-	vm->mode = mode;
+-	vm->type = 0;
++	vm->mode = shape.mode;
++	vm->type = shape.type;
+ 
+-	vm->pa_bits = vm_guest_mode_params[mode].pa_bits;
+-	vm->va_bits = vm_guest_mode_params[mode].va_bits;
+-	vm->page_size = vm_guest_mode_params[mode].page_size;
+-	vm->page_shift = vm_guest_mode_params[mode].page_shift;
++	vm->pa_bits = vm_guest_mode_params[vm->mode].pa_bits;
++	vm->va_bits = vm_guest_mode_params[vm->mode].va_bits;
++	vm->page_size = vm_guest_mode_params[vm->mode].page_size;
++	vm->page_shift = vm_guest_mode_params[vm->mode].page_shift;
+ 
+ 	/* Setup mode specific traits. */
+ 	switch (vm->mode) {
+@@ -265,7 +265,7 @@ struct kvm_vm *____vm_create(enum vm_guest_mode mode)
+ 		/*
+ 		 * Ignore KVM support for 5-level paging (vm->va_bits == 57),
+ 		 * it doesn't take effect unless a CR4.LA57 is set, which it
+-		 * isn't for this VM_MODE.
++		 * isn't for this mode (48-bit virtual address space).
+ 		 */
+ 		TEST_ASSERT(vm->va_bits == 48 || vm->va_bits == 57,
+ 			    "Linear address width (%d bits) not supported",
+@@ -285,10 +285,11 @@ struct kvm_vm *____vm_create(enum vm_guest_mode mode)
+ 		vm->pgtable_levels = 5;
+ 		break;
+ 	default:
+-		TEST_FAIL("Unknown guest mode, mode: 0x%x", mode);
++		TEST_FAIL("Unknown guest mode: 0x%x", vm->mode);
+ 	}
+ 
+ #ifdef __aarch64__
++	TEST_ASSERT(!vm->type, "ARM doesn't support test-provided types");
+ 	if (vm->pa_bits != 40)
+ 		vm->type = KVM_VM_TYPE_ARM_IPA_SIZE(vm->pa_bits);
+ #endif
+@@ -343,19 +344,19 @@ static uint64_t vm_nr_pages_required(enum vm_guest_mode mode,
+ 	return vm_adjust_num_guest_pages(mode, nr_pages);
+ }
+ 
+-struct kvm_vm *__vm_create(enum vm_guest_mode mode, uint32_t nr_runnable_vcpus,
++struct kvm_vm *__vm_create(struct vm_shape shape, uint32_t nr_runnable_vcpus,
+ 			   uint64_t nr_extra_pages)
+ {
+-	uint64_t nr_pages = vm_nr_pages_required(mode, nr_runnable_vcpus,
++	uint64_t nr_pages = vm_nr_pages_required(shape.mode, nr_runnable_vcpus,
+ 						 nr_extra_pages);
+ 	struct userspace_mem_region *slot0;
+ 	struct kvm_vm *vm;
+ 	int i;
+ 
+-	pr_debug("%s: mode='%s' pages='%ld'\n", __func__,
+-		 vm_guest_mode_string(mode), nr_pages);
++	pr_debug("%s: mode='%s' type='%d', pages='%ld'\n", __func__,
++		 vm_guest_mode_string(shape.mode), shape.type, nr_pages);
+ 
+-	vm = ____vm_create(mode);
++	vm = ____vm_create(shape);
+ 
+ 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, 0, 0, nr_pages, 0);
+ 	for (i = 0; i < NR_MEM_REGIONS; i++)
+@@ -396,7 +397,7 @@ struct kvm_vm *__vm_create(enum vm_guest_mode mode, uint32_t nr_runnable_vcpus,
+  * extra_mem_pages is only used to calculate the maximum page table size,
+  * no real memory allocation for non-slot0 memory in this function.
+  */
+-struct kvm_vm *__vm_create_with_vcpus(enum vm_guest_mode mode, uint32_t nr_vcpus,
++struct kvm_vm *__vm_create_with_vcpus(struct vm_shape shape, uint32_t nr_vcpus,
+ 				      uint64_t extra_mem_pages,
+ 				      void *guest_code, struct kvm_vcpu *vcpus[])
+ {
+@@ -405,7 +406,7 @@ struct kvm_vm *__vm_create_with_vcpus(enum vm_guest_mode mode, uint32_t nr_vcpus
+ 
+ 	TEST_ASSERT(!nr_vcpus || vcpus, "Must provide vCPU array");
+ 
+-	vm = __vm_create(mode, nr_vcpus, extra_mem_pages);
++	vm = __vm_create(shape, nr_vcpus, extra_mem_pages);
+ 
+ 	for (i = 0; i < nr_vcpus; ++i)
+ 		vcpus[i] = vm_vcpu_add(vm, i, guest_code);
+@@ -413,15 +414,15 @@ struct kvm_vm *__vm_create_with_vcpus(enum vm_guest_mode mode, uint32_t nr_vcpus
+ 	return vm;
+ }
+ 
+-struct kvm_vm *__vm_create_with_one_vcpu(struct kvm_vcpu **vcpu,
+-					 uint64_t extra_mem_pages,
+-					 void *guest_code)
++struct kvm_vm *__vm_create_shape_with_one_vcpu(struct vm_shape shape,
++					       struct kvm_vcpu **vcpu,
++					       uint64_t extra_mem_pages,
++					       void *guest_code)
+ {
+ 	struct kvm_vcpu *vcpus[1];
+ 	struct kvm_vm *vm;
+ 
+-	vm = __vm_create_with_vcpus(VM_MODE_DEFAULT, 1, extra_mem_pages,
+-				    guest_code, vcpus);
++	vm = __vm_create_with_vcpus(shape, 1, extra_mem_pages, guest_code, vcpus);
+ 
+ 	*vcpu = vcpus[0];
+ 	return vm;
+diff --git a/tools/testing/selftests/kvm/lib/memstress.c b/tools/testing/selftests/kvm/lib/memstress.c
+index df457452d146..d05487e5a371 100644
+--- a/tools/testing/selftests/kvm/lib/memstress.c
++++ b/tools/testing/selftests/kvm/lib/memstress.c
+@@ -168,7 +168,8 @@ struct kvm_vm *memstress_create_vm(enum vm_guest_mode mode, int nr_vcpus,
+ 	 * The memory is also added to memslot 0, but that's a benign side
+ 	 * effect as KVM allows aliasing HVAs in meslots.
+ 	 */
+-	vm = __vm_create_with_vcpus(mode, nr_vcpus, slot0_pages + guest_num_pages,
++	vm = __vm_create_with_vcpus(VM_SHAPE(mode), nr_vcpus,
++				    slot0_pages + guest_num_pages,
+ 				    memstress_guest_code, vcpus);
+ 
+ 	args->vm = vm;
+diff --git a/tools/testing/selftests/kvm/x86_64/ucna_injection_test.c b/tools/testing/selftests/kvm/x86_64/ucna_injection_test.c
+index 85f34ca7e49e..0ed32ec903d0 100644
+--- a/tools/testing/selftests/kvm/x86_64/ucna_injection_test.c
++++ b/tools/testing/selftests/kvm/x86_64/ucna_injection_test.c
+@@ -271,7 +271,7 @@ int main(int argc, char *argv[])
+ 
+ 	kvm_check_cap(KVM_CAP_MCE);
+ 
+-	vm = __vm_create(VM_MODE_DEFAULT, 3, 0);
++	vm = __vm_create(VM_SHAPE_DEFAULT, 3, 0);
+ 
+ 	kvm_ioctl(vm->kvm_fd, KVM_X86_GET_MCE_CAP_SUPPORTED,
+ 		  &supported_mcg_caps);
 -- 
 2.41.0.255.g8b1d071c50-goog
 
