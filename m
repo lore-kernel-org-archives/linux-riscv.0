@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A145EEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FFAEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+y5ehv9KBbZVpfwnaJ0yxNhzhCWn1G3+nzEAhZV1kWk=; b=O1ulWLljnmJCSu
-	tE4TMLh8Hdsxqn0/k9jylRqdNw2C4yFQfQweWcy7/UbVbj8qxkCuqGZnZPQP/5ZpZ7pJbxcy6b4Cc
-	KfZn7G9tgpYfybdvQc7WknwyCjlGlYd5lH7LifdO+RLtGZLFp0UTA+dMrTcY2xuoSJKS51o34x+5h
-	qiLI6t12fCwLSVEhejW03WMgKAGHPul+60LZhOe/ihlar4Zer0w/ydcXML73FW2VBjGdolJNAQ6Uz
-	zDd5T7XgxrfvYomAg8QIL345uL9LhbQIueJHzXW80TaCm6kSTv5B+OqNzlicC6s4cNqf+2oyTSkf2
-	H4CAWlXugw+uM2LoKR+w==;
+	List-Owner; bh=FZnxJkHqVWaTMSEbYQjEVna1A+RxMIfLgpYFM29uDhQ=; b=YO014Y/aYzmT4O
+	WCWg4N+GTRbOhE+sFJ9TUt6I7Ley3+3aggZVroGHaT7C0ORJ3eCxg4p9KTq9ieyqREN6cuSrN+hCt
+	9RNGFzxoGYhFF0Sws38fFZgu5P8UWNGN1x9dLt66tisXNMc/OIKNxktwflEGoHKjdOz35NLtehPyd
+	Zw1o1IbIAEIzw9vl7UOi2JkF3S4QbBbIsmWAFU7ugDRVvLzHtjGLrCW2xM4jSQzwH28zYrphZi2fZ
+	zBJfHVOFGe2bQPHHEd0O+dmC0IkoH0VMYbT7gLOtPz4VcuIC58ApjTpebFY0TQDom3QoIrcPGTCwJ
+	1kBm1Bw0/6YeCBrR8n3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0dM-005inB-0V;
-	Wed, 19 Jul 2023 06:26:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1qM0f3-005jjF-00;
+	Wed, 19 Jul 2023 06:27:45 +0000
+Received: from casper.infradead.org ([90.155.50.34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0dL-005imU-0b
+	id 1qLzcc-005Dg5-0a
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 06:25:59 +0000
+	Wed, 19 Jul 2023 05:21:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Message-ID:
+	Date:Subject:CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
 	Content-Description:In-Reply-To:References;
-	bh=Oyy/hqOdv+k0nTAkjs+7RYMgFYdulT0nhGoNzbzeMig=; b=DUqEd5azp70SN0hcv7R7Z0N3W/
-	YREfsBZpKK3NrYsnMe/oHRZ2ArPYY2Skm31KJCuEhZg0SgO0sUxjl0Spy+LPp1YYupiKYLQ0Zcitb
-	FEniUKTqrxhpaDSBt9geNVHLAh4jIp2dIbSzjfy5wspU1q/DMlS67Y1Jy5LaQggApAMFoPGMrnqMN
-	2xvS+44+W5NKrZlh9d1vZjyz/+TA9bqCe9RzVBB+ClT3I/1QKXXuoDG4IcdIATU9xAuTM2nSIJrCo
-	1SxkzgV7XNBA7ZKBRKBvKqyYHm0pIKeSmA3k0K95aIhUsomlywsjbar3KOiLfOoxGFBTM4APcCS0j
-	WIFgwrnA==;
-Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLVGF-009NOh-2J
-	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jul 2023 20:56:14 +0000
-Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-1b730eb017bso3386039fac.1
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Jul 2023 13:56:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1689627239; x=1692219239;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Oyy/hqOdv+k0nTAkjs+7RYMgFYdulT0nhGoNzbzeMig=;
-        b=KJTf9YmZ+opwlSlKQtj4qmVAgcviWKLlE18bPJ9PK2xx2vbd1cglf/B19eHyMCF/iu
-         Eo/LO0A/WooxN5UAWv3ScN8m/gCHPScAd1o8ZsTnssQOVautf5+DNwlXfqz2MzgkWZ/e
-         bX5C/SPhH1uy1+IfbnoAxp108QlYMtrHQK59JmnuHeuXgWbVGu3YO42QzGuG5u7RkEdr
-         oHzNxQ4hcPd/NvOcdLGlAatT1hr1aZ0yu1Letu3MtHfILsfG72e/s4DAm48dG6rMbobc
-         NpbivKFS98tExj0Qk/X0qClcS/8nQ5Rz0KBZRGMZH8gxRbYknPYghwWTPxJqFzB+Soz4
-         MlHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689627239; x=1692219239;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Oyy/hqOdv+k0nTAkjs+7RYMgFYdulT0nhGoNzbzeMig=;
-        b=cIcCbRt6U/y3ZE4ur6wzJ//RBxIjOKnoZ/zJxA0gK2SIe54+PmnIxaDc6RuE6WSsEw
-         EZuz+QusL9bzOqB0LnzearWrx44CJ3L7SjUsZ82hf3/aFBBOsoxh9HijKHdx7zhjdIEj
-         7MmV6HmNKBLxQwvY2VGrcPZFlpKAM0XK8wJPY5EAvjXr4U0H2pQ0Mmz5geRxvBAaRSI1
-         5A+GHSpoWo++2Pnho4q4US7k6udRJiMiDYuTHF8gPjGJ4c32/kp3i5W8p81g3LroI4a4
-         FiGtAjSU/ewifBKekVI/H019R+HNBazimLnJhF/xhp6sRhnDAJBfdOkZFdj5gH7emZVv
-         s5NA==
-X-Gm-Message-State: ABy/qLYBX+3dwWSghDZoRa6loFkuRoqI1+CT6JOhakOn3bKgvLR38bfV
-	BMQkGJxVO1TDSZtC5e6FjmK6Jw==
-X-Google-Smtp-Source: APBJJlFdP1Af7JGzTPtkK/vllQtffloe3sX9PaU93xyPQ8qir6P/+bH6Lv7otG/v4/4fcg4rtzqtJg==
-X-Received: by 2002:a05:6870:fba0:b0:1b4:4a2e:b698 with SMTP id kv32-20020a056870fba000b001b44a2eb698mr13093826oab.47.1689627239068;
-        Mon, 17 Jul 2023 13:53:59 -0700 (PDT)
-Received: from sw06.internal.sifive.com ([64.62.193.194])
-        by smtp.gmail.com with ESMTPSA id z8-20020a63b048000000b0053031f7a367sm206991pgo.85.2023.07.17.13.53.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Jul 2023 13:53:58 -0700 (PDT)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andy Shevchenko <andy@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	devicetree@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 0/2] gpio: sifive: Module support
-Date: Mon, 17 Jul 2023 13:53:55 -0700
-Message-Id: <20230717205357.2779473-1-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.40.1
+	bh=+0QGjlRpZPrM/uup2zUmaQINAkyP6D0Lf8mXdHziHdo=; b=XoL7YUeGKvNMgLPADEcvpdFHi1
+	vmwwSTB2P4jObgRPjW4Loht8SqAtVHzLTslvI4ZKP3VY00CBDzu/yf2b5VFZLT0/aKMvfGRB0knfs
+	pWUZlCGWegw+rXKkwIbHgRqBnuyzhvOvQVrrJalOljcn8JobKjBnP5PJ87W//o9HXoFNW8D8iPlpw
+	7h/MNqzRhXlBE8T58PWUg3YPp6EmBpOct8mVwVwywi7k7jQQ1R3nyPQ3tUDBYxS8yYa7088edFS1w
+	9TI8QYK68N8TPjranABpLphVdwiSOdfTOcD8D+HKG/x7Sjz1sDIDDrDq+izpZjpJ3u50athPeMHC1
+	2CvgaSpw==;
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1qLaYS-004WCu-Fx
+	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 02:35:15 +0000
+Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
+	by Atcsqr.andestech.com with ESMTP id 36I2WUJO074398;
+	Tue, 18 Jul 2023 10:32:30 +0800 (+08)
+	(envelope-from minachou@andestech.com)
+Received: from atcfdc88.andestech.com (10.0.15.158) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Tue, 18 Jul 2023
+ 10:32:29 +0800
+From: Mina HuiMin-Chou <minachou@andestech.com>
+To: <linux-riscv@lists.infradead.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <chenhuang5@huawei.com>, <tim609@andestech.com>, <dylan@andestech.com>,
+        <minachou@andestech.com>, <az70021@gmail.com>
+Subject: [PATCH] riscv: Move the "Call Trace" to dump_backrace().
+Date: Tue, 18 Jul 2023 10:32:01 +0800
+Message-ID: <20230718023201.16018-1-minachou@andestech.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
+X-Originating-IP: [10.0.15.158]
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 36I2WUJO074398
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230717_215609_142409_6E7825CF 
-X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-CacheID: sfid-20230718_033513_054167_6FACFE06 
+X-CRM114-Status: UNSURE (   8.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,22 +81,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With of_irq_count() exported, the SiFive GPIO driver can be built as a
-module. This helps to minimize the size of a multiplatform kernel, and
-is required by some downstream distributions (Android GKI).
+From: Hui Min Mina Chou <minachou@andestech.com>
 
+It would be appropriate to show "Call Trace" within the dump_backtrace
+function to ensure that some kernel dumps include this information.
 
-Samuel Holland (2):
-  of/irq: Export of_irq_count()
-  gpio: sifive: Allow building the driver as a module
+This patch is based on Chen Huang's comment [1] and Palmer Dabbelt's
+patch [2].
 
- drivers/gpio/Kconfig       | 2 +-
- drivers/gpio/gpio-sifive.c | 4 +++-
- drivers/of/irq.c           | 1 +
- 3 files changed, 5 insertions(+), 2 deletions(-)
+[1] https://lore.kernel.org/lkml/mhng-75c14e1e-a23c-404b-a1f6-235e53bdb6f3@palmerdabbelt-glaptop/
+[2] https://lore.kernel.org/lkml/20220419174842.488-1-palmer@rivosinc.com/
 
+Signed-off-by: Hui Min Mina Chou <minachou@andestech.com>
+---
+ arch/riscv/kernel/stacktrace.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 64a9c093aef9..ff136031a592 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -118,12 +118,12 @@ static bool print_trace_address(void *arg, unsigned long pc)
+ noinline void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+ 		    const char *loglvl)
+ {
++	pr_cont("%sCall Trace:\n", loglvl);
+ 	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
+ }
+ 
+ void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
+ {
+-	pr_cont("%sCall Trace:\n", loglvl);
+ 	dump_backtrace(NULL, task, loglvl);
+ }
+ 
 -- 
-2.40.1
+2.34.1
 
 
 _______________________________________________
