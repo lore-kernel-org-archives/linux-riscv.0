@@ -4,102 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5276AEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 911E6C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A4bcyrQA8Q0GfKH7RwZMRcVfTEtL4aUG66Hg98+TP7s=; b=Htq61mdWjw9afQPztJ9RKnUC6v
-	Rcjd+Lfp0/L9zpO//THW0OJHnAEKX1nejp5afFjtnay2to2CRo6ws+iOTMmN3TFSG+XgRJc+uDUn/
-	pQN08qugCE3vcC9xoUcBhrgHlN/YqXJqiGloQB11wbzC0Lrz2e08wdkmFxArfSTWnJyWf8RQtXWiO
-	5x+5HA3fl2paZZUiSMIKLiJaqcQ+rCiRbJJHQ74vJ0Cr5Tc1OB96Iva9LaQ7EaD9eekOnvTvGYSSr
-	HbwqTD97x0DEVrD2PQtPcpmCkquuqOKYslWSGly4GvqFK+MfD8lIiMtBOdmFCAPgNRzc5FyMZxw/+
-	RhX6B21A==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5sRKnFFsbWyMfkVBRMroJ1oQbG8sSI9ekCLZvb9aBd0=; b=ed3bM/QeYQGeJE
+	50+T26ylHQooqnB+N2lg0mURWUYyh3NfS3CckiwCvaWhGFA2ONPrP5kTJlGQR4aA2U8ewT0X0zHXU
+	ezB4sc2hMsDMxrWEbv0MYHIkeBEHFGpyJfzQU2ASPD3K6R9u91pEAerHmICVIIeELp0HV87HlOxob
+	cmMiPmB+68VOzXWMh4rHc4ZPExshwM19d1iqQOqixa5r0DW7j7446jqudtq/dKno3UV+oaXYDCd6/
+	K1KACFTllp4QZWYkzc7ZKpJIFKmOkLTy54CRgWx4BBEw7vbam6dlc1FQip3YI2LXOre0rwAKqug+E
+	TqLSgbnwUcX/nBATBSQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0Je-005Xbx-2W;
-	Wed, 19 Jul 2023 06:05:38 +0000
+	id 1qM0K1-005Xlf-21;
+	Wed, 19 Jul 2023 06:06:01 +0000
 Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0Jc-005Xac-0i;
-	Wed, 19 Jul 2023 06:05:36 +0000
+	id 1qM0K0-005Xki-0t
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 19 Jul 2023 06:06:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=O63mZ8yzF6CijAtxSQoALTxAYE2vHbZSrNPF/uuCP68=; b=ndDKyUD2xHL79PniRhDV+SJMHL
-	zpsSCSVAJntTj1LUxoqF66BDfuoaOKlIke4eK/B+Xp3/DD4Fp8hMgZrSjj29Q2ugQh7/7FaDY4oLU
-	U20souoWS0oLE7Nv/JftQ19WvefaPimCQ/rcrRpxfeCbgX3n8UWj5lCH1JQ8hziii8pAX/K1SML8k
-	4Lsy02OJ+T9W1A2jtNuJ6ElfkZNMcA2hVkkSWh1g97cQXNRgMxA9PFn5RoTk2NuirGevSNdLKXpO+
-	bbIY3QqvkziWnC3qNgCjTbwwkji7VKktZrM2YlVTDYSbhaOcc8ncRLGR5sle6Cc7fWDqXTShFOAAk
-	+2bGGJuQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=OtPAFim1cDpcp/PLXUaQwLiMk8Vxwyxo/NiSi3JW/f0=; b=oJHiz5aDUUsBv7GgdxbJe2kow2
+	uJFVp1RJyiBMLzOzvJCaJAg9Ef+O/fec/SHTeYsAE8xSvtm6RTwqo+G6ylIeapnT/8vIMLPpqMlOp
+	e6ibJWT/wzbLaKhjf/MvVUxp0KWxa8Cn487LnWDKV/uDoRR5HLSSxfgKkp6SuiK3PcLkWDWDH1/Ny
+	PhtFhc7Lrnmo6UeWoO7ofezXdC4qSH9d1VUHSVSP/C97ogej5kR5GSEIgaD5CsO5ESJnUS+kRVmSw
+	xd3HPFvd56lDaYMa2IiQE8wTviYX9fOXeuMq2jCqxqOYm7zUuaZ4bUR139NRnC2X82DmgL4L+dX4C
+	UQwjJfZw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLpqq-00BtP6-00;
-	Tue, 18 Jul 2023 18:55:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C7D9861653;
-	Tue, 18 Jul 2023 18:55:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FFD5C433C8;
-	Tue, 18 Jul 2023 18:55:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689706506;
-	bh=g90tmctGip5JZ/qUltLRa3L/ha79p8Mr36vMSarsNto=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hL9gb0hWnxYQ//PahNxf6ii3EcokNDZCUKPYDDX2Uj5Y9En1S9Qey0qZDQ2RW3P2p
-	 dTTMDDmfmtisD08Vic4XKPtxlGRvJPgyq8Vz7vooyeMlS1DNpBL5LhEkFy/YxE3mnd
-	 JGZwQRVkEFMazG6MnqCTiZ62Hf2mFE7KFIDZ1yzZpMPF9iQKXY403xt9uho3pljmBz
-	 dmdQAiwMPBz8emAKbWggcfJxkiAAU719bIyF0/5kw/Nu71BoYVur9E70n5SstkziYs
-	 8h5G21sSol6HTKBwHCSG9f3dVB8vIx3V2YTIARB0eTo6wi80Ose2YR2SPxc5OAnBn2
-	 l/Cl4NVx1FtQA==
-Date: Tue, 18 Jul 2023 19:54:57 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "corbet@lwn.net" <corbet@lwn.net>, "ardb@kernel.org" <ardb@kernel.org>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
-	"keescook@chromium.org" <keescook@chromium.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"debug@rivosinc.com" <debug@rivosinc.com>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"oleg@redhat.com" <oleg@redhat.com>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"ebiederm@xmission.com" <ebiederm@xmission.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"hjl.tools@gmail.com" <hjl.tools@gmail.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>
-Subject: Re: [PATCH 01/35] prctl: arch-agnostic prctl for shadow stack
-Message-ID: <45489f30-8bb7-45f1-ad09-28de4cebf406@sirena.org.uk>
-References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
- <20230716-arm64-gcs-v1-1-bf567f93bba6@kernel.org>
- <3185fa6c37e54d26d66cd0e87e74fb5492399d78.camel@intel.com>
+	id 1qLiiH-00BSiD-33
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Jul 2023 11:17:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689679057;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OtPAFim1cDpcp/PLXUaQwLiMk8Vxwyxo/NiSi3JW/f0=;
+	b=Na1vgKloy740OdgWskxt8P7Fosy1DDCe4VuZfVapyj54CMIewjcLhg0veSIPoibaAl/Mod
+	e+ejvHFdP2PsHpbGyRPWjCbuJX/sHLZa4hgW7S8AVQfmOCdz6sAw1Ue9Nfi2OUj2jlvmum
+	/7PRd9gk1acjmuHdeTHIVdBRI5RP2k0=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689679073;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OtPAFim1cDpcp/PLXUaQwLiMk8Vxwyxo/NiSi3JW/f0=;
+	b=go1wPAWWmlWap5uyAi639lFhxEi6OO5nik7iW3NlX/Jo9HZoQK8YE8xI0/sHgkewul5Xrv
+	ZnMuDZUayWxuYHCe37NuQeSwi3x8dnvU3CoRbwnYg+GP4kuRpXin612OWS9IU/d6KD4DN2
+	TV4Y7zctZ//u0+T68IpFGnYoMv88TJg=
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
+ [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-371-MjdczyanM5qao4OPC_DZrA-1; Tue, 18 Jul 2023 07:17:34 -0400
+X-MC-Unique: MjdczyanM5qao4OPC_DZrA-1
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-553c68126f8so771629a12.0
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 04:17:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689679053; x=1692271053;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OtPAFim1cDpcp/PLXUaQwLiMk8Vxwyxo/NiSi3JW/f0=;
+        b=X0lNHI57y5pDAWe/aexa3RUm/d7RSCoopkHGepvF1gg/UCDYIeRPkGO7u34NO/33Gj
+         WU3/X5wkoII8SuzRblqRXaJni+nvv6gkDqqsBonGNFc7gdOnOwH5CYU7IvQRDl34ofil
+         imQq036GFCvNMMvUK8ABvxDBzI20Mx2IirPwEg3WTjIMsHpEkydTdqnByBMKazA1LMph
+         pj4umunmxz8wd3hlgLoD3IV8fNH79t/ciaWFRXOpArXyfFq7SYWnrfGglC5Dq0tR4sbz
+         Roe2koy844HhizDS3WNPMbH7mtXxcVFzffyk8anXHoV5AmH/BGbYi/8sVQumkL19Iqfw
+         igcw==
+X-Gm-Message-State: ABy/qLaJGUSor05RDAIFYW4NyvgQtIdnGb/6tPHKmFa8R7bET8jWpMgv
+	P6vyMH+BuwSRDXEdYrSXbjsXUqtNr4Aci5xnVBIC/s8fAuifW5njvEfKRemvKClCWF138fTR3Qg
+	5FXon853t3qQMOlhKTGOTpEyPE8cw
+X-Received: by 2002:a05:6a20:3d07:b0:133:89e:bf1a with SMTP id y7-20020a056a203d0700b00133089ebf1amr12988289pzi.4.1689679053259;
+        Tue, 18 Jul 2023 04:17:33 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlGlX4aGknKfPCjhtPs4zbhCwYUKXUWNkmQcI4lBrRW+0354cqKkBfpbN1eJEAJfM+P9UQWRbQ==
+X-Received: by 2002:a05:6a20:3d07:b0:133:89e:bf1a with SMTP id y7-20020a056a203d0700b00133089ebf1amr12988260pzi.4.1689679052990;
+        Tue, 18 Jul 2023 04:17:32 -0700 (PDT)
+Received: from [10.72.112.40] ([43.228.180.230])
+        by smtp.gmail.com with ESMTPSA id k22-20020aa792d6000000b00682868714fdsm1369203pfa.95.2023.07.18.04.17.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Jul 2023 04:17:32 -0700 (PDT)
+Message-ID: <a8a43069-ca4c-07e6-3b65-de749f295365@redhat.com>
+Date: Tue, 18 Jul 2023 19:17:26 +0800
 MIME-Version: 1.0
-In-Reply-To: <3185fa6c37e54d26d66cd0e87e74fb5492399d78.camel@intel.com>
-X-Cookie: Nothing happens.
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Subject: Re: [PATCH v6 10/11] KVM: arm64: Invalidate the table entries upon a
+ range
+To: Raghavendra Rao Ananta <rananta@google.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+ Sean Christopherson <seanjc@google.com>, Huacai Chen
+ <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
+ Jing Zhang <jingzhangos@google.com>, Colton Lewis <coltonlewis@google.com>,
+ David Matlack <dmatlack@google.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ Gavin Shan <gshan@redhat.com>
+References: <20230715005405.3689586-1-rananta@google.com>
+ <20230715005405.3689586-11-rananta@google.com>
+From: Shaoqin Huang <shahuang@redhat.com>
+In-Reply-To: <20230715005405.3689586-11-rananta@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_195512_321888_AD526C20 
-X-CRM114-Status: GOOD (  41.90  )
+X-CRM114-CacheID: sfid-20230718_121754_908433_271BFA0D 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,141 +134,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2337277980407516253=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2337277980407516253==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KcrOI5lcfTfmau0e"
-Content-Disposition: inline
 
+On 7/15/23 08:54, Raghavendra Rao Ananta wrote:
+> Currently, during the operations such as a hugepage collapse,
+> KVM would flush the entire VM's context using 'vmalls12e1is'
+> TLBI operation. Specifically, if the VM is faulting on many
+> hugepages (say after dirty-logging), it creates a performance
+> penalty for the guest whose pages have already been faulted
+> earlier as they would have to refill their TLBs again.
+> 
+> Instead, leverage kvm_tlb_flush_vmid_range() for table entries.
+> If the system supports it, only the required range will be
+> flushed. Else, it'll fallback to the previous mechanism.
+> 
+> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
+> ---
+>   arch/arm64/kvm/hyp/pgtable.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 5d14d5d5819a..5ef098af1736 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -806,7 +806,8 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
+>   		 * evicted pte value (if any).
+>   		 */
+>   		if (kvm_pte_table(ctx->old, ctx->level))
+> -			kvm_call_hyp(__kvm_tlb_flush_vmid, mmu);
+> +			kvm_tlb_flush_vmid_range(mmu, ctx->addr,
+> +						kvm_granule_size(ctx->level));
+>   		else if (kvm_pte_valid(ctx->old))
+>   			kvm_call_hyp(__kvm_tlb_flush_vmid_ipa, mmu,
+>   				     ctx->addr, ctx->level);
 
---KcrOI5lcfTfmau0e
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+-- 
+Shaoqin
 
-On Tue, Jul 18, 2023 at 05:45:01PM +0000, Edgecombe, Rick P wrote:
-> On Sun, 2023-07-16 at 22:50 +0100, Mark Brown wrote:
-
-> > Three architectures (x86, aarch64, riscv) have announced support for
-> > shadow stack.=A0 This patch adds arch-agnostic prtcl support to enable
-> > /disable/get/set status of shadow stack and forward control (landing
-> > pad)
-> > flow cfi statuses.
-
-> What is this about forward control flow? Seems to be just about shadow
-> stack.
-
-Sorry, that's the original commit message - the original version of this
-also had support for controlling landing pads but I don't need that and
-cut them out of the series.  I forgot to update that bit of the commit
-message.
-
-> > [Rebased onto current kernels, renumbering to track other allocations
-> > =A0already upstream, dropping indirect LP, updating to pass arg to set
-> > =A0 by value, fix missing prototypes for weak functions and update
-> > title.
-> > =A0 -- broonie]
-
-> 1. PR_SET_SHADOW_STACK_STATUS seems like a strange name for the thing
-> actually doing the whole enabling of the feature which involves
-> allocating memory, etc. And in the future a growing array of different
-> things (enabling push, write, etc).
-
-I have no strong opinion on naming here.  _MODE?  I didn't find any
-discussions around this in the=20
-
-> 2. x86 only allows one enabling/disabling operation at a time. So you
-> can't enable shadow stack AND WRSS with one syscall, for example. This
-> is to make it so it's clear which operation failed. Also, since some
-> features depend on others (WRSS), there would need to be some ordering
-> and rollback logic.=A0There was some discussion about a batch enabling
-> arch_prctl() that could report failures independently, but it was
-> deemed premature optimization.
-
-I did see that the x86 implementation required a call per flag, the
-logic wasn't hugely obvious there - it didn't seem super helpful.
-There's nothing stopping userspace turning one flag at a time if it
-wants to, we just don't require it.  I wasn't overly concerned about the
-rollback logic since I was anticipating that the main complexity is the
-base enable and allocate, everything else would just be storing a mode.
-
-We can implement things with the one bit per call approach, I just
-didn't see much upside to it.  Perhaps I'm missing some case though.
-
-> 3. It only allows you to lock the whole feature, and not individual
-> subfeatures. For things like WRSS, it came up that there might be an
-> elf bit, like the shadow stack one, but that works a bit different.
-> Instead of only enabling shadow stack when ALL DSOs support the
-> feature, it would want to be enabled if ANY DSOs require it. So
-> userspace might want to do something like lock shadow stack, but leave
-> WRSS unlocked in case a dlopen() call came across a WRSS-requiring DSO.
-
-We could add either a second argument with the lock or a separate lock
-prctl() and matching query which takes the same bitmask, being able
-to lock per feature does give more flexibility to userspace in how we do
-the locking and isn't hugely more costly to implement.  My model for
-locking had been that there would be a final decision on what the
-features should be, I was modelling "can enable" as equivalent access to
-"is enabled" when it came to what was locked.
-
-> 4. To support CRIU, there needed to be a ptrace-only unlock feature.
-> The arch_prctl() has a special ptrace route to enforce that this unlock
-> is only coming from ptrace. Is there some way to do this with a regular
-> prctl()?
-
-For arm64 we need to add a regset to expose the GCS pointer anyway so
-the GCS mode is in there, though at the minute we prevent any changes at
-all via that mechanism it could be implemented later.  I'm not aware of
-any way for prctl() to tell if it is being invoked via ptrace so that'd
-need to be dealt with somehow.
-
-> 5. I see in the next patch there is hinted support for write and push
-> as well (although I can't find the implementation in the patches, am I
-> missing it?). X86 has something close enough to write, but not push.
-> What is the idea for when the features don't exactly match?
-
-The implementation is in "arm64/gcs: Implement shadow stack prctl()
-interface", it just boils down to turning on or off a register bit.
-
-> I think when Deepak originally brought up this unified prctl-based
-> interface, it seemed far away before we could tell if it *could* be
-> unified. Do either of you have any thoughts on whether the above points
-> could be incorporated?
-
-Other than the issue with CRIU I don't see any huge difficulty.
-
---KcrOI5lcfTfmau0e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmS24AAACgkQJNaLcl1U
-h9DxkQgAgZwa9pvR8VpxobsPn+zGULF2/Agz87ptksoCHAdiehLbLFMyBPdWVlPE
-VpUVG9yRkpPwF6CxIGr7eYT3bdZPRghlak/eJK+2vfEr9OBZrtn5jUDtLcYXHFEh
-4zY9eSZj4uM6IEH8PR/edFhVsRmngGx2xU0Y4yqcmKXBT2S4OdfrOQQvQkKQ15eG
-oZBMN4uX+3JFgQLViUMNpPj0bbkA+G4kab1alwOZiQZfZEqH1CRuPpk4CHu51Db9
-8bP7/Jy0QkCO19VmDm3NC8v3vAUoECs9iGx6GzsL41fRNlNMbEy2yyTxdz4Nu4YH
-/Fkhbx2eF0EG2nmwEzbQ+eAsBn/+eg==
-=rIz9
------END PGP SIGNATURE-----
-
---KcrOI5lcfTfmau0e--
-
-
---===============2337277980407516253==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2337277980407516253==--
-
