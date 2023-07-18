@@ -4,79 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4069C001DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DF3C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H2xmIb0Jh/b9MyYaGKIzlwuxtnX5hqX9A/mfkazE5rw=; b=J5BRLaWsMgg9n4NNi5ZSBzDSwk
-	fwFzbP6c4eJnC11t/J9Z2ZMPDLaehUQf2EXbqEYfOPIqAq5M7ujK/br5xz1kDIgQaPVury9o+EnrV
-	fxVCbe3gHwGw4srfHYX98OiPMAvOJgtjJrS0M9C1wuzJd/eIDQgoD4U3Z7irvG9FIXElHffzGBALf
-	QQnppsL3ksGuJcnS6ehw+iGqZ1yi3ZyldKIvKDTiTbldQNkzyf3czTgt1wbEuGDkzRFtJ2soCqKs1
-	esEsXq6MEf9iaILwa2BgqcB13iaAXFw7qSia9+a3Ko7hzPYosaLOsLbFWpYgH8HIC5Niq1ip6kwTr
-	pCAtyTpg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IK/nWP5/zprZU4RLGNSzAU0eYHLfaINbDMTurFhifhc=; b=z29V1i4XigW/gf
+	tVyV20NNGIyUExD+qBGRqv5lnhzJL4Hx/rKYfX38W50Z2yBe95IJ653021J/6zCrui8uW8JTibR2N
+	sSnqsZdREL32enLy7CkiOIS1sUKLeV/sVwGtduVqgE/nV+gc8UOt491eed1ADnFGBy02vNVYOgP5u
+	/MOFL9LHVzuJVwQC8bb3CtXysWYAZZmKDBHCb2JnfpqxpfmWpr4upoKalrFAzOfLZlukZa2TN5w+Y
+	3qNv/9Xk8dRxi8ZbcUNM9uioAwW/ClW/4g3X7WwmahwAF7OgTGJ2sr7jWu5uaTKYk8CVtVxyLSOuZ
+	Vwg59G/auwpo47XgNTRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM178-005zP1-1a;
-	Wed, 19 Jul 2023 06:56:46 +0000
+	id 1qM17c-005zqI-1F;
+	Wed, 19 Jul 2023 06:57:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM171-005zIC-2E
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 06:56:39 +0000
+	id 1qM17C-005zSU-2o;
+	Wed, 19 Jul 2023 06:56:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ac+IZGhK/LfC59pAhnqYMsO3nWtpTw/81ml/Yo0vHpI=; b=YTVRfERZuXX3GvVPPzzRW9zsQL
-	+iC5rqbzN6TfmlQ1+1LAPVW2VPws7/wWUh4lBe0zBZ2tfbr6e1tnVpFC+Y2plNpFZsCobsPAwDfz4
-	hPnZAUX9MVjxx87p1hwZBgfbJSXI/yLcvFoKalRX4gIYqKrUlfiwIX8pTu6UHw0Ki/bZt+M6S7ExR
-	dY2AYWlgfaep18W3DOvT2SM2XYTqdAZBO3BGLRMmv0S5VGaYjTXCDddXT1Ro8aoDtVi8l5c7s9YDn
-	bzTS/sv9E+c/T9wC5/hjRO86YTDTqLFs8cZep7ed+g/MsrYoXScGZggUfsYMwHCc98mRYy11siT/M
-	q1/AJZqg==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=RpKAtUiUinq9Lhw+v54h3QcTHPMMcdg2W9j58F9msCI=; b=F3Ce31FjCpD97H49ycWH/uON4l
+	G7DbGdmmsnGTJvVBZ+SXSf4Ns5xQUivWbsUdFnnzRR2ZMrbGvnaHrxZ6/hZ4pV4N43Zqyj4a3+3CX
+	ayoTunY9wR9hj9mOf5VlwlZJYXSSgCwSE51fxhBUoXR6DeY1qasb55mw26rnmhx+kXK+Mzj2R2pOz
+	Vc+tZd8sT/dFpD4YVIZ2iCo1TMrjyrt2+er1/NQrqLhxaWYJFOpVSaMJIyAboleRTW26XSTTV/7Ni
+	T2xMqnL0BV4MVg0Osb2n7Qg6AFdgnbI4uX8ZzB5/dGR+hvtSzdzNpuxXnXj1AOQpAYUKr+mzQpeck
+	cYs/Vkdw==;
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLhsf-00BPNi-1S
-	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jul 2023 10:24:36 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2D7AB614FD;
-	Tue, 18 Jul 2023 10:23:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DE33C433C8;
-	Tue, 18 Jul 2023 10:23:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689675834;
-	bh=KVnXnhr7240E++pNIqUU7VhBqqkwwFZpVa77Qo9jFUA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qV1nKPq+kFRc0jN95sl/B7jhJsb01Jjyx8PzBYFS6N5GRjr+jbhzVU5sG3Q9yzBup
-	 pLpyRtFp7b9WG/FYaPXlKsXXgJ3chlwx2qGQQqy5//VbaZNZRHdDXGcYU74/edNB6N
-	 VfM93kzoUm7GBy1tv37VUTvNyKRwM9c/CBTfz7/MLMbRBQJomhdY4fvB9wCIq3gFEU
-	 cXQQalMImJOiMi9ixKwCTNgdHEaeoCEL6YiEOQHTYQhG8KpgtsxuTHtYQ2+r1t3+xP
-	 092rQ9xMVQCCjru/O3zxfsTUWBBer8mQlSo/ma2flA9CnHbb2IsloMLXHx4BHwUZT/
-	 P96ZAerxNg27Q==
-Date: Tue, 18 Jul 2023 11:23:50 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] riscv: allow kmalloc() caches aligned to the
- smallest value
-Message-ID: <20230718-brook-engross-1e7c273facdb@spud>
-References: <20230716165147.1897-1-jszhang@kernel.org>
- <20230716165147.1897-2-jszhang@kernel.org>
+	id 1qLeG3-00BDZ1-2L;
+	Tue, 18 Jul 2023 06:32:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E080220008;
+	Tue, 18 Jul 2023 06:31:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1689661919;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RpKAtUiUinq9Lhw+v54h3QcTHPMMcdg2W9j58F9msCI=;
+	b=lVsAfqer8xWiySiEq4z7Whp9otUwyCQXKtPI1tRr5f7imi5WmvidsvbXpCUGXwxk1c+lvE
+	oUHmSljh698Kg7YXWz38yD7YKynczdgakNvh9W31vXeG3ASFtYmUbHMMJvu2jAXs6WXMFe
+	qDOvnq5fNCwuhkU5Pv9JkSJ8uAbs1yjvZIjT+WnxMiQeDJLtUHfZO7aM8YIAG7auX7E6KB
+	neoUdUzoHRJnTzkhM6WLVgYwYyzcHYvDk8cc5I9mppjSrEmHREOSYJaDUdNw61xuiMD/34
+	m7I4N+6JbCgr4Op1Mxo+kriyEeSldJsgWRrKtcIj3mGk+C0lffE+F3dHz9dysw==
+Date: Tue, 18 Jul 2023 08:31:49 +0200
+From: Herve Codina <herve.codina@bootlin.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>,
+ Roger Quadros <rogerq@kernel.org>, Aswath Govindraju <a-govindraju@ti.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ NXP Linux Team <linux-imx@nxp.com>, Thierry Reding
+ <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Minas
+ Harutyunyan <hminas@synopsys.com>, Thinh Nguyen
+ <Thinh.Nguyen@synopsys.com>, Li Yang <leoyang.li@nxp.com>, Daniel Mack
+ <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, Robert
+ Jarzmik <robert.jarzmik@free.fr>, Michal Simek <michal.simek@amd.com>, Alan
+ Stern <stern@rowland.harvard.edu>, Nicolas Ferre
+ <nicolas.ferre@microchip.com>, Alexandre Belloni
+ <alexandre.belloni@bootlin.com>, Claudiu Beznea
+ <claudiu.beznea@microchip.com>, Mathias Nyman <mathias.nyman@intel.com>,
+ Richard Leitner <richard.leitner@linux.dev>, Chunfeng Yun
+ <chunfeng.yun@mediatek.com>, Paul Cercueil <paul@crapouillou.net>, Bin Liu
+ <b-liu@ti.com>, Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+ <daire.mcnamara@microchip.com>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Guenter Roeck <linux@roeck-us.net>, Heikki Krogerus
+ <heikki.krogerus@linux.intel.com>, "Bryan O'Donoghue"
+ <bryan.odonoghue@linaro.org>, Andy Gross <agross@kernel.org>, Bjorn
+ Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno     
+    <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-renesas-soc@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH] usb: Explicitly include correct DT includes
+Message-ID: <20230718083149.77fa57ef@bootlin.com>
+In-Reply-To: <20230714175027.4065135-1-robh@kernel.org>
+References: <20230714175027.4065135-1-robh@kernel.org>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <20230716165147.1897-2-jszhang@kernel.org>
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_112434_373617_6333D9FB 
-X-CRM114-Status: GOOD (  35.59  )
+X-CRM114-CacheID: sfid-20230718_073227_949982_32A71018 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,206 +111,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7062546973069175912=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============7062546973069175912==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ukHnNSShkeJEQlWy"
-Content-Disposition: inline
-
-
---ukHnNSShkeJEQlWy
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Jisheng,
-
-On Mon, Jul 17, 2023 at 12:51:46AM +0800, Jisheng Zhang wrote:
-> Currently, riscv defines ARCH_DMA_MINALIGN as L1_CACHE_BYTES, I.E
-> 64Bytes, if CONFIG_RISCV_DMA_NONCOHERENT=3Dy. To support unified kernel
-> Image, usually we have to enable CONFIG_RISCV_DMA_NONCOHERENT, thus
-> it brings some bad effects to coherent platforms:
->=20
-> Firstly, it wastes memory, kmalloc-96, kmalloc-32, kmalloc-16 and
-> kmalloc-8 slab caches don't exist any more, they are replaced with
-> either kmalloc-128 or kmalloc-64.
->=20
-> Secondly, larger than necessary kmalloc aligned allocations results
-> in unnecessary cache/TLB pressure.
->=20
-> This issue also exists on arm64 platforms. From last year, Catalin
-> tried to solve this issue by decoupling ARCH_KMALLOC_MINALIGN from
-> ARCH_DMA_MINALIGN, limiting kmalloc() minimum alignment to
-> dma_get_cache_alignment() and replacing ARCH_KMALLOC_MINALIGN usage
-> in various drivers with ARCH_DMA_MINALIGN etc.[1]
->=20
-> One fact we can make use of for riscv: if the CPU doesn't support
-> ZICBOM or T-HEAD CMO, we know the platform is coherent. Based on
-> Catalin's work and above fact, we can easily solve the kmalloc align
-> issue for riscv: we can override dma_get_cache_alignment(), then let
-> it return ARCH_DMA_MINALIGN at the beginning and return 1 once we know
-> the underlying HW neither supports ZICBOM nor supports T-HEAD CMO.
->=20
-> So what about if the CPU supports ZICBOM and T-HEAD CMO, but all the
-> devices are dma coherent? Well, we use ARCH_DMA_MINALIGN as the
-> kmalloc minimum alignment, nothing changed in this case. This case
-> can be improved in the future.
->=20
-> After this patch, a simple test of booting to a small buildroot rootfs
-> on qemu shows:
->=20
-> kmalloc-96           5041    5041     96  ...
-> kmalloc-64           9606    9606     64  ...
-> kmalloc-32           5128    5128     32  ...
-> kmalloc-16           7682    7682     16  ...
-> kmalloc-8           10246   10246      8  ...
->=20
-> So we save about 1268KB memory. The saving will be much larger in normal
-> OS env on real HW platforms.
->=20
-> [1] Link: https://lore.kernel.org/linux-arm-kernel/20230524171904.3967031=
--1-catalin.marinas@arm.com/
-
-In the future,
-
-Link: https://lore.kernel.org/linux-arm-kernel/20230524171904.3967031-1-cat=
-alin.marinas@arm.com/ [1]
-
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Change-Id: Ica249d0f8058a02bd4bc6543b4ffc2946a4734a2
-
-How come this has ended up with a Change-ID? Checkpatch says this is
-something to do with Gerrit & needs to be removed.
-
-> ---
->  arch/riscv/include/asm/cache.h      | 14 ++++++++++++++
->  arch/riscv/include/asm/cacheflush.h |  2 ++
->  arch/riscv/kernel/setup.c           |  1 +
->  arch/riscv/mm/dma-noncoherent.c     |  8 ++++++++
->  4 files changed, 25 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cach=
-e.h
-> index d3036df23ccb..2174fe7bac9a 100644
-> --- a/arch/riscv/include/asm/cache.h
-> +++ b/arch/riscv/include/asm/cache.h
-> @@ -13,6 +13,7 @@
-> =20
->  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
->  #define ARCH_DMA_MINALIGN L1_CACHE_BYTES
-> +#define ARCH_KMALLOC_MINALIGN	(8)
->  #endif
-> =20
->  /*
-> @@ -23,4 +24,17 @@
->  #define ARCH_SLAB_MINALIGN	16
->  #endif
-> =20
-> +#ifndef __ASSEMBLY__
-> +
-> +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> +extern int dma_cache_alignment;
-> +#define dma_get_cache_alignment dma_get_cache_alignment
-> +static inline int dma_get_cache_alignment(void)
-> +{
-> +	return dma_cache_alignment;
-> +}
-> +#endif
-> +
-> +#endif	/* __ASSEMBLY__ */
-> +
->  #endif /* _ASM_RISCV_CACHE_H */
-> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm=
-/cacheflush.h
-> index 8091b8bf4883..c640ab6f843b 100644
-> --- a/arch/riscv/include/asm/cacheflush.h
-> +++ b/arch/riscv/include/asm/cacheflush.h
-> @@ -55,8 +55,10 @@ void riscv_init_cbo_blocksizes(void);
-> =20
->  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
->  void riscv_noncoherent_supported(void);
-> +void __init riscv_set_dma_cache_alignment(void);
->  #else
->  static inline void riscv_noncoherent_supported(void) {}
-> +static inline void riscv_set_dma_cache_alignment(void) {}
->  #endif
-> =20
->  /*
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 971fe776e2f8..027879b1557a 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -311,6 +311,7 @@ void __init setup_arch(char **cmdline_p)
->  	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
->  	    riscv_isa_extension_available(NULL, ZICBOM))
->  		riscv_noncoherent_supported();
-> +	riscv_set_dma_cache_alignment();
->  }
-> =20
->  static int __init topology_init(void)
-> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoher=
-ent.c
-> index d51a75864e53..811227e54bbd 100644
-> --- a/arch/riscv/mm/dma-noncoherent.c
-> +++ b/arch/riscv/mm/dma-noncoherent.c
-> @@ -11,6 +11,8 @@
->  #include <asm/cacheflush.h>
-> =20
->  static bool noncoherent_supported __ro_after_init;
-> +int dma_cache_alignment __ro_after_init =3D ARCH_DMA_MINALIGN;
-> +EXPORT_SYMBOL(dma_cache_alignment);
-
-Why is this not EXPORT_SYMBOL_GPL()?
-
-Otherwise, this is generally good to me, thanks.
-
-Conor.
-
-> =20
->  void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
->  			      enum dma_data_direction dir)
-> @@ -78,3 +80,9 @@ void riscv_noncoherent_supported(void)
->  	     "Non-coherent DMA support enabled without a block size\n");
->  	noncoherent_supported =3D true;
->  }
-> +
-> +void __init riscv_set_dma_cache_alignment(void)
-> +{
-> +	if (!noncoherent_supported)
-> +		dma_cache_alignment =3D 1;
-> +}
-> --=20
-> 2.40.1
->=20
-
---ukHnNSShkeJEQlWy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLZoNgAKCRB4tDGHoIJi
-0kI7AQCMT8JQWfRRZSoTqXGLN7caPWS5Thzp0Y4Wj2rWAITvZQD/edOv1Rt3cU5k
-IFZugwdsDZDoZ0uij4spCAwKC8xKLQQ=
-=FrpO
------END PGP SIGNATURE-----
-
---ukHnNSShkeJEQlWy--
-
-
---===============7062546973069175912==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7062546973069175912==--
-
+SGkgUm9iLAoKT24gRnJpLCAxNCBKdWwgMjAyMyAxMTo1MDoyMyAtMDYwMApSb2IgSGVycmluZyA8
+cm9iaEBrZXJuZWwub3JnPiB3cm90ZToKCj4gVGhlIERUIG9mX2RldmljZS5oIGFuZCBvZl9wbGF0
+Zm9ybS5oIGRhdGUgYmFjayB0byB0aGUgc2VwYXJhdGUKPiBvZl9wbGF0Zm9ybV9idXNfdHlwZSBi
+ZWZvcmUgaXQgYXMgbWVyZ2VkIGludG8gdGhlIHJlZ3VsYXIgcGxhdGZvcm0gYnVzLgo+IEFzIHBh
+cnQgb2YgdGhhdCBtZXJnZSBwcmVwcGluZyBBcm0gRFQgc3VwcG9ydCAxMyB5ZWFycyBhZ28sIHRo
+ZXkKPiAidGVtcG9yYXJpbHkiIGluY2x1ZGUgZWFjaCBvdGhlci4gVGhleSBhbHNvIGluY2x1ZGUg
+cGxhdGZvcm1fZGV2aWNlLmgKPiBhbmQgb2YuaC4gQXMgYSByZXN1bHQsIHRoZXJlJ3MgYSBwcmV0
+dHkgbXVjaCByYW5kb20gbWl4IG9mIHRob3NlIGluY2x1ZGUKPiBmaWxlcyB1c2VkIHRocm91Z2hv
+dXQgdGhlIHRyZWUuIEluIG9yZGVyIHRvIGRldGFuZ2xlIHRoZXNlIGhlYWRlcnMgYW5kCj4gcmVw
+bGFjZSB0aGUgaW1wbGljaXQgaW5jbHVkZXMgd2l0aCBzdHJ1Y3QgZGVjbGFyYXRpb25zLCB1c2Vy
+cyBuZWVkIHRvCj4gZXhwbGljaXRseSBpbmNsdWRlIHRoZSBjb3JyZWN0IGluY2x1ZGVzLgo+IAo+
+IFNpZ25lZC1vZmYtYnk6IFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5lbC5vcmc+Cj4gLS0tCgpbLi4u
+XQoKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy91c2IvZ2FkZ2V0L3VkYy9yZW5lc2FzX3VzYmYuYyBi
+L2RyaXZlcnMvdXNiL2dhZGdldC91ZGMvcmVuZXNhc191c2JmLmMKPiBpbmRleCA2Y2QwYWY4M2U5
+MWUuLjM0ODJiNDFkMDY0NiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL3VzYi9nYWRnZXQvdWRjL3Jl
+bmVzYXNfdXNiZi5jCj4gKysrIGIvZHJpdmVycy91c2IvZ2FkZ2V0L3VkYy9yZW5lc2FzX3VzYmYu
+Ywo+IEBAIC0xMiwxMCArMTIsOSBAQAo+ICAjaW5jbHVkZSA8bGludXgvaW9wb2xsLmg+Cj4gICNp
+bmNsdWRlIDxsaW51eC9rZXJuZWwuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L2tmaWZvLmg+Cj4gKyNp
+bmNsdWRlIDxsaW51eC9tb2RfZGV2aWNldGFibGUuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L21vZHVs
+ZS5oPgo+IC0jaW5jbHVkZSA8bGludXgvb2ZfYWRkcmVzcy5oPgo+IC0jaW5jbHVkZSA8bGludXgv
+b2ZfaXJxLmg+Cj4gLSNpbmNsdWRlIDxsaW51eC9vZl9wbGF0Zm9ybS5oPgo+ICsjaW5jbHVkZSA8
+bGludXgvcGxhdGZvcm1fZGV2aWNlLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9wbV9ydW50aW1lLmg+
+Cj4gICNpbmNsdWRlIDxsaW51eC90eXBlcy5oPgo+ICAjaW5jbHVkZSA8bGludXgvdXNiL2NvbXBv
+c2l0ZS5oPgoKQWNrZWQtYnk6IEhlcnZlIENvZGluYSA8aGVydmUuY29kaW5hQGJvb3RsaW4uY29t
+PgoKQmVzdCByZWdhcmRzLApIZXJ2w6kKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
