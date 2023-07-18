@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FFAEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A08EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FZnxJkHqVWaTMSEbYQjEVna1A+RxMIfLgpYFM29uDhQ=; b=YO014Y/aYzmT4O
-	WCWg4N+GTRbOhE+sFJ9TUt6I7Ley3+3aggZVroGHaT7C0ORJ3eCxg4p9KTq9ieyqREN6cuSrN+hCt
-	9RNGFzxoGYhFF0Sws38fFZgu5P8UWNGN1x9dLt66tisXNMc/OIKNxktwflEGoHKjdOz35NLtehPyd
-	Zw1o1IbIAEIzw9vl7UOi2JkF3S4QbBbIsmWAFU7ugDRVvLzHtjGLrCW2xM4jSQzwH28zYrphZi2fZ
-	zBJfHVOFGe2bQPHHEd0O+dmC0IkoH0VMYbT7gLOtPz4VcuIC58ApjTpebFY0TQDom3QoIrcPGTCwJ
-	1kBm1Bw0/6YeCBrR8n3A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NWw9Sx5QXtswS3YNLbfOfOFyKziZ4Cr8w1zR4/FVj3k=; b=pHA8R+8AstTAaR
+	kqq32tvftdWI08GWx+vMKdYBfh6Z3X80oxHy6BQv2IEjiNTXPAkyAFT2rex4ASlGFloAnNkyTtHEd
+	spRbA01/1sQcwLzyjtaPUZddXkGf7WGehaT6tWwmvdUPiphXqq6uXV6O/sIHq6sXdk32B0pYTe5eH
+	jldxgYeu0KBPftvh5PzQSm3PV4KaT+eh9I5sPM0ojAQRWFo38jmbt0Jbixx1b2ecmhYxGmPj3gAsa
+	XS+eP5Zv1EddIzaXcDkfwMljgdKWMubIQxiwop+o8AbVHpxjgsIIjBrxZae+xzjh6g/Y/9sVW2eLo
+	WPIifwHBgLFofZjiWMwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0f3-005jjF-00;
-	Wed, 19 Jul 2023 06:27:45 +0000
-Received: from casper.infradead.org ([90.155.50.34])
+	id 1qM0if-005lJq-18;
+	Wed, 19 Jul 2023 06:31:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzcc-005Dg5-0a
+	id 1qM0ie-005lJ9-0q
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 05:21:10 +0000
+	Wed, 19 Jul 2023 06:31:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Message-ID:
-	Date:Subject:CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=+0QGjlRpZPrM/uup2zUmaQINAkyP6D0Lf8mXdHziHdo=; b=XoL7YUeGKvNMgLPADEcvpdFHi1
-	vmwwSTB2P4jObgRPjW4Loht8SqAtVHzLTslvI4ZKP3VY00CBDzu/yf2b5VFZLT0/aKMvfGRB0knfs
-	pWUZlCGWegw+rXKkwIbHgRqBnuyzhvOvQVrrJalOljcn8JobKjBnP5PJ87W//o9HXoFNW8D8iPlpw
-	7h/MNqzRhXlBE8T58PWUg3YPp6EmBpOct8mVwVwywi7k7jQQ1R3nyPQ3tUDBYxS8yYa7088edFS1w
-	9TI8QYK68N8TPjranABpLphVdwiSOdfTOcD8D+HKG/x7Sjz1sDIDDrDq+izpZjpJ3u50athPeMHC1
-	2CvgaSpw==;
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
-	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qLaYS-004WCu-Fx
-	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 02:35:15 +0000
-Received: from mail.andestech.com (ATCPCS16.andestech.com [10.0.1.222])
-	by Atcsqr.andestech.com with ESMTP id 36I2WUJO074398;
-	Tue, 18 Jul 2023 10:32:30 +0800 (+08)
-	(envelope-from minachou@andestech.com)
-Received: from atcfdc88.andestech.com (10.0.15.158) by ATCPCS16.andestech.com
- (10.0.1.222) with Microsoft SMTP Server id 14.3.498.0; Tue, 18 Jul 2023
- 10:32:29 +0800
-From: Mina HuiMin-Chou <minachou@andestech.com>
-To: <linux-riscv@lists.infradead.org>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <chenhuang5@huawei.com>, <tim609@andestech.com>, <dylan@andestech.com>,
-        <minachou@andestech.com>, <az70021@gmail.com>
-Subject: [PATCH] riscv: Move the "Call Trace" to dump_backrace().
-Date: Tue, 18 Jul 2023 10:32:01 +0800
-Message-ID: <20230718023201.16018-1-minachou@andestech.com>
-X-Mailer: git-send-email 2.17.1
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=30q/j1MQT4qtJOvwBOYcXWTJPTqDu7jZJcQei2p4I7E=; b=M7XxhKeishgYGjrQFKwRjrgysG
+	twSBPwLuozospZYPXECD1L6XO9eISTvK4dccDdiEyKabbeEVI9i9lG3Y105UlmRL26cNmcBcgIzG4
+	OSbeNh84KEh6GfMax+WdKvG22z7NqxlwfSvcF3U5vLFl0pA1IMGDQ3hDCegq6M33TaEUAMapnS60g
+	ED7eQDKgDO4jt7LX2qRZsMsdXgvpVN7tBfNX4b8arz9qjM0kRyE5RINfVIRMz5fnBXS+o5cSzAWsJ
+	Z97CFahEsbZJUg4Qz1Husr2+MZfgtQDHVW0bm30x172yolRqtrO5YRof9KCcp7X/PwHHLXK+unO1P
+	M7Zu5cJw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qLsyM-00C99Q-1j
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Jul 2023 22:15:13 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5E35F60C73;
+	Tue, 18 Jul 2023 22:15:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165B0C433C7;
+	Tue, 18 Jul 2023 22:15:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689718505;
+	bh=2Eab4SU5ZrkW5P4w373zamoOL6oOuQGhERItFpuL4Qg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RGdExfIIdbIaKLN73wYPRyKRQClz5N8LUPwGKnCMuMIUy/OAaP18ydXCF9/dkWpzd
+	 Yoxr8g5QlT3kLegkUbqdOGNOjDY4SjZpFs8YsaBq4m5GIg51lUvXbNdskPo1u6AL1t
+	 1OfqwhmJWMth4hek8k5MfHX0y2JYQcUX4Jk/dyB7xYzLPMhAd2vhDub6bEPEEEcZhg
+	 Tg0gR2toTaqcydGkviD13oYaVPKlIp+CG9vNVt7WTcZNU30bWmptnus9jgmLkRzgql
+	 vQYAsDE1CY4ydj0TTx5BQnlLXH7u53pql8p+WJrIkLg1n9A89YYc+ZNUwu6mhzycXQ
+	 Q++KD3Yc6rI6Q==
+Received: (nullmailer pid 2035108 invoked by uid 1000);
+	Tue, 18 Jul 2023 22:15:04 -0000
+Date: Tue, 18 Jul 2023 16:15:04 -0600
+From: Rob Herring <robh@kernel.org>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: Jookia <contact@jookia.org>, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, linux-can@vger.kernel.org, linux-riscv@lists.infradead.org, Fabien Poussin <fabien.poussin@gmail.com>, Samuel Holland <samuel@sholland.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>
+Subject: Re: [PATCH 0/4] Add support for Allwinner D1 CAN controllers
+Message-ID: <20230718221504.GA2015343-robh@kernel.org>
+References: <20230715112523.2533742-1-contact@jookia.org>
+ <96641e09-c676-2702-149c-885002f45a64@codethink.co.uk>
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.158]
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 36I2WUJO074398
+Content-Disposition: inline
+In-Reply-To: <96641e09-c676-2702-149c-885002f45a64@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_033513_054167_6FACFE06 
-X-CRM114-Status: UNSURE (   8.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230718_231511_278770_CCD65030 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,43 +92,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Hui Min Mina Chou <minachou@andestech.com>
+On Mon, Jul 17, 2023 at 09:00:47AM +0100, Ben Dooks wrote:
+> On 15/07/2023 12:25, Jookia wrote:
+> > From: John Watts <contact@jookia.org>
+> 
+> It would be better if you sent your sending email to be the same
+> as the from, I think you'd technically need a signed-off-by from
+> "Jookia" as well.
 
-It would be appropriate to show "Call Trace" within the dump_backtrace
-function to ensure that some kernel dumps include this information.
+The email needs to be an actual person. 'contact' doesn't appear to be 
+one.
 
-This patch is based on Chen Huang's comment [1] and Palmer Dabbelt's
-patch [2].
-
-[1] https://lore.kernel.org/lkml/mhng-75c14e1e-a23c-404b-a1f6-235e53bdb6f3@palmerdabbelt-glaptop/
-[2] https://lore.kernel.org/lkml/20220419174842.488-1-palmer@rivosinc.com/
-
-Signed-off-by: Hui Min Mina Chou <minachou@andestech.com>
----
- arch/riscv/kernel/stacktrace.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 64a9c093aef9..ff136031a592 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -118,12 +118,12 @@ static bool print_trace_address(void *arg, unsigned long pc)
- noinline void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
- 		    const char *loglvl)
- {
-+	pr_cont("%sCall Trace:\n", loglvl);
- 	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
- }
- 
- void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
- {
--	pr_cont("%sCall Trace:\n", loglvl);
- 	dump_backtrace(NULL, task, loglvl);
- }
- 
--- 
-2.34.1
-
+Rob
 
 _______________________________________________
 linux-riscv mailing list
