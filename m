@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44462C001DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D13F7EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VLKkE8cOaJgKrS6WO5JmM6UGEp9hkgFg+3WIrMqxf3o=; b=wrOtOdQSdMoDjD
-	v6blKzUGNwD30PCe8v/XFvoesRPwOjZEylDAFvgoJDQjLhhEzh96S0t5S00icBjuZU/hib7dYlhVr
-	f9b5PlpaQoM6p3DF0cR75rAslQCLeQokisDx5UAMGc6atp0ktis/f9Yp4QbIPT183Ptw8sVW22lZl
-	dkyuBv2l/CwwpcG/dmcg3ubhGDaTzf0ddcfbr1bwJ84AFUMqDblTYDcHB2gyUwU5sVStA+Fm1N/3S
-	1/w93TZ33JMuPOrHrbb/P6zA3f39dgDjVlY7r2uAqOckzV+J9wZYAdtERXapJ0q3dLq8Qw6nWG1Rc
-	3/tIcxHyoHRF25Q51/XA==;
+	List-Owner; bh=ysaosMFDqWRpy0OOUy5eFywBLqqxEjy7g/95MQui0MI=; b=ZiMBR9yfD6p+la
+	nquqgzwUQjXcREGQvJPcNla9lf1OOvMrEq2yO09QOLknwb05qdKjeHNIexDKgX2FvjghCwjzFfATY
+	6KO0dO9f89vBM2XJEfD5C5BHzqaAG0u0nXmP3qt7TYprMZYM9BzWo1Q6dZYUC0MrAZmeH1gem5r9I
+	xfbwR+im9ah7ljHEdtTQRdAnZQHGb9u7xdpBoujKmXrDfMH2FAR0B9iuGvPi7MkfmBC161KTanQOK
+	2w5EIVe4XEYVKhN6/U9aqqI5V80PjAcOTztN1dtAI6wcbLVVnkjAVMBXuHvQZyE5TMcwTGTlUkkjO
+	S92q+y2qsQMZHf1nvOpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzbO-005DnK-3A;
-	Wed, 19 Jul 2023 05:19:55 +0000
+	id 1qLzbe-005Dx3-0y;
+	Wed, 19 Jul 2023 05:20:10 +0000
 Received: from casper.infradead.org ([90.155.50.34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzbH-005Dg5-1t
+	id 1qLzbJ-005Dg5-2c
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 05:19:47 +0000
+	Wed, 19 Jul 2023 05:19:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=SY4++Pw7jN82rDNqoaD2dHTLrQhm/Cpf9xmKrcaKe3Q=; b=JJnk9CTtChzBh/QTtmt/b8SKfF
-	9kJ+O6bSsaBh84432nneom5V7xKPXUJXaug10rsRYfmExoAEm/bSzdUxx5TWznpmlhGIR/zOLcIvt
-	IgnBHP7mDTnb0rvkLLPsrmAdDyStx7kmBWX2qHD8JK76vrkguUH0bk8aV5VK4iUlnltFPq9/DukWQ
-	PR4nQ3ODQpF9p/B6iEged4rFu379EzgABAxUbS5QEDZsZUCJO1uh2bLrmeHR07H9gRHqFyqGejlkm
-	z1O4XwY+/LP9uAtNrl02br3GsTpe35hRHzmZtGOjkyxEnr0G4alWtvED/+5Dnn192SASRo3bnuDIp
-	hZwCZrew==;
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	bh=ZGXSnNz9o61Nw72V9XtLKU+I8mKv7z4NMyFHcn8MEno=; b=dc5EXqGGuCaw1RBFz2l2PTKq3b
+	lgOM2+Pig4Uo3mzuJ95AbtZjvXgYBxwttHUxLKiTAWQZGDR7Z+KVzd4wDSHAn4CBIReir3+Kahpzz
+	eHdJHrkniHWIv7xhI3xHVKqP7ywsQRF76KusLD3PXoL3z4LacY7WSVd19jt0wOjpfn1NQ4sV+pSMh
+	HhlF3L/shwi7wKVq08b0W6NLGpys6oxCE7wPNXWvy/ScMQt9/k+qvRD+XDWPwAT3X2UHkuV/TWBCr
+	Tx0GR4z/YMmyzAPlmyjUX/l7s2xfhBIYLRhnXC+WBxB33EktpR2v8Dl3TOkBAAXzt//x2mRzO8s4e
+	LRwRYo+Q==;
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qLuSc-005R0W-Sw
-	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 23:50:35 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-5633ad8446bso600413a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:50:30 -0700 (PDT)
+	id 1qLuSc-005R0P-5I
+	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 23:50:32 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-c850943cf9aso5386191276.1
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:50:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689724167; x=1692316167;
+        d=google.com; s=20221208; t=1689724165; x=1692316165;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=SY4++Pw7jN82rDNqoaD2dHTLrQhm/Cpf9xmKrcaKe3Q=;
-        b=iijdn5XDnjegnaaZfYZHmIdkKvvbAR+aFZwPs8fwv123kJVz2p2h/9oBWkdPqyaRsS
-         tYPXzs8KW5tlit8ApBuNWuWVjoEh89xnSIsgu/Whq88891SPn+gBWtiDPpY3l3dMc6wN
-         ZjIh27i9FIC2CgcS+8BUw/DTO5qbR+xqgce5EIjbVioflun88hYQpcoeohA5Q62CdacX
-         bkVvUE31SkOaTSOFjNAxW/3riwskjxgdetH4j8mMZ5lGin7O2rYWfZ3WzOi8k2zslRid
-         eo6zcZxWKCaMvtsfl3KXqqEZuMntBe3POabIgGzEM7GnbE1ZCGONcRiVjXe/yh+0wR7u
-         lHoQ==
+        bh=ZGXSnNz9o61Nw72V9XtLKU+I8mKv7z4NMyFHcn8MEno=;
+        b=GviMnBBwU8oJFlQ10qq8pyNxF7L9mJcuxalCPWoh/bF9ok9oEX2NUjJa9KKrHhYi87
+         XvlFcjanaIMk8EerhhIcwP5vtcQhJw/XsBuHfBW7ujLq/QBtekbPZhEy0L3zssjX4Os4
+         HCkDWaXzBMGWrEbehtYy6wCVBKkJl3f6UoLTxyqF6qjG/S5GIRtbBPwaqMWsXI2EE2Ex
+         NTvB3XEVI69qVZ02zJuKcraIox6wsBhFnvj0wE9fUxuTn7iTtsBzcdr5PGVMvlBBbZgO
+         uGQ5KBwtnA8Asre36kaUD4NkR+B+Hy37JeEBxvmqP4a9xALjBPGXbUZlkCkQaErZ6C1E
+         xXtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689724167; x=1692316167;
+        d=1e100.net; s=20221208; t=1689724165; x=1692316165;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SY4++Pw7jN82rDNqoaD2dHTLrQhm/Cpf9xmKrcaKe3Q=;
-        b=VwKoeb1hjBzKYvAbkkiaFdp6x7P6FimLoa+FY4sJxMo8baqiwW0WX79DDp5rEqpwjI
-         2oRv92IArCnhlbgfpSKRP9LRnjaTYM/fsfuOZ8ObHNBy8O2aO4DM1SIsNQ8tt+HM/KUz
-         A2yqvoLlj5r3PZpUegnkfa8Hg0Q2kIQjNRZdvOCa+g95zTpHDS9NAvAGhI3rFkh+YT6x
-         1iWt/so9ZfFWugtmvSpcVeNjVIZQqHfWZQ13zaWV0qjQNGcDnmWAldCGMv7rNNgK6IlQ
-         L9RCfk5mHbu/Z3q/OByO4pZgOFHCb9wMRueAmAluvHNVQZMy7/iVY5uFIiyOcfiJepiS
-         usdw==
-X-Gm-Message-State: ABy/qLZhLZbqchSYU366wVqiRu69HuunTx+GRRHPZ2s4x00STAWF7Spx
-	RQoWYMiciiUE/2oUNcn6riRIssJj3pw=
-X-Google-Smtp-Source: APBJJlGpCneoSQTZl+h8R9VWDYL/V/WxbKXYmZJOD4TnVpMy34jgsMpJIAUA/D5Xqm41I27LXxp2p+nHZ10=
+        bh=ZGXSnNz9o61Nw72V9XtLKU+I8mKv7z4NMyFHcn8MEno=;
+        b=BbGXaDrH8xFWcWy7460yTluuEBqHucxNZdjX9qQ+7tvAWQuJ1pxEh+GbuLH+FQ/aFU
+         Rwzz4p/XbW/zmDvfp1fGQULk9r9gz9Q12rXfd6kkl1fcB/YiumgoVLD3zZOqdHwoGD1g
+         RoN++Dpfi2rHpRL5/LuZ6WdXRjJYVqRg6UQYo7K3HUMjekd3t9kFyhqjgbN7/dqfyj2Y
+         VzfXZTWhYeC4KDhx22u6wu7zykLFGm/BHBc0f9L9F7p1xJiozXLihKxA4uJ7VrvTVl36
+         e26XgeSJAKntl/L44saBcZbxrV4U70zidb1uyttb6hY/iIWCI/QFVIjAiQ3DBf59QgOC
+         kvAQ==
+X-Gm-Message-State: ABy/qLa2ex3fAuF3EG39k2NWLdhfoJU8rhd/3vMZwaXpmVI53eom+Shn
+	cZA7JpixmEbxqLGg2rGT7mE6qbV8pMg=
+X-Google-Smtp-Source: APBJJlGDd5tbMIE4K9RYtlnEKXGejfF7CjNXrlXhKKgJKz78WoWlRr188h2THM+j/ruWPDM9LNr5r2ORq68=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a63:7112:0:b0:534:6929:8ff5 with SMTP id
- m18-20020a637112000000b0053469298ff5mr109745pgc.10.1689724167553; Tue, 18 Jul
- 2023 16:49:27 -0700 (PDT)
-Date: Tue, 18 Jul 2023 16:45:12 -0700
+ (user=seanjc job=sendgmr) by 2002:a25:378a:0:b0:c6e:269e:953a with SMTP id
+ e132-20020a25378a000000b00c6e269e953amr12921yba.3.1689724165651; Tue, 18 Jul
+ 2023 16:49:25 -0700 (PDT)
+Date: Tue, 18 Jul 2023 16:45:11 -0700
 In-Reply-To: <20230718234512.1690985-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230718234512.1690985-1-seanjc@google.com>
 X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
-Message-ID: <20230718234512.1690985-30-seanjc@google.com>
-Subject: [RFC PATCH v11 29/29] KVM: selftests: Test KVM exit behavior for
- private memory/access
+Message-ID: <20230718234512.1690985-29-seanjc@google.com>
+Subject: [RFC PATCH v11 28/29] KVM: selftests: Add basic selftest for guest_memfd()
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -104,8 +103,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_005030_941772_F3D31DC0 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20230719_005030_231177_A26A8811 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,161 +122,155 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ackerley Tng <ackerleytng@google.com>
+Add a selftest to verify the basic functionality of guest_memfd():
 
-"Testing private access when memslot gets deleted" tests the behavior
-of KVM when a private memslot gets deleted while the VM is using the
-private memslot. When KVM looks up the deleted (slot = NULL) memslot,
-KVM should exit to userspace with KVM_EXIT_MEMORY_FAULT.
++ file descriptor created with the guest_memfd() ioctl does not allow
+  read/write/mmap operations
++ file size and block size as returned from fstat are as expected
++ fallocate on the fd checks that offset/length on
+  fallocate(FALLOC_FL_PUNCH_HOLE) should be page aligned
 
-In the second test, upon a private access to non-private memslot, KVM
-should also exit to userspace with KVM_EXIT_MEMORY_FAULT.
-
-sean: These testcases belong in set_memory_region_test.c, they're private
-variants on existing testscases and aren't as robust, e.g. don't ensure
-the vCPU is actually running and accessing memory when converting and
-deleting.
-
+Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
+Co-developed-by: Ackerley Tng <ackerleytng@google.com>
 Signed-off-by: Ackerley Tng <ackerleytng@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
  tools/testing/selftests/kvm/Makefile          |   1 +
- .../kvm/x86_64/private_mem_kvm_exits_test.c   | 115 ++++++++++++++++++
- 2 files changed, 116 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/x86_64/private_mem_kvm_exits_test.c
+ .../testing/selftests/kvm/guest_memfd_test.c  | 114 ++++++++++++++++++
+ 2 files changed, 115 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/guest_memfd_test.c
 
 diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-index 18c43336ede3..cb9450022302 100644
+index fdc7dff8d6ae..18c43336ede3 100644
 --- a/tools/testing/selftests/kvm/Makefile
 +++ b/tools/testing/selftests/kvm/Makefile
-@@ -81,6 +81,7 @@ TEST_GEN_PROGS_x86_64 += x86_64/nested_exceptions_test
- TEST_GEN_PROGS_x86_64 += x86_64/platform_info_test
- TEST_GEN_PROGS_x86_64 += x86_64/pmu_event_filter_test
- TEST_GEN_PROGS_x86_64 += x86_64/private_mem_conversions_test
-+TEST_GEN_PROGS_x86_64 += x86_64/private_mem_kvm_exits_test
- TEST_GEN_PROGS_x86_64 += x86_64/set_boot_cpu_id
- TEST_GEN_PROGS_x86_64 += x86_64/set_sregs_test
- TEST_GEN_PROGS_x86_64 += x86_64/smaller_maxphyaddr_emulation_test
-diff --git a/tools/testing/selftests/kvm/x86_64/private_mem_kvm_exits_test.c b/tools/testing/selftests/kvm/x86_64/private_mem_kvm_exits_test.c
+@@ -123,6 +123,7 @@ TEST_GEN_PROGS_x86_64 += access_tracking_perf_test
+ TEST_GEN_PROGS_x86_64 += demand_paging_test
+ TEST_GEN_PROGS_x86_64 += dirty_log_test
+ TEST_GEN_PROGS_x86_64 += dirty_log_perf_test
++TEST_GEN_PROGS_x86_64 += guest_memfd_test
+ TEST_GEN_PROGS_x86_64 += hardware_disable_test
+ TEST_GEN_PROGS_x86_64 += kvm_create_max_vcpus
+ TEST_GEN_PROGS_x86_64 += kvm_page_table_test
+diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
 new file mode 100644
-index 000000000000..8daaa08c0d90
+index 000000000000..d698f9fde987
 --- /dev/null
-+++ b/tools/testing/selftests/kvm/x86_64/private_mem_kvm_exits_test.c
-@@ -0,0 +1,115 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/tools/testing/selftests/kvm/guest_memfd_test.c
+@@ -0,0 +1,114 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Copyright (C) 2022, Google LLC.
++ * Copyright Intel Corporation, 2023
++ *
++ * Author: Chao Peng <chao.p.peng@linux.intel.com>
 + */
-+#include <linux/kvm.h>
-+#include <pthread.h>
-+#include <stdint.h>
 +
-+#include "kvm_util.h"
-+#include "processor.h"
++#define _GNU_SOURCE
 +#include "test_util.h"
++#include "kvm_util_base.h"
++#include <linux/falloc.h>
++#include <sys/mman.h>
++#include <sys/types.h>
++#include <sys/stat.h>
 +
-+/* Arbitrarily selected to avoid overlaps with anything else */
-+#define EXITS_TEST_GVA 0xc0000000
-+#define EXITS_TEST_GPA EXITS_TEST_GVA
-+#define EXITS_TEST_NPAGES 1
-+#define EXITS_TEST_SIZE (EXITS_TEST_NPAGES * PAGE_SIZE)
-+#define EXITS_TEST_SLOT 10
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++#include <errno.h>
++#include <stdio.h>
++#include <fcntl.h>
 +
-+static uint64_t guest_repeatedly_read(void)
++static void test_file_read_write(int fd)
 +{
-+	volatile uint64_t value;
++	char buf[64];
 +
-+	while (true)
-+		value = *((uint64_t *) EXITS_TEST_GVA);
-+
-+	return value;
++	TEST_ASSERT(read(fd, buf, sizeof(buf)) < 0,
++		    "read on a guest_mem fd should fail");
++	TEST_ASSERT(write(fd, buf, sizeof(buf)) < 0,
++		    "write on a guest_mem fd should fail");
++	TEST_ASSERT(pread(fd, buf, sizeof(buf), 0) < 0,
++		    "pread on a guest_mem fd should fail");
++	TEST_ASSERT(pwrite(fd, buf, sizeof(buf), 0) < 0,
++		    "pwrite on a guest_mem fd should fail");
 +}
 +
-+static uint32_t run_vcpu_get_exit_reason(struct kvm_vcpu *vcpu)
++static void test_mmap(int fd, size_t page_size)
 +{
-+	vcpu_run(vcpu);
++	char *mem;
 +
-+	return vcpu->run->exit_reason;
++	mem = mmap(NULL, page_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
++	ASSERT_EQ(mem, MAP_FAILED);
 +}
 +
-+const struct vm_shape protected_vm_shape = {
-+	.mode = VM_MODE_DEFAULT,
-+	.type = KVM_X86_SW_PROTECTED_VM,
-+};
-+
-+static void test_private_access_memslot_deleted(void)
++static void test_file_size(int fd, size_t page_size, size_t total_size)
 +{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	pthread_t vm_thread;
-+	void *thread_return;
-+	uint32_t exit_reason;
++	struct stat sb;
++	int ret;
 +
-+	vm = vm_create_shape_with_one_vcpu(protected_vm_shape, &vcpu,
-+					   guest_repeatedly_read);
-+
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
-+				    EXITS_TEST_GPA, EXITS_TEST_SLOT,
-+				    EXITS_TEST_NPAGES,
-+				    KVM_MEM_PRIVATE);
-+
-+	virt_map(vm, EXITS_TEST_GVA, EXITS_TEST_GPA, EXITS_TEST_NPAGES);
-+
-+	/* Request to access page privately */
-+	vm_mem_set_private(vm, EXITS_TEST_GPA, EXITS_TEST_SIZE);
-+
-+	pthread_create(&vm_thread, NULL,
-+		       (void *(*)(void *))run_vcpu_get_exit_reason,
-+		       (void *)vcpu);
-+
-+	vm_mem_region_delete(vm, EXITS_TEST_SLOT);
-+
-+	pthread_join(vm_thread, &thread_return);
-+	exit_reason = (uint32_t)(uint64_t)thread_return;
-+
-+	ASSERT_EQ(exit_reason, KVM_EXIT_MEMORY_FAULT);
-+	ASSERT_EQ(vcpu->run->memory.flags, KVM_MEMORY_EXIT_FLAG_PRIVATE);
-+	ASSERT_EQ(vcpu->run->memory.gpa, EXITS_TEST_GPA);
-+	ASSERT_EQ(vcpu->run->memory.size, EXITS_TEST_SIZE);
-+
-+	kvm_vm_free(vm);
++	ret = fstat(fd, &sb);
++	TEST_ASSERT(!ret, "fstat should succeed");
++	ASSERT_EQ(sb.st_size, total_size);
++	ASSERT_EQ(sb.st_blksize, page_size);
 +}
 +
-+static void test_private_access_memslot_not_private(void)
++static void test_fallocate(int fd, size_t page_size, size_t total_size)
 +{
-+	struct kvm_vm *vm;
-+	struct kvm_vcpu *vcpu;
-+	uint32_t exit_reason;
++	int ret;
 +
-+	vm = vm_create_shape_with_one_vcpu(protected_vm_shape, &vcpu,
-+					   guest_repeatedly_read);
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE, 0, total_size);
++	TEST_ASSERT(!ret, "fallocate with aligned offset and size should succeed");
 +
-+	/* Add a non-private memslot (flags = 0) */
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
-+				    EXITS_TEST_GPA, EXITS_TEST_SLOT,
-+				    EXITS_TEST_NPAGES, 0);
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
++			page_size - 1, page_size);
++	TEST_ASSERT(ret, "fallocate with unaligned offset should fail");
 +
-+	virt_map(vm, EXITS_TEST_GVA, EXITS_TEST_GPA, EXITS_TEST_NPAGES);
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE, total_size, page_size);
++	TEST_ASSERT(ret, "fallocate beginning at total_size should fail");
 +
-+	/* Request to access page privately */
-+	vm_mem_set_private(vm, EXITS_TEST_GPA, EXITS_TEST_SIZE);
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE, total_size + page_size, page_size);
++	TEST_ASSERT(ret, "fallocate beginning at total_size should fail");
 +
-+	exit_reason = run_vcpu_get_exit_reason(vcpu);
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
++			total_size, page_size);
++	TEST_ASSERT(!ret, "fallocate(PUNCH_HOLE) at total_size should succeed");
 +
-+	ASSERT_EQ(exit_reason, KVM_EXIT_MEMORY_FAULT);
-+	ASSERT_EQ(vcpu->run->memory.flags, KVM_MEMORY_EXIT_FLAG_PRIVATE);
-+	ASSERT_EQ(vcpu->run->memory.gpa, EXITS_TEST_GPA);
-+	ASSERT_EQ(vcpu->run->memory.size, EXITS_TEST_SIZE);
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
++			total_size + page_size, page_size);
++	TEST_ASSERT(!ret, "fallocate(PUNCH_HOLE) after total_size should succeed");
 +
-+	kvm_vm_free(vm);
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
++			page_size, page_size - 1);
++	TEST_ASSERT(ret, "fallocate with unaligned size should fail");
++
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE,
++			page_size, page_size);
++	TEST_ASSERT(!ret, "fallocate(PUNCH_HOLE) with aligned offset and size should succeed");
++
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE, page_size, page_size);
++	TEST_ASSERT(!ret, "fallocate to restore punched hole should succeed");
 +}
++
 +
 +int main(int argc, char *argv[])
 +{
-+	TEST_REQUIRE(kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(KVM_X86_SW_PROTECTED_VM));
++	size_t page_size;
++	size_t total_size;
++	int fd;
++	struct kvm_vm *vm;
 +
-+	test_private_access_memslot_deleted();
-+	test_private_access_memslot_not_private();
++	page_size = getpagesize();
++	total_size = page_size * 4;
++
++	vm = vm_create_barebones();
++
++	fd = vm_create_guest_memfd(vm, total_size, 0);
++
++	test_file_read_write(fd);
++	test_mmap(fd, page_size);
++	test_file_size(fd, page_size, total_size);
++	test_fallocate(fd, page_size, total_size);
++
++	close(fd);
 +}
 -- 
 2.41.0.255.g8b1d071c50-goog
