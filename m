@@ -4,76 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79262EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 04:56:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F5EEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xYQa9torfINQ6jAzVFkpqPn2xLz3zCpaaF6+N+Ky+aw=; b=CW/kJO0/STaybg
-	oGaaKn+MnKefm1GyXaJMLudEV0FZ9ufl8s7mrtHFRPRXRep3R2hUphyFHrcqEcWVIAIBKm8qriYLl
-	y+KGL4xtT6gSMT7jyyQZbmNYdKi2sre6UAtuBnNn5UBWO0hl5lmLU6eSmqCHKJJ9BbvyvvImaqj6A
-	gGmGURbl0P7Ie8HtOiEepwvQGchZhie2vctDXJTYA7tkY0oJf/UdUpzy2zutH5QE1ytKUtNwdLfy9
-	BbnMWo1kQj1n9DJXBVsUkcnWuZn6VS6WQRvSDp+tA+IT9M6WV2N95K7i/5lPqKVeee+fFKV5xQeA7
-	/5DJiZdOi+vcbfvmS3tg==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2QoO3vIS8oALhhv+bkz4IU2T7IuHSqIKKICkZzEp7Sc=; b=Z52GknI32tdkdL
+	J36YBYbKMAPgvU6Z94tnAC3bwHmg0UWE9hGtrup7FlqDGUnIfRwDoYFLdARFfSimSMYkHnqoadm2/
+	GHLdZW4pjYBe9U3b0fMJWhGA17FSNiqdNg9AG+R94P0S4Ijp3ChZabtUbL4Yc2lJXEzlySqbUUmY0
+	R0F7gETFCeGfUiT8bFYg1MSW2Y6xBxgM2qpZrrnzN3WwgWsWlc4EjE9YVogqVYemhIt5aRF9S4WZQ
+	bW9IDGTqqp13HqIO/Dd9oFIoK9TrjWYNVsiHOLsNpWjW4ZZ919GqyHUyNggXv4YBwmunZ2cLbak02
+	2VSu/yr4FvTnamvqIIVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzEk-0055cE-0B;
-	Wed, 19 Jul 2023 04:56:30 +0000
+	id 1qLzK7-0057dv-26;
+	Wed, 19 Jul 2023 05:02:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzEj-0055bl-0e
+	id 1qLzK6-0057dR-2O
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 04:56:29 +0000
+	Wed, 19 Jul 2023 05:02:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=LrNbOXb5bKwFwk26Q82p3itoimpfbsXcjLkZfCcHLwE=; b=CCPnAhlaxFBBgMUo75wjOElrrk
-	fXwGTAhSRn9xyqYlbeumK8bZxwGnis2xgxddYBN9KsOguHaAjjbwa2YnvXEFSSIZSFy6AefGyy2s7
-	fYBqiWTDorRWvEdB2rmOINRuJeQQ09KXG+0NGXyGtoyrrhvib05sHJjQfQvL3PvzySi0yUuxq5dYQ
-	aylH3OOdJqak2XvQ8ceg6YT5naIskvFyjXBQ35T1HOs08XdzFiIwDcIQJehuLOQEOnAYTg7ZN8vv2
-	e27ygkk1dg5cfaE84Bnkikp/3E0OMdFP8FihVOFttklHyh4q3S2ex0YMzYbP8/8RKOXyqEtokfc7O
-	NegM8aWg==;
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLbk6-009zZd-22
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Fu4IZGb2U3Va9MKTtjfVBe1U+H33z+Vvz3vKzeN2toA=; b=ppAZP4xw5tq/xHyeEqeTKoMvEx
+	HMUh117ZY7MlmCHHsuZm0dQnFIwP+mVp3WkDil9d3ralX3YzVeaWurjTciwKYvlK2qDwV2aRBqEWA
+	/pYAop+av+L8RcR9xRME2SNI8isR40mk+DuNBaOOxW/ir6Y+GhQ5ZykFmzX9JmMJGJ/W2umkmJcLA
+	Bi4YIt7dYYikbtJ2vGzZpS6rmEltk2OE7FBzfoIJAU5vpnBLobbTCcyTC94anHLaOq4ecuQCiZcvo
+	XqUMBGPvPa7ucpE8Dpd4MRIDw0DOmCSe+S6F/hNbKYt9Xzb3FepIq2TF859ZWMu6IFbMRbfXyudFk
+	ZZvO2GBw==;
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qLuS2-00CFMZ-2K
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jul 2023 03:51:31 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B2DBC80A4;
-	Tue, 18 Jul 2023 11:49:38 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 18 Jul
- 2023 11:49:38 +0800
-Received: from ubuntu.localdomain (113.72.147.86) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 18 Jul
- 2023 11:49:37 +0800
-From: Hal Feng <hal.feng@starfivetech.com>
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>
-CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Hal Feng
-	<hal.feng@starfivetech.com>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 0/3] riscv: dts: starfive: jh71x0: Add temperature sensor nodes and thermal-zones
-Date: Tue, 18 Jul 2023 11:49:34 +0800
-Message-ID: <20230718034937.92999-1-hal.feng@starfivetech.com>
-X-Mailer: git-send-email 2.38.1
-MIME-Version: 1.0
-X-Originating-IP: [113.72.147.86]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+	Tue, 18 Jul 2023 23:50:26 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1b8b2a2e720so32165065ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:49:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1689724129; x=1692316129;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fu4IZGb2U3Va9MKTtjfVBe1U+H33z+Vvz3vKzeN2toA=;
+        b=IZaEPyOB4Xi+5QmwIHD8P7bc+aaX+suafWFmyT5uwQp3NUo61kUBrlISRhIplzjVEY
+         uIBImmDPLupPxDXzTC/50r1tCCSeNlOhOVA9fS78zyP8h2biybmVrYzbOwK26JEGKHg7
+         I6sJKMWknlDa2y4/RkUGMNcU33LK92gZhfmmSlvWmT3ZRUCpnDAoSRUYtWBJR6q/98qc
+         7IYBfRSml8lO4T0/G64blb3o3A6eL3IHfZ2JdAaLZw/yFNgP47pFoelbwcMFEWdCuDgU
+         rwttR7vXoy9ZQPZyTuXNE5j4H6jC+h7BIC2q5luL01pI3AyzFKBb/KLl+zHlx/O6BsOV
+         E2/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689724129; x=1692316129;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Fu4IZGb2U3Va9MKTtjfVBe1U+H33z+Vvz3vKzeN2toA=;
+        b=LmrXboUeM1ioW2EeoWG2pOuVNosGLEMUmXWO8QVozWgNc9lYsWoNOTAjP4SURsxxXF
+         aSvLUS6BXPKo4M4htcqLutPriG5QnVjB22i6aaz3xmuHgrbQQxqdCCnDWKXutj8eqgxd
+         qpRwinPAdmYItoMYPqKaelDhq6JNPGNZqUk0igA1TOJAc5sBVIN6/IH5CHTmWXCW5cB3
+         l9K3Ydd+nQS2Qu6kc4b1kxiW36G+KrKVK7BMWTCVflC4RI/8ueVbJuVReoq7X12jryWw
+         E/3G39P++X3fgTzxtPsgOzovC5ZNwQzr8FmGOX0rotM9pShXqFtOIs+5dGI/YvN+FjsC
+         Anrg==
+X-Gm-Message-State: ABy/qLYMBNI6fZL8SpYgJ9Y87hOqMVzr3T4po+KKPGr0nVj3/HNGChF9
+	NcR/LZ38Pby4JVZga6yy8NMpGjwsyQg=
+X-Google-Smtp-Source: APBJJlHCRauC+c30Qnbz/xVE6cHMskqGKCbuMUu/5uTMRLvWSmi8GHs1UQtZYN/I3Q3rU07U5notqbe0Vyo=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:903:41ca:b0:1b8:a54c:61ef with SMTP id
+ u10-20020a17090341ca00b001b8a54c61efmr8486ple.9.1689724128966; Tue, 18 Jul
+ 2023 16:48:48 -0700 (PDT)
+Date: Tue, 18 Jul 2023 16:44:52 -0700
+In-Reply-To: <20230718234512.1690985-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20230718234512.1690985-1-seanjc@google.com>
+X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
+Message-ID: <20230718234512.1690985-10-seanjc@google.com>
+Subject: [RFC PATCH v11 09/29] KVM: x86: Disallow hugepages when memory
+ attributes are mixed
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
+	Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_045129_422349_438AAEC0 
-X-CRM114-Status: UNSURE (   7.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230719_004957_483852_821BB2E1 
+X-CRM114-Status: GOOD (  26.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,36 +118,276 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Conor,
+From: Chao Peng <chao.p.peng@linux.intel.com>
 
-These patches add temperature sensor nodes and thermal-zones for the
-StarFive JH71X0 SoC. I have tested them on the BeagleV Starlight board
-and StarFive VisionFive 1 / 2 board. Thanks.
+Disallow creating hugepages with mixed memory attributes, e.g. shared
+versus private, as mapping a hugepage in this case would allow the guest
+to access memory with the wrong attributes, e.g. overlaying private memory
+with a shared hugepage.
 
-Best regards,
-Hal
+Tracking whether or not attributes are mixed via the existing
+disallow_lpage field, but use the most significant bit in 'disallow_lpage'
+to indicate a hugepage has mixed attributes instead using the normal
+refcounting.  Whether or not attributes are mixed is binary; either they
+are or they aren't.  Attempting to squeeze that info into the refcount is
+unnecessarily complex as it would require knowing the previous state of
+the mixed count when updating attributes.  Using a flag means KVM just
+needs to ensure the current status is reflected in the memslots.
 
-Hal Feng (3):
-  riscv: dts: starfive: jh7100: Add temperature sensor node and
-    thermal-zones
-  riscv: dts: starfive: jh7110: Add temperature sensor node and
-    thermal-zones
-  MAINTAINERS: Add Hal as a maintainer of SFCTEMP HWMON DRIVER
+Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/include/asm/kvm_host.h |   3 +
+ arch/x86/kvm/mmu/mmu.c          | 185 +++++++++++++++++++++++++++++++-
+ arch/x86/kvm/x86.c              |   4 +
+ 3 files changed, 190 insertions(+), 2 deletions(-)
 
- MAINTAINERS                              |  1 +
- arch/riscv/boot/dts/starfive/jh7100.dtsi | 37 +++++++++++++++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi | 53 ++++++++++++++++++++++++
- 3 files changed, 91 insertions(+)
-
-
-base-commit: fdf0eaf11452d72945af31804e2a1048ee1b574c
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index f9a927296d85..b87ff7b601fa 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -1816,6 +1816,9 @@ int kvm_mmu_create(struct kvm_vcpu *vcpu);
+ int kvm_mmu_init_vm(struct kvm *kvm);
+ void kvm_mmu_uninit_vm(struct kvm *kvm);
+ 
++void kvm_mmu_init_memslot_memory_attributes(struct kvm *kvm,
++					    struct kvm_memory_slot *slot);
++
+ void kvm_mmu_after_set_cpuid(struct kvm_vcpu *vcpu);
+ void kvm_mmu_reset_context(struct kvm_vcpu *vcpu);
+ void kvm_mmu_slot_remove_write_access(struct kvm *kvm,
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index b034727c4cf9..aefe67185637 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -803,16 +803,27 @@ static struct kvm_lpage_info *lpage_info_slot(gfn_t gfn,
+ 	return &slot->arch.lpage_info[level - 2][idx];
+ }
+ 
++/*
++ * The most significant bit in disallow_lpage tracks whether or not memory
++ * attributes are mixed, i.e. not identical for all gfns at the current level.
++ * The lower order bits are used to refcount other cases where a hugepage is
++ * disallowed, e.g. if KVM has shadow a page table at the gfn.
++ */
++#define KVM_LPAGE_MIXED_FLAG	BIT(31)
++
+ static void update_gfn_disallow_lpage_count(const struct kvm_memory_slot *slot,
+ 					    gfn_t gfn, int count)
+ {
+ 	struct kvm_lpage_info *linfo;
+-	int i;
++	int old, i;
+ 
+ 	for (i = PG_LEVEL_2M; i <= KVM_MAX_HUGEPAGE_LEVEL; ++i) {
+ 		linfo = lpage_info_slot(gfn, slot, i);
++
++		old = linfo->disallow_lpage;
+ 		linfo->disallow_lpage += count;
+-		WARN_ON(linfo->disallow_lpage < 0);
++
++		WARN_ON_ONCE((old ^ linfo->disallow_lpage) & KVM_LPAGE_MIXED_FLAG);
+ 	}
+ }
+ 
+@@ -7223,3 +7234,173 @@ void kvm_mmu_pre_destroy_vm(struct kvm *kvm)
+ 	if (kvm->arch.nx_huge_page_recovery_thread)
+ 		kthread_stop(kvm->arch.nx_huge_page_recovery_thread);
+ }
++
++#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
++static bool hugepage_test_mixed(struct kvm_memory_slot *slot, gfn_t gfn,
++				int level)
++{
++	return lpage_info_slot(gfn, slot, level)->disallow_lpage & KVM_LPAGE_MIXED_FLAG;
++}
++
++static void hugepage_clear_mixed(struct kvm_memory_slot *slot, gfn_t gfn,
++				 int level)
++{
++	lpage_info_slot(gfn, slot, level)->disallow_lpage &= ~KVM_LPAGE_MIXED_FLAG;
++}
++
++static void hugepage_set_mixed(struct kvm_memory_slot *slot, gfn_t gfn,
++			       int level)
++{
++	lpage_info_slot(gfn, slot, level)->disallow_lpage |= KVM_LPAGE_MIXED_FLAG;
++}
++
++static bool range_has_attrs(struct kvm *kvm, gfn_t start, gfn_t end,
++			    unsigned long attrs)
++{
++	XA_STATE(xas, &kvm->mem_attr_array, start);
++	unsigned long index;
++	bool has_attrs;
++	void *entry;
++
++	rcu_read_lock();
++
++	if (!attrs) {
++		has_attrs = !xas_find(&xas, end);
++		goto out;
++	}
++
++	has_attrs = true;
++	for (index = start; index < end; index++) {
++		do {
++			entry = xas_next(&xas);
++		} while (xas_retry(&xas, entry));
++
++		if (xas.xa_index != index || xa_to_value(entry) != attrs) {
++			has_attrs = false;
++			break;
++		}
++	}
++
++out:
++	rcu_read_unlock();
++	return has_attrs;
++}
++
++static bool hugepage_has_attrs(struct kvm *kvm, struct kvm_memory_slot *slot,
++			       gfn_t gfn, int level, unsigned long attrs)
++{
++	const unsigned long start = gfn;
++	const unsigned long end = start + KVM_PAGES_PER_HPAGE(level);
++
++	if (level == PG_LEVEL_2M)
++		return range_has_attrs(kvm, start, end, attrs);
++
++	for (gfn = start; gfn < end; gfn += KVM_PAGES_PER_HPAGE(level - 1)) {
++		if (hugepage_test_mixed(slot, gfn, level - 1) ||
++		    attrs != kvm_get_memory_attributes(kvm, gfn))
++			return false;
++	}
++	return true;
++}
++
++bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
++					 struct kvm_gfn_range *range)
++{
++	unsigned long attrs = range->arg.attributes;
++	struct kvm_memory_slot *slot = range->slot;
++	int level;
++
++	lockdep_assert_held_write(&kvm->mmu_lock);
++	lockdep_assert_held(&kvm->slots_lock);
++
++	/*
++	 * KVM x86 currently only supports KVM_MEMORY_ATTRIBUTE_PRIVATE, skip
++	 * the slot if the slot will never consume the PRIVATE attribute.
++	 */
++	if (!kvm_slot_can_be_private(slot))
++		return false;
++
++	/*
++	 * The sequence matters here: upper levels consume the result of lower
++	 * level's scanning.
++	 */
++	for (level = PG_LEVEL_2M; level <= KVM_MAX_HUGEPAGE_LEVEL; level++) {
++		gfn_t nr_pages = KVM_PAGES_PER_HPAGE(level);
++		gfn_t gfn = gfn_round_for_level(range->start, level);
++
++		/* Process the head page if it straddles the range. */
++		if (gfn != range->start || gfn + nr_pages > range->end) {
++			/*
++			 * Skip mixed tracking if the aligned gfn isn't covered
++			 * by the memslot, KVM can't use a hugepage due to the
++			 * misaligned address regardless of memory attributes.
++			 */
++			if (gfn >= slot->base_gfn) {
++				if (hugepage_has_attrs(kvm, slot, gfn, level, attrs))
++					hugepage_clear_mixed(slot, gfn, level);
++				else
++					hugepage_set_mixed(slot, gfn, level);
++			}
++			gfn += nr_pages;
++		}
++
++		/*
++		 * Pages entirely covered by the range are guaranteed to have
++		 * only the attributes which were just set.
++		 */
++		for ( ; gfn + nr_pages <= range->end; gfn += nr_pages)
++			hugepage_clear_mixed(slot, gfn, level);
++
++		/*
++		 * Process the last tail page if it straddles the range and is
++		 * contained by the memslot.  Like the head page, KVM can't
++		 * create a hugepage if the slot size is misaligned.
++		 */
++		if (gfn < range->end &&
++		    (gfn + nr_pages) <= (slot->base_gfn + slot->npages)) {
++			if (hugepage_has_attrs(kvm, slot, gfn, level, attrs))
++				hugepage_clear_mixed(slot, gfn, level);
++			else
++				hugepage_set_mixed(slot, gfn, level);
++		}
++	}
++	return false;
++}
++
++void kvm_mmu_init_memslot_memory_attributes(struct kvm *kvm,
++					    struct kvm_memory_slot *slot)
++{
++	int level;
++
++	if (!kvm_slot_can_be_private(slot))
++		return;
++
++	for (level = PG_LEVEL_2M; level <= KVM_MAX_HUGEPAGE_LEVEL; level++) {
++		/*
++		 * Don't bother tracking mixed attributes for pages that can't
++		 * be huge due to alignment, i.e. process only pages that are
++		 * entirely contained by the memslot.
++		 */
++		gfn_t end = gfn_round_for_level(slot->base_gfn + slot->npages, level);
++		gfn_t start = gfn_round_for_level(slot->base_gfn, level);
++		gfn_t nr_pages = KVM_PAGES_PER_HPAGE(level);
++		gfn_t gfn;
++
++		if (start < slot->base_gfn)
++			start += nr_pages;
++
++		/*
++		 * Unlike setting attributes, every potential hugepage needs to
++		 * be manually checked as the attributes may already be mixed.
++		 */
++		for (gfn = start; gfn < end; gfn += nr_pages) {
++			unsigned long attrs = kvm_get_memory_attributes(kvm, gfn);
++
++			if (hugepage_has_attrs(kvm, slot, gfn, level, attrs))
++				hugepage_clear_mixed(slot, gfn, level);
++			else
++				hugepage_set_mixed(slot, gfn, level);
++		}
++	}
++}
++#endif
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 92e77afd3ffd..dd7cefe78815 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -12570,6 +12570,10 @@ static int kvm_alloc_memslot_metadata(struct kvm *kvm,
+ 		}
+ 	}
+ 
++#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
++	kvm_mmu_init_memslot_memory_attributes(kvm, slot);
++#endif
++
+ 	if (kvm_page_track_create_memslot(kvm, slot, npages))
+ 		goto out_free;
+ 
 -- 
-2.38.1
+2.41.0.255.g8b1d071c50-goog
 
 
 _______________________________________________
