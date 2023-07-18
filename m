@@ -4,81 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38A6C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 911AAEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VcUmoTiM39EhfsfG+XMcZglHyPQGofrcYuf6QN/eQp4=; b=yMid014AjFRYsQ
-	OdZzswley4FMuTCxlJFqq/52ZcWy16frWw7g2KgbXr/eoZaF+U8EHs081QHiWQ92Yta4u7WTj+WMj
-	6rqiyI0u7LRMsm5WQzMDyajiwLQek1omw0whpqxsa36dK6XxfLhRmV7TuUjNDJ5v8+HMNVhnWS3X6
-	WmLX55dkMeFpek7OqGCnjO2Vp9UHUVrUkmDIKmri9MDG/DofIOxYe5iLWM/f6Hyaad7LKau4+Tbjb
-	R7B8DsKNt7WmaWbsAwX1A1cuTisB2OVekQ+cHmTdPviudY3cC8ozAl/PXS8XHeGN2ZkHR4zKsIgep
-	AG39IrSTIQwiFkCssA3Q==;
+	List-Owner; bh=SI50TX3DhuKCvyMZa8XqOZ9cRUX5lf1an2mywi1y6NI=; b=GERWYReNfepKcu
+	Wee6X3o/k3g28KVZAvCSfaqp33S/d1HBIieXSTP5ljRq23agzIaa9rLQ3kxhsbUbYKXNAfMjw5WNb
+	upRfNEBRsEOSNBh9hN2jTO+c71ltmL/nSz46WXfvZmKHsTQYRBoJdFrn4CR1gAwI/0dux/F/CyoVI
+	QuZO7Vq0WGKDd4uye5KH0Z7B95dz/qH3Gw+1Q48RTxen3uBzq3OJ/ZQFw4qTo9JKZLhXmnr9LfK9y
+	RwjgS2Qlmkz+Eto0lSLzimQZ4puRzIyYADOrg8SLZfHf5oEwFfM41j6NFuZ1RsO23nP9K08hk/HMF
+	8xFTFjioh5pTmi5PejKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0kP-005mFR-0P;
-	Wed, 19 Jul 2023 06:33:17 +0000
+	id 1qM0mY-005na7-0T;
+	Wed, 19 Jul 2023 06:35:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0kN-005mE0-1C
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 06:33:15 +0000
+	id 1qM0mW-005nZJ-2a;
+	Wed, 19 Jul 2023 06:35:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=WwFgsHtnYs4vgy1uUmwNvq9pxJMaJ742fbuM/xMTD6o=; b=TC3w2CXZ2Ql2jNH56nMVA3i/4n
-	6Y0gBMNMj2hgFLvIIPKxsazgUhnJeU9OiK/UWo6bheZU6PdNdKfmUvybbDCKbDt/437C9FYp99Qv/
-	NquJU5QTRclOuSxwxOLt6QEnehwsRmon76SpJz/p2YnFhWifWsRDPZ7ZJf/c8sdJlqY2Q5f02+ILc
-	zuhNEdLoB0SzLRLfz/CMPI1ClpBjZI/TWzZHagw6M2MRHFM8/m/TnQpTDg/b33R65u0za2J0DrrfP
-	jz0Ij2ImO2YbeB22rtw1g7XP/z7HEUV32cVSmOvjzZt0I2aOw2E9yAZeMrW8mGQxfA5hvXpOn/k0c
-	XJF1eZUw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To
+	:From:Sender:Reply-To:Content-Description;
+	bh=wtelWRk7MKWhr2tYUSdTBJgR/9igMRxjgziQDvLciwg=; b=UWKYTMtGrlwv1UzmzqCDVJX6ax
+	xlMkYY+2xNERX5y1Q3ZGRcuHGMhB4DqmO6LWkJv9rlazW7pG10QgouYNEfIRY0YJ5p80HJTeumI2S
+	JRCkOc+iM94KdCoDbFRIEljIER6bShpuSK8r6C1TEyuaHzlPpJNEG6HZHctbZheQRohAWcvliewnY
+	Kus3nu9h0DLbkzvl9+CvW9m36ODWERs74d2w4dmQmH1yZ73mKQc+7YIzhLSZopGpRE+oPr/yROFzv
+	75kivqolEoo62+Ye50FuQ7M9taESxA8QHTxWzHcNdLuNM9QuOcMpWSkk7aUP1h5ovlmTl7YtcjSRi
+	Ch+iaKpA==;
+Received: from mga02.intel.com ([134.134.136.20])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLm3U-00BeQ3-2z
-	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jul 2023 14:52:03 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DDECD615A2;
-	Tue, 18 Jul 2023 14:51:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDAF1C433C8;
-	Tue, 18 Jul 2023 14:51:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689691907;
-	bh=gmjcvA7n5faDSrCMzbCX4megI4WqnvTMm5Hoj8Ds/LA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JZ8IfIIk0SYNpmlwNXsBWnNAHXr/ZWod5/c666cBApDXFwrSCsVUQzaKEG2A0NdMv
-	 cg3FmVQPix8DgikdHM0CRLwbW7DNXZO3l5NvfwdOWsBdWUV20mt28HN1Bh0ck18saR
-	 MyU5cO4CS8hMD6EiL1VmSp7V0Y2ExoTaNH3/pwi3g4Ew/RzCXzJbu2R7EIUAx+i27i
-	 oXhMTseXhjezDRv3F1sklp5zSW8nlzLmsN2+FJoE3xxFP5D47eEi3s/GjuslHIC4qx
-	 ltLYqUo7AHk0/scqq++iQ+txIXHHxe1MJhaPqRNxo7R6kgNYyFGz0J+VF5M+4HCVpx
-	 1VV64+V6wduXw==
-Date: Tue, 18 Jul 2023 22:40:11 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] riscv: allow kmalloc() caches aligned to the
- smallest value
-Message-ID: <ZLakS3Ff91dSAgaV@xhacker>
-References: <20230716165147.1897-1-jszhang@kernel.org>
- <20230716165147.1897-2-jszhang@kernel.org>
- <20230718-brook-engross-1e7c273facdb@spud>
+	id 1qLosY-00BpE9-2t;
+	Tue, 18 Jul 2023 17:52:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1689702774; x=1721238774;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=wtelWRk7MKWhr2tYUSdTBJgR/9igMRxjgziQDvLciwg=;
+  b=AqusDrHwlspvjMvdjysd6+YalzYrOzLC2/KtgJO6ZzAEp1p5EpsGUKKw
+   wJwFJovzDxRafzbzrp0dRnxuefGQgfDrsMV4qrVZlXCyP7BT6f66z7bEe
+   kGNyAYsOU2dWq4qOUgVswVWr3aDq9VWXXdjc34SNuEkjE0bgs4CpfqSNR
+   fe+UHP1WeG9nHmzFYFDeCDAcIVm7cSG/hz8lkvAEPvWKTrpVCQwDz0iVP
+   aU8+Idv4QnsBjb70U565kT22xytlZhiiFZWzfceA/cseSuw6BC16eXn00
+   LnGwq81GAJZ4fzvowI7iX4ZQbOZ7OZ5opF9GIuluTqUZEaiah6I2G8Ove
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10775"; a="356218515"
+X-IronPort-AV: E=Sophos;i="6.01,214,1684825200"; 
+   d="scan'208";a="356218515"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jul 2023 10:52:26 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10775"; a="674008428"
+X-IronPort-AV: E=Sophos;i="6.01,214,1684825200"; 
+   d="scan'208";a="674008428"
+Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
+  by orsmga003.jf.intel.com with ESMTP; 18 Jul 2023 10:52:26 -0700
+Received: from fmsmsx611.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Tue, 18 Jul 2023 10:52:25 -0700
+Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx611.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Tue, 18 Jul 2023 10:52:25 -0700
+Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
+ fmsmsx610.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27 via Frontend Transport; Tue, 18 Jul 2023 10:52:25 -0700
+Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.169)
+ by edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.27; Tue, 18 Jul 2023 10:51:56 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=TarnZNXDn6XW+FZvqva4e/flYqgovNUOAWq6B+7U6wgITBexcL8Ym+9IdnnXWkB1OsQMixXi4jRDYZX5g043sgdIlyRvNklzD2Dw4LSyXLJSwk98t2/mZHLiglxnQYr3W/pzIFNYFSawb7WBYkjw1e1DeG40rCfYCT2crowY51Z/2Vuz7XEKupnN0ZUKxh3j9+5l13b/b0+lQ2yPWVXM1w4e0VK0+8PEaT2h9FVtTA2AwjW9YSN6TYzKY/K5T6paiwVlOROJMWwrmY90/QMNj63RVfKCKtDLVrezicvHK/Wh9+cQ+ffvc4z9ZR/77kW7J/Af1F2fgwW0ahRQ8TklBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wtelWRk7MKWhr2tYUSdTBJgR/9igMRxjgziQDvLciwg=;
+ b=C9lSMK0gpm1A2caGGc8/afcmvUyBE/ZxnsAYuBAR5NTGg46T8HLwgDSN6jkO2qw2o3+sPnqnSTWXt0vOb/4JX/CSkY1WSZW8JIqSzQou3/0rTkhCH0A5X5nXB5mkpftSKEWeCguX5mi/FIe4gnPSPpIA0Br/KDvsKuAvY5yjfu17n9NKmAmOvg3I+AIwSWRrONts8slgooYV4ZCxHZXQrFTmgWrwo18M4J5fQGYRlqPc1mu5O78k0l/Ih/YrETFNhwR1/sCYW048JE69LpBIaF55GB0zFybXXqco3dpM4PW+8YVsJG3NvUHhTfNrlLdBUoObjnu56hxG/a+h1hY5fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from MN0PR11MB5963.namprd11.prod.outlook.com (2603:10b6:208:372::10)
+ by SN7PR11MB7707.namprd11.prod.outlook.com (2603:10b6:806:322::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6588.32; Tue, 18 Jul
+ 2023 17:51:54 +0000
+Received: from MN0PR11MB5963.namprd11.prod.outlook.com
+ ([fe80::abd2:f781:1433:259]) by MN0PR11MB5963.namprd11.prod.outlook.com
+ ([fe80::abd2:f781:1433:259%3]) with mapi id 15.20.6588.031; Tue, 18 Jul 2023
+ 17:51:54 +0000
+From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+To: "corbet@lwn.net" <corbet@lwn.net>, "ardb@kernel.org" <ardb@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>, "shuah@kernel.org" <shuah@kernel.org>,
+	"Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>, "keescook@chromium.org"
+	<keescook@chromium.org>, "james.morse@arm.com" <james.morse@arm.com>,
+	"debug@rivosinc.com" <debug@rivosinc.com>, "akpm@linux-foundation.org"
+	<akpm@linux-foundation.org>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "oleg@redhat.com" <oleg@redhat.com>,
+	"arnd@arndb.de" <arnd@arndb.de>, "ebiederm@xmission.com"
+	<ebiederm@xmission.com>, "will@kernel.org" <will@kernel.org>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, "broonie@kernel.org" <broonie@kernel.org>
+CC: "hjl.tools@gmail.com" <hjl.tools@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>, "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>
+Subject: Re: [PATCH 21/35] arm64/gcs: Implement shadow stack prctl() interface
+Thread-Topic: [PATCH 21/35] arm64/gcs: Implement shadow stack prctl()
+ interface
+Thread-Index: AQHZuDA1LUh5Nzx/+EyacdABEqXnPK+/0LGA
+Date: Tue, 18 Jul 2023 17:51:54 +0000
+Message-ID: <2e1c24e343fb920e1f8616e083bba625717c384d.camel@intel.com>
+References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
+	 <20230716-arm64-gcs-v1-21-bf567f93bba6@kernel.org>
+In-Reply-To: <20230716-arm64-gcs-v1-21-bf567f93bba6@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.44.4-0ubuntu1 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR11MB5963:EE_|SN7PR11MB7707:EE_
+x-ms-office365-filtering-correlation-id: 982e5bea-ba1f-4167-01e2-08db87b7ac88
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: RRLOtkMqM39awwWdPebxuS7IsNwpkIZHPBf+Zz7kHEHQarwwcoPQRwDSJxlXSjgwQPGKBTxHL/fJrNmF57+NOraNSyyyxxCVwmmPUyiKiMXbjDjSE/I+DKXEgifnZLq95Q0ph53oR4Ix/v6co7McGwPFqLOG2zG6Z6+hPJKrN0/XLoOmzErqQeCPW/KbLCGAk0G99ORXyUGBYimgUNXoqxmQet2cDjkTt2jxTMXKb7Cl1pBRTfZTzuPfPmSbDCghQcLDrkIupL4YumzzEKoZBm3Q67Ak5+IgC6oEGbyPDKHDgrFUhJckn9t1Bo9cjgIrBKcMFEs+zFCnQxG/8QFTuwdHPpE3lDsAPrulOiyyQgrFphZW+W6EZK3dRJSuZ+R0FcV1oqbprRt7eJx7nOKI99oudbJJm/vK/DvavYKM3PTTl7mFV/FkhNBtIe46Ca28EynZsKmYq9OD2407q8Cmb6CdtNwQW8YUzgriuD3nHghoXuhKiDyX1x9/0Y7XfkDlElyMbHPRd7rYNA/0wQoJ2mUaDopPyqOa16e//ZIHvoujYA2JW4iOEoaxLOZqYyWohglWzy0XYTr20l16Z+Vi45ACHB6RklS2IV8WWjnW34bOI5AyIy8Denu8L3b5Kd6nbuPJWoZg88JS0RwqfC2fNA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR11MB5963.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(376002)(136003)(396003)(39860400002)(366004)(346002)(451199021)(91956017)(316002)(66946007)(4326008)(76116006)(122000001)(86362001)(38070700005)(38100700002)(66446008)(82960400001)(64756008)(6512007)(110136005)(478600001)(71200400001)(921005)(8936002)(54906003)(2616005)(7406005)(41300700001)(66556008)(7416002)(8676002)(66476007)(6506007)(26005)(5660300002)(186003)(83380400001)(2906002)(6486002)(36756003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SWRYR3hYdVlTZm5pRXBTMDM3cnBLQ2pFK3RoVGo3VTROWkJoaDFZbk9NbDFL?=
+ =?utf-8?B?aW5CR0s1TURaaWdHVHp0NjFvT0IxQmwzUDF0MnBJWlJnSnNoTDJEemJhYjIx?=
+ =?utf-8?B?eGhML1NFQytOSDZaY0NBOVR3aG5SUE80bGNCNTgybmtRaWZORFJjQ2RKZTQ3?=
+ =?utf-8?B?WEtyT1J6a0JXNE5tOGZadENpYjgvMzN0T1JjVG1qbG43NWt4MVVCcWZHcitF?=
+ =?utf-8?B?MTNEZHNCSXUrcWUwS1creFlVdVBYSlZHTG5DUU9YejZRTUtTRUFvU2U2Skxs?=
+ =?utf-8?B?Y0tYQVBCSmVKWGgwR3F4R0tvcTZUVGM0ZERjM2l4WjJCSm1DWDNaL3gvME83?=
+ =?utf-8?B?VkVoc2tsSVBCMUV1Zy93elh4aEwyUkNLNzUvTjk4aVBJQUJzaHlhVFh0eFRP?=
+ =?utf-8?B?enM1d21zVUpVeFBvaitoNHEvaUVwZ3ZXWk5rUzdoNFdTdExVL1BVUzdUTTJT?=
+ =?utf-8?B?cjFxTTJpVFZNRmw1U2g1OUJSZ2Q1cEFQb0htUC92OXlUZm40WEc4elp2WnJF?=
+ =?utf-8?B?MEh6L0tzcjJzaCtBMHBSdFBLS1hIUFJDY0diZVQweHJDS3J5dUxJeXRMWXds?=
+ =?utf-8?B?YyswbTVMT2IyeXlZTzFKUWZOWkZ6RXNjelNOdWdNcjRVMm1hUU9RZkxaNjlW?=
+ =?utf-8?B?Nm92cEROeGNtcVQwY0VFNDhUckpsemdpazNCa1QxR3p2MjBwS1ozWTZ3QzZu?=
+ =?utf-8?B?NW4wdkFvVnJyYWlZcUFTN2JxbUQxZDBTSXV0RGJQQUJsYmFuRGIrek5jWDE4?=
+ =?utf-8?B?Rk9UQ0E4bWp3ZXowdTl2dVpNU3lnbDI2VzBsOXNuY2xvVmsweE5HVXNFaHls?=
+ =?utf-8?B?ZFJ4NGpCRVQ5VWxwSWpTYlk1VmNPZTNvcGxuMWpua2paSHlRYUwrajZMeDJt?=
+ =?utf-8?B?c2JPZDkwZjEzRHdTM3VjZzhBUVRNRXBxZEZSNk5VYjZhSEs4bTdiNSs3TG05?=
+ =?utf-8?B?NHVsL3dDTzRZSVYrMVR5OVBlSVlrRmw3ZWo3NXEwNGNYZ2wwYkZiZTU1MHNO?=
+ =?utf-8?B?VFo0QzFlZGVWSlhiUEg3b0VrWGFqVnBJaTNCZHlhNmFQYWVmMm5WVnVkZ0tT?=
+ =?utf-8?B?K1R1MXVFNUo5V05TaGx0V2hnRFVDTWlYTnlqR1VnWUx2TTVsdndDU2J0NUxR?=
+ =?utf-8?B?Wkw5bWQyUW80OXJLWmZ1bmpla3JmMUFuZHNMWWRoYjI4UjlFL1FYanB4M2dp?=
+ =?utf-8?B?aUV3eUNBbXRZYkZRZEluN3pJVGx4K21xTnpadVRxREtEM3M5dVIwc1l5Qmt4?=
+ =?utf-8?B?UkVnSE1mRjFQaEpCT2kvdWl2UUZ4QkplUTN4ckJtOXg5WEY3UHRoWC9ac3Qv?=
+ =?utf-8?B?YnlEZ3JibEQ5SEZZMDlleTFjK0VDeHNIRmVrTmFGYkZzWTE5Z3NzRUdFM1BI?=
+ =?utf-8?B?R2dxWkhSNjB3QWlSc0k4c245Vm9zK2tvR1Z2YnFrMHVlNG42WkNtSHBRelIr?=
+ =?utf-8?B?WGx4WGJRSWVMMlR1YklKcW4yNGg0WGpuTnM2emtVc1J2dS9SNXhkd3UvamF2?=
+ =?utf-8?B?NS9lMUxlSElNU2ZUeVpLbFhZU0ZlajlBMUpiUUxXZENyMlcyclJuNEdWU2xy?=
+ =?utf-8?B?bkpscHA0amdCdkprdjdpb3AwR1UwL1JOTE9XemdqblJnUHpyREd2TUUxMk5Y?=
+ =?utf-8?B?S3FWQS8xcUpsOWdYZkRtMGlNeVdzWml2NWIwalVmYTR2cmkyNkhSZnJiTGpi?=
+ =?utf-8?B?Qk83OXdKWW5mcTQrWERQbUl6c2ZaS0Q1cE5SQkk3SGFmWG1BR0F1ZXpSelBk?=
+ =?utf-8?B?TFYxSmJLeWtHQkZ1OS9pV1dGMWx4MUJHbWNsVmx1VGN4ZksxbmRCVEoydEJT?=
+ =?utf-8?B?QmZQN2ozcG5sckFST0FlRFUrY21NdGJ3Y2lhZ3ZRVmRtaGRxRjZtOGtDVFg4?=
+ =?utf-8?B?ejdnb1NybEZBcTFqRlorQXdIakEyUTh5Z25oQXN3V0FXUG16amV5RWRsVkxX?=
+ =?utf-8?B?ZWh4QkZJVjVvbnVjM1JoSHpTUklYMFBXMnlsMXczYjJSdmlRR0RYNkVCQ1lW?=
+ =?utf-8?B?b1VOZ3VjVHlEdmFQZzkyYWpXQkR3NzlYNE1FRzhqQ29JcVhjRWtHYlBFWE1K?=
+ =?utf-8?B?eXhqenRKSUZFZ0lZanJYb3VMdzYxaEFUeWNnUUM3dDBnTlpRTElYUjJNcUQ3?=
+ =?utf-8?B?Wml3dXZIZnF3a0h6b2Y0NmUvUGZtODVVc0Y5MVZXQ0p6NUlpSWE4d2hWM1k5?=
+ =?utf-8?B?M2c9PQ==?=
+Content-ID: <40E75ED7E5D8524EAFA027E8D22BA07E@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230718-brook-engross-1e7c273facdb@spud>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB5963.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 982e5bea-ba1f-4167-01e2-08db87b7ac88
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Jul 2023 17:51:54.6156
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: rwhjObLJn1jIdbo5la5ONzFvJSQMdOaBf+Fx5+GWK5DhCYD8yz4LZAZjzrl0AIAjllRLjf6oB1L0Ux3S/sEjILH9F8+mooHGVe5VJ1xED0k=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB7707
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_155201_303416_5CCEF64B 
-X-CRM114-Status: GOOD (  40.78  )
+X-CRM114-CacheID: sfid-20230718_185255_549087_FA3544F1 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,176 +213,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 18, 2023 at 11:23:50AM +0100, Conor Dooley wrote:
-> Hey Jisheng,
-> 
-> On Mon, Jul 17, 2023 at 12:51:46AM +0800, Jisheng Zhang wrote:
-> > Currently, riscv defines ARCH_DMA_MINALIGN as L1_CACHE_BYTES, I.E
-> > 64Bytes, if CONFIG_RISCV_DMA_NONCOHERENT=y. To support unified kernel
-> > Image, usually we have to enable CONFIG_RISCV_DMA_NONCOHERENT, thus
-> > it brings some bad effects to coherent platforms:
-> > 
-> > Firstly, it wastes memory, kmalloc-96, kmalloc-32, kmalloc-16 and
-> > kmalloc-8 slab caches don't exist any more, they are replaced with
-> > either kmalloc-128 or kmalloc-64.
-> > 
-> > Secondly, larger than necessary kmalloc aligned allocations results
-> > in unnecessary cache/TLB pressure.
-> > 
-> > This issue also exists on arm64 platforms. From last year, Catalin
-> > tried to solve this issue by decoupling ARCH_KMALLOC_MINALIGN from
-> > ARCH_DMA_MINALIGN, limiting kmalloc() minimum alignment to
-> > dma_get_cache_alignment() and replacing ARCH_KMALLOC_MINALIGN usage
-> > in various drivers with ARCH_DMA_MINALIGN etc.[1]
-> > 
-> > One fact we can make use of for riscv: if the CPU doesn't support
-> > ZICBOM or T-HEAD CMO, we know the platform is coherent. Based on
-> > Catalin's work and above fact, we can easily solve the kmalloc align
-> > issue for riscv: we can override dma_get_cache_alignment(), then let
-> > it return ARCH_DMA_MINALIGN at the beginning and return 1 once we know
-> > the underlying HW neither supports ZICBOM nor supports T-HEAD CMO.
-> > 
-> > So what about if the CPU supports ZICBOM and T-HEAD CMO, but all the
-> > devices are dma coherent? Well, we use ARCH_DMA_MINALIGN as the
-> > kmalloc minimum alignment, nothing changed in this case. This case
-> > can be improved in the future.
-> > 
-> > After this patch, a simple test of booting to a small buildroot rootfs
-> > on qemu shows:
-> > 
-> > kmalloc-96           5041    5041     96  ...
-> > kmalloc-64           9606    9606     64  ...
-> > kmalloc-32           5128    5128     32  ...
-> > kmalloc-16           7682    7682     16  ...
-> > kmalloc-8           10246   10246      8  ...
-> > 
-> > So we save about 1268KB memory. The saving will be much larger in normal
-> > OS env on real HW platforms.
-> > 
-> > [1] Link: https://lore.kernel.org/linux-arm-kernel/20230524171904.3967031-1-catalin.marinas@arm.com/
-> 
-> In the future,
-> 
-> Link: https://lore.kernel.org/linux-arm-kernel/20230524171904.3967031-1-catalin.marinas@arm.com/ [1]
-> 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > Change-Id: Ica249d0f8058a02bd4bc6543b4ffc2946a4734a2
-> 
-> How come this has ended up with a Change-ID? Checkpatch says this is
-> something to do with Gerrit & needs to be removed.
-
-Oops, when amending, I forgot to add "-n". And I thought only amending
-doesn't need to try checkpatch. Will fix it soon.
-
-Thank you.
-
-> 
-> > ---
-> >  arch/riscv/include/asm/cache.h      | 14 ++++++++++++++
-> >  arch/riscv/include/asm/cacheflush.h |  2 ++
-> >  arch/riscv/kernel/setup.c           |  1 +
-> >  arch/riscv/mm/dma-noncoherent.c     |  8 ++++++++
-> >  4 files changed, 25 insertions(+)
-> > 
-> > diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
-> > index d3036df23ccb..2174fe7bac9a 100644
-> > --- a/arch/riscv/include/asm/cache.h
-> > +++ b/arch/riscv/include/asm/cache.h
-> > @@ -13,6 +13,7 @@
-> >  
-> >  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> >  #define ARCH_DMA_MINALIGN L1_CACHE_BYTES
-> > +#define ARCH_KMALLOC_MINALIGN	(8)
-> >  #endif
-> >  
-> >  /*
-> > @@ -23,4 +24,17 @@
-> >  #define ARCH_SLAB_MINALIGN	16
-> >  #endif
-> >  
-> > +#ifndef __ASSEMBLY__
-> > +
-> > +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> > +extern int dma_cache_alignment;
-> > +#define dma_get_cache_alignment dma_get_cache_alignment
-> > +static inline int dma_get_cache_alignment(void)
-> > +{
-> > +	return dma_cache_alignment;
-> > +}
-> > +#endif
-> > +
-> > +#endif	/* __ASSEMBLY__ */
-> > +
-> >  #endif /* _ASM_RISCV_CACHE_H */
-> > diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> > index 8091b8bf4883..c640ab6f843b 100644
-> > --- a/arch/riscv/include/asm/cacheflush.h
-> > +++ b/arch/riscv/include/asm/cacheflush.h
-> > @@ -55,8 +55,10 @@ void riscv_init_cbo_blocksizes(void);
-> >  
-> >  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> >  void riscv_noncoherent_supported(void);
-> > +void __init riscv_set_dma_cache_alignment(void);
-> >  #else
-> >  static inline void riscv_noncoherent_supported(void) {}
-> > +static inline void riscv_set_dma_cache_alignment(void) {}
-> >  #endif
-> >  
-> >  /*
-> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> > index 971fe776e2f8..027879b1557a 100644
-> > --- a/arch/riscv/kernel/setup.c
-> > +++ b/arch/riscv/kernel/setup.c
-> > @@ -311,6 +311,7 @@ void __init setup_arch(char **cmdline_p)
-> >  	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
-> >  	    riscv_isa_extension_available(NULL, ZICBOM))
-> >  		riscv_noncoherent_supported();
-> > +	riscv_set_dma_cache_alignment();
-> >  }
-> >  
-> >  static int __init topology_init(void)
-> > diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-> > index d51a75864e53..811227e54bbd 100644
-> > --- a/arch/riscv/mm/dma-noncoherent.c
-> > +++ b/arch/riscv/mm/dma-noncoherent.c
-> > @@ -11,6 +11,8 @@
-> >  #include <asm/cacheflush.h>
-> >  
-> >  static bool noncoherent_supported __ro_after_init;
-> > +int dma_cache_alignment __ro_after_init = ARCH_DMA_MINALIGN;
-> > +EXPORT_SYMBOL(dma_cache_alignment);
-> 
-> Why is this not EXPORT_SYMBOL_GPL()?
-> 
-> Otherwise, this is generally good to me, thanks.
-> 
-> Conor.
-> 
-> >  
-> >  void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
-> >  			      enum dma_data_direction dir)
-> > @@ -78,3 +80,9 @@ void riscv_noncoherent_supported(void)
-> >  	     "Non-coherent DMA support enabled without a block size\n");
-> >  	noncoherent_supported = true;
-> >  }
-> > +
-> > +void __init riscv_set_dma_cache_alignment(void)
-> > +{
-> > +	if (!noncoherent_supported)
-> > +		dma_cache_alignment = 1;
-> > +}
-> > -- 
-> > 2.40.1
-> > 
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCAyMDIzLTA3LTE2IGF0IDIyOjUxICswMTAwLCBNYXJrIEJyb3duIHdyb3RlOgo+ICtp
+bnQgYXJjaF9zZXRfc2hhZG93X3N0YWNrX3N0YXR1cyhzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRhc2ss
+IHVuc2lnbmVkCj4gbG9uZyBhcmcpCj4gK3sKPiArwqDCoMKgwqDCoMKgwqB1bnNpZ25lZCBsb25n
+IGdjcywgc2l6ZTsKPiArCj4gK8KgwqDCoMKgwqDCoMKgaWYgKCFzeXN0ZW1fc3VwcG9ydHNfZ2Nz
+KCkpCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldHVybiAtRUlOVkFMOwo+ICsK
+PiArwqDCoMKgwqDCoMKgwqBpZiAoaXNfY29tcGF0X3RocmVhZCh0YXNrX3RocmVhZF9pbmZvKHRh
+c2spKSkKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0dXJuIC1FSU5WQUw7Cj4g
+Kwo+ICvCoMKgwqDCoMKgwqDCoC8qIFJlamVjdCB1bmtub3duIGZsYWdzICovCj4gK8KgwqDCoMKg
+wqDCoMKgaWYgKGFyZyAmIH5QUl9TSEFET1dfU1RBQ0tfU1VQUE9SVEVEX1NUQVRVU19NQVNLKQo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXR1cm4gLUVJTlZBTDsKPiArCj4gK8Kg
+wqDCoMKgwqDCoMKgLyogSWYgdGhlIHRhc2sgaGFzIGJlZW4gbG9ja2VkIGJsb2NrIGFueSBhdHRl
+bXB0ZWQgY2hhbmdlcyAqLwo+ICvCoMKgwqDCoMKgwqDCoGlmICh0YXNrLT50aHJlYWQuZ2NzX2Vs
+MF9tb2RlICYgUFJfU0hBRE9XX1NUQUNLX0xPQ0spCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoHJldHVybiAtRUJVU1k7Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoC8qIERyb3AgZmxhZ3Mg
+b3RoZXIgdGhhbiBsb2NrIGlmIGRpc2FibGluZyAqLwo+ICvCoMKgwqDCoMKgwqDCoGlmICghKGFy
+ZyAmIFBSX1NIQURPV19TVEFDS19FTkFCTEUpKQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqBhcmcgJj0gflBSX1NIQURPV19TVEFDS19MT0NLOwo+ICsKPiArwqDCoMKgwqDCoMKgwqAv
+KiBJZiB3ZSBhcmUgZW5hYmxpbmcgR0NTIHRoZW4gbWFrZSBzdXJlIHdlIGhhdmUgYSBzdGFjayAq
+Lwo+ICvCoMKgwqDCoMKgwqDCoGlmIChhcmcgJiBQUl9TSEFET1dfU1RBQ0tfRU5BQkxFKSB7Cj4g
+K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGlmICghdGFza19nY3NfZWwwX2VuYWJsZWQo
+dGFzaykpIHsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oC8qIERvIG5vdCBhbGxvdyBHQ1MgdG8gYmUgcmVlbmFibGVkICovCj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpZiAodGFzay0+dGhyZWFkLmdjc19iYXNl
+KQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoHJldHVybiAtRUlOVkFMOwo+ICsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoHNpemUgPSBnY3Nfc2l6ZSgwKTsKPiArwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGdjcyA9IGFsbG9jX2djcyh0YXNrLT50
+aHJlYWQuZ2NzcHJfZWwwLCBzaXplLAo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAwLCAwKTsKPiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGlmICghZ2NzKQo+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoHJldHVybiAtRU5PTUVNOwo+ICsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoHRhc2stPnRocmVhZC5nY3Nwcl9lbDAgPSBnY3MgKyBzaXplIC0K
+PiBzaXplb2YodTY0KTsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoHRhc2stPnRocmVhZC5nY3NfYmFzZSA9IGdjczsKPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHRhc2stPnRocmVhZC5nY3Nfc2l6ZSA9IHNpemU7
+Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpZiAodGFz
+ayA9PSBjdXJyZW50KQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoHdyaXRlX3N5c3JlZ19zKHRhc2stCj4gPnRocmVhZC5nY3Nw
+cl9lbDAsCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBTWVNfR0NTUFJfRUww
+KTsKPiArCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoH0KPiArwqDCoMKgwqDCoMKg
+wqB9Cj4gKwo+ICvCoMKgwqDCoMKgwqDCoHRhc2stPnRocmVhZC5nY3NfZWwwX21vZGUgPSBhcmc7
+Cj4gK8KgwqDCoMKgwqDCoMKgaWYgKHRhc2sgPT0gY3VycmVudCkKPiArwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgZ2NzX3NldF9lbDBfbW9kZSh0YXNrKTsKPiArCgpBaCEgU28gZG9lcyB0
+aGlzIHRhc2sgPT0gY3VycmVudCBwYXJ0IG1lYW4gdGhpcyBjYW4gYmUgY2FsbGVkIGZyb20KYW5v
+dGhlciB0YXNrIHZpYSBwdHJhY2U/CgpJZiBzbywgdGhlbiBpcyB0aGUgYWxsb2NfZ2NzKCkgcGFy
+dCBvbiB0aGUgd3JvbmcgbW0/Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
