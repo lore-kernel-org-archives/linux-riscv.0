@@ -4,95 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E042AEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F9AC0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hHn6UpjX4wj74BLwJjfsFjARUb91t7xHQ8P068fXjdU=; b=BUI/bYmSmnTcR/c2dnnXTK1rds
-	woPrQcAnasZuihDXcw/BD17Y7SFFqXaR4AGBa4uRkXYPXYofd3/aTgaNcRFZ2R+opQbIDya7IJIbt
-	fDGkWLBanz0A0rv2ch0pzbJj32qfz2aLei5Zy7oJ4gpkmJG04Xj4K6hJD0xVhJmhIHXx80PFpfFzq
-	NKS7ZKNmdNW56g1y17Sg/lvAnhp6YbpR5SMWsrlIW88TAVtebgYDPXoM3NK1Xkz7ot5pxhmMsPKsz
-	UEixstUmaH7d4VbiMJEw8+3R5d2xIkKbaXni653OWnpymflxREvMpwkXUZDYub7jYBGn2uDGTbe2M
-	iyOzwZXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vocipAEofXYF1wGeIyY7h6IizRwjuhc+vjXkm4OAm/A=; b=e+WKckr9GIL5AE
+	4pU+zcYfBDubLIxg6TwBewST3WcZemxYIeCxhO/pX6eMP2eHsd5vD4Uitclrd8GbISHOLt8C5GT80
+	gLKI8UkUsufSLCZ5V87P6u/9qnT5z0qCYAxfpzzfDHM6BThEpRjMZHkeD3cR03qolkEgbfFtCLBf5
+	+/fk1mV/EZktzUj8fWthreBedWzhOt2JE/Pel9jc7e6hlef3+mZLlaE2VPfs3W+nO+zSuGXgBc7dE
+	X5ZauEsdDSglzBiJQ9CgVyIqnWT1AVTzYj/oBlquU4bRDdMcAYCXZoF979EIHmsSdw9zUp3T+/rRw
+	mufoSGegpnYkgimlAtGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0SJ-005cVb-26;
-	Wed, 19 Jul 2023 06:14:35 +0000
+	id 1qM0Sr-005cnf-0M;
+	Wed, 19 Jul 2023 06:15:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0SH-005cTi-0F;
-	Wed, 19 Jul 2023 06:14:33 +0000
+	id 1qM0Sp-005cmV-1l
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 19 Jul 2023 06:15:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=PZl5xS2ZEgKitVAhbTziAY9yd65wr7KBf1Y7WJY8ufI=; b=hwxd6uHod1k66nSHXPaZQ8UL24
-	xsKCZ8h3XNChRdYx6ZLl9Kz7OPbWfp6FjPiaHSEaPAb2WBTncSqhfPrGJj/kXAIMN2Z+yy+M7CzHI
-	Z5zEb5nORoBxCaA4x+E8VvALrzryZs/09B35kG8aCPz35EwsnQI3xnhR75EzzPFjc1SOjBVHuKqPI
-	D/rd8nHgCAIslYVOneUHqNp7lvfD7D5CqOYI6Fq+cRNRJYdpEQGe/ITN62GrZ9UooiKN6YcQUuAbE
-	TIEOHpTVJUwoZzcZAL+VD1Ha4oknJmZ6PRhLwAU5bBUyP8pbjqV2OPI4vltyMzUf3hjdYQS9LLNW0
-	XIHl6ufQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	bh=RgixHOC4KKphqTDNjO+JFitY6BYM03Mxe9+IG67pQW4=; b=aSoWr03BPgqBWdU4aK0h40iEM0
+	62KHWi0H8ztYmQJTV5bMPCKcbqMUcwimlRwjKyTjB4aylYYop29N7q7cnKfNP0caqefcLDDnHgZwV
+	u/TE02kN08Z7g1IU4iCkwihapRqWB/IA6O1j/2ry7XEr56IiyJ2YzIX0H/v1RgJYum1X0bWzZv0b+
+	fWSH6i4SZMRdi/0bLx6A3b8yywz9fPoGcgN2V68c73/bh57I3D7uKT8twuhdQywZ006Oixe2YeQL0
+	a5dbaVKHd0Q3jKC4UqIjOXBifnAbN2ieYrKBSBeqmz6gIoMUiaug7a67IPyvSApoMdJfbNh/iMBBx
+	ZgyKM9FQ==;
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLlBE-00BbKO-1K;
-	Tue, 18 Jul 2023 13:55:59 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7DCB26155F;
-	Tue, 18 Jul 2023 13:55:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02EA5C433C9;
-	Tue, 18 Jul 2023 13:55:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689688516;
-	bh=5cdUcj3owivIzjkoYFboWBgivdYgnl4YnwjpKC2t3BI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PtR8XdBBq0j87nz3sJHETW4D6X3f2Tw6KWKHbxPNms4FvpYGnrt2l58e/Z8WBzFx8
-	 DNt7RnrhN9stbBvq7544R7uMV9bNARXYL2LzHWsxyUCXhSUls0hei52w+8lpyVYXEF
-	 oE0/i31Y4939oPjN9aTDQI4FKyPOk1ZD076TUNRcFyUcYM5C9vJhxI9IAU62Cp3ajx
-	 ceAvvBb1KCSF6tMCgvYVDzGSXRKqUbLK/GHALFOskbqze63JjCHM7k7ISPAUBuKDL1
-	 ubHorZl4nwKmhBbpynhLbHAcK7JRTB3Y8SwVpcNBgRMSrK1qobreFnLxfW/4nbbMkZ
-	 yEL/pX8hpPQOw==
-Date: Tue, 18 Jul 2023 14:55:07 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Szabolcs Nagy <Szabolcs.Nagy@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 22/35] arm64/mm: Implement map_shadow_stack()
-Message-ID: <8ea03eda-e630-40c5-acc1-a63f5c5b3102@sirena.org.uk>
-References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
- <20230716-arm64-gcs-v1-22-bf567f93bba6@kernel.org>
- <ZLZW7Kvg2Rep8ySO@arm.com>
-MIME-Version: 1.0
-In-Reply-To: <ZLZW7Kvg2Rep8ySO@arm.com>
-X-Cookie: Nothing happens.
+	id 1qLuSE-00CFP0-0k
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Jul 2023 23:50:34 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1b89f6463deso48815675ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:50:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1689724140; x=1692316140;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=RgixHOC4KKphqTDNjO+JFitY6BYM03Mxe9+IG67pQW4=;
+        b=jr2fs44d+7BmMZPp9ybqRVhLe6DoUmnDVGGK/YxGf0Asu27qFmDOog5/7ezq8m4Ys7
+         LB4TAF+aUXOU9vvZC3f7sCq7Qp6i9IPbi3VCM23iiZE2lWsjgfpk1UphaC4PromgcBa9
+         nNuUO7C76a3+5q0Gf8ijV1dvvN0iI9MYocGBFlwlZWxo+oVA0VDDW9ZRP17wI+9kNKbR
+         b/F5X7vtJ0QCTS7pjO0kMtxUEap2HU9N8Chl8h4VBmGvGutp4QtM3GkrHRbiuZH0RfDS
+         Df8UlL/rj7lQEedr2TSELrHMasjkzJ51vXMKZpffeRoXHoSbQaRFODPANCOUb4yN0y8L
+         ypGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689724140; x=1692316140;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RgixHOC4KKphqTDNjO+JFitY6BYM03Mxe9+IG67pQW4=;
+        b=NiRligH7qjzYIWHAVs3zlmYLO7l686qyHXPeMqzsZfBRcHUTiUlGpTFT2GURK76Ow8
+         b7qTm58ByetTwm4PkYIS8GE1/ieB11E+QqvZsq0zeHkzX+s4AgU4VPYTOKztspR5WfNK
+         zTm4nmaa1FyAnN8r1EFj3HfKRc9TO5N40LFHSfZqA5o2WBFmBa8bChgxP7XDEFgYV+7m
+         sfQr0YIsRHtHLzknt6uBpZ3wGNgaUvmlhain+c3F6RAubotYbHce0eZ4tHMaTNTmOz3N
+         dFGKr669L7ezyCMOcZe6rQ4a1Z36zQrkwA1uP+0japQA/7kylWsAspTmXg6AcdsqKpMh
+         zswA==
+X-Gm-Message-State: ABy/qLansXZLLS9erPXNmWhS/beL6u7dJvtFqI8AeDFaE1uDHJXJg+Rp
+	LJO6/EWH56/FhmYhLOGcbjnzZCKYPDA=
+X-Google-Smtp-Source: APBJJlGmnxKpuVWpCwuKlcGO555af6O2CzLSJLrftIAb/WXIRBmN0a0otiSNa7LmthtetMuC6YJJMcmnlto=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:902:d2cf:b0:1ba:a36d:f82c with SMTP id
+ n15-20020a170902d2cf00b001baa36df82cmr7700plc.7.1689724140625; Tue, 18 Jul
+ 2023 16:49:00 -0700 (PDT)
+Date: Tue, 18 Jul 2023 16:44:58 -0700
+In-Reply-To: <20230718234512.1690985-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20230718234512.1690985-1-seanjc@google.com>
+X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
+Message-ID: <20230718234512.1690985-16-seanjc@google.com>
+Subject: [RFC PATCH v11 15/29] KVM: Drop superfluous __KVM_VCPU_MULTIPLE_ADDRESS_SPACE
+ macro
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
+	Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_145557_521157_7B0636E3 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20230719_005028_478586_D5AA1104 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,67 +119,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5474468945650059282=="
+Reply-To: Sean Christopherson <seanjc@google.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/include/asm/kvm_host.h | 1 -
+ include/linux/kvm_host.h        | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
 
---===============5474468945650059282==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Y5hKtc1qLwv4bVDN"
-Content-Disposition: inline
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index b87ff7b601fa..7a905e033932 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -2105,7 +2105,6 @@ enum {
+ #define HF_SMM_MASK		(1 << 1)
+ #define HF_SMM_INSIDE_NMI_MASK	(1 << 2)
+ 
+-# define __KVM_VCPU_MULTIPLE_ADDRESS_SPACE
+ # define KVM_ADDRESS_SPACE_NUM 2
+ # define kvm_arch_vcpu_memslots_id(vcpu) ((vcpu)->arch.hflags & HF_SMM_MASK ? 1 : 0)
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, (role).smm)
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 0d1e2ee8ae7a..5839ef44e145 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -693,7 +693,7 @@ bool kvm_arch_irqchip_in_kernel(struct kvm *kvm);
+ #define KVM_MEM_SLOTS_NUM SHRT_MAX
+ #define KVM_USER_MEM_SLOTS (KVM_MEM_SLOTS_NUM - KVM_INTERNAL_MEM_SLOTS)
+ 
+-#ifndef __KVM_VCPU_MULTIPLE_ADDRESS_SPACE
++#if KVM_ADDRESS_SPACE_NUM == 1
+ static inline int kvm_arch_vcpu_memslots_id(struct kvm_vcpu *vcpu)
+ {
+ 	return 0;
+-- 
+2.41.0.255.g8b1d071c50-goog
 
-
---Y5hKtc1qLwv4bVDN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Tue, Jul 18, 2023 at 10:10:04AM +0100, Szabolcs Nagy wrote:
-
->   uint64_t *p = map_shadow_stack(0, N*8, 0);
-
-> i'd expect p[N-1] to be the end token and p[N-2] to be the cap token,
-> not p[PAGE_ALIGN(N*8)/8-2].
-
-Yes, that probably would be more helpful.
-
-> if we allow misalligned size here (and in munmap) then i think it's
-> better to not page align.  size%8!=0 || size<16 can be an error.
-
-Honestly I'd be a lot happier to just not allow misalignment but that
-raises the issue with binaries randomly not working when moved to a
-kernel with a different page size.  I'll have a think but possibly the
-safest thing would be requiring a multiple of 4K then rounding up to our
-actual page size.
-
---Y5hKtc1qLwv4bVDN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmS2mbsACgkQJNaLcl1U
-h9AzZAf6AmpARgwgG4zNQzt85k9TDh62vFVaeaSCfpyqUZ4UEHeRf0DJ2hib8MGt
-aDz/k1E7ReyhGJhez+M19TlHMBHDoj2Fkh4bdOwzcTERDFTgMTGw8FFyyDjAP3fz
-TkDlo1EwKyXZnGnkqYbSFozVhOEZm6WVu6kpN62D5Q2jSEkL96f7C3WjXU0UbR3K
-X4Ey8EzUPGBf7SmYnOnGaG9+1bnKutkKj7unAMb6rJVFaAP/FTMpof5WI2kW4ngD
-nu5z6uyG6x2pFBgA3wTKmlDUEkhLsvfbDMtSwZTyHfDf6ayYVdMkeVkpxqvc+Nag
-BDtHeJXm98VwgwHiGPA6ln6uOvDbOQ==
-=EMfO
------END PGP SIGNATURE-----
-
---Y5hKtc1qLwv4bVDN--
-
-
---===============5474468945650059282==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5474468945650059282==--
-
