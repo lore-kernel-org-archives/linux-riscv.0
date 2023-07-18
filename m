@@ -4,125 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BD1C001DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3AC9EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xBus/lLtbvDYI+bxMiYShQ381SLFIRaOQRb6hJueUK4=; b=27F6GXxlr21jHW
-	NwpwM78G6znvrS6VzuctNnNhDNIBe+fS7t6jhGxJoCHOMMznM/rT6/2XoRlo48+F7T7YZb8krfHaE
-	dBnDsXtm5SU1hkWj+O8B/uUPtZHGqer/dlT6ESKYiizhwACzVTxidnOirJ5JTHkIpvgQ6fH2EhQxy
-	kyXFCEeiuasDZHuTKkK8uzayQinVsXcjLsCKwbBX4vGuhF5DYwNyMbxv6yb+sRylf96NtSpfeW6Od
-	tHsDfaK+CgMfS3H+V0H5luvl2tOobi51mQsCOamYtznVMHA/KizgkZChipulILBa2fWVs9rpN+F9g
-	DM9QyQ4x9FdoO/rBHXAA==;
+	List-Owner; bh=ZlKzbjuQ1HQIqkZR94v5b3PLYt7YeZgRivONicUCY0g=; b=xkyU2c6UaGrrZ9
+	j1uVnW1xZ/1ZNJjkRCBSDPQTR68+S6NSgQNobfn3Wp57Ek1ocwntt9DrXcteJ0mGI5zxHRqw5a2Zm
+	mL+JJCal1NiHdenqNS/KDmfB4n4ntvW7yyFbRJPJc+j39bSLI0ImNL5yEBBTnQuEKH9FpNUecflSh
+	5dD9uq/sDhnw5X+43p4mQZOyt/CWuiu+lCXOxU7/KhgifR+iZ7nScqu69Swovs6+WZbjUey8u7YYt
+	lDWJbcpGYPwndme5oMT4iDNkoX7T7hlyRNorX9zgG+R4p09fPQObNtKJ6c5aEQoj88dbbIr/o7tQ6
+	hjKrYbx3yQSSM1A+DSaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0K4-005Xn6-1Q;
-	Wed, 19 Jul 2023 06:06:04 +0000
+	id 1qM0Kh-005Y88-2Y;
+	Wed, 19 Jul 2023 06:06:43 +0000
 Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0K2-005Xla-03
+	id 1qM0Kg-005Y6c-04
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 06:06:02 +0000
+	Wed, 19 Jul 2023 06:06:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BqFBTcreB9uM7bVA+oKgdwOheFXwxzAShQOYP1vaHLs=; b=ZrP2C8vyd0X1O6HPS1QAZYIteL
-	BH/q6XTXoyYdybzDQX0lJlA6AKuphq1lWOnFWBEMqPQPcOWbkUqHSA1M/14waumcUpojG8Wh5asZm
-	VdABAgf8TODVJIRBthifWooruoW8AUbxkMyRMEgpiX9X38q3rAuakNi82SO5FPb/u7K/nQa9SKbmq
-	mELgtHfs7JvZOtjDf60AtpV0FJexKUJNWaYI0Rp5sR/xjfbxuxkaF4nTHzowjdqpUsCrB8LGX0Awd
-	ChW3Msu74CqsnPjsrvNMQXHgVnPOrRJLf2gfPWk1mC5v9cZ9uRDAgVs6OmaytRnKz9OYjyI54llzt
-	CJjNnEZA==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLigH-00BScf-1f
+	bh=wzZdBDaKDPmFwxxxRQuhsmNxqRJrtNdmSA2+pjPr1Xc=; b=Rj/ZeYofnXE2vIOOrURcaYM3NX
+	msp0TPUd9Y7R0V0RByUTQfgreMZe6MMxAxJQbeWWW7uYfkbsWY1FhWu0i22J0h+9d4imY+h9MYxB3
+	QHSM+i/7WQ21BpcHbXM0DV/o72/DtjYI7Z4VBfUp8bF2Jzsr79vK99dSDzqjovDY933MUVNeQu0zu
+	xFKI+E1+CVQCL5CO2+Jyq2uFpSqxTeb+wm4ukda/fT2C2N+sSshgMsiqxbRlfd+2XhUoegkY4qc2B
+	lgcaoMY8OqErY+eFjJ6l+5gWGWean2DE/KV3Vevsbl7xkLP9E5UUoVWSMOtjlQTje3+yv0J/YDgSh
+	wKCsRcFQ==;
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qLbkH-009zYo-0Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jul 2023 11:15:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1689678942;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BqFBTcreB9uM7bVA+oKgdwOheFXwxzAShQOYP1vaHLs=;
-	b=UoJkDCTCW3UbiMxhNVm7orufGMKqQxto60k8XmQ6T3l3WIMdcoid0v25kanO0d9DeMIlR6
-	P/3NaRf6S0R59TyKYGHGnpdMI+o4AABukG080M3tH08A8oh6uiJX7mhaOmMblCSIVwClRB
-	Chl+DOesqjiQ8nnB5d6vsPNhmdT89Ss=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1689678947;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BqFBTcreB9uM7bVA+oKgdwOheFXwxzAShQOYP1vaHLs=;
-	b=HI/5HdXfIoDqjd1zdtUIrUuM7v1LXcNO8RSskVZuiTvAwwZffe4U1T63VH1t8++vpe5bcj
-	M1gC58D3/TaH3wDWR6eA8sy5dSzt1iHU8LYSFFwziv8gC/6HGcC6YHPni1JFHtUxMlqOzX
-	IMJyPg8sAFizd+X8ud0zRigbKu8zMOU=
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
- [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-16-J8xPcl4yN3ickAYc6dHlTw-1; Tue, 18 Jul 2023 07:15:40 -0400
-X-MC-Unique: J8xPcl4yN3ickAYc6dHlTw-1
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-66d7911409dso422444b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 04:15:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689678940; x=1690283740;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BqFBTcreB9uM7bVA+oKgdwOheFXwxzAShQOYP1vaHLs=;
-        b=jtA0rc1rv4TiFWHSHfv/ID9Aqi2bfDjUtWt5TwMZp4oOWcacoliQyNixfM+Q0VoarI
-         Zwwu2V4FjN0xY4DrtIvrm1h9VFR9cwTfnfAK/1eVpmO5Yq9kHN1ZofLaLAUednoGdrsK
-         hMBBv1o+no0+WtCphjnF2WFw1NJay3BSSYkvGInEAUrkMVt8GBdtWySapL4kz5GgbgSv
-         FXydE/q2KQ88AwzP1fzOHg3xRHm+aFRzzB15L/53TOAdu1yoRaQgWzBwEcxlkGELECGI
-         NSNH5y5rBa0YOyyolDwCW4JqGUdVAW6jl7jOkxFbP1FMqO7I8B7laSurpzctR9DA1cJk
-         V8uA==
-X-Gm-Message-State: ABy/qLY4Zy4f7+fSPtarsp/JEeyKUnuFSDh02pdwM8qwtGVmazy5fmDv
-	TSKGRpGyWYcr7RxDXa/vxucZV4tD17ykgaSqCcbKgiMVIgxRWg+ZnK5tmCa0dzOI/a5hCNA3UXY
-	8eIwzoUXPTHbo6h7DjJ1881PNA2p7
-X-Received: by 2002:a05:6a00:2d06:b0:679:a1f1:a5f8 with SMTP id fa6-20020a056a002d0600b00679a1f1a5f8mr11345526pfb.3.1689678939736;
-        Tue, 18 Jul 2023 04:15:39 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlEpw9FbepMwI4i8WQLrfFCcRWK4bQzZOcI8bUuVzeTHVwddSiiqvjUkmkgPmHYZSjCF3HQUxg==
-X-Received: by 2002:a05:6a00:2d06:b0:679:a1f1:a5f8 with SMTP id fa6-20020a056a002d0600b00679a1f1a5f8mr11345498pfb.3.1689678939458;
-        Tue, 18 Jul 2023 04:15:39 -0700 (PDT)
-Received: from [10.72.112.40] ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id s1-20020a63af41000000b00528db73ed70sm1476638pgo.3.2023.07.18.04.15.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Jul 2023 04:15:39 -0700 (PDT)
-Message-ID: <5b2c03a5-5887-d951-6c3d-f71b49e683fc@redhat.com>
-Date: Tue, 18 Jul 2023 19:15:32 +0800
+	Tue, 18 Jul 2023 03:51:38 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 4FFFF24E26C;
+	Tue, 18 Jul 2023 11:49:39 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 18 Jul
+ 2023 11:49:39 +0800
+Received: from ubuntu.localdomain (113.72.147.86) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 18 Jul
+ 2023 11:49:38 +0800
+From: Hal Feng <hal.feng@starfivetech.com>
+To: Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+CC: Emil Renner Berthing <emil.renner.berthing@canonical.com>, Hal Feng
+	<hal.feng@starfivetech.com>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v1 1/3] riscv: dts: starfive: jh7100: Add temperature sensor node and thermal-zones
+Date: Tue, 18 Jul 2023 11:49:35 +0800
+Message-ID: <20230718034937.92999-2-hal.feng@starfivetech.com>
+X-Mailer: git-send-email 2.38.1
+In-Reply-To: <20230718034937.92999-1-hal.feng@starfivetech.com>
+References: <20230718034937.92999-1-hal.feng@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v6 08/11] KVM: arm64: Implement
- kvm_arch_flush_remote_tlbs_range()
-To: Raghavendra Rao Ananta <rananta@google.com>,
- Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
- James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
- Sean Christopherson <seanjc@google.com>, Huacai Chen
- <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- Jing Zhang <jingzhangos@google.com>, Colton Lewis <coltonlewis@google.com>,
- David Matlack <dmatlack@google.com>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
- Gavin Shan <gshan@redhat.com>
-References: <20230715005405.3689586-1-rananta@google.com>
- <20230715005405.3689586-9-rananta@google.com>
-From: Shaoqin Huang <shahuang@redhat.com>
-In-Reply-To: <20230715005405.3689586-9-rananta@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+X-Originating-IP: [113.72.147.86]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_121549_848064_B97A5959 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20230718_045129_807170_1F6E4FD9 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,60 +87,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Add temperature sensor and thermal-zones support for
+the StarFive JH7100 SoC.
 
+Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+---
+ arch/riscv/boot/dts/starfive/jh7100.dtsi | 37 ++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-On 7/15/23 08:54, Raghavendra Rao Ananta wrote:
-> Implement kvm_arch_flush_remote_tlbs_range() for arm64
-> to invalidate the given range in the TLB.
-> 
-> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
-> ---
->   arch/arm64/include/asm/kvm_host.h | 3 +++
->   arch/arm64/kvm/mmu.c              | 7 +++++++
->   2 files changed, 10 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 7281222f24ef..52d3ed918893 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -1114,6 +1114,9 @@ struct kvm *kvm_arch_alloc_vm(void);
->   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS
->   int kvm_arch_flush_remote_tlbs(struct kvm *kvm);
->   
-> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
-> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages);
-> +
->   static inline bool kvm_vm_is_protected(struct kvm *kvm)
->   {
->   	return false;
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 0ac721fa27f1..387f2215fde7 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -172,6 +172,13 @@ int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
->   	return 0;
->   }
->   
-> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages)
-> +{
-> +	kvm_tlb_flush_vmid_range(&kvm->arch.mmu,
-> +				start_gfn << PAGE_SHIFT, pages << PAGE_SHIFT);
-> +	return 0;
-> +}
-> +
->   static bool kvm_is_device_pfn(unsigned long pfn)
->   {
->   	return !pfn_is_map_memory(pfn);
-
+diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+index 4218621ea3b9..35ab54fb235f 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+@@ -80,6 +80,31 @@ core1 {
+ 		};
+ 	};
+ 
++	thermal-zones {
++		cpu-thermal {
++			polling-delay-passive = <250>;
++			polling-delay = <15000>;
++
++			thermal-sensors = <&sfctemp>;
++
++			trips {
++				cpu_alert0 {
++					/* milliCelsius */
++					temperature = <75000>;
++					hysteresis = <2000>;
++					type = "passive";
++				};
++
++				cpu_crit {
++					/* milliCelsius */
++					temperature = <90000>;
++					hysteresis = <2000>;
++					type = "critical";
++				};
++			};
++		};
++	};
++
+ 	osc_sys: osc_sys {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+@@ -248,5 +273,17 @@ watchdog@12480000 {
+ 			resets = <&rstgen JH7100_RSTN_WDTIMER_APB>,
+ 				 <&rstgen JH7100_RSTN_WDT>;
+ 		};
++
++		sfctemp: temperature-sensor@124a0000 {
++			compatible = "starfive,jh7100-temp";
++			reg = <0x0 0x124a0000 0x0 0x10000>;
++			clocks = <&clkgen JH7100_CLK_TEMP_SENSE>,
++				 <&clkgen JH7100_CLK_TEMP_APB>;
++			clock-names = "sense", "bus";
++			resets = <&rstgen JH7100_RSTN_TEMP_SENSE>,
++				 <&rstgen JH7100_RSTN_TEMP_APB>;
++			reset-names = "sense", "bus";
++			#thermal-sensor-cells = <0>;
++		};
+ 	};
+ };
 -- 
-Shaoqin
+2.38.1
 
 
 _______________________________________________
