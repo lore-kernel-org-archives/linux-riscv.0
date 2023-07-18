@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71FADEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E4FEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+hFh29g8t9pK8YcfitQHGBpDwpRJpbGHweRBhHdIizg=; b=s2/iShojjOss2ZBvVDWDvrVRO5
-	F8v203lWmaa5XYNicS9FeKVYEKjiuIYrgNAyLlDQieAEG4qStL4ovTXtTlsTc105GgXoFPcC6ovU+
-	Hwhi+MHy+pkcpZX2FBfNPITsiL/RQ23DPnIxydZb5nXqVTW2/TOW38Cafs3YrmBNnfn2J3zX3kTC5
-	w2qSFQKFQA7uRLCsr1/HE+5MRjdAght2S+jG3pZNhUxg/nhIvUUcVcJxk1jY1JvvdSwPwE4fQj9jK
-	H++bdcY0+d9EdbiDaSqbxadAKR8fATiE+Zpcqaik3WxZmYMRgy98YGgmBK63+ll9sMvZ5NJNTSbcn
-	sY9sVSwA==;
+	bh=jV5HCI+wPr2MZ7w8J1KBr/Pfj1ih6N403/lCN4sgZbo=; b=C4U9ZQ1VkVQ3Z74SYW6DoSx65W
+	33iZ13LHa7SNWX/jO3fRZehGSyCR4N4NBcg4cFqgs+Z/fT2OCxXQu4j/RjcvC0C0qKn9LyE5Y0xa0
+	eP52OzC0x4j7U3ydjtxrhvnuieXsej8stmhwA2uDsOPHBNZjNvVh0sNXPWdNXKaskmUYSFHKjSff7
+	n3gSRT4a4bSlVvrLFYavvPCQRJZImtPulu1Rah+SLJ1eAxvGNRRfoG1DQ8AU292xbCyOev+nCWoTt
+	wXAIRQjr5/l9bV0dOXClxWdiFwXpY4hX8fONDxooWDg527VX3BZ8BOWynE0j/f6Ke/XEBUEGENQD+
+	rTGqSrXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0sS-005qkJ-2C;
-	Wed, 19 Jul 2023 06:41:36 +0000
+	id 1qM0vs-005sMs-0W;
+	Wed, 19 Jul 2023 06:45:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0sO-005qgw-1m
+	id 1qM0vp-005sKb-0W
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 06:41:32 +0000
+	Wed, 19 Jul 2023 06:45:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=OUjUdujOU6xee9ci8vr4sbSWtz6K7GK3lKu01CccESI=; b=ZnU0H85bsh513ERs74rbmGsp4J
-	/Ab+4ViZ2hViyPmZa2i63Tvpr/mSiHsGGqLhvHMLx5Tn2B7KZRPZz6k57tqpkrpfW9iG0QgfthhA5
-	R1WdhNw0ZVR9MtFOHAvE6IYQJgkePbrS1+MC2R97TmzqXOdrQM6AXkoecc8ETkOtCsqurqiIt3MPY
-	6bmsP563HeC4BoqwGwOEQs8hDL1g8x0kXoLyLETJKX2Nj2txLcy8Hzpps8F3sV87Q9VhqYYqdy4bd
-	R/vrbhFTPK04RG66Q5Ml1GhobPPUfOPSSEVMhlsk4tCFu0U8LnKFPHiushEpWfnaA2w3xaUHRI7mE
-	89fhYy8g==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	bh=zdvmDJMdEm8WfkZrLoyzdPxOO3h3hbh7c/bASlq5Y0s=; b=hDKCDRo+bLFDj74rCywAUN9ATp
+	qSU9+M+uT+WnxOW6gKF/MGgmv5VfY6yp5+NrV33QSzg5Gk0Osy2zFH+Apm+/2Q7a9515MW4wAp34a
+	cpTXer1y85dZusQpQXLGvuNCIyYb00zyW98yEJUyz5w8+5OoD4Uu6OgkIm/WfCpgLn8IQ4xB3rOeC
+	gD2FopASCP/KbU/8kgMtLXiULH0aqG2wegxdAlCpwovVWxiUwSuaTTHlwB0SWB7qu8D4tcfH6vrSU
+	dpPWVUaX5In+ylHPb1HaB8sHwMQ5s+ESfvfOqdYPn2Hg+Ib3+WTrAFlTz6UtIdr9i+oDJU8bw9ky1
+	uA3PxSjA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLi9P-00BQ1g-1T
+	id 1qLlMy-00BcvE-2S
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jul 2023 10:41:53 +0000
+	Tue, 18 Jul 2023 14:08:07 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 12AD561510;
-	Tue, 18 Jul 2023 10:41:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20A67C433C8;
-	Tue, 18 Jul 2023 10:41:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 01FE5615EB;
+	Tue, 18 Jul 2023 14:07:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 844BAC433C8;
+	Tue, 18 Jul 2023 14:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689676902;
-	bh=OUjUdujOU6xee9ci8vr4sbSWtz6K7GK3lKu01CccESI=;
+	s=k20201202; t=1689689250;
+	bh=zdvmDJMdEm8WfkZrLoyzdPxOO3h3hbh7c/bASlq5Y0s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s3ikNNxkzZVm7sBvTch39A392lKdsF/MtLcWBHZrDSjcVZ+SryKeypemdThHWZ+6T
-	 YlBh1j2T4dcMNoC+ECE/Fuq4UojR2o2lChd6E8f+hQLFOgF8NDA8p9Uoyp2Uc/9VEg
-	 5pCOqd9GXoOGyyRanr8JMFAqGkbvRn9Ru7nhv33E/iaHALHu26Wp7GYcjoDQkwtJLp
-	 rTmvuGXAymnL2SRA/3PuA30frH6/MCdmLx82NbedDQPKQbW4kidrmDxvtCkGo5pTJk
-	 AbB5BqYgyWSe+Cegf7tqkirsUWrAL8gt8bHZsttVgWQM71+UTPPpdGq8JFPTJBnhh7
-	 iirU7dVHOAjMw==
-Date: Tue, 18 Jul 2023 11:41:38 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] riscv: enable DMA_BOUNCE_UNALIGNED_KMALLOC for
- !dma_coherent
-Message-ID: <20230718-regulator-hardened-919cb8f4e562@spud>
-References: <20230716165147.1897-1-jszhang@kernel.org>
- <20230716165147.1897-3-jszhang@kernel.org>
+	b=ECdEFnsdpYuqfFYfyDj13RVp1fS9AiFX+NJ+aKviNzYKxgZsfaJ/f8uYzbNsswrFi
+	 qfIMWA+zocXwtruNYUrPCMRMIyOu2qCufekSXXC5AcpRsIu7XiNHQ6RsKi7ZOxYByi
+	 fAt7la3qt5ZuBWI85cNZTzpSFW47N4BrxhB+7L1J+a2EoDY6Kj7UVFv30jf+yO6Tb+
+	 YPHgqoyzw9IvdjCf1tWcuf6KFvUtXiJ4gLABRsNmH5VEx66jJBZ/EkWARD3umnPezs
+	 YHRKPF0mbxAm6kCm9H8nYKu/APzu2cVnlD2e5157RtfBZF2fphFiNzeGYfpAPwfk8J
+	 z3j+L/YfECIJA==
+Date: Tue, 18 Jul 2023 15:07:25 +0100
+From: Mark Brown <broonie@kernel.org>
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	devicetree@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v2 2/3] dt-bindings: spi: constrain minItems of clocks
+ and clock-names
+Message-ID: <c53a6193-0417-4e01-9226-9c0557a497d6@sirena.org.uk>
+References: <20230713090015.127541-1-william.qiu@starfivetech.com>
+ <20230713090015.127541-3-william.qiu@starfivetech.com>
+ <c5ad1e1c-58f4-4833-b9c7-8876c1a0dc27@sirena.org.uk>
+ <e3fd0d3f-3fe4-2e23-2548-ecbd487e9c9f@linaro.org>
+ <20230713145724.GA3975811-robh@kernel.org>
+ <df9de3d8-09da-2b80-b2b4-626cd92fe971@starfivetech.com>
+ <9891a7e3-0fce-4d05-8ead-3c0ed155d725@sirena.org.uk>
+ <6c53310c-1dc0-6623-369b-1a73fc8f63a5@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <20230716165147.1897-3-jszhang@kernel.org>
+In-Reply-To: <6c53310c-1dc0-6623-369b-1a73fc8f63a5@starfivetech.com>
+X-Cookie: Nothing happens.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_114151_818078_A664AE93 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20230718_150805_472356_6B80A42D 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,64 +99,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6992724283788041963=="
+Content-Type: multipart/mixed; boundary="===============4647553988148612040=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6992724283788041963==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="WaDhwX/tojNUxqXP"
+--===============4647553988148612040==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fiXkAa88DxIXZCAv"
 Content-Disposition: inline
 
 
---WaDhwX/tojNUxqXP
+--fiXkAa88DxIXZCAv
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jul 17, 2023 at 12:51:47AM +0800, Jisheng Zhang wrote:
-> With the DMA bouncing of unaligned kmalloc() buffers now in place,
-> enable it for riscv when RISCV_DMA_NONCOHERENT=3Dy to allow the
-> kmalloc-{8,16,32,96} caches. Since RV32 doesn't enable SWIOTLB
-> yet, and I didn't see any dma noncoherent RV32 platforms in the
-> mainline, so skip RV32 now by only enabling
-> DMA_BOUNCE_UNALIGNED_KMALLOC if SWIOTLB is available. Once we see
-> such requirement on RV32, we can enable it then.
->=20
-> NOTE: we didn't force to create the swiotlb buffer even when the
-> end of RAM is within the 32-bit physical address range. That's to
-> say:
-> For RV64 with > 4GB memory, the feature is enabled.
-> For RV64 with <=3D 4GB memory, the feature isn't enabled by default. We
-> rely on users to pass "swiotlb=3Dmmnn,force" where mmnn is the Number of
-> I/O TLB slabs, see kernel-parameters.txt for details.
->=20
-> Tested on Sipeed Lichee Pi 4A with 8GB DDR and Sipeed M1S BL808 Dock
-> board.
->=20
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+On Tue, Jul 18, 2023 at 02:06:01PM +0800, William Qiu wrote:
+> On 2023/7/14 19:52, Mark Brown wrote:
+> > On Fri, Jul 14, 2023 at 03:14:59PM +0800, William Qiu wrote:
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> >> After communicating with colleagues in SoC FE, I learned that PCLK and
+> >> SSPCLK were homologous on JH7110. He said that SSPCLK would divide the
+> >> frequency internally anyway, and there was no need for external part frequency,
+> >> so he directly gave them together.
 
-Thanks,
-Conor.
+> >> So, should I call this clock ssp_apb or keep it SSPCLK?
 
---WaDhwX/tojNUxqXP
+> > I'd expect this to be handled in the DTS for the SoC - connect both
+> > clocks the binding requires to whatever the upstream clock is, it's not
+> > clear to me that any binding change is required.
+
+> You mean binding two clocks, with the same clock source? Then there is no
+> need to modify YAML.
+
+Yes, exactly.
+
+--fiXkAa88DxIXZCAv
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLZsYgAKCRB4tDGHoIJi
-0h6dAQCo44pYvI6nANHuLGtYjW6avnzLGuUsYn5qdzK431TdSwEAvpmfuiQjAx+6
-2Y1b6+zCOekk56K2qaOXzuHSDGzw/gg=
-=Px5H
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmS2nJwACgkQJNaLcl1U
+h9CWiAf/bC0fx/Sgnty2fRf6b2sm8C4OURlZf4h7LOlPJeWfWc6+jOhKAfeYMInw
+oA/ZlTHv1V5S/rfmU9JoCFJIGwrX/wAXQ9s6jvpqMNtzDoHQi14kny4rUg6GDfjM
+CTf19IbvX1ff+Q2DfvoHmtZNt/wn3oLbfIDujesSqVhvKSR5qrsVRbiraZmmgXOK
+vb2Jt0rFL30Sy8ICP0PomsbMFkVLvPOx808QsBOWSzd/Jvow/EHNv1HbE+GOXRSL
+FhlcXHO9OrJs3YPKRGnS8FfblaO1zTNCdS9pKZXJRidvjEhlFyDUOEDtbR0D3jJ9
+APJkPHVoQfR/eAstxEx64ohiOnY5yQ==
+=RmWn
 -----END PGP SIGNATURE-----
 
---WaDhwX/tojNUxqXP--
+--fiXkAa88DxIXZCAv--
 
 
---===============6992724283788041963==
+--===============4647553988148612040==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -156,5 +163,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6992724283788041963==--
+--===============4647553988148612040==--
 
