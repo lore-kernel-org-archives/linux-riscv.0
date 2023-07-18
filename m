@@ -4,74 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFC2C001DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 493EFEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1rFG5qK4xO5mJ2DYuf7MAhcLjWb3jm38QvQFn5OzZIM=; b=462RcYu0TYtf94
-	1T5eD3FOZrMtZWW8XT+GpMN53n+qsry/0Mkf35uyd53vDOm/5E2e6A3FZ4TZ7WodYHeHzFTVO9e2C
-	Vz+iSgBLF5UuryPyX+f9z2ct4M//Vno8OQRCtiS6tdJB0Ne2jn4WiqjrQQiUvIH8QtwOkCi0ymnTY
-	N2DMq+ZKEsUYQRS3PAxWZN4EWX7TDl68Q5ua4tXbpNgXXaeXIarrZdRNQaesuOlUH2B9gGSzf6aGr
-	MH8CiltP4FyuRfeJBsFxgml4nSlMAiwYU2Uose+cEc4iRgyTNTsVU/Ihn4y72Z+gJGGVWQdOgj/7p
-	e4wbotpwwieTeW8IEnaw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DoEep+6BPkFtNKVsE/ju5la7XXq/6XsThU9zp020AxQ=; b=EclV6F2k5Fi1iu
+	00XXuadx4mWpopE8Yntux1Hks/cA/ekoc/Z4Wi/ZC8DjVGiSkke8WCa39l52pVscvmLpKU5UOWjpM
+	Cj/AvPeBk9h0DezGVWAPnwhAIlwvs/r1YJAga9e3+iQlWpaKaefAKPxfBQWf2pbb5pMribij0KSqK
+	XDNqMmIVjQPVQhQ640DS2+BmJyH4cNFUDJmDVDG0X1gVzWgDxOm5pUrtjw6RfU14WO+1nW6Bcv+dL
+	M2SibciBjriFanITWfWsiktChulVAITr2Wd5mSytD/rtYc4ZEPwDUMFSYQ/yxRRtjm9ObfoMsxYPF
+	ZyWGXbOytj0CbvVHu1QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzqA-005LPb-1O;
-	Wed, 19 Jul 2023 05:35:10 +0000
+	id 1qLzrL-005Lko-38;
+	Wed, 19 Jul 2023 05:36:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzq5-005LOc-21;
-	Wed, 19 Jul 2023 05:35:05 +0000
+	id 1qLzrK-005LkA-0d
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 19 Jul 2023 05:36:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=o9scUnX/tkCxU5w2WNUGpVx08jHIa6MbjP+cSyokFWI=; b=abjrSOT3nZ7tv0rPL1cOFLjbYH
-	MyzPWOWno4WglYhGcwzORPeB/JLkYhgAEDsUDQxw+EpnNn8P6wQlKxJqVPaSTyjP4UQSigt7OrO5i
-	F0xDtrq0wPEU15Jzq5CkBsbeaWYPq2AB//uiQveO7vrr9A4w8wNTSM9T1tEV4McrwkTCgLJkshKLV
-	Z/nR2t+nky4NbS9rDwzm62w5LxVrpezgU4+IUJEeoJt/0rSGy7KVZShMa1HwdvLKGp4hSa2ToZGNO
-	xA4OsOCgEJX8Wd062fzsMyTaGFc1OCzc6XElxtRuNzDPGOEGPQOnrJBFh54zBcXqgDMa79B1NCBOA
-	kYJBA3ww==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLlj8-00BdZ1-28;
-	Tue, 18 Jul 2023 14:31:01 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id ED6CB615E4;
-	Tue, 18 Jul 2023 14:30:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86FBAC433C7;
-	Tue, 18 Jul 2023 14:30:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689690645;
-	bh=C1ZOzm/Pw7IVXJNFy9j+wAwq/2bOUY9836t5/c65Apg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=PgP9uoW3S6y09XUTUNwdM7kwJ7+Aq3knB1l0CUlF6cHpcGaHY9rNCi/4qG0edsq3p
-	 DdA9nszHelZSylrm28vn5Ry/M3MKhMjaeaymhch3lY7XS8f+l340+Kq8bv/dVhgNzv
-	 VbcL/dITrvFSxWLKcnonnust3jiBPxqSSpUYKICb0EYOj0tD6qCh+mJNXyUeUt1EIa
-	 K+tcNAJ9Pua8C74Y/x+T11aAZy3LkhKfkPXgiyNWPWzU6WnrJJS81oEF5EDHL1OUsu
-	 2UtOCAFWxhnhZm9uqhwspOnV2l8QW8HzsqplRnoHGqKX6qKAQXS8hWnyM0uwDZVuY/
-	 AOFDSI3syDmRQ==
-Received: (nullmailer pid 1065026 invoked by uid 1000);
-	Tue, 18 Jul 2023 14:30:39 -0000
-From: Rob Herring <robh@kernel.org>
-To: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>, Roger Quadros <rogerq@kernel.org>, Aswath Govindraju <a-govindraju@ti.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Minas Harutyunyan <hminas@synopsys.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Li Yang <leoyang.li@nxp.com>, Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, Herve Codina <herve.codina@bootlin.com>, Michal Simek <michal.simek@amd.com>, Alan Stern <stern@rowland.harvard.edu>, Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@microchip.com>, Mathias Nyman <mathias.nyman@
- intel.com>, Richard Leitner <richard.leitner@linux.dev>, Chunfeng Yun <chunfeng.yun@mediatek.com>, Paul Cercueil <paul@crapouillou.net>, Bin Liu <b-liu@ti.com>, Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Guenter Roeck <linux@roeck-us.net>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-renesas-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-arm-msm@vger.kernel.org
-Subject: [PATCH v2] usb: Explicitly include correct DT includes
-Date: Tue, 18 Jul 2023 08:30:23 -0600
-Message-Id: <20230718143027.1064731-1-robh@kernel.org>
-X-Mailer: git-send-email 2.40.1
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=E0FKZwssj/7Hic5rOvVV0gEG7dk+QL3K/iy5qBzZz9I=; b=L7/iqCFjkg0NibhssNXCxl1Frj
+	fcBSfDt45NDxeUUAFTJrftaV8a2jeLII2coQs9eroXPhEri1mJGdCxsC0o9SYXtb94WuGZDnU8DRr
+	eWpe8SNq/4R1UcZ89i4xiwVNsalJOVV9Ah0I25oCM18gTl2P49Gy5vuCi5WhUz4UegRdI9Z3w+TNZ
+	DiEvLK82j9anpxscUeZJboErDmBucKGAOPmpunOyLvhMaRqHNpbVOTRAEzf3RMmNYLA77y6s76/1U
+	pO/uqrzygGwImecvU8r4tRNF30L1OjF99k3lkYh7kfdZy3pWlu4XBv4vCqFi0xC3PnEvq9jvGflDZ
+	qBJqrjHg==;
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by desiato.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qLdd8-00BBxJ-1Y
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Jul 2023 05:52:18 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id F3C1324E280;
+	Tue, 18 Jul 2023 13:51:26 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 18 Jul
+ 2023 13:51:27 +0800
+Received: from [192.168.125.128] (113.72.147.86) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 18 Jul
+ 2023 13:51:25 +0800
+Message-ID: <4e4dea7f-639b-71aa-5a47-95ce14d7f1ed@starfivetech.com>
+Date: Tue, 18 Jul 2023 13:48:09 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH v7 0/7] Add PLL clocks driver and syscon for StarFive
+ JH7110 SoC
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, William Qiu
+	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>
+References: <20230717023040.78860-1-xingyu.wu@starfivetech.com>
+ <20230717-easel-pessimist-5b7c4e5bed0a@spud>
+From: Xingyu Wu <xingyu.wu@starfivetech.com>
+In-Reply-To: <20230717-easel-pessimist-5b7c4e5bed0a@spud>
+X-Originating-IP: [113.72.147.86]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_153059_162352_F85ED737 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20230718_065215_316267_62E9668A 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,753 +98,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The DT of_device.h and of_platform.h date back to the separate
-of_platform_bus_type before it as merged into the regular platform bus.
-As part of that merge prepping Arm DT support 13 years ago, they
-"temporarily" include each other. They also include platform_device.h
-and of.h. As a result, there's a pretty much random mix of those include
-files used throughout the tree. In order to detangle these headers and
-replace the implicit includes with struct declarations, users need to
-explicitly include the correct includes.
+On 2023/7/18 2:14, Conor Dooley wrote:
+> Hey Xingyu,
+> 
+> On Mon, Jul 17, 2023 at 10:30:33AM +0800, Xingyu Wu wrote:
+>> This patch serises are to add PLL clocks driver and providers by writing
+>> and reading syscon registers for the StarFive JH7110 RISC-V SoC. And add 
+>> documentation and nodes to describe StarFive System Controller(syscon)
+>> Registers. This patch serises are based on Linux 6.4.
+>> 
+>> PLLs are high speed, low jitter frequency synthesizers in JH7110.
+>> Each PLL clock works in integer mode or fraction mode by some dividers,
+>> and the dividers are set in several syscon registers.
+>> The formula for calculating frequency is: 
+>> Fvco = Fref * (NI + NF) / M / Q1
+>> 
+>> The first patch adds docunmentation to describe PLL clock bindings,
+>> and the second patch adds documentation to decribe syscon registers.
+>> The patch 3 modifies the SYSCRG bindings and adds PLL clock inputs.
+>> The patch 4 adds driver to support PLL clocks for JH7110.
+>> The patch 5 modifies the system clock driver and can select the PLL clock
+>> source from PLL clocks driver. And the patch 6 adds the 
+>> stg/sys/aon syscon nodes for JH7110 SoC. The last patch modifies the 
+>> syscrg node in JH7110 dts file.
+> 
+> Just FYI, I have picked up the binding & clock portions of this series
+> and your other one adding the stg syscon. I've pushed them out here for
+> the test robots to have a look:
+> https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/log/?h=clk-starfive
+> 
+> If that passes, my plan is to send Stephen a PR for the lot, later this
+> week.
+> 
 
-Acked-by: Herve Codina <herve.codina@bootlin.com>
-Signed-off-by: Rob Herring <robh@kernel.org>
----
-v2:
-- Fix double include of of.h
----
- drivers/usb/cdns3/cdns3-gadget.c                    | 1 +
- drivers/usb/cdns3/cdns3-plat.c                      | 1 +
- drivers/usb/cdns3/cdns3-ti.c                        | 1 +
- drivers/usb/cdns3/core.c                            | 1 +
- drivers/usb/chipidea/ci_hdrc_imx.c                  | 1 +
- drivers/usb/chipidea/ci_hdrc_tegra.c                | 3 ++-
- drivers/usb/chipidea/usbmisc_imx.c                  | 3 ++-
- drivers/usb/common/common.c                         | 1 +
- drivers/usb/core/message.c                          | 1 +
- drivers/usb/core/of.c                               | 1 -
- drivers/usb/core/usb.c                              | 1 +
- drivers/usb/dwc2/gadget.c                           | 1 -
- drivers/usb/dwc2/platform.c                         | 2 +-
- drivers/usb/dwc3/dwc3-imx8mp.c                      | 1 +
- drivers/usb/dwc3/dwc3-keystone.c                    | 1 +
- drivers/usb/gadget/udc/fsl_udc_core.c               | 1 -
- drivers/usb/gadget/udc/gr_udc.c                     | 5 ++---
- drivers/usb/gadget/udc/max3420_udc.c                | 4 +---
- drivers/usb/gadget/udc/pxa27x_udc.c                 | 2 +-
- drivers/usb/gadget/udc/renesas_usb3.c               | 2 +-
- drivers/usb/gadget/udc/renesas_usbf.c               | 5 ++---
- drivers/usb/gadget/udc/tegra-xudc.c                 | 1 -
- drivers/usb/gadget/udc/udc-xilinx.c                 | 6 ++----
- drivers/usb/host/ehci-fsl.c                         | 2 +-
- drivers/usb/host/ehci-orion.c                       | 2 --
- drivers/usb/host/fhci-hcd.c                         | 3 ++-
- drivers/usb/host/fsl-mph-dr-of.c                    | 3 ++-
- drivers/usb/host/ohci-at91.c                        | 2 +-
- drivers/usb/host/ohci-da8xx.c                       | 1 +
- drivers/usb/host/ohci-ppc-of.c                      | 3 ++-
- drivers/usb/host/xhci-plat.c                        | 1 -
- drivers/usb/host/xhci-rcar.c                        | 1 -
- drivers/usb/host/xhci-tegra.c                       | 2 +-
- drivers/usb/misc/usb251xb.c                         | 2 +-
- drivers/usb/mtu3/mtu3.h                             | 1 +
- drivers/usb/mtu3/mtu3_host.c                        | 1 +
- drivers/usb/musb/jz4740.c                           | 2 +-
- drivers/usb/musb/mediatek.c                         | 1 +
- drivers/usb/musb/mpfs.c                             | 1 +
- drivers/usb/musb/musb_dsps.c                        | 2 --
- drivers/usb/musb/sunxi.c                            | 1 -
- drivers/usb/phy/phy-mxs-usb.c                       | 2 +-
- drivers/usb/phy/phy-tegra-usb.c                     | 2 +-
- drivers/usb/renesas_usbhs/common.c                  | 2 +-
- drivers/usb/renesas_usbhs/rza.c                     | 2 +-
- drivers/usb/renesas_usbhs/rza2.c                    | 1 -
- drivers/usb/typec/tcpm/fusb302.c                    | 2 +-
- drivers/usb/typec/tcpm/qcom/qcom_pmic_typec.c       | 2 +-
- drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_pdphy.c | 2 --
- drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c  | 1 -
- drivers/usb/typec/ucsi/ucsi_glink.c                 | 1 -
- 51 files changed, 46 insertions(+), 48 deletions(-)
+Great. Thank you for everything.
 
-diff --git a/drivers/usb/cdns3/cdns3-gadget.c b/drivers/usb/cdns3/cdns3-gadget.c
-index ea19253fd2d0..e6f6aeb7b5bb 100644
---- a/drivers/usb/cdns3/cdns3-gadget.c
-+++ b/drivers/usb/cdns3/cdns3-gadget.c
-@@ -61,6 +61,7 @@
- #include <linux/module.h>
- #include <linux/dmapool.h>
- #include <linux/iopoll.h>
-+#include <linux/property.h>
- 
- #include "core.h"
- #include "gadget-export.h"
-diff --git a/drivers/usb/cdns3/cdns3-plat.c b/drivers/usb/cdns3/cdns3-plat.c
-index 884e2301237f..b15ff5bd91c2 100644
---- a/drivers/usb/cdns3/cdns3-plat.c
-+++ b/drivers/usb/cdns3/cdns3-plat.c
-@@ -15,6 +15,7 @@
- #include <linux/module.h>
- #include <linux/irq.h>
- #include <linux/kernel.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- 
-diff --git a/drivers/usb/cdns3/cdns3-ti.c b/drivers/usb/cdns3/cdns3-ti.c
-index 81b9132e3aaa..5945c4b1e11f 100644
---- a/drivers/usb/cdns3/cdns3-ti.c
-+++ b/drivers/usb/cdns3/cdns3-ti.c
-@@ -15,6 +15,7 @@
- #include <linux/io.h>
- #include <linux/of_platform.h>
- #include <linux/pm_runtime.h>
-+#include <linux/property.h>
- 
- /* USB Wrapper register offsets */
- #define USBSS_PID		0x0
-diff --git a/drivers/usb/cdns3/core.c b/drivers/usb/cdns3/core.c
-index dbcdf3b24b47..baa154cee352 100644
---- a/drivers/usb/cdns3/core.c
-+++ b/drivers/usb/cdns3/core.c
-@@ -14,6 +14,7 @@
- #include <linux/dma-mapping.h>
- #include <linux/module.h>
- #include <linux/kernel.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
-diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-index 336ef6dd8e7d..aa2aebed8e2d 100644
---- a/drivers/usb/chipidea/ci_hdrc_imx.c
-+++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-@@ -6,6 +6,7 @@
-  */
- 
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-diff --git a/drivers/usb/chipidea/ci_hdrc_tegra.c b/drivers/usb/chipidea/ci_hdrc_tegra.c
-index ca36d11a69ea..8e78bf643e25 100644
---- a/drivers/usb/chipidea/ci_hdrc_tegra.c
-+++ b/drivers/usb/chipidea/ci_hdrc_tegra.c
-@@ -6,7 +6,8 @@
- #include <linux/clk.h>
- #include <linux/io.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
- 
-diff --git a/drivers/usb/chipidea/usbmisc_imx.c b/drivers/usb/chipidea/usbmisc_imx.c
-index 9ee9621e2ccc..e8a712e5abad 100644
---- a/drivers/usb/chipidea/usbmisc_imx.c
-+++ b/drivers/usb/chipidea/usbmisc_imx.c
-@@ -4,10 +4,11 @@
-  */
- 
- #include <linux/module.h>
--#include <linux/of_platform.h>
-+#include <linux/of.h>
- #include <linux/err.h>
- #include <linux/io.h>
- #include <linux/delay.h>
-+#include <linux/platform_device.h>
- #include <linux/usb/otg.h>
- 
- #include "ci_hdrc_imx.h"
-diff --git a/drivers/usb/common/common.c b/drivers/usb/common/common.c
-index c9bdeb4ddcb5..b84efae26e15 100644
---- a/drivers/usb/common/common.c
-+++ b/drivers/usb/common/common.c
-@@ -11,6 +11,7 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/platform_device.h>
- #include <linux/usb/ch9.h>
- #include <linux/usb/of.h>
- #include <linux/usb/otg.h>
-diff --git a/drivers/usb/core/message.c b/drivers/usb/core/message.c
-index b5811620f1de..0d2bfc909019 100644
---- a/drivers/usb/core/message.c
-+++ b/drivers/usb/core/message.c
-@@ -9,6 +9,7 @@
- #include <linux/pci.h>	/* for scatterlist macros */
- #include <linux/usb.h>
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/slab.h>
- #include <linux/mm.h>
- #include <linux/timer.h>
-diff --git a/drivers/usb/core/of.c b/drivers/usb/core/of.c
-index 617e92569b2c..db4ccf9ce3d9 100644
---- a/drivers/usb/core/of.c
-+++ b/drivers/usb/core/of.c
-@@ -8,7 +8,6 @@
-  */
- 
- #include <linux/of.h>
--#include <linux/of_platform.h>
- #include <linux/usb/of.h>
- 
- /**
-diff --git a/drivers/usb/core/usb.c b/drivers/usb/core/usb.c
-index 901ec732321c..396a338d801e 100644
---- a/drivers/usb/core/usb.c
-+++ b/drivers/usb/core/usb.c
-@@ -25,6 +25,7 @@
- 
- #include <linux/module.h>
- #include <linux/moduleparam.h>
-+#include <linux/of.h>
- #include <linux/string.h>
- #include <linux/bitops.h>
- #include <linux/slab.h>
-diff --git a/drivers/usb/dwc2/gadget.c b/drivers/usb/dwc2/gadget.c
-index 8b15742d9e8a..b517a7216de2 100644
---- a/drivers/usb/dwc2/gadget.c
-+++ b/drivers/usb/dwc2/gadget.c
-@@ -22,7 +22,6 @@
- #include <linux/delay.h>
- #include <linux/io.h>
- #include <linux/slab.h>
--#include <linux/of_platform.h>
- 
- #include <linux/usb/ch9.h>
- #include <linux/usb/gadget.h>
-diff --git a/drivers/usb/dwc2/platform.c b/drivers/usb/dwc2/platform.c
-index 0a806f80217e..b1d48019e944 100644
---- a/drivers/usb/dwc2/platform.c
-+++ b/drivers/usb/dwc2/platform.c
-@@ -11,7 +11,7 @@
- #include <linux/clk.h>
- #include <linux/device.h>
- #include <linux/dma-mapping.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/mutex.h>
- #include <linux/platform_device.h>
- #include <linux/phy/phy.h>
-diff --git a/drivers/usb/dwc3/dwc3-imx8mp.c b/drivers/usb/dwc3/dwc3-imx8mp.c
-index 8b9a3bb587bf..4285bde58d2e 100644
---- a/drivers/usb/dwc3/dwc3-imx8mp.c
-+++ b/drivers/usb/dwc3/dwc3-imx8mp.c
-@@ -10,6 +10,7 @@
- #include <linux/io.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-diff --git a/drivers/usb/dwc3/dwc3-keystone.c b/drivers/usb/dwc3/dwc3-keystone.c
-index 0a09aedc2573..4155e8d5a559 100644
---- a/drivers/usb/dwc3/dwc3-keystone.c
-+++ b/drivers/usb/dwc3/dwc3-keystone.c
-@@ -13,6 +13,7 @@
- #include <linux/platform_device.h>
- #include <linux/dma-mapping.h>
- #include <linux/io.h>
-+#include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/phy/phy.h>
- #include <linux/pm_runtime.h>
-diff --git a/drivers/usb/gadget/udc/fsl_udc_core.c b/drivers/usb/gadget/udc/fsl_udc_core.c
-index a67873a074b7..5265ca418cde 100644
---- a/drivers/usb/gadget/udc/fsl_udc_core.c
-+++ b/drivers/usb/gadget/udc/fsl_udc_core.c
-@@ -36,7 +36,6 @@
- #include <linux/platform_device.h>
- #include <linux/fsl_devices.h>
- #include <linux/dmapool.h>
--#include <linux/of_device.h>
- 
- #include <asm/byteorder.h>
- #include <asm/io.h>
-diff --git a/drivers/usb/gadget/udc/gr_udc.c b/drivers/usb/gadget/udc/gr_udc.c
-index 09762559912d..0c3969301a53 100644
---- a/drivers/usb/gadget/udc/gr_udc.c
-+++ b/drivers/usb/gadget/udc/gr_udc.c
-@@ -23,6 +23,7 @@
- 
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/platform_device.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <linux/errno.h>
-@@ -36,9 +37,7 @@
- #include <linux/dmapool.h>
- #include <linux/debugfs.h>
- #include <linux/seq_file.h>
--#include <linux/of_platform.h>
--#include <linux/of_irq.h>
--#include <linux/of_address.h>
-+#include <linux/of.h>
- 
- #include <asm/byteorder.h>
- 
-diff --git a/drivers/usb/gadget/udc/max3420_udc.c b/drivers/usb/gadget/udc/max3420_udc.c
-index 12c519f32bf7..2d57786d3db7 100644
---- a/drivers/usb/gadget/udc/max3420_udc.c
-+++ b/drivers/usb/gadget/udc/max3420_udc.c
-@@ -19,9 +19,7 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/bitfield.h>
--#include <linux/of_address.h>
--#include <linux/of_device.h>
--#include <linux/of_platform.h>
-+#include <linux/of.h>
- #include <linux/of_irq.h>
- #include <linux/prefetch.h>
- #include <linux/usb/ch9.h>
-diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
-index c4e1d957f913..61424cfd2e1c 100644
---- a/drivers/usb/gadget/udc/pxa27x_udc.c
-+++ b/drivers/usb/gadget/udc/pxa27x_udc.c
-@@ -23,7 +23,7 @@
- #include <linux/prefetch.h>
- #include <linux/byteorder/generic.h>
- #include <linux/platform_data/pxa2xx_udc.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/of_gpio.h>
- 
- #include <linux/usb.h>
-diff --git a/drivers/usb/gadget/udc/renesas_usb3.c b/drivers/usb/gadget/udc/renesas_usb3.c
-index 59bb25de2015..3b01734ce1b7 100644
---- a/drivers/usb/gadget/udc/renesas_usb3.c
-+++ b/drivers/usb/gadget/udc/renesas_usb3.c
-@@ -14,7 +14,7 @@
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-diff --git a/drivers/usb/gadget/udc/renesas_usbf.c b/drivers/usb/gadget/udc/renesas_usbf.c
-index 6cd0af83e91e..3482b41d0646 100644
---- a/drivers/usb/gadget/udc/renesas_usbf.c
-+++ b/drivers/usb/gadget/udc/renesas_usbf.c
-@@ -12,10 +12,9 @@
- #include <linux/iopoll.h>
- #include <linux/kernel.h>
- #include <linux/kfifo.h>
-+#include <linux/mod_devicetable.h>
- #include <linux/module.h>
--#include <linux/of_address.h>
--#include <linux/of_irq.h>
--#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/types.h>
- #include <linux/usb/composite.h>
-diff --git a/drivers/usb/gadget/udc/tegra-xudc.c b/drivers/usb/gadget/udc/tegra-xudc.c
-index 83eaa65ddde3..065046f1c9cb 100644
---- a/drivers/usb/gadget/udc/tegra-xudc.c
-+++ b/drivers/usb/gadget/udc/tegra-xudc.c
-@@ -16,7 +16,6 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/of_device.h>
- #include <linux/phy/phy.h>
- #include <linux/phy/tegra/xusb.h>
- #include <linux/pm_domain.h>
-diff --git a/drivers/usb/gadget/udc/udc-xilinx.c b/drivers/usb/gadget/udc/udc-xilinx.c
-index a4a7b90a97e7..0a025bf14e06 100644
---- a/drivers/usb/gadget/udc/udc-xilinx.c
-+++ b/drivers/usb/gadget/udc/udc-xilinx.c
-@@ -18,10 +18,8 @@
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/module.h>
--#include <linux/of_address.h>
--#include <linux/of_device.h>
--#include <linux/of_platform.h>
--#include <linux/of_irq.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
- #include <linux/prefetch.h>
- #include <linux/usb/ch9.h>
- #include <linux/usb/gadget.h>
-diff --git a/drivers/usb/host/ehci-fsl.c b/drivers/usb/host/ehci-fsl.c
-index 81d60a695510..3c776f4de4b8 100644
---- a/drivers/usb/host/ehci-fsl.c
-+++ b/drivers/usb/host/ehci-fsl.c
-@@ -22,7 +22,7 @@
- #include <linux/usb/otg.h>
- #include <linux/platform_device.h>
- #include <linux/fsl_devices.h>
--#include <linux/of_platform.h>
-+#include <linux/of.h>
- #include <linux/io.h>
- 
- #include "ehci.h"
-diff --git a/drivers/usb/host/ehci-orion.c b/drivers/usb/host/ehci-orion.c
-index 2cfb27dc943a..a5f4e2f98346 100644
---- a/drivers/usb/host/ehci-orion.c
-+++ b/drivers/usb/host/ehci-orion.c
-@@ -13,8 +13,6 @@
- #include <linux/platform_data/usb-ehci-orion.h>
- #include <linux/of.h>
- #include <linux/phy/phy.h>
--#include <linux/of_device.h>
--#include <linux/of_irq.h>
- #include <linux/usb.h>
- #include <linux/usb/hcd.h>
- #include <linux/io.h>
-diff --git a/drivers/usb/host/fhci-hcd.c b/drivers/usb/host/fhci-hcd.c
-index 66a045e01dad..9a1b5224f239 100644
---- a/drivers/usb/host/fhci-hcd.c
-+++ b/drivers/usb/host/fhci-hcd.c
-@@ -22,9 +22,10 @@
- #include <linux/io.h>
- #include <linux/usb.h>
- #include <linux/usb/hcd.h>
-+#include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/of_irq.h>
--#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
- #include <linux/slab.h>
- #include <linux/gpio/consumer.h>
- #include <soc/fsl/qe/qe.h>
-diff --git a/drivers/usb/host/fsl-mph-dr-of.c b/drivers/usb/host/fsl-mph-dr-of.c
-index a9877f2569f4..8508d37a2aff 100644
---- a/drivers/usb/host/fsl-mph-dr-of.c
-+++ b/drivers/usb/host/fsl-mph-dr-of.c
-@@ -10,7 +10,8 @@
- #include <linux/fsl_devices.h>
- #include <linux/err.h>
- #include <linux/io.h>
--#include <linux/of_platform.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
- #include <linux/clk.h>
- #include <linux/module.h>
- #include <linux/dma-mapping.h>
-diff --git a/drivers/usb/host/ohci-at91.c b/drivers/usb/host/ohci-at91.c
-index b9ce8d80f20b..3b023ea71f8d 100644
---- a/drivers/usb/host/ohci-at91.c
-+++ b/drivers/usb/host/ohci-at91.c
-@@ -17,13 +17,13 @@
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
- #include <linux/gpio/consumer.h>
--#include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/platform_data/atmel.h>
- #include <linux/io.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/mfd/syscon.h>
-+#include <linux/of.h>
- #include <linux/regmap.h>
- #include <linux/usb.h>
- #include <linux/usb/hcd.h>
-diff --git a/drivers/usb/host/ohci-da8xx.c b/drivers/usb/host/ohci-da8xx.c
-index e4191a868944..9bd6cb9af364 100644
---- a/drivers/usb/host/ohci-da8xx.c
-+++ b/drivers/usb/host/ohci-da8xx.c
-@@ -15,6 +15,7 @@
- #include <linux/jiffies.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_data/usb-davinci.h>
-diff --git a/drivers/usb/host/ohci-ppc-of.c b/drivers/usb/host/ohci-ppc-of.c
-index 35a7ad7e2569..f64bfe5f4d4d 100644
---- a/drivers/usb/host/ohci-ppc-of.c
-+++ b/drivers/usb/host/ohci-ppc-of.c
-@@ -15,9 +15,10 @@
-  */
- 
- #include <linux/signal.h>
-+#include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/of_irq.h>
--#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
- 
- static int
- ohci_ppc_of_start(struct usb_hcd *hcd)
-diff --git a/drivers/usb/host/xhci-plat.c b/drivers/usb/host/xhci-plat.c
-index b26ea7cb4357..28218c8f1837 100644
---- a/drivers/usb/host/xhci-plat.c
-+++ b/drivers/usb/host/xhci-plat.c
-@@ -13,7 +13,6 @@
- #include <linux/module.h>
- #include <linux/pci.h>
- #include <linux/of.h>
--#include <linux/of_device.h>
- #include <linux/platform_device.h>
- #include <linux/usb/phy.h>
- #include <linux/slab.h>
-diff --git a/drivers/usb/host/xhci-rcar.c b/drivers/usb/host/xhci-rcar.c
-index bf5261fed32c..ab9c5969e462 100644
---- a/drivers/usb/host/xhci-rcar.c
-+++ b/drivers/usb/host/xhci-rcar.c
-@@ -10,7 +10,6 @@
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/of.h>
--#include <linux/of_device.h>
- #include <linux/usb/phy.h>
- 
- #include "xhci.h"
-diff --git a/drivers/usb/host/xhci-tegra.c b/drivers/usb/host/xhci-tegra.c
-index 6ca8a37e53e1..51e236c1ff71 100644
---- a/drivers/usb/host/xhci-tegra.c
-+++ b/drivers/usb/host/xhci-tegra.c
-@@ -14,7 +14,7 @@
- #include <linux/iopoll.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/of_irq.h>
- #include <linux/phy/phy.h>
- #include <linux/phy/tegra/xusb.h>
-diff --git a/drivers/usb/misc/usb251xb.c b/drivers/usb/misc/usb251xb.c
-index e4edb486b69e..7da404f55a6d 100644
---- a/drivers/usb/misc/usb251xb.c
-+++ b/drivers/usb/misc/usb251xb.c
-@@ -16,7 +16,7 @@
- #include <linux/i2c.h>
- #include <linux/module.h>
- #include <linux/nls.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/regulator/consumer.h>
- #include <linux/slab.h>
- 
-diff --git a/drivers/usb/mtu3/mtu3.h b/drivers/usb/mtu3/mtu3.h
-index b4a7662dded5..c11840b9a6f1 100644
---- a/drivers/usb/mtu3/mtu3.h
-+++ b/drivers/usb/mtu3/mtu3.h
-@@ -16,6 +16,7 @@
- #include <linux/extcon.h>
- #include <linux/interrupt.h>
- #include <linux/list.h>
-+#include <linux/of.h>
- #include <linux/phy/phy.h>
- #include <linux/regulator/consumer.h>
- #include <linux/usb.h>
-diff --git a/drivers/usb/mtu3/mtu3_host.c b/drivers/usb/mtu3/mtu3_host.c
-index 177d2caf887c..9f2be22af844 100644
---- a/drivers/usb/mtu3/mtu3_host.c
-+++ b/drivers/usb/mtu3/mtu3_host.c
-@@ -11,6 +11,7 @@
- #include <linux/irq.h>
- #include <linux/kernel.h>
- #include <linux/mfd/syscon.h>
-+#include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/regmap.h>
- 
-diff --git a/drivers/usb/musb/jz4740.c b/drivers/usb/musb/jz4740.c
-index 5aabdd7e2511..b38df9226278 100644
---- a/drivers/usb/musb/jz4740.c
-+++ b/drivers/usb/musb/jz4740.c
-@@ -10,7 +10,7 @@
- #include <linux/errno.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/usb/role.h>
-diff --git a/drivers/usb/musb/mediatek.c b/drivers/usb/musb/mediatek.c
-index 598ee5c0bf34..0a35aab3ab81 100644
---- a/drivers/usb/musb/mediatek.c
-+++ b/drivers/usb/musb/mediatek.c
-@@ -10,6 +10,7 @@
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/usb/role.h>
-diff --git a/drivers/usb/musb/mpfs.c b/drivers/usb/musb/mpfs.c
-index 24b98716f7fc..f0f56df38835 100644
---- a/drivers/usb/musb/mpfs.c
-+++ b/drivers/usb/musb/mpfs.c
-@@ -13,6 +13,7 @@
- #include <linux/io.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/usb/usb_phy_generic.h>
- #include "musb_core.h"
-diff --git a/drivers/usb/musb/musb_dsps.c b/drivers/usb/musb/musb_dsps.c
-index 9119b1d51370..98b42dc04dee 100644
---- a/drivers/usb/musb/musb_dsps.c
-+++ b/drivers/usb/musb/musb_dsps.c
-@@ -26,9 +26,7 @@
- #include <linux/sizes.h>
- 
- #include <linux/of.h>
--#include <linux/of_device.h>
- #include <linux/of_address.h>
--#include <linux/of_irq.h>
- #include <linux/usb/of.h>
- 
- #include <linux/debugfs.h>
-diff --git a/drivers/usb/musb/sunxi.c b/drivers/usb/musb/sunxi.c
-index c5c6c4e09300..d54283fd026b 100644
---- a/drivers/usb/musb/sunxi.c
-+++ b/drivers/usb/musb/sunxi.c
-@@ -15,7 +15,6 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/of_device.h>
- #include <linux/phy/phy-sun4i-usb.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
-diff --git a/drivers/usb/phy/phy-mxs-usb.c b/drivers/usb/phy/phy-mxs-usb.c
-index e1a2b2ea098b..50cf0003384a 100644
---- a/drivers/usb/phy/phy-mxs-usb.c
-+++ b/drivers/usb/phy/phy-mxs-usb.c
-@@ -14,7 +14,7 @@
- #include <linux/delay.h>
- #include <linux/err.h>
- #include <linux/io.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/regmap.h>
- #include <linux/mfd/syscon.h>
- #include <linux/iopoll.h>
-diff --git a/drivers/usb/phy/phy-tegra-usb.c b/drivers/usb/phy/phy-tegra-usb.c
-index 8b2ff3a8882d..4ea47e6f835b 100644
---- a/drivers/usb/phy/phy-tegra-usb.c
-+++ b/drivers/usb/phy/phy-tegra-usb.c
-@@ -16,7 +16,7 @@
- #include <linux/iopoll.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/of_device.h>
-+#include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/resource.h>
- #include <linux/slab.h>
-diff --git a/drivers/usb/renesas_usbhs/common.c b/drivers/usb/renesas_usbhs/common.c
-index 111b7ee152c4..dd1c17542439 100644
---- a/drivers/usb/renesas_usbhs/common.c
-+++ b/drivers/usb/renesas_usbhs/common.c
-@@ -11,7 +11,7 @@
- #include <linux/gpio/consumer.h>
- #include <linux/io.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/pm_runtime.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
-diff --git a/drivers/usb/renesas_usbhs/rza.c b/drivers/usb/renesas_usbhs/rza.c
-index 2d77edefb4b3..97b5217c5a90 100644
---- a/drivers/usb/renesas_usbhs/rza.c
-+++ b/drivers/usb/renesas_usbhs/rza.c
-@@ -8,7 +8,7 @@
- 
- #include <linux/delay.h>
- #include <linux/io.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include "common.h"
- #include "rza.h"
- 
-diff --git a/drivers/usb/renesas_usbhs/rza2.c b/drivers/usb/renesas_usbhs/rza2.c
-index 3eed3334a17f..f079817250bb 100644
---- a/drivers/usb/renesas_usbhs/rza2.c
-+++ b/drivers/usb/renesas_usbhs/rza2.c
-@@ -8,7 +8,6 @@
- 
- #include <linux/delay.h>
- #include <linux/io.h>
--#include <linux/of_device.h>
- #include <linux/phy/phy.h>
- #include "common.h"
- #include "rza.h"
-diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 7fc1ffa14f76..bc21006e979c 100644
---- a/drivers/usb/typec/tcpm/fusb302.c
-+++ b/drivers/usb/typec/tcpm/fusb302.c
-@@ -15,7 +15,7 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/proc_fs.h>
- #include <linux/regulator/consumer.h>
-diff --git a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec.c b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec.c
-index a905160dd860..f2f3601cbbfb 100644
---- a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec.c
-+++ b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec.c
-@@ -8,7 +8,7 @@
- #include <linux/kernel.h>
- #include <linux/mod_devicetable.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
-+#include <linux/of.h>
- #include <linux/of_graph.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-diff --git a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_pdphy.c b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_pdphy.c
-index 4e1b846627d2..bb0b8479d80f 100644
---- a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_pdphy.c
-+++ b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_pdphy.c
-@@ -8,8 +8,6 @@
- #include <linux/kernel.h>
- #include <linux/mod_devicetable.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
--#include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/regulator/consumer.h>
-diff --git a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c
-index 94285f64b67d..fdd916292675 100644
---- a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c
-+++ b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c
-@@ -9,7 +9,6 @@
- #include <linux/kernel.h>
- #include <linux/mod_devicetable.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <linux/regulator/consumer.h>
-diff --git a/drivers/usb/typec/ucsi/ucsi_glink.c b/drivers/usb/typec/ucsi/ucsi_glink.c
-index 1fe9cb5b6bd9..bb1854b3311d 100644
---- a/drivers/usb/typec/ucsi/ucsi_glink.c
-+++ b/drivers/usb/typec/ucsi/ucsi_glink.c
-@@ -5,7 +5,6 @@
-  */
- #include <linux/auxiliary_bus.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
- #include <linux/mutex.h>
- #include <linux/property.h>
- #include <linux/soc/qcom/pdr.h>
--- 
-2.40.1
+Best regards,
+Xingyu Wu
 
 
 _______________________________________________
