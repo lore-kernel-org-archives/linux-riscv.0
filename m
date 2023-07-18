@@ -4,99 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4454C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38A6C001B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/CS9LBv8mtAxvTZXazIYVfWqYPToNKzpKCffBbJk7YI=; b=mHdiK5nP+Iqu94
-	jEm7gEJgxw2OuvDayW5/JdnJXEquTYXh6/Szoih/rBt8qrzIH8/QlgnjQDLXhr5gb9Mzz8sJdoJLh
-	ErImYh/K+dsAX0YNdKquuBZejN0yocj9Tl0CbfY+DWiR5JNhmZyKKpF9rYjz/txQi7fz05DGY+M94
-	BUZeVFRJZQFEzhDQL5prnRy7LIymkqWiqe73ayHYCb3dgkUyUnH+d3/1bhcyPneB70y7tfzALZSOZ
-	oZe/cgYusBk+3vXkPmfyb0/PR2q2PFE1gLOJxI6MRixz+lkyOqFcFW8xkdrCwfEwVnhFQoe/CxIAv
-	CgYgP/Vwyqe6TW36rbVg==;
+	List-Owner; bh=VcUmoTiM39EhfsfG+XMcZglHyPQGofrcYuf6QN/eQp4=; b=yMid014AjFRYsQ
+	OdZzswley4FMuTCxlJFqq/52ZcWy16frWw7g2KgbXr/eoZaF+U8EHs081QHiWQ92Yta4u7WTj+WMj
+	6rqiyI0u7LRMsm5WQzMDyajiwLQek1omw0whpqxsa36dK6XxfLhRmV7TuUjNDJ5v8+HMNVhnWS3X6
+	WmLX55dkMeFpek7OqGCnjO2Vp9UHUVrUkmDIKmri9MDG/DofIOxYe5iLWM/f6Hyaad7LKau4+Tbjb
+	R7B8DsKNt7WmaWbsAwX1A1cuTisB2OVekQ+cHmTdPviudY3cC8ozAl/PXS8XHeGN2ZkHR4zKsIgep
+	AG39IrSTIQwiFkCssA3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0jh-005lr8-1L;
-	Wed, 19 Jul 2023 06:32:33 +0000
+	id 1qM0kP-005mFR-0P;
+	Wed, 19 Jul 2023 06:33:17 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0jf-005lq3-1l
+	id 1qM0kN-005mE0-1C
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 06:32:31 +0000
+	Wed, 19 Jul 2023 06:33:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=dkfu4+zrfsEvNM/oP4wLx2h/8nsgQPK5hugPJnR2T8Y=; b=QM/W1Mh6mVFdR2XKiBvx6crXG/
-	Nde+CpuuW84F3Mag19S162DO9xYQJjNGADMuvLt4sqNom1V2NGqOuNc7JkkB3lUKsxAyVycQYMJkp
-	U3leqafCKBoD24h6naJLx6oB0EBJFpnLyRtIFTg8cjQwzi+54KzPUfy30MtTS/hTEvL2pxy7TnSIC
-	citXuqe4t05ghJpxJwOP6m+EkD5J1XhCwCGTtXIPN0iA+VoepmRWMxqJ56raeHxYDWYxWh3G2A/j7
-	V1R3FqdKpPYmihO+pNUbasIq52T3r3UbMulomLv4JVZqZ1rvC5rs+Bof1LI/1F2K3c7ZrRBGFyxUM
-	l30MDTIA==;
-Received: from mail-yb1-f180.google.com ([209.85.219.180])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=WwFgsHtnYs4vgy1uUmwNvq9pxJMaJ742fbuM/xMTD6o=; b=TC3w2CXZ2Ql2jNH56nMVA3i/4n
+	6Y0gBMNMj2hgFLvIIPKxsazgUhnJeU9OiK/UWo6bheZU6PdNdKfmUvybbDCKbDt/437C9FYp99Qv/
+	NquJU5QTRclOuSxwxOLt6QEnehwsRmon76SpJz/p2YnFhWifWsRDPZ7ZJf/c8sdJlqY2Q5f02+ILc
+	zuhNEdLoB0SzLRLfz/CMPI1ClpBjZI/TWzZHagw6M2MRHFM8/m/TnQpTDg/b33R65u0za2J0DrrfP
+	jz0Ij2ImO2YbeB22rtw1g7XP/z7HEUV32cVSmOvjzZt0I2aOw2E9yAZeMrW8mGQxfA5hvXpOn/k0c
+	XJF1eZUw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLhQO-00BNad-0v
+	id 1qLm3U-00BeQ3-2z
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jul 2023 09:55:22 +0000
-Received: by mail-yb1-f180.google.com with SMTP id 3f1490d57ef6-ccc462deca6so3199803276.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 02:55:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689674111; x=1692266111;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dkfu4+zrfsEvNM/oP4wLx2h/8nsgQPK5hugPJnR2T8Y=;
-        b=Gt0Atn+xQoyu+J9NDeKQeyFw2H5FAqdJHyOwP23uD7w1V4B7GQsr2zFUzVJ0E/bgCK
-         ZIgXtWiOeFaMagU5iZaCKbNzfRrvkVjPD+o11hyFgX5PoaHBkKkGt289FHW89njIMfEd
-         K+bWtv3jQtz5JL0J/FHIh12b54KlVVfb+Ha6IaK3Fje7k28GGNJQluD1NnszSFtfreWO
-         jQQiEJRcozJjHoDSg8hwiy9oVXgRdFmnrOEaE3L9EFZ0a1x6OWsA6csZzCCbjdnfo5/t
-         4OxrATXV/GE/zzHyj7+EwEu1YyNrAkm4xx0W1nBn2H6AW04Aipybttci9eIIFQ+9m1Nz
-         /0Qg==
-X-Gm-Message-State: ABy/qLY+vuNZR8BrvKLGEOW7HXboci32l18Gv+elBvT7MtMzv1pXdV/C
-	Bh7COtCChoSz+nzBSRzjXOHsNiVJyDRW0A==
-X-Google-Smtp-Source: APBJJlH2DD8JttcOo/n5u4vdcwR3W+IvwxbPdzIwAfJEUyUK9AwHIfZk23tV2w2cTn9sd6idbaoOkg==
-X-Received: by 2002:a25:d2ce:0:b0:bad:fb1:a9f9 with SMTP id j197-20020a25d2ce000000b00bad0fb1a9f9mr2574201ybg.62.1689674111394;
-        Tue, 18 Jul 2023 02:55:11 -0700 (PDT)
-Received: from mail-yb1-f180.google.com (mail-yb1-f180.google.com. [209.85.219.180])
-        by smtp.gmail.com with ESMTPSA id v1-20020a056902028100b00cc4d979f3besm322598ybh.58.2023.07.18.02.55.10
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Jul 2023 02:55:10 -0700 (PDT)
-Received: by mail-yb1-f180.google.com with SMTP id 3f1490d57ef6-c2cf4e61bc6so5807288276.3
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 02:55:10 -0700 (PDT)
-X-Received: by 2002:a25:860f:0:b0:cec:59f7:b352 with SMTP id
- y15-20020a25860f000000b00cec59f7b352mr989091ybk.58.1689674110647; Tue, 18 Jul
- 2023 02:55:10 -0700 (PDT)
+	Tue, 18 Jul 2023 14:52:03 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DDECD615A2;
+	Tue, 18 Jul 2023 14:51:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDAF1C433C8;
+	Tue, 18 Jul 2023 14:51:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689691907;
+	bh=gmjcvA7n5faDSrCMzbCX4megI4WqnvTMm5Hoj8Ds/LA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JZ8IfIIk0SYNpmlwNXsBWnNAHXr/ZWod5/c666cBApDXFwrSCsVUQzaKEG2A0NdMv
+	 cg3FmVQPix8DgikdHM0CRLwbW7DNXZO3l5NvfwdOWsBdWUV20mt28HN1Bh0ck18saR
+	 MyU5cO4CS8hMD6EiL1VmSp7V0Y2ExoTaNH3/pwi3g4Ew/RzCXzJbu2R7EIUAx+i27i
+	 oXhMTseXhjezDRv3F1sklp5zSW8nlzLmsN2+FJoE3xxFP5D47eEi3s/GjuslHIC4qx
+	 ltLYqUo7AHk0/scqq++iQ+txIXHHxe1MJhaPqRNxo7R6kgNYyFGz0J+VF5M+4HCVpx
+	 1VV64+V6wduXw==
+Date: Tue, 18 Jul 2023 22:40:11 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] riscv: allow kmalloc() caches aligned to the
+ smallest value
+Message-ID: <ZLakS3Ff91dSAgaV@xhacker>
+References: <20230716165147.1897-1-jszhang@kernel.org>
+ <20230716165147.1897-2-jszhang@kernel.org>
+ <20230718-brook-engross-1e7c273facdb@spud>
 MIME-Version: 1.0
-References: <20230511181931.869812-1-tj@kernel.org> <20230511181931.869812-7-tj@kernel.org>
- <ZF6WsSVGX3O1d0pL@slm.duckdns.org> <CAMuHMdVCQmh6V182q4g---jvsWiTOP2hBPZKvma6oUN6535LEg@mail.gmail.com>
- <CAMuHMdW1kxZ1RHKTRVRqDNAbj1Df2=v0fPn5KYK3kfX_kiXR6A@mail.gmail.com>
- <ZK3MBfPS-3-tJgjO@slm.duckdns.org> <ZK30CR196rs-OWLq@slm.duckdns.org>
- <CAMuHMdUCXPi+aS-7bR3qRetKF9T3W9jk_HKjvaXmfHv5SEeuFg@mail.gmail.com> <ZLXIvXBvhsnL-ik_@slm.duckdns.org>
-In-Reply-To: <ZLXIvXBvhsnL-ik_@slm.duckdns.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 18 Jul 2023 11:54:58 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdU8CGhsU-1PZNdWH1xjbWcWSg2s2RFAegXi+vs=d-0t8Q@mail.gmail.com>
-Message-ID: <CAMuHMdU8CGhsU-1PZNdWH1xjbWcWSg2s2RFAegXi+vs=d-0t8Q@mail.gmail.com>
-Subject: Re: Consider switching to WQ_UNBOUND messages (was: Re: [PATCH v2
- 6/7] workqueue: Report work funcs that trigger automatic CPU_INTENSIVE mechanism)
-To: Tejun Heo <tj@kernel.org>
-Cc: Lai Jiangshan <jiangshanlai@gmail.com>, 
-	"torvalds@linux-foundation.org" <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, kernel-team@meta.com, 
-	Linux PM list <linux-pm@vger.kernel.org>, 
-	DRI Development <dri-devel@lists.freedesktop.org>, linux-rtc@vger.kernel.org, 
-	linux-riscv <linux-riscv@lists.infradead.org>, netdev <netdev@vger.kernel.org>, 
-	Linux Fbdev development list <linux-fbdev@vger.kernel.org>, Linux MMC List <linux-mmc@vger.kernel.org>, 
-	"open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)" <linux-ide@vger.kernel.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20230718-brook-engross-1e7c273facdb@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_105520_482232_6B44EBBE 
-X-CRM114-Status: GOOD (  29.75  )
+X-CRM114-CacheID: sfid-20230718_155201_303416_5CCEF64B 
+X-CRM114-Status: GOOD (  40.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,74 +90,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVGVqdW4sCgpPbiBUdWUsIEp1bCAxOCwgMjAyMyBhdCAxOjAz4oCvQU0gVGVqdW4gSGVvIDx0
-akBrZXJuZWwub3JnPiB3cm90ZToKPiBDYW4geW91IHBsZWFzZSB0aGUgZm9sbG93aW5nIHBhdGNo
-IGFuZCBzZWUgaG93IG1hbnkgcmVwb3J0cyB5b3UgZ2V0PyBMb29raW5nCj4gYmFjayBhdCB5b3Vy
-IHJlcG9ydHMsIEkgdGhpbmsgc29tZSBvZiB0aGVtIHByb2JhYmx5IHNob3VsZCBiZSBjb252ZXJ0
-ZWQgdG8KPiBVTkJPVU5EIGJ1dCB3ZSBzaG91bGQgaGF2ZSBhIGJldHRlciBpZGVhIHdpdGggdGhl
-IGFkanVzdGVkIHRocmVzaG9sZC4KPgo+IFRoYW5rcy4KPgo+IEZyb20gODU1NWNiZDRiMjJlNWY4
-NWViMmJkY2I4NGZkMWQxZjUxOWEwYTBkMyBNb24gU2VwIDE3IDAwOjAwOjAwIDIwMDEKPiBGcm9t
-OiBUZWp1biBIZW8gPHRqQGtlcm5lbC5vcmc+Cj4gRGF0ZTogTW9uLCAxNyBKdWwgMjAyMyAxMjo1
-MDowMiAtMTAwMAo+IFN1YmplY3Q6IFtQQVRDSF0gd29ya3F1ZXVlOiBTY2FsZSB1cCB3cV9jcHVf
-aW50ZW5zaXZlX3RocmVzaF91cyBpZiBCb2dvTUlQUyBpcwo+ICBiZWxvdyAxMDAwCj4KPiB3cV9j
-cHVfaW50ZW5zaXZlX3RocmVzaF91cyBpcyB1c2VkIHRvIGRldGVjdCBDUFUtaG9nZ2luZyBwZXIt
-Y3B1IHdvcmsgaXRlbXMuCj4gT25jZSBkZXRlY3RlZCwgdGhleSdyZSBleGNsdWRlZCBmcm9tIGNv
-bmN1cnJlbmN5IG1hbmFnZW1lbnQgdG8gcHJldmVudCB0aGVtCj4gZnJvbSBibG9ja2luZyBvdGhl
-ciBwZXItY3B1IHdvcmsgaXRlbXMuIElmIENPTkZJR19XUV9DUFVfSU5URU5TSVZFX1JFUE9SVCBp
-cwo+IGVuYWJsZWQsIHJlcGVhdCBvZmZlbmRlcnMgYXJlIGFsc28gcmVwb3J0ZWQgc28gdGhhdCB0
-aGUgY29kZSBjYW4gYmUgdXBkYXRlZC4KPgo+IFRoZSBkZWZhdWx0IHRocmVzaG9sZCBpcyAxMG1z
-IHdoaWNoIGlzIGxvbmcgZW5vdWdoIHRvIGRvIGZhaXIgYml0IG9mIHdvcmsgb24KPiBtb2Rlcm4g
-Q1BVcyB3aGlsZSBzaG9ydCBlbm91Z2ggdG8gYmUgdXN1YWxseSBub3Qgbm90aWNlYWJsZS4gVGhp
-cwo+IHVuZm9ydHVuYXRlbHkgbGVhZHMgdG8gYSBsb3Qgb2YsIGFyZ3VhYmxlIHNwdXJpb3VzLCBk
-ZXRlY3Rpb25zIG9uIHZlcnkgc2xvdwo+IENQVXMuIFVzaW5nIHRoZSBzYW1lIHRocmVzaG9sZCBh
-Y3Jvc3MgQ1BVcyB3aG9zZSBwZXJmb3JtYW5jZSBsZXZlbHMgbWF5IGJlCj4gYXBhcnQgYnkgbXVs
-dGlwbGUgbGV2ZWxzIG9mIG1hZ25pdHVkZSBkb2Vzbid0IG1ha2Ugd2hvbGUgbG90IG9mIHNlbnNl
-Lgo+Cj4gVGhpcyBwYXRjaCBzY2FsZXMgdXAgd3FfY3B1X2ludGVuc2l2ZV90aHJlc2hfdXMgdXB0
-byAxIHNlY29uZCB3aGVuIEJvZ29NSVBTCj4gaXMgYmVsb3cgMTAwMC4gVGhpcyBpcyBvYnZpb3Vz
-bHkgdmVyeSBpbmFjY3VyYXRlIGJ1dCBpdCBkb2Vzbid0IGhhdmUgdG8gYmUKPiBhY2N1cmF0ZSB0
-byBiZSB1c2VmdWwuIFRoZSBtZWNoYW5pc20gaXMgc3RpbGwgdXNlZnVsIHdoZW4gdGhlIHRocmVz
-aG9sZCBpcwo+IGZ1bGx5IHNjYWxlZCB1cCBhbmQgdGhlIGJlbmVmaXRzIG9mIHJlcG9ydHMgYXJl
-IHVzdWFsbHkgc2hhcmVkIHdpdGggZXZlcnlvbmUKPiByZWdhcmRsZXNzIG9mIHdobydzIHJlcG9y
-dGluZywgc28gYXMgbG9uZyBhcyB0aGVyZSBhcmUgc3VmZmljaWVudCBudW1iZXIgb2YKPiBmYXN0
-IG1hY2hpbmVzIHJlcG9ydGluZywgd2UgZG9uJ3QgbG9zZSBtdWNoLgo+Cj4gU29tZSAob3IgaXMg
-aXQgYWxsPykgQVJNIENQVXMgc3lzdGVtdGljYWxseSByZXBvcnQgc2lnbmlmaWNhbnRseSBsb3dl
-cgo+IEJvZ29NSVBTLiBXaGlsZSB0aGlzIGRvZXNuJ3QgYnJlYWsgYW55dGhpbmcsIGdpdmVuIGhv
-dyB3aWRlc3ByZWFkIEFSTSBDUFVzCj4gYXJlLCBpdCdzIGF0IGxlYXN0IGEgbWlzc2VkIG9wcG9y
-dHVuaXR5IGFuZCBpdCBwcm9iYWJseSB3b3VsZCBiZSBhIGdvb2QgaWRlYQo+IHRvIHRlYWNoIHdv
-cmtxdWV1ZSBhYm91dCBpdC4KPgo+IFNpZ25lZC1vZmYtYnk6IFRlanVuIEhlbyA8dGpAa2VybmVs
-Lm9yZz4KClRoYW5rcyEKCkkgZ2F2ZSBpdCBhIHRyeSBvbiBhIHN5c3RlbSB3aXRoIGFuIDgwMCBN
-SHogQ29ydGV4IEE5LCBvbmx5IHRvIGRpc2NvdmVyCml0IG1ha2VzIG5vIGRpZmZlcmVuY2UsIGFz
-IHRoYXQgbWFjaGluZSBoYXMgMTYwMCBCb2dvTUlQUzoKCndvcmtxdWV1ZTogZHJtX2ZiX2hlbHBl
-cl9kYW1hZ2Vfd29yayBob2dnZWQgQ1BVIGZvciA+MTAwMDB1cyA0IHRpbWVzLApjb25zaWRlciBz
-d2l0Y2hpbmcgdG8gV1FfVU5CT1VORAp3b3JrcXVldWU6IGRybV9mYl9oZWxwZXJfZGFtYWdlX3dv
-cmsgaG9nZ2VkIENQVSBmb3IgPjEwMDAwdXMgOCB0aW1lcywKY29uc2lkZXIgc3dpdGNoaW5nIHRv
-IFdRX1VOQk9VTkQKd29ya3F1ZXVlOiBnZW5wZF9wb3dlcl9vZmZfd29ya19mbiBob2dnZWQgQ1BV
-IGZvciA+MTAwMDB1cyA0IHRpbWVzLApjb25zaWRlciBzd2l0Y2hpbmcgdG8gV1FfVU5CT1VORAp3
-b3JrcXVldWU6IGJsa19tcV9ydW5fd29ya19mbiBob2dnZWQgQ1BVIGZvciA+MTAwMDB1cyA0IHRp
-bWVzLApjb25zaWRlciBzd2l0Y2hpbmcgdG8gV1FfVU5CT1VORAp3b3JrcXVldWU6IHBtX3J1bnRp
-bWVfd29yayBob2dnZWQgQ1BVIGZvciA+MTAwMDB1cyA0IHRpbWVzLCBjb25zaWRlcgpzd2l0Y2hp
-bmcgdG8gV1FfVU5CT1VORAp3b3JrcXVldWU6IHBoeV9zdGF0ZV9tYWNoaW5lIGhvZ2dlZCBDUFUg
-Zm9yID4xMDAwMHVzIDQgdGltZXMsIGNvbnNpZGVyCnN3aXRjaGluZyB0byBXUV9VTkJPVU5ECndv
-cmtxdWV1ZTogZHJtX21vZGVfcm1mYl93b3JrX2ZuIGhvZ2dlZCBDUFUgZm9yID4xMDAwMHVzIDQg
-dGltZXMsCmNvbnNpZGVyIHN3aXRjaGluZyB0byBXUV9VTkJPVU5ECndvcmtxdWV1ZTogc3luY19o
-d19jbG9jayBob2dnZWQgQ1BVIGZvciA+MTAwMDB1cyA0IHRpbWVzLCBjb25zaWRlcgpzd2l0Y2hp
-bmcgdG8gV1FfVU5CT1VORAp3b3JrcXVldWU6IHJ0Y190aW1lcl9kb193b3JrIGhvZ2dlZCBDUFUg
-Zm9yID4xMDAwMHVzIDQgdGltZXMsIGNvbnNpZGVyCnN3aXRjaGluZyB0byBXUV9VTkJPVU5ECgpB
-cnRpZmljaWFsbHkgbG93IEJvZ29NSVBTIG51bWJlcnMgb25seSBoYXBwZW4gb24gc3lzdGVtcyB0
-aGF0IGhhdmUKdGhlIHJlbGF0ZWQgdGltZXJzIChDb3J0ZXggQTcvQTE1IGFuZCBsYXRlciwgQ29y
-dGV4IEE5IE1QQ29yZSwKYW5kIGFybTY0KS4KCkkgd2lsbCB0ZXN0IG9uIG1vcmUgc3lzdGVtcywg
-YnV0IHRoYXQgd2lsbCBwcm9iYWJseSBub3QgaGFwcGVuIHVudGlsCm5leHQgd2Vlay4uLgoKR3J7
-b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAgICAgICAgICBHZWVydAoKLS0KR2VlcnQg
-VXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVy
-dEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29uYWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNh
-bCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBoYWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRv
-IGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRo
-YXQuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Jul 18, 2023 at 11:23:50AM +0100, Conor Dooley wrote:
+> Hey Jisheng,
+> 
+> On Mon, Jul 17, 2023 at 12:51:46AM +0800, Jisheng Zhang wrote:
+> > Currently, riscv defines ARCH_DMA_MINALIGN as L1_CACHE_BYTES, I.E
+> > 64Bytes, if CONFIG_RISCV_DMA_NONCOHERENT=y. To support unified kernel
+> > Image, usually we have to enable CONFIG_RISCV_DMA_NONCOHERENT, thus
+> > it brings some bad effects to coherent platforms:
+> > 
+> > Firstly, it wastes memory, kmalloc-96, kmalloc-32, kmalloc-16 and
+> > kmalloc-8 slab caches don't exist any more, they are replaced with
+> > either kmalloc-128 or kmalloc-64.
+> > 
+> > Secondly, larger than necessary kmalloc aligned allocations results
+> > in unnecessary cache/TLB pressure.
+> > 
+> > This issue also exists on arm64 platforms. From last year, Catalin
+> > tried to solve this issue by decoupling ARCH_KMALLOC_MINALIGN from
+> > ARCH_DMA_MINALIGN, limiting kmalloc() minimum alignment to
+> > dma_get_cache_alignment() and replacing ARCH_KMALLOC_MINALIGN usage
+> > in various drivers with ARCH_DMA_MINALIGN etc.[1]
+> > 
+> > One fact we can make use of for riscv: if the CPU doesn't support
+> > ZICBOM or T-HEAD CMO, we know the platform is coherent. Based on
+> > Catalin's work and above fact, we can easily solve the kmalloc align
+> > issue for riscv: we can override dma_get_cache_alignment(), then let
+> > it return ARCH_DMA_MINALIGN at the beginning and return 1 once we know
+> > the underlying HW neither supports ZICBOM nor supports T-HEAD CMO.
+> > 
+> > So what about if the CPU supports ZICBOM and T-HEAD CMO, but all the
+> > devices are dma coherent? Well, we use ARCH_DMA_MINALIGN as the
+> > kmalloc minimum alignment, nothing changed in this case. This case
+> > can be improved in the future.
+> > 
+> > After this patch, a simple test of booting to a small buildroot rootfs
+> > on qemu shows:
+> > 
+> > kmalloc-96           5041    5041     96  ...
+> > kmalloc-64           9606    9606     64  ...
+> > kmalloc-32           5128    5128     32  ...
+> > kmalloc-16           7682    7682     16  ...
+> > kmalloc-8           10246   10246      8  ...
+> > 
+> > So we save about 1268KB memory. The saving will be much larger in normal
+> > OS env on real HW platforms.
+> > 
+> > [1] Link: https://lore.kernel.org/linux-arm-kernel/20230524171904.3967031-1-catalin.marinas@arm.com/
+> 
+> In the future,
+> 
+> Link: https://lore.kernel.org/linux-arm-kernel/20230524171904.3967031-1-catalin.marinas@arm.com/ [1]
+> 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > Change-Id: Ica249d0f8058a02bd4bc6543b4ffc2946a4734a2
+> 
+> How come this has ended up with a Change-ID? Checkpatch says this is
+> something to do with Gerrit & needs to be removed.
+
+Oops, when amending, I forgot to add "-n". And I thought only amending
+doesn't need to try checkpatch. Will fix it soon.
+
+Thank you.
+
+> 
+> > ---
+> >  arch/riscv/include/asm/cache.h      | 14 ++++++++++++++
+> >  arch/riscv/include/asm/cacheflush.h |  2 ++
+> >  arch/riscv/kernel/setup.c           |  1 +
+> >  arch/riscv/mm/dma-noncoherent.c     |  8 ++++++++
+> >  4 files changed, 25 insertions(+)
+> > 
+> > diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
+> > index d3036df23ccb..2174fe7bac9a 100644
+> > --- a/arch/riscv/include/asm/cache.h
+> > +++ b/arch/riscv/include/asm/cache.h
+> > @@ -13,6 +13,7 @@
+> >  
+> >  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
+> >  #define ARCH_DMA_MINALIGN L1_CACHE_BYTES
+> > +#define ARCH_KMALLOC_MINALIGN	(8)
+> >  #endif
+> >  
+> >  /*
+> > @@ -23,4 +24,17 @@
+> >  #define ARCH_SLAB_MINALIGN	16
+> >  #endif
+> >  
+> > +#ifndef __ASSEMBLY__
+> > +
+> > +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
+> > +extern int dma_cache_alignment;
+> > +#define dma_get_cache_alignment dma_get_cache_alignment
+> > +static inline int dma_get_cache_alignment(void)
+> > +{
+> > +	return dma_cache_alignment;
+> > +}
+> > +#endif
+> > +
+> > +#endif	/* __ASSEMBLY__ */
+> > +
+> >  #endif /* _ASM_RISCV_CACHE_H */
+> > diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+> > index 8091b8bf4883..c640ab6f843b 100644
+> > --- a/arch/riscv/include/asm/cacheflush.h
+> > +++ b/arch/riscv/include/asm/cacheflush.h
+> > @@ -55,8 +55,10 @@ void riscv_init_cbo_blocksizes(void);
+> >  
+> >  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
+> >  void riscv_noncoherent_supported(void);
+> > +void __init riscv_set_dma_cache_alignment(void);
+> >  #else
+> >  static inline void riscv_noncoherent_supported(void) {}
+> > +static inline void riscv_set_dma_cache_alignment(void) {}
+> >  #endif
+> >  
+> >  /*
+> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> > index 971fe776e2f8..027879b1557a 100644
+> > --- a/arch/riscv/kernel/setup.c
+> > +++ b/arch/riscv/kernel/setup.c
+> > @@ -311,6 +311,7 @@ void __init setup_arch(char **cmdline_p)
+> >  	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
+> >  	    riscv_isa_extension_available(NULL, ZICBOM))
+> >  		riscv_noncoherent_supported();
+> > +	riscv_set_dma_cache_alignment();
+> >  }
+> >  
+> >  static int __init topology_init(void)
+> > diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> > index d51a75864e53..811227e54bbd 100644
+> > --- a/arch/riscv/mm/dma-noncoherent.c
+> > +++ b/arch/riscv/mm/dma-noncoherent.c
+> > @@ -11,6 +11,8 @@
+> >  #include <asm/cacheflush.h>
+> >  
+> >  static bool noncoherent_supported __ro_after_init;
+> > +int dma_cache_alignment __ro_after_init = ARCH_DMA_MINALIGN;
+> > +EXPORT_SYMBOL(dma_cache_alignment);
+> 
+> Why is this not EXPORT_SYMBOL_GPL()?
+> 
+> Otherwise, this is generally good to me, thanks.
+> 
+> Conor.
+> 
+> >  
+> >  void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+> >  			      enum dma_data_direction dir)
+> > @@ -78,3 +80,9 @@ void riscv_noncoherent_supported(void)
+> >  	     "Non-coherent DMA support enabled without a block size\n");
+> >  	noncoherent_supported = true;
+> >  }
+> > +
+> > +void __init riscv_set_dma_cache_alignment(void)
+> > +{
+> > +	if (!noncoherent_supported)
+> > +		dma_cache_alignment = 1;
+> > +}
+> > -- 
+> > 2.40.1
+> > 
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
