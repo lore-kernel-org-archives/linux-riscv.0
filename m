@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7944C001DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3CCDC0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YKa0qL0M93bU1GOD60CuWoz4OXRKCRH0Tt1clit0XnI=; b=zmnAA8Ub71EvNS
-	zNb1zkHylsi6gFseB29+qpBa/zEXGXy9CeKevZy6B7T3Bs8XMPhtW3ZVtKaRMppA6zaOUhGU86Afb
-	daiGV260zi1QElzEUfsdDqoJHU8IOGC2Eu7ni9G7XVs+VM2WxT7UzrIPIvd8WnquSuUFlSJdEIOTL
-	hK4R/vUfvsQwMrRURqhWgfpK72n3qDVfp2kwsRpjN4Gw1ABmx4v/y98ygHJpO6xhu33tnTA6qPJdg
-	9avP35luGZr2qFAOuRAdOj/sKIKoc+IHn7dl6CRCvvExpPv3d9WsZsA1ch0plN6U92wJZyzNzXwaC
-	Nmy0ZsOLoaSGvINCZvRw==;
+	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JqipC+pArX05wdMerYwMjESmOkBU2SmEc9v8x3lNWiA=; b=iVN6MoSnaIZILG
+	w2ZYSO/ahkdHPfV27BEoOI/2MyIwpyms+J5RpkMBe7tgXi6I/muvjplBSKa+VoMNXQVTjamw/aSyE
+	OXk1FvWZYRYbaEY//TMohoadWqtbjcIPvr3CLYhAfoS2QlHMpK4YRvJFzHt44JUr0hHsQYw9QESe1
+	o/73TYU5FxfTYmmAir/VH/hET7KHg/vdbv3Mbsvy8r3r25ZAs9IeKqpzMQgQryhdT+bHCJiVrf7oG
+	U3iCBH5C1eVmVue/DlL30HD5PXU/0hSjJf3qv2MyGzBdoEp+7SSa18eXt6PelsOX5CrB2zwGjFQog
+	Q1S5fe3psgedATutkYTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzex-005GXf-2E;
-	Wed, 19 Jul 2023 05:23:35 +0000
+	id 1qLzf0-005GaO-1d;
+	Wed, 19 Jul 2023 05:23:38 +0000
 Received: from casper.infradead.org ([90.155.50.34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzcF-005Dg5-0x
+	id 1qLzcF-005Dg5-2p
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 05:20:47 +0000
+	Wed, 19 Jul 2023 05:20:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/Q2YqUewU0QJU59tCBKplqkoUGv4ucil0ZC6wcpHcqQ=; b=t/OnbJ5FXBEbXTHNcvxkeI6TNz
-	zUMv5jD96xTEYnon1hD97MW/MiZ03Rvps73zBBy9XdyGPemE/8BcQwGxOiUyBxmyYb7UpSjACQVem
-	rozxPju0lZrfKpOT09kmeSkLpGBpwlGmyIBrVc9pUPuELLQhwuFnm2R9roAGjCRfey7tLlOIImwMf
-	FERWrvJ0RzOcG65ab0r5mOR5uIQKSZHY7ECqP5Kn+MVzwuK8x+CJj4k4xRuzlHvBcN29gRM6SbgTy
-	K+iaGSd5sWk96WsxkpUaMDuP1m9b6SwYe+PZ+eqkCzwdOhPYTk7BoRvud+3T4nNFRHlzMlhgGIrFo
-	mjd358uQ==;
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	Message-ID:Mime-Version:Date:Reply-To:Sender:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=kNioK2g9uNSVoz4fz3Z0hsZYDZVWPADHE8SV+5umY4Y=; b=ObhT0l411iOTlVZhM8JTqWuQcZ
+	d5KiKOs+1JqxvV25TOSUvqhfpWPvFSy4B4/p4R4H766jq0lij+C9flOv2lEelKsfxLQ0mYcOJaRU9
+	shtq08xyWYWpVS0peLC9/JbsyDW1Cbo8MEaHq2T8FDZZTfRwwK5HjnEfDHF/QRCVyADWtq7z4yZof
+	vfoFGQ528uW5MvE/cmlH4gR1MFGpbY8PuBgOqwEjyXdrYH8xD8MIFE4YRKrGvDFQB/eHpeTWJTNjr
+	TbdIEaCkD3w6Q15WI7Lu2zvpZiLfX3gd7J37pzAUvch3gpqjmO8I0ePng06El2JqA1RZu4amenndV
+	F9kBJxig==;
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qLuRo-005QSg-Kw
+	id 1qLuRn-005QRe-DP
 	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 23:49:44 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-5704e551e8bso58171947b3.3
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:49:40 -0700 (PDT)
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1b888bdacbcso33052675ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:49:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689724116; x=1692316116;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=/Q2YqUewU0QJU59tCBKplqkoUGv4ucil0ZC6wcpHcqQ=;
-        b=45wJtqLvPSM2rUMqLcMXNw7NxwmgG2m5SPDbrufh73pgAUQWbP2rdleJScR1b7QLYa
-         DP+HuKEmKkMRrP/q2T4jHzBU5n9sIMiGoirvjexsulrIA7SmCoB2RD0OJCDc7ASGVipq
-         PSRwcUv6R9/P6Anldtw3uzpwddoQDwmG+UiYNrQvXXPePgR1SMt+qMM6R80vVgNfZRfr
-         Zbb1A+J7od+BdsPgC4npxwhpyfqZPutWxMFqb23fAWYB7jdyyiYB7CufeFn8KjpoJ/AS
-         dfYNegwygmszJ2XjdeBWt4nfgaIFP2EbKAWHMTSRTuZjvFbBEP2gM0wxgdw7XbY9RihO
-         seBA==
+        d=google.com; s=20221208; t=1689724111; x=1692316111;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kNioK2g9uNSVoz4fz3Z0hsZYDZVWPADHE8SV+5umY4Y=;
+        b=osgDTqFdq8IUMbfc5np0SJw5OdVmryzKJlMbpWPj1r+bA24M0IJWiJbXigx+jJyQ5r
+         VlxW0vuMxM/BQlBSs2+AumxHcyWajcOP9JXOkoHqOoO5ZyUcko/ezFKjsqiJkNtv/xwh
+         Y36DMIRI0Q59f7++kPXdwd59QUGKV3Guy/2lgpB3TxpICSaTd3h59fkFiz7MblIecyH8
+         n7z4KTAocelQbqspLYM5QVY6G/2MvezetA6jqdURrMQiYzDhQ6XI2ghHbJziqFDRtHCX
+         N3lBCweEXoqVHi335cB6PiCMKD3JW4ZiPc0eG4mYnlS454U3dCWqPiIky3zkEczL9g5Z
+         g/Ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689724116; x=1692316116;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/Q2YqUewU0QJU59tCBKplqkoUGv4ucil0ZC6wcpHcqQ=;
-        b=bp4W9CtR8SX2dKl6gIpY8x44ba3PlsqUs8xMFoR0qqFWNDbDrTWSFHwSFdEkOBhLn7
-         r0XxCZ+MQd2EpeFhCH2nOVz3EAKNWqmaxoIMz2ov90sL8mPjF8zi1Fs0qV8dr5m/2DFd
-         pr8HTXvAvTHc7DCtdHOjZ+2+eq62esawoVAIW637BZVw19JtmuS6xea0dp79k9nA9ya9
-         Ybyh8GIdM26I6nP9rTm1vxI7OosN2451b9nIcmUukAD6w/fvoumxQFfvC551emzvSTcV
-         7pTmLTDvpeGEKR45pQVeMxqzVpn7oPrvgF3/XU6Z3yESMObLmJTcVmDXwOlbhm4qlvek
-         I6jQ==
-X-Gm-Message-State: ABy/qLb0cVqjXyJItV+H0ruX/xBDcS9ow74Aihf6FuOIstodn8Qu8QUX
-	YtmWxMsm5Z1s1EYQ8mgLTkcQaq7/4/A=
-X-Google-Smtp-Source: APBJJlHjosfFmr47fAQ4FwoHYiy0rQprOrE8ng/AJ+BqBK9Dg+T53fJUISRxGIkaIZYnyupUcGSciTRGnxE=
+        d=1e100.net; s=20221208; t=1689724111; x=1692316111;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kNioK2g9uNSVoz4fz3Z0hsZYDZVWPADHE8SV+5umY4Y=;
+        b=LTng9x8rzmHhBr6H9dG3p27p4BgDZRYLs3fKHyRQ2yZL9FilBJu5uZEadGtlN45aWB
+         J48OcPV7v0MkWODAE2Q6NVDgQWJNAXiSnqGP/2/jUISMR3Z01V6aXkEBawmOvTJvU14E
+         aSTlBxLYCp9A/5LDmTdj/N+60sKoeNlFavx3uRvf4OEheyqI1qqWKLYuogo9ApX6mKU7
+         e0sJM2102moJOfy3c/XfTsc+s1dK9l44Jw39srrte5AlGwuCNtmuplhOgNy+LRcAiP9G
+         p0LMwjv2QKfaPPbD70HbgiUZa5VeoECAjpdiu9S5lndoEZ097yzl8OlUfpwx69JLBTCg
+         rSZA==
+X-Gm-Message-State: ABy/qLbKkMnYytmU8zvW0SK12zGcZrlI4gyhZFuGKnggPm70u0AvIpJa
+	YdiBknGdQDnAS13GXddPWqHxHij9pQg=
+X-Google-Smtp-Source: APBJJlGfvW12PoU1cgYxoig33TTppXu/jdZjVA/UYCNl9+6h2sdMFpEn0Y/2jF1wf15jCGzWeLtg2m+RbUw=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a81:b61d:0:b0:57a:141f:b4f7 with SMTP id
- u29-20020a81b61d000000b0057a141fb4f7mr40058ywh.6.1689724115002; Tue, 18 Jul
- 2023 16:48:35 -0700 (PDT)
-Date: Tue, 18 Jul 2023 16:44:45 -0700
-In-Reply-To: <20230718234512.1690985-1-seanjc@google.com>
+ (user=seanjc job=sendgmr) by 2002:a17:902:ec8c:b0:1b8:95fc:d0f with SMTP id
+ x12-20020a170902ec8c00b001b895fc0d0fmr7816plg.7.1689724111171; Tue, 18 Jul
+ 2023 16:48:31 -0700 (PDT)
+Date: Tue, 18 Jul 2023 16:44:43 -0700
 Mime-Version: 1.0
-References: <20230718234512.1690985-1-seanjc@google.com>
 X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
-Message-ID: <20230718234512.1690985-3-seanjc@google.com>
-Subject: [RFC PATCH v11 02/29] KVM: Tweak kvm_hva_range and hva_handler_t to
- allow reusing for gfn ranges
+Message-ID: <20230718234512.1690985-1-seanjc@google.com>
+Subject: [RFC PATCH v11 00/29]  KVM: guest_memfd() and per-page attributes
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -104,8 +100,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_004940_708950_B0B72849 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20230719_004939_481742_D90E1B5D 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,112 +119,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- virt/kvm/kvm_main.c | 34 +++++++++++++++++++---------------
- 1 file changed, 19 insertions(+), 15 deletions(-)
+This is the next iteration of implementing fd-based (instead of vma-based)
+memory for KVM guests.  If you want the full background of why we are doing
+this, please go read the v10 cover letter[1].
 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index d58b7a506d27..50aea855eeae 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -516,21 +516,25 @@ static inline struct kvm *mmu_notifier_to_kvm(struct mmu_notifier *mn)
- 	return container_of(mn, struct kvm, mmu_notifier);
- }
- 
--typedef bool (*hva_handler_t)(struct kvm *kvm, struct kvm_gfn_range *range);
-+typedef bool (*gfn_handler_t)(struct kvm *kvm, struct kvm_gfn_range *range);
- 
- typedef void (*on_lock_fn_t)(struct kvm *kvm, unsigned long start,
- 			     unsigned long end);
- 
- typedef void (*on_unlock_fn_t)(struct kvm *kvm);
- 
--struct kvm_hva_range {
--	unsigned long start;
--	unsigned long end;
-+struct kvm_mmu_notifier_range {
-+	/*
-+	 * 64-bit addresses, as KVM notifiers can operate on host virtual
-+	 * addresses (unsigned long) and guest physical addresses (64-bit).
-+	 */
-+	u64 start;
-+	u64 end;
- 	union {
- 		pte_t pte;
- 		u64 raw;
- 	} arg;
--	hva_handler_t handler;
-+	gfn_handler_t handler;
- 	on_lock_fn_t on_lock;
- 	on_unlock_fn_t on_unlock;
- 	bool flush_on_ret;
-@@ -557,7 +561,7 @@ static void kvm_null_fn(void)
- 	     node = interval_tree_iter_next(node, start, last))	     \
- 
- static __always_inline int __kvm_handle_hva_range(struct kvm *kvm,
--						  const struct kvm_hva_range *range)
-+						  const struct kvm_mmu_notifier_range *range)
- {
- 	bool ret = false, locked = false;
- 	struct kvm_gfn_range gfn_range;
-@@ -588,9 +592,9 @@ static __always_inline int __kvm_handle_hva_range(struct kvm *kvm,
- 			unsigned long hva_start, hva_end;
- 
- 			slot = container_of(node, struct kvm_memory_slot, hva_node[slots->node_idx]);
--			hva_start = max(range->start, slot->userspace_addr);
--			hva_end = min(range->end, slot->userspace_addr +
--						  (slot->npages << PAGE_SHIFT));
-+			hva_start = max_t(unsigned long, range->start, slot->userspace_addr);
-+			hva_end = min_t(unsigned long, range->end,
-+					slot->userspace_addr + (slot->npages << PAGE_SHIFT));
- 
- 			/*
- 			 * To optimize for the likely case where the address
-@@ -640,10 +644,10 @@ static __always_inline int kvm_handle_hva_range(struct mmu_notifier *mn,
- 						unsigned long start,
- 						unsigned long end,
- 						pte_t pte,
--						hva_handler_t handler)
-+						gfn_handler_t handler)
- {
- 	struct kvm *kvm = mmu_notifier_to_kvm(mn);
--	const struct kvm_hva_range range = {
-+	const struct kvm_mmu_notifier_range range = {
- 		.start		= start,
- 		.end		= end,
- 		.arg.pte	= pte,
-@@ -660,10 +664,10 @@ static __always_inline int kvm_handle_hva_range(struct mmu_notifier *mn,
- static __always_inline int kvm_handle_hva_range_no_flush(struct mmu_notifier *mn,
- 							 unsigned long start,
- 							 unsigned long end,
--							 hva_handler_t handler)
-+							 gfn_handler_t handler)
- {
- 	struct kvm *kvm = mmu_notifier_to_kvm(mn);
--	const struct kvm_hva_range range = {
-+	const struct kvm_mmu_notifier_range range = {
- 		.start		= start,
- 		.end		= end,
- 		.handler	= handler,
-@@ -750,7 +754,7 @@ static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
- 					const struct mmu_notifier_range *range)
- {
- 	struct kvm *kvm = mmu_notifier_to_kvm(mn);
--	const struct kvm_hva_range hva_range = {
-+	const struct kvm_mmu_notifier_range hva_range = {
- 		.start		= range->start,
- 		.end		= range->end,
- 		.handler	= kvm_unmap_gfn_range,
-@@ -814,7 +818,7 @@ static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
- 					const struct mmu_notifier_range *range)
- {
- 	struct kvm *kvm = mmu_notifier_to_kvm(mn);
--	const struct kvm_hva_range hva_range = {
-+	const struct kvm_mmu_notifier_range hva_range = {
- 		.start		= range->start,
- 		.end		= range->end,
- 		.handler	= (void *)kvm_null_fn,
+The biggest change from v10 is to implement the backing storage in KVM
+itself, and expose it via a KVM ioctl() instead of a "generic" sycall.
+See link[2] for details on why we pivoted to a KVM-specific approach.
+
+Key word is "biggest".  Relative to v10, there are many big changes.
+Highlights below (I can't remember everything that got changed at
+this point).
+
+Tagged RFC as there are a lot of empty changelogs, and a lot of missing
+documentation.  And ideally, we'll have even more tests before merging.
+There are also several gaps/opens (to be discussed in tomorrow's PUCK).
+
+v11:
+ - Test private<=>shared conversions *without* doing fallocate()
+ - PUNCH_HOLE all memory between iterations of the conversion test so that
+   KVM doesn't retain pages in the guest_memfd
+ - Rename hugepage control to be a very generic ALLOW_HUGEPAGE, instead of
+   giving it a THP or PMD specific name.
+ - Fold in fixes from a lot of people (thank you!)
+ - Zap SPTEs *before* updating attributes to ensure no weirdness, e.g. if
+   KVM handles a page fault and looks at inconsistent attributes
+ - Refactor MMU interaction with attributes updates to reuse much of KVM's
+   framework for mmu_notifiers.
+
+[1] https://lore.kernel.org/all/20221202061347.1070246-1-chao.p.peng@linux.intel.com
+[2] https://lore.kernel.org/all/ZEM5Zq8oo+xnApW9@google.com
+
+Ackerley Tng (1):
+  KVM: selftests: Test KVM exit behavior for private memory/access
+
+Chao Peng (7):
+  KVM: Use gfn instead of hva for mmu_notifier_retry
+  KVM: Add KVM_EXIT_MEMORY_FAULT exit
+  KVM: Introduce per-page memory attributes
+  KVM: x86: Disallow hugepages when memory attributes are mixed
+  KVM: x86/mmu: Handle page fault for private memory
+  KVM: selftests: Add KVM_SET_USER_MEMORY_REGION2 helper
+  KVM: selftests: Expand set_memory_region_test to validate
+    guest_memfd()
+
+Sean Christopherson (18):
+  KVM: Wrap kvm_gfn_range.pte in a per-action union
+  KVM: Tweak kvm_hva_range and hva_handler_t to allow reusing for gfn
+    ranges
+  KVM: PPC: Drop dead code related to KVM_ARCH_WANT_MMU_NOTIFIER
+  KVM: Convert KVM_ARCH_WANT_MMU_NOTIFIER to
+    CONFIG_KVM_GENERIC_MMU_NOTIFIER
+  KVM: Introduce KVM_SET_USER_MEMORY_REGION2
+  mm: Add AS_UNMOVABLE to mark mapping as completely unmovable
+  security: Export security_inode_init_security_anon() for use by KVM
+  KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for guest-specific backing
+    memory
+  KVM: Add transparent hugepage support for dedicated guest memory
+  KVM: Drop superfluous __KVM_VCPU_MULTIPLE_ADDRESS_SPACE macro
+  KVM: Allow arch code to track number of memslot address spaces per VM
+  KVM: x86: Add support for "protected VMs" that can utilize private
+    memory
+  KVM: selftests: Drop unused kvm_userspace_memory_region_find() helper
+  KVM: selftests: Convert lib's mem regions to
+    KVM_SET_USER_MEMORY_REGION2
+  KVM: selftests: Add support for creating private memslots
+  KVM: selftests: Introduce VM "shape" to allow tests to specify the VM
+    type
+  KVM: selftests: Add GUEST_SYNC[1-6] macros for synchronizing more data
+  KVM: selftests: Add basic selftest for guest_memfd()
+
+Vishal Annapurve (3):
+  KVM: selftests: Add helpers to convert guest memory b/w private and
+    shared
+  KVM: selftests: Add helpers to do KVM_HC_MAP_GPA_RANGE hypercalls
+    (x86)
+  KVM: selftests: Add x86-only selftest for private memory conversions
+
+ Documentation/virt/kvm/api.rst                | 114 ++++
+ arch/arm64/include/asm/kvm_host.h             |   2 -
+ arch/arm64/kvm/Kconfig                        |   2 +-
+ arch/arm64/kvm/mmu.c                          |   2 +-
+ arch/mips/include/asm/kvm_host.h              |   2 -
+ arch/mips/kvm/Kconfig                         |   2 +-
+ arch/mips/kvm/mmu.c                           |   2 +-
+ arch/powerpc/include/asm/kvm_host.h           |   2 -
+ arch/powerpc/kvm/Kconfig                      |   8 +-
+ arch/powerpc/kvm/book3s_hv.c                  |   2 +-
+ arch/powerpc/kvm/powerpc.c                    |   5 +-
+ arch/riscv/include/asm/kvm_host.h             |   2 -
+ arch/riscv/kvm/Kconfig                        |   2 +-
+ arch/riscv/kvm/mmu.c                          |   2 +-
+ arch/x86/include/asm/kvm_host.h               |  17 +-
+ arch/x86/include/uapi/asm/kvm.h               |   3 +
+ arch/x86/kvm/Kconfig                          |  14 +-
+ arch/x86/kvm/debugfs.c                        |   2 +-
+ arch/x86/kvm/mmu/mmu.c                        | 287 +++++++-
+ arch/x86/kvm/mmu/mmu_internal.h               |   4 +
+ arch/x86/kvm/mmu/mmutrace.h                   |   1 +
+ arch/x86/kvm/mmu/tdp_mmu.c                    |   8 +-
+ arch/x86/kvm/vmx/vmx.c                        |  11 +-
+ arch/x86/kvm/x86.c                            |  24 +-
+ include/linux/kvm_host.h                      | 129 +++-
+ include/linux/pagemap.h                       |  11 +
+ include/uapi/linux/kvm.h                      |  50 ++
+ include/uapi/linux/magic.h                    |   1 +
+ mm/compaction.c                               |   4 +
+ mm/migrate.c                                  |   2 +
+ security/security.c                           |   1 +
+ tools/testing/selftests/kvm/Makefile          |   3 +
+ tools/testing/selftests/kvm/dirty_log_test.c  |   2 +-
+ .../testing/selftests/kvm/guest_memfd_test.c  | 114 ++++
+ .../selftests/kvm/include/kvm_util_base.h     | 141 +++-
+ .../testing/selftests/kvm/include/test_util.h |   5 +
+ .../selftests/kvm/include/ucall_common.h      |  12 +
+ .../selftests/kvm/include/x86_64/processor.h  |  15 +
+ .../selftests/kvm/kvm_page_table_test.c       |   2 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 230 ++++---
+ tools/testing/selftests/kvm/lib/memstress.c   |   3 +-
+ .../selftests/kvm/set_memory_region_test.c    |  99 +++
+ .../kvm/x86_64/private_mem_conversions_test.c | 408 +++++++++++
+ .../kvm/x86_64/private_mem_kvm_exits_test.c   | 115 ++++
+ .../kvm/x86_64/ucna_injection_test.c          |   2 +-
+ virt/kvm/Kconfig                              |  17 +
+ virt/kvm/Makefile.kvm                         |   1 +
+ virt/kvm/dirty_ring.c                         |   2 +-
+ virt/kvm/guest_mem.c                          | 635 ++++++++++++++++++
+ virt/kvm/kvm_main.c                           | 384 +++++++++--
+ virt/kvm/kvm_mm.h                             |  38 ++
+ 51 files changed, 2700 insertions(+), 246 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/guest_memfd_test.c
+ create mode 100644 tools/testing/selftests/kvm/x86_64/private_mem_conversions_test.c
+ create mode 100644 tools/testing/selftests/kvm/x86_64/private_mem_kvm_exits_test.c
+ create mode 100644 virt/kvm/guest_mem.c
+
+
+base-commit: fdf0eaf11452d72945af31804e2a1048ee1b574c
 -- 
 2.41.0.255.g8b1d071c50-goog
 
