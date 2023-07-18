@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4316EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0AF9C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 05:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8p5WkAH0dXuBjS839JedSGrxZCAUmofoRE9UFFNGWfk=; b=oWhzXiOv9jqAmT
-	BxVOtJZYjr7ylGd5QPYfS9Y4s/yqKhKj4EIwmYmKNdQGZso80G3QSzlL+wHQ1S7xdtG3JimyzxXvY
-	hDQ0AKQD+l+I5RTwTZQ7SX7Npqh3pFxkKo2H8RREnsMa+iEHMbXpZGIUVjJ10DelTist6aIfXvYQs
-	KxG73IC/ft1/b1GFVCHvmIprmmJm4TAQW/hGRyOF3uQk8QRALu2v1PVGiH9c3aEYK82YY8YHU7kOO
-	aWFTSFc+NObo2dprWRrScrqtqFFKvtv6ARvtxCH+kbrS3V41jstLE8NKaz43NVowrqQ2sIbBRaIqB
-	m73NseceOaMty2L701VQ==;
+	List-Owner; bh=Nmvm/bYFjkff1oj9cvBJ6fhZ3QDr0CObMDhzqczBQss=; b=APlk8WGcyBO2qL
+	W7LoUIx/BSDRKHmht1rV9uqadUb0xHZicZNQCz+UWEBDjaRzZcvpGYk4O5vzi25k74sBxTtX1vXoq
+	NZrZ34y/34qzS61HgPZPVpUgclP5mpF5Y+rqH2sVfwtlvJFjSn9cPvugSZm1Nty2l8CkajYHP9/IP
+	7NFQ1MqRGdCCjFFAg7G+YBCDMkzXBdwf8ySRAHDXJVC+/7rLvZz3rJLw+H2Yo87Sj2FDxjLmrzUCw
+	QG1mtP8jUXbkfTPiBBRfEzWkYD1IQIJpFJ90NUvRdDjaVV183wuwpxSSOp25TwIIxmQ158b4fhH8P
+	ehhYVS4HJC/QK9XJ1g2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzeV-005GCe-18;
-	Wed, 19 Jul 2023 05:23:07 +0000
+	id 1qLzef-005GJn-0q;
+	Wed, 19 Jul 2023 05:23:17 +0000
 Received: from casper.infradead.org ([90.155.50.34])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLzc4-005Dg5-2P
+	id 1qLzc7-005Dg5-1F
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 05:20:36 +0000
+	Wed, 19 Jul 2023 05:20:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+D+iQCqRORv7rzcWPLbRAE543/4V6X4FIuACtnFQl/8=; b=BiGtm+d7HAqygHL39jPBtkTQ1h
-	QsSNNgjRH218jOiuYyw4hhW9L0Ut66y27xc9ItLdcD1+0OtZ88blf3G+L8YptaeTUnlHUzfZ4OG/t
-	jTAxNCGpHI1oHvbHh4xeZCR5yan2Roi2lHwJB5HBax4QIFe/IJMxGwkXarkPfHwX5X2cuS8uDiV8q
-	wdk6i0EJnEwiRUzNGb2s98dFJgbuv/SbvBQLa1bOwtNHLNZXfGgd/Sjn0f2342/uGrH11CKlEjYZM
-	ikzW6MJsKjVNRSbpl5PwAwv6cJSeYh8xCUZiwK/m2sJn2aT1fWq+pflJ1ey4td8Zh/VYHurazEUXc
-	tCwcrjmA==;
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	bh=Egm/XxJ8ddWbI/DaWjAWd8f37iIZoXJS+wUVmFcRAns=; b=r5Bps/Mfw+yDLDz7bXEYbIzJeE
+	H2W1Bd9T+DK6O6DrFxTbuVxSD0AWSbpdx8krLW/6W/3yxxP3DvFpYfCHSsmaV/Xp8MFxH1nMoGupk
+	WrgsrAD9ekaZ/KBr6h70wRqfTBlLpruGENndSnhRvKjJzWmSt7iqhQaaudU5h/R4Tyu7CXLOGJLvU
+	EKf0z8u75mGQrh+YIQg6ZnCia5NyGfWGf56i/WMM/0YuLoHWagx/QiSbVlqbgr4ymVquxSs7WNOqC
+	Ic8MpYjP4/3NAvwFBuvNYnliifEbvu0ozQdtc2hszTynQivlrt90osALMaWBFIjGXJWanMpgwPmOk
+	SW23+utg==;
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qLuRx-005QaR-4H
-	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 23:49:52 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-56ff81be091so61449287b3.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:49:48 -0700 (PDT)
+	id 1qLuRu-005QWx-IE
+	for linux-riscv@lists.infradead.org; Tue, 18 Jul 2023 23:49:49 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-cf4cb742715so68169276.2
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:49:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689724127; x=1692316127;
+        d=google.com; s=20221208; t=1689724121; x=1692316121;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=+D+iQCqRORv7rzcWPLbRAE543/4V6X4FIuACtnFQl/8=;
-        b=JRs5Fpo3x46T6+km8oIsqrcTqHJwCyFhwDJKxRNqflXIcFIqgf9uC2oOdphE/PI4hQ
-         q+ZHf0dR+kusvjzdVzCkq/zD35iP5Zxb+dlvGE9goGmd8XiwOLVYj77MOU2OfOlPx9+u
-         9Hiem6JpmvN0U8CVJSCuPcmrQdousz0G63YT/XxykxzMy2ip4r/70Zp0TCQcKMs5xnkA
-         l/n8cBxKK/mDaSz8XleSCvVJZKdzQ3/8WhrMI9uDFz6Df61r/fXaeDhYQIFE52VSaUrq
-         P+6kUn1uX2/GCgnu+oIYsDeHDBJeN75RQVUmg8bhh1/ZbQ557lWnBIDZ5xDqATblR0Fw
-         7pWQ==
+        bh=Egm/XxJ8ddWbI/DaWjAWd8f37iIZoXJS+wUVmFcRAns=;
+        b=jmuY9roKZMyFhtYvPEoDziDnCcR7JdYNk6MHm5cFsWzUI97GEXVLYK1GdjIllbAuc8
+         4ySkYVESTYqTzNduR8YSId27LdhHiTgoO/QliIr5NJBmEYoJ3hqAD7mwOWzvFkUx4Bii
+         goVBiLBONUuy9TatGLx00I5NjhWHSEHqUSiN1WkdO1FULfalsZjiiUrIy35lsmGM8gg5
+         0R9io78Au8wj9A4RGlGH7FDc+jn67CVyDvAeFJPAeD6X9/PbcbAdX5be8ZMA4OH8wO2X
+         REDfKC9pVZc7WTJWTP+0UyFThTKKDkHpI7he51JmdU9wLJq3gXsen7d9rft5gMUHTkyh
+         wERA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689724127; x=1692316127;
+        d=1e100.net; s=20221208; t=1689724121; x=1692316121;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+D+iQCqRORv7rzcWPLbRAE543/4V6X4FIuACtnFQl/8=;
-        b=RweWGotpWofbNcAgXy9OziCpG7YxSjbEsmaJCgRNDjBPXPzYIFswj7HkItesKcl+hp
-         RT7TqaAqy1hNFQf9QwnHM1Fh0YrRA6HOvrCGK69ytnyDB9lYYcKckJ5ZRRReV1QXZTmo
-         nKfCa6IUQV/+5JaixvGv82d84Y2L+A/e8Cmymm89P3KJyAn/kjBG+GVQJiKjSmQ5CUPm
-         P76HeQlSI0rgdYWKL/yx/OjA3aFACL36Peowt6Zxn3Uv7dVNMoTar59b7RcubnX18E+/
-         HX1GepXNj6iDWaYwTfXgyzKwIdgFJs9/JsLMnc9hZ7qU2iU/YhnCSC1iswzW3HEhgirw
-         /G5Q==
-X-Gm-Message-State: ABy/qLbCatkriPbKP5y8RN783laJd60An4P44rV0KuwsELtbf9XkiNBs
-	Ze7uWa9R5JIkDz7zDjZZbQJrHva/U0s=
-X-Google-Smtp-Source: APBJJlETVbNaBw8AmzW0kBWK5D2KmbeA61BBGbrJyPjvE+8fQP3x05cGyn057MO58Fd41aEU6AtTt8Up3BM=
+        bh=Egm/XxJ8ddWbI/DaWjAWd8f37iIZoXJS+wUVmFcRAns=;
+        b=kAcUXzgaq+BQCURrc/bfqiM8lrtdoof1Ok3FNi0AbVzL6FdubW9iZnMWGPiy7dTSPj
+         g6TEeC0xTNGitJq0+iD6S06N++A4m1yBvGBhvZJoZfStRBqmSW5/1OspfMqh+KFlvzrk
+         1bmS7zqqlpsIt3tczNJsVVwwBHYHy6DOCvw94mqOoUi8ghD0Tc2yyjcX7azGZULkGQi7
+         Khk5FZQauli2YutCo+HWJNR/z65U6viMtKwWdv/5WqVP63NIIF2j8+N9eMewwG/1Tuyi
+         FXE/10gqRP2hM1cjNbRzMza+wMsNM519DLHKgpHlbbj/CP9dwH8lUNcsKns3qbG0V1Kx
+         8zrw==
+X-Gm-Message-State: ABy/qLYtVBRPL6nuw5ogJY3TwAuFBjG0XrmbCbgLoWSEwyL8518JGdSo
+	yl+LUkjPq6EGw2oZSS7HA78eSua4K7A=
+X-Google-Smtp-Source: APBJJlFh2D+dQAa/XLO1xU2e6kFsryQ3DCD95rOJdVXmpZcOUWfUGVGQg2QmRxbQ3p6/rJNCJuKy9Jt0/xg=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a81:430c:0:b0:57a:fde:f25b with SMTP id
- q12-20020a81430c000000b0057a0fdef25bmr179924ywa.4.1689724127162; Tue, 18 Jul
- 2023 16:48:47 -0700 (PDT)
-Date: Tue, 18 Jul 2023 16:44:51 -0700
+ (user=seanjc job=sendgmr) by 2002:a05:6902:1005:b0:c5d:2623:560e with SMTP id
+ w5-20020a056902100500b00c5d2623560emr14047ybt.12.1689724121300; Tue, 18 Jul
+ 2023 16:48:41 -0700 (PDT)
+Date: Tue, 18 Jul 2023 16:44:48 -0700
 In-Reply-To: <20230718234512.1690985-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230718234512.1690985-1-seanjc@google.com>
 X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
-Message-ID: <20230718234512.1690985-9-seanjc@google.com>
-Subject: [RFC PATCH v11 08/29] KVM: Introduce per-page memory attributes
+Message-ID: <20230718234512.1690985-6-seanjc@google.com>
+Subject: [RFC PATCH v11 05/29] KVM: Convert KVM_ARCH_WANT_MMU_NOTIFIER to CONFIG_KVM_GENERIC_MMU_NOTIFIER
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -103,8 +103,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_004949_177766_09CE0E90 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20230719_004946_612709_D8CD8844 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,425 +122,289 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chao Peng <chao.p.peng@linux.intel.com>
-
-In confidential computing usages, whether a page is private or shared is
-necessary information for KVM to perform operations like page fault
-handling, page zapping etc. There are other potential use cases for
-per-page memory attributes, e.g. to make memory read-only (or no-exec,
-or exec-only, etc.) without having to modify memslots.
-
-Introduce two ioctls (advertised by KVM_CAP_MEMORY_ATTRIBUTES) to allow
-userspace to operate on the per-page memory attributes.
-  - KVM_SET_MEMORY_ATTRIBUTES to set the per-page memory attributes to
-    a guest memory range.
-  - KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES to return the KVM supported
-    memory attributes.
-
-Use an xarray to store the per-page attributes internally, with a naive,
-not fully optimized implementation, i.e. prioritize correctness over
-performance for the initial implementation.
-
-Because setting memory attributes is roughly analogous to mprotect() on
-memory that is mapped into the guest, zap existing mappings prior to
-updating the memory attributes.  Opportunistically provide an arch hook
-for the post-set path (needed to complete invalidation anyways) in
-anticipation of x86 needing the hook to update metadata related to
-determining whether or not a given gfn can be backed with various sizes
-of hugepages.
-
-It's possible that future usages may not require an invalidation, e.g.
-if KVM ends up supporting RWX protections and userspace grants _more_
-protections, but again opt for simplicity and punt optimizations to
-if/when they are needed.
-
-Suggested-by: Sean Christopherson <seanjc@google.com>
-Link: https://lore.kernel.org/all/Y2WB48kD0J4VGynX@google.com
-Cc: Fuad Tabba <tabba@google.com>
-Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- Documentation/virt/kvm/api.rst |  60 ++++++++++++
- include/linux/kvm_host.h       |  14 +++
- include/uapi/linux/kvm.h       |  14 +++
- virt/kvm/Kconfig               |   4 +
- virt/kvm/kvm_main.c            | 170 +++++++++++++++++++++++++++++++++
- 5 files changed, 262 insertions(+)
+ arch/arm64/include/asm/kvm_host.h   |  2 --
+ arch/arm64/kvm/Kconfig              |  2 +-
+ arch/mips/include/asm/kvm_host.h    |  2 --
+ arch/mips/kvm/Kconfig               |  2 +-
+ arch/powerpc/include/asm/kvm_host.h |  2 --
+ arch/powerpc/kvm/Kconfig            |  8 ++++----
+ arch/powerpc/kvm/powerpc.c          |  4 +---
+ arch/riscv/include/asm/kvm_host.h   |  2 --
+ arch/riscv/kvm/Kconfig              |  2 +-
+ arch/x86/include/asm/kvm_host.h     |  2 --
+ arch/x86/kvm/Kconfig                |  2 +-
+ include/linux/kvm_host.h            |  8 +++++---
+ virt/kvm/Kconfig                    |  4 ++++
+ virt/kvm/kvm_main.c                 | 10 +++++-----
+ 14 files changed, 23 insertions(+), 29 deletions(-)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 34d4ce66e0c8..0ca8561775ac 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -6068,6 +6068,56 @@ writes to the CNTVCT_EL0 and CNTPCT_EL0 registers using the SET_ONE_REG
- interface. No error will be returned, but the resulting offset will not be
- applied.
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 8b6096753740..50d89d400bf1 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -912,8 +912,6 @@ int __kvm_arm_vcpu_get_events(struct kvm_vcpu *vcpu,
+ int __kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
+ 			      struct kvm_vcpu_events *events);
  
-+4.139 KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES
-+-----------------------------------------
-+
-+:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-+:Architectures: x86
-+:Type: vm ioctl
-+:Parameters: u64 memory attributes bitmask(out)
-+:Returns: 0 on success, <0 on error
-+
-+Returns supported memory attributes bitmask. Supported memory attributes will
-+have the corresponding bits set in u64 memory attributes bitmask.
-+
-+The following memory attributes are defined::
-+
-+  #define KVM_MEMORY_ATTRIBUTE_PRIVATE           (1ULL << 3)
-+
-+4.140 KVM_SET_MEMORY_ATTRIBUTES
-+-----------------------------------------
-+
-+:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-+:Architectures: x86
-+:Type: vm ioctl
-+:Parameters: struct kvm_memory_attributes(in/out)
-+:Returns: 0 on success, <0 on error
-+
-+Sets memory attributes for pages in a guest memory range. Parameters are
-+specified via the following structure::
-+
-+  struct kvm_memory_attributes {
-+	__u64 address;
-+	__u64 size;
-+	__u64 attributes;
-+	__u64 flags;
-+  };
-+
-+The user sets the per-page memory attributes to a guest memory range indicated
-+by address/size, and in return KVM adjusts address and size to reflect the
-+actual pages of the memory range have been successfully set to the attributes.
-+If the call returns 0, "address" is updated to the last successful address + 1
-+and "size" is updated to the remaining address size that has not been set
-+successfully. The user should check the return value as well as the size to
-+decide if the operation succeeded for the whole range or not. The user may want
-+to retry the operation with the returned address/size if the previous range was
-+partially successful.
-+
-+Both address and size should be page aligned and the supported attributes can be
-+retrieved with KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES.
-+
-+The "flags" field may be used for future extensions and should be set to 0s.
-+
- 5. The kvm_run structure
- ========================
+-#define KVM_ARCH_WANT_MMU_NOTIFIER
+-
+ void kvm_arm_halt_guest(struct kvm *kvm);
+ void kvm_arm_resume_guest(struct kvm *kvm);
  
-@@ -8494,6 +8544,16 @@ block sizes is exposed in KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES as a
- 64-bit bitmap (each bit describing a block size). The default value is
- 0, to disable the eager page splitting.
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index f531da6b362e..a650b46f4f2f 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -22,7 +22,7 @@ menuconfig KVM
+ 	bool "Kernel-based Virtual Machine (KVM) support"
+ 	depends on HAVE_KVM
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+-	select MMU_NOTIFIER
++	select KVM_GENERIC_MMU_NOTIFIER
+ 	select PREEMPT_NOTIFIERS
+ 	select HAVE_KVM_CPU_RELAX_INTERCEPT
+ 	select HAVE_KVM_ARCH_TLB_FLUSH_ALL
+diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
+index 04cedf9f8811..22a41d941bf3 100644
+--- a/arch/mips/include/asm/kvm_host.h
++++ b/arch/mips/include/asm/kvm_host.h
+@@ -810,8 +810,6 @@ int kvm_mips_mkclean_gpa_pt(struct kvm *kvm, gfn_t start_gfn, gfn_t end_gfn);
+ pgd_t *kvm_pgd_alloc(void);
+ void kvm_mmu_free_memory_caches(struct kvm_vcpu *vcpu);
  
-+8.41 KVM_CAP_MEMORY_ATTRIBUTES
-+------------------------------
-+
-+:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-+:Architectures: x86
-+:Type: vm
-+
-+This capability indicates KVM supports per-page memory attributes and ioctls
-+KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES/KVM_SET_MEMORY_ATTRIBUTES are available.
-+
- 9. Known KVM API problems
- =========================
+-#define KVM_ARCH_WANT_MMU_NOTIFIER
+-
+ /* Emulation */
+ enum emulation_result update_pc(struct kvm_vcpu *vcpu, u32 cause);
+ int kvm_get_badinstr(u32 *opc, struct kvm_vcpu *vcpu, u32 *out);
+diff --git a/arch/mips/kvm/Kconfig b/arch/mips/kvm/Kconfig
+index a8cdba75f98d..c04987d2ed2e 100644
+--- a/arch/mips/kvm/Kconfig
++++ b/arch/mips/kvm/Kconfig
+@@ -25,7 +25,7 @@ config KVM
+ 	select HAVE_KVM_EVENTFD
+ 	select HAVE_KVM_VCPU_ASYNC_IOCTL
+ 	select KVM_MMIO
+-	select MMU_NOTIFIER
++	select KVM_GENERIC_MMU_NOTIFIER
+ 	select INTERVAL_TREE
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+ 	help
+diff --git a/arch/powerpc/include/asm/kvm_host.h b/arch/powerpc/include/asm/kvm_host.h
+index 14ee0dece853..4b5c3f2acf78 100644
+--- a/arch/powerpc/include/asm/kvm_host.h
++++ b/arch/powerpc/include/asm/kvm_host.h
+@@ -62,8 +62,6 @@
  
+ #include <linux/mmu_notifier.h>
+ 
+-#define KVM_ARCH_WANT_MMU_NOTIFIER
+-
+ #define HPTEG_CACHE_NUM			(1 << 15)
+ #define HPTEG_HASH_BITS_PTE		13
+ #define HPTEG_HASH_BITS_PTE_LONG	12
+diff --git a/arch/powerpc/kvm/Kconfig b/arch/powerpc/kvm/Kconfig
+index 902611954200..b33358ee6424 100644
+--- a/arch/powerpc/kvm/Kconfig
++++ b/arch/powerpc/kvm/Kconfig
+@@ -42,7 +42,7 @@ config KVM_BOOK3S_64_HANDLER
+ config KVM_BOOK3S_PR_POSSIBLE
+ 	bool
+ 	select KVM_MMIO
+-	select MMU_NOTIFIER
++	select KVM_GENERIC_MMU_NOTIFIER
+ 
+ config KVM_BOOK3S_HV_POSSIBLE
+ 	bool
+@@ -85,7 +85,7 @@ config KVM_BOOK3S_64_HV
+ 	tristate "KVM for POWER7 and later using hypervisor mode in host"
+ 	depends on KVM_BOOK3S_64 && PPC_POWERNV
+ 	select KVM_BOOK3S_HV_POSSIBLE
+-	select MMU_NOTIFIER
++	select KVM_GENERIC_MMU_NOTIFIER
+ 	select CMA
+ 	help
+ 	  Support running unmodified book3s_64 guest kernels in
+@@ -194,7 +194,7 @@ config KVM_E500V2
+ 	depends on !CONTEXT_TRACKING_USER
+ 	select KVM
+ 	select KVM_MMIO
+-	select MMU_NOTIFIER
++	select KVM_GENERIC_MMU_NOTIFIER
+ 	help
+ 	  Support running unmodified E500 guest kernels in virtual machines on
+ 	  E500v2 host processors.
+@@ -211,7 +211,7 @@ config KVM_E500MC
+ 	select KVM
+ 	select KVM_MMIO
+ 	select KVM_BOOKE_HV
+-	select MMU_NOTIFIER
++	select KVM_GENERIC_MMU_NOTIFIER
+ 	help
+ 	  Support running unmodified E500MC/E5500/E6500 guest kernels in
+ 	  virtual machines on E500MC/E5500/E6500 host processors.
+diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
+index 5cf9e5e3112a..f97fbac7eac9 100644
+--- a/arch/powerpc/kvm/powerpc.c
++++ b/arch/powerpc/kvm/powerpc.c
+@@ -635,9 +635,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ #ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
+ 		r = hv_enabled;
+ #else
+-#ifndef KVM_ARCH_WANT_MMU_NOTIFIER
+-		BUILD_BUG();
+-#endif
++		BUILD_BUG_ON(!IS_ENABLED(CONFIG_KVM_GENERIC_MMU_NOTIFIER));
+ 		r = 1;
+ #endif
+ 		break;
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 2d8ee53b66c7..6ddaf0b9278c 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -249,8 +249,6 @@ struct kvm_vcpu_arch {
+ static inline void kvm_arch_sync_events(struct kvm *kvm) {}
+ static inline void kvm_arch_sched_in(struct kvm_vcpu *vcpu, int cpu) {}
+ 
+-#define KVM_ARCH_WANT_MMU_NOTIFIER
+-
+ #define KVM_RISCV_GSTAGE_TLB_MIN_ORDER		12
+ 
+ void kvm_riscv_local_hfence_gvma_vmid_gpa(unsigned long vmid,
+diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+index dfc237d7875b..ae2e05f050ec 100644
+--- a/arch/riscv/kvm/Kconfig
++++ b/arch/riscv/kvm/Kconfig
+@@ -30,7 +30,7 @@ config KVM
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+ 	select KVM_MMIO
+ 	select KVM_XFER_TO_GUEST_WORK
+-	select MMU_NOTIFIER
++	select KVM_GENERIC_MMU_NOTIFIER
+ 	select PREEMPT_NOTIFIERS
+ 	help
+ 	  Support hosting virtualized guest machines.
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index 28bd38303d70..f9a927296d85 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -2110,8 +2110,6 @@ enum {
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, 0)
+ #endif
+ 
+-#define KVM_ARCH_WANT_MMU_NOTIFIER
+-
+ int kvm_cpu_has_injectable_intr(struct kvm_vcpu *v);
+ int kvm_cpu_has_interrupt(struct kvm_vcpu *vcpu);
+ int kvm_cpu_has_extint(struct kvm_vcpu *v);
+diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
+index 89ca7f4c1464..a7eb2bdbfb18 100644
+--- a/arch/x86/kvm/Kconfig
++++ b/arch/x86/kvm/Kconfig
+@@ -24,7 +24,7 @@ config KVM
+ 	depends on HIGH_RES_TIMERS
+ 	depends on X86_LOCAL_APIC
+ 	select PREEMPT_NOTIFIERS
+-	select MMU_NOTIFIER
++	select KVM_GENERIC_MMU_NOTIFIER
+ 	select HAVE_KVM_IRQCHIP
+ 	select HAVE_KVM_PFNCACHE
+ 	select HAVE_KVM_IRQFD
 diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index e9ca49d451f3..97db63da6227 100644
+index 90a0be261a5c..d2d3e083ec7f 100644
 --- a/include/linux/kvm_host.h
 +++ b/include/linux/kvm_host.h
-@@ -264,6 +264,7 @@ struct kvm_gfn_range {
- 	gfn_t end;
- 	union {
- 		pte_t pte;
-+		unsigned long attributes;
- 		u64 raw;
- 	} arg;
- 	bool may_block;
-@@ -809,6 +810,9 @@ struct kvm {
- 
- #ifdef CONFIG_HAVE_KVM_PM_NOTIFIER
- 	struct notifier_block pm_notifier;
-+#endif
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+	struct xarray mem_attr_array;
+@@ -255,7 +255,9 @@ bool kvm_setup_async_pf(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
+ int kvm_async_pf_wakeup_all(struct kvm_vcpu *vcpu);
  #endif
- 	char stats_id[KVM_STATS_NAME_SIZE];
- };
-@@ -2301,4 +2305,14 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
- /* Max number of entries allowed for each kvm dirty ring */
- #define  KVM_DIRTY_RING_MAX_ENTRIES  65536
  
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+static inline unsigned long kvm_get_memory_attributes(struct kvm *kvm, gfn_t gfn)
-+{
-+	return xa_to_value(xa_load(&kvm->mem_attr_array, gfn));
-+}
+-#ifdef KVM_ARCH_WANT_MMU_NOTIFIER
++struct kvm_gfn_range;
 +
-+bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
-+					 struct kvm_gfn_range *range);
-+#endif /* CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES */
-+
++#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
+ struct kvm_gfn_range {
+ 	struct kvm_memory_slot *slot;
+ 	gfn_t start;
+@@ -784,7 +786,7 @@ struct kvm {
+ 	struct hlist_head irq_ack_notifier_list;
  #endif
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 6c6ed214b6ac..f065c57db327 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -1211,6 +1211,7 @@ struct kvm_ppc_resize_hpt {
- #define KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE 228
- #define KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES 229
- #define KVM_CAP_USER_MEMORY2 230
-+#define KVM_CAP_MEMORY_ATTRIBUTES 231
  
- #ifdef KVM_CAP_IRQ_ROUTING
+-#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
++#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
+ 	struct mmu_notifier mmu_notifier;
+ 	unsigned long mmu_invalidate_seq;
+ 	long mmu_invalidate_in_progress;
+@@ -1916,7 +1918,7 @@ extern const struct _kvm_stats_desc kvm_vm_stats_desc[];
+ extern const struct kvm_stats_header kvm_vcpu_stats_header;
+ extern const struct _kvm_stats_desc kvm_vcpu_stats_desc[];
  
-@@ -2270,4 +2271,17 @@ struct kvm_s390_zpci_op {
- /* flags for kvm_s390_zpci_op->u.reg_aen.flags */
- #define KVM_S390_ZPCIOP_REGAEN_HOST    (1 << 0)
- 
-+/* Available with KVM_CAP_MEMORY_ATTRIBUTES */
-+#define KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES    _IOR(KVMIO,  0xd2, __u64)
-+#define KVM_SET_MEMORY_ATTRIBUTES              _IOW(KVMIO,  0xd3, struct kvm_memory_attributes)
-+
-+struct kvm_memory_attributes {
-+	__u64 address;
-+	__u64 size;
-+	__u64 attributes;
-+	__u64 flags;
-+};
-+
-+#define KVM_MEMORY_ATTRIBUTE_PRIVATE           (1ULL << 3)
-+
- #endif /* __LINUX_KVM_H */
+-#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
++#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
+ static inline int mmu_invalidate_retry(struct kvm *kvm, unsigned long mmu_seq)
+ {
+ 	if (unlikely(kvm->mmu_invalidate_in_progress))
 diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index 2fa11bd26cfc..8375bc49f97d 100644
+index b74916de5183..2fa11bd26cfc 100644
 --- a/virt/kvm/Kconfig
 +++ b/virt/kvm/Kconfig
-@@ -99,3 +99,7 @@ config KVM_GENERIC_HARDWARE_ENABLING
- config KVM_GENERIC_MMU_NOTIFIER
-        select MMU_NOTIFIER
+@@ -95,3 +95,7 @@ config HAVE_KVM_PM_NOTIFIER
+ 
+ config KVM_GENERIC_HARDWARE_ENABLING
         bool
 +
-+config KVM_GENERIC_MEMORY_ATTRIBUTES
-+       select KVM_GENERIC_MMU_NOTIFIER
++config KVM_GENERIC_MMU_NOTIFIER
++       select MMU_NOTIFIER
 +       bool
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index c14adf93daec..1a31bfa025b0 100644
+index 8101b11a13ba..53346bc2902a 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -530,6 +530,7 @@ struct kvm_mmu_notifier_range {
- 	u64 end;
- 	union {
- 		pte_t pte;
-+		unsigned long attributes;
- 		u64 raw;
- 	} arg;
- 	gfn_handler_t handler;
-@@ -1175,6 +1176,9 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
- 	spin_lock_init(&kvm->mn_invalidate_lock);
- 	rcuwait_init(&kvm->mn_memslots_update_rcuwait);
- 	xa_init(&kvm->vcpu_array);
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+	xa_init(&kvm->mem_attr_array);
-+#endif
- 
- 	INIT_LIST_HEAD(&kvm->gpc_list);
- 	spin_lock_init(&kvm->gpc_lock);
-@@ -1346,6 +1350,9 @@ static void kvm_destroy_vm(struct kvm *kvm)
- 		kvm_free_memslots(kvm, &kvm->__memslots[i][0]);
- 		kvm_free_memslots(kvm, &kvm->__memslots[i][1]);
- 	}
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+	xa_destroy(&kvm->mem_attr_array);
-+#endif
- 	cleanup_srcu_struct(&kvm->irq_srcu);
- 	cleanup_srcu_struct(&kvm->srcu);
- 	kvm_arch_free_vm(kvm);
-@@ -2346,6 +2353,145 @@ static int kvm_vm_ioctl_clear_dirty_log(struct kvm *kvm,
+@@ -510,7 +510,7 @@ void kvm_destroy_vcpus(struct kvm *kvm)
  }
- #endif /* CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT */
+ EXPORT_SYMBOL_GPL(kvm_destroy_vcpus);
  
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+static u64 kvm_supported_mem_attributes(struct kvm *kvm)
-+{
-+	return 0;
-+}
-+
-+static __always_inline void kvm_handle_gfn_range(struct kvm *kvm,
-+						 struct kvm_mmu_notifier_range *range)
-+{
-+	struct kvm_gfn_range gfn_range;
-+	struct kvm_memory_slot *slot;
-+	struct kvm_memslots *slots;
-+	struct kvm_memslot_iter iter;
-+	bool locked = false;
-+	bool ret = false;
-+	int i;
-+
-+	gfn_range.arg.raw = range->arg.raw;
-+	gfn_range.may_block = range->may_block;
-+
-+	for (i = 0; i < KVM_ADDRESS_SPACE_NUM; i++) {
-+		slots = __kvm_memslots(kvm, i);
-+
-+		kvm_for_each_memslot_in_gfn_range(&iter, slots, range->start, range->end) {
-+			slot = iter.slot;
-+			gfn_range.slot = slot;
-+
-+			gfn_range.start = max(range->start, slot->base_gfn);
-+			gfn_range.end = min(range->end, slot->base_gfn + slot->npages);
-+			if (gfn_range.start >= gfn_range.end)
-+				continue;
-+
-+			if (!locked) {
-+				locked = true;
-+				KVM_MMU_LOCK(kvm);
-+				if (!IS_KVM_NULL_FN(range->on_lock))
-+					range->on_lock(kvm);
-+			}
-+
-+			ret |= range->handler(kvm, &gfn_range);
-+		}
-+	}
-+
-+	if (range->flush_on_ret && ret)
-+		kvm_flush_remote_tlbs(kvm);
-+
-+	if (locked) {
-+		KVM_MMU_UNLOCK(kvm);
-+		if (!IS_KVM_NULL_FN(range->on_unlock))
-+			range->on_unlock(kvm);
-+	}
-+}
-+
-+static int kvm_vm_set_mem_attributes(struct kvm *kvm, unsigned long attributes,
-+				     gfn_t start, gfn_t end)
-+{
-+	struct kvm_mmu_notifier_range unmap_range = {
-+		.start = start,
-+		.end = end,
-+		.handler = kvm_mmu_unmap_gfn_range,
-+		.on_lock = kvm_mmu_invalidate_begin,
-+		.on_unlock = (void *)kvm_null_fn,
-+		.flush_on_ret = true,
-+		.may_block = true,
-+	};
-+	struct kvm_mmu_notifier_range post_set_range = {
-+		.start = start,
-+		.end = end,
-+		.arg.attributes = attributes,
-+		.handler = kvm_arch_post_set_memory_attributes,
-+		.on_lock = (void *)kvm_null_fn,
-+		.on_unlock = kvm_mmu_invalidate_end,
-+		.may_block = true,
-+	};
-+	unsigned long i;
-+	void *entry;
-+	int r;
-+
-+	entry = attributes ? xa_mk_value(attributes) : NULL;
-+
-+	mutex_lock(&kvm->slots_lock);
-+
-+	/*
-+	 * Reserve memory ahead of time to avoid having to deal with failures
-+	 * partway through setting the new attributes.
-+	 */
-+	for (i = start; i < end; i++) {
-+		r = xa_reserve(&kvm->mem_attr_array, i, GFP_KERNEL_ACCOUNT);
-+		if (r)
-+			goto out_unlock;
-+	}
-+
-+	kvm_handle_gfn_range(kvm, &unmap_range);
-+
-+	for (i = start; i < end; i++) {
-+		r = xa_err(xa_store(&kvm->mem_attr_array, i, entry,
-+				    GFP_KERNEL_ACCOUNT));
-+		KVM_BUG_ON(r, kvm);
-+	}
-+
-+	kvm_handle_gfn_range(kvm, &post_set_range);
-+
-+out_unlock:
-+	mutex_unlock(&kvm->slots_lock);
-+
-+	return r;
-+}
-+static int kvm_vm_ioctl_set_mem_attributes(struct kvm *kvm,
-+					   struct kvm_memory_attributes *attrs)
-+{
-+	gfn_t start, end;
-+
-+	/* flags is currently not used. */
-+	if (attrs->flags)
-+		return -EINVAL;
-+	if (attrs->attributes & ~kvm_supported_mem_attributes(kvm))
-+		return -EINVAL;
-+	if (attrs->size == 0 || attrs->address + attrs->size < attrs->address)
-+		return -EINVAL;
-+	if (!PAGE_ALIGNED(attrs->address) || !PAGE_ALIGNED(attrs->size))
-+		return -EINVAL;
-+
-+	start = attrs->address >> PAGE_SHIFT;
-+	end = (attrs->address + attrs->size - 1 + PAGE_SIZE) >> PAGE_SHIFT;
-+
-+	if (WARN_ON_ONCE(start == end))
-+		return -EINVAL;
-+
-+	/*
-+	 * xarray tracks data using "unsigned long", and as a result so does
-+	 * KVM.  For simplicity, supports generic attributes only on 64-bit
-+	 * architectures.
-+	 */
-+	BUILD_BUG_ON(sizeof(attrs->attributes) != sizeof(unsigned long));
-+
-+	return kvm_vm_set_mem_attributes(kvm, attrs->attributes, start, end);
-+}
-+#endif /* CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES */
-+
- struct kvm_memory_slot *gfn_to_memslot(struct kvm *kvm, gfn_t gfn)
+-#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
++#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
+ static inline struct kvm *mmu_notifier_to_kvm(struct mmu_notifier *mn)
  {
- 	return __gfn_to_memslot(kvm_memslots(kvm), gfn);
-@@ -4521,6 +4667,9 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
- #ifdef CONFIG_HAVE_KVM_MSI
- 	case KVM_CAP_SIGNAL_MSI:
- #endif
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+	case KVM_CAP_MEMORY_ATTRIBUTES:
-+#endif
- #ifdef CONFIG_HAVE_KVM_IRQFD
- 	case KVM_CAP_IRQFD:
- #endif
-@@ -4937,6 +5086,27 @@ static long kvm_vm_ioctl(struct file *filp,
- 		break;
- 	}
- #endif /* CONFIG_HAVE_KVM_IRQ_ROUTING */
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+	case KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES: {
-+		u64 attrs = kvm_supported_mem_attributes(kvm);
-+
-+		r = -EFAULT;
-+		if (copy_to_user(argp, &attrs, sizeof(attrs)))
-+			goto out;
-+		r = 0;
-+		break;
-+	}
-+	case KVM_SET_MEMORY_ATTRIBUTES: {
-+		struct kvm_memory_attributes attrs;
-+
-+		r = -EFAULT;
-+		if (copy_from_user(&attrs, argp, sizeof(attrs)))
-+			goto out;
-+
-+		r = kvm_vm_ioctl_set_mem_attributes(kvm, &attrs);
-+		break;
-+	}
-+#endif /* CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES */
- 	case KVM_CREATE_DEVICE: {
- 		struct kvm_create_device cd;
+ 	return container_of(mn, struct kvm, mmu_notifier);
+@@ -938,14 +938,14 @@ static int kvm_init_mmu_notifier(struct kvm *kvm)
+ 	return mmu_notifier_register(&kvm->mmu_notifier, current->mm);
+ }
  
+-#else  /* !(CONFIG_MMU_NOTIFIER && KVM_ARCH_WANT_MMU_NOTIFIER) */
++#else  /* !CONFIG_KVM_GENERIC_MMU_NOTIFIER */
+ 
+ static int kvm_init_mmu_notifier(struct kvm *kvm)
+ {
+ 	return 0;
+ }
+ 
+-#endif /* CONFIG_MMU_NOTIFIER && KVM_ARCH_WANT_MMU_NOTIFIER */
++#endif /* CONFIG_KVM_GENERIC_MMU_NOTIFIER */
+ 
+ #ifdef CONFIG_HAVE_KVM_PM_NOTIFIER
+ static int kvm_pm_notifier_call(struct notifier_block *bl,
+@@ -1265,7 +1265,7 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
+ out_err_no_debugfs:
+ 	kvm_coalesced_mmio_free(kvm);
+ out_no_coalesced_mmio:
+-#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
++#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
+ 	if (kvm->mmu_notifier.ops)
+ 		mmu_notifier_unregister(&kvm->mmu_notifier, current->mm);
+ #endif
+@@ -1325,7 +1325,7 @@ static void kvm_destroy_vm(struct kvm *kvm)
+ 		kvm->buses[i] = NULL;
+ 	}
+ 	kvm_coalesced_mmio_free(kvm);
+-#if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
++#ifdef CONFIG_KVM_GENERIC_MMU_NOTIFIER
+ 	mmu_notifier_unregister(&kvm->mmu_notifier, kvm->mm);
+ 	/*
+ 	 * At this point, pending calls to invalidate_range_start()
 -- 
 2.41.0.255.g8b1d071c50-goog
 
