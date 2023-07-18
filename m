@@ -4,88 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14398EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1973DC001DC
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bsset1+7reLqgjaX8+i89xYO2KbQhA8/psaBxb0X6JI=; b=Fj2U6uL7yLsruh
-	eHyvoBV5dacuDSCLg9o/R4sluqjRbOTEfnngvf4z6N7EWl6b4m/1PmvxTch/86Rk5Qwm9jkWLKqPe
-	bNyL4NOMfcJZA3SnPLg/LviyuftgQ4NkY7wtr2D1ujVMoCr1lOP0kBQOthJQB2XQ9/KFWSahp0A3f
-	stXFkbEZ2FXtTfp3uniNP7Mp31KVo5uQrwHS8pCXWc6kcFKxVD7MqggJrLSvBUTA1nF2FRVsVBpA8
-	k7KPOJPR2sQYPCcg2uT0Qs0iNKX+mIC/5/tgFQRhAep4rcMZcYXspkR/yEbPH859DujiQ91hpwnFA
-	mpJ7BcbgNy2hWghQnJeg==;
+	List-Owner; bh=1+wgthkbwL6aE1374DUGnY1Uu8k6d/uKdd8BCioYI6k=; b=CH+UeyRCTuXla3
+	8PcUKP3oZk5uygYRQXsQa2eYzgs1sMaXK9cHkLfeWO9gd+jLGFywd2hxcqTo3ghAa1+793MkNBH1W
+	LWrmYF1KFQyiLtYjTQ2MMsASpfyWzYLDQE4EQ6wKpJrrQt/fVAeXC20KLgz5vVYYQ9qwioas4hJbO
+	Bu8TmORHrqJqBfFfDoPQfR6Yg5Qq0DznXOK6Fz+fJhjdRb4pAzgI6BkFHLP/zLtLvknzCNoHU/ABA
+	OG0aK6NxCRrjLG1KDwU488raou1AnsgU+n7WLbmgu9Q65pNvrfs31evFjMFYALb023MFP8xTIIa8V
+	nFenmdxsz86q6UJ+tbFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0aU-005hCe-0x;
-	Wed, 19 Jul 2023 06:23:02 +0000
+	id 1qM0ac-005hHZ-1D;
+	Wed, 19 Jul 2023 06:23:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0aT-005hAk-0K
+	id 1qM0aY-005hF0-2F
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 06:23:01 +0000
+	Wed, 19 Jul 2023 06:23:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=R1lmF+cePYicFnjnD3+fF5ZbEkQ96Hcm44TsrUsZb+w=; b=IJ00KeopYBoGYc/pUNk5DKHSoJ
-	Ihs70JubLg5Byeno9y23BHMAFw6xWaU36Kd/x81Ho1DTnL9q8R5Qo0L7uE3wabe3mvcMDxojnI1Yl
-	aJnGQx+BOE/ZP1HocfHgnvTgW/TJ5YdIfXJ1XpuhHs7CQIHjVTwL+eWjsrsRrExyCRpCdV4AXz2pe
-	MPjBgz+qss1ZoIFragYA83Uxahlqs+HkUpbgXMwzwCAmuoDdmNAA9LPGnAGCLzFtHE8s/G7V82KHv
-	kA6V5cxRdJmctcyXGCisFh8mCZqNlnFuJt+VdGpwaX/9XghKJVaAAPyQRIjudUkSiDD5pV94RHmoI
-	QZnH+y2A==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	bh=cwQB/fbfOKqBwcYRAl53xVtw+hDeV12CsqqmWxF/Uhs=; b=dRLUeIJAWMnjOfTzTsAhUVAFZc
+	RzFTC58vNATOAbFmpBb1yXGshWhHrI9sGrvlQdX3BWasGxSgZOWrFf0ZqOszjgQgN52iyQlwnAsIU
+	lvcegVnbbeEqEzGHTx6iU19MXDs+b5VobpLGCmjCrroFPFQIfID/FDAwLlT8IV6wfzsWWl+vNQFag
+	BdG5R2c3+nMTCyc7YafeOSpFVBdD1FRRsoi+L0gpbE27UMgoUv7uiRVlSkV/yfSCi87+yMWBazpyq
+	8qvdtNZP3VC39PPpxQGMapG8PRhOlzBnsJEb/GguWfASSKUzmSITp+X4wOqMi+KLMQfDuUMNftW/w
+	w+pQVDHA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLjrS-00BWB9-0x
+	id 1qLapp-009bji-2I
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jul 2023 12:31:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3A96461543
-	for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 12:30:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BF76C433C7
-	for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 12:30:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689683445;
-	bh=ewBvEu3q9fdxRVZ/bOTc4sTub/GNdXq5mm9ihivpNys=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KPoQSk+l91vqDjLdjbP3A+VDUiOMWV03en0RSX0+HvbPqDaIq93gf6jBhlsCpC0f2
-	 9vF5yJr1X3gjSp6NHJjs8tSW8aMZ5fFuIFkgbbzY6Gy4/rXnSXFbQorO2Qt7HKPLlD
-	 ew48CUEYwfwWbJWDwpy18XE6gDd0mtns4nnNVjzW3Yuncosonl6iqutYxAd3UDZ6R9
-	 XTl3l04KGg8zKhXKM3pmfgbdQNmzTzP1GzP86RVEdcYR3yH0regjvVla4yvndAZ/AC
-	 PS+2MAgEEWl+KET/CHymrR0kWxmLS94YQ2y2tlZZYjitPV57/V7loCnQcRPz/ahSfw
-	 gz9pdfKGAwmFg==
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-51e5e4c6026so8078938a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 05:30:45 -0700 (PDT)
-X-Gm-Message-State: ABy/qLYAryhdWKm1ztQ16+4JEzdZrLRxo75VS5H5AMD948IrVzxetqGU
-	zajK5PMPhPRNMn7V9imAOqVL7aDUJyjxZRRvmYI=
-X-Google-Smtp-Source: APBJJlHe8TFtJFZ8Y9DNXuWysT+cvI4iLtDBMsWB/iiVEYkEaNurr05NLxvwGqtvK5ROH/nhX2YKPgHH7a10svBalFQ=
-X-Received: by 2002:a17:906:7c44:b0:969:93f2:259a with SMTP id
- g4-20020a1709067c4400b0096993f2259amr12930730ejp.73.1689683443851; Tue, 18
- Jul 2023 05:30:43 -0700 (PDT)
+	Tue, 18 Jul 2023 02:53:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689648661;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cwQB/fbfOKqBwcYRAl53xVtw+hDeV12CsqqmWxF/Uhs=;
+	b=VXU/LQ7FN2YyA325geAAJerZFN0pKwZZVxeAKiWjEWlZG/e/bE64XN63Xt4Xgg11X8Zgfv
+	43klmwfIY3h9nenSnR+cRFQJjUedSm9jbJvC1kjKqeDnKzN/HdRhNDHqJjvEqbmrh0HmYZ
+	eBGXnZJFMPMQWbbktE0sUhIpPtNQrOA=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689648788;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cwQB/fbfOKqBwcYRAl53xVtw+hDeV12CsqqmWxF/Uhs=;
+	b=LrPJRBqqQ5YPdE3MMHHdfxYVS3EEY/CW1YTf9FHX5Gx+n583T/Mlw2L02umt4OfRAgoY8y
+	gERTARrQciApxLRCk44yUgVU6s6GbdJfyeHM6mUR95v48ObdAFkwcGmJ0cKJ1mSfilMnEW
+	OOPYWQQ1js8mut+vljuq1TjHyTfzKKc=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-568-H-W-pBQkOuWjvX1H6YQRtQ-1; Mon, 17 Jul 2023 22:47:19 -0400
+X-MC-Unique: H-W-pBQkOuWjvX1H6YQRtQ-1
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-262d0293551so826344a91.1
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Jul 2023 19:47:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689648438; x=1690253238;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cwQB/fbfOKqBwcYRAl53xVtw+hDeV12CsqqmWxF/Uhs=;
+        b=a54Rbx7QyTb20jkNYp2fl6RTtXs3F4gcPXDBpadTXKcffITv2ML2zry1SzvNPITw6P
+         0RBvq8kkthRh/VDULC7KpgCEWMPYgeLX/tGKqDyvxOTGDE5heHLB23QJ7lGcs4zrXZs6
+         2xe47LxXQ6tqk6fU4ffN/nrVHovAxsgZYsaQsa/8PKI5r6PGyGsnxA9+NIiVEIES+usP
+         FhxBnuqS/M4Sfqh4q7dwIw581ObaMgKlJwyQ5mZxItvCX79Oy6jE1XjUVqFG490QS1/+
+         tBz95LLEWIb/EjVU+dpb2TDfjBNMHemAnMoXaSOxzls67aNfGpscM9mVLGw+qie26Ule
+         UCMw==
+X-Gm-Message-State: ABy/qLZsjm2xm/UujM6adOTyobyCz3dszaAJNJida1lcQACzkUj5Icqn
+	xR9cyRNSC3rFLYsnFqoptARDYZJSSTniI46KXVCsz3z+5+Zx3I1tDkn2Sh8DOMorYyZ/AemcXRW
+	vc31o0Ykza0vzJmM1OLSCOFiBAFtU
+X-Received: by 2002:a17:902:e549:b0:1b8:a8e5:e8bc with SMTP id n9-20020a170902e54900b001b8a8e5e8bcmr18120497plf.6.1689648438513;
+        Mon, 17 Jul 2023 19:47:18 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlEAYrcvz0bb1bVxwgWvPIxVNsIIeg8/Nu7iZOSs+l2yBQAAQaQ8RJT1nC3Kt00+K0crHQ8CTQ==
+X-Received: by 2002:a17:902:e549:b0:1b8:a8e5:e8bc with SMTP id n9-20020a170902e54900b001b8a8e5e8bcmr18120464plf.6.1689648438131;
+        Mon, 17 Jul 2023 19:47:18 -0700 (PDT)
+Received: from [10.66.61.39] ([43.228.180.230])
+        by smtp.gmail.com with ESMTPSA id ja10-20020a170902efca00b001bb34ae3f47sm568891plb.122.2023.07.17.19.47.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Jul 2023 19:47:17 -0700 (PDT)
+Message-ID: <489cafab-ca71-a13b-a0cd-75b35016ef1b@redhat.com>
+Date: Tue, 18 Jul 2023 10:47:11 +0800
 MIME-Version: 1.0
-References: <20230714103659.3146949-1-guoren@kernel.org> <ad6e6873-5555-624b-6050-dbbcefb91e5a@ghiti.fr>
-In-Reply-To: <ad6e6873-5555-624b-6050-dbbcefb91e5a@ghiti.fr>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 18 Jul 2023 20:30:31 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTR72W4oA3L+138Hdenf9kASO17aMTPCkrJfcafcJ2bUKw@mail.gmail.com>
-Message-ID: <CAJF2gTR72W4oA3L+138Hdenf9kASO17aMTPCkrJfcafcJ2bUKw@mail.gmail.com>
-Subject: Re: [PATCH V4] riscv: kexec: Fixup synchronization problem between
- init_mm and active_mm
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: palmer@rivosinc.com, paul.walmsley@sifive.com, zong.li@sifive.com, 
-	atishp@atishpatra.org, jszhang@kernel.org, bjorn@kernel.org, 
-	xingxg2008@163.com, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Subject: Re: [PATCH v6 04/11] KVM: Move kvm_arch_flush_remote_tlbs_memslot()
+ to common code
+To: Raghavendra Rao Ananta <rananta@google.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+ Sean Christopherson <seanjc@google.com>, Huacai Chen
+ <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
+ Jing Zhang <jingzhangos@google.com>, Colton Lewis <coltonlewis@google.com>,
+ David Matlack <dmatlack@google.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ Gavin Shan <gshan@redhat.com>
+References: <20230715005405.3689586-1-rananta@google.com>
+ <20230715005405.3689586-5-rananta@google.com>
+From: Shaoqin Huang <shahuang@redhat.com>
+In-Reply-To: <20230715005405.3689586-5-rananta@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_133126_857754_032C8A82 
-X-CRM114-Status: GOOD (  39.86  )
+X-CRM114-CacheID: sfid-20230718_035310_460616_428E5010 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,150 +134,236 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdWwgMTcsIDIwMjMgYXQgOToxN+KAr1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleEBn
-aGl0aS5mcj4gd3JvdGU6Cj4KPgo+IE9uIDE0LzA3LzIwMjMgMTI6MzYsIGd1b3JlbkBrZXJuZWwu
-b3JnIHdyb3RlOgo+ID4gRnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+
-ID4KPiA+IFRoZSBtYWNoaW5lX2tleGVjKCkgdXNlcyBzZXRfbWVtb3J5X3ggdG8gbW9kaWZ5IHRo
-ZSBkaXJlY3QgbWFwcGluZwo+ID4gYXR0cmlidXRlcyBmcm9tIFJXIHRvIFJXWC4gVGhlIGN1cnJl
-bnQgaW1wbGVtZW50YXRpb24gb2Ygc2V0X21lbW9yeV94Cj4gPiBkb2VzIG5vdCBzcGxpdCBodWdl
-cGFnZXMgaW4gdGhlIGxpbmVhciBtYXBwaW5nIGFuZCB0aGVuIHdoZW4gYSBQR0QKPiA+IG1hcHBp
-bmcgaXMgdXNlZCwgdGhlIHdob2xlIFBHRCBpcyBtYXJrZWQgYXMgZXhlY3V0YWJsZS4gQnV0IGNo
-YW5naW5nCj4gPiB0aGUgcGVybWlzc2lvbnMgYXQgdGhlIFBHRCBsZXZlbCBtdXN0IGJlIHByb3Bh
-Z2F0ZWQgdG8gYWxsIHRoZSBwYWdlCj4gPiB0YWJsZXMuIFdoZW4ga2V4ZWMganVtcHMgaW50byBj
-b250cm9sX2J1ZmZlciwgdGhlIGluc3RydWN0aW9uIHBhZ2UKPiA+IGZhdWx0IGhhcHBlbnMsIGFu
-ZCB0aGVyZSBpcyBubyBtaW5vcl9wYWdlZmF1bHQgZm9yIGl0LCB0aGVuIHBhbmljLgo+ID4KPiA+
-IFRoZSBidWcgaXMgZm91bmQgb24gYW4gTU1VX3N2MzkgbWFjaGluZSwgYW5kIHRoZSBkaXJlY3Qg
-bWFwcGluZyB1c2VkIGEKPiA+IDFHQiBQVUQsIHRoZSBwZ2QgZW50cmllcy4gSGVyZSBpcyB0aGUg
-YnVnIG91dHB1dDoKPiA+Cj4gPiAgIGtleGVjX2NvcmU6IFN0YXJ0aW5nIG5ldyBrZXJuZWwKPiA+
-ICAgV2lsbCBjYWxsIG5ldyBrZXJuZWwgYXQgMDAzMDAwMDAgZnJvbSBoYXJ0IGlkIDAKPiA+ICAg
-RkRUIGltYWdlIGF0IDc0N2M3MDAwCj4gPiAgIEJ5ZS4uLgo+ID4gICBVbmFibGUgdG8gaGFuZGxl
-IGtlcm5lbCBwYWdpbmcgcmVxdWVzdCBhdCB2aXJ0dWFsIGFkZHJlc3MgZmZmZmZmZGEyM2IwZDAw
-MAo+ID4gICBPb3BzIFsjMV0KPiA+ICAgTW9kdWxlcyBsaW5rZWQgaW46Cj4gPiAgIENQVTogMCBQ
-SUQ6IDUzIENvbW06IHVpbml0IE5vdCB0YWludGVkIDYuNC4wLXJjNiAjMTUKPiA+ICAgSGFyZHdh
-cmUgbmFtZTogU29waGdvIE1hbmdvIChEVCkKPiA+ICAgZXBjIDogMHhmZmZmZmZkYTIzYjBkMDAw
-Cj4gPiAgICByYSA6IG1hY2hpbmVfa2V4ZWMrMHhhNi8weGIwCj4gPiAgIGVwYyA6IGZmZmZmZmRh
-MjNiMGQwMDAgcmEgOiBmZmZmZmZmZjgwMDA4MjcyIHNwIDogZmZmZmZmYzgwYzE3M2QxMAo+ID4g
-ICAgZ3AgOiBmZmZmZmZmZjgxNTBlMWUwIHRwIDogZmZmZmZmZDkwNzNkMmM0MCB0MCA6IDAwMDAw
-MDAwMDAwMDAwMDAKPiA+ICAgIHQxIDogMDAwMDAwMDAwMDAwMDA0MiB0MiA6IDY1Njc2MTZkNjky
-MDU0NDQgczAgOiBmZmZmZmZjODBjMTczZDUwCj4gPiAgICBzMSA6IGZmZmZmZmQ5MDc2YzQ4MDAg
-YTAgOiBmZmZmZmZkOTA3NmM0ODAwIGExIDogMDAwMDAwMDAwMDMwMDAwMAo+ID4gICAgYTIgOiAw
-MDAwMDAwMDc0N2M3MDAwIGEzIDogMDAwMDAwMDAwMDAwMDAwMCBhNCA6IGZmZmZmZmQ4MDAwMDAw
-MDAKPiA+ICAgIGE1IDogMDAwMDAwMDAwMDAwMDAwMCBhNiA6IGZmZmZmZmQ5MDM2MTljNDAgYTcg
-OiBmZmZmZmZmZmZmZmZmZmZmCj4gPiAgICBzMiA6IGZmZmZmZmRhMjNiMGQwMDAgczMgOiAwMDAw
-MDAwMDAwMzAwMDAwIHM0IDogMDAwMDAwMDA3NDdjNzAwMAo+ID4gICAgczUgOiAwMDAwMDAwMDAw
-MDAwMDAwIHM2IDogMDAwMDAwMDAwMDAwMDAwMCBzNyA6IDAwMDAwMDAwMDAwMDAwMDAKPiA+ICAg
-IHM4IDogMDAwMDAwMDAwMDAwMDAwMCBzOSA6IDAwMDAwMDAwMDAwMDAwMDAgczEwOiAwMDAwMDAw
-MDAwMDAwMDAwCj4gPiAgICBzMTE6IDAwMDAwMDNmOTQwMDAxYTAgdDMgOiBmZmZmZmZmZjgxNTM1
-MWFmIHQ0IDogZmZmZmZmZmY4MTUzNTFhZgo+ID4gICAgdDUgOiBmZmZmZmZmZjgxNTM1MWIwIHQ2
-IDogZmZmZmZmYzgwYzE3M2I1MAo+ID4gICBzdGF0dXM6IDAwMDAwMDAyMDAwMDAxMDAgYmFkYWRk
-cjogZmZmZmZmZGEyM2IwZDAwMCBjYXVzZTogMDAwMDAwMDAwMDAwMDAwYwo+ID4KPiA+IEdpdmVu
-IHRoZSBjdXJyZW50IGZsYXcgaW4gdGhlIHNldF9tZW1vcnlfeCBpbXBsZW1lbnRhdGlvbiwgdGhl
-IHNpbXBsZXN0Cj4gPiBzb2x1dGlvbiBpcyB0byBmaXggbWFjaGluZV9rZXhlYygpIHRvIHJlbWFw
-IGNvbnRyb2wgY29kZSBwYWdlIG91dHNpZGUKPiA+IHRoZSBsaW5lYXIgbWFwcGluZy4gQmVjYXVz
-ZSB0aGUgY29udHJvbCBjb2RlIGJ1ZmZlciB3YXMgbW92ZWQgZnJvbSB0aGUKPiA+IGRpcmVjdCBt
-YXBwaW5nIGFyZWEgdG8gdGhlIHZtYWxsb2MgbG9jYXRpb24sIHdlIG5lZWQgYW4gYWRkaXRpb25h
-bAo+ID4gdmFfdmFfb2Zmc2V0IHRvIGZpeCB1cCB2YV9wYV9vZmZzZXQuCj4gPgo+ID4gRml4ZXM6
-IDMzMzUwNjhmODcyMSAoInJpc2N2OiBVc2UgUFVEL1A0RC9QR0QgcGFnZXMgZm9yIHRoZSBsaW5l
-YXIgbWFwcGluZyIpCj4gPiBSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlA
-cml2b3NpbmMuY29tPgo+ID4gUmVwb3J0ZWQtYnk6IFhpbmcgWGlhb0d1YW5nIDx4aW5neGcyMDA4
-QDE2My5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFi
-YS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+
-IC0tLQo+ID4gQ2hhbmdlbG9nOgo+ID4gVjQ6Cj4gPiAgIC0gRml4dXAgdmFfcGFfb2Zmc2V0IHdp
-dGggYWRkaXRpb25hbCB2YV92YV9vZmZzZXQuCj4gPiAgIC0gQWRkIFJlcG9ydGVkLWJ5IHRhZy4K
-PiA+Cj4gPiBWMzoKPiA+ICAgLSBSZXN1bWUgc2V0X21lbW9yeV94IHRvIHNldCB0aGUgX1BBR0Vf
-RVhFQyBhdHRyaWJ1dGUKPiA+ICAgLSBPcHRpbWl6ZSB0aGUgY29tbWl0IGxvZyB3aXRoIEFsZXhh
-bmRyZSBhZHZpY2UKPiA+Cj4gPiBWMjoKPiA+ICAgLSBVc2Ugdm1fbWFwX3JhbSBpbnN0ZWFkIG9m
-IG1vZGlmeWluZyBzZXRfbWVtb3J5X3gKPiA+ICAgLSBDb3JyZWN0IEZpeGVzIHRhZwo+ID4gLS0t
-Cj4gPiAgIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va2V4ZWMuaCAgICB8ICAxICsKPiA+ICAgYXJj
-aC9yaXNjdi9rZXJuZWwvbWFjaGluZV9rZXhlYy5jIHwgMTggKysrKysrKysrKysrKysrLS0tCj4g
-PiAgIDIgZmlsZXMgY2hhbmdlZCwgMTYgaW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkKPiA+
-Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rZXhlYy5oIGIvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9rZXhlYy5oCj4gPiBpbmRleCAyYjU2NzY5Y2I1MzAuLjE3NDU2ZTkx
-NDc2ZSAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va2V4ZWMuaAo+ID4g
-KysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rZXhlYy5oCj4gPiBAQCAtNDEsNiArNDEsNyBA
-QCBjcmFzaF9zZXR1cF9yZWdzKHN0cnVjdCBwdF9yZWdzICpuZXdyZWdzLAo+ID4gICBzdHJ1Y3Qg
-a2ltYWdlX2FyY2ggewo+ID4gICAgICAgdm9pZCAqZmR0OyAvKiBGb3IgQ09ORklHX0tFWEVDX0ZJ
-TEUgKi8KPiA+ICAgICAgIHVuc2lnbmVkIGxvbmcgZmR0X2FkZHI7Cj4gPiArICAgICB2b2lkICpj
-b250cm9sX2NvZGVfYnVmZmVyOwo+ID4gICB9Owo+ID4KPiA+ICAgZXh0ZXJuIGNvbnN0IHVuc2ln
-bmVkIGNoYXIgcmlzY3Zfa2V4ZWNfcmVsb2NhdGVbXTsKPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L2tlcm5lbC9tYWNoaW5lX2tleGVjLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9tYWNoaW5lX2tl
-eGVjLmMKPiA+IGluZGV4IDJkMTM5YjcyNGJjOC4uNjBjMWVmM2MyMjMyIDEwMDY0NAo+ID4gLS0t
-IGEvYXJjaC9yaXNjdi9rZXJuZWwvbWFjaGluZV9rZXhlYy5jCj4gPiArKysgYi9hcmNoL3Jpc2N2
-L2tlcm5lbC9tYWNoaW5lX2tleGVjLmMKPiA+IEBAIC04Niw3ICs4NiwxNCBAQCBtYWNoaW5lX2tl
-eGVjX3ByZXBhcmUoc3RydWN0IGtpbWFnZSAqaW1hZ2UpCj4gPgo+ID4gICAgICAgLyogQ29weSB0
-aGUgYXNzZW1ibGVyIGNvZGUgZm9yIHJlbG9jYXRpb24gdG8gdGhlIGNvbnRyb2wgcGFnZSAqLwo+
-ID4gICAgICAgaWYgKGltYWdlLT50eXBlICE9IEtFWEVDX1RZUEVfQ1JBU0gpIHsKPiA+IC0gICAg
-ICAgICAgICAgY29udHJvbF9jb2RlX2J1ZmZlciA9IHBhZ2VfYWRkcmVzcyhpbWFnZS0+Y29udHJv
-bF9jb2RlX3BhZ2UpOwo+ID4gKyAgICAgICAgICAgICBjb250cm9sX2NvZGVfYnVmZmVyID0gdm1f
-bWFwX3JhbSgmaW1hZ2UtPmNvbnRyb2xfY29kZV9wYWdlLAo+ID4gKyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBLRVhFQ19DT05UUk9MX1BBR0VfU0laRS9QQUdF
-X1NJWkUsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IE5VTUFfTk9fTk9ERSk7Cj4gPiArICAgICAgICAgICAgIGlmIChjb250cm9sX2NvZGVfYnVmZmVy
-ID09IE5VTEwpIHsKPiA+ICsgICAgICAgICAgICAgICAgICAgICBwcl9lcnIoIkZhaWxlZCB0byB2
-bV9tYXAgY29udHJvbCBwYWdlXG4iKTsKPiA+ICsgICAgICAgICAgICAgICAgICAgICByZXR1cm4g
-LUVOT01FTTsKPiA+ICsgICAgICAgICAgICAgfQo+ID4gKwo+ID4gICAgICAgICAgICAgICBjb250
-cm9sX2NvZGVfYnVmZmVyX3N6ID0gcGFnZV9zaXplKGltYWdlLT5jb250cm9sX2NvZGVfcGFnZSk7
-Cj4gPgo+ID4gICAgICAgICAgICAgICBpZiAodW5saWtlbHkocmlzY3Zfa2V4ZWNfcmVsb2NhdGVf
-c2l6ZSA+IGNvbnRyb2xfY29kZV9idWZmZXJfc3opKSB7Cj4gPiBAQCAtOTksNiArMTA2LDggQEAg
-bWFjaGluZV9rZXhlY19wcmVwYXJlKHN0cnVjdCBraW1hZ2UgKmltYWdlKQo+ID4KPiA+ICAgICAg
-ICAgICAgICAgLyogTWFyayB0aGUgY29udHJvbCBwYWdlIGV4ZWN1dGFibGUgKi8KPiA+ICAgICAg
-ICAgICAgICAgc2V0X21lbW9yeV94KCh1bnNpZ25lZCBsb25nKSBjb250cm9sX2NvZGVfYnVmZmVy
-LCAxKTsKPiA+ICsKPiA+ICsgICAgICAgICAgICAgaW50ZXJuYWwtPmNvbnRyb2xfY29kZV9idWZm
-ZXIgPSBjb250cm9sX2NvZGVfYnVmZmVyOwo+ID4gICAgICAgfQo+ID4KPiA+ICAgICAgIHJldHVy
-biAwOwo+ID4gQEAgLTIxMSw3ICsyMjAsMTAgQEAgbWFjaGluZV9rZXhlYyhzdHJ1Y3Qga2ltYWdl
-ICppbWFnZSkKPiA+ICAgICAgIHVuc2lnbmVkIGxvbmcgdGhpc19jcHVfaWQgPSBfX3NtcF9wcm9j
-ZXNzb3JfaWQoKTsKPiA+ICAgICAgIHVuc2lnbmVkIGxvbmcgdGhpc19oYXJ0X2lkID0gY3B1aWRf
-dG9faGFydGlkX21hcCh0aGlzX2NwdV9pZCk7Cj4gPiAgICAgICB1bnNpZ25lZCBsb25nIGZkdF9h
-ZGRyID0gaW50ZXJuYWwtPmZkdF9hZGRyOwo+ID4gLSAgICAgdm9pZCAqY29udHJvbF9jb2RlX2J1
-ZmZlciA9IHBhZ2VfYWRkcmVzcyhpbWFnZS0+Y29udHJvbF9jb2RlX3BhZ2UpOwo+ID4gKyAgICAg
-dm9pZCAqY29udHJvbF9jb2RlX2J1ZmZlciA9IGludGVybmFsLT5jb250cm9sX2NvZGVfYnVmZmVy
-Owo+ID4gKyAgICAgdW5zaWduZWQgbG9uZyB2YV92YV9vZmZzZXQgPQo+ID4gKyAgICAgICAgICAg
-ICAgICAgICAgICh1bnNpZ25lZCBsb25nKSBwYWdlX2FkZHJlc3MoaW1hZ2UtPmNvbnRyb2xfY29k
-ZV9wYWdlKQo+ID4gKyAgICAgICAgICAgICAgICAgICAtICh1bnNpZ25lZCBsb25nKSBjb250cm9s
-X2NvZGVfYnVmZmVyOwo+ID4gICAgICAgcmlzY3Zfa2V4ZWNfbWV0aG9kIGtleGVjX21ldGhvZCA9
-IE5VTEw7Cj4gPgo+ID4gICAjaWZkZWYgQ09ORklHX1NNUAo+ID4gQEAgLTIzNCw2ICsyNDYsNiBA
-QCBtYWNoaW5lX2tleGVjKHN0cnVjdCBraW1hZ2UgKmltYWdlKQo+ID4gICAgICAgLyogSnVtcCB0
-byB0aGUgcmVsb2NhdGlvbiBjb2RlICovCj4gPiAgICAgICBwcl9ub3RpY2UoIkJ5ZS4uLlxuIik7
-Cj4gPiAgICAgICBrZXhlY19tZXRob2QoZmlyc3RfaW5kX2VudHJ5LCBqdW1wX2FkZHIsIGZkdF9h
-ZGRyLAo+ID4gLSAgICAgICAgICAgICAgICAgIHRoaXNfaGFydF9pZCwga2VybmVsX21hcC52YV9w
-YV9vZmZzZXQpOwo+ID4gKyAgICAgICAgICAgICAgICAgIHRoaXNfaGFydF9pZCwga2VybmVsX21h
-cC52YV9wYV9vZmZzZXQgLSB2YV92YV9vZmZzZXQpOwo+ID4gICAgICAgdW5yZWFjaGFibGUoKTsK
-PiA+ICAgfQo+Cj4KPiBJIHN0YXJ0ZWQgd29ya2luZyBvbiB0aGUgc2V0X21lbW9yeSBmaXggYW5k
-IHRoZSBmaXJzdCB0aGluZyB0byBkbyBpcyB0bwo+IHByZXZlbnQgdGhlIHVzZSBvZiBQR0QgbWFw
-cGluZywgaXQncyB0b28gY3VtYmVyc29tZSB0byBwcm9wYWdhdGUgY2hhbmdlcwo+IGF0IHRoaXMg
-bGV2ZWw6IElJUkMgeDg2IGtlZXBzIGEgbGlzdCBvZiBwYWdlIHRhYmxlcyB0byBnbyB0aHJvdWdo
-Cj4gd2hlbmV2ZXIgdGhhdCBoYXBwZW5zLCB0aGF0J3Mgd2h5IEJqb3JuIHByZS1hbGxvY2F0ZWQg
-YWxsIHRoZSBQR0QKPiBlbnRyaWVzIHRvIGNvdmVyIHRoZSB2bWFsbG9jIHJlZ2lvbi4KPgo+IFNv
-LCB0byBtZSwgdGhlIHNpbXBsZSBmaXggZm9yIHRoaXMgaXNzdWUgaXMgdG8gcHJldmVudCB0aGUg
-dXNlIG9mIFBHRAo+IG1hcHBpbmcuIFdoYXQgZG8geW91IHRoaW5rPyBEb2VzIHRoZSBmb2xsb3dp
-bmcgcGF0Y2ggd29yaz8KVGhlIFBHRCBtYXBwaW5nIGlzIG5lY2Vzc2FyeSAoZXNwZWNpYWxseSBm
-b3IgU3YzMiwgU3YzOSksIGFuZCBpdCBoYXMKYmVlbiBzb2x2ZWQgdW5kZXIgeW91ciBmaXJzdCBh
-ZHZpY2UuIEkgdGhpbmsgbGltaXQgc2V0X21lbW9yeV94IHVzYWdlCmlzIHRoZSBzbWFydCBjaG9p
-Y2UgZm9yIG5vdy4KCgo+Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9pbml0LmMgYi9h
-cmNoL3Jpc2N2L21tL2luaXQuYwo+IGluZGV4IDcwZmIzMTk2MGI2My4uNmRkMTI0NDNiZmE0IDEw
-MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4gKysrIGIvYXJjaC9yaXNjdi9tbS9p
-bml0LmMKPiBAQCAtNjYyLDEzICs2NjIsMTIgQEAgdm9pZCBfX2luaXQgY3JlYXRlX3BnZF9tYXBw
-aW5nKHBnZF90ICpwZ2RwLAo+ICAgc3RhdGljIHVpbnRwdHJfdCBfX2luaXQgYmVzdF9tYXBfc2l6
-ZShwaHlzX2FkZHJfdCBwYSwgdWludHB0cl90IHZhLAo+ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIHBoeXNfYWRkcl90IHNpemUpCj4gICB7Cj4gLSAgICAgICBpZiAoIShw
-YSAmIChQR0RJUl9TSVpFIC0gMSkpICYmICEodmEgJiAoUEdESVJfU0laRSAtIDEpKSAmJiBzaXpl
-Cj4gID49IFBHRElSX1NJWkUpCj4gLSAgICAgICAgICAgICAgIHJldHVybiBQR0RJUl9TSVpFOwo+
-IC0KPiAtICAgICAgIGlmICghKHBhICYgKFA0RF9TSVpFIC0gMSkpICYmICEodmEgJiAoUDREX1NJ
-WkUgLSAxKSkgJiYgc2l6ZSA+PQo+IFA0RF9TSVpFKQo+ICsgICAgICAgaWYgKHBndGFibGVfbDVf
-ZW5hYmxlZCAmJgo+ICsgICAgICAgICAgICEocGEgJiAoUDREX1NJWkUgLSAxKSkgJiYgISh2YSAm
-IChQNERfU0laRSAtIDEpKSAmJiBzaXplID49Cj4gUDREX1NJWkUpCj4gICAgICAgICAgICAgICAg
-ICByZXR1cm4gUDREX1NJWkU7Cj4KPiAtICAgICAgIGlmICghKHBhICYgKFBVRF9TSVpFIC0gMSkp
-ICYmICEodmEgJiAoUFVEX1NJWkUgLSAxKSkgJiYgc2l6ZSA+PQo+IFBVRF9TSVpFKQo+ICsgICAg
-ICAgaWYgKHBndGFibGVfbDRfZW5hYmxlZCAmJgo+ICsgICAgICAgICAgICEocGEgJiAoUFVEX1NJ
-WkUgLSAxKSkgJiYgISh2YSAmIChQVURfU0laRSAtIDEpKSAmJiBzaXplID49Cj4gUFVEX1NJWkUp
-Cj4gICAgICAgICAgICAgICAgICByZXR1cm4gUFVEX1NJWkU7Cj4KPiAgICAgICAgICBpZiAoIShw
-YSAmIChQTURfU0laRSAtIDEpKSAmJiAhKHZhICYgKFBNRF9TSVpFIC0gMSkpICYmIHNpemUgPj0K
-PiBQTURfU0laRSkKPgo+Cj4gVGhhbmtzLAo+Cj4gQWxleAo+CgoKLS0gCkJlc3QgUmVnYXJkcwog
-R3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 7/15/23 08:53, Raghavendra Rao Ananta wrote:
+> From: David Matlack <dmatlack@google.com>
+> 
+> Move kvm_arch_flush_remote_tlbs_memslot() to common code and drop
+> "arch_" from the name. kvm_arch_flush_remote_tlbs_memslot() is just a
+> range-based TLB invalidation where the range is defined by the memslot.
+> Now that kvm_flush_remote_tlbs_range() can be called from common code we
+> can just use that and drop a bunch of duplicate code from the arch
+> directories.
+> 
+> Note this adds a lockdep assertion for slots_lock being held when
+> calling kvm_flush_remote_tlbs_memslot(), which was previously only
+> asserted on x86. MIPS has calls to kvm_flush_remote_tlbs_memslot(),
+> but they all hold the slots_lock, so the lockdep assertion continues to
+> hold true.
+> 
+> Also drop the CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT ifdef gating
+> kvm_flush_remote_tlbs_memslot(), since it is no longer necessary.
+> 
+> Signed-off-by: David Matlack <dmatlack@google.com>
+> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
+> ---
+>   arch/arm64/kvm/arm.c     |  6 ------
+>   arch/mips/kvm/mips.c     | 10 ++--------
+>   arch/riscv/kvm/mmu.c     |  6 ------
+>   arch/x86/kvm/mmu/mmu.c   | 16 +---------------
+>   arch/x86/kvm/x86.c       |  2 +-
+>   include/linux/kvm_host.h |  7 +++----
+>   virt/kvm/kvm_main.c      | 18 ++++++++++++++++--
+>   7 files changed, 23 insertions(+), 42 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index c2c14059f6a8..ed7bef4d970b 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -1525,12 +1525,6 @@ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+>   
+>   }
+>   
+> -void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+> -					const struct kvm_memory_slot *memslot)
+> -{
+> -	kvm_flush_remote_tlbs(kvm);
+> -}
+> -
+>   static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
+>   					struct kvm_arm_device_addr *dev_addr)
+>   {
+> diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+> index 4b7bc39a4173..231ac052b506 100644
+> --- a/arch/mips/kvm/mips.c
+> +++ b/arch/mips/kvm/mips.c
+> @@ -199,7 +199,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
+>   	/* Flush slot from GPA */
+>   	kvm_mips_flush_gpa_pt(kvm, slot->base_gfn,
+>   			      slot->base_gfn + slot->npages - 1);
+> -	kvm_arch_flush_remote_tlbs_memslot(kvm, slot);
+> +	kvm_flush_remote_tlbs_memslot(kvm, slot);
+>   	spin_unlock(&kvm->mmu_lock);
+>   }
+>   
+> @@ -235,7 +235,7 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+>   		needs_flush = kvm_mips_mkclean_gpa_pt(kvm, new->base_gfn,
+>   					new->base_gfn + new->npages - 1);
+>   		if (needs_flush)
+> -			kvm_arch_flush_remote_tlbs_memslot(kvm, new);
+> +			kvm_flush_remote_tlbs_memslot(kvm, new);
+>   		spin_unlock(&kvm->mmu_lock);
+>   	}
+>   }
+> @@ -987,12 +987,6 @@ int kvm_arch_flush_remote_tlbs(struct kvm *kvm)
+>   	return 1;
+>   }
+>   
+> -void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+> -					const struct kvm_memory_slot *memslot)
+> -{
+> -	kvm_flush_remote_tlbs(kvm);
+> -}
+> -
+>   int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+>   {
+>   	int r;
+> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> index f2eb47925806..97e129620686 100644
+> --- a/arch/riscv/kvm/mmu.c
+> +++ b/arch/riscv/kvm/mmu.c
+> @@ -406,12 +406,6 @@ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+>   {
+>   }
+>   
+> -void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+> -					const struct kvm_memory_slot *memslot)
+> -{
+> -	kvm_flush_remote_tlbs(kvm);
+> -}
+> -
+>   void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *free)
+>   {
+>   }
+> diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+> index aaa5e336703a..b320a4254a2b 100644
+> --- a/arch/x86/kvm/mmu/mmu.c
+> +++ b/arch/x86/kvm/mmu/mmu.c
+> @@ -6669,7 +6669,7 @@ static void kvm_rmap_zap_collapsible_sptes(struct kvm *kvm,
+>   	 */
+>   	if (walk_slot_rmaps(kvm, slot, kvm_mmu_zap_collapsible_spte,
+>   			    PG_LEVEL_4K, KVM_MAX_HUGEPAGE_LEVEL - 1, true))
+> -		kvm_arch_flush_remote_tlbs_memslot(kvm, slot);
+> +		kvm_flush_remote_tlbs_memslot(kvm, slot);
+>   }
+>   
+>   void kvm_mmu_zap_collapsible_sptes(struct kvm *kvm,
+> @@ -6688,20 +6688,6 @@ void kvm_mmu_zap_collapsible_sptes(struct kvm *kvm,
+>   	}
+>   }
+>   
+> -void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+> -					const struct kvm_memory_slot *memslot)
+> -{
+> -	/*
+> -	 * All current use cases for flushing the TLBs for a specific memslot
+> -	 * related to dirty logging, and many do the TLB flush out of mmu_lock.
+> -	 * The interaction between the various operations on memslot must be
+> -	 * serialized by slots_locks to ensure the TLB flush from one operation
+> -	 * is observed by any other operation on the same memslot.
+> -	 */
+> -	lockdep_assert_held(&kvm->slots_lock);
+> -	kvm_flush_remote_tlbs_range(kvm, memslot->base_gfn, memslot->npages);
+> -}
+> -
+>   void kvm_mmu_slot_leaf_clear_dirty(struct kvm *kvm,
+>   				   const struct kvm_memory_slot *memslot)
+>   {
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index a6b9bea62fb8..faeb2e307b36 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -12751,7 +12751,7 @@ static void kvm_mmu_slot_apply_flags(struct kvm *kvm,
+>   		 * See is_writable_pte() for more details (the case involving
+>   		 * access-tracked SPTEs is particularly relevant).
+>   		 */
+> -		kvm_arch_flush_remote_tlbs_memslot(kvm, new);
+> +		kvm_flush_remote_tlbs_memslot(kvm, new);
+>   	}
+>   }
+>   
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index a731967b24ff..45899ce9ed31 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1360,6 +1360,8 @@ void kvm_vcpu_on_spin(struct kvm_vcpu *vcpu, bool yield_to_kernel_mode);
+>   
+>   void kvm_flush_remote_tlbs(struct kvm *kvm);
+>   void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages);
+> +void kvm_flush_remote_tlbs_memslot(struct kvm *kvm,
+> +				   const struct kvm_memory_slot *memslot);
+>   
+>   #ifdef KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE
+>   int kvm_mmu_topup_memory_cache(struct kvm_mmu_memory_cache *mc, int min);
+> @@ -1388,10 +1390,7 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+>   					unsigned long mask);
+>   void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot);
+>   
+> -#ifdef CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT
+> -void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+> -					const struct kvm_memory_slot *memslot);
+> -#else /* !CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT */
+> +#ifndef CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT
+>   int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log *log);
+>   int kvm_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log *log,
+>   		      int *is_dirty, struct kvm_memory_slot **memslot);
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 804470fccac7..58213cc4b9b9 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -379,6 +379,20 @@ void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages)
+>   	kvm_flush_remote_tlbs(kvm);
+>   }
+>   
+> +void kvm_flush_remote_tlbs_memslot(struct kvm *kvm,
+> +				   const struct kvm_memory_slot *memslot)
+> +{
+> +	/*
+> +	 * All current use cases for flushing the TLBs for a specific memslot
+> +	 * related to dirty logging, and many do the TLB flush out of mmu_lock.
+> +	 * The interaction between the various operations on memslot must be
+> +	 * serialized by slots_locks to ensure the TLB flush from one operation
+> +	 * is observed by any other operation on the same memslot.
+> +	 */
+> +	lockdep_assert_held(&kvm->slots_lock);
+> +	kvm_flush_remote_tlbs_range(kvm, memslot->base_gfn, memslot->npages);
+> +}
+> +
+>   static void kvm_flush_shadow_all(struct kvm *kvm)
+>   {
+>   	kvm_arch_flush_shadow_all(kvm);
+> @@ -2191,7 +2205,7 @@ static int kvm_get_dirty_log_protect(struct kvm *kvm, struct kvm_dirty_log *log)
+>   	}
+>   
+>   	if (flush)
+> -		kvm_arch_flush_remote_tlbs_memslot(kvm, memslot);
+> +		kvm_flush_remote_tlbs_memslot(kvm, memslot);
+>   
+>   	if (copy_to_user(log->dirty_bitmap, dirty_bitmap_buffer, n))
+>   		return -EFAULT;
+> @@ -2308,7 +2322,7 @@ static int kvm_clear_dirty_log_protect(struct kvm *kvm,
+>   	KVM_MMU_UNLOCK(kvm);
+>   
+>   	if (flush)
+> -		kvm_arch_flush_remote_tlbs_memslot(kvm, memslot);
+> +		kvm_flush_remote_tlbs_memslot(kvm, memslot);
+>   
+>   	return 0;
+>   }
+
+-- 
+Shaoqin
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
