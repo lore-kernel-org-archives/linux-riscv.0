@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F5DEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E40BC001DC
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hDOig5D7fFq8Uh7AduQ8n+/qha0TXV75hoDZe9hIZD0=; b=jdwgVF6lkzaewt
-	q2Z7YGXRgI7ICJILWhoQS2o2Q5jNLKUcoVe+m0/j2GOLk3BRjpMw0dNz/x/1fsHqZ2QcbF8nIxhAP
-	rpwUsl03gjdc1dQcGnbcbXmt/eeGkbsUZKDTtugI8ROcLhupYJmlSPmVqYKhn/Pz+ia8yD/9SsX4T
-	Hd1WHpuLTUXG8e1IEsGbzmbG1qHrvlXeb5chmYtyeCuTWekBs/6JjzoWSU48uiYmrnl2GGogSjbH3
-	mTIveQF66ZX+NWL5e2sWTUlt9gQVFCkuPjgM0GGhKPgoatrnYvv3/smGipzCgNM3UdonKqqlRLS8a
-	09GE7vSsGJG/9EmQnGMA==;
+	List-Owner; bh=FiBuH6EZgNckxQUv1cNZeyWHQ11lXotKb6nkeNm+PQc=; b=UJKPO5ohLEQec5
+	NXHQWVE2er6w+uPU6Y1qQ4j8pHwtPVyeLw98ASE6xH7qYwiYzdNOz5VINlw2VRd79zpY6rqb4X9Y6
+	8ZloZW3OjHsQKoEScxcc/skflIZwtfQcijEAZSkxkw/Zj+a1ZjPXJ5UnVy5WK7V1ts3LUQd0PohJj
+	iNRSYVRH2ibfrq/gDVtQqIb1BfvHWswo1SOGipgf/3tlYdfJunBtbd0DMsnpBwJFkdJPuhsUqie4e
+	UBzm64LYiHb9GOTwLN+AgobM+8LzFrWVk6/IraGy0ybyjwyXFZEMfmj8wH8NKIlcJwXFkSz6afB+I
+	SLkAP1stfKXKeJz/VoMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM10Y-005v7e-1A;
-	Wed, 19 Jul 2023 06:49:58 +0000
+	id 1qM10m-005vF2-1o;
+	Wed, 19 Jul 2023 06:50:12 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM10W-005v6k-2W
+	id 1qM10k-005vE8-31
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 06:49:56 +0000
+	Wed, 19 Jul 2023 06:50:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yr5kPp//ycHeBe41TiVxkGxE+I0FtPuZavos26l+cCE=; b=Jp4tf8MWzY/B+svi/V5cfL0EDz
-	+TWwbACLUjidn0GODSVK9snI1LxqVklqfps5nl7TE8yXu4fcD0/cZb0JkFRIQnCPQSLIFfVbydtZI
-	FPoEE/408EqtBTDkWJF4R+y//2xPomyzBYIX0OE13OIjfUJokwKjwYIBNlAOPpmGVHEExUU7ecCTT
-	72FL3qRIQaUnWj8N6JU2lUio4GmB3c+g1e3eNIy/sTd0fjQ437iPbBoAtxBMB438whp7kQgsYU02s
-	pBIk/Ec382W6lX0vQSprvVvWRPMCsOWWQwfPgtx+VJR+yzwWFtDM/oLCOQEEegDBKscWxXDntd3Yo
-	cjV9dGEQ==;
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	bh=WUfCrqcqzPgtS1UwKv933k1oCAb1hY7UF4nDFC6XfxY=; b=dF68LxW9+TWvSamGGuXQKTqzGF
+	IAsB+Qe1R4iHoLz0Fx6hp4DnggIyv8UaKyIch/htDUqJAyUOImWbc/OlfEQ3aaEHFkhxvx3G5qQfX
+	XYhazLtRaeIyqBCEl/A0WoE2ExcypIfQMQHzIE3OnQsp9F2afe7Gs4ysdmDjB0V1rVDPHF70uvNMv
+	YleUzuFIwZD42LgYmAnAJ/XkvMgCFH6DQ7ZObx74L4snI22/PpcnnplMeUtbTf8uTfrHn3tiaIyY8
+	kJB47a+usV6O3W/55yUqZ9SI+HCPUdCgxrmngUwx9cQ2ybHS4+d6/nuXisRhIydym//TzQTra+8Ya
+	6LTDErFA==;
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLuSB-00CFOQ-3B
+	id 1qLuRs-00CFJR-1Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Jul 2023 23:50:38 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1b8a4571c1aso33127045ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:50:00 -0700 (PDT)
+	Tue, 18 Jul 2023 23:49:51 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1b896096287so48928395ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:49:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689724139; x=1692316139;
+        d=google.com; s=20221208; t=1689724119; x=1692316119;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=yr5kPp//ycHeBe41TiVxkGxE+I0FtPuZavos26l+cCE=;
-        b=E5XUQ5BOUPih8BJs1OU21KMtQ0H2gaSku+U7buhnuKlRnySGwZ68OBKlxRT9sWT5mJ
-         f8n+BR26cm0lRm1JXX78qwSra7nbrQ6sXHvLQZaZDcIFccPOjvvZmZeAzcuh7O2Q/Qjq
-         eAJ0ZmDH3NG1CIo5jmkXJBD/J0qhHBq3KrWoOEZ65tybA//6e/m3I0cImw/wdA9FJDS3
-         AlGOTWITqYnobVa5ljRgBqTN9AP0pMpMc6YQF9quW057Wh43QQOVDM46RFAPH9PRZwwq
-         CZoc5KVa79eYnqhOrpC35DVzpFIb/w5YuQeYDKyW3j9UeKVBLo58qtN5wBD28kBBLbq2
-         wpNw==
+        bh=WUfCrqcqzPgtS1UwKv933k1oCAb1hY7UF4nDFC6XfxY=;
+        b=kxtMkPfBzSrDgFwiM6lTbnnV1ORifom1wTCX0JDc2o8v5mvJbgd+eW3FzBholZ+QF/
+         ZB/tw1vxVtp6lnWfOuYWDBnkA/zcHKeYCxsNI4yLGBDWisxt2V2CGW6+/c9nKHHqWO0Z
+         pwjXyxzIVoB/8QMRAPYJ2ESVagoDqveLkahmzeblrfSHi+C7b/LSvjVeGXXFBmG27xpW
+         46+iHLUL/iDL1W1dNobEnmnSwB6oZXJ54GsRbQDHUEuzlNSG0pgY2rC5/BfRYynN9jnl
+         9GH+3FZfZFTDU0qQSnRrsV2OdAHlQuwXUaGl7W047p5QIleFQWR+9FWJ+QSsSRbSbDcH
+         Ypxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689724139; x=1692316139;
+        d=1e100.net; s=20221208; t=1689724119; x=1692316119;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=yr5kPp//ycHeBe41TiVxkGxE+I0FtPuZavos26l+cCE=;
-        b=hRYd8T5mNPjJGZfJyYbQ/eS62wY+C920lHj7Cf/hUk7Q0N+ShgegfsLFkrZwfiD3Rw
-         mufAlGNRyo37jel+DMWlKVVNm0r/qi53kEpDdn77oWSR5VxMDQFmBCucEZkrbPOn67nu
-         ym+9hBDajUJg2uxzO6l/iW3xeVoXnVLgv/Jr0FxTmkHbEB3S/LcFhK+sX6CnoxQUaxT9
-         Jp3TjxIZOVe0mL5DvzqYZ8VRb44kE+CUNty5zmlKj2UldMPPEQqMFLZjO3obpuKvJ4AW
-         mv0UF4SYMOpkrxLVmgp+i5YJAzFqTW7r11w/me4sr6R79AYPHQ/o7T61jBnuq28VHJtN
-         +daw==
-X-Gm-Message-State: ABy/qLYy8PI6QNbzTMojvUZqJfoJYkb1YMHkt7JJ5x4dBSn4uxBX9N9c
-	qug7zbbMATnIaxE2znwY5kbime7juK8=
-X-Google-Smtp-Source: APBJJlEVWl5JDRlnPOqWQbyjGWHyKDzKVGtobf5+lC7u6yLDp0aN/2aXMEnW9jTxfL1DAcNC6lZfVqqUTaM=
+        bh=WUfCrqcqzPgtS1UwKv933k1oCAb1hY7UF4nDFC6XfxY=;
+        b=jmDQp8bAqq8ooT2WMQzq7CqfvjLemroaOcNvRpZ0ovIm4Y6Bt/SKO71BrvYim3RiPg
+         LXFKo3106LFuw/9+sjnvR9VmHWlO6BVw/90x+Ig8YaJNbq+uHhU7fTR1JDq3ghtuMWhD
+         VD9S+eInLy1y/D5cJApJn4LIHTYlKQRXhHWaoTlEcSqmuxko6Q3UZXoi2PZCeej9G+Mq
+         6G/25QAznKaLFAW7lsCxtsUHm7B1E4QJkqszfKdX9lP7lEDqZKak0XVebh2kVxsT3l1i
+         waAsRCZiV3xrwu0Z/Smes6KmfbqrNYTz448kGgyLpsiqP8D0fJbN/qwq7epKTOKYggaz
+         Q9QQ==
+X-Gm-Message-State: ABy/qLavsfyHvUUnYuMojFLg40Qhu4wzXKZ+ps8i1EuSORsHCZcK87Tv
+	OtHhh+VVxQm9b8I7cOgxTr3ohUtA5xA=
+X-Google-Smtp-Source: APBJJlEMcu/rfMRBwbQ2zq+ymY4hD2c5F3AYtj0FSwyildZO2Oo0gOzBKGYbg9jbJCtpjTvhx4PmM9/8MPA=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:ea01:b0:1b8:a56e:1dcc with SMTP id
- s1-20020a170902ea0100b001b8a56e1dccmr7653plg.13.1689724138849; Tue, 18 Jul
- 2023 16:48:58 -0700 (PDT)
-Date: Tue, 18 Jul 2023 16:44:57 -0700
+ (user=seanjc job=sendgmr) by 2002:a17:902:f546:b0:1b8:a552:c8c9 with SMTP id
+ h6-20020a170902f54600b001b8a552c8c9mr7279plf.13.1689724119324; Tue, 18 Jul
+ 2023 16:48:39 -0700 (PDT)
+Date: Tue, 18 Jul 2023 16:44:47 -0700
 In-Reply-To: <20230718234512.1690985-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20230718234512.1690985-1-seanjc@google.com>
 X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
-Message-ID: <20230718234512.1690985-15-seanjc@google.com>
-Subject: [RFC PATCH v11 14/29] KVM: x86/mmu: Handle page fault for private memory
+Message-ID: <20230718234512.1690985-5-seanjc@google.com>
+Subject: [RFC PATCH v11 04/29] KVM: PPC: Drop dead code related to KVM_ARCH_WANT_MMU_NOTIFIER
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
@@ -104,8 +104,9 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_005028_372436_6A659695 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20230719_004947_159983_6475B2A8 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,212 +124,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chao Peng <chao.p.peng@linux.intel.com>
-
-A KVM_MEM_PRIVATE memslot can include both fd-based private memory and
-hva-based shared memory. Architecture code (like TDX code) can tell
-whether the on-going fault is private or not. This patch adds a
-'is_private' field to kvm_page_fault to indicate this and architecture
-code is expected to set it.
-
-To handle page fault for such memslot, the handling logic is different
-depending on whether the fault is private or shared. KVM checks if
-'is_private' matches the host's view of the page (maintained in
-mem_attr_array).
-  - For a successful match, private pfn is obtained with
-    restrictedmem_get_page() and shared pfn is obtained with existing
-    get_user_pages().
-  - For a failed match, KVM causes a KVM_EXIT_MEMORY_FAULT exit to
-    userspace. Userspace then can convert memory between private/shared
-    in host's view and retry the fault.
-
-Co-developed-by: Yu Zhang <yu.c.zhang@linux.intel.com>
-Signed-off-by: Yu Zhang <yu.c.zhang@linux.intel.com>
-Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/mmu/mmu.c          | 82 +++++++++++++++++++++++++++++++--
- arch/x86/kvm/mmu/mmu_internal.h |  3 ++
- arch/x86/kvm/mmu/mmutrace.h     |  1 +
- 3 files changed, 81 insertions(+), 5 deletions(-)
+ arch/powerpc/kvm/powerpc.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index aefe67185637..4cf73a579ee1 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -3179,9 +3179,9 @@ static int host_pfn_mapping_level(struct kvm *kvm, gfn_t gfn,
- 	return level;
- }
- 
--int kvm_mmu_max_mapping_level(struct kvm *kvm,
--			      const struct kvm_memory_slot *slot, gfn_t gfn,
--			      int max_level)
-+static int __kvm_mmu_max_mapping_level(struct kvm *kvm,
-+				       const struct kvm_memory_slot *slot,
-+				       gfn_t gfn, int max_level, bool is_private)
- {
- 	struct kvm_lpage_info *linfo;
- 	int host_level;
-@@ -3193,6 +3193,9 @@ int kvm_mmu_max_mapping_level(struct kvm *kvm,
- 			break;
- 	}
- 
-+	if (is_private)
-+		return max_level;
-+
- 	if (max_level == PG_LEVEL_4K)
- 		return PG_LEVEL_4K;
- 
-@@ -3200,6 +3203,16 @@ int kvm_mmu_max_mapping_level(struct kvm *kvm,
- 	return min(host_level, max_level);
- }
- 
-+int kvm_mmu_max_mapping_level(struct kvm *kvm,
-+			      const struct kvm_memory_slot *slot, gfn_t gfn,
-+			      int max_level)
-+{
-+	bool is_private = kvm_slot_can_be_private(slot) &&
-+			  kvm_mem_is_private(kvm, gfn);
-+
-+	return __kvm_mmu_max_mapping_level(kvm, slot, gfn, max_level, is_private);
-+}
-+
- void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- {
- 	struct kvm_memory_slot *slot = fault->slot;
-@@ -3220,8 +3233,9 @@ void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
- 	 * Enforce the iTLB multihit workaround after capturing the requested
- 	 * level, which will be used to do precise, accurate accounting.
- 	 */
--	fault->req_level = kvm_mmu_max_mapping_level(vcpu->kvm, slot,
--						     fault->gfn, fault->max_level);
-+	fault->req_level = __kvm_mmu_max_mapping_level(vcpu->kvm, slot,
-+						       fault->gfn, fault->max_level,
-+						       fault->is_private);
- 	if (fault->req_level == PG_LEVEL_4K || fault->huge_page_disallowed)
- 		return;
- 
-@@ -4304,6 +4318,55 @@ void kvm_arch_async_page_ready(struct kvm_vcpu *vcpu, struct kvm_async_pf *work)
- 	kvm_mmu_do_page_fault(vcpu, work->cr2_or_gpa, 0, true, NULL);
- }
- 
-+static inline u8 kvm_max_level_for_order(int order)
-+{
-+	BUILD_BUG_ON(KVM_MAX_HUGEPAGE_LEVEL > PG_LEVEL_1G);
-+
-+	MMU_WARN_ON(order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_1G) &&
-+		    order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_2M) &&
-+		    order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_4K));
-+
-+	if (order >= KVM_HPAGE_GFN_SHIFT(PG_LEVEL_1G))
-+		return PG_LEVEL_1G;
-+
-+	if (order >= KVM_HPAGE_GFN_SHIFT(PG_LEVEL_2M))
-+		return PG_LEVEL_2M;
-+
-+	return PG_LEVEL_4K;
-+}
-+
-+static int kvm_do_memory_fault_exit(struct kvm_vcpu *vcpu,
-+				    struct kvm_page_fault *fault)
-+{
-+	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
-+	if (fault->is_private)
-+		vcpu->run->memory.flags = KVM_MEMORY_EXIT_FLAG_PRIVATE;
-+	else
-+		vcpu->run->memory.flags = 0;
-+	vcpu->run->memory.gpa = fault->gfn << PAGE_SHIFT;
-+	vcpu->run->memory.size = PAGE_SIZE;
-+	return RET_PF_USER;
-+}
-+
-+static int kvm_faultin_pfn_private(struct kvm_vcpu *vcpu,
-+				   struct kvm_page_fault *fault)
-+{
-+	int max_order, r;
-+
-+	if (!kvm_slot_can_be_private(fault->slot))
-+		return kvm_do_memory_fault_exit(vcpu, fault);
-+
-+	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
-+			     &max_order);
-+	if (r)
-+		return r;
-+
-+	fault->max_level = min(kvm_max_level_for_order(max_order),
-+			       fault->max_level);
-+	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
-+	return RET_PF_CONTINUE;
-+}
-+
- static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- {
- 	struct kvm_memory_slot *slot = fault->slot;
-@@ -4336,6 +4399,12 @@ static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
- 			return RET_PF_EMULATE;
- 	}
- 
-+	if (fault->is_private != kvm_mem_is_private(vcpu->kvm, fault->gfn))
-+		return kvm_do_memory_fault_exit(vcpu, fault);
-+
-+	if (fault->is_private)
-+		return kvm_faultin_pfn_private(vcpu, fault);
-+
- 	async = false;
- 	fault->pfn = __gfn_to_pfn_memslot(slot, fault->gfn, false, false, &async,
- 					  fault->write, &fault->map_writable,
-@@ -5771,6 +5840,9 @@ int noinline kvm_mmu_page_fault(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa, u64 err
- 			return -EIO;
- 	}
- 
-+	if (r == RET_PF_USER)
-+		return 0;
-+
- 	if (r < 0)
- 		return r;
- 	if (r != RET_PF_EMULATE)
-diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
-index d39af5639ce9..268b517e88cb 100644
---- a/arch/x86/kvm/mmu/mmu_internal.h
-+++ b/arch/x86/kvm/mmu/mmu_internal.h
-@@ -203,6 +203,7 @@ struct kvm_page_fault {
- 
- 	/* Derived from mmu and global state.  */
- 	const bool is_tdp;
-+	const bool is_private;
- 	const bool nx_huge_page_workaround_enabled;
- 
- 	/*
-@@ -259,6 +260,7 @@ int kvm_tdp_page_fault(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault);
-  * RET_PF_RETRY: let CPU fault again on the address.
-  * RET_PF_EMULATE: mmio page fault, emulate the instruction directly.
-  * RET_PF_INVALID: the spte is invalid, let the real page fault path update it.
-+ * RET_PF_USER: need to exit to userspace to handle this fault.
-  * RET_PF_FIXED: The faulting entry has been fixed.
-  * RET_PF_SPURIOUS: The faulting entry was already fixed, e.g. by another vCPU.
-  *
-@@ -275,6 +277,7 @@ enum {
- 	RET_PF_RETRY,
- 	RET_PF_EMULATE,
- 	RET_PF_INVALID,
-+	RET_PF_USER,
- 	RET_PF_FIXED,
- 	RET_PF_SPURIOUS,
- };
-diff --git a/arch/x86/kvm/mmu/mmutrace.h b/arch/x86/kvm/mmu/mmutrace.h
-index ae86820cef69..2d7555381955 100644
---- a/arch/x86/kvm/mmu/mmutrace.h
-+++ b/arch/x86/kvm/mmu/mmutrace.h
-@@ -58,6 +58,7 @@ TRACE_DEFINE_ENUM(RET_PF_CONTINUE);
- TRACE_DEFINE_ENUM(RET_PF_RETRY);
- TRACE_DEFINE_ENUM(RET_PF_EMULATE);
- TRACE_DEFINE_ENUM(RET_PF_INVALID);
-+TRACE_DEFINE_ENUM(RET_PF_USER);
- TRACE_DEFINE_ENUM(RET_PF_FIXED);
- TRACE_DEFINE_ENUM(RET_PF_SPURIOUS);
- 
+diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
+index 7197c8256668..5cf9e5e3112a 100644
+--- a/arch/powerpc/kvm/powerpc.c
++++ b/arch/powerpc/kvm/powerpc.c
+@@ -634,10 +634,11 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+ 	case KVM_CAP_SYNC_MMU:
+ #ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
+ 		r = hv_enabled;
+-#elif defined(KVM_ARCH_WANT_MMU_NOTIFIER)
+-		r = 1;
+ #else
+-		r = 0;
++#ifndef KVM_ARCH_WANT_MMU_NOTIFIER
++		BUILD_BUG();
++#endif
++		r = 1;
+ #endif
+ 		break;
+ #ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
 -- 
 2.41.0.255.g8b1d071c50-goog
 
