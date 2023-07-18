@@ -4,64 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157C2EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC6EEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XIHNNmzvmgLzwc7up7KDhA6thslRUz5dFYN3F6ujUOw=; b=uEaqWzKGfjNyo3
-	7OZFTWeDkiUyiNYQktx9+6DzY+8qKA33HY8ZhaSzp8NZpXdzZ7mNJb7zTlf1s4YL0VrTM48FZa8IH
-	HVkJJgYYccwbPhETqmSUBY2ZBVh2PH90qCKDLKw5+3OOzlFKBuXoyEms82Z4hsFJnlbKCfBcPyRP5
-	9sLO34rx1fQAgKEt5FRnrapW/QhIEat+dIjV/q9Ail0/MrT/Zb+4M5HZI7AQQJ6XMGwQq/7THJf1P
-	cGsTRiF6e6XIkzKZzUS7zIN5g9GF+qw25xwmoWwelEGsjQiZLNKmjkLCH5LNO3tmhddbcGF/WXywg
-	Km+YxC1mow7PJrmY3I0w==;
+	List-Owner; bh=WputyZWJ7yr91DXYUiVMH+lleEtjFRHZwhcNUt2KhmQ=; b=cCjp2s5zZnbYok
+	3VShiV1dZ+QtSCYU5cnq7nMiZRZDZSyPMVU02ftQ8vh3NxAWAIrO7B2ahRyY8wys0Rjbi8HaBhs4B
+	s/7ej69gGeWoKeJAHFWatXE2pUOmpHPEaffJ6gdpx8hCWdFKJqjjcMVeGAH8dN0A4KzuQp4+rZE9n
+	uY9+yRbmxo6PC2pKyrS5p3X+CMWKjdk+Fyc5KEaAmIpKxzxAsQfkFVtglc5pfi1DLAW6lz+vHvSac
+	juN80C3u058Vy7HzIhiJnl0IIAz/sQQ+EE19V0/xBHPY13nTuYpQc+CCZAZLkVcknrsqTzE5DJspk
+	P31WZIQH/1082OY+1xUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM149-005x8X-1m;
-	Wed, 19 Jul 2023 06:53:41 +0000
-Received: from out-48.mta0.migadu.com ([91.218.175.48])
+	id 1qM15f-005yAs-0p;
+	Wed, 19 Jul 2023 06:55:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM146-005x39-13
+	id 1qM15X-005y36-35
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 19 Jul 2023 06:55:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=vFCCJFQlufKVP6wvLFadP7hPXTAV1YZVXhBvkY1bqrk=; b=G+s/oRRdLXDnxliObx09lApcA9
+	yMGDNWUneqvo7izwRHMCGhcBdmJd4PhxSLzfP1Lh0WAUjAVe7vYtdUGjzWW/v5cMunQQk8Qb/O2po
+	xynZx8IkxH0b8y05sgSBTfq2wv5e3ZP3wsmtwZ2nEqS81jYhDDnpJ9sJt32E6qedwdVT1ls4ZBSNt
+	yh0Ayw5mkCHSH4AnY0WR/Yjjd5KHu1zS6lR6omx/K4cmte4OvNAM9pXPGURxDl+cq8+utzFq6gE62
+	MRK3Qx3mVgSdtY+bmQ6+9MljmQtwH2TXms7OvZypGPpWjEROIeoas7OE5z4Ic2bWlsP/Tpf7FB07v
+	0NDQaBKA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qLgze-00BMLK-0s
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 06:53:39 +0000
-Date: Wed, 19 Jul 2023 16:52:46 +1000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
-	t=1689749609;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Lc9Aiu6PXaiP7fZ39vLAvDfId+QeqHYOYEE/jCSgr4k=;
-	b=EutD7K3D+v5ucF4MRVCpzb04OEpQRUCikJigDSzA0eiUMOjhsaODcLGcBPF0AnKQMvVhld
-	ljLrR5rUxmrMGH/m1UzntBC/fvc5KoLQd5hZW3Lg7stDUnJuJWWaZ6iToAoQpi0/+JwATA
-	DSgzmtiTVQfSsBMzBeXcILXn7f2ocQeoPXBmi+uETsZRGmZqO9CecMeOlB/dT4iS0rdGSB
-	9r0dyfcR23BCxF8D2gGheOi5UxkdjBKitoKzfMErYbfoqx9i5bincWEoevHvR0csNc1WSu
-	u1AjR8Ykh4OZ8R54ddMqjIxg5k10C5FcBWRpvobo8yYTsUuLhtcDsl+FUZmBnw==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: John Watts <contact@jookia.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Ben Dooks <ben.dooks@codethink.co.uk>,
-	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Fabien Poussin <fabien.poussin@gmail.com>,
+	Tue, 18 Jul 2023 09:27:44 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 088DE614A8;
+	Tue, 18 Jul 2023 09:26:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 668A2C433C7;
+	Tue, 18 Jul 2023 09:26:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689672400;
+	bh=P+0tnFAUBpCUj8Mt4/Kizy81HhkyMlHz8rGGSKFzB80=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PzHrKGNoAnNHwZTX0kXJ+CtXWEHZ90ZBM0nVxjNaze18v3HxVDzpvWeqZ2Nm1P5Q3
+	 XGQlWjlBcGk3l9fzer/2KUe5tcU1XIgs0cQvRj7nNWPICvAZiatzzRiS6MuBo814cS
+	 CiiijCcJU5aZzKOc3SI+bmBzcsqadN/Cv2E9UNnTMjvbrHBviKa+l3rgnP6fKzF8H6
+	 703N+S1EaKCGNIEkf9xsvV8aKDDWOCN2YG4jo8l4E5s62kKgLW+Eh4nULUAP3GyKmb
+	 DAew9SljnHOKh7Hz2zxN3rTtNVLLMYjex+KwRrFs2nTkhFPs1UuWZDvhlip9OKjBFI
+	 G9ld7vh9LM6jQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1qLgyc-00Dzh1-03;
+	Tue, 18 Jul 2023 10:26:38 +0100
+Date: Tue, 18 Jul 2023 10:26:37 +0100
+Message-ID: <86zg3ttvsi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Samuel Holland <samuel@sholland.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Chen-Yu Tsai <wens@csie.org>
-Subject: Re: [PATCH 0/4] Add support for Allwinner D1 CAN controllers
-Message-ID: <ZLeIPnpQnFq1qmfF@titan>
-References: <20230715112523.2533742-1-contact@jookia.org>
- <96641e09-c676-2702-149c-885002f45a64@codethink.co.uk>
- <20230718221504.GA2015343-robh@kernel.org>
- <20230718-matron-backlit-ddf56c391f8a@spud>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230718-matron-backlit-ddf56c391f8a@spud>
-X-Migadu-Flow: FLOW_OUT
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] irqchip/sifive-plic: Avoid clearing the per-hart enable bits
+In-Reply-To: <20230717185841.1294425-1-samuel.holland@sifive.com>
+References: <20230717185841.1294425-1-samuel.holland@sifive.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: samuel.holland@sifive.com, palmer@dabbelt.com, paul.walmsley@sifive.com, samuel@sholland.org, tglx@linutronix.de, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_235338_501957_297D5F59 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20230718_102742_742491_15E4EE22 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +106,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 18, 2023 at 11:38:48PM +0100, Conor Dooley wrote:
-> > The email needs to be an actual person. 'contact' doesn't appear to be 
-> > one.
+On Mon, 17 Jul 2023 19:58:40 +0100,
+Samuel Holland <samuel.holland@sifive.com> wrote:
 > 
-> I don't think it is that complicated, a cursory check of the domain
-> suggests that "Jookia" is a nickname & there's surely nothing wrong with
-> not having your name in your email address.
+> Writes to the PLIC completion register are ignored if the enable bit for
+> that (interrupt, hart) combination is cleared. This leaves the interrupt
+> in a claimed state, preventing it from being triggered again.
+> 
+> Originally, the enable bit was cleared in the .irq_mask operation, and
+> commit 69ea463021be ("irqchip/sifive-plic: Fixup EOI failed when masked")
+> added a workaround for this issue. Later, commit a1706a1c5062
+> ("irqchip/sifive-plic: Separate the enable and mask operations") moved
+> toggling the enable bit to the .irq_enable/.irq_disable operations and
+> removed the workaround.
+> 
+> However, there are still places where .irq_disable can be called from
+> inside the hard IRQ handler, for example in irq_pm_check_wakeup(). As a
+> result, this issue causes an interrupt to get stuck in a claimed state
+> after being used to wake the system from s2idle.
+> 
+> There is no real benefit to implementing the .irq_enable/.irq_disable
+> operations using the enable bits. In fact, the existing mask/unmask
+> implementation using the threshold register is already more efficient,
+> as it requires no read/modify/write cycles. So let's leave the enable
+> bits set for the lifetime of the IRQ, using them only to control its
+> affinity.
 
-Yes, this is the case. I figured contact@jookia.org was better than
-jookia@jookia.org.
+Side question, which doesn't affect this patch: what happens with
+interrupts that are firing while the interrupt is in a disabled state?
+It's fine for levels, but what of edge interrupts?
 
-I generally go by my nickname online and in the open source community so
-it's much more useful as an identifier in this case, but I've put my real
-name here instead to make things easier on everyone.
+My reading of the spec is that it is the role of the "gateway" to hold
+the signal, and that this is upstream of the PLIC itself, so it
+*should* be fine, but I'd like confirmation on that.
 
-John.
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
