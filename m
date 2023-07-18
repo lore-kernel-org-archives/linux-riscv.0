@@ -4,87 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 207FFEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F5DEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HwGDeUV8xr4HTJw4UCg1sghs0vUc6B+W4KBo7Tlk4KM=; b=Dw+o+Xt8tvLHcl
-	9QKsiNxLTs+JEjYP7bzq1hfFIdY8pTDgaQOIWbR37bYf1p6K8kxl6RiUWPcQ0glMUahofQnbZzCvR
-	35uUEV7iBjvwJXeZpMJMKcvfi3BIHQUfRovMHhv2+rU7tfuyX+kU43TGOOYfHd9975aFfT4/eNKue
-	Av1dGa9Mkl86Ee9KtvHuOUk5WKFAD7JbVMppjUIHR/vX7PbnvVaHMly/X5de6yTq6ee/gGHr8tbhf
-	jgQTw+g0iChS9i2/D8QO5xLiN3sZ4/qfpdxHmgCfjwEKIo/l3kqXBBTNOPxkWGDgAZeilE1A/P5+5
-	WYHzl6I2/QukgIkdvtrA==;
+	List-Owner; bh=hDOig5D7fFq8Uh7AduQ8n+/qha0TXV75hoDZe9hIZD0=; b=jdwgVF6lkzaewt
+	q2Z7YGXRgI7ICJILWhoQS2o2Q5jNLKUcoVe+m0/j2GOLk3BRjpMw0dNz/x/1fsHqZ2QcbF8nIxhAP
+	rpwUsl03gjdc1dQcGnbcbXmt/eeGkbsUZKDTtugI8ROcLhupYJmlSPmVqYKhn/Pz+ia8yD/9SsX4T
+	Hd1WHpuLTUXG8e1IEsGbzmbG1qHrvlXeb5chmYtyeCuTWekBs/6JjzoWSU48uiYmrnl2GGogSjbH3
+	mTIveQF66ZX+NWL5e2sWTUlt9gQVFCkuPjgM0GGhKPgoatrnYvv3/smGipzCgNM3UdonKqqlRLS8a
+	09GE7vSsGJG/9EmQnGMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0yh-005u0n-2o;
-	Wed, 19 Jul 2023 06:48:03 +0000
+	id 1qM10Y-005v7e-1A;
+	Wed, 19 Jul 2023 06:49:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM0yg-005tzV-2W
+	id 1qM10W-005v6k-2W
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Jul 2023 06:48:03 +0000
+	Wed, 19 Jul 2023 06:49:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=T0vSTddCvpCRB5+yiUAWYvUbtvxTOv2Q4zjZH3DHeeg=; b=lns88EzS/nNK2oClLSR6WqMrxm
-	SYWRgxbSbODn8TzzBOi00z/hNvJMW25Bf7T2oFYjQBvSc81y+GxJelrfG93FPtRsLakXWJyFfuc2c
-	dVuk0JdtrfUMwdWlty+VT80gSuZrWGm1WtIfQYleOMN1olkixHKjjlNFIQBHvf3kWEla7C0qLxyKh
-	j9nQRbjDGjAhYN8g+UX+uU6ouibqZCe+HX8a2xOzHV6uBUplNFbQZuuKyHTl3xMzNnGazdh1JSKJP
-	LQzzOz6FFu5MKC5Ok+DqyPTyqQ8wV089SxgiO01DZ1UQqUj0XhGt4eNEtJuiExtKVZc2t2xqIg8vh
-	MRNsvhpA==;
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=yr5kPp//ycHeBe41TiVxkGxE+I0FtPuZavos26l+cCE=; b=Jp4tf8MWzY/B+svi/V5cfL0EDz
+	+TWwbACLUjidn0GODSVK9snI1LxqVklqfps5nl7TE8yXu4fcD0/cZb0JkFRIQnCPQSLIFfVbydtZI
+	FPoEE/408EqtBTDkWJF4R+y//2xPomyzBYIX0OE13OIjfUJokwKjwYIBNlAOPpmGVHEExUU7ecCTT
+	72FL3qRIQaUnWj8N6JU2lUio4GmB3c+g1e3eNIy/sTd0fjQ437iPbBoAtxBMB438whp7kQgsYU02s
+	pBIk/Ec382W6lX0vQSprvVvWRPMCsOWWQwfPgtx+VJR+yzwWFtDM/oLCOQEEegDBKscWxXDntd3Yo
+	cjV9dGEQ==;
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLXaX-009SMn-0c
+	id 1qLuSB-00CFOQ-3B
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Jul 2023 23:25:14 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-4fba03becc6so7794755e87.0
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Jul 2023 16:25:07 -0700 (PDT)
+	Tue, 18 Jul 2023 23:50:38 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1b8a4571c1aso33127045ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 16:50:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google; t=1689636186; x=1692228186;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T0vSTddCvpCRB5+yiUAWYvUbtvxTOv2Q4zjZH3DHeeg=;
-        b=I/mUjLqy4mLdHkR+BwTOC9b9TZ5wXxeSVspl1j2Zqu3jsQwKW3DoCSqiugdzgoEVWm
-         oeY70oMe9WX7hoKzgQTt/msrf/dGJysdm0YUXnhlICEDQOgHG3ckzl1Lagm0FK6Wfqo7
-         c1Ueu026ITVD+35nvX4n2T/sCzjiNLb1gxqHY=
+        d=google.com; s=20221208; t=1689724139; x=1692316139;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=yr5kPp//ycHeBe41TiVxkGxE+I0FtPuZavos26l+cCE=;
+        b=E5XUQ5BOUPih8BJs1OU21KMtQ0H2gaSku+U7buhnuKlRnySGwZ68OBKlxRT9sWT5mJ
+         f8n+BR26cm0lRm1JXX78qwSra7nbrQ6sXHvLQZaZDcIFccPOjvvZmZeAzcuh7O2Q/Qjq
+         eAJ0ZmDH3NG1CIo5jmkXJBD/J0qhHBq3KrWoOEZ65tybA//6e/m3I0cImw/wdA9FJDS3
+         AlGOTWITqYnobVa5ljRgBqTN9AP0pMpMc6YQF9quW057Wh43QQOVDM46RFAPH9PRZwwq
+         CZoc5KVa79eYnqhOrpC35DVzpFIb/w5YuQeYDKyW3j9UeKVBLo58qtN5wBD28kBBLbq2
+         wpNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689636186; x=1692228186;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=T0vSTddCvpCRB5+yiUAWYvUbtvxTOv2Q4zjZH3DHeeg=;
-        b=Z4A0AEDU7i7p99rxAki/b/X16uog9YMwDt9zrYAzQv+XhGz3zc9KDUjo+5sHlbQq0x
-         bXydP0C/ghsGvlzs5K7LmTqMHIW2cmOiinPMVy3m0y2/gKIqXEwmXmIU5hSIYQAo6v5S
-         +kWTRrhsDwzq7j5folPMO2xkEaEs/HiG1m7KH9CjcY7JWwhIWmCBKICEDGYM6QXZic5F
-         81pcAXqZk3uZBubriIx3SZGIhly4pu9Ovpz4af6rqJw7PL6a7NLHOGLGlTwnBv1ar534
-         nkTcivDGsUcMmtCGn9CQjZloZ8PskHu34IDSTaQ8RKoV8IipNFLpaW0exDLdp1O5V0fY
-         eb1g==
-X-Gm-Message-State: ABy/qLa+jvkCkAm1GMzSBSgt0VJVr2qvFEa3fKJjXF5WxMDm7y0JpJDH
-	ood92FWWWKKylJl3EqjW9VMUT3TDaK+sdUL8hYmPz5BTtUOiAQg=
-X-Google-Smtp-Source: APBJJlEnOlGbG17t3bsZWN7lS8b9NLFGSd6K+pYqObwoUMfSLiOXoJ40L/qgWyCLgjJKxgZhkFeJ9Be2g3Q/07jG5TY=
-X-Received: by 2002:ac2:4c45:0:b0:4eb:46c2:e771 with SMTP id
- o5-20020ac24c45000000b004eb46c2e771mr4215007lfk.14.1689636186128; Mon, 17 Jul
- 2023 16:23:06 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230703124647.215952-1-alexghiti@rivosinc.com> <DDB4EEB8-12A0-4E66-8E96-808E84A82078@remlab.net>
-In-Reply-To: <DDB4EEB8-12A0-4E66-8E96-808E84A82078@remlab.net>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 17 Jul 2023 16:22:54 -0700
-Message-ID: <CAOnJCU+ee=FXWp7mz_Tn07TbRBb3eXLFBqyRBAJbhQTO-Jxvrw@mail.gmail.com>
-Subject: Re: [PATCH v4 00/10] riscv: Allow userspace to directly access perf counters
-To: =?UTF-8?Q?R=C3=A9mi_Denis=2DCourmont?= <remi@remlab.net>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Aurelien Jarno <aurelien@aurel32.net>, Mathieu Malaterre <malat@debian.org>, 
-	Jan Newger <jannewger@google.com>
+        d=1e100.net; s=20221208; t=1689724139; x=1692316139;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yr5kPp//ycHeBe41TiVxkGxE+I0FtPuZavos26l+cCE=;
+        b=hRYd8T5mNPjJGZfJyYbQ/eS62wY+C920lHj7Cf/hUk7Q0N+ShgegfsLFkrZwfiD3Rw
+         mufAlGNRyo37jel+DMWlKVVNm0r/qi53kEpDdn77oWSR5VxMDQFmBCucEZkrbPOn67nu
+         ym+9hBDajUJg2uxzO6l/iW3xeVoXnVLgv/Jr0FxTmkHbEB3S/LcFhK+sX6CnoxQUaxT9
+         Jp3TjxIZOVe0mL5DvzqYZ8VRb44kE+CUNty5zmlKj2UldMPPEQqMFLZjO3obpuKvJ4AW
+         mv0UF4SYMOpkrxLVmgp+i5YJAzFqTW7r11w/me4sr6R79AYPHQ/o7T61jBnuq28VHJtN
+         +daw==
+X-Gm-Message-State: ABy/qLYy8PI6QNbzTMojvUZqJfoJYkb1YMHkt7JJ5x4dBSn4uxBX9N9c
+	qug7zbbMATnIaxE2znwY5kbime7juK8=
+X-Google-Smtp-Source: APBJJlEVWl5JDRlnPOqWQbyjGWHyKDzKVGtobf5+lC7u6yLDp0aN/2aXMEnW9jTxfL1DAcNC6lZfVqqUTaM=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:902:ea01:b0:1b8:a56e:1dcc with SMTP id
+ s1-20020a170902ea0100b001b8a56e1dccmr7653plg.13.1689724138849; Tue, 18 Jul
+ 2023 16:48:58 -0700 (PDT)
+Date: Tue, 18 Jul 2023 16:44:57 -0700
+In-Reply-To: <20230718234512.1690985-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20230718234512.1690985-1-seanjc@google.com>
+X-Mailer: git-send-email 2.41.0.255.g8b1d071c50-goog
+Message-ID: <20230718234512.1690985-15-seanjc@google.com>
+Subject: [RFC PATCH v11 14/29] KVM: x86/mmu: Handle page fault for private memory
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
+	Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_002509_825907_CC86454A 
-X-CRM114-Status: GOOD (  33.33  )
+X-CRM114-CacheID: sfid-20230719_005028_372436_6A659695 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,106 +117,223 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Sean Christopherson <seanjc@google.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdWwgMTcsIDIwMjMgYXQgNjozOOKAr0FNIFLDqW1pIERlbmlzLUNvdXJtb250IDxy
-ZW1pQHJlbWxhYi5uZXQ+IHdyb3RlOgo+Cj4gSGksCj4KPiBMZSAzIGp1aWxsZXQgMjAyMyAxNTo0
-NjozNyBHTVQrMDM6MDAsIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4g
-YSDDqWNyaXQgOgo+ID5yaXNjdiB1c2VkIHRvIGFsbG93IGRpcmVjdCBhY2Nlc3MgdG8gY3ljbGUv
-dGltZS9pbnN0cmV0IGNvdW50ZXJzLAo+ID5ieXBhc3NpbmcgdGhlIHBlcmYgZnJhbWV3b3JrLCB0
-aGlzIHBhdGNoc2V0IGludGVuZHMgdG8gYWxsb3cgdGhlIHVzZXIgdG8KPiA+bW1hcCBhbnkgY291
-bnRlciB3aGVuIGFjY2Vzc2VkIHRocm91Z2ggcGVyZi4gQnV0IHdlIGNhbid0IGJyZWFrIHRoZQo+
-ID5leGlzdGluZyBiZWhhdmlvdXIgc28gd2UgaW50cm9kdWNlIGEgc3lzY3RsIHBlcmZfdXNlcl9h
-Y2Nlc3MgbGlrZSBhcm02NAo+ID5kb2VzLCB3aGljaCBkZWZhdWx0cyB0byB0aGUgbGVnYWN5IG1v
-ZGUgZGVzY3JpYmVkIGFib3ZlLgo+Cj4gQUZBSUssIGlmIHRoZSBkZWZhdWx0IHNldHRpbmdzIGJy
-ZWFrcyB1c2VyIHNwYWNlLCB0aGUgcGF0Y2hzZXQgaXMgY29uc2lkZXJlZCB0byBicmVhayB1c2Vy
-IHNwYWNlLiBUaGF0IGJlaW5nIHRoZSBjYXNlLCBlaXRoZXIgdGhpcyBjYXNlIGlzIGRlZW1lZCBz
-cGVjaWFsIGVub3VnaCB0aGF0IGJyZWFraW5nIHVzZXIgc3BhY2UgaXMgT0ssIG9yIGl0IGlzIG5v
-dC4KPgoKVGhpcyBjYXNlIGlzIGEgc3BlY2lhbCBjYXNlIGFzIHRoZSB1c2FnZSB3YXMgaW5jb3Jy
-ZWN0IGluIHRoZSBmaXJzdApwbGFjZS4gQW55IGFwcGxpY2F0aW9uIHRoYXQgZ2VudWluZWx5IHJl
-cXVpcmVzIHJkY3ljbGUgY2FuIGFsd2F5cyBnZXQKaXQgbm93IHZpYSB0aGUgcGVyZiBpbnRlcmZh
-Y2UuCklmIHRoZSBpbnNlY3VyZSBhbmQgaW5jb3JyZWN0IGJlaGF2aW9yIGlzIGFsbG93ZWQsIHdl
-IHN1c3BlY3QgdGhlIHVzZXIKc3BhY2UgYmVoYXZpb3Igd2lsbCBuZXZlciBiZSBmaXhlZCBhcyBp
-dCBpcyBoYXJkIHRvIHB1dCBhIGZ1dHVyZSBmbGFnCmRhdGUgaW4gdGhlc2UgY2FzZXMuCkdpdmVu
-IHRoYXQgdGhlIFJJU0MtViBlY28tc3lzdGVtIGlzIHN0aWxsIHlvdW5nLCBpdCBpcyBiZXR0ZXIg
-dG8KZGlzYWxsb3cgdGhpcyBiZWhhdmlvciB0byBhdm9pZCBmdXJ0aGVyIHByb2xpZmVyYXRpb24g
-b2YgdGhlIHNhbWUKaW5jb3JyZWN0IHVzYWdlLgoKPiBJZiBpdCBpcyBub3QgT0ssIHRoZW4gdGhl
-IG9ubHkgd2F5IG91dCB0aGF0IEkgY2FuIHRoaW5rIG9mLCBjb25zaXN0cyBvZiB0cmFwcGluZyBh
-bmQgZW11bGF0aW5nIHRoZSBjb3VudGVycywgcmV0dXJuaW5nIHRoZSBzYW1lIHNhbml0aXNlZCB2
-YWx1ZXMgdGhhdCBMaW51eCBwZXJmIHdvdWxkIHJldHVybi4gVGhlbiB5b3UgY2FuIGFkZCBhIGtl
-cm5lbCBjb25maWcgb3B0aW9uIHRvIGRpc2FibGUgdGhhdCB0cmFwLWFuZC1lbXVsYXRpb24gY29k
-ZSBpbiB0aGUgZnV0dXJlLgo+CgpXaGF0IGRvIHlvdSBtZWFuIGJ5ICJzYW5pdGlzZWQiIHZhbHVl
-ID8gSWYgeW91IG1lYW4gdGhlIGNvcnJlY3QgdmFsdWUsCml0IGRvZXNuJ3Qga25vdyB3aGVuIHRv
-IHN0b3AgcHJvdmlkaW5nIHRoYXQgdmFsdWUgKHdpdGhvdXQgcmVpbnZlbnRpbmcKdGhlIGVudGly
-ZSBjb250ZXh0IHN3aXRjaCB3aGljaCB0aGUgcGVyZiBmcmFtZXdvcmsgYWxyZWFkeSBkb2VzIGZv
-cgp1cykuCklmIHdlIGp1c3QgcHJvdmlkZSBhIGR1bW15IHZhbHVlLCB0aGF0IGRvZXNuJ3QgaGVs
-cCB0aGUgY3VycmVudCB1c2VycwphcyB3ZWxsLiBUaGV5IHdpbGwgcHJvYmFibHkgZ2V0IHVuZXhw
-ZWN0ZWQgcmVzdWx0cyBpbnN0ZWFkIG9mIHNpZ2lsbC4KCkkgaGF2ZSBjYydkIGEgZmV3IGZvbGtz
-IHdobyB3ZXJlIGludm9sdmVkIGluIHRoZSBpbml0aWFsIGRpc2N1c3Npb25zCndoZW4gdGhpcyBp
-c3N1ZSB3YXMgcmVwb3J0ZWQgdG8gY29sbGVjdCB0aGUgZmVlZGJhY2suCgo+IEVpdGhlciB3YXks
-IEkgZG9uJ3Qgc3VwcG9zZSB0aGF0IHRoZXJlIHNob3VsZCBiZSBhbiBvcHRpb24gdG8gYmUgaW5z
-ZWN1cmVseSBiYWNrd2FyZCBjb21wYXRpYmxlLgo+Cj4gPgo+ID5UaGlzIHZlcnNpb24gbmVlZHMg
-b3BlblNCSSB2MS4zICphbmQqIGEga2VybmVsIGZpeCB0aGF0IHdlbnQgdXBzdHJlYW0gbGF0ZWx5
-Cj4gPihodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjMwNjE2MTE0ODMxLjMxODY5ODAt
-MS1tYXpAa2VybmVsLm9yZy9ULykuCj4gPgo+ID4qKkltcG9ydGFudCoqOiBJbiB0aGlzIHZlcnNp
-b24sIHRoZSBkZWZhdWx0IG1vZGUgaXMgbm93IHVzZXIgYWNjZXNzLCBub3QKPiA+dGhlIGxlZ2Fj
-eSBzbyBzb21lIGFwcGxpY2F0aW9ucyB3aWxsIGJyZWFrLgo+ID4KPiA+YmFzZS1jb21taXQtdGFn
-OiB2Ni40LXJjNgo+ID4KPiA+Q2hhbmdlcyBpbiB2NDoKPiA+LSBGaXhlZCBzb21lIG5pdHMgaW4g
-cmlzY3ZfcG11X3NiaS5jIHRoYW5rcyB0byBBbmRyZXcKPiA+LSBGaXhlZCB0aGUgZG9jdW1lbnRh
-dGlvbiB0aGFua3MgdG8gQW5kcmV3Cj4gPi0gQWRkZWQgUkIgZnJvbSBBbmRyZXcgXG8vCj4gPgo+
-ID5DaGFuZ2VzIGluIHYzOgo+ID4tIHBhdGNoIDEgbm93IGNvbnRhaW5zIHRoZSByZWYgdG8gdGhl
-IGZhdWx0eSBjb21taXQgKG5vIEZpeGVzIHRhZyBhcyBpdCBpcyBvbmx5IGEgY29tbWVudCksIGFz
-IEFuZHJldyBzdWdnZXN0ZWQKPiA+LSBSZW1vdmVkIFJJU0NWX1BNVV9MRUdBQ1lfVElNRSBmcm9t
-IHBhdGNoIDMsIGFzIEFuZHJldyBzdWdnZXN0ZWQKPiA+LSBSZW5hbWUgUklTQ1ZfUE1VX1BERVZf
-TkFNRSB0byAicmlzY3YtcG11LXNiaSIsIHBhdGNoNCBpcyBqdXN0IGNvc21ldGljIG5vdywgYXMg
-QW5kcmV3IHN1Z2dlc3RlZAo+ID4tIFJlbW92ZWQgYSBmZXcgdXNlbGVzcyAoYW5kIHdyb25nKSBj
-b21tZW50cywgYXMgQW5kcmV3IHN1Z2dlc3RlZAo+ID4tIFNpbXBsaWZ5IGFyY2hfcGVyZl91cGRh
-dGVfdXNlcnBhZ2UgY29kZSwgYXMgQW5kcmV3IHN1Z2dlc3RlZAo+ID4tIERvY3VtZW50YXRpb24g
-bm93IG1lbnRpb25zIHRoYXQgdGltZSBDU1IgaXMgKmFsd2F5cyogYWNjZXNzaWJsZSwgd2hhdGV2
-ZXIgdGhlIG1vZGUsIGFzIHN1Z2dlc3RlZCBieSBBbmRyZXcKPiA+LSBSZW1vdmVkIENZQ0xFSCBy
-ZWZlcmVuY2UgYW5kIGFkZCBUT0RPIGZvciBydjMyIHN1cHBvcnQsIGFzIHN1Z2dlc3RlZCBieSBB
-dGlzaAo+ID4tIERvIG5vdCByZW5hbWUgdGhlIHBtdSBpbnN0YW5jZSBhcyBBdGlzaCBzdWdnZXN0
-ZWQKPiA+LSBTZXQgcG1jX3dpZHRoIG9ubHkgaWYgcmRwbWMgaXMgZW5hYmxlZCBhbmQgQ09ORklH
-X1JJU0NWX1BNVSBpcyBzZXQgYW5kIHRoZSBldmVudCBpcyBhIGh3IGV2ZW50Cj4gPi0gTW92ZSBh
-cmNoX3BlcmZfdXBkYXRlX3VzZXJwYWdlIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAy
-MzA2MTYxMTQ4MzEuMzE4Njk4MC0xLW1hekBrZXJuZWwub3JnL1QvCj4gPi0gKipTd2l0Y2ggdG8g
-dXNlciBtb2RlIGFjY2VzcyBieSBkZWZhdWx0KioKPiA+Cj4gPkNoYW5nZXMgaW4gdjI6Cj4gPi0g
-U3BsaXQgaW50byBzbWFsbGVyIHBhdGNoZXMsIHdheSBiZXR0ZXIhCj4gPi0gQWRkIFJCIGZyb20g
-Q29ub3IKPiA+LSBTaW1wbGlmeSB0aGUgd2F5IHdlIGNoZWNrZWQgcmlzY3YgYXJjaGl0ZWN0dXJl
-Cj4gPi0gRml4IHJhY2UgbW1hcCBhbmQgb3RoZXIgdGhyZWFkIHJ1bm5pbmcgb24gb3RoZXIgY3B1
-cwo+ID4tIFVzZSBod2Mgd2hlbiBhdmFpbGFibGUKPiA+LSBTZXQgYWxsIHVzZXJzcGFjZSBhY2Nl
-c3MgZmxhZ3MgaW4gZXZlbnRfaW5pdCwgdG9vIGN1bWJlcnNvbWUgdG8gaGFuZGxlIHN5c2N0bCBj
-aGFuZ2VzCj4gPi0gRml4IGFyY2hfcGVyZl91cGRhdGVfdXNlcnBhZ2UgZm9yIHBtdSBvdGhlciB0
-aGFuIHJpc2N2LXBtdSBieSByZW5hbWluZyBwbXUgZHJpdmVyCj4gPi0gRml4ZWQga2VybmVsIHRl
-c3Qgcm9ib3QgYnVpbGQgZXJyb3IKPiA+LSBGaXhlZCBkb2N1bWVudGF0aW9uIChBbmRyZXcgYW5k
-IEJhZ2FzKQo+ID4tIHBlcmYgdGVzdHN1aXRlIHBhc3NlcyBtbWFwIHRlc3RzIGluIGFsbCAzIG1v
-ZGVzCj4gPgo+ID5BbGV4YW5kcmUgR2hpdGkgKDEwKToKPiA+ICBwZXJmOiBGaXggd3JvbmcgY29t
-bWVudCBhYm91dCBkZWZhdWx0IGV2ZW50X2lkeAo+ID4gIGluY2x1ZGU6IHJpc2N2OiBGaXggd3Jv
-bmcgaW5jbHVkZSBndWFyZCBpbiByaXNjdl9wbXUuaAo+ID4gIHJpc2N2OiBNYWtlIGxlZ2FjeSBj
-b3VudGVyIGVudW0gbWF0Y2ggdGhlIEhXIG51bWJlcmluZwo+ID4gIGRyaXZlcnM6IHBlcmY6IFJl
-bmFtZSByaXNjdiBwbXUgc2JpIGRyaXZlcgo+ID4gIHJpc2N2OiBQcmVwYXJlIGZvciB1c2VyLXNw
-YWNlIHBlcmYgZXZlbnQgbW1hcCBzdXBwb3J0Cj4gPiAgZHJpdmVyczogcGVyZjogSW1wbGVtZW50
-IHBlcmYgZXZlbnQgbW1hcCBzdXBwb3J0IGluIHRoZSBsZWdhY3kgYmFja2VuZAo+ID4gIGRyaXZl
-cnM6IHBlcmY6IEltcGxlbWVudCBwZXJmIGV2ZW50IG1tYXAgc3VwcG9ydCBpbiB0aGUgU0JJIGJh
-Y2tlbmQKPiA+ICBEb2N1bWVudGF0aW9uOiBhZG1pbi1ndWlkZTogQWRkIHJpc2N2IHN5c2N0bF9w
-ZXJmX3VzZXJfYWNjZXNzCj4gPiAgdG9vbHM6IGxpYjogcGVyZjogSW1wbGVtZW50IHJpc2N2IG1t
-YXAgc3VwcG9ydAo+ID4gIHBlcmY6IHRlc3RzOiBBZGFwdCBtbWFwLWJhc2ljLmMgZm9yIHJpc2N2
-Cj4gPgo+ID4gRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9zeXNjdGwva2VybmVsLnJzdCB8ICAy
-NyArKy0KPiA+IGRyaXZlcnMvcGVyZi9yaXNjdl9wbXUuYyAgICAgICAgICAgICAgICAgICAgfCAx
-MTMgKysrKysrKysrKysKPiA+IGRyaXZlcnMvcGVyZi9yaXNjdl9wbXVfbGVnYWN5LmMgICAgICAg
-ICAgICAgfCAgMjggKystCj4gPiBkcml2ZXJzL3BlcmYvcmlzY3ZfcG11X3NiaS5jICAgICAgICAg
-ICAgICAgIHwgMTk2ICsrKysrKysrKysrKysrKysrKystCj4gPiBpbmNsdWRlL2xpbnV4L3BlcmYv
-cmlzY3ZfcG11LmggICAgICAgICAgICAgIHwgIDEyICstCj4gPiBpbmNsdWRlL2xpbnV4L3BlcmZf
-ZXZlbnQuaCAgICAgICAgICAgICAgICAgIHwgICAzICstCj4gPiB0b29scy9saWIvcGVyZi9tbWFw
-LmMgICAgICAgICAgICAgICAgICAgICAgIHwgIDY1ICsrKysrKysKPiA+IHRvb2xzL3BlcmYvdGVz
-dHMvbW1hcC1iYXNpYy5jICAgICAgICAgICAgICAgfCAgIDQgKy0KPiA+IDggZmlsZXMgY2hhbmdl
-ZCwgNDI4IGluc2VydGlvbnMoKyksIDIwIGRlbGV0aW9ucygtKQo+ID4KPgo+IF9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCgoKLS0gClJlZ2FyZHMs
-CkF0aXNoCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Chao Peng <chao.p.peng@linux.intel.com>
+
+A KVM_MEM_PRIVATE memslot can include both fd-based private memory and
+hva-based shared memory. Architecture code (like TDX code) can tell
+whether the on-going fault is private or not. This patch adds a
+'is_private' field to kvm_page_fault to indicate this and architecture
+code is expected to set it.
+
+To handle page fault for such memslot, the handling logic is different
+depending on whether the fault is private or shared. KVM checks if
+'is_private' matches the host's view of the page (maintained in
+mem_attr_array).
+  - For a successful match, private pfn is obtained with
+    restrictedmem_get_page() and shared pfn is obtained with existing
+    get_user_pages().
+  - For a failed match, KVM causes a KVM_EXIT_MEMORY_FAULT exit to
+    userspace. Userspace then can convert memory between private/shared
+    in host's view and retry the fault.
+
+Co-developed-by: Yu Zhang <yu.c.zhang@linux.intel.com>
+Signed-off-by: Yu Zhang <yu.c.zhang@linux.intel.com>
+Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Tested-by: Fuad Tabba <tabba@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/mmu/mmu.c          | 82 +++++++++++++++++++++++++++++++--
+ arch/x86/kvm/mmu/mmu_internal.h |  3 ++
+ arch/x86/kvm/mmu/mmutrace.h     |  1 +
+ 3 files changed, 81 insertions(+), 5 deletions(-)
+
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index aefe67185637..4cf73a579ee1 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -3179,9 +3179,9 @@ static int host_pfn_mapping_level(struct kvm *kvm, gfn_t gfn,
+ 	return level;
+ }
+ 
+-int kvm_mmu_max_mapping_level(struct kvm *kvm,
+-			      const struct kvm_memory_slot *slot, gfn_t gfn,
+-			      int max_level)
++static int __kvm_mmu_max_mapping_level(struct kvm *kvm,
++				       const struct kvm_memory_slot *slot,
++				       gfn_t gfn, int max_level, bool is_private)
+ {
+ 	struct kvm_lpage_info *linfo;
+ 	int host_level;
+@@ -3193,6 +3193,9 @@ int kvm_mmu_max_mapping_level(struct kvm *kvm,
+ 			break;
+ 	}
+ 
++	if (is_private)
++		return max_level;
++
+ 	if (max_level == PG_LEVEL_4K)
+ 		return PG_LEVEL_4K;
+ 
+@@ -3200,6 +3203,16 @@ int kvm_mmu_max_mapping_level(struct kvm *kvm,
+ 	return min(host_level, max_level);
+ }
+ 
++int kvm_mmu_max_mapping_level(struct kvm *kvm,
++			      const struct kvm_memory_slot *slot, gfn_t gfn,
++			      int max_level)
++{
++	bool is_private = kvm_slot_can_be_private(slot) &&
++			  kvm_mem_is_private(kvm, gfn);
++
++	return __kvm_mmu_max_mapping_level(kvm, slot, gfn, max_level, is_private);
++}
++
+ void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ {
+ 	struct kvm_memory_slot *slot = fault->slot;
+@@ -3220,8 +3233,9 @@ void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
+ 	 * Enforce the iTLB multihit workaround after capturing the requested
+ 	 * level, which will be used to do precise, accurate accounting.
+ 	 */
+-	fault->req_level = kvm_mmu_max_mapping_level(vcpu->kvm, slot,
+-						     fault->gfn, fault->max_level);
++	fault->req_level = __kvm_mmu_max_mapping_level(vcpu->kvm, slot,
++						       fault->gfn, fault->max_level,
++						       fault->is_private);
+ 	if (fault->req_level == PG_LEVEL_4K || fault->huge_page_disallowed)
+ 		return;
+ 
+@@ -4304,6 +4318,55 @@ void kvm_arch_async_page_ready(struct kvm_vcpu *vcpu, struct kvm_async_pf *work)
+ 	kvm_mmu_do_page_fault(vcpu, work->cr2_or_gpa, 0, true, NULL);
+ }
+ 
++static inline u8 kvm_max_level_for_order(int order)
++{
++	BUILD_BUG_ON(KVM_MAX_HUGEPAGE_LEVEL > PG_LEVEL_1G);
++
++	MMU_WARN_ON(order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_1G) &&
++		    order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_2M) &&
++		    order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_4K));
++
++	if (order >= KVM_HPAGE_GFN_SHIFT(PG_LEVEL_1G))
++		return PG_LEVEL_1G;
++
++	if (order >= KVM_HPAGE_GFN_SHIFT(PG_LEVEL_2M))
++		return PG_LEVEL_2M;
++
++	return PG_LEVEL_4K;
++}
++
++static int kvm_do_memory_fault_exit(struct kvm_vcpu *vcpu,
++				    struct kvm_page_fault *fault)
++{
++	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
++	if (fault->is_private)
++		vcpu->run->memory.flags = KVM_MEMORY_EXIT_FLAG_PRIVATE;
++	else
++		vcpu->run->memory.flags = 0;
++	vcpu->run->memory.gpa = fault->gfn << PAGE_SHIFT;
++	vcpu->run->memory.size = PAGE_SIZE;
++	return RET_PF_USER;
++}
++
++static int kvm_faultin_pfn_private(struct kvm_vcpu *vcpu,
++				   struct kvm_page_fault *fault)
++{
++	int max_order, r;
++
++	if (!kvm_slot_can_be_private(fault->slot))
++		return kvm_do_memory_fault_exit(vcpu, fault);
++
++	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
++			     &max_order);
++	if (r)
++		return r;
++
++	fault->max_level = min(kvm_max_level_for_order(max_order),
++			       fault->max_level);
++	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
++	return RET_PF_CONTINUE;
++}
++
+ static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ {
+ 	struct kvm_memory_slot *slot = fault->slot;
+@@ -4336,6 +4399,12 @@ static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
+ 			return RET_PF_EMULATE;
+ 	}
+ 
++	if (fault->is_private != kvm_mem_is_private(vcpu->kvm, fault->gfn))
++		return kvm_do_memory_fault_exit(vcpu, fault);
++
++	if (fault->is_private)
++		return kvm_faultin_pfn_private(vcpu, fault);
++
+ 	async = false;
+ 	fault->pfn = __gfn_to_pfn_memslot(slot, fault->gfn, false, false, &async,
+ 					  fault->write, &fault->map_writable,
+@@ -5771,6 +5840,9 @@ int noinline kvm_mmu_page_fault(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa, u64 err
+ 			return -EIO;
+ 	}
+ 
++	if (r == RET_PF_USER)
++		return 0;
++
+ 	if (r < 0)
+ 		return r;
+ 	if (r != RET_PF_EMULATE)
+diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
+index d39af5639ce9..268b517e88cb 100644
+--- a/arch/x86/kvm/mmu/mmu_internal.h
++++ b/arch/x86/kvm/mmu/mmu_internal.h
+@@ -203,6 +203,7 @@ struct kvm_page_fault {
+ 
+ 	/* Derived from mmu and global state.  */
+ 	const bool is_tdp;
++	const bool is_private;
+ 	const bool nx_huge_page_workaround_enabled;
+ 
+ 	/*
+@@ -259,6 +260,7 @@ int kvm_tdp_page_fault(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault);
+  * RET_PF_RETRY: let CPU fault again on the address.
+  * RET_PF_EMULATE: mmio page fault, emulate the instruction directly.
+  * RET_PF_INVALID: the spte is invalid, let the real page fault path update it.
++ * RET_PF_USER: need to exit to userspace to handle this fault.
+  * RET_PF_FIXED: The faulting entry has been fixed.
+  * RET_PF_SPURIOUS: The faulting entry was already fixed, e.g. by another vCPU.
+  *
+@@ -275,6 +277,7 @@ enum {
+ 	RET_PF_RETRY,
+ 	RET_PF_EMULATE,
+ 	RET_PF_INVALID,
++	RET_PF_USER,
+ 	RET_PF_FIXED,
+ 	RET_PF_SPURIOUS,
+ };
+diff --git a/arch/x86/kvm/mmu/mmutrace.h b/arch/x86/kvm/mmu/mmutrace.h
+index ae86820cef69..2d7555381955 100644
+--- a/arch/x86/kvm/mmu/mmutrace.h
++++ b/arch/x86/kvm/mmu/mmutrace.h
+@@ -58,6 +58,7 @@ TRACE_DEFINE_ENUM(RET_PF_CONTINUE);
+ TRACE_DEFINE_ENUM(RET_PF_RETRY);
+ TRACE_DEFINE_ENUM(RET_PF_EMULATE);
+ TRACE_DEFINE_ENUM(RET_PF_INVALID);
++TRACE_DEFINE_ENUM(RET_PF_USER);
+ TRACE_DEFINE_ENUM(RET_PF_FIXED);
+ TRACE_DEFINE_ENUM(RET_PF_SPURIOUS);
+ 
+-- 
+2.41.0.255.g8b1d071c50-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
