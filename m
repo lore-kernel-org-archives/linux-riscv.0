@@ -4,102 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DF3C0015E
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F3AEB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 06:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IK/nWP5/zprZU4RLGNSzAU0eYHLfaINbDMTurFhifhc=; b=z29V1i4XigW/gf
-	tVyV20NNGIyUExD+qBGRqv5lnhzJL4Hx/rKYfX38W50Z2yBe95IJ653021J/6zCrui8uW8JTibR2N
-	sSnqsZdREL32enLy7CkiOIS1sUKLeV/sVwGtduVqgE/nV+gc8UOt491eed1ADnFGBy02vNVYOgP5u
-	/MOFL9LHVzuJVwQC8bb3CtXysWYAZZmKDBHCb2JnfpqxpfmWpr4upoKalrFAzOfLZlukZa2TN5w+Y
-	3qNv/9Xk8dRxi8ZbcUNM9uioAwW/ClW/4g3X7WwmahwAF7OgTGJ2sr7jWu5uaTKYk8CVtVxyLSOuZ
-	Vwg59G/auwpo47XgNTRQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qol9QqwC/BiPhP85UUuNzh/FjSMx4ZkJLbC6Gpe9LmE=; b=mVgL+Zvb7Fu/gx
+	WtlWk+hg0B2PMg62HIyCuTZb6kz3B8HIJWG11aQuGO3iMvDCN3brWawBU/c7D9InDvNGLK0fbjO9G
+	MUw7I4HFPRBPtRELj3wzSQgGxGFZk5hSDwE7vLNNXQxV4eRpwq3PwFaUgrIof0knRFW9MnzIjuzCM
+	B2/7FpGGZRMjwgyKmJQxI4SfpnkXSKa1p+umR0VjpSUNprP/3+fN1NZYvfQx6WsxAjknDQkaxPuID
+	miT4mD5eOeN9z/U/3CrRp+cJ/K/zCOfEfnvWByePc/7oBzIc4/Zu8eDt7RUi2tQZgnOpqyucMlEQK
+	PlPetDZj97Ocnik1VKxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM17c-005zqI-1F;
-	Wed, 19 Jul 2023 06:57:16 +0000
+	id 1qM17f-005zsZ-0K;
+	Wed, 19 Jul 2023 06:57:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM17C-005zSU-2o;
-	Wed, 19 Jul 2023 06:56:51 +0000
+	id 1qM17M-005zcE-0F
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 19 Jul 2023 06:57:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=RpKAtUiUinq9Lhw+v54h3QcTHPMMcdg2W9j58F9msCI=; b=F3Ce31FjCpD97H49ycWH/uON4l
-	G7DbGdmmsnGTJvVBZ+SXSf4Ns5xQUivWbsUdFnnzRR2ZMrbGvnaHrxZ6/hZ4pV4N43Zqyj4a3+3CX
-	ayoTunY9wR9hj9mOf5VlwlZJYXSSgCwSE51fxhBUoXR6DeY1qasb55mw26rnmhx+kXK+Mzj2R2pOz
-	Vc+tZd8sT/dFpD4YVIZ2iCo1TMrjyrt2+er1/NQrqLhxaWYJFOpVSaMJIyAboleRTW26XSTTV/7Ni
-	T2xMqnL0BV4MVg0Osb2n7Qg6AFdgnbI4uX8ZzB5/dGR+hvtSzdzNpuxXnXj1AOQpAYUKr+mzQpeck
-	cYs/Vkdw==;
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=yeYxjLuTkeXplzaU1/5MYQdHyT2ovErfxDS2RgTO3Ok=; b=kzU/I648+nDQ1BLx3OyVpAibd8
+	hU7oTVeX3199A2DAW65I/qIRMAitzFMGRlYKNwXuR5tSB/D0Z0uYAd7zya7aD5cD0a1DXMqKnvtMd
+	NjCxWIYuruiEGEYGEu9X7hn+/8Lh13+kMeIt18GJbdHYyxFZgJSV07hZ0PimzWnloVfOWSq1zIlSL
+	ftPvkJYQsf2JPhdkJRhtT52bBM3T28qLlujppTOw885/2P7VpRiNqne7CbSu5bHd52U9HXJbwbRbV
+	G6iO2EydISYs48A5rAqvcAmxRwhVF4KyH0EEalx1juPGuBl+SaLUya2aUcl3hqEAm8gi+wAY8RNzJ
+	EOGU1atA==;
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
 	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qLeG3-00BDZ1-2L;
-	Tue, 18 Jul 2023 06:32:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E080220008;
-	Tue, 18 Jul 2023 06:31:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1689661919;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RpKAtUiUinq9Lhw+v54h3QcTHPMMcdg2W9j58F9msCI=;
-	b=lVsAfqer8xWiySiEq4z7Whp9otUwyCQXKtPI1tRr5f7imi5WmvidsvbXpCUGXwxk1c+lvE
-	oUHmSljh698Kg7YXWz38yD7YKynczdgakNvh9W31vXeG3ASFtYmUbHMMJvu2jAXs6WXMFe
-	qDOvnq5fNCwuhkU5Pv9JkSJ8uAbs1yjvZIjT+WnxMiQeDJLtUHfZO7aM8YIAG7auX7E6KB
-	neoUdUzoHRJnTzkhM6WLVgYwYyzcHYvDk8cc5I9mppjSrEmHREOSYJaDUdNw61xuiMD/34
-	m7I4N+6JbCgr4Op1Mxo+kriyEeSldJsgWRrKtcIj3mGk+C0lffE+F3dHz9dysw==
-Date: Tue, 18 Jul 2023 08:31:49 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>,
- Roger Quadros <rogerq@kernel.org>, Aswath Govindraju <a-govindraju@ti.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- NXP Linux Team <linux-imx@nxp.com>, Thierry Reding
- <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Minas
- Harutyunyan <hminas@synopsys.com>, Thinh Nguyen
- <Thinh.Nguyen@synopsys.com>, Li Yang <leoyang.li@nxp.com>, Daniel Mack
- <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, Robert
- Jarzmik <robert.jarzmik@free.fr>, Michal Simek <michal.simek@amd.com>, Alan
- Stern <stern@rowland.harvard.edu>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea
- <claudiu.beznea@microchip.com>, Mathias Nyman <mathias.nyman@intel.com>,
- Richard Leitner <richard.leitner@linux.dev>, Chunfeng Yun
- <chunfeng.yun@mediatek.com>, Paul Cercueil <paul@crapouillou.net>, Bin Liu
- <b-liu@ti.com>, Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
- <daire.mcnamara@microchip.com>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Guenter Roeck <linux@roeck-us.net>, Heikki Krogerus
- <heikki.krogerus@linux.intel.com>, "Bryan O'Donoghue"
- <bryan.odonoghue@linaro.org>, Andy Gross <agross@kernel.org>, Bjorn
- Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno     
-    <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-renesas-soc@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] usb: Explicitly include correct DT includes
-Message-ID: <20230718083149.77fa57ef@bootlin.com>
-In-Reply-To: <20230714175027.4065135-1-robh@kernel.org>
-References: <20230714175027.4065135-1-robh@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-redhat-linux-gnu)
+	id 1qLnc3-00Bl52-0m
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Jul 2023 16:31:49 +0000
+Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-66767d628e2so3853052b3a.2
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Jul 2023 09:31:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1689697784; x=1692289784;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yeYxjLuTkeXplzaU1/5MYQdHyT2ovErfxDS2RgTO3Ok=;
+        b=gLQjkG4fVekO4wKfOEhQiTxp/MrdgHIZnXQ0WmW0vwH325FTQMH+hvO0Pl6Tv4So7B
+         TCAB08k/nZ6tFUTBDeGsVNR9mEAipRHe0EIzaEVBs6wXYt6zGOPX28c+scik8leIgk07
+         eXHW9moGIYwa1vSPSLZqXjFacnO4ukAE8io9e5ttRdydgXuNH2kjH/YQyI45Esm893uf
+         GJnWKDfoIhvCgOP1jZL1yqtNK5n1DzSHjkMwGIunf7HYrnEdIAjkNt8C4/cbrV6ZnN1G
+         J1XVF3sCTJ/XkxODVioUM9fy0W9h0Uo/IwsR9bTOhOMXUXsIx2qEzGpePAVqsxehokRB
+         WS9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689697784; x=1692289784;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yeYxjLuTkeXplzaU1/5MYQdHyT2ovErfxDS2RgTO3Ok=;
+        b=FVNc7K9aaoiLj3ToC+2YBzK+RLzSvPviKd3mQ+w47DcDAzLw04+/36Ke3fmXP5CZzm
+         hWxf3wFjf6oBcXuxMti1l1TqBFgiPpZ2nbhHUbHrogNQHzqRmi7bKP7YXrUBior5agrS
+         /MKmHK0B1wnR110FbYEzyrqCCVRb0DlkDIAGjkEjHFHguRs/5TvKuk+A/ot4bPUQ0d3D
+         WBa8DuCQjsPedqzyAsMXKijHVWwXHx7xCbKkSJxj3BBwxcqklDC3vbplJsYAHaIhWwlI
+         ixme4CeyhPdddQ+gItL7Flhw9Pqb9YCvJUg8WgjoRiBFG7b8u7c2aDzEeT8O+WqwCla8
+         Eubw==
+X-Gm-Message-State: ABy/qLZ57nrvYEeWxcVbxwop/k8rKq375lFCAN8EttFVxNMYlIw+AgLb
+	9Zlmf8UwoxsuJr4L5ILxHuk=
+X-Google-Smtp-Source: APBJJlHJ1Qy7cPNo88MjFDp9ATIP+Ij4hUgUh/REqcmbOnaMxlELvzKUTeKwAjO70btUmn9wUqG1KA==
+X-Received: by 2002:a05:6a20:1443:b0:101:1951:d491 with SMTP id a3-20020a056a20144300b001011951d491mr17658741pzi.6.1689697783544;
+        Tue, 18 Jul 2023 09:29:43 -0700 (PDT)
+Received: from localhost ([212.107.28.53])
+        by smtp.gmail.com with ESMTPSA id g22-20020a62e316000000b0062bc045bf4fsm1807671pfh.19.2023.07.18.09.29.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Jul 2023 09:29:43 -0700 (PDT)
+From: Celeste Liu <coelacanthushex@gmail.com>
+X-Google-Original-From: Celeste Liu <CoelacanthusHex@gmail.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Celeste Liu <CoelacanthusHex@gmail.com>,
+	Felix Yan <felixonmars@archlinux.org>,
+	Ruizhe Pan <c141028@gmail.com>,
+	Shiqi Zhang <shiqi@isrc.iscas.ac.cn>
+Subject: [PATCH v2] riscv: entry: set a0 prior to syscall_enter_from_user_mode
+Date: Wed, 19 Jul 2023 00:28:46 +0800
+Message-ID: <20230718162940.226118-1-CoelacanthusHex@gmail.com>
+X-Mailer: git-send-email 2.41.0
 MIME-Version: 1.0
-X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230718_073227_949982_32A71018 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20230718_173147_387942_8A8D7E78 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,36 +109,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUm9iLAoKT24gRnJpLCAxNCBKdWwgMjAyMyAxMTo1MDoyMyAtMDYwMApSb2IgSGVycmluZyA8
-cm9iaEBrZXJuZWwub3JnPiB3cm90ZToKCj4gVGhlIERUIG9mX2RldmljZS5oIGFuZCBvZl9wbGF0
-Zm9ybS5oIGRhdGUgYmFjayB0byB0aGUgc2VwYXJhdGUKPiBvZl9wbGF0Zm9ybV9idXNfdHlwZSBi
-ZWZvcmUgaXQgYXMgbWVyZ2VkIGludG8gdGhlIHJlZ3VsYXIgcGxhdGZvcm0gYnVzLgo+IEFzIHBh
-cnQgb2YgdGhhdCBtZXJnZSBwcmVwcGluZyBBcm0gRFQgc3VwcG9ydCAxMyB5ZWFycyBhZ28sIHRo
-ZXkKPiAidGVtcG9yYXJpbHkiIGluY2x1ZGUgZWFjaCBvdGhlci4gVGhleSBhbHNvIGluY2x1ZGUg
-cGxhdGZvcm1fZGV2aWNlLmgKPiBhbmQgb2YuaC4gQXMgYSByZXN1bHQsIHRoZXJlJ3MgYSBwcmV0
-dHkgbXVjaCByYW5kb20gbWl4IG9mIHRob3NlIGluY2x1ZGUKPiBmaWxlcyB1c2VkIHRocm91Z2hv
-dXQgdGhlIHRyZWUuIEluIG9yZGVyIHRvIGRldGFuZ2xlIHRoZXNlIGhlYWRlcnMgYW5kCj4gcmVw
-bGFjZSB0aGUgaW1wbGljaXQgaW5jbHVkZXMgd2l0aCBzdHJ1Y3QgZGVjbGFyYXRpb25zLCB1c2Vy
-cyBuZWVkIHRvCj4gZXhwbGljaXRseSBpbmNsdWRlIHRoZSBjb3JyZWN0IGluY2x1ZGVzLgo+IAo+
-IFNpZ25lZC1vZmYtYnk6IFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5lbC5vcmc+Cj4gLS0tCgpbLi4u
-XQoKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy91c2IvZ2FkZ2V0L3VkYy9yZW5lc2FzX3VzYmYuYyBi
-L2RyaXZlcnMvdXNiL2dhZGdldC91ZGMvcmVuZXNhc191c2JmLmMKPiBpbmRleCA2Y2QwYWY4M2U5
-MWUuLjM0ODJiNDFkMDY0NiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL3VzYi9nYWRnZXQvdWRjL3Jl
-bmVzYXNfdXNiZi5jCj4gKysrIGIvZHJpdmVycy91c2IvZ2FkZ2V0L3VkYy9yZW5lc2FzX3VzYmYu
-Ywo+IEBAIC0xMiwxMCArMTIsOSBAQAo+ICAjaW5jbHVkZSA8bGludXgvaW9wb2xsLmg+Cj4gICNp
-bmNsdWRlIDxsaW51eC9rZXJuZWwuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L2tmaWZvLmg+Cj4gKyNp
-bmNsdWRlIDxsaW51eC9tb2RfZGV2aWNldGFibGUuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L21vZHVs
-ZS5oPgo+IC0jaW5jbHVkZSA8bGludXgvb2ZfYWRkcmVzcy5oPgo+IC0jaW5jbHVkZSA8bGludXgv
-b2ZfaXJxLmg+Cj4gLSNpbmNsdWRlIDxsaW51eC9vZl9wbGF0Zm9ybS5oPgo+ICsjaW5jbHVkZSA8
-bGludXgvcGxhdGZvcm1fZGV2aWNlLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9wbV9ydW50aW1lLmg+
-Cj4gICNpbmNsdWRlIDxsaW51eC90eXBlcy5oPgo+ICAjaW5jbHVkZSA8bGludXgvdXNiL2NvbXBv
-c2l0ZS5oPgoKQWNrZWQtYnk6IEhlcnZlIENvZGluYSA8aGVydmUuY29kaW5hQGJvb3RsaW4uY29t
-PgoKQmVzdCByZWdhcmRzLApIZXJ2w6kKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+When we test seccomp with 6.4 kernel, we found errno has wrong value.
+If we deny NETLINK_AUDIT with EAFNOSUPPORT, after f0bddf50586d, we will
+get ENOSYS instead. We got same result with 9c2598d43510 ("riscv: entry: Save a0
+prior syscall_enter_from_user_mode()").
+
+After analysing code, we think that regs->a0 = -ENOSYS should be advanced before
+syscall_enter_from_user_mode to fix this problem. In __seccomp_filter, when
+seccomp rejected this syscall with specified errno, they will set a0 to return
+number as syscall ABI, and then return -1. This return number is finally pass
+as return number of syscall_enter_from_user_mode, and then is compared
+with NR_syscalls after converted to ulong (so it will be ULONG_MAX).
+The condition syscall < NR_syscalls will always be false, so regs->a0 = -ENOSYS
+is always executable. It covered a0 set by seccomp, so we always get
+ENOSYS when match seccomp RET_ERRNO rule.
+
+Fixes: f0bddf50586d ("riscv: entry: Convert to generic entry")
+Reported-by: Felix Yan <felixonmars@archlinux.org>
+Co-developed-by: Ruizhe Pan <c141028@gmail.com>
+Signed-off-by: Ruizhe Pan <c141028@gmail.com>
+Co-developed-by: Shiqi Zhang <shiqi@isrc.iscas.ac.cn>
+Signed-off-by: Shiqi Zhang <shiqi@isrc.iscas.ac.cn>
+Signed-off-by: Celeste Liu <CoelacanthusHex@gmail.com>
+Tested-by: Felix Yan <felixonmars@archlinux.org>
+---
+
+v1 -> v2: added explanation on why always got ENOSYS
+
+ arch/riscv/kernel/traps.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index f910dfccbf5d2..ccadb5ffd063c 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -301,6 +301,7 @@ asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
+ 
+ 		regs->epc += 4;
+ 		regs->orig_a0 = regs->a0;
++		regs->a0 = -ENOSYS;
+ 
+ 		riscv_v_vstate_discard(regs);
+ 
+@@ -308,8 +309,6 @@ asmlinkage __visible __trap_section void do_trap_ecall_u(struct pt_regs *regs)
+ 
+ 		if (syscall < NR_syscalls)
+ 			syscall_handler(regs, syscall);
+-		else
+-			regs->a0 = -ENOSYS;
+ 
+ 		syscall_exit_to_user_mode(regs);
+ 	} else {
+-- 
+2.41.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
