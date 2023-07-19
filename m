@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA9DDC001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 13:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5B9C001B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 13:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=plFAhrr2vYlIuVQ35ZaIMj/Zkl4yPbuTa3lIjFG34yo=; b=W/KksHg0LzJV3/
-	z40H4+DbCbhMPbRWN4ctbO5pOkULEBpXkDHCJY1xgtvMn+jRtC8iTgACtFlyTwo9Xx/FidLSASUVy
-	4LFh0iU2a3diXMNnJDpvKvpjoMf75PDX9DwvPvAsAFsStwsXcPObcFOw0G2UG/f81qF0RPP54QTL8
-	8X5L54bhm5BWg0aSPJ/h8XJWBrhklB2a8xO5xIA3HYjU0tswfaWxJgTREITDlsqGX60X+FdnYcu6i
-	gFLXMNSbY1qPrPmrvhYNGpgFVx5F71DzhYjZOEsKFDl8l64p8tQsTAd9P+MyFYQG+KrBQwQQgxuJZ
-	JKbA26ZDlQVVLraMyb+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vISTwfQdwLnT/CWNnPkb/s7/GsP0k8lYoJ1tuNF7Q9w=; b=z4BZMVyX5z11qsAAE3TDUiKjcm
+	J9kEaW6ZNimlzNZrnsg4bFRkJrkZHkwfF1HK6aKi3nU4LPN8U9z6tpGIPBihtmw7fDJsyYgpavBlF
+	8Lbz3DEfgh5BtfzugrH3bDeBEqA63IAMHZwgvbAayGcDkZZcMWxgFaOYfj9KPKOzXGw3fy+/XhTkX
+	4NhTOtLkYyTwics0O1ZcFIYPx4eLP4hxI60IE6Vjz/cvHbFrzw8Zl3zrtlXCo9PBbIODa13TFVlp8
+	oMtTL0h1KpDA4w22H833mxT5hQeAlP3bb13b/1j5bk07O9dDkRopYt+5m+hlYGX99v4JlED2XdJvC
+	zWYX8h9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM76C-007YDu-1u;
-	Wed, 19 Jul 2023 13:20:12 +0000
+	id 1qM7Bf-007ZSQ-19;
+	Wed, 19 Jul 2023 13:25:51 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM768-007YCn-2R;
-	Wed, 19 Jul 2023 13:20:10 +0000
+	id 1qM7Bc-007ZR8-1e;
+	Wed, 19 Jul 2023 13:25:49 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3A667615E4;
-	Wed, 19 Jul 2023 13:20:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 682C8C433C7;
-	Wed, 19 Jul 2023 13:20:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C762961638;
+	Wed, 19 Jul 2023 13:25:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60714C433BA;
+	Wed, 19 Jul 2023 13:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689772807;
-	bh=yZoCxvNF5s0gL/fZtsW+zvWlIovQA8LgUz6UkdxGC18=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UTq8MODzPkzNer59YJUBnaaaoPdxMDZDwBTeY8DGvGFV0Up2TLiIY1wMf6+5fhnlI
-	 cRCT661pgtW/hgIqJdzB7uXVS6fr7ec5HYDp8jiaqBTk4w8Vn8NJsus6KEYayL8m5d
-	 T/iiWCvAVOWHaJKl2iHpKiWozVWYLww9Jfke1+rIYyTRlHHMJLeiNh9BtuFtWMkJ5l
-	 E491CvIsjUafNym+sOv7tMueGk4kMtBePOnANhV2Nrh994J1BCtfH+T2St7nD6TQAi
-	 QpRrVS+9cuoi7nuCFFEpCsJVA0DDCxC/Kt4/DOuwAZQ+fgKAou8UeOPtQQa0JeoCy7
-	 PzP9ndlDCHdVw==
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-992b2249d82so964276666b.1;
-        Wed, 19 Jul 2023 06:20:07 -0700 (PDT)
-X-Gm-Message-State: ABy/qLa4knPBd3G9arAOTo88yyCoF2l/UtGf59IV6dO7V0bMuv9dh+tF
-	v/U2xYZLDrb7Lvui9H3L8vdzMHT6fYcgQ8hKJIU=
-X-Google-Smtp-Source: APBJJlEDeW95vT+WNkySLB6ZtDyRARDMOnCg+A22VzfETzmrlrUEu1VhsXzk4cBSycG25SK3nm1qSXDZjkA6ddn0NTM=
-X-Received: by 2002:ac2:5f03:0:b0:4f6:47a2:7bb4 with SMTP id
- 3-20020ac25f03000000b004f647a27bb4mr10457024lfq.60.1689772785438; Wed, 19 Jul
- 2023 06:19:45 -0700 (PDT)
+	s=k20201202; t=1689773147;
+	bh=EyVLtL0y3pMG2CuYY0w75B4btgW07dMcezlAZDsSdHQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Gb9Diglh/i64PDngyNdt/GKb2Nk1ffhlx2iCYRVwYwJFFaIWeqdykk3XHsdIjxi+U
+	 ySo7EE75m9kyEmpGqZr+PUnM1neiLXdgMRuMhDCLMjYIpKB5stI7SDZFdeCnV7pSuT
+	 3rxlgGugHsMh6Yu2Y2ZMz7uzUyqXc5OaAdIZuONNkooR8IAwPmhrzZzWDT1N1DwHYx
+	 RlTVeZoCs4CL7meIUWNo6SyAJaBckf8cXgHWQ1TpJoo/sQRvPGvbROxf9n80ltzbXE
+	 5eGxexNIybAnY53SN4bcht+Z5iuvu040wYt+t4TGE0tkG8rPpOs8sUKiihTlsC+cQY
+	 ajt3gtR/VCWvQ==
+Date: Wed, 19 Jul 2023 14:25:38 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
+	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
+	"H.J. Lu" <hjl.tools@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 04/35] arm64/gcs: Document the ABI for Guarded Control
+ Stacks
+Message-ID: <01dd7853-953d-4715-8cf0-c2f500065b55@sirena.org.uk>
+References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
+ <20230716-arm64-gcs-v1-4-bf567f93bba6@kernel.org>
+ <20230719114437.GJ1901145@kernel.org>
 MIME-Version: 1.0
-References: <20230719123944.3438363-1-arnd@kernel.org> <20230719123944.3438363-10-arnd@kernel.org>
-In-Reply-To: <20230719123944.3438363-10-arnd@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 19 Jul 2023 15:19:34 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXF4YZXqG8Hu-dHZo3mxSk2d1n5gPPzQrPYPyFo1do=wFA@mail.gmail.com>
-Message-ID: <CAMj1kXF4YZXqG8Hu-dHZo3mxSk2d1n5gPPzQrPYPyFo1do=wFA@mail.gmail.com>
-Subject: Re: [PATCH v2 9/9] efi: move screen_info into efi init code
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-fbdev@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Helge Deller <deller@gmx.de>, Javier Martinez Canillas <javierm@redhat.com>, Arnd Bergmann <arnd@arndb.de>, 
-	"David S. Miller" <davem@davemloft.net>, "K. Y. Srinivasan" <kys@microsoft.com>, Borislav Petkov <bp@alien8.de>, 
-	Brian Cain <bcain@quicinc.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Daniel Vetter <daniel@ffwll.ch>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@gmail.com>, 
-	Deepak Rawat <drawat.floss@gmail.com>, Dexuan Cui <decui@microsoft.com>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Guo Ren <guoren@kernel.org>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Khalid Aziz <khalid@gonehiking.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Matt Turner <mattst88@gmail.com>, 
-	Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Russell King <linux@armlinux.org.uk>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Thomas Gleixner <tglx@linutronix.de>, WANG Xuerui <kernel@xen0n.name>, Wei Liu <wei.liu@kernel.org>, 
-	Will Deacon <will@kernel.org>, x86@kernel.org, linux-alpha@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-efi@vger.kernel.org, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-hyperv@vger.kernel.org, dri-devel@lists.freedesktop.org
+In-Reply-To: <20230719114437.GJ1901145@kernel.org>
+X-Cookie: They just buzzed and buzzed...buzzed.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_062008_877872_50EA7214 
-X-CRM114-Status: GOOD (  36.25  )
+X-CRM114-CacheID: sfid-20230719_062548_653690_742CFED8 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,252 +92,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5556525221938014825=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Jul 2023 at 14:41, Arnd Bergmann <arnd@kernel.org> wrote:
->
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> After the vga console no longer relies on global screen_info, there are
-> only two remaining use cases:
->
->  - on the x86 architecture, it is used for multiple boot methods
->    (bzImage, EFI, Xen, kexec) to commicate the initial VGA or framebuffer
->    settings to a number of device drivers.
->
->  - on other architectures, it is only used as part of the EFI stub,
->    and only for the three sysfb framebuffers (simpledrm, simplefb, efifb).
->
-> Remove the duplicate data structure definitions by moving it into the
-> efi-init.c file that sets it up initially for the EFI case, leaving x86
-> as an exception that retains its own definition for non-EFI boots.
->
-> The added #ifdefs here are optional, I added them to further limit the
-> reach of screen_info to configurations that have at least one of the
-> users enabled.
->
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+--===============5556525221938014825==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="I9qodeRa311/Bc25"
+Content-Disposition: inline
 
-> ---
->  arch/arm/kernel/setup.c                       |  4 ----
->  arch/arm64/kernel/efi.c                       |  4 ----
->  arch/arm64/kernel/image-vars.h                |  2 ++
->  arch/ia64/kernel/setup.c                      |  4 ----
->  arch/loongarch/kernel/efi.c                   |  3 ++-
->  arch/loongarch/kernel/image-vars.h            |  2 ++
->  arch/loongarch/kernel/setup.c                 |  5 -----
->  arch/riscv/kernel/image-vars.h                |  2 ++
->  arch/riscv/kernel/setup.c                     |  5 -----
->  drivers/firmware/efi/efi-init.c               | 14 +++++++++++++-
->  drivers/firmware/efi/libstub/efi-stub-entry.c |  8 +++++++-
->  11 files changed, 28 insertions(+), 25 deletions(-)
->
-> diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
-> index 86c2751f56dcf..135b7eff03f72 100644
-> --- a/arch/arm/kernel/setup.c
-> +++ b/arch/arm/kernel/setup.c
-> @@ -939,10 +939,6 @@ static struct screen_info vgacon_screen_info = {
->  };
->  #endif
->
-> -#if defined(CONFIG_EFI)
-> -struct screen_info screen_info;
-> -#endif
-> -
->  static int __init customize_machine(void)
->  {
->         /*
-> diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-> index 3afbe503b066f..ff2d5169d7f1f 100644
-> --- a/arch/arm64/kernel/efi.c
-> +++ b/arch/arm64/kernel/efi.c
-> @@ -71,10 +71,6 @@ static __init pteval_t create_mapping_protection(efi_memory_desc_t *md)
->         return pgprot_val(PAGE_KERNEL_EXEC);
->  }
->
-> -/* we will fill this structure from the stub, so don't put it in .bss */
-> -struct screen_info screen_info __section(".data");
-> -EXPORT_SYMBOL(screen_info);
-> -
->  int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
->  {
->         pteval_t prot_val = create_mapping_protection(md);
-> diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-> index 35f3c79595137..5e4dc72ab1bda 100644
-> --- a/arch/arm64/kernel/image-vars.h
-> +++ b/arch/arm64/kernel/image-vars.h
-> @@ -27,7 +27,9 @@ PROVIDE(__efistub__text                       = _text);
->  PROVIDE(__efistub__end                 = _end);
->  PROVIDE(__efistub___inittext_end               = __inittext_end);
->  PROVIDE(__efistub__edata               = _edata);
-> +#if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
->  PROVIDE(__efistub_screen_info          = screen_info);
-> +#endif
->  PROVIDE(__efistub__ctype               = _ctype);
->
->  PROVIDE(__pi___memcpy                  = __pi_memcpy);
-> diff --git a/arch/ia64/kernel/setup.c b/arch/ia64/kernel/setup.c
-> index 82feae1323f40..e91a91b5e9142 100644
-> --- a/arch/ia64/kernel/setup.c
-> +++ b/arch/ia64/kernel/setup.c
-> @@ -86,10 +86,6 @@ EXPORT_SYMBOL(local_per_cpu_offset);
->  #endif
->  unsigned long ia64_cycles_per_usec;
->  struct ia64_boot_param *ia64_boot_param;
-> -#if defined(CONFIG_EFI)
-> -/* No longer used on ia64, but needed for linking */
-> -struct screen_info screen_info;
-> -#endif
->  #ifdef CONFIG_VGA_CONSOLE
->  unsigned long vga_console_iobase;
->  unsigned long vga_console_membase;
-> diff --git a/arch/loongarch/kernel/efi.c b/arch/loongarch/kernel/efi.c
-> index 9fc10cea21e10..df7db34024e61 100644
-> --- a/arch/loongarch/kernel/efi.c
-> +++ b/arch/loongarch/kernel/efi.c
-> @@ -115,7 +115,8 @@ void __init efi_init(void)
->
->         set_bit(EFI_CONFIG_TABLES, &efi.flags);
->
-> -       init_screen_info();
-> +       if (IS_ENABLED(CONFIG_EFI_EARLYCON) || IS_ENABLED(CONFIG_SYSFB))
-> +               init_screen_info();
->
->         if (boot_memmap == EFI_INVALID_TABLE_ADDR)
->                 return;
-> diff --git a/arch/loongarch/kernel/image-vars.h b/arch/loongarch/kernel/image-vars.h
-> index e561989d02de9..5087416b9678d 100644
-> --- a/arch/loongarch/kernel/image-vars.h
-> +++ b/arch/loongarch/kernel/image-vars.h
-> @@ -12,7 +12,9 @@ __efistub_kernel_entry                = kernel_entry;
->  __efistub_kernel_asize         = kernel_asize;
->  __efistub_kernel_fsize         = kernel_fsize;
->  __efistub_kernel_offset                = kernel_offset;
-> +#if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
->  __efistub_screen_info          = screen_info;
-> +#endif
->
->  #endif
->
-> diff --git a/arch/loongarch/kernel/setup.c b/arch/loongarch/kernel/setup.c
-> index 77e7a3722caa6..4570c3149b849 100644
-> --- a/arch/loongarch/kernel/setup.c
-> +++ b/arch/loongarch/kernel/setup.c
-> @@ -16,7 +16,6 @@
->  #include <linux/dmi.h>
->  #include <linux/efi.h>
->  #include <linux/export.h>
-> -#include <linux/screen_info.h>
->  #include <linux/memblock.h>
->  #include <linux/initrd.h>
->  #include <linux/ioport.h>
-> @@ -57,10 +56,6 @@
->  #define SMBIOS_CORE_PACKAGE_OFFSET     0x23
->  #define LOONGSON_EFI_ENABLE            (1 << 3)
->
-> -#ifdef CONFIG_EFI
-> -struct screen_info screen_info __section(".data");
-> -#endif
-> -
->  unsigned long fw_arg0, fw_arg1, fw_arg2;
->  DEFINE_PER_CPU(unsigned long, kernelsp);
->  struct cpuinfo_loongarch cpu_data[NR_CPUS] __read_mostly;
-> diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
-> index 15616155008cc..89d92f9644d5e 100644
-> --- a/arch/riscv/kernel/image-vars.h
-> +++ b/arch/riscv/kernel/image-vars.h
-> @@ -27,7 +27,9 @@ __efistub__start              = _start;
->  __efistub__start_kernel                = _start_kernel;
->  __efistub__end                 = _end;
->  __efistub__edata               = _edata;
-> +#if defined(CONFIG_EFI_EARLYCON) || defined(CONFIG_SYSFB)
->  __efistub_screen_info          = screen_info;
-> +#endif
->
->  #endif
->
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index a3dbe13f45fb3..aea585dc8e8f3 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -15,7 +15,6 @@
->  #include <linux/memblock.h>
->  #include <linux/sched.h>
->  #include <linux/console.h>
-> -#include <linux/screen_info.h>
->  #include <linux/of_fdt.h>
->  #include <linux/sched/task.h>
->  #include <linux/smp.h>
-> @@ -39,10 +38,6 @@
->
->  #include "head.h"
->
-> -#if defined(CONFIG_EFI)
-> -struct screen_info screen_info __section(".data");
-> -#endif
-> -
->  /*
->   * The lucky hart to first increment this variable will boot the other cores.
->   * This is used before the kernel initializes the BSS so it can't be in the
-> diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
-> index ef0820f1a9246..d4987d0130801 100644
-> --- a/drivers/firmware/efi/efi-init.c
-> +++ b/drivers/firmware/efi/efi-init.c
-> @@ -55,6 +55,15 @@ static phys_addr_t __init efi_to_phys(unsigned long addr)
->
->  extern __weak const efi_config_table_type_t efi_arch_tables[];
->
-> +/*
-> + * x86 defines its own screen_info and uses it even without EFI,
-> + * everything else can get it from here.
-> + */
-> +#if !defined(CONFIG_X86) && (defined(CONFIG_SYSFB) || defined(CONFIG_EFI_EARLYCON))
-> +struct screen_info screen_info __section(".data");
-> +EXPORT_SYMBOL_GPL(screen_info);
-> +#endif
-> +
->  static void __init init_screen_info(void)
->  {
->         struct screen_info *si;
-> @@ -240,5 +249,8 @@ void __init efi_init(void)
->         memblock_reserve(data.phys_map & PAGE_MASK,
->                          PAGE_ALIGN(data.size + (data.phys_map & ~PAGE_MASK)));
->
-> -       init_screen_info();
-> +       if (IS_ENABLED(CONFIG_X86) ||
-> +           IS_ENABLED(CONFIG_SYSFB) ||
-> +           IS_ENABLED(CONFIG_EFI_EARLYCON))
-> +               init_screen_info();
->  }
-> diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
-> index 2f1902e5d4075..a6c0498351905 100644
-> --- a/drivers/firmware/efi/libstub/efi-stub-entry.c
-> +++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
-> @@ -13,7 +13,13 @@ struct screen_info *alloc_screen_info(void)
->  {
->         if (IS_ENABLED(CONFIG_ARM))
->                 return __alloc_screen_info();
-> -       return (void *)&screen_info + screen_info_offset;
-> +
-> +       if (IS_ENABLED(CONFIG_X86) ||
-> +           IS_ENABLED(CONFIG_EFI_EARLYCON) ||
-> +           IS_ENABLED(CONFIG_SYSFB))
-> +               return (void *)&screen_info + screen_info_offset;
-> +
-> +       return NULL;
->  }
->
->  /*
-> --
-> 2.39.2
->
+
+--I9qodeRa311/Bc25
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jul 19, 2023 at 02:44:37PM +0300, Mike Rapoport wrote:
+> On Sun, Jul 16, 2023 at 10:51:00PM +0100, Mark Brown wrote:
+
+> > +* When set PR_SHADOW_STACK_ENABLE flag allocates a Guarded Control Sta=
+ck for
+>=20
+>                                                  'for' here looks excessi=
+ve ^
+
+> > +  and enables GCS for the thread, enabling the functionality controlle=
+d by
+> > +  GCSPRE0_EL1.{nTR, RVCHKEN, PCRSEL}.
+
+It does scan fine to me as a native speaker.
+
+> > +7.  ptrace extensions
+> > +---------------------
+> > +
+> > +* A new regset NT_ARM_GCS is defined for use with PTRACE_GETREGSET and
+> > +  PTRACE_SETREGSET.
+> > +
+> > +* Due to the complexity surrounding allocation and deallocation of sta=
+kcs and
+> > +  lack of practical application changes to the GCS configuration via p=
+trace
+> > +  are not supported.
+
+> On x86 CRIU needed to be able to temporarily unlock shadow stack features
+> to recreate the shadow stack of the thread being restored. I presume CRIU
+> will need something like that on arm64 as well.
+
+It would be good to understand why and what exactly is needed here.
+I'm guessing the main thing would be stores?  It's relatively easy to
+add features later, I think I'll just add support for everything except
+enable just now.
+
+--I9qodeRa311/Bc25
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmS35FEACgkQJNaLcl1U
+h9ATlQf9HMvGT285Dxb1K98/IQO88I6xjkJKw25NyYtFdnj3sDQr/5mkdc17dstk
+89MZPCDWgwC0akok+8SB6yCnT8x6dYbpiCgo7RkJXlfEhqR+xhvrJ7N+VRcoW4Uz
+ZZuPeiCqQs9GwvjBL9y0oD00oCZeIh/tfYI0cti4uHuUDaIiOjy6E9x96TGWTxBu
+l85odWvjI7U0wOUXQQL9qoDQCBU3bO52EN0k30ch7ILF9YAwR/NgAISqgoHreQ7d
+LrmfFdQSTWQiqh9/zau9U7ZESH/kw3vLVBo/TZd+pzuMnc1g+rxyKEHVZoJi1DBh
+3Tt8WxOzSOFTarknQTMyOSKwRH7q9w==
+=EN0T
+-----END PGP SIGNATURE-----
+
+--I9qodeRa311/Bc25--
+
+
+--===============5556525221938014825==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5556525221938014825==--
+
