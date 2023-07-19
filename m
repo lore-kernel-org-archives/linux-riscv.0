@@ -4,84 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8864C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 16:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01657C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 16:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aN5FdEvnD9Dn5INZiOZdvWvETXwSLEmZWGYZeSODJGM=; b=AyxAiCIiOcVFv8
-	IfVjAh7WboKAdOUB/gh154I9bROOpUN5tThjYRdHQmmRwTKWDcEyNVnOcKGmgE+pllM42DYM8pBRn
-	hZOY47tSocrjOwZFRSy0FRQPBasbAaEnu1bA3T/I75PWMAgrN1PE2q0jj4N+MLJ4pzvu4fsgYK5i8
-	KJA7rrcw0If0l43MmUKhf4Gu45GtOWt16zl5cKNvKfvH5TqpAsgMFRTsjbEvAll99pE6AY83M5kLo
-	g1RIoUbMODcAWi1b4cmVXAzqqWyOjObepf44dgKjKy28zHlGpcX8my4HXMYxSukovw4OeJsRVRDa7
-	cuZkk7ZsIohCwUSj1oKA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KPVCkCtzAWyS4dkw98X7D6AmoEL8osMnTi5ZWzzYFQI=; b=xwi+xxcFslIjw7Fx/82pPPlVl7
+	vms3KwXo7/LTEAQorwo6H45tCboY0TaGng1XUCMoUyGI+nzGN0xl4Vq+3s20Sldp4jbC409+8bQ9Y
+	+tMCSYMz+QRuSiQe7aRMPhsHEJr7AXjkQ4uDr9xJXrs6Dt40wlJDzaOofsrIW7x281cgCPpwDYZ22
+	HkBpJtJQwdmichUU/rdZnqNaJO8RLs/riIEcCZKTPvS27ed20vYU19SBTrqWl9iTHczu9VOGE36fa
+	+J/vClt7zR3vfjJjq8MtTX4ab2RrxM4BvOoIQF4jZmkweknCVNFQ+hfLkUBHBnQmIn4osvwSqzLXK
+	mzzAc10w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM9f8-0083Zx-2t;
-	Wed, 19 Jul 2023 16:04:27 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1qMA1M-0088CV-31;
+	Wed, 19 Jul 2023 16:27:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM9f6-0083XA-0j
-	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 16:04:26 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-666e64e97e2so4815897b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 09:04:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1689782663; x=1692374663;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=U6Ksr06UW7Dx/X9GfjFaRawS2ArEeJDwaLwbdE4Z+oI=;
-        b=gbMcj59LZy5J2yd0G4ECck4eeK6B0alAQuPhASsWvrQy+rj257JzKKhSiYhAk3dVrK
-         LoOjrTr1VbKlW/iEmXcHuloWGSUrtJxVKFUJonl+23lcetNYYAdR0NhsUA9bYuwIvIt2
-         MxaXfI8jtJQDi6Q1ih4Xf/gELf+qL8GxHfO4xZ0kz0GO3dS8VlWz2fKoAR2+yLP0VuCJ
-         gefEP0xL8X2Po38BWSC0v4OtGzNNnfAC/hog1Ms0Gji10lm+rIMODP61kWIKEjxNardW
-         gmlXQyIq1curOIQdpyqQ/BuHzbGByJCw5sV0UF+tol4ZodypU+9aETbBRxXsfRMoD+56
-         lveg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689782663; x=1692374663;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U6Ksr06UW7Dx/X9GfjFaRawS2ArEeJDwaLwbdE4Z+oI=;
-        b=UUoQPoDWn16rAdzGTNDc+nHYOZeIhTQ550I/b4+w9dxkknu0fxr6d7Bph+5JXyNHnk
-         FkYkvbMg3NFWWca+VxtfF2OvOFiOLzTdFtyoZ68hdf24kU8otCzSBrl7H4c4WIkNo9f3
-         Wmou2ksH2eevygCNEuR9O9OZQLMGkPwGBh1aWNJZ1VYTbULGrsAbUjVTlMQO0btH5ARn
-         ed6rNXY/+g1zEa9Q5N+p/3Sp7v/ZqEvrzADHB4mfEYFwkTOxnzZavrdNDEjZv3l8B1x3
-         aUKIqetNo1XqPCBDwl5WZpoSp6N+32ToefXW3SPJyAJR/YA+r0Hc9KAMSB72CxUvmO2D
-         BglA==
-X-Gm-Message-State: ABy/qLYDP8sdIz82s3nxht3doErUyI4tLGONKlF6fh3pXImrhLM1kwJQ
-	yHOLLY3s9KtVuRbYb1ju7lSCig==
-X-Google-Smtp-Source: APBJJlElvOn4pA2ZpispydueJaKesDdcNrP8G0wq+FM1nCFEGE10XWG/v1rALVyw7TzIFAvBMm977A==
-X-Received: by 2002:a05:6a20:8e0d:b0:129:b68b:92db with SMTP id y13-20020a056a208e0d00b00129b68b92dbmr19415879pzj.42.1689782662504;
-        Wed, 19 Jul 2023 09:04:22 -0700 (PDT)
-Received: from mchitale-vm.. ([103.97.165.210])
-        by smtp.googlemail.com with ESMTPSA id i22-20020aa79096000000b00682936d04ccsm3447023pfa.180.2023.07.19.09.04.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Jul 2023 09:04:22 -0700 (PDT)
-From: Mayuresh Chitale <mchitale@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>
-Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
+	id 1qMA1K-0088Bi-0Y;
+	Wed, 19 Jul 2023 16:27:23 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 583B460CFA;
+	Wed, 19 Jul 2023 16:27:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3237C433C7;
+	Wed, 19 Jul 2023 16:27:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689784040;
+	bh=XbEPmA31oZMRWiZN/wN85PIb96SLRdEKgq1J7m5vtxc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J4tcxcqTKyyUqVyMbtaEo9Q0LzpqJnTIwaSF5IOWLoSRq/vBOfJ6cZZficeWnbUwR
+	 cQCDLsiQ4wbppO2a67AkZt3aDAMlNM1HZ5UYO+36Qg+nsZ5+A2wza0py1DY/Qw8ifO
+	 5niE7o3ewycZu1btxnRATrtutO+TpVBB4NllYiXvxbc2Vl8TRYNLWmVCJ1wIA1C0ns
+	 n1Kr2035PTVxKQNKhktJ6yLP6yp/qX1sURPegGYynXkU9KZY30S90tXBmnj7TIrht3
+	 uDYHkuYnZZUhezTAx5qOGrBdw8Mre5hs4/BOGOpP6ZZGtcXZr66xnUL+HIgnzAQBUD
+	 SA22cyHWwL0jQ==
+Date: Wed, 19 Jul 2023 17:27:16 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	Atish Patra <atishp@atishpatra.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org
-Subject: [PATCH v1 6/6] RISCV: KVM: Add sstateen0 to ONE_REG
-Date: Wed, 19 Jul 2023 21:33:16 +0530
-Message-Id: <20230719160316.4048022-7-mchitale@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230719160316.4048022-1-mchitale@ventanamicro.com>
+Subject: Re: [PATCH v1 1/6] RISC-V: Detect Smstateen extension
+Message-ID: <20230719-egomaniac-precook-adf506f2a141@spud>
 References: <20230719160316.4048022-1-mchitale@ventanamicro.com>
+ <20230719160316.4048022-2-mchitale@ventanamicro.com>
 MIME-Version: 1.0
+In-Reply-To: <20230719160316.4048022-2-mchitale@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_090424_298469_421063C9 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20230719_092722_271556_E1E8FFA6 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,121 +73,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3226159899854981871=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for sstateen0 CSR to the ONE_REG interface to allow its
-access from user space.
 
-Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
----
- arch/riscv/include/uapi/asm/kvm.h |  9 +++++++
- arch/riscv/kvm/vcpu.c             | 40 +++++++++++++++++++++++++++++++
- 2 files changed, 49 insertions(+)
+--===============3226159899854981871==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="YoZdAlb3QkXxrtyG"
+Content-Disposition: inline
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 74c7f42de29d..bdddfb20299a 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -93,6 +93,11 @@ struct kvm_riscv_aia_csr {
- 	unsigned long iprio2h;
- };
- 
-+/* Smstateen CSR for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-+struct kvm_riscv_smstateen_csr {
-+	unsigned long sstateen0;
-+};
-+
- /* TIMER registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
- struct kvm_riscv_timer {
- 	__u64 frequency;
-@@ -173,10 +178,14 @@ enum KVM_RISCV_SBI_EXT_ID {
- #define KVM_REG_RISCV_CSR		(0x03 << KVM_REG_RISCV_TYPE_SHIFT)
- #define KVM_REG_RISCV_CSR_GENERAL	(0x0 << KVM_REG_RISCV_SUBTYPE_SHIFT)
- #define KVM_REG_RISCV_CSR_AIA		(0x1 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-+#define KVM_REG_RISCV_CSR_SMSTATEEN	(0x2 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-+
- #define KVM_REG_RISCV_CSR_REG(name)	\
- 		(offsetof(struct kvm_riscv_csr, name) / sizeof(unsigned long))
- #define KVM_REG_RISCV_CSR_AIA_REG(name)	\
- 	(offsetof(struct kvm_riscv_aia_csr, name) / sizeof(unsigned long))
-+#define KVM_REG_RISCV_CSR_SMSTATEEN_REG(name)	\
-+	(offsetof(struct kvm_riscv_smstateen_csr, name) / sizeof(unsigned long))
- 
- /* Timer registers are mapped as type 4 */
- #define KVM_REG_RISCV_TIMER		(0x04 << KVM_REG_RISCV_TYPE_SHIFT)
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index ae750decbefe..af7549374c4b 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -507,6 +507,34 @@ static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
- 	return 0;
- }
- 
-+static inline int kvm_riscv_vcpu_smstateen_set_csr(struct kvm_vcpu *vcpu,
-+						   unsigned long reg_num,
-+						   unsigned long reg_val)
-+{
-+	struct kvm_vcpu_smstateen_csr *csr = &vcpu->arch.smstateen_csr;
-+
-+	if (reg_num >= sizeof(struct kvm_riscv_smstateen_csr) /
-+	    sizeof(unsigned long))
-+		return -EINVAL;
-+
-+	((unsigned long *)csr)[reg_num] = reg_val;
-+	return 0;
-+}
-+
-+static int kvm_riscv_vcpu_smstateen_get_csr(struct kvm_vcpu *vcpu,
-+					    unsigned long reg_num,
-+					    unsigned long *out_val)
-+{
-+	struct kvm_vcpu_smstateen_csr *csr = &vcpu->arch.smstateen_csr;
-+
-+	if (reg_num >= sizeof(struct kvm_riscv_smstateen_csr) /
-+	    sizeof(unsigned long))
-+		return -EINVAL;
-+
-+	*out_val = ((unsigned long *)csr)[reg_num];
-+	return 0;
-+}
-+
- static inline int kvm_riscv_vcpu_general_set_csr(struct kvm_vcpu *vcpu,
- 						 unsigned long reg_num,
- 						 unsigned long reg_val)
-@@ -552,6 +580,12 @@ static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
- 	case KVM_REG_RISCV_CSR_AIA:
- 		rc = kvm_riscv_vcpu_aia_get_csr(vcpu, reg_num, &reg_val);
- 		break;
-+	case KVM_REG_RISCV_CSR_SMSTATEEN:
-+		rc = -EINVAL;
-+		if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
-+			rc = kvm_riscv_vcpu_smstateen_get_csr(vcpu, reg_num,
-+							      &reg_val);
-+		break;
- 	default:
- 		rc = -EINVAL;
- 		break;
-@@ -591,6 +625,12 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
- 	case KVM_REG_RISCV_CSR_AIA:
- 		rc = kvm_riscv_vcpu_aia_set_csr(vcpu, reg_num, reg_val);
- 		break;
-+	case KVM_REG_RISCV_CSR_SMSTATEEN:
-+		rc = -EINVAL;
-+		if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
-+			rc = kvm_riscv_vcpu_smstateen_set_csr(vcpu, reg_num,
-+							      reg_val);
-+		break;
- 	default:
- 		rc = -EINVAL;
- 		break;
--- 
-2.34.1
 
+--YoZdAlb3QkXxrtyG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey,
+
+On Wed, Jul 19, 2023 at 09:33:11PM +0530, Mayuresh Chitale wrote:
+> Extend the ISA string parsing to detect the Smstateen extension
+>=20
+> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index bdcf460ea53d..41c3aefcc53f 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -301,6 +301,8 @@ void __init riscv_fill_hwcap(void)
+>  			} else {
+>  				/* sorted alphabetically */
+>  				SET_ISA_EXT_MAP("smaia", RISCV_ISA_EXT_SMAIA);
+> +				SET_ISA_EXT_MAP("smstateen",
+> +						RISCV_ISA_EXT_SMSTATEEN);
+
+This easily fits on one line & "smstateen" needs to be documented in
+riscv/extensions.yaml.
+
+Thanks,
+Conor.
+
+
+--YoZdAlb3QkXxrtyG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLgO5AAKCRB4tDGHoIJi
+0hdwAQCVXZ9YozskVSwO6qEuTPksodH40aDOQlOMkZt70eca6AEA1Z9aSgvWPABA
+hkPJfbccs7ZoU73NGMd/oOgLg13L5Q4=
+=u+Sh
+-----END PGP SIGNATURE-----
+
+--YoZdAlb3QkXxrtyG--
+
+
+--===============3226159899854981871==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3226159899854981871==--
+
