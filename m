@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1922BEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 14:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE19AC001DE
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 14:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,59 +13,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=o1PE/oPIvTN8fk8Z96Kf+AbFsWin3gRyXuuXuqqRfOY=; b=cHpRBMgKiPFn5CPvHn96ss386L
-	WR21/zLj5iMgtCUiPYMArt4tG7mmW1XJdJrroPj+kLqmx0xW+6lAVP6MeXJmXUmFYfeXIGMUZUchT
-	+DCoIYnO+avbWESgOi6n+cJAjCxy8N4R1YsTlxkMQFfo0RfoQY1LZLZBWQRu6/WTkSm8YxL74ojVD
-	dMIiITtr91DCsHuVUbOj+pu6xjU30xveAqjp1GwxSMnp3Y/R7wYdhM2v6qq9cihmCZWclOB7kLVm/
-	Tbf0ym8TEQlRXo8C1TcXZ78RYfaNhbW6VAjI5fNbFGicsXD/JxcrvcsFkTsxLQGxubr7K+OIUNJOb
-	FOnEaGCw==;
+	bh=VjsiJZ4Y+d+aZJd/XRaCsahl9FWhZsaOw/EUaEeNeO0=; b=xesDNdIAe+yr8jYWmp5Ft0Ze7M
+	cTip9mWhNqg0NWufpxrGQZh8NVg3V+KtYLbVB1ljHNhspu2YoO4yeZ5rK9zuhxnDeizf86aWY84AJ
+	a9Q0YvraIAn23IchV/9Tb2p135eX8to90M5IReWok4AAsYqzA0A8kQYU+BIQw+VSLA0VaTeHEHtgQ
+	O3oLMzNWm/6hc9bQb5S/y+tkM1XFTtgH7wwrr00kDE7H9pApfYVomJtEMh1n7XFT+zxB1IY0nq41A
+	yEPIIbaywB/lE2cbnLw6SmBVwM02qLZ/SL8vfBeuiQZdYufBB4qXNoYoGTeJVNB0hYqyvAea0twyo
+	/P5lIlmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM7xV-007gkx-17;
-	Wed, 19 Jul 2023 14:15:17 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1qM7zA-007h2o-2X;
+	Wed, 19 Jul 2023 14:17:00 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM7xR-007gjA-35
+	id 1qM7z7-007h1K-2L
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 14:15:15 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-1b8ad356f6fso36967075ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 07:15:12 -0700 (PDT)
+	Wed, 19 Jul 2023 14:16:59 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-267a0a0382eso2197437a91.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 07:16:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689776112; x=1692368112;
+        d=google.com; s=20221208; t=1689776216; x=1692368216;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZpT1srfgRytmcGt7uikxVNkA3BifxPUMvb756SCoWfo=;
-        b=j6O4A4Kn8RrMiTsmWugcLoaBmDhdEOi6nm13D61dQWbrv/4yDEEVo/KZUz/JqdfsPo
-         ZnKg9K95Lj7ZE2/dyLjlrZe55VZWZdtTVn9fgyfdtCrw5ElGnLLq/Qm5V23hi657OpUr
-         Ebqn7DpgmWmZ6MQquOf5BjnPEIp0JeTMJYNB26HnYKqlFJQ9PECoKhiIFC6MpAGppjwD
-         QEmzIJjuF0aS8nAXfMaVCs/HL9rulvVWCoWXejxaQyjwn7Vpfe71Kirx4tiYJoYvfJy1
-         s3tsizGDD9BtrGq0rYlfmNI7dH4xGaeqfoCnPAOEbyXtpSJtpl3/bu64M8d1b+aFanZ/
-         4psA==
+        bh=Ply9vOQ7PKiPIjqcvpgXEIwEBxatqkRJB2ZRy5lS2Xc=;
+        b=QCgn5pm8yPPImP/ZfLF2Ea0jJXDpcGNQ/LF2jNeNTBG71TLZwae17UnwEuo78ONGHP
+         atCG9sArqHfv277Ky9HWUevcQtozR/I9rfoMFWMGzH2p/tn1UptotifJkTzwcjUzjGM4
+         2mRccC+Qe6eelyvVpzgsii1Dz38eewFROpWBRyPZo22w72yv1RXU/kRjiIgbgdf4vOiO
+         m+eFtOZOtzemALwYg0UpO5hPIX4qNwingmWVGWsEqCwrs8u/CIQrQXsRy9c4nWVOA7nY
+         TgAf9p3r7jbBOiu0L+1TlKBrMt3e7HNn72eYqwvkzNmnIVVzm8emG5isi9/yOnMB2w1e
+         eLcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689776112; x=1692368112;
+        d=1e100.net; s=20221208; t=1689776216; x=1692368216;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZpT1srfgRytmcGt7uikxVNkA3BifxPUMvb756SCoWfo=;
-        b=hCljH7i+y2LvH8/yVu6gylyl8ayckjz7NQljO7YOXo00f6jjkWOsd6nb4YBPMpCw6h
-         2HCOiifcnidzNDKv02NOuNO5Vgyq9YE+M8F22RvjrOTitrmsgv6qJdLJNEr3Hg2VgcHc
-         eiE5SiJ6Wy2W3vUaTZhH8ZUOlY3CjGd8hHSmt60Is55VUPrm2Mp5l5vLNvskMd5pDhby
-         ZOqZk0hUUcYEzOiru//R+lG7msHZ950FSp/Wr2S8RZVrjAvDC0NfMVOHdKQKPNMEHbJO
-         jji5XZP1vk8So81ktnAVhMdpgH6rZWQRDrwOCLbwRF+0D7kI+RhO8gOmRy7BUNV9BIlA
-         O/gQ==
-X-Gm-Message-State: ABy/qLZPlkUSyeNFNoXc1pIh7F9DoX119qp/mQaUs7QW4AWD+J3FndCj
-	G+zyNDbN9PYYBVkmIow/XCd5Dzh1mQI=
-X-Google-Smtp-Source: APBJJlG/y4qA2BEDL4k7hIJJKli+sdbNpvQf/prgfQp/iya4mlyKn4vdU0WvDm35KgLLUXfLwfwgiDZvoZw=
+        bh=Ply9vOQ7PKiPIjqcvpgXEIwEBxatqkRJB2ZRy5lS2Xc=;
+        b=Li8zExdunXsDOKSks5HmNo3A6tmoPRcnmuh5DDnu4fT29s8SHyLE9uKV47ZOE+bnp6
+         pH6QeBN8QueS6phsF/AbQLGzT0PewlGbLNqdOeKA8s4EEEiEaj1X9UwM+FIbewVVY0Yo
+         HR+29U5Qv2YLBqQxVtidjw2XFNoikBHmW1Y0h9dyhZaXS6FiUgSfTftgOnSh4NBRZGPh
+         YaubVHvIxk60h8QQsVeuGmvW+3hKpcF77gQAwNJ37juDq6zCSEdPxAwu11YNo7ESpKU5
+         Mz/2YuT/bXlftV4JYLJnX7HhZKPGt0S7XR5KwIqtJfn0YLwWrRJD++L2S3AysAuUeXIV
+         j+4Q==
+X-Gm-Message-State: ABy/qLb5xWIjJ12S42B7FzPYHQuJpIcllmZ6/q/labUVAAL7GU3CQ2oY
+	Gz2iYdMTieZ2utHC55GJ8jk7d70alzE=
+X-Google-Smtp-Source: APBJJlHe5KmJdZof+vQtZ6M87xlqjK1Ejx8t4AB5DMX6de6h21FipxJ2lQkyFnlQoXRyf3eYpC2jq3S2bQ0=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:e812:b0:1ae:6895:cb96 with SMTP id
- u18-20020a170902e81200b001ae6895cb96mr14210plg.5.1689776111918; Wed, 19 Jul
- 2023 07:15:11 -0700 (PDT)
-Date: Wed, 19 Jul 2023 07:15:09 -0700
-In-Reply-To: <20230719073115.vuedo2cf3mp27xm4@yy-desk-7060>
+ (user=seanjc job=sendgmr) by 2002:a17:90a:e542:b0:25b:f9e3:deab with SMTP id
+ ei2-20020a17090ae54200b0025bf9e3deabmr136275pjb.9.1689776216142; Wed, 19 Jul
+ 2023 07:16:56 -0700 (PDT)
+Date: Wed, 19 Jul 2023 07:16:54 -0700
+In-Reply-To: <20230719075440.m3h653frqggaiusc@yy-desk-7060>
 Mime-Version: 1.0
-References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-6-seanjc@google.com>
- <20230719073115.vuedo2cf3mp27xm4@yy-desk-7060>
-Message-ID: <ZLfv7aRq5W52ezek@google.com>
-Subject: Re: [RFC PATCH v11 05/29] KVM: Convert KVM_ARCH_WANT_MMU_NOTIFIER to CONFIG_KVM_GENERIC_MMU_NOTIFIER
+References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-8-seanjc@google.com>
+ <20230719075440.m3h653frqggaiusc@yy-desk-7060>
+Message-ID: <ZLfwVki27oLBGO6D@google.com>
+Subject: Re: [RFC PATCH v11 07/29] KVM: Add KVM_EXIT_MEMORY_FAULT exit
 From: Sean Christopherson <seanjc@google.com>
 To: Yuan Yao <yuan.yao@linux.intel.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
@@ -89,8 +89,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_071513_998382_75A213BC 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20230719_071657_782478_DDDFA3FD 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,37 +108,33 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Wed, Jul 19, 2023, Yuan Yao wrote:
-> On Tue, Jul 18, 2023 at 04:44:48PM -0700, Sean Christopherson wrote:
-> > diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> > index 90a0be261a5c..d2d3e083ec7f 100644
-> > --- a/include/linux/kvm_host.h
-> > +++ b/include/linux/kvm_host.h
-> > @@ -255,7 +255,9 @@ bool kvm_setup_async_pf(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
-> >  int kvm_async_pf_wakeup_all(struct kvm_vcpu *vcpu);
-> >  #endif
+> On Tue, Jul 18, 2023 at 04:44:50PM -0700, Sean Christopherson wrote:
+> > From: Chao Peng <chao.p.peng@linux.intel.com>
 > >
-> > -#ifdef KVM_ARCH_WANT_MMU_NOTIFIER
-> > +struct kvm_gfn_range;
+> > This new KVM exit allows userspace to handle memory-related errors. It
+> > indicates an error happens in KVM at guest memory range [gpa, gpa+size).
+> > The flags includes additional information for userspace to handle the
+> > error. Currently bit 0 is defined as 'private memory' where '1'
+> > indicates error happens due to private memory access and '0' indicates
+> > error happens due to shared memory access.
 > 
-> Not sure why a declaration here, it's defined for ARCHs which defined
-> KVM_ARCH_WANT_MMU_NOTIFIER before.
+> Now it's bit 3:
 
-The forward declaration exists to handle cases where CONFIG_KVM=n, specifically
-arch/powerpc/include/asm/kvm_ppc.h's declaration of hooks to forward calls to
-uarch modules:
+Yeah, I need to update (or write) a lot of changelogs.
 
-	bool (*unmap_gfn_range)(struct kvm *kvm, struct kvm_gfn_range *range);
-	bool (*age_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
-	bool (*test_age_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
-	bool (*set_spte_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
+> #define KVM_MEMORY_EXIT_FLAG_PRIVATE (1ULL << 3)
+> 
+> I remember some other attributes were introduced in v10 yet:
+> 
+> #define KVM_MEMORY_ATTRIBUTE_READ              (1ULL << 0)
+> #define KVM_MEMORY_ATTRIBUTE_WRITE             (1ULL << 1)
+> #define KVM_MEMORY_ATTRIBUTE_EXECUTE           (1ULL << 2)
+> #define KVM_MEMORY_ATTRIBUTE_PRIVATE           (1ULL << 3)
+> 
+> So KVM_MEMORY_EXIT_FLAG_PRIVATE changed to bit 3 due to above things,
+> or other reason ? (Sorry I didn't follow v10 too much before).
 
-Prior to using a Kconfig, a forward declaration wasn't necessary because
-arch/powerpc/include/asm/kvm_host.h would #define KVM_ARCH_WANT_MMU_NOTIFIER even
-if CONFIG_KVM=n.
-
-Alternatively, kvm_ppc.h could declare the struct.  I went this route mainly to
-avoid the possibility of someone encountering the same problem on a different
-architecture.
+Yep, I want to reserve space for the RWX bits.
 
 _______________________________________________
 linux-riscv mailing list
