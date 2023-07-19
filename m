@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FE6C001DE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A45C001B0
 	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 10:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DnxC6ec+WQtxwYH2N8/6Up7dpEbrUEFxneEIqnszXBs=; b=zym9QBIruIPmUs
-	6Sbs/j69RahWAcOcU3PRZy7Vix8XVxivgHctLCW4epbfdr4JpGW28CaVgroex3FB5/ZrkiK2gFTk9
-	Rv3QpP07B+dUnGoeMuJxpsljXnmCLOgc5R9TjiV5KchwQy8T9BxDnY1CCrKFb6yO7oRV4pjpe3Anq
-	ImKShHV4e4BEGVzDRoipjegxEk0N0iDXn0Lks/WF7+HHCAixR7NwO8m7oJcSVFXYybl0iVluDr1gZ
-	r0b5lKY3IZ0rLUBta3ivNowt5jKNwt5ggG8c2kKRBnHrPrbMYKInHPWMIpFH6orXAn9gGkttZqRqR
-	FqFaUlT3yPtf7KhzXbJA==;
+	List-Owner; bh=Xh1sEJ5tdmk94oG+2+JN5IQoYoHGdxXqGCaF10d9Vzk=; b=Y9MefevNoUfr7u
+	9B+19eLdgQKItZFf/ZGK2OcV9aDYSAYy6o+QGAR0SC0dBr2bAfWD+nDWQrGwdN3CfD1IsxcA3eM9e
+	rLVJPqk7V1WXlGmQLyECig5xvu/RIc1xRk6q4Srg2bNmEt/qOHXuQNBE3mo6WxI/ZGR3bALvVWIVu
+	XkljMF73eA/WcI5HkJVkWw5p9jiey3Y7glUluTUijVO+5GKBijIjEn6Mzv54W4oyiPK+a1KgGjvyp
+	WKSoXXdl6trdLYx0fdbYnXgLoc+ditQ6JTPmuMLoAI2AFfwZ5mzMNezNpvlNNginQejE8VFYdncq+
+	/4qLwiR5MziBB5VuWXxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM4JJ-006g9u-2B;
-	Wed, 19 Jul 2023 10:21:33 +0000
+	id 1qM4JI-006g9I-2i;
+	Wed, 19 Jul 2023 10:21:32 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM4JD-006g2L-2B
+	id 1qM4JD-006g2J-2B
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 10:21:30 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Wed, 19 Jul 2023 10:21:29 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 5210781BB;
-	Wed, 19 Jul 2023 18:21:06 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 19 Jul
- 2023 18:21:06 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E88668175;
+	Wed, 19 Jul 2023 18:21:01 +0800 (CST)
+Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 19 Jul
+ 2023 18:21:02 +0800
 Received: from ubuntu.localdomain (113.72.147.86) by EXMBX171.cuchost.com
  (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 19 Jul
- 2023 18:21:05 +0800
+ 2023 18:21:00 +0800
 From: Minda Chen <minda.chen@starfivetech.com>
 To: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
 	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -52,9 +52,9 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>, Minda Chen
 	<minda.chen@starfivetech.com>
-Subject: [PATCH v1 7/9] dt-bindings: PCI: Add StarFive JH7110 PCIe controller
-Date: Wed, 19 Jul 2023 18:20:55 +0800
-Message-ID: <20230719102057.22329-8-minda.chen@starfivetech.com>
+Subject: [PATCH v1 2/9] dt-bindings: PCI: microchip: Remove the PLDA common properties
+Date: Wed, 19 Jul 2023 18:20:50 +0800
+Message-ID: <20230719102057.22329-3-minda.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230719102057.22329-1-minda.chen@starfivetech.com>
 References: <20230719102057.22329-1-minda.chen@starfivetech.com>
@@ -64,8 +64,9 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX171.cuchost.com
  (172.16.6.91)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_032128_062803_B435B414 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20230719_032128_057211_124722CC 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,160 +83,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add StarFive JH7110 SoC PCIe controller dt-bindings.
-JH7110 using PLDA XpressRICH PCIe host controller IP.
+Add plda,xpressrich-pcie-common.yaml reference and
+remove the PLDA XpressRICH PCIe host common properties.
 
 Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
-Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- .../bindings/pci/starfive,jh7110-pcie.yaml    | 138 ++++++++++++++++++
- 1 file changed, 138 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
+ .../bindings/pci/microchip,pcie-host.yaml     | 45 +------------------
+ 1 file changed, 1 insertion(+), 44 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-new file mode 100644
-index 000000000000..467286df557d
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
-@@ -0,0 +1,138 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/starfive,jh7110-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: StarFive JH7110 PCIe host controller
-+
-+maintainers:
-+  - Minda Chen <minda.chen@starfivetech.com>
-+
-+allOf:
-+  - $ref: /schemas/pci/pci-bus.yaml#
+diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+index f7a3c2636355..cf2a14e9b91b 100644
+--- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
++++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+@@ -11,20 +11,13 @@ maintainers:
+ 
+ allOf:
+   - $ref: /schemas/pci/pci-bus.yaml#
 +  - $ref: plda,xpressrich-pcie-common.yaml#
-+  - $ref: /schemas/interrupt-controller/msi-controller.yaml#
-+  - $ref: /schemas/gpio/gpio-consumer-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: starfive,jh7110-pcie
-+
-+  clocks:
-+    items:
-+      - description: NOC bus clock
-+      - description: Transport layer clock
-+      - description: AXI MST0 clock
-+      - description: APB clock
-+
-+  clock-names:
-+    items:
-+      - const: noc
-+      - const: tl
-+      - const: axi_mst0
-+      - const: apb
-+
-+  resets:
-+    items:
-+      - description: AXI MST0 reset
-+      - description: AXI SLAVE reset
-+      - description: AXI SLAVE0 reset
-+      - description: PCIE BRIDGE reset
-+      - description: PCIE CORE reset
-+      - description: PCIE APB reset
-+
-+  reset-names:
-+    items:
-+      - const: mst0
-+      - const: slv0
-+      - const: slv
-+      - const: brg
-+      - const: core
-+      - const: apb
-+
-+  starfive,stg-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to System Register Controller stg_syscon node.
-+          - description: register0 offset of STG_SYSCONSAIF__SYSCFG register for PCIe.
-+          - description: register1 offset of STG_SYSCONSAIF__SYSCFG register for PCIe.
-+          - description: register2 offset of STG_SYSCONSAIF__SYSCFG register for PCIe.
-+          - description: register3 offset of STG_SYSCONSAIF__SYSCFG register for PCIe.
-+    description:
-+      The phandle to System Register Controller syscon node and the offset
-+      of STG_SYSCONSAIF__SYSCFG register for PCIe. Total 4 regsisters offset
-+      for PCIe.
-+
-+  phys:
-+    description:
-+      Specified PHY is attached to PCIe controller.
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - "#interrupt-cells"
-+  - interrupts
-+  - interrupt-map-mask
-+  - interrupt-map
-+  - clocks
-+  - resets
-+  - starfive,stg-syscon
-+  - msi-controller
-+  - reset-gpios
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pcie0: pcie@2b000000 {
-+            compatible = "starfive,jh7110-pcie";
-+            reg = <0x0 0x2b000000 0x0 0x1000000>,
-+                  <0x9 0x40000000 0x0 0x10000000>;
-+            reg-names = "host", "cfg";
-+            #address-cells = <3>;
-+            #size-cells = <2>;
-+            #interrupt-cells = <1>;
-+            device_type = "pci";
-+            ranges = <0x82000000  0x0 0x30000000  0x0 0x30000000 0x0 0x08000000>,
-+                     <0xc3000000  0x9 0x00000000  0x9 0x00000000 0x0 0x40000000>;
-+            starfive,stg-syscon = <&stg_syscon 0xc0 0xc4 0x130 0x1b8>;
-+            bus-range = <0x0 0xff>;
-+            interrupt-parent = <&plic>;
-+            interrupts = <56>;
-+            interrupt-map-mask = <0x0 0x0 0x0 0x7>;
-+            interrupt-map = <0x0 0x0 0x0 0x1 &pcie_intc0 0x1>,
-+                            <0x0 0x0 0x0 0x2 &pcie_intc0 0x2>,
-+                            <0x0 0x0 0x0 0x3 &pcie_intc0 0x3>,
-+                            <0x0 0x0 0x0 0x4 &pcie_intc0 0x4>;
-+            msi-parent = <&pcie0>;
-+            msi-controller;
-+            clocks = <&syscrg 86>,
-+                     <&stgcrg 10>,
-+                     <&stgcrg 8>,
-+                     <&stgcrg 9>;
-+            clock-names = "noc", "tl", "axi_mst0", "apb";
-+            resets = <&stgcrg 11>,
-+                     <&stgcrg 12>,
-+                     <&stgcrg 13>,
-+                     <&stgcrg 14>,
-+                     <&stgcrg 15>,
-+                     <&stgcrg 16>;
-+            reset-gpios = <&gpios 26 GPIO_ACTIVE_LOW>;
-+            phys = <&pciephy0>;
-+
-+            pcie_intc0: interrupt-controller {
-+                #address-cells = <0>;
-+                #interrupt-cells = <1>;
-+                interrupt-controller;
-+            };
-+        };
-+    };
+   - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+ 
+ properties:
+   compatible:
+     const: microchip,pcie-host-1.0 # PolarFire
+ 
+-  reg:
+-    maxItems: 2
+-
+-  reg-names:
+-    items:
+-      - const: cfg
+-      - const: apb
+-
+   clocks:
+     description:
+       Fabric Interface Controllers, FICs, are the interface between the FPGA
+@@ -52,18 +45,6 @@ properties:
+     items:
+       pattern: '^fic[0-3]$'
+ 
+-  interrupts:
+-    minItems: 1
+-    items:
+-      - description: PCIe host controller
+-      - description: builtin MSI controller
+-
+-  interrupt-names:
+-    minItems: 1
+-    items:
+-      - const: pcie
+-      - const: msi
+-
+   ranges:
+     maxItems: 1
+ 
+@@ -71,30 +52,6 @@ properties:
+     minItems: 1
+     maxItems: 6
+ 
+-  msi-controller:
+-    description: Identifies the node as an MSI controller.
+-
+-  msi-parent:
+-    description: MSI controller the device is capable of using.
+-
+-  interrupt-controller:
+-    type: object
+-    properties:
+-      '#address-cells':
+-        const: 0
+-
+-      '#interrupt-cells':
+-        const: 1
+-
+-      interrupt-controller: true
+-
+-    required:
+-      - '#address-cells'
+-      - '#interrupt-cells'
+-      - interrupt-controller
+-
+-    additionalProperties: false
+-
+ required:
+   - reg
+   - reg-names
 -- 
 2.17.1
 
