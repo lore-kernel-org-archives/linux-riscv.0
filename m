@@ -4,85 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54195EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 14:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3C5EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 14:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eqLUnJoWddykS54nFUwsaYIhc1RHLgHR0PFEWEQCcuc=; b=ZHkjRb3eSCP9mP
-	p+RAN+gSaMVL+D31pxv54pwZImXplwOBLD1Ro4EKdiPGN2e/6mhJazt4wPVc5mkLs6EriLHt7VCpv
-	JRws9s5+dHjKEagfuyW7C+Uzeq+yWKMdzqjQF+pH/WV5kCtHltIxwjXJSEjhne10uzTOJEbLfWfz/
-	RWiLXqucpowO9upCeLlAamkIihqbAZRRu0VAbt55rJEjEIi4PjVS1Ap+iqo9rVEc+8n3PsgJycUuO
-	QEK4LWvGrZuxusoL7ALivEXJGNnsoqMmd+lJK7JZYUNNLDyjVwIcof8qj1B+dYSaOHI9Br7rja2Un
-	EVu/F3IcnUSjxBTjCwJQ==;
+	List-Owner; bh=qTjRvb/QfLNjpRtNxlWBHMNJQEzP06trON4PO57jwaw=; b=GDCtDZhcyXEJic
+	+5Jb7MrSLwUt5bK0ZhCDUixVmw0+02WDBieEXKynpl6XoGLGnDAFdCLyX6TVrUJb1UlcvTObG/QBI
+	e8kxcSMARX0cFcTWNmDmFkC/HLRPZbrz6BnRuUCO7Dx5cox/e4J//TF6A2R6ZbykAGr1wqWJ+FK1J
+	vVLFjmTzUMGY+cQhcDP+mxsKgHKKKsilpBX9ebr053jMLWJVfSV1OF/I8PUjM2Af4as73g7wtCmiU
+	ckHnPQ/MiKkeuJOAJdOs0EMp+Td4uY4EA0VWeX/oFEiad5YPCYJlvOklYGhZ05nxC65EXgRZvIMp/
+	WQhVyvgqIP1Vzb1M8nZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM81W-007hTN-1z;
-	Wed, 19 Jul 2023 14:19:26 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1qM85z-007i5X-15;
+	Wed, 19 Jul 2023 14:24:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM81T-007hS3-08
+	id 1qM85w-007i4b-1B
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 14:19:24 +0000
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 0825E3F460
-	for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 14:19:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1689776358;
-	bh=GQssMG4sr5GfDopggRQSgpxYtYsDKGG3T/Izx89s/GE=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=JybAVPAjMvYjjfEzzHmz1PlXhAYbvXvCCYVnZi43bf3W440fSnVqsYfT4hciGasJh
-	 ybySqwHY0tEzQg6hh489+v4pHZ8FyYg699+2f3VVOd+sgLrsHRJ3YbRwDUl44cuIuz
-	 XLcP3uVvzPlafIKtbsvIl4Y2LPzmxFeb9+qo3nouVpgwKkLeriqDSn5Ve3gnCRi+Me
-	 JMCXB/NOZVIa4h0w5wILU5moSvjScdvbNahFUa/3coYJWLj2zLjtRhJMuH+0HfqvlF
-	 VqNMAJ3+omzBhJ4LMhkMwaOeoQQVKurT/HJdKxBg9wbJGzQPvxlZ3VzuYlJ2/dek1J
-	 ofU0HGWNYNtLQ==
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-403fe35b393so15264091cf.3
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 07:19:17 -0700 (PDT)
+	Wed, 19 Jul 2023 14:24:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689776639;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AYL0WxfELPHjwx6ZiDqavEiQQIijrcopNRfhrvLV03A=;
+	b=DGl5JY9HyulFIN/2+f+illzXjr1CUuSPQJD1122DRrwP6xZ92xeN2pjhyAJKxa+HgV3FIl
+	MynIC41Cm5gBRFdGnOCNo1AIeuuXPtrvlxSorh2+q4UwJ7JZyfc3uHorXVkAiFh5mHtz0H
+	ecT14gFgxtldx91wuKFNLDzERZKBYqE=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-97-6j_NtpITNda1whCSAWizBA-1; Wed, 19 Jul 2023 10:23:56 -0400
+X-MC-Unique: 6j_NtpITNda1whCSAWizBA-1
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-3fc07d4c63eso3737065e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 07:23:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689776355; x=1690381155;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GQssMG4sr5GfDopggRQSgpxYtYsDKGG3T/Izx89s/GE=;
-        b=aw3HwABQjVV1lTQPfhx8opUZ/6vCUnrk0c6OENdzkjAzjGiMBtZnrWwHwT/m2YDwT/
-         O1KZ1kLkj1Z38+Zr+HDhNQpK4uwdPUDvTcuJOKqMKIU5yE+CjpVyDI6DWtiRC2uLMVNv
-         RLUEVVfxfI6gB6oWsH8QM4d1hwz/qBaEjqzICPACykXt+iKfDkYyPrmvC4djKaJXEySk
-         SRqMbp8zHx1qdDCosZeGLtsdiTY5YiCw5b3PH9Z1RoHbETpPH69/vtGdTNIMNIu0ev6D
-         9hTvGgS5h5DwaXQ7tYD25RlnE/xfGjFENOAoGL8Z8tJ/1g+NzK91q3A2fW6WFu912CGT
-         yA9w==
-X-Gm-Message-State: ABy/qLbXkGGfpX2d2+37Q62TPEZ5ZnQoHsEphOebi9xTn5hYMjanU5t4
-	OYi6tODOXbCJNAjhDSpwVjPOzgRi3hFF108/bagkR3nvtbPWVGP8AAUnASrDkn+/UpLErmRdhu3
-	okYko3J4B8KjZsQA24hIrQnNYcPfYaFrTY7EBWTWWecgz24N3YLfjPxqpoEuLRA==
-X-Received: by 2002:a05:622a:1043:b0:403:e841:58cf with SMTP id f3-20020a05622a104300b00403e84158cfmr7250706qte.10.1689776355283;
-        Wed, 19 Jul 2023 07:19:15 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlF6ArzibyjU/HIAo8zVRkK4K5uiAaxY67dwKUBWu+e77t8a+bRUMd76ruBG00lvDGu4BDbxlfoFwop3e5WhMrI=
-X-Received: by 2002:a05:622a:1043:b0:403:e841:58cf with SMTP id
- f3-20020a05622a104300b00403e84158cfmr7250684qte.10.1689776355066; Wed, 19 Jul
- 2023 07:19:15 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1689776635; x=1690381435;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AYL0WxfELPHjwx6ZiDqavEiQQIijrcopNRfhrvLV03A=;
+        b=fFynw7fzuxi6Ljzo6zjW05f/k5s+ENt4v7JUfhKUGdwUpGQHlIFtK8HSydDsiLK7LG
+         K1+QVClFq4AoZ6khKx1nwJZgqN9VpJlJ4rsrDOoo2e/8Dw2sZPpeh6ky37URg7HBukYx
+         HUyDiGO/TGxfdbDQi1sF2HHlKv2NReVmMG1l/HjGhhh9dC+TVmSZnSsfEe+bKE0GYm3E
+         GJtE2/7CEYVnxCPRHd6ApjjnQ0bgaPqTXDEzKvv+owvzN7fEqYssyK8qCj5VXNYCWk0Y
+         rai4L+uvim1nVngJFBbjS9gBvj5k6ZZcfFdzCKu7uvHye7o30Gx1gWBjPuAW/JGiNI1J
+         ueqQ==
+X-Gm-Message-State: ABy/qLbFl8ws36Qx1gGl8cBSxmayWQAkLqC4NtkfGuHFHvkWw/whj8/v
+	ZgOa12aSr6QCT0wnOjavK3Z+poHyJ8riqGueOHJ5PMu+GzU2QpuEPrHel9+hj+S7DH7WvCx6V/U
+	GQ7/p6w38MNNMoAwcShPC0XIHt7jr
+X-Received: by 2002:adf:f406:0:b0:317:15f5:a1cc with SMTP id g6-20020adff406000000b0031715f5a1ccmr41789wro.22.1689776635697;
+        Wed, 19 Jul 2023 07:23:55 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlHAuWaDn4wkaE25f0gFYugdobiggD0h46Z8p4U2s3LOHj24u3Bx+1zUs1XU1djJ3aSjiu0SQg==
+X-Received: by 2002:adf:f406:0:b0:317:15f5:a1cc with SMTP id g6-20020adff406000000b0031715f5a1ccmr41757wro.22.1689776635405;
+        Wed, 19 Jul 2023 07:23:55 -0700 (PDT)
+Received: from localhost (205.pool92-176-231.dynamic.orange.es. [92.176.231.205])
+        by smtp.gmail.com with ESMTPSA id q19-20020a056000137300b003143d80d11dsm5429196wrz.112.2023.07.19.07.23.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Jul 2023 07:23:54 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Arnd Bergmann <arnd@kernel.org>, linux-fbdev@vger.kernel.org, Thomas
+ Zimmermann <tzimmermann@suse.de>, Helge Deller <deller@gmx.de>
+Cc: Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>, Catalin
+ Marinas <catalin.marinas@arm.com>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Daniel Vetter <daniel@ffwll.ch>, Dave
+ Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@gmail.com>,
+ Deepak Rawat <drawat.floss@gmail.com>, Dexuan Cui <decui@microsoft.com>,
+ Dinh Nguyen <dinguyen@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>, Haiyang Zhang
+ <haiyangz@microsoft.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, John Paul Adrian Glaubitz
+ <glaubitz@physik.fu-berlin.de>, Khalid Aziz <khalid@gonehiking.org>, Linus
+ Walleij <linus.walleij@linaro.org>, Matt Turner <mattst88@gmail.com>, Max
+ Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Russell King <linux@armlinux.org.uk>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, WANG
+ Xuerui <kernel@xen0n.name>, Wei Liu <wei.liu@kernel.org>, Will Deacon
+ <will@kernel.org>, x86@kernel.org, linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-efi@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2 7/9] vga16fb: drop powerpc support
+In-Reply-To: <20230719123944.3438363-8-arnd@kernel.org>
+References: <20230719123944.3438363-1-arnd@kernel.org>
+ <20230719123944.3438363-8-arnd@kernel.org>
+Date: Wed, 19 Jul 2023 16:23:53 +0200
+Message-ID: <87a5vshtdy.fsf@minerva.mail-host-address-is-not-set>
 MIME-Version: 1.0
-References: <20230717210356.2794736-1-samuel.holland@sifive.com> <20230717210356.2794736-2-samuel.holland@sifive.com>
-In-Reply-To: <20230717210356.2794736-2-samuel.holland@sifive.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Wed, 19 Jul 2023 16:18:59 +0200
-Message-ID: <CAJM55Z9B6atT_t4321kOCGWoeqLxe+ZBsJDr4BeV1byaeYw5fw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] clk: sifive: Allow building the driver as a module
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Yang Li <yang.lee@linux.alibaba.com>, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_071923_221888_925A4F75 
-X-CRM114-Status: GOOD (  23.69  )
+X-CRM114-CacheID: sfid-20230719_072400_501652_56ACD9DE 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,72 +123,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Jul 2023 at 10:07, Samuel Holland <samuel.holland@sifive.com> wrote:
+Arnd Bergmann <arnd@kernel.org> writes:
+
+> From: Arnd Bergmann <arnd@arndb.de>
 >
-> This can reduce the kernel image size in multiplatform configurations.
-
-I don't mind this, but booting without this driver also means there is
-no uart for debug output or any other peripheral until the kernel gets
-to the initrd to load the driver. Does the earlycon console work all
-the way until we reach the initrd? Otherwise I can't imagine many
-scenarios where configuring this as a module is desirable.
-
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> I noticed that commit 0db5b61e0dc07 ("fbdev/vga16fb: Create
+> EGA/VGA devices in sysfb code") broke vga16fb on non-x86 platforms,
+> because the sysfb code never creates a vga-framebuffer device when
+> screen_info.orig_video_isVGA is set to '1' instead of VIDEO_TYPE_VGAC.
+>
+> However, it turns out that the only architecture that has allowed
+> building vga16fb in the past 20 years is powerpc, and this only worked
+> on two 32-bit platforms and never on 64-bit powerpc. The last machine
+> that actually used this was removed in linux-3.10, so this is all dead
+> code and can be removed.
+>
+> The big-endian support in vga16fb.c could also be removed, but I'd just
+> leave this in place.
+>
+> Fixes: 933ee7119fb14 ("powerpc: remove PReP platform")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->
->  drivers/clk/sifive/Kconfig       | 2 +-
->  drivers/clk/sifive/sifive-prci.c | 8 +++-----
->  2 files changed, 4 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/clk/sifive/Kconfig b/drivers/clk/sifive/Kconfig
-> index 2322f634a910..49597d95602e 100644
-> --- a/drivers/clk/sifive/Kconfig
-> +++ b/drivers/clk/sifive/Kconfig
-> @@ -10,7 +10,7 @@ menuconfig CLK_SIFIVE
->  if CLK_SIFIVE
->
->  config CLK_SIFIVE_PRCI
-> -       bool "PRCI driver for SiFive SoCs"
-> +       tristate "PRCI driver for SiFive SoCs"
->         default ARCH_SIFIVE
->         select RESET_CONTROLLER
->         select RESET_SIMPLE
-> diff --git a/drivers/clk/sifive/sifive-prci.c b/drivers/clk/sifive/sifive-prci.c
-> index e317f3454e93..8c67d1a7c8df 100644
-> --- a/drivers/clk/sifive/sifive-prci.c
-> +++ b/drivers/clk/sifive/sifive-prci.c
-> @@ -7,6 +7,7 @@
->  #include <linux/clkdev.h>
->  #include <linux/delay.h>
->  #include <linux/io.h>
-> +#include <linux/module.h>
->  #include <linux/of_device.h>
->  #include "sifive-prci.h"
->  #include "fu540-prci.h"
-> @@ -618,9 +619,6 @@ static struct platform_driver sifive_prci_driver = {
->         },
->         .probe = sifive_prci_probe,
->  };
-> +module_platform_driver(sifive_prci_driver);
->
-> -static int __init sifive_prci_init(void)
-> -{
-> -       return platform_driver_register(&sifive_prci_driver);
-> -}
-> -core_initcall(sifive_prci_init);
 
-Maybe also add the MODULE_AUTHOR() and MODULE_DESCRIPTION() macros
-while you're at it.
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
 
-> +MODULE_LICENSE("GPL");
-> --
-> 2.40.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+-- 
+Best regards,
+
+Javier Martinez Canillas
+Core Platforms
+Red Hat
+
 
 _______________________________________________
 linux-riscv mailing list
