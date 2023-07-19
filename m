@@ -4,63 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA098C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 15:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC54EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 15:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ek+yVgxJs3Woqklr9vB4HnqYvKhgIZK3WVzZy7g9scw=; b=iO7yii8u4zU40U
-	ZEzKzwDbl0Gl8bCRYKiq7HtreIwP9yKEwMHlMzAJuqDgtISZWyHpW3Rz5ToZs4L4GvqF3Bve2KOKY
-	fKIhWbWlwp0LvWFJ6mYrB6tKALUaJZYE97SDQA4h028l4IRyacIMPjPYe/Xz9pr1P/OKT1kG1wRxs
-	nFihqXOc6FRBst2/mdfzHXmpzjmfwWif/5OvFUfi+qdyrF3IAQx5zjQrsFzvVFbW+sFxI5I8n/mgl
-	QOb4xCC4pGMYsVpft76smeE83PpX0WsLNrIjdkXNjQVeGh9/ogs5W1o5BBJrP1Ospsf7130b19aai
-	Aul3U5WufALFeF7K8VmA==;
+	List-Owner; bh=FOXk71hnteBdUwEvEuWUmJ4cudrU41NV6yTIHYkQk8c=; b=RVFa70ySpwKWcI
+	TETZzXz5o2u/YvL21YVOL5EXXEtlv962uiHMreHV6jwjDZqZHHMWCw1U+54U3droU/13HwjDwv31e
+	F2CwAuF/NUNrq+W9+Oa+giXB4UznKkpJRkjuXjEYsKAfBuQWWr5uhiGlrQa2Hrk3RUULrZ9laOeBu
+	/LduHIW54FMrMWefg1I7zSvg4t8Cb08CGl+03PyDgmgh8b//TvtY9gxwR7Lzk3Depmh5uxhI9hSWm
+	lDRMOyO8C3MOor8RPQokUasQjAEgWe/BCJSYd7XXMrsL/DKwZeEef+pAiAQ7Tky3LLQM7O0LVOGhH
+	Zj8ZEMpSw2s0+/Oan58A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM9Nm-007zGl-2H;
-	Wed, 19 Jul 2023 15:46:30 +0000
-Received: from 10.mo584.mail-out.ovh.net ([188.165.33.109])
+	id 1qM9RU-0080Fb-2s;
+	Wed, 19 Jul 2023 15:50:20 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM8RL-007mwV-1E
+	id 1qM9RQ-0080DO-1M
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 14:46:09 +0000
-Received: from director8.ghost.mail-out.ovh.net (unknown [10.109.143.3])
-	by mo584.mail-out.ovh.net (Postfix) with ESMTP id 57A9121193
-	for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 14:46:00 +0000 (UTC)
-Received: from ghost-submission-6684bf9d7b-vmrfz (unknown [10.110.171.117])
-	by director8.ghost.mail-out.ovh.net (Postfix) with ESMTPS id 12A6A1FD18;
-	Wed, 19 Jul 2023 14:45:58 +0000 (UTC)
-Received: from courmont.net ([37.59.142.106])
-	by ghost-submission-6684bf9d7b-vmrfz with ESMTPSA
-	id hQaDOib3t2TqZgAAVw4Xwg
-	(envelope-from <remi@remlab.net>); Wed, 19 Jul 2023 14:45:58 +0000
-Authentication-Results: garm.ovh; auth=pass (GARM-106R006f1f5ee59-9d59-4f77-aa40-2a724a7ea83b,
-                    EAC8E2D8683B439879DFB44EAE753B92CD951686) smtp.auth=postmaster@courmont.net
-X-OVh-ClientIp: 87.92.194.88
-From: =?ISO-8859-1?Q?R=E9mi?= Denis-Courmont <remi@remlab.net>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Aurelien Jarno <aurelien@aurel32.net>, Mathieu Malaterre <malat@debian.org>,
- Jan Newger <jannewger@google.com>
-Subject: Re: [PATCH v4 00/10] riscv: Allow userspace to directly access perf counters
-Date: Wed, 19 Jul 2023 17:45:57 +0300
-Message-ID: <5951331.lOV4Wx5bFT@basile.remlab.net>
-Organization: Remlab
-In-Reply-To: <CAOnJCU+W9u+HnMfjU_y9W7331Zx07eQs9R1twV0=KsBAeSMSjw@mail.gmail.com>
-References: <20230703124647.215952-1-alexghiti@rivosinc.com>
- <8756384.Zvl9fuB8X0@basile.remlab.net>
- <CAOnJCU+W9u+HnMfjU_y9W7331Zx07eQs9R1twV0=KsBAeSMSjw@mail.gmail.com>
+	Wed, 19 Jul 2023 15:50:19 +0000
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id DE3943F230
+	for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 15:50:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1689781814;
+	bh=lBkd8y3XOzT/fx92qUyW7CMl9N9JYFVT6xHfK84rRBs=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=HTh/kn7cz/i69mP+J3LB5w2UsUT2ZSbx15XJNegwKZy05HupVZohPAUVLpgjfQS5/
+	 ZsT+QrPjUoLBSa4fR+8gRLPhKn508XaX3+ZN3Bjf8n2ms0Nvn1PPen/XjNV4ywVzF0
+	 gp2O0MpJ/aPZIoyx4uw8bQAVunnMeDNIa3HjDJpZFeOTU1Y+3mdCfGexdvf/7XG4sE
+	 TTzrZ2HIgZjufKEkqTDMpsNB2HR4IbM7wo8r9UW0lqA/IrinMQLRlA9baq4LMObg7k
+	 Q7E2+/uPrVfqbWL9U2EiIWtW8u4yPN6vEQ7ETVTysWSzAF6ODUuuQylz9cZQyDpWFr
+	 aeEy2vypU5X0Q==
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-403affb3404so7863621cf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 08:50:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689781811; x=1690386611;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lBkd8y3XOzT/fx92qUyW7CMl9N9JYFVT6xHfK84rRBs=;
+        b=CF16obwvlw0Wm/crJ8N3E2NpX7gAKGMnXU8hgb21WtPbB/98o243NSdm45l94tpaLg
+         TEuf4jPlPWiHAUtRMV4rl/jYxOmCgFMegfda7KQfSFRuQt1NyHfbnrbnqi//Sbw/HyAE
+         mMxu0LQdY0dnysWArmf4KpTYVnn55epAfb2RWQyNY0sWILESMNmqxKmcqXP/L06o7GpD
+         beGM8YSfQ9EBDY9DttvriqC13AJOpSxiISqzPhO/E9Ohkd9ID0JAC1Q+fSl1tRISjsvt
+         +rDj9aGOARpnyIsSHUS5NAs/zat9t6mWKdlzBCuh0AEwvMAqSEEi8WTMKwl6Qzh3Eccs
+         7M/Q==
+X-Gm-Message-State: ABy/qLbmFu8TQDskappZzpwkJtkOHq+wtLKRIKevUPxHM+z0I9CMpIxE
+	UMHFAtzvCRwoPciemWcr0oWAiDi6+OLlzhchtfrmf7XSoZneBjcSzv0Iyc/FYxd5179MzfAiiFR
+	UrqDUQuXmU17qzIY2zolkPXMhJaXoDhdC4a/KPwOEROTVOh7EFT3EwIHrp2zgXA==
+X-Received: by 2002:a05:622a:1009:b0:402:d15e:2984 with SMTP id d9-20020a05622a100900b00402d15e2984mr2944875qte.32.1689781810925;
+        Wed, 19 Jul 2023 08:50:10 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlFLsdryo3l3HfOhrzOljHukZzudv9rHzS/TP/ey37QvguSJT9mRI3G5taBWNolBsF75e8Yi/YTmAsaRVIRiakk=
+X-Received: by 2002:a05:622a:1009:b0:402:d15e:2984 with SMTP id
+ d9-20020a05622a100900b00402d15e2984mr2944851qte.32.1689781810663; Wed, 19 Jul
+ 2023 08:50:10 -0700 (PDT)
 MIME-Version: 1.0
-X-Ovh-Tracer-Id: 17809484729600317882
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedviedrgeekgdeifecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfqggfjpdevjffgvefmvefgnecuuegrihhlohhuthemucehtddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkfhojghfggfgtgesthhqredttddtjeenucfhrhhomheptformhhiucffvghnihhsqdevohhurhhmohhnthcuoehrvghmihesrhgvmhhlrggsrdhnvghtqeenucggtffrrghtthgvrhhnpeeuhfegfeefvdefueetleefffduuedvjeefheduueekieeltdetueetueeugfevffenucffohhmrghinheprhgvmhhlrggsrdhnvghtnecukfhppeduvdejrddtrddtrddupdekjedrledvrdduleegrdekkedpfeejrdehledrudegvddruddtieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduvdejrddtrddtrddupdhmrghilhhfrhhomhepoehrvghmihesrhgvmhhlrggsrdhnvghtqedpnhgspghrtghpthhtohepuddprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdfovfetjfhoshhtpehmohehkeegpdhmohguvgepshhmthhpohhuth
+References: <20230717023040.78860-1-xingyu.wu@starfivetech.com> <20230717023040.78860-6-xingyu.wu@starfivetech.com>
+In-Reply-To: <20230717023040.78860-6-xingyu.wu@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Wed, 19 Jul 2023 17:49:54 +0200
+Message-ID: <CAJM55Z_cX09WQdxB+aNBXo+WVjoJYT5vQz5sbrNBmLikDiNJrQ@mail.gmail.com>
+Subject: Re: [PATCH v7 5/7] clk: starfive: jh7110-sys: Add PLL clocks source
+ from DTS
+To: Xingyu Wu <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Hal Feng <hal.feng@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_074607_570980_A48BA1BA 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20230719_085016_805320_C5B6B3C1 
+X-CRM114-Status: GOOD (  25.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,34 +98,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGUga2Vza2l2aWlra29uYSAxOS4gaGVpbsOka3V1dGEgMjAyMywgMS40OC40OSBFRVNUIEF0aXNo
-IFBhdHJhIGEgw6ljcml0IDoKPiA+IElzbid0IFJEVElNIHN1c2NlcHRpYmxlIHRvIGludGVyZmVy
-ZW5jZSBmcm9tIHBvd2VyIG1hbmFnZW1lbnQgYW5kIENQVQo+ID4gZnJlcXVlbmN5IHNjYWxpbmc/
-IEkgc3VwcG9zZSB0aGF0IFJEQ1lDTEUgbWF5IGJlaGF2ZSBkaWZmZXJlbnRseSBkZXBlbmRpbmcK
-PiA+IG9uIFBNIGluICpzb21lKiBkZXNpZ25zLCBidXQgdGhhdCB3b3VsZCBzdGlsbCBiZSB3YXkg
-YmV0dGVyIHRoYW4gUkRUSU1FCj4gPiBmb3IgdGhlIHB1cnBvc2UuCj4gCj4gWWVzLiBCdXQgdGhh
-dCdzIHdoYXQgaXQgaXMgcHJvYmFibHkgdXNpbmcgZm9yIG90aGVyIElTQXMgPwoKQXQgbGVhc3Qg
-b24gQUFyY2g2NCwgaXQgaXMgdXNpbmcgZWl0aGVyIExpbnV4IHBlcmYgY3ljbGUgY291bnRlciwg
-b3IgaWYgdGhhdCAKaXMgZGlzYWJsZWQgYXQgYnVpbGQgdGltZSwgdGhlIHJhdyBQTVUgY3ljbGUg
-Y291bnRlciAtIHdoaWNoIG9idmlvdXNseSBsZWFkcyAKdG8gU0lHSUxMIG9uIExpbnV4LCBqdXN0
-IGxpa2UgdGhpcyBNUiB3b3VsZCBkbyB3aXRoIFJEQ1lDTEUuCgpBZ2FpbiwgSSBkbyBub3QgKnBl
-cnNvbmFsbHkqIGhhdmUgb2JqZWN0aW9ucyB0byBkaXNhYmxpbmcgUkRDWUNMRSBmb3IgCnVzZXJz
-cGFjZSAoc29tZWJvZHkgZWxzZSBkb2VzLCBidXQgdGhhdCdzIG5laXRoZXIgbXkgbm9yIHlvdXIg
-cHJvYmxlbSkuIEkgZG8gCmhhdmUgb2JqZWN0aW9ucyB0byB0aGUgd29yZGluZyBvZiBzb21lIG9m
-IHRoZSBjb21taXQgbWVzc2FnZXMgdGhvdWdoLgoKPiBNeSBwb2ludCB3YXMgaXQgc2hvdWxkIGp1
-c3QgZG8gd2hhdGV2ZXIgaXQgZG9lcyBmb3Igb3RoZXIgSVNBLiBSSVNDLVYgaXMgbm8KPiBzcGVj
-aWFsIGluIHRoYXQgcmVnYXJkLgoKU3VyZS4gTXkgcG9pbnQgaXMgdGhhdCBSRFRJTUUgbWF5IGJl
-IGdyZWF0IGZvciwgc28gdG8gc2F5LCBzeXN0ZW0tbGV2ZWwgCmJlbmNobWFya3MuIEZvciBGRm1w
-ZWcgdGhhdCBjb3VsZCBzb21ldGhpbmcgbGlrZSBob3cgbG9uZyBpdCB0YWtlcyB0byAKdHJhbnNj
-b2RlIGEgdmlkZW8uIEJ1dCBpdCBkb2Vzbid0IHNlZW0gdG8gbWFrZSBtdWNoIHNlbnNlIGZvciAK
-bWljcm9iZW5jaG1hcmtpbmcgb2Ygc2luZ2xlIHRocmVhZGVkIHRpZ2h0bHkgb3B0aW1pc2VkIGxv
-b3BzLCBhcyBvcHBvc2VkIHRvIApSRENZQ0xFIChvciBhIHdyYXBwZXIgZm9yIFJEQ1lDTEUpLgoK
-LS0gClLDqW1pIERlbmlzLUNvdXJtb250Cmh0dHA6Ly93d3cucmVtbGFiLm5ldC8KCgoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, 17 Jul 2023 at 04:30, Xingyu Wu <xingyu.wu@starfivetech.com> wrote:
+>
+> Modify PLL clocks source to be got from DTS or
+> the fixed factor clocks.
+>
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
+> ---
+>  drivers/clk/starfive/Kconfig                  |  1 +
+>  .../clk/starfive/clk-starfive-jh7110-sys.c    | 66 ++++++++++++-------
+>  2 files changed, 45 insertions(+), 22 deletions(-)
+>
+> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+> index 5195f7be5213..978b78ec08b1 100644
+> --- a/drivers/clk/starfive/Kconfig
+> +++ b/drivers/clk/starfive/Kconfig
+> @@ -35,6 +35,7 @@ config CLK_STARFIVE_JH7110_SYS
+>         select AUXILIARY_BUS
+>         select CLK_STARFIVE_JH71X0
+>         select RESET_STARFIVE_JH7110 if RESET_CONTROLLER
+> +       select CLK_STARFIVE_JH7110_PLL
+>         default ARCH_STARFIVE
+>         help
+>           Say yes here to support the system clock controller on the
+> diff --git a/drivers/clk/starfive/clk-starfive-jh7110-sys.c b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> index e6031345ef05..3884eff9fe93 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> +++ b/drivers/clk/starfive/clk-starfive-jh7110-sys.c
+> @@ -7,6 +7,7 @@
+>   */
+>
+>  #include <linux/auxiliary_bus.h>
+> +#include <linux/clk.h>
+>  #include <linux/clk-provider.h>
+>  #include <linux/init.h>
+>  #include <linux/io.h>
+> @@ -389,6 +390,7 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+>         struct jh71x0_clk_priv *priv;
+>         unsigned int idx;
+>         int ret;
+> +       struct clk *pllclk;
+>
+>         priv = devm_kzalloc(&pdev->dev,
+>                             struct_size(priv, reg, JH7110_SYSCLK_END),
+> @@ -402,28 +404,42 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+>         if (IS_ERR(priv->base))
+>                 return PTR_ERR(priv->base);
+>
+> -       /*
+> -        * These PLL clocks are not actually fixed factor clocks and can be
+> -        * controlled by the syscon registers of JH7110. They will be dropped
+> -        * and registered in the PLL clock driver instead.
+> -        */
+> -       /* 24MHz -> 1000.0MHz */
+> -       priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
+> -                                                        "osc", 0, 125, 3);
+> -       if (IS_ERR(priv->pll[0]))
+> -               return PTR_ERR(priv->pll[0]);
+> -
+> -       /* 24MHz -> 1066.0MHz */
+> -       priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
+> -                                                        "osc", 0, 533, 12);
+> -       if (IS_ERR(priv->pll[1]))
+> -               return PTR_ERR(priv->pll[1]);
+> -
+> -       /* 24MHz -> 1188.0MHz */
+> -       priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
+> -                                                        "osc", 0, 99, 2);
+> -       if (IS_ERR(priv->pll[2]))
+> -               return PTR_ERR(priv->pll[2]);
+> +       /* Use fixed factor clocks if can not get the PLL clocks from DTS */
+> +       pllclk = clk_get(priv->dev, "pll0_out");
+> +       if (IS_ERR(pllclk)) {
+> +               /* 24MHz -> 1000.0MHz */
+> +               priv->pll[0] = devm_clk_hw_register_fixed_factor(priv->dev, "pll0_out",
+> +                                                                "osc", 0, 125, 3);
+> +               if (IS_ERR(priv->pll[0]))
+> +                       return PTR_ERR(priv->pll[0]);
+> +       } else {
+> +               clk_put(pllclk);
+> +               priv->pll[0] = NULL;
+
+Not really important enough for a respin, but setting these to NULL is
+not needed as devm_kzalloc() already zeroes the memory allocated.
+
+In any case:
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+
+> +       }
+> +
+> +       pllclk = clk_get(priv->dev, "pll1_out");
+> +       if (IS_ERR(pllclk)) {
+> +               /* 24MHz -> 1066.0MHz */
+> +               priv->pll[1] = devm_clk_hw_register_fixed_factor(priv->dev, "pll1_out",
+> +                                                                "osc", 0, 533, 12);
+> +               if (IS_ERR(priv->pll[1]))
+> +                       return PTR_ERR(priv->pll[1]);
+> +       } else {
+> +               clk_put(pllclk);
+> +               priv->pll[1] = NULL;
+> +       }
+> +
+> +       pllclk = clk_get(priv->dev, "pll2_out");
+> +       if (IS_ERR(pllclk)) {
+> +               /* 24MHz -> 1188.0MHz */
+> +               priv->pll[2] = devm_clk_hw_register_fixed_factor(priv->dev, "pll2_out",
+> +                                                                "osc", 0, 99, 2);
+> +               if (IS_ERR(priv->pll[2]))
+> +                       return PTR_ERR(priv->pll[2]);
+> +       } else {
+> +               clk_put(pllclk);
+> +               priv->pll[2] = NULL;
+> +       }
+>
+>         for (idx = 0; idx < JH7110_SYSCLK_END; idx++) {
+>                 u32 max = jh7110_sysclk_data[idx].max;
+> @@ -462,6 +478,12 @@ static int __init jh7110_syscrg_probe(struct platform_device *pdev)
+>                                 parents[i].fw_name = "tdm_ext";
+>                         else if (pidx == JH7110_SYSCLK_MCLK_EXT)
+>                                 parents[i].fw_name = "mclk_ext";
+> +                       else if (pidx == JH7110_SYSCLK_PLL0_OUT && !priv->pll[0])
+> +                               parents[i].fw_name = "pll0_out";
+> +                       else if (pidx == JH7110_SYSCLK_PLL1_OUT && !priv->pll[1])
+> +                               parents[i].fw_name = "pll1_out";
+> +                       else if (pidx == JH7110_SYSCLK_PLL2_OUT && !priv->pll[2])
+> +                               parents[i].fw_name = "pll2_out";
+>                         else
+>                                 parents[i].hw = priv->pll[pidx - JH7110_SYSCLK_PLL0_OUT];
+>                 }
+> --
+> 2.25.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
