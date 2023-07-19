@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B33C001DE
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 17:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FC75C001B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 17:41:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=JiQXl857AKVGp7cdP+Tm9Os4Ji+4XWUnjsEJaO7QQ9M=; b=pCd
-	uOxHI3DVQoraXL3BRQwulSYWgQbT2t1j3sat4+5G9kMsyzEV/iz+PQJoZrq1xQoZzzkqNBx8ogn9S
-	2FS5W+5fqyQm9pOkNdg6MkNQFfcmrXUDXInHX8TdTxMs5DGfTYwLkdNgHNftzo831QUPEuj1AdNwO
-	Rwwbsd+9UG1FUJorF7Jim6Ft4/XJKsj3jdupcfSFGSg5v/M1rMiQ4yRTvtOZo/DShJtpRfahPEJjK
-	SB2RhUFRgI8zjXlW2AXrjXA8wImYcoo3O3xXrHIrfk+mS2wyOToErb95X+ner9KktLo0YYf5t8aRY
-	LHuv/jmLgzDJfhkib/RGCLR4qGqtqZg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=GNaivuTEfnpWh+P//hTumjRw66ELXOBM0ArAdPjgfYU=; b=aqw3cgAV58eark
+	VqJYYQ5FC/LyTB1M+fBLuf25GWozTAbjJeeOqHabqCyY9gXn8XXPMRJsjISIl6SB91x4BSmYxIAyM
+	oYQ1spTx0WYrubKhZOhNnv7r9vwKWGffFYvocIyQoQJ2KB7rtOZxS4K7PIOpCE5de5iAb7bbJMSCd
+	kPD+JtrdGd128mjhDDU7FA1WJ38QoNEIaZ9CuhGJlawq6rtWyxPT3h8SJephxjx8aPgtcoaq8Q/W6
+	+8CBPVHBA9TdYnrgRRy/rR42/l20QYmOqpjMd3pF66W/XGy6a8Hn+ZFvPzaGfYuC2h/hg8Pn4Zntd
+	j4lYbuyp3ybsP83IPpsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMB7j-008N1w-22;
-	Wed, 19 Jul 2023 17:38:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qMBBF-008NyK-0e;
+	Wed, 19 Jul 2023 17:41:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMB7g-008N1V-27
+	id 1qMBBC-008NxJ-2V
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 17:38:02 +0000
+	Wed, 19 Jul 2023 17:41:40 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EE267617A2;
-	Wed, 19 Jul 2023 17:37:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0371C433C8;
-	Wed, 19 Jul 2023 17:37:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 48C5A617DA;
+	Wed, 19 Jul 2023 17:41:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6399BC433C8;
+	Wed, 19 Jul 2023 17:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689788279;
-	bh=j8fNe4V6ZoYqVeurCp5XYHQ1q1HBhfOcJ3wv4cQjznI=;
-	h=Date:From:To:Cc:Subject:From;
-	b=XXXIZzTnsOmNAZoY6u1uQNaEkzsZ7kWfKmmPwfb/6VUSvOvnHbwQLgeyum96k+FH6
-	 DuqpxWo9ozapRiaI3O672LBXfrM9E/HuQBWB9foXmw0NuHmKUFW99d+qtJV75JvRBz
-	 FoxupFrqguSin+YMWEaU2AJPug7nuHyVDg0OGQsunfeLaDogSWLNIq7pP+4JspYCDo
-	 Mh96AQgspxG1Wqm2WBSLAK9lxWheTgXa6KfBuLQndPqM3VxGuMFa7ol2u/wkU7DW5u
-	 k6zFL3dIzSirihoLS3hB7PRWWJiuXn5xCvN0JC6RmYD2nL1mij3l43r3Ky8CI7qP6O
-	 MiB9lbZHbAcNQ==
-Date: Wed, 19 Jul 2023 18:37:55 +0100
-From: Conor Dooley <conor@kernel.org>
-To: sboyd@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, emil.renner.berthing@canonical.com,
-	xingyu.wu@starfivetech.com, walker.chen@starfivetech.com,
-	hal.feng@starfivetech.com
-Subject: [GIT PULL] StarFive clock driver additions for v6.6
-Message-ID: <20230719-trough-frisk-40b92acb485a@spud>
+	s=k20201202; t=1689788497;
+	bh=ngedI035SgHXmSnCO6TIlOqOLCKDSfYkvddTtkbFtJ0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Gcegc2K6Alrm/VdE+aCFa5FCwFcdrmgS6Mj7FV7ZI1RgBKxyH+O/xWl0ji1/QLEyM
+	 GU1CGi540Ge0dAdmviEgFz8dmevmGo0On1z+/fn1UJnvuJyLzTL0XsRofMusnV+o0w
+	 cHZnQHNOBqRA8Ju/j+4ZucxLjY3Wh3LDs7+arw84dVnECTofDj18TO0jrXi5H/Asiv
+	 yInRpYN5kokui/hBRbltB/EcT3nr5/MB+JGonceae1fVOFDjickIYjVXqeppB3adwR
+	 8Uv8itg/CQzKgf5MYLPaZIbszl0hYM4OZVNGKPgu/jdk/m7jmfQkCHalAuFY1d39bx
+	 uNKSj60mINR6A==
+Date: Wed, 19 Jul 2023 12:41:35 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: daire.mcnamara@microchip.com
+Cc: conor@kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org
+Subject: Re: [PATCH v2 7/8] PCI: microchip: Rename and refactor
+ mc_pcie_enable_msi()
+Message-ID: <20230719174135.GA507746@bhelgaas>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230630154859.2049521-8-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_103800_784591_E5BF1607 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20230719_104138_857920_AC272A69 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,139 +73,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4671566663606631302=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 30, 2023 at 04:48:58PM +0100, daire.mcnamara@microchip.com wrote:
+> From: Daire McNamara <daire.mcnamara@microchip.com>
+> 
+> After improving driver to get MSI-related information from
+> configuration registers (set at power on from the Libero FPGA
+> design), its now clear that mc_pcie_enable_msi() is not a good
 
---===============4671566663606631302==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qsMV8CFYKUIPWrxp"
-Content-Disposition: inline
+it's (contraction of "it is")
 
+> name for this function.  The function is better named as
+> mc_pcie_fixup_ecam() as its purpose is to correct the queue
+> size of the MSI CAP CTRL.
 
---qsMV8CFYKUIPWrxp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> -static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *base)
+> +static void mc_pcie_fixup_ecam(struct mc_pcie *port, void __iomem *ecam)
 
-Hey Stephen,
+Since the purpose of this seems to be to fix stuff in the MSI cap,
+removing "msi" from the name seems weird.  The fact that it uses ECAM
+to access the registers is incidental.
 
-Please pull some clock driver additions for StarFive. I've had these
-commits, other than a rebase to pick up R-b tags from Emil, out for LKP
-to have a look at for a few days and they've gotten a clean bill of
-health. Some of the dt-binding stuff "only" has a review from me, but
-since I am a dt-binding maintainer that's fine, although maybe not
-common knowledge yet.
+> -	msg_ctrl &= ~PCI_MSI_FLAGS_QSIZE;
+> -	msg_ctrl |= queue_size << 4;
+> -	writew_relaxed(msg_ctrl, base + cap_offset + PCI_MSI_FLAGS);
+> +	reg &= ~PCI_MSI_FLAGS_QSIZE;
+> +	reg |= queue_size << 4;
 
-I've also gone and re-arranged the patches in this PR relative to their
-mailing list postings, so that the dt-binding patches can be used as a
-base for adding the clock controller nodes & dependant peripherals to
-the jh7110's dts.
+Could maybe use FIELD_PREP() instead of the shift?  I guess this would
+go in the "Gather MSI information" patch.
 
-I'm hoping that next time around, someone from StarFive can send you the
-PR, maybe Walker, Hal or Xingyu are interested in that.
-
-Thanks,
-Conor.
-
-The following changes since commit 06c2afb862f9da8dc5efa4b6076a0e48c3fbaaa5:
-
-  Linux 6.5-rc1 (2023-07-09 13:53:13 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/clk-starfive-for-6.6
-
-for you to fetch changes up to dae5448a327edef952faaf31bb3aedb0597ba62a:
-
-  clk: starfive: Add StarFive JH7110 Video-Output clock driver (2023-07-19 18:08:05 +0100)
-
-----------------------------------------------------------------
-StarFive Clock Drivers for V6.6
-
-Add support for the System-Top-Group, Image-Signal-Process, Video-Output
-and PLL clocks on the JH7110 SoC. These drivers come with their
-associate dt-bindings & the obligatory headers containing defines of
-clock indices.
-
-To maintain backwards compatibility, the PLL driver will fall back to
-using the fixed factor clocks that were merged for v6.4. The binding has
-been updated to only permit sourcing the PLL clocks from the PLL's clock
-controller.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Emil Renner Berthing (1):
-      clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
-
-William Qiu (1):
-      dt-bindings: soc: starfive: Add StarFive syscon module
-
-Xingyu Wu (9):
-      dt-bindings: clock: Add StarFive JH7110 PLL clock generator
-      dt-bindings: clock: jh7110-syscrg: Add PLL clock inputs
-      dt-bindings: clock: Add StarFive JH7110 System-Top-Group clock and reset generator
-      dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and reset generator
-      dt-bindings: clock: Add StarFive JH7110 Video-Output clock and reset generator
-      clk: starfive: Add StarFive JH7110 PLL clock driver
-      clk: starfive: jh7110-sys: Add PLL clocks source from DTS
-      clk: starfive: Add StarFive JH7110 Image-Signal-Process clock driver
-      clk: starfive: Add StarFive JH7110 Video-Output clock driver
-
- .../bindings/clock/starfive,jh7110-ispcrg.yaml     |  87 ++++
- .../bindings/clock/starfive,jh7110-pll.yaml        |  46 ++
- .../bindings/clock/starfive,jh7110-stgcrg.yaml     |  82 ++++
- .../bindings/clock/starfive,jh7110-syscrg.yaml     |  18 +-
- .../bindings/clock/starfive,jh7110-voutcrg.yaml    |  90 ++++
- .../soc/starfive/starfive,jh7110-syscon.yaml       |  93 ++++
- MAINTAINERS                                        |  13 +
- drivers/clk/starfive/Kconfig                       |  33 ++
- drivers/clk/starfive/Makefile                      |   4 +
- drivers/clk/starfive/clk-starfive-jh7110-isp.c     | 232 ++++++++++
- drivers/clk/starfive/clk-starfive-jh7110-pll.c     | 507 +++++++++++++++++++++
- drivers/clk/starfive/clk-starfive-jh7110-stg.c     | 173 +++++++
- drivers/clk/starfive/clk-starfive-jh7110-sys.c     |  62 ++-
- drivers/clk/starfive/clk-starfive-jh7110-vout.c    | 239 ++++++++++
- drivers/clk/starfive/clk-starfive-jh7110.h         |   6 +
- include/dt-bindings/clock/starfive,jh7110-crg.h    |  80 ++++
- include/dt-bindings/reset/starfive,jh7110-crg.h    |  60 +++
- 17 files changed, 1803 insertions(+), 22 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
- create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-isp.c
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-pll.c
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-stg.c
- create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-vout.c
-
-
---qsMV8CFYKUIPWrxp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLgfcwAKCRB4tDGHoIJi
-0lmJAP9HWeKpdCSL67AwIjv55KgNNNrkUnKLYPLUvt5I9PVBiQD8CZL7F7liwV2T
-wp5fHXjNITJ5rh7sCYQ5V3PfHNRqEwI=
-=SUmS
------END PGP SIGNATURE-----
-
---qsMV8CFYKUIPWrxp--
-
-
---===============4671566663606631302==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4671566663606631302==--
-
