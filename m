@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08F09C0015E
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 16:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C471CC001DE
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 16:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=9hsf6vWEH44JgnDuEzIIYKvSOmunHdwve9F1ZCXpD4U=; b=quJCLKNqFF8jLL
-	y4MpXpo3fixa96UXIutDqGHd0ytUSo3fUQzVs0oEg0w+Y9Z/j1uHtLK5T7f8bhgHMLFADPZQ8VVKr
-	1UNpnF9rIHs9CgQjp+tBFUhA433Uz2QKQAkHYxed8p0T3PwmC84xNlbV+dV9NdwwpXlXXPQI83dZG
-	pc1Yzi3YBkM+65xEIqJEJjJomg6hE8FVVTMZXFQY8I0V+DhDDVXe99zMbLVY6v5ZLDa7ZL05uL+WP
-	jSubQCKVEpFAKNtlRIPZDrRcCR0AbMJRGlAZTaNa+DCNSv9JBOS4XRzEE2pS0PXQw1YTxGqoSmYhn
-	0unThYEXrzr4UTJ/v7uQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xSaNavlvF77abRM7e8jOkzjcN4Zf3y7L4qAcr8QTX68=; b=u+PTxP/iP6JwCM
+	8e7XiVIlUSW8XnqokBaoXJmaWO3lrvzNnlr6nbo+SXdheEafUnpX5Ph4g/9by8wfb9ylVbidiccUs
+	cUwR0y8/wb4WmosRdPCXabdtXNGnd3W5MoKZj/GJnKVbYKycDQ4K9uN8G9FAFKckzMBVPAi+LRe8X
+	r6iIE662wqBGQCvDaj/5c1siF0tmZFtk8nC0+VtyHJAG1S6V1von3d4eqMidH40n+mvv3YNuQK4bf
+	i9qtXEzORAff7Gfk1rzovL0OW3liP/3sEIabTlQH870xH8ezSsFAemn4rgnoguipo6kR4Zv32MiKK
+	OlKmrVJVNa28UYfDUGEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMAME-008CNa-1Q;
-	Wed, 19 Jul 2023 16:48:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qMARb-008DdZ-1a;
+	Wed, 19 Jul 2023 16:54:31 +0000
+Received: from mga06b.intel.com ([134.134.136.31] helo=mga06.intel.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMAMB-008CMI-26
+	id 1qMARY-008DcU-2C
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 16:48:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F288C6176F;
-	Wed, 19 Jul 2023 16:48:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B94CAC433C7;
-	Wed, 19 Jul 2023 16:48:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689785334;
-	bh=1HBKVki0O0wNw4bhjdzJwsp6wEBaBoJaQE76IJ1szgA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=X7N2d/2yj1WdtbiS2soZExEPhMcqvLSQZB7JPhkGBwOS0KQAbfIVhRHHVOtWqE1W4
-	 bqnZ5DmTLWWAcgya0/zqzoRPSuSBUYb1PPQF713srTHra/T2B0s4ao2xvIyXKYLbG8
-	 1ogSJKWzjC0cPH91ZlqUuoTH7sifnzDyRqqY4lkbYtMnEDg/uRNZjra7JPNJa5xn5H
-	 I/qkeXMNDlog4n3EmwXpZZ7/3WXAF4kjh/VD16ugzOUPOYSmBH0VjSyQAmJ/k+r6zX
-	 kgeOcEHp7paSGLoPh9D7OmG1DZSiDwz9b2axobKpjT5hh+5px6AknnKCSIf5rQKixF
-	 GEatizIpbiXeA==
-Date: Wed, 19 Jul 2023 11:48:51 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Minda Chen <minda.chen@starfivetech.com>
-Cc: Daire McNamara <daire.mcnamara@microchip.com>,
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Wed, 19 Jul 2023 16:54:29 +0000
+X-IronPort-AV: E=McAfee;i="6600,9927,10776"; a="430289383"
+X-IronPort-AV: E=Sophos;i="6.01,216,1684825200"; 
+   d="scan'208";a="430289383"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jul 2023 09:54:27 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10776"; a="789481190"
+X-IronPort-AV: E=Sophos;i="6.01,216,1684825200"; 
+   d="scan'208";a="789481190"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by fmsmga008.fm.intel.com with ESMTP; 19 Jul 2023 09:54:24 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andy@kernel.org>)
+	id 1qMARS-001aWY-2H;
+	Wed, 19 Jul 2023 19:54:22 +0300
+Date: Wed, 19 Jul 2023 19:54:22 +0300
+From: Andy Shevchenko <andy@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
 	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Frank Rowand <frowand.list@gmail.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v1 8/9] PCI: PLDA: starfive: Add JH7110 PCIe controller
-Message-ID: <20230719164851.GA505840@bhelgaas>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 3/4] gpio: sifive: Get the parent IRQ's domain from
+ its irq_data
+Message-ID: <ZLgVPv7zdoaiUCU6@smile.fi.intel.com>
+References: <20230719163446.1398961-1-samuel.holland@sifive.com>
+ <20230719163446.1398961-4-samuel.holland@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230719102057.22329-9-minda.chen@starfivetech.com>
+In-Reply-To: <20230719163446.1398961-4-samuel.holland@sifive.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_094855_838417_C709F498 
-X-CRM114-Status: GOOD (  25.29  )
+X-CRM114-CacheID: sfid-20230719_095428_773119_4E3441E8 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,135 +82,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 19, 2023 at 06:20:56PM +0800, Minda Chen wrote:
-> Add StarFive JH7110 SoC PCIe controller platform
-> driver codes.
+On Wed, Jul 19, 2023 at 09:34:44AM -0700, Samuel Holland wrote:
+> Do not parse the devicetree again when the data is already available
+> from the IRQ subsystem. This follows the example of the ThunderX and
+> X-Gene GPIO drivers. The ngpio check is needed to avoid a possible
+> out-of-bounds read.
 
-Rewrap all the commit logs to fill 75 columns or so.
+...
 
->  #define PCIE_PCI_IDS_DW1		0x9c
-> -
-> +#define  IDS_CLASS_CODE_SHIFT		16
-> +#define PCI_MISC			0xB4
+> -	girq->parent_domain = parent;
+> +	girq->parent_domain = irq_get_irq_data(chip->irq_number[0])->domain;
 
-Surrounding code uses lower-case hex.  Make it all match.
+For the sake of readability I would like to leave parent variable
+and assign it beforehand somewhere upper in the code.
 
-> +#define STG_SYSCON_AXI4_SLVL_ARFUNC_MASK	GENMASK(22, 8)
-> +#define STG_SYSCON_AXI4_SLVL_ARFUNC_SHIFT	8
+Also, can irq_get_irq_data() return NULL? Needs a comment on top
+of that assignment or an additional check.
 
-When practical, use FIELD_GET() and FIELD_PREP() to avoid the need for
-*_SHIFT macros.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> +struct starfive_jh7110_pcie {
-> +	struct plda_pcie	plda;
-> +	struct reset_control *resets;
-> +	struct clk_bulk_data *clks;
-> +	struct regmap *reg_syscon;
-> +	struct gpio_desc *power_gpio;
-> +	struct gpio_desc *reset_gpio;
-> +
-> +	u32 stg_arfun;
-> +	u32 stg_awfun;
-> +	u32 stg_rp_nep;
-> +	u32 stg_lnksta;
-> +
-> +	int num_clks;
 
-If you indent one member with tabs, e.g., "struct plda_pcie        plda",
-they should all be indented to match.
-
-> + * The BAR0/1 of bridge should be hidden during enumeration to
-> + * avoid the sizing and resource allocation by PCIe core.
-> + */
-> +static bool starfive_pcie_hide_rc_bar(struct pci_bus *bus, unsigned int  devfn,
-> +				      int offset)
-> +{
-> +	if (pci_is_root_bus(bus) && !devfn &&
-> +	    (offset == PCI_BASE_ADDRESS_0 || offset == PCI_BASE_ADDRESS_1))
-> +		return true;
-> +
-> +	return false;
-> +}
-> +
-> +int starfive_pcie_config_write(struct pci_bus *bus, unsigned int devfn,
-> +			       int where, int size, u32 value)
-> +{
-> +	if (starfive_pcie_hide_rc_bar(bus, devfn, where))
-> +		return PCIBIOS_BAD_REGISTER_NUMBER;
-
-I think you are trying present BARs 0 & 1 as unimplemented.  Such BARs
-are hardwired to zero, so you should make them behave that way (both
-read and write).  Many callers of config accessors don't check the
-return value, so I don't think it's reliable to just return
-PCIBIOS_BAD_REGISTER_NUMBER.
-
-> +static int starfive_pcie_is_link_up(struct starfive_jh7110_pcie *pcie)
-> +{
-> +	struct device *dev = pcie->plda.dev;
-> +	int ret;
-> +	u32 stg_reg_val;
-> +
-> +	/* 100ms timeout value should be enough for Gen1/2 training */
-> +	ret = regmap_read_poll_timeout(pcie->reg_syscon,
-> +				       pcie->stg_lnksta,
-> +				       stg_reg_val,
-> +				       stg_reg_val & DATA_LINK_ACTIVE,
-> +				       10 * 1000, 100 * 1000);
-> +
-> +	/* If the link is down (no device in slot), then exit. */
-> +	if (ret == -ETIMEDOUT) {
-> +		dev_info(dev, "Port link down, exit.\n");
-> +		return 0;
-> +	} else if (ret == 0) {
-> +		dev_info(dev, "Port link up.\n");
-> +		return 1;
-> +	}
-
-Please copy the naming and style of the "*_pcie_link_up()" functions
-in other drivers.  These are boolean functions with no side effects,
-including no timeouts.
-
-Some drivers have "*wait_for_link()" functions if polling is needed.
-
-> +		return dev_err_probe(dev, ret,
-> +			"failed to initialize pcie phy\n");
-
-Driver messages should match (all capitalized or none capitalized).
-
-> +	/* Enable root port */
-
-Superfluous comment, since the function name says the same.
-
-> +	plda_pcie_enable_root_port(plda);
-
-> +	/* Ensure that PERST has been asserted for at least 100 ms */
-> +	msleep(300);
-> +	gpiod_set_value_cansleep(pcie->reset_gpio, 0);
-
-At least 100 ms, but you sleep *300* ms?  This is probably related to
-https://lore.kernel.org/r/20230718155515.GA483233@bhelgaas
-
-Please include a comment with the source of the delay value.  I assume
-it's T_PVPERL and T_PERST-CLK from the PCIe CEM spec.  This way we can
-someday share those #defines across drivers.
-
-> +#ifdef CONFIG_PM_SLEEP
-> +static int __maybe_unused starfive_pcie_suspend_noirq(struct device *dev)
-
-I think you can dispense with some of these #ifdefs and the
-__maybe_unused as in
-https://lore.kernel.org/all/20220720224829.GA1667002@bhelgaas/
-
-> +{
-> +	struct starfive_jh7110_pcie *pcie = dev_get_drvdata(dev);
-> +
-> +	if (!pcie)
-> +		return 0;
-
-How can this happen?  If we're only detecting memory corruption, it's
-not worth it.
-
-Bjorn
 
 _______________________________________________
 linux-riscv mailing list
