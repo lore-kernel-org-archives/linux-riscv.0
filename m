@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF53C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 19:34:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896D0C001B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 19:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2AqZtNXb0BJjiV5MWiBoXEXyQWpjTxNY2Nm5kaIVIBw=; b=gmbhxgHdKXfpe4
-	tz/4ufzBhVbRvWW51MBTjBexJckVH2xMmOeVlqZ3m+3yPcitNkPZ11YBtjlR3nXSzR0bGJrN5pvEQ
-	Zhz8r3f1dDqazL9Uz07dZXGhWMVacpBFlR3kyJzQBBcOhrVUVhj27UblTNqgp8LHTJrQFdY6UzLtn
-	GmSrbwhUKxu4CE8/Oe8i+0f/IBN4/lulodearWAXR6cTdpoI6l2x1MQTJtlTaicOzNXX6SYUbRdpO
-	yPQxi2vrxobVrKKY47CeQrnnzjrIftMBszMLsbdiM4GuhvpRtBE4fzGUvu7WV7X9aVVQho9A3OQn4
-	qfru0X6oLG2ULjMYx0Rw==;
+	List-Owner; bh=P7fSoBq4fg5Ppx3rY+KKW892YgaTBtIOptuEAs3JODo=; b=TqKbHNbhM24Tej
+	QDRcwZm4CwMo7+BwJYcXisaXA3GmD+ex5xSNIzhg08nYMAooyNTR4If1Ppx4DBFrGns2690cXmB4L
+	yQBLWn9ZiAw4brts9+zytIZWcvxSWK3F3ZNBQa/U75YxL5eUtX+dlGX/8k2YaBEQjvZ6yKPdW/28R
+	hhkRFNBUDAu4Rw/9fwcDGSbGGLt5spbaY35Eae1Sc+4L9bCwcnhYAB6zGueEMLeG1E/Qykl0oXlTg
+	fCEq2jVuSwG8B63vl+e+0EMmw7mkdXmlS4NBe3xlWOE6/S+860DbfvWpUAEjjzIypnGwyBsMpaDG9
+	bUDObnkWoPFr3tWf2vdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMCwi-008hIJ-2d;
-	Wed, 19 Jul 2023 19:34:49 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1qMCzr-008id9-2i;
+	Wed, 19 Jul 2023 19:38:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMCwZ-008hAH-1a
+	id 1qMCzo-008icA-29
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 19:34:41 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-345df4e68afso556535ab.0
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 12:34:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689795277; x=1690400077;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cQtL8/41Z1V1hiq79fEomhJLs5bJqMNwqo2oB2sFh+M=;
-        b=N+rgicSBNL326QCmnjhUOfpQ8izFbGdkgaThZ9XQu4Mk7iD0IHeKkXdtZ5VmwkR5S/
-         Rha2e6WKVkIXnSSSPhpJB5kwm5JJ8K6GHWb1/fSWu2MjSn1i8oKOPgc1WYSEqaXjg0bt
-         BFjczOR5ZKrHW0axat2rmuT9KwZFaMslcXz3HWujeiLsrx5CKDzH7WulClxeSbbBaLMP
-         BtB6PO2ogDbNr5NDZKO/s7PS8iWesDpwiw1+8ebka5fPlOPD45mP8UUxpsidA+uJ2WNV
-         00rqY9w3Bf+YceD4mU4wYnXuoqe2R9l40eJtVpzgc63P1VjrzeYo+3tJpu1Ir2bR9L50
-         KhPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689795277; x=1690400077;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cQtL8/41Z1V1hiq79fEomhJLs5bJqMNwqo2oB2sFh+M=;
-        b=T7tnaEje4FpQfJV2CofGdxLZYuN37IXEDnonNAkUWEru90Jhlbl2qPw6qTf6uRqcky
-         eDFRA9fu2OdGH2BkEn+/R3CCsU1Gtrg1L+SNvYCjIyrvRBQ7HBAE9oMBViaRI+ltrVeh
-         VF+S9F+Qz9FVzxtCvEIkbQMHvCvpOewTNQearFIw5wY7APfmH/2b8abY5D50BGNoddDw
-         XfTo0vHQ5xdeY0ODAlIExXKVPg4RgY2h3w0HVpnUw6jle2IfF2wwkh3no7RLbmQ9wpDF
-         89ninBLdljW3U6UNBaGP7gicLItwYYelNCJ4Qu748KoBrKVUyRZC/z1aNcLTIzLGJ97E
-         ouZA==
-X-Gm-Message-State: ABy/qLZH8QTK87Re8f3RM7hktvkopaBfHm1dmfKU/3S87Pn4h2Ft1+2s
-	8XLI441TRkUtzK3/LDMyYGkNJA==
-X-Google-Smtp-Source: APBJJlFzjlxmwn6yHr60YRnzS6QP9ZKpMDICdaPBklxkA0AGmYtcK5/R2NpPUsB4j8EU4mV73Zv3TQ==
-X-Received: by 2002:a05:6e02:1c8f:b0:345:6c70:a7cd with SMTP id w15-20020a056e021c8f00b003456c70a7cdmr3753958ill.1.1689795277679;
-        Wed, 19 Jul 2023 12:34:37 -0700 (PDT)
-Received: from tjeznach.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id 23-20020a17090a031700b00264040322desm1591053pje.40.2023.07.19.12.34.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Jul 2023 12:34:37 -0700 (PDT)
-From: Tomasz Jeznach <tjeznach@rivosinc.com>
-To: Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH 11/11] RISC-V: drivers/iommu/riscv: Add G-Stage translation support
-Date: Wed, 19 Jul 2023 12:33:55 -0700
-Message-Id: <0c391072fe0be52b3bdf3d826e4313d960aecba0.1689792825.git.tjeznach@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1689792825.git.tjeznach@rivosinc.com>
-References: <cover.1689792825.git.tjeznach@rivosinc.com>
+	Wed, 19 Jul 2023 19:38:02 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6358C617D6;
+	Wed, 19 Jul 2023 19:37:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF362C433C7;
+	Wed, 19 Jul 2023 19:37:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689795478;
+	bh=RoApuEBZHp8i1pghl2j5zeKB/PC8LoNvYwsxZUUhu+w=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=sScyy0ELuGvtqYrV+O9/LFoCKVPRZtcLiMgOe3CodM81MSZsxikyT7L7RZNj664b8
+	 Tiju3xlAucu2poBrWiWtZndeCtI9V17NMyIGPw/D6XCuIoWyo8RSVoB+k9JhSRDaHT
+	 6kOnku2OPg+3ff7yue7SfH3cMnO7wDqe4KzwafZjWwPH9Nz5vWh2VjfrWIYCH/uT3H
+	 6k92HkfR1kSawoxbi7xlT+iF3svX0OQouuZmwOPyLM3iX2uJ/kvRUZVcA/BVs71hjT
+	 /tfTzG/TsP55Dapp9xluZVs7JJkx5qQub4MdZzKs6ELEDqr6c+C2kVPj8xF3mWGLfl
+	 KETPSG8iveSMg==
+Message-ID: <7d208aae212aa2101e8a9ca998a6a355.sboyd@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20230719-trough-frisk-40b92acb485a@spud>
+References: <20230719-trough-frisk-40b92acb485a@spud>
+Subject: Re: [GIT PULL] StarFive clock driver additions for v6.6
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, emil.renner.berthing@canonical.com, xingyu.wu@starfivetech.com, walker.chen@starfivetech.com, hal.feng@starfivetech.com
+To: Conor Dooley <conor@kernel.org>
+Date: Wed, 19 Jul 2023 12:37:56 -0700
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_123439_536979_495F7025 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20230719_123800_770781_DB916175 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,154 +69,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, Tomasz Jeznach <tjeznach@rivosinc.com>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This change introduces 2nd stage translation configuration
-support, enabling nested translation for IOMMU hardware.
-Pending integration with VMM IOMMUFD interfaces to manage
-1st stage translation and IOMMU virtialization interfaces.
+Quoting Conor Dooley (2023-07-19 10:37:55)
+> Hey Stephen,
+> 
+> Please pull some clock driver additions for StarFive. I've had these
+> commits, other than a rebase to pick up R-b tags from Emil, out for LKP
+> to have a look at for a few days and they've gotten a clean bill of
+> health. Some of the dt-binding stuff "only" has a review from me, but
+> since I am a dt-binding maintainer that's fine, although maybe not
+> common knowledge yet.
+> 
+> I've also gone and re-arranged the patches in this PR relative to their
+> mailing list postings, so that the dt-binding patches can be used as a
+> base for adding the clock controller nodes & dependant peripherals to
+> the jh7110's dts.
+> 
+> I'm hoping that next time around, someone from StarFive can send you the
+> PR, maybe Walker, Hal or Xingyu are interested in that.
+> 
+> Thanks,
+> Conor.
+> 
+> The following changes since commit 06c2afb862f9da8dc5efa4b6076a0e48c3fbaaa5:
+> 
+>   Linux 6.5-rc1 (2023-07-09 13:53:13 -0700)
+> 
+> are available in the Git repository at:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/clk-starfive-for-6.6
+> 
+> for you to fetch changes up to dae5448a327edef952faaf31bb3aedb0597ba62a:
+> 
+>   clk: starfive: Add StarFive JH7110 Video-Output clock driver (2023-07-19 18:08:05 +0100)
+> 
+> ----------------------------------------------------------------
 
-Signed-off-by: Tomasz Jeznach <tjeznach@rivosinc.com>
----
- drivers/iommu/riscv/iommu.c | 58 ++++++++++++++++++++++++++++---------
- drivers/iommu/riscv/iommu.h |  3 +-
- 2 files changed, 46 insertions(+), 15 deletions(-)
-
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 7b3e3e135cf6..3ca2f0194d3c 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1418,6 +1418,19 @@ static struct iommu_domain *riscv_iommu_domain_alloc(unsigned type)
- 	return &domain->domain;
- }
- 
-+/* mark domain as second-stage translation */
-+static int riscv_iommu_enable_nesting(struct iommu_domain *iommu_domain)
-+{
-+	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
-+
-+	mutex_lock(&domain->lock);
-+	if (list_empty(&domain->endpoints))
-+		domain->g_stage = true;
-+	mutex_unlock(&domain->lock);
-+
-+	return domain->g_stage ? 0 : -EBUSY;
-+}
-+
- static void riscv_iommu_domain_free(struct iommu_domain *iommu_domain)
- {
- 	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
-@@ -1433,7 +1446,7 @@ static void riscv_iommu_domain_free(struct iommu_domain *iommu_domain)
- 		free_io_pgtable_ops(&domain->pgtbl.ops);
- 
- 	if (domain->pgd_root)
--		free_pages((unsigned long)domain->pgd_root, 0);
-+		free_pages((unsigned long)domain->pgd_root, domain->g_stage ? 2 : 0);
- 
- 	if ((int)domain->pscid > 0)
- 		ida_free(&riscv_iommu_pscids, domain->pscid);
-@@ -1483,7 +1496,8 @@ static int riscv_iommu_domain_finalize(struct riscv_iommu_domain *domain,
- 
- 	/* TODO: Fix this for RV32 */
- 	domain->mode = satp_mode >> 60;
--	domain->pgd_root = (pgd_t *) __get_free_pages(GFP_KERNEL | __GFP_ZERO, 0);
-+	domain->pgd_root = (pgd_t *) __get_free_pages(GFP_KERNEL | __GFP_ZERO,
-+						      domain->g_stage ? 2 : 0);
- 
- 	if (!domain->pgd_root)
- 		return -ENOMEM;
-@@ -1499,6 +1513,8 @@ static u64 riscv_iommu_domain_atp(struct riscv_iommu_domain *domain)
- 	u64 atp = FIELD_PREP(RISCV_IOMMU_DC_FSC_MODE, domain->mode);
- 	if (domain->mode != RISCV_IOMMU_DC_FSC_MODE_BARE)
- 		atp |= FIELD_PREP(RISCV_IOMMU_DC_FSC_PPN, virt_to_pfn(domain->pgd_root));
-+	if (domain->g_stage)
-+		atp |= FIELD_PREP(RISCV_IOMMU_DC_IOHGATP_GSCID, domain->pscid);
- 	return atp;
- }
- 
-@@ -1541,20 +1557,30 @@ static int riscv_iommu_attach_dev(struct iommu_domain *iommu_domain, struct devi
- 	if (!dc)
- 		return -ENODEV;
- 
--	/*
--	 * S-Stage translation table. G-Stage remains unmodified (BARE).
--	 */
--	val = FIELD_PREP(RISCV_IOMMU_DC_TA_PSCID, domain->pscid);
--
--	if (ep->pasid_enabled) {
--		ep->pc[0].ta = cpu_to_le64(val | RISCV_IOMMU_PC_TA_V);
--		ep->pc[0].fsc = cpu_to_le64(riscv_iommu_domain_atp(domain));
-+	if (domain->g_stage) {
-+		/*
-+		 * Enable G-Stage translation with initial pass-through mode
-+		 * for S-Stage. VMM is responsible for more restrictive
-+		 * guest VA translation scheme configuration.
-+		 */
- 		dc->ta = 0;
--		dc->fsc = cpu_to_le64(virt_to_pfn(ep->pc) |
--		    FIELD_PREP(RISCV_IOMMU_DC_FSC_MODE, RISCV_IOMMU_DC_FSC_PDTP_MODE_PD8));
-+		dc->fsc = 0ULL; /* RISCV_IOMMU_DC_FSC_MODE_BARE */ ;
-+		dc->iohgatp = cpu_to_le64(riscv_iommu_domain_atp(domain));
- 	} else {
--		dc->ta = cpu_to_le64(val);
--		dc->fsc = cpu_to_le64(riscv_iommu_domain_atp(domain));
-+		/* S-Stage translation table. G-Stage remains unmodified. */
-+		if (ep->pasid_enabled) {
-+			val = FIELD_PREP(RISCV_IOMMU_DC_TA_PSCID, domain->pscid);
-+			ep->pc[0].ta = cpu_to_le64(val | RISCV_IOMMU_PC_TA_V);
-+			ep->pc[0].fsc = cpu_to_le64(riscv_iommu_domain_atp(domain));
-+			dc->ta = 0;
-+			val = FIELD_PREP(RISCV_IOMMU_DC_FSC_MODE,
-+					  RISCV_IOMMU_DC_FSC_PDTP_MODE_PD8);
-+			dc->fsc = cpu_to_le64(val | virt_to_pfn(ep->pc));
-+		} else {
-+			val = FIELD_PREP(RISCV_IOMMU_DC_TA_PSCID, domain->pscid);
-+			dc->ta = cpu_to_le64(val);
-+			dc->fsc = cpu_to_le64(riscv_iommu_domain_atp(domain));
-+		}
- 	}
- 
- 	wmb();
-@@ -1599,6 +1625,9 @@ static int riscv_iommu_set_dev_pasid(struct iommu_domain *iommu_domain,
- 	if (!iommu_domain || !iommu_domain->mm)
- 		return -EINVAL;
- 
-+	if (domain->g_stage)
-+		return -EINVAL;
-+
- 	/* Driver uses TC.DPE mode, PASID #0 is incorrect. */
- 	if (pasid == 0)
- 		return -EINVAL;
-@@ -1969,6 +1998,7 @@ static const struct iommu_domain_ops riscv_iommu_domain_ops = {
- 	.iotlb_sync = riscv_iommu_iotlb_sync,
- 	.iotlb_sync_map = riscv_iommu_iotlb_sync_map,
- 	.flush_iotlb_all = riscv_iommu_flush_iotlb_all,
-+	.enable_nesting = riscv_iommu_enable_nesting,
- };
- 
- static const struct iommu_ops riscv_iommu_ops = {
-diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
-index 55418a1144fb..55e5aafea5bc 100644
---- a/drivers/iommu/riscv/iommu.h
-+++ b/drivers/iommu/riscv/iommu.h
-@@ -102,8 +102,9 @@ struct riscv_iommu_domain {
- 	struct riscv_iommu_device *iommu;
- 
- 	unsigned mode;		/* RIO_ATP_MODE_* enum */
--	unsigned pscid;		/* RISC-V IOMMU PSCID */
-+	unsigned pscid;		/* RISC-V IOMMU PSCID / GSCID */
- 	ioasid_t pasid;		/* IOMMU_DOMAIN_SVA: Cached PASID */
-+	bool g_stage;		/* 2nd stage translation domain */
- 
- 	pgd_t *pgd_root;	/* page table root pointer */
- };
--- 
-2.34.1
-
+Thanks. Pulled into clk-next
 
 _______________________________________________
 linux-riscv mailing list
