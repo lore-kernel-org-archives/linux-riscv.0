@@ -4,131 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B37DBC00528
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 18:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7F0C001B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 19:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0cntFYmBJiUCKZ948JcZmfjsbaBYi6+Z6xgsi8jbO9o=; b=vr0m66G564mc8J
-	lb7RPIp28quEgGAkor5013wEiUBv0jlUFASORb2gqswp2x8dK+OBbmeZMZARfU1ik11U2/ZHvhUYh
-	28v0caze/g8v034cH/1PKuinF+24Z4IHfervD2uQnGSrtbJP0HUxLYGF0gWSgvgP6wDChGmV+AZOg
-	nFfbyCrouVy9c+O49TPzYu1F91DTmrvySlgAKifvKZEfXwpWPsmsgerd5lSDtU58Fy9u1+0Mv8O8x
-	jya0tCb9o/uajqgHRn2LOz7Cfg01Vtt6FJ4QfyT7HX2BmqIiRGEuKW2x06xOGt0ASw7WHRNtSMD6G
-	okLntMN7fwVti6hKrBcQ==;
+	List-Owner; bh=Gj+uY7TwAY5og1H/cPM3XtoFNn0HN16wXZvUeBzMK+4=; b=TQRC9zDn7x6s/E
+	8e34HtVZHtzBaYs2Xq4dFfj9/dZRIFT5GNI8HkRHyxYXjbkigvsMjZShBNhdnVR3umJmOpi9EPJsQ
+	kzC8ES5Rbb46IbyQROR1JFTjlgp9Uo+cp8iKzWDF0dZqhCSKG9cq0eY4JLNEpn8V+aPg9tHKha0PV
+	wfIyJfo39rXdqQS8Nuh4X+IafLA6/bm34pnrsDxTJcStiMsIOmLtaBERjc95i+CLzI4xd2b00QxO3
+	EeJNL9HY91VcylN3mGRxZyIbfpq5Afg9XVD/0RobwJHjTIUFJHRaEE/f3tJHJA7Kq/evbk+GsFej0
+	yH7sHd3pw1/E0VfOqyag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMC5n-008XIl-2n;
-	Wed, 19 Jul 2023 18:40:07 +0000
-Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
+	id 1qMCwR-008h5o-2j;
+	Wed, 19 Jul 2023 19:34:31 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMC5S-008XAM-06;
-	Wed, 19 Jul 2023 18:39:48 +0000
-Received: from p-infra-ksmg-sc-msk02 (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id 660A412007A;
-	Wed, 19 Jul 2023 21:39:33 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 660A412007A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sberdevices.ru;
-	s=mail; t=1689791973;
-	bh=sc+94aLvgVUxBUEzSPbWOsr9WhtmbJCsOLteFFzOoLU=;
-	h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type:From;
-	b=ftS9UdnFVupfX9JxONl46s/RGEHl80jPk77NDDqzvRlD1qSq1jhJ6yXhfHaSPewnr
-	 LEQ6tu0ClcfcCUU9btQ8pcnKoaAO2EJBXjugGbhFMHWzBlTJxypP0F3af+WF7YnUcT
-	 qwRJV+UdIg9Tq/ng5S2MnxsHFZSDjXsqkqprkZ/FAn6+PAzMRaUZQlMaszmoB8jzPf
-	 AAU7c/jMuvSi1AM8yvRzt0m4L7ILTyWgBLaRMTnYKOJhuMJljph7thz7MAefNZECdm
-	 ASZdS2Hm97OvI4aj7PSdUXrCYM7KLsHLwhBPeZ4VRaDC7sbNbBsJ+UEFUFLlGc1JiM
-	 1mc7vWHZzj6DA==
-Received: from p-i-exch-sc-m01.sberdevices.ru (p-i-exch-sc-m01.sberdevices.ru [172.16.192.107])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.sberdevices.ru (Postfix) with ESMTPS;
-	Wed, 19 Jul 2023 21:39:33 +0300 (MSK)
-Received: from localhost (100.64.160.123) by p-i-exch-sc-m01.sberdevices.ru
- (172.16.192.107) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1118.30; Wed, 19 Jul
- 2023 21:39:33 +0300
-Date: Wed, 19 Jul 2023 21:39:27 +0300
-From: Dmitry Rokosov <ddrokosov@sberdevices.ru>
-To: Rob Herring <robh@kernel.org>
-CC: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>, Eugeniy Paltsev
-	<Eugeniy.Paltsev@synopsys.com>, Florian Fainelli
-	<florian.fainelli@broadcom.com>, Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott
- Branden <sbranden@broadcom.com>, Joel Stanley <joel@jms.id.au>, Andrew
- Jeffery <andrew@aj.id.au>, Neil Armstrong <neil.armstrong@linaro.org>, Sudeep
- Holla <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Alex Helms
-	<alexander.helms.jy@renesas.com>, Abel Vesa <abelvesa@kernel.org>, Peng Fan
-	<peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
-	Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh
- Shilimkar <ssantosh@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jerome
- Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>, Andrew Lunn
-	<andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, Sebastian
- Hesselbarth <sebastian.hesselbarth@gmail.com>, Andy Gross
-	<agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio
-	<konrad.dybcio@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, Sylwester Nawrocki
-	<s.nawrocki@samsung.com>, Tomasz Figa <tomasz.figa@gmail.com>, Chanwoo Choi
-	<cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Dinh
- Nguyen <dinguyen@kernel.org>, Viresh Kumar <vireshk@kernel.org>, Shiraz
- Hashim <shiraz.linux.kernel@gmail.com>, <soc@kernel.org>, Orson Zhai
-	<orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan
- Zhang <zhang.lyra@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, Hal
- Feng <hal.feng@starfivetech.com>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
-	Emilio =?utf-8?B?TMOzcGV6?= <emilio@elopez.com.ar>, Peter De Schrijver
-	<pdeschrijver@nvidia.com>, Prashant Gaikwad <pgaikwad@nvidia.com>, Thierry
- Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu
-	<mhiramat@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	<devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-actions@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-rpi-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-oxnas@groups.io>,
-	<linux-mediatek@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-arm-msm@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-rockchip@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
-	<linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH] clk: Explicitly include correct DT includes
-Message-ID: <20230719183927.c4ykdjw3iekmugzy@CAB-WSD-L081021>
-References: <20230714174342.4052882-1-robh@kernel.org>
+	id 1qMCwO-008h48-34
+	for linux-riscv@lists.infradead.org;
+	Wed, 19 Jul 2023 19:34:30 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-78372b895d6so391519439f.2
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 12:34:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689795267; x=1690400067;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FdGmPDy4n8Vb9yckrY3NHJ0yplI6UyLJ02ulp/zmXZw=;
+        b=HecAfKZg9Xu/PFX1+zVYZYlqqow6E/dqLCp2s59n3O/xfMNhZ1IcSBmsZ+yJK5yNZL
+         N5QknaUrOuOpLSTFmj+MWb/R4/rP7abzfMWRnDK/dpQ/I6huV/G8S6SoVAYQf3jyjBYc
+         ITXB1yxmxSgIKH+s1sMPFwsyhlwsCD3w0so/PM12hwEOfcikG3bfcZdbu0ypKBEuN/gu
+         VP71K10oPMLxWNldnN5H5JKrGbSGgWpQLr4SMMleYtLvyes4e4RlNw7G1q4GorTf0DJt
+         gAqzhs9DEql29OqfU1pSrU/R0JUUn/T1cffMhVSuj+e5CHeakg/+oKqiTz3fVOG0oVX+
+         1rXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689795267; x=1690400067;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FdGmPDy4n8Vb9yckrY3NHJ0yplI6UyLJ02ulp/zmXZw=;
+        b=eLlfdOagTDfAuUQG+u9xgyKsOYt59jhXwUAY95BFHoF+1F5K2/JSL4/0cod4GYj/2X
+         vIFUtnyjfw+wpp8RoWFBTJrW8bJOejtvZ1WOgHyqDqFViqayiN3Lsvo79BDJISJhPAnv
+         0zBy3smKa5tqT+Lb+fgxw6Mes7SOnS6qAcos13XEHPB4wNRaSyI4Bu8cqsAu4w3OhMeK
+         v+gKElqOx2K5Y1orQe1tuvUgSTtB5qkRj3tMyYFtaXrwfqrFYPcGHXv8HLFhk6C7OH7c
+         NzVMjaANlPaxxeA2H9H6fqVt6D6Bp2gpDc1WTH37/JQg8RqMCar/JvY2YPiEf/UajWf4
+         gosw==
+X-Gm-Message-State: ABy/qLZfQjXO9coX1TieLvAIB7jD4GaLC/qKm1f93DjNZryUQ6vjmave
+	lO/xr1O78g1u4RfG/2/dYlalbg==
+X-Google-Smtp-Source: APBJJlGN7srrpW1Dfo4Ygw07TXS+Dfssh8mV+rp8AEjMaeoQuXFsWsSaJe/QFh3kOeDRzzfvovNgSA==
+X-Received: by 2002:a05:6e02:12ed:b0:348:936b:ae12 with SMTP id l13-20020a056e0212ed00b00348936bae12mr3737637iln.11.1689795267467;
+        Wed, 19 Jul 2023 12:34:27 -0700 (PDT)
+Received: from tjeznach.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id 23-20020a17090a031700b00264040322desm1591053pje.40.2023.07.19.12.34.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Jul 2023 12:34:27 -0700 (PDT)
+From: Tomasz Jeznach <tjeznach@rivosinc.com>
+To: Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: [PATCH 03/11] dt-bindings: Add RISC-V IOMMU bindings
+Date: Wed, 19 Jul 2023 12:33:47 -0700
+Message-Id: <d62ceb33620cab766d809e6bbf30eaf5b46bc955.1689792825.git.tjeznach@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1689792825.git.tjeznach@rivosinc.com>
+References: <cover.1689792825.git.tjeznach@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230714174342.4052882-1-robh@kernel.org>
-User-Agent: NeoMutt/20220415
-X-Originating-IP: [100.64.160.123]
-X-ClientProxiedBy: p-i-exch-sc-m02.sberdevices.ru (172.16.192.103) To
- p-i-exch-sc-m01.sberdevices.ru (172.16.192.107)
-X-KSMG-Rule-ID: 10
-X-KSMG-Message-Action: clean
-X-KSMG-AntiSpam-Lua-Profiles: 178730 [Jul 19 2023]
-X-KSMG-AntiSpam-Version: 5.9.59.0
-X-KSMG-AntiSpam-Envelope-From: DDRokosov@sberdevices.ru
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 524 524 9753033d6953787301affc41bead8ed49c47b39d, {Track_E25351}, {Tracking_from_domain_doesnt_match_to}, sberdevices.ru:5.0.1,7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2;p-i-exch-sc-m01.sberdevices.ru:5.0.1,7.1.1;100.64.160.123:7.1.2, FromAlignment: s, {Tracking_white_helo}, ApMailHostAddress: 100.64.160.123
-X-MS-Exchange-Organization-SCL: -1
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean
-X-KSMG-LinksScanning: Clean
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2023/07/19 15:29:00 #21641898
-X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_113946_437359_221D0C6B 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20230719_123429_019016_E137ECA8 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,38 +88,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 14, 2023 at 11:43:29AM -0600, Rob Herring wrote:
-> The DT of_device.h and of_platform.h date back to the separate
-> of_platform_bus_type before it as merged into the regular platform bus.
-> As part of that merge prepping Arm DT support 13 years ago, they
-> "temporarily" include each other. They also include platform_device.h
-> and of.h. As a result, there's a pretty much random mix of those include
-> files used throughout the tree. In order to detangle these headers and
-> replace the implicit includes with struct declarations, users need to
-> explicitly include the correct includes.
-> 
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> ---
+From: Anup Patel <apatel@ventanamicro.com>
 
-[...]
+We add DT bindings document for RISC-V IOMMU platform and PCI devices
+defined by the RISC-V IOMMU specification.
 
-For
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ .../bindings/iommu/riscv,iommu.yaml           | 146 ++++++++++++++++++
+ 1 file changed, 146 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
 
->  drivers/clk/meson/a1-peripherals.c               | 2 +-
->  drivers/clk/meson/a1-pll.c                       | 2 +-
-
-Reviewed-by: Dmitry Rokosov <ddrokosov@sberdevices.ru>
-
-[...]
-
+diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+new file mode 100644
+index 000000000000..8a9aedb61768
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
+@@ -0,0 +1,146 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iommu/riscv,iommu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V IOMMU Implementation
++
++maintainers:
++  - Tomasz Jeznach <tjeznach@rivosinc.com>
++
++description:
++  The RISC-V IOMMU specificaiton defines an IOMMU for RISC-V platforms
++  which can be a regular platform device or a PCI device connected to
++  the host root port.
++
++  The RISC-V IOMMU provides two stage translation, device directory table,
++  command queue and fault reporting as wired interrupt or MSIx event for
++  both PCI and platform devices.
++
++  Visit https://github.com/riscv-non-isa/riscv-iommu for more details.
++
++properties:
++  compatible:
++    oneOf:
++      - description: RISC-V IOMMU as a platform device
++        items:
++          - enum:
++              - vendor,chip-iommu
++          - const: riscv,iommu
++
++      - description: RISC-V IOMMU as a PCI device connected to root port
++        items:
++          - enum:
++              - vendor,chip-pci-iommu
++          - const: riscv,pci-iommu
++
++  reg:
++    maxItems: 1
++    description:
++      For RISC-V IOMMU as a platform device, this represents the MMIO base
++      address of registers.
++
++      For RISC-V IOMMU as a PCI device, this represents the PCI-PCI bridge
++      details as described in Documentation/devicetree/bindings/pci/pci.txt
++
++  '#iommu-cells':
++    const: 2
++    description: |
++      Each IOMMU specifier represents the base device ID and number of
++      device IDs.
++
++  interrupts:
++    minItems: 1
++    maxItems: 16
++    description:
++      The presence of this property implies that given RISC-V IOMMU uses
++      wired interrupts to notify the RISC-V HARTS (or CPUs).
++
++  msi-parent:
++    description:
++      The presence of this property implies that given RISC-V IOMMU uses
++      MSIx to notify the RISC-V HARTs (or CPUs). This property should be
++      considered only when the interrupts property is absent.
++
++  dma-coherent:
++    description:
++      Present if page table walks and DMA accessed made by the RISC-V IOMMU
++      are cache coherent with the CPU.
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - '#iommu-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    /* Example 1 (IOMMU platform device with wired interrupts) */
++    immu1: iommu@1bccd000 {
++        compatible = "vendor,chip-iommu", "riscv,iommu";
++        reg = <0x1bccd000 0x1000>;
++        interrupt-parent = <&aplic_smode>;
++        interrupts = <32 4>, <33 4>, <34 4>, <35 4>;
++        #iommu-cells = <2>;
++    };
++
++    /* Device with two IOMMU device IDs, 0 and 7 */
++    master1 {
++        iommus = <&immu1 0 1>, <&immu1 7 1>;
++    };
++
++  - |
++    /* Example 2 (IOMMU platform device with MSIs) */
++    immu2: iommu@1bcdd000 {
++        compatible = "vendor,chip-iommu", "riscv,iommu";
++        reg = <0x1bccd000 0x1000>;
++        msi-parent = <&imsics_smode>;
++        #iommu-cells = <2>;
++    };
++
++    bus {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        /* Device with IOMMU device IDs ranging from 32 to 64 */
++        master1 {
++                iommus = <&immu2 32 32>;
++        };
++
++        pcie@40000000 {
++            compatible = "pci-host-cam-generic";
++            device_type = "pci";
++            #address-cells = <3>;
++            #size-cells = <2>;
++            bus-range = <0x0 0x1>;
++
++            /* CPU_PHYSICAL(2)  SIZE(2) */
++            reg = <0x0 0x40000000 0x0 0x1000000>;
++
++            /* BUS_ADDRESS(3)  CPU_PHYSICAL(2)  SIZE(2) */
++            ranges = <0x01000000 0x0 0x01000000  0x0 0x01000000  0x0 0x00010000>,
++                     <0x02000000 0x0 0x41000000  0x0 0x41000000  0x0 0x3f000000>;
++
++            #interrupt-cells = <0x1>;
++
++            /* PCI_DEVICE(3)  INT#(1)  CONTROLLER(PHANDLE)  CONTROLLER_DATA(2) */
++            interrupt-map = <   0x0 0x0 0x0  0x1  &aplic_smode  0x4 0x1>,
++                            < 0x800 0x0 0x0  0x1  &aplic_smode  0x5 0x1>,
++                            <0x1000 0x0 0x0  0x1  &aplic_smode  0x6 0x1>,
++                            <0x1800 0x0 0x0  0x1  &aplic_smode  0x7 0x1>;
++
++            /* PCI_DEVICE(3)  INT#(1) */
++            interrupt-map-mask = <0xf800 0x0 0x0  0x7>;
++
++            msi-parent = <&imsics_smode>;
++
++            /* Devices with bus number 0-127 are mastered via immu2 */
++            iommu-map = <0x0000 &immu2 0x0000 0x8000>;
++        };
++    };
++...
 -- 
-Thank you,
-Dmitry
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
