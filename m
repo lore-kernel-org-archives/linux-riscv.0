@@ -4,82 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26CF4EB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 11:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4E2C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 12:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pg7eXr6S5cFpp8VmP2EnEIcexJhqhPrNjllDI+w9vgg=; b=3thfwyeHADeaPf
-	3B/0LP8LFXMquR8PKuv7qWcIWxTAM0h2gHjNngacvuTMUUcHEcZKHaKFjB2Cam0UPhbqI623+VSCi
-	jeNw5c0uM6QvhN1uXKkf2uNtPXMvJq0g2zynJBGTqMM2hGtmYLDj4Iwp0QMf0I038sn8XIcNmec1p
-	6U/xG1l07x9PQIV6+ymm1E1VvCqt1rKGMyTYEJiX//OVB/Hykp6zspjaUJOvaH08JR4u/2O5o7epM
-	yZrK579xbbjgXwOP0N+rqbxENZwxzb7QbZ9luwDo3EEcn02Iuwx6hbAOKId7yu9oR4ELokscsme53
-	90am87zdt68wVEhMc8/g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XxWaBIXIt5ZcIAuFZBQvQXikI72Inxew1Azw6GhzPrQ=; b=fY97lkccJAk7zD
+	2T6AfqvE/ynEoiIqN7R94Ik9ODveQcAyqwqObBGfsysRM0N1gEjf5Ce1sueI7vE4HcFLrrbMaJtNY
+	OXR/1yEdIAogtzNwgva80qQSyAF42CVUNDIIReOdTpA8BFnnZsJAj37pUFjtUGJYbBnWDpuyQfaWG
+	BZotY9q8CdGUQlps3JRngirKltEaP7c9ZtMwwkX5UY9VEGMtm52HSJySrb7ctmrpcyyiIx6GNMvPF
+	SUfdQg+8YcSaUDYYLGiBG6DZz33Z57u1DpT41VY9soo4JyX+Y4zt21dICACAm1Yt1qPqG2iozOdoi
+	H5TyYPy6r16yUgZzd+kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM5cH-007J6y-1X;
-	Wed, 19 Jul 2023 11:45:13 +0000
+	id 1qM6TS-007Qsw-26;
+	Wed, 19 Jul 2023 12:40:10 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM5cD-007J5F-1U;
-	Wed, 19 Jul 2023 11:45:11 +0000
+	id 1qM6TP-007Qrp-0X;
+	Wed, 19 Jul 2023 12:40:08 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B7499615CC;
-	Wed, 19 Jul 2023 11:45:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F206C433C8;
-	Wed, 19 Jul 2023 11:44:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CE7DB61626;
+	Wed, 19 Jul 2023 12:40:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE75DC433C8;
+	Wed, 19 Jul 2023 12:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689767108;
-	bh=X193VsTHxd/qDbY1iwu9zyDcvx+RDZWX3xtpuMtgrvk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CZgrXNM7PXs5djMhW97w3CedauBAIO7tJp4gD0qIPDeHSm5dCuZK/mfLTFNwLEbfA
-	 u/Sds+3iynFpc+ngWUYxVnc+zFYD4DzN/L5LLVP+ghbUyAA59K78pPPozod4KVG8fP
-	 A65lkT8yWYMBcq58Bc4M14IdRbh71Sq/FHB/SgH+5Y8jPFLgRm4YgYWHi/qxINYV5Y
-	 ToDcL0Z/YLJa/T2Deryyl39XzhIjmHJvCPhvLpPjvTe+NTZneejIxNLFmZlSs3o54Y
-	 T0vek5G+sRtvwgOfUrlpDVgvPmcjy2C8ccH9pVBAZP7wlMgP+WYBf3NTIL35kxcib0
-	 V8zRn5/OT1vyQ==
-Date: Wed, 19 Jul 2023 14:44:37 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, Shuah Khan <shuah@kernel.org>,
-	"Rick P. Edgecombe" <rick.p.edgecombe@intel.com>,
-	Deepak Gupta <debug@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Szabolcs Nagy <Szabolcs.Nagy@arm.com>,
-	"H.J. Lu" <hjl.tools@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	s=k20201202; t=1689770405;
+	bh=DIdJB1tKscR1rR3ujrBSJpnHyT/V+Wqlv5mxqgqFyfo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=JrzZEGAAyAH1UDXHME4ojHdWqSujNUNi7s/2QLjU4KPdJmC4YzkCnfpLJWsy1giIi
+	 4GfKf/YtkVIiRQh3ABlUkf77h0sv4JdaKf/Vl1FPgqFZ7Q9AP+FJHMyVanaiYlHRyn
+	 XhjbT1VbweWLETJajH46boExznIVXhvkYxrEgo9zFKUJiFKlNAz6apD8S1DPsT367D
+	 TDWhXjATRbaPWUN7/4LHlap/dNyW9Fz5CEvycj2DQjpc0EtPyXvbYt5ePy6xhhwmbd
+	 /BIf4DyZD3QTQDe2SgMuY/ua/2MJlpwAR6VLqGrW9QwblGXER1IPEh6DejVsQa5tGr
+	 UD0g9QPf5fqPw==
+From: Arnd Bergmann <arnd@kernel.org>
+To: linux-fbdev@vger.kernel.org,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Helge Deller <deller@gmx.de>,
+	Javier Martinez Canillas <javierm@redhat.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Airlie <airlied@gmail.com>,
+	Deepak Rawat <drawat.floss@gmail.com>,
+	Dexuan Cui <decui@microsoft.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Guo Ren <guoren@kernel.org>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Khalid Aziz <khalid@gonehiking.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 04/35] arm64/gcs: Document the ABI for Guarded Control
- Stacks
-Message-ID: <20230719114437.GJ1901145@kernel.org>
-References: <20230716-arm64-gcs-v1-0-bf567f93bba6@kernel.org>
- <20230716-arm64-gcs-v1-4-bf567f93bba6@kernel.org>
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Wei Liu <wei.liu@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	x86@kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: [PATCH v2 0/9] video: screen_info cleanups
+Date: Wed, 19 Jul 2023 14:39:35 +0200
+Message-Id: <20230719123944.3438363-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230716-arm64-gcs-v1-4-bf567f93bba6@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_044509_590887_73316E8E 
-X-CRM114-Status: GOOD (  57.25  )
+X-CRM114-CacheID: sfid-20230719_054007_314243_03566F52 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,266 +122,138 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 16, 2023 at 10:51:00PM +0100, Mark Brown wrote:
-> Add some documentation of the userspace ABI for Guarded Control Stacks.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  Documentation/arch/arm64/gcs.rst   | 216 +++++++++++++++++++++++++++++++++++++
->  Documentation/arch/arm64/index.rst |   1 +
->  2 files changed, 217 insertions(+)
-> 
-> diff --git a/Documentation/arch/arm64/gcs.rst b/Documentation/arch/arm64/gcs.rst
-> new file mode 100644
-> index 000000000000..27ba72d27952
-> --- /dev/null
-> +++ b/Documentation/arch/arm64/gcs.rst
-> @@ -0,0 +1,216 @@
-> +===============================================
-> +Guarded Control Stack support for AArch64 Linux
-> +===============================================
-> +
-> +This document outlines briefly the interface provided to userspace by Linux in
-> +order to support use of the ARM Guarded Control Stack (GCS) feature.
-> +
-> +This is an outline of the most important features and issues only and not
-> +intended to be exhaustive.
-> +
-> +
-> +
-> +1.  General
-> +-----------
-> +
-> +* GCS is an architecture feature intended to provide greater protection
-> +  against return oriented programming (ROP) attacks and to simplify the
-> +  implementation of features that need to collect stack traces such as
-> +  profiling.
-> +
-> +* When GCS is enabled a separate guarded control stack is maintained by the
-> +  PE which is writeable only through specific GCS operations.  This
-> +  stores the call stack only, when a procedure call instruction is
-> +  performed the current PC is pushed onto the GCS and on RET the
-> +  address in the LR is verified against that on the top of the GCS.
-> +
-> +* When active current GCS pointer is stored in the system register
-> +  GCSPR_EL0.  This is readable by userspace but can only be updated
-> +  via specific GCS instructions.
-> +
-> +* The architecture provides instructions for switching between guarded
-> +  control stacks with checks to ensure that the new stack is a valid
-> +  target for switching.
-> +
-> +* The functionality of GCS is similar to that provided by the x86 Shadow
-> +  Stack feature, due to sharing of userspace interfaces the ABI refers to
-> +  shadow stacks rather than GCS.
-> +
-> +* Support for GCS is reported to userspace via HWCAP2_GCS in the aux vector
-> +  AT_HWCAP2 entry.
-> +
-> +* GCS is enabled per thread.  While there is support for disabling GCS
-> +  at runtime this should be done with great care.
-> +
-> +* GCS memory access faults are reported as normal memory access faults.
-> +
-> +* GCS specific errors (those reported with EC 0x2d) will be reported as
-> +  SIGSEGV with a si_code of SEGV_CPERR (control protection error).
-> +
-> +* GCS is supported only for AArch64.
-> +
-> +* On systems where GCS is supported GCSPR_EL0 is always readable by EL0
-> +  regardless of the GCS configuration for the thread.
-> +
-> +* The architecture supports enabling GCS without verifying that return values
-> +  in LR match those in the GCS, the LR will be ignored.  This is not supported
-> +  by Linux.
-> +
-> +* EL0 GCS entries with bit 63 set are reserved for use, one such use is defined
-> +  below for signals and should be ignored when parsing the stack if not
-> +  understood.
-> +
-> +
-> +2.  Enabling and disabling Guarded Control Stacks
-> +-------------------------------------------------
-> +
-> +* GCS is enabled and disabled for a thread via the PR_SET_SHADOW_STACK_STATUS
-> +  prctl(), this takes a single flags argument specifying which GCS features
-> +  should be used.
-> +
-> +* When set PR_SHADOW_STACK_ENABLE flag allocates a Guarded Control Stack for
+From: Arnd Bergmann <arnd@arndb.de>
 
-                                                 'for' here looks excessive ^
+I refreshed the first four patches that I sent before with very minor
+updates, and then added some more to further disaggregate the use
+of screen_info:
 
-> +  and enables GCS for the thread, enabling the functionality controlled by
-> +  GCSPRE0_EL1.{nTR, RVCHKEN, PCRSEL}.
-> +
-> +* When set the PR_SHADOW_STACK_PUSH flag enables the functionality controlled
-> +  by GCSCRE0_EL1.PUSHMEn, allowing explicit GCS push and pops.
-> +
-> +* When set the PR_SHADOW_STACK_WRITE flag enables the functionality controlled
-> +  by GCSCRE0_EL1.STREn, allowing explicit stores to the Guarded Control Stack.
-> +
-> +* When set the PR_SHADOW_STACK_LOCK flag prevents any further configuration of
-> +  the GCS settings for the thread, further attempts to configure GCS will
-> +  return -EBUSY.
-> +
-> +* Any unknown flags will cause PR_SET_SHADOW_STACK_STATUS to return -EINVAL.
-> +
-> +* PR_SET_SHADOW_STACK_STATUS affects only the thread the called it, any
-> +  other running threads will be unaffected.
-> +
-> +* New threads inherit the GCS configuration of the thread that created them.
-> +
-> +* GCS is disabled on exec().
-> +
-> +* The current GCS configuration for a thread may be read with the
-> +  PR_GET_SHADOW_STACK_STATUS prctl(), this returns the same flags that
-> +  are passed to PR_SET_SHADOW_STACK_STATUS.
-> +
-> +* If GCS is disabled for a thread after having previously been enabled then
-> +  the stack will remain allocated for the lifetime of the thread.  At present
-> +  any attempt to reenable GCS for the thread will be rejected, this may be
-> +  revisited in future.
-> +
-> +* It should be noted that since enabling GCS will result in GCS becoming
-> +  active immediately it is not normally possible to return from the function
-> +  that invoked the prctl() that enabled GCS.  It is expected that the normal
-> +  usage will be that GCS is enabled very early in execution of a program.
-> +
-> +
-> +
-> +3.  Allocation of Guarded Control Stacks
-> +----------------------------------------
-> +
-> +* When GCS is enabled for a thread a new Guarded Control Stack will be
-> +  allocated for it of size RLIMIT_STACK / 2 or 2 gigabytes, whichever is
-> +  smaller.
-> +
-> +* When a new thread is created by a thread which has GCS enabled then a
-> +  new Guarded Control Stack will be allocated for the new thread with
-> +  half the size of the standard stack.
-> +
-> +* When a stack is allocated by enabling GCS or during thread creation then
-> +  the top 8 bytes of the stack will be initialised to 0 and GCSPR_EL0 will
-> +  be set to point to the address of this 0 value, this can be used to
-> +  detect the top of the stack.
-> +
-> +* Additional Guarded Control Stacks can be allocated using the
-> +  map_shadow_stack() system call.
-> +
-> +* Stacks allocated using map_shadow_stack() will have the top 8 bytes
-> +  set to 0 and the 8 bytes below that initialised with an architecturally
-> +  valid GCS cap value, this allows switching to these stacks using the
-> +  stack switch instructions provided by the architecture.
-> +
-> +* When GCS is disabled for a thread the Guarded Control Stack initially
-> +  allocated for that thread will be freed.  Note carefully that if the
-> +  stack has been switched this may not be the stack currently in use by
-> +  the thread.
-> +
-> +
-> +4.  Signal handling
-> +--------------------
-> +
-> +* A new signal frame record gcs_context encodes the current GCS mode and
-> +  pointer for the interrupted context on signal delivery.  This will always
-> +  be present on systems that support GCS.
-> +
-> +* The record contains a flag field which reports the current GCS configuration
-> +  for the interrupted context as PR_GET_SHADOW_STACK_STATUS would.
-> +
-> +* The signal handler is run with the same GCS configuration as the interrupted
-> +  context.
-> +
-> +* When GCS is enabled for the interrupted thread a signal handling specific
-> +  GCS cap token will be written to the GCS, this is an architectural GCS cap
-> +  token with bit 63 set.  The GCSPR_EL0 reported in the signal frame will
-> +  point to this cap token.
-> +
-> +* The signal handler will use the same GCS as the interrupted context.
-> +
-> +* When GCS is enabled on signal entry a frame with the address of the signal
-> +  return handler will be pushed onto the GCS, allowing return from the signal
-> +  handler via RET as normal.  This will not be reported in the gcs_context in
-> +  the signal frame.
-> +
-> +
-> +5.  Signal return
-> +-----------------
-> +
-> +When returning from a signal handler:
-> +
-> +* If there is a gcs_context record in the signal frame then the GCS flags
-> +  and GCSPR_EL0 will be restored from that context prior to further
-> +  validation.
-> +
-> +* If there is no gcs_context record in the signal frame then the GCS
-> +  configuration will be unchanged.
-> +
-> +* If GCS is enabled on return from a signal handler then GCSPR_EL0 must
-> +  point to a valid GCS signal cap record, this will be popped from the
-> +  GCS prior to signal return.
-> +
-> +* If the GCS configuration is locked when returning from a signal then any
-> +  attempt to change the GCS configuration will be treated as an error.  This
-> +  is true even if GCS was not enabled prior to signal entry.
-> +
-> +* GCS may be disabled via signal return but any attempt to enable GCS via
-> +  signal return will be rejected.
-> +
-> +
-> +7.  ptrace extensions
-> +---------------------
-> +
-> +* A new regset NT_ARM_GCS is defined for use with PTRACE_GETREGSET and
-> +  PTRACE_SETREGSET.
-> +
-> +* Due to the complexity surrounding allocation and deallocation of stakcs and
-> +  lack of practical application changes to the GCS configuration via ptrace
-> +  are not supported.
+ - I found that powerpc wasn't using vga16fb any more
 
-On x86 CRIU needed to be able to temporarily unlock shadow stack features
-to recreate the shadow stack of the thread being restored. I presume CRIU
-will need something like that on arm64 as well.
+ - vgacon can be almost entirely separated from the global
+   screen_info, except on x86
 
-> +
-> +
-> +
-> +8.  ELF coredump extensions
-> +---------------------------
-> +
-> +* NT_ARM_GCS notes will be added to each coredump for each thread of the
-> +  dumped process.  The contents will be equivalent to the data that would
-> +  have been read if a PTRACE_GETREGSET of the corresponding type were
-> +  executed for each thread when the coredump was generated.
-> +
-> +
-> +
-> +9.  /proc extensions
-> +--------------------
-> +
-> +* Guarded Control Stack pages will include "ss" in their VmFlags in
-> +  /proc/<pid>/smaps.
-> diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
-> index d08e924204bf..dcf3ee3eb8c0 100644
-> --- a/Documentation/arch/arm64/index.rst
-> +++ b/Documentation/arch/arm64/index.rst
-> @@ -14,6 +14,7 @@ ARM64 Architecture
->      booting
->      cpu-feature-registers
->      elf_hwcaps
-> +    gcs
->      hugetlbpage
->      kdump
->      legacy_instructions
-> 
-> -- 
-> 2.30.2
-> 
-> 
+ - similarly, the EFI framebuffer initialization can be
+   kept separate, except on x86.
+
+I did extensive build testing on arm/arm64/x86 and the normal built bot
+testing for the other architectures.
+
+Which tree should this get merged through?
+
+Link: https://lore.kernel.org/lkml/20230707095415.1449376-1-arnd@kernel.org/
+
+Arnd Bergmann (9):
+  vgacon: rework Kconfig dependencies
+  vgacon: rework screen_info #ifdef checks
+  dummycon: limit Arm console size hack to footbridge
+  vgacon, arch/*: remove unused screen_info definitions
+  vgacon: remove screen_info dependency
+  vgacon: clean up global screen_info instances
+  vga16fb: drop powerpc support
+  hyperv: avoid dependency on screen_info
+  efi: move screen_info into efi init code
+
+ arch/alpha/kernel/proto.h                     |  2 +
+ arch/alpha/kernel/setup.c                     |  8 +--
+ arch/alpha/kernel/sys_sio.c                   |  8 ++-
+ arch/arm/include/asm/setup.h                  |  5 ++
+ arch/arm/kernel/atags_parse.c                 | 20 +++---
+ arch/arm/kernel/efi.c                         |  6 --
+ arch/arm/kernel/setup.c                       |  7 +-
+ arch/arm64/kernel/efi.c                       |  4 --
+ arch/arm64/kernel/image-vars.h                |  2 +
+ arch/csky/kernel/setup.c                      | 12 ----
+ arch/hexagon/kernel/Makefile                  |  2 -
+ arch/hexagon/kernel/screen_info.c             |  3 -
+ arch/ia64/kernel/setup.c                      | 51 +++++++-------
+ arch/loongarch/kernel/efi.c                   |  3 +-
+ arch/loongarch/kernel/image-vars.h            |  2 +
+ arch/loongarch/kernel/setup.c                 |  3 -
+ arch/mips/jazz/setup.c                        |  9 ---
+ arch/mips/kernel/setup.c                      | 11 ---
+ arch/mips/mti-malta/malta-setup.c             |  4 +-
+ arch/mips/sibyte/swarm/setup.c                | 26 ++++---
+ arch/mips/sni/setup.c                         | 18 ++---
+ arch/nios2/kernel/setup.c                     |  5 --
+ arch/powerpc/kernel/setup-common.c            | 16 -----
+ arch/riscv/kernel/setup.c                     | 12 ----
+ arch/sh/kernel/setup.c                        |  5 --
+ arch/sparc/kernel/setup_32.c                  | 13 ----
+ arch/sparc/kernel/setup_64.c                  | 13 ----
+ arch/x86/kernel/setup.c                       |  2 +-
+ arch/xtensa/kernel/setup.c                    | 12 ----
+ drivers/firmware/efi/efi-init.c               | 14 +++-
+ drivers/firmware/efi/libstub/efi-stub-entry.c |  8 ++-
+ drivers/firmware/pcdp.c                       |  1 -
+ drivers/gpu/drm/hyperv/hyperv_drm_drv.c       |  7 +-
+ drivers/hv/vmbus_drv.c                        |  6 +-
+ drivers/video/console/Kconfig                 | 11 +--
+ drivers/video/console/dummycon.c              |  2 +-
+ drivers/video/console/vgacon.c                | 68 +++++++++++--------
+ drivers/video/fbdev/Kconfig                   |  2 +-
+ drivers/video/fbdev/hyperv_fb.c               |  8 +--
+ drivers/video/fbdev/vga16fb.c                 |  9 +--
+ include/linux/console.h                       |  7 ++
+ 41 files changed, 178 insertions(+), 249 deletions(-)
+ delete mode 100644 arch/hexagon/kernel/screen_info.c
 
 -- 
-Sincerely yours,
-Mike.
+2.39.2
+
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: "K. Y. Srinivasan" <kys@microsoft.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Brian Cain <bcain@quicinc.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Daniel Vetter <daniel@ffwll.ch>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Deepak Rawat <drawat.floss@gmail.com>
+Cc: Dexuan Cui <decui@microsoft.com>
+Cc: Dinh Nguyen <dinguyen@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Haiyang Zhang <haiyangz@microsoft.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Javier Martinez Canillas <javierm@redhat.com>
+Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Khalid Aziz <khalid@gonehiking.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: Matt Turner <mattst88@gmail.com>
+Cc: Max Filippov <jcmvbkbc@gmail.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: WANG Xuerui <kernel@xen0n.name>
+Cc: Wei Liu <wei.liu@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: x86@kernel.org
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-efi@vger.kernel.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-ia64@vger.kernel.org
+Cc: loongarch@lists.linux.dev
+Cc: linux-mips@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-sh@vger.kernel.org
+Cc: sparclinux@vger.kernel.org
+Cc: linux-hyperv@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-fbdev@vger.kernel.org
+
 
 _______________________________________________
 linux-riscv mailing list
