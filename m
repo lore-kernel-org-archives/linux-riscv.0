@@ -4,86 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56894C0015E
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 16:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFDCC001DE
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 16:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ze4zK2mf/LAzU1aQoUZX8A+0gOADcJi4l8ffonUFC0Y=; b=Iyro8dzStRKLBt
-	iTqLOEqR+u0BuHtxy/S5RAD/RS1Cq3cAO0TXA9xYjGJpe83xig77E6PWQ5WUOs1pLjGWWwB2RXUj6
-	UoU5xKgF/aQmOjo50lm8+7IODV6mm01XZc808SSUGPvyqugFrNaCjQrgPGJnVAdQ7qv4aJz4uQuf2
-	geY4OakGLQT6mxF5CzeHeMNw8Xd57qIhOLUER/wvzaKq9xIlpNGBOOPKnWUM+p5mra8i3okJW/xC3
-	sBSK1Vp5x33Bj2GunLOcv7n+NqqTYGHjQpcjPu0T29yw/FjpXWtYufciAOivcguI7oN5/JWVaJ0pe
-	Wff4YkGQKxUV4kXg7voQ==;
+	List-Owner; bh=VdrQbdFue6A3IOFWe+EG47RxA5JgqZDlz1+OnUkfm4k=; b=UD0IOvwvCHbGD+
+	ZG/15bFWbBeKz2TypPIicL3QNYiFNpsNlcyAftmnPMcujlVN4UIykMF5cvr26jEfC8qahP4NyXXhZ
+	B9DFy9xlrDO1wDSl32JA590EQj/eewpywCgCnP/qSRfAhfSYpbyB/+RmJ/rwdmQLLF8/oUb4DpwyB
+	QtMqMcNKS1GsURZe0KqINdR19+4J9udVDothVxRL6Rxx9msM2bhsnr6kc/+6WHyXXA9MwZKcVLb31
+	cbvSW2FQm/egLut8C0OYgUSu0NzPBBOOIe/mD+nxrgNO5jVdcLOBlSx9WRHaYBbQ4ihAWhM+PUCwf
+	841kTs6fj/B0Z/WkgSvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMASM-008DtQ-25;
-	Wed, 19 Jul 2023 16:55:18 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1qMASi-008E3r-0J;
+	Wed, 19 Jul 2023 16:55:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMASJ-008DrJ-0L
+	id 1qMASd-008Dz9-1t
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 16:55:16 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-403e7472b28so26260941cf.2
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 09:55:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1689785713; x=1690390513;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=1xaknZ+WQXJ6kJPUpwHcZWxBULSRjgk951uD8BaEmJU=;
-        b=aPUCeq/XP3LmF7NuRP26v0Ge989d6G7AGSAJCXIRKXQAgd1xsjUx1DAtIBfGkxmxt6
-         P24KcgnWKabeJoWjDmdO8WzrixJy45+ZWk///46bnP8O7+8IOSYXX2YQv2ge/GCKHLAR
-         vK9LYCbBmo75UvZx7pxPL5K5EXxkrHw8JXRvMdc/4lyfIPNCThSEc7lNF6wxZ+Lr8/Vm
-         MLOIYl4A0BEt20JSXblMlyFmE75sZmRpaFiBxy61LhhAarRUWEh+p7yt+uWz5mTStslZ
-         HdDdsQhADeG7HDbHzxwL28T8hUQ97MY6/WjeYue/hVljKA2HDS+qRdk306qBDcsDEalj
-         VAog==
+	Wed, 19 Jul 2023 16:55:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689785732;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ybZMnwXlmIEE0ADI9FsKUlcEynrHTdW2zV41y3cU4q8=;
+	b=GywAJTHHLcxJVwUJVakntTMUsC9ImefzxWcs8ba2GGuU7mN0qPIBWmkS6OiMKea8ncFEmX
+	GqmxHuyFFHDhYM5yhA6J+t4roOPPCnCIaXDkG4qsKtkkTzaNZ1kPGNB4hsHV+fZywytjKw
+	m1nR9lV36gw3ZVAxhygmL3U5yVEGzxY=
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
+ [209.85.208.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-516-j-JNk3OcPoSKN0RSqcP--Q-1; Wed, 19 Jul 2023 12:55:30 -0400
+X-MC-Unique: j-JNk3OcPoSKN0RSqcP--Q-1
+Received: by mail-ed1-f72.google.com with SMTP id 4fb4d7f45d1cf-5218b9647a8so2537551a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 09:55:30 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689785713; x=1690390513;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20221208; t=1689785729; x=1692377729;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1xaknZ+WQXJ6kJPUpwHcZWxBULSRjgk951uD8BaEmJU=;
-        b=JFkV9/gPhKejwpPUBYrNwTT2gwajFI5oILZAm7TgjaV2H9Fox9rVkUr1iwL8tJA2Sy
-         7Nee77yvXpi3uTfL840lL8j6FKeJPCEq3Ab0PSegBzek5fzQ4xdx3Bmb8YfQgF29jEv5
-         9JH6SdRQb6KIs2uWtBmJIlqa546u1qwneGieTKNAd2LtA31eA85LPnY1aeR4PWEKbwgw
-         A/DTEmQyHpeY2ZbtohJZp3DOyqNtXUrOIydm2HHWDtAEdpxjTq6zBHba8u4cWWdjk8il
-         h2jHwq1rzSiSfnZYwJdOgitpY4U9udECcTbrOUipYhz978vrvX8vlMgaQFbJMRWEf9jK
-         dOIw==
-X-Gm-Message-State: ABy/qLbt5/MWEk0sbK5gKZy9sC56FjsnWYBkRfRVREF4VJ6O72Q8hJ83
-	4GWU6a+7JOvXtkKb5nJvjb8XqQ==
-X-Google-Smtp-Source: APBJJlEPsbeM2nGzrTcEBeX746FG7Qyy/DhvSGKqoQV2FqRjNNJfHAVrQWcpMXH6G6hSipJSYJxWVw==
-X-Received: by 2002:a05:622a:1883:b0:403:eb6a:5f5f with SMTP id v3-20020a05622a188300b00403eb6a5f5fmr11425456qtc.42.1689785713469;
-        Wed, 19 Jul 2023 09:55:13 -0700 (PDT)
-Received: from ?IPV6:2600:1700:2000:b002:8499:3c3c:78f6:f355? ([2600:1700:2000:b002:8499:3c3c:78f6:f355])
-        by smtp.gmail.com with ESMTPSA id g10-20020ac8774a000000b00403f0e47dd6sm1436861qtu.67.2023.07.19.09.55.12
+        bh=ybZMnwXlmIEE0ADI9FsKUlcEynrHTdW2zV41y3cU4q8=;
+        b=lB9WPFVPWENzEqpC4k21vA6cB2wUGmg7WqJfpF8WUh0jJKC2tfyI0r6JQF+8DK/LQ7
+         VumkTCZp2GrvKmUENtKneisgil0kRe5ArTKdDCURqM1HtKdJpL4WuQSReAwAeX4ePD4a
+         iJ31YHmu+Q5ivn5rQyQrdMMPtFIANUQNSi44mbdQGUjDgntaMPpbGyBX5X4yU2UhCwiJ
+         5dbJOHGByvxwV4uAG/jYOTrvdVs5CX9PVG4uryfd2byTQhJumU2SvJFgxPc6z0NMam/U
+         4hPoXiCIYHWuhwKtKlxZgoaoYqmf9mAYfnZpnrfgRljD8dPN9IP47SD9GCUOi25iFUog
+         ANGA==
+X-Gm-Message-State: ABy/qLZZha+7AyHXNX9XNvPttdt2nOo1VOV9CvHR9HMt6/fAcEe26sUZ
+	FtnapX821KXuaiAEoOjUdJhecjiWGTgyXYEYnPWhI/ptYgmAjrNO1k7jFN/az+B+GFeZ/XpCBf9
+	AQ4wpsYZWxmzNKYxQ0gBowvNIZOKD
+X-Received: by 2002:aa7:df12:0:b0:51e:28e6:3838 with SMTP id c18-20020aa7df12000000b0051e28e63838mr2675094edy.17.1689785729747;
+        Wed, 19 Jul 2023 09:55:29 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlEE4qOGG9V7ZI8+WFW37awHpPD5aiip3zVhw1ks31Z/kpX3OD6eusNtSgp6OKt44xHjSBz/kg==
+X-Received: by 2002:aa7:df12:0:b0:51e:28e6:3838 with SMTP id c18-20020aa7df12000000b0051e28e63838mr2675066edy.17.1689785729461;
+        Wed, 19 Jul 2023 09:55:29 -0700 (PDT)
+Received: from ?IPV6:2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e? ([2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e])
+        by smtp.googlemail.com with ESMTPSA id r18-20020aa7d592000000b0051df5eefa20sm2911736edq.76.2023.07.19.09.55.26
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Jul 2023 09:55:13 -0700 (PDT)
-Message-ID: <44c057f5-d229-86f1-adc4-5585334d3113@sifive.com>
-Date: Wed, 19 Jul 2023 11:55:12 -0500
+        Wed, 19 Jul 2023 09:55:28 -0700 (PDT)
+Message-ID: <711f74d6-fe15-6bd4-a9b9-c4f178d95bf3@redhat.com>
+Date: Wed, 19 Jul 2023 18:55:25 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v2 2/4] gpio: sifive: Look up IRQs only once during probe
-To: Andy Shevchenko <andy@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20230719163446.1398961-1-samuel.holland@sifive.com>
- <20230719163446.1398961-3-samuel.holland@sifive.com>
- <ZLgTwiTzykDhCd5w@smile.fi.intel.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [RFC PATCH v11 01/29] KVM: Wrap kvm_gfn_range.pte in a per-action
+ union
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
+ Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
+ Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
+ Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20230718234512.1690985-1-seanjc@google.com>
+ <20230718234512.1690985-2-seanjc@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <20230718234512.1690985-2-seanjc@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-In-Reply-To: <ZLgTwiTzykDhCd5w@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_095515_208679_65C90581 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20230719_095535_727398_39212C19 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,58 +121,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 7/19/23 01:44, Sean Christopherson wrote:
+> +	BUILD_BUG_ON(sizeof(gfn_range.arg) != sizeof(gfn_range.arg.raw));
+> +	BUILD_BUG_ON(sizeof(range->arg) != sizeof(range->arg.raw));
+
+I think these should be static assertions near the definition of the 
+structs.  However another possibility is to remove 'raw' and just assign 
+the whole union.
+
+Apart from this,
+
+Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+
+Paolo
+
+> +	BUILD_BUG_ON(sizeof(gfn_range.arg) != sizeof(range->arg));
 
 
-On 2023-07-19 11:48 AM, Andy Shevchenko wrote:
-> On Wed, Jul 19, 2023 at 09:34:43AM -0700, Samuel Holland wrote:
->> of_irq_count(), or eqivalently platform_irq_count(), simply looks up
->> successively-numbered IRQs until that fails. Since this driver needs to
->> look up each IRQ anyway to get its virq number, use that existing loop
->> to count the IRQs at the same time.
-> 
-> ...
-> 
->> -	ngpio = of_irq_count(node);
->> -	if (ngpio > SIFIVE_GPIO_MAX) {
->> -		dev_err(dev, "Too many GPIO interrupts (max=%d)\n",
->> -			SIFIVE_GPIO_MAX);
->> -		return -ENXIO;
-> 
-> Do we still need this check?
-
-I don't think so. I think this check was only intended to prevent overflowing
-the irq_number array, and that is now handled by the loop condition.
-
->> -	}
-> 
-> ...
-> 
->> +	for (ngpio = 0; ngpio < SIFIVE_GPIO_MAX; ngpio++) {
->> +		ret = platform_get_irq_optional(pdev, ngpio);
->>  		if (ret < 0)
->> -			return ret;
->> -		chip->irq_number[i] = ret;
->> +			break;
->> +		chip->irq_number[ngpio] = ret;
->>  	}
-> 
-> If so, here we need something like
-> 
-> 	ret = platform_get_irq_optional(pdev, ngpio);
-> 	if (ret > 0) {
-> 		dev_err(dev, "Too many GPIO interrupts (max=%d)\n",
-> 			SIFIVE_GPIO_MAX);
-> 		return -ENXIO;
-> 	}
-> 
-> Otherwise you need to mention this relaxation in the commit message.
-
-OK, I will add something to the commit message in v3.
 
 _______________________________________________
 linux-riscv mailing list
