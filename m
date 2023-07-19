@@ -4,112 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D72C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 17:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B33C001DE
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 17:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mRdTmLLlwGNnh+CLryQjQDQFprX5NU2q47lwFAIn4vY=; b=cXDpn+P/kRv2wB
-	++7KHGcpdQbmUUZPQBycAJ3OaXlLDzDV3FR1IZHyOY9S6OvUL4LiKMwZhP/15HoOVWIkW7QUZNg+8
-	7qayxQmEokIzri4VfNq5YDHosFnaKrMLPRHlKnwv8EGczsREmShCUMVP58Hh0wIrqmUB6nQV+toc6
-	ahbbsBAMdls+0/9ejLZDV/58hj0vwwZDYxyvJS8vtgknxknY2qwht+PTvv60cQviNNuXxWt0XD7og
-	DRmUzC66F6e25UkIA8Sz8NFaNVkDk0YCL7ODfMhgbGyYuMo4pJxr6JxjEVL8y1QfuW7aCtxcpCbRe
-	XCs5qyCnhJFiRpLhI4Vw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=JiQXl857AKVGp7cdP+Tm9Os4Ji+4XWUnjsEJaO7QQ9M=; b=pCd
+	uOxHI3DVQoraXL3BRQwulSYWgQbT2t1j3sat4+5G9kMsyzEV/iz+PQJoZrq1xQoZzzkqNBx8ogn9S
+	2FS5W+5fqyQm9pOkNdg6MkNQFfcmrXUDXInHX8TdTxMs5DGfTYwLkdNgHNftzo831QUPEuj1AdNwO
+	Rwwbsd+9UG1FUJorF7Jim6Ft4/XJKsj3jdupcfSFGSg5v/M1rMiQ4yRTvtOZo/DShJtpRfahPEJjK
+	SB2RhUFRgI8zjXlW2AXrjXA8wImYcoo3O3xXrHIrfk+mS2wyOToErb95X+ner9KktLo0YYf5t8aRY
+	LHuv/jmLgzDJfhkib/RGCLR4qGqtqZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMB4K-008MPK-1g;
-	Wed, 19 Jul 2023 17:34:32 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qMB7j-008N1w-22;
+	Wed, 19 Jul 2023 17:38:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMB4H-008MNq-1C
+	id 1qMB7g-008N1V-27
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Jul 2023 17:34:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1689788068;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FcSmUlnfPR5r9QDVWlDed1kmwKvJ4NFeMyH/cuBuG7c=;
-	b=Cvh+tragkf+T0rHRmvwpvoEMk9zEO8CgA4qftNJW85sfIdE39bzgvFDQSK4mZ/I4ehg103
-	kQxFnVQau3YdpDyzNPqMiVVCyoBj7IwXQRUaMOEL/TQQ1l4wjAGXFe6XwW8Zwhovi6e2do
-	es0X1RSM+OPpa0IYFwUW50dcFLTOkPw=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-158-QMpyBSmZM6OUE7bNt6OZoA-1; Wed, 19 Jul 2023 13:34:26 -0400
-X-MC-Unique: QMpyBSmZM6OUE7bNt6OZoA-1
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-9932e8e76b9so420271366b.3
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 10:34:26 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689788065; x=1692380065;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FcSmUlnfPR5r9QDVWlDed1kmwKvJ4NFeMyH/cuBuG7c=;
-        b=Xu7Q3cncr1fTVTpocm+PrpJwo91jpvmEiBwsnWFRc/4Rv2IRW/69bOa7L0Zhdc8pX/
-         kx16SvR3AjgC/yvLYyEh4vOYWge6CS2UpnEc6WPeFJJIGG7HFCC5lTee3u3XYwIwhmgv
-         sxFYAd7/1hUb6fDTTR1GA3IquPtY/c8DDTdzGvZkBvTfiYrjzutX3gEXHdEm5m5qlAd/
-         SyezrP4s0kXbFkzz5QacC1MGNzAe71/IKT4ebGLpamx7q/Wkug7MgYrS8vtCV8DEferv
-         p1fT8l8q3bZDqnGsm4Y3a+F0EKmh+StyhsiObhSUB8KKlBpwt61FIo8tnn0F6SkxtlHH
-         wqeg==
-X-Gm-Message-State: ABy/qLZGMC6B+g1rSat3IHhPM4ftba8lVQ/ZGqkH8B5vhNGWlci5508+
-	I9inv3B2b4jDOBruby0Iy6DHbrq/TnQbrux+LUyhLAlYcWvycEW8eEUGBRHfoceqg2TaLv1xZas
-	aVdhbwB1LnxgQC9JHc3JKtxq0IlBz
-X-Received: by 2002:a17:906:2c9:b0:987:6372:c31f with SMTP id 9-20020a17090602c900b009876372c31fmr2869610ejk.37.1689788065622;
-        Wed, 19 Jul 2023 10:34:25 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlE859wKxHT5sx+ykGb2dhB/IoiUODuwlK2Yw9t+Sd2xKiIGoiM0e7JvZWSr4FhhJlM9v/AU5Q==
-X-Received: by 2002:a17:906:2c9:b0:987:6372:c31f with SMTP id 9-20020a17090602c900b009876372c31fmr2869597ejk.37.1689788065328;
-        Wed, 19 Jul 2023 10:34:25 -0700 (PDT)
-Received: from ?IPV6:2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e? ([2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e])
-        by smtp.googlemail.com with ESMTPSA id gz18-20020a170906f2d200b00991faf3810esm2633958ejb.146.2023.07.19.10.34.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Jul 2023 10:34:24 -0700 (PDT)
-Message-ID: <cd866d4c-839a-8606-2931-063cca4df514@redhat.com>
-Date: Wed, 19 Jul 2023 19:34:22 +0200
+	Wed, 19 Jul 2023 17:38:02 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EE267617A2;
+	Wed, 19 Jul 2023 17:37:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0371C433C8;
+	Wed, 19 Jul 2023 17:37:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689788279;
+	bh=j8fNe4V6ZoYqVeurCp5XYHQ1q1HBhfOcJ3wv4cQjznI=;
+	h=Date:From:To:Cc:Subject:From;
+	b=XXXIZzTnsOmNAZoY6u1uQNaEkzsZ7kWfKmmPwfb/6VUSvOvnHbwQLgeyum96k+FH6
+	 DuqpxWo9ozapRiaI3O672LBXfrM9E/HuQBWB9foXmw0NuHmKUFW99d+qtJV75JvRBz
+	 FoxupFrqguSin+YMWEaU2AJPug7nuHyVDg0OGQsunfeLaDogSWLNIq7pP+4JspYCDo
+	 Mh96AQgspxG1Wqm2WBSLAK9lxWheTgXa6KfBuLQndPqM3VxGuMFa7ol2u/wkU7DW5u
+	 k6zFL3dIzSirihoLS3hB7PRWWJiuXn5xCvN0JC6RmYD2nL1mij3l43r3Ky8CI7qP6O
+	 MiB9lbZHbAcNQ==
+Date: Wed, 19 Jul 2023 18:37:55 +0100
+From: Conor Dooley <conor@kernel.org>
+To: sboyd@kernel.org
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org, emil.renner.berthing@canonical.com,
+	xingyu.wu@starfivetech.com, walker.chen@starfivetech.com,
+	hal.feng@starfivetech.com
+Subject: [GIT PULL] StarFive clock driver additions for v6.6
+Message-ID: <20230719-trough-frisk-40b92acb485a@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- Alexander Graf <graf@amazon.de>, Nicholas Piggin <npiggin@gmail.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
- Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
- Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-5-seanjc@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Subject: Re: [RFC PATCH v11 04/29] KVM: PPC: Drop dead code related to
- KVM_ARCH_WANT_MMU_NOTIFIER
-In-Reply-To: <20230718234512.1690985-5-seanjc@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_103429_488965_FD5B75B2 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20230719_103800_784591_E5BF1607 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,47 +69,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4671566663606631302=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/19/23 01:44, Sean Christopherson wrote:
-> Signed-off-by: Sean Christopherson<seanjc@google.com>
-> ---
->   arch/powerpc/kvm/powerpc.c | 7 ++++---
->   1 file changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-> index 7197c8256668..5cf9e5e3112a 100644
-> --- a/arch/powerpc/kvm/powerpc.c
-> +++ b/arch/powerpc/kvm/powerpc.c
-> @@ -634,10 +634,11 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_SYNC_MMU:
->   #ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
->   		r = hv_enabled;
 
-This could actually be unnecessarily conservative.  Even book3s_pr.c 
-knows how to do unmap and set_spte, so it should be able to support 
-KVM_CAP_SYNC_MMU.  Alex, Nick, do you remember any of this?  This would 
-mean moving KVM_CAP_SYNC_MMU to virt/kvm/kvm_main.c, which is nice.
+--===============4671566663606631302==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="qsMV8CFYKUIPWrxp"
+Content-Disposition: inline
 
-Paolo
 
-> -#elif defined(KVM_ARCH_WANT_MMU_NOTIFIER)
-> -		r = 1;
->   #else
-> -		r = 0;
-> +#ifndef KVM_ARCH_WANT_MMU_NOTIFIER
-> +		BUILD_BUG();
-> +#endif
-> +		r = 1;
->   #endif
->   		break;
->   #ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
+--qsMV8CFYKUIPWrxp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+Hey Stephen,
+
+Please pull some clock driver additions for StarFive. I've had these
+commits, other than a rebase to pick up R-b tags from Emil, out for LKP
+to have a look at for a few days and they've gotten a clean bill of
+health. Some of the dt-binding stuff "only" has a review from me, but
+since I am a dt-binding maintainer that's fine, although maybe not
+common knowledge yet.
+
+I've also gone and re-arranged the patches in this PR relative to their
+mailing list postings, so that the dt-binding patches can be used as a
+base for adding the clock controller nodes & dependant peripherals to
+the jh7110's dts.
+
+I'm hoping that next time around, someone from StarFive can send you the
+PR, maybe Walker, Hal or Xingyu are interested in that.
+
+Thanks,
+Conor.
+
+The following changes since commit 06c2afb862f9da8dc5efa4b6076a0e48c3fbaaa5:
+
+  Linux 6.5-rc1 (2023-07-09 13:53:13 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/clk-starfive-for-6.6
+
+for you to fetch changes up to dae5448a327edef952faaf31bb3aedb0597ba62a:
+
+  clk: starfive: Add StarFive JH7110 Video-Output clock driver (2023-07-19 18:08:05 +0100)
+
+----------------------------------------------------------------
+StarFive Clock Drivers for V6.6
+
+Add support for the System-Top-Group, Image-Signal-Process, Video-Output
+and PLL clocks on the JH7110 SoC. These drivers come with their
+associate dt-bindings & the obligatory headers containing defines of
+clock indices.
+
+To maintain backwards compatibility, the PLL driver will fall back to
+using the fixed factor clocks that were merged for v6.4. The binding has
+been updated to only permit sourcing the PLL clocks from the PLL's clock
+controller.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Emil Renner Berthing (1):
+      clk: starfive: Add StarFive JH7110 System-Top-Group clock driver
+
+William Qiu (1):
+      dt-bindings: soc: starfive: Add StarFive syscon module
+
+Xingyu Wu (9):
+      dt-bindings: clock: Add StarFive JH7110 PLL clock generator
+      dt-bindings: clock: jh7110-syscrg: Add PLL clock inputs
+      dt-bindings: clock: Add StarFive JH7110 System-Top-Group clock and reset generator
+      dt-bindings: clock: Add StarFive JH7110 Image-Signal-Process clock and reset generator
+      dt-bindings: clock: Add StarFive JH7110 Video-Output clock and reset generator
+      clk: starfive: Add StarFive JH7110 PLL clock driver
+      clk: starfive: jh7110-sys: Add PLL clocks source from DTS
+      clk: starfive: Add StarFive JH7110 Image-Signal-Process clock driver
+      clk: starfive: Add StarFive JH7110 Video-Output clock driver
+
+ .../bindings/clock/starfive,jh7110-ispcrg.yaml     |  87 ++++
+ .../bindings/clock/starfive,jh7110-pll.yaml        |  46 ++
+ .../bindings/clock/starfive,jh7110-stgcrg.yaml     |  82 ++++
+ .../bindings/clock/starfive,jh7110-syscrg.yaml     |  18 +-
+ .../bindings/clock/starfive,jh7110-voutcrg.yaml    |  90 ++++
+ .../soc/starfive/starfive,jh7110-syscon.yaml       |  93 ++++
+ MAINTAINERS                                        |  13 +
+ drivers/clk/starfive/Kconfig                       |  33 ++
+ drivers/clk/starfive/Makefile                      |   4 +
+ drivers/clk/starfive/clk-starfive-jh7110-isp.c     | 232 ++++++++++
+ drivers/clk/starfive/clk-starfive-jh7110-pll.c     | 507 +++++++++++++++++++++
+ drivers/clk/starfive/clk-starfive-jh7110-stg.c     | 173 +++++++
+ drivers/clk/starfive/clk-starfive-jh7110-sys.c     |  62 ++-
+ drivers/clk/starfive/clk-starfive-jh7110-vout.c    | 239 ++++++++++
+ drivers/clk/starfive/clk-starfive-jh7110.h         |   6 +
+ include/dt-bindings/clock/starfive,jh7110-crg.h    |  80 ++++
+ include/dt-bindings/reset/starfive,jh7110-crg.h    |  60 +++
+ 17 files changed, 1803 insertions(+), 22 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-ispcrg.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-pll.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-stgcrg.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-voutcrg.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-isp.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-pll.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-stg.c
+ create mode 100644 drivers/clk/starfive/clk-starfive-jh7110-vout.c
+
+
+--qsMV8CFYKUIPWrxp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLgfcwAKCRB4tDGHoIJi
+0lmJAP9HWeKpdCSL67AwIjv55KgNNNrkUnKLYPLUvt5I9PVBiQD8CZL7F7liwV2T
+wp5fHXjNITJ5rh7sCYQ5V3PfHNRqEwI=
+=SUmS
+-----END PGP SIGNATURE-----
+
+--qsMV8CFYKUIPWrxp--
+
+
+--===============4671566663606631302==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4671566663606631302==--
+
