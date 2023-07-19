@@ -4,83 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CAFFEB64DA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 13:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C26EB64DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Jul 2023 13:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F6uwj57gW+SV03JYoGVDCjACI+AP0kwhqHYUqBWzqnU=; b=WtKrSbpetmSMHi
-	qaUpSvJC8RZXtwGs2SmBzQztgZV95ZIY+DAvcQBk9miU3d7NeV1zqQzrJSuWTzzPqhLq4m2Dm4w2n
-	vHZWrYWHUUIQi3wiWvogzvizQxd7N8YmGSUxlXFQTMqg/JNGyhgafyB6tdZtGNxnhyfKUwaxjKSGO
-	+0SC7StSuT+E8sL/smjNrFxjtokJw4Tp7LteAwY7K78WCCxexDnYW6J0FPMSGxJWIZ3K4SRmxDItD
-	6AI/+V5vfM+v7108HFvttrt6y8f3FSIYukyCfFyC+DjV83HzDzYJ9ramUOBFJV798iyq4bmZ4clN5
-	q2NJb7wIC+C6997Psx5w==;
+	List-Owner; bh=U+ItMmtUar9oQdjV/ieehfoplzjm4bUVq3n0B0mj8gM=; b=fIvuXL5VGmWT0Q
+	BI8bGZeupVlvgewMNHySh+nRE8l9HqUqV0BQ8gkCcaJQ8k0KIEwihOdVEay2NqXe4isMTlcTtx08N
+	+UIGHLqFK9Cq6/UuUZvUIdS7F4CFMWA1V/pyoFLWqmK01QywZat9IR7K1IpzRKAiofTa3LQpHrKwV
+	MuH5Mucx5u1CXyfXH++tKdN5MGE5V8LF79ngBVccVBvoHBl2303RBXxSr68hAoiJ43o78jHL8Iz/1
+	SuYkzRLlV3M5mr5k5T9WmCzi3cSiR1jCnbJvKsVzu3EP62rRE75Boop3Jj5RSRp3kMNiO3D7n7O35
+	Su9o9gka757LJyZAifSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM7P8-007bmU-2m;
-	Wed, 19 Jul 2023 13:39:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qM7YN-007csz-1m;
+	Wed, 19 Jul 2023 13:49:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qM7P4-007bk4-1O;
-	Wed, 19 Jul 2023 13:39:43 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1A793616F1;
-	Wed, 19 Jul 2023 13:39:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 507F6C433C8;
-	Wed, 19 Jul 2023 13:39:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689773980;
-	bh=KIb7q+NtNE+KBfEiNJ0Q3nOHxWMm45lA4WVZ9SwBWF8=;
-	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
-	b=gaqxW45kGtoKFnDNNv629brjH/mey+u1zrY+JTYF+Xct1aygG1J4Cf6N5TAdbyf95
-	 2UQ3DpMsJY9gZ/ErtakGGWIqjwaqOwsKcm2y3YVSYVrxM+2RWzCuF6bzEjT83PpAcr
-	 AGyWDI+pJBXz2XJ1m2wYil5ZnC85al8khQ/W4g+oUVReQT1yoreruC76NRb0RMublg
-	 +no2nvv+RqXbaCJv3KQVstHdVnFLcEEYeY1VCIjZ704OwGCykRUyhgj3tGnEgItJBD
-	 Kzs/75HMkiwCdVcTz9jVBoTVjf+xmRrTVbvZXW9OTzSwRub4koHl/Aq6fKSbtpIb+H
-	 H1gh8r1VAddMg==
-Mime-Version: 1.0
-Date: Wed, 19 Jul 2023 16:39:23 +0300
-Message-Id: <CU66VMG4IKSD.33KF2CEZJ2I1@suppilovahvero>
-Cc: <kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <kvmarm@lists.linux.dev>, <linux-mips@vger.kernel.org>,
- <linuxppc-dev@lists.ozlabs.org>, <kvm-riscv@lists.infradead.org>,
- <linux-riscv@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
- <linux-mm@kvack.org>, <linux-security-module@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, "Chao Peng" <chao.p.peng@linux.intel.com>,
- "Fuad Tabba" <tabba@google.com>, "Yu Zhang" <yu.c.zhang@linux.intel.com>,
- "Vishal Annapurve" <vannapurve@google.com>, "Ackerley Tng"
- <ackerleytng@google.com>, "Maciej Szmigiero" <mail@maciej.szmigiero.name>,
- "Vlastimil Babka" <vbabka@suse.cz>, "David Hildenbrand" <david@redhat.com>,
- "Quentin Perret" <qperret@google.com>, "Michael Roth"
- <michael.roth@amd.com>, "Wang" <wei.w.wang@intel.com>, "Liam Merwick"
- <liam.merwick@oracle.com>, "Isaku Yamahata" <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [RFC PATCH v11 01/29] KVM: Wrap kvm_gfn_range.pte in a
- per-action union
-From: "Jarkko Sakkinen" <jarkko@kernel.org>
-To: "Sean Christopherson" <seanjc@google.com>, "Paolo Bonzini"
- <pbonzini@redhat.com>, "Marc Zyngier" <maz@kernel.org>, "Oliver Upton"
- <oliver.upton@linux.dev>, "Huacai Chen" <chenhuacai@kernel.org>, "Michael
- Ellerman" <mpe@ellerman.id.au>, "Anup Patel" <anup@brainfault.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Matthew Wilcox
- (Oracle)" <willy@infradead.org>, "Andrew Morton"
- <akpm@linux-foundation.org>, "Paul Moore" <paul@paul-moore.com>, "James
- Morris" <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>
-X-Mailer: aerc 0.14.0
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-2-seanjc@google.com>
-In-Reply-To: <20230718234512.1690985-2-seanjc@google.com>
+	id 1qM7YK-007cs7-1B
+	for linux-riscv@lists.infradead.org;
+	Wed, 19 Jul 2023 13:49:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689774555;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7gvBqRrgzjiPOFgHQxEB0Nm34S2dkYf27eWyqPPlFhY=;
+	b=O5Rd1URVjeh3tsQBpWBdG/ni9Q3s6GpVO5o+5lMdTSIxTxC+ZR8bzquFK10YAccDsOvlyR
+	XoUlHlrpd9iy1eW3Y5ZuTwxhSmAJ2kSf7aAHMhuzHBiDNAKzpDLTlcbtMEQn5sMrw1uVPi
+	5zZ0MaBdd4Gn7k9rsO3tfhQ+uj8OS+A=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-282-_t9_GKWCPLaNIfmP5OLGnA-1; Wed, 19 Jul 2023 09:49:13 -0400
+X-MC-Unique: _t9_GKWCPLaNIfmP5OLGnA-1
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-31701b27d19so375597f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 06:49:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689774552; x=1690379352;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7gvBqRrgzjiPOFgHQxEB0Nm34S2dkYf27eWyqPPlFhY=;
+        b=jyvewzOMCmhwvl23EpDUCVnZZX4IMm2WJOYG9jd+oobQMMenp2B62KlzgTuJfbsuT7
+         mQZI3mC1k0g9HSRlrvW7D1w5ISY34yc0T8OIJFdIelwRa/pk0+iVUZRpxf+l8J2C5xeU
+         7f5oKyakh7QISJEWkOgQgO4k+z20EJjQ8Q2xBsdonrflg5ZDTRbbpUA3Y+17ez9WFLCK
+         YOrdeDTW79rbSD8huRMJxZR5SADTRKDyyj5qH/o1DMJaWdihu32pHNM7pu17ogic1z7i
+         AoexePGb3gdR+WmN9lEZr9dmxJ9h6qV+a4lUd+o6QjeWMrC81QmcT38BtIJOKLaeuyHq
+         1IrA==
+X-Gm-Message-State: ABy/qLZYwEALQXGfBaEvxsj43l4qcdxKDapYNkgYrbzDhZwCVJ6s/kwk
+	QRHFrlRf2gAcv2UXUnyE4APTFxlMN1d/nZHnUMKGqGljg6olgVmW4QaJG10NqLZ40ryOHWrV6ja
+	++tBTRYBrjrMhcMdZPUpWwKE2jYWS
+X-Received: by 2002:a5d:6a04:0:b0:314:3369:df57 with SMTP id m4-20020a5d6a04000000b003143369df57mr1948329wru.5.1689774552641;
+        Wed, 19 Jul 2023 06:49:12 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlFD8G6VPVcqqGeSjptpNDnOnSs3W+CAZM63rDbbbVz9hymKgoyuOl3Kik6r5ce0mC8oQNhizg==
+X-Received: by 2002:a5d:6a04:0:b0:314:3369:df57 with SMTP id m4-20020a5d6a04000000b003143369df57mr1948300wru.5.1689774552274;
+        Wed, 19 Jul 2023 06:49:12 -0700 (PDT)
+Received: from localhost (205.pool92-176-231.dynamic.orange.es. [92.176.231.205])
+        by smtp.gmail.com with ESMTPSA id q2-20020a5d6582000000b003143bb5ecd5sm5381303wru.69.2023.07.19.06.49.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Jul 2023 06:49:11 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Arnd Bergmann <arnd@kernel.org>, linux-fbdev@vger.kernel.org, Thomas
+ Zimmermann <tzimmermann@suse.de>, Helge Deller <deller@gmx.de>
+Cc: Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>, Catalin
+ Marinas <catalin.marinas@arm.com>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Daniel Vetter <daniel@ffwll.ch>, Dave
+ Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@gmail.com>,
+ Deepak Rawat <drawat.floss@gmail.com>, Dexuan Cui <decui@microsoft.com>,
+ Dinh Nguyen <dinguyen@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>, Haiyang Zhang
+ <haiyangz@microsoft.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, John Paul Adrian Glaubitz
+ <glaubitz@physik.fu-berlin.de>, Khalid Aziz <khalid@gonehiking.org>, Linus
+ Walleij <linus.walleij@linaro.org>, Matt Turner <mattst88@gmail.com>, Max
+ Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Russell King <linux@armlinux.org.uk>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, WANG
+ Xuerui <kernel@xen0n.name>, Wei Liu <wei.liu@kernel.org>, Will Deacon
+ <will@kernel.org>, x86@kernel.org, linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-efi@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2 5/9] vgacon: remove screen_info dependency
+In-Reply-To: <20230719123944.3438363-6-arnd@kernel.org>
+References: <20230719123944.3438363-1-arnd@kernel.org>
+ <20230719123944.3438363-6-arnd@kernel.org>
+Date: Wed, 19 Jul 2023 15:49:11 +0200
+Message-ID: <87fs5khuzs.fsf@minerva.mail-host-address-is-not-set>
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_063942_514273_D28A2DA4 
-X-CRM114-Status: UNSURE (   5.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230719_064916_486153_0328E2E5 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,16 +123,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed Jul 19, 2023 at 2:44 AM EEST, Sean Christopherson wrote:
->  	/* Huge pages aren't expected to be modified without first being zapped. */
-> -	WARN_ON(pte_huge(range->pte) || range->start + 1 != range->end);
-> +	WARN_ON(pte_huge(range->arg.pte) || range->start + 1 != range->end);
+Arnd Bergmann <arnd@kernel.org> writes:
 
-Not familiar with this code. Just checking whether whether instead
-pr_{warn,err}() combined with return false would be a more graceful
-option?
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> The vga console driver is fairly self-contained, and only used by
+> architectures that explicitly initialize the screen_info settings.
+>
+> Chance every instance that picks the vga console by setting conswitchp
+> to call a function instead, and pass a reference to the screen_info
+> there.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
 
-BR, Jarkko
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+
+-- 
+Best regards,
+
+Javier Martinez Canillas
+Core Platforms
+Red Hat
+
 
 _______________________________________________
 linux-riscv mailing list
