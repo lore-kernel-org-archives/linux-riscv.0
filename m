@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBB7EB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 12:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E03AEB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 12:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLK4jV0HWwVSYoZGWRB4sCVCjiEPzT6meOTg6SvdDF8=; b=mhTexycGrdk2YPUIlnqgfpG+pK
-	GgFSq0i6cRkQkXqgwptXqm8TowF9RX6LbDXEgpEYyGcB3TLmORlH8otplpS0gTmJZYGx2Xm5+gPzm
-	rc5UuhhlcUHT4XaWVBFjm7JMBrbDHlAVd2UrA46Gk6BHB5SdhrjnTG+lmaHcjztBm3fsrpfdt9KQa
-	lRK63wWkJ8mHmIdoDspHsCC/E8M8AQmXCh5k34jWA53qtlj9e81obetvZgy08O+6Rwd9Z5ldDyzx7
-	7BjPjwMZQ31jQQDAzL6pDO8EDfy/5D0mrRtvtNoph/MqIpwO98XG0m+94CeQFWMh7DrEhEmlMEx1S
-	wVzQPEsw==;
+	bh=xhI1N6RwrjhUBZ8u4fItqUWK/XbiBB8ykrFGm+TO90s=; b=Nju/HxwcRnc3IRW1XN+WHM7Vwk
+	bWwW4p18hjJJn57RIy1eQGyuWyeaHYsC9W/w2ufraoix05A5jwvUpaSDdv46RxRArgjabotjrvlxY
+	PT3sJ1fJuWzj+EkY7MUBFwGMV1xzpKH97N3zE67WdsYu3qjY/60LOEaHLO/zmI9D8luCyUHXPGCVL
+	JAo3KJ5Qdn4iN6e+uebCezbhTL7adfQLDD11MsrSi9Uv0Va8nZ8Ymb/9XIBVE/0+dfu3LlBf8uiIg
+	G0PFNpwl268g5WmQbH0aaB4cuADSuQoRdSqImcMbc6dbe0/8Izj2tpyfzHBmcn+0YY2bZ47aM3G1m
+	VdJFySLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMSXP-00B6OS-2X;
-	Thu, 20 Jul 2023 12:13:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qMSkw-00B8HC-2n;
+	Thu, 20 Jul 2023 12:27:42 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMSXM-00B6NF-20
+	id 1qMSkt-00B8G3-1U
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 12:13:42 +0000
+	Thu, 20 Jul 2023 12:27:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1689855221; x=1721391221;
+  t=1689856060; x=1721392060;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=qkDXQ93pEI6ao4XArtWOlAwCt1REKU2ZVqOJKv7aZYo=;
-  b=nVsE4vlPQ5MKHSSt3yi2A3oLI0PwMnYYEDVTJaWKbbk6WR+x6sxXKNQJ
-   K3yeK9RCcY9lZgAc+7OppYkQnup6RQwS38mp7TUtpniBK3EUXt5oCzYvX
-   KO+i510tHi99vzsntj4MZC0iF6/wCHDYyHx973BkFHHxriwWJt4FLH0r5
-   V51wxhOZTGbYpJScXfGq6XkbooqycgEmvAXlsT7/K/V5/4ZYHYGImJj6U
-   yxghlYAfEdMzz1U+G4blFJNuwuDzVH+9jdNeykgSWUz+RwncggCRGLyGx
-   keSrG8MILu0YEGe8K5IfcnDa0hXfCSXuGVXuDBsVcmUgTAzZS4NMXYJJ3
-   w==;
+  bh=2ZGiXBA7knMeVbYBzBnYdJHrkPeF9rSCMSWxNZrS0q0=;
+  b=Jik4d0glmPZqqj9uvobN8MXllmF1WkPy8TRSOIt7pw/FG3X73nYH9TQu
+   t3Np4Rhjdvb5bPM2LQtwg+lCUP4DO+ofYKVaxOqAaSYRKC7zi8u6yhNe7
+   QHuAwAQt68q9zE+/9vb4gZ68FtIwJgIX+VrEsQRIVIdMY87EGRGjvzPrz
+   ZPEfRt+nChW6FtcCJ+eTbqk0eMl/xrVON2hvMsT2CBYJgx191LgMvcBnF
+   N4H8Hnw7yIsN35lVy4ueQn+L2lZRkZ4vBRNptvzBMizQic2PQJibxzgz9
+   1hK/flZWInwsuRJ5whuUhM3wE4X0SaxEsiJM1o/RtbwNnHZ44UtBFcv4J
+   Q==;
 X-IronPort-AV: E=Sophos;i="6.01,218,1684825200"; 
-   d="asc'?scan'208";a="221309888"
+   d="asc'?scan'208";a="224927705"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Jul 2023 05:13:34 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Jul 2023 05:27:33 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Thu, 20 Jul 2023 05:13:23 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.21; Thu, 20 Jul 2023 05:27:31 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Thu, 20 Jul 2023 05:13:19 -0700
-Date: Thu, 20 Jul 2023 13:12:46 +0100
+ Transport; Thu, 20 Jul 2023 05:27:27 -0700
+Date: Thu, 20 Jul 2023 13:26:54 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Minda Chen <minda.chen@starfivetech.com>
-CC: Bjorn Helgaas <helgaas@kernel.org>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Conor Dooley <conor@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
+CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
+	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof
  =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Emil Renner Berthing
@@ -70,15 +69,16 @@ CC: Bjorn Helgaas <helgaas@kernel.org>, Daire McNamara
 	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
 	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
 	Kevin Xie <kevin.xie@starfivetech.com>
-Subject: Re: [PATCH v1 0/9] Refactoring Microchip PolarFire PCIe driver
-Message-ID: <20230720-unkempt-bath-9d320d55577c@wendy>
-References: <20230719152626.GA502469@bhelgaas>
- <52ebc991-0e73-8df4-61b2-32989ab4e62c@starfivetech.com>
+Subject: Re: [PATCH v1 4/9] PCI: microchip: Move PCIe driver to PLDA directory
+Message-ID: <20230720-exception-spectator-b48ecb9d4c39@wendy>
+References: <20230719102057.22329-1-minda.chen@starfivetech.com>
+ <20230719102057.22329-5-minda.chen@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <52ebc991-0e73-8df4-61b2-32989ab4e62c@starfivetech.com>
+In-Reply-To: <20230719102057.22329-5-minda.chen@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230720_051340_719487_F555E8B7 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20230720_052739_503548_FBD32274 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,57 +90,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4568421215092211692=="
+Content-Type: multipart/mixed; boundary="===============8041049231488028757=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4568421215092211692==
+--===============8041049231488028757==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="kw3EZ33X58KK0EKz"
+	protocol="application/pgp-signature"; boundary="Lilo/J5IxQgX/2YQ"
 Content-Disposition: inline
 
---kw3EZ33X58KK0EKz
+--Lilo/J5IxQgX/2YQ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jul 20, 2023 at 10:15:51AM +0800, Minda Chen wrote:
-> On 2023/7/19 23:26, Bjorn Helgaas wrote:
-> > On Wed, Jul 19, 2023 at 06:20:48PM +0800, Minda Chen wrote:
+Hey Minda,
 
-> >> This patchset is base on v6.5-rc1
-> >=20
-> > Doesn't quite apply cleanly for me:
-> >=20
-> I am sorry, The driver need stg clk and syscon driver, which are have't b=
-e merge to main line.
-> mainly dts is(patch9) rejected, Must apply this series patch first. (I fo=
-rget add this link in cover letter)
-> https://patchwork.kernel.org/project/linux-riscv/cover/20230712092007.310=
-13-1-xingyu.wu@starfivetech.com/
-> and this syscon patch=20
-> https://patchwork.kernel.org/project/linux-riscv/patch/20230717023040.788=
-60-7-xingyu.wu@starfivetech.com/
+On Wed, Jul 19, 2023 at 06:20:52PM +0800, Minda Chen wrote:
+> Move Microchip specific platform codes to PLDA directory.
+> Including clock init, interrupt event handle and platform
+> init codes.
+>=20
+> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
 
-You could detach the dts patch from the series & send it independently once
-everything it depends on is in place. I'm going to pick up both of the
-patches you've linked for v6.6 in the next day or two.
+Something else that I noticed, looking at what is not in the diff here,
+but is everything under the "/* PCIe Controller Phy Regs */" comment
+that remains in the microchip driver not also common to the plda IP?
 
---kw3EZ33X58KK0EKz
+Thanks,
+Conor.
+
+--Lilo/J5IxQgX/2YQ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLkkvgAKCRB4tDGHoIJi
-0tHHAQCC0e6XIbYkG6LkrgL69/4niNdKZfvj9lofo9snvGUNxAD+L93odnBwIMIi
-9NNg/AiwINvTb2x+ys70gaGFwrSk5wM=
-=x0aD
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLkoDgAKCRB4tDGHoIJi
+0vX+AQCNRNQvcPAT0vcVJXASNscuAioQvT52F/KhEUDLy/SoSAEA6U+2742WoaFO
+H9PBHMPTzScdWPvpyEsWaGVXPs7Z+gc=
+=rUDs
 -----END PGP SIGNATURE-----
 
---kw3EZ33X58KK0EKz--
+--Lilo/J5IxQgX/2YQ--
 
 
---===============4568421215092211692==
+--===============8041049231488028757==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -151,5 +145,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4568421215092211692==--
+--===============8041049231488028757==--
 
