@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C510EB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 15:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DE5EB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 16:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jccHh64ZFfZ61oTFFSXi18cKLYjUosetE0NRf2MZwzo=; b=3+37w25rtN1byd
-	jjDbubosOu2ZzImeqYqNDjglDV72rh/2kfTZsI295HSnMazBIanCwYtoRQqyMRyGVp++fysGvCWUZ
-	K7AtV5CpVvBDNEPn0jleN7dnGdvIe/dqm/zyzYBYOdo7U/KnDCa//32r5vfb3T3dGpbW+veb+fZMu
-	On+Ag7MXaZLYi/KhgQJUvvVz9HXHpEa1KDhZ+dKzETK59z0XB0Q1e0yO1gUVpi+OSrycfYfypnKFa
-	h5e1jEexycmpTy5X0QjQshy8hIS5OMT3mGTKwvS8hoR4j2JBWgnyQWkz2bUWOdP0qzAqsAc29zqHB
-	LIrfXrOHA+arrPuwxVMw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=jOtKerR+u0D8PDSP+7u0vvmEPZJoVVE0wCRWh7wrZKI=; b=ifmhYPEEry+0c6
+	DMUJ27kSuV6AGfsabYUrPZlnGOjN6I1n6gw78r1SMVmjRYb721v8KcPaG9ovRm6n4gyzwrPnwdIBy
+	x/oacNaWJW6mnrQNkI/3DeaaeeHmiBjOZIRY1jVKcMcoK88er1GZjXy743bAo1VLU8AJvjzdR5to0
+	NlS24s+eBeU6CZHPTFq0Rw9/aVo7LBGnFw+Wbt9VGtXNZwzWeheyzxEW30fwsv4Z0lLsVgSWYIyZr
+	kG9p7nyJEVNg9/M1S0WLtkLQqazSmrAGbJ3RMwi2h5xytdLn/akB81Gn929Ku49K6O1ThA10XNM8G
+	OM3ZPfG96CXhR7Nb8mRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMVuZ-00BaQS-31;
-	Thu, 20 Jul 2023 15:49:51 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1qMWJt-00BeKT-21;
+	Thu, 20 Jul 2023 16:16:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMVuW-00BaO2-26
+	id 1qMWJq-00BeJo-2H
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 15:49:50 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2b74310566cso14606341fa.2
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Jul 2023 08:49:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1689868184; x=1690472984;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Tljgv3DtPBaijlderTUsocnZ3FS2Qirhc9/9iIaydKs=;
-        b=ZU2x2o1rMgFGMr8mMVk6zGghYR6w7eoIHkKwSq3ON29PON+cRVMHnVFl6821unV/mO
-         PxYXgW6nJtQJY9SXWlcN0r5O8JGioMwhykODrnXrpdTFA2SdFKZz9JzRlCikzsOlD8re
-         Kh9j82zvryW37+UUsxGUOEdu7mdbKly0I2VBLSztlhT1g5be9+b4FUC7+FLVr+gt1gP+
-         QhSMTY+aN0exmyvd0U+9co6wmqy4Xwq9OzTA8ysaDBygybD5cUP7DsbwVeqEEXvSsjUl
-         n03Hs2ccd44WtQXOQZNV5WIYuzDJ4VRDBKrwQkcXIwHRL2Z7OQKt1pnda3GA/rllQIWy
-         2OPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689868184; x=1690472984;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Tljgv3DtPBaijlderTUsocnZ3FS2Qirhc9/9iIaydKs=;
-        b=QuGn5ihEVY53LpWT/ve4cqHVe92G4BzGGXZn8Zr78YRsaI/OOoNv/gRaDceSNSVijZ
-         Nd/Iks6TxgAETdFBPSNATJ1C4rxc/FRUjtWOLrx3RPsT9ZOkEuCN7CKFICGCxJbBUZKo
-         cEA2dFIX3i9bldbOkuEz+iNIbrreSXsygKM3ZyV4W+SMtWoheg8gr5ZSqgSA4AlMm7pE
-         ztca/5SYiZ+hgv7Lb61WM0xpJkeez+pWzMF7pw5rlk6FD4FF3ow/lBjr2P0CNu5cUPdl
-         f8Mxa5OP2tNkI6U3Empi/LSAw1GI8oC0oDjXhx60+lrY2MHX830GKVVCVNOGh9wGhZKY
-         f/sQ==
-X-Gm-Message-State: ABy/qLYO5IhDvv/hUq7iNzQilY3/hJ2JYjET6SYjpE4G7y8FR7WS1u6q
-	Kmm6pfXsI0eezcVvu2SfiOA=
-X-Google-Smtp-Source: APBJJlEL6GlbcfCTPUDbfQ9jRnM/KFl0/76YNmQ+0eEdndU1KtOqzyJGQKfALdiYSzqZ9grORZOwuQ==
-X-Received: by 2002:a2e:9c4e:0:b0:2b9:4805:a039 with SMTP id t14-20020a2e9c4e000000b002b94805a039mr2201554ljj.51.1689868184061;
-        Thu, 20 Jul 2023 08:49:44 -0700 (PDT)
-Received: from ip-172-31-22-112.eu-west-1.compute.internal (ec2-34-244-51-157.eu-west-1.compute.amazonaws.com. [34.244.51.157])
-        by smtp.gmail.com with ESMTPSA id u6-20020a05600c00c600b003fbdd9c72aasm1471021wmm.21.2023.07.20.08.49.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Jul 2023 08:49:43 -0700 (PDT)
-From: Puranjay Mohan <puranjay12@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	pulehui@huawei.com,
-	conor.dooley@microchip.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	martin.lau@linux.dev,
-	song@kernel.org,
-	yhs@fb.com,
-	kpsingh@kernel.org,
-	bjorn@kernel.org,
-	bpf@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: puranjay12@gmail.com
-Subject: [PATCH bpf-next 2/2] bpf, riscv: use prog pack allocator in the BPF JIT
-Date: Thu, 20 Jul 2023 15:49:41 +0000
-Message-Id: <20230720154941.1504-3-puranjay12@gmail.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230720154941.1504-1-puranjay12@gmail.com>
-References: <20230720154941.1504-1-puranjay12@gmail.com>
+	Thu, 20 Jul 2023 16:16:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id AB58961B47;
+	Thu, 20 Jul 2023 16:15:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA036C433C7;
+	Thu, 20 Jul 2023 16:15:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689869757;
+	bh=FRKVuYHq1ZSB29kS1w0pda8OH+Ba8Mh80RiqlSiMHZM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=sgU+7SJcGwceF0yS1ER0eHVaA156QO5sygp4hNSYRAjpu2U8mKJDaZfuchJdo7hXR
+	 5UZ+igBNqTgQ8HJlkUTOKmb47E2gzYbOPQ07DRGy0MF/0K8yGfTxuvSc/OlMSEZJmp
+	 n2l3EBbQU67UfEXH5A7HY7DxhsnVzpD7L1H9MFi6rRZ3zRSZ2TrN3qQ//NWTPPqspP
+	 82olwsCbQ/dgZzwSp9dLrb/Z0b+bUCO4ISZHJLbs9VS9t8nGO5XbYBzeZ9788EpAIk
+	 EY858GicTuPvTBPv5N7cTJkS3IH8MFZdTDDOm5Nl5JqLJrp8oihFHPxqLBpAmc9npy
+	 jqun9eOPCzDxA==
+Date: Thu, 20 Jul 2023 11:15:55 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Kevin Xie <kevin.xie@starfivetech.com>
+Cc: Minda Chen <minda.chen@starfivetech.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mason Huo <mason.huo@starfivetech.com>,
+	Leyfoon Tan <leyfoon.tan@starfivetech.com>
+Subject: Re: [PATCH v1 8/9] PCI: PLDA: starfive: Add JH7110 PCIe controller
+Message-ID: <20230720161555.GA526946@bhelgaas>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <be30446c-f350-471d-bfac-b4b8dc0a75a2@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230720_084948_697681_394149F1 
-X-CRM114-Status: GOOD (  29.68  )
+X-CRM114-CacheID: sfid-20230720_091558_850617_78A42F29 
+X-CRM114-Status: GOOD (  35.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,341 +88,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use bpf_jit_binary_pack_alloc() for memory management of JIT binaries in
-RISCV BPF JIT. The bpf_jit_binary_pack_alloc creates a pair of RW and RX
-buffers. The JIT writes the program into the RW buffer. When the JIT is
-done, the program is copied to the final RX buffer with
-bpf_jit_binary_pack_finalize.
+On Thu, Jul 20, 2023 at 06:11:59PM +0800, Kevin Xie wrote:
+> On 2023/7/20 0:48, Bjorn Helgaas wrote:
+> > On Wed, Jul 19, 2023 at 06:20:56PM +0800, Minda Chen wrote:
+> >> Add StarFive JH7110 SoC PCIe controller platform
+> >> driver codes.
 
-Implement bpf_arch_text_copy() and bpf_arch_text_invalidate() for RISCV
-JIT as these functions are required by bpf_jit_binary_pack allocator.
+> >> + * The BAR0/1 of bridge should be hidden during enumeration to
+> >> + * avoid the sizing and resource allocation by PCIe core.
+> >> + */
+> >> +static bool starfive_pcie_hide_rc_bar(struct pci_bus *bus, unsigned int  devfn,
+> >> +				      int offset)
+> >> +{
+> >> +	if (pci_is_root_bus(bus) && !devfn &&
+> >> +	    (offset == PCI_BASE_ADDRESS_0 || offset == PCI_BASE_ADDRESS_1))
+> >> +		return true;
+> >> +
+> >> +	return false;
+> >> +}
+> >> +
+> >> +int starfive_pcie_config_write(struct pci_bus *bus, unsigned int devfn,
+> >> +			       int where, int size, u32 value)
+> >> +{
+> >> +	if (starfive_pcie_hide_rc_bar(bus, devfn, where))
+> >> +		return PCIBIOS_BAD_REGISTER_NUMBER;
+> > 
+> > I think you are trying present BARs 0 & 1 as unimplemented.  Such BARs
+> > are hardwired to zero, so you should make them behave that way (both
+> > read and write).  Many callers of config accessors don't check the
+> > return value, so I don't think it's reliable to just return
+> > PCIBIOS_BAD_REGISTER_NUMBER.
+> 
+> This is a hardware defect that we did not hardwired those BARs to
+> zero, and it is configurable for software now.  We have to add this
+> filter function for workaround.
 
-Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
----
- arch/riscv/net/bpf_jit.h        |   3 +
- arch/riscv/net/bpf_jit_comp64.c |  56 ++++++++++++---
- arch/riscv/net/bpf_jit_core.c   | 117 +++++++++++++++++++++++++++-----
- 3 files changed, 150 insertions(+), 26 deletions(-)
+Yes.  My point is that this only affects the write path, and the read
+probably does not read 0 as it should.  This means lspci will show the
+wrong thing, and the PCI core will try to size the BAR when it doesn't
+need to.  I haven't looked at the BAR sizing code; it might even come
+up with a bogus size and address, when it *should* just conclude the
+BAR doesn't exist at all.
 
-diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-index 2717f5490428..ad69319c8ea7 100644
---- a/arch/riscv/net/bpf_jit.h
-+++ b/arch/riscv/net/bpf_jit.h
-@@ -68,6 +68,7 @@ static inline bool is_creg(u8 reg)
- struct rv_jit_context {
- 	struct bpf_prog *prog;
- 	u16 *insns;		/* RV insns */
-+	u16 *ro_insns;
- 	int ninsns;
- 	int prologue_len;
- 	int epilogue_offset;
-@@ -85,7 +86,9 @@ static inline int ninsns_rvoff(int ninsns)
- 
- struct rv_jit_data {
- 	struct bpf_binary_header *header;
-+	struct bpf_binary_header *ro_header;
- 	u8 *image;
-+	u8 *ro_image;
- 	struct rv_jit_context ctx;
- };
- 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index c648864c8cd1..3d6165c6608b 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -142,7 +142,11 @@ static bool in_auipc_jalr_range(s64 val)
- /* Emit fixed-length instructions for address */
- static int emit_addr(u8 rd, u64 addr, bool extra_pass, struct rv_jit_context *ctx)
- {
--	u64 ip = (u64)(ctx->insns + ctx->ninsns);
-+	/*
-+	 * Use the ro_insns(RX) to calculate the offset as the BPF program will
-+	 * finally run from this memory region.
-+	 */
-+	u64 ip = (u64)(ctx->ro_insns + ctx->ninsns);
- 	s64 off = addr - ip;
- 	s64 upper = (off + (1 << 11)) >> 12;
- 	s64 lower = off & 0xfff;
-@@ -463,7 +467,11 @@ static int emit_call(u64 addr, bool fixed_addr, struct rv_jit_context *ctx)
- 	u64 ip;
- 
- 	if (addr && ctx->insns) {
--		ip = (u64)(long)(ctx->insns + ctx->ninsns);
-+		/*
-+		 * Use the ro_insns(RX) to calculate the offset as the BPF
-+		 * program will finally run from this memory region.
-+		 */
-+		ip = (u64)(long)(ctx->ro_insns + ctx->ninsns);
- 		off = addr - ip;
- 	}
- 
-@@ -576,7 +584,8 @@ static int add_exception_handler(const struct bpf_insn *insn,
- {
- 	struct exception_table_entry *ex;
- 	unsigned long pc;
--	off_t offset;
-+	off_t ins_offset;
-+	off_t fixup_offset;
- 
- 	if (!ctx->insns || !ctx->prog->aux->extable || BPF_MODE(insn->code) != BPF_PROBE_MEM)
- 		return 0;
-@@ -591,12 +600,17 @@ static int add_exception_handler(const struct bpf_insn *insn,
- 		return -EINVAL;
- 
- 	ex = &ctx->prog->aux->extable[ctx->nexentries];
--	pc = (unsigned long)&ctx->insns[ctx->ninsns - insn_len];
-+	pc = (unsigned long)&ctx->ro_insns[ctx->ninsns - insn_len];
- 
--	offset = pc - (long)&ex->insn;
--	if (WARN_ON_ONCE(offset >= 0 || offset < INT_MIN))
-+	/*
-+	 * This is the relative offset of the instruction that may fault from
-+	 * the exception table itself. This will be written to the exception
-+	 * table and if this instruction faults, the destination register will
-+	 * be set to '0' and the execution will jump to the next instruction.
-+	 */
-+	ins_offset = pc - (long)&ex->insn;
-+	if (WARN_ON_ONCE(ins_offset >= 0 || ins_offset < INT_MIN))
- 		return -ERANGE;
--	ex->insn = offset;
- 
- 	/*
- 	 * Since the extable follows the program, the fixup offset is always
-@@ -605,12 +619,25 @@ static int add_exception_handler(const struct bpf_insn *insn,
- 	 * bits. We don't need to worry about buildtime or runtime sort
- 	 * modifying the upper bits because the table is already sorted, and
- 	 * isn't part of the main exception table.
-+	 *
-+	 * The fixup_offset is set to the next instruction from the instruction
-+	 * that may fault. The execution will jump to this after handling the
-+	 * fault.
- 	 */
--	offset = (long)&ex->fixup - (pc + insn_len * sizeof(u16));
--	if (!FIELD_FIT(BPF_FIXUP_OFFSET_MASK, offset))
-+	fixup_offset = (long)&ex->fixup - (pc + insn_len * sizeof(u16));
-+	if (!FIELD_FIT(BPF_FIXUP_OFFSET_MASK, fixup_offset))
- 		return -ERANGE;
- 
--	ex->fixup = FIELD_PREP(BPF_FIXUP_OFFSET_MASK, offset) |
-+	/*
-+	 * The offsets above have been calculated using the RO buffer but we
-+	 * need to use the R/W buffer for writes.
-+	 * switch ex to rw buffer for writing.
-+	 */
-+	ex = (void *)ctx->insns + ((void *)ex - (void *)ctx->ro_insns);
-+
-+	ex->insn = ins_offset;
-+
-+	ex->fixup = FIELD_PREP(BPF_FIXUP_OFFSET_MASK, fixup_offset) |
- 		FIELD_PREP(BPF_FIXUP_REG_MASK, dst_reg);
- 	ex->type = EX_TYPE_BPF;
- 
-@@ -995,6 +1022,7 @@ int arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *image,
- 
- 	ctx.ninsns = 0;
- 	ctx.insns = NULL;
-+	ctx.ro_insns = NULL;
- 	ret = __arch_prepare_bpf_trampoline(im, m, tlinks, func_addr, flags, &ctx);
- 	if (ret < 0)
- 		return ret;
-@@ -1003,7 +1031,15 @@ int arch_prepare_bpf_trampoline(struct bpf_tramp_image *im, void *image,
- 		return -EFBIG;
- 
- 	ctx.ninsns = 0;
-+	/*
-+	 * The bpf_int_jit_compile() uses a RW buffer (ctx.insns) to write the
-+	 * JITed instructions and later copies it to a RX region (ctx.ro_insns).
-+	 * It also uses ctx.ro_insns to calculate offsets for jumps etc. As the
-+	 * trampoline image uses the same memory area for writing and execution,
-+	 * both ctx.insns and ctx.ro_insns can be set to image.
-+	 */
- 	ctx.insns = image;
-+	ctx.ro_insns = image;
- 	ret = __arch_prepare_bpf_trampoline(im, m, tlinks, func_addr, flags, &ctx);
- 	if (ret < 0)
- 		return ret;
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index 7a26a3e1c73c..b0fa0084f493 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -8,6 +8,8 @@
- 
- #include <linux/bpf.h>
- #include <linux/filter.h>
-+#include <linux/memory.h>
-+#include <asm/patch.h>
- #include "bpf_jit.h"
- 
- /* Number of iterations to try until offsets converge. */
-@@ -117,16 +119,27 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 				sizeof(struct exception_table_entry);
- 			prog_size = sizeof(*ctx->insns) * ctx->ninsns;
- 
--			jit_data->header =
--				bpf_jit_binary_alloc(prog_size + extable_size,
--						     &jit_data->image,
--						     sizeof(u32),
--						     bpf_fill_ill_insns);
--			if (!jit_data->header) {
-+			jit_data->ro_header =
-+				bpf_jit_binary_pack_alloc(prog_size +
-+							  extable_size,
-+							  &jit_data->ro_image,
-+							  sizeof(u32),
-+							  &jit_data->header,
-+							  &jit_data->image,
-+							  bpf_fill_ill_insns);
-+			if (!jit_data->ro_header) {
- 				prog = orig_prog;
- 				goto out_offset;
- 			}
- 
-+			/*
-+			 * Use the image(RW) for writing the JITed instructions. But also save
-+			 * the ro_image(RX) for calculating the offsets in the image. The RW
-+			 * image will be later copied to the RX image from where the program
-+			 * will run. The bpf_jit_binary_pack_finalize() will do this copy in the
-+			 * final step.
-+			 */
-+			ctx->ro_insns = (u16 *)jit_data->ro_image;
- 			ctx->insns = (u16 *)jit_data->image;
- 			/*
- 			 * Now, when the image is allocated, the image can
-@@ -138,14 +151,12 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 
- 	if (i == NR_JIT_ITERATIONS) {
- 		pr_err("bpf-jit: image did not converge in <%d passes!\n", i);
--		if (jit_data->header)
--			bpf_jit_binary_free(jit_data->header);
- 		prog = orig_prog;
--		goto out_offset;
-+		goto out_free_hdr;
- 	}
- 
- 	if (extable_size)
--		prog->aux->extable = (void *)ctx->insns + prog_size;
-+		prog->aux->extable = (void *)ctx->ro_insns + prog_size;
- 
- skip_init_ctx:
- 	pass++;
-@@ -154,23 +165,35 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 
- 	bpf_jit_build_prologue(ctx);
- 	if (build_body(ctx, extra_pass, NULL)) {
--		bpf_jit_binary_free(jit_data->header);
- 		prog = orig_prog;
--		goto out_offset;
-+		goto out_free_hdr;
- 	}
- 	bpf_jit_build_epilogue(ctx);
- 
- 	if (bpf_jit_enable > 1)
- 		bpf_jit_dump(prog->len, prog_size, pass, ctx->insns);
- 
--	prog->bpf_func = (void *)ctx->insns;
-+	prog->bpf_func = (void *)ctx->ro_insns;
- 	prog->jited = 1;
- 	prog->jited_len = prog_size;
- 
--	bpf_flush_icache(jit_data->header, ctx->insns + ctx->ninsns);
--
- 	if (!prog->is_func || extra_pass) {
--		bpf_jit_binary_lock_ro(jit_data->header);
-+		if (WARN_ON(bpf_jit_binary_pack_finalize(prog,
-+							 jit_data->ro_header,
-+							 jit_data->header))) {
-+			/* ro_header has been freed */
-+			jit_data->ro_header = NULL;
-+			prog = orig_prog;
-+			goto out_offset;
-+		}
-+		/*
-+		 * The instructions have now been copied to the ROX region from
-+		 * where they will execute.
-+		 * Write any modified data cache blocks out to memory and
-+		 * invalidate the corresponding blocks in the instruction cache.
-+		 */
-+		bpf_flush_icache(jit_data->ro_header,
-+				 ctx->ro_insns + ctx->ninsns);
- 		for (i = 0; i < prog->len; i++)
- 			ctx->offset[i] = ninsns_rvoff(ctx->offset[i]);
- 		bpf_prog_fill_jited_linfo(prog, ctx->offset);
-@@ -185,6 +208,15 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		bpf_jit_prog_release_other(prog, prog == orig_prog ?
- 					   tmp : orig_prog);
- 	return prog;
-+
-+out_free_hdr:
-+	if (jit_data->header) {
-+		bpf_arch_text_copy(&jit_data->ro_header->size,
-+				   &jit_data->header->size,
-+				   sizeof(jit_data->header->size));
-+		bpf_jit_binary_pack_free(jit_data->ro_header, jit_data->header);
-+	}
-+	goto out_offset;
- }
- 
- u64 bpf_jit_alloc_exec_limit(void)
-@@ -204,3 +236,56 @@ void bpf_jit_free_exec(void *addr)
- {
- 	return vfree(addr);
- }
-+
-+void *bpf_arch_text_copy(void *dst, void *src, size_t len)
-+{
-+	int ret;
-+
-+	mutex_lock(&text_mutex);
-+	ret = patch_text_nosync(dst, src, len);
-+	mutex_unlock(&text_mutex);
-+
-+	if (ret)
-+		return ERR_PTR(-EINVAL);
-+
-+	return dst;
-+}
-+
-+int bpf_arch_text_invalidate(void *dst, size_t len)
-+{
-+	__le32 *ptr;
-+	int ret = 0;
-+	u32 inval = 0;
-+
-+	for (ptr = dst; ret == 0 && len >= sizeof(u32); len -= sizeof(u32)) {
-+		mutex_lock(&text_mutex);
-+		ret = patch_text_nosync(ptr++, &inval, sizeof(u32));
-+		mutex_unlock(&text_mutex);
-+	}
-+
-+	return ret;
-+}
-+
-+void bpf_jit_free(struct bpf_prog *prog)
-+{
-+	if (prog->jited) {
-+		struct rv_jit_data *jit_data = prog->aux->jit_data;
-+		struct bpf_binary_header *hdr;
-+
-+		/*
-+		 * If we fail the final pass of JIT (from jit_subprogs),
-+		 * the program may not be finalized yet. Call finalize here
-+		 * before freeing it.
-+		 */
-+		if (jit_data) {
-+			bpf_jit_binary_pack_finalize(prog, jit_data->ro_header,
-+						     jit_data->header);
-+			kfree(jit_data);
-+		}
-+		hdr = bpf_jit_binary_pack_hdr(prog);
-+		bpf_jit_binary_pack_free(hdr, NULL);
-+		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
-+	}
-+
-+	bpf_prog_unlock_free(prog);
-+}
--- 
-2.40.1
+> >> +	/* Ensure that PERST has been asserted for at least 100 ms */
+> >> +	msleep(300);
+> >> +	gpiod_set_value_cansleep(pcie->reset_gpio, 0);
+> > 
+> > At least 100 ms, but you sleep *300* ms?  This is probably related to
+> > https://lore.kernel.org/r/20230718155515.GA483233@bhelgaas
+> > 
+> > Please include a comment with the source of the delay value.  I assume
+> > it's T_PVPERL and T_PERST-CLK from the PCIe CEM spec.  This way we can
+> > someday share those #defines across drivers.
+> 
+> Yes, the delay value here is T_PVPERL from PCIe CEM spec r2.0 (Table
+> 2-4).  At the first time we set 100ms delay according to sector 2.2
+> of the spec: "After there has been time (TPVPERL) for the power and
+> clock to become stable, PERST# is deasserted high and the PCI
+> Express functions can start up."
+> 
+> However, in the compatibility testing with several NVMe SSD, we
+> found that Lenovo Thinklife ST8000 NVMe can not get ready in 100ms,
+> and it actually needs almost 200ms.  Thus, we increased the T_PVPERL
+> value to 300ms for the better device compatibility.
+>
+> We will use a macro to define T_PVPERL, and add comments for the
+> source of it.  If the compatibility delay of 300ms is not
+> reasonable, we can revert it to 100ms.
 
+Thanks for this valuable information!  This NVMe issue potentially
+affects many similar drivers, and we may need a more generic fix so
+this device works well with all of them.
+
+T_PVPERL is defined to start when power is stable.  Do you have a way
+to accurately determine that point?  I'm guessing this:
+
+  gpiod_set_value_cansleep(pcie->power_gpio, 1)
+
+turns the power on?  But of course that doesn't mean it is instantly
+stable.  Maybe your testing is telling you that your driver should
+have a hardware-specific 200ms delay to wait for power to become
+stable, followed by the standard 100ms for T_PVPERL?
+
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
