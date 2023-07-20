@@ -4,107 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E315CEB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 19:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C5CEB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 19:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zitEsmc8YMN/cQongI7UdEfS8lwslizHjs53ugznyLM=; b=uDwS4RlAsJg+Dx
-	td7e1Pva1yH9YxvCowXWgzArZHgIam1lTvPSzat6NJz6nuWUIfuU5zJKkI8+1yJRMStiCZYRvxGx8
-	fi1Dj9gcAMMYoutEXln6YyQBsSKnUT3VYYlOxO1r0MAQJTWsaFFNarI9sTylZRcgoM0LrM04Q7xTT
-	aAGToNjUUcZn1dF8Z1g2PnR58FdjFOqqJS88ngedvjJGSaSa1VjeTgC5fuQvIG9aXEaS22plLOCXl
-	P5aK2UXmDd/+AOUAszMxT4Pv+3PzwqdMw8BvmF1srhfGWrO8+GykOcR6nOQnU8b2Y+vifa3shiIyF
-	2FuBzfbUPJeJCfDZZycA==;
+	List-Owner; bh=a4MNMGQBTx6VGXqvc2Qlpjx5PqBTDuOW2Sk8a27wPKM=; b=PmlxhdY+Oc1zE7
+	IuHrMN0SVSG+9dXYSAdz49PoseBYiiQCJnqC+WdNtZvC1Ws4uGg3pE0kzrcObjf69C4yAgIbIgeeK
+	IfIZ1E4CTMAP5Q2Oeixyl4I919PvRGk9BPeksU62CT7IOsIbTy5Qg/dxMmLNVo8AzT0KJRCYLhKmo
+	Rw29/6BbYBWJwYOnbCdHE6urTVMfq+8nUkd+G8XfWeh0J2kRhiNV1pk9m6My0rVChLkT1U0jRtVyI
+	+O2gmPwPqi436oHCwGgYASZDkPg1CjpbqLtK1Sx0AKLkmVz4OgLdOQ+8yRkSvvwJXNcHgyKp3LVj2
+	dTfUSseca1PjMxAYb5tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMYus-00Bzfr-1F;
-	Thu, 20 Jul 2023 19:02:22 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1qMZGN-00C38B-0n;
+	Thu, 20 Jul 2023 19:24:35 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMYun-00Bzc9-1E;
-	Thu, 20 Jul 2023 19:02:20 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-1b8b4749013so8444505ad.2;
-        Thu, 20 Jul 2023 12:02:14 -0700 (PDT)
+	id 1qMZGK-00C37V-1g
+	for linux-riscv@lists.infradead.org;
+	Thu, 20 Jul 2023 19:24:33 +0000
+Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-666e6541c98so1017009b3a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Jul 2023 12:24:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1689879734; x=1690484534;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0MSKcIw1ixdNRcp/f0sV+4F1n8XKG7sdC3dJK2xndKs=;
-        b=HmFZ4aH4Wab+GqCN9TB1hsoxANs59ZGyg6e/EgDXSJq0eYSI/1VDWVlSgNIChLUfV8
-         T/IU56bnENLrhgdM87GnmjNFM0RpmjvZJl2xcorFy1mGsUnDs9zdzDKZrSPzHq2hoIH0
-         vFw+TuHLIpDpLy2T1GRQp+A/ZwejC2JNC9/kx8GgLOzFDvivXFRt8pK7pg/RJqO6epII
-         jU9EDNCAY3cGtv9Kz4M3mnp24C7KZYOlNZNUgyGjPKzywths6r+RNrsvvKuGeUeTpvFE
-         KzSBguxslln865ERYszYEUEyvYxe2xDbUJMXe4XuzyfRHn+tbMW1SUTP9WASXJn7b+Pn
-         qf5w==
+        d=gmail.com; s=20221208; t=1689881071; x=1690485871;
+        h=content-transfer-encoding:mime-version:message-id:references
+         :in-reply-to:user-agent:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=/Sg8ZUof4litkbVkI93lEgkMdRKQns2dkKRJ6nxytjc=;
+        b=GXAmdxeabjwJMPspdMR69ghzU9reliykQR+pO/kFRAHXyaOq2QQWLw2SMbQucFHQV9
+         /fVbvWAQ41BINMQURi6E8uv7Nk0OOdnJwRKbmoqdMqtNPWrwXoHgNahv4Sudfu2g967V
+         xeSxU0X9vGL+q/Ku+GHYhzRbpjvOi33+dJfyPh6uaTDs1OVKMzpqJ4avBt+prjKpSR/a
+         GUUlgRt5y+zwXBi96MzfUvC0HL0GiNAVooaRoJN2FivNvRc29hkgPlOvufo5a1FLju84
+         HxxNHZEmaz67C9GqWsm7Y/F+qpZpIRxYDpKT2dJZ9ctLUlh1l+p5Sw6EcGOtVyg99YMW
+         R8og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689879734; x=1690484534;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0MSKcIw1ixdNRcp/f0sV+4F1n8XKG7sdC3dJK2xndKs=;
-        b=CAc+jN5zPlelyoSGQEC9QxfLuM5ndy+q/EKrmOMxEdshqghOI3svnCuldvmd/gsR/5
-         oEpeSGS/YWVojBSi8EzIv+Vz58bjHPW1uK9/rkEl2qea0y3aDGrEtWFUMXPlPPGusWSk
-         C4mldm95MTroKL9HblK79Dtre4gEboAdJ0KEXPtF9UlGLGfY+LzSLZlqWkN8XKHMKQWX
-         Va+lrJpeCg9MFpC0uuISC9V65CmhiOS8XsYNkiuHYIRsR4GWHpSL6Mf25tQ7x21RWyBD
-         Oxx5DeK3vGS9cLHeCK5aF70WzHLPY/Tv56ofLH9SYgdNQGWnmQkBBZko//EPoBo2jwCr
-         tDBw==
-X-Gm-Message-State: ABy/qLacbKpoOZCTSa7Qal4/Nln4I94V9GYrgbykYQj8hYlSs/8a50kJ
-	EGCFyb9DKba7pQyUm9RFhFHSakdThobNNA==
-X-Google-Smtp-Source: APBJJlEk/mIAgGdv75eqlacWKafqLMEC8fcDRiP+uJ4q0KoW6Z/oWLHWzhtG4Xil0kxFMatYBl1SNg==
-X-Received: by 2002:a17:902:cec9:b0:1ba:fe63:6622 with SMTP id d9-20020a170902cec900b001bafe636622mr138625plg.32.1689879733690;
-        Thu, 20 Jul 2023 12:02:13 -0700 (PDT)
-Received: from localhost ([192.55.54.50])
-        by smtp.gmail.com with ESMTPSA id d15-20020a170903230f00b001b9de4fb749sm1778146plh.20.2023.07.20.12.02.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Jul 2023 12:02:12 -0700 (PDT)
-Date: Thu, 20 Jul 2023 12:02:11 -0700
-From: Isaku Yamahata <isaku.yamahata@gmail.com>
-To: Yuan Yao <yuan.yao@linux.intel.com>
-Cc: Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Chao Peng <chao.p.peng@linux.intel.com>,
-	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
-	Yu Zhang <yu.c.zhang@linux.intel.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	David Hildenbrand <david@redhat.com>,
-	Quentin Perret <qperret@google.com>,
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
-	Liam Merwick <liam.merwick@oracle.com>,
-	Isaku Yamahata <isaku.yamahata@gmail.com>,
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [RFC PATCH v11 08/29] KVM: Introduce per-page memory attributes
-Message-ID: <20230720190211.GF25699@ls.amr.corp.intel.com>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-9-seanjc@google.com>
- <20230720080912.g56zi5hywazrhnam@yy-desk-7060>
+        d=1e100.net; s=20221208; t=1689881071; x=1690485871;
+        h=content-transfer-encoding:mime-version:message-id:references
+         :in-reply-to:user-agent:subject:cc:to:date:from:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/Sg8ZUof4litkbVkI93lEgkMdRKQns2dkKRJ6nxytjc=;
+        b=aD8KZcja5bcYnuNgQW5FNDtkT6ENOxQRKkMkmMiXV4do4sooXSsbZre2ICz4Ghy3t5
+         6LO0yF5FRwvx+QN7LhUI8QpDpyFJpIHWnotlqKau51RKh5UAPnb2HZf+XQuGmodC2OpE
+         No+t9+3RQgWYziGqouSVg9237FQi+T454/j86ZucUlgDCSbEWwD79cOlBVOglFCzGeo/
+         o2e0gpQPpLtiDIgBkioXoY2LHOZzXPMUmryFEDwvy0KJCI5PgrOcrDAVLmXmby3gsIM2
+         rMGwE/ELzTWqd3OcxsjzriWcX6rMr7D+oBr21q4KTgSeI5qeNEqQxgfAuQSH6BanfYtT
+         BTRg==
+X-Gm-Message-State: ABy/qLaGyn6YC1ddyS8o5vhrDc0zgMJziw4OEIsZFHuYgJ0VDhJ18I9z
+	scYF7vLanxT9TwCaxG3c2mg=
+X-Google-Smtp-Source: APBJJlEXxRdTylJlQuY2HOrK3xarVRbbRI+Vezer9FdTfn9onk2HS5knqaCRsMlHJGB+DcxtGFiX6A==
+X-Received: by 2002:a05:6a20:7288:b0:131:a21:9f96 with SMTP id o8-20020a056a20728800b001310a219f96mr510744pzk.6.1689881071203;
+        Thu, 20 Jul 2023 12:24:31 -0700 (PDT)
+Received: from [127.0.0.1] ([212.107.28.55])
+        by smtp.gmail.com with ESMTPSA id q18-20020a639812000000b00563709c8647sm1642656pgd.7.2023.07.20.12.24.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Jul 2023 12:24:30 -0700 (PDT)
+From: Celeste Liu <coelacanthushex@gmail.com>
+X-Google-Original-From: Celeste Liu <CoelacanthusHex@gmail.com>
+Date: Fri, 21 Jul 2023 03:24:08 +0800
+To: =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+ Andreas Schwab <schwab@suse.de>
+CC: Palmer Dabbelt <palmer@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Guo Ren <guoren@kernel.org>,
+ =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+ Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Felix Yan <felixonmars@archlinux.org>,
+ Ruizhe Pan <c141028@gmail.com>, Shiqi Zhang <shiqi@isrc.iscas.ac.cn>
+Subject: Re: [PATCH v3] riscv: entry: set a0 = -ENOSYS only when syscall != -1
+User-Agent: K-9 Mail for Android
+In-Reply-To: <87wmyvq7ai.fsf@all.your.base.are.belong.to.us>
+References: <20230718210037.250665-1-CoelacanthusHex@gmail.com> <mvmo7k8cqns.fsf@suse.de> <878rbbkgqo.fsf@all.your.base.are.belong.to.us> <54D8BFF7-C4D2-417E-B18C-62B5DB17B51B@gmail.com> <87wmyvq7ai.fsf@all.your.base.are.belong.to.us>
+Message-ID: <A6169D45-D291-40DF-BC78-42AE4F7A5924@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230720080912.g56zi5hywazrhnam@yy-desk-7060>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230720_120217_448907_CCD03801 
-X-CRM114-Status: GOOD (  43.36  )
+X-CRM114-CacheID: sfid-20230720_122432_559032_94BDA4BC 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,182 +95,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 20, 2023 at 04:09:12PM +0800,
-Yuan Yao <yuan.yao@linux.intel.com> wrote:
-
-> On Tue, Jul 18, 2023 at 04:44:51PM -0700, Sean Christopherson wrote:
-> > From: Chao Peng <chao.p.peng@linux.intel.com>
-> >
-> > In confidential computing usages, whether a page is private or shared is
-> > necessary information for KVM to perform operations like page fault
-> > handling, page zapping etc. There are other potential use cases for
-> > per-page memory attributes, e.g. to make memory read-only (or no-exec,
-> > or exec-only, etc.) without having to modify memslots.
-> >
-> > Introduce two ioctls (advertised by KVM_CAP_MEMORY_ATTRIBUTES) to allow
-> > userspace to operate on the per-page memory attributes.
-> >   - KVM_SET_MEMORY_ATTRIBUTES to set the per-page memory attributes to
-> >     a guest memory range.
-> >   - KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES to return the KVM supported
-> >     memory attributes.
-> >
-> > Use an xarray to store the per-page attributes internally, with a naive,
-> > not fully optimized implementation, i.e. prioritize correctness over
-> > performance for the initial implementation.
-> >
-> > Because setting memory attributes is roughly analogous to mprotect() on
-> > memory that is mapped into the guest, zap existing mappings prior to
-> > updating the memory attributes.  Opportunistically provide an arch hook
-> > for the post-set path (needed to complete invalidation anyways) in
-> > anticipation of x86 needing the hook to update metadata related to
-> > determining whether or not a given gfn can be backed with various sizes
-> > of hugepages.
-> >
-> > It's possible that future usages may not require an invalidation, e.g.
-> > if KVM ends up supporting RWX protections and userspace grants _more_
-> > protections, but again opt for simplicity and punt optimizations to
-> > if/when they are needed.
-> >
-> > Suggested-by: Sean Christopherson <seanjc@google.com>
-> > Link: https://lore.kernel.org/all/Y2WB48kD0J4VGynX@google.com
-> > Cc: Fuad Tabba <tabba@google.com>
-> > Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-> > Co-developed-by: Sean Christopherson <seanjc@google.com>
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  Documentation/virt/kvm/api.rst |  60 ++++++++++++
-> >  include/linux/kvm_host.h       |  14 +++
-> >  include/uapi/linux/kvm.h       |  14 +++
-> >  virt/kvm/Kconfig               |   4 +
-> >  virt/kvm/kvm_main.c            | 170 +++++++++++++++++++++++++++++++++
-> >  5 files changed, 262 insertions(+)
-> >
-> > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> > index 34d4ce66e0c8..0ca8561775ac 100644
-> > --- a/Documentation/virt/kvm/api.rst
-> > +++ b/Documentation/virt/kvm/api.rst
-> > @@ -6068,6 +6068,56 @@ writes to the CNTVCT_EL0 and CNTPCT_EL0 registers using the SET_ONE_REG
-> >  interface. No error will be returned, but the resulting offset will not be
-> >  applied.
-> >
-> > +4.139 KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES
-> > +-----------------------------------------
-> > +
-> > +:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-> > +:Architectures: x86
-> > +:Type: vm ioctl
-> > +:Parameters: u64 memory attributes bitmask(out)
-> > +:Returns: 0 on success, <0 on error
-> > +
-> > +Returns supported memory attributes bitmask. Supported memory attributes will
-> > +have the corresponding bits set in u64 memory attributes bitmask.
-> > +
-> > +The following memory attributes are defined::
-> > +
-> > +  #define KVM_MEMORY_ATTRIBUTE_PRIVATE           (1ULL << 3)
-> > +
-> > +4.140 KVM_SET_MEMORY_ATTRIBUTES
-> > +-----------------------------------------
-> > +
-> > +:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-> > +:Architectures: x86
-> > +:Type: vm ioctl
-> > +:Parameters: struct kvm_memory_attributes(in/out)
-> > +:Returns: 0 on success, <0 on error
-> > +
-> > +Sets memory attributes for pages in a guest memory range. Parameters are
-> > +specified via the following structure::
-> > +
-> > +  struct kvm_memory_attributes {
-> > +	__u64 address;
-> > +	__u64 size;
-> > +	__u64 attributes;
-> > +	__u64 flags;
-> > +  };
-> > +
-> > +The user sets the per-page memory attributes to a guest memory range indicated
-> > +by address/size, and in return KVM adjusts address and size to reflect the
-> > +actual pages of the memory range have been successfully set to the attributes.
-> > +If the call returns 0, "address" is updated to the last successful address + 1
-> > +and "size" is updated to the remaining address size that has not been set
-> > +successfully. The user should check the return value as well as the size to
-> > +decide if the operation succeeded for the whole range or not. The user may want
-> > +to retry the operation with the returned address/size if the previous range was
-> > +partially successful.
-> > +
-> > +Both address and size should be page aligned and the supported attributes can be
-> > +retrieved with KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES.
-> > +
-> > +The "flags" field may be used for future extensions and should be set to 0s.
-> > +
-> >  5. The kvm_run structure
-> >  ========================
-> >
-> > @@ -8494,6 +8544,16 @@ block sizes is exposed in KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES as a
-> >  64-bit bitmap (each bit describing a block size). The default value is
-> >  0, to disable the eager page splitting.
-> >
-> > +8.41 KVM_CAP_MEMORY_ATTRIBUTES
-> > +------------------------------
-> > +
-> > +:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-> > +:Architectures: x86
-> > +:Type: vm
-> > +
-> > +This capability indicates KVM supports per-page memory attributes and ioctls
-> > +KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES/KVM_SET_MEMORY_ATTRIBUTES are available.
-> > +
-> >  9. Known KVM API problems
-> >  =========================
-> >
-> > diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> > index e9ca49d451f3..97db63da6227 100644
-> > --- a/include/linux/kvm_host.h
-> > +++ b/include/linux/kvm_host.h
-> > @@ -264,6 +264,7 @@ struct kvm_gfn_range {
-> >  	gfn_t end;
-> >  	union {
-> >  		pte_t pte;
-> > +		unsigned long attributes;
-> >  		u64 raw;
-> >  	} arg;
-> >  	bool may_block;
-> > @@ -809,6 +810,9 @@ struct kvm {
-> >
-> >  #ifdef CONFIG_HAVE_KVM_PM_NOTIFIER
-> >  	struct notifier_block pm_notifier;
-> > +#endif
-> > +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> > +	struct xarray mem_attr_array;
-> >  #endif
-> >  	char stats_id[KVM_STATS_NAME_SIZE];
-> >  };
-> > @@ -2301,4 +2305,14 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
-> >  /* Max number of entries allowed for each kvm dirty ring */
-> >  #define  KVM_DIRTY_RING_MAX_ENTRIES  65536
-> >
-> > +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-> > +static inline unsigned long kvm_get_memory_attributes(struct kvm *kvm, gfn_t gfn)
-> > +{
-> > +	return xa_to_value(xa_load(&kvm->mem_attr_array, gfn));
-> > +}
-> > +
-> > +bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
-> > +					 struct kvm_gfn_range *range);
-> 
-> Used but no definition in this patch, it's defined in next patch 09.
-> How about add weak version in this patch and let ARCHs to overide it ?
-
-It is guarded by CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES.
--- 
-Isaku Yamahata <isaku.yamahata@gmail.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gSnVseSAyMCwgMjAyMyA1OjA4OjM3IFBNIEdNVCswODowMCwgIkJqw7ZybiBUw7ZwZWwiIDxi
+am9ybkBrZXJuZWwub3JnPiB3cm90ZToKPkNlbGVzdGUgTGl1IDxjb2VsYWNhbnRodXNoZXhAZ21h
+aWwuY29tPiB3cml0ZXM6Cj4KPj4gT24gSnVseSAyMCwgMjAyMyAxMjoyODo0NyBBTSBHTVQrMDg6
+MDAsICJCasO2cm4gVMO2cGVsIiA8Ympvcm5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4+PkFuZHJlYXMg
+U2Nod2FiIDxzY2h3YWJAc3VzZS5kZT4gd3JpdGVzOgo+Pj4KPj4+PiBPbiBKdWwgMTkgMjAyMywg
+Q2VsZXN0ZSBMaXUgd3JvdGU6Cj4+Pj4KPj4+Pj4gQEAgLTMwOCw3ICszMTIsNyBAQCBhc21saW5r
+YWdlIF9fdmlzaWJsZSBfX3RyYXBfc2VjdGlvbiB2b2lkIGRvX3RyYXBfZWNhbGxfdShzdHJ1Y3Qg
+cHRfcmVncyAqcmVncykKPj4+Pj4gIAo+Pj4+PiAgCQlpZiAoc3lzY2FsbCA8IE5SX3N5c2NhbGxz
+KQo+Pj4+PiAgCQkJc3lzY2FsbF9oYW5kbGVyKHJlZ3MsIHN5c2NhbGwpOwo+Pj4+PiAtCQllbHNl
+Cj4+Pj4+ICsJCWVsc2UgaWYgKChsb25nKXN5c2NhbGwgIT0gLTFMKQo+Pj4+Cj4+Pj4gWW91IGNh
+biBhbHNvIHVzZSBzeXNjYWxsICE9IC0xVUwgb3IgZXZlbiBzeXNjYWxsICE9IC0xLgo+Pj4KPj4+
+VGhlIGZvcm1lciBpcyBpbmRlZWQgYmV0dGVyIGZvciB0aGUgZXllcyEgOi0pIFRoZSBsYXR0ZXIg
+d2lsbCBnZXQgYQo+Pj4tV3NpZ24tY29tcGFyZSB3YXJuaW5nLCBubz8KPj4+Cj4+Pgo+Pj5CasO2
+cm4KPj4KPj4gV2VsbCwgdGhhdCdzIHRydWUuIEFuZCBJIGp1c3QgZm91bmQgb3V0IHRoYXQgYnkg
+QyBzdGFuZGFyZHMsIGNvbnZlcnRpbmcKPj4gdWxvbmcgdG8gbG9uZyBpcyBpbXBsZW1lbnRhdGlv
+bi1kZWZpbmVkIGJlaGF2aW9yLCB1bmxpa2UgbG9uZyB0byB1bG9uZwo+PiB3aGljaCBpcyB3ZWxs
+LWRlZmluZWQuIFNvIGl0IGlzIHJlYWxseSBiZXR0ZXIgdGhhbiAobG9uZylzeXNjYWxsICE9IC0x
+TC4KPgo+SWYgeW91J3JlIHJlc3Bpbm5pbmcsIEkgc3VnZ2VzdCB5b3UgdXNlIERhdmlkJ3Mgc3Vn
+Z2VzdGlvbjoKPiAqIFJlbW92ZSB0aGUgY29tbWVudCBJIHN1Z2dlc3QgeW91IHRvIGFkZAo+ICog
+VXNlIChzaWduZWQpIGxvbmcKPiAqIEFkZCBzeXNjYWxsID49IDAgJiYKPiAqIGVsc2UgaWYgKHN5
+c2NhbGwgIT0gLTEpCj4KPldoaWNoIGlzIHRoZSBsZWFzdCBhbW91bnQgb2Ygc3VycHJpc2VzIElN
+Ty4KCnY0IGhhcyBzZW50CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
