@@ -4,72 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 284FFC0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 00:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C323C0015E
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 01:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=cCnKV/VdksfTZvITTlQZEhkmuhcHcpoz+yvTQ0bPDtQ=; b=4Dgv+9pLnq/TJf
-	/5SglfubwLNdxNerA0/0OMvDzBDdNlE/IsncvawNpwNJqu5qR4uBFAqXo6s3qEK1b+BabWyzUL6I3
-	OvIYFLvlEjz9sBWfDyyJfszc2EnGQXSyFEqvw6PDoTAPOGmGaSkc8za8Fsj6BeHx4wCZkz7hmIQcL
-	FXrM7rz5tQcl3BxCjYZmUwaFEXA5qUSvEbSj6Ds2J5QHlUgYR8CrPwE9XBV71dqgsX3RxNiXpL7yy
-	QIDhlGK8FRpId7/N/5oTs5A/jF8HiYL+LOgTw9T9rKGCdxEMebLoVaV8CAQMg7KJ0YqfMZencwMxx
-	erk2GguL56TsCwJRVYug==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eijHRCbq+BIAxJX6BNEfeTYn8Xn1AP5RliYPcwn0tsY=; b=mEI86INLjkeNdW
+	YSz0ogXCnbYqEZoUgnjgwN5oDgf+fwHOJ7Usautt3xFur+bwhHHKqp4QSgn0t+K+c0Kp7uLiiDSOp
+	WCM/EKYZ9UYRBX9KDGPds4bWewxX5QDNqBoUTnyXu+dozpA0h/4m25KlmElpn1gZhNhODuyr0QGP+
+	ktfQXyFIyHiDPy4Oeh3fF8bQUKpkalTQAEkBhNvTCOMIcnkRcVrh5up4T6Yabcpzo78PKgd++R7YA
+	1/RlX1IB+86woeXtjWIeNTK6hY+Eh5OaUlnACLZ6TwTTcb4/2kxKUCBd4M6Tmei41wq51o+lOC0us
+	lWCb7HSotWFotO6nVDxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMHSy-009LXx-1y;
-	Thu, 20 Jul 2023 00:24:24 +0000
-Received: from out203-205-251-59.mail.qq.com ([203.205.251.59])
+	id 1qMIHJ-009QmG-0G;
+	Thu, 20 Jul 2023 01:16:25 +0000
+Received: from mga11.intel.com ([192.55.52.93])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMHSt-009LVX-2R
-	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 00:24:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1689812641;
-	bh=XDRuLIHkJfQQZemCigyLqfDZFz49CdHiP3pF+50Mh4Y=;
-	h=From:To:Cc:Subject:Date;
-	b=zE75NID500HHx7AXNN5cAVidTlWUW9W7yclZ3H094MkhZSeSOC3S65qXrsQXV92Kp
-	 u3TbVgURqICL5ZmPNIfoonVx17GozG/3KqHpAAsFPv4r0w8naQ/MPsgo/ZY9efTMsB
-	 5Hyb/rohhcv15NG+9i6yWz6R6hUccPhEgGJjNPuA=
-Received: from localhost ([101.224.148.235])
-	by newxmesmtplogicsvrszc2-0.qq.com (NewEsmtp) with SMTP
-	id 5FB3E47E; Thu, 20 Jul 2023 08:23:59 +0800
-X-QQ-mid: xmsmtpt1689812639tblmroxam
-Message-ID: <tencent_B931BF1864B6AE8C674686ED9852ACFA0609@qq.com>
-X-QQ-XMAILINFO: OZZSS56D9fAjyoRLlB1WdJIvKEZ+uXLTVV6mobk6OIzYcsk9NcixTRI+09csj6
-	 A6Yso/kzi3FrJfhROjQ3VF/tdNNQJf0/gMKVus8ZxYR3irBaDnNyINv8rziCQUriDNs3t38ZC31z
-	 G9ovwpjDqNp9cp2eR/EeE3zEVziqloAzv3z4bSsh4aprnUjOWJpFFcG4qC/P21cRNX1P+ZiKx+m1
-	 IlxhI2lJc20BuZKnUm6/wFDQnfNhFrH6Aq1RfJQJGMSmH+/5/C9DJVtU61l9xKRlmHvJ0FTvVqyJ
-	 ek1ciGmIHfgINhAM2puKYK2ayzTy0QnRVdl3tGMnGp1JXL+hisra5Bh/OAux8w9sK6lEURusk52M
-	 rzqtUisrZOIXwqzyjeHXh6V3wJ4IhhAzwQbqoZoFcsNt/WBYECzzOcGGRJF8hjT/GDT6GFCkj3SR
-	 +zV71ZPMwBRZdmOLDJq14Ry4Kvh00/Fv1H8bN3eduUH0sEUGaDCKB4xbumOLti8An1OrqyXTi1vf
-	 YL/b/4OeSOO1Ri+TCnl6QqgkllPIPYktfM6BVUBVgvw2xyWxeJzyvVdrN0aK682CqWmI0Qj8vvVf
-	 alemCeYCVuUbETBDLwCOhv2JYvr5eIEgPIRv8ZR5Hfz733fY01jrKxbWQ7gn0eFjV7KRdzgKOtxI
-	 M/yFOeUaX9CRKoeM7OLhZi6VxKsXkrBUPOwYcqqUxmysg+edwrTLmAGI6ZwcsZAMfGzbSmHQrjAk
-	 KsVl7BRsxTrfx6oxAT/zOzQxGp1ZtHjuPcxjN49Wiv4xkMIY8ZvqCvQu9zGMyZ/VkBD+cucoJn4N
-	 Uc81tG0T473Y13dDXyZWGTqKI0iU3JZnEJ4UExl9GcScjhvVArdnsPx7r2kPcERauwfTqm2zgxyK
-	 taoEiAfO1PMlrSd8cqMtbgRbKzJJrK4FYVwzxaiLejsrKiHW7EjxKGofgZI+tz/XeY2lYCeRgqFw
-	 rVSG/V7eFueGunGRujUJoaDcPr+bP+qbSm2MEWMexLG77UC1uC9g==
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
-From: Woody Zhang <woodylab@foxmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1qMIHC-009QjN-0h;
+	Thu, 20 Jul 2023 01:16:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1689815778; x=1721351778;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0X3B3RFBvIohiBDiMK6hMbRCxfxPASWhBjQpW8WFunc=;
+  b=giu6bTBVxICXqn1KPNL4lskzxiu+Bxf7gDZ5gj0DeJj9H4ASFIXLnRlV
+   RLh4VLGvYgC7Qu9BP80XsNdaA7JXPiJNlqITsSmvTaqO+EttioDBNjHvx
+   sReOynkO7Zc39lv4CSX+3y1AD5V0sCECDA5nFphOAfCYIGXmKLFk0AxS2
+   E7RWkGibLN5sTGBZIL3LhlOhCnLPG/8Us1ShBZMJrxX5iD1asQWrCoOAa
+   3qc5qbv5QORUkulTyQcEvgSC0GhX3L1+CQmImIBuQQPm+mgrnI+g6Do0D
+   jzDxLWFJ+9lNiRNAFcjdBWLOZSOqWEi1GHqIn2evcvNv2M63IwJNRMhvs
+   Q==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10776"; a="364065930"
+X-IronPort-AV: E=Sophos;i="6.01,216,1684825200"; 
+   d="scan'208";a="364065930"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jul 2023 18:16:11 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10776"; a="674516361"
+X-IronPort-AV: E=Sophos;i="6.01,216,1684825200"; 
+   d="scan'208";a="674516361"
+Received: from yy-desk-7060.sh.intel.com (HELO localhost) ([10.239.159.76])
+  by orsmga003.jf.intel.com with ESMTP; 19 Jul 2023 18:15:44 -0700
+Date: Thu, 20 Jul 2023 09:15:41 +0800
+From: Yuan Yao <yuan.yao@linux.intel.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Conor Dooley <conor@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Woody Zhang <woodylab@foxmail.com>
-Subject: [PATCH] riscv: add SBI SUSP extension support
-Date: Thu, 20 Jul 2023 08:23:19 +0800
-X-OQ-MSGID: <20230720002318.2543822-1-woodylab@foxmail.com>
-X-Mailer: git-send-email 2.39.2
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Chao Peng <chao.p.peng@linux.intel.com>,
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+	Yu Zhang <yu.c.zhang@linux.intel.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Maciej Szmigiero <mail@maciej.szmigiero.name>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	David Hildenbrand <david@redhat.com>,
+	Quentin Perret <qperret@google.com>,
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+	Liam Merwick <liam.merwick@oracle.com>,
+	Isaku Yamahata <isaku.yamahata@gmail.com>,
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [RFC PATCH v11 05/29] KVM: Convert KVM_ARCH_WANT_MMU_NOTIFIER to
+ CONFIG_KVM_GENERIC_MMU_NOTIFIER
+Message-ID: <20230720011541.6ti5sygwwfwko6ab@yy-desk-7060>
+References: <20230718234512.1690985-1-seanjc@google.com>
+ <20230718234512.1690985-6-seanjc@google.com>
+ <20230719073115.vuedo2cf3mp27xm4@yy-desk-7060>
+ <ZLfv7aRq5W52ezek@google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ZLfv7aRq5W52ezek@google.com>
+User-Agent: NeoMutt/20171215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_172420_339825_7337D952 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20230719_181618_302216_768A8A99 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,105 +113,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V SBI spec 2.0 [1] introduces System Suspend Extension which can be
-used to suspend the platform via SBI firmware.
+On Wed, Jul 19, 2023 at 07:15:09AM -0700, Sean Christopherson wrote:
+> On Wed, Jul 19, 2023, Yuan Yao wrote:
+> > On Tue, Jul 18, 2023 at 04:44:48PM -0700, Sean Christopherson wrote:
+> > > diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> > > index 90a0be261a5c..d2d3e083ec7f 100644
+> > > --- a/include/linux/kvm_host.h
+> > > +++ b/include/linux/kvm_host.h
+> > > @@ -255,7 +255,9 @@ bool kvm_setup_async_pf(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
+> > >  int kvm_async_pf_wakeup_all(struct kvm_vcpu *vcpu);
+> > >  #endif
+> > >
+> > > -#ifdef KVM_ARCH_WANT_MMU_NOTIFIER
+> > > +struct kvm_gfn_range;
+> >
+> > Not sure why a declaration here, it's defined for ARCHs which defined
+> > KVM_ARCH_WANT_MMU_NOTIFIER before.
+>
+> The forward declaration exists to handle cases where CONFIG_KVM=n, specifically
+> arch/powerpc/include/asm/kvm_ppc.h's declaration of hooks to forward calls to
+> uarch modules:
+>
+> 	bool (*unmap_gfn_range)(struct kvm *kvm, struct kvm_gfn_range *range);
+> 	bool (*age_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
+> 	bool (*test_age_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
+> 	bool (*set_spte_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
+>
+> Prior to using a Kconfig, a forward declaration wasn't necessary because
+> arch/powerpc/include/asm/kvm_host.h would #define KVM_ARCH_WANT_MMU_NOTIFIER even
+> if CONFIG_KVM=n.
+>
+> Alternatively, kvm_ppc.h could declare the struct.  I went this route mainly to
+> avoid the possibility of someone encountering the same problem on a different
+> architecture.
 
-This patch can be tested on Qemu with recent OpenSBI with
-`system-suspend-test` enabled like [2] in DTB.
-
-[1] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc
-[2] https://github.com/woodyzhang666/qemu/commit/e4a5120133c1dc354e6ac437ec1f870f6c0f6d05
-
-Signed-off-by: Woody Zhang <woodylab@foxmail.com>
----
- arch/riscv/include/asm/sbi.h | 10 ++++++++++
- arch/riscv/kernel/sbi.c      | 26 ++++++++++++++++++++++++++
- 2 files changed, 36 insertions(+)
-
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 5b4a1bf5f439..3b04016da671 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -30,6 +30,7 @@ enum sbi_ext_id {
- 	SBI_EXT_HSM = 0x48534D,
- 	SBI_EXT_SRST = 0x53525354,
- 	SBI_EXT_PMU = 0x504D55,
-+	SBI_EXT_SUSP = 0x53555350,
- 
- 	/* Experimentals extensions must lie within this range */
- 	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
-@@ -236,6 +237,15 @@ enum sbi_pmu_ctr_type {
- /* Flags defined for counter stop function */
- #define SBI_PMU_STOP_FLAG_RESET (1 << 0)
- 
-+enum sbi_ext_susp_fid {
-+	SBI_EXT_SUSP_SYSTEM_SUSPEND = 0,
-+};
-+
-+/* SBI suspend sleep types */
-+enum sbi_susp_sleep_type {
-+	SBI_SUSP_SLEEP_TYPE_SUSPEND = 0x0,
-+};
-+
- #define SBI_SPEC_VERSION_DEFAULT	0x1
- #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
- #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index c672c8ba9a2a..9a68959f9f18 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -9,8 +9,10 @@
- #include <linux/init.h>
- #include <linux/pm.h>
- #include <linux/reboot.h>
-+#include <linux/suspend.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
-+#include <asm/suspend.h>
- 
- /* default SBI version is 0.1 */
- unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
-@@ -520,6 +522,26 @@ static void sbi_srst_power_off(void)
- 		       SBI_SRST_RESET_REASON_NONE);
- }
- 
-+static int sbi_system_suspend(unsigned long arg,
-+		unsigned long resume_entry, unsigned long context)
-+{
-+	struct sbiret ret = {0};
-+
-+	ret = sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SYSTEM_SUSPEND,
-+			SBI_SUSP_SLEEP_TYPE_SUSPEND, resume_entry, context, 0, 0, 0);
-+	return ret.error;
-+}
-+
-+static int sbi_system_suspend_enter(suspend_state_t state)
-+{
-+	return cpu_suspend(0, sbi_system_suspend);
-+}
-+
-+static const struct platform_suspend_ops sbi_suspend_ops = {
-+	.valid          = suspend_valid_only_mem,
-+	.enter          = sbi_system_suspend_enter,
-+};
-+
- /**
-  * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
-  * @extid: The extension ID to be probed.
-@@ -624,6 +646,10 @@ void __init sbi_init(void)
- 			sbi_srst_reboot_nb.priority = 192;
- 			register_restart_handler(&sbi_srst_reboot_nb);
- 		}
-+		if (sbi_probe_extension(SBI_EXT_SUSP)) {
-+			pr_info("SBI SUSP extension detected\n");
-+			suspend_set_ops(&sbi_suspend_ops);
-+		}
- 	} else {
- 		__sbi_set_timer = __sbi_set_timer_v01;
- 		__sbi_send_ipi	= __sbi_send_ipi_v01;
--- 
-2.39.2
-
+Ah I see, thanks for your explanation!
 
 _______________________________________________
 linux-riscv mailing list
