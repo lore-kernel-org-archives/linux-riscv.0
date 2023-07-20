@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAB3C0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 02:16:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F9CC001E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 03:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UR72WrfBzj2pGmAIstrZmQoTc3egh8TlEct6TRxGzgY=; b=dpOqZV+b91LAa2
-	W0LyCUYGaKPwqyRhUP+J2aIC/oiWj1bGre/lY/5796CH6sfgDUftZdBfbE/KOwing82XfiGFAUtnV
-	sxcnmzYXeDZtwDLIYe0sPrhvxZ04cEv+iXCj2YlHf/6hVorCsbbtkJaE5kRv5AoSGNpDBl2MMABz+
-	/vAPm/iOKo+HNHzUQ+TUO2UPFBuY3YNQhiVZDkslkAemfw5bWf6QWRzMmxqyoOSqYunNJpZ6ZkFBe
-	oTQKwOwoEzmerFRGt/73ahj3suNAefUVvGUcov8vPMdBY07sjSPIxqEMDhwEzgsf54w5IB0MmfGV8
-	DjBdJSc/MC9XNQmGXvZQ==;
+	List-Owner; bh=l6jmB1Sgm2MPEBRC3wIIgGtx+TWp8KhHarf8MkVlgZk=; b=vvGGuWtGQQAGQF
+	tURJqtD2kqYdOzQF6Z8cNjPLd+erOWZCmKCYL76i5v0unweMlaQEESiSp2pEvrRp2p7vt21rMV3Ta
+	jeE1zGMEMfHkArPgPC17R+PwZUnIvFZGg08Px7o+E1r2usTgP5mvQXqZvj2sT4uHptKlJ1z5bdiMc
+	Cy1s1djFgeiH6CiAODQ40XqFJuhl0Xmq7NLO4crb8USG1EkEjTVsvtAHrVOg+oqalra/ohhTpfRC+
+	i3rc7aRCK3UcyI1hRk+p2ejLLdEw7JThEN8+sW8tA/CGHDuQp6JDKFOd1bKy/JRozcSiKSArhDSMm
+	cP/tHqFsb4/eLb3K9oog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMJDT-009XJA-1P;
-	Thu, 20 Jul 2023 02:16:31 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMJDO-009XHD-33
+	id 1qMJyU-009cHB-1o;
+	Thu, 20 Jul 2023 03:05:06 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qMJyO-009cF4-1T
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 02:16:30 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 3FCC580C5;
-	Thu, 20 Jul 2023 10:15:54 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Jul
- 2023 10:15:54 +0800
-Received: from [192.168.125.127] (113.72.147.86) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Jul
- 2023 10:15:53 +0800
-Message-ID: <52ebc991-0e73-8df4-61b2-32989ab4e62c@starfivetech.com>
-Date: Thu, 20 Jul 2023 10:15:51 +0800
+	Thu, 20 Jul 2023 03:05:02 +0000
+Received: from kwepemi500020.china.huawei.com (unknown [172.30.72.56])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4R5yDJ4fxLzVjhp;
+	Thu, 20 Jul 2023 11:02:56 +0800 (CST)
+Received: from [10.67.109.184] (10.67.109.184) by
+ kwepemi500020.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Thu, 20 Jul 2023 11:04:20 +0800
+Message-ID: <b5977c5d-c434-7b4c-89f3-d575ee5d04e8@huawei.com>
+Date: Thu, 20 Jul 2023 11:04:19 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v1 0/9] Refactoring Microchip PolarFire PCIe driver
+ Thunderbird/102.3.0
+Subject: Re: [PATCH bpf] riscv, bpf: Adapt bpf trampoline to optimized riscv
+ ftrace framework
 Content-Language: en-US
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
-	<conor@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-References: <20230719152626.GA502469@bhelgaas>
-From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <20230719152626.GA502469@bhelgaas>
-X-Originating-IP: [113.72.147.86]
-X-ClientProxiedBy: EXCAS065.cuchost.com (172.16.6.25) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Pu Lehui
+	<pulehui@huaweicloud.com>, <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+	<martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+	<yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+	<kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
+	<haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>, Song Shuai
+	<suagrfillet@gmail.com>
+References: <20230715090137.2141358-1-pulehui@huaweicloud.com>
+ <87lefdougi.fsf@all.your.base.are.belong.to.us>
+ <63986ef9-10a4-bcef-369d-0bad28b192d1@huawei.com>
+ <87o7k8udzj.fsf@all.your.base.are.belong.to.us>
+From: Pu Lehui <pulehui@huawei.com>
+In-Reply-To: <87o7k8udzj.fsf@all.your.base.are.belong.to.us>
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemi500020.china.huawei.com (7.221.188.8)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_191627_346152_87A46ED3 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20230719_200500_889873_014C708D 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,85 +78,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/7/19 23:26, Bjorn Helgaas wrote:
-> On Wed, Jul 19, 2023 at 06:20:48PM +0800, Minda Chen wrote:
->> This patchset final purpose is add PCIe driver for StarFive JH7110 SoC.
->>   dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
->> JH7110 using PLDA XpressRICH PCIe IP. Microchip PolarFire Using the
->> same IP and have commit their codes, which are mixed with PLDA
->> controller codes and Microchip platform codes.
-> 
-> I guess this actually adds TWO drivers: PCIE_PLDA_PLAT_HOST (claims
-> "plda,xpressrich-pcie-host" devices) and PCIE_STARFIVE_HOST (claims
-> "starfive,jh7110-pcie" devices), right?
-> 
-Yes, plda,xpressrich-pcie-host is IP controller driver. Do it like designware/cadence/mobiveil, (pcie-(ip)-plat.c)
-But I can't test it. I don't whether need it. If it not required, I will delete it.
->> For re-use the PLDA controller codes, I request refactoring microchip
->> codes, move PLDA common codes to PLDA files.
->> Desigware and Cadence is good example for refactoring codes.
->> 
->> So first step is extract the PLDA common codes from microchip, and
->> refactoring the microchip codes.(patch1 - 4)
->> Then add the PLDA platform codes. (patch5, 6)
->> At last, add Starfive codes. (patch7 - 9)
->> 
->> This patchset is base on v6.5-rc1
-> 
-> Doesn't quite apply cleanly for me:
-> 
-I am sorry, The driver need stg clk and syscon driver, which are have't be merge to main line.
-mainly dts is(patch9) rejected, Must apply this series patch first. (I forget add this link in cover letter)
-https://patchwork.kernel.org/project/linux-riscv/cover/20230712092007.31013-1-xingyu.wu@starfivetech.com/
-and this syscon patch 
-https://patchwork.kernel.org/project/linux-riscv/patch/20230717023040.78860-7-xingyu.wu@starfivetech.com/
->   10:10:15 ~/linux (main)$ git checkout -b wip/minda-starfive-v1 v6.5-rc1
->   Switched to a new branch 'wip/minda-starfive-v1'
->   10:10:33 ~/linux (wip/minda-starfive-v1)$ git am m/20230719_minda_chen_refactoring_microchip_polarfire_pcie_driver.mbx
->   Applying: dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
->   Applying: dt-bindings: PCI: microchip: Remove the PLDA common properties
->   Applying: PCI: PLDA: Get PLDA common codes from Microchip PolarFire host
->   Applying: PCI: microchip: Move PCIe driver to PLDA directory
->   Applying: dt-bindings: PLDA: Add PLDA XpressRICH PCIe host controller
->   Applying: PCI: PLDA: Add host conroller platform driver
->   Applying: dt-bindings: PCI: Add StarFive JH7110 PCIe controller
->   Applying: PCI: PLDA: starfive: Add JH7110 PCIe controller
->   Applying: riscv: dts: starfive: add PCIe dts configuration for JH7110
->   error: patch failed: arch/riscv/boot/dts/starfive/jh7110.dtsi:629
->   error: arch/riscv/boot/dts/starfive/jh7110.dtsi: patch does not apply
->   Patch failed at 0009 riscv: dts: starfive: add PCIe dts configuration for JH7110
-> 
->>   dt-bindings: PCI: Add PLDA XpressRICH PCIe host common properties
->>   dt-bindings: PCI: microchip: Remove the PLDA common properties
->>   PCI: PLDA: Get PLDA common codes from Microchip PolarFire host
->>   PCI: microchip: Move PCIe driver to PLDA directory
->>   dt-bindings: PLDA: Add PLDA XpressRICH PCIe host controller
->>   PCI: PLDA: Add host conroller platform driver
-> 
-> "controller"
->ok
->>   dt-bindings: PCI: Add StarFive JH7110 PCIe controller
->>   PCI: PLDA: starfive: Add JH7110 PCIe controller
->>   riscv: dts: starfive: add PCIe dts configuration for JH7110
-> 
-> Use "PCI: plda: " prefix for PLDA things that are shared across
-> multiple drivers.
-> 
-> Use "PCI: starfive: " prefix for starfive-specific things.
-> 
-> This is the same as how drivers/pci/controller/dwc/* looks.
-> 
-ok, thanks.
-> Bjorn
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMDIzLzcvMTkgMjM6MTgsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4gUHUgTGVodWkgPHB1
+bGVodWlAaHVhd2VpLmNvbT4gd3JpdGVzOgo+IAo+PiBPbiAyMDIzLzcvMTkgNDowNiwgQmrDtnJu
+IFTDtnBlbCB3cm90ZToKPj4+IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaWNsb3VkLmNvbT4gd3Jp
+dGVzOgo+Pj4KPj4+PiBGcm9tOiBQdSBMZWh1aSA8cHVsZWh1aUBodWF3ZWkuY29tPgo+Pj4+Cj4+
+Pj4gQ29tbWl0IDY3MjRhNzZjZmY4NSAoInJpc2N2OiBmdHJhY2U6IFJlZHVjZSB0aGUgZGV0b3Vy
+IGNvZGUgc2l6ZSB0bwo+Pj4+IGhhbGYiKSBvcHRpbWl6ZXMgdGhlIGRldG91ciBjb2RlIHNpemUg
+b2Yga2VybmVsIGZ1bmN0aW9ucyB0byBoYWxmIHdpdGgKPj4+PiBUMCByZWdpc3RlciBhbmQgdGhl
+IHVwY29taW5nIERZTkFNSUNfRlRSQUNFX1dJVEhfRElSRUNUX0NBTExTIG9mIHJpc2N2Cj4+Pj4g
+aXMgYmFzZWQgb24gdGhpcyBvcHRpbWl6YXRpb24sIHdlIG5lZWQgdG8gYWRhcHQgcmlzY3YgYnBm
+IHRyYW1wb2xpbmUKPj4+PiBiYXNlZCBvbiB0aGlzLiBPbmUgdGhpbmcgdG8gZG8gaXMgdG8gcmVk
+dWNlIGRldG91ciBjb2RlIHNpemUgb2YgYnBmCj4+Pj4gcHJvZ3JhbXMsIGFuZCB0aGUgc2Vjb25k
+IGlzIHRvIGRlYWwgd2l0aCB0aGUgcmV0dXJuIGFkZHJlc3MgYWZ0ZXIgdGhlCj4+Pj4gZXhlY3V0
+aW9uIG9mIGJwZiB0cmFtcG9saW5lLiBNZWFud2hpbGUsIGFkZCBtb3JlIGNvbW1lbnRzIGFuZCBy
+ZW5hbWUKPj4+PiBzb21lIHZhcmlhYmxlcyB0byBtYWtlIG1vcmUgc2Vuc2UuIFRoZSByZWxhdGVk
+IHRlc3RzIGhhdmUgcGFzc2VkLgo+Pj4+Cj4+Pj4gVGhpcyBhZGFwdGF0aW9uIG5lZWRzIHRvIGJl
+IG1lcmdlZCBiZWZvcmUgdGhlIHVwY29taW5nCj4+Pj4gRFlOQU1JQ19GVFJBQ0VfV0lUSF9ESVJF
+Q1RfQ0FMTFMgb2YgcmlzY3YsIG90aGVyd2lzZSBpdCB3aWxsIGNyYXNoIGR1ZQo+Pj4+IHRvIGEg
+bWlzbWF0Y2ggaW4gdGhlIHJldHVybiBhZGRyZXNzLiBTbyB3ZSB0YXJnZXQgdGhpcyBtb2RpZmlj
+YXRpb24gdG8KPj4+PiBicGYgdHJlZSBhbmQgYWRkIGZpeGVzIHRhZyBmb3IgbG9jYXRpbmcuCj4+
+Pgo+Pj4gVGhhbmsgeW91IGZvciB3b3JraW5nIG9uIHRoaXMhCj4+Pgo+Pj4+IEZpeGVzOiA2NzI0
+YTc2Y2ZmODUgKCJyaXNjdjogZnRyYWNlOiBSZWR1Y2UgdGhlIGRldG91ciBjb2RlIHNpemUgdG8g
+aGFsZiIpCj4+Pgo+Pj4gVGhpcyBpcyBub3QgYSBmaXguIE5vdGhpbmcgaXMgYnJva2VuLiBPbmx5
+IHRoYXQgdGhpcyBwYXRjaCBtdWNoIGNvbWUKPj4+IGJlZm9yZSBvciBhcyBwYXJ0IG9mIHRoZSBm
+dHJhY2Ugc2VyaWVzLgo+Pgo+PiBZZXAsIGl0J3MgcmVhbGx5IG5vdCBhIGZpeC4gSSBoYXZlIG5v
+IGlkZWEgd2hldGhlciB0aGlzIHBhdGNoIHRhcmdldCB0bwo+PiBicGYtbmV4dCB0cmVlIGNhbiBi
+ZSBhaGVhZCBvZiB0aGUgZnRyYWNlIHNlcmllcyBvZiByaXNjdiB0cmVlPwo+IAo+IEZvciB0aGlz
+IHBhdGNoLCBJJ2Qgc2F5IGl0J3MgZWFzaWVyIHRvIHRha2UgaXQgdmlhIHRoZSBSSVNDLVYgdHJl
+ZSwgSUZGCj4gdGhlIGZ0cmFjZSBzZXJpZXMgaXMgaW4gZm9yLW5leHQuCj4gCgphbHJpZ2h0LCBz
+byBsZXQncyBtYWtlIGl0IHRhcmdldCB0byByaXNjdi10cmVlIHRvIGF2b2lkIHRoYXQgY3JhY3No
+LgoKPiBbLi4uXQo+IAo+Pj4+ICsjZGVmaW5lIERFVE9VUl9OSU5TTlMJMgo+Pj4KPj4+IEJldHRl
+ciBuYW1lPyBNYXliZSBjYWxsIHRoaXMgcGF0Y2hhYmxlIGZ1bmN0aW9uIGVudHJ5IHNvbWV0aGlu
+Zz8gQWxzbywKPj4KPj4gSG93IGFib3V0IFJWX0ZFTlRSWV9OSU5TTlM/Cj4gCj4gU3VyZS4gQW5k
+IG1vcmUgaW1wb3J0YW50bHkgdGhhdCBpdCdzIGFjdHVhbGx5IHVzZWQgaW4gdGhlIHBsYWNlcyB3
+aGVyZQo+IG5vcHMvc2tpcHMgYXJlIGRvbmUuCgp0aGUgbmV3IG9uZSBpcyBzdWl0ZWQgdXAuCgo+
+IAo+Pj4gdG8gY2F0Y2ggZnV0dXJlIGJyZWFrcyBsaWtlIHRoaXMgLS0gd291bGQgaXQgbWFrZSBz
+ZW5zZSB0byBoYXZlIGEKPj4+IHN0YXRpY19hc3NlcnQoKSBjb21iaW5lZCB3aXRoIHNvbWV0aGlu
+ZyB0aWVkIHRvCj4+PiAtZnBhdGNoYWJsZS1mdW5jdGlvbi1lbnRyeT0gZnJvbSBhcmNoL3Jpc2N2
+L01ha2VmaWxlPwo+Pgo+PiBJdCBpcyB2ZXJ5IG5lY2Vzc2FyeSwgYnV0IGl0IGRvZXNuJ3Qgc2Vl
+bSB0byBiZSBlYXN5LiBJIHRyeSB0byBmaW5kIEdDQwo+PiByZWxhdGVkIGZ1bmN0aW9ucywgc29t
+ZXRoaW5nIGxpa2UgX19idWlsdGluX3h4eCwgYnV0IEkgY2FuJ3QgZmluZCBpdCBzbwo+PiBmYXIu
+IEFsc28gdHJ5IHRvIG1ha2UgaXQgYXMgYSBDT05GSUdfUEFUQ0hBQkxFX0ZVTkNUSU9OX0VOVFJZ
+PTQgaW4KPj4gTWFrZWZpbGUgYW5kIHRoZW4gc3RhdGljX2Fzc2VydCwgYnV0IG9idmlvdXNseSBp
+dCBzaG91bGRuJ3QgYmUgZG9uZS4KPj4gTWF5YmUgd2UgY2FuIGRlYWwgd2l0aCB0aGlzIGxhdGVy
+IHdoZW4gd2UgaGF2ZSBhIHNvbHV0aW9uPwo+IAo+IE9rIQo+IAo+IFsuLi5dCj4gCj4+Pj4gQEAg
+LTc4NywyMCArNzYyLDE5IEBAIHN0YXRpYyBpbnQgX19hcmNoX3ByZXBhcmVfYnBmX3RyYW1wb2xp
+bmUoc3RydWN0IGJwZl90cmFtcF9pbWFnZSAqaW0sCj4+Pj4gICAgCWludCBpLCByZXQsIG9mZnNl
+dDsKPj4+PiAgICAJaW50ICpicmFuY2hlc19vZmYgPSBOVUxMOwo+Pj4+ICAgIAlpbnQgc3RhY2tf
+c2l6ZSA9IDAsIG5yZWdzID0gbS0+bnJfYXJnczsKPj4+PiAtCWludCByZXRhZGRyX29mZiwgZnBf
+b2ZmLCByZXR2YWxfb2ZmLCBhcmdzX29mZjsKPj4+PiAtCWludCBucmVnc19vZmYsIGlwX29mZiwg
+cnVuX2N0eF9vZmYsIHNyZWdfb2ZmOwo+Pj4+ICsJaW50IGZwX29mZiwgcmV0dmFsX29mZiwgYXJn
+c19vZmYsIG5yZWdzX29mZiwgaXBfb2ZmLCBydW5fY3R4X29mZiwgc3JlZ19vZmY7Cj4+Pj4gICAg
+CXN0cnVjdCBicGZfdHJhbXBfbGlua3MgKmZlbnRyeSA9ICZ0bGlua3NbQlBGX1RSQU1QX0ZFTlRS
+WV07Cj4+Pj4gICAgCXN0cnVjdCBicGZfdHJhbXBfbGlua3MgKmZleGl0ID0gJnRsaW5rc1tCUEZf
+VFJBTVBfRkVYSVRdOwo+Pj4+ICAgIAlzdHJ1Y3QgYnBmX3RyYW1wX2xpbmtzICpmbW9kX3JldCA9
+ICZ0bGlua3NbQlBGX1RSQU1QX01PRElGWV9SRVRVUk5dOwo+Pj4+ICAgIAl2b2lkICpvcmlnX2Nh
+bGwgPSBmdW5jX2FkZHI7Cj4+Pj4gLQlib29sIHNhdmVfcmV0Owo+Pj4+ICsJYm9vbCBzYXZlX3Jl
+dHZhbCwgdHJhY2VkX3JldDsKPj4+PiAgICAJdTMyIGluc247Cj4+Pj4gICAgCj4+Pj4gICAgCS8q
+IEdlbmVyYXRlZCB0cmFtcG9saW5lIHN0YWNrIGxheW91dDoKPj4+PiAgICAJICoKPj4+PiAgICAJ
+ICogRlAgLSA4CSAgICBbIFJBIG9mIHBhcmVudCBmdW5jCV0gcmV0dXJuIGFkZHJlc3Mgb2YgcGFy
+ZW50Cj4+Pj4gICAgCSAqCQkJCQkgIGZ1bmN0aW9uCj4+Pj4gLQkgKiBGUCAtIHJldGFkZHJfb2Zm
+IFsgUkEgb2YgdHJhY2VkIGZ1bmMJXSByZXR1cm4gYWRkcmVzcyBvZiB0cmFjZWQKPj4+PiArCSAq
+IEZQIC0gMTYJICAgIFsgUkEgb2YgdHJhY2VkIGZ1bmMJXSByZXR1cm4gYWRkcmVzcyBvZgo+Pj4+
+ICAgIAl0cmFjZWQKPj4+Cj4+PiBCUEYgY29kZSB1c2VzIGZyYW1lIHBvaW50ZXJzLiBTaG91bGRu
+J3QgdGhlIHRyYW1wb2xpbmUgZnJhbWUgbG9vayBsaWtlIGEKPj4+IHJlZ3VsYXIgZnJhbWUgWzFd
+LCBpLmUuIHN0YXJ0IHdpdGggcmV0dXJuIGFkZHJlc3MgZm9sbG93ZWQgYnkgcHJldmlvdXMKPj4+
+IGZyYW1lIHBvaW50ZXI/Cj4+Pgo+Pgo+PiBvb3BzLCB3aWxsIGZpeCBpdC4gQWxzbyB3ZSBuZWVk
+IHRvIGNvbnNpZGVyIHR3byB0eXBlcyBvZiB0cmFtcG9saW5lCj4+IHN0YWNrIGxheW91dCwgdGhh
+dCBpczoKPj4KPj4gKiAxLiB0cmFtcG9saW5lIGNhbGxlZCBmcm9tIGZ1bmN0aW9uIGVudHJ5Cj4+
+ICogLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPj4gKiBGUCArIDggICAg
+ICAgICAgIFsgUkEgb2YgcGFyZW50IGZ1bmMgXSByZXR1cm4gYWRkcmVzcyBvZiBwYXJlbnQKPj4g
+KiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmdW5jdGlvbgo+PiAqIEZQ
+ICsgMCAgICAgICAgICAgWyBGUCAgICAgICAgICAgICAgICBdCj4+ICoKPj4gKiBGUCAtIDggICAg
+ICAgICAgIFsgUkEgb2YgdHJhY2VkIGZ1bmMgXSByZXR1cm4gYWRkcmVzcyBvZiB0cmFjZWQKPj4g
+KiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmdW5jdGlvbgo+PiAqIEZQ
+IC0gMTYgICAgICAgICAgWyBGUCAgICAgICAgICAgICAgICBdCj4+ICogLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPj4gKgo+PiAqIDIuIHRyYW1wb2xpbmUgY2FsbGVkIGRp
+cmVjdGx5Cj4+ICogLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPj4gKiBG
+UCAtIDggICAgICAgICAgIFsgUkEgb2YgY2FsbGVyIGZ1bmMgXSByZXR1cm4gYWRkcmVzcyBvZiBj
+YWxsZXIKPj4gKiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmdW5jdGlv
+bgo+PiAqIEZQIC0gMTYgICAgICAgICAgWyBGUCAgICAgICAgICAgICAgICBdCj4+ICogLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAKPiBIbW0sIGNvdWxkIHlvdSBleHBh
+bmQgYSBiaXQgb24gdGhpcz8gVGhlIHN0YWNrIGZyYW1lIHRvcCAxNkIgKDgrOCkKPiBzaG91bGQg
+Zm9sbG93IHdoYXQgdGhlIHBzYWJpIHN1Z2dlc3RzLCByZWdhcmRsZXNzIG9mIHRoZSBjYWxsIHNp
+dGU/Cj4gCgpNYXliZSBJJ3ZlIG1pc3NlZCBzb21ldGhpbmcgaW1wb3J0YW50ISBPciBtYXliZSBJ
+J20gbWlzdW5kZXJzdGFuZGluZyAKd2hhdCB5b3UgbWVhbi4gQnV0IGFueXdheSB0aGVyZSBpcyBz
+b21ldGhpbmcgdG8gc2hvdy4gSW4gbXkgcGVyc3BlY3RpdmUsIAp3ZSBzaG91bGQgY29uc3RydWN0
+IGEgY29tcGxldGUgc3RhY2sgZnJhbWUsIG90aGVyd2lzZSBvbmUgbGF5ZXIgb2Ygc3RhY2sgCndp
+bGwgYmUgbG9zdCBpbiBjYWxsdHJhY2Ugd2hlbiBlbmFibGUgQ09ORklHX0ZSQU1FX1BPSU5URVIu
+CgpXZSBjYW4gdmVyaWZ5IGl0IGJ5IGBlY2hvIDEgPiAKL3N5cy9rZXJuZWwvZGVidWcvdHJhY2lu
+Zy9vcHRpb25zL3N0YWNrdHJhY2VgLCBhbmQgdGhlIHJlc3VsdHMgYXMgc2hvdyAKYmVsb3c6Cgox
+LiBjb21wbGV0ZSBzdGFjayBmcmFtZQoqIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tCiogRlAgKyA4ICAgICAgICAgICBbIFJBIG9mIHBhcmVudCBmdW5jIF0gcmV0dXJuIGFk
+ZHJlc3Mgb2YgcGFyZW50CiogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ZnVuY3Rpb24KKiBGUCArIDAgICAgICAgICAgIFsgRlAgICAgICAgICAgICAgICAgXQoqCiogRlAg
+LSA4ICAgICAgICAgICBbIFJBIG9mIHRyYWNlZCBmdW5jIF0gcmV0dXJuIGFkZHJlc3Mgb2YgdHJh
+Y2VkCiogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZnVuY3Rpb24KKiBG
+UCAtIDE2ICAgICAgICAgIFsgRlAgICAgICAgICAgICAgICAgXQoqIC0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tCnRoZSBzdGFja3RyYWNlIGlzOgoKICA9PiB0cmFjZV9ldmVu
+dF9yYXdfZXZlbnRfYnBmX3RyYWNlX3ByaW50awogID0+IGJwZl90cmFjZV9wcmludGsKICA9PiBi
+cGZfcHJvZ19hZDdmNjJhNWU3Njc1NjM1X2JwZl9wcm9nCiAgPT4gYnBmX3RyYW1wb2xpbmVfNjQ0
+MjUzNjY0MwogID0+IGRvX2VtcHR5CiAgPT4gbWVtaW5mb19wcm9jX3Nob3cKICA9PiBzZXFfcmVh
+ZF9pdGVyCiAgPT4gcHJvY19yZWdfcmVhZF9pdGVyCiAgPT4gY29weV9zcGxpY2VfcmVhZAogID0+
+IHZmc19zcGxpY2VfcmVhZAogID0+IHNwbGljZV9kaXJlY3RfdG9fYWN0b3IKICA9PiBkb19zcGxp
+Y2VfZGlyZWN0CiAgPT4gZG9fc2VuZGZpbGUKICA9PiBzeXNfc2VuZGZpbGU2NAogID0+IGRvX3Ry
+YXBfZWNhbGxfdQogID0+IHJldF9mcm9tX2V4Y2VwdGlvbgoKMi4gb21pdCBvbmUgRlAKKiAtLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoqIEZQICsgMCAgICAgICAgICAgWyBS
+QSBvZiBwYXJlbnQgZnVuYyBdIHJldHVybiBhZGRyZXNzIG9mIHBhcmVudAoqICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZ1bmN0aW9uCiogRlAgLSA4ICAgICAgICAgICBb
+IFJBIG9mIHRyYWNlZCBmdW5jIF0gcmV0dXJuIGFkZHJlc3Mgb2YgdHJhY2VkCiogICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZnVuY3Rpb24KKiBGUCAtIDE2ICAgICAgICAg
+IFsgRlAgICAgICAgICAgICAgICAgXQoqIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tCnRoZSBzdGFja3RyYWNlIGlzOgoKICA9PiB0cmFjZV9ldmVudF9yYXdfZXZlbnRfYnBm
+X3RyYWNlX3ByaW50awogID0+IGJwZl90cmFjZV9wcmludGsKICA9PiBicGZfcHJvZ19hZDdmNjJh
+NWU3Njc1NjM1X2JwZl9wcm9nCiAgPT4gYnBmX3RyYW1wb2xpbmVfNjQ0MjQ5MTUyOQogID0+IGRv
+X2VtcHR5CiAgPT4gc2VxX3JlYWRfaXRlcgogID0+IHByb2NfcmVnX3JlYWRfaXRlcgogID0+IGNv
+cHlfc3BsaWNlX3JlYWQKICA9PiB2ZnNfc3BsaWNlX3JlYWQKICA9PiBzcGxpY2VfZGlyZWN0X3Rv
+X2FjdG9yCiAgPT4gZG9fc3BsaWNlX2RpcmVjdAogID0+IGRvX3NlbmRmaWxlCiAgPT4gc3lzX3Nl
+bmRmaWxlNjQKICA9PiBkb190cmFwX2VjYWxsX3UKICA9PiByZXRfZnJvbV9leGNlcHRpb24KCml0
+IGxvc3QgdGhlIGxheWVyIG9mICdtZW1pbmZvX3Byb2Nfc2hvdycuCgo+IE1heWJlIGl0J3MgbWUg
+dGhhdCdzIG5vdCBmb2xsb3dpbmcgLS0gcGxlYXNlIGV4cGxhaW4gYSBiaXQgbW9yZSEKPiAKPiAK
+PiBCasO2cm4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
