@@ -4,72 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16E8EB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 07:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD478EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 07:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uiVV5bBU89ewj/JtcZGlCwHQN61VqZm4XGBQDVfatPI=; b=1HZ4gOUlBLUkVv
-	U54O9vIjODQzPN6uAEtyzJQZJQS4UastiPpz5GUUJh/G1ID7vq1zciTGzoL/D+qnnS9MTIBPGVZBC
-	iSV8e6kRAGCd3z12bCxyiSiapnb05tPkVFaxaCwxdnASZShELkRQvYe43H44WPKHY6OTmbSmi41HS
-	eIn7fdEbAlFX2fa/0vaesazNHcjBIYChDQ3AGJnJFEd9kSVUgbjiiGTPC1N7Ae3HhKijnmm8RCme8
-	Ul5dI46mV8jsndDd7mGF/W3pGNkLg+/hReFT7qCIWGKlxq9ncPx6RHVXVUM+pnafer7iiStixAt95
-	q66Zm+okB4Dpt/zXd9wQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+yXnDYb1kWSITiDQo9Vz+thPi0YWyZW0tDESEJUi98E=; b=Rk0VJ1q89wgj0POr9lVkctwtvx
+	wCYyXZDSl6Wc16H81q8+ILPPWVKeZleMugcrn2xIJpJdYeTe7LSZ09KOMQkpI4mB0YdIZysVohXYW
+	m5lOkszc7bhafipAEH24bPIYWpDgQm7p80vWQtO6zZaHDaLByuw1VryRr4xvPFJAxP61JqFayW7EA
+	h0dncGYeuQ3jPGnbiqBJoBTUKw7620lg9MWX8I20ADKJAeSdxg3j2CDTVBd2SJBVchGs1J9U4yxlC
+	gxJ0wLcFKcaxqISNEJEcLyGZWVtpI7qccpLbaP8baalk9vm1RNkE5P2mX+3TIPEQVdv3UrzBWgRCJ
+	I75Zc9PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNh4-00A2dk-1E;
-	Thu, 20 Jul 2023 07:03:22 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNh1-00A2cd-0K
+	id 1qMNof-00A54e-1z;
+	Thu, 20 Jul 2023 07:11:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qMNoc-00A528-2z
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 20 Jul 2023 07:11:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=+QWsUXrWtU5h/XbFc8eS+I7mkzZNhuJQOPtwBdC2ghk=; b=LzSvUO18s3EH5+kzqSUOjgFO2W
+	W981Tnz+PHPfaLYwEEwNDOx3ORqkVgkalz3ZSMOscZ6rOrFKgCIWXPfORBhX47jg5OqVtHZI+bpAj
+	4P0N9tkHCzD3lc+Du5L1ejILuH5/aI9S2TbdOU9GJdlzzbZ8Sj0GVqkX2l89JWxu/n7kPfBGJz9hp
+	wrKVAGIh37K2h1c9YfTaR5547rOsnif7CC9DPR/3tUCzfa+NShvVw0VVw4VfqlmFjDM5B0Bb2zHVG
+	jqBbLBO5w7jfKAj/+ullHnrmAirwPhG6XIHppuaNjdd/ht+UegfinDd9JVBMwOMzqNBJ8E64ZBoP3
+	6dpUHvUA==;
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qMNoQ-00FN52-2f
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 07:03:21 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id D10C724E3C2;
-	Thu, 20 Jul 2023 15:03:00 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Jul
- 2023 15:03:00 +0800
-Received: from [192.168.125.127] (113.72.147.86) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Jul
- 2023 15:02:59 +0800
-Message-ID: <8e78ffd6-1cec-ad3b-7809-1b0350bef935@starfivetech.com>
-Date: Thu, 20 Jul 2023 15:02:58 +0800
+	Thu, 20 Jul 2023 07:11:07 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qMNo5-0006Kw-7e; Thu, 20 Jul 2023 09:10:37 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qMNo2-000mWW-K5; Thu, 20 Jul 2023 09:10:34 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1qMNo1-006IQo-Re; Thu, 20 Jul 2023 09:10:33 +0200
+Date: Thu, 20 Jul 2023 09:10:33 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Guenter Roeck <groeck@chromium.org>,
+	linux-riscv@lists.infradead.org, chrome-platform@lists.linux.dev,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-staging@lists.linux.dev, linux-rockchip@lists.infradead.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-pwm@vger.kernel.org, Ray Jui <rjui@broadcom.com>,
+	Johan Hovold <johan@kernel.org>, greybus-dev@lists.linaro.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Benson Leung <bleung@chromium.org>,
+	linux-arm-kernel@lists.infradead.org, Alex Elder <elder@kernel.org>,
+	Scott Branden <sbranden@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Michael Walle <michael@walle.cc>,
+	Palmer Dabbelt <palmer@dabbelt.com>, kernel@pengutronix.de,
+	Claudiu Beznea <claudiu.beznea@microchip.com>
+Subject: Re: [PATCH 00/10] pwm: Constistenly name pwm_chip variables "chip"
+Message-ID: <20230720071033.e72hjkpghf5ooe73@pengutronix.de>
+References: <20230714205623.2496590-1-u.kleine-koenig@pengutronix.de>
+ <ZLjYqwGh178EHrVY@orome>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v1 5/9] dt-bindings: PLDA: Add PLDA XpressRICH PCIe host
- controller
-Content-Language: en-US
-To: Rob Herring <robh@kernel.org>
-CC: Daire McNamara <daire.mcnamara@microchip.com>, Conor Dooley
-	<conor@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?=
-	<kw@linux.com>, Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-References: <20230719102057.22329-1-minda.chen@starfivetech.com>
- <20230719102057.22329-6-minda.chen@starfivetech.com>
- <20230719222900.GA882340-robh@kernel.org>
-From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <20230719222900.GA882340-robh@kernel.org>
-X-Originating-IP: [113.72.147.86]
-X-ClientProxiedBy: EXCAS063.cuchost.com (172.16.6.23) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <ZLjYqwGh178EHrVY@orome>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230720_000319_467967_DC77B005 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20230720_081102_518682_36E3756A 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,61 +99,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4541007511883173779=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============4541007511883173779==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="icirkconcmfpuvh7"
+Content-Disposition: inline
 
-On 2023/7/20 6:29, Rob Herring wrote:
-> On Wed, Jul 19, 2023 at 06:20:53PM +0800, Minda Chen wrote:
->> Add PLDA XpressRICH host controller dt-bindings. Both Microchip
->> PolarFire SoC and StarFive JH7110 SoC are using PLDA XpressRICH
->> PCIe host controller IP.
->> 
->> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
->> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->>  .../pci/plda,xpressrich-pcie-host.yaml        | 66 +++++++++++++++++++
->>  1 file changed, 66 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich-pcie-host.yaml
->> 
->> diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich-pcie-host.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich-pcie-host.yaml
->> new file mode 100644
->> index 000000000000..10a10862a078
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/pci/plda,xpressrich-pcie-host.yaml
->> @@ -0,0 +1,66 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/pci/plda,xpressrich-pcie-host.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: PLDA XpressRICH PCIe host controller
->> +
->> +maintainers:
->> +  - Daire McNamara <daire.mcnamara@microchip.com>
->> +  - Minda Chen <minda.chen@starfivetech.com>
->> +
->> +allOf:
->> +  - $ref: /schemas/pci/pci-bus.yaml#
->> +  - $ref: plda,xpressrich-pcie-common.yaml#
->> +  - $ref: /schemas/interrupt-controller/msi-controller.yaml#
->> +
->> +properties:
->> +  compatible:
->> +    const: plda,xpressrich-pcie-host
-> 
-> What h/w is this in? I don't see why this is needed. You have the common 
-> schema for the IP block and then the Microchip and Starfive schemas for 
-> the 2 implementations.
-> 
-> Rob
-OK. I will delete this patch and pcie-plda-plat.c
+
+--icirkconcmfpuvh7
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello Thierry,
+
+On Thu, Jul 20, 2023 at 08:48:11AM +0200, Thierry Reding wrote:
+> On Fri, Jul 14, 2023 at 10:56:13PM +0200, Uwe Kleine-K=F6nig wrote:
+> > Uwe Kleine-K=F6nig (10):
+> >   pwm: Use a consistent name for pwm_chip pointers in the core
+> >   pwm: atmel-hlcdc: Use consistent variable naming
+> >   pwm: bcm-kona: Consistenly name pwm_chip variables "chip"
+> >   pwm: crc: Consistenly name pwm_chip variables "chip"
+> >   pwm: cros-ec: Consistenly name pwm_chip variables "chip"
+> >   pwm: lp3943: Consistenly name pwm_chip variables "chip"
+> >   pwm: rockchip: Consistenly name pwm_chip variables "chip"
+> >   pwm: sifive: Consistenly name pwm_chip variables "chip"
+> >   pwm: sl28cpld: Consistenly name pwm_chip variables "chip"
+> >   staging: greybus: pwm: Consistenly name pwm_chip variables "chip"
+>=20
+> This would've been much easier if it had been a single patch. Now I have
+> to either make you redo the whole series because you've misspelled PWM
+> or I have to go and update it myself in most of the above patches. Hint:
+> I'll do the latter.
+
+I guess you want to do s/pwm driver/PWM driver/? Fine for me, thanks.
+
+> There is really no reason to split this up into this many patches for
+> such a trivial change.
+
+Well, that's a subjective view. There are reasons to prefer several
+small patches over one big one, too. A small patch can be indiviually
+reviewed, so the "Reviewed-by: Alex Elder ..." tag only goes to the one
+change that he actually looked at and if later a fix to the sifive
+driver is to be backported to stable, the stable maintainers just pick
+the sifive one instead of one big patch.
+
+Did you skip the sl28cpld patch, or squash the fixup I sent in the reply
+to Michael Walle?
+
+Best regards and thanks,
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--icirkconcmfpuvh7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmS43egACgkQj4D7WH0S
+/k4yxggAmA419LnNhUxGLLqAb6cq3dncldtmQs44Y7SOPuVmDMivbYjrghQCbQDx
+cwIq9JAASH/o55NbwiCBI6HBa7YDerPZyLNvpCcQ6r2QmX2uw18V/orXxcwCRohr
+yMtPxmgVImRc76bjnqpML3G0QIpJf0IbUKmZvkPIOBwj5c+rZQqsvjPcT4UQNWXf
+sWT3KXf2sJopeeWGHpThCgHnJuTEB/NdZkXhr2MwM8rJyafJBj91f+d8JQgVl5Pb
+MC250+Md3rZwtyDIO6yG1Ay2ViuXwSqvy7u57oGccS6zcU6ZjG63maJ3aUXSXe7i
+hClf7akfWvZhZdqYQwJ5WgqC9c3vEw==
+=PJgI
+-----END PGP SIGNATURE-----
+
+--icirkconcmfpuvh7--
+
+
+--===============4541007511883173779==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4541007511883173779==--
+
