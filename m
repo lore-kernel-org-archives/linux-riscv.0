@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C5CEB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 19:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 145D8EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 19:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a4MNMGQBTx6VGXqvc2Qlpjx5PqBTDuOW2Sk8a27wPKM=; b=PmlxhdY+Oc1zE7
-	IuHrMN0SVSG+9dXYSAdz49PoseBYiiQCJnqC+WdNtZvC1Ws4uGg3pE0kzrcObjf69C4yAgIbIgeeK
-	IfIZ1E4CTMAP5Q2Oeixyl4I919PvRGk9BPeksU62CT7IOsIbTy5Qg/dxMmLNVo8AzT0KJRCYLhKmo
-	Rw29/6BbYBWJwYOnbCdHE6urTVMfq+8nUkd+G8XfWeh0J2kRhiNV1pk9m6My0rVChLkT1U0jRtVyI
-	+O2gmPwPqi436oHCwGgYASZDkPg1CjpbqLtK1Sx0AKLkmVz4OgLdOQ+8yRkSvvwJXNcHgyKp3LVj2
-	dTfUSseca1PjMxAYb5tA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p1EDBN8d9zzt0lf+UU3Na3DMMIt8H4CsKEWzDQacEIc=; b=PHOCWrMIDD79ijmwDgJCkSFi9v
+	LJSORniq3uJrJaBOg/NOGPI85yEpkKu0V/qSkjrr2zcw+dL/K0nHQYYcsY0HtCmBI4uHTj3tFVx3F
+	KQ4wJ+ypZl7H3RlS/9FInL4Kxi9eHMDDG33ztsKTjinJQv0J0Z+Y6wfIvR8kW4OJREUTr7vp6fV7L
+	ONK/RdqnTyh6QdxsaOhugUcXTnviWVFAaPqDp/diXCvTq5gXRt4GXxo+ztZcRURGxNhC14lJXpS8n
+	9HRJw82NRD8mRLexXBVPQA+LEuAHA/NtZnJfGRg1gs7f32sdbFTOvpkGP0MnwfTH8D+KmsjMCAVn7
+	4yE7NqXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMZGN-00C38B-0n;
-	Thu, 20 Jul 2023 19:24:35 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1qMZIw-00C3Yv-1l;
+	Thu, 20 Jul 2023 19:27:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMZGK-00C37V-1g
+	id 1qMZIt-00C3YJ-2F
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 19:24:33 +0000
-Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-666e6541c98so1017009b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Jul 2023 12:24:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1689881071; x=1690485871;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=/Sg8ZUof4litkbVkI93lEgkMdRKQns2dkKRJ6nxytjc=;
-        b=GXAmdxeabjwJMPspdMR69ghzU9reliykQR+pO/kFRAHXyaOq2QQWLw2SMbQucFHQV9
-         /fVbvWAQ41BINMQURi6E8uv7Nk0OOdnJwRKbmoqdMqtNPWrwXoHgNahv4Sudfu2g967V
-         xeSxU0X9vGL+q/Ku+GHYhzRbpjvOi33+dJfyPh6uaTDs1OVKMzpqJ4avBt+prjKpSR/a
-         GUUlgRt5y+zwXBi96MzfUvC0HL0GiNAVooaRoJN2FivNvRc29hkgPlOvufo5a1FLju84
-         HxxNHZEmaz67C9GqWsm7Y/F+qpZpIRxYDpKT2dJZ9ctLUlh1l+p5Sw6EcGOtVyg99YMW
-         R8og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689881071; x=1690485871;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:date:from:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/Sg8ZUof4litkbVkI93lEgkMdRKQns2dkKRJ6nxytjc=;
-        b=aD8KZcja5bcYnuNgQW5FNDtkT6ENOxQRKkMkmMiXV4do4sooXSsbZre2ICz4Ghy3t5
-         6LO0yF5FRwvx+QN7LhUI8QpDpyFJpIHWnotlqKau51RKh5UAPnb2HZf+XQuGmodC2OpE
-         No+t9+3RQgWYziGqouSVg9237FQi+T454/j86ZucUlgDCSbEWwD79cOlBVOglFCzGeo/
-         o2e0gpQPpLtiDIgBkioXoY2LHOZzXPMUmryFEDwvy0KJCI5PgrOcrDAVLmXmby3gsIM2
-         rMGwE/ELzTWqd3OcxsjzriWcX6rMr7D+oBr21q4KTgSeI5qeNEqQxgfAuQSH6BanfYtT
-         BTRg==
-X-Gm-Message-State: ABy/qLaGyn6YC1ddyS8o5vhrDc0zgMJziw4OEIsZFHuYgJ0VDhJ18I9z
-	scYF7vLanxT9TwCaxG3c2mg=
-X-Google-Smtp-Source: APBJJlEXxRdTylJlQuY2HOrK3xarVRbbRI+Vezer9FdTfn9onk2HS5knqaCRsMlHJGB+DcxtGFiX6A==
-X-Received: by 2002:a05:6a20:7288:b0:131:a21:9f96 with SMTP id o8-20020a056a20728800b001310a219f96mr510744pzk.6.1689881071203;
-        Thu, 20 Jul 2023 12:24:31 -0700 (PDT)
-Received: from [127.0.0.1] ([212.107.28.55])
-        by smtp.gmail.com with ESMTPSA id q18-20020a639812000000b00563709c8647sm1642656pgd.7.2023.07.20.12.24.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Jul 2023 12:24:30 -0700 (PDT)
-From: Celeste Liu <coelacanthushex@gmail.com>
-X-Google-Original-From: Celeste Liu <CoelacanthusHex@gmail.com>
-Date: Fri, 21 Jul 2023 03:24:08 +0800
-To: =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
- Andreas Schwab <schwab@suse.de>
-CC: Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Guo Ren <guoren@kernel.org>,
- =?ISO-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
- Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Felix Yan <felixonmars@archlinux.org>,
- Ruizhe Pan <c141028@gmail.com>, Shiqi Zhang <shiqi@isrc.iscas.ac.cn>
-Subject: Re: [PATCH v3] riscv: entry: set a0 = -ENOSYS only when syscall != -1
-User-Agent: K-9 Mail for Android
-In-Reply-To: <87wmyvq7ai.fsf@all.your.base.are.belong.to.us>
-References: <20230718210037.250665-1-CoelacanthusHex@gmail.com> <mvmo7k8cqns.fsf@suse.de> <878rbbkgqo.fsf@all.your.base.are.belong.to.us> <54D8BFF7-C4D2-417E-B18C-62B5DB17B51B@gmail.com> <87wmyvq7ai.fsf@all.your.base.are.belong.to.us>
-Message-ID: <A6169D45-D291-40DF-BC78-42AE4F7A5924@gmail.com>
+	Thu, 20 Jul 2023 19:27:12 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D952A61BAF;
+	Thu, 20 Jul 2023 19:27:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E19AC433C7;
+	Thu, 20 Jul 2023 19:27:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689881230;
+	bh=CJRKA7PTC+3zbSnVoUQ2xy4P4+PLWvmEQShLI/rDtV4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N8yO9TLNDF7CNnC7ooBnQhdcZv7jECBIpBkg8dGXL2dbZrB7KLTVSRNP8WKEqPWA/
+	 btuCB0gldrpM6+6synKmKyI5vLbRyF2EMIr0/YGZvqm0DfAQxroX35xShVf0Op1AXA
+	 mP/oe9dgXoobZy4Xsb9glE0/4a8EOOa35Sxqk2mVXXo+v2Q0ZVxSiEBuqCGjk9UaVR
+	 f4Wao2vkABbBWrVlNUQSlcuTDKku1qZPP6VdbJFlzKJyzcU2lvQaSpvPQvnS+xdVm+
+	 i0VydMJCcjjyBrlQ6LV5GU/1l5O4W50NQ/KhD/WpPCAKdoRRQwDmuD6faZ03dXgN1p
+	 TDEF3HyOesZkg==
+Date: Thu, 20 Jul 2023 20:27:05 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Tomasz Jeznach <tjeznach@rivosinc.com>
+Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com,
+	linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>,
+	iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>,
+	Nick Kossifidis <mick@ics.forth.gr>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 01/11] RISC-V: drivers/iommu: Add RISC-V IOMMU - Ziommu
+ support.
+Message-ID: <20230720-charter-lustrous-061e7550ce7c@spud>
+References: <cover.1689792825.git.tjeznach@rivosinc.com>
+ <c33c24036c06c023947ecb47177da273569b3ac7.1689792825.git.tjeznach@rivosinc.com>
+ <20230719-confront-grass-6d0eb304b94f@spud>
+ <CAH2o1u5pZQ6iKThFLgnn+_BBZ=j8fu91URYYxwWbfVt3OyerAA@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CAH2o1u5pZQ6iKThFLgnn+_BBZ=j8fu91URYYxwWbfVt3OyerAA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230720_122432_559032_94BDA4BC 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230720_122711_777152_EB9FC09F 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,33 +80,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0958435259242441523=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gSnVseSAyMCwgMjAyMyA1OjA4OjM3IFBNIEdNVCswODowMCwgIkJqw7ZybiBUw7ZwZWwiIDxi
-am9ybkBrZXJuZWwub3JnPiB3cm90ZToKPkNlbGVzdGUgTGl1IDxjb2VsYWNhbnRodXNoZXhAZ21h
-aWwuY29tPiB3cml0ZXM6Cj4KPj4gT24gSnVseSAyMCwgMjAyMyAxMjoyODo0NyBBTSBHTVQrMDg6
-MDAsICJCasO2cm4gVMO2cGVsIiA8Ympvcm5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4+PkFuZHJlYXMg
-U2Nod2FiIDxzY2h3YWJAc3VzZS5kZT4gd3JpdGVzOgo+Pj4KPj4+PiBPbiBKdWwgMTkgMjAyMywg
-Q2VsZXN0ZSBMaXUgd3JvdGU6Cj4+Pj4KPj4+Pj4gQEAgLTMwOCw3ICszMTIsNyBAQCBhc21saW5r
-YWdlIF9fdmlzaWJsZSBfX3RyYXBfc2VjdGlvbiB2b2lkIGRvX3RyYXBfZWNhbGxfdShzdHJ1Y3Qg
-cHRfcmVncyAqcmVncykKPj4+Pj4gIAo+Pj4+PiAgCQlpZiAoc3lzY2FsbCA8IE5SX3N5c2NhbGxz
-KQo+Pj4+PiAgCQkJc3lzY2FsbF9oYW5kbGVyKHJlZ3MsIHN5c2NhbGwpOwo+Pj4+PiAtCQllbHNl
-Cj4+Pj4+ICsJCWVsc2UgaWYgKChsb25nKXN5c2NhbGwgIT0gLTFMKQo+Pj4+Cj4+Pj4gWW91IGNh
-biBhbHNvIHVzZSBzeXNjYWxsICE9IC0xVUwgb3IgZXZlbiBzeXNjYWxsICE9IC0xLgo+Pj4KPj4+
-VGhlIGZvcm1lciBpcyBpbmRlZWQgYmV0dGVyIGZvciB0aGUgZXllcyEgOi0pIFRoZSBsYXR0ZXIg
-d2lsbCBnZXQgYQo+Pj4tV3NpZ24tY29tcGFyZSB3YXJuaW5nLCBubz8KPj4+Cj4+Pgo+Pj5CasO2
-cm4KPj4KPj4gV2VsbCwgdGhhdCdzIHRydWUuIEFuZCBJIGp1c3QgZm91bmQgb3V0IHRoYXQgYnkg
-QyBzdGFuZGFyZHMsIGNvbnZlcnRpbmcKPj4gdWxvbmcgdG8gbG9uZyBpcyBpbXBsZW1lbnRhdGlv
-bi1kZWZpbmVkIGJlaGF2aW9yLCB1bmxpa2UgbG9uZyB0byB1bG9uZwo+PiB3aGljaCBpcyB3ZWxs
-LWRlZmluZWQuIFNvIGl0IGlzIHJlYWxseSBiZXR0ZXIgdGhhbiAobG9uZylzeXNjYWxsICE9IC0x
-TC4KPgo+SWYgeW91J3JlIHJlc3Bpbm5pbmcsIEkgc3VnZ2VzdCB5b3UgdXNlIERhdmlkJ3Mgc3Vn
-Z2VzdGlvbjoKPiAqIFJlbW92ZSB0aGUgY29tbWVudCBJIHN1Z2dlc3QgeW91IHRvIGFkZAo+ICog
-VXNlIChzaWduZWQpIGxvbmcKPiAqIEFkZCBzeXNjYWxsID49IDAgJiYKPiAqIGVsc2UgaWYgKHN5
-c2NhbGwgIT0gLTEpCj4KPldoaWNoIGlzIHRoZSBsZWFzdCBhbW91bnQgb2Ygc3VycHJpc2VzIElN
-Ty4KCnY0IGhhcyBzZW50CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+
+--===============0958435259242441523==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="uFR2qPiOGZh5u8nm"
+Content-Disposition: inline
+
+
+--uFR2qPiOGZh5u8nm
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jul 19, 2023 at 02:43:51PM -0700, Tomasz Jeznach wrote:
+> On Wed, Jul 19, 2023 at 1:50=E2=80=AFPM Conor Dooley <conor@kernel.org> w=
+rote:
+
+> > Anyway, what I wanted to ask was whether it was valid to use the IOMMU
+> > in a system if Ziommu is not present in whatever the ISA extension
+> > communication mechanism is? Eg, riscv,isa or the ISA string property in
+> > the ACPI tables.
+> >
+>=20
+> Yes, this has been pointed out to me already. As far as I can recall,
+> there was a discussion
+> at some point to introduce those as Ziommu extensions, later agreeing
+> not to call IOMMU
+> using ISA string conventions.  Will remove remaining occurrences of
+> Ziommu from the series.
+
+Right, thanks for clearing that up. I got a bit confused :)
+
+--uFR2qPiOGZh5u8nm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLmKiQAKCRB4tDGHoIJi
+0nKvAQCY4Qfl5o53tpBHorzaEf49d9BTMt+qWrTdweBVlIvXWwEAxSbe0KPPgv4y
+zC/FdQ3GvKUVGBGv2E80c4D/boCv1gc=
+=X54m
+-----END PGP SIGNATURE-----
+
+--uFR2qPiOGZh5u8nm--
+
+
+--===============0958435259242441523==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0958435259242441523==--
+
