@@ -4,90 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD478EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 07:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010C6EB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 08:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+yXnDYb1kWSITiDQo9Vz+thPi0YWyZW0tDESEJUi98E=; b=Rk0VJ1q89wgj0POr9lVkctwtvx
-	wCYyXZDSl6Wc16H81q8+ILPPWVKeZleMugcrn2xIJpJdYeTe7LSZ09KOMQkpI4mB0YdIZysVohXYW
-	m5lOkszc7bhafipAEH24bPIYWpDgQm7p80vWQtO6zZaHDaLByuw1VryRr4xvPFJAxP61JqFayW7EA
-	h0dncGYeuQ3jPGnbiqBJoBTUKw7620lg9MWX8I20ADKJAeSdxg3j2CDTVBd2SJBVchGs1J9U4yxlC
-	gxJ0wLcFKcaxqISNEJEcLyGZWVtpI7qccpLbaP8baalk9vm1RNkE5P2mX+3TIPEQVdv3UrzBWgRCJ
-	I75Zc9PA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Subject:Cc:To:From:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4MeL9B90aI0sHYq0KFbz6EmfiuNeFOLRtDWjCn9Ag1Y=; b=ccNbQQWapd51SM
+	aW7ibKLM8mYuO2b0IF89Sr2Y5fh3iABqWadZYnnYihUxS7ln5/x+0NU4m9k/PAZr0ik6W7bPaALZm
+	QhBD7NqDifmc4TdT8tic9EtA0EGYmkm4e2h/Vi7/6n5mLawxnzX6sksEwrVwk5jqy0rbTJckLJBhW
+	2NVuK+659Fr6+h6Z2xAvlbGeYshXF9yYR+GCT49hCxQg6V4TBHkIWQ35I6Orr8jQjT6WuU6p+FgQs
+	Zs1byfDUe//qQOixcZCGdwvK4f5H3Og8yPZuKREumLjypE4bLrPjfjKYfgQp/02zP19hEqpXlwNhT
+	9t4wIY/KUKdDv9+vVWcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNof-00A54e-1z;
-	Thu, 20 Jul 2023 07:11:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1qMOd4-00AEA5-0B;
+	Thu, 20 Jul 2023 08:03:18 +0000
+Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNoc-00A528-2z
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 20 Jul 2023 07:11:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+QWsUXrWtU5h/XbFc8eS+I7mkzZNhuJQOPtwBdC2ghk=; b=LzSvUO18s3EH5+kzqSUOjgFO2W
-	W981Tnz+PHPfaLYwEEwNDOx3ORqkVgkalz3ZSMOscZ6rOrFKgCIWXPfORBhX47jg5OqVtHZI+bpAj
-	4P0N9tkHCzD3lc+Du5L1ejILuH5/aI9S2TbdOU9GJdlzzbZ8Sj0GVqkX2l89JWxu/n7kPfBGJz9hp
-	wrKVAGIh37K2h1c9YfTaR5547rOsnif7CC9DPR/3tUCzfa+NShvVw0VVw4VfqlmFjDM5B0Bb2zHVG
-	jqBbLBO5w7jfKAj/+ullHnrmAirwPhG6XIHppuaNjdd/ht+UegfinDd9JVBMwOMzqNBJ8E64ZBoP3
-	6dpUHvUA==;
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNoQ-00FN52-2f
+	id 1qMOd1-00AE8n-0E
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 07:11:07 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qMNo5-0006Kw-7e; Thu, 20 Jul 2023 09:10:37 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qMNo2-000mWW-K5; Thu, 20 Jul 2023 09:10:34 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1qMNo1-006IQo-Re; Thu, 20 Jul 2023 09:10:33 +0200
-Date: Thu, 20 Jul 2023 09:10:33 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Guenter Roeck <groeck@chromium.org>,
-	linux-riscv@lists.infradead.org, chrome-platform@lists.linux.dev,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-staging@lists.linux.dev, linux-rockchip@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-pwm@vger.kernel.org, Ray Jui <rjui@broadcom.com>,
-	Johan Hovold <johan@kernel.org>, greybus-dev@lists.linaro.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Benson Leung <bleung@chromium.org>,
-	linux-arm-kernel@lists.infradead.org, Alex Elder <elder@kernel.org>,
-	Scott Branden <sbranden@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Michael Walle <michael@walle.cc>,
-	Palmer Dabbelt <palmer@dabbelt.com>, kernel@pengutronix.de,
-	Claudiu Beznea <claudiu.beznea@microchip.com>
-Subject: Re: [PATCH 00/10] pwm: Constistenly name pwm_chip variables "chip"
-Message-ID: <20230720071033.e72hjkpghf5ooe73@pengutronix.de>
-References: <20230714205623.2496590-1-u.kleine-koenig@pengutronix.de>
- <ZLjYqwGh178EHrVY@orome>
+	Thu, 20 Jul 2023 08:03:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1689839876;
+	bh=an71WrnjLaD9cSQUXNnuN1K2s6fzkBRSP3DqyCAY7xk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XGhfXM7HM+p2e+KJoOxKl17GNGwVANZElM+9mMnMIo7/MKGf84CoIqw2QDq/yYem/
+	 vEjZJDquWNpuybqnssF9iTeKARmKCQmT01p5QyACkdZh6im1PkVXbAIEL75RksY3mh
+	 RRtGlse+GVJTL/vBIvClZU4fjWUCLdLqIFTS5dew=
+Received: from localhost ([101.224.148.235])
+	by newxmesmtplogicsvrsza7-0.qq.com (NewEsmtp) with SMTP
+	id E76282B2; Thu, 20 Jul 2023 15:57:54 +0800
+X-QQ-mid: xmsmtpt1689839874tbsigx21x
+Message-ID: <tencent_FE575E338FC3B44C77562783BE5FD632D808@qq.com>
+X-QQ-XMAILINFO: OZZSS56D9fAjT3DJfoi4fyUUCPWJcz8ja4/fTuCMsKEmIBzkjtxfpp///8HKy8
+	 JeImRTS16DdenGlzqldaLesVfJiWmZcHpcQBtNQCxvC3ZhSj3dpwcrEhZIIlfWwbIXdOiBosZNI/
+	 WsmcK+SqQpNXd2oewlwRYQMn47sIecnGMFjslUVMEpipfQLIuWA/mETKc3e2C5YPkJXmhXV1x6iN
+	 uYSSWp/I9BKTaEJQOQSJ4+Tnz2mMvr3vJ+6Jwsjyx40KkGZMMwhvmWs/em8MUgxkXMHD8U4/vrPm
+	 d6CIc35TLsS8xO+jRn+yUkbHigmdK89fY6OnJA8W4RjBDkab+b2ochMCkLxAcaPmUVXBtSYk18AG
+	 hMCl+NPP2e7k86C1z3XDHbuchgl6NVRHX137DJHtcErLJ9faPcTR4lSu7nnRgY7QCIrpQzodgEI4
+	 iN1oefZ3GS8wSR1XVXGnY/46kBr2V0MsJc0HfjEwrp0P7McjzVmOWs5+ByFrH/Yx/tj+aFOGZlUx
+	 i+//ONFwuQG2ASMfUoGmyem0snvjjSd1yp59CyLFcnIWWXmwDh8Tee/f4M/5CZtJAXhxwsFjwhJS
+	 7WS663GvrzP9YIOZaZ4BYrOFgghEvp5gEfLW62JstYVGlULHGDkKQblybp3QjLAy2S7ehQp+Wa1k
+	 479UZ0L6jQ/W/e5wIF7KD3FA7vOe8D5xDM8NHAfQ4/NpKgllZ4tVqgVVt1Q0hhLYXkYh7DgyLrfA
+	 nAB6tWisdmpYvizKW2uvDQ2xUQFCjyKPynmGstV+oFM4iw6iG4iiXxwQKU1bphR8hXBCFtOu0jfE
+	 yheVT8LYTrOcX58km7M3MeL8cF2JJii29u67wWUwH29yUTY04/JE7we1Nz8tcrRHvG3E/sVO7Vpg
+	 oYHOYyewSX4KJ0GRLTrM2rDyK2FdDotT9Lqhj6WgCfQ2dBf6Ag7a+C8qiRSWsTkyIwJbuE0hw3vk
+	 0wMrEaVXI6w4uzibrD2HhFbvFIzD2vwEj+D+IBkcRVeeNHTO7ni9S0lsLNN1BsBPnhcvRLLRSXaD
+	 qKq85Z4CtodVhCEyhwgAdCa7WWzVU=
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+Date: Thu, 20 Jul 2023 15:57:53 +0800
+From: Woody Zhang <woodylab@foxmail.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ajones@ventanamicro.com
+Subject: Re: [PATCH] riscv: add SBI SUSP extension support
+X-OQ-MSGID: <ZLjpAbJlH/dV6qwY@dev>
+References: <tencent_B931BF1864B6AE8C674686ED9852ACFA0609@qq.com>
+ <20230720-speller-suffocate-29ee7cc0b1f6@wendy>
 MIME-Version: 1.0
-In-Reply-To: <ZLjYqwGh178EHrVY@orome>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20230720-speller-suffocate-29ee7cc0b1f6@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230720_081102_518682_36E3756A 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20230720_010315_408618_6B78247A 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,93 +84,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4541007511883173779=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 20, 2023 at 07:31:42AM +0100, Conor Dooley wrote:
+>Hey Woody,
+>
+>On Thu, Jul 20, 2023 at 08:23:19AM +0800, Woody Zhang wrote:
+>> RISC-V SBI spec 2.0 [1] introduces System Suspend Extension which can be
+>> used to suspend the platform via SBI firmware.
+>> 
+>> This patch can be tested on Qemu with recent OpenSBI with
+>> `system-suspend-test` enabled like [2] in DTB.
+>> 
+>> [1] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc
+>> [2] https://github.com/woodyzhang666/qemu/commit/e4a5120133c1dc354e6ac437ec1f870f6c0f6d05
+>> 
+>> Signed-off-by: Woody Zhang <woodylab@foxmail.com>
+>> ---
+>>  arch/riscv/include/asm/sbi.h | 10 ++++++++++
+>>  arch/riscv/kernel/sbi.c      | 26 ++++++++++++++++++++++++++
+>
+>There's prior art here, that is seemingly more complete:
+>https://lore.kernel.org/all/20230118180338.6484-2-ajones@ventanamicro.com/
+>IIRC, the reason it is still in RFC status is that the 2.0 SBI spec is
+>not yet frozen, so this cannot be merged.
+>
 
---===============4541007511883173779==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="icirkconcmfpuvh7"
-Content-Disposition: inline
+OK. I didn't notice that. Drop this patch then.
+
+Woody
+
+>Thanks,
+>Conor.
+>
+>>  2 files changed, 36 insertions(+)
+>> 
+>> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+>> index 5b4a1bf5f439..3b04016da671 100644
+>> --- a/arch/riscv/include/asm/sbi.h
+>> +++ b/arch/riscv/include/asm/sbi.h
+>> @@ -30,6 +30,7 @@ enum sbi_ext_id {
+>>  	SBI_EXT_HSM = 0x48534D,
+>>  	SBI_EXT_SRST = 0x53525354,
+>>  	SBI_EXT_PMU = 0x504D55,
+>> +	SBI_EXT_SUSP = 0x53555350,
+>>  
+>>  	/* Experimentals extensions must lie within this range */
+>>  	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
+>> @@ -236,6 +237,15 @@ enum sbi_pmu_ctr_type {
+>>  /* Flags defined for counter stop function */
+>>  #define SBI_PMU_STOP_FLAG_RESET (1 << 0)
+>>  
+>> +enum sbi_ext_susp_fid {
+>> +	SBI_EXT_SUSP_SYSTEM_SUSPEND = 0,
+>> +};
+>> +
+>> +/* SBI suspend sleep types */
+>> +enum sbi_susp_sleep_type {
+>> +	SBI_SUSP_SLEEP_TYPE_SUSPEND = 0x0,
+>> +};
+>> +
+>>  #define SBI_SPEC_VERSION_DEFAULT	0x1
+>>  #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
+>>  #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
+>> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+>> index c672c8ba9a2a..9a68959f9f18 100644
+>> --- a/arch/riscv/kernel/sbi.c
+>> +++ b/arch/riscv/kernel/sbi.c
+>> @@ -9,8 +9,10 @@
+>>  #include <linux/init.h>
+>>  #include <linux/pm.h>
+>>  #include <linux/reboot.h>
+>> +#include <linux/suspend.h>
+>>  #include <asm/sbi.h>
+>>  #include <asm/smp.h>
+>> +#include <asm/suspend.h>
+>>  
+>>  /* default SBI version is 0.1 */
+>>  unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
+>> @@ -520,6 +522,26 @@ static void sbi_srst_power_off(void)
+>>  		       SBI_SRST_RESET_REASON_NONE);
+>>  }
+>>  
+>> +static int sbi_system_suspend(unsigned long arg,
+>> +		unsigned long resume_entry, unsigned long context)
+>> +{
+>> +	struct sbiret ret = {0};
+>> +
+>> +	ret = sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SYSTEM_SUSPEND,
+>> +			SBI_SUSP_SLEEP_TYPE_SUSPEND, resume_entry, context, 0, 0, 0);
+>> +	return ret.error;
+>> +}
+>> +
+>> +static int sbi_system_suspend_enter(suspend_state_t state)
+>> +{
+>> +	return cpu_suspend(0, sbi_system_suspend);
+>> +}
+>> +
+>> +static const struct platform_suspend_ops sbi_suspend_ops = {
+>> +	.valid          = suspend_valid_only_mem,
+>> +	.enter          = sbi_system_suspend_enter,
+>> +};
+>> +
+>>  /**
+>>   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
+>>   * @extid: The extension ID to be probed.
+>> @@ -624,6 +646,10 @@ void __init sbi_init(void)
+>>  			sbi_srst_reboot_nb.priority = 192;
+>>  			register_restart_handler(&sbi_srst_reboot_nb);
+>>  		}
+>> +		if (sbi_probe_extension(SBI_EXT_SUSP)) {
+>> +			pr_info("SBI SUSP extension detected\n");
+>> +			suspend_set_ops(&sbi_suspend_ops);
+>> +		}
+>>  	} else {
+>>  		__sbi_set_timer = __sbi_set_timer_v01;
+>>  		__sbi_send_ipi	= __sbi_send_ipi_v01;
+>> -- 
+>> 2.39.2
+>> 
 
 
---icirkconcmfpuvh7
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello Thierry,
-
-On Thu, Jul 20, 2023 at 08:48:11AM +0200, Thierry Reding wrote:
-> On Fri, Jul 14, 2023 at 10:56:13PM +0200, Uwe Kleine-K=F6nig wrote:
-> > Uwe Kleine-K=F6nig (10):
-> >   pwm: Use a consistent name for pwm_chip pointers in the core
-> >   pwm: atmel-hlcdc: Use consistent variable naming
-> >   pwm: bcm-kona: Consistenly name pwm_chip variables "chip"
-> >   pwm: crc: Consistenly name pwm_chip variables "chip"
-> >   pwm: cros-ec: Consistenly name pwm_chip variables "chip"
-> >   pwm: lp3943: Consistenly name pwm_chip variables "chip"
-> >   pwm: rockchip: Consistenly name pwm_chip variables "chip"
-> >   pwm: sifive: Consistenly name pwm_chip variables "chip"
-> >   pwm: sl28cpld: Consistenly name pwm_chip variables "chip"
-> >   staging: greybus: pwm: Consistenly name pwm_chip variables "chip"
->=20
-> This would've been much easier if it had been a single patch. Now I have
-> to either make you redo the whole series because you've misspelled PWM
-> or I have to go and update it myself in most of the above patches. Hint:
-> I'll do the latter.
-
-I guess you want to do s/pwm driver/PWM driver/? Fine for me, thanks.
-
-> There is really no reason to split this up into this many patches for
-> such a trivial change.
-
-Well, that's a subjective view. There are reasons to prefer several
-small patches over one big one, too. A small patch can be indiviually
-reviewed, so the "Reviewed-by: Alex Elder ..." tag only goes to the one
-change that he actually looked at and if later a fix to the sifive
-driver is to be backported to stable, the stable maintainers just pick
-the sifive one instead of one big patch.
-
-Did you skip the sl28cpld patch, or squash the fixup I sent in the reply
-to Michael Walle?
-
-Best regards and thanks,
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---icirkconcmfpuvh7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmS43egACgkQj4D7WH0S
-/k4yxggAmA419LnNhUxGLLqAb6cq3dncldtmQs44Y7SOPuVmDMivbYjrghQCbQDx
-cwIq9JAASH/o55NbwiCBI6HBa7YDerPZyLNvpCcQ6r2QmX2uw18V/orXxcwCRohr
-yMtPxmgVImRc76bjnqpML3G0QIpJf0IbUKmZvkPIOBwj5c+rZQqsvjPcT4UQNWXf
-sWT3KXf2sJopeeWGHpThCgHnJuTEB/NdZkXhr2MwM8rJyafJBj91f+d8JQgVl5Pb
-MC250+Md3rZwtyDIO6yG1Ay2ViuXwSqvy7u57oGccS6zcU6ZjG63maJ3aUXSXe7i
-hClf7akfWvZhZdqYQwJ5WgqC9c3vEw==
-=PJgI
------END PGP SIGNATURE-----
-
---icirkconcmfpuvh7--
-
-
---===============4541007511883173779==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4541007511883173779==--
-
