@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D13BC0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 03:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8756EEB64DD
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 05:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ADTYOZ6TWaxRKcYAqq1+2BxOKyXnllOjdqJUky2JI0=; b=dkigTD7WU7v6wq0q0otHCVYhf4
-	FP+H3wK9u8abyd4Rkp+5NzR5TbQwbC5Ar+ajV/JC/vdG2ml756TFSz0LoEkesC396LHjXTE1LM5AT
-	ABr4x9AiEFqv9Xk5LMhZ+w+LbLo3tBLgqoUb7vzzlu2G1I5RuLXD3oCxq4CG7czARTJy8Nro7RFVq
-	Pw6vKo3GnkjDCjUvdmiDeXvfXB9q2szswep9dLQ903Tf3XKCKrIXrbvmHuUIKQPEZ2cpCLsCJjXvM
-	aAcc039ojgSlQqFBJ7X6mYAk4tYLKAKVj7A9TDjc4QXuTouPXBb7FDiEUNjM+yNn80WGIg71LDbhg
-	W+CVSd/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vQkAP9UB1l56NLgXmzZZpTmRU7qswuKz/F5Ii6Lwdtg=; b=thl2uBh/TyEp6Q
+	FrQf6gvgi4iLnx8BL6XMMXDgOHO7gdRSyOt4CvixoGjvHLB6sV9Qd5990y9e8fKA2MytJWX+Z1URh
+	L18siILOCrIH5XUbw0mW464W3RKePH6oIDsdFI+pUuXyS0EginENVAEiukpAkcCCAxSXFAIn1xj0g
+	zMscgFC0YE9xzX4Vvs0ytZDxEzDfIL8nAtGlfRDN3D/wejcaUpEtMtmBLalZpSv0mao3pFrpAxpiL
+	GJXErZFbF+pgK5mwX9wES7WdL+7bkWjsZH+L3I5gwow1xsWekJM4E0WNnpN7XaF6J46sL6Em/F7ay
+	1WFlh1MQrf+GzKY+5u2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMK5d-009cwo-0J;
-	Thu, 20 Jul 2023 03:12:29 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1qMM6U-009orM-02;
+	Thu, 20 Jul 2023 05:21:30 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMK5Z-009cv2-1Y
+	id 1qMM6Q-009oqn-1i
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 03:12:27 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
-	by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id 36K3CC89026283
-	for <linux-riscv@lists.infradead.org>; Thu, 20 Jul 2023 06:12:12 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
-	q=dns/txt; i=@ics.forth.gr; t=1689822726; x=1692414726;
-	h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=zPjihqajCHYso2SYLygY80dfwyyJAXwUJ5bsc+egrmg=;
-	b=HoBvEI/eMiSilZXfZB6lzV1KKu9/yBE2zEk+Ou5yUNXOgugqprpDcNW58LLObfa+
-	MHGbasKVuf29H6iCCVipyi801yXAQZnIfrlAgsXigc5tRpJ6S72kYLXjoLieM9Qu
-	JRkIu1Omb6MXt4Gu0qRmztcu37kYgrodXfoWkUzn4ospda75K9BvgYHrU3nWjcfO
-	AYQlSx9O45PC89q+Kwyppg9LBHH2hlHfhsRGalBrqPIOELsbfkIXEMKIb/aNWCOY
-	+dCiKBPajwdgjIOl8pD7qSu7LInMJx/e6kxxUuQRHE/BaPmOBhXtEtdbWKa9vJlQ
-	Ba1bMQz9dYRzjsftr8dO6Q==;
-X-AuditID: 8b5b014d-a17eb70000002178-ba-64b8a606a7bd
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
-	by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id 6C.42.08568.606A8B46; Thu, 20 Jul 2023 06:12:06 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user: mick at ics.forth.gr
-Message-ID: <5b8fd18e-8dfa-96bf-cdd4-4498b1d15ab9@ics.forth.gr>
-Date: Thu, 20 Jul 2023 06:11:58 +0300
+	Thu, 20 Jul 2023 05:21:28 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-76731802203so43964785a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 22:21:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1689830485; x=1690435285;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/wbrMMQ8KV+niCaXh6uJjaEC3/Z2Le24zOgdMFKpH7A=;
+        b=E/Zr9Jc6xEoShH0RQk2rvrcWAkbs2qJx8iGl9hbMHK7GaotEkfJngBuGG9PbGp8wVl
+         wxoOpW7hEK/Uqmvksp1lfkKE6jtuimBAy9kR4ZHGFnhdoiM5QQIV6xIM6zB0uZ6A7Lr3
+         /kljX445kk9wmORbSRIkspJM2rskoX8+4nF8q+xNmo3dsDPuIDvAjwsFKphO4I61OWpu
+         CsF0hFAK2KiX9pWO+ZVlaPeEWYAuZZXG95Fb7mxBqnbAnisVFCRiWr9CWV7EGYYFvi9u
+         tIkfz5kwp+4BU5MuqY2Z8YpqxuBhAjXPRhRzb02vogAW0IW/cwIUKT2YEXRRvjq16EE+
+         sEBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689830485; x=1690435285;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/wbrMMQ8KV+niCaXh6uJjaEC3/Z2Le24zOgdMFKpH7A=;
+        b=XA8N3IE74cpyVzslnDE+VvDl79AYKGZLxFe8KQg4ibNHyfvYqvPxwJHbrKSaKHYzgZ
+         +52lGWu2FSjK6ZQDgYpfjsOMv3QxaSWNXd13jj1R0vKMgrbIK4AQt55xsXMLxniBpcyu
+         foNNJdmGeN/VUHA1SXeBwJinRul6YMXyVZnawdPSBHeQc6cSvjFbIdyorb3s//ci7lMk
+         CyUAA+OQvHuYR0DeuX/YGj1X7igkl7uWYmW1kRyWFxvH14FVp5Yo8SDtdUrsF37O63ZS
+         +nLCX1/ylodsTEA4NfPobCceLfDnLpDO4r8R6WC80S1wF88AkB5zp9MGHe18PacL/A8/
+         ny+w==
+X-Gm-Message-State: ABy/qLbkgpkGjNXEI3TFmESAJo6KJGIMKkyS2MEmvv80CiTmMXLd7Kw4
+	kcRiHYiaCi4xxU8uKx/lvz2m44DTjg+Mei56oDK8ow==
+X-Google-Smtp-Source: APBJJlHEOy19qtlkcGaHDIuc9mnNrYFhv8bdTodnJgm6v5jJ1iiM+01UseayFLO3E6jvX5MG6G8Qjpj5SRf478QYNEM=
+X-Received: by 2002:a05:620a:6407:b0:760:69ca:7a1a with SMTP id
+ pz7-20020a05620a640700b0076069ca7a1amr20891834qkn.1.1689830484880; Wed, 19
+ Jul 2023 22:21:24 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH 06/11] RISC-V: drivers/iommu/riscv: Add command, fault,
- page-req queues
-Content-Language: el-GR
-To: Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>
-References: <cover.1689792825.git.tjeznach@rivosinc.com>
- <1fd79e5c53d9d6ed2264f60dd4261f293cc00472.1689792825.git.tjeznach@rivosinc.com>
-From: Nick Kossifidis <mick@ics.forth.gr>
-In-Reply-To: <1fd79e5c53d9d6ed2264f60dd4261f293cc00472.1689792825.git.tjeznach@rivosinc.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprEIsWRmVeSWpSXmKPExsXSHT1dWZdt2Y4Ug8V9ChZbf89it5h16Tij
-	xa8vFhadszewW1zeNYfNYtvnFjaLDZdmMVq8vNzDbNE2i9/i4IcnrBaf51dYTF/1gtniy7J2
-	RouWO6YOfB5PDs5j8lgzbw2jx5uXL1k8Dnd8YffYtKqTzWPzknqPF5tnMnrcmBXhcan5OrvH
-	359bWTw+b5IL4I7isklJzcksSy3St0vgyrh1rYulYLtAxa31n1gaGGfydjFyckgImEhM+nyE
-	uYuRi0NI4CijxKM1c5khEpYSmz+9ZAGxeQXsJQ49mAwWZxFQlVj0YwMrRFxQ4uTMJ2A1ogLR
-	EtPuXQOzhQViJT50vGIDsZkFxCWOnP8NtkBE4BSjxK+JP8EcZoGLTBJrDq9jAqkSEuhilNh4
-	sRjEZhPQlJh/6SDYJE6BGInDf0+yQ0wyk+ja2sUIYctLbH87h3kCo8AsJIfMQrJwFpKWWUha
-	FjCyrGIUSCwz1stMLtZLyy8qydBLL9rECI42Rt8djLc3v9U7xMjEwXiIUYKDWUmE99HlbSlC
-	vCmJlVWpRfnxRaU5qcWHGKU5WJTEeU/YLkgWEkhPLEnNTk0tSC2CyTJxcEo1MDnVGJcJZHJu
-	i9zY3pqz90Kr9EPmXX32D3bG/j+itPvqnpCjSvnmn7+s5xa78tDoR+RjzUsn7n/IYnKpzkmu
-	Le99vuXwXMdVkTHyUv9ezd/BVXUhJETOeH/p6oeX7FxPVvi8aW0KUyv33XqO50C46AOhTzef
-	qe25ValRtHN9y1tta3WRft/HgV9sW57s69uw4PxH+YjJHl80ulzUipwiP+kcdN+/RdarJeZX
-	/p3ZNl+ncH3bfGzKajfDh/MyZaaw/nCP1gyzntWTbtn1foel8SeBplu//p1r04spFLniorDZ
-	zK/7htyMHDXRj1P3HMitspd/PZ1BdLLrh7drvA1cp54RMBTXVLzzYr26xofCY0osxRmJhlrM
-	RcWJAHKI+wclAwAA
+References: <20230719113542.2293295-1-apatel@ventanamicro.com>
+ <20230719113542.2293295-4-apatel@ventanamicro.com> <CAGETcx9zAF2ipO0s-6-zjyvn1JWt7OUS9G=cQ6OwyOPuqh-pBA@mail.gmail.com>
+In-Reply-To: <CAGETcx9zAF2ipO0s-6-zjyvn1JWt7OUS9G=cQ6OwyOPuqh-pBA@mail.gmail.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 20 Jul 2023 10:51:13 +0530
+Message-ID: <CAK9=C2WZYn_TFZVY2a-DMaGzTesHUotDA2YJCjM6dYmcyyZ1og@mail.gmail.com>
+Subject: Re: [PATCH v6 03/14] drivers: irqchip/riscv-intc: Mark all INTC nodes
+ as initialized
+To: Saravana Kannan <saravanak@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_201225_968691_EA41FBE6 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20230719_222126_575413_C146C8BB 
+X-CRM114-Status: GOOD (  31.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,80 +83,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Tomasz,
-
-On 7/19/23 22:33, Tomasz Jeznach wrote:
-> Enables message or wire signal interrupts for PCIe and platforms devices.
-> 
-
-The description doesn't match the subject nor the patch content (we 
-don't jus enable interrupts, we also init the queues).
-
-> +	/* Parse Queue lengts */
-> +	ret = of_property_read_u32(pdev->dev.of_node, "cmdq_len", &iommu->cmdq_len);
-> +	if (!ret)
-> +		dev_info(dev, "command queue length set to %i\n", iommu->cmdq_len);
-> +
-> +	ret = of_property_read_u32(pdev->dev.of_node, "fltq_len", &iommu->fltq_len);
-> +	if (!ret)
-> +		dev_info(dev, "fault/event queue length set to %i\n", iommu->fltq_len);
-> +
-> +	ret = of_property_read_u32(pdev->dev.of_node, "priq_len", &iommu->priq_len);
-> +	if (!ret)
-> +		dev_info(dev, "page request queue length set to %i\n", iommu->priq_len);
-> +
->   	dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
->   
-
-We need to add those to the device tree binding doc (or throw them away, 
-I thought it would be better to have them as part of the device 
-desciption than a module parameter).
-
-
-> +static irqreturn_t riscv_iommu_priq_irq_check(int irq, void *data);
-> +static irqreturn_t riscv_iommu_priq_process(int irq, void *data);
-> +
-
-> +	case RISCV_IOMMU_PAGE_REQUEST_QUEUE:
-> +		q = &iommu->priq;
-> +		q->len = sizeof(struct riscv_iommu_pq_record);
-> +		count = iommu->priq_len;
-> +		irq = iommu->irq_priq;
-> +		irq_check = riscv_iommu_priq_irq_check;
-> +		irq_process = riscv_iommu_priq_process;
-> +		q->qbr = RISCV_IOMMU_REG_PQB;
-> +		q->qcr = RISCV_IOMMU_REG_PQCSR;
-> +		name = "priq";
-> +		break;
-
-
-It makes more sense to add the code for the page request queue in the 
-patch that adds ATS/PRI support IMHO. This comment also applies to its 
-interrupt handlers below.
-
-
-> +static inline void riscv_iommu_cmd_inval_set_addr(struct riscv_iommu_command *cmd,
-> +						  u64 addr)
-> +{
-> +	cmd->dword0 |= RISCV_IOMMU_CMD_IOTINVAL_AV;
-> +	cmd->dword1 = addr;
-> +}
-> +
-
-This needs to be (addr >> 2) to match the spec, same as in the iofence 
-command.
-
-Regards,
-Nick
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdWwgMjAsIDIwMjMgYXQgMzo0NeKAr0FNIFNhcmF2YW5hIEthbm5hbiA8c2FyYXZh
+bmFrQGdvb2dsZS5jb20+IHdyb3RlOgo+Cj4gT24gV2VkLCBKdWwgMTksIDIwMjMgYXQgNDozNuKA
+r0FNIEFudXAgUGF0ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPiA+Cj4gPiBU
+aGUgUklTQy1WIElOVEMgbG9jYWwgaW50ZXJydXB0cyBhcmUgcGVyLUhBUlQgKG9yIHBlci1DUFUp
+IHNvCj4gPiB3ZSBjcmVhdGUgSU5UQyBJUlEgZG9tYWluIG9ubHkgZm9yIHRoZSBJTlRDIG5vZGUg
+YmVsb25naW5nIHRvCj4gPiB0aGUgYm9vdCBIQVJULiBUaGlzIG1lYW5zIG9ubHkgdGhlIGJvb3Qg
+SEFSVCBJTlRDIG5vZGUgd2lsbCBiZQo+ID4gbWFya2VkIGFzIGluaXRpYWxpemVkIGFuZCBvdGhl
+ciBJTlRDIG5vZGVzIHdvbid0IGJlIG1hcmtlZCB3aGljaAo+ID4gcmVzdWx0cyBkb3duc3RyZWFt
+IGludGVycnVwdCBjb250cm9sbGVycyAoc3VjaCBhcyBJTVNJQyBhbmQgQVBMSUMKPiA+IGRpcmVj
+dC1tb2RlKSBub3QgYmVpbmcgcHJvYmVkIGR1ZSB0byBtaXNzaW5nIGRldmljZSBzdXBwbGllcnMu
+Cj4gPgo+ID4gVG8gYWRkcmVzcyB0aGlzIGlzc3VlLCB3ZSBtYXJrIGFsbCBJTlRDIG5vZGUgZm9y
+IHdoaWNoIHdlIGRvbid0Cj4gPiBjcmVhdGUgSVJRIGRvbWFpbiBhcyBpbml0aWFsaXplZC4KPiA+
+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBBbnVwIFBhdGVsIDxhcGF0ZWxAdmVudGFuYW1pY3JvLmNvbT4K
+PiA+IC0tLQo+ID4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50Yy5jIHwgMTAgKysrKysr
+KysrLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA5IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkK
+PiA+Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbnRjLmMgYi9k
+cml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYwo+ID4gaW5kZXggNjVmNGEyYWZiMzgxLi40
+ZTI3MDRiYzI1ZmIgMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWlu
+dGMuYwo+ID4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1pbnRjLmMKPiA+IEBAIC0x
+NTUsOCArMTU1LDE2IEBAIHN0YXRpYyBpbnQgX19pbml0IHJpc2N2X2ludGNfaW5pdChzdHJ1Y3Qg
+ZGV2aWNlX25vZGUgKm5vZGUsCj4gPiAgICAgICAgICAqIGZvciBlYWNoIElOVEMgRFQgbm9kZS4g
+V2Ugb25seSBuZWVkIHRvIGRvIElOVEMgaW5pdGlhbGl6YXRpb24KPiA+ICAgICAgICAgICogZm9y
+IHRoZSBJTlRDIERUIG5vZGUgYmVsb25naW5nIHRvIGJvb3QgQ1BVIChvciBib290IEhBUlQpLgo+
+ID4gICAgICAgICAgKi8KPiA+IC0gICAgICAgaWYgKHJpc2N2X2hhcnRpZF90b19jcHVpZChoYXJ0
+aWQpICE9IHNtcF9wcm9jZXNzb3JfaWQoKSkKPiA+ICsgICAgICAgaWYgKHJpc2N2X2hhcnRpZF90
+b19jcHVpZChoYXJ0aWQpICE9IHNtcF9wcm9jZXNzb3JfaWQoKSkgewo+ID4gKyAgICAgICAgICAg
+ICAgIC8qCj4gPiArICAgICAgICAgICAgICAgICogVGhlIElOVEMgbm9kZXMgb2YgZWFjaCBDUFUg
+YXJlIHN1cHBsaWVycyBmb3IgZG93bnN0cmVhbQo+ID4gKyAgICAgICAgICAgICAgICAqIGludGVy
+cnVwdCBjb250cm9sbGVycyAoc3VjaCBhcyBJTVNJQyBhbmQgQVBMSUMgZGlyZWN0LW1vZGUpCj4g
+PiArICAgICAgICAgICAgICAgICogc28gd2Ugc2hvdWxkIG1hcmsgYW4gSU5UQyBub2RlIGFzIGlu
+aXRpYWxpemVkIGlmIHdlIGFyZQo+ID4gKyAgICAgICAgICAgICAgICAqIG5vdCBjcmVhdGluZyBJ
+UlEgZG9tYWluIGZvciBpdC4KPiA+ICsgICAgICAgICAgICAgICAgKi8KPgo+IEknbSBhIGJpdCBj
+b25mdXNlZCBieSB0aGlzLiBJZiB0aG9zZSBub24tYm9vdCBDUFVzIElOVEMgZG9lc24ndCBoYXZl
+Cj4gYW4gSVJRIGRvbWFpbiwgd2h5IGFyZSB0aGUgZG93bnN0cmVhbSBpbnRlcnJ1cHQgY29udHJv
+bGxlcnMgbGlzdGluZwo+IHRoZXNlIG5vbi1ib290IENQVSBJTlRDcyBhcyBhbiB1cHN0cmVhbSBp
+bnRlcnJ1cHQgY29udHJvbGxlcj8KCkRvd25zdHJlYW0gaW50ZXJydXB0IGNvbnRyb2xsZXJzIChz
+dWNoIGFzIFBMSUMsIEFQTElDIGRpcmVjdC1tb2RlLApvciBJTVNJQykgdXNlICJpbnRlcnJ1cHRz
+LWV4dGVuZGVkIiBEVCBwcm9wZXJ0eSB0byBhc3NvY2lhdGUgdGhlaXIKTU1JTyByZXNvdXJjZXMg
+d2l0aCB0YXJnZXQgQ1BVLgoKRm9yIGV4YW1wbGU6IElmIHdlIGhhdmUgNCBDUFVzIHRoZW4gUExJ
+QyB3aWxsIHR5cGljYWxseSBoYXZlIDIgUExJQwpNTUlPIGNvbnRleHRzIGZvciBlYWNoIENQVSB3
+aGVyZSBvbmUgY29udGV4dCBpcyBmb3IgTS1tb2RlIGFuZAphbm90aGVyIGNvbnRleHQgaXMgZm9y
+IFMtbW9kZS4gSW4gdGhpcyBjYXNlLCB0aGVyZSBhcmUgdG90YWwgOCBQTElDCk1NSU8gY29udGV4
+dHMgYW5kIHRoZSBhcnJhbmdlbWVudCBvZiB0aGVzZSBNTUlPIHJlc291cmNlcyBpcwpwbGF0Zm9y
+bSBzcGVjaWZpYyBzbyAiaW50ZXJydXB0cy1leHRlbmRlZCIgRFQgcHJvcGVydHkgaXMgdXNlZCBi
+eQpQTElDIGRyaXZlciB0byBkaXNjb3ZlciB0aGUgYXJyYW5nZW1lbnQgb2YgUExJQyBNTUlPIGNv
+bnRleHRzCmFuZCB0aGVpciBtYXBwaW5nIHRvIHRhcmdldCBDUFUuCgpTaW1pbGFyIHRvIHRoZSBh
+Ym92ZSBleGFtcGxlLCB0aGUgQVBMSUMgZGlyZWN0LW1vZGUgaGFzIHBlci1DUFUKSURDIE1NSU8g
+cmVnaXN0ZXJzIGFuZCAiaW50ZXJydXB0cy1leHRlbmRlZCIgRFQgcHJvcGVydHkgaXMgdXNlZAp0
+byBkaXNjb3ZlciBhcnJhbmdlbWVudCBvZiB0aGVzZSBJREMgTU1JTyByZWdpc3RlcnMgYW5kIHRo
+ZWlyCm1hcHBpbmcgdG8gdGhlIHRhcmdldCBDUFUuCgo+Cj4gVGhpcyBpcyBtb3JlIG9mIGEgcXVl
+c3Rpb24gb2YgdGhlIGV4aXN0aW5nIGJlaGF2aW9yIHRoYXQgdGhpcyBwYXRjaCwKPiBidXQgdGhp
+cyBwYXRjaCBoaWdobGlnaHRzIHRoZSBleGlzdGluZyBvZGRpdHkuCj4KPiAtU2FyYXZhbmEKPgo+
+ID4gKyAgICAgICAgICAgICAgIGZ3bm9kZV9kZXZfaW5pdGlhbGl6ZWQob2ZfZndub2RlX2hhbmRs
+ZShub2RlKSwgdHJ1ZSk7Cj4gPiAgICAgICAgICAgICAgICAgcmV0dXJuIDA7Cj4gPiArICAgICAg
+IH0KPiA+Cj4gPiAgICAgICAgIHJldHVybiByaXNjdl9pbnRjX2luaXRfY29tbW9uKG9mX25vZGVf
+dG9fZndub2RlKG5vZGUpKTsKPiA+ICB9Cj4gPiAtLQo+ID4gMi4zNC4xCj4gPgoKUmVnYXJkcywK
+QW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
