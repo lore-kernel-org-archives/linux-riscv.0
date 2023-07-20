@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B2AEB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 06:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77757EB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 06:35:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+f8hIiOBPOBnW7XeJzsSDBTzzgDaHmnYy+TI1pBeF34=; b=CXXPfxDy7dJWatLtjXSsv7Q7t2
-	Jxzj1DYyX4n8Dgv+m7BEr3VAe+J53vUkfd9TYyBy84/j1UN+fj1H3ALoturXTb7z38w6FMKpoo28c
-	Sq1WQqZHQpL1PCVfZoleS02ZHi9F5UMXn+pf2Od2MVMi+58dBHgfCPf7LsNoDjDChEWkxv73gbp/L
-	vfT8JtmHB2O1hnbHISfwy4L3hQC+33vgBBsm30086dfYGllj+igRkYzKWfn0RfnANa+HpYUQJ7eIp
-	rGhCW1dMBhWl6FAXAx27BGnrYFuoVCQ1S0PPL+BjHtqaOI+Zd89ja91/izMBZFzm5UCXpeE1IBJ1e
-	Ymlg3XyA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qxKgNoeLdHDGn3e3W6lTlM1wmAdl/2lW006LL4Zry9c=; b=us4ZC9rL7zQ9lj
+	88K/5Ljx7x/yK6TA03OD5kQxL9cwm5Jp6yhvDyjCiXxWieAl8+LovkzcUZFP7iAmz5okullOLVlow
+	Iqia3kU6ZFK2ttbf5HhzT9unX/sw0+UhMVbGJ+5jrMCpg+jvFwAsfzoIuT60qAPNn7ybbQJzY/Kw6
+	0h9iljyQot24Ch3riiASgSG/tCHcFe141C430idd6mp7OcbHUTsAv6d9bb2tU6Vjs7/yeTy7DNvV3
+	utUBjuuO1NF7tvdeUUgYPb+M0/oK2Zl8xEkH2jrvA/z+zdqopTgW63dpTpUPy4zfw1XHWoQcd7HL9
+	GV5spVCiztrl7yI2cx6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNDA-009wlh-2z;
-	Thu, 20 Jul 2023 06:32:28 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMND7-009wl2-15
+	id 1qMNFf-009x8W-1a;
+	Thu, 20 Jul 2023 06:35:03 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qMNFb-009x3e-2b
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 06:32:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1689834745; x=1721370745;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NXJkJED8MudXTMwu79GUYLDPwHFyYBvTFVqQJATwOJA=;
-  b=u2lLoci4TBpi80dxny/2JdtHINHrDYeJ1J40sWZybFTzn+D8XM1M9RO5
-   z6uC4XRwSDvCh8iutku3YGcYS9Nc+Jg+Gu4xJRbRQ/VUQX5GaD8dzgwx9
-   u+3OxHgJB4NBNYw7FxDxynLRlVtnk3kld9ZbgCXGxPO5MB0GEE2foK3MR
-   2nHLE5P4G0rTkN67ABZuxfo/w/HB5Z0KAXY2/srHqgGw1ySUs974KpHXG
-   PO/21SUMMsl45LDKIVdg2uMcJ3jkQFHl6BKTA50ljJaG+8WYACvJXrFKy
-   yyomBfST6ZlEMjZXCGaWJYOULajxOPMSVVXWowVCF4ztIi7fve4+d4iUu
-   Q==;
-X-IronPort-AV: E=Sophos;i="6.01,218,1684825200"; 
-   d="asc'?scan'208";a="225561845"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 19 Jul 2023 23:32:17 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 19 Jul 2023 23:32:17 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 19 Jul 2023 23:32:15 -0700
-Date: Thu, 20 Jul 2023 07:31:42 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Woody Zhang <woodylab@foxmail.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley
-	<conor@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <ajones@ventanamicro.com>
-Subject: Re: [PATCH] riscv: add SBI SUSP extension support
-Message-ID: <20230720-speller-suffocate-29ee7cc0b1f6@wendy>
-References: <tencent_B931BF1864B6AE8C674686ED9852ACFA0609@qq.com>
+	Thu, 20 Jul 2023 06:35:02 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 3252324E36A;
+	Thu, 20 Jul 2023 14:34:04 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Jul
+ 2023 14:34:04 +0800
+Received: from [192.168.125.113] (113.72.147.86) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Jul
+ 2023 14:34:03 +0800
+Message-ID: <d397c3ba-4ac9-bf21-5ae4-79db6c2ad16e@starfivetech.com>
+Date: Thu, 20 Jul 2023 14:34:03 +0800
 MIME-Version: 1.0
-In-Reply-To: <tencent_B931BF1864B6AE8C674686ED9852ACFA0609@qq.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH 1/1] riscv: dts: Enable device-tree overlay support for
+ starfive devices
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>
+CC: Felix Moessbauer <felix.moessbauer@siemens.com>, Emil Renner Berthing
+	<kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, Daniel Bovensiepen
+	<daniel.bovensiepen@siemens.com>, Jan Kiszka <jan.kiszka@siemens.com>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>
+References: <20230627080620.329873-1-felix.moessbauer@siemens.com>
+ <20230710-villain-dainty-d1a90ce57a27@spud>
+ <CAJM55Z_0X+UT1s9s4kqKuyg4hF2JooTMXe4RYTAzoEgY=+8A1Q@mail.gmail.com>
+ <20230712-single-crestless-93bf57c09773@spud>
+From: Walker Chen <walker.chen@starfivetech.com>
+In-Reply-To: <20230712-single-crestless-93bf57c09773@spud>
+X-Originating-IP: [113.72.147.86]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_233225_610553_4E5AEC8C 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20230719_233500_016224_AB823E08 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,160 +76,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0872956061127942918=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0872956061127942918==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="bIP/mw2/ir0BscVj"
-Content-Disposition: inline
-
---bIP/mw2/ir0BscVj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Woody,
-
-On Thu, Jul 20, 2023 at 08:23:19AM +0800, Woody Zhang wrote:
-> RISC-V SBI spec 2.0 [1] introduces System Suspend Extension which can be
-> used to suspend the platform via SBI firmware.
->=20
-> This patch can be tested on Qemu with recent OpenSBI with
-> `system-suspend-test` enabled like [2] in DTB.
->=20
-> [1] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.=
-adoc
-> [2] https://github.com/woodyzhang666/qemu/commit/e4a5120133c1dc354e6ac437=
-ec1f870f6c0f6d05
->=20
-> Signed-off-by: Woody Zhang <woodylab@foxmail.com>
-> ---
->  arch/riscv/include/asm/sbi.h | 10 ++++++++++
->  arch/riscv/kernel/sbi.c      | 26 ++++++++++++++++++++++++++
-
-There's prior art here, that is seemingly more complete:
-https://lore.kernel.org/all/20230118180338.6484-2-ajones@ventanamicro.com/
-IIRC, the reason it is still in RFC status is that the 2.0 SBI spec is
-not yet frozen, so this cannot be merged.
-
-Thanks,
-Conor.
-
->  2 files changed, 36 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 5b4a1bf5f439..3b04016da671 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -30,6 +30,7 @@ enum sbi_ext_id {
->  	SBI_EXT_HSM =3D 0x48534D,
->  	SBI_EXT_SRST =3D 0x53525354,
->  	SBI_EXT_PMU =3D 0x504D55,
-> +	SBI_EXT_SUSP =3D 0x53555350,
-> =20
->  	/* Experimentals extensions must lie within this range */
->  	SBI_EXT_EXPERIMENTAL_START =3D 0x08000000,
-> @@ -236,6 +237,15 @@ enum sbi_pmu_ctr_type {
->  /* Flags defined for counter stop function */
->  #define SBI_PMU_STOP_FLAG_RESET (1 << 0)
-> =20
-> +enum sbi_ext_susp_fid {
-> +	SBI_EXT_SUSP_SYSTEM_SUSPEND =3D 0,
-> +};
-> +
-> +/* SBI suspend sleep types */
-> +enum sbi_susp_sleep_type {
-> +	SBI_SUSP_SLEEP_TYPE_SUSPEND =3D 0x0,
-> +};
-> +
->  #define SBI_SPEC_VERSION_DEFAULT	0x1
->  #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
->  #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index c672c8ba9a2a..9a68959f9f18 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -9,8 +9,10 @@
->  #include <linux/init.h>
->  #include <linux/pm.h>
->  #include <linux/reboot.h>
-> +#include <linux/suspend.h>
->  #include <asm/sbi.h>
->  #include <asm/smp.h>
-> +#include <asm/suspend.h>
-> =20
->  /* default SBI version is 0.1 */
->  unsigned long sbi_spec_version __ro_after_init =3D SBI_SPEC_VERSION_DEFA=
-ULT;
-> @@ -520,6 +522,26 @@ static void sbi_srst_power_off(void)
->  		       SBI_SRST_RESET_REASON_NONE);
->  }
-> =20
-> +static int sbi_system_suspend(unsigned long arg,
-> +		unsigned long resume_entry, unsigned long context)
-> +{
-> +	struct sbiret ret =3D {0};
-> +
-> +	ret =3D sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SYSTEM_SUSPEND,
-> +			SBI_SUSP_SLEEP_TYPE_SUSPEND, resume_entry, context, 0, 0, 0);
-> +	return ret.error;
-> +}
-> +
-> +static int sbi_system_suspend_enter(suspend_state_t state)
-> +{
-> +	return cpu_suspend(0, sbi_system_suspend);
-> +}
-> +
-> +static const struct platform_suspend_ops sbi_suspend_ops =3D {
-> +	.valid          =3D suspend_valid_only_mem,
-> +	.enter          =3D sbi_system_suspend_enter,
-> +};
-> +
->  /**
->   * sbi_probe_extension() - Check if an SBI extension ID is supported or =
-not.
->   * @extid: The extension ID to be probed.
-> @@ -624,6 +646,10 @@ void __init sbi_init(void)
->  			sbi_srst_reboot_nb.priority =3D 192;
->  			register_restart_handler(&sbi_srst_reboot_nb);
->  		}
-> +		if (sbi_probe_extension(SBI_EXT_SUSP)) {
-> +			pr_info("SBI SUSP extension detected\n");
-> +			suspend_set_ops(&sbi_suspend_ops);
-> +		}
->  	} else {
->  		__sbi_set_timer =3D __sbi_set_timer_v01;
->  		__sbi_send_ipi	=3D __sbi_send_ipi_v01;
-> --=20
-> 2.39.2
->=20
-
---bIP/mw2/ir0BscVj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLjUvwAKCRB4tDGHoIJi
-0liCAQDOneTEE/l+NQoyXArGTAg/it54GYEgQyRV+OVw8IPaxgD/a5hWPEPE3qUo
-Q7u0xZvKbQpAv2f+EFfYD1Zy6FpnHQM=
-=+VoD
------END PGP SIGNATURE-----
-
---bIP/mw2/ir0BscVj--
 
 
---===============0872956061127942918==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+On 2023/7/13 0:23, Conor Dooley wrote:
+> On Wed, Jul 12, 2023 at 06:17:19PM +0200, Emil Renner Berthing wrote:
+>> On Mon, 10 Jul 2023 at 20:29, Conor Dooley <conor@kernel.org> wrote:
+>> >
+>> >
+>> > Emil, Walker,
+>> >
+>> > On Tue, Jun 27, 2023 at 04:06:20PM +0800, Felix Moessbauer wrote:
+>> > > Add the '-@' DTC option for the starfive devices. This option
+>> > > populates the '__symbols__' node that contains all the necessary symbols
+>> > > for supporting device-tree overlays (for instance from the firmware or
+>> > > the bootloader) on these devices.
+>> > >
+>> > > The starfive devices allow various modules to be connected and this
+>> > > enables users to create out-of-tree device-tree overlays for these modules.
+>> > >
+>> > > Please note that this change does increase the size of the resulting DTB
+>> > > by ~20%. For example, with v6.4 increase in size is as follows:
+>> >
+>> > Whatcha think?
+>> 
+>> I'm fine with it. I just wonder why it's only the Nvidia Tegra boards
+>> and the VisionFive's that need this. Surely other boards have pins for
+>> expansion cards.
+> 
+> It's totally not just these two - there's been a flurry of similar
+> patches recently. The RPi stuff got it - I think I Acked that one from
+> the DT side while Rob and Krzysztof were out of office, partially on the
+> basis that the Nvidia stuff had it (and IIRC Renesas).
+> Since then there's been a couple other ones that got the same treatment,
+> including 32-bit ARM Microchip stuff. I've been avoiding doing it for the
+> RISC-V Microchip to see if Rob decides that what I Acked was a problem.
+> 
+> It seems generally helpful, so I've been a little suspicious as to why
+> it was not done already...
+
+I agree to use DT overlay though this will increase a little bit size for DTB.
+For users who want to use expansion card like audio daughter board, it provides a convenient way.
+
+Best regards,
+Walker
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0872956061127942918==--
-
