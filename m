@@ -4,94 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897B9EB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 06:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3239FEB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 06:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0xLCEBDLDQjEwcM0UR5QVOryAC72mkUAVWlv+0Ut1CA=; b=uoyHjS9hLOoAylYYf1s7mo1ySY
-	nic5depxPct4oAKfO71h2qm+DEze3/muLfObYgEvX8P1Kyw0UB1sMzOXF+iAKaew7iZhKVOiK4y82
-	4I0pdZlWyM9KrztHwtNSgubbHrStLFwPuTZbG3cVX+ly7Ay47mkalCN9YHZm1vuyqPoe1ZnafM2nj
-	CLrG0pfj6mArpLURO3hn1g2NiwLGh0sgp9ooiA77ZuCyqhcLY/ITtw26njxvwsHAVq66CIayxPz/A
-	AB/oq4xsovPTCg6WeeAQm2PBiC6LLPqUofwi3kMJI672jCJK9NfT950s/OwDC83YQC/GTASHtMKbV
-	WgTeWdvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qqX+d9/qUD5JF/lIZWaNBILCaJeG0EvuEvzsxiQSBK0=; b=r2htsEk9q1y3ML
+	l0/7fNSTW4RvM4nbtuMV4yWAqo64J711R5oGPKTOmnWS6MTWSDRF77N0Fluap/sM00fhMkSk5unIJ
+	jr3THb0rrc3uyTjjBiYA28h+x/2aDasLeOAfkj+BufGT3xNIuZSgQOheH4lgAKSYMTXoT3HcOfB+G
+	oHhzKvPOtRd2yDT36FrLJyXbTjYHsWQb1ukd3Q9QQS2ow2SPxiDw9VEvU+riYmvoT6L6ntl8Vslj1
+	HvjADs0ythhfnUJEGFDwQ6qTtnVqyjTlrB+tiwjkzChHSQATSu8+k9NuWtUtntPLDZ/Js12xntsbV
+	nz/PHPPfCOt7BeKyKpfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNSY-009zcZ-35;
-	Thu, 20 Jul 2023 06:48:22 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1qMNdK-00A1rz-1l;
+	Thu, 20 Jul 2023 06:59:30 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNSV-009zZO-2D;
-	Thu, 20 Jul 2023 06:48:21 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2b962535808so5865101fa.0;
-        Wed, 19 Jul 2023 23:48:16 -0700 (PDT)
+	id 1qMNdH-00A1qE-1t
+	for linux-riscv@lists.infradead.org;
+	Thu, 20 Jul 2023 06:59:28 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-3fbca8935bfso3301385e9.3
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 23:59:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1689835695; x=1692427695;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689836364; x=1690441164;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1FkW5AFugHIm4cfLHhBTJhPmVsKSDHP6cvkrfUVdciI=;
-        b=AzOk4HbUt9ZK+jgh2do1VmTnHs4dXgElnWxrvk/ChEHWWQTAZ9Vx8z7XNmRbDqPxZ3
-         pze3ozYAKUdVg1bDR93gP5GhKEdWWBQ0Z3hpvKSTR3aWKlVmMyKb7oVA0LynQyTcgKv2
-         D6nSHWT0sTsM7wGrLweBRaxKnv4ScXH6R7hljPkQgdoR9wDPheqU4d3pdCm1+3XDKlWu
-         aJeDJRsVcVA+LxTuN/Lh17Y4eVWY7TL9dsBZ5PDZgdTD3S9dyqQ48/KqD62XG+MERd3j
-         v9OutwMGBMZU+qjEDSgxHB5ePtRice9fyfrHWxUYpDn/Ip6PxSF/NyTWH7Duq9PsJPVr
-         i08A==
+        bh=pT1DoIojr0lvslKOunqTR4YXj4PFl+5LQJAMXq3nC5E=;
+        b=ZDbx6qAcN8P+a9zusWZTkSl9rouTQF/iSqEtve1lkFjxsrKdWPD6dMC2Umr3gK0sIm
+         nkzMw50TbmJwgcQIx++d1ggHjzr6+sA6GAKvbxlNWECwqbhFRvboEMDbjSOMt6CFznjJ
+         O36ADGX1UaNkxZWfL7VJnxC+Cw3dNijMi+5cHTLgKK8SiFsVriuYykuE2k1SMWR22XY6
+         5WxT4DDw/UrHFcXUA/TDL5yUwwgAoniALRtBlkd8RbObdZKNO0W+L2Z2Ac61fVFTAtPL
+         YHLVKQefTrzGZrXQCVxFRHfphf2SXdfAdIWaHdz9BRl6fVTzOf00WkysK5x98InR9zeP
+         FHQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689835695; x=1692427695;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20221208; t=1689836364; x=1690441164;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1FkW5AFugHIm4cfLHhBTJhPmVsKSDHP6cvkrfUVdciI=;
-        b=RWDdPgUZ4P2qlLWpbWUrWB/YlVmcCRORFASXMRhExct7+mMVJDOmZGE/1Euyh+7/41
-         /TsrXzSjs4BQvAGtYNpz76L2MdIksp/Igs0UE0bC0FgcksqLd1kF9rJ9sYlY36VN2Sem
-         0nFor7jwYhjwP7/+Viue6Cqr4G0KJZcbzT5qcsoyJ62kT5T9jU4nWKbknadfL4Tl5my3
-         8/i72W0C++ySaTMriWI9+CTGeRfBHNRge8P/JkLclcBsLdAZhEbF+Hd5CTJJMOnlhWvS
-         DFtMtE9r5X6OKhOIJZOAGbJr1iFFfVZbJL5L5+p1a4SgHKxblJ03MwjfX1VE37+eYTmQ
-         rzUw==
-X-Gm-Message-State: ABy/qLZpnKNgXTBe9aVlkKm8BuRdgH9F73hlijqWDEvtQKq8Ckeukc/5
-	Wcr/3IIF/NjckKIaA9+oFmU=
-X-Google-Smtp-Source: APBJJlGrST9hDWvezaAooUi3+dItEEwvvxovRyenIedKgx3brcqw6G9KmcKqHf4GtKi+d6VaNG3D9g==
-X-Received: by 2002:a2e:9901:0:b0:2b6:df6b:84c0 with SMTP id v1-20020a2e9901000000b002b6df6b84c0mr1063490lji.25.1689835694948;
-        Wed, 19 Jul 2023 23:48:14 -0700 (PDT)
-Received: from orome (p200300e41f1bd600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f1b:d600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id u9-20020a05600c210900b003fbcdba1a52sm3162159wml.3.2023.07.19.23.48.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Jul 2023 23:48:14 -0700 (PDT)
-Date: Thu, 20 Jul 2023 08:48:11 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Benson Leung <bleung@chromium.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Michael Walle <michael@walle.cc>, Johan Hovold <johan@kernel.org>,
-	Alex Elder <elder@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-pwm@vger.kernel.org, kernel@pengutronix.de,
-	linux-arm-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Guenter Roeck <groeck@chromium.org>,
-	chrome-platform@lists.linux.dev, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, greybus-dev@lists.linaro.org,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH 00/10] pwm: Constistenly name pwm_chip variables "chip"
-Message-ID: <ZLjYqwGh178EHrVY@orome>
-References: <20230714205623.2496590-1-u.kleine-koenig@pengutronix.de>
+        bh=pT1DoIojr0lvslKOunqTR4YXj4PFl+5LQJAMXq3nC5E=;
+        b=Zj+NkMqPeG5DhVS/4wch1UmXJmXhhaDN+/RwqXqTbeGNfgzNtKGJxJRKYls1oyqAL+
+         AyRelogFbxsD4a0tgJrvoERKeHzDbwv0elEL21fWqU+TIPIV58uXGtBrl34gaCFeD+vt
+         LQlsLY5z1VImTU+dxKgvha554Aefw8fSmeCWn5urW+7voMwtCfq0CN9YbcyuVi9cOAJD
+         aMzpSLT0ouL1FoK9CNYTR68vA3dvwDfLWka4En+qOVU2+0dG2HIuwIFOz/TVzyHSClCW
+         l1YpXW5xt+Hea+T9wGKIYeERXoWygtd9k/HmiQW69MonqOVO1FakyKyQYlk2LB54w+mT
+         pG1g==
+X-Gm-Message-State: ABy/qLZbnxWf742tyMdiGa7MIWm0a/CXRUVLvTYCrJriXFA6YIYTkIlf
+	lZK2FzP9UG5cSkVe+vLHfJ3B8QdxuFOG5WWGDP7WbCNNLhDLefKCLbc=
+X-Google-Smtp-Source: APBJJlG41skPij9fp8nZyKeEoH9myLamnBgBOCZf3SxF3pb6Xp13yIhuN0hjhRkJju4WSDs1jm0RLUedZXc7rvYty9A=
+X-Received: by 2002:a05:6000:1c2:b0:30f:b7b4:3e55 with SMTP id
+ t2-20020a05600001c200b0030fb7b43e55mr1436688wrx.19.1689836363671; Wed, 19 Jul
+ 2023 23:59:23 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230714205623.2496590-1-u.kleine-koenig@pengutronix.de>
-User-Agent: Mutt/2.2.10 (2023-03-25)
+References: <20230714165508.94561-1-charlie@rivosinc.com> <20230714165508.94561-5-charlie@rivosinc.com>
+In-Reply-To: <20230714165508.94561-5-charlie@rivosinc.com>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Thu, 20 Jul 2023 08:59:12 +0200
+Message-ID: <CAHVXubgSLhsMdS3aFbSuPNf2d_FXhztnFtRnbjsMstH5coCHWA@mail.gmail.com>
+Subject: Re: [PATCH v6 4/4] RISC-V: mm: Document mmap changes
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	conor@kernel.org, paul.walmsley@sifive.com, palmer@rivosinc.com, 
+	aou@eecs.berkeley.edu, anup@brainfault.org, konstantin@linuxfoundation.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-mm@kvack.org, mick@ics.forth.gr, jrtc27@jrtc27.com, 
+	rdunlap@infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_234819_730012_A1496021 
-X-CRM114-Status: GOOD (  27.26  )
+X-CRM114-CacheID: sfid-20230719_235927_622696_DF28EB7D 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,116 +87,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5061838615410550065=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5061838615410550065==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qz371AQYCl6mZiXj"
-Content-Disposition: inline
-
-
---qz371AQYCl6mZiXj
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jul 14, 2023 at 10:56:13PM +0200, Uwe Kleine-K=C3=B6nig wrote:
-> while working on an extension for the pwm framework, I noticed that some
-> drivers and even the core only nearly consistently named all variables
-> and struct members holding a pointer to a struct pwm_chip "chip":
->=20
-> $ git grep -Pho 'struct pwm_chip \**[a-z0-9_]+(*nla:[\(a-z0-9_])' v6.5-rc=
-1 | sort | uniq -c | sort -n
->       1 struct pwm_chip *pwm
->       1 struct pwm_chip pwm
->       1 struct pwm_chip pwm_chip
->       2 struct pwm_chip *_chip
->       4 struct pwm_chip *c
->       8 struct pwm_chip *pc
->      57 struct pwm_chip chip
->     358 struct pwm_chip *chip
->=20
-> With this series applied these are all called "chip" with one exception:
-> The led driver drivers/leds/rgb/leds-qcom-lpg.c uses "pwm". Maybe
-> "pwmchip" would be a better name, but I'm not sure that using "chip" was
-> an improvement there as this isn't a pure pwm driver. I'm not touching
-> that one.
->=20
-> The first offenders I found were the core and the atmel-hlcdc driver.
-> After I found these I optimistically assumed these were the only ones
-> with the unusual names and send patches for these out individually
-> before checking systematically.
->=20
-> The atmel-hlcdc patch is included here unchanged, the core patch now
-> also adapted the declaration of the changed functions in <linux/pwm.h>.
-> I marked these two as "superseded" in patchwork already.
->=20
-> All patches in this series are pairwise independent of each other. I
-> don't know if the staging patch should better go in via the greybus tree
-> or via pwm. Both is possible without needing coordination.
->=20
-> Best regards
-> Uwe
->=20
->=20
-> Uwe Kleine-K=C3=B6nig (10):
->   pwm: Use a consistent name for pwm_chip pointers in the core
->   pwm: atmel-hlcdc: Use consistent variable naming
->   pwm: bcm-kona: Consistenly name pwm_chip variables "chip"
->   pwm: crc: Consistenly name pwm_chip variables "chip"
->   pwm: cros-ec: Consistenly name pwm_chip variables "chip"
->   pwm: lp3943: Consistenly name pwm_chip variables "chip"
->   pwm: rockchip: Consistenly name pwm_chip variables "chip"
->   pwm: sifive: Consistenly name pwm_chip variables "chip"
->   pwm: sl28cpld: Consistenly name pwm_chip variables "chip"
->   staging: greybus: pwm: Consistenly name pwm_chip variables "chip"
-
-This would've been much easier if it had been a single patch. Now I have
-to either make you redo the whole series because you've misspelled PWM
-or I have to go and update it myself in most of the above patches. Hint:
-I'll do the latter.
-
-There is really no reason to split this up into this many patches for
-such a trivial change.
-
-Thierry
-
---qz371AQYCl6mZiXj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmS42KkACgkQ3SOs138+
-s6Hrcw//bT6JKDpq1cRgHldmJl93Sju6hsTYMrblCoA1pa6rfV9XZX1D8K1gZUOl
-K+6a1mUlkjv1KR7pIvUU7PG47vE66IXBNwAZYLfXYKmrCBiWjF+mT6Azm2rwPguM
-02gt5Fmv0Xp0CZ3yc2N4CHhiC+MsyhkliuK/dMfejMaPSQjs3F+yMPo4FUON+CJx
-oy+okmnI6VYMtpAX3qDvJ7lrqgmw6CMwkxrYPaCtnzRGYLxOyixhoYy3KzgWS8BO
-Aukgm24XROAuq58cCp9EjxYtMWR7jmJdaqY3DVaE4XaAuklI5/s0QfTSachQbTOu
-Fv/+/1K4cZjTEhg+qSfSq5xIkmDqDDcHFw5Kobcv9xjXegeFLnrTl541jiMLkgcs
-U4zY0OGXm2OZrhqQRj4WmJd8YAkqZbLTquSQb2AtjNyITFKlgQg28Ct6gr5Go9eb
-Te+RAcoQkDuIs0qEJe+07qkCEngilTGdXf59kymAsdDzWqM+7qEDOMYnmWzl06KJ
-qQFbms1FtSzldFO+upYAYMynS4K2Ni+EY6KbocmUwvs9vYw6FC8pmyfAXvFdGD8D
-MXljW6kvcoycIOPlwME1H+b3EourwQhI/wnjLyYmB8Z921+NJZ9D3Bj5ey16YzEp
-ZGqr2I+AgbDzS0yQAM/utgHE9jOZy6KOnQGeWvXYOeUSVDlrobA=
-=iJ4i
------END PGP SIGNATURE-----
-
---qz371AQYCl6mZiXj--
-
-
---===============5061838615410550065==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5061838615410550065==--
-
+T24gRnJpLCBKdWwgMTQsIDIwMjMgYXQgNjo1NuKAr1BNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxp
+ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gVGhlIGJlaGF2aW9yIG9mIG1tYXAgaXMgbW9kaWZp
+ZWQgd2l0aCB0aGlzIHBhdGNoIHNlcmllcywgc28gZXhwbGFpbiB0aGUKPiBjaGFuZ2VzIHRvIHRo
+ZSBtbWFwIGhpbnQgYWRkcmVzcyBiZWhhdmlvci4KPgo+IFNpZ25lZC1vZmYtYnk6IENoYXJsaWUg
+SmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+Cj4gLS0tCj4gIERvY3VtZW50YXRpb24vcmlz
+Y3Yvdm0tbGF5b3V0LnJzdCB8IDIyICsrKysrKysrKysrKysrKysrKysrKysKPiAgMSBmaWxlIGNo
+YW5nZWQsIDIyIGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3Jp
+c2N2L3ZtLWxheW91dC5yc3QgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxheW91dC5yc3QKPiBp
+bmRleCA1NDYyYzg0ZjQ3MjMuLjg5MjQxMmI5MTMwMCAxMDA2NDQKPiAtLS0gYS9Eb2N1bWVudGF0
+aW9uL3Jpc2N2L3ZtLWxheW91dC5yc3QKPiArKysgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxh
+eW91dC5yc3QKPiBAQCAtMTMzLDMgKzEzMywyNSBAQCBSSVNDLVYgTGludXggS2VybmVsIFNWNTcK
+PiAgICAgZmZmZmZmZmYwMDAwMDAwMCB8ICAtNCAgICAgR0IgfCBmZmZmZmZmZjdmZmZmZmZmIHwg
+ICAgMiBHQiB8IG1vZHVsZXMsIEJQRgo+ICAgICBmZmZmZmZmZjgwMDAwMDAwIHwgIC0yICAgICBH
+QiB8IGZmZmZmZmZmZmZmZmZmZmYgfCAgICAyIEdCIHwga2VybmVsCj4gICAgX19fX19fX19fX19f
+X19fX19ffF9fX19fX19fX19fX3xfX19fX19fX19fX19fX19fX198X19fX19fX19ffF9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+ICsK
+PiArCj4gK1VzZXJzcGFjZSBWQXMKPiArLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiArVG8gbWFpbnRh
+aW4gY29tcGF0aWJpbGl0eSB3aXRoIHNvZnR3YXJlIHRoYXQgcmVsaWVzIG9uIHRoZSBWQSBzcGFj
+ZSB3aXRoIGEKPiArbWF4aW11bSBvZiA0OCBiaXRzIHRoZSBrZXJuZWwgd2lsbCwgYnkgZGVmYXVs
+dCwgcmV0dXJuIHZpcnR1YWwgYWRkcmVzc2VzIHRvCj4gK3VzZXJzcGFjZSBmcm9tIGEgNDgtYml0
+IHJhbmdlIChzdjQ4KS4gVGhpcyBkZWZhdWx0IGJlaGF2aW9yIGlzIGFjaGlldmVkIGJ5Cj4gK3Bh
+c3NpbmcgMCBpbnRvIHRoZSBoaW50IGFkZHJlc3MgcGFyYW1ldGVyIG9mIG1tYXAuIE9uIENQVXMg
+d2l0aCBhbiBhZGRyZXNzIHNwYWNlCj4gK3NtYWxsZXIgdGhhbiBzdjQ4LCB0aGUgQ1BVIG1heGlt
+dW0gc3VwcG9ydGVkIGFkZHJlc3Mgc3BhY2Ugd2lsbCBiZSB0aGUgZGVmYXVsdC4KPiArCj4gK1Nv
+ZnR3YXJlIGNhbiAib3B0LWluIiB0byByZWNlaXZpbmcgVkFzIGZyb20gYW5vdGhlciBWQSBzcGFj
+ZSBieSBwcm92aWRpbmcKPiArYSBoaW50IGFkZHJlc3MgdG8gbW1hcC4gQSBjYWxsIHRvIG1tYXAg
+aXMgZ3VhcmFudGVlZCB0byByZXR1cm4gYW4gYWRkcmVzcwo+ICt0aGF0IHdpbGwgbm90IG92ZXJy
+aWRlIHRoZSB1bnNldCBsZWZ0LWFsaWduZWQgYml0cyBpbiB0aGUgaGludCBhZGRyZXNzLAo+ICt1
+bmxlc3MgdGhlcmUgaXMgbm8gc3BhY2UgbGVmdCBpbiB0aGUgYWRkcmVzcyBzcGFjZS4gSWYgdGhl
+cmUgaXMgbm8gc3BhY2UKPiArYXZhaWxhYmxlIGluIHRoZSByZXF1ZXN0ZWQgYWRkcmVzcyBzcGFj
+ZSwgYW4gYWRkcmVzcyBpbiB0aGUgbmV4dCBzbWFsbGVzdAo+ICthdmFpbGFibGUgYWRkcmVzcyBz
+cGFjZSB3aWxsIGJlIHJldHVybmVkLgo+ICsKPiArRm9yIGV4YW1wbGUsIGluIG9yZGVyIHRvIG9i
+dGFpbiA0OC1iaXQgVkEgc3BhY2UsIGEgaGludCBhZGRyZXNzIGdyZWF0ZXIgdGhhbgo+ICs6Y29k
+ZTpgMSA8PCAzOGAgbXVzdCBiZSBwcm92aWRlZC4KCklzIHRoaXMgY29ycmVjdD8gU2hvdWxkbid0
+IHRoZSBoaW50IGJlIHN0cmljdGx5IGdyZWF0ZXIgdGhhbiB0aGUKYWRkcmVzcyBzcGFjZSBpdCB0
+YXJnZXRzPyBJbiBwYXRjaCAxLCB5b3Ugc3RhdGUgdGhhdCAiQSBoaW50IGFkZHJlc3MKcGFzc2Vk
+IHRvIG1tYXAgd2lsbCBjYXVzZSB0aGUgbGFyZ2VzdCBhZGRyZXNzIHNwYWNlIHRoYXQgZml0cyBl
+bnRpcmVseQppbnRvIHRoZSBoaW50IHRvIGJlIHVzZWQiLCBpdCBzZWVtcyBjb250cmFkaWN0b3J5
+IHRvIG1lLgoKPiBOb3RlIHRoYXQgdGhpcyBpcyAzOCBkdWUgdG8gc3YzOSB1c2Vyc3BhY2UKPiAr
+ZW5kaW5nIGF0IDpjb2RlOmAxIDw8IDM4YCBhbmQgdGhlIGFkZHJlc3NlcyBiZXlvbmQgdGhpcyBh
+cmUgcmVzZXJ2ZWQgZm9yIHRoZQo+ICtrZXJuZWwuIFNpbWlsYXJseSwgdG8gb2J0YWluIDU3LWJp
+dCBWQSBzcGFjZSBhZGRyZXNzZXMsIGEgaGludCBhZGRyZXNzIGdyZWF0ZXIKPiArdGhhbiBvciBl
+cXVhbCB0byA6Y29kZTpgMSA8PCA0N2AgbXVzdCBiZSBwcm92aWRlZC4KPiAtLQo+IDIuNDEuMAo+
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
