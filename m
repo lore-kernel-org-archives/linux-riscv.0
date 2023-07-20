@@ -4,81 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84415EB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 06:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897B9EB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 06:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fTUvixyvsVBGmgAFu9cYYws2quDh5pzn7Jeob/8YmlI=; b=EgzUwGCZgxmNjZ
-	vUNneGtFDJfk5q7WYVOSTpC8ndQe+qGOrP6r0W+dBMYUWWWRpAd/UStWQCf6LobjPD9RYF2Qm01or
-	OWyng49UKqm93W/F5L4Xpa6wP9qc9aBxIaIAh7LAa4y/dR9jvCEIsL+AeRnGNy3dV3jRjp1SwymH8
-	L6pG5BPAXih/8ShEM/HUXGEKRtA5QBeDLo1W6MSKuQ99sL+YKd/fHUuOpt4g9V9MyE39xT7HnWOYw
-	EACVFtT+LNyWxiri3+2RGi7/CyR0VoTOwWr4MCmkYoBGznoH6AVyap+7qrhycWvw7PLSaPavDhre/
-	Rc//u+ZUrSss83zVmwbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0xLCEBDLDQjEwcM0UR5QVOryAC72mkUAVWlv+0Ut1CA=; b=uoyHjS9hLOoAylYYf1s7mo1ySY
+	nic5depxPct4oAKfO71h2qm+DEze3/muLfObYgEvX8P1Kyw0UB1sMzOXF+iAKaew7iZhKVOiK4y82
+	4I0pdZlWyM9KrztHwtNSgubbHrStLFwPuTZbG3cVX+ly7Ay47mkalCN9YHZm1vuyqPoe1ZnafM2nj
+	CLrG0pfj6mArpLURO3hn1g2NiwLGh0sgp9ooiA77ZuCyqhcLY/ITtw26njxvwsHAVq66CIayxPz/A
+	AB/oq4xsovPTCg6WeeAQm2PBiC6LLPqUofwi3kMJI672jCJK9NfT950s/OwDC83YQC/GTASHtMKbV
+	WgTeWdvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNSQ-009zY3-0f;
-	Thu, 20 Jul 2023 06:48:14 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1qMNSY-009zcZ-35;
+	Thu, 20 Jul 2023 06:48:22 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNSM-009zU6-1S
-	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 06:48:12 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-51e566b1774so467904a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Jul 2023 23:48:08 -0700 (PDT)
+	id 1qMNSV-009zZO-2D;
+	Thu, 20 Jul 2023 06:48:21 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2b962535808so5865101fa.0;
+        Wed, 19 Jul 2023 23:48:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1689835687; x=1690440487;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YY8m5/XDAUcgHKbAHc0qRAbGRanXhW3GiGRR/skqG2g=;
-        b=bToRzJRlXY0VUn2QctmDXk+OuwTIG0h1pb7aqSD2bTZXmX5PW3qdNi9lrYF02VzM6v
-         xRIGX8K3Vb/NXJUd00YI6ntCZ9eSvvmAuq/qEn05qEJLjrwtQVDgIIAk4hzPAE2i+ptH
-         d7u5qUgh2cUvI4tc49Jmuc2tngAuHOP4G79IhOvJur38SYjXJnghkOLBhcf9GQh0AGog
-         TPfzl5gtGknX1co0U81Nut3sj+rbmL03Kz7I/2ql1asJ+GYUNaGcP51Agf9iIKlfE3fj
-         qgzS4tvSU264KPwRMxdpiVbjx3UEpJqAk5LjNlguVZGbIGPvy+ybz1Z9OUTtWHP8qT0X
-         Dxag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689835687; x=1690440487;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20221208; t=1689835695; x=1692427695;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YY8m5/XDAUcgHKbAHc0qRAbGRanXhW3GiGRR/skqG2g=;
-        b=iik9NaBvJIp48s5fD0pWGWFrK1KGO8PVXLX0FDsZXOAPgX8h2O5E9zlGUbAZpfpKT9
-         /7o69y0cVT+SmtG6cr8u37GEYC0d2mzvXmSXzwVTJTFV0EiBmkEEwkf4Bu10Qp4YwBGI
-         wMyJDYscjfhSLQlexSUQE7KLfLvMf6oOvQmCOWQs1uKi+msTdtXVsQ5H1OhYNQz2sSb5
-         yz0MdTj9wBWSVaL4sSYwvKAqSOAqvW4WPqKHf/Sqw8VzME1cfacW8bNWfTvCZWRbSVCQ
-         MTawPtEfSZDKbaG1E+IB3ceXoFv+tAj1N4xotIcSGtkGUn6m62+blz7xoluZu0lZrjGf
-         QOPA==
-X-Gm-Message-State: ABy/qLZlsipLU8HdBgV27zGnYTI+GI8O3DvRj7kS9TqeSf69lHH+DV5n
-	lRPtdGWjoqnVUzX6zdFVcBISdw==
-X-Google-Smtp-Source: APBJJlGP0/CbRA6tz6PlhVcCHbt6ilna6EIOtA8YnS/sjAkB+d44JIWZZ+NJJArT/iAPBOzXujloYg==
-X-Received: by 2002:a05:6402:1806:b0:521:aa4b:24f3 with SMTP id g6-20020a056402180600b00521aa4b24f3mr1193627edy.24.1689835686733;
-        Wed, 19 Jul 2023 23:48:06 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id f15-20020aa7d84f000000b0051de2455041sm303663eds.24.2023.07.19.23.48.05
+        bh=1FkW5AFugHIm4cfLHhBTJhPmVsKSDHP6cvkrfUVdciI=;
+        b=AzOk4HbUt9ZK+jgh2do1VmTnHs4dXgElnWxrvk/ChEHWWQTAZ9Vx8z7XNmRbDqPxZ3
+         pze3ozYAKUdVg1bDR93gP5GhKEdWWBQ0Z3hpvKSTR3aWKlVmMyKb7oVA0LynQyTcgKv2
+         D6nSHWT0sTsM7wGrLweBRaxKnv4ScXH6R7hljPkQgdoR9wDPheqU4d3pdCm1+3XDKlWu
+         aJeDJRsVcVA+LxTuN/Lh17Y4eVWY7TL9dsBZ5PDZgdTD3S9dyqQ48/KqD62XG+MERd3j
+         v9OutwMGBMZU+qjEDSgxHB5ePtRice9fyfrHWxUYpDn/Ip6PxSF/NyTWH7Duq9PsJPVr
+         i08A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689835695; x=1692427695;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1FkW5AFugHIm4cfLHhBTJhPmVsKSDHP6cvkrfUVdciI=;
+        b=RWDdPgUZ4P2qlLWpbWUrWB/YlVmcCRORFASXMRhExct7+mMVJDOmZGE/1Euyh+7/41
+         /TsrXzSjs4BQvAGtYNpz76L2MdIksp/Igs0UE0bC0FgcksqLd1kF9rJ9sYlY36VN2Sem
+         0nFor7jwYhjwP7/+Viue6Cqr4G0KJZcbzT5qcsoyJ62kT5T9jU4nWKbknadfL4Tl5my3
+         8/i72W0C++ySaTMriWI9+CTGeRfBHNRge8P/JkLclcBsLdAZhEbF+Hd5CTJJMOnlhWvS
+         DFtMtE9r5X6OKhOIJZOAGbJr1iFFfVZbJL5L5+p1a4SgHKxblJ03MwjfX1VE37+eYTmQ
+         rzUw==
+X-Gm-Message-State: ABy/qLZpnKNgXTBe9aVlkKm8BuRdgH9F73hlijqWDEvtQKq8Ckeukc/5
+	Wcr/3IIF/NjckKIaA9+oFmU=
+X-Google-Smtp-Source: APBJJlGrST9hDWvezaAooUi3+dItEEwvvxovRyenIedKgx3brcqw6G9KmcKqHf4GtKi+d6VaNG3D9g==
+X-Received: by 2002:a2e:9901:0:b0:2b6:df6b:84c0 with SMTP id v1-20020a2e9901000000b002b6df6b84c0mr1063490lji.25.1689835694948;
+        Wed, 19 Jul 2023 23:48:14 -0700 (PDT)
+Received: from orome (p200300e41f1bd600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f1b:d600:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id u9-20020a05600c210900b003fbcdba1a52sm3162159wml.3.2023.07.19.23.48.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Jul 2023 23:48:06 -0700 (PDT)
-Date: Thu, 20 Jul 2023 08:48:04 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Woody Zhang <woodylab@foxmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+        Wed, 19 Jul 2023 23:48:14 -0700 (PDT)
+Date: Thu, 20 Jul 2023 08:48:11 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Benson Leung <bleung@chromium.org>,
+	Heiko Stuebner <heiko@sntech.de>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: add SBI SUSP extension support
-Message-ID: <20230720064804.byexbnbknadets62@kamzik>
-References: <tencent_B931BF1864B6AE8C674686ED9852ACFA0609@qq.com>
- <20230720-speller-suffocate-29ee7cc0b1f6@wendy>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Michael Walle <michael@walle.cc>, Johan Hovold <johan@kernel.org>,
+	Alex Elder <elder@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-pwm@vger.kernel.org, kernel@pengutronix.de,
+	linux-arm-kernel@lists.infradead.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Guenter Roeck <groeck@chromium.org>,
+	chrome-platform@lists.linux.dev, linux-rockchip@lists.infradead.org,
+	linux-riscv@lists.infradead.org, greybus-dev@lists.linaro.org,
+	linux-staging@lists.linux.dev
+Subject: Re: [PATCH 00/10] pwm: Constistenly name pwm_chip variables "chip"
+Message-ID: <ZLjYqwGh178EHrVY@orome>
+References: <20230714205623.2496590-1-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230720-speller-suffocate-29ee7cc0b1f6@wendy>
+In-Reply-To: <20230714205623.2496590-1-u.kleine-koenig@pengutronix.de>
+User-Agent: Mutt/2.2.10 (2023-03-25)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_234810_493872_B4BA34F1 
-X-CRM114-Status: GOOD (  29.25  )
+X-CRM114-CacheID: sfid-20230719_234819_730012_A1496021 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,139 +103,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5061838615410550065=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 20, 2023 at 07:31:42AM +0100, Conor Dooley wrote:
-> Hey Woody,
-> 
-> On Thu, Jul 20, 2023 at 08:23:19AM +0800, Woody Zhang wrote:
-> > RISC-V SBI spec 2.0 [1] introduces System Suspend Extension which can be
-> > used to suspend the platform via SBI firmware.
-> > 
-> > This patch can be tested on Qemu with recent OpenSBI with
-> > `system-suspend-test` enabled like [2] in DTB.
-> > 
-> > [1] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc
-> > [2] https://github.com/woodyzhang666/qemu/commit/e4a5120133c1dc354e6ac437ec1f870f6c0f6d05
-> > 
-> > Signed-off-by: Woody Zhang <woodylab@foxmail.com>
-> > ---
-> >  arch/riscv/include/asm/sbi.h | 10 ++++++++++
-> >  arch/riscv/kernel/sbi.c      | 26 ++++++++++++++++++++++++++
-> 
-> There's prior art here, that is seemingly more complete:
-> https://lore.kernel.org/all/20230118180338.6484-2-ajones@ventanamicro.com/
-> IIRC, the reason it is still in RFC status is that the 2.0 SBI spec is
-> not yet frozen, so this cannot be merged.
 
-Yup, I'll repost with the RFC dropped as soon as 2.0 is frozen.
-
-Thanks,
-drew
-
-> 
-> Thanks,
-> Conor.
-> 
-> >  2 files changed, 36 insertions(+)
-> > 
-> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> > index 5b4a1bf5f439..3b04016da671 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -30,6 +30,7 @@ enum sbi_ext_id {
-> >  	SBI_EXT_HSM = 0x48534D,
-> >  	SBI_EXT_SRST = 0x53525354,
-> >  	SBI_EXT_PMU = 0x504D55,
-> > +	SBI_EXT_SUSP = 0x53555350,
-> >  
-> >  	/* Experimentals extensions must lie within this range */
-> >  	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
-> > @@ -236,6 +237,15 @@ enum sbi_pmu_ctr_type {
-> >  /* Flags defined for counter stop function */
-> >  #define SBI_PMU_STOP_FLAG_RESET (1 << 0)
-> >  
-> > +enum sbi_ext_susp_fid {
-> > +	SBI_EXT_SUSP_SYSTEM_SUSPEND = 0,
-> > +};
-> > +
-> > +/* SBI suspend sleep types */
-> > +enum sbi_susp_sleep_type {
-> > +	SBI_SUSP_SLEEP_TYPE_SUSPEND = 0x0,
-> > +};
-> > +
-> >  #define SBI_SPEC_VERSION_DEFAULT	0x1
-> >  #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
-> >  #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
-> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> > index c672c8ba9a2a..9a68959f9f18 100644
-> > --- a/arch/riscv/kernel/sbi.c
-> > +++ b/arch/riscv/kernel/sbi.c
-> > @@ -9,8 +9,10 @@
-> >  #include <linux/init.h>
-> >  #include <linux/pm.h>
-> >  #include <linux/reboot.h>
-> > +#include <linux/suspend.h>
-> >  #include <asm/sbi.h>
-> >  #include <asm/smp.h>
-> > +#include <asm/suspend.h>
-> >  
-> >  /* default SBI version is 0.1 */
-> >  unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
-> > @@ -520,6 +522,26 @@ static void sbi_srst_power_off(void)
-> >  		       SBI_SRST_RESET_REASON_NONE);
-> >  }
-> >  
-> > +static int sbi_system_suspend(unsigned long arg,
-> > +		unsigned long resume_entry, unsigned long context)
-> > +{
-> > +	struct sbiret ret = {0};
-> > +
-> > +	ret = sbi_ecall(SBI_EXT_SUSP, SBI_EXT_SUSP_SYSTEM_SUSPEND,
-> > +			SBI_SUSP_SLEEP_TYPE_SUSPEND, resume_entry, context, 0, 0, 0);
-> > +	return ret.error;
-> > +}
-> > +
-> > +static int sbi_system_suspend_enter(suspend_state_t state)
-> > +{
-> > +	return cpu_suspend(0, sbi_system_suspend);
-> > +}
-> > +
-> > +static const struct platform_suspend_ops sbi_suspend_ops = {
-> > +	.valid          = suspend_valid_only_mem,
-> > +	.enter          = sbi_system_suspend_enter,
-> > +};
-> > +
-> >  /**
-> >   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
-> >   * @extid: The extension ID to be probed.
-> > @@ -624,6 +646,10 @@ void __init sbi_init(void)
-> >  			sbi_srst_reboot_nb.priority = 192;
-> >  			register_restart_handler(&sbi_srst_reboot_nb);
-> >  		}
-> > +		if (sbi_probe_extension(SBI_EXT_SUSP)) {
-> > +			pr_info("SBI SUSP extension detected\n");
-> > +			suspend_set_ops(&sbi_suspend_ops);
-> > +		}
-> >  	} else {
-> >  		__sbi_set_timer = __sbi_set_timer_v01;
-> >  		__sbi_send_ipi	= __sbi_send_ipi_v01;
-> > -- 
-> > 2.39.2
-> > 
+--===============5061838615410550065==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="qz371AQYCl6mZiXj"
+Content-Disposition: inline
 
 
+--qz371AQYCl6mZiXj
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+On Fri, Jul 14, 2023 at 10:56:13PM +0200, Uwe Kleine-K=C3=B6nig wrote:
+> while working on an extension for the pwm framework, I noticed that some
+> drivers and even the core only nearly consistently named all variables
+> and struct members holding a pointer to a struct pwm_chip "chip":
+>=20
+> $ git grep -Pho 'struct pwm_chip \**[a-z0-9_]+(*nla:[\(a-z0-9_])' v6.5-rc=
+1 | sort | uniq -c | sort -n
+>       1 struct pwm_chip *pwm
+>       1 struct pwm_chip pwm
+>       1 struct pwm_chip pwm_chip
+>       2 struct pwm_chip *_chip
+>       4 struct pwm_chip *c
+>       8 struct pwm_chip *pc
+>      57 struct pwm_chip chip
+>     358 struct pwm_chip *chip
+>=20
+> With this series applied these are all called "chip" with one exception:
+> The led driver drivers/leds/rgb/leds-qcom-lpg.c uses "pwm". Maybe
+> "pwmchip" would be a better name, but I'm not sure that using "chip" was
+> an improvement there as this isn't a pure pwm driver. I'm not touching
+> that one.
+>=20
+> The first offenders I found were the core and the atmel-hlcdc driver.
+> After I found these I optimistically assumed these were the only ones
+> with the unusual names and send patches for these out individually
+> before checking systematically.
+>=20
+> The atmel-hlcdc patch is included here unchanged, the core patch now
+> also adapted the declaration of the changed functions in <linux/pwm.h>.
+> I marked these two as "superseded" in patchwork already.
+>=20
+> All patches in this series are pairwise independent of each other. I
+> don't know if the staging patch should better go in via the greybus tree
+> or via pwm. Both is possible without needing coordination.
+>=20
+> Best regards
+> Uwe
+>=20
+>=20
+> Uwe Kleine-K=C3=B6nig (10):
+>   pwm: Use a consistent name for pwm_chip pointers in the core
+>   pwm: atmel-hlcdc: Use consistent variable naming
+>   pwm: bcm-kona: Consistenly name pwm_chip variables "chip"
+>   pwm: crc: Consistenly name pwm_chip variables "chip"
+>   pwm: cros-ec: Consistenly name pwm_chip variables "chip"
+>   pwm: lp3943: Consistenly name pwm_chip variables "chip"
+>   pwm: rockchip: Consistenly name pwm_chip variables "chip"
+>   pwm: sifive: Consistenly name pwm_chip variables "chip"
+>   pwm: sl28cpld: Consistenly name pwm_chip variables "chip"
+>   staging: greybus: pwm: Consistenly name pwm_chip variables "chip"
 
+This would've been much easier if it had been a single patch. Now I have
+to either make you redo the whole series because you've misspelled PWM
+or I have to go and update it myself in most of the above patches. Hint:
+I'll do the latter.
+
+There is really no reason to split this up into this many patches for
+such a trivial change.
+
+Thierry
+
+--qz371AQYCl6mZiXj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmS42KkACgkQ3SOs138+
+s6Hrcw//bT6JKDpq1cRgHldmJl93Sju6hsTYMrblCoA1pa6rfV9XZX1D8K1gZUOl
+K+6a1mUlkjv1KR7pIvUU7PG47vE66IXBNwAZYLfXYKmrCBiWjF+mT6Azm2rwPguM
+02gt5Fmv0Xp0CZ3yc2N4CHhiC+MsyhkliuK/dMfejMaPSQjs3F+yMPo4FUON+CJx
+oy+okmnI6VYMtpAX3qDvJ7lrqgmw6CMwkxrYPaCtnzRGYLxOyixhoYy3KzgWS8BO
+Aukgm24XROAuq58cCp9EjxYtMWR7jmJdaqY3DVaE4XaAuklI5/s0QfTSachQbTOu
+Fv/+/1K4cZjTEhg+qSfSq5xIkmDqDDcHFw5Kobcv9xjXegeFLnrTl541jiMLkgcs
+U4zY0OGXm2OZrhqQRj4WmJd8YAkqZbLTquSQb2AtjNyITFKlgQg28Ct6gr5Go9eb
+Te+RAcoQkDuIs0qEJe+07qkCEngilTGdXf59kymAsdDzWqM+7qEDOMYnmWzl06KJ
+qQFbms1FtSzldFO+upYAYMynS4K2Ni+EY6KbocmUwvs9vYw6FC8pmyfAXvFdGD8D
+MXljW6kvcoycIOPlwME1H+b3EourwQhI/wnjLyYmB8Z921+NJZ9D3Bj5ey16YzEp
+ZGqr2I+AgbDzS0yQAM/utgHE9jOZy6KOnQGeWvXYOeUSVDlrobA=
+=iJ4i
+-----END PGP SIGNATURE-----
+
+--qz371AQYCl6mZiXj--
+
+
+--===============5061838615410550065==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5061838615410550065==--
+
