@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23DACEB64DA
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 06:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94851EB64DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 07:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TCQkesGX/WqG/JYBOPilh7KhMJERC92uvbGr40yeLe8=; b=w3pQEAjNInOoEL
-	LacV95lrLM63J6Oris9PObrtd5QTe7yMuwydEe98UKmJPJ+gcbG4cbT1HvL3EZDs0VS99Aw8y8O9m
-	BWi5buOUsQQbRe9oS+bzj4PsqbNDTpKTej65XaE3Vc6nBE2tCrK2C0n45X7RpepDzIvF/So/z9eDU
-	QDp+a9LXGdTKI6Ww9JDxqRvy6GpQEiNWQJoC7TAoy3kleGq3owycF56PBaVxN3sgzHAJVKNrl0yhY
-	VgG0Lcb1QSvK1r4imk4W9beW0HAvUCJDWZZ1ykkuHpEcWnz3T1R8yG304291bAncaEo2mdDVVtJu1
-	zN1UO9lnryoeH/nGz/RQ==;
+	List-Owner; bh=gvDy6Kd22P96AG4bnz0cESIC0ZmLopzXZSvmax06J0E=; b=ZLN0K5AewzS3qe
+	3NNCfP9Ly9iSS9TkV4eaQ8q32g3DArj5Qm/DOfIXnxLikanoV82HufoSsORt7r+3aJejo4SVvbTgm
+	Nclmg6H0+zFD/V7i6qqiNV1bOIQzckr2NEJlfBxG89Ovb/X4bCh0fwozZVohcz9fVdyVkTkSP2lJ6
+	euhxMR2PDWxULWt+RfEaNyrnXIQ+0D3lbn7+OaCjYu/YfGVYCqPCh57iw1ODn/qYFDQEtMsCdx08r
+	UNZ9+MNylfvTkzFs2q29ztpZhrYzIJE8Dv8R0uJL2xrfbzOL84fIPV99Rq12UQH6dH8cwUSgwIjrP
+	LQf+sRyyL3FZHMa5oSUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNdi-00A20C-2Q;
-	Thu, 20 Jul 2023 06:59:54 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMNde-00A1vY-1o
+	id 1qMNet-00A2KI-0g;
+	Thu, 20 Jul 2023 07:01:07 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qMNeo-00A2Hj-1N
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 06:59:53 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 21FB424E3BF;
-	Thu, 20 Jul 2023 14:59:27 +0800 (CST)
-Received: from EXMBX171.cuchost.com (172.16.6.91) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Jul
- 2023 14:59:27 +0800
-Received: from [192.168.125.127] (113.72.147.86) by EXMBX171.cuchost.com
- (172.16.6.91) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 20 Jul
- 2023 14:59:23 +0800
-Message-ID: <5e4d5920-f346-a6ae-8548-f70d9fa911fe@starfivetech.com>
-Date: Thu, 20 Jul 2023 14:59:21 +0800
+	Thu, 20 Jul 2023 07:01:06 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3141fa31c2bso303896f8f.2
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Jul 2023 00:00:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689836458; x=1690441258;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3ZEjFz7LOZdmaaeUrHv50TFnsXpX5R1v3ht7TZZ808M=;
+        b=1MfTo46HP0GNpJ9cJoyU1w/4UKVOAFz6QpJ4q70QXZNvjfL/YVfMgjHYqRYUSAxHDc
+         jTtWwxIaJkGms8cWTugFcMm3Mz/kMh171waQTUmVGUrnhWRdSZZAnopxNT52sGyk4Vhr
+         JccuRh1ReQQymlnZdjxbyC4YAll5dWm92TQo+/lCGQexj5cQvGKHZ8hgObMHOvGcBNKc
+         O5YUKLp3tsmyVHte9MmjUkozGnbFeFs6ggXSUOdv86CnBPa+ITw35RBr4dJ9ncycHteI
+         yoBB4mBa6g7bQWRNx+/Wq4Kah+D6A8vPku4/YRJO5RvDvi7ldgcJ20Ijhjk2fCg6Vb/c
+         pjSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689836458; x=1690441258;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3ZEjFz7LOZdmaaeUrHv50TFnsXpX5R1v3ht7TZZ808M=;
+        b=DDydi0eanoueqC+Pl9cG6GEXPos4CGKI8mt6BV2CWR6+Ehr8ab4gnVW9dRkTStgNR7
+         w5KJ5BWxOo17rtSxWgF6EwiIIxTyMZ9lMggw/n1u+1RIor1R9JZd7mbxZxCEmcEWky9n
+         5FUjpydmwjroDk5UzEYl9dyhCpE6rwsbRzwliGDf2Qj5bXiTOLux/EF3cIYBwOLHl7Xy
+         vK4qHJaJTLk+4loJ4NvPQpmdreX98rX2aMxnhR2Lam8Ymfpj9aSkCYWaRamEEhEYSA10
+         fqZYVtJX1HXx1LGIkWGyPLQhCa+0G2ErqOe2WdQqUbSoZJjUrWY65gMONF2dex/ut+C+
+         y+jA==
+X-Gm-Message-State: ABy/qLbvmIwUFI1PCGhO1cgPJprp3vPRiav4b9LFgGBXAcp/088/sxmA
+	CZRxSVeM8eFT1coVYe773fCgsECNhp+onboSVcYX5w==
+X-Google-Smtp-Source: APBJJlFTDTlY08cieS+z3W0RyAq1pip8zIDcg55w3AOM8lXoEXjLTyl+gVgmTMjFP8mz/ktC3zk5jdu+9sPkK0WnKYA=
+X-Received: by 2002:adf:e903:0:b0:30e:3da5:46e5 with SMTP id
+ f3-20020adfe903000000b0030e3da546e5mr1830181wrm.59.1689836457755; Thu, 20 Jul
+ 2023 00:00:57 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v1 1/9] dt-bindings: PCI: Add PLDA XpressRICH PCIe host
- common properties
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Conor Dooley <conor@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pci@vger.kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>
-References: <20230719102057.22329-1-minda.chen@starfivetech.com>
- <20230719102057.22329-2-minda.chen@starfivetech.com>
- <c1dea7c8-2bc4-a113-0d40-098228fe3860@linaro.org>
-From: Minda Chen <minda.chen@starfivetech.com>
-In-Reply-To: <c1dea7c8-2bc4-a113-0d40-098228fe3860@linaro.org>
-X-Originating-IP: [113.72.147.86]
-X-ClientProxiedBy: EXCAS063.cuchost.com (172.16.6.23) To EXMBX171.cuchost.com
- (172.16.6.91)
-X-YovoleRuleAgent: yovoleflag
+References: <20230714165508.94561-1-charlie@rivosinc.com> <20230714165508.94561-4-charlie@rivosinc.com>
+In-Reply-To: <20230714165508.94561-4-charlie@rivosinc.com>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Thu, 20 Jul 2023 09:00:46 +0200
+Message-ID: <CAHVXubhUdtiP_G4PwsmQTkKbsQ0PuL-Xjtyowz9iXDeDPeiHFA@mail.gmail.com>
+Subject: Re: [PATCH v6 3/4] RISC-V: mm: Update pgtable comment documentation
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	conor@kernel.org, paul.walmsley@sifive.com, palmer@rivosinc.com, 
+	aou@eecs.berkeley.edu, anup@brainfault.org, konstantin@linuxfoundation.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-mm@kvack.org, mick@ics.forth.gr, jrtc27@jrtc27.com, 
+	rdunlap@infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230719_235950_957017_24990828 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20230720_000105_235116_17B9CC40 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,86 +87,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2023/7/19 18:52, Krzysztof Kozlowski wrote:
-> On 19/07/2023 12:20, Minda Chen wrote:
->> Add PLDA XpressRICH PCIe host common properties dt-binding doc.
->> Microchip PolarFire PCIe host using PLDA IP.
->> Extract properties from Microchip PolarFire PCIe host.
->> 
->> Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
->> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->>  .../pci/plda,xpressrich-pcie-common.yaml      | 72 +++++++++++++++++++
->>  1 file changed, 72 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/pci/plda,xpressrich-pcie-common.yaml
-> 
-> How is it related with existing plda,xpressrich3-axi?
-> 
- yes, I just found plda,xpressrich3-axi. It is same IP in ARM juno soc. But it is firmware-initialized while microchip and starfive not.
-maybe I can rename this file to plda,xpressrich3-axi-common.yaml
->> 
->> diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich-pcie-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich-pcie-common.yaml
->> new file mode 100644
->> index 000000000000..3627a846c5d1
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/pci/plda,xpressrich-pcie-common.yaml
->> @@ -0,0 +1,72 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/pci/plda,xpressrich-pcie-common.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: PLDA XpressRICH PCIe host common properties
->> +
->> +maintainers:
->> +  - Daire McNamara <daire.mcnamara@microchip.com>
->> +  - Minda Chen <minda.chen@starfivetech.com>
->> +
->> +description:
->> +  Generic PLDA XpressRICH PCIe host common properties.
->> +
->> +select: false
-> 
-> This should not be needed.
-> 
-ok
->> +
->> +properties:
->> +  reg:
->> +    description:
->> +      At least host IP register set and configuration space are
-> 
-> "At least" does not fit here since you do not allow anything else.
-> 
-I will delete "At least"
->> +      required for normal controller work.
->> +    maxItems: 2
->> +
->> +  reg-names:
->> +    oneOf:
->> +      - items:
->> +          - const: cfg
->> +          - const: apb
->> +      - items:
->> +          - const: host
->> +          - const: cfg
-> 
-> Maybe keep similar order, so cfg followed by host?
-> 
-I will follow cfg, apb
-> Best regards,
-> Krzysztof
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKdWwgMTQsIDIwMjMgYXQgNjo1NuKAr1BNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxp
+ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gc3Y1NyBpcyBzdXBwb3J0ZWQgaW4gdGhlIGtlcm5l
+bCBzbyBwZ3RhYmxlLmggc2hvdWxkIHJlZmxlY3QgdGhhdC4KPgo+IFNpZ25lZC1vZmYtYnk6IENo
+YXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+Cj4gLS0tCj4gIGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vcGd0YWJsZS5oIHwgOCArKysrKy0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgNSBp
+bnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vcGd0YWJsZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgK
+PiBpbmRleCBlMTNmNTg3MmJmZTkuLjI4NjYwYmFiNzU0YyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+cGd0YWJsZS5oCj4gQEAgLTg0MCwxNCArODQwLDE2IEBAIHN0YXRpYyBpbmxpbmUgcHRlX3QgcHRl
+X3N3cF9jbGVhcl9leGNsdXNpdmUocHRlX3QgcHRlKQo+ICAgKiBUYXNrIHNpemUgaXMgMHg0MDAw
+MDAwMDAwIGZvciBSVjY0IG9yIDB4OWZjMDAwMDAgZm9yIFJWMzIuCj4gICAqIE5vdGUgdGhhdCBQ
+R0RJUl9TSVpFIG11c3QgZXZlbmx5IGRpdmlkZSBUQVNLX1NJWkUuCj4gICAqIFRhc2sgc2l6ZSBp
+czoKPiAtICogLSAgICAgMHg5ZmMwMDAwMCAofjIuNUdCKSBmb3IgUlYzMi4KPiAtICogLSAgIDB4
+NDAwMDAwMDAwMCAoIDI1NkdCKSBmb3IgUlY2NCB1c2luZyBTVjM5IG1tdQo+IC0gKiAtIDB4ODAw
+MDAwMDAwMDAwICggMTI4VEIpIGZvciBSVjY0IHVzaW5nIFNWNDggbW11Cj4gKyAqIC0gICAgICAg
+IDB4OWZjMDAwMDAgKH4yLjVHQikgZm9yIFJWMzIuCj4gKyAqIC0gICAgICAweDQwMDAwMDAwMDAg
+KCAyNTZHQikgZm9yIFJWNjQgdXNpbmcgU1YzOSBtbXUKPiArICogLSAgICAweDgwMDAwMDAwMDAw
+MCAoIDEyOFRCKSBmb3IgUlY2NCB1c2luZyBTVjQ4IG1tdQo+ICsgKiAtIDB4MTAwMDAwMDAwMDAw
+MDAwICggIDY0UEIpIGZvciBSVjY0IHVzaW5nIFNWNTcgbW11Cj4gICAqCj4gICAqIE5vdGUgdGhh
+dCBQR0RJUl9TSVpFIG11c3QgZXZlbmx5IGRpdmlkZSBUQVNLX1NJWkUgc2luY2UgIlJJU0MtVgo+
+ICAgKiBJbnN0cnVjdGlvbiBTZXQgTWFudWFsIFZvbHVtZSBJSTogUHJpdmlsZWdlZCBBcmNoaXRl
+Y3R1cmUiIHN0YXRlcyB0aGF0Cj4gICAqICJsb2FkIGFuZCBzdG9yZSBlZmZlY3RpdmUgYWRkcmVz
+c2VzLCB3aGljaCBhcmUgNjRiaXRzLCBtdXN0IGhhdmUgYml0cwo+ICAgKiA2M+KAkzQ4IGFsbCBl
+cXVhbCB0byBiaXQgNDcsIG9yIGVsc2UgYSBwYWdlLWZhdWx0IGV4Y2VwdGlvbiB3aWxsIG9jY3Vy
+LiIKPiArICogU2ltaWxhcmx5IGZvciBTVjU3LCBiaXRzIDYz4oCTNTcgbXVzdCBiZSBlcXVhbCB0
+byBiaXQgNTYuCj4gICAqLwo+ICAjaWZkZWYgQ09ORklHXzY0QklUCj4gICNkZWZpbmUgVEFTS19T
+SVpFXzY0ICAgKFBHRElSX1NJWkUgKiBQVFJTX1BFUl9QR0QgLyAyKQo+IC0tCj4gMi40MS4wCj4K
+CllvdSBjYW4gYWRkOgoKUmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJp
+dm9zaW5jLmNvbT4KClRoYW5rcywKCkFsZXgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
