@@ -4,74 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BADDFC0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 17:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95181EB64DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Jul 2023 17:51:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fvLi83W9SsC6I6+83fP3odqn9eydKkeEZ7aIARfkn3E=; b=WB8QyGuCGSqNdG
-	p0MOkJcwSE1b0kajt3HLQNGL5BjOCNF4iD7QGzKtSMH8QPXuGrlR3dqLxmpDVQoOqWXkiFY5UVEz+
-	MbVc+SHCQ4QdITqkXpEzD0tG91vWEJ3QF3dMiwekV7Os8ZyECT0oYaRDYggaNrq7ijSQHlepfKump
-	Mc9WdlW/azEcPU2KbmiQvyFh28JDHkUc6kjJJQIjnaBoleH4go1vH/zPkdzPKbaJapnik9X1osk4o
-	qymLRHRaDMRMcE3qnOoKhC6d9N9Hn0Ruyc13lJgIhvWzbkt4Hh/HLtkgUWufOMWwF6d96fMVJ0GQm
-	HSmSD2h9+3VYMgfdEtmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=FTnLPjUr/j9A0Ge0w0vhiG7kPdqu7P00mdaydnS6lRU=; b=coY
+	BIY5jnfRzgo9MJyRx01dK6C/vvmiKQquotTdrVOUYhCk1rz0gSGLqnD/2/XLYA5WZWuO6mLX49l08
+	p7zfLxuwL+hbfsVregwivSiDzR8pPiqF5lQrQsu2GjVysFO4m9FGj5RqeoQ39roqRoSjuHqP+kBPN
+	hiNh5RZEpRK2HnUaSY0JCUM9gGKCV1MXu9DQ7DI63QOVvqG+iRUsfjyL+BTK0dGvb54mBx0s30ZYe
+	eQECOvDYdD1VVvEkQJsQpe2LsiJZ05B3gQrNEkgSrub1q3zyBrCttaEIBLhDnAI6Oab/iYTBEaYFk
+	97WG73JSL2VaALQvI6klR8gv3O3ROBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMXmV-00BpOD-0Y;
-	Thu, 20 Jul 2023 17:49:39 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1qMXoV-00Bpdy-01;
+	Thu, 20 Jul 2023 17:51:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMXmS-00BpNU-2c
+	id 1qMXoQ-00BpdG-2e
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Jul 2023 17:49:37 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-1b8b4749013so7884285ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Jul 2023 10:49:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689875375; x=1690480175;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r8yROjrlp1PPFH0to9KuHuG8CxyzdAeh3ld6lplKCpw=;
-        b=fyS7XMJPOaTP42oTe22seQohWF8aMbOeiPkaE4J2rWqXd1fUC0RtFqF+vTZPIJmLNL
-         ri3EdeoE1FnRx13n5l+ni8jjeBnGqlLcaqfa1g4UteZwo7zVvXz2VCqdEf4edxKk0Lmp
-         W24+7P6VC8EKDRSLRTzjFybQKN16HrMn+ukzGKtFc5+Q9gZIrIKaewXZXAFyEKYdK5F5
-         gcp+xF0dnH6zhzNovfCSS4QhbIUL1na8WmipAbtF3FF/YRpO6YXrF1YjoeZtuG4Z7mNA
-         fxflv1CyeRy/DmOw1Hm9chGK0mBPDP7svtXQYfW1EWYsP8X4JECAT43UnDtGkdcO4TgN
-         L/bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689875375; x=1690480175;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r8yROjrlp1PPFH0to9KuHuG8CxyzdAeh3ld6lplKCpw=;
-        b=KspeM8nMEP/dGVeh5txVyn7XgWk9XCrNzeKK+3c7OmZFblsZsCviImx4ITwudJ8K4C
-         /yeqpE+lRbM2Z0kGJpoMBM7kWTeoq5nzTcLI+tenbVZ5L8H0VpEZJ9ddKKF42qNAxWjs
-         FwuOS7j90tJGnyIfXfuLGDP1JhWYNDQSa/GhTP1Wb+zljdtOdnO3EbwaiqtfYrOq02OJ
-         MOSbvJ+K6e+q8ZKYLQjwTnEbgKyF+Q9/EzlearQ7YrwhswN7sdCl7NIByConJJf0Jxpt
-         musOHYFC5i266Fspio02t9/VeCyqwqauoc+BDtNFdAn+PMHLYERH2ofEJf59h+OBVjA9
-         16Vw==
-X-Gm-Message-State: ABy/qLZ7uZFQh7OXZR5/5d/2O/ikeh2KQJ80AaJAs9Ie8vt2anwxtmqh
-	sG0HkCp9yr0aTeDNlXJgo2vYIOdRx9DieSapPZ8h8w==
-X-Google-Smtp-Source: APBJJlEznZxAu+zz9Hq/h2JamBEIRqdk1o93ouW8Qs8XupLnxLYmEqfyZR8bRDDrnYiuby2sGUoNd8RNY4w9bloJSpg=
-X-Received: by 2002:a17:902:a415:b0:1b3:f8db:6f0c with SMTP id
- p21-20020a170902a41500b001b3f8db6f0cmr94423plq.58.1689875375330; Thu, 20 Jul
- 2023 10:49:35 -0700 (PDT)
+	Thu, 20 Jul 2023 17:51:40 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1DB1761B86;
+	Thu, 20 Jul 2023 17:51:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABF38C433C7;
+	Thu, 20 Jul 2023 17:51:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689875497;
+	bh=8tErANCDvWMBNQegfLY+uc7Q9CL6QQl4djitPyDVgfg=;
+	h=Date:From:To:Cc:Subject:From;
+	b=NC3a3AH88/8H/sC82AIdxDLf1sgCJn8v5i45A8gnzcayBkULM55OtoX+YPMqn5KeQ
+	 8UYQbJsUXNE4othBaPFT4V10uK+46RB3WfGgKYS06xwwGYp2sH/XijZ0bILC0Kc9KL
+	 gLslBsQTPAuifFDFjXgCdQH94hGuNZh+wlC04zBdK8FbWZaMkfqmXYo28CiRRdkZuJ
+	 xoZNUgT7ZKxbZ9QLFFA13Omb/WO9KutABw5UtvQGmblxNUR6nEJzyM4NT8cOZOGfYN
+	 Qog5jdT9WX9uWxlkTW7A5o2xJR5o5kQbXHQ2MiE6qSnWBnHxd4j4rNeXdka5RbQ7gr
+	 4wc3Ukp+OMu7g==
+Date: Thu, 20 Jul 2023 18:51:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: walker.chen@starfivetech.com
+Cc: linux-riscv@lists.infradead.org, kernel@esmil.dk
+Subject: Jh7110 DTS Patches
+Message-ID: <20230720-product-cheese-9f0fe22cc485@spud>
 MIME-Version: 1.0
-References: <cover.1689792825.git.tjeznach@rivosinc.com> <1fd79e5c53d9d6ed2264f60dd4261f293cc00472.1689792825.git.tjeznach@rivosinc.com>
- <d766f11f-45a6-9d47-3bfb-b3632a0b0f0b@linux.intel.com>
-In-Reply-To: <d766f11f-45a6-9d47-3bfb-b3632a0b0f0b@linux.intel.com>
-From: Tomasz Jeznach <tjeznach@rivosinc.com>
-Date: Thu, 20 Jul 2023 10:49:24 -0700
-Message-ID: <CAH2o1u4Y5R16QQsed4TuKKiv6ir+uWB98A3Z5adBaF8pPLQ5Eg@mail.gmail.com>
-Subject: Re: [PATCH 06/11] RISC-V: drivers/iommu/riscv: Add command, fault,
- page-req queues
-To: Baolu Lu <baolu.lu@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230720_104936_855207_28DB251B 
-X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-CacheID: sfid-20230720_105138_900810_4C7EC419 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,22 +67,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org, Robin Murphy <robin.murphy@arm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7097742757753697609=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdWwgMjAsIDIwMjMgYXQgNjoxOOKAr0FNIEJhb2x1IEx1IDxiYW9sdS5sdUBsaW51
-eC5pbnRlbC5jb20+IHdyb3RlOgo+Cj4gT24gMjAyMy83LzIwIDM6MzMsIFRvbWFzeiBKZXpuYWNo
-IHdyb3RlOgo+ID4gRW5hYmxlcyBtZXNzYWdlIG9yIHdpcmUgc2lnbmFsIGludGVycnVwdHMgZm9y
-IFBDSWUgYW5kIHBsYXRmb3JtcyBkZXZpY2VzLgo+Cj4gSWYgdGhpcyBwYXRjaCBjb3VsZCBiZSBk
-aXZpZGVkIGludG8gbXVsdGlwbGUgc21hbGwgcGF0Y2hlcywgZWFjaAo+IGxvZ2ljYWxseSBkb2lu
-ZyBvbmUgc3BlY2lmaWMgdGhpbmcsIGl0IHdpbGwgaGVscCBwZW9wbGUgYmV0dGVyIHJldmlldwo+
-IHRoZSBjb2RlLgo+CgphY2suIEkndmUgZ290IGEgc2ltaWxhciBjb21tZW50IHJlZ2FyZGluZyB0
-aGlzIHBhdGNoIGFscmVhZHkuCkkgd2lsbCBzcGxpdCBhbmQgYWRkIG1vcmUgbm90ZXMgdG8gdGhl
-IGNvbW1pdCBtZXNzYWdlLiBUaGFua3MuCgoKPiBCZXN0IHJlZ2FyZHMsCj4gYmFvbHUKPgoKCnJl
-Z2FyZHMsCi0gVG9tYXN6CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+
+--===============7097742757753697609==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="4bXhZdTSSFgD8sGV"
+Content-Disposition: inline
+
+
+--4bXhZdTSSFgD8sGV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hey Walker,
+
+I have picked up the patches that I can from the mailing list & they
+should appear in tomorrow's iteration of linux-next. Could you get your
+co-workers to resend whatever patches that depended on the syscons, PLLs
+or STG etc clocks?
+
+Some were still on patchwork, eg the TDM audio, that I could not apply &
+will need to be rebased. In particular, it'd be nice to get the eMMC
+patches resent, as what I could find on patchwork was quite old.
+
+You can see what I have applied here:
+https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/log/?h=riscv-dt-for-next
+
+Thanks,
+Conor.
+
+--4bXhZdTSSFgD8sGV
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLl0JgAKCRB4tDGHoIJi
+0h03AP0SU7cfBJBmALviE6o1egyzs8ggw/u4WWZoyZ4PRatjgQEAtH5n9M4MlmvM
++xOT2wF6m3zg+SR6mBSvQibPeG87mQk=
+=tRps
+-----END PGP SIGNATURE-----
+
+--4bXhZdTSSFgD8sGV--
+
+
+--===============7097742757753697609==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7097742757753697609==--
+
