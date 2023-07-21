@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82695EB64DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 16:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB6BC001DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 16:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tj+9tFC2K1BEecziXHogQBf+lWM3SSL6cknngvWH2RE=; b=3X9w6bcSFch5eJ
-	vzziURRRCt7MotLOFKKaWup5K2amMkpZLNXcfKl7K4nGuG0f6O2BXTtY/ZLNxOo41C0JKxfIaIBX5
-	zhUSKyTziZwKH+wsFXa0ggVhmlhWcHnS0L8Bfr2MZBDHsAneZ/Q+k+pq95GFwZX+rREMBEa5EmzjF
-	f/T57v+4uhyroe6eOrXkVDqJ2G2je/sYulpZb6RLD8qgbwmxj9J1AijzCY5Q4hbzqJhSCDYrRD5b5
-	rTGv6fq01ePEybRUwi0XXwNiRd3Q+ri1aLMi2f72Ar1a0Ow0eMzSpKyQ6MnCEerOqHPcbQXFcvEPG
-	N0spmS0SaH1QtHfBqfaw==;
+	List-Owner; bh=F7KEeZR9kLn1u5MXKWVfFp9H0jml2zMM5Rw4n1Zz5TU=; b=s7Ckes+SpChMQ8
+	3Km3QrgFsb841AWn/H9xz5WDSXeXH9dhYeQNe4LE/RZ+aA135fGXShH6Jaiax2qwXw4cZ8msubeKW
+	AgtDYksQ1GqV5OW+pc3ZgvcQ9M14B0hLgZQCxMfBGocsIsY04y3xil7sitJO4Nh2GXFfri9b6/iOe
+	P/6nfcSPdpMZiozxqbwlaNIhEC+el0kQhL21pC6e2f7QTHcSOZsTtBHUYcyXwMU3oX89rN/uGWHu3
+	6P1wmIZ57A4pwgoAHj5n0OJR6YAqGLylq/JU742JECfzxxAJAwr4DGlrI9xRJ8CQiiYsTIh8YWJ1Z
+	f+mAzGwW1cxwWP9BLwWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMsYm-00EVhP-2J;
-	Fri, 21 Jul 2023 16:00:52 +0000
+	id 1qMsgY-00EX63-1k;
+	Fri, 21 Jul 2023 16:08:54 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMsYj-00EVfg-27
+	id 1qMsgW-00EX5W-0G
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 16:00:51 +0000
+	Fri, 21 Jul 2023 16:08:53 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B7F1961C5B;
-	Fri, 21 Jul 2023 16:00:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2B74C433C7;
-	Fri, 21 Jul 2023 16:00:44 +0000 (UTC)
-Date: Fri, 21 Jul 2023 12:00:40 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Alexander Lobakin <aleksander.lobakin@intel.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, LKML
- <linux-kernel@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>, "James E.J.
- Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
- <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, "Benjamin
- Herrenschmidt" <benh@kernel.crashing.org>, Paul Mackerras
- <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Thomas
- Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
- <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf
- <jpoimboe@redhat.com>, "Jiri Kosina" <jikos@kernel.org>, Miroslav Benes
- <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, Joe Lawrence
- <joe.lawrence@redhat.com>, Colin Ian King <colin.king@canonical.com>,
- Masami Hiramatsu <mhiramat@kernel.org>, "Nicholas Piggin"
- <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
- <linux-csky@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
- <linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
- <live-patching@vger.kernel.org>, =?UTF-8?B?546L6LSH?=
- <yun.wang@linux.alibaba.com>, Guo Ren <guoren@kernel.org>, Jakub Kicinski
- <kuba@kernel.org>
-Subject: Re: [PATCH] tracing: Have all levels of checks prevent recursion
-Message-ID: <20230721120040.6ed2c02a@gandalf.local.home>
-In-Reply-To: <1b402c0c-1beb-d93f-ff6d-955350995ca3@intel.com>
-References: <20211015110035.14813389@gandalf.local.home>
-	<20211015161702.GF174703@worktop.programming.kicks-ass.net>
-	<20211015133504.6c0a9fcc@gandalf.local.home>
-	<20211015135806.72d1af23@gandalf.local.home>
-	<20211015180429.GK174703@worktop.programming.kicks-ass.net>
-	<20211015142033.72605b47@gandalf.local.home>
-	<20211015142541.4badd8a9@gandalf.local.home>
-	<1b402c0c-1beb-d93f-ff6d-955350995ca3@intel.com>
-X-Mailer: Claws Mail 3.19.1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 357B861D29
+	for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 16:08:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98634C43391
+	for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 16:08:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689955730;
+	bh=aFVATYbnHbXl+l/aXY946VlByUUM/RJ2gC+IwOCTwNw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=tzdHW6zWPwp4AgsuyQ5HxWoNFyI7xT0WtDW/oT93THjgq9F1kGpoUHW6PHgpX/Dbv
+	 cHrGuupwj2nmxqlceLkgfOIK4mjW5sQXt6ZsDOj7xZhptco1KtiUCNLTikflDgoW4S
+	 xtmCvfJofarYh4i3g7YUHeTGSlasGWyKrnhBuCDC+3q95a1OtsEhiDXCYBpAJK/9Z2
+	 pZ67cgiULI8dFMNzALoJ0pbgoyLtw3c1sjpGkDlC/vi/+ZhY28dwd0p29UAoQE7wSw
+	 YAmhntfEm/bbOrRYIrdGbFg1AuIBjwKO+/hS0/s8LRAISAU3oSAs+CAWrBn47JTYl4
+	 Au1gehkWyrvaw==
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-992f15c36fcso331908566b.3
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 09:08:50 -0700 (PDT)
+X-Gm-Message-State: ABy/qLbpiIaQUZAbc3ijSTP80TW12ESH9hSDW8nFaMSAJ0MqRwYMPjIJ
+	21I00mxJ+PMGJWbvVxvF/saNhq6LPJW5ZRtZF3Q=
+X-Google-Smtp-Source: APBJJlFzx8ZYFFr2o+NPKH3p58vjaLT9QNxTJBi8tIkxzVzR9iKmIT333myWzMMGD/LRl9RKizHNRUsBu66ZOvoJM5M=
+X-Received: by 2002:a17:906:100c:b0:99b:518a:9de with SMTP id
+ 12-20020a170906100c00b0099b518a09demr1982530ejm.42.1689955728742; Fri, 21 Jul
+ 2023 09:08:48 -0700 (PDT)
 MIME-Version: 1.0
+References: <20230721145121.1854104-1-guoren@kernel.org> <5e5be2d4-c563-6beb-b5f5-df47edeebc83@ghiti.fr>
+In-Reply-To: <5e5be2d4-c563-6beb-b5f5-df47edeebc83@ghiti.fr>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 22 Jul 2023 00:08:36 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQMAVUtC6_ftEwp=EeYR_O7yzfGYmxwrqcO6+hn2J32bA@mail.gmail.com>
+Message-ID: <CAJF2gTQMAVUtC6_ftEwp=EeYR_O7yzfGYmxwrqcO6+hn2J32bA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: mm: Fixup spurious fault of kernel vaddr
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: palmer@rivosinc.com, paul.walmsley@sifive.com, falcon@tinylab.org, 
+	bjorn@kernel.org, conor.dooley@microchip.com, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_090049_795173_55F8B297 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20230721_090852_222319_3CD43995 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,119 +80,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Jul 2023 17:34:41 +0200
-Alexander Lobakin <aleksander.lobakin@intel.com> wrote:
-
-> From: Steven Rostedt <rostedt@goodmis.org>
-> Date: Fri, 15 Oct 2021 14:25:41 -0400
-> 
-> Sorry for such a necroposting :z
-> Just wanted to know if this is a bug, so that I could send a fix, or
-> intended behaviour.
-> 
-> > On Fri, 15 Oct 2021 14:20:33 -0400
-> > Steven Rostedt <rostedt@goodmis.org> wrote:
-> >   
-> >>> I think having one copy of that in a header is better than having 3
-> >>> copies. But yes, something along them lines.    
-> >>
-> >> I was just about to ask you about this patch ;-)  
-> > 
-> > Except it doesn't build :-p (need to move the inlined function down a bit)
-> > 
-> > diff --git a/include/linux/preempt.h b/include/linux/preempt.h
-> > index 4d244e295e85..b32e3dabe28b 100644
-> > --- a/include/linux/preempt.h
-> > +++ b/include/linux/preempt.h
-> > @@ -77,6 +77,27 @@
-> >  /* preempt_count() and related functions, depends on PREEMPT_NEED_RESCHED */
-> >  #include <asm/preempt.h>
-> >  
-> > +/**
-> > + * interrupt_context_level - return interrupt context level
-> > + *
-> > + * Returns the current interrupt context level.
-> > + *  0 - normal context
-> > + *  1 - softirq context
-> > + *  2 - hardirq context
-> > + *  3 - NMI context
-> > + */
-> > +static __always_inline unsigned char interrupt_context_level(void)
-> > +{
-> > +	unsigned long pc = preempt_count();
-> > +	unsigned char level = 0;
-> > +
-> > +	level += !!(pc & (NMI_MASK));
-> > +	level += !!(pc & (NMI_MASK | HARDIRQ_MASK));
-> > +	level += !!(pc & (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET));  
-> 
-> This doesn't take into account that we can switch the context manually
-> via local_bh_disable() / local_irq_save() etc. During the testing of the
-
-You cannot manually switch interrupt context.
-
-> separate issue[0], I've found that the function returns 1 in both just
-> softirq and softirq under local_irq_save().
-> Is this intended? Shouldn't that be
-
-That is intended behavior.
-
-local_bh_disable() and local_irq_save() is not a context switch. It is just
-preventing that context from happening. The interrupt_context_level() is to
-tell us what context we are running in, not what context is disabled.
-
-> 
-> 	level += !!(pc & (NMI_MASK));
-> 	level += !!(pc * (NMI_MASK | HARDIRQ_MASK)) || irqs_disabled();
-> 	level += !!(pc * (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET)) ||
-> 		 in_atomic();
-> 
-> ?
-> Otherwise, the result it returns is not really "context level".
-
-local_bh_disable() use to (and perhaps still does in some configurations)
-confuse things. But read the comment in kernel/softirq.c
-
-/*
- * SOFTIRQ_OFFSET usage:
- *
- * On !RT kernels 'count' is the preempt counter, on RT kernels this applies
- * to a per CPU counter and to task::softirqs_disabled_cnt.
- *
- * - count is changed by SOFTIRQ_OFFSET on entering or leaving softirq
- *   processing.
- *
- * - count is changed by SOFTIRQ_DISABLE_OFFSET (= 2 * SOFTIRQ_OFFSET)
- *   on local_bh_disable or local_bh_enable.
- *
- * This lets us distinguish between whether we are currently processing
- * softirq and whether we just have bh disabled.
- */
-
-Just because you disable interrupts does not mean you are in interrupt
-context.
-
--- Steve
-
-
-> 
-> > +
-> > +	return level;
-> > +}
-> > +  
-> [0]
-> https://lore.kernel.org/netdev/b3884ff9-d903-948d-797a-1830a39b1e71@intel.com
-> 
-> Thanks,
-> Olek
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKdWwgMjEsIDIwMjMgYXQgMTE6MTnigK9QTSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhA
+Z2hpdGkuZnI+IHdyb3RlOgo+Cj4KPiBPbiAyMS8wNy8yMDIzIDE2OjUxLCBndW9yZW5Aa2VybmVs
+Lm9yZyB3cm90ZToKPiA+IEZyb206IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4K
+PiA+Cj4gPiBSSVNDLVYgc3BlY2lmaWNhdGlvbiBwZXJtaXRzIHRoZSBjYWNoaW5nIG9mIFBURXMg
+d2hvc2UgViAoVmFsaWQpCj4gPiBiaXQgaXMgY2xlYXIuIE9wZXJhdGluZyBzeXN0ZW1zIG11c3Qg
+YmUgd3JpdHRlbiB0byBjb3BlIHdpdGggdGhpcwo+ID4gcG9zc2liaWxpdHksIGJ1dCBpbXBsZW1l
+bnRlcnMgYXJlIHJlbWluZGVkIHRoYXQgZWFnZXJseSBjYWNoaW5nCj4gPiBpbnZhbGlkIFBURXMg
+d2lsbCByZWR1Y2UgcGVyZm9ybWFuY2UgYnkgY2F1c2luZyBhZGRpdGlvbmFsIHBhZ2UKPiA+IGZh
+dWx0cy4KPiA+Cj4gPiBTbyB3ZSBtdXN0IGtlZXAgdm1hbGxvY19mYXVsdCBmb3IgdGhlIHNwdXJp
+b3VzIHBhZ2UgZmF1bHRzIG9mIGtlcm5lbAo+ID4gdmlydHVhbCBhZGRyZXNzIGZyb20gYW4gT29P
+IG1hY2hpbmUuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFs
+aWJhYmEuY29tPgo+ID4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+
+Cj4gPiAtLS0KPiA+ICAgYXJjaC9yaXNjdi9tbS9mYXVsdC5jIHwgMyArLS0KPiA+ICAgMSBmaWxl
+IGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAyIGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMgYi9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMKPiA+IGlu
+ZGV4IDg1MTY1ZmU0MzhkOC4uZjY2MmM5ZWFlN2Q0IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNj
+di9tbS9mYXVsdC5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMKPiA+IEBAIC0yNTgs
+OCArMjU4LDcgQEAgdm9pZCBoYW5kbGVfcGFnZV9mYXVsdChzdHJ1Y3QgcHRfcmVncyAqcmVncykK
+PiA+ICAgICAgICAqIG9ubHkgY29weSB0aGUgaW5mb3JtYXRpb24gZnJvbSB0aGUgbWFzdGVyIHBh
+Z2UgdGFibGUsCj4gPiAgICAgICAgKiBub3RoaW5nIG1vcmUuCj4gPiAgICAgICAgKi8KPiA+IC0g
+ICAgIGlmICgoIUlTX0VOQUJMRUQoQ09ORklHX01NVSkgfHwgIUlTX0VOQUJMRUQoQ09ORklHXzY0
+QklUKSkgJiYKPiA+IC0gICAgICAgICB1bmxpa2VseShhZGRyID49IFZNQUxMT0NfU1RBUlQgJiYg
+YWRkciA8IFZNQUxMT0NfRU5EKSkgewo+ID4gKyAgICAgaWYgKHVubGlrZWx5KGFkZHIgPj0gVEFT
+S19TSVpFKSkgewo+ID4gICAgICAgICAgICAgICB2bWFsbG9jX2ZhdWx0KHJlZ3MsIGNvZGUsIGFk
+ZHIpOwo+ID4gICAgICAgICAgICAgICByZXR1cm47Cj4gPiAgICAgICB9Cj4KPgo+IENhbiB5b3Ug
+c2hhcmUgd2hhdCB5b3UgYXJlIHRyeWluZyB0byBmaXggaGVyZT8KV2UgbWV0IGEgc3B1cmlvdXMg
+cGFnZSBmYXVsdCBwYW5pYyBvbiBhbiBPb08gbWFjaGluZS4KCjEuIFRoZSBwcm9jZXNzb3Igc3Bl
+Y3VsYXRpdmUgZXhlY3V0aW9uIGJyaW5ncyB0aGUgVj0wIGVudHJpZXMgaW50byB0aGUKVExCIGlu
+IHRoZSBrZXJuZWwgdmlydHVhbCBhZGRyZXNzLgoyLiBMaW51eCBrZXJuZWwgaW5zdGFsbHMgdGhl
+IGtlcm5lbCB2aXJ0dWFsIGFkZHJlc3Mgd2l0aCB0aGUgcGFnZSwgYW5kIFY9MQozLiBXaGVuIGtl
+cm5lbCBjb2RlIGFjY2VzcyB0aGUga2VybmVsIHZpcnR1YWwgYWRkcmVzcywgaXQgd291bGQgcmFp
+c2UKYSBwYWdlIGZhdWx0IGFzIHRoZSBWPTAgZW50cnkgaW4gdGhlIHRsYi4KNC4gTm8gdm1hbGxv
+Y19mYXVsdCwgdGhlbiBwYW5pYy4KCj4KPiBJIGhhdmUgYSBmaXggKHRoYXQncyBjdXJyZW50bHkg
+cnVubmluZyBvdXIgQ0kpIGZvciBjb21taXQgN2QzMzMyYmUwMTFlCj4gKCJyaXNjdjogbW06IFBy
+ZS1hbGxvY2F0ZSBQR0QgZW50cmllcyBmb3Igdm1hbGxvYy9tb2R1bGVzIGFyZWEiKSB0aGF0Cj4g
+aW1wbGVtZW50cyBmbHVzaF9jYWNoZV92bWFwKCkgc2luY2Ugd2UgbG9zdCB0aGUgdm1hbGxvY19m
+YXVsdC4KQ291bGQgeW91IHNoYXJlIHRoYXQgcGF0Y2g/Cgo+CgoKLS0gCkJlc3QgUmVnYXJkcwog
+R3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
