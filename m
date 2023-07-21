@@ -4,111 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1DA7EB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 11:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 500D2EB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 12:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O9bDsg8q3t0iSXPIwCdq+mIFbqWhbovyTKJSFBcLiF4=; b=lLRikfczqtnKAw
-	/A/7NSbtivDKNFwhDnbelQUz6OEAEof6BOzYTgq/yskl8NuMxtb3THywWrh6LXG1gkxjTNvaaMnfQ
-	BEuL5oeZhnQabx+evM5RACoTn2LI8sWELm+H8nVJOZU6OlSxw9yriMDUtBCaMqpRsUPqyuTs0M+q3
-	C3dbOcaaf1pfEHtp6xFE6SszV5HyL/3MHUu6u/hGJ0eBZyEbTkYRmTppm7bVxudlmSsRkYZ2Hg18o
-	LYJg630hNtI7q0tUeE1qPiSgeZIZvSccKIdG+kjcKbwjQFw+L330OWUqAa3a41BM6mYQaNzD7a1+P
-	ZJyLBUbPanha0/M0OgCA==;
+	List-Owner; bh=1lYgOu4Tu+xhSUApb+UzcWOmTbKJzYsBr5PuSP+HIms=; b=4ajIySvNcaCZ0+
+	r1TF09Xf8Zb2sZcSnHgEtU8ioUn2aliOmCdWMDmLYRyz4vOxC/mHarw7Ek7L0Z6ecL+1lOqiaVM6H
+	fWMZTIoi97vN4gomC9IlFMZPVOkSlsMM1ENqxkzk82syVkpX9rhlwkiKsT71coekFdYB43YdRLyP0
+	sCO6VM9AKeH9TDqEX36wANPHPhWwbbodjn+DpCLisuKQdaIjuXs+vWx6BiUqbR8Mx5/b3Vo4ZscQA
+	d1C00oGXmQclLAVMwS8LEtSJUyxjCRzfLtCn4NNfRVqIsX/0nj25e8KrEBYyvfiF6XioFP9s0T/C0
+	hzTBxjJAkb51xrKFwCZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMonV-00DzWd-27;
-	Fri, 21 Jul 2023 11:59:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1qMpJu-00E3LJ-1Y;
+	Fri, 21 Jul 2023 12:33:18 +0000
+Received: from mailrelay4-1.pub.mailoutpod2-cph3.one.com ([2a02:2350:5:403::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMonS-00DzQW-1n
+	id 1qMpJq-00E3Jy-0K
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 11:59:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1689940782;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4Y7rbnaDJbn/YejSF4mQVA8Z4grlfMZHjKPnDFxLZ8A=;
-	b=NLYxJ/tI375ddfrYE69u4PU4Z9h7i6tOguCLsIe+/EncQBl2Aqsf93Gj2dpLFHHmIJWLvd
-	wEHK9+sHYSWQpfB86rX4TB+P5e6nKB+99bnGoy9jC96Rwt1F2pOlKeFgF426rwViuud1tV
-	rJFa43qXP2DG3tN66TNOfIOxNbBopgE=
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
- [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-503-r-eThFJ5P8KDQB5sjqFULg-1; Fri, 21 Jul 2023 07:59:41 -0400
-X-MC-Unique: r-eThFJ5P8KDQB5sjqFULg-1
-Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-97542592eb9so118381866b.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 04:59:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689940780; x=1690545580;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4Y7rbnaDJbn/YejSF4mQVA8Z4grlfMZHjKPnDFxLZ8A=;
-        b=Gju4MAirmEwBD/bfQPE+4Lk66I608Jww7wfUIUdeSpVhGhZnv1NbuK6XvxlXr39vfx
-         7rwunlQ15Z+ETrqQRhTsn5jug9Dpw6C1BDMT7OrGF2BkX1AqNVMq8uI0zaaJ+9C6j8sr
-         rqlMCtLsTvqRuII9eHv8kLpFm2RGsEiNNgojdCj52i7TBZGeOc4FMO5HHfDOjtQ/w/4k
-         caLb+qU7CLzPsiUrGZJrhPLtoD3gJTd6hmUsg88cKtfNAsKIUOg23sHYKyvk4YWf8wJ5
-         MlWKNitipuSKMl0OxlYCcanxzu3SX+GCFDhC/qLTeUtnOjnfqMzqIR0ULg2Kpvufy0YQ
-         vJyA==
-X-Gm-Message-State: ABy/qLZeXlpLu1SLyQZ4VX1Qn0nNupeOEd/Ex1oa3u/latt8SKT250mC
-	58X2CpcoK7Jbe9okv4ge3z4snuoqyKFSAj+26uRv90k2N/Q8pwhB0V4FkVU3L8d8q2QT1Vgytda
-	WfXqntZ2GxVQPb8bU/LieIcstEYn0
-X-Received: by 2002:a17:906:2da:b0:994:54af:e282 with SMTP id 26-20020a17090602da00b0099454afe282mr1360628ejk.10.1689940780003;
-        Fri, 21 Jul 2023 04:59:40 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlEk/l1rT7vVGyK6B+M0/vN6OF6CipTv2G0AE0UWGqg9sgFPNWcoUSGmc+Sw2v1G9OPem3PIcQ==
-X-Received: by 2002:a17:906:2da:b0:994:54af:e282 with SMTP id 26-20020a17090602da00b0099454afe282mr1360600ejk.10.1689940779630;
-        Fri, 21 Jul 2023 04:59:39 -0700 (PDT)
-Received: from ?IPV6:2001:b07:6468:f312:9af8:e5f5:7516:fa89? ([2001:b07:6468:f312:9af8:e5f5:7516:fa89])
-        by smtp.googlemail.com with ESMTPSA id um15-20020a170906cf8f00b00992b3ea1ee3sm2078970ejb.159.2023.07.21.04.59.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Jul 2023 04:59:38 -0700 (PDT)
-Message-ID: <6118063e-5c91-acc4-129f-3bacc19f25ce@redhat.com>
-Date: Fri, 21 Jul 2023 13:59:36 +0200
+	Fri, 21 Jul 2023 12:33:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ravnborg.org; s=rsa1;
+	h=in-reply-to:content-transfer-encoding:content-type:mime-version:references:
+	 message-id:subject:cc:to:from:date:from;
+	bh=EmK+s79iHYSMxKUHHFzMSHP5Gr4Y9HLSftbd9Ecs9V0=;
+	b=GoV3E7VTyj3jSak4WVapZnXdBDXUXPW7O/DjDQR67JvQSlDg0E6Z+7U2EJW2wSazWNIl+zv+6Wa/J
+	 Oko9BnChqt1i54NKNZoPyniQnmVclXhem4i6z8bBp6NtJIPaQD7+wnhOz/akOwwRa2ZC0ssNMMwmF5
+	 lNENAy8IzMfy97Ci9nY0MdxDviT9U14WA79crnQh6+4/WN84/8V8IqtRI1v5NfAxNuRyjSyPsveGoD
+	 tEtb6CyFzXVKij6+gOWLHJl7ZDtkINx+IZzIi9oHL7+60126NBJkga/kfzfjljAZB/5ubdRQDZFbeQ
+	 /Y4JIVvzIWYXtPd+u2V+2lGM6a3C9eQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed;
+	d=ravnborg.org; s=ed1;
+	h=in-reply-to:content-transfer-encoding:content-type:mime-version:references:
+	 message-id:subject:cc:to:from:date:from;
+	bh=EmK+s79iHYSMxKUHHFzMSHP5Gr4Y9HLSftbd9Ecs9V0=;
+	b=9xOKpGptgdPeXrLkjWh5r4V21or4l5WCdvZcs1Z3pKTNr83EHudOHcfJcC9y10AUYCZx4y9WENCOj
+	 5kj+Y/MAQ==
+X-HalOne-ID: b8a6ca80-27c2-11ee-9464-592bb1efe9dc
+Received: from ravnborg.org (2-105-2-98-cable.dk.customer.tdc.net [2.105.2.98])
+	by mailrelay4 (Halon) with ESMTPSA
+	id b8a6ca80-27c2-11ee-9464-592bb1efe9dc;
+	Fri, 21 Jul 2023 12:33:00 +0000 (UTC)
+Date: Fri, 21 Jul 2023 14:32:58 +0200
+From: Sam Ravnborg <sam@ravnborg.org>
+To: Keith Zhao <keith.zhao@starfivetech.com>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Shengyang Chen <shengyang.chen@starfivetech.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Maxime Ripard <mripard@kernel.org>, Jagan Teki <jagan@edgeble.ai>,
+	Rob Herring <robh+dt@kernel.org>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>,
+	Jack Zhu <jack.zhu@starfivetech.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Shawn Guo <shawnguo@kernel.org>, christian.koenig@amd.com
+Subject: Re: [PATCH 6/9] drm/verisilicon: Add drm crtc funcs
+Message-ID: <20230721123258.GA337946@ravnborg.org>
+References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
+ <20230602074043.33872-7-keith.zhao@starfivetech.com>
+ <07cc89a5-5200-72e6-f078-694c5820a99a@suse.de>
+ <a8c51143-01cb-a95f-bfbd-16827325934e@starfivetech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [RFC PATCH v11 09/29] KVM: x86: Disallow hugepages when memory
- attributes are mixed
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
- Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
- Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-10-seanjc@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <20230718234512.1690985-10-seanjc@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <a8c51143-01cb-a95f-bfbd-16827325934e@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_045946_668693_185E3AB0 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20230721_053315_511921_AD84DADD 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,51 +94,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/19/23 01:44, Sean Christopherson wrote:
-> +static bool range_has_attrs(struct kvm *kvm, gfn_t start, gfn_t end,
-> +			    unsigned long attrs)
-> +{
-> +	XA_STATE(xas, &kvm->mem_attr_array, start);
-> +	unsigned long index;
-> +	bool has_attrs;
-> +	void *entry;
-> +
-> +	rcu_read_lock();
-> +
-> +	if (!attrs) {
-> +		has_attrs = !xas_find(&xas, end);
-> +		goto out;
-> +	}
-> +
-> +	has_attrs = true;
-> +	for (index = start; index < end; index++) {
-> +		do {
-> +			entry = xas_next(&xas);
-> +		} while (xas_retry(&xas, entry));
-> +
-> +		if (xas.xa_index != index || xa_to_value(entry) != attrs) {
-> +			has_attrs = false;
-> +			break;
-> +		}
-> +	}
-> +
-> +out:
-> +	rcu_read_unlock();
-> +	return has_attrs;
-> +}
-> +
+Hi Keith,
+On Fri, Jul 21, 2023 at 07:57:24PM +0800, Keith Zhao wrote:
+> >> +
+> >> +struct vs_crtc_funcs {
+> >> +=A0=A0=A0 void (*enable)(struct device *dev, struct drm_crtc *crtc);
+> >> +=A0=A0=A0 void (*disable)(struct device *dev, struct drm_crtc *crtc);
+> >> +=A0=A0=A0 bool (*mode_fixup)(struct device *dev,
+> >> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 const struct drm_display_m=
+ode *mode,
+> >> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 struct drm_display_mode *a=
+djusted_mode);
+> >> +=A0=A0=A0 void (*set_gamma)(struct device *dev, struct drm_crtc *crtc,
+> >> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 struct drm_color_lut *lut, un=
+signed int size);
+> >> +=A0=A0=A0 void (*enable_gamma)(struct device *dev, struct drm_crtc *c=
+rtc,
+> >> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 bool enable);
+> >> +=A0=A0=A0 void (*enable_vblank)(struct device *dev, bool enable);
+> >> +=A0=A0=A0 void (*commit)(struct device *dev);
+> >> +};
+> > =
 
-Can you move this function to virt/kvm/kvm_main.c?
+> > Why is this here? You are reproducing our interface with an internal in=
+terface. I know where this leads to: you have multiple chipset revisions an=
+d each has its own implemenation of these internal interfaces.
+> > =
 
-Thanks,
+> > That will absolutely come back to haunt you in the long rung: the more =
+chip revisions you support, the more obscure these internal interfaces and =
+implentations become. And you won't be able to change these callbacks, as t=
+hat affects all revisions. We've seen this with a few drivers. It will beco=
+me unmaintainable.
+> > =
 
-Paolo
+> > A better approach is to treat DRM's atomic callback funcs and atomic he=
+lper funcs as your interface for each chip revision. So for each model, you=
+ implement a separate modesetting pipeline. When you add a new chip revisio=
+n, you copy the previous chip's code into a new file and adopt it. If you f=
+ind comon code among individual revisions, you can put it into a shared hel=
+per.=A0 With this design, each chip revision stands on its own.
+> > =
 
+> > I suggest to study the mgag200 driver. It detects the chip revision ver=
+y early and builds a chip-specific modesetting pipline. Although each chip =
+is handled separately, a lot of shared code is in helpers. So the size of t=
+he driver remains small.
+> > =
+
+> hi Thomas:
+> I'm trying to understand what you're thinking
+
+I am not Thomas, but let me try to put a few words on this.
+
+> 1. Different chip ids should have their own independent drm_dev, and shou=
+ld not be supported based on a same drm_dev.
+Yes, this part is correct understood.
+
+> 2. diff chip id , for example dc8200 , dc9000,
+> =
+
+> struct vs_crtc_funcs {
+> 	void (*enable)(struct device *dev, struct drm_crtc *crtc);
+> 	void (*disable)(struct device *dev, struct drm_crtc *crtc);
+> 	bool (*mode_fixup)(struct device *dev,
+> 			   const struct drm_display_mode *mode,
+> 			   struct drm_display_mode *adjusted_mode);
+> 	void (*set_gamma)(struct device *dev, struct drm_crtc *crtc,
+> 			  struct drm_color_lut *lut, unsigned int size);
+> 	void (*enable_gamma)(struct device *dev, struct drm_crtc *crtc,
+> 			     bool enable);
+> 	void (*enable_vblank)(struct device *dev, bool enable);
+> 	void (*commit)(struct device *dev);
+> };
+No - the idea is that you populate crtc_funcs direct.
+Drop struct vs_crtc_funcs - just fill out your own crtc_funcs structure.
+
+If it turns out that most of the crtc operations are the same then share
+them. Avoid the extra layer of indirection that you have with struct vs_crt=
+c_funcs
+as this is not needed when you use the pattern described by Thomas.
+
+
+> static const struct vs_crtc_funcs vs_dc8200_crtc_funcs =3D {...}
+> static const struct vs_crtc_funcs vs_dc9200_crtc_funcs =3D {...}
+> =
+
+> struct vs_drm_private {
+> 	struct drm_device base;
+> 	struct device *dma_dev;
+> 	struct iommu_domain *domain;
+> 	unsigned int pitch_alignment;
+
+This parts looks fine.
+
+> =
+
+> 	const struct vs_crtc_funcs *funcs;
+No, here you need a pointer to struct crtc_funcs or a struct that embeds
+crtc_funcs.
+> };
+
+If you, after reading this, thinks you need struct vs_crtc_funcs, then
+try to take an extra look at mgag200. It is not needed.
+
+I hope this helps.
+
+	Sam
 
 _______________________________________________
 linux-riscv mailing list
