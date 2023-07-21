@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EED4C001DE
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 22:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20695EB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 22:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aj1KVGscTn6nJkGgFSYdnV0CUA87M1A/UL1pprD9VMY=; b=0pECMWILDACalT
-	uaNw7q60/8RfJ5lZKWrrXuSSqkwVW9Vev6vQ/ktya35/CbuzP1nWccQZDafUX/4jjOBj4TEeAw20a
-	PoG3/I16UO/T+UYIyYD1eCJbJ1vqIVmbZ7ogJL13DKBUbQUT4h5cGRL2Snd1CFojxSn1XCAPcVdFy
-	fCBOJbeTJrlETrRZXsOWNE/bqTPG4Vcw4BLKj7hI0oudsNgarlLs1emIkDiyApR3yYof/a9afGQjy
-	QOnl24YQze1bgRQYcobq7RuTfmffoT3UGyfhT7GrzUeSxzNqvSPkHHdN7UBDLwtfyEcNZbOf5Hl53
-	Aqgjrv3En/Rt/Zj/XCIA==;
+	List-Owner; bh=O8OkN+4yVg1Wk++ew9XVYwhdkl0aVwSu5bXm4Fbhk+Y=; b=NPGrDQk/pHZRtr
+	/WRNTk8iYwRbPZOenPUj03hEnT1puLoRPTfQrNMV1jEnfkFCgqF/5TC7eK7NlrVMlel4EIOWcpIoz
+	6/cAE1u42ySQ/yZ3szwGBwoXdI48zxBT6jiLrrFIQWf8ESjYbFZmqE9cE8OeZA/HgfTgK1/qx0Zgx
+	SewP5jSYf+7EbSBwtXIN/2LxKnIBnQFXaY6BQyd0NXPXFDWZezyb/7MMujR7HpqtTTw+lR1EOHMqd
+	GKDgg8gWnKbvxJ5dIdLZoDbcN86Di0pRgrurBWqfwhlILB/zWMkhlZcoE6VC8O0ymA46hr7UTnq41
+	gFaG9LWOX2uBnw7p9AEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMyRC-00FFdi-1x;
-	Fri, 21 Jul 2023 22:17:26 +0000
-Received: from out-14.mta0.migadu.com ([91.218.175.14])
+	id 1qMyRD-00FFeP-1K;
+	Fri, 21 Jul 2023 22:17:27 +0000
+Received: from out-26.mta0.migadu.com ([2001:41d0:1004:224b::1a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMyR9-00FFV3-1K
+	id 1qMyR9-00FFWQ-1L
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 22:17:24 +0000
+	Fri, 21 Jul 2023 22:17:26 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
-	t=1689977814;
+	t=1689977820;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=i8V7IVCzXvQ6XGySh6Ck14V+DjdeQUJghLQf/W+Pqwc=;
-	b=0W0U/GT0SbHueJkHt3BR0jUMuIhycCoabty8TdgDcWU1WsD01G4yN21m8enKzd5i7I23Of
-	zq5/9ObfINIDztVU/dkNPuH545rXOAoOEC9qWRJGya925xngV3A2ojquTOGxtuSJ290Z4J
-	Lb6KAIBgWX8LTczvY5PDb1DZsYpgbgOttwKgQRkmLdbzXPAA5SqyQ9OWmEmPdIUuuCCz4h
-	6ysAK1G9f4VPxgfHPWj20BUXMg+2JhOd1FNzNw/ldyVjRIz24lL3TqI2Y8q8X5jVSXDy5V
-	eO5g6HYTI4UFbvyAEyNoc72MqlfCEtNhCtzXz5PZQT0xv82KFHdz4bH9WPbvkQ==
+	bh=g1Ehlui/zcIjjP1/gHDqt+MdaJf0yv94ClZD62kHOg8=;
+	b=JyMK3ClfIc8quJPdjOxg1ypAPste7MSbrwQ5ftLnGQdSLJhcFGtiBy28qlMh1+k6gcDKIY
+	UHNhfu/Kj/9HlP302JtWHQHetm/VDogr6bHcEkAPpitxEZuEco70n2JMDTwz2VJ2xFiOPQ
+	dJs920SP0QKOKC48832jHUmgY6sqlsDhZZ3FXgKws+rizcw4jbawahYG7uHuONwEjPLB15
+	4k4wY3JEnWDei0+sI7PZOXbCQTe0Sx4BhMOLCZQ8aXGaptAvNdQdo9Ndn23kNelKNWvAOk
+	iHZ13p9YvdFc4l5RVGbrm6f0d2aNQewX+lDk4p8DewzDdevDn+n1flyT3vQcKg==
 From: John Watts <contact@jookia.org>
 To: linux-sunxi@lists.linux.dev
 Cc: Wolfgang Grandegger <wg@grandegger.com>,
@@ -64,17 +64,16 @@ Cc: Wolfgang Grandegger <wg@grandegger.com>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	John Watts <contact@jookia.org>
-Subject: [PATCH v2 2/4] riscv: dts: allwinner: d1: Add CAN controller nodes
-Date: Sat, 22 Jul 2023 08:15:51 +1000
-Message-ID: <20230721221552.1973203-4-contact@jookia.org>
+Subject: [PATCH v2 3/4] can: sun4i_can: Add acceptance register quirk
+Date: Sat, 22 Jul 2023 08:15:52 +1000
+Message-ID: <20230721221552.1973203-5-contact@jookia.org>
 In-Reply-To: <20230721221552.1973203-2-contact@jookia.org>
 References: <20230721221552.1973203-2-contact@jookia.org>
 MIME-Version: 1.0
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_151723_598655_78C494B4 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230721_151723_598655_7ED9C7B9 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,68 +90,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Allwinner D1, T113 provide two CAN controllers that are variants
-of the R40 controller.
-
-I have tested support for these controllers on two boards:
-
-- A Lichee Panel RV 86 Panel running a D1 chip
-- A Mango Pi MQ Dual running a T113-s3 chip
-
-Both of these fully support both CAN controllers.
+The Allwinner D1's CAN controllers have the ACPC and ACPM registers
+moved down. Compensate for this by adding an offset quirk for the
+acceptance registers.
 
 Signed-off-by: John Watts <contact@jookia.org>
 ---
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 30 +++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ drivers/net/can/sun4i_can.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-index 1bb1e5cae602..4086c0cc0f9d 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-@@ -131,6 +131,18 @@ uart3_pb_pins: uart3-pb-pins {
- 				pins = "PB6", "PB7";
- 				function = "uart3";
- 			};
-+
-+			/omit-if-no-ref/
-+			can0_pins: can0-pins {
-+				pins = "PB2", "PB3";
-+				function = "can0";
-+			};
-+
-+			/omit-if-no-ref/
-+			can1_pins: can1-pins {
-+				pins = "PB4", "PB5";
-+				function = "can1";
-+			};
- 		};
- 
- 		ccu: clock-controller@2001000 {
-@@ -879,5 +891,23 @@ rtc: rtc@7090000 {
- 			clock-names = "bus", "hosc", "ahb";
- 			#clock-cells = <1>;
- 		};
-+
-+		can0: can@2504000 {
-+			compatible = "allwinner,sun20i-d1-can";
-+			reg = <0x02504000 0x400>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(21) IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_CAN0>;
-+			resets = <&ccu RST_BUS_CAN0>;
-+			status = "disabled";
-+		};
-+
-+		can1: can@2504400 {
-+			compatible = "allwinner,sun20i-d1-can";
-+			reg = <0x02504400 0x400>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(22) IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_CAN1>;
-+			resets = <&ccu RST_BUS_CAN1>;
-+			status = "disabled";
-+		};
- 	};
+diff --git a/drivers/net/can/sun4i_can.c b/drivers/net/can/sun4i_can.c
+index 0827830bbf28..1f90fe6dbb8b 100644
+--- a/drivers/net/can/sun4i_can.c
++++ b/drivers/net/can/sun4i_can.c
+@@ -205,9 +205,11 @@
+  * struct sun4ican_quirks - Differences between SoC variants.
+  *
+  * @has_reset: SoC needs reset deasserted.
++ * @acp_offset: Offset of ACPC and ACPM registers
+  */
+ struct sun4ican_quirks {
+ 	bool has_reset;
++	int acp_offset;
  };
+ 
+ struct sun4ican_priv {
+@@ -216,6 +218,7 @@ struct sun4ican_priv {
+ 	struct clk *clk;
+ 	struct reset_control *reset;
+ 	spinlock_t cmdreg_lock;	/* lock for concurrent cmd register writes */
++	int acp_offset;
+ };
+ 
+ static const struct can_bittiming_const sun4ican_bittiming_const = {
+@@ -338,8 +341,8 @@ static int sun4i_can_start(struct net_device *dev)
+ 	}
+ 
+ 	/* set filters - we accept all */
+-	writel(0x00000000, priv->base + SUN4I_REG_ACPC_ADDR);
+-	writel(0xFFFFFFFF, priv->base + SUN4I_REG_ACPM_ADDR);
++	writel(0x00000000, priv->base + SUN4I_REG_ACPC_ADDR + priv->acp_offset);
++	writel(0xFFFFFFFF, priv->base + SUN4I_REG_ACPM_ADDR + priv->acp_offset);
+ 
+ 	/* clear error counters and error code capture */
+ 	writel(0, priv->base + SUN4I_REG_ERRC_ADDR);
+@@ -768,10 +771,12 @@ static const struct ethtool_ops sun4ican_ethtool_ops = {
+ 
+ static const struct sun4ican_quirks sun4ican_quirks_a10 = {
+ 	.has_reset = false,
++	.acp_offset = 0,
+ };
+ 
+ static const struct sun4ican_quirks sun4ican_quirks_r40 = {
+ 	.has_reset = true,
++	.acp_offset = 0,
+ };
+ 
+ static const struct of_device_id sun4ican_of_match[] = {
+@@ -870,6 +875,7 @@ static int sun4ican_probe(struct platform_device *pdev)
+ 	priv->base = addr;
+ 	priv->clk = clk;
+ 	priv->reset = reset;
++	priv->acp_offset = quirks->acp_offset;
+ 	spin_lock_init(&priv->cmdreg_lock);
+ 
+ 	platform_set_drvdata(pdev, dev);
 -- 
 2.41.0
 
