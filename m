@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A52EB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 21:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2543C001DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 21:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e2S/0sgRLAScMSNm6BFkxExPgpTGvK6Ui4R+rH6F2Eo=; b=KAK2PZQ447aap2
-	B5YfTmM8lfxDztW4tr3g4R5hf0ifVHHYvQRyx+iTSfZ18LOLHxwzjHrbQV8i6wb7PQV8oRMB8hlzm
-	Y9JDV+vZoc+4G0aBn5MWGr2rxV162vUAfLWqnCETDT59oV1BlQUp0VnLBIedvJI+ryP83bMXd4B1s
-	OZ/rfMC7uszCzpsmMq3TtNd+9jws0xiosZ2d47tAeEMp+Uaia7tbz3n5+iDi0GAwDTJ+Q3qZn5uL4
-	W0bMJYhofZNZ/oVw7qShJJvitlKOrolx6vVsMjTA47SN3N0bqGiS65fR+L1l7APoGhehLiwmMiI9E
-	QV6SLUjz5ZVtB1ilwUpw==;
+	List-Owner; bh=JXbDvM1bcvzVRBv6RmVv0gNHBTLE3NMxVF5k6t7l2Mk=; b=cAP+nhU6ba7lVp
+	kk1j8qt+XgPKejzqsjVexWnRo8KWK4s0vMdmcidMIFPjt+9NCg6fAYe6edqUKQ7WdDv6hNSXDx5Fp
+	N559whzP/Lz/hByff6nLbKBEipuaL+zZ9f8xCxDyAxxI0iXKJY1sMEnqS2msNzbX+QURmGMYkrQjY
+	brwQTbFrAtUsUxksEo+iPIW4niF7l5rPcK3XXHADXRqHsqXVkqe1meUm8wYQVuXlBi/54ukjhNYfY
+	Y0k0a7wV5dwrL8kumGnkZNlOwi/UyItpilUKLyNJ+sycCfcw0rHIiGU9l5osbpPzC3jn+MBxYhgzf
+	j39J5nzvf20c1CyLdmxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMxLa-00F7lR-2B;
-	Fri, 21 Jul 2023 21:07:34 +0000
-Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
+	id 1qMxlR-00FBJY-1H;
+	Fri, 21 Jul 2023 21:34:17 +0000
+Received: from mga11.intel.com ([192.55.52.93])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMxLX-00F7kl-1l
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 21:07:32 +0000
-Received: from localhost (unknown [IPv6:2601:281:8300:73::5f6])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id F299D733;
-	Fri, 21 Jul 2023 21:07:30 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net F299D733
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1689973651; bh=yqScLomjgHGlGue7ZzyaCfjdFN3rTb1w9u8Dn+9+lSg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=ds1sihkCdYeQ4Hvnd4To/fuZ660f7QL8+lxW/MLzQFXL5S5cKWXa9AZqkbOGSfwJs
-	 XNFPYdv0lmKsxW/UE4Kv8s4/eeZhUYqA2N2C5tah99cdluaBmJ6SktA5iOsXAeJ/bt
-	 kbfGUdrbpCKn4RAk/zHaB4DuEpUUkJYYQZrfYf6UQGdb1f4isJj8TeazXi8Mv3UZwh
-	 piR/vDo6ifjOFxUcWzNJcppMW0t8a+CUjKOXQnNnXOuOpmYAkdU66VBZI5jwDa4Uom
-	 tGsa+7AyWK/EI8peQ2z9iCjpEEJm5o4oheBeoNH0fqoosv0Cg3SYzeJ7fu9jFiPqXA
-	 nLvtAWBiA0GZQ==
-From: Jonathan Corbet <corbet@lwn.net>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Andrew Jones
- <ajones@ventanamicro.com>, Conor Dooley <conor.dooley@microchip.com>,
- Sunil V L <sunilvl@ventanamicro.com>, Song Shuai
- <songshuaishuai@tinylab.org>, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v4 1/3] Documentation: arm: Add bootargs to the table of
- added DT parameters
-In-Reply-To: <20230626143626.106584-1-alexghiti@rivosinc.com>
-References: <20230626143626.106584-1-alexghiti@rivosinc.com>
-Date: Fri, 21 Jul 2023 15:07:30 -0600
-Message-ID: <87v8edas8d.fsf@meer.lwn.net>
+	id 1qMxlO-00FBI6-2x;
+	Fri, 21 Jul 2023 21:34:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1689975254; x=1721511254;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=AejFBraB/yupNnoLODKplwxX7IK0ZxGoLJe5z3VP1tM=;
+  b=jlWp9MQ3g9VLodmRGgE++o2q6/j16f6yOG6ftAPbgENEzQQMJP/mzreE
+   IM16gCWE1NaUJvGMy4QFVmTPNgfZ1bQ4JkYTsQRt/AHUjPWw89R3zSWyo
+   RC8WGagW8ufKCBUxgIsvzy+WNZuiOJFaXK4r5N8po50BzAe2OSRdE0GYT
+   /0uYF2Jovaf30RTwJ0SszwSbz+YLBuu74vBDs8kajTZfAAD0HJ3FI9ljj
+   ddac3inug+fqdDijXdeSlqi61RvuoArXAjkELb9/5aZqJCHHik0riH0wU
+   vC88bVNlJHO/Ldbzh3jIevtM8jWa4TBE5yebB/inG8oOMB15KTJ1pPYiF
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10778"; a="364584392"
+X-IronPort-AV: E=Sophos;i="6.01,222,1684825200"; 
+   d="scan'208";a="364584392"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2023 14:33:56 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10778"; a="790314176"
+X-IronPort-AV: E=Sophos;i="6.01,222,1684825200"; 
+   d="scan'208";a="790314176"
+Received: from lkp-server02.sh.intel.com (HELO 36946fcf73d7) ([10.239.97.151])
+  by fmsmga008.fm.intel.com with ESMTP; 21 Jul 2023 14:33:53 -0700
+Received: from kbuild by 36946fcf73d7 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qMxl2-0007g5-1u;
+	Fri, 21 Jul 2023 21:33:52 +0000
+Date: Sat, 22 Jul 2023 05:32:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
+	Kees Cook <keescook@chromium.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH v5 3/5] arm64: libstub: Move KASLR handling functions to
+ kaslr.c
+Message-ID: <202307220545.aNYBwGqt-lkp@intel.com>
+References: <20230721074850.310644-4-alexghiti@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230721074850.310644-4-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_140731_589382_BEBBEFF4 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20230721_143414_973236_0DC40975 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +91,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Alexandre Ghiti <alexghiti@rivosinc.com> writes:
+Hi Alexandre,
 
-> The bootargs node is also added by the EFI stub in the function
-> update_fdt(), so add it to the table.
->
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> Reviewed-by: Song Shuai <songshuaishuai@tinylab.org>
-> ---
->  Documentation/arm/uefi.rst | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+kernel test robot noticed the following build warnings:
 
-So I'm not sure if I'm supposed to be applying these patches, or whether
-they will go through the arch trees?
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.5-rc2 next-20230721]
+[cannot apply to efi/next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-In the former case, they don't apply to docs-next, so could I get a
-respin please?
+url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Introduce-virtual-kernel-mapping-KASLR/20230721-155554
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20230721074850.310644-4-alexghiti%40rivosinc.com
+patch subject: [PATCH v5 3/5] arm64: libstub: Move KASLR handling functions to kaslr.c
+config: i386-randconfig-i002-20230721 (https://download.01.org/0day-ci/archive/20230722/202307220545.aNYBwGqt-lkp@intel.com/config)
+compiler: clang version 15.0.7 (https://github.com/llvm/llvm-project.git 8dfdcc7b7bf66834a761bd8de445840ef68e4d1a)
+reproduce: (https://download.01.org/0day-ci/archive/20230722/202307220545.aNYBwGqt-lkp@intel.com/reproduce)
 
-Thanks,
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202307220545.aNYBwGqt-lkp@intel.com/
 
-jon
+All warnings (new ones prefixed by >>):
+
+>> drivers/firmware/efi/libstub/kaslr.c:113:23: warning: call to undeclared function 'efi_get_kimg_min_align'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           u64 min_kimg_align = efi_get_kimg_min_align();
+                                ^
+>> drivers/firmware/efi/libstub/kaslr.c:155:2: warning: call to undeclared function 'efi_icache_sync'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           efi_icache_sync(*image_addr, *image_addr + kernel_codesize);
+           ^
+   2 warnings generated.
+
+
+vim +/efi_get_kimg_min_align +113 drivers/firmware/efi/libstub/kaslr.c
+
+    87	
+    88	/**
+    89	 * efi_kaslr_relocate_kernel() - Relocate the kernel (random if KASLR enabled)
+    90	 * @image_addr: Pointer to the current kernel location
+    91	 * @reserve_addr:	Pointer to the relocated kernel location
+    92	 * @reserve_size:	Size of the relocated kernel
+    93	 * @kernel_size:	Size of the text + data
+    94	 * @kernel_codesize:	Size of the text
+    95	 * @kernel_memsize:	Size of the text + data + bss
+    96	 * @phys_seed:		Random seed used for the relocation
+    97	 *
+    98	 * If KASLR is not enabled, this function relocates the kernel to a fixed
+    99	 * address (or leave it as its current location). If KASLR is enabled, the
+   100	 * kernel physical location is randomized using the seed in parameter.
+   101	 *
+   102	 * Return:	status code, EFI_SUCCESS if relocation is successful
+   103	 */
+   104	efi_status_t efi_kaslr_relocate_kernel(unsigned long *image_addr,
+   105					       unsigned long *reserve_addr,
+   106					       unsigned long *reserve_size,
+   107					       unsigned long kernel_size,
+   108					       unsigned long kernel_codesize,
+   109					       unsigned long kernel_memsize,
+   110					       u32 phys_seed)
+   111	{
+   112		efi_status_t status;
+ > 113		u64 min_kimg_align = efi_get_kimg_min_align();
+   114	
+   115		if (IS_ENABLED(CONFIG_RANDOMIZE_BASE) && phys_seed != 0) {
+   116			/*
+   117			 * If KASLR is enabled, and we have some randomness available,
+   118			 * locate the kernel at a randomized offset in physical memory.
+   119			 */
+   120			status = efi_random_alloc(*reserve_size, min_kimg_align,
+   121						  reserve_addr, phys_seed,
+   122						  EFI_LOADER_CODE);
+   123			if (status != EFI_SUCCESS)
+   124				efi_warn("efi_random_alloc() failed: 0x%lx\n", status);
+   125		} else {
+   126			status = EFI_OUT_OF_RESOURCES;
+   127		}
+   128	
+   129		if (status != EFI_SUCCESS) {
+   130			if (!check_image_region(*image_addr, kernel_memsize)) {
+   131				efi_err("FIRMWARE BUG: Image BSS overlaps adjacent EFI memory region\n");
+   132			} else if (IS_ALIGNED(*image_addr, min_kimg_align) &&
+   133				   (u64)_end < EFI_ALLOC_LIMIT) {
+   134				/*
+   135				 * Just execute from wherever we were loaded by the
+   136				 * UEFI PE/COFF loader if the placement is suitable.
+   137				 */
+   138				*reserve_size = 0;
+   139				return EFI_SUCCESS;
+   140			}
+   141	
+   142			status = efi_allocate_pages_aligned(*reserve_size, reserve_addr,
+   143							    ULONG_MAX, min_kimg_align,
+   144							    EFI_LOADER_CODE);
+   145	
+   146			if (status != EFI_SUCCESS) {
+   147				efi_err("Failed to relocate kernel\n");
+   148				*reserve_size = 0;
+   149				return status;
+   150			}
+   151		}
+   152	
+   153		memcpy((void *)*reserve_addr, (void *)*image_addr, kernel_size);
+   154		*image_addr = *reserve_addr;
+ > 155		efi_icache_sync(*image_addr, *image_addr + kernel_codesize);
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
