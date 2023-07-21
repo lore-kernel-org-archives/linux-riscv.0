@@ -4,94 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1CB4EB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 17:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E63BEB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 17:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=oSHfT4O3tUTD1XeVOTULRwSGhVMBNRI0+NbQepTQahk=; b=nZbxdLAzwEG07fxaRxsko5ucGu
-	zrs0v1Hqc0Mi5ltPdKu/I6VPyWGrimfEqOjp2fKWnVQaZBd289NBbwMjEuAeTQ+lG0Ez7peGgGuq3
-	lQ5KDal1f2MjlpWPvp4BSTmOZW33teOpuHDvENH9Iz8s8iiSBkkycFK2KEpRf6KAQZ8FTnl5hvfu0
-	5xB6nCgLweL5O5gZkxPTA6AZ54NAiewVLjV9olj6lGugQjb3U43bu8lt+nKgwCwsr6r4VnmoJXP0p
-	iZ9zm99Z03024cDG7H3uGRTOYA4fBMCfU8mpq355qUTljKQNFQW0fAuFtPs+MtwjKgGIqWrlO9zK2
-	QMENZhgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TEbEJ2g0faSxAK7+FnTEXgAFzKzUL2CyV1nGJ76Z6nk=; b=CNjJqPoOuvxYjh
+	lzk9Hw34k3JKN2XrtiD9nYgo/sSwSABILgboejn7Of3+yscxxRXGlufbGA1SU57oRkBh4xEbsWgYe
+	i9uRCdtEjCIYNe/4sNNZnZGSjKXRXViUv5HL8sOYsOWGfyzwI/hKLkPZbf7sRxAnLGg539JEwuEtz
+	fv1NyDdyszZXYCYA9gdb/9USlMUBe7bqar5vmVCUgsZqAPvjQ7v6HZrRVdoMe197BC5d9rkEUrHZt
+	GZPYvMJjaIPEhB7DlAVitBphRTGvzGLm1vAYyS7ZUc9GWpvCoCMN9Y/VaOFtJayn4foOPNHDVbbNU
+	OIelq9twXA3D96s1XdBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMthR-00EjJS-0d;
-	Fri, 21 Jul 2023 17:13:53 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1qMtlG-00Ejja-2e;
+	Fri, 21 Jul 2023 17:17:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMthO-00EjHG-0c
+	id 1qMtlC-00Ejha-17
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 17:13:51 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-583a4015791so5041017b3.1
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 10:13:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689959628; x=1690564428;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7shZuEDiffXRYK22UXnQcffVUND6wfTW4U7DmHj+BWc=;
-        b=saEUf4445sfHkPWRX975heL8zENfXcs3PgCyCgvEVdQjEpNK/pp+iAjdHt4YEb3A4E
-         Wx6AMp1fx4AxdUC7quE/wuY8PzajpllFI1PSVxa0GJ6TCvZZ95BwZYWsRgoM01BQ4SqE
-         g1i1UMNIUCRiN6vVjQF+QtV7pxLVFxnr+vtjGFTshuCRS/R0Np16E0/qf+bH5mnx7XFz
-         ZsljdMjRbBLWTIazxQedjqyAevMpWeXTTd8MiT3v+VX/sBebfo66Po7WIiS0jw2kNrZS
-         H5psY9S7R0h0zicR7miAPapKCtbYppPvDwh7bNN96b+Zux6kO9omgHgr2n7bbHvjHh23
-         55GA==
+	Fri, 21 Jul 2023 17:17:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1689959863;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kQftevPX0XUeLPrBO0NAWxPIrge3Hp6/1+H4UC+Ikhg=;
+	b=jOullois1qXlg5Og+Hk4Cxtese+TCHcC8rw2CeBbTUYPjQg7FTnFa6SP0p+5V8JrHXT/da
+	mdFJ8HQdnvBlcY9viQASyeBegU5sASkpq5ANhGB4LihO0dE487hh3CGC6sPdmnpAAuSMU7
+	inuj12KMvP2UdGF5aE1s2CTQsTtq9hk=
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-631-5CHMLvSCOGuARmDWDtOXgQ-1; Fri, 21 Jul 2023 13:17:42 -0400
+X-MC-Unique: 5CHMLvSCOGuARmDWDtOXgQ-1
+Received: by mail-ed1-f70.google.com with SMTP id 4fb4d7f45d1cf-51e10990adfso1349921a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 10:17:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689959628; x=1690564428;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7shZuEDiffXRYK22UXnQcffVUND6wfTW4U7DmHj+BWc=;
-        b=Sx/r6ecTqDmcmLD+bh98y2KBNKTD1J82a29qPVVJXX4b7dyim4Epd45H6VznUpiqct
-         fNl2l5lMjROnC5fNGlwbeqc+18mTI48puJmm5s33lwIY7O7kZBD4kida6SMmdVmwgWgg
-         rTSBymSaaVYi6XuBuGrRAX9ZmWgBQN8xjz6rgrzthA3/7AFhGidz4iPcq4dedks5JXkW
-         elay50XqsbUqXCRsZbePNfuIURtNfmM/XEjDPOaUbjg/QOf58JJTQ7UUSA7yVGgcqClP
-         gq/EWkZGSQ8waZxFvm1FgThy/ZeoEaeeZyLGfujkbs4Pgg1NSAOm5kAIL6e/rs3vu41O
-         v/zg==
-X-Gm-Message-State: ABy/qLYgoR0ROIi3I5QNzh0qjgQvqNIFmc7vHrXMXIRV2b3rtOf7OleT
-	i+rxQnXxKqzCdn5l+2ol5hemrPqXkIM=
-X-Google-Smtp-Source: APBJJlHTu6oxQip7Fs57WKX81frcXYslN0cZxNmgdAvx9eWDlCTFu1+cjXODNvw8IvlIlsVUOd7h6YXth7Y=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:a28f:0:b0:c6e:fe1a:3657 with SMTP id
- c15-20020a25a28f000000b00c6efe1a3657mr16139ybi.3.1689959627795; Fri, 21 Jul
- 2023 10:13:47 -0700 (PDT)
-Date: Fri, 21 Jul 2023 10:13:46 -0700
-In-Reply-To: <84a908ae-04c7-51c7-c9a8-119e1933a189@redhat.com>
-Mime-Version: 1.0
-References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-14-seanjc@google.com>
- <84a908ae-04c7-51c7-c9a8-119e1933a189@redhat.com>
-Message-ID: <ZLq8ylTsFQ1s4BAZ@google.com>
-Subject: Re: [RFC PATCH v11 13/29] KVM: Add transparent hugepage support for
- dedicated guest memory
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
-	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, Vlastimil Babka <vbabka@suse.cz>, 
-	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+        d=1e100.net; s=20221208; t=1689959861; x=1690564661;
+        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
+         :content-language:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kQftevPX0XUeLPrBO0NAWxPIrge3Hp6/1+H4UC+Ikhg=;
+        b=ZKTrPQAjT7oGtOkUXBR3XJGWL3nmCqtXYAR/fl5jx6mjtX1GSsFaVf5IVTOK1AY/N2
+         QLG4bMWlj/udDo/lz72jLyYvvREagK2GrlLHHJ0ugREGAeB4uzpRhtUKERT7LYqpo9ZY
+         SbGqfu5NYpSJNZzxJ6lBJS3qyMfSGPqlT+MT6mOL1Szj8ixzvJUXgKfq0x5wAe7G43Jg
+         KIsSitcr8qpFyEDk8DPFPN+TkKz0yjFtM/O4ONXtGAPzxVSiY5QlV2NT0/HGW9IdQGsY
+         S4QpZ+rx/5imXZui7u90UuATYT9VBHnu+sDNrR8g6R8KhNft52IeyS2GcahmprrUawuI
+         nIJQ==
+X-Gm-Message-State: ABy/qLYOtY80rw+2IK88NqW0OqZFtuqxJyW7uV6zmu2/p8JK8Tn37Kg7
+	LUrEOle9385u9L9AwnUpz550EdmdL/V8k8SYlZ87xpYFhaJ00UKMQczTrxGOABXSfpwbN8BVdPx
+	cFFAvm/4HiSC95m1sly9kskGaMF2m42J/seiV
+X-Received: by 2002:aa7:c753:0:b0:51e:1a51:d414 with SMTP id c19-20020aa7c753000000b0051e1a51d414mr1878181eds.32.1689959861039;
+        Fri, 21 Jul 2023 10:17:41 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlFyyf9U2FFYwtGg7Nfx7TqscSvBa0fBBUyOLoWSpgQImoylEzXmYhbWs/84TcbA6dVob4NtSg==
+X-Received: by 2002:aa7:c753:0:b0:51e:1a51:d414 with SMTP id c19-20020aa7c753000000b0051e1a51d414mr1878159eds.32.1689959860744;
+        Fri, 21 Jul 2023 10:17:40 -0700 (PDT)
+Received: from ?IPV6:2001:b07:6468:f312:9af8:e5f5:7516:fa89? ([2001:b07:6468:f312:9af8:e5f5:7516:fa89])
+        by smtp.googlemail.com with ESMTPSA id l9-20020aa7c309000000b0051d87e72159sm2346640edq.13.2023.07.21.10.17.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Jul 2023 10:17:40 -0700 (PDT)
+Message-ID: <8ad7a846-64e9-a3f1-4bf1-731a994d62cb@redhat.com>
+Date: Fri, 21 Jul 2023 19:17:37 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
+ Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
+ Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
+ Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20230718234512.1690985-1-seanjc@google.com>
+ <20230718234512.1690985-13-seanjc@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+In-Reply-To: <20230718234512.1690985-13-seanjc@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_101350_228873_67ED8D74 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20230721_101746_470079_80736A75 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,26 +121,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 21, 2023, Paolo Bonzini wrote:
-> On 7/19/23 01:44, Sean Christopherson wrote:
-> > @@ -413,6 +454,9 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
-> >   	u64 flags = args->flags;
-> >   	u64 valid_flags = 0;
-> > +	if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE))
-> > +		valid_flags |= KVM_GUEST_MEMFD_ALLOW_HUGEPAGE;
-> > +
-> 
-> I think it should be always allowed.  The outcome would just be "never have
-> a hugepage" if thp is not enabled in the kernel.
+On 7/19/23 01:44, Sean Christopherson wrote:
+> +	inode = alloc_anon_inode(mnt->mnt_sb);
+> +	if (IS_ERR(inode))
+> +		return PTR_ERR(inode);
+> +
+> +	err = security_inode_init_security_anon(inode, &qname, NULL);
+> +	if (err)
+> +		goto err_inode;
+> +
 
-I don't have a strong preference.  My thinking was that userspace would probably
-rather have an explicit error, as opposed to silently running with a misconfigured
-setup.
+I don't understand the need to have a separate filesystem.  If it is to 
+fully setup the inode before it's given a struct file, why not just 
+export anon_inode_make_secure_inode instead of 
+security_inode_init_security_anon?
+
+Paolo
+
 
 _______________________________________________
 linux-riscv mailing list
