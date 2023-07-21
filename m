@@ -4,186 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 731F5EB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 15:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41575C0015E
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 15:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=GRYjdGwBdrjnc9JGyTwKXZeJH+lBT5xVBwKp4L1KDBg=; b=E9zW+JvSa63/Wup0uWa6pm+jHx
-	iWkVvIb1aRGct79vLW6sedH8H67yPqtCjw+x21RoDM2/CcWtA7XqIuCEB2ScSyZnMOABF11w5UwEi
-	SIX93sbGZIrcCPYuwZlvu6A9EU3MM02hfapHy60rNKn8Uhs4HIBmfPYXRc1N97KhzxyoQw7ldU7YD
-	WoL706bPxd65Idn1UD1VoJsGn/6PJ6n2YBsX+tItDhpvypunZ5Ox8Z8oD4u2S0NGAMNEuQEDrH4oW
-	vxB0w+t5LxxMhLb9m/II975vh19l/zl4YN7GyfGiZbL9CtTQ0Od/VmfF8j0gEM9+e6ZzagAe8LA2l
-	MIyb6fvg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jUTV+Va4qhj6THVtO0eeYg1vyQYOacA3wW1g6ZIMJgg=; b=YLL5PeBYYWbYtO
+	5wJ8neC+IGqJbnyyX4ne09N4LlOKJ54fwQ/lT9HgujWHNC3p8FvqIWKSWVrBqUrbon0001fnrPvVZ
+	rcW+W9kOLDu2QTK1uF/yS8n1Z9fo7YzgFGiV7dFk7HRvHHpFxUmUHgRWA18jhuhjm608vGPovyiGO
+	1wCxIhDRtAJxqIqN0gjEzQ3lJ+wPRfY8VUSgW8+LxRTweHh29UhjR6U2dfRjJS3T5ijyXlQoGOmtM
+	UKkDv+UR1l8eRHj/P9Mjo0PiSIywLo2Xgpyni7NW+rTWsx8Bzs1RwbKr/bMGChAJ/v1O7iWhf4vuh
+	qPbYbRkls54peGwLIleA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMsAl-00ERl9-1V;
-	Fri, 21 Jul 2023 15:36:03 +0000
-Received: from mga06b.intel.com ([134.134.136.31] helo=mga06.intel.com)
+	id 1qMsGu-00ESSw-1D;
+	Fri, 21 Jul 2023 15:42:24 +0000
+Received: from mga14.intel.com ([192.55.52.115])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMsAi-00ERk0-2S
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 15:36:02 +0000
+	id 1qMsGq-00ESSA-3A;
+	Fri, 21 Jul 2023 15:42:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1689953760; x=1721489760;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=6Wqod9LTZW2Bae8goPs3VGBb2s/oZouTBylKg04HChQ=;
-  b=TReLD9VDl+3uHh7UWWh4MENEW9BRnkVmoqPmJVKHGF3GNqyUWJ+TC8qF
-   tf4ldM1OZAbCQtE1AI3clXRsPLDcdznEuWPQ7Gc7VGinBbxNA5+qhseSx
-   qaJZs9ngbQ9VAOzA6bbEcSyOEGDC6WfvHPySqFc1x09KHb5EfXZSjsLrB
-   GfzC0KJvj1z9J2A4qdLC3OMy/Rz0T7NEZMryoPXGJjvGR7+qc6TemYyh3
-   p6KO3lK4aXTV/9zU7vqR6PCiiKNRk3xuoeqM3eR52551EN5YImF8BE6F1
-   tx+9f35s1Y1I6GB3XvnrsYeYgLjbDQHvoUfNWWkoDOgCx4782AJYEuw23
-   g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10778"; a="430841321"
+  t=1689954140; x=1721490140;
+  h=message-id:date:mime-version:subject:from:to:cc:
+   references:in-reply-to:content-transfer-encoding;
+  bh=dgWqCDpNSWuzZvJih5GvRdqDtkxO0fYOrqXInsikkp8=;
+  b=Bdht11JlzuM2IdRQlA1az3gNEKhWCb7NqR0Oa8NKVofUZXGhau7NEP7m
+   M8M++jhSyV9vrEr7h8KlT+0e4ky/yI8GdWzETWzz9vImVT636zJMLk2pc
+   t9AxN3VmF4CmgIE8D+LoHiJmGkXwW1SCyLEAIb6K8TJrsJ735qxbA9V1H
+   DldHGmduttvOlgbA7DjGTG/KqMvU/cTol/qNyMlPQlx7EWficFvoOH0HJ
+   E3N7MEa5Qnrui6MhWdSx66QzXYFnQl4h93gLETJXHoYXEpUGAvkDck1Jj
+   0mFJZgYqBSgAYFKhP0OkqlmtzQVpaFOnq78zzd4pgihoDRQpX6F2bgV8x
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10778"; a="367087046"
 X-IronPort-AV: E=Sophos;i="6.01,222,1684825200"; 
-   d="scan'208";a="430841321"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2023 08:36:00 -0700
+   d="scan'208";a="367087046"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2023 08:42:18 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10778"; a="728146347"
-X-IronPort-AV: E=Sophos;i="6.01,222,1684825200"; 
-   d="scan'208";a="728146347"
-Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
-  by fmsmga007.fm.intel.com with ESMTP; 21 Jul 2023 08:35:59 -0700
-Received: from fmsmsx612.amr.corp.intel.com (10.18.126.92) by
- fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Fri, 21 Jul 2023 08:35:58 -0700
-Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
- fmsmsx612.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27 via Frontend Transport; Fri, 21 Jul 2023 08:35:58 -0700
-Received: from NAM04-DM6-obe.outbound.protection.outlook.com (104.47.73.41) by
- edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.27; Fri, 21 Jul 2023 08:35:58 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=nixad+aHsy+0My+Xu/F057YpyG8EQ8HSZZ36dlaXpV2xZ66pvdj1lVx8WLKMxU4/gTkcV94SN/8ObTtD/s6OSkd/fmA6f9JZxLV+1F3VIcKRnygioGwYxj6Ni9paO/SJwFkGTio+3K1aiDOIEDywo+0JT80BXfBUgKiDK6bt55aRgdWTtF3KW5330elK5L8gnv13pOaXs21Q12CQaFHCuctNU/5vC9Cv9PvtplXnIxOFsuvZZZOrhEv8G28B+fGXNRjFvQcrMYpiPlggVpQh6x+XKwlEb+w8R38JtqMVgGb1bQoMomjyD1mhXpFikaOU4SmGzxVvZHPNA56GosXnMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6nB3G3yjQ/X6UocWtw9I576wS3BrLgDQdwl3SFgCc84=;
- b=TIq12PYVC/Qk6ubeDRAr/QQYTSdwJ/V+e9NV36/tpB3G8+MCRAzW8R9PYgSLrGkFt8PggnxAlOczN62hlsVL4tY20Yj7o+cljS7HDSTX/CcQRXhdXs7HTwcjrLipcqSOehRP+1K9UGrhr6WSRET+xwJOJ7+myg1y3fR7UsxCwI4FiPxCKuociKBSeFIkZ2ig0Ke+O/H3wCtAkdWoKteZqeXxcKQESmzmNTsiCVbSqtuqdVZb53+37VW3cjKlmUU/EdQmO+t6pUINaMu8yOKHSmhu3eK8aaEVGFFt3l9feS/vv9Vv6PNATgIQQ7lObfcEuCDyTsWf8QXF+/QhBkArNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DM6PR11MB3625.namprd11.prod.outlook.com (2603:10b6:5:13a::21)
- by CH3PR11MB8210.namprd11.prod.outlook.com (2603:10b6:610:163::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6609.28; Fri, 21 Jul
- 2023 15:35:53 +0000
-Received: from DM6PR11MB3625.namprd11.prod.outlook.com
- ([fe80::44ff:6a5:9aa4:124a]) by DM6PR11MB3625.namprd11.prod.outlook.com
- ([fe80::44ff:6a5:9aa4:124a%7]) with mapi id 15.20.6609.026; Fri, 21 Jul 2023
- 15:35:52 +0000
-Message-ID: <1b402c0c-1beb-d93f-ff6d-955350995ca3@intel.com>
-Date: Fri, 21 Jul 2023 17:34:41 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.12.0
-Subject: Re: [PATCH] tracing: Have all levels of checks prevent recursion
-To: Steven Rostedt <rostedt@goodmis.org>, Peter Zijlstra
-	<peterz@infradead.org>
-CC: LKML <linux-kernel@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
-	<deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, "Benjamin
- Herrenschmidt" <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner
-	<tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, "H.
- Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf <jpoimboe@redhat.com>, "Jiri
- Kosina" <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>, Petr Mladek
-	<pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, Colin Ian King
-	<colin.king@canonical.com>, Masami Hiramatsu <mhiramat@kernel.org>, "Nicholas
- Piggin" <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
-	<linux-csky@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
-	<live-patching@vger.kernel.org>, =?UTF-8?B?546L6LSH?=
-	<yun.wang@linux.alibaba.com>, Guo Ren <guoren@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>
-References: <20211015110035.14813389@gandalf.local.home>
- <20211015161702.GF174703@worktop.programming.kicks-ass.net>
- <20211015133504.6c0a9fcc@gandalf.local.home>
- <20211015135806.72d1af23@gandalf.local.home>
- <20211015180429.GK174703@worktop.programming.kicks-ass.net>
- <20211015142033.72605b47@gandalf.local.home>
- <20211015142541.4badd8a9@gandalf.local.home>
-Content-Language: en-US
-From: Alexander Lobakin <aleksander.lobakin@intel.com>
-In-Reply-To: <20211015142541.4badd8a9@gandalf.local.home>
-X-ClientProxiedBy: FR0P281CA0178.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b4::6) To DM6PR11MB3625.namprd11.prod.outlook.com
- (2603:10b6:5:13a::21)
+X-IronPort-AV: E=Sophos;i="6.01,202,1684825200"; 
+   d="scan'208";a="868274880"
+Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.93.6.77]) ([10.93.6.77])
+  by fmsmga001-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2023 08:42:09 -0700
+Message-ID: <29baac45-7736-a28c-3b2d-2a6e45171b8b@intel.com>
+Date: Fri, 21 Jul 2023 23:42:04 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR11MB3625:EE_|CH3PR11MB8210:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5ad375fe-aea6-49cf-8af8-08db8a002ab0
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: qIaxNZbB4YwGV27vEsszD2dWKg/d0iNiIqrs68njlcIzZZiURS97XLHLbaoz5J3zkbt3TPF/csMjKMulwDUmPqYfTGMB15m+KxY8P5nBjZcm4Zz+6xv9T1pXiDVUM//yYPo+lBLVun5PAsFkKrtqpz5MHhlEADhQzXZVGcVWS+p93D2Vq4y2qc01Zb9CPb32scnqjspnD/VXWCIHn6wTRSPgPl3p1WIZmjqTiE3vO3aWHfWqSbfsjOFuEoh2IYdka5pzu5w6VaMnYJNmytm73hc0Bz0FK0uS1gROCH9FQHcA4oP1i41mX0t4KGgXIs0Q4xAo6n4cEQC0mX2WqDVk2tgqJYd9aR7LJ4r/GlA1+oxOw3ch3L7NLh+6iOj99pYV2rUURTUiPoacBzKzWtSV+r30w/3jPhO4aAOi9rTv3S0RWpkWp+daObZSK61Sk/P+PLhvzSVJaRe9QSoqsA8aASGxLTIpKaFOCb6S/7hFN+NBz2M/kzKNw/+SIGwfcG6FBynkCdMQoWTskO0c4/xURD/WAHpgoPwKdy2sKnC1xUW8F/+ehsRmjIps1PV9rQpCVxhScfmRgTRJmuXVLv9zol8+fLxYItiiMWrITkX5J69COK7cSAvAJlM0i4B3SDwfwE6Ci0V3GdWYwqwd9jMe6w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR11MB3625.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(396003)(366004)(39860400002)(136003)(346002)(376002)(451199021)(186003)(6506007)(478600001)(26005)(31686004)(66476007)(66946007)(4326008)(316002)(41300700001)(66556008)(86362001)(966005)(7406005)(7416002)(8936002)(8676002)(54906003)(6666004)(6512007)(110136005)(6486002)(5660300002)(31696002)(36756003)(2616005)(82960400001)(83380400001)(2906002)(38100700002)(43740500002)(45980500001);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UCt4Nm9ROURHN2ZEc1V6Rks4eG5TOVY5SmcwN0pKU25pZGwraUxFaUdrMGlM?=
- =?utf-8?B?WU1TYWNhOE1jNVVKRmRTMzNyZU1vaU1ZTFlwb2ltZStZd3lnLzVBWm9NWFBB?=
- =?utf-8?B?TTNSVmFFNjRGNDJpcnZYMUgvejkyVW12dmxZK2VzNDZDT1p4MytWNmE0RVdh?=
- =?utf-8?B?b2lDQUZFdDVkZ0pHV3ZKRUFiTDJXKzNHaWtUSWlvWDVRb1AvSk4xdTBaYkRL?=
- =?utf-8?B?blFLT0dSL2lCRzhiMG45WXhway9CT2l1Umx4Nkg1MERZQ1c4cUVnaC9WWVZK?=
- =?utf-8?B?clRWSG5hZXhTVWNmTWdTdnBVZ2UySkplSGlMNk1zMUFWMkVvSlBHNzZTdlBw?=
- =?utf-8?B?bENWNE5ockpyYm5qTmFVK29JaVpvejkxVExsMmdoNEwyQmg2SS9zdERlckxF?=
- =?utf-8?B?dFFHc2NpaG93OWlBMjVIdGh2c2FNRUJsa1EyYmp4bkZGN3REVjdYK2pqd2JI?=
- =?utf-8?B?Q1ovd2hHYXYvVFlYUzRJN3ZJM2hqS0VLS3ZjZkU3bjhxUXBEUTJvRjZXdnVZ?=
- =?utf-8?B?ekJsVFZYaUJJNjl1ZjNOUWsxZThnZWlPMTl5MkVZOG5BNTZEZU5QbDJVKzRI?=
- =?utf-8?B?WFMzQS9IZEUyRExFQ0xGMi92SFBOQ0VrSFcrNEJSRjMzTEpPaThTc3EwbXNE?=
- =?utf-8?B?ZjZhc0RhQ0JiV0p6SlFudDFKbmE2QllwT0pXWGJkeEFJSXY2Z2krY1NTa0Mr?=
- =?utf-8?B?QzcweXZOMEs1L0ZwQXNid0hRNnI5YUhYOHNvcG9PVGdmVzhWYWMvYXVteEgx?=
- =?utf-8?B?YmhhMkEwOUh6eUtrUmkzdjBXSFQ1MmtkOUxUV0xJbFBPUzhiYjBSdmhvazdP?=
- =?utf-8?B?WWttUDdPaVA4V3k0YkwxdGgxdUVyUmRXWEpPelBVMjExTHcvaXF6OGN4bUly?=
- =?utf-8?B?QTArSGF1eXV3SVRpZGZDYkNOUndrenR6cEtCbDVwTjVycWRiWW9wOUtkUFFC?=
- =?utf-8?B?OHFQeE5kbHVPQlFDdmxSZUZrOHJNNlI3YTR3VHl2TmhsQkR4aUNZdE01ekJO?=
- =?utf-8?B?aERqR0drRU50T281THYxV2diMGxxNWZuNWJrZGtZN1FPMkZSWXNSZlp6MUR2?=
- =?utf-8?B?YWhQRkpYZ3J6RnNsTlNteGI1L0NyQi9VbEt6SFhseFRmMzNGdHgzSHFRYzZV?=
- =?utf-8?B?MWhFSEYvQ0FlQUZUczl0VEd4OHFIVFpGdDBKN1QzU25tR3pFdThIOGhiM1FT?=
- =?utf-8?B?cDUveVJ5anB0dXFUcVk0ZllMSnVZKzdEZVU3U0tGdHBXa1kyekRaekg0dHU0?=
- =?utf-8?B?OGMxaGFWa0JIbGlhbFhuanlRRnp0Ym5EVUNJVzhlOGo3aC8ybllzMWxraTJO?=
- =?utf-8?B?OWxEbmFCSVp6aHNaTVlGajNvckR1WVdzaEVYenNvS0ZLZEkzNWFmN1BsS0Zo?=
- =?utf-8?B?Nys5UWoyeFBhKyt2VHY2bUpnYzBhUzNCVlBsMVozVmNyUlVxa05XVHE1SVZk?=
- =?utf-8?B?RkVrajdOSmlUSjNQYjFaOU81MUV1eDQ0aXU5ZmNtTGtjVDQrUGYzYXU2NmN0?=
- =?utf-8?B?SHkrNTc1S3RXOU9aZ1FDekgwUEg0dUtvVmVUeTFjQXQ2L0RsN01jN293OUZq?=
- =?utf-8?B?NFNuWXhOOGhUMzU4VlhEcFhoQXdCM1FKWlFNbkpSb3lhNGhPakZ1dlNmZGdu?=
- =?utf-8?B?MTVvWkhBWVdvWjR6QW5ya2V0bXM0dlhUdjFlVXUvNnZ5MTV6emJoQjhzSFZK?=
- =?utf-8?B?aVFZNHlLNk5IRnpOZmRyREVCRDkwbUpLamwvcFA3OWxxVkRwWEpzeStONFY2?=
- =?utf-8?B?UVdGSXVFdlVmc1pvRWM1ZmhXQ3Q0bHNMUzZidlU0UEpJLzhMNUVnNXB6YjFU?=
- =?utf-8?B?TGRLVzllcHpEQWxPZGhzNlMxWkxyWSsyNURvaGt6ZFVtZTNGbGpoR3hXRHdE?=
- =?utf-8?B?V3VXYjdXenhPeE9tMzBmZ29OWVhlOHdWT2xVcStrZ3p2OSt5UFVzVit0enFN?=
- =?utf-8?B?cm9DMWVWRGlmWlNwYVZJWmFjakVhTXIvRGZ0dXVaTkRCSDE3VGxXd0NlYjlH?=
- =?utf-8?B?T3JmMjJzK2xKWHlCZ3JBZWQrM2JYNTJtdUtYTStZbTU1dVZ2U2xURHE3OWUw?=
- =?utf-8?B?UzF0M0RGM1FqRUNXSmFJZGRrOTAzSEpUV1NNNllQT2gzemhqdGIyc0FkdUdF?=
- =?utf-8?B?ZE1qR2ZLTkFjMTRpMWo5RmRQajdzUnNkNmg0d0lWOU5iTkg0MytEbG42SVY4?=
- =?utf-8?B?OHc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5ad375fe-aea6-49cf-8af8-08db8a002ab0
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR11MB3625.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2023 15:35:52.7272
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tviXYHacr2sryYgwYX++sQOxqmA3Py3ugXyNwYZz1V8qqnsY6AEkhIxQ+X6y77X4u2nPCPCVJyiI7em+fTmvvDH44siSUn2inF2vYxtjbAU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR11MB8210
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Firefox/102.0 Thunderbird/102.13.0
+Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+Content-Language: en-US
+From: Xiaoyao Li <xiaoyao.li@intel.com>
+To: Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
+ Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
+ Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
+ Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20230718234512.1690985-1-seanjc@google.com>
+ <20230718234512.1690985-13-seanjc@google.com>
+ <fdc155f5-041b-a1b1-15aa-8f970180a13a@intel.com>
+In-Reply-To: <fdc155f5-041b-a1b1-15aa-8f970180a13a@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_083600_894073_81892E09 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20230721_084221_029528_2C6152C3 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,79 +102,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Steven Rostedt <rostedt@goodmis.org>
-Date: Fri, 15 Oct 2021 14:25:41 -0400
-
-Sorry for such a necroposting :z
-Just wanted to know if this is a bug, so that I could send a fix, or
-intended behaviour.
-
-> On Fri, 15 Oct 2021 14:20:33 -0400
-> Steven Rostedt <rostedt@goodmis.org> wrote:
-> 
->>> I think having one copy of that in a header is better than having 3
->>> copies. But yes, something along them lines.  
->>
->> I was just about to ask you about this patch ;-)
-> 
-> Except it doesn't build :-p (need to move the inlined function down a bit)
-> 
-> diff --git a/include/linux/preempt.h b/include/linux/preempt.h
-> index 4d244e295e85..b32e3dabe28b 100644
-> --- a/include/linux/preempt.h
-> +++ b/include/linux/preempt.h
-> @@ -77,6 +77,27 @@
->  /* preempt_count() and related functions, depends on PREEMPT_NEED_RESCHED */
->  #include <asm/preempt.h>
->  
-> +/**
-> + * interrupt_context_level - return interrupt context level
-> + *
-> + * Returns the current interrupt context level.
-> + *  0 - normal context
-> + *  1 - softirq context
-> + *  2 - hardirq context
-> + *  3 - NMI context
-> + */
-> +static __always_inline unsigned char interrupt_context_level(void)
-> +{
-> +	unsigned long pc = preempt_count();
-> +	unsigned char level = 0;
-> +
-> +	level += !!(pc & (NMI_MASK));
-> +	level += !!(pc & (NMI_MASK | HARDIRQ_MASK));
-> +	level += !!(pc & (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET));
-
-This doesn't take into account that we can switch the context manually
-via local_bh_disable() / local_irq_save() etc. During the testing of the
-separate issue[0], I've found that the function returns 1 in both just
-softirq and softirq under local_irq_save().
-Is this intended? Shouldn't that be
-
-	level += !!(pc & (NMI_MASK));
-	level += !!(pc * (NMI_MASK | HARDIRQ_MASK)) || irqs_disabled();
-	level += !!(pc * (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET)) ||
-		 in_atomic();
-
-?
-Otherwise, the result it returns is not really "context level".
-
-> +
-> +	return level;
-> +}
-> +
-[0]
-https://lore.kernel.org/netdev/b3884ff9-d903-948d-797a-1830a39b1e71@intel.com
-
-Thanks,
-Olek
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNy8yMS8yMDIzIDExOjA1IFBNLCBYaWFveWFvIExpIHdyb3RlOgo+IE9uIDcvMTkvMjAyMyA3
+OjQ0IEFNLCBTZWFuIENocmlzdG9waGVyc29uIHdyb3RlOgo+PiBAQCAtNjI1NSwxMiArNjI5OCwx
+NyBAQCBpbnQga3ZtX2luaXQodW5zaWduZWQgdmNwdV9zaXplLCB1bnNpZ25lZCAKPj4gdmNwdV9h
+bGlnbiwgc3RydWN0IG1vZHVsZSAqbW9kdWxlKQo+PiDCoMKgwqDCoMKgIGlmIChyKQo+PiDCoMKg
+wqDCoMKgwqDCoMKgwqAgZ290byBlcnJfYXN5bmNfcGY7Cj4+ICvCoMKgwqAgciA9IGt2bV9nbWVt
+X2luaXQoKTsKPj4gK8KgwqDCoCBpZiAocikKPj4gK8KgwqDCoMKgwqDCoMKgIGdvdG8gZXJyX2dt
+ZW07Cj4+ICsKPj4gwqDCoMKgwqDCoCBrdm1fY2hhcmRldl9vcHMub3duZXIgPSBtb2R1bGU7Cj4+
+IMKgwqDCoMKgwqAga3ZtX3ByZWVtcHRfb3BzLnNjaGVkX2luID0ga3ZtX3NjaGVkX2luOwo+PiDC
+oMKgwqDCoMKgIGt2bV9wcmVlbXB0X29wcy5zY2hlZF9vdXQgPSBrdm1fc2NoZWRfb3V0Owo+PiDC
+oMKgwqDCoMKgIGt2bV9pbml0X2RlYnVnKCk7Cj4+ICvCoMKgwqAga3ZtX2dtZW1faW5pdCgpOwo+
+IAo+IHdoeSBrdm1fZ21lbV9pbml0KCkgbmVlZHMgdG8gYmUgY2FsbGVkIGFnYWluPyBieSBtaXN0
+YWtlPwoKSSdtIHN1cmUgaXQncyBhIG1pc3Rha2UuCgpJJ20gdGVzdGluZyB0aGUgZ21lbSBRRU1V
+IHdpdGggdGhpcyBzZXJpZXMuIFNXX1BST1RFQ1RFRF9WTSBnZXRzIHN0dWNrIAppbiBhIGxvb3Ag
+aW4gZWFybHkgT1ZNRiBjb2RlIGR1ZSB0byB0d28gc2hhcmVkIHBhZ2Ugb2YgT1ZNRiBnZXQgemFw
+cGVkIAphbmQgcmUtbWFwcGVkIGluZmluaXRlbHkuIFJlbW92aW5nIHRoZSBzZWNvbmQgY2FsbCBv
+ZiBrdm1fZ21lbV9pbml0KCkgCmNhbiBzb2x2ZSB0aGUgaXNzdWUsIHRob3VnaCBJJ20gbm90IHN1
+cmUgYWJvdXQgdGhlIHJlYXNvbi4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
