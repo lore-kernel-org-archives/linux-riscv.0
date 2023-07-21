@@ -4,71 +4,192 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB6BC001DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 16:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1322EC001E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 16:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F7KEeZR9kLn1u5MXKWVfFp9H0jml2zMM5Rw4n1Zz5TU=; b=s7Ckes+SpChMQ8
-	3Km3QrgFsb841AWn/H9xz5WDSXeXH9dhYeQNe4LE/RZ+aA135fGXShH6Jaiax2qwXw4cZ8msubeKW
-	AgtDYksQ1GqV5OW+pc3ZgvcQ9M14B0hLgZQCxMfBGocsIsY04y3xil7sitJO4Nh2GXFfri9b6/iOe
-	P/6nfcSPdpMZiozxqbwlaNIhEC+el0kQhL21pC6e2f7QTHcSOZsTtBHUYcyXwMU3oX89rN/uGWHu3
-	6P1wmIZ57A4pwgoAHj5n0OJR6YAqGLylq/JU742JECfzxxAJAwr4DGlrI9xRJ8CQiiYsTIh8YWJ1Z
-	f+mAzGwW1cxwWP9BLwWw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:CC:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=6tdfne3cm3tXI0n0H+JKyItqH+0p8BS5ey9XMIvWplk=; b=bgKYWOuNptSjQQa8vmH5dNYAQS
+	rM68mpVII5SRAxhdIA6rlx2fb0ZHgLLg6/jeD25er+5xXEUS0ykJJGek5Z4cYJrweDg9PxXv8je4E
+	ZgE9+NGub8Tq6V726MPr/SjWRjVr5gP86N9CK/TdLWysjqnBMA8+ahdDg8KUWvG8XDQsl5I3EPqPS
+	K5PbCzRRWQ8RqGQIulzzhS6x0rLBwC5tvMVdq7zcr4kCvE2/ebzHtcHXfbh2KhJFzGvp5PeDuFtOJ
+	fQBRQW1JWDIU7F1sGBaQOk80WOzMWonvfnRA2IJfagvj5gWx82uJHElXLXVuZrpFDKCq4Y8nZ10r9
+	PRaCbi3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMsgY-00EX63-1k;
-	Fri, 21 Jul 2023 16:08:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qMsi8-00EXLh-18;
+	Fri, 21 Jul 2023 16:10:32 +0000
+Received: from mga12.intel.com ([192.55.52.136])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMsgW-00EX5W-0G
+	id 1qMsi5-00EXKr-2j
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 16:08:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 357B861D29
-	for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 16:08:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98634C43391
-	for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 16:08:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689955730;
-	bh=aFVATYbnHbXl+l/aXY946VlByUUM/RJ2gC+IwOCTwNw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=tzdHW6zWPwp4AgsuyQ5HxWoNFyI7xT0WtDW/oT93THjgq9F1kGpoUHW6PHgpX/Dbv
-	 cHrGuupwj2nmxqlceLkgfOIK4mjW5sQXt6ZsDOj7xZhptco1KtiUCNLTikflDgoW4S
-	 xtmCvfJofarYh4i3g7YUHeTGSlasGWyKrnhBuCDC+3q95a1OtsEhiDXCYBpAJK/9Z2
-	 pZ67cgiULI8dFMNzALoJ0pbgoyLtw3c1sjpGkDlC/vi/+ZhY28dwd0p29UAoQE7wSw
-	 YAmhntfEm/bbOrRYIrdGbFg1AuIBjwKO+/hS0/s8LRAISAU3oSAs+CAWrBn47JTYl4
-	 Au1gehkWyrvaw==
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-992f15c36fcso331908566b.3
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 09:08:50 -0700 (PDT)
-X-Gm-Message-State: ABy/qLbpiIaQUZAbc3ijSTP80TW12ESH9hSDW8nFaMSAJ0MqRwYMPjIJ
-	21I00mxJ+PMGJWbvVxvF/saNhq6LPJW5ZRtZF3Q=
-X-Google-Smtp-Source: APBJJlFzx8ZYFFr2o+NPKH3p58vjaLT9QNxTJBi8tIkxzVzR9iKmIT333myWzMMGD/LRl9RKizHNRUsBu66ZOvoJM5M=
-X-Received: by 2002:a17:906:100c:b0:99b:518a:9de with SMTP id
- 12-20020a170906100c00b0099b518a09demr1982530ejm.42.1689955728742; Fri, 21 Jul
- 2023 09:08:48 -0700 (PDT)
+	Fri, 21 Jul 2023 16:10:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1689955829; x=1721491829;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=oBeFpAJ21FCKhRAXCinE8JQeLIrhHy95Q9oiEA+U0oc=;
+  b=Qv8BspUfZd3nVz1PqOTcav/JoowBZOQMlNYv0/Lbo58AlM0FiNakCIUd
+   xebW9ttBZSZLbghodh16hQ6PtghW79lh5VXcFP+3fN3wLWbtCs13NzDyy
+   +MB6g2jd2mHwshDKKd6zcLXm4Jqoup0jfeAwoPYRUMd1HKXdDuAOMnWiw
+   q3kmuKn5f2Yu9tXDd7XcPPbh5BrCJThP1NOfKuPiyWPs7ALphldDtAK4p
+   GFh0SwL/Eg3S9c6rIDcfTeLV6RWOCclD7QEZunRLfQNz3Ooju5P8xX1mb
+   dYCzxWPHjpoQVAD9EHq591Cb9hISjvudYjVe/kTlS9NAAyLfzkzGPNl0l
+   g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10778"; a="346660779"
+X-IronPort-AV: E=Sophos;i="6.01,222,1684825200"; 
+   d="scan'208";a="346660779"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2023 09:07:28 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10778"; a="790244238"
+X-IronPort-AV: E=Sophos;i="6.01,222,1684825200"; 
+   d="scan'208";a="790244238"
+Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
+  by fmsmga008.fm.intel.com with ESMTP; 21 Jul 2023 09:07:26 -0700
+Received: from orsmsx610.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Fri, 21 Jul 2023 09:07:26 -0700
+Received: from orsmsx610.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX610.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Fri, 21 Jul 2023 09:07:25 -0700
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx610.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27 via Frontend Transport; Fri, 21 Jul 2023 09:07:25 -0700
+Received: from NAM12-DM6-obe.outbound.protection.outlook.com (104.47.59.177)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.27; Fri, 21 Jul 2023 09:07:25 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=m0mMxW8DVXAqDq+GW9b1DOZfhxRocSy44a8sHIXCzWkBpbyQzuZwziEe1IUOkygeR8v/akER6wBXzckEydj7E0CqAq3Rk0R/M44mZZTfkFavW5AtPM7egfryp/NTmwC84jUSpsexyAJ8EMgR46F0NJCDYZLWC93CxpEiTgA3DGXX3gE4S4t7bQu4IWswPogbVsCc4RWQ+/kq18khAV+eDi2oQ2dXLUFrine9Ikx4vf/pPLit/1g0JaWHIe0wfvl3zLAnQJPRj4OuMrJIFoN5eTWOIq2hUkKnVou6Fbyn4TaVQvVdJiPoJzfdRNnJe17Viia1HEenJgVTY7c9ftwxAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mkomsUumHIzR4wYpoUu50SOSI6bat5+d1sWlE/uO/sE=;
+ b=LjLDEegwPk2gY+QU7Huuejbc9GcwFbz4QO5WuTqSzpTY6/USNqSvpqyA7zZ8wJbenRY+pm0HLflv2pGefyLxt47y9uAVoeUEFHH6IVlFllihTYypcByCOCs6XMYzJZs7DhDAz6bsSyPURKG0wbb0MTOsrq2Y4vK/3s1d4184IHA0ap8LNKd6t/+CTWncdIp91FDJhq2FDZfEESUjsZjdMoKlOA5hsrzHmiwuIhupmCEm5oLKiMVuGDxgtfKW3KNdUyETOqPPW0WJvodgJL7Z1irwTg0QU07YQWOCa6+kJCvrgWKfxD4MOUlnyw4xtQrRxZd2O8qZja2STXWpQHKqCw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DM6PR11MB3625.namprd11.prod.outlook.com (2603:10b6:5:13a::21)
+ by SJ0PR11MB5214.namprd11.prod.outlook.com (2603:10b6:a03:2df::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6609.24; Fri, 21 Jul
+ 2023 16:07:20 +0000
+Received: from DM6PR11MB3625.namprd11.prod.outlook.com
+ ([fe80::44ff:6a5:9aa4:124a]) by DM6PR11MB3625.namprd11.prod.outlook.com
+ ([fe80::44ff:6a5:9aa4:124a%7]) with mapi id 15.20.6609.026; Fri, 21 Jul 2023
+ 16:07:20 +0000
+Message-ID: <035cee53-255b-11a3-d7ac-ca46c05b907b@intel.com>
+Date: Fri, 21 Jul 2023 18:06:07 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: [PATCH] tracing: Have all levels of checks prevent recursion
+Content-Language: en-US
+To: Steven Rostedt <rostedt@goodmis.org>
+CC: Peter Zijlstra <peterz@infradead.org>, LKML
+	<linux-kernel@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
+	<deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, "Benjamin
+ Herrenschmidt" <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner
+	<tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, "H.
+ Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf <jpoimboe@redhat.com>, "Jiri
+ Kosina" <jikos@kernel.org>, Miroslav Benes <mbenes@suse.cz>, Petr Mladek
+	<pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, Colin Ian King
+	<colin.king@canonical.com>, Masami Hiramatsu <mhiramat@kernel.org>, "Nicholas
+ Piggin" <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+	<linux-csky@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<live-patching@vger.kernel.org>, =?UTF-8?B?546L6LSH?=
+	<yun.wang@linux.alibaba.com>, Guo Ren <guoren@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>
+References: <20211015110035.14813389@gandalf.local.home>
+ <20211015161702.GF174703@worktop.programming.kicks-ass.net>
+ <20211015133504.6c0a9fcc@gandalf.local.home>
+ <20211015135806.72d1af23@gandalf.local.home>
+ <20211015180429.GK174703@worktop.programming.kicks-ass.net>
+ <20211015142033.72605b47@gandalf.local.home>
+ <20211015142541.4badd8a9@gandalf.local.home>
+ <1b402c0c-1beb-d93f-ff6d-955350995ca3@intel.com>
+ <20230721120040.6ed2c02a@gandalf.local.home>
+From: Alexander Lobakin <aleksander.lobakin@intel.com>
+In-Reply-To: <20230721120040.6ed2c02a@gandalf.local.home>
+X-ClientProxiedBy: FR0P281CA0008.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:15::13) To DM6PR11MB3625.namprd11.prod.outlook.com
+ (2603:10b6:5:13a::21)
 MIME-Version: 1.0
-References: <20230721145121.1854104-1-guoren@kernel.org> <5e5be2d4-c563-6beb-b5f5-df47edeebc83@ghiti.fr>
-In-Reply-To: <5e5be2d4-c563-6beb-b5f5-df47edeebc83@ghiti.fr>
-From: Guo Ren <guoren@kernel.org>
-Date: Sat, 22 Jul 2023 00:08:36 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQMAVUtC6_ftEwp=EeYR_O7yzfGYmxwrqcO6+hn2J32bA@mail.gmail.com>
-Message-ID: <CAJF2gTQMAVUtC6_ftEwp=EeYR_O7yzfGYmxwrqcO6+hn2J32bA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: mm: Fixup spurious fault of kernel vaddr
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: palmer@rivosinc.com, paul.walmsley@sifive.com, falcon@tinylab.org, 
-	bjorn@kernel.org, conor.dooley@microchip.com, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR11MB3625:EE_|SJ0PR11MB5214:EE_
+X-MS-Office365-Filtering-Correlation-Id: be5dcd97-ca5e-41a1-44f9-08db8a048fe3
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: Zc4/8jM+Y9Y++JvO01v3AIMwHhR0J6t2KysKm5Um95aex0pNk38haJgTSMiooJRsRIaFjU5IXj2nXt4oTHnqN4Tdu65n+k5+5jOx1ODK4yGl2gsipsr0tEUj9AuFu0SWp9CiU0pIqEE0X5KGcAUwJFzRhhoVGIolKI0e6YSV0Pojr7t2PBhypsu+0NekcMi0m2ATCzTNZiz9IvVq+5Qji+UlJspokgG6+VydejHvXVXxjGR769Ike99jOdALKy5I7OLC/YGD4CneLy6p3GEqlt0jmY/pbj5zjN99lDXQRa3qCPaHlMsn9hD/dmN39M5pB620MtLk6RbVmI2ZbufhmLAod1yyflIVJ7atfA9a43ZjrEHYjzZuAMDrOTWsQyBmfLeHqJXqQoQe5feMJfoVF3KaTbtqFMsbHkt9/PUKTHE6822Sluye4lqWF2YBXJy/RE2gqdmSyRQ1DyXXpz1op5XRPlz1gZOYOYNlO/oSK4agCtegpIzTJLHsY2jVNyQAyaTbWBvBRhMf2NPGF3L1QgnQECtnKzcRIWhpNNwlZ5zGCG8ypG52qx++FVobOEdpP5zkGVVaRY1WmomIIEceGxINA9ZT3oZaOUCjYz2YqgmLft/T6JgFTtwUtEe+9wC+p3JPmBoPm0oAIGFzl4PKSQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR11MB3625.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(396003)(376002)(136003)(39860400002)(346002)(366004)(451199021)(54906003)(82960400001)(6512007)(6486002)(6666004)(966005)(2616005)(5660300002)(8676002)(8936002)(4326008)(66476007)(66946007)(66556008)(478600001)(316002)(41300700001)(6916009)(83380400001)(6506007)(186003)(26005)(38100700002)(86362001)(36756003)(7406005)(2906002)(7416002)(31696002)(31686004)(43740500002)(45980500001);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Tkc3dW5hREp5KzVlK1ROM2Fxa3lRcVAySTkveWdGOXBpb0tGTWtuc2orMmMw?=
+ =?utf-8?B?RTI1NFBHQlpaQnpUR0F6QTMvOWNXM2gwcEQ4cGlwOVgwTFovRjF6Ykc5U1Fr?=
+ =?utf-8?B?RUJ6dUpyUTY0WmxVNWVrd2E3dnc2NGxERkhsdnZHdHIvaFhxZEZCN3locUQw?=
+ =?utf-8?B?OEpiTURZUjlQait4S054S3JXWWhBOS9NczBkN2NYdEkxQVErZC9OZXVyK09s?=
+ =?utf-8?B?YkgwODEwcXJOYkFMZnVoSDMrajdCNW4rU21oMDlaNVZHbzNndEFhdUpyVTUx?=
+ =?utf-8?B?RHZUanlKdStjWWU4SGU3ZzEzZ3czeEVBcXZHQzVGQkVYTDNrSUJnRXorSjVz?=
+ =?utf-8?B?ajRhWmx1aGNGUU5JVkVwUGZGczl2dGQzQ2tVN3ZHWVRpR0ZZMFhud1FIWURM?=
+ =?utf-8?B?NXVJRTJxeG5KcEUrVWt0N2cyeG8ybVF6WkQwVlhhRTRhOCtuZ3VobndTVkVw?=
+ =?utf-8?B?WDZXSTQ1M1RaY0xySU1QaTJrUENtbkcrNkZqSERQVnByOEJ6OHRFQjF2MTlt?=
+ =?utf-8?B?N1JmcWdQaUx3eWtuejg1VzZRVlFRbUw1M0FtUG4zTHAwa2VOZytQdHBYUXQ0?=
+ =?utf-8?B?VnQvQWJDVVp6Sy90TmJVTFNsVFUzdS9KZEZZaVZxU1JESXJMbjdCRytBU3FU?=
+ =?utf-8?B?SnRJNC9LQi80dklqekE5VTdFSTA1dlFyOEZ3Y2tuZ1EvVklQclRmMWhwNHFu?=
+ =?utf-8?B?ZVFRTEtUVlZNdHM4SFJPenovTHljU3BOMmNnTEVtcTNOTTNQazlGS1Mxb2N0?=
+ =?utf-8?B?YVhDbTMzSXJoV2h3ak1CSDgwMXFDYm9PMllzb1U3Ty8yZ1loTWxmVDEvNXhD?=
+ =?utf-8?B?cVlZZm5INkhIU3NJQ0oyVUxndklVNFlHZ29XNGxoRmdyZzBWUUZVREZyYlF5?=
+ =?utf-8?B?VXAvQThJenVBTjJYM1V6SHRsQ1M0MXFCcXlKMW85SU1WYjVTOWxKK3RweDRU?=
+ =?utf-8?B?ZTh0SDFnOHBFeEZudm5hZXZsVldOYnF5NzBaVHgrNWRJRTBnVnBrekxuZndO?=
+ =?utf-8?B?WjRzL2wrVUZqaWNwazBWMjh0RzFaR3BMWXdWTU9lM3NURDk2KzFrRHRVS1NZ?=
+ =?utf-8?B?QmRhQmIyVFRnRStINEtUSFFjdi95UmovdWJoRUw0WERGalJURzNaMWFoVHRa?=
+ =?utf-8?B?OXJDTFgvcVFQUXR5SnRLZVFCSHVBYlF3VkJJU0tGUk4va283MHJ4eXJFNC9W?=
+ =?utf-8?B?cFhacXR5bUlqdVNxMWducTdlaGdJT3pMaE0xS1NXd0N4a2x1bm8rcW9UMUVX?=
+ =?utf-8?B?cCthVE1zeHdGZWh6eUlZOTh0Y3ZPR1ZYTVZNdk4yTHM2YUFuNWhpMVlwL2dG?=
+ =?utf-8?B?dVNobGtVRjVJY1JPbDVxeU42U3JrMmNwbE1OQWFaOXQvc3dQWCtGcWVyWjF6?=
+ =?utf-8?B?RkpFK0t2eVRKY1plRFRlWHc0NUlkUmpNNnJIN2d5RWJhNFRVTjJNck1EYmRP?=
+ =?utf-8?B?RzkvRkhJM1phOGhQLzhDTk1zZFo1Vy91Qk1KQWdaVEJrWHhqUm9vTWFCVjlJ?=
+ =?utf-8?B?VS9GOHR2dUkrRHhhdXVjbXppcWFoNlBWQXg3NGlGdUV1RXRkSjdQN3ZwOFh6?=
+ =?utf-8?B?UGdWTW9rYUxBK3YxZU5vbFl4RVNRcFZab0xXMDVoSFhFM0xCVTV5bU96N0dV?=
+ =?utf-8?B?elVhbE4yZTJMWDNwNlg0K1dkbjVGbUFrODFqbzFPMGU4d2M3Z1g2enhqYkw0?=
+ =?utf-8?B?clRzZDBXSVlYbWordmRiWDhhampxcjBhZ3VMMk1RVm0yQWFabjFqTDJjUXQ2?=
+ =?utf-8?B?WVJtWFd3NnZhbDd5aVBydXlBVWN4NkphMk1EMFFvVWpQVW1NeG5oQ3FNSjBw?=
+ =?utf-8?B?dzZGODB3N0JUdjlUM05weDB3SnJVVUNZOHRtc0UzSGE0RGJKbmFzcVhoQ3lE?=
+ =?utf-8?B?U0E3MXpKVjUwdko3QXVXV1phSm9lSlRrWk9UT3hJL0g3aUlyZUFoVStva3U4?=
+ =?utf-8?B?bGVMNmVBOUM1L1d6SkM3Y0VvR29kVkMzdm1oZVE1WGZaYW9TMEdPNy8wUTd2?=
+ =?utf-8?B?TUZpN0xESGg3eklqNy9zSU1oOFdZYWJaZWVZTVpUdlZacFBxbnoxZTJ6QWVj?=
+ =?utf-8?B?bVExeWc1cGd3WUFHakxIU2c1YWxoUXVxb3J1dHJhQ2lPR2F0WHp4NENvWEx3?=
+ =?utf-8?B?Wk9FMTlSWE14djcwNDRpVjhwK1lJcHJBRlExRmxGYmNEaEQxWGJ1eThuSWU3?=
+ =?utf-8?Q?hwvov0Z4kVVE1eQSsYa8o24=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: be5dcd97-ca5e-41a1-44f9-08db8a048fe3
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR11MB3625.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2023 16:07:20.4138
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Gj13brAKSfCHawgyph2XttIzh3nh159/oXLMEQel+mokUt27R2ozvi6EKg9whOAT3b5i/dE2t+fOL61mdvSJd03YgAkYT3oOyO9AsOKb+c4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB5214
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_090852_222319_3CD43995 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20230721_091029_980435_ADBE2428 
+X-CRM114-Status: GOOD (  26.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +201,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdWwgMjEsIDIwMjMgYXQgMTE6MTnigK9QTSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhA
-Z2hpdGkuZnI+IHdyb3RlOgo+Cj4KPiBPbiAyMS8wNy8yMDIzIDE2OjUxLCBndW9yZW5Aa2VybmVs
-Lm9yZyB3cm90ZToKPiA+IEZyb206IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4K
-PiA+Cj4gPiBSSVNDLVYgc3BlY2lmaWNhdGlvbiBwZXJtaXRzIHRoZSBjYWNoaW5nIG9mIFBURXMg
-d2hvc2UgViAoVmFsaWQpCj4gPiBiaXQgaXMgY2xlYXIuIE9wZXJhdGluZyBzeXN0ZW1zIG11c3Qg
-YmUgd3JpdHRlbiB0byBjb3BlIHdpdGggdGhpcwo+ID4gcG9zc2liaWxpdHksIGJ1dCBpbXBsZW1l
-bnRlcnMgYXJlIHJlbWluZGVkIHRoYXQgZWFnZXJseSBjYWNoaW5nCj4gPiBpbnZhbGlkIFBURXMg
-d2lsbCByZWR1Y2UgcGVyZm9ybWFuY2UgYnkgY2F1c2luZyBhZGRpdGlvbmFsIHBhZ2UKPiA+IGZh
-dWx0cy4KPiA+Cj4gPiBTbyB3ZSBtdXN0IGtlZXAgdm1hbGxvY19mYXVsdCBmb3IgdGhlIHNwdXJp
-b3VzIHBhZ2UgZmF1bHRzIG9mIGtlcm5lbAo+ID4gdmlydHVhbCBhZGRyZXNzIGZyb20gYW4gT29P
-IG1hY2hpbmUuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFs
-aWJhYmEuY29tPgo+ID4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+
-Cj4gPiAtLS0KPiA+ICAgYXJjaC9yaXNjdi9tbS9mYXVsdC5jIHwgMyArLS0KPiA+ICAgMSBmaWxl
-IGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAyIGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMgYi9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMKPiA+IGlu
-ZGV4IDg1MTY1ZmU0MzhkOC4uZjY2MmM5ZWFlN2Q0IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNj
-di9tbS9mYXVsdC5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L21tL2ZhdWx0LmMKPiA+IEBAIC0yNTgs
-OCArMjU4LDcgQEAgdm9pZCBoYW5kbGVfcGFnZV9mYXVsdChzdHJ1Y3QgcHRfcmVncyAqcmVncykK
-PiA+ICAgICAgICAqIG9ubHkgY29weSB0aGUgaW5mb3JtYXRpb24gZnJvbSB0aGUgbWFzdGVyIHBh
-Z2UgdGFibGUsCj4gPiAgICAgICAgKiBub3RoaW5nIG1vcmUuCj4gPiAgICAgICAgKi8KPiA+IC0g
-ICAgIGlmICgoIUlTX0VOQUJMRUQoQ09ORklHX01NVSkgfHwgIUlTX0VOQUJMRUQoQ09ORklHXzY0
-QklUKSkgJiYKPiA+IC0gICAgICAgICB1bmxpa2VseShhZGRyID49IFZNQUxMT0NfU1RBUlQgJiYg
-YWRkciA8IFZNQUxMT0NfRU5EKSkgewo+ID4gKyAgICAgaWYgKHVubGlrZWx5KGFkZHIgPj0gVEFT
-S19TSVpFKSkgewo+ID4gICAgICAgICAgICAgICB2bWFsbG9jX2ZhdWx0KHJlZ3MsIGNvZGUsIGFk
-ZHIpOwo+ID4gICAgICAgICAgICAgICByZXR1cm47Cj4gPiAgICAgICB9Cj4KPgo+IENhbiB5b3Ug
-c2hhcmUgd2hhdCB5b3UgYXJlIHRyeWluZyB0byBmaXggaGVyZT8KV2UgbWV0IGEgc3B1cmlvdXMg
-cGFnZSBmYXVsdCBwYW5pYyBvbiBhbiBPb08gbWFjaGluZS4KCjEuIFRoZSBwcm9jZXNzb3Igc3Bl
-Y3VsYXRpdmUgZXhlY3V0aW9uIGJyaW5ncyB0aGUgVj0wIGVudHJpZXMgaW50byB0aGUKVExCIGlu
-IHRoZSBrZXJuZWwgdmlydHVhbCBhZGRyZXNzLgoyLiBMaW51eCBrZXJuZWwgaW5zdGFsbHMgdGhl
-IGtlcm5lbCB2aXJ0dWFsIGFkZHJlc3Mgd2l0aCB0aGUgcGFnZSwgYW5kIFY9MQozLiBXaGVuIGtl
-cm5lbCBjb2RlIGFjY2VzcyB0aGUga2VybmVsIHZpcnR1YWwgYWRkcmVzcywgaXQgd291bGQgcmFp
-c2UKYSBwYWdlIGZhdWx0IGFzIHRoZSBWPTAgZW50cnkgaW4gdGhlIHRsYi4KNC4gTm8gdm1hbGxv
-Y19mYXVsdCwgdGhlbiBwYW5pYy4KCj4KPiBJIGhhdmUgYSBmaXggKHRoYXQncyBjdXJyZW50bHkg
-cnVubmluZyBvdXIgQ0kpIGZvciBjb21taXQgN2QzMzMyYmUwMTFlCj4gKCJyaXNjdjogbW06IFBy
-ZS1hbGxvY2F0ZSBQR0QgZW50cmllcyBmb3Igdm1hbGxvYy9tb2R1bGVzIGFyZWEiKSB0aGF0Cj4g
-aW1wbGVtZW50cyBmbHVzaF9jYWNoZV92bWFwKCkgc2luY2Ugd2UgbG9zdCB0aGUgdm1hbGxvY19m
-YXVsdC4KQ291bGQgeW91IHNoYXJlIHRoYXQgcGF0Y2g/Cgo+CgoKLS0gCkJlc3QgUmVnYXJkcwog
-R3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Steven Rostedt <rostedt@goodmis.org>
+Date: Fri, 21 Jul 2023 12:00:40 -0400
+
+> On Fri, 21 Jul 2023 17:34:41 +0200
+> Alexander Lobakin <aleksander.lobakin@intel.com> wrote:
+
+[...]
+
+>>> +	level += !!(pc & (NMI_MASK));
+>>> +	level += !!(pc & (NMI_MASK | HARDIRQ_MASK));
+>>> +	level += !!(pc & (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET));  
+>>
+>> This doesn't take into account that we can switch the context manually
+>> via local_bh_disable() / local_irq_save() etc. During the testing of the
+> 
+> You cannot manually switch interrupt context.
+> 
+>> separate issue[0], I've found that the function returns 1 in both just
+>> softirq and softirq under local_irq_save().
+>> Is this intended? Shouldn't that be
+> 
+> That is intended behavior.
+> 
+> local_bh_disable() and local_irq_save() is not a context switch. It is just
+> preventing that context from happening. The interrupt_context_level() is to
+> tell us what context we are running in, not what context is disabled.
+> 
+>>
+>> 	level += !!(pc & (NMI_MASK));
+>> 	level += !!(pc * (NMI_MASK | HARDIRQ_MASK)) || irqs_disabled();
+>> 	level += !!(pc * (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET)) ||
+>> 		 in_atomic();
+>>
+>> ?
+>> Otherwise, the result it returns is not really "context level".
+> 
+> local_bh_disable() use to (and perhaps still does in some configurations)
+> confuse things. But read the comment in kernel/softirq.c
+> 
+> /*
+>  * SOFTIRQ_OFFSET usage:
+>  *
+>  * On !RT kernels 'count' is the preempt counter, on RT kernels this applies
+>  * to a per CPU counter and to task::softirqs_disabled_cnt.
+>  *
+>  * - count is changed by SOFTIRQ_OFFSET on entering or leaving softirq
+>  *   processing.
+>  *
+>  * - count is changed by SOFTIRQ_DISABLE_OFFSET (= 2 * SOFTIRQ_OFFSET)
+>  *   on local_bh_disable or local_bh_enable.
+>  *
+>  * This lets us distinguish between whether we are currently processing
+>  * softirq and whether we just have bh disabled.
+>  */
+> 
+> Just because you disable interrupts does not mean you are in interrupt
+> context.
+
+Ah okay, thanks! IOW, if we want to check in some code that we're
+certainly have interrupts enabled and are not in the interrupt context,
+we must always do
+
+if (!(in_hardirq() || irqs_disabled()))
+
+, nothing more elegant / already existing / ...?
+
+> 
+> -- Steve
+> 
+> 
+>>
+>>> +
+>>> +	return level;
+>>> +}
+>>> +  
+>> [0]
+>> https://lore.kernel.org/netdev/b3884ff9-d903-948d-797a-1830a39b1e71@intel.com
+>>
+>> Thanks,
+>> Olek
+> 
+
+Thanks,
+Olek
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
