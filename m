@@ -4,110 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CD7EB64DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 10:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9E5EB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 11:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mwcuuu01xqWBNZVXdrGcoeY1LF9EK7pHay50a95Xx5M=; b=g/Toz8b4YJq/Og
-	c7zgfSN+1TFzjyWgYEybMqmk2/sLxkwMM84ARgy5XY0pqWt7mFTzFAcCOnh++LpheFDqFb89A0DDl
-	KV9+3WjsHOUIEb6EeKMoi6J6F/cNrOVE7o5NLMTeRDFYuzfTTX/XBd7JRIgLnHC8r0dAQyOrfcGuQ
-	ROLJSPnenEFvh3cSwiY/BSNRySs1nLioRc6InK74w9uUS8MVIFGgGQqGcszRLTdK7MOlWHTi12hsN
-	iQ49GakQYK/K5qpCkwySS3aQxFIVAlfxCiVdl1B+BZ4v5/1PMBWnshroKlBO7osMIpVj72bDpRvUr
-	LmqmfKli8ghkW7ArGBKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6cAjabMNuq8f6B4gXbRH82yKVYZSOLpNap8xlqIJXf4=; b=Qw6QGhdRzY79ev
+	XgwPRBHJcOyOC7CRPZ2X4tFeOcbTGrsb4Jbei/eGfzeHhuAnc12LPh0cR7O2X4xAgcbd9lUAjP20q
+	B5NfO/MuNC4b8Xh6Qc9opbjJzjSuytSZTOzRVYUjc8LtXwv4Yj4DPhI1UmW9Hke/Wgnin8QqhDd8F
+	4pr2uZ31k+AELBiYqpRQ9CFceKtwoLylZZ561A335Q6zreF6XBcEzymGnSLGcZmYoEri/AamhPzEJ
+	BZ+STsKBqI3P394vT37B2gQtKJ3QxhGH0dNYWSm8fNIXo7HzzPqdxYwNkii/MW9ntCg6m7xQ/jATD
+	DP4u5wwPJ5p4Sq7C4swA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMnp0-00Dqrd-2s;
-	Fri, 21 Jul 2023 10:57:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qMoJo-00DvaR-2K;
+	Fri, 21 Jul 2023 11:29:08 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMnow-00DqpD-2l
+	id 1qMoJl-00DvZy-08
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 10:57:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1689937033;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JCcb9xtScqAyMOStlm7ewhQnyFA6r02pOvdu3ozJ8ms=;
-	b=CfDUw4n5j9Ub8zU/uGCccEihQ3s/RFlSzrHXicFgigg9iXRpcJsjAkzayq/qzqV7eXWNbF
-	TgYL2U0/RTkrjVJjgxihUYvvc8ehJ/QT0O8zUK7bCf7VwiS31imZHJUAZyB/kGNlg1HGkq
-	JyrMHOhm3ERua6VGu9U+jHpmsjE6Utg=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-222-k49nRXHSNcGDQJDn_zx-PQ-1; Fri, 21 Jul 2023 06:57:11 -0400
-X-MC-Unique: k49nRXHSNcGDQJDn_zx-PQ-1
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-98df34aa83aso336630166b.1
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 03:57:11 -0700 (PDT)
+	Fri, 21 Jul 2023 11:29:06 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-26586e824e7so941165a91.3
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 04:29:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1689938943; x=1690543743;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FRvchJcKBT7rWCNZJqvc7IJFWKpiqU9X5OFzfWSjx/c=;
+        b=Qj7QEUxjp+4exajoBkKmsFYl0ih23Rz7S7AWAl4rUfSb6w6tuGP0lpyioWxMzv/tSm
+         ZyUdtjE6FrLGsB+MtChN11TnemA0CLcNGAf5nePkZVHKNLSXynu4MxlxKEWD60POwidw
+         MPsTlFpv3zFMnTPTR35pXEv+Nkrhbmey1Pc21vOY9SuLVSQ6T3oImaYnI0DjjF8a8149
+         mvdAQH3s+XDhBZalFnKRKZJ3v7TaHmRUzVnZM0hYRwwyGD4qQ6mxkV0DIrqBOYELH8ae
+         YIAWTb8Q0LrDBFWz7KLGcus3+twG7cf9vWCw3AheEiSeJXOKNW5v4Xxts70k7rdJnvP9
+         NdHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689937031; x=1690541831;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JCcb9xtScqAyMOStlm7ewhQnyFA6r02pOvdu3ozJ8ms=;
-        b=gvgb0C6Fk3FjZmBm/imYcFM8v2msIMUFIW17STEM4wOI6/ZeOG43dU5Q2dPJXX0W1Z
-         xmYmhF+RYNblg1o/Z4qbwl7cM/dueE/rwEfd/pRf4JI58/V39xbbB5xmkexqjq2dTw/N
-         lnaeXkqXJVZyL/fCSIkH1wgLKJy5jgTrHBvoiST1ZZ3uNVPz0kXjHJAt09kvDfQ7i6t1
-         7ZNqVb2gsUxIWyyf+AzUpiEC3/715yudKsCd4slRmKmMF6fKrZdSyKJgzPW+w3f077gl
-         xf/v8z0hUaCnNg99SxXvsLKPwa83Jml7PNX5JDq1xbXUCxw0eDLoJkHgJaeC+e9PsBc6
-         UVvg==
-X-Gm-Message-State: ABy/qLa0YUloUvqIJo67OeukI7EeT6LSpoT39VKIfvODuzHQUIGVPTT8
-	q1MbVG4ezmj4IhT/eMwxs2pfM27+XC7UB76ECxWlSKJXpYxskJlfemFlGHzjhhEvclsdEZJ7+Sr
-	F8bOSizlkps+td1Ln1DrwcgVWG1h6
-X-Received: by 2002:a17:907:d8a:b0:991:d414:d889 with SMTP id go10-20020a1709070d8a00b00991d414d889mr8230214ejc.15.1689937030818;
-        Fri, 21 Jul 2023 03:57:10 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlHG8R7IreJRTfdc0Wq/Yo7PIzOhZZy/jcnGLgxDY0N1OVv0CFUqys6sH346KYqEVj6MNTbrkQ==
-X-Received: by 2002:a17:907:d8a:b0:991:d414:d889 with SMTP id go10-20020a1709070d8a00b00991d414d889mr8230204ejc.15.1689937030548;
-        Fri, 21 Jul 2023 03:57:10 -0700 (PDT)
-Received: from ?IPV6:2001:b07:6468:f312:9af8:e5f5:7516:fa89? ([2001:b07:6468:f312:9af8:e5f5:7516:fa89])
-        by smtp.googlemail.com with ESMTPSA id f21-20020a170906049500b0099364d9f0e9sm2025435eja.102.2023.07.21.03.57.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Jul 2023 03:57:09 -0700 (PDT)
-Message-ID: <0c033063-5d20-4522-87e2-80ad3cca3602@redhat.com>
-Date: Fri, 21 Jul 2023 12:57:07 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [RFC PATCH v11 08/29] KVM: Introduce per-page memory attributes
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
- Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
- Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-9-seanjc@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <20230718234512.1690985-9-seanjc@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+        d=1e100.net; s=20221208; t=1689938943; x=1690543743;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FRvchJcKBT7rWCNZJqvc7IJFWKpiqU9X5OFzfWSjx/c=;
+        b=iIoWtId0gxVn35F/WdE70ReCd9Hu8mjXJWARuOFDi+wR3ExWAr0JlKrampUMRcusKR
+         fuAv+N0bjLRdpQHl0W6fYbEiDRTAPivihyivqjQlnx1hUj7Dn4dd/yyHj7KA4NiZHkLw
+         z5spBDPUkFDZhh7ZGi1NgfMuYdyFqJZ2TE9pVWG6fT7EqtkIjEEMpAIOoabxKQliLKqq
+         Tf1eImQoL18I66CJB3qLLPtwkVEHWbqIMPkdPA51W32SpF49QjJZauZWC8AcwK+OCuKB
+         5mQr6lycD8JEeqCH6L6vr+gtqLjJLHH5KJBewQpRgQK81CPPXAr9wb2wwAvbjniammsy
+         XzPg==
+X-Gm-Message-State: ABy/qLZBkzQyT1qXKvYzZ5gJyb5evoZ6HN4qKoyytE9j4m2+FvOp/KZH
+	1mAaBDw6fWieE7sUo508LhxFYTIcTBStmdtahX0UzKDBqqHFumNwEwloyZMPHsOelsw9QTuOuLv
+	utnny3qUzRM3lypKbfJcwb9G+5OdcRuYYQILXpDwi1dZBC/HG031I7tZExdog8C+YMN1n8ykXSw
+	9+6wvT0MoRyv4/
+X-Google-Smtp-Source: APBJJlGEg5M44Nw1H4K/bYZbIDpZM5hfUzjaNoRKui9ccMtafXopbeA6o00vdOzr6CFCfFIg8tLOUg==
+X-Received: by 2002:a17:90a:138f:b0:265:7719:b849 with SMTP id i15-20020a17090a138f00b002657719b849mr1040284pja.41.1689938942491;
+        Fri, 21 Jul 2023 04:29:02 -0700 (PDT)
+Received: from hsinchu26.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id c1-20020a170903234100b001b8953365aesm3243121plh.22.2023.07.21.04.28.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Jul 2023 04:29:01 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com
+Cc: vineetg@rivosinc.com,
+	bjorn@kernel.org,
+	greentime.hu@sifive.com,
+	paul.walmsley@sifive.com,
+	guoren@linux.alibaba.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	heiko.stuebner@vrull.eu,
+	Andy Chiu <andy.chiu@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [v2, 0/5] riscv: support kernel-mode Vector
+Date: Fri, 21 Jul 2023 11:28:50 +0000
+Message-Id: <20230721112855.1006-1-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_035714_985328_DF9E03A9 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20230721_042905_145578_004A0294 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,52 +93,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/19/23 01:44, Sean Christopherson wrote:
-> From: Chao Peng <chao.p.peng@linux.intel.com>
-> 
-> In confidential computing usages, whether a page is private or shared is
-> necessary information for KVM to perform operations like page fault
-> handling, page zapping etc. There are other potential use cases for
-> per-page memory attributes, e.g. to make memory read-only (or no-exec,
-> or exec-only, etc.) without having to modify memslots.
-> 
-> Introduce two ioctls (advertised by KVM_CAP_MEMORY_ATTRIBUTES) to allow
-> userspace to operate on the per-page memory attributes.
->    - KVM_SET_MEMORY_ATTRIBUTES to set the per-page memory attributes to
->      a guest memory range.
->    - KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES to return the KVM supported
->      memory attributes.
-> 
-> Use an xarray to store the per-page attributes internally, with a naive,
-> not fully optimized implementation, i.e. prioritize correctness over
-> performance for the initial implementation.
-> 
-> Because setting memory attributes is roughly analogous to mprotect() on
-> memory that is mapped into the guest, zap existing mappings prior to
-> updating the memory attributes.  Opportunistically provide an arch hook
-> for the post-set path (needed to complete invalidation anyways) in
-> anticipation of x86 needing the hook to update metadata related to
-> determining whether or not a given gfn can be backed with various sizes
-> of hugepages.
-> 
-> It's possible that future usages may not require an invalidation, e.g.
-> if KVM ends up supporting RWX protections and userspace grants _more_
-> protections, but again opt for simplicity and punt optimizations to
-> if/when they are needed.
-> 
-> Suggested-by: Sean Christopherson <seanjc@google.com>
-> Link: https://lore.kernel.org/all/Y2WB48kD0J4VGynX@google.com
-> Cc: Fuad Tabba <tabba@google.com>
-> Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-> Co-developed-by: Sean Christopherson <seanjc@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+This series provides support for running Vector code in kernel mode. The
+implementation is based on the v12 series of the Vector series, but with
+some additions. First, we introduce a mechanism to defer restoring
+Vector context for userspace programs (patch 1). This is similar to
+arm64 and x86's approaches when dealing with extra userspace register
+context. And it is benefitial to both Vector in user and kernel-mode.
+Then, patch 2, 3 add the kernel-mode Vector patch from v12 with minor
+modifications. At the end of the series, patch 4, 5 add supports for
+making kernel-mode Vector code preemptible. We do this by adding
+kernel-mode Vector context, and keeping track of the frame where V
+context is last valid. We believe that enabling preemption of running V
+is a critical path for getting V more generally available in the
+kernel-mode. Besides, with status.VS, we can easily tell if
+saving/restoring V is required. This reduce the level of cost when
+running SIMD in kernel mode as compared to other arches. Other arches
+usually do not have a way to tell if extra context is dirty. Thus, if
+they also want to support running preemptible code with extra registers,
+then they must save/restore extra context at each context switch even if
+registers are not dirty.
 
-Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+The series is tested by loading a kernel module on a preemptive kernel.
+The module launches multiple kworkers which run Vector operations and
+verifies with scalar code. Also, the module provides userspace intefaces
+via fops to verify if we can run Vector code on syscall path.
+
+Updated patches: 1, 2, 3, 4, 5
+New patches: -
+Unchanged patches: -
+Deleted patches: 6 (moved to 5)
+
+Changelog v2:
+ - fix build issues
+ - Follow arm's way of starting kernel-mode simd code:
+   - add include/asm/simd.h and rename may_use_vector() ->
+     may_use_simd()
+   - return void in kernel_vector_begin(), and BUG_ON if may_use_simd()
+     fails
+ - Change naming scheme for functions/macros (Conor):
+   - remove KMV
+   - 's/rvv/vector/'
+   - 's/RISCV_ISA_V_PREEMPTIVE_KMV/RISCV_ISA_V_PREEMPTIVE/'
+   - 's/TIF_RISCV_V_KMV/TIF_RISCV_V_KERNEL_MODE/'
+
+Changes from the vector v12 series (for patch 2, 3):
+ - return a failure code when kernel_vector_begin() fails.
+ - Do not immediately restore user's V context.
+
+Andy Chiu (3):
+  riscv: sched: defer restoring Vector context for user
+  riscv: vector: do not pass task_struct into
+    riscv_v_vstate_{save,restore}()
+  riscv: vector: allow kernel-mode Vector with preemption
+
+Greentime Hu (2):
+  riscv: Add support for kernel mode vector
+  riscv: Add vector extension XOR implementation
+
+ arch/riscv/Kconfig                     |  10 ++
+ arch/riscv/include/asm/entry-common.h  |  13 +++
+ arch/riscv/include/asm/processor.h     |   2 +
+ arch/riscv/include/asm/simd.h          |  52 +++++++++
+ arch/riscv/include/asm/thread_info.h   |   6 +
+ arch/riscv/include/asm/vector.h        |  50 +++++++--
+ arch/riscv/include/asm/xor.h           |  82 ++++++++++++++
+ arch/riscv/kernel/Makefile             |   1 +
+ arch/riscv/kernel/asm-offsets.c        |   2 +
+ arch/riscv/kernel/entry.S              |  45 ++++++++
+ arch/riscv/kernel/kernel_mode_vector.c | 146 +++++++++++++++++++++++++
+ arch/riscv/kernel/process.c            |  10 +-
+ arch/riscv/kernel/ptrace.c             |   2 +-
+ arch/riscv/kernel/signal.c             |   4 +-
+ arch/riscv/kernel/vector.c             |   5 +-
+ arch/riscv/lib/Makefile                |   1 +
+ arch/riscv/lib/xor.S                   |  81 ++++++++++++++
+ 17 files changed, 495 insertions(+), 17 deletions(-)
+ create mode 100644 arch/riscv/include/asm/simd.h
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
+ create mode 100644 arch/riscv/lib/xor.S
+
+-- 
+2.17.1
 
 
 _______________________________________________
