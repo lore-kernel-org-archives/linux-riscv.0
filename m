@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E4C4C00528
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 17:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2415AEB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 17:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,71 +13,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=o5Fp0pkDkvWzDsbDw8quGaMQJDwBiKx/d1CoTBG5JR8=; b=WzrQ++6Xo3C3uEMDPxWaCDLj0o
-	OT40h0CWrYFkeFbMfYw4OQCtQalyJUrg7sHfL+eCTFi5tarRY9LpiB4iDrOZBIxrBqIuocKS1KUfN
-	tRByjksJLFoV7T/uqWvMnF9Nm/uSvHdeXXvh+6SRNEfcwjF8QQVyJ48exyhoaTGWx8xKJZqoZG4WU
-	mnK9KAK7ZMYOnncwerZ1xmo1mGPDK6m034e4u5lNw0ZU6nTIIFDsBpffsPBJRUw9ROrKL3K+uUxbM
-	c3zubPknk/FMWyHN0A9U3QHBf5laNzApEWNk90uJaOY1iFwMVcHBzwq37KLVZOgLNYmQb+B8FD/r0
-	KEQGiudA==;
+	bh=d8CydtAUeGAyTbeon8fkO1TQuwp61VFCzREaGNn1q1M=; b=fGItpnwbLwcnFt249x8uy4ZVHQ
+	5lTQ9wa0LYO/loe2IFbSXcWd3X08k1AWid/UtduHlUdZJJGqxShLL+hzBwmmSEA5LqCwisEdgwJ7s
+	x+XYTJ2RqN0q0ItHGbE+BNXyqJVh6UjV1lLvDt3r3i+Qhjj+I/HWpSL0bpKhG3mV00JqStLCS6VFw
+	ePrewXrGjDCtRQRZpppsimIlfdgTPXV5sI2oz6Sd4ffFwzplC+C3et3ODx8lsDMoa4vONrdleohqx
+	WrRzMTvjgM0pG2NnIkn0JabiQPOpBaGC4Rv1eRTeV3Z9j6tuZra017b39W7rPVmAdNGph5U2pzPlx
+	ieVDBRUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMu9f-00Em6W-26;
-	Fri, 21 Jul 2023 17:43:03 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1qMuGa-00Emjd-2B;
+	Fri, 21 Jul 2023 17:50:12 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMu9c-00Em5A-3C
+	id 1qMuGX-00Emi2-0N
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 17:43:02 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d00a63fcdefso1470335276.3
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 10:43:00 -0700 (PDT)
+	Fri, 21 Jul 2023 17:50:10 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-bc68c4e046aso2045231276.0
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 10:50:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689961380; x=1690566180;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7DBmD+NWofmGocm5Vnh+WkykM6ONviwwjpnheMJOIK8=;
-        b=Kleh8QpsTsNUhesVcFKaorRemH2b7oCPrjs/EZvvDbSIhnU646cwazqZifDUNyxi+Q
-         5JqV9CUAW8QaG2YIfQCin1qnHve1MgXICSxbyDPLV8MjQRP2Kpasi9pL5sbB8O7UYjBa
-         jgRp3U3UDnkkD6e19TR7wMGjHPVEilwKuPvhlll1BPS6C8DVpWehyFU2WczctGneBM1v
-         8h/JnmhFLy8tlfXVq6NzVrFmSK26MkEiOaRidvtVK6eqi9qhd/VP0gDfCAxADqhE52gi
-         5Uc2vJ9HkSFyp91F1M5r9W96Us+3KtG0sWvhTTO0jFsQ1GbEx81tOU6Kjmmi3SIi/0Fk
-         yy7w==
+        d=google.com; s=20221208; t=1689961807; x=1690566607;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=cGq520d0DqyrCnCF7s5Hdb0rD6NYwtkYzvVScy9HYVY=;
+        b=lZQ3ytVABaMbgeRDyRyj2Y4aroG9rwZE4tos1KIi9+yVur8kHjUJfNDjBsWbA5klWv
+         TLcM88saeccS8fNt+F3rMDPeeLUphdScBaSRyrIwijc1R9havyOwlUNE/IQcuJNK+B8L
+         fg4nRh9mVWUewpR8WoS4y2UShReGqGQI/p2sPXI0/xi9S/4bLyRSoR+wjHm8ngFldPX/
+         svRbdc4YBfOK5kZ24vC9n3F8L7Li2/2X6A5zsHfs5DeCFBQGgpDd6R/Lv+3ONLhdKh+D
+         zucg4UeBA4sEAN2XLHlR2RolIKqE8NS9aws4SoQANyJbQckavpkDoby1VzLjItanYN4z
+         z0Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689961380; x=1690566180;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=7DBmD+NWofmGocm5Vnh+WkykM6ONviwwjpnheMJOIK8=;
-        b=kIe++xNGOoqRP5BX3v5pZFF22goiwkVivxY7xNrPl4JB0qm4bW9b0hJ4d1eNUmUS9r
-         8FQBfaLD8BnVlJQAAOjglCSA29K8vLBHoRDXlgMI1q0EPRjulZv1hgVXlzh1DJtkNSVn
-         tcJjoA9EpftqPad2/QnWnI9RIYusU/bysQg+jfMHssgBBEDSpEuVj0sDkgo2pVmzi9CY
-         FdvGrSPReMojbGwXTEEmDUNfydEx2xBpjDnt/ylUYq170Y2M2hfAB1i01A48Ohu07QEp
-         8lKrA4oyk3n/N0TT72QxUVwFXu0+xnUAOcObclyfOFDOal55v0024usKYQYWpUpBzEbs
-         qMcg==
-X-Gm-Message-State: ABy/qLbid9zujYC8g5iJPezFaMp23UqF6KMkDSYLWx92QXSDRYbPDf2u
-	g86iu9+1OSqoJI4lzdwxepFXKMt7yWg=
-X-Google-Smtp-Source: APBJJlE/aF1pYHHKoAMy1+E4aY5+aL4FeQDb+p2ML0zhZVvr/Ah+OV80Lx1tRjSoeSb0qOhWhlHbRbztBVY=
+        d=1e100.net; s=20221208; t=1689961807; x=1690566607;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cGq520d0DqyrCnCF7s5Hdb0rD6NYwtkYzvVScy9HYVY=;
+        b=hpM1ijL3zOkayUg7bCxz5eUhT3S+XuUModMLMpGXFQGk9HjNZVHCLyLPvIKPA0hPRR
+         X6uANgGJ096uy54JLhWoy9f85NlsMqgFlR0HpS/oo0CxBdxjO9f/22iYucXdXJO+ovhP
+         X4TTtJOz5l4Pvw6y9y6cclRQkqNpiicn5kNP4jHaTTP9bYG5NBu0iT50nlwwMvszubIz
+         aWOJV4gBHoNJGPiEr6VBjD0hzoiKYF6Elrp1+aUgIXwo8rAhdCRwvrNVPIQpKuqdhzvx
+         BHbDnDUEI768eqL5Rq1bIf20+2isHa0ZN9xqpA4rkRXsE04+Kz15IgcbBXarv96r31RA
+         XKbA==
+X-Gm-Message-State: ABy/qLYJBEs/H5ySISuvyRI6Rb2rtS0GMqeNGkBwxmFeqYfOxRHzW6lg
+	DqI0B3OmazlFtRCO3X0pG6DManZysyk=
+X-Google-Smtp-Source: APBJJlGQVjm5RzrpH36bdluvnqR1OmovIF/Mv2HtKZQ0PUD+Zj6xyTxIa85gQ91Vm5Bag6YHDA7hXUEb4so=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
  (user=seanjc job=sendgmr) by 2002:a05:6902:10cd:b0:c1c:df23:44ee with SMTP id
- w13-20020a05690210cd00b00c1cdf2344eemr19665ybu.0.1689961379855; Fri, 21 Jul
- 2023 10:42:59 -0700 (PDT)
-Date: Fri, 21 Jul 2023 10:42:58 -0700
-In-Reply-To: <29baac45-7736-a28c-3b2d-2a6e45171b8b@intel.com>
+ w13-20020a05690210cd00b00c1cdf2344eemr19769ybu.0.1689961807734; Fri, 21 Jul
+ 2023 10:50:07 -0700 (PDT)
+Date: Fri, 21 Jul 2023 10:50:06 -0700
+In-Reply-To: <8ad7a846-64e9-a3f1-4bf1-731a994d62cb@redhat.com>
 Mime-Version: 1.0
 References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-13-seanjc@google.com>
- <fdc155f5-041b-a1b1-15aa-8f970180a13a@intel.com> <29baac45-7736-a28c-3b2d-2a6e45171b8b@intel.com>
-Message-ID: <ZLrDopLH+3vN8rE6@google.com>
+ <8ad7a846-64e9-a3f1-4bf1-731a994d62cb@redhat.com>
+Message-ID: <ZLrFTq2f1NXtlJWd@google.com>
 Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
  guest-specific backing memory
 From: Sean Christopherson <seanjc@google.com>
-To: Xiaoyao Li <xiaoyao.li@intel.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
 	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
@@ -92,8 +90,8 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
 	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_104301_026978_7622388B 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20230721_105009_597493_F13A48F4 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,31 +103,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdWwgMjEsIDIwMjMsIFhpYW95YW8gTGkgd3JvdGU6Cj4gT24gNy8yMS8yMDIzIDEx
-OjA1IFBNLCBYaWFveWFvIExpIHdyb3RlOgo+ID4gT24gNy8xOS8yMDIzIDc6NDQgQU0sIFNlYW4g
-Q2hyaXN0b3BoZXJzb24gd3JvdGU6Cj4gPiA+IEBAIC02MjU1LDEyICs2Mjk4LDE3IEBAIGludCBr
-dm1faW5pdCh1bnNpZ25lZCB2Y3B1X3NpemUsIHVuc2lnbmVkCj4gPiA+IHZjcHVfYWxpZ24sIHN0
-cnVjdCBtb2R1bGUgKm1vZHVsZSkKPiA+ID4gwqDCoMKgwqDCoCBpZiAocikKPiA+ID4gwqDCoMKg
-wqDCoMKgwqDCoMKgIGdvdG8gZXJyX2FzeW5jX3BmOwo+ID4gPiArwqDCoMKgIHIgPSBrdm1fZ21l
-bV9pbml0KCk7Cj4gPiA+ICvCoMKgwqAgaWYgKHIpCj4gPiA+ICvCoMKgwqDCoMKgwqDCoCBnb3Rv
-IGVycl9nbWVtOwo+ID4gPiArCj4gPiA+IMKgwqDCoMKgwqAga3ZtX2NoYXJkZXZfb3BzLm93bmVy
-ID0gbW9kdWxlOwo+ID4gPiDCoMKgwqDCoMKgIGt2bV9wcmVlbXB0X29wcy5zY2hlZF9pbiA9IGt2
-bV9zY2hlZF9pbjsKPiA+ID4gwqDCoMKgwqDCoCBrdm1fcHJlZW1wdF9vcHMuc2NoZWRfb3V0ID0g
-a3ZtX3NjaGVkX291dDsKPiA+ID4gwqDCoMKgwqDCoCBrdm1faW5pdF9kZWJ1ZygpOwo+ID4gPiAr
-wqDCoMKgIGt2bV9nbWVtX2luaXQoKTsKPiA+IAo+ID4gd2h5IGt2bV9nbWVtX2luaXQoKSBuZWVk
-cyB0byBiZSBjYWxsZWQgYWdhaW4/IGJ5IG1pc3Rha2U/Cj4gCj4gSSdtIHN1cmUgaXQncyBhIG1p
-c3Rha2UuCgpZZWFoLCBkZWZpbml0ZWx5IGEgYnVnLgoKPiBJJ20gdGVzdGluZyB0aGUgZ21lbSBR
-RU1VIHdpdGggdGhpcyBzZXJpZXMuIFNXX1BST1RFQ1RFRF9WTSBnZXRzIHN0dWNrIGluIGEKPiBs
-b29wIGluIGVhcmx5IE9WTUYgY29kZSBkdWUgdG8gdHdvIHNoYXJlZCBwYWdlIG9mIE9WTUYgZ2V0
-IHphcHBlZCBhbmQKPiByZS1tYXBwZWQgaW5maW5pdGVseS4gUmVtb3ZpbmcgdGhlIHNlY29uZCBj
-YWxsIG9mIGt2bV9nbWVtX2luaXQoKSBjYW4gc29sdmUKPiB0aGUgaXNzdWUsIHRob3VnaCBJJ20g
-bm90IHN1cmUgYWJvdXQgdGhlIHJlYXNvbi4KCk5vdCB3b3J0aCBpbnZlc3RpZ2F0aW5nIHVubGVz
-cyB5b3Ugd2FudCB0byBzYXRpYXRlIHlvdXIgY3VyaW9zaXR5IDotKQoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Fri, Jul 21, 2023, Paolo Bonzini wrote:
+> On 7/19/23 01:44, Sean Christopherson wrote:
+> > +	inode = alloc_anon_inode(mnt->mnt_sb);
+> > +	if (IS_ERR(inode))
+> > +		return PTR_ERR(inode);
+> > +
+> > +	err = security_inode_init_security_anon(inode, &qname, NULL);
+> > +	if (err)
+> > +		goto err_inode;
+> > +
+> 
+> I don't understand the need to have a separate filesystem.  If it is to
+> fully setup the inode before it's given a struct file, why not just export
+> anon_inode_make_secure_inode instead of security_inode_init_security_anon?
+
+Ugh, this is why comments are important, I can't remember either.
+
+I suspect I implemented a dedicated filesystem to kinda sorta show that we could
+allow userspace to provide the mount point with e.g. NUMA hints[*].  But my
+preference would be to not support a userspace provided mount and instead implement
+fbind() to let userspace control NUMA and whatnot.
+
+[*] https://lore.kernel.org/all/ef48935e5e6f947f6f0c6d748232b14ef5d5ad70.1681176340.git.ackerleytng@google.com
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
