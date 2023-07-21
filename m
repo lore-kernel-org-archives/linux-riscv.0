@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17690C0015E
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 03:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94898EB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 04:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NTsEhDJXTnAzF7yYg2I3KIIDZB51dBUc9tJuTx5oj9s=; b=gMCrifGQOhk1xl
-	HpuEKNQN/TRqwYms0IF9nyPgMn7DPgylbkLXALh2QIZihvTzBFldofEm/iptWTWNSZ2QD0raYwTOL
-	xMauCh1tfRC+wGq/lpX1K5MLau8Puez/BGW8ZsMYppqf2hIBamLsXVCn30BPV7OkRdUbVIEZlvamp
-	12pa/eEM3FbMOPrCZzIh4Q/J5aED/bcnhFaxqC4EWX7SoQhi4lW4UTfBuL0+h1jHEip7w0SO/lihQ
-	qpeQZImpIlthwBPDFPKFhg7XWzD48JSFDTzQFWnt/tQpQh+I9LlHx16qKRWOMeaQc+jqJJqKfuWUZ
-	D5FYe7tBuESo790v2imw==;
+	List-Owner; bh=ppXpoeP59NvZyXMyZGQWB9i5n/RzkHEi3cdjYEWB6D8=; b=KbkyX+MKLaMCA9
+	icXrerazSHUUsiog4wSR53ibxLKIrfQspuw3NSwawJa6hgLaXZAD/nHOh8A6znfCevDATpcSGdrwU
+	9SCGBq62A2TLPFhNS2eezrgzT+oNnsyhjwjGzXkKCbQxqh6dwA/p9BAP/NdC6ahB4rzmJ0rrrDBgQ
+	K+fNq0mSt8RjZ9dFjjSE+cAxEsgKDxUYpyRdlyDjrjDZMJ8AH1KGj6JB/pF8w1AloIguIf+uDFuXp
+	Et6n+Ky4soERIZ7zuO6MsFDB3Ina7GANj6LYf1/9gz88iQz56gmO+xPkbAq+FJfpvgDxamdPoUsi3
+	LiJDhnh3dpz0Wu/AwyQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMh9X-00ClSW-0k;
-	Fri, 21 Jul 2023 03:50:03 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1qMhyl-00Cqb3-1R;
+	Fri, 21 Jul 2023 04:42:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMh9T-00ClRd-2r
+	id 1qMhyi-00Cqa4-01
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 03:50:01 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-26307d808a4so852853a91.1
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Jul 2023 20:49:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1689911398; x=1690516198;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PP+KsyysvUIQdJ6ewTv+F8ZGuWEA39fo13NEoHyitfw=;
-        b=lfA3gYcio7s8oXJqeQSsLROwIgTtmn9LOUax/z/TlERlxHvwKQzbg+zITQWLHrNzOZ
-         i/L6H22njmRWQXVDw7Grf+rfqBo7TsV6x+t0+NtQcXl8lGzjuWq5y+xOk2twOEkV2kSg
-         hTb7rlHlVuJtZn1KBuI2WrO3+czJl4IKL+LK/AAfWFFdoSSL20ZV9I39ZDaQw6nHI+Z/
-         mcAfy7Q80bUPPoC2zVQNGaWWGFgC7LqKvVArO4LG/X1zh5wn0c3GypldFJz9qgxQ9Ckw
-         75pDvcoKVJJv+feLng3AmMxnYUsAVhWv8QuErq/4LdyOVLkF9rrGKdE3sLuRKXnHJiib
-         50sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689911398; x=1690516198;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PP+KsyysvUIQdJ6ewTv+F8ZGuWEA39fo13NEoHyitfw=;
-        b=DEzPyNjyNFp+M1qtsoUMX/nqFIe0X0nHif5IDK14u9gCmsc7qyP0KeX9IHe8txm6qD
-         Zmq38/l8pGxrdJUpb0tEK56hztWwU11QzILhLcbPCDyx9hY/qpIyCaCS+N5UdkgKBGOF
-         iZG7GNTqAqS+C01TuikIB6Sbi6IzFUAx4htBlYa1u9q3nks1LevxdfCPcfNA6bREEMeu
-         3+vFkrQFG09mlkgKKxoRJQmQ1xXqyezZhyzC8btZy7s7/LoRYWfRDw572BERiiyafX7I
-         iBmdct4NXcoPd+CUZjSFZluuVPp/dx/fZoY5LuYE2ObnuxBsgPikXZKze+RWIljaf3Ut
-         WjVw==
-X-Gm-Message-State: ABy/qLb8zWlIBlHXbwOIYS88ewTbRqJM6rbTmYD9kleNG6IcGxr8gFTe
-	dSX26duUa4UjdSdjLG5uG/9KcXW6xN2xvAu7PpKUyA==
-X-Google-Smtp-Source: APBJJlEr/VjirMVZtMc4cX0uJPsKqRsU32tlCDQs3tsf6K7eUQ4sFLhW24crr5+dorszKseHB0iIVKQGE8YGQVOmfI8=
-X-Received: by 2002:a17:90a:5a4c:b0:263:514:5ee3 with SMTP id
- m12-20020a17090a5a4c00b0026305145ee3mr605988pji.32.1689911398194; Thu, 20 Jul
- 2023 20:49:58 -0700 (PDT)
+	Fri, 21 Jul 2023 04:42:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D7066610A6;
+	Fri, 21 Jul 2023 04:42:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3232C433C7;
+	Fri, 21 Jul 2023 04:42:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1689914574;
+	bh=JF0Y6sohRAoq9IsPXejZVN/uvgFs0TOdJTkY2sOlxYE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rZiCzFUxEeXA8Jo7Yd+wrp9lgbS/8O03w/Oro7QIsGrWKMqPVvIZhKFlYwC3exVar
+	 waZEgrnmoW63XKKQqe6K7JjsToA1uagznAoH2vchElZYBY35Zxj52bIOl5r3SoVl7F
+	 0nt265dTsWVfZbUu4sU4pA88AlbfplBQOo1+ec9Vanh+6jxmmqKxaa7sZwWK6ekjNC
+	 bzxQfc/2LRgNBYqto5plaAqbvFj7+naB/scCkjngytI4GCgb9UkLIZuSemtrRxlJJg
+	 wTWUmB36BoMzAhWlamAq304/fsVvhr//iEdpp4/fhM5+/7XxPXCIQgTE2YIsz/wq2U
+	 4Mh6HRoJ5WDbQ==
+Date: Thu, 20 Jul 2023 21:42:52 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+	herbert@gondor.apana.org.au, davem@davemloft.net,
+	conor.dooley@microchip.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	christoph.muellner@vrull.eu,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Charalampos Mitrodimas <charalampos.mitrodimas@vrull.eu>
+Subject: Re: [PATCH v4 08/12] RISC-V: crypto: add a vector-crypto-accelerated
+ SHA256 implementation
+Message-ID: <20230721044252.GB847@sol.localdomain>
+References: <20230711153743.1970625-1-heiko@sntech.de>
+ <20230711153743.1970625-9-heiko@sntech.de>
 MIME-Version: 1.0
-References: <cover.1689792825.git.tjeznach@rivosinc.com> <610abe685f90870be52bc7c2ca45ab5235bd8eb4.1689792825.git.tjeznach@rivosinc.com>
- <c26d029e-dabc-9ad2-ed42-bb6ee276e3fb@kernel.org> <CAH2o1u6pMF3MN=oFBcs9kOf-nwnEYfD2Vv=89+DzUanV59R5dw@mail.gmail.com>
- <69800c58-2df8-25e5-09e0-c9929bae2193@kernel.org> <20230720-bully-famine-dfc9a5e688ef@spud>
-In-Reply-To: <20230720-bully-famine-dfc9a5e688ef@spud>
-From: Tomasz Jeznach <tjeznach@rivosinc.com>
-Date: Thu, 20 Jul 2023 20:49:47 -0700
-Message-ID: <CAH2o1u77EpQN6QOatc9vr7NjVk3Yzn=mjFkHmTB13PCxZfbqoQ@mail.gmail.com>
-Subject: Re: [PATCH 05/11] RISC-V: drivers/iommu/riscv: Add sysfs interface
-To: Conor Dooley <conor@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20230711153743.1970625-9-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230720_205000_164866_E4B46F64 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20230720_214256_145551_81A2FC6A 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +77,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com, Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, Sebastien Boeuf <seb@rivosinc.com>, iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>, linux-riscv@lists.infradead.org, Robin Murphy <robin.murphy@arm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdWwgMjAsIDIwMjMgYXQgMzowOOKAr1BNIENvbm9yIERvb2xleSA8Y29ub3JAa2Vy
-bmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBUaHUsIEp1bCAyMCwgMjAyMyBhdCAxMTozNzo1MFBNICsw
-MjAwLCBLcnp5c3p0b2YgS296bG93c2tpIHdyb3RlOgo+ID4gT24gMjAvMDcvMjAyMyAyMDozMCwg
-VG9tYXN6IEplem5hY2ggd3JvdGU6Cj4KPiA+ID4+PiArI2RlZmluZSBzeXNmc19kZXZfdG9faW9t
-bXUoZGV2KSBcCj4gPiA+Pj4gKyAgICAgY29udGFpbmVyX29mKGRldl9nZXRfZHJ2ZGF0YShkZXYp
-LCBzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlLCBpb21tdSkKPiA+ID4+PiArCj4gPiA+Pj4gK3N0
-YXRpYyBzc2l6ZV90IGFkZHJlc3Nfc2hvdyhzdHJ1Y3QgZGV2aWNlICpkZXYsCj4gPiA+Pj4gKyAg
-ICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgZGV2aWNlX2F0dHJpYnV0ZSAqYXR0ciwgY2hh
-ciAqYnVmKQo+ID4gPj4KPiA+ID4+Cj4gPiA+PiBXaGVyZSBpcyB0aGUgc3lzZnMgQUJJIGRvY3Vt
-ZW50ZWQ/Cj4gPiA+Pgo+ID4gPgo+ID4gPiBTeXNmcyBmb3Igbm93IGlzIHVzZWQgb25seSB0byBl
-eHBvc2Ugc2VsZWN0ZWQgSU9NTVUgbWVtb3J5IG1hcHBlZAo+ID4gPiByZWdpc3RlcnMsIHdpdGgg
-Y29tcGxldGUgZG9jdW1lbnRhdGlvbiBpbiB0aGUgUklTQy1WIElPTU1VIEFyY2ggU3BlYwo+ID4g
-PiBbMV0sIGFuZCBzb21lIGNvbW1lbnRzIGluIGlvbW11LWJpdHMuaCBmaWxlLgo+ID4gPiBMTUsg
-SWYgaXQgd291bGQgYmUgYmV0dGVyIHRvIHB1dCBhIGRlZGljYXRlZCBmaWxlIGRvY3VtZW50aW5n
-IHRob3NlCj4gPiA+IHdpdGggdGhlIHBhdGNoIGl0c2VsZi4KPiA+Cj4gPiBJIG1lYW50LCB5b3Ug
-Y3JlYXRlZCBuZXcgc3lzZnMgaW50ZXJmYWNlLiBNYXliZSBJIG1pc3NlZCBzb21ldGhpbmcgaW4K
-PiA+IHRoZSBwYXRjaHNldCwgYnV0IGVhY2ggbmV3IHN5c2ZzIGludGVyZmFjZSByZXF1aXJlZCBk
-b2N1bWVudGluZyBpbgo+ID4gRG9jdW1lbnRhdGlvbi9BQkkvLgo+Cj4gfCBleHBvc2Ugc2VsZWN0
-ZWQgSU9NTVUgbWVtb3J5IG1hcHBlZCByZWdpc3RlcnMKPgo+IHwgRW5hYmxlIHN5c2ZzIGRlYnVn
-IC8gdmlzaWJpbGl0eSBpbnRlcmZhY2UgcHJvdmlkaW5nIHJlc3RyaWN0ZWQKPiB8IGFjY2VzcyB0
-byBoYXJkd2FyZSByZWdpc3RlcnMuCj4KPiBEb2N1bWVudGF0aW9uIHJlcXVpcmVtZW50cyBvZiBz
-eXNmcyBzdHVmZiBhc2lkZSwgSSdtIG5vdCBzdXJlIHRoYXQgd2UKPiBldmVuIHdhbnQgYSBzeXNm
-cyBpbnRlcmZhY2UgZm9yIHRoaXMgaW4gdGhlIGZpcnN0IHBsYWNlPyBTZWVtcyBsaWtlLCBpZgo+
-IGF0IGFsbCwgdGhpcyBzaG91bGQgYmUgZGVidWdmcyBpbnN0ZWFkPyBTZWVtcyBsaWtlIHRoZSBv
-bmx5IHVzZSBjYXNlIGZvcgo+IGl0IGlzIGRlYnVnZ2luZy9kZXZlbG9wbWVudC4uLgoKVGhhbmtz
-IENvbm9yLCB3aWxsIHN3aXRjaCB0byBkZWJ1Z2ZzLiBUaGlzIHdpbGwgYmUgYSBtb3JlIHN1aXRh
-YmxlIGludGVyZmFjZS4KCnJlZ2FyZHMsCi0gVG9tYXN6CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Jul 11, 2023 at 05:37:39PM +0200, Heiko Stuebner wrote:
+> diff --git a/arch/riscv/crypto/sha256-riscv64-glue.c b/arch/riscv/crypto/sha256-riscv64-glue.c
+> new file mode 100644
+> index 000000000000..1c9c88029f60
+> --- /dev/null
+> +++ b/arch/riscv/crypto/sha256-riscv64-glue.c
+> @@ -0,0 +1,115 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Linux/riscv64 port of the OpenSSL SHA256 implementation for RISCV64
+> + *
+> + * Copyright (C) 2022 VRULL GmbH
+> + * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> + */
+> +
+> +#include <linux/module.h>
+> +#include <linux/types.h>
+> +#include <asm/simd.h>
+> +#include <asm/vector.h>
+> +#include <crypto/internal/hash.h>
+> +#include <crypto/internal/simd.h>
+> +#include <crypto/sha2.h>
+> +#include <crypto/sha256_base.h>
+> +
+> +asmlinkage void sha256_block_data_order_zvbb_zvknha(u32 *digest, const void *data,
+> +					unsigned int num_blks);
+> +
+> +static void __sha256_block_data_order(struct sha256_state *sst, u8 const *src,
+> +				      int blocks)
+> +{
+> +	sha256_block_data_order_zvbb_zvknha(sst->state, src, blocks);
+> +}
+
+Having a double-underscored function wrap around a non-underscored one like this
+isn't conventional for Linux kernel code.  IIRC some of the other crypto code
+happens to do this, but it really is supposed to be the other way around.
+
+I think you should just declare the assembly function to take a 'struct
+sha256_state', with a comment mentioning that only the 'u32 state[8]' at the
+beginning is actually used.  That's what arch/x86/crypto/sha256_ssse3_glue.c
+does, for example.  Then, __sha256_block_data_order() would be unneeded.
+
+> +static int riscv64_sha256_update(struct shash_desc *desc, const u8 *data,
+> +			 unsigned int len)
+> +{
+> +	if (crypto_simd_usable()) {
+
+crypto_simd_usable() uses may_use_simd() which isn't wired up for RISC-V, so it
+gets the default implementation of '!in_interrupt()'.  RISC-V does have
+may_use_vector() which looks like right thing.  I think RISC-V needs a header
+arch/riscv/include/asm/simd.h which defines may_use_simd() as a wrapper around
+may_use_vector().
+
+> +		int ret;
+> +
+> +		kernel_rvv_begin();
+> +		ret = sha256_base_do_update(desc, data, len,
+> +					    __sha256_block_data_order);
+> +		kernel_rvv_end();
+> +		return ret;
+> +	} else {
+> +		sha256_update(shash_desc_ctx(desc), data, len);
+> +		return 0;
+> +	}
+> +}
+> +
+> +static int riscv64_sha256_finup(struct shash_desc *desc, const u8 *data,
+> +			unsigned int len, u8 *out)
+> +{
+> +	if (!crypto_simd_usable()) {
+> +		sha256_update(shash_desc_ctx(desc), data, len);
+> +		sha256_final(shash_desc_ctx(desc), out);
+> +		return 0;
+> +	}
+
+Keep things consistent please.  riscv64_sha256_update() could use
+!crypto_simd_usable() and an early return too.
+
+> +static int __init sha256_mod_init(void)
+
+riscv64_sha256_mod_init()
+
+> +{
+> +	/*
+> +	 * From the spec:
+> +	 * Zvknhb supports SHA-256 and SHA-512. Zvknha supports only SHA-256.
+> +	 */
+> +	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
+> +	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
+> +	     riscv_isa_extension_available(NULL, ZVBB) &&
+> +	     riscv_vector_vlen() >= 128)
+> +
+> +		return crypto_register_shash(&sha256_alg);
+> +
+> +	return 0;
+> +}
+> +
+> +static void __exit sha256_mod_fini(void)
+
+riscv64_sha256_mod_exit()
+
+> +{
+> +	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
+> +	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
+> +	     riscv_isa_extension_available(NULL, ZVBB) &&
+> +	     riscv_vector_vlen() >= 128)
+> +		crypto_unregister_shash(&sha256_alg);
+> +}
+
+If the needed CPU features aren't present, return -ENODEV from the module_init
+function instead of 0.  Then, the module_exit function can unconditionally
+unregister the algorithm.
+
+- Eric
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
