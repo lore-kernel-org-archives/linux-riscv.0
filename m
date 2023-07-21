@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1A4EB64DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 09:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CAFEB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 09:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cun1NxIE/vw4J1zWAv5BMvfMwqtjymBAeHJxd3+jA3g=; b=uzO21GAjcAEmRNapsgxwXLCGdd
-	gV9Rg6AruP84UBjVqO8xpfDdvaXC1h2r3EtGF/Ib0z+MTJnutqnoTEX3CR+xfPj142L1Sr3SXPCYI
-	BeIYYkfbWm9VpUwa0eiIZ3pwUqDEMswiYBrRC5IuOLPwjT18v3GpXiCTpBCugAykkqqK2QsRs0+zW
-	oicTOVqI0RmUmLcDwX6m0U/EJFMNTipvxR6CkDPoxw7f9qYAG93t0s3uj7uG5gZVILoqlONQpv06u
-	iok3HcGAZY7i3nObNLf3yMOmnywkldZyfhj1yGJeGyHZMnWzUetlyNVEp6YLpRgYNS7osYVImGh4Z
-	QELGkgMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rAfh/eOpC4rehHetZmc6/hIO3vmSvxqI8XXqXfP9l+8=; b=YAzpajuJg21qro
+	3+Pm2CBnDRDKfBa4nUa2xTEczUZhqkx6jd3W2A9+Fe0Mh6Xa1Xi580gAVWYPA3Bqj7aDnP1Xz9XzW
+	dhOAcDw9LaVOjiuhLFxPjmVFHC461p8ZPG7phN41MeeUFZCPWYSZnhFcYvLr89loYHtzdmOwr3k+0
+	QtgZ/+Y72uROs2paUkQnpZYpziomdPFi0y54gIqvoujAV6XEmSDI54VYZpbClQ+QQAl9dpTrLtGn4
+	vW/qMh6to241RvPHoIB5K8A9RyuT9E6HMDGrBdqDdzXcCI15/e0ezawkViFl/B+taDok6smXgDIbM
+	Hrkx1kLankSqDXQYEcLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMmVG-00DYF5-1h;
-	Fri, 21 Jul 2023 09:32:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMmVD-00DYEC-2R
+	id 1qMmY6-00DYsq-04;
+	Fri, 21 Jul 2023 09:35:46 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qMmY2-00DYpH-0Q
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 09:32:49 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2FFE36188A;
-	Fri, 21 Jul 2023 09:32:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86B70C433C8;
-	Fri, 21 Jul 2023 09:32:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689931966;
-	bh=YnSBdEfhfwyPTob8o+YeKHNKwCLCsg52ACNTrnl53hs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H0ylFNrTrB4uesmyrEKXEGkYMSZ2f8t8VdDglN/EMmvrD/imb5jEYlbzLKDabH5+k
-	 sLUEs8LJMtB+j46r8tEMB8Dfjd6mrSWcoqSc3f79PGXKZPDRUH75FK4d1BZYK1KJ2C
-	 vBO3bMEfuXUXaX6V4jmpgPv2maqFOAUQtpRbjBHNEU/Gz4m0c6S4czZd/XeowoVLWq
-	 eoC3LGOjDKMXYyU74PYhZvIGjUavrYSVMdTjIt+zHIIRJBIe8yVnf1VaoN4oIJPjxM
-	 ULEbUdd/8oX5q+2LaEZwAkuZcxzWL/i6KX/pzAgBekvwUVWvD9fpiML3QrIZIUhzjM
-	 lCLdDM34zBPCg==
-Date: Fri, 21 Jul 2023 10:32:41 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Xingyu Wu <xingyu.wu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v8 0/9] Add STG/ISP/VOUT clock and reset drivers for
- StarFive JH7110
-Message-ID: <20230721-copier-mystify-311b6367f5f8@spud>
-References: <20230713113902.56519-1-xingyu.wu@starfivetech.com>
- <20230720-enjoyment-gestation-adb8baa9aaf1@spud>
- <8794c997-f371-70f8-2462-a6c677e7308c@starfivetech.com>
+	Fri, 21 Jul 2023 09:35:44 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 69B5980B2;
+	Fri, 21 Jul 2023 17:35:18 +0800 (CST)
+Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 21 Jul
+ 2023 17:35:18 +0800
+Received: from [192.168.120.43] (171.223.208.138) by EXMBX062.cuchost.com
+ (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 21 Jul
+ 2023 17:35:16 +0800
+Message-ID: <46663f3b-44b8-f2b6-df4b-9d639b3aff66@starfivetech.com>
+Date: Fri, 21 Jul 2023 17:35:15 +0800
 MIME-Version: 1.0
-In-Reply-To: <8794c997-f371-70f8-2462-a6c677e7308c@starfivetech.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.10.0
+Subject: Re: [PATCH v1 0/2] Add ethernet nodes for StarFive JH7110 SoC
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jose Abreu
+	<joabreu@synopsys.com>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit
+	<hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>, Yanhong Wang
+	<yanhong.wang@starfivetech.com>, Tommaso Merciai <tomm.merciai@gmail.com>
+References: <20230714104521.18751-1-samin.guo@starfivetech.com>
+ <20230720-cardstock-annoying-27b3b19e980a@spud>
+ <42beaf41-947e-f585-5ec1-f1710830e556@starfivetech.com>
+ <A0012BE7-8947-49C8-8697-1F879EE7B0B7@kernel.org>
+ <ce3e0ffb-abcd-2392-8767-db460bce4b4b@starfivetech.com>
+ <20230721-passive-smoked-d02c88721754@spud>
+From: Guo Samin <samin.guo@starfivetech.com>
+In-Reply-To: <20230721-passive-smoked-d02c88721754@spud>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX062.cuchost.com
+ (172.16.6.62)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_023247_877658_3208E859 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20230721_023542_520203_9D2B5D77 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,89 +86,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7127183237721459137=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7127183237721459137==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Da+Ai98mJJBdPIk8"
-Content-Disposition: inline
+
+on 2023/7/21 17:16:41, Conor Dooley wrote:
+> On Fri, Jul 21, 2023 at 03:27:33PM +0800, Guo Samin wrote:
+> 
+>> Re: [PATCH v1 0/2] Add ethernet nodes for StarFive JH7110 SoC
+>> From: Conor Dooley <conor@kernel.org>
+> 
+>> to: Guo Samin <samin.guo@starfivetech.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Hal Feng <hal.feng@starfivetech.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, netdev@vger.kernel.org
+>> data: 2023/7/21
+> 
+> btw, please try and remove this stuff from your mails.
+>
+
+Sure
+ 
+>>> On 21 July 2023 03:09:19 IST, Guo Samin <samin.guo@starfivetech.com> wrote:
+> 
+>>>> There is a question about the configuration of phy that I would like to consult you.
+>>>>
+>>>> Latest on motorcomm PHY V5[1]: Follow Rob Herring's advice
+>>>> motorcomm,rx-xxx-driver-strength Changed to motorcomm,rx-xxx-drv-microamp .
+>>>> V5 has already received a reviewed-by from Andrew Lunn, and it should not change again.
+>>>>
+>>>> Should I submit another pacthes based on riscv-dt-for-next? 
+>>>
+>>> Huh, dtbs_check passed for these patches,
+>>> I didn't realise changes to the motorcomm stuff
+>>> were a dep. for this. I'll take a look later.
+> 
+>> After discussing with HAL, I have prepared the code and considered adding the following patch to 
+>> Motorcomm's patchsetes v6. (To fix some spelling errors in v5[1])
+>> which will then send patches based on linux-next. What do you think? @Andrew @Conor
+> 
+> I think you are better off just sending the dts patch to me, adding a
+> dts patch that will not apply to net-next to your motorcomm driver series
+> will only really cause problems for the netdev patchwork automation.
+>
+
+Okay, I'll send you DTS separately.
+ 
+>> [1] https://patchwork.kernel.org/project/netdevbpf/cover/20230720111509.21843-1-samin.guo@starfivetech.com
+> 
+> I meant to ack this yesterday, but it wasn't in my dt-binding review
+> queue. I'll go do that now.
 
 
---Da+Ai98mJJBdPIk8
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jul 21, 2023 at 02:41:56PM +0800, Xingyu Wu wrote:
-> On 2023/7/21 0:32, Conor Dooley wrote:
-> > On Thu, Jul 13, 2023 at 07:38:53PM +0800, Xingyu Wu wrote:
-> >> This patch serises are base on the basic JH7110 SYSCRG/AONCRG
-> >> drivers and add new partial clock drivers and reset supports
-> >> about System-Top-Group(STG), Image-Signal-Process(ISP)
-> >> and Video-Output(VOUT) for the StarFive JH7110 RISC-V SoC. These
-> >> clocks and resets could be used by DMA, VIN and Display modules.
-> >>=20
-> >> Patches 1 and 2 are about the System-Top-Group clock and reset
-> >> generator(STGCRG) part. The first patch adds docunmentation to
-> >> describe STG bindings, and the second patch adds clock driver to
-> >> support STG clocks and resets as auxiliary device for JH7110.
-> >>=20
-> >> Patches 3 and 4 are about the Image-Signal-Process clock and reset
-> >> gennerator(ISPCRG) part. The first patch adds docunmentation to
-> >> describe ISP bindings, and the second patch adds clock driver to
-> >> support ISP clocks and resets as auxiliary device for JH7110.
-> >> And ISP clocks should power on and enable the SYSCRG clocks first
-> >> before registering.
-> >>=20
-> >> Patches 5 and 6 are about the Video-Output clock and reset
-> >> generator(VOUTCRG) part. The first patch adds docunmentation to
-> >> describe VOUT bindings, and the second patch adds clock driver to
-> >> support VOUT clocks and resets as auxiliary device for JH7110.
-> >> And VOUT clocks also should power on and enable the SYSCRG clocks
-> >> first before registering.
-> >>=20
-> >> Patch 7 adds struct members to support STG/ISP/VOUT resets.
->=20
-> BTW, I found this patch is not in the linux-next or clk-next.
-> These STG/ISP/VOUT CRG drivers are 'incomplete' without this resets patch.
-> I don't know what your plans about this patch and I'm just curious on it.
-
-Oh. I mistakenly thought that this was a standalone reset controller
-patch that Philipp could take, but now I see it depends on the=20
-dt-binding headers added by this series.
-Maybe you could resend it by itself, and Stephen could pick it into
-clk-next?
-
-Sorry about that,
-Conor.
-
---Da+Ai98mJJBdPIk8
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZLpQuQAKCRB4tDGHoIJi
-0pbJAQCJbQjvdBO4XPzRbydiA7oYCEaxC4D8InDZePLnMiemSAD+N05Kkic2KDd1
-lVLWaU/WspQV+L72HjM//dmvcHQd/g0=
-=Orl3
------END PGP SIGNATURE-----
-
---Da+Ai98mJJBdPIk8--
-
-
---===============7127183237721459137==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Samin
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7127183237721459137==--
-
