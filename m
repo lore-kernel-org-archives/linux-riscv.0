@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A088C001DC
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 15:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82695EB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 16:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rVctjtzQs0ddFoA3l8j26WJvevcwFYCfu8tW8sUTAl4=; b=yUyVjwNHOcPYvK
-	dbZLLRg70bfI+tMbmyzL8MRAtA9orIZBsSeXcBNnkV0I6v7HDvrG/uCVFfuefQhRF9mWw9NfSMFuX
-	xo38Ny2ZDiFqPt3LGnd+eWD1TkAFrJKbYNwURHVAKu6YAQRxC7i7G58Y7pbLLOq3F5VyN1JSJL/tg
-	GEgLi+86LQyRGq2bo5JZ6zZAfD7AkrJiDrD6yuhkdXbO57hhpRTltuP+Yd3JMKDXA+YDEwJzll9nD
-	YYP+2YJ0Ra1VLh8fOVITlnm1zbjb37EJ/LNZpl99bxutOtPhz4OhFlY2ActHCzFjPHAruoxRlGj2l
-	gM8dY5aZ+EB04ctVtKhA==;
+	List-Owner; bh=tj+9tFC2K1BEecziXHogQBf+lWM3SSL6cknngvWH2RE=; b=3X9w6bcSFch5eJ
+	vzziURRRCt7MotLOFKKaWup5K2amMkpZLNXcfKl7K4nGuG0f6O2BXTtY/ZLNxOo41C0JKxfIaIBX5
+	zhUSKyTziZwKH+wsFXa0ggVhmlhWcHnS0L8Bfr2MZBDHsAneZ/Q+k+pq95GFwZX+rREMBEa5EmzjF
+	f/T57v+4uhyroe6eOrXkVDqJ2G2je/sYulpZb6RLD8qgbwmxj9J1AijzCY5Q4hbzqJhSCDYrRD5b5
+	rTGv6fq01ePEybRUwi0XXwNiRd3Q+ri1aLMi2f72Ar1a0Ow0eMzSpKyQ6MnCEerOqHPcbQXFcvEPG
+	N0spmS0SaH1QtHfBqfaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMsUw-00EUoA-29;
-	Fri, 21 Jul 2023 15:56:54 +0000
-Received: from mga18.intel.com ([134.134.136.126])
+	id 1qMsYm-00EVhP-2J;
+	Fri, 21 Jul 2023 16:00:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMsUt-00EUmw-14;
-	Fri, 21 Jul 2023 15:56:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1689955011; x=1721491011;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=JA5Qpp5YniYsJOdvvzjD9DRgmiiQbKmX74OklM/B+X4=;
-  b=mALJtu7LjeM0JcR8onfUefKFAbQQo3Xx1NPkCAqN8d9ulOGGRixej3bR
-   9RNyBjpI4q2wEWGslD3X8VdZlP1cLEk5pjMQsPQ9v8y7bI9pHwm/NFtIu
-   bNPKl1B+0tZnUGh36Ccu7PIvf5rBfvfT6ueje5L+K6i5XyjxWjoOxMu/4
-   Bfq6I7Hin3vVbNnrvtBatmqhjFPd5gaEv16cej4X5mB6+/DUE3G/n6a0V
-   UqhE7WJ4UF1DBn0fNMSDGCchjB//u/WgRy3TukYfh9ELl89YUPs/pn+n/
-   OZ8ZESW7qIluzxo4RloTeD9ZAjuZDluIQx53zdmjX4kOW4riWZPqrPZEy
-   Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10778"; a="351933282"
-X-IronPort-AV: E=Sophos;i="6.01,222,1684825200"; 
-   d="scan'208";a="351933282"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2023 08:56:50 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10778"; a="795008982"
-X-IronPort-AV: E=Sophos;i="6.01,222,1684825200"; 
-   d="scan'208";a="795008982"
-Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.93.6.77]) ([10.93.6.77])
-  by fmsmga004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2023 08:56:40 -0700
-Message-ID: <de4e4112-4ea4-f19b-98a9-0a65b75c2102@intel.com>
-Date: Fri, 21 Jul 2023 23:56:36 +0800
+	id 1qMsYj-00EVfg-27
+	for linux-riscv@lists.infradead.org;
+	Fri, 21 Jul 2023 16:00:51 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B7F1961C5B;
+	Fri, 21 Jul 2023 16:00:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2B74C433C7;
+	Fri, 21 Jul 2023 16:00:44 +0000 (UTC)
+Date: Fri, 21 Jul 2023 12:00:40 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Alexander Lobakin <aleksander.lobakin@intel.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, LKML
+ <linux-kernel@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>, "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller
+ <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>, "Benjamin
+ Herrenschmidt" <benh@kernel.crashing.org>, Paul Mackerras
+ <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Thomas
+ Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>,
+ <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Josh Poimboeuf
+ <jpoimboe@redhat.com>, "Jiri Kosina" <jikos@kernel.org>, Miroslav Benes
+ <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, Joe Lawrence
+ <joe.lawrence@redhat.com>, Colin Ian King <colin.king@canonical.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, "Nicholas Piggin"
+ <npiggin@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+ <linux-csky@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
+ <linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+ <live-patching@vger.kernel.org>, =?UTF-8?B?546L6LSH?=
+ <yun.wang@linux.alibaba.com>, Guo Ren <guoren@kernel.org>, Jakub Kicinski
+ <kuba@kernel.org>
+Subject: Re: [PATCH] tracing: Have all levels of checks prevent recursion
+Message-ID: <20230721120040.6ed2c02a@gandalf.local.home>
+In-Reply-To: <1b402c0c-1beb-d93f-ff6d-955350995ca3@intel.com>
+References: <20211015110035.14813389@gandalf.local.home>
+	<20211015161702.GF174703@worktop.programming.kicks-ass.net>
+	<20211015133504.6c0a9fcc@gandalf.local.home>
+	<20211015135806.72d1af23@gandalf.local.home>
+	<20211015180429.GK174703@worktop.programming.kicks-ass.net>
+	<20211015142033.72605b47@gandalf.local.home>
+	<20211015142541.4badd8a9@gandalf.local.home>
+	<1b402c0c-1beb-d93f-ff6d-955350995ca3@intel.com>
+X-Mailer: Claws Mail 3.19.1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Firefox/102.0 Thunderbird/102.13.0
-Subject: Re: [RFC PATCH v11 08/29] KVM: Introduce per-page memory attributes
-Content-Language: en-US
-To: Sean Christopherson <seanjc@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
- Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
- Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-9-seanjc@google.com>
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <20230718234512.1690985-9-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_085651_430751_AB74FAA8 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20230721_090049_795173_55F8B297 
+X-CRM114-Status: GOOD (  31.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +84,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/19/2023 7:44 AM, Sean Christopherson wrote:
-> +4.140 KVM_SET_MEMORY_ATTRIBUTES
-> +-----------------------------------------
-> +
-> +:Capability: KVM_CAP_MEMORY_ATTRIBUTES
-> +:Architectures: x86
-> +:Type: vm ioctl
-> +:Parameters: struct kvm_memory_attributes(in/out)
-> +:Returns: 0 on success, <0 on error
-> +
-> +Sets memory attributes for pages in a guest memory range. Parameters are
-> +specified via the following structure::
-> +
-> +  struct kvm_memory_attributes {
-> +	__u64 address;
-> +	__u64 size;
-> +	__u64 attributes;
-> +	__u64 flags;
-> +  };
-> +
-> +The user sets the per-page memory attributes to a guest memory range indicated
-> +by address/size, and in return KVM adjusts address and size to reflect the
-> +actual pages of the memory range have been successfully set to the attributes.
-> +If the call returns 0, "address" is updated to the last successful address + 1
-> +and "size" is updated to the remaining address size that has not been set
-> +successfully. The user should check the return value as well as the size to
-> +decide if the operation succeeded for the whole range or not. The user may want
-> +to retry the operation with the returned address/size if the previous range was
-> +partially successful.
+On Fri, 21 Jul 2023 17:34:41 +0200
+Alexander Lobakin <aleksander.lobakin@intel.com> wrote:
 
-This does not match with the implementation. Please fix either one to 
-make them consistent.
+> From: Steven Rostedt <rostedt@goodmis.org>
+> Date: Fri, 15 Oct 2021 14:25:41 -0400
+> 
+> Sorry for such a necroposting :z
+> Just wanted to know if this is a bug, so that I could send a fix, or
+> intended behaviour.
+> 
+> > On Fri, 15 Oct 2021 14:20:33 -0400
+> > Steven Rostedt <rostedt@goodmis.org> wrote:
+> >   
+> >>> I think having one copy of that in a header is better than having 3
+> >>> copies. But yes, something along them lines.    
+> >>
+> >> I was just about to ask you about this patch ;-)  
+> > 
+> > Except it doesn't build :-p (need to move the inlined function down a bit)
+> > 
+> > diff --git a/include/linux/preempt.h b/include/linux/preempt.h
+> > index 4d244e295e85..b32e3dabe28b 100644
+> > --- a/include/linux/preempt.h
+> > +++ b/include/linux/preempt.h
+> > @@ -77,6 +77,27 @@
+> >  /* preempt_count() and related functions, depends on PREEMPT_NEED_RESCHED */
+> >  #include <asm/preempt.h>
+> >  
+> > +/**
+> > + * interrupt_context_level - return interrupt context level
+> > + *
+> > + * Returns the current interrupt context level.
+> > + *  0 - normal context
+> > + *  1 - softirq context
+> > + *  2 - hardirq context
+> > + *  3 - NMI context
+> > + */
+> > +static __always_inline unsigned char interrupt_context_level(void)
+> > +{
+> > +	unsigned long pc = preempt_count();
+> > +	unsigned char level = 0;
+> > +
+> > +	level += !!(pc & (NMI_MASK));
+> > +	level += !!(pc & (NMI_MASK | HARDIRQ_MASK));
+> > +	level += !!(pc & (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET));  
+> 
+> This doesn't take into account that we can switch the context manually
+> via local_bh_disable() / local_irq_save() etc. During the testing of the
+
+You cannot manually switch interrupt context.
+
+> separate issue[0], I've found that the function returns 1 in both just
+> softirq and softirq under local_irq_save().
+> Is this intended? Shouldn't that be
+
+That is intended behavior.
+
+local_bh_disable() and local_irq_save() is not a context switch. It is just
+preventing that context from happening. The interrupt_context_level() is to
+tell us what context we are running in, not what context is disabled.
+
+> 
+> 	level += !!(pc & (NMI_MASK));
+> 	level += !!(pc * (NMI_MASK | HARDIRQ_MASK)) || irqs_disabled();
+> 	level += !!(pc * (NMI_MASK | HARDIRQ_MASK | SOFTIRQ_OFFSET)) ||
+> 		 in_atomic();
+> 
+> ?
+> Otherwise, the result it returns is not really "context level".
+
+local_bh_disable() use to (and perhaps still does in some configurations)
+confuse things. But read the comment in kernel/softirq.c
+
+/*
+ * SOFTIRQ_OFFSET usage:
+ *
+ * On !RT kernels 'count' is the preempt counter, on RT kernels this applies
+ * to a per CPU counter and to task::softirqs_disabled_cnt.
+ *
+ * - count is changed by SOFTIRQ_OFFSET on entering or leaving softirq
+ *   processing.
+ *
+ * - count is changed by SOFTIRQ_DISABLE_OFFSET (= 2 * SOFTIRQ_OFFSET)
+ *   on local_bh_disable or local_bh_enable.
+ *
+ * This lets us distinguish between whether we are currently processing
+ * softirq and whether we just have bh disabled.
+ */
+
+Just because you disable interrupts does not mean you are in interrupt
+context.
+
+-- Steve
+
+
+> 
+> > +
+> > +	return level;
+> > +}
+> > +  
+> [0]
+> https://lore.kernel.org/netdev/b3884ff9-d903-948d-797a-1830a39b1e71@intel.com
+> 
+> Thanks,
+> Olek
+
 
 _______________________________________________
 linux-riscv mailing list
