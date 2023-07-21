@@ -4,84 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5517BC001DE
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 07:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A52F6C0015E
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 08:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aN5FdEvnD9Dn5INZiOZdvWvETXwSLEmZWGYZeSODJGM=; b=JgkEzcF5APQEuh
-	I97BrkbtnjVbNE3YQATDeuGFoWIW6QtJ0EmPW+Yuetgtrl0xdzWd/ddBmtNz8M8SVlrl/1TTlondJ
-	ZqZWuEEJ8IB1FZohcD/9aR+xtgfJtQq+RzIka/dsE+xQ/kGmOeUfAqCPbQUd9bq5t96ugm8HfdjKK
-	MbQ34SHGqsRxlFk0IUI1gmAdfwrjAOICqoe/sZLqTzwfyXr5oFNjT757TQYe0ezIJXkcpIw9oLaCA
-	2OQvH9SZaBRFw9sN+GSvVDlN58eJGLpfZqZgIwN/po3IsCOo5t8m1zY6WN4YVATv4XnfS2ieCkvZe
-	k5oXDd8N30Ake4ho1eGg==;
+	List-Owner; bh=wYRZlzS2ZiBPmHbeI8hteS1ho5w84oZh5VWlcnKGZ/w=; b=cwuKaSuHvKS6Fi
+	fbVb0te6SQVidy69kDUAqGpAk6SIJ51hvl9QZpbLVOhblWeP/QEEI/ZZkrxrfCsWMkyJGvX0P1Ke9
+	mFAYWJDEA2DjSkTRD2LW1y1szIja2kO4EUfeNynaYQz0PmhezfVJI2L2xtNZWWeHR5mAoO2ABm/Ng
+	NtXa9k09DTBsiBaDQoArBe9DlsFvE3CbJ3tE9+YZTZFaogjjYgd2lFMDn1WuVzPFGgdtSPG/qwr5d
+	XDhtOKJ1ywX41lDnXOqHYK2V8ZL/RXDoxQMCquhULbzp5Dty1/COn7bialG1RzbjCnFVYt00gjrO3
+	ICvvVqO5rB423ajE09+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMkym-00DGKb-2r;
-	Fri, 21 Jul 2023 07:55:12 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1qMlU2-00DMiu-01;
+	Fri, 21 Jul 2023 08:27:30 +0000
+Received: from new3-smtp.messagingengine.com ([66.111.4.229])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMkyi-00DGF3-1w
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 07:55:10 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2633b669f5fso892684a91.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 00:55:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1689926108; x=1690530908;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=U6Ksr06UW7Dx/X9GfjFaRawS2ArEeJDwaLwbdE4Z+oI=;
-        b=Ja/9rqUcR8mguD9SerxDWAbqKtWAu6RjjRsr2AeiDMvODUQZujXzQYXuUn/b4fj/uv
-         oJew2Ebd4XM+fwYGJEP1Y3WcH6PwukQkxgYGhZSE6Mku82auaTl4UgitpvZRS2fs6B4A
-         ADL12DH2PszuH/dWJy5BLCnCckXJIFunkhQLQ8hgRFdr9Vo2VRKNb7a1Mae7grfaO2XC
-         o4jmP0Gg/RouywZtpGDT4kn6EphzOpVArtgO/OkYivuMqj6GkF1kt+cW7ljacwjzIv3t
-         aR50eaCv59fZ6oNMS+cnnVfASbro9hWYc3/XoPrAzO1PJ/lz2Y7UfhiTNhixevZYbI1o
-         B03g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689926108; x=1690530908;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U6Ksr06UW7Dx/X9GfjFaRawS2ArEeJDwaLwbdE4Z+oI=;
-        b=i80TWw1Djb+jRLwufnVBOKzksXvMrg81CAVRStSZxPFAwBXumgTHYx5bwLND+27AhM
-         Nj8Sx6Q7JUqWoc+WfwcyWKsufB2pEEzGHtveoGSQxR4JVek1Z3g7SEddUYd42IC3a7RA
-         sZAm5GqjWY9YEQ/6uZY4dCsh1evokLeATKOGLPehLxZqw1zUT3jjgRHK7sZ233y6/36Z
-         +1bWyJc/o6fD337k9yWcAzZv/hUqAl10zAI7Go1prv8mNcHFaymSsuSKaDnJFeYSqqsd
-         M/MRmj99GWYAVL7GjQZbm77gFJ2EADJrjpF40yXCurUBA2T5vnAacItUdsqMoAuCM59U
-         ZwkA==
-X-Gm-Message-State: ABy/qLYBLVlNCk7HgE/wMwyZGLGWqnYRtZ/X2do2/Z1+YSrjWedVd6fQ
-	YOXCFYYHVeK+lu1vcafNp0olMg==
-X-Google-Smtp-Source: APBJJlGE29fF9otfzxTa+Yc4pCr9JKSbe3hHM4bYDxgEMtQhDF2xwHv5P89OKxXsFtp5FJcLnbfCOw==
-X-Received: by 2002:a17:90a:7642:b0:263:41ae:8163 with SMTP id s2-20020a17090a764200b0026341ae8163mr759011pjl.12.1689926108062;
-        Fri, 21 Jul 2023 00:55:08 -0700 (PDT)
-Received: from mchitale-vm.. ([117.99.250.48])
-        by smtp.googlemail.com with ESMTPSA id gw15-20020a17090b0a4f00b00267bb769652sm2026354pjb.6.2023.07.21.00.55.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Jul 2023 00:55:07 -0700 (PDT)
-From: Mayuresh Chitale <mchitale@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>
-Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org
-Subject: [PATCH v2 6/6] RISCV: KVM: Add sstateen0 to ONE_REG
-Date: Fri, 21 Jul 2023 13:24:39 +0530
-Message-Id: <20230721075439.454473-7-mchitale@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20230721075439.454473-1-mchitale@ventanamicro.com>
-References: <20230721075439.454473-1-mchitale@ventanamicro.com>
-MIME-Version: 1.0
+	id 1qMlTy-00DMgq-09;
+	Fri, 21 Jul 2023 08:27:27 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailnew.nyi.internal (Postfix) with ESMTP id CDE4D58026A;
+	Fri, 21 Jul 2023 04:27:21 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Fri, 21 Jul 2023 04:27:21 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1689928041; x=1689935241; bh=V8
+	kkxioRFPjR/pcGqI7bYcicee1af9QaKC3pDwPABSg=; b=b9mWPVKTa+C0qxGJVm
+	gVTKr5SnuCufxByEgtuEiTC/HjonV9yPvhgncSRQ0wUrLNE7orD78Rw7ohjT0q3C
+	c0X7wLA5W1uO4gHBmiwybGJLQQ7SrEMtBGvFZKQaT/Y0wzIbtxoIfYUgm9pO+XSJ
+	6I08Fx8oDJAOPBCXHuGFZFeWb1RYZSXq09xFAfH85OnLe5l+htjQL+F/B4Y6gUvs
+	ut/AOfdKRpwcHg/s2ox2GO/l5Ce/RBfBcnmaRO/F69sTDvSKTTvAQwHRFh24O6bw
+	V6xDq+6cg4uZot5gbimNNmCu9SHpdf5MFTDtGh/g5OFBKMn02cs7TznQk+C9/i4Y
+	dRwg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm3; t=1689928041; x=1689935241; bh=V8kkxioRFPjR/
+	pcGqI7bYcicee1af9QaKC3pDwPABSg=; b=unYn7VUfp/o2gT07nbqvQ5lIW9kBd
+	mBnKota720DDPc/oG1aRttW/D+crNdOAUEl9St9nonOTjtR5EHZ/ERbVU6RS/8a9
+	h60zyLUrHFHJTeNLWeadDvND/TVlwE64W4ER4jaFI7yfcqQcM9JFFXLEQa8gKTAm
+	2NneyWtfI14HUK6C7gElYEN39Z+C3ZEMkQn2ZM6gax2xS8UlImkh100FKtZaGPhv
+	lQk5OR6Mr17MQHWJ9UIPy7fklXcZo7AkC1hU9D8FRcT0DoHGZ1ht5evHlxZxLnfx
+	AEw3wiOX0qizHBpHqwTM2HVi93NRv6iA2yioBToovm3YnDAmy38mo5uCg==
+X-ME-Sender: <xms:Z0G6ZPfhyAhlj173FbFhonwA5KlUmCGO5J9kcywp3cozm27OsbAtLw>
+    <xme:Z0G6ZFM8NgJAA5o18IVcSBdDXzUfupTyVLyoGRWKf5AMnD9G8DAPvvhIosyFM_Fej
+    ixYPDY94XlYrOC-EQE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrhedvgddtudcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:Z0G6ZIiZLjl3BUt93nzxV1cAQo4CS1KP6FaAGJXgj4g5DNvVpNZydQ>
+    <xmx:Z0G6ZA_7CvV2s3gdLefuPIP0mdWvT9_hDkmlpVhsn9Y5247aBbErLw>
+    <xmx:Z0G6ZLsjVOM0mZftdLzFVNIO9YmEUfPLUQYjwEJhvs0yikPIce9HbQ>
+    <xmx:aUG6ZDnhPzImHPxpYpY9KW7ioRMX4qP1VaFRlm_1LSESQRplTz4wfQ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id AB365B60089; Fri, 21 Jul 2023 04:27:19 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-531-gfdfa13a06d-fm-20230703.001-gfdfa13a0
+Mime-Version: 1.0
+Message-Id: <19631e74-415e-4dcb-b79d-33dcf03d2dfc@app.fastmail.com>
+In-Reply-To: <87pm4lj1w3.fsf@mail.lhotse>
+References: <20230719123944.3438363-1-arnd@kernel.org>
+ <20230719123944.3438363-2-arnd@kernel.org> <87pm4lj1w3.fsf@mail.lhotse>
+Date: Fri, 21 Jul 2023 10:26:30 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Arnd Bergmann" <arnd@kernel.org>, linux-fbdev@vger.kernel.org,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "Helge Deller" <deller@gmx.de>,
+ "Javier Martinez Canillas" <javierm@redhat.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+ "K. Y. Srinivasan" <kys@microsoft.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Borislav Petkov" <bp@alien8.de>,
+ "Brian Cain" <bcain@quicinc.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Daniel Vetter" <daniel@ffwll.ch>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Dave Airlie" <airlied@gmail.com>,
+ "Deepak Rawat" <drawat.floss@gmail.com>,
+ "Dexuan Cui" <decui@microsoft.com>, "Dinh Nguyen" <dinguyen@kernel.org>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ guoren <guoren@kernel.org>, "Haiyang Zhang" <haiyangz@microsoft.com>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ "Khalid Aziz" <khalid@gonehiking.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Matt Turner" <mattst88@gmail.com>, "Max Filippov" <jcmvbkbc@gmail.com>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "WANG Xuerui" <kernel@xen0n.name>, "Wei Liu" <wei.liu@kernel.org>,
+ "Will Deacon" <will@kernel.org>, x86@kernel.org,
+ linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2 1/9] vgacon: rework Kconfig dependencies
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_005508_654795_09CE2AD9 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20230721_012726_159114_10458E6C 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,114 +138,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for sstateen0 CSR to the ONE_REG interface to allow its
-access from user space.
+On Fri, Jul 21, 2023, at 06:59, Michael Ellerman wrote:
+> Arnd Bergmann <arnd@kernel.org> writes:
+>> From: Arnd Bergmann <arnd@arndb.de>
+>>
+>> The list of dependencies here is phrased as an opt-out, but this is missing
+>> a lot of architectures that don't actually support VGA consoles, and some
+>> of the entries are stale:
+>>
+>>  - powerpc used to support VGA consoles in the old arch/ppc codebase, but
+>>    the merged arch/powerpc never did
+>
+> Not disputing this, but how did you come to that conclusion? I grepped
+> around and couldn't convince myself whether it can work on powerpc or
+> not. ie. currently it's possible to enable CONFIG_VGA_CONSOLE and
+> powerpc does have a struct screen_info defined which seems like it would
+> allow vgacon_startup() to complete.
 
-Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
----
- arch/riscv/include/uapi/asm/kvm.h |  9 +++++++
- arch/riscv/kvm/vcpu.c             | 40 +++++++++++++++++++++++++++++++
- 2 files changed, 49 insertions(+)
+The VGA console needs both screen_info and vga_con to work. In arch/ppc
+we had both, but in arch/powerpc we only retained the screen_info:
 
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 74c7f42de29d..bdddfb20299a 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -93,6 +93,11 @@ struct kvm_riscv_aia_csr {
- 	unsigned long iprio2h;
- };
- 
-+/* Smstateen CSR for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-+struct kvm_riscv_smstateen_csr {
-+	unsigned long sstateen0;
-+};
-+
- /* TIMER registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
- struct kvm_riscv_timer {
- 	__u64 frequency;
-@@ -173,10 +178,14 @@ enum KVM_RISCV_SBI_EXT_ID {
- #define KVM_REG_RISCV_CSR		(0x03 << KVM_REG_RISCV_TYPE_SHIFT)
- #define KVM_REG_RISCV_CSR_GENERAL	(0x0 << KVM_REG_RISCV_SUBTYPE_SHIFT)
- #define KVM_REG_RISCV_CSR_AIA		(0x1 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-+#define KVM_REG_RISCV_CSR_SMSTATEEN	(0x2 << KVM_REG_RISCV_SUBTYPE_SHIFT)
-+
- #define KVM_REG_RISCV_CSR_REG(name)	\
- 		(offsetof(struct kvm_riscv_csr, name) / sizeof(unsigned long))
- #define KVM_REG_RISCV_CSR_AIA_REG(name)	\
- 	(offsetof(struct kvm_riscv_aia_csr, name) / sizeof(unsigned long))
-+#define KVM_REG_RISCV_CSR_SMSTATEEN_REG(name)	\
-+	(offsetof(struct kvm_riscv_smstateen_csr, name) / sizeof(unsigned long))
- 
- /* Timer registers are mapped as type 4 */
- #define KVM_REG_RISCV_TIMER		(0x04 << KVM_REG_RISCV_TYPE_SHIFT)
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index ae750decbefe..af7549374c4b 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -507,6 +507,34 @@ static int kvm_riscv_vcpu_general_get_csr(struct kvm_vcpu *vcpu,
- 	return 0;
- }
- 
-+static inline int kvm_riscv_vcpu_smstateen_set_csr(struct kvm_vcpu *vcpu,
-+						   unsigned long reg_num,
-+						   unsigned long reg_val)
-+{
-+	struct kvm_vcpu_smstateen_csr *csr = &vcpu->arch.smstateen_csr;
-+
-+	if (reg_num >= sizeof(struct kvm_riscv_smstateen_csr) /
-+	    sizeof(unsigned long))
-+		return -EINVAL;
-+
-+	((unsigned long *)csr)[reg_num] = reg_val;
-+	return 0;
-+}
-+
-+static int kvm_riscv_vcpu_smstateen_get_csr(struct kvm_vcpu *vcpu,
-+					    unsigned long reg_num,
-+					    unsigned long *out_val)
-+{
-+	struct kvm_vcpu_smstateen_csr *csr = &vcpu->arch.smstateen_csr;
-+
-+	if (reg_num >= sizeof(struct kvm_riscv_smstateen_csr) /
-+	    sizeof(unsigned long))
-+		return -EINVAL;
-+
-+	*out_val = ((unsigned long *)csr)[reg_num];
-+	return 0;
-+}
-+
- static inline int kvm_riscv_vcpu_general_set_csr(struct kvm_vcpu *vcpu,
- 						 unsigned long reg_num,
- 						 unsigned long reg_val)
-@@ -552,6 +580,12 @@ static int kvm_riscv_vcpu_get_reg_csr(struct kvm_vcpu *vcpu,
- 	case KVM_REG_RISCV_CSR_AIA:
- 		rc = kvm_riscv_vcpu_aia_get_csr(vcpu, reg_num, &reg_val);
- 		break;
-+	case KVM_REG_RISCV_CSR_SMSTATEEN:
-+		rc = -EINVAL;
-+		if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
-+			rc = kvm_riscv_vcpu_smstateen_get_csr(vcpu, reg_num,
-+							      &reg_val);
-+		break;
- 	default:
- 		rc = -EINVAL;
- 		break;
-@@ -591,6 +625,12 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
- 	case KVM_REG_RISCV_CSR_AIA:
- 		rc = kvm_riscv_vcpu_aia_set_csr(vcpu, reg_num, reg_val);
- 		break;
-+	case KVM_REG_RISCV_CSR_SMSTATEEN:
-+		rc = -EINVAL;
-+		if (riscv_has_extension_unlikely(RISCV_ISA_EXT_SMSTATEEN))
-+			rc = kvm_riscv_vcpu_smstateen_set_csr(vcpu, reg_num,
-+							      reg_val);
-+		break;
- 	default:
- 		rc = -EINVAL;
- 		break;
--- 
-2.34.1
+$ git grep vga_con v2.6.26 -- arch/ppc arch/ppc64 arch/powerpc
+v2.6.26:arch/ppc/platforms/pplus.c:     conswitchp = &vga_con;
+v2.6.26:arch/ppc/platforms/prep_setup.c:        conswitchp = &vga_con;
 
+so after arch/ppc was removed, this became impossible to use on both
+pplus and prep. These two platforms were also (as far as I can tell)
+the only ones to support vga16fb as an alternative to vgacon, but
+both platforms were removed later on.
+
+> My only concern is that someone could be using it with Qemu?
+
+I have not yet ruled out anyone using vga16fb on qemu before
+commit 0db5b61e0dc07 ("fbdev/vga16fb: Create EGA/VGA devices
+in sysfb code"), but I can see that this has been broken for
+12 months without anyone complaining about it, since vga16fb
+no longer works with the "orig_video_isVGA == 1" setting
+in arch/powerpc (the device is not created).
+
+In the qemu sources, I see five powerpc machines that intialize
+VGA support: mac_newworld, mac_oldworld, pegasos2, prep, and spapr.
+I think we can exclude prep (which was removed from the kernel)
+and spapr (64-bit VGA_MAP_MEM() looks broken). I think the
+macs always come up in graphical mode and only use
+offb/atifb/rivafb/matroxfb but not vga16fb that would require
+running the x86 VGA BIOS initialization.
+
+I suppose it's possible to use vga16fb (not vgacon) with
+"qemu-system-ppc -M pegasos2 -vga std" if that still boots
+at all. Support for pegasos2 hardware appears to have been
+removed with commit 04debf21fa174 ("powerpc: Remove core
+support for Marvell mv64x60 hostbridges"), but it's possible
+that this did not break qemu support if that only uses
+devices under arch/powerpc/platforms/chrp/pci.c. I could
+not get it to boot, but did not try very hard.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
