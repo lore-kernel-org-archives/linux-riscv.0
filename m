@@ -4,41 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4335DEB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 22:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B4D3C0015E
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 22:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Zz4oPuxkUZuKY6sR6vFeioIBRiGtVfGKZWLnqppycxM=; b=rHOLOCr0ktV7VS
-	XlNjGzVVPoYq8K3FN6OI6AhyH6wIVfKPlWraMB3gMsRwwd7yPjg6PVvOGtdwHbZDLH31n1xRn2b+5
-	fQt6Rj9CzQWU6h6CQQBqLPLo9qLHMFLfkxKjB0zOu/5llSd/jjBCOpVyP/Cmlw1JsYUf5fxZETCL2
-	rgPuZ8yrqPDda+FzoXXrbhPl3i0YdTS8qNX4wxEJ3C4huDJ+9shVIIVui9LVtfg4QrOqLP/i+YCUt
-	9fDYKBblIW5Q22rSIZKrkBKudQrhYKGEcDpntQun7mUneDO85eYcWMskseEIVm+wQK3CO9hWseahV
-	j1s9NsRW0FCal/170v9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fM3RyTZ7f1TaApcSHiB25AMDrtR0IwmMVB2q4RT+XXE=; b=xk0wKDH/uqGxU6
+	CpBUd0a0wytSJL1dqvutjy7fyqrfFjHzJpaAgQZAKFvCKqlLiMM+X5ldhCZZ5ljrAZmv/xkHLUCFI
+	UAEdSVk44R5R6yWY1fUiJF/b85lpW0wjA41aTC7nh3R1iXxkMw4RXulMkVNWVAGlDdZRu3JQrS/N8
+	h4fNSbUYXL6a2z9WVMwv+mLHzVjjhKTU/Pg5bOVZUAFAfPh2N5cIYcs8SqcyCwW8y2MSMw/G94DMW
+	VYcIEtye0P45vUHpXu0tc54VUGC4NEXw+en2jrok7VdBevd9atUPUwSKihg0JbqWT0vRbhcb9H4A7
+	Bzhk1PQCIvoOox8ah3Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMyQd-00FFUO-1g;
-	Fri, 21 Jul 2023 22:16:51 +0000
-Received: from out-41.mta1.migadu.com ([95.215.58.41])
+	id 1qMyQm-00FFW3-2Z;
+	Fri, 21 Jul 2023 22:17:00 +0000
+Received: from out-53.mta0.migadu.com ([91.218.175.53])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMyQZ-00FFSh-10
+	id 1qMyQd-00FFTl-31
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 22:16:49 +0000
+	Fri, 21 Jul 2023 22:16:53 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
-	t=1689977799;
+	t=1689977807;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SGOT/l6CA2g1AAdldYA0RXmYrJ8ccwGw6CVVK+w5BCA=;
-	b=VLdIbyfiarCZNCB0QlGxH273eSht0Yq8c8LmI3LDTUsl1VYdq+uOx1lz43tZRA8ERNOt9U
-	yQE1SKMu2JAEAm51KsOLPPLUlM53OvVtECwynDB97Wm9cl4c9dYK3SId57lMAJC107p8jj
-	x70KJmniOy1xmL1PXrPQt+03j+xfzjTLPDOwfpa96KiJ0RfqjhSxWczv6Sxn+YnNObhQ04
-	+uFiu8BSWoEegNqTDmtgTSwGBMF3mMw8sjojvKJb+x3tis+ZERqMcFMJaY0j8lnlmCVrJa
-	yBIyGkDKSbPxLjD5Btmia3l7tFY5kZ++eQuTUIBbyZmTDIzcPuBLXpUyMkrBVA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wiQgZ4Wm6yEDAcXzCVAc5MydP04eah8gErZxesi/BMI=;
+	b=h1WWdtgAFYH6OTid6DgJ/kiMQnM+F7MkjMrv6GPWbln+iLdcheLmGVdwBIVOOISf0XTySI
+	+1fzFfEeL3UgMrOD4m45O+r+Gg8wfM9V+QdPjmU2ct5YJnpjqbyiRIAPjPU8sZQ5WviVyt
+	OSv6a78m625Yv9CDsJvl1O0yE6Yyu/+vkjUhiT10oZE3TZz0LBfQf43xPQJH3YVXv+jOyn
+	c+n+EvgjDheGV5fayu/lnvqio57hk86rTGJzakwlfh4WwYsXjEB9ZTlUxmfOw6lMAqVwEB
+	EiPUS4TUY+TvZwfp4XxaxECEuUA60Ns6GL8FZqrUcgm+mTa+IIbhlN4yXvMZYA==
 From: John Watts <contact@jookia.org>
 To: linux-sunxi@lists.linux.dev
 Cc: Wolfgang Grandegger <wg@grandegger.com>,
@@ -63,14 +64,17 @@ Cc: Wolfgang Grandegger <wg@grandegger.com>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	John Watts <contact@jookia.org>
-Subject: [PATCH v2 0/4] Add support for Allwinner D1 CAN controllers
-Date: Sat, 22 Jul 2023 08:15:49 +1000
-Message-ID: <20230721221552.1973203-2-contact@jookia.org>
+Subject: [PATCH v2 1/4] dt-bindings: net: can: Add support for Allwinner D1 CAN controller
+Date: Sat, 22 Jul 2023 08:15:50 +1000
+Message-ID: <20230721221552.1973203-3-contact@jookia.org>
+In-Reply-To: <20230721221552.1973203-2-contact@jookia.org>
+References: <20230721221552.1973203-2-contact@jookia.org>
 MIME-Version: 1.0
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_151648_088253_BFB45FDC 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20230721_151652_121010_0849E8BB 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +91,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the Allwinner D1 CAN controllers.
-It requires adding a new device tree compatible and driver support to
-work around some hardware quirks.
+The Allwinner D1 has two CAN controllers, both a variant of the R40
+controller. Unfortunately the registers for the D1 controllers are
+moved around enough to be incompatible and require a new compatible.
 
-This has been tested on the Mango Pi MQ Dual running a T113 and a Lichee
-Panel 86 running a D1.
+Introduce the "allwinner,sun20i-d1-can" compatible to support this.
 
-Changes in v2:
-- Re-ordered patches to work with bisecting
-- Fixed device tree label underscores
-- Fixed email headers
+Signed-off-by: John Watts <contact@jookia.org>
+---
+ .../bindings/net/can/allwinner,sun4i-a10-can.yaml           | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-John Watts (4):
-  dt-bindings: net: can: Add support for Allwinner D1 CAN controller
-  riscv: dts: allwinner: d1: Add CAN controller nodes
-  can: sun4i_can: Add acceptance register quirk
-  can: sun4i_can: Add support for the Allwinner D1
-
- .../net/can/allwinner,sun4i-a10-can.yaml      |  6 ++--
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 30 +++++++++++++++++++
- drivers/net/can/Kconfig                       |  4 +--
- drivers/net/can/sun4i_can.c                   | 22 ++++++++++++--
- 4 files changed, 55 insertions(+), 7 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/net/can/allwinner,sun4i-a10-can.yaml b/Documentation/devicetree/bindings/net/can/allwinner,sun4i-a10-can.yaml
+index 9c494957a07a..e42ea28d6ab4 100644
+--- a/Documentation/devicetree/bindings/net/can/allwinner,sun4i-a10-can.yaml
++++ b/Documentation/devicetree/bindings/net/can/allwinner,sun4i-a10-can.yaml
+@@ -21,6 +21,7 @@ properties:
+           - const: allwinner,sun4i-a10-can
+       - const: allwinner,sun4i-a10-can
+       - const: allwinner,sun8i-r40-can
++      - const: allwinner,sun20i-d1-can
+ 
+   reg:
+     maxItems: 1
+@@ -37,8 +38,9 @@ properties:
+ if:
+   properties:
+     compatible:
+-      contains:
+-        const: allwinner,sun8i-r40-can
++      enum:
++        - allwinner,sun8i-r40-can
++        - allwinner,sun20i-d1-can
+ 
+ then:
+   required:
 -- 
 2.41.0
 
