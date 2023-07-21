@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A60AEB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 15:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E078EB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 15:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ksllqeio+d9XIcN64y9ZXSSsomVevYBkr3NsAPQSj4A=; b=CB3dyhSOGyre0A
-	KhltyiYJKmblD3uEWpVH3uliiEK8ufiPkotEi3KEQcxnhtyBLUB17If37GmFqXmGUjueDVryd/dx4
-	Qh1AcmBFlJfHYHOuTSIpClSD5sjdRncOA+EtLCMUsmxd7k/Sxt0xP+PuO/jeM7uCf3ZWiKaqAjL5X
-	yaBvD6nDZtgthX7hZVbNC3+00rkH8k6o0Ahaw6pDVEpPleLtGkLjo/XRKV2JXAFMKFTuzO/UlJhC4
-	lk/+e+PZhU4qX/mNlstNgD/cZ1zUf3kg2MHBBbGeEFbOrCxbsH4S2Ccg51gHS/ffOxs/KFdL/oMnD
-	4yp6oWdlifPnNQc67u2A==;
+	List-Owner; bh=tgaoe1tD5SU6kEQa8/9u5Np5yIr+wCdLEX4OKzs4LDI=; b=wWwK2h1L4MzrNv
+	hGaex+6JBmkvbotU9GT860blTq9SWcfz2wMTlPXvaWo8U/om4B/GrLPTcL7t4BqtmywEfvYYD1Mtk
+	BfYiCIzoS9cJ6uCRd5xhBfyCB8FYNhLBUAD7uXinQPV7ymlmfzgsyhMq2NhitKLJ6CuPNV9a120fQ
+	l7E5yHK3kFnV5RZUXdDEwn09R/LCkQdip5KF/2SYV3oi/rvPoIEl7ImqYOyNGS2GXNrH6ueMOevte
+	hYDoqo7BKzHQAmYtzQ6dTh0zW2q+ZnAGW8Wf+gOnIQFBsHs7xChE0Wr5Ym3Pdd+MabVQ/2Nt5LzNS
+	Z+eH8x8Yq4zOEEP1QZuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMrmc-00EOc6-2g;
-	Fri, 21 Jul 2023 15:11:06 +0000
+	id 1qMroV-00EOsa-2M;
+	Fri, 21 Jul 2023 15:13:03 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMrmZ-00EOb6-2q
+	id 1qMroT-00EOr6-0M
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 15:11:05 +0000
+	Fri, 21 Jul 2023 15:13:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1689952263;
+	s=mimecast20190719; t=1689952380;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0vmYiJ2McNnP+cgtfjeAKniOHtUlesHHQnwePocmwMM=;
-	b=fK5YbSUhycRdpn3jb5nI33DJhFFVCAzVXcck2k6iCrwmUOV3R2W4alU4oDy9fA8ahHP2Pt
-	hGuagFOWlYzJpF5XDOuV0e8QBk+VuoZ82TYURNHzwXTcHo86xp8fwk0eIr58erXBmvlLPy
-	F4UY1uqE7xXaH7QelolukBgcJepNeOo=
-Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com
- [209.85.167.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=KuECWgmrt4c8ZTlDSWFvVOJXkvdaI59iER7noO41RWI=;
+	b=ACJKM0lpqMRDoPycbNRDo96qh8L3SVTz7yMv6yHC/uNz8NR146JasrOlCD9kEeKIAn+tnM
+	5zd3RPw1Rtb9ebJBuEPLUFJTedbfpLk4sOsnIv+hLE8UEwLwCDuri1jVjywSQPUub1m1mT
+	QhQS1bArsQlLpYGvsSbLqXcsKUOtBq0=
+Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
+ [209.85.167.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-457-c3yeRnhCNBOZpls2zmtJ3w-1; Fri, 21 Jul 2023 11:10:06 -0400
-X-MC-Unique: c3yeRnhCNBOZpls2zmtJ3w-1
-Received: by mail-lf1-f69.google.com with SMTP id 2adb3069b0e04-4fb76659d6cso1993771e87.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 08:09:46 -0700 (PDT)
+ us-mta-618-lZ4-QZnHNFWFRmRrJLtOMw-1; Fri, 21 Jul 2023 11:12:55 -0400
+X-MC-Unique: lZ4-QZnHNFWFRmRrJLtOMw-1
+Received: by mail-lf1-f71.google.com with SMTP id 2adb3069b0e04-4fb7d06a7e6so2073463e87.2
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 08:12:55 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689952184; x=1690556984;
+        d=1e100.net; s=20221208; t=1689952374; x=1690557174;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0vmYiJ2McNnP+cgtfjeAKniOHtUlesHHQnwePocmwMM=;
-        b=ijxsvwLp0ndxsMwVssxAysjyoSV35crCyoZ1Zz/XpZmGtWParY7Qy/NbrTLJg94zqe
-         ZmZ2lTxeJQgrMmbBhms7BIW3LuIAiBLr8C2LoSF/WgziZFRSLDtyTnSJ1wOrGvNKuS4Q
-         SSUNAIP61oJr9JlF39FiTap1PKlHWkXWrEEMyyWB9qJpW6eSmCBziWczUgvwEvUhQLf8
-         cHsldG3ncwcoPCZXw4Ajw7DQ73k4P0AV/6Y2YrR5cT40lIwf1iinjEu3koe2g/s9/HCF
-         xi8+QlLzZ+iLU1mTicd1PCY9Vd1H/XY+5YqDWd4nqGOZpkikJ3OIv40xmV7/U4xpnJ8x
-         FxpA==
-X-Gm-Message-State: ABy/qLafYZTV7SvOuwz5HsLSakUbY2XJdJxFQNmIfGBjdf9o6S4Aw10u
-	j0RcNEyjpS0svtnlcMimEGCnPvix90jQsIH8xfLw5RELWrRfqopxTAFH07ThQK+EbGAYvwYXz8V
-	J/XvbDUl6aM2aZKO2Q0LVQ3hCM/EanrYvqZS6
-X-Received: by 2002:a05:6512:328d:b0:4fb:9050:1d92 with SMTP id p13-20020a056512328d00b004fb90501d92mr1367621lfe.51.1689952183976;
-        Fri, 21 Jul 2023 08:09:43 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlFPJFXvjHxdY0caGfwUnetqbu+BXv0f0ZakHLJfQbsd3FM7efS9VuBluWIt3TKTV7uVBQdwmQ==
-X-Received: by 2002:a05:6512:328d:b0:4fb:9050:1d92 with SMTP id p13-20020a056512328d00b004fb90501d92mr1367563lfe.51.1689952183505;
-        Fri, 21 Jul 2023 08:09:43 -0700 (PDT)
+        bh=KuECWgmrt4c8ZTlDSWFvVOJXkvdaI59iER7noO41RWI=;
+        b=W5Db/kg5BgSiSy5NqmvYeF9FF+s2m2lxjFg/AQq1zfZkIjNW9jPzrcH5/vVVFAcnKN
+         kt45QyX5RRmlaJEwr0Yzy6Bx0x7W2oTSTkDTehNEbZRPTiCWfWO9vRlGt26q0ROW2abv
+         tAhhPz9hp5bAQSOgIot7UHw29IL59kLvnegI6ZzEQpgMfXTXzJa+yAJyJuuJ3vmuke7O
+         0hMUwdUcONbwd1OPv9xe3bnIsl/x3zyVIjCTnXGa8YJCd+NjXwGEttnC1RqGi2dGSX4k
+         obpy7Jm9pWdnYXBNKPkUdU7YrHwtrYYyuKY+dDndrnkSWlpeN0KdnL5VWSn3Ah4A6+4m
+         8+iA==
+X-Gm-Message-State: ABy/qLZBEqiD0KZrWf5i+5Toxsdd31dcEZ2DdecTLuqmp6r7RAlhnem6
+	HtKMIPx0qlu54CvIGw4VV0f5NTbqeDfXs76rFdc8u0H6W8vKbrKgJ7ssStml/RKN8vYIkPPK8FH
+	NLI2d26e5zfVFGk1gDX+AUNMH+/Gb
+X-Received: by 2002:a19:e05b:0:b0:4fb:caed:95c3 with SMTP id g27-20020a19e05b000000b004fbcaed95c3mr1377430lfj.53.1689952374304;
+        Fri, 21 Jul 2023 08:12:54 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlG7b5XRxViP22WEsYjZVx9eEuQn7vFDvQWd5jPtrRlHnUDSnFTiFx5UF3BQ2XwQWfw7l/MGag==
+X-Received: by 2002:a19:e05b:0:b0:4fb:caed:95c3 with SMTP id g27-20020a19e05b000000b004fbcaed95c3mr1377407lfj.53.1689952373968;
+        Fri, 21 Jul 2023 08:12:53 -0700 (PDT)
 Received: from ?IPV6:2001:b07:6468:f312:9af8:e5f5:7516:fa89? ([2001:b07:6468:f312:9af8:e5f5:7516:fa89])
-        by smtp.googlemail.com with ESMTPSA id d17-20020aa7ce11000000b00521d42fb41asm2212963edv.67.2023.07.21.08.09.41
+        by smtp.googlemail.com with ESMTPSA id n1-20020a05640204c100b0051e0f21c43fsm2214094edw.31.2023.07.21.08.12.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Jul 2023 08:09:42 -0700 (PDT)
-Message-ID: <68ce1eff-807c-d637-d992-f83e8af81514@redhat.com>
-Date: Fri, 21 Jul 2023 17:09:40 +0200
+        Fri, 21 Jul 2023 08:12:53 -0700 (PDT)
+Message-ID: <6519e3f4-7cea-01a6-724e-a0bce10c3c19@redhat.com>
+Date: Fri, 21 Jul 2023 17:12:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.13.0
-Subject: Re: [RFC PATCH v11 14/29] KVM: x86/mmu: Handle page fault for private
- memory
+Subject: Re: [RFC PATCH v11 16/29] KVM: Allow arch code to track number of
+ memslot address spaces per VM
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
  Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
  Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
@@ -100,15 +100,16 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Isaku Yamahata <isaku.yamahata@gmail.com>,
  "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-15-seanjc@google.com>
+ <20230718234512.1690985-17-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <20230718234512.1690985-15-seanjc@google.com>
+In-Reply-To: <20230718234512.1690985-17-seanjc@google.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_081103_994914_B431DBFB 
-X-CRM114-Status: GOOD (  29.13  )
+X-CRM114-CacheID: sfid-20230721_081301_427871_46A64A5A 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,214 +127,21 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 7/19/23 01:44, Sean Christopherson wrote:
-> From: Chao Peng <chao.p.peng@linux.intel.com>
-> 
-> A KVM_MEM_PRIVATE memslot can include both fd-based private memory and
-> hva-based shared memory. Architecture code (like TDX code) can tell
-> whether the on-going fault is private or not. This patch adds a
-> 'is_private' field to kvm_page_fault to indicate this and architecture
-> code is expected to set it.
-> 
-> To handle page fault for such memslot, the handling logic is different
-> depending on whether the fault is private or shared. KVM checks if
-> 'is_private' matches the host's view of the page (maintained in
-> mem_attr_array).
->    - For a successful match, private pfn is obtained with
->      restrictedmem_get_page() and shared pfn is obtained with existing
->      get_user_pages().
->    - For a failed match, KVM causes a KVM_EXIT_MEMORY_FAULT exit to
->      userspace. Userspace then can convert memory between private/shared
->      in host's view and retry the fault.
-> 
-> Co-developed-by: Yu Zhang <yu.c.zhang@linux.intel.com>
-> Signed-off-by: Yu Zhang <yu.c.zhang@linux.intel.com>
-> Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
-> Reviewed-by: Fuad Tabba <tabba@google.com>
-> Tested-by: Fuad Tabba <tabba@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->   arch/x86/kvm/mmu/mmu.c          | 82 +++++++++++++++++++++++++++++++--
->   arch/x86/kvm/mmu/mmu_internal.h |  3 ++
->   arch/x86/kvm/mmu/mmutrace.h     |  1 +
->   3 files changed, 81 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-> index aefe67185637..4cf73a579ee1 100644
-> --- a/arch/x86/kvm/mmu/mmu.c
-> +++ b/arch/x86/kvm/mmu/mmu.c
-> @@ -3179,9 +3179,9 @@ static int host_pfn_mapping_level(struct kvm *kvm, gfn_t gfn,
->   	return level;
->   }
->   
-> -int kvm_mmu_max_mapping_level(struct kvm *kvm,
-> -			      const struct kvm_memory_slot *slot, gfn_t gfn,
-> -			      int max_level)
-> +static int __kvm_mmu_max_mapping_level(struct kvm *kvm,
-> +				       const struct kvm_memory_slot *slot,
-> +				       gfn_t gfn, int max_level, bool is_private)
->   {
->   	struct kvm_lpage_info *linfo;
->   	int host_level;
-> @@ -3193,6 +3193,9 @@ int kvm_mmu_max_mapping_level(struct kvm *kvm,
->   			break;
->   	}
->   
-> +	if (is_private)
-> +		return max_level;
-> +
->   	if (max_level == PG_LEVEL_4K)
->   		return PG_LEVEL_4K;
->   
-> @@ -3200,6 +3203,16 @@ int kvm_mmu_max_mapping_level(struct kvm *kvm,
->   	return min(host_level, max_level);
->   }
->   
-> +int kvm_mmu_max_mapping_level(struct kvm *kvm,
-> +			      const struct kvm_memory_slot *slot, gfn_t gfn,
-> +			      int max_level)
-> +{
-> +	bool is_private = kvm_slot_can_be_private(slot) &&
-> +			  kvm_mem_is_private(kvm, gfn);
-> +
-> +	return __kvm_mmu_max_mapping_level(kvm, slot, gfn, max_level, is_private);
-> +}
-> +
->   void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
->   {
->   	struct kvm_memory_slot *slot = fault->slot;
-> @@ -3220,8 +3233,9 @@ void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
->   	 * Enforce the iTLB multihit workaround after capturing the requested
->   	 * level, which will be used to do precise, accurate accounting.
->   	 */
-> -	fault->req_level = kvm_mmu_max_mapping_level(vcpu->kvm, slot,
-> -						     fault->gfn, fault->max_level);
-> +	fault->req_level = __kvm_mmu_max_mapping_level(vcpu->kvm, slot,
-> +						       fault->gfn, fault->max_level,
-> +						       fault->is_private);
->   	if (fault->req_level == PG_LEVEL_4K || fault->huge_page_disallowed)
->   		return;
->   
-> @@ -4304,6 +4318,55 @@ void kvm_arch_async_page_ready(struct kvm_vcpu *vcpu, struct kvm_async_pf *work)
->   	kvm_mmu_do_page_fault(vcpu, work->cr2_or_gpa, 0, true, NULL);
->   }
->   
-> +static inline u8 kvm_max_level_for_order(int order)
-> +{
-> +	BUILD_BUG_ON(KVM_MAX_HUGEPAGE_LEVEL > PG_LEVEL_1G);
-> +
-> +	MMU_WARN_ON(order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_1G) &&
-> +		    order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_2M) &&
-> +		    order != KVM_HPAGE_GFN_SHIFT(PG_LEVEL_4K));
-> +
-> +	if (order >= KVM_HPAGE_GFN_SHIFT(PG_LEVEL_1G))
-> +		return PG_LEVEL_1G;
-> +
-> +	if (order >= KVM_HPAGE_GFN_SHIFT(PG_LEVEL_2M))
-> +		return PG_LEVEL_2M;
-> +
-> +	return PG_LEVEL_4K;
-> +}
-> +
-> +static int kvm_do_memory_fault_exit(struct kvm_vcpu *vcpu,
-> +				    struct kvm_page_fault *fault)
-> +{
-> +	vcpu->run->exit_reason = KVM_EXIT_MEMORY_FAULT;
-> +	if (fault->is_private)
-> +		vcpu->run->memory.flags = KVM_MEMORY_EXIT_FLAG_PRIVATE;
-> +	else
-> +		vcpu->run->memory.flags = 0;
-> +	vcpu->run->memory.gpa = fault->gfn << PAGE_SHIFT;
-> +	vcpu->run->memory.size = PAGE_SIZE;
-> +	return RET_PF_USER;
-> +}
-> +
-> +static int kvm_faultin_pfn_private(struct kvm_vcpu *vcpu,
-> +				   struct kvm_page_fault *fault)
-> +{
-> +	int max_order, r;
-> +
-> +	if (!kvm_slot_can_be_private(fault->slot))
-> +		return kvm_do_memory_fault_exit(vcpu, fault);
-> +
-> +	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
-> +			     &max_order);
-> +	if (r)
-> +		return r;
-> +
-> +	fault->max_level = min(kvm_max_level_for_order(max_order),
-> +			       fault->max_level);
-> +	fault->map_writable = !(fault->slot->flags & KVM_MEM_READONLY);
-> +	return RET_PF_CONTINUE;
-> +}
-> +
->   static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
->   {
->   	struct kvm_memory_slot *slot = fault->slot;
-> @@ -4336,6 +4399,12 @@ static int __kvm_faultin_pfn(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
->   			return RET_PF_EMULATE;
->   	}
->   
-> +	if (fault->is_private != kvm_mem_is_private(vcpu->kvm, fault->gfn))
-> +		return kvm_do_memory_fault_exit(vcpu, fault);
-> +
-> +	if (fault->is_private)
-> +		return kvm_faultin_pfn_private(vcpu, fault);
-> +
->   	async = false;
->   	fault->pfn = __gfn_to_pfn_memslot(slot, fault->gfn, false, false, &async,
->   					  fault->write, &fault->map_writable,
-> @@ -5771,6 +5840,9 @@ int noinline kvm_mmu_page_fault(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa, u64 err
->   			return -EIO;
->   	}
->   
-> +	if (r == RET_PF_USER)
-> +		return 0;
-> +
->   	if (r < 0)
->   		return r;
->   	if (r != RET_PF_EMULATE)
-> diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
-> index d39af5639ce9..268b517e88cb 100644
-> --- a/arch/x86/kvm/mmu/mmu_internal.h
-> +++ b/arch/x86/kvm/mmu/mmu_internal.h
-> @@ -203,6 +203,7 @@ struct kvm_page_fault {
->   
->   	/* Derived from mmu and global state.  */
->   	const bool is_tdp;
-> +	const bool is_private;
->   	const bool nx_huge_page_workaround_enabled;
->   
->   	/*
-> @@ -259,6 +260,7 @@ int kvm_tdp_page_fault(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault);
->    * RET_PF_RETRY: let CPU fault again on the address.
->    * RET_PF_EMULATE: mmio page fault, emulate the instruction directly.
->    * RET_PF_INVALID: the spte is invalid, let the real page fault path update it.
-> + * RET_PF_USER: need to exit to userspace to handle this fault.
->    * RET_PF_FIXED: The faulting entry has been fixed.
->    * RET_PF_SPURIOUS: The faulting entry was already fixed, e.g. by another vCPU.
->    *
-> @@ -275,6 +277,7 @@ enum {
->   	RET_PF_RETRY,
->   	RET_PF_EMULATE,
->   	RET_PF_INVALID,
-> +	RET_PF_USER,
->   	RET_PF_FIXED,
->   	RET_PF_SPURIOUS,
->   };
-> diff --git a/arch/x86/kvm/mmu/mmutrace.h b/arch/x86/kvm/mmu/mmutrace.h
-> index ae86820cef69..2d7555381955 100644
-> --- a/arch/x86/kvm/mmu/mmutrace.h
-> +++ b/arch/x86/kvm/mmu/mmutrace.h
-> @@ -58,6 +58,7 @@ TRACE_DEFINE_ENUM(RET_PF_CONTINUE);
->   TRACE_DEFINE_ENUM(RET_PF_RETRY);
->   TRACE_DEFINE_ENUM(RET_PF_EMULATE);
->   TRACE_DEFINE_ENUM(RET_PF_INVALID);
-> +TRACE_DEFINE_ENUM(RET_PF_USER);
->   TRACE_DEFINE_ENUM(RET_PF_FIXED);
->   TRACE_DEFINE_ENUM(RET_PF_SPURIOUS);
->   
+> @@ -4725,9 +4725,9 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
+>   	case KVM_CAP_IRQ_ROUTING:
+>   		return KVM_MAX_IRQ_ROUTES;
+>   #endif
+> -#if KVM_ADDRESS_SPACE_NUM > 1
+> +#if KVM_MAX_NR_ADDRESS_SPACES > 1
+>   	case KVM_CAP_MULTI_ADDRESS_SPACE:
+> -		return KVM_ADDRESS_SPACE_NUM;
+> +		return KVM_MAX_NR_ADDRESS_SPACES;
+>   #endif
 
-Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+Since this is a VM ioctl, it should return 
+kvm_arch_nr_memslot_as_ids(kvm) if kvm != NULL.
+
+Paolo
 
 
 _______________________________________________
