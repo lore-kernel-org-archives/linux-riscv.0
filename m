@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94898EB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 04:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9498EEB64DC
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Jul 2023 05:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ppXpoeP59NvZyXMyZGQWB9i5n/RzkHEi3cdjYEWB6D8=; b=KbkyX+MKLaMCA9
-	icXrerazSHUUsiog4wSR53ibxLKIrfQspuw3NSwawJa6hgLaXZAD/nHOh8A6znfCevDATpcSGdrwU
-	9SCGBq62A2TLPFhNS2eezrgzT+oNnsyhjwjGzXkKCbQxqh6dwA/p9BAP/NdC6ahB4rzmJ0rrrDBgQ
-	K+fNq0mSt8RjZ9dFjjSE+cAxEsgKDxUYpyRdlyDjrjDZMJ8AH1KGj6JB/pF8w1AloIguIf+uDFuXp
-	Et6n+Ky4soERIZ7zuO6MsFDB3Ina7GANj6LYf1/9gz88iQz56gmO+xPkbAq+FJfpvgDxamdPoUsi3
-	LiJDhnh3dpz0Wu/AwyQA==;
+	List-Owner; bh=6W8ErlSYYYwyIf/wYwtVWBAEK7Db15K77NHco9hpZPE=; b=nRJI+co4P0taLS
+	ih5XHIXJn3tWqvS9ejimR9y6ApJqsAGoqbSNIC++EAxLmsAO4XCUdDaOoNqGEECIyMtau4J4wd7ek
+	+j15CJjPFbS2bhpQ1+ymSQcmRmA5ITMhzmf+p+O2GYejzhAxMkUv0X+PfVzojT7gcjVDYTOZbF4K4
+	NZjBv+EPI4ZWJrBWA+QpsV+LyVxUp0cALB+Wkw9UUqmFgf+4obB3ugJwveUq6EToqVNUwVWC3IKsr
+	dpVDat3pu1yHYN+HVJ6UoCuJC7+D9obZOPEZAlAGaREKCDDFY4oQ5a2F+7mPlL6cyghFlHl8AWMkW
+	iwXUmWx8c50g+yVwCpTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMhyl-00Cqb3-1R;
-	Fri, 21 Jul 2023 04:42:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qMiFB-00CsWx-2v;
+	Fri, 21 Jul 2023 04:59:57 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qMhyi-00Cqa4-01
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Jul 2023 04:42:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	id 1qMiF7-00CsUI-0F;
+	Fri, 21 Jul 2023 04:59:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+	s=201909; t=1689915579;
+	bh=E8y/g9Khd0fFkgBzOo2hgfNC9FxKvpUwWSNkgdFASms=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Vz9fUc/RXTu27vyeQvrCGoaE8JdmFqjso1U7IKft3F4+AMIPMbJxbd6+vpUogCok2
+	 jjqvREfJvYqz3QSGYRTfM9NbVcZw6ETTGk+G5ORy8Ef27KmVipGpAru/++iMcP0ZIY
+	 irL63A70ZpZtpSAA842FIXFsBi3K9pkiGHMiMA9uGES1k6AQTlIav7DvOXvaXW5lr1
+	 +C0AtN1LzNzfZWs6cqLKzQSLR9CakXGeTo5RmwHO24fURCoJ28UFMNlTF5RfwYFygo
+	 JIBkIXyWk0zwzOR6aKsdnuJSg4XvmCPd8c6HNDSu/dKGG51lsM7dl8r9XMYvtkwX6A
+	 gBrLXrGghZj8Q==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D7066610A6;
-	Fri, 21 Jul 2023 04:42:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3232C433C7;
-	Fri, 21 Jul 2023 04:42:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1689914574;
-	bh=JF0Y6sohRAoq9IsPXejZVN/uvgFs0TOdJTkY2sOlxYE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rZiCzFUxEeXA8Jo7Yd+wrp9lgbS/8O03w/Oro7QIsGrWKMqPVvIZhKFlYwC3exVar
-	 waZEgrnmoW63XKKQqe6K7JjsToA1uagznAoH2vchElZYBY35Zxj52bIOl5r3SoVl7F
-	 0nt265dTsWVfZbUu4sU4pA88AlbfplBQOo1+ec9Vanh+6jxmmqKxaa7sZwWK6ekjNC
-	 bzxQfc/2LRgNBYqto5plaAqbvFj7+naB/scCkjngytI4GCgb9UkLIZuSemtrRxlJJg
-	 wTWUmB36BoMzAhWlamAq304/fsVvhr//iEdpp4/fhM5+/7XxPXCIQgTE2YIsz/wq2U
-	 4Mh6HRoJ5WDbQ==
-Date: Thu, 20 Jul 2023 21:42:52 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
-	herbert@gondor.apana.org.au, davem@davemloft.net,
-	conor.dooley@microchip.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	christoph.muellner@vrull.eu,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Charalampos Mitrodimas <charalampos.mitrodimas@vrull.eu>
-Subject: Re: [PATCH v4 08/12] RISC-V: crypto: add a vector-crypto-accelerated
- SHA256 implementation
-Message-ID: <20230721044252.GB847@sol.localdomain>
-References: <20230711153743.1970625-1-heiko@sntech.de>
- <20230711153743.1970625-9-heiko@sntech.de>
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4R6cmH4jNJz4wqW;
+	Fri, 21 Jul 2023 14:59:27 +1000 (AEST)
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Arnd Bergmann <arnd@kernel.org>, linux-fbdev@vger.kernel.org, Thomas
+ Zimmermann <tzimmermann@suse.de>, Helge Deller <deller@gmx.de>, Javier
+ Martinez Canillas <javierm@redhat.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>, Catalin
+ Marinas <catalin.marinas@arm.com>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Daniel Vetter <daniel@ffwll.ch>, Dave
+ Hansen <dave.hansen@linux.intel.com>, David Airlie <airlied@gmail.com>,
+ Deepak Rawat <drawat.floss@gmail.com>, Dexuan Cui <decui@microsoft.com>,
+ Dinh Nguyen <dinguyen@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Guo Ren <guoren@kernel.org>, Haiyang Zhang
+ <haiyangz@microsoft.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, John Paul Adrian Glaubitz
+ <glaubitz@physik.fu-berlin.de>, Khalid Aziz <khalid@gonehiking.org>, Linus
+ Walleij <linus.walleij@linaro.org>, Matt Turner <mattst88@gmail.com>, Max
+ Filippov <jcmvbkbc@gmail.com>, Nicholas Piggin <npiggin@gmail.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Russell King <linux@armlinux.org.uk>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
+ <tglx@linutronix.de>, WANG Xuerui <kernel@xen0n.name>, Wei Liu
+ <wei.liu@kernel.org>, Will Deacon <will@kernel.org>, x86@kernel.org,
+ linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2 1/9] vgacon: rework Kconfig dependencies
+In-Reply-To: <20230719123944.3438363-2-arnd@kernel.org>
+References: <20230719123944.3438363-1-arnd@kernel.org>
+ <20230719123944.3438363-2-arnd@kernel.org>
+Date: Fri, 21 Jul 2023 14:59:24 +1000
+Message-ID: <87pm4lj1w3.fsf@mail.lhotse>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230711153743.1970625-9-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230720_214256_145551_81A2FC6A 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20230720_215953_280673_14C97617 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,120 +98,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 11, 2023 at 05:37:39PM +0200, Heiko Stuebner wrote:
-> diff --git a/arch/riscv/crypto/sha256-riscv64-glue.c b/arch/riscv/crypto/sha256-riscv64-glue.c
-> new file mode 100644
-> index 000000000000..1c9c88029f60
-> --- /dev/null
-> +++ b/arch/riscv/crypto/sha256-riscv64-glue.c
-> @@ -0,0 +1,115 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Linux/riscv64 port of the OpenSSL SHA256 implementation for RISCV64
-> + *
-> + * Copyright (C) 2022 VRULL GmbH
-> + * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> + */
-> +
-> +#include <linux/module.h>
-> +#include <linux/types.h>
-> +#include <asm/simd.h>
-> +#include <asm/vector.h>
-> +#include <crypto/internal/hash.h>
-> +#include <crypto/internal/simd.h>
-> +#include <crypto/sha2.h>
-> +#include <crypto/sha256_base.h>
-> +
-> +asmlinkage void sha256_block_data_order_zvbb_zvknha(u32 *digest, const void *data,
-> +					unsigned int num_blks);
-> +
-> +static void __sha256_block_data_order(struct sha256_state *sst, u8 const *src,
-> +				      int blocks)
-> +{
-> +	sha256_block_data_order_zvbb_zvknha(sst->state, src, blocks);
-> +}
+Arnd Bergmann <arnd@kernel.org> writes:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> The list of dependencies here is phrased as an opt-out, but this is missing
+> a lot of architectures that don't actually support VGA consoles, and some
+> of the entries are stale:
+>
+>  - powerpc used to support VGA consoles in the old arch/ppc codebase, but
+>    the merged arch/powerpc never did
 
-Having a double-underscored function wrap around a non-underscored one like this
-isn't conventional for Linux kernel code.  IIRC some of the other crypto code
-happens to do this, but it really is supposed to be the other way around.
+Not disputing this, but how did you come to that conclusion? I grepped
+around and couldn't convince myself whether it can work on powerpc or
+not. ie. currently it's possible to enable CONFIG_VGA_CONSOLE and
+powerpc does have a struct screen_info defined which seems like it would
+allow vgacon_startup() to complete.
 
-I think you should just declare the assembly function to take a 'struct
-sha256_state', with a comment mentioning that only the 'u32 state[8]' at the
-beginning is actually used.  That's what arch/x86/crypto/sha256_ssse3_glue.c
-does, for example.  Then, __sha256_block_data_order() would be unneeded.
+My only concern is that someone could be using it with Qemu?
 
-> +static int riscv64_sha256_update(struct shash_desc *desc, const u8 *data,
-> +			 unsigned int len)
-> +{
-> +	if (crypto_simd_usable()) {
-
-crypto_simd_usable() uses may_use_simd() which isn't wired up for RISC-V, so it
-gets the default implementation of '!in_interrupt()'.  RISC-V does have
-may_use_vector() which looks like right thing.  I think RISC-V needs a header
-arch/riscv/include/asm/simd.h which defines may_use_simd() as a wrapper around
-may_use_vector().
-
-> +		int ret;
-> +
-> +		kernel_rvv_begin();
-> +		ret = sha256_base_do_update(desc, data, len,
-> +					    __sha256_block_data_order);
-> +		kernel_rvv_end();
-> +		return ret;
-> +	} else {
-> +		sha256_update(shash_desc_ctx(desc), data, len);
-> +		return 0;
-> +	}
-> +}
-> +
-> +static int riscv64_sha256_finup(struct shash_desc *desc, const u8 *data,
-> +			unsigned int len, u8 *out)
-> +{
-> +	if (!crypto_simd_usable()) {
-> +		sha256_update(shash_desc_ctx(desc), data, len);
-> +		sha256_final(shash_desc_ctx(desc), out);
-> +		return 0;
-> +	}
-
-Keep things consistent please.  riscv64_sha256_update() could use
-!crypto_simd_usable() and an early return too.
-
-> +static int __init sha256_mod_init(void)
-
-riscv64_sha256_mod_init()
-
-> +{
-> +	/*
-> +	 * From the spec:
-> +	 * Zvknhb supports SHA-256 and SHA-512. Zvknha supports only SHA-256.
-> +	 */
-> +	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
-> +	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
-> +	     riscv_isa_extension_available(NULL, ZVBB) &&
-> +	     riscv_vector_vlen() >= 128)
-> +
-> +		return crypto_register_shash(&sha256_alg);
-> +
-> +	return 0;
-> +}
-> +
-> +static void __exit sha256_mod_fini(void)
-
-riscv64_sha256_mod_exit()
-
-> +{
-> +	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
-> +	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
-> +	     riscv_isa_extension_available(NULL, ZVBB) &&
-> +	     riscv_vector_vlen() >= 128)
-> +		crypto_unregister_shash(&sha256_alg);
-> +}
-
-If the needed CPU features aren't present, return -ENODEV from the module_init
-function instead of 0.  Then, the module_exit function can unconditionally
-unregister the algorithm.
-
-- Eric
+cheers
 
 _______________________________________________
 linux-riscv mailing list
