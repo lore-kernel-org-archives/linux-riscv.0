@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE831C001DF
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jul 2023 02:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71FDBC001E0
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jul 2023 02:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=H0BC3Ht8r9nIWG64hgDwOUE1fggGhYIgf5ENF9gG/Rs=; b=xYpg3d3Hpf+GVPOcKY32/7hGKU
-	nJmwoY5eCbeCJ3Hh+o1nLSmBYKmC9qlc8myfK5ddlRvirGt1xpsx5YgF6/uwMGM3roG5SJ84F8LMA
-	9yo+hcScTzK80oRI5O/IfOJMVMhlRNoiF1sTgs5n3iny+kOD+5fUQ3KtQcKfVRNYsu0uW4gw+Ztet
-	oNFmgFkJgJebJi3wclCwW2hha/2ST/PCJ7NsXgbTOS2Bo+dPtcqGeBsOWDehp1pseWnmqhnZcsjJf
-	+5UQk2sLxlcsrvVHwVd+U/OsccO/ielMWFCBbEAjygyPMob6/67AzGBlGiFX9XQDGPQQbuJPTab9/
-	zCcYKL6g==;
+	bh=on53QDuWCXeAqx5oPuhPGtrSWDikqxysLd9LNW4HnuQ=; b=VtybBxuVqRme+tlZaQi5UmoyCL
+	tz/XVzYoolI6Tx5xj5/zP7wkJSLpfi6CddqbV0ffyE4OABVuoHi/9OW080F6+07hrpIg1PJXVbjms
+	ZhFr0MoYmSzSwIr8ee9WbYBVPMXorTASzhEwzHT6G4Ftq7q9ez5VJtaRTWVr7a9mtOKmbaPukiuGy
+	risM9aE3QInxEcB1iqp5kKN64lryhMkPfTSQAB2lEYwyPtWnhQYbcAY2IsrQ7UM7jNHe6tNlcXbMc
+	dHlpQ9CZe8vN0qDbw+AG6p2nHHIecgBBLHSBJvOppZ0k4XO5I1GYblEx59JWhmq+0efsPSgb/najY
+	Iwxrjkxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qN2H6-00Fc3P-1y;
-	Sat, 22 Jul 2023 02:23:16 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1qN2HG-00FcAh-34;
+	Sat, 22 Jul 2023 02:23:26 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qN2Gq-00Fbq5-0l
+	id 1qN2Gt-00FbvA-0y
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Jul 2023 02:23:03 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-c8f360a07a2so2487113276.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 19:22:56 -0700 (PDT)
+	Sat, 22 Jul 2023 02:23:08 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-5704995f964so27147637b3.2
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Jul 2023 19:23:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1689992576; x=1690597376;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UVLGuKEjQProJqaPfm81PXZA82sh3ahc82iDRViuago=;
-        b=DaLEp3aJ4g6CjdnA0OVj9WkB7kkXMt625ketI1mIwG+OhRkvRKCPCtKyHBL2UCAqYY
-         6BncKNylF6VcSIGB7t2n3Dn5CSP5pExm4CWXgG/7FBXwJBN/sfbQoQJkNHBRmm7ty36B
-         MUq7scacSqWfqYq+g6x5myBi0MtQ00UJ8FS4/ZD3t5CVrpw1PJguOOGojtWyaSDCq8CR
-         wxIhR/Ia0t1mcVqGNVHspJivlXBaENEiQmQfnWiNVUDMkH86T6m391vIAog4sIm8/2iB
-         pyqjcZ0+mz+4rKI9vVwdSw+mUeLYWB0SqtgAVPENuunzVlpmitoCGeYAkoQ9ERKGNqdJ
-         aPSA==
+        d=google.com; s=20221208; t=1689992582; x=1690597382;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=t+QInk0X3IO6tsywWMo4HxB0wcwHn3AD3cZxhnRkKvM=;
+        b=LZCPjeSl7YsbBjWPkmJdWPpKbZwHktR8r7vrOqClKO5Z8iiwjMxZ2fUrYP/O2XFR9S
+         BJvln/6YyLEYVkr68UXyq9D2J0X/Qos5pMZSTLs++5ycGpWaiI/IUun5urQEcXK6CFjR
+         nXRFXzWN3U/QtBcZEGyMv2aos02dQ/88FH4p5NYEC1k0tX6DFWcF7djfBkrP0RiCI7Jf
+         6IDfb5iyLppltfBPmnFH1uRvGup0pwbS9kX3p0b50yj5ZNYXurA8h/k7RxqijWIRibdT
+         7eHHyvdMemhSWWFCmQVs+hj8/MhtqP9XN0lPtxBgvIcS61zELBfPUBC9MRM6y+lmRU5C
+         Vqpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1689992576; x=1690597376;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=UVLGuKEjQProJqaPfm81PXZA82sh3ahc82iDRViuago=;
-        b=MDmXdwvcV//r2nNuLiRHM64OfRrTwtRyFsiOXYK7ghjPzlQHCBYqJ3EcIaGhUDfAs3
-         a0U9kkzBSWRcannr6/TsVEuT4fdTX24keF3PmnswJzh5bKm1K7ZGVAnztV0xKJXWvA5z
-         7X9I3DdA3sS2qVhM2IAQB+r3ZYqE1Hxo5FSgn38cYNKjpQ/L1uY0Gmoxk2ekdQEBJKT3
-         dTF7CUYPQZGoB8FvsaVAV3Qlgy0m0GUT488Fzna/g8s6Xu7T0AJhwAovrsexLpI7s1el
-         OjCmU1bxzt+pijTidJKjD+qkyMhoa/T2+hA1sa8N63WT+Xa0y//w6rChCIO8A58xHMx7
-         YqxQ==
-X-Gm-Message-State: ABy/qLYcrH+PsU2LIbzUVof6g+bvmEqNRkZ1R07DxdGD6RejnCUmuoQ9
-	FyBfKqbPmaocXmu81/uxTsUwEM5OttQZ
-X-Google-Smtp-Source: APBJJlHQe7Y3wSceME6OjPlLqlGW70YZjKObimLmg37ClQQ8eARD2Nzbb/mjJTiI0hLe3HTUEbMa1eTVRYUZ
+        d=1e100.net; s=20221208; t=1689992582; x=1690597382;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=t+QInk0X3IO6tsywWMo4HxB0wcwHn3AD3cZxhnRkKvM=;
+        b=b0chFd6xQgNnyKMDomSMoQNLUVcQYaATObCj7xuczHs4IIEn+y4J/rhdT1+fUJYZgi
+         Ra8HKZvuo/79Wu62MVglxm/5jUFVf+tLexa1cM4PWdZXV9iIjHygIUwNAEibiDb9X74c
+         rzeGOjkxYPCNglLpcPIrtQUv78kJf6KYbxifgbKXZ3xvylEYwrxN72EfmmkU63h8UkES
+         91fMqgp2U59tZbT3lPNn1T23pLLbXC6iS8Ltn0M2pRqnybmA40PTpysnC2c/voNXbh5/
+         17TEmKWw9VOjefiqJjhWajOtgAhQjMreNueQIZ3uOEEeDJs4HFRGLICk9W3kkz1cE1mn
+         EsIw==
+X-Gm-Message-State: ABy/qLaAe2jRkb336rKfUXdba2zslPvdxrm2zMmI4JG0guGjphLV6CXm
+	TPOOizIMeDl6M6kVrwgKmpSSAtvEH4LZ
+X-Google-Smtp-Source: APBJJlHADzLVjS2TTMwAlAY9glJtQNpC3EB/irk13GqYXRME4mnjFfNRCdsorcvkYKMUla7ENA0WJ4K2jHDj
 X-Received: from rananta-linux.c.googlers.com ([fda3:e722:ac3:cc00:2b:ff92:c0a8:22b5])
- (user=rananta job=sendgmr) by 2002:a05:6902:10cd:b0:c1c:df23:44ee with SMTP
- id w13-20020a05690210cd00b00c1cdf2344eemr27095ybu.0.1689992576195; Fri, 21
- Jul 2023 19:22:56 -0700 (PDT)
-Date: Sat, 22 Jul 2023 02:22:40 +0000
+ (user=rananta job=sendgmr) by 2002:a25:740d:0:b0:ce8:f8ac:c979 with SMTP id
+ p13-20020a25740d000000b00ce8f8acc979mr25393ybc.1.1689992582140; Fri, 21 Jul
+ 2023 19:23:02 -0700 (PDT)
+Date: Sat, 22 Jul 2023 02:22:46 +0000
 In-Reply-To: <20230722022251.3446223-1-rananta@google.com>
 Mime-Version: 1.0
 References: <20230722022251.3446223-1-rananta@google.com>
 X-Mailer: git-send-email 2.41.0.487.g6d72f3e995-goog
-Message-ID: <20230722022251.3446223-2-rananta@google.com>
-Subject: [PATCH v7 01/12] KVM: Rename kvm_arch_flush_remote_tlb() to kvm_arch_flush_remote_tlbs()
+Message-ID: <20230722022251.3446223-8-rananta@google.com>
+Subject: [PATCH v7 07/12] KVM: arm64: Implement  __kvm_tlb_flush_vmid_range()
 From: Raghavendra Rao Ananta <rananta@google.com>
 To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
 	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
@@ -80,11 +78,10 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
 	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	Gavin Shan <gshan@redhat.com>, 
-	"=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?=" <philmd@linaro.org>, Shaoqin Huang <shahuang@redhat.com>
+	Gavin Shan <gshan@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230721_192300_297901_AB41EB59 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20230721_192303_360309_188FBFBB 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,75 +93,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogRGF2aWQgTWF0bGFjayA8ZG1hdGxhY2tAZ29vZ2xlLmNvbT4KClJlbmFtZSBrdm1fYXJj
-aF9mbHVzaF9yZW1vdGVfdGxiKCkgYW5kIHRoZSBhc3NvY2lhdGVkIG1hY3JvCl9fS1ZNX0hBVkVf
-QVJDSF9GTFVTSF9SRU1PVEVfVExCIHRvIGt2bV9hcmNoX2ZsdXNoX3JlbW90ZV90bGJzKCkgYW5k
-Cl9fS1ZNX0hBVkVfQVJDSF9GTFVTSF9SRU1PVEVfVExCUyByZXNwZWN0aXZlbHkuCgpNYWtpbmcg
-dGhlIG5hbWUgcGx1cmFsIG1hdGNoZXMga3ZtX2ZsdXNoX3JlbW90ZV90bGJzKCkgYW5kIG1ha2Vz
-IGl0IG1vcmUKY2xlYXIgdGhhdCB0aGlzIGZ1bmN0aW9uIGNhbiBhZmZlY3QgbW9yZSB0aGFuIG9u
-ZSByZW1vdGUgVExCLgoKTm8gZnVuY3Rpb25hbCBjaGFuZ2UgaW50ZW5kZWQuCgpTaWduZWQtb2Zm
-LWJ5OiBEYXZpZCBNYXRsYWNrIDxkbWF0bGFja0Bnb29nbGUuY29tPgpTaWduZWQtb2ZmLWJ5OiBS
-YWdoYXZlbmRyYSBSYW8gQW5hbnRhIDxyYW5hbnRhQGdvb2dsZS5jb20+ClJldmlld2VkLWJ5OiBH
-YXZpbiBTaGFuIDxnc2hhbkByZWRoYXQuY29tPgpSZXZpZXdlZC1ieTogUGhpbGlwcGUgTWF0aGll
-dS1EYXVkw6kgPHBoaWxtZEBsaW5hcm8ub3JnPgpSZXZpZXdlZC1ieTogU2hhb3FpbiBIdWFuZyA8
-c2hhaHVhbmdAcmVkaGF0LmNvbT4KLS0tCiBhcmNoL21pcHMvaW5jbHVkZS9hc20va3ZtX2hvc3Qu
-aCB8IDQgKystLQogYXJjaC9taXBzL2t2bS9taXBzLmMgICAgICAgICAgICAgfCAyICstCiBhcmNo
-L3g4Ni9pbmNsdWRlL2FzbS9rdm1faG9zdC5oICB8IDQgKystLQogaW5jbHVkZS9saW51eC9rdm1f
-aG9zdC5oICAgICAgICAgfCA0ICsrLS0KIHZpcnQva3ZtL2t2bV9tYWluLmMgICAgICAgICAgICAg
-IHwgMiArLQogNSBmaWxlcyBjaGFuZ2VkLCA4IGluc2VydGlvbnMoKyksIDggZGVsZXRpb25zKC0p
-CgpkaWZmIC0tZ2l0IGEvYXJjaC9taXBzL2luY2x1ZGUvYXNtL2t2bV9ob3N0LmggYi9hcmNoL21p
-cHMvaW5jbHVkZS9hc20va3ZtX2hvc3QuaAppbmRleCAwNGNlZGY5Zjg4MTEuLjliMGFkOGYzYmYz
-MiAxMDA2NDQKLS0tIGEvYXJjaC9taXBzL2luY2x1ZGUvYXNtL2t2bV9ob3N0LmgKKysrIGIvYXJj
-aC9taXBzL2luY2x1ZGUvYXNtL2t2bV9ob3N0LmgKQEAgLTg5Niw3ICs4OTYsNyBAQCBzdGF0aWMg
-aW5saW5lIHZvaWQga3ZtX2FyY2hfc2NoZWRfaW4oc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCBpbnQg
-Y3B1KSB7fQogc3RhdGljIGlubGluZSB2b2lkIGt2bV9hcmNoX3ZjcHVfYmxvY2tpbmcoc3RydWN0
-IGt2bV92Y3B1ICp2Y3B1KSB7fQogc3RhdGljIGlubGluZSB2b2lkIGt2bV9hcmNoX3ZjcHVfdW5i
-bG9ja2luZyhzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpIHt9CiAKLSNkZWZpbmUgX19LVk1fSEFWRV9B
-UkNIX0ZMVVNIX1JFTU9URV9UTEIKLWludCBrdm1fYXJjaF9mbHVzaF9yZW1vdGVfdGxiKHN0cnVj
-dCBrdm0gKmt2bSk7CisjZGVmaW5lIF9fS1ZNX0hBVkVfQVJDSF9GTFVTSF9SRU1PVEVfVExCUwor
-aW50IGt2bV9hcmNoX2ZsdXNoX3JlbW90ZV90bGJzKHN0cnVjdCBrdm0gKmt2bSk7CiAKICNlbmRp
-ZiAvKiBfX01JUFNfS1ZNX0hPU1RfSF9fICovCmRpZmYgLS1naXQgYS9hcmNoL21pcHMva3ZtL21p
-cHMuYyBiL2FyY2gvbWlwcy9rdm0vbWlwcy5jCmluZGV4IGFhNTU4M2E3YjA1Yi4uNGI3YmMzOWE0
-MTczIDEwMDY0NAotLS0gYS9hcmNoL21pcHMva3ZtL21pcHMuYworKysgYi9hcmNoL21pcHMva3Zt
-L21pcHMuYwpAQCAtOTgxLDcgKzk4MSw3IEBAIHZvaWQga3ZtX2FyY2hfc3luY19kaXJ0eV9sb2co
-c3RydWN0IGt2bSAqa3ZtLCBzdHJ1Y3Qga3ZtX21lbW9yeV9zbG90ICptZW1zbG90KQogCiB9CiAK
-LWludCBrdm1fYXJjaF9mbHVzaF9yZW1vdGVfdGxiKHN0cnVjdCBrdm0gKmt2bSkKK2ludCBrdm1f
-YXJjaF9mbHVzaF9yZW1vdGVfdGxicyhzdHJ1Y3Qga3ZtICprdm0pCiB7CiAJa3ZtX21pcHNfY2Fs
-bGJhY2tzLT5wcmVwYXJlX2ZsdXNoX3NoYWRvdyhrdm0pOwogCXJldHVybiAxOwpkaWZmIC0tZ2l0
-IGEvYXJjaC94ODYvaW5jbHVkZS9hc20va3ZtX2hvc3QuaCBiL2FyY2gveDg2L2luY2x1ZGUvYXNt
-L2t2bV9ob3N0LmgKaW5kZXggMjhiZDM4MzAzZDcwLi5hMmQzY2ZjMmViNzUgMTAwNjQ0Ci0tLSBh
-L2FyY2gveDg2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmgKKysrIGIvYXJjaC94ODYvaW5jbHVkZS9h
-c20va3ZtX2hvc3QuaApAQCAtMTc5NCw4ICsxNzk0LDggQEAgc3RhdGljIGlubGluZSBzdHJ1Y3Qg
-a3ZtICprdm1fYXJjaF9hbGxvY192bSh2b2lkKQogI2RlZmluZSBfX0tWTV9IQVZFX0FSQ0hfVk1f
-RlJFRQogdm9pZCBrdm1fYXJjaF9mcmVlX3ZtKHN0cnVjdCBrdm0gKmt2bSk7CiAKLSNkZWZpbmUg
-X19LVk1fSEFWRV9BUkNIX0ZMVVNIX1JFTU9URV9UTEIKLXN0YXRpYyBpbmxpbmUgaW50IGt2bV9h
-cmNoX2ZsdXNoX3JlbW90ZV90bGIoc3RydWN0IGt2bSAqa3ZtKQorI2RlZmluZSBfX0tWTV9IQVZF
-X0FSQ0hfRkxVU0hfUkVNT1RFX1RMQlMKK3N0YXRpYyBpbmxpbmUgaW50IGt2bV9hcmNoX2ZsdXNo
-X3JlbW90ZV90bGJzKHN0cnVjdCBrdm0gKmt2bSkKIHsKIAlpZiAoa3ZtX3g4Nl9vcHMuZmx1c2hf
-cmVtb3RlX3RsYnMgJiYKIAkgICAgIXN0YXRpY19jYWxsKGt2bV94ODZfZmx1c2hfcmVtb3RlX3Rs
-YnMpKGt2bSkpCmRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L2t2bV9ob3N0LmggYi9pbmNsdWRl
-L2xpbnV4L2t2bV9ob3N0LmgKaW5kZXggOWQzYWM3NzIwZGE5Li5lM2Y5NjhiMzhhZTkgMTAwNjQ0
-Ci0tLSBhL2luY2x1ZGUvbGludXgva3ZtX2hvc3QuaAorKysgYi9pbmNsdWRlL2xpbnV4L2t2bV9o
-b3N0LmgKQEAgLTE0NzksOCArMTQ3OSw4IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBrdm1fYXJjaF9m
-cmVlX3ZtKHN0cnVjdCBrdm0gKmt2bSkKIH0KICNlbmRpZgogCi0jaWZuZGVmIF9fS1ZNX0hBVkVf
-QVJDSF9GTFVTSF9SRU1PVEVfVExCCi1zdGF0aWMgaW5saW5lIGludCBrdm1fYXJjaF9mbHVzaF9y
-ZW1vdGVfdGxiKHN0cnVjdCBrdm0gKmt2bSkKKyNpZm5kZWYgX19LVk1fSEFWRV9BUkNIX0ZMVVNI
-X1JFTU9URV9UTEJTCitzdGF0aWMgaW5saW5lIGludCBrdm1fYXJjaF9mbHVzaF9yZW1vdGVfdGxi
-cyhzdHJ1Y3Qga3ZtICprdm0pCiB7CiAJcmV0dXJuIC1FTk9UU1VQUDsKIH0KZGlmZiAtLWdpdCBh
-L3ZpcnQva3ZtL2t2bV9tYWluLmMgYi92aXJ0L2t2bS9rdm1fbWFpbi5jCmluZGV4IGRmYmFhZmJl
-M2EwMC4uNzBlNTQ3OTc5N2FjIDEwMDY0NAotLS0gYS92aXJ0L2t2bS9rdm1fbWFpbi5jCisrKyBi
-L3ZpcnQva3ZtL2t2bV9tYWluLmMKQEAgLTM2MSw3ICszNjEsNyBAQCB2b2lkIGt2bV9mbHVzaF9y
-ZW1vdGVfdGxicyhzdHJ1Y3Qga3ZtICprdm0pCiAJICoga3ZtX21ha2VfYWxsX2NwdXNfcmVxdWVz
-dCgpIHJlYWRzIHZjcHUtPm1vZGUuIFdlIHJldXNlIHRoYXQKIAkgKiBiYXJyaWVyIGhlcmUuCiAJ
-ICovCi0JaWYgKCFrdm1fYXJjaF9mbHVzaF9yZW1vdGVfdGxiKGt2bSkKKwlpZiAoIWt2bV9hcmNo
-X2ZsdXNoX3JlbW90ZV90bGJzKGt2bSkKIAkgICAgfHwga3ZtX21ha2VfYWxsX2NwdXNfcmVxdWVz
-dChrdm0sIEtWTV9SRVFfVExCX0ZMVVNIKSkKIAkJKytrdm0tPnN0YXQuZ2VuZXJpYy5yZW1vdGVf
-dGxiX2ZsdXNoOwogfQotLSAKMi40MS4wLjQ4Ny5nNmQ3MmYzZTk5NS1nb29nCgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Define  __kvm_tlb_flush_vmid_range() (for VHE and nVHE)
+to flush a range of stage-2 page-tables using IPA in one go.
+If the system supports FEAT_TLBIRANGE, the following patches
+would conviniently replace global TLBI such as vmalls12e1is
+in the map, unmap, and dirty-logging paths with ripas2e1is
+instead.
+
+Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+---
+ arch/arm64/include/asm/kvm_asm.h   |  3 +++
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 11 +++++++++++
+ arch/arm64/kvm/hyp/nvhe/tlb.c      | 30 ++++++++++++++++++++++++++++++
+ arch/arm64/kvm/hyp/vhe/tlb.c       | 27 +++++++++++++++++++++++++++
+ 4 files changed, 71 insertions(+)
+
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index 7d170aaa2db4..2c27cb8cf442 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -70,6 +70,7 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa_nsh,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid,
++	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_range,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_flush_cpu_context,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
+ 	__KVM_HOST_SMCCC_FUNC___vgic_v3_read_vmcr,
+@@ -229,6 +230,8 @@ extern void __kvm_tlb_flush_vmid_ipa(struct kvm_s2_mmu *mmu, phys_addr_t ipa,
+ extern void __kvm_tlb_flush_vmid_ipa_nsh(struct kvm_s2_mmu *mmu,
+ 					 phys_addr_t ipa,
+ 					 int level);
++extern void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
++					phys_addr_t start, unsigned long pages);
+ extern void __kvm_tlb_flush_vmid(struct kvm_s2_mmu *mmu);
+ 
+ extern void __kvm_timer_set_cntvoff(u64 cntvoff);
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index a169c619db60..857d9bc04fd4 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -135,6 +135,16 @@ static void handle___kvm_tlb_flush_vmid_ipa_nsh(struct kvm_cpu_context *host_ctx
+ 	__kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va(mmu), ipa, level);
+ }
+ 
++static void
++handle___kvm_tlb_flush_vmid_range(struct kvm_cpu_context *host_ctxt)
++{
++	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
++	DECLARE_REG(phys_addr_t, start, host_ctxt, 2);
++	DECLARE_REG(unsigned long, pages, host_ctxt, 3);
++
++	__kvm_tlb_flush_vmid_range(kern_hyp_va(mmu), start, pages);
++}
++
+ static void handle___kvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
+ {
+ 	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
+@@ -327,6 +337,7 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__kvm_tlb_flush_vmid_ipa),
+ 	HANDLE_FUNC(__kvm_tlb_flush_vmid_ipa_nsh),
+ 	HANDLE_FUNC(__kvm_tlb_flush_vmid),
++	HANDLE_FUNC(__kvm_tlb_flush_vmid_range),
+ 	HANDLE_FUNC(__kvm_flush_cpu_context),
+ 	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+ 	HANDLE_FUNC(__vgic_v3_read_vmcr),
+diff --git a/arch/arm64/kvm/hyp/nvhe/tlb.c b/arch/arm64/kvm/hyp/nvhe/tlb.c
+index b9991bbd8e3f..09347111c2cd 100644
+--- a/arch/arm64/kvm/hyp/nvhe/tlb.c
++++ b/arch/arm64/kvm/hyp/nvhe/tlb.c
+@@ -182,6 +182,36 @@ void __kvm_tlb_flush_vmid_ipa_nsh(struct kvm_s2_mmu *mmu,
+ 	__tlb_switch_to_host(&cxt);
+ }
+ 
++void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
++				phys_addr_t start, unsigned long pages)
++{
++	struct tlb_inv_context cxt;
++	unsigned long stride;
++
++	/*
++	 * Since the range of addresses may not be mapped at
++	 * the same level, assume the worst case as PAGE_SIZE
++	 */
++	stride = PAGE_SIZE;
++	start = round_down(start, stride);
++
++	/* Switch to requested VMID */
++	__tlb_switch_to_guest(mmu, &cxt, false);
++
++	__flush_tlb_range_op(ipas2e1is, start, pages, stride, 0, 0, false);
++
++	dsb(ish);
++	__tlbi(vmalle1is);
++	dsb(ish);
++	isb();
++
++	/* See the comment in __kvm_tlb_flush_vmid_ipa() */
++	if (icache_is_vpipt())
++		icache_inval_all_pou();
++
++	__tlb_switch_to_host(&cxt);
++}
++
+ void __kvm_tlb_flush_vmid(struct kvm_s2_mmu *mmu)
+ {
+ 	struct tlb_inv_context cxt;
+diff --git a/arch/arm64/kvm/hyp/vhe/tlb.c b/arch/arm64/kvm/hyp/vhe/tlb.c
+index e69da550cdc5..02f4ed2fd715 100644
+--- a/arch/arm64/kvm/hyp/vhe/tlb.c
++++ b/arch/arm64/kvm/hyp/vhe/tlb.c
+@@ -138,6 +138,33 @@ void __kvm_tlb_flush_vmid_ipa_nsh(struct kvm_s2_mmu *mmu,
+ 	dsb(nsh);
+ 	__tlbi(vmalle1);
+ 	dsb(nsh);
++
++	__tlb_switch_to_host(&cxt);
++}
++
++void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
++				phys_addr_t start, unsigned long pages)
++{
++	struct tlb_inv_context cxt;
++	unsigned long stride;
++
++	/*
++	 * Since the range of addresses may not be mapped at
++	 * the same level, assume the worst case as PAGE_SIZE
++	 */
++	stride = PAGE_SIZE;
++	start = round_down(start, stride);
++
++	dsb(ishst);
++
++	/* Switch to requested VMID */
++	__tlb_switch_to_guest(mmu, &cxt);
++
++	__flush_tlb_range_op(ipas2e1is, start, pages, stride, 0, 0, false);
++
++	dsb(ish);
++	__tlbi(vmalle1is);
++	dsb(ish);
+ 	isb();
+ 
+ 	__tlb_switch_to_host(&cxt);
+-- 
+2.41.0.487.g6d72f3e995-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
