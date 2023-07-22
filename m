@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD31C0015E
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jul 2023 21:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7AEC0015E
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jul 2023 23:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kPoVKEgb7mwLaIEQ5soSVjAUvYaV+CWBbbJAfAWH0Bs=; b=Ds5kTPs/oKUjCu
-	BqexJTvxK9mcEXtbmcJj93vji6C2uP0iO+p6pjbYGPZEVP1JGU/Howam46c3IOx/tPJ5McXEZY89P
-	1C7mymaxjKzwoW7Awz94xQkLjNuTJmttlJW1jYXMJQejx3kLtOarDCjyTLmImUAPPtzdw0Cd8Q48o
-	osUcg5fs1vSZPFYJoy2g20ReMS9VmC4YOWGd4sP6lfZeO6IkQFF8E/kgE8szDyTqsl1QPV3OzPnk3
-	Kh3GJ0yG6iRbP2gqQ9LvnXXosFmMIq3Ah0frhzKa5xinRbaZ6hOqORdTeRs2qn00btTxn6j3DDzvo
-	SUsGLJrH7+ZbJq7ZL6LQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=O1WGlpj4V6QmFF9acsPChdUtTxIRej5NRjBZae8rNcM=; b=oxeF6YJ2w9da7Q
+	xvyyVVDRu+XYQPXQxRJpiN/1+BsuseJUxisJxpM2ptp8w4CA9a7pWVI/xzrc0eeM2TxPYUCLjCs06
+	nOID5zbNyePGI+jQ5KhLbXHZsbn+1OOw4aNJlOsHlJXWf25wSpnN2N2uYavaGpryL6AzmTHbArOkC
+	Jqx/l4zVwsV7b1Nju6FYw4uqSQ98ZMQt5uRmqIbTYLziDfevwH+y42qBTKRzA2A+bDkYm6EREPdIQ
+	XptE4dIqvRMgyh1NMdbT22ZLVmSEMVYtAnda1uPAZT4IJOdQGistDhSwMpMyCn4HWlwEIjVny3Ob2
+	QD+lkqx7kV3t1A7VDf8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNKa3-00HM6H-1E;
-	Sat, 22 Jul 2023 21:56:03 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1qNLbh-00HS3G-1V;
+	Sat, 22 Jul 2023 23:01:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNKZx-00HM4o-3C
+	id 1qNLbb-00HS1i-30
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Jul 2023 21:56:02 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-668709767b1so2060813b3a.2
-        for <linux-riscv@lists.infradead.org>; Sat, 22 Jul 2023 14:55:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1690062956; x=1690667756;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=z8jlHBT2yxbyFBb6F36pXWfZpWaDr43yzvucdNt0npo=;
-        b=Z757kvzGOw+bZdl8TOtk4lFAcuq3yuIWqJckq6JGLDFNJgH3zSSutT/oFB+Hdk5Uy2
-         Gw91Ep1KFwlvvvFDQG5IfKRB7ph3ou/LzHSUW3KuFRLu+LgOJtek1YrO0/UlkNjVvauH
-         +AGNr199OIVmxlH6T2VdhzboUCSCW1uZQfFOYIsWCBHsBBkyXfu5NGhOOCviVIVDcYZU
-         wYU0qtbE167pV0Ikf1eWsdYlnXOpKboS100UqcdY1S5+Pt/G+YcwbEVe6ikJ7x08niuX
-         58VnuQmQBC5/cmjOI8aOzfNqRynoEwGgwiCxJRJXfHPGLjimJVE1fm/5faULiOWD/Q9p
-         NR4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690062956; x=1690667756;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z8jlHBT2yxbyFBb6F36pXWfZpWaDr43yzvucdNt0npo=;
-        b=LPOEE7DJgOncqKt2mXQQhnOZ5zlzERb5cVz/x0dr5OJSpx4TqIKlV2WOgIXdtPk1Y+
-         yYkm69iS93Y/84ov23JPTvvVnqO2HeSpMK5R1hqzTBKOSlA9gD3F9cfoqo5+IxXJg/RB
-         EaKJcXFKvHyrt7aN1LvfEk1jhl5Nh/1TswVScd2SzUWaMfp9+EPkqGPUDoCcrIH5mGsE
-         le9t1A4++1MCbCkVtMXJIfusaEFSh8yGBV713iIiT9uxE+CTI2KbYR40iu0d7DVGmZAK
-         pTgM0OaeIad0CAQWYge4GQ2nA6hZxaONuAPUBQUA+1+2HQA6nsLQKTBEEKbV35fDZv28
-         2RhA==
-X-Gm-Message-State: ABy/qLYx3vJD1dG46NTJ/kfuDR1+ae2sesbw8ElfrxCwBG6Z8enFrQSQ
-	UpEamkhZH2i+UursjWjDW+j2tw==
-X-Google-Smtp-Source: APBJJlGE4CzG88umTRhcUR+JWXZx//14i1FxVULmahmL2zD+X1EMYCUsmV9DLjkPDMroa5+VdF3Lgw==
-X-Received: by 2002:a05:6a20:4caa:b0:12c:e745:78b3 with SMTP id fq42-20020a056a204caa00b0012ce74578b3mr4794500pzb.62.1690062956394;
-        Sat, 22 Jul 2023 14:55:56 -0700 (PDT)
-Received: from [127.0.1.1] ([2601:1c2:1800:f680:2a8c:966f:392d:7230])
-        by smtp.gmail.com with ESMTPSA id e23-20020a633717000000b0056368adf5e2sm5517642pga.87.2023.07.22.14.55.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Jul 2023 14:55:55 -0700 (PDT)
-From: Drew Fustini <dfustini@baylibre.com>
-Subject: [PATCH 0/3] riscv: Add BeagleV Ahead board support
-Date: Sat, 22 Jul 2023 14:55:38 -0700
-Message-Id: <20230722-upstream-beaglev-ahead-dts-v1-0-ccda511357f4@baylibre.com>
+	Sat, 22 Jul 2023 23:01:47 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A2A54609AD
+	for <linux-riscv@lists.infradead.org>; Sat, 22 Jul 2023 23:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13B45C433CA
+	for <linux-riscv@lists.infradead.org>; Sat, 22 Jul 2023 23:01:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690066902;
+	bh=f5fJ5pt4NPXx34Hb37BM+d9wtJCqjXyDFsIKLF1ji4M=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ktzByZSHZKMnUFFHYr9Kda8gzWkeIJllN3e4aoc4Ms7oFfuy1TiF9k9Way7zxbLNO
+	 k8qWagPd5Aq8OgFMRjlEWQ9SWARNokLqZ8TrqazVSg/JECY5AhlrmZXmn6NXi+dpSn
+	 GIZbhcorwh2wABAVj5PysI4rN/L5y1skFqT8wRModTdSI3t7EKMQ6fQaTHuiWmUT7e
+	 SbgHEX90zPUqNjYkRjwZguV/zh47m6/4mNKu9AG+bpJ828yFPOGrM35MWjdn+39cKs
+	 OC8xtIjqhFK531Phret/ENXQcTwzyvc1MPt5YpTF4eE8m0xx89qqU5GMWnFuPstACD
+	 cIp3iokwQx4Tw==
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-991da766865so519445466b.0
+        for <linux-riscv@lists.infradead.org>; Sat, 22 Jul 2023 16:01:41 -0700 (PDT)
+X-Gm-Message-State: ABy/qLZJuPqn28cNM4WbpZP45C11MG3/gPU7wbkYLh40+zJg4SUbHGtD
+	lb/IQxerxsmfZutvt8oVdjL51eb4lxuRMZWE+8E=
+X-Google-Smtp-Source: APBJJlF26FPEiQllO/7cbxZ7b0mlUSpKebzJvhSee6tgA9QZyHuDxj84+S630hPdYKUJ6Jbtr2VvSneKxurZON2Of18=
+X-Received: by 2002:a17:906:649a:b0:993:d616:7ca9 with SMTP id
+ e26-20020a170906649a00b00993d6167ca9mr6057799ejm.23.1690066900315; Sat, 22
+ Jul 2023 16:01:40 -0700 (PDT)
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAFpQvGQC/x2N0QqDMBAEf0XuuQeaUgv9ldKHi9mYQE3lTqUg/
- ntjH4dZZncyaIbRo9lJsWXLn1KhuzQ0JCkjOIfK5Fp3be/O8TrbopCJPWR8Y2NJkMBhMQ79rZN
- YZ1F6qgEvBvYqZUhnYhJboKeYFTF//6/P13H8AOmwrmuFAAAA
-To: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, Rob Herring <robh+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, 
- Jason Kridner <jkridner@beagleboard.org>, 
- Drew Fustini <dfustini@baylibre.com>
-X-Mailer: b4 0.12.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1690062955; l=1780;
- i=dfustini@baylibre.com; s=20230430; h=from:subject:message-id;
- bh=71d3MCYkA85zokTlI23bWcE++G7REBpiXeQepGnAaL0=;
- b=PbzkmCRHeRzjCh7JRWfarJrOR8diJDl6IqJHpP88iO8v5aQ6WpmjznPBifIp0rCLuqJTACVjW
- stLIAsU/ZJ5DU/fkUxbXckIxo4Zn27rmtYQ3YKf+E2pmVBKU4qXjwML
-X-Developer-Key: i=dfustini@baylibre.com; a=ed25519;
- pk=p3GKE9XFmjhwAayAHG4U108yag7V8xQVd4zJLdW0g7g=
+References: <20230722-upstream-beaglev-ahead-dts-v1-0-ccda511357f4@baylibre.com>
+ <20230722-upstream-beaglev-ahead-dts-v1-3-ccda511357f4@baylibre.com>
+In-Reply-To: <20230722-upstream-beaglev-ahead-dts-v1-3-ccda511357f4@baylibre.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sun, 23 Jul 2023 07:01:28 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQ4pdFruCgfwT=pkXEoLN91cC6S2op6RyiBmGm_Vw2xMw@mail.gmail.com>
+Message-ID: <CAJF2gTQ4pdFruCgfwT=pkXEoLN91cC6S2op6RyiBmGm_Vw2xMw@mail.gmail.com>
+Subject: Re: [PATCH 3/3] MAINTAINERS: add reviewer for T-Head RISC-V SoC support
+To: Drew Fustini <dfustini@baylibre.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Robert Nelson <robertcnelson@beagleboard.org>, 
+	Jason Kridner <jkridner@beagleboard.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230722_145558_220406_A2E8E23B 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20230722_160144_036772_312339D2 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,57 +85,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The BeagleV Ahead single board computer [1] features the T-Head TH1520
-SoC. Similar to the Lichee Pi 4A series from Jisheng, this adds a
-minimal device tree file to support booting to a basic shell [3].
-    
-[1] https://beagleboard.org/beaglev-ahead
-[2] https://lore.kernel.org/linux-riscv/20230617161529.2092-1-jszhang@kernel.org/
-[3] https://gist.github.com/pdp7/91b98f5b8a632802e669d8c359f4f498
-    
-To: Jisheng Zhang <jszhang@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-To: Fu Wei <wefu@redhat.com>
-To: Rob Herring <robh+dt@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-To: Albert Ou <aou@eecs.berkeley.edu>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: Robert Nelson <robertcnelson@beagleboard.org>
-Cc: Jason Kridner <jkridner@beagleboard.org>
-
-Signed-off-by: Drew Fustini <dfustini@baylibre.com>
----
-Drew Fustini (3):
-      riscv: dts: thead: add BeagleV Ahead board device tree
-      dt-bindings: riscv: Add BeagleV Ahead board compatibles
-      MAINTAINERS: add reviewer for T-Head RISC-V SoC support
-
- Documentation/devicetree/bindings/riscv/thead.yaml |  5 ++
- MAINTAINERS                                        |  1 +
- arch/riscv/boot/dts/thead/Makefile                 |  2 +-
- arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts | 61 ++++++++++++++++++++++
- 4 files changed, 68 insertions(+), 1 deletion(-)
----
-base-commit: 295e1388de2d5c0c354adbd65d0319c5d636c222
-change-id: 20230722-upstream-beaglev-ahead-dts-d651af307fa6
-
-Best regards,
--- 
-Drew Fustini <dfustini@baylibre.com>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWNrZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgoKT24gU3VuLCBKdWwgMjMsIDIw
+MjMgYXQgNTo1NuKAr0FNIERyZXcgRnVzdGluaSA8ZGZ1c3RpbmlAYmF5bGlicmUuY29tPiB3cm90
+ZToKPgo+IEkgd2lsbCBtYWludGFpbiBzdXBwb3J0IGZvciB0aGUgVEgxNTIwLWJhc2VkIEJlYWds
+ZVYgQWhlYWQgYm9hcmQgc28KPiBhZGRpbmcgbXlzZWxmIGFzIGEgcmV2aWV3ZXIgZm9yIFQtSGVh
+ZCBTb0MgcGF0Y2hlcy4KPgo+IFNpZ25lZC1vZmYtYnk6IERyZXcgRnVzdGluaSA8ZGZ1c3RpbmlA
+YmF5bGlicmUuY29tPgo+IC0tLQo+ICBNQUlOVEFJTkVSUyB8IDEgKwo+ICAxIGZpbGUgY2hhbmdl
+ZCwgMSBpbnNlcnRpb24oKykKPgo+IGRpZmYgLS1naXQgYS9NQUlOVEFJTkVSUyBiL01BSU5UQUlO
+RVJTCj4gaW5kZXggZDUxNjI5NTk3OGE0Li5lYWVjMzMzM2YyZWQgMTAwNjQ0Cj4gLS0tIGEvTUFJ
+TlRBSU5FUlMKPiArKysgYi9NQUlOVEFJTkVSUwo+IEBAIC0xODMyNiw2ICsxODMyNiw3IEBAIFJJ
+U0MtViBUSEVBRCBTb0MgU1VQUE9SVAo+ICBNOiAgICAgSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0Br
+ZXJuZWwub3JnPgo+ICBNOiAgICAgR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gIE06ICAg
+ICBGdSBXZWkgPHdlZnVAcmVkaGF0LmNvbT4KPiArUjogICAgIERyZXcgRnVzdGluaSA8ZGZ1c3Rp
+bmlAYmF5bGlicmUuY29tPgo+ICBMOiAgICAgbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+Zwo+ICBTOiAgICAgTWFpbnRhaW5lZAo+ICBGOiAgICAgYXJjaC9yaXNjdi9ib290L2R0cy90aGVh
+ZC8KPgo+IC0tCj4gMi4zNC4xCj4KCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
