@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BB53EB64DA
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jul 2023 11:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E0FEB64DC
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jul 2023 12:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g+6TWnHrjBLJvdHCHtUNWc/fl+pFPvIlNwMt52I5a8g=; b=zSpXkrZNrYjXsC
-	mTDg/HTEQDZk6WNLo87h5r83WVP/s7Gw8kOp03O44cv+lMn2W/hapOk8VUWzXwwgehQ+4Lop1Bt4Q
-	sscx7uccPX1OzpceJu/y/nN4OTJuL+Yhym35wFVxaHpnj9Ct1PhBXaNK/Dp5hngzBJmWGkN23rp7w
-	WtoHsT4EhFoKEfB0mNW8OUm7XUv1Lq0Pya9FKs4pZpIiAJPdqfPH5zYcxvm1TE1JjgB5sC01Brttr
-	wNwAE3vmFcJ8LHW8QZZyx5q1mpcxv7Ta+HjgysJPkHpl8E1Dpe4bqjUVp8wa5OycxGEjnFlbqiLtB
-	tI7nj2tsMoSTwlnIbDfA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ybnxxUb4lVOHq9Vj8UoCofOGgXcai82jkJwyovUZ4C8=; b=kLFCV43KquAr4r
+	LwLJ24YdV/jA5aq5NNTDnOmxmWwBUJyTQQ6P9Eio1fkS39HbVDA/48608db1wUCR9MUyYKV64usC7
+	4FF86+zAM0O7oJj2m8+cw/VAZifGVxZIUAfog63SMkXgeaKBHpMLPvM/DQ7ocvni11ShvJCHCQhNx
+	eRyMeV/JsgnyJB1+lpYDJ7vyQ1M1MiaAYkjzqalXfsZIiQsAQ/DTYPmapmNS4tErkmvNBG96/2o0A
+	O5nBwzz+2AbfBPR0Alow+LKH+bLrwta+8ZCN80FnGzvG3ZAx6sZK+Cnl3+kZwxUaxuoX5xaPSV+O3
+	6LYNvHpc5W2EoRVzIVEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNAvA-00Gayn-2g;
-	Sat, 22 Jul 2023 11:37:12 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1qNBt0-00Ghbn-1S;
+	Sat, 22 Jul 2023 12:39:02 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNAv7-00Gaxp-2x
+	id 1qNBsw-00Ghaw-3C
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Jul 2023 11:37:11 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-31716932093so2045866f8f.3
-        for <linux-riscv@lists.infradead.org>; Sat, 22 Jul 2023 04:37:07 -0700 (PDT)
+	Sat, 22 Jul 2023 12:39:00 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-307d20548adso2086888f8f.0
+        for <linux-riscv@lists.infradead.org>; Sat, 22 Jul 2023 05:38:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1690025826; x=1690630626;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dia79abijhqNuyOI1X7cuUqq5ei10OSh1lyxFY8ZqEI=;
-        b=gFee1fF2iHGRz/47PvRpgdT+WGD2XMVbRI8srdPWpV/H/ekYNozwb9X2w7LVg1vhqJ
-         dJhrqklruLlhNCN9gBDAU0H1z3leeaE+LMDwDyXzMIvQBbqQs2yqQpqSb3wtDy/Vhu4C
-         wPeyOXc4bW50dYHy2+gn9P0XAT9YoOfoFyEo33miDMeQZbfIVrqoqInBJEbGD4UxPbqf
-         S/3gIVuW5No5OH8wZE2MwF0L8GweSWBRAp+rFhmLLi/ymXv5NKZ1C1FOwVOyi1VQ/P4E
-         34BJHPg2i0pWbYC8Fa9RfQUcOaqipWJCDB2TPdtLBxNakWNze1BE2ThgCD3uk3x/b4jx
-         RqKg==
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1690029537; x=1690634337;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jIcbmkTWrDX+Xt/TeGVAtAWUbcdO9qSHs2vQ/hQkz24=;
+        b=oNMMTqvReu3FlM4cY7VjMXRIDFVljKhFHKgnZsZXMmUbnZmy0NmZpngBD8NxM0U1KI
+         /VT2jSQ2Nuggw8us79pz9ML+gplT+vhgZTDGtrVWMgK+OWNbRQRLhPCJlkARcwua8oDk
+         s5qds2Q3gubIUSGrbjXph/jC1wCr2529VHrO4b29IH5Qlub4NOg1LF0IDfx/dB6/TWug
+         j5i62gXKv0q3zvrnf00wU3VpUME0wK4z/d/GGuKEJcm9o1Zitjv8nrhGwwT4Lm6uAyp3
+         PPQvEsNBGbORCuH8Pj5GlkIfb8CR/ozwHaKXgen9DkQnsL++0NlC/wQ3BkkmcdyPumpN
+         1OQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690025826; x=1690630626;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dia79abijhqNuyOI1X7cuUqq5ei10OSh1lyxFY8ZqEI=;
-        b=Mw2KKN6kqIJf+DbtvQpbIKTx321AxT3m1VPIr2KTWPHZWFGzpdqngiIDSMaZ9zm28Y
-         JQl90FHTiti4XATbTNX/+xpqjDZMJ2Kt94om3Su7UtxyQJMW4KZk+0VYbPEZVlbPNO+z
-         SaX9YsYMqyJzT51yj47n/fIjah5ity+3wfl8VOXGjU1X2Iwbt89XaDt2cegqKJpIbSp6
-         oFSVLqvN2fS58etZ+I3S6ma3PwwtC2mS2UGqGUkHyxCubdIWbJpUk/zBef/oRPo0QN/F
-         s0Qu86Wmltl2yNM3+4HaITa61NrpxWgZGgrqqVFgvL3YF3Pj0mJXeNh9JwnEQRdifhjn
-         C5fw==
-X-Gm-Message-State: ABy/qLZdQKtNBKm6SGz3AFA/+x4VQro1DjbvwLP9U0MWGKruN08tci3K
-	YraJtHlblh25LZIwoNbOu33VSw==
-X-Google-Smtp-Source: APBJJlHdUFYwWBgP9YwVZejWD0BEkyDQp4m0NFOwqwPjXSpnUNHV74dw2XItoce9Xsv4xVzhgDkR1A==
-X-Received: by 2002:adf:f3c5:0:b0:314:32b6:af3 with SMTP id g5-20020adff3c5000000b0031432b60af3mr2740008wrp.5.1690025825975;
-        Sat, 22 Jul 2023 04:37:05 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1690029537; x=1690634337;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jIcbmkTWrDX+Xt/TeGVAtAWUbcdO9qSHs2vQ/hQkz24=;
+        b=bBqMMJiRtvm7jaoLf+NOSzNYBewJsxqarUw5PePcjNnrZaV3ecb3kK7g92VnU40tgo
+         /JLot11pkbcQr74RpyhuVXc0qF9SzIq89btLqnkr3Z4nrrwVYfKzbS4dM4oMC3Fs+aJd
+         qinT27adT8PqhFXmZNmFuRSMnMguwMkSuYkMUr/IoQnYGQstXnR5eMGqQyqWcez9qMSu
+         jmP7DPgiKUJchehwLb5qipVJEX0w9sbsJ720lcccOTr9Jz+8XvjI61Thzb5N8XgqAszp
+         feHtXrJpmmiYwVMakcjEE4LuGkzdoNZL7gXUqy4F3gCPPRyQp/q/ovaZFLqlEXSgvBuf
+         bAeg==
+X-Gm-Message-State: ABy/qLaIqhkLGLsSsw0UvyQ1nuLhKD7frwU7h5zMs3DPyyYd5VG5dNG9
+	tPpE+3LPhpP5sx+qLocKwD0zNw==
+X-Google-Smtp-Source: APBJJlE3kySORHNjliNzyk1d7E4WKUQ/vw6BhiZyXSU1YW0ZRPEhMV+8g/ko07f1CDM0Jua0EmTMHQ==
+X-Received: by 2002:adf:e307:0:b0:309:1532:8287 with SMTP id b7-20020adfe307000000b0030915328287mr2745943wrj.19.1690029537140;
+        Sat, 22 Jul 2023 05:38:57 -0700 (PDT)
 Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id c16-20020adfe750000000b0030fb828511csm6728788wrn.100.2023.07.22.04.37.05
+        by smtp.gmail.com with ESMTPSA id b8-20020a5d5508000000b0030fb4b55c13sm6819378wrv.96.2023.07.22.05.38.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Jul 2023 04:37:05 -0700 (PDT)
+        Sat, 22 Jul 2023 05:38:56 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	Song Shuai <songshuaishuai@tinylab.org>,
-	linux-doc@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v5 3/3] Documentation: riscv: Update boot image header since EFI stub is supported
-Date: Sat, 22 Jul 2023 13:34:45 +0200
-Message-Id: <20230722113445.630714-3-alexghiti@rivosinc.com>
+	linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v6 0/5] riscv: Introduce KASLR
+Date: Sat, 22 Jul 2023 14:38:45 +0200
+Message-Id: <20230722123850.634544-1-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230722113445.630714-1-alexghiti@rivosinc.com>
-References: <20230722113445.630714-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230722_043709_953701_75B0E93A 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20230722_053859_271223_B3230A9F 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,41 +96,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The EFI stub is supported on RISC-V so update the documentation that
-explains how the boot image header was reused to support it.
+The following KASLR implementation allows to randomize the kernel mapping:
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
----
-- Changes in v5:
-  * Rebase on top of docs-next
+- virtually: we expect the bootloader to provide a seed in the device-tree
+- physically: only implemented in the EFI stub, it relies on the firmware to
+  provide a seed using EFI_RNG_PROTOCOL. arm64 has a similar implementation
+  hence the patch 3 factorizes KASLR related functions for riscv to take
+  advantage.
 
- Documentation/riscv/boot-image-header.rst | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+The new virtual kernel location is limited by the early page table that only
+has one PUD and with the PMD alignment constraint, the kernel can only take
+< 512 positions.
 
-diff --git a/Documentation/riscv/boot-image-header.rst b/Documentation/riscv/boot-image-header.rst
-index a4a45310c4c4..df2ffc173e80 100644
---- a/Documentation/riscv/boot-image-header.rst
-+++ b/Documentation/riscv/boot-image-header.rst
-@@ -28,11 +28,11 @@ header in future.
- Notes
- =====
- 
--- This header can also be reused to support EFI stub for RISC-V in future. EFI
--  specification needs PE/COFF image header in the beginning of the kernel image
--  in order to load it as an EFI application. In order to support EFI stub,
--  code0 should be replaced with "MZ" magic string and res3(at offset 0x3c) should
--  point to the rest of the PE/COFF header.
-+- This header is also reused to support EFI stub for RISC-V. EFI specification
-+  needs PE/COFF image header in the beginning of the kernel image in order to
-+  load it as an EFI application. In order to support EFI stub, code0 is replaced
-+  with "MZ" magic string and res3(at offset 0x3c) points to the rest of the
-+  PE/COFF header.
- 
- - version field indicate header version number
- 
+base-commit-tag: v6.5-rc1
+
+Changes in v6:
+  * Fix reintroduced build failures by compiling kaslr.c only for arm64
+    and riscv, as suggested by Ard
+
+Changes in v5:
+  * Renamed efi-stub-kaslr.c into kaslr.c and fix commit log of patch 3,
+    as suggested by Ard
+  * Removed stubs since the kaslr functions were moved to their own file
+    (and then does not trigger any build failure for architectures that do
+    not call those functions since they are in their own compilation unit)
+
+Changes in v4:
+  * Fix efi_get_kimg macro that returned nothing
+  * Moved new kaslr functions into their own files to avoid zboot link
+    failures, as suggested by Ard
+
+Changes in v3:
+  * Rebase on top of 6.4-rc2
+  * Make RANDOMIZE_BASE depend on 64bit
+  * Fix efi_icache_sync and efi_get_kimg_min_align which were undefined
+    in x86 (and certainly other archs)
+  * Add patch 4 to fix warning on rv32
+
+Changes in v2:
+  * Rebase on top of 6.3-rc1
+  * Add a riscv cache sync after memcpying the kernel
+  * Add kaslr_offset implementation for KCOV
+  * Add forward declaration to quiet LLVM
+
+Alexandre Ghiti (5):
+  riscv: Introduce virtual kernel mapping KASLR
+  riscv: Dump out kernel offset information on panic
+  arm64: libstub: Move KASLR handling functions to kaslr.c
+  libstub: Fix compilation warning for rv32
+  riscv: libstub: Implement KASLR by using generic functions
+
+ arch/arm64/include/asm/efi.h              |   2 +
+ arch/riscv/Kconfig                        |  19 +++
+ arch/riscv/include/asm/efi.h              |   2 +
+ arch/riscv/include/asm/page.h             |   3 +
+ arch/riscv/kernel/image-vars.h            |   1 +
+ arch/riscv/kernel/pi/Makefile             |   2 +-
+ arch/riscv/kernel/pi/cmdline_early.c      |  13 ++
+ arch/riscv/kernel/pi/fdt_early.c          |  30 ++++
+ arch/riscv/kernel/setup.c                 |  25 ++++
+ arch/riscv/mm/init.c                      |  36 ++++-
+ drivers/firmware/efi/libstub/Makefile     |   4 +-
+ drivers/firmware/efi/libstub/arm64-stub.c | 117 ++--------------
+ drivers/firmware/efi/libstub/efistub.h    |   8 ++
+ drivers/firmware/efi/libstub/kaslr.c      | 159 ++++++++++++++++++++++
+ drivers/firmware/efi/libstub/riscv-stub.c |  33 ++---
+ 15 files changed, 328 insertions(+), 126 deletions(-)
+ create mode 100644 arch/riscv/kernel/pi/fdt_early.c
+ create mode 100644 drivers/firmware/efi/libstub/kaslr.c
+
 -- 
 2.39.2
 
