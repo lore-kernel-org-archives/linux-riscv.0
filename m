@@ -4,66 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D384EB64DA
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jul 2023 09:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61502C001B0
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Jul 2023 09:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HpRxSt3SxmqoIV1vN+5RqJPKuhQqF9DqQjMybeHp9mY=; b=R39izgdyNFDsUk
-	ABHDcMM9RjL7G5a3/B585xSozMr/O7JQiKy+vEDkc6UZLD0DfWSEskDTgrLI/Ci0JhWN4CA+Q9lB3
-	uA3CX/LLEuQmpWk5URxA6+cu1nb5G8Ej+MkLhsH1A6DWFNKNJKL88KhIlTr0KkX3oitD7UwMlKVZU
-	FUrBB9PrNDDtKSpFfHf21HKxwkiMCzoJSS3fS4m+6UIzjqJuTPcdOFXkuVztsOlq0Q4dxH70tEv/4
-	N10XRvCOs7dFcZFF1r5ZJDorPMKLBM0ecT16BH/nFZA+GUOU3BaPTgvsTmNXb9aWJ/1Fdfz2kBXDl
-	8ZSfL6HEC3Zb/nAgMc7A==;
+	List-Owner; bh=lTDKusOuz0G+w19yGR/cIBA3MWRTCsm2XqddIdK01xo=; b=pKeHAK9i9Ljhoy
+	oS2vH+cUULmRPljmq3mGmmDR78xl5VLGC836vJinAPn6uVyG3zlfu15JmQvO5afdvBLBTDds4Gajc
+	NriWXl8/P5CykA+i3Slai5qI0dMbsJ4Vd/n33e29gGgeEWUPqNO9G6K2F3mGlpdk7UHLKEvOvNA4A
+	Ju1zBGmwFHJjTIJY31/2YSC5teLiX4kkOcuuIYV77vErJRYuOHQ3bz4SPHGJUXIkUj/D/MROI7WgY
+	B1ILsgOMeTjyGKeNKn/nBe9kKxGZEuSmvD/+yiieEDPDaSkkuDoqVkg6Z/aLf08vMGi26KAFjyiBD
+	mDnwDUucAZlEv1HTk2/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qN8qa-00GFGo-38;
-	Sat, 22 Jul 2023 09:24:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qN8w3-00GFvf-2d;
+	Sat, 22 Jul 2023 09:29:59 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qN8qY-00GFFq-1H
+	id 1qN8w0-00GFu5-2z
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Jul 2023 09:24:19 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 29C4B60AF3;
-	Sat, 22 Jul 2023 09:24:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17AEFC433C7;
-	Sat, 22 Jul 2023 09:24:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690017853;
-	bh=A7F1zmUw4KPxRoXFXZ1pO5q/1gFrwvDuZVFBYVGEmXw=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=XcpBxqhEBeZsE22MmnIwHig0zXtwwyxQj7CLUw5rjbraL+O2OksMlQsPcgAWESJDj
-	 ufzwQWM2avduDQ8Uo/Bn3Y28mShJRp98o76oHCZyPZbBqVYYxiLsqtEOlQ0JB7T3mW
-	 HVXkNacF1dWMzFRTLab5FYRvoeBx3CAvqe+KpwBMxfvAEQW4VTRSenJec+xpHIhz2T
-	 IjSCmNAWrSEkaogfT3FrK7zI8lL/aeBP5rBngQIOt3lZHOTTx62e/MhzUuCxYd9AdW
-	 HJVoO2ru2XSLJqUUi7Qb8tmsZ5Ko6V2KYMm/ox3joXy0+R5XjHRh718NCyEnF4uZgx
-	 tvlnaEujfCGzg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Puranjay Mohan <puranjay12@gmail.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, pulehui@huawei.com,
- conor.dooley@microchip.com, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, martin.lau@linux.dev, song@kernel.org, yhs@fb.com,
- kpsingh@kernel.org, bpf@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: puranjay12@gmail.com
-Subject: Re: [PATCH bpf-next 0/2] bpf, riscv: use BPF prog pack allocator in
- BPF JIT
-In-Reply-To: <20230720154941.1504-1-puranjay12@gmail.com>
-References: <20230720154941.1504-1-puranjay12@gmail.com>
-Date: Sat, 22 Jul 2023 11:24:10 +0200
-Message-ID: <87fs5gguyt.fsf@all.your.base.are.belong.to.us>
+	Sat, 22 Jul 2023 09:29:58 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-98de21518fbso437984766b.0
+        for <linux-riscv@lists.infradead.org>; Sat, 22 Jul 2023 02:29:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1690018194; x=1690622994;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WjVqeX0y//4nrDSpiCRGlr32t9U96I9NgVlq9whIyS4=;
+        b=c/lWRogWO7Qdah02C1MkCGhNJvgGrif4oTCaPGdiK7W6NLpgxId3WwbMLqpuO472V/
+         hv+v+JpG78Ij/VjrLudZjSb9znRBygfAX13gn7AW9ZXgckupA3UpSu77hFE43mLYi2Fa
+         dTmzQqzoJTB+XVZxAcFcRNvrKHq8cPn3QNxRcXjlHczYx/PagKU2z79FFJsETjma5XPk
+         WNjKvgSkT7hDponNZI1p983MhnTS1Cst5EKzwhQIk1ixI2QEL4OsiIASZnodOuY3q33i
+         DzXo6i6W7Gban+p5Kj2vaFzbtu1B80PDCgmkgfzP8TzJaF9uqIgupXTYoalJZ8ajHxDt
+         bdvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690018194; x=1690622994;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WjVqeX0y//4nrDSpiCRGlr32t9U96I9NgVlq9whIyS4=;
+        b=EitBcOtRpKKJvHK/Y/MwFMOJSXyBIDu+NFgdwTj2XBLxNMhIncRNRwZYDlAFUnqxcW
+         Xna02XLMqG54deCleHqCxsGbOHbLphBHLq+rX1d7Jg6ff92rIpoZ9yCj8N/HKe7piVg5
+         6ovzqhIDUpFnbqL1M6UfSTyl5Wm3LzKw3DuGBlQU8AOqq061N47Rv/DYPB9J5BklRfyJ
+         wouS4wumKhGRRNOHg1wx1BgoGm24vp2UhX2EEnDg6pPdhxgfuMphf0lTqrdELcblGj99
+         1cM3CzqTs/PNV+xUwImiO5bwqVIMV0R90guXOdjsY87dR6/HLKavECH57aXti8BrprPk
+         8BBw==
+X-Gm-Message-State: ABy/qLZsa+n35Cm/nFQe/tLRQ/6b4sbwl5HIH0T8zKBBuiKeXFLcLJaj
+	IyBz5CqsZZCtVTHmWdzh2Nhhrg==
+X-Google-Smtp-Source: APBJJlE7HknlGAjPgKT8dkx6J4YpoyIOaTkrnSeiX1f1kudR9TNvxMzo3HNczgig+NEQVx/A2dTm0Q==
+X-Received: by 2002:a17:907:778c:b0:997:d975:64eb with SMTP id ky12-20020a170907778c00b00997d97564ebmr3847932ejc.35.1690018194587;
+        Sat, 22 Jul 2023 02:29:54 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.223.104])
+        by smtp.gmail.com with ESMTPSA id lg26-20020a170906f89a00b00992b50fbbe9sm3307981ejb.90.2023.07.22.02.29.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 22 Jul 2023 02:29:54 -0700 (PDT)
+Message-ID: <9fc41843-3dd6-7b22-edd7-1a22b937f646@linaro.org>
+Date: Sat, 22 Jul 2023 11:29:52 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH v2 1/4] dt-bindings: net: can: Add support for Allwinner
+ D1 CAN controller
+Content-Language: en-US
+To: John Watts <contact@jookia.org>, linux-sunxi@lists.linux.dev
+Cc: Wolfgang Grandegger <wg@grandegger.com>,
+ Marc Kleine-Budde <mkl@pengutronix.de>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-can@vger.kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20230721221552.1973203-2-contact@jookia.org>
+ <20230721221552.1973203-3-contact@jookia.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230721221552.1973203-3-contact@jookia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230722_022418_499675_4ADC72A2 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230722_022956_971029_B3E3A0CB 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +103,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHVyYW5qYXkgTW9oYW4gPHB1cmFuamF5MTJAZ21haWwuY29tPiB3cml0ZXM6Cgo+IEJQRiBwcm9n
-cmFtcyBjdXJyZW50bHkgY29uc3VtZSBhIHBhZ2UgZWFjaCBvbiBSSVNDVi4gRm9yIHN5c3RlbXMg
-d2l0aCBtYW55IEJQRgo+IHByb2dyYW1zLCB0aGlzIGFkZHMgc2lnbmlmaWNhbnQgcHJlc3N1cmUg
-dG8gaW5zdHJ1Y3Rpb24gVExCLiBIaWdoIGlUTEIgcHJlc3N1cmUKPiB1c3VhbGx5IGNhdXNlcyBz
-bG93IGRvd24gZm9yIHRoZSB3aG9sZSBzeXN0ZW0uCj4KPiBTb25nIExpdSBpbnRyb2R1Y2VkIHRo
-ZSBCUEYgcHJvZyBwYWNrIGFsbG9jYXRvclsxXSB0byBtaXRpZ2F0ZSB0aGUgYWJvdmUgaXNzdWUu
-Cj4gSXQgcGFja3MgbXVsdGlwbGUgQlBGIHByb2dyYW1zIGludG8gYSBzaW5nbGUgaHVnZSBwYWdl
-LiBJdCBpcyBjdXJyZW50bHkgb25seQo+IGVuYWJsZWQgZm9yIHRoZSB4ODZfNjQgQlBGIEpJVC4K
-Pgo+IEkgZW5hYmxlZCB0aGlzIGFsbG9jYXRvciBvbiB0aGUgQVJNNjQgQlBGIEpJVFsyXS4gSXQg
-aXMgYmVpbmcgcmV2aWV3ZWQgbm93Lgo+Cj4gVGhpcyBwYXRjaCBzZXJpZXMgZW5hYmxlcyB0aGUg
-QlBGIHByb2cgcGFjayBhbGxvY2F0b3IgZm9yIHRoZSBSSVNDViBCUEYgSklULgo+IFRoaXMgc2Vy
-aWVzIG5lZWRzIGEgcGF0Y2hbM10gZnJvbSB0aGUgQVJNNjQgc2VyaWVzIHRvIHdvcmsuCgpKdXN0
-IGEgaGVhZHMtdXA7IEknbSBvbiB2YWNhdGlvbiBmb3IgMiBtb3JlIHdlZWtzLCBzbyBleHBlY3Qg
-YSBzb21ld2hhdApsYXRlIHJldmlldyBmcm9tIG15IHNpZGUhCgpUaGFuayB5b3UgZm9yIHdvcmtp
-bmcgb24gdGhlIFJJU0MtViBCUEYgSklUIQoKCkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 22/07/2023 00:15, John Watts wrote:
+> The Allwinner D1 has two CAN controllers, both a variant of the R40
+> controller. Unfortunately the registers for the D1 controllers are
+> moved around enough to be incompatible and require a new compatible.
+> 
+> Introduce the "allwinner,sun20i-d1-can" compatible to support this.
+> 
+> Signed-off-by: John Watts <contact@jookia.org>
+> ---
+
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
