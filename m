@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896B3C001B0
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Jul 2023 17:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0FEC001DC
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Jul 2023 19:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DtT3wmaZmmDm5KKDY/Zv+tZgvlVhYq63bP+dPLjALzQ=; b=cGuB7GiLEgEDbp
-	uRGnP2ttAthBwooclAle/415vzmP/DY33QXius/jMTJI4wZOG31y/UU4rID3H2GMWNU8GrOxgFWf3
-	BLjLJHe4ZNnFTiCyDPKlt36epir2Utqt99wn0LfYfF7By9aiJlhTgCfgCMEVNdgtEc834DspIYJbS
-	jtuoEZwTSNigs+VdSVkvyIfKW83nnnMgn1YU05s27SnEVeZTXh2nT7b1lHlrxyojsealKzHKz03cc
-	numOuvZ6/FKkIP/+VHHQpW8P8eLdChjkxkuKv83cT5j+fLxsgspANhaCrYLQ2ewgvF6tpIjYi5pYu
-	G32a8Ul16soGqvqSkRWQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qrU4r0IpBoRyde90h1RtiEFmTWQbv3lyVV3tg7af6hg=; b=gwG3bmOd+h4MoA
+	TjUTr8RRGT803Amlysi5zRk2P5b1vPLhr18MKc0F15vxcLlYOfy6t/2LMiTFraq4Evg36Qj9hBvY4
+	szF/DlPFfvC4u9AzBlPSXJ/j8+iIv3L7/WVsdivnsZ+KjvQ30oCNe4y0Z4tYQGuEyDoy/nfdaqg+g
+	8FDbBs9ZD1OBAzPeWlVgu3uGLpkACc2zQ6wEB0/9l0kK6Hec7kJm7y2A8uMvbBQFPyVlCq73TBFeO
+	iXTgHtdFiuM2fnz6m4GPbrYp90Jj+LgqltYqimEIG+z2KWUBuLjYyN+bhjBH7U56KNE3b1fvIpGKE
+	8I9sJrmsj+JcbpPqiKcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNcuD-001Vov-1h;
-	Sun, 23 Jul 2023 17:30:05 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1qNeaz-001gHx-06;
+	Sun, 23 Jul 2023 19:18:21 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNcu9-001Vnu-1I
+	id 1qNeav-001gGq-09
 	for linux-riscv@lists.infradead.org;
-	Sun, 23 Jul 2023 17:30:04 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-6686ef86110so1961671b3a.2
-        for <linux-riscv@lists.infradead.org>; Sun, 23 Jul 2023 10:30:00 -0700 (PDT)
+	Sun, 23 Jul 2023 19:18:18 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-1b89cfb4571so29612835ad.3
+        for <linux-riscv@lists.infradead.org>; Sun, 23 Jul 2023 12:18:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1690133400; x=1690738200;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=anD/aZSlr+vLjZWLNxtxT0F5flAWAxjs67Wwhw6u0QM=;
-        b=E+ArsCyWXwauL0di3emQhq+Fmc/7kBA6oessKwzGOTGr4kxRa5UnXYIUloBVNs+ZKr
-         vDWe5CeL4XVcghejAaiQh3imZha3QAH4TVK1+GJopZIWFYvcuRALPiYmvSNU0m21Sjw4
-         mVVULeIdyuDTF05PGfRAe1xMhSQ+PXcdmc93bY7QEF2YeBfnOnwQMjPJMLGeFLu6qVOp
-         rANcYkbU6ZNvd3ef9xGVGK+W/hs5zOaQkBpJdt3zkbqUAW489Q/sbs97BJXw3sWJjlGO
-         HOkVEtQK3sZJZXzeXPOzzeXVCAuv1E4zHLc1i25OFc1QloXYwnyV0ITpoM7Mib5K5eJG
-         m97A==
+        d=ventanamicro.com; s=google; t=1690139895; x=1690744695;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pW/D68CVUATDRvkkjfDHL+y9HJPS05BTKqrSEexxpog=;
+        b=S4mbzqkyBOsbsoQQ28NtKbuZQoLczx3V7rt47BuYtA6nNDw1b8k0dDBQq1WvMmftYu
+         ZtHDIrrjgIKDFhVbESxIkTD5yG4KPUWjw1A5SINWXZlrkC5YJ+by0mXd8PPux7hkjMwZ
+         P/KjGym1/AaFTLnf1m3f2NwOftCPWfENn0oeyrxzpr0xD4FjYhhKx6qunB6S6NnGe2Cy
+         rlW13aUC+J0c27hbQO+3xXcvKXx4mSh4Az3Gg9BNNHw4BCgzkgW5Cg7ba93kfn/VM7NC
+         Qv8/Kdr9XkXhrIXz76SCkuF3veGgb7SIo1UJm+A7Khx6+RIRWq8lCN0rdis/9XQ/TYKZ
+         hm0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690133400; x=1690738200;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=anD/aZSlr+vLjZWLNxtxT0F5flAWAxjs67Wwhw6u0QM=;
-        b=MQNH52qSJuOkX9ccbPIKlMi18+3XN0Za6dNxK1CHlemPnm+A5zueLz7y/sWHrEvwTE
-         A62vqzr7sMTbEwmNCH8MPDNiJ/PvuxkYmgsYuYrE+O2qabA9X6Os90n9bzL/X0DSyj0i
-         yYvAfcBv+6H362bei2flI+vN3F27dsJkFo0jukNvYRLsRu4k4/bTwgeGkI0hTP5j7zYP
-         JIA/N5hwrrYbEemvtQbo+OxCxRpnVUE2QPb5RWfYpHY+5K/mbs+MddU6Q9oXwtHdZK34
-         u8ZF0GcviEGZlSCXeThuEf3s+gYYvDF22f4msR0NrSFHpX2ODZei7y4o1EAL6x1DDbsh
-         DL/A==
-X-Gm-Message-State: ABy/qLYN90H0y+eMIazQabfxiH1nQKrOsLFB98gE9eHFizqTODNAvm5P
-	/yKqWTTyN95eyu64kWQT3U9Exg==
-X-Google-Smtp-Source: APBJJlGzn18xvFg4hiXQsp73KgOF0fT+h4xDUJN4Wco5VrV/ebEtcvNWM2uHS2/B+5arR7FXdrOezA==
-X-Received: by 2002:a05:6a00:1307:b0:674:8fe0:1262 with SMTP id j7-20020a056a00130700b006748fe01262mr4911219pfu.18.1690133400075;
-        Sun, 23 Jul 2023 10:30:00 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:f680:2a8c:966f:392d:7230])
-        by smtp.gmail.com with ESMTPSA id s123-20020a637781000000b005635bf2f09bsm6806460pgc.42.2023.07.23.10.29.59
+        d=1e100.net; s=20221208; t=1690139895; x=1690744695;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pW/D68CVUATDRvkkjfDHL+y9HJPS05BTKqrSEexxpog=;
+        b=bCNxkXcQ6aXx9pezO9J3nKOm1nwi3NwrMeioSfAjfOXm4WAt3ke6dvWrKjlYjXjEmC
+         czErzTujLPhPyIYb+ABmYGTb/PdXNI6f9kdzrhR/iqXuOlPxCjAOxwPQuUHb0IHrbeue
+         I6ESIIjH/1wPv4rgafyEbuFq/9699iN0c+9qib/2angoTpgT3cPP9fwH9uAcIjyZB2bJ
+         pKD6ZSpWAWXA5QrrRHPdAMmJS4ARRTT1WBX/wKpFkb3b2Wk06Jah7dpMlsE/jqMQa2KU
+         1BGYcksid6t7Q6TkVatUCNZrw92EmvUfk6UBepVqIH+nIuaUabyHvtGaLWP9dwTeFZGT
+         njsw==
+X-Gm-Message-State: ABy/qLaTWDSpTN/TClQsRD4XQuMIBFInA/zWSpDCdP85yKoiGIQQLb3D
+	BXmZVjvH/hFwbwjvvj/NxVIRd7fEyQq5XY1C7Os=
+X-Google-Smtp-Source: APBJJlH/dUeOgWFZp3VoB+w/4CrifL2iv7H2FX3MX6Ad+5talhr/ouM9nYEFlrcpqswE8mkPN38a6g==
+X-Received: by 2002:a17:902:ec83:b0:1b8:b41e:66b4 with SMTP id x3-20020a170902ec8300b001b8b41e66b4mr10434855plg.67.1690139895538;
+        Sun, 23 Jul 2023 12:18:15 -0700 (PDT)
+Received: from sunil-pc.Dlink ([106.51.190.25])
+        by smtp.gmail.com with ESMTPSA id s7-20020a170902988700b001b9e86e05b7sm7235508plp.0.2023.07.23.12.18.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Jul 2023 10:29:59 -0700 (PDT)
-Date: Sun, 23 Jul 2023 10:29:57 -0700
-From: Drew Fustini <dfustini@baylibre.com>
-To: Conor Dooley <conor@kernel.org>, Jisheng Zhang <jszhang@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Robert Nelson <robertcnelson@beagleboard.org>,
-	Jason Kridner <jkridner@beagleboard.org>
-Subject: Re: [PATCH 1/3] riscv: dts: thead: add BeagleV Ahead board device
- tree
-Message-ID: <ZL1jlacHj7sgNg8M@x1>
-References: <20230722-upstream-beaglev-ahead-dts-v1-0-ccda511357f4@baylibre.com>
- <20230722-upstream-beaglev-ahead-dts-v1-1-ccda511357f4@baylibre.com>
- <20230723-savor-trolling-e35ed4a7a751@spud>
+        Sun, 23 Jul 2023 12:18:15 -0700 (PDT)
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 -fixes] RISC-V: ACPI: Fix acpi_os_ioremap to return iomem address
+Date: Mon, 24 Jul 2023 00:47:58 +0530
+Message-Id: <20230723191758.1262960-1-sunilvl@ventanamicro.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230723-savor-trolling-e35ed4a7a751@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230723_103001_664296_5A4520A5 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20230723_121817_117160_44BB3225 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,37 +83,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, kernel test robot <lkp@intel.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 23, 2023 at 11:32:17AM +0100, Conor Dooley wrote:
-> On Sat, Jul 22, 2023 at 02:55:39PM -0700, Drew Fustini wrote:
-> 
-> > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> > @@ -0,0 +1,61 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> 
-> Hmm, should this not be dual licensed?
-> I notice the other th1520 stuff isn't either..
+acpi_os_ioremap() currently is a wrapper to memremap() on
+RISC-V. But the callers of acpi_os_ioremap() expect it to
+return __iomem address and hence sparse tool reports a new
+warning. Fix this issue by type casting to  __iomem type.
 
-Good point, I'll resubmit with a dual license.
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202307230357.egcTAefj-lkp@intel.com/
+Fixes: a91a9ffbd3a5 ("RISC-V: Add support to build the ACPI core")
+Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+---
+Changes since v1:
+	1) Removed enhancements from the fix patch.
 
-Jisheng: are you okay with the other arch/riscv/boot/dts/thead files
-changing to a dual license?
+ arch/riscv/include/asm/acpi.h | 2 +-
+ arch/riscv/kernel/acpi.c      | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-> 
-> 
-> > +	memory@0 {
-> > +		device_type = "memory";
-> > +		reg = <0x0  0x00000000  0x1 0x00000000>;
-> 
-> There's some extra spaces in here for some reason.
+diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+index f71ce21ff684..d5604d2073bc 100644
+--- a/arch/riscv/include/asm/acpi.h
++++ b/arch/riscv/include/asm/acpi.h
+@@ -19,7 +19,7 @@ typedef u64 phys_cpuid_t;
+ #define PHYS_CPUID_INVALID INVALID_HARTID
+ 
+ /* ACPI table mapping after acpi_permanent_mmap is set */
+-void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size);
++void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size);
+ #define acpi_os_ioremap acpi_os_ioremap
+ 
+ #define acpi_strict 1	/* No out-of-spec workarounds on RISC-V */
+diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
+index 5ee03ebab80e..e6fdb9edcdd9 100644
+--- a/arch/riscv/kernel/acpi.c
++++ b/arch/riscv/kernel/acpi.c
+@@ -215,9 +215,9 @@ void __init __acpi_unmap_table(void __iomem *map, unsigned long size)
+ 	early_iounmap(map, size);
+ }
+ 
+-void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
++void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
+ {
+-	return memremap(phys, size, MEMREMAP_WB);
++	return (__force void __iomem *) memremap(phys, size, MEMREMAP_WB);
+ }
+ 
+ #ifdef CONFIG_PCI
+-- 
+2.39.2
 
-Thanks for spotting that. I'll fix when I resubmit with dual licnese.
-
-Drew
 
 _______________________________________________
 linux-riscv mailing list
