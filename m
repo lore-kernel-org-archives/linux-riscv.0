@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE85C001DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 17:44:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1C7C001DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 18:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CTKEgMl4CybgRoyluNYN+gTjCMmpgaFmQIT6V4Gcbj4=; b=gODLH7wElqMJ6Q
-	iyJIdejyQUf1K5NBxMl1wOS3elR6s+5iuq8Qe+iOa/KM+00cquRidMjiB+wTbghVRjgQ7plkBxFAe
-	VDZB6yWmGFd/ShQJPKtVj0zl3XSjr7jhf9LKriLNTpGjpgrQuthHGbHy0MvnNnHUcf5d68RVjauqG
-	d3W7PKHlcq+9aBmahLHr/rcxq++H5pwzeEghunUt4dsSUhfEWkXBWxbpJwnm21r2aHCl9I5LA2YUX
-	Elix2kSA6EhDd7UPvzB208aH+TgcCbC9p30AZ0+zPFaz1Ue4yXyQFMiZtsso2SFqbOXdxACfzijho
-	d74nc0DCyMb3v7HRet6Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=twqUX68mLqQNlCr+QLz1fAuXrOSaD933X4ypleyNBsE=; b=wLSuEGURVjWaVn
+	OAGFyKNokDIrk4Uk+z/dHNExyP0qzvN3eUQVidd+8zyK/C4lEf2JDrH6+dEtaYKyCDMQV4v2k/tIP
+	j1M+h1up+u7KL34cFDmsosM14XN2Zp5iN+W4VsUU+/yWF/vuikpvNzZC9m5FvUmzZ1GeCv5eb5sG6
+	oVMq5x263ugLZfGMA3l/Wlv/NmiIf07uxdu5hw6vtkcYHtEsnY+mpc9AY5rf82kFZ6CZf7PD3i9BB
+	Wd3CMHuJny6Jm+wSZ9pH8wZvMj9JCDxxmxo6Ca0RIQDGtjGtHTLJJiLoRlx2TsY91ZCsBoAXnQDi+
+	/8ZxD4j0kSRL8j3pBRKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNzbJ-0055v0-1g;
-	Mon, 24 Jul 2023 17:44:05 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1qO0Bn-005Bnu-04;
+	Mon, 24 Jul 2023 18:21:47 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNzbF-0055sx-2H
+	id 1qO0Bi-005Bmy-11
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jul 2023 17:44:04 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-267fc04ec74so1354267a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 10:44:00 -0700 (PDT)
+	Mon, 24 Jul 2023 18:21:45 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-666edfc50deso3006172b3a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 11:21:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1690220640; x=1690825440;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J3N277sEYZfKNrO9MSgzSByOw202Qb6E6AE2Nrgm8Q8=;
-        b=pXWrrfQC+xm/I7SrWdFWX2zuH+1E5mrxuTv9MJiXatdV/yBxsIN76aenPgBa6F1asU
-         A/pSWCyISxPe0BNdZNGGJd7u6/cJNA9Duz+0dwTktgPT5xRzHn2MVh2x66FaK9mf6lVb
-         6m7XgEOUIjvabnqgFVFZCLd8mxChHgDoHZG+EYrmAU84KnVAX+AHf9H6f3SFcM+Hr6aK
-         /36tGIqmT/JyKfKWGyqPyxdwJ3zxSZwDvzoP4y42kDPOFDJUVzmSp+fzKHaXjqsqD1lZ
-         ewFiHZpAJaJwmVeSVUUgP9D4qB/HsNRv9fBDUUhL0a6Ue8rR5WKuAJHQe20jwcX2J6yL
-         kAlA==
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1690222899; x=1690827699;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QEUjvqdRzTdfDkwicizCwRYFy04Vl/AY1lqkB/hOCjo=;
+        b=br9RkcEvcXtV0Fil4emk4TsED2K9yy2SzHENve3KeNHExIgHdCbjnC7ECrSJxbGkss
+         IXu/FL0dtAPTyX3fc7pdybmCRarz1i585iMUk1BPPvhaZtAAwZE6uEFtx5yd9Vh43MS+
+         432ztBbXleTVkWeyoX3Tc3juGLyr7Sb6cq4iVADmVSRKoKkB0zHB8x35QWgNX9xNYfMM
+         iRPJzwjK/0KUEdZYXxkCea0gHJx2VNoJDgjKMVnNmKsTnG7gwEdLiujzmsl3xuwSzBDe
+         ObPIjRoN8rYKPf+nV1MFbUloIZSKjqx8Q8355INOVgvYkZgMHKXccf4hCxYtfyygE+bf
+         PMfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690220640; x=1690825440;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J3N277sEYZfKNrO9MSgzSByOw202Qb6E6AE2Nrgm8Q8=;
-        b=Hw9GwoR5NiDI6Pd4JDANx3cLIWEDvWkK5OS9J9fJvTKw1t94t25HkDJFfpySNBCVlJ
-         KflJCIoa+Syz1gJiZuvXgDW2MsYN2gUwoCmjsNGuU5b1uaotJ9k50hpIQuLV2v8vaNHR
-         9f/khpqpluVPuvtNnaR/7n7LdidOQAzuiNdLj52LtECvSf8rQ4bgB04srpnfQcxMt1vG
-         JcjqEPYRDn7CuWTeoGo3X5NexIEwAKG9eQEaNKj5tpF7JDRKHgYc7i2vcHUFf4g1AuGg
-         mCtdNRz/P6AJfoHwKsTsoAetenV1Z4l75QOq4fqPsuzzfMWmFm8/4jG97Ybm69kbyTZC
-         kFew==
-X-Gm-Message-State: ABy/qLYxM6iXwjRe70rUYFzlPCd0xvirIOukWpgDNLno3f6d9Vaskx4h
-	1jJRvCK2rGDMn+5hbX+x7F16PA==
-X-Google-Smtp-Source: APBJJlHKKAkArEM0A/RRqvmco2eiWB6hUeTVUB1y2iEY5OE1TPkkxSBF9u6UOH+Qo2s/QCm60S/kiA==
-X-Received: by 2002:a17:90b:1b0a:b0:263:2335:594e with SMTP id nu10-20020a17090b1b0a00b002632335594emr11297290pjb.38.1690220639962;
-        Mon, 24 Jul 2023 10:43:59 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:f680:b55a:eeb0:a3a8:248e])
-        by smtp.gmail.com with ESMTPSA id ot15-20020a17090b3b4f00b0025bcdada95asm6815710pjb.38.2023.07.24.10.43.58
+        d=1e100.net; s=20221208; t=1690222899; x=1690827699;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QEUjvqdRzTdfDkwicizCwRYFy04Vl/AY1lqkB/hOCjo=;
+        b=BcG3GRjzch9M/bsmVNmlZXp/exdsGYIRgwQ6P0GcUvNwB/skbeWzYMepqEeN+zrOxc
+         qpApci2GhnMkPK0Md9H1+pkAxCSe4j9YNrFN/BUdlKp1pjN+HCCvsLT+f6FbyfIFE38n
+         ++UI0LVa/8C0EXC/xfnQWgcbmf6L9zdjkrvVi+b8Hd7CagQGwUYV2YNbWBeO4Cic0UZF
+         33IUkOE9WqrCN2t2jyHrWv4H9EC98xsNqREclgpDO/bOUY5As+T+LF9Q4nz57Q0tolJG
+         VzH73EtCDsIwDSEEoqHOpQ9HKAQA2gaEuA21hflfhqBE1anG6iVxg6QduDDCv+A0ykyY
+         71ug==
+X-Gm-Message-State: ABy/qLbpgL4H82Ck8MSHzAR2yfFrVvyLYT0iOub680NiWJUFcWaK9wtM
+	kFbU7U7bT4FfWNko+JbEF0E1ng==
+X-Google-Smtp-Source: APBJJlGkIVhru3kteceAqIxz/2TdYmq94CKwcauG2anD7zgAdek+sul734EOBuPyGbjhwmrL16qKyA==
+X-Received: by 2002:a05:6a20:6a11:b0:12e:caac:f263 with SMTP id p17-20020a056a206a1100b0012ecaacf263mr13293078pzk.20.1690222899380;
+        Mon, 24 Jul 2023 11:21:39 -0700 (PDT)
+Received: from x1.hsd1.or.comcast.net ([2601:1c2:1800:f680:b55a:eeb0:a3a8:248e])
+        by smtp.gmail.com with ESMTPSA id g20-20020a62e314000000b00682b2044149sm8007620pfh.4.2023.07.24.11.21.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Jul 2023 10:43:59 -0700 (PDT)
-Date: Mon, 24 Jul 2023 10:43:57 -0700
+        Mon, 24 Jul 2023 11:21:39 -0700 (PDT)
 From: Drew Fustini <dfustini@baylibre.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+To: Jisheng Zhang <jszhang@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Drew Fustini <dfustini@baylibre.com>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Robert Nelson <robertcnelson@beagleboard.org>,
-	Jason Kridner <jkridner@beagleboard.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v2 0/3] riscv: Add BeagleV Ahead board support
-Message-ID: <ZL64Xe56HUvYwuux@x1>
-References: <20230722-upstream-beaglev-ahead-dts-v2-0-a470ab8fe806@baylibre.com>
- <20230724-unwatched-left-f38189206b0d@spud>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: dts: change TH1520 files to dual license
+Date: Mon, 24 Jul 2023 11:21:29 -0700
+Message-Id: <20230724182129.843687-1-dfustini@baylibre.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230724-unwatched-left-f38189206b0d@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_104401_743656_1B494AE4 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20230724_112142_612964_40DD6C81 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,28 +98,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 24, 2023 at 06:36:34PM +0100, Conor Dooley wrote:
-> On Mon, Jul 24, 2023 at 10:20:37AM -0700, Drew Fustini wrote:
-> > The BeagleV Ahead single board computer [1] features the T-Head TH1520
-> > SoC. Similar to the Lichee Pi 4A series from Jisheng [2], this adds a
-> > minimal device tree file to support booting to a basic shell [3].
-> > 
-> > Changes since v1:
-> 
-> > - Add dual license to dts file as Conor noted this is typical
-> 
-> I figure the dual licensing of the dtsi & sipeed board will be done
-> separately?
-> 
-> What's here is 
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Modify the SPDX-License-Identifier for dual license of GPL-2.0 OR MIT.
 
-Thanks for the review.
+Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+---
+ arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi | 2 +-
+ arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts      | 2 +-
+ arch/riscv/boot/dts/thead/th1520.dtsi                  | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
-Yes, I was thinking that would be a different series as a followup
-to the original patch series that added th1520 and lpi4a.
+Jisheng Zhang and Guo Ren - I thought I would post this patch based on
+the discussion in the thread about the BeagleV Ahead patches.
 
+Message-ID:
+20230722-upstream-beaglev-ahead-dts-v1-0-ccda511357f4@baylibre.com
+
+Thanks,
 Drew
+
+diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+index 4b0249ac710f..a802ab110429 100644
+--- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+@@ -1,4 +1,4 @@
+-// SPDX-License-Identifier: GPL-2.0
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+ /*
+  * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+  */
+diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+index a1248b2ee3a3..9a3884a73e13 100644
+--- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
++++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+@@ -1,4 +1,4 @@
+-// SPDX-License-Identifier: GPL-2.0
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+ /*
+  * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+  */
+diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+index 56a73134b49e..ce708183b6f6 100644
+--- a/arch/riscv/boot/dts/thead/th1520.dtsi
++++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+@@ -1,4 +1,4 @@
+-// SPDX-License-Identifier: GPL-2.0
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+ /*
+  * Copyright (C) 2021 Alibaba Group Holding Limited.
+  * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
