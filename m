@@ -4,49 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8FDC001B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 08:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08FCBC0015E
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 08:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VPjZRxcU9ysaZyvvnNJkf69f2TnZ9MqvMsSZXApaI6I=; b=BzON2gIZ0ndnYo
-	T7L9IgWxllsmaDg5JlEh/JmIeE0py8gB0cdgjEbzD1KxmzLdWiq/V4E2tU5hmthSW25qG0tdq9CJc
-	d/kMc98H7ZTQGhwWsVy02P6Mcr2Zv6SvZcYko7sW+EaHmfjt7uWj8W0SYsMCqV12pJI4G7dFtRERz
-	BEREauTKIQxVMG/ahP//v+aVLIXOXHWuSXi3UdWkICYhnMoWOG+xVTy1/lERsL7i1Wjl+ExGlwI2/
-	NVRCGW/YuaLXF7BgjpDLeUUHSJikALvAiqRbkD6TBqvV2W2fQBlCkrzn6j04t8K3ue9RddqmjmIES
-	mJIR7bPI51sQk5e2T/wg==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ViyOo98jDEdJQud/+b1gBtcPeGotnBBA/TX5iCtsd3w=; b=cMlF8HZseKv5f2092iht84Z3ww
+	G/mOqw725TBhJJReT9WZjJMrUrguGZvyhyuabTnBVa+GOqz0M8qStJboONLPJf5KtDn7wcK1rLjud
+	q4lx9HShz0RL3RsfVYZzJhkuTBwgosNMNy4P3wSiNouKIpguVtY+mvA5chnU4Ppn+WX894y9g9r1Q
+	ogvIFlF0vMxdSnh70YLkrSsnQR6MLjErOg14onTG5h3IxGbGu26MyPOiDpewmp/cy+fxmKSFkvOlW
+	rJzrxE0y8ScSHuBu0MDtfLkVrR1qkzHED64jkvo4IJ+MFqhc1rEGls4z3NN7vsvC4dcUt3kukmrcZ
+	HY/b/IAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNqhd-003Cy6-37;
-	Mon, 24 Jul 2023 08:14:02 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1qNqvC-003Fk0-0M;
+	Mon, 24 Jul 2023 08:28:02 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNqhR-003Cn2-2R;
-	Mon, 24 Jul 2023 08:13:59 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 71481240004;
-	Mon, 24 Jul 2023 08:13:39 +0000 (UTC)
-Message-ID: <db0ebf87-39ee-0b44-6b07-6adb7b976cb8@ghiti.fr>
-Date: Mon, 24 Jul 2023 10:13:38 +0200
+	id 1qNqv8-003Fig-38
+	for linux-riscv@lists.infradead.org;
+	Mon, 24 Jul 2023 08:28:01 +0000
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1qNquo-0007RN-JQ; Mon, 24 Jul 2023 10:27:38 +0200
+Received: from pengutronix.de (unknown [172.20.34.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 53E021F8389;
+	Mon, 24 Jul 2023 08:27:33 +0000 (UTC)
+Date: Mon, 24 Jul 2023 10:27:32 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: John Watts <contact@jookia.org>
+Cc: linux-sunxi@lists.linux.dev, Wolfgang Grandegger <wg@grandegger.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-can@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 0/4] Add support for Allwinner D1 CAN controllers
+Message-ID: <20230724-paving-pep-4c3ca2fae261-mkl@pengutronix.de>
+References: <20230721221552.1973203-2-contact@jookia.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [Crash-utility] RISCV64: Use va_kernel_pa_offset in VTOP()
-Content-Language: en-US
-To: Song Shuai <suagrfillet@gmail.com>, xianting.tian@linux.alibaba.com,
- mick@ics.forth.gr, heinrich.schuchardt@canonical.com, guoren@kernel.org,
- k-hagio-ab@nec.com, yixun.lan@gmail.com, lijiang@redhat.com
-Cc: linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
- crash-utility@redhat.com
-References: <20230724040649.220279-1-suagrfillet@gmail.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20230724040649.220279-1-suagrfillet@gmail.com>
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <20230721221552.1973203-2-contact@jookia.org>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:b01:1d::7b
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_011350_113141_7E63943B 
-X-CRM114-Status: GOOD (  25.50  )
+X-CRM114-CacheID: sfid-20230724_012759_008267_C849F6E9 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,121 +80,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5535172034981399135=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Song,
+
+--===============5535172034981399135==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bzzg2zjmqpjfr7ls"
+Content-Disposition: inline
 
 
-On 24/07/2023 06:06, Song Shuai wrote:
-> Since RISC-V Linux v6.4, the commit 3335068f8721 ("riscv: Use
-> PUD/P4D/PGD pages for the linear mapping") changes the
-> phys_ram_base from the kernel_map.phys_addr to the start of DRAM.
+--bzzg2zjmqpjfr7ls
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 22.07.2023 08:15:49, John Watts wrote:
+> This patch series adds support for the Allwinner D1 CAN controllers.
+> It requires adding a new device tree compatible and driver support to
+> work around some hardware quirks.
+>=20
+> This has been tested on the Mango Pi MQ Dual running a T113 and a Lichee
+> Panel 86 running a D1.
+
+Applied to linux-can-next/testing.
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--bzzg2zjmqpjfr7ls
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmS+NfAACgkQvlAcSiqK
+BOg8Kgf/eJt24Ndvcmh6L+eNtFLgI9sT0zZeRNAKl9MJzbRclkN9kj5PSwfjjXt9
+UyBuvnxjyHDs81oanjq0yLh673plo1Q+PH2S9bx2q0GuWxudK8fIS7K6C3FBO5EI
+cvoAK6cyy33+7LUR7X7w0/0cs8jPUS8znJh7iw3fhr+R9fW+uTzoMDxQsDi9duf7
+OPTBCOiiAnBajqy16/sxFHIyUFAHWYGs0RCgGEu1g4oW8JyPAr4lznp2wEYAPVeX
+oNjCnvJrfNPTqFbIKV9dY8GaYA765qy11toqYmpv/WCxMAOKO52ElS0dko5+nt8S
+ykN0k7XY6EzIqvbjvWh8AzhNvO8Gog==
+=cUGJ
+-----END PGP SIGNATURE-----
+
+--bzzg2zjmqpjfr7ls--
 
 
-Maybe we could be more explicit here, kernel_map.phys_addr actually 
-points to the physical start of the kernel so maybe something like that:
-
-"changes phys_ram_base from the physical start of the kernel to the 
-actual start of the DRAM."
-
-
->
-> The Crash's VTOP() still uses phys_ram_base and kernel_map.virt_addr
-> to translate kernel virtual address, that made Crash boot failed with
-> Linux v6.4 and later version.
->
-> Let Linux export kernel_map.va_kernel_pa_offset in v6.5 and Crash can
-> use "va_kernel_pa_offset" to translate the kernel virtual address in
-> VTOP() correctly.
->
-> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-> ---
-> You can check/test the Linux changes from this link:
-> https://github.com/sugarfillet/linux/commits/6.5-rc3-crash
->
-> And I'll send the Linux changes to riscv/for-next If you're ok with this patch.
-> ---
->   defs.h    |  4 ++--
->   riscv64.c | 22 ++++++++++++++++++++++
->   2 files changed, 24 insertions(+), 2 deletions(-)
->
-> diff --git a/defs.h b/defs.h
-> index 358f365..46b9857 100644
-> --- a/defs.h
-> +++ b/defs.h
-> @@ -3662,8 +3662,7 @@ typedef signed int s32;
->   	ulong _X = X;									\
->   	(THIS_KERNEL_VERSION >= LINUX(5,13,0) &&					\
->   		(_X) >= machdep->machspec->kernel_link_addr) ?				\
-> -		(((unsigned long)(_X)-(machdep->machspec->kernel_link_addr)) +		\
-> -		 machdep->machspec->phys_base):						\
-> +		((unsigned long)(_X)-(machdep->machspec->va_kernel_pa_offset)): 	\
->   		(((unsigned long)(_X)-(machdep->kvbase)) +				\
->   		 machdep->machspec->phys_base);						\
->   	})
-> @@ -7021,6 +7020,7 @@ struct machine_specific {
->   	ulong modules_vaddr;
->   	ulong modules_end;
->   	ulong kernel_link_addr;
-> +	ulong va_kernel_pa_offset;
->   
->   	ulong _page_present;
->   	ulong _page_read;
-> diff --git a/riscv64.c b/riscv64.c
-> index 6b9a688..b9e50b4 100644
-> --- a/riscv64.c
-> +++ b/riscv64.c
-> @@ -418,6 +418,27 @@ error:
->   	error(FATAL, "cannot get vm layout\n");
->   }
->   
-> +static void
-> +riscv64_get_va_kernel_pa_offset(struct machine_specific *ms)
-> +{
-> +	unsigned long kernel_version = riscv64_get_kernel_version();
-> +
-> +	/*
-> +	 * va_kernel_pa_offset is defined in Linux kernel since 6.5.
-> +	 */
-> +	if (kernel_version >= LINUX(6,5,0)) {
-> +		char *string;
-> +		if ((string = pc->read_vmcoreinfo("NUMBER(va_kernel_pa_offset)"))) {
-> +			ms->va_kernel_pa_offset = htol(string, QUIET, NULL);
-> +			free(string);
-> +		} else
-> +			error(FATAL, "cannot read va_kernel_pa_offset\n");
-> +	} else if (kernel_version >= LINUX(6,4,0))
-> +		error(FATAL, "cannot determine va_kernel_pa_offset since Linux 6.4\n");
-> +	else
-> +		ms->va_kernel_pa_offset = ms->kernel_link_addr - ms->phys_base;
-> +}
-> +
->   static int
->   riscv64_is_kvaddr(ulong vaddr)
->   {
-> @@ -1352,6 +1373,7 @@ riscv64_init(int when)
->   		riscv64_get_struct_page_size(machdep->machspec);
->   		riscv64_get_va_bits(machdep->machspec);
->   		riscv64_get_va_range(machdep->machspec);
-> +		riscv64_get_va_kernel_pa_offset(machdep->machspec);
->   
->   		pt_level_alloc(&machdep->pgd, "cannot malloc pgd space.");
->   		pt_level_alloc(&machdep->machspec->p4d, "cannot malloc p4d space.");
-
-
-Would you mind giving me the instructions on how to reproduce the issue 
-please? So that I can add that to our internal CI and avoid this type of 
-breakage in the future.
-
-Thanks,
-
-Alex
-
+--===============5535172034981399135==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5535172034981399135==--
+
