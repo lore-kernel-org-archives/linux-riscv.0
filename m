@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC86BEB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 18:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84769C00528
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 18:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
 	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yY+eAP+j+fkgwBbvsUe8M6MsQMz3IaWMxUhXhX06gek=; b=wBZu4MnZ+n5YBN
-	v3iKiA3qIgr9EoWVKGZ4FRRJlG5Dw3TQoCSTDRmBKUxBNIdCtPMTBwcteHfRk4paKacWh5Qn2HH69
-	j4PAmII1BfxIkwT3fCKPH4t1UBprVjjzPwDIGCtuxcKHQfRwbG9RJdu7aM8xwkWMWotnGinyZznHr
-	bioTt3bRmMKupm2sc14zpDyWAaV7i+FrZKNHu9JwOKNF+9x4iZNUtc3IXIRzgIbWwBq+DGUCMRjQq
-	4RAALMZ3unC+mTicRUSpbzlVyC8r0Q4CxTfSITLk8R3WfeA/0SHkW3gMQLcy6z3lwO1SPX2LNTxC8
-	J8AqNtZfSerAM5xn2+sg==;
+	List-Owner; bh=ePTuZEOZYnPFyJUI3gnMCTOGDUaDR2ma7iXZYvNXXfM=; b=RyhO3kcrRR5yy8
+	UMZHOFaycYhdLWLoLMrZbOAiGI0pXbd8Mtsoe2oX75Gmnx8/qmgRq9uKI5eIiT81UiQ8v4ruB3myQ
+	f5RmNNL7t+TeKUjvZP4cr6ev2bo/WGyI9gDbpHBRijXgfWxtXHwRVuhlgruGhms8rJmk5rSzqyTOa
+	mKbNKVfhcomeWjlrFmQs2pnlOgAhBkcV9RJmQIVGrMGxVzCPVgUk0oQJuTIQj3XUImjBdHBCFsT1V
+	2Zd8C+30aKx+8jezqhzgtyr4DAB5X0+6fQsfHYAR+E1iup2daplXVWXAL8y0odyGRcws4Gu1YITzU
+	UD+wcWUv/yQJ6ZGO6pcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qO0IC-005CJs-2I;
-	Mon, 24 Jul 2023 18:28:24 +0000
+	id 1qO0IH-005CKo-1C;
+	Mon, 24 Jul 2023 18:28:29 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qO0I9-005CJH-1i
+	id 1qO0IB-005CJe-2Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jul 2023 18:28:22 +0000
+	Mon, 24 Jul 2023 18:28:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D7EBE61380;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4CC8961368;
+	Mon, 24 Jul 2023 18:28:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E1E2C433CA;
 	Mon, 24 Jul 2023 18:28:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B60CC433C7;
-	Mon, 24 Jul 2023 18:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690223300;
-	bh=PKZT/f9kEO15ObxVb4uDCgsik4xstwNkFBHIeXf5KIc=;
+	s=k20201202; t=1690223302;
+	bh=x/TDji6c9EOf6CdtqHPxOL7LIWME4rsp6ZMLSc+V2yw=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=BT6HEQv0l3zOKhSzGl6ozeNZpY9eq+9cssh/yG+7MhrsUAfnEcOepzg8PSV9x+XK+
-	 rv+PhA2ntqsBM9XR/2tFoN5vPdnrFWe3nJhf2a12uEOoi4YvTLr2Ctc6uVanXz+qlC
-	 WnyhQ9T2lhFAPvk3n53fIrZWsE0I4qbN/cjhrSlbFytzZW1CpNPoUyvUqIFKb1AlzU
-	 hJZ0XisT5k/s+N7rN611k6zWcRkh+FAbHErVClyWuAfu9kdJ8F6Rptupn82+jennli
-	 C87wGRDRPE84tIrFvi1/Xme3QVfDgzwwL5fP5p50l7DcPJisvbHym9yueiPTISfa1e
-	 ObHyGxL7KwLRQ==
+	b=ufbjpu/OPz+c9IWljebyj/kbvEFAhkQ/7lbv37QKEHtgmItO6wEI7PWeMwakMhAqj
+	 ELYflae4MEHz2Yg490tdoHYocAZ6g1UkBXooJMn3x369OaLAd5zuJ81M9S3Eq+y1TB
+	 9uS51IHFBmxJWEmVcdu6wSDBpNhpbt/6/oiwl6WdiFgVJlfddOKOFImSFs7FInMmAu
+	 H789xXQrvkKkYqhj0bcyN4K9hvXUTTeI3+FkqRlVpsF91P91PL/0/ez9m2AqF/fe1P
+	 MdRumk31d4H51OrUg9Wyy6FLgO8tODCruVXgnZ1fBSzASZ3Bjg+0lj1LphiYwnSRFw
+	 cRmFq0jE2I09Q==
 From: Mark Brown <broonie@kernel.org>
 To: devicetree@vger.kernel.org, linux-spi@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
@@ -53,16 +53,16 @@ Cc: Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
  Conor Dooley <conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, 
  Linus Walleij <linus.walleij@linaro.org>
-In-Reply-To: <20230713090015.127541-1-william.qiu@starfivetech.com>
-References: <20230713090015.127541-1-william.qiu@starfivetech.com>
-Subject: Re: (subset) [PATCH v2 0/3] Add SPI module for StarFive JH7110 SoC
-Message-Id: <169022329775.1044366.2232599476103441607.b4-ty@kernel.org>
-Date: Mon, 24 Jul 2023 19:28:17 +0100
+In-Reply-To: <20230724101054.25268-1-william.qiu@starfivetech.com>
+References: <20230724101054.25268-1-william.qiu@starfivetech.com>
+Subject: Re: (subset) [PATCH v3 0/2] Add SPI module for StarFive JH7110 SoC
+Message-Id: <169022330023.1044366.15536884337765854561.b4-ty@kernel.org>
+Date: Mon, 24 Jul 2023 19:28:20 +0100
 MIME-Version: 1.0
 X-Mailer: b4 0.13-dev-099c9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_112821_641870_BE6879DB 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20230724_112823_871026_D801F8E3 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,17 +79,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Jul 2023 17:00:12 +0800, William Qiu wrote:
+On Mon, 24 Jul 2023 18:10:52 +0800, William Qiu wrote:
 > This patchset adds initial rudimentary support for the StarFive
 > SPI controller. And this driver will be used in StarFive's
 > VisionFive 2 board. The first patch constrain minItems of clocks
 > for JH7110 SPI and Patch 2 adds support for StarFive JH7110 SPI.
 > 
-> Changes v1->v2:
-> - Rebaed to v6.5rc1.
-> - Submitted reference file separately.
-> - Dropped 'status' node as it was 'okay' by default.
-> - Dropped Co-developed-by message.
+> Changes v2->v3:
+> - Rebaed to v6.5rc3.
+> - Registered one more clock.
+> - Dropped commit that changed the number of clocks in YAML.
+> - Rewrited the commit comment.
 > 
 > [...]
 
@@ -99,10 +99,8 @@ Applied to
 
 Thanks!
 
-[1/3] dt-bindings: spi: add reference file to YAML
+[1/2] dt-bindings: spi: add reference file to YAML
       commit: 8858babff615ee366bf570c1facfbd0845dd924e
-[2/3] dt-bindings: spi: constrain minItems of clocks and clock-names
-      (no commit info)
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
