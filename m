@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD31C001DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 10:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E6BC0015E
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 10:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xqdmiUkG2lpOXHzryxKq69AJewg/fpE7/4VxrwxAxzk=; b=mf1Er/xwxZWoqX
-	AQAT6wEENWVSjt0VwfIBsuytn3ELmX8R7JoHeOMLOFBA8Dyjovtb2N0GqXeGi6UHSUrJGvhbDc7/e
-	zOlLZyHl5Rb3wZBBtzA/dqr0VGpKaR8isxerC9ACNb0UIlTqf51tgZAJ4AjEcFnSYnVAPHXC/vGcR
-	XmYi4Uz4B0ShI3ClLHIPUOcJMokdSY75y0OWwvf6IsQ4AmDUCLumaX8KbPET/uyf488ZFCsY8gqm3
-	TgAHOsM9QKhkGo2zZhCKorDFzwbbRZQaYsNAEeLSW559xwnZfIykHWF9Wh25kX3wJ/ZAX0cs2pkL8
-	DGvsJgh3i+GWaL/lrrww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qtUolmcQOVSoNGR8ZltqMhw7sHbensoPQRANcJLFZhs=; b=WMMIMsUH0AybFSXyeeIVYIZHrF
+	iGwUqDEebAWjoaP/3i5uGVJiXg88JMwfwp+pjfDfMjZExIflDuUeFVx9p1wGM7Wuyr9EldITZ3FNl
+	q2wJ1QYIG8hLkmvD/6lYyn8P7n+1rJhb2dHESwHlgFr+K5dx3vg/aE9qVNiz2xdXFzacKm+JvBEq5
+	caKaYcW2Gp+Gq9UMSTlgh58txKI3MHvh3ZRYYAXfLqCBxL5twuj/jujJ5IKtwZ0jw7NRQD+G2Am0L
+	Bn3XvKlB6Jt5FB8Md5SB+5tLgOLZ6L4qYXO47GVD4lRLyKKz7CYCsWO+Y+jisf0f9yUw/THaZF4iV
+	z1UOHsvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNt8D-003tA1-2I;
-	Mon, 24 Jul 2023 10:49:37 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNt8A-003t1B-0q
+	id 1qNtAv-003tpb-0V;
+	Mon, 24 Jul 2023 10:52:25 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qNtAr-003toG-2G
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jul 2023 10:49:37 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 4D52F7FD6;
-	Mon, 24 Jul 2023 18:48:49 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Jul
- 2023 18:48:49 +0800
-Received: from [192.168.125.136] (183.27.99.135) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Jul
- 2023 18:48:48 +0800
-Message-ID: <a687c273-48b1-651e-313f-d8140732c5d8@starfivetech.com>
-Date: Mon, 24 Jul 2023 18:48:47 +0800
+	Mon, 24 Jul 2023 10:52:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1690195941; x=1721731941;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=W2T7XfrxSKxkkzj5cdNxCZDqTngcyH1p/2bDE4/+ios=;
+  b=t6IrgUMi779pGX0mFUZVBfF/Gn1dOp0tieqOyQw0/C9nLAQXM9K9nQzB
+   /q4tpdlYDKNoeCnadMGY++u3Ei1BgbIBwGFtzVDPzkv5EWymR0G88Jg+Y
+   xm8EqZ1joY+XmP6pJ0x0dmjnahTdq2pmTk0J7q3K95Jdtzn/xBiqs7aE0
+   iP2Aya73qCNsooHuroyGd3VqTzblVxUpKyhfoFSMRvuSlS4m7caopgwHI
+   lpSjN/zhIIRMVf5TIguR/j7Mq1SuXaZcQwbZh4/a6iMJO+0r+2kNEkpGm
+   o8egSvaN46wQPsTeC6EhPihDcVmZz9FZIkl2Qu3196XMbqZkPNBSsTA7q
+   g==;
+X-IronPort-AV: E=Sophos;i="6.01,228,1684825200"; 
+   d="asc'?scan'208";a="162849694"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Jul 2023 03:52:19 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Mon, 24 Jul 2023 03:51:45 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Mon, 24 Jul 2023 03:51:43 -0700
+Date: Mon, 24 Jul 2023 11:51:09 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andy Chiu <andy.chiu@sifive.com>
+CC: <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
+	<vineetg@rivosinc.com>, <bjorn@kernel.org>, <greentime.hu@sifive.com>,
+	<paul.walmsley@sifive.com>, <guoren@linux.alibaba.com>,
+	<anup@brainfault.org>, <atishp@atishpatra.org>, <heiko.stuebner@vrull.eu>,
+	Han-Kuan Chen <hankuan.chen@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Jones <ajones@ventanamicro.com>, Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [v2, 3/5] riscv: Add vector extension XOR implementation
+Message-ID: <20230724-enticing-runner-00800bd563f7@wendy>
+References: <20230721112855.1006-1-andy.chiu@sifive.com>
+ <20230721112855.1006-4-andy.chiu@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v1 8/9] PCI: PLDA: starfive: Add JH7110 PCIe controller
-Content-Language: en-US
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Minda Chen <minda.chen@starfivetech.com>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Conor Dooley <conor@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
-	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>
-References: <20230720161555.GA526946@bhelgaas>
-From: Kevin Xie <kevin.xie@starfivetech.com>
-In-Reply-To: <20230720161555.GA526946@bhelgaas>
-X-Originating-IP: [183.27.99.135]
-X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
+In-Reply-To: <20230721112855.1006-4-andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_034934_663953_EB0CB4FC 
-X-CRM114-Status: GOOD (  35.53  )
+X-CRM114-CacheID: sfid-20230724_035221_811489_D942FBBD 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,114 +83,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7205346011099754397=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============7205346011099754397==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="XXYZfx1PDBz+BC4a"
+Content-Disposition: inline
+
+--XXYZfx1PDBz+BC4a
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Jul 21, 2023 at 11:28:53AM +0000, Andy Chiu wrote:
+> From: Greentime Hu <greentime.hu@sifive.com>
+>=20
+> This patch adds support for vector optimized XOR and it is tested in
+> qemu.
+>=20
+> Co-developed-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+> Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+
+Other than the inherited build failure from 2/5, this seems okay to me.
+I have no opinion on the asm bits, so
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
+--XXYZfx1PDBz+BC4a
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZL5XnQAKCRB4tDGHoIJi
+0rwJAPwMKpDIAtTJEhI4hrmoz4N4uK3B06vr3tIHvSb7Vwk4rgD/WeCps1dpcT41
+Fmnc/0UnbN2PFQmjS/ISB3YyORJyUQI=
+=ea3+
+-----END PGP SIGNATURE-----
+
+--XXYZfx1PDBz+BC4a--
 
 
-On 2023/7/21 0:15, Bjorn Helgaas wrote:
-> On Thu, Jul 20, 2023 at 06:11:59PM +0800, Kevin Xie wrote:
->> On 2023/7/20 0:48, Bjorn Helgaas wrote:
->> > On Wed, Jul 19, 2023 at 06:20:56PM +0800, Minda Chen wrote:
->> >> Add StarFive JH7110 SoC PCIe controller platform
->> >> driver codes.
-> 
->> >> + * The BAR0/1 of bridge should be hidden during enumeration to
->> >> + * avoid the sizing and resource allocation by PCIe core.
->> >> + */
->> >> +static bool starfive_pcie_hide_rc_bar(struct pci_bus *bus, unsigned int  devfn,
->> >> +				      int offset)
->> >> +{
->> >> +	if (pci_is_root_bus(bus) && !devfn &&
->> >> +	    (offset == PCI_BASE_ADDRESS_0 || offset == PCI_BASE_ADDRESS_1))
->> >> +		return true;
->> >> +
->> >> +	return false;
->> >> +}
->> >> +
->> >> +int starfive_pcie_config_write(struct pci_bus *bus, unsigned int devfn,
->> >> +			       int where, int size, u32 value)
->> >> +{
->> >> +	if (starfive_pcie_hide_rc_bar(bus, devfn, where))
->> >> +		return PCIBIOS_BAD_REGISTER_NUMBER;
->> > 
->> > I think you are trying present BARs 0 & 1 as unimplemented.  Such BARs
->> > are hardwired to zero, so you should make them behave that way (both
->> > read and write).  Many callers of config accessors don't check the
->> > return value, so I don't think it's reliable to just return
->> > PCIBIOS_BAD_REGISTER_NUMBER.
->> 
->> This is a hardware defect that we did not hardwired those BARs to
->> zero, and it is configurable for software now.  We have to add this
->> filter function for workaround.
-> 
-> Yes.  My point is that this only affects the write path, and the read
-> probably does not read 0 as it should.  This means lspci will show the
-> wrong thing, and the PCI core will try to size the BAR when it doesn't
-> need to.  I haven't looked at the BAR sizing code; it might even come
-> up with a bogus size and address, when it *should* just conclude the
-> BAR doesn't exist at all.
-> 
-
-Got it, I will try to hide those BARs both in read and write operations.
-
->> >> +	/* Ensure that PERST has been asserted for at least 100 ms */
->> >> +	msleep(300);
->> >> +	gpiod_set_value_cansleep(pcie->reset_gpio, 0);
->> > 
->> > At least 100 ms, but you sleep *300* ms?  This is probably related to
->> > https://lore.kernel.org/r/20230718155515.GA483233@bhelgaas
->> > 
->> > Please include a comment with the source of the delay value.  I assume
->> > it's T_PVPERL and T_PERST-CLK from the PCIe CEM spec.  This way we can
->> > someday share those #defines across drivers.
->> 
->> Yes, the delay value here is T_PVPERL from PCIe CEM spec r2.0 (Table
->> 2-4).  At the first time we set 100ms delay according to sector 2.2
->> of the spec: "After there has been time (TPVPERL) for the power and
->> clock to become stable, PERST# is deasserted high and the PCI
->> Express functions can start up."
->> 
->> However, in the compatibility testing with several NVMe SSD, we
->> found that Lenovo Thinklife ST8000 NVMe can not get ready in 100ms,
->> and it actually needs almost 200ms.  Thus, we increased the T_PVPERL
->> value to 300ms for the better device compatibility.
->>
->> We will use a macro to define T_PVPERL, and add comments for the
->> source of it.  If the compatibility delay of 300ms is not
->> reasonable, we can revert it to 100ms.
-> 
-> Thanks for this valuable information!  This NVMe issue potentially
-> affects many similar drivers, and we may need a more generic fix so
-> this device works well with all of them.
-> 
-> T_PVPERL is defined to start when power is stable.  Do you have a way
-> to accurately determine that point?  I'm guessing this:
-> 
->   gpiod_set_value_cansleep(pcie->power_gpio, 1)
-> 
-> turns the power on?  But of course that doesn't mean it is instantly
-> stable.  Maybe your testing is telling you that your driver should
-> have a hardware-specific 200ms delay to wait for power to become
-> stable, followed by the standard 100ms for T_PVPERL?
-> 
-
-You are right, we did not take the power stable cost into account.
-T_PVPERL is enough for Lenovo Thinklife ST8000 NVMe SSD to get ready,
-and the extra cost is from the power circuit of a PCIe to M.2 connector,
-which is used to verify M.2 SSD with our EVB at early stage.
-
-As the Thinklife NVMe SSD may be a halted product,
-and the onboard power circuit of VisionFive V2 is no problem,
-we decided revert the sleep time to be 100ms.
-
-We will add a comment for the source of T_PVPERL until your define in pci.h is accepted.
-
-> Bjorn
+--===============7205346011099754397==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7205346011099754397==--
+
