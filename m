@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08FCBC0015E
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 08:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F18C0015E
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 08:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ViyOo98jDEdJQud/+b1gBtcPeGotnBBA/TX5iCtsd3w=; b=cMlF8HZseKv5f2092iht84Z3ww
-	G/mOqw725TBhJJReT9WZjJMrUrguGZvyhyuabTnBVa+GOqz0M8qStJboONLPJf5KtDn7wcK1rLjud
-	q4lx9HShz0RL3RsfVYZzJhkuTBwgosNMNy4P3wSiNouKIpguVtY+mvA5chnU4Ppn+WX894y9g9r1Q
-	ogvIFlF0vMxdSnh70YLkrSsnQR6MLjErOg14onTG5h3IxGbGu26MyPOiDpewmp/cy+fxmKSFkvOlW
-	rJzrxE0y8ScSHuBu0MDtfLkVrR1qkzHED64jkvo4IJ+MFqhc1rEGls4z3NN7vsvC4dcUt3kukmrcZ
-	HY/b/IAw==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LVovUW304acwJCDJH5eU0aEyopL+VlAL06qZwEjbYug=; b=okYgpKAlWiMcFq
+	98r/0rfp+vSi6c2n0Bsz+Fx75U6dp1vcxyqI+yz9PwTvyQeBmnPtH5IAsGG4Xgp1Wkya5kbdeWsEH
+	1CzfTBxFH6X2ljP/2PguM6cMDw7lMpdSAy7jBIM59jiPwpATtsp9vCKEPUcew+3Qm9P2BFcKl9LGD
+	/4NvrvKW+ZCUPAFs+UpSiYRFgt4PS1Y1cJg/z2KjwiJ9V6mmUeBoxT4Cb/ipImM3jW6ZFWoXQWPzX
+	J4Y7Ld33pJl1J45ZCcszX1rMdTDE1I/XTaUjiqEmuwOwfWNHql4M5LQF9AcLZ/nXCFfi0jcPmSY5o
+	ALaWQDtLJmk11h7Qv88w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNqvC-003Fk0-0M;
-	Mon, 24 Jul 2023 08:28:02 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1qNrB6-003HzH-0O;
+	Mon, 24 Jul 2023 08:44:28 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNqv8-003Fig-38
-	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jul 2023 08:28:01 +0000
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1qNquo-0007RN-JQ; Mon, 24 Jul 2023 10:27:38 +0200
-Received: from pengutronix.de (unknown [172.20.34.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 53E021F8389;
-	Mon, 24 Jul 2023 08:27:33 +0000 (UTC)
-Date: Mon, 24 Jul 2023 10:27:32 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: John Watts <contact@jookia.org>
-Cc: linux-sunxi@lists.linux.dev, Wolfgang Grandegger <wg@grandegger.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-can@vger.kernel.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/4] Add support for Allwinner D1 CAN controllers
-Message-ID: <20230724-paving-pep-4c3ca2fae261-mkl@pengutronix.de>
-References: <20230721221552.1973203-2-contact@jookia.org>
+	id 1qNrB2-003HyV-0q;
+	Mon, 24 Jul 2023 08:44:25 +0000
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3a3373211a1so2456578b6e.0;
+        Mon, 24 Jul 2023 01:44:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1690188261; x=1690793061;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P0N0+l5LuHnOQAsHz1qcvo710sueGtkCqDZuXqqG1pw=;
+        b=TNpkIN5YLv3ScClvOFTYK5TFIoexXAEhqRxCjo3BtfihDiTs8wn9B2zPhxXFW4W/Xw
+         yC8hhWiD3mpm7KFzOzXUJapqHz5g8BSPcdAQQKaLgDZqo+eOHCN0Z7ffM/r/3LmoM5KA
+         AXLrbipXXEet/uBhca3nOfFFIPbDd7/MH9ryX0Fi1BM5A/tE2j6FgVOb0aGbwaGrFKL8
+         SHzb8bciY9Q+LVz6Z+Mfm3e+5gJ/XpPAEkAZy8aGfPH9cMOcBynOcnfZYmZEfBs+smLH
+         a//1n8LwVrt2Y2EI9voyeM/TozU2g16mcay5qI8R15tlh3on7j0fdy6qYDCk4GkCfPhJ
+         gf9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690188261; x=1690793061;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=P0N0+l5LuHnOQAsHz1qcvo710sueGtkCqDZuXqqG1pw=;
+        b=kqJQ27yCQkkK+IFua0S28fMxDhudSxPKWDVEOBDE81YxNGzps4KbORmWV6kkA5fmBb
+         ktM2oTXN0n6+IdE+emO6oNBcy/Zb5zn9ODIbi37OMn3eYUNZk3A5G2ESJDfsyFzlu87R
+         PUh9JxL3d4OyHcgRrX5OSw2yzv4kOwL147NSTt8Zbwgp+6BJ3ftNxbWvxKe+4SKJl6Lb
+         mzKr0PVNOr+FMZy8aUw5MZOPzyYYn1UzItOXt+npOFXTlpXdUbG9Hsa5ISJTLnAvopna
+         NFvz2Nca/jI+IUPZeqxDrRLJcYHTjUpOqQ5W+nYYU4plwTZ1sE0vhLsHhzQ12AKxc7sI
+         u2/g==
+X-Gm-Message-State: ABy/qLYwnWQ+gKTveSRtF0E6y4heLLvPFPAV9fPQ0gtWH1H/aLw29+cV
+	5wE/cKgdBBPzN/dB8JyoEns=
+X-Google-Smtp-Source: APBJJlFuxmpkv3fxS4EWnyR30WmuYlgm0mSf3fvjnFhITUg1oq1VXZMwyDPSA0+1nEpCi+rqnemcEw==
+X-Received: by 2002:a05:6358:262a:b0:134:cbff:c5a4 with SMTP id l42-20020a056358262a00b00134cbffc5a4mr5394711rwc.18.1690188260734;
+        Mon, 24 Jul 2023 01:44:20 -0700 (PDT)
+Received: from [0.0.0.0] ([5.180.77.117])
+        by smtp.gmail.com with ESMTPSA id x22-20020aa784d6000000b0066a6059d399sm7190092pfn.116.2023.07.24.01.44.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Jul 2023 01:44:20 -0700 (PDT)
+Message-ID: <855df973-4f4b-6fff-a228-c1af80c14db0@gmail.com>
+Date: Mon, 24 Jul 2023 16:44:12 +0800
 MIME-Version: 1.0
-In-Reply-To: <20230721221552.1973203-2-contact@jookia.org>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:b01:1d::7b
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.0
+Subject: Re: [Crash-utility] RISCV64: Use va_kernel_pa_offset in VTOP()
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: xianting.tian@linux.alibaba.com, mick@ics.forth.gr,
+ heinrich.schuchardt@canonical.com, guoren@kernel.org, k-hagio-ab@nec.com,
+ yixun.lan@gmail.com, lijiang@redhat.com, linux-riscv@lists.infradead.org,
+ kexec@lists.infradead.org, crash-utility@redhat.com, alex@ghiti.fr
+References: <20230724040649.220279-1-suagrfillet@gmail.com>
+ <20230724-sandpaper-raving-9ad883223e6d@wendy>
+From: Song Shuai <suagrfillet@gmail.com>
+In-Reply-To: <20230724-sandpaper-raving-9ad883223e6d@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_012759_008267_C849F6E9 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20230724_014424_316210_1A11FFB1 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,69 +90,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5535172034981399135=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5535172034981399135==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bzzg2zjmqpjfr7ls"
-Content-Disposition: inline
-
-
---bzzg2zjmqpjfr7ls
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On 22.07.2023 08:15:49, John Watts wrote:
-> This patch series adds support for the Allwinner D1 CAN controllers.
-> It requires adding a new device tree compatible and driver support to
-> work around some hardware quirks.
->=20
-> This has been tested on the Mango Pi MQ Dual running a T113 and a Lichee
-> Panel 86 running a D1.
-
-Applied to linux-can-next/testing.
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---bzzg2zjmqpjfr7ls
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEDs2BvajyNKlf9TJQvlAcSiqKBOgFAmS+NfAACgkQvlAcSiqK
-BOg8Kgf/eJt24Ndvcmh6L+eNtFLgI9sT0zZeRNAKl9MJzbRclkN9kj5PSwfjjXt9
-UyBuvnxjyHDs81oanjq0yLh673plo1Q+PH2S9bx2q0GuWxudK8fIS7K6C3FBO5EI
-cvoAK6cyy33+7LUR7X7w0/0cs8jPUS8znJh7iw3fhr+R9fW+uTzoMDxQsDi9duf7
-OPTBCOiiAnBajqy16/sxFHIyUFAHWYGs0RCgGEu1g4oW8JyPAr4lznp2wEYAPVeX
-oNjCnvJrfNPTqFbIKV9dY8GaYA765qy11toqYmpv/WCxMAOKO52ElS0dko5+nt8S
-ykN0k7XY6EzIqvbjvWh8AzhNvO8Gog==
-=cUGJ
------END PGP SIGNATURE-----
-
---bzzg2zjmqpjfr7ls--
-
-
---===============5535172034981399135==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5535172034981399135==--
-
+CgrlnKggMjAyMy83LzI0IDE1OjQxLCBDb25vciBEb29sZXkg5YaZ6YGTOgo+IEhleSwKPiAKPiBP
+biBNb24sIEp1bCAyNCwgMjAyMyBhdCAxMjowNjo0OVBNICswODAwLCBTb25nIFNodWFpIHdyb3Rl
+Ogo+PiBTaW5jZSBSSVNDLVYgTGludXggdjYuNCwgdGhlIGNvbW1pdCAzMzM1MDY4Zjg3MjEgKCJy
+aXNjdjogVXNlCj4+IFBVRC9QNEQvUEdEIHBhZ2VzIGZvciB0aGUgbGluZWFyIG1hcHBpbmciKSBj
+aGFuZ2VzIHRoZQo+PiBwaHlzX3JhbV9iYXNlIGZyb20gdGhlIGtlcm5lbF9tYXAucGh5c19hZGRy
+IHRvIHRoZSBzdGFydCBvZiBEUkFNLgo+Pgo+PiBUaGUgQ3Jhc2gncyBWVE9QKCkgc3RpbGwgdXNl
+cyBwaHlzX3JhbV9iYXNlIGFuZCBrZXJuZWxfbWFwLnZpcnRfYWRkcgo+PiB0byB0cmFuc2xhdGUg
+a2VybmVsIHZpcnR1YWwgYWRkcmVzcywgdGhhdCBtYWRlIENyYXNoIGJvb3QgZmFpbGVkIHdpdGgK
+Pj4gTGludXggdjYuNCBhbmQgbGF0ZXIgdmVyc2lvbi4KPj4KPj4gTGV0IExpbnV4IGV4cG9ydCBr
+ZXJuZWxfbWFwLnZhX2tlcm5lbF9wYV9vZmZzZXQgaW4gdjYuNSBhbmQgQ3Jhc2ggY2FuCj4+IHVz
+ZSAidmFfa2VybmVsX3BhX29mZnNldCIgdG8gdHJhbnNsYXRlIHRoZSBrZXJuZWwgdmlydHVhbCBh
+ZGRyZXNzIGluCj4+IFZUT1AoKSBjb3JyZWN0bHkuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IFNvbmcg
+U2h1YWkgPHN1YWdyZmlsbGV0QGdtYWlsLmNvbT4KPj4gLS0tCj4+IFlvdSBjYW4gY2hlY2svdGVz
+dCB0aGUgTGludXggY2hhbmdlcyBmcm9tIHRoaXMgbGluazoKPj4gaHR0cHM6Ly9naXRodWIuY29t
+L3N1Z2FyZmlsbGV0L2xpbnV4L2NvbW1pdHMvNi41LXJjMy1jcmFzaAo+Pgo+PiBBbmQgSSdsbCBz
+ZW5kIHRoZSBMaW51eCBjaGFuZ2VzIHRvIHJpc2N2L2Zvci1uZXh0IElmIHlvdSdyZSBvayB3aXRo
+IHRoaXMgcGF0Y2guCj4gCj4gSWYgeW91IHdhbnQgdGhpcyB0byBnbyBpbnRvIDYuNSwgeW91J2xs
+IG5lZWQgdG8gc2VuZCBpdCBmb3IgcmlzY3YvZml4ZXMKPiBpbnN0ZWFkLiBJdCBzb3VuZHMgbGlr
+ZSBhIGZpeCBmb3IgdGhpcyB3b3VsZCBuZWVkIHRvIGdvIGludG8gNi40IHRvbywKPiBubz8KWW91
+J3JlIHJpZ2h0LCB0aGF0IHNob3VsZCBiZSByaXNjdi9maXhlcyBmb3IgNi41IGFuZCB0aGlzIGlz
+c3VlIGFsc28gCm5lZWQgdG8gYmUgZml4ZWQgaW4gNi40IHN0YWJsZS4KCkhvdyBhYm91dCB3YWl0
+aW5nIGZvciBDcmFzaCBndXlzJyBjb21tZW50cyBvbiB0aGUgaW50cm9kdWN0aW9uIG9mIHRoZSAK
+InZhX2tlcm5lbF9wYV9vZmZzZXQiIGluIHZtY29yZWluZm8KYW5kIHRoZW4gZGV0ZXJtaW5lIHdo
+aWNoIHN0YWJsZSB2ZXJzaW9uIHNob3VsZCBiZSB0YWtlbiBpbiB0aGUgZmlyc3QgCiJpZiIgb2Yg
+a2VybmVsX3ZlcnNpb24uCj4gCgotLSAKVGhhbmtzClNvbmcgU2h1YWkKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
