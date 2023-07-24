@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B38C001B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 10:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DF9C001DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 10:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=i6Sc1/LF8kigNqW9yEEVdzhNhLv2VkqwThkdWW9RfUA=; b=j2HqHHjlF+Il/G
-	6V+iWxB48BAUm0WENaKjxr5XRQJ73rIx7prH98bg8PaaZQ8w6hIK3DYLQk4/D+GIkfrj6zx862FKl
-	o31nlYtnAyftN8K1SGPORgIt5DHY9X5I6sREZW3D8zk9wRFbiJZyWAlXb8f9wqsexqiEbabVmQRzH
-	RJgz6oAhecGOIcKylpxQd46asmIKnWAQKdad/xGMcuOYpI89HYZBl0K1AC2Jy96ug19e2mIqx/Gxy
-	wiiHA7aLae46x+q+7fyqpHexuYnpgQ0tFZybA6OnipgrNuDOkF0XDhmv+MI2IOynIEgOroHidtEy7
-	bK+I/VOYCLbInPERCKXQ==;
+	List-Owner; bh=OCCe0sEBzgEMW0bz5BFq3anOlk8trD0MdMsh07ud0Ls=; b=AzRx4Z93aESTwC
+	BNyAjoEWSeyaC91WqE2I331U6FrKDSkld5vAl/4f9i5Z0A9hkgw+0j3/wf1C09kwA/wdz2xrQqBXt
+	jCoVB5rE7En1KIJJeW9O0lgdhEr0FS7UnymqEXMM/4zm1jk/dzpkv8v353YzmZVNUM6FSlFgP5W7m
+	xuTTTSFTXdSCVQwJOW7fJTOdQFMA+G50ceAfPn0ZSMrLj6M2pRZAfgzEg7nFR4MIEOmIDplYWnkzz
+	Da7QHfz/QCvSue1HwqHLqtev9XOY4LYsOxhiszSOtQRJ+U3XTHUVmlVVTysrtMNf/aw4XkkrTpXLA
+	xmILorTE1OC7JJ2ZxvFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNsQ0-003ZwI-04;
-	Mon, 24 Jul 2023 10:03:56 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1qNsVZ-003bLt-22;
+	Mon, 24 Jul 2023 10:09:41 +0000
+Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNsPx-003ZvQ-0B
-	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jul 2023 10:03:54 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-676f16e0bc4so2317070b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 03:03:52 -0700 (PDT)
+	id 1qNsVV-003bKV-1k;
+	Mon, 24 Jul 2023 10:09:39 +0000
+Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-56368c40e8eso2553056eaf.0;
+        Mon, 24 Jul 2023 03:09:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690193032; x=1690797832;
+        d=gmail.com; s=20221208; t=1690193375; x=1690798175;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UUcCkSTwYLiD/t1kcQ5bDbSt1mwTfBpcBGNsDxfuBOA=;
-        b=CNwx/jLmX1kzvaYEGA/thpQvQrezMQ734fYSg9UAAm6yofFqIEpkSVs/+WHZxynyl2
-         Vk5PFfX0aoJHpDT1WSh2FCbYNS80FR1zvpg9Hg6ZufKE2ymwsc4/zCvYErKQsLCNn7Ug
-         jAT8y4mbv+syB/ElAFiNUUiItdQdWpKw++rdUy7g6l/G5og8eJf5/OoNKyRUl126Rz3b
-         Y90AEXS9SwLiC/i5KoxCrCwfEN0/+GBzo5QUtk+bYLFUDshvh4GM6Q1zeoAd/jUNnSrB
-         uSzkC6GecKY8I09698ymosvxd53FxBz0BKxSNBmLzMk9pbEPCaf5Pb/ZJASRb40Lbkx6
-         A0wQ==
+        bh=RDlfftCqHuUNq6LkkwKxzRiSDkmFGSCz0/vq6oh3T+s=;
+        b=hrex/GaUVfMUNZRWvZGpegE4riCW/oOM8uo1UlMmZrlwQR1Y5g9p5yiEY70tHm1Nzn
+         Kr5sAEgXdRnmXkRixZ7uSFsyu3mNjkPZQedetliik0YCgA1z5anwyhWO9wgDZJyycz8L
+         bqVnG2/rUHzputkQE2I8YmX+z8H53N83YyFIUqLlAn9cJmQ4l5FtwSeir3YT0mCh/CG7
+         JEi1SSLS+YGBbkTVOq9MO8LWjBph4mBH+cWBfdLJUhXU6fvKZdialD83Hcug1zFLoGt6
+         BHhQtXdk8mLSMT19jnYSRQvWcdarZMfp3CBtw3bGQxqh6FJqAgde0fb2q24nvFcehQ0V
+         1Kew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690193032; x=1690797832;
+        d=1e100.net; s=20221208; t=1690193375; x=1690798175;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=UUcCkSTwYLiD/t1kcQ5bDbSt1mwTfBpcBGNsDxfuBOA=;
-        b=D6PT5JPiqu96FBtLdMGZxBubjuVVqGMCPfJRJ9DHst+UkenEvmmOESXg756K9bpiqZ
-         XIu7jRLHP4pDtFO01ZwXy/6IWNVTn9DBp5j+ngPjg/bQmycDOxuDX+Zh5/mO43dPTZ1j
-         I14QHefnOz1aQNzW0xZwb26i+obrRKyXzXx6slx7MWit+Mi6vrsR1oiB2CpQJzclyF2g
-         Ry4E928GUlCOK4UDW1WWEHmXv60eI08VS+YEpPOagArIVP4nnIenP0xoJcHEtw4zyob6
-         de4gQEMKLjJ/Zb+LwplJvoHChodZPFmmBWotatd8CQ9bG2NJfdvpyrXKGwHQEXCntGyJ
-         0NTA==
-X-Gm-Message-State: ABy/qLZJKdUryk7/JFdP+dMAuys49s5QHpsp0oL/SzZaDx62l8amXt2q
-	dzHY6KV3hHlBfuibmolL+cVJsD/uidbiOJDjqQ0=
-X-Google-Smtp-Source: APBJJlF43UAKvGrY1ke4RxpEUoaG1cuBNgNQ+LQfclku2hQlPUblZkiVF3u8/jv+OZzAmqZsogTuIg==
-X-Received: by 2002:a05:6a20:a11b:b0:134:d8e6:2717 with SMTP id q27-20020a056a20a11b00b00134d8e62717mr8724991pzk.47.1690193032051;
-        Mon, 24 Jul 2023 03:03:52 -0700 (PDT)
-Received: from sunil-pc.Dlink ([106.51.190.25])
-        by smtp.gmail.com with ESMTPSA id l12-20020a62be0c000000b0067459e92801sm7344789pff.64.2023.07.24.03.03.49
+        bh=RDlfftCqHuUNq6LkkwKxzRiSDkmFGSCz0/vq6oh3T+s=;
+        b=OSiOio0GzxAZ+SnDpf+oVmuIaXBgghPzX2X4Gm5t2C2xzpxL3LltfPISwy1HSqO0oK
+         lX6jR+Q0A7UboYMfaycVC5ZnkAKgYcqhfopt7Ux3snz2Kl7dONoktOoU3N9Zipr8fFye
+         4s6licJkoTEM/D27XhbgxCmTiBoB45YMtw8Gr+x39jWURVG8/Rq4HIYe4WQzdOipur3K
+         NmvSIIi58ns1pRjnZAQmlA4TvlXBwcpQfnPi1Yukr8pqQ9jyrdjtX7Ob/mBCP0KfcJuw
+         bvbrcFSCfQhKJ+9YgmZM7iNkn4nNg57RMqI39sggDxIiDtmyidCNSa/GM4EBTIWBKEL2
+         hSkA==
+X-Gm-Message-State: ABy/qLa5sxImRvugKsZyXCHL7NYhySSi//x+TVu72fsT0h0RK5dEnsew
+	efG0UZ0bL12/0RzORxR87Zg=
+X-Google-Smtp-Source: APBJJlHdgdC3rG6LO2coONZP/kkI0Ylc1MgH/PIQ2Zz6Htck/GwFgmmgxR6G3vTB6BKFwu4lvsrr9w==
+X-Received: by 2002:a05:6808:1410:b0:3a3:5fc6:3ba6 with SMTP id w16-20020a056808141000b003a35fc63ba6mr12452468oiv.42.1690193375682;
+        Mon, 24 Jul 2023 03:09:35 -0700 (PDT)
+Received: from localhost.localdomain ([2408:843e:c90:2347:5782:34b7:c2b6:16d2])
+        by smtp.gmail.com with ESMTPSA id t29-20020a63b25d000000b0051b8172fa68sm8272826pgo.38.2023.07.24.03.09.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Jul 2023 03:03:51 -0700 (PDT)
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 -fixes] RISC-V: ACPI: Fix acpi_os_ioremap to return iomem address
-Date: Mon, 24 Jul 2023 15:33:46 +0530
-Message-Id: <20230724100346.1302937-1-sunilvl@ventanamicro.com>
-X-Mailer: git-send-email 2.39.2
+        Mon, 24 Jul 2023 03:09:35 -0700 (PDT)
+From: Song Shuai <suagrfillet@gmail.com>
+To: bhe@redhat.com,
+	vgoyal@redhat.com,
+	dyoung@redhat.com,
+	corbet@lwn.net,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	xianting.tian@linux.alibaba.com,
+	suagrfillet@gmail.com,
+	anup@brainfault.org,
+	robh@kernel.org,
+	ajones@ventanamicro.com,
+	alexghiti@rivosinc.com,
+	conor.dooley@microchip.com
+Cc: kexec@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [RESEND PATCH -fixes 1/2] riscv: Export va_kernel_pa_offset in vmcoreinfo
+Date: Mon, 24 Jul 2023 18:09:16 +0800
+Message-Id: <20230724100917.309061-1-suagrfillet@gmail.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_030353_094431_B6826084 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20230724_030937_578352_46E6BFF8 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,64 +99,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, kernel test robot <lkp@intel.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-acpi_os_ioremap() currently is a wrapper to memremap() on
-RISC-V. But the callers of acpi_os_ioremap() expect it to
-return __iomem address and hence sparse tool reports a new
-warning. Fix this issue by type casting to  __iomem type.
+Since RISC-V Linux v6.4, the commit 3335068f8721 ("riscv: Use
+PUD/P4D/PGD pages for the linear mapping") changes phys_ram_base
+from the physical start of the kernel to the actual start of the DRAM.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202307230357.egcTAefj-lkp@intel.com/
-Fixes: a91a9ffbd3a5 ("RISC-V: Add support to build the ACPI core")
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+The Crash-utility's VTOP() still uses phys_ram_base and kernel_map.virt_addr
+to translate kernel virtual address, that failed the Crash with Linux v6.4 [1].
+
+Export kernel_map.va_kernel_pa_offset in vmcoreinfo to help Crash translate
+the kernel virtual address correctly.
+
+Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
+Link: https://lore.kernel.org/linux-riscv/20230724040649.220279-1-suagrfillet@gmail.com/ [1]
+Signed-off-by: Song Shuai <suagrfillet@gmail.com>
 ---
-Changes since v2:
-	1) Removed unnecessary __force.
-	2) Removed unnecessary space after cast to fix checkpatch --strict warning.
+ arch/riscv/kernel/crash_core.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes since v1:
-	1) Removed enhancements from the fix patch.
-
- arch/riscv/include/asm/acpi.h | 2 +-
- arch/riscv/kernel/acpi.c      | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-index f71ce21ff684..d5604d2073bc 100644
---- a/arch/riscv/include/asm/acpi.h
-+++ b/arch/riscv/include/asm/acpi.h
-@@ -19,7 +19,7 @@ typedef u64 phys_cpuid_t;
- #define PHYS_CPUID_INVALID INVALID_HARTID
- 
- /* ACPI table mapping after acpi_permanent_mmap is set */
--void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size);
-+void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size);
- #define acpi_os_ioremap acpi_os_ioremap
- 
- #define acpi_strict 1	/* No out-of-spec workarounds on RISC-V */
-diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-index 5ee03ebab80e..56cb2c986c48 100644
---- a/arch/riscv/kernel/acpi.c
-+++ b/arch/riscv/kernel/acpi.c
-@@ -215,9 +215,9 @@ void __init __acpi_unmap_table(void __iomem *map, unsigned long size)
- 	early_iounmap(map, size);
+diff --git a/arch/riscv/kernel/crash_core.c b/arch/riscv/kernel/crash_core.c
+index b351a3c01355..55f1d7856b54 100644
+--- a/arch/riscv/kernel/crash_core.c
++++ b/arch/riscv/kernel/crash_core.c
+@@ -18,4 +18,6 @@ void arch_crash_save_vmcoreinfo(void)
+ 	vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
+ #endif
+ 	vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
++	vmcoreinfo_append_str("NUMBER(va_kernel_pa_offset)=0x%lx\n",
++						kernel_map.va_kernel_pa_offset);
  }
- 
--void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
-+void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
- {
--	return memremap(phys, size, MEMREMAP_WB);
-+	return (void __iomem *)memremap(phys, size, MEMREMAP_WB);
- }
- 
- #ifdef CONFIG_PCI
 -- 
-2.39.2
+2.20.1
 
 
 _______________________________________________
