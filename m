@@ -4,72 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5F4C001DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 08:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8FDC001B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 08:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ys8bFlFMDbJB4WFxNC/jK7JvA0C4QskZonsl8YvzKgk=; b=wPH5tSMVBkTCw4LWJzrBhzRc7P
-	9TenfvLt7qHXCLrhnV8r+GLIqO/CuEj1I900ab4q4yToPIk2Nkf1ekYrYz2HcmI2tKW/4oTlgHcjX
-	nt7S+g21nCIXK73GE3oNzl0zcbnsI2hKVmbhwBT5Z8F2LS4np+mHh2sLx7QG4WMIUNJ+RIDNwWpgR
-	QvAIgehxnnACL3i7G/7Nmfnzy8PTKk5trQ9rml8CgYnT+LNbF/B3eltOrT/lxAGRznH5oxAvXkrDe
-	1NW8WDYdk68hpZTbReZ5CMOdf3WO6HRAxBi0lIpJE+a8D1eFlLOqdTZug5csHDB+a8YZHUP/iODJN
-	b4TaZwIg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VPjZRxcU9ysaZyvvnNJkf69f2TnZ9MqvMsSZXApaI6I=; b=BzON2gIZ0ndnYo
+	T7L9IgWxllsmaDg5JlEh/JmIeE0py8gB0cdgjEbzD1KxmzLdWiq/V4E2tU5hmthSW25qG0tdq9CJc
+	d/kMc98H7ZTQGhwWsVy02P6Mcr2Zv6SvZcYko7sW+EaHmfjt7uWj8W0SYsMCqV12pJI4G7dFtRERz
+	BEREauTKIQxVMG/ahP//v+aVLIXOXHWuSXi3UdWkICYhnMoWOG+xVTy1/lERsL7i1Wjl+ExGlwI2/
+	NVRCGW/YuaLXF7BgjpDLeUUHSJikALvAiqRbkD6TBqvV2W2fQBlCkrzn6j04t8K3ue9RddqmjmIES
+	mJIR7bPI51sQk5e2T/wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNqcK-003Bge-1l;
-	Mon, 24 Jul 2023 08:08:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qNqhd-003Cy6-37;
+	Mon, 24 Jul 2023 08:14:02 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNqcH-003Bg8-2C
-	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jul 2023 08:08:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690186110; x=1721722110;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FMRmaRUw8VrEz5cIUd4uabLoqD8FojfSTBD+JH7d/78=;
-  b=nCoC26aUDb1FK57JUFPQp9SUN6ZtnO7ARBELfEbVdoLU2kNkUrQ0g0/f
-   y4FML2Oc0tgfRsvZESoLaWAQDG6y8iPkHYJvs8D/swsxkaob7M668pYrt
-   74vQPW9XPk9ZaB4l9Hs8v2jmyBXldrfQ5/H0U0SSYXfsGQxr62uQNm8Fd
-   Qjaq4nK6ginYUHKHTypNCukprGvSVUIn5lmbeVt+wWoZg9YMKG7ulNJ0f
-   IvsZ0v9QvgGV+9pNKHPsZoEZ4Rw+lRNAgREPlqfadiYZNpWpAqepj04Yu
-   t2FVw1EtQy1iqhyJLlYofZyTQXkygzd2cd2gINVNS3zUhVIU8gODpJqVq
-   Q==;
-X-IronPort-AV: E=Sophos;i="6.01,228,1684825200"; 
-   d="asc'?scan'208";a="221826073"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Jul 2023 01:08:29 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 24 Jul 2023 01:08:21 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 24 Jul 2023 01:08:20 -0700
-Date: Mon, 24 Jul 2023 09:07:46 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Andrew Jones <ajones@ventanamicro.com>,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH v2 -fixes] RISC-V: ACPI: Fix acpi_os_ioremap to return
- iomem address
-Message-ID: <20230724-phonics-earthling-d104ef807286@wendy>
-References: <20230723191758.1262960-1-sunilvl@ventanamicro.com>
+	id 1qNqhR-003Cn2-2R;
+	Mon, 24 Jul 2023 08:13:59 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 71481240004;
+	Mon, 24 Jul 2023 08:13:39 +0000 (UTC)
+Message-ID: <db0ebf87-39ee-0b44-6b07-6adb7b976cb8@ghiti.fr>
+Date: Mon, 24 Jul 2023 10:13:38 +0200
 MIME-Version: 1.0
-In-Reply-To: <20230723191758.1262960-1-sunilvl@ventanamicro.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [Crash-utility] RISCV64: Use va_kernel_pa_offset in VTOP()
+Content-Language: en-US
+To: Song Shuai <suagrfillet@gmail.com>, xianting.tian@linux.alibaba.com,
+ mick@ics.forth.gr, heinrich.schuchardt@canonical.com, guoren@kernel.org,
+ k-hagio-ab@nec.com, yixun.lan@gmail.com, lijiang@redhat.com
+Cc: linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
+ crash-utility@redhat.com
+References: <20230724040649.220279-1-suagrfillet@gmail.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230724040649.220279-1-suagrfillet@gmail.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_010829_782147_98ABCDBB 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20230724_011350_113141_7E63943B 
+X-CRM114-Status: GOOD (  25.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,94 +58,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3656965106712155319=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3656965106712155319==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vtD17YszkGN6XtYe"
-Content-Disposition: inline
+Hi Song,
 
---vtD17YszkGN6XtYe
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jul 24, 2023 at 12:47:58AM +0530, Sunil V L wrote:
-> acpi_os_ioremap() currently is a wrapper to memremap() on
-> RISC-V. But the callers of acpi_os_ioremap() expect it to
-> return __iomem address and hence sparse tool reports a new
-> warning. Fix this issue by type casting to  __iomem type.
->=20
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202307230357.egcTAefj-lkp@i=
-ntel.com/
-> Fixes: a91a9ffbd3a5 ("RISC-V: Add support to build the ACPI core")
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+On 24/07/2023 06:06, Song Shuai wrote:
+> Since RISC-V Linux v6.4, the commit 3335068f8721 ("riscv: Use
+> PUD/P4D/PGD pages for the linear mapping") changes the
+> phys_ram_base from the kernel_map.phys_addr to the start of DRAM.
+
+
+Maybe we could be more explicit here, kernel_map.phys_addr actually 
+points to the physical start of the kernel so maybe something like that:
+
+"changes phys_ram_base from the physical start of the kernel to the 
+actual start of the DRAM."
+
+
+>
+> The Crash's VTOP() still uses phys_ram_base and kernel_map.virt_addr
+> to translate kernel virtual address, that made Crash boot failed with
+> Linux v6.4 and later version.
+>
+> Let Linux export kernel_map.va_kernel_pa_offset in v6.5 and Crash can
+> use "va_kernel_pa_offset" to translate the kernel virtual address in
+> VTOP() correctly.
+>
+> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
 > ---
-> Changes since v1:
-> 	1) Removed enhancements from the fix patch.
->=20
->  arch/riscv/include/asm/acpi.h | 2 +-
->  arch/riscv/kernel/acpi.c      | 4 ++--
->  2 files changed, 3 insertions(+), 3 deletions(-)
->=20
-> diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-> index f71ce21ff684..d5604d2073bc 100644
-> --- a/arch/riscv/include/asm/acpi.h
-> +++ b/arch/riscv/include/asm/acpi.h
-> @@ -19,7 +19,7 @@ typedef u64 phys_cpuid_t;
->  #define PHYS_CPUID_INVALID INVALID_HARTID
-> =20
->  /* ACPI table mapping after acpi_permanent_mmap is set */
-> -void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size);
-> +void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size=
-);
->  #define acpi_os_ioremap acpi_os_ioremap
-> =20
->  #define acpi_strict 1	/* No out-of-spec workarounds on RISC-V */
-> diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-> index 5ee03ebab80e..e6fdb9edcdd9 100644
-> --- a/arch/riscv/kernel/acpi.c
-> +++ b/arch/riscv/kernel/acpi.c
-> @@ -215,9 +215,9 @@ void __init __acpi_unmap_table(void __iomem *map, uns=
-igned long size)
->  	early_iounmap(map, size);
->  }
-> =20
-> -void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
-> +void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
->  {
-> -	return memremap(phys, size, MEMREMAP_WB);
-> +	return (__force void __iomem *) memremap(phys, size, MEMREMAP_WB);
+> You can check/test the Linux changes from this link:
+> https://github.com/sugarfillet/linux/commits/6.5-rc3-crash
+>
+> And I'll send the Linux changes to riscv/for-next If you're ok with this patch.
+> ---
+>   defs.h    |  4 ++--
+>   riscv64.c | 22 ++++++++++++++++++++++
+>   2 files changed, 24 insertions(+), 2 deletions(-)
+>
+> diff --git a/defs.h b/defs.h
+> index 358f365..46b9857 100644
+> --- a/defs.h
+> +++ b/defs.h
+> @@ -3662,8 +3662,7 @@ typedef signed int s32;
+>   	ulong _X = X;									\
+>   	(THIS_KERNEL_VERSION >= LINUX(5,13,0) &&					\
+>   		(_X) >= machdep->machspec->kernel_link_addr) ?				\
+> -		(((unsigned long)(_X)-(machdep->machspec->kernel_link_addr)) +		\
+> -		 machdep->machspec->phys_base):						\
+> +		((unsigned long)(_X)-(machdep->machspec->va_kernel_pa_offset)): 	\
+>   		(((unsigned long)(_X)-(machdep->kvbase)) +				\
+>   		 machdep->machspec->phys_base);						\
+>   	})
+> @@ -7021,6 +7020,7 @@ struct machine_specific {
+>   	ulong modules_vaddr;
+>   	ulong modules_end;
+>   	ulong kernel_link_addr;
+> +	ulong va_kernel_pa_offset;
+>   
+>   	ulong _page_present;
+>   	ulong _page_read;
+> diff --git a/riscv64.c b/riscv64.c
+> index 6b9a688..b9e50b4 100644
+> --- a/riscv64.c
+> +++ b/riscv64.c
+> @@ -418,6 +418,27 @@ error:
+>   	error(FATAL, "cannot get vm layout\n");
+>   }
+>   
+> +static void
+> +riscv64_get_va_kernel_pa_offset(struct machine_specific *ms)
+> +{
+> +	unsigned long kernel_version = riscv64_get_kernel_version();
+> +
+> +	/*
+> +	 * va_kernel_pa_offset is defined in Linux kernel since 6.5.
+> +	 */
+> +	if (kernel_version >= LINUX(6,5,0)) {
+> +		char *string;
+> +		if ((string = pc->read_vmcoreinfo("NUMBER(va_kernel_pa_offset)"))) {
+> +			ms->va_kernel_pa_offset = htol(string, QUIET, NULL);
+> +			free(string);
+> +		} else
+> +			error(FATAL, "cannot read va_kernel_pa_offset\n");
+> +	} else if (kernel_version >= LINUX(6,4,0))
+> +		error(FATAL, "cannot determine va_kernel_pa_offset since Linux 6.4\n");
+> +	else
+> +		ms->va_kernel_pa_offset = ms->kernel_link_addr - ms->phys_base;
+> +}
+> +
+>   static int
+>   riscv64_is_kvaddr(ulong vaddr)
+>   {
+> @@ -1352,6 +1373,7 @@ riscv64_init(int when)
+>   		riscv64_get_struct_page_size(machdep->machspec);
+>   		riscv64_get_va_bits(machdep->machspec);
+>   		riscv64_get_va_range(machdep->machspec);
+> +		riscv64_get_va_kernel_pa_offset(machdep->machspec);
+>   
+>   		pt_level_alloc(&machdep->pgd, "cannot malloc pgd space.");
+>   		pt_level_alloc(&machdep->machspec->p4d, "cannot malloc p4d space.");
 
-Why's the __force needed? Does sparse complain about the cast too?
 
---vtD17YszkGN6XtYe
-Content-Type: application/pgp-signature; name="signature.asc"
+Would you mind giving me the instructions on how to reproduce the issue 
+please? So that I can add that to our internal CI and avoid this type of 
+breakage in the future.
 
------BEGIN PGP SIGNATURE-----
+Thanks,
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZL4xUgAKCRB4tDGHoIJi
-0g6UAQCpdPC3pWYrjW9HbFWmEsgechOUzkb7sDDVFEdus8ebUwD8DxsbPpagXY7Q
-XnpxLi85wHlgX8DuIZMxzId9C27Jcw0=
-=9frk
------END PGP SIGNATURE-----
+Alex
 
---vtD17YszkGN6XtYe--
-
-
---===============3656965106712155319==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3656965106712155319==--
-
