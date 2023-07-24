@@ -4,82 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C28FEB64DD
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 04:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BE6C001DE
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 04:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qdxM4+4pHOC0dJQH6kSxyuGV7Ivq/cuKUpi8immURys=; b=BHvmPWumufBj2B
-	4fRf/AcaqNG35XsDmBGF/BuCxD1xBGSI3DDGsXQLdsvOM6N8tv1s3MTSf3y9+7IgKF7Ls1l7iLpFx
-	3gUGcTCN168lLptu+Uhdm9uZ5kBXPaY/QBFm0bBfAG2l1jGghh6Wps3Cl2FCxLxlKe661c+FS8Y7y
-	SHMsZAzn8sUiPy2u1fbPX+X+4PEzAqkicv6rhD19qnKk8lT64y9zkP3gwzV0KM/UvYxxolfQemBzn
-	d4rPZE1tkG4S4JvqewtA2eW/8YzfJUWDY4owwzyG4UjlHCvUh1rKjdbIUEOIcFj3MiZbyJ5mE1Miu
-	PnQAdFaUViMLDRXp1ozg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GxS9nGOFS5icn0vqSmxvYVCO+g4hkmSNMbKq5PWQvqI=; b=PwSsoOHrBIlK/f
+	WjyX5R/4+81rZK+hhtDD3lafCf6197X9QXNHOTETiAiX2VctKrbPeHPiR7FVlBGIugjGYqfkPrJWm
+	skXhnNPh84VA3M+m1jj03gP+2U2XX2OJkzKhMjg6kQLqgL3885SSAqB/WY834xQe43pT/JY25j/ab
+	Zuqx86FRkxJLCPd0qEIKzdLSCc6HwgruNb5V5ggjh8XkM019cij+oxz5zi4uC3rssoZRbwi7pyA8O
+	SLs289VGqRO04gM8dFEJqltnmktwMafxozpcqQ0OOORLuh6tmGMkiRPyxmm6PnJq5948ODlvIn+u/
+	sIXkQqoygGB8lqomsXyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNmqp-002hnI-0V;
-	Mon, 24 Jul 2023 04:07:15 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1qNnSI-002lg9-16;
+	Mon, 24 Jul 2023 04:45:58 +0000
+Received: from mga18.intel.com ([134.134.136.126])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNmql-002hm9-0j;
-	Mon, 24 Jul 2023 04:07:13 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1b895a06484so22535385ad.1;
-        Sun, 23 Jul 2023 21:07:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1690171629; x=1690776429;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rzaXmaM90CwRiDC0CLa3hn4H8n/ehUM+MFpO+YooPxs=;
-        b=CNKzZeEhmV3IdmOlie4pEq8H78jaNra75posUh35xctFSDH1CsNqV59IULIJbs9+nZ
-         Khpt6LS23j0F3MFYoLbo5XiG0GkmYR65lWx9yMay3Lc7egj+NWr1Aq+JWlmMNRr5qCwv
-         BMgszrigMGpe2L6YOm9DOaT5kfz39X+GdZejd9/34OBj6dZZtDwr1ki4VRn1IMwWv+m2
-         qqeG0XoGQYozJsOEMQiaHc2/dcNtOsV+zaovdU6k+n8EFChg2V/SyXL1UE7z56a3i/Fh
-         DOz9ytVNl0ZXypOhc/BkBciRgaXD0RuJ5PKmAd5ntcS2biQNKudPkMMrXc+IKQ+VcrmK
-         lyVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690171629; x=1690776429;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rzaXmaM90CwRiDC0CLa3hn4H8n/ehUM+MFpO+YooPxs=;
-        b=QKq7fYIlE4R9tOQRLEGFkFzFG/b5WVLp2MDluDZp9nSwzqzYdIDrdClh0DGfPbiBCb
-         5YSo6smT9MvKHxl5wSLSDKw/uKFU2d0pqcvxAChEwH6hg3YMllDRRjmxL9aaOtAJQW2k
-         Wt+TBngvS2WkGByYrVLiAAf0Z2OosR8Wl5+uaJrqQ2Ij4iCVF2kqHcx8Kciyyhb42R4S
-         U+6a0IAvffJEFHlVa7FCHrwpfwEZqeZONFbUFARTgA5msFoAy4sKgpFXX4wN1J5EYL3U
-         Stv1eivmCd2A+FwBSY4gkBOAXO0wxh5AwIoEdZGsMdSO9niPm+MmA7SMdw1O26xzA79W
-         +vvg==
-X-Gm-Message-State: ABy/qLb7JHlXO/D8lENSgq5bA7/1IgauRiIVqheemQGzQxJq74HAeBtK
-	Dky8fSCxIzqs5IqgEKe2kms=
-X-Google-Smtp-Source: APBJJlH+vL/jc3UHlAMQGRlaqmRo5OtGvR159nOENE2Iim64hpkk3zo7UCerJIIfKQykGNjn0Ki+Cg==
-X-Received: by 2002:a17:902:b114:b0:1b8:7483:d481 with SMTP id q20-20020a170902b11400b001b87483d481mr7488086plr.8.1690171629021;
-        Sun, 23 Jul 2023 21:07:09 -0700 (PDT)
-Received: from localhost.localdomain ([2408:843e:c80:6366:6f45:6862:79bc:e5e6])
-        by smtp.gmail.com with ESMTPSA id u19-20020a170902a61300b001b830d8bc40sm7698126plq.74.2023.07.23.21.07.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Jul 2023 21:07:08 -0700 (PDT)
-From: Song Shuai <suagrfillet@gmail.com>
-To: xianting.tian@linux.alibaba.com,
-	mick@ics.forth.gr,
-	heinrich.schuchardt@canonical.com,
-	guoren@kernel.org,
-	k-hagio-ab@nec.com,
-	yixun.lan@gmail.com,
-	lijiang@redhat.com
-Cc: linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org,
-	crash-utility@redhat.com,
-	Song Shuai <suagrfillet@gmail.com>
-Subject: [Crash-utility] RISCV64: Use va_kernel_pa_offset in VTOP()
-Date: Mon, 24 Jul 2023 12:06:49 +0800
-Message-Id: <20230724040649.220279-1-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
+	id 1qNnSE-002leL-0u;
+	Mon, 24 Jul 2023 04:45:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1690173954; x=1721709954;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=q9qzwcL7N7viHeki30qyeMCUuWnJ87fuGcM4hbUg7Mg=;
+  b=LcwD7wMqVycybn/G/crH3Ms3cjNFf9iSSuUpRZ9D1CRRJr6Z0HBgmIcn
+   b4arT9HJUEiRMhFAekWcqz8LFG93oRTPb1MSXxBoyLzpq7MNf2H9zQO1J
+   dMx7nipasppJ2je+YVtsscaNsH17BcRMhAYDWSmnhJH2WHKj1msqpFS/q
+   yzWyLqk+9CFxqzCut7w1sdcnbc/TtswgbDfy3mdgGs/9x9bFRGR0nkOTI
+   3Zh47Uonnxx3lOpX3V4Igxxi1oPhoHaDRLb3rIdkgEkNLUFKuT9SrST9j
+   6ML+GAuQP4HGyv0TJf4EKghdulKjFKdaKz0+jgq12yatdycV2rEEDJG0o
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10780"; a="352240339"
+X-IronPort-AV: E=Sophos;i="6.01,228,1684825200"; 
+   d="scan'208";a="352240339"
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jul 2023 21:45:49 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10780"; a="972119310"
+X-IronPort-AV: E=Sophos;i="6.01,228,1684825200"; 
+   d="scan'208";a="972119310"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
+  by fmsmga006.fm.intel.com with ESMTP; 23 Jul 2023 21:45:40 -0700
+Date: Mon, 24 Jul 2023 12:43:53 +0800
+From: Xu Yilun <yilun.xu@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Chao Peng <chao.p.peng@linux.intel.com>,
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+	Yu Zhang <yu.c.zhang@linux.intel.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Maciej Szmigiero <mail@maciej.szmigiero.name>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	David Hildenbrand <david@redhat.com>,
+	Quentin Perret <qperret@google.com>,
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+	Liam Merwick <liam.merwick@oracle.com>,
+	Isaku Yamahata <isaku.yamahata@gmail.com>,
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [RFC PATCH v11 08/29] KVM: Introduce per-page memory attributes
+Message-ID: <ZL4BiQWihfrD0TOJ@yilunxu-OptiPlex-7050>
+References: <20230718234512.1690985-1-seanjc@google.com>
+ <20230718234512.1690985-9-seanjc@google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230718234512.1690985-9-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230723_210711_287412_3FB5EC7E 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20230723_214554_422526_B8F00172 
+X-CRM114-Status: GOOD (  30.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,94 +109,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since RISC-V Linux v6.4, the commit 3335068f8721 ("riscv: Use
-PUD/P4D/PGD pages for the linear mapping") changes the
-phys_ram_base from the kernel_map.phys_addr to the start of DRAM.
+On 2023-07-18 at 16:44:51 -0700, Sean Christopherson wrote:
+> From: Chao Peng <chao.p.peng@linux.intel.com>
+> 
+> In confidential computing usages, whether a page is private or shared is
+> necessary information for KVM to perform operations like page fault
+> handling, page zapping etc. There are other potential use cases for
+> per-page memory attributes, e.g. to make memory read-only (or no-exec,
+> or exec-only, etc.) without having to modify memslots.
+> 
+> Introduce two ioctls (advertised by KVM_CAP_MEMORY_ATTRIBUTES) to allow
+> userspace to operate on the per-page memory attributes.
+>   - KVM_SET_MEMORY_ATTRIBUTES to set the per-page memory attributes to
+>     a guest memory range.
+>   - KVM_GET_SUPPORTED_MEMORY_ATTRIBUTES to return the KVM supported
+>     memory attributes.
+> 
+> Use an xarray to store the per-page attributes internally, with a naive,
+> not fully optimized implementation, i.e. prioritize correctness over
+> performance for the initial implementation.
+> 
+> Because setting memory attributes is roughly analogous to mprotect() on
+> memory that is mapped into the guest, zap existing mappings prior to
+> updating the memory attributes.  Opportunistically provide an arch hook
+> for the post-set path (needed to complete invalidation anyways) in
+> anticipation of x86 needing the hook to update metadata related to
+> determining whether or not a given gfn can be backed with various sizes
+> of hugepages.
+> 
+> It's possible that future usages may not require an invalidation, e.g.
+> if KVM ends up supporting RWX protections and userspace grants _more_
+> protections, but again opt for simplicity and punt optimizations to
+> if/when they are needed.
+> 
+> Suggested-by: Sean Christopherson <seanjc@google.com>
+> Link: https://lore.kernel.org/all/Y2WB48kD0J4VGynX@google.com
+> Cc: Fuad Tabba <tabba@google.com>
+> Signed-off-by: Chao Peng <chao.p.peng@linux.intel.com>
+> Co-developed-by: Sean Christopherson <seanjc@google.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  Documentation/virt/kvm/api.rst |  60 ++++++++++++
+>  include/linux/kvm_host.h       |  14 +++
+>  include/uapi/linux/kvm.h       |  14 +++
+>  virt/kvm/Kconfig               |   4 +
+>  virt/kvm/kvm_main.c            | 170 +++++++++++++++++++++++++++++++++
+>  5 files changed, 262 insertions(+)
+>
 
-The Crash's VTOP() still uses phys_ram_base and kernel_map.virt_addr
-to translate kernel virtual address, that made Crash boot failed with
-Linux v6.4 and later version.
+Only some trivial concerns below.
 
-Let Linux export kernel_map.va_kernel_pa_offset in v6.5 and Crash can
-use "va_kernel_pa_offset" to translate the kernel virtual address in
-VTOP() correctly.
-
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
----
-You can check/test the Linux changes from this link:
-https://github.com/sugarfillet/linux/commits/6.5-rc3-crash
-
-And I'll send the Linux changes to riscv/for-next If you're ok with this patch.
----
- defs.h    |  4 ++--
- riscv64.c | 22 ++++++++++++++++++++++
- 2 files changed, 24 insertions(+), 2 deletions(-)
-
-diff --git a/defs.h b/defs.h
-index 358f365..46b9857 100644
---- a/defs.h
-+++ b/defs.h
-@@ -3662,8 +3662,7 @@ typedef signed int s32;
- 	ulong _X = X;									\
- 	(THIS_KERNEL_VERSION >= LINUX(5,13,0) &&					\
- 		(_X) >= machdep->machspec->kernel_link_addr) ?				\
--		(((unsigned long)(_X)-(machdep->machspec->kernel_link_addr)) +		\
--		 machdep->machspec->phys_base):						\
-+		((unsigned long)(_X)-(machdep->machspec->va_kernel_pa_offset)): 	\
- 		(((unsigned long)(_X)-(machdep->kvbase)) +				\
- 		 machdep->machspec->phys_base);						\
- 	})
-@@ -7021,6 +7020,7 @@ struct machine_specific {
- 	ulong modules_vaddr;
- 	ulong modules_end;
- 	ulong kernel_link_addr;
-+	ulong va_kernel_pa_offset;
+[...]
  
- 	ulong _page_present;
- 	ulong _page_read;
-diff --git a/riscv64.c b/riscv64.c
-index 6b9a688..b9e50b4 100644
---- a/riscv64.c
-+++ b/riscv64.c
-@@ -418,6 +418,27 @@ error:
- 	error(FATAL, "cannot get vm layout\n");
- }
- 
-+static void
-+riscv64_get_va_kernel_pa_offset(struct machine_specific *ms)
-+{
-+	unsigned long kernel_version = riscv64_get_kernel_version();
-+
-+	/*
-+	 * va_kernel_pa_offset is defined in Linux kernel since 6.5.
-+	 */
-+	if (kernel_version >= LINUX(6,5,0)) {
-+		char *string;
-+		if ((string = pc->read_vmcoreinfo("NUMBER(va_kernel_pa_offset)"))) {
-+			ms->va_kernel_pa_offset = htol(string, QUIET, NULL);
-+			free(string);
-+		} else
-+			error(FATAL, "cannot read va_kernel_pa_offset\n");
-+	} else if (kernel_version >= LINUX(6,4,0))
-+		error(FATAL, "cannot determine va_kernel_pa_offset since Linux 6.4\n");
-+	else
-+		ms->va_kernel_pa_offset = ms->kernel_link_addr - ms->phys_base;
-+}
-+
- static int
- riscv64_is_kvaddr(ulong vaddr)
- {
-@@ -1352,6 +1373,7 @@ riscv64_init(int when)
- 		riscv64_get_struct_page_size(machdep->machspec);
- 		riscv64_get_va_bits(machdep->machspec);
- 		riscv64_get_va_range(machdep->machspec);
-+		riscv64_get_va_kernel_pa_offset(machdep->machspec);
- 
- 		pt_level_alloc(&machdep->pgd, "cannot malloc pgd space.");
- 		pt_level_alloc(&machdep->machspec->p4d, "cannot malloc p4d space.");
--- 
-2.20.1
+> @@ -1175,6 +1176,9 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
+>  	spin_lock_init(&kvm->mn_invalidate_lock);
+>  	rcuwait_init(&kvm->mn_memslots_update_rcuwait);
+>  	xa_init(&kvm->vcpu_array);
+> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
+> +	xa_init(&kvm->mem_attr_array);
+> +#endif
+>  
+>  	INIT_LIST_HEAD(&kvm->gpc_list);
+>  	spin_lock_init(&kvm->gpc_lock);
+> @@ -1346,6 +1350,9 @@ static void kvm_destroy_vm(struct kvm *kvm)
+>  		kvm_free_memslots(kvm, &kvm->__memslots[i][0]);
+>  		kvm_free_memslots(kvm, &kvm->__memslots[i][1]);
+>  	}
+> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
+> +	xa_destroy(&kvm->mem_attr_array);
+> +#endif
 
+Is it better to make the destruction in reverse order from the creation?
+To put xa_destroy(&kvm->mem_attr_array) after cleanup_srcu_struct(&kvm->srcu),
+or put xa_init(&kvm->mem_attr_array) after init_srcu_struct(&kvm->irq_srcu).
+
+>  	cleanup_srcu_struct(&kvm->irq_srcu);
+>  	cleanup_srcu_struct(&kvm->srcu);
+>  	kvm_arch_free_vm(kvm);
+> @@ -2346,6 +2353,145 @@ static int kvm_vm_ioctl_clear_dirty_log(struct kvm *kvm,
+>  }
+>  #endif /* CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT */
+
+[...]
+
+> +static int kvm_vm_ioctl_set_mem_attributes(struct kvm *kvm,
+> +					   struct kvm_memory_attributes *attrs)
+> +{
+> +	gfn_t start, end;
+> +
+> +	/* flags is currently not used. */
+> +	if (attrs->flags)
+> +		return -EINVAL;
+> +	if (attrs->attributes & ~kvm_supported_mem_attributes(kvm))
+> +		return -EINVAL;
+> +	if (attrs->size == 0 || attrs->address + attrs->size < attrs->address)
+> +		return -EINVAL;
+> +	if (!PAGE_ALIGNED(attrs->address) || !PAGE_ALIGNED(attrs->size))
+> +		return -EINVAL;
+> +
+> +	start = attrs->address >> PAGE_SHIFT;
+> +	end = (attrs->address + attrs->size - 1 + PAGE_SIZE) >> PAGE_SHIFT;
+
+As the attrs->address/size are both garanteed to be non-zero, non-wrap
+and page aligned in prevous check. Is it OK to simplify the calculation,
+like:
+
+  end = (attrs->address + attrs->size) >> PAGE_SHIFT;
+
+> +
+> +	if (WARN_ON_ONCE(start == end))
+> +		return -EINVAL;
+
+Also, is this check possible to be hit? Maybe remove it?
+
+Thanks,
+Yilun
+
+> +
+> +	/*
+> +	 * xarray tracks data using "unsigned long", and as a result so does
+> +	 * KVM.  For simplicity, supports generic attributes only on 64-bit
+> +	 * architectures.
+> +	 */
+> +	BUILD_BUG_ON(sizeof(attrs->attributes) != sizeof(unsigned long));
+> +
+> +	return kvm_vm_set_mem_attributes(kvm, attrs->attributes, start, end);
+> +}
+> +#endif /* CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES */
 
 _______________________________________________
 linux-riscv mailing list
