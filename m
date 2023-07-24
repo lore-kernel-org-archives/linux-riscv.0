@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74453C001E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 07:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A3AC0015E
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 07:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7exLxeoj3syWnLKsObOFZupkJNo7q1GXSQ3nX888efM=; b=wO4bt8Y63SE0qivqsES9V4ORw1
-	Jwwg00wF9uDGCwLdHzP2L/Bj8+dHUC+KBz3LjyfsmLtk1Tm3dpCt7r+yoiMr6SZAZxiGUX5WX3Xi/
-	Ig4peEu4MMF5uTW8AoSfJpOI+pyuwApvYud+gRIts7hZnC+sTfIr7HgVO4cUAPY5hN3DSFszx+6vv
-	ICUZYRmcJPesYHKaU0GylyybGNp91/uvyonvNMcwmZMitTKQlm3P9CgS/QVUcHs++IxXTqHgPxhL+
-	f40CXAzwuPFao9BI52NXvFP/LFAdkUKJWCvYLwy0bvR+bIKSYWuvOTZbqciyM2VBmA9U6tCH+Wk3j
-	oVz7XW8Q==;
+	bh=atRGsuLgH2YWqG9cBEDtD0bi4Y/YgOK1tbXxmZIUAS0=; b=eTF9aJM6vINSkDGN6TVJiyGAX6
+	HuPVb5LWEGXccG8dw/sSh6IsB2to41wAzR/Fl8gNvw+WnWz5jjVCQ0X6SyF8t21nyzLmEb3zmd02V
+	QWiONX5AB4ka3PtqhqUzhWJhQA8+5FtxTaA7/v4FCWtlVGASYfjY+4/hB9VJogG+PQ2ad7xEGxwoC
+	S5QZNdmL1pOlq5ijStKWj6eQyiTbUL9ZjbxxzG1WTJw7ehOkBYV5vYzPagb/yc8BapaHM7Z71BZgz
+	Z+I6svKOjAliTt+bxKEIIM0+5KRKdSI7Y/aKKU7WktYM/5wjiOVpR+MuS1Q476XWGGTrTrJvStY+q
+	vySLkalg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNqHV-0038Bu-1l;
-	Mon, 24 Jul 2023 07:47:01 +0000
+	id 1qNqKe-0038ag-0O;
+	Mon, 24 Jul 2023 07:50:16 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNqHT-0038BP-1l
+	id 1qNqKa-0038a1-2T
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jul 2023 07:47:00 +0000
+	Mon, 24 Jul 2023 07:50:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690184819; x=1721720819;
+  t=1690185012; x=1721721012;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=WzzWzxRZEWi4NlHzgReqT/THYQBX4Y5rgyq6qdtTy3M=;
-  b=0wlUqKrHBO4OvqMCSSpmz1gc+ptk61Kk2EU8Gg+VISA5KbOAVuMbiRJ1
-   iAyJ65qF/L6mnmtRSa11sZN5z+D1GTQayJvO7vIakn1DdkIYCtYeggLu8
-   AnKE5KkJWUAn5LkUzuDJgNMUde4hIRf4DhD0Nv8KVDQMvJGrI3LwY1ZZ2
-   D5JVbVtpjX7KI+iQPxbfckB1uL3qTmWVdjczoinlbkShMzh66NtJ3A7cB
-   Q4q3vgpDcVanVc/8EOB6hQWPHI725DrJhQZ4VcOSKbm0yOUcR1dqOn105
-   /BODuTld8XH9S+EG02p8DiQ2qwsED+15TF/tdhplDb4evIZb9x9RROoqx
-   g==;
+  bh=cFSk2zmVNjF+ma0HjJ0LslmgIPzvLIjCxHLecSYlzvM=;
+  b=cKEsHDYyYvRFg7qrK9kgZ8L+MXW7o5LbWl43YoHOnrOWjeeyt7Rm3zVn
+   bdzesjEjy5VFEy7MX1MSPCHeqQkidUsDmY2sJwD2lIx10Jj5IrdFOMgel
+   Z8CrDdm6r+G15jUrZra9Ck+wm22Jt/2lnMpCgOqXFlaAzfybIAPWvj6Yg
+   N2OD3AcOjqO4CVnNiuJcBYcc9Fiqg4ghtZ6Yt3Q8P4DXPCZeuaPVYZNNe
+   lCql04DxwwDZS7JxTfeN1qpl+FpQzC2DcyuDJuyBPFl77Qod4RDLGmdn1
+   1p53w/LIWspzrXptOBINXqLi7It/lJbC76FzYExO71DBGmC1TQqXdgaTo
+   A==;
 X-IronPort-AV: E=Sophos;i="6.01,228,1684825200"; 
-   d="asc'?scan'208";a="224719718"
+   d="asc'?scan'208";a="237267499"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Jul 2023 00:46:58 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Jul 2023 00:50:09 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 24 Jul 2023 00:46:58 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.21; Mon, 24 Jul 2023 00:50:02 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 24 Jul 2023 00:46:56 -0700
-Date: Mon, 24 Jul 2023 08:46:23 +0100
+ Transport; Mon, 24 Jul 2023 00:50:01 -0700
+Date: Mon, 24 Jul 2023 08:49:27 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Yuan Tan <tanyuan@tinylab.org>
-CC: <palmer@dabbelt.com>, <vincent.chen@sifive.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<falcon@tinylab.org>
-Subject: Re: [PATCH] riscv: alternatives: fix a typo in comment
-Message-ID: <20230724-stegosaur-outtakes-0ea4ff740080@wendy>
-References: <20230723165155.4896-1-tanyuan@tinylab.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 1/2] riscv: allow kmalloc() caches aligned to the
+ smallest value
+Message-ID: <20230724-next-shifter-3ec32114b34e@wendy>
+References: <20230718152214.2907-1-jszhang@kernel.org>
+ <20230718152214.2907-2-jszhang@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230723165155.4896-1-tanyuan@tinylab.org>
+In-Reply-To: <20230718152214.2907-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_004659_591790_D07F31BC 
-X-CRM114-Status: UNSURE (   7.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230724_005012_840051_6C30C7EC 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +81,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3775192202686785274=="
+Content-Type: multipart/mixed; boundary="===============4594076665616904814=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3775192202686785274==
+--===============4594076665616904814==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="IsUXUH9IpPy2edZ3"
+	protocol="application/pgp-signature"; boundary="lbLuWTJ0u5bINZ3+"
 Content-Disposition: inline
 
---IsUXUH9IpPy2edZ3
+--lbLuWTJ0u5bINZ3+
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jul 24, 2023 at 12:51:55AM +0800, Yuan Tan wrote:
-> In the usage of ALTERNATIVE, "always" is misspelled as "alwyas".
+On Tue, Jul 18, 2023 at 11:22:13PM +0800, Jisheng Zhang wrote:
+> Currently, riscv defines ARCH_DMA_MINALIGN as L1_CACHE_BYTES, I.E
+> 64Bytes, if CONFIG_RISCV_DMA_NONCOHERENT=3Dy. To support unified kernel
+> Image, usually we have to enable CONFIG_RISCV_DMA_NONCOHERENT, thus
+> it brings some bad effects to coherent platforms:
 >=20
-> Signed-off-by: Yuan Tan <tanyuan@tinylab.org>
+> Firstly, it wastes memory, kmalloc-96, kmalloc-32, kmalloc-16 and
+> kmalloc-8 slab caches don't exist any more, they are replaced with
+> either kmalloc-128 or kmalloc-64.
+>=20
+> Secondly, larger than necessary kmalloc aligned allocations results
+> in unnecessary cache/TLB pressure.
+>=20
+> This issue also exists on arm64 platforms. From last year, Catalin
+> tried to solve this issue by decoupling ARCH_KMALLOC_MINALIGN from
+> ARCH_DMA_MINALIGN, limiting kmalloc() minimum alignment to
+> dma_get_cache_alignment() and replacing ARCH_KMALLOC_MINALIGN usage
+> in various drivers with ARCH_DMA_MINALIGN etc.[1]
+>=20
+> One fact we can make use of for riscv: if the CPU doesn't support
+> ZICBOM or T-HEAD CMO, we know the platform is coherent. Based on
+> Catalin's work and above fact, we can easily solve the kmalloc align
+> issue for riscv: we can override dma_get_cache_alignment(), then let
+> it return ARCH_DMA_MINALIGN at the beginning and return 1 once we know
+> the underlying HW neither supports ZICBOM nor supports T-HEAD CMO.
+>=20
+> So what about if the CPU supports ZICBOM or T-HEAD CMO, but all the
+> devices are dma coherent? Well, we use ARCH_DMA_MINALIGN as the
+> kmalloc minimum alignment, nothing changed in this case. This case
+> can be improved in the future.
+>=20
+> After this patch, a simple test of booting to a small buildroot rootfs
+> on qemu shows:
+>=20
+> kmalloc-96           5041    5041     96  ...
+> kmalloc-64           9606    9606     64  ...
+> kmalloc-32           5128    5128     32  ...
+> kmalloc-16           7682    7682     16  ...
+> kmalloc-8           10246   10246      8  ...
+>=20
+> So we save about 1268KB memory. The saving will be much larger in normal
+> OS env on real HW platforms.
+>=20
+> Link: https://lore.kernel.org/linux-arm-kernel/20230524171904.3967031-1-c=
+atalin.marinas@arm.com/ [1]
+>=20
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
 Thanks,
 Conor.
 
---IsUXUH9IpPy2edZ3
+--lbLuWTJ0u5bINZ3+
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZL4sTgAKCRB4tDGHoIJi
-0kgRAP4q71Pyz7QgJzZHSva3JyBY/cP8KT+YthQI9nYwQdnHYQD9HLanh7VBwu5R
-nXz3sjGRiJ508KlDmgmMthP3mIsBVQs=
-=XsAI
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZL4tBwAKCRB4tDGHoIJi
+0jIWAQDK3i9Q+yWDW+zT3HKMI/9vFe2vBFuaDRF2zhYd1DnQmAD/eQucZDuJ1yvE
+Dnzs8qBMYSXxWuN7amY5rN5pjrjroAo=
+=PbNw
 -----END PGP SIGNATURE-----
 
---IsUXUH9IpPy2edZ3--
+--lbLuWTJ0u5bINZ3+--
 
 
---===============3775192202686785274==
+--===============4594076665616904814==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -129,5 +173,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3775192202686785274==--
+--===============4594076665616904814==--
 
