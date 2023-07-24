@@ -4,92 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E9DC001B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 10:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B383C001DE
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 10:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Au70+RnBpZROZuhXarjOu/X+1Lhn89lx9MeK+waosbg=; b=VdGVAJcDobmteT
-	M4DdwL+yODUmUa4ATEv43VN8O/SMogCWEdimbKvxyu0m+0LKxRvRvy4P9FkOqi+aVKK8FEw2Fgqvr
-	joh4vI7ht099yq+Us76AHFFirqeSw8j/vnQSGl/Qha3/2RyMr/MdMPsDaOFiZwFfKLkIZbUu0DWTP
-	wdlNDGQiE+3wwO0qBWvBZhJP7DavcBvSVy+2MseZDl6yhcVJ5f/xBBcouRTwb2x7XzmG5zHdM4tO1
-	ab1chxyx5AoJkx1jyBJ4dJYJTVN7JcHlWGf1H7s7UAy86Su8uxVtedlfly2SmqTtRNjRSfLkyyxte
-	MQNKcvLPrFgNHAjJGaLg==;
+	List-Owner; bh=CjxiDXxyoizuiYl53UrjCzxtemh16JBiJ/+2lb9mLAQ=; b=1ZYTOGy5XmODDe
+	gxzVu8wqI28A8I7jYiQTe8SLeGzURbR+UAS701Td0nb90yQmh0cV/B8URgW+MRo2KtgemBsbV1VOJ
+	dLNkJqZV1ML2+R8cldfu8z6uUUzTDFK+5WFtQG2OzYrP+e6u/QgBwiE85Kt9u27rfueGCWmwIWKbr
+	M9J/t6IugSbwvQGbQbnxkrCz3I3OALaECYvrH9cegzTPHqCX9oUw0nGG54QVGguq24Cd83QD7srFq
+	9DoUFExLlrGSyK+JfQ4+4ZbM92wQjm4VpDRjpqh85Pwmbstc9ry28vRY0ChPrupyMsqByTyI3mgRo
+	ZR9U34iilm0iiWctyyOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNsVk-003bPW-37;
-	Mon, 24 Jul 2023 10:09:52 +0000
-Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNsVh-003bNb-14;
-	Mon, 24 Jul 2023 10:09:50 +0000
-Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-34642952736so24034265ab.3;
-        Mon, 24 Jul 2023 03:09:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1690193387; x=1690798187;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Vwxb4dr9ed/m5CEyUxwJ1RrHPJUl/WASFTIF6qacv2g=;
-        b=VD0NxzawoiPeT3noLpC6aX3MxiFFLuHuf3NInzssCr435rIpjai1Q9BKajTHw377io
-         aXSypTdyUU+RFfzj2Zr9fY4+fYt5SJX0e+Vyy+XxqgO3jmXJEByYRFRtziGQzbao7+EF
-         lA6e/r7AXXdNRbfFEaN7L4pzWHV9yf3b4SstMGls2JQpxcPFJZZPqG4VrKwfmUQkRsRr
-         oTtZ4iW7aj1br5A6e/Y/BP1G4KeI4pUH+Pahde61X+gUa/GdrUCSMcFV6VgBciamhSP2
-         z/1aqxOd8/QuVJJsh34jNZnDBMwHRpa4bgSn/smjgD3YFNYeixnDN1ipAKBxBFRwj+TT
-         kMQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690193387; x=1690798187;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Vwxb4dr9ed/m5CEyUxwJ1RrHPJUl/WASFTIF6qacv2g=;
-        b=Cy9oLrcclUpYs/IpBvOk0eKrvjJxVz6p8g4ydOnu5rCcfWArofOA/4DI9KZVFvGPk/
-         Fc/m1MbSGzUev3L5lGFHUJM9O814xz7rueSYT2MbHU8Bgmg29s3oi23Cd7p59oFEnQCP
-         2nZ7lkV1ZScV9+ZKRmxfAI4EduchSlNP9+wDa+wTJQVnDHbiFCebDHy8v5nQ+m4akAam
-         XFjnV4iGDfymqS3f6mBtPdbofICdTRv85+GpNivv0eGWnxpsINUuJ0DC/ciJ7xZRF0MP
-         ZC/makHRVQmYa+DFChCPcPz7kFxYH5QCs5ILUcOhTMjCyYwK4CIHmMcL8O/jtZhipw4p
-         STNg==
-X-Gm-Message-State: ABy/qLaiwmswyCEUsHuug6leMK5GpSnHzKkXjayNeCQDomUHeDLEFmav
-	6eLyzUKOBVL0n12NtUxyF3M=
-X-Google-Smtp-Source: APBJJlHJ5PE83v9b1yIa2tiwwMnAmbYros48TQ/r/GuSfcXorXE/PyaC9/EV9Q/TEW8XN+CxxXkwYw==
-X-Received: by 2002:a05:6e02:20e1:b0:346:e96:7cbb with SMTP id q1-20020a056e0220e100b003460e967cbbmr9064158ilv.30.1690193387442;
-        Mon, 24 Jul 2023 03:09:47 -0700 (PDT)
-Received: from localhost.localdomain ([2408:843e:c90:2347:5782:34b7:c2b6:16d2])
-        by smtp.gmail.com with ESMTPSA id t29-20020a63b25d000000b0051b8172fa68sm8272826pgo.38.2023.07.24.03.09.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Jul 2023 03:09:47 -0700 (PDT)
-From: Song Shuai <suagrfillet@gmail.com>
-To: bhe@redhat.com,
-	vgoyal@redhat.com,
-	dyoung@redhat.com,
-	corbet@lwn.net,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	xianting.tian@linux.alibaba.com,
-	suagrfillet@gmail.com,
-	anup@brainfault.org,
-	robh@kernel.org,
-	ajones@ventanamicro.com,
-	alexghiti@rivosinc.com,
-	conor.dooley@microchip.com
-Cc: kexec@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [RESEND PATCH -fixes 2/2] Documentation: kdump: Add va_kernel_pa_offset for RISCV64
-Date: Mon, 24 Jul 2023 18:09:17 +0800
-Message-Id: <20230724100917.309061-2-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20230724100917.309061-1-suagrfillet@gmail.com>
-References: <20230724100917.309061-1-suagrfillet@gmail.com>
+	id 1qNsXl-003c2m-2O;
+	Mon, 24 Jul 2023 10:11:57 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qNsXi-003bst-1z
+	for linux-riscv@lists.infradead.org;
+	Mon, 24 Jul 2023 10:11:56 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id E691424E350;
+	Mon, 24 Jul 2023 18:10:56 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 24 Jul
+ 2023 18:10:56 +0800
+Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
+ by EXMBX068.cuchost.com (172.16.6.68) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.42; Mon, 24 Jul 2023 18:10:55 +0800
+From: William Qiu <william.qiu@starfivetech.com>
+To: <devicetree@vger.kernel.org>, <linux-spi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Linus Walleij
+	<linus.walleij@linaro.org>, William Qiu <william.qiu@starfivetech.com>
+Subject: [PATCH v3 1/2] dt-bindings: spi: add reference file to YAML
+Date: Mon, 24 Jul 2023 18:10:53 +0800
+Message-ID: <20230724101054.25268-2-william.qiu@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230724101054.25268-1-william.qiu@starfivetech.com>
+References: <20230724101054.25268-1-william.qiu@starfivetech.com>
 MIME-Version: 1.0
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_030949_369871_074E6289 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20230724_031154_802493_7EE18ED5 
+X-CRM114-Status: UNSURE (   9.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,34 +76,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V Linux exports "va_kernel_pa_offset" in vmcoreinfo to help
-Crash-utility translate the kernel virtual address correctly.
+In JH7110 SoC, the spi module needs to use "arm,primecell-periphid" to
+override the h/w ID value to  correctly init "spi_dev", so add
+"primecell.yaml" as the reference file for YAML.
 
-Here adds the definition of "va_kernel_pa_offset".
-
-Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
-Link: https://lore.kernel.org/linux-riscv/20230724040649.220279-1-suagrfillet@gmail.com/
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 ---
- Documentation/admin-guide/kdump/vmcoreinfo.rst | 6 ++++++
- 1 file changed, 6 insertions(+)
+ Documentation/devicetree/bindings/spi/spi-pl022.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/admin-guide/kdump/vmcoreinfo.rst b/Documentation/admin-guide/kdump/vmcoreinfo.rst
-index c18d94fa6470..f8ebb63b6c5d 100644
---- a/Documentation/admin-guide/kdump/vmcoreinfo.rst
-+++ b/Documentation/admin-guide/kdump/vmcoreinfo.rst
-@@ -624,3 +624,9 @@ Used to get the correct ranges:
-   * VMALLOC_START ~ VMALLOC_END : vmalloc() / ioremap() space.
-   * VMEMMAP_START ~ VMEMMAP_END : vmemmap space, used for struct page array.
-   * KERNEL_LINK_ADDR : start address of Kernel link and BPF
-+
-+va_kernel_pa_offset
-+-------------------
-+
-+Indicates the offset between the kernel virtual and physical mappings.
-+Used to translate virtual to physical addresses.
+diff --git a/Documentation/devicetree/bindings/spi/spi-pl022.yaml b/Documentation/devicetree/bindings/spi/spi-pl022.yaml
+index 91e540a92faf..5e5a704a766e 100644
+--- a/Documentation/devicetree/bindings/spi/spi-pl022.yaml
++++ b/Documentation/devicetree/bindings/spi/spi-pl022.yaml
+@@ -11,6 +11,7 @@ maintainers:
+ 
+ allOf:
+   - $ref: spi-controller.yaml#
++  - $ref: /schemas/arm/primecell.yaml#
+ 
+ # We need a select here so we don't match all nodes with 'arm,primecell'
+ select:
 -- 
-2.20.1
+2.34.1
 
 
 _______________________________________________
