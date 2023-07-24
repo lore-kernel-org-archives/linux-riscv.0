@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0537BC001DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 10:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7271C001B0
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 10:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EzbfAqCIED3geKxZCmLsq/aubCJnG0Gs4qO40uxWxoo=; b=ku/2nnskoGGjiMWF24jlqiQHpF
-	9gONNbTdcTNyuyg38sjmdrn3InRbjvlx2PzYtbTBM4iEGLQHhMA2jx7i53q8Ze0KAVNKpSkJSd6pe
-	f690x9V8DRxxMtQkHSepAR7Ojge5WGzTuA1uDY9Rt1eX48+hHXs1OVnl/EzjrHSpCXxIm10cchzQ2
-	tHuKDFHqYKvcLxQqukzfW6lNMei/gnbaqgE5hn1BBLa4ikP0FxLSUDV3u9RVWyWP4FPpH5WRGdFv5
-	W1RzxMX5q665jC/N/3Ti1++cASOG5/USYVpM69MDMXudfLJCuW5vb2gxk1iZuKdeVA2xA0HV2AUwr
-	Rzyz2EIA==;
+	bh=4PdjkNZpDGMKKwEdA/f3yPFOLFvYoSbGzn1tJ3mV9JA=; b=wSpUxwN4/p5P7u/Ka9Z07to1Oc
+	1PV6qlnn0wXECKD9mFnf5ekOXNIqCutmXabfS7qVMq3xbekaRyWyS09SPMwBguEhG4ZsuRvj/K4Ef
+	Ocal6a0rfnymrK/cWYx3t6OFqttaevp2htQOTjEwfb9yJtUeqLQeAdC2Frukvv4wXbMoCke5MyxSK
+	rdJViqrVuQLP9poRYKyIpwl9fEz9PCBwgaOWvGYqx11vlWep+j3+UY37SF4ROEej5fCBIw6gIFVZm
+	XotlVVIYV4MghqP1uD6twL0s8/wJheiIXkFepewsmaJrce4W+/Yo433lvMB8EYofrd36KIqpgIiVQ
+	j5q87DCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNssT-003pRo-0u;
-	Mon, 24 Jul 2023 10:33:21 +0000
+	id 1qNsxa-003qPQ-0m;
+	Mon, 24 Jul 2023 10:38:38 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNssP-003pQU-24
+	id 1qNsxX-003qOf-1O
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jul 2023 10:33:19 +0000
+	Mon, 24 Jul 2023 10:38:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690194797; x=1721730797;
+  t=1690195115; x=1721731115;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=2A2JU/fzgzYQsCwx+j1j5mbZhV4V8Gf7uWXcztu+eQs=;
-  b=MI+/LhIX2eSEke9ZIhafqRKzt42y6zNKEu3jXJzDFLtdgkXt/5yOoNhb
-   DnS/JHWhYjVS7UbepehuCtGFQHsNFwi+uqZFpOEcAspg++09Cv38DR6nj
-   xaTqTpMfbFTJqxqD6d6OuQxx36elgEWXIHo7zcyIwkDw3Ks022neNVrTE
-   VsY2BAm+gjXzHzYhgxuRy6iCWlfPgeBKLQrblDJX9aLYQ9CDEaDE9gfZv
-   t6pWbdTDPikd9CXUA18quawg2S4J1Injch1Ef9i7WoZcp48JNkpQzK9Vv
-   cjaNzAwhqIT/7/oeDKObcbLXlMjWqTfcH/YLrwoebmp3VQTLaV6Gca+W9
+  bh=eUPS2eKQuZV1PS+dulQY1U13BfYH8VlPDUoaYrp3SCU=;
+  b=yc0piY3wQiXZ2WZUhJQXC2mTxpEyBSgXyVfCB0xDigcWOFEu7Q2OBmev
+   DBoV6ikuP0Z4pFEphO5U7VIpENouTIpIwbDW1AW+GS3K7Yfk/HKmFX8rh
+   Zi6UumWHKrsWPh+XhmKQW9hAnqnM/DjAARN0CjLHLcGlfSh0jKU30X9WU
+   eiGzUEediNdFFchSwR7e3DFJmkNMtSfhvrgKwpV25MCSXlZqFqOxsN3bd
+   tfEkUPoYuDxx3IMAiKHEIGrCTKH9tFi0feGCpFa2mOnxfwY7WvzpLuMEI
+   Va9tXc/FA0PYbtHlwMMaSbpNkD0KaK73MN9R2wsAR1lDvrE+9R1ha3Gbb
    Q==;
 X-IronPort-AV: E=Sophos;i="6.01,228,1684825200"; 
-   d="asc'?scan'208";a="237300210"
+   d="asc'?scan'208";a="237301218"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Jul 2023 03:33:13 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Jul 2023 03:38:33 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Mon, 24 Jul 2023 03:33:13 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.21; Mon, 24 Jul 2023 03:38:33 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Mon, 24 Jul 2023 03:33:11 -0700
-Date: Mon, 24 Jul 2023 11:32:38 +0100
+ Transport; Mon, 24 Jul 2023 03:38:30 -0700
+Date: Mon, 24 Jul 2023 11:37:56 +0100
 From: Conor Dooley <conor.dooley@microchip.com>
-To: Sunil V L <sunilvl@ventanamicro.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Paul
+To: Jisheng Zhang <jszhang@kernel.org>
+CC: Drew Fustini <dfustini@baylibre.com>, Conor Dooley <conor@kernel.org>, Guo
+ Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Paul
  Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Andrew Jones <ajones@ventanamicro.com>,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH v3 -fixes] RISC-V: ACPI: Fix acpi_os_ioremap to return
- iomem address
-Message-ID: <20230724-zit-stunning-901bfd989a4a@wendy>
-References: <20230724100346.1302937-1-sunilvl@ventanamicro.com>
+	Albert Ou <aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Robert Nelson
+	<robertcnelson@beagleboard.org>, Jason Kridner <jkridner@beagleboard.org>
+Subject: Re: [PATCH 1/3] riscv: dts: thead: add BeagleV Ahead board device
+ tree
+Message-ID: <20230724-census-party-0a50d1563075@wendy>
+References: <20230722-upstream-beaglev-ahead-dts-v1-0-ccda511357f4@baylibre.com>
+ <20230722-upstream-beaglev-ahead-dts-v1-1-ccda511357f4@baylibre.com>
+ <20230723-savor-trolling-e35ed4a7a751@spud>
+ <ZL1jlacHj7sgNg8M@x1>
+ <ZL3Eenj4lGZDhZTM@xhacker>
 MIME-Version: 1.0
-In-Reply-To: <20230724100346.1302937-1-sunilvl@ventanamicro.com>
+In-Reply-To: <ZL3Eenj4lGZDhZTM@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_033317_857587_B2A356A3 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20230724_033835_495810_1535C2FF 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +89,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5221893009449491280=="
+Content-Type: multipart/mixed; boundary="===============5883982424388382988=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5221893009449491280==
+--===============5883982424388382988==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zkxf3SyDjVGAdJvc"
+	protocol="application/pgp-signature"; boundary="IYmJ4PmQz3geta1F"
 Content-Disposition: inline
 
---zkxf3SyDjVGAdJvc
+--IYmJ4PmQz3geta1F
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jul 24, 2023 at 03:33:46PM +0530, Sunil V L wrote:
-> acpi_os_ioremap() currently is a wrapper to memremap() on
-> RISC-V. But the callers of acpi_os_ioremap() expect it to
-> return __iomem address and hence sparse tool reports a new
-> warning. Fix this issue by type casting to  __iomem type.
+On Mon, Jul 24, 2023 at 08:23:22AM +0800, Jisheng Zhang wrote:
+> On Sun, Jul 23, 2023 at 10:29:57AM -0700, Drew Fustini wrote:
+> > On Sun, Jul 23, 2023 at 11:32:17AM +0100, Conor Dooley wrote:
+> > > On Sat, Jul 22, 2023 at 02:55:39PM -0700, Drew Fustini wrote:
+> > >=20
+> > > > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > > @@ -0,0 +1,61 @@
+> > > > +// SPDX-License-Identifier: GPL-2.0
+> > >=20
+> > > Hmm, should this not be dual licensed?
+> > > I notice the other th1520 stuff isn't either..
+> >=20
+> > Good point, I'll resubmit with a dual license.
+> >=20
+> > Jisheng: are you okay with the other arch/riscv/boot/dts/thead files
+> > changing to a dual license?
 >=20
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202307230357.egcTAefj-lkp@i=
-ntel.com/
-> Fixes: a91a9ffbd3a5 ("RISC-V: Add support to build the ACPI core")
-> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> ---
-
-Surprisingly, my automation already tested this patch. Usually there's a
-several hour delay between posting & testing.
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-> Changes since v2:
-> 	1) Removed unnecessary __force.
-> 	2) Removed unnecessary space after cast to fix checkpatch --strict warni=
-ng.
+> When cooking the initial patch, I wrote the lpi4a dts files from
+> scratch based on sipeed opened sch file, and currently only I made
+> contributions to them, so it's easy to make the lpi4a dts files
+> dual license.
 >=20
-> Changes since v1:
-> 	1) Removed enhancements from the fix patch.
->=20
->  arch/riscv/include/asm/acpi.h | 2 +-
->  arch/riscv/kernel/acpi.c      | 4 ++--
->  2 files changed, 3 insertions(+), 3 deletions(-)
->=20
-> diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
-> index f71ce21ff684..d5604d2073bc 100644
-> --- a/arch/riscv/include/asm/acpi.h
-> +++ b/arch/riscv/include/asm/acpi.h
-> @@ -19,7 +19,7 @@ typedef u64 phys_cpuid_t;
->  #define PHYS_CPUID_INVALID INVALID_HARTID
-> =20
->  /* ACPI table mapping after acpi_permanent_mmap is set */
-> -void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size);
-> +void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size=
-);
->  #define acpi_os_ioremap acpi_os_ioremap
-> =20
->  #define acpi_strict 1	/* No out-of-spec workarounds on RISC-V */
-> diff --git a/arch/riscv/kernel/acpi.c b/arch/riscv/kernel/acpi.c
-> index 5ee03ebab80e..56cb2c986c48 100644
-> --- a/arch/riscv/kernel/acpi.c
-> +++ b/arch/riscv/kernel/acpi.c
-> @@ -215,9 +215,9 @@ void __init __acpi_unmap_table(void __iomem *map, uns=
-igned long size)
->  	early_iounmap(map, size);
->  }
-> =20
-> -void *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
-> +void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
->  {
-> -	return memremap(phys, size, MEMREMAP_WB);
-> +	return (void __iomem *)memremap(phys, size, MEMREMAP_WB);
->  }
-> =20
->  #ifdef CONFIG_PCI
-> --=20
-> 2.39.2
->=20
+> However, when constructing the th1520.dtsi, I refered the T-HEAD's
+> opensourced yocto repo(in fact, that's the only sourcecode/doc I have
+> at that time), and the license there is GPL-2.0. That's
+> also the reason why copyright of Alibaba Group Holding Limited is
+> added to th1520.dtsi. I'm not sure how to make th1520.dtsi dual
+> license. At least, this needs help from Guo Ren. Any suggestion is
+> appreciated.
 
---zkxf3SyDjVGAdJvc
+I think Guo Ren Acking the change should be sufficient. It'd be good to
+have them dual licensed to make it easier for other projects to include
+the dts files from Linux. Almost all of what we have at the moment is
+dual licensed, other than the Canaan stuff & some board dts files I got
+=66rom customers that were only GPLed.
+
+--IYmJ4PmQz3geta1F
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZL5TRQAKCRB4tDGHoIJi
-0sSUAQDRKYATqlpRLkFQpUraMl2rdoynN0aAfJOpVdSZbqnsrwEAuylSpN7Gpx3x
-eShz+1UlkmUkL7qLQ4c5WW/ZZyoJQQQ=
-=5gPe
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZL5UhAAKCRB4tDGHoIJi
+0t3eAP0SIcy6zSf49cO2g9xepgYH48UogCXzOT92cUu2NKH05QEA5Fk0An0caUmn
+SbO0ODosTVbVLHdioxciWhf1orRGXQM=
+=Ii48
 -----END PGP SIGNATURE-----
 
---zkxf3SyDjVGAdJvc--
+--IYmJ4PmQz3geta1F--
 
 
---===============5221893009449491280==
+--===============5883982424388382988==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -188,5 +164,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5221893009449491280==--
+--===============5883982424388382988==--
 
