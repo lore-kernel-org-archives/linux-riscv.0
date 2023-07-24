@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F42DC001B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 14:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30912C001DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 14:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WfvSeAJZvCyh59vmrHSXLHQb5JQswY4CDaKVZ7jfUGw=; b=bbzvblJwSc/sYO
-	/+krRcaUELjb9uJMrcQmhQFCrhSWAMbruq6pm+kXKhCLkxjIc/CFrGUCWtG2hVvo0+cP5b7/cI5G/
-	a9DDbgid8C3/hEGfm12qR+wCOomAaRKbhZ4Iev64F1gFr8ICntk2MmDV4zqx97YNIbVFjZ8vnRpHn
-	PEbNFc/jOs7yXXKya/2AZ5+MQeGHigHiirzq922I7evTvQGI7La1mTy9l97Kq5mVTKMvxH6/Zof4Y
-	VBWkdPo99E4jPoZrj+wrHYUq1Hr5/qy6H9lSlol/xzvtpaVRNmR2u+MfofvN4fRx+tp4ayWAfzYht
-	6DutAPztU9JQIJckB7gQ==;
+	List-Owner; bh=augNdg5Kwn732LebLjI7SAvUGSSQ0Ye9mfU0FskQfv0=; b=tiPu48ehc8o5V/
+	zYpebcSeAMFp+NNZsk57BTIaMcHckmXdoU5hhyChfgmHsRk6+AqAERFUncJ+c8honOIQK5QxY04bs
+	aXqgNpm/9Swwritavr/+bvi8BZnD5bBbJpLxlRFAQDIUlEt9YqQAT2bOl5APSP2fU6uhA9M3fWCbm
+	o7P3pg3iVCjTgKErGxw4AkLhbmJcXIJe3yHEWdFwpePZxoElSEIiOaH03B5iz08bEdtnv+CH805ej
+	jTrzWKlyvXNCkdIB9P3pqJGFymTB58LRPw84KYtaDk7LVHcI26pPhLiqUwctnnbTdK8OJOzCh/CfI
+	DPbnLSSQsPIKpyQooedQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNwQf-004aYJ-1w;
-	Mon, 24 Jul 2023 14:20:53 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1qNwQk-004aac-1u;
+	Mon, 24 Jul 2023 14:20:58 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNwQc-004aWm-1P
+	id 1qNwQh-004aYu-1l
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Jul 2023 14:20:51 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-1b9d80e33fbso24441295ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 07:20:49 -0700 (PDT)
+	Mon, 24 Jul 2023 14:20:56 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-66872d4a141so2407119b3a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 07:20:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690208449; x=1690813249;
+        d=ventanamicro.com; s=google; t=1690208454; x=1690813254;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xA2xKVDlTfhJaNwFbFuXOx8UsiAOIvWBIr+xpGIDHbw=;
-        b=Ti7MinIAsiXaxrUK9+vbFPfIJZw9yh5briqdt2G4FzLvgLbKNtQvj8lRk6Jxu8he00
-         tBoBQxUgLAyqEDIIrJLWnZOrtgM+Cl+g75CdtJU+eGsUbrQukAb/sk86a7uTl1kF0MEO
-         G2HjLVvjJ4e0SC2jgNBt9XREGqtnKUcLW6yaGJqIxJexYb1v1pfQNl57wB5uF+CeSbMu
-         ggknQQnG+qS3mLj6ilvvNs8bG+aPFNZlSAYC9srmqEzyd0hCSNFj0GNmAOXxUSBR4jxj
-         AfR2fXBRUdRaD/8etMel8v/f/MqsTCt+jEe9YfbN7mNPXPX8sW+pKpAtKAYQo00io3fj
-         QWYw==
+        bh=xufKQxJZ1yMufxzMxtt76Rklm7qyQEzWEW8M8cPFlHM=;
+        b=bC6GYsoh/H3PR+/JPzzVT2fMBcYc6uYovUuNhtlxPoNWVAqKq5UNsJdieKixeX/tod
+         1ZV0pTnpatWWYx/p4XgSry+qNGMAhi/bVja3zNa7LNY3iSUD4lnztOR3OLeSfZDAwa1I
+         kAH2qozVJb9imAZApR20rY2plXzKZiouGGgVFMSoc1nDfSEw3L5YSdSNKaGlFQ81p2mh
+         eQfjF/8iLqwDZ6b5cPQi6fkvoWA7NODznBZOrjcoqIPxQlU3XkE8Gr+dFMQVzEqnvtT1
+         2TItRA+Hz4FVq1Pnur4ItSXg9nPw+ABSUYuEmrVAw2vJ8oDPfoWGlE/W3iN/JRCCaVCb
+         Cuew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690208449; x=1690813249;
+        d=1e100.net; s=20221208; t=1690208454; x=1690813254;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xA2xKVDlTfhJaNwFbFuXOx8UsiAOIvWBIr+xpGIDHbw=;
-        b=P2HvPGtx3S3k7dUVdxk4J7zPRjw/DYkYHrbIpKDXYtytNvCsXYjVc2pbJePrXVEfRD
-         kEr1j+xEa4skVSM2mJLpuNMzKkJdQXUKkMg6tFU/xuYfq0W2noQ7MtpZplZRvN9dJeNb
-         KESy0c91PabyXb1+4tyD68I9JgWGGs92vZPGfz1FZPp+OB+gWPKIBEm4YP7hvwxsE88/
-         t5/fLNeD9e+UragfwcMKNqEYLMczzePxgP5oxyahtjGV1wIS2ktQB2RKhYzoEWuR0KjB
-         Ygynr9FV5eAk7krfHbnCj0Binu/mFKEOwNHhSRALWtrcH2JhQlXVejUC7IE5iNAxcpxg
-         Z8Tw==
-X-Gm-Message-State: ABy/qLZnUEKTWEwyJasowZQ7l6q1XnNT5k9m/jy/mzvXVOZe0jXDAknr
-	Wq0dismRLHSG+Hp2f11/+FJqcw==
-X-Google-Smtp-Source: APBJJlHPt6y/N05egGPuqcnG8ZCXhgJ+77H629QsBZHfvLDHAUCNTQjZG9Jyiv3v1HjRVo5UAXElsQ==
-X-Received: by 2002:a17:902:ea0a:b0:1b3:c7c1:8ded with SMTP id s10-20020a170902ea0a00b001b3c7c18dedmr9467459plg.27.1690208449126;
-        Mon, 24 Jul 2023 07:20:49 -0700 (PDT)
+        bh=xufKQxJZ1yMufxzMxtt76Rklm7qyQEzWEW8M8cPFlHM=;
+        b=bboDQg1vmaSkdyWxzv7Yn2PBzRLaBEXGSuZJKULYNDJViT/SvlMNFlisy6jKu4T3VE
+         co6emnhzDM0gzgQHclKN5cLGsKOAEiTRfuE9G6jltS8y1OcitvbXa/gQWy3+HCn4M9+T
+         JOWiP8xEsQrWQH1K4IgKgyBd3+mNQYUQ/Yf5UP3peKAOPlaQVsdNaJ88D3RoZ9DewQds
+         X7JJ/Scs+L2+jjODfivdTjThhdGMe/2bIv1W7uSyE6MSb9jdEti9B/oyseaeS9nthRsL
+         tpT1YoR6vCoG44IV/y+b3UHcceSZUQPLyQRj7K8BbC/7pzYm1VP1m+ePaJQ5h+mV7gHW
+         j21Q==
+X-Gm-Message-State: ABy/qLa2ZrwgZ4VYzgni8iJ7OrCwODgiZMyXjtYbb3og0A5o1xX9g+Al
+	MM6WJmD2mbUcpNdA3tEVmLNEKQ==
+X-Google-Smtp-Source: APBJJlEo3gtTsxiR0fYDOZcP5/iHY2QuQDqA3+tze14PsUJjDAVDEFqk1Zsr4maai1yipTLksmB6mw==
+X-Received: by 2002:a05:6a21:32a9:b0:137:514a:984f with SMTP id yt41-20020a056a2132a900b00137514a984fmr9109819pzb.35.1690208454453;
+        Mon, 24 Jul 2023 07:20:54 -0700 (PDT)
 Received: from mchitale-vm.. ([103.97.165.210])
-        by smtp.googlemail.com with ESMTPSA id s10-20020a170902a50a00b001b8307c81c8sm9009821plq.121.2023.07.24.07.20.44
+        by smtp.googlemail.com with ESMTPSA id s10-20020a170902a50a00b001b8307c81c8sm9009821plq.121.2023.07.24.07.20.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Jul 2023 07:20:48 -0700 (PDT)
+        Mon, 24 Jul 2023 07:20:54 -0700 (PDT)
 From: Mayuresh Chitale <mchitale@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Anup Patel <anup@brainfault.org>
@@ -76,16 +76,17 @@ Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Rob Herring <robh+dt@kernel.org>,
 	devicetree@vger.kernel.org
-Subject: [PATCH v3 1/7] RISC-V: Detect Smstateen extension
-Date: Mon, 24 Jul 2023 19:50:27 +0530
-Message-Id: <20230724142033.306538-2-mchitale@ventanamicro.com>
+Subject: [PATCH v3 2/7] dt-bindings: riscv: Add smstateen entry
+Date: Mon, 24 Jul 2023 19:50:28 +0530
+Message-Id: <20230724142033.306538-3-mchitale@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20230724142033.306538-1-mchitale@ventanamicro.com>
 References: <20230724142033.306538-1-mchitale@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_072050_477843_16192926 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20230724_072055_581192_64663B0E 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,52 +103,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend the ISA string parsing to detect the Smstateen extension
+Add an entry for the Smstateen extension to the riscv,isa-extensions
+property.
 
 Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/include/asm/hwcap.h | 1 +
- arch/riscv/kernel/cpu.c        | 1 +
- arch/riscv/kernel/cpufeature.c | 1 +
- 3 files changed, 3 insertions(+)
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index f041bfa7f6a0..fad1fd1fcd05 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -53,6 +53,7 @@
- #define RISCV_ISA_EXT_ZICSR		40
- #define RISCV_ISA_EXT_ZIFENCEI		41
- #define RISCV_ISA_EXT_ZIHPM		42
-+#define RISCV_ISA_EXT_SMSTATEEN		43
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index cc1f546fdbdc..36ff6749fbba 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -128,6 +128,12 @@ properties:
+             changes to interrupts as frozen at commit ccbddab ("Merge pull
+             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
  
- #define RISCV_ISA_EXT_MAX		64
- #define RISCV_ISA_EXT_NAME_LEN_MAX	32
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index a2fc952318e9..fb0df651bc48 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -217,6 +217,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
- 	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
- 	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
- 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-+	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
- 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index a8f66c015229..c3742a765f8b 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -301,6 +301,7 @@ void __init riscv_fill_hwcap(void)
- 			} else {
- 				/* sorted alphabetically */
- 				SET_ISA_EXT_MAP("smaia", RISCV_ISA_EXT_SMAIA);
-+				SET_ISA_EXT_MAP("smstateen", RISCV_ISA_EXT_SMSTATEEN);
- 				SET_ISA_EXT_MAP("ssaia", RISCV_ISA_EXT_SSAIA);
- 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
- 				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
++        - const: smstateen
++          description: |
++            The standard Smstateen extension for controlling access to CSRs
++            added by other RISC-V extensions in H/S/VS/U/VU modes and as
++            ratified at commit a28bfae (Ratified (#7)) of riscv-state-enable.
++
+         - const: ssaia
+           description: |
+             The standard Ssaia supervisor-level extension for the advanced
 -- 
 2.34.1
 
