@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FC9C0015E
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 12:48:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACC1C0015E
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Jul 2023 12:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CkBEvT/fAylwh5FNK0GQ/6c5HFBp83pHTK90sj0TOX8=; b=Iz0Z0inIzneGCo
-	WTPHiHTfwebxVGj9Jumsq5SbYOMlLGK12t7EUhBu9pEv+vqH5MODVLoGybSjoR1fPJwO6YJT8BdlO
-	xrN7ZJr/dXALHxziRU5xaQP9YIyKobfSUQO128iQl+ORmZSn3ayyiiHXCMRrlxjNmLL0xEYWF2Fce
-	Ma2gSiqmchsmj2/TEw5a5VznLaaG3/Sibutt3Ryc33Qngx5gRoO/Kn9zc+stWCOaCkMRTuzomdjWB
-	Du7bWIeHB6LRgdWhUchnLvNmPRvJ51xij1bJDlkWg1umXfP/mQeoxMbsh/YvuT9LoL2UV4qBXF7Wa
-	wXdK+EamHzmPQeGBxGog==;
+	List-Owner; bh=IUrZRSFX0itlPRMfiqEYTbRKuWvcIUwXS7RI98P1870=; b=dROV8R998L3kj3
+	voDdAdWepGRH4C57mgZH7gidgWAPJveXZZ7tRKHtMtsACiSON2I+KAOzNDjf9wJ4Pd2sp3jFllRTi
+	XJgw9ad3nF9whNdSDnnHABm5NT+r+QO3rrHCK52TfiCg/7bRc2+n+TbDDtvvAFdu0Guk4uxAj2siL
+	2dpGwwKW6+CZ/zHokXDOxLDZ1Zf6GxviOV7h5vma1YaO49rMtXwGyjt/PuhFI2Mb0SPQGFfGapIPU
+	TxyumjxhtUnp2tnLfrbjIhJQ0qbGvwK9A+XML77drlcidn3Mm+dbVaXhQu45l5+RLtWudE3rd/1PC
+	dL8NEXV/PMJaw0RkOn1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNuzT-004I7H-2T;
-	Mon, 24 Jul 2023 12:48:43 +0000
+	id 1qNuzc-004IEe-2r;
+	Mon, 24 Jul 2023 12:48:52 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qNuyw-004Hde-19;
-	Mon, 24 Jul 2023 12:48:11 +0000
+	id 1qNuz4-004Hlz-1S;
+	Mon, 24 Jul 2023 12:48:22 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DCC1861150;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id F108861157;
+	Mon, 24 Jul 2023 12:48:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCB6CC433C8;
 	Mon, 24 Jul 2023 12:48:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9852CC433C7;
-	Mon, 24 Jul 2023 12:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690202889;
-	bh=viG5anxcCcnETy6WTEqLj0O+gpdZleg7ylSYSUDSWcI=;
+	s=k20201202; t=1690202897;
+	bh=tjbWwPwmImMptyDPc55s3c7Oj7q65gF9QqqfPkrYo0c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eAHFD3VkLN/8hYIgqRqDjQ6LYTYEEBqeysndIBpWyaqChnJimQhI2SWLffN0KZPuj
-	 lIir4tYMNSE/l0Imtt32k/Aq1wucbaZFpvPA0Q76Ftk5Q2jz6gyNgoMwvHITgWPKzz
-	 TU1gqXlVS9FVW1MNqWsf8w8XXunp1vTJmuOtK7yhaklMl6nMB+HxiZaZqRJBEHgEhy
-	 byqtJUMFFWC+9RJqhZIgnfP2BJDR0dx5Qq4KNXqCldfDulWjLtbVzSdsihRjnfTEh2
-	 DrOZ3c8YOFjiKv0FrziAZlTVf/nMRKDSfIxMJVdP9+jOkJpXRB+Lop3XzdQmgwvwPe
-	 uq0oKZomv4thg==
+	b=ADxRF/rPadsVQZC+i6BqotmFLVNKg076CcFfLhOBO8/KXuFISllZyQm+ZLlPLRMh1
+	 3A79q+cxaE+hzhoQwwnkUcTElR79/APwv2RhDVkBZIEC/NbKFNFGKYDv4Nkwo5TWhY
+	 f2BXeoa+KRoEfk95MzM8mpVnNzyzQ1a/4G5vTVoxyZweh7xEBjpiJatLgjChZ7gtex
+	 qoaXatmAK/9UoNIvy34ASKuO1BGkIaXMUWLWXbk7y70VhSb4ETmsomItbv6LOpZOwW
+	 okB9ShLTyeUu3dvoM4zm/AENtnyDifyekbqCfO/r0DSUUM1HhQn80MUaK9nkFe7ZQU
+	 a0G+Z5YalyCxQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 24 Jul 2023 13:45:58 +0100
-Subject: [PATCH v2 11/35] arm64/mm: Map pages for guarded control stack
+Date: Mon, 24 Jul 2023 13:45:59 +0100
+Subject: [PATCH v2 12/35] KVM: arm64: Manage GCS registers for guests
 MIME-Version: 1.0
-Message-Id: <20230724-arm64-gcs-v2-11-dc2c1d44c2eb@kernel.org>
+Message-Id: <20230724-arm64-gcs-v2-12-dc2c1d44c2eb@kernel.org>
 References: <20230724-arm64-gcs-v2-0-dc2c1d44c2eb@kernel.org>
 In-Reply-To: <20230724-arm64-gcs-v2-0-dc2c1d44c2eb@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -70,20 +70,20 @@ Cc: "H.J. Lu" <hjl.tools@gmail.com>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.13-dev-099c9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1225; i=broonie@kernel.org;
- h=from:subject:message-id; bh=viG5anxcCcnETy6WTEqLj0O+gpdZleg7ylSYSUDSWcI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBkvnKRaZSoY2+MaaD6WZiUULr2xdVlp7ZPrzrnZmLl
- EHOK+gKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZL5ykQAKCRAk1otyXVSH0Mg7B/
- 9+4k2ZXisvhnKjAsSHTUw1WHN7uidVpsJ/tQIxcwlf/sL96Wr7p6Dt3WpcFegBwJyWipn6L5XmrDzp
- TLd6eWFsOwxF6bMxL71UbwQ929Lih6fQ5r2sUQxNEwTKYmrIzhvm3paIYNtGe/17bHGmT5+fxtxHG4
- 7o5KhB1DsaTLY9ECCB38jAMstQ7+Lv/on3xMjPHnXrR7+U52NdveoIDKePI9eiQ01sF+Ylw/EEmzIJ
- KCqoCbYhFOAwUVuppI/P3fHgbq9mkLk+K8CPa3KY+fZEMQz6DsApbzkl1+HcynR3gRKzR6YGMA227w
- dorur6W9UQcXxTVIfPt+VAxzu2iB5Q
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5343; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=tjbWwPwmImMptyDPc55s3c7Oj7q65gF9QqqfPkrYo0c=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBkvnKSv10GbqCkJKl0MIgaPzbU+3ins2JfIR4qxdNq
+ VBMr5EeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZL5ykgAKCRAk1otyXVSH0HYkB/
+ oD+/iKQHx+kc51iDU03jw2wlz1limfx2oHjsDk7t3Mr9lcTphYTMe06qVIXhlQAYhNPh77cMXu1tMm
+ BUdtEbelf2oNNO+lQMqtmtbGzBeJsalvCoNCYP5P9dlTf1Z5PiyvP1Te1hLpz7Lmf7ZSu3CeSnjzGx
+ G4Fc5l3dyqyjV3aZuvZGqc81w7Oc/LmERqgQgpDRxnuoK8mqlSn4ZPuiZOHu1vTEw5GuYKl2y5pxlr
+ 0zS+UoZ5FYLGltgMGqCwFXTaA2Jzwhqolu5rLSk7WJHQAs7Sxma8rPR1B7a+8Z/TaN9Q4p5z7Xy11q
+ e0ZPRYnRBPrd9EGdjqoNyVfx7CzbUe
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_054810_477570_1C992CB4 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20230724_054818_573689_C2A5CBC0 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +100,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Map pages flagged as being part of a GCS as such rather than using the
-full set of generic VM flags.
-
-This is done using a conditional rather than extending the size of
-protection_map since that would make for a very sparse array.
+GCS introduces a number of system registers for EL1 and EL0, on systems
+with GCS we need to context switch them and expose them to VMMs to allow
+guests to use GCS.  Traps are already disabled.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/mm/mmap.c | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_host.h          | 12 ++++++++++++
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 17 +++++++++++++++++
+ arch/arm64/kvm/sys_regs.c                  | 22 ++++++++++++++++++++++
+ 3 files changed, 51 insertions(+)
 
-diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
-index 8f5b7ce857ed..e2ca770920ed 100644
---- a/arch/arm64/mm/mmap.c
-+++ b/arch/arm64/mm/mmap.c
-@@ -79,8 +79,23 @@ arch_initcall(adjust_protection_map);
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index d3dd05bbfe23..a5bb00f58108 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -364,6 +364,12 @@ enum vcpu_sysreg {
+ 	PIR_EL1,       /* Permission Indirection Register 1 (EL1) */
+ 	PIRE0_EL1,     /*  Permission Indirection Register 0 (EL1) */
  
- pgprot_t vm_get_page_prot(unsigned long vm_flags)
- {
--	pteval_t prot = pgprot_val(protection_map[vm_flags &
-+	pteval_t prot;
++	/* Guarded Control Stack registers */
++	GCSCRE0_EL1,	/* Guarded Control Stack Control (EL0) */
++	GCSCR_EL1,	/* Guarded Control Stack Control (EL1) */
++	GCSPR_EL0,	/* Guarded Control Stack Pointer (EL0) */
++	GCSPR_EL1,	/* Guarded Control Stack Pointer (EL1) */
 +
-+	/*
-+	 * If this is a GCS then only interpret VM_WRITE.
-+	 *
-+	 * TODO: Just make protection_map[] bigger?  Nothing seems
-+	 * ideal here.
-+	 */
-+	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
-+		if (vm_flags & VM_WRITE)
-+			prot = _PAGE_GCS;
-+		else
-+			prot = _PAGE_GCS_RO;
-+	} else {
-+		prot = pgprot_val(protection_map[vm_flags &
- 				   (VM_READ|VM_WRITE|VM_EXEC|VM_SHARED)]);
-+	}
+ 	/* 32bit specific registers. */
+ 	DACR32_EL2,	/* Domain Access Control Register */
+ 	IFSR32_EL2,	/* Instruction Fault Status Register */
+@@ -1136,6 +1142,12 @@ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+ #define kvm_vm_has_ran_once(kvm)					\
+ 	(test_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &(kvm)->arch.flags))
  
- 	if (vm_flags & VM_ARM64_BTI)
- 		prot |= PTE_GP;
++static inline bool has_gcs(void)
++{
++	return IS_ENABLED(CONFIG_ARM64_GCS) &&
++		cpus_have_final_cap(ARM64_HAS_GCS);
++}
++
+ int kvm_trng_call(struct kvm_vcpu *vcpu);
+ #ifdef CONFIG_KVM
+ extern phys_addr_t hyp_mem_base;
+diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+index bb6b571ec627..ec34d4a90717 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
++++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+@@ -25,6 +25,8 @@ static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
+ {
+ 	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
+ 	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
++	if (has_gcs())
++		ctxt_sys_reg(ctxt, GCSPR_EL0) = read_sysreg_s(SYS_GCSPR_EL0);
+ }
+ 
+ static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
+@@ -62,6 +64,12 @@ static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
+ 	ctxt_sys_reg(ctxt, PAR_EL1)	= read_sysreg_par();
+ 	ctxt_sys_reg(ctxt, TPIDR_EL1)	= read_sysreg(tpidr_el1);
+ 
++	if (has_gcs()) {
++		ctxt_sys_reg(ctxt, GCSPR_EL1)	= read_sysreg_el1(SYS_GCSPR);
++		ctxt_sys_reg(ctxt, GCSCR_EL1)	= read_sysreg_el1(SYS_GCSCR);
++		ctxt_sys_reg(ctxt, GCSCRE0_EL1)	= read_sysreg_s(SYS_GCSCRE0_EL1);
++	}
++
+ 	if (ctxt_has_mte(ctxt)) {
+ 		ctxt_sys_reg(ctxt, TFSR_EL1) = read_sysreg_el1(SYS_TFSR);
+ 		ctxt_sys_reg(ctxt, TFSRE0_EL1) = read_sysreg_s(SYS_TFSRE0_EL1);
+@@ -95,6 +103,8 @@ static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
+ {
+ 	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL0),	tpidr_el0);
+ 	write_sysreg(ctxt_sys_reg(ctxt, TPIDRRO_EL0),	tpidrro_el0);
++	if (has_gcs())
++		write_sysreg_s(ctxt_sys_reg(ctxt, GCSPR_EL0), SYS_GCSPR_EL0);
+ }
+ 
+ static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt)
+@@ -138,6 +148,13 @@ static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt)
+ 	write_sysreg(ctxt_sys_reg(ctxt, PAR_EL1),	par_el1);
+ 	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL1),	tpidr_el1);
+ 
++	if (has_gcs()) {
++		write_sysreg_el1(ctxt_sys_reg(ctxt, GCSPR_EL1),	SYS_GCSPR);
++		write_sysreg_el1(ctxt_sys_reg(ctxt, GCSCR_EL1),	SYS_GCSCR);
++		write_sysreg_s(ctxt_sys_reg(ctxt, GCSCRE0_EL1),
++			       SYS_GCSCRE0_EL1);
++	}
++
+ 	if (ctxt_has_mte(ctxt)) {
+ 		write_sysreg_el1(ctxt_sys_reg(ctxt, TFSR_EL1), SYS_TFSR);
+ 		write_sysreg_s(ctxt_sys_reg(ctxt, TFSRE0_EL1), SYS_TFSRE0_EL1);
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 2ca2973abe66..5b2f238d33be 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1768,6 +1768,23 @@ static unsigned int mte_visibility(const struct kvm_vcpu *vcpu,
+ 	.visibility = mte_visibility,		\
+ }
+ 
++static unsigned int gcs_visibility(const struct kvm_vcpu *vcpu,
++				   const struct sys_reg_desc *rd)
++{
++	if (has_gcs())
++		return 0;
++
++	return REG_HIDDEN;
++}
++
++#define GCS_REG(name) {				\
++	SYS_DESC(SYS_##name),			\
++	.access = undef_access,			\
++	.reset = reset_unknown,			\
++	.reg = name,				\
++	.visibility = gcs_visibility,		\
++}
++
+ static unsigned int el2_visibility(const struct kvm_vcpu *vcpu,
+ 				   const struct sys_reg_desc *rd)
+ {
+@@ -2080,6 +2097,10 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	PTRAUTH_KEY(APDB),
+ 	PTRAUTH_KEY(APGA),
+ 
++	GCS_REG(GCSCR_EL1),
++	GCS_REG(GCSPR_EL1),
++	GCS_REG(GCSCRE0_EL1),
++
+ 	{ SYS_DESC(SYS_SPSR_EL1), access_spsr},
+ 	{ SYS_DESC(SYS_ELR_EL1), access_elr},
+ 
+@@ -2162,6 +2183,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ SYS_DESC(SYS_SMIDR_EL1), undef_access },
+ 	{ SYS_DESC(SYS_CSSELR_EL1), access_csselr, reset_unknown, CSSELR_EL1 },
+ 	{ SYS_DESC(SYS_CTR_EL0), access_ctr },
++	GCS_REG(GCSPR_EL0),
+ 	{ SYS_DESC(SYS_SVCR), undef_access },
+ 
+ 	{ PMU_SYS_REG(PMCR_EL0), .access = access_pmcr,
 
 -- 
 2.30.2
