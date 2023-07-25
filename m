@@ -4,72 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3D2C0015E
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 08:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C57EC001DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 08:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y0HyG1HeXmdfUyIwCcb0gMUhBpVw0v4Cx5ZjWh52EK8=; b=VXQbF0znZ5tL8y
-	4XPEItRUVMygnVUbFJXRHJ2KpLWjknfFTOsvnjlG7z7Nnpu/FsTsKnjladl3kbz7XBGy90U7yPKvk
-	KbK/SV1Qi41Eb/f3tFw84BoXYo9YyuefTuiKRKBDWGHU2mNnlAQLIPCl9fFiV9IEkYvCQ/qzbYhx4
-	GuNgmDE7H8Hf42Xlt+s1S7tJwl4qu08E4nnIg1RKp2tRQU35Zvp//T0gF6L7CF/ERiVv3/V2kdbRD
-	BrQ339FETRAm0XClJAJNDsRgDpIB5gYM73+BesKubTAPQYLcH/DQgYwhjRZMcYiS2cMyFOuC7Hvyg
-	/kWKhPk1Jpv+8f9x2egQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Cg+GNySS1KvxlHVv44Y1/UYrP8d5z9DWOuAi8MkNKA0=; b=Qk5gx8JM5Nc3t9
+	03mDXOTy89zXDkpmK3CUpX39irbyLV3bF7i6cAErbQ+kA6vIriCP8h44IAM9yxBxhIucTzhpgIh4F
+	hZdvvkzoOexeGIqhZ9CkZFwuT6WQ6VC/RMkyYuBIvpXShseqwVDq2YbCqQToHOzi5yP6Mb2NMIv6d
+	K1ovRd5uZyqicBXjjT/gWBxpnedjjlr5MdS+3mI/Yt/oi0eFu7/dpViuMax82O2o+E4+ClBY9IU3N
+	tVPkdJZIQjSpjMPCEbPSlX1TpDxSPpmHD+5Rsx+XabEj+riUzJj+uBouD7SWdJA3bmsv/WnRD5usI
+	SxDS3vA/mN6qcnIHSJlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qODOm-006jrD-1O;
-	Tue, 25 Jul 2023 08:28:04 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qODOi-006jo7-2V
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 08:28:03 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 90D1C83D4;
-	Tue, 25 Jul 2023 16:27:31 +0800 (CST)
-Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 25 Jul
- 2023 16:27:31 +0800
-Received: from [192.168.125.84] (183.27.99.135) by EXMBX172.cuchost.com
- (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 25 Jul
- 2023 16:27:30 +0800
-Message-ID: <62ddb368-d714-8986-9904-2e44edfb069c@starfivetech.com>
-Date: Tue, 25 Jul 2023 16:27:29 +0800
+	id 1qODWT-006kgW-1d;
+	Tue, 25 Jul 2023 08:36:01 +0000
+Received: from mga03.intel.com ([134.134.136.65])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qODWP-006kfE-0U;
+	Tue, 25 Jul 2023 08:35:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1690274157; x=1721810157;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Oi5o0PQk3nmBZgGrsnz6JWHqLdL0Xutih7n1mhmf6sQ=;
+  b=g6eT2rt49MMHK2kD3so7Mc9p1yJS7OqglbT8dEzVKgzE4eL2OCyQUhxq
+   LxG8XUArKnTJsdvBvfsK2w9MyD+P6DdjuIl/kiW12xRDL6Lujequ+WCdz
+   yY5xI2PBP4Esh9AcQqThfSi5EBVflaN/CnruuqztV7moYMuH/vX8VCSn7
+   y8OV14hR/JkrNdtldH4V2BkkOFKPPJTiUkNVOoRDt+hBDot+6yNEXEQmr
+   0g5SuE8V3ef0cpV7fWb7ucVko7yXCjXXxJuuOcnM/dy6RJVVm9lXceyMo
+   4gZGyP0eJoA14Th+GOfrDuFHK4uttfJO+Zsk12Y4cSYG6Zn1Xbw6mOi9Z
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10781"; a="371264146"
+X-IronPort-AV: E=Sophos;i="6.01,230,1684825200"; 
+   d="scan'208";a="371264146"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2023 01:35:55 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10781"; a="761129972"
+X-IronPort-AV: E=Sophos;i="6.01,230,1684825200"; 
+   d="scan'208";a="761129972"
+Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
+  by orsmga001-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2023 01:35:45 -0700
+From: Haibo Xu <haibo1.xu@intel.com>
+To: 
+Cc: xiaobo55x@gmail.com,
+	haibo1.xu@intel.com,
+	ajones@ventanamicro.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	seanjc@google.com,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Shuah Khan <shuah@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Ricardo Koller <ricarkol@google.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Like Xu <likexu@tencent.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	David Matlack <dmatlack@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: [PATCH v6 00/13] RISCV: Add KVM_GET_REG_LIST API
+Date: Tue, 25 Jul 2023 16:41:26 +0800
+Message-Id: <cover.1690273969.git.haibo1.xu@intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v1 1/5] ASoC: dt-bindings: Add StarFive JH7110 dummy
- PWM-DAC transmitter
-From: Hal Feng <hal.feng@starfivetech.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Mark Brown
-	<broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela
-	<perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor@kernel.org>, "Walker
- Chen" <walker.chen@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <alsa-devel@alsa-project.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20230626110909.38718-1-hal.feng@starfivetech.com>
- <20230626110909.38718-2-hal.feng@starfivetech.com>
- <006ddacd-0496-70d1-3310-99b16706de84@linaro.org>
- <0312262c-28c0-9445-c6f7-2079a57db8c7@starfivetech.com>
- <c0244a98-4c91-93d8-a3e4-5210d0b3f205@linaro.org>
- <d046796e-34a0-56e5-a740-6a1fcf41d216@starfivetech.com>
-Content-Language: en-US
-In-Reply-To: <d046796e-34a0-56e5-a740-6a1fcf41d216@starfivetech.com>
-X-Originating-IP: [183.27.99.135]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX172.cuchost.com
- (172.16.6.92)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_012801_167401_C81D16A3 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20230725_013557_234769_48F097F0 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,80 +107,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Jul 2023 11:22:50 +0800, Hal Feng wrote:
-> On Sat, 1 Jul 2023 10:17:51 +0200, Krzysztof Kozlowski wrote:
->> On 30/06/2023 03:57, Hal Feng wrote:
->>> On Mon, 26 Jun 2023 17:34:56 +0200, Krzysztof Kozlowski wrote:
->>>> On 26/06/2023 13:09, Hal Feng wrote:
->>>>> Add bindings for StarFive JH7110 dummy PWM-DAC transmitter.
->>>>
->>>> ...
->>>>
->>>>> +required:
->>>>> +  - compatible
->>>>> +  - "#sound-dai-cells"
->>>>> +
->>>>> +additionalProperties: false
->>>>> +
->>>>> +examples:
->>>>> +  - |
->>>>> +    pwmdac-dit {
->>>>> +        compatible = "starfive,jh7110-pwmdac-dit";
->>>>> +        #sound-dai-cells = <0>;
->>>>
->>>> BTW, I don't see any resources here. Neither in the driver. I think you
->>>> just added this for driver, not for a real hardware.
->>> 
->>> Yes, this is a dummy PWM-DAC transmitter as described in the title. The
->>> StarFive JH7110 PWM-DAC module doesn't need a hardware codec, but a
->>> dummy codec is needed for the driver.
->> 
->> Bindings are no for drivers, therefore with such reasoning the answer
->> is: drop entire binding. If you think otherwise, please give me some
->> more details about the hardware.
-> 
-> I agreed. I will drop this binding and the compatible in patch 2. Thanks.
+KVM_GET_REG_LIST will dump all register IDs that are available to
+KVM_GET/SET_ONE_REG and It's very useful to identify some platform
+regression issue during VM migration.
 
-Hi, Krzysztof,
+Patch 1-7 re-structured the get-reg-list test in aarch64 to make some
+of the code as common test framework that can be shared by riscv.
 
-Could I use the dummy spdif codec [1][2] which is already upstream? The dummy
-spdif codec is really compatible with the one which JH7110 PWM-DAC needed.
-They are mostly similar.
+Patch 8 move reject_set check logic to a function so as to check for
+different errno for different registers.
+Patch 9 move finalize_vcpu back to run_test so that riscv can implement
+its specific operation.
+Patch 10 change to do the get/set operation only on present-blessed list.
+Patch 11 add the skip_set facilities so that riscv can skip set operation
+on some registers.
+Patch 12 enabled the KVM_GET_REG_LIST API in riscv.
+patch 13 added the corresponding kselftest for checking possible
+register regressions.
 
-[1] Documentation/devicetree/bindings/sound/linux,spdif-dit.yaml
-[2] sound/soc/codecs/spdif_transmitter.c
+The get-reg-list kvm selftest was ported from aarch64 and tested with
+Linux v6.5-rc3 on a Qemu riscv64 virt machine.
 
-In that way, patch 1 & 2 can be dropped and patch 5 will be modified as follows.
+---
+Changed since v5:
+  * Rebase to v6.5-rc3
+  * Minor fix for Andrew's comments
 
-+	pwmdac_dit: pwmdac-dit {
-+		compatible = "linux,spdif-dit";
-+		#sound-dai-cells = <0>;
-+	};
-+
-+	sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "StarFive-PWMDAC-Sound-Card";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		simple-audio-card,dai-link@0 {
-+			reg = <0>;
-+			format = "left_j";
-+			bitclock-master = <&sndcpu0>;
-+			frame-master = <&sndcpu0>;
-+
-+			sndcpu0: cpu {
-+				sound-dai = <&pwmdac>;
-+			};
-+
-+			codec {
-+				sound-dai = <&pwmdac_dit>;
-+			};
-+		};
-+	};
+Andrew Jones (7):
+  KVM: arm64: selftests: Replace str_with_index with strdup_printf
+  KVM: arm64: selftests: Drop SVE cap check in print_reg
+  KVM: arm64: selftests: Remove print_reg's dependency on vcpu_config
+  KVM: arm64: selftests: Rename vcpu_config and add to kvm_util.h
+  KVM: arm64: selftests: Delete core_reg_fixup
+  KVM: arm64: selftests: Split get-reg-list test code
+  KVM: arm64: selftests: Finish generalizing get-reg-list
 
-Best regards,
-Hal
+Haibo Xu (6):
+  KVM: arm64: selftests: Move reject_set check logic to a function
+  KVM: arm64: selftests: Move finalize_vcpu back to run_test
+  KVM: selftests: Only do get/set tests on present blessed list
+  KVM: selftests: Add skip_set facility to get_reg_list test
+  KVM: riscv: Add KVM_GET_REG_LIST API support
+  KVM: riscv: selftests: Add get-reg-list test
+
+ Documentation/virt/kvm/api.rst                |   2 +-
+ arch/riscv/kvm/vcpu.c                         | 375 +++++++++
+ tools/testing/selftests/kvm/Makefile          |  13 +-
+ .../selftests/kvm/aarch64/get-reg-list.c      | 554 ++-----------
+ tools/testing/selftests/kvm/get-reg-list.c    | 401 +++++++++
+ .../selftests/kvm/include/kvm_util_base.h     |  21 +
+ .../selftests/kvm/include/riscv/processor.h   |   3 +
+ .../testing/selftests/kvm/include/test_util.h |   2 +
+ tools/testing/selftests/kvm/lib/test_util.c   |  15 +
+ .../selftests/kvm/riscv/get-reg-list.c        | 780 ++++++++++++++++++
+ 10 files changed, 1670 insertions(+), 496 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/get-reg-list.c
+ create mode 100644 tools/testing/selftests/kvm/riscv/get-reg-list.c
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
