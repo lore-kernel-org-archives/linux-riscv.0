@@ -4,91 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26379C001DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 15:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A81C0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 16:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EDtrj0JO3ELrWGhKehOC69zgjZtNt2MLxxSg4yFGFUU=; b=Emy2eqLwK0jaHv
-	fGu0E8xxpq8pwndViIkAAPZ24ygjtg4/+AaLY+Geh0v+0kBhz/YauEpy66vVNAaixtblJmBopp5Xk
-	jKxHi7Yj4ICdwReBRxVubUcvAg4FHaXaWQZZ1IAYvEMBUk4LpEogZgmiY9fEkTQGUTLYjkGa9w//P
-	+E0DHIVb80qkEFtAZvpJG78FSlSXQz+PSkkvkExauj8Uqom163qfw6NhZNYhuPha+4XH5WZH88Ys2
-	5ludWDjlQnD9SKF93DBzs82sPQ+UU0LbGHx1h2jDYx/BCf9Vvkn/A7NW25T8O9icFRuQfw88DPq7F
-	jAdE+QjXCb9FuttvU4Uw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=zpy1n39i9Xmxt4q7M9rTdgt5lxRPO+wUahsteuWWDQw=; b=1Ai9+84G571Vytb7cZj5e7oPE9
+	Lomv7fxZnlAbLw3EYk6F/OJNSvBJbEiYA4XWyC0yLeY3JNcFsyfz1ezAwvc4mw0HPAXRJ+Ta7qcwI
+	bSukN7gcauKJo53XR24pzN6IgAxOV0k5X7XnRpRtMIeU6BuSalvA60uGukHkEHSZruKdI61OhPXGf
+	l9ubgNz7rPpUuHAGghRrAHxVeng46RhrBn5a7FdE7Kc/5RRoTlH5ZhYaLryDsU550QRy48CeYQAGK
+	SW69xOGPWPe9gcI7xyw8S+0bjmuO14ViL8i/S4OdDlEkrqNK6b3+7dQQooEWtlAkpS9koZH3hy9Kd
+	mRBvmtSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOKMb-007xwb-2X;
-	Tue, 25 Jul 2023 15:54:17 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1qOKW8-007zRz-1n;
+	Tue, 25 Jul 2023 16:04:08 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOKMY-007xvP-0D
+	id 1qOKW5-007zQZ-2Q
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 15:54:16 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-1bb84194bf3so19159725ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Jul 2023 08:54:13 -0700 (PDT)
+	Tue, 25 Jul 2023 16:04:07 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-584139b6b03so19313517b3.3
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Jul 2023 09:04:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1690300452; x=1690905252;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yPT2stxFChZpMg6h3D81cBqzyJBn0I25fZ2MBYv8irM=;
-        b=eD7kANSdAAjiTC37YAfsbtVn214CSpat8MudtF+68viBVkhN/n+RrCvV36qnEGHl6Y
-         nPebh5ij0FBewMkONhjPgvJZC1dy3YYTeJj/WbGwNjGt//VUvZZnpFFjuOZ+Jxc7x2/Q
-         LLaf3ZHb7stUjV+a5Q2DT8P4+CRldCPKRmMD4L8hmsnPTzdQitjoNc+c2p51Whq66UNz
-         M5WVBLSdvJ1IOe1y045VZw1aOsQt+Ql4RV1Y9MEanRKF2Y3PSxcQ/ZlZ028Xp4OYNcqw
-         ACrcWe+xfjoNI+FnSZNTcGxVsLK54BAtURKW2yGIqMWSZyMWvupBPMHG9Et+JrFPr/YL
-         S1Hw==
+        d=google.com; s=20221208; t=1690301041; x=1690905841;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JzfMU5Qs8JliFSPK4e1C5em4CWxZCGfzp6e2iymS9Yg=;
+        b=dW59zwmrsLAamcGnirE6A1LfKT51T61DtWDAOhx4/cSvK3sOAiDmr+BlK4XiPthtzP
+         CN9MlQi3HhBVcH71uuUqq+M14CfwGnGPEE/BpfevOBdEFKHG7J0iaICViLaRAky8BhEp
+         HFcQ65KDccgqhPQn/ChYInnlcEfq7qr0Ma/Jgkr7SmWI+05vO/bEbUCWl8Rn7I2emovI
+         UeVOyMZohBruEuz8fBipp3NgVzf/qbnB/hnqT0XX1CDCZ3KOl7DJQE2yXx50QpLL6+Az
+         IlluRAj7yyIarMAgzXmFlQrKZdiqjqFyPfBBVM/tbJmItA4hkVu10uPsnU/tUYfyPMpN
+         N63Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690300452; x=1690905252;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yPT2stxFChZpMg6h3D81cBqzyJBn0I25fZ2MBYv8irM=;
-        b=YBa36pc0JH6LPQKFhrYNgwokWpW0kaKbf+UAhTWSrU2GjKshPQWtpx1z7RhltgBMtG
-         LWVSMqwFkwHyN4Zq52QDVimirk6N6NakYhR3sv/sG0+oLmUNgznz9ZuJhjnjUlFP0dMn
-         M9oatcmESa7uEL/1a2RlibXujvnFjw9URWVPeph9P/xrqeLnqsMi0+YKOvkAQLrZAag9
-         Z2QMhID0DaQRO65VujfpkHYx5GOwfYbJn4DukcyN3ocTTq0CZEVTVaKQ3hdeyu6xX3sZ
-         3TQutIuN1JpiLQz3Kh4asAWfoNm8oCSS5jX8CiyQVnJqcvRcWpnCPJnjc42PqEyEsIvg
-         ujVw==
-X-Gm-Message-State: ABy/qLbuPcG6cZ4Nd8Cj2B+578oq4a6wKLhtbWfrkWxblPchceSxgtKk
-	NilBscwQ8ThkmoFJwZ0p1E0lug==
-X-Google-Smtp-Source: APBJJlH+vInGZEOGDW0JESmSk+/b0VDKB7Yl0EonVeDj+0oEV2iQCQjLxobPmSDkYNEnTf2Bdija5g==
-X-Received: by 2002:a17:90b:4c51:b0:263:5702:d4c5 with SMTP id np17-20020a17090b4c5100b002635702d4c5mr11605845pjb.19.1690300452577;
-        Tue, 25 Jul 2023 08:54:12 -0700 (PDT)
-Received: from x1 ([2601:1c2:1800:f680:2cbf:9196:a906:e222])
-        by smtp.gmail.com with ESMTPSA id gf4-20020a17090ac7c400b00263d15f0e87sm8225180pjb.42.2023.07.25.08.54.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Jul 2023 08:54:12 -0700 (PDT)
-Date: Tue, 25 Jul 2023 08:54:10 -0700
-From: Drew Fustini <dfustini@baylibre.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
-	Robert Nelson <robertcnelson@beagleboard.org>,
-	Jason Kridner <jkridner@beagleboard.org>
-Subject: Re: [PATCH RFC 4/4] mmc: sdhci-of-dwcmshc: Add support for T-Head
- TH1520
-Message-ID: <ZL/wIjm4CZh2Ce0N@x1>
-References: <20230724-th1520-emmc-v1-0-cca1b2533da2@baylibre.com>
- <20230724-th1520-emmc-v1-4-cca1b2533da2@baylibre.com>
- <ZL/kUPicOEPWz5NP@xhacker>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZL/kUPicOEPWz5NP@xhacker>
+        d=1e100.net; s=20221208; t=1690301041; x=1690905841;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JzfMU5Qs8JliFSPK4e1C5em4CWxZCGfzp6e2iymS9Yg=;
+        b=l4Sw322SxP5badtfFPokOdOX1NNerId0E0zsELBIO0RTQPjShqSeyBK0M4jmYzwJ0B
+         TtNMTPD3dpunEDZevcH+lCdgjb0C7Y6GMdmNviD/G14H3/EtKL93RMuBO9TZFiOBAVHU
+         ChagrYT8ltvYdpZnR+3ounO8Kd+7HksOMo/2+Qs6alRmLX9xduojViys/rqJ6iyA/aJB
+         pg+eMN7seVgVyCE93YRD/2SyGbeXd+rQg7g8KrD552fVtAw0Uut416gp0znOUYWMifzu
+         8xMJLvphYcSF5SV2Qo9edOvUP0CiIAg/oghfcG3N/zb6iZ6dosTPtVkeOr/5EcihL3Dp
+         Uj+g==
+X-Gm-Message-State: ABy/qLZ//WYXCNorCcE3RVcps26385q7Te1EzVcjnPjG9Mk2nU6HZe+s
+	TLMjceNYUwmzO9Nj8MY82sH0MDKqyf4=
+X-Google-Smtp-Source: APBJJlH1niyzp4cjBeRls9BsaNe03YLK4iKuUQJEO3t7N9JW3OW9U+d5kcfXqA22KUPE/pwVy1vkIiRVphQ=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:46d4:0:b0:cf9:3564:33cc with SMTP id
+ t203-20020a2546d4000000b00cf9356433ccmr81585yba.13.1690301041144; Tue, 25 Jul
+ 2023 09:04:01 -0700 (PDT)
+Date: Tue, 25 Jul 2023 09:03:59 -0700
+In-Reply-To: <DS0PR11MB637386533A4A10667BA6DF03DC03A@DS0PR11MB6373.namprd11.prod.outlook.com>
+Mime-Version: 1.0
+References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-13-seanjc@google.com>
+ <DS0PR11MB637386533A4A10667BA6DF03DC03A@DS0PR11MB6373.namprd11.prod.outlook.com>
+Message-ID: <ZL/yb4wL4Nhf9snZ@google.com>
+Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Sean Christopherson <seanjc@google.com>
+To: Wei W Wang <wei.w.wang@intel.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>, 
+	"linux-security-module@vger.kernel.org" <linux-security-module@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
+	Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
+	Michael Roth <michael.roth@amd.com>, Liam Merwick <liam.merwick@oracle.com>, 
+	Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_085414_295784_B5D566F9 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20230725_090405_816303_BBB697EC 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,55 +112,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 25, 2023 at 11:03:44PM +0800, Jisheng Zhang wrote:
-> On Mon, Jul 24, 2023 at 05:59:18PM -0700, Drew Fustini wrote:
-> > Add basic support for the T-Head TH1520 SoC mmc controller. The new
-> > compatible "thead,th1520-dwcmshc" enables basic support by:
+On Tue, Jul 25, 2023, Wei W Wang wrote:
+> On Wednesday, July 19, 2023 7:45 AM, Sean Christopherson wrote:
+> > +int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+> > +		     gfn_t gfn, kvm_pfn_t *pfn, int *max_order) {
+> > +	pgoff_t index = gfn - slot->base_gfn + slot->gmem.pgoff;
+> > +	struct kvm_gmem *gmem;
+> > +	struct folio *folio;
+> > +	struct page *page;
+> > +	struct file *file;
+> > +
+> > +	file = kvm_gmem_get_file(slot);
+> > +	if (!file)
+> > +		return -EFAULT;
+> > +
+> > +	gmem = file->private_data;
+> > +
+> > +	if (WARN_ON_ONCE(xa_load(&gmem->bindings, index) != slot)) {
+> > +		fput(file);
+> > +		return -EIO;
+> > +	}
+> > +
+> > +	folio = kvm_gmem_get_folio(file_inode(file), index);
+> > +	if (!folio) {
+> > +		fput(file);
+> > +		return -ENOMEM;
+> > +	}
+> > +
+> > +	page = folio_file_page(folio, index);
+> > +
+> > +	*pfn = page_to_pfn(page);
+> > +	*max_order = compound_order(compound_head(page));
 > 
-> Hi Drew,
+> Maybe better to check if caller provided a buffer to get the max_order:
+> if (max_order)
+> 	*max_order = compound_order(compound_head(page));
 > 
-> > 
-> >  - Enabling v4 mode to properly communicate with the mmc device
-> >  - Setting quirk to disable ADMA
-> >  - Setting flag to disable SDMA and force PIO mode
-> >  - Turing .reset op into a no-op as the driver does not yet know how to
-> >    configure the phy. Rely on the vendor u-boot to have configured the
-> >    phy and do not reset the controller in Linux.
-> 
-> The last three itmes are not acceptable. The controller supports ADMA
-> well, can you plz bring in the phy driver? We can't rely on bootloader to
-> configure phy.
+> This is what the previous version did (restrictedmem_get_page),
+> so that callers who only want to get a pfn don't need to define
+> an unused "order" param.
 
-Yes, that makes sense that this is not acceptable. The T-Head vendor
-kernel seems to contain all the necessary information needed to add the
-phy configuration to sdhci-of-dwcmshc.
-
-The shipping kernel for the BeagleV Ahead [1] is based on the T-Head SDK
-releases. I looked at changes to drivers/mmc and found that key changes
-are from Linux_SDK_V0.9.5 [2] and Linux_SDK_V1.0.2 [3].
-
-That kernel contains drivers/mmc/host/sdhci-of-dwcmshc.h [4] which seems
-to define information about the phy registers. The version of
-drivers/mmc/host/sdhci-of-dwcmshc.h in that kernel defines several
-functions for the phy config and controller reset:
-
-sdhci_phy_1_8v_init_no_pull
-sdhci_phy_3_3v_init_no_pull
-snps_phy_1_8v_init
-snps_phy_3_3v_init
-snps_sdhci_set_phy
-snps_sdhci_reset
-
-I'll look into adapting that code into the upstream sdhci-of-dwcmshc.
-
-Thanks,
-Drew
-
-[1] https://git.beagleboard.org/beaglev-ahead/beaglev-ahead-linux
-[2] https://gist.github.com/pdp7/8d85d736dea24957c017eefdeb882668
-[3] https://gist.github.com/pdp7/c1d3a18f9b7c25e630573d5953a58c99
-[4] https://git.beagleboard.org/beaglev-ahead/beaglev-ahead-linux/-/blob/beaglev-v5.10.113-1.1.2/drivers/mmc/host/sdhci-of-dwcmshc.h
-[5] https://git.beagleboard.org/beaglev-ahead/beaglev-ahead-linux/-/blob/beaglev-v5.10.113-1.1.2/drivers/mmc/host/sdhci-of-dwcmshc.c
+My preference would be to require @max_order.  I can kinda sorta see why a generic
+implementation (restrictedmem) would make the param optional, but with gmem being
+KVM-internal I think it makes sense to require the param.  Even if pKVM doesn't
+_currently_ need/want the order of the backing allocation, presumably that's because
+hugepage support is still on the TODO list, not because pKVM fundamentally doesn't
+need to know the order of the backing allocation.
 
 _______________________________________________
 linux-riscv mailing list
