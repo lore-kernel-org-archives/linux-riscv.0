@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EB3C04A6A
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 18:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F138EEB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 18:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=uaLPwGy1CkJxfg676RYxLZq3i1GoJSujLi++dcZSomk=; b=4W0Y7wh66DjeGQJAhvFm6/Y+x9
-	UcQ62/zMtWrKeqihyFOGg6awTMkMXsXqP1AWSq2VYXJfd0jmLTl1uf27YrFUy1sY8dW4QpgI1P7JY
-	YpePRoVMTGVHoZMhk5hrFBpu1EbQD7WoLEloskLLDzOafbB4spKwkGJQ2ILH4fpxPSt+AL54mY4qv
-	v+V9jP15kMnVxhTQxVo/ObGUApuaLgAk05Al6EHHHJkfyF9X7jtelOIhxcNh6BIpQVSY+oWep7m5n
-	I+xr4gDmGhKqNe4Bq12fi7HCoLVe3oLYxJuIKSSwV5iR45wajrj7d5zrnfhGzNrUylSPo4JTuOQuR
-	Zn7d7hyw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Ql69f7CcjMkZlW1eWljZNPPRjWPqOvWBmUncLXIkWU=; b=Xati3Nf4VxUZPLPDkWnUDpmnHJ
+	k0qFxDSofNYfrsJHUSJ644ccsySszF3Mh6LOHp99I76uVf5ZfHmt78rGdZcLqygZoLyYO70TK9O2a
+	USXj6cjYt5NecVjHxa7DXpKKwAO/WFv3NEOoAIg5TTUhawTCnTab6uQRcz+S/5VTk2XSIYrgfu0oA
+	fz2WsUqqfa3U2FBuMqDC0pUvfXKUB81tVYu5onFZCEcGB77YDx9iYldN61PP7lX/rxQt0AedFZs79
+	VWGN49WZD3MAw4bVFxxHMbVhiLslazrYHvNOZokNPHE5+HxWVvTOYcYVsgCJw6RcpB1nfc8OTvQKQ
+	/f82R1UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOMPj-008EG4-0w;
-	Tue, 25 Jul 2023 18:05:39 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1qONES-008I8H-24;
+	Tue, 25 Jul 2023 18:58:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOMPg-008ECW-1H
+	id 1qONEO-008I7L-2j
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 18:05:37 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-583c1903ad3so42301997b3.2
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Jul 2023 11:05:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1690308331; x=1690913131;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BIo8qHauKdQX+T8FT8wbaojm6/JdQZAwM03PT/kIykI=;
-        b=7nXQcBRpxoTRBB3DVtfi1G3SLzO+8rbX0pZK3GqB/ZiRovVnhgEY5C+Gs70dPcpJKC
-         v8EbJPLKK/PtzLxWiGJ5qeO4LJqB7HN3pWAhYbANBnQSVYoMTUMzCaeCD3zEfSqoM+r2
-         fDpLY03C1R0xadVk8zh9oHGZMZqSmWV+dliNXRuRczTowFXc/oEsFJjHeqmHR0h/7zjV
-         1SaakHlCZawqmTagIefeOP2xnfIobskVh1rmXibU4Cwg3i96EQeqcAc0By/i+P6tJXi9
-         1AMdfmti0ZHyvBS0qJY6Ig052U8rUWQC7aHvZS0sxZXtvMY234BUecIw+5qK/UmUColq
-         VbWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690308331; x=1690913131;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BIo8qHauKdQX+T8FT8wbaojm6/JdQZAwM03PT/kIykI=;
-        b=KW/VNJIGW6iH4qG+A+N02NAsTpHLTB9El2S0vxJFBCR/D+2gD5Er2pgwSLtD91rxJ3
-         DRRtLDMr0oV8EssMpWvCDnvT3OM2DglRGePS/LgFaY33TKi3se2Sscp/S3vDl7qhzMSD
-         exj5IoRg0bs3RGOubOm+/DvCHO5AXxEH4KdjWuZAx37rDd6nKZvH8i01i4skgzrtXfyW
-         wIEwMvw2TBlTAXrdHD2IgBm4/w1jNi3pkWSWauxJX/QZl86Rubli/AXLnvo4/pqO6jj6
-         TTCj9Q/OwebjG1A3fcHKmFAKw8CUqppYqb7aMZMowjPD8yjNkDhJoN6Ll07JKPsA6nj1
-         nzLg==
-X-Gm-Message-State: ABy/qLbp5PTW97bSi+x53dsBz/N+eRgdhkcQTr9DYOEzEfdPQiylwpzx
-	f/oJGTsYUnamHzW4ykahI0fNngGdRCc=
-X-Google-Smtp-Source: APBJJlG+f5K6Guu8BWDh2M0jvEhmql8458IaH+LCw2ABsy+ZDoDj1Vv7TcavygUx+nDEGvPQs1RCmsWjSr8=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a81:4509:0:b0:573:5797:4b9e with SMTP id
- s9-20020a814509000000b0057357974b9emr213ywa.1.1690308331572; Tue, 25 Jul 2023
- 11:05:31 -0700 (PDT)
-Date: Tue, 25 Jul 2023 11:05:29 -0700
-In-Reply-To: <ZLphxpSTL9Fpn1ye@yilunxu-OptiPlex-7050>
-Mime-Version: 1.0
-References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-2-seanjc@google.com>
- <ZLolA2U83tP75Qdd@yzhao56-desk.sh.intel.com> <ZLphxpSTL9Fpn1ye@yilunxu-OptiPlex-7050>
-Message-ID: <ZMAO6bhan9l6ybQM@google.com>
-Subject: Re: [RFC PATCH v11 01/29] KVM: Wrap kvm_gfn_range.pte in a per-action union
-From: Sean Christopherson <seanjc@google.com>
-To: Xu Yilun <yilun.xu@intel.com>
-Cc: Yan Zhao <yan.y.zhao@intel.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Huacai Chen <chenhuacai@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
-	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, Vlastimil Babka <vbabka@suse.cz>, 
-	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+	Tue, 25 Jul 2023 18:58:02 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 68C81617C9;
+	Tue, 25 Jul 2023 18:57:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AAA9C433C7;
+	Tue, 25 Jul 2023 18:57:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690311478;
+	bh=39UKxzaDXD2jZ3Vh4zHzwCJb2yUJA+Yg/Gepz3BAO8g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uct9iT1jFft9F3b9nNzPj2phwHRO1F+WXwack0bwcMiwvVz3JBqzk3BLxHIs+GpU/
+	 FDjLyyseH7BD66J1wRvwqFWvZtHTrwsVK9lT+zHMDuHnUuZiXmBS2KmEc86EVezaOR
+	 YVF4d+RscuIhbMROeNdr5e2wD/UhXSv+vTAz5lS96nyajNJhd23WPC32HXqQGGF2xJ
+	 M9wmvXl4W43GAxKvYQksXtDdFGhcpaIts0+Pz3sqckgJYsvdeWJP5Y2ndFAK+KUBwK
+	 Whgi6vc7/3j55VHx8PwjVzGPqoIizYHunLP2j+rThXpZFa6m0qkV414hygS6fXU9Al
+	 73/eUMmVy0kmg==
+Date: Tue, 25 Jul 2023 19:57:54 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Mingzheng Xing <xingmingzheng@iscas.ac.cn>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>, Bin Meng <bmeng@tinylab.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH] riscv: Handle zicsr/zifencei issue between gcc and
+ binutils
+Message-ID: <20230725-skating-agent-b092f2257ca1@spud>
+References: <20230725170405.251011-1-xingmingzheng@iscas.ac.cn>
+ <20230725172344.GA1445373@dev-arch.thelio-3990X>
+MIME-Version: 1.0
+In-Reply-To: <20230725172344.GA1445373@dev-arch.thelio-3990X>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_110536_435411_3324F5EE 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20230725_115800_966340_92997D77 
+X-CRM114-Status: GOOD (  35.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,94 +77,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5298211655319853040=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 21, 2023, Xu Yilun wrote:
-> On 2023-07-21 at 14:26:11 +0800, Yan Zhao wrote:
-> > On Tue, Jul 18, 2023 at 04:44:44PM -0700, Sean Christopherson wrote:
-> > 
-> > May I know why KVM now needs to register to callback .change_pte()?
-> 
-> I can see the original purpose is to "setting a pte in the shadow page
-> table directly, instead of flushing the shadow page table entry and then
-> getting vmexit to set it"[1].
-> 
-> IIUC, KVM is expected to directly make the new pte present for new
-> pages in this callback, like for COW.
 
-Yes.
+--===============5298211655319853040==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="iHjWJzHCnP6UBqZt"
+Content-Disposition: inline
 
-> > As also commented in kvm_mmu_notifier_change_pte(), .change_pte() must be
-> > surrounded by .invalidate_range_{start,end}().
-> > 
-> > While kvm_mmu_notifier_invalidate_range_start() has called kvm_unmap_gfn_range()
-> > to zap all leaf SPTEs, and page fault path will not install new SPTEs
-> > successfully before kvm_mmu_notifier_invalidate_range_end(),
-> > kvm_set_spte_gfn() should not be able to find any shadow present leaf entries to
-> > update PFN.
-> 
-> I also failed to figure out how the kvm_set_spte_gfn() could pass
-> several !is_shadow_present_pte(iter.old_spte) check then write the new
-> pte.
 
-It can't.  .change_pte() has been dead code on x86 for 10+ years at this point,
-and if my assessment from a few years back still holds true, it's dead code on
-all architectures.
+--iHjWJzHCnP6UBqZt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The only reason I haven't formally proposed dropping the hook is that I don't want
-to risk the patch backfiring, i.e. I don't want to prompt someone to care enough
-to try and fix it.
+On Tue, Jul 25, 2023 at 10:23:44AM -0700, Nathan Chancellor wrote:
+> Hi Mingzheng,
+>=20
+> Thanks for the patch!
+>=20
+> On Wed, Jul 26, 2023 at 01:04:05AM +0800, Mingzheng Xing wrote:
+> > When compiling the kernel with the toolchain composed of GCC >=3D 12.1.=
+0 and
+> > binutils < 2.38, default ISA spec used when building binutils and GCC, =
+the
+> > following build failure will appear because the
+> > CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI is not turned on.
+> > (i.e, gcc-12.1.0 and binutils-2.36, or gcc-12.3.0 and binutils-2.37, use
+> > default ISA spec.)
+> >=20
+> >   CC      arch/riscv/kernel/vdso/vgettimeofday.o
+> >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assembler me=
+ssages:
+> >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:79: Error: un=
+recognized opcode `csrr a5,0xc01'
+>=20
+> The gift that keeps on giving :/
+>=20
+> > Binutils has updated the default ISA spec version, and the community has
+> > responded well to this[1][2][3], but it appears that this is not over y=
+et.
+> >=20
+> > We also need to consider the situation of binutils < 2.38 but
+> > GCC >=3D 12.1.0, since the combination between different versions of GC=
+C and
+> > binutils is not unique, which is to some extent flexible. GCC release
+> > 12.1.0 updated the default ISA spec version in GCC commit[4].
+>=20
+> I suspect this combination is not too common because binutils 2.38 came
+> out before GCC 12.1.0 but as you note, it is obviously possible. What
+> toolchain has this combination in the wild, which would be helpful for
+> documentation purposes?
 
-commit c13fda237f08a388ba8a0849785045944bf39834
-Author: Sean Christopherson <seanjc@google.com>
-Date:   Fri Apr 2 02:56:49 2021 +0200
+Yeah, that'd be great to know, at least the other niche stuff that we
+are working around had a clear use-case (testing LLVM in debian containers)
+whereas there's no clear user for this.
+That's doubly interesting, as this patch seems to break things for binutils
+< 2.35, and if we have to make a trade-off between those too, then it'd
+be good to be able to weigh up the options.
+Do we perhaps need the misa-spec workaround instead for this case?
+Haven't tested that though, trying to dig myself out of email backlog.
 
-    KVM: Assert that notifier count is elevated in .change_pte()
-    
-    In KVM's .change_pte() notification callback, replace the notifier
-    sequence bump with a WARN_ON assertion that the notifier count is
-    elevated.  An elevated count provides stricter protections than bumping
-    the sequence, and the sequence is guarnateed to be bumped before the
-    count hits zero.
-    
-    When .change_pte() was added by commit 828502d30073 ("ksm: add
-    mmu_notifier set_pte_at_notify()"), bumping the sequence was necessary
-    as .change_pte() would be invoked without any surrounding notifications.
-    
-    However, since commit 6bdb913f0a70 ("mm: wrap calls to set_pte_at_notify
-    with invalidate_range_start and invalidate_range_end"), all calls to
-    .change_pte() are guaranteed to be surrounded by start() and end(), and
-    so are guaranteed to run with an elevated notifier count.
-    
-    Note, wrapping .change_pte() with .invalidate_range_{start,end}() is a
-    bug of sorts, as invalidating the secondary MMU's (KVM's) PTE defeats
-    the purpose of .change_pte().  Every arch's kvm_set_spte_hva() assumes
-    .change_pte() is called when the relevant SPTE is present in KVM's MMU,
-    as the original goal was to accelerate Kernel Samepage Merging (KSM) by
-    updating KVM's SPTEs without requiring a VM-Exit (due to invalidating
-    the SPTE).  I.e. it means that .change_pte() is effectively dead code
-    on _all_ architectures.
-    
-    x86 and MIPS are clearcut nops if the old SPTE is not-present, and that
-    is guaranteed due to the prior invalidation.  PPC simply unmaps the SPTE,
-    which again should be a nop due to the invalidation.  arm64 is a bit
-    murky, but it's also likely a nop because kvm_pgtable_stage2_map() is
-    called without a cache pointer, which means it will map an entry if and
-    only if an existing PTE was found.
-    
-    For now, take advantage of the bug to simplify future consolidation of
-    KVMs's MMU notifier code.   Doing so will not greatly complicate fixing
-    .change_pte(), assuming it's even worth fixing.  .change_pte() has been
-    broken for 8+ years and no one has complained.  Even if there are
-    KSM+KVM users that care deeply about its performance, the benefits of
-    avoiding VM-Exits via .change_pte() need to be reevaluated to justify
-    the added complexity and testing burden.  Ripping out .change_pte()
-    entirely would be a lot easier.
+> > For more information, please refer to:
+> >=20
+> > commit 6df2a016c0c8 ("riscv: fix build with binutils 2.38")
+> > commit e89c2e815e76 ("riscv: Handle zicsr/zifencei issues between clang=
+ and binutils")
+> >=20
+> > [1]: https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/aE1ZeHHCYf4
+> > [2]: https://lore.kernel.org/all/20230308220842.1231003-1-conor@kernel.=
+org
+> > [3]: https://lore.kernel.org/all/20230223220546.52879-1-conor@kernel.org
+> > [4]: https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dcommit;h=3D98416dbb0a6257=
+9d4a7a4a76bab51b5b52fec2cd
+
+btw, please make these regular Link: tags (with a [N] at EOL) and drop
+the space between them and the sign off. Also, this probably needs to be
+CC: stable@vger.kernel.org too.
+
+Cheers,
+Conor.
+
+> >=20
+> > Signed-off-by: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
+> > ---
+> >  arch/riscv/Kconfig | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 4c07b9189c86..b49cea30f6cc 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -570,11 +570,15 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
+> >  config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
+> >  	def_bool y
+> >  	# https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=3Dcommit;h=3Daed=
+44286efa8ae8717a77d94b51ac3614e2ca6dc
+> > -	depends on AS_IS_GNU && AS_VERSION >=3D 23800
+> > +	# https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dcommit;h=3D98416dbb0a62579=
+d4a7a4a76bab51b5b52fec2cd
+> > +	depends on CC_IS_GCC && GCC_VERSION >=3D 120100 || \
+> > +		   AS_IS_GNU && AS_VERSION >=3D 23800
+>=20
+> GCC_VERSION will be 0 for clang, so you don't need the CC_IS_GCC check.
+> With that change, this should be able to stay on one line:
+>=20
+>     depends on GCC_VERSION >=3D 120100 || (AS_IS_GNU && AS_VERSION >=3D 2=
+3800)
+>=20
+> >  	help
+> >  	  Newer binutils versions default to ISA spec version 20191213 which
+> >  	  moves some instructions from the I extension to the Zicsr and Zifen=
+cei
+> >  	  extensions.
+> > +	  Similarly, GCC release 12.1.0 has changed the default ISA spec vers=
+ion to
+> > +	  20191213, so the above situation requires this option to be enabled.
+> > =20
+> >  config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
+> >  	def_bool y
+> > --=20
+> > 2.34.1
+> >=20
+
+
+--iHjWJzHCnP6UBqZt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMAbMgAKCRB4tDGHoIJi
+0rnFAQCCSRzsuugFSJC1+Pyk0F+O91cfGUp6aHSYnTOU3Z3qTQD+N/IguWiZU0eC
+JRcPr+8T4gGPM8G89HqQPI+lU0RmDg4=
+=p9T3
+-----END PGP SIGNATURE-----
+
+--iHjWJzHCnP6UBqZt--
+
+
+--===============5298211655319853040==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5298211655319853040==--
+
