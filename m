@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFDDEB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 05:39:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A12EB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 05:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3CWNVX+ej/MRg8ARpuI2isNbJGRbfay+TZ5biz6NZqE=; b=l1ScaxFOzNQ52R
-	7UHOHB0ikrWhJioG8sAoBubOwztpc5WloeAvSNZMBTxUv3sev9TDLblHq6rUzwiw19m1O0uR6oyZb
-	bLx6m+m8/xwl9zCxth7plSk5S1FulrNecHZ6lM8BThqUg08OkP6b1nKO8FI1pJb9IkNIwEVybcA8Q
-	Ukv7RlJZgKKrXxMn+gjlXgPN2w6lEryhAeQuF00OAk6HlSNhINe6QAnptvJ5i6pmNIBWRb9V/zA3P
-	7r+9I2sI2u+4ZOvKHaYEh1FR/pmcB+65U3/VsLwaONMGJ2xaVuREfV7USwrbWOS17+yv6FZd4BWKc
-	kn7d3GIiXRbvFFOqeEsw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ydm1gVYHPjfCcxcLhpEp09Idbg/CFSLJiwJbJLrsPy0=; b=PaCl/Il1691X/p
+	iQNuhhAg+9fRR03uLhhHfbOYQMiAOXkxqQRoEvl14U+y83UzU7QayuMbQwSaJL5CwYBBuMZ1oRTkB
+	u1x+RT5NBkclZ9A65jlkAeujjbT/YU75zWwcw84Ws/ah+4///OsiVctEUc2XuECMBJx1DhgLgh66a
+	vKlLtbfekZEEKK3DRmweTQlWzrMVG8sLhp60IrRqlAPWv+sSOIbglFZHWHsyzuKbjJ/6YsAdWV38q
+	ZXqZ7eLlgGxuqeV4+lUH4Vdi1nhDijq9swKJk2f49BqjDR2OUWwR/TooDhnOr1ZKfh8+e4cFdfOur
+	97evcJ5CZ8xVSyscF4kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOAl6-006JMJ-1h;
-	Tue, 25 Jul 2023 05:38:56 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1qOAmj-006Jha-1m;
+	Tue, 25 Jul 2023 05:40:37 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOAl3-006JLg-31
+	id 1qOAmh-006Jgo-0u
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 05:38:55 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-9923833737eso748100766b.3
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 22:38:52 -0700 (PDT)
+	Tue, 25 Jul 2023 05:40:36 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-98dfb3f9af6so876231366b.2
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 22:40:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1690263531; x=1690868331;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y7e91BMfpSrUV8pLZU1LBjqTvh3MYJ90peEUrbZ0fJg=;
-        b=DUV24tjMeuaYTRh7/en2rwqUQ0+Z84MXh9/5CuvvoPYwgfUUGT5C92XvGlgjodir7I
-         DdKAbGyDJNcNNPqr9M7EbSkoyGIxObjYdArkaS2KSPwsqM785K3rSeWH2Alvn9h05Qm9
-         WlBBkAH92Hur813wc/6oNLVSXUAGe/mMeRVieqSfSJ19PnFyaGu4YVDevZh7L7fxonT2
-         sqSu8jL3ZSNzRMIRmxTM8RV+tfF1B6W9NiMcG4tUSGvcUPqp+FGO0KmsC/NsSNLS+KOa
-         JihUGIjt1i2UhE0zex4wEfQ1u1Q/lNxR7zu8ks9wdLNGSKmkgYYsckHHA7jJZfEk7TKd
-         U3qw==
+        d=linaro.org; s=google; t=1690263633; x=1690868433;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OfroF1JF/XJ6mPsu87A6GDB5zqWzLmB48tKx25k/bTA=;
+        b=yrI4YLBQj6H0kT0aJ0MtbeCd1lVLBgOvIhkGL/uktBODBu9jESbkvGWjzjEFqZw2Co
+         bIf9/SUWvye+uV+6HH5p3rKLCAxU8GKxlidhyGivOc64aRIAYDXDhbh51QSA/bhm16n3
+         8akc3dCcyyTfBjqtU+ZlIAuYXY1+k8YUfMQakFOrolJGiTO6CkW34FarX0i+cwoD5u4j
+         gKJpXxfxEmLVffIVTTeGUYKsvXEGAG8jdyvbY0vt3FUDCbj0tL5c5471dhmmPKNvDJwR
+         m4cODdWrYSx5MxjVUCIkUOIR2h4kuQG67nWfCvJSmLxOmbhATuprr581KHkOx3n0O5RC
+         QOZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690263531; x=1690868331;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Y7e91BMfpSrUV8pLZU1LBjqTvh3MYJ90peEUrbZ0fJg=;
-        b=B5xXtwM9AIxu+nwJJ/oJFlWTwk4+Jq2IXwIuhjrOIJlWvc4ZgqbWJHy3ppX32rXtdn
-         L7UonkoCfTMwMq/I0+FS/PjcOYVKQNLApZMBZ/tfW75PcSIzHenmemn/45DFjIgge07r
-         20PwRELeT84xtxErjFywGk7dyd7S41+raMbqZ2PEI6znJdrfga61oyG+3S945MoRXuQW
-         pGGQ7DPwV1BqyOpmODGzQiVecYMIH33tdZBqqAa6RoWJTqUzT7bIoGone98w8XZe9Fj2
-         jBtAkwicb+aluJ5ZyyuF2E0iC41CcL171sGpDcV0oAI4xt4hMWJKq4UvXmH+De5uX/67
-         nU2Q==
-X-Gm-Message-State: ABy/qLa9q1AIpyi1KjfkfaH3IKvxYWxzXXLCdjNRgdf+kFCnFLpog1FG
-	NP74sA6tdYN2k01wIW4CTOI=
-X-Google-Smtp-Source: APBJJlGIpBQohsfNWMduzGbsUTuAkIXnC9gXiYrUHa9hdT4wan2u4ldYKt0z7d2XhO4EFumjgXnwxA==
-X-Received: by 2002:a17:907:a070:b0:993:da91:6e0c with SMTP id ia16-20020a170907a07000b00993da916e0cmr11226554ejc.3.1690263531214;
-        Mon, 24 Jul 2023 22:38:51 -0700 (PDT)
-Received: from nam-dell (ip-217-105-46-58.ip.prioritytelecom.net. [217.105.46.58])
-        by smtp.gmail.com with ESMTPSA id jp7-20020a170906f74700b009937dbabbd5sm7639369ejb.220.2023.07.24.22.38.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Jul 2023 22:38:50 -0700 (PDT)
-From: Nam Cao <namcaov@gmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Nam Cao <namcaov@gmail.com>
-Subject: [PATCH] riscv: remove redundant mv instructions
-Date: Tue, 25 Jul 2023 07:38:35 +0200
-Message-Id: <20230725053835.138910-1-namcaov@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20221208; t=1690263633; x=1690868433;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OfroF1JF/XJ6mPsu87A6GDB5zqWzLmB48tKx25k/bTA=;
+        b=I6CjqeZ2wtgFr0NqfSs6ogiFjcpxx3y0k1q0GcVNs+2q25Qw3aAlTSth0C9nxysiM3
+         YY1JNNVMgUxhxVRHrtCBbmkTblTEWbgTMM1eryuxJPiR+ozAwJJXkbtjK2CYOW4hG8RX
+         nPkXctbeI0PJT79Ptah0q5jnnnXuW/NgGIDyYuSKjKLEzjiJaIPzebJJ4bJgMCIWXGPF
+         wkYSufPg7T+4LB6DeK2PkNqbRBD5lJh8INTNEdTpKr8JPgpLhAyYBBZuYDyymecmWZlU
+         KYDQna0TgmCO1d64tz6qBa468Hr7UnXGVXkLfJ8KGzrlwDLYdaVkzbKMMM1fp4tzaE5c
+         zx2Q==
+X-Gm-Message-State: ABy/qLYIq0NqvOIdr6Dh51z556WUIngzeuLXMFT/98LuJ06+OG3n5qFA
+	74IFllOed7mfMqb66EE30GtTEA==
+X-Google-Smtp-Source: APBJJlEW/3ztfXZS/OG3QYLoj4rG16uxGq7HMDWca0xP36s6SbxzuY4oqrIPd+ZX6loTBq0oGyJ65A==
+X-Received: by 2002:a17:907:7759:b0:992:630f:98b6 with SMTP id kx25-20020a170907775900b00992630f98b6mr11680527ejc.37.1690263633124;
+        Mon, 24 Jul 2023 22:40:33 -0700 (PDT)
+Received: from [192.168.1.20] ([178.197.223.104])
+        by smtp.gmail.com with ESMTPSA id si1-20020a170906cec100b00992d70f8078sm7729498ejb.106.2023.07.24.22.40.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Jul 2023 22:40:31 -0700 (PDT)
+Message-ID: <2385928f-1cc1-04f2-7a56-18eb99bf90cc@linaro.org>
+Date: Tue, 25 Jul 2023 07:40:29 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH RFC 1/4] dt-bindings: mmc: sdhci-of-dwcmhsc: Add T-Head
+ TH1520 compatible
+Content-Language: en-US
+To: Drew Fustini <dfustini@baylibre.com>, Jisheng Zhang <jszhang@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+ Adrian Hunter <adrian.hunter@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+ Robert Nelson <robertcnelson@beagleboard.org>,
+ Jason Kridner <jkridner@beagleboard.org>
+References: <20230724-th1520-emmc-v1-0-cca1b2533da2@baylibre.com>
+ <20230724-th1520-emmc-v1-1-cca1b2533da2@baylibre.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20230724-th1520-emmc-v1-1-cca1b2533da2@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_223853_973906_9655BD13 
-X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-CacheID: sfid-20230724_224035_317900_81731E3F 
+X-CRM114-Status: UNSURE (   8.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,41 +106,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some mv instructions were useful when first introduced to preserve a0 and
-a1 before function calls. However the code has changed and they are now
-redundant. Remove them.
+On 25/07/2023 02:59, Drew Fustini wrote:
+> Add compatible value for the T-Head TH1520 dwcmshc controller.
+> 
+> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+> ---
+>  Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-Signed-off-by: Nam Cao <namcaov@gmail.com>
----
- arch/riscv/kernel/head.S | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 11c3b94c4534..3710ea5d160f 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -289,10 +289,6 @@ clear_bss:
- 	blt a3, a4, clear_bss
- clear_bss_done:
- #endif
--	/* Save hart ID and DTB physical address */
--	mv s0, a0
--	mv s1, a1
--
- 	la a2, boot_cpu_hartid
- 	XIP_FIXUP_OFFSET a2
- 	REG_S a0, (a2)
-@@ -306,7 +302,7 @@ clear_bss_done:
- 	la a0, __dtb_start
- 	XIP_FIXUP_OFFSET a0
- #else
--	mv a0, s1
-+	mv a0, a1
- #endif /* CONFIG_BUILTIN_DTB */
- 	call setup_vm
- #ifdef CONFIG_MMU
--- 
-2.34.1
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
