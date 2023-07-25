@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76EFC001DE
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 10:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE94BC001DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 10:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wFmaGMSav3uppiiU18Q2l1RL4VUhvP2c+qiv/al84r0=; b=gSrFB1DA1rPqOl
-	UdhANTrY2TF2K7m2zR0K+7Q90e9QytnoD2nhWJrG+Tzg98o/+8lRfRn3bN3fc5SwSgT750FW5Ue8l
-	IzJnhbJJxXQIXvQfnnGfe2FIJTrsExONbkkTT59K3Qe27SCdfilbS0aqOqakrNJJkXaucjDFO/0Wi
-	8eSUnJ+smI5ZleAs2rRVMnlCkD11V28beVPg5oEVPEX7VySQUptw8L57cCNRO9MgqTCT0EUYi9LqW
-	phyggoCZKiKUVVlA5GPw/O9fdp7pLD0Mv7zEPpiJ0028ATdKcqYjvcTkHiXICKB2DJtAIM0M0a1Um
-	45JtIePB+nH/+OqxDGZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z1GOQQZiwDDiFpTrvkBclxqY4I5Z8xjP55lnpzAJU7U=; b=OUpSfaRE4aQQYPuneHU1XrULGP
+	dbonnO8L2BXN3oUye4VNnYNLPtnQXtvs3L4BMScM1jTO3ZM28cyv4WlGritJz3Hys6emAU0aJpvBC
+	bLx+7/ILiSk5A0pcujjjJzw/GkPvIbuH3k/NGISGD1pZ7OFikivXblGGjERVq015ScwqOXF+VHs9M
+	6Xpj0Fx7JyK3tmK39ZeZ+4teJILUZgcyBXKdbxjQZmaKKMBOadIJWPfDnDraYzajfQUgehsp9zxAd
+	5nbvp+WFfyB060h7cKtcpxZkvLz0Ea+jcoerAIqFv5gbx5H+9wsTeX//QKtG71r8uZZjl1mHprzVn
+	kXm+rHcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOEra-0071tR-0c;
-	Tue, 25 Jul 2023 10:01:54 +0000
-Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
+	id 1qOExD-00739C-0j;
+	Tue, 25 Jul 2023 10:07:43 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOErX-0071s8-2p
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 10:01:53 +0000
-Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-4468a772490so1835007137.3
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Jul 2023 03:01:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20221208.gappssmtp.com; s=20221208; t=1690279309; x=1690884109;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KmRaQGQO/ykEbUOXzwvpBNx/v0912ojC9mEjp/4/XZ4=;
-        b=Qi1lkQH/Eqrd09mX1PkGfF3B0qgBle4ZBvZNUyuUe2JjHQJPcDbJ9lu5ln/f/JGoIq
-         moKwi5gKq4lv06CVL6JEv9YcwR/0bqhm3CUoO02eaEsqoUaqxvtoTgbc+HnM6AjvUtW1
-         cprXi6hpeDl7hCD5RlRStLp5PdYBzZH/rp3ysgSWc+fHfHgWdX+Tf5kYpfQLxt7XmLJT
-         3WF95FbJ1Ic9P4S7JumdBNwiYqMr1yRf5BE4836KQgWrtbHkCLkdoge5gtaH/HEIieup
-         uBV9x8qqK9gsvuoTtzt11iUguXSoA10uex/RzVMYHPHnsiU4jaZPQuMI+zduFqwa727e
-         82rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690279309; x=1690884109;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KmRaQGQO/ykEbUOXzwvpBNx/v0912ojC9mEjp/4/XZ4=;
-        b=lDirM+Wo3EajzmBy9zNJecKb1qvM9gaJHmUbbi0FHImQb9AXxKrEvlgXqEBynlPVQW
-         4lQ/e0jvadCZ5p684m782Q7NF8IFhkum42u5heF6TVFEhymX5IGOX2AhZEGRaTt3o6Y1
-         TxS4j8MSF3/AXfhGJstbHJ5WXr7JaxWpEjTOrkBXqE31FPKtJJxvU+YYn3jfAZ30uJDM
-         mEhV20SOTJFytUBQvB+5RHqN3X596gafm9xiZAA5rxT/QKDOXtN1HNmokRS4YBucISox
-         ZoED1A0ZToUt4X0cwhzW9/2AGWt5DrMLFqohjheVoGBSyrKNVYGqod3Whq4PnRlbo+ui
-         vBLw==
-X-Gm-Message-State: ABy/qLZOqWywJWS+oMbcrkH+Seel6hpxyXPyVr0SX+RshCRZa2ZEeQGC
-	Hcx63bIG/ZvuEZN+eBsirA65xNSQu3FS19jWOlZuyw==
-X-Google-Smtp-Source: APBJJlHW1OwS6bmpdk3IDFk8ozP39xVf4zgwhLTIAqpi+TPkfHN2o4MSO14iy4i5baBENqc3v7BetZBOVlgclD6dKAc=
-X-Received: by 2002:a67:fa46:0:b0:443:7a85:8fbd with SMTP id
- j6-20020a67fa46000000b004437a858fbdmr3926469vsq.32.1690279309555; Tue, 25 Jul
- 2023 03:01:49 -0700 (PDT)
+	id 1qOExA-00737H-0y;
+	Tue, 25 Jul 2023 10:07:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1690279660; x=1721815660;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1uw5efYhJWeMt9QNbpoLleLIfGC+amYIGyr4fPDWts0=;
+  b=hk09ZK8l4mFlLytbf8nyOiQWiwCTboY86lzmkHbI8Lt7jRzDsbkrd80l
+   9NHWRVMOlF0KAliv6xbAt+0uR0GzsLG3WJfDGQpxmPRvPpEEx0lqnOrjr
+   1LHO0nhCqHfR6BS4sgC8UyWpZsLM7wDlnoetO8nviTBYOMHbVA1T7npcb
+   BvHzm7aEmKVImZGR+HHhGHr4D+J6IwYq0SqNOxfyR7sAEZO6LOs0JBpVa
+   bK82aiunbD0QyzlMjDpyfWEPcK9BV8podgcPObAF2+lmlVZyYRtJXBgK9
+   2VW/y+XparTDwLP7h6cBBQkWWFJlPnw2VyBhHVHlVcXL/a7gF6DgIcsdg
+   w==;
+X-IronPort-AV: E=Sophos;i="6.01,230,1684825200"; 
+   d="asc'?scan'208";a="222089118"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 25 Jul 2023 03:07:32 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Tue, 25 Jul 2023 03:07:30 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Tue, 25 Jul 2023 03:07:28 -0700
+Date: Tue, 25 Jul 2023 11:06:54 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Anup Patel <apatel@ventanamicro.com>
+CC: Conor Dooley <conor@kernel.org>, Mayuresh Chitale
+	<mchitale@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel
+	<anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, Atish Patra
+	<atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+	<kvm-riscv@lists.infradead.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>,
+	<devicetree@vger.kernel.org>
+Subject: Re: [PATCH v3 0/7] Risc-V Kvm Smstateen
+Message-ID: <20230725-dwelled-obtain-24bf6a4e6964@wendy>
+References: <20230724142033.306538-1-mchitale@ventanamicro.com>
+ <20230724-scrap-pranker-7fd120078136@spud>
+ <CAK9=C2XXnQWqJgES2iWjatG9SFeFEUXZzLXz1gTYQ0aAh=7KJg@mail.gmail.com>
 MIME-Version: 1.0
-References: <20230725004043.381573-1-samuel.holland@sifive.com>
-In-Reply-To: <20230725004043.381573-1-samuel.holland@sifive.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 25 Jul 2023 12:01:38 +0200
-Message-ID: <CAMRc=MeCM3iJ4wT6p3h7cxX5_2Kg-xgZUgyGLSscLa+jzH=8Ew@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] gpio: sifive: Module support
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Andy Shevchenko <andy@kernel.org>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Rob Herring <robh+dt@kernel.org>, 
-	Frank Rowand <frowand.list@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+In-Reply-To: <CAK9=C2XXnQWqJgES2iWjatG9SFeFEUXZzLXz1gTYQ0aAh=7KJg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_030151_935232_BFE23E56 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20230725_030740_430375_9DE8FAB0 
+X-CRM114-Status: GOOD (  33.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +85,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3015268177433616942=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMjUsIDIwMjMgYXQgMjo0MOKAr0FNIFNhbXVlbCBIb2xsYW5kCjxzYW11ZWwu
-aG9sbGFuZEBzaWZpdmUuY29tPiB3cm90ZToKPgo+IFdpdGggdGhlIGNhbGwgdG8gb2ZfaXJxX2Nv
-dW50KCkgcmVtb3ZlZCwgdGhlIFNpRml2ZSBHUElPIGRyaXZlciBjYW4gYmUKPiBidWlsdCBhcyBh
-IG1vZHVsZS4gVGhpcyBoZWxwcyB0byBtaW5pbWl6ZSB0aGUgc2l6ZSBvZiBhIG11bHRpcGxhdGZv
-cm0KPiBrZXJuZWwsIGFuZCBpcyByZXF1aXJlZCBieSBzb21lIGRvd25zdHJlYW0gZGlzdHJpYnV0
-aW9ucyAoQW5kcm9pZCBHS0kpLgo+Cj4gVGhpcyBzZXJpZXMgcmVtb3ZlcyB0aGUgcmVzdCBvZiB0
-aGUgb2ZfKiBBUEkgdXNhZ2UgaW4gdGhlIHByb2Nlc3MuCj4KPiBDaGFuZ2VzIGluIHYzOgo+ICAt
-IFVzZSBkZXZfZndub2RlKCkgaW5zdGVhZCBvZiBtZW1iZXIgYWNjZXNzCj4gIC0gTWVudGlvbiB0
-aGUgU0lGSVZFX0dQSU9fTUFYIGNoZWNrIGluIHRoZSBjb21taXQgbWVzc2FnZQo+ICAtIEtlZXAg
-dGhlIHZhcmlhYmxlIGZvciB0aGUgcGFyZW50IElSUSBkb21haW4KPiAgLSBBZGQgYSBjb21tZW50
-IGV4cGxhaW5pbmcgd2h5IHRoZSBJUlEgZGF0YSBsb29rdXAgd2lsbCBzdWNjZWVkCj4KPiBDaGFu
-Z2VzIGluIHYyOgo+ICAtIEFkZCAzIG5ldyBwYXRjaGVzIHJlbW92aW5nIG9mXyogQVBJIHVzYWdl
-Cj4gIC0gQWRkIE1PRFVMRV9BVVRIT1IgYW5kIE1PRFVMRV9ERVNDUklQVElPTgo+Cj4gU2FtdWVs
-IEhvbGxhbmQgKDQpOgo+ICAgZ3Bpbzogc2lmaXZlOiBEaXJlY3RseSB1c2UgdGhlIGRldmljZSdz
-IGZ3bm9kZQo+ICAgZ3Bpbzogc2lmaXZlOiBMb29rIHVwIElSUXMgb25seSBvbmNlIGR1cmluZyBw
-cm9iZQo+ICAgZ3Bpbzogc2lmaXZlOiBHZXQgdGhlIHBhcmVudCBJUlEncyBkb21haW4gZnJvbSBp
-dHMgaXJxX2RhdGEKPiAgIGdwaW86IHNpZml2ZTogQWxsb3cgYnVpbGRpbmcgdGhlIGRyaXZlciBh
-cyBhIG1vZHVsZQo+Cj4gIGRyaXZlcnMvZ3Bpby9LY29uZmlnICAgICAgIHwgIDIgKy0KPiAgZHJp
-dmVycy9ncGlvL2dwaW8tc2lmaXZlLmMgfCA0NyArKysrKysrKysrKysrKysrLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLQo+ICAyIGZpbGVzIGNoYW5nZWQsIDIxIGluc2VydGlvbnMoKyksIDI4IGRlbGV0
-aW9ucygtKQo+Cj4gLS0KPiAyLjQwLjEKPgoKQXBwbGllZCwgdGhhbmtzIQoKQmFydG9zegoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============3015268177433616942==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="BR67x+OQMbrXN+rh"
+Content-Disposition: inline
+
+--BR67x+OQMbrXN+rh
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Anup,
+
+On Tue, Jul 25, 2023 at 09:47:14AM +0530, Anup Patel wrote:
+> On Mon, Jul 24, 2023 at 10:08=E2=80=AFPM Conor Dooley <conor@kernel.org> =
+wrote:
+> > On Mon, Jul 24, 2023 at 07:50:26PM +0530, Mayuresh Chitale wrote:
+> > > This series adds support to detect the Smstateen extension for both, =
+the
+> > > host and the guest vcpu. It also adds senvcfg and sstateen0 to the ON=
+E_REG
+> > > interface and the vcpu context save/restore.
+> >
+> > There's not really an explanation in this series of where Smstateen is
+> > needed, or why it is only implemented for KVM. The spec mentions that t=
+his
+> > also applies to separate user threads, as well as to guests running in a
+> > hypervisor. As your first patch will lead to smstateen being set in
+> > /proc/cpuinfo, it could reasonably be assumed that the kernel itself
+> > supports the extension. Why does only KVM, and not the kernel, require
+> > support for smstateen?
+>=20
+> Here's the motivation behind Smstateen from the spec:
+> "The implementation of optional RISC-V extensions has the potential to op=
+en
+> covert channels between separate user threads, or between separate guest
+> OSes running under a hypervisor. The problem occurs when an extension
+> adds processor state---usually explicit registers, but possibly other for=
+ms of
+> state---that the main OS or hypervisor is unaware of (and hence won=E2=80=
+=99t
+> context-switch) but that can be modified/written by one user thread or
+> guest OS and perceived/examined/read by another."
+
+This much I gathered from my (brief) reading of the spec.
+
+> Based on the above, Ssaia extension related CSRs need to be explicitly
+> enabled for HS-mode by M-mode (which OpenSBI already does) and
+> for VS-mode by HS-mode (which this series adds for KVM RISC-V).
+
+Ah right. Reading back through the patches, in [4/7] I see "Configure
+hstateen0 register so that the AIA state and envcfg are accessible to
+the vcpus". I would ask that, at least, [1/7] is updated to provide this
+motivation & the rationale for why only KVM needs to care. The
+motivation for the work should appear in the patchset somewhere, and
+probably in the cover too.
+
+> Currently, there are no new extensions addings CSRs for user-space
+> so RISC-V kernel does not need to set up sstateenX CSRs for processes
+> or tasks but in the future RISC-V kernel might touch sstateenX CSRs.
+
+Right, that is what I figured was going on, ignoring it for now, in the
+hopes that we remember to deal with it before some userspace visible
+side channel shows up.
+
+Dumb question maybe, but I find this to be quite -ENOPARSE:
+> Bit 0 of these registers is not custom state itself; it is a standard fie=
+ld of a standard CSR, either mstateen0,
+> hstateen0, or sstateen0. The requirements that non-standard extensions mu=
+st meet to be conforming are not
+> relaxed due solely to changes in the value of this bit. In particular, if=
+ software sets this bit but does not execute
+> any custom instructions or access any custom state, the software must con=
+tinue to execute as specified by all
+> relevant RISC-V standards, or the hardware is not standard-conforming.
+Does this mean that bit 0 of the CSRs mentioned in the quote controls all
+non-standard extensions at the respective privilege level? If so, does
+that not make the "ignore that we will now report the presence of this
+extension" approach flimsier, since we have little visibility into what
+may exist on that front?
+
+Granted, it is not as if delaying this patchset would benefit anyone in
+that regard, since those attempting to exploit the side channel know that
+the side channel exists, whether the kernel reports having sstateen or
+not. This probably just boils down to /proc/cpuinfo being a terrible
+interface for detecting extension support in the kernel.
+I've got some other comments about it that came up on IRC yesterday, so
+I'll go complain about it elsewhere :)
+
+Thanks,
+Conor.
+
+--BR67x+OQMbrXN+rh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZL+evgAKCRB4tDGHoIJi
+0iLeAP42cokJ0f9kUVftTkbT2M0XaFTi5k/0fY5J428UHxg6xAD+IwTqs0CJSI4k
+wb1oVsSPTawNFFR1hxCDmvbOAiBJawc=
+=AbPh
+-----END PGP SIGNATURE-----
+
+--BR67x+OQMbrXN+rh--
+
+
+--===============3015268177433616942==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3015268177433616942==--
+
