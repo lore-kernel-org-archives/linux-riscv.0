@@ -4,102 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BBC3C001B0
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 02:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97797EB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 03:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aOa5zaEY2xotyMt5Nqx4+T21DhnmCfVYIBCV7f20XLI=; b=ObX/QBadEQydnP
-	P4oBQgAgBFGkOUF63dUinLj02GHqPwb0Fvnvz5Ik/1Q96K6vo35HemMjNTA610Pw1tV7vFXrvRXXB
-	mG/3Nvz9fZgignudD9793c3AksaiX2xcg4oHqHLJ0zoTO7TBhyTwgP8+gG1Qw266aeh+MbZ4S+rYL
-	GDUJASrjFT+UNkK5D4+C3Wgh11/j59cpnwStJ5I82dNFYBaptU3sFKmDQQZNLZAQLkqZeJbQlCNI8
-	m5Vu+0nYch0EhbnwndBSHHrdE+/T1dEny9Il6jSzAg5EVS5FebK/Blg2OdsS2mlc/yd69JoCb8I7E
-	P2p23Wrbd6vaZwW1Ewdg==;
+	List-Owner; bh=PtH3OR6LyW3rWbr7xXBHrzLfsWSwfNQqhLYKVAClcCc=; b=Brs0vMctn3SSfe
+	bOiz4s3Ne9EDsgYSg0GqX2ZwjsJX1itpsliu6gIxehOtNbucEIWWx4RE6q7Ax5GDe/O12jr0/Gl6T
+	q0JXSrUgO55BIi8K4SoiSkwS1S/0NseAmzPz4zNhT0FULdvlXPF5hp22zwMXMn12hLAax8LyfCnfX
+	lp4XNTy+zFMTjnaB00IA+yFohgi9eYJfKoLBSK5ZJ3KV9Qqg9yWPEEGjccKURElvGwzmkp43zhAMg
+	XcjS71fAzD7LBRSJSYSyauIq92p1P1gnTDXa6Koy+U6554+qyzZDMEosjkU9nlsA6HgBr1N5s07Rp
+	yBFUw9U7+8dWiFdmN1rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qO7rC-005uex-0w;
-	Tue, 25 Jul 2023 02:33:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qO7r8-005udd-03
+	id 1qO8Tq-0060xg-0o;
+	Tue, 25 Jul 2023 03:12:58 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qO8Tn-0060rW-07
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 02:32:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1690252375;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TLi69c4E4L5eZQg22PEMzi9DRqiDnwUXsa6MfQ9GlAI=;
-	b=g1hclesLfqPxLdvTaT8gMkKqCYTrQOWTrW4U9H/YdJZ04FSJshX39gViNYzjQjjvNQXTrW
-	KsQBvaqW7J2MF+xyxtvouZQezeuFEO2dGPliCZRXMXO1U9VMj5yRYnTOUwJPcdtvxbnbJg
-	MtHDYPAudbfnWsPP5DWxMdWsGk3FL6c=
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com
- [209.85.215.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-257-H-5WC34NPjOjrM5iu4UMhQ-1; Mon, 24 Jul 2023 22:32:54 -0400
-X-MC-Unique: H-5WC34NPjOjrM5iu4UMhQ-1
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-563a6073d5fso329381a12.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 19:32:54 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690252373; x=1690857173;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TLi69c4E4L5eZQg22PEMzi9DRqiDnwUXsa6MfQ9GlAI=;
-        b=ECFctsfKKkCoLvalxpWjEy2tK26XmTm2R5oNU0VShZMVZWCKees5+IsRSTvJmrTwoT
-         ItrPiT8mPjcibAb9Vk9lyvb1m96j0LZu7A5huwmirzy9T+PZg+87z8q3rIltKZJLHt+S
-         9RBzPMmwxTdboqfyEBUoCO66lhl9gsuZT5chrlvsvWXleHQUKlN//J3euAYHa4hrl0VA
-         BxNqWNIEgKDyZoW4z4CD3T41Nb/XsiK94adNtTFL9p9/96uMUICFUQY0ctD7PxCFuaOm
-         ZtVKZ1LEMfChH7NUvQ+/nFZJGW6dzG0+52cEOhA451uK3Wn/0RzTqfZRRrjVgGPQx/4k
-         9Ekg==
-X-Gm-Message-State: ABy/qLYaSoEipXU49vnqdmXl2uD2z32g9B/JzJnBDfKmgPWqLLKPY1va
-	GvwujR6jmt3xMo96H9ahxSghaXUxU/cxmzbZ3iU4rBZC3PzpcUh0an4WTsMtjqvNxCNKOxRnxKV
-	utO8GH45F27vGCDQIOxWJx/9Y4+Ahf5RbOIFcsrsS4g==
-X-Received: by 2002:a05:6a20:6a04:b0:134:1671:6191 with SMTP id p4-20020a056a206a0400b0013416716191mr15770058pzk.0.1690252372798;
-        Mon, 24 Jul 2023 19:32:52 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlGjytb4S6qopsC3NLp/h8iyv5snZM1Dlt1GebDQMZ0uJY6y/Dhu0KlQgL9HrcCz12eAJGPfUw==
-X-Received: by 2002:a05:6a20:6a04:b0:134:1671:6191 with SMTP id p4-20020a056a206a0400b0013416716191mr15770035pzk.0.1690252372422;
-        Mon, 24 Jul 2023 19:32:52 -0700 (PDT)
-Received: from [10.66.61.39] ([43.228.180.230])
-        by smtp.gmail.com with ESMTPSA id h16-20020aa786d0000000b00678cb336f3csm8655609pfo.142.2023.07.24.19.32.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Jul 2023 19:32:52 -0700 (PDT)
-Message-ID: <7ea9e7a0-508d-0f00-09ae-ae468f111437@redhat.com>
-Date: Tue, 25 Jul 2023 10:32:46 +0800
+	Tue, 25 Jul 2023 03:12:57 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id A1E088284;
+	Tue, 25 Jul 2023 11:12:02 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 25 Jul
+ 2023 11:12:02 +0800
+Received: from [192.168.60.113] (180.164.60.184) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 25 Jul
+ 2023 11:12:01 +0800
+Message-ID: <b8e51384-4781-2710-e94f-38a88f43b801@starfivetech.com>
+Date: Tue, 25 Jul 2023 11:12:01 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v7 12/12] KVM: arm64: Use TLBI range-based intructions for
- unmap
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
- James Morse <james.morse@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Paolo Bonzini <pbonzini@redhat.com>,
- Sean Christopherson <seanjc@google.com>, Huacai Chen
- <chenhuacai@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- Jing Zhang <jingzhangos@google.com>, Reiji Watanabe <reijiw@google.com>,
- Colton Lewis <coltonlewis@google.com>, David Matlack <dmatlack@google.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- kvm@vger.kernel.org
-References: <20230722022251.3446223-1-rananta@google.com>
- <20230722022251.3446223-13-rananta@google.com>
- <0841aca6-2824-6a1b-a568-119f8bd220de@redhat.com>
- <CAJHc60znT5ThqKE3TgTW-0Us3oNv8+KF=81TSK0PbG3tTyJLFQ@mail.gmail.com>
-From: Shaoqin Huang <shahuang@redhat.com>
-In-Reply-To: <CAJHc60znT5ThqKE3TgTW-0Us3oNv8+KF=81TSK0PbG3tTyJLFQ@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH 3/9] drm/verisilicon: Add basic drm driver
 Content-Language: en-US
+To: Lucas Stach <l.stach@pengutronix.de>, <dri-devel@lists.freedesktop.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-media@vger.kernel.org>,
+	<linaro-mm-sig@lists.linaro.org>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Sumit Semwal
+	<sumit.semwal@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, "Shengyang
+ Chen" <shengyang.chen@starfivetech.com>, Conor Dooley <conor+dt@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Thomas Zimmermann <tzimmermann@suse.de>,
+	Jagan Teki <jagan@edgeble.ai>, Rob Herring <robh+dt@kernel.org>, Chris Morgan
+	<macromorgan@hotmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, "Bjorn
+ Andersson" <andersson@kernel.org>, Changhuang Liang
+	<changhuang.liang@starfivetech.com>, Jack Zhu <jack.zhu@starfivetech.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Shawn Guo <shawnguo@kernel.org>,
+	<christian.koenig@amd.com>
+References: <20230602074043.33872-1-keith.zhao@starfivetech.com>
+ <20230602074043.33872-4-keith.zhao@starfivetech.com>
+ <e0eeae3b35e8efac7c577ca3159abcf7f43d5082.camel@pengutronix.de>
+From: Keith Zhao <keith.zhao@starfivetech.com>
+In-Reply-To: <e0eeae3b35e8efac7c577ca3159abcf7f43d5082.camel@pengutronix.de>
+X-Originating-IP: [180.164.60.184]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_193258_152254_F9A60003 
-X-CRM114-Status: GOOD (  29.86  )
+X-CRM114-CacheID: sfid-20230724_201255_444121_4BDC982B 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,148 +82,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA3LzI1LzIzIDAwOjQ3LCBSYWdoYXZlbmRyYSBSYW8gQW5hbnRhIHdyb3RlOgo+IE9uIE1v
-biwgSnVsIDI0LCAyMDIzIGF0IDI6MzXigK9BTSBTaGFvcWluIEh1YW5nIDxzaGFodWFuZ0ByZWRo
-YXQuY29tPiB3cm90ZToKPj4KPj4gSGkgUmFnaGF2ZW5kcmEsCj4+Cj4+IE9uIDcvMjIvMjMgMTA6
-MjIsIFJhZ2hhdmVuZHJhIFJhbyBBbmFudGEgd3JvdGU6Cj4+PiBUaGUgY3VycmVudCBpbXBsZW1l
-bnRhdGlvbiBvZiB0aGUgc3RhZ2UtMiB1bm1hcCB3YWxrZXIgdHJhdmVyc2VzCj4+PiB0aGUgZ2l2
-ZW4gcmFuZ2UgYW5kLCBhcyBhIHBhcnQgb2YgYnJlYWstYmVmb3JlLW1ha2UsIHBlcmZvcm1zCj4+
-PiBUTEIgaW52YWxpZGF0aW9ucyB3aXRoIGEgRFNCIGZvciBldmVyeSBQVEUuIEEgbXVsdGl0dWRl
-IG9mIHRoaXMKPj4+IGNvbWJpbmF0aW9uIGNvdWxkIGNhdXNlIGEgcGVyZm9ybWFuY2UgYm90dGxl
-bmVjayBvbiBzb21lIHN5c3RlbXMuCj4+Pgo+Pj4gSGVuY2UsIGlmIHRoZSBzeXN0ZW0gc3VwcG9y
-dHMgRkVBVF9UTEJJUkFOR0UsIGRlZmVyIHRoZSBUTEIKPj4+IGludmFsaWRhdGlvbnMgdW50aWwg
-dGhlIGVudGlyZSB3YWxrIGlzIGZpbmlzaGVkLCBhbmQgdGhlbgo+Pj4gdXNlIHJhbmdlLWJhc2Vk
-IGluc3RydWN0aW9ucyB0byBpbnZhbGlkYXRlIHRoZSBUTEJzIGluIG9uZSBnby4KPj4+IENvbmRp
-dGlvbiBkZWZlcnJlZCBUTEIgaW52YWxpZGF0aW9uIG9uIHRoZSBzeXN0ZW0gc3VwcG9ydGluZyBG
-V0IsCj4+PiBhcyB0aGUgb3B0aW1pemF0aW9uIGlzIGVudGlyZWx5IHBvaW50bGVzcyB3aGVuIHRo
-ZSB1bm1hcCB3YWxrZXIKPj4+IG5lZWRzIHRvIHBlcmZvcm0gQ01Pcy4KPj4+Cj4+PiBSZW5hbWUg
-c3RhZ2UyX3B1dF9wdGUoKSB0byBzdGFnZTJfdW5tYXBfcHV0X3B0ZSgpIGFzIHRoZSBmdW5jdGlv
-bgo+Pj4gbm93IHNlcnZlcyB0aGUgc3RhZ2UtMiB1bm1hcCB3YWxrZXIgc3BlY2lmaWNhbGx5LCBy
-YXRoZXIgdGhhbgo+Pj4gYWN0aW5nIGdlbmVyaWMuCj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogUmFn
-aGF2ZW5kcmEgUmFvIEFuYW50YSA8cmFuYW50YUBnb29nbGUuY29tPgo+Pj4gLS0tCj4+PiAgICBh
-cmNoL2FybTY0L2t2bS9oeXAvcGd0YWJsZS5jIHwgNjcgKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKy0tLS0tCj4+PiAgICAxIGZpbGUgY2hhbmdlZCwgNTggaW5zZXJ0aW9ucygrKSwgOSBk
-ZWxldGlvbnMoLSkKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9rdm0vaHlwL3BndGFi
-bGUuYyBiL2FyY2gvYXJtNjQva3ZtL2h5cC9wZ3RhYmxlLmMKPj4+IGluZGV4IDVlZjA5OGFmMTcz
-Ni4uY2Y4ODkzM2EyZWEwIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9hcm02NC9rdm0vaHlwL3BndGFi
-bGUuYwo+Pj4gKysrIGIvYXJjaC9hcm02NC9rdm0vaHlwL3BndGFibGUuYwo+Pj4gQEAgLTgzMSwx
-NiArODMxLDU0IEBAIHN0YXRpYyB2b2lkIHN0YWdlMl9tYWtlX3B0ZShjb25zdCBzdHJ1Y3Qga3Zt
-X3BndGFibGVfdmlzaXRfY3R4ICpjdHgsIGt2bV9wdGVfdCBuCj4+PiAgICAgICAgc21wX3N0b3Jl
-X3JlbGVhc2UoY3R4LT5wdGVwLCBuZXcpOwo+Pj4gICAgfQo+Pj4KPj4+IC1zdGF0aWMgdm9pZCBz
-dGFnZTJfcHV0X3B0ZShjb25zdCBzdHJ1Y3Qga3ZtX3BndGFibGVfdmlzaXRfY3R4ICpjdHgsIHN0
-cnVjdCBrdm1fczJfbW11ICptbXUsCj4+PiAtICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0
-IGt2bV9wZ3RhYmxlX21tX29wcyAqbW1fb3BzKQo+Pj4gK3N0cnVjdCBzdGFnZTJfdW5tYXBfZGF0
-YSB7Cj4+PiArICAgICBzdHJ1Y3Qga3ZtX3BndGFibGUgKnBndDsKPj4+ICsgICAgIGJvb2wgZGVm
-ZXJfdGxiX2ZsdXNoX2luaXQ7Cj4+PiArfTsKPj4+ICsKPj4+ICtzdGF0aWMgYm9vbCBfX3N0YWdl
-Ml91bm1hcF9kZWZlcl90bGJfZmx1c2goc3RydWN0IGt2bV9wZ3RhYmxlICpwZ3QpCj4+PiArewo+
-Pj4gKyAgICAgLyoKPj4+ICsgICAgICAqIElmIEZFQVRfVExCSVJBTkdFIGlzIGltcGxlbWVudGVk
-LCBkZWZlciB0aGUgaW5kaXZpZHVhbAo+Pj4gKyAgICAgICogVExCIGludmFsaWRhdGlvbnMgdW50
-aWwgdGhlIGVudGlyZSB3YWxrIGlzIGZpbmlzaGVkLCBhbmQKPj4+ICsgICAgICAqIHRoZW4gdXNl
-IHRoZSByYW5nZS1iYXNlZCBUTEJJIGluc3RydWN0aW9ucyB0byBkbyB0aGUKPj4+ICsgICAgICAq
-IGludmFsaWRhdGlvbnMuIENvbmRpdGlvbiBkZWZlcnJlZCBUTEIgaW52YWxpZGF0aW9uIG9uIHRo
-ZQo+Pj4gKyAgICAgICogc3lzdGVtIHN1cHBvcnRpbmcgRldCLCBhcyB0aGUgb3B0aW1pemF0aW9u
-IGlzIGVudGlyZWx5Cj4+PiArICAgICAgKiBwb2ludGxlc3Mgd2hlbiB0aGUgdW5tYXAgd2Fsa2Vy
-IG5lZWRzIHRvIHBlcmZvcm0gQ01Pcy4KPj4+ICsgICAgICAqLwo+Pj4gKyAgICAgcmV0dXJuIHN5
-c3RlbV9zdXBwb3J0c190bGJfcmFuZ2UoKSAmJiBzdGFnZTJfaGFzX2Z3YihwZ3QpOwo+Pj4gK30K
-Pj4+ICsKPj4+ICtzdGF0aWMgYm9vbCBzdGFnZTJfdW5tYXBfZGVmZXJfdGxiX2ZsdXNoKHN0cnVj
-dCBzdGFnZTJfdW5tYXBfZGF0YSAqdW5tYXBfZGF0YSkKPj4+ICt7Cj4+PiArICAgICBib29sIGRl
-ZmVyX3RsYl9mbHVzaCA9IF9fc3RhZ2UyX3VubWFwX2RlZmVyX3RsYl9mbHVzaCh1bm1hcF9kYXRh
-LT5wZ3QpOwo+Pj4gKwo+Pj4gKyAgICAgLyoKPj4+ICsgICAgICAqIFNpbmNlIF9fc3RhZ2UyX3Vu
-bWFwX2RlZmVyX3RsYl9mbHVzaCgpIGlzIGJhc2VkIG9uIGFsdGVybmF0aXZlCj4+PiArICAgICAg
-KiBwYXRjaGluZyBhbmQgdGhlIFRMQklzJyBvcGVyYXRpb25zIGJlaGF2aW9yIGRlcGVuZCBvbiB0
-aGlzLAo+Pj4gKyAgICAgICogdHJhY2sgaWYgdGhlcmUncyBhbnkgY2hhbmdlIGluIHRoZSBzdGF0
-ZSBkdXJpbmcgdGhlIHVubWFwIHNlcXVlbmNlLgo+Pj4gKyAgICAgICovCj4+PiArICAgICBXQVJO
-X09OKHVubWFwX2RhdGEtPmRlZmVyX3RsYl9mbHVzaF9pbml0ICE9IGRlZmVyX3RsYl9mbHVzaCk7
-Cj4+PiArICAgICByZXR1cm4gZGVmZXJfdGxiX2ZsdXNoOwo+Pj4gK30KPj4+ICsKPj4+ICtzdGF0
-aWMgdm9pZCBzdGFnZTJfdW5tYXBfcHV0X3B0ZShjb25zdCBzdHJ1Y3Qga3ZtX3BndGFibGVfdmlz
-aXRfY3R4ICpjdHgsCj4+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3Qga3Zt
-X3MyX21tdSAqbW11LAo+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IGt2
-bV9wZ3RhYmxlX21tX29wcyAqbW1fb3BzKQo+Pj4gICAgewo+Pj4gKyAgICAgc3RydWN0IHN0YWdl
-Ml91bm1hcF9kYXRhICp1bm1hcF9kYXRhID0gY3R4LT5hcmc7Cj4+PiArCj4+PiAgICAgICAgLyoK
-Pj4+IC0gICAgICAqIENsZWFyIHRoZSBleGlzdGluZyBQVEUsIGFuZCBwZXJmb3JtIGJyZWFrLWJl
-Zm9yZS1tYWtlIHdpdGgKPj4+IC0gICAgICAqIFRMQiBtYWludGVuYW5jZSBpZiBpdCB3YXMgdmFs
-aWQuCj4+PiArICAgICAgKiBDbGVhciB0aGUgZXhpc3RpbmcgUFRFLCBhbmQgcGVyZm9ybSBicmVh
-ay1iZWZvcmUtbWFrZSBpZiBpdCB3YXMKPj4+ICsgICAgICAqIHZhbGlkLiBEZXBlbmRpbmcgb24g
-dGhlIHN5c3RlbSBzdXBwb3J0LCB0aGUgVExCIG1haW50ZW5hbmNlIGZvcgo+Pj4gKyAgICAgICog
-dGhlIHNhbWUgY2FuIGJlIGRlZmVycmVkIHVudGlsIHRoZSBlbnRpcmUgdW5tYXAgaXMgY29tcGxl
-dGVkLgo+Pj4gICAgICAgICAqLwo+Pj4gICAgICAgIGlmIChrdm1fcHRlX3ZhbGlkKGN0eC0+b2xk
-KSkgewo+Pj4gICAgICAgICAgICAgICAga3ZtX2NsZWFyX3B0ZShjdHgtPnB0ZXApOwo+Pj4gLSAg
-ICAgICAgICAgICBrdm1fY2FsbF9oeXAoX19rdm1fdGxiX2ZsdXNoX3ZtaWRfaXBhLCBtbXUsIGN0
-eC0+YWRkciwgY3R4LT5sZXZlbCk7Cj4+PiArCj4+PiArICAgICAgICAgICAgIGlmICghc3RhZ2Uy
-X3VubWFwX2RlZmVyX3RsYl9mbHVzaCh1bm1hcF9kYXRhKSkKPj4gV2h5IG5vdCBkaXJlY3RseSBj
-aGVjayAodW5tYXBfZGF0YS0+ZGVmZXJfdGxiX2ZsdXNoX2luaXQpIGhlcmU/Cj4+Cj4gKFJlLXNl
-bmRpbmcgdGhlIHJlcGx5IGFzIHRoZSBwcmV2aW91cyBvbmUgd2FzIGZvcm1hdHRlZCBhcyBIVE1M
-IGFuZAo+IHdhcyBibG9ja2VkIGJ5IG1hbnkgbGlzdHMpCj4gCj4gTm8gcGFydGljdWxhciByZWFz
-b24gcGVyIHNheSwgYnV0IEkgd2FzIGp1c3QgZ29pbmcgd2l0aCB0aGUgbG9naWMgb2YKPiBkZXRl
-cm1pbmluZyBpZiB3ZSBuZWVkIHRvIGRlZmVyIHRoZSBmbHVzaCBhbmQgdGhlIFdBUk5fT04oKSBw
-YXJ0cwo+IHNlcGFyYXRlLgo+IEFueSBhZHZhbnRhZ2UgaWYgd2UgZGlyZWN0bHkgY2hlY2sgaW4g
-c3RhZ2UyX3VubWFwX3B1dF9wdGUoKSB0aGF0IEkKPiBtaXNzZWQgb3IgaXMgdGhpcyBwdXJlbHkg
-Zm9yIHJlYWRhYmlsaXR5PwoKSGkgUmFnaGF2ZW5kcmEsCgpJIGp1c3Qgd29uZGVyaW5nIGlmIGJl
-Zm9yZSB0aGUgc3RhZ2UyIHdhbGssIHdlIHdhbnQgdG8gZGVmZXIgdGhlIHRsYiAKZmx1c2gsIGJ1
-dCBpZiB3aGVuIHdhbGsgdGhlIHN0YWdlMiwgdGhlIHN0YWdlMl91bm1hcF9kZWZlcl90bGJfZmx1
-c2goKSAKdHJpZ2dlciB0aGUgV0FSTl9PTigpIGFuZCByZXR1cm4gZG9uJ3QgZGVmZXIgdGhlIHRs
-YiBmbHVzaCwgaXQgd2lsbCAKZmx1c2ggdGhlIGN0eC0+YWRkcidzIHRsYi4gQnV0IGJlZm9yZSB0
-aGUgV0FSTl9PTigpIHRyaWdnZXJlZCwgdGhlc2UgdGxiIAp3aWxsIG5vdCBiZSBmbHVzaGVkLCBz
-aW5jZSB3aGVuIHdhbGsgc3RhZ2UyIGRvbmUgaW4gdGhlIAprdm1fcGd0YWJsZV9zdGFnZTJfdW5t
-YXAoKSwgdGhlIHN0YWdlMl91bm1hcF9kZWZlcl90bGJfZmx1c2goKSBzdGlsbCAKdHJpZ2dlciB0
-aGUgV0FSTl9PTigpIGFuZCBkb24ndCB1c2UgdGhlIHRsYiByYW5nZS1iYXNlZCBmbHVzaC4gVGh1
-cyBzb21lIApvZiB0aGUgdGxiIGFyZSBub3QgZmx1c2hlZC4KCklmIHdlIGRpcmVjdGx5IGNoZWNr
-IHRoZSAodW5tYXBfZGF0YS0+ZGVmZXJfdGxiX2ZsdXNoX2luaXQpLCB0aGlzIGlzbid0IApjaGFu
-Z2UgZHVyaW5nIHdhbGtpbmcgdGhlIHN0YWdlMiwgc28gdGhlIFdBUk5fT04oKSBzaG91bGQgb25s
-eSB0cmlnZ2VyIAppbiBrdm1fcGd0YWJsZV9zdGFnZTJfdW5tYXAoKS0+c3RhZ2UyX3VubWFwX2Rl
-ZmVyX3RsYl9mbHVzaCgpLgoKSSdtIG5vdCBzdXJlIGlmIGl0J3MgcmlnaHQgc2luY2UgSSBqdXN0
-IHRoaW5rIG9uY2Ugd2Ugc2V0IHVwIHVzZSB0aGUgClRMQkkgcmFuZ2UtYmFzZWQgZmx1c2gsIHRo
-ZSByZXN1bHQgb2YgdGhlIApfX3N0YWdlMl91bm1hcF9kZWZlcl90bGJfZmx1c2goKSBzaG91bGRu
-J3QgY2hhbmdlLiBPdGhlcndpc2UgdGhlcmUgbXVzdCAKaGF2ZSBzb21lIHN0YWxlIFRMQiBlbnRy
-eS4KClRoYW5rcywKU2hhb3FpbgoKPiAKPj4+ICsgICAgICAgICAgICAgICAgICAgICBrdm1fY2Fs
-bF9oeXAoX19rdm1fdGxiX2ZsdXNoX3ZtaWRfaXBhLCBtbXUsCj4+PiArICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIGN0eC0+YWRkciwgY3R4LT5sZXZlbCk7Cj4+IFNtYWxsIGlu
-ZGVudCBoaW50LiBUaGUgY3R4LT5hZGRyIGNhbiBhbGlnbiB3aXRoIF9fa3ZtX3RsYl9mbHVzaF92
-bWlkX2lwYS4KPj4KPiBBaCwgeWVzLiBJJ2xsIGFkanVzdCB0aGlzIGlmIEkgc2VuZCBvdXQgYSB2
-OC4KPiAKPiBUaGFuayB5b3UuCj4gUmFnaGF2ZW5kcmEKPj4gVGhhbmtzLAo+PiBTaGFvcWluCj4+
-PiAgICAgICAgfQo+Pj4KPj4+ICAgICAgICBtbV9vcHMtPnB1dF9wYWdlKGN0eC0+cHRlcCk7Cj4+
-PiBAQCAtMTA3MCw3ICsxMTA4LDggQEAgaW50IGt2bV9wZ3RhYmxlX3N0YWdlMl9zZXRfb3duZXIo
-c3RydWN0IGt2bV9wZ3RhYmxlICpwZ3QsIHU2NCBhZGRyLCB1NjQgc2l6ZSwKPj4+ICAgIHN0YXRp
-YyBpbnQgc3RhZ2UyX3VubWFwX3dhbGtlcihjb25zdCBzdHJ1Y3Qga3ZtX3BndGFibGVfdmlzaXRf
-Y3R4ICpjdHgsCj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbnVtIGt2bV9wZ3Rh
-YmxlX3dhbGtfZmxhZ3MgdmlzaXQpCj4+PiAgICB7Cj4+PiAtICAgICBzdHJ1Y3Qga3ZtX3BndGFi
-bGUgKnBndCA9IGN0eC0+YXJnOwo+Pj4gKyAgICAgc3RydWN0IHN0YWdlMl91bm1hcF9kYXRhICp1
-bm1hcF9kYXRhID0gY3R4LT5hcmc7Cj4+PiArICAgICBzdHJ1Y3Qga3ZtX3BndGFibGUgKnBndCA9
-IHVubWFwX2RhdGEtPnBndDsKPj4+ICAgICAgICBzdHJ1Y3Qga3ZtX3MyX21tdSAqbW11ID0gcGd0
-LT5tbXU7Cj4+PiAgICAgICAgc3RydWN0IGt2bV9wZ3RhYmxlX21tX29wcyAqbW1fb3BzID0gY3R4
-LT5tbV9vcHM7Cj4+PiAgICAgICAga3ZtX3B0ZV90ICpjaGlsZHAgPSBOVUxMOwo+Pj4gQEAgLTEw
-OTgsNyArMTEzNyw3IEBAIHN0YXRpYyBpbnQgc3RhZ2UyX3VubWFwX3dhbGtlcihjb25zdCBzdHJ1
-Y3Qga3ZtX3BndGFibGVfdmlzaXRfY3R4ICpjdHgsCj4+PiAgICAgICAgICogYmxvY2sgZW50cnkg
-YW5kIHJlbHkgb24gdGhlIHJlbWFpbmluZyBwb3J0aW9ucyBiZWluZyBmYXVsdGVkCj4+PiAgICAg
-ICAgICogYmFjayBsYXppbHkuCj4+PiAgICAgICAgICovCj4+PiAtICAgICBzdGFnZTJfcHV0X3B0
-ZShjdHgsIG1tdSwgbW1fb3BzKTsKPj4+ICsgICAgIHN0YWdlMl91bm1hcF9wdXRfcHRlKGN0eCwg
-bW11LCBtbV9vcHMpOwo+Pj4KPj4+ICAgICAgICBpZiAobmVlZF9mbHVzaCAmJiBtbV9vcHMtPmRj
-YWNoZV9jbGVhbl9pbnZhbF9wb2MpCj4+PiAgICAgICAgICAgICAgICBtbV9vcHMtPmRjYWNoZV9j
-bGVhbl9pbnZhbF9wb2Moa3ZtX3B0ZV9mb2xsb3coY3R4LT5vbGQsIG1tX29wcyksCj4+PiBAQCAt
-MTExMiwxMyArMTE1MSwyMyBAQCBzdGF0aWMgaW50IHN0YWdlMl91bm1hcF93YWxrZXIoY29uc3Qg
-c3RydWN0IGt2bV9wZ3RhYmxlX3Zpc2l0X2N0eCAqY3R4LAo+Pj4KPj4+ICAgIGludCBrdm1fcGd0
-YWJsZV9zdGFnZTJfdW5tYXAoc3RydWN0IGt2bV9wZ3RhYmxlICpwZ3QsIHU2NCBhZGRyLCB1NjQg
-c2l6ZSkKPj4+ICAgIHsKPj4+ICsgICAgIGludCByZXQ7Cj4+PiArICAgICBzdHJ1Y3Qgc3RhZ2Uy
-X3VubWFwX2RhdGEgdW5tYXBfZGF0YSA9IHsKPj4+ICsgICAgICAgICAgICAgLnBndCA9IHBndCwK
-Pj4+ICsgICAgICAgICAgICAgLmRlZmVyX3RsYl9mbHVzaF9pbml0ID0gX19zdGFnZTJfdW5tYXBf
-ZGVmZXJfdGxiX2ZsdXNoKHBndCksCj4+PiArICAgICB9Owo+Pj4gICAgICAgIHN0cnVjdCBrdm1f
-cGd0YWJsZV93YWxrZXIgd2Fsa2VyID0gewo+Pj4gICAgICAgICAgICAgICAgLmNiICAgICA9IHN0
-YWdlMl91bm1hcF93YWxrZXIsCj4+PiAtICAgICAgICAgICAgIC5hcmcgICAgPSBwZ3QsCj4+PiAr
-ICAgICAgICAgICAgIC5hcmcgICAgPSAmdW5tYXBfZGF0YSwKPj4+ICAgICAgICAgICAgICAgIC5m
-bGFncyAgPSBLVk1fUEdUQUJMRV9XQUxLX0xFQUYgfCBLVk1fUEdUQUJMRV9XQUxLX1RBQkxFX1BP
-U1QsCj4+PiAgICAgICAgfTsKPj4+Cj4+PiAtICAgICByZXR1cm4ga3ZtX3BndGFibGVfd2Fsayhw
-Z3QsIGFkZHIsIHNpemUsICZ3YWxrZXIpOwo+Pj4gKyAgICAgcmV0ID0ga3ZtX3BndGFibGVfd2Fs
-ayhwZ3QsIGFkZHIsIHNpemUsICZ3YWxrZXIpOwo+Pj4gKyAgICAgaWYgKHN0YWdlMl91bm1hcF9k
-ZWZlcl90bGJfZmx1c2goJnVubWFwX2RhdGEpKQo+Pj4gKyAgICAgICAgICAgICAvKiBQZXJmb3Jt
-IHRoZSBkZWZlcnJlZCBUTEIgaW52YWxpZGF0aW9ucyAqLwo+Pj4gKyAgICAgICAgICAgICBrdm1f
-dGxiX2ZsdXNoX3ZtaWRfcmFuZ2UocGd0LT5tbXUsIGFkZHIsIHNpemUpOwo+Pj4gKwo+Pj4gKyAg
-ICAgcmV0dXJuIHJldDsKPj4+ICAgIH0KPj4+Cj4+PiAgICBzdHJ1Y3Qgc3RhZ2UyX2F0dHJfZGF0
-YSB7Cj4+Cj4+IC0tCj4+IFNoYW9xaW4KPj4KPiAKCi0tIApTaGFvcWluCgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 2023/6/7 16:53, Lucas Stach wrote:
+> Hi Keith,
+> 
+> Am Freitag, dem 02.06.2023 um 15:40 +0800 schrieb Keith Zhao:
+>> Add a basic platform driver of the DRM driver for JH7110 SoC.
+>> 
+>> Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+>> ---
+>>  MAINTAINERS                          |   2 +
+>>  drivers/gpu/drm/Kconfig              |   2 +
+>>  drivers/gpu/drm/Makefile             |   1 +
+>>  drivers/gpu/drm/verisilicon/Kconfig  |  13 ++
+>>  drivers/gpu/drm/verisilicon/Makefile |   6 +
+>>  drivers/gpu/drm/verisilicon/vs_drv.c | 284 +++++++++++++++++++++++++++
+>>  drivers/gpu/drm/verisilicon/vs_drv.h |  48 +++++
+>>  include/uapi/drm/drm_fourcc.h        |  83 ++++++++
+>>  include/uapi/drm/vs_drm.h            |  50 +++++
+>>  9 files changed, 489 insertions(+)
+>>  create mode 100644 drivers/gpu/drm/verisilicon/Kconfig
+>>  create mode 100644 drivers/gpu/drm/verisilicon/Makefile
+>>  create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.c
+>>  create mode 100644 drivers/gpu/drm/verisilicon/vs_drv.h
+>>  create mode 100644 include/uapi/drm/vs_drm.h
+>> 
+>> 
+>> [...]
+>> +#endif /* __VS_DRV_H__ */
+>> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
+>> index de703c6be969..af4fb50f9207 100644
+>> --- a/include/uapi/drm/drm_fourcc.h
+>> +++ b/include/uapi/drm/drm_fourcc.h
+>> @@ -419,6 +419,7 @@ extern "C" {
+>>  #define DRM_FORMAT_MOD_VENDOR_ARM     0x08
+>>  #define DRM_FORMAT_MOD_VENDOR_ALLWINNER 0x09
+>>  #define DRM_FORMAT_MOD_VENDOR_AMLOGIC 0x0a
+>> +#define DRM_FORMAT_MOD_VENDOR_VS      0x0b
+>>  
+>>  /* add more to the end as needed */
+>>  
+>> @@ -1519,6 +1520,88 @@ drm_fourcc_canonicalize_nvidia_format_mod(__u64 modifier)
+>>  #define AMD_FMT_MOD_CLEAR(field) \
+>>  	(~((__u64)AMD_FMT_MOD_##field##_MASK << AMD_FMT_MOD_##field##_SHIFT))
+>>  
+>> +#define DRM_FORMAT_MOD_VS_TYPE_NORMAL        0x00
+>> +#define DRM_FORMAT_MOD_VS_TYPE_COMPRESSED    0x01
+>> +#define DRM_FORMAT_MOD_VS_TYPE_CUSTOM_10BIT  0x02
+>> +#define DRM_FORMAT_MOD_VS_TYPE_MASK     ((__u64)0x3 << 54)
+>> +
+>> +#define fourcc_mod_vs_code(type, val) \
+>> +	fourcc_mod_code(VS, ((((__u64)type) << 54) | (val)))
+>> +
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_MODE_MASK    0x3F
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X8_XMAJOR   0x00
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X8_YMAJOR   0x01
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X4     0x02
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X4      0x03
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_4X8      0x04
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_16X4   0x06
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_64X4     0x07
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X4     0x08
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_256X1  0x09
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_128X1  0x0A
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_64X4   0x0B
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_256X2  0x0C
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_128X2  0x0D
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_128X4  0x0E
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_64X1   0x0F
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X8     0x10
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X16     0x11
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_512X1  0x12
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_32X4   0x13
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_64X2   0x14
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_32X2   0x15
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_32X1   0x16
+>> +#define DRM_FORMAT_MOD_VS_DEC_RASTER_16X1   0x17
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_128X4    0x18
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_256X4    0x19
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_512X4    0x1A
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X16    0x1B
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X16    0x1C
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_64X16    0x1D
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_128X8    0x1E
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_8X4_S    0x1F
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X4_S   0x20
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X4_S   0x21
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_16X4_LSB 0x22
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X4_LSB 0x23
+>> +#define DRM_FORMAT_MOD_VS_DEC_TILE_32X8     0x24
+>> +
+>> +#define DRM_FORMAT_MOD_VS_DEC_ALIGN_32      (0x01 << 6)
+>> +#define DRM_FORMAT_MOD_VS_DEC_ALIGN_64      (0x01 << 7)
+>> +
+>> +#define fourcc_mod_vs_dec_code(tile, align) \
+>> +	fourcc_mod_vs_code(DRM_FORMAT_MOD_VS_TYPE_COMPRESSED, \
+>> +				((tile) | (align)))
+>> +
+>> +#define DRM_FORMAT_MOD_VS_NORM_MODE_MASK        0x1F
+>> +#define DRM_FORMAT_MOD_VS_LINEAR                0x00
+>> +#define DRM_FORMAT_MOD_VS_TILED4x4              0x01
+>> +#define DRM_FORMAT_MOD_VS_SUPER_TILED_XMAJOR    0x02
+>> +#define DRM_FORMAT_MOD_VS_SUPER_TILED_YMAJOR    0x03
+>> +#define DRM_FORMAT_MOD_VS_TILE_8X8              0x04
+>> +#define DRM_FORMAT_MOD_VS_TILE_MODE1            0x05
+>> +#define DRM_FORMAT_MOD_VS_TILE_MODE2            0x06
+>> +#define DRM_FORMAT_MOD_VS_TILE_8X4              0x07
+>> +#define DRM_FORMAT_MOD_VS_TILE_MODE4            0x08
+>> +#define DRM_FORMAT_MOD_VS_TILE_MODE5            0x09
+>> +#define DRM_FORMAT_MOD_VS_TILE_MODE6            0x0A
+>> +#define DRM_FORMAT_MOD_VS_SUPER_TILED_XMAJOR_8X4    0x0B
+>> +#define DRM_FORMAT_MOD_VS_SUPER_TILED_YMAJOR_4X8    0x0C
+>> +#define DRM_FORMAT_MOD_VS_TILE_Y                0x0D
+>> +#define DRM_FORMAT_MOD_VS_TILE_128X1            0x0F
+>> +#define DRM_FORMAT_MOD_VS_TILE_256X1            0x10
+>> +#define DRM_FORMAT_MOD_VS_TILE_32X1             0x11
+>> +#define DRM_FORMAT_MOD_VS_TILE_64X1             0x12
+>> +#define DRM_FORMAT_MOD_VS_TILE_MODE4X4          0x15
+>> +
+>> +#define fourcc_mod_vs_norm_code(tile) \
+>> +	fourcc_mod_vs_code(DRM_FORMAT_MOD_VS_TYPE_NORMAL, \
+>> +				(tile))
+>> +
+>> +#define fourcc_mod_vs_custom_code(tile) \
+>> +	fourcc_mod_vs_code(DRM_FORMAT_MOD_VS_TYPE_CUSTOM_10BIT, \
+>> +				(tile))
+>> +
+> 
+> You are opening a new namespace for what is effectively the VIVANTE
+> tiling. While your list seems much more exhaustive than the (reverse
+> engineered) list provided under the VIVANTE namespace, this is still
+> unacceptable as it adds new aliases for existing modifiers.
+> 
+hi Lucas:
+I got what you mean , I will check the whether the current existence can be reused.
+In principle, can existing modefiers cover my definition?
+
+> Also any modifier additions should be in a separate patch and not
+> buried in another change.
+> 
+ok , no problem
+> Regards,
+> Lucas
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
