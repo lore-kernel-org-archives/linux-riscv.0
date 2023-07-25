@@ -4,77 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832C9C00528
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 07:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F68BC00528
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 07:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PrQTxoKKqK4oTOiYBx58r7iLW9yclxkXMGqO80NEpPs=; b=IIDnY1UNUfcT0z6Iuiga4+TUgy
-	TN72Mbrk3Rn/5mT+JEs8gvdohDVONY02nOKV870dSIwTlr5ShsBgoRKHKidlCT4tq7JoJCBU+L45h
-	pagffkwvaVdEKVHKgjGro201gmKsqTvXD09LQRdlZ+EW8o6YgBemt80daGmkR2Hqtw2w6kdf0ZQ/1
-	OLqA9lr0MpMsYxzsWEe2U0sdSlvf5mGt1cFjBJ0pYgo0rqqvddb1sGvkM0yfg+ZvRrrL5eBfj5sVd
-	MLaIQOuSCAcIYTpdc3I2c15LRTbr7jsLdf51TPtEDTPT8OqcAzAgA7dSgR9DXrnq7WdZG8OAlJ5vU
-	sr4KwzZg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=riM53aqFEs0f3DblqdYECFlEvFjDBBtGAekUSGdYTHk=; b=XDRtkAwOxs1xFK
+	BvHO4CrhEX+3b0k2UCuHP1oIIrbmZFiYdOb9bUeH3vUsSM3jubB98wpk2f/a6NsoePYsC2YAPXgds
+	ru+0ZZg94R4GzbOy3XEwDCd8796H9Fmuig09mcTUieImRp0n6BfDfDVaiTClOjvoN29J6KkhcCee3
+	TM9fEp/UeBzrTe9gBXdzHV1Bs1mBGa6xRXBqGgeTK8lGv1J+dgswX3qisEHEaiwb5I0UHXUnhejZ7
+	iTmnumIhJhtLp1nPVmCJNT8L6JoQSPWcpe6jaeuKCLNYtUNv3y/tBpykJdKvdbBwQ+k+Ypn/3t16D
+	mvVq3actnBu0juT4oOdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOCiu-006eL6-0j;
-	Tue, 25 Jul 2023 07:44:48 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qOCkj-006eYw-0m;
+	Tue, 25 Jul 2023 07:46:41 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOCir-006eKe-0b
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 07:44:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690271084; x=1721807084;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GkLqQ6DAg/UKQuy+uWECAwtfkMKE2HdTGALC1tF0kGs=;
-  b=zCMFL38670WYMXpQTHH82cNVGSxsbT2hBKAcBdIzVOOgeh1zCZTa8905
-   4WrIkGKtebYJit3xNv08XYB48mME9HERFhgH9rbsIb1m/2020GeetpW8s
-   Lr1VreBreMQwz7uaC75HI55qpfPltNQ50MRA9ksPC9JIsbLawuKTt2SWF
-   cJAxhaCvuxi9qWRoHVd0vbZHT7ClKmTi3VbcglajjxZEjKkEa4UGE/am4
-   jwRfSheJjoRXo4Dd0Zaw0R9UQ3df8lzOnEtHfQC7d8ZZTHnugeHenHimh
-   YNAzDkt3EzwXTK/WTfjbEutqE4v6rdGuWKcpqvxdxcm7JX13BLSKbyNmv
-   A==;
-X-IronPort-AV: E=Sophos;i="6.01,230,1684825200"; 
-   d="asc'?scan'208";a="237576831"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 25 Jul 2023 00:44:43 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 25 Jul 2023 00:44:42 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 25 Jul 2023 00:44:40 -0700
-Date: Tue, 25 Jul 2023 08:44:06 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Samin Guo <samin.guo@starfivetech.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer
- Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Conor
- Dooley <conor@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, Emil
- Renner Berthing <kernel@esmil.dk>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>
-Subject: Re: [-next v1 1/1] riscv: dts: starfive: visionfive 2: Add v1.3B
- gmac phy configuration
-Message-ID: <20230725-rental-struck-d49a18d1c382@wendy>
-References: <20230725073039.14382-1-samin.guo@starfivetech.com>
- <20230725073039.14382-2-samin.guo@starfivetech.com>
+	id 1qOCkd-006eXH-38;
+	Tue, 25 Jul 2023 07:46:38 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7306D1BF20C;
+	Tue, 25 Jul 2023 07:46:22 +0000 (UTC)
+Message-ID: <aee383e3-0e62-716e-4b07-f7557d63cc74@ghiti.fr>
+Date: Tue, 25 Jul 2023 09:46:22 +0200
 MIME-Version: 1.0
-In-Reply-To: <20230725073039.14382-2-samin.guo@starfivetech.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [RESEND PATCH -fixes 1/2] riscv: Export va_kernel_pa_offset in
+ vmcoreinfo
+Content-Language: en-US
+To: Song Shuai <suagrfillet@gmail.com>, bhe@redhat.com, vgoyal@redhat.com,
+ dyoung@redhat.com, corbet@lwn.net, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, xianting.tian@linux.alibaba.com,
+ anup@brainfault.org, robh@kernel.org, ajones@ventanamicro.com,
+ alexghiti@rivosinc.com, conor.dooley@microchip.com
+Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20230724100917.309061-1-suagrfillet@gmail.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20230724100917.309061-1-suagrfillet@gmail.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_004445_303236_784BC34C 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230725_004636_150073_3F0A8BB4 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,58 +61,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3597419538340034701=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============3597419538340034701==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Gtc3Rp2UzxbWAgFm"
-Content-Disposition: inline
-
---Gtc3Rp2UzxbWAgFm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jul 25, 2023 at 03:30:39PM +0800, Samin Guo wrote:
-> Add visionfive 2 v1.3B gmac phy configuration, including drive strength
-> and inverting configuration.
->=20
-> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
-> Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
-
-I opted to squash this (and my temporary revert that becomes a NOP) into
-the original patch. It should appear in linux-next tomorrow as 0104340a67b1
-("riscv: dts: starfive: visionfive 2: Add configuration of gmac and phy").
-
-Thanks,
-Conor.
-
---Gtc3Rp2UzxbWAgFm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZL99RgAKCRB4tDGHoIJi
-0tXtAP9Ky4whbpfoJQYqSCSbEjzqKFKnZ3OObobEooJ0DczHqAEA/ADUDL0f+5tB
-8g3hgSIQ+p70NnxwTPSaYMzK5/JqLwc=
-=G3zZ
------END PGP SIGNATURE-----
-
---Gtc3Rp2UzxbWAgFm--
+Hi Song,
 
 
---===============3597419538340034701==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+On 24/07/2023 12:09, Song Shuai wrote:
+> Since RISC-V Linux v6.4, the commit 3335068f8721 ("riscv: Use
+> PUD/P4D/PGD pages for the linear mapping") changes phys_ram_base
+> from the physical start of the kernel to the actual start of the DRAM.
+>
+> The Crash-utility's VTOP() still uses phys_ram_base and kernel_map.virt_addr
+> to translate kernel virtual address, that failed the Crash with Linux v6.4 [1].
+>
+> Export kernel_map.va_kernel_pa_offset in vmcoreinfo to help Crash translate
+> the kernel virtual address correctly.
+>
+> Fixes: 3335068f8721 ("riscv: Use PUD/P4D/PGD pages for the linear mapping")
+> Link: https://lore.kernel.org/linux-riscv/20230724040649.220279-1-suagrfillet@gmail.com/ [1]
+> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+> ---
+>   arch/riscv/kernel/crash_core.c | 2 ++
+>   1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/riscv/kernel/crash_core.c b/arch/riscv/kernel/crash_core.c
+> index b351a3c01355..55f1d7856b54 100644
+> --- a/arch/riscv/kernel/crash_core.c
+> +++ b/arch/riscv/kernel/crash_core.c
+> @@ -18,4 +18,6 @@ void arch_crash_save_vmcoreinfo(void)
+>   	vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
+>   #endif
+>   	vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
+> +	vmcoreinfo_append_str("NUMBER(va_kernel_pa_offset)=0x%lx\n",
+> +						kernel_map.va_kernel_pa_offset);
+>   }
+
+
+You can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks for that and for the instructions on how to reproduce the problem 
+BTW!
+
+Alex
+
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3597419538340034701==--
-
