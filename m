@@ -4,80 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1CDC001DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 13:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0269C0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 13:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1lTqSWOQ6z39Dzrqm18Ok+uk8ZLkcNJVh0oZYoiP/5A=; b=Cc9lZjqCp8sgjA
-	E2ex9bgAsPZny6ycXfvsGenmxASmzJdixRxPvo3SEWkLoTbYhfRyJUIyfhunEJ6z1RlxL/FyFT5ul
-	Ok+ZEH6cGVVcjKls8dcETUTmyAiUpv+TS8ME2SAN866alSJC0SFUKNFgQ9c9Y9z+MtfkEx5jvZG7v
-	hQaV5pKYvZB3usQG7uHmvArVkzgveKoDm779m5B5FXVGgvXKmTsb7WV2lkHqNbPDmOdRmjCsvVkTu
-	q476cSG24FrGtabcWGRGJkRdpcIuwX9z2f0DzE3MdwPatmhKmQdKEkwqgIfwEW4ExRbmogz2qetY5
-	ISpepujjf9YOT/G4zCzg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dJrH9FuPf5iNJzZw1w3IWCDlea/mEjsVDcceJ1R3BCs=; b=Wmsjmv95C8T7Nt
+	aclyG5M8XX81uyso0gL6n3fFNyuIH0oeKC6+DrDeVTePvBj9GI7EDAeYOlTTcYC20B+ls1C+QqVEM
+	x4pMzN2eSA+toN3F/RH3yy+ef5VD56sE8CjL8P6eR6TjjzkVnZGraXkA0J7I57Q8W7EFBKnEsDqtx
+	TxSwESmvFEMITXag9WEWzYNAstVBvSGUlOAk5D0Y9cBOhmaEY+RQaREZpSDEoyNyzqSesg5kfHr86
+	a84tTa4m2UAbgqBw4qtbCbshCXL7YjvdE6iE9p3B2x+5j1E/POwzSyFWRZZIP0FYTEbFQ0KLTlA8f
+	SPbgvjkNqsWIL+R6i4ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOI08-007cm3-0k;
-	Tue, 25 Jul 2023 13:22:56 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1qOILr-007fuB-1k;
+	Tue, 25 Jul 2023 13:45:23 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOI04-007ckQ-1e
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 13:22:54 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3141fa31c2bso4241227f8f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Jul 2023 06:22:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1690291369; x=1690896169;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=SwtTaSSywQCK+6eOzMzkFHCbywbdbCbQr7TZ7zLckhk=;
-        b=aq8K6g1kNKVAXaB8qnVBVyLtEJCw6IO9Lv2x7L+0ECjGDne7M5Bm9519ngrBxeqQOv
-         P59gcWCHJNnmhX7F0a3wa7Ho1ZNxKBoJaw+CysLoZCTpXK2QdmTNZzDeXjLmLW0ppoZy
-         pPCkH29ysNp0p00fnqjBum/pmRXmF9UAN2eP3AEBVngA4SBk71IAmXTemgIbgN1WI91w
-         eLn3KC73YZHADqy4+YlpcAYcgU11lgBS9erwG4oQt8lZ7vSlV9gTmQvVQdaEp93sCAxY
-         MDbTSjFY6VdjH+Q/03QJQNo38iSo6siDDgds2H/QPrAIM2Sc8XuAow5pPL7nxy9Sq2bc
-         RTIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690291369; x=1690896169;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SwtTaSSywQCK+6eOzMzkFHCbywbdbCbQr7TZ7zLckhk=;
-        b=HQ6aeOsR4UchCGvKIuEQZWyoqK72E55UhMbFOTg+fYBHa8ynGm3lE0uSJrerCyGGaU
-         hPOUyZFFlnmGww/hpOwpPhKJu85IUQ6nFHGRM3lqkF4bYPDaYeCAuRIzQIZjGsYQzQjn
-         q4RZs/y1Q76W/n6b1mqgXrXweuMgo5AW92JRpLnwJ0wnru4y7d53Q4sfaKamoDtJCrcM
-         oHIWhV7HhwFWR8DRQswIv8aEco/wvjO9E2/HRnrWNbhAX0kIS+DHcuovLlZ/WJh5/VUx
-         tEX9pzHE3swUe7xB6I6HQ6P6lVaGYA9t50mvmzYrVvPl4bXIukzz3rfNl2zYioceW42j
-         v3Ag==
-X-Gm-Message-State: ABy/qLYyXQxUII8GtIx7PYpVWw3iWvPLKJ8ltRN9AerD9p+XpCUfzw20
-	nJFsdkCNazYaJ7lgkwMFs+P3qacZ+AaG4e+iWqo=
-X-Google-Smtp-Source: APBJJlFymLrBaWWUbB5UjgLpC16CJw07bX0IHX8fcMSRniPWmXOiT8czHRNEnE1IFY6cpux2ayWVRg==
-X-Received: by 2002:a5d:53c3:0:b0:317:568d:d69a with SMTP id a3-20020a5d53c3000000b00317568dd69amr6197749wrw.11.1690291368309;
-        Tue, 25 Jul 2023 06:22:48 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com (amontpellier-656-1-456-62.w92-145.abo.wanadoo.fr. [92.145.124.62])
-        by smtp.gmail.com with ESMTPSA id q7-20020adffec7000000b003143c532431sm16175035wrs.27.2023.07.25.06.22.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Jul 2023 06:22:47 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH -fixes] riscv: Implement flush_cache_vmap()
-Date: Tue, 25 Jul 2023 15:22:46 +0200
-Message-Id: <20230725132246.817726-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+	id 1qOILn-007fsJ-1H;
+	Tue, 25 Jul 2023 13:45:21 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.57])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4R9JD12p5PzrS0t;
+	Tue, 25 Jul 2023 21:44:17 +0800 (CST)
+Received: from huawei.com (10.67.174.205) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.27; Tue, 25 Jul
+ 2023 21:45:09 +0800
+From: Chen Jiahao <chenjiahao16@huawei.com>
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<conor.dooley@microchip.com>, <guoren@kernel.org>, <heiko@sntech.de>,
+	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
+	<atishp@rivosinc.com>, <bhe@redhat.com>, <thunder.leizhen@huawei.com>,
+	<horms@kernel.org>
+CC: <chenjiahao16@huawei.com>
+Subject: [PATCH -next v8 2/2] docs: kdump: Update the crashkernel description for riscv
+Date: Tue, 25 Jul 2023 21:44:12 +0000
+Message-ID: <20230725214413.2488159-3-chenjiahao16@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230725214413.2488159-1-chenjiahao16@huawei.com>
+References: <20230725214413.2488159-1-chenjiahao16@huawei.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.67.174.205]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_062252_732562_15DE4889 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230725_064519_869327_534D0805 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +72,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The RISC-V kernel needs a sfence.vma after a page table modification: we
-used to rely on the vmalloc fault handling to emit an sfence.vma, but
-commit 7d3332be011e ("riscv: mm: Pre-allocate PGD entries for
-vmalloc/modules area") got rid of this path for 64-bit kernels, so now we
-need to explicitly emit a sfence.vma in flush_cache_vmap().
+Now "crashkernel=" parameter on riscv has been updated to support
+crashkernel=X,[high,low]. Through which we can reserve memory region
+above/within 32bit addressible DMA zone.
 
-Note that we don't need to implement flush_cache_vunmap() as the generic
-code should emit a flush tlb after unmapping a vmalloc region.
+Here update the parameter description accordingly.
 
-Fixes: 7d3332be011e ("riscv: mm: Pre-allocate PGD entries for vmalloc/modules area")
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Simon Horman <horms@kernel.org>
+Reviewed-by: Zhen Lei <thunder.leizhen@huawei.com>
 ---
- arch/riscv/include/asm/cacheflush.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ Documentation/admin-guide/kernel-parameters.txt | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 8091b8bf4883..b93ffddf8a61 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -37,6 +37,10 @@ static inline void flush_dcache_page(struct page *page)
- #define flush_icache_user_page(vma, pg, addr, len) \
- 	flush_icache_mm(vma->vm_mm, 0)
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index d3e762b3ad01..275cf32e9919 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -862,7 +862,7 @@
+ 			memory region [offset, offset + size] for that kernel
+ 			image. If '@offset' is omitted, then a suitable offset
+ 			is selected automatically.
+-			[KNL, X86-64, ARM64] Select a region under 4G first, and
++			[KNL, X86-64, ARM64, RISCV] Select a region under 4G first, and
+ 			fall back to reserve region above 4G when '@offset'
+ 			hasn't been specified.
+ 			See Documentation/admin-guide/kdump/kdump.rst for further details.
+@@ -875,14 +875,14 @@
+ 			Documentation/admin-guide/kdump/kdump.rst for an example.
  
-+#ifdef CONFIG_64BIT
-+#define flush_cache_vmap(start, end)	flush_tlb_kernel_range(start, end)
-+#endif
-+
- #ifndef CONFIG_SMP
- 
- #define flush_icache_all() local_flush_icache_all()
+ 	crashkernel=size[KMG],high
+-			[KNL, X86-64, ARM64] range could be above 4G. Allow kernel
+-			to allocate physical memory region from top, so could
+-			be above 4G if system have more than 4G ram installed.
+-			Otherwise memory region will be allocated below 4G, if
+-			available.
++			[KNL, X86-64, ARM64, RISCV] range could be above 4G.
++			Allow kernel to allocate physical memory region from top,
++			so could be above 4G if system have more than 4G ram
++			installed. Otherwise memory region will be allocated
++			below 4G, if available.
+ 			It will be ignored if crashkernel=X is specified.
+ 	crashkernel=size[KMG],low
+-			[KNL, X86-64, ARM64] range under 4G. When crashkernel=X,high
++			[KNL, X86-64, ARM64, RISCV] range under 4G. When crashkernel=X,high
+ 			is passed, kernel could allocate physical memory region
+ 			above 4G, that cause second kernel crash on system
+ 			that require some amount of low memory, e.g. swiotlb
+@@ -893,6 +893,7 @@
+ 			size is	platform dependent.
+ 			  --> x86: max(swiotlb_size_or_default() + 8MiB, 256MiB)
+ 			  --> arm64: 128MiB
++			  --> riscv: 128MiB
+ 			This one lets the user specify own low range under 4G
+ 			for second kernel instead.
+ 			0: to disable low allocation.
 -- 
-2.39.2
+2.34.1
 
 
 _______________________________________________
