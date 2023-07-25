@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24788C04A6A
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 07:32:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957D6C0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 07:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=F68s/AORXaNObSW6OS5Sy1Ldj4AxCRg7D2RI7wKOUCU=; b=g0JJXtxkSiOaVe
-	9ZEJLV1fYK5rOvuwfvyVS1GuvG0Qo+v+0KRGh4UgwjcDbas48JHWQM4ELppLw1R5BQDaPA2i3Sqzl
-	6js3YqtUmq4htNmKd97TBiwFSqUaenwWO9gZDMsS5hf5b4p+C6qtsfxFmK6AsiiM/dHXODZ8JALF3
-	f97VxICxQqg4SFIJk4wL30CtOyhNWrFoycvKs44NyofXTF/7IZWH28AtppVPZc5xX3d76pGqjV3cf
-	9kv66Tm4fsfnJXmCsR8u2zZrlTAF9vaSHYTxm7PmdnYWSs37hFbmQbMLWGUQYW4FGQTmGh+Yp0hzk
-	MKd9cQ84oIOrHrkE1KHA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CyqLeLXF7PTutYmZMi3PQRioeWJ5f3I3U+A8RMLzdpY=; b=kGOwHOM5dMiJDK
+	rlwexuFLH+xZXZJSwt1/SbGud3ASMvbBtq0R5fWX78i+VwrMh2Bzw4WzZxooclpEcELm/cQO6yTly
+	otOPNcz1GI7E6CBwJHe1oR4YMV6NUeEgfjRCDdZTmJLj7ptd1CVu/6xA8eEa7DaiLCMWbPoAFXQx6
+	nyyk66DkWxcKHEv3YjcCgh34dIxk6DGV3fMEEix8W/Er9FRru7Qp0mhRx1/qymoiDoQucobm6/hE9
+	01JgIkASwoKRxCJWhPdriM1Usf2rbJOKnUu9TT113bqlYUWzYgqKA3K1+yjjCnnqjp8QSInVsFzV7
+	kyRfjhiShdb6GScMR3lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOCXI-006bPo-1w;
-	Tue, 25 Jul 2023 07:32:48 +0000
+	id 1qOCXY-006bdZ-1h;
+	Tue, 25 Jul 2023 07:33:04 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOCXE-006bLc-2F
+	id 1qOCXL-006bNe-0W
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 07:32:47 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	Tue, 25 Jul 2023 07:32:53 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 336398284;
-	Tue, 25 Jul 2023 15:31:57 +0800 (CST)
-Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 25 Jul
- 2023 15:30:40 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1385B81C5;
+	Tue, 25 Jul 2023 15:32:25 +0800 (CST)
+Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 25 Jul
+ 2023 15:30:41 +0800
 Received: from starfive-sdk.starfivetech.com (171.223.208.138) by
  EXMBX062.cuchost.com (172.16.6.62) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Tue, 25 Jul 2023 15:30:39 +0800
+ 15.0.1497.42; Tue, 25 Jul 2023 15:30:40 +0800
 From: Samin Guo <samin.guo@starfivetech.com>
 To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<devicetree@vger.kernel.org>
@@ -47,18 +47,20 @@ CC: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
 	<robh+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, "Emil Renner
  Berthing" <emil.renner.berthing@canonical.com>, Samin Guo
 	<samin.guo@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>
-Subject: [-next v1 0/1] Add StarFive Visionfive 2 v1.3B gmac phy configuration
-Date: Tue, 25 Jul 2023 15:30:38 +0800
-Message-ID: <20230725073039.14382-1-samin.guo@starfivetech.com>
+Subject: [-next v1 1/1] riscv: dts: starfive: visionfive 2: Add v1.3B gmac phy configuration
+Date: Tue, 25 Jul 2023 15:30:39 +0800
+Message-ID: <20230725073039.14382-2-samin.guo@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230725073039.14382-1-samin.guo@starfivetech.com>
+References: <20230725073039.14382-1-samin.guo@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [171.223.208.138]
 X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX062.cuchost.com
  (172.16.6.62)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_003244_932559_5C623CEE 
-X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-CacheID: sfid-20230725_003251_756381_78905E92 
+X-CRM114-Status: UNSURE (   8.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,21 +78,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds the configuration of StarFive Visifive 2 v1.3B gmac phy.
-It contains drive strength and inverting configurations. After adding
-these properties, the Ethernet of Visionfive v1.3B can work properly.
+Add visionfive 2 v1.3B gmac phy configuration, including drive strength
+and inverting configuration.
 
-motorcomm,rx-xxx-drv-microamp attributes[1] have been applied to
-netdev/net-next.git (main), other attributes mainline are already supported.
-
-[1]: https://patchwork.kernel.org/project/netdevbpf/cover/20230720111509.21843-1-samin.guo@starfivetech.com
-
-Samin Guo (1):
-  riscv: dts: starfive: visionfive 2: Add v1.3B gmac phy configuration
-
+Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+Signed-off-by: Samin Guo <samin.guo@starfivetech.com>
+---
  .../dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dts  | 9 +++++++++
  1 file changed, 9 insertions(+)
 
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dts
+index 7bca5d9e8f9b..d4ea4a2c0b9b 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dts
++++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dts
+@@ -25,11 +25,20 @@
+ };
+ 
+ &phy0 {
++	motorcomm,tx-clk-adj-enabled;
++	motorcomm,tx-clk-100-inverted;
++	motorcomm,tx-clk-1000-inverted;
++	motorcomm,rx-clk-drv-microamp = <3970>;
++	motorcomm,rx-data-drv-microamp = <2910>;
+ 	rx-internal-delay-ps = <1500>;
+ 	tx-internal-delay-ps = <1500>;
+ };
+ 
+ &phy1 {
++	motorcomm,tx-clk-adj-enabled;
++	motorcomm,tx-clk-100-inverted;
++	motorcomm,rx-clk-drv-microamp = <3970>;
++	motorcomm,rx-data-drv-microamp = <2910>;
+ 	rx-internal-delay-ps = <300>;
+ 	tx-internal-delay-ps = <0>;
+ };
 -- 
 2.17.1
 
