@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A09EB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 22:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7508EC0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 23:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0iL9GXPft1MpjuSGfSrc1IntgdYbPQnnEgzAYYqBl9c=; b=G35nYOk4So/QevWYfBr+rVVrg5
-	sSFDv1wiltAd9CRhcs8IDkLIE98E0SFpHi/4tqXZNr3CdXGAVW42r4o9ImH508p6JM1p91ynBBEMZ
-	sxgH18oFjJoU6vXixJEkBRzJgzLPeAQz5ukeyE/MaNX7TKFD1WgmLExAN8Q8dwQucOfXXzKOz91HB
-	CDzEy1YAnFgj2mDWwDDtVIScaLNwVS7aZ93FLqJmvDJ66hbujpRVO5M/XWIgVQ7mu0Nff9HD9+BgP
-	4bGvYfOhYLrlQ0NQJ+gBCQFnrJxW1qGx3zSzxzR6FRILOK9yByNGNzTISaFsZu+L82Sp6aGgDyR/9
-	Gw+IdYFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KL0j+wz/JQGx6kKWH2GD4QsvM1Rw+swKqW3I94Y6XzE=; b=Z+V1yEkon66xht
+	K9l0Ls/1/Se7IKa02Xw2SDLQn4/qyxZLPB/FSBFiLrplHMXCm2tWOI9eIJRASuFJ0QRw82RX1AFbd
+	S+oe/H4PZYx814LE5AT1syGSiBUdYYge/OmJgXdDAw3BV2d0gzATstxPxnLjL/2toKK5GtaDB/pxp
+	NgZtzioBl9fcCqt+0BcAxNKau6J/9hGrd1gv73tw6WauY1zYc7ZKFXgqb1EJ9qIb8YmApCQ3UeYbR
+	zm3Lvsb0KrjfTBaloROXoNlYl4kL+se13ryBviYu7+YW5ewGq/Ebc1d5YhGgUZJsjmAq2+UEbHU5l
+	a8PueJ4hvlgu1z0q+Xyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOQLX-008cc6-2q;
-	Tue, 25 Jul 2023 22:17:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qORYJ-008ixt-2p;
+	Tue, 25 Jul 2023 23:34:51 +0000
+Received: from mga04.intel.com ([192.55.52.120])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOQLU-008cbU-2U
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 22:17:34 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 176F36191C;
-	Tue, 25 Jul 2023 22:17:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 518FBC433CC;
-	Tue, 25 Jul 2023 22:17:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690323451;
-	bh=9duJYsP4IefPgz7np3nvBZh3XlabkCsEBI1FzTJIOqA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a6rCLQWHSI8YJO2nCtunWOXccQckpKC92s95fp1QXPLzlQA634hst0MGGUUa7VDA0
-	 pKgzF80ym3NMjqj2i7Hibmooh6hD1v/ZnS7WIpcdf1RMzRQhJUfs7sz/xdvcF3cSXI
-	 fl1PhOrxRfEcZDun54fqHLmjP3VwKsAMW2+ghei/Ziezs4eYf+tsMmIm86V4jyRH+E
-	 wXx+6TXj111N23PbWJZc38APh/K3g1APBo03/Nu8mK0rOsUGLpZdmspTPbhiTG4I4X
-	 KNlzdCZWC/HGWpbJ/e7P4MXVS0iEM474TWIvYMdaVToeZYs6JrWC35K7yMtnwiXzn6
-	 HnC6qw6sR+d1g==
-Date: Tue, 25 Jul 2023 23:17:26 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Mingzheng Xing <xingmingzheng@iscas.ac.cn>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>, Bin Meng <bmeng@tinylab.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH] riscv: Handle zicsr/zifencei issue between gcc and
- binutils
-Message-ID: <20230725-name-aggregate-5de303072c9d@spud>
-References: <20230725170405.251011-1-xingmingzheng@iscas.ac.cn>
- <20230725172344.GA1445373@dev-arch.thelio-3990X>
- <20230725-skating-agent-b092f2257ca1@spud>
+	id 1qORYG-008iwq-1O;
+	Tue, 25 Jul 2023 23:34:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1690328088; x=1721864088;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=C5xyKe5/WjYZUNBE8/1FHjpgxl/fMdUuo5xkgVP7J8Y=;
+  b=llU5kCYtLQnZLIJR0scDnTIO/3NrSU5tj7KJY6h16C96omieHlkNWJZV
+   JezKNRMLgTxi6jKIuYdvmyX38RXIS6qP7cR3jMwaCnyG9u10YiZ86HCQZ
+   K8Y352ee88kFxUUplYUPB14kef9LnqIQYf3Gvg9B2l/IwUMWKNDhWkk6c
+   LDZ+B9laiCyArddliNRja8Jqx2hVxVmV+LHLt56sQ+DzfGNC54xWD/JxL
+   BDx6Q0NsT/lqjFJEi3gTIPk6QRIxH2VPrIcSxxSJLe8cMQ7uOHmZnLqhS
+   7EqPXudwSowMaQTKjdpav7nL52IceoVXoklaCf6ZGXYBWnexe23AEx8lU
+   A==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10782"; a="366747681"
+X-IronPort-AV: E=Sophos;i="6.01,231,1684825200"; 
+   d="scan'208";a="366747681"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2023 16:34:46 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10782"; a="755945611"
+X-IronPort-AV: E=Sophos;i="6.01,231,1684825200"; 
+   d="scan'208";a="755945611"
+Received: from lkp-server02.sh.intel.com (HELO 953e8cd98f7d) ([10.239.97.151])
+  by orsmga008.jf.intel.com with ESMTP; 25 Jul 2023 16:34:40 -0700
+Received: from kbuild by 953e8cd98f7d with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1qORY7-0000Qn-2W;
+	Tue, 25 Jul 2023 23:34:39 +0000
+Date: Wed, 26 Jul 2023 07:33:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+	Hugh Dickins <hughd@google.com>,
+	"Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH mm-unstable v7 12/31] powerpc: Convert various functions
+ to use ptdescs
+Message-ID: <202307260706.qNPJSnjR-lkp@intel.com>
+References: <20230725042051.36691-13-vishal.moola@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20230725-skating-agent-b092f2257ca1@spud>
+Content-Disposition: inline
+In-Reply-To: <20230725042051.36691-13-vishal.moola@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_151732_904197_71C4647E 
-X-CRM114-Status: GOOD (  44.25  )
+X-CRM114-CacheID: sfid-20230725_163448_484001_85A618E6 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,174 +94,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4081032745632028365=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Vishal,
 
---===============4081032745632028365==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wbqao3EI+HlRxhpT"
-Content-Disposition: inline
+kernel test robot noticed the following build errors:
 
+[auto build test ERROR on akpm-mm/mm-everything]
+[also build test ERROR on next-20230725]
+[cannot apply to powerpc/next powerpc/fixes s390/features geert-m68k/for-next geert-m68k/for-linus linus/master v6.5-rc3]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
---wbqao3EI+HlRxhpT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+url:    https://github.com/intel-lab-lkp/linux/commits/Vishal-Moola-Oracle/mm-Add-PAGE_TYPE_OP-folio-functions/20230725-122458
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
+patch link:    https://lore.kernel.org/r/20230725042051.36691-13-vishal.moola%40gmail.com
+patch subject: [PATCH mm-unstable v7 12/31] powerpc: Convert various functions to use ptdescs
+config: powerpc-randconfig-r034-20230725 (https://download.01.org/0day-ci/archive/20230726/202307260706.qNPJSnjR-lkp@intel.com/config)
+compiler: clang version 17.0.0 (https://github.com/llvm/llvm-project.git 4a5ac14ee968ff0ad5d2cc1ffa0299048db4c88a)
+reproduce: (https://download.01.org/0day-ci/archive/20230726/202307260706.qNPJSnjR-lkp@intel.com/reproduce)
 
-On Tue, Jul 25, 2023 at 07:57:54PM +0100, Conor Dooley wrote:
-> On Tue, Jul 25, 2023 at 10:23:44AM -0700, Nathan Chancellor wrote:
-> > On Wed, Jul 26, 2023 at 01:04:05AM +0800, Mingzheng Xing wrote:
-> > > When compiling the kernel with the toolchain composed of GCC >=3D 12.=
-1.0 and
-> > > binutils < 2.38, default ISA spec used when building binutils and GCC=
-, the
-> > > following build failure will appear because the
-> > > CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI is not turned on.
-> > > (i.e, gcc-12.1.0 and binutils-2.36, or gcc-12.3.0 and binutils-2.37, =
-use
-> > > default ISA spec.)
-> > >=20
-> > >   CC      arch/riscv/kernel/vdso/vgettimeofday.o
-> > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assembler =
-messages:
-> > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:79: Error: =
-unrecognized opcode `csrr a5,0xc01'
-> >=20
-> > The gift that keeps on giving :/
-> >=20
-> > > Binutils has updated the default ISA spec version, and the community =
-has
-> > > responded well to this[1][2][3], but it appears that this is not over=
- yet.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202307260706.qNPJSnjR-lkp@intel.com/
 
-Also, I just noticed this comment. I disagree with the wording "well",
-and more like "with weeping and gnashing of teeth" ;) This stuff is a
-huge pain in the ass, and mixing toolchains between LLVM & GNU stuff (or
-using an older binutils with a newer GCC) really makes it a lot worse.
-Thanks for submitting a fix for this so that Nathan or I didn't have to!
+All errors (new ones prefixed by >>):
 
-> > >=20
-> > > We also need to consider the situation of binutils < 2.38 but
-> > > GCC >=3D 12.1.0, since the combination between different versions of =
-GCC and
-> > > binutils is not unique, which is to some extent flexible. GCC release
-> > > 12.1.0 updated the default ISA spec version in GCC commit[4].
-> >=20
-> > I suspect this combination is not too common because binutils 2.38 came
-> > out before GCC 12.1.0 but as you note, it is obviously possible. What
-> > toolchain has this combination in the wild, which would be helpful for
-> > documentation purposes?
->=20
-> Yeah, that'd be great to know, at least the other niche stuff that we
-> are working around had a clear use-case (testing LLVM in debian container=
-s)
-> whereas there's no clear user for this.
-> That's doubly interesting, as this patch seems to break things for binuti=
-ls
-> < 2.35, and if we have to make a trade-off between those too, then it'd
-> be good to be able to weigh up the options.
-> Do we perhaps need the misa-spec workaround instead for this case?
-> Haven't tested that though, trying to dig myself out of email backlog.
+   In file included from arch/powerpc/mm/pgtable-frag.c:12:
+   In file included from include/linux/hardirq.h:11:
+   In file included from arch/powerpc/include/asm/hardirq.h:6:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/powerpc/include/asm/io.h:672:
+   arch/powerpc/include/asm/io-defs.h:45:1: error: performing pointer arithmetic on a null pointer has undefined behavior [-Werror,-Wnull-pointer-arithmetic]
+      45 | DEF_PCI_AC_NORET(insw, (unsigned long p, void *b, unsigned long c),
+         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      46 |                  (p, b, c), pio, p)
+         |                  ~~~~~~~~~~~~~~~~~~
+   arch/powerpc/include/asm/io.h:669:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+     669 |                 __do_##name al;                                 \
+         |                 ^~~~~~~~~~~~~~
+   <scratch space>:40:1: note: expanded from here
+      40 | __do_insw
+         | ^
+   arch/powerpc/include/asm/io.h:610:56: note: expanded from macro '__do_insw'
+     610 | #define __do_insw(p, b, n)      readsw((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
+         |                                        ~~~~~~~~~~~~~~~~~~~~~^
+   In file included from arch/powerpc/mm/pgtable-frag.c:12:
+   In file included from include/linux/hardirq.h:11:
+   In file included from arch/powerpc/include/asm/hardirq.h:6:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/powerpc/include/asm/io.h:672:
+   arch/powerpc/include/asm/io-defs.h:47:1: error: performing pointer arithmetic on a null pointer has undefined behavior [-Werror,-Wnull-pointer-arithmetic]
+      47 | DEF_PCI_AC_NORET(insl, (unsigned long p, void *b, unsigned long c),
+         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      48 |                  (p, b, c), pio, p)
+         |                  ~~~~~~~~~~~~~~~~~~
+   arch/powerpc/include/asm/io.h:669:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+     669 |                 __do_##name al;                                 \
+         |                 ^~~~~~~~~~~~~~
+   <scratch space>:42:1: note: expanded from here
+      42 | __do_insl
+         | ^
+   arch/powerpc/include/asm/io.h:611:56: note: expanded from macro '__do_insl'
+     611 | #define __do_insl(p, b, n)      readsl((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
+         |                                        ~~~~~~~~~~~~~~~~~~~~~^
+   In file included from arch/powerpc/mm/pgtable-frag.c:12:
+   In file included from include/linux/hardirq.h:11:
+   In file included from arch/powerpc/include/asm/hardirq.h:6:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/powerpc/include/asm/io.h:672:
+   arch/powerpc/include/asm/io-defs.h:49:1: error: performing pointer arithmetic on a null pointer has undefined behavior [-Werror,-Wnull-pointer-arithmetic]
+      49 | DEF_PCI_AC_NORET(outsb, (unsigned long p, const void *b, unsigned long c),
+         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      50 |                  (p, b, c), pio, p)
+         |                  ~~~~~~~~~~~~~~~~~~
+   arch/powerpc/include/asm/io.h:669:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+     669 |                 __do_##name al;                                 \
+         |                 ^~~~~~~~~~~~~~
+   <scratch space>:44:1: note: expanded from here
+      44 | __do_outsb
+         | ^
+   arch/powerpc/include/asm/io.h:612:58: note: expanded from macro '__do_outsb'
+     612 | #define __do_outsb(p, b, n)     writesb((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
+         |                                         ~~~~~~~~~~~~~~~~~~~~~^
+   In file included from arch/powerpc/mm/pgtable-frag.c:12:
+   In file included from include/linux/hardirq.h:11:
+   In file included from arch/powerpc/include/asm/hardirq.h:6:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/powerpc/include/asm/io.h:672:
+   arch/powerpc/include/asm/io-defs.h:51:1: error: performing pointer arithmetic on a null pointer has undefined behavior [-Werror,-Wnull-pointer-arithmetic]
+      51 | DEF_PCI_AC_NORET(outsw, (unsigned long p, const void *b, unsigned long c),
+         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      52 |                  (p, b, c), pio, p)
+         |                  ~~~~~~~~~~~~~~~~~~
+   arch/powerpc/include/asm/io.h:669:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+     669 |                 __do_##name al;                                 \
+         |                 ^~~~~~~~~~~~~~
+   <scratch space>:46:1: note: expanded from here
+      46 | __do_outsw
+         | ^
+   arch/powerpc/include/asm/io.h:613:58: note: expanded from macro '__do_outsw'
+     613 | #define __do_outsw(p, b, n)     writesw((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
+         |                                         ~~~~~~~~~~~~~~~~~~~~~^
+   In file included from arch/powerpc/mm/pgtable-frag.c:12:
+   In file included from include/linux/hardirq.h:11:
+   In file included from arch/powerpc/include/asm/hardirq.h:6:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/powerpc/include/asm/io.h:672:
+   arch/powerpc/include/asm/io-defs.h:53:1: error: performing pointer arithmetic on a null pointer has undefined behavior [-Werror,-Wnull-pointer-arithmetic]
+      53 | DEF_PCI_AC_NORET(outsl, (unsigned long p, const void *b, unsigned long c),
+         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      54 |                  (p, b, c), pio, p)
+         |                  ~~~~~~~~~~~~~~~~~~
+   arch/powerpc/include/asm/io.h:669:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+     669 |                 __do_##name al;                                 \
+         |                 ^~~~~~~~~~~~~~
+   <scratch space>:48:1: note: expanded from here
+      48 | __do_outsl
+         | ^
+   arch/powerpc/include/asm/io.h:614:58: note: expanded from macro '__do_outsl'
+     614 | #define __do_outsl(p, b, n)     writesl((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
+         |                                         ~~~~~~~~~~~~~~~~~~~~~^
+>> arch/powerpc/mm/pgtable-frag.c:125:22: error: use of undeclared identifier 'page'
+     125 |         BUG_ON(atomic_read(&page->pt_frag_refcount) <= 0);
+         |                             ^
+   7 errors generated.
 
-I don't think the misa-spec stuff is what we need actually. Instead, the
-workaround/fix that this patch implements just needs to be constrained to
-versions of GAS greater than 2.35.
-
-Thanks,
-Conor.
-
->=20
-> > > For more information, please refer to:
-> > >=20
-> > > commit 6df2a016c0c8 ("riscv: fix build with binutils 2.38")
-> > > commit e89c2e815e76 ("riscv: Handle zicsr/zifencei issues between cla=
-ng and binutils")
-> > >=20
-> > > [1]: https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/aE1ZeHHC=
-Yf4
-> > > [2]: https://lore.kernel.org/all/20230308220842.1231003-1-conor@kerne=
-l.org
-> > > [3]: https://lore.kernel.org/all/20230223220546.52879-1-conor@kernel.=
-org
-> > > [4]: https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dcommit;h=3D98416dbb0a62=
-579d4a7a4a76bab51b5b52fec2cd
->=20
-> btw, please make these regular Link: tags (with a [N] at EOL) and drop
-> the space between them and the sign off. Also, this probably needs to be
-> CC: stable@vger.kernel.org too.
-
-> > >=20
-> > > Signed-off-by: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-> > > ---
-> > >  arch/riscv/Kconfig | 6 +++++-
-> > >  1 file changed, 5 insertions(+), 1 deletion(-)
-> > >=20
-> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > index 4c07b9189c86..b49cea30f6cc 100644
-> > > --- a/arch/riscv/Kconfig
-> > > +++ b/arch/riscv/Kconfig
-> > > @@ -570,11 +570,15 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
-> > >  config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
-> > >  	def_bool y
-> > >  	# https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=3Dcommit;h=3Da=
-ed44286efa8ae8717a77d94b51ac3614e2ca6dc
-> > > -	depends on AS_IS_GNU && AS_VERSION >=3D 23800
-> > > +	# https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dcommit;h=3D98416dbb0a625=
-79d4a7a4a76bab51b5b52fec2cd
-> > > +	depends on CC_IS_GCC && GCC_VERSION >=3D 120100 || \
-> > > +		   AS_IS_GNU && AS_VERSION >=3D 23800
-> >=20
-> > GCC_VERSION will be 0 for clang, so you don't need the CC_IS_GCC check.
-> > With that change, this should be able to stay on one line:
-> >=20
-> >     depends on GCC_VERSION >=3D 120100 || (AS_IS_GNU && AS_VERSION >=3D=
- 23800)
-> >=20
-> > >  	help
-> > >  	  Newer binutils versions default to ISA spec version 20191213 which
-> > >  	  moves some instructions from the I extension to the Zicsr and Zif=
-encei
-> > >  	  extensions.
-> > > +	  Similarly, GCC release 12.1.0 has changed the default ISA spec ve=
-rsion to
-> > > +	  20191213, so the above situation requires this option to be enabl=
-ed.
-> > > =20
-> > >  config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
-> > >  	def_bool y
-> > > --=20
-> > > 2.34.1
-> > >=20
->=20
-
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for HOTPLUG_CPU
+   Depends on [n]: SMP [=y] && (PPC_PSERIES [=n] || PPC_PMAC [=n] || PPC_POWERNV [=n] || FSL_SOC_BOOKE [=n])
+   Selected by [y]:
+   - PM_SLEEP_SMP [=y] && SMP [=y] && (ARCH_SUSPEND_POSSIBLE [=y] || ARCH_HIBERNATION_POSSIBLE [=y]) && PM_SLEEP [=y]
 
 
---wbqao3EI+HlRxhpT
-Content-Type: application/pgp-signature; name="signature.asc"
+vim +/page +125 arch/powerpc/mm/pgtable-frag.c
 
------BEGIN PGP SIGNATURE-----
+0203dd58d897cbd Hugh Dickins          2023-07-11  117  
+a95d133c8643cae Christophe Leroy      2018-11-29  118  void pte_fragment_free(unsigned long *table, int kernel)
+a95d133c8643cae Christophe Leroy      2018-11-29  119  {
+e18a6b21f4c0c0c Vishal Moola (Oracle  2023-07-24  120) 	struct ptdesc *ptdesc = virt_to_ptdesc(table);
+a95d133c8643cae Christophe Leroy      2018-11-29  121  
+e18a6b21f4c0c0c Vishal Moola (Oracle  2023-07-24  122) 	if (pagetable_is_reserved(ptdesc))
+e18a6b21f4c0c0c Vishal Moola (Oracle  2023-07-24  123) 		return free_reserved_ptdesc(ptdesc);
+645d5ce2f7d6cb4 Aneesh Kumar K.V      2020-07-09  124  
+a95d133c8643cae Christophe Leroy      2018-11-29 @125  	BUG_ON(atomic_read(&page->pt_frag_refcount) <= 0);
+e18a6b21f4c0c0c Vishal Moola (Oracle  2023-07-24  126) 	if (atomic_dec_and_test(&ptdesc->pt_frag_refcount)) {
+0203dd58d897cbd Hugh Dickins          2023-07-11  127  		if (kernel)
+e18a6b21f4c0c0c Vishal Moola (Oracle  2023-07-24  128) 			pagetable_free(ptdesc);
+e18a6b21f4c0c0c Vishal Moola (Oracle  2023-07-24  129) 		else if (folio_test_clear_active(ptdesc_folio(ptdesc)))
+e18a6b21f4c0c0c Vishal Moola (Oracle  2023-07-24  130) 			call_rcu(&ptdesc->pt_rcu_head, pte_free_now);
+0203dd58d897cbd Hugh Dickins          2023-07-11  131  		else
+e18a6b21f4c0c0c Vishal Moola (Oracle  2023-07-24  132) 			pte_free_now(&ptdesc->pt_rcu_head);
+0203dd58d897cbd Hugh Dickins          2023-07-11  133  	}
+a95d133c8643cae Christophe Leroy      2018-11-29  134  }
+0203dd58d897cbd Hugh Dickins          2023-07-11  135  
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMBJ9gAKCRB4tDGHoIJi
-0qeNAP4mSuiAlr4Pcp2s+H+szGA0GA9tA9eZ/dRHP4a++kKhUgEA8Qao1BY7Wrz7
-eFheXgfMBbWuisdUrk9Fs9paJOWyPgI=
-=4CKF
------END PGP SIGNATURE-----
-
---wbqao3EI+HlRxhpT--
-
-
---===============4081032745632028365==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4081032745632028365==--
-
