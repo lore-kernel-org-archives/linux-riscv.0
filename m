@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E2F9C001DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 08:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1243EC04FE0
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 08:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vAeZgWggGUZ+PV4pE6oWRm+Jlkoch168tmqA4wSxQk4=; b=2VkvIxDPLfcQWU
-	Gu/mN/JoQyzsnao+ZVpU6BfYjgXWqUnglmZOBHpyJc1eF8Zk/7ZhiccC6ATdDTMWfs8Gnrxz9Meut
-	Cw/4OkT6vAJMmGOJmJ0f6DlbUdP1jOC+ASduHk/DvHKFdReMbtug4CgpSfkPFUFGnwHJtpYH6/z/5
-	hoc0O/3EcD3NcRGaKK8WMy6UHfz70b/pSuCSdIRA7Eq8FWhGf7Vx2eo62AfxNXiZxHyw4ndW8e5ZF
-	AGob3y+jgfc3nkPW8CPJTDmpvYwBRj0tvT/W1oxbG1+VY6l8oCnFdMUmx1k5i5gIwef8atsbIi+GR
-	jJvjhDg4R/yM/WlX5R0Q==;
+	List-Owner; bh=36yPEvccp5ds/loiq2FwwnVbq4wevGB3aJ7DsqtI+3M=; b=wUBmHtGSJmwA2j
+	CLMigWcc4/VnxrX78guxOFFjAspeKaOKatHbadmZ6W3rg+8YdaXgyMQrdiML63R66/b2H1oNrJRwM
+	WSG14O816JbNoDTYjD59CyopuWUQfNk+ei5aUWqZ13yjKCcRl16MX1kkdOpF4LMz157lRe6QmXEn0
+	Su29gnEnyLYkIjxLEj9M11YGkuXz4gQMG97BzEgImVkVNOyhGMUTdr2zPChJI90vqxOU4vo3ZyZqm
+	CI0sCtaMPeA89IzCpRsBRbgluxIqbsGHJtpCV8HxZgHCSoIXQDiCRpBrX9yQaJfZV/pKDyLBz9pD3
+	9f/N744DTDnoUz5V0hQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qODYU-006lci-0i;
-	Tue, 25 Jul 2023 08:38:06 +0000
+	id 1qODYm-006lmR-0O;
+	Tue, 25 Jul 2023 08:38:24 +0000
 Received: from mga03.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qODYP-006lZW-2t;
-	Tue, 25 Jul 2023 08:38:03 +0000
+	id 1qODYg-006liZ-1g;
+	Tue, 25 Jul 2023 08:38:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1690274281; x=1721810281;
+  t=1690274298; x=1721810298;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=uf8Gsbg7FBNNbpgmLmy40kRrM0Q7yFPMJTNAbZ3eMQo=;
-  b=Kc+74AtwGpQAqlKIXr9+KxRPGr87cOGdZVF2Vpq6RMKZhUPCLzHbsDtt
-   L0Jciu+eHCbQzbWX2B+fd8ECJ7nyf2mJeTnS4Z4Z5VeZTzWYffonS2qxe
-   sDJutIe0ar8UbxCuH/QvNRMzycEhiQoqOSL3Wdrnp/YIMqtw82BQsygrA
-   6qZ+fAOAZvTCJjEgP82SqA9ZqkKiddZWj32CZ/t3sKpoOMVWuZ9jpzbjt
-   fLUBV/x4TgqhKUEYwJ+So0LSUQ+roq6K0j7txGyIgKSIXYrf+Qro29j/c
-   y+hK5BgDpL5jubRc8dkqohIo2DP26UU4J2zKj7oELnCG3wa591HsPLzbj
+  bh=tweL8MC1Z4PsW8REKGjDOZBcdwCj7tnWBl0dpmE8j5k=;
+  b=LoZUiGhmGhwIUvvQWWoKutFIou/2vGmQiDbmaFuWbAtwIV3CE5syrpl7
+   GdquQWM5zmGm/xPdM/0pWpY6S2c1qOC18GthuqXWgX3ZRO3xqAgXb2mtD
+   AOR1ODiBbejD3DK/oRAppLWfTzUH2zxvPPCabnbZd1WS1sZ7AvPiZvg6v
+   wHqj8zzgoibMt1zpjfNkuzUnPxJiacRmHNbKojsVR8ObX0m6ycbFzIb8G
+   l9+dpVPX5MnqpbvP9hHenm0d5Gb5d19nhLmGKn6gXRbHr8pzcPePD276O
+   cKkGFE7PHP/SrLKL6kI7+t0XZs37MNPIGl3Oa0fSNFaCYSA1oN6CDgyMR
    g==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10781"; a="371264799"
+X-IronPort-AV: E=McAfee;i="6600,9927,10781"; a="371264880"
 X-IronPort-AV: E=Sophos;i="6.01,230,1684825200"; 
-   d="scan'208";a="371264799"
+   d="scan'208";a="371264880"
 Received: from orsmga001.jf.intel.com ([10.7.209.18])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2023 01:38:01 -0700
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2023 01:38:17 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10781"; a="761130712"
+X-IronPort-AV: E=McAfee;i="6600,9927,10781"; a="761130932"
 X-IronPort-AV: E=Sophos;i="6.01,230,1684825200"; 
-   d="scan'208";a="761130712"
+   d="scan'208";a="761130932"
 Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
-  by orsmga001-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2023 01:37:54 -0700
+  by orsmga001-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2023 01:38:09 -0700
 From: Haibo Xu <haibo1.xu@intel.com>
 To: 
 Cc: xiaobo55x@gmail.com,
@@ -82,16 +82,16 @@ Cc: xiaobo55x@gmail.com,
 	linux-kselftest@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v6 08/13] KVM: arm64: selftests: Move reject_set check logic to a function
-Date: Tue, 25 Jul 2023 16:41:34 +0800
-Message-Id: <33097ed1a8e87beb6871cb6fa967dc9e0fae7adc.1690273969.git.haibo1.xu@intel.com>
+Subject: [PATCH v6 09/13] KVM: arm64: selftests: Move finalize_vcpu back to run_test
+Date: Tue, 25 Jul 2023 16:41:35 +0800
+Message-Id: <753d160e49e193f2800fdf45ad6d9af8c6828067.1690273969.git.haibo1.xu@intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1690273969.git.haibo1.xu@intel.com>
 References: <cover.1690273969.git.haibo1.xu@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_013801_979318_BD1A4BC9 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20230725_013818_601322_602B5120 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,59 +108,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-No functional changes. Just move the reject_set check logic to a
-function so we can check for a specific errno. This is a preparation
-for support reject_set in riscv.
+No functional changes. Just move the finalize_vcpu call back to
+run_test and do weak function trick to prepare for the opration
+in riscv.
 
 Suggested-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- tools/testing/selftests/kvm/aarch64/get-reg-list.c | 5 +++++
- tools/testing/selftests/kvm/get-reg-list.c         | 7 ++++++-
- 2 files changed, 11 insertions(+), 1 deletion(-)
+ .../selftests/kvm/aarch64/get-reg-list.c      | 13 +++++++++++
+ tools/testing/selftests/kvm/get-reg-list.c    | 22 +++++--------------
+ .../selftests/kvm/include/kvm_util_base.h     |  3 +++
+ 3 files changed, 21 insertions(+), 17 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/aarch64/get-reg-list.c b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
-index f72f1a522ff4..f8ebc058b191 100644
+index f8ebc058b191..709d7d721760 100644
 --- a/tools/testing/selftests/kvm/aarch64/get-reg-list.c
 +++ b/tools/testing/selftests/kvm/aarch64/get-reg-list.c
-@@ -79,6 +79,11 @@ bool check_supported_reg(struct kvm_vcpu *vcpu, __u64 reg)
- 	return check_supported_feat_reg(vcpu, reg);
+@@ -84,6 +84,19 @@ bool check_reject_set(int err)
+ 	return err == EPERM;
  }
  
-+bool check_reject_set(int err)
++void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
 +{
-+	return err == EPERM;
++	struct vcpu_reg_sublist *s;
++	int feature;
++
++	for_each_sublist(c, s) {
++		if (s->finalize) {
++			feature = s->feature;
++			vcpu_ioctl(vcpu, KVM_ARM_VCPU_FINALIZE, &feature);
++		}
++	}
 +}
 +
  #define REG_MASK (KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK | KVM_REG_ARM_COPROC_MASK)
  
  #define CORE_REGS_XX_NR_WORDS	2
 diff --git a/tools/testing/selftests/kvm/get-reg-list.c b/tools/testing/selftests/kvm/get-reg-list.c
-index 853cbf470da2..1df94e8e9ed5 100644
+index 1df94e8e9ed5..43a919f2208f 100644
 --- a/tools/testing/selftests/kvm/get-reg-list.c
 +++ b/tools/testing/selftests/kvm/get-reg-list.c
-@@ -104,6 +104,11 @@ void __weak print_reg(const char *prefix, __u64 id)
- 	printf("\t0x%llx,\n", id);
+@@ -34,9 +34,6 @@ static __u64 *blessed_reg, blessed_n;
+ extern struct vcpu_reg_list *vcpu_configs[];
+ extern int vcpu_configs_n;
+ 
+-#define for_each_sublist(c, s)							\
+-	for ((s) = &(c)->sublists[0]; (s)->regs; ++(s))
+-
+ #define for_each_reg(i)								\
+ 	for ((i) = 0; (i) < reg_list->n; ++(i))
+ 
+@@ -109,6 +106,10 @@ bool __weak check_reject_set(int err)
+ 	return true;
  }
  
-+bool __weak check_reject_set(int err)
++void __weak finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
 +{
-+	return true;
 +}
 +
  #ifdef __aarch64__
  static void prepare_vcpu_init(struct vcpu_reg_list *c, struct kvm_vcpu_init *init)
  {
-@@ -222,7 +227,7 @@ static void run_test(struct vcpu_reg_list *c)
- 			if (s->rejects_set && find_reg(s->rejects_set, s->rejects_set_n, reg.id)) {
- 				reject_reg = true;
- 				ret = __vcpu_ioctl(vcpu, KVM_SET_ONE_REG, &reg);
--				if (ret != -1 || errno != EPERM) {
-+				if (ret != -1 || !check_reject_set(errno)) {
- 					printf("%s: Failed to reject (ret=%d, errno=%d) ", config_name(c), ret, errno);
- 					print_reg(config_name(c), reg.id);
- 					putchar('\n');
+@@ -119,19 +120,6 @@ static void prepare_vcpu_init(struct vcpu_reg_list *c, struct kvm_vcpu_init *ini
+ 			init->features[s->feature / 32] |= 1 << (s->feature % 32);
+ }
+ 
+-static void finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
+-{
+-	struct vcpu_reg_sublist *s;
+-	int feature;
+-
+-	for_each_sublist(c, s) {
+-		if (s->finalize) {
+-			feature = s->feature;
+-			vcpu_ioctl(vcpu, KVM_ARM_VCPU_FINALIZE, &feature);
+-		}
+-	}
+-}
+-
+ static struct kvm_vcpu *vcpu_config_get_vcpu(struct vcpu_reg_list *c, struct kvm_vm *vm)
+ {
+ 	struct kvm_vcpu_init init = { .target = -1, };
+@@ -140,7 +128,6 @@ static struct kvm_vcpu *vcpu_config_get_vcpu(struct vcpu_reg_list *c, struct kvm
+ 	prepare_vcpu_init(c, &init);
+ 	vcpu = __vm_vcpu_add(vm, 0);
+ 	aarch64_vcpu_setup(vcpu, &init);
+-	finalize_vcpu(vcpu, c);
+ 
+ 	return vcpu;
+ }
+@@ -180,6 +167,7 @@ static void run_test(struct vcpu_reg_list *c)
+ 
+ 	vm = vm_create_barebones();
+ 	vcpu = vcpu_config_get_vcpu(c, vm);
++	finalize_vcpu(vcpu, c);
+ 
+ 	reg_list = vcpu_get_reg_list(vcpu);
+ 
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
+index 1a455511503e..ec65c292b5fd 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util_base.h
++++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
+@@ -141,6 +141,9 @@ struct vcpu_reg_list {
+ 	struct vcpu_reg_sublist sublists[];
+ };
+ 
++#define for_each_sublist(c, s)		\
++	for ((s) = &(c)->sublists[0]; (s)->regs; ++(s))
++
+ #define kvm_for_each_vcpu(vm, i, vcpu)			\
+ 	for ((i) = 0; (i) <= (vm)->last_vcpu_id; (i)++)	\
+ 		if (!((vcpu) = vm->vcpus[i]))		\
 -- 
 2.34.1
 
