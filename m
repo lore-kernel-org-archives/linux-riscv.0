@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE73C0015E
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 00:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FB5C001B0
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 00:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dr0ejH3rqorIURZllDNz2nHgY4G1DHWfX7yrk/xue2Y=; b=hgGdyLwxJC9xT6
-	o7xAZ7CUF+X6R++0HKl6cXryKSKumtckYglme0VwoUJmtMFPM3En5zuQVMIjCoYEf/IS+Ok28K3lw
-	Qj9BXG1FPXhKD4w84FkabaJDWVygmd0PT2PeDHCZvDProlLQKcNKt/HU6tVHTBizsp375yAJZBmzr
-	ma/94RavFkHCkgoPC1qvGYuHITSL4knpD4nMh7yy80Z3YKHtxF5TZtW/E0GjQVTvmHTEqumMOeR94
-	qT8mXd6Y8ST9e0XZ0pou6fq2gjorFDKqdkdNQv+BSLjtBqeuZp61UdbF6OWPgtHeQvnhjRVlc/XxT
-	dpTmby+ZudD5vXE8Fmmg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ocul+7Ez016G5kc0BKvUnkcZSbiHq2qsG29L3/dxeJk=; b=Bc1Gb6LwQyfRpW
+	3HezVbChH35Ry/45CdpHTwSp3uB9IQisEGs5guqGpH+M9YmFSfAnVTCEhVWPFTBw6uO4Ql8tB6q1I
+	ebYfEaOEvQj0eYXhMyMb+jvUeeoVAapOGndJDzwMkrAOcZu+BfFZfR5HLJPnZRBeXiHKwgmkYBnmS
+	D/qe1grGvFzkvFgNCk7Y7qZsmVnzlKgC7k1jAkFiGhkHQRY5xsk+mlAngUbx9mqosopEO+RxuNin4
+	/jdLkx++2mv4C6GUlDWOjHgicp0VAxsH9YHumBZS4Wcw/BXQnXYdZRcrtcq+oq8cQFj9ik49WUHoU
+	Sl6t80evDMMabAGIR9Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qO5lg-005iiQ-25;
-	Tue, 25 Jul 2023 00:19:12 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1qO66d-005kwP-20;
+	Tue, 25 Jul 2023 00:40:51 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qO5ld-005ihp-16
+	id 1qO66a-005kul-1O
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 00:19:11 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-40551e2deebso13948601cf.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 17:19:07 -0700 (PDT)
+	Tue, 25 Jul 2023 00:40:49 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-517bdc9e81dso2012426a12.1
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Jul 2023 17:40:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1690244347; x=1690849147;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=sq0tUX0m/kKmcUPSfS7G+SqKh/SFxtieh6Kx29IV+n8=;
-        b=EUywN4k8ZBlW1nadUa29eLEOdH3pCrlRPM38Dh62Vmnq/iMAVdw0Ixm/aK70TEJGqc
-         4cQWaBY3fVumozavXkbcUZF4hvAoOSY6UUXvvNCByfnC+zQPioTWT0I8aBujom+z9d37
-         43EXKzwgW3XchgFfr5fv607BRpDOzFslNst7Ra1mB6vA/cjCTJDS69PBsUZgZBEs8dqF
-         YUBvvp6KdxqsBgc+VE0DkGWAROACufuWvzWus5kQiUivf7qUAJgwLBkPhSBeJMFoLSCJ
-         Ivr4oq93VZl4j9rd3e0lvzGIP86MKL7TvGJYP+StElRU8yym4xIh8ORf/hnbMfdWcFf1
-         2F4w==
+        d=sifive.com; s=google; t=1690245646; x=1690850446;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SJKuxFWSCWcxrpIbwE2dsS6yrYr3DSEy+K+qzjCR4Lk=;
+        b=l7xvwTPERLpVvpQQOA4WRpuVk0EuJsgNwRQcR3ONJJsnjusafrjTwvgqUddBw4Wuh3
+         BmRedeIM1hSUMspYRBmjkGxjYLDJEqbay+FwFo1Q9dvcHHfVhl9pehB9LoXpozEKnhRX
+         lQo8f+NtlifbPya6IiRrMFhKKRReXp4TsJ7kYVqpdAH8wCgrV0fmTz90qmfNEd4eibVY
+         5PgnFKtiNUMPPs0s8no4sflNGsXYaEl0X0FahJOt2IAnSPrA5DJLa01vafOTj6HvFOoi
+         FLL7+CGmvCIDcRvhEjSwGlO82XHwYPeKazIdmMz1mT4a/fghYeAJ5+VPdHtr8KA4vzJr
+         n/tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690244347; x=1690849147;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sq0tUX0m/kKmcUPSfS7G+SqKh/SFxtieh6Kx29IV+n8=;
-        b=dRfnX4szP5GwizzOotOyvPSs+y1worJxm2357UTaEB5z5HqNeETtiSye+NYNTf+5S8
-         V55Elf0WOsZSnUcHy/OOQdYB27DUen1P3bRGbqEda3fLTCimJa+WgSqXCOavUtYp8PFV
-         EFjEwRXX+/ZtzY+WuCECd38IjB67GkO8joLyhk++wvGLnSuTvLJE8tGXvtoXPl9Ppdcg
-         mkhGOVfxTr9/hEEHy9AVA6rTPfStz38lAxALSoQl/G3MmZqpUWskvAYrWQipU4Sj0Dkd
-         2s26bf9EXSdUaZ3BWP5RPe5oXbDYModTxXXqYgOyR9VkA4VuDgxtlBXrFNSlf9Yps7vg
-         FfQw==
-X-Gm-Message-State: ABy/qLbvcKGrUCyvJYFdeUl9TPULxodIst/J6tAqEDiWlkXhn/yDddHg
-	F2IieinTUASHj9Q8WTVaMSzn8g==
-X-Google-Smtp-Source: APBJJlH2pGX6WFQ4Mo0OhprlCwim/m4qlDB1/3eYQHooa3S+JB/LRDpGfIMqy6v4oKiX30M/exUPAg==
-X-Received: by 2002:a05:622a:1ba5:b0:405:4709:ba6b with SMTP id bp37-20020a05622a1ba500b004054709ba6bmr1401835qtb.16.1690244346983;
-        Mon, 24 Jul 2023 17:19:06 -0700 (PDT)
-Received: from ?IPV6:2600:1700:2000:b002:d28:aa2f:eead:2774? ([2600:1700:2000:b002:d28:aa2f:eead:2774])
-        by smtp.gmail.com with ESMTPSA id l28-20020ac84cdc000000b00401217aa51dsm3707909qtv.76.2023.07.24.17.19.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Jul 2023 17:19:06 -0700 (PDT)
-Message-ID: <dc0d7cb8-e855-3453-25e4-e2caa77e6d7f@sifive.com>
-Date: Mon, 24 Jul 2023 19:19:05 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] clk: sifive: Allow building the driver as a module
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Yang Li <yang.lee@linux.alibaba.com>,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20230717210356.2794736-1-samuel.holland@sifive.com>
- <20230717210356.2794736-2-samuel.holland@sifive.com>
- <CAJM55Z9B6atT_t4321kOCGWoeqLxe+ZBsJDr4BeV1byaeYw5fw@mail.gmail.com>
+        d=1e100.net; s=20221208; t=1690245646; x=1690850446;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SJKuxFWSCWcxrpIbwE2dsS6yrYr3DSEy+K+qzjCR4Lk=;
+        b=BgcZoYrZZrB0nibpOEhtoqc5cAOsl4OFf35+a0SYItLDycT+dAPXR7mgh9DdbHQRpM
+         ElDWw5ogzR72JJYIvC+WsMSONl/z25E5vcNnFoeMPyqZCbK/r93Wk7FlCO5vyiESCz6e
+         xGlewpphZjSKA+AoQeL+pB7T79fv0abFcVsPaj2quThkMMo18LoYfoAa5i5GxvaFgMoV
+         10fiJeRHvY2QxECSNDXzMtUTGyGb0xFQHBQMkzicP/uwLs7FeqMTHq6ZK8DX4SSimsK4
+         1/9Jhplb5jjTcqaN7DuBXsXLafyaIGbo5z6D6O5aq5p0mtHXd+YlVRuN13FEqOsetifK
+         DPkw==
+X-Gm-Message-State: ABy/qLbk4ogvUnM6ir0/1LTU52SmnmHW4uGKQq2A9ouPnmpot3oDvYi9
+	DBOUoIOuZVnCN4SwTCkQ347ORQ==
+X-Google-Smtp-Source: APBJJlFPb8LJJqI+24wS8Kl8vPzsOO78+Laoq3nKP3BBOg08DmgXv0tHgVQiYwYl8RCqUvPRzBE8VQ==
+X-Received: by 2002:a05:6a20:1053:b0:137:23f1:4281 with SMTP id gt19-20020a056a20105300b0013723f14281mr11113757pzc.12.1690245646421;
+        Mon, 24 Jul 2023 17:40:46 -0700 (PDT)
+Received: from sw06.internal.sifive.com ([64.62.193.194])
+        by smtp.gmail.com with ESMTPSA id be11-20020a170902aa0b00b001b8a3e2c241sm9528297plb.14.2023.07.24.17.40.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Jul 2023 17:40:46 -0700 (PDT)
 From: Samuel Holland <samuel.holland@sifive.com>
-In-Reply-To: <CAJM55Z9B6atT_t4321kOCGWoeqLxe+ZBsJDr4BeV1byaeYw5fw@mail.gmail.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andy Shevchenko <andy@kernel.org>
+Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Frank Rowand <frowand.list@gmail.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3 0/4] gpio: sifive: Module support
+Date: Mon, 24 Jul 2023 17:40:38 -0700
+Message-Id: <20230725004043.381573-1-samuel.holland@sifive.com>
+X-Mailer: git-send-email 2.40.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230724_171909_415881_9F23BCD2 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20230724_174048_467790_AE686EC8 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,80 +98,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2023-07-19 9:18 AM, Emil Renner Berthing wrote:
-> On Wed, 19 Jul 2023 at 10:07, Samuel Holland <samuel.holland@sifive.com> wrote:
->>
->> This can reduce the kernel image size in multiplatform configurations.
-> 
-> I don't mind this, but booting without this driver also means there is
-> no uart for debug output or any other peripheral until the kernel gets
-> to the initrd to load the driver. Does the earlycon console work all
-> the way until we reach the initrd? Otherwise I can't imagine many
-> scenarios where configuring this as a module is desirable.
+With the call to of_irq_count() removed, the SiFive GPIO driver can be
+built as a module. This helps to minimize the size of a multiplatform
+kernel, and is required by some downstream distributions (Android GKI).
 
-Thanks for the review.
+This series removes the rest of the of_* API usage in the process.
 
-Yes, an "earlycon" command-line argument still works after this change, since
-the stdout-path UART already has its clock set up by a previous boot stage.
+Changes in v3:
+ - Use dev_fwnode() instead of member access
+ - Mention the SIFIVE_GPIO_MAX check in the commit message
+ - Keep the variable for the parent IRQ domain
+ - Add a comment explaining why the IRQ data lookup will succeed
 
->> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
->> ---
->>
->>  drivers/clk/sifive/Kconfig       | 2 +-
->>  drivers/clk/sifive/sifive-prci.c | 8 +++-----
->>  2 files changed, 4 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/clk/sifive/Kconfig b/drivers/clk/sifive/Kconfig
->> index 2322f634a910..49597d95602e 100644
->> --- a/drivers/clk/sifive/Kconfig
->> +++ b/drivers/clk/sifive/Kconfig
->> @@ -10,7 +10,7 @@ menuconfig CLK_SIFIVE
->>  if CLK_SIFIVE
->>
->>  config CLK_SIFIVE_PRCI
->> -       bool "PRCI driver for SiFive SoCs"
->> +       tristate "PRCI driver for SiFive SoCs"
->>         default ARCH_SIFIVE
->>         select RESET_CONTROLLER
->>         select RESET_SIMPLE
->> diff --git a/drivers/clk/sifive/sifive-prci.c b/drivers/clk/sifive/sifive-prci.c
->> index e317f3454e93..8c67d1a7c8df 100644
->> --- a/drivers/clk/sifive/sifive-prci.c
->> +++ b/drivers/clk/sifive/sifive-prci.c
->> @@ -7,6 +7,7 @@
->>  #include <linux/clkdev.h>
->>  #include <linux/delay.h>
->>  #include <linux/io.h>
->> +#include <linux/module.h>
->>  #include <linux/of_device.h>
->>  #include "sifive-prci.h"
->>  #include "fu540-prci.h"
->> @@ -618,9 +619,6 @@ static struct platform_driver sifive_prci_driver = {
->>         },
->>         .probe = sifive_prci_probe,
->>  };
->> +module_platform_driver(sifive_prci_driver);
->>
->> -static int __init sifive_prci_init(void)
->> -{
->> -       return platform_driver_register(&sifive_prci_driver);
->> -}
->> -core_initcall(sifive_prci_init);
-> 
-> Maybe also add the MODULE_AUTHOR() and MODULE_DESCRIPTION() macros
-> while you're at it.
+Changes in v2:
+ - Add 3 new patches removing of_* API usage
+ - Add MODULE_AUTHOR and MODULE_DESCRIPTION
 
-Will do.
+Samuel Holland (4):
+  gpio: sifive: Directly use the device's fwnode
+  gpio: sifive: Look up IRQs only once during probe
+  gpio: sifive: Get the parent IRQ's domain from its irq_data
+  gpio: sifive: Allow building the driver as a module
 
->> +MODULE_LICENSE("GPL");
->> --
->> 2.40.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+ drivers/gpio/Kconfig       |  2 +-
+ drivers/gpio/gpio-sifive.c | 47 ++++++++++++++++----------------------
+ 2 files changed, 21 insertions(+), 28 deletions(-)
+
+-- 
+2.40.1
 
 
 _______________________________________________
