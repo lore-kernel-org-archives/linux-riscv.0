@@ -4,99 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15266EB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 21:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A09EB64DD
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 22:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XduQdTf/tN0wp2Vf30X+a6IHdbm3scSXuFRMU3fjWuA=; b=BkrGCoHpO70N/q
-	00SbRK+ti/EnBp4BllpHlRJkSkiHzgpXksg+OnhBCoHhoxWwYuTER2li/Nm9nKXS5c9W12I2fSXFT
-	s/z033EbKiRzEMrIWhcGvfDLvtFxMEZmvCm2/PQTnNMnny12L1U7cAmYtGQ6BdoUZ8jkDRd0tymxt
-	h1S9jzedDe85ypjX/h12MRC7Mj/2tXL+JABKhskVkcdXIDOx2v+D9Q6haM3aD+vc82Gx93xTW0oBK
-	wXTxKHGYxXYwLztEBANY+X+370PJjrmrxdU3bhaDNMe1l91UPg2sP/ChCP0K1brvOCl0trspVOJA4
-	jPOIThCroDnrqRsBktFg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0iL9GXPft1MpjuSGfSrc1IntgdYbPQnnEgzAYYqBl9c=; b=G35nYOk4So/QevWYfBr+rVVrg5
+	sSFDv1wiltAd9CRhcs8IDkLIE98E0SFpHi/4tqXZNr3CdXGAVW42r4o9ImH508p6JM1p91ynBBEMZ
+	sxgH18oFjJoU6vXixJEkBRzJgzLPeAQz5ukeyE/MaNX7TKFD1WgmLExAN8Q8dwQucOfXXzKOz91HB
+	CDzEy1YAnFgj2mDWwDDtVIScaLNwVS7aZ93FLqJmvDJ66hbujpRVO5M/XWIgVQ7mu0Nff9HD9+BgP
+	4bGvYfOhYLrlQ0NQJ+gBCQFnrJxW1qGx3zSzxzR6FRILOK9yByNGNzTISaFsZu+L82Sp6aGgDyR/9
+	Gw+IdYFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOPx2-008ZXv-0j;
-	Tue, 25 Jul 2023 21:52:16 +0000
-Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
+	id 1qOQLX-008cc6-2q;
+	Tue, 25 Jul 2023 22:17:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOPwz-008ZWn-15
+	id 1qOQLU-008cbU-2U
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 21:52:15 +0000
-Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3a3efebcc24so4167579b6e.1
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Jul 2023 14:52:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1690321931; x=1690926731;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=w2G/e8y/tvnNGTMmNmnaD68PLNtHT6GiMZvoHdRg+aU=;
-        b=R3puFFKq+ZSGzNHmxPCpnTeYSaLCatWyIWrrZry4+8MTe4ZYoHOqQyVLOJkTIO6LdI
-         XaZlYEeLZHO5anL2SR2yyCgHJFsLbOnlsLOfAevIYDaKTrV3FP9DSGTEk5umBkS6Q2dO
-         +oI4fzhIMqls8oEpa2uNjE7O3BuVthvGynrKXA6FpaRE3528ZMBIrmT8HzY2K9bzVHBT
-         wsJmUYGsKcB0Mv3agSU3IhgvbUbt+lS4vYybGAHs4dk0slYivmLKTp8T+FuhMpSadz5g
-         kNAWtZkrOSD1djGuw4pc+DumKUy0XZZoyGEvFkgvlVfE7JXlLLixSwTFiGx3FTnuQCoA
-         6Tbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690321931; x=1690926731;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w2G/e8y/tvnNGTMmNmnaD68PLNtHT6GiMZvoHdRg+aU=;
-        b=KYKtK2DI6RIbZ7EggNqLJiLzpxItSXJdu8yCmxd/UulRF2TkzCOMiQfgGP+RltxGZg
-         lAEWORhGqTYeOAKgHKpLO0Vif+GFkWJR41d5fIDMGGP8+Ax7R5CH3HuF0svvaUQv36od
-         aw0PENMtsLWaF5orC5MsJffHCkorFpr5k2GKg4tpLXs4m72fqzT2NBTfr7FDBFXiafNL
-         0jt4PcnokU8U5RyWMFX+/sj8bZWBdiiWJH8umsuCZ68J4kp5piRVRvvU07s/4jU3kcA+
-         xOe1gR6A+KxwN8CZ0zGVfw4PVUzaDNRXYxmJsn8Zf25vk4QZHrsuCMDWkdlp1xMHmUPE
-         AonA==
-X-Gm-Message-State: ABy/qLaBkaawiBlftp8poKBbq7wf3t1CLRWHgmavkTDfvwkEQVlNEXEI
-	+mJtXk3LGy9OhO6BXdodNIw=
-X-Google-Smtp-Source: APBJJlG54o8WY98CP+xjRTeR1S+q2Ldy/fPlKKU1BXd7oYHQ/qegEG4jGeoIlI/AUnc8VPS3G6mssQ==
-X-Received: by 2002:a05:6808:e87:b0:3a4:225d:82c0 with SMTP id k7-20020a0568080e8700b003a4225d82c0mr179900oil.31.1690321931094;
-        Tue, 25 Jul 2023 14:52:11 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:400::5:18d])
-        by smtp.gmail.com with ESMTPSA id 29-20020a17090a005d00b002612150d958sm57830pjb.16.2023.07.25.14.52.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Jul 2023 14:52:10 -0700 (PDT)
-Date: Tue, 25 Jul 2023 11:52:09 -1000
-From: Tejun Heo <tj@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Lai Jiangshan <jiangshanlai@gmail.com>,
-	"torvalds@linux-foundation.org" <torvalds@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	kernel-team@meta.com, Linux PM list <linux-pm@vger.kernel.org>,
-	DRI Development <dri-devel@lists.freedesktop.org>,
-	linux-rtc@vger.kernel.org,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	netdev <netdev@vger.kernel.org>,
-	Linux Fbdev development list <linux-fbdev@vger.kernel.org>,
-	Linux MMC List <linux-mmc@vger.kernel.org>,
-	"open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)" <linux-ide@vger.kernel.org>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Subject: [PATCH wq/for-6.5-fixes] workqueue: Drop the special locking rule
- for worker->flags and worker_pool->flags
-Message-ID: <ZMBECezjAixaMccA@slm.duckdns.org>
-References: <ZF6WsSVGX3O1d0pL@slm.duckdns.org>
- <CAMuHMdVCQmh6V182q4g---jvsWiTOP2hBPZKvma6oUN6535LEg@mail.gmail.com>
- <CAMuHMdW1kxZ1RHKTRVRqDNAbj1Df2=v0fPn5KYK3kfX_kiXR6A@mail.gmail.com>
- <ZK3MBfPS-3-tJgjO@slm.duckdns.org>
- <ZK30CR196rs-OWLq@slm.duckdns.org>
- <CAMuHMdUCXPi+aS-7bR3qRetKF9T3W9jk_HKjvaXmfHv5SEeuFg@mail.gmail.com>
- <ZLXIvXBvhsnL-ik_@slm.duckdns.org>
- <CAMuHMdU8CGhsU-1PZNdWH1xjbWcWSg2s2RFAegXi+vs=d-0t8Q@mail.gmail.com>
- <ZLcLnoAoJmQ9WTuM@slm.duckdns.org>
- <CAMuHMdUo=17kYsNEYr=qyVceRpJ4D3jMFrMOiqaH--OOhJOM4w@mail.gmail.com>
+	Tue, 25 Jul 2023 22:17:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 176F36191C;
+	Tue, 25 Jul 2023 22:17:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 518FBC433CC;
+	Tue, 25 Jul 2023 22:17:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690323451;
+	bh=9duJYsP4IefPgz7np3nvBZh3XlabkCsEBI1FzTJIOqA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a6rCLQWHSI8YJO2nCtunWOXccQckpKC92s95fp1QXPLzlQA634hst0MGGUUa7VDA0
+	 pKgzF80ym3NMjqj2i7Hibmooh6hD1v/ZnS7WIpcdf1RMzRQhJUfs7sz/xdvcF3cSXI
+	 fl1PhOrxRfEcZDun54fqHLmjP3VwKsAMW2+ghei/Ziezs4eYf+tsMmIm86V4jyRH+E
+	 wXx+6TXj111N23PbWJZc38APh/K3g1APBo03/Nu8mK0rOsUGLpZdmspTPbhiTG4I4X
+	 KNlzdCZWC/HGWpbJ/e7P4MXVS0iEM474TWIvYMdaVToeZYs6JrWC35K7yMtnwiXzn6
+	 HnC6qw6sR+d1g==
+Date: Tue, 25 Jul 2023 23:17:26 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Mingzheng Xing <xingmingzheng@iscas.ac.cn>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>, Bin Meng <bmeng@tinylab.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH] riscv: Handle zicsr/zifencei issue between gcc and
+ binutils
+Message-ID: <20230725-name-aggregate-5de303072c9d@spud>
+References: <20230725170405.251011-1-xingmingzheng@iscas.ac.cn>
+ <20230725172344.GA1445373@dev-arch.thelio-3990X>
+ <20230725-skating-agent-b092f2257ca1@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdUo=17kYsNEYr=qyVceRpJ4D3jMFrMOiqaH--OOhJOM4w@mail.gmail.com>
+In-Reply-To: <20230725-skating-agent-b092f2257ca1@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_145213_396088_B5D5C951 
-X-CRM114-Status: GOOD (  26.54  )
+X-CRM114-CacheID: sfid-20230725_151732_904197_71C4647E 
+X-CRM114-Status: GOOD (  44.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,134 +78,174 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4081032745632028365=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From aa6fde93f3a49e42c0fe0490d7f3711bac0d162e Mon Sep 17 00:00:00 2001
-From: Tejun Heo <tj@kernel.org>
-Date: Mon, 17 Jul 2023 12:50:02 -1000
-Subject: [PATCH] workqueue: Scale up wq_cpu_intensive_thresh_us if BogoMIPS is
- below 4000
 
-wq_cpu_intensive_thresh_us is used to detect CPU-hogging per-cpu work items.
-Once detected, they're excluded from concurrency management to prevent them
-from blocking other per-cpu work items. If CONFIG_WQ_CPU_INTENSIVE_REPORT is
-enabled, repeat offenders are also reported so that the code can be updated.
+--===============4081032745632028365==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="wbqao3EI+HlRxhpT"
+Content-Disposition: inline
 
-The default threshold is 10ms which is long enough to do fair bit of work on
-modern CPUs while short enough to be usually not noticeable. This
-unfortunately leads to a lot of, arguable spurious, detections on very slow
-CPUs. Using the same threshold across CPUs whose performance levels may be
-apart by multiple levels of magnitude doesn't make whole lot of sense.
 
-This patch scales up wq_cpu_intensive_thresh_us upto 1 second when BogoMIPS
-is below 4000. This is obviously very inaccurate but it doesn't have to be
-accurate to be useful. The mechanism is still useful when the threshold is
-fully scaled up and the benefits of reports are usually shared with everyone
-regardless of who's reporting, so as long as there are sufficient number of
-fast machines reporting, we don't lose much.
+--wbqao3EI+HlRxhpT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Some (or is it all?) ARM CPUs systemtically report significantly lower
-BogoMIPS. While this doesn't break anything, given how widespread ARM CPUs
-are, it's at least a missed opportunity and it probably would be a good idea
-to teach workqueue about it.
+On Tue, Jul 25, 2023 at 07:57:54PM +0100, Conor Dooley wrote:
+> On Tue, Jul 25, 2023 at 10:23:44AM -0700, Nathan Chancellor wrote:
+> > On Wed, Jul 26, 2023 at 01:04:05AM +0800, Mingzheng Xing wrote:
+> > > When compiling the kernel with the toolchain composed of GCC >=3D 12.=
+1.0 and
+> > > binutils < 2.38, default ISA spec used when building binutils and GCC=
+, the
+> > > following build failure will appear because the
+> > > CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI is not turned on.
+> > > (i.e, gcc-12.1.0 and binutils-2.36, or gcc-12.3.0 and binutils-2.37, =
+use
+> > > default ISA spec.)
+> > >=20
+> > >   CC      arch/riscv/kernel/vdso/vgettimeofday.o
+> > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assembler =
+messages:
+> > >   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:79: Error: =
+unrecognized opcode `csrr a5,0xc01'
+> >=20
+> > The gift that keeps on giving :/
+> >=20
+> > > Binutils has updated the default ISA spec version, and the community =
+has
+> > > responded well to this[1][2][3], but it appears that this is not over=
+ yet.
 
-Signed-off-by: Tejun Heo <tj@kernel.org>
-Reported-and-Tested-by: Geert Uytterhoeven <geert@linux-m68k.org>
----
-Hello,
+Also, I just noticed this comment. I disagree with the wording "well",
+and more like "with weeping and gnashing of teeth" ;) This stuff is a
+huge pain in the ass, and mixing toolchains between LLVM & GNU stuff (or
+using an older binutils with a newer GCC) really makes it a lot worse.
+Thanks for submitting a fix for this so that Nathan or I didn't have to!
 
-Geert, applied this to wq/for-6.5-fixes. The local variable `mips` is
-renamed to `bogo` to avoid collision.
+> > >=20
+> > > We also need to consider the situation of binutils < 2.38 but
+> > > GCC >=3D 12.1.0, since the combination between different versions of =
+GCC and
+> > > binutils is not unique, which is to some extent flexible. GCC release
+> > > 12.1.0 updated the default ISA spec version in GCC commit[4].
+> >=20
+> > I suspect this combination is not too common because binutils 2.38 came
+> > out before GCC 12.1.0 but as you note, it is obviously possible. What
+> > toolchain has this combination in the wild, which would be helpful for
+> > documentation purposes?
+>=20
+> Yeah, that'd be great to know, at least the other niche stuff that we
+> are working around had a clear use-case (testing LLVM in debian container=
+s)
+> whereas there's no clear user for this.
+> That's doubly interesting, as this patch seems to break things for binuti=
+ls
+> < 2.35, and if we have to make a trade-off between those too, then it'd
+> be good to be able to weigh up the options.
+> Do we perhaps need the misa-spec workaround instead for this case?
+> Haven't tested that though, trying to dig myself out of email backlog.
 
-Thanks for testing!
+I don't think the misa-spec stuff is what we need actually. Instead, the
+workaround/fix that this patch implements just needs to be constrained to
+versions of GAS greater than 2.35.
 
- kernel/workqueue.c | 43 ++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 42 insertions(+), 1 deletion(-)
+Thanks,
+Conor.
 
-diff --git a/kernel/workqueue.c b/kernel/workqueue.c
-index 02a8f402eeb5..800b4208dba9 100644
---- a/kernel/workqueue.c
-+++ b/kernel/workqueue.c
-@@ -52,6 +52,7 @@
- #include <linux/sched/debug.h>
- #include <linux/nmi.h>
- #include <linux/kvm_para.h>
-+#include <linux/delay.h>
- 
- #include "workqueue_internal.h"
- 
-@@ -338,8 +339,10 @@ static cpumask_var_t *wq_numa_possible_cpumask;
-  * Per-cpu work items which run for longer than the following threshold are
-  * automatically considered CPU intensive and excluded from concurrency
-  * management to prevent them from noticeably delaying other per-cpu work items.
-+ * ULONG_MAX indicates that the user hasn't overridden it with a boot parameter.
-+ * The actual value is initialized in wq_cpu_intensive_thresh_init().
-  */
--static unsigned long wq_cpu_intensive_thresh_us = 10000;
-+static unsigned long wq_cpu_intensive_thresh_us = ULONG_MAX;
- module_param_named(cpu_intensive_thresh_us, wq_cpu_intensive_thresh_us, ulong, 0644);
- 
- static bool wq_disable_numa;
-@@ -6513,6 +6516,42 @@ void __init workqueue_init_early(void)
- 	       !system_freezable_power_efficient_wq);
- }
- 
-+static void __init wq_cpu_intensive_thresh_init(void)
-+{
-+	unsigned long thresh;
-+	unsigned long bogo;
-+
-+	/* if the user set it to a specific value, keep it */
-+	if (wq_cpu_intensive_thresh_us != ULONG_MAX)
-+		return;
-+
-+	/*
-+	 * The default of 10ms is derived from the fact that most modern (as of
-+	 * 2023) processors can do a lot in 10ms and that it's just below what
-+	 * most consider human-perceivable. However, the kernel also runs on a
-+	 * lot slower CPUs including microcontrollers where the threshold is way
-+	 * too low.
-+	 *
-+	 * Let's scale up the threshold upto 1 second if BogoMips is below 4000.
-+	 * This is by no means accurate but it doesn't have to be. The mechanism
-+	 * is still useful even when the threshold is fully scaled up. Also, as
-+	 * the reports would usually be applicable to everyone, some machines
-+	 * operating on longer thresholds won't significantly diminish their
-+	 * usefulness.
-+	 */
-+	thresh = 10 * USEC_PER_MSEC;
-+
-+	/* see init/calibrate.c for lpj -> BogoMIPS calculation */
-+	bogo = max_t(unsigned long, loops_per_jiffy / 500000 * HZ, 1);
-+	if (bogo < 4000)
-+		thresh = min_t(unsigned long, thresh * 4000 / bogo, USEC_PER_SEC);
-+
-+	pr_debug("wq_cpu_intensive_thresh: lpj=%lu BogoMIPS=%lu thresh_us=%lu\n",
-+		 loops_per_jiffy, bogo, thresh);
-+
-+	wq_cpu_intensive_thresh_us = thresh;
-+}
-+
- /**
-  * workqueue_init - bring workqueue subsystem fully online
-  *
-@@ -6528,6 +6567,8 @@ void __init workqueue_init(void)
- 	struct worker_pool *pool;
- 	int cpu, bkt;
- 
-+	wq_cpu_intensive_thresh_init();
-+
- 	/*
- 	 * It'd be simpler to initialize NUMA in workqueue_init_early() but
- 	 * CPU to node mapping may not be available that early on some
--- 
-2.41.0
+>=20
+> > > For more information, please refer to:
+> > >=20
+> > > commit 6df2a016c0c8 ("riscv: fix build with binutils 2.38")
+> > > commit e89c2e815e76 ("riscv: Handle zicsr/zifencei issues between cla=
+ng and binutils")
+> > >=20
+> > > [1]: https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/aE1ZeHHC=
+Yf4
+> > > [2]: https://lore.kernel.org/all/20230308220842.1231003-1-conor@kerne=
+l.org
+> > > [3]: https://lore.kernel.org/all/20230223220546.52879-1-conor@kernel.=
+org
+> > > [4]: https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dcommit;h=3D98416dbb0a62=
+579d4a7a4a76bab51b5b52fec2cd
+>=20
+> btw, please make these regular Link: tags (with a [N] at EOL) and drop
+> the space between them and the sign off. Also, this probably needs to be
+> CC: stable@vger.kernel.org too.
 
+> > >=20
+> > > Signed-off-by: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
+> > > ---
+> > >  arch/riscv/Kconfig | 6 +++++-
+> > >  1 file changed, 5 insertions(+), 1 deletion(-)
+> > >=20
+> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > index 4c07b9189c86..b49cea30f6cc 100644
+> > > --- a/arch/riscv/Kconfig
+> > > +++ b/arch/riscv/Kconfig
+> > > @@ -570,11 +570,15 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
+> > >  config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
+> > >  	def_bool y
+> > >  	# https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=3Dcommit;h=3Da=
+ed44286efa8ae8717a77d94b51ac3614e2ca6dc
+> > > -	depends on AS_IS_GNU && AS_VERSION >=3D 23800
+> > > +	# https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dcommit;h=3D98416dbb0a625=
+79d4a7a4a76bab51b5b52fec2cd
+> > > +	depends on CC_IS_GCC && GCC_VERSION >=3D 120100 || \
+> > > +		   AS_IS_GNU && AS_VERSION >=3D 23800
+> >=20
+> > GCC_VERSION will be 0 for clang, so you don't need the CC_IS_GCC check.
+> > With that change, this should be able to stay on one line:
+> >=20
+> >     depends on GCC_VERSION >=3D 120100 || (AS_IS_GNU && AS_VERSION >=3D=
+ 23800)
+> >=20
+> > >  	help
+> > >  	  Newer binutils versions default to ISA spec version 20191213 which
+> > >  	  moves some instructions from the I extension to the Zicsr and Zif=
+encei
+> > >  	  extensions.
+> > > +	  Similarly, GCC release 12.1.0 has changed the default ISA spec ve=
+rsion to
+> > > +	  20191213, so the above situation requires this option to be enabl=
+ed.
+> > > =20
+> > >  config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
+> > >  	def_bool y
+> > > --=20
+> > > 2.34.1
+> > >=20
+>=20
+
+
+
+--wbqao3EI+HlRxhpT
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMBJ9gAKCRB4tDGHoIJi
+0qeNAP4mSuiAlr4Pcp2s+H+szGA0GA9tA9eZ/dRHP4a++kKhUgEA8Qao1BY7Wrz7
+eFheXgfMBbWuisdUrk9Fs9paJOWyPgI=
+=4CKF
+-----END PGP SIGNATURE-----
+
+--wbqao3EI+HlRxhpT--
+
+
+--===============4081032745632028365==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4081032745632028365==--
+
