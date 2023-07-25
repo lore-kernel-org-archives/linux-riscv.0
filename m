@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8217CC001DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 08:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA82C001DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 08:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KdCmZoEx119e2VsCJYAOXuUI507GrCbvt+f/7vll0Ks=; b=wct1X3HZwH7KIKlTCSi91EhgoL
-	kOM5PxVe8UggF4CozjfsL9arkAkgm15bP9xdV1XF8NIL81D0vPLWblSwcl6AFHv9FQZSnuQwgre0E
-	T8WfTwJoWwgJHUq3MtDdxZMCgKkdzEaZjA63LShOmLduYK6jJf7OSe4MA/3MGtbo9zaG0Z1v+gQP1
-	/tNhr6ccV6HNET419rRtW3TOcB27ariThGxG49fTxSXe1oT/lSC79Pdq7A7mViA+bLqiTRuW9Txd0
-	3WJjcedgIyIvPcOyA1Tp0SY2/Y2JZwtypXT0QkdcS+GVe0+9xV4gfBy4IMRC4qEGG+m/9wpUmFXTt
-	v5afLrqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=henEQpERJglXw6+RIyhVDjp6/iT8aKZDGY6rwLgjIPY=; b=TF2BZpI7EN08LH
+	SKH+zwyqBF0r2wE2Sh1XfWgatT/E1FLXN8gunAAovUaeW/5MlKs7O/dKw/jK12lwrnE3hoW0dJ090
+	kNbyYiF6vFfj5BsYuTIDyVBLoXmveLm2TOla0dpQ0zXksS13IxPGZmNXZWLscsNd6Ozk5V2j8zRUH
+	i26JvAVAqaAt+anixbqXCKgDZEPLQBxCnNkfcVKad6I+msjOdwwyl4zYbnXbsDbbERWvv/OpdxrNP
+	+CsxZmGu+LMV0ZWZWBeAcWw8XszbDa/ICtdDG7tXrX46568x3gTs3WP4XclF1e3U06Kt8QrSbW/w/
+	Vl2//shIHMk/IE9fZOsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOD8B-006hlu-0O;
-	Tue, 25 Jul 2023 08:10:55 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOD86-006hkT-38
+	id 1qODNz-006jk3-0X;
+	Tue, 25 Jul 2023 08:27:15 +0000
+Received: from rivendell.linuxfromscratch.org ([208.118.68.85])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qODNv-006jjc-1t
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 08:10:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690272650; x=1721808650;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gD9ghxtvQUKb6DIekcbQydO6E3OoEwN111Bh/9xRB+Q=;
-  b=TaJgGyYG6iNBjEf4pkEmE/DoEqwihY5ILTonDhyEqV4AgU2xoCwgDpIm
-   m+0mBLkwQCq9xku9QomZN3q3q1FeCmDKNn0WkfpzKZH8CpBzljip6ttdo
-   ekDRV1KE6I4HhSH4qaC/D38YCwzTmJ1EykNMkAm+n+QtwZOH1TE4XPBQb
-   OwYbxe4nJsAHh3DElC8Z8JCSc58tdKyGcBWLB6FtnkSLwbBG14+XKzLMW
-   Wy3oGyhQEYcE0vSVxyQhnHfAnUt1d0Cd4G5oWkd9pQOMU+WruL/bH6tvy
-   HeEq65sQhoyLz7YdPBwBj+HG0mXEBf0ppJpP2lunucbDZVJJZxhBI7dDG
-   w==;
-X-IronPort-AV: E=Sophos;i="6.01,230,1684825200"; 
-   d="asc'?scan'208";a="163065829"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 25 Jul 2023 01:10:43 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Tue, 25 Jul 2023 01:10:42 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Tue, 25 Jul 2023 01:10:40 -0700
-Date: Tue, 25 Jul 2023 09:10:06 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Xi Ruoyao <xry111@linuxfromscratch.org>
-CC: Jisheng Zhang <jszhang@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof
- Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Guo Ren <guoren@kernel.org>, Fu Wei
-	<wefu@redhat.com>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+	Tue, 25 Jul 2023 08:27:13 +0000
+Received: from [192.168.124.11] (unknown [61.150.43.67])
+	by rivendell.linuxfromscratch.org (Postfix) with ESMTPSA id DBBB51C1D53;
+	Tue, 25 Jul 2023 08:27:01 +0000 (GMT)
+X-Virus-Status: Clean
+X-Virus-Scanned: clamav-milter 1.0.0 at rivendell.linuxfromscratch.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfromscratch.org;
+	s=cert4; t=1690273627;
+	bh=3wKBJknl28jX8dkxKDD1cetC+NZBYD4bobGI4n3fNXs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Fg6Xmz4+D2Zi8+clxXo/HI51CxqO06TGtb2ZIPbxibycD0flc8IQZS67Yc+nSqgtX
+	 1wNDG0aqtVN9jHLa10Kj2PhFNeGzakE37RqNc/ahsQ0w/t8iGqswSJ5rZW5SHLnmkT
+	 aHcOEL0wUfzd/XWSk4w+brCivAnAnq6OQIkMtCMdiaTRzRMsIlpslWehQwkHh9Td+w
+	 u1l/TqJhp2WuoMWxP2lZpBR6glzOeGra28S7/v6kGSnTVABx4++7apy8jNkWm8FSiM
+	 HpJAGaWPVaLMSrW+fEPe/mVJci1qPCNXbNNR3t920RGqRHOw3AfmkDGIRlu3XgF3dV
+	 b6iSvKWNit8ag==
+Message-ID: <6361277fb2784ef7eef88e19be23ad022f77e483.camel@linuxfromscratch.org>
 Subject: Re: [PATCH v3 0/8] Add Sipeed Lichee Pi 4A RISC-V board support
-Message-ID: <20230725-distant-overrule-a98ad406125f@wendy>
-References: <20230617161529.2092-1-jszhang@kernel.org>
- <c9a44f534071a6d67f1e21bafdb713793c559124.camel@linuxfromscratch.org>
- <20230725-unheard-dingy-42f0fafe7216@wendy>
-MIME-Version: 1.0
+From: Xi Ruoyao <xry111@linuxfromscratch.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Thomas Gleixner
+ <tglx@linutronix.de>,  Marc Zyngier <maz@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,  Daniel
+ Lezcano <daniel.lezcano@linaro.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+ <wefu@redhat.com>,  linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org,  linux-riscv@lists.infradead.org
+Date: Tue, 25 Jul 2023 16:26:54 +0800
 In-Reply-To: <20230725-unheard-dingy-42f0fafe7216@wendy>
+References: <20230617161529.2092-1-jszhang@kernel.org>
+	 <c9a44f534071a6d67f1e21bafdb713793c559124.camel@linuxfromscratch.org>
+	 <20230725-unheard-dingy-42f0fafe7216@wendy>
+User-Agent: Evolution 3.48.4 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_011051_080792_11F7966C 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20230725_012711_849280_9D35FB79 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,142 +76,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5489587181871620510=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5489587181871620510==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="GrJ4P94jZcxwJ23/"
-Content-Disposition: inline
-
---GrJ4P94jZcxwJ23/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Guo Ren,
-
-On Tue, Jul 25, 2023 at 08:52:09AM +0100, Conor Dooley wrote:
-> On Tue, Jul 25, 2023 at 03:38:58PM +0800, Xi Ruoyao wrote:
-> > On Sun, 2023-06-18 at 00:15 +0800, Jisheng Zhang wrote:
-> > > Sipeed's Lichee Pi 4A development board uses Lichee Module 4A core
-> > > module which is powered by T-HEAD's TH1520 SoC. Add minimal device
-> > > tree files for the core module and the development board.
-> > >=20
-> > > Support basic uart/gpio/dmac drivers, so supports booting to a basic
-> > > shell.
-> >=20
-> > Thanks for the excellent work, but when I tried to boot Linux 6.5.0-rc3
-> > on my Lichee Pi 4A it fails with:
-> >=20
-> > ## Flattened Device Tree blob at 01f00000
-> >    Booting using the fdt blob at 0x1f00000
-> >    Using Device Tree in place at 0000000001f00000, end 0000000001f050c4
-> >=20
-> > Starting kernel ...
-> >=20
-> > [    0.000000] Linux version 6.5.0-rc3 (lfs@stargazer) (riscv64-lfs-lin=
-ux-gnu-gcc (GCC) 13.1.0, GNU ld (GNU Binutils) 2.40) #1 SMP PREEMPT Tue Jul=
- 25 13:38:20 CST 2023
-> > [    0.000000] Machine model: Sipeed Lichee Pi 4A
-> > [    0.000000] SBI specification v0.3 detected
-
-> > [    0.000000] SBI implementation ID=3D0x1 Version=3D0x9
-
-> > [    0.000000] Oops - load access fault [#1]
-> > [    0.000000] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 6.5.0-rc3 #1
-> > [    0.000000] Hardware name: Sipeed Lichee Pi 4A (DT)
-> > [    0.000000] epc : __plic_toggle+0x5a/0x62
-> > [    0.000000]  ra : __plic_init.isra.0+0x2d0/0x462
-> > [    0.000000] epc : ffffffff802ce8ec ra : ffffffff80618816 sp : ffffff=
-ff80e03c90
-> > [    0.000000]  gp : ffffffff80ec5bb8 tp : ffffffff80e10d40 t0 : ffffff=
-d900045940
-> > [    0.000000]  t1 : 0000000000000002 t2 : ffffffd90004a10c s0 : ffffff=
-d9fef6ed68
-> > [    0.000000]  s1 : ffffffd900045680 a0 : ffffffc801002080 a1 : 000000=
-0000000002
-> > [    0.000000]  a2 : 0000000000000000 a3 : 00000000000000f4 a4 : 000000=
-0000000001
-> > [    0.000000]  a5 : 0000000000000000 a6 : 0000000000000b40 a7 : ffffff=
-d900045940
-> > [    0.000000]  s2 : ffffffd9fef6ed78 s3 : ffffffff80ef9630 s4 : 000000=
-0000000001
-> > [    0.000000]  s5 : ffffffd9ffff5af8 s6 : 0000000000000001 s7 : ffffff=
-ff80815d68
-> > [    0.000000]  s8 : 0000000000000008 s9 : 0000000000000000 s10: ffffff=
-ff80815d68
-> > [    0.000000]  s11: ffffffff80b1b1b8 t3 : ffffffff80c003d0 t4 : 000000=
-0000000001
-> > [    0.000000]  t5 : 0000000000000003 t6 : 0000000000000001
-> > [    0.000000] status: 8000000201800100 badaddr: 000000ffd8002080 cause=
-: 0000000000000005
-> > [    0.000000] [<ffffffff802ce8ec>] __plic_toggle+0x5a/0x62
-> > [    0.000000] [<ffffffff8061ffc8>] of_irq_init+0x14a/0x248
-> > [    0.000000] [<ffffffff80600a7e>] start_kernel+0x40c/0x6fe
-> > [    0.000000] [<ffffffff806034f6>] init_IRQ+0xc6/0x100
-> > [    0.000000] [<ffffffff80600a7e>] start_kernel+0x40c/0x6fe
-> > [    0.000000] Code: 0007 c319 9123 00e7 8082 000f 0140 411c 000f 0820 =
-(c593) fff5=20
-> > [    0.000000] ---[ end trace 0000000000000000 ]---
-> > [    0.000000] Kernel panic - not syncing: Fatal exception in interrupt
-> >=20
-> > I guess I'm either using some unsupported configuration or making some
-> > stupid mistakes, but I cannot find any documentation about how to
-> > configure the mainline kernel for Lichee Pi 4A properly.  Could you give
-> > some pointers?
->=20
-> Are you using the vendor OpenSBI? IIRC, and the lads can probably
-> correct me here, you need to have an OpenSBI that contains
-> https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd62653b9f=
-b31623a42ced45f38ea6
-> which the vendor supplied OpenSBI does not have.
-
-Guo Ren, can you try to get this sorted out? The T-Head SDK seems to be
-shipping stuff that is several years old, so new SoCs from vendors that
-have used your SDK are unable to run mainline kernels (and therefore
-mainstream distros), without a firmware update.
-
-The TH1520 branch on github, seems to be based on OpenSBI v0.9:
-> > [    0.000000] SBI implementation ID=3D0x1 Version=3D0x9
-https://github.com/T-head-Semi/opensbi/blob/4e77060e0512ad981eee55d5a2501f6=
-d88a41fd9/include/sbi/sbi_version.h#L13
-OpenSBI v0.9 was released on the 18/01/2021:
-https://github.com/riscv-software-src/opensbi/releases/tag/v0.9
-The "fix" I linked above was included in v1.0, released on 24/12/2021.
-
-I think it is hitting here for the Lichee Pi4a, but I know the same
-thing has happened to the BeagleV Ahead, and I figure it'll impact
-other SoCs going forward too.
-
-Thanks,
-Conor
-
---GrJ4P94jZcxwJ23/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZL+DXgAKCRB4tDGHoIJi
-0llcAQDR5tEZTJhPKBP4Fam+8hImDMWe66hAE6EHOP7hdNg37wD+LFu2vDyUjjEa
-W2Z4F6U+kkSbDkMYZWNMVa74kTkQ5QE=
-=PqE1
------END PGP SIGNATURE-----
-
---GrJ4P94jZcxwJ23/--
-
-
---===============5489587181871620510==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5489587181871620510==--
-
+T24gVHVlLCAyMDIzLTA3LTI1IGF0IDA4OjUyICswMTAwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4g
+QXJlIHlvdSB1c2luZyB0aGUgdmVuZG9yIE9wZW5TQkk/IElJUkMsIGFuZCB0aGUgbGFkcyBjYW4g
+cHJvYmFibHkKPiBjb3JyZWN0IG1lIGhlcmUsIHlvdSBuZWVkIHRvIGhhdmUgYW4gT3BlblNCSSB0
+aGF0IGNvbnRhaW5zCj4gaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2LXNvZnR3YXJlLXNyYy9vcGVu
+c2JpL2NvbW1pdC83OGMyYjE5MjE4YmQ2MjY1M2I5ZmIzMTYyM2E0MmNlZDQ1ZjM4ZWE2Cj4gd2hp
+Y2ggdGhlIHZlbmRvciBzdXBwbGllZCBPcGVuU0JJIGRvZXMgbm90IGhhdmUuCgpJJ2xsIHRyeSBP
+cGVuU0JJIGZyb20gdGhlIHVwc3RyZWFtLgoKPiA+IEFuZCB0aGlzIGxpbmUKPiA+IAo+ID4gTWVt
+b3J5OiA4MTQ1MzA0Sy84Mzg4NjA4SyBhdmFpbGFibGUgKDQ5MjJLIGtlcm5lbCBjb2RlLCA0Nzg2
+SyByd2RhdGEsIDIwNDhLIHJvZGF0YSwgMjE0OEsgaW5pdCwgMzkzSyBic3MsIDI0MzMwNEsgcmVz
+ZXJ2ZWQsIDBLIGNtYS1yZXNlcnZlZCkKPiA+IAo+ID4gZG9lcyBub3QgbWF0Y2ggbXkgaGFyZHdh
+cmUgKG15IGJvYXJkIGlzIGEgMTYgR0IgRFJBTSB2YXJpYW50KS7CoCBTbyBpbgo+ID4gdGhlIGZ1
+dHVyZSB3ZSdsbCBuZWVkIG11bHRpcGxlIERUcyBmb3IgYWxsIHRoZSB2YXJpYW50cz8KPiAKPiBB
+IGJvb3Rsb2FkZXIgc3RhZ2Ugd291bGQgaWRlYWxseSBwYXRjaCB0aGUgRFQgdGhhdCB0aGUga2Vy
+bmVsIGVuZHMgdXAKPiBnZXR0aW5nLiBJZiB5b3UncmUgbG9hZGluZyB5b3VyIG93biBkdGIsIHlv
+dSBjYW4gZG8gaXQgZWFzaWx5IGluIFUtQm9vdAo+IGFmdGVyIHlvdSBleHRyYWN0IGl0IGZyb20g
+eW91ciBGSVQgaW1hZ2Ugb3Igd2hhdGV2ZXIuIEkgaGF2ZSBubyBpZGVhCj4gd2hhdCB0aGUgdmVu
+ZG9yIFUtQm9vdCBkb2VzLgoKVGhlIHZlbmRvciBzaGlwcyB0aHJlZSBEVHMgYW5kIGluIHVib290
+IHRoZXJlIGFyZSBzb21lIGZhbmN5IGxvZ2ljIHRvCmRldGVjdCB3aGljaCBzaG91bGQgYmUgdXNl
+ZC4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
