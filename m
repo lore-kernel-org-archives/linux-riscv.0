@@ -4,70 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C40C001DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 10:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37161C001DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 10:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RnU0yOc5fvvrcs6KpGy7HqieNZ5a83jaEavmC0d/4QI=; b=qc4+YRZfXeMeIy
-	1yOn1alSpOllUsZwj0c0O3v5hGaPIGrav3Ku64r3Aj5BrreCTRwpF2iKS9g69CCXS/oXJoIxMl6e6
-	S86dQeMALSfwgafDjMrvndv1Wilu8oj3hQhLksrwuLEkp/YyD4EKaT9cfq1pDJIgTECGxxJP2aK3z
-	ayKBzRG0msNSMosph7+rQ+GA/QbWuRk2GLxklUi6YaiNrzEA8wNYp7Kemalmnxfvi2EjyyTz/6tVD
-	x3959j2Pp56JGrn4G6ibNSJp+4hU9cx9ope4u+RCevXrwjUvqfC5y5nYk1iV80TC01DMiZ7lyhcMN
-	6NC/kocW6TtAOM0rGpnw==;
+	List-Owner; bh=OjbCCiFU3wFan8kShHl9k2YzZpB0q6OQw3bBdhn6Jhc=; b=kBuYbMdW5VMLQa
+	8xPe/fJxCb5nk689GN434QKg0FupUZC4HALDt19zv1EnkuKvbH75UAt78PL+D1GNWo2O4yv8RcMXb
+	1F1FFsE3gGpSrR8YT+eqiMjwJ6jIGq4kgMe83g475dL6U8bR5f8BHAvQfh3W+unO3q4E9lktSlTHy
+	TgEk5gJZTlR3Wb1Dp1zkdpvaqZo2Ntr0jIcBHnXRvrxLfTMBrnlrZoJd7z2BAh+jEh0INnIxsseNJ
+	L+Ofm/IclRdJB2YJmRKOiXYPMMtvQkIjqX61rZhGSC6g46v5pxEVPPmC81ZOkTw3Cki5YjJdJL5ba
+	ORAYx/HWJVv8hG64b3FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOF4z-0074Xy-0q;
-	Tue, 25 Jul 2023 10:15:45 +0000
-Received: from bee.tesarici.cz ([77.93.223.253])
+	id 1qOFDK-0075re-0x;
+	Tue, 25 Jul 2023 10:24:22 +0000
+Received: from mga17.intel.com ([192.55.52.151])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOF4v-0074Vq-2Q
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 10:15:43 +0000
-Received: from meshulam.tesarici.cz (dynamic-2a00-1028-83b8-1e7a-4427-cc85-6706-c595.ipv6.o2.cz [IPv6:2a00:1028:83b8:1e7a:4427:cc85:6706:c595])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by bee.tesarici.cz (Postfix) with ESMTPSA id 6E99616E7EB;
-	Tue, 25 Jul 2023 12:15:39 +0200 (CEST)
-Authentication-Results: mail.tesarici.cz; dmarc=fail (p=none dis=none) header.from=tesarici.cz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tesarici.cz; s=mail;
-	t=1690280139; bh=VkSwamAp/4PDPv7DdYCrtZQ5vmXGPZLbqsG5fwWzuZo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=p6x10Yht8ow48zlrALbeY2e4IicnzbpwZLWp9qIt+gAjalRXgUE2EMKYQe93s+Wty
-	 OLQJ4s9WLrmhjHqzKlJ7BdXR8lmGJakv1WIWZnAdt1QImnmnur6uRrtJgOsCEG5Ixv
-	 67kEzE64ng+hilOryKzXuKOYKRIbGyu1DL460HDayizReh1NBVmXoLBjniDiVU4q06
-	 viKPt1HvhkjWx5A4k4rrkHEHVZ/ZdSlqSr+uxtHIAugwjbfRiDl1/50VIcpf2q5O7D
-	 O214xNUZNaHf2zYwx9C0Z+UUERZLxpGkZmMy5l/nFQSJ1qxuK2oPOpB976q6Jvhg1p
-	 05ofrg+vXWnXA==
-Date: Tue, 25 Jul 2023 12:15:38 +0200
-From: Petr =?UTF-8?B?VGVzYcWZw61r?= <petr@tesarici.cz>
-To: Petr Tesarik <petrtesarik@huaweicloud.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley
- <conor.dooley@microchip.com>, Li Huafei <lihuafei1@huawei.com>, Liao Chang
- <liaochang1@huawei.com>, Masahiro Yamada <masahiroy@kernel.org>, Alyssa
- Ross <hi@alyssa.is>, Nick Desaulniers <ndesaulniers@google.com>, Ricardo
- Ribalda <ribalda@chromium.org>, Kees Cook <keescook@chromium.org>, Heiko
- Stuebner <heiko@sntech.de>, Li Zhengyu <lizhengyu3@huawei.com>,
- linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
- linux-kernel@vger.kernel.org (open list), Roberto Sassu
- <roberto.sassu@huaweicloud.com>, Torsten Duwe <duwe@lst.de>, Torsten Duwe
- <duwe@suse.de>
-Subject: Re: [PATCH v1 1/3] riscv/kexec: handle R_RISCV_CALL_PLT relocation
- type
-Message-ID: <20230725121538.2bb4b64f@meshulam.tesarici.cz>
-In-Reply-To: <652f652d571458522a615040f68a885f10b45ca7.1690274483.git.petr.tesarik.ext@huawei.com>
-References: <cover.1690274483.git.petr.tesarik.ext@huawei.com>
-	<652f652d571458522a615040f68a885f10b45ca7.1690274483.git.petr.tesarik.ext@huawei.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-suse-linux-gnu)
+	id 1qOFDF-0075p4-2g;
+	Tue, 25 Jul 2023 10:24:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1690280657; x=1721816657;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=z2JgSRr57QfGjyG/fWEsaikXL6iwmaxUOjUdDAVtI0A=;
+  b=Vjx3M11ZUyfeHvQjhMQRsqq6fXC/eVDyNDkf+88cTKsf3obYxz4KEIxE
+   ZE0ixdm5H6lF/GMuKwlxOvXFSfW7PaE5vN1uif5/rB3az9izliWBHBoD0
+   3UtlAZAuvINotxkliRBBetlBBopg5c3o3VcGA5VAstkRJGdplwR8eUab6
+   PJ45aLpVhjC55BUSUPc3i/LBIz03NLKCEJ4A5YaZfGFcj/TQ+b89tdSsA
+   e6RVeMhS3MS4NEJyW31R/5ywCdR4ikQXNYrOsBxVPqggocBWZe67zZYc5
+   OPAFRdjzusmftvOTTsmv8yt09hdblmrpiRsBFy+BZX7L9XyvuSU0qMT4h
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10781"; a="347956827"
+X-IronPort-AV: E=Sophos;i="6.01,230,1684825200"; 
+   d="scan'208";a="347956827"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2023 03:24:14 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10781"; a="1056753039"
+X-IronPort-AV: E=Sophos;i="6.01,230,1684825200"; 
+   d="scan'208";a="1056753039"
+Received: from mlytkin-mobl2.ger.corp.intel.com (HELO box.shutemov.name) ([10.252.57.129])
+  by fmsmga005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2023 03:24:05 -0700
+Received: by box.shutemov.name (Postfix, from userid 1000)
+	id 171E4103A12; Tue, 25 Jul 2023 13:24:03 +0300 (+03)
+Date: Tue, 25 Jul 2023 13:24:03 +0300
+From: "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+To: Sean Christopherson <seanjc@google.com>,
+	Vlastimil Babka <vbabka@suse.cz>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Chao Peng <chao.p.peng@linux.intel.com>,
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+	Yu Zhang <yu.c.zhang@linux.intel.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Ackerley Tng <ackerleytng@google.com>,
+	Maciej Szmigiero <mail@maciej.szmigiero.name>,
+	David Hildenbrand <david@redhat.com>,
+	Quentin Perret <qperret@google.com>,
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+	Liam Merwick <liam.merwick@oracle.com>,
+	Isaku Yamahata <isaku.yamahata@gmail.com>
+Subject: Re: [RFC PATCH v11 10/29] mm: Add AS_UNMOVABLE to mark mapping as
+ completely unmovable
+Message-ID: <20230725102403.xywjqlhyqkrzjok6@box.shutemov.name>
+References: <20230718234512.1690985-1-seanjc@google.com>
+ <20230718234512.1690985-11-seanjc@google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230718234512.1690985-11-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_031541_930543_A30FA6A2 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20230725_032417_905644_6F037863 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +111,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+Cc Torsten (somehow missed from the original Cc list).
+On Tue, Jul 18, 2023 at 04:44:53PM -0700, Sean Christopherson wrote:
+> diff --git a/mm/compaction.c b/mm/compaction.c
+> index dbc9f86b1934..a3d2b132df52 100644
+> --- a/mm/compaction.c
+> +++ b/mm/compaction.c
+> @@ -1047,6 +1047,10 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+>  		if (!mapping && (folio_ref_count(folio) - 1) > folio_mapcount(folio))
+>  			goto isolate_fail_put;
+>  
+> +		/* The mapping truly isn't movable. */
+> +		if (mapping && mapping_unmovable(mapping))
+> +			goto isolate_fail_put;
+> +
 
-Petr T
+I doubt that it is safe to dereference mapping here. I believe the folio
+can be truncated from under us and the mapping freed with the inode.
 
-On Tue, 25 Jul 2023 10:44:25 +0200
-Petr Tesarik <petrtesarik@huaweicloud.com> wrote:
+The folio has to be locked to dereference mapping safely (given that the
+mapping is still tied to the folio).
 
-> From: Torsten Duwe <duwe@suse.de>
-> 
-> R_RISCV_CALL has been deprecated and replaced by R_RISCV_CALL_PLT. See Enum
-> 18-19 in Table 3. Relocation types here:
-> 
-> https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/master/riscv-elf.adoc
-> 
-> It was deprecated in ("Deprecated R_RISCV_CALL, prefer R_RISCV_CALL_PLT"):
-> 
-> https://github.com/riscv-non-isa/riscv-elf-psabi-doc/commit/a0dced85018d7a0ec17023c9389cbd70b1dbc1b0
-> 
-> Recent tools (at least GNU binutils-2.40) already use R_RISCV_CALL_PLT.
-> Kernels built with such binutils fail kexec_load_file(2) with:
-> 
->  kexec_image: Unknown rela relocation: 19
->  kexec_image: Error loading purgatory ret=-8
-> 
-> The binary code at the call site remains the same, so tell
-> arch_kexec_apply_relocations_add() to handle _PLT alike.
-> 
-> Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
-> Signed-off-by: Torsten Duwe <duwe@suse.de>
-> Signed-off-by: Petr Tesarik <petr.tesarik.ext@huawei.com>
-> Cc: Li Zhengyu <lizhengyu3@huawei.com>
-> Cc: stable@vger.kernel.org
-> ---
->  arch/riscv/kernel/elf_kexec.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
-> index 5372b708fae2..38390d3bdcac 100644
-> --- a/arch/riscv/kernel/elf_kexec.c
-> +++ b/arch/riscv/kernel/elf_kexec.c
-> @@ -425,6 +425,7 @@ int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
->  		 * sym, instead of searching the whole relsec.
->  		 */
->  		case R_RISCV_PCREL_HI20:
-> +		case R_RISCV_CALL_PLT:
->  		case R_RISCV_CALL:
->  			*(u64 *)loc = CLEAN_IMM(UITYPE, *(u64 *)loc) |
->  				 ENCODE_UJTYPE_IMM(val - addr);
+Vlastimil, any comments?
 
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
