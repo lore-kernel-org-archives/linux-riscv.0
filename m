@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5D9C0015E
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 15:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75327C0015E
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Jul 2023 15:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8ozGKavryTHxIh1wWfklvjZK9f4qi7AzehLcKt8wjgE=; b=WTNMFXDHVB9PhN
-	nA6nIfknuCem0qbCTXCKfbRSUGo1zt3CKIYtQBsjy1873KA2P7hFGGRho95PgVLUP0DA2CVmOEXkb
-	jHqPvs0jxf2RCOrcBMtmi8iRdT9gt8Z1GPewuvwPc1IkTe/oGWWs0KyStbZr4QDMogMDgJMb5WuuI
-	8sYvhscDCIXOhEBzeJ/AOti40LeMmkEmGBmPweoaq0nmDSdBjHoys540fXv4N9WyKn9rD0SwB/KDj
-	8Z7yKLXCqNXxtpoGfrXR8Xw3YMbrdsKfk3aMec4UtBdnQfFdZ/SPaB18Ce46L0FlA0p7KC21FbQ6+
-	GRerRtMRv2g8Q0sCzWyQ==;
+	List-Owner; bh=2Qb2Sjo4q0Dlj51AWIEcLUc8hMW8q3kBTIhsr9KJIKg=; b=Eho4BShybgykqt
+	nqKLvPyHuNGhsar3baDdhfMOgBueLpP712Eqc+fp6d46PD4YsRhtWvE/925LTmXMwmayYKt+HClVN
+	LK3MEuYeff2HeSeDU1Qdhh3E5NAEOJjibi6SORG+rT3PnkJIpkKvoIaYoFAW8RbgTfNs9skWd1nhb
+	LKjgahGVlBNSl34g3iralEoH/FXOrWk4RmkZLgEudg7jEIrv5liOE5mSh48pk4qWsCl2qj1EPsGhR
+	QE7mEKmIQPEDE2Zc4ETmDD8VVKIyQOylJvy2C+GWrQesME5O6wghxOuJ0bmk1CE8RoRt1gSqMw4Hb
+	NCf+lOekGz64kRV2ImRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOJgP-007t2b-0y;
-	Tue, 25 Jul 2023 15:10:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qOJl2-007tla-1n;
+	Tue, 25 Jul 2023 15:15:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOJgM-007t1z-1M
+	id 1qOJky-007tjm-2G
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Jul 2023 15:10:40 +0000
+	Tue, 25 Jul 2023 15:15:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7F32F6178E;
-	Tue, 25 Jul 2023 15:10:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC804C433C9;
-	Tue, 25 Jul 2023 15:10:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DFE8A617A9;
+	Tue, 25 Jul 2023 15:15:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D457AC433C7;
+	Tue, 25 Jul 2023 15:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690297836;
-	bh=HOET60UVofZD/GiNoqKT9q8+mrxfWMeXPfBn0chYin4=;
+	s=k20201202; t=1690298122;
+	bh=uXKJ00uasfRVR16k4FOy30lC5u9cvvfPEmi295ROSWo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vHlTuFs485Ip/OU2fbMYnpl5ujjMu7dQpmnrVaQHDTKsK6Ex3OlFlTNutW6dProvK
-	 3ysdF+dxYKLRkmppc+Fa+JHwFVGK+2mthn02BUwqRunC/qbRGSzgHCytDdmmyhaiID
-	 FkhVMu3HQG7TrLxG16mhOEg1qe3tmGB/nKj+t6+JKiX3NwEzNZLguJH8Socxx8NkD0
-	 h8WCRUq8/9DbkT9f9zN6A0QcsBZtwJrP2BP3aR+AinJyDr3r7hDDtY9kmn1t3/CHnp
-	 POmu3UuYvE/f01dl9nj+3LQqnYYj41b7d0UfZtU7yaMGqsWKF69i1v5mAY70VocNrF
-	 1D4qXmhl1Vq4A==
-Date: Tue, 25 Jul 2023 22:58:57 +0800
+	b=fTH8UPAM+yn81R7Z0KXVtP8plOMp2TcJp0PSNVyugUwDyax88EbHRxI8m3I4eBcPe
+	 eCUj3cznRsiQJPalXVlO1yJwcrPx1GgSKlTsZyrW8dttQooC1l9Z3xIxmzxrrkuF7d
+	 BjQlmEtI/Wl52M+s6tiFDpazwACyKEJ0Coprc0z7wWUm08GqlSodUDVzyJ9fLTfhMe
+	 v+kB9e1cPeBd6ISw2Tay9SDLaUykUHhD3+pMt7p9WWVOh0uG3TJYYR0fndhiQKwoSR
+	 Q88j5PyK4KPrdVMx1vKzfwgcsCGmTcSzMiUUODzInRjVYgm/y56VRwPFXwZ6cGFg62
+	 0vVfY0WzOcw9Q==
+Date: Tue, 25 Jul 2023 23:03:44 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>,
-	Xi Ruoyao <xry111@linuxfromscratch.org>
-Cc: Xi Ruoyao <xry111@linuxfromscratch.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+To: Drew Fustini <dfustini@baylibre.com>
+Cc: Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 0/8] Add Sipeed Lichee Pi 4A RISC-V board support
-Message-ID: <ZL/jMYL3akl78ZZN@xhacker>
-References: <20230617161529.2092-1-jszhang@kernel.org>
- <c9a44f534071a6d67f1e21bafdb713793c559124.camel@linuxfromscratch.org>
- <20230725-unheard-dingy-42f0fafe7216@wendy>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+	Robert Nelson <robertcnelson@beagleboard.org>,
+	Jason Kridner <jkridner@beagleboard.org>
+Subject: Re: [PATCH RFC 4/4] mmc: sdhci-of-dwcmshc: Add support for T-Head
+ TH1520
+Message-ID: <ZL/kUPicOEPWz5NP@xhacker>
+References: <20230724-th1520-emmc-v1-0-cca1b2533da2@baylibre.com>
+ <20230724-th1520-emmc-v1-4-cca1b2533da2@baylibre.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20230725-unheard-dingy-42f0fafe7216@wendy>
+In-Reply-To: <20230724-th1520-emmc-v1-4-cca1b2533da2@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230725_081038_570942_697A37A7 
-X-CRM114-Status: GOOD (  31.94  )
+X-CRM114-CacheID: sfid-20230725_081524_832305_D3081801 
+X-CRM114-Status: GOOD (  27.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,132 +88,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 25, 2023 at 08:52:09AM +0100, Conor Dooley wrote:
-> Hey,
-> 
-> On Tue, Jul 25, 2023 at 03:38:58PM +0800, Xi Ruoyao wrote:
-> > Hi Jisheng,
-> > 
-> > On Sun, 2023-06-18 at 00:15 +0800, Jisheng Zhang wrote:
-> > > Sipeed's Lichee Pi 4A development board uses Lichee Module 4A core
-> > > module which is powered by T-HEAD's TH1520 SoC. Add minimal device
-> > > tree files for the core module and the development board.
-> > > 
-> > > Support basic uart/gpio/dmac drivers, so supports booting to a basic
-> > > shell.
-> > 
-> > Thanks for the excellent work, but when I tried to boot Linux 6.5.0-rc3
-> > on my Lichee Pi 4A it fails with:
-> > 
-> > ## Flattened Device Tree blob at 01f00000
-> >    Booting using the fdt blob at 0x1f00000
-> >    Using Device Tree in place at 0000000001f00000, end 0000000001f050c4
-> > 
-> > Starting kernel ...
-> > 
-> > [    0.000000] Linux version 6.5.0-rc3 (lfs@stargazer) (riscv64-lfs-linux-gnu-gcc (GCC) 13.1.0, GNU ld (GNU Binutils) 2.40) #1 SMP PREEMPT Tue Jul 25 13:38:20 CST 2023
-> > [    0.000000] Machine model: Sipeed Lichee Pi 4A
-> > [    0.000000] SBI specification v0.3 detected
-> > [    0.000000] SBI implementation ID=0x1 Version=0x9
-> > [    0.000000] SBI TIME extension detected
-> > [    0.000000] SBI IPI extension detected
-> > [    0.000000] SBI RFENCE extension detected
-> > [    0.000000] earlycon: uart0 at MMIO32 0x000000ffe7014000 (options '115200n8')
-> > [    0.000000] printk: bootconsole [uart0] enabled
-> > [    0.000000] efi: UEFI not found.
-> > [    0.000000] OF: reserved mem: 0x0000000000000000..0x000000000003ffff (256 KiB) nomap non-reusable mmode_resv0@0
-> > [    0.000000] Zone ranges:
-> > [    0.000000]   DMA32    [mem 0x0000000000000000-0x00000000ffffffff]
-> > [    0.000000]   Normal   [mem 0x0000000100000000-0x00000001ffffffff]
-> > [    0.000000] Movable zone start for each node
-> > [    0.000000] Early memory node ranges
-> > [    0.000000]   node   0: [mem 0x0000000000000000-0x000000000003ffff]
-> > [    0.000000]   node   0: [mem 0x0000000000040000-0x00000001ffffffff]
-> > [    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x00000001ffffffff]
-> > [    0.000000] SBI HSM extension detected
-> > [    0.000000] riscv: base ISA extensions acdfim
-> > [    0.000000] riscv: ELF capabilities acdfim
-> > [    0.000000] percpu: Embedded 17 pages/cpu s38184 r0 d31448 u69632
-> > [    0.000000] Kernel command line: console=ttyS0,115200 earlycon loglevel=7
-> > [    0.000000] Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
-> > [    0.000000] Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
-> > [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 2064384
-> > [    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
-> > [    0.000000] software IO TLB: area num 4.
-> > [    0.000000] software IO TLB: mapped [mem 0x00000000fbfff000-0x00000000fffff000] (64MB)
-> > [    0.000000] Memory: 8145304K/8388608K available (4922K kernel code, 4786K rwdata, 2048K rodata, 2148K init, 393K bss, 243304K reserved, 0K cma-reserved)
-> > [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
-> > [    0.000000] rcu: Preemptible hierarchical RCU implementation.
-> > [    0.000000] rcu:     RCU event tracing is enabled.
-> > [    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=4.
-> > [    0.000000]  Trampoline variant of Tasks RCU enabled.
-> > [    0.000000]  Tracing variant of Tasks RCU enabled.
-> > [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
-> > [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
-> > [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
-> > [    0.000000] riscv-intc: 64 local interrupts mapped
-> > [    0.000000] Oops - load access fault [#1]
-> > [    0.000000] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 6.5.0-rc3 #1
-> > [    0.000000] Hardware name: Sipeed Lichee Pi 4A (DT)
-> > [    0.000000] epc : __plic_toggle+0x5a/0x62
-> > [    0.000000]  ra : __plic_init.isra.0+0x2d0/0x462
-> > [    0.000000] epc : ffffffff802ce8ec ra : ffffffff80618816 sp : ffffffff80e03c90
-> > [    0.000000]  gp : ffffffff80ec5bb8 tp : ffffffff80e10d40 t0 : ffffffd900045940
-> > [    0.000000]  t1 : 0000000000000002 t2 : ffffffd90004a10c s0 : ffffffd9fef6ed68
-> > [    0.000000]  s1 : ffffffd900045680 a0 : ffffffc801002080 a1 : 0000000000000002
-> > [    0.000000]  a2 : 0000000000000000 a3 : 00000000000000f4 a4 : 0000000000000001
-> > [    0.000000]  a5 : 0000000000000000 a6 : 0000000000000b40 a7 : ffffffd900045940
-> > [    0.000000]  s2 : ffffffd9fef6ed78 s3 : ffffffff80ef9630 s4 : 0000000000000001
-> > [    0.000000]  s5 : ffffffd9ffff5af8 s6 : 0000000000000001 s7 : ffffffff80815d68
-> > [    0.000000]  s8 : 0000000000000008 s9 : 0000000000000000 s10: ffffffff80815d68
-> > [    0.000000]  s11: ffffffff80b1b1b8 t3 : ffffffff80c003d0 t4 : 0000000000000001
-> > [    0.000000]  t5 : 0000000000000003 t6 : 0000000000000001
-> > [    0.000000] status: 8000000201800100 badaddr: 000000ffd8002080 cause: 0000000000000005
-> > [    0.000000] [<ffffffff802ce8ec>] __plic_toggle+0x5a/0x62
-> > [    0.000000] [<ffffffff8061ffc8>] of_irq_init+0x14a/0x248
-> > [    0.000000] [<ffffffff80600a7e>] start_kernel+0x40c/0x6fe
-> > [    0.000000] [<ffffffff806034f6>] init_IRQ+0xc6/0x100
-> > [    0.000000] [<ffffffff80600a7e>] start_kernel+0x40c/0x6fe
-> > [    0.000000] Code: 0007 c319 9123 00e7 8082 000f 0140 411c 000f 0820 (c593) fff5 
-> > [    0.000000] ---[ end trace 0000000000000000 ]---
-> > [    0.000000] Kernel panic - not syncing: Fatal exception in interrupt
-> > 
-> > I guess I'm either using some unsupported configuration or making some
-> > stupid mistakes, but I cannot find any documentation about how to
-> > configure the mainline kernel for Lichee Pi 4A properly.  Could you give
-> > some pointers?
-> 
-> Are you using the vendor OpenSBI? IIRC, and the lads can probably
-> correct me here, you need to have an OpenSBI that contains
-> https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd62653b9fb31623a42ced45f38ea6
-> which the vendor supplied OpenSBI does not have.
+On Mon, Jul 24, 2023 at 05:59:18PM -0700, Drew Fustini wrote:
+> Add basic support for the T-Head TH1520 SoC mmc controller. The new
+> compatible "thead,th1520-dwcmshc" enables basic support by:
 
-To ruoyao,
-
-I believe Conor has provided enough details and given you the clues.
-And I believe you were using the legacy opensbi. If you still reproduce
-the issue with the latest opensbi generic platform, plz provided full
-uart log from openSBI to the kernel panic point.
-> 
-> > And this line
-> > 
-> > Memory: 8145304K/8388608K available (4922K kernel code, 4786K rwdata, 2048K rodata, 2148K init, 393K bss, 243304K reserved, 0K cma-reserved)
-> > 
-> > does not match my hardware (my board is a 16 GB DRAM variant).  So in
-> > the future we'll need multiple DTs for all the variants?
-> 
-> A bootloader stage would ideally patch the DT that the kernel ends up
-> getting. If you're loading your own dtb, you can do it easily in U-Boot
-> after you extract it from your FIT image or whatever. I have no idea
-> what the vendor U-Boot does.
-
-uboot can modify the dtb memory node on the fly ;)
+Hi Drew,
 
 > 
-> Thanks,
-> Conor.
+>  - Enabling v4 mode to properly communicate with the mmc device
+>  - Setting quirk to disable ADMA
+>  - Setting flag to disable SDMA and force PIO mode
+>  - Turing .reset op into a no-op as the driver does not yet know how to
+>    configure the phy. Rely on the vendor u-boot to have configured the
+>    phy and do not reset the controller in Linux.
 
+The last three itmes are not acceptable. The controller supports ADMA
+well, can you plz bring in the phy driver? We can't rely on bootloader to
+configure phy.
 
+> 
+> Signed-off-by: Drew Fustini <dfustini@baylibre.com>
+> ---
+>  drivers/mmc/host/sdhci-of-dwcmshc.c | 42 +++++++++++++++++++++++++++++++++++++
+>  1 file changed, 42 insertions(+)
+> 
+> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> index e68cd87998c8..8573aff25a81 100644
+> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
+> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> @@ -337,6 +337,14 @@ static void rk35xx_sdhci_reset(struct sdhci_host *host, u8 mask)
+>  	sdhci_reset(host, mask);
+>  }
+>  
+> +static void th1520_sdhci_reset(struct sdhci_host *host, u8 mask)
+> +{
+> +	/*
+> +	 * MMC controller and phy is configured by vendor u-boot so
+> +	 * take the simplistic approach of not doing reset in Linux.
+> +	 */
+> +}
+> +
+>  static const struct sdhci_ops sdhci_dwcmshc_ops = {
+>  	.set_clock		= sdhci_set_clock,
+>  	.set_bus_width		= sdhci_set_bus_width,
+> @@ -355,6 +363,15 @@ static const struct sdhci_ops sdhci_dwcmshc_rk35xx_ops = {
+>  	.adma_write_desc	= dwcmshc_adma_write_desc,
+>  };
+>  
+> +static const struct sdhci_ops sdhci_dwcmshc_th1520_ops = {
+> +	.set_clock		= sdhci_set_clock,
+> +	.set_bus_width		= sdhci_set_bus_width,
+> +	.set_uhs_signaling	= dwcmshc_set_uhs_signaling,
+> +	.get_max_clock		= dwcmshc_get_max_clock,
+> +	.reset			= th1520_sdhci_reset,
+> +	.adma_write_desc	= dwcmshc_adma_write_desc,
+> +};
+> +
+>  static const struct sdhci_pltfm_data sdhci_dwcmshc_pdata = {
+>  	.ops = &sdhci_dwcmshc_ops,
+>  	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN,
+> @@ -378,6 +395,13 @@ static const struct sdhci_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
+>  		   SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
+>  };
+>  
+> +static const struct sdhci_pltfm_data sdhci_dwcmshc_th1520_pdata = {
+> +	.ops = &sdhci_dwcmshc_th1520_ops,
+> +	.quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN | SDHCI_QUIRK_BROKEN_DMA |
+> +		  SDHCI_QUIRK_BROKEN_ADMA,
+> +	.quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
+> +};
+> +
+>  static int dwcmshc_rk35xx_init(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
+>  {
+>  	int err;
+> @@ -434,6 +458,10 @@ static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv
+>  }
+>  
+>  static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
+> +	{
+> +		.compatible = "thead,th1520-dwcmshc",
+> +		.data = &sdhci_dwcmshc_th1520_pdata,
+> +	},
+>  	{
+>  		.compatible = "rockchip,rk3588-dwcmshc",
+>  		.data = &sdhci_dwcmshc_rk35xx_pdata,
+> @@ -546,6 +574,20 @@ static int dwcmshc_probe(struct platform_device *pdev)
+>  		sdhci_enable_v4_mode(host);
+>  #endif
+>  
+> +	if (pltfm_data == &sdhci_dwcmshc_th1520_pdata) {
+> +		/*
+> +		 * The controller needs v4 mode enabled to properly
+> +		 * communicate with the mmc device.
+> +		 */
+> +		sdhci_enable_v4_mode(host);
+> +
+> +		/*
+> +		 * Set flag so the SDHCI host core will disable DMA
+> +		 * and use PIO mode.
+> +		 */
+> +		host->flags &= ~SDHCI_USE_SDMA;
+> +	}
+> +
+>  	host->mmc->caps |= MMC_CAP_WAIT_WHILE_BUSY;
+>  
+>  	err = sdhci_setup_host(host);
+> 
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
