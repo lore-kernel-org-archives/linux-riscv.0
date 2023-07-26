@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B24E0C001DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 14:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBABBC0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 15:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ykpnC3JeNNbz5s9j47P3fpYrPHaSZIN3KgzL9DL7+v4=; b=3KC3KeJ7F5W7ux
-	BVNo0BAhJ6jB85mkFHFar0E8VbVoZodH25XL4TJ+d5r7cxwmg5K5Vx09c/fQ0ZxUKpoVtTZRSwGiT
-	i8dkfzPv3s/So23AlrJ5r8chLVpAwzIA1FAlGS7y4aPYem5dSryFICCiIyrwEn0D8AeS6vfK9UeAn
-	FqxkVsU0AfQi3UBmvXAtXNhr5ps8J2i/ctY9yMp4n+QPuDIxB9yUf6SXHBx4+cXis5r6gBHBmPktq
-	YMf3+3xzSFn8ZmzBGxQhe6TrftU6XQ7QvPwjxJDMVK9tLIaz5CYRL9ORilZRUS3f2vT1lUTKVvXoB
-	ybMTONeXk+cKe3aee5qg==;
+	List-Owner; bh=pyR07gVXgw4ZGxtE+ytnrdsLFWOrWSFmMPE7AkctHEo=; b=MPK8kCHGTBYogQ
+	PiFt3DafhAeCf9hA9j6ly7GctxR8O5ggc1P4NhZEr8GUK8DtINo4jxATN87QVyl1mzq7h3fOfmdXV
+	C+FJPzCOmU53LjqhvMTxaSAL6tVY0LwT1Poc2qsToCN6mVsyeSvEKlCB0UVQatkCJNfNL+kPDFMgR
+	gZU1x6CEHuLi8Xit44YfC3GUlt+NGceWgSnBKlfAAjRCGwXB6Vc76fBBMYNGV2JvvvdDSmku7mcob
+	fn/3l1u8aAEAoUQu1AjcJzYf1mUDaZg2h0mSZ6cKPfNSZ6U+NXD5ZjeNb4HirEdI7b4nSa+6Ky1Tz
+	z3ORMshRQQQ05+UxpA9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOfau-00AgUG-1v;
-	Wed, 26 Jul 2023 14:34:28 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1qOgBq-00AoEw-20;
+	Wed, 26 Jul 2023 15:12:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOfas-00AgTb-2O;
-	Wed, 26 Jul 2023 14:34:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=LsxQl+7lQmIvtLS3uUz+2Tc5wtoeEEVBoFirY9Yb6fg=; b=NgbwQpzKHdyAWsUCxnsImKimDt
-	jHF2WmVqPjDVwWh4+qnqFx9EB6EzhJPFMjClBGjD6Hvhy3cDKu8QpNdQ/vu4YdRehqVe79OoriWgn
-	rYVzFWxwc/SS+7+suUkf1PvWW2cp4TLFdh0VHNZVCP6elPEQsoL4zq+DlNr+Vsyy6zVTCVD4+BPLu
-	7MT7tbbN4QAXyKU4tauvNJ5ES+/Xow+YcL4kRLee8APN/cRVWSBVwKBSDtrmdoa20ei7j/6b/nKQ6
-	9EjL4wZbYuEHOXjGbdk1LQrEamw4aC90nEjbS99sxd1PPE9PWCMbzElXWmFd7Um+DcVnLHPQet+QT
-	TJw896fg==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qOfaj-006ZNN-Ab; Wed, 26 Jul 2023 14:34:17 +0000
-Date: Wed, 26 Jul 2023 15:34:17 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Hugh Dickins <hughd@google.com>
-Cc: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
-	David Hildenbrand <david@redhat.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	id 1qOgBn-00AoDz-15
+	for linux-riscv@lists.infradead.org;
+	Wed, 26 Jul 2023 15:12:37 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 400B461B6D;
+	Wed, 26 Jul 2023 15:12:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0BBDC433C8;
+	Wed, 26 Jul 2023 15:12:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690384353;
+	bh=TaNQS6vezap8TMfB8Xkt30Oq/Pvt03VIwITKYfftyXc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hY8UibfovAuSx0h2d3GTSH0r+8igwCNe5MijA1/gWN1nz6aWLLCUoCwW4+GlcUXI8
+	 W8wSjaIVQXAduJsdsa8aYpKTmlgxwZDMBBDyYYK9g4ZbiQiDYJtq6WsX3pkGQ4oB2r
+	 cgYqEiY+KiLu/nIljvxVWN2mdmYeI+3L/CRBJKLHBk8ddaqdye3//J8Z6A1Y8KPOk0
+	 uQjZXfknZZM3zJpr2FteCS+jNovoY3tl8nCL14wWYMpcUjJijI3GBKVMN0/4W09ArE
+	 zWnnbTK1E8xGJiZt01mOgy6StUo6VzmwuOVXOXjGfrXMchW2HAt/xt03X2rCBPGkYO
+	 vXPayYYspBoAQ==
+Date: Wed, 26 Jul 2023 23:00:55 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Xi Ruoyao <xry111@linuxfromscratch.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Richard Weinberger <richard@nod.at>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: Re: [PATCH mm-unstable v7 00/31] Split ptdesc from struct page
-Message-ID: <ZMEu6VcTqPj69bQ7@casper.infradead.org>
-References: <20230725042051.36691-1-vishal.moola@gmail.com>
- <5296514f-cdd1-9526-2e83-a21e76e86e5@google.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 0/8] Add Sipeed Lichee Pi 4A RISC-V board support
+Message-ID: <ZME1J4mpVf5yth32@xhacker>
+References: <20230617161529.2092-1-jszhang@kernel.org>
+ <c9a44f534071a6d67f1e21bafdb713793c559124.camel@linuxfromscratch.org>
+ <20230725-unheard-dingy-42f0fafe7216@wendy>
+ <ZL/jMYL3akl78ZZN@xhacker>
+ <3e0994dab495920ac590dc28d6b9d9765abe0c7e.camel@linuxfromscratch.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <5296514f-cdd1-9526-2e83-a21e76e86e5@google.com>
+In-Reply-To: <3e0994dab495920ac590dc28d6b9d9765abe0c7e.camel@linuxfromscratch.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230726_081235_482645_E1A91269 
+X-CRM114-Status: GOOD (  30.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,72 +89,166 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 24, 2023 at 09:41:36PM -0700, Hugh Dickins wrote:
-> On Mon, 24 Jul 2023, Vishal Moola (Oracle) wrote:
-> 
-> > The MM subsystem is trying to shrink struct page. This patchset
-> > introduces a memory descriptor for page table tracking - struct ptdesc.
+On Wed, Jul 26, 2023 at 08:48:08PM +0800, Xi Ruoyao wrote:
+> On Tue, 2023-07-25 at 22:58 +0800, Jisheng Zhang wrote:
+> > > Are you using the vendor OpenSBI? IIRC, and the lads can probably
+> > > correct me here, you need to have an OpenSBI that contains
+> > > https://github.com/riscv-software-src/opensbi/commit/78c2b19218bd62653b9fb31623a42ced45f38ea6
+> > > which the vendor supplied OpenSBI does not have.
 > > 
-> > This patchset introduces ptdesc, splits ptdesc from struct page, and
-> > converts many callers of page table constructor/destructors to use ptdescs.
+> > To ruoyao,
 > > 
-> > Ptdesc is a foundation to further standardize page tables, and eventually
-> > allow for dynamic allocation of page tables independent of struct page.
-> > However, the use of pages for page table tracking is quite deeply
-> > ingrained and varied across archictectures, so there is still a lot of
-> > work to be done before that can happen.
+> > I believe Conor has provided enough details and given you the clues.
+> > And I believe you were using the legacy opensbi. If you still reproduce
+> > the issue with the latest opensbi generic platform, plz provided full
+> > uart log from openSBI to the kernel panic point.
 > 
-> Others may differ, but it remains the case that I see no point to this
-> patchset, until the minimal descriptor that replaces struct page is
-> working, and struct page then becomes just overhead.  Until that time,
-> let architectures continue to use struct page as they do - whyever not?
+> Thanks you all for the help!
+> 
+> I downloaded the latest opensbi 1.3.1 and put fw_dynamic.bin in the
+> generic directory into /boot (renamed not to overwritten the vendor
+> one), then loaded it onto address 0 from the vendor u-boot.  Now the
+> plic issue was gone, but another panic happened.  Log is pasted at the
+> end of this mail.
+> 
+> I've not set up an initramfs, so I'm expecting a panic after all, but I
+> think it should be "VFS: cannot mount root fs" or something, not
+> "unexpected interrupt cause".
+> 
+> Is it a problem with vendor u-boot?  Should I try loading a latest u-
+> boot from the vendor one, and then load the kernel with the new u-boot?
 
-Because it's easier for architecture maintainers to understand what they
-should and shouldn't be using.  Look at the definition:
+which dts r u using? see below.
 
-+struct ptdesc {
-+	unsigned long __page_flags;
-+
-+	union {
-+		struct rcu_head pt_rcu_head;
-+		struct list_head pt_list;
-+		struct {
-+			unsigned long _pt_pad_1;
-+			pgtable_t pmd_huge_pte;
-+		};
-+	};
-+	unsigned long __page_mapping;
-+
-+	union {
-+		struct mm_struct *pt_mm;
-+		atomic_t pt_frag_refcount;
-+	};
-+
-+	union {
-+		unsigned long _pt_pad_2;
-+#if ALLOC_SPLIT_PTLOCKS
-+		spinlock_t *ptl;
-+#else
-+		spinlock_t ptl;
-+#endif
-+	};
-+	unsigned int __page_type;
-+	atomic_t _refcount;
-+#ifdef CONFIG_MEMCG
-+	unsigned long pt_memcg_data;
-+#endif
-+};
+> 
+> Or maybe my toolchain (GCC 13.1.0, Binutils-2.40, with no patches) can
+> miscompile the kernel?
+> 
+> ## Flattened Device Tree blob at 46000000
+>    Booting using the fdt blob at 0x46000000
+>    Using Device Tree in place at 0000000046000000, end 00000000460050c4
+> 
+> Starting kernel ...
+> 
+> 
+> OpenSBI v1.3.1
+>    ____                    _____ ____ _____
+>   / __ \                  / ____|  _ \_   _|
+>  | |  | |_ __   ___ _ __ | (___ | |_) || |
+>  | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+>  | |__| | |_) |  __/ | | |____) | |_) || |_
+>   \____/| .__/ \___|_| |_|_____/|___/_____|
+>         | |
+>         |_|
+> 
+> Platform Name             : Sipeed Lichee Pi 4A
+> Platform Features         : medeleg
+> Platform HART Count       : 4
+> Platform IPI Device       : aclint-mswi
+> Platform Timer Device     : aclint-mtimer @ 3000000Hz
+> Platform Console Device   : uart8250
+> Platform HSM Device       : ---
+> Platform PMU Device       : ---
+> Platform Reboot Device    : ---
+> Platform Shutdown Device  : ---
+> Platform Suspend Device   : ---
+> Platform CPPC Device      : ---
+> Firmware Base             : 0x0
+> Firmware Size             : 224 KB
+> Firmware RW Offset        : 0x20000
+> Firmware RW Size          : 96 KB
+> Firmware Heap Offset      : 0x2e000
+> Firmware Heap Size        : 40 KB (total), 2 KB (reserved), 9 KB (used), 28 KB (free)
+> Firmware Scratch Size     : 4096 B (total), 760 B (used), 3336 B (free)
+> Runtime SBI Version       : 1.0
+> 
+> Domain0 Name              : root
+> Domain0 Boot HART         : 0
+> Domain0 HARTs             : 0*,1*,2*,3*
+> Domain0 Region00          : 0x000000ffdc008000-0x000000ffdc00bfff M: (I,R,W) S/U: ()
+> Domain0 Region01          : 0x000000ffdc000000-0x000000ffdc007fff M: (I,R,W) S/U: ()
+> Domain0 Region02          : 0x0000000000000000-0x000000000001ffff M: (R,X) S/U: ()
+> Domain0 Region03          : 0x0000000000020000-0x000000000003ffff M: (R,W) S/U: ()
+> Domain0 Region04          : 0x0000000000000000-0xffffffffffffffff M: (R,W,X) S/U: (R,W,X)
+> Domain0 Next Address      : 0x0000000040200000
+> Domain0 Next Arg1         : 0x0000000046000000
+> Domain0 Next Mode         : S-mode
+> Domain0 SysReset          : yes
+> Domain0 SysSuspend        : yes
+> 
+> Boot HART ID              : 0
+> Boot HART Domain          : root
+> Boot HART Priv Version    : v1.11
+> Boot HART Base ISA        : rv64imafdcvx
 
-It's still a 31-line struct definition, I'll grant you.  But it's far
-easier to comprehend than the definition of struct page (~140 lines).
-An architecture maintainer can look at it and see what might be available,
-and what is already used.  And hopefully we'll have less "Oh, I'll just
-use page->private".  It's really not fair to expect arch maintainers to
-learn so much about the mm.
+what? I don't think the mainline dts provide v and x. 
 
-It's still messier than I would like, but I don't think we can do better
-for now.  I don't understand why you're so interested in delaying doing
-this work.
+> Boot HART ISA Extensions  : time
+> Boot HART PMP Count       : 0
+> Boot HART PMP Granularity : 0
+> Boot HART PMP Address Bits: 0
+> Boot HART MHPM Count      : 16
+> Boot HART MIDELEG         : 0x0000000000000222
+> Boot HART MEDELEG         : 0x000000000000b109
+> [    0.000000] Linux version 6.5.0-rc3 (lfs@stargazer) (riscv64-lfs-linux-gnu-gcc (GCC) 13.1.0, GNU ld (GNU Binutils) 2.40) #1 SMP PREEMPT Tue Jul 25 13:38:20 CST 2023
+> [    0.000000] Machine model: Sipeed Lichee Pi 4A
+> [    0.000000] SBI specification v1.0 detected
+> [    0.000000] SBI implementation ID=0x1 Version=0x10003
+> [    0.000000] SBI TIME extension detected
+> [    0.000000] SBI IPI extension detected
+> [    0.000000] SBI RFENCE extension detected
+> [    0.000000] earlycon: uart0 at MMIO32 0x000000ffe7014000 (options '115200n8')
+> [    0.000000] printk: bootconsole [uart0] enabled
+> [    0.000000] efi: UEFI not found.
+> [    0.000000] OF: reserved mem: 0x0000000000000000..0x000000000001ffff (128 KiB) nomap non-reusable mmode_resv0@0
+> [    0.000000] OF: reserved mem: 0x0000000000020000..0x000000000003ffff (128 KiB) nomap non-reusable mmode_resv1@20000
+> [    0.000000] Zone ranges:
+> [    0.000000]   DMA32    [mem 0x0000000000000000-0x00000000ffffffff]
+> [    0.000000]   Normal   [mem 0x0000000100000000-0x00000001ffffffff]
+> [    0.000000] Movable zone start for each node
+> [    0.000000] Early memory node ranges
+> [    0.000000]   node   0: [mem 0x0000000000000000-0x000000000003ffff]
+> [    0.000000]   node   0: [mem 0x0000000000040000-0x00000001ffffffff]
+> [    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x00000001ffffffff]
+> [    0.000000] SBI HSM extension detected
+> [    0.000000] riscv: base ISA extensions acdfim
+> [    0.000000] riscv: ELF capabilities acdfim
+> [    0.000000] percpu: Embedded 17 pages/cpu s38184 r0 d31448 u69632
+> [    0.000000] Kernel command line: earlycon console=ttyS0,115200
+> [    0.000000] Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+> [    0.000000] Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+> [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 2064384
+> [    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+> [    0.000000] software IO TLB: area num 4.
+> [    0.000000] software IO TLB: mapped [mem 0x00000000fbfff000-0x00000000fffff000] (64MB)
+> [    0.000000] Memory: 8145300K/8388608K available (4922K kernel code, 4786K rwdata, 2048K rodata, 2148K init, 393K bss, 243308K reserved, 0K cma-reserved)
+> [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+> [    0.000000] rcu: Preemptible hierarchical RCU implementation.
+> [    0.000000] rcu:     RCU event tracing is enabled.
+> [    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=4.
+> [    0.000000]  Trampoline variant of Tasks RCU enabled.
+> [    0.000000]  Tracing variant of Tasks RCU enabled.
+> [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+> [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+> [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+> [    0.000000] riscv-intc: 64 local interrupts mapped
+> [    0.000000] plic: interrupt-controller@ffd8000000: mapped 240 interrupts with 4 handlers for 8 contexts.
+> [    0.000000] riscv: providing IPIs using SBI IPI extension
+> [    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+> [    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff max_cycles: 0x1623fa770, max_idle_ns: 881590404476 ns
+> [    0.000001] sched_clock: 64 bits at 3000kHz, resolution 333ns, wraps every 4398046511097ns
+> [    0.008488] Console: colour dummy device 80x25
+> [    0.012944] Kernel panic - not syncing: unexpected interrupt cause
+> [    0.012952] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 6.5.0-rc3 #1
+> [    0.012964] Hardware name: Sipeed Lichee Pi 4A (DT)
+> [    0.012970] Call Trace:
+> [    0.012976] [<ffffffff80004c38>] walk_stackframe+0x0/0x7e
+> [    0.013002] [<ffffffff804c868c>] dump_stack_lvl+0x34/0x4e
+> [    0.013022] [<ffffffff804c1334>] panic+0xf2/0x292
+> [    0.013035] [<ffffffff802cddc0>] riscv_intc_irq+0x34/0x38
+> [    0.013052] [<ffffffff804c8716>] handle_riscv_irq+0x66/0xa6
+> [    0.059145] ---[ end Kernel panic - not syncing: unexpected interrupt cause ]---
+> 
 
 _______________________________________________
 linux-riscv mailing list
