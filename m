@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4A5C001DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 14:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B24E0C001DC
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 14:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=nn5uLk0pkB4WMlDrOEu3pqM/r+MRVj+sbz62h+qdszM=; b=1J2mfwfUVfwR2apsvEr4A7hLw7
-	UvUVgNAJLUl6MXo/wjsh4ZQeHWslUakYqn79VBoLImc8QgrTyx8IZecFeaAbznuaIh5XCEHOd8L2F
-	a4dGYE5scoZdsKZp2R/jard+hbO+3SdoywYBlJK0+geb6dxofJ5EM9Xd52ijwatupq/FtbZYPEcAR
-	n0Wd1lWTpUCzvEOjeDH6x+6J2iqV447PUdQAAN2wqy8pqmxo4sxow2gu1Tvavs/t/ZFKJJtQnn/EJ
-	z7hcarLHx4z+TuDQvHScj9iGS7IeaK3U/f86BXmQMJbWu3Up8uIJBfJKjROpiwM6RKfez8kgQM79A
-	IRztobnQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ykpnC3JeNNbz5s9j47P3fpYrPHaSZIN3KgzL9DL7+v4=; b=3KC3KeJ7F5W7ux
+	BVNo0BAhJ6jB85mkFHFar0E8VbVoZodH25XL4TJ+d5r7cxwmg5K5Vx09c/fQ0ZxUKpoVtTZRSwGiT
+	i8dkfzPv3s/So23AlrJ5r8chLVpAwzIA1FAlGS7y4aPYem5dSryFICCiIyrwEn0D8AeS6vfK9UeAn
+	FqxkVsU0AfQi3UBmvXAtXNhr5ps8J2i/ctY9yMp4n+QPuDIxB9yUf6SXHBx4+cXis5r6gBHBmPktq
+	YMf3+3xzSFn8ZmzBGxQhe6TrftU6XQ7QvPwjxJDMVK9tLIaz5CYRL9ORilZRUS3f2vT1lUTKVvXoB
+	ybMTONeXk+cKe3aee5qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOfRs-00AfQG-39;
-	Wed, 26 Jul 2023 14:25:08 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1qOfau-00AgUG-1v;
+	Wed, 26 Jul 2023 14:34:28 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOfRp-00AfOO-2z
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jul 2023 14:25:08 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-583fe0f84a5so35465327b3.3
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Jul 2023 07:25:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1690381501; x=1690986301;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mt8/YY3u8LjsBjr8d6/ke2ZW25YHueLUKLJjDJYMc8s=;
-        b=KwMaCkiB4xAqGBUh9OF2kV0ZTXZJ9t/BQNvELYTboh2nFXRCb/O6mzI5Rf4+JkOSUf
-         GbfKDvzjuzeoTYk+8UzFDnEFGCf4Xp/4j132VlBFiOap0dqwF0d+IWavL7GkLuWIPxaf
-         FtFh1NcigPTHGOQymzspNYZcGJWMeYjGrAKFBYQg3vkICZKAIWBqnifvNeqq77Udkh7Z
-         xGehHXpHV6lJVR2/PB6tUzMEDhiwA5lq38Ga3ndr8/43j3+UY7kRIeUxbAwefFFreB6b
-         OU07H0FnfDMXq+of8q/ygEkV9SZmVl7edMM6TzYoGxGd/1xqW6Xr5wUrtaTzZVCwe9dk
-         Dlpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690381501; x=1690986301;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mt8/YY3u8LjsBjr8d6/ke2ZW25YHueLUKLJjDJYMc8s=;
-        b=HuWAqGj3yge8qZ7VYaKhi04sUmdQcXJC40FCJJ/OJ/dvNsAsTZND0ccnlCSrHXT1ky
-         2Guq5CYDNoXKoW/6I7f1+UC3EMpY0rc1JHMsiq65Q/iaqGbqkczmqOHRR5+ykud5o83R
-         x7USpedyuotIqFf0oMEZX5h1jrcc5AWDdcwEuJOnQhpmgFiyfMz0OCb+YRRj2diy/ewM
-         F2HzxS2vLpSzYz7cgX4zkEuqw2VXAOOBwUDLawWmKEtGgROXITll3iLDALrGRyJOdeWs
-         SILPwZV7ldo1wQC87H7TE4gEgQV4f/cU5j2KtQFEOiTaoEsVZl7kMVk8Yn5M1uG0oXB/
-         zX0Q==
-X-Gm-Message-State: ABy/qLbjl+MO1rRhShNsdXWiHemugNYWUXjkgDXEQ/g5RahfRcwwmaJR
-	F0Y60/Gs2+AqyEKLcqkAH/kheMS87BM=
-X-Google-Smtp-Source: APBJJlHpunM1lrfEfJpa6UtG2AaqQE17ubaKuYzputooU8ueGDVFO/y80053uMgFIUrJA+dTGv8yhoGEgv0=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a81:ac60:0:b0:576:de5f:95e1 with SMTP id
- z32-20020a81ac60000000b00576de5f95e1mr20181ywj.1.1690381501073; Wed, 26 Jul
- 2023 07:25:01 -0700 (PDT)
-Date: Wed, 26 Jul 2023 07:24:59 -0700
-In-Reply-To: <2f98a32c-bd3d-4890-b757-4d2f67a3b1a7@amd.com>
-Mime-Version: 1.0
-References: <20230718234512.1690985-1-seanjc@google.com> <110f1aa0-7fcd-1287-701a-89c2203f0ac2@amd.com>
- <ZL6uMk/8UeuGj8CP@google.com> <2f98a32c-bd3d-4890-b757-4d2f67a3b1a7@amd.com>
-Message-ID: <ZMEsuyqHhp1DAVdR@google.com>
-Subject: Re: [RFC PATCH v11 00/29] KVM: guest_memfd() and per-page attributes
-From: Sean Christopherson <seanjc@google.com>
-To: "Nikunj A. Dadhania" <nikunj@amd.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, Vlastimil Babka <vbabka@suse.cz>, 
-	David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230726_072505_965035_1957BDB6 
-X-CRM114-Status: GOOD (  18.37  )
+	id 1qOfas-00AgTb-2O;
+	Wed, 26 Jul 2023 14:34:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=LsxQl+7lQmIvtLS3uUz+2Tc5wtoeEEVBoFirY9Yb6fg=; b=NgbwQpzKHdyAWsUCxnsImKimDt
+	jHF2WmVqPjDVwWh4+qnqFx9EB6EzhJPFMjClBGjD6Hvhy3cDKu8QpNdQ/vu4YdRehqVe79OoriWgn
+	rYVzFWxwc/SS+7+suUkf1PvWW2cp4TLFdh0VHNZVCP6elPEQsoL4zq+DlNr+Vsyy6zVTCVD4+BPLu
+	7MT7tbbN4QAXyKU4tauvNJ5ES+/Xow+YcL4kRLee8APN/cRVWSBVwKBSDtrmdoa20ei7j/6b/nKQ6
+	9EjL4wZbYuEHOXjGbdk1LQrEamw4aC90nEjbS99sxd1PPE9PWCMbzElXWmFd7Um+DcVnLHPQet+QT
+	TJw896fg==;
+Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1qOfaj-006ZNN-Ab; Wed, 26 Jul 2023 14:34:17 +0000
+Date: Wed, 26 Jul 2023 15:34:17 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Hugh Dickins <hughd@google.com>
+Cc: "Vishal Moola (Oracle)" <vishal.moola@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	David Hildenbrand <david@redhat.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Richard Weinberger <richard@nod.at>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>
+Subject: Re: [PATCH mm-unstable v7 00/31] Split ptdesc from struct page
+Message-ID: <ZMEu6VcTqPj69bQ7@casper.infradead.org>
+References: <20230725042051.36691-1-vishal.moola@gmail.com>
+ <5296514f-cdd1-9526-2e83-a21e76e86e5@google.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <5296514f-cdd1-9526-2e83-a21e76e86e5@google.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,52 +88,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 26, 2023, Nikunj A. Dadhania wrote:
-> Hi Sean,
+On Mon, Jul 24, 2023 at 09:41:36PM -0700, Hugh Dickins wrote:
+> On Mon, 24 Jul 2023, Vishal Moola (Oracle) wrote:
 > 
-> On 7/24/2023 10:30 PM, Sean Christopherson wrote:
-> >>   Starting an SNP guest with 40G memory with memory interleave between
-> >>   Node2 and Node3
-> >>
-> >>   $ numactl -i 2,3 ./bootg_snp.sh
-> >>
-> >>     PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-> >>  242179 root      20   0   40.4g  99580  51676 S  78.0   0.0   0:56.58 qemu-system-x86
-> >>
-> >>   -> Incorrect process resident memory and shared memory is reported
+> > The MM subsystem is trying to shrink struct page. This patchset
+> > introduces a memory descriptor for page table tracking - struct ptdesc.
 > > 
-> > I don't know that I would call these "incorrect".  Shared memory definitely is
-> > correct, because by definition guest_memfd isn't shared.  RSS is less clear cut;
-> > gmem memory is resident in RAM, but if we show gmem in RSS then we'll end up with
-> > scenarios where RSS > VIRT, which will be quite confusing for unaware users (I'm
-> > assuming the 40g of VIRT here comes from QEMU mapping the shared half of gmem
-> > memslots).
+> > This patchset introduces ptdesc, splits ptdesc from struct page, and
+> > converts many callers of page table constructor/destructors to use ptdescs.
+> > 
+> > Ptdesc is a foundation to further standardize page tables, and eventually
+> > allow for dynamic allocation of page tables independent of struct page.
+> > However, the use of pages for page table tracking is quite deeply
+> > ingrained and varied across archictectures, so there is still a lot of
+> > work to be done before that can happen.
 > 
-> I am not sure why will RSS exceed the VIRT, it should be at max 40G (assuming all the
-> memory is private)
+> Others may differ, but it remains the case that I see no point to this
+> patchset, until the minimal descriptor that replaces struct page is
+> working, and struct page then becomes just overhead.  Until that time,
+> let architectures continue to use struct page as they do - whyever not?
 
-And also assuming that (a) userspace mmap()'d the shared side of things 1:1 with
-private memory and (b) that the shared mappings have not been populated.   Those
-assumptions will mostly probably hold true for QEMU, but kernel correctness
-shouldn't depend on assumptions about one specific userspace application.
+Because it's easier for architecture maintainers to understand what they
+should and shouldn't be using.  Look at the definition:
 
-> >>   /proc/<qemu pid>/smaps
-> >>   7f528be00000-7f5c8be00000 rw-p 00000000 00:01 26629                      /memfd:memory-backend-memfd-shared (deleted)
-> >>   7f5c90200000-7f5c90220000 rw-s 00000000 00:01 44033                      /memfd:rom-backend-memfd-shared (deleted)
-> >>   7f5c90400000-7f5c90420000 rw-s 00000000 00:01 44032                      /memfd:rom-backend-memfd-shared (deleted)
-> >>   7f5c90800000-7f5c90b7c000 rw-s 00000000 00:01 1025                       /memfd:rom-backend-memfd-shared (deleted)
-> > 
-> > This is all expected, and IMO correct.  There are no userspace mappings, and so
-> > not accounting anything is working as intended.
-> Doesn't sound that correct, if 10 SNP guests are running each using 10GB, how
-> would we know who is using 100GB of memory?
++struct ptdesc {
++	unsigned long __page_flags;
++
++	union {
++		struct rcu_head pt_rcu_head;
++		struct list_head pt_list;
++		struct {
++			unsigned long _pt_pad_1;
++			pgtable_t pmd_huge_pte;
++		};
++	};
++	unsigned long __page_mapping;
++
++	union {
++		struct mm_struct *pt_mm;
++		atomic_t pt_frag_refcount;
++	};
++
++	union {
++		unsigned long _pt_pad_2;
++#if ALLOC_SPLIT_PTLOCKS
++		spinlock_t *ptl;
++#else
++		spinlock_t ptl;
++#endif
++	};
++	unsigned int __page_type;
++	atomic_t _refcount;
++#ifdef CONFIG_MEMCG
++	unsigned long pt_memcg_data;
++#endif
++};
 
-It's correct with respect to what the interfaces show, which is how much memory
-is *mapped* into userspace.
+It's still a 31-line struct definition, I'll grant you.  But it's far
+easier to comprehend than the definition of struct page (~140 lines).
+An architecture maintainer can look at it and see what might be available,
+and what is already used.  And hopefully we'll have less "Oh, I'll just
+use page->private".  It's really not fair to expect arch maintainers to
+learn so much about the mm.
 
-As I said (or at least tried to say) in my first reply, I am not against exposing
-memory usage to userspace via stats, only that it's not obvious to me that the
-existing VMA-based stats are the most appropriate way to surface this information.
+It's still messier than I would like, but I don't think we can do better
+for now.  I don't understand why you're so interested in delaying doing
+this work.
 
 _______________________________________________
 linux-riscv mailing list
