@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41554C001B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 16:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51725C04A94
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 16:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vpnVQuCPrCzt4pbpzEGSy7V9u3BQw3rMCgbJ7G+MUgY=; b=WIUS8X8lWoIpxg
-	XfMQfKmq0V4XNnYi02fVHSDUE3Jk9iP6W0D4NX5CqQlOEhip7fKt1COfkqJ8P9NnellJsSSOCcX8B
-	JhQgOfOframHn5+jGRcaZSnwbIfhTAGze2fxlSDk2HRDKxV/dbLiluJHFDf4kV3bc5pXXOjtNM3zM
-	2DFfOLo+5jxvoT3ytK+t9UNrsojiIl98bhsy6YRLUK8vbNEk7BKuLFHqn35/loEzVXvwV42HsG4Ix
-	j0/SZuwaZhY31C8SQIsP9ARqHRgeIGDRYpqNMGsnHJ6ezxQeIa0vif5IBekXlMrRMtb64is1rIRl9
-	hFzMqEc03kGlf3ipg45Q==;
+	List-Owner; bh=+PYVtxKvlaLBzZ/40wVy2leL5iu7YendTALlkR8wCls=; b=Vbub9WQdvbUww8
+	kV9bxOB6dMA0UYcZVr52XM7Ax4eZyAMarYuma8o62ToB+Dox7MYcLgL+6HpFOHSf+//hEGpp2cmLN
+	WRp92lkZGplDoaLJDG4JvxxlpAfK1Ugff9mVst4RCvbbXbJu3SnW69GdJrGXI1XPFCo10Hyl6ke2h
+	1q4WsUm2uvI+fWWLa6JPY8kLu1GIWeO8zCLSqt4gENDIKtMmD7n1JXbxIungcsqxmvz4mAQQVXWhQ
+	0Syb2YaP5GoSULK3LMtlRlpP0+p5ElemFGEGqOZFn1UzKAwop0hH8tNeSSfrg5/0JbURIR/t6BiS7
+	+GMBrApXsnz+Ip2hyDVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOhep-00B3E3-2n;
-	Wed, 26 Jul 2023 16:46:39 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1qOheq-00B3Ec-1W;
+	Wed, 26 Jul 2023 16:46:40 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOhej-00B380-1n
+	id 1qOhel-00B38o-1u
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jul 2023 16:46:36 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-1b9ecf0cb4cso41055795ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Jul 2023 09:46:31 -0700 (PDT)
+	Wed, 26 Jul 2023 16:46:38 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-666ed230c81so64249b3a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Jul 2023 09:46:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1690389991; x=1690994791;
+        d=rivosinc-com.20221208.gappssmtp.com; s=20221208; t=1690389992; x=1690994792;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9I72PoBRKXLvHktmcrje1n02ixRw/D4fAolrg/chvlw=;
-        b=2Jz16VlHfoEFfZ3AFSLSXY8u2g8fiZbPZUwm9PJbLRY7gk6jqF0t0jiYlXi7TSGAYF
-         3zubxHuOcq7inKRub1IH2maTkPsOZAxyx6PORG91v3QJLBcTa/dZMQOYbMdbNUouInY2
-         7xzKDWuWhLszpWjh3LQHwMz6C55JKbegov2VqNbT1ZtA9nhipvVWBFdoo8sQqQIN350e
-         D0wMU5CYHIqplbYqQ9tt0g/RjLzgREP1Ls4ss+Rt/p1Xz9F2SIvJNR5F90mAfc/fCnKK
-         cIeKdrmuE9jvExtAHXgaqbGU9cdsmnL7Rerg9I1/qayP5aEnKEIwJ3CwtCTUbx2Qm+FI
-         ugLg==
+        bh=uTyjwJ6/AkKvsr8TkfjD+hMv/+AP+4ITK7UKxmmUnHc=;
+        b=fdbBRvRaTPSTT/HDfPIbS9t4jUSvkqd9rwoffU4CEGJqpWakQrGzOn2d+MzZih+cqP
+         H767XPhHSrBW3BeoSgfzIfRjrkfDyRJoKjV8Cx5+WH2mdaus68oMtOGLqnA1Egrps0aY
+         UGVOdKevwFc2JLs79ppgVZF3kq/Y7By0r4UXgVZpy1jcocZGI6y7zusvNByUOPECbAAb
+         J8IgmWx2x5VIzKf7DUYjxeN+pMfmmrubFIAJSJNdujJ0wgInXBmwAkoPd4SHr55ekp76
+         9z4P7034lD4LzQQvpQ/YlNKQj5UqbBkQlHH+uXKe3A+KyXOPA0PH4wjdhQwbVNUwQiaR
+         HwUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690389991; x=1690994791;
+        d=1e100.net; s=20221208; t=1690389992; x=1690994792;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9I72PoBRKXLvHktmcrje1n02ixRw/D4fAolrg/chvlw=;
-        b=MO745bprNp6GjvsYyMrJwgj9McwQOn/B3ZsbPIwzo357vs5BVTkEH/Q2Lknf2LnuvC
-         7Lxlb5ZkTEeb4vMQ312288Jexl1Nf+7+/fy6ACyjpcSUtmQn6J4fnJbxfGCeTwjx0fQb
-         2LfFEhtOpwZtSH+3XILJKEOk2Ufa9ERTco7I79n2Sss+BfMfH3fxKXwNi+lz/e6ztpbT
-         1MmQPQYpA0aNVnpPjKgBdP2Pa/p+MOunPkKh9WO/3puUMA22R1Nrthhd/Ulne8oLL9Wv
-         h8Q104NW0sxqn0beghKQg0osqKAmXNIl11IbaZnsu89arvCpO/HXq1HzXG89SOqwaYog
-         Kpng==
-X-Gm-Message-State: ABy/qLZEUIFJeVe1qPTP8Dcelt1EzgGyMYwhjgm4o+Nbhg3dGVI+G2Qd
-	pwwFubg7CqIRBa7teZKSm3g1ou5vpWOBqYk/MtQ=
-X-Google-Smtp-Source: APBJJlGp1GY/W4RE/89gp/16eB2AGE/qHe+6+KWmHQWy/wMthtq4d82Q6nwr43YclX/zAw9dQWmddw==
-X-Received: by 2002:a17:902:d501:b0:1b6:9551:e297 with SMTP id b1-20020a170902d50100b001b69551e297mr2620057plg.44.1690389990886;
-        Wed, 26 Jul 2023 09:46:30 -0700 (PDT)
+        bh=uTyjwJ6/AkKvsr8TkfjD+hMv/+AP+4ITK7UKxmmUnHc=;
+        b=HcZunT022xQoPboOW9WdPAQW19vMYXqmvw3ByxZlXGv5RloQPFFMQH7AmxGkdneXZa
+         D9B4ZYsViL7MXWlSmE9/psk28XQq68ZqbjjW4EvHYXBXtf46Pv3hyoHdLMZdyErZySYP
+         rvLqpDKW5khRmyqLQhfSWRT16V0huFKvJ23il9c5B57wpKwwA6PUp2hl/wi+tOE363H6
+         CTzDtL/qVI+NbmFzH1m/utMg+3JRzz1rAO0wkyKb29F24r61cQ+sJqVpXQcGT4FvxoH/
+         esVbN2PMU173u+B6CTh7znNlnXxbO+793QQf9sYH4a0M+mmHPEm4kU2jL7HQaHbwyHni
+         nhbw==
+X-Gm-Message-State: ABy/qLafxLYGmZFW6prwrlMvSanpGTde7cEL3WhplX5EH3am8owBDeB8
+	I5HG8S6RAIFWfxZWhfvOzBMODo42LomSZWbrM0o=
+X-Google-Smtp-Source: APBJJlGLB5XByQ88xcFR6FgoNnxQhRllDYe6TeGWQKSGsk2dH1XpSUdEUxZg+KMHQL4aF625aD6H5Q==
+X-Received: by 2002:a17:903:2287:b0:1bb:9f07:5e0 with SMTP id b7-20020a170903228700b001bb9f0705e0mr3346604plh.60.1690389992311;
+        Wed, 26 Jul 2023 09:46:32 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id h5-20020a170902f54500b001bb6c5ff4edsm11628870plf.173.2023.07.26.09.46.29
+        by smtp.gmail.com with ESMTPSA id h5-20020a170902f54500b001bb6c5ff4edsm11628870plf.173.2023.07.26.09.46.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Jul 2023 09:46:30 -0700 (PDT)
+        Wed, 26 Jul 2023 09:46:31 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -79,16 +79,16 @@ Cc: charlie@rivosinc.com,
 	jrtc27@jrtc27.com,
 	rdunlap@infradead.org,
 	alexghiti@rivosinc.com
-Subject: [PATCH v7 1/4] RISC-V: mm: Restrict address space for sv39,sv48,sv57
-Date: Wed, 26 Jul 2023 09:45:55 -0700
-Message-ID: <20230726164620.717288-2-charlie@rivosinc.com>
+Subject: [PATCH v7 2/4] RISC-V: mm: Add tests for RISC-V mm
+Date: Wed, 26 Jul 2023 09:45:56 -0700
+Message-ID: <20230726164620.717288-3-charlie@rivosinc.com>
 X-Mailer: git-send-email 2.41.0
 In-Reply-To: <20230726164620.717288-1-charlie@rivosinc.com>
 References: <20230726164620.717288-1-charlie@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230726_094633_595122_4E1F1B7D 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20230726_094635_635105_49D5CF1E 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,128 +105,245 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make sv48 the default address space for mmap as some applications
-currently depend on this assumption. A hint address passed to mmap will
-cause the largest address space that fits entirely into the hint to be
-used. If the hint is less than or equal to 1<<38, an sv39 address will
-be used. An exception is that if the hint address is 0, then a sv48
-address will be used. After an address space is completely full, the next
-smallest address space will be used.
+Add tests that enforce mmap hint address behavior. mmap should default
+to sv48. mmap will provide an address at the highest address space that
+can fit into the hint address, unless the hint address is less than sv39
+and not 0, then it will return a sv39 address.
+
+These tests are split into two files: mmap_default.c and mmap_bottomup.c
+because a new process must be exec'd in order to change the mmap layout.
+The run_mmap.sh script sets the stack to be unlimited for the
+mmap_bottomup.c test which triggers a bottomup layout.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/include/asm/elf.h       |  2 +-
- arch/riscv/include/asm/pgtable.h   | 13 ++++++++-
- arch/riscv/include/asm/processor.h | 47 +++++++++++++++++++++++++-----
- 3 files changed, 53 insertions(+), 9 deletions(-)
+ tools/testing/selftests/riscv/Makefile        |  2 +-
+ tools/testing/selftests/riscv/mm/.gitignore   |  2 +
+ tools/testing/selftests/riscv/mm/Makefile     | 15 +++++
+ .../riscv/mm/testcases/mmap_bottomup.c        | 35 ++++++++++
+ .../riscv/mm/testcases/mmap_default.c         | 35 ++++++++++
+ .../selftests/riscv/mm/testcases/mmap_test.h  | 64 +++++++++++++++++++
+ .../selftests/riscv/mm/testcases/run_mmap.sh  | 12 ++++
+ 7 files changed, 164 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/riscv/mm/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/mm/Makefile
+ create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
+ create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap_default.c
+ create mode 100644 tools/testing/selftests/riscv/mm/testcases/mmap_test.h
+ create mode 100755 tools/testing/selftests/riscv/mm/testcases/run_mmap.sh
 
-diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-index c24280774caf..5d3368d5585c 100644
---- a/arch/riscv/include/asm/elf.h
-+++ b/arch/riscv/include/asm/elf.h
-@@ -49,7 +49,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
-  * the loader.  We need to make sure that it is out of the way of the program
-  * that it will "exec", and that there is sufficient room for the brk.
-  */
--#define ELF_ET_DYN_BASE		((TASK_SIZE / 3) * 2)
-+#define ELF_ET_DYN_BASE		((DEFAULT_MAP_WINDOW / 3) * 2)
+diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
+index f4b3d5c9af5b..4a9ff515a3a0 100644
+--- a/tools/testing/selftests/riscv/Makefile
++++ b/tools/testing/selftests/riscv/Makefile
+@@ -5,7 +5,7 @@
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
  
- #ifdef CONFIG_64BIT
- #ifdef CONFIG_COMPAT
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 75970ee2bda2..530f6a171a2b 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -63,12 +63,23 @@
-  * position vmemmap directly below the VMALLOC region.
-  */
- #ifdef CONFIG_64BIT
-+#define VA_BITS_SV39 39
-+#define VA_BITS_SV48 48
-+#define VA_BITS_SV57 57
+ ifneq (,$(filter $(ARCH),riscv))
+-RISCV_SUBTARGETS ?= hwprobe vector
++RISCV_SUBTARGETS ?= hwprobe vector mm
+ else
+ RISCV_SUBTARGETS :=
+ endif
+diff --git a/tools/testing/selftests/riscv/mm/.gitignore b/tools/testing/selftests/riscv/mm/.gitignore
+new file mode 100644
+index 000000000000..5c2c57cb950c
+--- /dev/null
++++ b/tools/testing/selftests/riscv/mm/.gitignore
+@@ -0,0 +1,2 @@
++mmap_bottomup
++mmap_default
+diff --git a/tools/testing/selftests/riscv/mm/Makefile b/tools/testing/selftests/riscv/mm/Makefile
+new file mode 100644
+index 000000000000..11e0f0568923
+--- /dev/null
++++ b/tools/testing/selftests/riscv/mm/Makefile
+@@ -0,0 +1,15 @@
++# SPDX-License-Identifier: GPL-2.0
++# Copyright (C) 2021 ARM Limited
++# Originally tools/testing/arm64/abi/Makefile
 +
-+#define VA_USER_SV39 (UL(1) << (VA_BITS_SV39 - 1))
-+#define VA_USER_SV48 (UL(1) << (VA_BITS_SV48 - 1))
-+#define VA_USER_SV57 (UL(1) << (VA_BITS_SV57 - 1))
++# Additional include paths needed by kselftest.h and local headers
++CFLAGS += -D_GNU_SOURCE -std=gnu99 -I.
 +
- #define VA_BITS		(pgtable_l5_enabled ? \
--				57 : (pgtable_l4_enabled ? 48 : 39))
-+				VA_BITS_SV57 : (pgtable_l4_enabled ? VA_BITS_SV48 : VA_BITS_SV39))
- #else
- #define VA_BITS		32
- #endif
- 
-+#define MMAP_VA_BITS ((VA_BITS >= VA_BITS_SV48) ? VA_BITS_SV48 : VA_BITS)
-+#define MMAP_MIN_VA_BITS ((VA_BITS >= VA_BITS_SV39) ? VA_BITS_SV39 : VA_BITS)
++TEST_GEN_FILES := testcases/mmap_default testcases/mmap_bottomup
 +
- #define VMEMMAP_SHIFT \
- 	(VA_BITS - PAGE_SHIFT - 1 + STRUCT_PAGE_MAX_SHIFT)
- #define VMEMMAP_SIZE	BIT(VMEMMAP_SHIFT)
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index c950a8d9edef..050e27577419 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -13,20 +13,53 @@
- 
- #include <asm/ptrace.h>
- 
--/*
-- * This decides where the kernel will search for a free chunk of vm
-- * space during mmap's.
-- */
--#define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE / 3)
--
--#define STACK_TOP		TASK_SIZE
- #ifdef CONFIG_64BIT
-+#define DEFAULT_MAP_WINDOW	(UL(1) << (MMAP_VA_BITS - 1))
- #define STACK_TOP_MAX		TASK_SIZE_64
++TEST_PROGS := testcases/run_mmap.sh
 +
-+#define arch_get_mmap_end(addr, len, flags)	\
-+({	\
-+	unsigned long mmap_end;	\
-+	if ((addr) == 0)	\
-+		mmap_end = DEFAULT_MAP_WINDOW;	\
-+	else if ((addr) >= VA_USER_SV57)	\
-+		mmap_end = STACK_TOP_MAX;	\
-+	else if ((((addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48))	\
-+		mmap_end = VA_USER_SV48;	\
-+	else	\
-+		mmap_end = VA_USER_SV39;	\
-+	mmap_end;	\
-+})
++include ../../lib.mk
 +
-+#define arch_get_mmap_base(addr, base) \
-+({ \
-+	unsigned long mmap_base; \
-+	unsigned long rnd_gap = (base) - DEFAULT_MAP_WINDOW; \
-+	if ((addr) == 0) \
-+		mmap_base = (base); \
-+	else if (((addr) >= VA_USER_SV57) && (VA_BITS >= VA_BITS_SV57)) \
-+		mmap_base = VA_USER_SV57 + rnd_gap; \
-+	else if ((((addr) >= VA_USER_SV48)) && (VA_BITS >= VA_BITS_SV48)) \
-+		mmap_base = VA_USER_SV48 + rnd_gap; \
-+	else \
-+		mmap_base = VA_USER_SV39 + rnd_gap; \
-+	mmap_base; \
-+})
++$(OUTPUT)/mm: testcases/mmap_default.c testcases/mmap_bottomup.c testcases/mmap_tests.h
++	$(CC) -o$@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c b/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
+new file mode 100644
+index 000000000000..b29379f7e478
+--- /dev/null
++++ b/tools/testing/selftests/riscv/mm/testcases/mmap_bottomup.c
+@@ -0,0 +1,35 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <sys/mman.h>
++#include <testcases/mmap_test.h>
 +
- #else
-+#define DEFAULT_MAP_WINDOW	TASK_SIZE
- #define STACK_TOP_MAX		TASK_SIZE
- #endif
- #define STACK_ALIGN		16
- 
-+#define STACK_TOP		DEFAULT_MAP_WINDOW
++#include "../../kselftest_harness.h"
 +
-+/*
-+ * This decides where the kernel will search for a free chunk of vm
-+ * space during mmap's.
-+ */
-+#define TASK_UNMAPPED_BASE	PAGE_ALIGN(MMAP_MIN_VA_BITS / 3)
++TEST(infinite_rlimit)
++{
++// Only works on 64 bit
++#if __riscv_xlen == 64
++	struct addresses mmap_addresses;
 +
- #ifndef __ASSEMBLY__
- 
- struct task_struct;
++	EXPECT_EQ(BOTTOM_UP, memory_layout());
++
++	do_mmaps(&mmap_addresses);
++
++	EXPECT_NE(MAP_FAILED, mmap_addresses.no_hint);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_37_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_38_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_46_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_47_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_55_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_56_addr);
++
++	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.no_hint);
++	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_37_addr);
++	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_38_addr);
++	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_46_addr);
++	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_47_addr);
++	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_55_addr);
++	EXPECT_GT(1UL << 56, (unsigned long)mmap_addresses.on_56_addr);
++#endif
++}
++
++TEST_HARNESS_MAIN
+diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_default.c b/tools/testing/selftests/riscv/mm/testcases/mmap_default.c
+new file mode 100644
+index 000000000000..d1accb91b726
+--- /dev/null
++++ b/tools/testing/selftests/riscv/mm/testcases/mmap_default.c
+@@ -0,0 +1,35 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <sys/mman.h>
++#include <testcases/mmap_test.h>
++
++#include "../../kselftest_harness.h"
++
++TEST(default_rlimit)
++{
++// Only works on 64 bit
++#if __riscv_xlen == 64
++	struct addresses mmap_addresses;
++
++	EXPECT_EQ(TOP_DOWN, memory_layout());
++
++	do_mmaps(&mmap_addresses);
++
++	EXPECT_NE(MAP_FAILED, mmap_addresses.no_hint);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_37_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_38_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_46_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_47_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_55_addr);
++	EXPECT_NE(MAP_FAILED, mmap_addresses.on_56_addr);
++
++	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.no_hint);
++	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_37_addr);
++	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_38_addr);
++	EXPECT_GT(1UL << 38, (unsigned long)mmap_addresses.on_46_addr);
++	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_47_addr);
++	EXPECT_GT(1UL << 47, (unsigned long)mmap_addresses.on_55_addr);
++	EXPECT_GT(1UL << 56, (unsigned long)mmap_addresses.on_56_addr);
++#endif
++}
++
++TEST_HARNESS_MAIN
+diff --git a/tools/testing/selftests/riscv/mm/testcases/mmap_test.h b/tools/testing/selftests/riscv/mm/testcases/mmap_test.h
+new file mode 100644
+index 000000000000..98a892de5d19
+--- /dev/null
++++ b/tools/testing/selftests/riscv/mm/testcases/mmap_test.h
+@@ -0,0 +1,64 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _TESTCASES_MMAP_TEST_H
++#define _TESTCASES_MMAP_TEST_H
++#include <sys/mman.h>
++#include <sys/resource.h>
++#include <stddef.h>
++
++#define TOP_DOWN 0
++#define BOTTOM_UP 1
++
++struct addresses {
++	int *no_hint;
++	int *on_37_addr;
++	int *on_38_addr;
++	int *on_46_addr;
++	int *on_47_addr;
++	int *on_55_addr;
++	int *on_56_addr;
++};
++
++void do_mmaps(struct addresses *mmap_addresses)
++{
++	/*
++	 * Place all of the hint addresses on the boundaries of mmap
++	 * sv39, sv48, sv57
++	 * User addresses end at 1<<38, 1<<47, 1<<56 respectively
++	 */
++	void *on_37_bits = (void *)(1UL << 37);
++	void *on_38_bits = (void *)(1UL << 38);
++	void *on_46_bits = (void *)(1UL << 46);
++	void *on_47_bits = (void *)(1UL << 47);
++	void *on_55_bits = (void *)(1UL << 55);
++	void *on_56_bits = (void *)(1UL << 56);
++
++	int prot = PROT_READ | PROT_WRITE;
++	int flags = MAP_PRIVATE | MAP_ANONYMOUS;
++
++	mmap_addresses->no_hint =
++		mmap(NULL, 5 * sizeof(int), prot, flags, 0, 0);
++	mmap_addresses->on_37_addr =
++		mmap(on_37_bits, 5 * sizeof(int), prot, flags, 0, 0);
++	mmap_addresses->on_38_addr =
++		mmap(on_38_bits, 5 * sizeof(int), prot, flags, 0, 0);
++	mmap_addresses->on_46_addr =
++		mmap(on_46_bits, 5 * sizeof(int), prot, flags, 0, 0);
++	mmap_addresses->on_47_addr =
++		mmap(on_47_bits, 5 * sizeof(int), prot, flags, 0, 0);
++	mmap_addresses->on_55_addr =
++		mmap(on_55_bits, 5 * sizeof(int), prot, flags, 0, 0);
++	mmap_addresses->on_56_addr =
++		mmap(on_56_bits, 5 * sizeof(int), prot, flags, 0, 0);
++}
++
++int memory_layout(void)
++{
++	int prot = PROT_READ | PROT_WRITE;
++	int flags = MAP_PRIVATE | MAP_ANONYMOUS;
++
++	void *value1 = mmap(NULL, sizeof(int), prot, flags, 0, 0);
++	void *value2 = mmap(NULL, sizeof(int), prot, flags, 0, 0);
++
++	return value2 > value1;
++}
++#endif /* _TESTCASES_MMAP_TEST_H */
+diff --git a/tools/testing/selftests/riscv/mm/testcases/run_mmap.sh b/tools/testing/selftests/riscv/mm/testcases/run_mmap.sh
+new file mode 100755
+index 000000000000..ca5ad7c48bad
+--- /dev/null
++++ b/tools/testing/selftests/riscv/mm/testcases/run_mmap.sh
+@@ -0,0 +1,12 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++
++original_stack_limit=$(ulimit -s)
++
++./mmap_default
++
++# Force mmap_bottomup to be ran with bottomup memory due to
++# the unlimited stack
++ulimit -s unlimited
++./mmap_bottomup
++ulimit -s $original_stack_limit
 -- 
 2.41.0
 
