@@ -4,113 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A76EC0015E
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 11:55:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1FDC001DC
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 12:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u66a3lQJqaxOD1LAF33+sjumpZSpRvynLPijO4/vqtA=; b=Td5ZBRtsaSPPMB
-	204VqidH6nc4R/0Q/ehSxkQ2V2K+RtJSpvn8me7yDIwUAo/tC+p69w2ADf9WbxU2W6iPvGCkH5NLP
-	XBUzt1mSxjpeAPDs67mu8fbUek7iOfKI/kXpY9faJ+cblosjVUwM8BrKh6hrz0A1KBE41cNRt8BIB
-	mNNRaUv3pqXqy5SCn9FBnqFQJxYKZGQr8U+8B/Z+kgWS2FRCIw136UqXiFCSOrz6KVijGyeQ/lQQv
-	+iW5c4PSCnjFgSXhbhpYbQXsCCOxENxeqS0WEgyWz9yO3oePfN/eavrhHtvE/Rhgq9IoYEdsHL9WR
-	KEPB57Smbg3mh/Dz1ORg==;
+	List-Owner; bh=UlsZkvcPGaA8uGD+BccG/12C1kEv0t/AXf55T/xrmG8=; b=spi3lWRgjunYp9
+	m1cCH5rTRnLD8VFlc5S38bly6eMbaXL/394RAGu6v5a48giY7QdrdTB/XA+pAnmHLlMbF/32DtI9E
+	R7rTYNRBfylRa69pLs6qiuQNrXlFWu6g1Taay/vOxoGrxzj4SehVH+hgJRzBPEV+ITLiPk56PJ/Il
+	YAhaDY5pRbY8LZ2ctn2KXbDC6Jiw7W64Elyd8gUcMmEbTTAy91DqrR21Kw6+8/v/ADtjx4VeEH5cc
+	M6hGeo0Te/2A6ZeTJUD382ZJp+cLNnf2ukX6SsyyvWfz+wrj/3NGQUW8QgWEU0ctBtFvSPO4bwJQ4
+	1QmxzV5QwKyduS92Z4yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOd6q-00AFkP-2C;
-	Wed, 26 Jul 2023 11:55:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1qOdSP-00AJdo-2N;
+	Wed, 26 Jul 2023 12:17:33 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOd6m-00AFhW-2p;
-	Wed, 26 Jul 2023 11:55:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=0fof81wtAtiFX2QB1HpVgM6UAN/KWIc+Da/gHz8pCPI=; b=CEihuIBq7HtWBr/LwwEu3rpn1M
-	oJpTACjjqW08/kdR1fs8sAJ+1/czGFUTY4g/HMLBLOCHfxGSLEgPw1iFV0MR9ihAv3JGHyGXwXevM
-	/K8X9RAd6p9Uo0d/il0s5m7tW6B88cp/wPx3r+mNGqOTM4GqgxN8S06KBWtMr0mKWZ8Q9KuS0CmOt
-	d2OQcfaWxH/Ac2qiIFd3TTtmKQr4NE/fslBXSWbZrGW9fme/tNI5PRoAz84zZ6kYuBfFQ70ZK7LTS
-	X2vcD/yjDj08VoNVInXZ2PdVmx3OIcORP+rE42TwKI0LnfWcSczRO095JLtEY3MnyZ2CS3bZN4v5p
-	7roP3Yqg==;
-Received: from mga03.intel.com ([134.134.136.65])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOcor-005pmT-2z;
-	Wed, 26 Jul 2023 11:36:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1690371401; x=1721907401;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SuZ1oLRGv+DogObqtc+f4FAjzMjj7hxAmbmabhNK8B0=;
-  b=Sx/yv7iOBrkfZfLJnQCUlilTLHx2BDWTyrUj0wPyfSGFjZgd6j2IlsTK
-   fAK6KHGQFnurG2mZas4lqj3ZtXP857BnZfJuXm/l8Xj0z0XxjKf9zoDR7
-   /U/ErYbLGhOZcrd8UBOIoW9dcy3IFiNNBVIx12hbTPJHJoH72A+FSmwg7
-   BFZPNAWd/JqoXhB2pIC0NkvVzvREX5KXdh/BQmgZANZPMK8iJZV63Stau
-   LiSkPYZ/oKPQOVJ5L38UrNsXU3inCwS82nZ48HV6oIuvikKMV05Dxg8q0
-   tCjfM+OQeLt/RlpqLMz77AHjEir8YLy+w9cRRI+TMqtvVX4aio+oNHN3X
-   w==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10782"; a="371598765"
-X-IronPort-AV: E=Sophos;i="6.01,231,1684825200"; 
-   d="scan'208";a="371598765"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jul 2023 04:36:35 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10782"; a="729807753"
-X-IronPort-AV: E=Sophos;i="6.01,231,1684825200"; 
-   d="scan'208";a="729807753"
-Received: from mbrdon-mobl.ger.corp.intel.com (HELO box.shutemov.name) ([10.251.209.47])
-  by fmsmga007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jul 2023 04:36:21 -0700
-Received: by box.shutemov.name (Postfix, from userid 1000)
-	id 8BCEB109503; Wed, 26 Jul 2023 14:36:17 +0300 (+03)
-Date: Wed, 26 Jul 2023 14:36:17 +0300
-From: "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Sean Christopherson <seanjc@google.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Anup Patel <anup@brainfault.org>,
+	id 1qOdSM-00AJcx-1B
+	for linux-riscv@lists.infradead.org;
+	Wed, 26 Jul 2023 12:17:32 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-1bba1816960so1085678fac.3
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Jul 2023 05:17:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1690373848; x=1690978648;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=/0PSB6Q4tQ0VbeXGuwPR8oxpl0KqMEC65BPmeAh9GDM=;
+        b=G05f6CZe5H/9IGsFUzRc8wADFR0C472XZD5MzGbH2v3Z9Z0EiZdKBGI5zqU3T3dQCA
+         AvCK9JYcta0Jzsvlmo7hAbvSjG0FCtCG9XhV+XFKEdZySfo+1Tk+7Ja+G2eig3OqNtCy
+         MdWWpPFPDJI4rm2w5wxnP6qS59yUxxo9v9sIoAxEYeWkR+LTpC8cic+YxfENN0BtJXmE
+         rnUCjNbgVhpgF+qYxtHe9DXvPTY9EC93G9QoEF3zJlzgxSLh0Pp7uO//A3gCkIeiLNav
+         C+f1t29bNFYt7fPydYq+G50UxWkDGM5m+D0p7DFMD9wr8SlitZ3sHdA7fYyrYe6YS/yy
+         7kvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690373848; x=1690978648;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/0PSB6Q4tQ0VbeXGuwPR8oxpl0KqMEC65BPmeAh9GDM=;
+        b=S7tTxPyGZQ9O+20P3+V/g69ZrIv17NhRrriHcaGjt82fdZD5wuGpakC60qYfBTbmBX
+         Twf/Rqf8QXOLEpc81MPkL1oOqH6Hgpz+m2man8zry6OX3/8odLQoTaE/5YPPtH6JqWz8
+         dmtOD9ufWaDZzh3QCkd5TT9jDJPqifqoXriETNWeEKmgYFVR1/SCnPF0Yy2G8xjsprcW
+         y+n7VbJnwIHkcMRgXq/yPBxWF38LX+9CCKNZciWn/K9LkyJ+bn13c9EjO6iWClm4IPos
+         gBpNDMete5MSfnyvxEJvTaZck9dQSW3m78Nr3jwegiAo/mTguz/GFjdLjGuRqBvs2DN7
+         j3Mg==
+X-Gm-Message-State: ABy/qLY7W31M8m9rsmGseC9dW0F92T2nU4Zsi0d7oATfpvXG910Et+tW
+	NpsIw/hVXLcd0XpeWBnb+aS+IA==
+X-Google-Smtp-Source: APBJJlER/vAICvmtsZSZspI3r1Rtl4DeBU/8Xh5ht8tNl2f1NYU+kdczAWKMT7jUT8bkQnv76vuP2g==
+X-Received: by 2002:a05:6870:1fc3:b0:1bb:5756:3c06 with SMTP id gp3-20020a0568701fc300b001bb57563c06mr2013185oac.53.1690373847896;
+        Wed, 26 Jul 2023 05:17:27 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-68-25-194.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.25.194])
+        by smtp.gmail.com with ESMTPSA id w10-20020ac86b0a000000b003f9c6a311e1sm4731716qts.47.2023.07.26.05.17.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Jul 2023 05:17:27 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.95)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1qOdSI-000uxy-Jm;
+	Wed, 26 Jul 2023 09:17:26 -0300
+Date: Wed, 26 Jul 2023 09:17:26 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Zong Li <zong.li@sifive.com>
+Cc: Baolu Lu <baolu.lu@linux.intel.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Chao Peng <chao.p.peng@linux.intel.com>,
-	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
-	Yu Zhang <yu.c.zhang@linux.intel.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Ackerley Tng <ackerleytng@google.com>,
-	Maciej Szmigiero <mail@maciej.szmigiero.name>,
-	David Hildenbrand <david@redhat.com>,
-	Quentin Perret <qperret@google.com>,
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
-	Liam Merwick <liam.merwick@oracle.com>,
-	Isaku Yamahata <isaku.yamahata@gmail.com>
-Subject: Re: [RFC PATCH v11 10/29] mm: Add AS_UNMOVABLE to mark mapping as
- completely unmovable
-Message-ID: <20230726113617.432nuovswn6odcmx@box>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-11-seanjc@google.com>
- <20230725102403.xywjqlhyqkrzjok6@box.shutemov.name>
- <ZL/Fa4W2Ne9EVxoh@casper.infradead.org>
+	Albert Ou <aou@eecs.berkeley.edu>, linux@rivosinc.com,
+	linux-kernel@vger.kernel.org, Sebastien Boeuf <seb@rivosinc.com>,
+	iommu@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>,
+	Nick Kossifidis <mick@ics.forth.gr>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 03/11] dt-bindings: Add RISC-V IOMMU bindings
+Message-ID: <ZMEO1kNGfGjN6kZM@ziepe.ca>
+References: <cover.1689792825.git.tjeznach@rivosinc.com>
+ <d62ceb33620cab766d809e6bbf30eaf5b46bc955.1689792825.git.tjeznach@rivosinc.com>
+ <CANXhq0r=2eqpy9wLjVt1U0J7=LpnJLcKV7N9d90jvCss=7+Fzg@mail.gmail.com>
+ <CAK9=C2Vg9eR5LJPeqDDQ0pHZcrT5DOUzA8_wYEVEjfnhb6s8pw@mail.gmail.com>
+ <CANXhq0oTrU_-OQroW7H+hvxcU7YROhkgdCF9g_WtPTzVFQL7gA@mail.gmail.com>
+ <CAK9=C2XoQjPzZ5yB5jfTbee4-Pb8GgFAZRbfcMwMk9pyo39WxQ@mail.gmail.com>
+ <CANXhq0q7R9Srx6U=fReq7LDLFgW6rMmjKH=o6MzDT5AWNRXP6w@mail.gmail.com>
+ <592edb17-7fa4-3b5b-2803-e8c50c322eee@linux.intel.com>
+ <CANXhq0pS_=YxgrxSKbdfrFdGcBduzk3LTyC4vp_hqoJTbX3e0g@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ZL/Fa4W2Ne9EVxoh@casper.infradead.org>
+In-Reply-To: <CANXhq0pS_=YxgrxSKbdfrFdGcBduzk3LTyC4vp_hqoJTbX3e0g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230726_123642_869175_F5FBAEC1 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20230726_051730_690926_E228919B 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,68 +108,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 25, 2023 at 01:51:55PM +0100, Matthew Wilcox wrote:
-> On Tue, Jul 25, 2023 at 01:24:03PM +0300, Kirill A . Shutemov wrote:
-> > On Tue, Jul 18, 2023 at 04:44:53PM -0700, Sean Christopherson wrote:
-> > > diff --git a/mm/compaction.c b/mm/compaction.c
-> > > index dbc9f86b1934..a3d2b132df52 100644
-> > > --- a/mm/compaction.c
-> > > +++ b/mm/compaction.c
-> > > @@ -1047,6 +1047,10 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
-> > >  		if (!mapping && (folio_ref_count(folio) - 1) > folio_mapcount(folio))
-> > >  			goto isolate_fail_put;
-> > >  
-> > > +		/* The mapping truly isn't movable. */
-> > > +		if (mapping && mapping_unmovable(mapping))
-> > > +			goto isolate_fail_put;
-> > > +
-> > 
-> > I doubt that it is safe to dereference mapping here. I believe the folio
-> > can be truncated from under us and the mapping freed with the inode.
-> > 
-> > The folio has to be locked to dereference mapping safely (given that the
-> > mapping is still tied to the folio).
-> 
-> There's even a comment to that effect later on in the function:
-> 
->                         /*
->                          * Only pages without mappings or that have a
->                          * ->migrate_folio callback are possible to migrate
->                          * without blocking. However, we can be racing with
->                          * truncation so it's necessary to lock the page
->                          * to stabilise the mapping as truncation holds
->                          * the page lock until after the page is removed
->                          * from the page cache.
->                          */
-> 
-> (that could be reworded to make it clear how dangerous dereferencing
-> ->mapping is without the lock ... and it does need to be changed to say
-> "folio lock" instead of "page lock", so ...)
-> 
-> How does this look?
-> 
->                         /*
->                          * Only folios without mappings or that have
->                          * a ->migrate_folio callback are possible to
->                          * migrate without blocking. However, we can
->                          * be racing with truncation, which can free
->                          * the mapping.  Truncation holds the folio lock
->                          * until after the folio is removed from the page
->                          * cache so holding it ourselves is sufficient.
->                          */
-> 
-
-Looks good to me.
-
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdWwgMjYsIDIwMjMgYXQgMTI6MjY6MTRQTSArMDgwMCwgWm9uZyBMaSB3cm90ZToK
+PiBPbiBXZWQsIEp1bCAyNiwgMjAyMyBhdCAxMToyMeKAr0FNIEJhb2x1IEx1IDxiYW9sdS5sdUBs
+aW51eC5pbnRlbC5jb20+IHdyb3RlOgo+ID4KPiA+IE9uIDIwMjMvNy8yNCAyMToyMywgWm9uZyBM
+aSB3cm90ZToKPiA+ID4+Pj4+IEluIFJJU0MtViBJT01NVSwgY2VydGFpbiBkZXZpY2VzIGNhbiBi
+ZSBzZXQgdG8gYnlwYXNzIG1vZGUgd2hlbiB0aGUKPiA+ID4+Pj4+IElPTU1VIGlzIGluIHRyYW5z
+bGF0aW9uIG1vZGUuIFRvIGlkZW50aWZ5IHRoZSBkZXZpY2VzIHRoYXQgcmVxdWlyZQo+ID4gPj4+
+Pj4gYnlwYXNzIG1vZGUgYnkgZGVmYXVsdCwgZG9lcyBpdCBiZSBzZW5zaWJsZSB0byBhZGQgYSBw
+cm9wZXJ0eSB0bwo+ID4gPj4+Pj4gaW5kaWNhdGUgdGhpcyBiZWhhdmlvcj8KPiA+ID4+Pj4gQnlw
+YXNzIG1vZGUgZm9yIGEgZGV2aWNlIGlzIGEgcHJvcGVydHkgb2YgdGhhdCBkZXZpY2UgKHNpbWls
+YXIgdG8gZG1hLWNvaGVyZW50KQo+ID4gPj4+PiBhbmQgbm90IG9mIHRoZSBJT01NVS4gT3RoZXIg
+YXJjaGl0ZWN0dXJlcyAoQVJNIGFuZCB4ODYpIG5ldmVyIGFkZGVkIHN1Y2gKPiA+ID4+Pj4gYSBk
+ZXZpY2UgcHJvcGVydHkgZm9yIGJ5cGFzcyBtb2RlIHNvIEkgZ3Vlc3MgaXQgaXMgTk9UIEFEVklT
+QUJMRSB0byBkbyBpdC4KPiA+ID4+Pj4KPiA+ID4+Pj4gSWYgdGhpcyBpcyBSRUFMTFkgcmVxdWly
+ZWQgdGhlbiB3ZSBjYW4gZG8gc29tZXRoaW5nIHNpbWlsYXIgdG8gdGhlIFFDT00KPiA+ID4+Pj4g
+U01NVSBkcml2ZXIgd2hlcmUgdGhleSBoYXZlIGEgd2hpdGVsaXN0IG9mIGRldmljZXMgd2hpY2gg
+YXJlIGFsbG93ZWQgdG8KPiA+ID4+Pj4gYmUgaW4gYnlwYXNzIG1vZGUgKGkuZS4gSU9NTVVfRE9N
+QUlOX0lERU5USVRZKSBiYXNlZCB0aGVpciBkZXZpY2UKPiA+ID4+Pj4gY29tcGF0aWJsZSBzdHJp
+bmcgYW5kIGFueSBkZXZpY2Ugb3V0c2lkZSB0aGlzIHdoaXRlbGlzdCBpcwo+ID4gPj4+PiBibG9j
+a2VkIGJ5IGRlZmF1bHQuCgpJIGhhdmUgYSBkcmFmdCBwYXRjaCBzb21lcGxhY2UgdGhhdCBjb25z
+b2xpZGF0ZWQgYWxsIHRoaXMgcXVpcmsKY2hlY2tpbmcgaW50byB0aGUgY29yZSBjb2RlLiBHZW5l
+cmFsbHkgdGhlIGV4cGVjdGF0aW9uIGlzIHRoYXQgYW55CmRldmljZSBiZWhpbmQgYW4gaW9tbXUg
+aXMgZnVsbHkgZnVuY3Rpb25hbCBpbiBhbGwgbW9kZXMuIFRoZSBleGlzdGluZwpxdWlya3MgYXJl
+IGZvciBIVyBkZWZlY3RzIHRoYXQgbWFrZSBzb21lIGRldmljZXMgbm90IHdvcmsgcHJvcGVybHku
+IEluCnRoaXMgY2FzZSB0aGUgcmlnaHQgb3V0Y29tZSBzZWVtcyB0byBiZSBlZmZlY3RpdmVseSBi
+bG9ja2luZyB0aGVtIGZyb20KdXNpbmcgdGhlIGlvbW11LgoKU28sIHlvdSBzaG91bGQgZXhwbGFp
+biBhIGxvdCBtb3JlIHdoYXQgInJlcXVpcmUgYnlwYXNzIG1vZGUiIG1lYW5zIGluCnRoZSBSSVND
+ViB3b3JsZCBhbmQgd2h5IGFueSBkZXZpY2Ugd291bGQgbmVlZCBpdC4KCkphc29uCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
