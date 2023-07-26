@@ -4,71 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36B6C0015E
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 10:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B130C001B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 11:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PpgjK4Qvq/MEAZjHj8hCr1qdgsro+SrT+oC1e4R9G2U=; b=AW/D3rScmthBTfJyYpzTu5BWTr
-	w0j4s86LQPkGEHzIljpAm2bpr0lMJhdWy50aczUyVTMKZVKPLxENh3tdQR4BO6CZ4bdAx1fP2zlWe
-	goIFY2jove7rEd0Fh5aLyg4SJXWd+U2iLj4Q71AZJdOQN1n6maBQVurDFAFtZsdAnzfp5FqAk5zZz
-	KcpZ/XWi+UbvCwxMcWemdruVOHRHSUNVrpXofnwXyE2xGjWMnAEER0yB+uEarxzefVYxlhe0D6vZj
-	2B421NH/3HetZbsDRHGke0Hpjmx4YZTaRwED2gbWy4f6pdOpqk7pqbnW69TVVIoAq8Qj5y6mtWF1n
-	376j7otw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From
+	:References:Cc:To:Subject:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=97WMRVjwW2sE2703qar5FVbBzPcDqhrtfUkGufZmMvg=; b=wKIspX//a3OsbB
+	BmdHdhEDV06bKx+jnYirgRFCtTQRgdiqZwafneJkhbtBj0xm194eZ/XzUj2I3i02Aht+/PPF8AYwE
+	qhQ8i9MeGbQc/OdLz0fK3iyhma2pj7t13vl5wIj0aZrCTpZA04u+lgt1/qUTwA2kdx73Uwo1QfjoQ
+	+N3C8m0H9HTq5Vt43mK2YGYw5JcPIv1yZUOk3xjuCkpHMuexIikIT6lDEVsjpzbKg5Dh9gy7ymwjE
+	NL+ZtzsioyQm1BYzsYD++el1ND61mKtI5Eo5U0UtaFi3Jeq+A4bd+1AofeV74THGYmDIddcdjINXo
+	ZUeDxhFbF+JpPw9TO+5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOby1-009vLy-1A;
-	Wed, 26 Jul 2023 10:42:05 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qOcZb-00A7cf-0U;
+	Wed, 26 Jul 2023 11:20:55 +0000
+Received: from mail-bn8nam04on2061e.outbound.protection.outlook.com ([2a01:111:f400:7e8d::61e] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qObxw-009vKD-2q
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jul 2023 10:42:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690368120; x=1721904120;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Q64+fdVTOxuP6DJ+1iA+DMze6QLOo1wUlCCQZ0p75EE=;
-  b=ifRL85JeVXIjbKNxFYn2rPL8NKg0ddfzkGYhgJvVRR5s66YxXCbecfR5
-   p2csAYgzstjGP8Hmoj46U7d0fgD2BTaT/xIFbvQr+Oe5PUyHKPGmjMMpW
-   qzd9/NeDlxMp0CNnt0iTk4uokVWgSmf138bUINTSJO/a0m8glbmLgHkqe
-   FxXotJrAA3FnpToirlSTa35gqoOnoB3zsHRCBC+AW7clg08SKa4yoVnEC
-   T4M5fEVBHYlBJ4BX+Y+ncdVkRFSLnKxxpZFCFzSIZTQjZcEzPh1cjLwJg
-   +xlczQFqMLl1laQOVV0FgtFNYk0d8b6vw2SA/qTeiLMiQfpwvIJVPhwZ1
-   w==;
-X-IronPort-AV: E=Sophos;i="6.01,231,1684825200"; 
-   d="asc'?scan'208";a="225293993"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Jul 2023 03:41:51 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 26 Jul 2023 03:41:41 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 26 Jul 2023 03:41:40 -0700
-Date: Wed, 26 Jul 2023 11:41:05 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: Conor Dooley <conor@kernel.org>, <palmer@dabbelt.com>,
-	<linux-riscv@lists.infradead.org>, <evan@rivosinc.com>, <jszhang@kernel.org>,
-	<apatel@ventanamicro.com>, <heiko@sntech.de>
-Subject: Re: more /proc/cpuinfo & extension support related woes
-Message-ID: <20230726-ransack-life-8b71c7c0542b@wendy>
-References: <20230725-friction-enlisted-7acb7c3c03bf@spud>
- <20230726-44005036239541a139fe7b2e@orel>
+	id 1qOcZX-00A7a0-23;
+	Wed, 26 Jul 2023 11:20:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=T/wcQPDSgpCFZpYnfb0T0LqbrQ+2FOWRAUDsnAilTm4bLK14eeGjbYq8lfiaMdjI3JknWRE0C5+2MtSLiG/ZW2GVJh34MxJU3dK0EeDgOWtqObAQ5b/puZapeiGzZ2hk+eYwwEpRXnAj4GVpNsJvHcMcxMS5HJ1e/Fvm4b81AKTfamcpgvwKNu+1ECd6oh1kwNloypuxKBFAp55Ya7y4DC+20MhO38qm2cIPcMQp4MFFlTDyiotBuWvOEyJRvejilC+yaVf0hFDjd+eP83F5tTjp0wpLAKMxgtHDYJTf0sMJtvcruxag6WeeV2ubQAngjazt4qjGjG+RHuuI7j5rvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0/mgSlk0KD3Lz1k03Yflb5QghAokkLXooGwqBXEgxIc=;
+ b=SLsWKjITkx856vlM5AB/drxbI4aw7ylHDgKpvqGQOjG/2lfPoKlLFWjDO18njcSNPhzMLxWGLnTq64eWz1fzU/FNsTo7JjyH4UQiRUe5jUPT/Cuvtda4iG2cCNAphB2viNWWKyhWExSuAkkED7oSZN7JZ4zw3Mzph/Yot+CxwIeUeT8Eihp1ZghwWkYL8KK/KHdUdzJVuzgXioWxVjBXo1IGzKt/DcaVx6IONSeUcWIf+RuROZO5DOwolBJYdZK2xudBnWdz5R5oLIMp63t+hY6BVuFTLoUKAmh494BthCbMaUNSq2DVOSMG33sPSIPI3XNwFJHoy0RWkZtV2TX9vg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0/mgSlk0KD3Lz1k03Yflb5QghAokkLXooGwqBXEgxIc=;
+ b=hj3mc6ilTZQ8PWZWZbHbHKct2lT8bW1RQNDX83z6nXyRTXwwVHUsw4U60/3KNWa7fTAZafpj/mcTVaEVsgZ5sVrLSwhHVUPfEzWjS/MCvYpCtDqngvnMnrXuTJfiHLgWBXdWZlNSUkyfReoPc4JpioVOjgZJFamootWIVTbjdYo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from MN0PR12MB6317.namprd12.prod.outlook.com (2603:10b6:208:3c2::12)
+ by DM4PR12MB5103.namprd12.prod.outlook.com (2603:10b6:5:392::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6609.33; Wed, 26 Jul
+ 2023 11:20:41 +0000
+Received: from MN0PR12MB6317.namprd12.prod.outlook.com
+ ([fe80::dfe2:e9fa:3533:c7ab]) by MN0PR12MB6317.namprd12.prod.outlook.com
+ ([fe80::dfe2:e9fa:3533:c7ab%5]) with mapi id 15.20.6609.032; Wed, 26 Jul 2023
+ 11:20:41 +0000
+Message-ID: <2f98a32c-bd3d-4890-b757-4d2f67a3b1a7@amd.com>
+Date: Wed, 26 Jul 2023 16:50:16 +0530
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [RFC PATCH v11 00/29] KVM: guest_memfd() and per-page attributes
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
+ Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
+ Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
+ Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20230718234512.1690985-1-seanjc@google.com>
+ <110f1aa0-7fcd-1287-701a-89c2203f0ac2@amd.com> <ZL6uMk/8UeuGj8CP@google.com>
+Content-Language: en-US
+From: "Nikunj A. Dadhania" <nikunj@amd.com>
+In-Reply-To: <ZL6uMk/8UeuGj8CP@google.com>
+X-ClientProxiedBy: PN2PR01CA0115.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:27::30) To MN0PR12MB6317.namprd12.prod.outlook.com
+ (2603:10b6:208:3c2::12)
 MIME-Version: 1.0
-In-Reply-To: <20230726-44005036239541a139fe7b2e@orel>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN0PR12MB6317:EE_|DM4PR12MB5103:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3186dd93-2286-477e-4e76-08db8dca5840
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: tBizgtDFT3IBzDQBw1xGTETCrWL18qUCjwX+zbENyjvuc123B2BTr2RIUoY4IVdhnVTEXShXHG41KdZC+EwqnrR1KhKcL+YcgCqESHIOzoa5xSJyJOeaiAMXj9BEFvP2WOq3xS67VsqmrdOKiGmcVUK2EZff3EnVUndU6wh0HSMbAxh6BYJ8lKDYzTG6ng0Q93MIZLFzAjoeXU3LtNDd1DRxjMjoHsR5Qnx6cEJ+nNfAfou0DZUcT3MvrIjbmJ8gyduMDgY1K7cxb+bSJ1LtRWsZfokT3htT09fUfc6GVMV6x739HtzE1/cBnjQ96a6Udh5ynuh6k08/mB74AY9FvQc0swoIBhW1z20VPjdqk67Bk6v0o+hIHNiw6lXw9Am1zi3G94+UFb/GTjYkT+/0DCJ+ymefaLRGpPqIYoZGKUbvMY6X5bv0wpEJDdrYQpqTQvygIySxVdGLRzGIaVTuGv+5bxk0l39StN4LvYxp+EbGl/y1kv/clAko1/NY3y85fS2Yj0OyCsKApoj+GBfsYZ2r7X6GHMDGU//022Iz8H0yiFhT/wqJovlf3DcNtgazhGjG8TgxWq7zi82JkkJA8U9tTfNvrJrqaZi1aZ/1KRjArQL7E/MPKGmi/9bJ+xLg8og0PgPAp2UKbpTyZP1qFg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB6317.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(346002)(136003)(396003)(376002)(39860400002)(366004)(451199021)(186003)(53546011)(83380400001)(6506007)(26005)(41300700001)(316002)(31686004)(2616005)(6512007)(6666004)(6486002)(66899021)(7416002)(478600001)(54906003)(38100700002)(6916009)(4326008)(66476007)(66556008)(66946007)(8676002)(8936002)(7406005)(31696002)(3450700001)(36756003)(2906002)(5660300002)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UW5rb2ZIQS8xZFBVbXR3NFRTOTBMMWtlZnR4WFdGT3hHYndKRllTeTRMcEg2?=
+ =?utf-8?B?b3BRekpZeVc4V0pOaE5GZzcraCtlVmo0Q1JTWFB4U1J2WVhKakZkQnFJWjNv?=
+ =?utf-8?B?MzdqYXRIdmI5ZGtMUWwySXNMUVBONm9XeGlGUmVMOVpUS2xpNnRyNU53ZUxJ?=
+ =?utf-8?B?SFBxcUhUK2V0czE1dGc4WTV5em9WVjlEMWZ5RXVkNStzVGRNM010by9qb05B?=
+ =?utf-8?B?dm1qZEJJTEJjWkp4bG5PMjNlN0tpcEdaV0NYM3NvV2hMRkdWU3B3RWZjZkdH?=
+ =?utf-8?B?c0RjY3AwY3hRZEk5aWIzMWhqemQ2Uk5aVDBQakx1blVybXFRMWdDbm1qVmNm?=
+ =?utf-8?B?MTRXVmRaMUFQeUNvMVNKKzRrMktFbXhnamwzL2hVeHZoTTZaQ2xFd1lScTVE?=
+ =?utf-8?B?eit1c2lIV1VOQTJncVRhQlBxQ2lCMEhnT0orZHU5RDcvMDNJOFlHNEhrMm5L?=
+ =?utf-8?B?NENuaU9TZjhtSTRyc1Z5dy9zVHJvSnBTVHpXOVJGM0tEb3ZwL3VleEExc28x?=
+ =?utf-8?B?aFdFOENTYUoxbUNKNS9MV1NaWTludTNZeWNGRElldGtJOXJFbG5MZGJVdVh6?=
+ =?utf-8?B?RWYwSUZNQ1lvYVU4clV5RXRFMCtodnpVbXRKbUpScnpIV3N3ZkJwRDNYSngv?=
+ =?utf-8?B?S200NW5QejZrc2syV1JKbVVUVXhuU0wrL25taW5PT0R3UXBDRENCUzVHazBW?=
+ =?utf-8?B?YlRUTDhMRU5UdjAyWm9MMTEyVGVlb1RBSktBa0VmYU83a3Q5V0ptcGQ2M2Np?=
+ =?utf-8?B?M3ZMM2REMW1udElHakl0KzVKMkpNcmNvOUZrdjQzbFVWN0hnQm52WVBDcGpl?=
+ =?utf-8?B?K1lPbFRBZEVheGRQNDdyOVQ0amZENm9zNTBEdWJ1bmFtMVdKc1RyMXh0V3Qw?=
+ =?utf-8?B?TnZ4bmhjdS9EMXBQNWNrdTNGcytHU1VwYmVnb2FkV0FsNFlMUVpLVVVhNVcy?=
+ =?utf-8?B?c0FzQ3pBZ0xHU0Vha3cwWFdVcFZWNk8rakUwdno5MjVCWmNmdEZyVzJib2JY?=
+ =?utf-8?B?R28rWHZwa1VHdVFGb25FN05kaFhQalRKcCtkQ1VQd1FFYWRtMzdtWE03Uy9N?=
+ =?utf-8?B?amZySE9zQTRkMDBsT1BsWVgxbElVc0tNK0w2eW1xbWdrbE04VDk2TG9RY3Vw?=
+ =?utf-8?B?UStiSkdQVUJzVGtIZ0VMeTdyd05QblZnRTZORUM2R0Ruc0pqOEZHUzVHeU1z?=
+ =?utf-8?B?V2lTZHc2bkhYVWxIMHNIb2xJNGx5M09nM2o1QWRxb2pHR2hEbEgwMXV2OXYr?=
+ =?utf-8?B?aEdOZm5MZ0sxTnNtaXMyYWNUczJDV1U4U3FDN2NtN29zdjA2eGxCVHVIY2Vq?=
+ =?utf-8?B?bm5qR04wdHhMRFR4Sm9VbnZKQmIrOGN2U0QzT0hOckhvRmVndTVRb3NFM2hW?=
+ =?utf-8?B?S0FySWhXcDd5RFgzaUVObUJBN3NsRG1ZblFFR0I2ZXg5RTBPeW1BeC8zNy8x?=
+ =?utf-8?B?YndkTTlXYit4UVZ5SmVlRmlDZk9qWkVDYXlFNFBLQW5CM09PbktWanVpaUN0?=
+ =?utf-8?B?YTNkTzZtRDNacGJDYjlIcUNEckZPVTlsZlgzbTVUV3crZ3QwUTJxQjBuQThS?=
+ =?utf-8?B?TVg5ZGJKeW5odlV0WkdMZkJ4Z2xsbzZ2SzBkSm83WTFQWURFV0tpWUo4UVBj?=
+ =?utf-8?B?QzRrMkU2ZUhMVkZEYlQyK0tqczlWT0pkWCtuNkZuZXNTUWFGdEdFeUQyazNo?=
+ =?utf-8?B?UUR3bTFQUXJYRWN0KzVEY3cyL2RPV0JpekdiQk5MaWVlb0s0amQwc2p1YjZG?=
+ =?utf-8?B?QktteGFNaEtLci9YVzBiMFJIK2lrdzlxNkRJV3VVN01MWFFkUTkvNWZoaEI0?=
+ =?utf-8?B?d2FJTWRnZk9DLzJRaS9qTXVZU09BTDBBYkdJenhzYVErNG5OTjBTU0dKUXBW?=
+ =?utf-8?B?VEVZbmVhOG5iVG5pUDAwdSt0ZXJZenJLUmd5OEk2bkFTNmdqZEpPTHZBdHVD?=
+ =?utf-8?B?SjBSWkNhOXIwNmZSRUh4VythMWhHemkrREZRMTRrM0g5TzlFRCttUGZIMXpL?=
+ =?utf-8?B?a3lHMzVNZlJwY25HVFRrdXdNcFdzNm5EUzFKb2lSa0ZBM2ZBbmNnS2VocEZ2?=
+ =?utf-8?B?MWtKWmFhc041czZreFcrTWRZaWF3N1NxN1JMVDBKOEIyN1RicTZiT2pxSmNj?=
+ =?utf-8?Q?jqMlbjinPgW8y3XdtYwE9QZ6C?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3186dd93-2286-477e-4e76-08db8dca5840
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB6317.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jul 2023 11:20:41.1768
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UBhl0M55zZsBZsZoqa7/WWzkNxZ47yity0AoFCCmKdWb0puZlVfKxpl/vjHdRLF70RLyVc+ghkHBfM6Jx2HaVw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230726_034201_002953_D4DFFDC1 
-X-CRM114-Status: GOOD (  81.28  )
+X-CRM114-CacheID: sfid-20230726_042051_763005_D1FB17A0 
+X-CRM114-Status: GOOD (  26.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,289 +160,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6271403205131419224=="
+Reply-To: nikunj@amd.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============6271403205131419224==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="lAjgwLTiznLZQ7i4"
-Content-Disposition: inline
+Hi Sean,
 
---lAjgwLTiznLZQ7i4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 7/24/2023 10:30 PM, Sean Christopherson wrote:
+> On Mon, Jul 24, 2023, Nikunj A. Dadhania wrote:
+>> On 7/19/2023 5:14 AM, Sean Christopherson wrote:
+>>> This is the next iteration of implementing fd-based (instead of vma-based)
+>>> memory for KVM guests.  If you want the full background of why we are doing
+>>> this, please go read the v10 cover letter[1].
+>>>
+>>> The biggest change from v10 is to implement the backing storage in KVM
+>>> itself, and expose it via a KVM ioctl() instead of a "generic" sycall.
+>>> See link[2] for details on why we pivoted to a KVM-specific approach.
+>>>
+>>> Key word is "biggest".  Relative to v10, there are many big changes.
+>>> Highlights below (I can't remember everything that got changed at
+>>> this point).
+>>>
+>>> Tagged RFC as there are a lot of empty changelogs, and a lot of missing
+>>> documentation.  And ideally, we'll have even more tests before merging.
+>>> There are also several gaps/opens (to be discussed in tomorrow's PUCK).
+>>
+>> As per our discussion on the PUCK call, here are the memory/NUMA accounting 
+>> related observations that I had while working on SNP guest secure page migration:
+>>
+>> * gmem allocations are currently treated as file page allocations
+>>   accounted to the kernel and not to the QEMU process.
+> 
+> We need to level set on terminology: these are all *stats*, not accounting.  That
+> distinction matters because we have wiggle room on stats, e.g. we can probably get
+> away with just about any definition of how guest_memfd memory impacts stats, so
+> long as the information that is surfaced to userspace is useful and expected.
+> 
+> But we absolutely need to get accounting correct, specifically the allocations
+> need to be correctly accounted in memcg.  And unless I'm missing something,
+> nothing in here shows anything related to memcg.
 
-On Wed, Jul 26, 2023 at 11:04:39AM +0200, Andrew Jones wrote:
-> On Tue, Jul 25, 2023 at 06:19:36PM +0100, Conor Dooley wrote:
+I tried out memcg after creating a separate cgroup for the qemu process. Guest 
+memory is accounted in memcg.
 
-> > (I've only CCed a few people here, mostly those who were involved in the
-> > riscv_has_extension_likely() stuff earlier this year)
-> >=20
-> > I know using /proc/cpuinfo for extension detection is a bad idea, that's
-> > not the point of this. We can go on about how it is bad, but people are
-> > using it & we shouldn't knowingly lead them astray. For example, unlord
-> > reported on IRC yesterday that, having built a kernel using a released
-> > version of llvm, they were surprised to see illegal instruction
-> > exceptions given /proc/cpuinfo had a v in the ISA string entry.
-> >=20
-> > For most extensions that we support in the kernel at the moment, the
-> > general flow is something along the lines of the DT etc gets parsed,
-> > and then we set a bit if the hart supports the extension. For some
-> > select extensions, that have additional properties in the DT, we perform
-> > a check for those before setting the bit. Extensions that the kernel
-> > does not understand get ignored as it does not know what to look for in
-> > the isa string representation.
-> >=20
-> > As a result, the kernel populates a list of neither the extensions
-> > supported by the hart nor a list of the extensions supported by the
-> > running kernel. Instead, its something awkward in the middle - a list
-> > of extensions that a kernel built from this source code is aware of
-> > available on this platform.
-> >=20
-> > For the case where the system, but not the kernel, supports vector, we
-> > do what looks like a weird dance*, where we set up vsize, but then mask
-> > off the hwcap bit:
-> >=20
-> > 	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-> > 		riscv_v_setup_vsize();
-> > 		/*
-> > 		 * ISA string in device tree might have 'v' flag, but
-> > 		 * CONFIG_RISCV_ISA_V is disabled in kernel.
-> > 		 * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
-> > 		 */
-> > 		if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
-> > 			elf_hwcap &=3D ~COMPAT_HWCAP_ISA_V;
-> > 	}
-> > 	* riscv_v_setup_vsize() w/o a return check should be a NOP when
-> > 	the config option is disabled.
-> >=20
-> > Note that only the hwcap bit is masked, but not the corresponding
-> > extension support tracking bit in riscv_isa. I'd swear I recall talking
-> > to Andy about how this could be problematic w.r.t. false reporting of
-> > some variety, I'll have to go find it. It is (I think) the same for any
-> > of the other extensions parsed from DT that has a Kconfig option that
-> > must be set before userspace can use it, such as F & D.
-> >=20
-> > Either way, this becomes problematic for /proc/cpuinfo, where we do:
-> > 	static void print_isa_ext(struct seq_file *f)
-> > 	{
-> > 		struct riscv_isa_ext_data *edata;
-> > 		int i =3D 0, arr_sz;
-> > =09
-> > 		arr_sz =3D ARRAY_SIZE(isa_ext_arr) - 1;
-> > =09
-> > 		/* No extension support available */
-> > 		if (arr_sz <=3D 0)
-> > 			return;
-> > =09
-> > 		for (i =3D 0; i <=3D arr_sz; i++) {
-> > 			edata =3D &isa_ext_arr[i];
-> > 			if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
-> > 				continue;
-> > 			seq_printf(f, "_%s", edata->uprop);
-> > 		}
-> > 	}
-> >=20
-> > The issue here is the call to __riscv_isa_extension_available() which,
-> > with a NULL first argument, will use the riscv_isa bitmask that contain=
-s,
-> > as described above, a list of extensions that a kernel built from this
-> > source code is aware of that are available on this platform.
-> >=20
-> > This also impacts riscv_has_extension_[un]likely(), which operates on a
-> > similar premise. has_vector(), has_svnapot & has_fpu(), which are the
-> > users of riscv_has_extension_[un]likely() don't suffer here, because wh=
-en
-> > their config option is unset, they resolve to `return -EOPNOTSUPP;` or
-> > similar.
-> >=20
-> > Other users of __riscv_isa_extension_available() I have not evaluated
-> > yet, but there are quite a few, scattered in various places, including
-> > kvm & hwprobe.
-> >=20
-> > I think we might've just overused this particular bit of information for
-> > various purposes & screwed ourselves a bit. There are a few main places
-> > this information is used:
-> >=20
-> > 1 Figuring what exactly the hardware supports during boot. Evan has
-> >   added per-CPU tracking of this, although the kernel is limited here to
-> >   the subset that it knows AND further restricted by a call to
-> >   riscv_isa_extension_check(). This we don't actually use yet after
-> >   boot, but Evan has a user on the lists. This per-CPU tracking is then
-> >   used to create and LCD set of extensions that drives
-> >   __riscv_isa_extension_available().
-> >=20
-> > 2 Telling userspace what extensions are supported. However, by what? The
-> >   running-kernel & hw combo? The hardware? I tried to read the hwprobe
-> >   doc and couldn't tell. /proc/cpuinfo, as I already said, is a
-> >   mixed-mess, but hwprobe should mean "this extension is supported by
-> >   the hardware (or firmware) and you can use this without a concern",
-> >   right? Evan's proposed per-CPU reporting here adds a third thing to
-> >   the mix, but is intended to (AFAIU) represent the set of
-> >   known-to-the-kernel extensions that each hart supports, regardless of
-> >   whether the kernel itself supports them.
-> >=20
-> > 3 Setting dynamic code paths in the kernel. For example, if the hardware
-> >   supports Zbb, patch in the string manip routines. This is distinct
-> >   from telling userspace it can use the extension, since something like
-> >   Zbb can be used by userspace even if the kernel doesn't touch it.
-> >=20
-> > 4 Telling in-kernel users what extensions they can use. This, I figure,
-> >   is more along the lines of my theorised meaning for hwprobe.
-> >=20
-> > I think for case 3, we are mostly okay. Either this sort of code uses
-> > alternatives, that have an in-built config dependency, or the
-> > has_whatever() stuff that has an alternative implementation if the
-> > correct config option is not set.
-> >=20
-> > For case 2, I think hwprobe is doing the right thing (for now) but
-> > /proc/cpuinfo needs to be changed.
-> >=20
-> > Case 4 probably needs an audit to make sure that nothing is going
-> > awry. I'll go have a look through the users.
-> >=20
-> > If other people think splitting this up a worthwhile endeavour, I'll
-> > go write some patches. I do FWIW. Or maybe I am overlooking something
-> > that makes this less of a problem than I think. LMK if so :)
+  $ egrep -w "file|file_thp|unevictable" memory.stat
+  file 42978775040
+  file_thp 42949672960
+  unevictable 42953588736 
 
-> Here's a summary of my thoughts, which probably aren't adding anything new
-> to this
->=20
->  - The kernel needs per-hart bitmaps expressing what extensions are
->    supported for each given hart.
+NUMA allocations are coming from right nodes as set by the numactl.
 
-We sorta have this. The per-hart bitmap is a bitmap of extensions that
-have defines in hwcap.h (an understandable limitation) and for which
-riscv_isa_extension_check() passes.
+  $ egrep -w "file|file_thp|unevictable" memory.numa_stat
+  file N0=0 N1=20480 N2=21489377280 N3=21489377280
+  file_thp N0=0 N1=0 N2=21472739328 N3=21476933632
+  unevictable N0=0 N1=0 N2=21474697216 N3=21478891520
 
->  - The kernel needs a bitmap expressing the LCD of extensions across all
->    harts.
+> 
+>>   Starting an SNP guest with 40G memory with memory interleave between
+>>   Node2 and Node3
+>>
+>>   $ numactl -i 2,3 ./bootg_snp.sh
+>>
+>>     PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+>>  242179 root      20   0   40.4g  99580  51676 S  78.0   0.0   0:56.58 qemu-system-x86
+>>
+>>   -> Incorrect process resident memory and shared memory is reported
+> 
+> I don't know that I would call these "incorrect".  Shared memory definitely is
+> correct, because by definition guest_memfd isn't shared.  RSS is less clear cut;
+> gmem memory is resident in RAM, but if we show gmem in RSS then we'll end up with
+> scenarios where RSS > VIRT, which will be quite confusing for unaware users (I'm
+> assuming the 40g of VIRT here comes from QEMU mapping the shared half of gmem
+> memslots).
 
-Again, we sorta have this. It's all of the per-hart bitmaps, bitwise
-ANDed.
+I am not sure why will RSS exceed the VIRT, it should be at max 40G (assuming all the
+memory is private)
 
->  (The two bitmaps are clearly expressing the intersection of what's
->   supported by a hart and what the kernel is aware of, since the kernel
->   must allocate the bits.)
+As per my experiments with a hack below. MM_FILEPAGES does get accounted to RSS/SHR in top
 
-Right. With the exception of the riscv_isa_extension_check(), that we
-currently apply to Zicbo{m,z}.
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   4339 root      20   0   40.4g  40.1g  40.1g S  76.7  16.0   0:13.83 qemu-system-x86
 
-Getting ahead of myself a little, but I wonder if we should remove the
-riscv_isa_extension_check() stuff from from the code that sets the
-bitmaps & instead have it as a separate stage, which would align our
-bitmaps with what you suggest here.
+diff --git a/mm/memory.c b/mm/memory.c
+index f456f3b5049c..5b1f48a2e714 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -166,6 +166,7 @@ void mm_trace_rss_stat(struct mm_struct *mm, int member)
+ {
+        trace_rss_stat(mm, member);
+ }
++EXPORT_SYMBOL(mm_trace_rss_stat);
 
->  - Extensions in DT/ACPI that the kernel is unaware of get ignored by
->    the kernel and not exposed to userspace (if the extensions are for
->    U-mode and U-mode has another way of determining their presence to
->    use them, then good for U-mode)
+ /*
+  * Note: this doesn't free the actual pages themselves. That
+diff --git a/virt/kvm/guest_mem.c b/virt/kvm/guest_mem.c
+index a7e926af4255..e4f268bf9ce2 100644
+--- a/virt/kvm/guest_mem.c
++++ b/virt/kvm/guest_mem.c
+@@ -91,6 +91,10 @@ static struct folio *kvm_gmem_get_folio(struct file *file, pgoff_t index)
+                        clear_highpage(folio_page(folio, i));
+        }
 
-Sure.
++       /* Account only once for the first time */
++       if (!folio_test_dirty(folio))
++               add_mm_counter(current->mm, MM_FILEPAGES, folio_nr_pages(folio));
++
+        folio_mark_accessed(folio);
+        folio_mark_dirty(folio);
+        folio_mark_uptodate(folio);
 
->  - The kernel will combine information from one of the two bitmaps listed
->    above with other information, such as config information, to decide
->    when / if an extension should be used by the kernel and/or exposed to
->    userspace=20
+We can update the rss_stat appropriately to get correct reporting in userspace.
 
-Right. This bit (or rather two bits, since I view the kernel and
-userspace bits here separately) is where we are falling short. I think
-hwprobe's limited users do the right thing, but we're not doing this for
-/proc/cpuinfo. For the in-kernel users, grepping shows some suspicious
-looking things, but how many are problematic I do not yet know. As an
-example, does
-static void kvm_riscv_vcpu_update_config(const unsigned long *isa)
-{
-	u64 henvcfg =3D 0;
+>>   Accounting of the memory happens in the host page fault handler path,
+>>   but for private guest pages we will never hit that.
+>>
+>> * NUMA allocation does use the process mempolicy for appropriate node 
+>>   allocation (Node2 and Node3), but they again do not get attributed to 
+>>   the QEMU process
+>>
+>>   Every 1.0s: sudo numastat  -m -p qemu-system-x86 | egrep -i "qemu|PID|Node|Filepage"   gomati: Mon Jul 24 11:51:34 2023
+>>
+>>   Per-node process memory usage (in MBs)
+>>   PID                               Node 0          Node 1          Node 2          Node 3           Total
+>>   242179 (qemu-system-x86)           21.14            1.61           39.44           39.38          101.57
+>>
+>>   Per-node system memory usage (in MBs):
+>>                             Node 0          Node 1          Node 2          Node 3           Total
+>>   FilePages                2475.63         2395.83        23999.46        23373.22        52244.14
+>>
+>>
+>> * Most of the memory accounting relies on the VMAs and as private-fd of 
+>>   gmem doesn't have a VMA(and that was the design goal), user-space fails 
+>>   to attribute the memory appropriately to the process.
+>>
+>>   /proc/<qemu pid>/numa_maps
+>>   7f528be00000 interleave:2-3 file=/memfd:memory-backend-memfd-shared\040(deleted) anon=1070 dirty=1070 mapped=1987 mapmax=256 active=1956 N2=582 N3=1405 kernelpagesize_kB=4
+>>   7f5c90200000 interleave:2-3 file=/memfd:rom-backend-memfd-shared\040(deleted)
+>>   7f5c90400000 interleave:2-3 file=/memfd:rom-backend-memfd-shared\040(deleted) dirty=32 active=0 N2=32 kernelpagesize_kB=4
+>>   7f5c90800000 interleave:2-3 file=/memfd:rom-backend-memfd-shared\040(deleted) dirty=892 active=0 N2=512 N3=380 kernelpagesize_kB=4
+>>
+>>   /proc/<qemu pid>/smaps
+>>   7f528be00000-7f5c8be00000 rw-p 00000000 00:01 26629                      /memfd:memory-backend-memfd-shared (deleted)
+>>   7f5c90200000-7f5c90220000 rw-s 00000000 00:01 44033                      /memfd:rom-backend-memfd-shared (deleted)
+>>   7f5c90400000-7f5c90420000 rw-s 00000000 00:01 44032                      /memfd:rom-backend-memfd-shared (deleted)
+>>   7f5c90800000-7f5c90b7c000 rw-s 00000000 00:01 1025                       /memfd:rom-backend-memfd-shared (deleted)
+> 
+> This is all expected, and IMO correct.  There are no userspace mappings, and so
+> not accounting anything is working as intended.
+Doesn't sound that correct, if 10 SNP guests are running each using 10GB, how would we know who is using 100GB of memory?
 
-	if (riscv_isa_extension_available(isa, SVPBMT))
-		henvcfg |=3D ENVCFG_PBMTE;
+> 
+>> * QEMU based NUMA bindings will not work. Memory backend uses mbind() 
+>>   to set the policy for a particular virtual memory range but gmem 
+>>   private-FD does not have a virtual memory range visible in the host.
+> 
+> Yes, adding a generic fbind() is the way to solve silve.
 
-work correctly if the SVPBMT Kconfig option is disabled?
-=46rom a quick check, `isa` here is set from the host ISA
-	/* Setup ISA features available to VCPU */
-	for (i =3D 0; i < ARRAY_SIZE(kvm_isa_ext_arr); i++) {
-		host_isa =3D kvm_isa_ext_arr[i];
-		if (__riscv_isa_extension_available(NULL, host_isa) &&
-		    kvm_riscv_vcpu_isa_enable_allowed(i))
-			set_bit(host_isa, vcpu->arch.isa);
-	}
-so if the check passes for the host ISA, it'll pass for the guest ISA
-too, so henvcfg will end up with the PBMTE bit set. I just haven't yet
-checked what the outcome of this will be, but I figure not good?
+Regards,
+Nikunj
 
-> (it'd be good to have a consistent API for these types of
->    checks which combine extension presence with other information)
-
-I figure the best option might just be to make the
-__riscv_isa_extension_available() into this to avoid disruption? The
-vast majority of users of that function want to know whether or not it
-is safe to use the extension on that hart, not whether the hart itself
-supports it. In fact, outside of Evan's per-hart stuff in /proc/cpuinfo,
-do we have any users that would even want an API that checks the
-"unfiltered" versions? I'll have to check the users to answer that I
-think.
-
->  - The kernel will expose sanitized extension information to userspace.
->    S-mode only extensions do not need to be exposed and extensions that
->    require kernel support should only be exposed when the kernel is
->    willing and able to support them. Additional properties of extensions,
->    such as block sizes, also need to be exposed (exposure is done through
->    hwprobe)
-
-It gets extra messy too when the prctl etc get involved. What do you
-report in /proc/cpuinfo's isa field when RISCV_ISA_V_DEFAULT_ENABLE is
-set to disabled? It would have to respect the sysctl, right?
-Ditto the prctl, which will interact "nicely" with things like Google's
-cpu_feature library that parses /proc/cpuinfo.
-	https://github.com/google/cpu_features
-
-> I think we have most/all the above already, but the audits you've
-> volunteered to do would be welcome, along with maybe documenting
-> it all somewhere. Then, after that, all that's left is the "what to
-> do with /proc/cpuinfo and hwcap?" question.
-
-> Can we simply freeze
-> what extensions are exposed through them and mark them as deprecated?
-
-hwcap is already limited to the single-letter stuff, and is already
-disabling things like F, D & V if the config options are not set.
-
-But for /proc/cpuinfo, that is sorta where I was wondering if we should
-go, but hwprobe isn't a replacement for "casual" checking of what
-is/isn't supported, so it may be premature. Certainly, leaving people
-without an easy way to check by eye what extensions are present seems
-overly painful.
-
-Cheers,
-Conor.
-
---lAjgwLTiznLZQ7i4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMD4QQAKCRB4tDGHoIJi
-0p0NAQDfYQrZCk+wevL4DAHaiCl6IQrwCvaBs0leP+ZOOH+FMwD/VrYrS265w9Ye
-k+i4dkhN6BeEvwwZPBK8SoARkGW6VQg=
-=Yrth
------END PGP SIGNATURE-----
-
---lAjgwLTiznLZQ7i4--
-
-
---===============6271403205131419224==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6271403205131419224==--
-
