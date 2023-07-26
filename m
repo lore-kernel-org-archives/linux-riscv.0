@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA67C001DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 16:55:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 648E8C001DF
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 17:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n+/mVGYf+ps3uNr9BVlogY3jrQKs2dYhNdt851FS4zE=; b=26cfJZMl2JrbBc
-	6W45wiNSUifC8d7OvSHZLPqX9QuKkPEh1c3UExISqM91sSTmytFw4OF0IUr9rtJ8S8UOvwoWThO2U
-	7wb8WBkiMacIuk+KjZxs5fcA7UuTlRls7pSgpzMNElA/+plBnNHlQcCudPWkx/vVAHJ1HqfszPkCK
-	nzXSXO+cEiWteM/hrY/Ou+CFeOQC8P07pBdA+YIvRDl5wvvWEaWR/NRAtVL1PXBUhsprlhnfdRNFH
-	rPUTwB8Z4eIKuOEAdSe1gT+x5/RS5RZeJfeXj61STnz7k9X7EoUcHO1myqwuZnFHgP0JTMx11so2v
-	/Av3tbays6gnkLPCiNxA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xg35RYXcaLOVCPYoPEMxm6RwtmnherZHRVob6kRv8N4=; b=2yc1p6aoTO3Ey0B1TQzoWzppuH
+	GRyxSXa/GZDMY7W6XomD1uWPbo9vouqwRacr+ySmVSlBig8JwR/wmlD3bonAkjhVjh/Ala+QxEASM
+	pno1SGSAH9VGoLgaalHYXuDFRhPUjnt9pl6uGG8QqrF6ZHG4CrrYpFHBv4Vf0+D+zLTGnYOTxNqjE
+	ruhqZ+jFHFy5vHm856n7H7UDcoeCXsEOKs++F6GHaCC8CB6+Hr2qXxUmVKN0ExU7TgRRm7X5JzJnQ
+	pxGzEVPBB81WjvotA6xWyPZnPeo0Ly6N21jgdaRr483onCePRkW/k80mLdAJGa9052zUZSnC+7HQb
+	evVYFkVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOhnM-00B4vA-08;
-	Wed, 26 Jul 2023 16:55:28 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1qOhyW-00B6ol-0R;
+	Wed, 26 Jul 2023 17:07:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOhnH-00B4qD-2d
+	id 1qOhyT-00B6oH-2I
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jul 2023 16:55:26 +0000
-Received: from [192.168.0.107] (unknown [114.249.159.178])
-	by APP-05 (Coremail) with SMTP id zQCowABHTxf0T8Fk333YDg--.1863S2;
-	Thu, 27 Jul 2023 00:55:16 +0800 (CST)
-Message-ID: <a07f237a-20a2-06f0-3e20-0f4cd783649f@iscas.ac.cn>
-Date: Thu, 27 Jul 2023 00:55:16 +0800
+	Wed, 26 Jul 2023 17:06:59 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3894061BE3;
+	Wed, 26 Jul 2023 17:06:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4C16C433C8;
+	Wed, 26 Jul 2023 17:06:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690391216;
+	bh=fMYXNdoiIoaRL/EnGo2yFFqRB6RkoO8zd0fcn+Mf9Rk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dV3n4erkz0VQ4mdemBTAGuaPlrCwrruwcJTa+HWosp9WfSfFMCUiHlRID41EbeqWK
+	 wx0L8j8NFZmQV7SDlF9klv3GpJUUpbb2YvkaILtcCPxtuKzvu55HDXM/wKasSo6+C+
+	 0b+4IRps+1EU3qn8JgFYE/dVnUfQIv7hXETsxGKpQZehNFnQ2OruyOA8QReI8W8Lb6
+	 EFJ0ktQz6SdmwEfgA4kTd/IbH4kALW5hxSs2+EuRxdqDkqiToT/cSof/4DpM3Oz9w+
+	 umbqJFm+2QbIuq+44n6K818d3Q12SLPYzc2D5vBYIApDNtK/xMV/ZugvUz8Ubj0MOm
+	 9L7Iao7P05kMg==
+Date: Wed, 26 Jul 2023 18:06:52 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Andrew Jones <ajones@ventanamicro.com>, palmer@dabbelt.com,
+	linux-riscv@lists.infradead.org, evan@rivosinc.com,
+	jszhang@kernel.org, heiko@sntech.de
+Subject: Re: more /proc/cpuinfo & extension support related woes
+Message-ID: <20230726-operation-prenatal-cedfbc1bbc40@spud>
+References: <20230725-friction-enlisted-7acb7c3c03bf@spud>
+ <20230726-44005036239541a139fe7b2e@orel>
+ <20230726-ransack-life-8b71c7c0542b@wendy>
+ <CAK9=C2UBubVnj669mfKrw21fsHjDLMjiBVE_Go6e9zS-cPDqRg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-From: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-Subject: Re: [PATCH] riscv: Handle zicsr/zifencei issue between gcc and
- binutils
-To: Conor Dooley <conor@kernel.org>, Nathan Chancellor <nathan@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>,
- Bin Meng <bmeng@tinylab.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
-References: <20230725170405.251011-1-xingmingzheng@iscas.ac.cn>
- <20230725172344.GA1445373@dev-arch.thelio-3990X>
- <20230725-skating-agent-b092f2257ca1@spud>
- <20230725-name-aggregate-5de303072c9d@spud>
-Content-Language: en-US
-Organization: ISCAS
-In-Reply-To: <20230725-name-aggregate-5de303072c9d@spud>
-X-CM-TRANSID: zQCowABHTxf0T8Fk333YDg--.1863S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxKw43Aw4DWrWrAFy7tw4rAFb_yoW7ArW7p3
-	9xGFn0krs5XrWxCwn7tw1UWFyFq395GrW5Wr1UG34Yvrn0vFyxKr4v9w4j9FyDZrs3Cw1j
-	vr1S9Fyavw1DZaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07beeHgUUUUU=
-X-Originating-IP: [114.249.159.178]
-X-CM-SenderInfo: 50lqwzhlqj6xxhqjqxpvfd2hldfou0/1tbiAxMECmTBI3VlbwAAsn
+In-Reply-To: <CAK9=C2UBubVnj669mfKrw21fsHjDLMjiBVE_Go6e9zS-cPDqRg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230726_095524_223461_1CA70D1A 
-X-CRM114-Status: GOOD (  29.21  )
+X-CRM114-CacheID: sfid-20230726_100657_833643_B4ED7F0F 
+X-CRM114-Status: GOOD (  40.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,114 +74,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============4831450305037758374=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/26/23 06:17, Conor Dooley wrote:
-> On Tue, Jul 25, 2023 at 07:57:54PM +0100, Conor Dooley wrote:
->> On Tue, Jul 25, 2023 at 10:23:44AM -0700, Nathan Chancellor wrote:
->>> On Wed, Jul 26, 2023 at 01:04:05AM +0800, Mingzheng Xing wrote:
->>>> When compiling the kernel with the toolchain composed of GCC >= 12.1.0 and
->>>> binutils < 2.38, default ISA spec used when building binutils and GCC, the
->>>> following build failure will appear because the
->>>> CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI is not turned on.
->>>> (i.e, gcc-12.1.0 and binutils-2.36, or gcc-12.3.0 and binutils-2.37, use
->>>> default ISA spec.)
->>>>
->>>>    CC      arch/riscv/kernel/vdso/vgettimeofday.o
->>>>    <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assembler messages:
->>>>    <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:79: Error: unrecognized opcode `csrr a5,0xc01'
->>> The gift that keeps on giving :/
->>>
->>>> Binutils has updated the default ISA spec version, and the community has
->>>> responded well to this[1][2][3], but it appears that this is not over yet.
-> Also, I just noticed this comment. I disagree with the wording "well",
-> and more like "with weeping and gnashing of teeth" ;) This stuff is a
-> huge pain in the ass, and mixing toolchains between LLVM & GNU stuff (or
-> using an older binutils with a newer GCC) really makes it a lot worse.
-At least in the usual way , except in my unusual case...
-> Thanks for submitting a fix for this so that Nathan or I didn't have to!
-Hopefully this patch will make things better.
->>>> We also need to consider the situation of binutils < 2.38 but
->>>> GCC >= 12.1.0, since the combination between different versions of GCC and
->>>> binutils is not unique, which is to some extent flexible. GCC release
->>>> 12.1.0 updated the default ISA spec version in GCC commit[4].
->>> I suspect this combination is not too common because binutils 2.38 came
->>> out before GCC 12.1.0 but as you note, it is obviously possible. What
->>> toolchain has this combination in the wild, which would be helpful for
->>> documentation purposes?
->> Yeah, that'd be great to know, at least the other niche stuff that we
->> are working around had a clear use-case (testing LLVM in debian containers)
->> whereas there's no clear user for this.
->> That's doubly interesting, as this patch seems to break things for binutils
->> < 2.35, and if we have to make a trade-off between those too, then it'd
->> be good to be able to weigh up the options.
->> Do we perhaps need the misa-spec workaround instead for this case?
->> Haven't tested that though, trying to dig myself out of email backlog.
-> I don't think the misa-spec stuff is what we need actually. Instead, the
-> workaround/fix that this patch implements just needs to be constrained to
-> versions of GAS greater than 2.35.
-I'm sorry, I didn't quite understand this, could you provide some more
-information, thank you very much!
-I'll change the handling in v2. After testing it myself, it seems to 
-work fine.
 
-Thanks,
-Mingzheng.
-> Thanks,
-> Conor.
->
->>>> For more information, please refer to:
->>>>
->>>> commit 6df2a016c0c8 ("riscv: fix build with binutils 2.38")
->>>> commit e89c2e815e76 ("riscv: Handle zicsr/zifencei issues between clang and binutils")
->>>>
->>>> [1]:https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/aE1ZeHHCYf4
->>>> [2]:https://lore.kernel.org/all/20230308220842.1231003-1-conor@kernel.org
->>>> [3]:https://lore.kernel.org/all/20230223220546.52879-1-conor@kernel.org
->>>> [4]:https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=98416dbb0a62579d4a7a4a76bab51b5b52fec2cd
->> btw, please make these regular Link: tags (with a [N] at EOL) and drop
->> the space between them and the sign off. Also, this probably needs to be
->> CC:stable@vger.kernel.org  too.
->>>> Signed-off-by: Mingzheng Xing<xingmingzheng@iscas.ac.cn>
->>>> ---
->>>>   arch/riscv/Kconfig | 6 +++++-
->>>>   1 file changed, 5 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->>>> index 4c07b9189c86..b49cea30f6cc 100644
->>>> --- a/arch/riscv/Kconfig
->>>> +++ b/arch/riscv/Kconfig
->>>> @@ -570,11 +570,15 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
->>>>   config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
->>>>   	def_bool y
->>>>   	#https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
->>>> -	depends on AS_IS_GNU && AS_VERSION >= 23800
->>>> +	#https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=98416dbb0a62579d4a7a4a76bab51b5b52fec2cd
->>>> +	depends on CC_IS_GCC && GCC_VERSION >= 120100 || \
->>>> +		   AS_IS_GNU && AS_VERSION >= 23800
->>> GCC_VERSION will be 0 for clang, so you don't need the CC_IS_GCC check.
->>> With that change, this should be able to stay on one line:
->>>
->>>      depends on GCC_VERSION >= 120100 || (AS_IS_GNU && AS_VERSION >= 23800)
->>>
->>>>   	help
->>>>   	  Newer binutils versions default to ISA spec version 20191213 which
->>>>   	  moves some instructions from the I extension to the Zicsr and Zifencei
->>>>   	  extensions.
->>>> +	  Similarly, GCC release 12.1.0 has changed the default ISA spec version to
->>>> +	  20191213, so the above situation requires this option to be enabled.
->>>>   
->>>>   config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
->>>>   	def_bool y
->>>> -- 
->>>> 2.34.1
->>>>
+--===============4831450305037758374==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="MFjGx2LKSY+Xf6Uw"
+Content-Disposition: inline
 
+
+--MFjGx2LKSY+Xf6Uw
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jul 26, 2023 at 10:07:52PM +0530, Anup Patel wrote:
+> On Wed, Jul 26, 2023 at 4:11=E2=80=AFPM Conor Dooley <conor.dooley@microc=
+hip.com> wrote:
+> >
+> > On Wed, Jul 26, 2023 at 11:04:39AM +0200, Andrew Jones wrote:
+> > > On Tue, Jul 25, 2023 at 06:19:36PM +0100, Conor Dooley wrote:
+
+> > >  - The kernel will combine information from one of the two bitmaps li=
+sted
+> > >    above with other information, such as config information, to decide
+> > >    when / if an extension should be used by the kernel and/or exposed=
+ to
+> > >    userspace
+> >
+> > Right. This bit (or rather two bits, since I view the kernel and
+> > userspace bits here separately) is where we are falling short. I think
+> > hwprobe's limited users do the right thing, but we're not doing this for
+> > /proc/cpuinfo. For the in-kernel users, grepping shows some suspicious
+> > looking things, but how many are problematic I do not yet know. As an
+> > example, does
+> > static void kvm_riscv_vcpu_update_config(const unsigned long *isa)
+> > {
+> >         u64 henvcfg =3D 0;
+> >
+> >         if (riscv_isa_extension_available(isa, SVPBMT))
+> >                 henvcfg |=3D ENVCFG_PBMTE;
+> >
+> > work correctly if the SVPBMT Kconfig option is disabled?
+> > From a quick check, `isa` here is set from the host ISA
+> >         /* Setup ISA features available to VCPU */
+> >         for (i =3D 0; i < ARRAY_SIZE(kvm_isa_ext_arr); i++) {
+> >                 host_isa =3D kvm_isa_ext_arr[i];
+> >                 if (__riscv_isa_extension_available(NULL, host_isa) &&
+> >                     kvm_riscv_vcpu_isa_enable_allowed(i))
+> >                         set_bit(host_isa, vcpu->arch.isa);
+> >         }
+> > so if the check passes for the host ISA, it'll pass for the guest ISA
+> > too, so henvcfg will end up with the PBMTE bit set. I just haven't yet
+> > checked what the outcome of this will be, but I figure not good?
+>=20
+> Why is the outcome not good?
+>=20
+> Guest need Svpbmt to support pass-through devices.
+
+It was an example of a case where something is using
+__riscv_isa_extension_available() where the behaviour of the kernel
+w.r.t. this extension changes based on a Kconfig option being set.
+I get why a guest wants to know about Svpbmt, that's not why I mentioned
+this bit of code.
+
+> > > (it'd be good to have a consistent API for these types of
+> > >    checks which combine extension presence with other information)
+> >
+> > I figure the best option might just be to make the
+> > __riscv_isa_extension_available() into this to avoid disruption? The
+> > vast majority of users of that function want to know whether or not it
+> > is safe to use the extension on that hart, not whether the hart itself
+> > supports it. In fact, outside of Evan's per-hart stuff in /proc/cpuinfo,
+> > do we have any users that would even want an API that checks the
+> > "unfiltered" versions? I'll have to check the users to answer that I
+> > think.
+>=20
+> Each guest VCPU will have its own ISA bitmap so KVM needs the
+> __riscv_isa_extension_available() to check VCPU ISA bitmap.
+
+That's not the unfiltered list though, you've assembled this specifically
+for your VCPUs based on what KVM knows it can offer. It's the harts in
+the host kernel that I am mainly talking about here and, in particular,
+the behaviour when NULL is passed as the first argument. Changes can be
+made to how __riscv_isa_extension_available() in that regard without
+impacting KVM, which is mostly what I meant by "avoid disruption".
+Either way, AFAICT, KVM doesn't offer vector support when
+CONFIG_RISCV_ISA_V is disabled or fpu support without CONFIG_FPU (AFAICT).
+Other than Svpbmt, those are all that the filtered list would remove from
+the host isa bitmap anyway.
+
+Hope that clarifies things,
+Conor.
+
+--MFjGx2LKSY+Xf6Uw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMFSrAAKCRB4tDGHoIJi
+0mkdAQDewFfwQ/BQYCYfBsb78IaE+ImvrL9PRGqXvqFWfmm2zwEAkKiY+JNepsQI
+OIH9jTHKDX9sjAi6wExvQVltM/7EKgk=
+=7L0i
+-----END PGP SIGNATURE-----
+
+--MFjGx2LKSY+Xf6Uw--
+
+
+--===============4831450305037758374==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4831450305037758374==--
+
