@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1332C0015E
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 09:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E82C001E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 09:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DwhAsfTxRvZJE3mljtDSLT8VCp9KEOzsCY4DbF3hJk4=; b=T8OVIT1xUBjyLUj5GZKKnvXY8/
-	2oKtZQ6mhfiRZUjuVnw8J53JtFRn3X4wizzUoilb45r/J6ObVIqLHeFzkZ3LNqhbd2nXfSoRmMv9O
-	J0pM/byaSEy3ZVB3+Q6fMZfkleJWxEIW49W4sUhJrAH6QLR/rrj1PjEGG/PWqgkP3IL3sEzHg0HRI
-	yEPYdctP9jKDq60bUywOMytuVQACiwI1LdJKwp11QneQg3bk1Hn2wC5sA2RWjz04702ncZJ5DcM7R
-	9HrFzdQlXQ401t4UM2pNMlMwfXTz01A/daTv5z1KvnaAyEHEeUqCBFZ/fxee+JQWaoM6IbR1LeFIY
-	V1wsx1qg==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/ipdlEZ3XM0v3km0CVfU3BKFrZe+ctMCHauiFZrDQco=; b=1RS8VN7XtZjw6F
+	wM5d+1RQ4UuiUsCZAgYh7/CVjhDQwFm8J8/OMsPYU8d5vMPkpxwEjt92w7dJiTX1BtaYYMVsZ5qls
+	QR/PZLBuA24jtrC/7jJX2qwR8ksa4k6mCHiwNuyMX+eOBHrO+ImAN0r+4r3MUlR5qXQC2I1grfSkg
+	0/AtTaPaVX4rKX3bz/LyJT3rfsxshpwMvrRWhsgZfZl1bCNdbUfEmDvmDSXUVdyu3h8rmpG9cm8ii
+	utGeKBFEaP+2ygED2J19dvcJVq1IzAnUSXQ7IpiOljZCP5tpZr0YnLq0fTdU95nNxdr3pXEds12dn
+	wqe34D1Br85N8MUG9LXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOaoX-009jAn-2X;
-	Wed, 26 Jul 2023 09:28:13 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1qOarP-009jov-2n;
+	Wed, 26 Jul 2023 09:31:11 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOaoU-009j99-1w
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jul 2023 09:28:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690363690; x=1721899690;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=sWI8BN0I0gaWnWPq+rnd1lL/hQZJEhkF2KexTcF60WY=;
-  b=bcFHyxZ90KDwvHYtzXcaj0SIznqh3l4PA/Il0Y0mqhX2CrzommT24TYE
-   zYpNvXEGT0j29icrs1+OfJlfFc8oZmzGBKxhKO1gB3H+HwoZEJP9teF9m
-   FyWzQe7fwYlA4PHOA0/Gvv/ED7KA5cdcWtk6CJDYqyc0RAmE1YE6tpqOB
-   ApyOfYXniYOiGLYDxirc0xAUo3tnyUTbE+Npw+EOPTGt5SzA3xzeANEGN
-   rQin8Mi0K2E4htraPG0imDdH2lhcQqFH2L1azLQEfOK5sf5Or9OZTlLJn
-   4WD1TqMCe0MeG9j16xpAu7bB52Tg/ibK6q6z5LsbDDPr3j41Y4cGKt1ZV
-   g==;
-X-IronPort-AV: E=Sophos;i="6.01,231,1684825200"; 
-   d="asc'?scan'208";a="225284568"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Jul 2023 02:28:09 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Wed, 26 Jul 2023 02:28:08 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Wed, 26 Jul 2023 02:28:07 -0700
-Date: Wed, 26 Jul 2023 10:27:33 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: wang_yang <wang_yang6662023@163.com>
-CC: <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Wang Yang
-	<yangwang@nj.iscas.ac.cn>
-Subject: Re: [PATCH] RISC-V: Use GCC __builtin_prefetch() to implement
- prefetch()
-Message-ID: <20230726-washing-scoreless-12f0cca83365@wendy>
-References: <20230726074732.32981-1-wang_yang6662023@163.com>
+	id 1qOarM-009jmx-0c;
+	Wed, 26 Jul 2023 09:31:10 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.57])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4R9pXH4mt8z1GDFR;
+	Wed, 26 Jul 2023 17:30:07 +0800 (CST)
+Received: from [10.67.108.26] (10.67.108.26) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.27; Wed, 26 Jul
+ 2023 17:31:00 +0800
+Message-ID: <43731b35-c076-6d01-ad83-764fb2e9a8f0@huawei.com>
+Date: Wed, 26 Jul 2023 17:30:49 +0800
 MIME-Version: 1.0
-In-Reply-To: <20230726074732.32981-1-wang_yang6662023@163.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.0
+Subject: Re: [PATCH -next v8 0/2] support allocating crashkernel above 4G
+ explicitly on riscv
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+CC: Conor Dooley <conor@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <guoren@kernel.org>, <heiko@sntech.de>,
+	<bjorn@rivosinc.com>, <alex@ghiti.fr>, <akpm@linux-foundation.org>,
+	<atishp@rivosinc.com>, <bhe@redhat.com>, <thunder.leizhen@huawei.com>,
+	<horms@kernel.org>
+References: <20230725214413.2488159-1-chenjiahao16@huawei.com>
+ <20230725-judiciary-auction-ef50be622175@spud>
+ <96245a6f-cff1-9f2a-1217-4109d9a19291@huawei.com>
+ <20230726-affix-employed-319aada685e7@wendy>
+From: "chenjiahao (C)" <chenjiahao16@huawei.com>
+In-Reply-To: <20230726-affix-employed-319aada685e7@wendy>
+X-Originating-IP: [10.67.108.26]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230726_022810_757812_D185ECBB 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20230726_023108_583798_219EE4FC 
+X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,124 +74,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8224244275090585577=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8224244275090585577==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="7z2nzsGN1jDIioBs"
-Content-Disposition: inline
 
---7z2nzsGN1jDIioBs
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 2023/7/26 14:45, Conor Dooley wrote:
+> On Wed, Jul 26, 2023 at 10:20:00AM +0800, chenjiahao (C) wrote:
+>> On 2023/7/26 5:48, Conor Dooley wrote:
+>>> Hey,
+>>>
+>>> Your $subject says -next, but the patch failed to apply to
+>>> riscv/for-next. What was the base for this patchset?
+>>>
+>>> Thanks,
+>>> Conor.
+>> Hi,
+>>
+>> My patchset was tested on current linux-next HEAD
+>> (commit ID: 1e25dd777248, tag: next-20230725) and
+>> it seems all ok.
+>> Could you try applying with the base above, or
+>> is there any problem with that base?
+> There's some difference between linux-next and riscv/for-next that
+> prevents the patchwork automation from applying the patches.
 
-Hey,
+Oh, I see. There is definitely a difference, since linux-next applied
+a bugfix patch b690e266dae2 ("riscv: mm: fix truncation warning on RV32")
+recently, whereas riscv/for-next didn't. I have worked on a wrong base
+and thanks for reminding :)
 
-On Wed, Jul 26, 2023 at 03:47:32PM +0800, wang_yang wrote:
->  GCC's __builtin_prefetch() was introduced a long time ago, all supported=
- GCC
->  versions have it.So this patch is to use it for implementing the prefetc=
-h.
->=20
->  RISC-V Cache Management Operation instructions has been supported by GCC=
- last
->  year.you can refer to
->  https://github.com/gcc-mirror/gcc/commit/3df3ca9014f94fe4af07444fea19b4a=
-b29ba8e73
-
-This should be in a Link: tag.
-
->  It is worth noting that CPU based on RISC-V should support Zicbop extens=
-ion.
-
-How do you intend determining whether the CPU supports Zicbop?
-
->  This has been already done on other architectures (see the commit:
->  https://github.com/torvalds/linux/commit/0453fb3c528c5eb3483441a466b24a4=
-cb409eec5).
-
-That's not how to describe commits, please see how that is done
-elsewhere in the git history.
-
->=20
-> Signed-off-by: Wang Yang <yangwang@nj.iscas.ac.cn>
-
-WARNING: Possible unwrapped commit description (prefer a maximum 75 chars p=
-er line)
-#6:=20
- GCC's __builtin_prefetch() was introduced a long time ago, all supported G=
-CC
-
-ERROR: Missing Signed-off-by: line by nominal patch author 'wang_yang <wang=
-_yang6662023@163.com>'
-
-> ---
->  arch/riscv/include/asm/processor.h | 11 +++++++++++
->  1 file changed, 11 insertions(+)
->=20
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/=
-processor.h
-> index c950a8d9edef..f16d4c85ca5b 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -70,6 +70,17 @@ extern void start_thread(struct pt_regs *regs,
-> =20
->  extern unsigned long __get_wchan(struct task_struct *p);
-> =20
-> +#define ARCH_HAS_PREFETCH
-> +static inline void prefetch(const void *ptr)
-> +{
-> +	__builtin_prefetch(ptr, 0, 3);
-
-As far as I can tell, this does not do anything and will be removed by
-the compiler. Please take a look at how other extensions are implemented.
-
-Also, why 3? (Your answer should be in the commit message)
+I will rebase onto riscv/for-next and post my v9 pathset soon, please
+check over there.
 
 Thanks,
-Conor.
+Jiahao
 
-> +}
-> +
-> +#define ARCH_HAS_PREFETCHW
-> +static inline void prefetchw(const void *ptr)
-> +{
-> +	__builtin_prefetch(ptr, 1, 3);
-> +}
-> =20
->  static inline void wait_for_interrupt(void)
->  {
-> --=20
-> 2.34.1
->=20
-
---7z2nzsGN1jDIioBs
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMDnBQAKCRB4tDGHoIJi
-0im4AP4zuaPEjwNldgorLZ7XQnAcFueQvdQrx0h7e6ZAN6oYzwD/eO+uxgIz3j5r
-iG/Dye9EddOEg2EZ5jMAWCkWn+jHFgk=
-=kzQ1
------END PGP SIGNATURE-----
-
---7z2nzsGN1jDIioBs--
-
-
---===============8224244275090585577==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8224244275090585577==--
-
