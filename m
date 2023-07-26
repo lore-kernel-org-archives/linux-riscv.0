@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5489DC001DF
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 18:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C44C001DF
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 18:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=caAmvh/PQZNapp2/V54VM7m5mSY8v0ewSaDugikV0Qc=; b=BrYCYBxqtOv9gygeYPgeBlIPEp
-	UHd048SAhNyNLDh6lVm0RGNo2PPSsQOJoLdn8O5YXm1+EOHjby610tXEsCu1CeQ0gbDfiZx42OBqY
-	uA7k4suzNYtWY/3ttsmLTc0AO/9IpbLw+JO50kiMlVrAwit+FKcTqfFp3cb4KCULP2G+TFFV9+F9y
-	6E+rf5def7UJNmsvzQgvv6EQFOrwgXmQN368MIUKy3TYxKCtWpTyCjATs5tNoK4BWT3eg01rfAEl1
-	d2hCLOHTJ2ZBxP3mHllE9UUgFzpixozE9ppKBBTsJPoAAq8MZjqgKY6/dZl31/soC6e1m6Pkh3dl4
-	iL2XYmrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wEIsJ9SEEL91CP0zC13AeydTZlOrKSqonPUZrU+aRw8=; b=ScWRwqIkNoKmFF
+	jsbnmPdTVHtW5wwTuE2BVTcifP1MR98kB4i37/bJNyxKL7zUcrlNY1Jz+9SipTB7bYWWIzAIvuE1b
+	oEe2MBFDvlB6dVOhD4odjg+2qPsTC8c27dpuEzoJIz2MuZMm7A9+rU23n35O1pOarGpNndwhrcJSF
+	jZKrte4hk67COxeD7hqENnnMfLRXG35WR10sbhOrZcQtk1jtoE+zVMPYxOjoiI0f7QcTFeZAPzOXH
+	dBEd4Zz1dYiRKrjT7g7NDIMjLnLzrLhzsrELQPWNEbB4RPxICYECtjFpzHjTTxgrGCNA0Vf3nzmrS
+	WA2kD2Lh6phQ9Ocl9M4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOiqU-00BEft-25;
-	Wed, 26 Jul 2023 18:02:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qOjFD-00BHAr-2M;
+	Wed, 26 Jul 2023 18:28:19 +0000
+Received: from [14.137.139.154] (helo=frasgout12.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOiqQ-00BEfF-3B
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jul 2023 18:02:44 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4A17F61C1E;
-	Wed, 26 Jul 2023 18:02:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4799CC433C7;
-	Wed, 26 Jul 2023 18:02:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690394561;
-	bh=ZuEBFKvfvWvmo7RjmoDN0IFVptnWEiaCxWHx7e3scdo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QRZb+vSdMaDrEDii2mqaKfhC/axpTjFGGcq/anbalORnGsHk6wpre5hOHR7uDoIc7
-	 fVQLRH3RQZjibGwjweDJJAQI7GBqxNXjoNe2eKK57v5o5lJcuU4QL8aHvUezuWzyZx
-	 rJsq3Rdr4RAZJdMyLKtsQyDouD3QDh9sWFsl2PTwcNeG0RGXEVKrFmpv7Ciyhqhphd
-	 5Y3+70q3IVKS4GJ+EpIEF9OfVPMTrvA2/PO1uaTFTgdQMa5pUeW9AWtaHNQSwS80S3
-	 AdwpA1VTAcGbBVVgAV3lwY8mb5k/mAvBS9Exee15tqIbRnpnzFsalAyXf2nGvb3iGt
-	 wqJLsyvJkYc8g==
-Date: Wed, 26 Jul 2023 19:02:36 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>, Bin Meng <bmeng@tinylab.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: Handle zicsr/zifencei issue between gcc and
- binutils
-Message-ID: <20230726-outclass-parade-2ccea9f6688a@spud>
-References: <20230726174524.340952-1-xingmingzheng@iscas.ac.cn>
+	id 1qOjF9-00BH9C-1k;
+	Wed, 26 Jul 2023 18:28:17 +0000
+Received: from mail02.huawei.com (unknown [172.18.147.227])
+	by frasgout12.his.huawei.com (SkyGuard) with ESMTP id 4RB29j6nK3z9xFqw;
+	Thu, 27 Jul 2023 02:14:49 +0800 (CST)
+Received: from [10.81.211.226] (unknown [10.81.211.226])
+	by APP2 (Coremail) with SMTP id GxC2BwB3IjmaZcFkGUkMBQ--.1285S2;
+	Wed, 26 Jul 2023 19:27:50 +0100 (CET)
+Message-ID: <a6a112d4-8fe7-4f73-b7c9-8eaf5e9d7ba1@huaweicloud.com>
+Date: Wed, 26 Jul 2023 20:27:34 +0200
 MIME-Version: 1.0
-In-Reply-To: <20230726174524.340952-1-xingmingzheng@iscas.ac.cn>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.2
+Subject: Re: [PATCH v2 3/3] riscv/kexec: load initrd high in available memory
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor.dooley@microchip.com>, Li Huafei <lihuafei1@huawei.com>,
+ Liao Chang <liaochang1@huawei.com>, Masahiro Yamada <masahiroy@kernel.org>,
+ Kees Cook <keescook@chromium.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Heiko Stuebner <heiko@sntech.de>,
+ Ricardo Ribalda <ribalda@chromium.org>, Alyssa Ross <hi@alyssa.is>,
+ Li Zhengyu <lizhengyu3@huawei.com>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ kexec@lists.infradead.org, open list <linux-kernel@vger.kernel.org>,
+ Torsten Duwe <duwe@suse.de>, Roberto Sassu <roberto.sassu@huaweicloud.com>,
+ petr@tesarici.cz
+References: <cover.1690365011.git.petr.tesarik.ext@huawei.com>
+ <67c8eb9eea25717c2c8208d9bfbfaa39e6e2a1c6.1690365011.git.petr.tesarik.ext@huawei.com>
+ <20230726-busily-marsupial-504e9ff2d873@spud>
+From: Petr Tesarik <petrtesarik@huaweicloud.com>
+In-Reply-To: <20230726-busily-marsupial-504e9ff2d873@spud>
+X-CM-TRANSID: GxC2BwB3IjmaZcFkGUkMBQ--.1285S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ury8WrWUJFy3JF4UtF4kCrg_yoW8WF1fpr
+	4fGw17GFWDA3y5ZrWUta17u347Zws3Jw1jgF1UKFy8Zr1Y9FWjkryUGrWxWrykAryvg3W8
+	JFy5Zr12v3WUJw7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJV
+	WxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6rW3Jr0E
+	3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x0JUQvtAUUUUU=
+X-CM-SenderInfo: hshw23xhvd2x3n6k3tpzhluzxrxghudrp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230726_110243_109457_2E5ECE26 
-X-CRM114-Status: GOOD (  28.14  )
+X-CRM114-CacheID: sfid-20230726_112815_853221_FC1E1237 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,163 +90,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0383972310147550125=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 7/26/2023 6:38 PM, Conor Dooley wrote:
+> On Wed, Jul 26, 2023 at 11:54:01AM +0200, Petr Tesarik wrote:
+>> From: Torsten Duwe <duwe@suse.de>
+>>
+>> When initrd is loaded low, the secondary kernel fails like this:
+>>
+>>  INITRD: 0xdc581000+0x00eef000 overlaps in-use memory region
+>>
+>> This initrd load address corresponds to the _end symbol, but the
+>> reservation is aligned on PMD_SIZE, as explained by a comment in
+>> setup_bootmem().
+>>
+>> It is technically possible to align the initrd load address accordingly,
+>> leaving a hole between the end of kernel and the initrd, but it is much
+>> simpler to allocate the initrd top-down.
+>>
+>> Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
+>> Signed-off-by: Torsten Duwe <duwe@suse.de>
+>> Signed-off-by: Petr Tesarik <petr.tesarik.ext@huawei.com>
+>> Cc: stable@vger.kernel.org
+> 
+> Trying to align it might be worthwhile, but the simple fix makes sense
+> for now & w.r.t backporting.
 
---===============0383972310147550125==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="UtMXT2cLyqU/RCBj"
-Content-Disposition: inline
+On a second thought, allocating the initrd at the top of the range is
+probably even better, because the kernel can unpack to low addresses,
+resulting in less fragmented memory. See diagrams.
 
+Top-down initrd:
 
---UtMXT2cLyqU/RCBj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Jul 27, 2023 at 01:45:24AM +0800, Mingzheng Xing wrote:
-> Binutils-2.38 and GCC-12.1.0 bump[0] default ISA spec to newer version
-> 20191213 which moves some instructions from the I extension to the
-> Zicsr and Zifencei extensions. So if one of the binutils and GCC exceeds
-> that version, we should turn on TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
-> to cope with the new changes.
->=20
-> The case of clang is special[1][2], where older clang versions (<17) need
-> to be rolled back to old ISA spec to fix it. And the less common case,
-> since older GCC versions (<11.1.0) did not support zicsr and zifencei
-
-Can you provide a link to explain why this is 11.1.0 in particular?
-
-> extension for -march, also requires a fallback to cope with it.
->=20
-> For more information, please refer to:
-> commit 6df2a016c0c8 ("riscv: fix build with binutils 2.38")
-> commit e89c2e815e76 ("riscv: Handle zicsr/zifencei issues between clang a=
-nd binutils")
-> Link: https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dcommit;h=3D98416dbb0a62579=
-d4a7a4a76bab51b5b52fec2cd [0]
-> Link: https://lore.kernel.org/all/20230308220842.1231003-1-conor@kernel.o=
-rg [1]
-> Link: https://lore.kernel.org/all/20230223220546.52879-1-conor@kernel.org=
- [2]
-
-> Link: https://lore.kernel.org/all/20230725170405.251011-1-xingmingzheng@i=
-scas.ac.cn
-
-This shouldn't be here, you don't link to your old patches.
-
-> Signed-off-by: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-
-This is still broken for:
-CONFIG_CLANG_VERSION=3D0
-CONFIG_AS_IS_GNU=3Dy
-CONFIG_AS_VERSION=3D23500
-CONFIG_LD_IS_BFD=3Dy
-CONFIG_LD_VERSION=3D23500
-
-Please don't post a v2 while there is still ongoing discussion on the
-v1. I'll try to reply here tomorrow with a diff you can fold in to fix
-the problem.
-
-Thanks,
-Conor.
-
-> ---
->=20
-> v2:
-> - Update the Kconfig help text and commit message.
-> - Add considerations for low version gcc case.
->=20
-> Sorry for the formatting error on my mailing list reply.
->=20
->  arch/riscv/Kconfig | 23 +++++++++++++----------
->  1 file changed, 13 insertions(+), 10 deletions(-)
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 4c07b9189c86..08afd47de157 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -570,24 +570,27 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
->  config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
->  	def_bool y
->  	# https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=3Dcommit;h=3Daed44=
-286efa8ae8717a77d94b51ac3614e2ca6dc
-> -	depends on AS_IS_GNU && AS_VERSION >=3D 23800
-> +	# https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dcommit;h=3D98416dbb0a62579d4=
-a7a4a76bab51b5b52fec2cd
-> +	depends on GCC_VERSION >=3D 120100 || (AS_IS_GNU && AS_VERSION >=3D 238=
-00)
->  	help
-> -	  Newer binutils versions default to ISA spec version 20191213 which
-> -	  moves some instructions from the I extension to the Zicsr and Zifencei
-> -	  extensions.
-> +	  Binutils-2.38 and GCC-12.1.0 bump default ISA spec to newer version
-> +	  20191213 which moves some instructions from the I extension to the
-> +	  Zicsr and Zifencei extensions.
-> =20
->  config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
->  	def_bool y
->  	depends on TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
->  	# https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4=
-498694e15bf8a16
-> -	depends on CC_IS_CLANG && CLANG_VERSION < 170000
-> +	# https://gcc.gnu.org/git/?p=3Dgcc.git;a=3Dcommit;h=3Db03be74bad08c382d=
-a47e048007a78fa3fb4ef49
-> +	depends on (CC_IS_CLANG && CLANG_VERSION < 170000) || \
-> +		   (CC_IS_GCC && GCC_VERSION < 110100)
->  	help
-> -	  Certain versions of clang do not support zicsr and zifencei via -march
-> -	  but newer versions of binutils require it for the reasons noted in the
-> -	  help text of CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI. This
-> +	  Certain versions of clang (or GCC) do not support zicsr and zifencei =
-via
-> +	  -march but newer versions of binutils require it for the reasons noted
-> +	  in the help text of CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI. T=
-his
->  	  option causes an older ISA spec compatible with these older versions
-> -	  of clang to be passed to GAS, which has the same result as passing zi=
-csr
-> -	  and zifencei to -march.
-> +	  of clang (or GCC) to be passed to GAS, which has the same result as
-> +	  passing zicsr and zifencei to -march.
-> =20
->  config FPU
->  	bool "FPU support"
-> --=20
-> 2.34.1
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---UtMXT2cLyqU/RCBj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMFfvAAKCRB4tDGHoIJi
-0qoeAQDp3ypoQuZjQevaA9Hr4AFTnPXwwDMwgAo89yt9uZDNRgD/XaPIQrd0555E
-aPpCSI4Ukz489022i+qI1s80u07U0AI=
-=UaXr
------END PGP SIGNATURE-----
-
---UtMXT2cLyqU/RCBj--
++----------+          +----------+
+|  initrd  |          |          |
++----------+          |   free   |
+|          |          |          |
+|          |  unpack  +----------+
+|   free   |  ----->  | unpacked |
+|          |          |  initrd  |
++----------+          +----------+
+|  kernel  |          |  kernel  |
++----------+          +----------+
 
 
---===============0383972310147550125==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Aligned initrd:
+
++----------+          +----------+
+|          |          |   free   |
+|          |          +----------|
+|   free   |          | unpacked |
+|          |          |  initrd  |
++----------+  unpack  +----------+
+|  initrd  |  ----->  |   free   |
++----------+          +----------+
+|  kernel  |          |  kernel  |
++----------+          +----------+
+
+Petr T
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0383972310147550125==--
-
