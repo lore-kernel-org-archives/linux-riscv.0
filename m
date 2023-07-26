@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDE1C001E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 09:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1332C0015E
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Jul 2023 09:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Np16FrMQ8ju7ozXT0K9AvbD/QvNUhN9uu1JTuCsEPp4=; b=e8X10aYP6mgSL/
-	e0Q4QogzIHs7CmV7QQ+J3S9lvy2HfnwJJlLMJZ+Ha9VHtHupJWep0mBln0/QotdRfwaqD6eXZs5se
-	mG5adWvhWY/eopD9ymFnqDWrrglq+S4SG4rEol1f5w+pR9oHVIoHdq92j6TJPvW9klXZ4gHDKnflS
-	H8stl/CWD1MP4jPFs9HbRzyjZPv2LB72GiOdTVBXW+EYEj7a2atJ/5XT02muNN3k8SunGacwpt8lW
-	aBcvlp+mPdOIengy5VGcndlWBSMFoGrEnQrthG9kSpZZ8mn6G/50cpyIhBRlavIU1wMzyN0+7d0ws
-	13IguVECMCqzOTbXytWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DwhAsfTxRvZJE3mljtDSLT8VCp9KEOzsCY4DbF3hJk4=; b=T8OVIT1xUBjyLUj5GZKKnvXY8/
+	2oKtZQ6mhfiRZUjuVnw8J53JtFRn3X4wizzUoilb45r/J6ObVIqLHeFzkZ3LNqhbd2nXfSoRmMv9O
+	J0pM/byaSEy3ZVB3+Q6fMZfkleJWxEIW49W4sUhJrAH6QLR/rrj1PjEGG/PWqgkP3IL3sEzHg0HRI
+	yEPYdctP9jKDq60bUywOMytuVQACiwI1LdJKwp11QneQg3bk1Hn2wC5sA2RWjz04702ncZJ5DcM7R
+	9HrFzdQlXQ401t4UM2pNMlMwfXTz01A/daTv5z1KvnaAyEHEeUqCBFZ/fxee+JQWaoM6IbR1LeFIY
+	V1wsx1qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOaRp-009fWn-3A;
-	Wed, 26 Jul 2023 09:04:45 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1qOaoX-009jAn-2X;
+	Wed, 26 Jul 2023 09:28:13 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOaRn-009fVO-0Y
+	id 1qOaoU-009j99-1w
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Jul 2023 09:04:44 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-98dfb3f9af6so1088112566b.2
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Jul 2023 02:04:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690362281; x=1690967081;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kEq4aEUADaijAvTr8bJGeeniH5R8mS0ErfRxDmNziSk=;
-        b=jWH4kcyY91IRC2kXXNemkCb9YoZ+Yheem6srPiZSXy44ZwP/90tRK1HaXxxebbbgp1
-         0vrSYKj33AXHhnj5XR3K2PsiBthbLAL1a5tqCWdDtkqrOnMfjWTZbJ+zkErOCMz/3/2M
-         IPmBvRYv7VHC4U+emHnvJJsP7BaKPOJDqq2NlGipwCi3aK9FEHcQ73/+xy1Kj9fiAwXt
-         W4dF5W/+xYvoso6iHQY+6N1JI93cs5p0QNhSo1zSADjTsMAexDKa5NkUTcedGcb1j651
-         1enWnONq98rAFcXPD0tbzsm9CIh2T0Z0BoK12Y418uAPH4vgEHy9ym9vSiZ07JMInu4i
-         SIng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690362281; x=1690967081;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kEq4aEUADaijAvTr8bJGeeniH5R8mS0ErfRxDmNziSk=;
-        b=VuQWY4AzzIUNyAVPwyEFvwBA9dYVz6vjRSJpuX/+xO5c1bf8vM7S/iWGNLctfJz3Up
-         9aGljOTJax+jUUNekQutWGGtqFQVfVMBcmmUcQ4D/Xt1GrJUS19Rd2YUcmfLLgY2xjYq
-         y88KyTvyuCs7lxVEw2A0GHDTVszYJ4pINdYlTuqM0bAog8CP+e5bfxC5LR5CzhMtN2ST
-         lA6QsY3Zik2JPABokzlQTN9hH6vFfk/f3O57+rWZZ1STiEpwPK+EgywZZvx+YUsuug6S
-         VO/IdJ8WnQDofTKtfUe22DdterGwX4pUwViDnY7Y0tEqEoMS8qKdIBAXG6pREyHpLOIt
-         h4ew==
-X-Gm-Message-State: ABy/qLZKzGq+7zcBcNCiVGaITiz9LVVYsCa4I/RCuWnbeHkegu2fb8rY
-	PYrruFMKO27rvM+zL55t76jkxw==
-X-Google-Smtp-Source: APBJJlGLJpuevUeDl8gIZM0HLuQ1wCBQBVgzfl5lUea946qwWAmH1sDp9EVHzAtaN4SkTL3UDS9IBA==
-X-Received: by 2002:a17:907:7808:b0:994:56db:cb8d with SMTP id la8-20020a170907780800b0099456dbcb8dmr1135871ejc.14.1690362280835;
-        Wed, 26 Jul 2023 02:04:40 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id jx16-20020a170906ca5000b00993664a9987sm9352542ejb.103.2023.07.26.02.04.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Jul 2023 02:04:40 -0700 (PDT)
-Date: Wed, 26 Jul 2023 11:04:39 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, evan@rivosinc.com, 
-	jszhang@kernel.org, apatel@ventanamicro.com, heiko@sntech.de
-Subject: Re: more /proc/cpuinfo & extension support related woes
-Message-ID: <20230726-44005036239541a139fe7b2e@orel>
-References: <20230725-friction-enlisted-7acb7c3c03bf@spud>
+	Wed, 26 Jul 2023 09:28:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1690363690; x=1721899690;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sWI8BN0I0gaWnWPq+rnd1lL/hQZJEhkF2KexTcF60WY=;
+  b=bcFHyxZ90KDwvHYtzXcaj0SIznqh3l4PA/Il0Y0mqhX2CrzommT24TYE
+   zYpNvXEGT0j29icrs1+OfJlfFc8oZmzGBKxhKO1gB3H+HwoZEJP9teF9m
+   FyWzQe7fwYlA4PHOA0/Gvv/ED7KA5cdcWtk6CJDYqyc0RAmE1YE6tpqOB
+   ApyOfYXniYOiGLYDxirc0xAUo3tnyUTbE+Npw+EOPTGt5SzA3xzeANEGN
+   rQin8Mi0K2E4htraPG0imDdH2lhcQqFH2L1azLQEfOK5sf5Or9OZTlLJn
+   4WD1TqMCe0MeG9j16xpAu7bB52Tg/ibK6q6z5LsbDDPr3j41Y4cGKt1ZV
+   g==;
+X-IronPort-AV: E=Sophos;i="6.01,231,1684825200"; 
+   d="asc'?scan'208";a="225284568"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Jul 2023 02:28:09 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Wed, 26 Jul 2023 02:28:08 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Wed, 26 Jul 2023 02:28:07 -0700
+Date: Wed, 26 Jul 2023 10:27:33 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: wang_yang <wang_yang6662023@163.com>
+CC: <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Wang Yang
+	<yangwang@nj.iscas.ac.cn>
+Subject: Re: [PATCH] RISC-V: Use GCC __builtin_prefetch() to implement
+ prefetch()
+Message-ID: <20230726-washing-scoreless-12f0cca83365@wendy>
+References: <20230726074732.32981-1-wang_yang6662023@163.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230725-friction-enlisted-7acb7c3c03bf@spud>
+In-Reply-To: <20230726074732.32981-1-wang_yang6662023@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230726_020443_222217_710A79D1 
-X-CRM114-Status: GOOD (  63.04  )
+X-CRM114-CacheID: sfid-20230726_022810_757812_D185ECBB 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,188 +80,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8224244275090585577=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 25, 2023 at 06:19:36PM +0100, Conor Dooley wrote:
-> Hey,
-> 
-> (I've only CCed a few people here, mostly those who were involved in the
-> riscv_has_extension_likely() stuff earlier this year)
-> 
-> I know using /proc/cpuinfo for extension detection is a bad idea, that's
-> not the point of this. We can go on about how it is bad, but people are
-> using it & we shouldn't knowingly lead them astray. For example, unlord
-> reported on IRC yesterday that, having built a kernel using a released
-> version of llvm, they were surprised to see illegal instruction
-> exceptions given /proc/cpuinfo had a v in the ISA string entry.
-> 
-> For most extensions that we support in the kernel at the moment, the
-> general flow is something along the lines of the DT etc gets parsed,
-> and then we set a bit if the hart supports the extension. For some
-> select extensions, that have additional properties in the DT, we perform
-> a check for those before setting the bit. Extensions that the kernel
-> does not understand get ignored as it does not know what to look for in
-> the isa string representation.
-> 
-> As a result, the kernel populates a list of neither the extensions
-> supported by the hart nor a list of the extensions supported by the
-> running kernel. Instead, its something awkward in the middle - a list
-> of extensions that a kernel built from this source code is aware of
-> available on this platform.
-> 
-> For the case where the system, but not the kernel, supports vector, we
-> do what looks like a weird dance*, where we set up vsize, but then mask
-> off the hwcap bit:
-> 
-> 	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-> 		riscv_v_setup_vsize();
-> 		/*
-> 		 * ISA string in device tree might have 'v' flag, but
-> 		 * CONFIG_RISCV_ISA_V is disabled in kernel.
-> 		 * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
-> 		 */
-> 		if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
-> 			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
-> 	}
-> 	* riscv_v_setup_vsize() w/o a return check should be a NOP when
-> 	the config option is disabled.
-> 
-> Note that only the hwcap bit is masked, but not the corresponding
-> extension support tracking bit in riscv_isa. I'd swear I recall talking
-> to Andy about how this could be problematic w.r.t. false reporting of
-> some variety, I'll have to go find it. It is (I think) the same for any
-> of the other extensions parsed from DT that has a Kconfig option that
-> must be set before userspace can use it, such as F & D.
-> 
-> Either way, this becomes problematic for /proc/cpuinfo, where we do:
-> 	static void print_isa_ext(struct seq_file *f)
-> 	{
-> 		struct riscv_isa_ext_data *edata;
-> 		int i = 0, arr_sz;
-> 	
-> 		arr_sz = ARRAY_SIZE(isa_ext_arr) - 1;
-> 	
-> 		/* No extension support available */
-> 		if (arr_sz <= 0)
-> 			return;
-> 	
-> 		for (i = 0; i <= arr_sz; i++) {
-> 			edata = &isa_ext_arr[i];
-> 			if (!__riscv_isa_extension_available(NULL, edata->isa_ext_id))
-> 				continue;
-> 			seq_printf(f, "_%s", edata->uprop);
-> 		}
-> 	}
-> 
-> The issue here is the call to __riscv_isa_extension_available() which,
-> with a NULL first argument, will use the riscv_isa bitmask that contains,
-> as described above, a list of extensions that a kernel built from this
-> source code is aware of that are available on this platform.
-> 
-> This also impacts riscv_has_extension_[un]likely(), which operates on a
-> similar premise. has_vector(), has_svnapot & has_fpu(), which are the
-> users of riscv_has_extension_[un]likely() don't suffer here, because when
-> their config option is unset, they resolve to `return -EOPNOTSUPP;` or
-> similar.
-> 
-> Other users of __riscv_isa_extension_available() I have not evaluated
-> yet, but there are quite a few, scattered in various places, including
-> kvm & hwprobe.
-> 
-> I think we might've just overused this particular bit of information for
-> various purposes & screwed ourselves a bit. There are a few main places
-> this information is used:
-> 
-> 1 Figuring what exactly the hardware supports during boot. Evan has
->   added per-CPU tracking of this, although the kernel is limited here to
->   the subset that it knows AND further restricted by a call to
->   riscv_isa_extension_check(). This we don't actually use yet after
->   boot, but Evan has a user on the lists. This per-CPU tracking is then
->   used to create and LCD set of extensions that drives
->   __riscv_isa_extension_available().
-> 
-> 2 Telling userspace what extensions are supported. However, by what? The
->   running-kernel & hw combo? The hardware? I tried to read the hwprobe
->   doc and couldn't tell. /proc/cpuinfo, as I already said, is a
->   mixed-mess, but hwprobe should mean "this extension is supported by
->   the hardware (or firmware) and you can use this without a concern",
->   right? Evan's proposed per-CPU reporting here adds a third thing to
->   the mix, but is intended to (AFAIU) represent the set of
->   known-to-the-kernel extensions that each hart supports, regardless of
->   whether the kernel itself supports them.
-> 
-> 3 Setting dynamic code paths in the kernel. For example, if the hardware
->   supports Zbb, patch in the string manip routines. This is distinct
->   from telling userspace it can use the extension, since something like
->   Zbb can be used by userspace even if the kernel doesn't touch it.
-> 
-> 4 Telling in-kernel users what extensions they can use. This, I figure,
->   is more along the lines of my theorised meaning for hwprobe.
-> 
-> I think for case 3, we are mostly okay. Either this sort of code uses
-> alternatives, that have an in-built config dependency, or the
-> has_whatever() stuff that has an alternative implementation if the
-> correct config option is not set.
-> 
-> For case 2, I think hwprobe is doing the right thing (for now) but
-> /proc/cpuinfo needs to be changed.
-> 
-> Case 4 probably needs an audit to make sure that nothing is going
-> awry. I'll go have a look through the users.
-> 
-> If other people think splitting this up a worthwhile endeavour, I'll
-> go write some patches. I do FWIW. Or maybe I am overlooking something
-> that makes this less of a problem than I think. LMK if so :)
-> 
-> Thanks,
-> Conor.
+--===============8224244275090585577==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="7z2nzsGN1jDIioBs"
+Content-Disposition: inline
 
-Hi Conor,
+--7z2nzsGN1jDIioBs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Here's a summary of my thoughts, which probably aren't adding anything new
-to this
+Hey,
 
- - The kernel needs per-hart bitmaps expressing what extensions are
-   supported for each given hart.
+On Wed, Jul 26, 2023 at 03:47:32PM +0800, wang_yang wrote:
+>  GCC's __builtin_prefetch() was introduced a long time ago, all supported=
+ GCC
+>  versions have it.So this patch is to use it for implementing the prefetc=
+h.
+>=20
+>  RISC-V Cache Management Operation instructions has been supported by GCC=
+ last
+>  year.you can refer to
+>  https://github.com/gcc-mirror/gcc/commit/3df3ca9014f94fe4af07444fea19b4a=
+b29ba8e73
 
- - The kernel needs a bitmap expressing the LCD of extensions across all
-   harts.
+This should be in a Link: tag.
 
- (The two bitmaps are clearly expressing the intersection of what's
-  supported by a hart and what the kernel is aware of, since the kernel
-  must allocate the bits.)
+>  It is worth noting that CPU based on RISC-V should support Zicbop extens=
+ion.
 
- - Extensions in DT/ACPI that the kernel is unaware of get ignored by
-   the kernel and not exposed to userspace (if the extensions are for
-   U-mode and U-mode has another way of determining their presence to
-   use them, then good for U-mode)
+How do you intend determining whether the CPU supports Zicbop?
 
- - The kernel will combine information from one of the two bitmaps listed
-   above with other information, such as config information, to decide
-   when / if an extension should be used by the kernel and/or exposed to
-   userspace (it'd be good to have a consistent API for these types of
-   checks which combine extension presence with other information)
+>  This has been already done on other architectures (see the commit:
+>  https://github.com/torvalds/linux/commit/0453fb3c528c5eb3483441a466b24a4=
+cb409eec5).
 
- - The kernel will expose sanitized extension information to userspace.
-   S-mode only extensions do not need to be exposed and extensions that
-   require kernel support should only be exposed when the kernel is
-   willing and able to support them. Additional properties of extensions,
-   such as block sizes, also need to be exposed (exposure is done through
-   hwprobe)
+That's not how to describe commits, please see how that is done
+elsewhere in the git history.
 
-I think we have most/all the above already, but the audits you've
-volunteered to do would be welcome, along with maybe documenting
-it all somewhere. Then, after that, all that's left is the "what to
-do with /proc/cpuinfo and hwcap?" question. Can we simply freeze
-what extensions are exposed through them and mark them as deprecated?
+>=20
+> Signed-off-by: Wang Yang <yangwang@nj.iscas.ac.cn>
+
+WARNING: Possible unwrapped commit description (prefer a maximum 75 chars p=
+er line)
+#6:=20
+ GCC's __builtin_prefetch() was introduced a long time ago, all supported G=
+CC
+
+ERROR: Missing Signed-off-by: line by nominal patch author 'wang_yang <wang=
+_yang6662023@163.com>'
+
+> ---
+>  arch/riscv/include/asm/processor.h | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+>=20
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/=
+processor.h
+> index c950a8d9edef..f16d4c85ca5b 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -70,6 +70,17 @@ extern void start_thread(struct pt_regs *regs,
+> =20
+>  extern unsigned long __get_wchan(struct task_struct *p);
+> =20
+> +#define ARCH_HAS_PREFETCH
+> +static inline void prefetch(const void *ptr)
+> +{
+> +	__builtin_prefetch(ptr, 0, 3);
+
+As far as I can tell, this does not do anything and will be removed by
+the compiler. Please take a look at how other extensions are implemented.
+
+Also, why 3? (Your answer should be in the commit message)
 
 Thanks,
-drew
+Conor.
+
+> +}
+> +
+> +#define ARCH_HAS_PREFETCHW
+> +static inline void prefetchw(const void *ptr)
+> +{
+> +	__builtin_prefetch(ptr, 1, 3);
+> +}
+> =20
+>  static inline void wait_for_interrupt(void)
+>  {
+> --=20
+> 2.34.1
+>=20
+
+--7z2nzsGN1jDIioBs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMDnBQAKCRB4tDGHoIJi
+0im4AP4zuaPEjwNldgorLZ7XQnAcFueQvdQrx0h7e6ZAN6oYzwD/eO+uxgIz3j5r
+iG/Dye9EddOEg2EZ5jMAWCkWn+jHFgk=
+=kzQ1
+-----END PGP SIGNATURE-----
+
+--7z2nzsGN1jDIioBs--
+
+
+--===============8224244275090585577==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8224244275090585577==--
+
