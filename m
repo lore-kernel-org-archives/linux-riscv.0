@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A45C001DC
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 10:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75730C001E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 10:59:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c/sfasb5MVObpyWrtsbo6sCML/glmjADz+OtokfXcOY=; b=Mxsqr2MV/kOFSh
-	CxMn3+LaXeAfAa1bpDxCfJRxLVxQFVZiLkY6xpTowk/P5kiVIsekMFkon+oBwtretoCaS21XsuYJS
-	JL5ByXGg57jZJE6MB5Z8LJG0HBSRjsArffZcTcy4tl4OLUPsUnNJ+yFceenEe+p0gTZ8HDInTXxwP
-	MKgahX6126xgNUpfRqS8MHsSq8TOHbZ+YY0tTVsp9bVy14u666VNaqZoDA5/Jj9rJmNialcmltCgq
-	H8XIXb6cSZZeLlOVnNjblIEglahaID4JC9U0TASdm9N/vJZwO+A0l7jmFkP+qtF380Ln6yTm70qV7
-	+vqJOBzp6uYD4tlVF2Zg==;
+	List-Owner; bh=lIOug0QgnbE/OkEH/Ib9Ids/XyWy6AbpuXBbmy12Qi4=; b=VFjdNwaKTzSu/A
+	TJUlT9UpBy0dmhe5e261dp2JrclUPLWFmKAjTdF3EIBw/NQo/ZF5auOsfPFEneoQlFjBJ9YjtF4SV
+	lUhE7A/QK2avTAaSV4mIvTLCQ5rQfJWJG3M82FmQwElEkNCy6h1dx4xFG04mAF4Esib+DnO+Su9gG
+	EnQQPKEIKePlbwpDIoKIq2si+IhKLq24KNTPbqHNwnR7bLXL/KxR0Pjan0HGu2DRMBF7yQRQ5VFCi
+	lB6bO6foRloh8ggG0+JBmQesX9jk5A0seFm3AzKSJTUPXRR/CbjPKoEs6JMPx8RzbLpyl+Zv3K1zp
+	ysb7ykIxMKmYkGf26Yew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOycK-00D7iE-1f;
-	Thu, 27 Jul 2023 10:53:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qOyhw-00DAIW-21;
+	Thu, 27 Jul 2023 10:59:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOycC-00D7e0-1q;
-	Thu, 27 Jul 2023 10:53:08 +0000
+	id 1qOyhq-00DAEY-23;
+	Thu, 27 Jul 2023 10:58:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A55D261E26;
-	Thu, 27 Jul 2023 10:53:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DC10C433C7;
-	Thu, 27 Jul 2023 10:53:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E08C261DF7;
+	Thu, 27 Jul 2023 10:58:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0635C433C8;
+	Thu, 27 Jul 2023 10:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690455183;
-	bh=Kf3PoZcaGR2gkOy5bI0LwvtY2SC896CCkSXbSLWkFBc=;
+	s=k20201202; t=1690455533;
+	bh=n3RfNCdiWPuTagE5B1chVs/fd0EBtBaj2u5rwXXs0ds=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jPiusiKewOUry6ypAvPniDaxOhUSPXIOCXtTsmNNz+/7gz1EFs7E8kzftW2B4RaoB
-	 cjQ1HUyrhUcWgfrvkf+Vxpa/PRNM1vtXi8BIA8Hn9EXNo/cR3/WvZaW+dQM8fHLZmZ
-	 VVCwZmVHCM7nJ80nDfcS+mKecRzQlNH/Yl8WEHhsCulky2Ia7ezh8YBkfb2O22fY1m
-	 opNlycFD/nAxb6Qb8w9vsszetxEoy9mV2HE2PvX457L+jGtKCOeEklSA4wdsTxf0oT
-	 bSgbizad+4N4QYmI8SK9TxqZ/GFtZs53ijAxdu4PdAOOm/xLWZ+fFl4HLASo9h7uiF
-	 qBZ5GfHonID0A==
+	b=EILD8QMz884HU9n3FncxAZXZLiZzTydZFRF/+j6qi81VvqCha4feBndzDazaM9ECa
+	 yGVwi8Bfz1f/u4P2fYymjfrwkYmEYuT40s5tQprY3d6pn2NC3MKtreOk0qndrDFWCy
+	 Yhnbh3uCmiaqxeNN0C0DUZ4Py8ngmrUxMuDEMjsu0B0s4wZpZ5tOJUQRzbAkcOmU9Q
+	 f8t8ojo/epvaRfffiqH8SlTjhuZ+MOMOTZo2jgxWAK8IAXJB7aFUvPD8NnoM0TuLRd
+	 F7bYnmZ9foyBCrEKFBDvUcRQv+7fgNjbzRd182O9u2JGyBII5G1Y+Roc2zMmcIjsMY
+	 VA4krsCvvYu+w==
 Received: from [104.132.45.102] (helo=wait-a-minute.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1qOyc8-00HKTs-J2;
-	Thu, 27 Jul 2023 11:53:00 +0100
-Date: Thu, 27 Jul 2023 11:53:00 +0100
-Message-ID: <87sf99r5gz.wl-maz@kernel.org>
+	id 1qOyhm-00HKZG-6a;
+	Thu, 27 Jul 2023 11:58:50 +0100
+Date: Thu, 27 Jul 2023 11:58:50 +0100
+Message-ID: <87r0otr579.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Raghavendra Rao Ananta <rananta@google.com>
 Cc: Oliver Upton <oliver.upton@linux.dev>,
@@ -74,23 +74,24 @@ Cc: Oliver Upton <oliver.upton@linux.dev>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Gavin Shan <gshan@redhat.com>,
 	Shaoqin Huang <shahuang@redhat.com>
-Subject: Re: [PATCH v7 05/12] KVM: Move kvm_arch_flush_remote_tlbs_memslot() to common code
-In-Reply-To: <20230722022251.3446223-6-rananta@google.com>
+Subject: Re: [PATCH v7 06/12] arm64: tlb: Refactor the core flush algorithm of __flush_tlb_range
+In-Reply-To: <20230722022251.3446223-7-rananta@google.com>
 References: <20230722022251.3446223-1-rananta@google.com>
-	<20230722022251.3446223-6-rananta@google.com>
+	<20230722022251.3446223-7-rananta@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
  (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 X-SA-Exim-Connect-IP: 104.132.45.102
-X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, gshan@redhat.com, shahuang@redhat.com
+X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, catalin.marinas@arm.com, gshan@redhat.com, shahuang@redhat.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_035304_732433_AF8AFF49 
-X-CRM114-Status: GOOD (  26.69  )
+X-CRM114-CacheID: sfid-20230727_035854_775783_986A6C2E 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,63 +108,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Jul 2023 03:22:44 +0100,
+On Sat, 22 Jul 2023 03:22:45 +0100,
 Raghavendra Rao Ananta <rananta@google.com> wrote:
 > 
-> From: David Matlack <dmatlack@google.com>
+> Currently, the core TLB flush functionality of __flush_tlb_range()
+> hardcodes vae1is (and variants) for the flush operation. In the
+> upcoming patches, the KVM code reuses this core algorithm with
+> ipas2e1is for range based TLB invalidations based on the IPA.
+> Hence, extract the core flush functionality of __flush_tlb_range()
+> into its own macro that accepts an 'op' argument to pass any
+> TLBI operation, such that other callers (KVM) can benefit.
 > 
-> Move kvm_arch_flush_remote_tlbs_memslot() to common code and drop
-> "arch_" from the name. kvm_arch_flush_remote_tlbs_memslot() is just a
-> range-based TLB invalidation where the range is defined by the memslot.
-> Now that kvm_flush_remote_tlbs_range() can be called from common code we
-> can just use that and drop a bunch of duplicate code from the arch
-> directories.
+> No functional changes intended.
 > 
-> Note this adds a lockdep assertion for slots_lock being held when
-> calling kvm_flush_remote_tlbs_memslot(), which was previously only
-> asserted on x86. MIPS has calls to kvm_flush_remote_tlbs_memslot(),
-> but they all hold the slots_lock, so the lockdep assertion continues to
-> hold true.
-> 
-> Also drop the CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT ifdef gating
-> kvm_flush_remote_tlbs_memslot(), since it is no longer necessary.
-> 
-> Signed-off-by: David Matlack <dmatlack@google.com>
 > Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 > Reviewed-by: Gavin Shan <gshan@redhat.com>
 > Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
 > ---
->  arch/arm64/kvm/arm.c     |  6 ------
->  arch/mips/kvm/mips.c     | 10 ++--------
->  arch/riscv/kvm/mmu.c     |  6 ------
->  arch/x86/kvm/mmu/mmu.c   | 16 +---------------
->  arch/x86/kvm/x86.c       |  2 +-
->  include/linux/kvm_host.h |  7 +++----
->  virt/kvm/kvm_main.c      | 18 ++++++++++++++++--
->  7 files changed, 23 insertions(+), 42 deletions(-)
->
-
-[...]
-
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 804470fccac7..58213cc4b9b9 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -379,6 +379,20 @@ void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages)
->  	kvm_flush_remote_tlbs(kvm);
->  }
+>  arch/arm64/include/asm/tlbflush.h | 109 +++++++++++++++---------------
+>  1 file changed, 56 insertions(+), 53 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 412a3b9a3c25..f7fafba25add 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -278,14 +278,62 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
+>   */
+>  #define MAX_TLBI_OPS	PTRS_PER_PTE
 >  
-> +void kvm_flush_remote_tlbs_memslot(struct kvm *kvm,
-> +				   const struct kvm_memory_slot *memslot)
-> +{
-> +	/*
-> +	 * All current use cases for flushing the TLBs for a specific memslot
-> +	 * related to dirty logging, and many do the TLB flush out of mmu_lock.
+> +/* When the CPU does not support TLB range operations, flush the TLB
+> + * entries one by one at the granularity of 'stride'. If the TLB
+> + * range ops are supported, then:
 
-I appreciate this is a copy paste of an existing comment, but I can't
-parse it. My command of the English language is notoriously
-approximate, but it feels that something is missing in the first
-sentence, such as a verb.
+Comment format (the original was correct).
+
+> + *
+> + * 1. If 'pages' is odd, flush the first page through non-range
+> + *    operations;
+> + *
+> + * 2. For remaining pages: the minimum range granularity is decided
+> + *    by 'scale', so multiple range TLBI operations may be required.
+> + *    Start from scale = 0, flush the corresponding number of pages
+> + *    ((num+1)*2^(5*scale+1) starting from 'addr'), then increase it
+> + *    until no pages left.
+> + *
+> + * Note that certain ranges can be represented by either num = 31 and
+> + * scale or num = 0 and scale + 1. The loop below favours the latter
+> + * since num is limited to 30 by the __TLBI_RANGE_NUM() macro.
+> + */
+> +#define __flush_tlb_range_op(op, start, pages, stride,			\
+> +				asid, tlb_level, tlbi_user)		\
+
+If you make this a common macro, please document the parameters, and
+what the constraints are. For example, what does tlbi_user mean for an
+IPA invalidation?
 
 	M.
 
