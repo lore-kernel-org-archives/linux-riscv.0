@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F82C04A6A
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 13:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C17CC001DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 13:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AyuGwU0p8qA+P1Vwu0JbtmdIn8MJdsxR9LjAit70mgA=; b=BmrlqnlYLA+zj+
-	CdOEoPfkLK/LABq7omPwo5wchV+tmUZSp8Z3dtu/r5ElFL5SkK4GdZt46VVT1PrLy/nihg5ugMean
-	Moi1FTqUFudhNi2p7t2c+WxykyAyFbj5YVxCy3ww8AGEVF/mCv4AneWoirrDbmLYAgnBdIb1xBKVU
-	KF/UxAbCWV7D3yNTLZih6vAUv5s+gPE9D2xjYtvStD2MXzyJg2R7a7DCHru4Ytdle5GFDy9mZd102
-	AVMUmrvvPIa8gj3OPKkaTmaQcRHTcQr4km67mEzF3MWg40/UZpmAk3cl9NwfE3wpf5isCUhyNcdSr
-	+lSXdXfwi7OayLIEZfyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6sGOuwJ3GkQlGfY4VhSBXAld5MiwCzrOsAGVL6b87ng=; b=rMlF+qeqXmaro/mF8E8iwC1nEi
+	GN1F6uR4A09va6diPIv6nY8TTl+1+HLagOsFF6+jWFVabpfZ1tlEAJ9Z6uCs5VIS95MXABVBN6jM2
+	3G9W0Ysnd7i/ycc26a7/+t04aRQ0EKqYDl5t7hJBR+98g+Jp+BcO25QyDKHZyWJHoKkilOgariamA
+	3huKax6cqOnCS4ks7aTbtyrIXvU6/BewG9/0lB6dzbpZuRwIXKeAK/s1BvI+j8qV5ndlqPgZUoD8K
+	/ZNkwKrfQAJzB/LicDvjhMA9zacm4Cg+xo9ayMFOaYm2fDYzG9erX6fDaufU1YN7qVMVuwFk2DQ1w
+	hyOgP3hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0n3-00ENsU-0n;
-	Thu, 27 Jul 2023 13:12:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qP18y-00Ebt1-2W;
+	Thu, 27 Jul 2023 13:35:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0my-00ENnm-25;
-	Thu, 27 Jul 2023 13:12:22 +0000
+	id 1qP18v-00EbpN-06
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Jul 2023 13:35:02 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 184F261E6C;
-	Thu, 27 Jul 2023 13:12:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75D31C433C8;
-	Thu, 27 Jul 2023 13:12:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 75C9561E87;
+	Thu, 27 Jul 2023 13:35:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81350C433C7;
+	Thu, 27 Jul 2023 13:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690463539;
-	bh=9dsD6qht9F/b5jq523+Sku0tJDHSRASAuDdE3hK28X8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FYECEGQ5Fy7k8XN9uei3Ju2nUDmE/L0NnLipfyqsyZp0k0r9HpmtRnuPeGjH1CkdR
-	 Ss4AtRlEpUv4wNES6j9km4m+th3oQGt0nejciOeOhHBRUpADqErk8n6a4MNa2wdAwF
-	 vySWhTE9z3UIA0CRdNXQQ2to0/GoGRCXCYA0vmcipvKXFDXWds3GCedCykFFylQ3wQ
-	 z6uGkXRlNwgApJUWUe0wIw3rYuOhlzPKxvTI802CNJkqB++IigCuhCP0kbfoHZpSzN
-	 rENDcPTa/y9xYBw2ctxR7P2DeMq/O1y3uYVouqLIfpPH+tRU9XOr7ASAJh/GfCzVFW
-	 a5x6QZKhfqNnw==
-Received: from [104.132.45.102] (helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1qP0mu-00HMdJ-Ub;
-	Thu, 27 Jul 2023 14:12:17 +0100
-Date: Thu, 27 Jul 2023 14:12:16 +0100
-Message-ID: <87jzulqz0v.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Jing Zhang <jingzhangos@google.com>,
-	Reiji Watanabe <reijiw@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	David Matlack <dmatlack@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org
-Subject: Re: [PATCH v7 12/12] KVM: arm64: Use TLBI range-based intructions for unmap
-In-Reply-To: <20230722022251.3446223-13-rananta@google.com>
-References: <20230722022251.3446223-1-rananta@google.com>
-	<20230722022251.3446223-13-rananta@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 104.132.45.102
-X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1690464899;
+	bh=ub3Ru2u4FgF2jnEfV/jZZTeojhMCgK49KeNRHdZNOKw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BAwT2d+6QEh1uThhtytBrxaplR7FnJdX/sXrZSJqKtD7dRNrWiNH2GeWvawbV/Z6T
+	 TbY7CIM/qsmty0CsyxLJMqCnjTrigwVs/gz7GfE58diVZY7BZ6sH83ldTRzlz9Myb2
+	 4XPsEVfqvRGdC1e59nU5OPvfLxgYT6/lNpEegceNyvwIuCEB6sBH8hWIzFn9m5TDoi
+	 S9y5bex7BMe9x57sNiBQwD8VltG9uZ6dkh0rf1xyCG8RLjWTv2H1B0/kc7kcs0kkK4
+	 vnmMkuk6EQx2omfloK6fSOmmo6CYWheeC2lzcID0ya3yi1OX24xPkM0rvYAaoWFoEU
+	 PjBcoo3sW1fCw==
+Date: Thu, 27 Jul 2023 14:34:56 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Chen Jiahao <chenjiahao16@huawei.com>
+Cc: conor.dooley@microchip.com, daire.mcnamara@microchip.com,
+	broonie@kernel.org, linux-riscv@lists.infradead.org,
+	linux-spi@vger.kernel.org
+Subject: Re: [PATCH -next] spi: microchip-core: Clean up redundant
+ dev_err_probe()
+Message-ID: <20230727-curvature-register-6eb0a2c60a8b@spud>
+References: <20230727130049.2810959-1-chenjiahao16@huawei.com>
+MIME-Version: 1.0
+In-Reply-To: <20230727130049.2810959-1-chenjiahao16@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_061220_788488_F74D18FA 
-X-CRM114-Status: GOOD (  31.13  )
+X-CRM114-CacheID: sfid-20230727_063501_126045_6AE502C0 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,92 +71,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1317806251050017598=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Jul 2023 03:22:51 +0100,
-Raghavendra Rao Ananta <rananta@google.com> wrote:
-> 
-> The current implementation of the stage-2 unmap walker traverses
-> the given range and, as a part of break-before-make, performs
-> TLB invalidations with a DSB for every PTE. A multitude of this
-> combination could cause a performance bottleneck on some systems.
-> 
-> Hence, if the system supports FEAT_TLBIRANGE, defer the TLB
-> invalidations until the entire walk is finished, and then
-> use range-based instructions to invalidate the TLBs in one go.
-> Condition deferred TLB invalidation on the system supporting FWB,
-> as the optimization is entirely pointless when the unmap walker
-> needs to perform CMOs.
-> 
-> Rename stage2_put_pte() to stage2_unmap_put_pte() as the function
-> now serves the stage-2 unmap walker specifically, rather than
-> acting generic.
-> 
-> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+
+--===============1317806251050017598==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="pCz3CLMzY8Oet4m5"
+Content-Disposition: inline
+
+
+--pCz3CLMzY8Oet4m5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Jul 27, 2023 at 09:00:49PM +0800, Chen Jiahao wrote:
+> Refering to platform_get_irq()'s definition, the return value has
+> already been checked if ret < 0, and printed via dev_err_probe().
+> Calling dev_err_probe() one more time outside platform_get_irq()
+> is obviously redundant.
+>=20
+> Furthermore, platform_get_irq() will never return irq equals 0,
+> removing spi->irq =3D=3D 0 checking to clean it up.
+>=20
+> Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
 > ---
->  arch/arm64/kvm/hyp/pgtable.c | 67 +++++++++++++++++++++++++++++++-----
->  1 file changed, 58 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index 5ef098af1736..cf88933a2ea0 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -831,16 +831,54 @@ static void stage2_make_pte(const struct kvm_pgtable_visit_ctx *ctx, kvm_pte_t n
->  	smp_store_release(ctx->ptep, new);
->  }
->  
-> -static void stage2_put_pte(const struct kvm_pgtable_visit_ctx *ctx, struct kvm_s2_mmu *mmu,
-> -			   struct kvm_pgtable_mm_ops *mm_ops)
-> +struct stage2_unmap_data {
-> +	struct kvm_pgtable *pgt;
-> +	bool defer_tlb_flush_init;
-> +};
-> +
-> +static bool __stage2_unmap_defer_tlb_flush(struct kvm_pgtable *pgt)
-> +{
-> +	/*
-> +	 * If FEAT_TLBIRANGE is implemented, defer the individual
-> +	 * TLB invalidations until the entire walk is finished, and
-> +	 * then use the range-based TLBI instructions to do the
-> +	 * invalidations. Condition deferred TLB invalidation on the
-> +	 * system supporting FWB, as the optimization is entirely
-> +	 * pointless when the unmap walker needs to perform CMOs.
-> +	 */
-> +	return system_supports_tlb_range() && stage2_has_fwb(pgt);
-> +}
-> +
-> +static bool stage2_unmap_defer_tlb_flush(struct stage2_unmap_data *unmap_data)
-> +{
-> +	bool defer_tlb_flush = __stage2_unmap_defer_tlb_flush(unmap_data->pgt);
-> +
-> +	/*
-> +	 * Since __stage2_unmap_defer_tlb_flush() is based on alternative
-> +	 * patching and the TLBIs' operations behavior depend on this,
-> +	 * track if there's any change in the state during the unmap sequence.
-> +	 */
-> +	WARN_ON(unmap_data->defer_tlb_flush_init != defer_tlb_flush);
-> +	return defer_tlb_flush;
+>  drivers/spi/spi-microchip-core.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/spi/spi-microchip-core.c b/drivers/spi/spi-microchip=
+-core.c
+> index b59e8a0c5b97..ac3b7b163db4 100644
+> --- a/drivers/spi/spi-microchip-core.c
+> +++ b/drivers/spi/spi-microchip-core.c
+> @@ -530,10 +530,8 @@ static int mchp_corespi_probe(struct platform_device=
+ *pdev)
+>  		return PTR_ERR(spi->regs);
+> =20
+>  	spi->irq =3D platform_get_irq(pdev, 0);
+> -	if (spi->irq <=3D 0)
+> -		return dev_err_probe(&pdev->dev, -ENXIO,
+> -				     "invalid IRQ %d for SPI controller\n",
+> -				     spi->irq);
+> +	if (spi->irq < 0)
+> +		return -ENXIO;
 
-I really don't understand what you're testing here. The ability to
-defer TLB invalidation is a function of the system capabilities
-(range+FWB) and a single flag that is only set on the host for pKVM.
+platform_get_irq() returns an ERRNO that can now be propagated since
+the special case for 0 no longer requires handling, no?
 
-How could that change in the middle of the life of the system? if
-further begs the question about the need for the unmap_data data
-structure.
+> =20
+>  	ret =3D devm_request_irq(&pdev->dev, spi->irq, mchp_corespi_interrupt,
+>  			       IRQF_SHARED, dev_name(&pdev->dev), master);
+> --=20
+> 2.34.1
+>=20
 
-It looks to me that we could simply pass the pgt pointer around and be
-done with it. Am I missing something obvious?
+--pCz3CLMzY8Oet4m5
+Content-Type: application/pgp-signature; name="signature.asc"
 
-	M.
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Without deviation from the norm, progress is not possible.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMJycQAKCRB4tDGHoIJi
+0vbKAQDMIGi7PA8ESbPR70ip9vtX/4dk1Xr2XaPRMdGNy4cXggEA8+0oD8meN1hd
+QVSVVnCn0vufkZQ9aTOA4rvJIa9OFgk=
+=jbY1
+-----END PGP SIGNATURE-----
+
+--pCz3CLMzY8Oet4m5--
+
+
+--===============1317806251050017598==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1317806251050017598==--
+
