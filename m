@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C7DC001E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 16:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8453EC04A6A
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 16:23:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QZeiIF74cz0lLu2N+/+QUwQiZWFhWXT07Opm3uK+blk=; b=qrSmJFM1botDde
-	XrSPSnAcUlN49uVzvdluZ+jvryleM8ZJ5IKmoP61Nb8tIgIY35UzgmpOgtdUCx7orUApN4/D9YUS/
-	ge953b8Fa68GESlMcIfzTRgdlw8jnKovPLD2gswAfpELty5ATJRYGDzCmKJztAyCKlLG93ocOJP5X
-	FVzK3SEMV0pCUTDeYG6K6ACINKtGZ29fK8LHD2wi3SeP92c+j5/hPz3bZTLro3QY5Nk0tQQfIuMU0
-	vQLgfVJgt29QWuI0hUCfgxK/zUHVh8UVVqGmljd2V3dVjxi7erkt/iLXdCcPn15q1hW49q1sC4gRN
-	iSulRzm39IaQhu9GHYNQ==;
+	List-Owner; bh=yFyBK/ZY5bcRjoG+w51ke2FSF01EiUFniqLAZAfO09o=; b=iv3l2Xviwab3Oq
+	Yax3Mgtdl4wSi1SOlAoKA9U4Z24VlkdVgAkRmZGugjjM8180SRwvzTVFyjW88cshHruOaCGqzxiLe
+	bpcAAZqtw8R8CMUrJbRvXvNU1liiG+YkJ/0GR8UZ/RtKxcnvzJvjNGnDRpy/OIE12ZLcxHp3xwMRT
+	/UguXNUwRNDUocUSjB8uSph2iRE/s7bPWa0AxtlNTKDya2GyAR+tEOrw+0WAOCouR9KVq6sOQRNcs
+	GpUleSoeH967ZqtzXpG/xO2puCUhDqsKmfuu1H1kZN0fEpffIjzAq6iUaje0EGcaQQ7R7zToVpzeG
+	2OyOTpoOVajvyeK5sP1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP3hh-00GTR9-1a;
-	Thu, 27 Jul 2023 16:19:05 +0000
+	id 1qP3lv-00GWCo-2X;
+	Thu, 27 Jul 2023 16:23:27 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP3he-00GTOe-1b
+	id 1qP3lt-00GWAw-1n
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jul 2023 16:19:03 +0000
+	Thu, 27 Jul 2023 16:23:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EC96161DC5;
-	Thu, 27 Jul 2023 16:19:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 480EAC433C7;
-	Thu, 27 Jul 2023 16:18:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0584161E06;
+	Thu, 27 Jul 2023 16:23:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2339BC433C7;
+	Thu, 27 Jul 2023 16:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690474741;
-	bh=cJ2cDKD5pRIvYteZ8B5krBjQ4B4gVvlooKDjuLtiIhU=;
+	s=k20201202; t=1690475004;
+	bh=TD7vS16IIuUgR5cYQWuElvIIyOIASC8KrZH5mzivc8c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eoEWnIFD83r351XEsxp9P0RXdeJV9VdRPJaqQPVxSVr+jN5IyccVQ+/S7XbnWF1Xd
-	 Fi+dY6eaQa23fbjGqg2iiL5vy4lk5My42x+IeOBgu6/Vz6lhzioUngM6bqQFiGNu0u
-	 wgRlTKneUqioguLi9gLciGvCkezMfKq77xSpfiEVbeBMvcEdXBnuz0eBMOKi9D4ZTo
-	 KqUZn6yavNDS4R4qWv8utnfN/dvR3VaY2wxM2oAx98sOa1SVtQn0Wv55LyLTdWCfej
-	 P7s8JBf02WimlJBXF6drFLzt7hynejm9FD0sQgC5VonCyvwRzgAuIXXGEA3y4z85Dc
-	 pYP+KCwIP6b6g==
-Date: Fri, 28 Jul 2023 00:07:23 +0800
+	b=NRAPajPHZHEkFEPS1peqox5tcJ7gM95Aa0aCNJgFLnZh76ZjtnFkuBVcnz2VozH3h
+	 qZDfeOyYsA4/tOhwZThD1Yql5NWDQyNp3Pj1ax0nmxIR4WnyLuATCbodU9ujfYW53u
+	 MCszD3oMGFT7emm3YOylZbPm+wk5j2slsAyhcAOJ65sBLz7/OOsnRbCh4xJ/DUq0Ky
+	 1tUlP9y7qi5KYE8aTkRm3LfNM0NvGsiHz4fenNnLWpEz+bnaYoolNpKOn9yy/Jt44z
+	 KwzX063DR7Y6SVY/+O7/Thx5Q5WG3hSSTpNkAXQLqX3mQEFEWksyReUFvFNGZxE/06
+	 Kp2Bh1KU3ydlA==
+Date: Fri, 28 Jul 2023 00:11:46 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Kwanghoon Son <k.son@samsung.com>
-Cc: 'Drew Fustini' <dfustini@baylibre.com>,
-	'Conor Dooley' <conor@kernel.org>, 'Guo Ren' <guoren@kernel.org>,
-	'Fu Wei' <wefu@redhat.com>, 'Rob Herring' <robh+dt@kernel.org>,
-	'Krzysztof Kozlowski' <krzysztof.kozlowski+dt@linaro.org>,
-	'Conor Dooley' <conor+dt@kernel.org>,
-	'Paul Walmsley' <paul.walmsley@sifive.com>,
-	'Palmer Dabbelt' <palmer@dabbelt.com>,
-	'Albert Ou' <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	'Robert Nelson' <robertcnelson@beagleboard.org>,
-	'Jason Kridner' <jkridner@beagleboard.org>
-Subject: Re: [PATCH 1/3] riscv: dts: thead: add BeagleV Ahead board device
- tree
-Message-ID: <ZMKWO2vksQn8dUR4@xhacker>
-References: <20230722-upstream-beaglev-ahead-dts-v1-0-ccda511357f4@baylibre.com>
- <20230722-upstream-beaglev-ahead-dts-v1-1-ccda511357f4@baylibre.com>
- <20230723-savor-trolling-e35ed4a7a751@spud>
- <ZL1jlacHj7sgNg8M@x1>
- <CGME20230724003542epcas1p4c6c8dbd042af792bc168e10c6e81e45d@epcas1p4.samsung.com>
- <ZL3Eenj4lGZDhZTM@xhacker>
- <000001d9c070$82638290$872a87b0$@samsung.com>
+To: Xi Ruoyao <xry111@linuxfromscratch.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 0/8] Add Sipeed Lichee Pi 4A RISC-V board support
+Message-ID: <ZMKXQpreSr47MFj6@xhacker>
+References: <20230617161529.2092-1-jszhang@kernel.org>
+ <c9a44f534071a6d67f1e21bafdb713793c559124.camel@linuxfromscratch.org>
+ <20230725-unheard-dingy-42f0fafe7216@wendy>
+ <ZL/jMYL3akl78ZZN@xhacker>
+ <3e0994dab495920ac590dc28d6b9d9765abe0c7e.camel@linuxfromscratch.org>
+ <ZME1J4mpVf5yth32@xhacker>
+ <866eab3e30a18c50742a75d62aee223fdc7e3cee.camel@linuxfromscratch.org>
+ <4986b92f1a5aa303a529c6004aaedd2184c3ccf7.camel@linuxfromscratch.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <000001d9c070$82638290$872a87b0$@samsung.com>
+In-Reply-To: <4986b92f1a5aa303a529c6004aaedd2184c3ccf7.camel@linuxfromscratch.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_091902_577297_B5FB4283 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20230727_092325_640118_88BD2730 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +87,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 27, 2023 at 06:55:37PM +0900, Kwanghoon Son wrote:
-> > On Sun, Jul 23, 2023 at 10:29:57AM -0700, Drew Fustini wrote:
-> > > On Sun, Jul 23, 2023 at 11:32:17AM +0100, Conor Dooley wrote:
-> > > > On Sat, Jul 22, 2023 at 02:55:39PM -0700, Drew Fustini wrote:
-> > > >
-> > > > > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> > > > > @@ -0,0 +1,61 @@
-> > > > > +// SPDX-License-Identifier: GPL-2.0
-> > > >
-> > > > Hmm, should this not be dual licensed?
-> > > > I notice the other th1520 stuff isn't either..
-> > >
-> > > Good point, I'll resubmit with a dual license.
-> > >
-> > > Jisheng: are you okay with the other arch/riscv/boot/dts/thead files
-> > > changing to a dual license?
-> > 
-> > When cooking the initial patch, I wrote the lpi4a dts files from
-> > scratch based on sipeed opened sch file, and currently only I made
-> > contributions to them, so it's easy to make the lpi4a dts files
-> > dual license.
-> 
-> Thanks for your work.
-> Is there any datasheet or user manual can get on public?
-
-Sorry I can't help on datasheet.
-
-> I'm going to contribute drivers in my spare time,
-> but it's hard to know the register file and dma information.
->  
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdWwgMjcsIDIwMjMgYXQgMDg6NTQ6NTlBTSArMDgwMCwgWGkgUnVveWFvIHdyb3Rl
+Ogo+IE9uIFRodSwgMjAyMy0wNy0yNyBhdCAwODoxNCArMDgwMCwgWGkgUnVveWFvIHdyb3RlOgo+
+ID4gT24gV2VkLCAyMDIzLTA3LTI2IGF0IDIzOjAwICswODAwLCBKaXNoZW5nIFpoYW5nIHdyb3Rl
+Ogo+ID4gPiB3aGljaCBkdHMgciB1IHVzaW5nPyBzZWUgYmVsb3cuCj4gPiA+IAo+ID4gPiA+IAo+
+ID4gPiA+IE9yIG1heWJlIG15IHRvb2xjaGFpbiAoR0NDIDEzLjEuMCwgQmludXRpbHMtMi40MCwg
+d2l0aCBubyBwYXRjaGVzKSBjYW4KPiA+ID4gPiBtaXNjb21waWxlIHRoZSBrZXJuZWw/Cj4gPiAK
+PiA+IC8qIHNuaXAgKi8KPiA+IAo+ID4gPiA+IEJvb3QgSEFSVCBJRMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIDogMAo+ID4gPiA+IEJvb3QgSEFSVCBEb21haW7CoMKgwqDCoMKgwqDCoMKgwqAg
+OiByb290Cj4gPiA+ID4gQm9vdCBIQVJUIFByaXYgVmVyc2lvbsKgwqDCoCA6IHYxLjExCj4gPiA+
+ID4gQm9vdCBIQVJUIEJhc2UgSVNBwqDCoMKgwqDCoMKgwqAgOiBydjY0aW1hZmRjdngKPiA+ID4g
+Cj4gPiA+IHdoYXQ/IEkgZG9uJ3QgdGhpbmsgdGhlIG1haW5saW5lIGR0cyBwcm92aWRlIHYgYW5k
+IHguIAo+ID4gCj4gPiBJIGNvcGllZCB0aGUgY29tcGlsZWQgYXJjaC9yaXNjdi9ib290L2R0cy90
+aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0Ygo+ID4gaW50byAvYm9vdCBhbmQgbG9hZGVkIGl0
+IHdpdGggdS1ib290ICJsb2FkIiBjb21tYW5kIG9udG8gMHg0NjAwMDAwMCwgYW5kCj4gPiBwYXNz
+ZWQgdGhpcyBhZGRyZXNzIHRvIHRoZSBib290aSBjb21tYW5kLgo+ID4gCj4gPiBCdXQgbWF5YmUg
+SSd2ZSBjb3BpZWQgdGhlIHdyb25nIGZpbGUgb3IgbWFkZSBzb21lIG90aGVyIG1pc3Rha2UuLi4g
+SSdsbAo+ID4gcmVjaGVjay4KPiAKPiBIbW0sIGFuZCBpZiBJIHJlYWQgT3BlblNCSSBjb2RlIGNv
+cnJlY3RseSwgdGhpcyBsaW5lIHJlZmxlY3RzIHRoZQo+IGNvbnRlbnQgb2YgdGhlIG1pc2EgQ1NS
+LCBub3QgdGhlIERUIHJpc2N2LGlzYSB2YWx1ZS4KPiAKCkFoYSBpbmRlZWQgdGhlICJ2eCIgaXNh
+IGV4dGVuc2lvbnMgYXJlIG5vdCBmcm9tIHRoZSBEVCByaXNjdixpc2EKcHJvcGVydHkuIEkgd2ls
+bCB0cnkgeW91ciBvcGVuc2JpL2xpbnV4L3Vib290IGNvbWJpbmF0aW9ucyBvbiBteQpscGk0YSBi
+b2FyZCB0b21vcnJvdy4KCj4gVGhlIGxvZyBvZiBzdWNjZXNzZnVsIGJvb3QgcHJvdmlkZWQgYnkg
+RHJldyBhbHNvIGNvbnRhaW5zCj4gInJ2NjRpbWFmZGN2eCI6Cj4gCj4gaHR0cHM6Ly9naXN0Lmdp
+dGh1Yi5jb20vcGRwNy8yMzI1OTU5NWE3NTcwZjFmMTEwODZkMjg2ZTE2ZGZiNgo+IAoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
