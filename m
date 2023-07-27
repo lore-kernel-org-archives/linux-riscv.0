@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DFEC0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 10:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4ACC0015E
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 10:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qB+23ecchjYDkGIzmn8fzgPat2H0gKxLwpaTMnh/L74=; b=Zivauq22lSmzSS
-	a8dG7Ky+qpn0N3bg7kVUMByyDw32YPhHVorb9YAIaGRIhTdHWQJgM6SeP9SnJPJKIh3ajBaJPIqkI
-	ak5bNpA1eXJJ7E2yd0svck7QbYcwbaL4g7rGLMsEwHDsWdIJYMLBV++9BvUJYWpcVqcw41l6Ya+Lo
-	96lrIkdM4Mbos9Gu2ngsXhMoz4Vi44Md0h3FcvDvTFfJhb5/+HynaNsHjw0mOfzx2p/xEh0IZ9M0w
-	YddtKEpeEyYtw9iJLktBlztQ5EiGl2L9Ww4vtxC2f6o3VHw2WUpC8QOf32Ks1xACHd5xFqMB0MYty
-	SS0mdXMzZROVexvkIotQ==;
+	List-Owner; bh=Ge72xN9RSg4+QbgW5vJvK8+N96T6jLxY4yT1wLX6UDs=; b=Bn7uXFCOsMhu1e
+	5XJ+xbiDI50BWHUImgwhQaGExfKF0aBucDvTOXeDHEoCoc/LFqwnMhy8vqeyeP1AlMiGbdEp9OvMj
+	nEwwsA07Bgm8AnHrJ8GqLKP0tgfd+MKunw0N3un5bfP1noVVlkgE0oZTeHVRHx4cGd/y/v61wBwHR
+	OoflqwjRZMESku723kn8ZVBDqdz+58PqFzeU92PJigE3qOuqg8mxlzNt/OYtSPsQ15FWnYkSvJi0Z
+	q19hrElb53CP2y8N0q3ghz2gD1LNXTNMQKwl6uNHch8RWQ20NpZpjfsT5CxNuEbqbi0qKu7dEzERa
+	IjOvK2FATcKkCtmRgWeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOyAt-00CzKI-0s;
-	Thu, 27 Jul 2023 10:24:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qOyBZ-00CzTc-2r;
+	Thu, 27 Jul 2023 10:25:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOyAn-00CzJD-1s;
-	Thu, 27 Jul 2023 10:24:47 +0000
+	id 1qOyBV-00CzRq-2O;
+	Thu, 27 Jul 2023 10:25:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B1AE661E0A;
-	Thu, 27 Jul 2023 10:24:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AF45C433C7;
-	Thu, 27 Jul 2023 10:24:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1992461DF7;
+	Thu, 27 Jul 2023 10:25:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71561C433C8;
+	Thu, 27 Jul 2023 10:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690453484;
-	bh=4dJnTdxPpOs7yn6/yYmeAXblymyOHLLkN8KCdq9mBq8=;
+	s=k20201202; t=1690453528;
+	bh=FJXkSwPbNKQ95t2XWfcMnomXfcixhy3pOfTMwv/ZpIY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=p/QjlPu21Qli95UDAiPYEux9bfi/bCv7dlTpizjIkk0xlBrhH9IQdL59/OqNGEwMs
-	 /Phd0+mL9qShJHtdNVoxdgFeiBMgt225WmcUUZYZuTexJb0wJQP8lTuyVFWsWZZEfT
-	 QtCuDtVSLScJWgBArzU/3bBcqw++uyt0av/ISu8ZbO0VRvhC5zLU3xlzFVYq2NgyLE
-	 7HUm9Gx5qBpoPF+DaJ6tV/mHONfGUn7uDiI0cBbgkQwqJRIH8x61oR3BrbfIg25/U1
-	 JZb+158uamEu5ywUmKeXuHrBV3Z5gZOmtHoSEBU68Kam5pVUYv7FmWFMBdRNtwgj/l
-	 UutD2auIY9BVw==
+	b=d34o//Y1Y5dfRtLOi0HwE+uJT9nrmc86QQYqcYJdz/AHsxhgaNQsqF7UP/xrRQ2NT
+	 w8XAntI7jmFAiqr/E/wpvRSLxf8uYhHIRwLomfc5yXPAGjUbx3beZtQNZ3NO8/bGfM
+	 SO5/yPRn5VmsYTc7wQYtVoHKkQRyfoXt+XI6wnSciqBudTsm5vTNHzV6U0EoZJ9zvp
+	 VEjRTroyGZQkKHhywR4iNOZS+o9Xy/q3CaBfdzJcrSXh3BtJWUfXdfO3scRNsBFKo2
+	 oEg05/s96neKp6o3O5RgRJGeS0EgRhuiHLkhrd/kdMqtGtukWh7A6507mmz3a6kWSD
+	 rjB0xXlHJI8dA==
 Received: from [104.132.45.102] (helo=wait-a-minute.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1qOyAj-00HK4x-J8;
-	Thu, 27 Jul 2023 11:24:41 +0100
-Date: Thu, 27 Jul 2023 11:24:41 +0100
-Message-ID: <87v8e5r6s6.wl-maz@kernel.org>
+	id 1qOyBR-00HK5u-Rg;
+	Thu, 27 Jul 2023 11:25:26 +0100
+Date: Thu, 27 Jul 2023 11:25:25 +0100
+Message-ID: <87tttpr6qy.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Raghavendra Rao Ananta <rananta@google.com>
 Cc: Oliver Upton <oliver.upton@linux.dev>,
@@ -73,25 +73,22 @@ Cc: Oliver Upton <oliver.upton@linux.dev>,
 	kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	Gavin Shan <gshan@redhat.com>,
-	"=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?=" <philmd@linaro.org>,
-	Shaoqin Huang <shahuang@redhat.com>
-Subject: Re: [PATCH v7 01/12] KVM: Rename kvm_arch_flush_remote_tlb() to kvm_arch_flush_remote_tlbs()
-In-Reply-To: <20230722022251.3446223-2-rananta@google.com>
+	kvm@vger.kernel.org
+Subject: Re: [PATCH v7 02/12] KVM: arm64: Use kvm_arch_flush_remote_tlbs()
+In-Reply-To: <20230722022251.3446223-3-rananta@google.com>
 References: <20230722022251.3446223-1-rananta@google.com>
-	<20230722022251.3446223-2-rananta@google.com>
+	<20230722022251.3446223-3-rananta@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
  (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 X-SA-Exim-Connect-IP: 104.132.45.102
-X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, gshan@redhat.com, philmd@linaro.org, shahuang@redhat.com
+X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_032445_711870_CA48B0CA 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20230727_032529_865889_7A7924B3 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +100,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCAyMiBKdWwgMjAyMyAwMzoyMjo0MCArMDEwMCwKUmFnaGF2ZW5kcmEgUmFvIEFuYW50
-YSA8cmFuYW50YUBnb29nbGUuY29tPiB3cm90ZToKPiAKPiBGcm9tOiBEYXZpZCBNYXRsYWNrIDxk
-bWF0bGFja0Bnb29nbGUuY29tPgo+IAo+IFJlbmFtZSBrdm1fYXJjaF9mbHVzaF9yZW1vdGVfdGxi
-KCkgYW5kIHRoZSBhc3NvY2lhdGVkIG1hY3JvCj4gX19LVk1fSEFWRV9BUkNIX0ZMVVNIX1JFTU9U
-RV9UTEIgdG8ga3ZtX2FyY2hfZmx1c2hfcmVtb3RlX3RsYnMoKSBhbmQKPiBfX0tWTV9IQVZFX0FS
-Q0hfRkxVU0hfUkVNT1RFX1RMQlMgcmVzcGVjdGl2ZWx5Lgo+IAo+IE1ha2luZyB0aGUgbmFtZSBw
-bHVyYWwgbWF0Y2hlcyBrdm1fZmx1c2hfcmVtb3RlX3RsYnMoKSBhbmQgbWFrZXMgaXQgbW9yZQo+
-IGNsZWFyIHRoYXQgdGhpcyBmdW5jdGlvbiBjYW4gYWZmZWN0IG1vcmUgdGhhbiBvbmUgcmVtb3Rl
-IFRMQi4KPiAKPiBObyBmdW5jdGlvbmFsIGNoYW5nZSBpbnRlbmRlZC4KPiAKPiBTaWduZWQtb2Zm
-LWJ5OiBEYXZpZCBNYXRsYWNrIDxkbWF0bGFja0Bnb29nbGUuY29tPgo+IFNpZ25lZC1vZmYtYnk6
-IFJhZ2hhdmVuZHJhIFJhbyBBbmFudGEgPHJhbmFudGFAZ29vZ2xlLmNvbT4KPiBSZXZpZXdlZC1i
-eTogR2F2aW4gU2hhbiA8Z3NoYW5AcmVkaGF0LmNvbT4KPiBSZXZpZXdlZC1ieTogUGhpbGlwcGUg
-TWF0aGlldS1EYXVkw6kgPHBoaWxtZEBsaW5hcm8ub3JnPgo+IFJldmlld2VkLWJ5OiBTaGFvcWlu
-IEh1YW5nIDxzaGFodWFuZ0ByZWRoYXQuY29tPgo+IC0tLQo+ICBhcmNoL21pcHMvaW5jbHVkZS9h
-c20va3ZtX2hvc3QuaCB8IDQgKystLQo+ICBhcmNoL21pcHMva3ZtL21pcHMuYyAgICAgICAgICAg
-ICB8IDIgKy0KPiAgYXJjaC94ODYvaW5jbHVkZS9hc20va3ZtX2hvc3QuaCAgfCA0ICsrLS0KPiAg
-aW5jbHVkZS9saW51eC9rdm1faG9zdC5oICAgICAgICAgfCA0ICsrLS0KPiAgdmlydC9rdm0va3Zt
-X21haW4uYyAgICAgICAgICAgICAgfCAyICstCj4gIDUgZmlsZXMgY2hhbmdlZCwgOCBpbnNlcnRp
-b25zKCspLCA4IGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL21pcHMvaW5jbHVk
-ZS9hc20va3ZtX2hvc3QuaCBiL2FyY2gvbWlwcy9pbmNsdWRlL2FzbS9rdm1faG9zdC5oCj4gaW5k
-ZXggMDRjZWRmOWY4ODExLi45YjBhZDhmM2JmMzIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9taXBzL2lu
-Y2x1ZGUvYXNtL2t2bV9ob3N0LmgKPiArKysgYi9hcmNoL21pcHMvaW5jbHVkZS9hc20va3ZtX2hv
-c3QuaAo+IEBAIC04OTYsNyArODk2LDcgQEAgc3RhdGljIGlubGluZSB2b2lkIGt2bV9hcmNoX3Nj
-aGVkX2luKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgaW50IGNwdSkge30KPiAgc3RhdGljIGlubGlu
-ZSB2b2lkIGt2bV9hcmNoX3ZjcHVfYmxvY2tpbmcoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KSB7fQo+
-ICBzdGF0aWMgaW5saW5lIHZvaWQga3ZtX2FyY2hfdmNwdV91bmJsb2NraW5nKHN0cnVjdCBrdm1f
-dmNwdSAqdmNwdSkge30KPiAgCj4gLSNkZWZpbmUgX19LVk1fSEFWRV9BUkNIX0ZMVVNIX1JFTU9U
-RV9UTEIKPiAtaW50IGt2bV9hcmNoX2ZsdXNoX3JlbW90ZV90bGIoc3RydWN0IGt2bSAqa3ZtKTsK
-PiArI2RlZmluZSBfX0tWTV9IQVZFX0FSQ0hfRkxVU0hfUkVNT1RFX1RMQlMKPiAraW50IGt2bV9h
-cmNoX2ZsdXNoX3JlbW90ZV90bGJzKHN0cnVjdCBrdm0gKmt2bSk7CgpIb3cgYWJvdXQgbWFraW5n
-IHRoaXMgcHJvdG90eXBlIGdsb2JhbD8gSSBkb24ndCBzZWUgYSBwb2ludCBpbiBoYXZpbmcKaXQg
-cGVyLWFyY2hpdGVjdHVyZSwgc3BlY2lhbGx5IGFzIHlvdSBhcmUgYWRkaW5nIGFybTY0IHRvIHRo
-YXQgbWl4IGluCnRoZSBmb2xsb3dpbmcgcGF0Y2guCgoJTS4KCi0tIApXaXRob3V0IGRldmlhdGlv
-biBmcm9tIHRoZSBub3JtLCBwcm9ncmVzcyBpcyBub3QgcG9zc2libGUuCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sat, 22 Jul 2023 03:22:41 +0100,
+Raghavendra Rao Ananta <rananta@google.com> wrote:
+> 
+> Stop depending on CONFIG_HAVE_KVM_ARCH_TLB_FLUSH_ALL and opt to
+> standardize on kvm_arch_flush_remote_tlbs() since it avoids
+> duplicating the generic TLB stats across architectures that implement
+> their own remote TLB flush.
+> 
+> This adds an extra function call to the ARM64 kvm_flush_remote_tlbs()
+> path, but that is a small cost in comparison to flushing remote TLBs.
+
+Well, there is no such thing as a "remote TLB" anyway. We either have
+a non-shareable or inner-shareable invalidation. The notion of remote
+would imply that we track who potentially has a TLB, which we
+obviously don't.
+
+More x86 nonsense...
+
+>
+> In addition, instead of just incrementing remote_tlb_flush_requests
+> stat, the generic interface would also increment the
+> remote_tlb_flush stat.
+> 
+> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_host.h | 3 +++
+>  arch/arm64/kvm/Kconfig            | 1 -
+>  arch/arm64/kvm/mmu.c              | 6 +++---
+>  3 files changed, 6 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 8b6096753740..7281222f24ef 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1111,6 +1111,9 @@ int __init kvm_set_ipa_limit(void);
+>  #define __KVM_HAVE_ARCH_VM_ALLOC
+>  struct kvm *kvm_arch_alloc_vm(void);
+>  
+> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS
+> +int kvm_arch_flush_remote_tlbs(struct kvm *kvm);
+
+See my earlier comment about making this prototype global.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
