@@ -4,71 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A05AC0015E
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 09:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B10C001DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 09:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-ID:Date
+	:Subject:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PtiUFH4W6uYILyq3V333Hl/je7dilaLJ7JzCQbxeBnc=; b=XfHU+jMuxqiB2K
-	fV850VIqkbqgGjFi3Vbzp2U3QbVbWvvKB2cPIW4eN99VG5qCNiH45BcN4J4jfI7H6/aFG5rANpRV/
-	78wUoN642azVsYz9J5tqOCGcr9n4NiVTGCv07UNKM3R9NtTQYPm5dNe0mcHdhcfFBOswMv6mY+m9j
-	M1QJAknmkjvEgl0L4tmDINjn0UXTvNJFWxn9dtdI2xpd9foZgxH28EaejzgFdRcWfExiN5gYPnzov
-	/fy0DvKk0VTSSgKbvHsta1PN66KflV4XVzPG9mo0ZQmJ3rLTu9uPMF1KAcf3L8z/AXXdHC0FCNYul
-	JqZ7pAXdNBUDqNJ8Bi+A==;
+	List-Owner; bh=oYxn/hnlHQAliyxJh8XBhBzT32Y+y7nbEmwZXd8jp1w=; b=VBXwqlL/Q4a7bT
+	iCWTZmJrVa4N3eoEyEK3gW5eMmUTX3HA8Ksr88+HdRNN91HVaArLJy+4uEtZ6pyqB17uGOptjjcpf
+	gs+yMF1uuo0k+5pkD0SWhwermAR7xM2FbphclcsXKFiPQMm8E3ITE49Mbz5lNUS3pD/ayh9/UTBBp
+	Om6zl7d8rXkscBpy374KQ++KCD+xIEA7WGtvgQOkiaXEW9ffISAY02M6+rG3LemcDY3pgJ/h0crPs
+	xSmSI/kJ5Hfb7EiwuVaflGmNbObC/RlZm94E7xN29rtfE6FXUA8cKHU8pSLMYbgigvcrwHB/5d7Y2
+	UyrJ6kWrRlzKa2H1YnHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOx9X-00Cp17-1i;
-	Thu, 27 Jul 2023 09:19:23 +0000
-Received: from rivendell.linuxfromscratch.org ([208.118.68.85])
-	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOx9U-00Cozp-0C
+	id 1qOxj0-00Cthc-20;
+	Thu, 27 Jul 2023 09:56:02 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qOxiv-00Ctf5-2i
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jul 2023 09:19:21 +0000
-Received: from [192.168.124.11] (unknown [113.140.29.10])
-	by rivendell.linuxfromscratch.org (Postfix) with ESMTPSA id 872301C1E3F;
-	Thu, 27 Jul 2023 09:19:08 +0000 (GMT)
-X-Virus-Status: Clean
-X-Virus-Scanned: clamav-milter 1.0.0 at rivendell.linuxfromscratch.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfromscratch.org;
-	s=cert4; t=1690449554;
-	bh=U3/iZtufbRk45Ts76eay7OLdIEe1IdvlvMnUnVReqh8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Z8mNShnFzFCDa+6T09xC9x+L74plUnIJhzVb1nZjZltH+qoaU6mGqmSzxrWpErjEt
-	 k6ofcrPoVjzWt+bV2neqteEUYWxIRtl/Ti4h4tWpD0mXNPlZEPuaywC/g0Y/GX4fKs
-	 ninbuE0bT73eHjVHFeH8zpFw2aDSSoypWL63nXR9behxJgfKWyEoNN/Hha8E9SKiQn
-	 6IP8Y4r5O9LWZrsDguAo2XpyMgSr7ZYAI4tAQ1g+nwNoZ1a2+mdnk7SONgJp/Wut8I
-	 gJ7ItS39IunM9F5YA20b712clPIe/5mqVq5JRUZfOoMdQidYarE7g8jB5tjV9qzU1y
-	 qNvD0LcqdTV/w==
-Message-ID: <c5e44ec519f4d56a71d416cf43a375cdbf0b9358.camel@linuxfromscratch.org>
-Subject: Re: [PATCH v3 0/8] Add Sipeed Lichee Pi 4A RISC-V board support
-From: Xi Ruoyao <xry111@linuxfromscratch.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Thomas Gleixner
- <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>,  Conor Dooley <conor+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Daniel
- Lezcano <daniel.lezcano@linaro.org>, Guo Ren <guoren@kernel.org>, Fu Wei
- <wefu@redhat.com>,  linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org,  linux-riscv@lists.infradead.org
-Date: Thu, 27 Jul 2023 17:18:51 +0800
-In-Reply-To: <4986b92f1a5aa303a529c6004aaedd2184c3ccf7.camel@linuxfromscratch.org>
-References: <20230617161529.2092-1-jszhang@kernel.org>
-	 <c9a44f534071a6d67f1e21bafdb713793c559124.camel@linuxfromscratch.org>
-	 <20230725-unheard-dingy-42f0fafe7216@wendy> <ZL/jMYL3akl78ZZN@xhacker>
-	 <3e0994dab495920ac590dc28d6b9d9765abe0c7e.camel@linuxfromscratch.org>
-	 <ZME1J4mpVf5yth32@xhacker>
-	 <866eab3e30a18c50742a75d62aee223fdc7e3cee.camel@linuxfromscratch.org>
-	 <4986b92f1a5aa303a529c6004aaedd2184c3ccf7.camel@linuxfromscratch.org>
-User-Agent: Evolution 3.48.4 
+	Thu, 27 Jul 2023 09:56:00 +0000
+Received: from epcas1p2.samsung.com (unknown [182.195.41.46])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20230727095547epoutp04ef7852715690fb3b9f8cd05962bc50d0~1sOhziPwK0931909319epoutp044
+	for <linux-riscv@lists.infradead.org>; Thu, 27 Jul 2023 09:55:47 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20230727095547epoutp04ef7852715690fb3b9f8cd05962bc50d0~1sOhziPwK0931909319epoutp044
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1690451747;
+	bh=w4t+TIXcQTWW1EtJmZ0NUu+9woxMGPOPSa1OtnJ9GIk=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=TYXLi5w7B36xUGmIveIMznsuzfkRjqn17ZDzntURZCX1TIy1d6vzc+sqVWLtu0UPV
+	 YXqEvdWQebOJbEoFjfY04bwdw2IoGznsd4DS20Th1QltyM8W9Su5cp3yA2DpBLdzTa
+	 5qTu/5Z3gwHn+Lez+pxECOduIjUHnd74ys1wgbs4=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20230727095546epcas1p29bf5ba55ada2e3dd0a725be5beb23158~1sOgnlGHZ1069310693epcas1p2Q;
+	Thu, 27 Jul 2023 09:55:46 +0000 (GMT)
+Received: from epsmgec1p1.samsung.com (unknown [182.195.36.144]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4RBR3P2NKFz4x9Pw; Thu, 27 Jul
+	2023 09:55:45 +0000 (GMT)
+Received: from epcas1p4.samsung.com ( [182.195.41.48]) by
+	epsmgec1p1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	56.B3.57829.12F32C46; Thu, 27 Jul 2023 18:55:45 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas1p4.samsung.com (KnoxPortal) with ESMTPA id
+	20230727095544epcas1p4098af0cd2aa424d8f45fd225923ffdc0~1sOewa4EY0314403144epcas1p4X;
+	Thu, 27 Jul 2023 09:55:44 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20230727095544epsmtrp1b513f1b63ea08d56165c591ced1298a3~1sOevjWnb0811908119epsmtrp14;
+	Thu, 27 Jul 2023 09:55:44 +0000 (GMT)
+X-AuditID: b6c32a33-3c7ff7000001e1e5-8f-64c23f211324
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	B1.26.64355.02F32C46; Thu, 27 Jul 2023 18:55:44 +0900 (KST)
+Received: from kson001 (unknown [10.102.7.58]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20230727095543epsmtip262120e774a524033e29451ca3ab7024c~1sOeanfFD1259912599epsmtip2_;
+	Thu, 27 Jul 2023 09:55:43 +0000 (GMT)
+From: "Kwanghoon Son" <k.son@samsung.com>
+To: "'Jisheng Zhang'" <jszhang@kernel.org>, "'Drew Fustini'"
+	<dfustini@baylibre.com>
+Cc: "'Conor Dooley'" <conor@kernel.org>, "'Guo Ren'" <guoren@kernel.org>,
+	"'Fu Wei'" <wefu@redhat.com>, "'Rob Herring'" <robh+dt@kernel.org>,
+	"'Krzysztof Kozlowski'" <krzysztof.kozlowski+dt@linaro.org>, "'Conor
+	Dooley'" <conor+dt@kernel.org>, "'Paul Walmsley'"
+ <paul.walmsley@sifive.com>, "'Palmer Dabbelt'" <palmer@dabbelt.com>,
+	"'Albert Ou'" <aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "'Robert
+ Nelson'" <robertcnelson@beagleboard.org>, "'Jason Kridner'"
+	<jkridner@beagleboard.org>
+In-Reply-To: <ZL3Eenj4lGZDhZTM@xhacker>
+Subject: RE: [PATCH 1/3] riscv: dts: thead: add BeagleV Ahead board device
+ tree
+Date: Thu, 27 Jul 2023 18:55:37 +0900
+Message-ID: <000001d9c070$82638290$872a87b0$@samsung.com>
 MIME-Version: 1.0
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQIB9/5esCP8yCnQimst/KE+mdvGiAGXz9swAmuuv98C2chcrQD+/XkaAbT+JRavMGV9AA==
+Content-Language: ko
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrBJsWRmVeSWpSXmKPExsWy7bCmga6i/aEUg1tH+C22/p7FbrFm7zkm
+	i5VTV7FZzD9yjtWiddIXdosXextZLI5uP8Vu0XxsPZtF34uHzBaXd81hs9j2uYXN4uXlHmaL
+	tln8Fh3z5rBYtO49wm7Rsn8Ki4OAx/sbrewe734vY/R48/Ili8fhji/sHptWdbJ53Lm2h81j
+	85J6j/f7rrJ5XGq+zu7xeZNcAFdUtk1GamJKapFCal5yfkpmXrqtkndwvHO8qZmBoa6hpYW5
+	kkJeYm6qrZKLT4CuW2YO0CtKCmWJOaVAoYDE4mIlfTubovzSklSFjPziElul1IKUnALTAr3i
+	xNzi0rx0vbzUEitDAwMjU6DChOyMT6cPsxW8561Yvn0JawPjA64uRg4OCQETibWL87oYuTiE
+	BHYwSvzs+cwE4XxilHi+/BtLFyMnhHN/nytMw8GnihA1OxklFhyfyQ7hPGaUuLH5GxNIA5uA
+	psTCc78ZQWwRgTCJbws/MYPYzAIHWSQ674mC2JwC6hK9DTvBaoQFAiW6v+4FW8YioCrxdN81
+	sDivgKXEiv1fWCBsQYmTM5+wQMyRl9j+dg7YTAkBBYmfT5exwuxaOvs0E0SNiMTszjZmkOMk
+	BL5wSPxYcAOqwUWiZ2cnO4QtLPHq+BYoW0riZX8blJ0tcfTjXjYIu0Ti+qxFrBC2scT+pZOZ
+	QCHBDPTk+l36EGFFiZ2/5zJC7OWTePe1hxUSWLwSHW1CEKa8xK3OcohqUYkzTz+yTWBUmoXk
+	sVlIHpuF5IFZCLsWMLKsYhRLLSjOTU9NNiwwhMd0cn7uJkZwEtcy3sF4ef4/vUOMTByMhxgl
+	OJiVRHgNY/alCPGmJFZWpRblxxeV5qQWH2I0BQb1RGYp0eR8YB7JK4k3NLE0MDEzMjaxMDQz
+	VBLnVZwwO0VIID2xJDU7NbUgtQimj4mDU6qBaaP64cbsQ7r//qklvTK4cfbTlmuuzLtbBNi2
+	3ttwlcFthVlfEduu+HlbHq/5+qbwu//kjUfjdposLzaZ6c927du0vFSPH67/PNst1jBIcLce
+	CSm1NObIOcBg/VLo7wfW9S5HtZaXBNz5zO4S2mdzVyH4/17Fqqe8miE6X9z8VB/8VQ8vYVbS
+	MH4i7v2F7Z9L2/oP+dVqQeeCV8wwuJXDnXnvgRBT7PYDcuHC1941JPybs3jrjWIunueTt311
+	vlrT9MT04dqoXczPfP4IabzO7L4U8TPW7OW6y4slXCR9F0ye27mzcOn02MlCszlm7Oh9vbyk
+	oyFT8a7goVM3f2ffqopIE7/frPImVD9WO+THBiWW4oxEQy3mouJEALvo2IprBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrAIsWRmVeSWpSXmKPExsWy7bCSvK6C/aEUg4YWLoutv2exW6zZe47J
+	YuXUVWwW84+cY7VonfSF3eLF3kYWi6PbT7FbNB9bz2bR9+Ihs8XlXXPYLLZ9bmGzeHm5h9mi
+	bRa/Rce8OSwWrXuPsFu07J/C4iDg8f5GK7vHu9/LGD3evHzJ4nG44wu7x6ZVnWwed67tYfPY
+	vKTe4/2+q2wel5qvs3t83iQXwBXFZZOSmpNZllqkb5fAlfHp9GG2gve8Fcu3L2FtYHzA1cXI
+	wSEhYCJx8KliFyMXh5DAdkaJ9qftbF2MnEBxUYmOy42MEDXCEocPF0PUPGSUaNq6gAmkhk1A
+	U2Lhud9gNSICYRK/HpaA1DALnGaR+PWjhxmi4QiTRHf3cmaQBk4BdYnehp2MILawgL/E1G83
+	wOIsAqoST/ddA4vzClhKrNj/hQXCFpQ4OfMJC8gCZgE9ibaNYCXMAvIS29/OYYa4U0Hi59Nl
+	rCA2yA1LZ59mgqgRkZjd2cY8gVF4FpJJsxAmzUIyaRaSjgWMLKsYRVMLinPTc5MLDPWKE3OL
+	S/PS9ZLzczcxgiNZK2gH47L1f/UOMTJxMB5ilOBgVhLhNYzZlyLEm5JYWZValB9fVJqTWnyI
+	UZqDRUmcVzmnM0VIID2xJDU7NbUgtQgmy8TBKdXAtLhAVSv9TGhirs+WxTbdVeam2qnPF1fp
+	Pl3b46rVzlKxcYnthTsdX/a6X7TzWn4nu2+L4qSF3x/mbLnIuWHLzEbTE5HP9N5vz36/vVB9
+	4q7midckLjWWiR8LCNvl3M128+Z/eQMOLYGXlZcNQtcs8Jwqcidyr+B0n/grrLMVxfl8/rzR
+	32jQevJtlKzaoWPCbzIvRfheN7J5vE3P5W7HtthuiboP+9nvbPt08K378deuO2ZObF3rkPv5
+	UGDh83gt0SjV6Oa6SRySts5CMV8jH9hIpBX87OJdfr7WQEOhxMR/+3e/OYKs07aFWlutOhDp
+	x8vY8OuhZIlXpuW6wM1pz7X0NgiwhR04mvdSxiVOiaU4I9FQi7moOBEAxd8R3VMDAAA=
+X-CMS-MailID: 20230727095544epcas1p4098af0cd2aa424d8f45fd225923ffdc0
+X-Msg-Generator: CA
+X-Sendblock-Type: SVC_REQ_APPROVE
+CMS-TYPE: 101P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20230724003542epcas1p4c6c8dbd042af792bc168e10c6e81e45d
+References: <20230722-upstream-beaglev-ahead-dts-v1-0-ccda511357f4@baylibre.com>
+	<20230722-upstream-beaglev-ahead-dts-v1-1-ccda511357f4@baylibre.com>
+	<20230723-savor-trolling-e35ed4a7a751@spud> <ZL1jlacHj7sgNg8M@x1>
+	<CGME20230724003542epcas1p4c6c8dbd042af792bc168e10c6e81e45d@epcas1p4.samsung.com>
+	<ZL3Eenj4lGZDhZTM@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_021920_325899_81A8EF6E 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20230727_025558_558204_AE6801FD 
+X-CRM114-Status: GOOD (  25.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +145,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDIzLTA3LTI3IGF0IDA4OjU0ICswODAwLCBYaSBSdW95YW8gd3JvdGU6Cj4gT24g
-VGh1LCAyMDIzLTA3LTI3IGF0IDA4OjE0ICswODAwLCBYaSBSdW95YW8gd3JvdGU6Cj4gPiBPbiBX
-ZWQsIDIwMjMtMDctMjYgYXQgMjM6MDAgKzA4MDAsIEppc2hlbmcgWmhhbmcgd3JvdGU6Cj4gPiA+
-IHdoaWNoIGR0cyByIHUgdXNpbmc/IHNlZSBiZWxvdy4KPiA+ID4gCj4gPiA+ID4gCj4gPiA+ID4g
-T3IgbWF5YmUgbXkgdG9vbGNoYWluIChHQ0MgMTMuMS4wLCBCaW51dGlscy0yLjQwLCB3aXRoIG5v
-IHBhdGNoZXMpIGNhbgo+ID4gPiA+IG1pc2NvbXBpbGUgdGhlIGtlcm5lbD8KPiA+IAo+ID4gLyog
-c25pcCAqLwo+ID4gCj4gPiA+ID4gQm9vdCBIQVJUIElEwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgOiAwCj4gPiA+ID4gQm9vdCBIQVJUIERvbWFpbsKgwqDCoMKgwqDCoMKgwqDCoCA6IHJvb3QK
-PiA+ID4gPiBCb290IEhBUlQgUHJpdiBWZXJzaW9uwqDCoMKgIDogdjEuMTEKPiA+ID4gPiBCb290
-IEhBUlQgQmFzZSBJU0HCoMKgwqDCoMKgwqDCoCA6IHJ2NjRpbWFmZGN2eAo+ID4gPiAKPiA+ID4g
-d2hhdD8gSSBkb24ndCB0aGluayB0aGUgbWFpbmxpbmUgZHRzIHByb3ZpZGUgdiBhbmQgeC4gCj4g
-PiAKPiA+IEkgY29waWVkIHRoZSBjb21waWxlZCBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3Ro
-MTUyMC1saWNoZWUtcGktNGEuZHRiCj4gPiBpbnRvIC9ib290IGFuZCBsb2FkZWQgaXQgd2l0aCB1
-LWJvb3QgImxvYWQiIGNvbW1hbmQgb250byAweDQ2MDAwMDAwLCBhbmQKPiA+IHBhc3NlZCB0aGlz
-IGFkZHJlc3MgdG8gdGhlIGJvb3RpIGNvbW1hbmQuCj4gPiAKPiA+IEJ1dCBtYXliZSBJJ3ZlIGNv
-cGllZCB0aGUgd3JvbmcgZmlsZSBvciBtYWRlIHNvbWUgb3RoZXIgbWlzdGFrZS4uLiBJJ2xsCj4g
-PiByZWNoZWNrLgo+IAo+IEhtbSwgYW5kIGlmIEkgcmVhZCBPcGVuU0JJIGNvZGUgY29ycmVjdGx5
-LCB0aGlzIGxpbmUgcmVmbGVjdHMgdGhlCj4gY29udGVudCBvZiB0aGUgbWlzYSBDU1IsIG5vdCB0
-aGUgRFQgcmlzY3YsaXNhIHZhbHVlLgo+IAo+IFRoZSBsb2cgb2Ygc3VjY2Vzc2Z1bCBib290IHBy
-b3ZpZGVkIGJ5IERyZXcgYWxzbyBjb250YWlucwo+ICJydjY0aW1hZmRjdngiOgo+IAo+IGh0dHBz
-Oi8vZ2lzdC5naXRodWIuY29tL3BkcDcvMjMyNTk1OTVhNzU3MGYxZjExMDg2ZDI4NmUxNmRmYjYK
-CkkgdHJpZWQgYSBfX3Nob3dfcmVnIGNhbGwgYmVmb3JlIHRoZSBwYW5pYzoKClsgICAgMC4wMTI5
-NTNdIENQVTogMCBQSUQ6IDAgQ29tbTogc3dhcHBlci8wIE5vdCB0YWludGVkIDYuNS4wLXJjMyAj
-NwpbICAgIDAuMDEyOTY3XSBIYXJkd2FyZSBuYW1lOiBTaXBlZWQgTGljaGVlIFBpIDRBIChEVCkK
-WyAgICAwLjAxMjk3Nl0gZXBjIDogZmZmZmZmZmY4MGM4NGE2MCByYSA6IDAwMDAwMDAwMDAwMDAw
-MDAgc3AgOiBmZmZmZmZmZjgwMDRkZmVlClsgICAgMC4wMTI5ODhdICBncCA6IDAwMDAwMDAyMDAw
-MDAxMjAgdHAgOiBmZmZmZmZmZjgwYzAzZDIwIHQwIDogZmZmZmZmZmY4MDAwMmQ2YwpbICAgIDAu
-MDEyOTk3XSAgdDEgOiBmZmZmZmZmZjgwMDRkZmVlIHQyIDogZmZmZmZmZmY4MDA0ZGZlNiBzMCA6
-IGZmZmZmZmZmODBjMDNkMjAKWyAgICAwLjAxMzAwNV0gIHMxIDogZmZmZmZmZmY4MGM5NjZmMCBh
-MCA6IGZmZmZmZmZmODBjOTgxNDAgYTEgOiAyMDAwMDAwMDAwMDAwMDAwClsgICAgMC4wMTMwMTJd
-ICBhMiA6IDAwMDAwMDAwMDAwMDAwNDMgYTMgOiAyMDNhNjU2YzZmNzM2ZTZmIGE0IDogZmZmZmZm
-ZmY4MGMwM2RlZgpbICAgIDAuMDEzMDIxXSAgYTUgOiBmZmZmZmZmZjgwZGNiNGEwIGE2IDogMDAw
-MDAwMDAwMDAwMDAwMSBhNyA6IDAwMDAwMDAwMDAwMDAwMTQKWyAgICAwLjAxMzAzMF0gIHMyIDog
-MDAwMDAwMDAwMDAwMDAwYSBzMyA6IDAwMDAwMDAwMDAwMDAwMDAgczQgOiAwMDAwMDAwMDAwMDAw
-MDAwClsgICAgMC4wMTMwMzZdICBzNSA6IGZmZmZmZmQ5ZmVmNjk3NDAgczYgOiAwMDAwMDAwMDAw
-MDAwMDA4IHM3IDogMDAwMDAwMDAwMDAwMDAzMgpbICAgIDAuMDEzMDQ2XSAgczggOiAwMDAwMDAw
-MDAwMDAwMDAyIHM5IDogZmZmZmZmZmY4MGMwM2RmMCBzMTA6IGZmZmZmZmZmODBkY2I0ZTgKWyAg
-ICAwLjAxMzA1Nl0gIHMxMTogZmZmZmZmZmY4MGRjN2M4MCB0MyA6IGZmZmZmZmZmODBjMDNkNDgg
-dDQgOiBmZmZmZmZmZjgwZGNiMmYwClsgICAgMC4wMTMwNjRdICB0NSA6IGZmZmZmZmZmODBjODRh
-NjAgdDYgOiBmZmZmZmZmZjgwYzEwYjk4ClsgICAgMC4wMTMwNzFdIHN0YXR1czogMDAwMDAwMDAw
-MDAwMDAwMCBiYWRhZGRyOiAwMDAwMDAwMDAwMDAwMDAxIGNhdXNlOiBmZmZmZmZmZjgwZGNiNGY3
-ClsgICAgMC4wMTMwODJdIEtlcm5lbCBwYW5pYyAtIG5vdCBzeW5jaW5nOiB1bmV4cGVjdGVkIGlu
-dGVycnVwdCBjYXVzZQoKSSBjb21wYXJlZCB0aGVzZSB3aXRoIFN5c3RlbS5tYXAgYW5kIHRoZSBy
-ZXN1bHQgc2VlbXMgY29tcGxldGVseSBlcnJhdGljCihmb3IgZXhhbXBsZSwgc3AgaXMgb3V0IG9m
-IGluaXRfc3RhY2ssIGFuZCBncCBpcyBub3QgX19nbG9iYWxfcG9pbnRlciQpLgoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+> On Sun, Jul 23, 2023 at 10:29:57AM -0700, Drew Fustini wrote:
+> > On Sun, Jul 23, 2023 at 11:32:17AM +0100, Conor Dooley wrote:
+> > > On Sat, Jul 22, 2023 at 02:55:39PM -0700, Drew Fustini wrote:
+> > >
+> > > > +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> > > > @@ -0,0 +1,61 @@
+> > > > +// SPDX-License-Identifier: GPL-2.0
+> > >
+> > > Hmm, should this not be dual licensed?
+> > > I notice the other th1520 stuff isn't either..
+> >
+> > Good point, I'll resubmit with a dual license.
+> >
+> > Jisheng: are you okay with the other arch/riscv/boot/dts/thead files
+> > changing to a dual license?
+> 
+> When cooking the initial patch, I wrote the lpi4a dts files from
+> scratch based on sipeed opened sch file, and currently only I made
+> contributions to them, so it's easy to make the lpi4a dts files
+> dual license.
+
+Thanks for your work.
+Is there any datasheet or user manual can get on public?
+I'm going to contribute drivers in my spare time,
+but it's hard to know the register file and dma information.
+
+> However, when constructing the th1520.dtsi, I refered the T-HEAD's
+> opensourced yocto repo(in fact, that's the only sourcecode/doc I have
+> at that time), and the license there is GPL-2.0. That's
+> also the reason why copyright of Alibaba Group Holding Limited is
+> added to th1520.dtsi. I'm not sure how to make th1520.dtsi dual
+> license. At least, this needs help from Guo Ren. Any suggestion is
+> appreciated.
+> 
+> >
+> > >
+> > >
+> > > > +	memory@0 {
+> > > > +		device_type = "memory";
+> > > > +		reg = <0x0  0x00000000  0x1 0x00000000>;
+> > >
+> > > There's some extra spaces in here for some reason.
+> >
+> > Thanks for spotting that. I'll fix when I resubmit with dual licnese.
+> >
+> > Drew
+
+Kwang
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
