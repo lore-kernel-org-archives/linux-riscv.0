@@ -4,152 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E07C8EB64DD
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 06:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC2DEC0015E
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 07:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
-	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=nZKO1Tr28moeWcPPli1rTIkh1iGui820f/f6FvCJaYc=; b=WFhNVsL8h/Vuh73BA34jndCwlN
-	gUKZ5KJLcgCiJEwCoc9t2fF0Vxr5VinDtm/69BwMMvC9bpPpQFvLN0dFI1vXzawZxrrH1tXwXB/Jt
-	55P0sU87/aBUw21Atdious7yYOS/AscZQVtHQqmiy0p+CHJGpO5AMVshWa4pQyLSA6Zl3lvTya2bR
-	GroUTxwiCJty9VFthJ/NeCqV3WfpUQ3tfD9oUwfq36Dm5cudxo9dPUSvHeOzEFPiD6LWFiJnk1Hhl
-	XxBVG68QfujGXswmu5+UTMPhpTzbP9GNX/2fWrIJDxxpm8raSrGxQ8nsNycdHfVr26+BTegV1kU5H
-	tfaJvPLQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0OyGjzOYx4EP8E0APVDdPbWxf5hUPj776ZrzbJT+68Q=; b=YoFKLP9zQ2YufU
+	tKqCyn5Wrfl9vMsOKvAS8dNnJG1FNMAI7aZPzVBuzSodzBgmSuaTzNCP7jeSKjCEzI5jqzJQHktPi
+	hfAeoyf6IKM7p7l3few31yOkJK7uFLTt1mYgnyU9CywbPDDMP0kwEHvM/jw/zEoNvuVWZ2AE1+lbJ
+	THYlEnQzilGBHgwHzIkuzEeeyhrOxeenvnawHUhK06DM3Cyb36SR5EJqVkIm8TsymwNcDZUv/ewJf
+	SqF+g5zADXnK9jKH9REiniFzMHLKJ5OTR8mjpIhUcy3P8iL4MukqeeQHNaZBzpSkp5h7Fh1Zlgk73
+	37OcrvlDUxzh3ZyXC2kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOuiW-00CLSI-1w;
-	Thu, 27 Jul 2023 06:43:20 +0000
-Received: from mail-sn1nam02on2060e.outbound.protection.outlook.com ([2a01:111:f400:7ea9::60e] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1qOvCU-00CR15-16;
+	Thu, 27 Jul 2023 07:14:18 +0000
+Received: from mga04.intel.com ([192.55.52.120] helo=mgamail.intel.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOuiT-00CLPm-2c;
-	Thu, 27 Jul 2023 06:43:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=R7njBkesOY2tlQsI4Gxqi7a9a6df6aSJgCMYjBZ4ml7tEDU0+k+Glq9Zh7irp3smT3ZTJYY6clCXqxx5Hg2l9HrxybiLHDQWY3HaBDIzM7SPiAkYw+/EvnlK2PqRhQTTV2uKB7DhDylUhXmLgrY5iWGQo68/v/y81UjyLnMUmiwGOGmLAAJQgqX/VHTUI44EfkhGmQiGNg5RAC0A6Z2al68xTA3JldfykpPc9mcXd2l9MFUJ7bX/aefKRg050ENARf631gNVmEAoYFILj3CknyCMVfkhxTTROtB6pnYCzjxuOjDIvvJ0N3Z8RX+/6TEDqwuqwQGMYY06+yq3QxuGFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SlDom0HAUnxOle/icKp49hOpqWSyZAaZGR1HAudsQ2c=;
- b=odbPz86jkqNKRQ+v5Cyj90CRRyYS66I59+RmYMiilvITtKbXBIj3Fh1PG8hNDgZoH4mETzbgg0n6mMVRW3Pgq2dbL5655x7+6vlaRQwvQtDuh1XLUrN7EcZAPNfMs4WrQJ4fC0oYNjNDL9phkCPlTz45W45VJZXvBR6G/ZuJR+hPxBR0sy9t455ndWxQju2ocH5hyRURawwtkyu0GjTt6i4HQSEmeQiSxX4HAOlXsfFsQ2QAxfNGosWgNpjNsPs01ojst9XWB3fTBBUiO8bOyweYgqpkA/VI06Z0QLR+AiIV+kTFEUHAka3gTadt18FU6blDOYOLyJjKv/ba4lIO4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SlDom0HAUnxOle/icKp49hOpqWSyZAaZGR1HAudsQ2c=;
- b=DyZCoVt3WlIfQkmhq0vWkyf7fxZrlqUHyUsHK+F/HweAnxj45Uu6qTxpQQ5KRGUWCUQSaTW7xk7581cQPf7+35dIx1Ym5V8QawCZq8+YdP4nX5q8IlNm4v6QcnYZ1bi7mwDEvS10z+iJoF43v90EnsLazlWRLsRP8mOn8GTtASY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS7PR12MB6309.namprd12.prod.outlook.com (2603:10b6:8:96::19) by
- DM6PR12MB5008.namprd12.prod.outlook.com (2603:10b6:5:1b7::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.6631.29; Thu, 27 Jul 2023 06:43:07 +0000
-Received: from DS7PR12MB6309.namprd12.prod.outlook.com
- ([fe80::9ade:451:96c3:7b54]) by DS7PR12MB6309.namprd12.prod.outlook.com
- ([fe80::9ade:451:96c3:7b54%3]) with mapi id 15.20.6631.026; Thu, 27 Jul 2023
- 06:43:07 +0000
-Message-ID: <66efd7f5-92ed-45ec-0550-ca7f012a6e63@amd.com>
-Date: Thu, 27 Jul 2023 12:12:11 +0530
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [RFC PATCH v11 00/29] KVM: guest_memfd() and per-page attributes
-Content-Language: en-US
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
- Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>,
- Wang <wei.w.wang@intel.com>, Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <110f1aa0-7fcd-1287-701a-89c2203f0ac2@amd.com> <ZL6uMk/8UeuGj8CP@google.com>
- <2f98a32c-bd3d-4890-b757-4d2f67a3b1a7@amd.com> <ZMEsuyqHhp1DAVdR@google.com>
-From: "Nikunj A. Dadhania" <nikunj@amd.com>
-In-Reply-To: <ZMEsuyqHhp1DAVdR@google.com>
-X-ClientProxiedBy: BMXP287CA0020.INDP287.PROD.OUTLOOK.COM
- (2603:1096:b00:2c::28) To DS7PR12MB6309.namprd12.prod.outlook.com
- (2603:10b6:8:96::19)
+	id 1qOvCR-00CR0M-0e;
+	Thu, 27 Jul 2023 07:14:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1690442055; x=1721978055;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=BAACILCTxyqMs2Tae391dkKNJN/XDjDizeOYFsgg42A=;
+  b=KgLZZgrQZ0MBiP8+Do7NEjlNB/+SDTuLS3mYqcCPAtRxGxkciT/lpQ1Z
+   q3UEp1iCTMAvNwAi1Nq792WFOGwHHz4btnjX9t1L4ViZOnBXnVugO9SM6
+   TqP1IRc57j3i/qTumc/qRQWW1WbR/JfR+9X+I2QX9ECrcqQcRv5tnYcRb
+   7nXqhJZlhz8TAv/3mNEYt3RSOsd4NFbcQ5/k0wscso/eYm2ArTHR7h04p
+   +kMvr6a3Sju3v14Ef1Uj7jTcwSH0yaDLkjG3nSkePCYsqZAQ9QC3ROdUD
+   Zcf9FkfHcvlcQGOd5Xsca85Nxqk2JKnqQoerLAMuqbBo9Kb5lkAuatLqh
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10783"; a="367102056"
+X-IronPort-AV: E=Sophos;i="6.01,234,1684825200"; 
+   d="scan'208";a="367102056"
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2023 00:14:14 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10783"; a="720785797"
+X-IronPort-AV: E=Sophos;i="6.01,234,1684825200"; 
+   d="scan'208";a="720785797"
+Received: from haibo-optiplex-7090.sh.intel.com ([10.239.159.132])
+  by orsmga007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2023 00:14:08 -0700
+From: Haibo Xu <haibo1.xu@intel.com>
+To: 
+Cc: xiaobo55x@gmail.com,
+	haibo1.xu@intel.com,
+	ajones@ventanamicro.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Vipin Sharma <vipinsh@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Andrew Jones <andrew.jones@linux.dev>,
+	Vishal Annapurve <vannapurve@google.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	kvm-riscv@lists.infradead.org
+Subject: [PATCH 0/4] RISCV: Add kvm Sstc timer selftest
+Date: Thu, 27 Jul 2023 15:20:04 +0800
+Message-Id: <cover.1690364259.git.haibo1.xu@intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB6309:EE_|DM6PR12MB5008:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f411065-4260-4649-cd33-08db8e6cbc37
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: gbwQeRUieEAwbP1+x/XdV+tOEEMl8OPARIGYUM01BtuAzub1VTZ/FQbk4KyNjKdAgTWwRvFPeCbstr24wwatrfIFg1iFjjwGdEd7irR6YT8hIx6Jx2ZPRsENgjR+FF38cD3z20kwPBJHSX1qal1mfz2Ktv8UvHOAzLSEKdR7s51u0eM1Nk+8SZk8syr/831VemPAkxbVlXbgSOC8q1EKLmy0vO4Z+ilYfThpU5Yq2ZgNVEQG7SX56XElhmrUY5qs9cADR9AFu4gjitjgxiE8elJedRB5+xPjZZWX+HCkNdMkYxtS/gCUqz2MkrEyDpNyx9hKGZO9/iaqNcIRUaKEwMEcvKGW0lVnXCPPZHwMuPmjU24w+oYuDlvaPXd4AbqqXKnRcdSwwXWOVObfWh6zu/auBraCAzafpEZmki3FqF247U0SahmratDFIh6av0BDy0G3HH2uRsyiXcR8HEGq0Ui3/tUfLhNgODv9MlM8fpao1yOE3YFy/X1kOiQnsdfg8m7+zaC+fevjZjUylrtShJ5VuPs55dYYqyNRcJzrZZKJZSwnR66nV8yWXxa5iaRhgs3gfa9mW/oiCEgFNJeWJIAmdxxtcwa347zLd6hcByNShWvNvKc9HC6tjkLA0OV2/1WdTKwb6z9kZaRTQYSfKw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6309.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(4636009)(396003)(346002)(39860400002)(136003)(376002)(366004)(451199021)(6486002)(31686004)(2616005)(26005)(6506007)(6666004)(6512007)(478600001)(53546011)(54906003)(186003)(4326008)(6916009)(83380400001)(38100700002)(66476007)(66556008)(66946007)(5660300002)(8936002)(8676002)(7416002)(7406005)(2906002)(41300700001)(316002)(31696002)(36756003)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UkFqLytUeitZcENaQ1RhR0tzK3Y1SFVSVzFDaDIrbkRiVHRhUEZaUjMwNXJC?=
- =?utf-8?B?WEh5RzRWbm51QkVDTTE1RkdzVEJXRnhJeVlHLzVhKzlsOW44R0xpMVMwNERm?=
- =?utf-8?B?enBhOG9OU2tPWHVKbmJGcTNWVHJyNjVaUk1yUVpFY3JHNkFCM0tueFpDZWhq?=
- =?utf-8?B?dkszNDlWM3kxYXJNWnNKZUZEQ0lYOFlnYURvZHEvbW9YQUk5cEJxZ0o0enlX?=
- =?utf-8?B?Zi8zNjJSajU3Wk9iQ2VaR1hhNzgxc01LbHJUTkx2ZXZQWGk1SVcwaENud3gr?=
- =?utf-8?B?OTZYdDY2QzlUMGxPUVJtR0s5NlJYWENTVU0yUWcyUCtoMXJvTXoxdE9jRVRr?=
- =?utf-8?B?ZXBLd1ZDZzVsVFpwMUZLUXdHT2tmcnAvVWlIQXVud2hNcmo1UkFTMG9CMXdt?=
- =?utf-8?B?d0pad0dCRnFhRVBEU3NvdFd0Rks5K2pSQytuSFdoZ0pvMi9OTDk2WjJKd3hv?=
- =?utf-8?B?bXV1enU1Rmd5SUhOYkQyeG4wMEg3QUNEVGl4Vm9wY1J2eU1kTmZtakhCTGJI?=
- =?utf-8?B?ZDlWeDFJbXl5OVBRS3NkLzB3VzQwR3Z4elVwUUpYVm1RUllEVUlCYWJjT2pB?=
- =?utf-8?B?MnEvdll0VTBUNEdndURINTV4L0xaN2xjdEhmME1CNGhOUFVBSmgrV0VsUE1Q?=
- =?utf-8?B?M1JqZk5aZTdiLzNwMmRydDNSVVdsaHc0Y2lHOUVrQ1FYb0pHeWhGWVZUMzhI?=
- =?utf-8?B?YnByaWx5SmJhK0oxRFBacGVBeHNWL0lJVWFMRWpPNXEwMnlsTWNwc0RZcktG?=
- =?utf-8?B?WXdKY0J6UUV3OEV1OTBRVUFMcHFuNnJ3MHY3eFRTUStVdmk3N1M1TFozUG9X?=
- =?utf-8?B?aE9XUFZoVWVMY3NmVnZiZ3BhY3VQdnRJOCt6M3RYTmtPZTF5RDdRK2xMUDI3?=
- =?utf-8?B?VktjL3lLYzFOTUtPUW5FMUllZVIxSUMvRWsxZkI4dWltTkFDSzBEMDNxOXpB?=
- =?utf-8?B?RC9VeVFnV0oxcGZRa2VjLzluLzA1VkMwVWNYSVpjMEtzak1iS1JOZ2N2UVp3?=
- =?utf-8?B?ZUM5c2lHMnFjdENEMGt4eVQyWXhha0hOZUp6cmxZbXoyZ3lIZklUUjBUTXBu?=
- =?utf-8?B?NEdzMzNWRVRnQzRUVTdJUUh0M1U2S3ovbWdJZVc4RWIzWWRBSExNZWt1VnJs?=
- =?utf-8?B?VEIyWjAvckpUYmIvSmFnZHRnR0cyVmxZaW93Mk1Ya3J5bkNXNHJKa3dhdThn?=
- =?utf-8?B?c0ZwaU9QaFJYTW1wcGswa0pkL04yd2J3N3pEZUV2SnBna0JXUFN0Yks0VG1a?=
- =?utf-8?B?VHRUTkppRXl6VFBxckIwWkx5U2haZURVOTYyTGtOTHhGSkhCZHBSdE9vaHJ3?=
- =?utf-8?B?VXJOL0krRk1yc05HWUNWL0NlSDdPWUROUjREV1FWUm1wV3FKL3ZZc1NVSzRB?=
- =?utf-8?B?bTNpUkFHbEFsYnloS1VPSk9lY0o4VlZ6SSsvQk16Q0tnQ2xscXlreFBhbDdF?=
- =?utf-8?B?RTFBcm9MSzV3Rzd3TDhrUzFHVlFFRkZsVXM4QmtuVVd1ZjdTdVRZaGFwemVq?=
- =?utf-8?B?bXczLzlIY1R6VmNSa1ZJeTkzbU5XZ05abFdUcW1MU1ppN3ZJTTRPcWt1MGN4?=
- =?utf-8?B?K2RjVVVLd0hjSCt5a1pnVDAvWk81bGJpZHBwS1dtZ1VRREtDNTFvRTJjN1B6?=
- =?utf-8?B?R2ZqN2tZNzBiWGZOWnhFY3ZQQjVYbzF3aGx1emFZM1hDd0VyV2JHbUFIMzJJ?=
- =?utf-8?B?Y1FNdXI5YmExbzk4YXBqd1kxNmFsS0UwZ0hLR1B5bTRSTUtWMUFPQXVGNWVu?=
- =?utf-8?B?MWVldVYyNU1CWnczNDc5OWlhcGlmbEFnLzQ0OWlSUmNnS0JZSXB0bGtxSGIr?=
- =?utf-8?B?cFR4dUlUczJJSGZlVUVyNStFSE5wNWpTUUV5VXZEQXp4WW03VWV4NFJ4K1Z6?=
- =?utf-8?B?R1BiVHBKekxCVTByQjJUb1pyM1lCakYyVjhZQlhGZ1lNcHVqTEJRQ0swcnhp?=
- =?utf-8?B?RVhpK05jaFF6QVZ4Z0V3ZGpWRW0wbmlJNlk1bEl0SVhXRllRbnVZcHUrMzNJ?=
- =?utf-8?B?Q2dIaHNYQUYyWXkrNXJLbExka2F3RjVHRUV0U21QcjdyRk9UbVkrVEoxalkw?=
- =?utf-8?B?dEZTVXBtZ3BvampCOXlXakRsQlBBU2VJZldmMkkzajdvYTF6UGxKeXZlbG1z?=
- =?utf-8?Q?zyegKlxZB0f3GX+AWWIRIdRSy?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f411065-4260-4649-cd33-08db8e6cbc37
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6309.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jul 2023 06:43:07.3773
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hQgBB+cR9k7S2hKQdQH+MM6E66Rzft8eP+3RAW9AQusVp8uersYDdzA/Dihjsi56GTLv9XWwMcua9kE9dDs21g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB5008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230726_234317_871762_542DE49F 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20230727_001415_255266_FF57FE7B 
+X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,39 +98,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/26/2023 7:54 PM, Sean Christopherson wrote:
-> On Wed, Jul 26, 2023, Nikunj A. Dadhania wrote:
->> On 7/24/2023 10:30 PM, Sean Christopherson wrote:
+The sstc_timer selftest is used to validate Sstc timer functionality
+in a guest, which sets up periodic timer interrupts and check the
+basic interrupt status upon its receipt.
 
->>>>   /proc/<qemu pid>/smaps
->>>>   7f528be00000-7f5c8be00000 rw-p 00000000 00:01 26629                      /memfd:memory-backend-memfd-shared (deleted)
->>>>   7f5c90200000-7f5c90220000 rw-s 00000000 00:01 44033                      /memfd:rom-backend-memfd-shared (deleted)
->>>>   7f5c90400000-7f5c90420000 rw-s 00000000 00:01 44032                      /memfd:rom-backend-memfd-shared (deleted)
->>>>   7f5c90800000-7f5c90b7c000 rw-s 00000000 00:01 1025                       /memfd:rom-backend-memfd-shared (deleted)
->>>
->>> This is all expected, and IMO correct.  There are no userspace mappings, and so
->>> not accounting anything is working as intended.
->> Doesn't sound that correct, if 10 SNP guests are running each using 10GB, how
->> would we know who is using 100GB of memory?
-> 
-> It's correct with respect to what the interfaces show, which is how much memory
-> is *mapped* into userspace.
-> 
-> As I said (or at least tried to say) in my first reply, I am not against exposing
-> memory usage to userspace via stats, only that it's not obvious to me that the
-> existing VMA-based stats are the most appropriate way to surface this information.
+This KVM selftest was ported from aarch64 arch_timer and tested
+with Linux v6.5-rc3 on a Qemu riscv64 virt machine.
 
-Right, then should we think in the line of creating a VM IOCTL for querying current memory
-usage for guest-memfd ?
+Haibo Xu (4):
+  tools: riscv: Add header file csr.h
+  KVM: riscv: selftests: Add exception handling support
+  KVM: riscv: selftests: Add guest helper to get vcpu id
+  KVM: riscv: selftests: Add sstc_timer test
 
-We could use memcg for statistics, but then memory cgroup can be disabled and so memcg 
-isn't really a dependable option.
+ tools/arch/riscv/include/asm/csr.h            | 127 ++++++
+ tools/testing/selftests/kvm/Makefile          |   2 +
+ .../selftests/kvm/include/riscv/processor.h   |  76 ++++
+ .../selftests/kvm/include/riscv/sstc_timer.h  |  70 ++++
+ .../selftests/kvm/lib/riscv/handlers.S        | 101 +++++
+ .../selftests/kvm/lib/riscv/processor.c       |  74 ++++
+ .../testing/selftests/kvm/riscv/sstc_timer.c  | 382 ++++++++++++++++++
+ 7 files changed, 832 insertions(+)
+ create mode 100644 tools/arch/riscv/include/asm/csr.h
+ create mode 100644 tools/testing/selftests/kvm/include/riscv/sstc_timer.h
+ create mode 100644 tools/testing/selftests/kvm/lib/riscv/handlers.S
+ create mode 100644 tools/testing/selftests/kvm/riscv/sstc_timer.c
 
-Do you have some ideas on how to expose the memory usage to the user space other than
-VMA-based stats ?
+-- 
+2.34.1
 
-Regards,
-Nikunj
 
 _______________________________________________
 linux-riscv mailing list
