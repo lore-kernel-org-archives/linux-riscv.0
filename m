@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C434C001DC
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 15:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97743C0015E
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 16:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6yZ0SAlVV6rEs7+9MGOxGxWIxDFsgopq32DJAbkEHBg=; b=tmHDjKXzLQsRw/
-	HmXVnyR1oRod7jVm4uRe9ZF5tSIXqZjxd9cguPGhLsOs/vvPUynsjSjAmaoeEnajAGbITtuMruABR
-	qhuz6C01CR38JJH52SriwshDaNWt7x1RJ84ig7QzCA4Yj2LSk1lQ+GfA0QnI6+q1TQVY+ZAx5LnY+
-	1drFhf5v+0e6wJJ+p2inzoCEUTX5Gf0H/9PoRUoqumxUgWQRCrPXx0r4M3+ANycOnXFLng5Q78r8g
-	6iLXpxtQkSnq/v7jiN1+bt1KSbFNwF0oQt8owx5jt4PqpmH0Rh6lOO7B9OKj6VWu2X1mHmjxTjg3K
-	OTbh0ttzyXIzteamOkng==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nGjKTUQ71nrEXB3P/jd7w8eX9vUYf9SEkH3hUiCck/0=; b=gPnwsrJB0e2g/x
+	Pt2n3UpIMYAiISUnXlRFdU7Th7Mul8AkT1629KFspzyDVKl1eQyYYzkDpnEWTRjJEiJqam8HC0yXE
+	or4hKa0pxfbbl2mm+idSH16nigeYABEidCcMzu+J77oO64aw2GGjnUuOuVB4xeOUFIoq+FfxByihs
+	JoHEwa9kSQ/sN1bnbWjn+Z2eawmXBz8zGkHLz+hpUnZ5tRgSWRrXWbF5eWHS3q+sDNj2fSP+Vl8UX
+	MFwaGq/Foc+lMswMFR4LgWWhBp9UGrHmCHzA1En7XDolBX9rDb4Ze8OmRxd7FL2uhIaihzY1FXgdr
+	suk2wx2YqdzrPYlQ2RzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP2uM-00Fssj-1j;
-	Thu, 27 Jul 2023 15:28:06 +0000
+	id 1qP3eL-00GRBx-0Z;
+	Thu, 27 Jul 2023 16:15:37 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP2uJ-00FsqI-1l
+	id 1qP3eI-00GR8m-0E
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jul 2023 15:28:04 +0000
+	Thu, 27 Jul 2023 16:15:35 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0F0DD61CB7;
-	Thu, 27 Jul 2023 15:28:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C962C433C7;
-	Thu, 27 Jul 2023 15:28:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CB43F61794;
+	Thu, 27 Jul 2023 16:15:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1C52C433C8;
+	Thu, 27 Jul 2023 16:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690471682;
-	bh=izxQ/NRJBO6j/aIHrUmKUiuLXeceL8X6rh8Ywm6hmA0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kajoPCjYdOfvWbO4QlS1jjP1vh8MWPPIbAb8s6W4Sofyw9Vijl/6q4Bkr4Up981RV
-	 aCAcjDmrQelGAi+N/z0/ius6UAOKHOrz0joQ3OAKQwMlUxaQCT4qsxj8f88QUCXnlY
-	 9DYAqfT/xMMbHkv3Q94PoacrpAav4MGF1TMw+EFmsgIpSt1EmRlxtLnCsHGKEHYCSi
-	 UCjDPjQUgsvjhKP0JGMp3BdR+ATfRrfOfB17H8vbNSu14dgfr9mGrHWfC+R1Wf0i1r
-	 uhMZh6ci5uTGbP9OcxzAQblMoPzvbea9h405UbzLNN/y6nTf+QE9GUjv/LkvUkIJkN
-	 W+Tvztl2QsSKQ==
-Date: Thu, 27 Jul 2023 17:27:57 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: daire.mcnamara@microchip.com, conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v2 7/8] PCI: microchip: Rename and refactor
- mc_pcie_enable_msi()
-Message-ID: <ZMKM/f3q1o7N/bBv@lpieralisi>
-References: <20230630154859.2049521-8-daire.mcnamara@microchip.com>
- <20230719174135.GA507746@bhelgaas>
+	s=k20201202; t=1690474532;
+	bh=7KNn7rpXw7ac66DODCRLJOwlmnWa2JU1UYOfQjnlV6c=;
+	h=From:To:Cc:Subject:Date:From;
+	b=JG33lR5+0OHRlzULPn660n4AbtENQnusIBb+FTjjBqxVrOWH7c35Bk08uVaNc3KVc
+	 Z8Qi9rPQ0umscUBd6XfeiBld9PKZuzbIO2l1zTAeL5XUiaBFeN+GBSRTbkzeATEnoB
+	 8F31rPN4Rk9GThyd6folVj1EEbePHNorW52Ue1zc3hsULePJDA9WsUU4GSvLYO2BPr
+	 g8cimU/O1qQqcAQkVYkCbxRKUQitC3PloPf+DEOnDq+YZm91ZOPO/y2eyhWiNdUXlt
+	 oKf3M3fTC+T4Qu2EQXfzAATM154Tbcfmmz3dqCp0Qm+CDOeiQAYph0xrCHkz5WgtA+
+	 1JXn599RHtEpQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] riscv: enable DEBUG_FORCE_FUNCTION_ALIGN_64B
+Date: Fri, 28 Jul 2023 00:03:56 +0800
+Message-Id: <20230727160356.3874-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.40.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230719174135.GA507746@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_082803_629215_ABAF6006 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20230727_091534_190962_B39CF4E4 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +75,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 19, 2023 at 12:41:35PM -0500, Bjorn Helgaas wrote:
-> On Fri, Jun 30, 2023 at 04:48:58PM +0100, daire.mcnamara@microchip.com wrote:
-> > From: Daire McNamara <daire.mcnamara@microchip.com>
-> > 
-> > After improving driver to get MSI-related information from
-> > configuration registers (set at power on from the Libero FPGA
-> > design), its now clear that mc_pcie_enable_msi() is not a good
-> 
-> it's (contraction of "it is")
-> 
-> > name for this function.  The function is better named as
-> > mc_pcie_fixup_ecam() as its purpose is to correct the queue
-> > size of the MSI CAP CTRL.
-> 
-> > -static void mc_pcie_enable_msi(struct mc_pcie *port, void __iomem *base)
-> > +static void mc_pcie_fixup_ecam(struct mc_pcie *port, void __iomem *ecam)
-> 
-> Since the purpose of this seems to be to fix stuff in the MSI cap,
-> removing "msi" from the name seems weird.  The fact that it uses ECAM
-> to access the registers is incidental.
-> 
-> > -	msg_ctrl &= ~PCI_MSI_FLAGS_QSIZE;
-> > -	msg_ctrl |= queue_size << 4;
-> > -	writew_relaxed(msg_ctrl, base + cap_offset + PCI_MSI_FLAGS);
-> > +	reg &= ~PCI_MSI_FLAGS_QSIZE;
-> > +	reg |= queue_size << 4;
-> 
-> Could maybe use FIELD_PREP() instead of the shift?  I guess this would
-> go in the "Gather MSI information" patch.
+Allow to force all function address 64B aligned as it is possible for
+other architectures. This may be useful when verify if performance
+bump is caused by function alignment changes.
 
-Daire,
+Before commit 1bf18da62106 ("lib/Kconfig.debug: add ARCH dependency
+for FUNCTION_ALIGN option"), riscv supports enabling the
+DEBUG_FORCE_FUNCTION_ALIGN_64B option, but after that commit, each
+arch needs to claim the support explicitly. I tried the config file in
+[1] for both RV64 and RV32, I can't reproduce the build error as [1],
+there is no reason for not allowing to enforce this function alignment.
 
-can you follow up on these review comments please ?
+Link: https://lore.kernel.org/lkml/202202271612.W32UJAj2-lkp@intel.com/ [1]
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ lib/Kconfig.debug | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thanks,
-Lorenzo
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index fbc89baf7de6..39ffd218e960 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -502,7 +502,7 @@ config SECTION_MISMATCH_WARN_ONLY
+ 
+ config DEBUG_FORCE_FUNCTION_ALIGN_64B
+ 	bool "Force all function address 64B aligned"
+-	depends on EXPERT && (X86_64 || ARM64 || PPC32 || PPC64 || ARC || S390)
++	depends on EXPERT && (X86_64 || ARM64 || PPC32 || PPC64 || ARC || RISCV || S390)
+ 	select FUNCTION_ALIGNMENT_64B
+ 	help
+ 	  There are cases that a commit from one domain changes the function
+-- 
+2.40.1
 
-> 
-> Bjorn
 
 _______________________________________________
 linux-riscv mailing list
