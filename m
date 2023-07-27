@@ -4,54 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A481C001E0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A96DC41513
 	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 13:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m46c/2VQRPNV7q7ZpDleM2me8jQmVNGGVTw4xRXj8Bc=; b=BZzwqDrLGtqvaZ
-	GS3Q6iJiiLAlfwPVg3ZkOEJhhWDnwpGAVPhovvRCvu+Bv9fTGa3VS36yAbb92fDtEHS7WrbRiaHGV
-	GI4qAAVL/F5zYB9sgxbAKUnaDOBdqAm3YZEf14cj6WQzQlt0bRNFRx49IBQfFeeOQNbKTr/eHXQmU
-	HO1BBOtjX09JeOa5cwx1Cgb4vBRB2VlZLpsZIzR3aUXPj5uZKgEJLGbEULiYPFJMa3ZG4o8/eIUQQ
-	M7uhyClV8/wcdAhe/k7xxAX0fx85YACI3o8yVIs+RKaxIPonV9lmiKu/qDYlzFsKb08RyaJH3C7cF
-	FqzvFxiiaoO2mPce4e5g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=T4h8v/dr5albdToBi2j6YTDD16YZOK3IVbl+/sVnKkA=; b=D84eqZhcAUxRsx
+	g1uU4jeJwjXht8wK2IamxV4WtXLQZ1R/04728W004/TMC2CaSd3psCV9Az6YCMQs0bRvYDSBs9JYK
+	oDYOX5k2YLkr6bVgjxY7iQrjKbe8icxzI1OnBPnoy/KCwe/5UxDdDGjPdpQNypJeUzkakLKjvWIwG
+	jG2oXdvPtXSowPrzKxHVjjeeBHXdUMgITHdU1TBqOh29gmyLPtNvUoFyPi48GXg2XPDl+SXaFXJD1
+	P5TjE2Rj5e7/HYi4C7Lgqy119+YzCbJuzCHDxjX0L89dtZfdx0HXlY1+ICRuH03yw9+CeWSuLL3dX
+	fiUfXibXMlUDdNesFxCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0cl-00EGCw-0P;
-	Thu, 27 Jul 2023 13:01:47 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0cg-00EG0Q-2o
-	for linux-riscv@lists.infradead.org;
+	id 1qP0cj-00EGBQ-0x;
 	Thu, 27 Jul 2023 13:01:45 +0000
-Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.55])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4RBW8Y6YzLz1GDDY;
-	Thu, 27 Jul 2023 21:00:29 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemm500016.china.huawei.com
- (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.27; Thu, 27 Jul
- 2023 21:01:23 +0800
-From: Chen Jiahao <chenjiahao16@huawei.com>
-To: <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
-	<broonie@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-spi@vger.kernel.org>
-CC: <chenjiahao16@huawei.com>
-Subject: [PATCH -next] spi: microchip-core: Clean up redundant dev_err_probe()
-Date: Thu, 27 Jul 2023 21:00:49 +0800
-Message-ID: <20230727130049.2810959-1-chenjiahao16@huawei.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- dggpemm500016.china.huawei.com (7.185.36.25)
-X-CFilter-Loop: Reflected
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
+	id 1qP0cf-00EG8V-1y;
+	Thu, 27 Jul 2023 13:01:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 17C2F61E51;
+	Thu, 27 Jul 2023 13:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79519C433C8;
+	Thu, 27 Jul 2023 13:01:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690462900;
+	bh=fTbtHKK1LWSfhgfXTFe0mRYDtIWLTxFwG5CNFQRWExE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GElMKdALwdZ4HchNwP1G+tH9ejPeU808clyr6GKzYes2dYD+trW0cO9gEhlMRDWRC
+	 r8B3HQNGi4HMq7nvM6j9vK8beyMbFY5EOjXWTYl/r/0sg5iGFLfUzFuuQPLFScGfau
+	 zm1pH2jzU1dVK3kHCSsdIgJOomGWNVCZwHT+Qs7kfurcMDuok3PvaJnGQx7CrexKdN
+	 aDYRqoHbivRfbA39VLOEr8CVnfBYglE3rO8pnDoHhZmFW7rX/78Q1zX25tjEXuFJT1
+	 BcXE/6jlMnEPBq9OcrA1g3Op80T5c1K7ERXxnhOegh7PUM1BSB6hTyoolW1RBT1rbB
+	 FyMeC8mFV1Dqg==
+Received: from [104.132.45.102] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1qP0cc-00HMRx-18;
+	Thu, 27 Jul 2023 14:01:38 +0100
+Date: Thu, 27 Jul 2023 14:01:37 +0100
+Message-ID: <87lef1qzim.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Jing Zhang <jingzhangos@google.com>,
+	Reiji Watanabe <reijiw@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	David Matlack <dmatlack@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	Gavin Shan <gshan@redhat.com>,
+	Shaoqin Huang <shahuang@redhat.com>
+Subject: Re: [PATCH v7 08/12] KVM: arm64: Define kvm_tlb_flush_vmid_range()
+In-Reply-To: <87o7jxr06t.wl-maz@kernel.org>
+References: <20230722022251.3446223-1-rananta@google.com>
+	<20230722022251.3446223-9-rananta@google.com>
+	<87o7jxr06t.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 104.132.45.102
+X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, gshan@redhat.com, shahuang@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_060143_587769_CB2AFF8F 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230727_060141_739431_D86F07D8 
+X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,39 +108,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Refering to platform_get_irq()'s definition, the return value has
-already been checked if ret < 0, and printed via dev_err_probe().
-Calling dev_err_probe() one more time outside platform_get_irq()
-is obviously redundant.
+On Thu, 27 Jul 2023 13:47:06 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
+> 
+> On Sat, 22 Jul 2023 03:22:47 +0100,
+> Raghavendra Rao Ananta <rananta@google.com> wrote:
+> > 
+> > Implement the helper kvm_tlb_flush_vmid_range() that acts
+> > as a wrapper for range-based TLB invalidations. For the
+> > given VMID, use the range-based TLBI instructions to do
+> > the job or fallback to invalidating all the TLB entries.
+> > 
+> > Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> > Reviewed-by: Gavin Shan <gshan@redhat.com>
+> > Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_pgtable.h | 10 ++++++++++
+> >  arch/arm64/kvm/hyp/pgtable.c         | 20 ++++++++++++++++++++
+> >  2 files changed, 30 insertions(+)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> > index 8294a9a7e566..5e8b1ff07854 100644
+> > --- a/arch/arm64/include/asm/kvm_pgtable.h
+> > +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> > @@ -754,4 +754,14 @@ enum kvm_pgtable_prot kvm_pgtable_stage2_pte_prot(kvm_pte_t pte);
+> >   *	   kvm_pgtable_prot format.
+> >   */
+> >  enum kvm_pgtable_prot kvm_pgtable_hyp_pte_prot(kvm_pte_t pte);
+> > +
+> > +/**
+> > + * kvm_tlb_flush_vmid_range() - Invalidate/flush a range of TLB entries
+> > + *
+> > + * @mmu:	Stage-2 KVM MMU struct
+> > + * @addr:	The base Intermediate physical address from which to invalidate
+> > + * @size:	Size of the range from the base to invalidate
+> > + */
+> > +void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
+> > +				phys_addr_t addr, size_t size);
+> >  #endif	/* __ARM64_KVM_PGTABLE_H__ */
+> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > index aa740a974e02..5d14d5d5819a 100644
+> > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > @@ -670,6 +670,26 @@ static bool stage2_has_fwb(struct kvm_pgtable *pgt)
+> >  	return !(pgt->flags & KVM_PGTABLE_S2_NOFWB);
+> >  }
+> >  
+> > +void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
+> > +				phys_addr_t addr, size_t size)
+> > +{
+> > +	unsigned long pages, inval_pages;
+> > +
+> > +	if (!system_supports_tlb_range()) {
+> > +		kvm_call_hyp(__kvm_tlb_flush_vmid, mmu);
+> > +		return;
+> > +	}
+> > +
+> > +	pages = size >> PAGE_SHIFT;
+> > +	while (pages > 0) {
+> > +		inval_pages = min(pages, MAX_TLBI_RANGE_PAGES);
+> > +		kvm_call_hyp(__kvm_tlb_flush_vmid_range, mmu, addr, inval_pages);
+> > +
+> > +		addr += inval_pages << PAGE_SHIFT;
+> > +		pages -= inval_pages;
+> > +	}
+> > +}
+> > +
+> 
+> This really shouldn't live in pgtable.c. This code gets linked into
+> the EL2 object. What do you think happens if, for some reason, this
+> gets called *from EL2*?
 
-Furthermore, platform_get_irq() will never return irq equals 0,
-removing spi->irq == 0 checking to clean it up.
+Ah, actually, nothing too bad would happen, as we convert the
+kvm_call_hyp() into a function call.
 
-Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
----
- drivers/spi/spi-microchip-core.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+But still, we don't need two copies of this stuff, and it can live in
+mmu.c.
 
-diff --git a/drivers/spi/spi-microchip-core.c b/drivers/spi/spi-microchip-core.c
-index b59e8a0c5b97..ac3b7b163db4 100644
---- a/drivers/spi/spi-microchip-core.c
-+++ b/drivers/spi/spi-microchip-core.c
-@@ -530,10 +530,8 @@ static int mchp_corespi_probe(struct platform_device *pdev)
- 		return PTR_ERR(spi->regs);
- 
- 	spi->irq = platform_get_irq(pdev, 0);
--	if (spi->irq <= 0)
--		return dev_err_probe(&pdev->dev, -ENXIO,
--				     "invalid IRQ %d for SPI controller\n",
--				     spi->irq);
-+	if (spi->irq < 0)
-+		return -ENXIO;
- 
- 	ret = devm_request_irq(&pdev->dev, spi->irq, mchp_corespi_interrupt,
- 			       IRQF_SHARED, dev_name(&pdev->dev), master);
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
