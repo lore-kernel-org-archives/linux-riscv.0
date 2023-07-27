@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F901C00528
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 10:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A45C001DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 10:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mqTcB94M54nbCkhK3c16gADJqXstuyYsump7aNUgk8Q=; b=eCgZ6jRhnLciCb
-	quQT0Px7pCDfuourXZLKKx9kvRKBnCWYS47vtAb2ocrVHhhgc7PaFtTISLTeSQOh69oeVitM12+Ql
-	ftxN6ca8sttosTVkkepqutxZcXwNn33IlftwFd0I7gSO7PO4r5DXaJjNuWsciFWP/3vG/5UYh8a/M
-	73lHoIxt7P9rdiZfWdKH0MjMkkFiSGzFLCWLLDvqMOPXyaBsKDpRpVAlcarKY5VhFadh/+MensSrq
-	xyEKojpY5370I2Lriy7ZuQYGF5ktv8Pcf9uq+yGJJy5+uBQG18e1dr+k7/Z32834z+hyrosaVyQ20
-	VGNczFkx54ordzFzv2VQ==;
+	List-Owner; bh=c/sfasb5MVObpyWrtsbo6sCML/glmjADz+OtokfXcOY=; b=Mxsqr2MV/kOFSh
+	CxMn3+LaXeAfAa1bpDxCfJRxLVxQFVZiLkY6xpTowk/P5kiVIsekMFkon+oBwtretoCaS21XsuYJS
+	JL5ByXGg57jZJE6MB5Z8LJG0HBSRjsArffZcTcy4tl4OLUPsUnNJ+yFceenEe+p0gTZ8HDInTXxwP
+	MKgahX6126xgNUpfRqS8MHsSq8TOHbZ+YY0tTVsp9bVy14u666VNaqZoDA5/Jj9rJmNialcmltCgq
+	H8XIXb6cSZZeLlOVnNjblIEglahaID4JC9U0TASdm9N/vJZwO+A0l7jmFkP+qtF380Ln6yTm70qV7
+	+vqJOBzp6uYD4tlVF2Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOyPx-00D3S1-3C;
-	Thu, 27 Jul 2023 10:40:26 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	id 1qOycK-00D7iE-1f;
+	Thu, 27 Jul 2023 10:53:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOyPs-00D3LZ-0y
-	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jul 2023 10:40:23 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-63d2b7d77bfso5754966d6.3
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Jul 2023 03:40:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1690454415; x=1691059215;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=sndfUp5VQwyYdDkfd9c4UQTPXsXPqaVmv/x1Ijy8DrI=;
-        b=BRo0MX+z2r1SS6yWvALim/6/nbcuIraz/dvlfYWOZ9asJfVrKNdNm2FzRqaxLf+dSr
-         gd8iH6tStNBkd23/w31KCfLL9pbPEeNVyPTR03aUqTDZY6wZTMoqJSnBUDPOFUCLZI8l
-         DGkcMHGLOMeyEEgRm2q9vaf0Y5Q5Azvv1tkZ/xFOCXwAaoOvebuUDqbcoCdnlpWZyTyX
-         q38zkUOHeP0Tt+nEWAcZ8JszB60VlCahpErQX1nO7BawFSz3QtUcVh1o5Am/iWB313H6
-         H0uJV9FuYrV0GCIZde+45ERDs3S4qD78OMMR7S/b1svm4zQQyj/BCkUn3DI2PJoOlxx+
-         Zjrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690454415; x=1691059215;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sndfUp5VQwyYdDkfd9c4UQTPXsXPqaVmv/x1Ijy8DrI=;
-        b=YGWEStW9611kOa+oapbI+i5Csm/pQzBuyIm8lD3FC7rce3xaM8/9G9Pb2njkJT2B1X
-         cGgS9+mOE+PnDAYCrHN5NAcUZe7p7bOjQPLte+gVwqenIFDQFWZl8aVWL+Iq/F+EIGmf
-         kvtN24BQ57iuuku0zkfpCWyDD2vdPwtQRPPP7BD4SSA7R1foc9dsgYcFp9Z+fIt+7eFh
-         yfkp5aKaCZKjdQyE0YBwGxeK3piSYPtGdxhAmBRUgpVG/FW9uTXIOZjfclJmtOpnGNu9
-         s12v6CtcJJZIrqVei1s+EOvBDyQQ8LhFWv2BASPu9jSp2IxM20rLp6PUDdiLXch6Tz9E
-         5IvA==
-X-Gm-Message-State: ABy/qLbefvD7N8YkToWZyzUGjf8BpG0WMRan7fpn7jB9feswHgOsvh1o
-	AI6rJnMKNRaVB5ViAG3tTvB4ZQy3fIh0a5wzox8k2g==
-X-Google-Smtp-Source: APBJJlE+0dXFxcWiQX8kiDXJfKau+LxjypHc8uOGBYfuDsHhoPcJDBpq4NHTu2yqyvhkPVt07nS69cNqQCueoayyUeg=
-X-Received: by 2002:a05:6214:12b:b0:63d:218:c83f with SMTP id
- w11-20020a056214012b00b0063d0218c83fmr4306083qvs.36.1690454414736; Thu, 27
- Jul 2023 03:40:14 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-13-seanjc@google.com>
-In-Reply-To: <20230718234512.1690985-13-seanjc@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 27 Jul 2023 11:39:38 +0100
-Message-ID: <CA+EHjTzP2fypgkJbRpSPrKaWytW7v8ANEifofMnQCkdvYaX6Eg@mail.gmail.com>
-Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
- guest-specific backing memory
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
-	Yu Zhang <yu.c.zhang@linux.intel.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
-	Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
-	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+	id 1qOycC-00D7e0-1q;
+	Thu, 27 Jul 2023 10:53:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A55D261E26;
+	Thu, 27 Jul 2023 10:53:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DC10C433C7;
+	Thu, 27 Jul 2023 10:53:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690455183;
+	bh=Kf3PoZcaGR2gkOy5bI0LwvtY2SC896CCkSXbSLWkFBc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jPiusiKewOUry6ypAvPniDaxOhUSPXIOCXtTsmNNz+/7gz1EFs7E8kzftW2B4RaoB
+	 cjQ1HUyrhUcWgfrvkf+Vxpa/PRNM1vtXi8BIA8Hn9EXNo/cR3/WvZaW+dQM8fHLZmZ
+	 VVCwZmVHCM7nJ80nDfcS+mKecRzQlNH/Yl8WEHhsCulky2Ia7ezh8YBkfb2O22fY1m
+	 opNlycFD/nAxb6Qb8w9vsszetxEoy9mV2HE2PvX457L+jGtKCOeEklSA4wdsTxf0oT
+	 bSgbizad+4N4QYmI8SK9TxqZ/GFtZs53ijAxdu4PdAOOm/xLWZ+fFl4HLASo9h7uiF
+	 qBZ5GfHonID0A==
+Received: from [104.132.45.102] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1qOyc8-00HKTs-J2;
+	Thu, 27 Jul 2023 11:53:00 +0100
+Date: Thu, 27 Jul 2023 11:53:00 +0100
+Message-ID: <87sf99r5gz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Jing Zhang <jingzhangos@google.com>,
+	Reiji Watanabe <reijiw@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	David Matlack <dmatlack@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	Gavin Shan <gshan@redhat.com>,
+	Shaoqin Huang <shahuang@redhat.com>
+Subject: Re: [PATCH v7 05/12] KVM: Move kvm_arch_flush_remote_tlbs_memslot() to common code
+In-Reply-To: <20230722022251.3446223-6-rananta@google.com>
+References: <20230722022251.3446223-1-rananta@google.com>
+	<20230722022251.3446223-6-rananta@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 104.132.45.102
+X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, gshan@redhat.com, shahuang@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_034020_342079_E447FDE5 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230727_035304_732433_AF8AFF49 
+X-CRM114-Status: GOOD (  26.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +107,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+On Sat, 22 Jul 2023 03:22:44 +0100,
+Raghavendra Rao Ananta <rananta@google.com> wrote:
+> 
+> From: David Matlack <dmatlack@google.com>
+> 
+> Move kvm_arch_flush_remote_tlbs_memslot() to common code and drop
+> "arch_" from the name. kvm_arch_flush_remote_tlbs_memslot() is just a
+> range-based TLB invalidation where the range is defined by the memslot.
+> Now that kvm_flush_remote_tlbs_range() can be called from common code we
+> can just use that and drop a bunch of duplicate code from the arch
+> directories.
+> 
+> Note this adds a lockdep assertion for slots_lock being held when
+> calling kvm_flush_remote_tlbs_memslot(), which was previously only
+> asserted on x86. MIPS has calls to kvm_flush_remote_tlbs_memslot(),
+> but they all hold the slots_lock, so the lockdep assertion continues to
+> hold true.
+> 
+> Also drop the CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT ifdef gating
+> kvm_flush_remote_tlbs_memslot(), since it is no longer necessary.
+> 
+> Signed-off-by: David Matlack <dmatlack@google.com>
+> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
+> ---
+>  arch/arm64/kvm/arm.c     |  6 ------
+>  arch/mips/kvm/mips.c     | 10 ++--------
+>  arch/riscv/kvm/mmu.c     |  6 ------
+>  arch/x86/kvm/mmu/mmu.c   | 16 +---------------
+>  arch/x86/kvm/x86.c       |  2 +-
+>  include/linux/kvm_host.h |  7 +++----
+>  virt/kvm/kvm_main.c      | 18 ++++++++++++++++--
+>  7 files changed, 23 insertions(+), 42 deletions(-)
+>
 
-<snip>
-...
+[...]
 
-> @@ -5134,6 +5167,16 @@ static long kvm_vm_ioctl(struct file *filp,
->         case KVM_GET_STATS_FD:
->                 r = kvm_vm_ioctl_get_stats_fd(kvm);
->                 break;
-> +       case KVM_CREATE_GUEST_MEMFD: {
-> +               struct kvm_create_guest_memfd guest_memfd;
-> +
-> +               r = -EFAULT;
-> +               if (copy_from_user(&guest_memfd, argp, sizeof(guest_memfd)))
-> +                       goto out;
-> +
-> +               r = kvm_gmem_create(kvm, &guest_memfd);
-> +               break;
-> +       }
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 804470fccac7..58213cc4b9b9 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -379,6 +379,20 @@ void kvm_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 pages)
+>  	kvm_flush_remote_tlbs(kvm);
+>  }
+>  
+> +void kvm_flush_remote_tlbs_memslot(struct kvm *kvm,
+> +				   const struct kvm_memory_slot *memslot)
+> +{
+> +	/*
+> +	 * All current use cases for flushing the TLBs for a specific memslot
+> +	 * related to dirty logging, and many do the TLB flush out of mmu_lock.
 
-I'm thinking line of sight here, by having this as a vm ioctl (rather
-than a system iocl), would it complicate making it possible in the
-future to share/donate memory between VMs?
+I appreciate this is a copy paste of an existing comment, but I can't
+parse it. My command of the English language is notoriously
+approximate, but it feels that something is missing in the first
+sentence, such as a verb.
 
-Cheers,
-/fuad
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
