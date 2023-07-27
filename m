@@ -4,93 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDC8C001DC
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 12:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A481C001E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 13:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rPVOVvEloh15EtY5PWpTlo5NpT4/B+65gl0X4Bw2HrQ=; b=1javCQqSLL7RcP
-	Q/BiJrSzd3TTQMryMy/TlHd3LoyWjKopoc11gzfyJQs4TUHrHR0dEkLwf2mpoLyWNBrbvZI6BCpWL
-	0YYAkgSKz2bl3KoqqC0f3ZQlbLXxJj6p8RdDiSn1lSLhU6HiFAfAcxsYIXwsxqoATxW/DHvXT5Pvr
-	oRpBha2nEG9BPLLJLSEicPz3DotiC+eDLP5YdovTCsA08BhTZ04e/piVR7O6M8+cFi0Ze+MEJSs3y
-	BctRTP/HgzXdmTf19szYiMviu0ycTLpoh4Tu0U1OYCtM7cSvkBT0x2bYR//IcHnVD+T/tFD4V2Hki
-	WvF/2ZwrvFNfvpReZZIQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=m46c/2VQRPNV7q7ZpDleM2me8jQmVNGGVTw4xRXj8Bc=; b=BZzwqDrLGtqvaZ
+	GS3Q6iJiiLAlfwPVg3ZkOEJhhWDnwpGAVPhovvRCvu+Bv9fTGa3VS36yAbb92fDtEHS7WrbRiaHGV
+	GI4qAAVL/F5zYB9sgxbAKUnaDOBdqAm3YZEf14cj6WQzQlt0bRNFRx49IBQfFeeOQNbKTr/eHXQmU
+	HO1BBOtjX09JeOa5cwx1Cgb4vBRB2VlZLpsZIzR3aUXPj5uZKgEJLGbEULiYPFJMa3ZG4o8/eIUQQ
+	M7uhyClV8/wcdAhe/k7xxAX0fx85YACI3o8yVIs+RKaxIPonV9lmiKu/qDYlzFsKb08RyaJH3C7cF
+	FqzvFxiiaoO2mPce4e5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0Pj-00E7Ok-1e;
-	Thu, 27 Jul 2023 12:48:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qP0cl-00EGCw-0P;
+	Thu, 27 Jul 2023 13:01:47 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0Pf-00E7LC-0j;
-	Thu, 27 Jul 2023 12:48:16 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B151861E72;
-	Thu, 27 Jul 2023 12:48:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 202DFC433C7;
-	Thu, 27 Jul 2023 12:48:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690462094;
-	bh=Pu9LHy5Agl5sYHbCRsbjf8k1I59T+epDRHYNCSx4JE0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=rn6scYsMbV5/hnnmtH8oiCUC5rXbFb89YKEg3KCSLdeCqTZUujSry/ysohED3t+2u
-	 cdfOKE6NXYMs1bFJof86Rn5DZA/mfyKpSQ88AN44Iccn1W80m0+AnBT2B/pbUJxK1H
-	 MGHOEF471C9WrJUb0oEtOee5FsAhQmy0iXfcg0zEM72UwbCzP1tir6jqOchmmXqdVF
-	 VGNx/XrxqZH8KLaTgJNBT0yvwJ2DvfvphuGCIcCyEskOlYPsDcgZvYb37uNuF58D5c
-	 etiPcMpzK00oopTRBCOQaNOwSJcEJFmnXOhwLnSLJyv3a/+qFDR9oYMWCAdnAh7AmC
-	 u7xA8rkxb3xRA==
-Received: from [104.132.45.102] (helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1qP0Pb-00HMJJ-W9;
-	Thu, 27 Jul 2023 13:48:12 +0100
-Date: Thu, 27 Jul 2023 13:48:11 +0100
-Message-ID: <87mszhr050.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Jing Zhang <jingzhangos@google.com>,
-	Reiji Watanabe <reijiw@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	David Matlack <dmatlack@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	Gavin Shan <gshan@redhat.com>,
-	Shaoqin Huang <shahuang@redhat.com>
-Subject: Re: [PATCH v7 09/12] KVM: arm64: Implement kvm_arch_flush_remote_tlbs_range()
-In-Reply-To: <20230722022251.3446223-10-rananta@google.com>
-References: <20230722022251.3446223-1-rananta@google.com>
-	<20230722022251.3446223-10-rananta@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 104.132.45.102
-X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, gshan@redhat.com, shahuang@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1qP0cg-00EG0Q-2o
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Jul 2023 13:01:45 +0000
+Received: from dggpemm500016.china.huawei.com (unknown [172.30.72.55])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4RBW8Y6YzLz1GDDY;
+	Thu, 27 Jul 2023 21:00:29 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.27; Thu, 27 Jul
+ 2023 21:01:23 +0800
+From: Chen Jiahao <chenjiahao16@huawei.com>
+To: <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
+	<broonie@kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-spi@vger.kernel.org>
+CC: <chenjiahao16@huawei.com>
+Subject: [PATCH -next] spi: microchip-core: Clean up redundant dev_err_probe()
+Date: Thu, 27 Jul 2023 21:00:49 +0800
+Message-ID: <20230727130049.2810959-1-chenjiahao16@huawei.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_054815_350460_9DA5CA66 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20230727_060143_587769_CB2AFF8F 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,38 +68,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Jul 2023 03:22:48 +0100,
-Raghavendra Rao Ananta <rananta@google.com> wrote:
-> 
-> Implement kvm_arch_flush_remote_tlbs_range() for arm64
-> to invalidate the given range in the TLB.
-> 
-> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
-> ---
->  arch/arm64/include/asm/kvm_host.h | 3 +++
->  arch/arm64/kvm/mmu.c              | 7 +++++++
->  2 files changed, 10 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 7281222f24ef..52d3ed918893 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -1114,6 +1114,9 @@ struct kvm *kvm_arch_alloc_vm(void);
->  #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS
->  int kvm_arch_flush_remote_tlbs(struct kvm *kvm);
->  
-> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
-> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages);
+Refering to platform_get_irq()'s definition, the return value has
+already been checked if ret < 0, and printed via dev_err_probe().
+Calling dev_err_probe() one more time outside platform_get_irq()
+is obviously redundant.
 
-As per the other patches, these prototypes should be global and not
-arch-specific.
+Furthermore, platform_get_irq() will never return irq equals 0,
+removing spi->irq == 0 checking to clean it up.
 
-	M.
+Signed-off-by: Chen Jiahao <chenjiahao16@huawei.com>
+---
+ drivers/spi/spi-microchip-core.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
+diff --git a/drivers/spi/spi-microchip-core.c b/drivers/spi/spi-microchip-core.c
+index b59e8a0c5b97..ac3b7b163db4 100644
+--- a/drivers/spi/spi-microchip-core.c
++++ b/drivers/spi/spi-microchip-core.c
+@@ -530,10 +530,8 @@ static int mchp_corespi_probe(struct platform_device *pdev)
+ 		return PTR_ERR(spi->regs);
+ 
+ 	spi->irq = platform_get_irq(pdev, 0);
+-	if (spi->irq <= 0)
+-		return dev_err_probe(&pdev->dev, -ENXIO,
+-				     "invalid IRQ %d for SPI controller\n",
+-				     spi->irq);
++	if (spi->irq < 0)
++		return -ENXIO;
+ 
+ 	ret = devm_request_irq(&pdev->dev, spi->irq, mchp_corespi_interrupt,
+ 			       IRQF_SHARED, dev_name(&pdev->dev), master);
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
