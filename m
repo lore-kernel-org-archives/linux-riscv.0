@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8453EC04A6A
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 16:23:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB639C0015E
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 17:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yFyBK/ZY5bcRjoG+w51ke2FSF01EiUFniqLAZAfO09o=; b=iv3l2Xviwab3Oq
-	Yax3Mgtdl4wSi1SOlAoKA9U4Z24VlkdVgAkRmZGugjjM8180SRwvzTVFyjW88cshHruOaCGqzxiLe
-	bpcAAZqtw8R8CMUrJbRvXvNU1liiG+YkJ/0GR8UZ/RtKxcnvzJvjNGnDRpy/OIE12ZLcxHp3xwMRT
-	/UguXNUwRNDUocUSjB8uSph2iRE/s7bPWa0AxtlNTKDya2GyAR+tEOrw+0WAOCouR9KVq6sOQRNcs
-	GpUleSoeH967ZqtzXpG/xO2puCUhDqsKmfuu1H1kZN0fEpffIjzAq6iUaje0EGcaQQ7R7zToVpzeG
-	2OyOTpoOVajvyeK5sP1A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=HRVct3AuRXnXkqQTmExkXMvMCpmF1Yu2FDhgwXnm9y4=; b=zltbtfkhf6bxuugbPhhV3uYcQ5
+	uvIyNjJcUddvplq74GsME5720G9by2bz1S2U6o0JZt39e6u4s4KZ/SMf0Emjo8cItXwQGmdscn05x
+	92REf/QIHxB+FOLXFk9d9oNY3lK9S1hBXjHgykV+gbytmAUaGCNBHUfGBIxfz48RlTyAorELeQ8Ba
+	Bgz2d4uDM37lrsdWpBWlqeh6oaFvW81PaIzv4SjO+6E4i2m0WS+afI2ORDNw9zYuX8BolifxY0eDz
+	Gy1RCsqWMdgP0om7gXQO9iSqtbIy1nzEG5GyPl2syArAcYeDzf+zUHeB7v8+WsyMuuW3BOq6Ng7bI
+	irmlpJHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP3lv-00GWCo-2X;
-	Thu, 27 Jul 2023 16:23:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qP4Y9-00HAKj-1j;
+	Thu, 27 Jul 2023 17:13:17 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP3lt-00GWAw-1n
+	id 1qP4Y3-00HAE7-1R
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jul 2023 16:23:26 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0584161E06;
-	Thu, 27 Jul 2023 16:23:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2339BC433C7;
-	Thu, 27 Jul 2023 16:23:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690475004;
-	bh=TD7vS16IIuUgR5cYQWuElvIIyOIASC8KrZH5mzivc8c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NRAPajPHZHEkFEPS1peqox5tcJ7gM95Aa0aCNJgFLnZh76ZjtnFkuBVcnz2VozH3h
-	 qZDfeOyYsA4/tOhwZThD1Yql5NWDQyNp3Pj1ax0nmxIR4WnyLuATCbodU9ujfYW53u
-	 MCszD3oMGFT7emm3YOylZbPm+wk5j2slsAyhcAOJ65sBLz7/OOsnRbCh4xJ/DUq0Ky
-	 1tUlP9y7qi5KYE8aTkRm3LfNM0NvGsiHz4fenNnLWpEz+bnaYoolNpKOn9yy/Jt44z
-	 KwzX063DR7Y6SVY/+O7/Thx5Q5WG3hSSTpNkAXQLqX3mQEFEWksyReUFvFNGZxE/06
-	 Kp2Bh1KU3ydlA==
-Date: Fri, 28 Jul 2023 00:11:46 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Xi Ruoyao <xry111@linuxfromscratch.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 0/8] Add Sipeed Lichee Pi 4A RISC-V board support
-Message-ID: <ZMKXQpreSr47MFj6@xhacker>
-References: <20230617161529.2092-1-jszhang@kernel.org>
- <c9a44f534071a6d67f1e21bafdb713793c559124.camel@linuxfromscratch.org>
- <20230725-unheard-dingy-42f0fafe7216@wendy>
- <ZL/jMYL3akl78ZZN@xhacker>
- <3e0994dab495920ac590dc28d6b9d9765abe0c7e.camel@linuxfromscratch.org>
- <ZME1J4mpVf5yth32@xhacker>
- <866eab3e30a18c50742a75d62aee223fdc7e3cee.camel@linuxfromscratch.org>
- <4986b92f1a5aa303a529c6004aaedd2184c3ccf7.camel@linuxfromscratch.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <4986b92f1a5aa303a529c6004aaedd2184c3ccf7.camel@linuxfromscratch.org>
+	Thu, 27 Jul 2023 17:13:15 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1bbb34b091dso8228795ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Jul 2023 10:13:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1690477989; x=1691082789;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=F7oDMpfc0bW6NSyfuHNNNYlN2HFPFEuCSHvjU51+NBs=;
+        b=uR617wLpg6qNB677nCTpj/mRcHCn7jeMQ6T975dwFWafb05LBOA5GXBHggNBovfIzX
+         O/7M392ccdTOGZqesE1qC7szLmXDUVbpTkdUSAnDKesUZGTHf6YrHw7iRdcLemcslWSD
+         KrRYixDmKkhke5BhBNDcGGoexHbctICnVSugeNNjkFTNcd3g+7vTx3m4xPX98nUwGt3/
+         mWhf+uFvINzhg7lFN3O3GR8jmx04AReHHh1Ek1sP09ZwG+oxGwlWe7n39MiREf5a36wi
+         QECqs1dJt2n4+euTMFmAQH0Oiz0RKLy4HgS6MVL8RVa78gxf6JRosPxL/mvaakJouVeF
+         ho3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690477989; x=1691082789;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=F7oDMpfc0bW6NSyfuHNNNYlN2HFPFEuCSHvjU51+NBs=;
+        b=bA7px1pckdt3LaaFaIEpKiH8/NMDEtEyv++b8jk+GaaLiDtqajMaWZut+2UQ3aJplD
+         eovehCls3P+wino8U2kCz8dxiiw6D+AyrtSdBT6SqSTmGnuRp7HRtlVM3ktb5OGfMbI8
+         B0KsHR/+oL1hLFGTDtVZQKHFnYEhLQfMp4PWO6C+0sr88LAd7OAklAktvCstOVKyFDtU
+         M945UiNvWQXwXGcqWf4by4tFSVATOo7G2zdT5uDNk2mc7exnm3HvnWX2GkzeYTTkytH9
+         w//oG/Prp1T585TZQr/fnQsWZl2VJJFv0lp1aIUollR9LRlWDVBChtZPrIy3Sp8zKHOl
+         fV4g==
+X-Gm-Message-State: ABy/qLbu2FoGlQKQ7Kkgj7DuDVJWdMrIT1V5Dtcx9TMrYVoVQYy4hXnU
+	Lyek/ldqYE64qTccLUzv0KdsgpLLlkg=
+X-Google-Smtp-Source: APBJJlEiCX9DyxliShqr2xPxTiyej7fUi+PkS+4LO77eNeghg1Fiv4b0fvD5YH2w9mP2/cy4q9w9vNXHRRI=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:903:22c6:b0:1b5:2b14:5f2c with SMTP id
+ y6-20020a17090322c600b001b52b145f2cmr24803plg.4.1690477989357; Thu, 27 Jul
+ 2023 10:13:09 -0700 (PDT)
+Date: Thu, 27 Jul 2023 10:13:07 -0700
+In-Reply-To: <CA+EHjTzP2fypgkJbRpSPrKaWytW7v8ANEifofMnQCkdvYaX6Eg@mail.gmail.com>
+Mime-Version: 1.0
+References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-13-seanjc@google.com>
+ <CA+EHjTzP2fypgkJbRpSPrKaWytW7v8ANEifofMnQCkdvYaX6Eg@mail.gmail.com>
+Message-ID: <ZMKlo+Fe8n/eLQ82@google.com>
+Subject: Re: [RFC PATCH v11 12/29] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Sean Christopherson <seanjc@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Chao Peng <chao.p.peng@linux.intel.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Ackerley Tng <ackerleytng@google.com>, Maciej Szmigiero <mail@maciej.szmigiero.name>, 
+	Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>, 
+	Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_092325_640118_88BD2730 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20230727_101311_519010_9DCE968B 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,35 +102,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdWwgMjcsIDIwMjMgYXQgMDg6NTQ6NTlBTSArMDgwMCwgWGkgUnVveWFvIHdyb3Rl
-Ogo+IE9uIFRodSwgMjAyMy0wNy0yNyBhdCAwODoxNCArMDgwMCwgWGkgUnVveWFvIHdyb3RlOgo+
-ID4gT24gV2VkLCAyMDIzLTA3LTI2IGF0IDIzOjAwICswODAwLCBKaXNoZW5nIFpoYW5nIHdyb3Rl
-Ogo+ID4gPiB3aGljaCBkdHMgciB1IHVzaW5nPyBzZWUgYmVsb3cuCj4gPiA+IAo+ID4gPiA+IAo+
-ID4gPiA+IE9yIG1heWJlIG15IHRvb2xjaGFpbiAoR0NDIDEzLjEuMCwgQmludXRpbHMtMi40MCwg
-d2l0aCBubyBwYXRjaGVzKSBjYW4KPiA+ID4gPiBtaXNjb21waWxlIHRoZSBrZXJuZWw/Cj4gPiAK
-PiA+IC8qIHNuaXAgKi8KPiA+IAo+ID4gPiA+IEJvb3QgSEFSVCBJRMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIDogMAo+ID4gPiA+IEJvb3QgSEFSVCBEb21haW7CoMKgwqDCoMKgwqDCoMKgwqAg
-OiByb290Cj4gPiA+ID4gQm9vdCBIQVJUIFByaXYgVmVyc2lvbsKgwqDCoCA6IHYxLjExCj4gPiA+
-ID4gQm9vdCBIQVJUIEJhc2UgSVNBwqDCoMKgwqDCoMKgwqAgOiBydjY0aW1hZmRjdngKPiA+ID4g
-Cj4gPiA+IHdoYXQ/IEkgZG9uJ3QgdGhpbmsgdGhlIG1haW5saW5lIGR0cyBwcm92aWRlIHYgYW5k
-IHguIAo+ID4gCj4gPiBJIGNvcGllZCB0aGUgY29tcGlsZWQgYXJjaC9yaXNjdi9ib290L2R0cy90
-aGVhZC90aDE1MjAtbGljaGVlLXBpLTRhLmR0Ygo+ID4gaW50byAvYm9vdCBhbmQgbG9hZGVkIGl0
-IHdpdGggdS1ib290ICJsb2FkIiBjb21tYW5kIG9udG8gMHg0NjAwMDAwMCwgYW5kCj4gPiBwYXNz
-ZWQgdGhpcyBhZGRyZXNzIHRvIHRoZSBib290aSBjb21tYW5kLgo+ID4gCj4gPiBCdXQgbWF5YmUg
-SSd2ZSBjb3BpZWQgdGhlIHdyb25nIGZpbGUgb3IgbWFkZSBzb21lIG90aGVyIG1pc3Rha2UuLi4g
-SSdsbAo+ID4gcmVjaGVjay4KPiAKPiBIbW0sIGFuZCBpZiBJIHJlYWQgT3BlblNCSSBjb2RlIGNv
-cnJlY3RseSwgdGhpcyBsaW5lIHJlZmxlY3RzIHRoZQo+IGNvbnRlbnQgb2YgdGhlIG1pc2EgQ1NS
-LCBub3QgdGhlIERUIHJpc2N2LGlzYSB2YWx1ZS4KPiAKCkFoYSBpbmRlZWQgdGhlICJ2eCIgaXNh
-IGV4dGVuc2lvbnMgYXJlIG5vdCBmcm9tIHRoZSBEVCByaXNjdixpc2EKcHJvcGVydHkuIEkgd2ls
-bCB0cnkgeW91ciBvcGVuc2JpL2xpbnV4L3Vib290IGNvbWJpbmF0aW9ucyBvbiBteQpscGk0YSBi
-b2FyZCB0b21vcnJvdy4KCj4gVGhlIGxvZyBvZiBzdWNjZXNzZnVsIGJvb3QgcHJvdmlkZWQgYnkg
-RHJldyBhbHNvIGNvbnRhaW5zCj4gInJ2NjRpbWFmZGN2eCI6Cj4gCj4gaHR0cHM6Ly9naXN0Lmdp
-dGh1Yi5jb20vcGRwNy8yMzI1OTU5NWE3NTcwZjFmMTEwODZkMjg2ZTE2ZGZiNgo+IAoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Jul 27, 2023, Fuad Tabba wrote:
+> Hi Sean,
+> 
+> <snip>
+> ...
+> 
+> > @@ -5134,6 +5167,16 @@ static long kvm_vm_ioctl(struct file *filp,
+> >         case KVM_GET_STATS_FD:
+> >                 r = kvm_vm_ioctl_get_stats_fd(kvm);
+> >                 break;
+> > +       case KVM_CREATE_GUEST_MEMFD: {
+> > +               struct kvm_create_guest_memfd guest_memfd;
+> > +
+> > +               r = -EFAULT;
+> > +               if (copy_from_user(&guest_memfd, argp, sizeof(guest_memfd)))
+> > +                       goto out;
+> > +
+> > +               r = kvm_gmem_create(kvm, &guest_memfd);
+> > +               break;
+> > +       }
+> 
+> I'm thinking line of sight here, by having this as a vm ioctl (rather
+> than a system iocl), would it complicate making it possible in the
+> future to share/donate memory between VMs?
+
+Maybe, but I hope not?
+
+There would still be a primary owner of the memory, i.e. the memory would still
+need to be allocated in the context of a specific VM.  And the primary owner should
+be able to restrict privileges, e.g. allow a different VM to read but not write
+memory.
+
+My current thinking is to (a) tie the lifetime of the backing pages to the inode,
+i.e. allow allocations to outlive the original VM, and (b) create a new file each
+time memory is shared/donated with a different VM (or other entity in the kernel).
+
+That should make it fairly straightforward to provide different permissions, e.g.
+track them per-file, and I think should also avoid the need to change the memslot
+binding logic since each VM would have it's own view/bindings.
+
+Copy+pasting a relevant snippet from a lengthier response in a different thread[*]:
+
+  Conceptually, I think KVM should to bind to the file.  The inode is effectively
+  the raw underlying physical storage, while the file is the VM's view of that
+  storage. 
+  
+  Practically, I think that gives us a clean, intuitive way to handle intra-host
+  migration.  Rather than transfer ownership of the file, instantiate a new file
+  for the target VM, using the gmem inode from the source VM, i.e. create a hard
+  link.  That'd probably require new uAPI, but I don't think that will be hugely
+  problematic.  KVM would need to ensure the new VM's guest_memfd can't be mapped
+  until KVM_CAP_VM_MOVE_ENC_CONTEXT_FROM (which would also need to verify the
+  memslots/bindings are identical), but that should be easy enough to enforce.
+  
+  That way, a VM, its memslots, and its SPTEs are tied to the file, while allowing
+  the memory and the *contents* of memory to outlive the VM, i.e. be effectively
+  transfered to the new target VM.  And we'll maintain the invariant that each
+  guest_memfd is bound 1:1 with a single VM.
+  
+  As above, that should also help us draw the line between mapping memory into a
+  VM (file), and freeing/reclaiming the memory (inode).
+  
+  There will be extra complexity/overhead as we'll have to play nice with the
+  possibility of multiple files per inode, e.g. to zap mappings across all files
+  when punching a hole, but the extra complexity is quite small, e.g. we can use
+  address_space.private_list to keep track of the guest_memfd instances associated
+  with the inode.
+  
+  Setting aside TDX and SNP for the moment, as it's not clear how they'll support
+  memory that is "private" but shared between multiple VMs, I think per-VM files
+  would work well for sharing gmem between two VMs.  E.g. would allow a give page
+  to be bound to a different gfn for each VM, would allow having different permissions
+  for each file (e.g. to allow fallocate() only from the original owner).
+
+[*] https://lore.kernel.org/all/ZLGiEfJZTyl7M8mS@google.com
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
