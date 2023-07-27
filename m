@@ -4,67 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5805C04A6A
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 12:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A05BC001DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 12:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=huQ1zFIPS4ojjAgZ+Nfb3zrleOF90Voe/ndOxAclarM=; b=Su3zqZ88mWMpbykfMTtWuwJbb5
-	ReA/BSxHFBaF8Y6gIpJa7Gu+edtSTNYOj4CccOkvlH7hIgMo9awIXF96BDAA8ZywGDVU46k/vhxSZ
-	bQ+85PvfchqNxoTJXDXm5gKnvVX9pZjO6OO76RBuSgKBNKbSFVi+B8FDPJiwtDFUdqfpVSp110/44
-	/6yQSqb0zWQeusDfHf0ztuF0NkyJOrWrr8oumQrtM4THs3qQJ1G0PdPjyA7s7LOJYzIyCaVPHl3jD
-	VAS324RwoHeESH/ZW+ZWNk2TQCcOkPhL29ZRlqZMI5+shg0mry6lqae8NwBNhFghoQPUFXvjKpLIc
-	f1tIqWww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4Iiu5lN3ZZOYgYqkEuulgYlL8UgThV8qa0sg0aS8/4I=; b=eBoJSAVF589lIC
+	6iTy3sNYFcdHlPbFFGoPCFy8/xm2xF6c0GsDHyW01256gF1fHrzuFYgG/km8/lwJHnpT6wiBeFtsl
+	GATG/VSD1dwNq+5eitNvBpBznmLZExDMgA9BpToE6iY32/WUw1+JiysOMLpH6iDjRGxj6956UmRya
+	WsAckbWZIOnQzH/X5HGTG62Vqf3O/Mo01AkA3sAhMkj9fwa0ENDBJDxqwdOkHnjayFbETcNW8g1Sx
+	qAQjJtcy/J5D3BzKSZyZSVP6fRqUy6sLCl5xAnZ9hdafNf/EIGzqtkt/KdVpM/KNuydJ4c2LyuVyk
+	wfmrlHEOV7Gb49boamNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0Bj-00Dypa-2Z;
-	Thu, 27 Jul 2023 12:33:51 +0000
+	id 1qP0IY-00E350-39;
+	Thu, 27 Jul 2023 12:40:54 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0Bf-00DymK-2T
-	for linux-riscv@lists.infradead.org;
-	Thu, 27 Jul 2023 12:33:49 +0000
+	id 1qP0IU-00E31P-0c;
+	Thu, 27 Jul 2023 12:40:51 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 12A5961E5D;
-	Thu, 27 Jul 2023 12:33:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96677C433C8;
-	Thu, 27 Jul 2023 12:33:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 726D261D26;
+	Thu, 27 Jul 2023 12:40:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAD9AC433C8;
+	Thu, 27 Jul 2023 12:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690461226;
-	bh=7VsMmtHFnt3Mu8te/EKSf4+ZEamhC9GT5n3lbZ8HcF0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KryMqBMvkbHpL7pIWShH5LDgkQwzn4vj30MjLrUKKcupCQw0pYVMWO+JBKD8n74es
-	 WSTLcMbzb5HcSjtxpdsDLQwgyhjDziMh1rIQIcpVZJkJ7q998QwCJWE/d7v0gugot4
-	 lSNcnerOHaHeiPZ8yFSFVOl7fS9POcfpRAmJjLpZiaKHW+Nx3KReQ11+0xcQEYj7Rd
-	 BYx9/GYFS36xA68BhbZyefhKmdfTIkMAPz0pV+P+CYLrpIkspEY7815Ho+n4rzaqv5
-	 IQueyjIk4ayVdFn7Anr+T4fEMCaRfUQ6MmvGBSYP01oVnG8BngrTSLuoH+1kgZ3DqI
-	 KlyaLbKhTAwHg==
-Date: Thu, 27 Jul 2023 13:33:41 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	paul.walmsley@sifive.com, palmer@rivosinc.com,
-	aou@eecs.berkeley.edu, anup@brainfault.org,
-	konstantin@linuxfoundation.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	mick@ics.forth.gr, jrtc27@jrtc27.com, rdunlap@infradead.org,
-	alexghiti@rivosinc.com
-Subject: Re: [PATCH v7 1/4] RISC-V: mm: Restrict address space for
- sv39,sv48,sv57
-Message-ID: <20230727-unruffled-joyride-410fc348ce7b@spud>
-References: <20230726164620.717288-1-charlie@rivosinc.com>
- <20230726164620.717288-2-charlie@rivosinc.com>
-MIME-Version: 1.0
-In-Reply-To: <20230726164620.717288-2-charlie@rivosinc.com>
+	s=k20201202; t=1690461648;
+	bh=GuUn7Qiz7VlihN9V+lWXsCHtNZx1opVL1pqDW0CmmGE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=m4Zirj1gKc9tNlyrRCZuIT8igAPw85Xg5ys5NjJ5Q35IBkHX8oEM1YoQIwFxapEYq
+	 eoVftHKHAOUVaZTf+JgeLUgfFiW7xKfVfPhRIGfm7HNMaZ08aCuevB6QsbsMjzm54l
+	 MULu3nsUpoqL6X9AsxSiuCEv0YdMV3f4M5DMi9xxYBrK6h5plOp+5r3qivn/1hyQfO
+	 WX2+ob/tNCXZ61LT2uRgOk8hJit3HLb6mlQSieLjs2eJSjsSbbNYSW1sQ5bly1IEmz
+	 uysVQXcpzOt1k/PDwfmdiFCcXtItNdFqVCtEf4HM/6EcJYi1cNW1row0ghxskQRBAm
+	 nlr6M/nP8z2Pw==
+Received: from [104.132.45.102] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1qP0IQ-00HMEO-FH;
+	Thu, 27 Jul 2023 13:40:46 +0100
+Date: Thu, 27 Jul 2023 13:40:46 +0100
+Message-ID: <87pm4dr0hd.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Jing Zhang <jingzhangos@google.com>,
+	Reiji Watanabe <reijiw@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	David Matlack <dmatlack@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	Gavin Shan <gshan@redhat.com>
+Subject: Re: [PATCH v7 07/12] KVM: arm64: Implement  __kvm_tlb_flush_vmid_range()
+In-Reply-To: <20230722022251.3446223-8-rananta@google.com>
+References: <20230722022251.3446223-1-rananta@google.com>
+	<20230722022251.3446223-8-rananta@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 104.132.45.102
+X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, gshan@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_053347_897153_41EB4A20 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20230727_054050_341937_3CC6D05A 
+X-CRM114-Status: GOOD (  26.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,132 +101,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2143929126690195595=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============2143929126690195595==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0svxelhh/GmhJGt3"
-Content-Disposition: inline
-
-
---0svxelhh/GmhJGt3
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Charlie,
-
-On Wed, Jul 26, 2023 at 09:45:55AM -0700, Charlie Jenkins wrote:
-> Make sv48 the default address space for mmap as some applications
-> currently depend on this assumption. A hint address passed to mmap will
-> cause the largest address space that fits entirely into the hint to be
-> used. If the hint is less than or equal to 1<<38, an sv39 address will
-> be used. An exception is that if the hint address is 0, then a sv48
-> address will be used. After an address space is completely full, the next
-> smallest address space will be used.
->=20
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+On Sat, 22 Jul 2023 03:22:46 +0100,
+Raghavendra Rao Ananta <rananta@google.com> wrote:
+> 
+> Define  __kvm_tlb_flush_vmid_range() (for VHE and nVHE)
+> to flush a range of stage-2 page-tables using IPA in one go.
+> If the system supports FEAT_TLBIRANGE, the following patches
+> would conviniently replace global TLBI such as vmalls12e1is
+> in the map, unmap, and dirty-logging paths with ripas2e1is
+> instead.
+> 
+> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 > ---
->  arch/riscv/include/asm/elf.h       |  2 +-
->  arch/riscv/include/asm/pgtable.h   | 13 ++++++++-
->  arch/riscv/include/asm/processor.h | 47 +++++++++++++++++++++++++-----
->  3 files changed, 53 insertions(+), 9 deletions(-)
->=20
-> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-> index c24280774caf..5d3368d5585c 100644
-> --- a/arch/riscv/include/asm/elf.h
-> +++ b/arch/riscv/include/asm/elf.h
-> @@ -49,7 +49,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
->   * the loader.  We need to make sure that it is out of the way of the pr=
-ogram
->   * that it will "exec", and that there is sufficient room for the brk.
->   */
-> -#define ELF_ET_DYN_BASE		((TASK_SIZE / 3) * 2)
-> +#define ELF_ET_DYN_BASE		((DEFAULT_MAP_WINDOW / 3) * 2)
-> =20
->  #ifdef CONFIG_64BIT
->  #ifdef CONFIG_COMPAT
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pg=
-table.h
-> index 75970ee2bda2..530f6a171a2b 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -63,12 +63,23 @@
->   * position vmemmap directly below the VMALLOC region.
->   */
->  #ifdef CONFIG_64BIT
-> +#define VA_BITS_SV39 39
-> +#define VA_BITS_SV48 48
-> +#define VA_BITS_SV57 57
+>  arch/arm64/include/asm/kvm_asm.h   |  3 +++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 11 +++++++++++
+>  arch/arm64/kvm/hyp/nvhe/tlb.c      | 30 ++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/hyp/vhe/tlb.c       | 27 +++++++++++++++++++++++++++
+>  4 files changed, 71 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 7d170aaa2db4..2c27cb8cf442 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -70,6 +70,7 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa,
+>  	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_ipa_nsh,
+>  	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid,
+> +	__KVM_HOST_SMCCC_FUNC___kvm_tlb_flush_vmid_range,
+>  	__KVM_HOST_SMCCC_FUNC___kvm_flush_cpu_context,
+>  	__KVM_HOST_SMCCC_FUNC___kvm_timer_set_cntvoff,
+>  	__KVM_HOST_SMCCC_FUNC___vgic_v3_read_vmcr,
+> @@ -229,6 +230,8 @@ extern void __kvm_tlb_flush_vmid_ipa(struct kvm_s2_mmu *mmu, phys_addr_t ipa,
+>  extern void __kvm_tlb_flush_vmid_ipa_nsh(struct kvm_s2_mmu *mmu,
+>  					 phys_addr_t ipa,
+>  					 int level);
+> +extern void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
+> +					phys_addr_t start, unsigned long pages);
+>  extern void __kvm_tlb_flush_vmid(struct kvm_s2_mmu *mmu);
+>  
+>  extern void __kvm_timer_set_cntvoff(u64 cntvoff);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index a169c619db60..857d9bc04fd4 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -135,6 +135,16 @@ static void handle___kvm_tlb_flush_vmid_ipa_nsh(struct kvm_cpu_context *host_ctx
+>  	__kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va(mmu), ipa, level);
+>  }
+>  
+> +static void
+> +handle___kvm_tlb_flush_vmid_range(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
+> +	DECLARE_REG(phys_addr_t, start, host_ctxt, 2);
+> +	DECLARE_REG(unsigned long, pages, host_ctxt, 3);
 > +
-> +#define VA_USER_SV39 (UL(1) << (VA_BITS_SV39 - 1))
-> +#define VA_USER_SV48 (UL(1) << (VA_BITS_SV48 - 1))
-> +#define VA_USER_SV57 (UL(1) << (VA_BITS_SV57 - 1))
+> +	__kvm_tlb_flush_vmid_range(kern_hyp_va(mmu), start, pages);
+> +}
 > +
->  #define VA_BITS		(pgtable_l5_enabled ? \
-> -				57 : (pgtable_l4_enabled ? 48 : 39))
-> +				VA_BITS_SV57 : (pgtable_l4_enabled ? VA_BITS_SV48 : VA_BITS_SV39))
->  #else
->  #define VA_BITS		32
->  #endif
+>  static void handle___kvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
+>  {
+>  	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
+> @@ -327,6 +337,7 @@ static const hcall_t host_hcall[] = {
+>  	HANDLE_FUNC(__kvm_tlb_flush_vmid_ipa),
+>  	HANDLE_FUNC(__kvm_tlb_flush_vmid_ipa_nsh),
+>  	HANDLE_FUNC(__kvm_tlb_flush_vmid),
+> +	HANDLE_FUNC(__kvm_tlb_flush_vmid_range),
+>  	HANDLE_FUNC(__kvm_flush_cpu_context),
+>  	HANDLE_FUNC(__kvm_timer_set_cntvoff),
+>  	HANDLE_FUNC(__vgic_v3_read_vmcr),
+> diff --git a/arch/arm64/kvm/hyp/nvhe/tlb.c b/arch/arm64/kvm/hyp/nvhe/tlb.c
+> index b9991bbd8e3f..09347111c2cd 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/tlb.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/tlb.c
+> @@ -182,6 +182,36 @@ void __kvm_tlb_flush_vmid_ipa_nsh(struct kvm_s2_mmu *mmu,
+>  	__tlb_switch_to_host(&cxt);
+>  }
+>  
+> +void __kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
+> +				phys_addr_t start, unsigned long pages)
+> +{
+> +	struct tlb_inv_context cxt;
+> +	unsigned long stride;
+> +
+> +	/*
+> +	 * Since the range of addresses may not be mapped at
+> +	 * the same level, assume the worst case as PAGE_SIZE
+> +	 */
+> +	stride = PAGE_SIZE;
+> +	start = round_down(start, stride);
+> +
+> +	/* Switch to requested VMID */
+> +	__tlb_switch_to_guest(mmu, &cxt, false);
+> +
+> +	__flush_tlb_range_op(ipas2e1is, start, pages, stride, 0, 0, false);
 
-Please, at the very least, build test things for rv32 if you are going
-to change things in mm:
-io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
-V39'
-io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
-V39'
-io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
-V39'
-io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
-V39'
-io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
-V39'
-io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
-V39'
-mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
-mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
+I really think we need an abstraction here. All this ASID and user
+nonsense shouldn't appear here. Something such as
+__flush_s2_tlb_range_op(), which would pass the correct parameters
+that this code shouldn't have to worry about.
 
-Thanks,
-Conor.
+I'm also a bit concerned by the fact we completely lose the level
+here. This is a massive fast-path for the CPU, and we don't make use
+of it. It'd be worth thinking of how we can make use of it if at all
+possible...
 
---0svxelhh/GmhJGt3
-Content-Type: application/pgp-signature; name="signature.asc"
+> +
+> +	dsb(ish);
+> +	__tlbi(vmalle1is);
+> +	dsb(ish);
+> +	isb();
+> +
+> +	/* See the comment in __kvm_tlb_flush_vmid_ipa() */
+> +	if (icache_is_vpipt())
+> +		icache_inval_all_pou();
+> +
+> +	__tlb_switch_to_host(&cxt);
 
------BEGIN PGP SIGNATURE-----
+Another thing is that it is high time that some of this call gets
+refactored. All these helpers are basically the same sequence, only
+differing by a couple of lines. Not something we need to do
+immediately, but eventually we'll have to bite the bullet.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMJkJQAKCRB4tDGHoIJi
-0mzpAPwJWPSKvd4h8Mm2l0MHa3fl9fuzK7BKyFcMJpsby/MFOgEA/1VnfZ0R7Xf9
-N3Mv5qgorgiDhx/vTvbCdG/fUFEpCwk=
-=LPTS
------END PGP SIGNATURE-----
+	M.
 
---0svxelhh/GmhJGt3--
-
-
---===============2143929126690195595==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2143929126690195595==--
-
