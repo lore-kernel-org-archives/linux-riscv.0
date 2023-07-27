@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75730C001E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 10:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5805C04A6A
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 12:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lIOug0QgnbE/OkEH/Ib9Ids/XyWy6AbpuXBbmy12Qi4=; b=VFjdNwaKTzSu/A
-	TJUlT9UpBy0dmhe5e261dp2JrclUPLWFmKAjTdF3EIBw/NQo/ZF5auOsfPFEneoQlFjBJ9YjtF4SV
-	lUhE7A/QK2avTAaSV4mIvTLCQ5rQfJWJG3M82FmQwElEkNCy6h1dx4xFG04mAF4Esib+DnO+Su9gG
-	EnQQPKEIKePlbwpDIoKIq2si+IhKLq24KNTPbqHNwnR7bLXL/KxR0Pjan0HGu2DRMBF7yQRQ5VFCi
-	lB6bO6foRloh8ggG0+JBmQesX9jk5A0seFm3AzKSJTUPXRR/CbjPKoEs6JMPx8RzbLpyl+Zv3K1zp
-	ysb7ykIxMKmYkGf26Yew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=huQ1zFIPS4ojjAgZ+Nfb3zrleOF90Voe/ndOxAclarM=; b=Su3zqZ88mWMpbykfMTtWuwJbb5
+	ReA/BSxHFBaF8Y6gIpJa7Gu+edtSTNYOj4CccOkvlH7hIgMo9awIXF96BDAA8ZywGDVU46k/vhxSZ
+	bQ+85PvfchqNxoTJXDXm5gKnvVX9pZjO6OO76RBuSgKBNKbSFVi+B8FDPJiwtDFUdqfpVSp110/44
+	/6yQSqb0zWQeusDfHf0ztuF0NkyJOrWrr8oumQrtM4THs3qQJ1G0PdPjyA7s7LOJYzIyCaVPHl3jD
+	VAS324RwoHeESH/ZW+ZWNk2TQCcOkPhL29ZRlqZMI5+shg0mry6lqae8NwBNhFghoQPUFXvjKpLIc
+	f1tIqWww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOyhw-00DAIW-21;
-	Thu, 27 Jul 2023 10:59:00 +0000
+	id 1qP0Bj-00Dypa-2Z;
+	Thu, 27 Jul 2023 12:33:51 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qOyhq-00DAEY-23;
-	Thu, 27 Jul 2023 10:58:57 +0000
+	id 1qP0Bf-00DymK-2T
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Jul 2023 12:33:49 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E08C261DF7;
-	Thu, 27 Jul 2023 10:58:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0635C433C8;
-	Thu, 27 Jul 2023 10:58:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 12A5961E5D;
+	Thu, 27 Jul 2023 12:33:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96677C433C8;
+	Thu, 27 Jul 2023 12:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690455533;
-	bh=n3RfNCdiWPuTagE5B1chVs/fd0EBtBaj2u5rwXXs0ds=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=EILD8QMz884HU9n3FncxAZXZLiZzTydZFRF/+j6qi81VvqCha4feBndzDazaM9ECa
-	 yGVwi8Bfz1f/u4P2fYymjfrwkYmEYuT40s5tQprY3d6pn2NC3MKtreOk0qndrDFWCy
-	 Yhnbh3uCmiaqxeNN0C0DUZ4Py8ngmrUxMuDEMjsu0B0s4wZpZ5tOJUQRzbAkcOmU9Q
-	 f8t8ojo/epvaRfffiqH8SlTjhuZ+MOMOTZo2jgxWAK8IAXJB7aFUvPD8NnoM0TuLRd
-	 F7bYnmZ9foyBCrEKFBDvUcRQv+7fgNjbzRd182O9u2JGyBII5G1Y+Roc2zMmcIjsMY
-	 VA4krsCvvYu+w==
-Received: from [104.132.45.102] (helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1qOyhm-00HKZG-6a;
-	Thu, 27 Jul 2023 11:58:50 +0100
-Date: Thu, 27 Jul 2023 11:58:50 +0100
-Message-ID: <87r0otr579.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Jing Zhang <jingzhangos@google.com>,
-	Reiji Watanabe <reijiw@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	David Matlack <dmatlack@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shaoqin Huang <shahuang@redhat.com>
-Subject: Re: [PATCH v7 06/12] arm64: tlb: Refactor the core flush algorithm of __flush_tlb_range
-In-Reply-To: <20230722022251.3446223-7-rananta@google.com>
-References: <20230722022251.3446223-1-rananta@google.com>
-	<20230722022251.3446223-7-rananta@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 104.132.45.102
-X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, seanjc@google.com, chenhuacai@kernel.org, yuzenghui@huawei.com, anup@brainfault.org, atishp@atishpatra.org, jingzhangos@google.com, reijiw@google.com, coltonlewis@google.com, dmatlack@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, catalin.marinas@arm.com, gshan@redhat.com, shahuang@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1690461226;
+	bh=7VsMmtHFnt3Mu8te/EKSf4+ZEamhC9GT5n3lbZ8HcF0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KryMqBMvkbHpL7pIWShH5LDgkQwzn4vj30MjLrUKKcupCQw0pYVMWO+JBKD8n74es
+	 WSTLcMbzb5HcSjtxpdsDLQwgyhjDziMh1rIQIcpVZJkJ7q998QwCJWE/d7v0gugot4
+	 lSNcnerOHaHeiPZ8yFSFVOl7fS9POcfpRAmJjLpZiaKHW+Nx3KReQ11+0xcQEYj7Rd
+	 BYx9/GYFS36xA68BhbZyefhKmdfTIkMAPz0pV+P+CYLrpIkspEY7815Ho+n4rzaqv5
+	 IQueyjIk4ayVdFn7Anr+T4fEMCaRfUQ6MmvGBSYP01oVnG8BngrTSLuoH+1kgZ3DqI
+	 KlyaLbKhTAwHg==
+Date: Thu, 27 Jul 2023 13:33:41 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	paul.walmsley@sifive.com, palmer@rivosinc.com,
+	aou@eecs.berkeley.edu, anup@brainfault.org,
+	konstantin@linuxfoundation.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	mick@ics.forth.gr, jrtc27@jrtc27.com, rdunlap@infradead.org,
+	alexghiti@rivosinc.com
+Subject: Re: [PATCH v7 1/4] RISC-V: mm: Restrict address space for
+ sv39,sv48,sv57
+Message-ID: <20230727-unruffled-joyride-410fc348ce7b@spud>
+References: <20230726164620.717288-1-charlie@rivosinc.com>
+ <20230726164620.717288-2-charlie@rivosinc.com>
+MIME-Version: 1.0
+In-Reply-To: <20230726164620.717288-2-charlie@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_035854_775783_986A6C2E 
-X-CRM114-Status: GOOD (  22.06  )
+X-CRM114-CacheID: sfid-20230727_053347_897153_41EB4A20 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,73 +76,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2143929126690195595=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Jul 2023 03:22:45 +0100,
-Raghavendra Rao Ananta <rananta@google.com> wrote:
-> 
-> Currently, the core TLB flush functionality of __flush_tlb_range()
-> hardcodes vae1is (and variants) for the flush operation. In the
-> upcoming patches, the KVM code reuses this core algorithm with
-> ipas2e1is for range based TLB invalidations based on the IPA.
-> Hence, extract the core flush functionality of __flush_tlb_range()
-> into its own macro that accepts an 'op' argument to pass any
-> TLBI operation, such that other callers (KVM) can benefit.
-> 
-> No functional changes intended.
-> 
-> Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
+
+--===============2143929126690195595==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="0svxelhh/GmhJGt3"
+Content-Disposition: inline
+
+
+--0svxelhh/GmhJGt3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Charlie,
+
+On Wed, Jul 26, 2023 at 09:45:55AM -0700, Charlie Jenkins wrote:
+> Make sv48 the default address space for mmap as some applications
+> currently depend on this assumption. A hint address passed to mmap will
+> cause the largest address space that fits entirely into the hint to be
+> used. If the hint is less than or equal to 1<<38, an sv39 address will
+> be used. An exception is that if the hint address is 0, then a sv48
+> address will be used. After an address space is completely full, the next
+> smallest address space will be used.
+>=20
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 > ---
->  arch/arm64/include/asm/tlbflush.h | 109 +++++++++++++++---------------
->  1 file changed, 56 insertions(+), 53 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index 412a3b9a3c25..f7fafba25add 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -278,14 +278,62 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
+>  arch/riscv/include/asm/elf.h       |  2 +-
+>  arch/riscv/include/asm/pgtable.h   | 13 ++++++++-
+>  arch/riscv/include/asm/processor.h | 47 +++++++++++++++++++++++++-----
+>  3 files changed, 53 insertions(+), 9 deletions(-)
+>=20
+> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
+> index c24280774caf..5d3368d5585c 100644
+> --- a/arch/riscv/include/asm/elf.h
+> +++ b/arch/riscv/include/asm/elf.h
+> @@ -49,7 +49,7 @@ extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
+>   * the loader.  We need to make sure that it is out of the way of the pr=
+ogram
+>   * that it will "exec", and that there is sufficient room for the brk.
 >   */
->  #define MAX_TLBI_OPS	PTRS_PER_PTE
->  
-> +/* When the CPU does not support TLB range operations, flush the TLB
-> + * entries one by one at the granularity of 'stride'. If the TLB
-> + * range ops are supported, then:
+> -#define ELF_ET_DYN_BASE		((TASK_SIZE / 3) * 2)
+> +#define ELF_ET_DYN_BASE		((DEFAULT_MAP_WINDOW / 3) * 2)
+> =20
+>  #ifdef CONFIG_64BIT
+>  #ifdef CONFIG_COMPAT
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pg=
+table.h
+> index 75970ee2bda2..530f6a171a2b 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -63,12 +63,23 @@
+>   * position vmemmap directly below the VMALLOC region.
+>   */
+>  #ifdef CONFIG_64BIT
+> +#define VA_BITS_SV39 39
+> +#define VA_BITS_SV48 48
+> +#define VA_BITS_SV57 57
+> +
+> +#define VA_USER_SV39 (UL(1) << (VA_BITS_SV39 - 1))
+> +#define VA_USER_SV48 (UL(1) << (VA_BITS_SV48 - 1))
+> +#define VA_USER_SV57 (UL(1) << (VA_BITS_SV57 - 1))
+> +
+>  #define VA_BITS		(pgtable_l5_enabled ? \
+> -				57 : (pgtable_l4_enabled ? 48 : 39))
+> +				VA_BITS_SV57 : (pgtable_l4_enabled ? VA_BITS_SV48 : VA_BITS_SV39))
+>  #else
+>  #define VA_BITS		32
+>  #endif
 
-Comment format (the original was correct).
+Please, at the very least, build test things for rv32 if you are going
+to change things in mm:
+io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
+V39'
+io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
+V39'
+io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
+V39'
+io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
+V39'
+io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
+V39'
+io_uring/io_uring.c:3457:20: error: use of undeclared identifier 'VA_BITS_S=
+V39'
+mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/util.c:441:19: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
+mm/mmap.c:1770:20: error: use of undeclared identifier 'VA_BITS_SV39'
 
-> + *
-> + * 1. If 'pages' is odd, flush the first page through non-range
-> + *    operations;
-> + *
-> + * 2. For remaining pages: the minimum range granularity is decided
-> + *    by 'scale', so multiple range TLBI operations may be required.
-> + *    Start from scale = 0, flush the corresponding number of pages
-> + *    ((num+1)*2^(5*scale+1) starting from 'addr'), then increase it
-> + *    until no pages left.
-> + *
-> + * Note that certain ranges can be represented by either num = 31 and
-> + * scale or num = 0 and scale + 1. The loop below favours the latter
-> + * since num is limited to 30 by the __TLBI_RANGE_NUM() macro.
-> + */
-> +#define __flush_tlb_range_op(op, start, pages, stride,			\
-> +				asid, tlb_level, tlbi_user)		\
+Thanks,
+Conor.
 
-If you make this a common macro, please document the parameters, and
-what the constraints are. For example, what does tlbi_user mean for an
-IPA invalidation?
+--0svxelhh/GmhJGt3
+Content-Type: application/pgp-signature; name="signature.asc"
 
-	M.
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Without deviation from the norm, progress is not possible.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMJkJQAKCRB4tDGHoIJi
+0mzpAPwJWPSKvd4h8Mm2l0MHa3fl9fuzK7BKyFcMJpsby/MFOgEA/1VnfZ0R7Xf9
+N3Mv5qgorgiDhx/vTvbCdG/fUFEpCwk=
+=LPTS
+-----END PGP SIGNATURE-----
+
+--0svxelhh/GmhJGt3--
+
+
+--===============2143929126690195595==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2143929126690195595==--
+
