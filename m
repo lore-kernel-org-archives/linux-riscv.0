@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2CE0C001E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 12:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDC8C001DC
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Jul 2023 12:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tGIFut/v4pyEYaGMsP8568xOcdoxt6AKQ2LFl5sU/pg=; b=2L8W4YhdPaWw1M
-	tOT8UYiJ9N6fAiwYieiUgYoGup1mKhTtAs1IAl3JWeOu4Q0f7fyt4JrVJ4jvSYCi0VF8Qq8nxF0Ly
-	D4MltbmvYB48ojjhQdc4K4dSGhIr8OGYOyqCSnInOuMVb7Ty+AtmOvCrvUW1/ls+pZbs/6IBxqLok
-	wNcgNvND0wrSF5F6I2hjE8gZmIs68rpbO7T3vBw7zEYVpnAWtUcqtziUEBiDuznFJfSLBsmL6aNPQ
-	/Qfuw9/dWWU1vchtHlcuK5PQk8+FYocIjpehxFddugO/r96byMujnXSk4wtSNYdw/eZPjVEJkPlxf
-	QbmYAOpCUZQVtR2M1G8g==;
+	List-Owner; bh=rPVOVvEloh15EtY5PWpTlo5NpT4/B+65gl0X4Bw2HrQ=; b=1javCQqSLL7RcP
+	Q/BiJrSzd3TTQMryMy/TlHd3LoyWjKopoc11gzfyJQs4TUHrHR0dEkLwf2mpoLyWNBrbvZI6BCpWL
+	0YYAkgSKz2bl3KoqqC0f3ZQlbLXxJj6p8RdDiSn1lSLhU6HiFAfAcxsYIXwsxqoATxW/DHvXT5Pvr
+	oRpBha2nEG9BPLLJLSEicPz3DotiC+eDLP5YdovTCsA08BhTZ04e/piVR7O6M8+cFi0Ze+MEJSs3y
+	BctRTP/HgzXdmTf19szYiMviu0ycTLpoh4Tu0U1OYCtM7cSvkBT0x2bYR//IcHnVD+T/tFD4V2Hki
+	WvF/2ZwrvFNfvpReZZIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0Ol-00E6kt-2v;
-	Thu, 27 Jul 2023 12:47:19 +0000
+	id 1qP0Pj-00E7Ok-1e;
+	Thu, 27 Jul 2023 12:48:19 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qP0Oi-00E6hz-19;
-	Thu, 27 Jul 2023 12:47:17 +0000
+	id 1qP0Pf-00E7LC-0j;
+	Thu, 27 Jul 2023 12:48:16 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2CB2661E46;
-	Thu, 27 Jul 2023 12:47:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AC35C433C8;
-	Thu, 27 Jul 2023 12:47:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B151861E72;
+	Thu, 27 Jul 2023 12:48:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 202DFC433C7;
+	Thu, 27 Jul 2023 12:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690462034;
-	bh=GxVozBEKY8+AgHwSE2aDgYeiystb2UmWZSF2Ki+IdPI=;
+	s=k20201202; t=1690462094;
+	bh=Pu9LHy5Agl5sYHbCRsbjf8k1I59T+epDRHYNCSx4JE0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=s78n/svgO7+UM0yNRY3p5OT2wujOITJUxA4UH6cAxnqsGDudO9d5T405eVaV8vliM
-	 AviLXTghhTyY253xBzJs6DtLsMnOH6TNAYu/vYxCKAua4fmEuNFYRseNOUZirRkgNJ
-	 C29fWQ9X7GGWLJ/t4YYnL2fpLq9c3Su9HP8A1/MCQKWY5s/wiMOkGsJruIw6ntkRCc
-	 Ad8w0Y+jNYV9yK3cpR4mcafHcG/IEl9wC5vI758B1ALPWZW2TDs1e5j3XoBI4/aj3Q
-	 FErPMCfNe3VUSgK0pA53vcHVBHdQSk790Zhq2zMiXs5rDfm5wK+CpmbIG6e6Ik0wsS
-	 ozurfT0/w+Vsg==
+	b=rn6scYsMbV5/hnnmtH8oiCUC5rXbFb89YKEg3KCSLdeCqTZUujSry/ysohED3t+2u
+	 cdfOKE6NXYMs1bFJof86Rn5DZA/mfyKpSQ88AN44Iccn1W80m0+AnBT2B/pbUJxK1H
+	 MGHOEF471C9WrJUb0oEtOee5FsAhQmy0iXfcg0zEM72UwbCzP1tir6jqOchmmXqdVF
+	 VGNx/XrxqZH8KLaTgJNBT0yvwJ2DvfvphuGCIcCyEskOlYPsDcgZvYb37uNuF58D5c
+	 etiPcMpzK00oopTRBCOQaNOwSJcEJFmnXOhwLnSLJyv3a/+qFDR9oYMWCAdnAh7AmC
+	 u7xA8rkxb3xRA==
 Received: from [104.132.45.102] (helo=wait-a-minute.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1qP0OZ-00HMI7-8N;
-	Thu, 27 Jul 2023 13:47:07 +0100
-Date: Thu, 27 Jul 2023 13:47:06 +0100
-Message-ID: <87o7jxr06t.wl-maz@kernel.org>
+	id 1qP0Pb-00HMJJ-W9;
+	Thu, 27 Jul 2023 13:48:12 +0100
+Date: Thu, 27 Jul 2023 13:48:11 +0100
+Message-ID: <87mszhr050.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Raghavendra Rao Ananta <rananta@google.com>
 Cc: Oliver Upton <oliver.upton@linux.dev>,
@@ -76,10 +76,10 @@ Cc: Oliver Upton <oliver.upton@linux.dev>,
 	kvm@vger.kernel.org,
 	Gavin Shan <gshan@redhat.com>,
 	Shaoqin Huang <shahuang@redhat.com>
-Subject: Re: [PATCH v7 08/12] KVM: arm64: Define kvm_tlb_flush_vmid_range()
-In-Reply-To: <20230722022251.3446223-9-rananta@google.com>
+Subject: Re: [PATCH v7 09/12] KVM: arm64: Implement kvm_arch_flush_remote_tlbs_range()
+In-Reply-To: <20230722022251.3446223-10-rananta@google.com>
 References: <20230722022251.3446223-1-rananta@google.com>
-	<20230722022251.3446223-9-rananta@google.com>
+	<20230722022251.3446223-10-rananta@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/28.2
  (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -89,8 +89,8 @@ X-SA-Exim-Rcpt-To: rananta@google.com, oliver.upton@linux.dev, james.morse@arm.c
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_054716_485286_BD9E0CB9 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20230727_054815_350460_9DA5CA66 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,77 +107,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Jul 2023 03:22:47 +0100,
+On Sat, 22 Jul 2023 03:22:48 +0100,
 Raghavendra Rao Ananta <rananta@google.com> wrote:
 > 
-> Implement the helper kvm_tlb_flush_vmid_range() that acts
-> as a wrapper for range-based TLB invalidations. For the
-> given VMID, use the range-based TLBI instructions to do
-> the job or fallback to invalidating all the TLB entries.
+> Implement kvm_arch_flush_remote_tlbs_range() for arm64
+> to invalidate the given range in the TLB.
 > 
 > Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
 > Reviewed-by: Gavin Shan <gshan@redhat.com>
 > Reviewed-by: Shaoqin Huang <shahuang@redhat.com>
 > ---
->  arch/arm64/include/asm/kvm_pgtable.h | 10 ++++++++++
->  arch/arm64/kvm/hyp/pgtable.c         | 20 ++++++++++++++++++++
->  2 files changed, 30 insertions(+)
+>  arch/arm64/include/asm/kvm_host.h | 3 +++
+>  arch/arm64/kvm/mmu.c              | 7 +++++++
+>  2 files changed, 10 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 8294a9a7e566..5e8b1ff07854 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -754,4 +754,14 @@ enum kvm_pgtable_prot kvm_pgtable_stage2_pte_prot(kvm_pte_t pte);
->   *	   kvm_pgtable_prot format.
->   */
->  enum kvm_pgtable_prot kvm_pgtable_hyp_pte_prot(kvm_pte_t pte);
-> +
-> +/**
-> + * kvm_tlb_flush_vmid_range() - Invalidate/flush a range of TLB entries
-> + *
-> + * @mmu:	Stage-2 KVM MMU struct
-> + * @addr:	The base Intermediate physical address from which to invalidate
-> + * @size:	Size of the range from the base to invalidate
-> + */
-> +void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
-> +				phys_addr_t addr, size_t size);
->  #endif	/* __ARM64_KVM_PGTABLE_H__ */
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index aa740a974e02..5d14d5d5819a 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -670,6 +670,26 @@ static bool stage2_has_fwb(struct kvm_pgtable *pgt)
->  	return !(pgt->flags & KVM_PGTABLE_S2_NOFWB);
->  }
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 7281222f24ef..52d3ed918893 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1114,6 +1114,9 @@ struct kvm *kvm_arch_alloc_vm(void);
+>  #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS
+>  int kvm_arch_flush_remote_tlbs(struct kvm *kvm);
 >  
-> +void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
-> +				phys_addr_t addr, size_t size)
-> +{
-> +	unsigned long pages, inval_pages;
-> +
-> +	if (!system_supports_tlb_range()) {
-> +		kvm_call_hyp(__kvm_tlb_flush_vmid, mmu);
-> +		return;
-> +	}
-> +
-> +	pages = size >> PAGE_SHIFT;
-> +	while (pages > 0) {
-> +		inval_pages = min(pages, MAX_TLBI_RANGE_PAGES);
-> +		kvm_call_hyp(__kvm_tlb_flush_vmid_range, mmu, addr, inval_pages);
-> +
-> +		addr += inval_pages << PAGE_SHIFT;
-> +		pages -= inval_pages;
-> +	}
-> +}
-> +
+> +#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+> +int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t start_gfn, u64 pages);
 
-This really shouldn't live in pgtable.c. This code gets linked into
-the EL2 object. What do you think happens if, for some reason, this
-gets called *from EL2*?
-
-Furthermore, this doesn't deal with page tables at all. Why isn't
-mmu.c a convenient place for it, as an integral part of
-kvm_arch_flush_remote_tlbs_range?
+As per the other patches, these prototypes should be global and not
+arch-specific.
 
 	M.
 
