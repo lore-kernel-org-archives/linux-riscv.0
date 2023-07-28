@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F43FC001DE
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 14:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438DEC001DF
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 15:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zzO0OLz1LQ9j94IcdbP7fiScZIAM1mbYIGcZErPost8=; b=MXNUv7fpQA0FgT
-	ApQpmBPy+JIijZkOR1FT7bbU5apovXY/CxukUBju7O41mxFC65qJctRUYtIo5Evpoif2R9sazaYdQ
-	uQoKKXjx1KKqaKBJouA4VrMUBNioKz3X3ORh3mTZwMGQPo5wTj7cW28du0LrRbo/P/OjR20FJ+iHY
-	VE5JN2acXP3Bu4xF098dp/jctuM9r/lkPmK0fjqxr7lbrF9P9I1IFr5nEWdG1fQvP1IFINrqWYEOX
-	WF/G2CB8okGTHWVbxgTdV89gutezpOFrhanIbLDsVK7sd4VNsG/tPDLo3ZjH2PGtDxF0q2JrEnoMC
-	zjXCdsBc/gu3F+l5SLhA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=p8COOJym2dH82RwBolXrTxGjR54Mcre0gGSgXAK81Tw=; b=HV19zz+7HTYSdbmHhky7YnjX4q
+	r2PSim9smdUah5ilomtUmijWNsgWUeE9H4iCdT6xrXP+i1N11bQ5dq54G9waGNGURonfVvK7DPsuB
+	Jp+t5w2jMt2rgbPv2FU0DYxXOODZdSWae4n3bpFHxGYOayY8IXpkgYv3PsEA87BFy7WAx7Ngx/uNs
+	YtPZF7yGZ9HT/pEA0VAX1m4O/p1kJ1Ngpb9TIK0EznDI/oPoNt1ieZNEK7rVCM2chYfr9ICoJVUI1
+	ljkibKLp4LGoHMzXYid+aiHbthQ+C9fUqJD3/dS9u0etyHg54MqsIwxskkIQth523rEKzbHwmKeU0
+	ujnwWLpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPOMl-003hZf-2A;
-	Fri, 28 Jul 2023 14:22:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qPPmy-003v6e-07;
+	Fri, 28 Jul 2023 15:54:00 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPOMi-003hYn-2C
+	id 1qPPmv-003v5Q-1L
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 14:22:50 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0121D6214C;
-	Fri, 28 Jul 2023 14:22:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A798C433C7;
-	Fri, 28 Jul 2023 14:22:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690554167;
-	bh=Q4/k4P2dqUmrtwh4epIswDRV1O6WVzXd1ZzdcykMzQs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HXgwWVobIMhag8kRKa1fpslTUp8NIm0uFxXJVqWplVIfERV1wUu5snDIro91YqCPh
-	 pQaRHAc97m2qXmslbXzjvHe3CifDgMGf4QMgduyI5W4kYmqYmW6idB3/+wl8ZppDN5
-	 tLctMrSfoGi4SbksNsd2jLItjoZfsaDcFcOrGXS43pZ1k9hPdNX1vjasiuSkyLg7r9
-	 +e3mZC0pC2IGdboXVdXpdhWgBNDobBC+zmGDHRuaMBHbwTchhFifWEXBrU+YshcYXN
-	 t7tkNTUDBZjM743N3dIwFNR0EpQmkdc8JPB1y9SvBgWNADz8EiXE9uT5S90jC4oXOT
-	 /02TYAXwfAq/Q==
-Date: Fri, 28 Jul 2023 22:11:08 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
+	Fri, 28 Jul 2023 15:53:59 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d052f49702dso2144020276.3
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 08:53:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1690559634; x=1691164434;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pSKHeZCMgvA3kWIhrH+n4mSoJzgBzU5J6H2rFYp+lic=;
+        b=36hr/ZVZer9RvAya4ZWnFnQbK8YQhtITqVZBkBjBo440v2c0X6eN0dTqrfwuSz7rnr
+         k6WaexoqA62nX8FAG4nFQN42YtpTPoI2wh+3jJ8o7wPm1hCgTfuNVbS6EPbcqVQMYEN8
+         yX6GAsSlGhmh3OfRqIjW8R05WSUu0K/X4fXpahOmLUZoi6YQFqEw5dv+/YSaOupBw3r1
+         1QOJlnLq34i4AF+BnbyIEyZktriEUaH2gPVQf9yg//1ZrZLXvLnuD9WAlIPQNWkv2YPw
+         izFsP5t0laJ87+k+PtVShNOsqU9+ABHsrNM8WXC1tgWj4cUC0mfYLX4gBDtMPyqVsRaM
+         2pSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690559634; x=1691164434;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pSKHeZCMgvA3kWIhrH+n4mSoJzgBzU5J6H2rFYp+lic=;
+        b=UDmhxCfE2zD4Ha7mZDZcrY8UDMQiPjdlTjN0eeDX0RDajn/creApujFtEfkAfKWYli
+         x0WD43+ZmSyy2TuTmz82EaunZpuXxrnlY6MugveMhkkZpnR9e5LA+q1T16hHoih6Ofcw
+         T3jQ7T0w9vw+X5Xku4FrqYRGNCHxoDi73dVhT3Ra/PUSpoFPNmSnPtk5k13JTqjDgIZR
+         RHao5dGVBMt+TEPng01S4x0AmcQmgGAR6U9PfYKuQAwF8t3hQOJWI9jfLoSbpXfNYtmf
+         jkzEK+1X7v39vYvvQiQiugtuMaNJb7GZdP2yvQjlb67y6+92stwp3urvluD9kJTNBsT2
+         vqcw==
+X-Gm-Message-State: ABy/qLYEVEACkHr7uSpEMYrc2TVKA3MP9R8CAoJDKNsGq7SlJmtxBELz
+	k9hevfv+xJnGf6salWXNoqrN2ygQ9hg=
+X-Google-Smtp-Source: APBJJlHbJprqMW+zMuvG32ayD8bofMBAAKNaDzLOF7DuAIN4jyWdo3wXWE6hvbwHUsAc0SpOW5cSp73k0WI=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:db82:0:b0:d0f:15a4:5a53 with SMTP id
+ g124-20020a25db82000000b00d0f15a45a53mr10767ybf.2.1690559633993; Fri, 28 Jul
+ 2023 08:53:53 -0700 (PDT)
+Date: Fri, 28 Jul 2023 08:53:52 -0700
+In-Reply-To: <20230728-21d0e3ecb0d8916fd9d9bceb@orel>
+Mime-Version: 1.0
+References: <cover.1690364259.git.haibo1.xu@intel.com> <7e9d2d5518375083f10c92a3d1acd98914f69fd8.1690364259.git.haibo1.xu@intel.com>
+ <20230728-21d0e3ecb0d8916fd9d9bceb@orel>
+Message-ID: <ZMPR56RVgzI6s6Ik@google.com>
+Subject: Re: [PATCH 2/4] KVM: riscv: selftests: Add exception handling support
+From: Sean Christopherson <seanjc@google.com>
 To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] riscv: vdso.lds.S: merge .data section into .rodata
- section
-Message-ID: <ZMPMfMPoG/KnuWLN@xhacker>
-References: <20230726173024.3684-1-jszhang@kernel.org>
- <20230726173024.3684-3-jszhang@kernel.org>
- <20230728-cec389a85a7dc8dcca803e06@orel>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230728-cec389a85a7dc8dcca803e06@orel>
+Cc: Haibo Xu <haibo1.xu@intel.com>, xiaobo55x@gmail.com, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Marc Zyngier <maz@kernel.org>, 
+	Andrew Jones <andrew.jones@linux.dev>, Colton Lewis <coltonlewis@google.com>, 
+	Vipin Sharma <vipinsh@google.com>, Vishal Annapurve <vannapurve@google.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_072248_763026_F6069FDB 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20230728_085357_450090_5D969C29 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,71 +96,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 28, 2023 at 02:57:03PM +0200, Andrew Jones wrote:
-> On Thu, Jul 27, 2023 at 01:30:23AM +0800, Jisheng Zhang wrote:
-> > The .data section doesn't need to be separate from .rodata section,
-> > they are both readonly.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  arch/riscv/kernel/vdso/vdso.lds.S | 15 +++++++--------
-> >  1 file changed, 7 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-> > index d43fd7c7dd11..671aa21769bc 100644
-> > --- a/arch/riscv/kernel/vdso/vdso.lds.S
-> > +++ b/arch/riscv/kernel/vdso/vdso.lds.S
-> > @@ -29,7 +29,13 @@ SECTIONS
-> >  	.eh_frame_hdr	: { *(.eh_frame_hdr) }		:text	:eh_frame_hdr
-> >  	.eh_frame	: { KEEP (*(.eh_frame)) }	:text
-> >  
-> > -	.rodata		: { *(.rodata .rodata.* .gnu.linkonce.r.*) }
-> > +	.rodata		: {
-> > +		*(.rodata .rodata.* .gnu.linkonce.r.*)
-> > +		*(.got.plt) *(.got)
-> > +		*(.data .data.* .gnu.linkonce.d.*)
-> > +		*(.dynbss)
-> > +		*(.bss .bss.* .gnu.linkonce.b.*)
+On Fri, Jul 28, 2023, Andrew Jones wrote:
+> On Thu, Jul 27, 2023 at 03:20:06PM +0800, Haibo Xu wrote:
+> > +void vm_init_trap_vector_tables(struct kvm_vm *vm);
+> > +void vcpu_init_trap_vector_tables(struct kvm_vcpu *vcpu);
 > 
-> Looking at other architectures, it appears the last three lines of
-> sections could be discarded, but I don't know enough about this to
+> I think we should use a common name for these prototypes that the other
+> architectures agree to and then put them in a common header. My vote for
+> the naming is,
 
-Hi Andrew,
+Just allocate the tables in kvm_arch_vm_post_create().  I've been meaning to
+convert x86 and ARM, but keep getting distracted/waylaid by other things.
 
-I checked x86, they still keep those sections. From another side,
-even if those sections are not needed, removing unused sections could
-be an independent patch, for safe reason or bisect reason.
+https://lore.kernel.org/all/Y8hCBOndYMD9zsDL@google.com
 
-Thanks
-
-
-> state they should be.
+>   void vm_init_vector_tables(struct kvm_vm *vm);
+>   void vcpu_init_vector_tables(struct kvm_vcpu *vcpu);
 > 
-> Thanks,
-> drew
+> > +
+> > +typedef void(*handler_fn)(struct ex_regs *);
+> > +void vm_install_exception_handler(struct kvm_vm *vm, int ec, handler_fn handler);
 > 
-> 
-> > +	}
-> >  
-> >  	/*
-> >  	 * This linker script is used both with -r and with -shared.
-> > @@ -44,13 +50,6 @@ SECTIONS
-> >  	.alternative : {
-> >  		*(.alternative)
-> >  	}
-> > -
-> > -	.data		: {
-> > -		*(.got.plt) *(.got)
-> > -		*(.data .data.* .gnu.linkonce.d.*)
-> > -		*(.dynbss)
-> > -		*(.bss .bss.* .gnu.linkonce.b.*)
-> > -	}
-> >  }
-> >  
-> >  /*
-> > -- 
-> > 2.40.1
-> > 
+> I'd also put this typedef
+
+And rename it to (*exception_handler_fn).
+
+> and prototype in a common header (with s/ec/vector/ to what you have here)
+
+Hmm, yeah, I think it makes sense to let vm_install_exception_handler() be used
+from common code.  the vector to be installed is inherently arch specific, but
+it would be easy enough for a test to use #ifdeffery to define the correct vector.
 
 _______________________________________________
 linux-riscv mailing list
