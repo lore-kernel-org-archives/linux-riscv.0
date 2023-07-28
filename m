@@ -4,86 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FAE1EB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 06:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248C1C41513
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 07:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0Uy5Pp3wrB7oKjr7jO7dgfI53o/Bjg2AbiVQNb2VmXU=; b=Qp4R0VrbpW2W6J
-	nmp6cIdSd+QOC/YMEhxvfR1m0w/f9OgGvFBBJPv/j8iF2VZ6dLyLrlK77FG648De5mfQhcoiA3jO3
-	ZuDY96rImN5reuw5HRnWysXHgA/8hSvypGrDJYPYOCPjP5kI1PdyspOGWbs+19sBT77+3fZ3cgoOJ
-	qz/nrKrOfHJPeBthHJ2fERnr/6LQZowuKf8EUY0cAF9Djbd+Cf4ndViDJ4B8NpUOdxTMZ+SFzVZJT
-	ag8ta2nENwRrQgyPnNyjkAW90qoyR1APWvekRJLuWRjfu8W+X82k0SmjTm0xiwLBT9ptaA/i5UScN
-	1BYf4YJqjvPyysiu7f2Q==;
+	List-Owner; bh=NODC6P9T/R/OXT+3k8ppZCmimphPLRabeR7+Ug8kkkM=; b=X/CbYK+rpw+M4q
+	OnEFxsotkJtUodKTLIWKa6pI/RBooi+SfQc/3OQSn+Lo6cLQqDWJIE6oDI9pLNBwWmEyC1HjWJtdL
+	+tfaFqgH2zCU2+evyXjzxO5ymNamNcsVQ5tOfY2oDjqcGuEZzmCv9FFRKZt90oLVdBxyKyLRC8vba
+	1bmvFFiQ6Tg2gLswx6ux+pluvCyDyqQK/6Lvt58iTKp7IlCggCk+HJN3hUJjcf79DVmAMs1VCTBcQ
+	y0O3I/WZgGG3kGHNWIUdMla+ETRtaiTAGWGj+uJ4VFWv4fM3d0Rrej00LTaf3ii1KFxXSYlZaDtyg
+	9lwr+4BMsE1RhDYflvwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPHQo-001zOT-0u;
-	Fri, 28 Jul 2023 06:58:34 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1qPHWx-0022kp-2n;
+	Fri, 28 Jul 2023 07:04:55 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPHQl-001zML-1J
+	id 1qPHWt-0022iu-14
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 06:58:32 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3141fa31c2bso1645199f8f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Jul 2023 23:58:28 -0700 (PDT)
+	Fri, 28 Jul 2023 07:04:53 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-686be28e1a8so1263336b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 00:04:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1690527507; x=1691132307;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iftaUnOVi0WItO5ujzoJ74yz/u7rI0zj1tXOnX70SiU=;
-        b=gnTkAf4jKjqvw3D0gLbYc3BVQKNvCUIJXKHHBHEq5LLEy0xMC3Wye8gy53UmiEdyMH
-         8+zOqQyvd/pbLBQzM7VNhGyzRqc4JR7Mh1JZxilfeSoi8SozTrYIlKq1Tqx9PonbEJyQ
-         nONzdxsCgAOgKvwaaNxQiMxaQz7NBTDJIpyNH+ZHdNOcwEGdwGVXorKtnvFiPHBpcEnn
-         vbP+EtzBk5GXe8jDMCtcHt5/KZM+5yI33wsU6Lm3GKl6hpvtbF4DfQB+SJ5dV1qqnTZE
-         FRStCo0U+/8FjqHemMjf6WtuFhUXremL6VRQ2wIocxkHgCjtVisvXdQDDxFneQ6p3KP0
-         NO4g==
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1690527889; x=1691132689;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Wrwpb7rVTyYgrDu2LzfWhd5QBSrpJqCmxUGFCtGyRxE=;
+        b=HnNBF9FNxGUGcdq72feS4vzTAgz0S2xFrpjfptHFXDmIUUMf0+rsfFDBqC2ScjUbKz
+         umiiQMv2yfwN/+2EI2WvRogXyZJdWr6bLFFsUu3iSptlbMQawDUr7bHclNJPap/lp0kD
+         kGz6QmaoOBFvXiNpicfwfM93W5ym8He5JnV+XRbLknn+OJltHWHesQIhVqS7KUQ44fxC
+         up4WV6A7BcSSto/oqS+D1YE1nZ6jPVDvDx4cocNpgn0bAztE0SaLeo/DCjamR0zH4GvK
+         2zNMASq10UNnA4vVGokkrN8MvD2HG17cKKJphE9dD7L+MFm09drbK7kMQfIMVZiJPeop
+         X3mA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690527507; x=1691132307;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20221208; t=1690527889; x=1691132689;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iftaUnOVi0WItO5ujzoJ74yz/u7rI0zj1tXOnX70SiU=;
-        b=fYcOXgLXzIq3C8n4cd/HHhJRajdYqCIuoxkH1VsetBsQHio+HIApxcg38BwTHs/ujA
-         eTNeo97GsHNjjC7vqzZ6NMKZOm03xmu21Z6woj+iUIhFgvPTrnqjC9n+6tKqEMptO8NY
-         rjK/CTk9hhIQxi0htetxjmjIkLNPHEa/RiSIPBOqBkOsUhb8Rj7RosjWXrmIWBOl4GcD
-         fkLOxyFUMdHJFfbeVgNZLnMBG0hTkknnPQ3KizvReUd04bdp0qOhG7b7JgaisACwvznU
-         aGjE6Kx4Slc9W+xDSt37NbAw55cs9aVWM4tkhFZN+9ymIc1oKzOnkdki2uSk8hKnolbC
-         xGIQ==
-X-Gm-Message-State: ABy/qLYKruqUap8g/i5E3Vg8420XKTZwFKpj7ykUtQtE+uIyFBmIHnGU
-	PDz9uX3CPDgLbcTzIMvxnrqXsg==
-X-Google-Smtp-Source: APBJJlH74MhrNj52K2JQ3OFV5R+EOUknys3ZEpt8lbO1nGVe2KfuEUWoAPNijHM7Yry2nXJj/++DrQ==
-X-Received: by 2002:a5d:5589:0:b0:317:6ef1:7939 with SMTP id i9-20020a5d5589000000b003176ef17939mr1030919wrv.23.1690527507368;
-        Thu, 27 Jul 2023 23:58:27 -0700 (PDT)
-Received: from [192.168.1.20] ([178.197.223.104])
-        by smtp.gmail.com with ESMTPSA id o3-20020adfe803000000b003143b7449ffsm345862wrm.25.2023.07.27.23.58.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Jul 2023 23:58:26 -0700 (PDT)
-Message-ID: <be748338-987b-d474-d040-82af7cfb5f01@linaro.org>
-Date: Fri, 28 Jul 2023 08:58:25 +0200
+        bh=Wrwpb7rVTyYgrDu2LzfWhd5QBSrpJqCmxUGFCtGyRxE=;
+        b=K/JaysaiBCycAxPDm+m7vAp0HX/CRjoPe8tJb9OyIg3AT0d7xsxiQe6w7Dgv0Jxuhu
+         XpuO6OIwqpClG5f8Rrryi9gPXzl9ir1/7BMEAGwxbdwlcRvzqDZgkYQ0fDX2Ig1cjmtM
+         z7AZXc8GtfEyrygOpEmai+3VkgAfycsRRjEniZDd1iAYYihcHga+/TqPmrs8bHYIXiTb
+         qcadCol/LpwfjA29ZUGkdaHvhlaCmjBM1jxQUmakFTOp4RmoiL7B7wRCkzai2OLeIDmW
+         3EzCubSy0nKRvmoQe5kjOxcekxQ2Z6+itDDT+Q0dvVBaF4y7DbiPNMajfcT4C2wV9b0E
+         AkWw==
+X-Gm-Message-State: ABy/qLYlRagZpv8EuCvkYLEWQd5F8/NKe5GDsNhR0mU7DZwKPnHPKfY6
+	et7wVZB6U2kut3DCYmcMQ5ChpA==
+X-Google-Smtp-Source: APBJJlE+60gGNtiTwkvVvvyxDJd0BPxR2w6cPhZ0ordld8aOmQaaiK95ErAlh1vP12HcALZGJ8odjQ==
+X-Received: by 2002:a05:6a20:968d:b0:12f:a373:ba95 with SMTP id hp13-20020a056a20968d00b0012fa373ba95mr611563pzc.19.1690527888967;
+        Fri, 28 Jul 2023 00:04:48 -0700 (PDT)
+Received: from x1 ([2601:1c2:1800:f680:dacb:3a1a:fcaf:c0fc])
+        by smtp.gmail.com with ESMTPSA id o14-20020a170902d4ce00b001bb750189desm2778063plg.255.2023.07.28.00.04.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Jul 2023 00:04:48 -0700 (PDT)
+Date: Fri, 28 Jul 2023 00:04:46 -0700
+From: Drew Fustini <dfustini@baylibre.com>
+To: Xi Ruoyao <xry111@linuxfromscratch.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 0/8] Add Sipeed Lichee Pi 4A RISC-V board support
+Message-ID: <ZMNojqwLxcG8FcHN@x1>
+References: <20230617161529.2092-1-jszhang@kernel.org>
+ <c9a44f534071a6d67f1e21bafdb713793c559124.camel@linuxfromscratch.org>
+ <20230725-unheard-dingy-42f0fafe7216@wendy>
+ <ZL/jMYL3akl78ZZN@xhacker>
+ <3e0994dab495920ac590dc28d6b9d9765abe0c7e.camel@linuxfromscratch.org>
+ <ZME1J4mpVf5yth32@xhacker>
+ <866eab3e30a18c50742a75d62aee223fdc7e3cee.camel@linuxfromscratch.org>
+ <4986b92f1a5aa303a529c6004aaedd2184c3ccf7.camel@linuxfromscratch.org>
+ <ZMKXQpreSr47MFj6@xhacker>
+ <290101d386866f639a7c482527d7a78c5108d49b.camel@linuxfromscratch.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: sifive: Add SiFive Private L2
- cache controller
-Content-Language: en-US
-To: Eric Lin <eric.lin@sifive.com>
-Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- zong.li@sifive.com, greentime.hu@sifive.com, vincent.chen@sifive.com
-References: <20230720135125.21240-1-eric.lin@sifive.com>
- <20230720135125.21240-2-eric.lin@sifive.com>
- <cbf0a8fd-3479-1684-fe90-81f2159804ef@linaro.org>
- <CAPqJEFr5h+5+F4TdNuRMaWsrmeedbfGgbgd9wh8sUUQsj2Pw-A@mail.gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <CAPqJEFr5h+5+F4TdNuRMaWsrmeedbfGgbgd9wh8sUUQsj2Pw-A@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <290101d386866f639a7c482527d7a78c5108d49b.camel@linuxfromscratch.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_235831_454119_6078B1A3 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20230728_000451_560934_DCB9A4B4 
+X-CRM114-Status: GOOD (  21.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +107,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjgvMDcvMjAyMyAwODowMSwgRXJpYyBMaW4gd3JvdGU6Cj4gSGkgS3J6eXN6dG9mLAo+IAo+
-IE9uIEZyaSwgSnVsIDIxLCAyMDIzIGF0IDQ6MzXigK9QTSBLcnp5c3p0b2YgS296bG93c2tpCj4g
-PGtyenlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4gd3JvdGU6Cj4+Cj4+IE9uIDIwLzA3LzIw
-MjMgMTU6NTEsIEVyaWMgTGluIHdyb3RlOgo+Pj4gVGhpcyBhZGQgWUFNTCBEVCBiaW5kaW5nIGRv
-Y3VtZW50YXRpb24gZm9yIFNpRml2ZSBQcml2YXRlIEwyCj4+PiBjYWNoZSBjb250cm9sbGVyCj4+
-Pgo+Pj4gU2lnbmVkLW9mZi1ieTogRXJpYyBMaW4gPGVyaWMubGluQHNpZml2ZS5jb20+Cj4+PiBS
-ZXZpZXdlZC1ieTogWm9uZyBMaSA8em9uZy5saUBzaWZpdmUuY29tPgo+Pj4gUmV2aWV3ZWQtYnk6
-IE5pY2sgSHUgPG5pY2suaHVAc2lmaXZlLmNvbT4KPj4KPj4KPj4gLi4uCj4+Cj4+PiArcHJvcGVy
-dGllczoKPj4+ICsgIGNvbXBhdGlibGU6Cj4+PiArICAgIGl0ZW1zOgo+Pj4gKyAgICAgIC0gY29u
-c3Q6IHNpZml2ZSxwbDJjYWNoZTEKPj4KPj4gSSBzdGlsbCBoYXZlIGRvdWJ0cyB0aGF0IGl0IGlz
-IG5vdCB1c2VkIGluIGFueSBTb0MuIFRoaXMgaXMgd2hhdCB5b3UKPj4gc2FpZCBsYXN0IHRpbWU6
-ICJpcyBub3QgcGFydCBvZiBhbnkgU29DLiIKPj4gSWYgbm90IHBhcnQgb2YgYW55IFNvQywgdGhl
-biB3aGVyZSBpcyBpdD8gV2h5IGFyZSB5b3UgYWRkaW5nIGl0IHRvIHRoZQo+PiBrZXJuZWw/Cj4+
-Cj4gCj4gU29ycnkgZm9yIHRoZSBsYXRlIHJlcGx5LiBJIGRpZG4ndCBkZXNjcmliZSBpdCBjbGVh
-cmx5IGxhc3QgdGltZS4KPiBDdXJyZW50bHksIHdlIGhhdmUgdHdvIGhhcmR3YXJlIHZlcnNpb25z
-IG9mIHBsMmNhY2hlOiBwbDJjYWNoZTAgYW5kIHBsMmNhY2hlMS4KPiBUaGUgcGwyY2FjaGUwIGlz
-IHVzZWQgaW4gdW5tYXRjaGVkIGJvYXJkIFNvQy4gVGhlIHBsMmNhY2hlMSBpcwo+IHV0aWxpemVk
-IGluIG91ciBpbnRlcm5hbCBGUEdBIHBsYXRmb3JtIGZvciBldmFsdWF0aW9uOyBpdCdzIG91ciBj
-b3JlCj4gSVAuCgpBbmQgd2h5IGRvIHlvdSBhZGQgYmluZGluZ3MgZm9yIHNvbWUgaW50ZXJuYWwg
-RlBHQSBJUCBibG9jayB3aGljaCBkb2VzCm5vdCBpbnRlcmZhY2Ugd2l0aCBhbnkgU1c/CgpCZXN0
-IHJlZ2FyZHMsCktyenlzenRvZgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On Fri, Jul 28, 2023 at 12:29:44AM +0800, Xi Ruoyao wrote:
+> On Fri, 2023-07-28 at 00:11 +0800, Jisheng Zhang wrote:
+> > On Thu, Jul 27, 2023 at 08:54:59AM +0800, Xi Ruoyao wrote:
+> > > On Thu, 2023-07-27 at 08:14 +0800, Xi Ruoyao wrote:
+> > > > On Wed, 2023-07-26 at 23:00 +0800, Jisheng Zhang wrote:
+> > > > > which dts r u using? see below.
+> > > > > =
+
+> > > > > > =
+
+> > > > > > Or maybe my toolchain (GCC 13.1.0, Binutils-2.40, with no
+> > > > > > patches) can
+> > > > > > miscompile the kernel?
+> > > > =
+
+> > > > /* snip */
+> > > > =
+
+> > > > > > Boot HART ID=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 : 0
+> > > > > > Boot HART Domain=A0=A0=A0=A0=A0=A0=A0=A0=A0 : root
+> > > > > > Boot HART Priv Version=A0=A0=A0 : v1.11
+> > > > > > Boot HART Base ISA=A0=A0=A0=A0=A0=A0=A0 : rv64imafdcvx
+> > > > > =
+
+> > > > > what? I don't think the mainline dts provide v and x. =
+
+> > > > =
+
+> > > > I copied the compiled arch/riscv/boot/dts/thead/th1520-lichee-pi-
+> > > > 4a.dtb
+> > > > into /boot and loaded it with u-boot "load" command onto
+> > > > 0x46000000, and
+> > > > passed this address to the booti command.
+> > > > =
+
+> > > > But maybe I've copied the wrong file or made some other mistake...
+> > > > I'll
+> > > > recheck.
+> > > =
+
+> > > Hmm, and if I read OpenSBI code correctly, this line reflects the
+> > > content of the misa CSR, not the DT riscv,isa value.
+> > > =
+
+> > =
+
+> > Aha indeed the "vx" isa extensions are not from the DT riscv,isa
+> > property. I will try your opensbi/linux/uboot combinations on my
+> > lpi4a board tomorrow.
+> =
+
+> My kernel config attached.  Maybe you can find some stupid mistake in
+> it, I'm not familiar with RISC-V, nor DT-based systems :(.
+
+It seems like your kernel config is the problem. I used it and I saw
+the same result of a panic in riscv_intc_irq:
+https://gist.github.com/pdp7/1a26ebe20017a3b90c4e9c005f8178e1
+
+This is the config I have been using successfully:
+https://gist.github.com/pdp7/ecb34ba1e93fc6cfc4dce66d71e14f82
+
+Could you try that config?
+
+Linux 6.5-rc3 boots okay when built with it:
+https://gist.github.com/pdp7/580b072f9a5bf9be87cf88b5f81e50e3
+
+Thanks,
+Drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
