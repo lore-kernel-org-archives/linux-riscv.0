@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D6DC001DE
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 12:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4839CC001DE
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 12:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JIODz3T1l93xqxmNnWtDdjyWw/idkw2K8K9FzAWs5So=; b=aOhJzxY7ySJjSC
-	iDWc2cWO9duVRdBRJKFFw35GaizZwZ7Y5AISpUx2GiD1aF0NCS3Nn7K3qshsd4m56FzS4c0pfPSX5
-	zQ/oi2JCeur7460p2dZqELoborQpU771mzmqoYxXjdbreoYEg/qJsG+EUhzjm17aAZyfSs2HW6+C8
-	xtyd5Fk06j/YeJgUDsu71mK6P9RbnNuRrBu6n/mcv6nymQabwqCLczpSiwLDgb8D3jH0qzHxi8X6r
-	G+l6sXx3Q3E0mllSZFMxBD3IaRlN38yzpG+cZ66Ir/6wvxGqrD5ypDzhucUNFaQ0h5NthMQZSvcxZ
-	Wvs9ADRa6f9ARgPC75CQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Z79rg9/AdIGQxjXvzbuG9FFK5iZ1RvBj7qnIN3cDcGQ=; b=be+qju2ASQRjXG
+	Ww6R64gjqAdCbIAlm12SuDUg5aNX4rblxEdNQoDM4s/tTxWa7DSz/gtVuXjhwAg2v+t8TCdz9/GrU
+	e85psvzhslDfJyD+uvAdMA9YMQRRXlVJ8+WzR1u4GQLX/GrQg0NLYKh0OHNuKrZeKFdVwjxo6kZEc
+	1RVXqtrTCe/x8FCQynSQfA4Y2265AcAy4JVqNlK990Pd6e0uzYfP5NprQG65Fwh2v6GmCCPuq+OxJ
+	WfMWefr1EnXYjzNiESRK9hC+iiAB/9ZEGi6ztdJ8S5mruUeYlfc3g4U0ZWtR2hgf3hG45fGIkFaFq
+	lJGLTMS/2+ME/32OwDrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPMKB-003ITd-1f;
-	Fri, 28 Jul 2023 12:12:03 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qPN1v-003S3t-0T;
+	Fri, 28 Jul 2023 12:57:15 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPMK8-003ISu-1c
+	id 1qPN1s-003RjF-0L
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 12:12:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690546320; x=1722082320;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=JGssJGLQ0T3qf9XcXhh5d5FevqWgguMUf0rr1cM7iFs=;
-  b=EH3NDIEJIwTWjIlzG76e06+Bb2UAbGpuWJ9U/NFS8+uA08Bck4qOC/DK
-   NrlCf/ze7EBS5iuPp60YaRas3SNxadwZCKyAgDPcYz4FeHnM4re8K+OD3
-   nQ64HFbGwUAQwP7pT+TOdi7rcUAfkOXzi+QPxyRjf+3bieJWhUfLqk12I
-   1c/vagbIp3y+bgfeojUaO4sc7TqYMVpVXgwv8QvAizkrGbR4mArvduFhO
-   xaJ5OHN77APfJ9QWj5v1NeoUKTT0GtJpDPiy7yORoSTonNiOsCN90SA3U
-   Ze7cBWDeO+E2t9HHsUiLPuAbQJCdEfdU0LKEExDmGrMW2SAgZ3X6xPzBq
-   A==;
-X-IronPort-AV: E=Sophos;i="6.01,237,1684825200"; 
-   d="scan'208";a="163721077"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 28 Jul 2023 05:11:55 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 28 Jul 2023 05:11:54 -0700
-Received: from daire-X570.amer.actel.com (10.10.115.15) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.21 via Frontend Transport; Fri, 28 Jul 2023 05:11:52 -0700
-From: <daire.mcnamara@microchip.com>
-To: <conor.dooley@microchip.com>
-CC: Daire McNamara <daire.mcnamara@microchip.com>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
-	<kw@linux.com>, Rob Herring <robh@kernel.org>, Bjorn Helgaas
-	<bhelgaas@google.com>, <linux-riscv@lists.infradead.org>,
-	<linux-pci@vger.kernel.org>
-Subject: [PATCH v3 0/7] PCI: microchip: Fixes and clean-ups
-Date: Fri, 28 Jul 2023 13:11:42 +0100
-Message-ID: <20230728121149.1606382-1-daire.mcnamara@microchip.com>
-X-Mailer: git-send-email 2.25.1
+	Fri, 28 Jul 2023 12:57:13 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-4fba8f2197bso3471219e87.3
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 05:57:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1690549026; x=1691153826;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7TcuxbE1UmD9Aws4Vk4iwIGKsEWIhL1t3hDINkZP8BM=;
+        b=MJq+yStd64RJULVR6xIyGKMfDvJY/8gPnfCgrWUJ2PGBeiEnLeBY+gxcUgbEZhMYah
+         OOl137jgbX5DbfJSptbCfz75WzP42GHTgJBubqWJI0NfAuQ1YO7OrLLyzsaL+otn0o+P
+         nkdb2Elzr3r+odfHe2sh9YYEDp1TnroP2YkvgHcGQjKjGOProLgadzRBGENGhEJS84Ys
+         SRcPgU3Q4mDBytkFD1slMZEAJMtaQ5QjJ11MPABWQ6zph1XZL9nZVwOnwVPZYVIAHqDG
+         frG6dXdhI57xX7QEE+Ct6rAmW2dENPQfYtjqlOo9lMP5InM6v3WXrkSSHBpmbIAaDPNd
+         Wcyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690549026; x=1691153826;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7TcuxbE1UmD9Aws4Vk4iwIGKsEWIhL1t3hDINkZP8BM=;
+        b=ES/YdQGl1ZTZ06O4bdm9EhvWX8HpNHKSBwDnpqsSF0Ak8GWW2fGzLi6PZs4iIed7SX
+         kac1WG59I7w2I26kOvbN3mZJ2G4nH6QJr7jx84XCCqzd/oSgPc5sksaoUym23LEcFVms
+         vlMHYRi53yNktNE7sCGu0GdbMcD/bBsw2nZn04ma2Tr44noixYMagFgWVESivxf71SbI
+         JVXtxBReKzZX5pm9945Jd0bIEXHOIlKEp/DdG9SxOMQI+VXHku5+edlOO59hnFr7mXcc
+         8ULIIZD9kOQbcF78fq3dGD+3v09RneV5DhaLsVFrwDX0liUR6meqFGu5GoUWGzpOWWK5
+         ufvg==
+X-Gm-Message-State: ABy/qLZCjJv7Y05JCXMpdLwDBgOIzKvKexVWwiLhKvC1Fo/l15OY2dfQ
+	foKJ2NyzeBB7UFdFM73mnfq7UQ==
+X-Google-Smtp-Source: APBJJlGAVzKRZrbvPLrokCZ6PchUVUuxj0h7VwayM1HDhdl1TGZU2eHqQdxRs3d1Jy/+SVoWyEI0zw==
+X-Received: by 2002:a05:6512:3d06:b0:4f8:4177:e087 with SMTP id d6-20020a0565123d0600b004f84177e087mr1909770lfv.47.1690549025552;
+        Fri, 28 Jul 2023 05:57:05 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id w16-20020a50fa90000000b0052275deb475sm1774659edr.23.2023.07.28.05.57.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Jul 2023 05:57:04 -0700 (PDT)
+Date: Fri, 28 Jul 2023 14:57:03 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] riscv: vdso.lds.S: merge .data section into .rodata
+ section
+Message-ID: <20230728-cec389a85a7dc8dcca803e06@orel>
+References: <20230726173024.3684-1-jszhang@kernel.org>
+ <20230726173024.3684-3-jszhang@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230726173024.3684-3-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_051200_618667_8E0AFCD0 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20230728_055712_151135_D91CE4EB 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,53 +89,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogRGFpcmUgTWNOYW1hcmEgPGRhaXJlLm1jbmFtYXJhQG1pY3JvY2hpcC5jb20+CgpUaGlz
-IHBhdGNoIHNlcmllcyBjb250YWlucyBmaXhlcyBhbmQgY2xlYW4tdXBzIGZvciB0aGUgTWljcm9j
-aGlwIFBvbGFyRmlyZSBTb0MgUENJZSBkcml2ZXIKClRoZXNlIHBhdGNoZXMgYXJlIGV4dHJhY3Rl
-ZCBmcm9tIHRoZSBsaW5rIGJlbG93IHRvIHNlcGFyYXRlIHRoZW0gZnJvbSB0aGUgb3V0Ym91bmQg
-YW5kIGluYm91bmQKcmFuZ2UgaGFuZGxpbmcgd2hpY2ggaXMgdGFraW5nIGNvbnNpZGVyYWJsZSB0
-aW1lLgpMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIzMDExMTEy
-NTMyMy4xOTExMzczLTEtZGFpcmUubWNuYW1hcmFAbWljcm9jaGlwLmNvbS8KClRoZXNlIHBhdGNo
-ZXMgYXJlIHJlZ2VuZXJhdGVkIG9uIHY2LjUtcmM0LgoKTWFpbiBjaGFuZ2VzIGZyb20gdjI6Ci0g
-UmV3b3JrZWQgIkdhdGhlciBNU0kgaW5mb3JtYXRpb24uLi4iIGFzIHN1Z2dlc3RlZCBieSBCam9y
-bgotIG1lcmdlZCAnR2F0aGVyIE1TSSBJbmZvcm1hdGlvbi4uLiIgYW5kICJSZW5hbWUgYW5kIHJl
-ZmFjdG9yIiBhcyBzdWdnZXN0ZWQgYnkgQmpvcm4KLSBSZS1nZW5lcmF0ZWQgb24gdjYuNS1yYzQK
-Ck1haW4gQ2hhbmdlcyBmcm9tIHYxOgotIERyb3BwZWQgIlJlbW92ZSBjYXN0IHdhcm5pbmcgZm9y
-IGRldm1fYWRkX2FjdGlvbl9vcl9yZXNldCgpIi4gVGhpcwogIGhhcyBiZWVuIG92ZXJ0YWtlbiBi
-eSBhIHBhdGNoIHNlcmllcyBmcm9tIEtyenlzenRvZiBXaWxjenluc2tpLgotIEltcHJvdmVkIHRo
-ZSBjb21tZW50IGZvciAiRW5hYmxlIGJ1aWxkaW5nIGRyaXZlciBhcyBhIG1vZHVsZSIgdG8KICBj
-bGFyaWZ5IHdoYXQgZW5hYmxlcyBidWlsZGluZyB0aGUgZHJpdmVyIGFzIGEgbW9kdWxlLgotIFNw
-bGl0ICJHYXRoZXIgTVNJIGluZm9ybWF0aW9uIGZyb20gaGFyZHdhcmUgY29uZmlnIHJlZ2lzdGVy
-cyIsCiAgZm9yIGNsYXJpdHksIGludG86CiAgIC0gIkdhdGhlciBNU0kgaW5mb3JtYXRpb24gZnJv
-bSBoYXJkd2FyZSBjb25maWcgcmVnaXN0ZXJzIiBwdXJlbHkKICAgICAgY2hhbmdpbmcgdGhlIG9m
-IHNvdXJjZSBvZiBNU0ktcmVsYXRlZCBpbmZvcm1hdGlvbiAoTnVtIE1TSXMgYW5kCiAgICAgIE1T
-SSBhZGRyZXNzKSBmcm9tICNkZWZpbmVzICh3aGljaCBjYW4gYmUgaW5jb3JyZWN0KSB0byBGUEdB
-CiAgICAgIGNvbmZpZ3VyYXRpb24gcmVnaXN0ZXJzICh3aGljaCBpcyB0aGUgdWx0aW1hdGUgc291
-cmNlIG9mIHRydXRoKSwKICAgICAgYW5kIGEKICAgLSAiUmVuYW1lIGFuZCByZWZhY3RvciAuLi4i
-IHBhdGNoIGFzIGEgZnVuY3Rpb24ncyBjb2RlIGlzIG5vdyBjbGVhcmx5CiAgICAgIHVucmVsYXRl
-ZCB0byBpdHMgY3VycmVudCBuYW1lLgoKY2M6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1p
-Y3JvY2hpcC5jb20+CmNjOiBMb3JlbnpvIFBpZXJhbGlzaSA8bHBpZXJhbGlzaUBrZXJuZWwub3Jn
-PgpjYzogIktyenlzenRvZiBXaWxjennFhHNraSIgPGt3QGxpbnV4LmNvbT4KY2M6IFJvYiBIZXJy
-aW5nIDxyb2JoQGtlcm5lbC5vcmc+CmNjOiBCam9ybiBIZWxnYWFzIDxiaGVsZ2Fhc0Bnb29nbGUu
-Y29tPgpjYzogbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpjYzogbGludXgtcGNpQHZn
-ZXIua2VybmVsLm9yZwoKRGFpcmUgTWNOYW1hcmEgKDgpOgogIFBDSTogbWljcm9jaGlwOiBDb3Jy
-ZWN0IHRoZSBERUQgYW5kIFNFQyBpbnRlcnJ1cHQgYml0IG9mZnNldHMKICBQQ0k6IG1pY3JvY2hp
-cDogRW5hYmxlIGJ1aWxkaW5nIGRyaXZlciBhcyBhIG1vZHVsZQogIFBDSTogbWljcm9jaGlwOiBB
-bGlnbiByZWdpc3Rlciwgb2Zmc2V0LCBhbmQgbWFzayBuYW1lcyB3aXRoIGh3IGRvY3MKICBQQ0k6
-IG1pY3JvY2hpcDogRW5hYmxlIGV2ZW50IGhhbmRsZXJzIHRvIGFjY2VzcyBicmlkZ2UgYW5kIGN0
-cmwgcHRycwogIFBDSTogbWljcm9jaGlwOiBDbGVhbiB1cCBpbml0aWFsaXNhdGlvbiBvZiBpbnRl
-cnJ1cHRzCiAgUENJOiBtaWNyb2NoaXA6IEdhdGhlciBNU0kgaW5mb3JtYXRpb24gZnJvbSBoYXJk
-d2FyZSBjb25maWcgcmVnaXN0ZXJzCiAgUENJOiBtaWNyb2NoaXA6IFJlLXBhcnRpdGlvbiBjb2Rl
-IGJldHdlZW4gcHJvYmUoKSBhbmQgaW5pdCgpCgogZHJpdmVycy9wY2kvY29udHJvbGxlci9LY29u
-ZmlnICAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvcGNpL2NvbnRyb2xsZXIvcGNpZS1t
-aWNyb2NoaXAtaG9zdC5jIHwgMzkzICsrKysrKysrKysrLS0tLS0tLS0KIDIgZmlsZXMgY2hhbmdl
-ZCwgMjMzIGluc2VydGlvbnMoKyksIDE2MiBkZWxldGlvbnMoLSkKCgpiYXNlLWNvbW1pdDogNmVh
-YWUxOTgwNzYwODA4ODZiOWU3ZDU3ZjRhZTA2ZmE3ODJmOTBlZgotLSAKMi4yNS4xCgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Jul 27, 2023 at 01:30:23AM +0800, Jisheng Zhang wrote:
+> The .data section doesn't need to be separate from .rodata section,
+> they are both readonly.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/kernel/vdso/vdso.lds.S | 15 +++++++--------
+>  1 file changed, 7 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
+> index d43fd7c7dd11..671aa21769bc 100644
+> --- a/arch/riscv/kernel/vdso/vdso.lds.S
+> +++ b/arch/riscv/kernel/vdso/vdso.lds.S
+> @@ -29,7 +29,13 @@ SECTIONS
+>  	.eh_frame_hdr	: { *(.eh_frame_hdr) }		:text	:eh_frame_hdr
+>  	.eh_frame	: { KEEP (*(.eh_frame)) }	:text
+>  
+> -	.rodata		: { *(.rodata .rodata.* .gnu.linkonce.r.*) }
+> +	.rodata		: {
+> +		*(.rodata .rodata.* .gnu.linkonce.r.*)
+> +		*(.got.plt) *(.got)
+> +		*(.data .data.* .gnu.linkonce.d.*)
+> +		*(.dynbss)
+> +		*(.bss .bss.* .gnu.linkonce.b.*)
+
+Looking at other architectures, it appears the last three lines of
+sections could be discarded, but I don't know enough about this to
+state they should be.
+
+Thanks,
+drew
+
+
+> +	}
+>  
+>  	/*
+>  	 * This linker script is used both with -r and with -shared.
+> @@ -44,13 +50,6 @@ SECTIONS
+>  	.alternative : {
+>  		*(.alternative)
+>  	}
+> -
+> -	.data		: {
+> -		*(.got.plt) *(.got)
+> -		*(.data .data.* .gnu.linkonce.d.*)
+> -		*(.dynbss)
+> -		*(.bss .bss.* .gnu.linkonce.b.*)
+> -	}
+>  }
+>  
+>  /*
+> -- 
+> 2.40.1
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
