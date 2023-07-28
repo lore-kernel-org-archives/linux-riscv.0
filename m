@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A34C001DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 06:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE63CC001E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 06:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IdAWm6u9Q3UrebhYKJm4Q4J5DbVdlI8TVTInfx4GUr4=; b=AjrpbTw9qMlzkW
-	fk816SIABaUz6SuVqPi9tQzRIto5xcvstlK/b/lGCsITbHK+/r0EAoBT/ayMzhYHZGi3d5yGiNtyG
-	ErpDoyHKIFRXGxkSg3/DRdinXWBsoxTOcoWJRrjBng+Ko8NYZNNO2hO2jTiGUbQF1yduhpXic5Htw
-	ngN29L7jfN6vic9sSme9pULmKyrII+q0BlK0MjzP4bCkuwJseaTsepVvzULCbjilcHu4EpRLjAlqA
-	G+4e4U6QPPiM1zJaXAoTO8HYaRX98iUEJNK45ZSlyCrlHTQvNzIF8fqatjE3yIkylAmU15TMEyxaq
-	6NaZxGbynYWgjlazQ3/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k8d3nt+VnuAEZ46FKvs0HFi/8FQ7LeMY3PQXw27/8I8=; b=y47IR9+GTOPEfuBSJdWeDVKIIR
+	/0dBCANARQPfmscAkn9n+8WzM0aYmQEmb8gXer43Qedkyk0Jqc6WxLO0cfSQQK5Qjdlj9RFKJM5t5
+	kjsCH3HY4fNx+x4Pvra6lpm8RCRo1MAP17eZ2BpfzSal0UcKxa+IO/pPz3ZNaZNt129rZh18N69Uz
+	46EGAxC+AwTbdR2SljqK8i+Bb8dV0gYHtNBnpzzKouMfjB4ghPsku7Eb1w4+ivJR+yayZBL/cerql
+	xldPz4ujNKQJ4vcXZd+C0GadYALgUCFQ2QcyRUfpKKmzb4YW8zgUfo4Os391jd090GMp8abZ5NanL
+	9oaCZJ8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPGXv-001phh-1F;
-	Fri, 28 Jul 2023 06:01:51 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1qPHFz-001wNJ-2F;
+	Fri, 28 Jul 2023 06:47:23 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPGXs-001pff-0m
+	id 1qPHFx-001wMK-19
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 06:01:49 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-2b9c2dc636dso23779891fa.3
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Jul 2023 23:01:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1690524100; x=1691128900;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2jjGYCkpEYu58BQfAwhDMVJPr8BDJrnt1s54RDMlMPA=;
-        b=EnOmxiQ6Hqmfy468wQrckhNRtCZUvLNfddXLnUKst3m5+Y0BW/6amJY7gYXx93hbzs
-         sLFVbe4SCueWxW0c4vDtLXQpXxTYItb40QIoGjlZAf5Q2gtjlqT5bYnU05UwhrAFts80
-         1Jmlt+8A4WgU3xkX0A8vfJrce924O4THWo5b4UMGc9wfwkCT/3z6WS33GgeLPbhmw4BZ
-         vWbzRrv/vFXJbiDnTGA/u7UGeyqtFpHrjLnt7MOKuI4dShzt47mnjHPOnlNB+V4d2HEz
-         FothBpUXrwksIcuDHGmEAKHZfgkx1PFGKHcBEZ18x13fxtLRAuU/Hh7SUb0z3ldmouW9
-         f54Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690524100; x=1691128900;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2jjGYCkpEYu58BQfAwhDMVJPr8BDJrnt1s54RDMlMPA=;
-        b=Ywub7e9z+YK5JmL5WoStIS6nEsce1Ut7PqffM1Nl0vUcEKNhjh+VGftWzkekO+zXRg
-         HebZlxAb36UUbgkd3W96EhQbOv+Ruwho0obTnnn59QiV3BjTZgH2ieom0z0ZiTp6NIPi
-         pcGm2gsjF/IF8RT2x7iFysEezqGsvHGu7C0OsHya9DRWz4vUUX4PPg/navAXyz/BXbib
-         pePdKhpGTHVafGnjhAAN6ovtTJNJzIjOsOR5ME02mhG/Oy6E5p8V3pbPBSKZ60QKHRRC
-         12caOm09iKvYGy++KfnprriJIENK8oauFgXA16jyJlGXDH1YLOSD7R3W1foph0HXiqjv
-         VXPg==
-X-Gm-Message-State: ABy/qLZhfZrH9M/eMOlz9DqR7QIh2l0f3u+E9DlrFDjKQ9ByWXn5dXsK
-	SkToRmvntLiRlEV6kFInjW5FdPQ6uNj+A8zeVPBW7Q==
-X-Google-Smtp-Source: APBJJlGRtJ5h9JlYPOw784edK7V79G0d0vYdwCpHUuo8Is7oxaLejqe++lmUOh2FkvVkmSEOAEMEiq2mT/bVif0U91I=
-X-Received: by 2002:a2e:7c01:0:b0:2b9:4476:ab28 with SMTP id
- x1-20020a2e7c01000000b002b94476ab28mr977256ljc.38.1690524099313; Thu, 27 Jul
- 2023 23:01:39 -0700 (PDT)
-MIME-Version: 1.0
-References: <20230720135125.21240-1-eric.lin@sifive.com> <20230720135125.21240-2-eric.lin@sifive.com>
- <cbf0a8fd-3479-1684-fe90-81f2159804ef@linaro.org>
-In-Reply-To: <cbf0a8fd-3479-1684-fe90-81f2159804ef@linaro.org>
-From: Eric Lin <eric.lin@sifive.com>
-Date: Fri, 28 Jul 2023 14:01:28 +0800
-Message-ID: <CAPqJEFr5h+5+F4TdNuRMaWsrmeedbfGgbgd9wh8sUUQsj2Pw-A@mail.gmail.com>
+	Fri, 28 Jul 2023 06:47:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1690526841; x=1722062841;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=YtvQho51fiUQiVv7pUWMWChlYR1zLZ8AT/WHvdmM9Ww=;
+  b=2kZJOcga8pZXl+RvGx3mul0FxvM4+WXwpXT1YXFkZGYf8uQaB4W+h/Wd
+   Pxg4p0nIryQfQP4jgMi1c/sY9BuG7ySWFroBsbsQt6qIZWS8+hX3GJlfD
+   TzngdGFvtqLVMPPG+rE+6gGPupklLdOydLWifQ536HLgfTSbpohYiBWUy
+   9CRkUe0shf00WMJqjZoxcDA19q7T+FO0XW2A/Y/qt1Jn0tibySReAkrme
+   LdZGVvRo1fOsum3ausdr7gc+9I15g2hSfn2VmDnlTqTNEVyOJQr/wzrP1
+   jlRELA/QFGdQGjfVaA3VY4Y/b6bo7Y0WNee0uV1v9FMElmi6fuBnUo/sW
+   g==;
+X-IronPort-AV: E=Sophos;i="6.01,236,1684825200"; 
+   d="asc'?scan'208";a="227024283"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Jul 2023 23:47:16 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.21; Thu, 27 Jul 2023 23:47:13 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
+ Transport; Thu, 27 Jul 2023 23:47:11 -0700
+Date: Fri, 28 Jul 2023 07:46:36 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Eric Lin <eric.lin@sifive.com>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<zong.li@sifive.com>, <greentime.hu@sifive.com>, <vincent.chen@sifive.com>
 Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: sifive: Add SiFive Private L2
  cache controller
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, zong.li@sifive.com, greentime.hu@sifive.com, 
-	vincent.chen@sifive.com
+Message-ID: <20230728-penpal-prelude-29a952c03827@wendy>
+References: <20230720135125.21240-1-eric.lin@sifive.com>
+ <20230720135125.21240-2-eric.lin@sifive.com>
+ <cbf0a8fd-3479-1684-fe90-81f2159804ef@linaro.org>
+ <CAPqJEFr5h+5+F4TdNuRMaWsrmeedbfGgbgd9wh8sUUQsj2Pw-A@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CAPqJEFr5h+5+F4TdNuRMaWsrmeedbfGgbgd9wh8sUUQsj2Pw-A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230727_230148_285264_E593C502 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20230727_234721_545724_EB57235B 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +85,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3374181904372060277=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgS3J6eXN6dG9mLAoKT24gRnJpLCBKdWwgMjEsIDIwMjMgYXQgNDozNeKAr1BNIEtyenlzenRv
-ZiBLb3psb3dza2kKPGtyenlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4gd3JvdGU6Cj4KPiBP
-biAyMC8wNy8yMDIzIDE1OjUxLCBFcmljIExpbiB3cm90ZToKPiA+IFRoaXMgYWRkIFlBTUwgRFQg
-YmluZGluZyBkb2N1bWVudGF0aW9uIGZvciBTaUZpdmUgUHJpdmF0ZSBMMgo+ID4gY2FjaGUgY29u
-dHJvbGxlcgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEVyaWMgTGluIDxlcmljLmxpbkBzaWZpdmUu
-Y29tPgo+ID4gUmV2aWV3ZWQtYnk6IFpvbmcgTGkgPHpvbmcubGlAc2lmaXZlLmNvbT4KPiA+IFJl
-dmlld2VkLWJ5OiBOaWNrIEh1IDxuaWNrLmh1QHNpZml2ZS5jb20+Cj4KPgo+IC4uLgo+Cj4gPiAr
-cHJvcGVydGllczoKPiA+ICsgIGNvbXBhdGlibGU6Cj4gPiArICAgIGl0ZW1zOgo+ID4gKyAgICAg
-IC0gY29uc3Q6IHNpZml2ZSxwbDJjYWNoZTEKPgo+IEkgc3RpbGwgaGF2ZSBkb3VidHMgdGhhdCBp
-dCBpcyBub3QgdXNlZCBpbiBhbnkgU29DLiBUaGlzIGlzIHdoYXQgeW91Cj4gc2FpZCBsYXN0IHRp
-bWU6ICJpcyBub3QgcGFydCBvZiBhbnkgU29DLiIKPiBJZiBub3QgcGFydCBvZiBhbnkgU29DLCB0
-aGVuIHdoZXJlIGlzIGl0PyBXaHkgYXJlIHlvdSBhZGRpbmcgaXQgdG8gdGhlCj4ga2VybmVsPwo+
-CgpTb3JyeSBmb3IgdGhlIGxhdGUgcmVwbHkuIEkgZGlkbid0IGRlc2NyaWJlIGl0IGNsZWFybHkg
-bGFzdCB0aW1lLgpDdXJyZW50bHksIHdlIGhhdmUgdHdvIGhhcmR3YXJlIHZlcnNpb25zIG9mIHBs
-MmNhY2hlOiBwbDJjYWNoZTAgYW5kIHBsMmNhY2hlMS4KVGhlIHBsMmNhY2hlMCBpcyB1c2VkIGlu
-IHVubWF0Y2hlZCBib2FyZCBTb0MuIFRoZSBwbDJjYWNoZTEgaXMKdXRpbGl6ZWQgaW4gb3VyIGlu
-dGVybmFsIEZQR0EgcGxhdGZvcm0gZm9yIGV2YWx1YXRpb247IGl0J3Mgb3VyIGNvcmUKSVAuCgo+
-Cj4KPiA+ICsgICAgICAtIGNvbnN0OiBjYWNoZQo+ID4gKwo+ID4gKyAgY2FjaGUtYmxvY2stc2l6
-ZTogdHJ1ZQo+ID4gKyAgY2FjaGUtbGV2ZWw6IHRydWUKPiA+ICsgIGNhY2hlLXNldHM6IHRydWUK
-PiA+ICsgIGNhY2hlLXNpemU6IHRydWUKPiA+ICsgIGNhY2hlLXVuaWZpZWQ6IHRydWUKPiA+ICsK
-PiA+ICsgIHJlZzoKPiA+ICsgICAgbWF4SXRlbXM6IDEKPiA+ICsKPiA+ICsgIG5leHQtbGV2ZWwt
-Y2FjaGU6IHRydWUKPiA+ICsKPiA+ICtyZXF1aXJlZDoKPiA+ICsgIC0gY29tcGF0aWJsZQo+ID4g
-KyAgLSBjYWNoZS1ibG9jay1zaXplCj4gPiArICAtIGNhY2hlLWxldmVsCj4gPiArICAtIGNhY2hl
-LXNldHMKPiA+ICsgIC0gY2FjaGUtc2l6ZQo+ID4gKyAgLSBjYWNoZS11bmlmaWVkCj4gPiArICAt
-IHJlZwo+ID4gKwo+ID4gK2FkZGl0aW9uYWxQcm9wZXJ0aWVzOiBmYWxzZQo+ID4gKwo+ID4gK2V4
-YW1wbGVzOgo+ID4gKyAgLSB8Cj4gPiArICAgIGNhY2hlLWNvbnRyb2xsZXJAMTAxMDQwMDAgewo+
-ID4gKyAgICAgICAgY29tcGF0aWJsZSA9ICJzaWZpdmUscGwyY2FjaGUxIiwiY2FjaGUiOwo+Cj4g
-TWlzc2luZyBzcGFjZS4KCk9LLCBJJ2xsIGZpeCBpdCBpbiB0aGUgbmV4dCB2ZXJzaW9uLgoKPgo+
-ID4gKyAgICAgICAgY2FjaGUtYmxvY2stc2l6ZSA9IDw2ND47Cj4gPiArICAgICAgICBjYWNoZS1s
-ZXZlbCA9IDwyPjsKPiA+ICsgICAgICAgIGNhY2hlLXNldHMgPSA8NTEyPjsKPiA+ICsgICAgICAg
-IGNhY2hlLXNpemUgPSA8MjYyMTQ0PjsKPiA+ICsgICAgICAgIGNhY2hlLXVuaWZpZWQ7Cj4gPiAr
-ICAgICAgICByZWcgPSA8MHgxMDEwNDAwMCAweDQwMDA+Owo+Cj4gcmVnIGlzIGFmdGVyIGNvbXBh
-dGlibGUuCgpPSywgSSdsbCBmaXggaXQgaW4gdGhlIG5leHQgdmVyc2lvbi4KVGhhbmtzIGZvciB5
-b3VyIHJldmlldy4KCkJlc3QgcmVnYXJkcywKRXJpYyBMaW4KCj4KPiA+ICsgICAgICAgIG5leHQt
-bGV2ZWwtY2FjaGUgPSA8Jkw0PjsKPiA+ICsgICAgfTsKPgo+IEJlc3QgcmVnYXJkcywKPiBLcnp5
-c3p0b2YKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+--===============3374181904372060277==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="DkvLLUDHEo/ixRke"
+Content-Disposition: inline
+
+--DkvLLUDHEo/ixRke
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Jul 28, 2023 at 02:01:28PM +0800, Eric Lin wrote:
+> Hi Krzysztof,
+>=20
+> On Fri, Jul 21, 2023 at 4:35=E2=80=AFPM Krzysztof Kozlowski
+> <krzysztof.kozlowski@linaro.org> wrote:
+> >
+> > On 20/07/2023 15:51, Eric Lin wrote:
+> > > This add YAML DT binding documentation for SiFive Private L2
+> > > cache controller
+> > >
+> > > Signed-off-by: Eric Lin <eric.lin@sifive.com>
+> > > Reviewed-by: Zong Li <zong.li@sifive.com>
+> > > Reviewed-by: Nick Hu <nick.hu@sifive.com>
+> >
+> >
+> > ...
+> >
+> > > +properties:
+> > > +  compatible:
+> > > +    items:
+> > > +      - const: sifive,pl2cache1
+> >
+> > I still have doubts that it is not used in any SoC. This is what you
+> > said last time: "is not part of any SoC."
+> > If not part of any SoC, then where is it? Why are you adding it to the
+> > kernel?
+> >
+>=20
+> Sorry for the late reply. I didn't describe it clearly last time.
+> Currently, we have two hardware versions of pl2cache: pl2cache0 and pl2ca=
+che1.
+> The pl2cache0 is used in unmatched board SoC.
+
+Wait a second, does the fu740 on the unmatched not have a ccache as
+it's L2 cache?
+
+> The pl2cache1 is
+> utilized in our internal FPGA platform for evaluation; it's our core
+> IP.
+
+--DkvLLUDHEo/ixRke
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMNkSQAKCRB4tDGHoIJi
+0n12AP4h2vY+IY4Xw3D7EqF9UHWzxcPq70z+ADbj7pY81bxvgAD/eTAguxDbLB8q
+4QcYSxEmzDs/Mr2qOF0gN0xCG6+3KwQ=
+=Vu0G
+-----END PGP SIGNATURE-----
+
+--DkvLLUDHEo/ixRke--
+
+
+--===============3374181904372060277==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3374181904372060277==--
+
