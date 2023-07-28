@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E985C0015E
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 20:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC7ABC001DE
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 20:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=twe5EXPNkd83n+HVR31C4mhnLl3kDjabI07BXO8XDeM=; b=SxtVlq2Son22kc
-	mXNYDiFwMWWlzKQtRfzCQtq/3ixSV8pEci2eo6kU7+f+tSWvM2LfTvskJefXmYQLT6bMuVVVD7Ape
-	fy6NavC+LeAWJARE61ZG8jgDi6K0D8fVxRcSqhxwthTENN+wqKNSPg0XrkhstNdpBLaj6nutgLS8j
-	0ZhHrlCScAXeKk0OBpJT0naBz0YBwlfh0Y2ltgIEJoLhPQA88dt/SEkqW/PliQugAn6uDq8jybqld
-	TO+5aybc41TTRsf2XSWXVsIBzCAeBeyq1uO9HoSmIUgSvy9NDbc+2KeEXgZ8Ma/50WU0ljh5l/xM8
-	Hsz82Paa3TKcd/Xtz9NA==;
+	List-Owner; bh=ko9q7fy2UvOcqDUMxB8wVoagXAX8I44ACgun7NrwgiY=; b=bC5JlremZMZe7D
+	TcE4A+haY7JDjGsuGbn7ht9hrR3LiKNgTKNj/qtrpR7Yap0WJIIxh8tQ3TtHn3r9FGr5UNKcXZS5d
+	vJGMvtGPyOkUhylOhM6HSUfvXlSvpNi278/4jNpJMXyXx/wqZZ/94GZ4NqVAgKHc+q9HlcmzQfki7
+	jehZDZ5VGuIgE0SMegbgN+ZD/rhyYjopGvYVfiQq4HvzpuY/d/y6/evSdZQvddP0r529kJh+F6Dm/
+	GOwiWXXgenSiauW6HvffB4o2GJgkJ8PUIN4rO1w4VM62q2JdHnsgzF7ltMGCePH72rQEswpSlk3lC
+	U7Hpok4F1Zkl+vgDKnlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPTqP-004wVM-1n;
-	Fri, 28 Jul 2023 20:13:49 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1qPUQ9-00509Y-2z;
+	Fri, 28 Jul 2023 20:50:45 +0000
+Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPTqM-004wTi-09
+	id 1qPUQ6-00507r-0m
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 20:13:47 +0000
-Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-7835c92c373so87607639f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 13:13:45 -0700 (PDT)
+	Fri, 28 Jul 2023 20:50:44 +0000
+Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3490a0bb5cdso1103995ab.2
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 13:50:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1690575224; x=1691180024;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/yi4y6ZcKjQCRx6lPzKR1GjQXQiW3JC1NO2YhCreRSs=;
-        b=LFoJRO7rVUWGOrOiA5M1sHs/IwoPZG3ma2hhFF7SSOq3xBr3XTEzXqxYyO7Y4BOu3B
-         iK6eaNdkX3vdz99+bvsNp0b7gaEktppGU6fjO5kD9iT27fuwxsponurjqdWWgYDqTN79
-         aNaq31h0n1+X9o2HbwuDCrhi/V4kn/6VlAv75LY6vCPqFr49wGm5/Pm3czgYpsmiCC8w
-         ZQjH0FNyBiThZw659toxayb45B2sDVUIdDWYoKhLZrNIQRn9svy0rF+/6KafFX5+p2+4
-         VPTmVmzHzXTYe/xz49we6xqlmyJKwyfgKORgUU3/uFT5t7wmiEJgm9RE5L6DD2hUn2bp
-         g4RQ==
+        d=gmail.com; s=20221208; t=1690577439; x=1691182239;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=Hj9wHLh/iek/aBa0XZOZmqb3Sqdg6Q0wR0GPCTNrLg0=;
+        b=GwUt8ehuxWYPvFOoWEtp1Je9/5wOlNXHjsABwpBvI5XxecRKNOqSUccz12VGadD9gR
+         fdQU53086L4wLg4DOVV8oPVJ1cHpeZOenLRmZbcp45xpKme5CTW+O3Oldp0AEOMIQ7hx
+         gFuBE/Vja8I0fmuLqzsnWAqJoPJiDn2C6FJAGxfkh0ymCsCw1XkSWw5tHDqWOP9RIoHC
+         KYupCm6um3SMZviZeJ5ElnQNQSVYyHtgK4wwPIbLQz7Rkw4+dd5NFIC+SUTh83R8QydT
+         J5HUj2lfcZObqot5s77WfScqoMFK3nM48h5mHMGzHdStow6I/jCqXMZKx1hieJbBhY/C
+         1o5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690575224; x=1691180024;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/yi4y6ZcKjQCRx6lPzKR1GjQXQiW3JC1NO2YhCreRSs=;
-        b=gEgicZGXqntYtJweAwOxcupEQyD9ypALLwwv01tVO4DPKzSr/R8J8SVdsHsFVedQZL
-         BCsfA/z467Vj/+Kssm41w+KL7j/Q7XDjDdKTRt/DUpCWCSiREzdG3+8ZlMiz6mJlBdkG
-         iNkhx8nfikzBcKEIHs05f6XhvL+FhoWG5103mIE3nnY7ghyHGZZpGUppK2byyezIEcXR
-         WobD6IA3shcwiBN+Vp7Iu2LN8kMD9Heq6Czmja/+YmRyGIw34crBAh6Ya+LksVYO5aEb
-         6SedOvBKHUS86/lWl+yvshcQTHNALNJ9BK6jW3CMJrwYoLhitMs+hLvak/M0VKg2M+fp
-         Z/Lg==
-X-Gm-Message-State: ABy/qLYjhos1xKmhdOxUBgvTiT3JWf2WwuD3PpoVN+T92wQhkMSmL3OP
-	34cQXicisCoPf2oVQVo6qJpFFEMzo/Z48jJqKhQ=
-X-Google-Smtp-Source: APBJJlFWTZEQ6ng+2uju8cCmZwsRwrxZX3okqbaSKeW6MRb/Zg2+oTPl9jAlRLfiuzAvOTYAWMvkDLuIU2LV6NMaCI0=
-X-Received: by 2002:a05:6602:381:b0:783:4135:5b96 with SMTP id
- f1-20020a056602038100b0078341355b96mr421356iov.5.1690575223536; Fri, 28 Jul
- 2023 13:13:43 -0700 (PDT)
+        d=1e100.net; s=20221208; t=1690577439; x=1691182239;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Hj9wHLh/iek/aBa0XZOZmqb3Sqdg6Q0wR0GPCTNrLg0=;
+        b=jF5oGEpBCd7MgwMUPExlj/XgCRGcSrg+R0JHF2U3LO20ZncyLU+U46X80fvsrypIZ4
+         VlnpfFG2cZzVw2y4wFUAdLoBki8bsvRGnF9Zrn9P5n/4xunGke35EurZpCfc7ERnFsXH
+         TPGnGHDu4T7TA/yeuKv9o30zx25M7NoAb2eGmUYwGfnVfcr1xysPrrUDSbdbUWjbQOO0
+         d+QJN3pnjhAYMM2qd+wPWLS9xfE9SjwDPMcrpK6fdpqQ++mCwnivYRh9SP2ByMrY1AJx
+         e+2CIpM8MY+ajX607WiWG8l+S/zKDF4A2A0sy9G0CfrUbJSb0g+tMD96n9AtQieE2dZh
+         Ot6w==
+X-Gm-Message-State: ABy/qLbll7TfKk30qv2uHqjpGkPV9dc9oMCmHcojKrJoO2M3O5anoh4s
+	qsQf+CaXHtAttuRilLfH5sQ=
+X-Google-Smtp-Source: APBJJlFjeHzVc3cvxPud1zwRaV1Y/aaQeAMOI+V/AnIDAXQqoSpqeSlOhpZj/AIqXSlvT3qN74PhLg==
+X-Received: by 2002:a05:6e02:12e9:b0:348:f152:e041 with SMTP id l9-20020a056e0212e900b00348f152e041mr998762iln.2.1690577438741;
+        Fri, 28 Jul 2023 13:50:38 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+        by smtp.gmail.com with ESMTPSA id gs14-20020a0566382d8e00b0042bb03d3a2esm1292175jab.96.2023.07.28.13.50.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 28 Jul 2023 13:50:38 -0700 (PDT)
+Message-ID: <ca7652ee-b5c9-2dd8-06ca-cbb5d5ef8751@roeck-us.net>
+Date: Fri, 28 Jul 2023 13:50:36 -0700
 MIME-Version: 1.0
-References: <20230702203429.237615-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230702203429.237615-4-prabhakar.mahadev-lad.rj@bp.renesas.com> <CAJM55Z_udpELaTdszqwGbOUyOQ3D4ROqmmQ1=_i6Qb8E8pJd1w@mail.gmail.com>
-In-Reply-To: <CAJM55Z_udpELaTdszqwGbOUyOQ3D4ROqmmQ1=_i6Qb8E8pJd1w@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 28 Jul 2023 21:13:17 +0100
-Message-ID: <CA+V-a8tpYHwSNDKh5OKBc-+uP6p55_AOZiwN3cceXjv69Oijmg@mail.gmail.com>
-Subject: Re: [PATCH v10 3/6] riscv: mm: dma-noncoherent: nonstandard cache
- operations support
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor.dooley@microchip.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Guo Ren <guoren@kernel.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Samuel Holland <samuel@sholland.org>, linux-riscv@lists.infradead.org, 
-	Christoph Hellwig <hch@infradead.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [PATCH] watchdog: Enable COMPILE_TEST for more drivers
+Content-Language: en-US
+To: Rob Herring <robh@kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Keguang Zhang <keguang.zhang@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20230728195022.1198555-1-robh@kernel.org>
+From: Guenter Roeck <linux@roeck-us.net>
+In-Reply-To: <20230728195022.1198555-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_131346_083174_46E63AD1 
-X-CRM114-Status: GOOD (  29.14  )
+X-CRM114-CacheID: sfid-20230728_135042_285749_E9CC86B6 
+X-CRM114-Status: GOOD (  31.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,74 +93,407 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgRW1pbCwKClRoYW5rIHlvdSBmb3IgdGhlIHJldmlldy4KCk9uIE1vbiwgSnVsIDI0LCAyMDIz
-IGF0IDExOjE44oCvQU0gRW1pbCBSZW5uZXIgQmVydGhpbmcKPGVtaWwucmVubmVyLmJlcnRoaW5n
-QGNhbm9uaWNhbC5jb20+IHdyb3RlOgo+Cj4gT24gU3VuLCAyIEp1bCAyMDIzIGF0IDIyOjM2LCBQ
-cmFiaGFrYXIgPHByYWJoYWthci5jc2VuZ2dAZ21haWwuY29tPiB3cm90ZToKPiA+Cj4gPiBGcm9t
-OiBMYWQgUHJhYmhha2FyIDxwcmFiaGFrYXIubWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20+
-Cj4gPgo+ID4gSW50cm9kdWNlIHN1cHBvcnQgZm9yIG5vbnN0YW5kYXJkIG5vbmNvaGVyZW50IHN5
-c3RlbXMgaW4gdGhlIFJJU0MtVgo+ID4gYXJjaGl0ZWN0dXJlLiBJdCBlbmFibGVzIGZ1bmN0aW9u
-IHBvaW50ZXIgc3VwcG9ydCB0byBoYW5kbGUgY2FjaGUKPiA+IG1hbmFnZW1lbnQgaW4gc3VjaCBz
-eXN0ZW1zLgo+ID4KPiA+IFRoaXMgcGF0Y2ggYWRkcyBhIG5ldyBjb25maWd1cmF0aW9uIG9wdGlv
-biBjYWxsZWQKPiA+ICJSSVNDVl9OT05TVEFOREFSRF9DQUNIRV9PUFMuIiBUaGlzIG9wdGlvbiBp
-cyBhIGJvb2xlYW4gZmxhZyB0aGF0Cj4gPiBkZXBlbmRzIG9uICJSSVNDVl9ETUFfTk9OQ09IRVJF
-TlQiIGFuZCBlbmFibGVzIHRoZSBmdW5jdGlvbiBwb2ludGVyCj4gPiBzdXBwb3J0IGZvciBjYWNo
-ZSBtYW5hZ2VtZW50IGluIG5vbnN0YW5kYXJkIG5vbmNvaGVyZW50IHN5c3RlbXMuCj4gPgo+ID4g
-U2lnbmVkLW9mZi1ieTogTGFkIFByYWJoYWthciA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJw
-LnJlbmVzYXMuY29tPgo+ID4gUmV2aWV3ZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5
-QG1pY3JvY2hpcC5jb20+Cj4gPiBUZXN0ZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5
-QG1pY3JvY2hpcC5jb20+ICMgdHlyZS1raWNraW5nIG9uIGEgZDEKPiA+IC0tLQo+ID4gdjkgLT4g
-djEwCj4gPiAqIEFkZGVkIF9fcm9fYWZ0ZXJfaW5pdCBjb21waWxlciBhdHRyaWJ1dGUgZm9yIG5v
-bmNvaGVyZW50X2NhY2hlX29wcwo+ID4gKiBSZW5hbWVkIGNsZWFuIC0+IHdiYWNrCj4gPiAqIFJl
-bmFtZWQgaW52YWwgLT4gaW52Cj4gPiAqIFJlbmFtZWQgZmx1c2ggLT4gd2JhY2tfaW52Cj4gPgo+
-ID4gdjggLT4gdjkKPiA+ICogTmV3IHBhdGNoCj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2L0tjb25m
-aWcgICAgICAgICAgICAgICAgICAgICAgIHwgIDcgKysrKwo+ID4gIGFyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vZG1hLW5vbmNvaGVyZW50LmggfCAyOCArKysrKysrKysrKysrKysKPiA+ICBhcmNoL3Jp
-c2N2L21tL2RtYS1ub25jb2hlcmVudC5jICAgICAgICAgIHwgNDMgKysrKysrKysrKysrKysrKysr
-KysrKysrCj4gPiAgYXJjaC9yaXNjdi9tbS9wbWVtLmMgICAgICAgICAgICAgICAgICAgICB8IDEz
-ICsrKysrKysKPiA+ICA0IGZpbGVzIGNoYW5nZWQsIDkxIGluc2VydGlvbnMoKykKPiA+ICBjcmVh
-dGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9kbWEtbm9uY29oZXJlbnQuaAo+
-ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25m
-aWcKPiA+IGluZGV4IGQ5ZTQ1MWFjODYyYS4uNDJjODZiMTNjNWUxIDEwMDY0NAo+ID4gLS0tIGEv
-YXJjaC9yaXNjdi9LY29uZmlnCj4gPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+IEBAIC0y
-NjUsNiArMjY1LDEzIEBAIGNvbmZpZyBSSVNDVl9ETUFfTk9OQ09IRVJFTlQKPiA+ICAgICAgICAg
-c2VsZWN0IEFSQ0hfSEFTX1NZTkNfRE1BX0ZPUl9ERVZJQ0UKPiA+ICAgICAgICAgc2VsZWN0IERN
-QV9ESVJFQ1RfUkVNQVAKPiA+Cj4gPiArY29uZmlnIFJJU0NWX05PTlNUQU5EQVJEX0NBQ0hFX09Q
-Uwo+ID4gKyAgICAgICBib29sCj4gPiArICAgICAgIGRlcGVuZHMgb24gUklTQ1ZfRE1BX05PTkNP
-SEVSRU5UCj4gPiArICAgICAgIGhlbHAKPiA+ICsgICAgICAgICBUaGlzIGVuYWJsZXMgZnVuY3Rp
-b24gcG9pbnRlciBzdXBwb3J0IGZvciBub24tc3RhbmRhcmQgbm9uY29oZXJlbnQKPiA+ICsgICAg
-ICAgICBzeXN0ZW1zIHRvIGhhbmRsZSBjYWNoZSBtYW5hZ2VtZW50Lgo+ID4gKwo+ID4gIGNvbmZp
-ZyBBU19IQVNfSU5TTgo+ID4gICAgICAgICBkZWZfYm9vbCAkKGFzLWluc3RyLC5pbnNuIHIgNTEk
-KGNvbW1hKSAwJChjb21tYSkgMCQoY29tbWEpIHQwJChjb21tYSkgdDAkKGNvbW1hKSB6ZXJvKQo+
-ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2RtYS1ub25jb2hlcmVu
-dC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9kbWEtbm9uY29oZXJlbnQuaAo+ID4gbmV3IGZp
-bGUgbW9kZSAxMDA2NDQKPiA+IGluZGV4IDAwMDAwMDAwMDAwMC4uOTY5Y2YxZjEzNjNhCj4gPiAt
-LS0gL2Rldi9udWxsCj4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2RtYS1ub25jb2hl
-cmVudC5oCj4gPiBAQCAtMCwwICsxLDI4IEBACj4gPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZp
-ZXI6IEdQTC0yLjAtb25seSAqLwo+ID4gKy8qCj4gPiArICogQ29weXJpZ2h0IChDKSAyMDIzIFJl
-bmVzYXMgRWxlY3Ryb25pY3MgQ29ycC4KPiA+ICsgKi8KPiA+ICsKPiA+ICsjaWZuZGVmIF9fQVNN
-X0RNQV9OT05DT0hFUkVOVF9ICj4gPiArI2RlZmluZSBfX0FTTV9ETUFfTk9OQ09IRVJFTlRfSAo+
-ID4gKwo+ID4gKyNpbmNsdWRlIDxsaW51eC9kbWEtZGlyZWN0Lmg+Cj4gPiArCj4gPiArLyoKPiA+
-ICsgKiBzdHJ1Y3QgcmlzY3ZfY2FjaGVfb3BzIC0gU3RydWN0dXJlIGZvciBDTU8gZnVuY3Rpb24g
-cG9pbnRlcnMKPiA+ICsgKgo+ID4gKyAqIEB3YmFjazogRnVuY3Rpb24gcG9pbnRlciBmb3IgY2Fj
-aGUgd3JpdGViYWNrCj4gPiArICogQGludjogRnVuY3Rpb24gcG9pbnRlciBmb3IgaW52YWxpZGF0
-aW5nIGNhY2hlCj4gPiArICogQHdiYWNrX2ludjogRnVuY3Rpb24gcG9pbnRlciBmb3IgZmx1c2hp
-bmcgdGhlIGNhY2hlICh3cml0ZWJhY2sgKyBpbnZhbGlkYXRpbmcpCj4gPiArICovCj4gPiArc3Ry
-dWN0IHJpc2N2X2NhY2hlX29wcyB7Cj4gPiArICAgICAgIHZvaWQgKCp3YmFjaykocGh5c19hZGRy
-X3QgcGFkZHIsIHVuc2lnbmVkIGxvbmcgc2l6ZSk7Cj4gPiArICAgICAgIHZvaWQgKCppbnYpKHBo
-eXNfYWRkcl90IHBhZGRyLCB1bnNpZ25lZCBsb25nIHNpemUpOwo+ID4gKyAgICAgICB2b2lkICgq
-d2JhY2tfaW52KShwaHlzX2FkZHJfdCBwYWRkciwgdW5zaWduZWQgbG9uZyBzaXplKTsKPgo+IEhp
-IFByYWJoYWthcgo+Cj4gSnVzdCBhIHF1aWNrIHF1ZXN0aW9uLiBBZnRlciBBcm5kJ3MgcGF0Y2hz
-ZXQgdGhlCj4gYXJjaF9kbWFfY2FjaGV7aW52LHdiYWNrLHdiYWNrX2ludn0gZnVuY3Rpb25zIHRh
-a2UgYSBwaHlzX2FkZHJfdCBhbmQKPiBzaXplX3QsIGJ1dCBoZXJlIHlvdSB3YW50IHRoZXNlIGNh
-bGxiYWNrcyB0byB0YWtlIGEgcGh5c19hZGRyX3QgYW5kCj4gdW5zaWduZWQgbG9uZyBpbnN0ZWFk
-LiBXaHkgbm90IGtlZXAgdGhlbSB1c2luZyBzaXplX3Q/Cj4KQWdyZWVkLCBJIHdpbGwgdXBkYXRl
-IGl0IHRvIHVzZSBzaXplX3QgaW5zdGVhZC4KCkNoZWVycywKUHJhYmhha2FyCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 7/28/23 12:50, Rob Herring wrote:
+> There's quite a few watchdog drivers which are easily enabled for
+> COMPILE_TEST, so let's enable them.
+> 
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+> Passed allyesconfig builds on arm, arm64, x86, riscv, powerpc, sparc
+
+Last time I tried this we ended up having to revert most of them.
+Let's see if this time is different.
+
+Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+
+> ---
+>   drivers/watchdog/Kconfig         | 80 ++++++++++++++++----------------
+>   drivers/watchdog/loongson1_wdt.c |  1 +
+>   2 files changed, 41 insertions(+), 40 deletions(-)
+> 
+> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+> index ee97d89dfc11..ce293378e548 100644
+> --- a/drivers/watchdog/Kconfig
+> +++ b/drivers/watchdog/Kconfig
+> @@ -307,7 +307,7 @@ config XILINX_WATCHDOG
+>   config XILINX_WINDOW_WATCHDOG
+>   	tristate "Xilinx window watchdog timer"
+>   	depends on HAS_IOMEM
+> -	depends on ARM64
+> +	depends on ARM64 || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	help
+>   	  Window watchdog driver for the versal_wwdt IP core.
+> @@ -343,7 +343,7 @@ config RAVE_SP_WATCHDOG
+>   
+>   config MLX_WDT
+>   	tristate "Mellanox Watchdog"
+> -	depends on MELLANOX_PLATFORM
+> +	depends on MELLANOX_PLATFORM || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	select REGMAP
+>   	help
+> @@ -493,7 +493,7 @@ config FTWDT010_WATCHDOG
+>   
+>   config IXP4XX_WATCHDOG
+>   	tristate "IXP4xx Watchdog"
+> -	depends on ARCH_IXP4XX
+> +	depends on ARCH_IXP4XX || (ARM && COMPILE_TEST)
+>   	select WATCHDOG_CORE
+>   	help
+>   	  Say Y here if to include support for the watchdog timer
+> @@ -529,7 +529,7 @@ config S3C2410_WATCHDOG
+>   
+>   config SA1100_WATCHDOG
+>   	tristate "SA1100/PXA2xx watchdog"
+> -	depends on ARCH_SA1100 || ARCH_PXA
+> +	depends on ARCH_SA1100 || ARCH_PXA || COMPILE_TEST
+>   	help
+>   	  Watchdog timer embedded into SA11x0 and PXA2xx chips. This will
+>   	  reboot your system when timeout is reached.
+> @@ -720,7 +720,7 @@ config IMX2_WDT
+>   config IMX_SC_WDT
+>   	tristate "IMX SC Watchdog"
+>   	depends on HAVE_ARM_SMCCC
+> -	depends on IMX_SCU
+> +	depends on IMX_SCU || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	help
+>   	  This is the driver for the system controller watchdog
+> @@ -931,7 +931,7 @@ config ASPEED_WATCHDOG
+>   
+>   config STM32_WATCHDOG
+>   	tristate "STM32 Independent WatchDoG (IWDG) support"
+> -	depends on ARCH_STM32
+> +	depends on ARCH_STM32 || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	default y
+>   	help
+> @@ -1065,7 +1065,7 @@ config ACQUIRE_WDT
+>   
+>   config ADVANTECH_WDT
+>   	tristate "Advantech SBC Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  If you are configuring a Linux kernel for the Advantech single-board
+>   	  computer, say `Y' here to support its built-in watchdog timer
+> @@ -1074,14 +1074,14 @@ config ADVANTECH_WDT
+>   
+>   config ADVANTECH_EC_WDT
+>   	tristate "Advantech Embedded Controller Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   		This driver supports Advantech products with ITE based Embedded Controller.
+>   		It does not support Advantech products with other ECs or without EC.
+>   
+>   config ALIM1535_WDT
+>   	tristate "ALi M1535 PMU Watchdog Timer"
+> -	depends on X86 && PCI
+> +	depends on (X86 || COMPILE_TEST) && PCI
+>   	help
+>   	  This is the driver for the hardware watchdog on the ALi M1535 PMU.
+>   
+> @@ -1105,7 +1105,7 @@ config ALIM7101_WDT
+>   
+>   config EBC_C384_WDT
+>   	tristate "WinSystems EBC-C384 Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	select ISA_BUS_API
+>   	select WATCHDOG_CORE
+>   	help
+> @@ -1115,7 +1115,7 @@ config EBC_C384_WDT
+>   
+>   config EXAR_WDT
+>   	tristate "Exar Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	help
+>   	  Enables watchdog timer support for the watchdog timer present
+> @@ -1126,7 +1126,7 @@ config EXAR_WDT
+>   
+>   config F71808E_WDT
+>   	tristate "Fintek F718xx, F818xx Super I/O Watchdog"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	help
+>   	  This is the driver for the hardware watchdog on the Fintek F71808E,
+> @@ -1138,7 +1138,7 @@ config F71808E_WDT
+>   
+>   config SP5100_TCO
+>   	tristate "AMD/ATI SP5100 TCO Timer/Watchdog"
+> -	depends on X86 && PCI
+> +	depends on (X86 || COMPILE_TEST) && PCI
+>   	select WATCHDOG_CORE
+>   	help
+>   	  Hardware watchdog driver for the AMD/ATI SP5100 chipset. The TCO
+> @@ -1177,7 +1177,7 @@ config SC520_WDT
+>   
+>   config SBC_FITPC2_WATCHDOG
+>   	tristate "Compulab SBC-FITPC2 watchdog"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the built-in watchdog timer on the fit-PC2,
+>   	  fit-PC2i, CM-iAM single-board computers made by Compulab.
+> @@ -1202,7 +1202,7 @@ config SBC_FITPC2_WATCHDOG
+>   
+>   config EUROTECH_WDT
+>   	tristate "Eurotech CPU-1220/1410 Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  Enable support for the watchdog timer on the Eurotech CPU-1220 and
+>   	  CPU-1410 cards.  These are PC/104 SBCs. Spec sheets and product
+> @@ -1210,7 +1210,7 @@ config EUROTECH_WDT
+>   
+>   config IB700_WDT
+>   	tristate "IB700 SBC Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the hardware watchdog on the IB700 Single
+>   	  Board Computer produced by TMC Technology (www.tmc-uk.com). This
+> @@ -1227,7 +1227,7 @@ config IB700_WDT
+>   
+>   config IBMASR
+>   	tristate "IBM Automatic Server Restart"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the IBM Automatic Server Restart watchdog
+>   	  timer built-in into some eServer xSeries machines.
+> @@ -1237,7 +1237,7 @@ config IBMASR
+>   
+>   config WAFER_WDT
+>   	tristate "ICP Single Board Computer Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is a driver for the hardware watchdog on the ICP Single
+>   	  Board Computer. This driver is working on (at least) the following
+> @@ -1259,7 +1259,7 @@ config I6300ESB_WDT
+>   
+>   config IE6XX_WDT
+>   	tristate "Intel Atom E6xx Watchdog"
+> -	depends on X86 && PCI
+> +	depends on (X86 || COMPILE_TEST) && PCI
+>   	select WATCHDOG_CORE
+>   	select MFD_CORE
+>   	select LPC_SCH
+> @@ -1319,7 +1319,7 @@ config ITCO_VENDOR_SUPPORT
+>   
+>   config IT8712F_WDT
+>   	tristate "IT8712F (Smart Guardian) Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the built-in watchdog timer on the IT8712F
+>   	  Super I/0 chipset used on many motherboards.
+> @@ -1332,7 +1332,7 @@ config IT8712F_WDT
+>   
+>   config IT87_WDT
+>   	tristate "IT87 Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	help
+>   	  This is the driver for the hardware watchdog on the ITE IT8607,
+> @@ -1350,7 +1350,7 @@ config IT87_WDT
+>   config HP_WATCHDOG
+>   	tristate "HP ProLiant iLO2+ Hardware Watchdog Timer"
+>   	select WATCHDOG_CORE
+> -	depends on (ARM64 || X86) && PCI
+> +	depends on (ARM64 || X86 || COMPILE_TEST) && PCI
+>   	help
+>   	  A software monitoring watchdog and NMI handling driver. This driver
+>   	  will detect lockups and provide a stack trace. This is a driver that
+> @@ -1380,7 +1380,7 @@ config KEMPLD_WDT
+>   
+>   config SC1200_WDT
+>   	tristate "National Semiconductor PC87307/PC97307 (ala SC1200) Watchdog"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is a driver for National Semiconductor PC87307/PC97307 hardware
+>   	  watchdog cards as found on the SC1200. This watchdog is mainly used
+> @@ -1403,7 +1403,7 @@ config SCx200_WDT
+>   
+>   config PC87413_WDT
+>   	tristate "NS PC87413 watchdog"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the hardware watchdog on the PC87413 chipset
+>   	  This watchdog simply watches your kernel to make sure it doesn't
+> @@ -1417,7 +1417,7 @@ config PC87413_WDT
+>   
+>   config NV_TCO
+>   	tristate "nVidia TCO Timer/Watchdog"
+> -	depends on X86 && PCI
+> +	depends on (X86 || COMPILE_TEST) && PCI
+>   	help
+>   	  Hardware driver for the TCO timer built into the nVidia Hub family
+>   	  (such as the MCP51).  The TCO (Total Cost of Ownership) timer is a
+> @@ -1446,7 +1446,7 @@ config RDC321X_WDT
+>   
+>   config 60XX_WDT
+>   	tristate "SBC-60XX Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This driver can be used with the watchdog timer found on some
+>   	  single board computers, namely the 6010 PII based computer.
+> @@ -1486,7 +1486,7 @@ config SBC7240_WDT
+>   
+>   config CPU5_WDT
+>   	tristate "SMA CPU5 Watchdog"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  TBD.
+>   	  To compile this driver as a module, choose M here: the
+> @@ -1494,7 +1494,7 @@ config CPU5_WDT
+>   
+>   config SMSC_SCH311X_WDT
+>   	tristate "SMSC SCH311X Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the hardware watchdog timer on the
+>   	  SMSC SCH3112, SCH3114 and SCH3116 Super IO chipset
+> @@ -1506,7 +1506,7 @@ config SMSC_SCH311X_WDT
+>   
+>   config SMSC37B787_WDT
+>   	tristate "Winbond SMsC37B787 Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the hardware watchdog component on the
+>   	  Winbond SMsC37B787 chipset as used on the NetRunner Mainboard
+> @@ -1526,7 +1526,7 @@ config SMSC37B787_WDT
+>   
+>   config TQMX86_WDT
+>   	tristate "TQ-Systems TQMX86 Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	help
+>   	  This is the driver for the hardware watchdog timer in the TQMX86 IO
+> @@ -1539,7 +1539,7 @@ config TQMX86_WDT
+>   
+>   config VIA_WDT
+>   	tristate "VIA Watchdog Timer"
+> -	depends on X86 && PCI
+> +	depends on (X86 || COMPILE_TEST) && PCI
+>   	select WATCHDOG_CORE
+>   	help
+>   	  This is the driver for the hardware watchdog timer on VIA
+> @@ -1552,7 +1552,7 @@ config VIA_WDT
+>   
+>   config W83627HF_WDT
+>   	tristate "Watchdog timer for W83627HF/W83627DHG and compatibles"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	help
+>   	  This is the driver for the hardware watchdog on the following
+> @@ -1582,7 +1582,7 @@ config W83627HF_WDT
+>   
+>   config W83877F_WDT
+>   	tristate "W83877F (EMACS) Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the hardware watchdog on the W83877F chipset
+>   	  as used in EMACS PC-104 motherboards (and likely others).  This
+> @@ -1597,7 +1597,7 @@ config W83877F_WDT
+>   
+>   config W83977F_WDT
+>   	tristate "W83977F (PCM-5335) Watchdog Timer"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the hardware watchdog on the W83977F I/O chip
+>   	  as used in AAEON's PCM-5335 SBC (and likely others).  This
+> @@ -1610,7 +1610,7 @@ config W83977F_WDT
+>   
+>   config MACHZ_WDT
+>   	tristate "ZF MachZ Watchdog"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  If you are using a ZF Micro MachZ processor, say Y here, otherwise
+>   	  N.  This is the driver for the watchdog timer built-in on that
+> @@ -1623,7 +1623,7 @@ config MACHZ_WDT
+>   
+>   config SBC_EPX_C3_WATCHDOG
+>   	tristate "Winsystems SBC EPX-C3 watchdog"
+> -	depends on X86
+> +	depends on X86 || COMPILE_TEST
+>   	help
+>   	  This is the driver for the built-in watchdog timer on the EPX-C3
+>   	  Single-board computer made by Winsystems, Inc.
+> @@ -1738,7 +1738,7 @@ config INDYDOG
+>   
+>   config JZ4740_WDT
+>   	tristate "Ingenic jz4740 SoC hardware watchdog"
+> -	depends on MIPS
+> +	depends on MIPS || COMPILE_TEST
+>   	depends on COMMON_CLK
+>   	select WATCHDOG_CORE
+>   	select MFD_SYSCON
+> @@ -1822,7 +1822,7 @@ config BCM_KONA_WDT
+>   
+>   config BCM_KONA_WDT_DEBUG
+>   	bool "DEBUGFS support for BCM Kona Watchdog"
+> -	depends on BCM_KONA_WDT
+> +	depends on BCM_KONA_WDT || COMPILE_TEST
+>   	help
+>   	  If enabled, adds /sys/kernel/debug/bcm_kona_wdt/info which provides
+>   	  access to the driver's internal data structures as well as watchdog
+> @@ -1863,7 +1863,7 @@ config LANTIQ_WDT
+>   
+>   config LOONGSON1_WDT
+>   	tristate "Loongson1 SoC hardware watchdog"
+> -	depends on MACH_LOONGSON32
+> +	depends on MACH_LOONGSON32 || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	help
+>   	  Hardware driver for the Loongson1 SoC Watchdog Timer.
+> @@ -1877,7 +1877,7 @@ config RALINK_WDT
+>   
+>   config GXP_WATCHDOG
+>   	tristate "HPE GXP watchdog support"
+> -	depends on ARCH_HPE_GXP
+> +	depends on ARCH_HPE_GXP || COMPILE_TEST
+>   	select WATCHDOG_CORE
+>   	help
+>   	  Say Y here to include support for the watchdog timer
+> diff --git a/drivers/watchdog/loongson1_wdt.c b/drivers/watchdog/loongson1_wdt.c
+> index 4ac7810a314d..0587ff44d3a1 100644
+> --- a/drivers/watchdog/loongson1_wdt.c
+> +++ b/drivers/watchdog/loongson1_wdt.c
+> @@ -4,6 +4,7 @@
+>    */
+>   
+>   #include <linux/clk.h>
+> +#include <linux/io.h>
+>   #include <linux/module.h>
+>   #include <linux/of.h>
+>   #include <linux/platform_device.h>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
