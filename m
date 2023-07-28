@@ -4,115 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 102F9C001DE
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 16:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDAEFC001DE
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 17:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mVSpRCFSAW9HLKCX+fuc2kho6URoghNFy2F9tY41aEg=; b=uV1a4YKXWVKZbQ
-	KjZcAtLkpmFTrSCW8jAFZudAceLG13lppufZjWtQ4mRmgxofN+svbTIhk3Ns46UV42wuDOhySEsvJ
-	4AaqRbaTxq4yfB+7Br6r+801bRGZRVV4tp1qv2XK5rcqmPR+ud4EXRiL4GnPhTcQS3VQ6QH3ES42K
-	OCRyKATadxqJoln0ZJWV+guWZHGwSgfGstLVObo/5+qf6zmJ7lMFnj6vY+wUuK2xJ7qihk9yfPCnP
-	ahNLqUt1mGT+/KcEfF+MuGlLMLAzIq2GdwqfJvz+xok3uh/MdFqeNUpl/5SWmrri76eMIwYc6CqBm
-	tB1E0wtmI+9HFpBAqZjg==;
+	List-Owner; bh=Xix3jPkTeMEyYH5XQxH89GUiYFlhXNHGn0hXnrDiUNo=; b=ofb+m74iIz7KCF
+	WMoLOj711Drp1iizz+xKI4MiLJPoLB1mpFXgUR4k/fNpMUASfqo4B/vkOssoJgFOPjaYFHd+SlFhL
+	m7Npnr0bLP5G3mva9KrXW/2RLrQ8+q7/fGVcYNKFxoEwFHUaGIIb8HPrVc72QDEfb9l9yz2XWh7jk
+	xbOj/zgcyi48XYKqBvgPbb5lxTUiLG5SLrnhS/kukLQE4RiuymE/Xd72wVZSUzVmzTGHzWebSSo6Q
+	vSUnkjFYojhzrkiHoZSHbTjLTl6SrVXiYAmcJlhkurYUwM+xuwEjYgR0vebxAYfvx8DDVRXUmQ6WZ
+	MChrirJz4182gdO7D7LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPQ5y-00422i-2e;
-	Fri, 28 Jul 2023 16:13:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1qPRJ2-004HRn-2U;
+	Fri, 28 Jul 2023 17:31:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPQ5w-00421E-0U
-	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 16:13:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1690560814;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1Dyh7+qatvQDKM5qDRHq8YkO5TCQeLww3uN1vYmzEUU=;
-	b=JDkY0x11DPue2B7zgbfvSTctHF2nLb0vlVBbmrzahlW4PPQyOD18U+2YNhtq6XCY3cpDox
-	+6hckE6pu3MDwQicFHao3ndEeD7uJvlr/XM9YToF9mW4G0CdE5PP80OYUj2nm15r/mXEvd
-	VcZYhlvCMURE3r44tYduQe4spk5w0Z4=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-648-iTUXSxdWO0KpzM-ZcroUjQ-1; Fri, 28 Jul 2023 12:13:30 -0400
-X-MC-Unique: iTUXSxdWO0KpzM-ZcroUjQ-1
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-99bd6ea0d9eso131539866b.3
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 09:13:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690560809; x=1691165609;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1Dyh7+qatvQDKM5qDRHq8YkO5TCQeLww3uN1vYmzEUU=;
-        b=SqhNY7PRhRyVFTpJPdY+esjOG+037JWcpkKE+y3RUEWsVbdIg4+RTVirBWB2L1G7Q7
-         ZMa6I1DoEQi8Us3AXz0vTuWRZj2KbCycLE599scfu0CXE33+9GCpIGebrh8qa6dvAoyX
-         DNrGxd+JG91vDuZhFIJRJe89GqDm8+w9C2HQyxPPTmxy0tu4L1lBGemd1+Y/I7vHpSBj
-         A45uzfcKvl9sUfBNefat8AevrDdgbgUFOb17zNhtQSI4DUF3IuQVQJALHeL1H1kUd8iX
-         3UOUZv82FzG69Gg88P82EsWtlwhVAuzHMduHIRYpSAzn1mM1xysl/26LNjQEVHhXmBv4
-         I9VA==
-X-Gm-Message-State: ABy/qLZayk5zyfMMrEHrB2vzF+pmnXwZjzZL6SlflLiv0NbFktWVTtza
-	TUDn16+j7yCPG/7Pz2vFMw7ugrzQakpobDvATPXn5jrXpwegRG1Nf2HSTawskf/uFLGFPfNH3j4
-	LE0kOeMGQfiajN3eeXYNb5pBIAJg9
-X-Received: by 2002:a17:906:5354:b0:99b:efd3:3dcc with SMTP id j20-20020a170906535400b0099befd33dccmr1357349ejo.62.1690560809628;
-        Fri, 28 Jul 2023 09:13:29 -0700 (PDT)
-X-Google-Smtp-Source: APBJJlHd2sX/AyGtIAscRR2p4pTksaGOsuCTBRQ37WpaEGChaEB1fcJtjozFJjrwhV4jFSHGD+pttg==
-X-Received: by 2002:a17:906:5354:b0:99b:efd3:3dcc with SMTP id j20-20020a170906535400b0099befd33dccmr1357325ejo.62.1690560809219;
-        Fri, 28 Jul 2023 09:13:29 -0700 (PDT)
-Received: from ?IPV6:2001:b07:6468:f312:9af8:e5f5:7516:fa89? ([2001:b07:6468:f312:9af8:e5f5:7516:fa89])
-        by smtp.googlemail.com with ESMTPSA id gy26-20020a170906f25a00b00993470682e5sm2197928ejb.32.2023.07.28.09.13.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 28 Jul 2023 09:13:28 -0700 (PDT)
-Message-ID: <6da710cf-2bc0-bb6e-26f1-fba14ca767db@redhat.com>
-Date: Fri, 28 Jul 2023 18:13:26 +0200
+	id 1qPRIz-004HPs-2s;
+	Fri, 28 Jul 2023 17:31:11 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E19D86218C;
+	Fri, 28 Jul 2023 17:31:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F788C433C8;
+	Fri, 28 Jul 2023 17:31:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690565466;
+	bh=NXz5tKNsoYH5b9t6PkGaSvdNnq8EVbDx7LLDtyBWDIY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kEKS+ghKaHqzJ/CeAVUmffgp1syROs6M7poM0tlpzGzihFWzpmfvi2K85PgFarbuo
+	 RkBcIe75tLMn7XoYUUPhEjXBxGbvzFW6xn32Qzg/SEPgRlqNJ7ZV00NbZfU5yRRyZa
+	 jn3bpdlEYETGcDum4z742lJd6KwcgDw+lIfr6otYHl7RO8ePAuI1taZ3cPwmxE/PwJ
+	 wKJJvTonQcslSnqjiqKIy+MtAH0nqvGjUK5Hyzlni78cWnO89ixENQFj5Bae9AcGEH
+	 K6Fi4h9QSZCy9nrcmCfp6Y1ClZF8Pg2Q4KYKwIAlrtDzm85paoRya48V4qF09hybvv
+	 7Sg5khTe78XFA==
+Date: Fri, 28 Jul 2023 10:31:03 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Tiezhu Yang <yangtiezhu@loongson.cn>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	Linux-Arch <linux-arch@vger.kernel.org>, bpf@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org, loongson-kernel@lists.loongnix.cn
+Subject: Re: [PATCH v3 1/2] asm-generic: Unify uapi bitsperlong.h for arm64,
+ riscv and loongarch
+Message-ID: <20230728173103.GA1299743@dev-arch.thelio-3990X>
+References: <1687443219-11946-1-git-send-email-yangtiezhu@loongson.cn>
+ <1687443219-11946-2-git-send-email-yangtiezhu@loongson.cn>
+ <20230727213648.GA354736@dev-arch.thelio-3990X>
+ <1777400a-4d9c-4bdb-9d3b-f8808ef054cc@app.fastmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [RFC PATCH v11 10/29] mm: Add AS_UNMOVABLE to mark mapping as
- completely unmovable
-To: Vlastimil Babka <vbabka@suse.cz>, Matthew Wilcox <willy@infradead.org>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
-Cc: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
- Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
- Yu Zhang <yu.c.zhang@linux.intel.com>,
- Vishal Annapurve <vannapurve@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Maciej Szmigiero <mail@maciej.szmigiero.name>,
- David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
- Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
- Liam Merwick <liam.merwick@oracle.com>,
- Isaku Yamahata <isaku.yamahata@gmail.com>
-References: <20230718234512.1690985-1-seanjc@google.com>
- <20230718234512.1690985-11-seanjc@google.com>
- <20230725102403.xywjqlhyqkrzjok6@box.shutemov.name>
- <ZL/Fa4W2Ne9EVxoh@casper.infradead.org>
- <692b09f7-70d9-1119-7fe2-3e7396ec259d@suse.cz>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <692b09f7-70d9-1119-7fe2-3e7396ec259d@suse.cz>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <1777400a-4d9c-4bdb-9d3b-f8808ef054cc@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_091336_278358_7D1CD776 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230728_103110_016040_C7996F84 
+X-CRM114-Status: GOOD (  37.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,25 +77,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/28/23 18:02, Vlastimil Babka wrote:
->> There's even a comment to that effect later on in the function:
-> Hmm, well spotted. But it wouldn't be so great if we now had to lock every
-> inspected page (and not just dirty pages), just to check the AS_ bit.
+On Fri, Jul 28, 2023 at 01:00:30PM +0200, Arnd Bergmann wrote:
+> On Thu, Jul 27, 2023, at 23:36, Nathan Chancellor wrote:
+> > Hi Tiezhu and Arnd,
+> >
+> > On Thu, Jun 22, 2023 at 10:13:38PM +0800, Tiezhu Yang wrote:
+> >> Now we specify the minimal version of GCC as 5.1 and Clang/LLVM as 11.0.0
+> >> in Documentation/process/changes.rst, __CHAR_BIT__ and __SIZEOF_LONG__ are
+> >> usable, it is probably fine to unify the definition of __BITS_PER_LONG as
+> >> (__CHAR_BIT__ * __SIZEOF_LONG__) in asm-generic uapi bitsperlong.h.
+> >> 
+> >> In order to keep safe and avoid regression, only unify uapi bitsperlong.h
+> >> for some archs such as arm64, riscv and loongarch which are using newer
+> >> toolchains that have the definitions of __CHAR_BIT__ and __SIZEOF_LONG__.
+> >> 
+> >> Suggested-by: Xi Ruoyao <xry111@xry111.site>
+> >> Link: https://lore.kernel.org/all/d3e255e4746de44c9903c4433616d44ffcf18d1b.camel@xry111.site/
+> >> Suggested-by: Arnd Bergmann <arnd@arndb.de>
+> >> Link: https://lore.kernel.org/linux-arch/a3a4f48a-07d4-4ed9-bc53-5d383428bdd2@app.fastmail.com/
+> >> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+> >> ---
 > 
-> But I wonder if this is leftover from previous versions. Are the guest pages
-> even PageLRU currently? (and should they be, given how they can't be swapped
-> out or anything?) If not, isolate_migratepages_block will skip them anyway.
+> >
+> > I think this change has backwards compatibility concerns, as it breaks
+> > building certain host tools on the stable releases (at least 6.4 and
+> > 6.1, as that is where I noticed this). I see the following error on my
+> > aarch64 system:
+> >
+> >   $ make -skj"$(nproc)" ARCH=x86_64 CROSS_COMPILE=x86_64-linux- 
+> > mrproper defconfig prepare
+> >   In file included from /usr/include/asm/bitsperlong.h:1,
+> >                    from /usr/include/asm-generic/int-ll64.h:12,
+> >                    from /usr/include/asm-generic/types.h:7,
+> >                    from /usr/include/asm/types.h:1,
+> >                    from tools/include/linux/types.h:13,
+> >                    from tools/arch/x86/include/asm/orc_types.h:9,
+> >                    from scripts/sorttable.h:96,
+> >                    from scripts/sorttable.c:201:
+> >   tools/include/asm-generic/bitsperlong.h:14:2: error: #error 
+> > Inconsistent word size. Check asm/bitsperlong.h
+> >      14 | #error Inconsistent word size. Check asm/bitsperlong.h
+> >         |  ^~~~~
+> 
+> Thanks for the report. I'm still struggling to figure out what
+> exactly is going wrong here, and if this is a bug in the patch
+> I merged, or an existing bug that now causes a build failure instead
+> of some other problem.
 
-No, they're not (migration or even swap-out is not excluded for the 
-future, but for now it's left for future work.
+Totally understandable, I was really confused at first too.
 
-Paolo
+> > A reverse bisect of 6.4 to 6.5-rc1 points to this patch. This Fedora
+> > rawhide container has kernel-headers 6.5.0-0.rc2.git0.1.fc39 and the
+> > error disappears when I downgrade to 6.4.0-0.rc7.git0.1.fc39. I have not
+> > done a ton of triage/debugging so far, as I am currently hunting down
+> > other regressions, but I figured I would get an initial report out,
+> > since I noticed it when validating LLVM from the new release/17.x
+> > branch. If there is any additional information I can provide or patches
+> > I can test, I am more than happy to do so.
+> 
+> One thing I think is going wrong here is that scripts/sorttable.c is
+> meant to run on the host (arm64) but includes the target (x86)
+> orc_Types.h header and the kernel-internal asm/bitsperlong.h instead
 
+Right. I will note sorttable is not the only utility that has this
+issue, I see the same problem coming from several files in
+tools/lib/subcmd when building several different architectures and
+arch/x86/entry/vdso/vdso2c.c at the very least.
+
+> of the uapi version. The sanity check in the kernel-side header
+> is intended to cross-check the CONFIG_64BIT value against the
+> __BITS_PER_LONG constant from the header.
+> 
+> My first guess would be that this only worked by accident if the headers
+> defaulted to "#define __BITS_PER_LONG 32" in and #undef CONFIG_64BIT"
+> when include/generated/autoconf.h, but now the __BITS_PER_LONG value
+> is actually correct.
+
+That seems like a reasonable theory. I am still busy looking into other
+things today but I can try to double back to this on Monday if you don't
+make any progress.
+
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
