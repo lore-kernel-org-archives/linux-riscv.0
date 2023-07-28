@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142B0EB64DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 21:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AC0EB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 23:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=25/05tYZXStRQxklcuur2V3+qavXT0C2E7vLOh8eD/A=; b=Hs9oXTD0NdSIu1
-	pHa5lV9FggAyYKSAVNQ2dXDMh9Ml20uQPx5L9q1Dl8ClO/auHZmI6PJ3j12sb5yEey78rH/5Yjxjc
-	JbYWYLueHqOGf9TyT7m7OriAPDkNUmLifOk6zChY9evinGOgzQqtvQf0T8uUCkPZd5MzqZI/8uWQ5
-	ONI1i+aiU3OQzLsEMQiQYaMKzVbbzNjL0L4IfTZsPppTbknmVymBOl5JLedxAhK9Pw5WiiuWd20z7
-	M0kTIBD3XbdKj953GNO3nXqQFJz1FU+VhOzqzS8mVror6oQVXqnJfRoswhaf85qI/0ukhg9Ffqh1a
-	kVaBji2nek1LowWLCU2Q==;
+	List-Owner; bh=LFdNFfJWX8PPfe7WwecvofL1HcP2mIu2rhlCVDzni64=; b=Kwy+jLJIjSa6jQ
+	1N38u8TtvA5/bRJ/vUcdZuPH30zfnYd5CCbaKFvf5ESIIWHPkZl6sxAfYmAQJyCiloYkabki0920Y
+	S8gGrfAIxo8pFrCyfmRGVhwP1kT6xQkz8RtD6B8D7oVAWRsUdyEBv8/u3XPg46Yb8n8zpwoara0cE
+	KjlIMqa6w2hJSA2Gh/aGXkBl6yYKBy3ti8e8/yzqoxIUKTC7QX+fGATWo+g5Jn63p9qUfy9ngY0Lx
+	HV/859+1slfdjUWgeccGT9DPB1YUZz8clWWGfMtoZwKSeVt6yBFyhidRPkmyXF4WkGLqN7slkw5OX
+	IfkfrKVN02BB+DC+ABSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPUae-0051zy-1W;
-	Fri, 28 Jul 2023 21:01:36 +0000
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
+	id 1qPX8T-005Ted-2p;
+	Fri, 28 Jul 2023 23:44:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPUaa-0051xO-3B
-	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 21:01:34 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-6bb0cadd3ccso2173940a34.3
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 14:01:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690578090; x=1691182890;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aFtwvHzLUf5NSAoO+eWuJDzHkMB9r0GqcjuVDz6J8fc=;
-        b=pAaNQW24ZWjKwIrSX3bM+7any3SzG9Dcg/xEkCSEiBAO5Ntnzn3EE6uuAmnjYdYk2Q
-         JfXb2u/mScYaWtJ7UbstMvTt90gKUK00vEIE/7fEwWVS519+pNY7gykuXFiuo2u7mgDZ
-         gq1aJA9eVriNzZkkpARBuIMhujzWmaGhhlKLKBt6G1j5nn+7maMTkKREjauCd3WOvy5M
-         mAGOySSIB7YmRlxoBEGH8gqkIYhzzrgRw6aEFswVc2xoEaQnpegUBaLbXK2WnMHwerfK
-         WEn7hz/+LSdn6NJz+e/93Xs+yrtRm7Zl6LTyphS0QAkh7chyXjjTRNg7h6WaVbihrOcp
-         aGFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690578090; x=1691182890;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aFtwvHzLUf5NSAoO+eWuJDzHkMB9r0GqcjuVDz6J8fc=;
-        b=dz55oOn7JhfykEtvDqC10L0OhNJJKHowFyaYRm4kWDGFtRY4KKA5wSppvAXi1lNcgJ
-         BKVm+2lViPom+FbKsDGz5+vvIv/y76S7iQ3PSEF3qLhSW4iRsHGpDEkAzZQSeipRyB5a
-         bCh+hYuxN4GYnRP4Mk3xfE//G24FJB9+oAYwCBANmHcPs0US48Js6KT36Lm8xTVGp+22
-         teTNMNlZ/0XdX6CyW503RF6C1phZc339D5/7mUkseTX7x0re8cTCKeG5yEcboIK84nhv
-         +onGvdAgYhP+xYrO/N6Q/JWD2YCDtTuu/v6V1SNHolJyWwGt7yVLKN8FWjoFldGPWu2C
-         MOEQ==
-X-Gm-Message-State: ABy/qLafHuHUp2RW5pgSJmTG+g+LFe6Dgg25l6DiluYymb9k5CuQJU5e
-	bLTfsEXXczqRuDudEfDjAkAb95eIuVhUFltmfvReUQ==
-X-Google-Smtp-Source: APBJJlGFxN5w1wqhoG4W9fTYv9xNGtBCO8MiWkbh5KrryNE8D3Qf7sgMmcNODSyqTqQRMmSPsaELMw==
-X-Received: by 2002:a05:6830:1e71:b0:6bb:1c21:c52e with SMTP id m17-20020a0568301e7100b006bb1c21c52emr3676325otr.15.1690578090156;
-        Fri, 28 Jul 2023 14:01:30 -0700 (PDT)
-Received: from grind.. (201-69-66-36.dial-up.telesp.net.br. [201.69.66.36])
-        by smtp.gmail.com with ESMTPSA id n11-20020a9d740b000000b006b9c87b7035sm1987769otk.18.2023.07.28.14.01.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Jul 2023 14:01:29 -0700 (PDT)
-From: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-To: kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: anup@brainfault.org,
-	atishp@atishpatra.org,
-	ajones@ventanamicro.com,
-	Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Subject: [PATCH v2 1/1] RISC-V: KVM: provide UAPI for host SATP mode
-Date: Fri, 28 Jul 2023 18:01:22 -0300
-Message-ID: <20230728210122.175229-2-dbarboza@ventanamicro.com>
-X-Mailer: git-send-email 2.41.0
-In-Reply-To: <20230728210122.175229-1-dbarboza@ventanamicro.com>
-References: <20230728210122.175229-1-dbarboza@ventanamicro.com>
+	id 1qPX8P-005Tcv-0d;
+	Fri, 28 Jul 2023 23:44:39 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B670F62207;
+	Fri, 28 Jul 2023 23:44:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A074C433C8;
+	Fri, 28 Jul 2023 23:44:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690587872;
+	bh=cWmX8dje9L/t2n0sGzkMqdIweI7HyRrXvW9fatE/XmQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sEVL1iBujhtX6KL8vieDNOZRit8WKLYgDPzlWjysDVvATw3dW3wMmAmqcv34C7gRX
+	 ixTPaqduG6ZU+yDJxPY0C3oJHXRYtTeQkkOUf9/047ZjrYURNDRWQxHlx+8tFetvl2
+	 gs+UByaUwQOUX/PxL/HkxJI+P/D5LLLhEY4Z47Iw2CkDYTcr+cSKgchC9Dlz7hUZsj
+	 QKcn/9LAtdOSVe1jtA2tZfPMnMi/QT++V+KxpJ0wvSvygmtVpqvsfWgZUqK1Vq7pfT
+	 lrP2XQW+jWAq9IE9uEO62ZFYFgeVg9jPpJiFVb0TnAFo2Jznnfl5w2gzg6V/begJs8
+	 lhnvdL500Uy1A==
+Date: Fri, 28 Jul 2023 16:44:29 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Tiezhu Yang <yangtiezhu@loongson.cn>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	Linux-Arch <linux-arch@vger.kernel.org>, bpf@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org, loongson-kernel@lists.loongnix.cn
+Subject: Re: [PATCH v3 1/2] asm-generic: Unify uapi bitsperlong.h for arm64,
+ riscv and loongarch
+Message-ID: <20230728234429.GA611252@dev-arch.thelio-3990X>
+References: <1687443219-11946-1-git-send-email-yangtiezhu@loongson.cn>
+ <1687443219-11946-2-git-send-email-yangtiezhu@loongson.cn>
+ <20230727213648.GA354736@dev-arch.thelio-3990X>
+ <1777400a-4d9c-4bdb-9d3b-f8808ef054cc@app.fastmail.com>
+ <20230728173103.GA1299743@dev-arch.thelio-3990X>
+ <a2fa1a31-e8bb-4659-9631-398b564e7c2b@app.fastmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <a2fa1a31-e8bb-4659-9631-398b564e7c2b@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_140133_036793_58D7C0E4 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20230728_164437_344754_E6C9A823 
+X-CRM114-Status: GOOD (  26.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,91 +84,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KVM userspaces need to be aware of the host SATP to allow them to
-advertise it back to the guest OS.
+On Fri, Jul 28, 2023 at 10:56:38PM +0200, Arnd Bergmann wrote:
+> On Fri, Jul 28, 2023, at 19:31, Nathan Chancellor wrote:
+> > On Fri, Jul 28, 2023 at 01:00:30PM +0200, Arnd Bergmann wrote:
+> >>
+> >> of the uapi version. The sanity check in the kernel-side header
+> >> is intended to cross-check the CONFIG_64BIT value against the
+> >> __BITS_PER_LONG constant from the header.
+> >> 
+> >> My first guess would be that this only worked by accident if the headers
+> >> defaulted to "#define __BITS_PER_LONG 32" in and #undef CONFIG_64BIT"
+> >> when include/generated/autoconf.h, but now the __BITS_PER_LONG value
+> >> is actually correct.
+> >
+> > That seems like a reasonable theory. I am still busy looking into other
+> > things today but I can try to double back to this on Monday if you don't
+> > make any progress.
+> 
+> I tried reproducing this today on arm64 Debian with linux-6.5-rc3
+> and clang-14.0.6 but I don't see the problem here. With 'make V=1'
+> I see command for building scripts/sorttable is
+> 
+> clang -Wp,-MMD,scripts/.sorttable.d -Wall -Wmissing-prototypes \
+>  -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu11   \
+>  -I./tools/include -I./tools/arch/x86/include -DUNWINDER_ORC_ENABLED \
+>  -o scripts/sorttable scripts/sorttable.c   -lpthread
+> 
+> which does create an arm64 executable but includes the x86 headers,
+> which is clearly a bug by itself, it just doesn't trigger the problem
+> for me.
 
-Since this information is used to build the guest FDT we can't wait for
-the SATP reg to be readable. We just need to read the SATP mode, thus
-we can use the existing 'satp_mode' global that represents the SATP reg
-with MODE set and both ASID and PPN cleared. E.g. for a 32 bit host
-running with sv32 satp_mode is 0x80000000, for a 64 bit host running
-sv57 satp_mode is 0xa000000000000000, and so on.
+I could not initially reproduce this on Debian either but I figured out
+why that might be: the default include paths on Debian look different
+from Fedora so just doing 'headers_install' into /usr will not reproduce
+this. If I add '-H' to that GCC command, Debian shows (I highlighted the
+key difference):
 
-Add a new userspace virtual config register 'satp_mode' to allow
-userspace to read the current SATP mode the host is using with
-GET_ONE_REG API before spinning the vcpu.
+  . /linux-stable/scripts/sorttable.h
+  .. /linux-stable/tools/arch/x86/include/asm/orc_types.h
+  ... /linux-stable/tools/include/linux/types.h
+  .... /usr/lib/gcc/aarch64-linux-gnu/12/include/stdbool.h
+  .... /usr/lib/gcc/aarch64-linux-gnu/12/include/stddef.h
+  .... /usr/include/aarch64-linux-gnu/asm/types.h
+  ..... /usr/include/asm-generic/types.h
+  ...... /usr/include/asm-generic/int-ll64.h
+  ....... /usr/include/aarch64-linux-gnu/asm/bitsperlong.h <-
+  ........ /linux-stable/tools/include/asm-generic/bitsperlong.h
+  ......... /linux-stable/tools/include/uapi/asm-generic/bitsperlong.h
 
-'satp_mode' can't be changed via KVM, so SET_ONE_REG is allowed as long
-as userspace writes the existing 'satp_mode'.
+Whereas Fedora shows:
 
-Signed-off-by: Daniel Henrique Barboza <dbarboza@ventanamicro.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/include/asm/csr.h      | 2 ++
- arch/riscv/include/uapi/asm/kvm.h | 1 +
- arch/riscv/kvm/vcpu_onereg.c      | 7 +++++++
- 3 files changed, 10 insertions(+)
+  . /linux-stable/scripts/sorttable.h
+  .. /linux-stable/tools/arch/x86/include/asm/orc_types.h
+  ... /linux-stable/tools/include/linux/types.h
+  .... /usr/lib/gcc/aarch64-redhat-linux/13/include/stdbool.h
+  .... /usr/lib/gcc/aarch64-redhat-linux/13/include/stddef.h
+  .... /usr/include/asm/types.h
+  ..... /usr/include/asm-generic/types.h
+  ...... /usr/include/asm-generic/int-ll64.h
+  ....... /usr/include/asm/bitsperlong.h <-
+  ........ /linux-stable/tools/include/asm-generic/bitsperlong.h
+  ......... /linux-stable/tools/include/uapi/asm-generic/bitsperlong.h
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 7bac43a3176e..777cb8299551 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -54,6 +54,7 @@
- #ifndef CONFIG_64BIT
- #define SATP_PPN	_AC(0x003FFFFF, UL)
- #define SATP_MODE_32	_AC(0x80000000, UL)
-+#define SATP_MODE_SHIFT	31
- #define SATP_ASID_BITS	9
- #define SATP_ASID_SHIFT	22
- #define SATP_ASID_MASK	_AC(0x1FF, UL)
-@@ -62,6 +63,7 @@
- #define SATP_MODE_39	_AC(0x8000000000000000, UL)
- #define SATP_MODE_48	_AC(0x9000000000000000, UL)
- #define SATP_MODE_57	_AC(0xa000000000000000, UL)
-+#define SATP_MODE_SHIFT	60
- #define SATP_ASID_BITS	16
- #define SATP_ASID_SHIFT	44
- #define SATP_ASID_MASK	_AC(0xFFFF, UL)
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 9c35e1427f73..992c5e407104 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -55,6 +55,7 @@ struct kvm_riscv_config {
- 	unsigned long marchid;
- 	unsigned long mimpid;
- 	unsigned long zicboz_block_size;
-+	unsigned long satp_mode;
- };
- 
- /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index 0dc2c2cecb45..85773e858120 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -152,6 +152,9 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
- 	case KVM_REG_RISCV_CONFIG_REG(mimpid):
- 		reg_val = vcpu->arch.mimpid;
- 		break;
-+	case KVM_REG_RISCV_CONFIG_REG(satp_mode):
-+		reg_val = satp_mode >> SATP_MODE_SHIFT;
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -234,6 +237,10 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
- 		else
- 			return -EBUSY;
- 		break;
-+	case KVM_REG_RISCV_CONFIG_REG(satp_mode):
-+		if (reg_val != (satp_mode >> SATP_MODE_SHIFT))
-+			return -EINVAL;
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
--- 
-2.41.0
+Running 'gcc -fsyntax-only -v -x c /dev/null' shows:
 
+Debian:
+
+  #include <...> search starts here:
+   /usr/lib/gcc/aarch64-linux-gnu/12/include
+   /usr/local/include
+   /usr/include/aarch64-linux-gnu
+   /usr/include
+  End of search list.
+
+Fedora:
+
+  #include <...> search starts here:
+   /usr/lib/gcc/aarch64-redhat-linux/13/include
+   /usr/local/include
+   /usr/include
+  End of search list.
+
+It looks like Debian installs the architecture asm files into an
+architecture specific subdirectory, which headers_install does not know
+about, so the new "problematic" bitsperlong.h file gets installed to the
+default location but the older one actually gets used because it has
+higher priority in the include search path.
+
+https://salsa.debian.org/kernel-team/linux/-/blob/36b9562acea404ecdc2911aeb2c4539402f441a3/debian/rules.real#L334-336
+
+If I install/manipulate the headers as Debian does, I can reproduce this
+issue in a fresh Debian container.
+
+  # make -C /linux -j$(nproc) INSTALL_HDR_PATH=/usr O=/build headers_install
+  # rm -fr /usr/include/aarch64-linux-gnu/asm
+  # mv -v /usr/include/asm /usr/include/aarch64-linux-gnu
+  # make -C /linux-stable -j$(nproc) ARCH=x86_64 CROSS_COMPILE=x86_64-linux-gnu- O=/build mrproper defconfig prepare
+  ...
+    DESCEND objtool
+  In file included from /usr/include/aarch64-linux-gnu/asm/bitsperlong.h:1,
+                   from /usr/include/asm-generic/int-ll64.h:12,
+                   from /usr/include/asm-generic/types.h:7,
+                   from /usr/include/aarch64-linux-gnu/asm/types.h:1,
+                   from /linux-stable/tools/include/linux/types.h:13,
+                   from /linux-stable/tools/arch/x86/include/asm/orc_types.h:9,
+                   from /linux-stable/scripts/sorttable.h:96,
+                   from /linux-stable/scripts/sorttable.c:201:
+  /linux-stable/tools/include/asm-generic/bitsperlong.h:14:2: error: #error Inconsistent word size. Check asm/bitsperlong.h
+     14 | #error Inconsistent word size. Check asm/bitsperlong.h
+        |  ^~~~~
+  make[3]: *** [/linux-stable/scripts/Makefile.host:114: scripts/sorttable] Error 1
+  ...
+
+> I also noticed that your command line includes CROSS_COMPILE=x86_64-linux-
+> rather than CROSS_COMPILE=x86_64-linux-gnu-
+
+Right, as I was reproducing this with your kernel.org GCC for
+CROSS_COMPILE and Fedora's GCC for HOSTCC, since I wanted to make sure
+this was not some issue with clang (which it does not appear to be).
+
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
