@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8674EC0015E
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 10:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA1AC0015E
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 10:05:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rp5YJanU7L1U7m83PpNOwV3NmtHrfWhpf8AiJ3hUssc=; b=BLfFzoUcfumfZX
-	ZkLFShA+CVuqkIjWv7ibFNJaMgxVdG+FtnITqzQjD5ljK9AoWUbtCkdsrbY9A9xKd8ON48cKuVBIK
-	p2aIP9N7+0ga0mo0ViH6S2jJd0aZDRJqpAqgDzMs+wO+oC4FLyWdm0p6sAoCSa3xhbBcrK/D8Pa/X
-	peORb0sXcXWAkErJMsOZh6gmkWzB9Oj0/tMQsu8vSQUEz5+gTzjbLVVN4qz/5e5FzsG78pvrXISvo
-	E9kQCjcKUYEKJXz5ECw7t1prOIo8nxWM0oYeeY5xMdrUMqSUz1ZoAjdrtCqdhkq7tzTNJJZqWlm/d
-	b1JJM9ld5U34ESfYKvZg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rcey9XqZTNNTjt2yRBWIkfP/Lr7G6oB+f6lFieACjAg=; b=i313XWRMb3MaWA
+	urMOWbUSZ304hnaCcyXzCzdHJZRCrMM0kTMmycIWututWc+AbjSuqj7byOHdT2bvSZreviMrs6usJ
+	dyDQ1CA5BkfM9WcMotpDNudDA7zHZcmWoh9EbC1C+KuycP6/kkZgpRJ5MQtF4//4Aqg9WWesgqD8s
+	M4IC1uBYrXLoPRgDF5+PBov2L2tIAeCg8eLA3tNHouWzOKXHd0KBOXzJHYXlZaeNjCP1n1AW9ef4y
+	WjEDYCbiqnEkr5G52ibGgT3SrCoP3c57e8FBxGUDG4em6u/veTYdw9FwiTuOcunJzlh934KkD0WM3
+	CrUSuzuWlBtTYjx1mwfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPKJY-002l3E-2L;
-	Fri, 28 Jul 2023 10:03:16 +0000
-Received: from [14.137.139.23] (helo=frasgout11.his.huawei.com)
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPKJV-002kyv-0t
+	id 1qPKLv-002mXk-2v;
+	Fri, 28 Jul 2023 10:05:43 +0000
+Received: from rivendell.linuxfromscratch.org ([208.118.68.85])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qPKLs-002mXB-22
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 10:03:14 +0000
-Received: from mail02.huawei.com (unknown [172.18.147.228])
-	by frasgout11.his.huawei.com (SkyGuard) with ESMTP id 4RC2wG00Cvz9xGh4
-	for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 17:51:41 +0800 (CST)
-Received: from [10.81.203.237] (unknown [10.81.203.237])
-	by APP1 (Coremail) with SMTP id LxC2BwDXWwdPksNkBKEqBQ--.38278S2;
-	Fri, 28 Jul 2023 11:02:59 +0100 (CET)
-Message-ID: <76ff0f51-d6c1-580d-f943-061e93073306@huaweicloud.com>
-Date: Fri, 28 Jul 2023 12:02:49 +0200
+	Fri, 28 Jul 2023 10:05:42 +0000
+Received: from localhost.localdomain (xry111.site [89.208.246.23])
+	by rivendell.linuxfromscratch.org (Postfix) with ESMTPSA id 817E21C1DA0;
+	Fri, 28 Jul 2023 10:05:29 +0000 (GMT)
+X-Virus-Status: Clean
+X-Virus-Scanned: clamav-milter 1.0.0 at rivendell.linuxfromscratch.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfromscratch.org;
+	s=cert4; t=1690538733;
+	bh=qRtVWvhOJ/YXekRzxi/JP4QHeemzpizvRATJRuTsluI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ZO5QGD/O+lR0Kz8nJ3weEySlKMx4Zs9Z9LYiuJfO5X/zsnwnGcoMHW84OZh5r2PdD
+	 C2XRCKPUru789pFD/kMmpTtC4VJO8jlYJstBokrpC+pY1kYrbvXsoP0V+jND1tFK9w
+	 IVaxhrn4KaKnUkcVEeWwp2XqPJAEkcnGKNAe175qcNrA5yBKolYGf3DkwdKxW/FiMR
+	 B+zsWhYFFhaIzIBcJvYKVCkF5qVGm/2iRbDNHpHlbWbG42Vh6tZthH3vQoepDDNcyH
+	 Hz4Q4JGufcoVOcXdxMutwVgtiVcw0B80cciGfrnQ+wVXlMn1hZGDiwkpJYDa/2bTGg
+	 GkyLJXkXVJX7g==
+Message-ID: <0f528aa0d4e6f2491835c9a78bb38dd162b75810.camel@linuxfromscratch.org>
+Subject: Re: [PATCH v3 0/8] Add Sipeed Lichee Pi 4A RISC-V board support
+From: Xi Ruoyao <xry111@linuxfromscratch.org>
+To: Drew Fustini <dfustini@baylibre.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Conor Dooley
+ <conor.dooley@microchip.com>, Thomas Gleixner <tglx@linutronix.de>, Marc
+ Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+ <conor+dt@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,  Daniel
+ Lezcano <daniel.lezcano@linaro.org>, Guo Ren <guoren@kernel.org>, Fu Wei
+ <wefu@redhat.com>,  linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org,  linux-riscv@lists.infradead.org
+Date: Fri, 28 Jul 2023 18:05:27 +0800
+In-Reply-To: <af41edfe515373530d3d1ffc43c581131e6f6038.camel@linuxfromscratch.org>
+References: <20230617161529.2092-1-jszhang@kernel.org>
+	 <c9a44f534071a6d67f1e21bafdb713793c559124.camel@linuxfromscratch.org>
+	 <20230725-unheard-dingy-42f0fafe7216@wendy> <ZL/jMYL3akl78ZZN@xhacker>
+	 <3e0994dab495920ac590dc28d6b9d9765abe0c7e.camel@linuxfromscratch.org>
+	 <ZME1J4mpVf5yth32@xhacker>
+	 <866eab3e30a18c50742a75d62aee223fdc7e3cee.camel@linuxfromscratch.org>
+	 <4986b92f1a5aa303a529c6004aaedd2184c3ccf7.camel@linuxfromscratch.org>
+	 <ZMKXQpreSr47MFj6@xhacker>
+	 <290101d386866f639a7c482527d7a78c5108d49b.camel@linuxfromscratch.org>
+	 <ZMNojqwLxcG8FcHN@x1>
+	 <af41edfe515373530d3d1ffc43c581131e6f6038.camel@linuxfromscratch.org>
+User-Agent: Evolution 3.48.4 
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.2
-To: linux-riscv@lists.infradead.org
-Content-Language: en-US
-From: Petr Tesarik <petrtesarik@huaweicloud.com>
-Subject: How to deal with openSBI reserved regions?
-X-CM-TRANSID: LxC2BwDXWwdPksNkBKEqBQ--.38278S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Jw4DKFWfJFWDGr45Gw4fGrg_yoW8Jr1rpF
-	4rJry0yFWkCF92k340yF48CFyrC3WftFWYg34kCr95Cr15Wry8ZrySvFy2vF17GF1vk3Wa
-	vFWDtry7C3Z8ZaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUyKb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxV
-	AFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0E
-	wIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E74
-	80Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jr0_JrylIxkGc2Ij64vIr41lIxAIcVC0
-	I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04
-	k26cxKx2IYs7xG6rW3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY
-	1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxUzsqWUUUUU
-X-CM-SenderInfo: hshw23xhvd2x3n6k3tpzhluzxrxghudrp/
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_030313_450766_7C71E191 
-X-CRM114-Status: UNSURE (   6.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230728_030540_858593_30E007C5 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +89,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Fri, 2023-07-28 at 15:40 +0800, Xi Ruoyao wrote:
+> On Fri, 2023-07-28 at 00:04 -0700, Drew Fustini wrote:
+> > It seems like your kernel config is the problem. I used it and I saw
+> > the same result of a panic in riscv_intc_irq:
+> > https://gist.github.com/pdp7/1a26ebe20017a3b90c4e9c005f8178e1
+> > 
+> > This is the config I have been using successfully:
+> > https://gist.github.com/pdp7/ecb34ba1e93fc6cfc4dce66d71e14f82
+> > 
+> > Could you try that config?
+> > 
+> > Linux 6.5-rc3 boots okay when built with it:
+> > https://gist.github.com/pdp7/580b072f9a5bf9be87cf88b5f81e50e3
+> 
+> Yes, your configuration works.
+> 
+> I'll try to figure out which specific configuration item is problematic
+> in my origin one...
 
-I have recently looked into enabling crash kernel and kdump on riscv64.
-I can start a new kernel after crash, but I ran into an issue when
-reading /proc/vmcore there.
+Ah, I found it... If I deselect CONFIG_FRAME_POINTER it will crash.
 
-I am testing this inside a QEMU VM and I boot my system in S-Mode using
-U-Boot with mbedded openSBI firmware. The problem here is that openSBI
-occupies the first 128 pages of RAM, but they are shown as "System RAM"
-in /proc/iomem. The kexec_file_load(2) system call uses
-walk_system_ram_res() to build a memory map of the currently running
-kernel. This is then passed to the crash kernel through ELF core headers
-as a LOAD segment. When reading the corresponding part of /proc/iomem,
-the crash kernel tries to map these pages, but they can be accessed only
-from M-Mode. Any attempt to access them from the Linux kernel fails with
-a PMP violation. Consequently, -EFAULT is returned to user space.
-
-Now, the openSBI area is represented in the Device Tree with a
-reserved-memory node () which overlaps a memory node. Technically, the
-firmware region is indeed RAM, but how should it be excluded from
-/proc/iomem?
-
-Should this be fixed in the kernel?
-
-Or, is the provided DTB incorrect?
-Should the memory node exclude the firmware area?
-
-Petr T
+And I see RISC-V selects ARCH_WANT_FRAME_POINTERS, so it seems frame
+pointer is mandated.  But then why I'm able to deselect
+CONFIG_FRAME_POINTER?
 
 
 _______________________________________________
