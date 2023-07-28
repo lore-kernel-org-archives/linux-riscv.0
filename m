@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D78C001E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 07:16:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 485BDEB64DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 07:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/yfkcXfMxwKDT/TRmnTzLa0mH5Z+dflp1kXCRgzqcE=; b=iEtv1u9mfWIRSooTs9upbJCYKe
-	vwaWU+sihi8sogKWPQEBQ7D/KkDMddMPgRCu/CQq5srfhfYMXMAOgXropK+a97iIJp7C99QL0H2jv
-	AHFAWZwN6WajuKaiinlCjZsnyX1+7QPDLc7fD3ZxEItOBYiBXZIJYZCmK5Cbx10Aix49ciqliSoCM
-	U9WRVFJHOBy73AwoCWdln8k2BPLRpXLZrzPgznzPJDvWwQfLw2ldKuU3aR067KaS5dwPMjWtCFJmL
-	nEntEExUI/xGzZoXqZna+38sWbrHy3yjj3VkI92is6wVrcm7e5u7h0VoCetF6OQvfdmqRFI+ddrE1
-	ar2H5SCw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aaSpfHW9owZhukXcHlGdDZKnmf36eBkBYcHzVE3TMwE=; b=0h7AJAlN5oVrBl
+	y6/bn38ilfa4fD9BzUVS4wPq+KLHCsz5QO8CkjA5Fk97fyvS2mDfq6XNuFLcMXz4fiMOFd0A3J6/2
+	6gHG11vAix5M2MFVrSSAvgB6RUM0loocSXbCj2buDclBo7p8gR/g6ACqnBDSVp71pqigvlSfDnQ3d
+	6jS1ihR1ZKly4RGJP4ytykAKkCPfY2yKZGdXCXhxZMZF+jQOasQmZ71qrb3sNOmTjIMw+jiqZGpRY
+	x/ZNpEjKjv+NEqb07tiummEm6vXnBGxBkJtx076IzWV+3qiBXmAa+yPQ9+dolm7SRfEuZVAMOq517
+	HpDuUYMvJvjYKYgYbA+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPHiH-0025Bf-1Q;
-	Fri, 28 Jul 2023 07:16:37 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1qPHmK-00264U-25;
+	Fri, 28 Jul 2023 07:20:48 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPHiE-0025AO-0F
+	id 1qPHmH-00263Z-2P
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 07:16:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1690528594; x=1722064594;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=w3eh8JVhG0BhAwkcoX2/P9LJ94Oz2UTVlcrpf201yuk=;
-  b=L1tue5gydTSwWQwziLLyO3J26bVlwQKEYbKukU14TXPlS+LWcY5P+aVK
-   nN2Csaxj4SLSgO5TUp5up22KdqlrxRTO6UAP2qQFl8MoaLN8T2hizYmtm
-   BfyWiDv5k/q0wmbY1jFFfUP5YwFMnFUosNykKX+jZNbDVYuf1UEpbTlQm
-   C6hGIf/c2iWFwfJOGOoD/1cVdNyeJmyslMofao0sBxz8ozOpiMny0nRyQ
-   N11zArp5YWzg6zd8s7GGdwvk1lcwNAbJmAvBtkOC/ElR04TItA/g3Tnos
-   aJo7SUHS/yoCgN90pw5n39SZqv1E/lNlH/zm9oiTRfEoATqXU8e3sJFTl
-   A==;
-X-IronPort-AV: E=Sophos;i="6.01,236,1684825200"; 
-   d="asc'?scan'208";a="163690791"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 28 Jul 2023 00:16:32 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.21; Fri, 28 Jul 2023 00:16:22 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.21 via Frontend
- Transport; Fri, 28 Jul 2023 00:16:19 -0700
-Date: Fri, 28 Jul 2023 08:15:44 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Eric Lin <eric.lin@sifive.com>
-CC: <robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-	<conor+dt@kernel.org>, <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
-	<will@kernel.org>, <mark.rutland@arm.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<zong.li@sifive.com>, <greentime.hu@sifive.com>, <vincent.chen@sifive.com>,
-	Nick Hu <nick.hu@sifive.com>
-Subject: Re: [PATCH v2 2/3] soc: sifive: Add SiFive private L2 cache driver
-Message-ID: <20230728-nintendo-umpire-3ca2388fa826@wendy>
-References: <20230720135125.21240-1-eric.lin@sifive.com>
- <20230720135125.21240-3-eric.lin@sifive.com>
+	Fri, 28 Jul 2023 07:20:47 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-2b9bd59d465so26657221fa.3
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 00:20:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1690528843; x=1691133643;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LkEJgaTxs/ddkAEFRCk2052gAcbygjssKU7AjsGzwec=;
+        b=PKQK3qh1VT8jWnxGjPqzEVsJuktxUM1+9+LsRoGobu0ema7mHkV2H7s6B44fGP6u0y
+         vYu6LWth0HrM+LQQpLoXSUx5GaLx8NtfKPAWlWnIYc0/RLtOewMQhwXBz2FShmr9NO02
+         MYxGpnAgxWm1C1bmbIs+P8NwK/IwN99YZkfj/PnK7QNXzBTEWJyq3RY55mpICMpteKf7
+         IcztGUSxxtggRc0qNgriTRKa9zOJmvGxUIbPZ16XNNAeAB0vyYPHFgKFibRMZPxwaNOu
+         MiSVRpatWcyzTLZjpEQyCYAX6xzBAw4hIaD9CbgmNd1rOnYRTeSrtCIzXGsUOXLf0vta
+         kmng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690528843; x=1691133643;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LkEJgaTxs/ddkAEFRCk2052gAcbygjssKU7AjsGzwec=;
+        b=a5I4Qcas7BMiuHCd2C+hrC4BcTFUaFGi3hXt1lgzg6GyeZS+LLYQAgEQlJTIrhEjhJ
+         dXeInoR6Dl+2nfWhvL6zmd3yT+q0iq4OrRXq+OOmgiFBKzr9mGhdVvdDFJQ0b4bFdzO/
+         qJ7LoU77j85V7XvOWNR88pAFKmtDw7bBphxx54AN3/WWBFWfP3LQstdE8RbpzK/xbU9t
+         o4VMHMgE8lDl4CLFgNXZDxAaeFg3pQwqMmWZ9AOsbqdW2/Fh8a05t7rNFhtj81Pz6LdJ
+         dICgJMjwsJx4A2SBC93MD0Vy1ZL2XAQSGaeC0IHtc78G+VmvsMbWdj2CuxK76ARbumCL
+         TV1A==
+X-Gm-Message-State: ABy/qLZgVCKUor+movfas0ZLYDrWltiXszLTSVmqqhij2T3BhQOkTeI4
+	GhIFEqsdaHJTFQLz9I4vRzii8zj0+BALXARIFB2XQg==
+X-Google-Smtp-Source: APBJJlEYv4VXz8ssay967YiIFAwaE1Bq5ymyjMJx4WO3gnt0z/waK2x38yUfDHp5coKHkN/e3yk5XwZu3CgAkivseE8=
+X-Received: by 2002:a2e:84c6:0:b0:2b9:ac48:d804 with SMTP id
+ q6-20020a2e84c6000000b002b9ac48d804mr1129754ljh.38.1690528843528; Fri, 28 Jul
+ 2023 00:20:43 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20230720135125.21240-3-eric.lin@sifive.com>
+References: <20230720135125.21240-1-eric.lin@sifive.com> <20230720135125.21240-2-eric.lin@sifive.com>
+ <cbf0a8fd-3479-1684-fe90-81f2159804ef@linaro.org> <CAPqJEFr5h+5+F4TdNuRMaWsrmeedbfGgbgd9wh8sUUQsj2Pw-A@mail.gmail.com>
+ <20230728-penpal-prelude-29a952c03827@wendy>
+In-Reply-To: <20230728-penpal-prelude-29a952c03827@wendy>
+From: Eric Lin <eric.lin@sifive.com>
+Date: Fri, 28 Jul 2023 15:20:32 +0800
+Message-ID: <CAPqJEFo3LPuwm6dtgdMP243jYtT23LjaFvXDVQiF876WmOw1bQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: sifive: Add SiFive Private L2
+ cache controller
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, robh+dt@kernel.org, 
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, zong.li@sifive.com, greentime.hu@sifive.com, 
+	vincent.chen@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_001634_180605_19ADB80D 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20230728_002045_831827_183F1E44 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,170 +89,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8061696295208811136=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============8061696295208811136==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="tDKcUoKE7397b15h"
-Content-Disposition: inline
-
---tDKcUoKE7397b15h
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey,
-
-On Thu, Jul 20, 2023 at 09:51:20PM +0800, Eric Lin wrote:
-> This adds SiFive private L2 cache driver which will show
-> cache config information when booting and add cpu hotplug
-> callback functions.
->=20
-> Signed-off-by: Eric Lin <eric.lin@sifive.com>
-> Co-developed-by: Nick Hu <nick.hu@sifive.com>
-> Signed-off-by: Nick Hu <nick.hu@sifive.com>
-> Reviewed-by: Zong Li <zong.li@sifive.com>
-
-> +static void pl2_config_read(void __iomem *pl2_base, int cpu)
-
-This function's prefix does not match the rest of the driver.
-
-> +{
-> +	u32 cfg, banks, ways, cacheline, sets;
-> +
-> +	cfg =3D readl(pl2_base + SIFIVE_PL2CACHE_CONFIG);
-> +	banks =3D FIELD_GET(SIFIVE_PL2CACHE_CONFIG_BANK_MASK, cfg);
-> +	ways =3D FIELD_GET(SIFIVE_PL2CACHE_CONFIG_WAYS_MASK, cfg);
-> +	cacheline =3D FIELD_GET(SIFIVE_PL2CACHE_CONFIG_BLKS_MASK, cfg);
-> +	sets =3D FIELD_GET(SIFIVE_PL2CACHE_CONFIG_SETS_MASK, cfg);
-> +	pr_info("%u banks, ways/bank=3D%u, bytes/block=3D%llu, sets:%llu, size:=
-%d for CPU:%d\n",
-> +		banks, ways, BIT_ULL(cacheline), BIT_ULL(sets), ways << (sets + cachel=
-ine), cpu);
-> +}
-
-My OCD quite dislikes how the formatting here is not consistent.
-"%u banks"
-"ways/bank=3D%u"
-"sets:%llu"
-
-Could you please do me a favour and pick just one style here?
-
-> +
-> +static int sifive_pl2_cache_dev_probe(struct platform_device *pdev)
-> +{
-> +	struct device_node *cpu_node, *pl2_node;
-> +	struct sifive_pl2_state *pl2_state =3D NULL;
-> +	struct resource *res;
-> +	void __iomem *pl2_base;
-> +	int cpu;
-> +
-> +	/* Traverse all cpu nodes to find the one mapping to its pl2 node. */
-
-While comments like this are somewhat useful...
-
-> +	for_each_cpu(cpu, cpu_possible_mask) {
-> +		cpu_node =3D of_cpu_device_node_get(cpu);
-> +		pl2_node =3D of_parse_phandle(cpu_node, "next-level-cache", 0);
-> +
-> +		/* Found it! */
-> +		if (dev_of_node(&pdev->dev) =3D=3D pl2_node) {
-> +			/* Use cpu to get its percpu data sifive_pl2_state. */
-> +			pl2_state =3D per_cpu_ptr(&sifive_pl2_state, cpu);
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (!pl2_state) {
-> +		pr_err("Failed to find CPU node for %s.\n", pdev->name);
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Set base address of select and counter registers. */
-
-=2E..something like this just restates what this function always does.
-It's the same in some other places, with things like:
-	/* save the state */
-	save_state();
-Could you drop the ones that restate the obvious please?
-
-> +	pl2_base =3D devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> +	if (IS_ERR(pl2_base))
-> +		return PTR_ERR(pl2_base);
-> +
-> +	/* Print pL2 configs. */
-> +	pl2_config_read(pl2_base, cpu);
-> +	pl2_state->pl2_base =3D pl2_base;
-> +
-> +	return 0;
-> +}
-> +
-> +static struct platform_driver sifive_pl2_cache_driver =3D {
-> +	.driver =3D {
-> +		   .name =3D "SiFive-pL2-cache",
-> +		   .of_match_table =3D sifive_pl2_cache_of_ids,
-> +		   },
-> +	.probe =3D sifive_pl2_cache_dev_probe,
-> +};
-> +
-> +static int __init sifive_pl2_cache_init(void)
-
-Why is the split between initcall and normal probe function required?
-Does the hotplug stuff require that?
-
-> +{
-> +	int ret;
-> +
-> +	ret =3D cpuhp_setup_state(CPUHP_AP_RISCV_SIFIVE_PL2_ONLINE,
-> +				"soc/sifive/pl2:online",
-> +				sifive_pl2_online_cpu,
-> +				sifive_pl2_offline_cpu);
-> +	if (ret < 0) {
-> +		pr_err("Failed to register CPU hotplug notifier %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret =3D platform_driver_register(&sifive_pl2_cache_driver);
-> +	if (ret) {
-> +		pr_err("Failed to register sifive_pl2_cache_driver: %d\n", ret);
-> +		cpuhp_remove_state(CPUHP_AP_RISCV_SIFIVE_PL2_ONLINE);
-> +		return ret;
-> +	}
-> +
-> +	sifive_pl2_pm_init();
-> +
-> +	return 0;
-> +}
-
-Cheers,
-Conor.
-
---tDKcUoKE7397b15h
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMNrIAAKCRB4tDGHoIJi
-0lUMAQC+YBZKyezcpOdepBSTcDE8d/8KKQhLZWlOf3Dxgmpf3wD9G00D01RwYreP
-xr5jQCN1+kjS9dv4O3bCi+fMO5E/qAU=
-=/HJJ
------END PGP SIGNATURE-----
-
---tDKcUoKE7397b15h--
-
-
---===============8061696295208811136==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8061696295208811136==--
-
+T24gRnJpLCBKdWwgMjgsIDIwMjMgYXQgMjo0N+KAr1BNIENvbm9yIERvb2xleSA8Y29ub3IuZG9v
+bGV5QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBKdWwgMjgsIDIwMjMgYXQgMDI6
+MDE6MjhQTSArMDgwMCwgRXJpYyBMaW4gd3JvdGU6Cj4gPiBIaSBLcnp5c3p0b2YsCj4gPgo+ID4g
+T24gRnJpLCBKdWwgMjEsIDIwMjMgYXQgNDozNeKAr1BNIEtyenlzenRvZiBLb3psb3dza2kKPiA+
+IDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+IHdyb3RlOgo+ID4gPgo+ID4gPiBPbiAy
+MC8wNy8yMDIzIDE1OjUxLCBFcmljIExpbiB3cm90ZToKPiA+ID4gPiBUaGlzIGFkZCBZQU1MIERU
+IGJpbmRpbmcgZG9jdW1lbnRhdGlvbiBmb3IgU2lGaXZlIFByaXZhdGUgTDIKPiA+ID4gPiBjYWNo
+ZSBjb250cm9sbGVyCj4gPiA+ID4KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBFcmljIExpbiA8ZXJp
+Yy5saW5Ac2lmaXZlLmNvbT4KPiA+ID4gPiBSZXZpZXdlZC1ieTogWm9uZyBMaSA8em9uZy5saUBz
+aWZpdmUuY29tPgo+ID4gPiA+IFJldmlld2VkLWJ5OiBOaWNrIEh1IDxuaWNrLmh1QHNpZml2ZS5j
+b20+Cj4gPiA+Cj4gPiA+Cj4gPiA+IC4uLgo+ID4gPgo+ID4gPiA+ICtwcm9wZXJ0aWVzOgo+ID4g
+PiA+ICsgIGNvbXBhdGlibGU6Cj4gPiA+ID4gKyAgICBpdGVtczoKPiA+ID4gPiArICAgICAgLSBj
+b25zdDogc2lmaXZlLHBsMmNhY2hlMQo+ID4gPgo+ID4gPiBJIHN0aWxsIGhhdmUgZG91YnRzIHRo
+YXQgaXQgaXMgbm90IHVzZWQgaW4gYW55IFNvQy4gVGhpcyBpcyB3aGF0IHlvdQo+ID4gPiBzYWlk
+IGxhc3QgdGltZTogImlzIG5vdCBwYXJ0IG9mIGFueSBTb0MuIgo+ID4gPiBJZiBub3QgcGFydCBv
+ZiBhbnkgU29DLCB0aGVuIHdoZXJlIGlzIGl0PyBXaHkgYXJlIHlvdSBhZGRpbmcgaXQgdG8gdGhl
+Cj4gPiA+IGtlcm5lbD8KPiA+ID4KPiA+Cj4gPiBTb3JyeSBmb3IgdGhlIGxhdGUgcmVwbHkuIEkg
+ZGlkbid0IGRlc2NyaWJlIGl0IGNsZWFybHkgbGFzdCB0aW1lLgo+ID4gQ3VycmVudGx5LCB3ZSBo
+YXZlIHR3byBoYXJkd2FyZSB2ZXJzaW9ucyBvZiBwbDJjYWNoZTogcGwyY2FjaGUwIGFuZCBwbDJj
+YWNoZTEuCj4gPiBUaGUgcGwyY2FjaGUwIGlzIHVzZWQgaW4gdW5tYXRjaGVkIGJvYXJkIFNvQy4K
+Pgo+IFdhaXQgYSBzZWNvbmQsIGRvZXMgdGhlIGZ1NzQwIG9uIHRoZSB1bm1hdGNoZWQgbm90IGhh
+dmUgYSBjY2FjaGUgYXMKPiBpdCdzIEwyIGNhY2hlPwo+CgpIaSBDb25vciwKU29ycnksIEkgbWlz
+cmVtZW1iZXIgdGhlIEwyIGNhY2hlIG9uIHRoZSB1bm1hdGNoZWQgYm9hcmQuCkkganVzdCBjaGVj
+ayBhZ2Fpbi4gVGhlIHVubWF0Y2hlZCBib2FyZCBMMiBjYWNoZSBpcyBjY2FjaGUgbm90CnBsMmNh
+Y2hlMC4gWW91IGFyZSByaWdodC4gVGhhbmtzLgoKQmVzdCByZWdhcmRzLApFcmljIExpbgoKPiA+
+IFRoZSBwbDJjYWNoZTEgaXMKPiA+IHV0aWxpemVkIGluIG91ciBpbnRlcm5hbCBGUEdBIHBsYXRm
+b3JtIGZvciBldmFsdWF0aW9uOyBpdCdzIG91ciBjb3JlCj4gPiBJUC4KCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
