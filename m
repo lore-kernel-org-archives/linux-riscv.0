@@ -4,82 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438DEC001DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 15:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225C5C0015E
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Jul 2023 16:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=p8COOJym2dH82RwBolXrTxGjR54Mcre0gGSgXAK81Tw=; b=HV19zz+7HTYSdbmHhky7YnjX4q
-	r2PSim9smdUah5ilomtUmijWNsgWUeE9H4iCdT6xrXP+i1N11bQ5dq54G9waGNGURonfVvK7DPsuB
-	Jp+t5w2jMt2rgbPv2FU0DYxXOODZdSWae4n3bpFHxGYOayY8IXpkgYv3PsEA87BFy7WAx7Ngx/uNs
-	YtPZF7yGZ9HT/pEA0VAX1m4O/p1kJ1Ngpb9TIK0EznDI/oPoNt1ieZNEK7rVCM2chYfr9ICoJVUI1
-	ljkibKLp4LGoHMzXYid+aiHbthQ+C9fUqJD3/dS9u0etyHg54MqsIwxskkIQth523rEKzbHwmKeU0
-	ujnwWLpg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bbyUiMadCZWAoqCKRk+U9QzH41/c9l/WoWcDTaY9hxk=; b=tgPODdP6nGSA2F
+	2U3P3qc86wXwf6WMIMXqggkQxP0txKX6Xdmq3qagiJkYktPdl3gQSQwqAAI/WcBnw8yxx9G+AlzT+
+	T29WdS7ZBQGoLX0LHUN7eDoSRqYoaYtTvAVNo4c76SauaqduN2fs4klmy0enuYh21BpjwpCi9QYGr
+	SIms0apTlVXe5bP0ABKFg7D6DzYVKY1UIKZVBabIAunXGCJv7KDgM1902sAFZlCB9wD+2uObxkhT8
+	QXlArfqyCLA34q4d0JaQcU0qlfLU1QN/0XZZPsaBxbCQcEdMw2tmvk8lXjT1nkOnQ5/PpXK9mzxko
+	F7wCNonpHTxIKqCL5zVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPPmy-003v6e-07;
-	Fri, 28 Jul 2023 15:54:00 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1qPPve-0040sW-3D;
+	Fri, 28 Jul 2023 16:02:59 +0000
+Received: from smtp-out2.suse.de ([195.135.220.29])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPPmv-003v5Q-1L
-	for linux-riscv@lists.infradead.org;
-	Fri, 28 Jul 2023 15:53:59 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-d052f49702dso2144020276.3
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 08:53:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1690559634; x=1691164434;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pSKHeZCMgvA3kWIhrH+n4mSoJzgBzU5J6H2rFYp+lic=;
-        b=36hr/ZVZer9RvAya4ZWnFnQbK8YQhtITqVZBkBjBo440v2c0X6eN0dTqrfwuSz7rnr
-         k6WaexoqA62nX8FAG4nFQN42YtpTPoI2wh+3jJ8o7wPm1hCgTfuNVbS6EPbcqVQMYEN8
-         yX6GAsSlGhmh3OfRqIjW8R05WSUu0K/X4fXpahOmLUZoi6YQFqEw5dv+/YSaOupBw3r1
-         1QOJlnLq34i4AF+BnbyIEyZktriEUaH2gPVQf9yg//1ZrZLXvLnuD9WAlIPQNWkv2YPw
-         izFsP5t0laJ87+k+PtVShNOsqU9+ABHsrNM8WXC1tgWj4cUC0mfYLX4gBDtMPyqVsRaM
-         2pSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690559634; x=1691164434;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pSKHeZCMgvA3kWIhrH+n4mSoJzgBzU5J6H2rFYp+lic=;
-        b=UDmhxCfE2zD4Ha7mZDZcrY8UDMQiPjdlTjN0eeDX0RDajn/creApujFtEfkAfKWYli
-         x0WD43+ZmSyy2TuTmz82EaunZpuXxrnlY6MugveMhkkZpnR9e5LA+q1T16hHoih6Ofcw
-         T3jQ7T0w9vw+X5Xku4FrqYRGNCHxoDi73dVhT3Ra/PUSpoFPNmSnPtk5k13JTqjDgIZR
-         RHao5dGVBMt+TEPng01S4x0AmcQmgGAR6U9PfYKuQAwF8t3hQOJWI9jfLoSbpXfNYtmf
-         jkzEK+1X7v39vYvvQiQiugtuMaNJb7GZdP2yvQjlb67y6+92stwp3urvluD9kJTNBsT2
-         vqcw==
-X-Gm-Message-State: ABy/qLYEVEACkHr7uSpEMYrc2TVKA3MP9R8CAoJDKNsGq7SlJmtxBELz
-	k9hevfv+xJnGf6salWXNoqrN2ygQ9hg=
-X-Google-Smtp-Source: APBJJlHbJprqMW+zMuvG32ayD8bofMBAAKNaDzLOF7DuAIN4jyWdo3wXWE6hvbwHUsAc0SpOW5cSp73k0WI=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:db82:0:b0:d0f:15a4:5a53 with SMTP id
- g124-20020a25db82000000b00d0f15a45a53mr10767ybf.2.1690559633993; Fri, 28 Jul
- 2023 08:53:53 -0700 (PDT)
-Date: Fri, 28 Jul 2023 08:53:52 -0700
-In-Reply-To: <20230728-21d0e3ecb0d8916fd9d9bceb@orel>
-Mime-Version: 1.0
-References: <cover.1690364259.git.haibo1.xu@intel.com> <7e9d2d5518375083f10c92a3d1acd98914f69fd8.1690364259.git.haibo1.xu@intel.com>
- <20230728-21d0e3ecb0d8916fd9d9bceb@orel>
-Message-ID: <ZMPR56RVgzI6s6Ik@google.com>
-Subject: Re: [PATCH 2/4] KVM: riscv: selftests: Add exception handling support
-From: Sean Christopherson <seanjc@google.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Haibo Xu <haibo1.xu@intel.com>, xiaobo55x@gmail.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Marc Zyngier <maz@kernel.org>, 
-	Andrew Jones <andrew.jones@linux.dev>, Colton Lewis <coltonlewis@google.com>, 
-	Vipin Sharma <vipinsh@google.com>, Vishal Annapurve <vannapurve@google.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, kvm-riscv@lists.infradead.org
+	id 1qPPvZ-0040pL-3A;
+	Fri, 28 Jul 2023 16:02:55 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 9DB191F854;
+	Fri, 28 Jul 2023 16:02:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1690560167; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CvY0+v4nvg0O0BVEhEc8BmZfYzpPNCFFCMaJmCODeHg=;
+	b=LuP/9ao2mrKjhPvKezWW1/W17SEYJs2q92vl0M2JCYXcddXuljTTEbIYow9womJUw6LJrg
+	qzowp5BeJWVnf+lzn5JU5UBXET439G9aZl2Cej4L8DEUkkS2Xabj9scGTntFuX4nFsk5BK
+	jGFVo1NW+KmbJNwVJQIyJlgnQrU5Tm8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1690560167;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CvY0+v4nvg0O0BVEhEc8BmZfYzpPNCFFCMaJmCODeHg=;
+	b=PJkmStLEQ4tX3u5n/JqYexTLZ62i3tFelBIXmZgBwUht8ehxcz9TNcF+IDGXx4zqKelWMj
+	1J0IPH/P9l/ZmiCA==
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 0504113276;
+	Fri, 28 Jul 2023 16:02:47 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+	by imap2.suse-dmz.suse.de with ESMTPSA
+	id vp1JAKfmw2ReUwAAMHmgww
+	(envelope-from <vbabka@suse.cz>); Fri, 28 Jul 2023 16:02:47 +0000
+Message-ID: <692b09f7-70d9-1119-7fe2-3e7396ec259d@suse.cz>
+Date: Fri, 28 Jul 2023 18:02:46 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.13.0
+Subject: Re: [RFC PATCH v11 10/29] mm: Add AS_UNMOVABLE to mark mapping as
+ completely unmovable
+Content-Language: en-US
+To: Matthew Wilcox <willy@infradead.org>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>,
+ James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Chao Peng <chao.p.peng@linux.intel.com>,
+ Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>,
+ Yu Zhang <yu.c.zhang@linux.intel.com>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Maciej Szmigiero <mail@maciej.szmigiero.name>,
+ David Hildenbrand <david@redhat.com>, Quentin Perret <qperret@google.com>,
+ Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>,
+ Liam Merwick <liam.merwick@oracle.com>,
+ Isaku Yamahata <isaku.yamahata@gmail.com>
+References: <20230718234512.1690985-1-seanjc@google.com>
+ <20230718234512.1690985-11-seanjc@google.com>
+ <20230725102403.xywjqlhyqkrzjok6@box.shutemov.name>
+ <ZL/Fa4W2Ne9EVxoh@casper.infradead.org>
+From: Vlastimil Babka <vbabka@suse.cz>
+In-Reply-To: <ZL/Fa4W2Ne9EVxoh@casper.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_085357_450090_5D969C29 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20230728_090254_181758_59BC0F71 
+X-CRM114-Status: GOOD (  25.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +118,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 28, 2023, Andrew Jones wrote:
-> On Thu, Jul 27, 2023 at 03:20:06PM +0800, Haibo Xu wrote:
-> > +void vm_init_trap_vector_tables(struct kvm_vm *vm);
-> > +void vcpu_init_trap_vector_tables(struct kvm_vcpu *vcpu);
+On 7/25/23 14:51, Matthew Wilcox wrote:
+> On Tue, Jul 25, 2023 at 01:24:03PM +0300, Kirill A . Shutemov wrote:
+>> On Tue, Jul 18, 2023 at 04:44:53PM -0700, Sean Christopherson wrote:
+>> > diff --git a/mm/compaction.c b/mm/compaction.c
+>> > index dbc9f86b1934..a3d2b132df52 100644
+>> > --- a/mm/compaction.c
+>> > +++ b/mm/compaction.c
+>> > @@ -1047,6 +1047,10 @@ isolate_migratepages_block(struct compact_control *cc, unsigned long low_pfn,
+>> >  		if (!mapping && (folio_ref_count(folio) - 1) > folio_mapcount(folio))
+>> >  			goto isolate_fail_put;
+>> >  
+>> > +		/* The mapping truly isn't movable. */
+>> > +		if (mapping && mapping_unmovable(mapping))
+>> > +			goto isolate_fail_put;
+>> > +
+>> 
+>> I doubt that it is safe to dereference mapping here. I believe the folio
+>> can be truncated from under us and the mapping freed with the inode.
+>> 
+>> The folio has to be locked to dereference mapping safely (given that the
+>> mapping is still tied to the folio).
 > 
-> I think we should use a common name for these prototypes that the other
-> architectures agree to and then put them in a common header. My vote for
-> the naming is,
+> There's even a comment to that effect later on in the function:
 
-Just allocate the tables in kvm_arch_vm_post_create().  I've been meaning to
-convert x86 and ARM, but keep getting distracted/waylaid by other things.
+Hmm, well spotted. But it wouldn't be so great if we now had to lock every
+inspected page (and not just dirty pages), just to check the AS_ bit.
 
-https://lore.kernel.org/all/Y8hCBOndYMD9zsDL@google.com
+But I wonder if this is leftover from previous versions. Are the guest pages
+even PageLRU currently? (and should they be, given how they can't be swapped
+out or anything?) If not, isolate_migratepages_block will skip them anyway.
 
->   void vm_init_vector_tables(struct kvm_vm *vm);
->   void vcpu_init_vector_tables(struct kvm_vcpu *vcpu);
 > 
-> > +
-> > +typedef void(*handler_fn)(struct ex_regs *);
-> > +void vm_install_exception_handler(struct kvm_vm *vm, int ec, handler_fn handler);
+>                         /*
+>                          * Only pages without mappings or that have a
+>                          * ->migrate_folio callback are possible to migrate
+>                          * without blocking. However, we can be racing with
+>                          * truncation so it's necessary to lock the page
+>                          * to stabilise the mapping as truncation holds
+>                          * the page lock until after the page is removed
+>                          * from the page cache.
+>                          */
 > 
-> I'd also put this typedef
+> (that could be reworded to make it clear how dangerous dereferencing
+> ->mapping is without the lock ... and it does need to be changed to say
+> "folio lock" instead of "page lock", so ...)
 
-And rename it to (*exception_handler_fn).
+> How does this look?
+> 
+>                         /*
+>                          * Only folios without mappings or that have
+>                          * a ->migrate_folio callback are possible to
+>                          * migrate without blocking. However, we can
+>                          * be racing with truncation, which can free
+>                          * the mapping.  Truncation holds the folio lock
+>                          * until after the folio is removed from the page
+>                          * cache so holding it ourselves is sufficient.
+>                          */
+> 
 
-> and prototype in a common header (with s/ec/vector/ to what you have here)
-
-Hmm, yeah, I think it makes sense to let vm_install_exception_handler() be used
-from common code.  the vector to be installed is inherently arch specific, but
-it would be easy enough for a test to use #ifdeffery to define the correct vector.
 
 _______________________________________________
 linux-riscv mailing list
