@@ -4,92 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F93EB64DD
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 00:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC88EB64DD
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 00:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=ivwInhwnbwHHrdTnPpG0krd0dJOZe3dwTugCnFeiLKc=; b=ILAQB+oIKlg64tjUruevoJsztO
-	XvMHFAwq4/Vxr85nGm8F0A1hp37vQnFN4FmRHH4EkehRLdVYcUY7f9rAJJP0CkpXBp3WY/hKBtDHm
-	yxH/ItxJ91ysS/rwo43bj23ExPS6D/vidLpH9K6kqR0ytzFjxBVz8IbSCu0JiEFUkjk2446P8Pl3U
-	wAcIOioBaY2j1W3eKEaKgrbQx1ZyfSMAYolEVVYanzmV7ukKaeHyLaohtEfr8atXBashgQtOEkD8l
-	pYgMjNJfqNgCj83YcCm4IoJBXpAjcipE1ScDKEhtVP+A7QoYzngBVATdmyZo/Q/PpitCWMQL7wdZf
-	WX9MRPhw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=u22PNClsZ7Kq4N/emXYYNkTc7YUCovlNehlfIBuvDUw=; b=GTlDVFsrEG0ibl
+	+jlHsakgAE/t986xVUgb55tIYHfPV4HImQBs7cZp+oG4llq+Iav5PjtgCCIOIErA2xrFVEVaK+29R
+	1BDBnMmVB7mSjGiz5s7fhb9U0/oZKRp+OMeJIkiyX9iHYfnsy+kBsZO7hGX12MTW+F5gcL2WO7ekO
+	U299he9HgHCpKdp2NSPqLTH/h3ogNH7ZUaTa3+Jmvr1C/M+FC0BBsqI1SBa2qZhAEfFBBF0T0HlMA
+	zqx0jAbGaIS/Roq8OIwLNVCG9CYEgEdm1zlnYdnrIz0IsrVvhEEiIWow5wPHCD8YMz2ElQmeaD/cD
+	WasnT9qOCkJOfVKv1BQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPXQq-005ZQy-1Q;
-	Sat, 29 Jul 2023 00:03:40 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1qPXtj-005cAw-2R;
+	Sat, 29 Jul 2023 00:33:31 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPXQn-005ZPP-09
+	id 1qPXte-005c9w-36
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Jul 2023 00:03:38 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-1bbf8cb6143so1944275ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 17:03:35 -0700 (PDT)
+	Sat, 29 Jul 2023 00:33:29 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-1bbd2761f1bso21408995ad.2
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 17:33:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1690589015; x=1691193815;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rJg9MbukUkeAf25VcBnSvGPEfaUIyqqF94QJU8orhSY=;
-        b=Zp0GOXqU9vAtanM7byzLEY1ZTAuQCQrnfrak1thKcFFHMBCZO/N4KqKDBd5I3kJffW
-         Vh8ovzLtMVpv7R9tgjnJuitRPz0iowTqbSccpqb9sCrit8s8jZkHgE3EKWmaz9/YJybN
-         uhR+1LBQ/EGKFm12kofvmo1N8Or8Mhd5I9QIxgAZxJjUnAncn/OfNQ+xg9V9rSfFrTW5
-         6+gyXWvxsDfod0XUAEoSS/aCS0HqakbjGuI1/I8BU2Uy6FDW2YJ6LrCVt60GU5GehRX5
-         3Ug/sPFW2Iawha4cKCkpfEtG9Mwjo7aL2M8Rz65tztUDm7ObzFqkZ6ozvUAWJtziwaLO
-         +gKQ==
+        d=baylibre-com.20221208.gappssmtp.com; s=20221208; t=1690590804; x=1691195604;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ahyJuXZ5mL1EHkAmnBhtpjxq5pGjH0m9c44cFqu9RR8=;
+        b=xpUdgokS5I3D2dS83HRiHhZiG56m5FAIJgE/jlbqlE+gYcIRkpxvSi/pZSlUi7sy2z
+         bnqqAIfSeRVJ95s1lcZAuogwJigMtlZdlSs+YHeoYBnYTHfZR6Zk4ahWvPG1AaLULQhY
+         gO+eJNi8wd3w5WbQ9DO9D/sOeD3bA9T5kHZwOM7wmJcQvePox0iYtRM8wYAC7n/dDaqK
+         X7P0sDk/dcUAgQAqq7D+U55LcixXdO1mjn96aqshgDPBbaKb46v56++fUbVWhXcdTM5a
+         esvqsFXNPN843wzsRhz3BzbNQN9oUX4Gbmjl8FepRs+P4u+4Q+dnrBblDHu1hpf9MbwM
+         y3zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690589015; x=1691193815;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rJg9MbukUkeAf25VcBnSvGPEfaUIyqqF94QJU8orhSY=;
-        b=c1f/bf92frMy1coY0w4dZcPGIQKn+19tswqnDQfycEuQVB+nTF1BDLuapVvEcoJImm
-         sWuTS3vsy+nI9hbow4JLLUDwdYCMiSNGO+/4Ft8UIM0paKJWT5aKDvUsS1LbCI/+abC5
-         aNBchkHaSdlYM/zSMMfMmq4Brp13A3Sk2+4lvNNYD3PlOlUD5uw8l2/kcDOrhax3jNVg
-         N53BOlu9qxeOxBYb/dHNczSHMQqMLGfB5D2RvyGExiLR5h6Y7+q8dWuZv5wOCoYSdi+N
-         KhmAQ5LExStJvLQcn1yG1z8InJ1+IbdYCKrOsNq5qY/QxQlMHzlRMzX2NxjydoPnt7fa
-         FKNg==
-X-Gm-Message-State: ABy/qLa3JEqJqfGVBjsDFVF6fXDX854thXYwdco1DtpBBrVzSkDLqOjC
-	DV9YSWJJLaOOPQV52ECqJXa0jJXPTGE=
-X-Google-Smtp-Source: APBJJlGy4rMQGFiWHQC+IuRONPQH0HvvNAt7asJXiFk+bZ/uVjfNOjPYVgrOl+x+eQJGyA+j61wbqvGP0DI=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:c951:b0:1ae:6895:cb96 with SMTP id
- i17-20020a170902c95100b001ae6895cb96mr12864pla.5.1690589014804; Fri, 28 Jul
- 2023 17:03:34 -0700 (PDT)
-Date: Fri, 28 Jul 2023 17:03:33 -0700
-In-Reply-To: <ZMOJgnyzzUNIx+Tn@google.com>
-Mime-Version: 1.0
-References: <20230718234512.1690985-1-seanjc@google.com> <20230718234512.1690985-7-seanjc@google.com>
- <ZMOJgnyzzUNIx+Tn@google.com>
-Message-ID: <ZMRXVZYaJ9wojGtS@google.com>
-Subject: Re: [RFC PATCH v11 06/29] KVM: Introduce KVM_SET_USER_MEMORY_REGION2
-From: Sean Christopherson <seanjc@google.com>
-To: Quentin Perret <qperret@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Chao Peng <chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Yu Zhang <yu.c.zhang@linux.intel.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Maciej Szmigiero <mail@maciej.szmigiero.name>, Vlastimil Babka <vbabka@suse.cz>, 
-	David Hildenbrand <david@redhat.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
-	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
-	"Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+        d=1e100.net; s=20221208; t=1690590804; x=1691195604;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ahyJuXZ5mL1EHkAmnBhtpjxq5pGjH0m9c44cFqu9RR8=;
+        b=OJy/711vFEKKylzaq1brBsHKe94gYpxByFbfw1MuflII/mGv4afKU7alIooWlKRNU/
+         LIfWu0gL2ROG2ZFMZMujaaspSiA/HmC7iGhxcZxlxw6Sn3roRI6iN3j5MOAestE4cJvr
+         JJRXab4N+2/ZpqisU+b36QRMOBR2XwrW8Wh8lh6qsp8omVelfxODduK5G6ZUJ8Rs/J1a
+         lRDDGobC3BGrzg5ngHs8RCXC8/WkWnFMV3pU3uhsVqTl/NGOyp1EfrxS1br9EZXHEgGY
+         5mYJBRlJy2bpm+63yx1FiMd8h5nmk89pXOlJ2VoaLJKds2t6BEGktdoZkhuK8WiBcjGu
+         MTvg==
+X-Gm-Message-State: ABy/qLYMkxRKr3I+mRn1BSlNapZnUSM5Rh864RM3Mp1o0seDwm0hEuck
+	+5vGgdtd27dgklGldl+kQOIvMg==
+X-Google-Smtp-Source: APBJJlFS9zLP1c6phrba+UHvupDG9E3d4F06JGpS2iM7oXYYOuggQ3ope9iTdf44U6BdBCqfanr6PA==
+X-Received: by 2002:a17:902:9a06:b0:1bb:edd5:4644 with SMTP id v6-20020a1709029a0600b001bbedd54644mr2869632plp.68.1690590804391;
+        Fri, 28 Jul 2023 17:33:24 -0700 (PDT)
+Received: from x1 ([2601:1c2:1800:f680:ab2e:71c2:3a28:319c])
+        by smtp.gmail.com with ESMTPSA id s13-20020a170902ea0d00b001b9be3b94e5sm4140174plg.303.2023.07.28.17.33.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Jul 2023 17:33:24 -0700 (PDT)
+Date: Fri, 28 Jul 2023 17:33:22 -0700
+From: Drew Fustini <dfustini@baylibre.com>
+To: guoren@kernel.org
+Cc: palmer@rivosinc.com, paul.walmsley@sifive.com, falcon@tinylab.org,
+	bjorn@kernel.org, conor.dooley@microchip.com,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, stable@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V2 0/2] riscv: stack: Fixup independent softirq/irq stack
+ for CONFIG_FRAME_POINTER=n
+Message-ID: <ZMReUsAVmwcDwEhe@x1>
+References: <20230716001506.3506041-1-guoren@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20230716001506.3506041-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_170337_113067_1D0D3CB1 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20230728_173327_213082_89B70D00 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +95,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 28, 2023, Quentin Perret wrote:
-> On Tuesday 18 Jul 2023 at 16:44:49 (-0700), Sean Christopherson wrote:
-> > --- a/include/uapi/linux/kvm.h
-> > +++ b/include/uapi/linux/kvm.h
-> > @@ -95,6 +95,16 @@ struct kvm_userspace_memory_region {
-> >  	__u64 userspace_addr; /* start of the userspace allocated memory */
-> >  };
-> >  
-> > +/* for KVM_SET_USER_MEMORY_REGION2 */
-> > +struct kvm_userspace_memory_region2 {
-> > +	__u32 slot;
-> > +	__u32 flags;
-> > +	__u64 guest_phys_addr;
-> > +	__u64 memory_size;
-> > +	__u64 userspace_addr;
-> > +	__u64 pad[16];
+On Sat, Jul 15, 2023 at 08:15:04PM -0400, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 > 
-> Should we replace that pad[16] with:
+> The independent softirq/irq stack uses s0 to save & restore sp, but s0
+> would be corrupted when CONFIG_FRAME_POINTER=n. So add s0 in the clobber
+> list to fix the problem.
 > 
-> 	__u64 size;
+> <+0>:     addi    sp,sp,-32
+> <+2>:     sd      s0,16(sp)
+> <+4>:     sd      s1,8(sp)
+> <+6>:     sd      ra,24(sp)
+> <+8>:     sd      s2,0(sp)
+> <+10>:    mv      s0,a0		--> compiler allocate s0 for a0 when CONFIG_FRAME_POINTER=n
+> <+12>:    jal     ra,0xffffffff800bc0ce <irqentry_enter>
+> <+16>:    ld      a5,56(tp) # 0x38
+> <+20>:    lui     a4,0x4
+> <+22>:    mv      s1,a0
+> <+24>:    xor     a5,a5,sp
+> <+28>:    bgeu    a5,a4,0xffffffff800bc092 <do_irq+88>
+> <+32>:    auipc   s2,0x5d
+> <+36>:    ld      s2,1118(s2) # 0xffffffff801194b8 <irq_stack_ptr>
+> <+40>:    add     s2,s2,a4
+> <+42>:    addi    sp,sp,-8
+> <+44>:    sd      ra,0(sp)
+> <+46>:    addi    sp,sp,-8
+> <+48>:    sd      s0,0(sp)
+> <+50>:    addi    s0,sp,16	--> our code clobber the s0
+> <+52>:    mv      sp,s2
+> <+54>:    mv      a0,s0		--> a0 got wrong value for handle_riscv_irq 
+> <+56>:    jal     ra,0xffffffff800bbb3a <handle_riscv_irq>
 > 
-> where 'size' is the size of the structure as seen by userspace? This is
-> used in other UAPIs (see struct sched_attr for example) and is a bit
-> more robust for future extensions (e.g. an 'old' kernel can correctly
-> reject a newer version of the struct with additional fields it doesn't
-> know about if that makes sense, etc).
+> Changelog:
+> V2
+>  - Fixup compile error with CONFIG_FRAME_POINTER=y
+>  - FIxup stable@vger.kernel.org tag
+> 
+> Guo Ren (2):
+>   riscv: stack: Fixup independent irq stack for CONFIG_FRAME_POINTER=n
+>   riscv: stack: Fixup independent softirq stack for
+>     CONFIG_FRAME_POINTER=n
+> 
+>  arch/riscv/kernel/irq.c   | 3 +++
+>  arch/riscv/kernel/traps.c | 3 +++
+>  2 files changed, 6 insertions(+)
+> 
+> -- 
+> 2.36.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-"flags" serves that purpose, i.e. allows userspace to opt-in to having KVM actually
-consume what is currently just padding.
+Tested-by: Drew Fustini <dfustini@baylibre.com>
 
-The padding is there mainly to simplify kernel/KVM code, e.g. the number of bytes
-that KVM needs to copy in is static.
+Xi Ruoyao noticed that the mainline kernel crashed when using a kernel
+config with CONFIG_FRAME_POINTER=n. I was able to reproduce this [1].
+Emil suggested I trying this patche series. I can confirm that this
+resolves the kernel crash on the Sipeed Lichee Pi4a [2].
 
-But now that I think more on this, I don't know why we didn't just unconditionally
-bump the size of kvm_userspace_memory_region.  We tried to play games with unions
-and overlays, but that was a mess[*].
+Thanks,
+Drew
 
-KVM would need to do multiple uaccess reads, but that's not a big deal.  Am I
-missing something, or did past us just get too clever and miss the obvious solution?
-
-[*] https://lkml.kernel.org/r/Y7xrtf9FCuYRYm1q%40google.com
+[1] https://lore.kernel.org/linux-riscv/ZMNojqwLxcG8FcHN@x1/
+[2] https://lore.kernel.org/linux-riscv/ZMQAqUfb0y%2FigQs2@x1/
 
 _______________________________________________
 linux-riscv mailing list
