@@ -4,100 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF73C0015E
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 08:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB9CC001E0
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 10:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ytxPAcjAJw6Q5vGuTie8OHU4QC2jAVkJD86zY6etIco=; b=kRfV0CnC029u0C
-	3gsQvvwFGPIk9sb3jU3D5V4sf/RD6/JM8nGN9wrQYaUMUqJ0VU/WGq/tMLi5SMuEUBmdILCxZWGkS
-	DceoNrIovmLFC7xkU2w+c+p6ER7kw6kLn2/wnzdroppnjWVMBcwXdnRSnR8VjmWi+UmiW4MRockO4
-	ugfecPjkO7j7TWGt6BfsQBimTTN5fyT6kyQE/7tcuaW+sQdWF8JaTb4DZynA8w7HweJC3fHKSCCA9
-	lHYU6FQRmuQnwaKhY49iIuDJxuLBqeB1OaaPYJWI+dEkkQJW2iitQdgsZsD86TBgl1NDEgTD0PVgj
-	Os642i+9z8l8OWWuAPuA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VOL4iGL1a4NRaNXJ1maR6RInHPLmJPLmIyQWnD58ABA=; b=P1SRIwRYxHRT9f9TZtkdUNSe1q
+	SnqqmZ6lYTb4ZyizqEC/qViZU4TVqoZtioAsqv8YyG/DyVubI1o4L2HHyidFfccdSynt/0ihUnJCS
+	X7XJxmOEsjYVYZx9ary+dvDnAyjDSYahy+p5jTF6/2in2Y4A8UxE1zH2zxlo06+8TLDtMfikW+MBi
+	Gw/psHPB6oMq6318UCOQVxMkwkCJ5msRwhtzUgIrimJInGLoeDheatfsvxry6sSrBvl79NifKfPuB
+	DxnaZ70aJFd2di/cTXqx9nxLx0+xLx22ZPZuc9iLGJl1n0jshcrkpEZBK7CXBFy776kXYOY5NcogA
+	iFEhUO+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPetY-006khq-30;
-	Sat, 29 Jul 2023 08:01:48 +0000
-Received: from wout5-smtp.messagingengine.com ([64.147.123.21])
+	id 1qPh5Q-0073Zy-2v;
+	Sat, 29 Jul 2023 10:22:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPetU-006kgN-32;
-	Sat, 29 Jul 2023 08:01:46 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.west.internal (Postfix) with ESMTP id C5A83320084E;
-	Sat, 29 Jul 2023 04:01:38 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Sat, 29 Jul 2023 04:01:39 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1690617698; x=1690704098; bh=it
-	VztlhsdL+TgE9iBCuYgyv0QZn1iL7TtRpdZyaCyBM=; b=K3GKtYlR7bONoMs4wU
-	CtMwcBikuXune0t+aupcKbSwA4l3JefblqM5Bcbol9fRmprrs9u4912e0lGX3ILK
-	V/yQI8s81nl0XsCw8yY0fXLgkOT6sFtYgdkKK4nwBorUkM7jECQgf4z1bpB7BHeO
-	hn05aiGWl0AwWVSvSn8s91zQZ+db77RD5ksoPFyYjqk7ImL5Le3PqANFvvXxL4Hc
-	trXh8GlrZBvwLyGNgtOIvjjo++yQkMp0ilkmDQ7T8rtc4kR+xZ9KsXOoxvwngWcA
-	lA1MWEWSbKV6oGPtbl2SrQPLNWV8FWm/xFUl9lBUfT80SMLpx3+W8a5ucfrYE+2G
-	4sGg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm3; t=1690617698; x=1690704098; bh=itVztlhsdL+Tg
-	E9iBCuYgyv0QZn1iL7TtRpdZyaCyBM=; b=0EOha8fZdjiqo0sg0OE922E1vqSVw
-	+ceoOUMLM5u2ACPky1JbpH8YFeYIC9agJHTtN010wkgUVVd/5bTEuk7MEmjG6X9T
-	WYLgjJHPGw+oOf2iM9Dxs9ywojkZCfUtLD97U76zgO2VvZc/fMRMnkxaV3HJmESZ
-	lXjPgMewH0qsUQr66Pu+dFdOiBPQgM5NAB9+UXpy/p7/76T4RN8ONL2TobOg10lH
-	olf6mBp5b0HljZG8Kp1GAf5kKpruxSQZQdDCO6/2LVBKYAiHJ8iPaIh5mEjHfrqr
-	bYhmUnDByaTnHkJ3/fHKgCZ4iZYhyoTwG4C05f48271jY6XskqHF6UUDg==
-X-ME-Sender: <xms:YMfEZOgmoC8fMwpRtqguwWHfyQKl-7UeMtBC39dsAe0c9t1lQpunHw>
-    <xme:YMfEZPAc-3--76K-fdqkti-PMOKtC-XfagYouBNBru_pv3eykbqlBfsyMGGLDt_ng
-    oJ-Ab7KZ-AD42FgVN0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrieejgdduvdehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepvefhffeltdegheeffffhtdegvdehjedtgfekueevgfduffettedtkeekueef
-    hedunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpe
-    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:YMfEZGFKi96I8nhFNkV3ostG1V7qBlsT9acoWLLwjt3ANUqmr4KuZg>
-    <xmx:YMfEZHQ9cdqcX_EWp_CR_hsrViZG93sHzHy4j5gjJf2YvFjqFFJwtQ>
-    <xmx:YMfEZLwmoTryi4H9-c7XvfYgbgMjl0olpaD042Rzmw0TDIdChPYApw>
-    <xmx:YsfEZCmNleOV9eCoTRRqHQb7sxX1hOhGi7FevuE1mprIUcWcq3xOQQ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 14AD1B6008D; Sat, 29 Jul 2023 04:01:36 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-592-ga9d4a09b4b-fm-defalarms-20230725.001-ga9d4a09b
-Mime-Version: 1.0
-Message-Id: <e7a792d9-39b9-440a-9c22-99e25b25a396@app.fastmail.com>
-In-Reply-To: <20230728234429.GA611252@dev-arch.thelio-3990X>
-References: <1687443219-11946-1-git-send-email-yangtiezhu@loongson.cn>
- <1687443219-11946-2-git-send-email-yangtiezhu@loongson.cn>
- <20230727213648.GA354736@dev-arch.thelio-3990X>
- <1777400a-4d9c-4bdb-9d3b-f8808ef054cc@app.fastmail.com>
- <20230728173103.GA1299743@dev-arch.thelio-3990X>
- <a2fa1a31-e8bb-4659-9631-398b564e7c2b@app.fastmail.com>
- <20230728234429.GA611252@dev-arch.thelio-3990X>
-Date: Sat, 29 Jul 2023 09:59:23 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Nathan Chancellor" <nathan@kernel.org>
-Cc: "Tiezhu Yang" <yangtiezhu@loongson.cn>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- loongarch@lists.linux.dev, Linux-Arch <linux-arch@vger.kernel.org>,
- bpf@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
- loongson-kernel@lists.loongnix.cn
-Subject: Re: [PATCH v3 1/2] asm-generic: Unify uapi bitsperlong.h for arm64, riscv and
- loongarch
+	id 1qPh5N-0073Z8-2H
+	for linux-riscv@lists.infradead.org;
+	Sat, 29 Jul 2023 10:22:10 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D918660B75;
+	Sat, 29 Jul 2023 10:22:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17586C433C8;
+	Sat, 29 Jul 2023 10:22:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690626128;
+	bh=tuPIbqBr52wBKVdl98uVAm315Bxepe8VF8Jh0dVoqb0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bwhY0I23bb0OBrElDNY7q4V16m1Dk1fvyOEhfxoyucmPHcRYYvQoy355fEf6vkp1y
+	 SWlM2CawNSmu6LVeyHstxjcTpVkPZaeUEIeXDKlbfldqSolDua8y27o/K6Iex4n5pS
+	 nqQsNPzpoXm+rk1SOIWCEb1S+oo5x3ZBUk1U2bmmHoGkjY1FQ2jKlqyVQD+D++4dZD
+	 Rz996sqdPI0BacfTb8eEj6IAAkJNaVRbTrFERGp4R+NyQQPR0iAyEfyDZaLopEeyv8
+	 bCtqVflq8SMtKWagzi+7RXmP7DuKmx19c6s5+bsnysXpu0UhIBKY1ARmUDiAEj591q
+	 Ho7YZGgfaTYcg==
+Date: Sat, 29 Jul 2023 11:22:03 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-watchdog@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] watchdog: Enable COMPILE_TEST for more drivers
+Message-ID: <20230729-twerp-avert-70577ff7d952@spud>
+References: <20230728195022.1198555-1-robh@kernel.org>
+MIME-Version: 1.0
+In-Reply-To: <20230728195022.1198555-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230729_010145_014414_41038555 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20230729_032209_803827_281F7762 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,92 +76,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3359793051621497771=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 29, 2023, at 01:44, Nathan Chancellor wrote:
-> On Fri, Jul 28, 2023 at 10:56:38PM +0200, Arnd Bergmann wrote:
 
->     DESCEND objtool
->   In file included from 
-> /usr/include/aarch64-linux-gnu/asm/bitsperlong.h:1,
->                    from /usr/include/asm-generic/int-ll64.h:12,
->                    from /usr/include/asm-generic/types.h:7,
->                    from /usr/include/aarch64-linux-gnu/asm/types.h:1,
->                    from /linux-stable/tools/include/linux/types.h:13,
->                    from 
-> /linux-stable/tools/arch/x86/include/asm/orc_types.h:9,
->                    from /linux-stable/scripts/sorttable.h:96,
->                    from /linux-stable/scripts/sorttable.c:201:
->   /linux-stable/tools/include/asm-generic/bitsperlong.h:14:2: error: 
-> #error Inconsistent word size. Check asm/bitsperlong.h
->      14 | #error Inconsistent word size. Check asm/bitsperlong.h
->         |  ^~~~~
->   make[3]: *** [/linux-stable/scripts/Makefile.host:114: 
-> scripts/sorttable] Error 1
->   ...
->
->> I also noticed that your command line includes CROSS_COMPILE=x86_64-linux-
->> rather than CROSS_COMPILE=x86_64-linux-gnu-
->
-> Right, as I was reproducing this with your kernel.org GCC for
-> CROSS_COMPILE and Fedora's GCC for HOSTCC, since I wanted to make sure
-> this was not some issue with clang (which it does not appear to be).
+--===============3359793051621497771==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="niFHKtW+E1+3Tf0J"
+Content-Disposition: inline
 
-Ok, it's beginning to make more sense to me now. I see
-that the tools/arch/x86/include/asm/orc_types.h comes from
-the x86_64 target build and is intentional, as sorttable.c
-needs to access the ORC information. Here the Makefile does
 
-ifdef CONFIG_UNWINDER_ORC
-ifeq ($(ARCH),x86_64)
-ARCH := x86
-endif
-HOSTCFLAGS_sorttable.o += -I$(srctree)/tools/arch/x86/include
-HOSTCFLAGS_sorttable.o += -DUNWINDER_ORC_ENABLED
-endif
+--niFHKtW+E1+3Tf0J
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-in order to get the ORC definitions from asm/orc_types.h, but
-then it looks like it also gets the uapi/asm/bitsperlong.h
-header from there which contains
+On Fri, Jul 28, 2023 at 01:50:21PM -0600, Rob Herring wrote:
+> There's quite a few watchdog drivers which are easily enabled for
+> COMPILE_TEST, so let's enable them.
+>=20
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+> Passed allyesconfig builds on arm, arm64, x86, riscv, powerpc, sparc
 
-#if defined(__x86_64__) && !defined(__ILP32__)
-# define __BITS_PER_LONG 64
-#else
-# define __BITS_PER_LONG 32
-#endif
+Doing its job I suppose, the riscv patchwork automation stuff has
+spotted one new complaint for allmodconfig:
+stm32_iwdg.c:77:19: warning: unused function 'reg_read' [-Wunused-function]
 
-and this would set __BITS_PER_LONG to 32 on arm64.
 
-However, I don't see this actually being included on my
-machine. Can you dump the sorttable.c preprocessor output
-with your setup, using -fdirectives-only, so we can see
-which of the two (__BITS_PER_LONG or BITS_PER_LONG) is
-actually wrong and triggers the sanity check?
+--niFHKtW+E1+3Tf0J
+Content-Type: application/pgp-signature; name="signature.asc"
 
-What I see on my machine is that both definitions come
-from the local tools/include/ headers, not from the
-installed system headers, so I'm still doing something
-wrong in my installation:
+-----BEGIN PGP SIGNATURE-----
 
-./tools/include/uapi/asm-generic/bitsperlong.h
-#define __BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMToSwAKCRB4tDGHoIJi
+0hUuAQDTDOhDkjqpoQL8kgJdY0n07+K7LrUs4Nbwjsrj8p+LOQEA3agQW/XkUhV+
+5EP8xSOUmR8kGeU3oQXbtv0VPb0kkgM=
+=hMX2
+-----END PGP SIGNATURE-----
 
-./tools/include/asm-generic/bitsperlong.h
-#define BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
+--niFHKtW+E1+3Tf0J--
 
-Neither of these files actually contains the sanity
-check in linux-6.5-rc3, and comparing these is clearly
-nonsensical, as they are defined the same way (rather
-than checking CONFIG_64BIT), but also I don't see why
-there is both a uapi/ version and a non-uapi version
-in what is meant to be a userspace header.
 
-     Arnd
+--===============3359793051621497771==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3359793051621497771==--
+
