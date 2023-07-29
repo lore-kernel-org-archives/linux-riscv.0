@@ -4,89 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B19C41513
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 07:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF73C0015E
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 08:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Aeg96w7cNcAt53/TIWYBMo+5eTm8EAtH9hXbBbwbXMg=; b=iXa4Ar9RcvVpli
-	IqjH923rv2PPnbA3m3b8634Vl0JaxAH3qLRss08ELZ9+kabjPftNJ2SJ435KqCsnLdqGQvPgsfbs9
-	EK/xjcvY6V8rjy1aCvLD8l+erf8WpbZb0XZ0dGDa8YAlFY51UlWWQkHg5s8RNgRzt3DuIqhSuEQio
-	kTvHZ5ck86LQqnKUz5jpkeA9b2DUTj8D6j656iNGIbf8TmcuHSfPnuY6i5Y7Yfqt2yHEaLiannVtq
-	eiLdD+NeZgvM2XJtovnviRtoawDYXZYeyml4tOpkVcza1RtCffZ/wWC1DzQpZRb71RWwOUXeDbiSr
-	aT5IJaTA6k3uwSF4atRA==;
+	List-Owner; bh=ytxPAcjAJw6Q5vGuTie8OHU4QC2jAVkJD86zY6etIco=; b=kRfV0CnC029u0C
+	3gsQvvwFGPIk9sb3jU3D5V4sf/RD6/JM8nGN9wrQYaUMUqJ0VU/WGq/tMLi5SMuEUBmdILCxZWGkS
+	DceoNrIovmLFC7xkU2w+c+p6ER7kw6kLn2/wnzdroppnjWVMBcwXdnRSnR8VjmWi+UmiW4MRockO4
+	ugfecPjkO7j7TWGt6BfsQBimTTN5fyT6kyQE/7tcuaW+sQdWF8JaTb4DZynA8w7HweJC3fHKSCCA9
+	lHYU6FQRmuQnwaKhY49iIuDJxuLBqeB1OaaPYJWI+dEkkQJW2iitQdgsZsD86TBgl1NDEgTD0PVgj
+	Os642i+9z8l8OWWuAPuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPeWy-006dyq-10;
-	Sat, 29 Jul 2023 07:38:28 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1qPetY-006khq-30;
+	Sat, 29 Jul 2023 08:01:48 +0000
+Received: from wout5-smtp.messagingengine.com ([64.147.123.21])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPeWv-006dxy-0Q
-	for linux-riscv@lists.infradead.org;
-	Sat, 29 Jul 2023 07:38:26 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-991da766865so404160366b.0
-        for <linux-riscv@lists.infradead.org>; Sat, 29 Jul 2023 00:38:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690616301; x=1691221101;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=IYmWtjCeCkbkXYXMidyXsHWo/uzc6Q0z95DnXsdb6Jk=;
-        b=Ut1CWQVuoMLWFKzhCEeRWNrfILigN3hwnJXELqS2Tsfgnn3fFk2TtGyJAzjAj5wGEA
-         sNipHCgNMxUMrgl7nescH6w++92Hb6aQiDANbCUKSWm8nzmINfUaAvlXNQcLqjtL2I3+
-         enz93UK0DlVK8+cta6KaXLupiTePyrO5Hriwxh8lFtelzsB2raxvmYI1/RkfKtyzsB6x
-         xWlmXhc0SpGkcPfWHr9tectW+YjxDC3M3yxfNMFziU7BBL7nHRpDeLc1luZT8v2fPWgQ
-         yrYMEYjOMuO3tiMBJmnqpRaJ4UxvaR5S6If5xytfRSueIvZvYxd/kgMfYtBaZ429//Dn
-         LkKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690616301; x=1691221101;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IYmWtjCeCkbkXYXMidyXsHWo/uzc6Q0z95DnXsdb6Jk=;
-        b=VqSh+fiVjGn2iz3iWGBB/Zcmd3jYKutqDwUF6yjF9hjDfG3ienz0tMd4hwe5/8s40i
-         0KzLp4gLImZekpbbSaFhEjYLNxJuy/INKbCxTtOnXCjTjBjBJrzazxBi1tkyDz8HSVaI
-         C21bSos6VYN2glZM5JpA2wln7PusNNtev1j0le2aFI3+YOrwx1fXi/TFFElO08H83tJ6
-         7gbIBmQ/T+ff6n3rywAQKVngZcc1GzrmdvKXj+4nTDEm+I5nrRTphlgTK/9BPfR2iLw/
-         NwE6ozBePwH2A1PSw4JgjKLARCM/BVYpTmgp5jPEkW480IFwNQOv0WvgbPpGXoHOQgX7
-         e45g==
-X-Gm-Message-State: ABy/qLY6KNximiwYadEQ2N9ktkFx/VaDWRPpdHCeRhegOwk6xFC/+sZe
-	zhRiBNU5hSg6GfNWWm6q9SWZmg==
-X-Google-Smtp-Source: APBJJlE05iU3+hYWOPGNmt1tk5T+oJvM8YCFPE9dtxhtPAlwF0v+PGLvzacP+3sj+ZuHwVpYnCzI/w==
-X-Received: by 2002:a17:906:74d6:b0:99b:e03b:3968 with SMTP id z22-20020a17090674d600b0099be03b3968mr1356267ejl.64.1690616301218;
-        Sat, 29 Jul 2023 00:38:21 -0700 (PDT)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id kk9-20020a170907766900b00982cfe1fe5dsm3000715ejc.65.2023.07.29.00.38.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Jul 2023 00:38:20 -0700 (PDT)
-Date: Sat, 29 Jul 2023 09:38:19 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Ian Rogers <irogers@google.com>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>, 
-	=?utf-8?B?UsOpbWk=?= Denis-Courmont <remi@remlab.net>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v4 10/10] perf: tests: Adapt mmap-basic.c for riscv
-Message-ID: <20230729-b5ec43a48d67caf13025fafe@orel>
-References: <20230727141428.962286-1-alexghiti@rivosinc.com>
- <20230727141428.962286-11-alexghiti@rivosinc.com>
- <CAP-5=fXvqJk9hA51pDSXodEWSP4DzN+RJ1scpyzJOrxk2w5kjg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAP-5=fXvqJk9hA51pDSXodEWSP4DzN+RJ1scpyzJOrxk2w5kjg@mail.gmail.com>
+	id 1qPetU-006kgN-32;
+	Sat, 29 Jul 2023 08:01:46 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id C5A83320084E;
+	Sat, 29 Jul 2023 04:01:38 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Sat, 29 Jul 2023 04:01:39 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1690617698; x=1690704098; bh=it
+	VztlhsdL+TgE9iBCuYgyv0QZn1iL7TtRpdZyaCyBM=; b=K3GKtYlR7bONoMs4wU
+	CtMwcBikuXune0t+aupcKbSwA4l3JefblqM5Bcbol9fRmprrs9u4912e0lGX3ILK
+	V/yQI8s81nl0XsCw8yY0fXLgkOT6sFtYgdkKK4nwBorUkM7jECQgf4z1bpB7BHeO
+	hn05aiGWl0AwWVSvSn8s91zQZ+db77RD5ksoPFyYjqk7ImL5Le3PqANFvvXxL4Hc
+	trXh8GlrZBvwLyGNgtOIvjjo++yQkMp0ilkmDQ7T8rtc4kR+xZ9KsXOoxvwngWcA
+	lA1MWEWSbKV6oGPtbl2SrQPLNWV8FWm/xFUl9lBUfT80SMLpx3+W8a5ucfrYE+2G
+	4sGg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm3; t=1690617698; x=1690704098; bh=itVztlhsdL+Tg
+	E9iBCuYgyv0QZn1iL7TtRpdZyaCyBM=; b=0EOha8fZdjiqo0sg0OE922E1vqSVw
+	+ceoOUMLM5u2ACPky1JbpH8YFeYIC9agJHTtN010wkgUVVd/5bTEuk7MEmjG6X9T
+	WYLgjJHPGw+oOf2iM9Dxs9ywojkZCfUtLD97U76zgO2VvZc/fMRMnkxaV3HJmESZ
+	lXjPgMewH0qsUQr66Pu+dFdOiBPQgM5NAB9+UXpy/p7/76T4RN8ONL2TobOg10lH
+	olf6mBp5b0HljZG8Kp1GAf5kKpruxSQZQdDCO6/2LVBKYAiHJ8iPaIh5mEjHfrqr
+	bYhmUnDByaTnHkJ3/fHKgCZ4iZYhyoTwG4C05f48271jY6XskqHF6UUDg==
+X-ME-Sender: <xms:YMfEZOgmoC8fMwpRtqguwWHfyQKl-7UeMtBC39dsAe0c9t1lQpunHw>
+    <xme:YMfEZPAc-3--76K-fdqkti-PMOKtC-XfagYouBNBru_pv3eykbqlBfsyMGGLDt_ng
+    oJ-Ab7KZ-AD42FgVN0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrieejgdduvdehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepvefhffeltdegheeffffhtdegvdehjedtgfekueevgfduffettedtkeekueef
+    hedunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpe
+    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:YMfEZGFKi96I8nhFNkV3ostG1V7qBlsT9acoWLLwjt3ANUqmr4KuZg>
+    <xmx:YMfEZHQ9cdqcX_EWp_CR_hsrViZG93sHzHy4j5gjJf2YvFjqFFJwtQ>
+    <xmx:YMfEZLwmoTryi4H9-c7XvfYgbgMjl0olpaD042Rzmw0TDIdChPYApw>
+    <xmx:YsfEZCmNleOV9eCoTRRqHQb7sxX1hOhGi7FevuE1mprIUcWcq3xOQQ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 14AD1B6008D; Sat, 29 Jul 2023 04:01:36 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-592-ga9d4a09b4b-fm-defalarms-20230725.001-ga9d4a09b
+Mime-Version: 1.0
+Message-Id: <e7a792d9-39b9-440a-9c22-99e25b25a396@app.fastmail.com>
+In-Reply-To: <20230728234429.GA611252@dev-arch.thelio-3990X>
+References: <1687443219-11946-1-git-send-email-yangtiezhu@loongson.cn>
+ <1687443219-11946-2-git-send-email-yangtiezhu@loongson.cn>
+ <20230727213648.GA354736@dev-arch.thelio-3990X>
+ <1777400a-4d9c-4bdb-9d3b-f8808ef054cc@app.fastmail.com>
+ <20230728173103.GA1299743@dev-arch.thelio-3990X>
+ <a2fa1a31-e8bb-4659-9631-398b564e7c2b@app.fastmail.com>
+ <20230728234429.GA611252@dev-arch.thelio-3990X>
+Date: Sat, 29 Jul 2023 09:59:23 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Nathan Chancellor" <nathan@kernel.org>
+Cc: "Tiezhu Yang" <yangtiezhu@loongson.cn>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, Linux-Arch <linux-arch@vger.kernel.org>,
+ bpf@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ loongson-kernel@lists.loongnix.cn
+Subject: Re: [PATCH v3 1/2] asm-generic: Unify uapi bitsperlong.h for arm64, riscv and
+ loongarch
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230729_003825_177936_D4317EB2 
-X-CRM114-Status: GOOD (  19.66  )
+X-CRM114-CacheID: sfid-20230729_010145_014414_41038555 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,41 +109,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdWwgMjgsIDIwMjMgYXQgMTA6NTQ6MDJBTSAtMDcwMCwgSWFuIFJvZ2VycyB3cm90
-ZToKPiBPbiBUaHUsIEp1bCAyNywgMjAyMyBhdCA3OjMw4oCvQU0gQWxleGFuZHJlIEdoaXRpIDxh
-bGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+Cj4gPiByaXNjdiBub3cgc3VwcG9ydHMg
-bW1hcGluZyBoYXJkd2FyZSBjb3VudGVycyB0byB1c2Vyc3BhY2Ugc28gYWRhcHQgdGhlIHRlc3QK
-PiA+IHRvIHJ1biBvbiB0aGlzIGFyY2hpdGVjdHVyZS4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBB
-bGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4gPiBSZXZpZXdlZC1ieTog
-QW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4KPiA+IFJldmlld2VkLWJ5OiBB
-dGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KPiA+IC0tLQo+ID4gIHRvb2xzL3BlcmYv
-dGVzdHMvbW1hcC1iYXNpYy5jIHwgNCArKy0tCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0
-aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvdG9vbHMvcGVyZi90
-ZXN0cy9tbWFwLWJhc2ljLmMgYi90b29scy9wZXJmL3Rlc3RzL21tYXAtYmFzaWMuYwo+ID4gaW5k
-ZXggZTY4Y2E2MjI5NzU2Li5mNTA3NWNhNzc0ZjggMTAwNjQ0Cj4gPiAtLS0gYS90b29scy9wZXJm
-L3Rlc3RzL21tYXAtYmFzaWMuYwo+ID4gKysrIGIvdG9vbHMvcGVyZi90ZXN0cy9tbWFwLWJhc2lj
-LmMKPiA+IEBAIC0yODQsNyArMjg0LDcgQEAgc3RhdGljIHN0cnVjdCB0ZXN0X2Nhc2UgdGVzdHNf
-X2Jhc2ljX21tYXBbXSA9IHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAicGVybWlzc2lv
-bnMiKSwKPiA+ICAgICAgICAgVEVTVF9DQVNFX1JFQVNPTigiVXNlciBzcGFjZSBjb3VudGVyIHJl
-YWRpbmcgb2YgaW5zdHJ1Y3Rpb25zIiwKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICBtbWFw
-X3VzZXJfcmVhZF9pbnN0ciwKPiA+IC0jaWYgZGVmaW5lZChfX2kzODZfXykgfHwgZGVmaW5lZChf
-X3g4Nl82NF9fKSB8fCBkZWZpbmVkKF9fYWFyY2g2NF9fKQo+ID4gKyNpZiBkZWZpbmVkKF9faTM4
-Nl9fKSB8fCBkZWZpbmVkKF9feDg2XzY0X18pIHx8IGRlZmluZWQoX19hYXJjaDY0X18pIHx8IF9f
-cmlzY3ZfeGxlbiA9PSA2NAo+IAo+IFNhbWUgY29tbWVudCByZWxhdGluZyB0byB0aGUgZ3VhcmQs
-IHdoeSBub3QgZGVmaW5lZChfX3Jpc2N2KSA/CgpfX3Jpc2N2X3hsZW4gd2lsbCBhbHdheXMgYmUg
-ZGVmaW5lZCBmb3IgYWxsIHJpc2N2IHRhcmdldHMsIHNvIGFsc28KY2hlY2tpbmcgX19yaXNjdiBp
-c24ndCBuZWNlc3Nhcnkgd2hlbiBhIHNwZWNpZmljIGJpdCB3aWR0aCBhbHNvIG5lZWRzCnRvIGJl
-IGNoZWNrZWQuIF9fcmlzY3YgaXMgdXNlZnVsIGZvciBjaGVja3MgdGhhdCBkb24ndCBuZWVkIHRv
-IGJlCmNvbmNlcm5lZCB3aXRoIHRoZSBiaXQgd2lkdGguIEdyZXBwaW5nLCBJIHNlZSBpbnN0YW5j
-ZXMgb2YgYm90aAoiZGVmaW5lZChfX3Jpc2N2KSAmJiBfX3Jpc2N2X3hsZW4gPT0iIGFuZCBqdXN0
-ICJfX3Jpc2N2X3hsZW4gPT0iLgpJTUhPLCB0aGUgZm9ybWVyIHNob3VsZCBiZSByZWR1Y2VkIHRv
-IHRoZSBsYXR0ZXIsIHJhdGhlciB0aGFuIGNyZWF0aW5nCm1vcmUgaW5zdGFuY2VzIG9mIHRoZW0u
-CgpUaGFua3MsCmRyZXcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Sat, Jul 29, 2023, at 01:44, Nathan Chancellor wrote:
+> On Fri, Jul 28, 2023 at 10:56:38PM +0200, Arnd Bergmann wrote:
+
+>     DESCEND objtool
+>   In file included from 
+> /usr/include/aarch64-linux-gnu/asm/bitsperlong.h:1,
+>                    from /usr/include/asm-generic/int-ll64.h:12,
+>                    from /usr/include/asm-generic/types.h:7,
+>                    from /usr/include/aarch64-linux-gnu/asm/types.h:1,
+>                    from /linux-stable/tools/include/linux/types.h:13,
+>                    from 
+> /linux-stable/tools/arch/x86/include/asm/orc_types.h:9,
+>                    from /linux-stable/scripts/sorttable.h:96,
+>                    from /linux-stable/scripts/sorttable.c:201:
+>   /linux-stable/tools/include/asm-generic/bitsperlong.h:14:2: error: 
+> #error Inconsistent word size. Check asm/bitsperlong.h
+>      14 | #error Inconsistent word size. Check asm/bitsperlong.h
+>         |  ^~~~~
+>   make[3]: *** [/linux-stable/scripts/Makefile.host:114: 
+> scripts/sorttable] Error 1
+>   ...
+>
+>> I also noticed that your command line includes CROSS_COMPILE=x86_64-linux-
+>> rather than CROSS_COMPILE=x86_64-linux-gnu-
+>
+> Right, as I was reproducing this with your kernel.org GCC for
+> CROSS_COMPILE and Fedora's GCC for HOSTCC, since I wanted to make sure
+> this was not some issue with clang (which it does not appear to be).
+
+Ok, it's beginning to make more sense to me now. I see
+that the tools/arch/x86/include/asm/orc_types.h comes from
+the x86_64 target build and is intentional, as sorttable.c
+needs to access the ORC information. Here the Makefile does
+
+ifdef CONFIG_UNWINDER_ORC
+ifeq ($(ARCH),x86_64)
+ARCH := x86
+endif
+HOSTCFLAGS_sorttable.o += -I$(srctree)/tools/arch/x86/include
+HOSTCFLAGS_sorttable.o += -DUNWINDER_ORC_ENABLED
+endif
+
+in order to get the ORC definitions from asm/orc_types.h, but
+then it looks like it also gets the uapi/asm/bitsperlong.h
+header from there which contains
+
+#if defined(__x86_64__) && !defined(__ILP32__)
+# define __BITS_PER_LONG 64
+#else
+# define __BITS_PER_LONG 32
+#endif
+
+and this would set __BITS_PER_LONG to 32 on arm64.
+
+However, I don't see this actually being included on my
+machine. Can you dump the sorttable.c preprocessor output
+with your setup, using -fdirectives-only, so we can see
+which of the two (__BITS_PER_LONG or BITS_PER_LONG) is
+actually wrong and triggers the sanity check?
+
+What I see on my machine is that both definitions come
+from the local tools/include/ headers, not from the
+installed system headers, so I'm still doing something
+wrong in my installation:
+
+./tools/include/uapi/asm-generic/bitsperlong.h
+#define __BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
+
+./tools/include/asm-generic/bitsperlong.h
+#define BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
+
+Neither of these files actually contains the sanity
+check in linux-6.5-rc3, and comparing these is clearly
+nonsensical, as they are defined the same way (rather
+than checking CONFIG_64BIT), but also I don't see why
+there is both a uapi/ version and a non-uapi version
+in what is meant to be a userspace header.
+
+     Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
