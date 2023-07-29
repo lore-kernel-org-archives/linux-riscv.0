@@ -4,73 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783E8C001DF
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 17:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D81C0015E
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 21:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+QNVEQpJSWzWsOmC7QMrhIhTUMvF0kj92vvd+4w8ltQ=; b=Xk1CDDQ8jF1xv3oPb85sTiU0BL
-	xLEUloKTJs+b9W4aO59t6ZVBPiOX/52dCmZOOBPm88RLq1ddB9fTLotta7fre0P8sNyQ8Dxc+Wn32
-	raY279s/X3RSJDIr4q6rEki2e9ADmjcMRuTXqqw5Bi+sW3dxk0a6anHJSUccwvvMTDgGBOmzwVG8E
-	TuxWQB0WqmEer3pK3ITwyKfTUsZkyH8PwJf65KExjibiB740DKAzmqBxLrEVM/nwyLXM3/yWE/nS+
-	diBLIYgNJ0vzRmshFHqA4YZcJGb61CqUIPnhwQgqoPBeXrwDu8XoF6BV64NqmnmVSbDK32M4tf63L
-	afSL2qJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4uXxE3KIJO547igoFk1h9mrUJmlt5TKjLjW6Q912Ezk=; b=Vx4TKQmrJZ7/TE
+	AT1pTEeagu4HTx4FreorcqaNInbGrkzSPoFybfVV+DBa7qfPUj8h5KdS5qFgfj6GBuP4DqeZ0Pws2
+	2vlVMquYK9pFJquBjFfYfedPAkTPwss+r8P8cr8q+31SFf5+/LKHWWS2w5buEiosGvzQWsLUWKSaI
+	PTe6J3K18orfqBpf6JSq65q6++tl4hKF7KHZOfGUxNBTHMFmHkeMoIRNZODD7kFhHegbk4IJE4BWM
+	GFQUkB4BKL6wKFl5uHlP6yhsJVbMKsM5LtuAbGuWAvzBHT/73mZuf0hbqmJIm/pFxMj0C9T5spKnS
+	ijeZ2raRbbqSANea2bEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPo32-008HrU-1p;
-	Sat, 29 Jul 2023 17:48:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qPrFD-008waL-1z;
+	Sat, 29 Jul 2023 21:12:59 +0000
+Received: from out4-smtp.messagingengine.com ([66.111.4.28])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPo2z-008HqU-2h
-	for linux-riscv@lists.infradead.org;
-	Sat, 29 Jul 2023 17:48:11 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A389D601FE;
-	Sat, 29 Jul 2023 17:48:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79462C433C9;
-	Sat, 29 Jul 2023 17:48:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690652888;
-	bh=426Plr62YIRVVd7idefnHiN/75xOXxFwgyitLpzWikI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ml2RZxAenphY2R+EU5yWpJOcmOG/MVc8GX8AsiALO21yS2ff9XnOMpyryixIJWHVS
-	 MFE3y5fS98ByWyiqZlo5rdb3HDVXKG7ed3QtCn3reyw7PXw8+dXgkt62Nud0yjEuzN
-	 m6khptTa5+EAxubkvi3qxNJvSeD+isKPNA4UPtMXS2ixLCQdKmlE0ayHB8arnSJR6u
-	 cjGQoEih8NH3fp2vmddZnN/PsRS+hPsOXXhhLAgK53ZsdBdVDteB76HVaW8enar4bY
-	 Gjv06JgSGVnYJC1Np1a0BHANcKfcvzk7pqPruEzHPy/rLP3iKDJuRqQptUyXOzNn6u
-	 EIz9DX3ZGnXHg==
-Date: Sat, 29 Jul 2023 18:48:03 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>, Bin Meng <bmeng@tinylab.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH v2] riscv: Handle zicsr/zifencei issue between gcc and
- binutils
-Message-ID: <20230729-chaps-coauthor-95557d86b189@spud>
-References: <20230726174524.340952-1-xingmingzheng@iscas.ac.cn>
- <20230726-outclass-parade-2ccea9f6688a@spud>
- <10231b81-ea42-26d0-4c11-92851229e658@iscas.ac.cn>
- <20230726-armchair-evasive-427dd245a9fe@spud>
- <20230727-briskness-sappy-e2d9e4c1ef36@spud>
- <d75ef570-c0ad-cea4-687a-d02b560aa676@iscas.ac.cn>
-MIME-Version: 1.0
-In-Reply-To: <d75ef570-c0ad-cea4-687a-d02b560aa676@iscas.ac.cn>
+	id 1qPrF9-008wXn-1o;
+	Sat, 29 Jul 2023 21:12:57 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.nyi.internal (Postfix) with ESMTP id AEE9D5C00B7;
+	Sat, 29 Jul 2023 17:12:48 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Sat, 29 Jul 2023 17:12:48 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1690665168; x=1690751568; bh=2L
+	fIRxHFYf7tdiKVZVDNRsDqP9EiptdXtOO6rttjJd4=; b=YbZfH+nF9ZC2Yv40Wb
+	Fuit5rGlhfVzwXrH42XrZzJqEC8pysRJ8jeQeKPOki3IyRtp6rxWoRGy2h5cABB9
+	ARDZfDrglsLhUklgLkagtif1+btu2DkPyK7YfFfQoucZJFyzxV2srxa+0AUKSt3B
+	OJZPc5voyrmbP0Xhp5yf13ZHQpmAsAYJSVVq3jrmM88JWwrc/O4f3C1KAYrAd9oI
+	d8E9B92d6P9ioClbGuWJozgpUhmvqmblVVuUxZb1CCH1E4wTqRPSN1zJchFvPLaz
+	JnRRozeaut/LtlU7fcn4+56F4jpC0s3yAFJOtPwrIVfG+RWHIgeQTQyDYFP1SqxG
+	Oq4A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm3; t=1690665168; x=1690751568; bh=2LfIRxHFYf7td
+	iKVZVDNRsDqP9EiptdXtOO6rttjJd4=; b=m/YLPu8q3mhrS02GufIu+7Pus8img
+	YX5e4oOtO1PLj2Iw6Gr4VJ1jz1mVHnqlxu3r7U17Xeuq1vngeo3zyWfU7f5nKdc2
+	+H4T+t9DF1HrvdUptLghKQg8zFof6zG3u6RLWvhI37skysYRAr4wRqd0h1oHNlNV
+	PS0TGJ4m5mSjfXPokI6eRFwV/1hIKKGF5P7jwJN1xzWg/V+C2fCJ54oM6NLb1Q82
+	BntUGD10s/jC5xQEoH+trlllxHbSC95zVQ+5w13pYz3B+gaZO75aWmNYJdaOZ+Ew
+	yZWLTjGiJjaWyHsn/IEe4Htsd7h7VAJNlBzwR3axlSFehqxrT8RGoz5Hg==
+X-ME-Sender: <xms:z4DFZGACuWJH4Ai-lBBrfMWjpda14AuslY2pzRV42qxJAmcr6hrVPQ>
+    <xme:z4DFZAhfXvlLYmX9UkleogrCArOiJNv-rohV5b756dna6JHyvX-dFx5uIiuj6Dfnt
+    wIKbkq4pEZI4-8DdJM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrieekgdduheehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepjedvvddvudeludehjeeitdehheeivdejgfelleffiefgvefhhfeuudfhgeef
+    feehnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucevlhhushhtvghrufhiiigvpe
+    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:z4DFZJn-T3kYtGDsJY4kOvnouMsFLtEenPFOL30hx98C2nXI8vOh3g>
+    <xmx:z4DFZExJvC0WEy5OIkZ_IByrdwEBK5xB-od0lZL1JJWU58QvY_Iogg>
+    <xmx:z4DFZLRBWVm5HJ7q0oAB4cR_DY0O1CMgQEknhzzozOs9cb1MqM52Kg>
+    <xmx:0IDFZGG_T2KqYRFvQlA-APHwKjQP-i6-G3opAzZVn6KmDzyfP0OjJA>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 37ABCB60089; Sat, 29 Jul 2023 17:12:47 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-592-ga9d4a09b4b-fm-defalarms-20230725.001-ga9d4a09b
+Mime-Version: 1.0
+Message-Id: <6d6641b6-748e-412c-a139-35fc873a6a1b@app.fastmail.com>
+In-Reply-To: <20230729174617.GA1229655@dev-arch.thelio-3990X>
+References: <1687443219-11946-1-git-send-email-yangtiezhu@loongson.cn>
+ <1687443219-11946-2-git-send-email-yangtiezhu@loongson.cn>
+ <20230727213648.GA354736@dev-arch.thelio-3990X>
+ <1777400a-4d9c-4bdb-9d3b-f8808ef054cc@app.fastmail.com>
+ <20230728173103.GA1299743@dev-arch.thelio-3990X>
+ <a2fa1a31-e8bb-4659-9631-398b564e7c2b@app.fastmail.com>
+ <20230728234429.GA611252@dev-arch.thelio-3990X>
+ <e7a792d9-39b9-440a-9c22-99e25b25a396@app.fastmail.com>
+ <20230729174617.GA1229655@dev-arch.thelio-3990X>
+Date: Sat, 29 Jul 2023 23:12:26 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Nathan Chancellor" <nathan@kernel.org>
+Cc: "Tiezhu Yang" <yangtiezhu@loongson.cn>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, Linux-Arch <linux-arch@vger.kernel.org>,
+ bpf@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ loongson-kernel@lists.loongnix.cn
+Subject: Re: [PATCH v3 1/2] asm-generic: Unify uapi bitsperlong.h for arm64, riscv and
+ loongarch
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230729_104809_987501_80B38282 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20230729_141255_690278_75BD3E04 
+X-CRM114-Status: GOOD (  30.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,86 +111,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5861541664647075689=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jul 29, 2023, at 19:46, Nathan Chancellor wrote:
+> On Sat, Jul 29, 2023 at 09:59:23AM +0200, Arnd Bergmann wrote:
+>> On Sat, Jul 29, 2023, at 01:44, Nathan Chancellor wrote:
 
---===============5861541664647075689==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="/xQjWBbnHuYsLKM8"
-Content-Disposition: inline
+>> 
+>> in order to get the ORC definitions from asm/orc_types.h, but
+>> then it looks like it also gets the uapi/asm/bitsperlong.h
+>> header from there which contains
+>> 
+>> #if defined(__x86_64__) && !defined(__ILP32__)
+>> # define __BITS_PER_LONG 64
+>> #else
+>> # define __BITS_PER_LONG 32
+>> #endif
+>> 
+>> and this would set __BITS_PER_LONG to 32 on arm64.
+>> 
+>> However, I don't see this actually being included on my
+>> machine. Can you dump the sorttable.c preprocessor output
+>> with your setup, using -fdirectives-only, so we can see
+>> which of the two (__BITS_PER_LONG or BITS_PER_LONG) is
+>> actually wrong and triggers the sanity check?
+>
+> Sure thing, this is the output of:
+>
+>   $ gcc -I/linux-stable/tools/include 
+> -I/linux-stable/tools/arch/x86/include -DUNWINDER_ORC_ENABLED -I 
+> ./scripts -E -fdirectives-only /linux-stable/scripts/sorttable.c
+>
+> https://gist.github.com/nathanchance/d2c3e58230930317dc84aff80fef38bf
 
+Ok, so what we get is that the system-wide
+/usr/include/aarch64-linux-gnu/asm/bitsperlong.h
 
---/xQjWBbnHuYsLKM8
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+includes the source tree file 
+tools/include/asm-generic/bitsperlong.h
 
-On Sun, Jul 30, 2023 at 01:36:49AM +0800, Mingzheng Xing wrote:
+which in the old kernels only has the "32" fallback value.
 
-> I reproduced the error with gcc-12.2.0 and binutils-2.35. I tried a
-> different solution, which I think makes the logic easier. Showing
-> the new patch code:
+>> What I see on my machine is that both definitions come
+>> from the local tools/include/ headers, not from the
+>> installed system headers, so I'm still doing something
+>> wrong in my installation:
+>
+> Just to make sure, you have the 6.5-rc1+ headers installed and you are
+> attempting to build the host tools from an earlier Linux release than
+> 6.5-rc1? I don't see a problem with building these host programs on
+> mainline/6.5, I see this issue when building them in older stable
+> releases (my reproduction so far has been on 6.4 but I see it when
+> building all currently supported long term stable releases) when I have
+> the 6.5-rc1+ headers installed.
 
-It is indeed simpler, neat.
+Ok, I see. I missed that part of your description earlier.
 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 4c07b9189c86..a6fa1eed895c 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -569,25 +569,24 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
->=20
-> =A0config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
-> =A0=A0=A0=A0=A0=A0=A0 def_bool y
-> -=A0=A0=A0=A0=A0=A0 # https://sourceware.org/git/?p=3Dbinutils-gdb.git;a=
-=3Dcommit;h=3Daed44286efa8ae8717a77d94b51ac3614e2ca6dc
-> -=A0=A0=A0=A0=A0=A0 depends on AS_IS_GNU && AS_VERSION >=3D 23800
-> +=A0=A0=A0=A0=A0=A0 depends on AS_IS_GNU && AS_VERSION >=3D 23600
-> =A0=A0=A0=A0=A0=A0=A0 help
-> -=A0=A0=A0=A0=A0=A0=A0=A0 Newer binutils versions default to ISA spec ver=
-sion 20191213 which
-> -=A0=A0=A0=A0=A0=A0=A0=A0 moves some instructions from the I extension to=
- the Zicsr and Zifencei
-> -=A0=A0=A0=A0=A0=A0=A0=A0 extensions.
-> +=A0=A0=A0=A0=A0=A0=A0=A0 Binutils has supported zicsr and zifencei exten=
-sions since version 2.36,
-> +=A0=A0=A0=A0=A0=A0=A0=A0 try to adapt to the changes by using explicit z=
-icsr and zifencei via
-> +=A0=A0=A0=A0=A0=A0=A0=A0 -march.
+>
+> which seems to be where the mismatch is coming from?
 
-This sentence no longer makes sense to me, the motivation for why we are
-doing this is lost. Please preserve the link & explanation about the
-20191213 version of the spec, adding to it the commentary about how we
-can relax the check to 2.36, since that makes our lives easier.
+Right, exactly.
 
-The rest of this looks fine to me, if you resubmit I'll look at it
-further on Monday.
+>> ./tools/include/asm-generic/bitsperlong.h
+>> #define BITS_PER_LONG (__CHAR_BIT__ * __SIZEOF_LONG__)
+>> 
+>> Neither of these files actually contains the sanity
+>> check in linux-6.5-rc3, and comparing these is clearly
+>> nonsensical, as they are defined the same way (rather
+>> than checking CONFIG_64BIT), but also I don't see why
+>> there is both a uapi/ version and a non-uapi version
+>> in what is meant to be a userspace header.
+>
+> May be worth looping in the tools/ folks, since that whole directory is
+> rather special IMO...
 
---/xQjWBbnHuYsLKM8
-Content-Type: application/pgp-signature; name="signature.asc"
+I think the good news is that this only happens because
+the tools/ directory contains a copy of the kernel headers
+including that sanity check, and other user space won't
+suffer from it because they don't contain copies of kernel
+internal headers.
 
------BEGIN PGP SIGNATURE-----
+Reverting the change might still end up being the easiest way
+out regardless, but it does seem like we should be able
+to address this in the tools directory by making sure it doesn't
+mix the installed headers with the local ones.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZMVQ0wAKCRB4tDGHoIJi
-0hSNAQC4nTdM3esMZyV0dCcSxV4Vouv1QrjdKIehT8d0Ekj1FgEAzV4i7k7xFRWu
-eCpwfwzJaU7gFR6zdpfx0+KDSo2Cugc=
-=UWMZ
------END PGP SIGNATURE-----
+Part of the problem I think is that the installed 
+/usr/include/asm-generic/int-ll64.h includes
+/usr/include/aarch64-linux-gnu/asm/bitsperlong.h, so both
+of them are the uapi headers, but this one has an
+"include <asm-generic/bitsperlong.h>" that expects the
+uapi version but instead gets the kernel version from
+the tools directory. We could override this by adding
+a working tools/include/asm-generic/bitsperlong.h header,
+but that has to be backported to the stable kernels then.
 
---/xQjWBbnHuYsLKM8--
-
-
---===============5861541664647075689==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5861541664647075689==--
-
