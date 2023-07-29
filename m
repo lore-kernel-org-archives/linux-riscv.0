@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEEBC001DE
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 00:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC76C001DF
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Jul 2023 06:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iR5Snpv6zjPVr1/JLt8oG5NKP/wVi+sKoyK30VFfIb0=; b=k7Rz8jwGHFrbLN
-	An4g+DKqdqgdJd3agdZRY9JfWDj8GSQx8KhljziU27jtAM5EdbhQcKZ16AbJBz/uAoTyX3QQBTpNu
-	+zN/bsaanks3W6VQ0FAoBs0Ee2E+yJe893f9xtA0ImSNRIlx4w3XWvu8WLtaZxl4uuWn3rZrUOoKq
-	JxECA1IgiKj2OVHPes3u3jT3Cvf2LC8Uj41Iojk15h4nF+CgXwGShdrm2Wum/NwA65+VrLQT/WFlc
-	eqvYWjzfm3rqfnoY2wVEOCajMf8DeofOW7/wvMHPOqD/CB6t/ZtZVQsg7CmYx1uUs3Huqh3OU/vgx
-	nR9GubvTVDzCVZz9R+AA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ohguwVZ4Zsot+QukZ2XuOVNr0AzeA8pctuplZNP7+zY=; b=lDVPTSDjjHKXAn
+	bf4IORkVMhGGoMj3BMztzODMaPmB6dpHqMb4Qv9TlUNiWoHDU1DbgYeNMFJ0DBkhtdpgknx1TnU/e
+	/heebwRj5ngc9RlrvdUkH1esi14QF0B188NIzql3rfzaZIrBhv+qS7mysTTjXe8gBKhfdQZKzYMRg
+	iSkHfU+cWfa+11R1HIwGt4XzfYnzvWjhNwLMRyFWevD1uFR+YxWM1KqMhSsIfYyelRf/NttO76Yeg
+	Z1t1FymOQy1tPVEz1BBbwQvO/fkwbtvP32yoH3gVmCBsBpW8n3BWveSnYFGOd9Gmh5OzAdAXfQ36I
+	ynZDoRIkBRJWh99SPuOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPY21-005f0h-0b;
-	Sat, 29 Jul 2023 00:42:05 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1qPdcs-006W6n-1t;
+	Sat, 29 Jul 2023 06:40:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPY1l-005eyV-2k
+	id 1qPdco-006W6F-1X
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Jul 2023 00:41:51 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-d2082104a44so2523200276.2
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 17:41:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1690591308; x=1691196108;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pFylZ7MUbxwsfgnkCbIwukJjKcbZuVflXJcOt3ffCK4=;
-        b=0b9hKMxDqRwFQQnLMcqkv8PDDG/B+EGGKIIflyXXH1ZyfSndsboeXJ+TgsSS2iwWwD
-         mZK9za+90jiszGzd793UetnAs8xekTA2T4vD5AUxgo9V3HL6L2s22bi7IHqLJj4F6nD2
-         rCVTi2QOSa1y//QAMNR9pI55a5+voH5Q75OKbx+jiIKf+60l26WlJxC/Ge3hydIgerhS
-         uit7vPqeM5/JYzJwBgmRMtGvrlUQ++fcIaRDfp4/RFoTphs+Z9MfkMGcLscWr4oktRPN
-         mWg3Y7aOpahbc8mMonn0PhHsSyXhVyZJ3jKC6IlOJRcTpdIF2gNEz1894Cw3rt+1qqE9
-         qRqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690591308; x=1691196108;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pFylZ7MUbxwsfgnkCbIwukJjKcbZuVflXJcOt3ffCK4=;
-        b=XzeV7Jppxm1QVsadw+G7GTZK2UIhe43FQVlRI8VkLi12bFQypxAlkMpEslxYGtRxIC
-         FjiBEdqCy3lnZTVtuNp3h3tGumd0E8DvDpTmZeWe/98i+8P5tGFMOz32eOMsIJqmM8WT
-         5K70iOU6JiSmCSkDVTOxYSfoAas0oCrKBuoNbGqFPgeXTE1cAtMXbo5HE2FAMmovqdUZ
-         GIzhOV+iYSKah/wA7ASEvCQL6iPveQU3EmfN4c8THUvUT35AzAjQi0sqs0s+a3gzXr6p
-         4/bQvwSzKhRp1jyQX2YU5ys4r3Y3Ei25usRoJYolHiBuk1KF6eEqIiYMP8YwoI3k6rHR
-         PGbQ==
-X-Gm-Message-State: ABy/qLbOwH9jOE+7+OoM43j9ripez5U7B4tAaoa0OGylltYlWR+vQQGV
-	amGp8l0jz/Og6FqM+nDWH1zxF3V4OaE=
-X-Google-Smtp-Source: APBJJlGYk/HASjtwEfhn9G1Ynkqr6kkqBYHzgw8GP9sqBMBlRYNDe9UG6jZXkz7Xk/58V5PqTY9JcKEc00E=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:54f:0:b0:d16:1f54:75e1 with SMTP id
- 76-20020a25054f000000b00d161f5475e1mr19267ybf.0.1690591308572; Fri, 28 Jul
- 2023 17:41:48 -0700 (PDT)
-Date: Fri, 28 Jul 2023 17:41:44 -0700
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.41.0.487.g6d72f3e995-goog
-Message-ID: <20230729004144.1054885-1-seanjc@google.com>
-Subject: [PATCH] KVM: Wrap kvm_{gfn,hva}_range.pte in a per-action union
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Yu Zhao <yuzhao@google.com>
+	Sat, 29 Jul 2023 06:40:28 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 12E8C6069A
+	for <linux-riscv@lists.infradead.org>; Sat, 29 Jul 2023 06:40:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E93C433C9
+	for <linux-riscv@lists.infradead.org>; Sat, 29 Jul 2023 06:40:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690612824;
+	bh=CI7Q0bSDUFRUz5cf9sJg74y/advLjvwEO/S6YAFjxfw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=CBfmnuZM1ZSR7LImwbKgGLQsckvfNz7liIxag4nE02UbpntxGjR8a7FEmF+gKfXRr
+	 Uk2hEInl+V0gbQgudGV8lRpMbF7SWOPxX6n4kr6HPsDqa2M+R1U2IVQL5HShYSJINu
+	 TxXbHEq47Y6zpM2SGjrwD4qJCTLYPvISBAFn9nZ2KuMTvTivxmJnMBBZtJnEEKFyen
+	 TKLY1swNOvPHa6QJAMn+bqPy1xzPX/DOnaEubvgSdlDouqxOeSAMiyZ6ks7umlpsCM
+	 +ydvOBMtRDiP9bnrCONQh+GFXg5yM+fxAlKXF82FyjPrbYEIqsdqrWgCqP+/IQ5mLH
+	 rQn6T73G4MxiA==
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-51d95aed33aso3542800a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Jul 2023 23:40:24 -0700 (PDT)
+X-Gm-Message-State: ABy/qLaoo9ew33NqZ5Bxp+zuUV/kqznnruxr6FemG9v20M/oWSdmAxp+
+	ztysvXZjO7sgQGztJ1esETCwzWkZoQ/MUvwsyjo=
+X-Google-Smtp-Source: APBJJlG1ZyrqEWpx7V6NBWjihkT4/lIOFuimVeUmJacRzB1mUXBSuY0J4QdEtuDygLNwFdsmH5hnmCxSpoxqnLz2eUg=
+X-Received: by 2002:aa7:da41:0:b0:51e:3d13:4a12 with SMTP id
+ w1-20020aa7da41000000b0051e3d134a12mr3494100eds.34.1690612822528; Fri, 28 Jul
+ 2023 23:40:22 -0700 (PDT)
+MIME-Version: 1.0
+References: <20230721145121.1854104-1-guoren@kernel.org> <5e5be2d4-c563-6beb-b5f5-df47edeebc83@ghiti.fr>
+ <CAJF2gTQMAVUtC6_ftEwp=EeYR_O7yzfGYmxwrqcO6+hn2J32bA@mail.gmail.com>
+ <87bfcd33-9741-4d6c-8b7a-1d1ee2dce61b@ghiti.fr> <CAJF2gTT8JV5f4Fm1F-XgfAhNWNXJquVW8-uCK-b4Qy0xztrGLA@mail.gmail.com>
+ <292abea1-59b7-13d4-0b27-ac00f7e7f20e@ghiti.fr>
+In-Reply-To: <292abea1-59b7-13d4-0b27-ac00f7e7f20e@ghiti.fr>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 29 Jul 2023 14:40:11 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQZhdQCFyz0eJo6VnLZzPDxK5WNRJqpr=BRLsdCdjG2gA@mail.gmail.com>
+Message-ID: <CAJF2gTQZhdQCFyz0eJo6VnLZzPDxK5WNRJqpr=BRLsdCdjG2gA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: mm: Fixup spurious fault of kernel vaddr
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: palmer@rivosinc.com, paul.walmsley@sifive.com, falcon@tinylab.org, 
+	bjorn@kernel.org, conor.dooley@microchip.com, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230728_174149_891389_5E613C71 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20230728_234026_627139_1B1B636C 
+X-CRM114-Status: GOOD (  48.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,245 +83,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Wrap kvm_{gfn,hva}_range.pte in a union so that future notifier events can
-pass event specific information up and down the stack without needing to
-constantly expand and churn the APIs.  Lockless aging of SPTEs will pass
-around a bitmap, and support for memory attributes will pass around the
-new attributes for the range.
-
-Add a "KVM_NO_ARG" placeholder to simplify handling events without an
-argument (creating a dummy union variable is midly annoying).
-
-Opportunstically drop explicit zero-initialization of the "pte" field, as
-omitting the field (now a union) has the same effect.
-
-Cc: Yu Zhao <yuzhao@google.com>
-Link: https://lore.kernel.org/all/CAOUHufagkd2Jk3_HrVoFFptRXM=hX2CV8f+M-dka-hJU4bP8kw@mail.gmail.com
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
-
-If this looks good, my thought is to squeeze it into 6.6 so that the MGLRU
-and guest_memfd() series can build on it.  Or those series could just
-include it?
-
- arch/arm64/kvm/mmu.c       |  2 +-
- arch/mips/kvm/mmu.c        |  2 +-
- arch/riscv/kvm/mmu.c       |  2 +-
- arch/x86/kvm/mmu/mmu.c     |  2 +-
- arch/x86/kvm/mmu/tdp_mmu.c |  6 +++---
- include/linux/kvm_host.h   |  6 +++++-
- virt/kvm/kvm_main.c        | 18 +++++++++---------
- 7 files changed, 21 insertions(+), 17 deletions(-)
-
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 6db9ef288ec3..55f03a68f1cd 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1721,7 +1721,7 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- 
- bool kvm_set_spte_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
--	kvm_pfn_t pfn = pte_pfn(range->pte);
-+	kvm_pfn_t pfn = pte_pfn(range->arg.pte);
- 
- 	if (!kvm->arch.mmu.pgt)
- 		return false;
-diff --git a/arch/mips/kvm/mmu.c b/arch/mips/kvm/mmu.c
-index e8c08988ed37..7b2ac1319d70 100644
---- a/arch/mips/kvm/mmu.c
-+++ b/arch/mips/kvm/mmu.c
-@@ -447,7 +447,7 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- bool kvm_set_spte_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	gpa_t gpa = range->start << PAGE_SHIFT;
--	pte_t hva_pte = range->pte;
-+	pte_t hva_pte = range->arg.pte;
- 	pte_t *gpa_pte = kvm_mips_pte_for_gpa(kvm, NULL, gpa);
- 	pte_t old_pte;
- 
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index f2eb47925806..857f4312b0f8 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -559,7 +559,7 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- bool kvm_set_spte_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- {
- 	int ret;
--	kvm_pfn_t pfn = pte_pfn(range->pte);
-+	kvm_pfn_t pfn = pte_pfn(range->arg.pte);
- 
- 	if (!kvm->arch.pgd)
- 		return false;
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index ec169f5c7dce..d72f2b20f430 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -1588,7 +1588,7 @@ static __always_inline bool kvm_handle_gfn_range(struct kvm *kvm,
- 	for_each_slot_rmap_range(range->slot, PG_LEVEL_4K, KVM_MAX_HUGEPAGE_LEVEL,
- 				 range->start, range->end - 1, &iterator)
- 		ret |= handler(kvm, iterator.rmap, range->slot, iterator.gfn,
--			       iterator.level, range->pte);
-+			       iterator.level, range->arg.pte);
- 
- 	return ret;
- }
-diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index 512163d52194..6250bd3d20c1 100644
---- a/arch/x86/kvm/mmu/tdp_mmu.c
-+++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -1241,7 +1241,7 @@ static bool set_spte_gfn(struct kvm *kvm, struct tdp_iter *iter,
- 	u64 new_spte;
- 
- 	/* Huge pages aren't expected to be modified without first being zapped. */
--	WARN_ON(pte_huge(range->pte) || range->start + 1 != range->end);
-+	WARN_ON(pte_huge(range->arg.pte) || range->start + 1 != range->end);
- 
- 	if (iter->level != PG_LEVEL_4K ||
- 	    !is_shadow_present_pte(iter->old_spte))
-@@ -1255,9 +1255,9 @@ static bool set_spte_gfn(struct kvm *kvm, struct tdp_iter *iter,
- 	 */
- 	tdp_mmu_iter_set_spte(kvm, iter, 0);
- 
--	if (!pte_write(range->pte)) {
-+	if (!pte_write(range->arg.pte)) {
- 		new_spte = kvm_mmu_changed_pte_notifier_make_spte(iter->old_spte,
--								  pte_pfn(range->pte));
-+								  pte_pfn(range->arg.pte));
- 
- 		tdp_mmu_iter_set_spte(kvm, iter, new_spte);
- 	}
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 9d3ac7720da9..9125d0ab642d 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -256,11 +256,15 @@ int kvm_async_pf_wakeup_all(struct kvm_vcpu *vcpu);
- #endif
- 
- #ifdef KVM_ARCH_WANT_MMU_NOTIFIER
-+union kvm_mmu_notifier_arg {
-+	pte_t pte;
-+};
-+
- struct kvm_gfn_range {
- 	struct kvm_memory_slot *slot;
- 	gfn_t start;
- 	gfn_t end;
--	pte_t pte;
-+	union kvm_mmu_notifier_arg arg;
- 	bool may_block;
- };
- bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range);
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index dfbaafbe3a00..f84ef9399aee 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -526,7 +526,7 @@ typedef void (*on_unlock_fn_t)(struct kvm *kvm);
- struct kvm_hva_range {
- 	unsigned long start;
- 	unsigned long end;
--	pte_t pte;
-+	union kvm_mmu_notifier_arg arg;
- 	hva_handler_t handler;
- 	on_lock_fn_t on_lock;
- 	on_unlock_fn_t on_unlock;
-@@ -547,6 +547,8 @@ static void kvm_null_fn(void)
- }
- #define IS_KVM_NULL_FN(fn) ((fn) == (void *)kvm_null_fn)
- 
-+static const union kvm_mmu_notifier_arg KVM_NO_ARG;
-+
- /* Iterate over each memslot intersecting [start, last] (inclusive) range */
- #define kvm_for_each_memslot_in_hva_range(node, slots, start, last)	     \
- 	for (node = interval_tree_iter_first(&slots->hva_tree, start, last); \
-@@ -591,7 +593,7 @@ static __always_inline int __kvm_handle_hva_range(struct kvm *kvm,
- 			 * bother making these conditional (to avoid writes on
- 			 * the second or later invocation of the handler).
- 			 */
--			gfn_range.pte = range->pte;
-+			gfn_range.arg = range->arg;
- 			gfn_range.may_block = range->may_block;
- 
- 			/*
-@@ -632,14 +634,14 @@ static __always_inline int __kvm_handle_hva_range(struct kvm *kvm,
- static __always_inline int kvm_handle_hva_range(struct mmu_notifier *mn,
- 						unsigned long start,
- 						unsigned long end,
--						pte_t pte,
-+						union kvm_mmu_notifier_arg arg,
- 						hva_handler_t handler)
- {
- 	struct kvm *kvm = mmu_notifier_to_kvm(mn);
- 	const struct kvm_hva_range range = {
- 		.start		= start,
- 		.end		= end,
--		.pte		= pte,
-+		.arg		= arg,
- 		.handler	= handler,
- 		.on_lock	= (void *)kvm_null_fn,
- 		.on_unlock	= (void *)kvm_null_fn,
-@@ -659,7 +661,6 @@ static __always_inline int kvm_handle_hva_range_no_flush(struct mmu_notifier *mn
- 	const struct kvm_hva_range range = {
- 		.start		= start,
- 		.end		= end,
--		.pte		= __pte(0),
- 		.handler	= handler,
- 		.on_lock	= (void *)kvm_null_fn,
- 		.on_unlock	= (void *)kvm_null_fn,
-@@ -693,6 +694,7 @@ static void kvm_mmu_notifier_change_pte(struct mmu_notifier *mn,
- 					pte_t pte)
- {
- 	struct kvm *kvm = mmu_notifier_to_kvm(mn);
-+	const union kvm_mmu_notifier_arg arg = { .pte = pte };
- 
- 	trace_kvm_set_spte_hva(address);
- 
-@@ -708,7 +710,7 @@ static void kvm_mmu_notifier_change_pte(struct mmu_notifier *mn,
- 	if (!READ_ONCE(kvm->mmu_invalidate_in_progress))
- 		return;
- 
--	kvm_handle_hva_range(mn, address, address + 1, pte, kvm_change_spte_gfn);
-+	kvm_handle_hva_range(mn, address, address + 1, arg, kvm_change_spte_gfn);
- }
- 
- void kvm_mmu_invalidate_begin(struct kvm *kvm, unsigned long start,
-@@ -747,7 +749,6 @@ static int kvm_mmu_notifier_invalidate_range_start(struct mmu_notifier *mn,
- 	const struct kvm_hva_range hva_range = {
- 		.start		= range->start,
- 		.end		= range->end,
--		.pte		= __pte(0),
- 		.handler	= kvm_unmap_gfn_range,
- 		.on_lock	= kvm_mmu_invalidate_begin,
- 		.on_unlock	= kvm_arch_guest_memory_reclaimed,
-@@ -812,7 +813,6 @@ static void kvm_mmu_notifier_invalidate_range_end(struct mmu_notifier *mn,
- 	const struct kvm_hva_range hva_range = {
- 		.start		= range->start,
- 		.end		= range->end,
--		.pte		= __pte(0),
- 		.handler	= (void *)kvm_null_fn,
- 		.on_lock	= kvm_mmu_invalidate_end,
- 		.on_unlock	= (void *)kvm_null_fn,
-@@ -845,7 +845,7 @@ static int kvm_mmu_notifier_clear_flush_young(struct mmu_notifier *mn,
- {
- 	trace_kvm_age_hva(start, end);
- 
--	return kvm_handle_hva_range(mn, start, end, __pte(0), kvm_age_gfn);
-+	return kvm_handle_hva_range(mn, start, end, KVM_NO_ARG, kvm_age_gfn);
- }
- 
- static int kvm_mmu_notifier_clear_young(struct mmu_notifier *mn,
-
-base-commit: fdf0eaf11452d72945af31804e2a1048ee1b574c
--- 
-2.41.0.487.g6d72f3e995-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U29ycnkgZm9yIHRoZSBsYXRlIHJlcGx5LCBBbGV4YW5kcmUuIEknbSBidXN5IHdpdGggb3RoZXIg
+c3VmZnMuCgpPbiBNb24sIEp1bCAyNCwgMjAyMyBhdCA1OjA14oCvUE0gQWxleGFuZHJlIEdoaXRp
+IDxhbGV4QGdoaXRpLmZyPiB3cm90ZToKPgo+Cj4gT24gMjIvMDcvMjAyMyAwMTo1OSwgR3VvIFJl
+biB3cm90ZToKPiA+IE9uIEZyaSwgSnVsIDIxLCAyMDIzIGF0IDQ6MDHigK9QTSBBbGV4YW5kcmUg
+R2hpdGkgPGFsZXhAZ2hpdGkuZnI+IHdyb3RlOgo+ID4+Cj4gPj4gT24gMjEvMDcvMjAyMyAxODow
+OCwgR3VvIFJlbiB3cm90ZToKPiA+Pj4gT24gRnJpLCBKdWwgMjEsIDIwMjMgYXQgMTE6MTnigK9Q
+TSBBbGV4YW5kcmUgR2hpdGkgPGFsZXhAZ2hpdGkuZnI+IHdyb3RlOgo+ID4+Pj4gT24gMjEvMDcv
+MjAyMyAxNjo1MSwgZ3VvcmVuQGtlcm5lbC5vcmcgd3JvdGU6Cj4gPj4+Pj4gRnJvbTogR3VvIFJl
+biA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4+Pj4+Cj4gPj4+Pj4gUklTQy1WIHNwZWNp
+ZmljYXRpb24gcGVybWl0cyB0aGUgY2FjaGluZyBvZiBQVEVzIHdob3NlIFYgKFZhbGlkKQo+ID4+
+Pj4+IGJpdCBpcyBjbGVhci4gT3BlcmF0aW5nIHN5c3RlbXMgbXVzdCBiZSB3cml0dGVuIHRvIGNv
+cGUgd2l0aCB0aGlzCj4gPj4+Pj4gcG9zc2liaWxpdHksIGJ1dCBpbXBsZW1lbnRlcnMgYXJlIHJl
+bWluZGVkIHRoYXQgZWFnZXJseSBjYWNoaW5nCj4gPj4+Pj4gaW52YWxpZCBQVEVzIHdpbGwgcmVk
+dWNlIHBlcmZvcm1hbmNlIGJ5IGNhdXNpbmcgYWRkaXRpb25hbCBwYWdlCj4gPj4+Pj4gZmF1bHRz
+Lgo+ID4+Pj4+Cj4gPj4+Pj4gU28gd2UgbXVzdCBrZWVwIHZtYWxsb2NfZmF1bHQgZm9yIHRoZSBz
+cHVyaW91cyBwYWdlIGZhdWx0cyBvZiBrZXJuZWwKPiA+Pj4+PiB2aXJ0dWFsIGFkZHJlc3MgZnJv
+bSBhbiBPb08gbWFjaGluZS4KPiA+Pj4+Pgo+ID4+Pj4+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4g
+PGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4KPiA+Pj4+PiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVu
+IDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+Pj4+PiAtLS0KPiA+Pj4+PiAgICAgYXJjaC9yaXNjdi9t
+bS9mYXVsdC5jIHwgMyArLS0KPiA+Pj4+PiAgICAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9u
+KCspLCAyIGRlbGV0aW9ucygtKQo+ID4+Pj4+Cj4gPj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlz
+Y3YvbW0vZmF1bHQuYyBiL2FyY2gvcmlzY3YvbW0vZmF1bHQuYwo+ID4+Pj4+IGluZGV4IDg1MTY1
+ZmU0MzhkOC4uZjY2MmM5ZWFlN2Q0IDEwMDY0NAo+ID4+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvbW0v
+ZmF1bHQuYwo+ID4+Pj4+ICsrKyBiL2FyY2gvcmlzY3YvbW0vZmF1bHQuYwo+ID4+Pj4+IEBAIC0y
+NTgsOCArMjU4LDcgQEAgdm9pZCBoYW5kbGVfcGFnZV9mYXVsdChzdHJ1Y3QgcHRfcmVncyAqcmVn
+cykKPiA+Pj4+PiAgICAgICAgICAqIG9ubHkgY29weSB0aGUgaW5mb3JtYXRpb24gZnJvbSB0aGUg
+bWFzdGVyIHBhZ2UgdGFibGUsCj4gPj4+Pj4gICAgICAgICAgKiBub3RoaW5nIG1vcmUuCj4gPj4+
+Pj4gICAgICAgICAgKi8KPiA+Pj4+PiAtICAgICBpZiAoKCFJU19FTkFCTEVEKENPTkZJR19NTVUp
+IHx8ICFJU19FTkFCTEVEKENPTkZJR182NEJJVCkpICYmCj4gPj4+Pj4gLSAgICAgICAgIHVubGlr
+ZWx5KGFkZHIgPj0gVk1BTExPQ19TVEFSVCAmJiBhZGRyIDwgVk1BTExPQ19FTkQpKSB7Cj4gPj4+
+Pj4gKyAgICAgaWYgKHVubGlrZWx5KGFkZHIgPj0gVEFTS19TSVpFKSkgewo+ID4+Pj4+ICAgICAg
+ICAgICAgICAgICB2bWFsbG9jX2ZhdWx0KHJlZ3MsIGNvZGUsIGFkZHIpOwo+ID4+Pj4+ICAgICAg
+ICAgICAgICAgICByZXR1cm47Cj4gPj4+Pj4gICAgICAgICB9Cj4gPj4+PiBDYW4geW91IHNoYXJl
+IHdoYXQgeW91IGFyZSB0cnlpbmcgdG8gZml4IGhlcmU/Cj4gPj4+IFdlIG1ldCBhIHNwdXJpb3Vz
+IHBhZ2UgZmF1bHQgcGFuaWMgb24gYW4gT29PIG1hY2hpbmUuCj4gPj4+Cj4gPj4+IDEuIFRoZSBw
+cm9jZXNzb3Igc3BlY3VsYXRpdmUgZXhlY3V0aW9uIGJyaW5ncyB0aGUgVj0wIGVudHJpZXMgaW50
+byB0aGUKPiA+Pj4gVExCIGluIHRoZSBrZXJuZWwgdmlydHVhbCBhZGRyZXNzLgo+ID4+PiAyLiBM
+aW51eCBrZXJuZWwgaW5zdGFsbHMgdGhlIGtlcm5lbCB2aXJ0dWFsIGFkZHJlc3Mgd2l0aCB0aGUg
+cGFnZSwgYW5kIFY9MQo+ID4+PiAzLiBXaGVuIGtlcm5lbCBjb2RlIGFjY2VzcyB0aGUga2VybmVs
+IHZpcnR1YWwgYWRkcmVzcywgaXQgd291bGQgcmFpc2UKPiA+Pj4gYSBwYWdlIGZhdWx0IGFzIHRo
+ZSBWPTAgZW50cnkgaW4gdGhlIHRsYi4KPiA+Pj4gNC4gTm8gdm1hbGxvY19mYXVsdCwgdGhlbiBw
+YW5pYy4KPiA+Pj4KPiA+Pj4+IEkgaGF2ZSBhIGZpeCAodGhhdCdzIGN1cnJlbnRseSBydW5uaW5n
+IG91ciBDSSkgZm9yIGNvbW1pdCA3ZDMzMzJiZTAxMWUKPiA+Pj4+ICgicmlzY3Y6IG1tOiBQcmUt
+YWxsb2NhdGUgUEdEIGVudHJpZXMgZm9yIHZtYWxsb2MvbW9kdWxlcyBhcmVhIikgdGhhdAo+ID4+
+Pj4gaW1wbGVtZW50cyBmbHVzaF9jYWNoZV92bWFwKCkgc2luY2Ugd2UgbG9zdCB0aGUgdm1hbGxv
+Y19mYXVsdC4KPiA+Pj4gQ291bGQgeW91IHNoYXJlIHRoYXQgcGF0Y2g/Cj4gPj4KPiA+PiBIZXJl
+IHdlIGdvOgo+ID4+Cj4gPj4KPiA+PiBBdXRob3I6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRp
+QHJpdm9zaW5jLmNvbT4KPiA+PiBEYXRlOiAgIEZyaSBKdWwgMjEgMDg6NDM6NDQgMjAyMyArMDAw
+MAo+ID4+Cj4gPj4gICAgICAgcmlzY3Y6IEltcGxlbWVudCBmbHVzaF9jYWNoZV92bWFwKCkKPiA+
+Pgo+ID4+ICAgICAgIFRoZSBSSVNDLVYga2VybmVsIG5lZWRzIGEgc2ZlbmNlLnZtYSBhZnRlciBh
+IHBhZ2UgdGFibGUKPiA+PiBtb2RpZmljYXRpb246IHdlCj4gPj4gICAgICAgdXNlZCB0byByZWx5
+IG9uIHRoZSB2bWFsbG9jIGZhdWx0IGhhbmRsaW5nIHRvIGVtaXQgYW4gc2ZlbmNlLnZtYSwgYnV0
+Cj4gPj4gICAgICAgY29tbWl0IDdkMzMzMmJlMDExZSAoInJpc2N2OiBtbTogUHJlLWFsbG9jYXRl
+IFBHRCBlbnRyaWVzIGZvcgo+ID4+ICAgICAgIHZtYWxsb2MvbW9kdWxlcyBhcmVhIikgZ290IHJp
+ZCBvZiB0aGlzIHBhdGggZm9yIDY0LWJpdCBrZXJuZWxzLCBzbwo+ID4+IG5vdyB3ZQo+ID4+ICAg
+ICAgIG5lZWQgdG8gZXhwbGljaXRseSBlbWl0IGEgc2ZlbmNlLnZtYSBpbiBmbHVzaF9jYWNoZV92
+bWFwKCkuCj4gPj4KPiA+PiAgICAgICBOb3RlIHRoYXQgd2UgZG9uJ3QgbmVlZCB0byBpbXBsZW1l
+bnQgZmx1c2hfY2FjaGVfdnVubWFwKCkgYXMgdGhlCj4gPj4gZ2VuZXJpYwo+ID4+ICAgICAgIGNv
+ZGUgc2hvdWxkIGVtaXQgYSBmbHVzaCB0bGIgYWZ0ZXIgdW5tYXBwaW5nIGEgdm1hbGxvYyByZWdp
+b24uCj4gPj4KPiA+PiAgICAgICBGaXhlczogN2QzMzMyYmUwMTFlICgicmlzY3Y6IG1tOiBQcmUt
+YWxsb2NhdGUgUEdEIGVudHJpZXMgZm9yCj4gPj4gdm1hbGxvYy9tb2R1bGVzIGFyZWEiKQo+ID4+
+ICAgICAgIFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5j
+LmNvbT4KPiA+Pgo+ID4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hl
+Zmx1c2guaAo+ID4+IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jYWNoZWZsdXNoLmgKPiA+PiBp
+bmRleCA4MDkxYjhiZjQ4ODMuLmI5M2ZmZGRmOGE2MSAxMDA2NDQKPiA+PiAtLS0gYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaAo+ID4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vY2FjaGVmbHVzaC5oCj4gPj4gQEAgLTM3LDYgKzM3LDEwIEBAIHN0YXRpYyBpbmxpbmUg
+dm9pZCBmbHVzaF9kY2FjaGVfcGFnZShzdHJ1Y3QgcGFnZSAqcGFnZSkKPiA+PiAgICAjZGVmaW5l
+IGZsdXNoX2ljYWNoZV91c2VyX3BhZ2Uodm1hLCBwZywgYWRkciwgbGVuKSBcCj4gPj4gICAgICAg
+ICAgIGZsdXNoX2ljYWNoZV9tbSh2bWEtPnZtX21tLCAwKQo+ID4+Cj4gPj4gKyNpZmRlZiBDT05G
+SUdfNjRCSVQKPiA+PiArI2RlZmluZSBmbHVzaF9jYWNoZV92bWFwKHN0YXJ0LCBlbmQpIGZsdXNo
+X3RsYl9rZXJuZWxfcmFuZ2Uoc3RhcnQsIGVuZCkKPiA+PiArI2VuZGlmCj4gPiBJIGRvbid0IHdh
+bnQgdGhhdCwgYW5kIGZsdXNoX3RsYl9rZXJuZWxfcmFuZ2UgaXMgZmx1c2hfdGxiX2FsbC4gSW4K
+PiA+IGFkZGl0aW9uLCBpdCB3b3VsZCBjYWxsIElQSSwgd2hpY2ggaXMgYSBwZXJmb3JtYW5jZSBr
+aWxsZXIuCj4KPgo+IEF0IHRoZSBtb21lbnQsIGZsdXNoX3RsYl9rZXJuZWxfcmFuZ2UoKSBpbmRl
+ZWQgY2FsbHMgZmx1c2hfdGxiX2FsbCgpIGJ1dAo+IHRoYXQgbmVlZHMgdG8gYmUgZml4ZWQsIHNl
+ZSBteSBsYXN0IHBhdGNoc2V0Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3Yv
+MjAyMzA3MTEwNzU0MzQuMTA5MzYtMS1hbGV4Z2hpdGlAcml2b3NpbmMuY29tLy4KPgo+IEJ1dCBj
+YW4geW91IGF0IGxlYXN0IGNoZWNrIHRoYXQgdGhpcyBmaXhlcyB5b3VyIGlzc3VlPyBJdCB3b3Vs
+ZCBiZQo+IGludGVyZXN0aW5nIHRvIHNlZSBpZiB0aGUgcHJvYmxlbSBjb21lcyBmcm9tIHZtYWxs
+b2Mgb3Igc29tZXRoaW5nIGVsc2UuCkl0IGNvdWxkIHNvbHZlIG15IGlzc3VlLgoKPgo+Cj4gPiBX
+aGF0J3MgdGhlIHByb2JsZW0gb2Ygc3B1cmlvdXMgZmF1bHQgcmVwbGF5PyBJdCBvbmx5IGNvc3Rz
+IGEKPiA+IGxvY2FsX3RsYl9mbHVzaCB3aXRoIHZhZGRyLgo+Cj4KPiBXZSBoYWQgdGhpcyBleGFj
+dCBkaXNjdXNzaW9uIGludGVybmFsbHkgdGhpcyB3ZWVrLCBhbmQgdGhlIGZhdWx0IHJlcGxheQo+
+IHNlZW1zIGxpa2UgYSBzb2x1dGlvbi4gQnV0IHRoYXQgbmVlZHMgdG8gYmUgdGhvdWdodCBjYXJl
+ZnVsbHk6IHRoZQo+IHZtYWxsb2MgZmF1bHQgd2FzIHJlbW92ZWQgZm9yIGEgcmVhc29uIChzZWUg
+Qmpvcm4gY29tbWl0IGxvZyksIHRyYWNpbmcKPiBmdW5jdGlvbnMgY2FuIHVzZSB2bWFsbG9jKCkg
+aW4gdGhlIHBhdGggb2YgdGhlIHZtYWxsb2MgZmF1bHQsIGNhdXNpbmcgYW4KPiBpbmZpbml0ZSB0
+cmFwIGxvb3AuIEFuZCBoZXJlIHlvdSBhcmUgc2ltcGx5IHJlLWVuYWJsaW5nIHRoaXMgcHJvYmxl
+bS4KVGh4IGZvciBtZW50aW9uaW5nIGl0LCBhbmQgSSB3aWxsIHNvbHZlIGl0IGluIHRoZSBuZXh0
+IHZlcnNpb24gb2YgdGhlIHBhdGNoOgoKLXN0YXRpYyBpbmxpbmUgdm9pZCB2bWFsbG9jX2ZhdWx0
+KHN0cnVjdCBwdF9yZWdzICpyZWdzLCBpbnQgY29kZSwKdW5zaWduZWQgbG9uZyBhZGRyKQorc3Rh
+dGljIHZvaWQgbm90cmFjZSB2bWFsbG9jX2ZhdWx0KHN0cnVjdCBwdF9yZWdzICpyZWdzLCBpbnQg
+Y29kZSwKdW5zaWduZWQgbG9uZyBhZGRyKQoKPiBJbgo+IGFkZGl0aW9uLCB0aGlzIHBhdGNoIG1h
+a2VzIHZtYWxsb2NfZmF1bHQoKSBjYXRjaCAqYWxsKiBrZXJuZWwgZmF1bHRzIGluCj4gdGhlIGtl
+cm5lbCBhZGRyZXNzIHNwYWNlLCBzbyBhbnkgZ2VudWluZSBrZXJuZWwgZmF1bHQgd291bGQgbG9v
+cCBmb3JldmVyCj4gaW4gdm1hbGxvY19mYXVsdCgpLgpXZSBjaGVjayB3aGV0aGVyIGtlcm5lbCB2
+YWRkciBpcyB2YWxpZCBieSB0aGUgcGFnZV90YWJsZSwgbm90IHJhbmdlLgpJJ20gc3VyZSAidGhl
+IGFueSBnZW51aW5lIGtlcm5lbCBmYXVsdCB3b3VsZCBsb29wIGZvcmV2ZXIgaW4Kdm1hbGxvY19m
+YXVsdCgpIiBpcyBhYm91dCB3aGF0PyBDb3VsZCB5b3UgZ2l2ZSBhbiBleGFtcGxlPwoKPgo+Cj4g
+Rm9yIG5vdywgdGhlIHNpbXBsZXN0IHNvbHV0aW9uIGlzIHRvIGltcGxlbWVudCBmbHVzaF9jYWNo
+ZV92bWFwKCkKPiBiZWNhdXNlIHJpc2N2IG5lZWRzIGEgc2ZlbmNlLnZtYSB3aGVuIGFkZGluZyBh
+IG5ldyBtYXBwaW5nLCBhbmQgaWYKSXQncyBub3QgYSBsb2NhbF90bGJfZmx1c2gsIGFuZCBpdCB3
+b3VsZCBpcGkgYnJvYWRjYXN0IGFsbCBoYXJ0cy4Kb25fZWFjaF9jcHUoX19pcGlfZmx1c2hfdGxi
+X2FsbCwgTlVMTCwgMSk7CgpUaGF0J3MgdG9vIGhvcnJpYmxlLgoKU29tZSBjdXN0b20gZHJpdmVy
+cyBvciB0ZXN0IGNvZGVzIG1heSBjYXJlIGFib3V0IGl0LgoKPiB0aGF0J3MgYSAicGVyZm9ybWFu
+Y2Uga2lsbGVyIiwgbGV0J3MgbWVhc3VyZSB0aGF0IGFuZCBpbXBsZW1lbnQKPiBzb21ldGhpbmcg
+bGlrZSB0aGlzIHBhdGNoIGlzIHRyeWluZyB0byBkby4gSSBtYXkgYmUgd3JvbmcsIGJ1dCB0aGVy
+ZQo+IGFyZW4ndCBtYW55IG5ldyBrZXJuZWwgbWFwcGluZ3MgdGhhdCB3b3VsZCByZXF1aXJlIGEg
+Y2FsbCB0bwo+IGZsdXNoX2NhY2hlX3ZtYXAoKSBzbyBJIGRpc2FncmVlIHdpdGggdGhlIHBlcmZv
+cm1hbmNlIGtpbGxlciBhcmd1bWVudCwKPiBidXQgaGFwcHkgdG8gYmUgcHJvdmVuIG90aGVyd2lz
+ZSEKCjEuIEkgYWdyZWUgdG8gcHJlLWFsbG9jYXRlIHBnZCBlbnRyaWVzLiBJdCdzIGdvb2QgZm9y
+IHBlcmZvcm1hbmNlLCBidXQKZG9uJ3QgZG8gdGhhdCB3aGVuIFN2MzIuCjIuIFdlIHN0aWxsIG5l
+ZWQgdm1hbGxvY19mYXVsdCB0byBtYXRjaCBJU0Egc3BlYyByZXF1aXJlbWVudHMuIChTb21lCnZl
+bmRvcnMnIG1pY3JvYXJjaGl0ZWN0dXJlcyAoZS5nLiwgVC1IRUFEIGM5MTApIGNvdWxkIHByZXZl
+bnQgVj0wIGludG8KVExCIHdoZW4gUFRXLCB0aGVuIHRoZXkgZG9uJ3QgbmVlZCBpdC4pCjMuIE9u
+bHkgd2hlbiB2bWFsbG9jX2ZhdWx0IGNhbid0IHNvbHZlIHRoZSBwcm9ibGVtLCB0aGVuIGxldCdz
+IHRoaW5rCmFib3V0IHRoZSBmbHVzaF9jYWNoZV92bWFwKCkgc29sdXRpb24uCgo+Cj4gVGhhbmtz
+LAo+Cj4gQWxleAo+Cj4KPiA+Cj4gPj4gKwo+ID4+ICAgICNpZm5kZWYgQ09ORklHX1NNUAo+ID4+
+Cj4gPj4gICAgI2RlZmluZSBmbHVzaF9pY2FjaGVfYWxsKCkgbG9jYWxfZmx1c2hfaWNhY2hlX2Fs
+bCgpCj4gPj4KPiA+Pgo+ID4+IExldCBtZSBrbm93IGlmIHRoYXQgd29ya3MgZm9yIHlvdSEKPiA+
+Pgo+ID4+Cj4gPj4+Cj4gPiAtLQo+ID4gQmVzdCBSZWdhcmRzCj4gPiAgIEd1byBSZW4KCgoKLS0K
+QmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
