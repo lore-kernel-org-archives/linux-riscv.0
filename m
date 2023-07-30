@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C0EEB64DD
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jul 2023 05:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C41AC001DC
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Jul 2023 08:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RdozVpCoMTivQkpI8gJhpy9kc2amRYoL1eMQ97tlfqA=; b=MwiXHbNRMYFJC9
-	y7I6YiEnWhcZfs4EqLvycUDHY2ZN2R9geTbt/nh/FwswPFgNDts7pRo0tsQKpvB00qdv6H05mltiS
-	p0Q8U+H+SlL8dRlPfT9FhE3oGjXf426Kx1WI/f/9kjqWTztiO7KCQ0rg7UwunzX+t00W0Wc/I2SQo
-	699yE/Qmn6uq77693RXH1aS6vIvBsFTiWnhaaxR75Qeya5X/qz4CI6Jhj3HjuZ1S2iKN8KUTHDd9L
-	kqQD12uN+6qV5hSwSgktv4aSJphNaTNHpqIA1+T5uEQAp3zFV6ndAaNeeFrEht22dcwjQWJQRHrck
-	U/F2v5mqzxRdXceo8ajg==;
+	List-Owner; bh=8XMqyEfMPSpPF2el1xrQfflg1ZV8qh91LEgy1tvmiDY=; b=Vo4mv1t4j4fi6D
+	Qfpoqz6VGxwI/5L2dxqbkUfusqE6h4dCijRXf4O8l6BXpd69GgyjiCmudgexx8xGSZ8m37Ecmp/v2
+	6YuJ62Fvb+/8ehdc8qBWsOYhykIKLG8vYT6lfCRpnk7VkPITWlmlcyqZtJgE+Pf1MsRJbfY/8SI+G
+	kG+CRZieUhllN6HaUEmhxcGyWwGykTTDBFkn1iJe0VXmon39Sh6ncv5v/jTLeqW38s7yirJKcKPoK
+	rBj+upmcLSBRhfcABLQirQ/PBFH5p/ic4STm6hA8ZUTqdGzUYeqhdfPyhhJ+mBqt5L9AK7Hwu/lFt
+	B0i9dwrL9JOf9z8n292g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPyfW-00A2I7-0f;
-	Sun, 30 Jul 2023 05:08:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1qQ1lx-00AXeE-3D;
+	Sun, 30 Jul 2023 08:27:30 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qPyfR-00A2HV-0i
+	id 1qQ1lu-00AXbd-36
 	for linux-riscv@lists.infradead.org;
-	Sun, 30 Jul 2023 05:08:34 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8D3C160BA3
-	for <linux-riscv@lists.infradead.org>; Sun, 30 Jul 2023 05:08:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E012FC433CD
-	for <linux-riscv@lists.infradead.org>; Sun, 30 Jul 2023 05:08:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690693710;
-	bh=XpeJJeL0WZEhViGFyUqsZL1awMfqrIn2dAk+4dHsN/4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IZ+cRMVQdtYhnnmfNb5b+pamm1g1ZYESKZ9wch6UkSvECZGGJ5uv8Hfo7mJxExgfH
-	 7WNSeQlq4QFappAaFFhAe/qDZo0KhRDhuadE3r7Hs75fXyah3AcIijt+rY0NWektVC
-	 vrg3nIUUf0J2r8QJJq2inKYLMcJIM6TX3uFqoNUaMwQ7z/anzFWbDXBvquaDbS17or
-	 LI69T67tOEn7xPXyYHo1pfG9bEEw+TycuMSv3dCiai0DhBpWhsbzLEvpGxeACbPTeq
-	 mLA75lOaTHfc83HFcirV6IBvSePbharTLI0VJ1+cnxuuRKWRWqKeoALfAXxe4J5pcH
-	 d0HBTvLoqVwbA==
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-99bcfe28909so478547666b.3
-        for <linux-riscv@lists.infradead.org>; Sat, 29 Jul 2023 22:08:30 -0700 (PDT)
-X-Gm-Message-State: ABy/qLZm7tbmq+SR2y3DGMsmMsOfavAH2c44WQtjhW0SKHqKWRK8/HRd
-	zqNLThmxGZKJsC0fBNdG6ZeVK7cnOxqxzvmvpo8=
-X-Google-Smtp-Source: APBJJlG33jDViSYrDkErS/CQJtTrUVb2jig4MFHtRtnqUjG3GGtNTNTD7veq9WS1yay4/EUcPFaz61OsEcVQktlB8lc=
-X-Received: by 2002:a17:906:101a:b0:99b:d9f3:9a98 with SMTP id
- 26-20020a170906101a00b0099bd9f39a98mr3227051ejm.74.1690693709138; Sat, 29 Jul
- 2023 22:08:29 -0700 (PDT)
+	Sun, 30 Jul 2023 08:27:28 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-4fe28e4671dso1295953e87.0
+        for <linux-riscv@lists.infradead.org>; Sun, 30 Jul 2023 01:27:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20221208; t=1690705640; x=1691310440;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+8yniXpHYJ5LlYOtJMJGlRfIyf396b9o9LmHCkYj9G0=;
+        b=o/cTI5Ls2O0mo6N0cv3Y1lzwya7GUKhEWOZEp+1uxyeF8BIcFpDi/fx+VjyDUt4Zve
+         kV+wrlPFqq8rHMLHlvef7fFM+cXx8pwdzBUAM4MGQrrkkGigegHRH35j6YE80rcJHlim
+         xBaXZ2e7QjTw6Fzv+FE1ZnnNIvwlBMzs+WXUXkXwnTrVLeqXl/qnOmK1Lcbzz18QqMNx
+         ebcfHt1kGRmfKUNWyUAFwNhnRXoPWrpXF3QdHk2V1Mqui7StMMqi/9WR82vrO6UwTVkK
+         /iLx4pzINlfnok2v7OmHnYI8AGQ2mdIvB/meMwFELznrCsV1P7kCWp8Tfj5r0p8/Qrpi
+         hApw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690705640; x=1691310440;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+8yniXpHYJ5LlYOtJMJGlRfIyf396b9o9LmHCkYj9G0=;
+        b=GzWwXDCBNiZVSpO926zhO4AclNUwWeuBaGlfaMgkamrWS2VfXie5N0xolfIMkr3KE5
+         X2sT2Hvoe50g1UXMnx3Lqjq2oni22bprdX8GGOBedjjrgoMdfI43uSudn2esWVaJrLgj
+         o27/E4LIzh5NsHNiIzIWfNMDw+I1+yWtIlh995Trfjzq57Rkfe93RQ0cbC+4BzwZxZ06
+         pdhKQdUNBiWiQzo4QuNjuOEMQD180z+3VX6LvWWh31y7wd9OEQJG71jLqZDtbGDWtqq0
+         7pVHQzGykNxeFTyvl6Hx3CDpwNgGbtVX2GxdKXjGro3FrrxCGnPrM3M1WValYQlNqW8E
+         Uj0w==
+X-Gm-Message-State: ABy/qLZk0mHQaTzIpi2WxIVp/Msdg0dTuhcexB3FGfwW9nD32d1sEZ6h
+	UVihyuCS5PBW3nn4/jvQbHM=
+X-Google-Smtp-Source: APBJJlFJTRX8mqrdX3Kt0N/6M1IBQQS0CKigxwiOWmQstL7Qprhb06BM4NCCMnmQNETsf9+3s7AgBg==
+X-Received: by 2002:a05:6512:3686:b0:4fe:18be:ef47 with SMTP id d6-20020a056512368600b004fe18beef47mr3919927lfs.67.1690705639941;
+        Sun, 30 Jul 2023 01:27:19 -0700 (PDT)
+Received: from nam-dell (ip-217-105-46-58.ip.prioritytelecom.net. [217.105.46.58])
+        by smtp.gmail.com with ESMTPSA id k16-20020aa7d8d0000000b0051e2670d599sm3861915eds.4.2023.07.30.01.27.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Jul 2023 01:27:19 -0700 (PDT)
+From: Nam Cao <namcaov@gmail.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Nam Cao <namcaov@gmail.com>
+Subject: [PATCH 1/3] riscv: kprobes: simulate c.j instruction
+Date: Sun, 30 Jul 2023 10:27:07 +0200
+Message-Id: <6ef76cd9984b8015826649d13f870f8ac45a2d0d.1690704360.git.namcaov@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1690704360.git.namcaov@gmail.com>
+References: <cover.1690704360.git.namcaov@gmail.com>
 MIME-Version: 1.0
-References: <20230725132246.817726-1-alexghiti@rivosinc.com>
-In-Reply-To: <20230725132246.817726-1-alexghiti@rivosinc.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 30 Jul 2023 01:08:17 -0400
-X-Gmail-Original-Message-ID: <CAJF2gTRm59RAJvSf=L2uqbb3rHnANVheO+yLqrJGuVBh1w8Oug@mail.gmail.com>
-Message-ID: <CAJF2gTRm59RAJvSf=L2uqbb3rHnANVheO+yLqrJGuVBh1w8Oug@mail.gmail.com>
-Subject: Re: [PATCH -fixes] riscv: Implement flush_cache_vmap()
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230729_220833_372676_56EA81A8 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20230730_012726_996621_97E32EB8 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +90,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMjUsIDIwMjMgYXQgOToyMuKAr0FNIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
-aXRpQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBUaGUgUklTQy1WIGtlcm5lbCBuZWVkcyBhIHNm
-ZW5jZS52bWEgYWZ0ZXIgYSBwYWdlIHRhYmxlIG1vZGlmaWNhdGlvbjogd2UKPiB1c2VkIHRvIHJl
-bHkgb24gdGhlIHZtYWxsb2MgZmF1bHQgaGFuZGxpbmcgdG8gZW1pdCBhbiBzZmVuY2Uudm1hLCBi
-dXQKPiBjb21taXQgN2QzMzMyYmUwMTFlICgicmlzY3Y6IG1tOiBQcmUtYWxsb2NhdGUgUEdEIGVu
-dHJpZXMgZm9yCj4gdm1hbGxvYy9tb2R1bGVzIGFyZWEiKSBnb3QgcmlkIG9mIHRoaXMgcGF0aCBm
-b3IgNjQtYml0IGtlcm5lbHMsIHNvIG5vdyB3ZQo+IG5lZWQgdG8gZXhwbGljaXRseSBlbWl0IGEg
-c2ZlbmNlLnZtYSBpbiBmbHVzaF9jYWNoZV92bWFwKCkuCj4KPiBOb3RlIHRoYXQgd2UgZG9uJ3Qg
-bmVlZCB0byBpbXBsZW1lbnQgZmx1c2hfY2FjaGVfdnVubWFwKCkgYXMgdGhlIGdlbmVyaWMKPiBj
-b2RlIHNob3VsZCBlbWl0IGEgZmx1c2ggdGxiIGFmdGVyIHVubWFwcGluZyBhIHZtYWxsb2MgcmVn
-aW9uLgo+Cj4gRml4ZXM6IDdkMzMzMmJlMDExZSAoInJpc2N2OiBtbTogUHJlLWFsbG9jYXRlIFBH
-RCBlbnRyaWVzIGZvciB2bWFsbG9jL21vZHVsZXMgYXJlYSIpCj4gU2lnbmVkLW9mZi1ieTogQWxl
-eGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaCB8IDQgKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgNCBp
-bnNlcnRpb25zKCspCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jYWNo
-ZWZsdXNoLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaAo+IGluZGV4IDgw
-OTFiOGJmNDg4My4uYjkzZmZkZGY4YTYxIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vY2FjaGVmbHVzaC5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jYWNoZWZs
-dXNoLmgKPiBAQCAtMzcsNiArMzcsMTAgQEAgc3RhdGljIGlubGluZSB2b2lkIGZsdXNoX2RjYWNo
-ZV9wYWdlKHN0cnVjdCBwYWdlICpwYWdlKQo+ICAjZGVmaW5lIGZsdXNoX2ljYWNoZV91c2VyX3Bh
-Z2Uodm1hLCBwZywgYWRkciwgbGVuKSBcCj4gICAgICAgICBmbHVzaF9pY2FjaGVfbW0odm1hLT52
-bV9tbSwgMCkKPgo+ICsjaWZkZWYgQ09ORklHXzY0QklUCj4gKyNkZWZpbmUgZmx1c2hfY2FjaGVf
-dm1hcChzdGFydCwgZW5kKSAgIGZsdXNoX3RsYl9rZXJuZWxfcmFuZ2Uoc3RhcnQsIGVuZCkKU29y
-cnksIEkgY291bGRuJ3QgYWdyZWUgd2l0aCB0aGUgYWJvdmUgaW4gYSBQSVBUIGNhY2hlIG1hY2hp
-bmUuIEl0J3MKbm90IHdvcnRoIGZvci4KCkl0IHdvdWxkIHJlZHVjZSB0aGUgcGVyZm9ybWFuY2Ug
-b2Ygdm1hcF9wYWdlc19yYW5nZSwKaW9yZW1hcF9wYWdlX3JhbmdlIC4uLiBBUEksIHdoaWNoIG1h
-eSBjYXVzZSBzb21lIGRyaXZlcnMnIHBlcmZvcm1hbmNlCmlzc3VlcyB3aGVuIHRoZXkgaW5zdGFs
-bC91bmluc3RhbGwgbWVtb3J5IGZyZXF1ZW50bHkuCgo+ICsjZW5kaWYKPiArCj4gICNpZm5kZWYg
-Q09ORklHX1NNUAo+Cj4gICNkZWZpbmUgZmx1c2hfaWNhY2hlX2FsbCgpIGxvY2FsX2ZsdXNoX2lj
-YWNoZV9hbGwoKQo+IC0tCj4gMi4zOS4yCj4KCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+kprobes currently rejects c.j instruction. Implement it.
+
+Signed-off-by: Nam Cao <namcaov@gmail.com>
+---
+ arch/riscv/kernel/probes/decode-insn.c   |  3 ++-
+ arch/riscv/kernel/probes/simulate-insn.c | 24 ++++++++++++++++++++++++
+ arch/riscv/kernel/probes/simulate-insn.h |  1 +
+ 3 files changed, 27 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
+index 64f6183b4717..39adb07a342d 100644
+--- a/arch/riscv/kernel/probes/decode-insn.c
++++ b/arch/riscv/kernel/probes/decode-insn.c
+@@ -29,13 +29,14 @@ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
+ 	 * TODO: the REJECTED ones below need to be implemented
+ 	 */
+ #ifdef CONFIG_RISCV_ISA_C
+-	RISCV_INSN_REJECTED(c_j,		insn);
+ 	RISCV_INSN_REJECTED(c_jr,		insn);
+ 	RISCV_INSN_REJECTED(c_jal,		insn);
+ 	RISCV_INSN_REJECTED(c_jalr,		insn);
+ 	RISCV_INSN_REJECTED(c_beqz,		insn);
+ 	RISCV_INSN_REJECTED(c_bnez,		insn);
+ 	RISCV_INSN_REJECTED(c_ebreak,		insn);
++
++	RISCV_INSN_SET_SIMULATE(c_j,		insn);
+ #endif
+ 
+ 	RISCV_INSN_SET_SIMULATE(jal,		insn);
+diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
+index 7441ac8a6843..3ba45c612cd8 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.c
++++ b/arch/riscv/kernel/probes/simulate-insn.c
+@@ -188,3 +188,27 @@ bool __kprobes simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *r
+ 
+ 	return true;
+ }
++
++bool __kprobes simulate_c_j(u32 opcode, unsigned long addr, struct pt_regs *regs)
++{
++	/*
++	 *  15    13 12                            2 1      0
++	 * | funct3 | offset[11|4|9:8|10|6|7|3:1|5] | opcode |
++	 *     3                   11                    2
++	 */
++
++	s32 offset;
++
++	offset  = ((opcode >> 3)  & 0x7) << 1;
++	offset |= ((opcode >> 11) & 0x1) << 4;
++	offset |= ((opcode >> 2)  & 0x1) << 5;
++	offset |= ((opcode >> 7)  & 0x1) << 6;
++	offset |= ((opcode >> 6)  & 0x1) << 7;
++	offset |= ((opcode >> 9)  & 0x3) << 8;
++	offset |= ((opcode >> 8)  & 0x1) << 10;
++	offset |= ((opcode >> 12) & 0x1) << 11;
++
++	instruction_pointer_set(regs, addr + sign_extend32(offset, 11));
++
++	return true;
++}
+diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
+index 61e35db31001..4bd6c266e7d3 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.h
++++ b/arch/riscv/kernel/probes/simulate-insn.h
+@@ -24,5 +24,6 @@ bool simulate_auipc(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ bool simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
++bool simulate_c_j(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ 
+ #endif /* _RISCV_KERNEL_PROBES_SIMULATE_INSN_H */
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
