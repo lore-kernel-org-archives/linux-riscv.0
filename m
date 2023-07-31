@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A8BC001DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 19:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313E3C001DE
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 20:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ejlw+0mIvtsOjdIrGA2taEmzvBd0l6Rs+bhb35iZKgI=; b=ImI8DFR2Li8NiP
-	D8a3uqDpNyMGDES6DCZZN6O3gK79AeVvs7HtPoxEXzBVoBNYKcfdz3PWKV9E2mOKQe5V4ZW7XkLOJ
-	01mpx2QR+t6TbVJRaS5V0T2mgSzLDrJv3PSfkHVtU6ayxg/EZbkJj3RdJj5f72tUQXM87YJdrfC7o
-	Tesuam3fw4WZvN9j7UVhbR6O+23d0eOzBH1qd3ZaAeMTUVc4Mm4RvUYuPdQLxmFI5S/S7WzYYq+uf
-	an4LWrkuU7aw/K9cxyUnSXIOBdix2e92QlCfA6CzjLLsLYJDGA5pD6cYSK8Or1akVwbySV7PLF3hG
-	V3v8Zaac6LW6gdAVaKyA==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w+F231bJAus07xs5YmZSkT4sDeXGF/F5xKqu5QvCiLE=; b=ELkPDjSH+AuVoC
+	+RKE8twjSHdwRehG29GHqkyst4usJ1mIlb+Le8/ScDaKGT4dnivdE3r343H+xV9p0EBrxe++QlvFw
+	73+w2dTgr4bcX4K0sjmgZN08jIsjn1ZdU1DdWG/mFY9Jv6yyfuJHDUBOfdP7MJPPBCq4rGk6sI8gq
+	tEZLy6fFZpGGke/bvT0gbqVP2HvWXkUoDoCmodSzH/meNBBI45GKTM/x+56C1Mk1L3oAShl+WLuQm
+	/HJAGjbx7gqN1qVms9goOP4md0zWt7/hFa+ZdtDBG1YOER6Gn3Y/Hzfe7fwVD0iAq9698590rLVCq
+	wkGGCYIkwgFtgrx09DHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQYs4-00H9xN-25;
-	Mon, 31 Jul 2023 19:48:00 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1qQZXO-00HHNm-0N;
+	Mon, 31 Jul 2023 20:30:42 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQYs2-00H9x1-2C;
-	Mon, 31 Jul 2023 19:47:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=G10afZyCNiaw2vu2jAC3R9gIyzTLIVHGE2tClR0IBw8=; b=kBp+2VJp5ZkwgOk6UXkI6Hycfa
-	6kT98WUmhx2HQkhtNUZTNNoe07jkAj4Lz4PjP+7r5FBs15S+dQQb2piYzaUHD0peDdc8WIdLQxMQK
-	DNFi0PDdxcs5CJoEXFHGSc7/TGeaYG1Ke5nrUTGoljolHji24RtvsxqdvE5A7itlLqUScknltKB3Z
-	zWy96M9RwO8SFgNHBjDdAjDnzHwsoV3IjCqVd1ylRCKJHShmoUN00v/rzC7LsqX7U0zpk2QAtFJhj
-	LWnDr4Thcm4PrDlyS5MM6o9h4m4nkIP9/R16jO8Ry8c5m88Uki668qErHNvG+0fkJkOImHmzuHHTb
-	jeL6dO4A==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1qQYry-003T3N-E9; Mon, 31 Jul 2023 19:47:54 +0000
-Date: Mon, 31 Jul 2023 20:47:54 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Brendan Sweeney <brs@rivosinc.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	=?iso-8859-1?Q?R=E9mi?= Denis-Courmont <remi@remlab.net>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH v4 09/10] tools: lib: perf: Implement riscv mmap support
-Message-ID: <ZMgP6hhD/k7QNQ3t@casper.infradead.org>
-References: <20230727141428.962286-1-alexghiti@rivosinc.com>
- <20230727141428.962286-10-alexghiti@rivosinc.com>
- <CAP-5=fU5XYXrVnRUidpwjV2LiTsdebfidL43_Qo4Z7TBxMsVGA@mail.gmail.com>
- <CAHVXubgVAe1WsiZx5Ay+3KPK4u24k_vsnTwFFmBeVsHrGXwhfw@mail.gmail.com>
- <CAHVXubj80rQRShuDS09BeTrfR6nux0A68EMWLbeat8fd_Y3YdA@mail.gmail.com>
- <CAP-5=fWwzuGZ6a6Z38ndsb7gw7_uwS0a2VGXx08hMeiK8eZ91w@mail.gmail.com>
- <CAHVXubjhM9C1fw_Us=8+RuSJbW0pacFAk9gp7j2=BtMUPy_Byw@mail.gmail.com>
- <CAP-5=fUbiaVwSAhTbymyhdUPcVAXHiQZZexAOnrqid0LsPmfpw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAP-5=fUbiaVwSAhTbymyhdUPcVAXHiQZZexAOnrqid0LsPmfpw@mail.gmail.com>
+	id 1qQZXL-00HHIv-0g
+	for linux-riscv@lists.infradead.org;
+	Mon, 31 Jul 2023 20:30:40 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2683548c37cso3597218a91.2
+        for <linux-riscv@lists.infradead.org>; Mon, 31 Jul 2023 13:30:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20221208; t=1690835429; x=1691440229;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6HESCPn2yqkRQlomTDEJ9KEelTSIJogLeTLwuEF5EyM=;
+        b=bIOTcPBKQpMsQ2T038vAoGELSwehmJJHLXxm0vf7EKuC0vlU7oM5xb+0JHY8DMrTa6
+         vjiCtfDi4kTL5EtobGmC5eLwYHbbPwoALsuGqqELp5A7ErCquVX5RBodMXTmxdcTgoIT
+         8kq/f6qU3bnUXYaTjESLcAXCoJvZQITEk4SpczPfkH8r3ILgy3m6n3RJ/v2yt6dXQ5Tq
+         yN8F33WdnVS7aXG/I3E80Chr/bnZInSl3kaP12QzmDAm0HT/ApcbtFahnvurMVvg3cfr
+         DwCh3X+vO2C96IswGqZFhexHyjKLpwTvqH5fXuFj7Xr5L+1/Z2YMfjRHJ0BN3KDE8yVp
+         APBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1690835429; x=1691440229;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6HESCPn2yqkRQlomTDEJ9KEelTSIJogLeTLwuEF5EyM=;
+        b=RQZ8ZdjUeF0AWNrV7hCEj54ejRFyCyWBp7lQYO+zsJHUWjmn2E5bODUFPYprj112B7
+         /Wms5PvgvsvgDVEHlRRaAQC2LwNM63yLENGRBUoA+N3YQT9x31x8IPtSgeO9SO8GCWwa
+         3gmtuYJb/Yt7uLcK2Y0bLglr2qn43tX7/ry1wiP7gviqdUc2O+dNrvPfHXLYQFaIQ/Yn
+         LpvrToQdethje8R7xvyG79sqiAu9g3Ivh4TVNco6WlCFV2h81bIYyYvh5yhN0+y5/kgr
+         mtKCNd678NfbAgEwJLohtFIuMRPu4vYc0Cm9YQfDAj98fZ8fdPHIuJTgobAMC85ZRPFy
+         anuw==
+X-Gm-Message-State: ABy/qLZKoFzgQlrbYhdjOJeFw38lW1zmHBxmhC5nuEMaK95yCqLePxOS
+	FU7oA6FENu5JzioNtvoY1AF2xOqGmdc=
+X-Google-Smtp-Source: APBJJlHgxXlg8+gvx8zA8kKWT9TTiDRE1TpIeTm8T+Air3m+lXVJ5gOGOil9KVUs5jELG98CZaMGEync9vo=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:902:d4c8:b0:1ba:ff36:e0d7 with SMTP id
+ o8-20020a170902d4c800b001baff36e0d7mr46611plg.12.1690835429354; Mon, 31 Jul
+ 2023 13:30:29 -0700 (PDT)
+Date: Mon, 31 Jul 2023 13:30:23 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.41.0.585.gd2178a4bd4-goog
+Message-ID: <20230731203026.1192091-1-seanjc@google.com>
+Subject: [PATCH v4.1 0/3] KVM: selftests: Guest printf extra prep patches
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Sean Christopherson <seanjc@google.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Aaron Lewis <aaronlewis@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20230731_133039_254936_F0A012E0 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +89,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Sean Christopherson <seanjc@google.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdWwgMzEsIDIwMjMgYXQgMDk6NDY6MDdBTSAtMDcwMCwgSWFuIFJvZ2VycyB3cm90
-ZToKPiBPbiBNb24sIEp1bCAzMSwgMjAyMyBhdCA5OjA24oCvQU0gQWxleGFuZHJlIEdoaXRpIDxh
-bGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cm90ZToKPiA+IEkgaGF2ZSBqdXN0IGhhZCB0aGUgYW5z
-d2VyIGludGVybmFsbHkgKHRoYW5rcyB0byBAQnJlbmRhbiBTd2VlbmV5KToKPiA+IGNzciBtb2Rp
-ZmljYXRpb25zIGNhbiBhbHRlciBob3cgdGhlIG1lbW9yeSBpcyBhY2Nlc3NlZCAoc2F0cCB3aGlj
-aAo+ID4gY2hhbmdlcyB0aGUgYWRkcmVzcyBzcGFjZSwgc3VtIHdoaWNoIGFsbG93cy9kaXNhbGxv
-d3MgdXNlcnNwYWNlCj4gPiBhY2Nlc3MuLi4pLCBzbyB3ZSBuZWVkIHRoZSBtZW1vcnkgYmFycmll
-ciB0byBtYWtlIHN1cmUgdGhlIGNvbXBpbGVyCj4gPiBkb2VzIG5vdCByZW9yZGVyIHRoZSBtZW1v
-cnkgYWNjZXNzZXMuCj4gCj4gVGhlIGNvbmRpdGlvbnMgeW91IG1lbnRpb24gc2hvdWxkbid0IGFw
-cGx5IGhlcmUgdGhvdWdoPyBFdmVuIGlmIHlvdQo+IGFkZCBhIG1lbW9yeSBiYXJyaWVyIGZvciB0
-aGUgY29tcGlsZXIgd2hhdCBpcyBzdG9wcGluZyB0aGUgaGFyZHdhcmUKPiByZW9yZGVyaW5nIGxv
-YWRzIGFuZCBzdG9yZXM/IElmIGl0IGFic29sdXRlbHkgaGFzIHRvIGJlIHRoZXJlIHRoZW4gYQo+
-IGNvbW1lbnQgc29tZXRoaW5nIGxpa2UgIlRoZXJlIGlzIGEgYnVnIGlzIHJpc2N2IHdoZXJlIHRo
-ZSBjc3JyCj4gaW5zdHJ1Y3Rpb24gY2FuIGNsb2JiZXIgbWVtb3J5IGJyZWFraW5nIGZ1dHVyZSBy
-ZWFkcyBhbmQgc29tZSBob3cgdGhpcwo+IGNvbnN0cmFpbnQgZml4ZXMgaXQgYnkgLi4uICIuCgpJ
-ZiB0aGUgaGFyZHdhcmUgZG9lc24ndCBrbm93IHRoYXQgd3JpdGluZyB0byBhIGNzciBjYW4gY2hh
-bmdlIGhvdyBtZW1vcnkKYWNjZXNzZXMgYXJlIGRvbmUgYW5kIHJlb3JkZXJzIG1lbW9yeSBhY2Nl
-c3NlcyBhcm91bmQgdGhhdCBjc3Igd3JpdGUsCnlvdSd2ZSBnb3QgYSByZWFsbHkgYnJva2VuIHBp
-ZWNlIG9mIGhhcmR3YXJlIG9uIHlvdXIgaGFuZHMgLi4uCgpJIGtub3cgbm90aGluZyBhYm91dCBy
-aXNjLXYsIGFuZCBtYXliZSB0aGUgZGVmaW5pdGlvbiBzYXlzIHRoYXQgeW91IG5lZWQKdG8gcHV0
-IGEgbWVtb3J5IGJhcnJpZXIgYmVmb3JlIGFuZC9vciBhZnRlciBpdCBpbiB0aGUgaW5zdHJ1Y3Rp
-b24gc3RyZWFtLApidXQgb24gYWxsIGhhcmR3YXJlIEknbSBmYW1pbGlhciB3aXRoLCB3cml0aW5n
-IHRvIGEgQ1NSIGlzIGFuIGltcGxpY2l0bHkKc2VyaWFsaXNpbmcgb3BlcmF0aW9uLgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Delta patches for v4 of the guest printf series to enable guest_printf_test
+for all architectures.  Sending all 36 patches seemed counter-productive,
+and I want to get input on adding ucall.h asap.
+
+v4.1:
+ - Add ucall.h and have each arch UCALL_EXIT_REASON so that generic code
+   can query whether or not a ucall exit actually occurred. [Drew]
+ - Use UCALL_EXIT_REASON in guest_printf_test.c and enable the test for
+   all architectures. [Drew]
+
+v4: https://lore.kernel.org/all/20230729003643.1053367-1-seanjc@google.com
+
+Aaron Lewis (1):
+  KVM: selftests: Add a selftest for guest prints and formatted asserts
+
+Sean Christopherson (2):
+  KVM: selftests: Add arch ucall.h and inline simple arch hooks
+  KVM: selftests: Add #define of expected KVM exit reason for ucall
+
+ tools/testing/selftests/kvm/Makefile          |   4 +
+ .../testing/selftests/kvm/guest_print_test.c  | 221 ++++++++++++++++++
+ .../selftests/kvm/include/aarch64/ucall.h     |  20 ++
+ .../selftests/kvm/include/riscv/ucall.h       |  20 ++
+ .../selftests/kvm/include/s390x/ucall.h       |  19 ++
+ .../selftests/kvm/include/ucall_common.h      |   1 +
+ .../selftests/kvm/include/x86_64/ucall.h      |  13 ++
+ .../testing/selftests/kvm/lib/aarch64/ucall.c |  11 +-
+ tools/testing/selftests/kvm/lib/riscv/ucall.c |  11 -
+ tools/testing/selftests/kvm/lib/s390x/ucall.c |  10 -
+ .../testing/selftests/kvm/lib/x86_64/ucall.c  |   4 -
+ 11 files changed, 299 insertions(+), 35 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/guest_print_test.c
+ create mode 100644 tools/testing/selftests/kvm/include/aarch64/ucall.h
+ create mode 100644 tools/testing/selftests/kvm/include/riscv/ucall.h
+ create mode 100644 tools/testing/selftests/kvm/include/s390x/ucall.h
+ create mode 100644 tools/testing/selftests/kvm/include/x86_64/ucall.h
+
+
+base-commit: 12dcd9e1fe9264d306837622952b8f79d1181fab
+-- 
+2.41.0.585.gd2178a4bd4-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
