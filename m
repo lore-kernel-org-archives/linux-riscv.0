@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA09CC001DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 18:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E8EC001E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 19:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=E6KdSaP1Fndv3B4BJMK2FeGcG9BpVFN2sP/DP/kEjfI=; b=iZD/84EC8PjosC
-	ARyn5d8veai7GjzHteb2b4FFTxNXC0fz7Qdnmlh/WAvC8XvjY6Cz1MAgGVsJCQZK4jqqB+zngwwnL
-	TzBIllqZulhxXOGpraBf3W7aiHQWkIUG92RodC3dJulqKZLF191jveH4Wnm4A9kREECSW2HDtCDDE
-	QtADfQSW6yaH6hufNNacMPKxn+QcEGyglDR3crPs0Dp+78+k7TAqhjMGmgQr6ue7+/wOpreavoU6u
-	tGNR5BuYyYO4tq7cqLrLr4hTZlMeD1KfHyphGWIDidvjbjtkofcUdue4yh9o1BS8arGfLtov48K8M
-	yewebIQgvmAirS6dxF5g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TQoruGBA5jPUZkClO7tQRH3aVLpn0eIP1hGhq2hlwuU=; b=BRAzl4XZZfhS4WcYNT++6wfnop
+	YhfiZTA7CWrJ4pGlmtYRuMbX94WJBYptJmw3+W4HL9VnmrkLXg2+LUvDPJ7DWS+qQJtNu5Fqo2ELw
+	ChaWy7uyMqQVZqGievrQULCNqdBKlmKrNKyZPSoploOf26IyUW+8nTwDQANHd0VAWkaMpGgLLeK1M
+	uORzeeg3Z0E+VeOXA6odKRk+9EIGt7t0vf71w/uyt7yDgX9WxWhMMG7GHLk9D5/vlGuoaZgngfZNx
+	MS+xz2tZ/MlChW0ZZ650Ol40OsG5G+gPxHJgZRYS+K+KhQgXp8CfF+1ls+vizGMe6RW9YF5I7X/sO
+	eTquQ6Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQXnw-00H0ac-1b;
-	Mon, 31 Jul 2023 18:39:40 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1qQYLx-00H5oD-0N;
+	Mon, 31 Jul 2023 19:14:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQXnu-00H0ZH-2Z
+	id 1qQYLu-00H5nD-1A
 	for linux-riscv@lists.infradead.org;
-	Mon, 31 Jul 2023 18:39:40 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5222bc91838so7204417a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 31 Jul 2023 11:39:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1690828773; x=1691433573;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YeAGwgVyMXcNXeTFVIAMcPWnhWeRTG8FbEAKWB4lruA=;
-        b=QXD623Lbsq+bP6iSgF9CXctMwS5P/KiKpYWKe7j23oIM9baaN5RfkgJAUxLwDOqOKy
-         cbL9gIWdiD/ZFFvHs9xiC5SC6eKPdrETuDtKpzuwLxEZB3BYvh15LHJ/tBY/Jrr8z+i1
-         bT07b9OkoIGk3VmSlKMVIP0jsmOemjLmZuwoT052zYTOsMEzEpaFOqX0jascwtBSwO3E
-         Zks+RwHjv9fu1rlkr1rfrBtAk4mQkHD3MhoLR9eY2BuWOWtlhwxaMGn/D/T2x8JFww1O
-         bgZwCpowmr5o0tqfjmGR0rMm24AOrLh1IvPY1ps3N7x1iDLosRbGKYg+DnsJKzMM85j9
-         WC2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690828773; x=1691433573;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YeAGwgVyMXcNXeTFVIAMcPWnhWeRTG8FbEAKWB4lruA=;
-        b=PkLl3Asxh3k+449Z3ln9CTPmkAgq1ogx3EboizPctg6UDxQlzrNhWR4dHRPJ4mYPP4
-         QjG53zSqb+z7Nx8CX7fSX00zmPcJwxhkPVlA/jLzW5acFCYwix8KAa0MFeRQeEJperZk
-         TV8SAUj4kkRNN9I92tw0etMtzIAUB93jQUMX3DlrU762KUARmlBDJUUyDlLfO7Yz6ind
-         1W99hj0AUNJYShVLHZHaDrnIIXzqVQXcgMpLown7kX+kV01v7FYJHqFb0PpkeCgeBlqg
-         jE4wmrUpBQb5DJiWz2QsV3ScwjJAUPCI6BEl/bkVUuN6DvWtWKGi4QjhpP7Dzg5dr63P
-         20gw==
-X-Gm-Message-State: ABy/qLajhOz3a+1JZ1ei+3W42D+fHehtpB6Oisu3KjoNPMlOWU2Kzhd4
-	GEv4+eNh7/uuDTX5YeFrn1g=
-X-Google-Smtp-Source: APBJJlHqZRzVIf0Z+xYOeJXTN/WJo2hTQPlEBaTRlnHgdOvgxP2YfI82UfOkdY1lriZt1Zq6V9XcRQ==
-X-Received: by 2002:aa7:dd13:0:b0:521:7ab6:b95d with SMTP id i19-20020aa7dd13000000b005217ab6b95dmr549698edv.29.1690828773383;
-        Mon, 31 Jul 2023 11:39:33 -0700 (PDT)
-Received: from nam-dell (ip-217-105-46-58.ip.prioritytelecom.net. [217.105.46.58])
-        by smtp.gmail.com with ESMTPSA id c7-20020aa7c747000000b0052237839229sm5772031eds.21.2023.07.31.11.39.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Jul 2023 11:39:32 -0700 (PDT)
-From: Nam Cao <namcaov@gmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Nam Cao <namcaov@gmail.com>
-Subject: [PATCH] riscv: correct riscv_insn_is_c_jr() and riscv_insn_is_c_jalr()
-Date: Mon, 31 Jul 2023 20:39:25 +0200
-Message-Id: <20230731183925.152145-1-namcaov@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 31 Jul 2023 19:14:47 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CB22761276;
+	Mon, 31 Jul 2023 19:14:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32AE9C433C7;
+	Mon, 31 Jul 2023 19:14:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690830885;
+	bh=SyJU7Qt2aBIN4OyFcC5oEmHd0DxKwQmqDlVAGFvHAGo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mfZY9GbnMx+aOUhNak8hhNx+W4RQngWJkELmDVGW8q222cnSMnvbobDN1oms+zhPq
+	 cbVaocl89DiKxBWlHYimi8lIVjOKKdGuWYEqGxdADX6HTYgNkF/bhaNpRm+5thXsSY
+	 95pSQw5/dAnIbHeWNjq0VSi+To/RKfwFY9qNzU6d/4/eUCt6xAJXOAcUW5q+AntKar
+	 0ORk/O7jvBbHgP4x2jVPEcuU93ljKLAk2vQDp2COzlYpPQo/dsMr+jYANsNy2HLrST
+	 UBrBWz75Wxw3pzn3gUxpb0wnlkuByXvUEP/1l3Fv5WdcsVQuTaTpKYdvVRdwI4VJOk
+	 N5mKreLQOiTOQ==
+Date: Mon, 31 Jul 2023 20:14:38 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Walker Chen <walker.chen@starfivetech.com>,
+	Xingyu Wu <xingyu.wu@starfivetech.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] ASoC: starfive: Add JH7110 PWM-DAC driver
+Message-ID: <9b03c7ed-845c-494b-8c40-10d1fe923b15@sirena.org.uk>
+References: <20230731032829.127864-1-hal.feng@starfivetech.com>
+ <20230731032829.127864-3-hal.feng@starfivetech.com>
 MIME-Version: 1.0
+In-Reply-To: <20230731032829.127864-3-hal.feng@starfivetech.com>
+X-Cookie: Single tasking: Just Say No.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230731_113938_838278_F14581D4 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20230731_121446_486596_B4FCD8B0 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,68 +80,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3235605393919307966=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The instructions c.jr and c.jalr must have rs1 != 0, but
-riscv_insn_is_c_jr() and riscv_insn_is_c_jalr() do not check for this. So,
-riscv_insn_is_c_jr() can match a reserved encoding, while
-riscv_insn_is_c_jalr() can match the c.ebreak instruction.
 
-Rewrite them with check for rs1 != 0.
+--===============3235605393919307966==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7WRSfejFGo+r56WO"
+Content-Disposition: inline
 
-Signed-off-by: Nam Cao <namcaov@gmail.com>
----
- arch/riscv/include/asm/insn.h | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index 4e1505cef8aa..fce00400c9bc 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -110,6 +110,7 @@
- #define RVC_INSN_FUNCT4_OPOFF	12
- #define RVC_INSN_FUNCT3_MASK	GENMASK(15, 13)
- #define RVC_INSN_FUNCT3_OPOFF	13
-+#define RVC_INSN_J_RS1_MASK	GENMASK(11, 7)
- #define RVC_INSN_J_RS2_MASK	GENMASK(6, 2)
- #define RVC_INSN_OPCODE_MASK	GENMASK(1, 0)
- #define RVC_ENCODE_FUNCT3(f_)	(RVC_FUNCT3_##f_ << RVC_INSN_FUNCT3_OPOFF)
-@@ -245,8 +246,6 @@ __RISCV_INSN_FUNCS(c_jal, RVC_MASK_C_JAL, RVC_MATCH_C_JAL)
- __RISCV_INSN_FUNCS(auipc, RVG_MASK_AUIPC, RVG_MATCH_AUIPC)
- __RISCV_INSN_FUNCS(jalr, RVG_MASK_JALR, RVG_MATCH_JALR)
- __RISCV_INSN_FUNCS(jal, RVG_MASK_JAL, RVG_MATCH_JAL)
--__RISCV_INSN_FUNCS(c_jr, RVC_MASK_C_JR, RVC_MATCH_C_JR)
--__RISCV_INSN_FUNCS(c_jalr, RVC_MASK_C_JALR, RVC_MATCH_C_JALR)
- __RISCV_INSN_FUNCS(c_j, RVC_MASK_C_J, RVC_MATCH_C_J)
- __RISCV_INSN_FUNCS(beq, RVG_MASK_BEQ, RVG_MATCH_BEQ)
- __RISCV_INSN_FUNCS(bne, RVG_MASK_BNE, RVG_MATCH_BNE)
-@@ -273,6 +272,18 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
- 	return (code & RV_INSN_OPCODE_MASK) == RVG_OPCODE_BRANCH;
- }
- 
-+static __always_inline bool riscv_insn_is_c_jr(u32 code)
-+{
-+	return (code & RVC_MASK_C_JR) == RVC_MATCH_C_JR &&
-+	       (code & RVC_INSN_J_RS1_MASK) != 0;
-+}
-+
-+static __always_inline bool riscv_insn_is_c_jalr(u32 code)
-+{
-+	return (code & RVC_MASK_C_JALR) == RVC_MATCH_C_JALR &&
-+	       (code & RVC_INSN_J_RS1_MASK) != 0;
-+}
-+
- #define RV_IMM_SIGN(x) (-(((x) >> 31) & 1))
- #define RVC_IMM_SIGN(x) (-(((x) >> 12) & 1))
- #define RV_X(X, s, mask)  (((X) >> (s)) & (mask))
--- 
-2.34.1
+--7WRSfejFGo+r56WO
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Mon, Jul 31, 2023 at 11:28:28AM +0800, Hal Feng wrote:
+
+> +static const struct jh7110_ct_pwmdac pwmdac_ct_data_shift[] = {
+> +	{ .name = "left 0 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_0 },
+> +	{ .name = "left 1 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_1 },
+> +	{ .name = "left 2 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_2 },
+> +	{ .name = "left 3 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_3 },
+> +	{ .name = "left 4 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_4 },
+> +	{ .name = "left 5 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_5 },
+> +	{ .name = "left 6 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_6 },
+> +	{ .name = "left 7 bit", .vals = PWMDAC_DATA_LEFT_SHIFT_BIT_7 }
+> +};
+
+It's not clear to me why this is user selectable - what does the control
+do?
+
+> +static int jh7110_pwmdac_put(struct snd_kcontrol *kcontrol,
+> +			     struct snd_ctl_elem_value *ucontrol,
+> +			     int pwmdac_ct)
+> +{
+> +	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
+> +	struct jh7110_pwmdac_dev *dev = snd_soc_component_get_drvdata(component);
+> +	int sel = ucontrol->value.enumerated.item[0];
+> +	unsigned int items;
+
+> +	if (pwmdac_ct == PWMDAC_CT_SHIFT)
+> +		dev->shift = pwmdac_ct_shift[sel].vals;
+> +	else if (pwmdac_ct == PWMDAC_CT_DUTY_CYCLE)
+> +		dev->duty_cycle = pwmdac_ct_duty_cycle[sel].vals;
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_CHANGE)
+> +		dev->data_change = pwmdac_ct_data_change[sel].vals;
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_MODE)
+> +		dev->data_mode = pwmdac_ct_data_mode[sel].vals;
+> +	else if (pwmdac_ct == PWMDAC_CT_DATA_SHIFT)
+> +		dev->data_shift = pwmdac_ct_data_shift[sel].vals;
+> +
+> +	return 0;
+> +}
+
+_put() operations should return 1 if the control value changes so event
+generation works - please test a card using this driver with the
+mixer-test selftest, it'll identify this and a bunch of other potential
+issues.
+
+> +static int jh7110_pwmdac_component_probe(struct snd_soc_component *component)
+> +{
+> +	snd_soc_add_component_controls(component, jh7110_pwmdac_snd_controls,
+> +				       ARRAY_SIZE(jh7110_pwmdac_snd_controls));
+> +	return 0;
+> +}
+
+The driver can just point to the controls from the _driver struct and
+skip having a probe() function.
+
+
+--7WRSfejFGo+r56WO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTICB4ACgkQJNaLcl1U
+h9Bkogf7B5sn9Y3g1mTAAspid/NHj9EJnpyylKVFcCH8D0UOo11qJLylO7cb8DQw
+3M6ifjvdgMPSgZiwoshQnv3dS0yPr422sWUV65Dnm9pI0lwju9mFo4mh6i0zexdi
+AvQWj6reLoNjF1zn3ZSLU0qkqSTxaOebz1O9RkldqqmbcVixM4sLJOoDzhb5K76O
+lfD2y7zU3/GBt/+OwRObmMLz/AlrPbPkT2YF+0txEYEIitxWHgMoqJFWJI9cdg9I
+8WBjG+5nh/yKozj2EYOEGhKNjBegDGOOp/7sqWdUMdrkRNdtczS3sp5/jRHLv6ph
+1AMqKDncC9OfgKfFLfJy2saNmIxWlg==
+=JSoy
+-----END PGP SIGNATURE-----
+
+--7WRSfejFGo+r56WO--
+
+
+--===============3235605393919307966==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3235605393919307966==--
+
