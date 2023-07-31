@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA3CC001DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 17:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C1FC001DE
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 17:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NWPpG7fAqoUHTHYr7KzTcoabzS02Fne8b37ukDFRuAI=; b=rp15dsOQsKpZud
-	Hq6Pyly7lJbZU2iLhEz7DXVUrHoeqtzMnzIgoXSOsMFz4bYmrSW/UC1BtkW5u+Gl7HHaKQksu6ocL
-	8PcjBboIQMfKVRt6OlyGmzZpJTHcfT/xUXaUVIIYGvjEy5Jjl3594ib4p4mP3dyPOwA5rrQcrnOR4
-	x7RcgitLbz1cOl1Ry5iPmH+yVyN30MS3Yp5kemvcDj4oOicv0Yzsmbf4USDh2pgJkoge+bRbeZacO
-	xQb/Le+0d1T25F+6dctakMOxNleLGPXjsQQUhwp7CsbkR+FjvL+ynbZpUPGt1q/iWD3SQv5Ubet/q
-	7ReDvHuB80vCvPODKn4Q==;
+	List-Owner; bh=Vb96Un+GACXnnt6c6smKgrx+iwmPihf82XeW4udj0MI=; b=WIzKqn59ohIgGs
+	+OiFuPN1uBnT8+vFg8DL6tAT3bSDOSYYMdYy05OVOb49BOXPDbPI77lRgDmb+WhzpmhmV7SwSt49R
+	1ldbYaauLS+D+KXFrt8uumMc296pFNC4RroaGXjPYLMozCawXlGKwRxRUUPh268QTJe3aDJQusPlx
+	VsaBnd5pXZ0aBdrFW8W1EbhHjmA3QtNZyOgKBhS6oo8TU68UwdlVKdWKdevjQE+HX91WVTnVd44cD
+	2KATe3oyfe2TVGn+phEmDhpUqKsc67B++feCPH4XnB2GlU/585M53cVzrKAi08OlooeLB1G9dEt7T
+	/Gyn6KzSHqtblu5EKUEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQWpT-00Grvs-0w;
-	Mon, 31 Jul 2023 17:37:11 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1qQWq6-00Gs3B-1R;
+	Mon, 31 Jul 2023 17:37:50 +0000
+Received: from out-106.mta0.migadu.com ([2001:41d0:1004:224b::6a])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQWpP-00Grtm-2y
+	id 1qQWq2-00Gs17-1z
 	for linux-riscv@lists.infradead.org;
-	Mon, 31 Jul 2023 17:37:09 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-1bc0308d1e2so14825ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 31 Jul 2023 10:36:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20221208; t=1690825019; x=1691429819;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qqwUjf4srHS0GmV2PrhboWOP/pK2frD9PFN9eIO2JAw=;
-        b=PW7uXs8te+DjBD/konvGzLWP8g1fMK7bveuEGlOTMiFVF5fJOURsOxjYwDa4V8/7PN
-         GfxiTdGyn4gNxwwJEsgm5Sa3Z07XoIws8zOegDuEUNdgEakGsCpulFVJ68YDWRx8hG7J
-         pHEIHY9NNGcOKqt3EcY+H5XjDJYzQb9r6s9KF29xhh5Zs48JdBGHLJzvx9IIdfAb6DL2
-         uvolYf+4ofy8X/EQBFsrD9bL5wC/3Jo2GpoHAsbLgZmiKj7F/6zz+pRJOqtmGCUykUqb
-         cXxdJcVUj2aUL7x0X6KpmqFqe34XSu2p4AB041J8zGtZ22s2J/6FLShweArcanRRNTIu
-         x2gQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690825019; x=1691429819;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qqwUjf4srHS0GmV2PrhboWOP/pK2frD9PFN9eIO2JAw=;
-        b=dwDYSOGhcVAyKN5jbLEw4unP54bCpIvDQFYAFr9/FFIm2099DaQ3VKUNd5tNtF8Ww3
-         98p+OncbO0x9Cen0dSJPOsnsWtJoeDV+wcMdRIfoKdLkTWHbloYKlzr9eiT7bfIK2kj7
-         od6WsrnusJAw7e/IUBbY88rQRdF2DzG4MwPGTJGV7IKgFoFn78vvTrBNWHtkyoZh4apg
-         Wj9B+8F28Eq25iHQclDBRmc4SgVWl/M3AF4IILBipYzNL4EBu+tIf1yfJFGVA1aI/+pc
-         +dpGvb475j1ItXTPajX7mY3ZByugl80EV0HC3WJYfDJ5GeK8sY7zLkrl2rw/TYcpwzb6
-         TMyw==
-X-Gm-Message-State: ABy/qLYwVqy4+QTixhw0Bk5VIJ1nBtkJy1SBse2PtyhQavscezBfF07A
-	XuuZCfdR1w8nUiIdkuD/9qpVmhorFcT6/V50PQ1Oxg==
-X-Google-Smtp-Source: APBJJlFkMuLyTHjACrkUI9ojOs57IF7oGguBdj8b71/dF8frxz4uOZLWejmA7Zhtt9x/0OUhO69yCloZOMPgYxPCZgE=
-X-Received: by 2002:a17:902:c410:b0:1b8:82c6:9e11 with SMTP id
- k16-20020a170902c41000b001b882c69e11mr381793plk.0.1690825018566; Mon, 31 Jul
- 2023 10:36:58 -0700 (PDT)
+	Mon, 31 Jul 2023 17:37:48 +0000
+Date: Mon, 31 Jul 2023 17:37:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1690825062;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8YdaDmAxh2tQ04c65R6HIInMSDgiFElU1rQyABOujGA=;
+	b=EX5P5RrbAyGLiUihHg1zPC7oGWSKDM/ElBWxcBqxOnEfqsICZbH2/AKd3VVoNKwHnOFruh
+	7NElv6WY+11J1OOCKqt98Yd2d6vWX/LMv7f7kzf3/02EtNU3neXRdqSxXfp5KfexlS5rP8
+	7iRednQbNTf1lNnkOTSMwB1k8yGXoT8=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-mips@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Yu Zhao <yuzhao@google.com>
+Subject: Re: [PATCH] KVM: Wrap kvm_{gfn,hva}_range.pte in a per-action union
+Message-ID: <ZMfxYR41K71UV/84@linux.dev>
+References: <20230729004144.1054885-1-seanjc@google.com>
 MIME-Version: 1.0
-References: <20230722022251.3446223-1-rananta@google.com> <20230722022251.3446223-7-rananta@google.com>
- <87r0otr579.wl-maz@kernel.org>
-In-Reply-To: <87r0otr579.wl-maz@kernel.org>
-From: Raghavendra Rao Ananta <rananta@google.com>
-Date: Mon, 31 Jul 2023 10:36:47 -0700
-Message-ID: <CAJHc60zqOeWXf3kh5hKL6DL3g4znmHaH-TqC0QDcBrWPsHAEXQ@mail.gmail.com>
-Subject: Re: [PATCH v7 06/12] arm64: tlb: Refactor the core flush algorithm of __flush_tlb_range
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Sean Christopherson <seanjc@google.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Jing Zhang <jingzhangos@google.com>, 
-	Reiji Watanabe <reijiw@google.com>, Colton Lewis <coltonlewis@google.com>, 
-	David Matlack <dmatlack@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-mips@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Gavin Shan <gshan@redhat.com>, 
-	Shaoqin Huang <shahuang@redhat.com>
+Content-Disposition: inline
+In-Reply-To: <20230729004144.1054885-1-seanjc@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230731_103707_959026_D9A2F81A 
-X-CRM114-Status: GOOD (  22.24  )
+X-CRM114-CacheID: sfid-20230731_103747_055339_57A512F2 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,62 +71,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBKdWwgMjcsIDIwMjMgYXQgMzo1OOKAr0FNIE1hcmMgWnluZ2llciA8bWF6QGtlcm5l
-bC5vcmc+IHdyb3RlOgo+Cj4gT24gU2F0LCAyMiBKdWwgMjAyMyAwMzoyMjo0NSArMDEwMCwKPiBS
-YWdoYXZlbmRyYSBSYW8gQW5hbnRhIDxyYW5hbnRhQGdvb2dsZS5jb20+IHdyb3RlOgo+ID4KPiA+
-IEN1cnJlbnRseSwgdGhlIGNvcmUgVExCIGZsdXNoIGZ1bmN0aW9uYWxpdHkgb2YgX19mbHVzaF90
-bGJfcmFuZ2UoKQo+ID4gaGFyZGNvZGVzIHZhZTFpcyAoYW5kIHZhcmlhbnRzKSBmb3IgdGhlIGZs
-dXNoIG9wZXJhdGlvbi4gSW4gdGhlCj4gPiB1cGNvbWluZyBwYXRjaGVzLCB0aGUgS1ZNIGNvZGUg
-cmV1c2VzIHRoaXMgY29yZSBhbGdvcml0aG0gd2l0aAo+ID4gaXBhczJlMWlzIGZvciByYW5nZSBi
-YXNlZCBUTEIgaW52YWxpZGF0aW9ucyBiYXNlZCBvbiB0aGUgSVBBLgo+ID4gSGVuY2UsIGV4dHJh
-Y3QgdGhlIGNvcmUgZmx1c2ggZnVuY3Rpb25hbGl0eSBvZiBfX2ZsdXNoX3RsYl9yYW5nZSgpCj4g
-PiBpbnRvIGl0cyBvd24gbWFjcm8gdGhhdCBhY2NlcHRzIGFuICdvcCcgYXJndW1lbnQgdG8gcGFz
-cyBhbnkKPiA+IFRMQkkgb3BlcmF0aW9uLCBzdWNoIHRoYXQgb3RoZXIgY2FsbGVycyAoS1ZNKSBj
-YW4gYmVuZWZpdC4KPiA+Cj4gPiBObyBmdW5jdGlvbmFsIGNoYW5nZXMgaW50ZW5kZWQuCj4gPgo+
-ID4gU2lnbmVkLW9mZi1ieTogUmFnaGF2ZW5kcmEgUmFvIEFuYW50YSA8cmFuYW50YUBnb29nbGUu
-Y29tPgo+ID4gUmV2aWV3ZWQtYnk6IENhdGFsaW4gTWFyaW5hcyA8Y2F0YWxpbi5tYXJpbmFzQGFy
-bS5jb20+Cj4gPiBSZXZpZXdlZC1ieTogR2F2aW4gU2hhbiA8Z3NoYW5AcmVkaGF0LmNvbT4KPiA+
-IFJldmlld2VkLWJ5OiBTaGFvcWluIEh1YW5nIDxzaGFodWFuZ0ByZWRoYXQuY29tPgo+ID4gLS0t
-Cj4gPiAgYXJjaC9hcm02NC9pbmNsdWRlL2FzbS90bGJmbHVzaC5oIHwgMTA5ICsrKysrKysrKysr
-KysrKy0tLS0tLS0tLS0tLS0tLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA1NiBpbnNlcnRpb25zKCsp
-LCA1MyBkZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9pbmNsdWRl
-L2FzbS90bGJmbHVzaC5oIGIvYXJjaC9hcm02NC9pbmNsdWRlL2FzbS90bGJmbHVzaC5oCj4gPiBp
-bmRleCA0MTJhM2I5YTNjMjUuLmY3ZmFmYmEyNWFkZCAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvYXJt
-NjQvaW5jbHVkZS9hc20vdGxiZmx1c2guaAo+ID4gKysrIGIvYXJjaC9hcm02NC9pbmNsdWRlL2Fz
-bS90bGJmbHVzaC5oCj4gPiBAQCAtMjc4LDE0ICsyNzgsNjIgQEAgc3RhdGljIGlubGluZSB2b2lk
-IGZsdXNoX3RsYl9wYWdlKHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hLAo+ID4gICAqLwo+ID4g
-ICNkZWZpbmUgTUFYX1RMQklfT1BTIFBUUlNfUEVSX1BURQo+ID4KPiA+ICsvKiBXaGVuIHRoZSBD
-UFUgZG9lcyBub3Qgc3VwcG9ydCBUTEIgcmFuZ2Ugb3BlcmF0aW9ucywgZmx1c2ggdGhlIFRMQgo+
-ID4gKyAqIGVudHJpZXMgb25lIGJ5IG9uZSBhdCB0aGUgZ3JhbnVsYXJpdHkgb2YgJ3N0cmlkZScu
-IElmIHRoZSBUTEIKPiA+ICsgKiByYW5nZSBvcHMgYXJlIHN1cHBvcnRlZCwgdGhlbjoKPgo+IENv
-bW1lbnQgZm9ybWF0ICh0aGUgb3JpZ2luYWwgd2FzIGNvcnJlY3QpLgo+Cklzbid0IHRoZSBmb3Jt
-YXQgdGhlIHNhbWUgYXMgb3JpZ2luYWw/IE9yIGFyZSB5b3UgcmVmZXJyaW5nIHRvIHRoZQpmYWN0
-IHRoYXQgaXQgbmVlZHMgdG8gYmUgcGxhY2VkIGluc2lkZSB0aGUgbWFjcm8gZGVmaW5pdGlvbj8K
-PiA+ICsgKgo+ID4gKyAqIDEuIElmICdwYWdlcycgaXMgb2RkLCBmbHVzaCB0aGUgZmlyc3QgcGFn
-ZSB0aHJvdWdoIG5vbi1yYW5nZQo+ID4gKyAqICAgIG9wZXJhdGlvbnM7Cj4gPiArICoKPiA+ICsg
-KiAyLiBGb3IgcmVtYWluaW5nIHBhZ2VzOiB0aGUgbWluaW11bSByYW5nZSBncmFudWxhcml0eSBp
-cyBkZWNpZGVkCj4gPiArICogICAgYnkgJ3NjYWxlJywgc28gbXVsdGlwbGUgcmFuZ2UgVExCSSBv
-cGVyYXRpb25zIG1heSBiZSByZXF1aXJlZC4KPiA+ICsgKiAgICBTdGFydCBmcm9tIHNjYWxlID0g
-MCwgZmx1c2ggdGhlIGNvcnJlc3BvbmRpbmcgbnVtYmVyIG9mIHBhZ2VzCj4gPiArICogICAgKChu
-dW0rMSkqMl4oNSpzY2FsZSsxKSBzdGFydGluZyBmcm9tICdhZGRyJyksIHRoZW4gaW5jcmVhc2Ug
-aXQKPiA+ICsgKiAgICB1bnRpbCBubyBwYWdlcyBsZWZ0Lgo+ID4gKyAqCj4gPiArICogTm90ZSB0
-aGF0IGNlcnRhaW4gcmFuZ2VzIGNhbiBiZSByZXByZXNlbnRlZCBieSBlaXRoZXIgbnVtID0gMzEg
-YW5kCj4gPiArICogc2NhbGUgb3IgbnVtID0gMCBhbmQgc2NhbGUgKyAxLiBUaGUgbG9vcCBiZWxv
-dyBmYXZvdXJzIHRoZSBsYXR0ZXIKPiA+ICsgKiBzaW5jZSBudW0gaXMgbGltaXRlZCB0byAzMCBi
-eSB0aGUgX19UTEJJX1JBTkdFX05VTSgpIG1hY3JvLgo+ID4gKyAqLwo+ID4gKyNkZWZpbmUgX19m
-bHVzaF90bGJfcmFuZ2Vfb3Aob3AsIHN0YXJ0LCBwYWdlcywgc3RyaWRlLCAgICAgICAgICAgICAg
-ICAgICAgICAgXAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYXNpZCwgdGxiX2xl
-dmVsLCB0bGJpX3VzZXIpICAgICAgICAgICAgIFwKPgo+IElmIHlvdSBtYWtlIHRoaXMgYSBjb21t
-b24gbWFjcm8sIHBsZWFzZSBkb2N1bWVudCB0aGUgcGFyYW1ldGVycywgYW5kCj4gd2hhdCB0aGUg
-Y29uc3RyYWludHMgYXJlLiBGb3IgZXhhbXBsZSwgd2hhdCBkb2VzIHRsYmlfdXNlciBtZWFuIGZv
-ciBhbgo+IElQQSBpbnZhbGlkYXRpb24/Cj4KU3VyZSwgSSdsbCBkb2N1bWVudCB0aGUgcGFyYW1l
-dGVycy4gVGhhdCdsbCBiZSBoZWxwZnVsLgoKLSBSYWdoYXZlbmRyYQo+ICAgICAgICAgTS4KPgo+
-IC0tCj4gV2l0aG91dCBkZXZpYXRpb24gZnJvbSB0aGUgbm9ybSwgcHJvZ3Jlc3MgaXMgbm90IHBv
-c3NpYmxlLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Fri, Jul 28, 2023 at 05:41:44PM -0700, Sean Christopherson wrote:
+> Wrap kvm_{gfn,hva}_range.pte in a union so that future notifier events can
+> pass event specific information up and down the stack without needing to
+> constantly expand and churn the APIs.  Lockless aging of SPTEs will pass
+> around a bitmap, and support for memory attributes will pass around the
+> new attributes for the range.
+> 
+> Add a "KVM_NO_ARG" placeholder to simplify handling events without an
+> argument (creating a dummy union variable is midly annoying).
+> 
+> Opportunstically drop explicit zero-initialization of the "pte" field, as
+> omitting the field (now a union) has the same effect.
+> 
+> Cc: Yu Zhao <yuzhao@google.com>
+> Link: https://lore.kernel.org/all/CAOUHufagkd2Jk3_HrVoFFptRXM=hX2CV8f+M-dka-hJU4bP8kw@mail.gmail.com
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+
+Looks good, and I don't think it'll conflict with anything on the arm64
+side.
+
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+
+> ---
+> 
+> If this looks good, my thought is to squeeze it into 6.6 so that the MGLRU
+> and guest_memfd() series can build on it.  Or those series could just
+> include it?
+
+Eh, I'm not a huge fan of having two series independently reposting a
+common base. It can be a bit annoying when the two authors have slightly
+different interpretations on how to improve it...
+
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index dfbaafbe3a00..f84ef9399aee 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -526,7 +526,7 @@ typedef void (*on_unlock_fn_t)(struct kvm *kvm);
+>  struct kvm_hva_range {
+>  	unsigned long start;
+>  	unsigned long end;
+> -	pte_t pte;
+> +	union kvm_mmu_notifier_arg arg;
+>  	hva_handler_t handler;
+>  	on_lock_fn_t on_lock;
+>  	on_unlock_fn_t on_unlock;
+> @@ -547,6 +547,8 @@ static void kvm_null_fn(void)
+>  }
+>  #define IS_KVM_NULL_FN(fn) ((fn) == (void *)kvm_null_fn)
+>  
+> +static const union kvm_mmu_notifier_arg KVM_NO_ARG;
+> +
+
+I'm guessing you were trying to keep this short, but it might be nice to
+use MMU_NOTIFIER_ (or similar) as the prefix to make the scope
+immediately obvious.
+
+-- 
+Thanks,
+Oliver
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
