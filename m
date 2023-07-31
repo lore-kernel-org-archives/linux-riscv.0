@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEC4C00528
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 15:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42598C001DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 15:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0i18/wak3wTPUcX/FUgbQWOVLmkUnag/4iDPgmkyhds=; b=Xlxpsq4OACp4hL
-	l4UdM3LwMj4QUUzKu71R/ul3R4KB+tudLU+4peM+xjh3iikk46HrcBfxbqoCrS3tq5KOlHQCkd5vB
-	szwz/wXFUoHWvBclkIA1xyBnnqEF/hwsLT2hJi+TAPiiBV1IFoVLy6zrOnuuu81/3cTcGAKJHDQuj
-	nAaDiMgADSCK5LS9ZZLh2ME3hKVpqGUmJaIcEAJYJiMXw0gFXWzAYfS7KMCW6nesPLq7qiacyYHQZ
-	aQwUjBvzBRmswkVejvi8e48EuKc7iHRmwmgVP3la5o6YrcEm9bLMsmXiqGCwM30Lh24V/o0wUw2RR
-	G/iQJ1bULZX7pflRqYnQ==;
+	List-Owner; bh=9/yr17Q9t9sBHBRsXhnWfpReNlazBM/ATxhJAm3jgmI=; b=aoW6DzdTDgwK3t
+	o5EVBbccb/ET9aw4gpU4ahAGVtpaHzjNuzHJLjzmsIIP5B6DYJzrpYHgMYlxLa5BmKAiITXfx//Rt
+	WrBe/doMt6MKtgDorXx7qz9R4RdAtT9sEJDONqyfsfCh8LgYJyjpZmM13EAbB9COkkiPdy83Kj0U8
+	CvnTx1Eniuse6U1dMXwW2buetbsL8N/UBhluKhCEFOdIJe4jMSUGbZMUENvp87m2X1kAE6vxMMcdT
+	WzYpIYWxECFtIVx5n2huyObX7JQFuH4fHLHmH1GmWImb23vnpORBWE7cFcFYEuP7K3lWCH0g0+vGg
+	ky0RMvQ+cREbb1VmzAMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQUdH-00GKgE-1r;
-	Mon, 31 Jul 2023 15:16:27 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1qQUdb-00GKjW-29;
+	Mon, 31 Jul 2023 15:16:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQUdD-00GKfW-08
+	id 1qQUdY-00GKik-27
 	for linux-riscv@lists.infradead.org;
-	Mon, 31 Jul 2023 15:16:25 +0000
-Received: from [192.168.0.107] (unknown [111.197.209.91])
-	by APP-05 (Coremail) with SMTP id zQCowACnLeo+0MdkHM9REA--.17667S2;
-	Mon, 31 Jul 2023 23:16:14 +0800 (CST)
-Message-ID: <90d97914-9576-42e7-0d7d-c752b5bd6a68@iscas.ac.cn>
-Date: Mon, 31 Jul 2023 23:16:14 +0800
+	Mon, 31 Jul 2023 15:16:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1690816602;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YrcN1VyVujE5NV1Jsx3JBmyoizH+WJVWnxVoH1kYdAE=;
+	b=hOBzU8op/QojWH8wanvziLM0xsx0XZKgWfYbY/HJNTMRM+LNXXFpB2TjZV4HNz+H7JX0h1
+	CLGHS7AwKuaImrH6zr7Qp8o6SyNqGyVfLTb3wUw1UHrKBXU6381ils6wZDwpqIEXHhUMD8
+	XJBl4hj/T8Cy6nKhG8xJ2NkmGECYtuM=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-441-B6tkADYpOJuBdZ0urqYKvg-1; Mon, 31 Jul 2023 11:16:35 -0400
+X-MC-Unique: B6tkADYpOJuBdZ0urqYKvg-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DDE17185A794;
+	Mon, 31 Jul 2023 15:16:34 +0000 (UTC)
+Received: from [10.22.10.62] (unknown [10.22.10.62])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 7DDCBC57965;
+	Mon, 31 Jul 2023 15:16:34 +0000 (UTC)
+Message-ID: <c603e7f1-a562-6826-1c86-995c8127abee@redhat.com>
+Date: Mon, 31 Jul 2023 11:16:34 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH v3] riscv: Handle zicsr/zifencei issue between gcc and
- binutils
+ Thunderbird/102.7.1
+Subject: Re: [PATCH V2] asm-generic: ticket-lock: Optimize
+ arch_spin_value_unlocked
 Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>,
- Bin Meng <bmeng@tinylab.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org,
- Guo Ren <guoren@kernel.org>
-References: <20230731095936.23397-1-xingmingzheng@iscas.ac.cn>
- <20230731-calzone-gratified-dbc51639beec@wendy>
-From: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-Organization: ISCAS
-In-Reply-To: <20230731-calzone-gratified-dbc51639beec@wendy>
-X-CM-TRANSID: zQCowACnLeo+0MdkHM9REA--.17667S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3JF4fCw1kZr4UCFW8uFWDCFg_yoW3JF1Dpr
-	W3CFyDCrs5Xa18G3WfJw1UX3WFvrs3G3yrKry5KryUu3sxCFyxKr9Yka13ZFyDZFnagw4F
-	vw1xuFZY9w1DAaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvCb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
-	xwCYjI0SjxkI62AI1cAE67vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r
-	1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CE
-	b7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0x
-	vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAI
-	cVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2Kf
-	nxnUUI43ZEXa7IU5IksPUUUUU==
-X-Originating-IP: [111.197.209.91]
-X-CM-SenderInfo: 50lqwzhlqj6xxhqjqxpvfd2hldfou0/1tbiCQYJCmTHvCUmcAABsh
+To: guoren@kernel.org, David.Laight@ACULAB.COM, will@kernel.org,
+ peterz@infradead.org, mingo@redhat.com
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
+References: <20230731023308.3748432-1-guoren@kernel.org>
+From: Waiman Long <longman@redhat.com>
+In-Reply-To: <20230731023308.3748432-1-guoren@kernel.org>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230731_081623_641256_6AC90F08 
-X-CRM114-Status: GOOD (  31.59  )
+X-CRM114-CacheID: sfid-20230731_081644_793738_9A604EDA 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,150 +85,75 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/31/23 22:01, Conor Dooley wrote:
-> Hey,
+On 7/30/23 22:33, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> On Mon, Jul 31, 2023 at 05:59:36PM +0800, Mingzheng Xing wrote:
->> Binutils-2.38 and GCC-12.1.0 bumped[0][1] the default ISA spec to the newer
->> 20191213 version which moves some instructions from the I extension to the
->> Zicsr and Zifencei extensions. So if one of the binutils and GCC exceeds
->> that version, we should explicitly specifying Zicsr and Zifencei via -march
->> to cope with the new changes. but this only occurs when binutils >= 2.36
->> and GCC >= 11.1.0. It's a different story when binutils < 2.36.
->>
->> binutils-2.36 supports the Zifencei extension[2] and splits Zifencei and
->> Zicsr from I[3]. GCC-11.1.0 is particular[4] because it add support Zicsr
->> and Zifencei extension for -march. binutils-2.35 does not support the
->> Zifencei extension, and does not need to specify Zicsr and Zifencei when
->> working with GCC >= 12.1.0.
->>
->> To make our lives easier, let's relax the check to binutils >= 2.36 in
->> CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI. For the other two cases,
->> where clang < 17 or GCC < 11.1.0, we will deal with them in
->> CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC.
->>
->> For more information, please refer to:
->> commit 6df2a016c0c8 ("riscv: fix build with binutils 2.38")
->> commit e89c2e815e76 ("riscv: Handle zicsr/zifencei issues between clang and binutils")
->> Link: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc [0]
->> Link: https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=98416dbb0a62579d4a7a4a76bab51b5b52fec2cd [1]
->> Link: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=5a1b31e1e1cee6e9f1c92abff59cdcfff0dddf30 [2]
->> Link: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=729a53530e86972d1143553a415db34e6e01d5d2 [3]
->> Link: https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=b03be74bad08c382da47e048007a78fa3fb4ef49 [4]
->> Link: https://lore.kernel.org/all/20230308220842.1231003-1-conor@kernel.org
->> Link: https://lore.kernel.org/all/20230223220546.52879-1-conor@kernel.org
->> Signed-off-by: Mingzheng Xing <xingmingzheng@iscas.ac.cn>
-> You need to actually put the CC: stable@vger.kernel.org into the commit
-> message for the stable folks to pick things up.
+> The arch_spin_value_unlocked would cause an unnecessary memory
+> access to the contended value. Although it won't cause a significant
+> performance gap in most architectures, the arch_spin_value_unlocked
+> argument contains enough information. Thus, remove unnecessary
+> atomic_read in arch_spin_value_unlocked().
+>
+> The caller of arch_spin_value_unlocked() could benefit from this
+> change. Currently, the only caller is lockref.
+>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Cc: Waiman Long <longman@redhat.com>
+> Cc: David Laight <David.Laight@ACULAB.COM>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> ---
+> Changelog
+> V2:
+>   - Fixup commit log with Waiman advice.
+>   - Add Waiman comment in the commit msg.
+> ---
+>   include/asm-generic/spinlock.h | 16 +++++++++-------
+>   1 file changed, 9 insertions(+), 7 deletions(-)
+>
+> diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
+> index fdfebcb050f4..90803a826ba0 100644
+> --- a/include/asm-generic/spinlock.h
+> +++ b/include/asm-generic/spinlock.h
+> @@ -68,11 +68,18 @@ static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
+>   	smp_store_release(ptr, (u16)val + 1);
+>   }
+>   
+> +static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
+> +{
+> +	u32 val = lock.counter;
+> +
+> +	return ((val >> 16) == (val & 0xffff));
+> +}
+> +
+>   static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
+>   {
+> -	u32 val = atomic_read(lock);
+> +	arch_spinlock_t val = READ_ONCE(*lock);
+>   
+> -	return ((val >> 16) != (val & 0xffff));
+> +	return !arch_spin_value_unlocked(val);
+>   }
+>   
+>   static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
+> @@ -82,11 +89,6 @@ static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
+>   	return (s16)((val >> 16) - (val & 0xffff)) > 1;
+>   }
+>   
+> -static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
+> -{
+> -	return !arch_spin_is_locked(&lock);
+> -}
+> -
+>   #include <asm/qrwlock.h>
+>   
+>   #endif /* __ASM_GENERIC_SPINLOCK_H */
 
-Thanks. Fixed in next version.
+I am fine with the current change. However, modern optimizing compiler 
+should be able to avoid the redundant memory read anyway. So this patch 
+may not have an impact from the performance point of view.
 
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 4c07b9189c86..2704bd91dfb5 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -570,24 +570,31 @@ config TOOLCHAIN_HAS_ZIHINTPAUSE
->>   config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
->>   	def_bool y
->>   	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
->> -	depends on AS_IS_GNU && AS_VERSION >= 23800
->> -	help
->> -	  Newer binutils versions default to ISA spec version 20191213 which
->> -	  moves some instructions from the I extension to the Zicsr and Zifencei
->> -	  extensions.
->> +	# https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=98416dbb0a62579d4a7a4a76bab51b5b52fec2cd
->> +	depends on AS_IS_GNU && AS_VERSION >= 23600
->> +	help
->> +	  Binutils-2.38 and GCC-12.1.0 bumped the default ISA spec to the newer
->> +	  20191213 version, which moves some instructions from the I extension to
->> +	  the Zicsr and Zifencei extensions. This requires explicitly specifying
->> +	  zicsr and zifencei when binutils >= 2.38 or GCC >= 12.1.0,
->> but this only
->> +	  occurs when binutils >= 2.36 and GCC >= 11.1.0.
->> +	 It's a different story when binutils < 2.36.
-> I would replace this with something like:
-> 	Binutils-2.38 and GCC-12.1.0 bumped the default ISA spec to the newer
-> 	20191213 version, which moves some instructions from the I extension to
-> 	the Zicsr and Zifencei extensions. This requires explicitly specifying
-> 	zicsr and zifencei when binutils >= 2.38 or GCC >= 12.1.0. Zicsr
-> 	and Zifencei are supported in binutils from version 2.36 onwards.
-> 	To make life easier, and avoid forcing toolchains that default to a
-> 	newer ISA spec to version 2.2, relax the check to binutils >= 2.36.
-> 	For clang < 17 or GCC < 11.1.0, for which this is not possible, this is
-> 	dealt with in CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC.
->
-> I tried to take the personification out of it & hopefully made it a
-> little clearer what dropping the check to 2.36 does for us.
->
->> Also, we have to consider the case of clang paired with binutils.
-> I think this sentence can go, its covered in the other config text.
->
-> I'm sorry for being a bit of a pedant about this, but this has been such
-> a can of worms that I would like things to remain explained well enough
-> that the text is sufficient next time a revisit is required.
-
-Thanks for your review, I've made the changes and submitted a
-new PATCH but there seems to be an email thread issue,
-hopefully it won't have an effect, sorry about that.
-
-:)
-Thanks,
-Mingzheng.
-
->
-> Thanks,
-> Conor.
->
->> +	  To make our lives easier, we relax the check to binutils >= 2.36. >
->>   config TOOLCHAIN_NEEDS_OLD_ISA_SPEC
->>   	def_bool y
->>   	depends on TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
->>   	# https://github.com/llvm/llvm-project/commit/22e199e6afb1263c943c0c0d4498694e15bf8a16
->> -	depends on CC_IS_CLANG && CLANG_VERSION < 170000
->> -	help
->> -	  Certain versions of clang do not support zicsr and zifencei via -march
->> -	  but newer versions of binutils require it for the reasons noted in the
->> -	  help text of CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI. This
->> -	  option causes an older ISA spec compatible with these older versions
->> -	  of clang to be passed to GAS, which has the same result as passing zicsr
->> -	  and zifencei to -march.
->> +	# https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=b03be74bad08c382da47e048007a78fa3fb4ef49
->> +	depends on (CC_IS_CLANG && CLANG_VERSION < 170000) || (CC_IS_GCC && GCC_VERSION < 110100)
->> +	help
->> +	  Certain versions of clang and GCC do not support zicsr and zifencei via
->> +	  -march. This option causes an older ISA spec compatible with these older
->> +	  versions of clang and GCC to be passed to GAS, which has the same result
->> +	  as passing zicsr and zifencei to -march.
->>   
->>   config FPU
->>   	bool "FPU support"
->> diff --git a/arch/riscv/kernel/compat_vdso/Makefile b/arch/riscv/kernel/compat_vdso/Makefile
->> index 189345773e7e..b86e5e2c3aea 100644
->> --- a/arch/riscv/kernel/compat_vdso/Makefile
->> +++ b/arch/riscv/kernel/compat_vdso/Makefile
->> @@ -11,7 +11,13 @@ compat_vdso-syms += flush_icache
->>   COMPAT_CC := $(CC)
->>   COMPAT_LD := $(LD)
->>   
->> -COMPAT_CC_FLAGS := -march=rv32g -mabi=ilp32
->> +# binutils 2.35 does not support the zifencei extension, but in the ISA
->> +# spec 20191213, G stands for IMAFD_ZICSR_ZIFENCEI.
->> +ifdef CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
->> +	COMPAT_CC_FLAGS := -march=rv32g -mabi=ilp32
->> +else
->> +	COMPAT_CC_FLAGS := -march=rv32imafd -mabi=ilp32
->> +endif
->>   COMPAT_LD_FLAGS := -melf32lriscv
->>   
->>   # Disable attributes, as they're useless and break the build.
->> -- 
->> 2.34.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Acked-by: Waiman Long <longman@redhat.com>
 
 
 _______________________________________________
