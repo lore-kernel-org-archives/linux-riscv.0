@@ -4,78 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB043C04A94
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 23:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78054C001E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 23:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Q86sGbKaeELNDJhaJP4z+sdtuLvQDYQ9MvUNvPWRnzQ=; b=IER8yqVJH4mA85
-	8fsoHsD7MRIKSXcP+IQkUpYl60VxTS8Dx8l/4NoMEMfFAgwVabaJNkMcddw+m1ryWEDWqaSSRzNnG
-	JWKpsmvkuAOnunlUm859R/65m/hrj0Qea85SLQO6AvH1s9KHuOH4tbHxzsOyH1C+TRumMooeBwNzv
-	NFLwgVUJy5glUW5/P5R6CrzhdJny3ZToZbFCj0kJc/CfPgLczbA1mHQXHSkbotpGscvXimVZ6vy/q
-	HOwuIWiuJcKwl/mYNidcO9OBXQUG+sEoCUUAuX8IbDANvNdSnRa5F1z7AI0SLnJ25zJf/moMmM9fs
-	KxdWO9sShl5xRKZGmqyQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ipMxlMR3DfB/XobDg0QXCqV5w4VKtQN9gfS8f7Z1wSw=; b=FQmIvRyjb5EPW2
+	JNEIJ4M9bRqHlvAKceVRaEdHQlIOdisHV5ekTHMpeq9nHPdsS1yy0m5esRwCX6Tst9v8JDbnZwpGb
+	XAdnLX9cOlU6Cvpi7GDt6HqpYHxNB/ZvE9KBTYgH2mp5X5Yz3LwwqFHj6B0puNgQUxsemBJp9nyUE
+	AbCWm5raYIa4i+R03KKwt2ha+ca5s6UyKIpx/f4N109DGEKNdVEXyXWXEP02RitD9bUBzvTgo8J5U
+	f28FPVU9m1o9aDfwm7D4wSHHesnYo0pwE6Qq/8UuMcDXHIcsqQ1t9Y3pI3yCedk82gTkKXSlMGQkH
+	TDP5Y8WevHK+qw9nVPtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQc3x-00HYBL-2b;
-	Mon, 31 Jul 2023 23:12:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qQcB1-00HYn7-2a;
+	Mon, 31 Jul 2023 23:19:47 +0000
+Received: from [192.55.52.115] (helo=mgamail.intel.com)
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQc3u-00HYAv-1j
-	for linux-riscv@lists.infradead.org;
-	Mon, 31 Jul 2023 23:12:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0B20B61342;
-	Mon, 31 Jul 2023 23:12:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F0DAC433C8;
-	Mon, 31 Jul 2023 23:12:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690845145;
-	bh=Nu9Zxt9VTHuAwj+frT44+k98BkcHvxSV6qXTkuyVlDs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=hjt9RVuZswOhkpkeENCGIM/9sWjcNIp545q3Q5LE4tsA3jJPt2T+kwakTCE/UtAIm
-	 WjLD6C5y1Yw7kintnZA3HPs+3q3qXCTsmZ5k/2lV08hnPCOUIlinu8ng7WqhiRK6tl
-	 xiUpV8/Egf7duc+WL+7x4/qEob30Vqqb2jiZJ6fTiOgZDfqVj4f1FlbqEUxZRMH138
-	 +9lVwODWiKZCA1ApR6was22LDYsNxF/44VsX5qlEfH7uVzr7Lh/1eI57vKYBXm1hCo
-	 jSTysIQEeVbJ1SVv30ZB0WpVJjbp1UkBGTmF7OuvbL0kd1+LGBqngBnAdHRjz+G1r9
-	 P5Bq39udxyDxg==
-Date: Mon, 31 Jul 2023 18:12:23 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Kevin Xie <kevin.xie@starfivetech.com>
-Cc: Minda Chen <minda.chen@starfivetech.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mason Huo <mason.huo@starfivetech.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>
-Subject: Re: [PATCH v1 8/9] PCI: PLDA: starfive: Add JH7110 PCIe controller
-Message-ID: <20230731231223.GA14721@bhelgaas>
+	id 1qQcAx-00HYlM-27;
+	Mon, 31 Jul 2023 23:19:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1690845583; x=1722381583;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=ne7CuyJySmKGCp9qZxoKSlIvPYLk9+y0lcKXu7eA6Ic=;
+  b=KLzv4MGSpNi8gNev8lWqDhbXkFdXogAjO93zKOAOtXoP0FhUcJlHn6+u
+   TkZdWCW2Aoj0MGuYNviHa2tbJ0fIrgQ/D5BVDE7TExFLRc4DtPmchvuiI
+   lLn5fXjufM5OmlpkaMbV9ot7Wr9Y5xwkhEhBoNGtoWvFBtweNohRTn1ix
+   KfAj+oA/IR8OdotVTNHb4tpemK5CmEwZN/oluBLS17hGsIkLQuuBcLeK0
+   q343WyXwYZcBxwiRsqmjZa0HCCZDC9JjamK1iB5jY7B1oP3kvPi8PCiJz
+   tzYdBfMqQsNg7HEOHqMTiyjir40VuPYXbgXanwCb2dAg2/dQUerKwUTCy
+   w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10788"; a="369148607"
+X-IronPort-AV: E=Sophos;i="6.01,245,1684825200"; 
+   d="scan'208";a="369148607"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Jul 2023 16:19:38 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10788"; a="731741501"
+X-IronPort-AV: E=Sophos;i="6.01,245,1684825200"; 
+   d="scan'208";a="731741501"
+Received: from fmsmsx602.amr.corp.intel.com ([10.18.126.82])
+  by fmsmga007.fm.intel.com with ESMTP; 31 Jul 2023 16:19:37 -0700
+Received: from fmsmsx611.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx602.amr.corp.intel.com (10.18.126.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Mon, 31 Jul 2023 16:19:37 -0700
+Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx611.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27; Mon, 31 Jul 2023 16:19:36 -0700
+Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
+ fmsmsx610.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.27 via Frontend Transport; Mon, 31 Jul 2023 16:19:36 -0700
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.41) by
+ edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.27; Mon, 31 Jul 2023 16:19:36 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=OkFbqSnpRAxfsQKWX3eFSczGeA8A8iucwraWgJuztVKRBmLwh5a2pY6TgG4pa/E1rVXDJ325fwwQv4+uC+p7suluWUKzSIjsrZeOjQmfZia0Nb0MVEnpkrQiMmPaKweoFWFY8xF+eNJVN5gAXWHQtM2ijGIgBstUCynBPTe81g00k/axohTyh8a0Ia4i2BauRn+o9OSaZmRMTed26OPMTQszVr5wjVh48SqSyAXBiDlpTQGwqrJxkgdJVD22QGjvDKCyDiC222TiKHRSBjaLYjCNrzXpDIf6zjp/yZOxxqfNTV41w8QVOavNRGMUQ23XJ4c0qmNgj0Px44UT5Zzxsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ne7CuyJySmKGCp9qZxoKSlIvPYLk9+y0lcKXu7eA6Ic=;
+ b=fWCgEuG7GbkLtLnkOrvHgIXIVSzDId1hfwzjsjs3Mfz0G8Ovo2HzePltpKFEaAN1xuakovPXZMG8Cr6nfEEfGkn/QmjWUJpJiKhbAz3hppSbL3R8AywTo/i1PHjWS1mkotkvRuf1OU3agHEh2x246iKtzCuopKAEljig0f0X0LToK1GSp/JhgDXdVRWTj/IqOwemBvT+VdCufmpbz0KtH6SzX4MyB83rVMWCPZMK1wO9KQzrRX/Uz3UqKfvzGSuhERco0EJ/JCp/pImPg2mmQw9aHLYtHhgnTKxlvZgBKe/0AQEZoMna0hU4UMygUCSJdBTW6g2u/WlWVCskF3TelQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from MN0PR11MB5963.namprd11.prod.outlook.com (2603:10b6:208:372::10)
+ by MN6PR11MB8195.namprd11.prod.outlook.com (2603:10b6:208:47f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6631.43; Mon, 31 Jul
+ 2023 23:19:35 +0000
+Received: from MN0PR11MB5963.namprd11.prod.outlook.com
+ ([fe80::abd2:f781:1433:259]) by MN0PR11MB5963.namprd11.prod.outlook.com
+ ([fe80::abd2:f781:1433:259%3]) with mapi id 15.20.6631.042; Mon, 31 Jul 2023
+ 23:19:34 +0000
+From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+To: "broonie@kernel.org" <broonie@kernel.org>
+CC: "corbet@lwn.net" <corbet@lwn.net>, "ardb@kernel.org" <ardb@kernel.org>,
+	"keescook@chromium.org" <keescook@chromium.org>, "shuah@kernel.org"
+	<shuah@kernel.org>, "Szabolcs.Nagy@arm.com" <Szabolcs.Nagy@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>, "james.morse@arm.com"
+	<james.morse@arm.com>, "debug@rivosinc.com" <debug@rivosinc.com>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "hjl.tools@gmail.com"
+	<hjl.tools@gmail.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "oleg@redhat.com" <oleg@redhat.com>, "arnd@arndb.de"
+	<arnd@arndb.de>, "ebiederm@xmission.com" <ebiederm@xmission.com>,
+	"will@kernel.org" <will@kernel.org>, "suzuki.poulose@arm.com"
+	<suzuki.poulose@arm.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>
+Subject: Re: [PATCH v3 21/36] arm64/mm: Implement map_shadow_stack()
+Thread-Topic: [PATCH v3 21/36] arm64/mm: Implement map_shadow_stack()
+Thread-Index: AQHZw7ZZVWMs6JZuI06/zv64SypFG6/UB86AgAATdQCAAGg9gA==
+Date: Mon, 31 Jul 2023 23:19:34 +0000
+Message-ID: <e827138f9d8800e3db158831bca88d1ea8b559af.camel@intel.com>
+References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
+	 <20230731-arm64-gcs-v3-21-cddf9f980d98@kernel.org>
+	 <5461c56cf4896f18bddaa66c3beec7b909fc8fb9.camel@intel.com>
+	 <0a6c90d6-f790-4036-a364-d4761fdd0e95@sirena.org.uk>
+In-Reply-To: <0a6c90d6-f790-4036-a364-d4761fdd0e95@sirena.org.uk>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.44.4-0ubuntu1 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR11MB5963:EE_|MN6PR11MB8195:EE_
+x-ms-office365-filtering-correlation-id: ca6754ad-b3ca-4c4c-64fb-08db921c9a3e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: m3aJKOpRh+QWXfb1+MsPPEfl2LaQ0RSEFukU5YgUgctAz8t/X2RqYtuXxB6rELsr53O5JPKACRx8JsEqcum8mBX1sye/U0PAlXzmVVgQ0ohijDbeJha8VV5fW6+ChZ30BHejmenxegvF1sjZAOB2OKjLRrMpqTQIxNb+HPe2kVpE7TG5e3oA6MwiuyjEaUgheYTL4IWHr/40+DbWBgvvBS/yPWT0l1a1YB4Nuv6SQyukaPVSpn3b7JcwI9W3dnjdHOuLBzCItkNpKsmjPcFNlYASCuOgBuiwWUASfZ++1ND8+QhH/yKUSySEZ3Wh7SdxrnLfYu1HP28iISmHDiyobjUFkYxB9c1mZXTGHlk1NO6HVnRAjaaKdQv0Z9RdJqs9ZglQMsJpR9A3qDe3ol5N29KjycCTg2pxDRw6dlANmnRZmORwce6q1XCFdmmSzPZmKAUqeBOp/+XAe6Hg7xSrZVyj8sE044L2z0rCLO7uYrlxJ/PBs0O1WM5wsSWFpxcT1OXWsrbNKTPChBbre3Ngg3rcRc2v3SYhPcSg5u8zg20HJZ4I8z5hSCAG5iYlknG+ly74FOo4A6dxLfMIYGQf/Dsur/LZx27EoFTeMGK43tbcxryvZff+UMrVVQ7eOiwF
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR11MB5963.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(39860400002)(366004)(396003)(136003)(376002)(346002)(451199021)(5660300002)(66476007)(2906002)(66946007)(6916009)(66556008)(91956017)(4326008)(66446008)(76116006)(64756008)(7406005)(7416002)(316002)(41300700001)(54906003)(6486002)(2616005)(71200400001)(8676002)(6506007)(8936002)(186003)(26005)(83380400001)(478600001)(82960400001)(122000001)(36756003)(38100700002)(38070700005)(6512007)(86362001);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SE85Qjdwa2N1dlpWOEpKeVFhWG1MREM1eGttcjN2bnRBRk5DODU3VVphWjBE?=
+ =?utf-8?B?ZWc5UXVRZmh6eDdmbSs2ajRDZzFkSlQ3MkhveTdqbldmb043c0hxQlpIU2ZW?=
+ =?utf-8?B?TC9lTS83NEhGaFJ3VGdlWDdBdFlPWitBSHBEL05XMC8zcm12ZXhzdjVxUVVr?=
+ =?utf-8?B?RExuSjkyS0NzOXc5SWVsSG41eTlHMFBmQ3Q2UXM5dmFmd0Nwemk5endOakNs?=
+ =?utf-8?B?OERrS1RMOHNpSzVld0FCYTN2a21Ua0hURGRsY2VON1RqUnJyNHRwMTN3SW5L?=
+ =?utf-8?B?ZVBqaGM2bFFRdDQyUGVyRmg1dEc5WVBkNzdHVkpWSTdOOXlBaVUyYzE1T2Rt?=
+ =?utf-8?B?RjZDUDJORHk4Z2NNSk5WeGdZZWNwRlJNeXJ5VE1wdXlqSjdCRmVta2lxbEps?=
+ =?utf-8?B?WjIyWWt5cEpTNkZVYlZXWXJTa0N4ZFA1WDdrY2lVREg3TzdaaEdGRGo2MDF3?=
+ =?utf-8?B?YzdUMk1ZdUtDc3NPMGdyZkQwR0swdjd5aUJmWlU5M3RQQmZ3SGpwZi9INVBx?=
+ =?utf-8?B?dVNmUjZRSVhOUWE3MTVSL1NRRDQxS0VYTUxGUXVhYUgvRWRmUWdaa2E4NkRT?=
+ =?utf-8?B?TjJucWhqRWhlVkxtUXcxaG94dStIRTFzVVRGVXQzRHNlaHR5ZjZEWEZ3T1Nk?=
+ =?utf-8?B?a0FkYmFLRlB0a1c1WDZIaFhUUHBsNDN2cXRrbFVDWENqeCtoeksyZVBPL0Jw?=
+ =?utf-8?B?QTFnRnZSQzAyTmVPSEJoR2U0VTFUVlU0WlNNdXd5TXB5elJGdmhIYjRiTXF3?=
+ =?utf-8?B?K2RqVDE0SVBsNGZRLzA5Y1QxUkg5OVRUMExlSHBZUnVrNGhvV0ppVVVIdnVX?=
+ =?utf-8?B?ejBEY0dDbUJ0Zlc2YUIwdE5Ic2dITXZHWFBWbGdxeG1ZTkczNDFPMFZETjlj?=
+ =?utf-8?B?cGtyR2V4TzQzL3FOTVVIYW56cHBTQjl0Zm5Mdm1mWjZCQXFMMjBQalRiczc0?=
+ =?utf-8?B?QWpYcnZJa3UxSGFDaVZsTUpKWERmWkc1Nnk1QW5BYWdHOStOV0Q3UDdubTdO?=
+ =?utf-8?B?Y3VsVXRreTl0cS9ZWFo2Qmlwalh6S3B0bHRIRnZOQmRQd21GUXFNbDZKWlJy?=
+ =?utf-8?B?VWlEOVRHWUNNVUpiQU0vK1dIRXhFSDFFM2kwUmYyYlU1akVlTjdTVVJwc1cx?=
+ =?utf-8?B?TGNYbGl5S3hQck5HSnhWL0Z5a09sYTMxbkptT2FxYmVoRi9RR1RmelRsOFZC?=
+ =?utf-8?B?Y3N0UExMREJRNkZ3WG5LNXlYRlBCbDNROVhxLzF2ZzFXTjdOM2s2UVBGR0FW?=
+ =?utf-8?B?ODc1VjZjeGxOMWVMZGRrQjVCdDI5ayt6TGM5ZmMwVEhVa2NZMk1meE1XQ1VU?=
+ =?utf-8?B?a3B0RnpFVjBuTXk4eXhZcDZBYkFuL2VNayt0Vkh0Z2pHRTdZTlkrNjdnRGpU?=
+ =?utf-8?B?TGJDYUF2UWtVOEdqMjJWZjNWZ0t0RWF0eGdSeHgvQlFQZXlESXVKenFScHc5?=
+ =?utf-8?B?VUFONk1aVEJZQ2Y0TGpXbnI0N3RKSGw4RUdLYlVUUm16Yks0cWxObEJneFRQ?=
+ =?utf-8?B?K0UrT0I1cWhYSVlBUHVWWFRMOHM0TTZ4RllTU2xFOWhoZk9wODNkdVh1ckR3?=
+ =?utf-8?B?c0ZRVjZNWWtuK1FRdVZtUVFydDZmdVV6Tnl3Y2JHaXRURmtNWXJGaVFHV1dB?=
+ =?utf-8?B?VVBRU0xQMzQ3ajcydDl0cE0zTG1OYnROblRLUTd2NmgvNG1YcW9XUGhIYXJY?=
+ =?utf-8?B?NmUzMnhOQmR3eXV2QzB6K1U4cDJ3UVN1bHZOL0hodEpYb3NBQTFuSUt1YXVh?=
+ =?utf-8?B?QW4yaGZTdXJ1eFVMNm1ESkN6Q3N4c1ZnR08vQ2RuWHQxeE1FZ3FuaitEckdm?=
+ =?utf-8?B?RjlYaW0wNTU1T3hNYThRT0NPUG9VVER1cThDc2MrK0hOSmxxTGlsR0tRVkN2?=
+ =?utf-8?B?b2hiWm9WMEdZbkoxL2wwbDlhb2RZUkR1VVRlc2RROHFocG9ZTTZ1ZjBaaWF1?=
+ =?utf-8?B?aWRob0dIRVdlcXF4NTRtakZPVnk2QTBQdkZ3dUxrdXorK0RENlNZVVNObWRw?=
+ =?utf-8?B?OGZhQkh1WnRwa09CdWZ6V0lzcnIzb0paVHZTd0VrSXdLcVdidks3WUZwbnNa?=
+ =?utf-8?B?cmNoSkVMOFJzTDhCWUNXNVNaWXg5ajNFbUpXZHJtZzc1UE9CaDZCQWJ5ejNJ?=
+ =?utf-8?B?ckJJYVN0L1ZtQ1UwdG5za2tLLzNzb1pYdVVyWnp1VDR2NGZscmVkOFlwNUtR?=
+ =?utf-8?B?Rmc9PQ==?=
+Content-ID: <E2248B610F82CE4181AD6A16DE6C04BA@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <66d794c5-3837-483e-87d1-4b745d7cb9c4@starfivetech.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB5963.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca6754ad-b3ca-4c4c-64fb-08db921c9a3e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Jul 2023 23:19:34.7474
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: yqZg5y6ZegP52+EPjegT3P40DQDv769nOtzpkFuQ09TP+cNj9Sd2943HcGep4fMMiazmHVUnrET3QegqkhJ+zGNdZD8b3uEJ47TVMDbBgbA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR11MB8195
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230731_161226_665636_78452AD0 
-X-CRM114-Status: GOOD (  62.40  )
+X-CRM114-CacheID: sfid-20230731_161943_727910_6B06B1A7 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,168 +200,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[+cc Pali, Marek because I used f76b36d40bee ("PCI: aardvark: Fix link
-training") as an example]
-
-On Mon, Jul 31, 2023 at 01:52:35PM +0800, Kevin Xie wrote:
-> On 2023/7/28 5:40, Bjorn Helgaas wrote:
-> > On Tue, Jul 25, 2023 at 03:46:35PM -0500, Bjorn Helgaas wrote:
-> >> On Mon, Jul 24, 2023 at 06:48:47PM +0800, Kevin Xie wrote:
-> >> > On 2023/7/21 0:15, Bjorn Helgaas wrote:
-> >> > > On Thu, Jul 20, 2023 at 06:11:59PM +0800, Kevin Xie wrote:
-> >> > >> On 2023/7/20 0:48, Bjorn Helgaas wrote:
-> >> > >> > On Wed, Jul 19, 2023 at 06:20:56PM +0800, Minda Chen wrote:
-> >> > >> >> Add StarFive JH7110 SoC PCIe controller platform
-> >> > >> >> driver codes.
-> >> 
-> >> > >> However, in the compatibility testing with several NVMe SSD, we
-> >> > >> found that Lenovo Thinklife ST8000 NVMe can not get ready in 100ms,
-> >> > >> and it actually needs almost 200ms.  Thus, we increased the T_PVPERL
-> >> > >> value to 300ms for the better device compatibility.
-> >> > > ...
-> >> > > 
-> >> > > Thanks for this valuable information!  This NVMe issue potentially
-> >> > > affects many similar drivers, and we may need a more generic fix so
-> >> > > this device works well with all of them.
-> >> > > 
-> >> > > T_PVPERL is defined to start when power is stable.  Do you have a way
-> >> > > to accurately determine that point?  I'm guessing this:
-> >> > > 
-> >> > >   gpiod_set_value_cansleep(pcie->power_gpio, 1)
-> >> > > 
-> >> > > turns the power on?  But of course that doesn't mean it is instantly
-> >> > > stable.  Maybe your testing is telling you that your driver should
-> >> > > have a hardware-specific 200ms delay to wait for power to become
-> >> > > stable, followed by the standard 100ms for T_PVPERL?
-> >> > 
-> >> > You are right, we did not take the power stable cost into account.
-> >> > T_PVPERL is enough for Lenovo Thinklife ST8000 NVMe SSD to get ready,
-> >> > and the extra cost is from the power circuit of a PCIe to M.2 connector,
-> >> > which is used to verify M.2 SSD with our EVB at early stage.
-> >> 
-> >> Hmm.  That sounds potentially interesting.  I assume you're talking
-> >> about something like this: https://www.amazon.com/dp/B07JKH5VTL
-> >> 
-> >> I'm not familiar with the timing requirements for something like this.
-> >> There is a PCIe M.2 spec with some timing requirements, but I don't
-> >> know whether or how software is supposed to manage this.  There is a
-> >> T_PVPGL (power valid to PERST# inactive) parameter, but it's
-> >> implementation specific, so I don't know what the point of that is.
-> >> And I don't see a way for software to even detect the presence of such
-> >> an adapter.
-> > 
-> > I intended to ask about this on the PCI-SIG forum, but after reading
-> > this thread [1], I don't think we would learn anything.  The question
-> > was:
-> > 
-> >   The M.2 device has 5 voltage rails generated from the 3.3V input
-> >   supply voltage
-> >   -------------------------------------------
-> >   This is re. Table 17 in PCI Express M.2 Specification Revision 1.1
-> >   Power Valid* to PERST# input inactive : Implementation specific;
-> >   recommended 50 ms
-> > 
-> >   What exactly does this mean ?
-> > 
-> >   The Note says
-> > 
-> >     *Power Valid when all the voltage supply rails have reached their
-> >     respective Vmin.
-> > 
-> >   Does this mean that the 50ms to PERSTn is counted from the instant
-> >   when all *5 voltage rails* on the M.2 device have become "good" ?
-> > 
-> > and the answer was:
-> > 
-> >   You wrote;
-> >   Does this mean that the 50ms to PERSTn is counted from the instant
-> >   when all 5 voltage rails on the M.2 device have become "good" ?
-> > 
-> >   Reply:
-> >   This means that counting the recommended 50 ms begins from the time
-> >   when the power rails coming to the device/module, from the host, are
-> >   stable *at the device connector*.
-> > 
-> >   As for the time it takes voltages derived inside the device from any
-> >   of the host power rails (e.g., 3.3V rail) to become stable, that is
-> >   part of the 50ms the host should wait before de-asserting PERST#, in
-> >   order ensure that most devices will be ready by then.
-> > 
-> >   Strictly speaking, nothing disastrous happens if a host violates the
-> >   50ms. If it de-asserts too soon, the device may not be ready, but
-> >   most hosts will try again. If the host de-asserts too late, the
-> >   device has even more time to stabilize. This is why the WG felt that
-> >   an exact minimum number for >>Tpvpgl, was not valid in practice, and
-> >   we made it a recommendation.
-> > 
-> > Since T_PVPGL is implementation-specific, we can't really base
-> > anything in software on the 50ms recommendation.  It sounds to me like
-> > they are counting on software to retry config reads when enumerating.
-> > 
-> > I guess the delays we *can* observe are:
-> > 
-> >   100ms T_PVPERL "Power stable to PERST# inactive" (CEM 2.9.2)
-> >   100ms software delay between reset and config request (Base 6.6.1)
-> 
-> Refer to Figure2-10 in CEM Spec V2.0, I guess this two delays are T2 & T4?
-> In the PATCH v2[4/4], T2 is the msleep(100) for T_PVPERL,
-> and T4 is done by starfive_pcie_host_wait_for_link().
-
-Yes, I think "T2" is T_PVPERL.  The CEM r2.0 Figure 2-10 note is
-"2. Minimum time from power rails within specified tolerance to
-PERST# inactive (T_PVPERL)."
-
-As far as T4 ("Minimum PERST# inactive to PCI Express link out of
-electrical idle"), I don't see a name or a value for that parameter,
-and I don't think it is the delay required by PCIe r6.0, sec 6.6.1.
-
-The delay required by sec 6.6.1 is a minimum of 100ms following exit
-from reset or, for fast links, 100ms after link training completes.
-
-The comment at the call of advk_pcie_wait_for_link() [2] says it is
-the delay required by sec 6.6.1, but that doesn't seem right to me.
-
-For one thing, I don't think 6.6.1 says anything about "link up" being
-the end of a delay.  So if we want to do the delay required by 6.6.1,
-"wait_for_link()" doesn't seem like quite the right name.
-
-For another, all the *_wait_for_link() functions can return success
-after 0ms, 90ms, 180ms, etc.  They're unlikely to return after 0ms,
-but 90ms is quite possible.  If we avoided the 0ms return and
-LINK_WAIT_USLEEP_MIN were 100ms instead of 90ms, that should be enough
-for slow links, where we need 100ms following "exit from reset."
-
-But it's still not enough for fast links where we need 100ms "after
-link training completes" because we don't know when training
-completed.  If training completed 89ms into *_wait_for_link(), we only
-delay 1ms after that.
-
-> > The PCI core doesn't know how to assert PERST#, so the T_PVPERL delay
-> > definitely has to be in the host controller driver.
-> > 
-> > The PCI core observes the second 100ms delay after a reset in
-> > pci_bridge_wait_for_secondary_bus().  But this 100ms delay does not
-> > happen during initial enumeration.  I think the assumption of the PCI
-> > core is that when the host controller driver calls pci_host_probe(),
-> > we can issue config requests immediately.
-> > 
-> > So I think that to be safe, we probably need to do both of those 100ms
-> > delays in the host controller driver.  Maybe there's some hope of
-> > supporting the latter one in the PCI core someday, but that's not
-> > today.
-> > 
-> > Bjorn
-> > 
-> > [1] https://forum.pcisig.com/viewtopic.php?f=74&t=1037
-
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/pci-aardvark.c?id=v6.4#n433
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAyMDIzLTA3LTMxIGF0IDE4OjA2ICswMTAwLCBNYXJrIEJyb3duIHdyb3RlOg0KPiA+
+IFNvbWVkYXkgd2hlbiB0aGUgeDg2IHNpZGUgaXMgZmluYWxseSB1cHN0cmVhbSBJIGhhdmUgYSBt
+YW5wYWdlIGZvcg0KPiA+IG1hcF9zaGFkb3dfc3RhY2suIEFueSBkaWZmZXJlbmNlcyBvbiB0aGUg
+YXJtIHNpZGUgd291bGQgbmVlZCB0byBiZQ0KPiA+IGRvY3VtZW50ZWQsIGJ1dCBJJ20gbm90IHN1
+cmUgd2h5IHRoZXJlIHNob3VsZCBiZSBhbnkgZGlmZmVyZW5jZXMuDQo+ID4gTGlrZSwNCj4gPiB3
+aHkgbm90IHVzZSB0aGUgc2FtZSBmbGFncz8gT3IgaGF2ZSBhIG5ldyBmbGFnIGZvciB0b2tlbitl
+bmQgbWFya2VyDQo+ID4gdGhhdCB4ODYgY2FuIHVzZSBhcyB3ZWxsPw0KPiANCj4gQWgsIGl0IHdh
+c24ndCBjbGVhciB0byBtZSB0aGF0IHRoaXMgd2FzIGEgcXVlc3Rpb24gcmF0aGVyIHRoYW4ganVz
+dA0KPiBvcGVuIGRlY2lzaW9ucyBhYm91dCB0aGUgZXZlbnR1YWwgbWFucGFnZS7CoCBMb29raW5n
+IGFnYWluIEkgdGhpbmsNCj4gd2hhdA0KPiB5b3UncmUgYXNraW5nIGFib3V0IGlzIHRoYXQgSSBz
+ZWUgdGhhdCBhdCBzb21lIHBvaW50IGluIGRldmVsb3BtZW50IEkNCj4gbG9zdCB0aGUgU0hBRE9X
+X1NUQUNLX1NFVF9UT0tFTiBmbGFnIHdoaWNoIHg4NiBoYXMuwqAgSSBzdXNwZWN0IHRoYXQNCj4g
+d2FzDQo+IGEgcmViYXNpbmcgaXNzdWUgYXMgaXQgd2Fzbid0IGEgZGVsaWJlcmF0ZSBkZWNpc2lv
+biwgdGhlcmUncyBubw0KPiByZWFzb24NCj4gd2UgY291bGRuJ3QgaGF2ZSB0aGF0LsKgIE90aGVy
+IHRoYW4gdGhhdCBhbmQgdGhlIGZhY3QgdGhhdCB3ZSBhZGQgYm90aA0KPiBhDQo+IHN0YWNrIHN3
+YXAgdG9rZW4gYW5kIGEgdG9wIG9mIHN0YWNrIG1hcmtlciBJJ20gbm90IGF3YXJlIG9mIGFueQ0K
+PiBkaWZmZXJlbmNlcy4NCg0KVGhlIHRoaW5nIEkgd2FzIHRyeWluZyB0byBnZXQgYXQgd2FzLCB3
+ZSBoYXZlIHRoaXMgc2hhcmVkIHN5c2NhbGwgdGhhdA0KbWVhbnMgY3JlYXRlIHNoYWRvdyBzdGFj
+ayBtZW1vcnkgYW5kIHByZXBvcHVsYXRlIGl0IGxpa2UgdGhpcyBmbGFnDQpzYXlzLiBPbiB4ODYg
+d2Ugb3B0aW9uYWxseSBzdXBwb3J0IFNIQURPV19TVEFDS19TRVRfVE9LRU4gd2hpY2ggbWVhbnMN
+CnB1dCBhIHRva2VuIHJpZ2h0IGF0IHRoZSBlbmQgb2Ygc2l6ZS4gU28gbWF5YmUgYXJtIHNob3Vs
+ZCBoYXZlIGENCmRpZmZlcmVudCBmbGFnIHZhbHVlIHRoYXQgaW5jbHVkZXMgcHV0dGluZyB0aGUg
+bWFya2VyIGFuZCB0aGVuIHRoZQ0KdG9rZW4sIGFuZCB4ODYgY291bGQgbWF0Y2ggaXQgc29tZWRh
+eSBpZiB3ZSBnZXQgbWFya2VycyB0b28uDQoNCkl0IGNvdWxkIGJlIGEgZGlmZmVyZW50IGZsYWcs
+IGxpa2UgU0hBRE9XX1NUQUNLX1NFVF9UT0tFTl9NQVJLRVIsIG9yIGl0DQpjb3VsZCBiZSBTSEFE
+T1dfU1RBQ0tfU0VUX01BUktFUiwgYW5kIGNhbGxlcnMgY291bGQgcGFzcw0KKFNIQURPV19TVEFD
+S19TRVRfVE9LRU4gfCBTSEFET1dfU1RBQ0tfU0VUX01BUktFUikgdG8gZ2V0IHdoYXQgeW91IGhh
+dmUNCmltcGxlbWVudGVkIGhlcmUuIFdoYXQgZG8geW91IHRoaW5rPw0KDQpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
