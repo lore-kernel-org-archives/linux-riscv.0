@@ -4,110 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA3AC001DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 05:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6001AC001DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Jul 2023 05:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MuKNmqJhoV1OZbDtPZUpA1VnOaISGcyGswBKVBHwVMQ=; b=H95CxWf+eVT8rU
-	+aVdK8kVp4BPMCRWpjjVG9zYxOxyBqCOJadvAzrxlfYQz81qoWAkbJIg0hxA/ByXA3SpqbHE1bsCl
-	2VirvMP4lNeRpF4tyw46uysyEB+ja791gA+xXYP+biAgrdTMCW1fH3u+3c2OyfIft5I2WBIqLmBwa
-	EdeW075S5W3pTMBnPg74J2/kRJbQyA5OfMk1nhQSXF/sBFk6eZDIZvYCgT4Bv15fBqBkL2BAgocE/
-	pQJispLapNIfcUYpc46CYOSi3dXQfBpjwx0UpZKws4xbZD1pmfGODKfjMGip5Iiqus4zA862nnKu2
-	57xXhI0ndyQe7+NVKLNw==;
+	List-Owner; bh=sXznbPT9LrSuG2MvKJACA9Qf55dDQBu8ZfvfaEDHufQ=; b=JeX0MscJyJEGyk
+	+SJ0pU0mF2Ze4/NdVsTic3opUVTds4SwzCnib3Q3s8oP62qsrwEIGHjoEjkpRNFAyM0IffE1Z6SXE
+	ENXMNxuNqwXg8CfB7G38EtILiIrXBSt+yTLj6hcB25rhD9UFaWCHusSQ1CzJlrvlriZSrlvZ7Z138
+	CWjIWVtrzQMR8tjuBpJqOVyD402wLvMAycWQXMbdN+hO7QzhNi0RnO3QoDnVAHn9JgoMA3OrOWKpY
+	PSTVPbCmHUkAFANBcQhGn5GOX05SNaPtK4w8FBNGnabCWF2WRtpxjP8YBo8BfZ0h36xoDdss6n5yR
+	Ihk3niKKuEasQMJ64NVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQLdR-00DzAH-0c;
-	Mon, 31 Jul 2023 05:40:01 +0000
-Received: from out4-smtp.messagingengine.com ([66.111.4.28])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQLdO-00Dz99-2S
+	id 1qQLqZ-00Dzvf-2J;
+	Mon, 31 Jul 2023 05:53:35 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qQLqU-00Dzti-1G
 	for linux-riscv@lists.infradead.org;
-	Mon, 31 Jul 2023 05:40:00 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.nyi.internal (Postfix) with ESMTP id 7F2155C0103;
-	Mon, 31 Jul 2023 01:39:52 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Mon, 31 Jul 2023 01:39:52 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to; s=fm2; t=
-	1690781992; x=1690868392; bh=UrQ44egSsYKrgrC8lXSaEIOM2nJnUB+IsN4
-	O98912zA=; b=db2uzzxQtgivo508fRTO8f4XT0UETH9ryLw+9yH+LWGIeJWJsCJ
-	HyAkf5A99D/hyoKbJOko/ceLBuwZp2QtRooFcET2ZSJwaqbE4XTiUv+2ML8KaYYr
-	tt8Ij6oLz9J3q18bAAOJaYnkH6yKUrILmwSFmfJM13iSYvenRqhyQQqGJh7PJCgB
-	Kk6ktQNggVLNepXFQkg9hrbSvPSYoyF9eAs0xMuHa3xVMrzH5dMfaQUjEpSG2CHo
-	mZKgUWbVbnZpTXQCcByWUxXsR5+0RmMUIfNBtlHVn4/qTnbVbb6vHbK6G5qFeXe9
-	dlcwt1USgct6rxxQiGj/1DBjCiZXcngSYUA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1690781992; x=1690868392; bh=UrQ44egSsYKrgrC8lXSaEIOM2nJnUB+IsN4
-	O98912zA=; b=SfnVnfPXXL3mwHIIIuxPP6P+wTbpKu+T6nwkEpJpH+uTqi10iQl
-	lD6rkBhcUmKB0he2oTsKCEaftfGrtSaqsYJM+K8d3W2oSMvoD56zpeUQ3WlPSzr3
-	4MWl9xiznEpkINcxm8BeUmkGejh123fEjEY9a9Q6EiELNqwX+K5H0uNMTMXeMi1b
-	JnnccxzQVYFYS79Uib2hmQXRRlKzYLqdciQvM7zVwq/JtGNDe1MqWdreZGZw1elt
-	XNvMJ+M7dCsV1mGGKcvWo/CJ+pU39XDBGqIImYfqgc4OBunU2MmKSzOG8UxRRUhU
-	MhYl+QjUDC6CfSnaepOeCe5ZcXCZKyfmNrg==
-X-ME-Sender: <xms:JknHZOMr2B4otX3Whv5p7QD31LWKZOV1ZByR19K3gtbtUbPwFhNm7g>
-    <xme:JknHZM-9svD2oW6dTXmKjS-jUEVrQ_rqiGBAenlNEiBElmdzYvvw6omz1MiwHqp_3
-    4_celspL1uzJzMXq0k>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrjedvgdeljecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgfgsehtqhertderreejnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepgeefjeehvdelvdffieejieejiedvvdfhleeivdelveehjeelteegudektdfg
-    jeevnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:JknHZFQj14YdLw_Py2F6LCjGho0W-InNWUSUf3BIsHyO6kNrRQGrag>
-    <xmx:JknHZOvuqmGJScNtxpxYPB1lJNKlYCo_xghCmtbd94kWOGCl2Sv2fA>
-    <xmx:JknHZGegVm_0iakLrtjFQGm0TP735QzgOq6DLHfE1nSsO160ldBXew>
-    <xmx:KEnHZJUFsthMA4fissNqKUiT-ALEs3M42gkkAfH9V-DqtYFiAL0ZOw>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id CC613B60089; Mon, 31 Jul 2023 01:39:50 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.9.0-alpha0-592-ga9d4a09b4b-fm-defalarms-20230725.001-ga9d4a09b
-Mime-Version: 1.0
-Message-Id: <8b3466e4-a295-4249-bd05-2edbf7b3f6e3@app.fastmail.com>
-In-Reply-To: <CAJF2gTTRHzT+CEtb1LVYdfCorVUdLvCh_eMxrmC=xjdQ_JS6Sg@mail.gmail.com>
-References: <20230702203429.237615-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20230702203429.237615-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <ZMZ6XB6gX2kFd/Nt@xhacker>
- <CAJM55Z8vF8_xq0QyByLUGM2W-8m6R-_6SdOFdLETV7J-yo5DMQ@mail.gmail.com>
- <92c00ddb-e956-4861-af80-5f5558c9a8f5@app.fastmail.com>
- <CAJF2gTTRHzT+CEtb1LVYdfCorVUdLvCh_eMxrmC=xjdQ_JS6Sg@mail.gmail.com>
-Date: Mon, 31 Jul 2023 07:39:30 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: guoren <guoren@kernel.org>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: "Emil Renner Berthing" <emil.renner.berthing@canonical.com>,
- "Jisheng Zhang" <jszhang@kernel.org>, Prabhakar <prabhakar.csengg@gmail.com>,
- "Conor.Dooley" <conor.dooley@microchip.com>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Andrew Jones" <ajones@ventanamicro.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Samuel Holland" <samuel@sholland.org>, linux-riscv@lists.infradead.org,
- "Christoph Hellwig" <hch@infradead.org>, "Rob Herring" <robh+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- "Biju Das" <biju.das.jz@bp.renesas.com>,
- "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v10 3/6] riscv: mm: dma-noncoherent: nonstandard cache operations
- support
+	Mon, 31 Jul 2023 05:53:33 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 4E7C424E24A;
+	Mon, 31 Jul 2023 13:52:37 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 31 Jul
+ 2023 13:52:37 +0800
+Received: from [192.168.125.136] (113.72.147.196) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 31 Jul
+ 2023 13:52:36 +0800
+Message-ID: <66d794c5-3837-483e-87d1-4b745d7cb9c4@starfivetech.com>
+Date: Mon, 31 Jul 2023 13:52:35 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v1 8/9] PCI: PLDA: starfive: Add JH7110 PCIe controller
+Content-Language: en-US
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: Minda Chen <minda.chen@starfivetech.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>, Conor Dooley <conor@kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Philipp Zabel" <p.zabel@pengutronix.de>, Mason Huo
+	<mason.huo@starfivetech.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>, "Maciej W. Rozycki"
+	<macro@orcam.me.uk>
+References: <20230727214008.GA797783@bhelgaas>
+From: Kevin Xie <kevin.xie@starfivetech.com>
+In-Reply-To: <20230727214008.GA797783@bhelgaas>
+X-Originating-IP: [113.72.147.196]
+X-ClientProxiedBy: EXCAS062.cuchost.com (172.16.6.22) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230730_223959_115028_F03256D3 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20230730_225330_738981_B1B20F2F 
+X-CRM114-Status: GOOD (  49.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,45 +81,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKdWwgMzEsIDIwMjMsIGF0IDAyOjQ5LCBHdW8gUmVuIHdyb3RlOgo+IE9uIE1vbiwg
-SnVsIDMxLCAyMDIzIGF0IDQ6MzbigK9BTSBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPiB3
-cm90ZToKPj4KPj4gT24gU3VuLCBKdWwgMzAsIDIwMjMsIGF0IDE3OjQyLCBFbWlsIFJlbm5lciBC
-ZXJ0aGluZyB3cm90ZToKPj4gPiBPbiBTdW4sIDMwIEp1bCAyMDIzIGF0IDE3OjExLCBKaXNoZW5n
-IFpoYW5nIDxqc3poYW5nQGtlcm5lbC5vcmc+IHdyb3RlOgo+Pgo+PiA+PiA+ICsKPj4gPj4gPiAg
-c3RhdGljIGlubGluZSB2b2lkIGFyY2hfZG1hX2NhY2hlX3diYWNrKHBoeXNfYWRkcl90IHBhZGRy
-LCBzaXplX3Qgc2l6ZSkKPj4gPj4gPiAgewo+PiA+PiA+ICAgICAgIHZvaWQgKnZhZGRyID0gcGh5
-c190b192aXJ0KHBhZGRyKTsKPj4gPj4gPgo+PiA+PiA+ICsjaWZkZWYgQ09ORklHX1JJU0NWX05P
-TlNUQU5EQVJEX0NBQ0hFX09QUwo+PiA+PiA+ICsgICAgIGlmICh1bmxpa2VseShub25jb2hlcmVu
-dF9jYWNoZV9vcHMud2JhY2spKSB7Cj4+ID4+Cj4+ID4+IEknbSB3b3JyaWVkIGFib3V0IHRoZSBw
-ZXJmb3JtYW5jZSBpbXBhY3QgaGVyZS4KPj4gPj4gRm9yIHVuaWZpZWQga2VybmVsIEltYWdlIHJl
-YXNvbiwgUklTQ1ZfTk9OU1RBTkRBUkRfQ0FDSEVfT1BTIHdpbGwgYmUKPj4gPj4gZW5hYmxlZCBi
-eSBkZWZhdWx0LCBzbyBzdGFuZGFyZCBDTU8gYW5kIFQtSEVBRCdzIENNTyBwbGF0Zm9ybSdzCj4+
-ID4+IHBlcmZvcm1hbmNlIHdpbGwgYmUgaW1wYWN0ZWQsIGJlY2F1c2UgZXZlbiBhbiB1bmxpa2Vs
-eSBpcyBwdXQKPj4gPj4gaGVyZSwgdGhlIGNoZWNrIGFjdGlvbiBzdGlsbCBuZWVkcyB0byBiZSBk
-b25lLgo+PiA+Cj4+ID4gT24gSVJDIEkgYXNrZWQgd2h5IG5vdCB1c2UgYSBzdGF0aWMga2V5IHNv
-IHRoZSBvdmVyaGVhZCBpcyBqdXN0IGEKPj4gPiBzaW5nbGUgbm9wIHdoZW4gdGhlIHN0YW5kYXJk
-IENNTyBvcHMgYXJlIGF2YWlsYWJsZSwgYnV0IHRoZSBjb25zZW5zdXMKPj4gPiBzZWVtZWQgdG8g
-YmUgdGhhdCB0aGUgZmx1c2hpbmcgd291bGQgY29tcGxldGVseSBkb21pbmF0ZSB0aGlzIGJyYW5j
-aC4KPj4gPiBBbmQgb24gcGxhdGZvcm1zIHdpdGggdGhlIHN0YW5kYXJkIENNTyBvcHMgdGhlIGJy
-YW5jaCBiZSBjb3JyZWN0bHkKPj4gPiBwcmVkaWN0ZWQgYW55d2F5Lgo+Pgo+PiBOb3QganVzdCB0
-aGUgZmx1c2hpbmcsIGJ1dCBhbHNvIGxvYWRpbmcgYmFjayB0aGUgaW52YWxpZGF0ZWQKPj4gY2Fj
-aGUgbGluZXMgYWZ0ZXJ3YXJkcyBpcyBqdXN0IHZlcnkgZXhwZW5zaXZlLiBJIGRvbid0IHRoaW5r
-Cj4+IHlvdSB3b3VsZCBiZSBhYmxlIHRvIG1lYXN1cmUgYSBkaWZmZXJlbmNlIGJldHdlZW4gdGhl
-IHN0YXRpYwo+PiBrZXkgYW5kIGEgY29ycmVjdGx5IHByZWRpY3RlZCBicmFuY2ggb24gYW55IHJl
-bGV2YW50IHVzZWNhc2UgaGVyZS4KPiBNYXliZSB3ZSBzaG91bGQgbW92ZSBDTU8gJiBUSEVBRCBv
-cHMgdG8gdGhlIG5vbmNvaGVyZW50X2NhY2hlX29wcywgYW5kCj4gb25seSBrZWVwIG9uZSBvZiB0
-aGVtLgo+Cj4gSSBwcmVmZXIgbm9uY29oZXJlbnRfY2FjaGVfb3BzLCBpdCdzIG1vcmUgbWFpbnRh
-bmNlIHRoYW4gQUxURVJOQVRJVkUuCgpJIHRoaW5rIG1vdmluZyB0aGUgVEhFQUQgb3BzIGF0IHRo
-ZSBzYW1lIGxldmVsIGFzIGFsbCBub25zdGFuZGFyZApvcGVyYXRpb25zIG1ha2VzIHNlbnNlLCBi
-dXQgSSdkIHN0aWxsIGxlYXZlIENNTyBhcyBhbiBleHBsaWNpdApmYXN0IHBhdGggdGhhdCBhdm9p
-ZHMgdGhlIGluZGlyZWN0IGJyYW5jaC4gVGhpcyBzZWVtcyBsaWtlIHRoZSByaWdodAp0aGluZyB0
-byBkbyBib3RoIGZvciByZWFkYWJpbGl0eSBhbmQgZm9yIHBsYXRmb3JtcyBvbiB3aGljaCB0aGUK
-aW5kaXJlY3QgYnJhbmNoIGhhcyBhIG5vdGljZWFibGUgb3ZlcmhlYWQuCgogICAgQXJuZAoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 2023/7/28 5:40, Bjorn Helgaas wrote:
+> [+cc Mika, Maciej since they've worked on similar delays recently]
+> 
+> On Tue, Jul 25, 2023 at 03:46:35PM -0500, Bjorn Helgaas wrote:
+>> On Mon, Jul 24, 2023 at 06:48:47PM +0800, Kevin Xie wrote:
+>> > On 2023/7/21 0:15, Bjorn Helgaas wrote:
+>> > > On Thu, Jul 20, 2023 at 06:11:59PM +0800, Kevin Xie wrote:
+>> > >> On 2023/7/20 0:48, Bjorn Helgaas wrote:
+>> > >> > On Wed, Jul 19, 2023 at 06:20:56PM +0800, Minda Chen wrote:
+>> > >> >> Add StarFive JH7110 SoC PCIe controller platform
+>> > >> >> driver codes.
+>> 
+>> > >> However, in the compatibility testing with several NVMe SSD, we
+>> > >> found that Lenovo Thinklife ST8000 NVMe can not get ready in 100ms,
+>> > >> and it actually needs almost 200ms.  Thus, we increased the T_PVPERL
+>> > >> value to 300ms for the better device compatibility.
+>> > > ...
+>> > > 
+>> > > Thanks for this valuable information!  This NVMe issue potentially
+>> > > affects many similar drivers, and we may need a more generic fix so
+>> > > this device works well with all of them.
+>> > > 
+>> > > T_PVPERL is defined to start when power is stable.  Do you have a way
+>> > > to accurately determine that point?  I'm guessing this:
+>> > > 
+>> > >   gpiod_set_value_cansleep(pcie->power_gpio, 1)
+>> > > 
+>> > > turns the power on?  But of course that doesn't mean it is instantly
+>> > > stable.  Maybe your testing is telling you that your driver should
+>> > > have a hardware-specific 200ms delay to wait for power to become
+>> > > stable, followed by the standard 100ms for T_PVPERL?
+>> > 
+>> > You are right, we did not take the power stable cost into account.
+>> > T_PVPERL is enough for Lenovo Thinklife ST8000 NVMe SSD to get ready,
+>> > and the extra cost is from the power circuit of a PCIe to M.2 connector,
+>> > which is used to verify M.2 SSD with our EVB at early stage.
+>> 
+>> Hmm.  That sounds potentially interesting.  I assume you're talking
+>> about something like this: https://www.amazon.com/dp/B07JKH5VTL
+>> 
+>> I'm not familiar with the timing requirements for something like this.
+>> There is a PCIe M.2 spec with some timing requirements, but I don't
+>> know whether or how software is supposed to manage this.  There is a
+>> T_PVPGL (power valid to PERST# inactive) parameter, but it's
+>> implementation specific, so I don't know what the point of that is.
+>> And I don't see a way for software to even detect the presence of such
+>> an adapter.
+> 
+> I intended to ask about this on the PCI-SIG forum, but after reading
+> this thread [1], I don't think we would learn anything.  The question
+> was:
+> 
+>   The M.2 device has 5 voltage rails generated from the 3.3V input
+>   supply voltage
+>   -------------------------------------------
+>   This is re. Table 17 in PCI Express M.2 Specification Revision 1.1
+>   Power Valid* to PERST# input inactive : Implementation specific;
+>   recommended 50 ms
+> 
+>   What exactly does this mean ?
+> 
+>   The Note says
+> 
+>     *Power Valid when all the voltage supply rails have reached their
+>     respective Vmin.
+> 
+>   Does this mean that the 50ms to PERSTn is counted from the instant
+>   when all *5 voltage rails* on the M.2 device have become "good" ?
+> 
+> and the answer was:
+> 
+>   You wrote;
+>   Does this mean that the 50ms to PERSTn is counted from the instant
+>   when all 5 voltage rails on the M.2 device have become "good" ?
+> 
+>   Reply:
+>   This means that counting the recommended 50 ms begins from the time
+>   when the power rails coming to the device/module, from the host, are
+>   stable *at the device connector*.
+> 
+>   As for the time it takes voltages derived inside the device from any
+>   of the host power rails (e.g., 3.3V rail) to become stable, that is
+>   part of the 50ms the host should wait before de-asserting PERST#, in
+>   order ensure that most devices will be ready by then.
+> 
+>   Strictly speaking, nothing disastrous happens if a host violates the
+>   50ms. If it de-asserts too soon, the device may not be ready, but
+>   most hosts will try again. If the host de-asserts too late, the
+>   device has even more time to stabilize. This is why the WG felt that
+>   an exact minimum number for >>Tpvpgl, was not valid in practice, and
+>   we made it a recommendation.
+> 
+> Since T_PVPGL is implementation-specific, we can't really base
+> anything in software on the 50ms recommendation.  It sounds to me like
+> they are counting on software to retry config reads when enumerating.
+> 
+> I guess the delays we *can* observe are:
+> 
+>   100ms T_PVPERL "Power stable to PERST# inactive" (CEM 2.9.2)
+>   100ms software delay between reset and config request (Base 6.6.1)
+> 
+
+Refer to Figure2-10 in CEM Spec V2.0, I guess this two delays are T2 & T4?
+In the PATCH v2[4/4], T2 is the msleep(100) for T_PVPERL,
+and T4 is done by starfive_pcie_host_wait_for_link().
+
+I am sorry for the late feedback to you, because we keep on testing since last week.
+Several NVMe SSD are verified with this patch, and they work fine.
+
+It is a pity that we lost the Thinklife NVMe SSD mentioned before,
+because it belongs to a departing employee.
+We bought two new SSD in the same model for testing,
+the issue can not be reproduced, and all of then work fine with V1 & V2 patch.
+
+> The PCI core doesn't know how to assert PERST#, so the T_PVPERL delay
+> definitely has to be in the host controller driver.
+> 
+> The PCI core observes the second 100ms delay after a reset in
+> pci_bridge_wait_for_secondary_bus().  But this 100ms delay does not
+> happen during initial enumeration.  I think the assumption of the PCI
+> core is that when the host controller driver calls pci_host_probe(),
+> we can issue config requests immediately.
+> 
+> So I think that to be safe, we probably need to do both of those 100ms
+> delays in the host controller driver.  Maybe there's some hope of
+> supporting the latter one in the PCI core someday, but that's not
+> today.
+> 
+> Bjorn
+> 
+> [1] https://forum.pcisig.com/viewtopic.php?f=74&t=1037
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
