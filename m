@@ -4,100 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D4EEB64DD
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 09:55:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CDAC001E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 10:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CKavvjvRplH063udwbuour7JK3YZAsTxN91knDuwlsM=; b=C7+cqMsQryrTva
-	wG/PWaP9s7FuEPEbXgKht0rzZKOlrCkr4MxAMtNEa51sSRCJysdbyIlr6CBobKudAy+gQauTeu6rS
-	egePNC0pfZF+0i4aOyybKA05NsmPip6gMUso1p6PGGnLsUey15rhuyEYD9EVqLNdGvYBuZCcI5nKe
-	C3jiN0qKsHBH8pEgr+sYzcv7lagfwfKaxowmTYPhyqHE/qJnJS4vI+uh8pLD/hSL1LJNbIWP7Uh1t
-	8aI/Lh1MziHEt6MiLI8I+YvgtkLzMrnW+BSGzcPA1WlEo0Go0lpYJmz3o28eAejfygWghLKz57DwJ
-	JIC4vByzHeJB4ee0qnew==;
+	List-Owner; bh=yKAaoafDfB4StHEnT1rv8pu+CMYdGcHC31scJeKDNC4=; b=pkB5Bdx7CgGo5D
+	BNy4ZWT7n0rubjCDFrUHzQ/6jkEP+CmtuDjk+c1khsec5z80UBwmdOqKoMg31vfxAphpXECKDLBwO
+	1N2I6HFLd4RwNfhk7fC5r7mm+wzlf4O/U4tFWVmRv6+Xyg0TsBXcMTOrZu7x3yjji2ltX0s6AvXfI
+	CxZPPQlukdnr/rk8U6xDl0ujCgovsXIX0yaDkoBzF6LleAt60xgu+NF/OWSm4mStIAVG+pV+RxbBd
+	T+260Rf81H2pKA9KaRj00fcP0IkvsCkitri/OBIP+cQ1YwwbQEurccdnktWyr6/dtHAj3dlKQSOJJ
+	zrmHmRNTfzf8nxEF1CcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQm65-001glU-1k;
-	Tue, 01 Aug 2023 09:55:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQm64-001glH-0d
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 01 Aug 2023 09:55:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Gm17gZxC0/vm/Jdu3xQH50fn0wnKiSVhKMApv17FsGQ=; b=R7x++HR1cN/mi7PQQuvSOS44CG
-	XJElYAt/L5t8FB07hXAddywZvu192mDaveHBXu7nrbk9L04ivjee55h0gpd32HuhveTF//eNR88H5
-	dhz1SQcl94dg4LDHc11N77zdH2idDNOxstqZEL3h+EAF51qOcWK9gptxVY+P/ahFkC5uvEcPyjaEK
-	qV0av3VfWi3VP+3dqBQwOzK19TLQOYGmv0/xeh6T0FY+duuAdWtS9GH8oBCbTCS4c6pNc0rqc5sMn
-	feT/iMv2i3KmD4zJ9GJR05V5w9r4uSIvpuIUXbOeG2BaI5ToEFhfmr1ro7jpRnulO687U9Kwsv+rA
-	iocZwrow==;
-Received: from mail-ed1-f54.google.com ([209.85.208.54])
-	by desiato.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQlZh-00DwfJ-0x
+	id 1qQmLQ-001jgG-2b;
+	Tue, 01 Aug 2023 10:11:12 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
+	id 1qQmLN-001jZh-1x
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Aug 2023 09:21:55 +0000
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-5221cf2bb8cso7936302a12.1
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 02:21:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1690881710; x=1691486510;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Gm17gZxC0/vm/Jdu3xQH50fn0wnKiSVhKMApv17FsGQ=;
-        b=dq5CAvhQQ+vveH4MSteCM4KpxWqvSjfMuOapn0LnoQqDOErjMIbbWNheVH/uLc2KIf
-         UdBwINkexXsFRjBN8poea9hv+4sXzWagYJkGf39toFnDnN3gA3fyjhZTQCaYda/GblQa
-         pkw6dcECiAkZW/+Wy1xwLXzUC7d0jC/4tRCVUhI1fyGS501AuV0YVethzHboQgI7CbyL
-         M5k4ZKy5NVWRN6++5pgESXlnIknAxtut14Hcvq275w4blo8RZfULkrUqc81+6hPmItwP
-         3fxQ350OyrMQNDnLyh3ELg4ylCq9dGO2couVM6uXKHIXQCaUruaeC2pK2fs6kliqSArs
-         ZedQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690881710; x=1691486510;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Gm17gZxC0/vm/Jdu3xQH50fn0wnKiSVhKMApv17FsGQ=;
-        b=VHcK4MiTZISWuQwXjuLwGVNXWla11UGMBHkipekoV2Wb1Xw4au9Pobs68+UPpOsSSt
-         Y7fLfOgvfB96BifahMvqDmdPN+c3dGS0u3swbbI7OOai8zVoz5NI/gHm3UFKk+pLw9/4
-         vy/rNyWreBHId0Fco7cyr5zK2ruLiZcDXQsYFzivbnYTC5EZ/IUXC68MybZdRjaoB3t5
-         Hwy/2TtynVDwy9pJjQaYnABhtkmT3xmBh8km2ubrOTqqn7TenrBaEeU5c0F0ea7Up7CI
-         nGiANctr1Rc8x2w/gmTo6vR9s4wHVfYvQcQeJmgt6L6ndbsZOsROcoKaofmUCZWDfjEe
-         2WcQ==
-X-Gm-Message-State: ABy/qLbnuQygXh9YKbb0DVfYPaSDdveE2wwxc7Hxa1x4DJGa7zsLAo5X
-	8s33PLZOkO3mA3WnVgqaA1QdXw==
-X-Google-Smtp-Source: APBJJlGhr0BuIoveysf7HtzpSl2Jm+kRbIcFJ2Y03OXcder2XbQzIJjvsXJoXuSOYODVVZsM7UAnIg==
-X-Received: by 2002:a17:906:518a:b0:99b:fdbb:31f1 with SMTP id y10-20020a170906518a00b0099bfdbb31f1mr2052678ejk.16.1690881710061;
-        Tue, 01 Aug 2023 02:21:50 -0700 (PDT)
-Received: from localhost (212-5-140-29.ip.btc-net.bg. [212.5.140.29])
-        by smtp.gmail.com with ESMTPSA id m10-20020a17090607ca00b009931a3adf64sm7529760ejc.17.2023.08.01.02.21.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Aug 2023 02:21:49 -0700 (PDT)
-Date: Tue, 1 Aug 2023 11:21:48 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Aaron Lewis <aaronlewis@google.com>
-Subject: Re: [PATCH v4.1 1/3] KVM: selftests: Add arch ucall.h and inline
- simple arch hooks
-Message-ID: <20230801-3ab43c432cbaafcadbffb092@orel>
-References: <20230731203026.1192091-1-seanjc@google.com>
- <20230731203026.1192091-2-seanjc@google.com>
+	Tue, 01 Aug 2023 10:11:11 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 530F024E2F2;
+	Tue,  1 Aug 2023 18:10:35 +0800 (CST)
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 1 Aug
+ 2023 18:10:34 +0800
+Received: from xiaofei.localdomain (180.164.60.184) by EXMBX061.cuchost.com
+ (172.16.6.61) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 1 Aug
+ 2023 18:10:33 +0800
+From: Keith Zhao <keith.zhao@starfivetech.com>
+To: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-media@vger.kernel.org>, <linaro-mm-sig@lists.linaro.org>
+CC: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+	"Emil Renner Berthing" <kernel@esmil.dk>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Sumit Semwal <sumit.semwal@linaro.org>,
+	<christian.koenig@amd.com>, Bjorn Andersson <andersson@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, Shawn Guo <shawnguo@kernel.org>, Jagan Teki
+	<jagan@edgeble.ai>, Chris Morgan <macromorgan@hotmail.com>, Keith Zhao
+	<keith.zhao@starfivetech.com>, Jack Zhu <jack.zhu@starfivetech.com>,
+	Shengyang Chen <shengyang.chen@starfivetech.com>, Changhuang Liang
+	<changhuang.liang@starfivetech.com>
+Subject: [PATCH v1 v1 4/7] drm/fourcc: Add drm/vs tiled modifiers
+Date: Tue, 1 Aug 2023 18:10:27 +0800
+Message-ID: <20230801101030.2040-5-keith.zhao@starfivetech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20230801101030.2040-1-keith.zhao@starfivetech.com>
+References: <20230801101030.2040-1-keith.zhao@starfivetech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230731203026.1192091-2-seanjc@google.com>
+X-Originating-IP: [180.164.60.184]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX061.cuchost.com
+ (172.16.6.61)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_102153_433890_5DD92938 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20230801_031109_952243_5D3A592D 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,35 +87,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 31, 2023 at 01:30:24PM -0700, Sean Christopherson wrote:
-> Add an architecture specific ucall.h and inline the simple arch hooks,
-> e.g. the init hook for everything except ARM, and the actual "do ucall"
-> hook for everything except x86 (which should be simple, but temporarily
-> isn't due to carrying a workaround).
-> 
-> Having a per-arch ucall header will allow adding a #define for the
-> expected KVM exit reason for a ucall that is colocated (for everything
-> except x86) with the ucall itself.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  .../selftests/kvm/include/aarch64/ucall.h      | 18 ++++++++++++++++++
->  .../selftests/kvm/include/riscv/ucall.h        | 18 ++++++++++++++++++
->  .../selftests/kvm/include/s390x/ucall.h        | 17 +++++++++++++++++
->  .../selftests/kvm/include/ucall_common.h       |  1 +
->  .../selftests/kvm/include/x86_64/ucall.h       | 11 +++++++++++
->  .../testing/selftests/kvm/lib/aarch64/ucall.c  | 11 +----------
->  tools/testing/selftests/kvm/lib/riscv/ucall.c  | 11 -----------
->  tools/testing/selftests/kvm/lib/s390x/ucall.c  | 10 ----------
->  tools/testing/selftests/kvm/lib/x86_64/ucall.c |  4 ----
->  9 files changed, 66 insertions(+), 35 deletions(-)
->  create mode 100644 tools/testing/selftests/kvm/include/aarch64/ucall.h
->  create mode 100644 tools/testing/selftests/kvm/include/riscv/ucall.h
->  create mode 100644 tools/testing/selftests/kvm/include/s390x/ucall.h
->  create mode 100644 tools/testing/selftests/kvm/include/x86_64/ucall.h
->
+These are mainly used internally in vs-drm,
+I'm not sure if the new modifiers can be used with the existing ones.
+If there is a problem, I will improve it further.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Keith Zhao <keith.zhao@starfivetech.com>
+---
+ include/uapi/drm/drm_fourcc.h | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+
+diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
+index 8db7fd3f7..0b884cf50 100644
+--- a/include/uapi/drm/drm_fourcc.h
++++ b/include/uapi/drm/drm_fourcc.h
+@@ -419,6 +419,7 @@ extern "C" {
+ #define DRM_FORMAT_MOD_VENDOR_ARM     0x08
+ #define DRM_FORMAT_MOD_VENDOR_ALLWINNER 0x09
+ #define DRM_FORMAT_MOD_VENDOR_AMLOGIC 0x0a
++#define DRM_FORMAT_MOD_VENDOR_VS      0x0b
+ 
+ /* add more to the end as needed */
+ 
+@@ -1562,6 +1563,32 @@ drm_fourcc_canonicalize_nvidia_format_mod(__u64 modifier)
+ #define AMD_FMT_MOD_CLEAR(field) \
+ 	(~((__u64)AMD_FMT_MOD_##field##_MASK << AMD_FMT_MOD_##field##_SHIFT))
+ 
++#define DRM_FORMAT_MOD_VS_TYPE_NORMAL        0x00
++#define DRM_FORMAT_MOD_VS_TYPE_COMPRESSED    0x01
++#define DRM_FORMAT_MOD_VS_TYPE_CUSTOM_10BIT  0x02
++#define DRM_FORMAT_MOD_VS_TYPE_MASK     ((__u64)0x3 << 54)
++
++#define fourcc_mod_vs_code(type, val) \
++	fourcc_mod_code(VS, ((((__u64)type) << 54) | (val)))
++
++#define DRM_FORMAT_MOD_VS_NORM_MODE_MASK        0x1F
++#define DRM_FORMAT_MOD_VS_LINEAR                0x00
++#define DRM_FORMAT_MOD_VS_SUPER_TILED_XMAJOR    0x02
++#define DRM_FORMAT_MOD_VS_SUPER_TILED_YMAJOR    0x03
++#define DRM_FORMAT_MOD_VS_TILE_8X8              0x04
++#define DRM_FORMAT_MOD_VS_TILE_8X4              0x07
++#define DRM_FORMAT_MOD_VS_SUPER_TILED_XMAJOR_8X4    0x0B
++#define DRM_FORMAT_MOD_VS_SUPER_TILED_YMAJOR_4X8    0x0C
++#define DRM_FORMAT_MOD_VS_TILE_MODE4X4          0x15
++
++#define fourcc_mod_vs_norm_code(tile) \
++	fourcc_mod_vs_code(DRM_FORMAT_MOD_VS_TYPE_NORMAL, \
++				(tile))
++
++#define fourcc_mod_vs_custom_code(tile) \
++	fourcc_mod_vs_code(DRM_FORMAT_MOD_VS_TYPE_CUSTOM_10BIT, \
++				(tile))
++
+ #if defined(__cplusplus)
+ }
+ #endif
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
