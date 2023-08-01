@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 363DFC0015E
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 15:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17DAC001DF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 16:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u9cqb5s6OSixSLfkLqyb3ZiSU2cbTwLlc6Fbc7pckhw=; b=EYDOPjUQAQKvoBajkkXnaDMXdo
-	eTBIgJU41kuLbUx58aKwvwzIUFKJ4WMimZfmHOgv8MTWjv3Mwc56NxBpZIiEetoh2B2f9/jpqJ9Jb
-	nGTMa8897sEKvRR+xWJGm5DV4ZBsDtqIVsBh+x/DkUuwVK9j2Ll5wlH2UOFuCI1ARiSZEKAD8C2Hj
-	G4kmPDLlIQ9iXIay8a5g7sOs+htErtl1rD7tft/hddm9rf7MhnuI/9eUoz+52n/2zBB0sRb5vhwOu
-	l2jl/pqlKiTMH5vh7qwYz9lzPvP5lX+IjXTuLrj7O1kUE8jENmo6JiyljCv4UfYGUxALV5rFJQjda
-	gHjuBihg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y4Ub1gsQy8m/MvPXGWyAqPuFve5N1trmRos6PE8fpRM=; b=zCIkrRlWf+jzxM
+	+kwHiCZZIPdpF4u3PkASnPjeNdCklFrsnDTyE768dd+OXld48RBhung5hB+woxy1u++2m6INIiMx9
+	Unh7SPOyVmcHxo/Yn29K+FGEg/ZaerXwbQ8ONvwiApS/UZzm3+fGxg8DRWTWMUb2cgmFXRjp4l1Jp
+	zhZop+GO3bbwpPVtgsMk1JTs+qp7AOV3VL/twf4lS+zrVu0HW/IPAg2TRmCtYamYjTkEDppzZJO85
+	FCJmClwm8FbEh9y7mCzlb9/3CodCZRGFvrn2lZ7Vs0jHl02mMKAKxtn0K2Frmq1HMaQjOtZdqznIv
+	JPtNdP149IoUtPM6Zo4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQr0n-002gJN-18;
-	Tue, 01 Aug 2023 15:10:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1qQsdL-002quJ-1k;
+	Tue, 01 Aug 2023 16:54:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQr0k-002gHs-0h;
-	Tue, 01 Aug 2023 15:10:11 +0000
+	id 1qQsdI-002qtU-2a;
+	Tue, 01 Aug 2023 16:54:06 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7B0D6615E1;
-	Tue,  1 Aug 2023 15:10:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8ABAC433C7;
-	Tue,  1 Aug 2023 15:10:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2756E61638;
+	Tue,  1 Aug 2023 16:54:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3C1C433C7;
+	Tue,  1 Aug 2023 16:53:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1690902607;
-	bh=+bBPLGmDmXfC/yfM3zDVF6K5Ga/agNFu5ARhnA02LuA=;
+	s=k20201202; t=1690908843;
+	bh=liMpSScDu0h+PrjpmqiYb+Q+6aHOwyISw4j8BFIcGVw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r8zuzbiIsBm8TplmUwNtJnkj0WqQ7Bj07Nu9yp5ar/EYSV4LQQ3uL73ELCG1L41jq
-	 YvuaYQlYhxf9lYlvrNjTqqiK+hh/mmVXlCFhYNKELooEaDF+I16iw9dkxuoVH8Tf4r
-	 MMzAnPUycWbbea6niD+2vJ7S6VYgMcnxfQ/W8n2WzYs3ch5uSe4487LN6555t9Fsr1
-	 MEStdbDlfoeEftOw+xyV2O2Pyy2neIm2BVU9icTY0M0HKHFlx8zXeaGqKT88HFeDBP
-	 24CXRV2GJ39ZT5XdVsrhKrH4rhJNw34F9/DVHpaPG+sd+VlTEmdea7RgrgWKh2lT9O
-	 L985DdCd9UJCA==
-Date: Tue, 1 Aug 2023 16:09:58 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Will Deacon <will@kernel.org>
+	b=BIFlmOCqJS8iQcXvk8oNZxNGz4QNLszdREetAXo8Uo+jxPN2dAxboF2ywOt+r6sF4
+	 1Ce2+7VJBYSGs32seKXUp9myi6IuJy6hA4JORLtRMmgg1V/NnkE6s5/mCkx/yY5eSx
+	 hJeilqNSHkRQUd3TgjbR5C3RqdbDv1v8l8q/HRJ5d4R42KAnIGAb5tXRn9g5WJ8qqo
+	 mDEv5+Zw5cXJgVkudwVKqN6SYARTjqDZCN6holglfEyaqBXFe9dSofXvT6coPEOgpA
+	 xj+s68tMRVaVcMe1Q2cVhtEHL+1/z/BwX05ZAZfo29BBJ2ZA0XJP5VyrA4HxSuC/Yz
+	 troFt3trmDEBw==
+Date: Tue, 1 Aug 2023 19:53:12 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Mark Brown <broonie@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oliver.upton@linux.dev>,
@@ -69,16 +69,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arch@vger.kernel.org, linux-mm@kvack.org,
 	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 00/36] arm64/gcs: Provide support for GCS in userspace
-Message-ID: <09b7a94d-cc88-4372-85de-52db26bc2daf@sirena.org.uk>
+Subject: Re: [PATCH v3 10/36] mm: Define VM_SHADOW_STACK for arm64 when we
+ support GCS
+Message-ID: <20230801165312.GB2607694@kernel.org>
 References: <20230731-arm64-gcs-v3-0-cddf9f980d98@kernel.org>
- <20230801141319.GC26253@willie-the-truck>
+ <20230731-arm64-gcs-v3-10-cddf9f980d98@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20230801141319.GC26253@willie-the-truck>
-X-Cookie: I thought YOU silenced the guard!
+Content-Disposition: inline
+In-Reply-To: <20230731-arm64-gcs-v3-10-cddf9f980d98@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_081010_343251_3B161487 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20230801_095404_923703_CD11A745 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,66 +91,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3149045034463697625=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 31, 2023 at 02:43:19PM +0100, Mark Brown wrote:
+> Use VM_HIGH_ARCH_5 for guarded control stack pages.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  Documentation/filesystems/proc.rst |  2 +-
+>  fs/proc/task_mmu.c                 |  3 +++
+>  include/linux/mm.h                 | 12 +++++++++++-
+>  3 files changed, 15 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/filesystems/proc.rst b/Documentation/filesystems/proc.rst
+> index 6ccb57089a06..086a0408a4d7 100644
+> --- a/Documentation/filesystems/proc.rst
+> +++ b/Documentation/filesystems/proc.rst
+> @@ -566,7 +566,7 @@ encoded manner. The codes are the following:
+>      mt    arm64 MTE allocation tags are enabled
+>      um    userfaultfd missing tracking
+>      uw    userfaultfd wr-protect tracking
+> -    ss    shadow stack page
+> +    ss    shadow/guarded control stack page
 
---===============3149045034463697625==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eVo2yRFuK2CxHWEO"
-Content-Disposition: inline
+I've missed this in Rick's patches, but it's not a page but area.
 
+>      ==    =======================================
+>  
+>  Note that there is no guarantee that every flag and associated mnemonic will
+> diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+> index cfab855fe7e9..e8c50848bb16 100644
+> --- a/fs/proc/task_mmu.c
+> +++ b/fs/proc/task_mmu.c
+> @@ -711,6 +711,9 @@ static void show_smap_vma_flags(struct seq_file *m, struct vm_area_struct *vma)
+>  #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_MINOR */
+>  #ifdef CONFIG_X86_USER_SHADOW_STACK
+>  		[ilog2(VM_SHADOW_STACK)] = "ss",
+> +#endif
+> +#ifdef CONFIG_ARM64_GCS
+> +		[ilog2(VM_SHADOW_STACK)] = "ss",
+>  #endif
+>  	};
+>  	size_t i;
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 43fe625b85aa..3f939ae212e5 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -372,7 +372,17 @@ extern unsigned int kobjsize(const void *objp);
+>   * having a PAGE_SIZE guard gap.
+>   */
+>  # define VM_SHADOW_STACK	VM_HIGH_ARCH_5
+> -#else
+> +#endif
+> +
+> +#if defined(CONFIG_ARM64_GCS)
+> +/*
+> + * arm64's Guarded Control Stack implements similar functionality and
+> + * has similar constraints to shadow stacks.
+> + */
+> +# define VM_SHADOW_STACK	VM_HIGH_ARCH_5
+> +#endif
+> +
+> +#ifndef VM_SHADOW_STACK
+>  # define VM_SHADOW_STACK	VM_NONE
+>  #endif
+>  
+> 
+> -- 
+> 2.30.2
+> 
+> 
 
---eVo2yRFuK2CxHWEO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Tue, Aug 01, 2023 at 03:13:20PM +0100, Will Deacon wrote:
-> On Mon, Jul 31, 2023 at 02:43:09PM +0100, Mark Brown wrote:
-
-> > The arm64 Guarded Control Stack (GCS) feature provides support for
-> > hardware protected stacks of return addresses, intended to provide
-> > hardening against return oriented programming (ROP) attacks and to make
-> > it easier to gather call stacks for applications such as profiling.
-
-> Why is this better than Clang's software shadow stack implementation? It
-> would be nice to see some justification behind adding all this, rather
-> than it being an architectural tick-box exercise.
-
-Mainly that it's hardware enforced (as the quoted paragraph says).  This
-makes it harder to attack, and hopefully it's also a bit faster (how
-measurable that might be will be an open question, but even NOPs in
-function entry/exit tend to get noticed).
-
---eVo2yRFuK2CxHWEO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmTJIEYACgkQJNaLcl1U
-h9BQawf/f0SGHhLVQUgdnRJbAN6lBuDUQfirqOPQbGb1BDJkA5bBH3gggqgDiUP9
-iuDR87qdT9VDbUW0rgSKaYDAizuTvWthjfPv3Y0JOAgM9fmGmDmyldhVOSrmbRQF
-hW3jgZbWRG0UK44PpWKLX2z13fGx9xVitteScPpIhF9r2o8kmq3SoYO7a681hQLI
-usvrKaEpMYgeGeSm+2qlQj5sQnVNNrRD3u1BLbOuu6uRfWWtoUS+cFxUUUMNcmbi
-1ZrrHuAy4ZanoowjW4HLjzhtQDVSPleqsZGfnChKMuZhXPqpBl74qWAMs8x9bq/F
-iC0yz6XbrIQqfBkmNljqf0Kj03fpLw==
-=2KV+
------END PGP SIGNATURE-----
-
---eVo2yRFuK2CxHWEO--
-
-
---===============3149045034463697625==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3149045034463697625==--
-
