@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C69C001E0
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 11:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F32C0015E
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Aug 2023 11:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2rI/OoyvZDo6xtuahWXjVN266WY+6+3GXxLaSEh5OPI=; b=C8V7eSLWYJAAMr
-	4DoBT+sfOb25SAychL4SgXvdEjrlSYEofpb9gBWuTw4c2Y4sU8i9HmF/WxUconihm1ot9JefrbLSD
-	aQpl8YZ+JDm5hibfCZGfY9WFAMHPe3sX4Y7ogTuuvfpTYJyrBcWdg5+bBbqKviwgtF1JHAeXLxdKg
-	SDWieL3QaC59zxc6hovW7L/px0IBkAKArZ9GayGFilUkOJMogk+S5sEpo4Q/75ZABHnnGygwL1z8o
-	5EUK9nGgNiJVvyQsAPSSmxHVASPYw0LKo11v9snYk2CqbobauQh0O8A/lHKSXnNX5uu4jLU4P4OVs
-	ieMUIrapgT7o9TLVURnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lPFpKBTM8cM5VHO2A3tTow8AnENYc0SXGIlBsDJDIqY=; b=SFXc/o/QlF6DhaKf/Ali6KrpGT
+	u+3pivCFn2TVUq4gwAQRLE9lehryJ+/OtV/jPK0dbJ5AlAzLqbGF6ptqFUt8gjnG5MfRJnJdswA2z
+	qWnmB+EQMndsD/TypoQJSZCXNi8UvEtb0Wa7ke/NZrufxNXwWOr+S4KbjTkrBO39Sw6IIGudxKlPo
+	Y51ylWG1YRcinKZcOyQ5zBcX5E2A4g6pGYGX2SSWiPi9yp0GgdMqNK6mlbrOEVDSXXEb6S/jR7eQN
+	CIXW/Qg9I8b8iATg2pQFwap3By4Gwf04jc/0OXF6GGj4qC1As6/A9d+QtuNa9/5yfkuLA3XhFDsDM
+	becT+f0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQnGx-0023nY-0P;
-	Tue, 01 Aug 2023 11:10:39 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1qQnny-0027sT-2M;
+	Tue, 01 Aug 2023 11:44:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.96 #2 (Red Hat Linux))
-	id 1qQnGu-0023lp-01
+	id 1qQnnv-0027rH-2g
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Aug 2023 11:10:37 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-686f25d045cso3695439b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Aug 2023 04:10:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1690888232; x=1691493032;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=korDIX4sAxkkpV8e2u1lpZVVT/VDItzmnploqLBkDn8=;
-        b=Wnq3DcKZan5Aboi+g1Wj9nsuA84KdfbJtt+q3/KNQzTxN3hYM4f9QnqXKiLq7+3A1o
-         Guy/RsJkRpJbXECMZwp+ncrLvFsLksgEiV2jrnzbsqRuJgth/Yjh0aj7OmTcaB+B8UEZ
-         wG9REFyMJ2rR8HmLXnwkBooGtg1Erc1E9Ylbas2+BKUg3LK1mlBpbEe/5b4v9nARxycD
-         6fZKEyLyYMm/Et6ruaDUC9n+hlydZEir8iBIZ4lb6H4O0dXolAG/wybyGdB/eXCvyIPs
-         2S4LPsJcm4KmFFKy4aanULlgUbNgR/gZBqy8ypMdv1wNlsP5rIPpla2uDZL8TvlJxY/W
-         VsMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1690888232; x=1691493032;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=korDIX4sAxkkpV8e2u1lpZVVT/VDItzmnploqLBkDn8=;
-        b=J6DA9GavH9lAqnmXItnTvdBb9l7Jeso7JIEtEW/FAPWW9kjAvYxBjApSkueFyJmQon
-         pgjtwQj7xXbw0p5x2gzDptBwnpk2uIjPsNo+GilmTWpHPgkna2UX2Hdwi20uDqgoHuVq
-         YA27y3WSlJC7ZmOHYEHR6OFyaF3+HQnECKBiR6GiBW29zjvfg/ivkYnexxR+RjjCWRE8
-         pI+U+dvyBnemk+xXyUCiFWMqJZ7a5KbfG7s/tb1hdraZxvoF45eFdgMdNirhGao/2T6L
-         nnWr5Ga7PA45Bs7zCG5Mr7BH5l8IXeRyjJk1L6V5iW5jiyS36bbkzS5RxGISjjqQUvMC
-         LOMg==
-X-Gm-Message-State: ABy/qLaHnc4yRbBMziG/FY3mHEFXw5IuZgrXPHI5UiDHm9Bhigv1ij3h
-	9ywSpgKDQB+3pN3mV2r0C5A=
-X-Google-Smtp-Source: APBJJlEYp1j6BwyQLziDwdHTNZ+u1PmA2QBMmpEqC8F6TVbtI0o0UaxbKtb/ll5qLBcPF6fJW/ZwFw==
-X-Received: by 2002:a05:6a21:35c9:b0:131:5995:340 with SMTP id ba9-20020a056a2135c900b0013159950340mr11470828pzc.20.1690888231952;
-        Tue, 01 Aug 2023 04:10:31 -0700 (PDT)
-Received: from localhost.localdomain ([2408:843e:c00:f3f:aeab:c5ff:e07e:654d])
-        by smtp.gmail.com with ESMTPSA id g1-20020aa78741000000b00682ad3613eesm9047516pfo.51.2023.08.01.04.10.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Aug 2023 04:10:31 -0700 (PDT)
-From: Song Shuai <suagrfillet@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	akpm@linux-foundation.org,
-	guoren@kernel.org,
-	alexghiti@rivosinc.com,
-	sergey.matyukevich@syntacore.com,
-	david@redhat.com,
-	wangkefeng.wang@huawei.com,
-	panqinglin2020@iscas.ac.cn,
-	woodrow.shen@sifive.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Song Shuai <suagrfillet@gmail.com>
-Subject: [PATCH] riscv: Correct the MODULES_VADDR
-Date: Tue,  1 Aug 2023 19:10:14 +0800
-Message-Id: <20230801111014.1432679-1-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
+	Tue, 01 Aug 2023 11:44:45 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C64FE61565;
+	Tue,  1 Aug 2023 11:44:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0C58C433C8;
+	Tue,  1 Aug 2023 11:44:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1690890280;
+	bh=dbodHSwIgKgpR708XhGtQfRJC68lUns//VtMieKP9nc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mIPN/0FlrywKoIvGuj184pORf/lD8hhwluBTGh+LkJQPCLledF7sFrBYwGV/lqUS1
+	 523bB6efo7rFR3KMuWoIJhQr4Bdcgm9DWfXIm7yGqW2lahDabJWA2iv5BlA4oi9H6I
+	 E1J608KbtQ3ZReXwf9vUfA6ouEDGz27xA4f6lSvhMoRmPdcW72n4i/q07LTV+DtI4k
+	 khUoBRy5gFFucKponYrQlQ2svb9z4sncsgjZNL59SYR06uNZWn9aiJbYOEgGForKMM
+	 ve6Ez9aeP1r+xBgk7F+Ee+2DMbgCNEv20Uz60Ak6AlyqGQ5nxLVj8l+HlfWckYM9BT
+	 haR5vtYw/l+kA==
+Date: Tue, 1 Aug 2023 13:44:37 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Keith Zhao <keith.zhao@starfivetech.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-media@vger.kernel.org, 
+	linaro-mm-sig@lists.linaro.org, David Airlie <airlied@gmail.com>, 
+	Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Sumit Semwal <sumit.semwal@linaro.org>, christian.koenig@amd.com, 
+	Bjorn Andersson <andersson@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Jagan Teki <jagan@edgeble.ai>, 
+	Chris Morgan <macromorgan@hotmail.com>, Jack Zhu <jack.zhu@starfivetech.com>, 
+	Shengyang Chen <shengyang.chen@starfivetech.com>, Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: Re: [PATCH v1 v1 2/7] dt-bindings: display: Add yamls for JH7110
+ display system
+Message-ID: <hsuuag25psaxd6wgtaohpakxi3pppg6xk4w7x64ubwjir5pjb3@vrqns6ptrzzm>
+References: <20230801101030.2040-1-keith.zhao@starfivetech.com>
+ <20230801101030.2040-3-keith.zhao@starfivetech.com>
 MIME-Version: 1.0
+In-Reply-To: <20230801101030.2040-3-keith.zhao@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20230801_041036_041102_6B0EDF24 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20230801_044443_974656_CA459C78 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,51 +82,235 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1886002096495019838=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As Documentation/riscv/vm-layout.rst describes, the 2G-sized "modules, BPF"
-area should lie right before the "kernel" area. But the current definition
-of MODULES_VADDR isn't consistent with that, so correct it.
 
-Before this patch, the size of "modules" from print_vm_layout() is not 2G.
+--===============1886002096495019838==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dan5yrpicomxdg2s"
+Content-Disposition: inline
 
-[    0.000000]      modules : 0xffffffff2ff2f000 - 0xffffffffae600000 (2022 MB)
-[    0.000000]       lowmem : 0xff60000000000000 - 0xff60000040000000 (1024 MB)
-[    0.000000]       kernel : 0xffffffffae600000 - 0xffffffffffffffff (1305 MB)
 
-After this patch, the size is 2G.
+--dan5yrpicomxdg2s
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-[    0.000000]      modules : 0xffffffff3a000000 - 0xffffffffba000000 (2048 MB)
-[    0.000000]       lowmem : 0xff60000000000000 - 0xff60000040000000 (1024 MB)
-[    0.000000]       kernel : 0xffffffffba000000 - 0xffffffffffffffff (1119 MB)
+Hi,
 
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
----
- arch/riscv/include/asm/pgtable.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Tue, Aug 01, 2023 at 06:10:25PM +0800, Keith Zhao wrote:
+> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml
+> new file mode 100644
+> index 000000000..bebe2050c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-dc8200.yaml
+> @@ -0,0 +1,107 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/starfive/starfive,jh7110-dc8200.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive display controller
+> +
+> +description:
+> +  The StarFive SoC uses the display controller based on Verisilicon IP
+> +  to transfer the image data from a video memory
+> +  buffer to an external LCD interface.
+> +
+> +maintainers:
+> +  - Keith Zhao <keith.zhao@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jh7110-dc8200
+> +
+> +  reg:
+> +    maxItems: 3
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 75970ee2bda2..7c57e17fc758 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -53,8 +53,8 @@
- #ifdef CONFIG_64BIT
- /* This is used to define the end of the KASAN shadow region */
- #define MODULES_LOWEST_VADDR	(KERNEL_LINK_ADDR - SZ_2G)
--#define MODULES_VADDR		(PFN_ALIGN((unsigned long)&_end) - SZ_2G)
- #define MODULES_END		(PFN_ALIGN((unsigned long)&_start))
-+#define MODULES_VADDR		(MODULES_END - SZ_2G)
- #endif
- 
- /*
--- 
-2.20.1
+What these registers are used for must be documented.
 
+> +
+> +  interrupts:
+> +    items:
+> +      - description: The interrupt will be generated when DC finish one frame
+> +
+> +  clocks:
+> +    items:
+> +      - description: Clock for display system noc bus.
+> +      - description: Pixel clock for display channel 0.
+> +      - description: Pixel clock for display channel 1.
+> +      - description: Clock for axi interface of display controller.
+> +      - description: Core clock for display controller.
+> +      - description: Clock for ahb interface of display controller.
+> +      - description: External HDMI pixel clock.
+> +      - description: Parent clock for pixel clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: vout_noc_disp
+> +      - const: vout_pix0
+> +      - const: vout_pix1
+> +      - const: vout_axi
+> +      - const: vout_core
+> +      - const: vout_vout_ahb
+> +      - const: hdmitx0_pixel
+> +      - const: vout_dc8200
+
+The clock-names should reflect what they are used for on the device, not
+what their name is in the system. So it should rather be something like
+"noc-bus", "channel0", "channel1", etc.
+
+vout, or the soc model, shouldn't appear there.
+
+> +  resets:
+> +    items:
+> +      - description: Reset for axi interface of display controller.
+> +      - description: Reset for ahb interface of display controller.
+> +      - description: Core reset of display controller.
+> +
+> +  reset-names:
+> +    items:
+> +      - const: vout_axi
+> +      - const: vout_ahb
+> +      - const: vout_core
+
+Ditto.
+
+Also, I'm a bit confused, how can a device be attached to both an AXI
+and AHB bus? That, plus the multiple registers spaces, make me think
+that this is multiple devices glued together in a single node, which
+isn't ok.
+
+> +  port:
+> +    $ref: /schemas/graph.yaml#/properties/port
+> +    description:
+> +      A port node with endpoint definitions as defined in
+> +      Documentation/devicetree/bindings/media/video-interfaces.txt.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - port
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    dc8200: lcd-controller@29400000 {
+> +        compatible = "starfive,jh7110-dc8200";
+> +        reg = <0x29400000 0x100>, <0x29400800 0x2000>, <0x295b0000 0x90>;
+> +        interrupts = <95>;
+> +        clocks = <&syscrg 60>,
+> +               <&voutcrg 7>,
+> +               <&voutcrg 8>,
+> +               <&voutcrg 4>,
+> +               <&voutcrg 5>,
+> +               <&voutcrg 6>,
+> +               <&hdmitx0_pixelclk>,
+> +               <&voutcrg 1>;
+> +        clock-names = "vout_noc_disp", "vout_pix0", "vout_pix1",
+> +                      "vout_axi", "vout_core", "vout_vout_ahb",
+> +                      "hdmitx0_pixel","vout_dc8200";
+> +        resets = <&voutcrg 0>, <&voutcrg 1>, <&voutcrg 2>;
+> +        reset-names = "vout_axi", "vout_ahb", "vout_core";
+> +        dc_out: port {
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +            dc_out_hdmi: endpoint@0 {
+> +                reg = <0>;
+> +                remote-endpoint = <&hdmi_in_dc>;
+> +            };
+> +        };
+> +    };
+> diff --git a/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml
+> new file mode 100644
+> index 000000000..f6927acf6
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/starfive/starfive,jh7110-inno-hdmi.yaml
+> @@ -0,0 +1,92 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/starfive/starfive,jh7110-inno-hdmi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Starfive JH7110 HDMI controller
+> +
+> +description:
+> +  The StarFive JH7110 SoC uses the HDMI signal transmiter based on innosilicon IP
+> +  to generate HDMI signal from its input and transmit the signal to the screen.
+> +
+> +maintainers:
+> +  - Keith Zhao <keith.zhao@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: "starfive,jh7110-inno-hdmi"
+> +
+> +  reg:
+> +    minItems: 1
+> +
+> +  interrupts:
+> +    items:
+> +      - description: The HDMI hot plug detection interrupt.
+> +
+> +  clocks:
+> +    items:
+> +      - description: System clock of HDMI module.
+> +      - description: Mclk clock of HDMI audio.
+> +      - description: Bclk clock of HDMI audio.
+> +      - description: Pixel clock generated by HDMI module.
+> +
+> +  clock-names:
+> +    items:
+> +      - const: sysclk
+> +      - const: mclk
+> +      - const: bclk
+> +      - const: pclk
+> +
+> +  resets:
+> +    items:
+> +      - description: Reset for HDMI module.
+> +
+> +  reset-names:
+> +    items:
+> +      - const: hdmi_tx
+
+If there's only one you don't need reset-names
+
+Maxime
+
+--dan5yrpicomxdg2s
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCZMjwJQAKCRDj7w1vZxhR
+xZBQAPwPOEedmxWZJ27iqcESJscaRD6CHACzB6No3CR39QnaDgD/bbKScqVg2wHb
+dTG9DGpqq1ezLI5zfPLEM3steJgVlg4=
+=A6ek
+-----END PGP SIGNATURE-----
+
+--dan5yrpicomxdg2s--
+
+
+--===============1886002096495019838==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1886002096495019838==--
+
